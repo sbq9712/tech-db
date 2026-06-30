@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08111f" />
+  <title>技术边界数据库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background-glow"></div>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div>
+          <h1>技术边界数据库</h1>
+          <p>新闻、文献、预警与行业知识库</p>
+        </div>
+      </div>
+      <div id="meta" class="meta card"></div>
+      <input id="search" placeholder="搜索标题、分类、来源、关键词" />
+      <div class="sidebar-section-title">分类索引</div>
+      <div id="nav" class="nav"></div>
+    </aside>
+    <main class="main">
+      <section class="hero card">
+        <div>
+          <div class="eyebrow">静态情报库 · GitHub Pages</div>
+          <h2>面向技术边界的结构化情报底座</h2>
+          <p>按行业分类、按证据审计、按关键参数追踪前沿变化。</p>
+        </div>
+        <div class="hero-stats" id="stats"></div>
+      </section>
+      <section class="toolbar card">
+        <button data-filter="all" class="active">全部</button>
+        <button data-filter="news">新闻</button>
+        <button data-filter="literature">文献</button>
+        <button data-filter="alerts">预警</button>
+      </section>
+      <section class="content-grid">
+        <section class="panel card">
+          <div class="panel-head"><h3>最新情报</h3><span id="count"></span></div>
+          <div id="list" class="list"></div>
+        </section>
+        <section class="panel card">
+          <div class="panel-head"><h3>情报详情</h3></div>
+          <div id="detail" class="detail"></div>
+        </section>
+      </section>
+      <section class="panel card">
+        <div class="panel-head"><h3>行业知识库</h3><span>基于叶子行业自动生成</span></div>
+        <div id="knowledge" class="knowledge"></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
