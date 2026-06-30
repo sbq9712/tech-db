@@ -11,52 +11,63 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="background-glow"></div>
-  <div class="shell">
-    <aside class="sidebar">
+  <div class="bg"></div>
+  <div class="app-shell">
+    <aside class="left-rail card">
       <div class="brand">
         <div class="brand-mark">T</div>
         <div>
           <h1>技术边界数据库</h1>
-          <p>新闻、文献、预警与行业知识库</p>
+          <p>结构化情报 · 预警 · 行业知识库</p>
         </div>
       </div>
-      <div id="meta" class="meta card"></div>
+      <div id="meta" class="meta"></div>
       <input id="search" placeholder="搜索标题、分类、来源、关键词" />
-      <div class="sidebar-section-title">分类索引</div>
+      <div class="section-title">分类索引</div>
       <div id="nav" class="nav"></div>
     </aside>
-    <main class="main">
-      <section class="hero card">
+
+    <main class="center-pane">
+      <header class="hero card">
         <div>
           <div class="eyebrow">静态情报库 · GitHub Pages</div>
-          <h2>面向技术边界的结构化情报底座</h2>
-          <p>按行业分类、按证据审计、按关键参数追踪前沿变化。</p>
+          <h2>围绕技术边界的情报筛选与证据查看</h2>
+          <p>让列表负责扫描，让详情负责证据。默认只展示摘要和关键参数，长正文按需展开。</p>
         </div>
-        <div class="hero-stats" id="stats"></div>
-      </section>
+        <div id="stats" class="stats-grid"></div>
+      </header>
+
       <section class="toolbar card">
         <button data-filter="all" class="active">全部</button>
         <button data-filter="news">新闻</button>
         <button data-filter="literature">文献</button>
         <button data-filter="alerts">预警</button>
       </section>
-      <section class="content-grid">
-        <section class="panel card">
-          <div class="panel-head"><h3>最新情报</h3><span id="count"></span></div>
-          <div id="list" class="list"></div>
-        </section>
-        <section class="panel card">
-          <div class="panel-head"><h3>情报详情</h3></div>
-          <div id="detail" class="detail"></div>
-        </section>
-      </section>
-      <section class="panel card">
-        <div class="panel-head"><h3>行业知识库</h3><span>基于叶子行业自动生成</span></div>
-        <div id="knowledge" class="knowledge"></div>
+
+      <section class="list-card card">
+        <div class="panel-head">
+          <h3>最新情报</h3>
+          <span id="count"></span>
+        </div>
+        <div id="list" class="list"></div>
       </section>
     </main>
+
+    <aside class="right-rail card">
+      <div class="panel-head sticky-head">
+        <h3>情报详情</h3>
+        <span>摘要优先 · 长文按需</span>
+      </div>
+      <div id="detail" class="detail"></div>
+    </aside>
   </div>
+  <section class="knowledge-band card">
+    <div class="panel-head">
+      <h3>行业知识库</h3>
+      <span>按叶子行业自动生成</span>
+    </div>
+    <div id="knowledge" class="knowledge"></div>
+  </section>
   <script src="app.js"></script>
 </body>
 </html>
