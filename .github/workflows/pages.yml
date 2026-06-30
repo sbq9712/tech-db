@@ -1,4 +1,4 @@
-name: 更新并部署页面
+name: 更新数据
 on:
   push:
     branches: [main]
@@ -11,11 +11,9 @@ on:
     types: [source-updated]
 permissions:
   contents: write
-  pages: write
-  id-token: write
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: update-data
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,8 +32,3 @@ jobs:
             git commit -m "chore: update generated data"
             git push
           fi
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - uses: actions/deploy-pages@v4
