@@ -23,6 +23,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 scripts/build_database.py --output data
+      - run: python3 scripts/build_classification_jobs.py --limit 38121
       - name: 写回数据文件
         run: |
           git config user.name "github-actions[bot]"

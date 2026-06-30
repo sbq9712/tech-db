@@ -5,8 +5,9 @@ async function load() {
   const manifest = await fetch('./data/processed/manifest.json', { cache: 'no-store' }).then((r) => r.json());
   const shardPayloads = await Promise.all(manifest.shards.slice(0, 12).map((s) => fetch('./' + s.path, { cache: 'no-store' }).then((r) => r.json())));
   const knowledge = await fetch('./' + manifest.knowledge_index, { cache: 'no-store' }).then((r) => r.json()).catch(() => ({ documents: [] }));
+  const jobs = await fetch('./data/processed/classification-jobs.json', { cache: 'no-store' }).then((r) => r.json()).catch(() => null);
   const records = shardPayloads.flatMap((x) => x.records || []);
-  state.data = { meta: manifest.meta, records, knowledge: knowledge.documents || [] };
+  state.data = { meta: manifest.meta, records, knowledge: knowledge.documents || [], jobs };
   state.selectedId = records[0]?.content_hash || null;
   render();
 }
@@ -33,8 +34,8 @@ function render() {
   if (selected) state.selectedId = selected.content_hash;
   const meta = state.data.meta;
 
-  $('meta').innerHTML = `<div><strong>最近处理：</strong>${meta.processed_at || ''}</div><div><strong>分类版本：</strong>${meta.taxonomy_version || '未知'}</div><div><strong>抽取版本：</strong>${meta.extractor_version || '未知'}</div><div><strong>已载入：</strong>${state.data.records.length} / ${meta.records_total || 0}</div>`;
-  $('stats').innerHTML = `<div class="stat"><div class="num">${meta.records_total || 0}</div><div class="label">总情报</div></div><div class="stat"><div class="num">${meta.records_by_type?.news || 0}</div><div class="label">新闻</div></div><div class="stat"><div class="num">${meta.records_by_type?.literature || 0}</div><div class="label">文献</div></div><div class="stat"><div class="num">${state.data.records.filter((x) => x.is_alert).length}</div><div class="label">当前载入预警</div></div>`;
+  $('meta').innerHTML = `<div class="metric-title">数据概况</div><div><strong>最近处理：</strong>${meta.processed_at || ''}</div><div><strong>分类版本：</strong>${meta.taxonomy_version || '未知'}</div><div><strong>抽取版本：</strong>${meta.extractor_version || '未知'}</div><div><strong>已载入：</strong>${state.data.records.length} / ${meta.records_total || 0}</div>`;
+  $('stats').innerHTML = `<div class="stats-grid"><div class="stat"><div class="num">${meta.records_total || 0}</div><div class="label">总情报</div></div><div class="stat"><div class="num">${meta.records_by_type?.news || 0}</div><div class="label">新闻</div></div><div class="stat"><div class="num">${meta.records_by_type?.literature || 0}</div><div class="label">文献</div></div><div class="stat"><div class="num">${state.data.records.filter((x) => x.is_alert).length}</div><div class="label">当前载入预警</div></div></div>`;
   $('count').textContent = `显示 ${filtered.length} 条`;
 
   $('nav').innerHTML = categoryList(state.data.records).slice(0, 120).map(([cat, count]) => `<a href="#" data-cat="${cat}"><div class="card"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><strong>${cat}</strong><span class="badge">${count}</span></div></div></a>`).join('');
@@ -49,44 +50,17 @@ function render() {
         ${item.is_alert ? '<span class="badge warn">预警</span>' : ''}
       </div>
       <div class="summary">${(item.body || '').slice(0, 220) || '无正文摘要'}</div>
-      <div class="badges">
-        <span class="badge">${item.category || '未分类'}</span>
-        ${(item.key_parameters || []).slice(0, 3).map((k) => `<span class="badge">${k.value_raw}</span>`).join('')}
-      </div>
+      <div class="badges"><span class="badge">${item.category || '未分类'}</span>${(item.key_parameters || []).slice(0, 3).map((k) => `<span class="badge">${k.value_raw}</span>`).join('')}</div>
     </div>`).join('');
 
   $('detail').innerHTML = selected ? `
-    <div class="block">
-      <h4>${selected.title || '未命名情报'}</h4>
-      <div class="kv">
-        <div>分类</div><div>${selected.category || '未分类'}</div>
-        <div>日期</div><div>${selected.date || '未知'}</div>
-        <div>来源</div><div>${selected.source || '未知'}</div>
-        <div>类型</div><div>${selected.intelligence_type === 'literature' ? '文献' : '新闻'}</div>
-        <div>预警</div><div>${selected.is_alert ? '是' : '否'}</div>
-      </div>
-    </div>
-    <div class="block">
-      <h4>摘要</h4>
-      <p>${selected.body || '无正文内容'}</p>
-      <p class="small">${selected.url ? `<a href="${selected.url}" target="_blank" rel="noreferrer">打开原文</a>` : '无原文链接'}</p>
-    </div>
-    <div class="block">
-      <h4>关键参数</h4>
-      ${(selected.key_parameters || []).length ? selected.key_parameters.map((k) => `
-        <div class="block" style="margin-top:10px">
-          <div><strong>${k.value_raw || '参数'}</strong></div>
-          <div class="small">数值：${k.value_numeric ?? ''} · 单位：${k.unit || '无'} · 依据：${k.extraction_reason || '规则抽取'}</div>
-          <div class="small">证据：${k.evidence_text || ''}</div>
-        </div>`).join('') : '<div class="small">暂无关键参数</div>'}
-    </div>` : '';
+    <div class="block"><h4>${selected.title || '未命名情报'}</h4><div class="kv"><div>分类</div><div>${selected.category || '未分类'}</div><div>日期</div><div>${selected.date || '未知'}</div><div>来源</div><div>${selected.source || '未知'}</div><div>类型</div><div>${selected.intelligence_type === 'literature' ? '文献' : '新闻'}</div><div>预警</div><div>${selected.is_alert ? '是' : '否'}</div></div></div>
+    <div class="block"><h4>摘要</h4><p>${selected.body || '无正文内容'}</p><p class="small">${selected.url ? `<a href="${selected.url}" target="_blank" rel="noreferrer">打开原文</a>` : '无原文链接'}</p></div>
+    <div class="block"><h4>关键参数</h4>${(selected.key_parameters || []).length ? selected.key_parameters.map((k) => `<div class="block" style="margin-top:10px"><div><strong>${k.value_raw || '参数'}</strong></div><div class="small">数值：${k.value_numeric ?? ''} · 单位：${k.unit || '无'} · 依据：${k.extraction_reason || '规则抽取'}</div><div class="small">证据：${k.evidence_text || ''}</div></div>`).join('') : '<div class="small">暂无关键参数</div>'}</div>` : '';
 
-  $('knowledge').innerHTML = (state.data.knowledge || []).slice(0, 24).map((doc) => `
-    <div class="block">
-      <h4>${doc.category || '未分类'} <span>${doc.evidence?.length || 0} 条证据</span></h4>
-      <div class="small">${doc.summary?.basic_profile || '暂无摘要'}</div>
-      <div>${(doc.evidence || []).slice(0, 3).map((e) => `<span class="tag">${e.title || '未命名'}</span>`).join('')}</div>
-    </div>`).join('');
+  $('knowledge').innerHTML = (state.data.knowledge || []).slice(0, 24).map((doc) => `<div class="block"><h4>${doc.category || '未分类'} <span>${doc.evidence?.length || 0} 条证据</span></h4><div class="small">${doc.summary?.basic_profile || '暂无摘要'}</div><div>${(doc.evidence || []).slice(0, 3).map((e) => `<span class="tag">${e.title || '未命名'}</span>`).join('')}</div></div>`).join('');
+
+  $('jobs').innerHTML = state.data.jobs ? `<div class="job-item"><div><strong>夜间批处理</strong><div class="small">目标未分类 ${state.data.jobs.target_unclassified} 条</div><div class="small">阶段 1：候选约束分类 · 阶段 2：小模型候选内选择 · 阶段 3：低置信复核</div></div><span class="badge warn">待执行</span></div>` : '<div class="small">暂无批处理任务</div>';
 
   document.querySelectorAll('[data-filter]').forEach((btn) => btn.classList.toggle('active', btn.dataset.filter === state.filter));
 }

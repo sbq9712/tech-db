@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#08111f" />
+  <meta name="theme-color" content="#0b1020" />
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,62 +12,78 @@
 </head>
 <body>
   <div class="bg"></div>
-  <div class="app-shell">
-    <aside class="left-rail card">
-      <div class="brand">
+  <div class="page-shell">
+    <header class="topbar card">
+      <div class="brand-inline">
         <div class="brand-mark">T</div>
         <div>
           <h1>技术边界数据库</h1>
           <p>结构化情报 · 预警 · 行业知识库</p>
         </div>
       </div>
-      <div id="meta" class="meta"></div>
-      <input id="search" placeholder="搜索标题、分类、来源、关键词" />
-      <div class="section-title">分类索引</div>
-      <div id="nav" class="nav"></div>
-    </aside>
+      <div class="topbar-actions">
+        <input id="search" placeholder="搜索标题、分类、来源、关键词" />
+      </div>
+    </header>
 
-    <main class="center-pane">
-      <header class="hero card">
-        <div>
-          <div class="eyebrow">静态情报库 · GitHub Pages</div>
-          <h2>围绕技术边界的情报筛选与证据查看</h2>
-          <p>让列表负责扫描，让详情负责证据。默认只展示摘要和关键参数，长正文按需展开。</p>
+    <section class="hero-grid">
+      <article class="card hero-panel">
+        <div class="eyebrow">总览</div>
+        <h2>围绕技术边界的情报筛选与证据查看</h2>
+        <p>这个页面被拆成六个明确功能块：总览、分类、列表、详情、知识库、批处理任务。每块只承担一种职责，避免不同密度的信息互相抢空间。</p>
+      </article>
+      <article class="card metric-panel" id="stats"></article>
+      <article class="card metric-panel" id="meta"></article>
+    </section>
+
+    <section class="main-grid">
+      <aside class="card rail-panel">
+        <div class="section-head">
+          <h3>分类索引</h3>
+          <span>按行业浏览</span>
         </div>
-        <div id="stats" class="stats-grid"></div>
-      </header>
+        <div id="nav" class="nav"></div>
+      </aside>
 
-      <section class="toolbar card">
-        <button data-filter="all" class="active">全部</button>
-        <button data-filter="news">新闻</button>
-        <button data-filter="literature">文献</button>
-        <button data-filter="alerts">预警</button>
-      </section>
-
-      <section class="list-card card">
-        <div class="panel-head">
+      <section class="card list-panel">
+        <div class="section-head">
           <h3>最新情报</h3>
           <span id="count"></span>
         </div>
+        <div class="toolbar">
+          <button data-filter="all" class="active">全部</button>
+          <button data-filter="news">新闻</button>
+          <button data-filter="literature">文献</button>
+          <button data-filter="alerts">预警</button>
+        </div>
         <div id="list" class="list"></div>
       </section>
-    </main>
 
-    <aside class="right-rail card">
-      <div class="panel-head sticky-head">
-        <h3>情报详情</h3>
-        <span>摘要优先 · 长文按需</span>
+      <aside class="card detail-panel">
+        <div class="section-head sticky-head">
+          <h3>情报详情</h3>
+          <span>摘要优先 · 长文按需</span>
+        </div>
+        <div id="detail" class="detail"></div>
+      </aside>
+    </section>
+
+    <section class="card knowledge-panel">
+      <div class="section-head">
+        <h3>行业知识库</h3>
+        <span>叶子行业自动生成</span>
       </div>
-      <div id="detail" class="detail"></div>
-    </aside>
+      <div id="knowledge" class="knowledge"></div>
+    </section>
+
+    <section class="card job-panel">
+      <div class="section-head">
+        <h3>批处理任务</h3>
+        <span>38,121 条未分类</span>
+      </div>
+      <div id="jobs" class="jobs"></div>
+    </section>
   </div>
-  <section class="knowledge-band card">
-    <div class="panel-head">
-      <h3>行业知识库</h3>
-      <span>按叶子行业自动生成</span>
-    </div>
-    <div id="knowledge" class="knowledge"></div>
-  </section>
   <script src="app.js"></script>
 </body>
 </html>
