@@ -1,8 +1,15 @@
 name: 源仓库更新触发重建
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [source-updated]
-  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +19,17 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 scripts/build_database.py --output data
-      - uses: actions/upload-artifact@v4
+      - name: 写回数据文件
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update generated data"
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: tech-db-data-dispatch
-          path: data
+          path: .
+      - uses: actions/deploy-pages@v4

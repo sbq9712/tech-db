@@ -1,9 +1,13 @@
 const state = { data: null, filter: 'all', query: '', selectedId: null };
 const $ = (id) => document.getElementById(id);
+
 async function load() {
-  const res = await fetch('./data/processed/intelligence.json', { cache: 'no-store' });
-  state.data = await res.json();
-  state.selectedId = state.data.records[0]?.content_hash || null;
+  const manifest = await fetch('./data/processed/manifest.json', { cache: 'no-store' }).then((r) => r.json());
+  const shardPayloads = await Promise.all(manifest.shards.slice(0, 12).map((s) => fetch('./' + s.path, { cache: 'no-store' }).then((r) => r.json())));
+  const knowledge = await fetch('./' + manifest.knowledge_index, { cache: 'no-store' }).then((r) => r.json()).catch(() => ({ documents: [] }));
+  const records = shardPayloads.flatMap((x) => x.records || []);
+  state.data = { meta: manifest.meta, records, knowledge: knowledge.documents || [] };
+  state.selectedId = records[0]?.content_hash || null;
   render();
 }
 function matches(item) {
@@ -25,8 +29,8 @@ function render() {
   const selected = filtered.find((item) => item.content_hash === state.selectedId) || filtered[0] || state.data.records[0];
   if (selected) state.selectedId = selected.content_hash;
   const meta = state.data.meta;
-  $('meta').innerHTML = `<div><strong>最近处理：</strong>${meta.processed_at || ''}</div><div><strong>税onomy版本：</strong>${meta.taxonomy_version || '未知'}</div><div><strong>抽取版本：</strong>${meta.extractor_version || '未知'}</div><div><strong>缓存命中：</strong>${meta.cache_hits || 0}</div>`;
-  $('stats').innerHTML = `<div class="stat"><div class="num">${meta.records_total || 0}</div><div class="label">总情报</div></div><div class="stat"><div class="num">${meta.records_by_type?.news || 0}</div><div class="label">新闻</div></div><div class="stat"><div class="num">${meta.records_by_type?.literature || 0}</div><div class="label">文献</div></div><div class="stat"><div class="num">${state.data.records.filter((x) => x.is_alert).length}</div><div class="label">预警</div></div>`;
+  $('meta').innerHTML = `<div><strong>最近处理：</strong>${meta.processed_at || ''}</div><div><strong>分类版本：</strong>${meta.taxonomy_version || '未知'}</div><div><strong>抽取版本：</strong>${meta.extractor_version || '未知'}</div><div><strong>已载入：</strong>${state.data.records.length} / ${meta.records_total || 0}</div>`;
+  $('stats').innerHTML = `<div class="stat"><div class="num">${meta.records_total || 0}</div><div class="label">总情报</div></div><div class="stat"><div class="num">${meta.records_by_type?.news || 0}</div><div class="label">新闻</div></div><div class="stat"><div class="num">${meta.records_by_type?.literature || 0}</div><div class="label">文献</div></div><div class="stat"><div class="num">${state.data.records.filter((x) => x.is_alert).length}</div><div class="label">当前载入预警</div></div>`;
   $('count').textContent = `显示 ${filtered.length} 条`;
   $('nav').innerHTML = categoryList(state.data.records).slice(0, 120).map(([cat, count]) => `<a href="#" data-cat="${cat}"><div class="card"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><strong>${cat}</strong><span class="badge">${count}</span></div></div></a>`).join('');
   $('list').innerHTML = filtered.slice(0, 120).map((item) => `<div class="item ${item.content_hash === state.selectedId ? 'active' : ''}" data-id="${item.content_hash}"><div class="item-title">${item.title || '未命名情报'}</div><div class="item-meta">${item.date || '未知日期'} · ${item.source || '未知来源'} · ${item.intelligence_type === 'literature' ? '文献' : '新闻'}</div><div class="muted">${(item.body || '').slice(0, 220) || '无正文摘要'}</div><div class="badges">${item.is_alert ? '<span class="badge warn">预警</span>' : ''}<span class="badge">${item.category || '未分类'}</span>${(item.key_parameters || []).slice(0, 3).map((k) => `<span class="badge">${k.value_raw}</span>`).join('')}</div></div>`).join('');
