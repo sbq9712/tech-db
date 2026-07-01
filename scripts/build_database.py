@@ -145,7 +145,7 @@ def load_existing_classifications(processed: Path) -> dict[str, dict[str, Any]]:
             content_hash = record.get('content_hash')
             if not content_hash:
                 continue
-            if record.get('classifier_model') == 'gpt-5.4-mini' and record.get('category') and record.get('category') != '未分类':
+            if record.get('classifier_model') in ('glm-5.2', 'gpt-5.4-mini') and record.get('category') and record.get('category') != '未分类':
                 existing[content_hash] = {
                     'category': record.get('category'),
                     'classification_confidence': record.get('classification_confidence', 0.0),
