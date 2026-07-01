@@ -15,6 +15,7 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const esc = (value) => String(value ?? '').replace(/[&<>"]/g, (s) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[s]));
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 async function getJson(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -62,6 +63,7 @@ function render() {
   renderLabels();
   renderCalendar();
   renderCategoryList();
+  renderActiveFilters();
   renderRecords();
 }
 
@@ -81,6 +83,18 @@ function renderLabels() {
   $('dateLabel').textContent = state.date || '全部日期';
   $('categoryLabel').textContent = state.category || '全部分类';
   $('resultMeta').textContent = `筛选结果 ${state.filtered.length} 条 / 全库 ${state.records.length} 条`;
+}
+
+function renderActiveFilters() {
+  const chips = [];
+  if (state.query.trim()) chips.push(['检索', state.query.trim(), 'query']);
+  if (state.date) chips.push(['日期', state.date, 'date']);
+  if (state.category) chips.push(['分类', state.category, 'category']);
+  if (state.type !== 'all') chips.push(['类型', state.type === 'news' ? '新闻' : '文献', 'type']);
+  if (state.alert !== 'all') chips.push(['预警', state.alert === 'yes' ? '预警' : '非预警', 'alert']);
+  $('activeFilters').innerHTML = chips.length
+    ? chips.map(([label, value, key]) => `<button class="filter-chip" data-clear="${key}" type="button"><span>${esc(label)}</span>${esc(value)} ×</button>`).join('')
+    : '<span class="filter-hint">当前显示全部日期、全部分类、全部类型。</span>';
 }
 
 function renderCalendar() {
@@ -114,7 +128,7 @@ function renderRecords() {
   $('prevPage').disabled = state.page <= 1;
   $('nextPage').disabled = state.page >= pages;
   if (!rows.length) {
-    $('recordList').innerHTML = '<div class="empty-state">没有匹配的情报。请放宽筛选条件。</div>';
+    $('recordList').innerHTML = '<div class="empty-state"><strong>没有匹配情报</strong><span>请清除部分筛选条件，或换一个关键词。</span></div>';
     return;
   }
   $('recordList').innerHTML = rows.map(renderRecordCard).join('');
@@ -123,7 +137,7 @@ function renderRecords() {
 function confidenceScore(item) {
   const base = Number(item.classification_confidence || 0);
   const paramBoost = Math.min((item.key_parameters || []).length * 0.06, 0.24);
-  return Math.max(0.18, Math.min(0.98, base || 0.48 + paramBoost));
+  return clamp(base || 0.48 + paramBoost, 0.18, 0.98);
 }
 
 function renderRecordCard(item) {
@@ -132,6 +146,7 @@ function renderRecordCard(item) {
   const score = confidenceScore(item);
   const url = item.url ? `<a class="source-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">原文</a>` : '';
   const paramBadges = params.map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('');
+  const summary = (item.body || '').slice(0, 240) || '无正文摘要';
   return `<article class="record-card">
     <div class="record-topline">
       <span class="date-chip">${esc(item.date || '未知')}</span>
@@ -144,10 +159,10 @@ function renderRecordCard(item) {
       <h3>${esc(item.title || '未命名情报')}</h3>
       ${url}
     </div>
-    <p class="record-summary">${esc((item.body || '').slice(0, 260) || '无正文摘要')}</p>
+    <p class="record-summary">${esc(summary)}</p>
     <div class="record-foot">
       <div class="badges"><span class="badge category">${esc(item.category || '未分类')}</span>${paramBadges}</div>
-      <div class="mini-meter" title="分类置信度 / 参数完整度"><span style="width:${Math.round(score * 100)}%"></span></div>
+      <div class="meter-wrap"><span>${Math.round(score * 100)}%</span><div class="mini-meter"><i style="width:${Math.round(score * 100)}%"></i></div></div>
     </div>
   </article>`;
 }
@@ -180,7 +195,19 @@ function shiftMonth(delta) {
   renderCalendar();
 }
 
+function clearFilter(key) {
+  if (key === 'query') { state.query = ''; $('searchInput').value = ''; }
+  if (key === 'date') state.date = '';
+  if (key === 'category') state.category = '';
+  if (key === 'type') { state.type = 'all'; document.querySelectorAll('[data-type]').forEach((button) => button.classList.toggle('active', button.dataset.type === 'all')); }
+  if (key === 'alert') { state.alert = 'all'; document.querySelectorAll('[data-alert]').forEach((button) => button.classList.toggle('active', button.dataset.alert === 'all')); }
+  state.page = 1;
+  applyFilters();
+}
+
 function handleDocumentClick(event) {
+  const clear = event.target.closest('[data-clear]');
+  if (clear) { clearFilter(clear.dataset.clear); return; }
   const dateButton = event.target.closest('[data-date]');
   if (dateButton) {
     state.date = dateButton.dataset.date;
@@ -217,5 +244,5 @@ function handleDocumentClick(event) {
 }
 
 load().catch((error) => {
-  document.body.innerHTML = `<main class="content-pane"><div class="empty-state">页面载入失败：${esc(error.message)}</div></main>`;
+  document.body.innerHTML = `<main class="content-pane"><div class="empty-state"><strong>页面载入失败</strong><span>${esc(error.message)}</span></div></main>`;
 });

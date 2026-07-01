@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#050b13" />
+  <meta name="theme-color" content="#0a0e17" />
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-layout">
-    <aside class="control-rail">
+    <aside class="control-rail" aria-label="筛选控制台">
       <div class="brand-block">
         <div class="brand-mark">TB</div>
         <div>
@@ -21,17 +21,17 @@
         </div>
       </div>
 
-      <div id="stats" class="rail-stats"></div>
+      <div id="stats" class="rail-stats" aria-label="数据统计"></div>
 
       <section class="rail-section">
         <label class="search-wrap">
           <span>全库检索</span>
-          <input id="searchInput" placeholder="标题、正文、分类、来源、URL" />
+          <input id="searchInput" placeholder="标题、正文、分类、来源、URL" autocomplete="off" />
         </label>
       </section>
 
       <section class="rail-section popover-control">
-        <button id="dateButton" class="filter-button" type="button">
+        <button id="dateButton" class="filter-button" type="button" aria-haspopup="dialog">
           <span>日期</span><strong id="dateLabel">全部日期</strong>
         </button>
         <div id="datePopover" class="popover calendar-popover">
@@ -49,11 +49,11 @@
       </section>
 
       <section class="rail-section popover-control">
-        <button id="categoryButton" class="filter-button" type="button">
+        <button id="categoryButton" class="filter-button" type="button" aria-haspopup="dialog">
           <span>分类</span><strong id="categoryLabel">全部分类</strong>
         </button>
         <div id="categoryPopover" class="popover category-popover">
-          <input id="categorySearch" class="category-search" placeholder="搜索分类项" />
+          <input id="categorySearch" class="category-search" placeholder="搜索分类项" autocomplete="off" />
           <div id="categoryList" class="category-list"></div>
           <button id="clearCategory" class="clear-button" type="button">清除分类筛选</button>
         </div>
@@ -82,7 +82,7 @@
       <header class="content-head">
         <div>
           <div class="eyebrow">TECHNOLOGY FRONTIER DATABASE</div>
-          <h2>全部新闻 / 文献情报</h2>
+          <h2>新闻 / 文献情报流</h2>
           <p id="resultMeta">载入中</p>
         </div>
         <div class="page-controls">
@@ -91,7 +91,10 @@
           <button id="nextPage" type="button">下一页</button>
         </div>
       </header>
-      <section id="recordList" class="record-list"></section>
+      <div id="activeFilters" class="active-filters" aria-label="当前筛选条件"></div>
+      <section id="recordList" class="record-list" aria-live="polite">
+        <div class="loading-card">正在载入情报数据...</div>
+      </section>
     </main>
   </div>
   <script src="app.js"></script>
