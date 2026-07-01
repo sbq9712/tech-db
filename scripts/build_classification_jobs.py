@@ -26,6 +26,11 @@ def main() -> int:
             'phase_3': 'low_confidence_review_only',
             'cache_key': ['url', 'content_hash', 'taxonomy_version', 'extractor_version'],
         },
+        'prompt_file': 'prompts/classification_and_extraction.md',
+        'priority_rules': [
+            'Prefer 零碳产业 and AI与智能科技 over 通用技术 when applicable.',
+            'Use 不相关 for records outside the tracked technology boundary.',
+        ],
         'notes': [
             'Do not classify full text freely.',
             'Prefer candidate-restricted classification.',

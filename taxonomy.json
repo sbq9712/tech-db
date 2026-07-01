@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-30-fresh-old-leaves",
+  "version": "2026-06-30-fresh-old-leaves+unrelated-v1",
   "source": "extracted from /home/rhett/backups/tech-db-old-20260630-162430/data/knowledge filenames",
   "leaves": [
     {
@@ -1123,6 +1123,27 @@
         "超级电容器",
         "零碳产业"
       ]
+    },
+    {
+      "id": "unrelated",
+      "label": "不相关",
+      "path": [
+        "不相关"
+      ],
+      "keywords": [
+        "医疗服务",
+        "远程手术",
+        "医院",
+        "肿瘤患者",
+        "临床诊疗",
+        "教育新闻",
+        "地方政务",
+        "旅游",
+        "文娱",
+        "体育",
+        "社会民生"
+      ],
+      "description": "与零碳产业、AI与智能科技、通用技术的技术边界跟踪目标均无实质关系的新闻/文献。即使文本中出现5G、AI、机器人等词，只要核心不是相关技术本身的突破、工程化、产业化或关键参数，而只是应用场景/民生新闻，也归入不相关。"
     }
   ]
 }
