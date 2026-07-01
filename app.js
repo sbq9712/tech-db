@@ -1,4 +1,4 @@
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 80;
 const state = {
   manifest: null,
   records: [],
@@ -120,34 +120,34 @@ function renderRecords() {
   $('recordList').innerHTML = rows.map(renderRecordCard).join('');
 }
 
+function confidenceScore(item) {
+  const base = Number(item.classification_confidence || 0);
+  const paramBoost = Math.min((item.key_parameters || []).length * 0.06, 0.24);
+  return Math.max(0.18, Math.min(0.98, base || 0.48 + paramBoost));
+}
+
 function renderRecordCard(item) {
   const typeLabel = item.intelligence_type === 'literature' ? '文献' : '新闻';
-  const params = (item.key_parameters || []).slice(0, 4);
-  const paramHtml = params.length ? params.map((p) => `<div class="param-item"><strong>${esc(p.value_raw || '参数')}</strong><p>${esc(p.evidence_text || p.extraction_reason || '')}</p></div>`).join('') : '<div class="muted">暂无关键参数</div>';
-  const url = item.url ? `<a href="${esc(item.url)}" target="_blank" rel="noreferrer">打开原文</a>` : '<span class="muted">无原文链接</span>';
+  const params = (item.key_parameters || []).slice(0, 2);
+  const score = confidenceScore(item);
+  const url = item.url ? `<a class="source-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">原文</a>` : '';
+  const paramBadges = params.map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('');
   return `<article class="record-card">
-    <div class="record-top">
-      <div>
-        <div class="record-title">${esc(item.title || '未命名情报')}</div>
-        <div class="record-meta">${esc(item.date || '未知日期')} · ${esc(item.source || '未知来源')}</div>
-      </div>
-      <div class="badges">${item.is_alert ? '<span class="badge warn">预警</span>' : ''}<span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span></div>
+    <div class="record-topline">
+      <span class="date-chip">${esc(item.date || '未知')}</span>
+      <span class="source-text">${esc(item.source || '未知来源')}</span>
+      <span class="spacer"></span>
+      ${item.is_alert ? '<span class="badge warn">预警</span>' : ''}
+      <span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>
     </div>
-    <div class="record-summary">${esc((item.body || '').slice(0, 520) || '无正文摘要')}</div>
-    <div class="badges"><span class="badge">${esc(item.category || '未分类')}</span>${params.slice(0, 3).map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('')}</div>
-    <div class="card-grid">
-      <section class="card-section">
-        <div class="card-section-title">情报元信息</div>
-        <div class="kv-line"><span>分类</span><div>${esc(item.category || '未分类')}</div></div>
-        <div class="kv-line"><span>日期</span><div>${esc(item.date || '未知')}</div></div>
-        <div class="kv-line"><span>类型</span><div>${typeLabel}</div></div>
-        <div class="kv-line"><span>来源</span><div>${esc(item.source || '')}</div></div>
-        <div class="kv-line"><span>链接</span><div>${url}</div></div>
-      </section>
-      <section class="card-section">
-        <div class="card-section-title">关键参数 / 证据句</div>
-        <div class="param-list">${paramHtml}</div>
-      </section>
+    <div class="record-title-row">
+      <h3>${esc(item.title || '未命名情报')}</h3>
+      ${url}
+    </div>
+    <p class="record-summary">${esc((item.body || '').slice(0, 260) || '无正文摘要')}</p>
+    <div class="record-foot">
+      <div class="badges"><span class="badge category">${esc(item.category || '未分类')}</span>${paramBadges}</div>
+      <div class="mini-meter" title="分类置信度 / 参数完整度"><span style="width:${Math.round(score * 100)}%"></span></div>
     </div>
   </article>`;
 }
