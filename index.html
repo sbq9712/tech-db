@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#06111f" />
+  <meta name="theme-color" content="#050b13" />
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,25 +11,26 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <div class="brand">
+  <div class="app-layout">
+    <aside class="control-rail">
+      <div class="brand-block">
         <div class="brand-mark">TB</div>
         <div>
           <h1>技术边界数据库</h1>
-          <p>新闻、文献、预警与关键参数的统一情报工作台</p>
+          <p>Frontier Intelligence Console</p>
         </div>
       </div>
-      <div class="search-wrap">
-        <span>全库检索</span>
-        <input id="searchInput" placeholder="搜索标题、正文、分类、来源、URL" />
-      </div>
-    </header>
 
-    <section id="stats" class="stats-grid"></section>
+      <div id="stats" class="rail-stats"></div>
 
-    <section class="filter-deck">
-      <div class="filter-control popover-control">
+      <section class="rail-section">
+        <label class="search-wrap">
+          <span>全库检索</span>
+          <input id="searchInput" placeholder="标题、正文、分类、来源、URL" />
+        </label>
+      </section>
+
+      <section class="rail-section popover-control">
         <button id="dateButton" class="filter-button" type="button">
           <span>日期</span><strong id="dateLabel">全部日期</strong>
         </button>
@@ -45,9 +46,9 @@
           <div id="calendarGrid" class="calendar-grid"></div>
           <button id="clearDate" class="clear-button" type="button">清除日期筛选</button>
         </div>
-      </div>
+      </section>
 
-      <div class="filter-control popover-control category-control">
+      <section class="rail-section popover-control">
         <button id="categoryButton" class="filter-button" type="button">
           <span>分类</span><strong id="categoryLabel">全部分类</strong>
         </button>
@@ -56,52 +57,41 @@
           <div id="categoryList" class="category-list"></div>
           <button id="clearCategory" class="clear-button" type="button">清除分类筛选</button>
         </div>
-      </div>
+      </section>
 
-      <div class="filter-control inline-filter">
-        <span>情报类型</span>
-        <div class="segmented" id="typeFilter">
+      <section class="rail-section">
+        <div class="section-label">情报类型</div>
+        <div class="segmented vertical" id="typeFilter">
           <button class="active" data-type="all" type="button">全部</button>
           <button data-type="news" type="button">新闻</button>
           <button data-type="literature" type="button">文献</button>
         </div>
-      </div>
+      </section>
 
-      <div class="filter-control inline-filter">
-        <span>是否预警</span>
-        <div class="segmented" id="alertFilter">
+      <section class="rail-section">
+        <div class="section-label">是否预警</div>
+        <div class="segmented vertical" id="alertFilter">
           <button class="active" data-alert="all" type="button">全部</button>
           <button data-alert="yes" type="button">预警</button>
           <button data-alert="no" type="button">非预警</button>
         </div>
-      </div>
-    </section>
-
-    <main class="workspace">
-      <section class="panel list-panel">
-        <div class="panel-head">
-          <div>
-            <h2>情报列表</h2>
-            <p id="resultMeta">载入中</p>
-          </div>
-          <div class="page-controls">
-            <button id="prevPage" type="button">上一页</button>
-            <span id="pageLabel"></span>
-            <button id="nextPage" type="button">下一页</button>
-          </div>
-        </div>
-        <div id="recordList" class="record-list"></div>
       </section>
+    </aside>
 
-      <aside class="panel detail-panel">
-        <div class="panel-head">
-          <div>
-            <h2>情报详情</h2>
-            <p>证据、参数、来源链接</p>
-          </div>
+    <main class="content-pane">
+      <header class="content-head">
+        <div>
+          <div class="eyebrow">TECHNOLOGY FRONTIER DATABASE</div>
+          <h2>全部新闻 / 文献情报</h2>
+          <p id="resultMeta">载入中</p>
         </div>
-        <div id="detail" class="detail"></div>
-      </aside>
+        <div class="page-controls">
+          <button id="prevPage" type="button">上一页</button>
+          <span id="pageLabel"></span>
+          <button id="nextPage" type="button">下一页</button>
+        </div>
+      </header>
+      <section id="recordList" class="record-list"></section>
     </main>
   </div>
   <script src="app.js"></script>

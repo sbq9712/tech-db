@@ -1,9 +1,8 @@
-const PAGE_SIZE = 80;
+const PAGE_SIZE = 50;
 const state = {
   manifest: null,
   records: [],
   filtered: [],
-  selectedId: null,
   page: 1,
   query: '',
   date: '',
@@ -16,7 +15,6 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const esc = (value) => String(value ?? '').replace(/[&<>"]/g, (s) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[s]));
-const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 
 async function getJson(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -29,10 +27,9 @@ async function load() {
   const shards = await Promise.all(state.manifest.shards.map((s) => getJson('./' + s.path)));
   state.records = shards.flatMap((payload) => payload.records || []);
   state.filtered = state.records;
-  state.selectedId = state.records[0]?.content_hash || '';
   state.calendarMonth = (state.records[0]?.date || new Date().toISOString().slice(0, 10)).slice(0, 7);
-  applyFilters();
   bindEvents();
+  applyFilters();
 }
 
 function categoryCounts() {
@@ -57,9 +54,6 @@ function applyFilters() {
     return [item.title, item.body, item.category, item.source, item.url, item.authors].join(' ').toLowerCase().includes(q);
   });
   state.page = Math.min(state.page, Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)));
-  if (!state.filtered.some((item) => item.content_hash === state.selectedId)) {
-    state.selectedId = state.filtered[0]?.content_hash || '';
-  }
   render();
 }
 
@@ -69,7 +63,6 @@ function render() {
   renderCalendar();
   renderCategoryList();
   renderRecords();
-  renderDetail();
 }
 
 function renderStats() {
@@ -124,35 +117,39 @@ function renderRecords() {
     $('recordList').innerHTML = '<div class="empty-state">没有匹配的情报。请放宽筛选条件。</div>';
     return;
   }
-  $('recordList').innerHTML = rows.map((item) => {
-    const selected = item.content_hash === state.selectedId;
-    const typeLabel = item.intelligence_type === 'literature' ? '文献' : '新闻';
-    const params = (item.key_parameters || []).slice(0, 3).map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('');
-    return `<article class="record-card ${selected ? 'active' : ''}" data-record="${esc(item.content_hash)}">
-      <div class="record-top">
-        <div>
-          <div class="record-title">${esc(item.title || '未命名情报')}</div>
-          <div class="record-meta">${esc(item.date || '未知日期')} · ${esc(item.source || '未知来源')}</div>
-        </div>
-        ${item.is_alert ? '<span class="badge warn">预警</span>' : `<span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>`}
-      </div>
-      <div class="record-summary">${esc((item.body || '').slice(0, 260) || '无正文摘要')}</div>
-      <div class="badges"><span class="badge">${esc(item.category || '未分类')}</span><span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>${params}</div>
-    </article>`;
-  }).join('');
+  $('recordList').innerHTML = rows.map(renderRecordCard).join('');
 }
 
-function renderDetail() {
-  const item = state.records.find((record) => record.content_hash === state.selectedId);
-  if (!item) {
-    $('detail').innerHTML = '<div class="empty-state">请选择一条情报。</div>';
-    return;
-  }
-  const params = (item.key_parameters || []).map((p) => `<div class="param-card"><strong>${esc(p.value_raw || '参数')}</strong><div class="muted">数值：${esc(p.value_numeric ?? '')} · 单位：${esc(p.unit || '无')} · 置信度：${esc(p.confidence ?? '')}</div><div class="muted">证据：${esc(p.evidence_text || '')}</div></div>`).join('') || '<div class="muted">暂无关键参数</div>';
-  $('detail').innerHTML = `
-    <section class="detail-block"><h3>${esc(item.title || '未命名情报')}</h3><div class="kv"><div>日期</div><div>${esc(item.date || '未知')}</div><div>分类</div><div>${esc(item.category || '未分类')}</div><div>类型</div><div>${item.intelligence_type === 'literature' ? '文献' : '新闻'}</div><div>预警</div><div>${item.is_alert ? '是' : '否'}</div><div>来源</div><div>${esc(item.source || '')}</div></div></section>
-    <section class="detail-block"><h3>正文 / 摘要</h3><p>${esc(item.body || '无正文内容')}</p>${item.url ? `<p class="muted"><a href="${esc(item.url)}" target="_blank" rel="noreferrer">打开原文链接</a></p>` : ''}</section>
-    <section class="detail-block"><h3>关键参数</h3>${params}</section>`;
+function renderRecordCard(item) {
+  const typeLabel = item.intelligence_type === 'literature' ? '文献' : '新闻';
+  const params = (item.key_parameters || []).slice(0, 4);
+  const paramHtml = params.length ? params.map((p) => `<div class="param-item"><strong>${esc(p.value_raw || '参数')}</strong><p>${esc(p.evidence_text || p.extraction_reason || '')}</p></div>`).join('') : '<div class="muted">暂无关键参数</div>';
+  const url = item.url ? `<a href="${esc(item.url)}" target="_blank" rel="noreferrer">打开原文</a>` : '<span class="muted">无原文链接</span>';
+  return `<article class="record-card">
+    <div class="record-top">
+      <div>
+        <div class="record-title">${esc(item.title || '未命名情报')}</div>
+        <div class="record-meta">${esc(item.date || '未知日期')} · ${esc(item.source || '未知来源')}</div>
+      </div>
+      <div class="badges">${item.is_alert ? '<span class="badge warn">预警</span>' : ''}<span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span></div>
+    </div>
+    <div class="record-summary">${esc((item.body || '').slice(0, 520) || '无正文摘要')}</div>
+    <div class="badges"><span class="badge">${esc(item.category || '未分类')}</span>${params.slice(0, 3).map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('')}</div>
+    <div class="card-grid">
+      <section class="card-section">
+        <div class="card-section-title">情报元信息</div>
+        <div class="kv-line"><span>分类</span><div>${esc(item.category || '未分类')}</div></div>
+        <div class="kv-line"><span>日期</span><div>${esc(item.date || '未知')}</div></div>
+        <div class="kv-line"><span>类型</span><div>${typeLabel}</div></div>
+        <div class="kv-line"><span>来源</span><div>${esc(item.source || '')}</div></div>
+        <div class="kv-line"><span>链接</span><div>${url}</div></div>
+      </section>
+      <section class="card-section">
+        <div class="card-section-title">关键参数 / 证据句</div>
+        <div class="param-list">${paramHtml}</div>
+      </section>
+    </div>
+  </article>`;
 }
 
 function togglePopover(id) {
@@ -216,16 +213,9 @@ function handleDocumentClick(event) {
     applyFilters();
     return;
   }
-  const record = event.target.closest('[data-record]');
-  if (record) {
-    state.selectedId = record.dataset.record;
-    renderRecords();
-    renderDetail();
-    return;
-  }
   if (!event.target.closest('.popover-control')) document.querySelectorAll('.popover').forEach((node) => node.classList.remove('open'));
 }
 
 load().catch((error) => {
-  document.body.innerHTML = `<main class="shell"><section class="panel"><div class="empty-state">页面载入失败：${esc(error.message)}</div></section></main>`;
+  document.body.innerHTML = `<main class="content-pane"><div class="empty-state">页面载入失败：${esc(error.message)}</div></main>`;
 });
