@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a0e17" />
+  <meta name="theme-color" content="#0b1120" />
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,66 +11,62 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-layout">
-    <aside class="control-rail" aria-label="筛选控制台">
-      <div class="brand-block">
-        <div class="brand-mark">TB</div>
+  <div class="page-grid">
+    <aside class="filter-panel" aria-label="筛选控制台">
+      <header class="brand-card">
+        <div class="brand-mark">T</div>
         <div>
           <h1>技术边界数据库</h1>
-          <p>Frontier Intelligence Console</p>
+          <p>Technology Frontier Database</p>
         </div>
-      </div>
+      </header>
 
-      <div id="stats" class="rail-stats" aria-label="数据统计"></div>
+      <section id="stats" class="stats"></section>
 
-      <section class="rail-section">
-        <label class="search-wrap">
-          <span>全库检索</span>
-          <input id="searchInput" placeholder="标题、正文、分类、来源、URL" autocomplete="off" />
-        </label>
+      <section class="filter-group">
+        <label class="field-label" for="searchInput">全库检索</label>
+        <input id="searchInput" class="search-input" placeholder="搜索标题、正文、来源、分类、URL" autocomplete="off" />
       </section>
 
-      <section class="rail-section popover-control">
-        <button id="dateButton" class="filter-button" type="button" aria-haspopup="dialog">
+      <section class="filter-group drawer-control">
+        <button id="dateButton" class="drawer-button" type="button" aria-expanded="false">
           <span>日期</span><strong id="dateLabel">全部日期</strong>
         </button>
-        <div id="datePopover" class="popover calendar-popover">
+        <div id="datePopover" class="drawer calendar-drawer">
           <div class="calendar-head">
             <button id="prevMonth" type="button">‹</button>
             <strong id="calendarTitle"></strong>
             <button id="nextMonth" type="button">›</button>
           </div>
-          <div class="calendar-weekdays">
-            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
-          </div>
+          <div class="calendar-weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
           <div id="calendarGrid" class="calendar-grid"></div>
           <button id="clearDate" class="clear-button" type="button">清除日期筛选</button>
         </div>
       </section>
 
-      <section class="rail-section popover-control">
-        <button id="categoryButton" class="filter-button" type="button" aria-haspopup="dialog">
+      <section class="filter-group drawer-control">
+        <button id="categoryButton" class="drawer-button" type="button" aria-expanded="false">
           <span>分类</span><strong id="categoryLabel">全部分类</strong>
         </button>
-        <div id="categoryPopover" class="popover category-popover">
+        <div id="categoryPopover" class="drawer category-drawer">
           <input id="categorySearch" class="category-search" placeholder="搜索分类项" autocomplete="off" />
           <div id="categoryList" class="category-list"></div>
           <button id="clearCategory" class="clear-button" type="button">清除分类筛选</button>
         </div>
       </section>
 
-      <section class="rail-section">
-        <div class="section-label">情报类型</div>
-        <div class="segmented vertical" id="typeFilter">
+      <section class="filter-group">
+        <div class="field-label">情报类型</div>
+        <div class="segmented" id="typeFilter">
           <button class="active" data-type="all" type="button">全部</button>
           <button data-type="news" type="button">新闻</button>
           <button data-type="literature" type="button">文献</button>
         </div>
       </section>
 
-      <section class="rail-section">
-        <div class="section-label">是否预警</div>
-        <div class="segmented vertical" id="alertFilter">
+      <section class="filter-group">
+        <div class="field-label">是否预警</div>
+        <div class="segmented" id="alertFilter">
           <button class="active" data-alert="all" type="button">全部</button>
           <button data-alert="yes" type="button">预警</button>
           <button data-alert="no" type="button">非预警</button>
@@ -78,10 +74,10 @@
       </section>
     </aside>
 
-    <main class="content-pane">
-      <header class="content-head">
+    <main class="results-panel">
+      <header class="results-head">
         <div>
-          <div class="eyebrow">TECHNOLOGY FRONTIER DATABASE</div>
+          <div class="eyebrow">INTELLIGENCE STREAM</div>
           <h2>新闻 / 文献情报流</h2>
           <p id="resultMeta">载入中</p>
         </div>
@@ -91,7 +87,7 @@
           <button id="nextPage" type="button">下一页</button>
         </div>
       </header>
-      <div id="activeFilters" class="active-filters" aria-label="当前筛选条件"></div>
+      <div id="activeFilters" class="active-filters"></div>
       <section id="recordList" class="record-list" aria-live="polite">
         <div class="loading-card">正在载入情报数据...</div>
       </section>

@@ -155,10 +155,7 @@ function renderRecordCard(item) {
       ${item.is_alert ? '<span class="badge warn">预警</span>' : ''}
       <span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>
     </div>
-    <div class="record-title-row">
-      <h3>${esc(item.title || '未命名情报')}</h3>
-      ${url}
-    </div>
+    <div class="record-title-row"><h3>${esc(item.title || '未命名情报')}</h3>${url}</div>
     <p class="record-summary">${esc(summary)}</p>
     <div class="record-foot">
       <div class="badges"><span class="badge category">${esc(item.category || '未分类')}</span>${paramBadges}</div>
@@ -167,19 +164,27 @@ function renderRecordCard(item) {
   </article>`;
 }
 
-function togglePopover(id) {
-  document.querySelectorAll('.popover').forEach((node) => {
+function toggleDrawer(id, buttonId) {
+  document.querySelectorAll('.drawer').forEach((node) => {
     if (node.id !== id) node.classList.remove('open');
   });
-  $(id).classList.toggle('open');
+  const drawer = $(id);
+  drawer.classList.toggle('open');
+  document.querySelectorAll('.drawer-button').forEach((button) => button.setAttribute('aria-expanded', 'false'));
+  $(buttonId).setAttribute('aria-expanded', drawer.classList.contains('open') ? 'true' : 'false');
+}
+
+function closeDrawers() {
+  document.querySelectorAll('.drawer').forEach((node) => node.classList.remove('open'));
+  document.querySelectorAll('.drawer-button').forEach((button) => button.setAttribute('aria-expanded', 'false'));
 }
 
 function bindEvents() {
   $('searchInput').addEventListener('input', (event) => { state.query = event.target.value; state.page = 1; applyFilters(); });
-  $('dateButton').addEventListener('click', () => togglePopover('datePopover'));
-  $('categoryButton').addEventListener('click', () => togglePopover('categoryPopover'));
-  $('clearDate').addEventListener('click', () => { state.date = ''; state.page = 1; $('datePopover').classList.remove('open'); applyFilters(); });
-  $('clearCategory').addEventListener('click', () => { state.category = ''; state.page = 1; $('categoryPopover').classList.remove('open'); applyFilters(); });
+  $('dateButton').addEventListener('click', () => toggleDrawer('datePopover', 'dateButton'));
+  $('categoryButton').addEventListener('click', () => toggleDrawer('categoryPopover', 'categoryButton'));
+  $('clearDate').addEventListener('click', () => { state.date = ''; state.page = 1; closeDrawers(); applyFilters(); });
+  $('clearCategory').addEventListener('click', () => { state.category = ''; state.page = 1; closeDrawers(); applyFilters(); });
   $('categorySearch').addEventListener('input', (event) => { state.categoryQuery = event.target.value; renderCategoryList(); });
   $('prevMonth').addEventListener('click', () => shiftMonth(-1));
   $('nextMonth').addEventListener('click', () => shiftMonth(1));
@@ -212,7 +217,7 @@ function handleDocumentClick(event) {
   if (dateButton) {
     state.date = dateButton.dataset.date;
     state.page = 1;
-    $('datePopover').classList.remove('open');
+    closeDrawers();
     applyFilters();
     return;
   }
@@ -220,7 +225,7 @@ function handleDocumentClick(event) {
   if (categoryButton) {
     state.category = categoryButton.dataset.category;
     state.page = 1;
-    $('categoryPopover').classList.remove('open');
+    closeDrawers();
     applyFilters();
     return;
   }
@@ -240,9 +245,8 @@ function handleDocumentClick(event) {
     applyFilters();
     return;
   }
-  if (!event.target.closest('.popover-control')) document.querySelectorAll('.popover').forEach((node) => node.classList.remove('open'));
 }
 
 load().catch((error) => {
-  document.body.innerHTML = `<main class="content-pane"><div class="empty-state"><strong>页面载入失败</strong><span>${esc(error.message)}</span></div></main>`;
+  document.body.innerHTML = `<main class="results-panel"><div class="empty-state"><strong>页面载入失败</strong><span>${esc(error.message)}</span></div></main>`;
 });
