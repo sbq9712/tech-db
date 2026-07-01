@@ -132,16 +132,47 @@ def write_shards(records: list[dict[str, Any]], out: Path, meta: dict[str, Any],
     dump_json(processed / 'manifest.json', {'meta': meta, 'shards': shards, 'knowledge_index': 'data/knowledge/index.json'})
     dump_json(processed / 'intelligence.json', {'meta': meta, 'records': records[:500], 'knowledge': knowledge})
 
+def load_existing_classifications(processed: Path) -> dict[str, dict[str, Any]]:
+    existing: dict[str, dict[str, Any]] = {}
+    if not processed.exists():
+        return existing
+    for shard in processed.glob('records-*.json'):
+        try:
+            payload = load_json(shard, {'records': []})
+        except Exception:
+            continue
+        for record in payload.get('records', []):
+            content_hash = record.get('content_hash')
+            if not content_hash:
+                continue
+            if record.get('classifier_model') == 'gpt-5.4-mini' and record.get('category') and record.get('category') != '未分类':
+                existing[content_hash] = {
+                    'category': record.get('category'),
+                    'classification_confidence': record.get('classification_confidence', 0.0),
+                    'classification_reason': record.get('classification_reason', ''),
+                    'classifier_model': record.get('classifier_model'),
+                    'classifier_provider': record.get('classifier_provider'),
+                    'key_parameters': [],
+                    'cache_hit': False,
+                }
+    return existing
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(); parser.add_argument('--output', default='data'); args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]; out_root = root / args.output
     taxonomy = load_json(root / 'taxonomy.json', {'version': 'unknown', 'leaves': []}); leaves = taxonomy.get('leaves', [])
+    preserved = load_existing_classifications(out_root / 'processed')
     stats = BuildStats(taxonomy_version=taxonomy.get('version', 'unknown')); records = []
     for repo, spec in SOURCE_REPOS.items():
         for csv_file, row in collect_rows(ensure_repo(root, repo, stats), spec, stats):
             title = pick(row, spec['title_keys']); body = pick(row, spec['body_keys']); authors = pick(row, spec['author_keys']); url = pick(row, spec['url_keys'])
-            text = ' '.join([title, body, authors, url]); params = extract_params(body); category, confidence = classify_leaf(text, leaves)
-            item = {'title': title, 'authors': authors, 'body': body, 'category': category, 'date': file_date(csv_file), 'source': f'{repo}/{csv_file.name}', 'url': url, 'intelligence_type': spec['kind'], 'is_alert': is_alert(title, body, params), 'key_parameters': params, 'content_hash': stable_hash(text), 'classification_confidence': confidence, 'cache_hit': False}
+            text = ' '.join([title, body, authors, url])
+            params = []
+            content_hash = stable_hash(text)
+            item = {'title': title, 'authors': authors, 'body': body, 'category': '未分类', 'date': file_date(csv_file), 'source': f'{repo}/{csv_file.name}', 'url': url, 'intelligence_type': spec['kind'], 'is_alert': is_alert(title, body, params), 'key_parameters': params, 'content_hash': content_hash, 'classification_confidence': 0.0, 'classification_reason': 'default_unclassified_until_gpt54mini_review', 'cache_hit': False}
+            if content_hash in preserved:
+                item.update(preserved[content_hash])
             records.append(item); stats.records_total += 1; stats.records_by_type[spec['kind']] += 1
     records.sort(key=lambda x: (x.get('date',''), x.get('title','')), reverse=True)
     knowledge = build_knowledge(records, leaves, out_root / 'knowledge')

@@ -3,6 +3,7 @@ const state = {
   manifest: null,
   records: [],
   filtered: [],
+  categoryOrder: [],
   page: 1,
   query: '',
   date: '',
@@ -15,7 +16,6 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const esc = (value) => String(value ?? '').replace(/[&<>"]/g, (s) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[s]));
-const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 async function getJson(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -23,8 +23,13 @@ async function getJson(path) {
   return response.json();
 }
 
+function normalizeCategory(value) {
+  return String(value || '').replaceAll('/', '-').replaceAll('（', '').replaceAll('）', '').replaceAll('(', '').replaceAll(')', '');
+}
+
 async function load() {
   state.manifest = await getJson('./data/processed/manifest.json');
+  state.categoryOrder = (await getJson('./data/category-order.json').catch(() => ({ categories: [] }))).categories || [];
   const shards = await Promise.all(state.manifest.shards.map((s) => getJson('./' + s.path)));
   state.records = shards.flatMap((payload) => payload.records || []);
   state.filtered = state.records;
@@ -36,7 +41,17 @@ async function load() {
 function categoryCounts() {
   const counts = new Map();
   for (const item of state.records) counts.set(item.category || '未分类', (counts.get(item.category || '未分类') || 0) + 1);
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  const aliases = new Map([...counts.keys()].map((cat) => [normalizeCategory(cat), cat]));
+  const ordered = [];
+  for (const path of state.categoryOrder) {
+    const normalized = normalizeCategory(path);
+    const actual = aliases.get(normalized) || path.replaceAll('/', '-');
+    ordered.push([actual, counts.get(actual) || 0]);
+  }
+  for (const entry of [...counts.entries()].sort((a, b) => b[1] - a[1])) {
+    if (!ordered.some(([cat]) => cat === entry[0])) ordered.push(entry);
+  }
+  return ordered;
 }
 
 function availableDates() {
@@ -116,8 +131,8 @@ function renderCalendar() {
 
 function renderCategoryList() {
   const q = state.categoryQuery.trim().toLowerCase();
-  const rows = categoryCounts().filter(([cat]) => !q || cat.toLowerCase().includes(q));
-  $('categoryList').innerHTML = rows.map(([cat, count]) => `<button class="category-option ${state.category === cat ? 'active' : ''}" data-category="${esc(cat)}" type="button"><span>${esc(cat)}</span><span>${count}</span></button>`).join('');
+  const rows = categoryCounts().filter(([cat]) => !q || cat.toLowerCase().includes(q) || normalizeCategory(cat).toLowerCase().includes(q));
+  $('categoryList').innerHTML = rows.map(([cat, count]) => `<button class="category-option ${state.category === cat ? 'active' : ''}" data-category="${esc(cat)}" type="button"><span>${esc(cat.replaceAll('-', '/'))}</span><span>${count}</span></button>`).join('');
 }
 
 function renderRecords() {
@@ -134,40 +149,25 @@ function renderRecords() {
   $('recordList').innerHTML = rows.map(renderRecordCard).join('');
 }
 
-function confidenceScore(item) {
-  const base = Number(item.classification_confidence || 0);
-  const paramBoost = Math.min((item.key_parameters || []).length * 0.06, 0.24);
-  return clamp(base || 0.48 + paramBoost, 0.18, 0.98);
-}
-
 function renderRecordCard(item) {
   const typeLabel = item.intelligence_type === 'literature' ? '文献' : '新闻';
-  const params = (item.key_parameters || []).slice(0, 2);
-  const score = confidenceScore(item);
   const url = item.url ? `<a class="source-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">原文</a>` : '';
-  const paramBadges = params.map((p) => `<span class="badge param">${esc(p.value_raw || '参数')}</span>`).join('');
   const summary = (item.body || '').slice(0, 240) || '无正文摘要';
   return `<article class="record-card">
     <div class="record-topline">
       <span class="date-chip">${esc(item.date || '未知')}</span>
-      <span class="source-text">${esc(item.source || '未知来源')}</span>
       <span class="spacer"></span>
       ${item.is_alert ? '<span class="badge warn">预警</span>' : ''}
       <span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>
     </div>
     <div class="record-title-row"><h3>${esc(item.title || '未命名情报')}</h3>${url}</div>
     <p class="record-summary">${esc(summary)}</p>
-    <div class="record-foot">
-      <div class="badges"><span class="badge category">${esc(item.category || '未分类')}</span>${paramBadges}</div>
-      <div class="meter-wrap"><span>${Math.round(score * 100)}%</span><div class="mini-meter"><i style="width:${Math.round(score * 100)}%"></i></div></div>
-    </div>
+    <div class="record-foot"><div class="badges"><span class="badge category">${esc((item.category || '未分类').replaceAll('-', '/'))}</span></div></div>
   </article>`;
 }
 
 function toggleDrawer(id, buttonId) {
-  document.querySelectorAll('.drawer').forEach((node) => {
-    if (node.id !== id) node.classList.remove('open');
-  });
+  document.querySelectorAll('.drawer').forEach((node) => { if (node.id !== id) node.classList.remove('open'); });
   const drawer = $(id);
   drawer.classList.toggle('open');
   document.querySelectorAll('.drawer-button').forEach((button) => button.setAttribute('aria-expanded', 'false'));
@@ -214,37 +214,13 @@ function handleDocumentClick(event) {
   const clear = event.target.closest('[data-clear]');
   if (clear) { clearFilter(clear.dataset.clear); return; }
   const dateButton = event.target.closest('[data-date]');
-  if (dateButton) {
-    state.date = dateButton.dataset.date;
-    state.page = 1;
-    closeDrawers();
-    applyFilters();
-    return;
-  }
+  if (dateButton) { state.date = dateButton.dataset.date; state.page = 1; closeDrawers(); applyFilters(); return; }
   const categoryButton = event.target.closest('.category-option[data-category]');
-  if (categoryButton) {
-    state.category = categoryButton.dataset.category;
-    state.page = 1;
-    closeDrawers();
-    applyFilters();
-    return;
-  }
+  if (categoryButton) { state.category = categoryButton.dataset.category; state.page = 1; closeDrawers(); applyFilters(); return; }
   const typeButton = event.target.closest('[data-type]');
-  if (typeButton) {
-    state.type = typeButton.dataset.type;
-    state.page = 1;
-    document.querySelectorAll('[data-type]').forEach((button) => button.classList.toggle('active', button === typeButton));
-    applyFilters();
-    return;
-  }
+  if (typeButton) { state.type = typeButton.dataset.type; state.page = 1; document.querySelectorAll('[data-type]').forEach((button) => button.classList.toggle('active', button === typeButton)); applyFilters(); return; }
   const alertButton = event.target.closest('[data-alert]');
-  if (alertButton) {
-    state.alert = alertButton.dataset.alert;
-    state.page = 1;
-    document.querySelectorAll('[data-alert]').forEach((button) => button.classList.toggle('active', button === alertButton));
-    applyFilters();
-    return;
-  }
+  if (alertButton) { state.alert = alertButton.dataset.alert; state.page = 1; document.querySelectorAll('[data-alert]').forEach((button) => button.classList.toggle('active', button === alertButton)); applyFilters(); }
 }
 
 load().catch((error) => {
