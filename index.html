@@ -3,96 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1120" />
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-grid">
-    <aside class="filter-panel" aria-label="筛选控制台">
-      <header class="brand-card">
-        <div class="brand-mark">T</div>
-        <div>
-          <h1>技术边界数据库</h1>
-          <p>Technology Frontier Database</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-titles">
+        <h1>技术边界数据库</h1>
+        <p>Technology Frontier Intelligence</p>
+      </div>
+      <div class="header-meta" id="headerMeta"></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="检索标题、正文、分类、来源…" autocomplete="off" />
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head">
+          <span class="filter-title">分类</span>
+          <button class="filter-toggle" id="categoryToggle" type="button">展开 ▾</button>
         </div>
-      </header>
+        <input id="categorySearch" class="category-filter-input" type="text" placeholder="筛选分类…" autocomplete="off" />
+        <div class="category-tree" id="categoryTree"></div>
+      </div>
 
-      <section id="stats" class="stats"></section>
-
-      <section class="filter-group">
-        <label class="field-label" for="searchInput">全库检索</label>
-        <input id="searchInput" class="search-input" placeholder="搜索标题、正文、来源、分类、URL" autocomplete="off" />
-      </section>
-
-      <section class="filter-group drawer-control">
-        <button id="dateButton" class="drawer-button" type="button" aria-expanded="false">
-          <span>日期</span><strong id="dateLabel">全部日期</strong>
-        </button>
-        <div id="datePopover" class="drawer calendar-drawer">
-          <div class="calendar-head">
+      <div class="filter-block">
+        <div class="filter-head">
+          <span class="filter-title">日期</span>
+          <button class="filter-toggle" id="dateToggle" type="button">展开 ▾</button>
+        </div>
+        <div class="date-picker" id="datePicker">
+          <div class="calendar-nav">
             <button id="prevMonth" type="button">‹</button>
             <strong id="calendarTitle"></strong>
             <button id="nextMonth" type="button">›</button>
           </div>
           <div class="calendar-weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
           <div id="calendarGrid" class="calendar-grid"></div>
-          <button id="clearDate" class="clear-button" type="button">清除日期筛选</button>
+          <button id="clearDate" class="text-link" type="button">清除日期筛选</button>
         </div>
-      </section>
+      </div>
 
-      <section class="filter-group drawer-control">
-        <button id="categoryButton" class="drawer-button" type="button" aria-expanded="false">
-          <span>分类</span><strong id="categoryLabel">全部分类</strong>
-        </button>
-        <div id="categoryPopover" class="drawer category-drawer">
-          <input id="categorySearch" class="category-search" placeholder="搜索分类项" autocomplete="off" />
-          <div id="categoryList" class="category-list"></div>
-          <button id="clearCategory" class="clear-button" type="button">清除分类筛选</button>
-        </div>
-      </section>
-
-      <section class="filter-group">
-        <div class="field-label">情报类型</div>
+      <div class="filter-block">
+        <div class="filter-head"><span class="filter-title">类型</span></div>
         <div class="segmented" id="typeFilter">
           <button class="active" data-type="all" type="button">全部</button>
           <button data-type="news" type="button">新闻</button>
           <button data-type="literature" type="button">文献</button>
         </div>
-      </section>
+      </div>
 
-      <section class="filter-group">
-        <div class="field-label">是否预警</div>
+      <div class="filter-block">
+        <div class="filter-head"><span class="filter-title">预警</span></div>
         <div class="segmented" id="alertFilter">
           <button class="active" data-alert="all" type="button">全部</button>
           <button data-alert="yes" type="button">预警</button>
           <button data-alert="no" type="button">非预警</button>
         </div>
-      </section>
+      </div>
     </aside>
 
-    <main class="results-panel">
-      <header class="results-head">
-        <div>
-          <div class="eyebrow">INTELLIGENCE STREAM</div>
-          <h2>新闻 / 文献情报流</h2>
-          <p id="resultMeta">载入中</p>
-        </div>
-        <div class="page-controls">
-          <button id="prevPage" type="button">上一页</button>
-          <span id="pageLabel"></span>
-          <button id="nextPage" type="button">下一页</button>
-        </div>
-      </header>
-      <div id="activeFilters" class="active-filters"></div>
-      <section id="recordList" class="record-list" aria-live="polite">
-        <div class="loading-card">正在载入情报数据...</div>
+    <main class="content">
+      <div class="content-toolbar">
+        <div class="result-info"><span id="resultCount"></span></div>
+        <div class="active-chips" id="activeChips"></div>
+      </div>
+      <section id="recordList" class="record-list">
+        <div class="loading-hint">正在载入情报数据…</div>
       </section>
+      <div class="pagination">
+        <button id="prevPage" type="button">‹ 上一页</button>
+        <span id="pageLabel"></span>
+        <button id="nextPage" type="button">下一页 ›</button>
+      </div>
     </main>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>

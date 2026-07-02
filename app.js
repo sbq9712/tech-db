@@ -1,4 +1,5 @@
-const PAGE_SIZE = 80;
+const PAGE_SIZE = 50;
+
 const state = {
   manifest: null,
   records: [],
@@ -12,6 +13,7 @@ const state = {
   category: '',
   categoryQuery: '',
   calendarMonth: '',
+  collapsedGroups: new Set(),
 };
 
 const $ = (id) => document.getElementById(id);
@@ -27,6 +29,49 @@ function normalizeCategory(value) {
   return String(value || '').replaceAll('/', '-').replaceAll('（', '').replaceAll('）', '').replaceAll('(', '').replaceAll(')', '');
 }
 
+// Parse a category path like "零碳产业-能量循环-能源测-发电技术-光伏" into hierarchy
+function parseCategoryPath(cat) {
+  const parts = cat.replaceAll('-', '/').split('/');
+  return { top: parts[0], leaf: parts[parts.length - 1], full: cat.replaceAll('-', '/'), parts };
+}
+
+// Group categories by top-level domain
+function buildCategoryTree() {
+  const counts = new Map();
+  for (const item of state.records) {
+    const cat = item.category || '未分类';
+    counts.set(cat, (counts.get(cat) || 0) + 1);
+  }
+
+  const orderedCats = [];
+  const seen = new Set();
+  for (const path of state.categoryOrder) {
+    const normalized = normalizeCategory(path);
+    orderedCats.push(normalized);
+    seen.add(normalized);
+  }
+  for (const cat of counts.keys()) {
+    if (!seen.has(cat)) orderedCats.push(cat);
+  }
+
+  const q = state.categoryQuery.trim().toLowerCase();
+  const tree = {};
+  for (const cat of orderedCats) {
+    const count = counts.get(cat) || 0;
+    if (q && !cat.toLowerCase().includes(q) && !cat.replaceAll('-', '/').toLowerCase().includes(q)) continue;
+    const { top, full } = parseCategoryPath(cat);
+    if (!tree[top]) tree[top] = [];
+    tree[top].push({ cat, count, label: full });
+  }
+
+  // Compute group totals
+  const groupTotals = {};
+  for (const [top, leaves] of Object.entries(tree)) {
+    groupTotals[top] = leaves.reduce((sum, l) => sum + l.count, 0);
+  }
+  return { tree, groupTotals };
+}
+
 async function load() {
   state.manifest = await getJson('./data/processed/manifest.json');
   state.categoryOrder = (await getJson('./data/category-order.json').catch(() => ({ categories: [] }))).categories || [];
@@ -34,24 +79,20 @@ async function load() {
   state.records = shards.flatMap((payload) => payload.records || []);
   state.filtered = state.records;
   state.calendarMonth = (state.records[0]?.date || new Date().toISOString().slice(0, 10)).slice(0, 7);
+  renderHeader();
   bindEvents();
   applyFilters();
 }
 
-function categoryCounts() {
-  const counts = new Map();
-  for (const item of state.records) counts.set(item.category || '未分类', (counts.get(item.category || '未分类') || 0) + 1);
-  const aliases = new Map([...counts.keys()].map((cat) => [normalizeCategory(cat), cat]));
-  const ordered = [];
-  for (const path of state.categoryOrder) {
-    const normalized = normalizeCategory(path);
-    const actual = aliases.get(normalized) || path.replaceAll('/', '-');
-    ordered.push([actual, counts.get(actual) || 0]);
-  }
-  for (const entry of [...counts.entries()].sort((a, b) => b[1] - a[1])) {
-    if (!ordered.some(([cat]) => cat === entry[0])) ordered.push(entry);
-  }
-  return ordered;
+function renderHeader() {
+  const meta = state.manifest?.meta || {};
+  const newsCount = meta.records_by_type?.news || state.records.filter((i) => i.intelligence_type === 'news').length;
+  const litCount = meta.records_by_type?.literature || state.records.filter((i) => i.intelligence_type === 'literature').length;
+  $('headerMeta').innerHTML = `
+    <span>总计 <strong>${(meta.records_total || state.records.length).toLocaleString()}</strong></span>
+    <span>新闻 <strong>${newsCount.toLocaleString()}</strong></span>
+    <span>文献 <strong>${litCount.toLocaleString()}</strong></span>
+  `;
 }
 
 function availableDates() {
@@ -69,47 +110,29 @@ function applyFilters() {
     if (!q) return true;
     return [item.title, item.body, item.category, item.source, item.url, item.authors].join(' ').toLowerCase().includes(q);
   });
-  state.page = Math.min(state.page, Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)));
+  state.page = 1;
   render();
 }
 
 function render() {
-  renderStats();
-  renderLabels();
+  renderCategoryTree();
   renderCalendar();
-  renderCategoryList();
-  renderActiveFilters();
+  renderToolbar();
   renderRecords();
 }
 
-function renderStats() {
-  const meta = state.manifest?.meta || {};
-  const alerts = state.records.filter((item) => item.is_alert).length;
-  const cards = [
-    ['总情报', meta.records_total || state.records.length],
-    ['新闻', meta.records_by_type?.news || state.records.filter((i) => i.intelligence_type === 'news').length],
-    ['文献', meta.records_by_type?.literature || state.records.filter((i) => i.intelligence_type === 'literature').length],
-    ['预警', alerts],
-  ];
-  $('stats').innerHTML = cards.map(([label, value]) => `<div class="stat-card"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`).join('');
-}
+function renderToolbar() {
+  $('resultCount').innerHTML = `显示 <strong>${state.filtered.length.toLocaleString()}</strong> 条 / 共 ${state.records.length.toLocaleString()} 条`;
 
-function renderLabels() {
-  $('dateLabel').textContent = state.date || '全部日期';
-  $('categoryLabel').textContent = state.category || '全部分类';
-  $('resultMeta').textContent = `筛选结果 ${state.filtered.length} 条 / 全库 ${state.records.length} 条`;
-}
-
-function renderActiveFilters() {
   const chips = [];
-  if (state.query.trim()) chips.push(['检索', state.query.trim(), 'query']);
-  if (state.date) chips.push(['日期', state.date, 'date']);
-  if (state.category) chips.push(['分类', state.category, 'category']);
-  if (state.type !== 'all') chips.push(['类型', state.type === 'news' ? '新闻' : '文献', 'type']);
-  if (state.alert !== 'all') chips.push(['预警', state.alert === 'yes' ? '预警' : '非预警', 'alert']);
-  $('activeFilters').innerHTML = chips.length
-    ? chips.map(([label, value, key]) => `<button class="filter-chip" data-clear="${key}" type="button"><span>${esc(label)}</span>${esc(value)} ×</button>`).join('')
-    : '<span class="filter-hint">当前显示全部日期、全部分类、全部类型。</span>';
+  if (state.query.trim()) chips.push({ label: '检索', value: state.query.trim(), key: 'query' });
+  if (state.date) chips.push({ label: '日期', value: state.date, key: 'date' });
+  if (state.category) chips.push({ label: '分类', value: state.category.replaceAll('-', ' / '), key: 'category' });
+  if (state.type !== 'all') chips.push({ label: '类型', value: state.type === 'news' ? '新闻' : '文献', key: 'type' });
+  if (state.alert !== 'all') chips.push({ label: '预警', value: state.alert === 'yes' ? '预警' : '非预警', key: 'alert' });
+  $('activeChips').innerHTML = chips.length
+    ? chips.map((c) => `<button class="chip" data-clear="${c.key}" type="button">${esc(c.label)}: ${esc(c.value)} ×</button>`).join('')
+    : '';
 }
 
 function renderCalendar() {
@@ -120,30 +143,59 @@ function renderCalendar() {
   const offset = (first.getDay() + 6) % 7;
   $('calendarTitle').textContent = `${year} 年 ${String(month).padStart(2, '0')} 月`;
   const cells = [];
-  for (let i = 0; i < offset; i += 1) cells.push('<button class="day-button empty" type="button"></button>');
-  for (let day = 1; day <= last.getDate(); day += 1) {
+  for (let i = 0; i < offset; i++) cells.push('<div class="cal-day empty"></div>');
+  for (let day = 1; day <= last.getDate(); day++) {
     const date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     const hasData = dates.has(date);
-    cells.push(`<button class="day-button ${hasData ? 'has-data' : ''} ${state.date === date ? 'active' : ''}" data-date="${date}" type="button" ${hasData ? '' : 'disabled'}>${day}</button>`);
+    cells.push(`<div class="cal-day ${hasData ? 'available' : ''} ${state.date === date ? 'active' : ''}" data-date="${date}">${day}</div>`);
   }
   $('calendarGrid').innerHTML = cells.join('');
 }
 
-function renderCategoryList() {
-  const q = state.categoryQuery.trim().toLowerCase();
-  const rows = categoryCounts().filter(([cat]) => !q || cat.toLowerCase().includes(q) || normalizeCategory(cat).toLowerCase().includes(q));
-  $('categoryList').innerHTML = rows.map(([cat, count]) => `<button class="category-option ${state.category === cat ? 'active' : ''}" data-category="${esc(cat)}" type="button"><span>${esc(cat.replaceAll('-', '/'))}</span><span>${count}</span></button>`).join('');
+function renderCategoryTree() {
+  const { tree, groupTotals } = buildCategoryTree();
+  const groupOrder = ['零碳产业', 'AI与智能科技', '通用技术', '不相关', '未分类'];
+  const allGroups = [...Object.keys(tree)].sort((a, b) => {
+    const ia = groupOrder.indexOf(a);
+    const ib = groupOrder.indexOf(b);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+
+  const html = allGroups.map((group) => {
+    const leaves = tree[group];
+    if (!leaves || !leaves.length) return '';
+    const collapsed = state.collapsedGroups.has(group);
+    const leavesHtml = leaves.map(({ cat, count, label }) => {
+      const isActive = state.category === cat;
+      const shortLabel = label.split('/').slice(1).join(' / ') || label;
+      return `<div class="tree-leaf ${isActive ? 'active' : ''}" data-category="${esc(cat)}">
+        <span>${esc(shortLabel)}</span>
+        <span class="leaf-count">${count}</span>
+      </div>`;
+    }).join('');
+
+    return `<div class="tree-group ${collapsed ? 'collapsed' : ''}" data-group="${esc(group)}">
+      <div class="tree-group-head">
+        <span><span class="group-arrow">▾</span> ${esc(group)}</span>
+        <span class="group-count">${groupTotals[group]}</span>
+      </div>
+      <div class="tree-children">${leavesHtml}</div>
+    </div>`;
+  }).join('');
+
+  $('categoryTree').innerHTML = html || '<div style="padding:12px;color:var(--text-muted);font-size:12px;">无匹配分类</div>';
 }
 
 function renderRecords() {
   const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE));
+  state.page = Math.min(state.page, pages);
   const start = (state.page - 1) * PAGE_SIZE;
   const rows = state.filtered.slice(start, start + PAGE_SIZE);
-  $('pageLabel').textContent = `${state.page} / ${pages}`;
+  $('pageLabel').textContent = `第 ${state.page} / ${pages} 页`;
   $('prevPage').disabled = state.page <= 1;
   $('nextPage').disabled = state.page >= pages;
   if (!rows.length) {
-    $('recordList').innerHTML = '<div class="empty-state"><strong>没有匹配情报</strong><span>请清除部分筛选条件，或换一个关键词。</span></div>';
+    $('recordList').innerHTML = '<div class="empty-hint"><strong>没有匹配的情报</strong>请清除部分筛选条件或更换关键词。</div>';
     return;
   }
   $('recordList').innerHTML = rows.map(renderRecordCard).join('');
@@ -151,46 +203,35 @@ function renderRecords() {
 
 function renderRecordCard(item) {
   const typeLabel = item.intelligence_type === 'literature' ? '文献' : '新闻';
-  const url = item.url ? `<a class="source-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">原文</a>` : '';
-  const summary = (item.body || '').slice(0, 240) || '无正文摘要';
+  const typeClass = item.intelligence_type === 'literature' ? 'literature' : 'news';
+  const url = item.url ? `<a href="${esc(item.url)}" target="_blank" rel="noreferrer">原文 ↗</a>` : '';
+  const summary = (item.body || '').slice(0, 300) || '无正文摘要';
+  const cat = (item.category || '未分类').replaceAll('-', ' / ');
+  const isUnrelated = (item.category || '') === '不相关';
   return `<article class="record-card">
-    <div class="record-topline">
-      <span class="date-chip">${esc(item.date || '未知')}</span>
-      <span class="spacer"></span>
-      ${item.is_alert ? '<span class="badge warn">预警</span>' : ''}
-      <span class="badge ${item.intelligence_type === 'literature' ? 'lit' : ''}">${typeLabel}</span>
+    <div class="record-meta-line">
+      <span>${esc(item.date || '未知日期')}</span>
+      <span class="type-tag ${typeClass}">${typeLabel}</span>
+      ${item.is_alert ? '<span class="type-tag" style="color:var(--warn);background:var(--warn-light)">预警</span>' : ''}
     </div>
-    <div class="record-title-row"><h3>${esc(item.title || '未命名情报')}</h3>${url}</div>
+    <div class="record-title">
+      <h3>${esc(item.title || '未命名情报')}</h3>
+      ${url}
+    </div>
     <p class="record-summary">${esc(summary)}</p>
-    <div class="record-foot"><div class="badges"><span class="badge category">${esc((item.category || '未分类').replaceAll('-', '/'))}</span></div></div>
+    <div class="record-footer">
+      <span class="cat-badge ${isUnrelated ? 'unrelated' : ''}">${esc(cat)}</span>
+    </div>
   </article>`;
 }
 
-function toggleDrawer(id, buttonId) {
-  document.querySelectorAll('.drawer').forEach((node) => { if (node.id !== id) node.classList.remove('open'); });
-  const drawer = $(id);
-  drawer.classList.toggle('open');
-  document.querySelectorAll('.drawer-button').forEach((button) => button.setAttribute('aria-expanded', 'false'));
-  $(buttonId).setAttribute('aria-expanded', drawer.classList.contains('open') ? 'true' : 'false');
-}
-
-function closeDrawers() {
-  document.querySelectorAll('.drawer').forEach((node) => node.classList.remove('open'));
-  document.querySelectorAll('.drawer-button').forEach((button) => button.setAttribute('aria-expanded', 'false'));
-}
-
-function bindEvents() {
-  $('searchInput').addEventListener('input', (event) => { state.query = event.target.value; state.page = 1; applyFilters(); });
-  $('dateButton').addEventListener('click', () => toggleDrawer('datePopover', 'dateButton'));
-  $('categoryButton').addEventListener('click', () => toggleDrawer('categoryPopover', 'categoryButton'));
-  $('clearDate').addEventListener('click', () => { state.date = ''; state.page = 1; closeDrawers(); applyFilters(); });
-  $('clearCategory').addEventListener('click', () => { state.category = ''; state.page = 1; closeDrawers(); applyFilters(); });
-  $('categorySearch').addEventListener('input', (event) => { state.categoryQuery = event.target.value; renderCategoryList(); });
-  $('prevMonth').addEventListener('click', () => shiftMonth(-1));
-  $('nextMonth').addEventListener('click', () => shiftMonth(1));
-  $('prevPage').addEventListener('click', () => { if (state.page > 1) { state.page -= 1; renderRecords(); } });
-  $('nextPage').addEventListener('click', () => { const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)); if (state.page < pages) { state.page += 1; renderRecords(); } });
-  document.addEventListener('click', handleDocumentClick);
+function clearFilter(key) {
+  if (key === 'query') { state.query = ''; $('searchInput').value = ''; }
+  if (key === 'date') state.date = '';
+  if (key === 'category') state.category = '';
+  if (key === 'type') { state.type = 'all'; document.querySelectorAll('[data-type]').forEach((b) => b.classList.toggle('active', b.dataset.type === 'all')); }
+  if (key === 'alert') { state.alert = 'all'; document.querySelectorAll('[data-alert]').forEach((b) => b.classList.toggle('active', b.dataset.alert === 'all')); }
+  applyFilters();
 }
 
 function shiftMonth(delta) {
@@ -200,29 +241,77 @@ function shiftMonth(delta) {
   renderCalendar();
 }
 
-function clearFilter(key) {
-  if (key === 'query') { state.query = ''; $('searchInput').value = ''; }
-  if (key === 'date') state.date = '';
-  if (key === 'category') state.category = '';
-  if (key === 'type') { state.type = 'all'; document.querySelectorAll('[data-type]').forEach((button) => button.classList.toggle('active', button.dataset.type === 'all')); }
-  if (key === 'alert') { state.alert = 'all'; document.querySelectorAll('[data-alert]').forEach((button) => button.classList.toggle('active', button.dataset.alert === 'all')); }
-  state.page = 1;
-  applyFilters();
-}
+function bindEvents() {
+  $('searchInput').addEventListener('input', (e) => { state.query = e.target.value; applyFilters(); });
+  $('categorySearch').addEventListener('input', (e) => { state.categoryQuery = e.target.value; renderCategoryTree(); });
+  $('clearDate').addEventListener('click', () => { state.date = ''; applyFilters(); });
+  $('prevMonth').addEventListener('click', () => shiftMonth(-1));
+  $('nextMonth').addEventListener('click', () => shiftMonth(1));
+  $('prevPage').addEventListener('click', () => { if (state.page > 1) { state.page -= 1; renderRecords(); } });
+  $('nextPage').addEventListener('click', () => { const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)); if (state.page < pages) { state.page += 1; renderRecords(); } });
 
-function handleDocumentClick(event) {
-  const clear = event.target.closest('[data-clear]');
-  if (clear) { clearFilter(clear.dataset.clear); return; }
-  const dateButton = event.target.closest('[data-date]');
-  if (dateButton) { state.date = dateButton.dataset.date; state.page = 1; closeDrawers(); applyFilters(); return; }
-  const categoryButton = event.target.closest('.category-option[data-category]');
-  if (categoryButton) { state.category = categoryButton.dataset.category; state.page = 1; closeDrawers(); applyFilters(); return; }
-  const typeButton = event.target.closest('[data-type]');
-  if (typeButton) { state.type = typeButton.dataset.type; state.page = 1; document.querySelectorAll('[data-type]').forEach((button) => button.classList.toggle('active', button === typeButton)); applyFilters(); return; }
-  const alertButton = event.target.closest('[data-alert]');
-  if (alertButton) { state.alert = alertButton.dataset.alert; state.page = 1; document.querySelectorAll('[data-alert]').forEach((button) => button.classList.toggle('active', button === alertButton)); applyFilters(); }
+  // Filter toggles
+  $('categoryToggle').addEventListener('click', () => {
+    const el = $('categoryTree').parentElement;
+    const input = $('categorySearch');
+    const hidden = el.style.display === 'none';
+    el.style.display = hidden ? '' : 'none';
+    input.style.display = hidden ? '' : 'none';
+    $('categoryToggle').textContent = hidden ? '收起 ▴' : '展开 ▾';
+  });
+  $('dateToggle').addEventListener('click', () => {
+    const el = $('datePicker');
+    const hidden = el.style.display === 'none';
+    el.style.display = hidden ? '' : 'none';
+    $('dateToggle').textContent = hidden ? '收起 ▴' : '展开 ▾';
+  });
+
+  document.addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-clear]');
+    if (chip) { clearFilter(chip.dataset.clear); return; }
+
+    const dateCell = e.target.closest('[data-date]');
+    if (dateCell && dateCell.classList.contains('available')) {
+      state.date = dateCell.dataset.date;
+      applyFilters();
+      return;
+    }
+
+    const leaf = e.target.closest('.tree-leaf[data-category]');
+    if (leaf) {
+      state.category = state.category === leaf.dataset.category ? '' : leaf.dataset.category;
+      renderCategoryTree();
+      applyFilters();
+      return;
+    }
+
+    const groupHead = e.target.closest('.tree-group-head');
+    if (groupHead) {
+      const group = groupHead.parentElement.dataset.group;
+      if (state.collapsedGroups.has(group)) state.collapsedGroups.delete(group);
+      else state.collapsedGroups.add(group);
+      renderCategoryTree();
+      return;
+    }
+
+    const typeBtn = e.target.closest('[data-type]');
+    if (typeBtn) {
+      state.type = typeBtn.dataset.type;
+      document.querySelectorAll('[data-type]').forEach((b) => b.classList.toggle('active', b === typeBtn));
+      applyFilters();
+      return;
+    }
+
+    const alertBtn = e.target.closest('[data-alert]');
+    if (alertBtn) {
+      state.alert = alertBtn.dataset.alert;
+      document.querySelectorAll('[data-alert]').forEach((b) => b.classList.toggle('active', b === alertBtn));
+      applyFilters();
+      return;
+    }
+  });
 }
 
 load().catch((error) => {
-  document.body.innerHTML = `<main class="results-panel"><div class="empty-state"><strong>页面载入失败</strong><span>${esc(error.message)}</span></div></main>`;
+  document.body.innerHTML = `<main class="content"><div class="empty-hint"><strong>页面载入失败</strong>${esc(error.message)}</div></main>`;
 });
