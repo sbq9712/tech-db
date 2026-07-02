@@ -29,27 +29,10 @@
       <div class="filter-block">
         <div class="filter-head">
           <span class="filter-title">分类</span>
-          <button class="filter-toggle" id="categoryToggle" type="button">展开 ▾</button>
+          <button class="filter-clear" id="clearCategoryBtn" type="button" style="display:none">清除</button>
         </div>
         <input id="categorySearch" class="category-filter-input" type="text" placeholder="筛选分类…" autocomplete="off" />
         <div class="category-tree" id="categoryTree"></div>
-      </div>
-
-      <div class="filter-block">
-        <div class="filter-head">
-          <span class="filter-title">日期</span>
-          <button class="filter-toggle" id="dateToggle" type="button">展开 ▾</button>
-        </div>
-        <div class="date-picker" id="datePicker">
-          <div class="calendar-nav">
-            <button id="prevMonth" type="button">‹</button>
-            <strong id="calendarTitle"></strong>
-            <button id="nextMonth" type="button">›</button>
-          </div>
-          <div class="calendar-weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-          <div id="calendarGrid" class="calendar-grid"></div>
-          <button id="clearDate" class="text-link" type="button">清除日期筛选</button>
-        </div>
       </div>
 
       <div class="filter-block">
@@ -73,9 +56,37 @@
 
     <main class="content">
       <div class="content-toolbar">
+        <div class="toolbar-left">
+          <button class="date-trigger" id="dateTrigger" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span id="dateLabel">全部日期</span>
+            <span class="caret">▾</span>
+          </button>
+          <div class="date-popover" id="datePopover">
+            <div class="date-range-row">
+              <label>
+                <span>从</span>
+                <input type="date" id="dateFrom" />
+              </label>
+              <label>
+                <span>至</span>
+                <input type="date" id="dateTo" />
+              </label>
+            </div>
+            <div class="date-quick">
+              <button data-quick="today" type="button">今天</button>
+              <button data-quick="7d" type="button">近7天</button>
+              <button data-quick="30d" type="button">近30天</button>
+              <button data-quick="all" type="button">全部</button>
+            </div>
+            <button class="date-clear-btn" id="clearDateBtn" type="button">清除日期筛选</button>
+          </div>
+        </div>
         <div class="result-info"><span id="resultCount"></span></div>
-        <div class="active-chips" id="activeChips"></div>
       </div>
+
+      <div class="active-chips" id="activeChips"></div>
+
       <section id="recordList" class="record-list">
         <div class="loading-hint">正在载入情报数据…</div>
       </section>

@@ -1,4 +1,4 @@
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 40;
 
 const state = {
   manifest: null,
@@ -7,13 +7,14 @@ const state = {
   categoryOrder: [],
   page: 1,
   query: '',
-  date: '',
+  dateFrom: '',
+  dateTo: '',
   type: 'all',
   alert: 'all',
   category: '',
   categoryQuery: '',
-  calendarMonth: '',
   collapsedGroups: new Set(),
+  datePopoverOpen: false,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -29,20 +30,17 @@ function normalizeCategory(value) {
   return String(value || '').replaceAll('/', '-').replaceAll('（', '').replaceAll('）', '').replaceAll('(', '').replaceAll(')', '');
 }
 
-// Parse a category path like "零碳产业-能量循环-能源测-发电技术-光伏" into hierarchy
 function parseCategoryPath(cat) {
   const parts = cat.replaceAll('-', '/').split('/');
   return { top: parts[0], leaf: parts[parts.length - 1], full: cat.replaceAll('-', '/'), parts };
 }
 
-// Group categories by top-level domain
 function buildCategoryTree() {
   const counts = new Map();
   for (const item of state.records) {
     const cat = item.category || '未分类';
     counts.set(cat, (counts.get(cat) || 0) + 1);
   }
-
   const orderedCats = [];
   const seen = new Set();
   for (const path of state.categoryOrder) {
@@ -50,9 +48,7 @@ function buildCategoryTree() {
     orderedCats.push(normalized);
     seen.add(normalized);
   }
-  for (const cat of counts.keys()) {
-    if (!seen.has(cat)) orderedCats.push(cat);
-  }
+  for (const cat of counts.keys()) if (!seen.has(cat)) orderedCats.push(cat);
 
   const q = state.categoryQuery.trim().toLowerCase();
   const tree = {};
@@ -63,13 +59,14 @@ function buildCategoryTree() {
     if (!tree[top]) tree[top] = [];
     tree[top].push({ cat, count, label: full });
   }
-
-  // Compute group totals
   const groupTotals = {};
-  for (const [top, leaves] of Object.entries(tree)) {
-    groupTotals[top] = leaves.reduce((sum, l) => sum + l.count, 0);
-  }
+  for (const [top, leaves] of Object.entries(tree)) groupTotals[top] = leaves.reduce((s, l) => s + l.count, 0);
   return { tree, groupTotals };
+}
+
+function getLatestDate() {
+  const dates = [...new Set(state.records.map((r) => r.date).filter(Boolean))].sort();
+  return dates[dates.length - 1] || '';
 }
 
 async function load() {
@@ -78,7 +75,16 @@ async function load() {
   const shards = await Promise.all(state.manifest.shards.map((s) => getJson('./' + s.path)));
   state.records = shards.flatMap((payload) => payload.records || []);
   state.filtered = state.records;
-  state.calendarMonth = (state.records[0]?.date || new Date().toISOString().slice(0, 10)).slice(0, 7);
+
+  // Auto-select the latest date with intelligence
+  const latest = getLatestDate();
+  if (latest) {
+    state.dateFrom = latest;
+    state.dateTo = latest;
+    $('dateFrom').value = latest;
+    $('dateTo').value = latest;
+  }
+
   renderHeader();
   bindEvents();
   applyFilters();
@@ -95,14 +101,11 @@ function renderHeader() {
   `;
 }
 
-function availableDates() {
-  return new Set(state.records.map((item) => item.date).filter(Boolean));
-}
-
 function applyFilters() {
   const q = state.query.trim().toLowerCase();
   state.filtered = state.records.filter((item) => {
-    if (state.date && item.date !== state.date) return false;
+    if (state.dateFrom && (!item.date || item.date < state.dateFrom)) return false;
+    if (state.dateTo && (!item.date || item.date > state.dateTo)) return false;
     if (state.category && item.category !== state.category) return false;
     if (state.type !== 'all' && item.intelligence_type !== state.type) return false;
     if (state.alert === 'yes' && !item.is_alert) return false;
@@ -111,56 +114,54 @@ function applyFilters() {
     return [item.title, item.body, item.category, item.source, item.url, item.authors].join(' ').toLowerCase().includes(q);
   });
   state.page = 1;
-  render();
+  renderAll();
 }
 
-function render() {
+function renderAll() {
+  renderDateLabel();
   renderCategoryTree();
-  renderCalendar();
   renderToolbar();
   renderRecords();
 }
 
+function renderDateLabel() {
+  const trigger = $('dateTrigger');
+  if (!state.dateFrom && !state.dateTo) {
+    $('dateLabel').textContent = '全部日期';
+    trigger.classList.remove('active');
+  } else if (state.dateFrom && state.dateTo && state.dateFrom === state.dateTo) {
+    $('dateLabel').textContent = state.dateFrom;
+    trigger.classList.add('active');
+  } else {
+    $('dateLabel').textContent = `${state.dateFrom || '…'} → ${state.dateTo || '…'}`;
+    trigger.classList.add('active');
+  }
+}
+
 function renderToolbar() {
   $('resultCount').innerHTML = `显示 <strong>${state.filtered.length.toLocaleString()}</strong> 条 / 共 ${state.records.length.toLocaleString()} 条`;
-
   const chips = [];
   if (state.query.trim()) chips.push({ label: '检索', value: state.query.trim(), key: 'query' });
-  if (state.date) chips.push({ label: '日期', value: state.date, key: 'date' });
+  if (state.dateFrom || state.dateTo) {
+    let dv = state.dateFrom === state.dateTo ? state.dateFrom : `${state.dateFrom || '…'} ~ ${state.dateTo || '…'}`;
+    chips.push({ label: '日期', value: dv, key: 'date' });
+  }
   if (state.category) chips.push({ label: '分类', value: state.category.replaceAll('-', ' / '), key: 'category' });
   if (state.type !== 'all') chips.push({ label: '类型', value: state.type === 'news' ? '新闻' : '文献', key: 'type' });
   if (state.alert !== 'all') chips.push({ label: '预警', value: state.alert === 'yes' ? '预警' : '非预警', key: 'alert' });
   $('activeChips').innerHTML = chips.length
     ? chips.map((c) => `<button class="chip" data-clear="${c.key}" type="button">${esc(c.label)}: ${esc(c.value)} ×</button>`).join('')
     : '';
-}
-
-function renderCalendar() {
-  const dates = availableDates();
-  const [year, month] = state.calendarMonth.split('-').map(Number);
-  const first = new Date(year, month - 1, 1);
-  const last = new Date(year, month, 0);
-  const offset = (first.getDay() + 6) % 7;
-  $('calendarTitle').textContent = `${year} 年 ${String(month).padStart(2, '0')} 月`;
-  const cells = [];
-  for (let i = 0; i < offset; i++) cells.push('<div class="cal-day empty"></div>');
-  for (let day = 1; day <= last.getDate(); day++) {
-    const date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    const hasData = dates.has(date);
-    cells.push(`<div class="cal-day ${hasData ? 'available' : ''} ${state.date === date ? 'active' : ''}" data-date="${date}">${day}</div>`);
-  }
-  $('calendarGrid').innerHTML = cells.join('');
+  $('clearCategoryBtn').style.display = state.category ? '' : 'none';
 }
 
 function renderCategoryTree() {
   const { tree, groupTotals } = buildCategoryTree();
   const groupOrder = ['零碳产业', 'AI与智能科技', '通用技术', '不相关', '未分类'];
   const allGroups = [...Object.keys(tree)].sort((a, b) => {
-    const ia = groupOrder.indexOf(a);
-    const ib = groupOrder.indexOf(b);
+    const ia = groupOrder.indexOf(a), ib = groupOrder.indexOf(b);
     return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
   });
-
   const html = allGroups.map((group) => {
     const leaves = tree[group];
     if (!leaves || !leaves.length) return '';
@@ -168,21 +169,13 @@ function renderCategoryTree() {
     const leavesHtml = leaves.map(({ cat, count, label }) => {
       const isActive = state.category === cat;
       const shortLabel = label.split('/').slice(1).join(' / ') || label;
-      return `<div class="tree-leaf ${isActive ? 'active' : ''}" data-category="${esc(cat)}">
-        <span>${esc(shortLabel)}</span>
-        <span class="leaf-count">${count}</span>
-      </div>`;
+      return `<div class="tree-leaf ${isActive ? 'active' : ''}" data-category="${esc(cat)}"><span>${esc(shortLabel)}</span><span class="leaf-count">${count}</span></div>`;
     }).join('');
-
     return `<div class="tree-group ${collapsed ? 'collapsed' : ''}" data-group="${esc(group)}">
-      <div class="tree-group-head">
-        <span><span class="group-arrow">▾</span> ${esc(group)}</span>
-        <span class="group-count">${groupTotals[group]}</span>
-      </div>
+      <div class="tree-group-head"><span><span class="group-arrow">▾</span> ${esc(group)}</span><span class="group-count">${groupTotals[group]}</span></div>
       <div class="tree-children">${leavesHtml}</div>
     </div>`;
   }).join('');
-
   $('categoryTree').innerHTML = html || '<div style="padding:12px;color:var(--text-muted);font-size:12px;">无匹配分类</div>';
 }
 
@@ -212,70 +205,70 @@ function renderRecordCard(item) {
     <div class="record-meta-line">
       <span>${esc(item.date || '未知日期')}</span>
       <span class="type-tag ${typeClass}">${typeLabel}</span>
-      ${item.is_alert ? '<span class="type-tag" style="color:var(--warn);background:var(--warn-light)">预警</span>' : ''}
+      ${item.is_alert ? '<span class="type-tag alert">预警</span>' : ''}
     </div>
-    <div class="record-title">
-      <h3>${esc(item.title || '未命名情报')}</h3>
-      ${url}
-    </div>
+    <div class="record-title"><h3>${esc(item.title || '未命名情报')}</h3>${url}</div>
     <p class="record-summary">${esc(summary)}</p>
-    <div class="record-footer">
-      <span class="cat-badge ${isUnrelated ? 'unrelated' : ''}">${esc(cat)}</span>
-    </div>
+    <div class="record-footer"><span class="cat-badge ${isUnrelated ? 'unrelated' : ''}">${esc(cat)}</span></div>
   </article>`;
 }
 
 function clearFilter(key) {
   if (key === 'query') { state.query = ''; $('searchInput').value = ''; }
-  if (key === 'date') state.date = '';
+  if (key === 'date') { state.dateFrom = ''; state.dateTo = ''; $('dateFrom').value = ''; $('dateTo').value = ''; }
   if (key === 'category') state.category = '';
   if (key === 'type') { state.type = 'all'; document.querySelectorAll('[data-type]').forEach((b) => b.classList.toggle('active', b.dataset.type === 'all')); }
   if (key === 'alert') { state.alert = 'all'; document.querySelectorAll('[data-alert]').forEach((b) => b.classList.toggle('active', b.dataset.alert === 'all')); }
   applyFilters();
 }
 
-function shiftMonth(delta) {
-  const [year, month] = state.calendarMonth.split('-').map(Number);
-  const next = new Date(year, month - 1 + delta, 1);
-  state.calendarMonth = `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, '0')}`;
-  renderCalendar();
+function toggleDatePopover() {
+  state.datePopoverOpen = !state.datePopoverOpen;
+  $('datePopover').classList.toggle('open', state.datePopoverOpen);
+}
+
+function setQuickDate(type) {
+  const today = new Date();
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  if (type === 'today') { state.dateFrom = fmt(today); state.dateTo = fmt(today); }
+  else if (type === '7d') {
+    const past = new Date(today); past.setDate(past.getDate() - 6);
+    state.dateFrom = fmt(past); state.dateTo = fmt(today);
+  } else if (type === '30d') {
+    const past = new Date(today); past.setDate(past.getDate() - 29);
+    state.dateFrom = fmt(past); state.dateTo = fmt(today);
+  } else { state.dateFrom = ''; state.dateTo = ''; }
+  $('dateFrom').value = state.dateFrom;
+  $('dateTo').value = state.dateTo;
+  applyFilters();
 }
 
 function bindEvents() {
   $('searchInput').addEventListener('input', (e) => { state.query = e.target.value; applyFilters(); });
   $('categorySearch').addEventListener('input', (e) => { state.categoryQuery = e.target.value; renderCategoryTree(); });
-  $('clearDate').addEventListener('click', () => { state.date = ''; applyFilters(); });
-  $('prevMonth').addEventListener('click', () => shiftMonth(-1));
-  $('nextMonth').addEventListener('click', () => shiftMonth(1));
+  $('clearCategoryBtn').addEventListener('click', () => clearFilter('category'));
+
+  // Date popover
+  $('dateTrigger').addEventListener('click', (e) => { e.stopPropagation(); toggleDatePopover(); });
+  $('dateFrom').addEventListener('change', (e) => { state.dateFrom = e.target.value; applyFilters(); });
+  $('dateTo').addEventListener('change', (e) => { state.dateTo = e.target.value; applyFilters(); });
+  $('clearDateBtn').addEventListener('click', () => clearFilter('date'));
+  document.querySelectorAll('.date-quick button').forEach((btn) => {
+    btn.addEventListener('click', () => setQuickDate(btn.dataset.quick));
+  });
+
   $('prevPage').addEventListener('click', () => { if (state.page > 1) { state.page -= 1; renderRecords(); } });
   $('nextPage').addEventListener('click', () => { const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)); if (state.page < pages) { state.page += 1; renderRecords(); } });
 
-  // Filter toggles
-  $('categoryToggle').addEventListener('click', () => {
-    const el = $('categoryTree').parentElement;
-    const input = $('categorySearch');
-    const hidden = el.style.display === 'none';
-    el.style.display = hidden ? '' : 'none';
-    input.style.display = hidden ? '' : 'none';
-    $('categoryToggle').textContent = hidden ? '收起 ▴' : '展开 ▾';
-  });
-  $('dateToggle').addEventListener('click', () => {
-    const el = $('datePicker');
-    const hidden = el.style.display === 'none';
-    el.style.display = hidden ? '' : 'none';
-    $('dateToggle').textContent = hidden ? '收起 ▴' : '展开 ▾';
-  });
-
   document.addEventListener('click', (e) => {
+    // Close date popover on outside click
+    if (state.datePopoverOpen && !e.target.closest('#datePopover') && !e.target.closest('#dateTrigger')) {
+      state.datePopoverOpen = false;
+      $('datePopover').classList.remove('open');
+    }
+
     const chip = e.target.closest('[data-clear]');
     if (chip) { clearFilter(chip.dataset.clear); return; }
-
-    const dateCell = e.target.closest('[data-date]');
-    if (dateCell && dateCell.classList.contains('available')) {
-      state.date = dateCell.dataset.date;
-      applyFilters();
-      return;
-    }
 
     const leaf = e.target.closest('.tree-leaf[data-category]');
     if (leaf) {
