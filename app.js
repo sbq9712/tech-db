@@ -14,7 +14,6 @@ const state = {
   category: '',
   categoryQuery: '',
   collapsedGroups: new Set(),
-  datePopoverOpen: false,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -32,7 +31,7 @@ function normalizeCategory(value) {
 
 function parseCategoryPath(cat) {
   const parts = cat.replaceAll('-', '/').split('/');
-  return { top: parts[0], leaf: parts[parts.length - 1], full: cat.replaceAll('-', '/'), parts };
+  return { top: parts[0], full: cat.replaceAll('-', '/') };
 }
 
 function buildCategoryTree() {
@@ -76,7 +75,7 @@ async function load() {
   state.records = shards.flatMap((payload) => payload.records || []);
   state.filtered = state.records;
 
-  // Auto-select the latest date with intelligence
+  // Auto-select latest date
   const latest = getLatestDate();
   if (latest) {
     state.dateFrom = latest;
@@ -118,24 +117,9 @@ function applyFilters() {
 }
 
 function renderAll() {
-  renderDateLabel();
   renderCategoryTree();
   renderToolbar();
   renderRecords();
-}
-
-function renderDateLabel() {
-  const trigger = $('dateTrigger');
-  if (!state.dateFrom && !state.dateTo) {
-    $('dateLabel').textContent = '全部日期';
-    trigger.classList.remove('active');
-  } else if (state.dateFrom && state.dateTo && state.dateFrom === state.dateTo) {
-    $('dateLabel').textContent = state.dateFrom;
-    trigger.classList.add('active');
-  } else {
-    $('dateLabel').textContent = `${state.dateFrom || '…'} → ${state.dateTo || '…'}`;
-    trigger.classList.add('active');
-  }
 }
 
 function renderToolbar() {
@@ -153,6 +137,7 @@ function renderToolbar() {
     ? chips.map((c) => `<button class="chip" data-clear="${c.key}" type="button">${esc(c.label)}: ${esc(c.value)} ×</button>`).join('')
     : '';
   $('clearCategoryBtn').style.display = state.category ? '' : 'none';
+  $('clearDateBtn').style.display = (state.dateFrom || state.dateTo) ? '' : 'none';
 }
 
 function renderCategoryTree() {
@@ -176,7 +161,7 @@ function renderCategoryTree() {
       <div class="tree-children">${leavesHtml}</div>
     </div>`;
   }).join('');
-  $('categoryTree').innerHTML = html || '<div style="padding:12px;color:var(--text-muted);font-size:12px;">无匹配分类</div>';
+  $('categoryTree').innerHTML = html || '<div style="padding:12px;color:var(--text-quaternary);font-size:12px;">无匹配分类</div>';
 }
 
 function renderRecords() {
@@ -222,11 +207,6 @@ function clearFilter(key) {
   applyFilters();
 }
 
-function toggleDatePopover() {
-  state.datePopoverOpen = !state.datePopoverOpen;
-  $('datePopover').classList.toggle('open', state.datePopoverOpen);
-}
-
 function setQuickDate(type) {
   const today = new Date();
   const fmt = (d) => d.toISOString().slice(0, 10);
@@ -247,26 +227,16 @@ function bindEvents() {
   $('searchInput').addEventListener('input', (e) => { state.query = e.target.value; applyFilters(); });
   $('categorySearch').addEventListener('input', (e) => { state.categoryQuery = e.target.value; renderCategoryTree(); });
   $('clearCategoryBtn').addEventListener('click', () => clearFilter('category'));
-
-  // Date popover
-  $('dateTrigger').addEventListener('click', (e) => { e.stopPropagation(); toggleDatePopover(); });
+  $('clearDateBtn').addEventListener('click', () => clearFilter('date'));
   $('dateFrom').addEventListener('change', (e) => { state.dateFrom = e.target.value; applyFilters(); });
   $('dateTo').addEventListener('change', (e) => { state.dateTo = e.target.value; applyFilters(); });
-  $('clearDateBtn').addEventListener('click', () => clearFilter('date'));
   document.querySelectorAll('.date-quick button').forEach((btn) => {
     btn.addEventListener('click', () => setQuickDate(btn.dataset.quick));
   });
-
   $('prevPage').addEventListener('click', () => { if (state.page > 1) { state.page -= 1; renderRecords(); } });
   $('nextPage').addEventListener('click', () => { const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)); if (state.page < pages) { state.page += 1; renderRecords(); } });
 
   document.addEventListener('click', (e) => {
-    // Close date popover on outside click
-    if (state.datePopoverOpen && !e.target.closest('#datePopover') && !e.target.closest('#dateTrigger')) {
-      state.datePopoverOpen = false;
-      $('datePopover').classList.remove('open');
-    }
-
     const chip = e.target.closest('[data-clear]');
     if (chip) { clearFilter(chip.dataset.clear); return; }
 

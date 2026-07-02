@@ -6,12 +6,15 @@
   <title>技术边界数据库</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
       <div class="header-titles">
         <h1>技术边界数据库</h1>
         <p>Technology Frontier Intelligence</p>
@@ -23,7 +26,31 @@
   <div class="layout">
     <aside class="sidebar" id="sidebar">
       <div class="search-bar">
-        <input id="searchInput" type="text" placeholder="检索标题、正文、分类、来源…" autocomplete="off" />
+        <input id="searchInput" type="text" placeholder="检索标题、正文、分类…" autocomplete="off" />
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head">
+          <span class="filter-title">日期</span>
+          <button class="filter-clear" id="clearDateBtn" type="button" style="display:none">清除</button>
+        </div>
+        <div class="date-range">
+          <label class="date-field">
+            <span>从</span>
+            <input type="date" id="dateFrom" />
+          </label>
+          <span class="date-sep">→</span>
+          <label class="date-field">
+            <span>至</span>
+            <input type="date" id="dateTo" />
+          </label>
+        </div>
+        <div class="date-quick">
+          <button data-quick="today" type="button">今天</button>
+          <button data-quick="7d" type="button">近7天</button>
+          <button data-quick="30d" type="button">近30天</button>
+          <button data-quick="all" type="button">全部</button>
+        </div>
       </div>
 
       <div class="filter-block">
@@ -56,37 +83,9 @@
 
     <main class="content">
       <div class="content-toolbar">
-        <div class="toolbar-left">
-          <button class="date-trigger" id="dateTrigger" type="button">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span id="dateLabel">全部日期</span>
-            <span class="caret">▾</span>
-          </button>
-          <div class="date-popover" id="datePopover">
-            <div class="date-range-row">
-              <label>
-                <span>从</span>
-                <input type="date" id="dateFrom" />
-              </label>
-              <label>
-                <span>至</span>
-                <input type="date" id="dateTo" />
-              </label>
-            </div>
-            <div class="date-quick">
-              <button data-quick="today" type="button">今天</button>
-              <button data-quick="7d" type="button">近7天</button>
-              <button data-quick="30d" type="button">近30天</button>
-              <button data-quick="all" type="button">全部</button>
-            </div>
-            <button class="date-clear-btn" id="clearDateBtn" type="button">清除日期筛选</button>
-          </div>
-        </div>
         <div class="result-info"><span id="resultCount"></span></div>
       </div>
-
       <div class="active-chips" id="activeChips"></div>
-
       <section id="recordList" class="record-list">
         <div class="loading-hint">正在载入情报数据…</div>
       </section>
