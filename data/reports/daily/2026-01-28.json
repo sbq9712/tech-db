@@ -1,0 +1,242 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月28日　星期三",
+  "date_range": "2026-01-28",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型不锈钢基一体化电极解决腐蚀难题，实现天然海水直接稳定电解制氢",
+      "字节跳动发布电解液设计框架，结合图网络与扩散模型预测并生成电解液成分",
+      "研究人员基于熵驱动自组装构建三维架构，显著提升盐湖卤水电化学提锂耐久性"
+    ],
+    "AI与智能科技": [
+      "清华团队开发存算一体柔性芯片FLEXI，单片成本低于1美元且心律失常监测准确率达99.2%",
+      "蚂蚁灵波开源具身大模型与空间感知模型，完成2万小时真实机器人训练数据集构建",
+      "智源研究院提出Emu3多模态模型，仅用下一token预测实现文本图像视频统一感知与生成"
+    ],
+    "通用技术": [
+      "复旦团队基于单层二硫化钼制备抗辐射射频通信系统，完成10兆拉德剂量下的在轨验证",
+      "西班牙电网启动主动需求响应服务，暂停部分工业用电弥补1725MW电力缺口",
+      "研究团队采用高熵策略优化微型热电器件结构，显著提升单位体积功率输出"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型不锈钢基一体化电极解决腐蚀难题，实现天然海水直接稳定电解制氢",
+        "字节跳动发布电解液设计框架，结合图网络与扩散模型预测并生成电解液成分",
+        "研究人员基于熵驱动自组装构建三维架构，显著提升盐湖卤水电化学提锂耐久性"
+      ],
+      "entries": [
+        {
+          "t": "用于耐久型直接天然海水电解的一体化不锈钢基电极",
+          "d": "2026-01-28",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "直接海水制氢面临催化剂失活与材料腐蚀等严峻挑战。该研究开发了基于不锈钢基底的一体化电极，兼具耐腐蚀性与高催化活性，可直接对天然海水进行长期稳定电解制氢。该策略通过材料设计与界面工程协同优化，有效抑制氯离子对电极的侵蚀与副反应，为利用海水这一近乎无限的水资源进行可持续绿氢生产提供了工程化可行的解决方案。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518307?af=R",
+          "tp": "海水直接电解制氢",
+          "aip": 1,
+          "kp": [
+            "Pt负载量[不锈钢电极]: 0.044 wt%",
+            "[结构]: Pt原子簇+NiFe-LDH多级结构",
+            "[应用]: 直接天然海水电解制氢"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Direct seawater electrolysis for hydrogen production is hindered by severe catalyst inactivation and material corrosion caused by the complex composition of natural seawater. In this work, we demonstrate a multistage structure on a stainless steel (SS) substrate by integrating Pt atomic clusters (0.044 wt%) with a dense NiFe layer double hydroxides (NiFe‐LDH) anticorrosive coating. The assembled seawater electrolyzer maintains durable operation for 600 h at a current density of 400 mA cm\n                    −2\n                    (∼2.04 V) and for 1000 h at 200 mA cm\n                    −2\n                    (∼1.78 V), while simultaneously achieving a cost reduction of more than 40% and ultralow energy consumption of 4.26 kWh Nm\n                    −3\n                    H\n                    2\n                    . Multiple in situ characterization results reveal that the adsorbed H\n                    2\n                    O molecules between the interface of Pt atomic clusters and NiFe‐LDH could initiate a potential‐driven dynamic transformation process from a 4 hydrogen‐bond to a 0 hydrogen‐bond coordination of H\n                    2\n                    O, thereby promoting their dissociation. Pt atomic cluster induces a configuration transformation of interfacial water from two‐H down to two‐H up and differentiates the adsorption energies between H\n                    2\n                    O and chloride ions, further optimizing selectivity. This work fully demonstrates the integrated design of catalysts, anti‐corrosion coating, and porous transport layer, thereby offering an innovative and practical approach to direct seawater electrolysis.",
+          "hb": 1
+        },
+        {
+          "t": "字节跳动颜文团队发表数据驱动的电解液设计框架",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "字节跳动颜文与龚盛团队发表电解液设计框架，集成前向预测模型和反向生成模型。前向模型训练自文献和分子模拟数据，使用图网络嵌入分子并保证置换不变性，预测离子电导率和溶剂化结构等性质。反向生成框架借助扩散模型支持多约束条件下条件式生成。测试三种电解液成分，其中一种具有良好循环性能。论文2025年1月28日发表于Nature Machine Intelligence。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s42256-025-01173-w",
+          "tp": "电解液设计",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "电解液是电池的重要部分，关系到离子电导率、界面阻抗以及长期充放电过程的电化学稳定性。字节跳动颜文与龚盛(目前就职于香港研究院HKRI)团队发表了电解液的设计框架，集成了一个前向的预测模型和一个反向的生成模型。前向预测模型训练自文献和分子模拟得到的理论与实验数据，用于从成分出发预测电解液的离子电导率以及溶剂化结构等性质。该模型使用物理约束，并保证置换不变性，同时引入性质对温度和盐浓度的经验性依赖。进一步，该工作设计了用于电解液成分设计的生成式框架，并支持多种约束存在下的条件式生成。该工作测试了三种具有良好离子电导率和富阴离子溶剂化结构的电解液成分，其中一种具有良好的循环性能。该工作推进了数据驱动电解液设计的进程。\n预测模型中，单个分子使用图网络进行嵌入、并聚合成为电解液体系的向量表示，用于下游的性质预测任务。预测的标签来自于大量的分子动力学模拟结果。同时，一些经验关系也被整合到模型结构中，并使用文献数据进行微调。在条件式生成过程中，该工作借助扩散模型生成电解液的向量表示，并最终解码回电解液成分。\n文章于2025年1月28日发表在Nature Machine Intelligence。",
+          "hb": 1
+        },
+        {
+          "t": "熵驱动自组装构建应力均质化空间结构实现高性能持久锂提取",
+          "d": "2026-01-28",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
+          "as": "研究提出一种基于熵驱动自组装的应力均匀化空间结构，用于高性能、长寿命的电化学锂提取。从盐湖卤水中高效提锂是能源转型的关键环节，但现有电化学提锂方法面临结构稳定性差、循环寿命短等瓶颈。该工作利用熵驱动自组装构建均匀化的三维架构，有效分散机械应力，显著提升了锂离子选择性提取的容量保持率和耐久性，为大规模可持续锂资源开发提供了新材料设计范式。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2525797123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "盐湖提锂",
+          "aip": 1,
+          "kp": [
+            "材料[电化学提锂]: LiMn₂O₄(LMO)",
+            "退化原因[LMO循环]: 各向异性体积变化致应力积累",
+            "应力均化策略[提锂]: 熵驱动两亲性自组装"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The global transition to sustainable energy demands efficient lithium extraction from brines. While electrochemical lithium extraction using LiMn\n                    2\n                    O\n                    4\n                    (LMO) holds great promise, its practical application is hindered by mechanical degradation caused by anisotropic volume changes and stress accumulation during cycling. Herein, we present an entropy-driven amphiphilic self-assembly strategy that engineers stress-homogenized multilayer core–shell architectures, which innovatively mitigates stress accumulation by tuning the internal geometric structure to optimize stress–strain behavior, thereby synergistically enhancing ion distribution, transport kinetics, and electrochemical stability. This hierarchical interlayer architecture ensures uniform Li\n                    +\n                    distribution and redistributes internal stresses, mitigating localized stress concentrations and lattice expansion to preserve structural integrity throughout cycling. The optimized LMO establishes a dual benchmark for both capacity and cycling stability in hybrid capacitive deionization, achieving a remarkable lithium extraction capacity of 4.78 mmol g\n                    −1\n                    with 96% retention over 100 cycles, outperforming both its unoptimized counterpart and other reported materials of the same type. Finite element simulations further elucidate a 48% reduction in maximum stress compared to disordered counterparts, underscoring the critical coupling between ion diffusion and stress evolution. This paradigm provides a pathway for developing advanced materials with intrinsically stable architectures for sustainable lithium extraction.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "清华团队开发存算一体柔性芯片FLEXI，单片成本低于1美元且心律失常监测准确率达99.2%",
+        "蚂蚁灵波开源具身大模型与空间感知模型，完成2万小时真实机器人训练数据集构建",
+        "智源研究院提出Emu3多模态模型，仅用下一token预测实现文本图像视频统一感知与生成"
+      ],
+      "entries": [
+        {
+          "t": "清华大学任天令开发存算一体的柔性边缘计算芯片",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "清华任天令、刘厚方与燕博南团队开发存算一体柔性边缘计算芯片FLEXI，具有1kB内存、12.5MHz频率、2.52mW功耗，随机乘法错误率低于10⁻¹⁰。单片成本低于1美元，良品率超70%，可经40000圈折叠保持稳定。将神经网络权重预部署在芯片上，心律失常监测准确率99.2%，可贴合皮肤接收心电、体温、皮肤湿度、呼吸数据。论文2026年1月28日发表于Nature。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09931-x",
+          "tp": "柔性计算芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "目前边缘计算主要在以下领域有应用：\n机器人、无人飞行器的视觉处理，主要用于避障、目标跟踪、目标识别等对延迟敏感的任务\n耳机内部的主动降噪、手机的语音唤醒、心音呼吸音分析等音频处理，主要用于以低功耗保持工作状态\n边缘计算可以使用ASIC或者通用硬件执行。\nASIC主要包括XMOS XVF3510会议音频处理器、Apple Always-On Processor(Hey Siri唤醒器)、ADPD边缘传感芯片(驱动LED采集身体反射光电信号，用于监测血氧/心率)、Ambarella CV芯片(摄像头视频处理)、Google Edge TPU(智能家居芯片)。这些ASIC通常会将神经网络权重直接部署到芯片上，实现低延迟、低功耗地执行AI推理任务。\n通用硬件包括华为昇腾310、寒武纪MLU220、英伟达Jetson Nano等。这些芯片使用低能耗的SRAM内存、小规模的矩阵计算阵列来执行相对固定的任务，因此可以做到低延迟高能效。",
+          "b": "边缘计算是指将计算任务在数据源（如摄像头、传感器）附近完成的计算架构。该架构有助于减少数据传输成本、降低延迟、提升隐私与可靠性，同时也对设备的能效和便携性有较高要求。任天令、刘厚方与燕博南团队开发了一种存算一体芯片FLEXI，其具有1 kB内存、12.5 MHz频率以及2.52 mW的功耗，随机乘法的错误率低于10-10。该芯片每片制作成本低于1美元，制作良品率高于70%；在超过6个月期间，能够经过40000圈折叠并保持稳定性。得益于存算一体特性，该工作将神经网络权重预先部署在FLEXI上，并在心律失常监测任务中获得99.2%的准确率。该芯片可以贴合在皮肤上，接收心电图、体温、皮肤湿度、呼吸相关的监测数据，判断心律失常等事件或者进行日常活动检测。\n从算法角度，该工作搭建了一个四通道的CNN，分别处理心电图、呼吸、体温和皮肤湿度，最后聚合信息并执行下游任务。该网络在外部计算机上进行训练，并将权重参数一次性写入芯片。由于不需要数据传输、推理计算以存算一体的方式执行，因此该器件可以实现高能效。文章于2026年1月28日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "蚂蚁灵波 LingBot-Depth 空间感知模型、LingBot-VLA 具身大模型全面开源",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "蚂蚁集团旗下蚂蚁灵波科技宣布全面开源LingBot-VLA具身大模型及后训练代码，已与星海图、松灵、乐聚等机器人厂商完成适配，验证跨本体迁移能力。团队系统研究VLA模型Scaling Law，发现预训练数据从3000小时扩展至20000小时，下游任务成功率持续显著提升且仍有上升趋势。构造20000小时真实机器人训练数据，涵盖9种主流双臂机器人构型。此外还开源了LingBot-Depth空间感知模型。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/917/166.htm",
+          "tp": "具身大模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "人形机器人的通用性很大程度上依赖于其搭载的人工智能接收、处理外部数据，并做出反馈的能力。目前通用AI主要基于语言模型搭建，为了适配与现实世界的交互，多模态的VLA模型将会是语言智能与物理世界交互的接口。通过将视觉、触觉信息编码并经过大模型生成反馈，从而实现人形机器人的通用性，将会是一条切实可行的路线。",
+          "b": "IT之家1月28日消息，蚂蚁集团旗下具身智能公司——蚂蚁灵波科技今日宣布全面开源LingBot-VLA具身大模型及后训练代码。目前，LingBot-VLA已与星海图、松灵、乐聚等机器人厂商完成适配，验证了模型在不同构型机器人上的跨本体迁移能力。\n基于在海量真实世界数据上的预训练，蚂蚁灵波科技第一次系统研究了 VLA模型在真实机器人任务性能上随着数据规模增长时的Scaling Law。项目发现随着预训练数据规模从3,000小时扩展到6,000、13,000、18,000，最终至20,000小时，模型在下游任务的成功率获得持续且显著的提升。值得注意的是，预训练数据量达到20,000小时，模型性能仍呈现上升趋势，表明VLA的性能仍然能够随着数据量的增加而提升。依此研究结果，蚂蚁灵波科技构造了20,000小时的真实机器人训练数据，涵盖了9种主流的双臂机器人构型（包括AgileX Cobot Magic，Galaxea R1Pro、R1Lite 、AgiBot G1等）。\n此外，蚂蚁灵波科技1月27日开源了LingBot-Depth空间感知模型。LingBot-Depth是一种面向真实场景的深度补全模型，旨在将不完整且受噪声干扰的深度传感器数据转化为高质量、具备真实尺度的三维测量结果，提升环境深度感知与三维空间理解能力，为机器人、自动驾驶汽车等智能终端赋予更精准、更可靠的三维视觉。实验结果表明，LingBot-Depth模型在深度精度与像素覆盖率两项核心指标上均超越业界顶级工业级深度相机。在NYUv2、ETH3D 等多个基准测试中，LingBot-Depth在深度补全、单目深度估计及双目匹配任务上均达到当前最优水平，并在无需显式时序建模的情况下保持视频级时间一致性。",
+          "hb": 1
+        },
+        {
+          "t": "北京智源人工智能研究院黄铁军提出一种仅基于下一token预测的统一多模态模型",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "北京智源研究院黄铁军团队提出Emu3系列多模态模型，仅采用下一token预测进行训练，在文本、图像、视频的感知与生成任务上达到旗舰专用模型水平，完全摒弃扩散模型与组合式架构。研究还展示了高保真视频生成、视觉-语言交错生成及机器人视觉-语言-动作建模，为统一多模态智能提供了新路径。成果2026年1月发表于Nature。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-10041-x",
+          "tp": "统一多模态预测",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "开发一种能够在文本、图像和视频等多种模态上同时进行学习和生成的统一算法，一直是人工智能领域的根本性挑战。虽然下一token预测方法已显著推动大型语言模型取得重大进展，但将其扩展到多模态领域仍面临诸多限制，目前图像与视频生成仍主要依赖扩散模型，而组合式框架则通过将视觉编码器与语言模型集成来实现主导地位。研究引入了Emu3系列多模态模型，该模型仅采用下一token预测进行训练，在感知和生成任务上均达到了与专门设计模型相当的性能，能够匹敌旗舰系统，同时完全消除了对扩散模型或组合式架构的依赖。此外，研究进一步展示了连贯且高保真的视频生成、交错的视觉-语言生成，以及支持机器人操作的视觉-语言-动作建模。通过将多模态学习简化为统一的token预测，Emu3为大规模多模态建模奠定了坚实基础，并为实现统一的multimodal intelligence提供了一条富有前景的路径。文章于2026年1月28日发表在Nature。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "复旦团队基于单层二硫化钼制备抗辐射射频通信系统，完成10兆拉德剂量下的在轨验证",
+        "西班牙电网启动主动需求响应服务，暂停部分工业用电弥补1725MW电力缺口",
+        "研究团队采用高熵策略优化微型热电器件结构，显著提升单位体积功率输出"
+      ],
+      "entries": [
+        {
+          "t": "复旦大学周鹏展示二维电子器件在空间通信中的辐射耐受性",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "通用技术/通信和运输/航天",
+          "as": "复旦周鹏团队发现原子层级薄的二维半导体材料会积累最小辐射诱导损伤，实现空间辐射免疫。对二维半导体材料器件进行地面模拟辐照实验，辐射剂量达10兆拉德，器件性能保持稳定。基于单层二硫化钼制备了4英寸抗辐射集成射频（12-18GHz）通信系统青鸟，可应用于星载通信，2024年9月24日搭载卫星成功在轨验证，为航天器抗辐射提供轻量化方案。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-10027-9",
+          "tp": "二维半导体",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "要使天基太阳能或太空数据中心等商业航天项目具有市场竞争力，入轨发射成本必须降至100-200美元/kg的水平，而目前整体处于2000-3000美元/kg的水平。传统的硅基电子器件在太空中容易受到太空辐射损伤，为避免损伤通顺需要增加屏蔽层或采用冗余加固电路，这进一步加大了发射物重量。提出了可通过开发二维电子器件，实现电子器件及配套的保护设施轻量化，从而降低发射成本的可能。尽管本文提出一条新的降低发射成本的方案，但当前二维电子器件极不成熟，更多是提供一种长远可能。",
+          "b": "在太空中，高能粒子等空间辐射无处不在，极易引发硅基电子器件性能退化，甚至导致灾难性故障，这严重威胁着航天器的在轨寿命。当前主流的抗辐射方案，是增加屏蔽层或采用冗余加固电路，这虽能提升可靠性，却也付出了体积增大、重量上升、功耗攀升等代价.\n复旦大学周鹏教授团队发现，现在通信系统所使用的芯片多由硅材料制作，硅片厚度往往在几百微米，一些薄层硅至少也有几十纳米；而二维半导体材料是原子级别，厚度不到1纳米。团队发现，原子层级薄的二维半导体材料会积累最小的辐射诱导损伤，进而实现空间辐射免疫。即便高能粒子偶尔造成个别原子键的破坏，产生微小缺陷，但对于本身缺陷密度就相对较高的新型半导体材料而言，这种额外损伤对其整体电学性能影响微乎其微。\n团队对原子层半导体材料及器件进行了地面模拟辐照实验，采用的辐射剂量达到10兆拉德，这也是国内目前能达到的最高剂量水平之一。结果显示，器件性能依然保持稳定。\n之后，基于原子层级半导体材料，团队制备了4英寸基于单层二硫化钼（MoS2）的抗辐射集成射频（12~18 GHz）通信系统，该系统被命名为“青鸟”，能够应用于星载通信。2024年9月24日，“青鸟”通信系统搭载卫星成功发射到距地球约517公里的低地球轨道（LEO）。团队将“复旦大学校歌”的原始手稿照片存入“青鸟”系统的存储器中，并完成了以“复旦大学校歌”为信号的太空星内通信传输，最后经卫星天线发射并返回地面站解码后，“复旦大学校歌”信号复原准确无误。\n系统在轨运行9个月后，其传输数据的误码率仍低于10-8，展现出优异的抗辐射性和长期稳定性。即使在辐射环境更为恶劣的地球同步轨道（GEO）上，该二维星载通信系统的理论在轨寿命预计可达271年，较传统硅基系统提升两个数量级。与此同时，系统发射机-接收机链路的功耗不足传统硅基射频系统的五分之一，确保了在严苛功率预算下仍能维持高性能通信。文章于2026年1月28日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "西班牙电网公司启动主动需求响应服务暂停部分工业用电以应对风暴导致的电力缺口",
+          "d": "2026-01-28",
+          "a": "",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "风暴Kristin破坏葡萄牙配电基础设施，最多约100万用户停电。受风雪致风电机组停机及葡萄牙电网受损影响，西班牙电力公司REE被迫启动主动需求响应服务（SRAD），暂停部分工业用电弥补1725MW发电缺口。约30家公司2179MW参与竞拍，中标方预计获约2.55亿欧元收益，费用由REE向消费者收取。参与企业从大型电力密集型产业扩展至不同行业规模。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.usnews.com/news/world/articles/2026-01-28/storm-kristin-knocks-out-power-to-800-000-in-portugal-and-barrels-into-spain",
+          "tp": "需求响应",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月28日，葡萄牙电网运营商E-Redes在官网发文称，风暴Kristin对葡萄牙当地多个地区的电力配电基础设施（高压电线杆等线路）造成了重大破坏，当天早上6点，最多约有100万用户受到停电影响。\n另据相关媒体当日报道，受到风雪导致风电机组停机以及风暴对葡萄牙电网的影响（降低了其从葡萄牙进口电力），西班牙电力公司Red Eléctrica de España（REE）被迫启动主动需求响应服务（SRAD），将暂停部分工业用电，以弥补1725MW的发电缺口（启动备用状态的燃气联合循环机组也无法满足）；暂停用电的企业由拍卖的形式确定（约有30家公司2179MW参与竞拍），中标方预计获得约2.55亿欧元的收益（价格约65 €/MWh），参与竞标的公司也从最开始的大型电力密集型产业扩展至不同行业和规模的企业；而这笔费用则由REE向电力市场中的消费者进行收取。",
+          "hb": 1
+        },
+        {
+          "t": "高熵鸡尾酒策略赋能微型热电器件的超大比功率发电",
+          "d": "2026-01-28",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究报道了一种新型微热电器件（μTEG），在比功率发电能力（specific power generation capacity）方面取得巨大突破。比功率是衡量微热电发电机能量转换效率的关键指标，直接决定器件在微小温差下的实用价值。研究通过创新的结构设计与材料工程，使微米级热电发电机实现了前所未有的单位体积功率输出，为物联网传感器节点、可穿戴电子设备和废热回收系统等微能源自供电场景开辟了新途径，有望摆脱对传统电池的依赖。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520782?af=R",
+          "tp": "高熵热电材料",
+          "aip": 1,
+          "kp": [
+            "比功率[μ-TEG/ANE]: ~5000 µW cm⁻²K⁻²",
+            "材料[μ-TEG]: 中等熵(FeCoNi)₁₀₀₋ₓPtₓ薄膜",
+            "[策略]: 高熵鸡尾酒策略"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Specific power generation capacity\n                    Γ\n                    P\n                    is a critical performance metric for micro‐thermoelectric generators (\n                    μ\n                    ‐TEGs), yet the best reported values are constrained to a few hundred µW cm\n                    −2\n                    K\n                    −2\n                    . Here, we report a giant\n                    Γ\n                    P\n                    of ∼5000 µW cm\n                    −2\n                    K\n                    −2\n                    in\n                    μ\n                    ‐TEGs based on the anomalous Nernst effect (ANE) in medium‐entropy (FeCoNi)\n                    100‐\n                    \n                      x\n                    \n                    Pt\n                    \n                      x\n                    \n                    films. Leveraging the high‐entropy cocktail strategy, we have simultaneously achieved a large anomalous Nernst thermopower\n                    \n                      S\n                      xy\n                    \n                    (&gt;1.4 µV K\n                    −1\n                    ) and low resistivity\n                    ρ\n                    \n                      xx\n                    \n                    (&lt;85 µΩ cm), and suppressed the classical and quantum size effects on both\n                    \n                      S\n                      xy\n                    \n                    and\n                    ρ\n                    \n                      xx\n                    \n                    at the optimal composition of\n                    x\n                    ≈ 50 and film thickness of a few nanometers, enabling the record‐high\n                    Γ\n                    P\n                    . The underlying mechanism arises from cocktail‐driven modulation of energy‐band smearing, density of states, and Berry curvature at the Fermi surface, resulting in an ultrashort carrier mean‐free‐path of ∼3 nm, an ultrahigh carrier density of ∼10\n                    23\n                    cm\n                    −3\n                    , and a large anomalous Nernst conductivity above 1.7 A m\n                    −1\n                    K\n                    −1\n                    . This claim is further supported by first‐principles calculations, which collectively highlight the experimental and theoretical potential of utilizing such materials for high‐performance\n                    μ\n                    ‐TEG applications.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

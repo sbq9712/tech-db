@@ -1,0 +1,246 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月23日　星期一",
+  "date_range": "2026-02-23",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究证实钴掺杂铜铁氰化物自修复机制可提升水系镁电池循环寿命",
+      "Donut Lab固态电池经实测在80度高温及11C倍率下维持稳定放电",
+      "网传星河动力完成380Wh/kg航天级固态电池在轨验证待官方证实"
+    ],
+    "AI与智能科技": [
+      "ASML实现1kW极紫外光源输出预计2030年单机晶圆处理量达330片",
+      "新框架利用信息同位素技术可检测AI模型是否使用未授权训练数据",
+      "科研人员基于钙钛矿材料研发出皮瓦级功耗的光触发自供电忆阻器阵列"
+    ],
+    "通用技术": [
+      "科研团队开发DNAzyme荧光探针实现神经元铜离子氧化态同步成像",
+      "液态光子分子微激光器实现对微小折射率变化的超灵敏生物传感检测",
+      "激光自分解技术实现常温常压下制备硼烯负载金属纳米催化剂"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究证实钴掺杂铜铁氰化物自修复机制可提升水系镁电池循环寿命",
+        "Donut Lab固态电池经实测在80度高温及11C倍率下维持稳定放电",
+        "网传星河动力完成380Wh/kg航天级固态电池在轨验证待官方证实"
+      ],
+      "entries": [
+        {
+          "t": "钴掺杂激活铜六氰化铁酸盐的自修复化学用于长循环水系镁离子存储",
+          "d": "2026-02-23",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究发现钴掺杂可激活铜铁氰化物中铜的自修复化学，从而实现水系镁离子电池的长循环稳定性。纤维状水系镁电池（FAMBs）因安全性和柔性在可穿戴电子领域潜力突出，但正极材料在Mg2+反复嵌入/脱出中结构退化严重。钴掺杂引入的氧化还原活性位点驱动溶解铜的可逆再沉积，形成动态自修复机制，显著抑制容量衰减。该策略为开发长寿命、高安全柔性储能器件提供了新思路。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20391",
+          "tp": "水系镁离子电池",
+          "aip": 1,
+          "kp": [
+            "[改性策略]: 钴掺杂解锁铜自修复化学",
+            "器件形态[水系镁电池]: 纤维状"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fiber-shaped aqueous Mg-based batteries (FAMBs) represent an emerging platform for wearable electronics, yet their development is hindered by the lack of high-performance cathode materials. Copper hexacyanoferrate (CuHCF), a promising Prussian blue analogue, suffers from low capacity, rapid capacity decay due to limited active sites, Jahn-Teller distortion, and irreversible Cu dissolution. Herein, we demonstrate that cobalt doping enables effective modulation of the CuHCF. It induces a reversible Cu dissolution/self-healing behavior, suppresses Jahn-Teller distortion to maintain structural integrity, and increases the availability of active sites, thereby significantly enhancing the Mg<sup>2+</sup> storage performance. The resulting Co-doped CuHCF nanoblocks on carbon nanotube fiber (CoCuHCF@CNTF) deliver a high specific capacity of 153.2 mAh g<sup>-1</sup>, exceptional cycling stability (90% retention after 30,000 cycles), and remarkable rate capability. The combination of this cathode and NaTi<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub>@CNTF anode yields a flexible FAMB with a high energy density of 89 mWh cm<sup>-3</sup>, capable of powering a mobile phone. This work establishes a robust design principle for developing high-performance cathode materials through multifunctional cation doping, providing new insights into Mg<sup>2+</sup>-dominated storage behavior in advanced aqueous multivalent-ion energy-storage systems.",
+          "hb": 1
+        },
+        {
+          "t": "Donut Lab公布其电池倍率性能及高温放电性能的第三方测试结果",
+          "d": "2026-02-23",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "芬兰Donut Lab公布VTT国家技术研究中心对其26Ah固态电池的第三方测试：室温1C放电容量26.1Ah、能量91.1Wh接近标称；5C/1C充放约12-13分钟充满、最高61.5℃；11C/1C约7-8分钟充满、最高90℃。第二份报告显示80℃-24A放电容量27Ah、100℃-12A放电亦有良好保持。数据表明其产品在超高倍率充放和高温工况下均表现稳定。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.donutlab.com/first-measurement-announcement/",
+          "tp": "固态电池实测",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月23日，芬兰电池技术公司Donut Lab在官网发文，公布了芬兰VTT国家技术研究中心（VTT Technical Research Centre）对其1月推出的固态电池产品的性能测试结果（使用PEC ACT 0550电池测试仪进行测试）。据公布报告内容所示，其对标称1C放电容量为26Ah、标称电压3.6V、能量94Wh、循环范围2.7–4.15 V、最大电压4.3V的电池进行测试，实测该电池室温运行1C放电容量为26.1Ah、放电能量约91.1Wh，接近标称值；在电池单面、双面使用散热器的5C/1C充放测试的放电容量均达到26Ah、放电能量90.5Wh、从0-100%SOC用时约12.2-13.2分钟、温度最高61.5℃；11C/1C充放测试的放电容量也均达到25.5Ah、放电能量88.9Wh、从0-100%SOC用时约7.3-7.95分钟、温度最高90℃。\n3月2日，Donut Lab发布第二份VTT测试报告，评估了其26Ah产品的高温放电性能（80℃-24A放电/100℃-12A放电；充电温度20℃；对照组为20℃-24A/12A放电）。结果显示，其80℃-24A放电容量27.5 Ah，能量96.7 Wh，高于对照的24.9Ah和86.5 Wh；/100℃-12A放电容量27.6 Ah，能量97.3 Wh，也高于对照的25.8Ah和90.4 Wh。\n但该报告并未对先前宣传的400 Wh/kg能量密度、10万次循环寿命、极端温度性能等参数进行测试，快充倍率未达到其先前宣传的12C（5分钟充满）；也未对电池进行拆解和体系确认（报告中并未直接检测/明确该电池为固态电池，仅表述为“测试客户确认为固态电池”）；80/100℃放电测试后软包电池真空度降低（the cell pouch had lost its vacuum），可能存在内部产气或密封性下降等问题。Donut Lab则表示后续其将继续公布电池的测试结果（3月9日左右）。",
+          "hb": 1
+        },
+        {
+          "t": "星河动力航天称其完成固态电池商业卫星在轨验证任务",
+          "d": "2026-02-23",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "据报道星河动力航天研发的航天级固态电池搭乘商业卫星完成首次在轨验证，连续72小时稳定运行。采用无机氧化物固态电解质，能量密度380Wh/kg（较液态锂电池提升40%），循环超5000次，抗辐照≥100krad(Si)，-196℃至120℃超宽温域工作，低温放电保持率≥95%。但该信息仅见于部分自媒体，星河动力官方渠道未宣传，相关参数及量产规划待证实。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.thepaper.cn/newsDetail_forward_32645688",
+          "tp": "航天固态电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据澎湃新闻2月23日报道称，星河动力航天研发的航天级固态电池搭乘商业卫星顺利完成首次在轨验证任务，实现连续72小时稳定运行。另有媒体报道称，该电池采用无机氧化物固态电解质，能量密度达到380 Wh/kg，较传统航天液态锂电池提升40%，循环寿命超过5000次；采用辐照防护封装工艺，抗辐照剂量不低于100 krad(Si)；可在-196℃至120℃的超宽温域内稳定工作，低温放电保持率不低于95%；在轨运行期间电池未见明显性能衰减。\n目前暂未检索到星河动力航天在固态电池方面公开专利申请，星河动力航天官方公众号、官网等渠道也未对此发文宣传，当前电池相关体系、性能等参数及星河动力航天固态电池量产规划也均为部分自媒体发文披露。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "ASML实现1kW极紫外光源输出预计2030年单机晶圆处理量达330片",
+        "新框架利用信息同位素技术可检测AI模型是否使用未授权训练数据",
+        "科研人员基于钙钛矿材料研发出皮瓦级功耗的光触发自供电忆阻器阵列"
+      ],
+      "entries": [
+        {
+          "t": "ASML称其极紫外EUV光源系统输出功率达1kW可提高芯片制造效率",
+          "d": "2026-02-23",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "ASML宣布研发出稳定输出1kW功率的EUV光源系统（原为600W）。通过将熔融锡液滴数量提升至每秒约10万个，并用两个较小激光脉冲整形替代单一整形脉冲，在更高功率下处理更多锡滴产生等离子体发射13.5nm EUV光。预计到2030年每台设备每小时可处理约330片晶圆（当前220片），大幅摊薄单芯片成本。首席技术专家称后续有望提升至2kW，降低EUV准入门槛。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.reuters.com/world/china/asml-unveils-euv-light-source-advance-that-could-yield-50-more-chips-by-2030-2026-02-23/",
+          "tp": "极紫外光源升级",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "光刻即利用曝光和显影在光刻胶层（保护层）上刻画几何图形结构，然后通过刻蚀工艺将光掩模上的图形转移到所在衬底（硅）上；核心之一是光源产生及引导。EUV即通过二氧化碳激光（高频-五万次/s）加热锡液滴（80m/s+大量）成等离子体，电子发生能级跃迁时，会释放光子；EUV能量高（92 eV）易被吸收，须在真空下使用反射镜引导（反射率--低膨胀玻璃+几十层纳米级的钼（Mo）和硅（Si）薄膜+皮米级平整度）提高产生锡滴数量：10万个/s.使用整形激光脉冲：提高单位时间内激发锡滴数量。此次提升为EUV光刻技术工艺优化，具体实现手段并未公开，且实际应用仍需至2030年.氧化物薄膜：沉积的二氧化硅/氮化硅，保护刻蚀过程下方的硅结构不受破坏\n光刻胶：树脂、光敏剂、溶剂，暴露在光（或特定波长）照射下的区域会变得更易溶于显影液，进而溶解显示出电路（也可相反）\n显影液：去掉结构变化的光刻胶\n掩模板：镂空电路图\n光源：紫外宽谱光源 (UV，高压汞灯400nm)、深紫外光源 (DUV - Deep Ultraviolet，氟化氪/氟化氩200nm)、极紫外光源 (EUV - Extreme Ultraviolet，二氧化碳激光器+激发锡发光13.5nm)。波长越长，衍射光斑尺寸越大。光刻",
+          "b": "据路透社（Reuters）2月23日报道称，半导体设备制造商阿斯麦（ASML）研发出能稳定输出1kW功率的极紫外（EUV）光源系统（原先功率为600W），更高的光源功率则可在单位时间内生产更多芯片，从而摊薄单颗芯片成本。文中称，EUV系统可将熔融锡高压喷射成微小液滴，再用大功率二氧化碳激光将其加热成等离子体，温度比太阳表面温度高几十倍，等离子体向发出的EUV光（核心波长为13.5 nm）由德国蔡司（Carl Zeiss AG）提供的高精度光学组件收集并引导聚焦，进入设备进行芯片光刻。新技术可将每秒锡滴数量提升至约10万个，并使用两个更小的激光脉冲来完成整形（当前设备采用的是单一整形脉冲），可在单位时间内处理更多的锡滴以提升功率。\nASML负责NXE系列EUV光刻机的执行副总裁Teun van Gogh表示，到2030年每台设备每小时预计可处理约330片晶圆，高于当前的220片；根据不同的芯片尺寸，每片晶圆可容纳从数十到数千颗芯片不等。ASML EUV光源首席技术专家Michael Purvis则称后续将有望将EUV功率提升至2kW。有报道称，光源功率推高至kW级可提高EUV技术的准入门槛。但真空腔体内的热负荷将急剧增加，对机器的冷却系统、氢气流控制以及精密光学组件的稳定性也提出了更高要求。",
+          "hb": 1
+        },
+        {
+          "t": "利用信息同位素审计AI生成内容中的未授权训练数据",
+          "d": "2026-02-23",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "本文提出一种利用信息论方法审计AI生成内容中未授权训练数据的框架。随着大规模人类数据驱动AI系统快速发展，未经授权使用受版权保护数据的问题日益突出。研究者通过信息论工具检测特定数据是否被纳入模型训练集，为AI训练数据的版权合规与溯源提供技术手段，对构建负责任的AI数据治理体系具有重要意义。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68862-x",
+          "tp": "AI训练数据审计",
+          "aip": 1,
+          "kp": [
+            "[审计方法]: 信息同位素检测AI生成内容中未授权训练数据"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The rapid growth of AI systems has been fueled by large-scale human data, intensifying concerns over the unauthorized use of intellectual property and privacy-sensitive content during model training. Auditing such misuse is particularly challenging since mainstream AI services operate as black boxes, exposing only generated outputs while concealing their training and inference processes. In this work, inspired by chemical isotope tracing, we introduce the concept of information isotopes to trace training data within opaque AI systems. We propose an information-isotope tracing framework that selectively marks target data elements and detects their propagation in model outputs, providing concrete evidence of data utilization under black-box access. Experiments on thirteen AI models across six datasets demonstrate that our method distinguishes training from non-training data with up to 99% accuracy and strong statistical significance (p",
+          "hb": 1
+        },
+        {
+          "t": "自供电光触发忆阻器阵列实现pW级计算的单片感内视觉系统",
+          "d": "2026-02-23",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "忆阻器是构建类脑神经形态计算硬件的核心器件，但传统器件功耗高、需外部供电，限制了单片大规模集成。本研究基于二维Ruddlesden-Popper杂化钙钛矿材料，构建了自供电、光触发的忆阻器阵列，功耗低至皮瓦（pW）级别。RP钙钛矿兼具优异的光电响应与离子迁移特性，使器件在光照下自动触发阻态切换，无需外部偏置即可完成计算。该成果为超低功耗单片集成神经形态计算芯片提供了可行路径，在边缘AI、可穿戴设备和物联网低功耗智能终端领域具有广阔应用前景。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523017?af=R",
+          "tp": "感内视觉忆阻器阵列",
+          "aip": 1,
+          "kp": [
+            "计算功耗[忆阻器阵列]: pW级",
+            "[材料]: BA2MAPb2Br7 RP钙钛矿单晶",
+            "[合成方法]: 准静态冷却法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    2D Ruddlesden–Popper (RP) hybrid perovskites are widely used in the field of optoelectronic devices due to their high carrier mobility and absorption coefficient. Herein, BA\n                    2\n                    MAPb\n                    2\n                    Br\n                    7\n                    (BMPB) single crystals were synthesized via the quasi‐static cooling method, with a thorough investigation of the nucleation mechanism and the intrinsic relationship between rectangular and hexagonal morphologies. Remarkably, BMPB exhibits outstanding memristive performance, featuring an ultrahigh on/off ratio (∼10\n                    5\n                    ), ultralow power consumption of ∼82.8 pW, and a long retention time (&gt;22 000 s). Leveraging its inherent ferroelectric polarization and optoelectronic properties, we demonstrate a monolithic 5×5 optoelectronic memristor array that unifies sensing, memory, and computing functions. The array device exhibits self‐powered performance under 410 nm illumination, with responsivity of 0.96 A/W and detectivity of 2.89×10\n                    8\n                    Jones. Through digital logic circuit design and Vivado verification, we successfully implement solar‐tracking time prediction and sunflower growth‐stage monitoring. Critically, this integrated architecture enables hardware‐level in‐sensor computing for real‐time applications. Our work provides valuable insights for next‐generation in‐sensor computing devices, providing a material‐level solution based on 2D RP perovskites for energy‐efficient AI and IoT systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研团队开发DNAzyme荧光探针实现神经元铜离子氧化态同步成像",
+        "液态光子分子微激光器实现对微小折射率变化的超灵敏生物传感检测",
+        "激光自分解技术实现常温常压下制备硼烯负载金属纳米催化剂"
+      ],
+      "entries": [
+        {
+          "t": "使用 DNAzyme 探针对神经细胞中的 Cu+ 和 Cu2+ 进行同步成像，揭示铜氧化还原失衡与淀粉样蛋白病理学之间的机制联系",
+          "d": "2026-02-23",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "铜代谢失调与阿尔茨海默病等神经退行性疾病相关，但其在神经元死亡中的确切作用尚不明确。研究团队首次开发了一对基于DNAzyme的Cu⁺和Cu²⁺特异性荧光探针，实现了铜两种氧化态的同步可视化。该工具可在神经细胞中实时追踪铜氧化还原失衡，揭示了铜代谢紊乱与淀粉样蛋白病理学之间的机制联系，为神经退行性疾病的早期诊断和治疗提供了新工具。",
+          "sc": 7.3,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524237?af=R",
+          "tp": "铜离子探针",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Copper dysregulation is implicated in neurodegenerative diseases such as Alzheimer's disease (AD), yet its precise role in neuronal death remains unclear. To address this issue, here, we introduce a pair of Cu\n                    +\n                    and Cu\n                    2\n                    +\n                    specific DNAzymes‐based fluorescent probes, for the first time, enabling simultaneous visualization of both redox states of copper in single living neurons. Using this dual‐color system, we found that amyloid‐beta (Aβ) oligomerization promotes intracellular copper accumulation, distinct from that induced by artificial ionophore loading. Elevated Cu\n                    +\n                    drives reactive oxygen species (ROS) generation, lipoylated protein aggregation, and FDX1‐dependent cuproptosis, while Cu\n                    +\n                    chelation or FDX1 knockdown completely prevents cell death. In contrast, ROS scavengers only partially rescue viability, demonstrating that neuronal death is driven by copper overload, not oxidative stress itself. These findings redefine the mechanistic framework linking copper redox imbalance to Aβ pathology and neuronal vulnerability and demonstrate a selective, sensitive approach for monitoring copper homeostasis and its disruption in neurodegenerative disease.",
+          "hb": 1
+        },
+        {
+          "t": "液态光子分子微激光器用于超灵敏生物传感",
+          "d": "2026-02-23",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究提出液态光子分子微激光器用于超灵敏生物传感。液滴微激光器作为生物光子学与生物医学领域的有力工具近年来发展迅速。研究利用光子分子耦合模式（即多个光学微腔间的模式杂化），构建液态微激光体系，实现超高Q值与窄线宽的激射输出。该平台对生物分子结合引起的微小折射率变化具有极高的检测灵敏度，在单分子检测、疾病标志物筛查等超灵敏生物传感场景中具有广阔前景。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-69840-z",
+          "tp": "液态光子微激光",
+          "aip": 1,
+          "kp": [
+            "[光子分子微激光器]: 液滴微激光器实现超灵敏无标记生物传感",
+            "[设计挑战]: 同时实现低阈值、高光谱纯度与极限灵敏度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Droplet microlasers, as promising tools for biophotonics and biomedical sciences, have witnessed rapid advances due to their flexible reconfigurability, high sensitivity to stimuli, and label-free biosensing ability. However, designing these biosensors with simultaneously critical properties of low lasing threshold, high spectral purity, and ultimate sensitivity remains challenging. Here, we propose a versatile strategy to build liquid photonic molecules (LPMs) that combine all these features in a single device. We find that through tailoring the spectral Vernier overlap in size-mismatched droplets, this device enables single-mode lasing with a low threshold of ~610 nJ mm−2. The LPM lasers are engineered for dynamic tunability using a molecular isomerization strategy, which induces spectral mode hopping and thus yields a nearly ten-fold enhancement in spectral sensitivity over single droplets. Moreover, by leveraging the self-referenced intensity response of the LPM lasing modes, we demonstrate a three-orders-of-magnitude enhancement in biomolecular sensing, with a detection limit of 30 aM and a dynamic range spanning nine orders of magnitude. Our work offers exciting prospects for bio-integrated liquid sensors in diverse applications.",
+          "hb": 1
+        },
+        {
+          "t": "激光触发自分解策略构建硼化烯负载金属纳米颗粒及其电子金属-载体相互作用",
+          "d": "2026-02-23",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究提出一种激光触发自分解策略，用于制备硼烯（Boridene，Mo4/3B2Tx）负载的金属纳米催化剂。二维过渡金属硼化物（MBenes）因高导电性和丰富表面活性位点而具有优异催化潜力，但传统方法难以实现金属纳米颗粒的精准负载。研究者利用激光辐照诱导硼烯表面含氧基团原位分解释放还原性物种，将金属前驱体原位还原为均匀分散的纳米颗粒，并产生强电子金属-载体相互作用（EMSI）。该策略可在常温常压下快速完成，所得催化剂在电催化反应中表现出优异的活性和稳定性，为MBenes基高效催化剂的可控制备开辟了新路径。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70786?af=R",
+          "tp": "硼烯基纳米催化剂",
+          "aip": 1,
+          "kp": [
+            "[合成方法]: 激光触发自分解裂解Mo-B键",
+            "[材料体系]: Mo4/3B2Tx硼烯负载MoV纳米粒子",
+            "[电子结构]: 电子金属-载体相互作用(EMSI)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    2D transition‐metal borides (MBenes), such as Boridene (Mo\n                    4/3\n                    B\n                    2\n                    T\n                    x\n                    ), exhibit excellent catalytic potential but suffer from instability, high resistivity, and loaded nanoparticle deactivation. Here, a laser‐triggered self‐decomposition strategy is developed to activate thermally unstable Boridene, cleaving Mo─B bonds and producing defective Mo nanoparticles (Mo\n                    V\n                    ) that form electronic metal‐support interactions (EMSIs) with the Boridene substrate (Mo\n                    V\n                    /Boridene). Analyses of Gibbs free energy and bond energetics confirm the intrinsic instability of Boridene, revealing that its negative Gibbs free energy and relatively weak Mo─B bonds drive a thermodynamic propensity for controlled decomposition. Driven by EMSIs that enhance interface durability and optimize the electronic structure for accelerated oxygen electrocatalysis, the Mo\n                    V\n                    /Boridene cathode achieves a low overpotential (0.32/0.40 V) and ultralong cyclability (550 cycles), surpassing most existing Mo‐based lithium‐oxygen batteries (LOBs) to date. This strategy is further demonstrated in another Mo\n                    2\n                    C MXene system with EMSI effects, establishing a versatile platform for activating MBenes/MXenes and expanding their potential applications in energy storage and conversion.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

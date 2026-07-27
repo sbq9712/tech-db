@@ -1,0 +1,133 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月13日　星期一",
+  "date_range": "2026-07-13",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [],
+    "AI与智能科技": [
+      "东方算芯发布3D芯片DF1000，14nm工艺实现520TFLOPS算力",
+      "研究实现p型PbS量子点墨水直接合成，简化晶圆级红外成像制备流程",
+      "研究者提出FRID无监督聚类方法，用于识别功能相似的神经元群体"
+    ],
+    "通用技术": [
+      "研究发现微生物还原型黄素在有氧条件下可破坏钛表面钝化膜"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "东方算芯发布3D芯片DF1000，14nm工艺实现520TFLOPS算力",
+        "研究实现p型PbS量子点墨水直接合成，简化晶圆级红外成像制备流程",
+        "研究者提出FRID无监督聚类方法，用于识别功能相似的神经元群体"
+      ],
+      "entries": [
+        {
+          "t": "软件定义近存计算3D芯片东方算芯DF1000在上海发布",
+          "d": "2026-07-13",
+          "a": "手动导入",
+          "c": "AI与智能科技",
+          "as": "东方算芯在上海发布全球首颗软件定义近存计算3D芯片DF1000。该芯片采用14nm工艺，通过“软件定义+3D堆叠近存计算”架构，在14nm节点下实现了520TFLOPS@BF16的算力。此技术突破了算力芯片瓶颈，实现软硬件解耦与动态重构，并基于全国产供应链打造自主可控的算力生态。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/976/025.htm",
+          "tp": "3D计算芯片",
+          "aip": 1,
+          "kp": [
+            "520TFLOPS算力"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||突破国产GPU运算速度指标边界\n\n其通过软件定义芯片技术实现软硬件解耦与动态重构，在14nm工艺节点下实现520TFLOPS@BF16的算力；接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)等在4/5nm工艺节点的制造水平",
+          "cm": "从性能而言，DF1000芯片的BF16算力(520TFLOPS)已经达到了接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)水平，不过后两者是基于台积电4/5nm工艺节点制造的。对比国内的计算显卡，摩尔线程的MTTS4000使用12nm工艺节点，INT8算力(往往高于BF16)只有200TFLOPS；华为昇腾910C的FP16算力为320TFLOPS。从数据看，东方算芯的芯片算力已经接近经过数次成熟迭代的GPU以及TPU产品，且接近或超越了国产的计算芯片。\nDF1000芯片的核心技术包括软件定义硬件、近存计算以及3D堆叠三部分。不同于现场可编程门阵列FPGA，软件定义硬件技术一般可以在程序执行过程中动态地改变电路的逻辑拓扑关系，从而加速特定的运算。近存计算技术将存储单元和计算单元集成到一张硅片上，大大增加了数据传输带宽。配合软件定义硬件技术，可以根据计算任务动态的改变电路逻辑结构，从而均衡计算耗时与内存读写耗时，增强硬件在真实任务上的性能。3D堆叠是用于提升计算密度的技术，由于14nm制程下，晶体管的2维密度相较于4nm制程要低数倍，因此可以通过将硅片打通后三位堆叠的方式提升单位体积内的运算速度。\n刚成立两年的公司可以克服众多技术困难实现国内领先水平的芯片设计，该工作以及相关的技术路线可以后续持续关注。",
+          "b": "全球首颗软件定义近存计算3D芯片：东方算芯DF1000在上海发布，14nm工艺\nIT之家7月13日消息，据第一财经报道，东方算芯今日在上海发布了东方算芯首颗旗舰芯片——DF1000。报道称，作为全球首颗软件定义近存计算3D芯片，DF1000",
+          "hb": 1
+        },
+        {
+          "t": "面向晶圆级短波红外成像的p型PbS量子点墨水直接合成",
+          "d": "2026-07-13",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "研究实现p型PbS量子点墨水的直接合成，面向晶圆级短波红外(SWIR)成像应用。PbS量子点因其可调带隙、溶液可加工性被视为可规模化SWIR光电器件的理想材料。传统方法多依赖配体交换等后处理步骤获得p型特性，该工作通过直接合成路线简化制备流程，提升量子点墨水的均匀性与器件一致性。成果推动了低成本、大面积SWIR成像传感器的商业化进程。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag421/8732561?rss=1",
+          "tp": "硫化铅量子点",
+          "aip": 1,
+          "kp": [
+            "材料[SWIR成像]: PbS量子点",
+            "[合成方法]: 直接合成p型量子点墨水",
+            "[规模]: 晶圆级",
+            "[瓶颈]: p型QD依赖固态工艺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "PbS quantum dots (QDs) are highly promising for scalable short-wave infrared (SWIR) optoelectronics due to their tunable bandgap and solution-processability. While efficient devices require well-defined p-n homojunctions, the fabrication of p-type QD layers remains a critical bottleneck compared with the well-established n-type QD inks. Current fabrication of p-type QD layers relies on solid-state ligand exchange (SSLE). However, SSLE suffers from incomplete ligand replacement and non-uniform oxidation, causing film inhomogeneity that prevents wafer-scale manufacturing. Here, we report a direct synthesis of p-type PbS QD inks with tunable QD size, optical absorption, and p-type electronic characteristics. This ink yields conductive p-type films on 6-inch Si substrates with highly uniform thickness. Using this strategy, we realize SWIR photodetectors with fully ink-processed PbS QD p–n junctions, together with a prototype imaging module. When integrated with a recognition algorithm, the imager provides SWIR images that facilitate vehicle recognition under foggy conditions. This work establishes a scalable route toward future high-performance, wafer-level SWIR optoelectronic platforms.",
+          "hb": 1
+        },
+        {
+          "t": "通过神经动力学子空间聚类构建介观功能组学",
+          "d": "2026-07-13",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究者提出FRID（基于内禀动力学稀疏表示的功能子空间聚类）无监督方法，用于识别功能相似的神经元群体。单神经元层面复杂的非线性交互导致异步异质放电模式，挑战传统基于相关放电的聚类方法。该方法助力构建精细脑功能图谱，推动介观功能组学发展。",
+          "sc": 6.0,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag420/8732559?rss=1",
+          "tp": "脑功能组学",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Building a fine-grained functional atlas of the brain is crucial for deciphering bio-intelligence. However, the intricate and non-linear interactions at single-neuron level lead to asynchronous and heterogeneous firing patterns among closely interacting neural populations, thereby challenging correlated-firing-based clustering methods. Here, we present Functional subspace clustering based on sparse Representation of Intrinsic Dynamics (FRID), an unsupervised approach for identifying neurons with shared microcircuit connectivity and information encoding properties (referred to as Functionomics) from mesoscale neural recordings. FRID significantly outperforms correlated-firing-based methods in both simulated complex networks and empirical calcium recordings. The accuracy and utility of FRID are validated across sensory integration and decision-making tasks to produce functionomic clusters with improved resolution and coding specificity than those defined by anatomical functional areas. As representative findings, we demonstrate single-cell level functional remapping during recovery from ischemic stroke and the learning-induced reorganization of functional modularization. Together with large-scale neural recordings, FRID could serve as a general data-driven paradigm to accelerate the understanding of mesoscale brain functions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究发现微生物还原型黄素在有氧条件下可破坏钛表面钝化膜"
+      ],
+      "entries": [
+        {
+          "t": "微生物还原型黄素在大量有氧条件下破坏钛的TiO2钝化膜",
+          "d": "2026-07-13",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/耐腐蚀材料",
+          "as": "研究发现微生物还原型黄素在有氧体相条件下可破坏钛表面的TiO2钝化膜，揭示微生物代谢物对钝化金属腐蚀防护的新机制。该发现对钛合金在生物环境中的长期耐蚀性评估具有重要意义。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag426/8732568?rss=1",
+          "tp": "钛氧化膜腐蚀",
+          "aip": 1,
+          "kp": [
+            "[腐蚀机制]: 微生物还原黄素破坏TiO₂钝化膜",
+            "钝化膜[钛]: 电子绝缘性TiO₂",
+            "[测试条件]: 体相有氧环境"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Passive metals protected by surface oxide films dominate modern structural materials. Thus, understanding the mechanisms governing passive film breakdown is essential. The electronically insulating TiO2 passive film on titanium separates the underlying Ti° from environmental oxidants, but microbial biofilms have been reported to catalyze titanium corrosion. Here we demonstrate that the common marine microbe Shewanella algae growing on titanium reduces TiO2 to destabilize the passive film. The biofilm consumes oxygen, generating anaerobic conditions near the metal interface even when the bulk environment remains aerobic. High-resolution characterizations reveal thinning of the passive layer and accumulation of lower-valence titanium oxides. Electrochemical analyses show a six-fold increase in corrosion current from Ti0 accompanied by enhanced pitting. Mutant studies and other approaches indicate that extracellular flavins function as an intermediary electron carrier for S. algae TiO2 reduction. These results demonstrate how microbes create localized microenvironments that accelerate corrosion of otherwise highly corrosion-resistant metals.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

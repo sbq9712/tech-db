@@ -1,0 +1,247 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月15日　星期三",
+  "date_range": "2026-07-15",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中科院团队研发钙钛矿有机叠层电池，光电转换效率达28.04%创新高",
+      "锂电池度电成本下降，电池储能在峰值供电领域成本竞争力超越天然气",
+      "河北辛集完成204米钢混塔架风电机组吊装，总装机量达100兆瓦"
+    ],
+    "AI与智能科技": [
+      "GPT-5.6尝试在一小时内解决存在50年的图论难题，相关成果待验证",
+      "国行版苹果AI通过监管备案，确认接入阿里千问大模型",
+      "ACL论文揭示强化学习会导致大模型输出熵下降及探索能力减弱"
+    ],
+    "通用技术": [
+      "新型铂基催化剂实现分钟级制备，催化活性较原水平提升16倍",
+      "科研团队开发双腔室生化监测平台，实现人肝灌注指标在线检测",
+      "学者将相位对比法引入冷冻电镜，通过激光相位板提升蛋白质成像对比度"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中科院团队研发钙钛矿有机叠层电池，光电转换效率达28.04%创新高",
+        "锂电池度电成本下降，电池储能在峰值供电领域成本竞争力超越天然气",
+        "河北辛集完成204米钢混塔架风电机组吊装，总装机量达100兆瓦"
+      ],
+      "entries": [
+        {
+          "t": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网",
+          "d": "2026-07-15",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中科院化学所李永舫院士、孟磊研究员团队在《自然》发表研究，提出\"全阶段调控\"策略，引入可光转换添加剂分子解决钙钛矿-有机叠层电池中碘溴离子相分离难题。经第三方认证，新型电池稳态光电转换效率达28.04%，刷新该类电池世界纪录。叠层结构上层钙钛矿吸收可见光、下层有机物吸收近红外光，可溶液加工、柔性大面积制造。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260714_1901983.html",
+          "tp": "钙钛矿光伏",
+          "aip": 1,
+          "kp": [
+            "光电转换效率[新型钙钛矿-有机叠层太阳能电池]: 28.04%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网\n中电传媒股份有限公司主办\n新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录\n易受到光照影响的电池材料，如何更稳定地利用光能？《自然》杂志13日发表的一项研究给出了答案：中国科学院化学研究所李永舫院士、孟磊研究员团队，提出“全阶段调控”策略，通过引入一种可光转换的添加剂分子，成功制备出新型钙钛矿-有机叠层太阳能电池。经第三方机构认证，该电池的稳态光电转换效率达到28.04%，刷新这类电池的世界纪录。\n近年来，以钙钛矿太阳能电池和有机太阳能电池为代表的新一代光伏技术发展迅速。这类电池的制造方式很特别，能像印报纸一样，通过溶液加工、卷对卷印刷等技术，实现柔性、大面积制造，成品又轻又薄，还能弯曲。将它们像三明治一样叠在一起的钙钛矿-有机叠层太阳能电池，能把太阳光谱“吃干榨尽”：上层钙钛矿吸收可见光，下层有机物吸收近红外光，理论发电效率远超单一材料电池。\n然而，这种叠层电池的上层有个难缠的问题。为了吸收足够的太阳光，薄膜中需要同时添加碘和溴两种元素。麻烦的是，在制备过程中或持续光照下，碘离子和溴离子容易“闹分家”，各自聚集成群。“这种相分离现象一旦发生，电池电压就会不断下降，性能持续衰退，成为阻碍其走向应用的致命短板。”孟磊说。\n图为钙钛矿-有机叠层太阳能电池器件。中国科学院化学研究所供图\n为了平息这场微观世界的纷争，研究团队向材料中加入一种名为TDB的添加剂分子。在电池薄膜成型之初，TDB像一位耐心的协调员，拖住溴离子快速聚集的脚步，确保碘和溴从一开始就均匀混合。而当电池见光工作时，TDB被光激活，转化成新结构的TAB分子。“新分子能够锚定在材料晶界上，抑制卤素离子迁移和相分离，完成了从‘惧光’到‘驭光’的蜕变。”孟磊解释。\n凭借这一贯穿制备与运行全过程的调控策略，团队制成的宽带隙钙钛矿太阳能电池的开路电压创下同类型电池最高纪录，将其与底层有机太阳能电池精准叠加后，整个叠层器件的实验室最高光电转换效率达28.80%，认证稳态效率锁定在28.04%。在持续光照625小时后，叠层太阳能电池仍保持初始效率的90%，展现出优异的稳定性。\n李永舫表示，这种钙钛矿有机叠层太阳能电池兼具轻薄与柔性优势，不仅有望用于建筑、交通、可穿戴设备等领域，更因其突出的柔性重量比，未来有潜力登上卫星和空间站，为人类提供更轻便高效的太空能源。\n“十四五”能源高质量发展\n“抢”回4.5亿度电能 国产“苇络AI”守护迎峰度夏电力线\n太阳能智能回收机落地明十三陵 助力文旅绿色低碳发展\n宁波大学团队在全钙钛矿叠层电池研究领域取得新突破\n新研究：集中供热余热可助力污水处理和城市减排\n中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最\n新工艺打造出更轻且旋转更快的风力涡轮机叶片\n我国高校开发新型电解液让锂金属电池“增能延寿”\n我国首台超临界CO₂车载空调在扬研发成功",
+          "hb": 1
+        },
+        {
+          "t": "数据中心推高燃气轮机成本，电池储能首次在峰值供电领域击败天然气",
+          "d": "2026-07-15",
+          "a": "机工文献",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "AI数据中心激增的电力需求推高了燃气轮机采购成本，与此同时电池储能系统首次在峰值供电领域成本上击败天然气发电。这一里程碑表明锂电池度电成本已降至足以与天然气调峰竞争的水平，数据中心供电格局正从化石燃料向储能加速转变，对电网调峰模式与碳减排路径影响深远。",
+          "sc": 9.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/LvH9qLEz9x45nNUStSQ--w",
+          "tp": "储能替代气电",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "全球最高！204米钢混风塔在华北平原“立起来”了--中国能源新闻网",
+          "d": "2026-07-15",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/风电",
+          "as": "7月10日，中国电建承建的河北辛集风电项目三期成功吊装204米超高钢混塔架风电机组，刷新全球陆上钢混风电塔架高度纪录。项目总装机100兆瓦，共16台6.25兆瓦机组，核心设备100%国产化。204米塔采用\"下混上钢\"结构，基础浇筑引入全流程无线测温系统实现零裂缝，为低风速区域风电开发提供可复制方案。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://cpnn.com.cn/news/xny/202607/t20260714_1901998.html",
+          "tp": "超高风电塔",
+          "aip": 1,
+          "kp": [
+            "塔架高度[风电项目三期机组]: 204米",
+            "总装机容量[风电项目三期]: 100兆瓦",
+            "风力发电机组数量[风电项目三期]: 16台",
+            "单机容量[风力发电机组]: 6.25兆瓦",
+            "轮毂高度[常规风力发电机组]: 160米"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球最高！204米钢混风塔在华北平原“立起来”了--中国能源新闻网\n中电传媒股份有限公司主办\n全球最高！204米钢混风塔在华北平原“立起来”了\n7月10日，中国电建承建的河北辛集风电项目三期204米超高机组成功安装，刷新了全球陆上钢混风电塔架高度纪录，也为低风速区域风电开发贡献了可复制的“电建方案”。\n河北华电辛集500兆瓦风电项目三期工程坐落于河北辛集市，总装机容量100兆瓦。中国电建所属水电十六局承建。\n项目共布置16台6.25兆瓦风力发电机组，其中15台轮毂高度160米。本次完成吊装的204米超高钢混塔架风电机组，是该项目的核心组成部分，机组核心主机、叶片、塔筒等关键设备全部国产化，自主化率100%。\n204米的高度，首先考验的是“脚下功夫”。70根有效桩长19至22.3米的预制管桩，需要浇筑大体量混凝土，浇筑过程中，全流程无线测温系统，让风机基础一次性浇筑成型，没有出现一条温度裂缝。\n吊装环节，204米高空吊百吨级机舱，对起重设备和操作精度都有极高要求。项目部配备的大吨位动臂式起重机搭载自动纠偏系统，起升、变幅、回转全程自动调整，确保重物在高空不晃不偏。\n超高塔体采用“下混上钢”复合结构，下部混凝土段抗风性能好，上部钢塔段自重轻、吊装效率高。关键部位使用的UHPC超高强混凝土，强度为普通混凝土3到4倍；预应力钢绞线强度达2200兆帕，为国内风电领域最高等级。\n华北平原地处低风速区域，离地面越高风资源越丰富，发电效益也越高。与同风电场160米塔架机组相比，204米机组年等效满负荷发电小时数提升220余小时，年发电量可提升6%以上。此方案还将低风速风电开发门槛下探至5米/秒以内，为原本因风资源不足而被判定不具备开发价值的区域打开了投资可行性。\n项目建成后，16台风机通过4回35千伏集电线路汇集，接入项目一期220千伏升压站。项目全容量投产后，预计年发电量约2亿千瓦时，可节约标准煤6万余吨，减排二氧化碳约16万吨。（\n“十四五”能源高质量发展\n包头威俊500千伏储能汇集站并网投运\n海南重卡“驶向”环岛换电自由\n新能源撑起海南电力“半壁江山”\n河北首个海上光伏项目并网\n车船税征收政策明年调整 新能源汽车发展重心转移\n储能市场需求旺盛 产业链上市公司中报预喜\n华电海晶1000兆瓦工程完成全周期后评价\n动力电池产业从“价格竞争”走向“安全竞争”",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "GPT-5.6尝试在一小时内解决存在50年的图论难题，相关成果待验证",
+        "国行版苹果AI通过监管备案，确认接入阿里千问大模型",
+        "ACL论文揭示强化学习会导致大模型输出熵下降及探索能力减弱"
+      ],
+      "entries": [
+        {
+          "t": "GPT-5.6仅用1小时攻破50年数学难题！64个AI摘下图论皇冠",
+          "d": "2026-07-15",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "报道称GPT-5.6在约1小时内解决了困扰数学界约50年的图论难题，64个AI智能体协同工作摘得图论领域重要成果。若属实，这标志着大语言模型在复杂数学推理能力上的显著跨越，从工具辅助推理迈向自主攻克开放性数学问题的阶段，对AI数学研究范式具有深远影响。但具体成果需经数学界同行验证。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/0D5mCwjmPNresZsIV0b-ag",
+          "tp": "AI攻破难题",
+          "aip": 1,
+          "kp": [
+            "耗时[GPT-5.6攻破数学难题]: 1小时",
+            "历史难度[被攻破的数学难题]: 50年",
+            "数量[摘下图论皇冠的AI]: 64个"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "等了两年，国行苹果AI终于通过备案，接入千问！",
+          "d": "2026-07-15",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "国行版苹果AI（Apple Intelligence）在等待约两年后通过监管备案，将接入阿里千问大模型。标志着苹果AI功能正式进入中国市场，也体现跨国科技公司在华数据合规与本地化合作的监管要求。千问获苹果背书对其市场竞争地位有积极影响。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/OZsFeZg_iTx7HaZfWMt8-A",
+          "tp": "苹果AI入华",
+          "aip": 1,
+          "kp": [
+            "等待时间[国行苹果AI]: 两年"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "大模型RL训练为何会「越训越窄」？ACL Outstanding Paper从token-level熵变揭示RLVR训练机制",
+          "d": "2026-07-15",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "ACL 2025杰出论文从token级别熵变角度揭示RLVR（基于可验证奖励的强化学习）训练机制，解释大模型RL训练\"越训越窄\"现象。研究发现强化学习会降低输出token分布熵，使模型趋向高置信但低多样性的回答，导致探索能力下降、输出模式坍缩。该工作为理解并缓解RL训练退化提供理论框架。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/om7MiAw9BepvTlTrpEz5Ew",
+          "tp": "RL训练机制",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "新型铂基催化剂实现分钟级制备，催化活性较原水平提升16倍",
+        "科研团队开发双腔室生化监测平台，实现人肝灌注指标在线检测",
+        "学者将相位对比法引入冷冻电镜，通过激光相位板提升蛋白质成像对比度"
+      ],
+      "entries": [
+        {
+          "t": "绿氢新突破：铂催化剂实现分钟级制备，活性提升16倍",
+          "d": "2026-07-15",
+          "a": "环球零碳",
+          "c": "通用技术/催化剂",
+          "as": "绿氢制备取得新突破：铂基催化剂实现分钟级快速制备，催化活性提升16倍。绿氢（电解水制氢）成本瓶颈之一是贵金属催化剂用量和效率。该突破有望降低电解槽关键材料成本、大幅提升产氢效率，对绿氢规模化降本具有重要推动作用。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/ysOK2GaVUQO6z11cbcR1CA",
+          "tp": "铂催化剂制氢",
+          "aip": 1,
+          "kp": [
+            "制备耗时[铂催化剂]: 分钟级",
+            "活性提升倍数[铂催化剂]: 16倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "临床部署的人体肝脏灌注双室生化监测平台",
+          "d": "2026-07-15",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "针对全球供体肝脏短缺、边缘供体依赖常温机械灌注评估的需求，该研究开发了双腔室生化监测平台，用于人肝灌注过程的实时连续监测。该平台突破了传统间歇性取样与低时间分辨率的限制，实现灌注液中代谢物、酶类等关键生化指标的在线检测，有望提升供肝质量评估精度与移植成功率。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74799-y",
+          "tp": "肝灌注生化监测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The global shortage of transplantable donor livers increases reliance on marginal grafts, creating an urgent need for workflow-compatible assessment during normothermic machine perfusion. However, current biochemical evaluation remains constrained by intermittent perfusate sampling, low temporal resolution and limited cholangiobiliary context. Here we report a clinically deployed dual-compartment biochemical monitoring (DCBM) platform for human liver perfusion. The system integrates dual-channel microfluidics, multiplexed electrochemical sensing, bile-compatible antifouling interfaces and wireless data transmission to enable automated in-line measurement of pH, lactate and glucose in both perfusate and bile. In seven human donor livers, the DCBM platform shows strong agreement with standard laboratory assays while resolving transient biochemical excursions not captured by scheduled hourly sampling, including bile lactate elevations associated with subsequent adverse perfusion trends in selected cases. Continuous dual-compartment measurements further enable an exploratory outcome-anchored framework linked to post-transplant clinical course. This platform establishes a clinically deployed architecture for dual-compartment biochemical monitoring and provides an initial translational bridge from continuous sensing to viability-associated graft assessment during ex situ liver perfusion.",
+          "hb": 1
+        },
+        {
+          "t": "显微镜的突破可以揭示曾经被认为太小而看不见的蛋白质",
+          "d": "2026-07-15",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "物理学家将近百年历史的相位对比法应用于冷冻电镜（cryo-EM），开发出激光相位板技术，通过改变电子相位提升成像对比度。该突破有望让电子显微镜清晰解析此前因过小而无法观察的人类蛋白质结构，为结构生物学和药物开发开辟新窗口。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/microscope-breakthrough-could-reveal-proteins-once-thought-too-small-to-see/",
+          "tp": "蛋白质显微成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A laser-based innovation could allow electron microscopes to reveal biological structures that have long remained beyond their reach.\nMost human proteins remain too small for today’s most powerful biological microscopes to resolve clearly. A laser system developed by\nphysicists could help bring many of them into view.\nThe researchers adapted phase contrast, a nearly century-old imaging method, for cryoelectron microscopy (cryo-EM). Their laser phase plate improves contrast by changing the phase of an electron beam without significantly reducing its intensity.\nThe advance could also strengthen cryoelectron tomography (cryo-ET), which combines images taken from different angles to reconstruct molecules inside cells.\n“Cryo-EM has become the new, fastest-growing method for resolving the structure of biological macromolecules, and cryo-ET is expected to show how these molecules work together in their natural, cellular context,” said Holger Müller, a UC Berkeley professor of physics and faculty scientist at Lawrence Berkeley National Laboratory who led the development effort. “But because of signal-to-noise limitations, the majority of human and animal proteins are too small to be analyzed by these methods. The increase in signal-to-noise ratio provided by this laser phase plate is expected to overcome these important limitations.”\nThe system uses an exceptionally intense focused continuous-wave laser to alter the electron beam. This change makes small molecules such as hemoglobin easier to distinguish and could improve views of crowded structures inside cells.\n“With cryo-ET, we’re looking at small, very complicated cellular material that’s incredibly crowded inside the cell,” said Bridget Carragher, founding technical director of imaging at Biohub in Redwood City, California. “It’s like a forest of trees, and you’re trying to find one leaf on one tree in there. Cryo-ET needs a dramatic step forward in contrast, so we can start to see what’s going on inside the cell. That’s what the laser phase plate promises to give us.”\nBiohub funded a customized Thermo Fisher Krios microscope that Müller equipped with the laser phase plate. He named the instrument Theia after the ancient Greek Titaness associated with light.\nBiohub is developing a second microscope that uses two perpendicular lasers at lower power. The design is intended to reduce optical distortions and protect components from damage.\n“Theia is the Formula 1 microscope,” Müller said. “It has extra electron optics that give it better resolution than the standard cryo-EM, even without the laser. With the addition of the laser phase plate, we hope that it really becomes the world’s best instrument overall.”\nPhase contrast was developed by Dutch physicist Frits Zernike in 1930. He discovered that light passing through biological material changes not only in brightness but also in phase.\nScientists soon tried to apply the same principle to electron microscopes, but early phase plates weakened the beam, reduced resolution, or produced unstable images.\nIn 2010, Müller and cryo-EM pioneer Robert Glaeser\nproposed using an intense laser instead\nMüller spent 15 years turning the concept into a working instrument. His team trapped a laser inside a spherical mirrored cavity, where the light reflects more than 10,000 times and becomes concentrated into a tiny area.\n“It’s 75 kilowatts focused to a few microns,” Müller said. “That’s more powerful than what you use for welding. It’s more power than a military laser. It builds up the brightest continuous laser focus ever.”\nTests involving six biological samples showed that the laser produced the greatest improvements for small or difficult specimens.\n“For the most challenging cases — small particles, bad specimens — the laser produces a very considerable advantage,” Müller said.\nThe researchers tested the system on aldolase, a muscle protein that cryo-EM can already image relatively well, and hemoglobin, a smaller protein near the lower limit of current instruments. Both images improved, but hemoglobin benefited more.\nCryo-EM can barely resolve proteins smaller than about 70 kilodaltons, even though proteins below that size account for roughly 90 percent of the human proteome.\nWith the laser phase plate, researchers can now image proteins as small as 50 kilodaltons, although doing so remains difficult. Müller hopes future improvements will lower the limit to 17 kilodaltons (the size of the protein myoglobin).\nA focused electron beam could provide an additional twofold improvement in contrast and signal-to-noise ratio.\n“This technology is a step function change for biology,” said Stephani Otte, Biohub’s Vice President of Imaging Science. “We are going to be able to see how molecular machines operate inside the living cell, in context, for the first time. What was once invisible will become visible — and that changes everything about how we understand disease.”\nReference: “Laser phase plate improves structure determination of small proteins by cryo-EM” by Petar N. Petrov, Jessie T. Zhang, Jonathan Remis, Jeremy J. Axelrod, Hang Cheng, Eric S. Cooper, Ian K. Hicklin, Shahar Sandhaus, Cooper Schnurr, Robert M. Glaeser and Holger Müller, 11 June 2026,\nDOI: 10.1126/science.aeh0665\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nMolecular Biology\nScientists Witness Living Plant Cells Build Their Own Cell Walls for the First Time\nWorld’s First “Molecular Movie”: Witness DNA Becoming Life’s Blueprint in Real-Time\nUnlocking the Nano Universe: A Quantum Leap in Magnetic Imaging\nScientists Unveil the Deadly Secret of Black Widow Venom\nRedefining the Rules of Matter: How Scientists Are Creating “Perfectly Imperfect” Materials at the Atomic Level\nWorld’s Fastest Microscope Freezes Time To Capture Moving Electrons\nResearchers Capture Never-Before-Seen View of Gene Transcription\nBeyond Gravity: UC Berkeley’s Quantum Leap in Dark Energy Research\nMystery Solved: Scientists Uncover Origins of Enigmatic Swirling Movements in Some of Nature’s Largest Cells",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

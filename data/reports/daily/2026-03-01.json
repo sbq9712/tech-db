@@ -1,0 +1,258 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月1日　星期日",
+  "date_range": "2026-03-01",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "PEM电解槽低铱阳极催化剂研发取得进展，可显著降低铱载量与溶解速率",
+      "多阶段柔性生产方案论证氢基炼钢成本可行性，利用绿电波动匹配运行节奏",
+      "钠电池锰基磷酸盐正极引入内置电场，有效抑制相变导致的电压滞后问题"
+    ],
+    "AI与智能科技": [
+      "一步法直接生长工艺实现晶圆级二维半导体晶体管，降低材料界面污染与成本",
+      "微波量子网络在4开尔文温度下验证抗热噪声能力，放宽极低温制冷依赖",
+      "光化学燃料载流分子实现本体供能，突破微型机器人传统电机尺寸限制"
+    ],
+    "通用技术": [
+      "NASA航天器在火星电离层探测到哨声波，首次证实火星存在闪电活动",
+      "研究揭示增材制造金属纳米孔隙变形机制，提供轻质高强材料工程策略",
+      "有机硼介导有氧串联聚合实现嵌段共聚物一锅法合成，无需中间纯化步骤"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "PEM电解槽低铱阳极催化剂研发取得进展，可显著降低铱载量与溶解速率",
+        "多阶段柔性生产方案论证氢基炼钢成本可行性，利用绿电波动匹配运行节奏",
+        "钠电池锰基磷酸盐正极引入内置电场，有效抑制相变导致的电压滞后问题"
+      ],
+      "entries": [
+        {
+          "t": "飞秒尺度质子-电子时间异步性实现PEM电解槽低铱抗腐蚀阳极",
+          "d": "2026-03-01",
+          "a": "Nature Nanotechnology",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "该研究发现了质子-电子在飞秒尺度上的时间不同步效应，并据此设计了抗腐蚀低铱阳极催化剂用于PEM电解水制氢。PEM电解槽OER反应的强酸性高电位环境对阳极耐蚀性要求极高，铱是唯一实用OER催化剂但稀缺昂贵。研究发现通过调控催化剂质子-电子转移动力学不同步性，可在OER过程中动态重构表面形成保护性钝化层，降低铱溶解速率。该策略在大幅降低铱载量的同时保持了高OER活性和优异稳定性，为PEM电解水大规模经济部署扫除了关键障碍。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02136-x",
+          "tp": "PEM电解低铱阳极",
+          "aip": 1,
+          "kp": [
+            "[腐蚀机理]: 质子-电子飞秒级时间不同步",
+            "阳极[PEM电解槽]: 低铱抗腐蚀催化剂",
+            "[表征]: 飞秒电化学瞬态光谱"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The development of corrosion-resistant low-iridium anode catalysts is the key challenge in proton exchange membrane water electrolysis. However, the fundamental origin of anodic corrosion has been intensely debated over the years, mainly because of the limited mechanistic understanding of the complex proton-coupled electron transfer process. In this work, we employed femtosecond electrochemical transient absorption spectroscopy to probe the spatial–temporal synchronization of protons and electrons during the elementary proton-coupled electron transfer step at the femtosecond (10−15 s) timescale. Here we show that anodic corrosion is initiated within 100 fs after polarization startup, driven by synchronized protons and electrons coupling at the electrode surface. By introducing a Lewis acid (CeO2) as a proton channel, the reaction dynamics of protons and electrons could be decoupled into temporal asynchrony to prevent the generation of soluble Ir6+ species. Owing to this unique desynchronized proton–electron interaction, the CeO2–IrO2 catalyst demonstrates outstanding stability for about 1,400 h of continuous operation.",
+          "hb": 1
+        },
+        {
+          "t": "释放多阶段灵活性使中国氢基炼钢具备成本竞争力",
+          "d": "2026-03-01",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/物质循环/无机物/黑色金属/钢铁",
+          "as": "该研究提出通过释放钢铁生产流程的多阶段柔性潜力，使基于氢气的绿色炼钢在经济性上具备竞争力。钢铁行业贡献全球约7%的CO₂排放，氢基直接还原铁（H₂-DRI）技术是深度脱碳的核心路径之一。研究通过集成工艺建模与电力市场调度优化，论证了利用绿电价格波动灵活启停电解水制氢、匹配高炉与电弧炉运行节奏的策略，可显著降低氢气使用成本。该多阶段柔性方案有望加速钢铁行业从化石燃料还原向可再生氢冶金转型。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00643D",
+          "tp": "氢基炼钢脱碳",
+          "aip": 1,
+          "kp": [
+            "[技术路径]: 氢基直接还原铁+电弧炉(H2-DRI-EAF)",
+            "[行业占比]: 钢铁业约7%全球CO2排放",
+            "[关键要素]: 多阶段灵活性解锁经济性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Addressing climate change requires decarbonizing the iron and steel industry, which accounts for about 7% of global CO₂ emissions. Hydrogen-based direct reduced iron with electric arc furnaces (H₂-DRI-EAF) emerges as a promising pathway, yet its economic viability hinges on effectively managing the variability of renewable energy. However, heterogeneous flexibility potentials across electricity, hydrogen, iron, and steel production, together with the distinct characteristics of intermediate product storage, make coordinated capacity investment highly complex. This study develops a system-level modeling framework for renewable-centric, multi-stage H₂-DRI-EAF that jointly optimizes capacity sizing and flexible operations across production stages under flexibility strategies in representative Chinese steelmaking cities. We find that fully deploying flexibility across all production stages could reduce the levelized cost of steel (LCOS) by 6–10% relative to baseline configurations relying on flexible electrolysis alone. By 2035, flexible H₂-DRI-EAF can achieve near cost parity with conventional steelmaking under moderate carbon pricing ($38 t⁻¹ CO₂) and 50% low-cost scrap addition. Flexibility systematically alters investment patterns through significantly reducing the required capacities of solar and energy storage while moderately inducing differentiated overcapacity in electrolyzers, DRI furnaces, and EAFs. For a 1 Mt yr⁻¹ H₂-DRI-EAF plant, renewable deployment exceeds 100 km²; a PV-only configuration halves the land footprint but raises LCOS by $5–64 t⁻¹. This study provides quantitative insights to support the scalable deployment of green steel pathways under high renewable penetration.",
+          "hb": 1
+        },
+        {
+          "t": "内建电场调控钠离子电池锰基磷酸盐正极相变并抑制电压滞后",
+          "d": "2026-03-01",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "该研究利用内置电场（BIEF）调控Mn基混合磷酸盐正极的相变行为，显著抑制钠离子电池中的电压滞后问题。Mn基磷酸盐正极因Mn³⁺/Mn⁴⁺多电子反应提供高容量，但相变缓慢和电压滞后严重制约其发展。研究通过引入极化结构构建内置电场，加速离子扩散并平滑相变路径，使正极在可逆性和能量效率方面显著提升。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522507?af=R",
+          "tp": "磷酸盐正极材料",
+          "aip": 1,
+          "kp": [
+            "正极材料[钠离子电池]: NFMVP(9-1)-rGO异质复合",
+            "[内建电场]: 促进Na+扩散抑制电压滞后"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The voltage hysteresis and sluggish kinetics of Mn-based mixed phosphate cathode significantly hinder their development and application. Herein, this work fabricates a heterogeneous composite cathode (NFMVP (9-1)-rGO) with a built-in electric field and accelerated electronic pathway. As the key kinetic driving force, the built-in electric field, can selectively promote the diffusion of Na+ in the Na3MnFe(PO4)P2O7 phase while simultaneously suppress the structural degradation of the Na4MnV(PO4)3 phase caused by the \"avalanche extraction\" of Na+ under high-voltage. The introduction of the dual-carbon layer further establishes a robust conductive framework throughout the electrode. Crucially, in situ electrochemical impedance spectra based on distribution relaxation time reveal that the built-in electric field modulates the phase transition mechanism from a two-phase reaction to a solid-solution behavior in the high-voltage region, significantly accelerating the reaction kinetics and greatly suppressing voltage hysteresis. As a result, NFMVP (9-1)-rGO exhibits excellent capacity delivery (120.2 mAh g-1), high practical energy density (378.3 Wh kg-1), and outstanding long-term cycling stability. Our findings enlighten a new paradigm in the kinetic driving force from built-in electric field and the phase transition regulation mechanism in heterogeneous structures toward high-energy Mn-based sodium-ion batteries.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "一步法直接生长工艺实现晶圆级二维半导体晶体管，降低材料界面污染与成本",
+        "微波量子网络在4开尔文温度下验证抗热噪声能力，放宽极低温制冷依赖",
+        "光化学燃料载流分子实现本体供能，突破微型机器人传统电机尺寸限制"
+      ],
+      "entries": [
+        {
+          "t": "通过一步PtTe2/2H-MoTe2异相形成直接生长晶圆级二维半导体晶体管",
+          "d": "2026-03-01",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出了一种一步法直接生长晶圆级二维半导体晶体管的新工艺，以PtTe2/2H相过渡金属硫族化合物为核心材料。二维半导体因原子级薄层厚度、优异载流子迁移率和可规模化集成潜力，被视为下一代集成电路和大尺寸电子系统的理想平台。传统方案需复杂转移工艺且易引入缺陷，而该一步法有望在晶圆尺度上同步实现材料合成与器件构筑，显著降低界面污染和工艺成本，为二维材料从实验室走向量产级芯片制造提供了关键工程突破。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522270?af=R",
+          "tp": "二维半导体晶体管",
+          "aip": 1,
+          "kp": [
+            "[晶圆级生长]: 一步碲化形成PtTe2/2H-MoTe2异相结",
+            "器件类型[二维半导体]: p型晶体管"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2D semiconductors offer a promising platform for next-generation integrated circuits and large-scale electronic systems. Realizing high-performance p-type transistors, however, remains challenging due to Fermi-level pinning, high contact resistance, and poorly defined interfaces in conventional stepwise fabrication. Here, we demonstrate a single-step tellurization growth strategy that simultaneously forms PtTe2 contacts on 2H-MoTe2 channels to directly realize 2D semiconductor transistors. This approach forms PtTe2/2H-MoTe2 metal/semiconductor arrays with precise control of the MoTe2 phase at the PtTe2 electrode interface, while providing integrated van der Waals metallic contacts without the need for post-growth of metal contacts. Using this method, we achieve wafer-scale heterophase arrays characterized by uniform patterning and well-controlled 2H/1T' phase transformation dynamics. The heterojunctions display sharp and clean interfaces, as verified by TEM, STEM, and EDS mapping. Transistor arrays fabricated from these heterophase structures show Ohmic contacts with low Schottky barrier heights, delivering on/off ratios up to 5 × 104 and consistent mobility of 5-9 cm2/Vs across 100 devices, ensuring efficient carrier injection. Our results establish a scalable pathway for the direct growth of 2D semiconductor transistors, overcoming conventional multi-step device fabrication bottlenecks and providing a promising platform for large-scale, and reproducible 2D electronics.",
+          "hb": 1
+        },
+        {
+          "t": "温度高达4 K的抗热噪声微波量子网络",
+          "d": "2026-03-01",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究展示了在微波频率下运行且能抵抗热噪声的量子通信网络，工作温度可达4K。微波量子通信是构建可扩展量子网络的关键技术，但热噪声一直是其主要瓶颈。该工作通过提升系统在4K较高温度下的噪声容忍能力，降低了对极低温制冷（如mK级稀释制冷机）的苛刻依赖，为未来大规模微波量子网络的工程化部署提供了新思路。若该方案能进一步验证在更长通信距离和更高温区下的可靠性，将有望显著降低量子网络基础设施成本。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01581-9",
+          "tp": "微波量子网络",
+          "aip": 1,
+          "kp": [
+            "工作温度[微波量子网络]: 4 K",
+            "传输介质[微波量子网络]: Nb-Ti超导线"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum communication at microwave frequencies is of use in the development of scalable quantum networks. However, such networks are fundamentally constrained by the susceptibility of microwave photons to thermal noise. Here we report a thermal-noise-resilient microwave quantum network with coherent coupling between two superconducting qubits through a 4-K-thermalized niobium–titanium transmission line. By overcoupling the communication channel to a cold load at 10 mK, we suppress the effective thermal occupancy of the channel to 0.06 photons through radiative cooling—a reduction that is 2 orders of magnitude below ambient thermal noise. We then decouple the cold load and rapidly transfer microwave quantum states through the channel while it rethermalizes. With this approach, we achieve a 58.5% process fidelity for quantum state transfer and a 52.3% Bell entanglement fidelity without correcting for readout errors, both exceeding the classical communication threshold of 1/2. We also develop a set-up with improved channel coherence at 1 K and use this to achieve a Bell entanglement fidelity of 93.6%. As a benchmark, we demonstrate that Bell’s inequality is unambiguously violated with this remote entanglement, without correcting for readout errors.",
+          "hb": 1
+        },
+        {
+          "t": "用于机器人具身能量的光化学燃料载体分子",
+          "d": "2026-03-01",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/供能和换电生态",
+          "as": "移动微型机器人的微型化面临两大核心挑战：一是传统机电系统的能量密度无法按比例缩小，二是能量存储与释放的控制难以在微小尺度实现。本研究提出一种基于光化学燃料载流分子（photochemical fuel carrier molecules）的机器人本体供能策略。该类分子可在光照下吸收并储存化学能，随后在机械触发下释放能量驱动微型机器人运动，实现'本体能量'（embodied energy）的自主供给。该思路打破了传统电池/电机供能模式的尺寸限制，为无线驱动、自主运动的微型机器人（如医疗微纳机器人）提供了新的能量供给范式。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520447?af=R",
+          "tp": "光化学燃料供能",
+          "aip": 1,
+          "kp": [
+            "[能量载体]: 光化学燃料分子",
+            "[应用]: 微型机器人本体储能与按需释放"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The downsizing of mobile robots faces obstacles in power and control as conventional electromechanical systems do not scale favorably with mass and size. Despite recent advancements in functional materials, enabling efficient energy storage, structural integration, and on-demand energy release in small-scale robots remains a challenge. Inspired by metabolic strategies in animals, we designed a fuel carrier molecule for embodied energy in small-scale swimming robots. We integrated an ultralow surface tension unit into a photolabile o-nitrobenzyl derivative to yield a novel photoresponsive molecule for fuel storage and controlled release. Combining these two properties, carrier molecules undergo bond scission under UV light to release fuel and locally manipulate surface tension to generate Marangoni flows. We incorporated this fuel carrier into an easily processable polymer composite to enable its application as a structural component with embodied energy and control. We implemented this approach in Marangoni micropump systems, surface-tension-active particle transportation, and untethered hybrid microrobots that combine photochemical on-off propulsion with magnetic control. This materials platform serves as a versatile solution to store fuel and energy in structural components and release it on demand with precision, opening new opportunities for embodied energy design in microrobots, soft devices, and active matter systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "NASA航天器在火星电离层探测到哨声波，首次证实火星存在闪电活动",
+        "研究揭示增材制造金属纳米孔隙变形机制，提供轻质高强材料工程策略",
+        "有机硼介导有氧串联聚合实现嵌段共聚物一锅法合成，无需中间纯化步骤"
+      ],
+      "entries": [
+        {
+          "t": "在火星上检测到闪电产生的波",
+          "d": "2026-03-01",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "NASA的MAVEN航天器在火星电离层中探测到频率色散哨声波，证实火星上存在闪电活动。研究证明了波从大气传播到航天器的物理可行性，观测到的色散与理论预期一致。此前闪电已在木星、土星和海王星确认，但在火星和金星上尚不明确，此发现填补了行星闪电探测空白。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb4898?af=R",
+          "tp": "火星闪电波",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Although lightning activity has been confirmed on Jupiter, Saturn, and Neptune through the detection of lightning-generated electromagnetic waves, its occurrence on Venus and Mars remains unclear. Here, we report observations of such a frequency-dispersed whistler detected in the ionosphere of Mars by NASA’s MAVEN spacecraft. We demonstrate the plausibility of wave propagation from the atmosphere to the spacecraft, and we show that the observed dispersion corresponds to theoretical expectations using realistic crustal magnetic field and ionospheric models. Increased attenuation at higher frequencies explains why only the low-frequency part of the whistler is observed. Our observations provide direct evidence of electromagnetic waves from an impulsive source on Mars, suggesting that electric discharges may indeed occur in the Martian atmosphere.",
+          "hb": 1
+        },
+        {
+          "t": "增材制造纳米构型金属中纳米孔隙驱动的变形",
+          "d": "2026-03-01",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究揭示了增材制造纳米构型金属中纳米孔隙驱动的变形机制。3D打印技术使金属材料进入10-100 nm的独特尺寸区间，功能特征尺寸可在此范围内精确调控。研究发现纳米孔隙的分布与连通性对材料的力学行为产生决定性影响，包括强度、延展性和应变硬化行为。该工作为设计轻质高强金属超材料提供了新的结构工程策略，对航空航天和生物医学领域有重要意义。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-69845-8",
+          "tp": "纳米多孔金属",
+          "aip": 1,
+          "kp": [
+            "特征尺寸[金属3D打印]: 10-100nm",
+            "[方法]: 双光子光刻+水凝胶浸渍增材",
+            "材料[纳米打印]: 纳米多孔金属微架构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "3D printing methods for small-scale metals enable a unique 10–100 nm dimensional niche where functional feature sizes, critical microstructural detail and atomic-level defects converge, challenging conventional hierarchical relationships and carrying significant nanomechanical implications. We introduce a metal nano-printing system combining two-photon lithography, hydrogel infusion-based additive manufacturing and in situ mechanical experiments on 3D nano-architected Ni, achieving ~100 nm critical dimensions, ~10 nm surface roughness, and a broad range of geometries (periodic vs. non-periodic; beam-based vs. shell-based) with superior specific strengths of ~100 MPa·g − 1·cm3 enabled by an unambiguous smaller is stronger size effect. Experiments identify concentrated-porosity regions as primary deformation-initiation sources and quantify their distribution as input for physics-informed, multiscale finite-element simulations that accurately predict size-dependent mechanical properties governed by nanoporosity-driven deformation. This work integrates experimental and computational approaches for the fabrication, characterization, and evaluation of nano- and micro-architected metals for nanotechnology and nanoscale manufacturing systems.",
+          "hb": 1
+        },
+        {
+          "t": "有机硼介导的有氧串联聚合一锅法合成嵌段共聚物的通用平台",
+          "d": "2026-03-01",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究提出了一种基于有机硼烷介导的需氧串联聚合的通用平台，实现嵌段共聚物的一锅法合成。嵌段共聚物是先进材料的关键构建单元，但传统合成方法操作复杂、底物范围有限。该策略利用有机硼催化剂在空气条件下依次引发不同单体的活性/可控聚合，无需中间纯化步骤即可在一锅中构建多种嵌段序列。该方法具有操作简便、单体普适性强的优势，大幅降低了嵌段共聚物的合成门槛。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20519",
+          "tp": "嵌段共聚物一锅合成",
+          "aip": 1,
+          "kp": [
+            "[聚合方法]: 有机硼介导有氧串联聚合",
+            "[串联组合]: RAFT+8种开环聚合",
+            "[合成特点]: 一锅法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Block copolymers are pivotal to advanced materials, yet a general and operationally simple strategy for constructing diverse, well-defined block architectures from distinct monomer classes remains elusive. Here, we report an organoborane-mediated aerobic tandem polymerization system that seamlessly interlinks reversible addition-fragmentation chain-transfer (RAFT) polymerization with eight ring-opening (co)polymerization (RO(CO)P) techniques. This unified platform enables one-pot synthesis of an extensive array of block copolymers, including polyether-, polyester-, polypeptide-, CO2-derived polycarbonate-, polyaziridine-, poly(ester thioester)-, and poly(ester amide)-block-polyacrylates. Mechanistic investigations demonstrate that strongly nucleophilic RO(CO)P active species (RX-, X = O, N) react with an anhydride/thioanhydride to form less nucleophilic intermediates (RCOY-, Y = O, S), which unlocks the controlled autoxidation of organoborane by O2. This process generates alkyl radicals in situ and initiates a clean mechanistic switch from RO(CO)P to RAFT polymerization. Our work establishes a versatile and scalable route to previously inaccessible block copolymers while providing a general framework for unifying disparate polymerization mechanisms, opening broad avenues in polymer science and functional materials design.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

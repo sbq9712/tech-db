@@ -1,0 +1,248 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月26日　星期日",
+  "date_range": "2026-04-26",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "玉柴集团重型商用车纯氨内燃机样机成功点火运行",
+      "双极集成电化学系统实现尼龙中间体工业级连续配对合成",
+      "全干燥工艺直接回收废三元正极黑粉制备安时级软包电池"
+    ],
+    "AI与智能科技": [
+      "科研团队实现晶圆级单晶二硫化钼向柔性基底无损转移集成",
+      "研究揭示扭曲双层MoTe2中反拓扑晶体与非阿贝尔液体共存",
+      "大语言模型结合搜索算法实现策略感知的化学逆合成路线规划"
+    ],
+    "通用技术": [
+      "原位表征证实CeO2转化为原子级分散Ce阳离子提升尾气催化活性",
+      "研究人员合成首个倍半硅氧烷保护的银超原子纳米团簇",
+      "特定取代基诱导氮杂醌甲基化物超快形成并涉及高激发态跃迁"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "玉柴集团重型商用车纯氨内燃机样机成功点火运行",
+        "双极集成电化学系统实现尼龙中间体工业级连续配对合成",
+        "全干燥工艺直接回收废三元正极黑粉制备安时级软包电池"
+      ],
+      "entries": [
+        {
+          "t": "玉柴集团重型商用车纯氨内燃机样机点火运行",
+          "d": "2026-04-26",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "广西玉柴集团牵头研发的重型商用车高压直喷纯氨内燃机样机成功点火并稳定运行。集成蓬顶燃烧室、主动预燃室、液氨缸内高压直喷、低温高效后处理耦合等技术，搭载氨制氢系统（低温钌基催化裂解，400-450℃高效制氢），热效率与现有重型柴油机最高水平持平。氨燃料作为零碳商用车动力路线取得工程突破。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/l4TEzTMXo_wPgMk-L8q0pA",
+          "tp": "氨内燃机研",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "结合报道内容及根据玉柴集团相关专利申请所示，其内燃机仍采用氢氨混合燃烧模式，多氢基燃料协同喷射控制机制可能为：当氨为主燃料时利用部分气缸的富氨高温尾气，在废气循环管路中的氨反应器内催化分解制取氢气，再将含氢混合气导入进气总管，从而提升主燃料氨的点火性能和燃烧速度；当氢为主燃料时，通过缸压传感器监测爆压，一旦爆压超限预示早燃风险，便喷射氨气以降低缸内温度，从而抑制氢发动机在大负荷下的早燃倾向（CN121066708A）。多氮基产物转化的后处理耦合技术可能为：将含NOx的尾气先经换热器被后段高温尾气预热，再经电加热器升温至催化剂适合温区，通过三级NOx-N₂O-选择性催化还原法SCR耦合催化器（采用铁剂分子筛催化剂，温区450℃以上；铜基分子筛在该场景下会生成N₂O）、氨逃逸催化器（Ammonia Slip Catalyst，ASC；采用Pt/Al₂O₃和铜基分子筛的双层催化剂）将NH3和NO、NO2、N2O转化为N2，并可将未燃的NH₃转化为N₂O和NO，后经过第三级SCR耦合催化器转化为N2（CN121088489A）。整体氮氧化物排放控制则可通过检测空气进气量、NH3/H2喷射量、缸内压力/温度来动态调整后续过程三者进气量，减少N₂O、NH3的泄漏（CN119084169A、CN119572369A）。但内燃机的运行温度、压力相关专利中并未透露，尾气的气体组成及分布也并未展示，其实际运行过程中氨制氢和内燃机协同、N₂O/NH3排放控制效果仍需进一步跟进其发布的结果。",
+          "b": "4月26日，广西玉柴机器集团在官方公众号发文称，其牵头研发的重型商用车高压直喷纯氨内燃机样机实现成功点火并稳定运行。文中称，该样机基于国家重点研发计划“重型商用车混合动力专用氨内燃机关键技术开发及应用”项目进行开发，集成了蓬顶燃烧室、主动预燃室、液氨缸内高压直喷、低温高效多氮基产物转化的后处理耦合及多氢基燃料协同喷射智能控制等技术；同时搭载高算力多核处理器与大容量存储模块，可精准调控预燃室点火、氨氢混合气和液氨喷射需求，热效率与现有重型柴油机最高热效率持平。此次内燃机点火搭载的氨制氢系统，采用了低温钌基催化裂解高压制氢的技术路线，在400℃-450℃低温范围内可实现氨气高效制氢。",
+          "hb": 1
+        },
+        {
+          "t": "双极集成电化学催化系统用于工业级连续流配对合成环己酮肟",
+          "d": "2026-04-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "该研究构建了一种双极性集成电化学-催化耦合系统，在连续流反应器中实现环己酮肟的配对合成，达到工业级效率。ε-己内酰胺（尼龙原料）生产高度依赖环己酮肟中间体，但传统合成路线涉及高能耗和污染。该系统将阳极氧化与阴极还原反应配对耦合，在同一电化学反应器中同时驱动两步关键转化，大幅提升原子经济性和能量效率，为绿色化工中高附加值中间体的可持续电合成提供了可放大方案。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73184?af=R",
+          "tp": "双极电催化合成",
+          "aip": 1,
+          "kp": [
+            "[双极集成系统]: 连续流配对合成环己酮肟",
+            "[催化剂]: 氧空位型",
+            "[合成条件]: 常温常压环境条件"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    ε‐Caprolactam production critically depends on cyclohexanone oxime (CHO), yet its sustainable synthesis remains constrained by the handling and utilization of hydrogen peroxide (H\n                    2\n                    O\n                    2\n                    ). Here, we developed a bipolar integrated electro‐chemocatalysis system (BIECS) that enables continuous‐flow paired CHO synthesis under ambient conditions with unprecedented efficiency. Using oxygen‐vacancy‐enriched bismuth oxide nanofibers as a bifunctional electrocatalyst, the system simultaneously drives the two‐electron oxygen reduction and water oxidation reactions at the cathode and anode, respectively, achieving remarkable cell Faradaic efficiencies up to 165% for H\n                    2\n                    O\n                    2\n                    production, which then on‐site reacts with cyclohexanone and NH\n                    3\n                    over titanium silicon‐1 with near‐unity selectivity. Consequently, the BIECS delivers remarkable apparent electron efficiency of 120%–160% for cascade CHO production and achieves an exceptional productivity of up to 5.04 mmol h\n                    −1\n                    cm\n                    −2\n                    at industrial‐relevant current density with excellent stability over 150 h for continuous‐flow electrolysis. Combined experimental and theoretical studies reveal that the oxygen vacancies of the catalyst modulate the adsorption energetics and configuration of the key OOH\n                    *\n                    intermediate, thereby promoting highly selective two‐electron pathways at both electrodes and enhancing the cascade ammoximation kinetics. This work establishes a scalable strategy that integrates paired electrocatalytic H\n                    2\n                    O\n                    2\n                    synthesis with chemocatalytic ammoximation, providing a highly efficient platform for sustainable CHO production.",
+          "hb": 1
+        },
+        {
+          "t": "全干燥可扩展废三元黑粉直接回收技术制备长寿命安时级软包电池",
+          "d": "2026-04-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "该研究提出一种全干燥、可扩展的三元废旧锂电正极黑质直接回收工艺，旨在实现长效循环的锂电池供应链。传统湿法回收存在能耗高、流程复杂等问题，该全干燥路线避免了大量溶剂使用，通过直接修复晶体结构恢复正极材料电化学性能。工艺兼顾环境友好性与经济可行性，为废旧三元材料的规模化再生提供了新策略，有望推动电池回收产业绿色转型。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73177?af=R",
+          "tp": "废旧电池直接回收",
+          "aip": 1,
+          "kp": [
+            "再生原料[回收]: 废旧NCM523黑粉",
+            "器件形态[回收验证]: Ah级软包电池",
+            "工艺[直接回收]: 全干法可扩展"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The direct recycling of spent cathode materials is a promising strategy for a sustainable supply chain but remains challenging for industrial‐sourced cathode black mass due to its complex morphology and heterogeneous impurities. Here, we report an all‑dry and scalable process that directly regenerates spent LiNi\n                    0.5\n                    Co\n                    0.2\n                    Mn\n                    0.3\n                    O\n                    2\n                    (NCM523) black mass into high‑performance cathode materials. By integrating plasma‐assisted mechanochemistry with thermal annealing, the process simultaneously refines particle morphology, enhances the relithiation kinetics, and converts trace impurities (Al, Na) into beneficial dopants through plasma‐enabled defluorination and homogeneous incorporation. This enables complete recovery of the layered structure with controlled single‐crystal morphology and preferential (003) facet exposure. The regenerated NCM523 delivers a high specific capacity and long‐term cycling stability, retaining 82.6% of its initial capacity after 300 cycles at a high cut‐off voltage of 4.5 V. Practical scalability of this approach is demonstrated through the batch processing of kilogram‐level black mass, and a 2 Ah pouch cell maintains 97.1% capacity retention over 1000 cycles. This work provides a practical solution for transforming battery black mass into high‑value cathode materials.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "科研团队实现晶圆级单晶二硫化钼向柔性基底无损转移集成",
+        "研究揭示扭曲双层MoTe2中反拓扑晶体与非阿贝尔液体共存",
+        "大语言模型结合搜索算法实现策略感知的化学逆合成路线规划"
+      ],
+      "entries": [
+        {
+          "t": "利用氧化物干转移实现单晶二硫化钼晶圆级集成用于柔性电子学",
+          "d": "2026-04-26",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究实现了在蓝宝石衬底上通过化学气相沉积（CVD）晶圆级生长单晶二硫化钼（MoS₂），并将其转移至柔性基底用于柔性电子器件。单晶MoS₂具有原子级厚度和优异的半导体性能，解决了多晶薄膜中晶界缺陷导致的电学性能下降问题。晶圆级单晶集成使大面积柔性晶体管阵列、传感器和逻辑电路成为可能，为柔性显示、可穿戴健康监测及柔性计算等应用提供了高质量材料基础。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01598-0",
+          "tp": "二硫化钼柔性电子",
+          "aip": 1,
+          "kp": [
+            "[转移工艺]: 氧化物干法转移"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Atomically thin, single-crystalline transition metal dichalcogenides grown by chemical vapour deposition on sapphire substrates combine excellent mechanical flexibility with high electronic performance, making them attractive semiconductors for flexible electronics. However, conventional wet-transfer processes used to integrate the materials onto flexible substrates often introduce surface contamination that degrades device performance. Here we report a wafer-scale dry-transfer strategy based on a high-κ dielectric aluminium oxide (Al2O3) interlayer, enabling the integration of 4-inch single-crystalline molybdenum disulfide (MoS2) films onto flexible substrates. The approach requires no contact with polymers or solvents, thus preserving the intrinsic electronic properties of the MoS2. Flexible field-effect transistor arrays fabricated using this method exhibit a maximum mobility of 117 cm2 V−1 s−1, subthreshold swing of 68.8 mV dec−1 and on/off ratio of 1012, comparable to values achieved on rigid substrates. We further demonstrate MoS2-based flexible inverters operating in the subthreshold regime with a gain of 218 and power consumption of 1.4 pW µm−1. Finally, we integrate an active-matrix tactile sensing system driven by flexible MoS2 transistor arrays onto a robotic gripper, providing real-time tactile mapping and object recognition.",
+          "hb": 1
+        },
+        {
+          "t": "扭曲半导体双层中的反拓扑晶体和非阿贝尔液体",
+          "d": "2026-04-26",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究发现在扭曲双层MoTe2半满第二莫尔能带中，电子晶体与非阿贝尔分数量子陈绝缘体竞争共存。根据扭曲角和微观模型，这些晶体可具有零或非零陈数。零陈数晶体的出现源于第一满带（+1）与半满第二带（-1）陈数贡献的抵消，这违反直觉，因为给定谷中前两个非相互作用能带具有相同拓扑陈数。该发现对拓扑物态研究具有基础意义。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-70916-z",
+          "tp": "拓扑量子态",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We show that electron crystals compete closely with non-Abelian fractional Chern insulators in the half-filled second moiré band of twisted bilayer MoTe2. Depending on the twist angle and microscopic model, these crystals can have non-zero or zero Chern numbers C. The C = 0 crystal occurs because contributions to the total Chern number from the full first band (+1) and half-full second band (-1) cancel. This is counterintuitive because the first two non-interacting bands in a given valley have the same Chern number + 1. For these two reasons, we call this crystal an anti-topological crystal. The anti-topological crystal is a novel type of electron crystal that may occur in systems with multiple Chern bands at filling factors n > 1.",
+          "hb": 1
+        },
+        {
+          "t": "LLM中的化学推理解锁策略感知的合成规划与反应机理解析",
+          "d": "2026-04-26",
+          "a": "Matter",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Bran等人展示大语言模型结合传统搜索算法可作为化学推理引擎，实现策略感知的逆合成路线规划与反应预测。LLM能理解官能团反应性与官能团间相互作用，在复杂分子合成路径设计中展现出超越规则匹配的灵活推理能力，为AI驱动的化学合成提供新范式。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00175-X?rss=yes",
+          "tp": "LLM化学推理",
+          "aip": 1,
+          "kp": [
+            "准确率[合成规划]: 71%与专家一致",
+            "[框架]: Synthegy LLM化学推理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Bran et al. show that large language models can serve as chemical reasoning engines when combined with traditional search algorithms. Their framework, Synthegy, enables chemists to specify synthesis strategy requirements in plain language, identifying feasible routes from large candidate pools with assessments that align with expert judgment 71% of the time. The same paradigm guides mechanism elucidation by evaluating elementary reaction steps, demonstrating that LLM reasoning and computational tools can be effectively integrated for chemical discovery.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "原位表征证实CeO2转化为原子级分散Ce阳离子提升尾气催化活性",
+        "研究人员合成首个倍半硅氧烷保护的银超原子纳米团簇",
+        "特定取代基诱导氮杂醌甲基化物超快形成并涉及高激发态跃迁"
+      ],
+      "entries": [
+        {
+          "t": "CeO₂纳米粒子向原子级分散Ce阳离子转化提升汽车尾气催化反应活性",
+          "d": "2026-04-26",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "研究发现CeO2纳米颗粒在高温反应条件下可转变为原子级分散的Ce阳离子，显著提升汽车尾气催化剂的反应活性。通过原位表征追踪了CeO2团簇→单原子的结构演化过程，证明原子分散Ce位点对CO氧化和NOx还原表现出更优的催化效率，为稀土催化材料设计提供了原子尺度指导。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21779",
+          "tp": "铈基尾气催化",
+          "aip": 1,
+          "kp": [
+            "[转化条件]: 10% H2,800°C",
+            "[催化剂形态]: CeO2纳米颗粒→单原子分散Ce阳离子",
+            "[载体]: γ-Al2O3",
+            "[应用]: 汽车尾气催化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nanosized cerium oxide (CeO2) has been extensively used as the oxygen storage component in automotive emission control systems. However, the possible influence of atomically dispersed Ce in these catalysts has not been recognized. Here, we demonstrate the controllable transformation of ceria nanoparticles into isolated cerium cations on γ-Al2O3 via reductive atom trapping in 10% H2 at 800 °C, achieving over half-monolayer coverage. Dispersed Ce1 ions anchored by surface penta- and octa-coordinated Al sites exhibit outstanding thermal stability in air up to 500 °C, enabling further loading of active metals with well-defined catalyst structures. With this strategy, supported single-atom Rh1 surrounded by dispersed Ce1 is confirmed to exhibit much superior performance to Rh1 on bare Al2O3 or nanocrystalline CeO2 in catalyzing NO reduction by CO, exhibiting a striking one-order-of-magnitude increase in activity. Dispersed Ce1 exhibits greatly enhanced oxygen transfer capability compared to ceria nanoparticles and introduces a modified reaction mechanism that involves an adjacent Rh1-Ce1 motif, resulting in a greatly decreased activation barrier (from 192 to 96 kJ/mol). The reactivity enhancements are also seen with Ce1-promoted Pt nanoparticles for oxidation of CO and hydrocarbons.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 倍半硅氧烷保护的银超原子",
+          "d": "2026-04-26",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "倍半硅氧烷作为具有末端硅氧基的多功能有机-无机杂化材料，已被用于构建金属杂倍半硅氧烷配合物，但在银纳米簇领域仍少探索。本研究报道了首个倍半硅氧烷保护的银超原子纳米簇[Ag40(Ph4Si4O8)6(tBuC≡C)8]，通过\"自适应多路径合成\"突破HSAB原理对Ag(I)体系的限制。",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01600",
+          "tp": "银团簇合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Silsesquioxanes as versatile organic-inorganic hybrids with terminal siloxyl sites have been utilized to construct diverse metallasilsesquioxane complexes, yet their niche in silver nanoclusters remains largely unexplored. Herein, we report the first silsesquioxane-protected superatomic silver nanocluster, [Ag40(Ph4Si4O8)6(tBuC≡C)8] (Ag40), acquired through an \"adaptive multipath synthesis\" that circumvents the long-standing limitations imposed by hard and soft acids and bases principles in Ag(I) coordination chemistry. Single-crystal X-ray diffraction analysis reveals a kernel-shell architecture: a face-centered-cubic Ag168+ kernel, encapsulated by a [Ag24(Ph4Si4O8)6] cage and tBuC≡C- ligands. Synthetic methodology studies indicate that the macrocyclic all-cis-T4: Ph4Si4O84- ligands can be accessed via three distinct routes: in situ generation, pre-synthesis, and hierarchical-synthesis, all of which involve the hydrolytic condensation of PhSi(OR)3 (R = Me, Et). Of these, the hierarchical approach addresses the limitations of the other two routes (poor stereochemical control in the in situ route and delayed supersaturation-induced slow crystallization in the pre-synthesis route), improving both the reproducibility and the growth efficiency of the Ag40 crystals. The mass spectrometry analysis not only provides compelling evidence for in situ transformation from cis,cis-T3 to all-cis-T4 ligands but also reveals the assembly pathways for the Ag40 nanocluster either in pre-synthesis or in hierarchical-synthesis, underscoring the dynamic transformation of cyclic oligomeric silsesquioxanes and its critical role in capturing the ultrasmall subvalent silver kernel. Notably, Ag40 exhibits superatomic 1D→1P transition-dominated red phosphorescent emission, persisting in nondegassed solutions. As the highest-nuclearity oligosiloxane-capped metal cluster and first superatomic silver-silsesquioxane species, Ag40 establishes a paradigm for silica-supported superatom synthesis and advances hard-base-protected coinage metal nanoclusters.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 由适当取代的邻羟甲基苯胺超快形成氮杂醌甲基化物涉及更高的激发态",
+          "d": "2026-04-26",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "氮杂醌甲基化物是合成氮杂环化合物的重要中间体，但目前缺乏温和高效的制备方法。该研究结合实验与理论计算，指导了光化学反应中前体分子的合理设计。虽然从2-氨基苯甲醇中光化学消除水是生成该中间体的潜在途径，但研究表明该过程相对缓慢且包含多步异裂反应。通过合理设计并引入特定取代基，该团队成功实现了氮杂醌甲基化物的超快形成，其光化学机制涉及更高激发态的跃迁。这为高效合成复杂氮杂环提供了新方法。",
+          "sc": 5.8,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21621",
+          "tp": "光化学合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Aza-quinone methides (aza-QMs) are important intermediates for the synthesis of aza-heterocycles, yet mild methods for their generation remain scarce. Here, we combine experimental and theoretical studies to guide the rational design of aza-QM precursors in efficient photoreactions. Photochemical elimination of H2O from 2-aminobenzyl alcohol (1) serves as a promising starting point. We show that aza-QM formation from 1 is a relatively slow, multistep process involving heterolytic cleavage on the first singlet excited state (S1), formation of a contact ion pair, relaxation to the ground state (S0), and final deprotonation. In the newly designed N-Boc-O-Ac-aminobenzyl alcohol (5), the Boc group increases NH acidity and enforces a reactive conformation, while replacement of OH with an acetyl group introduces a low-energy nπ* state. Benzylic C-O bond elongation stabilizes this state, promoting OAc elimination and enabling a highly efficient pathway. Aza-QM generation from 5 is an ultrafast, intermediate-free process that proceeds via conical intersections from 5 (S1) to the aza-QM in S0. Notably, in 5, and possibly in 1, the benzylic C-O bond cleavage ultimately occurs along their respective dissociative nσ* states. We hope that these mechanistic insights will enable rational design of aza-QM precursors in multistep organic synthesis and in biological applications, where precise control of reactive intermediates is essential to avoid undesired interactions with biomolecular substrates.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

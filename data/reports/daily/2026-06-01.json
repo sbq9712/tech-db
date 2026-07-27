@@ -1,0 +1,244 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月1日　星期一",
+  "date_range": "2026-06-01",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "英国海事联盟验证全球首个浮动氢能中心，实现船舶离网制氢储氢与供电",
+      "斯坦福大学鲍哲南团队解析锂金属电池SEI时空化学偏析机制",
+      "中科院青岛能源所揭示EMC不可逆分解致双离子电池石墨正极开裂机理"
+    ],
+    "AI与智能科技": [
+      "华东师大吴健团队实现无额外功率下超快激光非线性光学相互作用增强20倍",
+      "软银宣布将向法国人工智能数据中心投资最高750亿欧元",
+      "麻省理工学院将新建量子研究实验室，获马萨诸塞州最高2500万美元资助"
+    ],
+    "通用技术": [
+      "SpaceX获美国太空军价值40亿美元发射服务与航天能力支持合同",
+      "科研人员在透射电镜下利用电子束实现胸腺嘧啶二聚体单晶裂分反应精准控制",
+      "科研团队揭示电荷密度波与超导交织体系中的超导电流耦合机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "英国海事联盟验证全球首个浮动氢能中心，实现船舶离网制氢储氢与供电",
+        "斯坦福大学鲍哲南团队解析锂金属电池SEI时空化学偏析机制",
+        "中科院青岛能源所揭示EMC不可逆分解致双离子电池石墨正极开裂机理"
+      ],
+      "entries": [
+        {
+          "t": "全球首个浮动氢能中心验证成功，实现船舶离网供电",
+          "d": "2026-06-01",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "由英国支持的海事联盟成功验证了一个\"世界首个\"离网独立氢能动力中心，用于为船舶提供动力。该氢能中心无需接入电网，通过现场制氢-储氢-发电为海上作业船舶供电，为零排放航运提供了创新解决方案。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/world-first-floating-hydrogen-hub",
+          "tp": "浮式氢能枢纽",
+          "aip": 1,
+          "kp": [
+            "储能容量[浮式氢能枢纽]: 约45MWh",
+            "平台[浮式氢能枢纽]: 3模块六边形浮台约12900平方英尺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A UK-backed maritime consortium has successfully validated a “world-first” grid-independent Hydrogen Power Hub designed to accelerate port decarbonization.\nAt the heart of the system are three modular hexagonal floating platforms spanning a combined footprint of nearly 12,900 square feet. The platforms integrate approximately 45MWh of battery energy storage, modular fuel cell systems, hydrogen-powered generation, onboard renewable energy sources, and advanced grid-forming AC/DC electrical architecture designed to deliver power directly to vessels.\nThe concept was validated through a six-month program under the UK Research and Innovation Clean Maritime Demonstrator Competition Round 6, conducted in partnership with the UK Shipping Office for Reducing Emissions. The effort included hydrodynamic, structural, electrical, and operational testing.\nThe partners say the project demonstrated that existing\n, battery, fuel-cell, and electrical technologies can be integrated into a modular floating system capable of supplying power to large ships at berth and deployed across ports worldwide.\nDesigned for large-scale maritime operations, the Hydrogen Power Hub can\nup to 5MW of continuous clean electricity directly to vessels at berth. The system supports both 6.6kV and 11kV shore power connections, providing enough capacity to serve medium-sized cruise ships and other power-intensive maritime assets.\nThe project is aimed at overcoming one of the biggest challenges in port decarbonization: access to reliable electrical infrastructure. Many ports still struggle to deploy shore power at scale because of limited grid capacity, lengthy utility connection timelines, space constraints, complex permitting requirements, and the high costs associated with conventional shore-side power installations.\nAccording to the consortium, the platform is capable of supplying approximately 91MWh of energy per week while supporting repeated vessel charging operations. The design is intended to minimize the need for major construction projects, land reclamation efforts, or costly upgrades to existing\ninfrastructure.\nTo support continuous operations, the platform consumes roughly 16,500 to 17,600 pounds of hydrogen per week, stored in modular, ISO-compatible low-pressure containers integrated into the floating structure. The approach is designed to simplify fuel\nwhile maintaining flexibility for different port environments.\nThe current configuration includes seven onboard hydrogen storage tanks, with refueling expected about twice per week. According to the project team, this setup allows ports to begin deploying hydrogen-powered shore power systems without first investing in permanent hydrogen infrastructure, potentially lowering barriers to adoption during the early stages of implementation.\nRather than depending on large generators, the system uses 1.3MW modular fuel cells to continuously charge onboard batteries, allowing energy to be rapidly delivered when ships connect at berth. It also integrates 146kW of onboard solar capacity, helping reduce hydrogen consumption.\nAdditional testing by the University of Strathclyde confirmed the platform’s stability, structural performance, motion characteristics, and multi-platform connectivity under different sea conditions, supporting its suitability for long-term\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Energy\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review",
+          "hb": 1
+        },
+        {
+          "t": "斯坦福鲍哲南揭示锂金属电池多孔界面时空化学偏析新机制",
+          "d": "2026-06-01",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "斯坦福大学鲍哲南、崔屹团队利用X射线光电子能谱、纳米二次离子质谱、同步辐射等多尺度表征技术，系统解析锂金属电池SEI时空化学演化。将SEI分为铜基底界面、锂沉积界面和循环残留三类，揭示三维锂晶粒生长驱动界面组分时空偏析，锂剥离后固结形成多孔残留框架，可封存电解液衍生组分持续诱发副反应，建立了偏析-限域力化耦合理论框架。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.6c04430",
+          "tp": "锂负极界面",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "锂沉积 / 剥离过程中 SEI 的化学组分与空间结构演化机制尚不明确。斯坦福大学鲍哲南、崔屹院士等人依托DME/LiFSI电解液体系，结合X射线光电子能谱、纳米二次离子质谱、同步辐射X射线吸收光谱及扫描电镜等多尺度表征技术，系统解析了锂金属电池SEI的时空化学演化规律，揭示了多孔界面的形成新机制。\n研究团队将SEI精准划分为铜基底界面SEI、锂沉积界面SEI和循环残留SEI三类，证实三维锂晶粒生长会驱动界面组分发生时空化学偏析，使FSI阴离子分解生成的氟化锂等无机物种，与锂表面富氧相形成空间分离的异质结构。而锂剥离引发的晶粒收缩与晶间坍塌，会将偏析的无机组分压缩、固结，形成具备多孔结构的残留SEI框架。\n研究进一步发现，该多孔界面可封存电解液衍生组分，这类深埋物种无法被常规表面检测手段捕捉，却会持续诱发副反应、增加离子传输阻力。该研究建立了全新的“偏析-限域”力化耦合理论框架，厘清了SEI结构、组分与电池性能的关联，为优化电解液体系、调控界面结构、抑制锂金属负极失效、提升锂金属电池长效稳定性提供了全新的设计思路与理论支撑。文章于2026年6月1日发表在Journal of the American Chemical Society。",
+          "hb": 1
+        },
+        {
+          "t": "青岛能源所崔光磊发现共嵌入溶剂的不可逆分解造成双离子电池石墨正极剥离的机理",
+          "d": "2026-06-01",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中科院青岛能源所崔光磊团队通过原位拉曼光谱和原位光学显微技术结合有限元模拟与DFT计算，发现双离子电池石墨正极剥离的真正原因并非体积膨胀，而是共插层溶剂EMC在4.9V以上的不可逆氧化分解。实验显示EMC在4.9V达最大插层量后迅速分解产生气泡导致电极开裂，阐明了无机盐离子液体体系中体积膨胀却几乎无剥离的矛盾。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/aenm.71132",
+          "tp": "双离子电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "近年来，双离子电池（DIBs）因其高电压（约4.6–5.2V）与高功率密度（高达10kWkg⁻¹）成为储能技术关注焦点。然而，石墨正极在高电压循环中常出现不可逆剥离，导致颗粒间及与集流体的电接触损失，电极阻抗升高并加速容量衰减。现有文献普遍将剥离归因于石墨体积膨胀（可达130%）引起的范德华力减弱，但这一解释无法解释在无机盐离子液体体系中同样体积膨胀却几乎无剥离现象的矛盾。此外，共插层溶剂（如乙基甲基碳酸酯EMC）在碳酸盐电解液中随阴离子同步插层，但其在高电压条件下的稳定性长期被忽视。\n近日，中国科学院青岛工业能源存储研究院崔光磊研究员团队通过定制的原位拉曼光谱（operando Raman）和原位光学显微技术，结合有限元应力模拟与DFT计算，系统研究了共插层溶剂的高电压化学演变。实验中，采用1MLiPF6/EMC电解液进行阶梯电位充电（ΔV=0.1V，单步保持>5min），拉曼信号显示EMC在4.9V达到最大插层量，而超过4.9V时信号迅速减弱直至消失，伴随电流异常增加，指示氧化分解发生。SEM与原位光学成像显示，高于4.9V时电极厚度显著增加、气泡生成并伴随表面开裂，粉末石墨电极在5.2V循环100–300次后出现明显片间间隙扩展，验证了溶剂分解引起的局部压力是剥离的主要驱动因素。机理分析表明，虽然共插层EMC在初始阶段通过范德华力增强层间结合，但其氧化稳定性有限，高电压下分解产生气体，使局部应力从1.1MPa快速升至9.2MPa，局部峰值达50MPa，超过石墨层间黏附强度，从而触发剥离。有限元模拟定义的粘附状态指标（ASI）显示，当局部压力>2.4MPa时，大面积剥离区域出现，DFT计算也表明C20[PF6–EMC]体系的初始层间耦合强于C20PF6，但高压下溶剂分解的气体效应占主导。通过设计不含溶剂的离子液体电解液（1M LiTFSI/Pyr14TFSI）或加入高极性高氧化稳定性共溶剂FEC抑制EMC共插层，则可显著减少结构破坏，验证了溶剂共插层分解是失效主因，而非体积膨胀；且FEC添加后石墨表面未出现CEI层，表明其改善机制也并非传统的界面保护作用，而是其与碳酸酯溶剂之间的偶极-偶极相互作用抑制了溶剂共插层。\n在性能方面，常规碳酸盐体系中5.2V上限循环120次的Li||石墨DIB，电荷转移阻抗Rct由5.3Ω升至130Ω（约24倍增加），循环效率和容量明显下降，而使用溶剂排斥策略或FEC添加剂可保持紧密层叠结构、较低缺陷密度（ID/IG），改善了循环稳定性和电极完整性。文章于2026年6月1日发表在Advanced Energy Materials。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "华东师大吴健团队实现无额外功率下超快激光非线性光学相互作用增强20倍",
+        "软银宣布将向法国人工智能数据中心投资最高750亿欧元",
+        "麻省理工学院将新建量子研究实验室，获马萨诸塞州最高2500万美元资助"
+      ],
+      "entries": [
+        {
+          "t": "中国团队无需额外功率即可实现20倍激光交互增强",
+          "d": "2026-06-01",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "华东师范大学吴健团队利用明亮压缩真空（一种量子光），在不增加总激光功率的情况下，将超快激光相互作用的非线性光学过程增强了20倍以上。该突破有望催生更安全、更精确的高强度光学系统，对量子光学和精密测量具有重要意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://interestingengineering.com/innovation/chinese-physicists-achieve-20x-laser-boost",
+          "tp": "量子光增强",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Chinese researchers have reportedly demonstrated a new way to dramatically enhance ultrafast laser interactions without increasing overall laser power. Their findings could potentially open the door to safer and more precise high-intensity optical systems.\nIn a study published in\n, researchers led by Jian Wu at East China Normal University made the discovery using a form of quantum light known as bright squeezed vacuum.\nUsing this, they boosted a key nonlinear optical process by more than 20 times compared to a conventional laser pulse carrying the same average energy.\nAccording to the team, their work tackles one of the biggest limitations in modern laser physics.\nAt present, many\nadvanced optical effects\nrely on nonlinear interactions, where multiple photons interact with matter almost simultaneously. This is critical for various fields ranging from attosecond (10\nseconds) physics to high harmonic generation and ultrafast imaging.\nThe problem is that nonlinear effects usually require extremely intense laser pulses, which can damage the very materials or systems being studied.\nInstead of increasing laser power, the team altered the statistical behavior of the light itself. Unlike standard laser light, where photons arrive at a relatively steady rate, bright squeezed vacuum produces extreme fluctuations in photon density.\nThis creates short-lived bursts of very high instantaneous intensity even when the overall average energy remains modest. That distinction proved crucial.\nTo test the idea,\nthe researchers\nused the quantum light source to trigger tunneling ionization in sodium atoms. In this process, a sufficiently intense electromagnetic field distorts the atom’s potential barrier so strongly that an electron can effectively tunnel out through quantum mechanical effects.\nThe team found that a bright squeezed vacuum pulse containing just 300 nanojoules of average energy produced the same nonlinear ionization effect as a conventional laser pulse with more than 20 times the effective intensity.\nImportantly, the enhancement came without increasing average power, reducing the risk of thermal or structural damage.\nThe researchers also demonstrated that they could tune the interaction strength by modifying the quantum statistical properties of the light, rather than altering pulse energy itself.\nTraditionally, stronger nonlinear effects have required progressively more powerful lasers. This work suggests that carefully engineered quantum fluctuations may achieve similar results with far lower energy costs.\nThe findings could prove especially important for attosecond science, a field focused on observing electron dynamics over timescales measured in billionths of a billionth of a second.\nAttosecond experiments typically require extreme laser intensities, often pushing materials and optical components close to their damage limits.\nThe study also highlights a broader trend in optics and quantum engineering. Rather than treating quantum fluctuations as noise to be minimized, physicists are increasingly exploring ways to use them as functional tools.\nWhile the approach remains highly experimental, the results suggest that the quantum statistical properties of light may become just as important as raw laser power in future generations of ultrafast optical technology.\nYou can view the study or yourself in the journal\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Innovation\nUS scientists’ new quantum lab targets next-generation computing breakthroughs\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles\nUS scientists’ new quantum lab targets next-generation computing breakthroughs\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles",
+          "hb": 1
+        },
+        {
+          "t": "软银将向法国AI数据中心投资最高750亿欧元",
+          "d": "2026-06-01",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "软银宣布将在法国投资最高750亿欧元，建设人工智能数据中心。此举标志着软银在欧洲AI基础设施领域的最大规模押注，旨在满足大模型训练与推理对算力和电力日益增长的需求。法国凭借低碳核电网和欧盟政策支持成为吸引投资的关键因素。该计划有望推动欧洲AI算力自主化，但也面临能源供给、审批周期与地缘政治等多重挑战。",
+          "sc": 6.6,
+          "i": "news",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/briefings/softbank-invest-75-billion-euros-ai-data-centers-france",
+          "tp": "AI数据中心投资",
+          "aip": 1,
+          "kp": [
+            "[投资额]: 最高750亿欧元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Softbank to Invest Up To 75 Billion Euros on AI Data Centers in France — The Information Read this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "美国科学家新建量子实验室瞄准未来计算突破",
+          "d": "2026-06-01",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "麻省理工学院将新建量子研究实验室，马萨诸塞州政府承诺最高2500万美元投资，旨在突破未来量子计算关键技术。该设施将聚焦量子比特相干性提升、量子纠错和量子互连等核心难题，推动美国在量子计算、量子传感和量子通信领域的国际竞争力，被视为争夺量子技术制高点的重要布局。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://interestingengineering.com/innovation/us-scientists-quantum-lab-computing-breakthroughs",
+          "tp": "量子计算",
+          "aip": 1,
+          "kp": [
+            "投资额[MIT量子实验室]: 2500万美元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Massachusetts will invest up to $25 million in a new quantum research facility at the Massachusetts Institute of Technology (MIT), a move state officials say will strengthen the region’s position in one of the world’s most competitive emerging technologies.\nGovernor Maura Healey announced the funding commitment for MIT’s planned Quantum Systems Laboratory (QSL), a facility expected to support advanced quantum computing and sensing research while creating hundreds of jobs and expanding training opportunities for future scientists and engineers.\nThe state funding will serve as matching funds to leverage federal and private investment in the project, which will be located at the center of MIT’s Cambridge campus.\nQuantum technology is widely viewed as one of the next major frontiers in computing. Researchers believe future quantum systems could eventually tackle certain calculations far beyond the reach of today’s most powerful supercomputers, with potential applications spanning drug discovery, advanced materials, logistics, cybersecurity, defense, and artificial intelligence.\nAccording to\nMassachusetts state officials\nand MIT, the Quantum Systems Laboratory will function as a shared-use facility that brings together researchers from academia, government, and industry to work on next-generation quantum technologies.\nOne of the facility’s goals is to advance the emerging field of quantum-enhanced sensing, which leverages quantum-mechanical effects to improve measurement precision. Such technologies could eventually find applications in navigation, medical imaging, environmental monitoring, and national security.\nThe laboratory is also expected to support the development of standardized interfaces for quantum hardware, enabling external researchers and commercial partners to test sensors and other components on a common research platform.\nOfficials described the concept as creating a “plug-and-play” environment for quantum technologies, potentially lowering barriers for startups and research groups developing new devices.\nMIT already hosts a growing quantum ecosystem that has produced companies such as QuEra and Atlantic Quantum, both of which are working to commercialize quantum technologies.\nThe announcement reflects a broader race among U.S. states and countries to attract\nquantum research\n, talent, and investment. Governments worldwide have committed billions of dollars to quantum initiatives over the past decade as the technology increasingly moves from laboratory experimentation toward commercial development.\nMassachusetts officials said the project is expected to support 164 full-time construction jobs and roughly 100 additional positions through suppliers and professional services during development. Once operational, the facility is projected to house approximately 220 permanent jobs.\nBeyond employment, state leaders emphasized workforce development as a key objective. MIT plans to expand its collaboration with the University of Massachusetts Boston through existing National Science Foundation-supported research programs focused on quantum sensing and\nAI-driven analysis\nof quantum systems. Future initiatives could include joint research projects, student training opportunities, and expanded partnerships with other public universities.\nThe investment also aligns with Massachusetts’ broader strategy of strengthening leadership in advanced technologies such as artificial intelligence, robotics,\nbiotechnology\n, and quantum computing.\nGreater Boston is already home to one of the world’s largest concentrations of quantum researchers, startups, venture capital firms, and research institutions. Supporters of the project argue that maintaining that advantage will require continued investment in specialized facilities, which are often too expensive for individual organizations to build on their own.\nThe state said funding for the project will come from the Commonwealth Federal Match and Debt Reduction Fund, which was created to attract federal investment and support economic development priorities.\nWhile large-scale practical quantum computers remain a work in progress, governments and technology companies increasingly view the field as a strategic industry that could shape future scientific discovery and economic competitiveness. With the new Quantum Systems Laboratory, Massachusetts is positioning itself to remain at the center of that effort.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nKaif Shaikh is a journalist and writer passionate about turning complex information into clear, impactful stories. His writing covers technology, sustainability, geopolitics, and occasionally fiction. A graduate in Journalism and Mass Communication, his work has appeared in the Times of India and beyond. After a near-fatal experience, Kaif began seeing both stories and silences differently. Outside work, he juggles far too many projects and passions, but always makes time to read, reflect, and hold onto the thread of wonder.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Innovation\nChinese physicists achieve 20x laser interaction boost without extra power using quantum tech\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles\nChinese physicists achieve 20x laser interaction boost without extra power using quantum tech\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "SpaceX获美国太空军价值40亿美元发射服务与航天能力支持合同",
+        "科研人员在透射电镜下利用电子束实现胸腺嘧啶二聚体单晶裂分反应精准控制",
+        "科研团队揭示电荷密度波与超导交织体系中的超导电流耦合机制"
+      ],
+      "entries": [
+        {
+          "t": "SpaceX获美国太空军40亿美元合同",
+          "d": "2026-06-01",
+          "a": "the information",
+          "c": "通用技术/通信和运输/航天",
+          "as": "SpaceX获得美国太空军一份价值40亿美元的合同，标志着商业航天公司在国防航天领域的地位进一步巩固。该合同涵盖SpaceX为美军提供发射服务和航天能力支持，体现了美国国防部将商业航天能力纳入国家安全航天体系的战略方向。此举也反映出在SpaceX可重复使用火箭技术显著降低发射成本的背景下，传统国防承包商（如ULA）在军事发射市场正面临越来越大的竞争压力。",
+          "sc": 6.4,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/spacex-awarded-4-billion-contract-u-s-space-force",
+          "tp": "航天发射合同",
+          "aip": 1,
+          "kp": [
+            "[合同金额]: 40亿美元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "SpaceX Is Awarded $4 billion Contract with U.S. Space Force — The Information Read this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "在电子显微镜下控制化学反应：由电子束电离引发、电子转移介导放大的胸腺嘧啶二聚体单晶到单晶裂分",
+          "d": "2026-06-01",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "在电子显微镜下实现了对化学反应的精准控制：利用电子束电离引发胸腺嘧啶二聚体的单晶到单晶裂分反应，并通过电子转移介导机制实现信号放大。研究选取三种光二聚获得的胸腺嘧啶二聚体晶体，在透射电镜中实时观测辐射化学过程，为在原子尺度操控和观测化学反应提供了新方法。",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2592959?af=R",
+          "tp": "电镜控制化学反应",
+          "aip": 1,
+          "kp": [
+            "[反应]: 电子束引发胸腺嘧啶二聚体单晶分裂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Three crystalline thymine dimers (TDs) obtained by solid‐state topochemical photodimerization were selected to explore radical ion‐initiated solid‐to‐solid splitting reactions when exposed to the high‐energy beam of an electron microscope. While samples of\n                    cis\n                    ‐\n                    syn\n                    ‐thymine dimer (\n                    c,s\n                    ‐TD) were available from a previous study, samples of\n                    cis\n                    ‐\n                    syn\n                    ‐N,N‐dimethyl‐thymine dimer (\n                    c\n                    ,\n                    s\n                    ‐TD‐Me) and\n                    cis\n                    ‐\n                    anti\n                    ‐N,N‐dimethyl‐thymine dimer (\n                    c\n                    ,\n                    a\n                    ‐TD‐Me) were obtained by photoreaction of crystalline N,N‐dimethyl‐thymine (T‐Me). The unexpected formation of\n                    c\n                    ,\n                    a\n                    ‐TD‐Me was rationalized on a topochemical basis based on a high‐resolution x‐ray structure of T‐Me refined with DFT‐calculated non‐spherical scattering factors. When exposed to the electron beam (30–300 kV), recrystallized dimers underwent the expected splitting reaction back to T and T‐Me as the only products. Electron beam‐induced reactions studied as a function of electron fluence, beam energy, and temperature confirmed an ionization‐induced chain reaction propagated by a single electron transfer (SET) process with a chain length up to 80 000 product molecules per electron. Microcrystal electron diffraction (3D ED) analysis of the photodimers allowed crystal structure determination with approximately 30% of the monomers formed in situ. A long‐lived transient formed in single crystals of\n                    c\n                    ,\n                    s\n                    ‐TD‐Me was assigned by EPR as the TD‐Me\n                    •+\n                    , in support of the suggested reaction mechanism.",
+          "hb": 1
+        },
+        {
+          "t": "电荷密度波交织超导体中的超流效应",
+          "d": "2026-06-01",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在电荷密度波与超导 intertwined（交织）体系中发现了超导电流（超流）效应。通过研究准粒子的能量-动量色散关系，揭示了电荷密度波与超导配对之间的耦合机制。这一发现对理解非常规超导体中超导与电荷序竞争与共存的物理本质具有重要意义，为探索高温超导机理、设计新型量子材料提供了关键实验证据与理论线索。",
+          "sc": 5.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73778-7",
+          "tp": "超导物理",
+          "aip": 1,
+          "kp": [
+            "[超流效应]: 超电流诱导准粒子谱Doppler位移",
+            "体系[超导]: 电荷密度波交织超导体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The energy-momentum (E-k) dispersion of quasiparticles constitutes a fundamental concept in condensed matter systems. The ability to modify the E-k dispersion, exemplified by supercurrent-induced Doppler shifts of Bogoliubov quasiparticle spectra in superconductors, enables manipulation of various emergent quantum properties. However, investigations into the supercurrent effect on superconductors intertwined with charge orders remain scarce. Here, we report that the Meissner current, generated by the diamagnetic response to an applied in-plane magnetic field, can tailor Bogoliubov quasiparticle excitations at the precursor charge density wave (CDW) vectors. Our scanning tunneling spectroscopic imaging reveals a field-driven symmetry breaking of CDW modulations, specifically a C3v-to-Cs transition, in superconducting NbSe2. Model calculations suggest that the observed anisotropy originates from a selective Doppler-shift-induced E-k dispersion reconstruction. Furthermore, altering the field direction enables on-demand tuning of anisotropic CDW modulations and visualization of their momentum-space distribution. These results highlight a novel mechanism for controlling emergent electronic phases through momentum-space engineering.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月4日　星期六",
+  "date_range": "2026-04-04",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究提出普适性电化学力学耦合策略，抑制固态电池锂枝晶生长",
+      "锯齿型钙钛矿衍生物增强晶格刚性，提升结构稳定性与热导率",
+      "无镉Cu2ZnSnS4太阳能电池界面重构，实现11.96%光电转换效率"
+    ],
+    "AI与智能科技": [
+      "AutoSEE代理集成数据挖掘与预测，自主筛选固态电解质候选材料",
+      "全血催化聚合物实现活体组织无缝整合，完成斑马鱼可逆光神经调控",
+      "应力调控实现无裂纹二维Bi2O2Se在硅基晶圆上的单片集成"
+    ],
+    "通用技术": [
+      "钙钛矿纳米晶提升表面活性位点利用率，突破多相催化传质速率限制",
+      "BINAP基金属有机框架实现多活性位点空间排列，完成不对称串联催化",
+      "水介导剥离工艺规避HF刻蚀损伤，实现千克级无缺陷单层MXene制备"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究提出普适性电化学力学耦合策略，抑制固态电池锂枝晶生长",
+        "锯齿型钙钛矿衍生物增强晶格刚性，提升结构稳定性与热导率",
+        "无镉Cu2ZnSnS4太阳能电池界面重构，实现11.96%光电转换效率"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 面向无枝晶固态锂金属电池的通用电-化学-力学界面工程",
+          "d": "2026-04-04",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "固态电池结合锂金属负极可实现高能量密度和高安全性，但锂枝晶生长导致界面失效是核心瓶颈。本研究提出一种普适性的电化学-力学耦合界面工程策略，通过调控固态电解质与锂金属间的机械接触应力和电化学稳定性，有效抑制枝晶穿透。该方法不依赖特定材料体系，为各类固态电池的界面设计提供了通用解决方案，推动固态电池走向实用化。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00606",
+          "tp": "固态锂金属电池",
+          "aip": 1,
+          "kp": [
+            "[界面工程]: 电-化学-机械协同抑制锂枝晶",
+            "[机制]: 弱酸与锂并行氧化还原释氢避免直接接触",
+            "[应用体系]: 固态锂金属电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Solid-state batteries (SSBs) with lithium metal anodes offer high energy density and safety but are limited by lithium dendrite formation arising from unstable Li/solid electrolyte (SE) interfaces. Here, a universal electro-chemo-mechanical interface engineering strategy is proposed to suppress dendrite growth. Parallel redox reactions between weak acids and lithium release hydrogen, avoiding the formation of electron-conductive species. An in situ formed LiI/Li2O/LiPAA composite interlayer with a graded structure stabilizes sulfide SE interfaces, blocks electron transport, and converts garnet SEs from lithiophobic to lithiophilic, reducing interfacial resistance by an order of magnitude. The interlayer also inhibits dendrite penetration in polymer SEs due to balanced rigidity and flexibility. As a result, uniform lithium deposition is achieved in symmetric and full cells. This work provides fundamental insight into SE interfacial chemistry and demonstrates a broadly applicable strategy for dendrite-free lithium metal SSBs.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 锯齿型钙钛矿衍生物：兼具优异稳定性与热导率",
+          "d": "2026-04-04",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "二维层状有机-无机杂化钙钛矿是一类结构可调的新型半导体材料。本研究设计了具有锯齿形(zigzag)结构的钙钛矿衍生物，展现出优异的结构稳定性和热导率。这种独特拓扑结构通过调控有机间隔基的几何构型，增强了层间相互作用和晶格刚性，从而有效抑制了传统二维钙钛矿易降解的缺陷，在光电器件和热管理应用方面具有广阔前景。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04451",
+          "tp": "钙钛矿材料",
+          "aip": 1,
+          "kp": [
+            "[钙钛矿结构]: 锯齿型perovskitoids兼具高稳定性和热导率",
+            "[结构调控]: 八面体倾斜与层间滑移破缺对称性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-dimensional (2D) layered hybrid perovskites constitute an emerging class of semiconductors with tunable structures and desirable properties, primarily governed by the inorganic sublattice. Octahedral tilting and distortions of the inorganic skeleton, as well as interlayer sliding and stacking, give rise to broken symmetries and are modulated by the organic spacers. The inorganic layers sandwiched between two organic layers typically maintain a planar geometry, but the corrugation of the inorganic slab itself in the out-of-plane direction remains largely unexplored. Here, we report a family of zigzag perovskitoids that exhibit common features in their single-crystal structures along with temperature-dependent lattice behavior. These zigzag perovskitoids exhibit markedly superior stability and thermal conductivity compared with 2D-planar perovskites AnPbI4 due to altered soft modes and vibrational behaviors modulated by distinct Pb-I motifs. Their unique optoelectronic properties, governed by the zigzag inorganic sublattice, also suggest promising applications. These findings provide insights into the control of stability, thermal transport, and optoelectronic properties in layered hybrid materials and open up possibilities for low-dimensional perovskite-based thermal management applications.",
+          "hb": 1
+        },
+        {
+          "t": "准外延异质结界面重构使无镉Cu2ZnSnS4太阳能电池获得11.96%认证效率",
+          "d": "2026-04-04",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究通过准外延异质结界面重构策略，在无镉Cu2ZnSnS4（CZTS）太阳能电池中实现11.96%的认证效率。CZTS是低成本环境友好型黄锡矿光伏材料，但长期受限于高缺陷密度和界面复合损失。准外延界面重构优化了吸收层/缓冲层界面结晶质量和能带排列，显著降低界面复合速率。该效率为无镉CZTS电池提供新纪录，推动无有毒元素薄膜太阳能电池商业化。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee0270?af=R",
+          "tp": "CZTS太阳能电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[Cd-free CZTS太阳能电池]: 11.96%（认证）",
+            "界面[准外延异质结]: 抑制界面复合",
+            "器件形态[Cd-free CZTS]: 无镉硫化物黄锡矿结构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Sulfide kesterite Cu\n                    2\n                    ZnSnS\n                    4\n                    (CZTS) is a promising photovoltaic material with considerable potential for application in single-junction, multi-junction, and tandem solar cells. However, advancements in its certified power conversion efficiency (PCE) have remained slow, primarily due to severe interface recombination, which is a major limitation constraining the overall performance of CZTS solar cells. Here, we report an effective heterojunction interface engineering approach in which the CZTS/(Zn,Sn)O heterojunction is subjected to a controlled annealing treatment under dynamically flowing air atmosphere. This treatment induces Zn and Sn cation lattice diffusion to reconstruct a quasi-epitaxial contact at the intermediate interface. This reconstruction effectively suppresses defect-assisted interfacial carrier recombination and optimizes carrier dynamics by enhancing transport and collection efficiencies. Consequently, we achieved a highest certified efficiency of 11.96% for Cd-free, pure-sulfide CZTS solar cell (bandgap &gt; 1.5 eV) without extrinsic cation alloying. This study provides insights into heterojunction interface optimization and the performance enhancement mechanism in the development of kesterite solar cells.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "AutoSEE代理集成数据挖掘与预测，自主筛选固态电解质候选材料",
+        "全血催化聚合物实现活体组织无缝整合，完成斑马鱼可逆光神经调控",
+        "应力调控实现无裂纹二维Bi2O2Se在硅基晶圆上的单片集成"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] AutoSEE：用于自动化固态电解质探索的人工智能代理",
+          "d": "2026-04-04",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "固态电池研究中化学空间极其复杂，新材料发现面临巨大挑战。研究团队开发了AutoSEE——一种面向固态电解质自动化发现的人工智能研究代理。该代理能够自主在复杂化学空间中搜索、筛选并推荐候选固态电解质材料，大幅缩短研发周期。AutoSEE集成了数据挖掘、性能预测和实验设计建议等模块，代表了AI驱动材料科学的前沿方向，有望加速固态电池这一下一代储能技术的商业化进程，为高性能、高安全性电池材料开发提供新范式。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00020",
+          "tp": "固态电解质Agent",
+          "aip": 1,
+          "kp": [
+            "[AI代理]: GPT-4o为中枢控制器自主探索固态电解质",
+            "[工具编排]: 文献检索+计算工具端到端自动化",
+            "[目标]: 高性能固态电解质设计原理自主揭示"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "To address the challenge of complex chemical spaces in solid-state battery research, we develop a research agent for automated solid electrolyte exploration, AutoSEE, which enables efficient end-to-end research, autonomously revealing design principles for high-performance solid electrolytes. By leveraging GPT-4o as a central controller, AutoSEE orchestrates specialized tools such as literature screening, text mining, and machine learning to construct specialized data sets and distill principles. Taking halide solid electrolytes as an example, AutoSEE processes 226 relevant articles with an average precision of 93.4% within 5 min and employs unsupervised clustering to autonomously distill a critical design principle that halide solid electrolytes featuring high charge density favor an amorphous phase and high ionic conductivity. Guided by this principle, we found an unexplored electrolyte LiTaB0.32O0.98Cl5, which possesses a high ionic conductivity (7.82 mS cm–1), experimentally validating the agent-distilled rule. AutoSEE showcases a paradigm shift from simple data retrieval to agentic knowledge exploration.",
+          "hb": 1
+        },
+        {
+          "t": "用于可逆光学神经控制的血液催化n掺杂聚合物",
+          "d": "2026-04-04",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "在清醒斑马鱼与小鼠体内利用全血催化聚合实现n掺杂聚苯并呋喃二酮（n-PBDF）的原位组装。该方法借助内源性血红蛋白作为催化剂，形成稳定、对热与离子敏感的导电聚合物网络，可与活体组织无缝整合，实现可逆光学神经调控，为无基底生物电子接口与神经调控开辟新路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adu5500?af=R",
+          "tp": "神经接口",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Biocompatible integration of synthetic materials with living tissue remains a major challenge for bioelectronics. In this case, substrate-free conducting polymer (CP) interfaces could help bridge this gap. We report in vivo assembly of n-doped poly(benzodifurandione) (n-PBDF) using whole blood–catalyzed polymerization in awake zebrafish and mice. This approach leverages endogenous catalysts, specifically hemoproteins, to form stable, thermally and ionically sensitive CP networks, ensuring long-term compatibility throughout the lifespan. We showcase the impact of this interface through reversible, cellular, and subcellular neuromodulation using near-infrared (NIR) light, including in vivo polymerized n-PBDF. Electrophysiological studies confirmed that n-PBDF alters intrinsic sodium ion channel excitability, and NIR light stimulation amplifies this modulation through thermoionic-induced shunting, providing on-demand, millisecond-scale reversible inhibitory control of excitability, a feature recapitulated in actively behaving mice.",
+          "hb": 1
+        },
+        {
+          "t": "通过应力调制实现无裂纹二维Bi2O2Se的单片集成",
+          "d": "2026-04-04",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究通过应力调控策略实现无裂纹二维Bi2O2Se材料在硅基晶圆上的单片集成。Bi2O2Se兼具高迁移率和合适带隙，被视为下一代电子学候选材料，但大面积硅基集成面临薄膜开裂难题。研究通过精确调控生长过程中的热应力与晶格失配应力，获得均匀无缺陷的连续薄膜，为二维半导体与现有硅工艺的兼容集成铺平道路。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72808?af=R",
+          "tp": "二维硒氧化铋集成",
+          "aip": 1,
+          "kp": [
+            "[材料]: Bi2O2Se二维薄膜",
+            "[集成方式]: 单片集成硅基晶圆",
+            "[关键策略]: 应力调制实现无裂纹"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The monolithic integration of 2D materials into silicon‐based wafers is crucial for next‐generation electronics and optoelectronics. Reliable transfer methods for wafer‐scale 2D materials are a key prerequisite. As one of the most promising 2D semiconductors, bismuth oxygen selenide (Bi\n                    2\n                    O\n                    2\n                    Se) films show significant promise as high‐performance photodetectors and advanced‐architecture transistors. Although considerable efforts have been devoted to transfer methods for 2D Bi\n                    2\n                    O\n                    2\n                    Se, challenges such as limited film size, transfer‐induced defects, cracks, and contamination remain. Herein, we report a novel transfer method for wafer‐scale 2D Bi\n                    2\n                    O\n                    2\n                    Se single‐crystal films based on the stress modulation of metal films. A composite transfer medium comprising tensile‐stressed Ni and stress‐free Cu was developed to enable intact and crack‐free exfoliation of 2D Bi\n                    2\n                    O\n                    2\n                    Se films. By modulating the strain and fracture energies of the composite metal film, the transferred 4‐inch 2D Bi\n                    2\n                    O\n                    2\n                    Se film exhibited a crack‐free, intact, and uniform morphology, and two‐layer and three‐layer‐stacked 2D Bi\n                    2\n                    O\n                    2\n                    Se films with clean interfaces were fabricated. Integrated 2D Bi\n                    2\n                    O\n                    2\n                    Se transistors exhibit high carrier mobility reaching up to ∼150 cm\n                    2\n                    V\n                    −1\n                    s\n                    −1\n                    with an on/off ratio ∼10\n                    6\n                    , which is better than other transferred wafer‐scale 2D semiconductors. Overall, our findings are promising for the future integration of 2D materials into advanced electronics and optoelectronics.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "钙钛矿纳米晶提升表面活性位点利用率，突破多相催化传质速率限制",
+        "BINAP基金属有机框架实现多活性位点空间排列，完成不对称串联催化",
+        "水介导剥离工艺规避HF刻蚀损伤，实现千克级无缺陷单层MXene制备"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 钙钛矿纳米晶用于烃芳构化的超快多相催化",
+          "d": "2026-04-04",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "钙钛矿纳米晶首次被用于实现超快多相催化，突破了多相催化因传质和吸附限制而反应速率较慢的固有瓶颈。该研究利用钙钛矿纳米晶独特的表面活性位点和高电子迁移率，使多相催化速率接近甚至超过均相催化水平。这一发现为高效催化剂设计开辟了全新方向，有望在能源转化和环境催化中实现工业应用。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c23406",
+          "tp": "钙钛矿纳米晶催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[烃芳构化]: CsPbBr3钙钛矿纳米晶"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Heterogeneous catalysis, though often slower than homogeneous catalysis due to mass transfer and adsorption limitations, is favored in industry for its facile separation, reusability, and scalability. Overcoming heterogeneous limitations demands innovative catalyst architectures and reaction designs. Here we report a lead halide perovskite CsPbBr3 nanocrystal (NC) heterogeneous catalytic system that achieves exceptionally fast hydrocarbon aromatization, with turnover frequencies (TOFs) up to 6.5 s-1 per Cs, or up to 11.1 mol/kg/s, enabling kilograms of benzene formation from cyclohexene with milligrams of catalyst loading under ambient condition. Driven by a radical chain mechanism with over 848% quantum yield under visible-light, this system exhibits broad functional group tolerance, aromatizes substituted cyclohexenes with high selectivity, and extends to acyclic olefins via a photocatalytic [4 + 2] aromatization route. Our perovskite catalysis approach thus offers a transformative highly reactive avenue to complex arenes and heteroarenes, bridging gaps between hetero- and homogeneous catalysis.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] BINAP基金属有机框架中的拓扑编码不对称串联催化",
+          "d": "2026-04-04",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "多相体系中的高效不对称串联催化一直是催化领域的根本性挑战，需要同时控制多个反应步骤的立体选择性。本研究基于BINAP手性配体构建金属-有机框架(MOF)，利用其拓扑编码的孔道结构创造不对称催化微环境，实现多个催化活性位点的空间精确排列与协同作用。该策略将均相不对称催化的高选择性与多相催化剂的易分离性相结合，在药物合成等精细化学品制造中具有重要应用价值。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02275",
+          "tp": "MOF串联催化",
+          "aip": 1,
+          "kp": [
+            "[催化体系]: BINAP基MOF拓扑编码不对称串联催化",
+            "[关键机制]: 框架拓扑编码配体构象与催化功能",
+            "[集成要素]: 手性限域+结构明确活性位+多步兼容"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving efficient asymmetric tandem catalysis in heterogeneous systems remains a fundamental challenge, as it requires the simultaneous integration of chiral confinement, structurally defined active sites, and compatibility across multiple reaction steps within robust solids. Here, we demonstrate that framework topology can encode ligand conformation and catalytic function in the solid state. An enantiopure tetratopic BINAP-derived linker (BINAP = 2,2′-bis(diphenylphosphino)-1,1′-binaphthyl) is assembled into chiral metal–organic frameworks with distinct network topologies, which impose topology-dependent torsional expansion or contraction of the BINAP backbone and thereby generate well-defined modes of chiral confinement. Postsynthetic incorporation of Pd and Rh centers affords heterogeneous catalysts with atomically resolved coordination environments, enabling direct correlations between framework topology, ligand conformation, and catalytic reactivity. These catalysts promote asymmetric tandem coupling/[2 + 2] cycloaddition and 1,4-addition/hydrogenation reactions with high efficiency, delivering enantioselectivities of up to 99% ee and diastereomeric ratios of up to 11.5:1, while maintaining excellent stability and recyclability. These results establish topology-encoded control as an efficient strategy for enabling predictable asymmetric tandem catalysis in heterogeneous framework catalysts.",
+          "hb": 1
+        },
+        {
+          "t": "千克级水介导剥离策略制备无缺陷单层MXene纳米片",
+          "d": "2026-04-04",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对单层MXene纳米片大规模制备中长期存在的缺陷问题，研究提出了一种千克级水介导剥离策略，可高效制备无缺陷单层MXene。该方法通过水分子插层与温和剥离机制，避免了传统HF刻蚀法引入的大量表面缺陷与晶格损伤，显著提升了材料的电导率与结构完整性。该突破有望推动MXene在储能、电磁屏蔽、传感器等领域的规模化工程应用。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72943?af=R",
+          "tp": "MXene剥离",
+          "aip": 1,
+          "kp": [
+            "[规模]: 千克级",
+            "[剥离介质]: 水介导",
+            "[质量]: 无缺陷单层MXene"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Single‐layer MXene nanosheets have garnered immense attention for their remarkable functional versatility; however, their ultimate performance and application potential are fundamentally limited by their intrinsic quality. Traditional high‐yield methods for MXenes typically involve high‐energy mechanical input, often introducing a substantial density of defects, which inevitably creates the trade‐off between quality and scalability. Herein, we present a water‐mediated exfoliation strategy that tailors the coordination environment of intercalated Li\n                    +\n                    ions to expand the interlayer spacing beyond the critical threshold for spontaneous delamination. This strategy produces kilogram‐scale, single‐layer nanosheets with exceptional structural integrity, large lateral dimensions (&gt;10 µm), and high yields (&gt;80%). Furthermore, the highly oriented membrane assembly by these nanosheets minimizes inter‐flake voids and imposes prohibitive steric hindrance to Mg\n                    2+\n                    transport. Consequently, the membrane exhibits exceptional ideal Li\n                    +\n                    /Mg\n                    2+\n                    selectivity (&gt; 170) and achieves rapid direct lithium extraction from natural seawater (36% yield). This achievement effectively bridges the lab‐to‐industry gap, paving the way for scalable osmotic energy and resource recovery applications.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

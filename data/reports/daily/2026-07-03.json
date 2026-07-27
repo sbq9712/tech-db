@@ -1,0 +1,241 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月3日　星期五",
+  "date_range": "2026-07-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中国科研团队研发全钙钛矿叠层光伏组件，转换效率刷新世界纪录。",
+      "复洁科技沼气制绿色甲醇技术通过国家级科技成果评价，打通产业化路径。",
+      "比亚迪累计建成超7000座闪充站，规划2026年底前将规模扩充至2万座。"
+    ],
+    "AI与智能科技": [
+      "Anthropic招募OpenAI前芯片工程师组建自研团队，拟与三星洽谈2纳米制程代工。",
+      "谷歌量子AI团队在《Science》发文，首次实验观测到无空间无序下的多体局域化现象。",
+      "AI大模型厂商正加速自研芯片，以降低对英伟达GPU算力供应链的单一依赖。"
+    ],
+    "通用技术": [
+      "美国航空航天企业投运全球首个高超声速材料商业化气候测试平台。",
+      "星河动力苍穹-50可复用火箭发动机试车突破2万秒，推进25次重复使用目标。",
+      "特斯拉2026年第二季度汽车交付量达48.01万辆，同比增长25%。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中国科研团队研发全钙钛矿叠层光伏组件，转换效率刷新世界纪录。",
+        "复洁科技沼气制绿色甲醇技术通过国家级科技成果评价，打通产业化路径。",
+        "比亚迪累计建成超7000座闪充站，规划2026年底前将规模扩充至2万座。"
+      ],
+      "entries": [
+        {
+          "t": "中国大面积全钙钛矿叠层光伏组件效率刷新世界纪录",
+          "d": "2026-07-03",
+          "a": "双碳情报",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中国科研团队在大面积全钙钛矿叠层光伏组件效率上刷新世界纪录。全钙钛矿叠层结构通过宽带隙与窄带隙钙钛矿子电池串联，理论效率极限超40%，远超单结电池。此前大面积组件受限于窄带隙Sn-Pb钙钛矿薄膜缺陷与界面复合问题，此次突破对推动钙钛矿叠层技术从实验室小面积向产业化量产组件跨越具有关键意义。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/7VZQpKh2YR43fsfJWcHI2w",
+          "tp": "钙钛矿光伏",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "中国大面积全钙钛矿叠层光伏组件效率刷新世界纪录 双碳情报 由中国科学院文献情报系统双碳战略研究团队运营的“**双碳情报**”公众号正式上线！重点跟踪报道主要国家和重要组织双碳相关战略规划、政策法规、发展路线图、重大计划、重点项目等动态讯息，",
+          "hb": 1
+        },
+        {
+          "t": "全球首次！沼气制绿色甲醇技术达国际领先，通过国家级成果评价",
+          "d": "2026-07-03",
+          "a": "DT洞见可持续",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "全球首次沼气制绿色甲醇技术通过中国石油和化学工业联合会组织的国家级科技成果评价，达到国际领先水平。由复洁科技等企业研发，将沼气（甲烷）转化为绿色甲醇，实现废弃物资源化利用和碳减排双重目标。绿色甲醇作为清洁燃料和化工原料市场需求旺盛，该技术打通了生物质制甲醇的产业化路径。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/WH4LZxarKjwBXriuwSrASw",
+          "tp": "沼气制甲醇",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首次！沼气制绿色甲醇技术达国际领先，通过国家级成果评价 点这里关注→ 点这里关注→ DT洞见可持续 **🔍**CCUS|复洁科技，CCUS 【DT洞见可持续】获悉，近日，由中国石油和化学工业联合会组织的科技成果评价会在上海圆满举行。由上",
+          "hb": 1
+        },
+        {
+          "t": "比亚迪累计建成超 7000 座闪充站：遍布 325 个城市，目标年底建成 2 万座",
+          "d": "2026-07-03",
+          "a": "IT之家",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "比亚迪在海豹08上市发布会上宣布，已累计建成超7000座闪充站，覆盖全国325个城市，并设定2026年底建成2万座的目标。此前3月比亚迪发布二代刀片电池及闪充技术，大幅提升充电功率与补能效率。闪充网络的大规模扩张是比亚迪构建电动出行生态、缓解用户里程焦虑的核心战略举措，充电基础设施建设速度显著领先行业。",
+          "sc": 8.0,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/971/953.htm",
+          "tp": "闪充技术",
+          "aip": 1,
+          "kp": [
+            "单枪功率[闪充桩]: 1500KW",
+            "充电速度[二代刀片]: 5分钟10%→70%",
+            "低温性能[-30℃]: 20%→97%约12分钟",
+            "建站规模[比亚迪]: 7000+座/325城",
+            "目标[2026底]: 2万座"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 2 日消息，在比亚迪今晚的海豹 08 上市发布会上，比亚迪官方宣布，\n已累计建成超 7000 座闪充站\n，遍布 325 个城市，目标 2026 年底建成 2 万座。\n在今年 3 月举行的比亚迪二代刀片电池暨闪充技术发布会上，比亚迪发布了全球量产单枪最大功率充电桩 —— 比亚迪闪充桩，\n单枪充电功率可达 1500KW\n在使用第二代刀片电池的情况下，比亚迪汽车可以实现 5 分钟电量从 10% 充至 70%，9 分钟充至 97%，刷新充电速度新纪录。IT之家注意到，在零下 30℃ 环境中，比亚迪充电时间仅比常温多 3 分钟（20% 充至 97% 约 12 分钟），打破行业难题。\n比亚迪还推出了闪充中国战略，预计到今年年底建成 2 万座闪充站，其中 18000 座闪充站中站、2000 座闪充高速站。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "Anthropic招募OpenAI前芯片工程师组建自研团队，拟与三星洽谈2纳米制程代工。",
+        "谷歌量子AI团队在《Science》发文，首次实验观测到无空间无序下的多体局域化现象。",
+        "AI大模型厂商正加速自研芯片，以降低对英伟达GPU算力供应链的单一依赖。"
+      ],
+      "entries": [
+        {
+          "t": "Anthropic被曝造芯！挖OpenAI老兵，密谈三星2nm",
+          "d": "2026-07-03",
+          "a": "新智元",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "Anthropic正进军AI芯片自研领域。一个月内先后挖角OpenAI芯片老兵组建自研团队，并与三星密谈2nm制程代工合作。继Google(TPU)、Meta(MTIA)、Amazon(Trainium)之后，Anthropic成为又一家加入自研AI芯片行列的前沿模型公司，旨在降低对英伟达GPU的依赖并掌控算力供应链。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/OxZHBPfGVTO4qdwmbq1U4Q",
+          "tp": "AI自研造芯",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Anthropic被曝造芯！挖OpenAI老兵，密谈三星2nm ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**英伟达的牌桌上，最后一个玩家摸牌了。一月之内，Anthropic先挖O",
+          "hb": 1
+        },
+        {
+          "t": "Anthropic与三星洽谈定制AI芯片制造",
+          "d": "2026-07-03",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "据报道，Anthropic正与三星洽谈合作制造定制AI芯片。此举旨在降低对现有GPU供应商（如英伟达）的依赖，为Claude等大模型的训练与推理提供专用硬件支持。该合作若达成，将对AI芯片竞争格局产生重要影响。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip",
+          "tp": "定制AI芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Subscribe to unlock",
+          "hb": 1
+        },
+        {
+          "t": "Science重磅！谷歌量子AI团队首次观测到“无无序局域化”",
+          "d": "2026-07-03",
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "谷歌量子AI团队在Science发表论文，首次实验观测到无序环境下的量子多体局域化现象。传统认知认为安德森局域化等效应需依赖空间无序才能实现，而该研究打破了这一铁律，证明在特定条件下即使无空间无序也能实现激发态局域化。此发现丰富了量子多体物理理论体系，对量子信息存储与调控有重要启示。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/jntNcWsYwwm18yzX4oSzOg",
+          "tp": "无无序局域化观测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Science重磅！谷歌量子AI团队首次观测到“无无序局域化” 光子盒 在量子多体物理的世界中，有一条近乎铁律般认识：要想量子多体系统中的激发停留在局部、不发生扩散，通常需要引入空间无序。 例如，我们都熟知的安德森局域化（Anderson",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "美国航空航天企业投运全球首个高超声速材料商业化气候测试平台。",
+        "星河动力苍穹-50可复用火箭发动机试车突破2万秒，推进25次重复使用目标。",
+        "特斯拉2026年第二季度汽车交付量达48.01万辆，同比增长25%。"
+      ],
+      "entries": [
+        {
+          "t": "全球首个高超声速材料气候测试平台在美启用",
+          "d": "2026-07-03",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航天",
+          "as": "美国一家航空航天公司推出了据称是全球首个面向高超声速材料耐候性测试的商业化平台。该平台能够模拟高超声速飞行极端热环境，对材料在高温高速气流下的性能进行地面测试验证。高超声速飞行器对热防护材料要求极高，此前相关测试主要依赖政府实验室，该商业平台的开放有望降低研发门槛，加速高超声速材料工程化验证进程。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/military/worlds-first-mach-2-5-weather-testing-platform",
+          "tp": "高超声速材料测试",
+          "aip": 1,
+          "kp": [
+            "[测试能力]: 全球首个真实天气下高超音速材料测试平台"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A U.S. aerospace company has unveiled what it says is the world’s first commercial platform that’s capable of testing how hypersonic vehicle materials withstand real weather conditions before ever taking flight.\nCalifornia-based Auriga Space announced the new capability on Wednesday, July 1, alongside its first client, Axiom Materials, a composite materials manufacturer. The system uses the firm’s Prometheus electromagnetic accelerator that propels test materials through simulated weather.\nAxiom Materials will test how advanced materials perform against rain, hail, and airborne particles. The testing is set to close a long-standing gap in hypersonic development. Until now, engineers have depended on limited ground testing or expensive flight tests to evaluate material performance.\nWinnie Lai, the founder and CEO of Auriga Space, emphasized the significance of the system. “The hypersonic testing community has badly needed ground truth on material performance for a long time,” she explained.\nHypersonic vehicles travel at speeds of more than\n, or five times the speed of sound. This is equal to roughly 3,800 to 15,000 miles per hour (mph). They also experience intense aerodynamic heating and pressure as they travel through the atmosphere.\nEven small water droplets or airborne debris can damage the\nprotective coatings\n, radomes, windows, and other critical parts. Auriga’s new chamber is designed to evaluate how materials intended for hypersonic vehicles respond to simulated weather conditions during development.\nMore from Military\nUS firm starts building Navy’s next destroyer that can conduct anti-submarine ops\nUS Navy tests 3D-printed composite patches to speed up F/A-18 fighter jet repairs\nUS’ 250th anniversary: MQ-25 Stingray boards aircraft carrier for July 4 celebrations\nIron Dome integrated with 100kW Iron Dome laser weapon for improved air defense\nUkraine’s new missile can be launched from balloon, hit target even in jammed environment: Report\nInstead of sending a full vehicle into the air, the system tests material samples. It propels them through water droplets and other particles at representative flight speeds and pressures. Following the impact, the samples are recovered.\nEngineers can then inspect them for damage and measure how they performed. The process enables repeatable testing under realistic weather conditions early in the development cycle. It also reduces uncertainty before full-scale flight tests.\nThe platform relies on Auriga’s\nelectromagnetic launch technology\n, which uses a magnetically levitated linear electric motor instead of conventional propulsion to accelerate test articles under software-controlled conditions.\nAs part of the agreement, Axiom Materials will conduct dozens of weather-effects tests within a single week using the Prometheus accelerator. The platform can run more tests than traditional methods under consistent conditions.\nMeanwhile, Auriga expects demand for weather testing to grow as investment in hypersonic tech grows. “Making it possible is one big step; making it available at scale is another,” Lai pointed out in a\npress statement\n. “Auriga’s platform can do both, and that’s exactly what this capability is about.”\nAt the same time, the Prometheus is already supporting active contracts with the US Air Force and the Missile Defense Agency. According to Auriga, those projects provide a proven foundation for the newly announced commercial capability.\n“Allowing our partners at Axiom Materials to accurately\ntest materials\nagainst realistic conditions will enable the next generation of high-speed systems to be built far faster and flown with confidence,” Lai concluded.\nBeyond weather simulation, the reusable, electrically powered electromagnetic launch technology could also support responsive space launch, missile defense, as well as future lunar mass-driver systems.\nCorrection: An earlier version of this article misstated Auriga Space’s current testing speed. The platform currently operates at Mach 2.5 for materials designed for hypersonic flight, not Mach 5+. The article has been updated accordingly.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nBased in Skopje, North Macedonia. Her work has appeared in Daily Mail, Mirror, Daily Star, Yahoo, NationalWorld, Newsweek, Press Gazette and others. She covers stories on batteries, wind energy, sustainable shipping and new discoveries. When she's not chasing the next big science story, she's traveling, exploring new cultures, or enjoying good food with even better wine.\nUBTech's humanoid robots deployed to control crowds at China's busy international border\nNASA's new supercomputer with 262,000 CPU cores can solve problems with increased efficiency\nUkraine's new missile can be launched from balloon, hit target even in jammed environment: Report\nNew air-powered battery includes built-in self-destruct for sensitive devices\nLiDAR expands counter-drone capabilities against fiber-optic-controlled aerial threats",
+          "hb": 1
+        },
+        {
+          "t": "刚刚，中国可回收火箭离“重复用25次”又近了一步！",
+          "d": "2026-07-03",
+          "a": "世界先进制造技术论坛",
+          "c": "通用技术/通信和运输/航天",
+          "as": "星河动力苍穹-50可重复使用火箭发动机累计试车时间突破20088秒（约合5.6小时持续点火），标志着中国商业航天在可回收火箭领域取得重要进展。该发动机目标实现25次重复使用，长时试车数据验证了发动机热防护和耐久性可靠性，正逐步缩小与SpaceX Merlin发动机的工程化差距。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/Zc8Fgj8o28j49SUcMdgirg",
+          "tp": "可回收火箭",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚刚，中国可回收火箭离“重复用25次”又近了一步！ 原创 小艾 小艾 世界先进制造技术论坛 7月3日，星河动力扔出一颗重磅炸弹：**自家造的苍穹-50可重复使用发动机，累计试车时间正式突破20088秒**。 这个数字什么概念？相当于这台发动",
+          "hb": 1
+        },
+        {
+          "t": "特斯拉2026年第二季度交付量增长25%至480,126辆，超出预期",
+          "d": "2026-07-03",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "特斯拉2026年第二季度交付量达480,126辆，同比增长25%，超出市场预期。这一强劲表现标志着此前疲软期的反转，Model 3/Y和Cybertruck需求复苏推动了整体销量增长，股价应声上涨。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/02/tesla-q2-2026-deliveries-480126/",
+          "tp": "电动车交付",
+          "aip": 1,
+          "kp": [
+            "交付量[Tesla Q2 2026]: 48.0万辆",
+            "同比增长[Tesla交付]: 25%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 2 2026 - 6:52 am PT\nTesla delivered 480,126 vehicles in the second quarter of 2026, up 25% from the same quarter a year ago and roughly 74,000 vehicles above Wall Street’s consensus estimate.\nIt’s Tesla’s strongest second quarter ever and its first year-over-year delivery growth after two straight years of decline.\nAccording to Tesla’s\nofficial production and delivery report\n, the company produced 451,758 vehicles and delivered 480,126 in Q2 2026.\nThe bulk came from the high-volume Model 3 and Model Y, which accounted for 442,936 units produced and 467,762 delivered. “Other Models” — Model S, Model X, Cybertruck, and Semi — contributed 8,822 produced and 12,364 delivered.\nHere is the full breakdown:\nUnlike recent quarters, Tesla delivered more vehicles than it produced, working down about 28,000 units of inventory rather than building it up. That’s a reversal from Q1, when the company\nbuilt roughly 50,000 excess vehicles it couldn’t sell\nThe result marks a clear inflection. Tesla delivered 384,122 vehicles in Q2 2025, so this quarter represents a 25% year-over-year increase — the first quarterly growth the company has posted since its sales peaked in 2023.\nIt’s also a 34% jump from the 358,023 vehicles Tesla delivered in Q1 2026.\nThe number blew past expectations. Analysts had\nset the consensus at 406,024 deliveries\n, with the most bullish estimates from Goldman Sachs and Barclays topping out around 418,000 to 420,000. Tesla beat even the highest forecasts by more than 60,000 units.\nAt 480,126, the quarter ranks as Tesla’s best-ever Q2, surpassing the 466,140 vehicles it delivered in Q2 2023. It still trails the company’s all-time record of 497,099 deliveries, set in Q3 2025 when US buyers rushed to claim the $7,500 federal EV tax credit before it expired on September 30, 2025.\nTesla also deployed 13.5 GWh of energy storage products in the quarter, up more than 40% from the 9.6 GWh it deployed in Q2 2025.\nThe energy business has been one of Tesla’s most consistent growth stories, though the Q2 figure came in slightly below the roughly 13.8 GWh analysts had expected.\nThe delivery surge narrows, but does not close, Tesla’s gap with its biggest rival. BYD\ndelivered 557,090 fully electric vehicles in Q2 2026\n, keeping the Chinese automaker ahead of Tesla in global battery-electric sales.\nBut the trajectories are moving in opposite directions: BYD’s BEV deliveries fell about 8% year-over-year while Tesla’s jumped 25%. Tesla now sits roughly 77,000 units behind BYD, down from a gap of more than 220,000 units a year ago.\nThis is a genuinely strong quarter for Tesla, and the data doesn’t leave much room to argue otherwise. A 25% year-over-year jump, an 18% beat over consensus, more deliveries than production, and the best Q2 in company history — after two years of shrinking sales, that’s a real inflection, not a rounding error.\nThe obvious question is what’s driving it. The gas prices are the obvious answer.\nThe war in Iran has created a significant surge in gas prices, which has now stopped, but it resulted a massive increase in demand for EVs while Tesla was sitting on 50,000 extra vehicles from last quarter.\nIf you’re a Tesla owner, powering your EV with home solar is one of the smartest ways to lock in low fuel costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

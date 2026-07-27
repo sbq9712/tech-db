@@ -1,0 +1,196 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月30日　星期一",
+  "date_range": "2026-03-30",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "剑桥大学团队采用低温退火技术在单晶NMC811正极中引入反位缺陷，提升高镍正极循环稳定性。",
+      "研究人员提出冠醚工程策略以构建超平整锂金属界面，推动532 Wh/kg软包电池长循环应用。",
+      "深圳大学团队研发sp氮掺杂石墨炔多壳层中空材料，实现93.9%硫载量以提升锂硫电池容量。"
+    ],
+    "AI与智能科技": [
+      "龙芯中科联合台达电子等发布集装箱式移动智算中心，系统整体PUE低至1.15。",
+      "研究人员提出融合多源信号与不确定性量化的工业电池数字孪生框架，实时预测电池寿命。",
+      "美光着手研发垂直堆叠GDDR内存，原型最早于2027年发布以填补标准GDDR与HBM间市场空缺。"
+    ],
+    "通用技术": [
+      "研究人员提出主客体超分子策略，利用连续多光子激发实现温和条件下的惰性碳氢键芳基化反应。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "剑桥大学团队采用低温退火技术在单晶NMC811正极中引入反位缺陷，提升高镍正极循环稳定性。",
+        "研究人员提出冠醚工程策略以构建超平整锂金属界面，推动532 Wh/kg软包电池长循环应用。",
+        "深圳大学团队研发sp氮掺杂石墨炔多壳层中空材料，实现93.9%硫载量以提升锂硫电池容量。"
+      ],
+      "entries": [
+        {
+          "t": "剑桥大学Michael De Volder通过低温退火在单晶NMC811正极引入Li/Ni反位缺陷以提高其循环稳定性",
+          "d": "2026-03-30",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "剑桥大学Michael De Volder团队通过450℃低温退火在单晶NMC811正极中引入4.5%的Li/Ni反位缺陷，使Ni离子占据Li层位点形成原子级铆钉，无需掺杂外来元素即可抑制层间滑移。变温同步辐射XRD确定最佳退火温度，避免体相相变与岩盐相生成。压痕实验表明该缺陷使基面剪切强度提升约88%，有效抑制微裂纹与晶格氧流失，显著提升高镍正极循环稳定性，同时避免传统掺杂带来的回收成本与工艺复杂度问题。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1016/j.joule.2026.102400",
+          "tp": "正极改性",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "高镍NMC811存在高电压稳定性差、易出现容量快速衰减等问题。单晶NMC811（SC-NMC811）虽能缓解多晶材料的晶间开裂，却仍存在层间滑移，引发晶格滑动、微裂纹生成与晶格氧流失，触发电解液副反应与过渡金属溶解，加速电池失效。传统改性方案多采用元素掺杂或表面包覆，虽能一定程度提升结构稳定性，但引入外来元素会大幅增加电池回收成本与工艺复杂度。\n近日，剑桥大学Michael De Volder教授团队通过低温退火工艺在SC-NMC811中引入本征Li/Ni反位缺陷，让Ni离子占据Li层位点形成原子级铆钉，无需掺杂外来元素即可抑制层间滑移、提升抗剪切强度，同时减少氧流失与界面副反应。其首先通过变温同步辐射X射线衍射确定450℃为最佳退火温度，可引入4.5%的Li/Ni反位缺陷，且无体相相变和岩盐相生成；该缺陷浓度下材料兼具优异的结构稳定性和电化学性能，过高缺陷会导致Li⁺传输受阻、初始容量下降，过低则无法发挥铆钉效应。模拟计算结果证实，Li层中的Ni离子与氧的结合强度高于Li-O键，可作为刚性连接体；压痕实验表明该缺陷使SC-NMC811的基面剪切强度提升约88%，有效抑制层间滑移和微开裂，同时减少循环过程中材料的体积形变，c轴晶格变化从2.4%降至1.6%。进一步分析结果表明，Li/Ni反位缺陷可降低正极表面反应活性，使循环后表面还原层厚度从16nm降至4nm，抑制晶格氧流失和过渡金属溶解，过渡金属向石墨负极的迁移量减少超50%；同时降低电解液氧化副反应，减少泄漏电流，抑制电池循环过程中的阻抗增长。测试结果表明，改性单晶NMC811||1M LiPF6+EC/EMC+2% FEC||石墨软包电池（负载量17.5mg cm2）在2.6-4.6V、0.5C下循环400圈后容量保持率达86.5%；在2.6-4.7V、1/3C下循环400圈后容量保持率达88.6%；在截止电压为4.3V时其循环1000圈后的容量保持率达84.2%。文章于3月30日发表在Joule。",
+          "hb": 1
+        },
+        {
+          "t": "动力学优化的冠醚工程实现超平整锂金属界面用于长循环532 Wh/kg软包电池",
+          "d": "2026-03-30",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "针对锂金属电池中锂沉积不均匀和界面不稳定的问题，研究者提出了一种动力学优化的冠醚工程策略。通过精细设计冠醚分子的分子结构，在锂金属表面构建超平坦界面层，引导锂离子均匀沉积，从而有效抑制锂枝晶生长并稳定电极-电解质界面。该策略在保持高库仑效率的同时显著延长了电池循环寿命，为高能量密度锂金属电池的工程化应用提供了界面调控新思路。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72852?af=R",
+          "tp": "锂金属电池冠醚工程",
+          "aip": 1,
+          "kp": [
+            "能量密度[软包电池]: 532 Wh/kg",
+            "[策略]: 冠醚工程优化Li+成核扩散动力学",
+            "[界面]: 超平坦锂金属界面",
+            "[功能]: 平整剂适度配位"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Lithium (Li) metal batteries are plagued by erratic electrodeposition and unstable interphases. Achieving balanced Li ions (Li\n                    +\n                    ) nucleation and diffusion kinetics is pivotal to address these obstacles and secure durable, uniform deposition. Herein, we present a molecular design strategy that decouples these competing demands by engineering a leveling agent with moderate coordination and dynamic Li\n                    +\n                    transport. By replacing oxygen donors with secondary amine in a macrocyclic framework, we demonstrate that aza‐12‐crown‐4‐ether (N‐12‐4) exhibits precisely tuned adsorption toward Li\n                    +\n                    ions. This tailored interaction enables a self‐leveling deposition mechanism, homogenizing electric fields while maintaining rapid ion transport. Consequently, Li||LiFePO\n                    4\n                    full cells deliver a practical areal capacity of 3.63 mAh cm\n                    −2\n                    , retaining 99.7% capacity after 100 cycles. Meanwhile, the strategy is validated in 7.5 Ah Li pouch cells, which deliver an energy density of 532 Wh kg\n                    −1\n                    while retaining 84% of the initial capacity after 170 cycles. Beyond lithium metal batteries, this strategy can be extended to the rational tuning of coordination strength in macrocyclic supramolecular systems and is potentially applicable to other metal‐based battery chemistries.",
+          "hb": 1
+        },
+        {
+          "t": "深圳大学王丹报道一种兼具多硫化物吸附和催化功能的sp氮掺杂石墨炔多壳层中空材料以提高锂硫电池能量密度及稳定性",
+          "d": "2026-03-30",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "深圳大学王丹教授团队设计了sp氮掺杂石墨炔多壳层中空结构（sp-N GDY HoMS），在同一载体实现多硫化物吸附位点与催化位点的空间耦合，提升锂硫电池正极容量密度。材料通过Glaser-Hay偶联反应结合序贯模板法制备，氮原子占比约17%，经熔融扩散法实现93.9%硫载量。理论研究揭示sp-N位点与GDY骨架间s、p轨道有效重叠促进电子转移，为多硫化物提供更多活性位点，突破传统方法降低能量密度的瓶颈。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01794-y",
+          "tp": "锂硫电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "多硫化物穿梭效应、反应动力学缓慢以及高负载条件下性能衰减等瓶颈限制了锂硫电池的实际应用。传统方法通常依赖引入大量宿主材料或催化剂，虽然可提升稳定性但却会降低电池整体能量密度。需要设计一种兼具高效催化、限域能力且不牺牲体系能量输出的多功能材料以推动锂硫电池的工业化应用。\n近日，深圳大学王丹教授团队设计了一种sp氮掺杂石墨炔多壳层中空结构（sp-N GDY HoMS），可在同一载体中实现多硫化物吸附位点与催化位点的空间耦合，有助于提高锂硫电池正极容量密度。该材料采用Glaser–Hay偶联反应结合序贯模板法制备：以CuO HoMS为模板，经还原、原位生长GDY纳米片、蚀刻模板及三聚氰胺煅烧掺杂，最终获得sp-N GDY HoMS。表征结果显示，该材料主要由碳组成，氮原子占比约17%；壳层由垂直层状纳米片构成，形成独特的多壳层中空结构；较高的ID/IG比表明其存在大量结构缺陷。理论研究进一步揭示，sp-N位点与GDY骨架间的s、p轨道有效重叠，促进了电子转移并激活邻近碳原子，从而为多硫化物提供了更多活性位点。通过熔融扩散法可实现93.9%的硫载量，硫在中空多壳层内部均匀分布，且与载体之间存在较强相互作用。吸附与动力学研究表明，sp-N GDY HoMS对Li2S6具有强吸附能力，能高效捕获多硫化物；其Li+扩散系数显著提高，扩散能垒低至0.28 eV，有利于快速离子传输。对称电池CV和Li2S沉积实验证实，sp-N掺杂有效促进了多硫化锂的可逆转化及Li2S的成核与生长。原位光谱表征显示，S@sp-N GDY HoMS正极在放电结束时多硫化物信号完全消失，充电后仅检测到S信号；而对比体系在充放电后仍有残留，表明该体系有效抑制了穿梭效应。此外，该体系具有更低的多硫化物浓度和更小的电荷转移电阻，且固-液-固转化动力学稳定。模拟计算结果进一步表明，N掺杂的石墨炔可与多硫化锂分子形成稳定的N-Li和C-S键，且sp-N掺杂在热力学上更有利于硫的还原反应。\n测试结果表明，该正极具有较小的电位差和较高的峰值电流强度，极化程度低、反应动力学快且可逆性好，多次循环后CV峰形与电流几乎不变。在0.2C倍率下，其充放电曲线呈现典型双平台特征，容量显著高于对照样品。该正极在0.1C倍率下，基于硫和宿主总质量的初始容量高达1462 mAh g⁻¹；在0.2C下循环100次后，仍保持1014.2 mAh g⁻¹的高容量。在0.2C至5C的宽倍率范围内，该电极均表现出最优的容量性能，且倍率恢复后容量可有效回升；即使在10C高倍率下，该体系仍能稳定循环600次，能量密度达1384.5 Wh kg⁻¹，功率密度达29457.4 W kg⁻¹。高面积载量（≥4 mAh cm-2）、低电解液/硫比（<3.0）和2倍过量锂金属负极的S@sp-N GDY HoMS||1M LiTFSI+DOL/DME+0.5M Li2S6+2wt% LiNiO3||Li软包电池能量密度约383.8 Wh kg-1；可在0.1C稳定循环超过160圈。正极面积载量达9.84 mAh cm-2的4.2 Ah软包电池能量密度达457 Wh kg-1，并可稳定循环超过20圈；经过从0°到180°的折叠后仍可点亮带有“HoMS”图案的LED屏幕。文章于3月30日发表在Nature Sustainability。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "龙芯中科联合台达电子等发布集装箱式移动智算中心，系统整体PUE低至1.15。",
+        "研究人员提出融合多源信号与不确定性量化的工业电池数字孪生框架，实时预测电池寿命。",
+        "美光着手研发垂直堆叠GDDR内存，原型最早于2027年发布以填补标准GDDR与HBM间市场空缺。"
+      ],
+      "entries": [
+        {
+          "t": "龙芯发布国产CPU集装箱式SST直流移动智算中心",
+          "d": "2026-03-30",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "龙芯中科联合台达电子、汉腾科技发布集装箱式SST（固态变压器）直流移动智算中心。该模块化算力系统配备龙芯3C6000国产CPU及太初、登临、天数等国产AI加速卡，采用800V HVDC供电架构，台达SST将10kV市电直接转化为800V DC，转换效率达98.5%，系统整体PUE低至1.15。支持100B级参数AI模型推理等负载，可应用于应急保障、抢险救灾、偏远作业、基础设施巡检等传统数据中心难以覆盖的场景。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/934/029.htm",
+          "tp": "移动智算中心",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "Comments：数据中心用SST相较于传统工频变压器。转换效率会高2%-3%，配电照明部分的总能耗约在10%，因此更换SST之后对PUE的提升影响不大，这部分提升更多地来自于液冷系统的改善。SST另一个主要优势在于占地面积只有工频变压器系统的1/2-1/3，甚至更低。由于目前AIDC中，配电设施占地面积可以到总建筑面积的50%，SST可以显著减少占地面积。不过SST成本相较于工频变压器高5倍左右，这严重制约了其使用。",
+          "b": "IT之家3月30日消息，龙芯中科、台达电子、汉腾科技三方本月28日联合发布了集装箱式SST（固态变压器）直流移动智算中心。这款模块化算力系统配备了龙芯3C6000国产CPU和太初、登临、天数等国产AI加速卡。IT之家了解到，该硬件平台采用800V HVDC供电架构，利用台达供应的SST固态变压器将10kV市电直接转化为800V DC，转换效率达98.5%，系统整体PUE低至 1.15。\n集装箱式SST直流移动智算中心支持复杂数据分析、100B级参数AI模型推理等多种负载，确保在脱离传统大型数据中心环境下依然能获得充沛且自主可控的算力资源，可广泛应用于应急保障与抢险救灾、偏远地区与野外作业、工业与基础设施巡检等传统固定数据中心难以覆盖或需快速响应的前沿场景。",
+          "hb": 1
+        },
+        {
+          "t": "工业电池车队管理的数字孪生框架：不确定性量化的统一多信号集成方法",
+          "d": "2026-03-30",
+          "a": "ScienceDirect Publication: Applied Energy",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "该研究提出了一种面向工业电池舰队管理的数字孪生框架，采用统一的多信号集成方法并引入不确定性量化。工业场景中大规模电池组的健康管理面临数据异构、工况多样等挑战。该框架融合电压、电流、温度等多源信号构建电池状态的数字镜像，通过集成模型实时预测电池健康状态和剩余使用寿命，并量化预测置信区间。该方案可提升电池舰队的运维效率和安全性，降低全生命周期管理成本。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.sciencedirect.com/science/article/pii/S0306261926003934?dgcid=rss_sd_all",
+          "tp": "电池数字孪生",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "美光将尝试垂直堆叠GDDR内存",
+          "d": "2026-03-30",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "美光已着手研发垂直堆叠GDDR内存新产品，原型最早可能在2027年发布，有望在标准GDDR与HBM之间开辟新路径。尽管在AI内存领域热度不及HBM，GDDR仍在图形GPU领域占据重要份额，英伟达RTX PRO专业显卡、部分AI ASIC项目均采用GDDR，被搁置的Rubin CPX亦设想配备GDDR。在AI推理需求勃兴背景下，垂直堆叠GDDR有望以较低成本和较大容量成为内存原厂新一轮技术竞争焦点。",
+          "sc": 4.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/934/260.htm",
+          "tp": "堆叠GDDR",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家3月30日报道， Micron美光已着手研发一款垂直堆叠GDDR的新式产品，原型最早可能在2027年发布，有望在标准GDDR与HBM之间开辟一条新的道路。尽管在AI内存技术领域的热度明显不如HBM，但在图形GPU这一老本行如鱼得水的GDDR仍然在AI XPU 内存市场占据了一定份额。英伟达的RTX PRO专业显卡与一些AI的ASIC项目均采用了GDDR，而已被搁置的Rubin CPX在设想中也要配备GDDR。\n在AI推理需求勃兴的今天，各种各样的缓存/内存均有机会找到自身独到的用武之地，垂直堆叠GDDR也有望以较低成本和较大容量成为内存原厂新一轮技术迭代竞争的焦点。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究人员提出主客体超分子策略，利用连续多光子激发实现温和条件下的惰性碳氢键芳基化反应。"
+      ],
+      "entries": [
+        {
+          "t": "主客体超分子策略促进惰性C(sp3)─H键芳基化的连续多光子激发",
+          "d": "2026-03-30",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究提出了一种主客体超分子策略，通过增强连续多光子激发实现惰性C(sp³)-H键的芳基化反应。生物光合作用利用多个可见光光子驱动热力学上困难的反应，但人工体系中多光子连续激发效率低下。研究利用主客体超分子组装体将底物与光催化剂预组织于限定空间内，显著提升了连续多光子能量转移效率，实现了温和条件下惰性C-H键的选择性官能团化，为复杂分子的高效合成提供了新方法。",
+          "sc": 6.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8289757?af=R",
+          "tp": "多光子光催化",
+          "aip": 1,
+          "kp": [
+            "[光子激发]: 连续多光子激发>2光子",
+            "[策略]: 主客体超分子限域9-均三甲基蒽"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Biological photosynthesis harnesses multiple visible light photons to drive thermodynamically demanding reactions, whereas realizing analogous multi‐photon excitation in artificial photosynthesis remains challenging. Inspired by enzymatic cascades, we herein report a host–guest supramolecular approach to boosting consecutive multi‐photon excitation (&gt;2 photons) by confining a 9‐mesityl‐10‐methylacridinium perchlorate (\n                    \n                      Acr\n                      +\n                    \n                    ) guest within a coordination supramolecular host assembled from triphenylamine‐derived ligands (\n                    TPA\n                    ) with Ce─O\n                    t\n                    ‐Bu nodes for efficient inert C(\n                    sp\n                    3\n                    )─H bond activation and transformation. The composition and structure of the consecutive multi‐photon excitation host–guest supramolecular system were characterized by a combination of high‐resolution electrospray ionization mass spectrometry, NMR, UV–vis spectrum, fluorescence spectrum, and isothermal titration calorimetry. The multi‐photon excitation host–guest supramolecular system furnished a catalytic proficiency of 50 h\n                    −1\n                    for the oxidative arylation of inert C(\n                    sp\n                    3\n                    )─H bond, representing an approximately 88‐fold increase compared to methods employing strong oxidants or harsh acids, and obviously superior to the best previously reported more than two‐photon system based on consecutive excitation at a single site. To our knowledge, this represents the first example of consecutive multi‐photon excitation integrating three separated photo‐responsive sites within a host–guest supramolecular system, which reaches superactivity for inert C(\n                    sp\n                    3\n                    )─H bond transformation, offering an attractive avenue toward low‐energy light‐driven challenging chemical transformations under mild conditions.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

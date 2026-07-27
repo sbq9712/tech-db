@@ -1,0 +1,222 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月23日　星期二",
+  "date_range": "2026-06-23",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "Fervo Energy与英伟达合作开发地热AI平台优化勘探与储层管理",
+      "拆解显示海钠钠离子电池制造工艺与特斯拉产品相当并进入量产阶段",
+      "一汽解放钠离子重卡完成极寒测试，零下40度保持90%可用电量"
+    ],
+    "AI与智能科技": [
+      "OpenAI计划周四发布GPT-5.6，实测数据显示其推理与代码能力提升",
+      "三星HBM4内存业界率先突破10亿美元销售额并计划于2026年量产",
+      "OpenAI发布GPT-5.5-Cyber模型，在网络安全攻防测试中超越Mythos 5"
+    ],
+    "通用技术": [
+      "小米YU7 GT以10分29秒创下纽博格林北环赛道首个自动驾驶圈速纪录",
+      "小米自动驾驶系统在纽博格林赛道实现全程无人驾驶并刷新圈速记录",
+      "科研团队利用钼-229原子核跃迁构建首台核钟，理论精度达10的负19次方"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "Fervo Energy与英伟达合作开发地热AI平台优化勘探与储层管理",
+        "拆解显示海钠钠离子电池制造工艺与特斯拉产品相当并进入量产阶段",
+        "一汽解放钠离子重卡完成极寒测试，零下40度保持90%可用电量"
+      ],
+      "entries": [
+        {
+          "t": "Fervo Energy携手英伟达开发地热AI平台",
+          "d": "2026-06-23",
+          "a": "中国可再生能源学会地热能专委会",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "美国增强型地热能开发商Fervo Energy与英伟达（NVIDIA）合作开发地热AI平台，旨在利用人工智能优化地热资源勘探、井位规划和储层管理。该合作将结合Fervo在地热钻探和运营方面的经验与英伟达的AI计算能力，提升地热能开发的效率和经济性，推动这一清洁基荷能源的规模化部署。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/yF77F2TcyUvSOIw8B339ng",
+          "tp": "地热AI平台",
+          "aip": 1,
+          "kp": [
+            "[合作]: Fervo-英伟达开发地热AI平台"
+          ],
+          "b": "Fervo Energy携手英伟达开发地热AI平台 原创 程素微 程素微 中国可再生能源学会地热能专委会 [](https://mp.weixin.qq.com/s?__biz=Mzk0MDQ5MTE5OQ==&mid=2247491348&idx=1&sn=cc9a4216f09a103b9f8a64f6017ae4ab&scene=21#wechat_redirect) Fervo Energy、NVIDIA 与美国太平洋西北国家实验室（PNNL）宣布，将共同开发一套面向增强型地热系统（EGS）的下一代数字孪生平台，平台名称为 **EGS-Twin**。该平台将融合实时现场数据、基于物理机理的建模方法以及人工智能预测能力，用于推进关键地热基础设施建设，并最大化地热发电能力。 该合作于 **2026年6月22日**对外公布。Fervo Energy 表示，EGS-Twin 的目标是通过高分辨率现场数据、物理模型和 AI 预测技术的融合，实时洞察地下储层行为和系统运行表现。这对于增强型地热系统尤为关键，因为 EGS 项目的核心难点不只是钻井和压裂，更在于如何持续理解地下裂缝网络、热量回收、流体流动和发电效率之间的动态关系。 在平台开发过程中，PNNL 研究人员将利用 Fervo 的行业经验和现场数据，在 NVIDIA AI 基础设施上训练可规模化的人工智能模型。训练完成后的 AI 模型将被集成到 **NVIDIA Omniverse** 库中，从而帮助地热运营商更快识别和响应地下变化，优化发电量，并增强增强型地热系统的规模化能力。 Fervo 首席技术官兼联合创始人 **Jack Norbeck** 表示，随着 Fervo 建设和运营其 **GeoBlock** 资产，数字孪生将有助于加快地热开发的学习曲线。他认为，将高保真物理模型与 AI 驱动预测结合起来，有潜力重塑储层管理方式，提高热量回收效率，并增强系统可靠性。 PNNL 将负责开发相关工作流程和数据管线，并利用高性能计算能力开展大规模模拟，其中包括美国能源部的超级计算资源。PNNL 团队将使用 Fervo 在内华达州和犹他州项目中已经掌握的专有现场数据，立即开始数字孪生模型训练。随着后续更多生产数据上线，平台也将持续优化完善。按照计划，该平台预计将在 **2029年**投入实施。 此次合作被视为将人工智能和先进计算能力深度引入清洁能源领域的重要一步。其目标不仅是服务地热单个项目优化，更是支撑 **24小时、每周7天稳定供应的零碳电力**部署，以满足全球不断增长的能源需求。 Fervo Energy 在公司简介中表示，其定位是一家现代化电力公司，核心目标是满足市场对经济、可靠新增电力供应的迫切需求。通过大规模部署增强型地热系统，Fervo 已经建立起一种可复制、工业化的公用事业级电力开发方式。公司正试图将地热转变为一种清洁、可靠且具有成本竞争力的能源解决方案，以满足 AI 超大规模数据中心、公用事业公司以及更加电气化经济体系的增长需求。 声明后半部分为前瞻性陈述说明。Fervo 提醒投资者，新闻稿中有关目标、预期、预测、未来计划、潜在能力、项目时间表和市场前景等内容，均属于前瞻性陈述。这些陈述涉及风险、不确定性和假设，并不构成对未来业绩的保证。实际结果可能与公司当前表述存在重大差异。 Fervo 列举的潜在风险包括：地热业务扩张和进入新市场的不确定性；环境法规和许可要求带来的合规挑战；经济环境和市场需求变化对未来经营结果和增长预测的影响；气候政策和环境监管对运营成本的影响；地热行业固有的运营风险和潜在责任；能源价格和材料成本波动；复杂供应链依赖；资本市场、利率和融资条件变化；电力购买协议和框架协议实际落地的不确定性；法律诉讼和索赔风险；品牌声誉和公众舆论风险；政治反对对审批和市场接受度的影响；增长战略执行延误或失败；关键人员依赖和劳动力成本问题；技术系统和网络安全风险；全球经济与政治环境变化；以及公司对资源潜力、初始热储规模和发电能力估算可能不准确等问题。 Fervo 还指出，由于其所处行业竞争激烈且变化迅速，新的风险可能不断出现。公司无法预测所有风险，也无法完全评估各种因素或因素组合对业务结果的影响。因此，投资者不应过度依赖前瞻性陈述。所有前瞻性陈述仅代表新闻稿发布当日或相关陈述作出当日的判断，除非法律要求，Fervo 不承担更新或修订这些陈述的义务。 总体来看，这条新闻的核心意义在于：Fervo 正在把增强型地热从“工程驱动”进一步推向“数据驱动和智能化运营”。EGS-Twin 不只是一个展示型数字孪生平台，而是试图把现场数据、储层物理、AI 预测和高性能计算结合起来，形成可持续迭代的地热开发大脑。对于下一代地热而言，钻井和压裂解决的是“把资源打开”的问题，而数字孪",
+          "hb": 1
+        },
+        {
+          "t": "拆解发现中国钠离子电池制造品质可媲美特斯拉",
+          "d": "2026-06-23",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "拆解报告显示，中国钠离子电池制造商海钠（Hina）量产电池在制造工艺与结构质量上已达到与特斯拉电池相当的水平。钠离子电池以储量丰富、成本低廉的钠替代锂，正极采用层状氧化物或聚阴离子体系，负极多用硬碳。海钠产品在一致性、封装工艺和热管理设计上展现了成熟的工程化能力，标志着钠电路线已从实验室验证进入规模化量产阶段。这将对锂资源依赖度高的储能和低端动力市场形成成本竞争压力。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/06/22/chinese-sodium-ion-battery-matches-tesla-build-quality/",
+          "tp": "钠离子电池拆解",
+          "aip": 1,
+          "kp": [
+            "[电阻一致性]: 120电芯间变化5.3%",
+            "[评估对象]: Hina钠离子电池",
+            "[对标结论]: 与Tesla锂电品质相当"
+          ],
+          "b": "Fred Lambert\n| Jun 22 2026 - 6:05 am PT\nA commercial sodium-ion battery from Chinese manufacturer Hina matches Tesla’s lithium-ion cells on manufacturing quality and internal design, according to an independent teardown published in the\nCell Reports Physical Science\nResearchers at Germany’s RWTH Aachen University measured cell-to-cell resistance varying by just 5.3% across 120 cells — a sign of tightly controlled mass production rivaling the best lithium cells on the market.\nThe study, led by Christian Siebert and Moritz Schütte, set out to benchmark a widely used Hina sodium-ion cell against more advanced Tesla lithium-ion technology.\nThe team ran impedance spectroscopy — a non-destructive method — across 120 cells to gauge uniformity, then tested performance at currents and temperatures ranging from −20°C to 45°C. They used X-rays to image the internal structure before physically dismantling the cells to measure electrode dimensions, composition, and microstructure.\nThe standout finding was structural. The Hina cell uses a “tabless, double-aluminum current collector design that reduces resistance and ensures a uniform temperature distribution — and also mirrors the current design of Tesla batteries,” the researchers wrote.\nThat tabless architecture is the same headline feature Tesla introduced with its 4680 cell. The researchers say this is the first commercially available sodium-ion battery to use it. Sodium-ion has a structural cost advantage here, too: it can use aluminum current collectors on both sides of the cell, while lithium-ion requires more expensive copper on the anode side.\n“We were positively surprised by how uniform the cells are,” Schütte said.\nThe skepticism is warranted on the parts that matter most for electric cars. The researchers were clear that the cell still trails leading lithium-ion technology on two fronts.\nThe first is energy density. “Today’s commercial sodium-ion cells generally have lower energy density than the best lithium-ion cells, and the technology is less mature overall,” Schütte said. That keeps sodium better suited to stationary storage, grid services, and shorter-range or commercial vehicles than to long-range passenger EVs.\nThe second is cold-weather charging. Sodium handles cold\nwell, but charging is the problem. “For applications that require frequent charging at low ambient temperatures, appropriate thermal management or operating strategies will be important because low-temperature charging remains a clear weakness,” Schütte said.\nThe teardown also turned up an oddity: unexpectedly high and unevenly distributed copper in parts of the cathode, which the researchers said “raises interesting questions about its role in performance and aging.” Schütte added that he’d like to see future sodium cells “free of nickel and copper” while reaching competitive energy density.\nThe finding lands as China’s battery giants push sodium-ion from lab curiosity to mass production. We reported in April that\nCATL is launching its Naxtra sodium-ion batteries in EVs in 2026\n, targeting around 175 Wh/kg now and roughly 600 km (372 miles) of range as the chemistry matures, with charging down to −30°C.\nThe technology is already on the road. In February, CATL and Changan unveiled the\nworld’s first mass-produced sodium-ion EV\n, the Changan Nevo A06. And researchers have been chipping away at sodium’s weak spots, with one group demonstrating a\nsodium-ion cell with 11-minute charging and 450 km of range\nHina, a spin-off of the Chinese Academy of Sciences, supplies cells for both vehicles and grid storage and has shown commercial packs rated around 165 Wh/kg.\nThe headline writes itself: a Chinese sodium-ion battery “matching” Tesla, but it’s worth being precise about what the study actually says, because the distinction is the whole story.\nThis isn’t sodium beating lithium on the spec sheet. On energy density, the metric that decides how far an EV goes, sodium still loses. What the German team confirmed is something arguably more important for the long game: an independent Western academic teardown found that a Chinese sodium-ion cell is being built at a quality and design level on par with the best lithium cells, using abundant, cheap, supply-chain-friendly materials. A 5.3% spread in resistance across 120 cells is the kind of consistency that only comes from a mature production line, not a lab bench.\nThat’s the real takeaway. The knock on sodium has always been that it’s a promising chemistry stuck in the “not quite ready” phase. This teardown says the manufacturing is already there — the remaining gaps are energy density and sub-zero charging, both of which are engineering problems with clear roadmaps rather than fundamental barriers. Combined with CATL putting sodium packs into production cars this year, it’s another data point in how far ahead China’s battery industry has pulled.\nThe open question is whether that quality translates beyond grid storage and entry-level cars into the mainstream EV market. If sodium closes the density gap the way LFP did, the cost math gets very hard for everyone else to ignore.\nMy bet is that those sodium cells are fairly cheap already.\nIf you’re charging an EV at home, pairing it with rooftop solar is one of the smartest ways to lock in low fuel costs for the long haul. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "中国钠离子卡车电池在-40°F严寒下仍保持90%电量",
+          "d": "2026-06-23",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "一汽解放完成了一款钠离子电池重卡的为期七个月真实道路测试，结果显示该电池在零下40华氏度（约-40°C）极寒环境下仍保持90%的可用电量。传统锂离子电池在低温下容量与功率急剧衰减，而钠离子因较低的溶剂化能和更宽的工作温度范围表现出优异低温性能。一汽解放的钠电重卡瞄准北方矿区、港口等极端工况场景，验证了钠离子电池在重载运输中的可靠性，填补了锂电在极寒地区应用的空白。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/transportation/chinese-truck-maker-tests-sodium-ion-battery",
+          "tp": "钠离子电池重卡",
+          "aip": 1,
+          "kp": [
+            "[低温保持率]: -40°F保持90%电量",
+            "[测试里程]: 超9300英里",
+            "[测试周期]: 7个月全工况实车"
+          ],
+          "b": "Chinese heavy truck maker FAW Jiefang has completed a seven-month real-world test of a sodium-ion battery electric truck, marking another step in China’s push to commercialize lower-cost alternatives to lithium-ion batteries for transport.\nThe company conducted a full-condition, systematic trial covering more than 9,300 miles with its electric truck fleet.\nUnlike laboratory testing, the trial followed real-world service operations, exposing the battery packs to long-distance runs, repeated charging cycles, changing road conditions, and extreme weather.\nThe test centered on a 339 kWh sodium-ion battery pack co-developed by FAW Jiefang and Chinese battery company Zhongke Haina.\nThe results are being seen as an important sign that sodium-ion batteries can move beyond passenger cars and smaller vehicles into demanding commercial trucking applications.\nSodium-ion batteries are gaining attention because they use more abundant and potentially cheaper materials than conventional lithium-ion batteries. That could make them attractive for\nelectric vehicles\n, especially in markets where cost, supply security, and durability matter.\nFor heavy trucks, however, the challenge is more difficult. Commercial vehicles face high loads, long operating hours, and strict uptime demands.\nBatteries must withstand frequent, fast charging, high energy output, and wide temperature swings without significant performance loss.\nFAW Jiefang’s test was designed to examine those conditions. The truck fleet was operated in both high and low temperatures over nearly seven months. The sodium-ion battery system was also exposed to repeated high-frequency use rather than controlled laboratory cycles.\nOne of the most notable results came in extreme cold. At -40°F, the 339 kWh battery pack retained more than 90% of its usable capacity, according to the companies.\nZhongke Haina said the test also supported claims around faster charging and improved battery safety, two areas seen as crucial for commercial vehicle adoption.\n“A full charge takes only 20-25 minutes, significantly reducing refueling time and effectively improving logistics and transportation efficiency. Furthermore, the battery has a cycle life exceeding 8,000 cycles under fast charging conditions, far surpassing industry standards,” read Haina’s\nofficial WeChat account\nThe chemistry is also seen as having safety advantages because of its thermal stability. For heavy-duty vehicles carrying large battery packs, safety under frequent operation and heavy load remains a key concern.\nThe FAW Jiefang test comes as Chinese battery and vehicle companies accelerate work on sodium-ion technology. The sector is being driven by the search for alternatives to lithium-ion batteries that can balance cost, performance, safety, and supply chain resilience.\nCompanies including CATL and BYD are also pursuing sodium-ion batteries. CATL has reportedly committed more than $700 million to build out a 40 GWh annual sodium battery production plant in Fujian, while BYD has claimed progress on a long-life sodium battery capable of more than 10,000 charging cycles.\nFor FAW Jiefang, the latest test suggests sodium-ion batteries may have a role in heavy-duty electric trucks, particularly in cold regions and high-use logistics operations.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nAtharva is a full-time content writer with a post-graduate degree in media & amp; entertainment and a graduate degree in electronics & telecommunications. He has written in the sports and technology domains respectively. In his leisure time, Atharva loves learning about digital marketing and watching soccer matches. His main goal behind joining Interesting Engineering is to learn more about how the recent technological advancements are helping human beings on both societal and individual levels in their daily lives.\nF21 heavyweight torpedoes to bolster battle power of Netherlands' next Orka-Class submarines\nL3Harris delivers new aircraft for Air Force One fleet, made extensive upgrades on Boeing 747-8\nBoeing to bolster P-8A Poseidon's anti-submarine warfare readiness, gets $880M contract\nChina conducts live-fire drill of ballistic missiles that deliver advanced battle power\nUS firm unveils 1.5 GW nuclear plant project with 300 MW small modular reactors\nMore from Transportation\nTransportation\nWatch United Airlines pilot flies Boom Supersonic’s Mach 2 jet in simulator\nTransportation\nChinese mine deploys 140-ton EV trucks with giant swappable 770 kWh batteries\nTransportation\nVideo: World’s first autonomous Nürburgring lap completed by 1,003-hp Xiaomi YU7 GT car\nTransportation\nFrench firm’s business jet achieves major milestone, reaches 40,000-feet with Mach 0.82 speed\nTransportation\nNorway clears funding for world’s largest ship tunnel through dangerous sea route\nTransportation\nWatch United Airlines pilot flies Boom Supersonic’s Mach 2 jet in simulator\nTransportation\nChinese mine deploys 140-ton EV trucks with giant swappable 770 kWh batteries\nTransportation\nVideo: World’s first autonomous Nürburgring lap completed by 1,003-hp Xiaomi YU7 GT car\nTransportation\nFrench firm’s business jet achieves major milestone, reaches 40,000-feet with Mach 0.82 speed\nTransportation\nNorway clears funding for world’s largest ship tunnel through dangerous sea route",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "OpenAI计划周四发布GPT-5.6，实测数据显示其推理与代码能力提升",
+        "三星HBM4内存业界率先突破10亿美元销售额并计划于2026年量产",
+        "OpenAI发布GPT-5.5-Cyber模型，在网络安全攻防测试中超越Mythos 5"
+      ],
+      "entries": [
+        {
+          "t": "GPT-5.6大量实测流出：本周四或登场",
+          "d": "2026-06-23",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "据多方泄露信息，OpenAI即将发布的GPT-5.6模型已出现大量实测数据流出。从泄露的测试结果看，GPT-5.6在多步推理、代码生成和长文本理解方面均有显著提升，预计本周四正式发布。当前测试数据显示其在数学推理和复杂工具调用场景中表现突出，但真实性尚未得到官方确认。",
+          "sc": 10.2,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/DCD9NhyunrnuodNbyBa3Pw",
+          "tp": "GPT-5.6大模型",
+          "aip": 1,
+          "kp": [
+            "[大模型]: GPT-5.6 Pro(kindle-alpha)实测泄露",
+            "[双向对话]: GPT-Bidi-1真人级双向对谈"
+          ],
+          "b": "GPT-5.6大量实测流出：本周四或登场 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**OpenAI重大更新曝光：GPT-5.6即将上线，已有大量实测流出，不仅能凭空创作名画，GPT-Bidi-1还能解锁「真·真人级」双向对谈。本周四，一起见证OpenAI的绝地反击。 就在这几天，OpenAI代号为 kindle-alpha 的模型大规模泄露了！ X上的顶流爆料者透露，目前已经对 GPT-5.6 Pro 进行了海量高强度的深度测试。 测试结果只有四个字：堪称神级。 只要你给出的提示词对了，这个模型几乎无所不能。 甚至，它还同步带出了自GPT-4o时代就让全网望眼欲穿的神秘项目——GPT-Bidi-1。 传说中本周四就要登场的 GPT-5.6 Pro ，背后到底有什么黑科技？ **震撼实测：凭空「捏」出蒙娜丽莎？视觉与UI的降维打击** 在@chetasluaX等用户传出的测试demo中，最惊艳的，莫过于GPT-5.6 Pro在图像与视觉理解上的强大统治力。 根据爆料，在实测对比中，GPT-5.6 Pro展现出了两种惊人能力。 首先，是完美像素级复刻。 在给出参考图的情况下，它能基于参考图瞬间生成极其精准的《蒙娜丽莎》复制品，甚至连原图被打码、覆盖网格线的部分，都能被它无缝脑补还原。 最惊人的，是第二张测试图。 在完全切断外部参考图片输入的情况下，模型仅仅依靠自身庞大的知识储备，直接「凭空」画出了一幅高质量的《蒙娜丽莎》。 有网友惊呼：天哪，有了这个谁还需要Fable模型？ 这不仅仅是简单的画图。 根据最新的前端开发者内测反馈，kindle-alpha 版本的升级重点在于前端/UI生成以及复杂视觉推理。 它不需要你输入几百字的复杂Prompt，也不需要外挂各种复杂的技能插件，就能直接理解复杂的图像，并一键生成可用的极强UI界面。 并且，GPT 5.6 专业版在前端开发上非常出色，几乎可以模仿图像中的所有元素。 此前的鹈鹕骑自行车，效果也很惊艳。 **** **千呼万唤始出来：GPT-Bidi-1，终结「对讲机式」AI** 在全网都在为GPT-5.6的画技惊呼时，懂行的硬核开发者们却盯住了另一个同步曝光的名字——GPT-Bidi-1。 自打GPT-4o发布以来，用户就一直在抱怨：现在的语音AI虽然声音好听，但交流起来依然像在用「对讲机」——你必须说完、停下、等待，然后AI才能回答。 而GPT-Bidi彻底打破了这堵墙！根据海外最新挖出的代码痕迹。 它的知识库实现了大更新。它的知识库截止时间被锁定在 2025年8月，极大概率是基于GPT-5.4底座打造的轻量化/特化模型。 而且，它能做到同频共振的「真」人机对话，实现边听边说！ 如果在它说话时你突然插嘴，它不会像以前那样死机或卡顿，而是能瞬间吸收你的打断，并自然地在半句话中调整回应逻辑。 你可以一边让它帮你查资料，一边随时用语音纠正它的方向，它就像一个坐在你对面的真人助理，随时随地与你同频互动。 **** **揭秘 Kindle-Alpha：为什么是本周四？** 为什么全网都笃定本周会放出大招？ 因为在OpenAI的 Codex 后端路由日志中，kindle-alpha 已经明晃晃地挂在了「候选发布」的名单上。 据多方可靠信源和AI社区的深度评测，GPT-5.6 此次的战略重心并非仅仅是陪你聊天，而是真正指向了Agentic工作流。 传闻中150万的超大上下文窗口，比此前的GPT-5.5提升了整整43%！这意味着你可以直接把几十万字的代码库或者几百页的财报扔给它。 另外，它实现了效率与成本的极致压缩。在执行典型任务时，其Token使用效率在原有基础上再次下降10%-15%。 而且，它在连续数小时的自主代理测试中，表现出了前所未有的可靠性。 显然，这是OpenAI向着自动化数字员工迈出的决定性一步。 **OpenAI背水一战，再不发布就晚了？** 热闹的爆料背后，其实藏着OpenAI难以言说的焦虑。结合最近的背景，你会发现，GPT-5.6的紧急排期发布，是一场真正的背水一战。 根据2026年6月的最新市场调研数据披露：ChatGPT的市场份额首次跌破了50%，目前卡在46.4%的生死线上。 面对竞争对手的疯狂围剿，OpenAI在过去一年烧掉了惊人的 340亿美元（其中研发投入高达190亿，营销烧掉60亿），而其年营收预估仅为130亿美元。 在冲刺万亿美元级别IPO的关键节点，OpenAI太需要一针强心剂了。GPT-5.6（Kindle-Alpha）的惊艳表现和双向语音大杀器GPT-Bidi-1的登场，正是Sam Altman用来稳住投资人、夺回市场霸权的底牌。 本周四，如果传言成真，我们将见证大模型能力的一次全新跃迁。 从凭空",
+          "hb": 1
+        },
+        {
+          "t": "三星电子 最新HBM4 内存销售额已在业界率先突破 10 亿美元",
+          "d": "2026-06-23",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "三星电子HBM4内存销售额在业界率先突破10亿美元（约67.87亿元人民币）。该产品2026年2月量产，基于1cnm DRAM Die和4nm逻辑Base Die，12Hi堆叠，单堆栈36GB，引脚速率13Gbps，总带宽3.3TB/s。此外三星已率先出样12Hi 48GB HBM4E，引脚速率提升至14-16Gbps，带宽达3.6TB/s。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/967/278.htm",
+          "tp": "高带宽内存",
+          "aip": 1,
+          "kp": [],
+          "b": "IT之家 6 月 23 日消息，韩联社当地时间今日援引韩国芯片行业消息报道称，三星电子 HBM4 内存销售额已在业界率先突破 10 亿美元（IT之家注：现汇率约合 67.87 亿元人民币）大关。该产品此前于 2026 年 2 月 12 日正式量产。三星半导体的 HBM4 内存基于 1cnm DRAM Die 和 4nm 逻辑 Base Die，采用 12Hi 堆叠，单堆栈容量 36GB。其引脚速率可达 13Gbps，堆栈总带宽达 3.3TB/s。而在 HBM4 后，三星电子上月还率先出样了 12Hi 48GBHBM4E 内存，引脚速率进一步提升至 14~16Gbps，堆栈总带宽随之来到 3.6TB/s。",
+          "hb": 1
+        },
+        {
+          "t": "战胜Mythos 5，OpenAI安全专用GPT-5.5-Cyber完全体来了",
+          "d": "2026-06-23",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI发布安全专用模型GPT-5.5-Cyber完整版，在网络安全攻防测试中战胜Mythos 5。该模型专为安全领域优化，强化了漏洞挖掘、威胁分析等能力，标志着AI在网络安全实战中达到新高度。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/BRSFTUWwyuKo41m8nmp7Xg",
+          "tp": "安全专用大模型",
+          "aip": 1,
+          "kp": [],
+          "b": "战胜Mythos 5，OpenAI安全专用GPT-5.5-Cyber完全体来了 机器之心 机器之心编辑部 OpenAI 在网络安全领域又往前推了一步。 今天，OpenAI 宣布扩展 Daybreak 安全计划，推出更新版 GPT-5.5-Cyber、Codex Security 插件、Daybreak Cyber Partner Program，以及面向开源生态的 Patch the Planet 计划等。 其中最受关注的，是 GPT-5.5-Cyber 完整版的发布。OpenAI 称，更新后的 GPT-5.5-Cyber 在 CyberGym 上取得 85.6% 的成绩，高于 GPT-5.5 的 81.8%。这一成绩也超过了 Anthropic Mythos 5 的 83.8%。 OpenAI CEO 奥特曼表示，「OpenAI 希望与美国政府和安全生态合作，帮助所有企业提升安全性。GPT-5.5-Cyber 完整版现已发布，并在 CyberGym 上取得当前 SOTA 表现。」 OpenAI 总裁 Greg Brockman 写到，「通过 OpenAI Daybreak，我们正在用新的工具和模型加速漏洞修补，而不只是加速漏洞发现。OpenAI 的模型现在已经能够为主流浏览器、网络基础设施和操作系统中的关键漏洞发现并生成补丁，涉及 FreeBSD、Linux 内核等系统；同时也帮助 cURL、Go、Python、Sigstore 等项目推进漏洞修复。」 不过，网友们似乎并不买账，大家更期待 OpenAI 发布的是 GPT-5.6。 此次的几大更新包括如下： * GPT-5.5-Cyber：在最初仅开放预览版之后，OpenAI 将通过持续的受限发布机制，向可信防守方推出 GPT-5.5-Cyber 的完整版本。该模型在 CyberGym 上取得了新的最佳表现，得分达到 85.6%，高于 GPT-5.5 的 81.8%。 * Codex Security：OpenAI 将发布 Codex Security 插件更新，把其从内部使用和客户使用模型过程中积累的经验，整合成一套解决方案，用于加速现有系统中漏洞的发现与修复，并自动阻止新的漏洞进入生产环境。 * Patch the Planet：这是 OpenAI 与 Trail of Bits 共同发起的项目，并与 HackerOne、Calif、研究人员和维护者合作，帮助被广泛使用的开源项目从发现漏洞走向真正修复。 * Daybreak Cyber Partner Program：OpenAI 将通过这一计划，让安全合作伙伴在自己的产品和服务中，以可信访问方式使用其最强的模型，把这些能力扩展到更多组织。 更新 GPT-5.5-Cyber：能力与更开放的使用边界并行 OpenAI 正在发布 GPT-5.5-Cyber 的更新版本。这是一个面向高级、授权网络安全工作的模型，既更具能力，也更少出现不必要拒答。 GPT-5.5-Cyber 的最初预览版，主要目标是减少专业工作流中的不必要拒绝。这次更新更进一步。它是 OpenAI 迄今在发现并帮助修补软件漏洞方面最强的模型，同时保留了 GPT-5.5 的通用智能，以及处理长期、复杂任务的能力。 该模型可以在大型代码库中持续进行更深入分析：识别与安全相关的组件，追踪存在漏洞的代码是否可达，在受控环境中验证可能的问题，开发并测试补丁，并为人工审查准备证据。目标是帮助防守方走完整个修复闭环，而不只是产生更多漏洞发现。 在 CyberGym 上，更新后的 GPT-5.5-Cyber 在单模型评估中达到 85.6%，高于 GPT-5.5 的 81.8%。CyberGym 衡量的是一个智能体能否在软件环境中复现已知漏洞。这也是 OpenAI 测得的单模型最高 CyberGym 分数。 GPT-5.5-Cyber 在另外两个要求很高的真实安全基准上也超过了 GPT-5.5。在 ExploitGym 上，GPT-5.5-Cyber 得分 39.5%，高于 GPT-5.5 的 25.95%。ExploitGym 测试的是智能体能否把已知漏洞转化为可工作的漏洞利用，并实现未经授权的代码执行。在 SEC-bench Pro 上，GPT-5.5-Cyber 得分 69.8%，高于 GPT-5.5 的 63.1%。SEC-bench Pro 评估的是复杂软件目标上的长周期漏洞发现和概念验证生成能力。 基准测试只是故事的一部分。真正重要的是，在实际场景中，模型能否发现真实漏洞，能否从噪声中识别出可行动的问题，并帮助防守方安全地完成修复。随着协调披露工作的结束，OpenAI 会继续在复杂代码库和真实修复工作流中评估该模型的表现。 围绕 OpenAI 的网络安全方法，包括今",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "小米YU7 GT以10分29秒创下纽博格林北环赛道首个自动驾驶圈速纪录",
+        "小米自动驾驶系统在纽博格林赛道实现全程无人驾驶并刷新圈速记录",
+        "科研团队利用钼-229原子核跃迁构建首台核钟，理论精度达10的负19次方"
+      ],
+      "entries": [
+        {
+          "t": "开辟新赛道：小米 YU7 GT 创全球首个纽北自动驾驶圈速纪录，官方圈速榜新增“自动驾驶”分类",
+          "d": "2026-06-23",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "小米YU7 GT以10分29秒483创造全球首个纽博格林北环赛道自动驾驶圈速纪录。纽北官方圈速榜首次设立\"自动驾驶\"分类，标志着自动驾驶技术进入高性能量产验证新阶段。小米借此开辟智能驾驶新赛道，验证了其端到端智驾系统的极限能力。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/967/234.htm",
+          "tp": "自动驾驶圈速",
+          "aip": 1,
+          "kp": [
+            "圈速纪录[纽北自动驾驶无人圈]: 10分29秒483"
+          ],
+          "b": "Autumn_Dream\n6 月 22 日消息，小米汽车今日官宣，\n小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录\n，时间为 10 分 29 秒 483。\n小米创办人、董事长兼 CEO 雷军今日分享了小米 YU7 GT 使用自动驾驶功能征战纽北赛道后发生的一处细微变化 ——\n纽北官方圈速榜新增“自动驾驶”分类\n据IT之家今日早些时候报道，央视新闻今日发文谈及了小米此次取得的成绩，称从追赶到领跑，从跟跑到开创，这是中国新能源汽车蓬勃向上的缩影。\n今天，小米公布，纽博格林北环赛道迎来历史性时刻 —— 小米 YU7 GT（选配赛道专业套装）搭载自主研发的自动驾驶系统，在全程无人状态下完成纽北官方计时圈，\n成绩 10 分 29 秒 483\n全球首家，全程无人，全程自主。纽博格林北环赛道 20.832 公里，73 个弯道，中国工程师用一行行代码，把问号变成感叹号，\n也赋予了纽北百年赛道新的意义\n。从追赶到领跑，从跟跑到开创，\n这是中国新能源汽车蓬勃向上的缩影\n小米汽车官方今日也发文解释了为何用自动驾驶挑战纽北\n：在极限赛道上锤炼出的动态模型、高频扭矩分配和毫秒级救车能力，最终都会在我们的产品迭代中，逐步下发到每一个普通用户的量产车上。\n小米汽车的终极目标，是让用户在日常用车中，万一遇到暴雨积水、冰雪路面打滑等极端工况时，车子的底盘和智驾系统能像一位常驻的“幽灵专业赛车手”一样，做出正确决策，把车辆重新拉回可控范围之内。",
+          "hb": 1
+        },
+        {
+          "t": "小米YU7 GT再创纽博格林纪录——无人驾驶",
+          "d": "2026-06-23",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "小米YU7 GT在纽博格林北环赛道刷新圈速记录，此次亮点在于全程无人驾驶状态下完成。这标志着小米自动驾驶系统在高速度、高精度场景下的感知与控制能力达到新水平。无人驾驶赛道圈速记录对自动驾驶算法的极限性能验证具有重要参考价值，也展示了小米在智能驾驶和电动汽车底盘技术方面的工程实力。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/06/22/xiaomi-yu7-gt-sets-another-nurburgring-record-with-nobody-in-the-drivers-seat/",
+          "tp": "自动驾驶赛道",
+          "aip": 1,
+          "kp": [
+            "[自动驾驶]: 纽北首个无人自动驾驶圈速纪录"
+          ],
+          "b": "| Jun 22 2026 - 3:01 am PT\nXiaomi returned to the Nürburgring to set another lap record, but this time it did it with nobody in the car at all, setting down the first official autonomous time at the world-famous racetrack.\nNürburgring is one of the world’s most famous racetracks, and one of the most difficult ones. The track is over 12 miles long through the German countryside and includes high and low speed turns, varied road surfaces and lots of bumps and hills. As such, it’s often used for vehicle benchmarking – and for bragging rights.\nOver the years we’ve seen a lot of back and forth from various EV manufacturers trying to go the quickest around this track.\nand others have gotten in on the record race.\nBut Xiaomi has been one of the strongest competitors lately.\nWhen Xiaomi first launched the high-performance version of its SU7 Ultra sport sedan, it took the car around Nürburgring and\nset a record\nas the fastest four-door car ever, gas or electric – albeit with a stripped-down prototype version of the car (it’s since\nimproved on that record\n, beating everything but 3 custom-built racecars). It later came back with the mass-produced, non-stripped version and won a\nproduction EV record\ninstead, which has\nsince been beaten\nThen it brought its YU7 GT and set the\noverall SUV record\n, beating everything, gas or electric, with\na time of 7:22.755\nBut it looks like Xiaomi wasn’t satisfied and wanted to go back for another bite of the apple, as it just announced another record in the YU7 GT: the\nfirst officially-timed fastest autonomous lap of the track\n, with a time of 10:29.483, set on June 8th.\nNow, if you’ll notice, that’s\nfar off of the human-driven record. A full three minutes behind is a huge gap, even on such a long track. Races can be decided by seconds, and a 10-and-a-half minute time would be representative of a much slower vehicle (for example, a Mercedes racecar from 1939 and a Ford Transit van have\nboth beaten that time\nBut… it’s still something, and you’ve got to start somewhere. (Xiaomi acknowledged this, calling the lap a starting point, not an end point)\nNürburgring and Xiaomi released video of the lap, which you can watch in full below, complete with in-car camera showing nobody at the wheel:\nAs you can see in the video, it’s going along at a nice enough pace… but it’s not really challenging the tires or apexes all that much. It does get up to 130mph (210km/h) on the back straight though, which isn’t too bad.\nWe don’t know exactly what autonomous system the YU7 GT was using, as its normal system is built for public roads, but isn’t intended to get up to 130mph or take turns like it did in the video above. So there must have been some custom software built in.\nWhile this is the first official autonomous lap of Nürburgring, it’s not the first attempt at autonomous racing. Ten whole years ago, Formula E announced a support series called “\n” which intended to have teams compete against one another with autonomous racecars.\nRoborace mostly ended up being a number of showcase events, rather than real races. The first event\nended up in a crash\n, and later the series hosted a couple\nman vs. machine matchups\n, in which the Robo-car was quite a bit slower than the human-driven one, but at one point Roborace said it managed to lap within 8% of a representative laptime from a human driver, quite a bit closer than the YU7 GT’s comparable time.\nRoborace did finally manage to organize\na full race season\n, though it was a series of time trials, rather than wheel-to-wheel racing (and yet, still fraught with issues).\nOther autonomous racing series exist and mostly consist of student teams, like the\nIndy Autonomous Challenge\nand Formula Student Driverless. They tend to focus less on raw laptime and more on challenges like successfully passing a vehicle traveling at constant speed.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
+          "hb": 1
+        },
+        {
+          "t": "每日简报：首个\"核\"时钟让原子钟黯然失色",
+          "d": "2026-06-23",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "两个独立研究团队成功创建了首台核钟，利用钍-229原子核跃迁作为时间基准，其精度有望超越现有原子钟。核钟利用原子核内同质异能跃迁（约8.4 eV），对环境扰动极不敏感，理论精度可达10的负19次方量级。同期报道还包括海洋监测卫星任务因公众关注而获得保留的好消息。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01997-5",
+          "tp": "核时钟",
+          "aip": 1,
+          "kp": [
+            "[时钟类型]: 核钟（两团队首次实现）"
+          ],
+          "b": "Two research teams have created a new, long-awaited type of timekeeper. Plus, how backlash has saved an ocean-monitoring network targeted by Trump and how our cultural heritage is put at risk by climate change. Two research teams have created a new, long-awaited type of timekeeper. Plus, how backlash has saved an ocean-monitoring network targeted by Trump and how our cultural heritage is put at risk by climate change.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月6日　星期一",
+  "date_range": "2026-04-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中科院物理所研发不可燃钠离子电池电解质，3.5Ah电池300°C未热失控",
+      "研究人员构建IrO2-PdO异质结，提升海水电解氯离子氧化选择性与耐久性",
+      "新型可调谐超材料吸收发射器设计出炉，旨在突破单结光伏转换效率极限"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "研究人员采用自组装单层修饰PEDOT:PSS，提升无铅近红外钙钛矿LED性能",
+      "新研究利用人工规范场在光子芯片构建拓扑模式，实现抗缺陷光传输"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中科院物理所研发不可燃钠离子电池电解质，3.5Ah电池300°C未热失控",
+        "研究人员构建IrO2-PdO异质结，提升海水电解氯离子氧化选择性与耐久性",
+        "新型可调谐超材料吸收发射器设计出炉，旨在突破单结光伏转换效率极限"
+      ],
+      "entries": [
+        {
+          "t": "中科院物理研究所胡勇胜开发可聚合的不可燃钠离子电池电解质",
+          "d": "2026-04-06",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "中科院物理所胡勇胜团队提出可聚合不可燃电解质（PNE），基于磷酸三乙酯（TEP），协同BF₄⁻和PF₆⁻阴离子溶剂化效应。TEP在高温下分解生成磷酸并聚合形成绝缘交联网络，阻断正负极间机械和化学串扰；BF₄⁻和PF₆⁻分别形成富硼正极CEI和富PO₂⁻的SEI。3.5Ah钠离子电池针刺测试无烟无火无爆炸，加速量热仪加热至300°C未热失控，同时具备优异宽温域性能。该策略突破了\"电解液不可燃≠电池安全\"的瓶颈。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-02032-7",
+          "tp": "安全电解质",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "电池安全是储能应用中最基本的要求。传统碳酸酯类有机电解质易燃，在短路或热失控时易引发火灾甚至爆炸。磷酸酯类不可燃电解质虽能抑制电解液燃烧，但无法保证安时级电池的本征安全——即便使用不可燃电解液，电池仍可能发生严重热失控。这表明，电解液的非可燃性并不等同于电池的整体安全性，电极与电解液界面的高温稳定性、正负极之间的相互作用等因素同样至关重要。\n针对这一挑战，中国科学院物理研究所张觉、胡勇胜等研究人员提出了一种可聚合不可燃电解质（PolyNonflyte，简称PNE）。该电解质基于磷酸三乙酯（TEP），通过协同阴离子（BF₄⁻和PF₆⁻）与阳离子的溶剂化效应，不仅实现了不可燃特性，还能在高温下发生热触发聚合反应：TEP分解生成的磷酸进一步聚合形成绝缘交联网络，从而阻断正负极之间的机械和化学串扰。同时，BF₄⁻和PF₆⁻的协同作用优化了电极界面，分别形成富硼的正极电解质界面和富PO₂⁻的固态电解质界面，显著提升了电化学和热稳定性。\n实验表明，采用PNE的3.5 Ah圆柱型钠离子电池在针刺测试中无烟、无火、无爆炸；在加速量热仪测试中加热至300°C仍未发生热失控。该电池还展现出优异的宽温域性能（-40°C至60°C），并在4.3 V高电压下实现211 Wh kg⁻¹的能量密度，顺利通过针刺安全测试。这项研究打破了“电解液不可燃即电池安全”的常见误区，为高安全、高性能钠离子电池的电解质设计提供了新思路。文章于2026年4月6日发表在Nature Energy。",
+          "hb": 1
+        },
+        {
+          "t": "通过顺序光沉积构建IrO2-PdO异质界面实现高选择性耐久氯化物氧化",
+          "d": "2026-04-06",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "本文通过顺序光沉积法构建IrO2-PdO异质界面，实现了海水电解中选择性且持久的氯离子氧化反应。海水直接电解中，析氯竞争反应是制约实际应用的核心瓶颈，氧化驱动的局部酸化加速阳极腐蚀。IrO2-PdO异质结通过界面电子结构调控，提升了氯离子氧化的选择性并抑制了析氧副反应，同时异质组分间的协同效应显著增强了催化剂在酸性工况下的耐久性，为实际海水裂解制氢的阳极设计提供了突破性方案。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00805",
+          "tp": "海水裂解阳极催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[海水氯化物氧化]: IrO2-PdO/Co3O4纳米立方体",
+            "团簇尺寸[异质界面]: ~1nm"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Selective chloride oxidation is the bottleneck in realistic seawater splitting, where oxidation-driven acidification imposes a selectivity–stability trade-off. We report a programmable sequential photodeposition strategy that constructs surface-defined IrO2–PdO heterointerfaces on single-crystalline Co3O4 nanocubes, yielding ∼1 nm clusters with controlled composition. This approach enables systematic interface engineering, generating heterointerfaces that stabilize catalyst under acidifying seawater electrolysis. The resulting IrO2–PdO/Co3O4 catalyst exhibits nearly 100% selectivity for chloride oxidation over oxygen evolution in neutral NaCl and retains high activity and durability under localized acidification, outperforming IrO2/Co3O4, PdO/Co3O4, and commercial Ti/IrRu anodes. Density functional theory calculations show that interfacial electronic interactions optimize Cl* binding and lower activation barriers relative to isolated IrO2 and PdO. Under continuous-flow conditions, the catalyst offers exceptional durability and sustained HOCl production, demonstrating practical relevance for on-site disinfectant generation. This consecutive photodeposition provides a controllable route to design durable heterointerfaces relevant to seawater electrolysis.",
+          "hb": 1
+        },
+        {
+          "t": "面向高效聚光光伏-热光伏系统的可调谐超材料吸收/发射器",
+          "d": "2026-04-06",
+          "a": "ScienceDirect Publication: Applied Energy",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "本文设计了一种可调谐超材料吸收/发射器，用于高效聚光光伏-热光伏（CPV-TPV）联合系统。通过超构表面的亚波长结构精确调控光谱吸收和热发射特性，实现对太阳光谱的选择性利用——光伏波段高效吸收、热发射波段阻抗匹配，从而最大化系统光电转换效率。该器件可将聚光后残余热能通过热光伏电池二次发电，突破单结光伏的Shockley-Queisser极限，有望实现高倍聚光下系统综合效率的显著提升。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.sciencedirect.com/science/article/pii/S0306261926004861?dgcid=rss_sd_all",
+          "tp": "超材料光伏热光伏",
+          "aip": 1,
+          "kp": [
+            "[超材料]: 可调谐吸收/发射体用于CPV-TPV"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究人员采用自组装单层修饰PEDOT:PSS，提升无铅近红外钙钛矿LED性能",
+        "新研究利用人工规范场在光子芯片构建拓扑模式，实现抗缺陷光传输"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 自组装单层装饰 PEDOT:PSS 用于无铅近红外钙钛矿发光二极管中的平衡孔注入",
+          "d": "2026-04-06",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "锡基钙钛矿发光二极管是无铅近红外光电器件的有力候选，但面临严重界面损耗和运行稳定性问题。研究采用自组装单层（MeO-2PACz）修饰PEDOT:PSS空穴注入界面，优化能级对齐、抑制界面非辐射复合并改善薄膜形貌，实现高性能CsSnI3基近红外PeLEDs，推动无铅钙钛矿光电器件实用化。",
+          "sc": 6.5,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00196",
+          "tp": "钙钛矿发光",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Sn-based perovskite light-emitting diodes (PeLEDs) are promising lead-free alternatives for near-infrared optoelectronics, but suffer from severe interfacial losses and poor operational stability. Here, we report an effective hole-injection interface engineering strategy using a self-assembled monolayer (SAM) (MeO-2PACz) on PEDOT:PSS to realize high-performance CsSnI3-based PeLEDs. The SAM-modified interface optimizes energy-level alignment, suppresses interfacial nonradiative recombination, and improves perovskite film coverage and crystallinity, while reducing interfacial trap density and lattice microstrain. As a result, the optimized devices exhibit a maximum radiance of 196.5 W sr–1 m–2 and a peak external quantum efficiency (EQE) of 8.8% for 931 nm electroluminescence, representing state-of-the-art performance for CsSnI3-based near-infrared PeLEDs. This interfacial strategy is further demonstrated in red-emitting CsSnBr3 PeLEDs to achieve 2.31% EQE, highlighting its general applicability for energy-efficient, bright, and environmentally benign lead-free PeLEDs.",
+          "hb": 1
+        },
+        {
+          "t": "人工规范场在光子芯片上雕刻拓扑模式",
+          "d": "2026-04-06",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究聚焦光子芯片上的拓扑光子学,探讨利用人造规范场在芯片上雕刻拓扑模式。拓扑态通常表现为不同拓扑相界面处出现的局域化边界态,具有抗缺陷干扰的独特性质。人造规范场为在光子平台实现可设计的拓扑态提供了新手段,有望推动拓扑激光、光子电路与鲁棒性光信息处理的发展,是集成光子学中实现拓扑保护光传输的重要进展。",
+          "sc": 6.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-71402-2",
+          "tp": "拓扑光子芯片模式",
+          "aip": 1,
+          "kp": [
+            "[拓扑模式调控]: 标量/矢量/虚规范势在光子芯片上雕刻拓扑模式"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Topological states, which often manifest as localized modes at interfaces between distinct topological phases, and their manipulation have attracted considerable interest in research. Here, we demonstrate a versatile approach to sculpting topological modes into desired shapes by incorporating various artificial gauge fields —including scalar, vector, and imaginary gauge potentials—and leveraging the power of artificial neural networks. The chose gauge fields enable precise tuning of the dissipation of the topological modes across that of bulk modes, facilitating a transition from localized states to fully delocalized ones. These eigen modes can be precisely engineered by neural networks, achieving tailored profiles of topological states, which remain spectrally isolated from bulk bands and exhibit minimal loss compared to other modes. Our theoretical results are experimentally validated on silicon photonic platforms, demonstrating flexible manipulation of mode profiles. This approach enables the design of topological states with customized properties, offering potential for diverse applications in photonics and beyond.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

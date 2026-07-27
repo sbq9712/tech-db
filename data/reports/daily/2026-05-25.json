@@ -1,0 +1,204 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月25日　星期一",
+  "date_range": "2026-05-25",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究利用4-甲基吡啶添加剂抑制缺陷，提升宽禁带钙钛矿电池效率与稳定性",
+      "新型无有机溶剂弱溶剂化电解质解决枝晶生长瓶颈，延长水系锌碘电池循环寿命",
+      "安时级水系锌碘电池实现在宽温域及高电流密度下长周期稳定运行"
+    ],
+    "AI与智能科技": [
+      "华为提出半导体演进韬定律，通过时间常数缩微预计2031年达到1.4nm同等密度",
+      "华为以优化寄生参数及统一内存编址缩短信号时延，过去六年已量产381款芯片"
+    ],
+    "通用技术": [
+      "新型钽基协同催化剂实现常温下甲烷光催化直接转化为高附加值丙酮",
+      "研究通过氧空位工程将介电材料转化为压电催化剂，在超声驱动下触发癌细胞多通路死亡",
+      "X射线诱导有机纳米粒子持续产生活性氧，实现余辉成像引导深部肿瘤治疗"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究利用4-甲基吡啶添加剂抑制缺陷，提升宽禁带钙钛矿电池效率与稳定性",
+        "新型无有机溶剂弱溶剂化电解质解决枝晶生长瓶颈，延长水系锌碘电池循环寿命",
+        "安时级水系锌碘电池实现在宽温域及高电流密度下长周期稳定运行"
+      ],
+      "entries": [
+        {
+          "t": "4-甲基吡啶介导的宽带隙钙钛矿薄膜均质化用于高效全钙钛矿叠层太阳能电池",
+          "d": "2026-05-25",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "宽禁带(WBG)钙钛矿是多结叠层太阳能电池顶电池的关键材料,但混合卤素体系易产生相分离和膜层不均问题。该研究采用4-甲基吡啶作为添加剂,通过配位与钝化作用实现钙钛矿薄膜的均质化,有效抑制缺陷与非辐射复合,显著提升宽禁带钙钛矿电池的效率与稳定性。该策略为高效多结光伏(钙钛矿/硅叠层等)顶电池的产业化提供了简洁有效的工艺路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73477?af=R",
+          "tp": "全钙钛矿叠层",
+          "aip": 1,
+          "kp": [
+            "添加剂[宽禁带钙钛矿]: 4-甲基吡啶",
+            "[功能]: 均质化碘溴结晶动力学"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Mixed‐halide wide‐bandgap (WBG) perovskites are promising top‑cell materials for multi‐junction photovoltaics owing to their tunable bandgap and excellent photoelectronic properties. However, their solution processing often suffers from mismatched crystallization kinetics between iodine and bromine species, leading to compositional inhomogeneity and limited device performance. Herein, we report a solvent engineering strategy by introducing 4‐methylpyridine (4‐MePy) as a coordinating modulator. 4‐MePy possesses strong coordinating ability and a moderate boiling point. It selectively retards the rapid crystallization of bromine‐rich components by interacting more strongly with lead bromide, thereby homogenizing the halide distribution. The resulting perovskite films exhibit low defect density, reduced lattice strain, and uniform composition and morphology. These improvements suppress carrier recombination and increase the halide migration barrier. Consequently, single‐junction WBG cells with a bandgap of 1.77 eV achieve a champion power conversion efficiency (PCE) of 20.68% and a high open‑circuit voltage (\n                    V\n                    OC\n                    ) of 1.35 V. When integrated into all‐perovskite tandem solar cells, this strategy delivers PCEs of 29.70% (certified 29.17%) on 0.05 cm\n                    2\n                    and 29.00% on 1 cm\n                    2\n                    devices.",
+          "hb": 1
+        },
+        {
+          "t": "无有机溶剂的弱溶剂化电解质使安时级锌碘电池在多种苛刻条件下持久运行",
+          "d": "2026-05-25",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "开发了一种无有机溶剂的弱溶剂化电解质体系，使安时级水系锌碘电池在多种严苛工况下实现长循环稳定运行。该电解质设计有效抑制了锌枝晶生长和碘穿梭效应，提升了电池在宽温域、高电流密度条件下的耐久性。研究结果推动了大规模安全储能技术向实用化迈进，为水系电池工程化提供了关键解决方案。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04647",
+          "tp": "锌碘电池电解质",
+          "aip": 1,
+          "kp": [
+            "电解质[锌碘电池]: 无有机溶剂弱溶剂化电解质",
+            "规模[锌碘电池]: 安时级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Aqueous zinc–iodine batteries represent a promising sustainable energy-storage technology, offering intrinsic safety, cost-effectiveness, and competitive energy density. However, their practical deployment has been hindered by the instability of both the I2 cathode and Zn anode. While traditional weakly solvating electrolytes (WSEs) partially alleviate these issues, they inherently rely on high-viscosity organic cosolvents that impede ion transport, limiting performance under demanding conditions. Here, we overcome this trade-off by pioneering an organic-solvent-free WSE, achieved by incorporating guanidine sulfate, a salt-type diluent with kosmotropic–chaotropic properties, at an optimized concentration. The formulated electrolyte simultaneously facilitates Zn2+ desolvation and transport while improving electrolyte stability. Furthermore, it promotes the formation of a robust electrode–electrolyte interphase on both electrodes, effectively suppressing polyiodide shuttling and stabilizing Zn plating/stripping. Consequently, the Zn||I2 cells achieve exceptional performance across diverse harsh operating conditions, including ultralong cycling (92% capacity retention after 10000 cycles at 30 C), high-rate capability (134 mAh g–1 at 200 C), and durable cycling with a low negative/positive capacity ratio (≈1.09), lean electrolyte condition (7.5 mL Ah–1), and a wide temperature range (−10 to 60 °C). These metrics are consistently preserved in Ah-scale pouch cells (0.5–2 Ah). This work redefines WSE design through salt-type diluents, offering a scalable pathway to durable aqueous batteries for sustainable energy storage.",
+          "hb": 1
+        },
+        {
+          "t": "无有机溶剂弱溶剂化电解质实现多种苛刻条件下耐用安时级锌碘电池",
+          "d": "2026-05-25",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究开发了一种无有机溶剂、弱溶剂化电解质体系，使安时级水系锌-碘电池在多种苛刻条件下（宽温域、高电流密度）实现长循环寿命。弱溶剂化电解质设计有效抑制了多碘化物穿梭效应和锌负极枝晶生长，解决了水系锌碘电池容量快速衰减的核心瓶颈。该方案兼具本征安全性与低成本，为大规模储能应用提供了可行路径。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04647",
+          "tp": "锌碘电池电解质",
+          "aip": 1,
+          "kp": [
+            "[无溶剂弱溶剂化电解液]: Ah级锌碘电池",
+            "[恶劣工况]: I2正极与Zn负极稳定性",
+            "[Ah级规模]: 面向实际部署"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Aqueous zinc–iodine batteries represent a promising sustainable energy-storage technology, offering intrinsic safety, cost-effectiveness, and competitive energy density. However, their practical deployment has been hindered by the instability of both the I2 cathode and Zn anode. While traditional weakly solvating electrolytes (WSEs) partially alleviate these issues, they inherently rely on high-viscosity organic cosolvents that impede ion transport, limiting performance under demanding conditions. Here, we overcome this trade-off by pioneering an organic-solvent-free WSE, achieved by incorporating guanidine sulfate, a salt-type diluent with kosmotropic–chaotropic properties, at an optimized concentration. The formulated electrolyte simultaneously facilitates Zn2+ desolvation and transport while improving electrolyte stability. Furthermore, it promotes the formation of a robust electrode–electrolyte interphase on both electrodes, effectively suppressing polyiodide shuttling and stabilizing Zn plating/stripping. Consequently, the Zn||I2 cells achieve exceptional performance across diverse harsh operating conditions, including ultralong cycling (92% capacity retention after 10000 cycles at 30 C), high-rate capability (134 mAh g–1 at 200 C), and durable cycling with a low negative/positive capacity ratio (≈1.09), lean electrolyte condition (7.5 mL Ah–1), and a wide temperature range (−10 to 60 °C). These metrics are consistently preserved in Ah-scale pouch cells (0.5–2 Ah). This work redefines WSE design through salt-type diluents, offering a scalable pathway to durable aqueous batteries for sustainable energy storage.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "华为提出半导体演进韬定律，通过时间常数缩微预计2031年达到1.4nm同等密度",
+        "华为以优化寄生参数及统一内存编址缩短信号时延，过去六年已量产381款芯片"
+      ],
+      "entries": [
+        {
+          "t": "华为发布半导体与电子系统演进的新原则韬（τ）定律",
+          "d": "2026-05-25",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "华为提出韬（τ）定律，以\"时间常数缩微\"替代\"几何缩微\"作为半导体演进新原则，通过优化器件寄生参数、逻辑折叠缩短关键路径、全栈软硬芯协同设计和灵衢总线统一内存编址压缩信号时延。过去六年已量产381款芯片，预计2031年晶体管密度达1.4nm同等水平。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.huawei.com/cn/news/2026/5/ieee-iscas-tau-scaling",
+          "tp": "半导体韬定律",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "3D堆叠在目前的高带宽内存HBM中用的比较多，就是直接把内存晶圆和计算晶圆做纳米级对齐，然后挤压，直接定点形成化学键，互联在一起。这样大大缩短计算单元和存储单元的空间距离，称作混合键合技术。\n逻辑芯片也可以按照这种思路，分层刻蚀，然后层间互联。目前台积电、英特尔、三星这种代工厂在做相关的工艺开发；华为则也会有一些这种芯片的核心设计经验。层间键合也有纳米级精度要求，目前的高精度对准仪可以做到50nm的对准精度，芯片表面会预留用来键合的节点，从而实现集成电路的三维堆叠。这个方式确实可以实现更高的计算单元密度。其主要问题是对准率提高比较困难，以及需要非常精细的化学抛光以实现原子级精度的接触表面，同时会有些散热以及热应变带来的问题。",
+          "b": "5月25日，华为在其官网发文，提出了一种半导体产业发展的原则--韬（τ）定律，其能够以“时间（τ，时间常数）缩微”替代“几何缩微”作为半导体与电子系统演进的新指导原则，通过逻辑折叠等创新技术，持续压缩信号传播时延，不断提升晶体管密度，从而实现半导体与电子系统的持续演进。\n文中称，其通过优化晶体管和互连电阻及寄生电容，从物理底层最大限度缩微器件级时间常数τ；通过逻辑折叠技术突破传统平面布局的物理边界，缩短关键路径的走线长度并有效降低信号传播的电阻和电容负载，实现晶体管密度和电路性能提升；通过“软件、架构、芯片”的全栈软硬芯协同设计，基于实际工作负载实现指令流和数据流的细粒度控制，提高系统级并行度和效率，降低端到端执行时间；系统层面定义灵衢总线，重构计算系统互联协议，实现超节点的统一内存编址和原生内存语义，降低系统通信时延。\n此外文中还宣传，过去六年基于韬（τ）定律，华为已成功设计并量产了381款芯片；预计到2031年，基于韬（τ）定律的高端芯片晶体管密度将达到1.4nm制程的同等水平。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "新型钽基协同催化剂实现常温下甲烷光催化直接转化为高附加值丙酮",
+        "研究通过氧空位工程将介电材料转化为压电催化剂，在超声驱动下触发癌细胞多通路死亡",
+        "X射线诱导有机纳米粒子持续产生活性氧，实现余辉成像引导深部肿瘤治疗"
+      ],
+      "entries": [
+        {
+          "t": "钽单原子/镓路易斯酸协同催化剂驱动甲烷直接光催化转化为丙酮",
+          "d": "2026-05-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "在温和条件下将甲烷光催化直接转化为C3及以上含氧化合物是催化化学的重大挑战。该研究提出一种协同钽（Ta）基催化策略，实现甲烷到丙酮的光催化直接转化。相比传统甲烷转化需要高温高压且产物以C1为主，该路线在常温下即可获得高附加值C3产物，为天然气资源的非燃烧高值化利用开辟新路径，对碳资源高效转化意义重大。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2764179?af=R",
+          "tp": "甲烷光催化转化",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: Ta单原子锚定γ-Ga₂O₃量子点",
+            "[反应]: 甲烷光催化常温直接转丙酮",
+            "[产物]: ≥C3含氧化合物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Direct photocatalytic conversion of methane to ≥ C3 oxygenates under ambient conditions remains highly challenging and largely unexplored due to the current carbon‐terminated adsorption configurations and insufficient concentration of intermediates. Herein, we demonstrated efficient γ‐Ga\n                    2\n                    O\n                    3\n                    quantum dot catalysts with high‐density Ta single atoms anchored at Ga\n                    IV\n                    vacancies (Ta\n                    1\n                    ‐Ga\n                    2\n                    O\n                    3\n                    QDs), featuring a synergistic Ta single‐atom/Ga Lewis acid architecture. The unsaturated d\n                    0\n                    ‐TaO\n                    4\n                    site stabilizes key acetyl intermediates in a distinctive oxygen‐terminated η\n                    1\n                    (O)‐CH\n                    3\n                    CO configuration, minimizing steric hindrance while enhancing carbonyl carbon electrophilicity, greatly facilitating the second C–C coupling step. Concurrently, Ga sites enrich –CH\n                    3\n                    intermediates for sequential C–C coupling conversion. The synergistic architecture achieved single‐step photocatalytic conversion of CH\n                    4\n                    and H\n                    2\n                    O to acetone with a yield of 86.7 µmol g\n                    −1\n                    h\n                    −1\n                    , with the carbon‐based selectivity of 56.2% or the liquid phase selectivity of 81.2%, and a 20.7% apparent quantum yield (AQY) at 254 nm, which has not been achieved by the current noble metal‐based photocatalysts. This work demonstrates the unique capability of unsaturated\n                    d\n                    0\n                    single‐atom sites for modulation of intermediate configurations, unlocking a pathway for ≥ C3 oxygenate synthesis from methane.",
+          "hb": 1
+        },
+        {
+          "t": "氧空位设计的 CaCu3Ti4O12 纳米催化剂用于压电驱动级联细胞凋亡/铜垂亡/铁死亡治疗",
+          "d": "2026-05-25",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究者通过氧空位工程将经典介电材料CaCu3Ti4O12（CCTO）转化为高效压电催化纳米材料。在超声驱动下，该催化剂可触发癌细胞级联凋亡、铜垂亡和铁死亡，实现多通路协同抗癌治疗，为压电催化治疗的材料优化提供了新思路。",
+          "sc": 6.2,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73482?af=R",
+          "tp": "压电催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Ultrasound (US) induced piezoelectric catalytic therapy is an emerging cancer treatment method. However, the development and optimization of piezoelectric catalyst remain the major challenge. Herein, we have converted the classical dielectric material CaCu\n                    3\n                    Ti\n                    4\n                    O\n                    12\n                    (CCTO) into an efficient piezoelectric material through oxygen vacancy (V\n                    O\n                    ) engineering, enabling piezoelectric catalytic‐driven cascade tumor therapy. The introduction of V\n                    O\n                    results in strong polarization and a robust piezoelectric coefficient. Density functional theory (DFT) calculations reveal that V\n                    O\n                    acts as an electron trap to suppress the recombination of electron and hole, enhancing the catalytic efficiency. The piezoelectric effect can “open” the cell membrane, facilitating the materials influx and triggering reactive oxygen species (ROS) storm. Meanwhile, the cavitation effect of US and tumor cell over‐expressed glutathione (GSH) accelerate Cu and Ca release, causing intracellular ions overload. ROS and Ca ions damage mitochondria to evoke apoptosis, which accordingly shuts down the Cu\n                    +\n                    outflow pathway and expedites cuproptosis. Moreover, ROS and GSH depletion triggers ferroptosis. This process establishes a positive feedback loop mechanism. Transcriptome sequencing confirms the activation of cell death‐related pathways. This study represents the first paradigm to create piezoelectricity through V\n                    O\n                    in CCTO for tumor therapy, advancing the applications of quadruple perovskites in tumor treatment.",
+          "hb": 1
+        },
+        {
+          "t": "使用 X 射线激活有机纳米粒子的长效动态疗法进行余辉成像引导的深部肿瘤治疗",
+          "d": "2026-05-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对传统动态疗法穿透深度浅的问题，研究提出X射线诱导长效动态疗法。通过X射线激活有机纳米粒子持续产生活性氧，结合余辉成像引导深部肿瘤诊疗，克服了无机材料生物安全性顾虑和有机材料ROS产率低的瓶颈，在深部肿瘤治疗中潜力显著。",
+          "sc": 6.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3922737?af=R",
+          "tp": "纳米诊疗",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Traditional dynamic therapies, including photodynamic, sonodynamic and chemodynamic therapies, are limited by shallow penetration and lack of sustained effects. X‐ray induced dynamic therapy overcomes penetration barriers, yet current inorganic materials raise biosafety concerns, while organic counterparts often show low reactive oxygen species (ROS) yield. To address these limitations, we propose X‐ray induced long‐acting dynamic therapy, a minimally invasive strategy for deep‐tissue tumor treatment. We propose X‐ray induced persistent ROS generation and luminescence mechanisms in fused‐triple‐anthracene nanoparticles (FTA NPs), which generate electrons and FTA\n                    •+\n                    under X‐ray irradiation to producing singlet oxygen (\n                    1\n                    O\n                    2\n                    ) and hydroxyl radicals (OH), while endoperoxides (EPOs) sustain ROS and afterglow luminescence for over 15 min, with relatively stronger afterglow than conventional organic afterglow materials, such as MEHPPV NPs. In addition, FTA NPs achieve 6 cm tissue penetration under X‐ray, overcoming light limitations and boosting therapeutic efficacy. Furthermore, we introduce fractionated irradiation, splitting high doses into multiple low‐dose sessions, which enhances ROS generation, reduces radiation risk and more effectively treats subcutaneous and orthotopic pancreatic tumors than continuous irradiation. Strong afterglow luminescence allows real‐time imaging and treatment monitoring, while metal‐free FTA NPs ensure high biocompatibility and safety. Thus, long‐acting dynamic therapy offers a safe and efficient strategy for deep‐seated tumors.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月8日　星期日",
+  "date_range": "2026-02-08",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究构建醚-腈基双界面层抑制锂枝晶生长，实现4.5V锂金属电池稳定循环",
+      "氟诱导电子结构调控原位无序相正极，抑制氧释放并提升锂电循环寿命"
+    ],
+    "AI与智能科技": [
+      "原子层沉积单层非晶碳氧膜突破物理极，将硬盘磁道间距压缩至2纳米以下",
+      "电光模拟存储器件解决非易失性存储难题，降低光子神经形态计算系统能耗",
+      "光子芯片实现高阶旋转群SO(m)几何变换精确操控，提供容错光量子计算新路径"
+    ],
+    "通用技术": [
+      "研究发现具双重原子有序排列特征的新型三元金属间化合物ZIP相",
+      "阳离子空位诱导压缩应变调控RuO2电子结构，提升酸性介质析氧反应活性",
+      "近场电磁增强技术实现三维曲面高保真度导电互连，3D打印任意形态电子器件"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究构建醚-腈基双界面层抑制锂枝晶生长，实现4.5V锂金属电池稳定循环",
+        "氟诱导电子结构调控原位无序相正极，抑制氧释放并提升锂电循环寿命"
+      ],
+      "entries": [
+        {
+          "t": "醚-腈基分子工程构建稳健双界面层用于超稳定4.5V锂金属电池",
+          "d": "2026-02-08",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "高压锂金属电池（LMBs）实际应用面临电解液在正极和锂金属负极界面不稳定的瓶颈。该研究通过分子工程设计了一种醚-腈类电解质溶剂，在正极和负极界面构建稳健的双固体电解质界面（SEI）层。这种双界面策略有效抑制了电解质持续分解和锂枝晶生长，显著提升电池循环寿命和安全性能，为高能量密度锂金属电池的工程化提供了新思路。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07479G",
+          "tp": "锂金属电池界面",
+          "aip": 1,
+          "kp": [
+            "电压[锂金属电池]: 4.5 V",
+            "添加剂[稀释高浓电解液]: 3-甲氧基丙腈(MPN)",
+            "[界面工程]: 醚-腈分子构建正负极双相界面"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "High-voltage lithium metal batteries (LMBs) face a critical barrier to practical deployment: conventional electrolytes fail to stabilize both the cathode and anode interfaces, triggering rapid degradation and safety risks. To overcome this limitation, we designed 3-methoxypropanenitrile (MPN), a molecularly tailored ether-nitrile additive, and integrated it into a diluted high-concentration electrolyte (DHCE). Computational studies reveal that the ether-oxygen heteroatom in MPN redistributes electron density and fine-tunes Li+ solvation, effectively circumventing the notorious reactivity of nitrile groups with lithium metal. This molecular intervention enables dual-interphase stabilization—on the lithium anode, MPN promotes anion-derived decomposition through weak yet selective Li+ coordination, forming an inorganic-rich SEI (LiF/Li3N) that ensures 99.5% Coulombic efficiency and uniform lithium deposition. At the LiMnxFe1-xPO4 cathode operating above 4.5 V, MPN adsorbs preferentially via Mn/Fe coordination, shields the surface from oxidative attack, and participates in hydrogen-transfer reactions with FSI- anions to construct a robust inorganic CEI, substantially suppressing transition metal dissolution. As a result, the MPN-enhanced electrolyte enables Li||LMFP full cells to achieve breakthrough cycling stability, maintaining 86.4% capacity after 1,400 cycles at 0.5C while sustaining 300 cycles under lean-lithium conditions (N/P=2). This work establishes a heteroatom-functionalization strategy that transforms conventionally incompatible nitriles into bifunctional interphase regulators, thereby providing a universal platform for constructing durable high-voltage lithium metal batteries.",
+          "hb": 1
+        },
+        {
+          "t": "醚-腈分子工程构建稳健双界面层用于超稳定4.5V锂金属电池",
+          "d": "2026-02-08",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "高压锂金属电池（LMBs）因传统电解液在4.5V高电压下不稳定的瓶颈而难以实用化。本研究通过分子工程设计醚-腈基电解液，在正极和锂负极界面同步构建坚固的双重界面膜（CEI/SEI），有效抑制副反应和锂枝晶生长，实现4.5V超稳定循环，为高压锂金属电池实用化提供新方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07479G",
+          "tp": "锂金属电池电解质",
+          "aip": 1,
+          "kp": [
+            "电解液添加剂[锂金属电池]: 3-甲氧基丙腈",
+            "电压[锂金属电池]: 4.5V",
+            "界面稳定[稀释高浓电解液]: 醚-腈构建双界面"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "High-voltage lithium metal batteries (LMBs) face a critical barrier to practical deployment: conventional electrolytes fail to stabilize both the cathode and anode interfaces, triggering rapid degradation and safety risks. To overcome this limitation, we designed 3-methoxypropanenitrile (MPN), a molecularly tailored ether-nitrile additive, and integrated it into a diluted high-concentration electrolyte (DHCE). Computational studies reveal that the ether-oxygen heteroatom in MPN redistributes electron density and fine-tunes Li+ solvation, effectively circumventing the notorious reactivity of nitrile groups with lithium metal. This molecular intervention enables dual-interphase stabilization—on the lithium anode, MPN promotes anion-derived decomposition through weak yet selective Li+ coordination, forming an inorganic-rich SEI (LiF/Li3N) that ensures 99.5% Coulombic efficiency and uniform lithium deposition. At the LiMnxFe1-xPO4 cathode operating above 4.5 V, MPN adsorbs preferentially via Mn/Fe coordination, shields the surface from oxidative attack, and participates in hydrogen-transfer reactions with FSI- anions to construct a robust inorganic CEI, substantially suppressing transition metal dissolution. As a result, the MPN-enhanced electrolyte enables Li||LMFP full cells to achieve breakthrough cycling stability, maintaining 86.4% capacity after 1,400 cycles at 0.5C while sustaining 300 cycles under lean-lithium conditions (N/P=2). This work establishes a heteroatom-functionalization strategy that transforms conventionally incompatible nitriles into bifunctional interphase regulators, thereby providing a universal platform for constructing durable high-voltage lithium metal batteries.",
+          "hb": 1
+        },
+        {
+          "t": "通过氟诱导电子结构调制在原位形成无序相中实现持久阴离子氧化还原的设计策略",
+          "d": "2026-02-08",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究提出一种通过氟诱导电子结构调控实现耐久性阴离子氧化还原反应的设计策略，应用于原位形成的无序相锂离子电池正极材料。无序正极材料被视为下一代锂电池的有力候选，但其阴离子氧化还原过程往往伴随不可逆氧释放和容量衰减。研究通过氟元素掺杂调制电子结构，稳定无序相中的阴离子氧化还原活性，有效抑制结构退化，显著提升循环稳定性。该策略为高能量密度正极材料的理性设计提供了新思路，对突破当前锂离子电池能量密度瓶颈具有重要工程意义。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518963?af=R",
+          "tp": "锂电池正极材料",
+          "aip": 1,
+          "kp": [
+            "[核心策略]: 氟诱导电子结构调控稳定阴离子氧化还原",
+            "材料平台: Immm-Li2NiO2原位形成高锂化无序相"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Disordered cathode materials are attractive candidates for next‐generation lithium‐ion batteries (LIBs), but the intrinsic instability of anionic redox hinders their commercialization. Unlike conventional Li‐excess disordered systems limited by compositional constraints of Li\n                    1+x\n                    M\n                    1‐x\n                    O\n                    2\n                    ,\n                    Immm\n                    ‐Li\n                    2\n                    NiO\n                    2\n                    offers a platform to access highly lithiated chemistries that enable in situ disorder formation during electrochemical cycling. This allows lattice O to contribute to charge compensation; however, O\n                    2\n                    release at high voltages compromises reversibility and cycling stability. To address this, fluorination generates a quadrupolar Li‐O‐M‐F configuration that lowers the Li─O─Li band energy level and delays the onset of anionic redox. This electronic structure modification suppresses O\n                    2\n                    evolution, enhances structural stability, and improves cycling performance. By coupling electrochemically induced disorder with stabilization through Li‐O‐M‐F units, this work establishes a new framework for engineering durable, high‐capacity cathodes, offering a blueprint for material design strategies that transcend stoichiometric restrictions and unlock stable anion redox functionality.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "原子层沉积单层非晶碳氧膜突破物理极，将硬盘磁道间距压缩至2纳米以下",
+        "电光模拟存储器件解决非易失性存储难题，降低光子神经形态计算系统能耗",
+        "光子芯片实现高阶旋转群SO(m)几何变换精确操控，提供容错光量子计算新路径"
+      ],
+      "entries": [
+        {
+          "t": "利用单层非晶碳覆盖层突破硬盘驱动器2纳米壁垒",
+          "d": "2026-02-08",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "该研究实现了硬盘存储介质中2纳米间距壁垒的突破，采用单层非晶碳氧化膜作为磁间隔层。AI驱动的大规模数据增长对存储密度提出了更高要求，而传统硬盘的磁道间距已逼近物理极限。研究通过原子层沉积技术制备单层非晶碳氧化物，将其作为相邻磁道间的超薄隔离材料，有效抑制磁道间串扰，成功将磁道间距压缩至2纳米以下。这一突破为突破HAMR（热辅助磁记录）硬盘的面密度上限提供了关键材料方案。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519149?af=R",
+          "tp": "硬盘碳基涂层",
+          "aip": 1,
+          "kp": [
+            "碳层厚度[HDD]: 突破2nm极限",
+            "碳层材料[HDD]: 单层非晶碳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The rapid growth of artificial intelligence (AI) has increased the demand for large‐scale data storage, making hard disk drives (HDDs) indispensable in data centers due to their cost‐effectiveness and stability. To support AI‐driven data requirements, increasing the areal storage density is critical. However, this metric is increasingly constrained by the carbon overcoat (COC), the essential protective layer for magnetic media. Traditional diamond‐like carbon (DLC) can no longer fulfill the stringent demands for ultrathin coatings and high thermal stability required by next‐generation technologies like Heat‐Assisted Magnetic Recording (HAMR) and bit‐patterned media. Here, we introduce monolayer amorphous carbon (MAC) as a superior alternative. MAC is directly grown on the heterogeneous (Fe, Pt, SiO\n                    2\n                    ) HDD surface at low temperatures (∼ 300°C), achieving an uniform 0.8 nm thickness across 2.5‐inch disks. Despite its atomic thickness, MAC demonstrates high corrosion resistance and low roughness comparable to commercial 2.5 nm COCs. Its fully amorphous, sp\n                    2\n                    ‐hybridized structure ensures excellent thermal stability under HAMR‐like conditions (∼450°C) and a low friction coefficient, enabling potential lubricant‐free operation. Replacing traditional COCs with MAC facilitates the development of HDD media capable of achieving 10 Tb/in\n                    2\n                    , addressing the urgent storage demands of the digital era.",
+          "hb": 1
+        },
+        {
+          "t": "基于电光模拟记忆体的类脑光子计算",
+          "d": "2026-02-08",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出一种面向类脑光子计算的电光模拟存储器件方案。类脑光子系统中的运算通常由模拟信号驱动，因此需要高效数模转换与模拟权重存储机制。该工作利用电光效应构建模拟存储单元，实现光域内的权重编程与保持，解决了光子神经形态计算中长期面临的模拟记忆难以非易失存储的难题。该器件有望降低系统能耗与延迟，推动光子AI加速器从原理验证走向大规模集成应用。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-69084-x",
+          "tp": "光子类脑计算",
+          "aip": 1,
+          "kp": [
+            "架构[光子神经形态]: 电光模拟存储与光计算同置"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "In neuromorphic photonic systems, device operations are typically governed by analog signals, necessitating digital-to-analog converters (DAC) and analog-to-digital converters (ADC). However, data movement between memory and these converters in conventional von Neumann architectures incur significant energy costs. We propose an analog electronic memory co-located with photonic computing units to eliminate repeated long-distance data movement. Here, we demonstrate a monolithically integrated neuromorphic photonic circuit with on-chip capacitive analog memory and evaluate its performance in machine learning for in situ training and inference using the MNIST dataset. Our analysis shows that integrating analog memory into a neuromorphic photonic architecture can achieve over 26 × power savings compared to conventional SRAM-DAC architectures. Furthermore, maintaining a minimum analog memory retention-to-network-latency ratio of 100 maintains >90% inference accuracy, enabling leaky analog memories without substantial performance degradation. This approach reduces reliance on DACs, minimizes data movement, and offers a scalable pathway toward energy-efficient, high-speed neuromorphic photonic computing.",
+          "hb": 1
+        },
+        {
+          "t": "光子学中通用SO(m)完整性的存内多级控制",
+          "d": "2026-02-08",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究在光子学平台实现了对一般SO(m)群完整性的片上级多层级控制。利用非阿贝尔几何相位提供容错幺正操作，这是全息量子计算的核心需求。研究通过内存式多级控制策略，在光子芯片上精确操控高阶旋转群SO(m)对应的几何变换，为可扩展的容错光量子计算提供了新路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-69287-2",
+          "tp": "光子全息量子计算",
+          "aip": 1,
+          "kp": [
+            "[控制方法]: 光子SO(m)全息内存多级控制",
+            "[量子计算]: 非阿贝尔几何相位容错操作"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Non-Abelian geometric phases offer fault-tolerant unitary operations that are essential for holonomic quantum computation. While the “all-geometric” approach has successfully enabled robust control of atoms, ions, and electrons in various quantum systems, its photonic implementations have remained limited by a lack of tunability—an essential feature for modern classical or quantum optical information processing. Here, we demonstrate nonvolatile multilevel tunable generic special-orthogonal (SO) geometric phases on a multilayer silicon photonic platform incorporating the phase-change material (PCM) of Sb₂Se₃. By toggling Sb₂Se₃ between crystalline and amorphous states, we dynamically control the number of degenerate states involved in the holonomy, enabling switching between different holonomic paths and SO(m) geometric transformations. Our results bridge the key gap between robust geometric-phase control and in-memory reconfigurable photonics, establishing a paradigm for fault-tolerant, high-dimensional operations in integrated optical systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究发现具双重原子有序排列特征的新型三元金属间化合物ZIP相",
+        "阳离子空位诱导压缩应变调控RuO2电子结构，提升酸性介质析氧反应活性",
+        "近场电磁增强技术实现三维曲面高保真度导电互连，3D打印任意形态电子器件"
+      ],
+      "entries": [
+        {
+          "t": "具有双重原子有序化特征的新型三元金属间化合物——ZIP相（Adv. Mater. 8/2026）",
+          "d": "2026-02-08",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "报道了一类新型三元金属间化合物——ZIP相，其特征为双重原子有序排列结构。这类化合物兼具层状和三维有序特征，在原子尺度上展现出独特的占位规律性，赋予材料特殊的电子结构与力学性能。ZIP相的发现拓展了金属间化合物的结构化学空间，对高性能合金和功能材料设计具有启发意义。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72148?af=R",
+          "tp": "三元金属间化合物",
+          "aip": 1,
+          "kp": [
+            "[晶体结构]: 双重原子有序化三元金属间化合物(ZIP相)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "RuO₂催化剂中阳离子空位诱导压缩应变局域化实现高性能酸性析氧",
+          "d": "2026-02-08",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "酸性析氧反应（OER）中RuO2催化剂面临活性与稳定性难以兼顾的瓶颈。本研究通过阳离子空位工程诱导局域压缩应变，调控Ru的电子结构和d带中心，优化含氧中间体吸附能，在酸性介质中实现高催化活性和长期稳定性，为设计耐酸OER电催化剂提供了新策略。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524664?af=R",
+          "tp": "RuO2酸性析氧",
+          "aip": 1,
+          "kp": [
+            "催化剂[酸性OER]: 空位应变RuO2",
+            "机制[应变]: 浸出Cd产生局域压应变"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Designing acid‐stable RuO\n                    2\n                    catalysts capable of overcoming the activity‐stability trade‐off remains pivotal for advancing proton exchange membrane water electrolyzers (PEMWEs). Here, we introduce a cation‐vacancy engineering strategy to generate localized compressive strain in RuO\n                    2\n                    by electrochemically leaching Cd from a pre‐doped lattice. This strain modulation simultaneously elevates the Ru valence state (+4.35) and strengthens Ru─O covalent bonds, optimizing *OH/*O/*OOH adsorption energetics while suppressing over‐oxidation. The resulting V\n                    Cd\n                    ‐RuO\n                    2\n                    catalyst achieves an overpotential of 203 mV at 10 mA cm\n                    −2\n                    in 0.1 M HClO\n                    4\n                    . Integrated into a PEMWE, it sustains &gt;600 h operation at 200 mA cm\n                    −2\n                    with a voltage degradation rate of 0.1 mV h\n                    −1\n                    . The MEA based on V\n                    Cd\n                    ‐RuO\n                    2\n                    required cell voltages outperformed commercial RuO\n                    2\n                    by 120–180 mV at industrially relevant current densities (0.5–1.5 A cm\n                    −2\n                    ), thereby demonstrating significant energy efficiency. Multiscale analyses confirm that compressive strain stabilizes high‐valence Ru sites through enhanced orbital overlap, reconciling catalytic activity with structural durability. This work establishes vacancy‐driven strain engineering as a universal approach for designing robust, Ir‐free OER electrocatalysts.",
+          "hb": 1
+        },
+        {
+          "t": "基于纳米材料的超材料启发近场电磁结构三维打印电子器件",
+          "d": "2026-02-08",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "开发了一种基于超材料启发的近场电磁结构的纳米材料3D打印电子器件新方法。传统3D打印在制造自由形态电子器件时受限于导电性和分辨率瓶颈。该技术通过近场电磁增强结构精确操控纳米材料沉积，实现了任意三维曲面上的高保真度导电互连和功能器件打印，为柔性可穿戴电子和植入式器件的一体化成型提供了新制造范式。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz7415?af=R",
+          "tp": "3D打印纳米电子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Three-dimensional (3D) printing can create freeform architectures and electronics with unprecedented versatility. However, the full potential of electronic 3D printing has so far been limited by the inability to selectively anneal the printed materials, especially on temperature-sensitive substrates. Here, we achieve highly selective and rapid volumetric heating of 3D-printed nanomaterials and polymers in situ by focusing microwaves using a metamaterial-inspired near-field electromagnetic structure (Meta-NFS). In contrast to previous work, the Meta-NFS achieves the spatial resolution and power density needed to 3D print freeform microstructures where the electronic and mechanical properties can be locally programmed even within optically opaque materials. By broadening the material palettes compatible with 3D printing, near-field microwave 3D printing with Meta-NFS enables classes of electronics that are otherwise challenging to create.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

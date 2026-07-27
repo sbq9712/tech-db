@@ -1,0 +1,247 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月21日　星期三",
+  "date_range": "2026-01-21",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "得州大学团队揭示局部高浓度电解液下锂金属负极引发正极界面降解机制",
+      "研究人员通过硬碳负极表面聚合物界面工程实现钠离子软包电池5C快充",
+      "新研究提出基于液态镓低温光热氧化还原循环的制氢路径"
+    ],
+    "AI与智能科技": [
+      "维也纳大学团队探测到含超7000个钠原子金属团簇的量子波动特性",
+      "研究人员制备出晶圆级超薄高κ HfO2介质薄膜用于二维MoS2晶体管",
+      "新技术通过硅基单片三维集成工艺提升红光Micro-LED像素密度"
+    ],
+    "通用技术": [
+      "复旦大学团队研发出集成密度达每厘米10万个晶体管的纤维集成电路",
+      "新研究开发RNase I辅助滚环扩增策略实现大型结构化RNA分子准确检测",
+      "新研究开发RNase I辅助滚环扩增策略实现大型结构化RNA分子准确检测"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "得州大学团队揭示局部高浓度电解液下锂金属负极引发正极界面降解机制",
+        "研究人员通过硬碳负极表面聚合物界面工程实现钠离子软包电池5C快充",
+        "新研究提出基于液态镓低温光热氧化还原循环的制氢路径"
+      ],
+      "entries": [
+        {
+          "t": "得克萨斯大学奥斯汀分校Arumugam Manthiram探究局部高浓度电解液下锂金属负极对正极界面的影响",
+          "d": "2026-01-21",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "得州大学奥斯汀分校Manthiram团队通过阻抗谱、DRT分析、XPS和ToF-SIMS等方法，研究局部高浓度电解液下不同镍含量正极（NMC622/811/90）与不同负极（石墨/锂金属）在45°C循环的界面行为，发现锂金属负极引发的电解液分解会对正极界面CEI造成负面影响，揭示了此前研究较少关注的负极→正极物质迁移降解机制。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.202518490",
+          "tp": "锂金属界面",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "锂金属负极的高反应活性和高镍层状氧化物正极的界面不稳定性，易导致高阻抗界面相形成、寄生反应失控，进而引发电池容量快速衰减和安全隐患，制约了锂金属电池的实际应用。当前研究中，正极到负极的过渡金属离子迁移（正极→负极物质迁移）被认为是主要的降解机制；但反向物质迁移的研究相对较少，且高镍层状氧化物正极反应性高，可能更易受此机制的影响。此外，以往的研究多使用不适合锂金属的碳酸酯类电解液，难以在全电池中区分正负极各自的阻抗贡献，也影响负极→正极物质迁移对电池性能机制的探究。",
+          "b": "锂金属负极的高反应活性和高镍层状氧化物正极的界面不稳定性，易导致高阻抗界面相形成、寄生反应失控，进而引发电池容量快速衰减和安全隐患，制约了锂金属电池的实际应用。当前研究中，正极到负极的过渡金属离子迁移（正极→负极物质迁移）被认为是主要的降解机制；但反向物质迁移的研究相对较少，且高镍层状氧化物正极反应性高，可能更易受此机制的影响。此外，以往的研究多使用不适合锂金属的碳酸酯类电解液，难以在全电池中区分正负极各自的阻抗贡献，也影响负极→正极物质迁移对电池性能机制的探究。\n近日，得克萨斯大学奥斯汀分校Arumugam Manthiram教授团队通过恒电位电化学阻抗谱（GEIS）、弛豫时间分布（DRT）分析、X射线光电子能谱（XPS）和飞行时间二次离子质谱（ToF-SIMS）等方法，对局部高浓度电解液（LiFSI+DME/TTE；GEIS测试用碳酸脂基）体系下，不同镍含量正极（NMC622，NMC811，NMC90）、不同负极（石墨、锂金属）在45°C循环过程中的表征数据进行分析，认为锂金属负极引发的电解液分解会对正极界面（CEI）造成负面影响。其中正极阻抗测试是将循环后的NMC正极拆解，与80%脱锂的LFP电极组装成扣式电池进行，以消除对电极（负极）对全电池阻抗的干扰，单独量化正极的阻抗演变。结果发现，在相同正极材料下，与锂金属匹配的正极比与石墨匹配的正极表现出显著更高的电荷转移阻抗。进一步分析发现，采用锂金属负极的CEI具有更高的碳（C）含量和C-F信号（源自TTE稀释剂分解）且有机碎片（C2HO-）和无机碎片（SO2-）分布层较厚、空间分布不均匀，这可能是锂金属负极的高反应性以及SEI不断分解构建导致电解液（特别是溶剂和稀释剂TTE）还原分解，产生的可溶性反应产物（富碳、氟、氧有机物及部分无极碎片）穿过隔膜迁移至正极表面，形成了富含有机组分、电子/离子电导率低且厚度不均的CEI膜，导致阻抗上升。不同正极相比，高镍正极由于表面活性更高，更易受到负极串扰影响，CEI更厚；NMC622虽然镍含量较低，但高温下Mn溶出严重，其首先迁移至负极导致负极副反应加剧，进而也会使负极→正极物质迁移的负面影响更大，其电荷转移阻抗也较高；NMC811与其他二者相比性能相对稳定。文章于2026年1月21日发表在Advanced Materials。",
+          "hb": 1
+        },
+        {
+          "t": "硬碳上聚合物诱导的固体电解质界面实现5C快充实用化钠离子软包电池",
+          "d": "2026-01-21",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "该研究通过在硬碳负极表面构建聚合物诱导的固体电解质界面（SEI）层，实现5C倍率快充钠离子电池。含氟极性基团在硬碳界面富集阴离子，形成稳定且离子传导性高的SEI层，有效抑制电解液持续分解并促进钠离子快速脱嵌。该策略显著提升了硬碳负极的快充性能与循环稳定性，为高功率钠离子电池的工程化应用提供了可行的界面工程方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag025/8429798?rss=1",
+          "tp": "钠离子快充负极",
+          "aip": 1,
+          "kp": [
+            "SEI厚度[硬碳负极]: ~5.0 nm",
+            "SEI组成[硬碳]: 聚合物与NaF杂化",
+            "充电倍率[钠离子软包电池]: 5C快充"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving 2F group attached has a powerful polar feature, which simultaneously induces anion enriched at the PolyHC interface and tailors extra F atoms, contributing to the architecture of a ∼5.0 nm stable SEI that hybridizes polymer and NaF. This SEI with a resilient polymer skeleton permanently holds the generated inorganic component, enabling long-term structural stability during fast-charging. The assembled 1.2 Ah pouch cell, paired with NaNi1/3Fe1/3Mn1/3O2 cathode and PolyHC anode, displays exceptional fast-charging capability and durability. This method is compatible with various HC, offering a novel perspective for modulating the HC interface chemistry.",
+          "hb": 1
+        },
+        {
+          "t": "液态镓的低温快速光热氧化用于循环制氢",
+          "d": "2026-01-21",
+          "a": "Nature Communications",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "氢能作为清洁能源载体前景广阔，但现有制氢工艺面临能耗高、碳排放大等问题。该研究提出一种基于液态镓的光热氧化新路径，在低温条件下快速实现镓的氧化-还原循环以持续产氢。液态镓兼具催化介质和循环载体的双重角色，光热效应驱动氧化反应在温和条件下高效进行，具备可逆循环特性，为绿色氢气的分布式低成本生产提供了全新思路。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68664-1",
+          "tp": "液镓光热制氢",
+          "aip": 1,
+          "kp": [
+            "制氢[液态镓光热氧化]: 淡水/海水均可",
+            "[低温快速]: 光热驱动循环产氢",
+            "[循环产氢]: 镓氧化还原闭环"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrogen is a clean energy carrier with significant promises for a sustainable future, yet many established production routes operate under undesirable conditions or constraints, motivating the search for alternative production pathways. Here, our approach uses photothermal oxidation of liquid gallium to generate hydrogen from both freshwater and seawater. The exposure to light thermally heats up liquid gallium droplets to a temperature suitable for fast gallium-water interaction, producing gallium oxyhydroxide and hydrogen. The light exposure also boosts the reaction by breaking the oxide layer on the surface of liquid gallium immersed in water, allowing continuous interactions between the water molecules and the surface of liquid gallium droplets. The gallium oxyhydroxide that is produced can be electrochemically reduced, allowing metal regeneration, thereby enabling circular hydrogen production. In this work, we show that photothermal activation of liquid gallium provides a rapid and circular route for generating hydrogen from diverse water sources.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "维也纳大学团队探测到含超7000个钠原子金属团簇的量子波动特性",
+        "研究人员制备出晶圆级超薄高κ HfO2介质薄膜用于二维MoS2晶体管",
+        "新技术通过硅基单片三维集成工艺提升红光Micro-LED像素密度"
+      ],
+      "entries": [
+        {
+          "t": "维也纳大学Markus Arndt探测到直径8nm的金属团簇的波动特性",
+          "d": "2026-01-21",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "维也纳大学Markus Arndt团队通过物质波干涉实验首次探测到含超7000个钠原子、直径约8nm的金属团簇的量子波动特性。团簇穿过三激光光栅干涉仪产生干涉图样，团队历时两年捕捉到信号。实现的叠加态规模达宏观性指标15.5，为先前纪录的10倍，将大质量粒子量子性观测推向新极限。成果发表于Nature。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09917-9",
+          "tp": "量子物质波",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "物质波波长与质量成反比关系，这意味着越大的粒子越难观测到其波动特性。Markus Arndt团队通过物质波干涉实验，使得单个大质量粒子的运动呈现空间上高度非局域化的量子态，并首次将实验对象扩大到大型金属团簇。该工作制备了一个簇束，穿过由三个激光光栅组成的干涉仪，其中的每个金属团簇包含超过7000个Na、直径约8 nm。这些簇束在穿过狭缝过程中产生了干涉图样。由于原子团簇很大，因此在实验过程中极易发生退相干从而失去量子性，该实验团队在两年的观测中最终捕捉到了干涉信号。基于量子“宏观性”指标，该团队实现的叠加态规模是先前纪录的10倍，达到15.5。但是观测到叠加态的团簇质量并非最大。文章于2025年1月21日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "面向二维MoS2晶体管的晶圆级高κ HfO2介质薄膜（等效氧化层厚度<5Å）",
+          "d": "2026-01-21",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究实现了晶圆级高κ HfO2栅介质薄膜的制备，等效氧化物厚度（EOT）低于5埃（0.5nm），用于二维MoS2晶体管。高κ栅介质是现代晶体管技术的核心，对于二维半导体器件的短沟道效应抑制和电流驱动能力至关重要。研究通过精确的界面工程和沉积工艺，在MoS2上实现了超薄无缺陷HfO2层，显著降低了界面陷阱密度，为二维材料在下一代亚纳米节点晶体管中的应用突破了关键瓶颈。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68584-0",
+          "tp": "MoS2晶体管介质",
+          "aip": 1,
+          "kp": [
+            "EOT[HfO2栅介质]: <5Å",
+            "膜厚[HfO2]: 1.3nm",
+            "规模: 晶圆级",
+            "应用: 2D MoS2晶体管"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "High-κ gate dielectrics are indispensable in modern transistor technology and play a pivotal role in efficient capacitive gating and suppression of leakage currents. However, the realization of industry-compatible high-κ gate dielectrics at a sub-5-Å equivalent oxide thickness (EOT) remains challenging. Here we report the realization of 1.3-nm thick hafnium oxide (HfO2) dielectrics via an industry-compatible multiple oxidation atomic layer deposition process at 200 °C. A low EOT down to 2.5 Å is demonstrated for 1.3-nm thick HfO2 dielectrics on metal gates with a low leakage current of 10−6 A/cm2 and a robust breakdown electric field of ~22.3 MV/cm. Remarkably, such low EOT high-κ/metal gates can be directly implanted into emerging two-dimensional (2D) transistors and low-power logic circuits on 8-inch wafer scale to showcase their potentials. The as-fabricated molybdenum disulfide (MoS2) transistors exhibit a large on-state current density of 260 µA/µm at source-drain bias of 0.5 V, a high on/off ratio of 108, an average subthreshold slope (SS) of 75 mV/dec, and small capacitance equivalent thickness (CET) values of 0.34 nm for gate-first transistors and 0.50 nm for gate-last transistors. Our ultra-scaled dielectrics hold significant promise for advanced semiconductor fabrication processes towards the angstrom era.",
+          "hb": 1
+        },
+        {
+          "t": "基于AlInP/GaInP外延层的硅基单片三维集成红色Micro-LED显示",
+          "d": "2026-01-21",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "硅基单片三维集成红光Micro-LED显示技术通过将驱动电路与LED发光层垂直堆叠集成，消除传统flip-chip工艺中机械对准带来的像素间距限制与互联损耗。该方案在硅晶圆上实现全单片三维集成，显著提升Micro-LED显示的像素密度与发光效率，为高分辨率AR/VR微显示、车载HUD等领域的硅基显示提供了工程化路径。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01546-4",
+          "tp": "硅基Micro-LED",
+          "aip": 1,
+          "kp": [
+            "[集成]: 单片3D集成红光micro-LED",
+            "外延层[红光micro-LED]: AlInP/GaInP",
+            "[挑战]: 像素缩小致量子效率低"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Monolithic three-dimensional integration technology can eliminate the need for mechanical alignment between driving circuits and light-emitting diode (LED) pixels, leading to ultrahigh-resolution displays. However, this is challenging for red micro-LEDs, which are typically based on AlGaInP/GaInP, because of their low quantum efficiency and performance degradation when the pixel size is reduced. Here we report a high-pixel-density (1,700 pixels per inch) red active-matrix display consisting of micro-LEDs based on an epitaxial AlInP/GaInP double-quantum-well structure and silicon complementary metal–oxide–semiconductor integrated circuits. The epitaxial layer exhibits high internal quantum efficiency at low current densities (less than 10 A cm−2) due to a hole-dominant quantum well that reduces the non-radiative Shockley–Read–Hall recombination caused by electron lateral diffusion. We also use thickness fluctuation scattering in the quantum well to minimize the size-dependent quantum efficiency shift to higher current densities when reducing the size of the red micro-LEDs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "复旦大学团队研发出集成密度达每厘米10万个晶体管的纤维集成电路",
+        "新研究开发RNase I辅助滚环扩增策略实现大型结构化RNA分子准确检测",
+        "新研究开发RNase I辅助滚环扩增策略实现大型结构化RNA分子准确检测"
+      ],
+      "entries": [
+        {
+          "t": "复旦大学彭慧胜实现纤维集成电路以构建智能交互纤维系统",
+          "d": "2026-01-21",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "复旦大学彭慧胜团队创制纤维集成电路（FIC），集成密度达每厘米10万个晶体管，可处理数字/模拟信号并实现高精度神经计算。器件在万次弯折、30%拉伸、180°cm⁻¹扭转及15.6吨碾压等苛刻条件下仍保持稳定，使单一纤维内可构建闭环智能系统，为脑机接口、智能纺织品和VR可穿戴设备铺平道路。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09974-0",
+          "tp": "纤维集成电路",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "纤维电子器件正将传统纤维和服装转变为新一代可穿戴设备，能够主动与人体及环境交互，从而塑造未来生活方式。纤维电子器件已基本实现供电、传感和显示等几乎所有所需功能，然而，作为构建类似于任何电子产品般智能交互纤维系统核心的信息处理纤维，仍是当前研究的缺失环节。研究通过创制具有前所未有微器件密度和多模态处理能力的纤维集成电路（FIC）填补了这一空白，其集成密度达到每厘米10万个晶体管，有效满足了交互纤维系统的需求。该纤维集成电路不仅能够像典型的商用算术芯片一样处理数字和模拟信号，还能实现与当前最先进存内图像处理器相当的高识别精度神经计算。在苛刻服役条件下——包括10,000次反复弯折和磨损、30%拉伸、180° cm⁻¹扭转乃至被15.6吨重的集装箱卡车碾压——纤维集成电路仍保持稳定，而这些条件是传统体式和平面器件难以承受的。纤维集成电路的实现使得单一纤维内即可构建闭环系统，无需任何外部刚性且笨重的信息处理器。研究展示，这一完全柔性的纤维系统为脑机接口、智能纺织品和虚拟现实可穿戴设备等诸多前沿应用所期待的交互模式铺平了道路。本工作为推动纤维器件向智能系统方向发展提供了新的思路。文章于2026年1月21日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "将 RNA 降解转化为准确的 RNA 检测：用于临床 Sam 的 RNase I 辅助滚环扩增",
+          "d": "2026-01-21",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究提出RNase I辅助滚环扩增(RI-RCA)策略，将RNA降解活性转化为诊断优势。核糖核酸酶长期被视为RNA检测的障碍，该方法整合酶降解与扩增，能够克服生物样品中大量背景RNA和复杂二级结构的干扰，实现大型结构化RNA分子的准确临床检测。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202525591?af=R",
+          "tp": "RNA检测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Ribonucleases are powerful degradative enzymes that rapidly cleave RNA and have long been regarded as obstacles to RNA diagnostics. Detecting large, structured RNA molecules in biological samples is further complicated by extensive secondary structures and abundant background RNA. Here we transform this destructive activity into a diagnostic advantage through a RNase I–assisted rolling circle amplification (RI‐RCA) strategy that integrates enzymatic RNA digestion with circular DNA templates (CDTs) to achieve direct, reverse‐transcription‐free RNA detection. In this system,\n                    Escherichia coli\n                    RNase I—a widely available endoribonuclease—selectively digests structured RNA to expose complementary CDT‐binding sites, which are immediately protected through duplex formation and converted into primers for RCA. The resulting reaction proceeds isothermally at room temperature in linear, quasi‐exponential, and exponential modes, achieving quantitative signal generation across concentrations from 50 aM to 50 fM and maintaining performance in 50% pooled human saliva. Applied to clinical saliva samples from SARS‐CoV‐2–positive and –negative individuals, RI‐RCA achieved near‐perfect sensitivity and 98–100% diagnostic accuracy. By coupling enzymatic RNA digestion with sequence‐specific protection via CDT hybridization, this strategy converts RNA instability from a liability into an analytical advantage, providing a simple, robust, and clinically translatable platform for accurate detection of structured RNA targets.",
+          "hb": 1
+        },
+        {
+          "t": "将 RNA 降解转化为准确的 RNA 检测：临床样品的 RNase I 辅助滚环扩增",
+          "d": "2026-01-21",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "将核糖核酸酶的降解活性转化为诊断优势，开发了RNase I辅助滚环扩增(RI-RCA)策略，整合酶促降解与扩增检测，实现对生物样品中大型结构化RNA分子的准确检测，有望应用于临床样品分析与RNA诊断。",
+          "sc": 6.5,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202525591?af=R",
+          "tp": "核酸检测法",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Ribonucleases are powerful degradative enzymes that rapidly cleave RNA and have long been regarded as obstacles to RNA diagnostics. Detecting large, structured RNA molecules in biological samples is further complicated by extensive secondary structures and abundant background RNA. Here we transform this destructive activity into a diagnostic advantage through a RNase I–assisted rolling circle amplification (RI‐RCA) strategy that integrates enzymatic RNA digestion with circular DNA templates (CDTs) to achieve direct, reverse‐transcription‐free RNA detection. In this system,\n                    Escherichia coli\n                    RNase I—a widely available endoribonuclease—selectively digests structured RNA to expose complementary CDT‐binding sites, which are immediately protected through duplex formation and converted into primers for RCA. The resulting reaction proceeds isothermally at room temperature in linear, quasi‐exponential, and exponential modes, achieving quantitative signal generation across concentrations from 50 aM to 50 fM and maintaining performance in 50% pooled human saliva. Applied to clinical saliva samples from SARS‐CoV‐2–positive and –negative individuals, RI‐RCA achieved near‐perfect sensitivity and 98–100% diagnostic accuracy. By coupling enzymatic RNA digestion with sequence‐specific protection via CDT hybridization, this strategy converts RNA instability from a liability into an analytical advantage, providing a simple, robust, and clinically translatable platform for accurate detection of structured RNA targets.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

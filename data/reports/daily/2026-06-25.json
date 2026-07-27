@@ -1,0 +1,244 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月25日　星期四",
+  "date_range": "2026-06-25",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "纤纳光电发布效率达26%的彩色钙钛矿-硅叠层BIPV组件",
+      "阿卜杜拉国王科技大学研制千克级镍钼合金纳米催化剂以降低碳排放",
+      "Ore Energy与Budget Thuis达成1GWh铁空气储能系统供应协议"
+    ],
+    "AI与智能科技": [
+      "OpenAI首颗自研芯片代号确认，采用AI辅助设计历时9个月完成流片",
+      "美国能源部启动“量子创世纪”计划拟两年内研制科研级容错量子计算机"
+    ],
+    "通用技术": [
+      "天文学家观测星际彗星3I/ATLAS发现异常丰富的甲醇成分",
+      "Phosgo发布全球首款量产太阳能电单车，集成轮圈充电续航达193公里",
+      "日本探测器龙宫样本检出全部五种核酸碱基"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "纤纳光电发布效率达26%的彩色钙钛矿-硅叠层BIPV组件",
+        "阿卜杜拉国王科技大学研制千克级镍钼合金纳米催化剂以降低碳排放",
+        "Ore Energy与Budget Thuis达成1GWh铁空气储能系统供应协议"
+      ],
+      "entries": [
+        {
+          "t": "纤纳光电推出26%效率的彩色钙钛矿-硅叠层组件，面向光伏建筑一体化",
+          "d": "2026-06-25",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "纤纳光电（Microquanta）推出了效率达26%的可定制彩色钙钛矿-硅叠层BIPV组件，将建筑美学与高效光伏发电相结合。该组件在保持高转换效率的同时支持多种颜色定制，适用于建筑一体化光伏场景，解决了传统光伏组件外观单一的限制，为钙钛矿叠层技术的商业化落地和绿色建筑应用提供了新方案。",
+          "sc": 9.0,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/06/24/microquanta-launches-26-efficient-colored-perovskite-silicon-tandem-modules-for-building-integrated-pv/",
+          "tp": "钙钛矿叠层",
+          "aip": 1,
+          "kp": [
+            "效率[钙钛矿叠层BIPV]: 26%",
+            "技术路线[BIPV]: 四端叠层"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nMicroquanta has launched customizable colored perovskite-silicon tandem BIPV modules that combine architectural finishes such as marble effects with the company’s four-terminal tandem technology, aiming to reduce the performance penalty typically associated with colored solar façades.\nThe modules are a fully commercial product targeted at the growing BIPV market, offering in-house color customization and higher power output than conventional decorative PV solutions.\nEmiliano Bellini\nTechnology & Products\nImage: pv magazine\nChinese perovskite solar specialist\nhas unveiled this week a new perovskite silicon tandem solar module for building-integrated PV (BIPV) applications at the Smarter E event in Munich, Germany.\n“We developed the new colored tandem modules as part of a broader push into the BIPV market,” a spokesperson from the company told\n. “The product combines the company’s four-terminal perovskite-silicon tandem technology with customizable colored finishes aimed at façade applications.”\nAccording to the manufacturer, the tandem architecture helps offset the power losses typically associated with colored solar modules, enabling higher energy yields than conventional decorative BIPV products. “Unlike many BIPV suppliers that rely on externally sourced colored glass, Microquanta performs the coloring process in-house, allowing it to tailor colors and finishes to architects’ specifications,” the spokesperson went on to say. “We are initially showcasing a marble-effect design but the technology can be adapted to a wide range of colors and appearances. The current product uses TOPCon silicon cells in a four-terminal configuration, although the architecture is compatible with other silicon technologies.”\nMicroquanta describes the module as a fully commercial product rather than a prototype and says it is already in discussions with developers for future projects. While the modules are expected to cost more than conventional single-junction BIPV products, the company believes they remain competitive within the premium BIPV segment, where aesthetics, customization, and building integration are often more important considerations than module price alone.\nThe 26%-efficient MQ-α² tandem module series offers a power range from 65 W to 165 W. Microquanta backs the product with a 25-year linear power output warranty and a 12-year product and workmanship warranty. The company specifies an initial-year degradation rate of 2%, followed by annual degradation of 0.7%, resulting in a guaranteed 80% of original output after 25 years.\nThe spokesperson highlighted the product’s suitability for customized projects, with module dimensions, electrical characteristics, and aesthetic finishes available on a make-to-order basis.\nThe company, headquartered in Hangzhou, China, is among the early commercial developers of perovskite photovoltaic technology. In January 2025, its 810cm² perovskite module achieved a 21.86% efficiency certification from China’s National PV Industry Measurement and Testing Center. The company is currently constructing a gigawatt-scale perovskite production line in Quzhou, Zhejiang province, aiming for mass production.\nEmiliano Bellini\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "阿卜杜拉国王科技大学Cafer Yavuz开发了适用于工业规模的高压镍钼合金纳米催化剂以实现碳源与废物的循环利用",
+          "d": "2026-06-25",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "阿卜杜拉国王科技大学Cafer Yavuz团队开发负载于单晶氧化镁上的千克级镍钼合金纳米催化剂（NiMoCat），呈丸状适用于高压工业反应器。在加压CO2条件下可将甲烷、丁烷、苯、甲苯等定量转化为合成气，无甲烷化副产物。结合沼气重整与绿色氢气生产DME，CO₂排放从1.61降至0.95 kg/kg，成本有望低于灰DME。发表于Science。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.adp5208",
+          "tp": "碳转化催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "作者团队曾于2020年在《Science》报道用于甲烷干重整的NiMoCat催化剂，但当时仅停留在粉体状催化剂和低压反应阶段。本工作最核心的突破在于通过自粘结方式形成颗粒，并且催化剂在加压下仍保持合成气选择性。固定床必须使用颗粒而非粉体，根本原因在于在工业固定床反应器中，使用粉体时气体通过会产生极大的压降，而颗粒之间存在空隙，可显著降低阻力，保证气体顺畅通过。若要将粉体造粒，传统方法需加入粘结剂，但这可能堵塞催化活性位点。本文利用NiMo粒子自粘结成型，所得颗粒强度更高，机械性能优于商用催化剂。",
+          "b": "降低碳氢化合物和废物碳排放的策略必须克服催化剂耐久性和废物预分选相关的挑战。利用二氧化碳（CO2）转化低价值碳源为废物流回收为燃料和化学品提供了工业规模路径。研究开发了一种负载在单晶氧化镁上的千克级镍钼合金纳米催化剂（NiMoCat），呈丸状形式，适用于高压工业反应器。在加压CO2条件下，脂肪烃（甲烷、正丁烷）和芳烃（苯、甲苯）可定量合成合成气，无甲烷化或其他氧化副产物，如丁二烯或多芳烃。放大规模的NiMoCat在长期运行中保持活性，并实现了包含未分选废物气化后在实际烟气或CO2流下进行混合重整的两步工艺。生命周期与技术经济分析表明，以沼气为原料、NiMoCat重整结合绿色氢气生产二甲醚（DME），CO₂排放从传统1.61 kg/kg降至0.95 kg/kg，成本有望低于灰DME，具有显著减排与经济竞争力。文章于2026年6月25日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "Ore Energy和Budget Thuis宣布1GWh铁空气储能系统交易",
+          "d": "2026-06-25",
+          "a": "物理储能",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "荷兰铁空气电池储能开发商Ore Energy与荷兰能源供应商Budget Thuis达成1GWh铁空气储能系统的供应协议。铁空气电池以廉价易得的铁为活性材料，通过铁的氧化还原反应实现电能存储，具有极低的材料成本和长时储能潜力，被视为大规模电网级储能的有力竞争者。1GWh规模的交易标志着铁空气电池技术从实验室验证向商业化部署迈出实质性步伐，有望为可再生能源并网提供低成本的长时储能解决方案。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/Sak0J5Y-mENVqQobENvZ1A",
+          "tp": "铁空气储能",
+          "aip": 1,
+          "kp": [
+            "[储能规模]: 1 GWh铁空气电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ore Energy和Budget Thuis宣布1GWh铁空气储能系统交易 原创 全球储能网 全球储能网 物理储能 [](https://mp.weixin.qq.com/s?__biz=MzU5NjgzNDA0MA==&mid=2247521753&idx=1&sn=062afe30e7104fe335fc02f8cfa92883&scene=21#wechat_redirect) [](https://mp.weixin.qq.com/s?__biz=MzU0NjA4MTg2NA==&mid=2247513118&idx=1&sn=5505223d2ddaa745a2d23d17f5f59b64&scene=21#wechat_redirect) 近期热点 总部位于荷兰的铁空气储能开发商Ore Energy已同意向本国能源供应商Budget Thuis供应1GWh长时储能（LDES），这标志着铁空气供应商与欧洲能源供应商之间首次此类承购协议，承诺的第一阶段400MWh计划于2028年交付。 铁空气电池通过逆转生锈过程来储存能量。据Ore Energy称，充电时剩余的可再生电力将氧化铁还原为金属铁，放电时铁在受控反应中生锈并释放电力。该公司表示，其系统仅使用铁、水和空气——不含锂或钴——设计用于储能24至100小时。 据两家公司称，该协议从承诺的第一阶段400MWh开始，计划于2028年交付。Budget Thuis隶属于Nuts Groep，是荷兰最大的能源供应商之一，拥有超过100万客户，该公司表示，随着荷兰电网越来越依赖风能，此次部署旨在为客户提供更稳定、更实惠的电力。 Ore Energy联合创始人兼首席执行官Aytaç Yilmaz表示，欧洲电网已经在大规模弃用清洁电力，同时仍依赖化石燃料来弥补短时电池无法填补的缺口，因为这些系统仅将太阳能输出转移几个小时，而不是覆盖风能主导电网所需的多天时段。Yilmaz说：“我们相信铁空气电池对风能的重要性将如同锂离子电池对太阳能的重要性一样。” Budget Thuis首席执行官Annemarie Buitelaar表示，该协议旨在减少公司受波动性化石燃料价格的影响，同时让客户随着时间的推移获得更清洁、更可预测的电力。Buitelaar表示，Budget Thuis承诺在其整个组合中部署1GWh铁空气储能，因为该技术专为传统电池无法覆盖的长时使用场景而设计。 该协议是在Ore Energy的技术在欧洲进行两次并网部署之后达成的。据Ore Energy称，2025年8月至11月进行的EDF试点证明，该系统在公用事业条件下可以储存和放电长达四天。该公司此前已在荷兰代尔夫特部署了并网装置，以验证与欧洲配电基础设施的集成。 根据欧盟委员会联合研究中心的数据，如果没有足够的电网投资，到2040年，每年可能因电网拥堵而弃用多达310TWh的可再生电力——相当于欧盟2022年风能和太阳能发电量的一半——拥堵管理成本每年高达1030亿欧元（1170.4亿美元）。根据Aurora Energy Research的数据，欧洲在2024年因电网瓶颈弃用了约72TWh主要是可再生的电力，成本约为89亿欧元。 柏林工业大学使用PyPSA-Eur建模框架进行的情景分析发现，与没有长时储能的场景相比，使用大规模铁空气储能优化的德国零碳电力系统所需的风能和太阳能装机容量减少约32%，弃用的可再生能源产出减少约44%，同时降低了年度系统成本。该分析指出，研究结果是基于情景的，结果会因电网配置和部署假设而异。 （素材来自：Ore Energy/Budget Thuis 全球储能网、新能源网综合） **行业聚焦** •预热！CTE2026 中国热储能与供热大会暨展览会 •首个活动日 | 物理储能通讯录-群内成员开放1天 •会展 | CPE 2026第三届中国物理储能大会暨展览会圆满落幕！ **每月8日活动日，群内成员全开放1天**",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "OpenAI首颗自研芯片代号确认，采用AI辅助设计历时9个月完成流片",
+        "美国能源部启动“量子创世纪”计划拟两年内研制科研级容错量子计算机"
+      ],
+      "entries": [
+        {
+          "t": "OpenAI首款芯片问世：用AI设计，9个月流片",
+          "d": "2026-06-25",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "OpenAI正式推出其首款自研芯片，据报道该芯片由AI辅助设计，从启动到完成流片仅用时约9个月，大幅短于传统芯片开发周期。此举标志着OpenAI在硬件层面的垂直整合布局，旨在降低对第三方AI加速芯片的依赖，优化大模型推理和训练的算力成本与能效。AI辅助设计工具显著加速了芯片架构探索和验证迭代，体现了人工智能在EDA（电子设计自动化）领域的应用潜力。该芯片的问世可能对AI算力供应链格局产生深远影响。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/uoElUKGxWe3O-T6j6iKQkA",
+          "tp": "AI推理芯片",
+          "aip": 1,
+          "kp": [
+            "[芯片]: OpenAI首款芯片",
+            "[设计方式]: AI参与设计",
+            "流片周期[OpenAI芯片]: 9个月"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI首款芯片问世：用AI设计，9个月流片 机器之心 编辑 | 泽南 本周三，OpenAI 与博通合作，推出了自己的首款芯片：Jalapeño。 OpenAI CEO 山姆・奥特曼（Sam Altman）与博通 CEO 陈福阳（Tan Hock Eeng）共同展示新芯片的晶圆。 这些芯片将由博通（Broadcom）制造，用于 OpenAI 的人工智能推理负载，其中包括在 ChatGPT、Codex 等应用中驱动 AI 模型。 OpenAI 总裁 Greg Brockman 强调，Jalapeño 创下了极快的九个月流片记录，这很大程度上归功于 OpenAI 内部 AI 模型在整个设计流程中的深度参与。这种用 AI 加速底层硬件研发的速度让 OpenAI 内部团队也感到惊讶。 Jalapeño（意为墨西哥胡椒）是一个专为现代 LLM 推理，从零开始设计的全新方案，并非基于早期 AI 工作负载改造的通用加速器。它参考了 OpenAI 日常运行的系统，加速的任务包括 ChatGPT、Codex、API 以及未来的智能体产品，同时也面向当前及未来业界的 LLM 应用。OpenAI 的目标是将当今领先的 AI 加速器的性能和吞吐量与接近最快专用推理系统的延迟相结合，从而使 Jalapeño 适合大规模交互式 LLM 产品。 该芯片的性能仍未公布，但 OpenAI 称，早期测试表明，Jalapeño 的每瓦性能将显著优于目前最先进的技术。该公司预计将在未来几个月内发布一份详细的性能技术报告。 在 Jalapeño 上，新架构减少了数据传输，并平衡了计算、内存和网络资源，从而使实际利用率更接近理论峰值性能。博通的芯片实现和网络技术，包括 Tomahawk 网络芯片，助力了该平台实现大规模量产，天弘（Celestica）则负责系统集成、主板和机架。 如今 AI 的算力需求越来越大，各家公司对于芯片的需求也日益迫切，Brockman 表示 OpenAI「无法获得足够快的算力」，博通首席执行官陈福阳也支持这一观点，称该公司六家客户的计算需求「简直是永无止境」。 陈福阳表示，「这远远超出了我们能解决的范围……而且这不仅仅是 2026 年或 2027 年的问题，我们在 2028 年也看到了同样甚至更高的需求。」 Jalapeño 是 OpenAI 构建其模型和产品背后「完整技术栈」计划中的重要一步。OpenAI 表示，通过自行设计更多技术栈，其可以更高效地提供更多智能，并不断推动先进 AI 走向更广泛的应用。 自 OpenAI 在 2022 年开启生成式 AI 热潮以来，该公司一直是英伟达 GPU 的最大买家之一。日益昂贵的图形处理器是构建 AI 模型和运行大型工作负载的关键基础设施。但 OpenAI 的需求呈爆炸式增长，因此需要其他专用型芯片提供动力。 今年早些时候，OpenAI 与亚马逊达成了一项协议。其中包括使用其 Trainium 人工智能芯片的网络服务。OpenAI 也与英伟达的竞争对手 AMD 签署了协议，还与 AI 芯片制造商 Cerebras 展开了合作。 经过 18 个月的合作，OpenAI 和博通公开宣布计划将在今年晚些时候开始开发和部署 OpenAI 设计的芯片机架，最终目标是造出总计达到 10 吉瓦能耗规模的算力集群。 Jalapeño 是一款专用集成电路（ASIC），其灵活性不如英伟达的 GPU，但价格也更低，并且可以针对特定的 AI 任务进行定制化设计。 OpenAI 将这款芯片称为「智能处理器」，并将其描述为他们正在构建的平台中的第一个人工智能加速器，旨在使先进的 AI 更快、更可靠，并让更多人更容易获得。 OpenAI 与博通表示，他们的目标是在 2026 年底前初步部署 Jalapeño 芯片，并在未来几年内扩大部署规模。 参考内容： https://openai.com/index/openai-broadcom-jalapeno-inference-chip/ https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html © THE END 转载请联系本公众号获得授权 投稿或寻求报道：liyazhou@jiqizhixin.com",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI曝出第一颗芯片叫「辣椒」！AI自己设计，9个月流片",
+          "d": "2026-06-25",
+          "a": "新智元",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "OpenAI首颗自研芯片内部代号曝光为「辣椒」（Cayenne），采用AI辅助设计流程，仅用约9个月即完成流片，远快于传统芯片动辄一两年的开发周期。该芯片专为AI推理或训练工作负载定制，旨在提升OpenAI自身的算力自主可控能力并降低成本。AI参与芯片设计涵盖了架构搜索、布局布线优化等关键环节，验证了AI for EDA的工程可行性。这是OpenAI在硬件基础设施领域的重要里程碑，可能引发AI巨头自研芯片的新一轮竞赛。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/yd2woUWq545eEVx1zcPL8g",
+          "tp": "AI推理芯片",
+          "aip": 1,
+          "kp": [
+            "芯片代号[OpenAI]: 辣椒",
+            "流片周期[OpenAI芯片]: 9个月"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI曝出第一颗芯片叫「辣椒」！AI自己设计，9个月流片 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】OpenAI首颗自研芯片Jalapeño问世，9个月白纸到流片，创下行业最快纪录。设计它的，正是跑在上面的AI模型。** 就在刚刚，OpenAI掏出了史上第一颗自研芯片。 名字叫Jalapeño，墨西哥辣椒，专为大模型推理设计。 9个月前，白纸一张。 9个月后，工程样片不仅跑通了GPT-5.3-Codex-Spark，而且频率和功耗均已达到量产目标。 更离谱的是，这颗芯片是OpenAI用自己的AI帮着画的。 **9个月，行业纪录碎了** Jalapeño，墨西哥辣椒里辣度最温和的品种之一。 OpenAI拿它给第一颗芯片命名，潜台词很可能是：这只是入门级，后面可能还有更辣的。 官方定位叫「Intelligence Processor」，一颗专为大模型推理设计的定制ASIC。 由OpenAI主导架构设计，Broadcom负责芯片实现和网络互联，Celestica做板卡和机架集成。 通常来说，先进半导体行业，设计一颗高性能ASIC要18到24个月。Google TPU两年一代，Amazon Trainium差不多也是这个的节奏。 而OpenAI只用了9个月，一举刷新了先进半导体领最快的ASIC开发周期。 这颗芯片从第一根线开始就只为一件事优化：LLM推理。 而且，Jalapeño不只跑OpenAI自家模型，架构上兼容全行业的LLM。 **AI帮自己画了电路图** 比性能更值得关注的，是这颗芯片怎么被造出来的。 OpenAI自家AI模型参与了这颗芯片的设计和优化。 也就是说——AI设计了一颗芯片，芯片反过来跑AI，跑在上面的更强AI会设计下一代更强的芯片。 AI，帮自己造了一副新身体。 AI设计芯片不新鲜。Google 2021年在Nature发论文，用强化学习做芯片布局，速度比人类快几个数量级。 此后AlphaChip连续优化了三代TPU布局方案。 OpenAI硬件团队的掌门人Richard Ho，正是从这个圈子里走出来的。 Google近九年，TPU高级工程总监，参与发明了ML设计芯片架构的方法，多个TPU项目首次流片即成功。 之后去了光子计算公司Lightmatter当高级副总裁，更早联合创办过EDA公司0-In Design Automation。学术界、芯片设计、AI硬件，整条路走了一遍。 OpenAI挖他来，大概率就是为了一件事：把「AI辅助芯片设计」嫁接到自家模型上。 芯片设计最磨人的不是「想方案」，是无数次的设计—验证—改—再验证循环。一颗先进芯片的验证要跑成千上万次，占掉整个周期的大半时间。 AI恰恰擅长干这种事——读历史设计数据、生成RTL代码、辅助验证和debug、优化布局布线。 能实现9个月流片，靠的是AI替人扛掉了那「18到24个月」里最磨人的一大块。 用最会用锤子的人，来设计新锤子。用最懂LLM运行规律的模型，来设计专门跑LLM的硬件。 **你的ChatGPT账单正在被重写** OpenAI每年算力支出百亿美元级别，这些钱最终要从你身上赚回来——20美元月费、API调用、Plus和Pro订阅。 推理成本砍半，普通用户最先感受到的：响应变快。 现在ChatGPT高峰期排队、转圈、长对话变慢，本质都是算力不够分。 推理效率提升后，同等服务器能服务更多用户，体验有望改善。 其次：免费版能力放开。 现在很多功能锁在Plus里——深度研究、高级数据分析、完整版语音对话。 成本降了，这些功能下放给免费用户的可能性就大了。 而OpenAI需要的，正是让更多人用上ChatGPT，并且能用更久。 再往远看：20美元的月费可能还是20美元，但你拿到的东西完全不一样。 去年这个价格买到的是GPT-4o，明年同样的钱可能买到的是一个能跑完整工作流的agent。 月费没变，能力可能翻几番——推理成本下降带来的隐性降价。 但Jalapeño瞄准的不只是今天的ChatGPT。 Richard Ho的思路是：为模型要去的方向设计硬件，而不是为它现在的样子。 OpenAI内部能看到未来6到9个月模型的演进方向，芯片按这条管线往前造。 等agent真正跑起来，算力需求和今天的一问一答完全不是一个量级。 说白了，推理成本降下来，受益的不只是Pro用户。 学生、小企业、独立开发者，都可能用上今天只有大客户才跑得起的AI能力。 **OpenAI要吃掉整条链** 模型自己训，芯片自己设计，推理自己优化，部署自己控制。 换句话说，OpenAI要做全栈AI公司。 之前和Cerebras合作推理部署，OpenAI从中摸清了专用推理硬件的价值。现在自己下场做，把经验变成自己可控的平台。 Appl",
+          "hb": 1
+        },
+        {
+          "t": "美国能源部启动“量子创世纪”计划，2年后造出全球首台科研级容错机",
+          "d": "2026-06-25",
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "美国能源部启动'量子创Genesis'（Quantum Genesis）计划，目标两年内研制全球首台科研级容错量子计算机。该计划聚焦拓扑量子比特、纠错码架构与低温控制电子学等核心技术路线，旨在跨越当前NISQ（含噪中等规模量子）时代，实现逻辑量子比特稳定运行，为材料模拟、密码破译等科研应用提供算力突破。",
+          "sc": 9.5,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://mp.weixin.qq.com/s/i5GevN2I568kC1LNOE-mlw",
+          "tp": "容错量子计算",
+          "aip": 1,
+          "kp": [
+            "[量子计算]: 量子创世纪2年造容错机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "美国能源部启动“量子创世纪”计划，2年后造出全球首台科研级容错机 光子盒 6月23日，美国能源部正式推出一名为“量子创世纪”（Quantum Genesis）的新计划。该计划的目标是在2028年之前，造出全球第一台具备容错能力、并能真正投入科学研究的量子计算系统。这是美国推动量子技术领先战略的重要一步。 据了解，量子创世纪计划属于一个更庞大的创世纪任务，旨在为美国打造新一代计算基础设施，从而提升在科学发现和技术创新方面的竞争力。 该计划是为落实美国总统特朗普此前签署的《引领量子创新迈向下一个前沿》行政令，该令重申了美国要在量子信息科学领域保持领先地位，并专门设立了“应用开发与发现科学量子计算机”项目（QC-ADDS）。白宫科技政策办公室主任迈克尔·克拉西奥斯表示，这项计划将进一步确保美国在这一关键领域保持全球领先。 美国能源部长克里斯·赖特强调，量子计算有望大大加快科学发现的进步。能源部将通过这项计划，联合国家实验室、高校和私营企业的顶尖力量，一起攻克技术难关。 能源部科学副部长达里奥·吉尔表示：“先进的量子计算机能够帮助科学家以前所未有的精度，去探索自然界的根本规律。同时，量子计算系统还会与人工智能深度融合，相互促进。此外，能源部的用户设施体系、研究中心和合作伙伴关系，都将为下一轮科学发现打下坚实基础。” **Quantum Genesis****计划** 作为“创世纪任务”的核心部分，“量子创世纪计划”主要聚焦三大方向。 **一是****开展****“能源部量子竞赛”。**此项竞赛的目标旨在2028年前展示出具有容错能力的量子计算系统，预计系统里的逻辑量子比特数量将达到几百个量级，研发出的量子计算系统将优先用于解决化学、材料科学、等离子体物理和高能物理等关键领域的科学问题。 结合此前信息征询书收到的反馈，竞赛的意图很明确，即加快容错量子系统的开发，用来应对当今科学、能源创新和国家安全领域中最棘手的难题。参赛团队将得到能源部国家实验室、国家信息科学研究中心以及科学办公室用户设施方面的专家支持合作。 **二是****建设“国家量子超算用户设施”。**作为美国首创平台，将为美国的科学家和工程师提供多种类型的量子计算资源，帮助他们攻克传统计算机解决不了的难题。 该设施还将与现有的超级计算机、人工智能以及高性能能源科学网络以及“创世纪任务”下的美国科学与安全平台实现互联，构建一个集高性能计算、AI和量子计算于一体的统一生态系统。 **三是****开展量子计算应用专项研发**。除竞赛之外，能源部还将开展定向研发，以寻找并实现突破性的量子科学应用，组织高校、国家实验室和行业专家，共同定义和推进具有突破性的量子计算应用场景。 能源部将确定关键的科学应用案例，用以指导量子计算系统的开发和评估，类似于“创世纪任务”下国家科学与技术挑战在推动人工智能驱动创新中所发挥的作用。 此次“量子创世纪计划”是在美国能源部长期持续对量子信息科学的投资基础上推出的，包含了所有科学学科的雄厚基础研究项目，并且依托于2018年《国家量子计划法案》设立的国家量子信息科学研究中心。该计划的实施，也被视为美国在量子时代抢占科技制高点的最新举措。 **行政令连发，政策全面升级** 就在“量子创世纪”计划公布的前一天，也就是6月22日，美国总统特朗普就已经接连签署了两项行政令，一项名为《引领量子创新迈向下一个前沿》，另一项则是《保护国家免受高级密码攻击》。 这两道命令的出台，其实是在为一项更根本的法律“续命”，即2018年签署的《国家量子计划法案》。这个法案是美国量子技术的基石，但它授权的一部分已经在2023年9月到期，整个计划也将在2029年12月结束。 不过，就在今年上半年，美国政府开始加速推动法案续期。4月份，参、众两院的相关委员会都分别通过了各自的再授权法案版本，新法案将授权延长到2034财年，预计投入的金额也相当可观。 这两道行政令里，和“量子创世纪”计划关系最直接的就是《引领量子创新迈向下一个前沿》。其中提到的“量子计算机应用开发与发现科学”（QC-ADDS）国家项目，正是“量子创世纪”计划要落实的核心内容。 政令要求为能源部的设施提供这种强大的量子计算机，并向本国科学界开放，解决传统计算机难以解决的科学问题，进而实现科学发现与科学技术的相互促进，为构建美国的下一阶段的科学壁垒奠定基础。 而另一道行政令《保护国家免受高级密码攻击》，则着眼于安全防范。其朝着2030年或2031年以前将关键政府计算机系迁移到后量子密码学而设定目标，以保护政府计算机免受量子计算机驱动的网络攻击。 此外，就在上个月，美国商务部宣布，将投资20亿美元，以股权投资的方式来资助包括IBM在内的九家量子公司，扶持量子行业发展。 **结语** 从这些密集的政策动作中可以看出，美国正从法律、资金",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "天文学家观测星际彗星3I/ATLAS发现异常丰富的甲醇成分",
+        "Phosgo发布全球首款量产太阳能电单车，集成轮圈充电续航达193公里",
+        "日本探测器龙宫样本检出全部五种核酸碱基"
+      ],
+      "entries": [
+        {
+          "t": "星际访客 3I/ATLAS 正爆发出一种意想不到的化学物质",
+          "d": "2026-06-25",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "天文学家利用阿塔卡马大型毫米/亚毫米波阵列（ALMA）观测星际彗星3I/ATLAS，发现其含有异常丰富的甲醇——这是已知彗星中极为罕见的丰度水平。作为第三个被确认的星际天体，3I/ATLAS为采样其他恒星系统物质提供了珍贵窗口。异常的甲醇含量暗示其可能形成于富含有机分子的原始星周盘中，对理解行星系统形成的化学环境具有重要意义。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/interstellar-visitor-3i-atlas-is-bursting-with-an-unexpected-chemical/",
+          "tp": "星际彗星学",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Astronomers have found that interstellar comet 3I/ATLAS contains an unusually large amount of methanol.\nEvery interstellar object that passes through our solar system offers a rare chance to sample material forged around another star.\nNow, new observations of comet 3I/ATLAS using the Atacama Large Millimeter/submillimeter Array (\n) have revealed a chemical surprise: the comet is extraordinarily rich in methanol, an organic molecule found in comets but rarely in such abundance. The discovery could provide fresh clues about the conditions in a distant planetary system unlike our own.\n“Observing 3I/ATLAS is like taking a fingerprint from another solar system,” shares Nathan Roth, lead author on this research and a professor with American University, “The details reveal what it’s made of, and it’s bursting with methanol in a way we just don’t usually see in comets in our own solar system.”\nThe team used ALMA’s Atacama Compact Array in Chile to observe 3I/ATLAS on several dates in late 2025 as the comet moved closer to the Sun. Solar heating caused its icy surface to release gas and dust, producing a bright halo (or coma) around the nucleus.\nThe observations centered on faint submillimeter signals from two molecules: methanol (CH₃OH), a type of alcohol, and hydrogen cyanide (HCN), a nitrogen-bearing organic molecule often detected in comets. ALMA showed that 3I/ATLAS contains far more methanol relative to hydrogen cyanide than is normally seen in comets that formed in our solar system. Across two observing dates, the team found ratios of methanol to HCN of about 70 and 120, ranking 3I/ATLAS among the most methanol-rich comets ever studied in the solar system.\nThose results suggest that the icy material in 3I/ATLAS either formed under, or later experienced, conditions very different from those that shaped most comets near our Sun. Earlier observations with the\nJames Webb Space Telescope\nfound that 3I/ATLAS had a coma dominated by carbon dioxide when it was farther from the Sun. The new ALMA measurements add another unusual feature to its chemical profile: an abundance of methanol.\nALMA’s high-resolution imaging also showed that methanol and hydrogen cyanide do not leave the comet in the same way. Hydrogen cyanide appears to originate mainly from the comet’s nucleus, which is typical of comets in our solar system. Methanol, however, seems to come from both the nucleus and icy particles within the coma. These tiny ice grains behave like mini comets.\nAs 3I/ATLAS gets closer to the Sun and ice changes into gas, the grains release methanol as well. Similar activity has been seen in some comets from our own solar system, but this is the first time such detailed outgassing physics has been traced in an interstellar object.\nComet 3I/ATLAS is only the third confirmed object known to have entered our solar system from interstellar space, following 1I/‘Oumuamua and 2I/Borisov. Those earlier visitors also showed unusual traits. As astronomers find and study more objects from beyond our solar system, they are gaining a clearer and more complex picture of how planets and smaller icy bodies form around other stars.\nReference: “CH3OH and HCN in Interstellar Comet 3I/ATLAS Mapped with the ALMA Atacama Compact Array: Distinct Outgassing Behaviors and a Remarkably High CH3OH/HCN Production Rate Ratio” by Nathan X. Roth, Martin A. Cordiner, Dominique Bockelée-Morvan, Nicolas Biver, Jacques Crovisier, Stefanie N. Milam, Emmanuel Lellouch, Pablo Santos-Sanz, Dariusz C. Lis, Chunhua Qi, K. D. Foster, Jérémie Boissier, Kenji Furuya, Raphael Moreno, Steven B. Charnley, Anthony J. Remijan, Yi-Jehng Kuan and Lillian X. Hart, 6 March 2026,\nAstrophysical Journal Letters\nDOI: 10.3847/2041-8213/ae433b\nThis work was supported by the Planetary Science Division Internal Scientist Funding Program through the Fundamental Laboratory Research (FLaRe) work package (N.X.R., S.N.M., M.A.C., S.B.C.), as well as the\nAstrobiology Institute through the Goddard Center for Astrobiology (proposal 13-13NAI7-0032; S.N.M., M.A.C., S.B.C.).\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrochemistry\nNational Radio Astronomy Observatory\nPlanet Formation\nSolar System\nNew “Space Snowman” Discovery Shakes Up Solar System Theories\n“Things We’ve Never Seen Before” – New Findings Unveil True Nature of Wild 2 Comet\nAstonishing Discovery Reveals Water in Our Solar System May Have Originated Billions of Years Before the Sun\nUnusual Secrets Revealed in Analysis of Mysterious Visitor From the Depths of Space\nA Star Disturbed Solar System Comets and Asteroids 70,000 Years Ago\nALMA Discovers Surprisingly Complex Organic Molecules in Nearby Galaxy\nALMA Reveals Birth of Planets in Astonishing Detail\nPebble-Size Particles May Represent a New Class of Interstellar Particles\nResearchers Present New Model for Planetary Accretion",
+          "hb": 1
+        },
+        {
+          "t": "轮圈就是充电站！Phosgo发布全球首款量产太阳能电单车，193公里续航背后是E-bike行业的残酷洗牌",
+          "d": "2026-06-25",
+          "a": "世界先进制造技术论坛",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "Phosgo发布全球首款量产太阳能电单车,将太阳能充电集成于轮圈设计,续航达193公里。该产品标志着E-bike行业从传统锂电池方案向自补能模式演进,但高昂成本、转化效率限制及政策标准滞后等因素也将加速行业洗牌,推动产业链上下游重构。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/nvNIqF64qmoiHZ2rTgRcMw",
+          "tp": "太阳能电单车",
+          "aip": 1,
+          "kp": [
+            "续航[太阳能电单车]: 193公里"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "轮圈就是充电站！Phosgo发布全球首款量产太阳能电单车，193公里续航背后是E-bike行业的残酷洗牌 原创 小艾 小艾 世界先进制造技术论坛 最近，一个叫Phosgo的新兴电单车品牌扔出了一颗重磅炸弹。 这家公司正式发布了Go 5 Ultra太阳能电单车，**号称全球首款量产太阳能电单车**。整车重量控制在36公斤左右。最核心的卖点就一个——**把高效太阳能电池直接集成到了轮圈里**。 官方说得很直接：**轮圈就是充电站**。 技术到底怎么样 先看动力配置。美版搭载的是Bafang 750W中置电机，峰值功率能到910W，扭矩150N·m，最高时速45km/h。EU版本为了符合当地法规，换成了Bafang M430 250W电机，扭矩120N·m，最高时速限制在25km/h。 电池方面配的是720Wh大容量电池。官方宣称在太阳能辅助下续航能达到**193公里**。 除了这些，车上还塞了不少智能配置：防盗报警、跌倒检测、远程锁车、配套手机App、AI语音助手、双充电模式、MPPT控制器，外加GPS、4G、蓝牙实时连接。 Go 5标准版也同步发布了，电池容量480Wh，太阳能辅助下续航95公里。 价格嘛，Go 5 Ultra建议零售价5999美元，约合人民币4.06万；Go 5标准版4999美元，约合人民币3.39万。不过官网现在开放预订，**支付50美元就能享受63%的折扣**，Go 5 Ultra到手价降到2199美元，折合人民币大概1.49万。两款车预计7月27日正式上市。 热闹背后，E-bike行业正在经历什么 Phosgo这次发布确实吸引眼球。但把目光放远一点看，**整个E-bike行业正处在一场残酷的洗牌之中**。 2026年初的E-bike赛道，用“冰火两重天”来形容一点不夸张。火的一面，深圳新星TENWAYS携高瓴、腾讯、阿里的光环冲刺港股；无人机巨头大疆带着万元级产品杀入欧洲市场。 冰的一面，**那些曾经被视为行业灯塔的名字正在一个个倒下**。荷兰VanMoof被称为“两轮车界的特斯拉”，累计融资超2亿美元，2023年宣布破产。同年美国Superpedestrian、Bird等E-bike巨头接连破产。北美最大的E-bike厂商Rad Power Bikes经历四轮裁员后，2023年退出了欧洲市场。 **行业已经从增量蓝海走向了存量博弈**。根据市场研究机构的数据，全球E-bike市场预计从2026年的463.9亿美元增长到2035年的749.8亿美元，年复合增长率只有5.5%。欧洲和北美市场甚至在萎缩——欧洲因库存过高和需求疲软，北美因关税压力和高零售价，市场都还没稳住。 国内市场同样不乐观 把视线拉回国内，情况也差不多。 **国内电动两轮车整体保有量已经突破4.5亿辆**。行业彻底告别靠新增拉动增长的阶段，全面进入存量置换周期。2025年全年产量6300多万台，但到2026年前四个月，产量同比下降了13.5%。 **新国标全面落地是最大的变量**。这套标准对车辆定位、电池、安全系统提出了很高要求。企业生产成本大幅上涨，终端售价跟着提高，不少小品牌扛不住压力，慢慢退出市场。 **行业马太效应越来越明显**。雅迪、爱玛、九号等头部品牌合计市占率突破七成。中小品牌正在加速出清。 太阳能路线能走多远 回到Phosgo这款产品本身。 把太阳能电池集成到轮圈里，这个想法确实很有想象力。但从技术角度看，有几个现实问题绕不开。 **第一，太阳能充电效率到底能有多高**。轮圈的面积有限，能铺设的太阳能电池板面积不大。官方给出的193公里续航是“太阳能辅助下”的数据。在真实使用场景中，太阳照射角度、天气状况、骑行时长都会影响实际充电效果。MPPT控制器能提升一些效率，但物理限制摆在那里。 **第二，整车36公斤的重量不算轻**。传统E-bike重量大多在20-25公斤区间，多出来的重量主要来自太阳能电池和相关电路。对需要经常搬动车辆的用户来说，这个重量是个不小的负担。 **第三，5999美元的定价策略**。就算预订价2199美元，放到市场上也属于高端价位。欧洲市场虽然有高端产品空间，但这个价位要面对的是Giant、Trek等传统自行车巨头的竞争。 行业真正的转折点在哪 CIC灼识咨询董事总经理姜骁潇说了一句话值得深思： **“行业已从增量蓝海走向结构性成熟阶段，资本青睐的是能真正把规模化增长转化为稳健盈利与现金流的企业，而不是仅靠高增长预期和外部估值驱动的'故事型公司'”** 。 坦途科技NAVEE的冯义松也提到，2021年之后行业进入技术瓶颈期，配置和定价相对定型，缺乏新的破局点。但他同时指出，**AI的引入可能成为类似汽车“油转电”的契机**。 Phosgo走的是另一条路——**用能源获取方式的创新来破局**。把太阳能和",
+          "hb": 1
+        },
+        {
+          "t": "科学家刚刚在小行星上发现了 DNA 和 RNA 的全部 5 个遗传“字母”",
+          "d": "2026-06-25",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "日本JAXA的Hayabusa2探测器于2020年从近地小行星\"龙宫\"（Ryugu）带回样本，国际研究团队在其中检测到全部五种核酸碱基——腺嘌呤、鸟嘌呤、胞嘧啶、胸腺嘧啶和尿嘧啶，即构成DNA和RNA的全部\"遗传字母\"。这是首次在小行星物质中确认完整的核碱基组合，表明这些生命基础分子可在星际环境中通过非生物化学反应自然形成。该发现有力支持了\"生命分子源于太空、经陨石或小行星轰击送达早期地球\"的胚种假说，为研究地球生命起源提供了关键化学证据，也意味着宇宙中生命所需的基础构件可能比此前认为的更为普遍。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/scientists-just-found-all-5-genetic-letters-of-dna-and-rna-on-an-asteroid/",
+          "tp": "小行星发现碱基",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The discovery of all five nucleobases on Ryugu strengthens the idea that life’s molecular ingredients formed in space before reaching Earth.\nA new study reports that samples from the asteroid Ryugu contain all five fundamental nucleobases, the molecular “letters” of life.\nTiny asteroid grains can preserve chemical clues about the ingredients that may have helped life emerge on Earth. The Ryugu material was\nreturned from space in 2020\n) Hayabusa2 mission.\ninternational research team reported finding uracil\n, one of the nucleobases, in the Ryugu samples. Now, a study published on March 16, 2026, in\nNature Astronomy\nThe finding suggests that these life related ingredients may have been common across the young Solar System.\nNucleobases are nitrogen-containing organic molecules that act as the “letters” of genetic information in\n. The five main nucleobases are adenine and guanine (known as purines), along with cytosine, thymine, and uracil (known as pyrimidines).\nThese molecules combine with sugars and phosphates to yield nucleotides – the building blocks of genetic material. Without nucleobases, the genetic code that allows organisms to grow, reproduce and evolve would not exist.\nHayabusa2 delivered a\ntotal of 5.4 grams\nof pristine asteroid material. Researchers\nhave to use ultra-clean lab conditions\nto avoid contaminating it. They extracted organic molecules using water and hydrochloric\n, and then purified them for further detection.\nThey found all five nucleobases in the two Ryugu samples they analyzed, in roughly similar amounts.\nThe new results align with previous findings on space rocks. The Murchison meteorite that fell in Australia in 1969, and the Orgueil meteorite in France in 1864, have previously yielded a wide variety of organic molecules, including nucleobases.\nOf course, meteorites that land on Earth can be contaminated by their journey and landing. But pristine samples from\n’s mission to\nasteroid Bennu\nalso yielded all five nucleobases in 2025.\nAsteroids such as Ryugu, Bennu, and the parent body of the Orgueil meteorite are remnants of the early Solar System. They can preserve materials largely unchanged for about 4.5 billion years.\nInterestingly, these asteroids show chemical differences. Murchison is enriched in purines, while Bennu and Orgueil contain more pyrimidines. It is thought this balance may be influenced by ammonia, a key molecule that can shape which nucleobases can form.\nTheir results suggest key components of genetic material may have formed in space and later delivered to the early Earth. In other words, the story of life on our planet may be deeply connected to the chemistry of such ancient asteroids.\nTogether, these discoveries show that carbon-rich asteroids throughout the Solar System contain diverse prebiotic chemistry. However, the precise mixture of molecules – such as the balance between purines and pyrimidines – varies depending on the asteroid’s chemical environment and history.\nBecause the Ryugu samples were collected directly in space and protected from Earth’s contamination, they provide one of the clearest views of ancient Solar System chemistry.\nThe discovery of all five nucleobases on Ryugu suggests the molecular ingredients of life may have already been forming in space billions of years ago. Asteroids may have helped deliver those ingredients to the early Earth – making the origin of life part of a much larger cosmic chemical story.\nReference: “A complete set of canonical nucleobases in the carbonaceous asteroid (162173) Ryugu” by Toshiki Koga, Yasuhiro Oba, Yoshinori Takano, Hiroshi Naraoka, Nanako O. Ogawa, Kazunori Sasaki, Hajime Sato, Toshihiro Yoshimura and Naohiko Ohkouchi, 16 March 2026,\nNature Astronomy\nDOI: 10.1038/s41550-026-02791-z\nThis work was supported by the Japan Society for the Promotion of Science (KAKENHI Grant Nos. 21J00504 and 25K17463 to T.K., 21KK0062 to Y.T., 21H04501, 21H05414 and 25H00677 to Y.O. and 23H00148 to H.N.). This research was partially supported by a joint project of the Institute of Low Temperature Science,\nHokkaido University\nAdapted from an article originally published in\nThe Conversation\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrobiology\nCurtin University\nSolar System\nA Billion-Year-Old Secret Unlocked in Asteroid Bennu’s Dust\nHow Ancient Collisions Explain Current Planetary Orbits\nWhen Giants Moved: Tracing Planetary Shifts That Formed the Moon\nAnalysis of Organic Compounds Extracted From Ryugu Asteroid Opens New Possibilities in Extraterrestrial Life Search\nSpace Rocks to Life Blocks: Meteorites Likely Source of Nitrogen for Early Earth\nThe Far-Flung Origin of Life’s Building Blocks: Researchers Uncover “Completely Unexpected” Findings\nEarth Asteroid Impacts Mirrored on Moon – Including the Dinosaur Killer\nSolving a Paradox to Uncover Key Clues About Our Solar System’s History\nAmino Acids Found in Meteorites that Experienced High Temperatures",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

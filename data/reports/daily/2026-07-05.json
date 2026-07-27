@@ -1,0 +1,244 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月5日　星期日",
+  "date_range": "2026-07-05",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "通威钙钛矿/晶硅叠层电池效率达32.02%且组件功率破776W",
+      "宁德时代换电站规模超两千座并以每月两百座速度扩建",
+      "央企公布海上风电与海水制氢一体化能源岛结构专利"
+    ],
+    "AI与智能科技": [
+      "北大杨玉超团队研发忆阻器芯片将大脑建模缩短至0.43秒",
+      "DeepMind质疑OpenAI算力扩展定律存在算法缺陷",
+      "Robinhood将Claude接入两千七百万散户交易决策流程"
+    ],
+    "通用技术": [
+      "中国测试卫星发动机在轨连续运行14小时刷新推进耐久度",
+      "科研团队研发插层技术实现高质量二维晶体秒级剥离",
+      "三维共价有机框架材料实现核废料中氙气高选择性捕获"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "通威钙钛矿/晶硅叠层电池效率达32.02%且组件功率破776W",
+        "宁德时代换电站规模超两千座并以每月两百座速度扩建",
+        "央企公布海上风电与海水制氢一体化能源岛结构专利"
+      ],
+      "entries": [
+        {
+          "t": "通威：210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，210-66版型半片组件功率突破776W",
+          "d": "2026-07-05",
+          "a": "钙钛矿工厂",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "通威宣布其210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，同时210-66版型半片组件功率突破776W。钙钛矿/晶硅叠层是光伏领域最具前景的下一代技术路线，通过宽带隙钙钛矿顶电池与窄带隙晶硅底电池串联，突破单结晶硅电池29.4%的Shockley-Queisser理论极限。32.02%的全面积效率代表商业化尺寸叠层电池的世界领先水平，若量产化将显著降低光伏度电成本。776W组件功率在现有产线兼容性方面也具有重要意义。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/lVQq8FX_1fFdP5se1aBfnQ",
+          "tp": "叠层光伏",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "通威：210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，210-66版型半片组件功率突破776W 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw=",
+          "hb": 1
+        },
+        {
+          "t": "宁德时代每月建设超200座换电站",
+          "d": "2026-07-05",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "宁德时代旗下的巧克力换电（Choco-SEB）换电网络建设速度惊人，正以每月200余座换电站的节奏扩张，并于2026年6月30日部署了第2000座换电站。这一规模化部署标志着换电模式在中国补能体系中的地位从试点走向主流，凸显CATL在标准化电池包、站点自动化与运维网络方面的工程能力与资本投入力度。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/04/catl-is-building-more-than-200-battery-swap-stations-every-month/",
+          "tp": "换电网络部署",
+          "aip": 1,
+          "kp": [
+            "部署速度[换电网络]: 200站/月",
+            "累计部署[CATL换电]: 2000站"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jul 4 2026 - 7:40 am PT\nThe CATL-backed Choco-SEB battery swap network deployed its 2,000th swapping station June 30th, wrapping up another month of incredibly rapid growth that’s seen the company average more than 200 deployments in\nmonth of 2026. (!)\nAs America celebrates its 250th birthday, EV battery giant CATL is reaching a major operational milestone, having deployed its 2,000th battery swap station on June 30th as it charges towards its larger, stated goal of having 3,000 stations fully up and running across the Chinese mainland and Hong Kong by the end of 2026.\nCATL first announced that it had co-developed 10 new electric vehicle models with domestic automakers that use its swappable batteries last December\n, as part of a bid to drive a trend that the company hopes will replace up to a third of the gas stations in China.\nAs of Wednesday, the company’s network of battery swap stations covered 180 cities across 31 provinces in China alone, with many more coming online quickly in Western markets as well,\nthanks to CATL’s newly announced partnership with companies like Octopus Energy committed to bringing large-scale battery swapping to UK and European markets\n“Battery swapping will be a significant part of the future of commercial transport,” said Dr. Robin Zeng, chairman and CEO of CATL,\nin a statement\n. “We have field-proven this technology in China, and we are delighted to bring it to the UK and Europe as part of our joint venture with Octopus.”\nChoco-SEB’s latest expansion targeted a diverse range of urban markets, tourist spots, and commercial districts, and the company is reportedly preparing to enter new major routes like Beijing-Harbin, Beijing-Kunming, Beijing-Tibet, Daqing-Guangzhou, and Lanzhou-Haikou expressways.\nIf the current pace holds, CATL will have more than 4,000 battery swapping stations deployed globally by the end of 2026,\nup from ~700 stations last October and ZERO\n(0) at the start of 2025, proving once again that great things are possible with enough goodwill and corporate collaboration.\nHere’s hoping that battery swap times that rival gas station fillups lead to even broader EV deployment somewhat sooner than later\nCarNewsChina\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        },
+        {
+          "t": "央企海上能源岛专利公布！",
+          "d": "2026-07-05",
+          "a": "氢能技术前沿",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "央企公布海上能源岛相关专利，涉及集海上风电、光伏、海水制氢于一体的综合性海上能源基础设施平台结构设计和能源集成方案。同期2026海水制氢与海上能源岛论坛将在常州召开，四川大学谢和平院士团队将介绍全新原理的海水直接电解制氢技术。反映海上综合能源利用正从概念走向工程验证阶段。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/iRbQ-LDwnUDZC9LaiiBEmw",
+          "tp": "海上制氢平台",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "央企海上能源岛专利公布！ 亚化咨询 亚化咨询 氢能技术前沿 * _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开**_ * 来自四川大学、谢和平院士团队的领导专家将介绍《全新原理的海水直接电解制氢技术》 * 来自崂",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "北大杨玉超团队研发忆阻器芯片将大脑建模缩短至0.43秒",
+        "DeepMind质疑OpenAI算力扩展定律存在算法缺陷",
+        "Robinhood将Claude接入两千七百万散户交易决策流程"
+      ],
+      "entries": [
+        {
+          "t": "全球首次基于可控存内计算！忆阻器神经动力学芯片面世，0.43秒搞定大脑表面建模",
+          "d": "2026-07-05",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "北京大学杨玉超团队研制出全球首款基于可控存内计算的忆阻器神经动力学芯片。该芯片利用忆阻器阵列在模拟域直接完成微分方程求解，实现大脑皮层表面重建任务仅需0.43秒，而传统数字芯片需数十分钟。芯片通过存内计算消除冯诺依曼瓶颈，在神经动力学建模和偏微分方程求解上展现出数量级能效提升，为类脑计算和科学计算芯片化开辟新路径。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/KIwZyEKkUXm8olhM8Kc5dQ",
+          "tp": "神经动力芯",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首次基于可控存内计算！忆阻器神经动力学芯片面世，0.43秒搞定大脑表面建模 原创 胡巍巍 胡巍巍 DeepTech深科技 你知道吗？对于一块普通芯片来讲，要想处理大脑皮层表面重建这样一个复杂数学任务，至少也得花费几十分钟。由北京大学杨玉",
+          "hb": 1
+        },
+        {
+          "t": "Claude能替2700万散户炒股了：它一幻觉，赔的是你的真钱",
+          "d": "2026-07-05",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "Robinhood推出AI驱动的投资顾问功能，将Claude等大语言模型接入2700万散户的交易决策链路，引发市场对AI炒股风险的高度关注。大模型的'幻觉'问题意味着它可能生成看似合理但事实错误的投资建议，而用户投入的是真金白银。核心争议在于：AI投资顾问在生成买卖建议时缺乏对实时市场数据的确定性推理能力，且大模型无法保证输出的可重复性和一致性。文章还涉及监管层面的挑战——AI投资建议的责任归属、投资者适当性管理的合规边界。该事件折射出AI在金融决策场景中'能力与风险不匹配'的系统性矛盾。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/3Ydgw14JUwHInZlc-qoYDw",
+          "tp": "AI金融代理",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Claude能替2700万散户炒股了：它一幻觉，赔的是你的真钱 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**3月还在争AI能不能炒股，Robinhood转手就把下单键塞进了270",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI塌房！Scaling law原作曝bug，万亿算力全白烧",
+          "d": "2026-07-05",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "DeepMind研究员深夜爆料指出OpenAI的Scaling Law存在严重缺陷，暗示万亿级算力投入可能存在浪费。该爆料引发行业震动，质疑当前大模型训练中算力规模扩展的基本假设。若问题属实，可能深刻影响未来AI基础设施投资策略和模型开发方向，对Scaling Law范式构成重大挑战。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/2GS2jY-jvfPJm9cP2tqLUA",
+          "tp": "缩放定律疑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI塌房！Scaling law原作曝bug，万亿算力全白烧 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**DeepMind研究员深夜爆料：OpenAI的Scaling L",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中国测试卫星发动机在轨连续运行14小时刷新推进耐久度",
+        "科研团队研发插层技术实现高质量二维晶体秒级剥离",
+        "三维共价有机框架材料实现核废料中氙气高选择性捕获"
+      ],
+      "entries": [
+        {
+          "t": "中国\"创纪录\"卫星发动机可持续运行14小时",
+          "d": "2026-07-05",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航天",
+          "as": "据中国媒体报道，一款中国卫星发动机在轨道运行中创下连续14小时持续推进的纪录。这一成就标志着卫星推进系统在耐久性和可靠性方面的重大技术突破，对提升卫星在轨机动能力和延长任务执行时间具有重要意义。该发动机的长时间持续工作能力可为卫星轨道调整、姿态控制及深空探测任务提供更持久的动力支撑。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/space/china-satellite-engine-continuous-operation",
+          "tp": "卫星推进发动机",
+          "aip": 1,
+          "kp": [
+            "推力[卫星发动机]: 750 N",
+            "连续运行[卫星发动机]: 14小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A Chinese satellite engine has reportedly broken a record for 14 hours of continuous thrust in orbit, Chinese media reports. The engine was able to produce 169 pounds-force (750 Newtons) of thrust, and fired for a total of 3.2 hours over 5 manoeuvres over a total of 14 hours.\nFor reference, the satellite was launched on June 23 on board a Long March-7A from Wenchang Spacecraft Launch Site, Hainan Province, China.\nThe satellite’s (\nCommunications Technology Experiment Satellite 26A\n) test took place during the satellite’s maiden flight in June. This test has now safely put the satellite in a stable Earth orbit of around 22,000 miles (35,800 km) from its delivery elliptical transfer orbit.\nEngines of this kind are used to perform the final leg of satellite deployment once it is delivered to space from Earth. This is a bit like you needing to take a taxi from an airport to your final destination.\nSuch engines are also used to make small final corrections once in position. They can also be used to keep the satellite in orbit over the years, or potentially relocate the satellite later down the line.\nThe thrust of the engine doesn’t sound like much when compared to a rocket engine (typically in the kilonewton range), but once outside of Earth’s atmosphere, you don’t need that much to get around.\nMore from Space\nNASA’s new supercomputer with 262,000 CPU cores can solve problems with increased efficiency\nUS firm files FCC application for 100,000-satellite data center constellation\nNASA commits $590 million to four Moon missions for permanent lunar outpost\nOrbital propellant depots move closer to reality with NASA cryocoupler tests\nCase Studies\nThe technology that could replace radio communication in space\nOnce in space, there is no air resistance, and objects are already travelling at around 17,448 mph (7.8 km/s) thanks to Earth’s existing orbital velocity. This means that even small, continuous pushes in thrust can be enough to make changes in orbital position.\nrecent test,\nthe satellite engine’s test is significant, as such engines must work flawlessly in a vacuum without any possible need for repair or recovery. They must also operate at extremely high temperatures and restart multiple times without incident.\nChinese state media claims that the recent test has now left its US rivals “far behind” too. However, even a cursory glance at the claims shows this is a little overegged.\nThe claim is likely meant to refer to the engines’ designed total endurance of around 14 hours tops. For reference, most existing engines are designed for around 7 hours of total endurance.\nHowever, the recent test only ran the engine for a total of 3.2 hours, not 14. Total endurance of an engine is also not the only metric that matters anyway.\nEngineers care much more about the fuel efficiency of an engine, its reliability, mass, cost, and thrust-to-weight ratio. So, in other words, one particular engine can be better in one area while worse in another.\nBut perhaps the most interesting aspect of this news is the potential military applications for this new engine. More capable engines of this kind could easily be militarized to allow military satellites to reach orbit much more quickly.\nThey could also enable them to carry more payload instead of fuel, and be able to manoeuvre in orbit much more easily for threat avoidance or repositioning purposes.\nSo, while certain claims about the recent test appear to be hyperbolic, this is genuinely an impressive technical achievement for the team behind it. What’s more, the technology appears to have been mostly domestically produced, meaning\nChinese space research\nis making moves to reduce its reliance on imported technologies.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nRolls-Royce breaks ground on 1-million-square-foot facility for submarine reactors\nGermany opens world's largest power semiconductor fab with massive $5.7B investment\nNew graphene interface keeps lithium-sulfur batteries running for 1,000 cycles\nNew Musica supercomputer performs 45,110 trillion calculations/sec with 1,088 Nvidia chips\nLead-cooled nuclear reactors move closer to deployment with standardized grid design",
+          "hb": 1
+        },
+        {
+          "t": "多环芳烃自由基阴离子介导的有机碱金属插层实现秒级高质量二维晶体剥离",
+          "d": "2026-07-05",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "报道了基于多环芳烃自由基阴离子介导有机碱金属插层的秒级剥离技术，实现高质量二维晶体的规模化制备。现有自上而下和自下而上方法在质量与产量间存在权衡，该插层剂对石墨、MoS2等多种层状材料实现高效插层，数秒内完成剥离，所得纳米片具有大横向尺寸、高单层率的特点，为二维材料产业化提供了可扩展方案。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75142-1",
+          "tp": "二维材料剥离",
+          "aip": 1,
+          "kp": [
+            "剥离时间[PAH插层法]: ~12s",
+            "[插层试剂]: PAH自由基阴离子有机碱金属",
+            "[可调控性]: 还原电位可调"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Scalable production of high-quality 2D nanosheets remains challenging because existing top-down and bottom-up methods typically face a trade-off between material quality, yield, and cost. Here, we report the seconds-scale (~12 s) production of high-quality 2D crystals via polycyclic aromatic hydrocarbon radical anion (PAH•-)-mediated organoalkali intercalation. The tunable reduction potential and electron-transfer capability of PAH•- enable ultrafast alkali-ion intercalation within seconds in the stable potential of layered hosts. For graphite, sodium naphthalenide (Na-Naph) forms a stage-1 graphite intercalation compound in only 1 s, and subsequent hydrolysis-driven exfoliation in 11 s yields graphene with >88% yield and >50% single-layer ratio, with a negligible increase in defect density (ID/IG ratio from ~0.10 to ~0.11). This strategy is further extended to the exfoliation of few-layer (3-5 layers) transition-metal sulfides, selenides, and tellurides while preserving their intrinsic crystal phases. This work establishes a practical, high-yield route for rapid intercalation-driven exfoliation, offering a scalable platform for manufacturing high-quality 2D crystals.",
+          "hb": 1
+        },
+        {
+          "t": "柔性三维共价有机框架中热响应与氙触发门控开孔实现选择性氙捕获",
+          "d": "2026-07-05",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "报道了一种柔性三维共价有机框架（COF），具有温度响应与氙气触发的开门效应，实现氙气的选择性捕获。该COF通过动态骨架呼吸行为，在特定条件下打开孔道选择性吸附Xe分子，而对Kr等相似尺寸气体排斥。这种智能软多孔晶体材料为核废料处理中Xe/Kr分离及医用同位素纯化提供了高选择性、低能耗的新策略。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75235-x",
+          "tp": "COF气体分离",
+          "aip": 1,
+          "kp": [
+            "[骨架材料]: 3D柔性COF(FCOF-XJ)",
+            "[门控机制]: 热响应与氙触发开孔",
+            "[构建单元]: 柔性+刚性四面体组合"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The development of dynamically responsive soft porous crystals (SPCs) is crucial for advanced gas separation due to their stimuli-triggered structural transitions. Herein, we report a 3D covalent organic framework (FCOF-XJ) constructed from flexible tetrahedral (F-3D-Td) and rigid tetrahedral (3D-Td) building blocks, exhibiting unique temperature-dependent selective adsorption of xenon (Xe). FCOF-XJ features thermoresponsive -O-C-C-C-O- single bonds that enable temperature-dependent conformational switching. The adaptive pore structure of FCOF-XJ enables an Xe-triggered gate-opening effect, with 4 times increase of Xe adsorption and a high Xe/Kr selectivity (36.9 at 298 K, 1 bar) among porous organic materials, surpassing most of metal-organic frameworks (MOFs). Breakthrough experiments reveal a defined high-purity Xe recovery window from Xe/Kr mixtures under non-ideal dynamic conditions, enabled by thermoresponsive pore-gating dynamics. This work establishes a flexible COF platform for thermoresponsive and Xe-selective capture based on guest-triggered framework gating.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

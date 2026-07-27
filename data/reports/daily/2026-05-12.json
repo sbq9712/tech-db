@@ -1,0 +1,243 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月12日　星期二",
+  "date_range": "2026-05-12",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究提出锂介导原位重构策略以改善全固态电池碳添加剂界面传输性能",
+      "科研人员直接观测钙钛矿与NiO埋底界面化学反应揭示缺陷形成机制",
+      "浙江大学团队制备钒掺杂NFPP正极将钠离子跃迁势垒降至0.221eV"
+    ],
+    "AI与智能科技": [
+      "宇树科技发布量产版载人变形机甲GD01售价约390万元",
+      "中国电信等多方实现40Tbps经典光通信与量子密钥百公里共传",
+      "英伟达计划2026年底前在美变电站旁建设至少5个小型数据中心"
+    ],
+    "通用技术": [
+      "原位透射电镜研究揭示PdGa合金催化剂在CO2加氢中的动态重构机制",
+      "质谱研究解析脂肪酸光脱羧酶光照诱导构象变化的分子路径",
+      "南方电网联合多方在云南试点主动式电网惯量实时监测系统"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究提出锂介导原位重构策略以改善全固态电池碳添加剂界面传输性能",
+        "科研人员直接观测钙钛矿与NiO埋底界面化学反应揭示缺陷形成机制",
+        "浙江大学团队制备钒掺杂NFPP正极将钠离子跃迁势垒降至0.221eV"
+      ],
+      "entries": [
+        {
+          "t": "锂介导重构激活碳添加剂为离子-电子渗透介质，用于全固态电池",
+          "d": "2026-05-12",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究报道了一种锂介导的原位重构策略，可将全固态电池中的碳添加剂激活为离子-电子双连续渗透介质。传统全固态电池中，碳导电添加剂仅充当惰性导电骨架，与固态电解质的界面兼容性差。研究发现通过锂离子的电化学嵌入/脱出过程，碳材料发生结构重构，形成同时具备离子传输和电子导电能力的活性网络，显著改善了复合电极内部的电荷传输效率，为提升全固态电池倍率性能提供了新思路。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00911",
+          "tp": "全固态电池碳添加剂",
+          "aip": 1,
+          "kp": [
+            "[策略]: 锂介导重构激活碳添加剂",
+            "[应用]: 全固态电池离子-电子渗滤介质"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "金属卤化物钙钛矿/NiO异质结构的埋底界面工程：界面反应直接观测",
+          "d": "2026-05-12",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究通过直接观测金属卤化物钙钛矿与NiO异质结构中埋藏界面的化学反应，深入揭示了界面工程对钙钛矿光电器件性能的影响机制。钙钛矿/NiO是高效太阳能电池的关键空穴选择性接触界面，但埋藏界面的原子级反应过程长期难以直接表征。研究利用先进表征手段捕捉到界面处离子迁移、组分互扩散和缺陷形成等关键过程，为通过界面工程抑制非辐射复合、提升器件稳定性提供了明确的材料设计指导。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00785",
+          "tp": "钙钛矿界面工程",
+          "aip": 1,
+          "kp": [
+            "[方法]: 直接观测界面反应",
+            "[体系]: 金属卤化物钙钛矿/NiO埋底界面"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Inverted perovskite solar cells (i-PSCs) employing NiO as a hole transport layer (HTL) have attracted considerable attention owing to their p-type nature, wide bandgap, and low cost. However, Ni3+ species at the NiO surface can deprotonate organic cations and oxidize halide anions, promoting the formation of PbI2-rich interfacial layers that hinder hole extraction and enhance nonradiative recombination. Here, we directly reveal the formation of PbI2 and Pb–O species at the buried perovskite/NiO interface using multiple characterization techniques. Based on these insights, bridging molecular interlayers are introduced on NiO. Devices incorporating Me-4PACz and 3PATAT-C3 exhibit enhanced VOC and FF compared with those employing bare NiO, resulting in champion PCE improvements of 11.5% and 19.9%, respectively. These findings provide direct microscopic evidence of buried interfacial reactions at perovskite/ALD-NiO interfaces and demonstrate an effective strategy to mitigate interfacial degradation, offering important guidelines for the design of stable and high-efficiency i-PSCs.",
+          "hb": 1
+        },
+        {
+          "t": "浙江大学潘慧霖报道一种钒掺杂的NFPP正极可提高其可逆容量",
+          "d": "2026-05-12",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "浙江大学潘慧霖团队提出钠配位环境协同调控策略，通过V³⁺精准取代Fe2位点重构Na⁺配位环境与扩散通道，制备钒掺杂NFPP正极。V取代使Na⁺扩散从原始NFPP沿b轴各向异性转变为三维互连网络，Na2→Na1跃迁势垒从0.615eV降至0.221eV，显著提升原本惰性钠位点的可逆参与度，提高铁基聚阴离子磷酸盐正极的实际容量。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1038/s41560-026-02059-w",
+          "tp": "钠电正极掺杂",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "铁基聚阴离子磷酸盐正极具有安全性高、结构稳定、元素丰度高等优势，但其实际容量长期受限于部分钠位点难以参与可逆反应，以及初始不可逆钠损失等问题。\n近日，浙江大学潘慧霖教授团队提出一种钠配位环境协同调控策略，通过V3+精准取代Fe2位点，重构局部Na+配位环境和扩散通道。其采用喷雾干燥法结合固相烧结制备Na₄₋ₓFe₃₋ₓVₓ(PO₄)₂P₂O₇（NFVₓPP, x=0–0.8）。表征计算结果发现，V3+优先占据Fe2位点，并在原本惰性的Na2位点附近诱导钠空位；随着V含量增加，原本离散的钠位点逐渐趋于统一的配位环境。V³⁺占据Fe2位点后，Na⁺在NFV₀.₆PP中的迁移率显著提升，尤其是在原本惰性的Na2位点。Na⁺扩散从原始NFPP中主要沿b轴的各向异性行为，转变为沿a、b、c三轴近乎各向同性的三维互连网络；且V取代使Na–O键距从2.55 Å拉伸至2.80 Å，削弱了Na–O静电束缚，将Na2→Na1跃迁的迁移势垒从0.615 eV降低至0.221 eV。进一步分析表明，低电压区域主要由Fe2+/Fe3+氧化还原反应贡献容量；当电压高于3.9 V后，V3+逐步氧化至V4+和V5+；在第二个Na⁺脱嵌（x=2）时，NFV₀.₆PP中共边[Fe₂O₁₀]二聚体转变为共角构型，伴随[P₂O₇]单元扭转，可及时释放晶格应力避免不可逆结构退化；晶格氧通过增强TM-O杂化参与协同电荷补偿，但原位DEMS未检测到明显O2释放，说明该聚阴离子框架在高电压下仍能维持稳定。\nNa3.4Fe2.4V0.6(PO4)2P2O7（NFV0.6PP）在2.1-4.9V的电压窗口下最高可逆容量达150.7 mAh g−1，，对应3.4个Na+的可逆脱嵌；材料级能量密度达到487 Wh kg−1，相比原始NFPP提升约52%。在2.1–4.5 V范围内，Na||NFV0.6PP半电池（NaPF₆-NaDFOB-PC）可在5 C倍率下稳定循环10000圈，容量保持率为82.1%，平均库仑效率达到99.9%。NFV0.6PP||硬碳全电池（活性材料配比均为90:5:5）在100圈后容量保持率为97.0%；多层软包电池（面容量1.5 mAh cm⁻²，N/P比约1.05，电解液用量约3 g，循环时施加100 kPa外部压力）在1.0–4.5 V范围内循环600圈后保持90.32%的初始容量。文章于2026年5月12日发表在Nature Energy。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "宇树科技发布量产版载人变形机甲GD01售价约390万元",
+        "中国电信等多方实现40Tbps经典光通信与量子密钥百公里共传",
+        "英伟达计划2026年底前在美变电站旁建设至少5个小型数据中心"
+      ],
+      "entries": [
+        {
+          "t": "宇树科技发布量产版载人变形机甲GD01",
+          "d": "2026-05-12",
+          "a": "",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "宇树科技发布量产版载人变形机甲GD01，载人后重约500kg，售价约390万元，支持直立和四足行走，宣传视频中可一拳击倒砖墙。产品定位特种作业、文旅展示、个人出行等场景。这是国内首款量产载人变形机甲产品，标志着人形/多足机器人在商用载人领域的探索突破。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://weixin.qq.com/sph/A4DgXFJg3F",
+          "tp": "载人机甲量产",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月12日，宇树科技在官方视频号发布一款量产版载人变形机甲GD01，载人后重量约500kg，售价约390万元。宣传视频中显示，该机器人支持直立和四足行走，同时可一拳将砖墙锤倒，可用于特种作业、文旅展示、个人出行等场景。",
+          "hb": 1
+        },
+        {
+          "t": "中国电信实现40Tbps大容量经典光通信与商用量子密钥分发系统百公里空芯光纤共传",
+          "d": "2026-05-12",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "中国电信研究院联合科大国盾量子、长飞、中兴、北邮等实现40Tbps（50×800Gbps）超大容量经典光通信与商用量子密钥分发系统在百公里空芯光纤稳定共传，安全密钥率达9.56kbps，创全球量子-经典共传新纪录。通过将经典信道传输特性纳入优化框架，协同波长分配与发射功率配置抑制非线性噪声，有利于降低量子通信建网光纤数量、缩短部署周期，助力量子科技规模化应用。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.stdaily.com/web/gdxw/2026-05/12/content_514979.html",
+          "tp": "量子经典共传",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据科技日报5月12日报道称，中国电信研究院联合科大国盾量子、长飞、中兴及北京邮电大学等实现40Tbps（50×800Gbps）超大容量经典光通信与商用量子密钥分发（QKD）系统在百公里空芯光纤的稳定共传，安全密钥率达9.56kbps。文中宣传，此次共传创下全球量子-经典共传系统新纪录，其将经典信道传输特性纳入优化框架，通过波长分配与发射功率协同配置，抑制非线性噪声，在超大容量经典传输与高安全量子密钥之间实现平衡，有利于降低量子通信建网光纤数量、缩短部署周期，助力量子科技规模应用；该技术可与现有光通信网络融合，用于各领域信息数据传输。",
+          "hb": 1
+        },
+        {
+          "t": "英伟达拟在美国变电站旁布局5-20M小型数据中心用于推理业务",
+          "d": "2026-05-12",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "英伟达联合InfraPartners、Prologis、EPRI计划在变电站旁布局5-20MW小型数据中心用于推理业务，当某变电站负荷过高或故障时，算力任务可自动调度转移至其他站点。计划2026年底前在美开发至少5个试点。EPRI预计2030年美数据中心用电将占全国9-17%，而电网峰值利用率仅约53%，分布式小数据中心可利用电网富余容量，缓解入网审批周期长等问题。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://spectrum.ieee.org/distributed-inference-data-centers",
+          "tp": "变电站数据中心",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "推理任务用数据中心用能路径提供",
+          "b": "据IEEE Spectrum在5月12日发文称，英伟达拟联合数据中心建设商InfraPartners、房地产服务商Prologis、电力科学研究院（EPRI），在变电站旁布局5-20MW的小型数据中心，可在某一座变电站用电负荷过高、或是发生停电故障时，算力任务自动调度转移到尚有富余供电容量的其他变电站旁的数据中心。此次参与各方拟在探索如何通过更小的分布式站点满足计算需求，同时不增加电网负担；其计划在26年底前在美国至少开发5个试点。\n文中称，EPRI预计到2030年美国数据中心用电量或将占到全国发电量的9%至17%；用于训练AI大模型的算力中心规模也达GW级别。电网运营商需考虑如何满足大量的新增负载；数据中心开发者则需面临较长的（文中称有时可达十年）入网审批周期，部分数据中心开发商选择自建燃气电厂、出资新建电网设备、投资聚变公司等以期保障其未来用电需求。\n而杜克大学2025年的一份报告显示，由于美国电力供给体系基于满足每年用电峰值而建设，但其峰值用电负荷几乎可以达到气候温和时段的两倍，而全年峰值时长通常不足200小时，使其电网的发电装机容量平均实际利用率约53%。数据中心的推理认为无需大量GPU与高端组网，只需将单条用户查询送入模型，即可生成结果输出。整个过程不涉及反向传播，也就不需要各分片输入数据之间进行大规模协同调度，可通过错峰用电、灵活调度利用这部分余量，且分布式数据中心有望实现快速审批入网，变电站自带的电网设备和光纤也省去了电力/网络接入成本。而潜在的推理延迟等问题，英伟达和EPRI预估，算力负载只有约0.1%的时间需要转移到不同的变电站。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "原位透射电镜研究揭示PdGa合金催化剂在CO2加氢中的动态重构机制",
+        "质谱研究解析脂肪酸光脱羧酶光照诱导构象变化的分子路径",
+        "南方电网联合多方在云南试点主动式电网惯量实时监测系统"
+      ],
+      "entries": [
+        {
+          "t": "PdGa合金在CO2加氢中的动态行为：基于芯片表面有机金属化学与原位透射电镜研究",
+          "d": "2026-05-12",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究结合芯片表面有机金属化学（SOMC）和原位透射电子显微镜（operando TEM），系统研究了PdGa合金催化剂在CO₂加氢反应条件下的动态演变行为。工业催化剂广泛使用促进剂元素提升性能，但其在反应中的原子级重构机制尚不清晰。研究发现PdGa合金在反应气氛下发生可逆的表面结构重构和元素偏聚，揭示了促进剂通过动态调控活性位点几何与电子结构来优化催化性能的本质机制。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01393",
+          "tp": "PdGa合金CO2加氢",
+          "aip": 1,
+          "kp": [
+            "催化剂[CO2加氢]: PdGa合金纳米颗粒",
+            "[方法]: 芯片表面金属有机化学+原位TEM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Industrial processes rely on the use of promoter elements to improve the performance of catalysts. Despite considerable efforts, the fundamental understanding of the origin of promotion remains elusive, partly due to the inherent complexity of catalytic systems. In this work, we develop a surface organometallic chemistry approach on an in situ MEMS chip for the preparation of tailored PdGa nanoparticles enabling to monitor the dynamic response of their structure and reactivity under a range of conditions ─ including CO2 hydrogenation ─ via operando (scanning) transmission electron microscopy. Upon air exposure, the PdGa nanoparticles exhibit a core-shell structure, which vanishes after reduction in H2, forming alloyed PdGa nanoparticles exhibiting structural defects. Notably, under CO2 hydrogenation conditions (3:1 H2:CO2, 230 °C) at 1 bar, PdGa-GaOx interfaces are dynamically formed, while methanol is concomitantly detected. This study reveals the highly dynamic nature of PdGa catalysts and points out the promotional role of Ga in driving methanol synthesis under CO2 hydrogenation via the formation of MGa-GaOx interfaces.",
+          "hb": 1
+        },
+        {
+          "t": "光致构象变化机制揭秘：光酶脂肪酸光脱羧酶的光足迹-离子迁移质谱研究",
+          "d": "2026-05-12",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "研究利用光足迹-离子迁移质谱（light-footprinting ion mobility MS）技术，揭示了脂肪酸光脱羧酶（FAP）光照诱导构象变化的分子机制。FAP是少数天然存在的光驱动酶之一，可将脂肪酸光催化转化为烃类化合物。研究精确解析了光照条件下酶活性口袋的构象重排路径，阐明了底物识别与催化转换的关键结构动力学过程，为光酶的理性工程改造和生物燃料合成应用提供了结构基础。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18659",
+          "tp": "光酶脱羧机理",
+          "aip": 1,
+          "kp": [
+            "光酶[生物燃料]: 脂肪酸光脱羧酶FAP",
+            "[方法]: 光足迹离子迁移质谱揭示构象变化",
+            "瓶颈[工业应用]: 光失活"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fatty acid photodecarboxylase (FAP) converts fatty acids to hydrocarbons upon irradiation and is one of the few natural photoenzymes with potential for biofuel production, although photoinactivation remains a major barrier for industrial applications. Here, we employ light footprinting ion mobility mass spectrometry (IM-MS), together with complementary biophysical approaches, to investigate the conformational changes and stability of FAP upon irradiation. Mass spectra of FAP reveal four major forms of the protein: in the dark, FAP is always bound to the flavin adenine dinucleotide (FAD) cofactor and up to two endogenous fatty acid substrates; upon irradiation, these noncovalent species are released producing the apo form. Ion mobility data show an irradiation-induced conformational change in FAP concomitant with photoinactivation. Collision cross-section distributions reveal the effect of fatty acid binding on the conformation and photoactivity of the protein: FAP adopts extended conformations under irradiation and a gradual decrease in photoactivity. The unfolding of both apo-FAP and holo-FAP was examined using collisionally activated IMS (aIMS), which shows irradiation destabilizes the native conformations of holo-FAP. Multivariate analysis using IM-MS data identified characteristic FAP analogues and FAD fragments, distinguishing dark and irradiated states. Analysis of each protein form with light footprinting IM-MS reveals events occurring during the productive and nonproductive FAP photocycles at the conformation levels. This study provides a new experimental approach for investigating photocatalytic and photoinactivation processes and highlights the complex conformational dynamics required for efficient photocatalysis, which is crucial for understanding catalytic mechanisms and guiding future protein engineering and design.",
+          "hb": 1
+        },
+        {
+          "t": "南方电网主动式电网惯量实时监测系统在云南试点成功",
+          "d": "2026-05-12",
+          "a": "",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "南方电网联合暨南大学、北京四方、许继电气等开发的主动式电网惯量实时监测系统在云南试点成功。该技术以柔性直流为探测源，主动向电网注入微小信号，利用超高精度测量装置监测状态变化，实现大电网惯量实时精准监测，克服了传统通过同步发电机开停机数量估算惯量精度不高、结果保守的缺点，适应新能源大规模并网后新型电力系统实时调控需求。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/uf_mrVhd_neEy7JNQ-2i9A",
+          "tp": "电网惯量监测",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月12日，南方电网技术情报中心在官方公众号发文称，其联合暨南大学、北京四方和许继电气等开发的主动式电网惯量实时监测系统在云南成功应用。文中称，随着风电、光伏等新能源大规模并网，电网惯量来源变得复杂；传统方法主要通过同步发电机开停机数量估计惯量，存在精度不高、结果保守等缺点，可能导致系统状态评估不准、额外开机增加运行成本，难以适应新型电力系统实时调控需求。其开发的技术以柔性直流作为探测源，通过主动、安全地向电网注入微小信号，利用关键站点部署的超高精度测量装置监测电网状态变化，可实现对大电网惯量实时、精准监测。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

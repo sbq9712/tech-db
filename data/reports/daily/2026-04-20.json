@@ -1,0 +1,182 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月20日　星期一",
+  "date_range": "2026-04-20",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "光致互变异构能量转移机制突破钙钛矿光伏电池紫外光稳定性瓶颈",
+      "异种电解液解耦反应化学设计实现双无电极锌锰电池稳定循环"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "哈尔滨电机厂全球首台50Mvar分布式调相机通过验证将并网",
+      "延迟富卤素分子钝化钙钛矿纳米晶显著提升紫光发射效率",
+      "新型冠醚聚酰亚胺人工离子分离膜实现高选择性钠离子过滤"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "光致互变异构能量转移机制突破钙钛矿光伏电池紫外光稳定性瓶颈",
+        "异种电解液解耦反应化学设计实现双无电极锌锰电池稳定循环"
+      ],
+      "entries": [
+        {
+          "t": "光驱动互变异构介导的空穴传输界面能量转移稳定高效反式钙钛矿太阳能电池",
+          "d": "2026-04-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "针对钙钛矿太阳能电池(PSCs)在紫外光诱导下界面降解导致稳定性下降的问题，发现光致互变异构驱动的能量转移机制可在空穴传输界面实现稳定化。该机制有效抑制界面缺陷形成和非辐射复合，在反式结构PSCs中实现了高效率与长期稳定性的兼顾，为解决钙钛矿光伏器件UV稳定性瓶颈提供了新策略。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3596437?af=R",
+          "tp": "钙钛矿界面稳定化",
+          "aip": 1,
+          "kp": [
+            "[界面工程]: HTL界面引入FRET能量转移通道",
+            "紫外吸收剂[FRET]: UV-312草酰胺类",
+            "[稳定机制]: 光致互变异构驱动能量转移抗紫外"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Perovskite solar cells (PSCs) offer high power conversion efficiencies (PCEs) but suffer from UV‐induced degradation, hindering their practical deployment. Here, we introduce a Förster resonance energy transfer (FRET) channel at the hole‐transport layer (HTL)/perovskite interface by incorporating the ultraviolet absorber N‐(2‐ethoxyphenyl)‐N’‐(2‐ethylphenyl)oxamide (UV‐312). Under UV irradiation, UV‐312 adopts an enol‐resonant configuration that facilitates ultrafast FRET (∼20 ps) to the interface. This process promotes charge separation and suppresses UV‐induced Pb–I bond dissociation, thereby preserving the [PbI\n                    6\n                    ]\n                    4–\n                    octahedral framework and enhancing UV‐stress resilience. Moreover, the rigid, extended conjugation of UV‐312 mitigates MeO‐2PACz aggregation, optimizing interfacial energy‐level alignment and minimizing stress inhomogeneity. Consequently, the champion device (aperture area: 0.09 cm\n                    2\n                    ) achieves a remarkable PCE of 27.05% with a high open‑circuit voltage of 1.186 V and a minimal non‐radiative voltage loss of only 61 mV. Impressively, the performance scales to 25.08% for a 1 cm\n                    2\n                    PSC and 23.00% for a 12.96 cm\n                    2\n                    mini‑module, accompanied by robust operational stability under continuous light, heat, and UV stress. This work redefines UV absorbers as active energy‐management units, offering a unified approach to simultaneously address efficiency and stability issues in perovskite photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "异种电解液解耦锌与MnO₂氧化还原化学实现双无电极贫液电池",
+          "d": "2026-04-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "双无电极Zn-MnO2电池因理论能量密度极高（616 mAh g⁻¹@2V）而备受关注，但Zn负极与MnO2正极在同一电解液中各自的氧化还原化学相互干扰。本研究提出采用非相似电解质（dissimilar electrolyte）将两者的反应化学解耦，使Zn²⁺沉积/溶解与MnO₂的转换反应在各自最优环境中独立进行，从而抑制副反应、拓宽电压窗口，为实现高能量密度水系锌锰电池的稳定循环提供了一条切实可行的电解质设计路径。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524846?af=R",
+          "tp": "锌锰无极电池",
+          "aip": 1,
+          "kp": [
+            "能量密度[Zn-MnO2双无负极]: 616 mAh/g@2V",
+            "[策略]: 异种电解质解耦Zn与MnO2氧化还原",
+            "[特点]: 双无电极+贫液电解质"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Dual‐electrode‐free Zn–MnO\n                    2\n                    batteries offer exceptionally high theoretical energy density (616 mAh g\n                    −1\n                    at 2 V) and simplified manufacturing, yet their practical use is hampered by low Coulombic efficiency (CE) and unstable cycling, arising from the intrinsic incompatibility of Zn and MnO\n                    2\n                    redox chemistries. Previous studies employing preloaded Zn and excess electrolyte obscure this incompatibility. Herein, we design a dissimilar electrolyte architecture to decouple Zn plating‐stripping from MnO\n                    2\n                    deposition‐dissolution, fundamentally addressing their incompatibility. The architecture integrates two distinct gels, wherein a self‐assembled nanometer‐thin water layer functions as a “soft wall” for selective ion transport due to binding energy differences at the gel/water interface. Further, the screening effect induced by the discrepancy in ionic conductivity across the junction is investigated for the first time, offering new insights into ion transport in heterogeneous electrolytes. This strategy enables a dual‐electrode‐free lean‐electrolyte Zn–MnO\n                    2\n                    cell with areal and volumetric energy densities of 3.1 mWh cm\n                    −2\n                    and 25.8 Wh L\n                    −1\n                    , and a power density of 24.1 mW cm\n                    −2\n                    at 2 mAh cm\n                    −2\n                    . The cell also achieves an average CE of 91% at 1mAh cm\n                    −2\n                    cycling. Moreover, the dual‐electrode‐free configuration readily integrates with diverse current collectors, extending the concept to flexible and stretchable batteries for wearable electronics, soft robotics, and beyond.",
+          "hb": 1
+        },
+        {
+          "t": "光互变异构驱动的能量转移在空穴传输界面稳定高效倒置钙钛矿太阳能电池",
+          "d": "2026-04-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究提出利用光致互变异构驱动的能量转移策略，在空穴传输界面稳定高效倒置钙钛矿太阳能电池。钙钛矿太阳能电池具有高功率转换效率，但紫外诱导的界面降解是限制其长期稳定性的关键瓶颈。研究发现界面处特定分子的光致互变异构过程可将高能紫外光子能量无损转移，抑制界面缺陷生成和相分离，显著提升了器件的紫外稳定性和整体光电转换效率。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3596437?af=R",
+          "tp": "钙钛矿能量转移稳定",
+          "aip": 1,
+          "kp": [
+            "[界面策略]: UV-312引入FRET能量转移通道",
+            "[机制]: 光致互变异构驱动能量转移",
+            "[目标问题]: UV诱导钙钛矿电池退化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Perovskite solar cells (PSCs) offer high power conversion efficiencies (PCEs) but suffer from UV‐induced degradation, hindering their practical deployment. Here, we introduce a Förster resonance energy transfer (FRET) channel at the hole‐transport layer (HTL)/perovskite interface by incorporating the ultraviolet absorber N‐(2‐ethoxyphenyl)‐N’‐(2‐ethylphenyl)oxamide (UV‐312). Under UV irradiation, UV‐312 adopts an enol‐resonant configuration that facilitates ultrafast FRET (∼20 ps) to the interface. This process promotes charge separation and suppresses UV‐induced Pb–I bond dissociation, thereby preserving the [PbI\n                    6\n                    ]\n                    4–\n                    octahedral framework and enhancing UV‐stress resilience. Moreover, the rigid, extended conjugation of UV‐312 mitigates MeO‐2PACz aggregation, optimizing interfacial energy‐level alignment and minimizing stress inhomogeneity. Consequently, the champion device (aperture area: 0.09 cm\n                    2\n                    ) achieves a remarkable PCE of 27.05% with a high open‑circuit voltage of 1.186 V and a minimal non‐radiative voltage loss of only 61 mV. Impressively, the performance scales to 25.08% for a 1 cm\n                    2\n                    PSC and 23.00% for a 12.96 cm\n                    2\n                    mini‑module, accompanied by robust operational stability under continuous light, heat, and UV stress. This work redefines UV absorbers as active energy‐management units, offering a unified approach to simultaneously address efficiency and stability issues in perovskite photovoltaics.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "哈尔滨电机厂全球首台50Mvar分布式调相机通过验证将并网",
+        "延迟富卤素分子钝化钙钛矿纳米晶显著提升紫光发射效率",
+        "新型冠醚聚酰亚胺人工离子分离膜实现高选择性钠离子过滤"
+      ],
+      "entries": [
+        {
+          "t": "哈尔滨电机厂50Mvar、4极隐极分布式调相机通过验证",
+          "d": "2026-04-20",
+          "a": "",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "哈尔滨电机厂自主研制的全球首台50Mvar、4极隐极分布式调相机通过全部验证，具备批量生产与并网条件，将用于华润电力康平300MW风电项目。该调相机兼具ms级快速动态响应与长周期稳态支撑能力，相较传统2极调相机短路比提升、转动惯量提升500%以上，碳刷维护周期延长半年以上，有效抑制电压骤降和频率波动工况下的脱网风险。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.hec-china.com/news_content/6271.html",
+          "tp": "分布式调相",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月20日，哈尔滨电机厂在官网发文称，其自主研制的全球首台50Mvar（兆乏，无功功率）、4极隐极分布式调相机通过全部验证，具备批量生产与并网条件，将用于华润电力康平300MW风电项目。\n文中称，该分布式调相机兼具ms级快速动态响应与长周期稳态支撑能力，可在电压骤降、频率波动等极端工况下即时介入，抑制机组脱网风险。相较传统50 Mvar、2极隐极调相机，其短路比得到提升、转动惯量提升500%以上，提供电压支撑、平抑功率振荡能力更强。此外，其碳刷维护周期延长半年以上、定子引出线设计抑制了电晕腐蚀，优化了运维流程和安全性。",
+          "hb": 1
+        },
+        {
+          "t": "延迟富卤素分子钝化CsPbCl₃钙钛矿纳米晶实现明亮紫色发光二极管",
+          "d": "2026-04-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "CsPbCl₃钙钛矿纳米晶作为紫光发射体具有线宽窄、色纯度高的优势，但表面卤素空位导致的非辐射复合严重制约了其光致发光量子效率。本研究采用延迟型卤富集分子钝化（delayed halide-rich molecular passivation）策略，在合成后期补充表面卤素并修饰配体，有效填补Cl空位、降低缺陷态密度，显著提升紫光发射亮度与稳定性，对短波长钙钛矿LED与显示应用具有重要意义。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202526012?af=R",
+          "tp": "钙钛矿紫光LED",
+          "aip": 1,
+          "kp": [
+            "[钝化策略]: 富卤素分子延迟双钝化",
+            "[量子点]: CsPbCl₃纳米晶",
+            "[应用]: 紫光LED"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    CsPbCl\n                    3\n                    perovskite nanocrystals (NCs) are promising violet emitters owing to their narrow emission and high color purity, but their low defect tolerance demands careful passivation to achieve high photoluminescence quantum yield (PLQY), and typically only for fresh CsPbCl\n                    3\n                    NCs. Here, we report a delayed dual‐passivation pathway in CsPbCl\n                    3\n                    NCs induced by the halide‐rich molecular reagent phosphorus oxychloride (POCl\n                    3\n                    ), which unexpectedly yields a strong time‐dependent PLQY enhancement instead of the rapid degradation usually observed. POCl\n                    3\n                    gradually decomposes into P‐ and Cl‐containing species, enabling a controlled release of excess halides that autonomously passivates halide vacancies in a self‐regulated manner. This dynamic self‐healing process boosts the PLQY of colloidal CsPbCl\n                    3\n                    NCs by over 40‐fold relative to pristine samples and sustains high violet emission efficiencies for more than 2 months of storage under ambient conditions. Spectroscopic measurements and calculations indicate that both liberated Cl\n                    −\n                    and in situ—formed phosphonic species passivate halide vacancies and Pb\n                    2\n                    +\n                    dangling bonds, suppressing mid‐gap defect states. The resulting self‐passivated NCs deliver a luminance of 409 cd m\n                    −\n                    2\n                    , the highest reported for CsPbCl\n                    3\n                    ‐based violet emitters. These results establish halide‐rich dual passivators such as POCl\n                    3\n                    as powerful tools for long‐term defect control in chloride perovskite NCs and for robust, bright violet‐LEDs.",
+          "hb": 1
+        },
+        {
+          "t": "构象适应性冠醚-聚酰亚胺作为超快高选择性人工钠离子通道",
+          "d": "2026-04-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "构建同时具备高渗透性与高选择性的人工Na⁺通道是膜科学与选择性分离领域的长期难题。本研究将构象自适应的冠醚基元引入聚酰亚胺主链，设计出超快且极高选择性的钠离子分离膜。冠醚环可对Na⁺进行尺寸/配位双重识别，而聚合物骨架的自适应构象变化在维持高离子通量的同时排斥竞争离子，为盐湖提锂、废水脱钠及精准离子分离提供了高效膜材料设计范式。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6835315?af=R",
+          "tp": "人工钠离子通道",
+          "aip": 1,
+          "kp": [
+            "[材料]: 冠醚-聚酰亚胺构象自适应",
+            "[结构特点]: 超越刚性孔解决渗透-选择性权衡",
+            "[应用]: 人工Na+离子通道"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The development of artificial Na\n                    +\n                    channels that simultaneously achieve high permeability and high selectivity remains a formidable challenge, as existing systems are constrained by a limited performance ceiling. To address the classical permeability–selectivity trade‐off, we present an adaptive design strategy that moves beyond conventional rigid‐pore architectures. The system is based on a flexible polyimide backbone functionalized with 15‐crown‐5 ionophores via tunable alkyl linkers (C\n                    \n                      n\n                    \n                    H\n                    2\n                    \n                      n\n                    \n                    +1\n                    ,\n                    n\n                    = 8–16), enabling efficient Na\n                    +\n                    permeation through multiple adaptive mechanisms. The conformational plasticity of the architecture facilitates dynamic and cooperative ion coordination during capture and transmembrane transport. The best‐performing transporter,\n                    4\n                    , exhibits a high Na\n                    +\n                    conductance of 48.9 pS, which is twice that of gramicidin A‐mediated K\n                    +\n                    transport, together with a record Na\n                    +\n                    /K\n                    +\n                    selectivity of 37.8. This work establishes a new benchmark for synthetic ion transporters and opens promising avenues for the development of biomimetic membranes and therapeutic applications.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月31日　星期日",
+  "date_range": "2026-05-31",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "ITER完成330吨超导磁体冷却测试，进入高电流试验准备阶段",
+      "福建农林大学研发新型自组装单层分子，钙钛矿与硅叠层电池获33%光电转换效率",
+      "Fortescue在非洲部署首台无起重机安装风电机组，降低偏远地区建设成本"
+    ],
+    "AI与智能科技": [
+      "中国科研团队开发无人机蜂群分布式决策算法，声称可在强电磁干扰下维持编队",
+      "中国邮政部署人形机器人执行包裹分拣，单小时处理量为1200件",
+      "研究证实Ω栅极单晶氧化铟场效应管可突破2T0C架构DRAM微缩物理瓶颈"
+    ],
+    "通用技术": [
+      "蓝色起源火箭测试发生爆炸事故，NASA载人登月项目进度面临延期风险",
+      "科研团队利用时空分辨光谱技术，探明光学谐振腔驱动光生电荷分离机制",
+      "实验观测到电荷密度波交织超导体内部的超流效应，揭示量子有序态耦合特征"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "ITER完成330吨超导磁体冷却测试，进入高电流试验准备阶段",
+        "福建农林大学研发新型自组装单层分子，钙钛矿与硅叠层电池获33%光电转换效率",
+        "Fortescue在非洲部署首台无起重机安装风电机组，降低偏远地区建设成本"
+      ],
+      "entries": [
+        {
+          "t": "世界最大托卡马克装置将330吨磁体冷却至近绝对零度",
+          "d": "2026-05-31",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "ITER（国际热核聚变实验堆）的磁体冷测试设施已启动，工程师成功将330吨超导磁体冷却至接近绝对零度。该冷却过程历时12天，是托卡马克装置运行前的关键步骤。极低温环境是超导磁体产生强约束磁场的前提条件，此次冷却标志着ITER向高电流试验阶段迈出重要一步，为后续等离子体约束和聚变点火奠定基础。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/world-largest-tokamak-magnet-fusion-plasma",
+          "tp": "ITER磁体冷却",
+          "aip": 1,
+          "kp": [
+            "磁体质量[ITER环向场线圈]: 330吨",
+            "工作温度[ITER超导磁体]: 4 K（-269°C）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Engineers are preparing for high-current trials at ITER’s newly activated Magnet Cold Test Facility, following a 12-day cooling process that lowered a 330-ton toroidal field coil to its functioning temperature of 4 Kelvin (minus 269 degrees Celsius). This operational milestone was celebrated yesterday during a site visit by the ITER Council’s Management Advisory Committee.\nThis program verifies magnet performance before the parts are locked into the main reactor. Over the course of four to six months per coil, the team will subject components to full operational electrical currents, which reach 68 kiloamperes (kA) for the toroidal field units and 48 kA for the poloidal field units.\n“Eighteen D-shaped toroidal field coils, six ring-shaped poloidal field coils, and the six independent modules of the central solenoid-with a combined stored magnetic energy of 51 Gigajoules (GJ)-will produce the magnetic fields that initiate, confine, shape and control the ITER plasma,” said ITER in a press release.\nConstructed from niobium-tin (Nb3Sn) and niobium-titanium (Nb-Ti), these alloys require liquid helium immersion to lose their electrical resistance.\nSuperconducting systems are essential for industrial-scale fusion because they generate\nintense magnetic fields\nwith minimal electricity compared to copper variants. However, this state relies on keeping temperatures, current levels, and magnetic forces below strict physical limits.\nIf these thresholds fail, the material undergoes a “quench,” reverting to a standard resistive state that releases sudden heat. Consequently, a major goal of these cold runs is verifying that the automatic safety sensors detect these thermal changes instantly.\nRunning these benches alongside existing plant networks provides early data on how the central control systems, power feeds, vacuums, and cooling setups interact. This parallel testing reveals vulnerabilities prior to final plant commissioning.\nThough the setup cannot mimic the exact environment of an active fusion reaction, it measures how the magnets handle stress, monitors insulation behavior, and checks the integrity of internal superconducting joints.\nManaging components that weigh hundreds of tonnes demands significant logistics, including a 20-meter-long cryostat chamber, heavy electrical links, and direct lines to the facility’s primary helium cryoplant.\nbuilt this testing area inside an assembly hall formerly used by Fusion for Energy for shaping large exterior coils, capitalizing on the building’s existing heavy cranes and its layout.\nITER Director-General Pietro Barabaschi noted that adapting this existing footprint allowed the organization to lower project risks logically before starting full system integration. He added that the facility will eventually serve the broader commercial fusion market by sharing technical insights.\nOnce ITER finishes its own scheduled runs on the initial niobium-tin (Nb3Sn) coil and subsequent manufacturer deliveries, private fusion ventures will gain access to the testing area.\n“This is important for ITER as well as an example of how ITER can support the wider fusion ecosystem by creating knowledge, infrastructure, and operational experience that others can use,”\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from Energy\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nWorld’s largest offshore wind converter with 6 billion kWh annual capacity heads to sea\nChina: CATL opens world’s largest energy storage testbed with 100 MVA grid simulator\nRussia builds first RITM-200 reactor unit for floating nuclear power plant fleet\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nWorld’s largest offshore wind converter with 6 billion kWh annual capacity heads to sea\nChina: CATL opens world’s largest energy storage testbed with 100 MVA grid simulator\nRussia builds first RITM-200 reactor unit for floating nuclear power plant fleet",
+          "hb": 1
+        },
+        {
+          "t": "福建农林欧阳新华等人Nat Commun：打破SAM分子聚集与电荷传输的“跷跷板”，助力钙钛矿/硅叠层电池实现33%认证效率_手机网易网",
+          "d": "2026-05-31",
+          "a": "网易知光谷",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "福建农林大学欧阳新华团队在Nature Communications报道打破SAM分子聚集与电荷传输跷跷板效应的策略。设计合成一系列立体扩展不对称咔唑基自组装单层分子(BABCz、BADBCz、MeO-BADCz)，通过单晶解析和分子动力学模拟揭示分子构型对聚集行为和空穴传输的调控机制，助力钙钛矿/硅叠层电池实现33%认证效率。",
+          "sc": 8.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.163.com/dy/article/KU5NVMQV0552LHQK.html",
+          "tp": "钙钛矿硅叠层电池",
+          "aip": 1,
+          "kp": [
+            "SAM分子[钙钛矿/硅叠层]: MeO-BADCz",
+            "效率[叠层电池]: 33.04%（认证）",
+            "效率[宽带隙钙钛矿]: 24.05%",
+            "带隙[顶电池]: 1.68 eV"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tingxia Yan, Chenxu He（共同第一作者）\n欧阳新华 & Chi Li\n1.设计并合成了一系列立体扩展的不对称咔唑基自组装单层分子（BABCz、BADBCz、MeO-BADCz），通过单晶结构解析和分子动力学模拟，系统揭示了分子构象与堆积模式对聚集行为和电荷传输的影响规律。\n2.MeO-BADCz采用三节段扭曲构象，有效抑制长程结晶和过度聚集，同时通过多维度的C–H···π相互作用构建了连续的三维\n逾渗网络，解决了传统SAM难以兼顾均匀覆盖与高效传输的矛盾。\n3.基于MeO-BADCz的宽带隙（1.68 eV）钙钛矿太阳能电池实现了24.05%的光电转换效率，在ISOS-L-1协议下连续运行1000小时后仍保持97.1%的初始效率。\n4将.MeO-BADCz应用于织构化硅异质结底电池的复合层，制备的\n获得33.53%的实验室效率，并经第三方认证达到33.04%，同时表现出优异的湿热和光照稳定性。\n一、实现高效稳定钙钛矿/硅\n太阳能电池存在的问题与挑战，以及本文的核心成果\n在钙钛矿/硅叠层太阳能电池中，自组装单层作为空穴选择层和复合结材料，对调控功函数、减少能量损失、支撑高质量钙钛矿生长至关重要。然而，常用的对称型咔唑基SAM（如PACz系列）存在刚性π共轭骨架、有限的锚定功能、弱分子间耦合以及缺乏空间位阻调节等结构缺陷，容易导致分子过度聚集，难以在粗糙的织构化硅衬底上形成均匀、无针孔的分子层，从而造成界面复合严重、\n提取效率低下。尽管近年来通过分子不对称设计和引入甲氧基等官能团取得了一定进展，但如何在同一分子中同时抑制过度聚集又保持连续高效的电荷传输通道，仍然缺乏清晰的设计原则。针对这一难题，本文设计并合成了三种立体扩展的不对称咔唑基SAM分子——BABCz、BADBCz和MeO-BADCz，通过\n结构解析、分子动力学模拟和多种界面表征，系统揭示了分子构象与堆积模式对聚集行为和电荷传输的影响规律。其中，MeO-BADCz采用三节段扭曲构象，在有效抑制长程结晶和过度聚集的同时，通过多维度的C–H···π相互作用构建了连续的三维电荷逾渗网络，并凭借甲氧基的电子给体效应增强了界面钝化和功函数调控能力。基于MeO-BADCz的宽带隙钙钛矿太阳能电池实现了24.05%的光电转换效率，在ISOS-L-1协议下连续运行1000小时后仍保持97.1%的初始效率。将该SAM应用于织构化硅异质结底电池的复合层，所制备的钙钛矿/硅叠层电池获得了33.53%的实验室效率，并经第三方认证达到33.04%，且表现出优异的湿热和光照稳定性。这项工作为设计适用于粗糙衬底、兼具抗聚集与高效电荷传输的SAM材料提供了明确的理论指导和分子工程策略。\n二、结果与讨论 要点1：分子设计、电化学稳定性与聚集行为调控\nBABCz、BADBCz和MeO-BADCz通过不对称共轭策略逐步扩展空间位阻，其中MeO-BADCz在3,6-二甲氧基咔唑和苯甲酸之间引入额外的咔唑单元，形成三节段扭曲骨架。循环伏安扫描显示，BABCz和BADBCz随扫描次数增加电流密度显著下降，而MeO-BADCz仅略有变化，表明其具有更优的电化学稳定性。在光热老化（1个太阳，24小时）下，三种合成SAM均优于商业4PACz（后者出现明显变色和杂质峰）。动态光散射显示，BABCz的粒径分布宽（173–380 nm），BADBCz居中（106–208 nm），而MeO-BADCz最窄（36–67 nm），有利于在ITO表面形成均匀分子层。GIWAXS进一步证实，BABCz呈现明显的布拉格斑点（高结晶性），BADBCz中等，MeO-BADCz结晶性最弱，说明空间位阻有效抑制了长程聚集。分子动力学模拟表明，在ITO表面随机放置200个分子后，MeO-BADCz表现出明显的构象自适应性，最终形成更均匀、稳定的表面覆盖，而BABCz和BADBCz则出现不均匀团聚。\n要点2：单晶结构揭示堆积模式与电荷传输通道\nBABCz的单晶结构显示，BCz核心与苯环之间的二面角达61.85°，分子呈T型堆积，纵向滑移6.674 Å，π–π重叠不足，但通过多个C–H···π相互作用（距离3.049–3.784 Å）维持了一定程度的电荷传输通道。BADBCz的二面角增大至89.82°，滑移距离增至8.580 Å，平行相邻二聚体的C–H···π距离分别为4.062 Å和6.390 Å，超出典型π相互作用范围，聚集显著减弱，但电荷传输路径也被严重削弱。MeO-BADCz呈现三平面扭曲构象（咔唑-苯环二面角68.73°，甲氧基咔唑-苯环二面角60.54°），平行相邻二聚体展示多组C–H···π相互作用（3.202 Å、3.578 Å），纵向滑移8.139 Å。不同二聚体之间像手指交错，形成三维互锁网络。这种结构不仅最有效地抑制了聚集，还构建了连续、高效的电荷逾渗通道。单空穴器件显示MeO-BADCz具有最显著的欧姆行为，验证了其优异的空穴传输能力。\n要点3：界面多功能调控——锚定、功函数、钝化与能级匹配\nDFT计算吸附能显示，MeO-BADCz在ITO上的吸附能为-3.36 eV，远低于BABCz（-1.79 eV）和BADBCz（-1.74 eV）。XPS中In 3d峰位移更大，AFM-IR显示MeO-BADCz在清洗后仍保持强红外信号，证明其强锚定和界面稳定性；在织构化硅衬底上同样表现出更均匀的红外响应。KPFM测得裸ITO功函数4.72 eV，经BADBCz、BABCz、MeO-BADCz处理后分别升至4.94、5.07、5.12 eV，MeO-BADCz的最大功函数归因于其较大的分子偶极矩（ESP显示甲氧基引入额外负电势区），有利于空穴提取。UPS表明MeO-BADCz与钙钛矿的HOMO/VBM能级偏移最小，减少了界面非辐射复合。接触角测试显示MeO-BADCz具有最佳润湿性（79.8°），钙钛矿薄膜平均晶粒尺寸达382 nm（BABCz 302 nm，BADBCz 286 nm），埋底界面几乎无针孔。XPS中Pb 4f峰向低结合能移动，FTIR显示C–O峰下移5 cm⁻¹，证实甲氧基与铅的相互作用。DFT缺陷形成能计算表明，MeO-BADCz大幅提高了PbI反位、I空位等缺陷的形成能，有效钝化铅相关缺陷。KPFM对埋底界面测量显示，MeO-BADCz表面电位最低（-315 mV），表明更强的p型特性和向上的能带弯曲，促进光生空穴提取并排斥电子。原位时间依赖PL显示，BADBCz样品在85分钟光照后PL峰蓝移6 nm且强度显著下降，BABCz强度下降但峰位稳定，而MeO-BADCz变化最小，证明其有效抑制了宽带隙钙钛矿的光致相偏析。\n要点4：单结宽带隙钙钛矿太阳能电池性能\n器件结构为ITO/HSL/Perovskite (1.68 eV)/LiF/C60/BCP/Ag。BADBCz器件PCE为21.97%（Voc 1.202 V，Jsc 21.89 mA/cm²，FF 83.48%）；BABCz器件PCE为22.92%；MeO-BADCz器件最佳，反向扫描PCE为24.05%（Voc 1.261 V，Jsc 22.13 mA/cm²，FF 86.18%），正向扫描23.89%，迟滞指数仅0.06%。该效率是宽带隙PSC的最高值之一。稳定功率输出和EQE积分电流（21.35 mA/cm²）与J-V一致。稳定性方面，ISOS-D-2协议（65°C，50% RH，昼夜循环）下，封装器件1000小时后MeO-BADCz保持90.5%初始PCE，优于BABCz（80.1%）和BADBCz（65.3%）。ISOS-L-1（未封装，连续1个太阳光照）下，MeO-BADCz器件1000小时后保持97.1% PCE，显著优于BABCz（90.5%）和BADBCz（85%），挑战了传统认为膦酸锚定优于羧酸锚定的观点。\nPL和TRPL显示，MeO-BADCz样品表现出更强的PL淬灭和更短的载流子寿命（τ_ave = 145.77 ns），而BABCz为268.85 ns，BADBCz为331.38 ns，证明空穴提取更高效。TPV和TPC表明，MeO-BADCz器件具有最长的TPV衰减寿命（1.20 ms）和最快的TPC衰减（3.562 μs），表明复合被抑制且提取更快。PLQY测量显示，MeO-BADCz样品的PLQY高达14.1%，准费米能级分裂为1.29 eV，远高于对照，证实界面非辐射复合被有效抑制。DLCP显示MeO-BADCz器件在埋底界面处的陷阱密度最低。Mott-Schottky给出V_bi = 1.226 V（BABCz 1.183 V，BADBCz 1.149 V）。EIS拟合表明MeO-BADCz具有最高的复合电阻（3782 Ω·cm²）和最低的串联电阻（9.4 Ω·cm²），归因于其三维连续电荷传输网络。\n要点6：钙钛矿/硅叠层电池性能\n采用双面织构化n型硅异质结底电池（金字塔尺寸1.5–2.5 μm），SAM作为复合层和空穴选择层，顶部为1.68 eV宽带隙钙钛矿。BADBCz基叠层PCE为31.04%，BABCz为32.11%，MeO-BADCz最佳：实验室效率33.53%（Voc 1.968 V，Jsc 20.76 mA/cm²，FF 82.07%），经CPVT认证PCE为33.04%（Voc 1.960 V，Jsc 20.66 mA/cm²，FF 81.58%），为当时最高认证效率之一。稳定输出33.32% @ 1.74 V。EQE积分电流分别为20.77和20.78 mA/cm²，匹配良好。SEM显示MeO-BADCz修饰后，钙钛矿在织构化硅上实现垂直无间隙覆盖，而BADBCz存在裸露金字塔和空隙。稳定性方面，ISOS-D-2下500小时后，MeO-BADCz叠层保持85.1%初始PCE（BABCz 75.8%，BADBCz 62.8%）。ISOS-L-1 MPP追踪500小时后，MeO-BADCz保持92.6% PCE，BADBCz仅62.8%。优异的稳定性归因于高质量的钙钛矿结晶和SAM本身的电化学鲁棒性。\n本研究通过理性设计一系列立体扩展的不对称咔唑基SAM分子，系统揭示了分子构象、堆积模式与聚集行为、电荷传输能力之间的内在关联。适度聚集有助于形成电荷传输通道，过度聚集导致覆盖不均，而完全松散则破坏传输。MeO-BADCz通过三节段扭曲骨架和甲氧基取代，实现了“抑制过度聚集”与“构建三维C–H···π电荷逾渗网络”的巧妙平衡，同时增强了ITO锚定、功函数调控、缺陷钝化和界面能带弯曲。基于MeO-BADCz的宽带隙PSC实现了24.05%的效率，并在1000小时光照老化后保持97.1%的初始效率；将其应用于织构化硅/钙钛矿叠层电池，获得了33.04%的认证效率，且展现出优异的湿热和光照稳定性。这项工作为设计适应粗糙衬底、兼具高覆盖均匀性和高效电荷传输的下一代SAM材料提供了明确的分子工程准则，对推动钙钛矿/硅叠层光伏的产业化具有重要意义。\nYan, T., He, C., Li, C. et al. Sterically-extended asymmetric conjugated hole-selective layer for perovskite/silicon tandem solar cells. Nat. Commun. (2026).\nhttps://doi.org/10.1038/s41467-026-73656-2\n知光谷光伏器件学术QQ群：641345719\n钙钛矿产教融合交流@知光谷（微信群）：需添加编辑微信\n为加强科研合作，我们为海内外科研人员专门开通了\n，备注：姓名-单位-研究方向（无备注请恕不通过），由编辑审核后邀请入群。",
+          "hb": 1
+        },
+        {
+          "t": "Fortescue与Nabrawind在非洲部署首台无起重机安装风电机组",
+          "d": "2026-05-31",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能源测/发电技术/风电",
+          "as": "Fortescue旗下Nabrawind在非洲部署了首台无需起重机安装的风力发电机组，突破传统大型吊车难以进入偏远地区的工程瓶颈。无起重机安装技术可降低风电场建设成本、减少复杂地形限制，对非洲清洁能源发展具有示范意义，为偏远地区大型风电项目提供了新方案。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/05/30/fortescue-nabrawind-deploy-first-crane-less-wind-turbine-in-africa/",
+          "tp": "免吊装风机部署",
+          "aip": 1,
+          "kp": [
+            "[部署方式]: 无起重机自吊装(Nabrawind TSE)",
+            "[应用环境]: 纳米比亚严苛风场"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| May 30 2026 - 6:42 am PT\n‘s recently-acquired turbine subsidiary Nabrawind has done something that was believed to be impossible: they’ve installed a full-scale, energy producing wind turbine in harsh Namibian conditions using a new,\ndeployment process.\nDespite the presence of a “just in case” crane at the site (you can see it in the photo above, at left), the Nabrawind-developed Total Self Erecting System (SES) and Skylift turbine techn overcame the technical challenges presented by the harsh,\nremote Namibian climate\nTogether, the company says its branded solutions technologies eliminate the need for large-tonnage cranes on many job sites, overcoming the significant logistical challenges of getting those cranes in position in the sort of remote and extremely and windy locations that are ideal for the turbines, themselves. And, most importantly, Total SES is capable of working with many types of existing wind turbines.\nThe technology developed by Nabralift has evolved, making it possible to lift any type of tower once the rotor has been installed at a height of 30–40 m (previously 90–100 m). The operation is performed reliably in unstable winds, at speeds of 15 m/s and bursts of up to 20 m/s, unlike conventional cranes that can only operate in winds of up to 6–8 m/s for the installation of certain components, such as the blades. The Innovent Diaz wind farm, located in one of the world’s most wind-rich areas, has enabled the validation of this installation system across the entire range of wind speeds.\nIn addition, the system allows for the hoisting of sections of thin-walled tubular towers without compromising their structural integrity, thanks to Total SES technology, which builds on Nabralift’s Self-Erecting System (SES) to enable its use on all types of wind towers.\nThe InnoVent Diaz wind farm will eventaully feature seven Goldwind GW165/6000 wind turbines deployed with Nabrawind’s Total SES and Skylift solutions, enabling the company to demonstrate both the repeatability of the processes and their ability to handle complex installation procedures a broader range of environmental conditions.\nTheir ultimate goal\n? To bring the install time of down to a net cycle time of one week by the time they get to the seventh one –\nneeding to drag a massive crane out to the site.\nFortescue is pushing hard towards net zero emission operation, and the acquisition of Nabrawind as a step towards true energy independence at its operations is a big step towards that goal.\nThe ability to install new, efficient wind turbines quickly, efficiently, and\nthat’s provided by the new Total SES and Skylift solutions, though?\nThey’ll end up being a big step for everyone looking to deploy wind as part of their renewable energy solution\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "中国科研团队开发无人机蜂群分布式决策算法，声称可在强电磁干扰下维持编队",
+        "中国邮政部署人形机器人执行包裹分拣，单小时处理量为1200件",
+        "研究证实Ω栅极单晶氧化铟场效应管可突破2T0C架构DRAM微缩物理瓶颈"
+      ],
+      "entries": [
+        {
+          "t": "中国新型无人机蜂群系统声称可在干扰环境下猎杀目标",
+          "d": "2026-05-31",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "中国研究团队声称开发出一种新型AI算法，使无人机蜂群在强电子干扰环境下仍能协同猎杀目标。传统无人机依赖GPS与无线电链路，易受干扰失效。该系统据称利用视觉与惯性导航、群体自组网及分布式决策算法，在卫星定位与通信中断时自主维持编队与目标锁定。报道强调其抗干扰与去中心化协同能力，但作战效能仍取决于实际部署场景与对抗手段，相关技术细节尚未经独立验证。",
+          "sc": 8.7,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/ai-robotics/china-autonomous-drone-swarm-system",
+          "tp": "无人机集群",
+          "aip": 1,
+          "kp": [
+            "[算法]: 异构图时空推理HG-STR",
+            "[抗干扰]: 通信被干扰下自主猎杀目标"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A Chinese research team claims to have developed a new artificial intelligence (AI) algorithm capable of allowing drone swarms to autonomously hunt and eliminate targets even when communications are jammed and visibility is severely degraded.\nThe algorithm, called\nHeterogeneous Graph Spatio-Temporal Reasoning\n(HG-STR), was detailed in a paper published in China’s leading aviation journal,\nActa Aeronautica et Astronautica Sinica\n, earlier this month.\nAccording to the researchers\n, it is the first known system capable of achieving a “100 percent kill rate” while operating quickly enough to keep pace with modern combat conditions. However, a word of caution.\nAs with many military AI claims, the headline figure should be treated carefully. Especially since a perfect kill rate in simulation is very different from real battlefield performance.\nModern warfare introduces weather, deception, civilian presence, damaged sensors, electronic warfare, and countless unpredictable variables that can rapidly degrade even highly advanced systems.\nThat said, the underlying technology is worth paying attention to because it reflects a broader and very real shift in how militaries are approaching autonomous warfare. After all, most existing drone systems still rely heavily on human operators.\nEven advanced swarms often depend on stable communications and relatively simple coordination logic. Lose the radio link or block the drones’ sensors, and effectiveness can collapse quickly. HG-STR is reportedly designed specifically to address that problem.\nTraditional battlefield AI systems often treat all incoming information similarly. A drone, a tank, a building, or a hill may simply become another object inside a dataset.\nThe Chinese researchers argue that this approach struggles to capture the true complexity of combat environments. Their system instead builds a dynamic “graph” of the battlefield, where different entities are treated differently and linked together through relationships.\nSeen in this light, a radar installation is not merely an object. It is a threat node connected to terrain, airspace, jamming sources, and defensive positions.\nFurther, a forest becomes concealment, a hill a line-of-sight blocker. Other things, like friendly drones, become information-sharing assets rather than isolated units.\nThe result is a swarm\ncapable of making higher-level tactical inferences rather than simply reacting to what it directly sees.\nIn practical terms, this could allow drones to continue pursuing targets even when communications are severed or direct visual confirmation is lost. A swarm may infer likely enemy positions from terrain, movement patterns, or previous observations and continue adapting independently.\nThat capability matters because modern warfare is increasingly dominated by electronic warfare. The conflict in Ukraine has demonstrated how rapidly drones can become blind, jammed, spoofed, or disconnected.\nFuture autonomous systems will need to function inside exactly those kinds of degraded environments. The most striking part is the suggestion that swarms could eventually be sent into contested battlespaces with only a final human instruction before operating independently.\nSo, instead of humans directly controlling drones, future operators may increasingly define objectives while AI systems determine execution in real time. And China is far from alone in pursuing these technologies.\nThe United States, NATO countries, and Russia are all investing heavily in autonomous swarm warfare, collaborative combat aircraft, and AI-assisted battlefield coordination.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from AI and Robotics\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system",
+          "hb": 1
+        },
+        {
+          "t": "中国邮政部署人形机器人，每小时分拣1200件包裹",
+          "d": "2026-05-31",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "中国邮政据报道已在世界最繁忙的邮政网络之一部署人形机器人用于包裹分拣，每小时可处理约1200件。该人形机器人集成视觉识别、抓取规划与自主导航能力，可在分拣中心执行搬运与分类任务。此举是中国加速推进人形机器人产业化落地的重要示范，验证其在物流仓储等结构化场景的可用性与经济性。业内关注点在于实际作业连续性、故障率以及与现有自动化流水线的协同效率。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/ai-robotics/china-deploys-humanoid-robots-in-postal-hub",
+          "tp": "人形机器人分拣",
+          "aip": 1,
+          "kp": [
+            "分拣效率[人形机器人]: 1200件/小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China has reportedly deployed humanoid robots into one of the world’s busiest postal networks as the country accelerates efforts to automate logistics at a massive scale.\nImages released this week from the\nlogistics site under the\npostal center show humanoid robotic sorters handling parcels alongside robotic arms and unmanned forklifts in a highly automated warehouse environment.\nAccording to\n, the robots are capable of processing up to 1,200 parcels per hour as part of a broader modernization push by China Post Group.\nThe facility, located in\nin southern Guangdong Province, can allegedly handle an average of 6.5 million pieces of mail every day, with peak volumes exceeding 10 million.\nTo be able to deal with those numbers, operators have increasingly turned toward autonomous systems capable of working continuously with minimal human intervention.\nWhile robotic arms and automated conveyor systems are already common in large fulfillment hubs worldwide, the use of humanoid robots represents a notable shift in strategy. Unlike traditional industrial robots, humanoid systems are designed to operate in environments originally built for people.\nThat means they can theoretically move through existing warehouses, identify parcels, interact with shelves or cages, and adapt to changing tasks without requiring an entirely new facility layout.\nFootage released by\nshows humanoid robots gripping parcels from containers and placing them onto sorting lines, while autonomous forklifts transport loads through the warehouse floor. The machines appear to work in coordination with conventional automation systems already installed at the site.\nLooking at the bigger picture, China has rapidly emerged as one of the leading markets for humanoid robotics development. In response, companies across the country are racing to commercialize systems for manufacturing, logistics, elderly care, and public service applications.\nBacked by heavy government investment and a strong domestic robotics supply chain, Chinese firms are increasingly positioning humanoid robots not as experimental showcase machines, but as practical industrial tools.\nLogistics, in particular, has become an attractive sector for deployment. Warehouses and postal centers operate around the clock, labor shortages remain a challenge in many regions, and parcel volumes continue to surge due to e-commerce growth.\nTo this end, robots that can autonomously sort, transport, and identify packages offer the potential to reduce operational costs while improving throughput during peak demand periods.\npostal center’s latest deployment also highlights how modern logistics automation is evolving beyond single-purpose machinery.\nInstead of relying solely on fixed robotic systems, operators are beginning to integrate multiple autonomous technologies into a connected ecosystem that includes mobile robots, machine vision, AI-driven identification systems, and unmanned vehicles.\nHowever, questions remain over long-term reliability, maintenance costs, and whether humanoid systems can consistently outperform simpler robotic alternatives in real-world logistics environments. Humanoid robots are generally more mechanically complex and expensive than fixed industrial automation.\nThat said, China’s willingness to deploy the technology at scale suggests the country sees humanoid robotics as more than a futuristic experiment. In facilities processing millions of parcels each day, even small gains in efficiency can translate into significant operational and economic advantages.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from AI and Robotics\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system",
+          "hb": 1
+        },
+        {
+          "t": "以Ω栅单晶In₂O₃场效应管突破2T0C DRAM性能极限",
+          "d": "2026-05-31",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究展示了Ω型栅极单晶氧化铟(In2O3)场效应晶体管(Ω-SC In2O3 FETs)在2T0C(两晶体管零电容)DRAM架构中的性能极限。2T0C架构通过去除传统1T1C DRAM中的电容器，突破微缩瓶颈。单晶In2O3沟道提供高迁移率和优异开关比，Ω型栅极结构增强了栅控能力。该方案为实现DRAM进一步小型化和高密度集成提供了可行的非硅路径。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec3934?af=R",
+          "tp": "氧化物薄膜晶体管",
+          "aip": 1,
+          "kp": [
+            "[器件结构]: Ω栅单晶In₂O₃ FET无电容2T0C DRAM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study demonstrates high performance Ω-shaped-gated single-crystal In\n                    2\n                    O\n                    3\n                    field-effect transistors (Ω-SC In\n                    2\n                    O\n                    3\n                    FETs), which push the performance boundaries of oxide-based electronics. To showcase these capabilities in a demanding application, a capacitorless two-transistor (2T0C) dynamic random-access memory (DRAM) cell is fabricated based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs. Specifically, a high average field-effect mobility of 321.7 cm\n                    2\n                    /V·s with an on-off ratio above 10\n                    9\n                    and a steep subthreshold swing (SS) of 64.6 mV/dec are obtained for Ω-SC In\n                    2\n                    O\n                    3\n                    FETs due to the single-crystal In\n                    2\n                    O\n                    3\n                    channel as well as effectively enhanced electrostatic control of the Ω-shaped gate structure. The robust gate bias temperature stress stabilities, including positive and negative bias-temperature stresses, are achieved with a threshold voltage (\n                    V\n                    TH\n                    ) shift value of −121 and 41 mV for 10\n                    4\n                     s, respectively, which is attributed to low defect density. Moreover, the high-performance capacitorless 2T0C DRAM cell based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs is constructed, which presents long data retention of 10\n                    5\n                     s, ultrafast access speed of 5 ns, endurance of 10\n                    12\n                     cycles, and storage of 3 bits.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "蓝色起源火箭测试发生爆炸事故，NASA载人登月项目进度面临延期风险",
+        "科研团队利用时空分辨光谱技术，探明光学谐振腔驱动光生电荷分离机制",
+        "实验观测到电荷密度波交织超导体内部的超流效应，揭示量子有序态耦合特征"
+      ],
+      "entries": [
+        {
+          "t": "蓝色起源火箭爆炸震动NASA载人重返月球计划",
+          "d": "2026-05-31",
+          "a": "Nature",
+          "c": "通用技术/通信和运输/航天",
+          "as": "蓝色起源（Blue Origin）火箭在一次测试或发射任务中发生爆炸事故，这起失败预计将推迟NASA通过其登月着陆器系统实现载人重返月球的计划。当前美国与中国在登月竞赛中均加速推进，美国原计划在2020年代中期实现载人登月以保持领先，但此次事故暴露了商业航天供应商可靠性与进度管理的风险。NSC和NASA可能需要重新评估任务时间表与备选方案，中美登月竞赛格局因此增添变数。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01732-0",
+          "tp": "登月计划延期",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Failure will likely delay US space agency’s efforts to beat China to the lunar surface. Failure will likely delay US space agency’s efforts to beat China to the lunar surface.",
+          "hb": 1
+        },
+        {
+          "t": "时空成像揭示光学谐振腔驱动的光生电荷分离机制",
+          "d": "2026-05-31",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/催化剂",
+          "as": "光生电荷在微米到纳米尺度上的分离是光电和光催化转化的核心过程。本研究利用时空分辨光谱技术，揭示光学微腔驱动下光生电荷的分离机制，表明微腔与分子间的强耦合可调控电荷转移路径与效率。该发现为设计高效光电和光催化器件提供了新思路。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag327/8698052?rss=1",
+          "tp": "光腔电荷分离",
+          "aip": 1,
+          "kp": [
+            "[电荷分离]: 光学共振腔结构驱动微纳尺度分离"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photogenerated charge separation across micro- to nanometer scales is essential for photoelectric and photocatalytic conversion. However, identifying microstructures that sustain efficient charge separation and elucidating the underlying mechanisms remain challenging. Here, by combining surface photovoltage microscopy with optical imaging, we show that optically resonant cavity structures generate highly nonuniform light-field distributions that subsequently drive efficient charge separation through asymmetric electron and hole diffusivities. Spatiotemporal imaging of carrier dynamics from femtoseconds to seconds reveals that this charge separation originates from the combined contributions of ultrafast hot-electron diffusion (∼3 ps) and long-lived trap-limited transport (∼5 ms). Leveraging these effects, we demonstrate control over both the magnitude and direction of charge separation via optical structure engineering. These findings deepen the fundamental understanding of diffusion-driven charge separation in semiconductors and establish optical-architecture engineering as a viable approach for manipulating it, providing a blueprint for advancing solar energy conversion and optoelectronic technologies.",
+          "hb": 1
+        },
+        {
+          "t": "电荷密度波交织超导体中的超流效应",
+          "d": "2026-05-31",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在电荷密度波（CDW）交织的超导体中观测到超流效应。准粒子的能量-动量色散是凝聚态物理中的基础概念，而电荷密度波与超导序的共存与竞争近年来备受关注。该工作通过实验揭示超导电流对CDW调制的影响，表明两种量子有序态之间存在深度交织耦合，为理解非常规超导机制、探索拓扑物态及设计新型量子器件提供了关键实验依据。",
+          "sc": 6.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73778-7",
+          "tp": "超导物理",
+          "aip": 1,
+          "kp": [
+            "[超流效应]: 超电流诱导准粒子谱Doppler位移",
+            "体系[超导]: 电荷密度波交织超导体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The energy-momentum (E-k) dispersion of quasiparticles constitutes a fundamental concept in condensed matter systems. The ability to modify the E-k dispersion, exemplified by supercurrent-induced Doppler shifts of Bogoliubov quasiparticle spectra in superconductors, enables manipulation of various emergent quantum properties. However, investigations into the supercurrent effect on superconductors intertwined with charge orders remain scarce. Here, we report that the Meissner current, generated by the diamagnetic response to an applied in-plane magnetic field, can tailor Bogoliubov quasiparticle excitations at the precursor charge density wave (CDW) vectors. Our scanning tunneling spectroscopic imaging reveals a field-driven symmetry breaking of CDW modulations, specifically a C3v-to-Cs transition, in superconducting NbSe2. Model calculations suggest that the observed anisotropy originates from a selective Doppler-shift-induced E-k dispersion reconstruction. Furthermore, altering the field direction enables on-demand tuning of anisotropic CDW modulations and visualization of their momentum-space distribution. These results highlight a novel mechanism for controlling emergent electronic phases through momentum-space engineering.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

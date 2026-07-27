@@ -1,0 +1,48 @@
+__pycache__/
+*.pyc
+.DS_Store
+sources/
+data/processed/all-records-lite.json
+
+# Pipeline runtime state
+.pipeline_state.json
+.pipeline.lock
+.gh_env
+data/processed/embeddings.json
+data/processed/embeddings-v2.json
+data/processed/clustering-decisions.jsonl
+.reclassify_checkpoint.json
+
+# Claude Code local config
+.claude/
+
+# One-off utility scripts (already executed, kept locally only)
+scripts/restore_bodies.py
+
+# One-off fix scripts (already executed, kept locally only)
+scripts/fix_excel_round2.py
+scripts/fix_summaries.py
+scripts/reclassify_unrelated.py
+
+# One-off fix script (already executed, kept locally only)
+scripts/fix_titles_and_summaries.py
+
+# One-off orchestration script (already executed, kept locally only)
+scripts/master_fix.py
+
+# Local virtualenv (dev only)
+.venv/
+
+# Backups of source-of-truth (local only)
+data/processed/all-records-lite.json.bak.*
+
+# Summary backfill helper scripts (interactive-session recovery, local only)
+scripts/gen_summaries_fast.py
+scripts/gen_summaries_one.py
+scripts/gen_summaries_remaining.py
+scripts/gen_remaining_summaries.py
+scripts/gen_summaries_serial.py
+# Local report generator (needed by CI workflows)
+
+# One-off report orchestration script (already executed, kept locally only)
+scripts/gen_all_reports.sh

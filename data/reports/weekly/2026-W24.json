@@ -1,0 +1,325 @@
+{
+  "type": "weekly",
+  "date_label": "2026-06-08 ~ 2026-06-14",
+  "date_range": "2026-06-08 ~ 2026-06-14",
+  "main_theme": "固态电池能量密度突破465 Wh/kg，OpenAI洽谈10吉瓦数据中心，首条百万片级AR光波导产线投产",
+  "overview": "欧洲初创企业SOLiTHOR研制出10 Ah级固态电池示范电芯，能量密度达465 Wh/kg并完成针刺测试。OpenAI正与英伟达合作洽谈租赁位于俄亥俄州功率达10吉瓦的数据中心。天津尼卡光学投产全球首条百万片级体全息光波导自动化产线，年产能达100万片。海辰储能发布1300Ah电芯与6.9MWh储能系统，瞄准4至8小时电网侧长时储能。星环聚能全尺寸高温超导环向场磁体完成20K低温励磁测试，成功励磁至4.5 kA。上海盘毂动力实现高性能轴向磁通电机首次批量生产，自重与尺寸均缩减50%。",
+  "headlines": {
+    "零碳产业": [
+      "SOLiTHOR研制出10 Ah级固态电池，能量密度达465 Wh/kg",
+      "海辰储能发布1300Ah电芯及6.9MWh集装箱储能系统",
+      "星环聚能全尺寸高温超导磁体成功励磁至4.5 kA",
+      "华为发布构网型储能变流器以支撑高比例新能源并网"
+    ],
+    "AI与智能科技": [
+      "尼卡光学投产全球首条百万片级体全息光波导自动化产线",
+      "OpenAI获英伟达支持，洽谈租赁俄亥俄州10吉瓦数据中心",
+      "Anthropic暂停向美国以外用户开放其最先进AI模型权限",
+      "香港中文大学团队实现1.6 Tb/s全光无DSP实时均衡"
+    ],
+    "通用技术": [
+      "世界首台可工作的核钟成功建成，基于原子核能级跃迁",
+      "上海盘毂动力实现轴向磁通电机首次批量生产",
+      "研究团队观测到锂离子在氮化硼纳米管中的超快传输",
+      "世界首台实用核钟落成，提供超高精度时间频率基准"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "SOLiTHOR研制出10 Ah级固态电池示范电芯，能量密度达465 Wh/kg并完成针刺测试。海辰储能推出1300Ah电芯与6.9MWh系统，瞄准4至8小时长时储能。星环聚能全尺寸高温超导环向场磁体完成20K低温测试，励磁至4.5 kA，最大磁场达11.1 T。",
+      "headlines": [
+        "SOLiTHOR研制出10 Ah级固态电池，能量密度达465 Wh/kg",
+        "海辰储能发布1300Ah电芯及6.9MWh集装箱储能系统",
+        "星环聚能全尺寸高温超导磁体成功励磁至4.5 kA",
+        "华为发布构网型储能变流器以支撑高比例新能源并网"
+      ],
+      "entries": [
+        {
+          "t": "海辰储能推出1300Ah电芯与6.9MWh系统，瞄准8小时储能",
+          "d": "2026-06-10",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中国电池制造商海辰储能(Hithium)推出面向4-8小时长时储能应用的大容量1300Ah电芯和6.9MWh集装箱储能系统。大容量电芯可降低系统单位成本和占地面积，提升能量密度。该产品在2026年上海SNEC展会上亮相，瞄准电网侧长时储能市场，应对可再生能源消纳对更长放电时长的需求。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
+          "tp": "长时储能电芯",
+          "aip": 1,
+          "kp": [
+            "电芯容量[LFP电池]: 1300Ah",
+            "系统容量[储能系统]: 6.9MW/55.2MWh",
+            "储能时长[系统]: 8小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe Chinese battery manufacturer is targeting 4- to 8-hour energy storage applications with new large-format cells and containerized systems.\nVincent Shaw\nTechnology & Products\nEnergy Storage\nUtility-scale\nImage: pv magazine\nithium presented two large-format energy storage cells and associated containerized systems at SNEC 2026 in Shanghai, as it expands its focus on the long-duration energy storage segment.\nThe company introduced the mass-production version of its ∞Cell 1300 Ah LFP cell, first announced in December 2025, alongside the first mass-production-level display of its ∞Power 6.9 MW/55.2 MWh eight-hour containerized storage system based on the cell. It also presented its ∞Cell 650 Ah cell and an ∞Power 10+ MWh system. The products were shown under the exhibition theme “Long-Duration Powering, Green Energy Enduring.”\nHithium said the 1300 Ah cell is designed for eight-hour storage applications. The company stated that the cell was developed based on system-level requirements, including 20-foot container dimensions, international transport constraints, and 1,500 V DC system architectures commonly used in energy storage.\nAccording to the company, the ∞Cell 1300 Ah uses LFP chemistry, with a nominal capacity of 1300 Ah, gravimetric energy density of at least 190 Wh/kg, volumetric energy density of at least 406 Wh/L, and a design life exceeding 25 years. HiTHIUM said the cell incorporates materials and structural optimizations to reduce temperature rise.\nThe ∞Power 6.9 MWh system uses a 4 × 1P416S configuration, liquid cooling, and CAN, RS485, and Ethernet communications. The company lists system-level gravimetric energy density of at least 135 Wh/kg and volumetric energy density of at least 160 Wh/L. The system supports side-by-side and back-to-back deployment and features low-noise cooling, a low-GWP refrigerant, recyclable structural components, and multi-stage active fire detection and protection. It is designed to comply with NFPA 855.\nHithium said the newly introduced 650 Ah cell and ∞Power 10+ MWh system are intended to expand its large-format product portfolio. Public information on the 650 Ah cell remains limited. The company said the platform is designed to improve project economics through higher energy density and improved system integration efficiency. Delivery is expected to begin in 2027.\nThe launch builds on Hithium’s long-duration storage roadmap over the past year.\nIn December 2024, the company introduced 1175 Ah and 587 Ah cells and a 6.25 MWh system, which it later said entered mass production and global delivery. In December 2025, it launched the ∞Cell 1300 Ah cell and the ∞Power 6.9 MW/55.2 MWh eight-hour system concept, with mass delivery planned for the fourth quarter of 2026.\nHiTHIUM has also outlined manufacturing plans in Chongqing and Heze, Shandong province, with more than 70 GWh of planned long-duration storage capacity expected to support deliveries from 2027. The company said its portfolio now covers 1- to 8-hour applications, combining LFP and sodium-ion technologies for utility-scale, commercial and industrial, and residential use cases.\nVincent Shaw\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "星环聚能全尺寸高温超导环向场磁体20K低温励磁电流达4.5 kA",
+          "d": "2026-06-11",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "星环聚能全尺寸高温超导环向场磁体通过20K低温励磁测试，成功励磁至4.5 kA。磁体高4米宽2米，与聚变堆装置同尺寸（非缩比），为全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体。绕组电流密度375 A/mm²，等效中心磁场3.06 T、最大磁场11.1 T，通流比超60%，实现从带材到控制系统全流程自主可控。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/ylbfoeuQtjNzH0cQqWqQ2w",
+          "tp": "聚变磁体励磁",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月11日，星环聚能在其官方公众号发文称，其研发的全尺寸高温超导环向场磁体通过20K（-253.15℃）低温励磁测试，成功励磁至4.5 kA。该磁体高4米、宽2米，与聚变堆装置尺寸完全一致（非缩比模型），宣传是全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体；含线圈盒工程电流密度超过40 A/mm²，绕组电流密度达375 A/mm²，等效装置中心磁场达到3.06 T、等效装置最大磁场达到11.1 T，励磁电流4.5kA，通流比超过60%。此外，其还宣传实现了从带材验收、线圈绕制、关键零部件（接头/引线等）、10kA级馈线、制冷与冷屏系统、磁屏蔽系统、信号采集（EPIC测试仪）、失超检测准备（OFDR系统）以及到AI Native控制系统的全流程自主可控的能力。",
+          "hb": 1
+        },
+        {
+          "t": "固态电池实现465 Wh/kg能量密度，通过极端安全测试",
+          "d": "2026-06-14",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "欧洲固态电池初创企业SOLiTHOR成功研制出首款10 Ah级示范电芯，能量密度达465 Wh/kg，并通过了极端安全测试。这一指标显著超越当前主流液态锂离子电池的能量密度上限（约250-300 Wh/kg），标志着硫化物或氧化物固态电解质路线在电芯工程化层面取得实质性进展。高能量密度与通过针刺、热滥用等极端安全测试的结合，验证了固态电池在解决液态电解质易燃易泄漏痛点方面的潜力。该进展对电动汽车续航提升及eVTOL等高能量密度需求场景具有关键意义，但量产工艺成熟度与成本仍是产业化主要挑战。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/energy/solid-state-battery-cell-aerospace-defense",
+          "tp": "固态锂电池",
+          "aip": 1,
+          "kp": [
+            "能量密度[固态锂电池]: 465 Wh/kg",
+            "电池容量[示范电芯]: 10 Ah",
+            "[安全测试]: 通过极端安全测试"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "European battery startup SOLiTHOR has produced its first 10 Ah demonstration cell, marking an increase in the physical scale of its solid-state lithium battery technology. The company intends for this larger format to show that its laboratory chemistry can transition into commercial production for industries requiring specialized power sources.\nAlongside the production of the larger cell, the company reported stack-level energy densities of 465 Wh/kg and 1400 Wh/L within a pouch design. Engineers reached these figures by introducing a high-loading cathode with an areal capacity of 8mAh/cm2 into the company’s proprietary Solid Composite Electrolyte.\nUnlike traditional lithium-ion systems or certain semi-solid designs, this chemistry uses a sol-gel process that functions without requiring any liquid electrolyte injections during assembly.\nLaboratory evaluations indicate specific performance characteristics under varied operational environments. When testing multilayer pouch cells at a temperature of 25°C, the cells sustained continuous discharge rates reaching 5C without experiencing major drops in capacity.\nThe same units tolerated short 30-second power pulses up to 10C when held at a 50% state of charge. This specific energy discharge behavior is relevant for machinery that requires brief, intense\nenergy outputs\n, such as unmanned aerial vehicles during departure and descent sequences.\n“SOLiTHOR has developed a chemistry that allows the industry to rethink the manufacturing of solid-state battery cells,” said Dr. Fanny Bardé, Co-Founder and Chief Technology Officer at SOLiTHOR.\nLong-term stability tests were conducted on smaller 1 Ah multilayer pouch cells. These units completed more than 500 full discharge cycles while maintaining over 80% of their original storage capacity, which provides an initial benchmark for the operational lifespan of the chemistry.\nDuring standardized safety protocols, the fully charged multilayer cells were subjected to intentional overcharging and direct nail penetration.\n“In safety assessments, SOLiTHOR’s technology successfully passed the overcharge and nail penetration tests on a 100% charge multilayer pouch cell with no smoke, leakage, thermal runaway, or fire,” highlighted the company in a press release.\n“These technical achievements not only prove that the chemistry works, but that it delivers the combination of energy density, power performance, and cycle life required for practical applications,” added Bardé.\nThe manufacturing framework for the new chemistry relies on roll-to-roll processing systems already common in the battery sector. By removing the liquid filling stage entirely and accelerating the subsequent\nchemical formation\nand aging protocols, the production timeline for these steps is shortened by two-thirds.\nBecause these specific phases normally represent one-quarter of total cell manufacturing expenditures, their reduction alters the overall processing economics.\n“Existing Li-ion facilities can be upgraded for solid-state production with no new equipment, limited switching costs, and reduced operational costs,” noted the\npress release\nThe company is targeting initial applications for its battery cells within the aerospace, maritime, transport, and defense sectors.\n“With this major technical update, we are demonstrating that our technology can be realistically produced, satisfying the demands of high-performance and high-value applications within aerospace, dual-use, and mobility,” concluded Rodrigo P. Navarro, CEO at SOLiTHOR.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from Energy\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nUS’ first vertically integrated solar factory starts production to power 1.3M homes\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nUS’ first vertically integrated solar factory starts production to power 1.3M homes",
+          "hb": 1
+        },
+        {
+          "t": "海辰储能推出1300Ah电芯与6.9MWh系统，瞄准8小时储能",
+          "d": "2026-06-10",
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "海辰储能在2026年上海SNEC展会上发布两款大容量储能电芯及配套集装箱系统，重点面向4-8小时长时储能应用场景。新产品采用大尺寸电芯设计以降低系统BOM成本和提升能量密度。该布局反映了储能行业向更长时长、更低度电成本方向发展的趋势，满足电网级储能对长时放电能力的需求。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ess-news.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
+          "tp": "长时储能系统",
+          "aip": 1,
+          "kp": [
+            "电芯容量[LFP量产]: 1300Ah",
+            "系统容量[8h储能]: 6.9MW/55.2MWh",
+            "储能时长[系统]: 8小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hithium presented two large-format energy storage cells and associated containerized systems at SNEC 2026 in Shanghai, as it expands its focus on the long-duration energy storage segment.\nThe company introduced the mass-production version of its ∞Cell 1300 Ah LFP cell, first announced in December 2025, alongside the first mass-production-level display of its ∞Power 6.9 MW/55.2 MWh eight-hour containerized storage system based on the cell. It also presented its ∞Cell 650 Ah cell and an ∞Power 10+ MWh system. The products were shown under the exhibition theme “Long-Duration Powering, Green Energy Enduring.”\nHithium said the 1300 Ah cell is designed for eight-hour storage applications. The company stated that the cell was developed based on system-level requirements, including 20-foot container dimensions, international transport constraints, and 1,500 V DC system architectures commonly used in energy storage.\nAccording to the company, the ∞Cell 1300 Ah uses LFP chemistry, with a nominal capacity of 1300 Ah, gravimetric energy density of at least 190 Wh/kg, volumetric energy density of at least 406 Wh/L, and a design life exceeding 25 years. HiTHIUM said the cell incorporates materials and structural optimizations to reduce temperature rise.\nThe ∞Power 6.9 MWh system uses a 4 × 1P416S configuration, liquid cooling, and CAN, RS485, and Ethernet communications. The company lists system-level gravimetric energy density of at least 135 Wh/kg and volumetric energy density of at least 160 Wh/L. The system supports side-by-side and back-to-back deployment and features low-noise cooling, a low-GWP refrigerant, recyclable structural components, and multi-stage active fire detection and protection. It is designed to comply with NFPA 855.\nHithium said the newly introduced 650 Ah cell and ∞Power 10+ MWh system are intended to expand its large-format product portfolio. Public information on the 650 Ah cell remains limited. The company said the platform is designed to improve project economics through higher energy density and improved system integration efficiency. Delivery is expected to begin in 2027.\nThe launch builds on Hithium’s long-duration storage roadmap over the past year.\nIn December 2024, the company introduced 1175 Ah and 587 Ah cells and a 6.25 MWh system, which it later said entered mass production and global delivery. In December 2025, it launched the ∞Cell 1300 Ah cell and the ∞Power 6.9 MW/55.2 MWh eight-hour system concept, with mass delivery planned for the fourth quarter of 2026.\nHiTHIUM has also outlined manufacturing plans in Chongqing and Heze, Shandong province, with more than 70 GWh of planned long-duration storage capacity expected to support deliveries from 2027. The company said its portfolio now covers 1- to 8-hour applications, combining LFP and sodium-ion technologies for utility-scale, commercial and industrial, and residential use cases.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "天津尼卡光学体全息光波导产线投产，年产能达100万片。OpenAI在英伟达支持下洽谈租赁俄亥俄州10吉瓦数据中心。香港中文大学团队提出集成可编程光信号处理器，实现1.6 Tb/s全光无DSP实时均衡，能耗仅数十飞焦耳/比特。",
+      "headlines": [
+        "尼卡光学投产全球首条百万片级体全息光波导自动化产线",
+        "OpenAI获英伟达支持，洽谈租赁俄亥俄州10吉瓦数据中心",
+        "Anthropic暂停向美国以外用户开放其最先进AI模型权限",
+        "香港中文大学团队实现1.6 Tb/s全光无DSP实时均衡"
+      ],
+      "entries": [
+        {
+          "t": "全球首条百万片级体全息光波导自动化产线在天津投产，消费级 AR 核心显示技术重大量产突破",
+          "d": "2026-06-14",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "天津尼卡光学设计建设的全球首条百万片级体全息光波导自动化产线在滨海高新区正式投产,年产能达100万片。体全息光波导是消费级AR眼镜的核心显示光学元件,决定成像质量与轻薄化程度。该产线的落地标志着我国在AR底层光学技术上从实验室小批量向工业化量产的关键跨越,有望打破国外厂商在AR光波导量产环节的垄断,加速消费级AR终端的规模化落地。",
+          "sc": 10.0,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/963/988.htm",
+          "tp": "体全息光波导",
+          "aip": 1,
+          "kp": [
+            "年产能[体全息光波导]: 100万片",
+            "量产突破[VHG]: 全球首条百万片级自动化产线"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 13 日消息，据天津高新区官方消息，6 月 13 日，由天津企业尼卡光学设计建设的\n全球首条百万片级体全息光波导自动化产线\n在天津滨海高新区华苑科技园正式投产。\n这条年产能达 100 万片的产线，标志着\n我国在消费级 AR（增强现实）核心显示技术领域实现了重大规模化量产突破\n，解锁了高性价比 AR 眼镜和车载 AR-HUD 走向大众市场的“最后一公里”。\n据介绍，AR 眼镜作为新一代 AI 智能终端，长期面临镜片厚重、漏光明显、价格高企等推广难点。体全息光栅波导（Volume Holographic Grating，VHG）凭借不泄露显示信息、接近普通镜片、超高通透性、结构轻薄等物理特性，被公认为消费级 AR 设备的重要技术路线。\n长期以来，AR 光波导核心的高性能材料与高精设备面临国外“卡脖子”风险。IT之家获悉，此次投产的天津产线，拥有 1500 平方米千级洁净车间及精密环控系统，全线采用独家定制的全息光刻设备及工艺平台，\n目前，尼卡方案已广泛应用于消费级 AR 眼镜及车载 AR-HUD 等领域，与多家消费电子、汽车制造头部厂商开展深入合作。",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI在英伟达支持下洽谈租赁俄亥俄州10吉瓦数据中心",
+          "d": "2026-06-11",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "OpenAI正洽谈租赁位于俄亥俄州、功率达10吉瓦的数据中心，并获英伟达支持。这一规模远超当前主流数据中心（通常百兆瓦级），若落实将成为全球最大AI算力基础设施之一，反映AI巨头对超大规模算力需求的急剧攀升，对电网供电和能源规划构成巨大挑战。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/articles/openai-talks-lease-10-gigawatt-ohio-data-center-backing-nvidia",
+          "tp": "超大规模数据中心",
+          "aip": 1,
+          "kp": [
+            "功率规模[数据中心]: 10 GW",
+            "[支持方]: Nvidia"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI in Talks to Lease 10 Gigawatt Ohio Data Center with Backing From Nvidia — The Information",
+          "hb": 1
+        },
+        {
+          "t": "香港中文大学Chaoran Huang提出集成可编程光信号处理器实现全光实时均衡",
+          "d": "2026-06-11",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "香港中文大学Chaoran Huang团队提出集成可编程光信号处理器（OSP），实现全光无DSP实时均衡。基于深层储备池和游标方案，采样分辨率约1皮秒。OSP同时均衡8个WDM信道，总吞吐量1.6 Tb/s，延迟<60皮秒，能耗仅数十飞焦耳/比特。在检测前运行，有效补偿色散、减轻带宽限制和光纤非线性，将WDM窗口扩大6.8倍。成果发表于Science。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.ady5344",
+          "tp": "光信号处理",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "大规模人工智能训练需要针对海量图形处理器集群的超低延迟、高能效互连技术。在强度调制/直接检测链路中，数字信号处理（DSP）均衡受限于相位损失引起的非理想均衡以及严格的功耗和延迟预算。本研究提出了一种集成可编程光信号处理器（OSP），它可作为非线性通用均衡器，执行全光、无DSP的实时均衡。具有全光读出功能的深层储备池实现了一种游标方案，具备约1皮秒的采样分辨率和可调谐的记忆窗口。该OSP同时均衡八个波分复用（WDM）信道，提供1.6太比特/秒的总吞吐量，延迟小于60皮秒，能耗仅为数十飞焦耳/比特。它在检测之前运行，提供出色的色散补偿，减轻了收发器带宽限制和光纤非线性，并将可用的WDM窗口扩大了6.8倍。文章于2026年6月11日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "美国以安全风险为由，Anthropic限制顶级模型",
+          "d": "2026-06-14",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "AI巨头Anthropic被迫暂停向美国以外用户开放其最先进AI模型的访问权限，原因是美国政府以安全风险为由提出要求。此举直接影响全球开发者和企业获取前沿模型的能力，可能加剧不同地区在AI技术获取上的不平等，反映出先进AI技术正成为地缘政治管控的重点对象，出口管制趋势日益明显。",
+          "sc": 8.1,
+          "i": "news",
+          "tg": "政策监管",
+          "u": "https://interestingengineering.com/ai-robotics/anthropic-blocks-international-users",
+          "tp": "AI模型出口管制",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "AI giant Anthropic has been forced to suspend access to its most advanced artificial intelligence models for users outside the US after the Trump administration imposed sweeping new export restrictions on the technology. The decision effectively blocks foreign governments, businesses, researchers, and individuals, as well as foreign nationals residing in the US, from using the company’s latest AI systems.\nAccording to a US administration official, Commerce Secretary Howard Lutnick informed Anthropic CEO Dario Amodei in a letter sent on Friday that the company’s newly released Fable 5 and Mythos 5 models are now classified under export control rules.\nTo comply with the directive, Anthropic has moved to disable\nfor all affected users, reflecting Washington’s growing view that cutting-edge AI capabilities should be treated as\nstrategically\nsensitive technologies.\nAnthropic said it chose to disable access to its two newest AI models entirely because the new US restrictions apply to a wide range of users, making selective enforcement impractical. The rules cover foreign governments, companies, and individuals, and even extend to some foreign-born Anthropic employees working in the country,\nthe Wall Street Journal\n“The net effect of this order is that we must abruptly disable\nand Mythos 5 for all our customers to ensure compliance. Access to all other Claude models is not affected,” the company said in a\non X, noting that they were “working to restore access as soon as possible”.\nalso notes that the decision marks one of the clearest signs yet that Washington is willing to intervene directly in the global AI race, treating advanced models as strategic technologies rather than ordinary commercial products.\nFor companies such as\nand its rivals, which are competing aggressively to release ever more capable systems ahead of highly anticipated public listings, regulatory hurdles and forced slowdowns can carry enormous financial consequences. Any disruption to product rollouts or access to international markets risks delaying growth plans and could ultimately cost the industry billions of dollars in lost revenue and valuation.\nThe suspension of access to Mythos could have immediate consequences far beyond the AI sector, as governments and private organizations have increasingly relied on the model to detect and fix software vulnerabilities. A prolonged shutdown could disrupt ongoing\ncybersecurity\noperations and delay critical defensive work across a range of industries,\nSectors such as finance, energy, and critical infrastructure have already integrated the technology into their security workflows. The development comes only days after Anthropic introduced Fable, a next-generation model built on the same advanced architecture as Mythos, making it available to the public with additional safeguards designed to limit potentially dangerous capabilities.\nTensions between Anthropic and the Trump administration have been building for months over the rules governing how the Pentagon can deploy the company’s AI systems. At the center of the dispute are the safety guardrails and operational limits attached to Anthropic’s models.\nAccording to Washington DC-based AI columnist Ron Schmelzer, the biggest takeaway from the latest restrictions is that governments are increasingly treating advanced AI as a strategic technology, on par with nuclear capabilities or high-grade encryption.\n“While the US was focusing on preventing foreign users from accessing Anthropic’s most powerful models, Anthropic’s reaction of making it unavailable to everyone shows that there’s a tension here between the AI mega companies efforts to rapidly increase their market share and profitability and governments efforts to make sure that AI is used for their benefit. In this push and pull, who will win, multi-billion dollar companies (or even trillion-dollar) or powerful governments?” he tells\nInteresting Engineering (IE)\nThe latest decision to impose new restrictions could further intensify that standoff, raising the stakes in an increasingly contentious debate over the\nuse of advanced AI.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from AI and Robotics\nAI and Robotics\nAI got smarter and twice as expensive in 2026. Here’s which model is worth it\nAI and Robotics\nNew research shows robot ‘personality’ in games hinges on timing and turn-taking\nAI and Robotics\nFIFA World Cup 2026 gets Boston Dynamics’ robot dogs for venue security patrols\nAI and Robotics\nWatch: Korean humanoid robot performs viral K-POP dance, learns by watching videos\nAI and Robotics\nRobot hand uses touch and vision to harvest ripe fruit with near-100% accuracy\nAI and Robotics\nAI got smarter and twice as expensive in 2026. Here’s which model is worth it\nAI and Robotics\nNew research shows robot ‘personality’ in games hinges on timing and turn-taking\nAI and Robotics\nFIFA World Cup 2026 gets Boston Dynamics’ robot dogs for venue security patrols\nAI and Robotics\nWatch: Korean humanoid robot performs viral K-POP dance, learns by watching videos\nAI and Robotics\nRobot hand uses touch and vision to harvest ripe fruit with near-100% accuracy",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "上海盘毂动力实现轴向磁通电机首次批量生产，自重减轻50%、尺寸缩减50%。科研团队建成世界首台基于原子核能级跃迁的实用核钟。研究发现锂离子在带电氮化硼纳米管中具备异常超快传输特性，可应用于高效锂电池电解质开发。",
+      "headlines": [
+        "世界首台可工作的核钟成功建成，基于原子核能级跃迁",
+        "上海盘毂动力实现轴向磁通电机首次批量生产",
+        "研究团队观测到锂离子在氮化硼纳米管中的超快传输",
+        "世界首台实用核钟落成，提供超高精度时间频率基准"
+      ],
+      "entries": [
+        {
+          "t": "历经数十年努力，世界首台实用核钟建成",
+          "d": "2026-06-14",
+          "a": "interesting engineering",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "经过数十年努力，世界首台可工作的核钟成功建成。核钟利用原子核能级跃迁而非电子跃迁来计时，理论精度远超现有原子钟，可作为更精确的时间与频率基准。这一突破标志着核光谱学从理论设想迈向工程实现，对基础物理常数测量、GPS导航、暗物质探测等领域具有深远意义。",
+          "sc": 8.1,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/innovation/first-nuclear-clock-thorium-229",
+          "tp": "核钟",
+          "aip": 1,
+          "kp": [
+            "同位素[核钟]: 229Th",
+            "核心突破[核钟]: 首批可工作核钟建成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "For decades, nuclear clocks have existed as one of physics’ most tempting promises. A device that could keep time even more accurately than today’s best atomic clocks. Now, two independent research teams have turned this idea into reality.\nResearchers in China and Europe have demonstrated working nuclear clocks based on the nucleus of\n, a rare isotope whose unique properties have long made it the leading candidate for next-generation timekeeping.\nThe achievement represents much more than a new kind of clock. Since a nucleus is far better shielded from environmental disturbances than the electrons used in atomic clocks,\nnuclear clocks\ncould eventually become the most precise timekeepers ever built.\nPlus, this breakthrough could improve navigation, gravitational sensing, and tests of the laws governing the universe.\nAs the researchers note, “by making a laser-addressed atomic nucleus an operational clock reference, this work extends quantum metrology from electronic to nuclear transitions, and opens a new platform for compact clocks, solid-state nuclear quantum sensors and precision tests of fundamental physics.”\nModern atomic clocks keep time by measuring the frequency of light absorbed or emitted when electrons jump between specific energy levels inside an atom.\nAs these frequencies are extremely stable, counting their oscillations provides an exceptionally accurate way to measure time. Physicists have long envisioned building a clock using a nucleus instead of electrons. The idea is attractive because atomic nuclei are much smaller and more isolated from the outside world.\nStray electric and magnetic fields that can slightly disturb electrons have far less influence on the nucleus. In principle, that should allow\na nuclear clock\nto achieve even greater stability and precision.\n“Such a nuclear clock might rival or outperform current optical clocks based on electron-shell transitions in atoms or ions, is expected to be more robust against external perturbations, and provides enhanced sensitivity in clock-based tests of fundamental principles of physics,” the researchers explained.\nHowever, the problem is that almost all nuclear energy transitions are far too energetic to be controlled with lasers. They typically require high-energy gamma rays rather than ordinary laser light.\nThorium-229 is a remarkable exception. Its nucleus possesses an unusually low-energy excited state that can be reached using ultraviolet laser light. For years, physicists recognized that this made thorium-229 the only known\nrealistic candidate for a nuclear clock\nEven so, the task remained extraordinarily difficult. The required transition occurs at a wavelength of roughly 148 nanometers, deep in the vacuum ultraviolet region of the electromagnetic spectrum.\nProducing stable laser light at this wavelength and precisely matching it to the nuclear transition pushed existing technology to its limits.\nThe two groups solved the problem using broadly similar strategies. One team, led by researchers at Tsinghua University, and another from the Vienna Center for Quantum Science and Technology, embedded thorium-229 atoms inside calcium fluoride crystals.\n“Here, we implement a thorium-229 nuclear clock by stabilizing a continuous-wave laser to the 148 nm nuclear transition with rapid feedback based on continuous absorption spectroscopy,” the researchers from the Vienna Center\nThe crystal acts as a solid host that holds large numbers of thorium nuclei in place while allowing laser light to interact with them. Both groups then illuminated the crystals with highly specialized continuous-wave vacuum ultraviolet lasers tuned near the thorium nuclear transition.\nAlthough the overall concept was similar, the teams optimized different parts of the experiment. The Chinese researchers relied on a more\npowerful laser\nsystem to drive the nuclear transition. The European team instead used crystals containing a higher concentration of thorium nuclei, increasing the number of nuclei available for measurement.\nOnce they had successfully excited the nuclei, the researchers needed to demonstrate that the system could function as a true clock rather than simply detecting the transition.\nThe Chinese team locked the frequency of their vacuum ultraviolet laser directly to the nuclear resonance. In effect, the thorium nucleus became a frequency reference that continuously corrected the laser.\nThe researchers reported a fractional frequency instability approaching one part in 10 trillion after a day of operation, showing that the nuclear transition could serve as a stable timekeeping signal.\nThe European team chose a different test. Instead of focusing solely on clock performance, they used their nuclear clock as a scientific probe.\nThe researchers searched for\nultralight dark matter\n, a hypothetical form of matter that could subtly alter the energy levels inside atomic nuclei. If such particles existed, they might produce tiny periodic shifts in the thorium transition frequency.\n“We use the nuclear clock to constrain models of ultralight dark matter by searching for periodic fluctuations and slow drifts in the nuclear transition energy, on time scales between 20 sec and one day,” the Vienna team said.\nNo evidence of dark matter was detected. However, the experiment demonstrated that the nuclear clock was sensitive enough to rival or exceed the capabilities of the world’s best atomic clocks when searching for such effects.\nTogether, the two studies provide the strongest evidence yet that practical nuclear clocks are no longer a theoretical concept but an operational technology.\nWhile these first-generation devices are still laboratory systems, they mark the beginning of a new era in precision measurement.\nFuture nuclear clocks could outperform today’s most advanced atomic clocks because the thorium nucleus is naturally protected from many sources of noise that limit current technologies.\nAccording to the researchers, such clocks could eventually improve satellite navigation, provide more precise gravitational measurements, and enable new tests of fundamental physics.\nThe next major goal is to refine the technology, reduce its size and complexity, and compare multiple nuclear clocks against one another.\nYou can read the studies\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nRupendra Brahambhatt is an experienced writer, researcher, journalist, and filmmaker. With a B.Sc (Hons.) in Science and PGJMC in Mass Communications, he has been actively working with some of the most innovative brands, news agencies, digital magazines, documentary filmmakers, and nonprofits from different parts of the globe. As an author, he works with a vision to bring forward the right information and encourage a constructive mindset among the masses.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from Innovation\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nWorld’s first ‘three-lane’ optical fiber network in China boosts data transfer by 5x\nChinese military study outlines strategy to target US warships from 1,800 miles away\nBeyond rare earths: this new magnet material could reshape motors\nUS scientists’ new alloys cut truck engine weight by 15%, boost fuel efficiency by over 10%\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nWorld’s first ‘three-lane’ optical fiber network in China boosts data transfer by 5x\nChinese military study outlines strategy to target US warships from 1,800 miles away\nBeyond rare earths: this new magnet material could reshape motors\nUS scientists’ new alloys cut truck engine weight by 15%, boost fuel efficiency by over 10%",
+          "hb": 1
+        },
+        {
+          "t": "氮化硼纳米管膜中的反常超快锂离子输运",
+          "d": "2026-06-14",
+          "a": "Nature Nanotechnology",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队系统考察了不同碱金属离子在带电氮化硼纳米管（BNNTs）中的水溶液传输行为，并与碳纳米管进行了对比。结果显示锂离子在BNNT中呈现异常超快的传输特性，且选择性极高。该发现对开发高效锂电池电解质、海水淡化膜及离子分离技术具有重要意义，揭示了氮化硼纳米通道独特的离子输运物理机制。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02182-5",
+          "tp": "氮化硼纳米管膜",
+          "aip": 1,
+          "kp": [
+            "孔密度[BNNT膜]: 10^7 pores/cm²",
+            "管径[BNNT]: 3nm和12nm",
+            "[发现]: BNNT离子传输与碳纳米管本质不同"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Here we studied the aqueous transport of different alkali-metal ions in charged boron nitride nanotubes (BNNTs) and comp",
+          "hb": 1
+        },
+        {
+          "t": "轴向磁通电机首次批量生产--中国能源新闻网",
+          "d": "2026-06-09",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "上海盘毂动力在浙江金华发布系列高性能轴向磁通电机并实现首次批量生产，产品自重减轻50%、尺寸缩减50%、金属耗材节约50%。轴向磁通电机相比传统径向磁通电机具有功率密度更高、轴向更薄的优势，在电动汽车、机器人等对空间和重量敏感的场景具有显著应用前景，标志着该技术从实验室走向工程量产。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "http://www.cpnn.com.cn/news/kj/202606/t20260608_1893542.html",
+          "tp": "轴向磁通电机",
+          "aip": 1,
+          "kp": [
+            "自重减轻[轴向磁通电机]: 50%",
+            "尺寸缩减[轴向磁通电机]: 50%",
+            "金属耗材节约[轴向磁通电机]: 50%",
+            "[磁性材料]: PGH专用材料高温不退磁"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "轴向磁通电机首次批量生产--中国能源新闻网\n中电传媒股份有限公司主办\n轴向磁通电机首次批量生产\n自重减轻50%、尺寸缩减50%、金属耗材节约50%……近日，上海盘毂动力科技股份有限公司（以下简称“盘毂动力”）在浙江金华发布系列高性能轴向磁通电机，标志着我国轴向磁通电机在全球范围内首次实现批量生产。\n电机俗称“马达”，是利用电磁感应定律将电能和机械能相互转换的装置。按照内部磁通方向的不同，电机分为轴向磁通电机和径向磁通电机。尽管轴向磁通电机是人类历史上最早出现的电机形态，但受限于核心制造材料、精密生产工艺及制造设备存在短板，这项技术长期处于实验室研究阶段。\n从2018年起，盘毂动力联合中国科学院宁波材料技术与工程研究所，向电机用磁性材料发起攻关。研发团队对磁性材料的成分设计、结构调控、制备工艺等进行全维度优化，配比出能在高温环境下不退磁的轴向磁通电机专用材料PGH（PanGood High）高性能磁钢。在此基础上，盘毂动力建立起全球首条轴向磁通电机规模化量产线，实现我国轴向磁通电机产业从基础理论研究、核心材料研发、量产装备工艺开发到规模量产的全方位跨越。\n基于PGH高性能磁钢研发的轴向磁通电机性能优异。其有效功率密度可达25.73千瓦/千克；每分钟最高转速突破18000转；总成扭矩密度达到每米、每千克293牛，较对标产品提升22%。据介绍，搭载PGH高性能磁钢的轴向磁通电机适用于新能源汽车、人形机器人、低空飞行器等战略性新兴产业。（\n“十四五”能源高质量发展\n人造“叶片”模拟光合作用高效制甲醇\n3.8分钟的跨越——国网张家口光伏智能断路器斩获日内瓦国际发明展金奖\n矿大（北京）未来能源与智慧应急智库中心成立\n能拉动10吨卡车的小丝束碳纤维量产\n广西电力科学技术协会揭牌成立\n香港理工大学·月山能源新一代矿业联合实验室揭牌\n全国首个绿色算力全栈AI平台上线运行\n氢铀反应起始过程首次完整记录",
+          "hb": 1
+        },
+        {
+          "t": "华为发布构网型储能变流器（PCS）",
+          "d": "2026-06-10",
+          "a": "pv magazine",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "华为发布新型构网型储能变流器(PCS)解决方案，集成PCS硬件、电站级控制系统和基于AI的能源管理平台。构网型PCS可在无电网支撑的情况下自主建立电压和频率参考，为弱电网和高比例新能源并网场景提供电网支撑能力。该方案面向大规模储能电站应用，提升了新能源场站的电网惯量和稳定性。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/06/09/huawei-unveils-grid-forming-pcs/",
+          "tp": "构网型PCS",
+          "aip": 1,
+          "kp": [
+            "[构网型PCS]: 集成硬件+电站级控制+AI能量管理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe new solution combines PCS hardware, plant-level controls and AI-based energy management.\nVincent Shaw\nTechnology & Products\nEnergy Storage\nUtility-scale\nImage: pv magazine\nHuawei Digital Power has launched a new generation of smart string grid-forming power conversion system (PCS) at SNEC 2026 in Shanghai, expanding its grid-forming technology portfolio across energy storage, PV and load-side applications.\nThe company presented the solution during its FusionSolar strategy and product launch event on June 3 under the theme “Building the green power driving force for an intelligent world.” The announcement also covered the FusionSolar Agent energy AI architecture.\nThe new PCS platform includes a 430 kW smart string grid-forming PCS, an intelligent sub-array controller, an intelligent plant controller and an intelligent plant management system. Huawei said the system is designed as a core control unit for energy storage plants, integrating battery management and grid-stability functions.\nThe 430 kW PCS uses a 1,000 V AC architecture and supports a DC operating voltage range of 550 V to 1,500 V. According to Huawei, the wide voltage range enables compatibility with lithium-ion, sodium-ion and other battery chemistries. The company claims a system cycle efficiency of 97.8%, compared with an industry average of 96.7%, while the power converter efficiency reaches 99.35%.\nThe system supports six grid-forming functions: short-circuit current support, virtual inertia, wide-band oscillation suppression, fast primary frequency regulation, minute-level black start capability and seamless on-grid/off-grid switching. It also features string-level DC management to improve availability and operational visibility.\nZhou Tao, president of Huawei Digital Power’s Smart PV & ESS product line, said the string grid-forming PCS is “not simply a power converter but an intelligent brain for energy storage plants, combining string architecture with dual-stage power conversion to improve reliability, voltage compatibility and grid support capability.”\nHuawei is also promoting a 4S architecture around the PCS, covering PCS, BMS, EMS and TMS. The company said it is working with more than 20 DC-side ecosystem partners and more than 10 AC-side partners, and has already deployed several demonstration projects.\nThe second launch was an updated version of the FusionSolar Agent architecture. First introduced in 2025, the latest version shifts from a digital platform approach to an energy-domain AI agent model. The architecture focuses on four areas: value, capability, safety and interaction, and is designed to support full lifecycle management of renewable power plants, including sensing, analysis, decision-making, coordination and continuous optimization.\nHuawei also showcased its wider FusionSolar portfolio at SNEC, including FusionSolar 9.0, a 460 kW smart string inverter, smart microgrid solutions, commercial and industrial source-grid-load-storage systems, residential PV-storage systems and an AIDC source-grid-load-storage solution for AI data centers.\nThe company said these developments reflect a broader industry shift in renewable energy from capacity expansion toward system-level value optimization.\nVincent Shaw\nView author posts",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

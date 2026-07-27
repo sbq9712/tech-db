@@ -1,0 +1,237 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月22日　星期日",
+  "date_range": "2026-03-22",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "无镉锌黄锡矿薄膜电池缺陷补偿策略实现13.9%光电转换效率",
+      "生物光催化体系在常温常压下将甲烷与二氧化碳转化为氢气",
+      "沸石双功能位点协同催化使甲烷在温和条件下直接氧化制液态产物"
+    ],
+    "AI与智能科技": [
+      "单一二极管集成光电传感与计算功能以简化神经形态硬件电路",
+      "层状分子氧化还原忆阻器通过精密调控电阻态大幅降低计算功耗"
+    ],
+    "通用技术": [
+      "可印刷牛顿流体光催化剂突破粉末难处理瓶颈实现大面积制备",
+      "碳纳米管负载氧化铟利用氧空位工程实现超500小时稳定制甲醇",
+      "有机半导体水凝胶集成微生物构建具电子传导率的生物催化界面"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "无镉锌黄锡矿薄膜电池缺陷补偿策略实现13.9%光电转换效率",
+        "生物光催化体系在常温常压下将甲烷与二氧化碳转化为氢气",
+        "沸石双功能位点协同催化使甲烷在温和条件下直接氧化制液态产物"
+      ],
+      "entries": [
+        {
+          "t": "空间电荷区内禀缺陷补偿使无镉锌黄锡矿太阳能电池实现13.9%认证效率",
+          "d": "2026-03-22",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究通过空间电荷区本征缺陷补偿策略，实现了无镉锌锡氧化物（ZTO）缓冲层的铜锌锡硫硒（CZTSSe）太阳能电池13.9%的认证效率。传统CdS缓冲层含毒性镉，ZTO虽环保但界面缺陷严重限制性能。该工作通过调控缓冲层/吸收层界面的缺陷分布，在空间电荷区实现本征缺陷的自补偿效应，抑制非辐射复合，显著提升开路电压和填充因子，为无镉环保薄膜电池的效率突破开辟了新路径。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00550K",
+          "tp": "锌黄铜矿薄膜电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[CZTSSe薄膜电池]: 13.9%(认证)",
+            "缓冲层[无镉电池]: ZnₓSn₁₋ₓO替代CdS",
+            "缺陷补偿[空间电荷区]: 本征缺陷补偿"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Cadmium-free ZnxSn1−xO (ZTO) buffer layers are an attractive alternative to conventional CdS in Cu2ZnSn(S,Se)4 (CZTSSe) thin-film solar cells, especially with advantages of Cd-related toxicity elimination and parasitic absorption mitigation at short wavelengths. However, the performance of ZTO-based CZTSSe devices has lagged behind that of CdS-involved counterparts, largely due to high-density detrimental defects and non-ideal band alignment at the CZTSSe/ZTO heterojunction. Here, we develop a junction heat-treatment process that, upon thermal activation, selectively drives Zn cations to diffuse from the ZTO buffer into the CZTSSe absorber along the chemical potential gradient. This diffusion-driven Zn incorporation compensates for intrinsic bulk defects such as CuZn and VCu, particularly in the space charge region. The cation diffusion also contributes to a more favorable conduction-band offset, prolonged minority-carrier lifetime, and extended carrier-diffusion length. Collectively, this results in optimization of carrier dynamics with simultaneously enhanced carrier separation, extraction, and transport efficiencies. As a result, we achieve an efficiency of 14.39% (certified at 13.90%) and a large-area (1.03 cm2) efficiency of 12.24%, representing the highest-to-date efficiency for Cd-free CZTSSe solar cells.",
+          "hb": 1
+        },
+        {
+          "t": "生物光催化协同作用实现甲烷与CO2在工程化产甲烷菌中转化为氢气和4-羟基苯甲酸",
+          "d": "2026-03-22",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "该研究开发了生物-光催化协同体系，将甲烷（CH4）和二氧化碳（CO2）两种温室气体同时转化为氢气（H2）和高附加值化学品。传统C1资源转化面临活化能高、选择性差等瓶颈。该体系将生物酶/微生物的温和催化特性与光催化的高能驱动优势耦合，在常温常压条件下实现CH4和CO2的共转化，突破了单一催化路线的效率限制。该技术若能工程化放大，将为分布式C1资源利用与温室气体减排提供经济可行的路径，兼具能源与环境双重价值。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202526097?af=R",
+          "tp": "甲烷CO2生物光催化",
+          "aip": 1,
+          "kp": [
+            "[原料]: CH₄+CO₂",
+            "[产物]: H₂+4-羟基苯甲酸酯",
+            "[体系]: 太阳能驱动生物-光催化协同杂化系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Valorization of decentralized one‐carbon chain (C\n                    1\n                    ) resources into value‐added products has garnered significant attention, owing to its dual benefits in resource recovery and carbon mitigation. To address the challenge of co‐converting methane (CH\n                    4\n                    ) and carbon dioxide (CO\n                    2\n                    ), we developed a solar‐driven biohybrid system that synergistically integrates biosynthesis and photocatalysis. The core of this system relies on a genetically engineered methanotrophic cell factory and newly designed biocompatible photocatalytic metal complexes. The methanotrophic bacteria utilize CH\n                    4\n                    as the primary feedstock to biosynthesize 4‐hydroxybenzoate (4HBA) while realizing CO\n                    2\n                    sequestration. The photocatalytic metal complexes, meanwhile, capture formate (a metabolic byproduct of cells) to generate hydrogen (H\n                    2\n                    ) and photoelectrons—with the latter directly supplying reducing power to support cellular activities in genetically tailored cells. Under optimal conditions, this solar‐driven system achieved a 4HBA titer of 472.36 µg/L, a H\n                    2\n                    yield of 0.59 mmol H\n                    2\n                    /mol CH\n                    4\n                    , and over 50% reduction in carbon emissions. The study not only establishes a feasible biomanufacturing strategy for the upcycling of C\n                    1\n                    gaseous feedstocks but also highlights the potential of integrating biological and photochemical technologies to advance sustainable energy and environmental solutions.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 沸石中Brønsted酸位与Cu/Zn单原子位的协同作用用于甲烷直接氧化",
+          "d": "2026-03-22",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
+          "as": "该研究利用沸石催化剂中Brønsted酸性位点与Cu/Zn单原子位点的协同作用，实现了甲烷直接氧化制液态含氧化合物。甲烷C-H键活化能垒极高，直接转化为甲醇等液态产物是催化化学的世纪难题。传统方法需高温高压且选择性差，该工作通过双功能位点协同设计——酸性位点活化甲烷、Cu/Zn单原子位点促进氧插入——在温和条件下提高了转化效率与产物选择性，为天然气的高附加值利用提供了新策略。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c23094",
+          "tp": "甲烷直接氧化",
+          "aip": 1,
+          "kp": [
+            "催化剂[ZSM-5]: Cu/Zn单原子协同Brønsted酸位点",
+            "[关键发现]: Brønsted酸位点为CH4活化必需"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The direct oxidation of methane to liquid oxygenates is challenging due to the high C-H bond activation barrier. While metal sites in zeolites are typically considered the primary active centers, this study reveals that Brønsted acid sites (BAS) are indispensable for CH<sub>4</sub> activation. Atomic-level incorporation of Cu and Zn into ZSM-5 tunes Brønsted acid strength and stabilizes the framework, creating a cooperative acid-metal environment that enables a remarkable C1 oxygenates productivity of 41651 μmol g<sub>cat.</sub><sup>-1</sup> h<sup>-1</sup> with nearly 90% selectivity at 70 °C. Through CH<sub>4</sub>-DRIFTS, in situ EPR, and DFT calculations, we demonstrate that BAS induce polarization of CH<sub>4</sub>, while Cu and Zn activate H<sub>2</sub>O<sub>2</sub> to generate •OH and •OOH radicals. The •OH radicals cleave polarized CH<sub>4</sub> to form •CH<sub>3</sub> radicals, which selectively couple with reactive oxygen species to yield CH<sub>3</sub>OH and HCOOH. This work highlights the critical acid-metal synergy in metal-zeolite catalysts for efficient CH<sub>4</sub> valorization under mild conditions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "单一二极管集成光电传感与计算功能以简化神经形态硬件电路",
+        "层状分子氧化还原忆阻器通过精密调控电阻态大幅降低计算功耗"
+      ],
+      "entries": [
+        {
+          "t": "集成感光、存储与处理功能的单二极管用于类神经形态图像传感器",
+          "d": "2026-03-22",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "传统两端p-n二极管功能单一，难以满足神经形态计算对传感-存储-处理一体化的需求。本研究提出一种集成光电传感、存储与计算功能的单一二极管器件，利用两端结构同时实现光信号感知、状态保持与信息处理。该器件架构大幅简化了神经形态硬件电路复杂度，为构建高密度、低功耗的仿生视觉感知与边缘AI系统提供了全新硬件原语。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01588-2",
+          "tp": "神经形态图像传感器",
+          "aip": 1,
+          "kp": [
+            "[集成功能]: 感光+存储+处理一体化",
+            "[方法]: 能带结构工程使二极管多功能化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-terminal p–n diodes are fundamental components in many electronic and optoelectronic systems. However, their defining characteristics limit them to single-function devices, and methods to achieve multiple functionalities—such as using devices with three or more terminals and introducing novel materials—can increase hardware and processing complexity. Here we show that a band-structure engineering approach can be used to create a p–n diode with integrated photosensing, memory and processing capabilities. The diode consists of vertically grown p-GaN/n-AlGaN/n-GaN nanowires on a silicon substrate, where the larger bandgap of the n-type AlGaN segment creates an electron reservoir in the GaN p–n junction. The embedded electron reservoir configuration enables precise control over charge trapping and release processes beyond the common p–n junction operation model, providing bias-tunable photosensing behaviour with a responsivity of 10.45 mA W−1, photosynaptic behaviour with a paired-pulse facilitation ratio up to 122% and photo-memory behaviour with eight linear states. We show that an array of such three-in-one diodes can be used to create a compact and energy-efficient image sensor with denoising and image-classification functions without additional circuits.",
+          "hb": 1
+        },
+        {
+          "t": "层状可控分子氧化还原驱动忆阻器用于稀疏脉冲类神经形态计算",
+          "d": "2026-03-22",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究提出一种层状可控的分子氧化还原驱动型忆阻器，用于剪枝型脉冲神经网络。基于离子型低功耗机制，该器件通过分子层间的可逆氧化还原反应实现电阻态精密调控，模拟生物突触可塑性。层状结构设计使器件具备高均一性与多态存储能力，配合网络剪枝策略可大幅降低计算功耗，在类脑计算芯片工程化方面具有突破潜力。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202512521?af=R",
+          "tp": "分子氧化还原忆阻器",
+          "aip": 1,
+          "kp": [
+            "[材料]: 对称双核萘二酰亚胺bis-NDI",
+            "[机制]: 层状控制分子氧化还原驱动",
+            "[目标]: 精确控制金属导电丝均一性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The low‐power ionic‐type memristor and brain‐inspired neuromorphic device offer significant potential in breaking the power consumption wall. However, the precise control of uniform metallic conductive filament (CF) at both intra‐ and inter‐molecular levels rather than random migration raises a pressing challenge. Here, we first report a symmetrical dual‐core naphthalene diimide (bis‐NDI) molecular material featuring multi‐active and lamellarly ordered redox sites, which actuates reconfigurable analog‐to‐digital (A‐t‐D) memristive operations via the controllable manipulation of CF growth at the molecular scale. The bis‐NDI‐based memristor exhibits highly efficient analog synaptic behaviors, demonstrating an ultralow‐power consumption of 90 aJ µm\n                    −2\n                    . By effectively re‐organizing lamellar redox sites, the device dynamically implements A‐t‐D transition with an operating voltage of 0.5 V (lower than most reported organic memristors) and ultrahigh yield of 98%. Relying on the bis‐NDI induced A‐t‐D dynamic plasticity, a novel feedback mechanism of pruning algorithm is subtly devised for granular error analysis and voltage adjustment validation in spiking neural networks (SNNs) computing. The co‐design of material‐algorithm can effectively reduce the number of connected neurons (max reduced proportion = 92%), thereby achieving ultralow systemic energy consumption while maintaining exalted recognition rates (&gt;90%). This work paves the material‐algorithm cooperation way to realize ultralow‐power neuromorphic devices and highly‐efficient spiking computing.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "可印刷牛顿流体光催化剂突破粉末难处理瓶颈实现大面积制备",
+        "碳纳米管负载氧化铟利用氧空位工程实现超500小时稳定制甲醇",
+        "有机半导体水凝胶集成微生物构建具电子传导率的生物催化界面"
+      ],
+      "entries": [
+        {
+          "t": "用于规模化太阳能CO2转化的可印刷牛顿流体光催化剂",
+          "d": "2026-03-22",
+          "a": "Nature Communications",
+          "c": "通用技术/催化剂",
+          "as": "光催化CO2还原技术的规模化应用长期受限于粉末催化剂难处理、难放大的问题。本文报道了一种可印刷的牛顿流体光催化剂体系，兼具良好的流动性和光催化活性，可通过涂覆、喷涂等方式实现大面积制备。该催化剂体系在太阳能驱动的CO2还原反应中表现出高效且稳定的CO和CH4生成速率，为光催化CO2转化的工程化放大提供了实用化解决方案，突破了粉末催化剂在规模化反应器设计中的瓶颈。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-70819-z",
+          "tp": "光催化CO2转化",
+          "aip": 1,
+          "kp": [
+            "[牛顿流体光催化剂]: 纳米中空咪唑框架+光激发液态链",
+            "[可印刷]: 解决粉末催化剂规模化难题",
+            "[固液界面]: 分子间作用+空间位阻效应"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photocatalysts are usually in powder form, which makes it difficult to expand the scale of photocatalysis. Here, we report a Newtonian fluid photocatalyst, which consists of an internal nano-hollow imidazole framework and an external light-excitable liquid chain striking a pose on the stage. Due to the intermolecular interaction at the solid-liquid interface and significant steric hindrance effect, the Newtonian fluid catalyst with higher surface tension can firmly adhere to different kinds of scaffolds via simple printing, such as curved surfaces, inclined walls, and grids. In addition to the easier scale-up, the pore structure of frameworks favors faster CO2 mass transfer, and the liquid chain with a co-catalytic effect serves as the electron donor for efficient CO2 photoreduction. In this work, the Newtonian fluid photocatalyst achieves a 57.8-fold increase in CO overflow efficiency (100% selectivity), and this universal synthesis method can convert common organic/inorganic photocatalysts into similar Newtonian fluid photocatalysts.",
+          "hb": 1
+        },
+        {
+          "t": "In2O3-CNT催化剂通过空位稳定实现超500小时稳定CO2加氢制甲醇",
+          "d": "2026-03-22",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "氧化铟（In₂O₃）是CO₂加氢制甲醇的 promising 催化剂，但易因还原失活。研究通过将In₂O₃负载于碳纳米管（CNT）上并利用氧空位工程，实现超过500小时的稳定运行，显著提升催化活性与抗烧结性能，为CO₂资源化利用提供了高效催化剂设计策略。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea7041?af=R",
+          "tp": "CO2制甲醇催化剂",
+          "aip": 1,
+          "kp": [
+            "稳定性[CO₂制甲醇]: >500小时",
+            "催化剂体系[CO₂加氢]: In₂O₃-CNT物理复合",
+            "稳定机制[催化]: 空位稳定化抑制In³⁺过还原"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Indium oxide (In\n                    2\n                    O\n                    3\n                    ) is a promising catalyst for carbon dioxide (CO\n                    2\n                    ) hydrogenation to methanol but suffers from rapid deactivation due to localized over-reduction of surface In\n                    3+\n                    species into inactive metallic In\n                    0\n                    near hydrogen (H\n                    2\n                    ) activation sites. Here, we exploit a proton-electron dual-transfer mechanism through a physically integrated In\n                    2\n                    O\n                    3\n                    -carbon nanotube (In\n                    2\n                    O\n                    3\n                    -CNT) system, achieving simultaneous enhancement of catalytic performance and durability. The optimal In\n                    2\n                    O\n                    3\n                    -CNT system gives the highest methanol production rate of 1250.6 grams kilograms\n                    In2O3\n                    −1\n                    hour\n                    −1\n                    at 320°C. Particularly, the hybrid system maintains catalytic stability for &gt;500 hours, representing the highest durability among reported In\n                    2\n                    O\n                    3\n                    catalysts. Mechanistic studies and multiple characterization techniques reveal that the conductive CNT network regulates surface redox dynamics by facilitating electron transfer and redistribution. This process promotes the formation of oxygen vacancies for CO\n                    2\n                    activation while preventing localized electron accumulation and In\n                    0\n                    segregation. The CNT-mediated redox modulation stabilizes a dynamic InO\n                    \n                      x\n                    \n                    surface phase by balancing H\n                    2\n                    -induced reduction and CO\n                    2\n                    -driven oxidation, thereby sustaining catalytic activity over extended operation.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 集成微生物与酶的有机半导体水凝胶用于选择性太阳能CO2转化",
+          "d": "2026-03-22",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究开发了集成微生物与酶的有机半导体水凝胶生物电子材料。该材料将有机半导体的电荷传输能力与微生物/酶的生物催化功能相结合，构建了一种兼具电子传导与生物活性的新型界面平台。这种生物-电子杂化水凝胶在生物传感、生物燃料电池、智能生物反应器以及可植入生物电子器件等领域具有广阔应用前景，为打通生物系统与电子器件之间的信号通信提供了创新材料方案。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c00205",
+          "tp": "太阳能CO2转化",
+          "aip": 1,
+          "kp": [
+            "催化剂[太阳能CO2还原]: 有机半导体水凝胶集成微生物与酶"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Integrating synthetic light-harvesting materials with biological CO2-fixing catalysts offers a promising route to efficient and selective solar-to-chemical conversion under mild conditions. However, progress remains limited by the lack of photocatalytic materials that combine biocompatibility, strong electronic coupling with biocatalysts, high biocatalyst loading capacity, and facile product separation. Here we introduce an organic semiconducting hydrogel synthesized from a rationally designed conjugated polyelectrolyte featuring visible-light absorption, water-processability, and covalent cross-linkability. The resulting macroporous, positively charged hydrogel scaffold immobilizes both microbes and enzymes, promoting intimate abiotic–biotic interactions throughout the three-dimensional hydrogel matrix. This platform supports two distinct modes of sacrificial CO2 reduction: mediated electron transfer via photogenerated H2 to drive acetate synthesis in the microbe Clostridium ljungdahlii, and direct electron transfer from photoexcited polymer domains to the isolated enzyme formate dehydrogenase for formate synthesis. By coupling the molecular programmability of organic semiconductors with the selectivity of biocatalysts, this work establishes a versatile class of soft biohybrid materials for solar fuel production through semiartificial photosynthesis.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

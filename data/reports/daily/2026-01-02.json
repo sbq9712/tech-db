@@ -1,0 +1,204 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月2日　星期五",
+  "date_range": "2026-01-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型聚合物编织金属有机框架玻璃膜可耐受高压捕集二氧化碳",
+      "南京大学团队研发双通道界面电极实现碳酸氢盐高效电解制一氧化碳",
+      "研究利用高不对称双极膜组件提升电催化一氧化碳还原多碳产物效率"
+    ],
+    "AI与智能科技": [
+      "新型磁性锁扣组合机器人实现靶向载荷的精准递送与回收"
+    ],
+    "通用技术": [
+      "韩国科学技术院利用黎曼流形扩散模型实现化学精度分子结构优化",
+      "异质结界面硒空位催化剂可促进硝酸盐高效电还原合成氨",
+      "研究揭示碳化铁催化剂在二氧化碳加氢反应中的动态重构机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型聚合物编织金属有机框架玻璃膜可耐受高压捕集二氧化碳",
+        "南京大学团队研发双通道界面电极实现碳酸氢盐高效电解制一氧化碳",
+        "研究利用高不对称双极膜组件提升电催化一氧化碳还原多碳产物效率"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 合成聚合物编织金属有机框架玻璃膜用于耐压碳捕集",
+          "d": "2026-01-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "该研究制备了聚合物编织的金属有机框架(MOF)玻璃膜，用于高效碳捕集。利用液相可加工的MOF玻璃材料，通过聚合物编织策略构建耐高压分离膜，实现CO2的高选择性渗透分离。该膜在高压条件下展现出优异的结构稳定性和气体分离性能，为工业烟气碳捕集的低能耗膜分离技术提供了新方案。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17503",
+          "tp": "MOF碳捕集膜",
+          "aip": 1,
+          "kp": [
+            "[碳捕集]: 聚合物编织MOF玻璃膜",
+            "[耐压性]: 克服MOF玻璃膜压力脆弱性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Liquid-processable metal-organic framework (MOF) glasses well redefine the ideal materials for energy-efficient carbon capture membranes. However, MOF glass membranes still suffer from poor pore connectivity, inadequate porosity and severe pressure vulnerability, hindering the sustainable deployment of membrane technologies in flue gas decarbonization, natural gas valorization, etc. Herein, we report a nature-inspired molecular weaving method to synthesize a de novo pw-MOF (polymer woven MOF) glass family. During melting, the woven polymer protects against lattice deformation while undergoing a nanophase interface segregation (nano-IS) evolution, which effectively regulates the kinetic mass transfer efficiency and thermodynamic polar adsorption effect. The newly synthesized pw-MOF glass membranes contain connected subnanometer penetrating channel networks with high-density polar domains for adsorption along the polymer chains to achieve a recorded performance, exemplified by the CO2/N2 and CO2/CH4 systems, surpassing the most recent upper bound. Owing to the unique woven reinforced framework, our pw-MOF glass membranes demonstrate an unprecedented pressure tolerance of up to 7.5 atm, which has not been realized by contemporary MOF membranes, which usually malfunction at 1 atm. This nature-inspired weaving design philosophy for synthesizing unconventional materials and constructing exceptional architectures is versatile for cultivating next-generation sustainable materials.",
+          "hb": 1
+        },
+        {
+          "t": "南京大学Miao Zhong提出Nafion–SiC双通道界面电极，实现高效稳定的碳酸氢盐电解制CO",
+          "d": "2026-01-02",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "南京大学Miao Zhong团队针对碳酸氢盐电解中CO₂浓度低、酸性环境促HER、气液传输互相牵制的瓶颈，在双极膜与催化层间引入5-15μm的Nafion-SiC纳米复合涂层：Nafion疏水链构成气相通道促进CO₂扩散，SiC孔隙提供液相通道并抑制K⁺渗透。该结构在100mA·cm⁻²下实现CO法拉第效率84-88%、能量效率35.8%，连续稳定运行超1100h，发表于JACS。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://pubs.acs.org/doi/10.1021/jacs.5c20900",
+          "tp": "碳酸盐电解",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "这项工作用“气-液双通道+电绝缘填料稳定疏水性”的界面工程思路，缓解了HCO₃⁻电解的传质与稳定性矛盾，寿命与选择性数据具有一定说服力，并展示了对不同金属催化剂的可迁移性。尽管该双通道界面在实验尺度下表现出优异效率与稳定性，其在更高电流密度和大面积堆叠条件下的欧姆压降与界面一致性、复合涂层的规模化制造可控性与成本，以及在 C₂+ 或含氮产物等更复杂反应中对局部 CO₂、阳离子种类与 pH 的精细调控能力，仍有待进一步系统评估。",
+          "b": "该工作针对碳酸氢盐（HCO₃⁻）电解中“催化表面CO₂浓度低、酸性环境促HER且易失活、气体与电解液传输互相牵制”的瓶颈，在双极膜（BPM）与催化层之间引入5–15μm的Nafion–SiC纳米复合涂层：Nafion的疏水全氟链构成连续的“气相通道”促进CO₂扩散，SiC颗粒间孔隙提供“液相通道”保证电解液/离子传输，并借助SiC的电绝缘特性抑制电场驱动的K⁺渗透导致的涂层亲水化与泛液，从而维持长期稳定的气体传质。实验与模拟表明该结构可将催化界面CO₂有效浓度提升至约75%饱和并富集K⁺、维持近中性局部环境，最终在100mA·cm⁻²下实现CO法拉第效率84–88%、最高能量效率35.8%，并连续稳定运行超过1100h；该涂层策略也可拓展到Sn/Bi电极以提升碳酸氢盐制甲酸盐性能。该文章2026年1月2日发表于Journal Of American Chemical Society。",
+          "hb": 1
+        },
+        {
+          "t": "高不对称双极性膜电极组件在催化剂表面产生阳离子和氢氧根的超浓富集",
+          "d": "2026-01-02",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "在电催化CO还原反应中，高碱性环境有利于多碳液体产物的生成。该研究设计了高不对称双极膜电极组件，在催化剂表面产生阳离子和氢氧根离子的超浓度富集。这种局部pH极化策略无需全局高碱电解液即可在催化剂界面创造高碱性微环境，显著提升了C2+产物选择性和法拉第效率，为高效电化学CO还原提供了创新的界面工程方案。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE04672F",
+          "tp": "电催化碳还原",
+          "aip": 1,
+          "kp": [
+            "pH[CO电还原]: ≥14",
+            "[BPMEA设计]: 高不对称双极性膜电极组件在催化剂表面产生超浓OH⁻",
+            "电解质[传统体系]: 1 M KOH",
+            "[腐蚀风险]: pH>14导致催化剂与电解槽腐蚀"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "In electrochemical CO reduction reactions, a highly alkaline pH is typically desired to promote multicarbon liquid products and suppress hydrogen evolution, considerations that prioritize pH ≥ 14 (e.g. 1 M KOH). However, bulk electrolytes with pH exceeding 14 are prone to produce corrosion of catalyst and electrolyzer. Here we find that an engineered class of bipolar membrane assemblies (BPMEAs) achieves a superconcentration of local metal hydroxides, and generates a product slate consistent with local electrolyte pH = 15. We report that, in a cathode:anion exchange layer (AEL):cation exchange layer (CEL):anode architecture, a high thickness ratio of CEL:AEL generates a high local pH at the cathode, this achieved by blocking the transport of hydroxide ions, generated on the cathode, over to the anode side. This enables production of C2+ liquids at a total Faradaic efficiency of 93%, with an ethanol:ethylene productivity ratio of 70:1. Compared to anion-exchange membrane assemblies (AEMEAs) operating at the same 100 mA cm-2 current density for similar product selectivity, these BPMEA systems exhibit 28 hours stable operation (compared to",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "新型磁性锁扣组合机器人实现靶向载荷的精准递送与回收"
+      ],
+      "entries": [
+        {
+          "t": "通过磁触发锁扣结合系绳与非系绳磁机器人实现目标载荷的投递与回收",
+          "d": "2026-01-02",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "该研究提出将系绳式和非系绳式磁性机器人通过磁性可触发锁扣组合的方案，用于靶向载荷的递送和回收。系绳式连续体机器人提供精确操控和大力量，非系绳式微型机器人实现深部狭窄空间穿越。磁性锁扣可在磁场控制下实现两种模式的按需连接和分离，互补了各自能力局限，为微创手术中的精准药物递送和组织取样提供了灵活的机器人平台。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adu6025?af=R",
+          "tp": "磁控手术机器人",
+          "aip": 1,
+          "kp": [
+            "[磁控机器人]: 磁触发锁扣连接系绳与无系绳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The reach and scope of minimally invasive surgical procedures can be transformed via the development of continuum robots. Through soft, flexible structures and accurate navigation, previously inaccessible anatomical regions can be safely reached. Dependent on both actuation mode and clinical application, however, rigidity and miniaturization potential can still present substantial challenges. Magnetic soft continuum robots (mSCRs) offer promising solutions to these key questions. Furthermore, micrometer- to millimeter-scale untethered magnetic robots (mUMRs) offer unparalleled miniaturization potential enabling targeted therapeutic delivery. Leveraging the benefits of magnetic actuation, this study introduces a bespoke, continuously magnetized catheter that synergizes the navigational strengths of mSCRs with the functional effectiveness of mUMRs to precisely deliver drug-doped payloads to otherwise unreachable regions deep within the anatomy. In particular, this system uses a magnetic latching mechanism, ensuring precise drug delivery and efficient retrieval, demonstrated in an ex vivo porcine kidney model for organ transplantation–related immunosuppressant delivery.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "韩国科学技术院利用黎曼流形扩散模型实现化学精度分子结构优化",
+        "异质结界面硒空位催化剂可促进硝酸盐高效电还原合成氨",
+        "研究揭示碳化铁催化剂在二氧化碳加氢反应中的动态重构机制"
+      ],
+      "entries": [
+        {
+          "t": "韩国科学技术院Woo Youn Kim提出可达化学精度的分子结构优化模型",
+          "d": "2026-01-02",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "韩国科学技术院Woo Youn Kim团队针对AI分子结构优化中能量对坐标极度敏感的难题，摒弃欧氏空间操作坐标的传统方式，设计了基于物理信息的黎曼流形上的扩散模型。利用黎曼测度更好描述分子能量的特性，使优化后分子能量与高精度计算的误差控制在化学精度（5 kcal/mol）以内。在QM9、QM7-X及FEOM数据集上结构和能量精度均优于欧氏空间扩散模型，发表于Nature Computational Science。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s43588-025-00919-1",
+          "tp": "分子结构优化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "使用AI方法进行结构优化的主要困难在于分子体系的能量对坐标变化很敏感。键长0.2 Å的变化量可以带来5 kcal mol-1以上的能量变化，因此这种敏感性对模型的精度提出了很高的要求。Woo Youn Kim团队改变了以往的生成模型在欧氏空间操作分子坐标的方式，转而使用了更能够好地描述分子能量的黎曼测度。该工作设计了基于物理信息的黎曼流形上的扩散模型，实现了优化后的分子能量与高精度计算的误差在化学精度(5 kcal mol-1)以内。在QM9,QM7-X以及FEOM数据集上的测试表明，该模型进行分子优化的结构和能量精度都优于基于欧氏空间的扩散模型。该工作揭示了使用蕴含特定物理信息的分子坐标进行复杂分子优化的优势，在计算化学和材料科学领域有应用潜力。文章于2026年1月2日发表在Nature Computational Science。",
+          "hb": 1
+        },
+        {
+          "t": "异质结介导界面硒空位促进N═O键自发断裂实现高效氨电合成",
+          "d": "2026-01-02",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究开发了一种异质结催化剂，利用界面硒空位促进N=O键自发断裂，实现高效硝酸盐电还原合成氨。绿色电力驱动的电催化硝酸盐还原为常温常压氨合成提供了可行路径。异质结界面工程调控了硒空位的电子结构，优化了反应中间体吸附能，降低了限速步能垒，显著提升了氨的选择性和产率，为可持续氨合成提供了新策略。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523247?af=R",
+          "tp": "电催化合成氨",
+          "aip": 1,
+          "kp": [
+            "[策略]: 异质结界面硒空位促进N=O键自发断裂",
+            "[反应]: 电催化硝酸盐还原合成氨"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The electrocatalytic nitrates reduction reaction driven by green electricity provides a feasible pathway for simultaneously achieving the elimination of nitrates pollutants and production of valuable ammonia. However, the electrocatalytic efficiency is limited by the low ammonia yield rate and Faradaic efficiency. Vacancy engineering is an efficient strategy for improving the performance of catalysts. Here, we develop an efficient strategy of heterojunction (Ni\n                    3\n                    Se\n                    4\n                    /CoSe\n                    2\n                    ) mediated interfacial selenium vacancy toward efficient ammonia electrosynthesis. In situ characterizations combined with theoretical calculations reveal that the interfacial selenium vacancy on CoSe\n                    2\n                    segment strengthens the adsorption of nitrates, spontaneously breaks the N═O bonds of nitrates, thereby accelerating the overall NO\n                    3\n                    RR. The Ni\n                    3\n                    Se\n                    4\n                    /CoSe\n                    2\n                    heterojunction nanosheets array achieves an ammonia yield of 1.44 mmol cm\n                    −2\n                     h\n                    −1\n                    and Faradaic efficiency of 94.8% at a current density of 350 mA cm\n                    −2\n                    . Furthermore, the Ni\n                    3\n                    Se\n                    4\n                    /CoSe\n                    2\n                    heterojunction electrode was assembled into a zinc–nitrate battery as the cathode, delivering an open‐circuit voltage of 1.46 V, a maximum power density of 12.71 mW cm\n                    −2\n                    , and a charge–discharge stability of over 168 h.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] FeOₓ/Fe₃C催化剂在逆水煤气变换反应中实现高效的表面到体相催化",
+          "d": "2026-01-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究深入揭示了逆水煤气变换（RWGS）反应中催化剂从表面到体相的动态结构演化与催化机制。研究发现高效的表面到体相催化过程是提升CO₂转化效率的关键，通过解析催化活性位点在反应中的动态重构行为，为设计高活性、高稳定性的CO₂加氢制CO催化剂提供了机制层面的深层理解。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17207",
+          "tp": "逆水煤气变换催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[RWGS]: FeOx/Fe3C异质结构(原位)",
+            "机理[RWGS]: 表面到体相碳氧原子交换"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Unraveling the dynamic structural evolution and reaction mechanisms of catalysts from the surface to bulk phase is key to advancing the understanding of catalytic origins. Herein, we report that an in situ formed dynamic FeOx/Fe3C heterostructure serves as the catalytically active phase, enabling rapid carbon and oxygen atom exchange with reactants under the reverse water-gas shift (RWGS) reaction. On the disordered FeOx (1 ≤ x ≤ 1.5) surface, CO2 is dissociated into gaseous CO and surface O, while partial CO further decomposes into C that infiltrates into the Fe3C lattice. The C atoms from bulk Fe3C can combine with the O atoms on FeOx to form CO, allowing Fe3C to serve as a reservoir for C atom transfer. Meanwhile, H2 effectively removes residual surface oxygen to prevent overoxidation. The FeOx/Fe3C catalyst, enabled by synergistic surface-to-bulk cycling mechanism, achieves an unprecedented rate of 1.1 × 10-2 mol/gcat/s at 600 °C in the RWGS reaction, exceeding all previously reported catalysts. This study reveals mechanistic insight into simultaneous catalysis from the surface to the bulk in heterostructured solid catalysts, offering a new perspective on the origin of the exceptional activity of iron-based catalysts in the RWGS reaction.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月10日　星期二",
+  "date_range": "2026-03-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "国家能源集团低碳院超高温炭基固态储热装置运行温度升至1005℃",
+      "上海交大研发水蒸气吸附脱附驱动硫氰酸钾溶解制冷循环系统",
+      "新型自驱动发电机利用莱顿弗罗斯特效应实现低品位热能转化"
+    ],
+    "AI与智能科技": [
+      "研究构建质子型镍酸盐器件网络以实现时空神经形态计算"
+    ],
+    "通用技术": [
+      "休斯顿大学朱经武团队通过压力淬火使铜氧超导体常压转变温度达151K",
+      "研究首次制备出具备电压可控磁序的室温二维多铁性金属材料"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "国家能源集团低碳院超高温炭基固态储热装置运行温度升至1005℃",
+        "上海交大研发水蒸气吸附脱附驱动硫氰酸钾溶解制冷循环系统",
+        "新型自驱动发电机利用莱顿弗罗斯特效应实现低品位热能转化"
+      ],
+      "entries": [
+        {
+          "t": "国家能源集团低碳院称其2MW/10MWh超高温炭基固体储热装置储热温度提升至1005℃",
+          "d": "2026-03-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/储热/固态储热",
+          "as": "国家能源集团低碳院开发的2MW/10MWh超高温炭基固体储热装置最高运行温度由900℃提升至1005℃，稳定循环运行超168小时。后续将开展降本与可靠性测试，目标应用于火电机组灵活性改造、矿区清洁供热及煤化工与新能源耦合等场景。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/jkqZJzkli_qPbr9xhcPRmg",
+          "tp": "固体储热",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "炭基储热材料主要依靠其（石墨）高温耐受性（3000℃左右）以显热储热（晶格振动）。Antora Energy在23年装置宣传温度达1800℃（热光伏发电），也有5MW装置（温度未说明）； Fourth Power 宣传可到2000。温度提高传热导热/辅助装置可能是需主要考虑的问题.装置运行温度提升至1000℃据24年报道，其以煤液化沥青为原料，热导率>70W/m K（1 米厚的材料中，当两侧温差为 1 K 时可传递的能量）；可能是以其制备石墨还是直接用煤液化沥青。其专利主要将煤液化残渣/沥青结合石墨或做石墨基储热材料的粘合剂/（CN119662219B、CN115141607B、CN116136372A、CN119591406A、CN116178016B、CN115140724B-热导率可>600W/m K 等多个）；也有将石墨类/煤基固废（粉煤灰、煤气化灰渣）与铝铁镁等金属基材料结合，以提高热导率>50W/m K（CN117490461A），不确定该储热装置中是否加入金属；也有用相变储热（炭基类水合盐、炭基类石蜡，CN116136372A），石墨等做导热材料；",
+          "b": "3月10日，国家能源集团低碳院在官方公众号发文称，其开发的2MW/10MWh超高温炭基固体储热装置，最高储热运行温度从900℃提升至1005℃，稳定循环运行超过168小时。文中称，后续其将继续进行降本技术开发和可靠性测试，目标应用于火电机组灵活性改造、矿区清洁供热和煤化工与新能源耦合等场景。",
+          "hb": 1
+        },
+        {
+          "t": "上交李廷贤报道一种水蒸气吸附解析驱动的硫氰酸钾溶解制冷循环系统",
+          "d": "2026-03-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/供热技术/热泵",
+          "as": "上海交大李廷贤团队提出水蒸气吸附脱附驱动的硫氰酸钾（KSCN）溶解制冷（SdDR）循环：以水为溶剂、KSCN（共晶点-47℃不易结晶、无爆炸风险）为制冷盐，负载LiCl的沸石分子筛为吸附剂，配合真空储热罐。该方案克服传统固态制冷绝热温变小、溶解制冷效率低及硝酸盐易爆等问题，为低碳制冷提供新路径。",
+          "sc": 5.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-01992-0",
+          "tp": "吸附制冷",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "在制冷技术领域，当前研究界主要有两大开发方向：一是开发用于蒸汽压缩制冷的新型低GWP制冷剂；二是开发新型制冷系统。在新型制冷系统中，固态制冷虽是最热门的研究方向，但始终面临材料成本高、驱动方式复杂的问题，且固态物质在传热效率上本质上不及液态和气态物质。研究界正在将新型制冷的关注点从纯固态制冷向基于盐溶解的制冷效应转移：近一年Nature/Science发表的三篇制冷相关文章中，有一篇涉及固态制冷（弹卡制冷），另外两篇则聚焦于利用盐溶解在水溶液中的吸热效应制冷，其创新点均在于提出了新的驱动盐溶解/析出的方法（分别采用600MPa高压驱动溶解、电渗析驱动析出），本文同样属于后者。本文的创新点同样在于驱动盐溶解/析出的方法：利用可再生吸湿剂LiCl@沸石吸取KSCN溶液中的水分，使KSCN析出分离，当KSCN重新溶于水时吸热制冷，并循环上述过程。然而，由文中条件可知，吸湿剂LiCl@沸石的再生需要80~150℃的热源，这限定了其应用场景需具备可用的低品位工业余热。此外，该系统复杂度较高，理论上还存在腐蚀等问题，目前尚处于理论创新阶段。",
+          "b": "全球终端能源消费中制冷与加热用能占总能耗的50%以上，其中制冷行业消耗了近20%的电力，导致了约7.8%的碳排放。当前主流的蒸汽压缩循环制冷技术依赖于高全球变暖潜能值的制冷剂，对环境造成负担；新兴的固态制冷技术虽然环保，但普遍面临实际性能系数低（绝热温变小、制冷功率密度低）、传热与流动性差等问题，制约了其规模化应用。近期研究中采用硝酸铵-水等工质的溶解制冷循环虽然制冷量可观，且固‑液混合吸热动力学快速、制冷功率高，但系统整体效率仍较低：溶解焓远小于水蒸发所需相变焓，导致约80%的太阳能以冷凝热形式浪费；而基于NH₄NO₃–H₂O、KNO₃–H₂O的连续溶解制冷系统（液态偶极热效应）采用电渗析分离盐和水制冷系数（COP）与功率相对较高，但也面临着电耗和硝酸盐易爆等问题。\n近日，上海交通大学李廷贤研究员团队以水为溶剂、硫氰酸钾（KSCN，水溶液共晶点低至-47℃不易结晶，且无爆炸风险）为制冷盐，低成本吸湿盐（负载LiCl的沸石分子筛，LiCl@Zeolite13X）为吸附剂的吸附驱动溶解制冷（SdDR）循环；搭配真空阀门连接的储热罐（装有吸附剂和铜换热器，吸收外部热量进行脱附/吸附水蒸气时向外释放热量）、冷凝器（将吸附剂中脱出的高温水蒸气冷凝成液态）、制冷罐（装有制冷盐和换热器，实现盐溶解/再生），通过水分子在液态、气态和吸附态之间的相变过程构成了完整的热力学循环，并采用吸附过程来实现溶解制冷盐的再生。在热能输入阶段，储热罐中的饱和吸附剂在外部热源（80-150℃）作用下发生解吸，释放出水蒸气并在冷凝器中放热凝结为液态水；而后解吸产生的液态水进入制冷罐，与制冷盐混合溶解，利用盐溶解时的吸热过程吸收缓解热量实现快速制冷（20s可达-25.4℃；在原型测试中达到-8℃），并作为冷源向外输出冷量；制冷完成后可关闭罐体间的阀门，物理隔离工质转移，保持吸附剂的吸附势能；需要供热时则打开阀门，干燥的吸附剂表面具有低水蒸气平衡压力，而制冷罐内的盐溶液蒸汽压相对较高，压差驱动水分子从溶液中蒸发并被干燥吸附剂吸附，实现制冷盐结晶再生，同时吸附剂吸附放热（最高可达55℃）还可使得储热罐向外供热。\n实验结果表明，系统的平均制冷功率密度达195 W L⁻¹，最高储热密度达到了763 kJ kg⁻¹；即使在过饱和状态下，由于稀释焓的贡献，系统仍保有显著冷却能力；冷端降至-13℃，热端仍能达到43.2℃，证明了其在极寒条件下的热供应能力和广泛的气候适应性（即低温下制冷端再生也可从外部吸热推动水蒸发）；且吸附剂初始温度从10℃升至40℃，吸附剂最大温升仅从20℃轻微降至18℃，表明系统对初始条件波动不敏感。原型机（采用316L不锈钢以防腐蚀）测试结果表明，采用120℃的高温液体作为热源供热时理论性能系数（COP）可达1.13（连续制冷、连续供热或冷热联供模式），可产生-8℃的制冷效果和55℃的再生热量；系统的热能平准化成本可低至0.498元/kWh；且所用材料无温室效应，比传统蒸气压缩系统更有助于减排。文章于2026年3月10日发表在Nature Energy。",
+          "hb": 1
+        },
+        {
+          "t": "基于亚稳态莱顿弗罗斯特效应的低品位热能收集自驱动发电机",
+          "d": "2026-03-10",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "该研究提出一种利用亚稳态莱顿弗罗斯特效应的自驱动发电机，用于回收低品位余热。在热电厂废热和水蒸气的协同收集场景中，该器件无需外部动力即可自驱运转，通过液滴在高温表面的悬浮弹跳运动将热能转化为电能。该方案突破了传统有机朗肯循环等余热回收技术对温差要求高、系统复杂的瓶颈，为工业低品位热能的高效利用提供了全新自驱动思路，有望应用于电厂、数据中心等大规模余热场景。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00004-8?rss=yes",
+          "tp": "莱顿弗罗斯特热回收",
+          "aip": 1,
+          "kp": [
+            "[原理]: 亚稳态Leidenfrost效应",
+            "[应用]: 低品位热收集",
+            "[系统]: 自驱动三相界面发生器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The coordinated collection of waste heat and water vapor from thermal power plants is of great value. A self-propelled triple-phase interface generator based on the metastable Leidenfrost effect is proposed, and a water-circulating energy conversion loop is established to extend traditional thermal power plants.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究构建质子型镍酸盐器件网络以实现时空神经形态计算"
+      ],
+      "entries": [
+        {
+          "t": "面向时空神经形态计算的质子型镍酸盐器件网络",
+          "d": "2026-03-10",
+          "a": "Nature Nanotechnology",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "质子型镍酸盐器件网络用于时空神经形态计算。该研究模仿生物神经回路中非线性时间响应与空间分布式计算的协同机制，利用质子（氢离子）在镍酸盐材料中的可逆嵌入与脱出实现突触可塑性。与传统电子器件不同，质子的缓慢迁移赋予器件固有的时间记忆特性，使其天然适用于处理时序数据，为构建高效、低功耗的类脑计算硬件架构提供了新路径。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02133-0",
+          "tp": "质子镍酸盐神经计算",
+          "aip": 1,
+          "kp": [
+            "[材料]: 质子化镍酸盐",
+            "[功能]: 时空神经形态计算"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Computation in biological neural circuits arises from the interplay of nonlinear temporal responses and spatially distributed dynamic network interactions. Replicating this richness in hardware has remained challenging, as most neuromorphic devices emulate only isolated neuron- or synapse-like functions. Here we introduce an integrated neuromorphic computing platform in which both nonlinear spatiotemporal processing and programmable memory are realized within a single perovskite nickelate material system. By engineering symmetric and asymmetric hydrogenated NdNiO3 junction devices on the same wafer, we combine ultrafast, proton-mediated transient dynamics with stable multilevel resistance states. Networks of symmetric NdNiO3 junctions exhibit emergent spatial interactions mediated by proton redistribution, while each node simultaneously provides short-term temporal memory, enabling nanosecond-scale operation with an energy cost of ~0.2 nJ per input. When interfaced with asymmetric output units serving as reconfigurable long-term weights, these networks allow both feature transformation and linear classification in the same material system. Leveraging these emergent interactions, the platform enables real-time pattern recognition and achieves high accuracy in spoken digit classification and early seizure detection, outperforming temporal-only or uncoupled architectures. These results position protonic nickelates as a compact, energy-efficient, CMOS-compatible platform that integrates processing and memory for scalable intelligent hardware.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "休斯顿大学朱经武团队通过压力淬火使铜氧超导体常压转变温度达151K",
+        "研究首次制备出具备电压可控磁序的室温二维多铁性金属材料"
+      ],
+      "entries": [
+        {
+          "t": "休斯顿大学朱经武通过高压下冷冻使汞钡钙铜氧材料一定时间内超导转变温度达到151K",
+          "d": "2026-03-10",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "休斯顿大学朱经武团队采用压力淬火法，对汞钡钙铜氧（Hg1223）施加10.1-29.7GPa高压，诱导晶格压缩与态密度增加，使Tc升至峰值154-158K；在维持压力下降温至4.2K冻结原子扩散，再快速卸压，可在常压下保留高Tc状态。77K常压下可维持3天，200K以上Tc下降。该方法为常压高温超导探索提供新路径，但维持时间与稳定性仍有限。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.uh.edu/news-events/stories/2026/march/03102026-ambient-pressure-superconductivity-record.php",
+          "tp": "高温超导",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "1987年朱经武YBa2Cu3O6+δ的铜基氧化物体系临界温度在90 K 以上，突破液氮温区(77K)。1993年发现汞钡钙铜氧（HgBa2Ca2Cu3O8+δ，Hg1223）材料临界温度到133K ；实现该材料常压151K临界温度；高压导致的晶格压缩和态密度增加状态仅能在低温下一段时间内维持；该高压晶体结构可能为更高临界温度材料开发提供参考；另薛其坤团队制备出镍基氧化物超导材料(La,Pr)3Ni2O7（镧镨镍氧化物）的常压下起始转变温度最高达63K，零电阻温度最高达37K。",
+          "b": "3月10日，休斯顿大学在官网发文称，该校朱经武教授团队在环境压力下将汞钡钙铜氧（HgBa2Ca2Cu3O8+δ，Hg1223）材料的超导转变温度（Tc）提高至151K（约-122℃）。文中称，朱经武及其同事在1987年发现了钇钡铜氧（YBa₂Cu₃O₇，YBCO）在93K呈现超导特性，并在1993年发现该汞基铜氧化物Hg1223在约133K下具有超导特性。此次其采用了一种压力淬火（pressure quenching）的方法，即先在在室温下对目标材料Hg1233施加高压（通过金刚石压砧10.1–29.7 GPa），并测量高压下材料的Tc，发现压力会压缩晶格，诱导电子结构变化，导致态密度（DOS，单位能量区间内、单位体积（或单位原子）内允许电子占据的量子态数目）增加，该材料Tc随着压力增大逐渐升高（10 GPa以上趋于平坦，峰值可达154–158 K）。而在维持目标压力的同时，将材料冷却至低4.2 K，此时原子/电子扩散被冻结，可阻止结构向低Tc温度时的状态转变，此时快速解除压力至常压，可使高压/高Tc状态得以保留；该状态可在77K、常压下维持3天；温度升高至200 K以上时Tc会降低（170K时仍可保持相对较高的转变温度）。相关研究成果也于3月9日发表在Proceedings of the National Academy of Sciences。",
+          "hb": 1
+        },
+        {
+          "t": "具有电压可控磁序的室温二维多铁性金属",
+          "d": "2026-03-10",
+          "a": "Nature Materials",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究实现了首个在室温下具备稳定磁电耦合的二维多铁性金属，可通过外加电场调控其磁性质。多铁性材料同时具有铁电和铁磁两种有序态，是电场控制磁性的理想平台，但此前二维多铁性材料难以在室温下稳定存在。本工作克服了该瓶颈，为超低功耗自旋电子器件、非易失性存储和新型磁电传感器件的开发奠定了材料基础，对后摩尔时代信息存储技术具有重要意义。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02537-2",
+          "tp": "二维多铁金属",
+          "aip": 1,
+          "kp": [
+            "[材料]: 双层CrTe2",
+            "[特性]: 室温多铁性金属",
+            "[功能]: 电场可控磁有序",
+            "[稳定性]: 空气稳定"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Realizing two-dimensional multiferroics with robust magnetoelectric coupling for electric-field-controlled magnetism at room temperature poses substantial challenges, as ferroelectricity and magnetism inherently conflict. Here we report air-stable bilayer CrTe2 that exhibits intrinsic room-temperature multiferroicity. Structural and magnetic characterization reveals an alternating ferromagnetic and antiferromagnetic bilayer architecture, driven by interlayer charge transfer that spontaneously breaks inversion symmetry and generates a switchable out-of-plane ferroelectric polarization. Scanning probe microscopy confirms the non-volatile control of magnetization states with an electric field, enabling electrical writing and magnetic reading functionalities. This mechanism, rooted in interlayer charge transfer, rather than conventional spin-orbit coupling, provides a foundation for engineering multiferroics with layered systems. The demonstration of a two-dimensional multiferroic material with magnetoelectric coupling under ambient conditions provides opportunities for energy-efficient memory devices and quantum sensing technologies.",
+          "hb": 1
+        },
+        {
+          "t": "通过压力淬火实现 HgBa2Ca2Cu3O8+δ 的环境压力 151-K 超导",
+          "d": "2026-03-10",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究通过压力淬火技术在HgBa₂Ca₂Cu₃O₈₊δ铜氧化物超导体中实现了环境压力下151K的超导转变温度（Tc）。材料先在高压下合成最优氧掺杂结构，再卸压至常压保留高压态特征。151K（约-122°C）是目前环境压力下报道的最高Tc之一，向液氮温区以上的实用化超导迈出重要一步。该方法为探索室温超导提供了新的材料工程思路。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2536178123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "高温超导材",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Superconductivity has been a vigorously researched topic since its discovery in 1911. Raising the superconducting transition temperature (Tc) has been the main driving force behind such long-sustained efforts due to its potential for impacting humanity and the fundamental knowledge gained from understanding this macroscopic coherent quantum state at high temperatures. The successful development of high-Tc superconductivity will make possible extraordinarily efficient generation, delivery, and utilization of energy and could also enable the development of controlled fusion while impacting other burgeoning fields like quantum computation and quantum electronics. However, progress has been hindered by a longstanding plateau in the record ambient-pressure Tc, unchanged since 1993. Subsequent significant advancements in Tc have been achieved only under high pressures, preventing the realization of superconductivity's full potential. To directly address this challenge, we developed a pressure-quench protocol (PQP) to stabilize pressure-induced/-enhanced superconducting states at ambient pressure. Here, we achieve a record ambient-pressure Tc of 151 K in the cuprate HgBa2Ca2Cu3O8+δ via PQP. The experimental results are further supported by synchrotron X-ray diffraction measurements and phonon and electronic structure calculations. This breakthrough opens avenues for stabilizing and exploring ambient-pressure high-Tc superconducting states and other quantum states that have been previously only accessible under pressure, paving the way for deeper understanding and practical applications of high-Tc superconductivity and beyond.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月26日　星期二",
+  "date_range": "2026-05-26",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "钙钛矿太阳能电池采用互锁界面设计，实现26.82%认证效率与热循环稳定",
+      "津巴布韦禁止锂钴镍等14种关键矿产原矿出口并强制国家持股",
+      "清华大学张强团队研发非氟化溶剂，耐受5.6V高电位提升锂电池稳定性"
+    ],
+    "AI与智能科技": [
+      "研究机构利用人工智能从头设计咖啡因诱导蛋白质解离系统"
+    ],
+    "通用技术": [
+      "大连化物所智能透射电子显微镜实现全流程自主运行",
+      "科研人员利用镧系掺杂纳米晶首次实现溶液有机室温磷光发射",
+      "国家能源局发布51个“人工智能+”能源应用场景并启动试点申报"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "钙钛矿太阳能电池采用互锁界面设计，实现26.82%认证效率与热循环稳定",
+        "津巴布韦禁止锂钴镍等14种关键矿产原矿出口并强制国家持股",
+        "清华大学张强团队研发非氟化溶剂，耐受5.6V高电位提升锂电池稳定性"
+      ],
+      "entries": [
+        {
+          "t": "互锁界面增强机械完整性实现热循环稳定的26.82%认证效率钙钛矿太阳能电池",
+          "d": "2026-05-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "通过构建互锁界面增强钙钛矿太阳能电池的机械完整性，实现热循环稳定的26.82%认证效率。钙钛矿电池在热循环条件下因热膨胀失配产生机械损伤和裂纹导致降解失效。互锁界面设计通过分子级咬合结构有效缓冲热应力，抑制界面滑移和裂纹扩展，器件在严苛热循环测试后仍保持高效率，为商业化可靠性提供关键突破。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73489?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[互锁界面钙钛矿太阳能电池]: 26.82%(认证)",
+            "稳定性[热循环]: 互锁界面提升机械完整性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Perovskite solar cells (PSCs) experience mechanical damage and failure (i.e. degradation and fracture) induced by temperature changes under thermal cycling. However, few studies have been able to simultaneously suppress interface delamination and delay chemical degradation to ensure the mechanical integrity of perovskite film under thermal shock, making it challenging to improve the thermal cycling stability of PSCs. We report a universal interlocking strategy via the modification of polymethyl(hydro)/polymethylvinylsilazane (PHVS), which achieves interfacial interlocking through the condensation reactions with substrates, hydrogen bonding with the perovskite film, and a self‐crosslinking reaction. The interlocked interface significantly enhances the interfacial adhesion toughness and releases the residual stress of the perovskite film, thereby suppressing the interface delamination and delaying the chemical degradation under thermal cycling. The PHVS‐modified PSCs exhibit a certified efficiency of 26.82%. The encapsulated PSCs retain 96% of their original efficiency after 200 cycles of thermal cycling testing, and the perovskite modules maintain 95% of their original efficiency after 1000 h, day and night, outdoor testing. This work highlights the significance of enhancing the mechanical integrity of perovskite films under thermal cycling and provides a promising approach for achieving thermal cycling‐stable PSCs with high efficiency.",
+          "hb": 1
+        },
+        {
+          "t": "津巴布韦指定锂、镍、钴、石墨等14种关键矿产禁止原矿出口并强制国家控股",
+          "d": "2026-05-26",
+          "a": "",
+          "c": "零碳产业/物质循环/资源处理/开采技术",
+          "as": "津巴布韦矿业部长签署《矿产分类与宣言》，将锂、钴、镍、石墨等14种矿产列为关键矿产，禁止原矿及未选矿产品出口，强制国家通过SPV持股，采矿申请需部长批准。2026年Q1锂矿产量24万吨，收入同比增长106%，此举强化关键矿产资源管控，推动本土选矿加工产业链。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://miningzimbabwe.com/zimbabwe-bans-raw-exports-of-14-metals-after-lithium-revenues-jumped-106/",
+          "tp": "矿产出口禁",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "长期来看，禁止原矿/精矿出口，增加碳酸锂/硫酸锂出口占比有助于提高其锂矿产业附加值；强制国家控股也保障政府对资源的控制和利益收入。但当地硫酸锂/碳酸锂等产品加工设施建设可能仍需借助外部技术、资金支持，目前除华友钴业硫酸锂工厂（近期报道宣传为年产5万吨）投产外，其他项目仍在建设中。",
+          "b": "据矿产媒体Mining Zimbabwe在5月26日报道称，津巴布韦矿业部长Dr. Polite Kambamura签署了《矿产分类与宣言》，将锂、钴、镍、石墨、铜、铬、锰、锑、铀、钌、钨、稀土元素、铂族金属等14种指定为关键矿产；冶金煤为特殊关键矿物；石灰石、钾盐、磷、铁、黄金等为战略矿产，禁止出口原矿及其他未被选矿处理的产品，出口精矿达到政府审批的标准，并强制国家通过指定特别目的工具（SPV）进行最低比例持股（具体比例未说明）。此外，关键矿产的采矿申请也需经过部长批准。\n文中称，津巴布韦2026年1季度锂矿产量达240,826吨，较2025年1季度同比增长2%；但创造收入达1.786亿美元，同比增长了106%。且其宣传若未颁布出口禁令，季度产量将超过387,000吨。",
+          "hb": 1
+        },
+        {
+          "t": "清华大学张强通过阻断α-氢氧化实现非氟化溶剂在锂电池中的高电位稳定性",
+          "d": "2026-05-26",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "清华大学张强团队揭示羧酸酯溶剂α-氢氧化是高电压下分解主因，将甲基乙酸酯中活性α-氢替换为惰性甲基设计出MTMA溶剂，阻断α-氧化路径，耐受5.6V高电位远超传统非氟溶剂。该非氟化策略为富锂锰基正极高电位稳定运行提供环保电解质方案。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41557-026-02161-2",
+          "tp": "高电压锂电",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "开发兼具高能量、低成本及环保特性的下一代电池，对于工业应用至关重要。富锂锰基氧化物正极材料凭借其在高充电电位（相对于Li/Li⁺ > 4.6 V）下的高比容量，能够提供显著的能量密度。然而，在此类高电位下实现稳定运行仍具挑战，因为多数电解质依赖于对环境不友好的氟化溶剂。\n清华大学张强教授团队首先系统剖析了羧酸酯类溶剂在高电压正极表面的氧化机制。他们发现，羰基α-氢的氧化是甲基乙酸酯（MA）等溶剂的主要分解途径。在LRMO正极提供的过渡金属催化、高价氧化剂和阳极驱动力的共同作用下，α-氢易被夺取，引发后续质子生成、过渡金属溶出、水分产生、HF腐蚀以及气体释放等连锁反应，导致正极-电解液界面（PEI）不稳定和电池循环寿命骤降。\n基于此洞见，研究者将MA分子中所有活性α-氢替换为惰性甲基，设计出甲基三甲基乙酸酯（MTMA）。这一简单修饰有效阻断了α-氧化路径，使MTMA展现出优异的氧化稳定性：在碳涂铝电极上可耐受高达5.6 V vs Li/Li的电位，远超传统非氟溶剂和许多氟化体系。线性扫描伏安（LSV）、同位素示踪（TOF-SIMS）、DEMS气体分析以及过渡金属溶出测试等多维度证据，共同验证了α-氧化机制的阻断效果。\n以1.2 M LiFSI + 0.4 M LiDFOB/MTMA配方，在低负载Li/LRMO扣式电池中，4.6 V下750次循环容量保持率达96.5%，4.7 V下790次循环仍保持79.6%，显著优于高度氟化的商业基准电解液LB372。高负载实用条件下，MTMA同样展现强大竞争力：8.0 mAh cm⁻²正极、N/P=1.25的扣式电池在4.6 V下60次循环保持91.6%容量；7.2 Ah软包电池实现652.4 Wh kg⁻¹的最高比能量，28次循环后容量保持94.5%。即使在有限电解液和低负极过量条件下，电池仍能稳定循环。此外，该电解液形成的LiF富集、薄而均匀且机械坚韧的PEI和SEI，有效抑制了正极相变、氧损失、颗粒破碎及锂枝晶生长等问题。\n值得一提的是，这一“移除α-氢”的分子设计策略具有普适性。团队进一步验证了酰胺、酮和醚类溶剂的对应α-H-free衍生物，均显著提升了氧化稳定性，证实无需依赖降低HOMO能级的氟化或吸电子基团，即可实现高阳极稳定性。该策略不仅突破了传统“低HOMO即高稳定性”的认知误区，还为开发绿色低成本电解液开辟了新路径。文章于2026年5月26日发表在Nature Chemistry。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究机构利用人工智能从头设计咖啡因诱导蛋白质解离系统"
+      ],
+      "entries": [
+        {
+          "t": "AI引导的咖啡因诱导蛋白质解离系统从头设计",
+          "d": "2026-05-26",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "利用AI引导从头设计了一种咖啡因诱导的蛋白解离系统。该工作拓展了化学诱导邻近（CIP）和化学破坏邻近（CDP）技术，通过计算设计实现小分子调控蛋白-蛋白相互作用的精确控制，为合成生物学和靶向治疗提供了新工具。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02343",
+          "tp": "AI蛋白质设计",
+          "aip": 1,
+          "kp": [
+            "技术类型[蛋白互作调控]: 咖啡因诱导蛋白质解离(CDP)",
+            "设计方法[CDP系统]: AI引导从头设计"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Chemically induced proximity (CIP) and chemically disrupted proximity (CDP) technologies have transformed biological research by enabling precise temporal control of protein-protein interactions and cellular functions. However, despite the extensive development of CIP systems, CDP tools with strong translational potential remain comparatively underdeveloped, calling for the need to expand the CDP toolkit. Here, we present a caffeine-operated dissociation system (CODS), a CDP platform activated by caffeine-an inexpensive and widely available small molecule from food or beverages with a well-established safety profile. Using an AI-guided de novo protein design framework, we reprogrammed an existing caffeine-responsive CIP module into a ligand-dependent dissociation system. CODS exhibits high sensitivity and rapid functional switching, with an EC50 below 90 nM and minute-scale dissociation and reassociation kinetics. We further demonstrate the utility of CODS across diverse cellular contexts, including caffeine-dependent suppression of gene expression, induction of programmed cell death via pyroptosis, and conditional deactivation of chimeric antigen receptor (CAR) T-cell activity. CODS establishes a broadly applicable CDP platform for tunable control of cellular functions and provides a potentially generalizable strategy for engineering chemically controlled dissociation systems from existing CIP architectures.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "大连化物所智能透射电子显微镜实现全流程自主运行",
+        "科研人员利用镧系掺杂纳米晶首次实现溶液有机室温磷光发射",
+        "国家能源局发布51个“人工智能+”能源应用场景并启动试点申报"
+      ],
+      "entries": [
+        {
+          "t": "大连化物所研制出无人自主运行的智能透射电子显微镜原眼一号",
+          "d": "2026-05-26",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "中科院大连化物所邓德会团队开发的智能TEM系统\"原眼一号\"通过成果鉴定。该系统日均分析168个样品、采集超4000张图像，自主生成含颗粒尺寸、分散度、晶体构型等定量信息的报告，两周数据量等效传统电镜一年工作量，实现AI全流程自主运行，大幅提升催化剂显微结构分析效率。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://dicp.cas.cn/xwdt/ttxw/202605/t20260525_8209000.html",
+          "tp": "电镜智能化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月26日，中科院大连化物所在官网发文称，邓德会研究员团队开发的智能透射电子显微镜（TEM）系统原眼一号（Aeye）通过了科技成果鉴定。文中称，针对分子筛等催化剂显微结构分析，该系统日均分析分子筛催化剂等样品168个，采集图像超过4000张，并能自主生成包含颗粒精准尺寸、分散度、晶体构型等大规模定量统计信息的专业分析报告，实现了AI全流程自主运行；其运行两周所获数据量，相当于传统透射电镜一年的工作量。",
+          "hb": 1
+        },
+        {
+          "t": "镧系掺杂纳米晶通过直接三重态激发实现溶液中有机室温磷光",
+          "d": "2026-05-26",
+          "a": "Nature Chemistry",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "利用镧系掺杂纳米晶通过直接三重态激发，首次实现有机分子在溶液中的室温磷光发射。有机三重态激子在溶液中通常因非辐射失活而难以产生磷光。该研究利用镧系离子的f-d跃迁特性，将纳米晶作为三重态敏化剂直接激发有机分子三重态，突破溶液相磷光发射瓶颈，在光电器件和生物成像领域具广泛应用前景。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41557-026-02159-w",
+          "tp": "稀土掺杂发光纳米晶",
+          "aip": 1,
+          "kp": [
+            "方法[有机室温磷光]: 镧系掺杂纳米晶直接三线态激发",
+            "突破[溶液体系]: 溶液中实现有机室温磷光"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Organic triplet excitons are of great interest for applications in optoelectronics, photochemistry and theranostics. Due to spin-selection rules, triplets are ‘dark states’, rendering direct photoexcitation from the ground state and efficient phosphorescent emission nearly impossible. Overcoming these spin-dependent limitations is a long-standing challenge. Here we report a universal method to brighten organic triplet excitons by attaching chromophores onto the surface of lanthanide-doped nanocrystals, enabling spin-exchange coupling between the unpaired spins of lanthanide ions and organic molecules. This allows direct photoexcitation of the organic triplets, and room-temperature, nanosecond-timescale, oxygen-insensitive phosphorescence in both solution and film under ambient conditions. Different organic chromophores and lanthanide ions are combined to obtain phosphorescence in the visible and near-infrared range. Compared with common organic phosphorescence, which only exists in crystals or at low temperature, the triplet emission established here does not require crystallization, low temperatures or an inert atmosphere. Our approach could open avenues to the application of room-temperature organic phosphorescence in optoelectronic devices and biological labelling and imaging.The alternative text for this image may have been generated using AI.",
+          "hb": 1
+        },
+        {
+          "t": "国家能源局发布“人工智能+”能源高价值场景清单并启动试点申报",
+          "d": "2026-05-26",
+          "a": "",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "国家能源局印发\"人工智能+\"能源高价值场景清单，首批发布51个应用场景，覆盖电网、新能源、火电核电、煤炭油气及能源新业态等全领域，同步启动试点申报。能源企业可联合AI方组建创新联合体，经省级主管部门或央企推荐，每单位限报10个，7月30日前完成上报。",
+          "sc": 5.8,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "http://www.nea.gov.cn/20260526/261bbb10eea24be3b7ea3a00d89b8891/c.html",
+          "tp": "AI加能源",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月26日，国家能源局印发“人工智能+”能源高价值场景清单和组织开展试点申报工作的通知。该通知发布首批51个“人工智能+”能源高价值应用场景，覆盖电网、新能源、水电、火电、核电、煤炭、油气及能源新业态等全领域，同步启动试点申报工作。能源企业可联合AI技术方组建创新联合体编制方案，由场景需求方牵头、经省级能源主管部门或央企总部推荐上报，每家推荐单位限额不超10个，需于2026年7月30日前完成汇总上传。国家能源局提供的“人工智能+”能源高价值场景清单具体如下：",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

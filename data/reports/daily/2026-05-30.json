@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月30日　星期六",
+  "date_range": "2026-05-30",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "水相提锂工艺验证成功，较传统高温硫酸法显著削减碳排放",
+      "钙钛矿量子点掺杂技术将有机太阳能电池能量转化效率提升至20.5%",
+      "合源锂创首期5GWh固态电池产线投产，首批1GWh电芯已实现交付"
+    ],
+    "AI与智能科技": [
+      "Ω栅单晶In₂O₃场效应晶体管攻克漏电瓶颈，突破2T0C DRAM性能极限",
+      "研究利用纳米级磁体首次实现金刚石氮空位中心自旋的相干量子控制",
+      "科研团队构建情感脑机接口系统，驱动机器人集群完成多智能体协同博弈"
+    ],
+    "通用技术": [
+      "科研团队引入螺双芴取代策略，改变COF空间维度以提升光催化还原效率",
+      "研究发现豆娘翅膀色素与光子结构协同机制，突破光子玻璃颜色饱和极限",
+      "学者开发块体调幅分解多主元合金，在宽温域内实现高韧性与高能量吸收"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "水相提锂工艺验证成功，较传统高温硫酸法显著削减碳排放",
+        "钙钛矿量子点掺杂技术将有机太阳能电池能量转化效率提升至20.5%",
+        "合源锂创首期5GWh固态电池产线投产，首批1GWh电芯已实现交付"
+      ],
+      "entries": [
+        {
+          "t": "实现锂精炼闭环",
+          "d": "2026-05-30",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
+          "as": "该研究提出一种水相提锂工艺用于硬岩锂精炼，相比传统高温硫酸焙烧法具有更高的经济性和更低的环境负荷。该工艺简化了提锂流程并减少了碳排放，为锂电池供应链的绿色化和低成本化提供了切实可行的工程路径。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aei1181?af=R",
+          "tp": "锂矿精炼",
+          "aip": 1,
+          "kp": [
+            "[提纯工艺]: 水相硬岩锂提纯"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "An aqueous process for lithium hardrock refining is economically and environmentally attractive",
+          "hb": 1
+        },
+        {
+          "t": "钙钛矿量子点调控给体/受体掺杂实现有机非富勒烯太阳能电池效率超20.5%",
+          "d": "2026-05-30",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "有机非富勒烯太阳能电池（ONSCs）虽效率大幅提升，但器件性能仍受限于给体/受体界面电荷传输与复合损耗。本研究利用钙钛矿量子点对给体/受体进行可控掺杂调控，优化能级排列与载流子迁移率，使器件效率突破20.5%。该掺杂策略为有机光伏器件性能提升提供了新思路，推动其实用化进程。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73530?af=R",
+          "tp": "非富勒烯有机光伏",
+          "aip": 1,
+          "kp": [
+            "[转换效率]: >20.5%",
+            "[掺杂策略]: 钙钛矿量子点调控给受体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Organic nonfullerene solar cells (ONSCs) have achieved remarkable progress, with power conversion efficiency (PCE) now surpassing 20%. To further improve the device performance, herein, we demonstrate a facile doping strategy using emerging perovskite quantum dots (QDs), which is anticipated to address critical issues like high exciton binding energy and limited charge transport. In a typical sequentially deposited planar heterojunction (PHJ) ONSCs, FAPbI\n                    3\n                    QDs were introduced into the donor polymer (D18) and acceptor molecule (L8BO) layers separately, which enables precise manipulation of the vertical doping and decouples the influence of QDs on donor/acceptor. Comprehensive characterizations reveal that the FAPbI\n                    3\n                    QD doping reduces energy disorder, enhances crystallinity, and promotes cascade energy alignment, thereby facilitating exciton dissociation and charge transport. Moreover, FAPbI\n                    3\n                    QDs act as energy mediators, prolonging carrier lifetime and suppressing non‐radiative recombination. The optimal D18/L8BO device with simultaneous doping of donor/acceptor achieves a best PCE of 20.55% with a high fill factor exceeding 82%. We also demonstrate the application of QD doping strategy in varying representative donor/acceptor systems, paving a new avenue for minimizing energy loss and advancing the efficiency of ONSCs.",
+          "hb": 1
+        },
+        {
+          "t": "合源锂创20GWh固态电池工厂一期项目（5GWh）投产",
+          "d": "2026-05-30",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "合源锂创位于仙桃的20GWh固态电池工厂一期项目（规划5GWh）正式投产，首批1GWh已交付。产线采用氧化物技术路线，产品能量密度覆盖250-400Wh/kg，应用于人形机器人、无人车、无人机等领域。六合系列产品能量密度达280-360Wh/kg，可100%通过5毫米针刺测试。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://epaper.hubeidaily.net/pc/content/202605/30/content_349301.html",
+          "tp": "固态电池厂",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据湖北日报5月30日报道称，合源锂创位于仙桃的20GWh固态电池工厂一期项目（规划5GWh）正式投入生产，首批1GWh已交付使用，单个软包电芯质量213g。文中称，该产线采用氧化物技术路线，主要生产适用于人形机器人、无人车、无人机、e-Bike及消费电子等领域产品，能量密度覆盖250-400Wh/kg。此外，文中宣传合源锂创六合系列固态电池产品能量密度已达280-360Wh/kg，可100%通过5毫米针刺测试。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "Ω栅单晶In₂O₃场效应晶体管攻克漏电瓶颈，突破2T0C DRAM性能极限",
+        "研究利用纳米级磁体首次实现金刚石氮空位中心自旋的相干量子控制",
+        "科研团队构建情感脑机接口系统，驱动机器人集群完成多智能体协同博弈"
+      ],
+      "entries": [
+        {
+          "t": "基于Ω栅单晶In₂O₃场效应晶体管解锁2T0C DRAM的性能极限",
+          "d": "2026-05-30",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "本研究展示了Ω型栅控单晶In₂O₃场效应晶体管（Ω-SC In₂O₃ FET）在2T0C DRAM架构中的高性能应用潜力。通过采用Ω形全环绕栅极结构和单晶沟道材料，器件实现了超高开态电流、极陡亚阈值摆幅和优异的均匀性，有效克服了传统背沟道晶体管的漏电和迁移率瓶颈。该成果为后摩尔时代高密度、低功耗DRAM存储器的架构革新提供了关键器件方案。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec3934?af=R",
+          "tp": "氧化物薄膜晶体管",
+          "aip": 1,
+          "kp": [
+            "[器件结构]: Ω栅单晶In₂O₃ FET无电容2T0C DRAM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study demonstrates high performance Ω-shaped-gated single-crystal In\n                    2\n                    O\n                    3\n                    field-effect transistors (Ω-SC In\n                    2\n                    O\n                    3\n                    FETs), which push the performance boundaries of oxide-based electronics. To showcase these capabilities in a demanding application, a capacitorless two-transistor (2T0C) dynamic random-access memory (DRAM) cell is fabricated based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs. Specifically, a high average field-effect mobility of 321.7 cm\n                    2\n                    /V·s with an on-off ratio above 10\n                    9\n                    and a steep subthreshold swing (SS) of 64.6 mV/dec are obtained for Ω-SC In\n                    2\n                    O\n                    3\n                    FETs due to the single-crystal In\n                    2\n                    O\n                    3\n                    channel as well as effectively enhanced electrostatic control of the Ω-shaped gate structure. The robust gate bias temperature stress stabilities, including positive and negative bias-temperature stresses, are achieved with a threshold voltage (\n                    V\n                    TH\n                    ) shift value of −121 and 41 mV for 10\n                    4\n                     s, respectively, which is attributed to low defect density. Moreover, the high-performance capacitorless 2T0C DRAM cell based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs is constructed, which presents long data retention of 10\n                    5\n                     s, ultrafast access speed of 5 ns, endurance of 10\n                    12\n                     cycles, and storage of 3 bits.",
+          "hb": 1
+        },
+        {
+          "t": "纳米尺度磁体下氮空位自旋的相干量子控制",
+          "d": "2026-05-30",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究利用纳米级磁体实现了金刚石中氮空位（NV）中心自旋的相干量子控制。相比传统微波场驱动方法，纳米磁体提供了高度局域化的磁场操控手段，有望推动纳米尺度量子传感、量子计算及单自旋操控的发展。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73087-z",
+          "tp": "量子自旋控制",
+          "aip": 1,
+          "kp": [
+            "[量子控制]: 纳米磁体微波场驱动单NV中心",
+            "[优势]: 替代天线解决可扩展性与热噪声"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Coherent control of the nitrogen-vacancy (NV) center in diamond is commonly achieved by microwave fields from conventional antennas, which suffer from scalability and thermal noise. Their spatially extended field profiles also limit their specificity in driving one NV spin without affecting other NV spins. Here, we investigate quantum control of a single NV center with microwave fields generated from a nanoscale magnet that is proximal to the NV center. Our results show nanoscale coherent control with high contrast Rabi oscillations using nearfield microwaves from shape anisotropic nanomagnets of lateral dimensions down to 200 nm\" role=\"presentation\">nm{{{\\rm{nm}}}}, driven by surface acoustic wave (SAW) excitation. Furthermore, we show that varying the acoustic power driving such nanomagnets can achieve control over Rabi frequency. We also report spin-spin relaxation time (T2\" role=\"presentation\">T2{T}_{2}) of the NV center, measured up to 3.48&#x00B1;\" role=\"presentation\">±\\pm0.01 μs using microwave pulses generated by such nanomagnets. The use of the nanoscale magnets to implement highly localized coherent quantum control can replace thermally noisy microwave circuits and demonstrate a path to scalable quantum computing and sensing with NV-defects in diamond and other spin qubits.",
+          "hb": 1
+        },
+        {
+          "t": "基于情感脑机接口的赛博群体协作与博弈",
+          "d": "2026-05-30",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究团队提出基于情感脑机接口的半机器人群协同博弈框架，将生物有机体与机器人系统融合形成混合赛博平台。该系统利用脑机接口捕获情感信号，驱动半机器人集群实现自主分工与协作，在多智能体博弈场景中展现出超越纯机械系统的适应性与灵活性，为生物-机器混合智能提供了新范式。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag313/8697610?rss=1",
+          "tp": "情感脑机接口",
+          "aip": 1,
+          "kp": [
+            "[系统]: 闭环半机械人群协系统",
+            "[接口]: 情感脑机接口"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The integration of biological organisms with robotic systems has enabled hybrid cyborg platforms that combine biological sensory agility with electromechanical precision. However, existing cyborg systems predominantly rely on unidirectional stimulus-driven control, treating animals as bio-actuators while neglecting their intrinsic cognitive states. To bridge this gap, we present a closed-loop Cyborg-Swarm architecture that utilizes the animal’s internal affective state (fear) as a high-level trigger to modulate robotic swarm strategies. Specifically, we developed a lightweight, real-time wireless brain-machine interface (BMI) to record Local Field Potentials (LFPs) from the mouse basolateral amygdala (BLA). To ensure robust decoding in freely moving subjects, we implemented a dual-threshold detection algorithm that identifies fear states based on elevated β-band power (15–30 Hz) and suppressed high-frequency noise, effectively rejecting motion artifacts. This decoded intent drives a dual-mode control framework: under baseline conditions, the system operates in a PID-based Exploration Mode; upon detection of fear, it autonomously switches to an Interaction Mode governed by Multi-Agent Deep Deterministic Policy Gradient (MADDPG). In this mode, a heterogeneous robotic swarm (comprising a MouseBot and an ally MAV) executes coordinated adversarial defense strategies against an enemy MAV. Experimental results in a search-interference game demonstrate that biological affective signals can successfully trigger millisecond-level control authority switching, enabling the emergence of complex bio-machine cooperative behaviors. This work marks a paradigm shift from physical-level interaction to cognitive-level bio-hybrid cooperation, validating a scalable framework for emotion-modulated cyborg swarms.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研团队引入螺双芴取代策略，改变COF空间维度以提升光催化还原效率",
+        "研究发现豆娘翅膀色素与光子结构协同机制，突破光子玻璃颜色饱和极限",
+        "学者开发块体调幅分解多主元合金，在宽温域内实现高韧性与高能量吸收"
+      ],
+      "entries": [
+        {
+          "t": "螺双芴取代实现的COF维度异构促进光催化CO2还原增强",
+          "d": "2026-05-30",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究提出\"维度异构\"概念，通过螺二芴取代策略构建由相同分子前驱体组装但空间维度不同的共价有机框架(COFs)。螺二芴的独特刚性三维结构使COF在拓扑连接方式上产生异构体，从而调控材料的孔道结构与比表面积。这一维度异构机制为COF材料的结构设计与功能优化提供了新思路，在气体吸附、催化和储能等领域具有潜在应用价值。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.1182476?af=R",
+          "tp": "光催化CO₂还原",
+          "aip": 1,
+          "kp": [
+            "[维度异构]: 螺双芴C2/C7与C3/C6取代构建不同维度COF",
+            "[光催化]: CO₂还原"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The concept of dimensional isomerism—covalent organic frameworks (COFs) constructed from identical molecular precursors but forming structures of different dimensions—remains largely unexplored. Here, we report a pair of isomeric COFs derived from the same spirobifluorene core, wherein substitution at either the C2/C7 or C3/C6 positions leads to the formation of a planar two‐dimensional (2D) or a nonplanar three‐dimensional (3D) framework, respectively. This substitution‐controlled strategy enables precise modulation of π‐conjugation and framework dimensionality without altering the molecular identity of the building block. Comparative photocatalytic experiments reveal that the 2D C2/C7‐substituted COF exhibits significantly superior CO\n                    2\n                    reduction activity under visible light, attributed to its extended conjugation and efficient charge transport. These findings underscore the critical role of molecular connectivity in determining the structure–function relationships of COFs and propose a generalizable approach for designing high‐performance photocatalytic materials through topological isomerism.",
+          "hb": 1
+        },
+        {
+          "t": "豆娘通过色素负载和折射率调控克服光子玻璃的颜色饱和障碍",
+          "d": "2026-05-30",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究揭示了豆娘（色蟌）通过结合色素与光子玻璃结构，突破了光子晶体材料固有的颜色饱和度限制。传统光子玻璃由于结构散射特性，可产生的颜色范围有限。豆娘翅膀中纳米级光子结构与色素协同作用，显著扩展了色彩表现空间。这一生物策略为可持续结构色材料的设计提供了全新灵感，在防伪、显示技术和智能光学器件领域具有应用潜力。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527433123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "仿生光子玻璃",
+          "aip": 1,
+          "kp": [
+            "[策略]: 色素负载+折射率调制",
+            "[材料]: 光子玻璃非彩虹结构色"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Biological strategies for manipulating light have revealed new concepts in light scattering, inspiring the design of sustainable photonic materials. While iridescent optical systems have been extensively studied, many applications require noniridescent structural colors which are much more difficult to achieve. Photonic glasses, comprising randomly arranged dielectric spheres, offer a promising solution toward such structural colors. However, their intrinsic disorder and particle size polydispersity typically lead to poor color saturation. Here, we identify two strategies employed by certain damselflies to generate unexpectedly vivid, tunable angle-independent colors from a photonic glass. First, doping of transparent pteridine nanospheres with yellow pigments strengthens blue–green reflectance resonances by simultaneously absorbing off-resonant wavelengths and enhancing the refractive-index near the reflectance band. Second, the refractive index of the nanospheres is modulated, via changes in crystallinity, to be almost exactly inversely correlated with nanosphere size. Thus, variations in nanosphere size, that ordinarily broaden reflectance resonances, resulting in poor color saturation, are compensated for by a correlated change in their refractive index. This ensures that even in a polydisperse ensemble, a consistent Mie scattering size parameter is maintained, strengthening short-range correlations and Mie scattering resonances. Finally, we show how damselflies tune these structural colors during maturation by precisely modulating the average size of the nanospheres, which arises naturally during the development of the pigment cells due to the densification and crystallization of the nanospheres. These findings reveal design strategies for overcoming limitations in the saturation of disordered photonic systems.",
+          "hb": 1
+        },
+        {
+          "t": "块体调幅分解构筑的多主元合金：宽温域内增强的能量吸收特性",
+          "d": "2026-05-30",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "该研究开发了一种块体调幅分解构筑的多组元复杂合金，通过纳米级成分梯度结构在宽温度范围内实现显著增强的能量吸收能力。该材料兼具高强度与高韧性，为航空航天及防护工程等领域的抗冲击能量耗散提供了新策略。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73884-6",
+          "tp": "多组分合金吸能",
+          "aip": 1,
+          "kp": [
+            "[合金设计]: 调幅分解构筑块体复杂成分合金",
+            "[吸能特性]: 宽温域增强吸能"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Bulk mechanical energy-absorbing materials are critically needed for various engineering applications. However, existing state-of-the-art materials face significant limitations: architected systems such as 3D-printed nano- and micro-lattices suffer from scalability constraints, while conventional foams often exhibit a strength-ductility trade-off that limits energy absorption. Here, we overcome these challenges by fabricating bulk architected alloys via electrochemical dealloying of a machine learning-identified compositionally complex spinodal alloy. These materials display a hierarchical structural architecture spanning seven orders of magnitude – from atomic-scale lattice distortion, nanoscale precipitates and amorphous oxide layers, microscale ligaments, to macroscale network dimensions. This multi-scale integration enables synergistic deformation mechanisms, yielding energy absorption capacities of ~106 MJ/m3 in bulk and ~ 305 MJ/m3 in micro-samples. Crucially, this enhanced performance is retained from room temperature to 873 K. Our approach provides an effective strategy for designing scalable, high-performance architected materials for demanding condition energy absorption.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

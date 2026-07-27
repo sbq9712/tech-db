@@ -1,0 +1,226 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月11日　星期三",
+  "date_range": "2026-02-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究揭示PdGa@MFI催化剂孤立Ga⁺位点可促进CO₂直接加氢制二甲醚",
+      "赣锋锂业320Wh/kg eVTOL电池搭载AE200机型完成载人试飞测试",
+      "新开发尖端诱导浓度梯度催化剂提升电催化CO₂与硝酸根合成尿素效率"
+    ],
+    "AI与智能科技": [
+      "代尔夫特理工团队开发量子电容技术实现马约拉纳零模毫秒级实时读出",
+      "科研人员研发基于半导体异质结的手性光神经形态器件用于圆偏振光探测"
+    ],
+    "通用技术": [
+      "中科院团队发现稀土化合物EuCo2Al9自旋超固体可实现超低温制冷",
+      "研究利用Dzyaloshinskii-Moriya相互作用诱导邻近磁性促进水氧化反应",
+      "研究在非晶模板生长1T'过渡金属硫族化合物单层提升电催化析氢活性"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究揭示PdGa@MFI催化剂孤立Ga⁺位点可促进CO₂直接加氢制二甲醚",
+        "赣锋锂业320Wh/kg eVTOL电池搭载AE200机型完成载人试飞测试",
+        "新开发尖端诱导浓度梯度催化剂提升电催化CO₂与硝酸根合成尿素效率"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 揭示PdGa@MFI催化剂中孤立Ga⁺在促进CO₂直接加氢制DME中的作用",
+          "d": "2026-02-11",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "本研究揭示了PdGa@MFI催化剂中孤立Ga⁺位点的关键作用，通过在原子和纳米尺度上精确调控活性位点的距离与邻近性，促进甲烷直接转化反应。该策略为单原子/双原子位点催化剂的理性设计提供了新思路，对天然气高效利用和C–H键活化具有重要意义。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20643",
+          "tp": "CO2加氢制二甲醚",
+          "aip": 1,
+          "kp": [
+            "催化剂[CO2制DME]: PdGa@MFI",
+            "[活性位]: 孤立Ga+调控活性位距离与性质促直接路径"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This work presents a strategy to control not only the distance and proximity of active sites at the atomic or nanoscale but also the nature of sites in zeolite-based catalysts, promoting the coupling rate of surface intermediate species and accordingly the formation rate of dimethyl ether (DME) by a direct CO2 hydrogenation path. We use a one-pot synthesis strategy and a thermal-induced detachment process of framework elements, such as Ga3+ ions, to stabilize PdGa alloys and Ga+ sites in close proximity to Brønsted acid sites under reductive conditions. Using this strategy, a production of oxygenates of up to 42,864 gMeOH+DME·kgPd-1·h-1 at 45 bar, 260 °C, and WHSV = 15,000 mL·gcat-1·h-1, is obtained with 80% selectivity to oxygenated (19% methanol/61% DME), outperforming the most active Pd-based CO2 hydrogenation catalysts in the literature. Time-resolved kinetic studies, in situ X-ray adsorption, and in situ and operando IR offer strong proof of the key role of isolated Ga+ Lewis acid sites in close proximity to Brønsted acid sites in stabilizing monoformate intermediate species and facilitating the direct production of DME. Finally, this work highlights the key role of the zeolite in metal confinement, conferring excellent stability, oxidation resistance, hydrophilicity, and close proximity of active sites together with the stabilization of low-coordinated Lewis acid sites.",
+          "hb": 1
+        },
+        {
+          "t": "赣锋锂业称其320Wh/kg的eVTOL电池完成载人试飞测试",
+          "d": "2026-02-11",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "赣锋锂业宣布其320Wh/kg能量密度eVTOL电池搭载沃飞长空AE200-100机型于2025年12月完成载人试飞。电芯支持2C/5C充放、循环超1000次、通过GB38031安全标准及民航局制造符合性检查，但未明确是否为固态体系。同时披露400Wh/kg电池循环突破800次、500Wh/kg级10Ah产品小批量量产、硅基体系320-450Wh/kg等产品矩阵。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/DMbYpu-HR8kpafa3fpscUA",
+          "tp": "航空锂电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月11日，赣锋锂业在官方公众号发文称，其旗下浙江锋锂研发的能量密度320Wh/kg的eVTOL电池，已搭载四川沃飞长空科技公司AE200-100机型，在2025年12月完成第一阶段的载人试飞任务。文中称，该电芯支持2C/5C持续充放，循环次数超过1000次，满足GB38031的安全标准；并通过了沃飞长空及中国民用航空总局共同开展的制造符合性检查，深入赣锋固态电池生产现场进行调查，验证了赣锋固态电芯在生产和产品的稳定性；但文中并未明确此次试飞的eVTOL电池是否为固态体系。\n此外，赣锋锂业还称其400Wh/kg电池循环寿命已突破800次并完成工程验证；500Wh/kg级10Ah产品实现小批量量产；硅基体系实现320-450Wh/kg，320Wh/kg电芯循环寿命突破1000次；针对无人机、机器人等领域的21700圆柱电芯能量密度覆盖330-420Wh/kg。",
+          "hb": 1
+        },
+        {
+          "t": "尖端诱导自增强浓度梯度催化剂用于可持续电催化尿素合成",
+          "d": "2026-02-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "研究提出了一种尖端诱导自增强浓度梯度催化剂，用于可持续电催化C─N偶联反应。通过CO₂与NO₃⁻的共还原，该催化剂利用尖端效应在电极表面产生局部高浓度反应物梯度，显著提升了尿素或胺类产物的法拉第效率和选择性。这种浓度梯度自增强机制突破了传统均相催化中传质限制的瓶颈，为电催化合成高附加值含氮有机物提供了新设计范式，对碳氮资源协同资源化利用具有重要意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518547?af=R",
+          "tp": "电催化CO2合成尿素",
+          "aip": 1,
+          "kp": [
+            "[C-N偶联]: CO2与NO3-共还原合成尿素",
+            "[反应条件]: 环境条件",
+            "[核心瓶颈]: C-N偶联动力学缓慢与HER竞争"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Electrocatalytic C─N coupling via the co‐reduction of CO\n                    2\n                    and NO\n                    3\n                    −\n                    represents a promising route for sustainable urea synthesis under ambient conditions, simultaneously addressing critical challenges in energy sustainability and environmental remediation. However, its practical implementation is hindered by sluggish C─N coupling kinetics and the competing hydrogen evolution reaction (HER), which severely restricts energy conversion efficiency. Herein, we propose a tip‐induced local electric field strategy that generates a self‐enhanced concentration gradient to promote electrocatalytic C─N coupling. By constructing densely aligned Co\n                    3\n                    O\n                    4\n                    nanoneedles on carbon cloth, an outstanding electrocatalytic performance was achieved, requiring only an ultra‐low potential of −0.60 V versus reversible hydrogen electrode (RHE) while delivering a high urea yield rate of 49.63 umol h\n                    −1\n                    cm\n                    −2\n                    and a Faradic efficiency of 21.37%. Finite element simulations reveal that the nanoscale high‐curvature tip generates an intensified local electric field, enriching potassium ions (K\n                    +\n                    ) at the electrode‐electrolyte interface to stabilize key intermediates and direct the reaction pathway toward C─N coupling. Moreover, a series of operando spectroscopic characterizations provide direct evidence for enhanced C─N coupling process under an intensified local electric field. This work offers a generalizable strategy for energy‐efficient C─N coupling, paving the way for sustainable utilization of nitrogen and carbon resources.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "代尔夫特理工团队开发量子电容技术实现马约拉纳零模毫秒级实时读出",
+        "科研人员研发基于半导体异质结的手性光神经形态器件用于圆偏振光探测"
+      ],
+      "entries": [
+        {
+          "t": "代尔夫特理工大学Leo P. Kouwenhoven开发一种通过量子电容实现马约拉纳模式奇偶性实时读出的测量技术",
+          "d": "2026-02-11",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "代尔夫特理工大学Kouwenhoven团队开发出通过量子电容实时读出马约拉纳零模奇偶性的测量技术，在超导耦合量子点基塔耶夫链中实现毫秒级寿命的随机电报信号切换分辨，电荷传感证实两奇偶性态电中性且对非耦合探针不可区分。该成果解决了马约拉纳量子比特时域控制基础读出难题，2月11日发表于Nature。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09927-7",
+          "tp": "拓扑量子态",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "保护量子比特免受噪声影响对于构建可靠的量子计算机至关重要。拓扑量子比特通过使用马约拉纳零模对非局域地编码量子信息，为实现这一目标提供了一条途径。这些模式形成一个共享的费米子态，其占据数——偶数或奇数——定义了编码量子比特的费米子奇偶性。值得注意的是，这种奇偶性只能通过将两个马约拉纳模式耦合在一起的测量来访问。实现此类量子比特的一个有前景的平台是基塔耶夫链，在使用超导体耦合的量子点中实现。即使是最小的双位点链也托管一对马约拉纳模式，通常称为“穷人的马约拉纳”，它们在空间上分离，但与更长的链相比提供的保护有限。本研究引入了一种通过量子电容读出其奇偶性的测量技术。该方法将两个马约拉纳耦合，并在实时中分辨它们的奇偶性，可见为寿命超过毫秒的随机电报切换。同时进行的电荷传感证实，两个奇偶性态是电中性的，并且对不耦合模式的探针保持不可区分。这些结果确立了马约拉纳量子比特时域控制的基本读出步骤，解决了长期存在的实验挑战。文章于2026年2月11日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "基于光催化染料/聚合物半导体体异质结的手性光-神经形态器件：用于圆偏振光探测与存储",
+          "d": "2026-02-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究基于光催化染料/聚合物半导体体异质结开发了手光神经形态器件，可实现圆偏振光（CPL）的检测与记忆功能。该器件模拟人脑的高能效信息处理方式，将手性光学响应与神经形态计算相结合，在偏振光通信和仿生视觉传感领域具有应用潜力。",
+          "sc": 6.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523436?af=R",
+          "tp": "手性神经形态器件",
+          "aip": 1,
+          "kp": [
+            "[器件架构]: 光催化染料/聚合物体异质结",
+            "[功能集成]: 圆偏振光检测与神经形态记忆",
+            "[瓶颈]: 材料不稳定且制备不可扩展"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Neuromorphic computing, which emulates the energy‐efficient processing of the human brain, has emerged as a key technology for next‐generation artificial intelligence. Integrating sensitivity to circularly polarized light (CPL) provides an additional degree of freedom for optical data encoding, yet practical implementation remains limited by material instability and complex, non‐scalable fabrication. This work introduces a chiropto‐neuromorphic device that addresses these challenges through a polarized light‐induced charge transfer doping mechanism. The system employs a solution‐processed bulk heterojunction (BHJ) composed of a chiral boron dipyrromethene (BODIPY) dye and a polymer semiconductor (PBTTT‐C12) to translate CPL handedness into a stable nonvolatile memory state. Chirality‐dependent charge transfer modulates the polymer's doping level, enabling precise control of synaptic weight. The device emulates key biological synaptic functions, including short‐ and long‐term plasticity, paired‐pulse facilitation, and stimulus‐dependent plasticity governed by light number, duration, and intensity, while maintaining distinct chiroptical selectivity. Notably, its energy consumption remains at the picojoule (pJ) level per synaptic event, comparable to biological synapses. By introducing chirality as a new control dimension for synaptic modulation, this study demonstrates a scalable and powerful platform for polarization‐encoded neuromorphic information processing and establishes a foundation for advanced artificial sensory systems capable of handling complex chiral optical signals.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中科院团队发现稀土化合物EuCo2Al9自旋超固体可实现超低温制冷",
+        "研究利用Dzyaloshinskii-Moriya相互作用诱导邻近磁性促进水氧化反应",
+        "研究在非晶模板生长1T'过渡金属硫族化合物单层提升电催化析氢活性"
+      ],
+      "entries": [
+        {
+          "t": "合肥物质科学研究院屈哲发现稀土化合物EuCo2Al9中金属自旋超固体及其超低温制冷潜力",
+          "d": "2026-02-11",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "中科院合肥物质院屈哲团队在稀土化合物EuCo2Al9中发现金属自旋超固体，通过RKKY相互作用与偶极耦合稳定，中子衍射证实面外面内自旋序共存。该金属兼具优异导电导热性，经绝热退磁实现106mK超低温冷却并展现巨大磁热效应，成为首批金属自旋超固体之一，为亚开尔文制冷提供新材料方案。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10144-z",
+          "tp": "自旋超固体",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "自旋超固体作为同时展现固体序和超流序的磁性超固体类似物，已成为具有强烈低能涨落及相关熵效应的有前景的亚开尔文制冷剂。然而，其严格的前提条件迄今将此类状态局限于某些磁性绝缘体之中。本研究报道在稀土化合物EuCo2Al9（ECA）中发现了金属自旋超固体，该化合物是一种具有优异电学和热学导电性的良好金属。高自旋Eu²⁺离子形成由堆垛三角层构成的三维晶格，其中自旋超固体态通过涉及Ruderman–Kittel–Kasuya–Yosida（RKKY）相互作用和偶极耦合的机制得以稳定。中子衍射提供了自旋超固体性的微观证据，证明该合金中面外和面内自旋序的共存。所建立的RKKY–偶极模型成功再现了ECA中的金属自旋超固体Y相和V相，以及1/3磁化平台。这些相内观察到的非经典磁化行为表明存在显著的量子涨落，可能因导带电子而得到增强。电阻率测量为自旋超固体相变提供了输运探针，这是由于导带电子受到局域磁矩的散射。通过绝热退磁过程，ECA实现了106 mK的超低温冷却，展现出巨大的磁热效应，并在磁Grüneisen比中表现为尖锐异常。ECA成为首批金属自旋超固体之一，将极低冷却温度、大的磁熵以及超高热导率相结合，为高性能亚开尔文制冷提供了优异潜力。文章于2026年2月11日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] Dzyaloshinskii-Moriya相互作用下邻近诱导磁性促进水氧化",
+          "d": "2026-02-11",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究利用Dzyaloshinskii-Moriya(DM)相互作用诱导的邻近磁性效应促进水氧化反应。自旋极化控制多电子水氧化的反应动力学，但基准催化剂如IrO2缺乏本征自旋极化能力。研究通过DM相互作用在催化剂中引入邻近磁性效应，调控电子自旋态排列，降低水氧化多电子转移的能垒。该策略为设计高效无贵金属水氧化催化剂提供了基于自旋化学的新思路，对电解水制氢和金属-空气电池具有重要意义。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17778",
+          "tp": "水氧化自旋催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[水氧化]: Co/IrO2双层膜",
+            "[机制]: 界面DMI诱导邻近磁性促进IrO2自旋极化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Spin polarization governs the kinetics of multielectron water oxidation, yet benchmark catalysts like IrO2 lack intrinsic ferromagnetism at ambient temperature, precluding spin control. Here, we exploit the interfacial Dzyaloshinskii-Moriya interaction (DMI) in Co/IrO2 bilayers to induce spin-polarized states in the surface IrO2. This DMI-driven spin polarization boosts intrinsic oxygen evolution reaction activity by 1 order of magnitude, achieving a turnover frequency of 4.17 s-1 at 300 mV overpotential. Ferromagnetic resonance spectroscopy quantifies strong interfacial spin polarization via a 100% increase in the Gilbert damping. Spin-polarized DFT shows that DMI stabilizes a ferromagnetic ground state in IrO2 and reveals that spin ordering alters the adsorption configurations and lowers reaction barriers for *OH dehydrogenation and O-O coupling. Inserting a Cu spacer eliminates DMI, quenching both magnetism and catalytic enhancement. Our results establish interfacial DMI as a general strategy to activate hidden spin states in nonmagnetic oxides, offering a new route to surpass the activity limits in water-oxidation catalysis.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 在非晶模板上生长非常规相1T'过渡金属二硫属化物单层用于高效应用",
+          "d": "2026-02-11",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究在非晶模板上生长了非常规相1T'过渡金属硫族化合物单层，用于高效电催化析氢反应(HER)。氢气作为清洁能源载体前景广阔，铂是目前最优但稀缺昂贵的HER催化剂。1T'相TMD材料因其金属性导电和丰富催化活性位点展现出优异的HER活性，在非晶模板上的可控生长为规模化制备提供了可行路径，为替代铂基催化剂的廉价高效产氢材料开发提供了重要进展。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19857",
+          "tp": "析氢电催化剂",
+          "aip": 1,
+          "kp": [
+            "[催化剂[HER]]: 1T'相TMD单层膜",
+            "[制备]: 无定形模板上生长"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrogen is a promising clean energy carrier to address global energy and environmental challenges. Although platinum (Pt)-based catalysts are the benchmark for the hydrogen evolution reaction (HER), their high cost and scarcity limit their widespread application. Two-dimensional transition metal dichalcogenides (TMDs), particularly with the unconventional 1T' phase, have emerged as promising alternatives, yet synthesizing them with high phase purity and stability remains challenging. Here, by using amorphous phosphorus (P)-doped Pd nanoparticles (a-PdP NPs) as templates, we develop a facile and general wet-chemical method to synthesize high-phase-purity and stable 1T'-TMD monolayers (MLs), including MoS2, WS2, and MoWS2, to construct a-PdP@1T'-TMD core-shell NPs. Experimental and theoretical analyses reveal that the formation and stabilization of 1T'-MoS2 MLs are attributed to the strong Pd-S interaction, electron donation from oleylamine, and amorphous nature of the template. The resulting a-PdP@1T'-MoS2 catalyst exhibits superior HER performance, requiring an overpotential of only -182.3 mV to achieve 1,000 mA·cm-2 and maintaining high stability for over 500 h at 500 mA·cm-2, outperforming the commercial Pt/C and placing it among the best reported MoS2-based catalysts. Impressively, the synthesized a-PdP@1T'-MoS2 can also be used as an efficient and stable support to grow single-atomically dispersed Pt with further enhanced HER activity, indicating its promise as a versatile platform for the design and preparation of advanced electrocatalysts.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

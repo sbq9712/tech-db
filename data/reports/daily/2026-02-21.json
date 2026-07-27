@@ -1,0 +1,255 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月21日　星期六",
+  "date_range": "2026-02-21",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "二元有机太阳能电池光电转换效率达21%",
+      "组分调控提升富铁矿正极电化学可逆性",
+      "疏盐网络凝胶电解质延长无负极锂电池寿命"
+    ],
+    "AI与智能科技": [
+      "Taalas将DeepSeek R1模型映射至硅片实现高吞吐量",
+      "实证研究揭示大语言模型幻觉与校准偏差关联",
+      "钙钛矿量子点神经形态硬件架构实现低功耗多任务学习"
+    ],
+    "通用技术": [
+      "科研团队证实分子铝络合物可完成氧化还原催化循环",
+      "研究者在二维金属有机框架中实现可逆阴离子铁电极化",
+      "p-d双原子催化剂实现光催化高效合成尿素"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "二元有机太阳能电池光电转换效率达21%",
+        "组分调控提升富铁矿正极电化学可逆性",
+        "疏盐网络凝胶电解质延长无负极锂电池寿命"
+      ],
+      "entries": [
+        {
+          "t": "通过固体添加剂工程在二元有机太阳能电池中实现接近84%的记录填充因子与21%效率",
+          "d": "2026-02-21",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "本研究通过固体添加剂工程在二元有机太阳能电池中实现了创纪录的填充因子（接近84%）和21%的光电转换效率。固体添加剂作为一种高效形貌调控手段，通过优化活性层给体-受体相分离形貌、提升电荷传输和减少复合损失来改善器件性能。该突破表明合理的分子级形貌工程可显著缩小有机光伏与无机光伏的效率差距，为推进有机太阳能电池的商业化应用迈出关键一步。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519230?af=R",
+          "tp": "有机太阳能电池",
+          "aip": 1,
+          "kp": [
+            "填充因子[二元有机太阳能电池]: ~84%",
+            "光电转换效率[二元OSC]: 21%",
+            "[固相添加剂工程]: 调控分子间相互作用优化形貌"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Solid additives, as an efficient approach of morphology control in organic solar cells (OSCs), remain not fully understand in terms of the influence of their intermolecular interactions with photoactive molecules on morphological evolution and ultimate device performance. Herein, the intermolecular interactions between solid additives and photoactive molecules were precisely tuned through molecular isomerization engineering. Three isomers of iodine‐substituted 1,2,4‐trichlorobenzene were adopted as the solid additives. The four strongly electronegative halogen atoms readily produce intense interactions with the photoactive materials, thereby enhancing their\n                    J\n                    ‐type stacking and broadening the absorption spectrum. Crucially, the iodine substituent position on the solid additives was altered, which improved their miscibility and intermolecular interactions with photoactive materials, forming a bicontinuous interpenetrating network. Consequently, the binary OSCs achieved an impressive fill factor of approximately 84% with an efficiency of nearly 21% (certified as 20.42%), ranking among the top OSC performances to date. Furthermore, the device demonstrated excellent storage stability, with an extrapolated T\n                    80\n                    (maintaining 80% of its initial efficiency) exceeding 10 000 h.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 抑制富铁矿正极相分离实现高能量密度锂金属电池",
+          "d": "2026-02-21",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究针对黄铁矿（FeS₂）正极在充放电过程中的相分离问题提出抑制策略，以实现高能量密度电池。黄铁矿作为地壳中储量丰富的正极材料，成本低廉但循环稳定性差。研究通过组分调控与结构工程抑制有害相变，提升其电化学可逆性，为可持续电气化提供了兼具高能量密度与本征安全性的电池方案。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20477",
+          "tp": "锂金属电池正极",
+          "aip": 1,
+          "kp": [
+            "[正极材料]: 黄铁矿转换型正极",
+            "[瓶颈解决]: 抑制相分离提升可逆性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The pursuit of sustainable electrification calls for advanced batteries that deliver high energy density, intrinsic safety, and a sustainable material supply. Conversion-type chemistries enable multielectron transfer and high energy density, yet their reversibility is fundamentally limited by phase segregation of conversion products, driven by agglomeration-induced deactivation and the dissolution of soluble intermediates. In this work, we overcome this central bottleneck in the natural pyrite (FeS2) by introducing a partitioned ionic-cluster electrolyte. This tailored chemical environment suppresses polysulfide dissolution, resulting in a homogeneous nanoscale phase distribution during cycling. Such suppression of phase segregation enables the pyrite cathode to deliver a specific energy of ∼1300 Wh kg-1 over 500 cycles and to retain 72.4% of its capacity after 10,000 cycles at 10C. Moreover, scalable pouch cells demonstrate a competitive energy density of 511 Wh kg-1 and intrinsic safety after nail penetration. This study highlights that electrolyte-enabled phase-segregation suppression is crucial for unlocking the practical potential of earth-abundant conversion-type electrodes.",
+          "hb": 1
+        },
+        {
+          "t": "含寄生盐排斥网络的凝胶电解质实现无负极锂电池长循环寿命与高能量密度",
+          "d": "2026-02-21",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究提出了一种含寄生型疏盐网络的凝胶电解质，用于实现安全耐久的无负极锂电池。无负极设计可显著提升能量密度，但面临锂枝晶生长和库伦效率低等挑战。研究者通过构建疏盐网络精准调控电解质中的离子传输行为，使锂离子在集流体表面均匀沉积，有效抑制枝晶形成。实验表明，该凝胶电解质兼具高离子电导率与优异界面稳定性，显著延长了无负极电池的循环寿命，为下一代高能量密度安全锂电池的工程化提供了新思路。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00477-5?rss=yes",
+          "tp": "无负极锂电池",
+          "aip": 1,
+          "kp": [
+            "[无负极锂电池]: 凝胶电解质盐排斥网络",
+            "[电解质设计]: 促进阴离子富集环境"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Advancing safe and durable lithium batteries requires clearer insight into how electrolytes govern ion behavior. This work demonstrates that rational polymer design can reshape lithium-ion solvation, a largely overlooked lever in battery optimization. By engineering a gel electrolyte that promotes a stable anion-rich environment, the work enables improved cycling stability and thermal stability in anode-free cells. These findings highlight the importance of molecular-level solvation control and offer a practical strategy for next-generation high-energy batteries.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "Taalas将DeepSeek R1模型映射至硅片实现高吞吐量",
+        "实证研究揭示大语言模型幻觉与校准偏差关联",
+        "钙钛矿量子点神经形态硬件架构实现低功耗多任务学习"
+      ],
+      "entries": [
+        {
+          "t": "Taalas推出将AI模型固化在硅片中技术可使DeepSeek R1吞吐速度提高至每人每秒12000 Tokens",
+          "d": "2026-02-21",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "AI芯片初创公司Taalas推出\"硬连线\"技术，将AI模型神经网络直接映射固化到定制硅片电路中，融合计算与存储，摒弃HBM和复杂封装散热，从物理层面消除内存墙障碍。针对DeepSeek R1模型，30芯片集群实现每人每秒12000 Tokens吞吐（GPU约200 tokens），官方称每Token生成成本远低于现有高端算力基础设施。属公司自述性能数据，实际规模化部署能力待验证。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/922/670.htm",
+          "tp": "模型固化芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "目前的计算硬件主要包括通用计算硬件、现场可编程门阵列(FPGA)、专用集成电路(ASIC)等。三者编程灵活性递减、同时延迟和能耗也递减.Taalas公司尝试将大模型编码到专用芯片上，实现了10倍以上的加速以及更低的制造成本。按照目前硬件的迭代速度，当远期技术路线收敛后，模型性能足够完善、版本迭代以年为周期时，这些芯片的商业价值会比较明显的体现出来。进一步，这些专用芯片的商业价值非常依赖于具体的使用场景。目前主要的下游应用包括智能体、机器人/智驾、Vibe Coding。就现实来讲，智驾/机器人领域的模型开发涉及到安全合规、复杂系统，开发周期显著慢于Agent和Coding的语言模型开发。这两个领域的模型开发周期已经达到了半年到一年。所以这些领域已经有ASIC的芯片在研发了。\n所以综合来讲，这些芯片在慢模型迭代领域（智驾/机器人）优势会大，但是智能体/编码模型目前迭代速度还很快，如果有后续突破性版本模型出来，流片的成本可能都收不回来，风险很大。",
+          "b": "根据IT之家消息，科技媒体Wccftech于2月20日发布博文，报道称AI芯片初创公司Taalas为解决大模型的延迟与成本难题，推出“硬连线”（Hard-wiring）技术，直接将AI模型固化在硅片中。不同于Cerebras或Groq试图通过集成SRAM（一种存储硬件）来加速的路径，成立仅2.5年的初创公司Taalas选择了更为激进的ASIC（专用集成电路）路线。\nIT之家援引博文介绍，该公司研发出一种能将任意AI模型转化为定制硅片的平台，其核心逻辑在于“融合计算与存储”，直接将特定LLM的神经网络映射到物理硅片电路中。这种设计彻底摒弃了HBM（高带宽内存）、复杂封装及昂贵的散热系统，从物理层面消除了数据传输的“内存墙”障碍。\nTaalas采用了集群化扩展策略。在针对DeepSeek R1模型的测试中，通过30芯片的集群配置，实现了高达每人每秒12000 Tokens的吞吐速度（据公司称，GPU目前的技术约为每人每秒200 tokens）。这一数据意味着在实时交互和复杂推理任务中，用户将获得近乎零延迟的体验。\n官方数据显示，相比现有的高端算力基础设施，Taalas方案的每秒Token生成数（TPS）提升了10倍，同时生产成本降低至20分之一。但是由于模型权重被“硬连线”在硅片中，芯片一旦制造完成便无法更改模型参数。这意味着客户必须为特定的模型版本（如Llama 3.1或DeepSeek R1）购买专用硬件，一旦算法迭代，硬件可能面临淘汰风险。",
+          "hb": 1
+        },
+        {
+          "t": "幻觉、单事实与误校准：一项实证研究",
+          "d": "2026-02-21",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "对大语言模型的幻觉现象、单事实（monofacts）与校准偏差进行实证研究。近期研究表明LLM的幻觉事实服从某种统计下界约束。该工作系统考察了幻觉产生与模型概率校准之间的关系，从实证角度解析幻觉不可完全消除的统计根源，为理解LLM知识可靠性和改进生成可信度提供了量化框架。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2533582123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "大模型幻觉",
+          "aip": 1,
+          "kp": [
+            "[幻觉下界]: 单事实率减模型校准误差"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hallucinated facts in large language models have recently been shown to obey a statistical lower bound determined by the monofact rate (related to the classical Good-Turing missing mass estimator) minus model miscalibration [A. T. Kalai, S. S. Vempala, “Calibrated language models must hallucinate” in\n                    Proceedings of the 56th Annual ACM Symposium on Theory of Computing (STOC)\n                    (New York, NY, USA, 2024), pp. 160–171]. We present empirical investigation of this three-way relationship in classical\n                    \n                      \n                        n\n                      \n                    \n                    -gram models and fine-tuned transformer models. By generating training data from Pareto distributions with varying shape parameters, we systematically control the monofact rate and establish its positive relationship with hallucination. To bridge theory and practice, we derive an empirical analog of the hallucination bound by replacing the population miscalibration term (Section 1.1) with an empirical bin-wise Kullback-Leibler (KL) divergence and confirm its practical viability. We then introduce selective upweighting—a simple yet effective technique that strategically repeats as little as 5% of training examples—to deliberately inject miscalibration into the model. This intervention reduces hallucination by up to 40%, challenging universal deduplication policies. Our experiments reveal a critical trade-off: selective upweighting maintains preinjection levels of accuracy while substantially reducing hallucination, whereas standard training gradually improves accuracy but fails to address persistently high hallucination, indicating an inherent tension in optimization objectives.",
+          "hb": 1
+        },
+        {
+          "t": "基于电致发光钙钛矿量子点的神经网络实现节能加速多任务学习",
+          "d": "2026-02-21",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究提出基于电致发光钙钛矿量子点的神经形态硬件架构，利用量子点的光电双模特性实现突触权重调制与信号传递，兼顾计算与感知功能。该方案在多任务学习中展现出高能效与并行处理能力，为突破冯·诺依曼瓶颈、构建超低功耗类脑AI芯片提供了全新材料平台。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady8518?af=R",
+          "tp": "钙钛矿类脑计算",
+          "aip": 1,
+          "kp": [
+            "[材料]: Cs1-xFAxPbBr3量子点",
+            "[架构]: 双输出电致发光突触器件阵列",
+            "[应用]: 多任务学习能效提升"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The ability of multitasking (MT) learning in neuro-inspired artificial intelligence (AI) systems offers promise for energy-efficient deployment in robotics, health care, and autonomous vehicles. Here, an MT learning framework is established using a dual-output electroluminescent synaptic device array based on a mixed-dimensional stacked configuration with Cs\n                    \n                      1−\n                      x\n                    \n                    FA\n                    \n                      x\n                    \n                    PbBr\n                    3\n                    (0.00 ≤ \n                    x\n                     ≤ 0.15) quantum dots. The device concurrently processes postsynaptic current (PSC) and postsynaptic electroluminescence (PSEL) signals, demonstrating stable and adjustable long-term plasticity with ~1000 individual states, along with spike rate-dependent plasticity and paired-pulse facilitation. By synthesizing the update behavior of both PSC and PSEL pathways, the MT framework simultaneously executes classification-regression and classification-image reconstruction tasks. This approach achieves computational speed improvements of up to 47.09 and 29.17% while reducing energy consumption by up to 8.2- and 32.4-fold compared to a combined single-tasking framework and graphics processing unit–based hardware accelerators, respectively. This innovative method emphasizes the potential of dual-output electroluminescent artificial synapse for MT learning applications.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研团队证实分子铝络合物可完成氧化还原催化循环",
+        "研究者在二维金属有机框架中实现可逆阴离子铁电极化",
+        "p-d双原子催化剂实现光催化高效合成尿素"
+      ],
+      "entries": [
+        {
+          "t": "铝氧化还原催化的环状妙用",
+          "d": "2026-02-21",
+          "a": "Chem",
+          "c": "通用技术/催化剂",
+          "as": "本研究首次报道了分子铝络合物促进的氧化还原催化反应。铝作为地壳中含量最丰富的金属元素，具有低成本、低毒性等优势，但此前从未被证实能实现氧化还原催化循环。Zhang和Li团队在《Nature》上发表论文，打破了铝仅作为路易斯酸的传统认知，开辟了丰产金属催化有机合成的新方向，对绿色化学和可持续催化具有重要意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00500-5?rss=yes",
+          "tp": "铝氧化还原催化",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: 铝(I)氧化还原催化剂(首次报道)",
+            "[反应]: 端炔区域选择性组装1,2,4-取代苯"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Redox catalysis promoted by molecular aluminum complexes has not been previously documented. Now in Nature, Zhang and Liu report the use of an aluminum(I) redox catalyst for the regioselective assembly of 1,2,4-substituted benzenes from terminal alkynes. This work provides a foundational blueprint for designing redox-active aluminum complexes for future homogeneous catalysis.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 二维金属有机框架中通过可逆阴离子中继极化开关实现铁电性",
+          "d": "2026-02-21",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在二维金属有机框架（MOF）中实现了基于可逆阴离子中继机制的铁电极化翻转。传统铁电材料依赖离子位移或有序-无序转变实现极化切换，而该MOF通过骨架中阴离子的可控迁移完成极化翻转，机制新颖。铁电材料在下一代电子学和能源技术中至关重要。该发现拓展了二维MOF铁电性的设计空间，为柔性电子器件和存储器件提供了新平台。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18104",
+          "tp": "铁电MOF材料",
+          "aip": 1,
+          "kp": [
+            "[极化机制]: 可逆阴离子中继极化切换",
+            "[材料]: 2D MOF铁电体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ferroelectric materials are central to next-generation electronics and energy technologies because of their ability to couple electrical, mechanical, and thermal signals. Metal-organic frameworks (MOFs) provide a versatile platform for such functionalities owing to their structural tunability; however, despite notable examples, the microscopic mechanisms governing polarization switching in MOFs remain poorly understood. Here we report a Cu(II)-based polar two-dimensional metal-organic framework [Cu(PhPO(NHCH23Py)2)](NO3)2·2H2O (1·2H2O), constructed from a low-symmetric flexible dipodal phosphoramide ligand, PhPO(NHCH23Py)2. Compound 1·2H2O exhibits robust ferroelectricity, confirmed by a well-defined rectangular P-E hysteresis loop with a saturation polarization of 1.2 μC/cm2. The ferroelectric polar domains, along with bias-dependent amplitude-butterfly and phase-hysteresis loops, were characterized by piezoresponse force microscopy (PFM). First-principles calculations uncover an unusual displacive polarization-switching pathway, in which two nitrate ions displace together along a field-defined direction, enabling reversible 180° dipole reversal through bonding reorganization at the Cu(II) center. This reversible anion-relay mechanism expands the catalog of microscopic ferroelectric processes and represents a new paradigm for MOFs. To demonstrate practical utility, flexible piezoelectric nanogenerators (PENGs) were fabricated by embedding 1·2H2O in thermoplastic polyurethane composites. The champion 10 wt % device delivered an open-circuit voltage of 25.1 V and a maximum power density of 48.7 μW/cm2, highlighting the potential of MOF-based ferroelectrics for piezoelectric energy harvesting applications.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 基于前沿轨道工程设计多功能p-d双原子催化剂，实现高效光催化尿素合成",
+          "d": "2026-02-21",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究利用前线轨道工程设计了p-d双原子催化剂，通过在碳基载体上构建多金属中心，高效促进C-N偶联反应，实现光催化尿素合成。尿素的光催化合成需要同时活化CO2和N源并完成C-N键偶联，传统催化剂效率低。通过调控p型与d型活性位点的电子结构匹配，优化了反应中间体的吸附能和偶联动力学。该策略为光驱动温和条件下合成高附加值含氮化学品提供了新路径。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20307",
+          "tp": "光催化尿素合成",
+          "aip": 1,
+          "kp": [
+            "催化剂[光催化尿素合成]: p-d双原子催化剂",
+            "设计原理[C-N偶联]: 前线轨道工程调控选择性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Constructing multimetal centers on carbon-based substrates is a promising strategy to enhance C-N coupling for efficient urea synthesis, while the underlying design principles, particularly how metal-metal and metal-substrate interactions govern reactant activation and reaction pathways, remain intangible. To address this gap, we developed a frontier orbital interaction-guided C-N coupling selectivity map based on the p-d asymmetric dual-atom models (DACs) through the synergistic integration of DFT calculations and machine learning classification. Specifically, efficient NOx reduction was found to require a narrow energy gap (ΔE1 < 3.38 eV) between the HOMO of p-block metals and the LUMO of the d@substrate (where d-block atoms are treated as integrated with substrates for simplification). In contrast, selective urea synthesis necessitates a larger energy gap (ΔE2 > 1.39 eV) between the LUMO of p-block metals and the HOMO of the d@substrate, signifying weaker p-d interactions. Moreover, such an asymmetric dual-atom structure enables a tunable bandgap while simultaneously optimizing the visible-light absorption range. As a result, the AlPd@PCN and GaPt@PCN systems stand out as exceptional candidates, exhibiting fully thermodynamically favorable energy profiles throughout the photocatalytic cycle. These insights not only extend frontier orbital theory to DACs systems but also establish a robust, generalizable framework for designing high-performance dual-atom urea synthesis catalysts.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

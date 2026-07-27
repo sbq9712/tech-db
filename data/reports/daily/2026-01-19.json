@@ -1,0 +1,206 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月19日　星期一",
+  "date_range": "2026-01-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型钌基固溶体催化剂提升酸性环境稳定性，可延长PEM电解槽寿命",
+      "硫化物全固态电池正极引入挤出与压延干法涂布工艺，规避溶剂降解",
+      "高熵聚合物电解质带实现锂离子定向传输，支撑固态电池无压运行"
+    ],
+    "AI与智能科技": [
+      "耶鲁大学发布MOSAIC框架，基于大模型生成化学合成协议验证成功率达71%"
+    ],
+    "通用技术": [
+      "三金属单原子催化剂引入动态自旋调控，显著提升氧还原反应活性",
+      "研究团队采用辐射交联技术制备弹性铁电材料，适用于柔性传感器",
+      "COMPASS纳米平台实现mRNA与锰离子精准共递送，激发抗肿瘤免疫反应"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型钌基固溶体催化剂提升酸性环境稳定性，可延长PEM电解槽寿命",
+        "硫化物全固态电池正极引入挤出与压延干法涂布工艺，规避溶剂降解",
+        "高熵聚合物电解质带实现锂离子定向传输，支撑固态电池无压运行"
+      ],
+      "entries": [
+        {
+          "t": "质子交换膜电解槽析氧用耐酸钌基固溶体",
+          "d": "2026-01-19",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "针对质子交换膜（PEM）水电解制氢中析氧反应（OER）催化剂在强酸性环境下易腐蚀失活的瓶颈，开发了一种新型钌基固溶体催化剂。该材料在保持高催化活性的同时显著提升了酸稳定性，有望延长PEM电解槽寿命，推动绿氢规模化生产成本下降。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522216?af=R",
+          "tp": "PEM电解水析氧",
+          "aip": 1,
+          "kp": [
+            "催化剂[PEM电解槽OER]: RuZrCoCrCeO2固溶体",
+            "优势[非铱OER]: 酸稳定+高活性",
+            "合成[Ru基固溶体]: 模板导向MOF衍生"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Proton exchange membrane (PEM) water electrolysis offers a promising route for green hydrogen production, yet balancing catalytic activity and durability remains challenging for oxygen evolution reaction (OER) catalysts in acid, particularly for non‐Ir‐based catalysts. Herein, we develop a template‐guided strategy to synthesize the metal–organic framework (MOF)‐derived RuZrCoCrCeO\n                    2\n                    solid solution with tunable multi‐metal heteroatom regulation. The catalyst demonstrates outstanding acidic OER performance, requiring only 179 mV overpotential to achieve 10 mA cm\n                    geo\n                    −2\n                    and remarkable durability over 1500 h at 50 mA cm\n                    geo\n                    −2\n                    with a negligible decay of 30.67 µV h\n                    −1\n                    . An “electronic buffer” effect facilitates electron transfer from atomically dispersed Zr to Ru, forming asymmetric Ru─O─Zr bonds with enhanced metal–oxygen covalency, thereby preventing excessive oxidation of Ru species. A vicinal deprotonation mechanism was proposed, where lattice oxygen assists *OOH deprotonation with a lower energy barrier on Ru─O─M sites. A PEM electrolyzer with low Ru loading (0.37 mg\n                    Ru\n                    cm\n                    −2\n                    ) achieves an industrial‐level current density of 1 A cm\n                    −2\n                    at 1.66 V, corresponding to a low hydrogen cost of US$0.89 kg\n                    −1\n                    below the US DOE target (US$2 per kg of H\n                    2\n                    ), and operates stably for 600 h at 200 mA cm\n                    geo\n                    −2\n                    , demonstrating its practical potential for scalable, Ir‐free PEM electrolyzers.",
+          "hb": 1
+        },
+        {
+          "t": "挤压与直接压延对硫化物全固态电池干法涂布正极的影响",
+          "d": "2026-01-19",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究针对硫化物全固态电池（ASSB）正极的规模化生产，提出了一种新型干法涂布工艺，结合挤出与直接压延技术实现无溶剂电极制备。研究系统评估了工艺参数对硫化物正极微观结构、界面接触及电化学性能的影响，旨在替代传统湿法涂布中溶剂残留对硫化物固态电解质的降解问题。该工艺对降低全固态电池制造成本、推动其从实验室走向量产具有关键工程意义。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506443?af=R",
+          "tp": "全固态电池正极",
+          "aip": 1,
+          "kp": [
+            "正极组成[硫化物ASSB]: 82wt%NCM85+0.5wt%PTFE",
+            "粘结剂[干法电极]: PTFE纤维化",
+            "工艺[ASSB正极]: 挤出+直接压延干法涂布"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    This study presents a novel dry‐coating process for the scalable production of sulfidic ASSB cathodes within a dry room environment. Composite powders, consisting of 82.0 wt% NCM85 and 0.5 wt% PTFE, are mixed and fibrillated using a twin‐screw extruder. Dry‐coated cathode films are manufactured using a two‐roll calender through a single high‐shear calendering step. The study explores the impact of processing parameters on the morphology of electrodes and cell performance. Furthermore, the findings are compared to a slurry reference. Increasing the process temperature and reducing the line load enhances PTFE fibrillation and mitigates CAM particle cracking. These adjustments improve electrode homogeneity, density, and CAM–SE interface contact. The improvements are attributed to the deformation of LPSCl particles under shear stress, especially at higher temperatures. XPS analysis reveals temperature‐driven degradation of LPSCl, forming Li\n                    2\n                    S. Despite lower electronic conductivity, dry‐coated cathodes exhibit superior ionic conductivity compared to the slurry reference. Single‐layer pouch cells with dry‐coated cathodes demonstrate enhanced initial capacity, ICE, and discharge rate capability. Optimal performance is achieved with electrodes produced with high extrusion temperature (100°C), medium calender temperature (60°C), and low line load (50 N mm\n                    −\n                    1\n                    ).",
+          "hb": 1
+        },
+        {
+          "t": "用于免压固态锂电池的梯度纳米畴高熵聚合物电解质带",
+          "d": "2026-01-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "本研究提出一种梯度纳米畴高熵聚合物电解质带（Tape），用于无压固态电池。高熵聚合物电解质因其可调控的离子传输通道和优异界面兼容性备受关注。该设计通过构建梯度纳米畴结构，使锂离子在电解质内部实现高效定向传输，同时高熵组分赋予材料优异的机械柔韧性和界面接触性能，从而在无需外部堆叠压力的条件下实现稳定的固态电池循环。该策略为全固态电池的无压化运行和可规模化制造提供了新思路。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520657?af=R",
+          "tp": "高熵聚合物电解质",
+          "aip": 1,
+          "kp": [
+            "电解质[无压固态锂电]: 三相高熵聚合物电解质带",
+            "结构[HEPE]: 梯度纳米畴控制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    High‐entropy polymer electrolytes (HEPE) have attracted significant attention owing to their exceptional design flexibility in properties and thin‐film processability. However, building high‐performance HEPE with well controlled nanodomains of multi‐components remains a critical challenge due to serious microphase separation. Here, we report a tri‐phase high‐entropy polymer electrolyte (HEPE) tape featuring ultrafine soft‐rigid gradient nanodomains approaching the single‐chain length scale, to achieve notable simultaneous enhancements in mechanical, electrochemical, and interfacial properties. The HEPE is realized through Li\n                    +\n                    ‐bond‐regulated nanophase separation of polyethylene oxide (PEO), poly (methyl methacrylate) (PMMA), and polyvinylidene fluoride‐co‐hexafluoropropylene (PVFH), leading to high‐entropy microstructures at the levels of chain conformation and phase domains. Consequently, the HEPE exhibits a high room‐temperature ionic conductivity of 0.24 mS∙cm\n                    −1\n                    , exceptional mechanical properties (strength of 22.1 ± 2.3 MPa, toughness of 87.7 MJ∙m\n                    −3\n                    , elastic recovery of 66.7%), and interfacial adhesion toughness of 325 ± 15 N∙m\n                    −2\n                    . Benefitting from these properties, the HEPE can generate physico‐electrochemical synergistic effects on stabilizing the lithium metal anode with a long cycling life of 750 h at 0.1 mA∙cm\n                    −2\n                    . The resultant solid‐state Li|HEPE|NCM811 cell delivers a high capacity of 205.5 mAh∙g\n                    −1\n                    even without stack pressure. This study indicates a promising high‐entropy tri‐component mixing strategy for the design and fabrication of HEPEs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "耶鲁大学发布MOSAIC框架，基于大模型生成化学合成协议验证成功率达71%"
+      ],
+      "entries": [
+        {
+          "t": "耶鲁大学Victor S. Batista推出MOSAIC框架以实现AI辅助的化学合成协议生成与新反应发现",
+          "d": "2026-01-19",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "耶鲁大学Victor S. Batista团队推出MOSAIC框架，基于Llama-3.1-8B在Voronoi聚类空间训练2498个特化化学专家，可为复杂合成提供可执行实验协议并附置信度。整体实验验证成功率达71%，合成超35种新化合物，涵盖药物、材料、农药和化妆品领域，还能发现训练数据中不存在的新反应方法学，为AI辅助科学发现提供可扩展范式。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10131-4",
+          "tp": "智能合成术",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "科学文献的指数级增长在各学科中构成日益严峻的挑战，每年有数十万种新的化学反应被报道，然而将这些反应转化为可实际执行的实验仍面临重大障碍。近期大型语言模型（LLM）的应用已展现出潜力，但针对从头设计化合物的多样化转化，能够可靠运作的系统仍未实现。本研究引入MOSAIC（Multiple Optimized Specialists for AI-assisted Chemical Prediction，多优化专家AI化学预测系统）计算框架，使化学家能够利用数百万反应协议的集体知识。MOSAIC基于Llama-3.1-8B-instruct架构构建，在Voronoi聚类空间中训练了2498个特化的化学专家。该方法能够为复杂合成提供可重复、可执行的实验协议，并附带置信度指标。整体实验验证成功率达71%，成功实现了超过35种新型化合物的合成，涵盖药物、材料、农药和化妆品领域。特别值得注意的是，MOSAIC还能发现训练数据中不存在的新反应方法学，这为化学合成进步提供了关键基础。这种将庞大领域分割为可搜索专家区域的可扩展范式，为AI辅助科学发现提供了一种普适策略，适用于信息增长速度超过高效知识获取与应用能力的任何领域。文章于2026年1月19日发表在Nature。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "三金属单原子催化剂引入动态自旋调控，显著提升氧还原反应活性",
+        "研究团队采用辐射交联技术制备弹性铁电材料，适用于柔性传感器",
+        "COMPASS纳米平台实现mRNA与锰离子精准共递送，激发抗肿瘤免疫反应"
+      ],
+      "entries": [
+        {
+          "t": "动态自旋调控三金属单原子催化剂不对称配位场实现最优氧还原",
+          "d": "2026-01-19",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "单原子催化剂在氧还原反应（ORR）中理论上具有优越动力学性能，但实际应用仍受限于活性位点调控。本研究提出通过动态自旋调控三金属单原子催化剂的不对称配位场，利用不同金属间的电子自旋耦合效应优化中间体吸附能垒，显著提升ORR催化活性与选择性。该策略为多金属单原子体系的精准设计提供了新思路，对燃料电池和金属-空气电池阴极催化具有重要意义。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519740?af=R",
+          "tp": "单原子催化剂ORR",
+          "aip": 1,
+          "kp": [
+            "策略[ORR单原子催化剂]: 动态自旋工程",
+            "催化剂[ORR]: FeZnTM三金属单原子",
+            "[不对称配位场]: 动态自旋优化多步PCET"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Single‐atom catalysts demonstrate theoretically superior oxygen reduction reaction (ORR) kinetics, the limited dynamic adaptability, however, poses a giant challenge to meet the multi‐step proton‐coupled electron transfer (PCET). Herein, we propose a “\n                    Dynamic Spin Engineering\n                    ” strategy for the rational design of tri‐metallic single‐atom catalysts (FeZnTM‐TACs) featuring asymmetric coordination fields (FeN\n                    4\n                    ZnN\n                    3\n                    TMN\n                    4\n                    ). Leveraging electron synergy and spatial functional decoupling among heterometallic sites, the optimized FeZnMn‐TACs exhibit exceptional ORR performance (\n                    E\n                    1/2 \n                    = 0.93 V versus RHE) and ultra‐long stability (Δ\n                    E\n                    1/2\n                     = 24 mV after 90,000 cycles). Through operando X‐ray absorption fine structure and spin‐polarized density functional theory, we unveil the scalability of a ternary synergy encompassing dynamic reconstruction, charge compensation and spin‐state transition, clarifying the roles of electron donors at the ZnN\n                    3\n                    sites and proton supply at MnN\n                    4\n                    sites. Dynamic FeN\n                    \n                      x\n                    \n                    C\n                    \n                      y\n                    \n                    evolution triggers a spin‐state transition from medium spin (MS = 1.5) to low spin (LS = 1.0), accompanied by the\n                    \n                      d\n                      xz\n                    \n                    /\n                    \n                      d\n                      yz\n                    \n                    orbital occupancy degree from 50% to 100%. As a consequence, we synergize the dual optimization of *OOH formation and *OH desorption in PCET. Moreover, our work atomically deciphers the spin redistribution mechanism driven by dynamic reconstruction, establishing a new paradigm for designing self‐adaptive electrocatalysts that ultimately unify ultrahigh activity with operational stability.",
+          "hb": 1
+        },
+        {
+          "t": "辐射交联弹性铁电材料",
+          "d": "2026-01-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对可穿戴电子器件对柔性铁电材料的需求，研究团队利用辐射交联技术制备弹性铁电体，克服了传统热交联方法的局限性。辐射交联可在室温或低温下实现聚合物链间交联网络构建，赋予材料优异弹性与铁电性能并存，同时避免高温对铁电相的破坏。该方法有望推动柔性传感器、可穿戴能量收集与存储器件中高性能铁电材料的工程化应用。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72165?af=R",
+          "tp": "弹性铁电材料",
+          "aip": 1,
+          "kp": [
+            "交联方法[弹性铁电体]: 辐射交联",
+            "优势[辐射交联]: 低温无引发剂深穿透"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  With the rapid advancement of wearable electronics, elastic ferroelectrics, which have been prepared by thermal and photochemical crosslinking, possess tremendous potential applications in wearable devices. However, challenges arose from these crosslinking reactions, such as high crosslinking temperature, long processing time, initiator residues, limited penetration depths. In contrast, radiation crosslinking, triggered by high‐energy particles at room temperature, yields materials with enhanced properties by offering advantages like the absence of active end‐groups and initiators, fast crosslinking speed, deep penetration, and environmental friendliness. In this study, the elastification of ferroelectric polymers, with normal ferroelectric poly(vinylidene fluoride‐co‐trifluoroethylene) (P(VDF‐TrFE)) as the matrix and a crosslinking sensitizer with unsaturated double bonds, was realized via electron beam radiation crosslinking. By adjusting the absorbed doses and the feed ratios of P(VDF‐TrFE) and the crosslinking sensitizer, the crystallinity of the elastic ferroelectrics was controlled, effectively balancing ferroelectricity and resilience. The resulting elastic ferroelectrics maintain stable ferroelectric response under tensile strains up to 55%, exhibiting excellent elasticity and ferroelectric properties. This study presents a simple but efficient approach for preparing intrinsically elastic ferroelectric without high‐temperature reaction, and eliminating the need for heating and cooling steps, providing a potential universal platform for constructing various elastic ferroelectrics.",
+          "hb": 1
+        },
+        {
+          "t": "锰配位多价适体系统 (COMPASS) 实现 DC 靶向 mRNA/Mn2+ 共递送用于癌症免疫治疗",
+          "d": "2026-01-19",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对mRNA癌症疫苗面临的靶向性和安全性挑战，研究人员开发了一种名为COMPASS的锰配位多价适体纳米平台。该系统能够将mRNA和锰离子精准共递送至淋巴结树突状细胞（DC），有效激发强效的抗肿瘤免疫反应。此项技术突破了现有纳米载体的效能瓶颈，展现出在癌症免疫治疗领域的巨大临床应用潜力。",
+          "sc": 5.8,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519216?af=R",
+          "tp": "锰配位递送",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    mRNA vaccines hold remarkable promise for cancer immunotherapy, yet current nanoparticle systems face challenges in efficacy, dendritic cell (DC) targeting, and safety. Herein, we report a nanoplatform, Manganese‐Coordinated Polyvalent Aptameric System (COMPASS), enabling targeted co‐delivery of mRNA and Mn\n                    2\n                    +\n                    to lymph node dendritic cells (DC) to boost potent antitumor immunity. The COMPASS employed rolling circle amplification to generate single‐stranded DNA scaffolds with multivalent DC‐targeting aptamers and polyT domains, enabling stable mRNA hybridization via A‐T pairing. Various metal ions were screened, and Mn\n                    2\n                    +\n                    was found to enhance mRNA endosomal escape and activate the STING pathway in DCs, promoting their maturation and antigen presentation. Controlled nanoparticle size (∼200 nm) and aptamer‐mediated DC targeting markedly enhanced lymphatic accumulation. In vivo evaluations revealed that COMPASS achieved potent prophylactic and therapeutic antitumor efficacy comparable to commercial LNPs (e.g., SM‐102), while exhibiting significantly enhanced safety profiles. Importantly, lyophilized COMPASS formulations retained their structural integrity and bioactivity for at least three months at room temperature. Overall, COMPASS represents a promising next‐generation nanoplatform with significant translational potential for safe and effective cancer immunotherapy.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

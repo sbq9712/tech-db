@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月7日　星期六",
+  "date_range": "2026-02-07",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中科院团队在青藏高原蛇绿岩中检出封存天然氢气与甲烷",
+      "研究人员利用界面水分子取向调控实现乙烯高选择性电合成",
+      "新研究提出定向离子迁移策略以优化高温二氧化碳电解异质界面"
+    ],
+    "AI与智能科技": [
+      "单层非晶碳涂层技术突破硬盘2纳米磁性间距物理极限",
+      "新型侧脑室脑机接口采用柔性可扩展电极实现高密度神经信号采集"
+    ],
+    "通用技术": [
+      "科研人员结合超材料理念实现纳米材料三维电子器件打印",
+      "新技术利用纳米气泡气水界面在常温常压下将氮气转化为硝酸盐",
+      "研究人员成功制备厘米级Janus过渡金属二硫族化物单晶"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中科院团队在青藏高原蛇绿岩中检出封存天然氢气与甲烷",
+        "研究人员利用界面水分子取向调控实现乙烯高选择性电合成",
+        "新研究提出定向离子迁移策略以优化高温二氧化碳电解异质界面"
+      ],
+      "entries": [
+        {
+          "t": "中科院地质地球所发现青藏高原部分地区具备天然氢气形成/勘探的潜力",
+          "d": "2026-02-07",
+          "a": "",
+          "c": "零碳产业/物质循环/资源处理/勘探技术",
+          "as": "中科院地质地球所吴福元院士团队在Science Bulletin发表研究，在青藏高原班公湖-怒江缝合带蛇绿岩中发现封存于地幔橄榄石流体包裹体内的天然氢气与甲烷，与蛇纹石化蚀变矿物共生，证明该区域正在或已发生蛇纹石化产氢过程。团队建立深部包裹体氢组成与地表释放通量定量关联，指出青藏高原蛇绿岩体是天然氢勘探潜力区，但当前检出丰度较低。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.chinanews.com.cn/gn/2026/02-06/10567586.shtml",
+          "tp": "天然氢勘探",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据中新网和央视网等媒体2月7日报道，中国科学院地质与地球物理研究所吴福元院士团队在Science Bulletin上发布short communication，称其在青藏高原部分地区（班公湖-怒江缝合带）的蛇绿岩中发现了封存于地幔橄榄石矿物中、仅微米大小流体包裹体内的天然氢气及甲烷，并发现它们与典型的蛇纹石化蚀变矿物共生，证明了青藏高原地下正在发生或已经发生蛇纹石化产氢过程（富铁镁矿物，Fe²⁺氧化为Fe³⁺，水被还原为H₂，被认为是主要的天然氢地质形成过程；生成的H₂还可与CO₂反应形成CH₄）；而青藏高原广泛分布有的大型蛇绿岩体，是未来天然氢气勘探的潜力区。此外，报道中还称，该研究通过系统对比全球数据，建立起深部包裹体氢气组成与地表氢气释放通量之间的定量关联，明确了此类包裹体是地表氢气的重要初始来源，确定了天然氢气形成、迁移、近地表聚集的理论路径。但文中表示，目前探测的H₂丰度较低（21次分析仅2次检出），可能因部分H₂被消耗生成CH₄，或长期释放导致。",
+          "hb": 1
+        },
+        {
+          "t": "通过调控界面水分子取向引导乙烯电合成",
+          "d": "2026-02-07",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "该研究提出通过调控电极-电解质界面处水分子的取向排列来精准控制电催化反应路径，实现乙烯（C2H4）的高选择性电合成。研究者利用界面溶剂极化动力学策略，使CO2电还原反应优先走向C-C偶联路径而非竞争性析氢反应，显著提升了乙烯产物的法拉第效率。这一工作为通过溶剂结构工程调控电催化选择性提供了新范式，对绿色化工中可再生电力驱动的碳氢化合物合成具有重要意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520546?af=R",
+          "tp": "乙烯电催化合成",
+          "aip": 1,
+          "kp": [
+            "[界面水取向]: H2O极化耦合反应路径分叉",
+            "[电催化CO2还原]: 调控水取向导向乙烯合成",
+            "[选择性调控]: 溶剂极化动力学控制路径"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Controlling reaction pathway via solvent polarization dynamics remains a grand challenge in catalysis due to elusive interfacial kinetic regulation mechanisms. Here, we resolve this dilemma by establishing interfacial water orientation that directly couples H\n                    2\n                    O polarization with reaction pathway bifurcation. Using electrocatalytic CO\n                    2\n                    reduction as a typical platform, we demonstrate that precisely engineered H‐down water alignment, achieved via adaptive subsurface tuning (AST) strategy of Ga‐doped Cu catalysts, dynamically regulates proton transfer directionality and intermediate stabilization. The optimized Ga/Cu catalyst achieved a Faradaic efficiency (FE) of 68.8% for ethylene at 800 mA cm\n                    −2\n                    , surpassing ethanol production by 8.2‐fold, and the current density was among the highest reported for catalysts with high ethylene FE. Detailed experimental studies and theoretical calculations corroborate that H‐down alignment enhanced *H availability, directing protons to selectively cleave the C─O bond of *CHCOH intermediates over hydrogenation pathways, yielding high ethylene FE and current density. These findings establish interfacial water orientation as a pivotal descriptor for steering C─C coupling selectivity in electrocatalysis, offering a rational design principle for efficient electroreduction systems.",
+          "hb": 1
+        },
+        {
+          "t": "定向离子迁移实现高温CO2电解的精确异质界面优化",
+          "d": "2026-02-07",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "该研究提出通过定向离子迁移策略精确优化复合电极中异质界面的方法。异质界面对催化性能至关重要，传统手段难以实现精准调控。该技术为电催化材料的界面工程提供了新思路，有望提升能源转换器件的整体效率与稳定性。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21833",
+          "tp": "高温CO2电解",
+          "aip": 1,
+          "kp": [
+            "[优化策略]: 离子定向迁移精确优化复合电极异质界面",
+            "[应用]: 固体氧化物电解池高温CO2电解"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Heterointerfaces in composite electrodes play critical roles in catalytic performance, but methods for precise optimizat",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "单层非晶碳涂层技术突破硬盘2纳米磁性间距物理极限",
+        "新型侧脑室脑机接口采用柔性可扩展电极实现高密度神经信号采集"
+      ],
+      "entries": [
+        {
+          "t": "利用单层非晶碳涂层突破硬盘2纳米壁垒",
+          "d": "2026-02-07",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "随着人工智能对大规模数据存储需求的激增，硬盘驱动器（HDD）存储密度提升面临物理极限。本研究利用单层无定形碳覆涂层突破了硬盘2nm磁性间距屏障，极薄碳层为磁记录磁头提供了优异的机械保护与耐腐蚀性能。该技术有望显著提升HDD面密度，满足AI时代海量冷数据存储需求。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519149?af=R",
+          "tp": "硬盘碳基涂层",
+          "aip": 1,
+          "kp": [
+            "碳层厚度[HDD]: 突破2nm极限",
+            "碳层材料[HDD]: 单层非晶碳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The rapid growth of artificial intelligence (AI) has increased the demand for large‐scale data storage, making hard disk drives (HDDs) indispensable in data centers due to their cost‐effectiveness and stability. To support AI‐driven data requirements, increasing the areal storage density is critical. However, this metric is increasingly constrained by the carbon overcoat (COC), the essential protective layer for magnetic media. Traditional diamond‐like carbon (DLC) can no longer fulfill the stringent demands for ultrathin coatings and high thermal stability required by next‐generation technologies like Heat‐Assisted Magnetic Recording (HAMR) and bit‐patterned media. Here, we introduce monolayer amorphous carbon (MAC) as a superior alternative. MAC is directly grown on the heterogeneous (Fe, Pt, SiO\n                    2\n                    ) HDD surface at low temperatures (∼ 300°C), achieving an uniform 0.8 nm thickness across 2.5‐inch disks. Despite its atomic thickness, MAC demonstrates high corrosion resistance and low roughness comparable to commercial 2.5 nm COCs. Its fully amorphous, sp\n                    2\n                    ‐hybridized structure ensures excellent thermal stability under HAMR‐like conditions (∼450°C) and a low friction coefficient, enabling potential lubricant‐free operation. Replacing traditional COCs with MAC facilitates the development of HDD media capable of achieving 10 Tb/in\n                    2\n                    , addressing the urgent storage demands of the digital era.",
+          "hb": 1
+        },
+        {
+          "t": "受灯笼启发的侧脑室脑机接口电极系统：稳定性能与记忆引导解码",
+          "d": "2026-02-07",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究提出一种侧脑室脑机接口（LV-BCI）系统，采用受灯笼启发的可扩展柔性电极植入侧脑室，实现长期稳定神经信号记录。该系统结合记忆引导解码策略，在稳定性和信号质量方面表现优异，为严重神经系统疾病患者的通信与控制提供了新型侵入式接口方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag081/8465389?rss=1",
+          "tp": "脑机接口电极",
+          "aip": 1,
+          "kp": [
+            "电极设计[脑机接口]: 灯笼式可扩张柔性电极",
+            "植入路径[侧脑室BCI]: 微创外引流通路",
+            "优势[vs ECoG]: 更稳定记忆引导解码"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We present a lateral ventricular brain-computer interface (LV-BCI) that deploys an expandable, flexible electrode into the lateral ventricle through a minimally invasive external ventricular drainage pathway. Inspired by the framework of traditional Chinese lanterns, the electrode expands uniformly within the ventricle and conforms to the ependymal wall. Compared with conventional subdural ECoG electrodes, the LV-BCI shows superior signal stability and immunocompatibility. Resting-state spectral analyses revealed a maximum effective bandwidth comparable to subdural ECoG. In evoked potential tests, the LV-BCI maintained a consistently higher signal-to-noise ratio over 112 days without the decline typically associated with scarring or other immune responses. Immunohistochemistry showed only a transient, early microglial activation after implantation, returning to control levels and remaining stable through 168 days. We further designed an “action-memory T-maze” task and developed a microstate sequence classifier (MSSC) to predict rats’ left/right turn decisions. The LV-BCI achieved prediction accuracy up to 98%, significantly outperforming subdural ECoG, indicating enhanced access to decision-related information from deep structures such as the hippocampus. These results establish the lateral ventricle as a viable route for neural signal acquisition. Using a lantern-inspired flexible electrode, we achieve long-term stable recordings and robust memory-guide decision decoding from within the ventricular system, opening new directions for BCI technology and systems neuroscience.",
+          "hb": 1
+        },
+        {
+          "t": "基于灯笼灵感电极的侧脑室脑机接口系统：实现稳定性能与记忆守护",
+          "d": "2026-02-07",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究者提出一种侧脑室脑机接口（LV-BCI）系统，采用受灯笼结构启发的柔性可扩展电极，通过微创方式植入大脑侧脑室。该系统利用脑室腔体的天然空间容纳展开后的柔性电极阵列，实现与深部脑区神经信号的大面积高密度采集。灯笼式设计使电极在输送时保持紧凑形态，到达靶区后展开贴合脑室壁，兼顾植入安全性与信号覆盖范围。该方案有望为神经假体、脑功能障碍治疗等提供新型微创接口。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag081/8465389?rss=1",
+          "tp": "脑机接口电极",
+          "aip": 1,
+          "kp": [
+            "[电极设计]: 灯笼仿生可膨胀柔性电极",
+            "[植入路径]: 侧脑室微创引流通路植入",
+            "[优势]: 优于传统硬膜下 ECoG 电极"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We present a lateral ventricular brain-computer interface (LV-BCI) that deploys an expandable, flexible electrode into the lateral ventricle through a minimally invasive external ventricular drainage pathway. Inspired by the framework of traditional Chinese lanterns, the electrode expands uniformly within the ventricle and conforms to the ependymal wall. Compared with conventional subdural ECoG electrodes, the LV-BCI shows superior signal stability and immunocompatibility. Resting-state spectral analyses revealed a maximum effective bandwidth comparable to subdural ECoG. In evoked potential tests, the LV-BCI maintained a consistently higher signal-to-noise ratio over 112 days without the decline typically associated with scarring or other immune responses. Immunohistochemistry showed only a transient, early microglial activation after implantation, returning to control levels and remaining stable through 168 days. We further designed an “action-memory T-maze” task and developed a microstate sequence classifier (MSSC) to predict rats’ left/right turn decisions. The LV-BCI achieved prediction accuracy up to 98%, significantly outperforming subdural ECoG, indicating enhanced access to decision-related information from deep structures such as the hippocampus. These results establish the lateral ventricle as a viable route for neural signal acquisition. Using a lantern-inspired flexible electrode, we achieve long-term stable recordings and robust memory-guide decision decoding from within the ventricular system, opening new directions for BCI technology and systems neuroscience.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研人员结合超材料理念实现纳米材料三维电子器件打印",
+        "新技术利用纳米气泡气水界面在常温常压下将氮气转化为硝酸盐",
+        "研究人员成功制备厘米级Janus过渡金属二硫族化物单晶"
+      ],
+      "entries": [
+        {
+          "t": "基于超材料启发的近场电磁策略实现纳米材料电子器件三维打印",
+          "d": "2026-02-07",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究将三维打印技术与纳米材料电子学相结合，引入超材料设计理念，实现了具有自由形态和功能集成的电子器件制造。传统3D打印在纳米尺度精度与电学性能方面受限，该工作通过优化纳米墨水配方与打印工艺，构建出具备超材料电磁响应特性的三维电子结构。这一方法突破了平面制造的几何限制，为柔性电子、可穿戴传感、电磁功能器件的定制化制造开辟了新路径。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz7415?af=R",
+          "tp": "3D打印纳米电子",
+          "aip": 1,
+          "kp": [
+            "[工艺]: 超材料近场电磁结构实现3D打印选择性退火",
+            "[优势]: 温敏基板上快速体加热选择性退火"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Three-dimensional (3D) printing can create freeform architectures and electronics with unprecedented versatility. However, the full potential of electronic 3D printing has so far been limited by the inability to selectively anneal the printed materials, especially on temperature-sensitive substrates. Here, we achieve highly selective and rapid volumetric heating of 3D-printed nanomaterials and polymers in situ by focusing microwaves using a metamaterial-inspired near-field electromagnetic structure (Meta-NFS). In contrast to previous work, the Meta-NFS achieves the spatial resolution and power density needed to 3D print freeform microstructures where the electronic and mechanical properties can be locally programmed even within optically opaque materials. By broadening the material palettes compatible with 3D printing, near-field microwave 3D printing with Meta-NFS enables classes of electronics that are otherwise challenging to create.",
+          "hb": 1
+        },
+        {
+          "t": "纳米气泡气-水界面高效从空气中生产亚硝酸盐与硝酸盐",
+          "d": "2026-02-07",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究报道了一种在气-水界面将空气中氮气一步转化为氮氧阴离子（硝酸根NO3-和亚硝酸根NO2-）的简单高效方法。传统工业合成硝酸盐依赖哈伯-博世法+奥斯特瓦尔德法的高温高压多步工艺，能耗巨大。该工作利用气液界面处形成的特殊反应微环境，在常温常压下直接将空气中的氮物种氧化为可溶性氮氧阴离子，无需昂贵催化剂或外部高温。这一绿色合成路径有望为肥料生产及氮循环利用提供全新低碳方案，同时为气固液多相界面催化机制的基础研究提供了新视角。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec4225?af=R",
+          "tp": "纳米气泡界面固氮",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We report a simple, one-step conversion of air to nitrogen oxyanions (NOx-), i.e., nitrate (NO3-) and nitrite (NO2-), at the gas-water interface (GWI) of nanobubbles (NBs). The nanobubble generator is placed inside an aqueous solution of 50 μM Fe2+ to enhance the production of hydroxyl radicals (OH•) by initiating Fenton's reaction at the GWI. The formation of NOx- does not require any external potential or radiation. The NOx- production rate using NBs is found to be 60.4 ± 1.21 μM hour-1, which shows a fourfold increase in the production as compared to the same reaction performed in microbubbles (15 μM hour-1), which is the result from an enhanced electric field strength at the GWI. We propose that this nitrogen-fixation approach presents a promising pathway for an eco-friendly, energy-efficient, and scalable solution for NOx--based sustainable fertilizer production.",
+          "hb": 1
+        },
+        {
+          "t": "具有增强压电性与载流子迁移率的宏观Janus过渡金属二硫属化物单晶",
+          "d": "2026-02-07",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究人员成功制备宏观尺度的Janus过渡金属二硫族化物（TMDC）单晶。Janus结构因面外对称性破缺而具有永久内禀电场和偶极矩，在电子学和光电子学领域潜力巨大。以往该材料仅在纳米尺度可制备，限制了基础研究和器件应用。此次突破通过改进生长工艺，实现厘米级单晶可控合成，并展现出增强的物理性能。该成果为新型非对称二维材料的功能化器件（如催化、传感、存储）走向实际应用奠定关键基础。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518117?af=R",
+          "tp": "Janus硫化物晶体",
+          "aip": 1,
+          "kp": [
+            "材料[Janus]: 宏观Janus TMDC单晶",
+            "特性[对称破缺]: 本征面外偶极矩"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT Janus transition metal dichalcogenides (TMDCs), featuring intrinsic out‐of‐plane symmetry breaking and permanen",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

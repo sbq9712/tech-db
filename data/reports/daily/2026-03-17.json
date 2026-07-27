@@ -1,0 +1,193 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月17日　星期二",
+  "date_range": "2026-03-17",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "西湖大学研发交叉耦合电解液，实现500Wh/kg级无负极锂电池长寿命循环",
+      "洛桑联邦理工结合添加剂与光反射镜提升钙钛矿三结电池开路电压至1.405V",
+      "研究提出多阳离子自适应超离子电解质设计，解决固态电池固固界面阻抗瓶颈"
+    ],
+    "AI与智能科技": [
+      "中国批准全球首例脑机接口芯片临床应用，用于瘫痪患者运动与通信功能重建"
+    ],
+    "通用技术": [
+      "中船集团首台氨燃料低速发动机交验，功率14400kW并具备年产20台能力",
+      "LHCb实验组发现双粲重子新粒子，国科大团队参与强相互作用机制研究",
+      "科研人员集成钙钛矿与纳米光栅，首次在室温条件下观测到量子超固态"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "西湖大学研发交叉耦合电解液，实现500Wh/kg级无负极锂电池长寿命循环",
+        "洛桑联邦理工结合添加剂与光反射镜提升钙钛矿三结电池开路电压至1.405V",
+        "研究提出多阳离子自适应超离子电解质设计，解决固态电池固固界面阻抗瓶颈"
+      ],
+      "entries": [
+        {
+          "t": "西湖大学王建辉开发出交叉耦合电解质提高无负极锂电池稳定性",
+          "d": "2026-03-17",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "西湖大学王建辉团队报道基于交叉耦合电解液（BAFF电解液）的设计，突破无负极锂金属电池结构不稳定性。该电解液为1.6M双氟草酸硼酸锂溶于N,N-二甲基三氟乙酰胺，密度低（1.36g/cm³）、粘度低、挥发性小，-40至60℃离子电导0.5-14.2mS/cm，电化学窗口约5.0V支持NCM811高压循环。关键创新是高电压下正极·BF₂自由基与负极还原中间体发生跨电极迁移耦合，抑制阴离子氧化产气，负极原位构筑亚纳米均匀富B-F聚合物SEI，实现500Wh/kg级长寿命软包电池。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10402-0",
+          "tp": "无负极锂电",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "无负极锂金属电池（AFLMB）在制造过程中无需预置负极活性材料，为高能量密度、低成本储能提供了巨大潜力。然而，由于缺乏宿主结构，AFLMB长期面临循环寿命短的严峻挑战\n西湖大学王建辉副教授团队报道了一种基于交叉耦合电解液（crossover-coupled electrolyte）的设计，成功突破了无负极电极的固有结构不稳定性，实现了能量密度达500 Wh kg⁻¹级别的长寿命无负极软包电池。该团队开发了一种优化电解液——1.6 M 双氟草酸硼酸锂（LiDFOB）溶于N,N-二甲基三氟乙酰胺（NDFA）溶剂（简称BAFF电解液）。该电解液密度低（1.36 g cm⁻³）、粘度低、挥发性小、润湿性优异，并在-40至+60 ℃范围内保持高离子电导率（0.5–14.2 mS cm⁻¹），电化学稳定窗口达约5.0 V，支持NCM811正极高电压循环。\n关键创新在于BAFF电解液触发了独特的交叉耦合界面反应：在高电压下，正极产生的·BF₂自由基和负极还原生成的中间体发生跨电极迁移与耦合，抑制了常规LiDFOB电解液常见的阴离子氧化产气路径，同时在负极原位构筑亚纳米均匀、高柔性、富B-F的聚合物主导SEI膜。该SEI厚度约8 nm，几乎完全非晶态，表面粗糙度极低（Ra=0.7 nm），杨氏模量分布窄（3.15±0.21 GPa），锂离子传输活化能最低（37.4 kJ mol⁻¹），展现出优异的柔韧性、亲锂性和快速离子传输能力。\n得益于此SEI的亚纳米均匀性和自适应特性，电池实现了5.6 mAh cm⁻²面积容量下高度可逆的平面（2D）锂沉积/溶解：锂以(110)织构的柱状晶粒致密生长（孔隙率仅1.6%），溶解时呈同步的二维“从外向内”收缩，形成半球形凹坑，SEI保持牢固贴附而不破裂；完全溶解后自组装成独特的网状薄膜结构（mesh-film），网孔尺寸与晶粒匹配，为下一轮沉积提供优先成核位点。该过程有效克服了传统SEI微观异质性导致的三维不均匀溶解、孔隙扩大、电解液渗入和新成核位点激增等问题，显著提升了无宿主锂电极的结构稳定性。\n基于数学模型优化（正极面积容量5.6 mAh cm⁻²、10层叠片、E/C=1.5 g Ah⁻¹、最轻商用惰性部件），团队制备出2.7 Ah无负极Cu||NCM811软包电池，质量能量密度508 Wh kg⁻¹、体积能量密度1668 Wh L⁻¹（去除Al塑膜后达543 Wh kg⁻¹和1806 Wh L⁻¹）。在200 kPa堆压下，该电池在100%放电深度（2.8–4.4 V）稳定循环100次容量保持80%，平均库仑效率99.6%；在80%放电深度（3.6–4.3 V）下循环250次仍保持80%容量，循环寿命显著优于对照电解液（仅18–55次）。倍率性能出色，7C放电时功率密度达2650 W kg⁻¹（96 Wh kg⁻¹能量密度时），-40 ℃仍输出室温容量的66%。死锂和氢化锂生成量极低（分别占容量损失的3.5%和0.43%），安全性更高。文章于2026年3月17日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "洛桑联邦理工Christian Wolff通过4-羟基苄胺优化顶电池及厚中间电池/中间反射层设计提高钙钛矿/钙钛矿/硅三结器件效率",
+          "d": "2026-03-17",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "洛桑联邦理工学院Christian Wolff团队通过协同载流子与光子管理策略提升钙钛矿/钙钛矿/硅三结器件效率（理论上限51.8%）。以4-羟基苄胺（4-HBA）为非挥发性添加剂调控宽带隙钙钛矿结晶并钝化缺陷，利用聚集于织构硅谷底的低折射率SiOₓ纳米颗粒作为光学中间反射镜提升中间电池光吸收，结合能级对齐优化，实现1.405V高开路电压与增强稳定性，解决宽带隙顶电池高非辐射复合损失及窄带隙中间电池光生电流不足等问题。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10385-y",
+          "tp": "三结钙钛矿",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "钙钛矿/钙钛矿/硅三结器件理论效率上限51.8%，远高于双结器件；相比于成本高昂且通量低的III-V族半导体三结电池也具有一定优势。但当前其宽带隙顶电池存在高非辐射复合损失、相分离及能级对齐不佳导致开路电压降低；窄带隙中间电池受限于铅基钙钛矿带隙上限（>1.50eV），光生电流生成不足，且现有技术难以兼顾厚吸收层制备与微结构完整性、电荷提取效率，导致器件效率低于双结电池。\n近日，洛桑联邦理工学院Christian Wolff团队通过协同载流子与光子管理策略，以4-羟基苄胺（4-HBA）为非挥发性添加剂调控宽带隙钙钛矿结晶并钝化缺陷，利用聚集于织构硅谷底的低折射率SiOₓ纳米颗粒（SiOₓ-np）作为光学中间反射镜提升中间电池光吸收，结合能级对齐优化，实现1.405V高开路电压与增强稳定性。具体而言，其首先配制1M Cs₀.₂₂FA₀.₇₈Pb(I₀.₆₀Br₀.₃₀Cl₀.₁₀)₃前驱体溶液（DMF:DMSO=3:1），添加0.5mg/mL 4-HBA添加剂，采用一步反溶剂法旋涂（5000 rpm-32s，剩余10s滴加200μL苯甲醚），100℃退火15分钟后得到宽带隙钙钛矿层（1.80 eV）；4-HBA可与Pb²⁺配位，调控结晶动力学、钝化体缺陷与界面，使非辐射损失从230meV降至91meV，顶电池VOC最高1.405V，抑制Pb⁰生成与相分离。后经双分子界面钝化（PCI+4F-PEACl）后，热蒸镀25nmC₆₀与ALD沉积SnOₓ电子传输层。对中间电池(1.52 eV)而言，其先通过一步反溶剂法制备Cs₀.₀₅FA₀.₉MA₀.₀₅PbI₃+5%MAPbCl₃吸收层，高真空下共蒸发180nmPbI₂与3nmCsI无机模板，动态旋涂0.3MFAI:MAI（95:5）异丙醇溶液（含2.5mg/mL添加剂），100℃退火10分钟形成厚层低带隙吸收层（增厚250 nm），使电流密度提升~0.90 mA·cm⁻²，保持填充因子（FF）>84%；同时将0.25%-1%wt.SiOₓ-np（~20nm）乙醇溶液静态旋涂（2000rpm30s）于织构硅基底，125℃退火10分钟，使其聚集于谷底形成中间反射层，折射率n≈1.33，可增强边带吸收，电流提升0.40 mA·cm⁻²，优化三结电流匹配。硅底电池采用双面亚微米织构异质结结构，依次沉积中间电池（C₆₀厚度增至30nm、SnOₓ300循环）、IZO互连层与顶电池，最后蒸镀IZrO透明电极、Ag栅极及MgFₓ抗反射涂层。\n测试结果表明，该方法制备的三节器件反向扫描效率31.15%，稳定效率30.9%，经认证稳定效率30.02%，Voc达3.24V，Jsc为12.42mA cm⁻²，FF为79.81%；顶、中、底电池EQE积分电流匹配良好，中间电池积分Jsc达25.1mA cm⁻²。未封装宽带隙单节器件在氮气中经4500小时最大功率点跟踪（温度升至80℃），仍保留39.5%初始效率，优于对照组（24.3%）；封装三结器件在85℃/85%相对湿度湿热测试500小时后，效率损失13.8%-22.9%，户外测试4个月表现稳定。文章于2026年3月17日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 多阳离子调控的自适应超离子电解质用于全固态锂金属电池",
+          "d": "2026-03-17",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究面向全固态锂金属电池实用化瓶颈，提出基于多阳离子调控的自适应超离子电解质设计。全固态电池虽具备高比能和本征安全优势，但固固界面阻抗大、锂枝晶穿透等问题限制其循环寿命。多阳离子协同机制可动态适应界面演变，提升离子电导率并抑制枝晶生长，为高能量密度固态电池的工程化应用提供新路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20920",
+          "tp": "全固态锂电池电解质",
+          "aip": 1,
+          "kp": [
+            "[电解质]: 多阳离子调制自适应超离子",
+            "[应用]: 全固态锂金属电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "All-solid-state lithium-metal batteries offer devices with high specific energy and intrinsic safety, yet their practical implementation is impeded by interfacial instability at the lithium metal/electrolyte interface, especially under high current densities. Conventional interfacial stabilization approaches require complex and costly interfacial engineering, limiting their practicality, highlighting the urgent need for a simple yet effective electrolyte design strategy. Here, a multiple-cation-presetting (Ag and W) argyrodite electrolyte is developed to simultaneously achieve superionic conductivity (over 10 mS cm-1) and superior interfacial stability with softer texture. During cycling, Ag+ can be extracted from the electrolyte layer, reduced to Ag metal, and diffused into the lithium-metal anode to form a uniform Li-Ag alloy, while W can convert into minor conductive LiWS2 in the solid electrolyte interface. Benefiting from in situ anodic and interfacial modification by the SSE, it facilitates accelerated interfacial kinetics and homogeneous Li+ flux. As a result, the Li symmetric cells exhibit sustainable cycling over 4000 h at 0.5 mA cm-2 and beyond 1000 h at 1 mA cm-2. The Li//LiNi0.8Co0.1Mn0.1O2 cells demonstrate excellent rate capability and extended cycle life, maintaining 82.7% capacity retention after 1100 cycles at 2C. Moreover, the electrolyte sustains stable operation at high areal loading (3 mAh cm-2) and low temperature (-30 °C). Besides, such solid-state electrolytes can be extended to other all-solid-state lithium-metal rechargeable batteries. This scalable dual-cation modulation strategy provides a general and practical route to construct superionic electrolytes with compatibility with an anode by in situ interfacial and lithium metal decoration, advancing the realistic application of next-generation all-solid-state lithium-metal batteries.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "中国批准全球首例脑机接口芯片临床应用，用于瘫痪患者运动与通信功能重建"
+      ],
+      "entries": [
+        {
+          "t": "中国批准脑机接口芯片治疗瘫痪——全球首例",
+          "d": "2026-03-17",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "中国批准了一款用于治疗瘫痪的脑机接口芯片，属全球首例。该脑芯片旨在通过解码大脑神经信号帮助瘫痪患者恢复运动或通信能力，标志着侵入式脑机接口技术从实验室研究迈向临床应用的重要里程碑。此举也体现中国在神经接口赛道上的加速布局，与Neuralink等国际同行形成竞争态势，对神经康复医学意义深远。",
+          "sc": 9.7,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-00849-6",
+          "tp": "脑机接口",
+          "aip": 1,
+          "kp": [
+            "[脑机接口]: 世界首例获批治疗瘫痪"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中船集团首台氨燃料低速发动机交验，功率14400kW并具备年产20台能力",
+        "LHCb实验组发现双粲重子新粒子，国科大团队参与强相互作用机制研究",
+        "科研人员集成钙钛矿与纳米光栅，首次在室温条件下观测到量子超固态"
+      ],
+      "entries": [
+        {
+          "t": "中船发动机公司完成氨燃料低速发动机建造交验",
+          "d": "2026-03-17",
+          "a": "",
+          "c": "通用技术/通信和运输/水路运输",
+          "as": "3月17日，中国船舶集团发动机公司宣布其建造的氨燃料低速发动机（WinGD 6X72DF-A-1.0）通过功能集成认可（FIT）及台架试验（FAT）成功交验，已具备年产20余台的批量生产能力，是我国第一台正式实现商品交付的氨燃料船舶发动机。该发动机额定功率14400kW，最大转速67转/分钟，将安装于北海造船为CMB建造的21万吨散货船上。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/lkw3OLTCb3kU0OOTvGC6uw",
+          "tp": "氨燃料船发机",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "3月17日，中国船舶集团发动机公司在官方公众号发文称，其建造的氨燃料低速发动机（WinGD 6X72DF-A-1.0）通过功能集成认可（FIT）及台架试验（FAT）成功交验，并已具备批量生产制造能力（年产20余台）。据宣传，这是我国第一台正式实现商品交付的氨燃料船舶发动机。文中称，该发动机额定功率14400kW，最大转速67转/分钟，将安装于北海造船为CMB建造的21万吨散货船上。",
+          "hb": 1
+        },
+        {
+          "t": "国科大何吉波团队发现由2个粲夸克和1个下夸克组成的全新粒子",
+          "d": "2026-03-17",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "3月17日，欧洲核子研究中心（CERN）大型强子对撞机上底夸克（LHCb）实验组宣布发现一种由2个粲夸克和1个下夸克组成的全新粒子——单电荷双粲重子。该粒子内部结构预期不同于普通重子，对理解强相互作用和夸克模型具有特殊意义。国科大何吉波团队参与了该发现。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://home.cern/news/news/physics/lhcb-collaboration-discovers-new-proton-particle",
+          "tp": "新粒子发现",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "3月17日，欧洲核子研究中心（CERN）大型强子对撞机上底夸克（LHCb）实验组在官网宣布，由其装置发现了一种由2个粲夸克和1个下夸克组成的名为单电荷双粲重子的全新粒子，其内部结构预期不同于普通重子，对理解强相互作用和夸克模型等具有特殊意义。",
+          "hb": 1
+        },
+        {
+          "t": "混合钙钛矿-纳米光栅光子结构可实现室温下的超固态",
+          "d": "2026-03-17",
+          "a": "Nature Nanotechnology",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究将单晶卤化钙钛矿与激子-极化激元纳米光栅集成，首次在室温下实现超固态——一种兼具固体晶格序与超流体无摩擦流动的物态。该架构通过同时打破相位与平移对称性，克服了传统超固态观测的极端实验条件限制，为量子物态研究开辟新路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02141-0",
+          "tp": "室温超固态",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The supersolid phase is a self-organized state of matter that simultaneously exhibits the crystalline order of a solid and the frictionless flow of a superfluid. Its formation requires the simultaneous breaking of phase and translational symmetries—a stringent condition that makes experimental observation challenging. Here we show that it is possible to achieve a room-temperature supersolid phase by integrating single-crystal halide perovskites with an exciton–polariton nanograting. This architecture supports a hybrid polaritonic bound-state-in-continuum state with a large bandgap (18.2 meV) and two side modes. As the pumping intensity increases, optical parametric oscillation drives the system from a bound-state-in-continuum polariton condensate into the two side modes, forming a self-organized supersolid phase characterized by a striped one-dimensional lattice spanning the condensate. Crucially, single-shot real-space imaging shows stochastic phase selection of the stripe pattern, evidenced by strong suppression of the density modulation on multishot averaging. The observation of supersolidity is further supported by long-range spatiotemporal coherence measured interferometrically and by a non-rigid supersolid lattice. The realization of supersolidity at room temperature in a polaritonic nanograting platform can be useful to control exotic quantum orders and for exploring spontaneous symmetry breaking, quantum coherence and collective excitations in driven quantum materials.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

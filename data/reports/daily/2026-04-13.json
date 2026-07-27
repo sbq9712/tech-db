@@ -1,0 +1,171 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月13日　星期一",
+  "date_range": "2026-04-13",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "巨湾技研复合固态电解质电池A样下线，能量密度达500Wh/kg",
+      "中科大团队研发Pt89Pd11双金属催化剂以提升镍-氢电池催化效率",
+      "机械热解耦工程制备安时级锌基软包电池干法厚碘正极"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "研究人员基于扩散介导策略合成耐久性高熵硫化物纳米晶",
+      "新设计铁(III)配合物通过可逆电子转移实现6.5纳秒发光寿命",
+      "研究揭示有机锂配合物中碳硅键对温室气体的串联反应机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "巨湾技研复合固态电解质电池A样下线，能量密度达500Wh/kg",
+        "中科大团队研发Pt89Pd11双金属催化剂以提升镍-氢电池催化效率",
+        "机械热解耦工程制备安时级锌基软包电池干法厚碘正极"
+      ],
+      "entries": [
+        {
+          "t": "广汽旗下巨湾技研称其采用复合固态电解质的固态电池A样下线",
+          "d": "2026-04-13",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "广汽旗下巨湾技研宣布自主研发的全固态电池A样电芯下线，采用深共熔基复合固态电解质路线，结合'固化深共熔体+反钙钛矿+低维向列纳米限域'技术构建有机-无机复合电解质。单电芯能量密度达260-500Wh/kg，支持2-3C快充，通过针刺、挤压、热冲击安全测试，预计2026年实现GWh级量产及装车应用。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/HrCuaP8iDQ8rhGBBrzmlZQ",
+          "tp": "固态电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "据巨湾技研申请专利（CN120809954A、CN117525569A、CN116632329A、CN116315068A）所示，其复合电解质可能采用聚合物+硫化物/卤化物/氧化物体系。其中硫化物/卤化物+聚合物复合电解质先将卤化物（LiYCl、LiInCl、LiAlClO）、硫化物（Li10GeP2S12、Li6PS5Cl、70Li2S·30P2S5）与粘结剂在低温（-20℃至-10℃）下混合，并通过螺杆挤出和热辊压使粘结剂原纤化，形成以陶瓷为核、粘结剂长链缠绕的薄膜；后将锂盐（LiFSI+LiDFOB/LiDFBOP）、离子液体（咪唑类--含有N-H键可与聚合物（含醚氧键）形成氢键，增强对离子液体的束缚力，防止漏液并提升强度）、交联剂（丙烯酸酯类）和引发剂（偶氮二异丁腈）混合的前驱体溶液涂覆于基膜表面，在-10MPa至-20MPa的负压下渗透2-6小时；而后在真空、70℃-90℃条件下固化2-4小时，形成复合电解质膜。制得的电解质厚度15-30μm；拉伸强度2-8MPa；离子电导率1-5 mS/cm；离子迁移系数0.7-0.9。\n氧化物+聚合物复合电解质则以Li6.4La3Zr1.4Ta0.6O12（LLZTO）为无机填料，先与N-甲基吡咯烷酮（NMP）进行混合，在60-80°C下反应约3h使NMP开环聚合，去除LLZTO表面Li2CO3、LiOH钝化层；离心洗涤干燥后再和锂盐（LiTFSI等）溶于极性聚合物（PVDF-HFP、PVDF、PEO、PAN等）+N,N-二甲基甲酰胺（DMF）等溶剂形成的胶体溶液，进行搅拌、刮涂、烘干后得到复合电解质；填料可通过氢键或范德华力与聚合物基体（如PVDF-HFP中的-H、-F）粘合以消除有机/无机相之间的物理间隙。复合电解质薄膜的厚度为20-50μm，室温离子电导率2.9×10-4至1.1×10-3S/cm；由此制备的LFP||Li全电池200圈循环后容量保持率为95.2%。或通过Ar/O2混合气氛高温煅烧+快速冷却以去除LLZTO表面残碱，而后与粘结剂形成固体骨架，并使用熔融态的LiFSI等锂盐+添加剂（丁二腈SN）进行渗透实现锂盐均匀分布。\n也有使用带负电的Ti1-δO24δ-（0<δ<1）纳米片与聚合物、锂盐、DMF溶剂进行溶解混合涂覆在正极上。带负电纳米片由于静电排斥作用分散均匀且能促进锂盐的进一步解离，释放更多锂离子；同时大的二维表面积能够有效扰乱聚合物链的规整排列，大幅降低结晶度，增加无定型区，有利于Li+的传输。该方法可能与宣传中提到的“低维向列纳米限域”技术吻合。固化深共熔、反钙钛矿材料在专利中则无明确体现，共熔体有可能与锂盐+丁二腈的熔融态或离子液体与聚合物混合有关。其实际使用的复合固态电解质体系仍有待进一步公开验证。",
+          "b": "4月13日，广汽旗下巨湾技研在官方公众号发文称，其自主研发的全固态电池A样电芯成功下线。文中称，其采用深共熔基复合固态电解质路线，结合宣传的“固化深共熔体+反钙钛矿+低维向列纳米限域”等技术，构建了兼具高离子传导性与结构稳定性的有机-无机复合全固态电解质。单电芯能量密度达260-500Wh/kg，可实现2-3C快充；通过了针刺、挤压、热冲击测试。并预计2026年实现GWh级量产及装车应用。",
+          "hb": 1
+        },
+        {
+          "t": "中科大陈维通过晶种介导法制备Pt89Pd11催化剂以提高镍-氢电池催化效率并有助于降低催化剂成本",
+          "d": "2026-04-13",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中国科学技术大学陈维教授团队通过晶种介导法开发了具有伪单晶介孔结构的Pt₈₉Pd₁₁双金属催化剂，用于提升镍-氢电池阳极在碱性条件下的析氢/氢氧化反应动力学。DFT计算证实约10%的Pd掺入引发晶格畸变与电荷转移，使d带中心下移至−2.55 eV，优化氢吸附能至火山图顶点附近，降低决速步能垒，从而在降低铂负载量的同时提升催化活性，有望显著降低电池能量成本。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.72849",
+          "tp": "镍氢催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "镍-氢（Ni-H₂）电池具有高安全性、环境友好性、高能量效率及长循环寿命而受到关注，其阳极在碱性条件下的析氢/氢氧化反应（HER/HOR）动力学迟缓，而传统的贵金属铂（Pt）基催化剂存在活性下降和负载量高（0.45至10 mgcm⁻²）等问题，使电池能量成本超过700 $ kWh⁻¹。当前研究尝试通过引入钯（Pd）等异质金属调控电子结构以优化氢吸附能（HBE），非贵金属催化剂固有活性低且易氧化，而PtPd体系中碱性条件下兼顾HOR和HER双功能活性的最优Pt/Pd比尚未明确，催化剂结构与Pd掺入对HOR/HER过程的影响机制也尚不清晰。\n近日，中国科学技术大学陈维教授团队通过晶种介导法（seed-mediated method），开发出一种具有伪单晶介孔（PSCM）结构的PtPd双金属催化剂（PSCM-Pt₈₉Pd₁₁）。其首先利用密度泛函理论（DFT）计算证实，适量Pd（约10%）的掺入及其引发的单轴晶格畸变（施加5%应变）协同低电负性Pd向Pt的电荷转移效应，可使d带中心显著下移至−2.55 eV，从而将氢吸附能（HBE）优化至靠近火山图顶点，并将HOR决速步（Tafel步骤）能垒降至0.13 eV，d带中心下移至−2.55 eV。而后，其采用晶种介导法将NaBH₄溶液（0.01 M, 600 µL）加入十六烷基三甲基溴化铵（CTAB，0.1 M, 9.75 mL）和H₂PtCl₆（0.01 M, 80 µL）混合液中制备Pt种子颗粒（平均直径5 nm），再将种子液与CTAB（1 mM, 30 mL）、H₂PtCl₆（0.01 M, 450 µL）、K₂PdCl₆（0.01 M, 50 µL）、HCl（1 M, 50 µL）和抗坏血酸（AA, 0.1 M, 240 µL）混合，80 °C静置约1 h生长，通过调节前驱体比例获得不同Pt/Pd比、由约3 nm×6 nm微小纳米棒组装而成、平均直径约48 nm的伪单晶介孔球状催化剂的（Pt、Pt₉₅Pd₅、Pt₈₉Pd₁₁、Pt₇₉Pd₂₁、Pt₆₆Pd₃₄、Pt₅₇Pd₄₃）。球差校正电镜与几何相位分析（GPA）表明，该结构具有连续的伪单晶晶格，最大剪切和轴向应变达20%，而纯Pt和Pt₅₇Pd₄₃结构中未观察到明显晶格畸变，表明少量Pd掺入诱导了更大的晶格畸变。电化学测试显示，得益于介孔结构带来的大电化学活性面积（ECSA高达161.8 cm²，商用Pt/C仅为82.4 cm²）与优化的电子结构，HOR测试显示Pt₈₉Pd₁₁在50 mV处电流密度为2.31 mA cm⁻²，半波电位仅20 mV，通过K-L方程得到动力学电流密度jk = 30.95 mA cm⁻²（质量归一化3.10 A mg⁻¹），分别是商业Pt/C（1.26 mA cm⁻², 50 mV半波电位, jk = 4.17 mA cm⁻², 0.42 A mg⁻¹）的1.83倍和7.42倍；在Ar饱和1 M KOH中HER测试显示过电位仅34.8 mV（10 mA cm⁻²），Tafel斜率27.5 mV dec⁻¹，优于Pt/C的79.3 mV和57.9 mV dec⁻¹；加速降解测试（2000圈CV，200 mV s⁻¹）后PSCM-Pt₈₉Pd₁₁保持良好形貌无颗粒团聚，而Pt/C出现严重纳米颗粒聚集。实际电池测试中，对称H₂电池（PSCM-PtPd）在15 mA cm⁻²下极化电位60 mV且400 h后变化轻微，而Pt/C对称电池极化升至400 mV。Ni-H₂全电池采用Swagelok装置组装，阳极为PSCM-PtPd/Vulcan XC-72 C涂覆的GDL（gas diffusion layer，气体扩散层），阴极为商业Ni(OH)₂，隔膜含50 µL 26 wt% KOH电解液；在45 µg(Pt+Pd) cm⁻²负载量下，电池在5 mA cm⁻²时EE-85%，25 mA cm⁻²时仍保持75%，5 mA cm⁻²下循环超1000圈（6000 h）容量和效率几无衰减，15 mA cm⁻²下循环1250圈（2500 h）后放电容量>14.7 mAh cm⁻²、CE>98%；即使在低负载量10 µg(Pt+Pd) cm⁻²下，电池仍实现CE>95%、1000圈以上稳定循环（6000 h）、能量密度135 Wh kg⁻¹（基于电池材料质量和放电能量计算）、电池成本104.8 $ kWh⁻¹（仅考虑电极、隔膜、电解液等材料成本），优于使用Pt/C（0.45 mg(Pt) cm⁻²）的传统Ni-H₂电池（>700 $ kWh⁻¹）。文章于2026年4月13日接收发表在Advanced Materials上。",
+          "hb": 1
+        },
+        {
+          "t": "力热解耦工程解锁超稳定干式厚碘正极，用于安时级锌基软包电池",
+          "d": "2026-04-13",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究提出机械-热解耦工程策略，制备超稳定无溶剂干法厚碘正极，成功应用于安时级锌基软包电池。干法工艺避免了溶剂残留对碘电极的腐蚀，但面临离子传输动力学迟缓问题；通过引入机械柔性与热导率解耦的导电网络设计，在保持厚电极高面载量的同时实现均匀离子/电子分布。该策略使Ah级锌碘软包电池在长循环中展现出极低容量衰减率，为大规模安全储能电池的干法电极制造提供了工程化路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73037?af=R",
+          "tp": "锌碘电池正极",
+          "aip": 1,
+          "kp": [
+            "[机械-热解耦工程]: 实现无溶剂干法厚碘电极",
+            "器件形态[锌基电池]: Ah级软包电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Solvent‐free dry processing is ideal for fabricating thick iodine electrodes, but limited by slow kinetics and poor cycling stability. Herein, we reveal that, under continuous high‐shear processing, the coupled effects of uncontrolled mechanical stress and frictional heating destroy mass‐transport channels and induce silent iodine loss. Inspired by low‐frequency mild mechanical actuation in respiratory systems, a targeted energy intermittent release strategy based on water‐cooled pulse shearing is proposed to achieve precise decoupling and regulation of mechanical force and frictional heat accumulation. It is revealed that maintaining energy input below the thresholds of carbon host structure damage and iodine desorption, avoids micro‐scale “pore‐like” structure exposed to the cracking of low‐crystallinity carbon, thereby preserving strong van der Waals confinement between carbon and iodine, fundamentally preventing abnormal iodine migration. Concurrently, regulating the energy within the window between PTFE fiber formation and fracture, contrasts a uniform and stable thick iodine electrode at the micro‐macro scale, which enables over 50000 stable cycles at 100 C and an ultra‐high area capacity of 16.27 mAh cm\n                    −2\n                    based on 82.84 mg\n                    iodine\n                    cm\n                    −2\n                    iodine loading. Importantly, a ≈1.2 Ah pouch cell even retains 98.5% capacity after 300 cycles at 2 C, demonstrating the scalability and practical viability of the strategy.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究人员基于扩散介导策略合成耐久性高熵硫化物纳米晶",
+        "新设计铁(III)配合物通过可逆电子转移实现6.5纳秒发光寿命",
+        "研究揭示有机锂配合物中碳硅键对温室气体的串联反应机制"
+      ],
+      "entries": [
+        {
+          "t": "扩散介导合成耐久性高熵硫化物纳米晶：勒夏特列驱动与电子限域效应",
+          "d": "2026-04-13",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究报道了一种基于扩散介导合成策略制备高稳定性高熵硫化物纳米晶的方法，结合勒夏特列原理（Le Chatelier）与电子限域效应实现微结构精确调控。高熵陶瓷纳米晶在催化、能源存储等领域具有新兴应用潜力，但传统合成难以控制其元素分布与相纯度。该工作利用阳离子扩散动力学差异，通过后硫化处理驱动元素重新排布，形成热力学稳定的高熵硫化物相，有效抑制相分离。所得纳米晶在电催化反应中表现出优异的耐久性和活性，为高熵材料的理性设计与可控制备提供了新范式。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02607",
+          "tp": "高熵硫化物纳米晶",
+          "aip": 1,
+          "kp": [
+            "[合成方法]: 扩散介导气相阳离子交换DGCE",
+            "[前驱体]: ZnS纳米晶",
+            "[材料]: 高熵硫化物纳米晶"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Precise control over the microstructures of high-entropy ceramic nanocrystals (HEC NCs) has expanded their emerging applications. The immiscibility challenges arising from elemental differences necessitate extreme reaction conditions, albeit at the expense of controllability. Here, we demonstrate that diffusion-mediated gas-phase cation exchange (DGCE) within ZnS NCs achieves precise structural regulation in high-entropy sulfide nanocrystals (HES NCs) under mild conditions. This process is driven by the removal of ZnCl2, which shifts the equilibrium according to Le Chatelier’s principle to facilitate cation diffusion. Critically, the diffusion kinetics are governed by magnetic and electronic reorganization, whereby cations undergoing spin reorientation or electron transfer (e.g., Fe2+, Co2+, Ni2+) encounter higher activation energies, while those devoid of such coupling (e.g., Cu+, Cd2+) diffuse more readily. Harnessing this mechanism enables the deliberate engineering of HES NCs with tailored dimensions, compositions, phases, and local structures. The resulting HES NCs exhibit superior thermal, electrochemical, and device stability. An anion-exchange membrane water electrolyzer incorporating Fe0.21Co0.19Ni0.17Cu0.38Zn0.24S nanoparticles (NPs) achieves 1 A cm–2 at 1.74 V and stable operation for over 1500 h. This work provides fundamental insights into the controlled synthesis of HEC NCs with implications for diverse fields.",
+          "hb": 1
+        },
+        {
+          "t": "Fe(III)配合物通过可逆组分间电子转移促进激发态平衡而具有延长发光寿命",
+          "d": "2026-04-13",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "第一过渡系金属配合物的激发态通常在室温下快速失活，难以实现长寿命发光。本研究设计了含芘官能团配体的铁(III)配合物，通过组分间可逆电子转移实现激发态平衡，在室温溶液中获得长达6.5 ns的发光寿命，为地球丰产金属发光材料的开发提供了新策略。",
+          "sc": 5.9,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.nature.com/articles/s41467-026-71767-4",
+          "tp": "铁配合物发光",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving long-lived luminescence in complexes of earth-abundant metals remains challenging because excited states in first-row transition-metal systems typically deactivate rapidly under ambient conditions. Strategies capable of prolonging emission lifetimes in such compounds are therefore of considerable interest. Here we show that iron(III) complexes incorporating pyrene-functionalized ligands display luminescence in fluid solution at room temperature with lifetimes up to 6.5 ns. Spectroscopic analysis indicates that excited-state equilibration occurs through reversible intramolecular electron transfer from the pyrene unit to the iron centre, generating a charge-separated state. Although the ligand-to-metal charge-transfer state can also undergo reversible energy transfer to nearby pyrene triplet states, intramolecular electron transfer dominates, leading to the formation of a pyrene + -iron(II) charge-separated state that acts as a long-lived excited-state reservoir. Equilibration involving this state produces biphasic emission from the iron centre. These findings identify reversible intercomponent electron transfer as a strategy for achieving prolonged luminescence lifetimes in complexes of earth-abundant metals.",
+          "hb": 1
+        },
+        {
+          "t": "单核α-甲硅烷基有机锂或有机钠配合物中金属-碳和碳-硅键对CO、CO2和杂联烯的串联反应性",
+          "d": "2026-04-13",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究团队系统考察了单核α-甲硅烷基有机锂或有机钠配合物（如MCH₂SiMe₃）与CO、CO₂及杂联烯的串联反应。以往研究主要聚焦活性金属-碳键，而碳-硅键的反应模式鲜少被探索。该工作揭示了金属-碳键与碳-硅键可协同参与串联反应，拓展了这类常用有机金属构建块的反应化学空间。",
+          "sc": 5.8,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8906317?af=R",
+          "tp": "有机金属反应",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    α‐Silyl alkyl complexes, such as the ubiquitous MCH\n                    2\n                    SiMe\n                    3\n                    , are some of the most used organometallic building blocks and reagents. Hitherto, most reports focus on the reactive metal–carbon bond, while the carbon–silicon bond has thus far been limited to a handful of serendipitous reaction patterns. Herein, by examining a range of reactions between mononuclear Li or Na α‐silyl alkyl complexes and CO, CO\n                    2\n                    , or heteroallenes (isocyanates, isothiocyanates, carbodiimides), we report tandem M─C and C─Si bond reactivity, with in‐depth mechanistic understanding unveiled by computational reaction pathway studies enabled by the artificial force induced reaction (AFIR) method. By bringing the long‐neglected C─Si bond reactivity to the awareness of synthetic chemists, we demonstrate that the C─Si bond should be taken into account in reaction design when using these α‐silyl alkyl complexes.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

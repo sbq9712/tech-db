@@ -1,0 +1,263 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月18日　星期六",
+  "date_range": "2026-04-18",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "有机太阳能电池光电转换效率经认证提升至20.46%并改善热稳定性",
+      "研究引入各向异性晶格畸变机制以提升超高强度马氏体钢的延展性"
+    ],
+    "AI与智能科技": [
+      "研究团队提出基于氮化物材料电场诱导相变机制的低功耗非易失性存储器",
+      "实验利用偏振不敏感光学放大器直接生成大规模矢量模纠缠光源",
+      "科学家运用第一性原理模拟揭示半导体表面化学键形成的非绝热耦合机制"
+    ],
+    "通用技术": [
+      "研究以水为触发剂利用金修饰催化剂在温和条件下实现甲烷光催化氧化偶联",
+      "实验利用C60富勒烯缓冲质子-电子转移反应直接合成纯过氧化氢水溶液",
+      "研究人员开发共价有机网络膜实现亚埃级精度与高通量的超快离子筛分"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "有机太阳能电池光电转换效率经认证提升至20.46%并改善热稳定性",
+        "研究引入各向异性晶格畸变机制以提升超高强度马氏体钢的延展性"
+      ],
+      "entries": [
+        {
+          "t": "结晶化驱动同步电压提升与热稳定性的20.46%效率有机太阳能电池",
+          "d": "2026-04-18",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "有机太阳能电池受限于形貌不稳定和相分离不佳导致的电压损失。该研究通过新型策略同时提升开路电压和能量转换效率，实现20.46%的认证效率突破。形貌调控与界面工程的协同优化是关键，有望推动有机光伏向商业化迈进。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01250G",
+          "tp": "有机光伏电池",
+          "aip": 1,
+          "kp": [
+            "效率[OSC]: 20.46%",
+            "第三组分[PM6:L8-BO]: 非对称受体BTP-FClO",
+            "[稳定性]: 热稳定性增强",
+            "[形态控制]: 结晶动力学控制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Organic solar cells are often limited by morphological instability and suboptimal phase separation, largely stemming from the rapid crystallization kinetics of state-of-the-art non-fullerene acceptors, which lead to excessive aggregation and metastable blends. Herein, we design an asymmetric acceptor, BTP-FClO, featuring slowed nucleation dynamics. When incorporated as a third component into PM6:L8-BO blends, BTP-FClO functions as a crystallization moderator, significantly delaying nucleation and phase separation. The refined morphology of the ternary blend is characterized by an extended nucleation time (199 ms) and a prolonged carrier lifetime, resulting in low energy disorder (13.8 meV) and a lower trap density (2.69 × 10¹⁶ cm⁻³). Thus, the ternary device overcomes the voltage–current trade-off to provide a power conversion efficiency of 20.46% by simultaneously increasing the open-circuit voltage (0.916 V) and short-circuit current density (28.02 mA cm⁻²). Notably, an efficiency of 18.28% is retained even at an active-layer thickness of 446 nm, underscoring excellent thickness tolerance. Moreover, the blend exhibits exceptional thermal stability, retaining 80% of its initial efficiency after annealing for 448 h at 60 °C, attributed to its robust morphology and high glass transition temperature (Tg =120 °C). This work demonstrates that molecular design targeting crystallization kinetics, alongside energetics, offers a practical pathway toward high-performance organic photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "结晶动力学控制形貌实现20.46%效率有机太阳能电池电压提升与热稳定性协同",
+          "d": "2026-04-18",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "通过结晶动力学控制形貌策略，有机太阳能电池实现了20.46%的光电转换效率，同时具备电压提升和优异热稳定性。该方法解决了有机光伏中形貌不稳定和相分离不理想的问题，为高效长寿命有机太阳能电池的商业化提供了关键突破。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01250G",
+          "tp": "有机太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[有机太阳能电池]: 20.46%",
+            "第三组分[PM6:L8-BO体系]: BTP-FClO不对称受体",
+            "[形貌调控]: 结晶动力学控制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Organic solar cells are often limited by morphological instability and suboptimal phase separation, largely stemming from the rapid crystallization kinetics of state-of-the-art non-fullerene acceptors, which lead to excessive aggregation and metastable blends. Herein, we design an asymmetric acceptor, BTP-FClO, featuring slowed nucleation dynamics. When incorporated as a third component into PM6:L8-BO blends, BTP-FClO functions as a crystallization moderator, significantly delaying nucleation and phase separation. The refined morphology of the ternary blend is characterized by an extended nucleation time (199 ms) and a prolonged carrier lifetime, resulting in low energy disorder (13.8 meV) and a lower trap density (2.69 × 10¹⁶ cm⁻³). Thus, the ternary device overcomes the voltage–current trade-off to provide a power conversion efficiency of 20.46% by simultaneously increasing the open-circuit voltage (0.916 V) and short-circuit current density (28.02 mA cm⁻²). Notably, an efficiency of 18.28% is retained even at an active-layer thickness of 446 nm, underscoring excellent thickness tolerance. Moreover, the blend exhibits exceptional thermal stability, retaining 80% of its initial efficiency after annealing for 448 h at 60 °C, attributed to its robust morphology and high glass transition temperature (Tg =120 °C). This work demonstrates that molecular design targeting crystallization kinetics, alongside energetics, offers a practical pathway toward high-performance organic photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "各向异性晶格畸变赋予超高强度马氏体钢延展性",
+          "d": "2026-04-18",
+          "a": "Nature Materials",
+          "c": "零碳产业/物质循环/无机物/黑色金属/钢铁",
+          "as": "该研究通过引入各向异性晶格畸变机制，成功解决了超高强度淬火碳马氏体钢长期面临的塑性瓶颈。传统马氏体钢强度极高但延展性极差，严重制约其在结构件中的应用。研究者利用晶格尺度的定向畸变调控位错运动与相变行为，在不显著牺牲强度的前提下大幅提升材料的均匀延展性。这一突破为航空航天、汽车轻量化等领域的高性能结构钢开发开辟了新路径，从基础研究走向工业应用预计需要 3-5 年。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02588-5",
+          "tp": "超高强马氏体钢",
+          "aip": 1,
+          "kp": [
+            "[核心机制]: 各向异性晶格畸变赋予延展性",
+            "[碳占位]: 体心四方马氏体中碳有序占据间隙位",
+            "[材料]: 超高强淬火碳马氏体钢"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Making ultrahigh-strength as-quenched carbon martensitic steels ductile remains a critical challenge for structural applications. The ordered occupancy of carbon at interstitial sites in body-centred cubic martensite induces anisotropic lattice distortion, forming brittle body-centred tetragonal martensite with suppressed dislocation activity. Conventional tempering eliminates this distortion to improve ductility. Here we propose a counterintuitive strategy to unlock the ductility of a 2.4-GPa as-quenched carbon martensitic steel by utilizing the anisotropic lattice distortion of martensite. Its severe lattice distortion, that is, its high tetragonality, is driven by large-concentration substitutional solutes and carbon. The deliberately introduced high tetragonality activates deformation twins as a plastic carrier, effectively overcoming the brittleness of quenched carbon martensitic steel. This strategy of using solid-solution-induced anisotropic lattice distortion challenges the conventional view of tetragonal martensite’s inherent brittleness, establishing a framework for alloy design that yields strong and ductile metallic materials.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究团队提出基于氮化物材料电场诱导相变机制的低功耗非易失性存储器",
+        "实验利用偏振不敏感光学放大器直接生成大规模矢量模纠缠光源",
+        "科学家运用第一性原理模拟揭示半导体表面化学键形成的非绝热耦合机制"
+      ],
+      "entries": [
+        {
+          "t": "电场诱导相变驱动的氮化物基非易失性存储器",
+          "d": "2026-04-18",
+          "a": "Nature Materials",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究团队提出一种基于氮化物材料的非易失性存储器，利用电场诱导的相变机制实现数据存储。该技术面向数据存储及近内存/内存计算（near-memory/in-memory computing）应用，旨在突破传统存储架构面临的能耗和速度瓶颈。氮化物体系具备优异的热稳定性和化学耐久性，有望在高温、高辐射等极端环境下保持可靠的存储性能。电场驱动相变路径可显著降低写入功耗，为构建高密度、低功耗非易失存储器件提供了新的材料平台和工程思路。",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02565-y",
+          "tp": "氮化物相变存储器",
+          "aip": 1,
+          "kp": [
+            "开关电压[Al0.7Sc0.3N存储器]: 超低(~-1V)",
+            "器件材料[非易失存储]: Al0.7Sc0.3N",
+            "[工作机制]: 电场诱导相变"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Non-volatile memory technology holds great promise for data storage and near-memory or in-memory computing. However, significant challenges remain, including programming latency, energy consumption, stability and endurance of the storage medium. Here we report an Al0.7Sc0.3N-based non-volatile memory device that exhibits outstanding performance, including ultralow switching voltage (−1). In particular, the device demonstrates exceptional stability and reliability, achieving a write endurance exceeding 108 cycles at 583 K with minimal cycle-to-cycle and device-to-device variations. In situ scanning transmission electron microscopy analysis reveals that resistance switching is driven by an electric-field-induced phase transition between the wurtzite (high-resistance) and rocksalt (low-resistance) phases of Al0.7Sc0.3N. These results underscore the potential of electric-field-induced phase transition memory as a next-generation non-volatile memory solution, offering high speed, low power consumption and exceptional reliability—even under high temperatures—making it well suited for high-density data storage and advanced computing applications.",
+          "hb": 1
+        },
+        {
+          "t": "偏振不敏感光学放大器直接产生大矢量模纠缠",
+          "d": "2026-04-18",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究利用偏振不敏感光学放大器直接产生大规模矢量模纠缠。具有空间非均匀偏振的矢量结构模因在经典与量子光子学中的广泛应用而备受关注。该成果突破了传统纠缠光源对偏振敏感的限制，实现了多模纠缠的高效并行产生，为高维量子通信、量子计算与光子信息处理提供可扩展的纠缠光源方案。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec0001?af=R",
+          "tp": "矢量模量子纠缠",
+          "aip": 1,
+          "kp": [
+            "[产生机制]: 四波混频偏振不敏感放大器",
+            "[量子资源]: 矢量模式纠缠"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Vectorially structured modes, with spatially inhomogeneous polarization, have attracted widespread attention due to their diverse applications across various physical processes. Entangling these modes holds great potential for advancing quantum optical technologies. In this work, we present a polarization-insensitive amplifier based on the four-wave mixing process, capable of directly generating large numbers of entangled vector vortex (VV) modes. When seeded by vacuum fields, the amplifier simultaneously produces 16 sets of two-mode squeezed vacuum states or continuous-variable entangled states, each containing two VV modes. This work opens avenues for developing quantum information processing that fully harnesses the vectorial nature of optical fields.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 半导体表面化学键形成的实时耦合电子-核动力学",
+          "d": "2026-04-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "基于实时含时密度泛函理论（TDDFT）的第一性原理耦合电子-核动力学模拟，研究了半导体表面化学键形成的实时过程。该方法同时追踪电子态演化与原子核运动，揭示键形成瞬间的非绝热耦合机制，为理解表面化学反应动力学提供了原子级时间分辨的理论框架。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22902",
+          "tp": "半导体表面化学键",
+          "aip": 1,
+          "kp": [
+            "方法[表面成键动力学]: 实时TDDFT+Ehrenfest",
+            "体系[Ge(111)-c(2×8)]: H原子散射",
+            "机制[非绝热]: 位点选择性能量传递"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A first-principles coupled electron-nuclear dynamics simulation based on real-time, time-dependent density functional theory and Ehrenfest dynamics quantitatively reproduces bimodal translational energy loss and angular distributions observed in experiments for hydrogen atom scattering from Ge(111)-c(2 × 8). The theory elucidates a site-selective mechanism of electronically nonadiabatic energy transfer associated with the formation of different Ge-H bonds. When a hydrogen atom approaches a Ge rest-atom, it is strongly accelerated toward the potential minimum, forming a transient Ge-H bond and then reflected by the repulsive wall. This transient bond formation triggers an ultrafast electron transfer event from the rest atom to an adjacent Ge adatom involving several crossings between valence and conduction bands of the substrate. Electronic equilibration is impossible within such a short time (Born-Oppenheimer failure), allowing the H atom kinetic energy to be converted to interband electronic excitation of the substrate. H atom collisions at other Ge atoms also form a transient bond but exhibit no electronic excitation, resulting in a distinctly less efficient energy loss in scattered H atoms. The nuclear-to-electronic energy transfer observed in this system reflects the electronic dynamics of covalent bond formation at a semiconductor surface, a mechanism that is quite distinct from previously identified nonadiabatic energy transfer mechanisms at metal surfaces mediated by electronic friction or transient negative ions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究以水为触发剂利用金修饰催化剂在温和条件下实现甲烷光催化氧化偶联",
+        "实验利用C60富勒烯缓冲质子-电子转移反应直接合成纯过氧化氢水溶液",
+        "研究人员开发共价有机网络膜实现亚埃级精度与高通量的超快离子筛分"
+      ],
+      "entries": [
+        {
+          "t": "Au/GaN纳米结构上水触发的甲烷光催化氧化偶联制C2H6",
+          "d": "2026-04-18",
+          "a": "Chem",
+          "c": "通用技术/催化剂",
+          "as": "该研究报道了一种以水为触发剂、金修饰催化剂驱动的甲烷光催化氧化偶联制乙烷新路径。传统甲烷升级为乙烷需高温高压、能耗巨大。该工作利用太阳光驱动光催化反应，在温和条件下实现甲烷分子C-H键的活化与C-C偶联，水作为温和氧化剂调控反应活性与选择性，显著提高乙烷产率并抑制过度氧化为CO2。该绿色可持续路线为天然气的高附加值转化与利用提供了新思路，对甲烷资源化利用意义重大。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00099-9?rss=yes",
+          "tp": "甲烷光催化偶联",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: Au/GaN纳米结构",
+            "[反应路径]: 水触发光催化甲烷偶联制乙烷",
+            "[优势]: 抑制过度氧化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Upgrading abundant methane to valuable ethane typically requires immense industrial energy. This work presents a sustainable alternative using only sunlight and water. By employing an engineered nanomaterial, light generates active radicals from water that gently break methane’s tough chemical bonds. This unique water-triggered pathway prevents unwanted over-oxidation, delivering ethane with exceptional selectivity and stability. This conceptual breakthrough paves a remarkably green and economically viable route for next-generation chemical manufacturing beyond fossil fuels.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 钯催化剂上C60缓冲的质子-电子转移直接合成纯水系过氧化氢溶液",
+          "d": "2026-04-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "质子-电子转移(PET)反应是氧化还原催化中的基础过程。本研究利用C60富勒烯作为缓冲介质催化PET反应,实现了纯过氧化氢水溶液的直接合成。该方法避免了传统蒽醌工艺中的有机溶剂和复杂分离步骤,且C60的独特电子接受能力有效调控了反应选择性。直接电化学/光化学合成H2O2是绿色化学的前沿方向,在消毒、环保和精细化工领域具广泛应用前景。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04486",
+          "tp": "过氧化氢催化合成",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: C60缓冲Pd单原子",
+            "[合成路径]: 质子-电子转移直接合成纯H2O2水溶液"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The proton-electron transfer (PET) reaction is a fundamental pathway in redox catalysis that drives critical processes from enzymatic reactions to sustainable fuel generation. Yet its efficient implementation in heterogeneous systems often necessitates liquid-phase molecular mediators, which limit sustainability and simplicity. Direct H<sub>2</sub>O<sub>2</sub> synthesis exemplifies this challenge, where high selectivity conventionally requires organic solvents to mediate PET and suppress side reactions. Herein, this limitation is mitigated by employing C<sub>60</sub> as a solid-state replacement for molecular mediators; we report a palladium adatom catalyst on C<sub>60</sub> that enables direct H<sub>2</sub>O<sub>2</sub> synthesis in pure water, achieving an exceptional rate of 150 mol kg<sub>cat</sub><sup>-1</sup> h<sup>-1</sup> with 90% selectivity and a record product concentration of 0.56 wt %. The benchmark performance stems from a \"C<sub>60</sub>-buffered PET\" mechanism, wherein C<sub>60</sub> dynamically regulates both electron density and proton/hydrogen species flux, which cooperates with the selective palladium adatom site to inhibit both O-O bond cleavage and overhydrogenation.",
+          "hb": 1
+        },
+        {
+          "t": "基于大环共价有机网络的超快亚埃精度离子筛分",
+          "d": "2026-04-18",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究开发了基于大环结构单元的共价有机网络（CON）膜材料，实现了亚埃级（sub-1-Å）精度的超快离子筛分。水-能源关联应用要求膜材料具备极高的离子选择性，但传统膜材料受限于其内在结构无序性难以达到该精度。大环分子固有精确孔径的特点结合共价有机网络的高稳定性，赋予膜在保持高通量的同时对离子尺寸实现极高分辨率的筛分能力，在海水淡化和盐差能收集领域具有应用前景。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0804?af=R",
+          "tp": "共价有机网络膜",
+          "aip": 1,
+          "kp": [
+            "分离精度[离子筛分]: <1 Å",
+            "[膜材料]: 大环共价有机网络超薄膜",
+            "[制备]: 界面聚合法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The water-energy nexus demands membranes with subångström ion-sieving precision, a capability hindered by the intrinsic selectivity limits of conventional materials. We fabricated ultrathin covalent organic network (CON) membranes via interfacial polymerization of 1,4,7,10-tetraazacyclododecane (cyclen) with either terephthaloyl chloride or isophthaloyl chloride. The resulting architectures demonstrate narrow pore size distribution and subångström-level ion resolution. CON-T membranes exhibit exceptional water permeance (22.2 liters per square meter per hour per bar) along with Li\n                    +\n                    /Mg\n                    2+\n                    and Cl\n                    −\n                    /SO\n                    4\n                    2−\n                    selectivities of 82.6 and 118.1, respectively. Monomer conformation engineering yielded CON-I membranes that set high benchmarks for Li\n                    +\n                    /Mg\n                    2+\n                    (326.7) and Cl\n                    −\n                    /SO\n                    4\n                    2−\n                    (376.9) selectivity. At the process scale, CON-T membranes facilitate highly efficient lithium resource extraction (97.4% recovery with 99.3% purity), while CON-I membranes enable Cl\n                    −\n                    production at ~99.9% purity from industrial wastewater. This methodology establishes a paradigm for high-resolution ion-sieving membranes that is fully compatible with industrial-scale polymeric membrane manufacturing, offering a viable solution for next-generation water-energy systems.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

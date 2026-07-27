@@ -1,0 +1,242 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月27日　星期六",
+  "date_range": "2026-06-27",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中科院等离子体所制备出全球最大聚变堆超导磁体，最高磁场达14.5特斯拉",
+      "宁德时代预计今年向市场投放最高2万辆搭载钠离子电池的电动汽车",
+      "大众PowerCo选用OCSiAl单壁碳纳米管作为其统一电池正极导电添加剂"
+    ],
+    "AI与智能科技": [
+      "OpenAI发布GPT-5.6模型，在推理与多模态理解性能上超越前代产品",
+      "中国LineShine超算峰值算力超2 Exaflops，登顶全球超算排行榜",
+      "我国发布首台盾构机智能换刀机器人，可在不停机条件下自主完成刀具拆装"
+    ],
+    "通用技术": [
+      "法拉利在国内首发首款纯电车型Luce，四电机系统起售价定为398.8万元",
+      "大众汽车正筹备重组计划，拟全球裁员10万人并关闭4家德国工厂",
+      "科学家研发新型光学材料，可将可见光波段的太阳辐射转换为紫外光"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中科院等离子体所制备出全球最大聚变堆超导磁体，最高磁场达14.5特斯拉",
+        "宁德时代预计今年向市场投放最高2万辆搭载钠离子电池的电动汽车",
+        "大众PowerCo选用OCSiAl单壁碳纳米管作为其统一电池正极导电添加剂"
+      ],
+      "entries": [
+        {
+          "t": "我国CRAFT聚变堆最高磁场14.5特斯拉的超导磁体生产下线",
+          "d": "2026-06-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "中科院合肥等离子体所宣布聚变堆主机关键系统CRAFT最大的部件——环向场（TF）超导磁体完成制备并下线验收。该磁体体积为ITER TF磁体的1.3倍、储能3倍，为全球最大聚变堆超导磁体，尺寸21×12×3.3米，重582.4吨，运行电流98千安，最高磁场14.5特斯拉，储能120吉焦，攻克0.04纳欧低阻超导接头等十余项关键技术。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/JHqU5O5yKYSUoyzG6yYXfw",
+          "tp": "聚变磁体下线",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月27日，中科院合肥等离子体所在官方公众号发文称，聚变堆主机关键系统综合研究设施（CRAFT）最大的部件——环向场（TF）磁体完成最后制备工艺，成功下线并通过专业组内部测试验收。文中称，该超导磁体体积是国际热核聚变堆ITER TF磁体的1.3倍，储能为3倍，是目前世界上最大的聚变堆超导磁体；单个磁体尺寸为21米×12米×3.3米，重达582.4吨，运行电流98千安，总储能120吉焦，最高磁场14.5特斯拉；该项目采用混合绕组创新设计，攻克了内部接头电阻0.04纳欧的低阻超导接头、低温绝缘等十余项关键技术难题。",
+          "hb": 1
+        },
+        {
+          "t": "宁德时代计划为多达2万辆车搭载钠离子电池",
+          "d": "2026-06-27",
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "宁德时代（CATL）预计今年将有10,000至20,000辆搭载其新型钠离子电池的电动汽车投放市场。钠离子电池以钠盐为正极材料，成本低、低温性能优、安全性高，被视为锂离子电池的重要补充路线。CATL的钠离子电池产品已在部分车型上实现量产装车，标志着该技术从实验室走向规模化商业应用的里程碑，对降低电动车成本和缓解锂资源依赖具有重要意义。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.electrive.com/2026/06/26/catl-targets-up-to-20000-vehicles-with-sodium-ion-batteries/",
+          "tp": "钠离子电池装车",
+          "aip": 1,
+          "kp": [
+            "规模[钠离子电池装车]: 1–2万辆/年"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "CATL expects that up to 10,000 to 20,000 electric vehicles with its novel sodium-ion batteries will enter the market this year. Additionally, the Chinese battery market leader has now unveiled its first stationary battery storage system with sodium-ion cells.\nCATL has been developing sodium-ion batteries for several years. The company took a major step forward in April 2026, when it unveiled its Naxtra sodium-ion battery at its Super Technology Day. CATL says the battery\noffers an energy density of up to 175 Wh/kg\nscheduled to enter mass production\nlater this year. The Naxtra battery is also expected to power the\nChangan Nevo A06\n, a battery-electric model developed for the Chinese market.\nDuring the World Economic Forum’s Annual Meeting of the New Champions in the Chinese city of Dalian, CATL’s management provided further details on the role of sodium-ion technology in the company’s strategy. Ni Jun, CATL’s Head of Production, said the company expects to equip between 10,000 and 20,000 electric vehicles with sodium-ion batteries this year.\nAdditionally, CATL’s founder and CEO, Robin Zeng, stated during a panel discussion that the company is capable of producing sodium-ion batteries with an annual capacity of 100 GWh within the next three to five years. Zeng said: “We can produce a large-scale sodium battery for energy storage, so we get rid of the lithium dependence.”\nZeng highlighted two key aspects: first, the high dependence on lithium, whose price in China has risen by 190% since last summer, according to\nCarNewsChina\n. Second, he emphasised the attractiveness of sodium-ion cell chemistry for applications beyond electric vehicles, particularly in stationary battery energy storage systems (BESS), such as those used in AI data centres.\nCoinciding with the event in Dalian, CATL introduced its first BESS featuring sodium-ion cells at another event in Munich. Named the Tener Sodium Energy Storage System, it is reportedly the world’s first field-tested sodium-ion energy storage solution. William Wu, Director of CATL’s Energy Storage Technology Centre, stated during the product launch: “We believe that sodium and lithium together will form the twin foundations of the future energy storage system.”\nEquipped with CATL’s latest sodium-ion technology, the battery energy storage system offers a capacity of more than 30 MWh based on a fully modular architecture. The system can be expanded with additional modules, with 34 units required to achieve a total capacity of 1 GWh.\nSodium-ion batteries are considered a promising alternative to lithium-ion technology because they offer strong performance at low temperatures, are regarded as particularly safe and can be produced using more readily available resources. Unlike lithium, cobalt and nickel, which are often extracted with significant environmental impacts and are concentrated in relatively few regions, sodium is one of the most abundant elements on Earth. It can be sourced cost-effectively from widely available materials such as table salt or seawater.\n(Robin Zeng),\n(Battery storage)\nabout „CATL targets up to 20,000 vehicles with sodium-ion batteries“\nInfrastructure",
+          "hb": 1
+        },
+        {
+          "t": "PowerCo选用OCSiAl碳纳米管作为电池添加剂",
+          "d": "2026-06-27",
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "大众汽车集团旗下电池子公司 PowerCo 选定纳米技术企业 OCSiAl 作为其统一电池(Unified Cell)的单壁碳纳米管(TUBALL)供应商。单壁碳纳米管作为电池正极导电添加剂，可显著提升锂离子电池的能量密度、循环寿命和快充性能。此举是 PowerCo 推进统一电池平台战略、降低电池成本并追赶亚洲电池厂商的关键一步。OCSiAl 是目前全球唯一实现单壁碳纳米管吨级量产的企业，此次合作标志着碳纳米管在动力电池大规模商用化方面取得实质性突破。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.electrive.com/2026/06/26/powerco-selects-ocsial-nanotubes-for-battery-additives/",
+          "tp": "电池纳米管添加剂",
+          "aip": 1,
+          "kp": [
+            "[添加剂]: 单壁碳纳米管（石墨负极）",
+            "[生产地]: 塞尔维亚",
+            "[应用平台]: PowerCo统一电芯"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Volkswagen Group's battery subsidiary PowerCo has selected nanotechnology company OCSiAl as a supplier for its Unified Cell battery platform. The Luxembourg-based company will supply nanotube additives for the graphite anodes used in PowerCo's standardised battery cell. OCSiAl will manufacture the additives at its production facility in Serbia.\nImage: OCSiAl\nOCSiAl has announced that it has secured PowerCo, Volkswagen Group’s battery subsidiary, as a major customer for its nanotubes. The company’s TUBALL nanotubes are an additive that forms a conductive, reinforcing three-dimensional network and can stabilise cathode and anode systems in lithium-ion batteries, among other applications. OCSiAl specialises in single-wall carbon nanotubes and manufactures them\nat its new production facility in Serbia.\nPowerCo plans to use the additive in the graphite anode of its unified cell. According to an accompanying statement, the nanotubes are expected to ‘help improve safety, charging performance, and battery service life.’ Gregory Gurevich, Senior Vice President at OCSiAl, added: “Single wall carbon nanotubes significantly enhance the electrical conductivity of graphite anodes and improve heat dissipation, enabling battery cells to operate at higher charging and discharging currents without overheating.”\nOCSiAl says it now supplies the majority of electric vehicle battery manufacturers in Europe with its TUBALL nanotubes. With demand expected to increase further as next-generation battery platforms enter the market, the company is evaluating the expansion of additional production capacity in Europe.\nPlans are already underway for OCSiAl to build a flagship facility for graphene nanotubes in Luxembourg, with an investment of 300 million US dollars. Gregory Gurevich commented: “Today, batteries containing OCSiAl nanotubes power around one million electric vehicles worldwide. In the PowerCo project, we supply nanotube solutions for graphite anodes. […]These advanced conductive additives are essential for high-performance battery platforms produced at industrial scale.”\nPowerCo has been manufacturing its so-called unified cell at its Salzgitter plant since December. The concept dates back to the tenure of former Volkswagen Group CEO Herbert Diess.\nThe unified cell is a prismatic battery cell with a standardised format measuring 256 x 24.8 x 106 millimetres. Its standardised architecture is designed to enable use across Volkswagen Group brands and global markets, while delivering economies of scale, lower costs and greater technological flexibility. To meet the requirements of different vehicle segments—from small electric cars to large luxury SUVs and Porsche sports cars—the standardised cell format can accommodate various cell chemistries, including future solid-state cells.\nThis concept is being implemented directly in the first series application of the unified cell: the Electric Urban Car Family\ncentred around the VW ID. Polo\nwill be offered with both LFP and NMC cells.\nabout „PowerCo selects OCSiAl nanotubes for battery additives“\nInfrastructure",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "OpenAI发布GPT-5.6模型，在推理与多模态理解性能上超越前代产品",
+        "中国LineShine超算峰值算力超2 Exaflops，登顶全球超算排行榜",
+        "我国发布首台盾构机智能换刀机器人，可在不停机条件下自主完成刀具拆装"
+      ],
+      "entries": [
+        {
+          "t": "刚刚，OpenAI最强GPT-5.6发布！「太阳系」爆发冲破神话",
+          "d": "2026-06-27",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI发布GPT-5.6模型，据称是其迄今为止最强的大语言模型。该模型在推理、编程、多模态理解等方面实现显著突破，性能表现超越此前各代GPT产品。这标志着大模型能力边界的再次扩展，可能对AI行业竞争格局产生深远影响。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/FZ_MijBUlmN-8FMTDJgbaQ",
+          "tp": "GPT大模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚刚，OpenAI最强GPT-5.6发布！「太阳系」爆发冲破神话 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】OpenAI首次启用太阳、大地、月亮命名，全新GPT-5.6正式登场。旗舰Sol编程屠榜，只当了17天第一的Claude Mythos 5，被一夜拉下王座。** OpenAI今夜「三连发」！ 就在刚刚，GPT-5.6 Sol、Terra、Luna同时登场。 太阳、大地、月亮。GPT系列第一次用天文学给模型命名。 * 超大杯旗舰Sol，直接刷爆了AI编程能力的天花板； * 大杯Terra，上一代旗舰的水平，但价格只要一半； * 中杯Luna，每百万token输入只要一刀，量大管饱。 OpenAI用来掀翻Mythos的旗舰，第一次交到了——极少数人手上。 是的，GPT-5.6暂时只向约20家受信合作伙伴开放API和Codex访问，普通用户短期内无缘。 官方的说法是，模型将会在「未来几周」逐步放开。 **OpenAI太阳系，登场** 此前，Anthropic用Mythos（神话）和Fable（寓言）命名，指向的是AI与人类叙事传统的关系。而OpenAI则选了天体。 Sol是拉丁语中的「太阳」，也是罗马神话里驾驭金色战车、每日横跨天穹的太阳神。 它对标最复杂的推理和研究场景，适合长链条、多步骤的硬任务。 输入5美元/百万token，输出30美元/百万token。 Terra是拉丁语的「大地」，也常被作为Earth的拉丁名和文学化称呼。 它瞄准日常开发和知识工作，用更低的成本拿到上一代旗舰级的能力。 输入2.5美元/百万token，输出15美元/百万token。 Luna是拉丁语的「月亮」，夜空中最近、最亮、最容易触及的天体。 它为高吞吐场景而生，分类、摘要、批量处理，追求的是量大管饱。 输入1美元/百万token，输出6美元/百万token。 根据OpenAI官方的解释：「命名的原则是数字标识代际，Sol/Terra/Luna标识持久的能力层级，可以按各自节奏独立迭代。」 也就是说，以后升级到了GPT-6，旗舰可能依然叫Sol，Luna还是对应最小的那个。 你不用猜，就知道自己在用的是什么水平的模型。 **Sol交卷，Mythos让座** OpenAI这次重点秀的能力有三个：编程、生物、网络安全。 编程方面，他们刷的是目前最能衡量AI编程能力的基准之一——Terminal-Bench 2.1。 它考的是代码规划、工具调用、多轮迭代纠错这样完整的命令行工作流，是一个模型能不能像真正的工程师那样端到端地完成复杂项目。 结果显示，Sol在ultra模式下跑出了91.9%，拿下了所有已公开模型的最高分。 作为对比，Anthropic两周前刚发布的Claude Mythos 5在同一基准上是88.0%，Fable 5是84.3%。 Sol关掉ultra只用max模式也有88.8%，单凭这一个数字就已经超过了Anthropic两个最新旗舰。 网络安全，则是OpenAI在博客里着墨最多的方向。 GPT-5.6 Sol在ExploitBench上的表现，几乎打平了Anthropic之前强到不敢发的Mythos Preview，但只消耗了约三分之一的输出token。 在UC Berkeley与OpenAI等实验室联合开发的ExploitGym基准上，Sol、Terra、Luna三个模型都展示了随推理能力增加而持续提升的安全能力曲线。 而在CTF（夺旗赛）评估中，Sol的命中率更是高达96.7%，几乎触顶。 生物学方向，OpenAI跑的是一个专门评估长链条基因组学和定量生物学分析能力的基准——GeneBench v1。 在这里，Sol只需很少的token，就能完爆上一代的GPT-5.5。 医疗领域的涨幅同样很猛。 在HealthBench Professional上，Sol拿到60.5分，比GPT-5.5高出8.7分。 值得一提的是，Terra和Luna是OpenAI历史上首批在网络安全和生物两个领域，同时拿到High能力评级的非旗舰模型。 以前这个级别只属于最强的那一个，这次三个都是。 **ultra：一个模型拆出一组智能体** 除了模型本身之外，OpenAI这次还重磅推出了两种新的推理模式。 第一种叫max。 也就是大家最为熟知的那种形式——给Sol更多时间思考，让推理链更深更长。 第二种叫ultra。 在这个模式下，Sol不再是单一模型在独立思考。它会自动拆分复杂任务，启动一组子智能体（subagents）并行处理，再汇总结果。 如果max是「让一个人想更久」，ultra就是「让这个人召集一支团队」。 这跟Anthropic在Opus 4.6上推的Agent Teams思路不一样。.",
+          "hb": 1
+        },
+        {
+          "t": "中国LineShine登顶全球超算排行榜：你需要了解的要点",
+          "d": "2026-06-27",
+          "a": "Nature",
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "中国LineShine超算登顶全球超算排行榜。该系统采用创新芯片架构设计，峰值算力超过每秒两百亿亿次（2 exaflops）浮点运算，标志着中国在E级超算领域取得重大突破。创新芯片设计可能是突破传统CPU集群算力瓶颈的关键，在气象预报、药物研发、核模拟等大规模科学计算场景具有深远影响。该成果对全球超算竞争格局和HPC芯片自主化路线具有重要战略意义。",
+          "sc": 9.0,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-02047-w",
+          "tp": "超算算力排名",
+          "aip": 1,
+          "kp": [
+            "计算性能[超级计算机]: 超20亿亿次/秒",
+            "[芯片设计]: 创新架构支撑超高算力"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The supercomputer has an innovative chip design that allows it to carry out more than two quintillion calculations per second. The supercomputer has an innovative chip design that allows it to carry out more than two quintillion calculations per second.",
+          "hb": 1
+        },
+        {
+          "t": "盾构机“换牙”不用人了！我国首台智能换刀机器人发布，这个百亿级市场要变天",
+          "d": "2026-06-27",
+          "a": "世界先进制造技术论坛",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "我国首台盾构机智能换刀机器人正式发布，标志着隧道掘进装备运维迈向无人化。盾构机刀盘在高硬度地质条件下磨损极快，传统换刀作业需人工进入高气压、高粉尘的刀盘前舱，不仅耗时长达数小时至数十小时，且存在塌方、中毒等致命安全风险。智能换刀机器人集成了机械臂精准抓取、视觉识别定位、力觉反馈控制与远程遥操作技术，可在不停机条件下自主完成旧刀拆卸、新刀安装的全流程作业，将换刀效率提升数倍并消除人员伤亡风险。国内盾构刀具市场已达百亿规模，该技术有望重塑行业运维模式，推动地下工程安全与效率双升。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/62d5zPwqa7ERNwew5qSQVg",
+          "tp": "盾构机换刀机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "盾构机“换牙”不用人了！我国首台智能换刀机器人发布，这个百亿级市场要变天 原创 小艾 小艾 世界先进制造技术论坛 6月25日，厦门，厦金大桥（厦门段）环岛路隧道施工现场。 我国首台重载智能盾构换刀机器人正式发布。 这不是实验室里的样机。它已经在16米级的“厦金号”盾构机上完成上机调试，各项动作参数全部通过验收。6月27日，“厦金号”盾构机将始发掘进左线，这台机器人同步投入实战。 **这是我国盾构换刀机器人首次在大盾构工程项目上应用**。 **一句话：中国大直径盾构隧道施工，正式迈入无人换刀新阶段**。 **** **一、换刀到底有多难？以前是拿命在换** 先搞清楚一个问题：盾构机为什么要频繁换刀？ 盾构机是穿江越海的“大国重器”。掘进时，刀盘上的滚刀就像“牙齿”，持续切削岩石泥土。磨损极快，必须频繁更换。 传统怎么换？ **3名作业人员，带压进舱，耗时4小时以上**。 换刀舱里什么环境？空间狭小、光线昏暗、闷热潮湿、空气浑浊。工人带压作业，行动困难，还面临掌子面失稳、有害气体、减压病等风险。 说白了，**每一次换刀都是一次高风险的地下作业**。 而且随着盾构直径越来越大、掘进深度越来越深、地质条件越来越复杂，人工换刀的难度和风险还在持续上升。 厦金大桥厦门段环岛路隧道就是个典型例子。盾构段开挖直径16.15米，是福建省内最大直径盾构隧道。隧道下穿繁华片区，长距离上软下硬复合地层，覆土最浅仅8.1米。刀具磨损风险突出，对换刀的安全和效率要求极高。 **这个痛点，卡了行业很多年**。 **二、这台机器人什么水平？硬指标摆在这** 这台机器人由中铁十四局研发，历经原理样机、工程样机多轮迭代。中国铁建历时6年攻关。 来看几个关键数字： **11个独立可控活动关节**。具备极强避障能力和精细操作能力。 **500公斤负载能力**。可轻松抓取重达200多公斤的滚刀。 **覆盖10米至18米级超大直径盾构机的整个刀盘**。 **3D红外机器视觉定位，精度控制在1毫米以内**。 **数字孪生智慧管控系统**，自动规划最优换刀顺序和机械臂运动路径。 **更换单把滚刀缩短至25至40分钟，效率提升50%以上**。 **全过程舱内无需人员进入，真正实现少人化、无人化作业**。 **整机软硬件100%国产化，完全自主知识产权**。目前已申请发明专利38件，登记软件著作权7项。 在中国公路学会组织的成果评价会上，以钱七虎院士为首的专家组一致认定：**该研究成果代表我国在该领域的最高技术水平，总体达到国际领先水平**。 **三、院士们怎么看？** 中国工程院院士钱七虎在现场表示，智能换刀机器人的研发，**在安全、效率、成本等方面取得成效**，为我国交通工程装备**自主化、无人化、智能化**发展探索了新路径，也为产业化应用奠定了基础。 中国工程院院士肖明清表示，智能换刀机器人技术一直是国内外工程研究的热点。其成功投用实现了盾构换刀从 **“有人作业”到“无人作业”的跨越**。 两位院士的观点很明确：**这不是一次简单的技术升级，而是一次作业模式的根本性变革**。 **四、放在大背景下看，这件事意义不一般** 孤立看一台机器人，可能会低估它的分量。放在整个中国盾构产业的大背景下，这件事的意义就清晰了。 **先说产业地位。** 中国盾构机**全球市场份额超70%，产销量连续多年世界第一**。国内盾构机**国产化率高达95%**。中国盾构机市场规模预计2025年达到450亿元。 从1997年花近7亿元进口两台二手德国盾构机，到2008年首台自主知识产权盾构机下线打破垄断，再到今天全球每10台盾构机就有7台来自中国——**中国盾构走了近30年从追赶到领跑的路**。 **但领跑不等于没有短板。** 换刀环节长期依赖人工，就是一块明显的短板。盾构机本身已经做到全球领先，但配套的智能化施工装备还存在缺口。 **智能换刀机器人的出现，补上了这个缺口**。 **再看行业趋势。** 盾构施工正在从“人工主导”向“数据驱动”转变。智能建造已经成为行业共识。中国铁建已建成以大盾构隧道智能建造管理平台为中枢的智能建造体系，集成智能辅助选型、智能诊断、智能辅助驾驶等八大功能模块。 **换刀机器人的投用，是这套智能建造体系的关键一环**。 **五、产业影响已经开始显现** 资本市场已经给出了反应。国产智能盾构换刀机器人正式投用的消息一出，机器人ETF等相关板块受到关注。 从产业逻辑来看，影响主要在三个层面： **第一，市场空间。** 中国盾构机市场规模数百亿级。盾构机的保有量、年出厂台数、施工里程均居世界首位。每台盾构机在施工过程中都需要频繁换刀。**换刀机器人的潜在市场，直接跟盾构机的存量和增量挂钩**。 随着智能换刀机器人从厦金大桥项目起步，逐步向其他大盾构工程推广，**这个细分市",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "法拉利在国内首发首款纯电车型Luce，四电机系统起售价定为398.8万元",
+        "大众汽车正筹备重组计划，拟全球裁员10万人并关闭4家德国工厂",
+        "科学家研发新型光学材料，可将可见光波段的太阳辐射转换为紫外光"
+      ],
+      "entries": [
+        {
+          "t": "法拉利首款纯电车型 Luce 国内发布，售价 398.8 万元起",
+          "d": "2026-06-27",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "法拉利首款纯电车型 Luce 在国内首发，售价 398.8 万元起。该车搭载四电机系统，0-100km/h 加速 2.5 秒，0-200km/h 加速 6.8 秒，极速达 310km/h，标志着法拉利正式进军纯电超跑领域，以极致性能对标传统燃油旗舰。",
+          "sc": 7.5,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/969/252.htm",
+          "tp": "纯电超跑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 26 日消息，法拉利首款纯电车型 Luce 今日在国内首发亮相，\n新车售价 398.8 万元起\n法拉利 Luce 搭载四电机，0-100km/h 加速时间 2.5 秒，0-200km/h 加速时间为 6.8 秒，极速 310km/h；配备 122 千瓦时电池组，续航里程超过 530 公里。\n法拉利 Luce 的设计由 Jony Ive（乔纳森 · 伊夫）与 Marc Newson（马克 · 纽森）联合创立的 LoveFrom 团队操刀，本次没有由法拉利设计中心来主导设计，其中内饰部分由 Ive 主导设计，强调物理控制，驾驶舱以玻璃、铝和 Ive 独特的极简主义风格为核心。\nIT之家注意到，法拉利 Luce 首次采用了四门五座布局，这是法拉利推出的第二款四门车型，也是首款配备五个座位的车型。\n法拉利 Luce 配备了法拉利量产公路车型迄今为止最大尺寸的轮毂，且前后轮毂规格不同，前轮直径为 23 英寸，后轮则为 24 英寸。车身尺寸方面，新车长宽高为 5026/1999/1544mm，轴距 2961mm。\n新车前后灯组均采用了透明面板，圆形尾灯则意在致敬法拉利 360 Modena 与法拉利 458 Italia 的美学设计。",
+          "hb": 1
+        },
+        {
+          "t": "大众汽车可能会裁员 10 万人并关闭 4 家工厂",
+          "d": "2026-06-27",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "据德国《经理人杂志》报道，大众汽车CEO奥利弗·布鲁姆正筹备公司史上最激进重组计划，可能全球裁员多达10万人，并最终关闭德国4家工厂。路透社等多家国际媒体证实该消息，重组规模远超此前已公布的成本削减措施，标志着大众汽车史上最大规模的组织架构调整。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/26/vw-could-cut-100000-jobs-and-close-4-factories-in-a-radical-shake-up/",
+          "tp": "大众大裁员",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Michelle Lewis\n| Jun 26 2026 - 5:46 am PT\nCEO Oliver Blume is reportedly preparing the most dramatic overhaul in the automaker’s history, with plans that could eliminate up to 100,000 jobs worldwide and eventually close four factories in Germany.\nThe report, first published by Germany’s\nManager Magazin\n, says the proposed restructuring goes well beyond the cost-cutting measures Volkswagen has already announced. Reuters and several other international outlets have since backed up the report’s broad outline, although Volkswagen has not officially confirmed the plans.\nAccording to the report, production would eventually end at Volkswagen’s plants in Hanover, Zwickau, and Emden, as well as at Audi’s factory in Neckarsulm, Baden-Württemberg, after the current vehicle programs are phased out.\nThe reported plan would impact some of Volkswagen’s most important EV operations. Zwickau is the company’s flagship EV plant, and Emden builds the ID.4 and ID.7. While the report doesn’t suggest Volkswagen is scaling back its EV ambitions, it does point to a potential consolidation of EV production as the automaker looks to cut costs and boost profits.\nThe proposal would also reportedly cut Volkswagen’s planned five-year investment by around 15%, bringing it to just over €130 billion ($148 billion).\nManager Magazin\nalso said the company is considering separating the core Volkswagen passenger car brand and its parts business into standalone entities.\nVolkswagen is under growing pressure to improve profitability while navigating a rapidly changing automotive market. The company’s shares have lost almost\n60% of their value\nsince Blume became CEO nearly four years ago. VW is also facing intense competition from Chinese automakers, higher costs tied to the shift to EVs, and the impact of tariffs in key markets.\nA Volkswagen spokesperson told\nManager Magazin\n, “The relevant facts of the matter will be discussed and approved by the relevant bodies. We will not pre-empt this process. The Group Executive Board has repeatedly emphasized that our current business model no longer works for all brands in its present form.”\nIf VW follows through, the reported plan would far exceed the roughly 50,000 job reductions Volkswagen had already agreed to through 2030. It would also likely face fierce opposition from German labor unions, which reached an agreement with the company in late 2024 to prevent plant closures in Germany this decade.\nFor now, the proposals remain just that. Volkswagen’s supervisory board is expected to discuss the plans in the coming weeks, and any major restructuring would still require approval through the company’s governance process.\nIf you’ve ever considered going solar, make it easy by finding a trusted, reliable solar installer near you that offers competitive pricing by checking out\n. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online, and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nLight, durable, quick: I'll never go back.\nBecause I don't want to wait for the best of British TV.",
+          "hb": 1
+        },
+        {
+          "t": "科学家实现重大能源突破：将普通太阳光转化为紫外光",
+          "d": "2026-06-27",
+          "a": "scitechdaily",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "科学家开发出一种可将普通阳光转化为紫外光的新型材料,被视为能源领域的重大突破。该材料通过上转换或非线性光学机制,将可见光波段的太阳辐射转换为更高能量的紫外光。这一技术有望为紫外光驱动的水处理、杀菌消毒及光化学合成提供无需外部供电的光源,拓展了太阳能利用的波段范围,在绿色化学与公共卫生领域具有应用前景。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://scitechdaily.com/scientists-turn-ordinary-sunlight-into-uv-light-in-major-energy-breakthrough/",
+          "tp": "上转换发光材料",
+          "aip": 1,
+          "kp": [
+            "[上转换]: 太阳光→紫外光",
+            "[机制]: 双低能光子量子合并"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Sunlight just got an upgrade: Scientists have developed a material that converts ordinary sunshine into UV light, opening new possibilities for solar-powered technologies.\nImagine pouring two cups of warm water together and expecting to get one cup of boiling water. That is impossible in everyday life, but something similar can happen in the quantum world. There, two low-energy particles of light, known as photons, can combine their energy to create a single\nwith much higher energy.\nResearchers at Kyushu University have now developed a solid-state molecular material that can convert ordinary visible sunlight into ultraviolet (UV) light. The material achieved a conversion efficiency of 1.9% under natural outdoor sunlight. Their findings were published in\nNature Communications\nAlthough most people try to avoid UV exposure during the summer, ultraviolet light plays an essential role in many technologies. It is used for air purification, curing resins in 3D printing, and hardening gels in dental fillings and nail products. Even so, UV light makes up only about 6% of the sunlight that reaches Earth’s surface, and only part of that small amount is useful for practical applications.\n“What we do here is ‘add together’ the energy from two visible light photons to make one ultraviolet photon. It’s a fascinating process called photo upconversion,” explains Yoichi Sasaki, Associate Professor at Kyushu University’s Faculty of Engineering and the study’s corresponding author.\nOne way to achieve photo upconversion is through a process called triplet-triplet annihilation (TTA). In this process, a “donor” molecule absorbs visible light and moves its electrons into a high-energy triplet state. That energy is then transferred to a nearby “acceptor” molecule. When two triplet states come together, they combine their energy and release it as a single UV photon.\nThis approach works well in liquids because molecules can move freely, allowing the triplet states to meet more easily. However, liquid systems often require toxic solvents and can evaporate, making them less practical for real-world applications. For years, researchers have searched for an effective solid-state alternative.\n“In solids, molecules are packed tightly, and the π electron clouds—regions of high electron density hovering above and below each molecular plane—can overlap,” says Sasaki. “When that happens, triplets easily fizzle out before they ever meet. Molecules must be close enough for energy to transfer but separated enough to prevent quenching of excitons.”\nTo overcome this problem, the researchers turned to an organic semiconductor called dihydroindenoindenedene (DHI). They attached alkyl chains to DHI’s sp\ncarbon atoms, which have four bonds pointing in fixed 3D directions. This design created carefully controlled spacing between neighboring molecules, keeping them close enough to transfer energy while preventing the strong electronic interactions that reduce efficiency.\nThe resulting material produced bright light emission, maintained long-lived excited states, and transferred energy efficiently. It also achieved a solid-state fluorescence quantum yield of more than 60%. When paired with a donor molecule, it reached a photo upconversion efficiency of 1.9%.\n“This means roughly two UV photons are produced for every hundred visible-light photons absorbed,” Sasaki adds. “It may sound low, but it runs on natural sunlight alone. Most solid-state materials cannot realize this even at much higher light intensity.”\nThe team has filed a patent application for the new material. In addition to its performance, the material is relatively simple to produce and relies on inexpensive starting materials. The researchers believe it could eventually be used for solar-driven photocatalysis, indoor air purification, and low-intensity 3D printing.\nFor the researchers, the project represents more than a scientific achievement.\nIn 2012, Nobuo Kimizuka, now Professor Emeritus at Kyushu University’s Research Center for Negative Emissions Technologies, began pioneering work on photon upconversion through triplet energy migration in self-assemblies. His goal was to develop molecular systems in which self-assembly performs useful functions. Over the years, his team made significant progress using solutions and gels, but creating an efficient solid-state system remained an unsolved challenge.\nThat changed in May 2024, less than a year before Kimizuka retired.\nGraduate students Naoyuki Harada, Hayato Shoyama, and Nutnicha Boonmong, together with then Assistant Professor Kiichi Mizukami of Kyushu University’s Faculty of Engineering, joined Sasaki in an intensive effort to bring years of research together.\n“We handed the draft to Professor Kimizuka just 11 days before he left the lab, which for us felt like a heartfelt retirement gift,” Sasaki notes.\n“This discovery is the culmination of over 14 years of our research and marks a major milestone in photon-upconversion and molecular self-assembly research,” concludes Kimizuka.\nReference: “Sterically protected π-electron systems for efficient solid-state photon upconversion” by Naoyuki Harada, Hayato Shoyama, Nutnicha Boonmong, Kiichi Mizukami, Yuya Watanabe, Pei Zhao, Masahiro Ehara, Yoichi Sasaki and Nobuo Kimizuka, 23 June 2026,\nNature Communications\nDOI: 10.1038/s41467-026-73898-0\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nKyushu University\nMaterials Science\nSemiconductors\nSolar Energy\nScientists Just Broke the Solar Power Limit Everyone Thought Was Absolute\nHarnessing the Sun: Innovative Thermal Trap Reaches Over 1000 °C Using Sunlight\nMIT Engineers Develop a New Way to Store Thermal Energy\nNew Material Can Store Solar Energy During the Day and Release it Later as Heat\nNew Fabrication Method Improves Efficiency of Perovskite Solar Cells\nOrganic Semiconductor Breakthrough Could Literally Reshape Solar Cells\nTransparent Luminescent Solar Concentrator Creates Solar Energy Without Blocking the View\nResearchers Pinpoint the Source of a Mysterious Magnetism\nGraphite Foam Could Harness Energy from Temperature Gradient in Oceans",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

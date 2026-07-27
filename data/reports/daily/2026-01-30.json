@@ -1,0 +1,258 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月30日　星期五",
+  "date_range": "2026-01-30",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究利用电子共振效应实现15安时无负极锂软包电池稳定循环",
+      "电催化废旧PET升级技术取得进展畸变PtPdTe催化剂稳定超千时",
+      "空间分子工程提升倒置钙钛矿太阳能电池光电转换效率及耐久性"
+    ],
+    "AI与智能科技": [
+      "DeepMind发布AlphaGenome模型以预测DNA调控变异效应",
+      "新型全干法微加工技术实现对敏感电子材料无损高分辨率图案化",
+      "具备化学推理能力AI系统辅助完成35种新化合物自动化合成"
+    ],
+    "通用技术": [
+      "固态钍229核钟完成工程验证评估超低能跃迁频率稳定性",
+      "研究制备晶圆级超薄均匀范德华铁电氧化物薄膜突破界面限制",
+      "3D打印高熵合金超复合材料实现超薄完美超低频射频吸收"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究利用电子共振效应实现15安时无负极锂软包电池稳定循环",
+        "电催化废旧PET升级技术取得进展畸变PtPdTe催化剂稳定超千时",
+        "空间分子工程提升倒置钙钛矿太阳能电池光电转换效率及耐久性"
+      ],
+      "entries": [
+        {
+          "t": "电子共振效应赋能稳定15安时无负极锂软包电池",
+          "d": "2026-01-30",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "安时级无负极锂金属电池（AFLMBs）具有最高的理论能量密度，但循环过程中锂枝晶生长与库伦效率低等问题严重制约其寿命。该研究利用电子共振效应稳定锂沉积，实现了15 Ah级无负极锂软包电池的稳定循环运行。电子共振效应调控界面电场分布，抑制枝晶形成、促进均匀沉积，为高能量密度锂金属电池的实用化提供了新策略。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06811H",
+          "tp": "无负极锂电池",
+          "aip": 1,
+          "kp": [
+            "容量[无负极锂软包]: 15 Ah",
+            "机制[SEI]: 电子共振效应"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ah-level anode-free Li metal batteries (AFLMBs) exhibit the highest theoretical energy density for rechargeable batteries; however, their practical application is hindered by serious electrolyte depletion and active Li consumption. The insufficiently protective solid electrolyte interphase (SEI) limits the Li retention during the prolonged cycling. Here we establish two criteria, i.e., electron resonance energy and exchange repulsion energy, using the principle of electron resonance to facilitate the formation of stable SEI with high content of anion reduction products. Based on this principle, fractional electron transfer from anions to solvent molecules helps decrease the electron density around the anions, thereby facilitating the preferential reduction of anions. This electron resonance mechanism effectively promotes the incorporation of anion-decomposition products into the SEI, mitigating electrolyte consumption and dead Li formation. Additionally, battery stability is improved through the anode-free configuration in the optimized electrolyte due to the reduced galvanic corrosion and Li metal inventory. Using an electrolyte enlighted by electron resonance effect, an anode-free Cu||LiNi0.8Mn0.1Co0.1O2 pouch cell with a 15-Ah capacity was assembled, achieving a high energy density of 500 Wh kg-1 with excellent reversibility. This study offers insights into advanced electrolyte design, focusing on anion-decomposed interphase to boost the stable application of Ah-level AFLMBs.",
+          "hb": 1
+        },
+        {
+          "t": "工业规模高选择性塑料升级：畸变PtPdTe纳米片稳定性超1000小时",
+          "d": "2026-01-30",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "该研究聚焦电催化乙二醇（EG）氧化制备高附加值化学品，实现了工业级规模下的高选择性塑料升级回收，催化剂稳定性超过100小时。电催化路线将废旧PET等聚酯塑料转化为有用化学品，兼顾经济效益与可持续性，为塑料废物资源化提供了可行的工业化路径。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523545?af=R",
+          "tp": "电催化塑料升级",
+          "aip": 1,
+          "kp": [
+            "稳定性[乙二醇电氧化]: >1000 h",
+            "催化剂[塑料升级回收]: 高扭曲PtPdTe纳米片",
+            "[质量活性]: 记录级（record mass activity）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The electrocatalytic ethylene glycol (EG) oxidation to value‐added chemicals is highly desirable for profitable resource utilization,\n                    yet\n                    encounters a low yield rate and poor durability. Herein, a class of highly distorted PtPdTe nanosheets (PtPdTe‐a) with modulated electronic states and oxophilicity is prepared by reconstructing layered PtPdTe dichalcogenide and delivers a record mass activity (11.78 A mg\n                    Pt+Pd\n                    −1\n                    ) toward EG oxidation reaction with high glycolic acid (GA) Faradaic efficiency (96.7%). Mechanistic investigations reveal that PtPdTe‐a features a strong p‐d coupling effect for facilitating the formation and adsorption of hydroxyl adspecies to accelerate the oxidation of carbonyl intermediates, thereby avoiding over‐oxidation and switching the pathway toward desired C2 direction. We further demonstrate the unprecedented stability of PtPdTe‐a‐based electrolyzer for over 1000 h (&gt; 150 mA cm\n                    −2\n                    ). The scale‐up electrolyzer can achieve GA electrosynthesis with a record yield rate of 5.04 mmol cm\n                    −2\n                    h\n                    −1\n                    and a very high initial current density of over 800 mA cm\n                    −2\n                    from the upgrading of PET. Our new strategy can produce 422.36 g of terephthalic acid, 904.08 g of Na\n                    2\n                    SO\n                    4\n                    , and 112.69 g of GA from 500 g of PET with a profit of about $880.23 ton\n                    −1\n                    PET. Besides, PtPdTe‐a is highly efficient for ethanol oxidation into acetic acid with excellent selectivity.",
+          "hb": 1
+        },
+        {
+          "t": "空穴半导体的空间分子工程使倒置钙钛矿太阳能电池实现创纪录效率与耐久性",
+          "d": "2026-01-30",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究通过空穴半导体材料的空间分子工程，在倒置钙钛矿太阳能电池中实现了创纪录的光电转换效率和耐久性。传统小分子空穴传输材料（SM-HTM）形貌稳定但能级匹配和界面缺陷钝化能力有限。该工作通过精确的空间分子设计调控HTM的能级排列和分子堆积，优化空穴提取效率并抑制界面非辐射复合。倒置结构器件获得创纪录效率，且长期稳定性显著提升，为高效率高稳定钙钛矿电池的空穴传输层设计提供了分子级指导。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523665?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "PCE[反式钙钛矿电池]: >25%",
+            "[空穴传输材料]: 空间分子工程设计新型HTM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Conventional small‐molecule hole‐transporting materials (SM‐HTMs), although morphologically robust, typically suffer from limited hole mobility, interfacial energy misalignment, and inefficient charge extraction, which collectively hinder power conversion efficiencies (PCEs) above 25% in inverted perovskite solar cells (PSCs). Herein, breaking from conventional design paradigm, novel spatial molecular engineering was targeted proposed for SM‐HTMs to overcome inherent limitations while reinforcing advantages. By spatially exposing the functional heterocyclic core to release its full potential, the tailored WH13 dramatically enhances the perovskite/HTM interfacial interactions, promotes crystallization, and facilitates hole extraction. More importantly, the resultant planar‐steric architecture enables long‐range π‐stacking order while supporting nanocrystal‐level film‐formation, thereby achieving an optimal balance between charge transport dynamics and morphological features. Consequently, WH13‐based inverted PSCs achieve a champion PCE of 26.6% (certified 26.24%) with exceptional operational stability (&gt;99%, ISOS‐L‐1 500 h), representing the highest efficiency reported to date for SM‐HTM‐based PSCs. This spatial molecular engineering strategy establishes a generalizable design paradigm for next‐generation HTMs, opening a promising pathway toward high‐performance, operationally stable, and commercially viable PSCs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "DeepMind发布AlphaGenome模型以预测DNA调控变异效应",
+        "新型全干法微加工技术实现对敏感电子材料无损高分辨率图案化",
+        "具备化学推理能力AI系统辅助完成35种新化合物自动化合成"
+      ],
+      "entries": [
+        {
+          "t": "AlphaGenome推动调控变异效应预测研究进展",
+          "d": "2026-01-30",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "AlphaGenome是一种新型深度学习模型，能够从DNA序列预测功能基因组学测量数据，重点提升调控变异效应预测能力。该模型在大规模基因组数据上训练，可预测变异对基因表达、染色质可及性等多个调控层次的影响，为精准医学和遗传病研究提供强大工具。",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-10014-0",
+          "tp": "AlphaGenome调控预测",
+          "aip": 1,
+          "kp": [
+            "输入序列长度[基因组调控预测]: 1 Mb",
+            "模型[基因组学]: AlphaGenome统一DNA序列模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Deep learning models that predict functional genomic measurements from DNA sequences are powerful tools for deciphering the genetic regulatory code. Existing methods involve a trade-off between input sequence length and prediction resolution, thereby limiting their modality scope and performance1,2,3,4,5. We present AlphaGenome, a unified DNA sequence model, which takes as input 1 Mb of DNA sequence and predicts thousands of functional genomic tracks up to single-base-pair resolution across diverse modalities. The modalities include gene expression, transcription initiation, chromatin accessibility, histone modifications, transcription factor binding, chromatin contact maps, splice site usage and splice junction coordinates and strength. Trained on human and mouse genomes, AlphaGenome matches or exceeds the strongest available external models in 25 of 26 evaluations of variant effect prediction. The ability of AlphaGenome to simultaneously score variant effects across all modalities accurately recapitulates the mechanisms of clinically relevant variants near the TAL1 oncogene6. To facilitate broader use, we provide tools for making genome track and variant effect predictions from sequence.",
+          "hb": 1
+        },
+        {
+          "t": "基于无机分子光刻介质的敏感电子材料通用全干法微加工方法",
+          "d": "2026-01-30",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "微纳加工光刻技术对敏感电子材料的微器件制造至关重要，但传统光刻工艺中的化学溶剂和刻蚀步骤易损伤敏感材料。本研究提出一种基于无机分子光刻介导层的通用全干法微加工技术，避免液相加工步骤，实现对敏感电子材料（如有机半导体、二维材料等）的无损图案化。该方法具有普适性和高分辨率，为柔性电子、传感器等微器件制造提供了温和、可靠的工艺路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68593-z",
+          "tp": "无机分子光刻",
+          "aip": 1,
+          "kp": [
+            "光刻介质[全干法]: 无机硒分子",
+            "工艺[微加工]: 全干法无溶剂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Lithography is pivotal in fabricating micro/nanoscale patterns and processing materials for electronic microdevices. However, conventional organic polymeric resists inevitably entail the use of various chemical solutions or solvents, which especially compromise fragile electronic materials featuring atomic-level surfaces. Here, we introduce inorganic selenium molecules as a lithographic mediator for sensitive electronic material processing without direct exposure to solutions or solvents. Specifically, the inorganic selenium molecular film functions as both a lithographic mediator for direct patterning due to its weak intermolecular van der Waals interactions and as a protective encapsulation layer for atomic electronic materials without compromising structural and electronic characteristics. Wafer-scale arrays of sensitive materials with high-quality, sharp edges are facilely achieved by a non-destructive mechanical peeling of the selenium layer. This approach provides a solvent-free lithographic route for microfabricating sensitive materials and high-performance electronic devices.",
+          "hb": 1
+        },
+        {
+          "t": "这款AI具备化学专业知识——已助力合成35种新化合物",
+          "d": "2026-01-30",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "一种具备化学专业知识的AI系统成功辅助合成了35种新化合物。该系统结合化学知识推理与逆合成路径规划，能够自主设计合成路线并预测反应条件。这一成果展示了AI驱动的自动化化学合成在加速新材料发现方面的巨大潜力，标志着人工智能从化学预测走向实验验证的重要跨越。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-026-00240-5",
+          "tp": "AI分子合成",
+          "aip": 1,
+          "kp": [
+            "化合物数量[AI辅助合成]: 35个新化合物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "固态钍229核钟完成工程验证评估超低能跃迁频率稳定性",
+        "研究制备晶圆级超薄均匀范德华铁电氧化物薄膜突破界面限制",
+        "3D打印高熵合金超复合材料实现超薄完美超低频射频吸收"
+      ],
+      "entries": [
+        {
+          "t": "固态钍-229核钟的频率复现性",
+          "d": "2026-01-30",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究报道了固态钍-229核钟的频率复现性成果。固态核钟利用钍-229同核异能态的超低能跃迁，被寄望于突破现有原子钟的精度极限，为精密计量学开辟新途径。该工作评估了固态平台下核跃迁频率的稳定性和复现性，是核钟从概念验证迈向实用化时钟的关键工程验证步骤。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09999-5",
+          "tp": "固态钍核钟",
+          "aip": 1,
+          "kp": [
+            "发射体密度[固态229Th核钟vs光学晶格钟]: 高数个数量级",
+            "环境敏感性[核跃迁]: 固态晶体内核跃迁,固有低灵敏度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Solid-state thorium-229 (229Th) nuclear clocks1,2,3,4,5 are set to provide new opportunities for precision metrology and fundamental physics6,7,8. Taking advantage of inherent low sensitivity of a nuclear transition to its environment9, orders of magnitude more emitters can be hosted in a solid-state crystal compared with current optical lattice atomic clocks10. Furthermore, solid-state systems needing only simple thermal control11 are key to the development of field-deployable compact clocks. Here we explore and characterize the frequency reproducibility of the 229Th:CaF2 nuclear clock transition, a key performance metric for all clocks. We measure the transition linewidth and centre frequency as a function of the doping concentration, temperature and time. We report the concentration-dependent inhomogeneous linewidth of the nuclear transition, limited by the intrinsic host crystal12 properties. We determine an optimal working temperature for the 229Th:CaF2 nuclear clock at 196(5) K, at which the first-order thermal sensitivity vanishes. This would enable in situ temperature co-sensing using different quadrupole-split lines, reducing the temperature-induced systematic shift below the 10−18 fractional frequency uncertainty level. At 195 K, the reproducibility of the nuclear transition frequency is 220 Hz (fractionally 1.1 × 10−13) for two differently doped 229Th:CaF2 crystals over 7 months. These results form the foundation for understanding, controlling and harnessing the coherent nuclear excitation of 229Th in solid-state hosts and for their applications in constraining temporal variations of fundamental constants.",
+          "hb": 1
+        },
+        {
+          "t": "晶圆级超薄均匀范德华铁电氧化物",
+          "d": "2026-01-30",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "铁电材料在非易失性存储和下一代电子器件中潜力巨大，但传统铁电薄膜难以兼顾超薄与均匀性。该研究实现了晶圆级超薄且均匀的范德华铁电氧化物薄膜，突破了外延应力和界面缺陷的限制。该成果为柔性铁电器件、二维电子学集成和新型存储架构提供了高质量材料基础，有望推动铁电存储的高密度化与低功耗化发展。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adz1655?af=R",
+          "tp": "范德华铁电氧化物",
+          "aip": 1,
+          "kp": [
+            "[范德华铁电氧化物]: 晶圆级超薄均匀",
+            "[集成兼容性]: 后端工艺BEOL兼容"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ferroelectrics have great potential for nonvolatile memory and next-generation electronics, but conventional ferroelectric oxide films generally suffer structural nonuniformity, interfacial depolarization, and performance degradation, particularly when downscaled to advanced technology nodes. We demonstrate uniform, wafer-scale synthesis and back-end-of-line-compatible integration of ultrathin van der Waals (vdW) high-dielectric constant ferroelectric oxide Bi2SeO5, retaining an optimal coercive field and robust ferroelectricity at monolayer thickness. Ultrathin vdW ferroelectric oxides formed atomically uniform interfaces with two-dimensional semiconductors and yielded ferroelectric field-effect transistor (FeFET) arrays with a low operating voltage (0.8 volts), exceptional cycling endurance (>1.5 × 1012 cycles), fast write speed (20 nanoseconds), high on/off ratio (106), 10-year retention, ultralow energy consumption (2.8 femtojoules per bit per square micrometer), and <5% device-to-device variation. Reconfigurable logic-in-memory circuits with these FeFETs function at supply voltages of <1 volt.",
+          "hb": 1
+        },
+        {
+          "t": "3D打印高熵合金超复合材料中的超低频近零介电常数态用于超薄完美射频吸收",
+          "d": "2026-01-30",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究利用3D打印技术制备高熵合金基元复合材料，实现了超低频段epsilon-near-zero（ENZ，介电常数近零）态，用于超薄完美射频吸收。ENZ材料在特定频率下介电常数趋零，电磁波与材料发生强耦合可实现完美吸收。高熵合金的多元素混乱结构赋予宽频可调电磁响应，结合3D打印的结构设计自由度，该材料在超薄厚度下实现了超低频段的高效电磁波吸收，对下一代隐身和电磁屏蔽技术具有重要意义。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516951?af=R",
+          "tp": "高熵合金超材料吸波",
+          "aip": 1,
+          "kp": [
+            "吸收率[高熵合金超复合]: >90%",
+            "频段[ENZ吸波]: 55-110 MHz",
+            "厚度比[超薄吸波]: d/λ<1/2455"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Epsilon‐near‐zero (ENZ) materials with radio‐frequency perfect absorption are pivotal for next‐generation electromagnetic stealth, 5G (fifth‐generation mobile networks) signal integrity, and IoT (internet of things) security. Here, 3D‐printed metacomposites achieving low‐frequency ultra‐thin ENZ absorption (&gt;90%, 55–110 MHz, d/△λ&lt;1/2455) are realized by confining high‐entropy alloy (HEA) nanoparticles within hierarchically ordered porous carbon (HOPC). This hierarchical design leverages HEA's flattened band structures to maximize electron effective mass, while interfacial electron redistribution at HEA‐carbon boundaries delocalizes charges and reduces carrier concentration. These dual effects synergistically suppress plasma frequency to 72.4 MHz, converting strong negative permittivity into near‐zero states. A cocktail effect is discovered for reducing the plasma frequency with increasing the entropy. Concurrently, resonant enhancement from three complementary mechanisms—surface plasmons at HEA@graphitic core‐shell interfaces, interfacial polarization in PU/HOPC heterojunctions, and hierarchical pore‐cavity modes—boosts positive permittivity. Engineered cancellation of weakened negative permittivity and reinforced positive permittivity enables an ultra‐broadband |ε'|&lt;1 response spanning 55–110 MHz. The ENZ‐mode perfect absorption of ultra‐thin thickness, ultralow frequency, angle robustness, and broad band is achieved eventually. This work establishes a new paradigm for breaking the Rozanov limit via material‐genesis ENZ engineering, bypassing artificial metamaterial arrays.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

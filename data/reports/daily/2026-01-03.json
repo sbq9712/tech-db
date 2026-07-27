@@ -1,0 +1,258 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月3日　星期六",
+  "date_range": "2026-01-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究推出高稳定性钙钛矿墨水配方，适配狭缝涂布以提升光伏组件量产效率",
+      "研究揭示卤化物基全固态电池正极荷电态老化机制，为延长寿命提供理论依据",
+      "科学家利用阳离子有序化策略提升10微米单晶超高镍正极的循环稳定与能量密度"
+    ],
+    "AI与智能科技": [
+      "研究利用相协同效应降低HfO₂外延薄膜铁电极化翻转所需电场强度以实现低功耗",
+      "科研团队开发磁控微型机器人混合架构，通过磁场控制锁扣实现靶向载荷精准递送",
+      "研究整合AlphaFold2等AI工具优化抗体骨架区，加速胞内靶向抗体开发进程"
+    ],
+    "通用技术": [
+      "难熔高熵合金通过温度诱导位错形态自适应转变，在深冷至高温全域克服脆性断裂",
+      "超构光学结合亚波长结构与光计算技术，为超薄智能成像系统提供硬件基础",
+      "普渡大学完成电动卡车动态无线充电测试，向时速百公里车辆输送190kW功率"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究推出高稳定性钙钛矿墨水配方，适配狭缝涂布以提升光伏组件量产效率",
+        "研究揭示卤化物基全固态电池正极荷电态老化机制，为延长寿命提供理论依据",
+        "科学家利用阳离子有序化策略提升10微米单晶超高镍正极的循环稳定与能量密度"
+      ],
+      "entries": [
+        {
+          "t": "稳定钙钛矿墨水用于可扩展涂布，实现高效钙钛矿组件",
+          "d": "2026-01-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "本研究致力于解决钙钛矿墨水稳定性问题，以实现高效钙钛矿太阳能组件的规模化涂布制备。钙钛矿墨水的质量和稳定性直接决定薄膜成膜质量和器件性能，而现有墨水体系在长期存储和大规模涂布中易发生降解或结晶不可控。研究开发了一种稳定性显著提升的钙钛矿墨水配方，使其适用于大面积可扩展涂布工艺（如狭缝涂布），从而制备出高效率的钙钛矿微型组件。该进展对推动钙钛矿光伏技术从实验室小面积器件向商业化模块级生产迈进具有关键意义。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec0915?af=R",
+          "tp": "钙钛矿墨水稳定性",
+          "aip": 1,
+          "kp": [
+            "钙钛矿组成[油墨]: CsxFA1−xPbI3",
+            "[失稳机制]: 溶剂-铅-卤配位过强致聚集",
+            "[对策]: 调控配位稳定油墨可放大涂布"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Perovskite inks play critical roles in determining film quality and device performance, and ink stability is desired to ensure high device reproducibility. Here, we reveal the instability issue of current cesium-formamidinium lead triiodide (Cs\n                    \n                      x\n                    \n                    FA\n                    \n                      1−\n                      x\n                    \n                    PbI\n                    3\n                    ) inks whose aggregation and precipitation tendencies are induced by excessively strong solvent-lead-halide coordination. By modulating coordination strength between precursor salts and solvents, we identify solvent coordination-dispersion equilibrium as the governing factor for ink stability and develop a stable ink that exhibits a remarkable increase in the shelf life. It effectively tunes ink drying and film crystallization, resulting in blade-coated perovskite films with excellent uniformity and low defect density. This enhancement led to increased aperture efficiency of ambient-fabricated p-i-n perovskite modules to 23.5%. The resultant devices also exhibit high durability, and 99% of the initial PCE was retained after 1700 hours of maximum power point tracking following the ISOS-L-2 standard protocol.",
+          "hb": 1
+        },
+        {
+          "t": "全固态电池卤化物基复合正极的荷电态依赖老化机制",
+          "d": "2026-01-03",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "本研究探讨了卤化物基全固态电池复合正极的荷电状态（SOC）依赖性老化机制。卤化物固态电解质（如Li₃InCl₆, LIC）因其高离子电导率和电化学稳定性被视为全固态电池正极的有前景候选材料。研究发现，不同荷电状态下正极老化行为存在显著差异，揭示了循环过程中结构演变、界面退化与容量衰减之间的关联机制。该工作为优化卤化物基全固态电池的循环策略、延长使用寿命提供了机制层面的理解，对推动高能量密度全固态电池的工程化应用具有参考价值。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202505745?af=R",
+          "tp": "卤化物固态电池老化",
+          "aip": 1,
+          "kp": [
+            "电解质[ASSB]: Li3InCl6卤化物固态",
+            "正极[复合]: 富镍NCM",
+            "[老化机制]: 随SoC变化",
+            "优势[卤化物SSE]: 高电导+高电压稳定"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Halide‐based solid‐state electrolytes (SSEs), such as Li\n                    3\n                    InCl\n                    6\n                    (LIC), are promising catholytes for all‐solid‐state batteries (ASSBs) because of their high ionic conductivity and high‐voltage stability. However, the aging mechanism between halide SSEs and Ni‐rich cathodes (LiNi\n                    \n                      x\n                    \n                    Co\n                    \n                      y\n                    \n                    Mn\n                    1\n                    \n                      −x−y\n                    \n                    O\n                    2\n                    , NCM) remain poorly understood. Herein, we investigate the state‐of‐charge (SoC)‐dependent aging behavior of LIC/NCM composite cathodes and reveal a non‐monotonic relationship between SoC and capacity retention after aging. Severe capacity loss occurs under both low‐ and high‐SoC conditions, whereas high capacity retention is achieved after aging at a mid‐range SoC. Comprehensive structural and chemical analyses uncover a synergistic aging mechanism: reductive decomposition of LIC dominates aging at low SoCs, while structural degradation of NCM accounts for aging at high SoCs. Furthermore, an ultrathin coating layer introduced onto the NCM particle surface via atomic layer deposition effectively suppresses interfacial reactions and enhances electrochemical stability, particularly during low‐SoC storage. This work provides mechanistic insights into SoC‐dependent interfacial aging in halide‐based ASSBs and proposes both SoC management and interface engineering strategy to extend their calendar life.",
+          "hb": 1
+        },
+        {
+          "t": "通过无阳离子无序10微米单晶材料逼近超高镍正极理论密度极限",
+          "d": "2026-01-03",
+          "a": "Nature Energy",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "研究通过阳离子有序化策略使超高镍层状氧化物正极接近理论能量密度极限。单晶层状氧化物可缓解传统多晶正极的容量快速衰减问题。通过精确调控过渡金属阳离子的有序排列，抑制不可逆相变和界面副反应，显著提升循环稳定性和体积能量密度，为高比能锂离子电池正极材料的工程化突破提供新路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-025-01909-3",
+          "tp": "超高镍单晶正极",
+          "aip": 1,
+          "kp": [
+            "正极[锂电]: 超高镍单晶层状氧化物",
+            "粒径[单晶]: 10 μm",
+            "结构[单晶]: 无阳离子无序",
+            "[目标]: 接近理论密度极限"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Single-crystalline layered oxides offer a promising solution to mitigate the rapid capacity decay observed in conventional polycrystalline nickel-rich oxide cathodes. However, achieving both morphological (large grain size) and structural (cation-disorder-free) control in single crystals remains challenging due to the trade-off between grain growth and phase stability, particularly at high-nickel contents. Here we report cation-disorder-free ultrahigh-nickel single-crystalline oxide cathodes with ~10-μm particle sizes, comparable to commercial secondary particles, that deliver high volumetric capacity and stable cycling. These single crystals withstand calendering and resist intra-granular cracking, achieving electrode densities of up to 77% of the theoretical crystal density. The improved stability is linked to reduced structural strain and modified glide behaviour due to the absence of cation disorder, emphasizing its critical role in chemomechanical behaviour. Additionally, gas evolution is reduced by a factor of 25, and the thermal onset temperature drops by more than 20 °C at ~4.5 V versus Li/Li+, underscoring superior safety features and energy density potential.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究利用相协同效应降低HfO₂外延薄膜铁电极化翻转所需电场强度以实现低功耗",
+        "科研团队开发磁控微型机器人混合架构，通过磁场控制锁扣实现靶向载荷精准递送",
+        "研究整合AlphaFold2等AI工具优化抗体骨架区，加速胞内靶向抗体开发进程"
+      ],
+      "entries": [
+        {
+          "t": "相协同效应实现HfO2外延薄膜的低功耗铁电切换",
+          "d": "2026-01-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究发现HfO₂外延薄膜中相协同效应可实现低功耗铁电极化翻转。基于HfO₂的铁电材料因与CMOS工艺兼容、具有纳米级可扩展性，已成为下一代非易失性存储器的有力候选。传统HfO₂铁电存储面临高操作电压和高功耗的瓶颈。研究通过调控薄膜中四方相与正交相的协同作用，显著降低了铁电极化翻转所需的电场强度，为开发超低功耗铁电存储器件和新型神经形态计算硬件提供了重要途径。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520313?af=R",
+          "tp": "铁电HfO2存储",
+          "aip": 1,
+          "kp": [
+            "材料[铁电]: HfO2外延薄膜",
+            "[机制]: 相协同效应",
+            "[切换]: 低功耗",
+            "兼容性: CMOS兼容"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    HfO\n                    2\n                    ‐based ferroelectric materials have emerged as leading candidates for next‐generation non‐volatile memory technologies, owing to their nanoscale robust ferroelectricity and complementary metal–oxide–semiconductor (CMOS) compatibility. However, challenges and debates persist in advancing and comprehensively understanding their ferroelectric behavior. In particular, conventional approaches typically regard non‐ferroelectric phases as detrimental and primarily focus on suppressing their formation, yet overlooking their potentially synergistic contributions—particularly those of the tetragonal (\n                    T\n                    ) phase. Here, we unambiguously clarify the beneficial role of the\n                    T\n                    ‐phase and introduce a phase‐boundary engineering strategy that deliberately harnesses it to enhance ferroelectricity in HfO\n                    2\n                    films. By stabilizing optimal coherent boundaries between ferroelectric orthorhombic (\n                    O\n                    ) and\n                    T\n                    phases in epitaxial La‐doped HfO\n                    2\n                    films, we achieve significant improvements in ferroelectric properties—doubling the remanent polarization (\n                    P\n                    r\n                    ∼ 30 µC/cm\n                    2\n                    ) and substantially reducing the coercive field (\n                    E\n                    c\n                    ∼ 3 MV/cm) by 30% compared to low‐La doped samples without such boundaries. Atomic‐scale electron microscopy reveals the structural nature of the atomically sharp, coherent\n                    O\n                    –\n                    T\n                    boundaries. Combined with deep‐learning enhanced molecular dynamics simulations, our results unravel that these boundaries facilitate intermediate polarization states that lower the switching energy barrier. Consequently, phase coexistence shifts from an inherent drawback to a tunable design element, offering a broadly applicable route to ultra‐low‐power HfO\n                    2\n                    ‐based nanoelectronics.",
+          "hb": 1
+        },
+        {
+          "t": "通过磁触发型锁扣连接栓系与非栓系磁性机器人实现目标载荷的递送与回收",
+          "d": "2026-01-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "该研究提出一种结合系绳式与自由式磁控微型机器人的混合架构，通过磁触发锁扣机构实现目标载荷的精准递送与回收。研究聚焦于连续体机器人在微创手术中的应用，磁驱动锁扣可在外部磁场控制下实现可靠连接与释放，使机器人兼具系绳式的精确定位能力和自由式的灵活导航能力。该方案有望扩展微创手术的可达范围与操作深度，为靶向药物递送、组织活检等医疗场景提供新的技术路径。",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adu6025?af=R",
+          "tp": "磁控手术机器人",
+          "aip": 1,
+          "kp": [
+            "[磁控机器人]: 磁触发锁扣连接系绳与无系绳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The reach and scope of minimally invasive surgical procedures can be transformed via the development of continuum robots. Through soft, flexible structures and accurate navigation, previously inaccessible anatomical regions can be safely reached. Dependent on both actuation mode and clinical application, however, rigidity and miniaturization potential can still present substantial challenges. Magnetic soft continuum robots (mSCRs) offer promising solutions to these key questions. Furthermore, micrometer- to millimeter-scale untethered magnetic robots (mUMRs) offer unparalleled miniaturization potential enabling targeted therapeutic delivery. Leveraging the benefits of magnetic actuation, this study introduces a bespoke, continuously magnetized catheter that synergizes the navigational strengths of mSCRs with the functional effectiveness of mUMRs to precisely deliver drug-doped payloads to otherwise unreachable regions deep within the anatomy. In particular, this system uses a magnetic latching mechanism, ensuring precise drug delivery and efficient retrieval, demonstrated in an ex vivo porcine kidney model for organ transplantation–related immunosuppressant delivery.",
+          "hb": 1
+        },
+        {
+          "t": "人工智能辅助蛋白质设计可快速将抗体序列转换为针对不同肽和组蛋白修饰的体内抗体",
+          "d": "2026-01-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "细胞内抗体在治疗和诊断成像领域极具潜力，但其还原性的胞内环境常导致抗体折叠、溶解度和稳定性变差。为解决这一难题，研究团队开发了由人工智能驱动的抗体设计流程。该技术整合了AlphaFold2、ProteinMPNN以及活细胞筛选技术，在保持抗体抗原结合特性的同时，对其骨架区进行深度优化。该方案能够快速将常规抗体序列转化为在细胞内稳定发挥作用的抗体，极大加速了靶向特定多肽和组蛋白修饰的体内应用开发。",
+          "sc": 6.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adx8352?af=R",
+          "tp": "蛋白质设计",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Intrabodies are engineered antibodies that function inside living cells, enabling therapeutic, diagnostic, and imaging applications. While powerful, their development has been hindered by challenges associated with their folding, solubility, and stability in the reduced intracellular environment. Here, we present an artificial intelligence–driven pipeline integrating AlphaFold2, ProteinMPNN, and live-cell screening to optimize antibody framework regions while preserving epitope-binding complementarity-determining regions. Using this approach, we successfully converted 19 of 26 antibody sequences into functional single-chain variable fragment intrabodies, including a panel targeting diverse histone modifications for real-time imaging of chromatin dynamics and gene regulation. Notably, 18 of these 19 sequences had failed to convert using the standard approach, demonstrating the unique effectiveness of our method. As antibody sequence databases expand, our method will accelerate intrabody design, making their development easier, more cost effective, and broadly accessible for biological research.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "难熔高熵合金通过温度诱导位错形态自适应转变，在深冷至高温全域克服脆性断裂",
+        "超构光学结合亚波长结构与光计算技术，为超薄智能成像系统提供硬件基础",
+        "普渡大学完成电动卡车动态无线充电测试，向时速百公里车辆输送190kW功率"
+      ],
+      "entries": [
+        {
+          "t": "自适位错形态演变在超宽温域内增韧难熔高熵合金",
+          "d": "2026-01-03",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "研究在难熔高熵合金中发现自适应位错形变机制，使材料在超宽温度区间内兼具延展性。金属通常在极低温下脆性断裂、高温下迅速软化，该合金通过温度诱导位错形态自适应转变，在深冷至高温全域保持韧性，解决了高熵合金强韧性矛盾的关键难题，对航空航天极端环境结构材料具重要应用价值。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2529140123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "难熔高熵合金韧化",
+          "aip": 1,
+          "kp": [
+            "合金体系[RHEA]: NbTaTi基",
+            "[增韧机制]: 自适应位错形变",
+            "温度范围[力学性能]: 从4K超宽温域强韧兼备"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Metals usually fracture catastrophically at cryogenic temperatures and soften rapidly at high temperatures. This dilemma arises from the incompatibility of strengthening mechanisms across vast temperature regimes. Here, this work unveils a self-adaptive dislocation morphing mechanism in a model NbTaTi-based refractory high-entropy alloy (RHEA) that enables exceptional strength and ductility from 4 K to 1673 K. At cryogenic temperatures, dislocation kinking coupled with deformation twinning suppresses the ductile-to-brittle transition. At ambient conditions, the sequential activation of edge and screw dislocations sustains work hardening. At elevated temperatures, enhanced dislocation interactions generate jogs, multijunctions, and helical dislocations, promoting superplasticity up to 250%. This intrinsic, temperature-responsive evolution of dislocation modes offers a defect engineering strategy for designing RHEAs capable of enduring extreme environments.",
+          "hb": 1
+        },
+        {
+          "t": "融合计算光学与光计算的元光学迈向智能视觉感知",
+          "d": "2026-01-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该综述探讨了超构光学（metaoptics）融合计算光学与光学计算、迈向智能视觉感知的前沿进展。视觉感知系统正向多功能化、微型化和实时智能化方向发展，超构光学通过亚波长结构调控光场，结合计算成像和光计算，为实现超薄、智能的成像与感知系统提供了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea8941?af=R",
+          "tp": "超构光学智能感知",
+          "aip": 1,
+          "kp": [
+            "[方向]: 超构光学融合计算光学与光计算",
+            "[目标]: 智能视觉感知多功能小型化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Visual perception systems are evolving toward multifunctionality, miniaturization, and real-time intelligence, necessitating coadvancements in optical hardware and computational software. Computational optics enhances optical encoding through algorithms but faces computational limits, while optical computing offers photonic parallelism yet struggles with hardware complexity. Metaoptics, using subwavelength nanostructures for multidimensional light-field control, resolves this tension by serving dual roles: as an efficient computational optics encoder offloading algorithmic burdens and as a nanoscale optical computing processor enabling ultrahigh-density parallelism. This synergy drives computational optical integration for next-generation optoelectronics. This review outlines computational optics and optical computing fundamentals, analyzes metaoptics’ advantages in multidimensional optical information encoding and processing, and details recent metaoptics-based advances and challenges in computational optics, optical computing, and their convergence. The conclusion provides a future roadmap, highlighting metaoptics-driven integration’s potential for chip-scale intelligent visual perception by bridging the hardware-software divide to enable miniaturized devices with real-time adaptability, massive parallelism, and energy efficiency.",
+          "hb": 1
+        },
+        {
+          "t": "普渡大学团队在印第安纳州一高速路段进行电动卡车行驶过程无线充电测试",
+          "d": "2026-01-03",
+          "a": "",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "普渡大学团队在印第安纳州高速路段进行电动卡车行驶过程无线充电测试，0.4km测试段由INDOT资助，通过路面发射线圈产生交变磁场、车辆底部感应线圈接收整流充电，向约100km/h行驶的卡车输送190kW功率，工作模式类似手机无线充电。",
+          "sc": 5.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/01/03/success-high-speed-wireless-charging-gets-real-at-purdue-university/",
+          "tp": "无线充电路",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据electrek等媒体1月3日报道，普渡大学一研究团队（Dionysios Aliprantis、Nadia Gkritza教授等）在印第安纳州高速公路上，进行了电动卡车行驶过程中的无线充电测试。报道中称，该测试路段长约0.4km，由印第安纳州交通部（INDOT）项目资助建设，整体充电过程类似当前手机无线充电模式，即在路段上安装发射线圈（通电产生变化的磁场），车辆底部安装有感应线圈，产生感应电压整流后为卡车电池充电。文中称，通过该系统可向约100km/h速度行驶的卡车输送了190kW的功率。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月11日　星期三",
+  "date_range": "2026-03-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "氢枫集团单罐一吨镁基固态储氢设备完成充氢状态装船出运马来西亚",
+      "科研人员通过层间化学限域策略提升锂氯电池循环寿命与可逆性",
+      "新研究提出非平衡空间分布电场常温常压电化学合成氨技术路径"
+    ],
+    "AI与智能科技": [
+      "研究提出毫开尔文极低温超导数字电路控制架构以降低量子比特布线量"
+    ],
+    "通用技术": [
+      "中国建材集团实现SYT80级八千兆帕碳纤维百吨级量产",
+      "德国科研团队采用玻璃化冷冻技术实现小鼠大脑神经功能部分恢复",
+      "分析指出西班牙大停电凸显高比例可再生能源电网频率稳定与储能短板"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "氢枫集团单罐一吨镁基固态储氢设备完成充氢状态装船出运马来西亚",
+        "科研人员通过层间化学限域策略提升锂氯电池循环寿命与可逆性",
+        "新研究提出非平衡空间分布电场常温常压电化学合成氨技术路径"
+      ],
+      "entries": [
+        {
+          "t": "氢枫集团单罐储氢量达一吨的镁基固态储氢设备实现充氢状态出海运输",
+          "d": "2026-03-11",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "我国大型镁基固态储氢设备（充氢状态）在上海外高桥港装船出运至马来西亚，疑似由氢枫集团生产。该设备可在常温常压下储运氢气，单罐储氢量1吨、循环寿命超3000次。充氢状态大型固态储氢装置海上运输国际上无成熟先例与标准，此次运输拓展了氢能储运应用场景。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.news.cn/politics/20260311/b3d80d3bde4449f0a083aaeba0402ce9/c.html",
+          "tp": "镁基固态储氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "该装置单罐储氢容量、寿命与先前报道及25年部门同事与氢枫高层交流结果基本一致。主要突破可能在于其被批准进行海上运输。氢化镁（MgH₂）遇水会大量放热并产生氢气，若在密闭空间积聚，还存在燃爆风险；联合国《危险货物运输章程范本》以及国标GB/T 12268-2025均规定金属氢化物储存系统需在审批并附上批文后方可运输。常温常压的储氢环境，使其与氢气（GB/T 34584-2017等）、液氢（GB/T 40060-2021等）储运相比，减少了压力罐、低温特种设备等审批和检验；但固体储氢设备的加氢/放氢速率较低、特定场景下成本评估等仍需后续进一步核查分析。",
+          "b": "据新华社3月11日报道，我国一大型镁基固态储氢设备（充氢状态）在上海外高桥港区顺利装船出运，将发往马来西亚；据文中图片显示，该储氢装置可能由氢枫集团生产。文中称，该设备为我国自主研发，可在常温常压条件下实现氢气储存和运输，单罐储氢量达1吨，循环使用寿命超过3000次。且科技日报报道称，充氢状态下的大型固态储氢设备海上运输在国际上尚无成熟先例，缺乏明确运输标准；其认为此次充氢镁基固体储氢装置的装船运输，拓展了氢能储运应用场景。",
+          "hb": 1
+        },
+        {
+          "t": "层间化学限域实现高可逆且耐久的锂氯电池",
+          "d": "2026-03-11",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "锂氯(Li-Cl2)电池因高理论能量密度被视为大规模储能的候选技术，但面临可逆性差、循环寿命短等瓶颈。该研究提出层间化学限域策略，通过在电极层间引入特定化学基团，有效锚定和稳定氯物种，抑制多步反应中的活性物质流失与副反应。这种化学限域机制显著提升了Li-Cl2电池的循环可逆性和长期耐久性，使其在反复充放电中保持稳定的容量输出。该工作为基于卤素转化反应的高比能电池体系的设计提供了重要的界面工程新范式。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07649H",
+          "tp": "锂氯电池",
+          "aip": 1,
+          "kp": [
+            "正极策略[Li-Cl₂电池]: 层间化学限域改善Cl₂/LiCl转化",
+            "电池体系[可充电电池]: 锂-氯(Li-Cl₂)电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Rechargeable lithium-chlorine (Li-Cl2 ) batteries represent a promising high-energy-density technology for use in large-scale applications. However, conventional cathodes suffer from weak interactions with Cl 2 and uneven LiCl deposition, resulting in poor Cl2 /LiCl conversion kinetics and limited cycle life. In this study, an interlayer chemical confinement strategy is proposed to enable highly reversible Cl 2 /LiCl conversion in Ti3C2Sx MXenes. Specifically, the confined space in MXene interlayer effectively suppresses Cl2 escape while the sulfur surface terminations form covalent interactions with Cl to further immobilize Cl2 and lower the LiCl nucleation barrier to achieve uniform deposition. In situ characterization combined with theoretical calculations reveals the reversible Cl2/LiCl redox reaction with a low energy barrier occurs within the confined interlayer space. This confinement strategy imparts the Li-Cl2 battery with a high specific capacity of up to 2200 mAh g-1 , in conjunction with long cycle lives of 1300 and 1200 cycles when operating at 25 and -60 ℃, respectively. This study provides new insights into the nanoconfinement effect and opens a promising avenue for the development of high-performance metal-Cl2 batteries.",
+          "hb": 1
+        },
+        {
+          "t": "非平衡空间分布电场中的固氮",
+          "d": "2026-03-11",
+          "a": "Nature Communications",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "工业固氮严重依赖高能耗的Haber-Bosch工艺，亟需可再生能源驱动的替代方案。该研究提出在非平衡空间分布电场中实现氮气固定的新策略，利用电场梯度驱动氮气分子的活化与还原，有望在常温常压条件下高效合成氨。该方法规避了传统工艺对高温高压的依赖，契合绿色化学理念，为分布式、可持续氮肥生产提供了全新技术路径，具有潜在的农业与能源应用前景。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-70272-y",
+          "tp": "电场等离子固氮",
+          "aip": 1,
+          "kp": [
+            "NOx产量[SD-EF策略]: 9.8 mmol/h",
+            "N2转化率[SD-EF]: 均匀电场3倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nitrogen fixation heavily relies on the energy-intensive Haber-Bosch process, necessitating renewable alternatives. Here, we introduce a non-equilibrium spatially distributed electric field (SD-EF) strategy for nitrogen fixation in ambient air plasma. The optimized SD-EF strategy gives a NOx− yield of 9.8 mmol/h, tripling that of a uniform electric field and the N2 conversion is three times higher than most discharge configurations at similar or lower energy consumptions. This high NOx− yield is achieved through simultaneously activating two beneficial kinetic networks via SD-EF by having both high and low electric fields present: O3 and vibrational excitation of N2 (N2(v)) sub-mechanisms, which are revealed by developing a photonic crystal fiber diagnostic for in-situ quantification of molecules and ions (NO, NO2, N2O, O3, NO3−, and NO2−) in gas-liquid plasma. The establishment of the SD-EF strategy, coupled with in-situ gas-liquid diagnostics, is broadly applicable to plasma-assisted nitrogen fixation and holds promise for other plasma-assisted chemical conversion processes.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究提出毫开尔文极低温超导数字电路控制架构以降低量子比特布线量"
+      ],
+      "entries": [
+        {
+          "t": "由毫开尔文温度下超导数字电子学控制的量子计算机",
+          "d": "2026-03-11",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "超导量子计算平台面临严峻的扩展性挑战，因为每个量子比特需要大量独立的室温控制电子设备，布线与功耗成为瓶颈。该研究提出在毫开尔文（mK）极低温环境下直接使用超导数字电子学控制量子比特，将控制电路置于低温腔体内部，大幅减少室温到低温区的布线数量。这一架构有望解决量子计算机规模化扩展中的互连线缆爆炸问题，为构建更大规模超导量子处理器提供可行路径。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01576-6",
+          "tp": "超导量子控制",
+          "aip": 1,
+          "kp": [
+            "[工作温度]: 毫开尔文温区",
+            "[架构]: 超导数字电子学片上控制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The development of superconducting quantum computing platforms faces considerable scaling challenges because individual signal lines are required to control each qubit. This wiring overhead is a result of the low level of integration between the control electronics at room temperature and the qubits operating at millikelvin temperatures. A promising alternative is to use cryogenic superconducting digital control electronics that coexist with qubits. Here we present an active quantum processor unit in which qubits and single-flux quantum control electronics are integrated into a single multi-chip module via flip-chip bonding. Our system uses digital demultiplexing to distribute control pulses to several qubits, thus breaking the linear scaling of control lines to the number of qubits. With this approach, we demonstrate single-qubit fidelities above 99% and up to 99.9%.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中国建材集团实现SYT80级八千兆帕碳纤维百吨级量产",
+        "德国科研团队采用玻璃化冷冻技术实现小鼠大脑神经功能部分恢复",
+        "分析指出西班牙大停电凸显高比例可再生能源电网频率稳定与储能短板"
+      ],
+      "entries": [
+        {
+          "t": "中国建材集团推出可量产的工程化拉伸强度达8000MPa高强度碳纤维",
+          "d": "2026-03-11",
+          "a": "",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "中国建材集团推出SYT80（T1200级）超高强度碳纤维，实现百吨级规模化量产，工程化拉伸强度突破8000MPa，号称全球首款量产的T1200级碳纤维。产品具有低密度、超高强特性，可应用于新能源、航空航天、氢能储运、低空经济、医疗器械、具身智能等领域。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/-gkxRUqf-mZzUHQQfNW-gw",
+          "tp": "碳纤维量产",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "有研究/报道分析认为，PAN前驱体制备（AN原材料-约60%；聚合、纺丝、烘干等约40%）及生产折损即占据碳纤维近一半的生产成本；劳动力成本其次约15%；废气焚化炉处理所需天然气供能成本占比达11%；此外，其生产过程用热需求大，预氧化、碳化及聚合/纺丝/烘干整体电耗成本占比也达约8%（该研究目标是汽车级/中低端碳纤维，因此未纳入石墨化过程）。其生产碳排放可达13-35 kg CO₂eq./kg CF（热+电约59%、PAN材料约37%），按全球30万吨/年产量来看，其总排放量较低，但单位排放较高（钢铁约1.92kg CO₂ eq./kg粗钢、铝约10.04kg CO₂ eq./kg铝），有望通过绿电直连、热泵/余热回收等（用热范围50-2500℃）等模式进行降碳。其以碳为主要构成使得有研究认为，可通过CO2加氢生产甲醇为中间体，甲醇生产丙烯可用于制备AN，以从原料端降低碳纤维生产碳排放；但该路径技术成熟度较低，合成材料稳定性、成本及规模化仍有待进一步发展。拉伸强度8000MPa+百吨级量产（国产化+量产）；日本Toray在23年发布了同等拉伸强度的产品。",
+          "b": "3月11日，中国建材集团在其官方公众号发文，推出实现百吨级规模化工程化量产的SYT80（T1200级）超高强度碳纤维。文中称，该碳纤维工程化拉伸强度突破8000MPa，具有低密度、超高强特性（有报道称其直径为头发丝的十分之一，拉伸强度是普通钢材的十倍，密度是钢材的四分之一），是全球第一款实现工程化量产的T1200级碳纤维产品；可应用于新能源、航空航天、氢能储运、低空经济、医疗器械、具身智能等产业。",
+          "hb": 1
+        },
+        {
+          "t": "德国埃尔兰根-纽伦堡大学通过玻璃化溶液浸入冷却实现了小鼠大脑冷冻封存后部分功能恢复",
+          "d": "2026-03-11",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "据Nature新闻及LBV杂志3月11日报道，德国埃尔兰根-纽伦堡大学Fang Zheng团队展示小鼠大脑超低温保存及复温后部分神经功能（如记忆形成）基本恢复的方法。团队采用玻璃化技术，将脑组织浸入含二甲基亚砜、乙二醇、甲酰胺和聚乙烯基吡咯烷酮的高浓度溶液（59%w/v），以≥2.45°C/s快速冷却至-196°C，置换细胞内水防止冰晶形成；复温时以≥4.11°C/s高速升温。结果表明神经元细胞膜轮廓清晰，树突棘密度正常，脑结构损伤大幅减少。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.labrujulaverde.com/en/2026/03/scientists-manage-to-revive-activity-in-the-brain-of-a-cryogenized-mouse-for-the-first-time/",
+          "tp": "玻璃化冷冻",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据Nature新闻及LBV杂志3月11日报道称，德国埃尔兰根-纽伦堡大学Fang Zheng团队展示了一种将小鼠大脑进行超低温保存，并在复温后使其部分神经功能（例如记忆形成）基本恢复正常的方法。文中称，大脑难以完全从冰冻中恢复的主要原因是细胞内水结成锋利的冰晶，会对细胞结构造成的损伤，例如刺破细胞膜、切断神经元之间的连接等。该团队则通过玻璃化技术，即将大脑切片/整脑浸入含有不同配比的玻璃化溶液（V3，二甲基亚硫酸盐、乙二醇、甲酰胺和聚乙烯基吡咯里酮）液体中（载体溶液为乳糖与甘露醇），随后进行液氮冷却；高浓度的玻璃化溶液（59%w/v）提高溶液粘度、降低冰点和玻璃化转变温度，且该溶液置换细胞内大部分水，减少自由水含量使其难以结晶；同时快速冷却的方法（≥2.45°C/s，冷却至−196°C/140°C保存）使剩下的水分来不及形成晶核，而是瞬间转化为一种类似玻璃的非晶体固态，避免脑结构损伤。而在复温时，也将脑组织浸入玻璃化溶液中，并以较高速率（≥4.11°C/s）进行升温，即使短暂经过复温相也无晶体形成。\n结果表明，经历玻璃化与复温后，神经元细胞膜轮廓清晰，树突棘（接收信号的关键结构）的密度和长度与新鲜样本基本没有差异；且复温后的脑切片中，基础的神经信号传递得以维持。整个大脑目前则仅有1/3的处理复温后具有生理活性；但成功样本显示海马体齿状回区域的神经元，电生理活性得到了良好保存。相关研究也在2026年3月3日发表在Proceedings of the National Academy of Sciences。",
+          "hb": 1
+        },
+        {
+          "t": "西班牙大停电的启示",
+          "d": "2026-03-11",
+          "a": "Joule",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "2024年4月西班牙和葡萄牙发生大规模停电事件，暴露了伊比利亚半岛电力系统在长期安全性与经济性之间的深层矛盾。文章分析了此次停电的根本原因，指出随着可再生能源渗透率不断提高、传统同步发电机组逐步退出，电力系统的惯性水平和频率稳定性面临严峻挑战。电网互联不足、储能及需求侧响应能力欠缺等问题在此次事件中集中爆发。文章强调，在能源转型背景下，如何以最低成本保障电力系统长期安全运行已成为全球性难题，需要在市场机制、技术储备和跨区域协调等方面进行系统性改革，以增强电网韧性和应对极端工况的能力。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00028-0?rss=yes",
+          "tp": "电力系统安全",
+          "aip": 1,
+          "kp": [
+            "[核心论点]: 电力系统安全规划需无利益冲突的制度保障"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The Iberian blackout highlights how guaranteeing long-term power system security at least cost is increasingly difficult as system complexity and the range of short- and long-term options expand. The study argues that credible, conflict-free planning institutions are essential to navigate these trade-offs.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

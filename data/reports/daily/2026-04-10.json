@@ -1,0 +1,256 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月10日　星期五",
+  "date_range": "2026-04-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究将不对称双原子钌锚定于氮化硼纳米层，解决甲烷干重整积碳难题",
+      "科研人员利用动态氢键网络稳定晶格氧机制，规避海水电解副反应",
+      "一期临床试验证实碱基编辑技术可重新激活β-地中海贫血患者胎儿血红蛋白"
+    ],
+    "AI与智能科技": [
+      "研究人员基于镓基合金相变特性研发液态金属形状记忆机器人",
+      "科研团队开发基于扩散模型的分子设计框架以处理柔性蛋白构象变化",
+      "科研团队利用费米子原子实现高保真度碰撞型量子门操作"
+    ],
+    "通用技术": [
+      "港理工团队利用闪焦耳加热技术制备IrRu双单原子对以提升析氧反应稳定性",
+      "研究通过构建动态氢键网络稳定晶格氧路径以规避海水电解副反应",
+      "科研人员在三维金属有机框架中首次观测到g波交替磁性"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究将不对称双原子钌锚定于氮化硼纳米层，解决甲烷干重整积碳难题",
+        "科研人员利用动态氢键网络稳定晶格氧机制，规避海水电解副反应",
+        "一期临床试验证实碱基编辑技术可重新激活β-地中海贫血患者胎儿血红蛋白"
+      ],
+      "entries": [
+        {
+          "t": "硼氮纳米层中锚定的不对称双原子Ru触发稳定干重整的反应机理转变",
+          "d": "2026-04-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
+          "as": "甲烷干重整可同时利用温室气体和天然气制备合成气。研究将不对称双原子钌锚定在氮化硼纳米层上，通过精确调控双原子构型触发催化机制转变，实现高稳定性干重整反应。该催化剂有效抑制积碳和金属烧结，为工业级CO2资源化利用提供了高效催化剂设计范例。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19260",
+          "tp": "甲烷干重整催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[甲烷干重整]: BN纳米层锚定不对称双原子Ru",
+            "[机理转变]: 不对称配位触发抗积碳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Methane dry reforming represents a promising approach to reduce greenhouse gas emissions and to utilize natural gas for value-added products. However, this process is challenged by limited reactivity and severe coking at low temperatures. Here, we report a dual-atom ruthenium catalyst anchored in a boron nitride nanolayer. The spatially distinct coordination of the Ru atomic pair gives rise to the asymmetric charge distribution of the active center. The synergy effect of Ru dimer achieves the CH4 and CO2 conversions of 69% and 76% at 650 °C, respectively, which are near thermodynamic equilibrium, while maintaining an exceptional stability of 1000 h at 600 °C with negligible coking. Mechanism studies reveal that an electron-deficient Ru site facilitates the C-H cleavage in CH4 via an enhanced polarization effect, while another electron-rich Ru site promotes CO2 activation with a bidentate adsorption configuration. Furthermore, this unique dual-atom Ru structure enables a Langmuir-Hinshelwood pathway with a reduced barrier of the coupling reaction between CH4 and CO2 to form *CH2O intermediate and produce syngas rather than excessive C-C binding and coke deposition. This work provides a strategy for designing multifunctional catalysts to solve the seesaw issue of reactivity and stability for methane dry reforming.",
+          "hb": 1
+        },
+        {
+          "t": "通过动态氢键网络稳定晶格氧氧化路径以实现工业级电流密度海水电解",
+          "d": "2026-04-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "该研究针对海水电解制绿氢中氯化物氧化反应（ClOR）竞争问题，提出通过动态氢键网络稳定晶格氧氧化路径（LOM）的策略。LOM机制可在高电流密度下规避ClOR副反应，提升催化剂选择性与工业级电流密度下的稳定性。研究聚焦于电极催化材料表面氢键微环境的动态调控，为大规模海水直接电解提供了新思路，对绿氢工业化具有潜在推动意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72996?af=R",
+          "tp": "海水电解制氢",
+          "aip": 1,
+          "kp": [
+            "[OER路径]: 晶格重整使AEM转向LOM",
+            "[海水电解]: 动态氢键网络稳定晶格氧氧化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Seawater electrolysis for green hydrogen is severely limited by the competing chloride oxidation reaction (ClOR) and the sluggish kinetics of oxygen evolution reaction (OER). This study introduces a lattice renormalization strategy to direct the reconstruction of Co–Mo–O catalysts in alkaline electrolyte, effectively shifting the OER pathway from the traditional adsorbate evolution mechanism (AEM) to the more efficient lattice oxygen mechanism (LOM). Selective Mo leaching induces the construction of a CoOOH/Co(OH)\n                    2\n                    with a stable Co\n                    3+\n                    –O–Co\n                    2+\n                    electron‐withdrawing chain, which significantly enhances Co–O covalency and activates lattice oxygen. The optimized catalyst,\n                    r\n                    ‐CoO\n                    x\n                    H\n                    y\n                    @NF, achieves low overpotentials of 330 and 380 mV at 500 and 1000 mA cm\n                    −\n                    2\n                    in simulated alkaline seawater, respectively. When configured into a membrane electrode assembly (MEA) electrolyzer, the system attains a low cell voltage of 1.66 V at 1.0 A cm\n                    −\n                    2\n                    for 480 h. In situ characterization and theoretical analysis reveal a “lattice oxygen‐hydrogen‐bonding network” synergy, where dynamically evolving hydrogen‐bonding network at the interface not only facilitates rapid proton transfer but also electronically modulates the lattice oxygen orbitals via polarization effects, with stabilizing the LOM pathway and conferring superior chloride resistance. This work underscores the pivotal role of metal‐ligand covalency and interfacial microenvironment in steering reconstruction pathways for industrial seawater splitting.",
+          "hb": 1
+        },
+        {
+          "t": "碱基编辑治疗β-地中海贫血的临床应用",
+          "d": "2026-04-10",
+          "a": "Nature",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "碱基编辑技术在治疗β-地中海贫血方面取得重大临床进展。一项1期临床试验利用碱基编辑技术靶向修饰患者造血干细胞，重新激活胎儿血红蛋白的产生。这为治愈该遗传性血液病提供了安全有效的新方案。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10342-9",
+          "tp": "碱基编辑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "β-Thalassaemia is caused by reduced or absent production of β-haemoglobin1,2,3,4. Previously, we performed laboratory-scale electroporation of CD34+ haematopoietic stem and progenitor cells from patients with β-thalassaemia using a transformer base editor5,6. The aim was to target the binding motif of the transcription repressor BCL11A in the HBG1 and HBG2 promoters7 to reactivate fetal haemoglobin (HbF) production. Here we present results of a phase 1 clinical trial (ClinicalTrials.gov identifier: NCT06024876) of five patients who received autologous CD34+ cells modified using a transformer base editor at clinical scale (CS-101). With a median follow-up of 23.0 months after CS-101 infusion, the median times to neutrophil and platelet engraftment were 16 days and 25 days, respectively. Moreover, all patients had stopped red blood cell transfusions, with a median time to the last transfusion of 18 days after CS-101 infusion. The mean total haemoglobin and HbF concentrations were 12.4 ± 1.0 and 11.5 ± 0.9 g dl–1, respectively, at month 3 after infusion. These levels remained at similar or higher levels throughout the follow-up period, which indicated rapid haematopoietic reconstitution. The adverse events of CS-101 were generally consistent with those of busulfan myeloablative conditioning and autologous haematopoietic stem and progenitor cell transplantation. No deaths or cancer occurrences were reported. In summary, CS-101 can lead to rapid and sustained increases in both total haemoglobin and HbF levels, which resulted in early and enduring transfusion independence.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究人员基于镓基合金相变特性研发液态金属形状记忆机器人",
+        "科研团队开发基于扩散模型的分子设计框架以处理柔性蛋白构象变化",
+        "科研团队利用费米子原子实现高保真度碰撞型量子门操作"
+      ],
+      "entries": [
+        {
+          "t": "液态金属形状记忆机器人",
+          "d": "2026-04-10",
+          "a": "Matter",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "研究提出一种具有具身智能的液态金属形状记忆机器人，利用镓基合金的相变特性实现可编程变形与自主运动。液态金属在电场或温度驱动下可在固态与液态间切换，兼具柔性机器人的高适应性和刚性结构的力输出能力。该平台在软体机器人、微创手术及可重构电子器件领域展现出独特潜力，但目前仍受限于驱动精度和环境控制需求。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00122-0?rss=yes",
+          "tp": "液态金属机器人",
+          "aip": 1,
+          "kp": [
+            "[材料]: 液态金属形状记忆合金",
+            "[功能]: 可编程变形与自动可逆形状恢复",
+            "[特性]: 高温耐受性",
+            "[应用场景]: 管道导航/地球物理勘探/核废料处理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A liquid metal (LM) shape memory robot with embodied intelligence is presented, thereby achieving programmable deformation and automatic reversible shape recovery. The robot possesses outstanding deformability, reliable shape memory functionality, and excellent high-temperature resistance, displaying multi-scenario application potential in pipeline navigation, geophysical exploration, nuclear waste remediation, and disaster response operations.",
+          "hb": 1
+        },
+        {
+          "t": "基于扩散模型的柔性蛋白口袋分子设计框架",
+          "d": "2026-04-10",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "针对柔性蛋白口袋在结构导向药物设计中的动态构象变化难题，研究者提出基于扩散模型的分子设计框架。该方法能够对蛋白口袋的构象灵活性进行建模，在连续构象空间中生成适配的候选分子，突破了传统刚性对接方法无法处理靶点动态变化的局限，有望加速靶向药物的发现与优化。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb7045?af=R",
+          "tp": "扩散模型分子设计",
+          "aip": 1,
+          "kp": [
+            "[方法]: 基于扩散模型的柔性蛋白口袋分子设计框架",
+            "[核心创新]: 兼顾蛋白构象动态变化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Designing molecules for flexible protein pockets poses a substantial challenge in structure-based drug discovery, as proteins often undergo conformational changes upon ligand binding. While deep learning-based methods have shown promise in molecular generation, they typically treat protein pockets as rigid structures, limiting their ability to capture the dynamic nature of protein-ligand interactions. Here, we present YuelDesign, a diffusion-based framework that jointly models the pocket structures and ligand conformations of protein-ligand complexes. YuelDesign uses E3former to maintain rotational and translational equivariance. The framework incorporates dual diffusion processes, an elucidated diffusion model (EDM) for coordinates and a discrete denoising diffusion probabilistic model (D3PM) for ligand atom types, enabling iterative refinement of both geometry and chemical identity. Our results demonstrate that YuelDesign generates molecules with favorable drug-likeness, low synthetic complexity, diverse chemical functional groups, and docking energies comparable to native ligands. YuelDesign presents a versatile framework for designing drugs in flexible protein pockets, with promising implications for drug discovery applications.",
+          "hb": 1
+        },
+        {
+          "t": "费米原子高保真碰撞量子门",
+          "d": "2026-04-10",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究展示了利用费米子原子实现高保真度碰撞型量子门操作的重要进展。碰撞型量子门是一种利用原子间相互作用诱导纠缠的方案，在量子模拟和量子计算中具有重要价值。费米子原子因受泡利不相容原理约束，其碰撞相互作用天然抑制了不必要的散射通道，从而有望降低门操作误差。研究团队通过精密控制原子势阱和相互作用强度，在电子结构模拟和强关联量子相模拟等应用场景中实现了高保真度的双比特门操作。该成果为可扩展中性原子量子计算平台奠定了关键基础，但向大规模纠错量子计算扩展仍需克服相干时间和寻址精度的工程瓶颈。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10356-3",
+          "tp": "费米子量子门",
+          "aip": 1,
+          "kp": [
+            "[量子门]: 费米子原子碰撞量子门",
+            "[编码]: 原生费米子编码保粒子数守恒"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum simulations of electronic structure and strongly correlated quantum phases are among the most promising applications of quantum computing. These computations benefit from native fermionic encodings1,2, enforcing fermionic statistics and conservation laws such as particle number and magnetization3 independent of gate errors. While ultracold atoms in optical lattices have become established as powerful analogue simulators of strongly correlated fermionic matter4,5,6,7, neutral-atom platforms have concurrently emerged as versatile, scalable architectures for spin-based digital quantum computation8. Unifying these capabilities requires high-fidelity motionally coherent gates for fermionic atoms9,10,11, similar to collisional gates in bosonic systems12,13, paving the way for programmable fermionic quantum processors. Here we demonstrate collisional entangling gates with fidelities up to 99.75(6)% and Bell-state lifetimes exceeding 10 s, realized by means of controlled interactions of fermionic atoms in an optical superlattice. Using quantum gas microscopy14, we microscopically characterize spin-exchange and pair-tunnelling gates and realize a robust composite pair-exchange gate, a key building block for quantum chemistry simulations3,15. Our results establish controlled collisions in optical lattices as a competitive and complementary route to high entangling gate fidelities in neutral-atom quantum computers. Operating intrinsically with fermions, this capability naturally extends to many-qubit architectures, in which fermionic statistics become relevant, enabling complex state preparation and advanced readout16,17,18,19 in scalable analogue–digital hybrid quantum simulators. Combined with local addressing20,21, these gates mark a crucial step towards a fully digital fermionic quantum computer based on controlled motion and entanglement of neutral atoms.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "港理工团队利用闪焦耳加热技术制备IrRu双单原子对以提升析氧反应稳定性",
+        "研究通过构建动态氢键网络稳定晶格氧路径以规避海水电解副反应",
+        "科研人员在三维金属有机框架中首次观测到g波交替磁性"
+      ],
+      "entries": [
+        {
+          "t": "香港理工大学孟宁报道一种IrRu/Co₃O₄催化剂以提高质子交换膜水电解装置析氧反应速率及稳定性",
+          "d": "2026-04-10",
+          "a": "",
+          "c": "通用技术/催化剂",
+          "as": "香港理工大学孟宁教授团队利用超快闪焦耳加热技术（约1.5秒、350°C脉冲加热与快速淬灭）制备出负载于尖晶石Co₃O₄上的Ir-Ru双单原子对催化剂（IrRu/Co₃O₄），用于质子交换膜水电解阳极酸性析氧反应。该工艺避免了传统缓慢煅烧导致的金属团聚问题，精准锚定Ir和Ru单原子，通过双原子协同电子相互作用优化中间体结合能，兼顾高本征活性与工业级大电流下的长效结构稳定性，降低贵金属依赖。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1016/j.joule.2026.102425",
+          "tp": "析氧电催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "单原子催化剂（SACs）被认为是降低质子交换膜水电解（PEMWE）装置阳极迟缓的酸性析氧反应（OER）中高昂贵金属（如Ir、Ru）依赖的有效途径。但是，在工业级大电流的酸性OER严苛工况下，孤立的金属单原子中心极易发生迁移、团聚和溶解（尤其是Ru极易形成可溶性RuO₄导致失活），且单一活性位点难以有效调节电子结构以优化中间体的结合能，导致高本征活性与长效结构稳定性难以兼顾。当前研究虽尝试构筑双单原子对（dual single-atom pairs）以诱导相邻金属位点间的协同电子相互作用，但复杂双原子结构的精准合成面临巨大挑战，传统的缓慢煅烧工艺极易导致金属前驱体团聚成热力学更稳定的纳米颗粒，难以实现目标原子位点的精准锚定并在实际工业级大电流下维持长效稳定。\n近日，香港理工大学孟宁教授团队使用超快闪焦耳加热（Flash Joule heating）技术制备出一种负载于尖晶石Co₃O₄上的Ir-Ru双单原子对阳极催化剂（IrRu/Co₃O₄）。其先在三维导电碳布上电沉积Ir、Ru和Co前驱体，随后施加超快（约1.5秒、350 °C）的脉冲焦耳热冲击与快速淬灭，将孤立的Ir和Ru单原子共固定于Co₃O₄晶格的八面体Co位点中，并通过桥接氧原子构筑了高度分散的非对称Ir–O–Ru双位点配位环境，获得平均负载量仅0.011 mg cm-2的催化剂。电化学测试表明，该催化剂在0.5 M H₂SO₄中10 mA cm⁻²的过电位为180 mV，质量活性高达10840 A g⁻¹（基于Ir和Ru总质量），转化频率（TOF）达3.95 s⁻¹，优于商用优于Ir/Co3O4（292 mV）、Ru/Co3O4（350 mV）、Co3O4（442 mV）、IrO2（382 mV）和RuO2（315 mV）。进一步分析结果揭示，Ir与Ru分别取代尖晶石中八面体Co位点并通过Ir–O–Ru桥相连，形成不对称双单原子配位环境，该电子缓冲结构一方面提升Ir的高价态稳定性，使其成为更活跃的氧化中心，另一方面抑制了Ru的过度氧化及溶解流失，从而同时增强活性与稳定性。此外，这种异质双原子结构打破了传统吸附演化机制的标度关系限制，促使反应转向遵循直接发生*O–*O自由基耦合的表面氧化物反应路径，将决速步能垒大幅降至1.59 eV。以IrRu/Co3O4作阳极、商业Pt/C作阴极，采用Nafion 117膜组装MEA并在80 °C、去离子水条件下测试，单电池在2.09 V下可达到2.0 A cm⁻²，并稳定运行长达1000小时且衰减率极低（0.028 mV h⁻¹）。500 h测试中Ir、Ru、Co的S-number分别提升至1.39 × 1011、8.04 × 1010和2.86 × 107，并保持Co溶解抑制>99%。稳定后表征显示形貌、晶相与原子分散基本不变，说明Co3O4尖晶石骨架有效锚定Ir–O–Ru双单原子对，阻止其迁移与团聚。整体来看，其在2.09 V下其氢气产率可达0.71 kg h-1 m-2，贵金属成本仅0.032 USD/kg H2，较IrO2体系（18.67 USD/kg H2）降低超过580倍。文章于2026年4月10日发表在Joule。",
+          "hb": 1
+        },
+        {
+          "t": "通过动态氢键网络稳定晶格氧氧化路径实现工业级电流海水电解",
+          "d": "2026-04-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "海水直接电解制取绿氢面临氯氧化反应(ClOR)竞争的难题。该研究通过动态氢键网络稳定晶格氧氧化(LOM)路径，使水氧化选择性绕过氯离子的竞争性氧化，从而在高浓度氯离子环境下实现高效、稳定的氧气析出。该策略为海水电解催化剂设计提供了新思路，有望推动海水直接制氢的工程化应用。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72996?af=R",
+          "tp": "海水电解制氢",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: Co-Mo-O重构型",
+            "[机制]: 晶格氧氧化路径",
+            "[策略]: 动态氢键网络",
+            "[条件]: 工业电流海水电解"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Seawater electrolysis for green hydrogen is severely limited by the competing chloride oxidation reaction (ClOR) and the sluggish kinetics of oxygen evolution reaction (OER). This study introduces a lattice renormalization strategy to direct the reconstruction of Co–Mo–O catalysts in alkaline electrolyte, effectively shifting the OER pathway from the traditional adsorbate evolution mechanism (AEM) to the more efficient lattice oxygen mechanism (LOM). Selective Mo leaching induces the construction of a CoOOH/Co(OH)\n                    2\n                    with a stable Co\n                    3+\n                    –O–Co\n                    2+\n                    electron‐withdrawing chain, which significantly enhances Co–O covalency and activates lattice oxygen. The optimized catalyst,\n                    r\n                    ‐CoO\n                    x\n                    H\n                    y\n                    @NF, achieves low overpotentials of 330 and 380 mV at 500 and 1000 mA cm\n                    −\n                    2\n                    in simulated alkaline seawater, respectively. When configured into a membrane electrode assembly (MEA) electrolyzer, the system attains a low cell voltage of 1.66 V at 1.0 A cm\n                    −\n                    2\n                    for 480 h. In situ characterization and theoretical analysis reveal a “lattice oxygen‐hydrogen‐bonding network” synergy, where dynamically evolving hydrogen‐bonding network at the interface not only facilitates rapid proton transfer but also electronically modulates the lattice oxygen orbitals via polarization effects, with stabilizing the LOM pathway and conferring superior chloride resistance. This work underscores the pivotal role of metal‐ligand covalency and interfacial microenvironment in steering reconstruction pathways for industrial seawater splitting.",
+          "hb": 1
+        },
+        {
+          "t": "三维金属有机框架中g波交错磁性的涌现",
+          "d": "2026-04-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在三维金属有机框架材料中首次观测到g波交替磁性（altermagnetism）的涌现。交替磁体兼具反铁磁体的零净磁化和铁磁体的自旋劈裂特性，而g波型对应其对称性破缺模式。该成果将新型磁性态从无机晶体拓展至可设计性更强的MOF平台，为自旋电子学器件、无磁场反铁磁存储及拓扑物态研究提供了全新材料体系。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c15427",
+          "tp": "MOF交变磁性",
+          "aip": 1,
+          "kp": [
+            "磁性类型[3D MOF]: g波交替磁性",
+            "[核心特征]: 零净磁矩且破缺时间反演",
+            "[自旋劈裂]: 动量依赖且无需外场"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Altermagnets integrate key characteristics of both antiferromagnets and ferromagnets, exhibiting a vanishing net magnetic moment while breaking time-reversal symmetry and displaying momentum-dependent spin splitting in the absence of an external field. Recognized as one of the top ten Science breakthroughs of 2024, altermagnetism has drawn increasing attention, particularly in inorganic systems. In this work, using density functional theory calculations, we identify a g-wave altermagnetic state in thermally stable three-dimensional (3D) metal-organic frameworks (MOFs) based on Co(pymo)2 and its halogen-substituted derivatives, thereby extending the scope of altermagnetism to organic-containing 3D frameworks. A range of magnetic configurations was systematically evaluated for these systems, with the altermagnetic state being consistently found as the most energetically favorable. This feature is consistent with the antiferromagnetic coupling experimentally observed between Co ions connected via ligand bridges. The momentum-dependent spin splitting in the electronic structure emerges independently of spin-orbit coupling and is not significantly enhanced through the inclusion of heavy halogen elements. Additional canted spin configurations were also explored, which confirmed the robustness of the spin splitting against fluctuations. These results not only establish a momentous presence of g-wave altermagnetism in these 3D MOFs but also highlight the potential of molecular framework design for realizing symmetry-driven spin phenomena in a class of 3D materials beyond conventional inorganic systems.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

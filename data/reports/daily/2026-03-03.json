@@ -1,0 +1,197 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月3日　星期二",
+  "date_range": "2026-03-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "得州大学开发原位光学显微法，实现石墨负极SEI生长可视化并优化脉冲化成工艺",
+      "研究集成多模态传感与机器学习，提前捕捉锂电池热失控微弱信号建立早期预警",
+      "中科院广州能源所用EAPA溶液处理NiOx层，将钙钛矿器件SAM覆盖度提升至77.7%"
+    ],
+    "AI与智能科技": [
+      "南京邮电大学开发氧离子梯度二阶忆阻器，在静态强化学习中减少68.75%训练迭代",
+      "洛桑理工提出TANGO奖励函数，在分子生成模型中实现连续可合成性约束",
+      "研究利用104个超导量子比特浅层电路，探索组合优化问题的量子求解性能"
+    ],
+    "通用技术": [
+      "研究团队优化大尺寸无机钙钛矿单晶生长工艺，研制超低探测限便携辐射剂量计"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "得州大学开发原位光学显微法，实现石墨负极SEI生长可视化并优化脉冲化成工艺",
+        "研究集成多模态传感与机器学习，提前捕捉锂电池热失控微弱信号建立早期预警",
+        "中科院广州能源所用EAPA溶液处理NiOx层，将钙钛矿器件SAM覆盖度提升至77.7%"
+      ],
+      "entries": [
+        {
+          "t": "得克萨斯大学奥斯汀分校刘宜晋开发SEI形成原位可视化方法并通过脉冲高电流化成形成更均匀的SEI",
+          "d": "2026-03-03",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "得克萨斯大学奥斯汀分校刘宜晋团队利用SEI形成引起的折射率匹配效应，开发原位光学显微方法，首次实时可视化石墨负极SEI的成核、生长及扩展过程。研究发现SEI形成存在时空异质性：低电流下离散生长致分布不均，高电流则激活更多反应位点形成更薄更均匀的SEI层。据此设计的脉冲高电流化成工艺有望降低电池制造成本并提升一致性。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1073/pnas.253179412",
+          "tp": "电池化成观测",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "随着锂离子电池需求快速增长，提高电池生产效率与安全性成为产业关键挑战。其中，电池“化成”过程约占制造成本的三分之一，其核心是负极表面固态电解质界面（SEI）的形成与演化。SEI层虽仅纳米级厚度，却直接影响电池容量衰减、循环寿命与安全性。然而，由于其极薄且化学性质活泼，传统表征手段多为离位测量，只能获得静态信息，SEI的真实形成动力学长期难以解析。\n得克萨斯大学奥斯汀分校刘宜晋副教授团队利用SEI形成引起的折射率匹配效应，开发原位光学显微观测方法，在接近真实电池工作条件下首次实时可视化石墨负极上SEI的成核、生长及扩展过程。结果显示，在首次嵌锂阶段，SEI并非同步生成，而是在不同区域呈现明显的时间与空间异质性，反应前沿以不规则方式逐步传播。\n进一步研究发现，充电电流密度对SEI形成动力学具有显著影响。低电流条件下，SEI以离散、逐步方式生成，导致厚度与分布不均；而较高电流则能激活更多反应位点，使SEI在更大范围内同步生长，从而形成更薄、更均匀的界面层。多物理场有限元模拟进一步证实，高电流可同时克服成核能垒，促使多个SEI岛快速形成并合并为连续膜。\n基于这一机制认识，研究团队设计了脉冲高电流化成策略，并在磷酸铁锂/石墨电池中验证。结果表明，该策略将化成时间从约10–20小时缩短至1–2小时，同时保持优异循环稳定性，在1000次循环后仍保持超过90%的容量。文章于2026年3月3日发表在Proceedings of the National Academy of Sciences。",
+          "hb": 1
+        },
+        {
+          "t": "锂离子电池热失控前兆的原位解析：从多模态传感到智能预警",
+          "d": "2026-03-03",
+          "a": "ScienceDirect Publication: Applied Energy",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究通过多模态传感技术对锂离子电池热失控的前驱体信号进行了原位解码，实现了智能早期预警。研究团队集成温度、气体、压力等多种传感器，实时监测电池热失控演化过程中的多物理量变化，结合机器学习算法识别热失控早期特征信号。相比传统单一温度监测方法，多模态融合策略能更早捕捉到电池内部异常反应的微弱信号，显著提前了预警时间窗口。该方法为提升电动汽车和储能系统的安全性提供了重要的技术路线，有望减少热失控引发的火灾和爆炸事故。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.sciencedirect.com/science/article/pii/S0306261926002722?dgcid=rss_sd_all",
+          "tp": "锂电池热失控预警",
+          "aip": 1,
+          "kp": [
+            "[监测]: 原位多模态传感热失控前兆"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "中科院广州能源所徐雪青通过乙二胺四亚甲基膦酸溶液处理提高空穴传输层均匀性和埋底界面质量",
+          "d": "2026-03-03",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中科院广州能源所徐雪青团队提出利用乙二胺四亚甲基膦酸（EAPA）溶液处理NiOₓ空穴传输层，去除表面弱结合的Me-4PACz SAM分子并填充间隙，将SAM覆盖度从61.1%提升至77.7%，粗糙度从5.1nm降至4.5nm。该策略有效改善倒置钙钛矿器件埋底界面质量与空穴传输层均匀性，有望提升器件稳定性。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1039/D6EE00231E",
+          "tp": "钙钛矿界面",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "当前倒置钙钛矿光伏器件的研究存在自组装单分子层（SAMs）的覆盖度不足、埋底界面的调控效果较差等问题。具体来说，基于膦酸的Me-4PACz的SAM易在NiOₓ空穴传输层表面团聚、覆盖不均，与基底结合力弱；易被钙钛矿前驱体溶解形成间隙，导致漏电流、NiOₓ与钙钛矿直接接触引发降解；同时SAM层润湿性差影响钙钛矿成膜质量。此外，钙钛矿和空穴传输层界面的调控机制尚不明晰，不利于提高钙钛矿层结晶质量。\n近日，中国科学院广州能源研究所徐雪青研究员团队提出了一种利用乙二胺四亚甲基膦酸（EAPA）强化自组装单分子层、调控钙钛矿埋底界面的策略。其在NiOx层上沉积完Me-4PACz层（旋涂+100℃退火）后，使用EAPA溶液（溶剂为二甲基亚砜（DMSO））对该层进行旋涂处理。分析结果表明，EAPA去除NiOₓ表面未结合/弱结合的Me-4PACz分子，通过与NiOₓ更强的相互作用填充SAM间隙，形成高覆盖度、均匀分布的SAM层；原子力显微镜（AFM）显示SAM层粗糙度从5.1 nm降至4.5 nm，分子动力学模拟证实其在波纹NiOₓ表面的覆盖度从61.1%提升至77.7%。处理后的空穴传输层Ni³⁺/Ni²⁺比值从1.73提升至2.02，NiOₓ/SAM层电导率从1.11×10⁻⁴ S cm⁻¹提升至2.13×10⁻⁴ S cm⁻¹，空穴迁移率从1.52×10⁻⁴ cm² V⁻¹ s⁻¹提升至3.41×10⁻⁴ cm² V⁻¹ s⁻¹，提升空穴传输效率。此外，EAPA富含膦酸基团使SAM层水接触角从64.2° 降至28.1°，提高亲水性，有助于后续钙钛矿前驱体溶液成膜，且其与Me-4PACz的相互作用强于Me-4PACz分子间的二聚作用，有效抑制Me-4PACz团聚，EAPA与NiOₓ表面的结合力也更强，优先填充SAM间隙。对埋底界面而言，EAPA与PbI₂的P=O键、与FAI的O-H键相互作用，延缓两步法化学反应，促进PbI₂向钙钛矿的充分转化，X射线衍射（XRD）显示PbI₂特征峰强度降低，钙钛矿（111）晶面峰强度提升、半高宽变窄，减少埋底界面晶界，降低PbI₂残留，晶界槽角从97.3°提升至139.1°，界面粗糙度从22.5 nm降至17.6 nm；钙钛矿晶粒尺寸从500 nm增至微米级，顶部表面粗糙度从25.4 nm降至18.7 nm。同时，该处理可使钙钛矿薄膜应力从138.42 MPa拉伸应力转变为33.84 MPa压缩应力，杨氏模量从6.81 GPa降至4.01 GPa，晶界与晶粒的模量分布更均匀；并通过螯合未配位的Pb²⁺、与FA阳离子成键实现缺陷钝化，空穴陷阱密度从4.57×10¹⁵ cm⁻³降至3.18×10¹⁵ cm⁻³，电子陷阱密度从5.72×10¹⁵ cm⁻³降至3.43×10¹⁵ cm⁻³。测试结果发现，由此制备的1.56 eV钙钛矿器件效率达26.27%（Voc=1.209V，FF=83.9%）；1.68 eV宽带隙钙钛矿器件达23.33%。刮涂法制备的器件效率达25.84%。文章于2026年3月3日发表在Energy & Environmental Science。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "南京邮电大学开发氧离子梯度二阶忆阻器，在静态强化学习中减少68.75%训练迭代",
+        "洛桑理工提出TANGO奖励函数，在分子生成模型中实现连续可合成性约束",
+        "研究利用104个超导量子比特浅层电路，探索组合优化问题的量子求解性能"
+      ],
+      "entries": [
+        {
+          "t": "南京邮电大学黄维发表了由内在氧离子梯度驱动的二阶忆阻器用于持续强化学习",
+          "d": "2026-03-03",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "南京邮电大学黄维、解令海、凌海峰团队开发出基于内在氧离子梯度的二阶忆阻器，实现超100秒的动态势垒演化，在单极脉冲刺激下达成氧离子迁移与扩散的平衡。该器件将时间自适应电导状态映射为强化学习算法的学习率，在静态环境中减少68.75%训练迭代，动态环境中减少35.65%，为高效神经形态计算提供新路径。成果发表于Nature Communications。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-026-70014-0",
+          "tp": "忆阻器学习",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "忆阻器是一种电阻随着电流历史发生变化的器件，被广泛用于神经形态计算。生物体内的一些浓度梯度可以调控大脑的长期信息处理和动态环境下的学习。基于此种类比，解令海、凌海峰、黄维课题组研发出了形成稳定氧离子梯度的器件，使得动态势垒演化超过了100秒，从而在单极脉冲刺激下实现平衡的氧离子迁移与扩散。这些时间自适应的电导状态被映射为强化学习算法的学习率。该器件与传统方法相比，在静态环境中减少了68.75%的训练迭代，在动态环境中减少了35.65%。该工作表明慢动态的二阶忆阻器可以将器件特性与算法学习结合，为高效的神经形态计算提供了实现途径。文章于2026年3月3日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "瑞士联邦洛桑理工Jeff Guo发表约束可合成性的分子生成框架",
+          "d": "2026-03-03",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "瑞士联邦洛桑理工Jeff Guo与Philippe Schwaller团队提出TANGO（Tanimoto基团重叠）奖励函数，利用化学规则将二元可合成性约束转化为连续奖励信号，使生成式模型在约束可合成性的前提下高效进行分子生成。该框架适用于原料、中间体及多种合成过程约束，证明强化学习与生成模型结合可显著提升复杂可合成性优化场景的效率。成果发表于Nature。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s43588-026-00959-1",
+          "tp": "分子生成框架",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "在分子设计任务中，常常包含对目标分子的可合成性和基团片段的约束，生成式模型中这些约束的有效性决定了生成过程的可靠性。Jeff Guo&Philippe Schwaller团队提出了Tanimoto基团重叠(TANGO)奖励函数，其使用化学规则将一个二元奖励函数转化为连续的奖励函数。从而使得TANGO可以使得生成式模型能够在约束可合成性的前提下进行分子生成。该框架可以用于针对原料、中间体以及多种合成过程中的约束。作者基于该工作证明了强化学习配合生成式模型可以在复杂的可合成性优化场景中显著提升效率。文章于2026年3月3日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "浅层量子电路与104个超导比特增强组合优化",
+          "d": "2026-03-03",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究利用含104个超导量子比特的浅层量子电路来增强组合优化问题的求解。组合优化（如最大割、旅行商等）是经典计算机难以高效求解但工程实践中需求巨大的问题类别。该工作处于NISQ（含噪声中等规模量子）时代背景下，探索如何用较浅的量子电路深度结合变分或启发式策略，在真实超导量子硬件上获得超越经典方法的优化性能，为量子计算走向实用化提供关键验证。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag124/8503488?rss=1",
+          "tp": "超导量子优化计算",
+          "aip": 1,
+          "kp": [
+            "量子比特[超导量子计算]: 104",
+            "[算法]: 浅层电路量子采样策略"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A pivotal task for quantum computing is to speed up solving problems that are both classically intractable and practically valuable. Among these, combinatorial optimization problems have attracted tremendous attention due to their broad applicability and natural fitness to Ising Hamiltonians. Here we propose a quantum sampling strategy, based on which we design an algorithm for accelerating solving the ground states of Ising model, a class of NP-hard problems in combinatorial optimization. The algorithm employs a shallow-circuit quantum sampling subroutine to navigate the energy landscape. Using up to 104 superconducting qubits, we experimentally demonstrate that this algorithm outputs favorable solutions against even a highly-optimized classical simulated annealing algorithm and illustrate the path toward quantum speedup based on the time-to-solution metric against simulated annealing under serial execution. Our results indicate a promising alternative to classical heuristics for combinatorial optimization, where quantum advantage might become possible on near-term superconducting quantum processors.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究团队优化大尺寸无机钙钛矿单晶生长工艺，研制超低探测限便携辐射剂量计"
+      ],
+      "entries": [
+        {
+          "t": "基于大尺寸溶液生长无机钙钛矿单晶实现超低探测限的便携式剂量计",
+          "d": "2026-03-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究报道了一种基于溶液法生长的大尺寸无机钙钛矿CsPbCl3单晶的便携式辐射剂量计，实现了超低探测限。传统溶液法生长的CsPbCl3单晶尺寸通常较小，限制了其探测性能。研究团队通过优化晶体生长工艺获得了大尺寸高质量单晶，利用其优异的光电响应特性构建了高灵敏度X射线/γ射线探测器。该器件在低剂量辐射环境下表现出优异的信噪比和线性响应，探测限显著优于商用剂量计。这一成果为低成本、高性能辐射监测设备的开发提供了新途径，在医疗影像、核安全监测等领域具有重要应用前景。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522163?af=R",
+          "tp": "钙钛矿辐射探测器",
+          "aip": 1,
+          "kp": [
+            "材料体系[剂量计]: 无机钙钛矿CsPbCl3单晶",
+            "晶体尺寸[溶液法生长]: 通常<1mm",
+            "[器件类型]: 便携式X射线剂量计（超低检测限）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Inorganic perovskite CsPbCl3 single crystals (SCs) grown via low-cost solution methods typically achieve sizes smaller than 1 mm, primarily due to the low solubility of the raw materials in solvents. This limitation significantly constrains their viability for X-ray detection applications. To address this challenge, an effective strategy is developed that not only increased the solubility of raw materials by 28 times but also significantly improved the crystallization matching between different components. This advance enabled the successful growth of high-quality CsPbCl3-based SCs reaching 13 mm in size using a low-temperature solution process. The solution-grown SCs exhibit low trap density (∼108 cm-3), large resistivity (2.35 ×109 Ω cm), high µτ product (1.02 ×10-3 cm2 V-1), and superior uniformity. Therefore, X-ray detectors fabricated on these SCs achieved a record-high sensitivity of 2.19 ×105 µC Gy-1 cm-2, a short response time of 307 µs, low noise current, and stable response output. Owing to these superior figures of merit, a prototype portable dosimeter assembled by the SC detector exhibited an extremely low detectable radiation of 0.07 nSv s-1. Furthermore, the high-definition X-ray imaging of the SC detector is also demonstrated. This work provides an effective approach for the low-cost manufacturing of high-performance X-ray detection systems.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

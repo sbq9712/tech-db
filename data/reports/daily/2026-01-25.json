@@ -1,0 +1,238 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月25日　星期日",
+  "date_range": "2026-01-25",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "负热膨胀颗粒材料解决固态电池等器件界面热失配难题",
+      "新型NiRu催化剂降低碱性析氢过电位提升电催化产氢效率",
+      "钙钛矿硅叠层电池超33%转换效率，大规模沉积干燥工艺厘清"
+    ],
+    "AI与智能科技": [
+      "仿生连杆机构模拟人体骨骼韧带提升人形机器人运动灵巧性",
+      "亚毫米级双模态触觉传感器阵列实现压力与温度同步感知"
+    ],
+    "通用技术": [
+      "晶圆键合技术实现大面积铁电界面可控构建与导电性调控",
+      "堆叠石墨二炔纳米器件提高离子选择性实现单细胞pH高精度检测"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "负热膨胀颗粒材料解决固态电池等器件界面热失配难题",
+        "新型NiRu催化剂降低碱性析氢过电位提升电催化产氢效率",
+        "钙钛矿硅叠层电池超33%转换效率，大规模沉积干燥工艺厘清"
+      ],
+      "entries": [
+        {
+          "t": "负热膨胀颗粒赋能高性能超耐用热电器件模块",
+          "d": "2026-01-25",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "固体电池、柔性电子器件等系统中，多组分材料间的界面相容性是决定器件稳定性的核心因素。本研究引入具有负热膨胀特性的颗粒作为界面填充材料，通过补偿正热膨胀组分的热应变，有效消除界面热应力，显著提升固态电池等热电器件在温度循环下的结构完整性与服役寿命。该策略从材料热力学层面解决界面热失配问题，实现了高性能与超耐久性的协同，为需要承受反复热应变的固态电子和储能器件提供了普适性工程解决方案。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed3783?af=R",
+          "tp": "热电模块耐久性",
+          "aip": 1,
+          "kp": [
+            "策略[热电器件]: 负热膨胀颗粒精确控制CTE",
+            "目标[热电器件]: 提升界面热膨胀兼容性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Interfacial compatibility across multiple material parts governs device stability in solid-state batteries, flexible electronics, and high-temperature fuel cells. For thermoelectric devices, researchers principally focused on chemical reactivity and mechanical properties of material components, whereas precise control of the coefficient of thermal expansion (CTE) remains elusive. Here, we propose an innovative strategy using negative-thermal-expansion (NTE) particles to regulate CTE and resolve interfacial incompatibility. Incorporating predesigned interface reaction–free NTE particles into Bi\n                    2\n                    Te\n                    3\n                    -based, Mg\n                    3\n                    Sb\n                    2\n                    -based, and PbTe-based materials effectively improves thermoelectric performance, alleviates thermal stress, and enhances interfacial stability across a broad temperature range (300 to 800 kelvin). Notably, the NTE-modified Mg\n                    3\n                    (Sb,Bi)\n                    2\n                    /Bi\n                    0.4\n                    Sb\n                    1.6\n                    Te\n                    3\n                    two-pair module achieves a record-high conversion efficiency (η) of 8.4% at Δ\n                    T\n                     = 350 K with a 71% interfacial thermal stress reduction, maintaining a stable interface and unchanged η throughout 1000-hour (42 days) thermal cycling. Our strategy establishes a universal approach for improving interfacial compatibility in high-temperature functional modules including thermal-barrier coatings and solar thermophotovoltaic devices.",
+          "hb": 1
+        },
+        {
+          "t": "正反馈驱动的NiRu受阻路易斯酸碱对催化剂实现级联耦合制氢自增强催化循环",
+          "d": "2026-01-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "研究设计了正反馈驱动的NiRu受阻路易斯酸碱对（FLP）催化剂，实现了自强化催化循环的级联耦合制氢。碱性析氢反应（HER）是阴离子交换膜水电解的关键步骤。该催化剂利用FLP的协同活化机制，通过正反馈回路自动增强催化活性，级联反应设计将多个催化步骤耦合，显著降低了过电位并提升了制氢效率，为高效电催化产氢提供了新范式。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523215?af=R",
+          "tp": "NiRu析氢催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[碱性HER]: NiRu受阻路易斯酸碱对",
+            "机制[HER]: 正反馈驱动自增强催化循环",
+            "耦合[制氢]: HER级联耦合AEMWE"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The alkaline hydrogen evolution reaction (HER) associated with anion exchange membrane water electrolyzers (AEMWEs) is kinetically hindered by sluggish water dissociation and complex intermediate adsorption, which previous reports have inadequately addressed through isolated optimization, neglecting the intrinsic coupling between HER elementary steps. Herein, we report a frustrated Lewis pairs (FLPs) catalyst comprising NiRu dual single-atoms and adjacent NiRu nanoclusters anchored on nitrogen-doped carbon (Ni1Ru1-NiRu@NC), mimicking the enzymatic positive feedback mechanism that drives a self-reinforcing catalytic cycle and accelerates the coupled elementary steps in a cascade manner. The catalyst featuring spatially proximate Lewis acid and base sites enable sequential reaction steps, where water dissociation occurs at acid sites and hydrogen adsorption proceed at base sites. The two steps are bridged through rapid hydrogen spillover channel, constructing a closed catalytic circuit in which hydrogen consumption at base sites promotes continuous water dissociation at acid sites. Benefiting from this positive feedback loop, Ni1Ru1-NiRu@NC achieves a remarkable HER performance and exhibits exceptional long-term durability (>1000 h at 1.0 A cm- 2) in AEMWEs. Our findings demonstrate a new strategy to integrate positive feedback-driven, cascade-coupled catalysis in FLPs systems, offering a promising pathway toward high-performance alkaline HER catalysts for industrial application.",
+          "hb": 1
+        },
+        {
+          "t": "面向大面积单片钙钛矿/硅叠层太阳能电池的可扩展沉积与干燥方法",
+          "d": "2026-01-25",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "钙钛矿/硅叠层太阳能电池已实现超过33%的认证转换效率，是光伏领域最具前景的技术路线之一。本文聚焦其大规模产业化的核心瓶颈——大面积薄膜的可控制备，系统综述了面向大面积单片叠层器件的沉积与干燥工艺，包括刮刀涂布、狭缝涂布等可扩展方法，分析了溶剂体系、结晶动力学对成膜质量的影响，为叠层电池从实验室走向量产提供了工程指导。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06772C",
+          "tp": "钙钛矿硅叠层电池",
+          "aip": 1,
+          "kp": [
+            "[认证效率]: PCE>34%(钙钛矿/硅叠层,实验室)",
+            "[规模化挑战]: 沉积与干燥方法的可扩展性",
+            "[器件规模]: 中试线阶段"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Monolithic perovskite/silicon tandem solar cells have emerged as a compelling route, combining the certified power conversion efficiencies exceeding 34% for laboratory-scale devices with more cost-effective manufacturing compared to market-established silicon photovoltaics. Despite deployment in pilot processing lines beyond the lab stage, this technology still faces scaling challenges from perovskite sub-cells, such as the incompatibility with contemporary mass production lines and the upscaling efficiency deficit, that are expected to be resolved within a few years to achieve commercial viability. Here, we comprehensively elaborate the scalable deposition and drying methods of perovskite sub-cells on silicon substrates and review their recent advanced progress. We assess the merits and limitations of these competing methods, providing a systematic framework for achieving efficient and durable large-area perovskite/silicon tandem solar cells suitable for industrial production.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "仿生连杆机构模拟人体骨骼韧带提升人形机器人运动灵巧性",
+        "亚毫米级双模态触觉传感器阵列实现压力与温度同步感知"
+      ],
+      "entries": [
+        {
+          "t": "仿生可生长人形机器人：基于类骨连杆机构的万能移动能力",
+          "d": "2026-01-25",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "受人类生物力学启发，人形机器人通常模仿人体运动学，但往往缺乏骨骼韧带联动等关键力学特性。该研究提出一种仿生可生长人形机器人，采用骨骼仿生连杆机构，模拟人体关节的多自由度运动与力学耦合，实现更自然的多模态移动能力。这一设计理念突破了传统刚性驱动的局限，为人形机器人赋予更接近人类的灵巧性与适应性，在柔性运动与可扩展体形方面具有前沿意义。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea2831?af=R",
+          "tp": "仿生人形机器人",
+          "aip": 1,
+          "kp": [
+            "[伸展率]: 315%",
+            "[重量]: 350克",
+            "[结构]: 仿骨连杆结构",
+            "[特性]: 可生长+高承载+抗冲击"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Inspired by human biomechanics, humanoid robots are often designed to mimic human kinematics but typically lack key traits of developing bones, such as growability, lightweight yet stiff construction, and compliance for impact absorption. This work introduces a bone-inspired linkage structure with up to 315% extensibility, weighing only 350 grams while maintaining high load capacity, compliance, and stability. Integrated into a soft humanoid robot, these growable linkages enable dynamic shape adaptation, reducing height to 36% and width to 61%, to traverse tight spaces. By combining growable link actuation with servomotors, the robot switches to crawling mode and moves 1122 times faster than using motors or soft actuators alone. At just 4.5 kilograms, GrowHR can float, swim, walk on water, and fly. Its soft body ensures safe human interaction, allowing hugging, falling, and lifting without injury. Deformable legs demonstrate elastic energy storage and release under external loading, allowing motions beyond the limits of rigid structures. This work pioneers a growable, multifunctional robotic design approach for dynamic, complex environments.",
+          "hb": 1
+        },
+        {
+          "t": "具有类皮肤触觉感知的亚毫米分辨率双模触觉传感器阵列",
+          "d": "2026-01-25",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "研究人员开发了一种亚毫米级分辨率的双模态触觉传感器阵列，模拟人类皮肤的感知机制。该传感器可同时感知压力和温度等多种刺激信号，为具身智能系统和机器人的多模态感觉融合提供了关键硬件基础，有望推动仿生电子皮肤的实用化发展。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519734?af=R",
+          "tp": "双模态触觉传感器",
+          "aip": 1,
+          "kp": [
+            "[空间分辨率]: 亚毫米级(<1mm)",
+            "[传感模态]: 双峰触觉传感阵列",
+            "[感知能力]: 类人皮肤图形觉感知"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Multimodal sensory integration advances the development of embodied intelligent systems and robotics with human‐skin‐like tactile perception. However, the difficulties in simultaneously achieving high resolution and multimodality hamper the exquisite tactile perception to differentiate information through touching. In this study, we report a sub‐milliscale‐resolution bimodal tactile sensor array consisting of a piezoelectric sensor array for mapping pressure magnitude distribution and a triboelectric sensor array for contact height detection, enabling the calculation of Young's modulus distribution. As compared to existing studies, the bimodal tactile sensor array achieved sub‐milliscale spatial resolution of 700 µm and relatively high sensor density of 226 pixels/cm\n                    2\n                    , demonstrating fine‐grained multimodal perception. By combining the pressure mapping information from the piezoelectric sensor array and contact height information from the triboelectric sensor array, with a rapid response time of 50 ms, the Young's modulus distribution can be revealed. Furthermore, the tactile sensor array can achieve human‐skin‐like graphesthesia sensation and reconstruct the softness‐encrypted pattern with the assistance of deep learning algorithms, providing a paradigm‐shift strategy of sub‐milliscale‐resolution tactile perception toward embodied intelligence and robotics.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "晶圆键合技术实现大面积铁电界面可控构建与导电性调控",
+        "堆叠石墨二炔纳米器件提高离子选择性实现单细胞pH高精度检测"
+      ],
+      "entries": [
+        {
+          "t": "晶圆键合铁电界面处的极性不连续、涌现导电性及临界扭转角依赖行为",
+          "d": "2026-01-25",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在晶圆键合铁电界面中发现了极性不连续性、涌现导电性以及临界扭转角依赖行为。传统扭转界面研究依赖机械剥离二维材料的堆叠，该方法规模化受限。晶圆键合技术实现了大面积铁电异质界面的精确构建，界面处的极性不连续诱导出可调控的导电通道，扭转角成为关键调控参数。该发现为转角电子学的大规模器件化提供了新路径。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68553-7",
+          "tp": "铁电界面物性",
+          "aip": 1,
+          "kp": [
+            "方法[铁电界面]: 热压晶圆键合创建界面",
+            "发现[铁电界面]: 临界扭转角依赖导电性涌现"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Probing novel properties, arising from twisted interfaces, has traditionally relied on the stacking of exfoliated two-dimensional materials and the spontaneous formation of van der Waals bonds. So far, investigations involving intimate covalent or ionic bonds have not been a focus. Yet, we show here that an established technique, involving thermocompressional wafer bonding, works well for creating twisted non-van der Waals interfaces. We have successfully bonded z-cut lithium niobate single crystals to create ferroelectric oxide interfaces with strong polar discontinuities and have mapped the associated emergent interfacial conductivity. In some instances, a dramatic change in microstructure occurs, involving local dipolar switching. A twist-induced collapse in the capability of the system to effec8tively screen interfacial bound charge is implied. Importantly, this only occurs around specific moiré twist angles with sparse coincident lattices and associated short-range aperiodicity. In quasicrystals, aperiodicity is known to induce pseudo-bandgaps and we suspect a similar phenomenon here.",
+          "hb": 1
+        },
+        {
+          "t": "晶圆键合铁电界面处的极性不连续性、涌现导电性及临界扭转角依赖行为",
+          "d": "2026-01-25",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在晶圆级键合的铁电异质界面中观测到极性不连续性、涌现导电性以及临界扭转角依赖行为。传统扭转界面研究依赖机械剥离二维材料，该工作通过晶圆键合实现大面积可控扭转，发现界面极性突变诱导出二维电子气，且导电性在特定扭转角出现临界转变。这为大规模制备新型拓扑和铁电功能器件开辟了路径。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68553-7",
+          "tp": "铁电畴界",
+          "aip": 1,
+          "kp": [
+            "方法[铁电界面]: 热压晶圆键合",
+            "发现[扭转界面]: 临界扭转角依赖行为"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Probing novel properties, arising from twisted interfaces, has traditionally relied on the stacking of exfoliated two-dimensional materials and the spontaneous formation of van der Waals bonds. So far, investigations involving intimate covalent or ionic bonds have not been a focus. Yet, we show here that an established technique, involving thermocompressional wafer bonding, works well for creating twisted non-van der Waals interfaces. We have successfully bonded z-cut lithium niobate single crystals to create ferroelectric oxide interfaces with strong polar discontinuities and have mapped the associated emergent interfacial conductivity. In some instances, a dramatic change in microstructure occurs, involving local dipolar switching. A twist-induced collapse in the capability of the system to effec8tively screen interfacial bound charge is implied. Importantly, this only occurs around specific moiré twist angles with sparse coincident lattices and associated short-range aperiodicity. In quasicrystals, aperiodicity is known to induce pseudo-bandgaps and we suspect a similar phenomenon here.",
+          "hb": 1
+        },
+        {
+          "t": "堆叠重叠石墨炔纳米离子电子学增强单价/二价阳离子选择性用于单细胞pH检测",
+          "d": "2026-01-25",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究开发了堆叠重叠石墨二炔纳米离子电子学器件，实现了增强的一价/二价阳离子选择性，用于单细胞pH检测。在复杂生理环境中精确测量需要最小化离子干扰。石墨二炔纳米结构的离子选择性通道可有效区分不同价态离子，显著降低了测量噪声，实现了单细胞水平的pH高精度实时检测，在生物传感和纳米离子学领域具有重要价值。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag050/8440139?rss=1",
+          "tp": "石墨炔纳米离子学",
+          "aip": 1,
+          "kp": [
+            "[材料]: 堆叠石墨二炔纳米离子学",
+            "孔径[GDY]: 亚纳米",
+            "[选择性]: 单价/二价阳离子",
+            "[应用]: 单细胞pH检测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Developing nano-iontronic devices that minimize ionic interference is essential for precise measurements in complex physiological systems. Graphdiyne (GDY), a novel carbon allotrope featuring sub-nanometer pores, enables effective regulation of ionic transport and is therefore a promising material for high-performance iontronic applications. Here, we report a pH-responsive nano-iontronic device fabricated by stacking and overlapping graphdiyne (so-GDY) layers onto the tip of the nanopipette. This so-GDY-based pH nano-iontronic sensor exhibits a linear decrease in ionic current under negative potential as the pH decreases from 8.00 to 5.50. This response is attributed to protonation of the oxygen-containing functional groups on the so-GDY surface and edges, which diminishes the negative surface charge and thereby reduces ionic conductivity. A key advantage of this nano-iontronic device is its excellent selectivity, demonstrating robust resistance to interference from divalent cations (Mg²⁺, Ca²⁺) and small molecules within the pH range 8.00-5.50, while maintaining stable detection currents. The so-GDY-based pH nano-iontronic device achieves typical monovalent-to-divalent cation selectivity ratio (<0.4), alongside excellent repeatability, reversibility, and stability. This combination of features yields a biocompatible, high-resolution tool for minimally invasive, real-time pH measurements at the single-cell and even at a single-organelle level, opening new avenues for investigating cellular dynamics and disease pathogenesis with enhanced clarity.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

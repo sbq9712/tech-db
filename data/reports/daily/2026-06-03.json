@@ -1,0 +1,245 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月3日　星期三",
+  "date_range": "2026-06-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "伊大团队以食品废弃物热液化制备可持续航空燃料",
+      "协鑫与晶科钙钛矿叠层光伏组件认证效率均突破30%",
+      "研究证实准二维钙钛矿电池在低轨太空环境中具抗退化能力"
+    ],
+    "AI与智能科技": [
+      "洛桑联邦理工展出纳焦耳级片上超快锁模光子集成电路激光器",
+      "超导量子计算平台首次实现实时低延迟量子纠错",
+      "科研团队开发MouseMapper框架解析肥胖对全身神经的损伤"
+    ],
+    "通用技术": [
+      "长征十二号乙火箭首飞成功送千帆极轨08组卫星入轨",
+      "民航局设立低空安全司统筹低空空域规划与调度体系建设",
+      "研究首次发现并验证激发态驱动的分子表面吸附现象"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "伊大团队以食品废弃物热液化制备可持续航空燃料",
+        "协鑫与晶科钙钛矿叠层光伏组件认证效率均突破30%",
+        "研究证实准二维钙钛矿电池在低轨太空环境中具抗退化能力"
+      ],
+      "entries": [
+        {
+          "t": "伊利诺伊大学香槟分校张源辉报道一种食品垃圾热液化制备可持续航空燃料的方法",
+          "d": "2026-06-03",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "伊利诺伊大学香槟分校张源辉团队构建HTL-催化升级-水相电化学资源化闭环水热炼制体系，以食品废弃物为原料在280℃连续液化，经蒸馏、Fe-ZSM-5加氢裂化与Pd/Al₂O₃加氢精制深度脱氧制备可持续航空燃料。串联策略调控燃料分子结构以改善密度、低温流动性等性能，并通过电化学资源化处理HTL水相中的碳氮污染物，提升整体碳效率，解决传统HTL生物原油含氧含氮杂质问题。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01848-1",
+          "tp": "可持续航空燃料",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "",
+          "b": "现有SAF路线通常存在产物组成单一、需要与传统燃料混掺才能满足密度、低温流动性和橡胶密封兼容性等问题。同时，湿垃圾热液化（HTL）虽然能够直接处理高含水有机废弃物，并实现较高碳回收，但HTL生物原油通常含有大量含氧、含氮和含硫化合物，导致热值、稳定性和燃料兼容性不足；此外HTL水相（HTL-AP）富集约36%碳和约75%氮，并含有吡啶类、酚类和芳香酸等难处理污染物，若直接废弃会显著增加废水处理负担并降低整体碳效率。\n近日，伊利诺伊大学香槟分校张源辉教授团队构建了一套“HTL—催化升级—HTL水相电化学资源化”闭环水热炼制体系，以食品废弃物（来自当地食品加工厂）为原料制备航空燃料。研究采用连续式28.88 L插流HTL反应器，在280℃、30min条件下进行液化。随后通过蒸馏（150–320℃）、Fe-ZSM-5催化加氢裂化（400℃、1,500psi H2、4 h）以及Pd/Al2O3加氢精制（300℃、1,500 psi H2、4 h）实现深度脱氧与燃料升级。\n该体系通过“蒸馏脱杂—ZSM-5孔道诱导环化—加氢饱和”的串联策略调控燃料分子结构。蒸馏阶段显著降低O、N、S杂原子含量，减少后续加氢耗氢量；Fe-ZSM-5的孔道结构促进长链烯烃和脂肪酸衍生物向芳香烃与环烷烃转化，而后续Pd/Al2O3加氢则进一步将芳香烃转化为环烷烃，提高氢含量和热值。最终SAF组分中单环烷烃占47.7 wt%，多环烷烃占22.8 wt%，总环烷烃含量达到70.5 wt%，明显高于传统以正构/异构烷烃为主的SAF路线。作者认为，高环烷烃比例有助于提高燃料密度与橡胶密封兼容性，从而实现100%转化SAF。另一方面，HTL-AP电氧化过程中，甘油沿甘油醛→甘油酸→乙醇酸→甲酸路径选择性降解，而乙酸因较稳定得以富集，最终占残余COD的91.6%。电氧化还快速降解2-pyrrolidinone、3-pyridinol等高毒性含氮杂环物种，并在阴极持续析氢，实现升级过程所需氢气闭环供应。升级后油品氧脱除率达到98.0%，硫完全脱除，碳含量由65.33%提升至85.58%，氢含量由10.48%提升至13.90%，高位热值（HHV）由32.59 MJ kg-1提升至46.21 MJ kg-1。酸值由130.27 mg KOH g-1降低至0.11 mg KOH g-1，接近ASTM D1655对喷气燃料0.10 mg KOH g-1的要求；室温黏度下降94.6%。通过虚拟蒸馏筛选得到C8–C14 SAF馏分，产率为44.8 wt%，其凝点低至−60℃，低位热值（LHV）达到43.5 MJ kg-1，可满足Tier α喷气燃料规范。50 vol%与Jet A掺混后仍满足喷气燃料性能要求。HTL-AP电化学处理后COD去除率达到76.49%，磷回收率100%，硝酸盐回收率76.9%，钾回收率89.9%；总产氢量为0.031 kg H2 kg-1食品垃圾，达到升级过程耗氢需求的104.1%。技术经济分析显示，当前电化学（EC）方案最低燃料售价（MFSP）约为11.9 $ GGE-1，但在未来低电压（2.5 V）与低堆栈成本（225 $ m-2）条件下可降至3.82 $ GGE-1；生命周期分析（LCA）表明，在零碳电网条件下系统GWP100可达到−8.48 kg CO2e GGE-1。同时该研究还指出，该体系仅适用于替代填埋型食品垃圾处理场景，若替代堆肥或厌氧消化等低排放路径，则未必具有碳减排优势。文章于2026年6月3日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "协鑫光电、晶科能源等分别公布其钙钛矿/晶硅叠层组件认证效率突破",
+          "d": "2026-06-03",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "协鑫光电宣布其2042cm²钙钛矿-晶硅叠层组件经中国计量科学研究院认证效率达30.23%，2053cm²刚性单结钙钛矿组件效率23.70%，柔性单结与柔性叠层组件效率分别达21.79%和27.11%，适用于消费电子、车载、建筑及太空光伏等场景。晶科能源同期公布基于N型TOPCon钙钛矿叠层电池效率突破34.82%，刷新其此前34.76%纪录。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/QH_c_lt1cJqUa0iZDeuPyA",
+          "tp": "钙钛矿叠层电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月3日，昆山协鑫光电在其官网发文称，经中国计量科学研究院认证，其开发的2042cm²大面积钙钛矿-晶硅叠层组件的认证效率达到30.23%，2053cm²刚性单结钙钛矿组件认证效率达到23.70%。其30×30cm（900cm2）柔性单结钙钛矿组件认证（TÜV南德）效率达到21.79%，25×25cm（625 cm2）柔性叠层组件效率达到27.11%。宣传可用于消费电子、车载、建筑、低空经济、太空光伏等场景。\n6月16日，晶科能源在其官方公众号发文称，其研发的基于N型TOPCon钙钛矿叠层电池转换效率突破34.82%，高于其此前开发的同类叠层电池34.76%转换效率纪录。",
+          "hb": 1
+        },
+        {
+          "t": "超越地球：准二维钙钛矿太阳能电池在太空中的耐受性（Adv. Mater. 31/2026）",
+          "d": "2026-06-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究系统评估了准二维钙钛矿太阳能电池在低地球轨道(LEO)太空环境中的耐受性。由Christoph Putz等人开展的实验模拟了太空极端条件——高能粒子辐射、紫外照射、热循环及真空环境，测试钙钛矿电池的性能衰减规律。结果表明准二维钙钛矿结构凭借其增强的层间相互作用和环境稳定性，在太空辐照下表现出优于传统三维钙钛矿的抗退化能力。该工作为未来航天器及深空探测任务中采用轻质柔性钙钛矿光伏器件提供了关键数据支撑。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73432?af=R",
+          "tp": "钙钛矿太空应用",
+          "aip": 1,
+          "kp": [
+            "运行时间[低轨空间]: 稳定超100天",
+            "耐辐照[准二维钙钛矿]: 高本征辐射耐受"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Perovskite Solar Cells in Low Earth Orbit In the Research Article (DOI: 10.1002/adma.202520433), Christoph Putz, Martin Kaltenbrunner, and co-workers demonstrate rigid quasi-2D perovskite solar cells delivering stable power for over 100 days under real space conditions. Correlated in-orbit data and extensive ground-based thermal and proton-irradiation studies reveal high intrinsic radiation tolerance, substrate-driven losses, and key challenges toward lightweight perovskite space photovoltaics. The illustration depicts a perovskite-structured satellite in low Earth orbit, symbolizing the deployment of quasi-2D perovskite solar cells for space-based power generation. Cover art by Florian Loimayr.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "洛桑联邦理工展出纳焦耳级片上超快锁模光子集成电路激光器",
+        "超导量子计算平台首次实现实时低延迟量子纠错",
+        "科研团队开发MouseMapper框架解析肥胖对全身神经的损伤"
+      ],
+      "entries": [
+        {
+          "t": "洛桑联邦理工学院Tobias J. Kippenberg展示基于光子集成电路的超快锁模激光器",
+          "d": "2026-06-03",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "洛桑联邦理工学院Kipnis团队展示基于铒离子注入氮化硅光子集成电路的超快锁模激光器。采用Mamyshev振荡器架构，交替光谱滤波与自相位调制实现锁模，无需外部种子，输出176MHz脉冲序列，脉冲能量达纳焦耳级，比此前片上光源高两个数量级。脉冲可压缩至147飞秒，无需放大即可直接驱动1.5倍频程超连续谱，已用于太赫兹时域光谱仪实现5THz带宽和90dB动态范围，适用于芯片级频率计量和便携式光谱系统。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10517-4",
+          "tp": "锁模激光器",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "超快激光推动了科学技术的诸多进步：它使角膜手术成为可能，揭示了化学反应动力学，并促成了光学原子钟的发展。在过去的几十年中，研究付出了大量努力，旨在实现基于光子集成电路（PIC）的锁模激光器，这种激光器体积紧凑、可晶圆级制造，并兼容进一步的片上功能。然而，迄今为止的现有成果缺乏驱动非线性过程（如超连续谱产生）所需的脉冲能量。在此，研究展示了一种锁模激光器，通过使用铒离子注入氮化硅光子集成电路克服了这一挑战。该激光器基于Mamyshev振荡器架构，其中交替的光谱滤波和自相位调制实现了锁模，并能够支持大的非线性相移。它在无需外部种子的情况下运行，输出176兆赫兹的脉冲序列，脉冲能量达到纳焦耳级别，与光纤激光器相当，比以往基于光子集成电路的光源高出两个数量级。其输出表现出高相干性，可被线性压缩至147飞秒，并且无需任何进一步放大即可在Si3N4波导中直接驱动1.5倍频程的超连续谱。由该光源驱动的紧凑型太赫兹时域光谱仪实现了5太赫兹的带宽和90分贝的动态范围。研究展示了其在非接触式化学分析和检测中的应用。研究结果展示了集成超快激光器的潜力，其应用范围涵盖芯片级频率计量到便携式光谱系统。文章于2026年6月3日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "超导量子比特实时低延迟量子纠错验证",
+          "d": "2026-06-03",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究在超导量子计算平台上首次实现了实时、低延迟的量子纠错。通过快速反馈控制电路在纠错周期内完成 syndrome 测量与纠错操作，克服了以往离线后处理纠错的局限。实时纠错是构建容错量子计算机的必要里程碑，标志着量子纠错从原理验证迈向工程化实用的关键一步，对实现大规模容错量子计算具有重要意义。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73331-6",
+          "tp": "超导量子纠错",
+          "aip": 1,
+          "kp": [
+            "[量子纠错]: 超导量子比特实时低延迟解码"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum error correction will be essential for quantum computers to realise their full potential. As quantum computers advance towards demonstrating a universal fault-tolerant logical gate set, implementing scalable and low-latency real-time decoding will be crucial to avoid an exponential slowdown and maintain a fast logical clock rate. Here, we demonstrate low-latency feedback with a scalable FPGA decoder integrated into the control system of a superconducting quantum processor. We perform an 8-qubit stability experiment with up to 25 decoding rounds and a sub-microsecond mean decoding time per round, providing strong evidence that the backlog problem will be avoided when the decoder is operated as a streaming decoder on a superconducting hardware with the strictest speed requirements. We observe logical error suppression as the number of decoding rounds is increased. We also implement and time a fast-feedback experiment demonstrating a decoding response time of 9.6 μs for a total of 9 measurement rounds.",
+          "hb": 1
+        },
+        {
+          "t": "科学家使小鼠透明化以揭示肥胖对神经系统的隐秘影响",
+          "d": "2026-06-03",
+          "a": "scitechdaily",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "研究团队开发了名为MouseMapper的AI框架,通过组织透明化技术使小鼠身体变透明,从而在单细胞分辨率下全身范围内观察疾病相关的神经变化。该技术首次将组织透明化、高分辨率三维成像与AI自动分析相结合,专门用于研究肥胖对神经系统的影响。研究人员能够追踪肥胖如何改变外周神经与大脑之间的连接,揭示此前难以观测的隐匿性神经损伤。这一框架不仅适用于肥胖研究,还可拓展至癌症、糖尿病等多种系统性疾病的全身神经机制探索。",
+          "sc": 7.1,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/scientists-turn-mice-transparent-to-uncover-obesitys-secret-effects-on-nerves/",
+          "tp": "AI全身成像分析",
+          "aip": 1,
+          "kp": [
+            "[成像框架]: MouseMapper全身体细胞分辨率AI成像",
+            "[发现]: 肥胖致全身神经结构与免疫活动改变"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A new AI framework called MouseMapper allows scientists to examine disease-related changes across the entire body at cellular resolution.\nObesity does much more than affect metabolism and fat storage. It also changes immune activity, nerve structure, and tissue organization throughout the body, raising the risk of conditions such as type 2 diabetes,\ncardiovascular disease\n, stroke, neuropathy, and cancer. Despite these widespread effects, scientists have lacked tools capable of examining disease-related changes across an entire intact organism at high resolution.\nResearchers led by Prof. Ali Ertürk, Director of the Institute for Biological Intelligence (iBIO) at Helmholtz Munich and Professor at LMU, have developed MouseMapper, a set of deep learning algorithms powered by foundation models that can analyze whole-body biological imaging data.\nThe system can automatically identify 31 organs and tissue types while mapping nerves and immune cells throughout the body, allowing scientists to study multiple organ systems in intact mice at the same time.\n“MouseMapper is built on a foundation model, which means it generalizes far beyond the data it was originally trained on,” says Ying Chen, co-first author of the study.\nTo generate whole-body maps, the scientists tagged nerves and immune cells in mice with fluorescent markers that could be detected under a microscope. They then applied tissue-clearing techniques that made the animals transparent without disrupting the fluorescent signals, allowing researchers to image deep within intact bodies.\nThe team used advanced light-sheet microscopy to generate detailed three-dimensional images of entire mice. The resulting datasets contained tens of millions of cellular structures across different organs and tissues. MouseMapper automatically analyzed the images, identifying nerves, immune-cell clusters, and anatomical regions throughout the body.\nThis approach enabled the researchers to pinpoint where inflammation and structural damage appeared in tissues, including fat, muscle, liver, and peripheral nerves, without having to choose specific regions in advance.\nTo study obesity-related changes, the scientists fed mice a high-fat diet that produced obesity and metabolic dysfunction similar to what is seen in humans. MouseMapper revealed widespread disruptions in immune-cell organization and nerve structure throughout the body.\nOne of the most significant discoveries involved the trigeminal nerve, a major facial nerve responsible for sensation and motor control. In obese mice, these sensory nerves showed far fewer branches and endings, suggesting impaired nerve function. Behavioral tests also showed that obese mice were less responsive to sensory stimulation than lean mice, connecting the structural damage to reduced sensory function.\nThe researchers then analyzed the trigeminal ganglion, which contains the cell bodies of facial sensory neurons. Using spatial proteomics, they identified molecular changes linked to nerve remodeling and inflammation. Many of the same molecular signatures were also found in trigeminal tissue from people with obesity, suggesting the nerve alterations seen in mice may also occur in humans.\n“We revealed previously unknown structural and molecular changes in the trigeminal ganglion and its facial branches, and the same molecular signature was conserved in human tissue. This kind of finding simply cannot emerge from studying one organ at a time,” says Dr. Doris Kaltenecker, senior scientist at the Institute for Diabetes and Cancer (IDC) at Helmholtz Munich and first author of the study.\nBeyond obesity, the researchers believe MouseMapper could improve the study of complex diseases that affect multiple organ systems, including diabetes, cancer, neurodegenerative diseases, and autoimmune disorders. Unlike earlier methods that focused on selected tissues or organs, MouseMapper offers an integrated whole-body analysis platform capable of locating disease “hotspots” throughout the organism.\nThe team has also made the whole-body datasets publicly available online, allowing researchers around the world to investigate obesity-related changes across tissues and organ systems.\n“Our goal is to create a comprehensive framework for understanding how diseases affect the body as an interconnected system,” says Ali Ertürk. “Our long-term vision is to build truly realistic digital twins of mice in health and disease: cell-level atlases that we can query, perturb, and screen\ncomputationally. That would let us pinpoint the earliest changes a disease causes, design interventions to prevent them, and accelerate the discovery of new treatments while reducing the number of physical experiments we need to run.”\nReference: “A deep-learning framework reveals whole-body perturbations at cell level” by Doris Kaltenecker, Izabela Horvath, Rami Al-Maskari, Ying Chen, Zeynep Ilgin Kolabas, Luciano Hoeher, Mihail Todorov, David-Paul Minde, Saketh Kapoor, Sena Gül Turhan, Louis B. Kuemmerle, Hanno Steinke, Tim Wohlgemuth, Mayar Ali, Florian Kofler, Pauline Morigny, Julia Geppert, Denise Jeridi, Bastian Wittmann, Jie Luo, Suprosanna Shit, Carolina Cigankova, Victor Miro Kolenic, Nilsu Gür, Eren Aydeniz, Alara Yücecan, Melissa Ertürk, Laurent H. A. Simons, Chenchen Pan, Marie Piraud, Daniel Rueckert, Maria Rohm, Farida Hellal, Markus Elsner, Harsharan Singh Bhatia, Ingo Bechmann, Bjoern H. Menze, Stephan Herzig, Johannes Christian Paetzold, Mauricio Berriel Diaz and Ali Ertürk, 20 May 2026,\nDOI: 10.1038/s41586-026-10535-2\nThe work was supported by the European Research Council (Consolidator Grant CALVARIA to A. Ertürk; grant 949017 to M. Rohm), the German Research Foundation (DFG) under Germany’s Excellence Strategy within the Munich Cluster for Systems Neurology (SyNergy, ID 390857198, EXC 2145), DFG SFB 1052 (A9) and TR 296 (P03), the Collaborative Research Centre CRC 1744, the German Federal Ministry of Education and Research (NATON collaboration, 01KX2121, and HIVacToGC), the Vascular Dementia Research Foundation, the Nomis Heart Atlas Project Grant (Nomis Foundation), the Else-Kröner-Fresenius-Stiftung, the Edith-Haberland-Wagner Stiftung, the Helmut Horten Foundation, the EFSD and Novo Nordisk A/S Programme for Diabetes Research in Europe (to D. Kaltenecker), and the China Scholarship Council (to Y. Chen).\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nArtificial Intelligence\nCell Biology\nHelmholtz Zentrum München\nTesting Thousands of Compounds Simultaneously to Uncover New Drugs and Tailored Treatments\nDeleting a Key Gene Shields Against Excess Weight Gain\nResearchers Discover Pathway That Controls Metabolism\nMPI Researchers Discover a Gene that Controls Fat Metabolism\nMitochondria Can Either Spur or Stop Obesity\nUCLA Researchers Show Link Between Diet, Genetics and Obesity\nBeige Fat May Have Therapeutic Potential for Treating Obesity\nResearchers Identify BAD as Key Seizure-Suppressing Protein\nEndocannabinoids Could Reduce or Eliminate Obesity",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "长征十二号乙火箭首飞成功送千帆极轨08组卫星入轨",
+        "民航局设立低空安全司统筹低空空域规划与调度体系建设",
+        "研究首次发现并验证激发态驱动的分子表面吸附现象"
+      ],
+      "entries": [
+        {
+          "t": "长征十二号乙火箭首飞成功 助力星座组网",
+          "d": "2026-06-03",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "6月1日，长征十二号乙遥一运载火箭在东风商业航天创新试验区成功首飞，将千帆极轨08组卫星顺利送入预定轨道。此次发射标志着长征十二号乙火箭首飞成功，有力支持了低轨卫星星座组网建设任务，展现了中国商业航天的运载能力。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.news.cn/tech/20260602/fdd2d2df60fb44f18aef71a1fd531acc/c.html",
+          "tp": "可重复使用运载火箭",
+          "aip": 1,
+          "kp": [
+            "[运载能力]: 近地轨道20吨级",
+            "[动力]: 全液氧煤油",
+            "[直径]: 4.37米"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "长征十二号乙火箭首飞成功 助力星座组网-新华网\n长征十二号乙火箭首飞成功 助力星座组网\n长征十二号乙火箭首飞成功 助力星座组网\n6月1日，长征十二号乙遥一运载火箭在东风商业航天创新试验区发射升空，将搭载的千帆极轨08组卫星顺利送入预定轨道，飞行试验任务取得圆满成功。\n长征十二号乙运载火箭是中国航天科技集团商业火箭有限公司抓总研制的新一代单芯级四米级可重复使用运载火箭，主要面向我国大规模互联网星座组网等商业发射需求。\n6月1日16时40分，长征十二号乙遥一运载火箭在东风商业航天创新试验区发射升空。新华社发（汪江波 摄）\n火箭采用两级构型及全液氧煤油动力方案，总高约72米，直径4.37米，具备多轨道任务适应能力。该箭优化总体布局，应用一体化尾段设计、大直径共底贮箱、级间气动分离技术等创新设计，近地轨道运载能力达20吨级，是目前我国运力最大的单芯级火箭。\n型号研制负责人介绍，火箭搭载了具备故障诊断与重构功能的飞行控制软件，能够在飞行过程中自主应对异常状态，提升任务可靠性。同时，创新应用注气式蓄压器技术，简化了抑制纵向耦合振动的阀门管路，从系统层面增强飞行安全。\n在研制效率方面，团队用21个月完成了从图纸设计到型号首飞的全流程工作，通过数字化协同设计缩短了总装测试周期。发射端采用多推进剂兼容与快速恢复能力的自建研试工位，有效压缩了发射周期。\n此外，火箭在成本控制上进行了多元探索，包括供应链体系优化、车规级器件应用等，推动单位质量入轨成本下降。\n中国商火相关负责人表示，长征十二号乙运载火箭的成功入列，为后续高密度发射和大规模星座组网提供了新的运载能力支撑，公司正稳步推进重复使用技术攻关，以提升发射服务的效率和灵活性。（记者顾天成、张建松）\n智库报告阐释新时代淮河生态文明发展之路\n新华鲜报丨缤纷“六一” 多彩童年\n雄安日记丨我在雄安当智慧图书管理员\n警惕针对“养老钱”的诈骗陷阱\n罕见纵深推进，以军对黎行动会否搅动美伊谈判\n中东战地手记丨别让战火吞噬童年\n奔跑吧，“10后 ”！赛场上的别样童年\nVlog丨走过中国的街巷 我读懂了“中国式安全感”\n长征十二号乙火箭首飞成功 助力星座组网",
+          "hb": 1
+        },
+        {
+          "t": "低空经济规范发展更进一步",
+          "d": "2026-06-03",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国民航局新设低空安全司，负责起草低空民航发展规划、统筹低空安全与发展、建设低空飞行服务调度平台和低空飞行服务站体系等职责。这是低空经济监管框架的重要进展，标志着国家层面正在系统构建低空空域管理体系，为eVTOL、无人机等低空产业的规模化运营提供制度保障。低空经济正从概念热炒迈向规范化落地阶段。",
+          "sc": 7.1,
+          "i": "news",
+          "tg": "政策监管",
+          "u": "https://www.news.cn/tech/20260602/9a4a462d0ae5450587ce8a526e7e5da0/c.html",
+          "tp": "低空经济管理",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "低空经济规范发展更进一步-新华网\n低空经济规范发展更进一步\n低空经济规范发展更进一步\n近日，中国民航局新增内设机构低空安全司，机构职责包括起草低空民航发展规划、统筹低空安全与发展、建设低空飞行服务调度平台和低空飞行服务站体系等。\n这是继2024年12月国家发展改革委成立低空经济发展司之后，国家成立的第二个低空概念管理机构，与低空经济发展有着不可分割的联系。\n从定位属性上看，国家发展改革委低空司侧重于低空经济发展战略、中长期发展规划的拟订和实施组织，中国民航局低空安全司则侧重于低空航空器适航审定、飞行调度及飞行安全监管等。两者各司其职，有效托举低空经济这一新兴的综合性经济形态。这同时也意味着，低空经济即将越来越快地融入我们的日常生活。\n低空经济包括通用航空、无人机物流、农林作业等应用场景，产业管理涉及低空航空器、低空基础设施、低空空中交通管理、安全监管等方面具体内容。这些具体内容的核心关键词都是安全，可以说发展低空经济，安全是基础，统筹低空安全与发展，才能更好推进低空经济发展。\n比如，在低空区域利用通航飞行器开展游览、跳伞等互动，是文旅领域与低空经济融合发展的重要应用场景。目前，由于低空经济火热，一些地方或企业已出现打着低空经济旗号无序发展的乱象。此前央视报道称，不少旅游景区推出的低空飞行器观光项目等存在无资质运营、超范围飞行、使用不合规机型等情况。\n上述情形，既可能危害人民群众生命安全，也极大削弱了低空经济作为新兴产业对推动经济社会发展的积极意义，需要相关专业部门积极介入，以“懂行人”的高标准，引导低空经济平稳健康发展。\n如何兜住安全底线又不让监管抑制行业活力，同样考验专业对口部门的智慧。\n以电动垂直起降飞行器（eVTOL），这一被视为最能够担当起未来无人机低空物流的航空器为例。这种飞行器的运营在全球范围内都属于新赛道，无先例可循，而全球首张无人驾驶航空器系统型号合格证则是由我国民航管理部门颁发的。一定意义上，这表明了我们具备让市场更安全的能力。\n一边是国家发展改革委推动低空经济市场有序扩大，一边是中国民航局保护低空经济市场更加安全。随着具备专业能力的行政职能部门介入，低空经济将不再是开局初期各地自发的“小马过河”，而是有了国家层面系统性战略统筹规划。正处于蓝海的低空经济，未来将飞得更远、飞得更稳。\n智库报告阐释新时代淮河生态文明发展之路\n新华鲜报丨缤纷“六一” 多彩童年\n雄安日记丨我在雄安当智慧图书管理员\n警惕针对“养老钱”的诈骗陷阱\n罕见纵深推进，以军对黎行动会否搅动美伊谈判\n中东战地手记丨别让战火吞噬童年\n奔跑吧，“10后 ”！赛场上的别样童年\nVlog丨走过中国的街巷 我读懂了“中国式安全感”\n低空经济规范发展更进一步",
+          "hb": 1
+        },
+        {
+          "t": "基于激发的吸附",
+          "d": "2026-06-03",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "传统认知认为吸附仅发生在基态，该研究首次报告激发态驱动的吸附现象。通过将吸附质或吸附基底置于激发态，观测到与基态吸附显著不同的吸附行为与选择性，表明激发态可调控分子—表面相互作用。这一发现打破了吸附研究仅限于基态的框架，为基于激发态调控的分离、催化与传感等应用开辟了全新方向。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73935-y",
+          "tp": "激发态吸附",
+          "aip": 1,
+          "kp": [
+            "[新机制]: 激发态驱动吸附",
+            "材料体系[复合物]: 钾酞菁/还原氧化石墨烯"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Traditionally, adsorption is believed to take place only in the ground state, but here we report an excitation-driven adsorption mode. Composites of metallophthalocyanines and carbonaceous substrates are prepared, among which the potassium-phthalocyanine (KPc)/reduced graphene oxide (RG) composite shows the most typical behavior. Femtosecond transient absorption spectroscopy and first-principles simulations reveal that under ultraviolet (UV) irradiation, the excited electrons in the composite transfer efficiently from KPc to RG, leaving long-lived excited holes on KPc that enable selective adsorption of CO molecules. In the dark, the composite shows negligible CO adsorption (0.06 mmol g⁻1), whereas its CO uptake increases to 1.20 mmol g⁻1 upon UV light, with a UV-modulated adsorption capacity ratio of up to 95%. This adsorption mode is also applicable to other metallophthalocyanine/carbonaceous composites. This work presents a potential strategy for photoexcitation utilization and the development of energy-efficient chemical separation technologies.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

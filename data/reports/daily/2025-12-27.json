@@ -1,0 +1,159 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月27日　星期六",
+  "date_range": "2025-12-27",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型O/Cl桥连阴极液提升零压力全固态电池体积能量密度与循环稳定性"
+    ],
+    "AI与智能科技": [
+      "传感器内模拟光电处理架构实现事件与时序记忆信号同步处理"
+    ],
+    "通用技术": [
+      "单层共线反铁磁体垂直Néel矢量检测技术取得突破",
+      "集成级联催化体系提升电化学硝酸盐还原制氨效率",
+      "生物混合手性水凝胶在胶质母细胞瘤术后治疗中显著抑制肿瘤干细胞"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型O/Cl桥连阴极液提升零压力全固态电池体积能量密度与循环稳定性"
+      ],
+      "entries": [
+        {
+          "t": "扩容型O/Cl桥接阴极液提升零压全固态锂电池能量密度",
+          "d": "2025-12-27",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究开发了一种基于O/Cl桥连的新型扩容正极电解质(catholyte)，显著提升零压力全固态锂电池(ASSLBs)的能量密度。全固态电池的核心挑战之一是正极活性物质与固态电解质的界面接触不足。该O/Cl桥连catholyte在正极内部构建连续离子传输网络，在零外加压力条件下维持稳定的固-固界面，同时通过结构扩容效应提高正极中活性材料的负载比例。实验证明该设计显著提高了全固态电池的体积能量密度和循环稳定性，推动ASSLBs向实用化迈进。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf584/8405343?rss=1",
+          "tp": "全固态正极液",
+          "aip": 1,
+          "kp": [
+            "[正极电解质]: O/Cl桥联1.2LiOH-FeCl3",
+            "[结构特征]: FexOyClz旋转骨架类聚合物",
+            "[条件]: 零压力全固态锂电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The advancement of all-solid-state lithium batteries (ASSLBs) requires innovative breakthroughs in catholyte design to eliminate the need for external pressure and mitigate the adverse effects of inactive catholytes on energy density. Here, we present a capacity-expanding O/Cl-bridged catholyte (1.2LiOH-FeCl3) featuring an abundant, freely rotating FexOyClz framework, endowing it with polymer-like viscoelasticity and an impressive ionic conductivity (6.1 mS cm−1 at 25 °C). The polymer-like viscoelasticity creates a soft interface that alleviates volume changes during cycling, enabling zero-pressure ASSLBs to deliver a high capacity retention of 86.6% after 100 cycles, which is a 35.7% improvement compared to the rigid Li2ZrCl6 catholyte (50.9%). Moreover, the fast Li+ transport capability and variable-valence iron coordination center endow 1.2LiOH-FeCl3 catholyte delivering a capacity of 97.7 mAh g−1. When used as a catholyte alongside a LiFePO4 cathode material, it adds capacity by 31.3% (196.4 mAh g−1LFP vs. 149.6 mAh g−1LFP) and boosts energy density by 21.1% (609.4 Wh kg−1LFP vs. 503.4 Wh kg−1LFP) compared to Li2ZrCl6 catholyte. Beyond these properties, the 1.2LiOH-FeCl3 catholyte offers significant cost advantages, priced at just $2.6 kg−1 (16% of the cost of Li2ZrCl6), and supports scalable production at 60°C, making kilogram- to ton-level manufacturing feasible.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "传感器内模拟光电处理架构实现事件与时序记忆信号同步处理"
+      ],
+      "entries": [
+        {
+          "t": "面向动态视觉感知的传感器内并发事件与记忆信号模拟光电处理",
+          "d": "2025-12-27",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究提出一种传感器内模拟光电处理架构，可同时处理事件信号和记忆信号以实现高效动态视觉感知。传统图像传感器和事件传感器各自只能捕获瞬时变化或时序上下文之一，难以兼顾。该方案在传感端直接进行模拟域信号融合处理，显著降低数据搬运延迟与能耗，在动态场景理解任务中展现出优势。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-68013-8",
+          "tp": "传感器内光电子计算",
+          "aip": 1,
+          "kp": [
+            "架构[动态视觉传感]: 传感内模拟事件脉冲+记忆尾",
+            "[集成方案]: 荧光粉对+硅光电二极管+TIA"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Efficient dynamic vision requires capturing instantaneous changes and temporal context, yet existing image and event sensors rely on power-hungry digital processing. Here, we introduce an in-sensor dual-response architecture that concurrently generates analog event spikes and persistent memory tails. A prototype sensor integrates phosphor pairs with silicon photodiodes and transimpedance amplifiers to achieve microsecond- and millisecond-scale dual kinetics. Measurements during light-emitting diode replay reconstruct event frames that match software frame differences, while the slow channel behaves as a linear reservoir of motion history. A single memory frame fed to a convolutional neural network enables accurate classification of human actions (93.1%) and vehicle trajectories (98.0%), as well as speed estimation with errors of 2.15 km/h. Integration with a compressive optical neural network front end mapping 4900 inputs to 16 per frame yields 93.3% action classification accuracy. By eliminating analog-to-digital conversion and digital accumulation, this approach enables ultralow-latency, ultralow-power neuromorphic vision.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "单层共线反铁磁体垂直Néel矢量检测技术取得突破",
+        "集成级联催化体系提升电化学硝酸盐还原制氨效率",
+        "生物混合手性水凝胶在胶质母细胞瘤术后治疗中显著抑制肿瘤干细胞"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 具有自旋-层耦合的单层共线反铁磁体的垂直Néel矢量检测",
+          "d": "2025-12-27",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "精确探测共线反铁磁材料中的垂直Néel矢量长期是自旋电子学领域的难题。该研究在单层共线反铁磁体中实现了垂直Néel矢量的精确检测，为反铁磁自旋电子器件的读写操作奠定关键基础，推动下一代低功耗高密度存储技术发展。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19267",
+          "tp": "反铁磁自旋检测",
+          "aip": 1,
+          "kp": [
+            "[检测方法]: 层霍尔效应检测垂直Néel向量",
+            "[材料]: 单层Co2S2共线反铁磁"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The precise detection of a perpendicular Néel vector in collinear antiferromagnetic (AFM) materials has long been expected for advancing two-dimensional AFM spintronics. Here, we proposed the perpendicular Néel vector detection using the layer Hall effect in collinear antiferromagnets down to the monolayer limit. Through materials screening, the Co2S2 is identified as a prototypical AFM monolayer with the spin-layer coupling and perpendicular magnetic anisotropy. Thanks to the electrically engineered layer-locked band edges and Berry curvatures from spin-layer coupling, a sizable layer-polarized anomalous Hall conductivity of σxy up to ∼110 S/cm is obtained in monolayer Co2S2. Intriguingly, the sign of σxy changes when the Néel vector is reversed, providing an efficient route for detecting the AFM order. Moreover, the achievement of the Néel vector detection via the layer Hall effect is further demonstrated in altermagnetic monolayer Ca(CoN)2. The present findings open an avenue to explore the Néel vector detection for atomic-scale AFM materials and spintronic devices.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 用于电化学硝酸盐还原制氨的集成级联催化剂",
+          "d": "2025-12-27",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "利用可再生能源驱动的电催化硝酸盐还原制氨（NO3-RR）是一种前景广阔的绿色合成路径。该研究设计了集成级联催化体系，多步协同催化硝酸盐向氨的高效转化，有望替代传统高能耗的Haber-Bosch工艺，实现可持续氨合成。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c03265",
+          "tp": "电催化硝酸盐还原制氨",
+          "aip": 1,
+          "kp": [
+            "[级联催化剂]: 电化学硝酸盐还原制氨",
+            "[质子耦合电子转移]: 抑制副产物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electrocatalytic nitrate reduction reaction (NO3-RR) powered by renewable energy sources offers a promising approach to achieve ammonia (NH3) synthesis with zero-carbon emission. However, sluggish proton-coupled electron transfer and byproduct formation challenge efficient NH3 synthesis. Here, we construct an integrated cascade catalytic system to elucidate the governing principles of active hydrogen (*H) generation and utilization during NO3-RR. A representative catalyst, composed of atomically dispersed Fe sites anchored on an N-doped carbon matrix and encapsulated Ru nanoparticles, exhibits an NH3 yield up to 2336.43 μgNH3 h-1 mgcat-1 while maintaining a Faradaic efficiency of 96.03% at a low potential of 0 V vs RHE. In addition, operando SR-FTIR spectroscopy and DFT calculations reveal that electron transfer from Fe atom to Ru particle not only enhances the affinity of Fe sites for NOx- species but also enriches H coverage on Ru sites, thereby accelerating hydrogenation steps and sustaining a steady *H generation-consumption cycle. This work reveals the mechanistic origin of active hydrogen in tandem catalytic structures and provides fundamental insights for advancing highly selective, energy efficient, and durable NH3 electrosynthesis and wastewater treatment.",
+          "hb": 1
+        },
+        {
+          "t": "生物混合手性水凝胶通过多管齐下抑制肿瘤干细胞增强临床前术后胶质母细胞瘤治疗",
+          "d": "2025-12-27",
+          "a": "Nature Nanotechnology",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "胶质母细胞瘤干细胞对多种治疗具有耐药性，是术后复发的主要驱动因素，但协调复杂的细胞因子信号程序和细胞外基质特征以抑制其扩增极具挑战。研究团队开发了生物混合手性水凝胶，可在胶质母细胞瘤手术减积后进行腔内植入，多管齐下全面抑制肿瘤干细胞，显著增强临床前术后治疗效果。",
+          "sc": 6.0,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.nature.com/articles/s41565-025-02064-2",
+          "tp": "水凝胶治癌",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Glioblastoma stem cells (GSCs), which exhibit resistance to multiple treatments, are a prominent driver of postoperative glioblastoma (GBM) relapse. Reducing the GSC population holds promise in GBM therapy but remains challenging due to the difficulty in coordinating the complex cytokine signalling programs and extracellular matrix characteristics that induce GSC expansion. Here we develop a biohybrid chiral hydrogel that allows intracavity implantation after GBM surgical debulking to comprehensively regulate GSC stemness, enhancing postoperative therapy. The hydrogel encapsulates GSC-membrane-coated nanoparticles that serve as potent decoys to broadly neutralize GSC-targeted pro-stemness and chemotaxis cytokines, allowing functional blocking and hydrogel infiltration of GSCs. Moreover, we showed that the D-chiral biohybrid hydrogel, in contrast to its L- and DL-chiral counterparts, further diminished the GSC stemness phenotype via D-chiral-geometry-regulated mechanotransduction pathways. In three orthotopic intracranial GBM models, the multi-pronged inhibition of GSC stemness enhanced gold-nanocluster-based hydrogel-scaffold-sensitized radioimmunotherapy, enabling the suppression of GBM relapse post-resection. This integrated regulation of biochemical and biophysical cues shows the potential for treating cancer-stem-cell-enriched malignancies.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

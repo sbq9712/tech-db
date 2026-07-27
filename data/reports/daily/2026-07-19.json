@@ -1,0 +1,243 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月19日　星期日",
+  "date_range": "2026-07-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "韩华Qcells钙钛矿与晶硅叠层太阳能电池取得UL与IEC可靠性认证。",
+      "实验发现氘-氘核聚变在亚2 keV能量下存在反应产额平台。",
+      "“星枢计划”算力卫星应用钙钛矿叠层复合发电方案，功率达15KW。"
+    ],
+    "AI与智能科技": [
+      "国内算力服务商针对Agent推理优化调度，日处理量达10万亿Token。",
+      "Cropin联合谷歌云发布农业代理式AI平台OrbitAI以保障供应链。",
+      "上海人工智能实验室发布110亿参数规模的多模态科学基础模型“神珍”。"
+    ],
+    "通用技术": [
+      "天问一号探测器在距离约3000万公里处拍摄到星际彗星3I/ATLAS图像。",
+      "HMP Bikes针对北美市场推出最高时速75英里的电动踏板车HMP Flash。",
+      "JACS刊文证实CO气体压力可驱动铂纳米团簇发生结构重构。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "韩华Qcells钙钛矿与晶硅叠层太阳能电池取得UL与IEC可靠性认证。",
+        "实验发现氘-氘核聚变在亚2 keV能量下存在反应产额平台。",
+        "“星枢计划”算力卫星应用钙钛矿叠层复合发电方案，功率达15KW。"
+      ],
+      "entries": [
+        {
+          "t": "韩华Qcells钙钛矿/晶硅叠层电池获UL和IEC双权威认证！",
+          "d": "2026-07-19",
+          "a": "钙钛矿工厂",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "韩华Qcells宣布其钙钛矿/晶硅叠层太阳能电池成功获得了UL和IEC双权威认证。这一重要里程碑标志着该新一代光伏技术在可靠性和商业化应用上取得了关键突破。钙钛矿叠层技术被业界视为突破传统硅基电池效率极限的核心路径，此次获得国际权威标准认证，将极大加速该高效光伏技术的产业化落地进程，进一步巩固韩华在下一代光伏市场的领先地位。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/7Yj-gAUyMP4f13b-Fiylpw",
+          "tp": "叠层电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "亚keV能量体系中的增强核聚变",
+          "d": "2026-07-19",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "研究在金属箔中发现氘-氘核聚变在亚2 keV能量下呈现明显的反应产额平台，即存在非零的最小反应率，与传统认知形成鲜明对比。凝聚态中电子和结构环境可显著改变核聚变速率，暗示通过材料工程可能降低聚变能垒，对紧凑型聚变能源研究具有启发意义。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74421-1",
+          "tp": "金属箔聚变",
+          "aip": 1,
+          "kp": [
+            "库仑势垒高度[核聚变]: 数百keV",
+            "能量上限[氘-氘核聚变反应产额平台]: <2keV"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nuclear fusion requires overcoming or traversing a repulsive Coulomb barrier of hundreds of kiloelectronvolts, rendering the probability of fusion at sub-keV energies vanishingly small. Yet in condensed matter, the electronic and structural environment of reacting nuclei can profoundly alter fusion rates. Here we demonstrate that deuterium–deuterium fusion within metallic foils exhibits a pronounced reaction yield plateau (i.e., a finite, non-vanishing yield floor) below 2 keV—in stark contrast to the expected exponential suppression at low energy. At the lowest energies measured, this corresponds to fusion yields enhanced by more than 10¹⁸ relative to bare-nucleus (unscreened) expectations. Using a dual-chamber platform that combines electrochemical deuterium loading with low-energy ion-beam bombardment, we observe this behavior in both palladium and titanium hydrides. These results reveal a previously unrecognized regime of low-energy nuclear reactions in solids, demonstrating that materials degrees of freedom can fundamentally renormalize tunneling probabilities and fusion cross-sections.",
+          "hb": 1
+        },
+        {
+          "t": "发电功率15KW！“星枢计划“算力卫星采用高效光伏电池搭配钙钛矿叠层复合发电方案",
+          "d": "2026-07-19",
+          "a": "钙钛矿工厂",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "“星枢计划”算力卫星采用高效光伏电池搭配钙钛矿叠层的复合发电方案，实现了高达15KW的发电功率。该创新方案结合了传统高效电池的稳定性与钙钛矿电池优异的光电转换效率，旨在为太空算力卫星提供强大的能源支持。随着太空算力需求的激增，高功率太阳能供电系统成为关键瓶颈，此复合发电技术的应用将极大提升太空算力载荷的供电上限，助力太空数据中心建设。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/x_kqFUjRxKGoY5iCXDGfdg",
+          "tp": "星载钙钛矿",
+          "aip": 1,
+          "kp": [
+            "发电功率[星枢计划算力卫星]: 15KW"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "国内算力服务商针对Agent推理优化调度，日处理量达10万亿Token。",
+        "Cropin联合谷歌云发布农业代理式AI平台OrbitAI以保障供应链。",
+        "上海人工智能实验室发布110亿参数规模的多模态科学基础模型“神珍”。"
+      ],
+      "entries": [
+        {
+          "t": "Agent拉爆算力？中国杀出新物种：日冲10万亿Token，还赚钱了",
+          "d": "2026-07-19",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "报道中国AI基础设施领域涌现的'新物种'——主打Agent推理算力的服务厂商，宣称日处理Token量冲至10万亿级别并实现盈利。其核心差异在于面向Agent多轮长链推理的算力调度优化，而非传统训练/对话负载。这折射出Agent爆发对推理算力需求的指数级拉升，但'日冲10万亿Token'的统计口径与盈利可持续性仍需穿透核实。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/gAFPx7XyjnNzdrGoJmZ00w",
+          "tp": "算力新物种",
+          "aip": 1,
+          "kp": [
+            "处理量[Token]: 10万亿Token/日"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "Cropin 与 Google Cloud 推出 OrbitAI 供应平台",
+          "d": "2026-07-19",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "Cropin与谷歌云联合发布OrbitAI,全球首个农业代理式AI平台,专为食品与农业生态系统设计。平台提供先进自主智能,帮助食品饮料采购负责人保护全球采购网络免受气候冲击冲击,保障粮食供应链安全。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://supplychaindigital.com/news/cropin-google-cloud-launch-orbitai-supply-platform",
+          "tp": "农业智能体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Cropin & Google Cloud Launch OrbitAI Supply Platform\nPrioritise Us\nThe world's first agentic AI platform for agriculture helps food and beverage procurement leaders protect global sourcing networks from climate shocks\nWith the aim of helping to secure global food supply chains against severe climate disruptions, Cropin and Google Cloud have come together to launch OrbitAI.\nhas been designed specifically for the global food and agriculture ecosystem, and will offer advanced autonomous intelligence to complex upstream supply chains.\nWith mounting pressure from ever more volatile weather patterns and shifting geopolitical landscapes, companies operating in the\nfood and beverage industry\nwill look to systems, such as OrbitAI from Cropin, to help manage supply risks independently.\nCropin’s collaboration with Google Cloud will combine agritech data and enterprise cloud infrastructure, leveraging Google Cloud's Gemini models to process vast amounts of planetary and agricultural data.\nUnlike traditional gen AI applications that focus primarily on data summarisation and content generation, OrbitAI utilises specialised AI agents that can independently monitor crop health and predict regional yield shocks. These agents alert\nprocurement managers\nto potential shortages before they impact downstream operations.\n“OrbitAI represents a milestone in agricultural technology,” says Krishna Kumar, Chief Executive Officer at Cropin. “The platform empowers businesses to secure their supply networks autonomously.”\nFood companies can use the platform to optimise their sourcing strategies across different regions, as it will enable procurement teams to navigate climate uncertainties with greater precision.\nKey Facts: OrbitAI Capabilities\nTrack crop health anomalies across global sourcing zones.\nPredict potential supply chain disruptions before harvest.\nOptimise procurement decisions using autonomous AI agents.\nSashikumar Sreedharan, Managing Director of Google Cloud India, explains that the industry is experiencing a fundamental shift in how\nautomation delivers value\nSashikumar says: “The next transformation in AI is moving away from technology demonstrations and focusing on measurable outcomes, specifically addressing the core challenge of 'cost to serve' versus 'capacity to serve'.\n“By building on Google Cloud's AI infrastructure, OrbitAI allows organisations to deploy agentic workflows that scale capacity exponentially, tackling complex real-world challenges with unprecedented pace and efficiency.”\nClimate change continues to disrupt the predictable flow of raw materials to\nmanufacturing facilities\n. Recent examples include the El Niño weather cycle that induced severe droughts and shifting rainfall globally, while consecutive heatwaves in May and June 2026 cut UK milk deliveries by nearly 4% compared to weekly averages.\nCropin provides real-time visibility into the lowest tiers of the agricultural supply chain. The platform helps companies reduce waste by aligning agricultural production directly with processing schedules. This capability ensures that food processors maintain consistent production levels.\nWe are helping organisations build more sustainable and predictable supply chains.\nYossi Matias, VP Engineering & Research at Google\nGoogle Cloud’s role in the collaboration will be to provide the underlying computational power and security required for large-scale enterprise deployments. The tech giant ensures that the system can handle massive datasets efficiently.\n\"Our partnership with Cropin brings scalable innovation to the agricultural ecosystem,\" says Yossi Matias, VP Engineering & Research at Google. \"We are helping organisations build more\nsustainable and predictable supply chains\nThe platform is designed to scale across diverse geographies, from smallholder farms to massive commercial operations. This flexibility allows multinational corporations to standardise their risk management frameworks on a global scale.\nAs regulatory\ndemands around traceability tighten\n, the platform also aims to assist in tracking environmental metrics. It provides the data needed to verify sustainable sourcing practices confidently.\nFounder & CEO\nHead of Google Research",
+          "hb": 1
+        },
+        {
+          "t": "打破模态壁垒，11B通用底座，上智院开放多模态科学基础模型「神珍」",
+          "d": "2026-07-19",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "上海人工智能实验室（上智院）发布并开放多模态科学基础模型「神珍」，参数规模达110亿（11B），定位为通用底座。该模型旨在打破不同科学模态（文本、图像、分子结构、实验数据等）间的壁垒，支撑跨学科科学发现、预测与推理任务。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/9kC37uYyOlO_e4a7gbEv1A",
+          "tp": "多模态模型",
+          "aip": 1,
+          "kp": [
+            "参数规模[通用底座]: 11B"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "天问一号探测器在距离约3000万公里处拍摄到星际彗星3I/ATLAS图像。",
+        "HMP Bikes针对北美市场推出最高时速75英里的电动踏板车HMP Flash。",
+        "JACS刊文证实CO气体压力可驱动铂纳米团簇发生结构重构。"
+      ],
+      "entries": [
+        {
+          "t": "中国天问一号罕见的星际彗星3I/ATLAS特写照片",
+          "d": "2026-07-19",
+          "a": "",
+          "c": "通用技术/通信和运输/航天",
+          "as": "中国天问一号轨道器在星际彗星3I/ATLAS掠过火星时拍到罕见近距离图像,揭示这颗诞生于太阳系外彗星的朦胧彗发和彗尾。国家航天局称高分辨率相机在约3000万公里外完成拍摄,是深空探测的重要观测成果。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/chinas-tianwen-1-captures-rare-close-up-images-of-interstellar-comet-3i-atlas/",
+          "tp": "天问拍彗星",
+          "aip": 1,
+          "kp": [
+            "拍摄距离[天问一号轨道飞行器]: 约3000万公里"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China’s Tianwen-1 orbiter caught a rare glimpse of 3I/ATLAS as it swept past\n, revealing the hazy coma and tail of a comet born beyond our solar system.\nThe interstellar object known as 3I/ATLAS just flew past Mars, and China’s Tianwen-1 mission managed to snap some pics with its high-resolution camera. According to the China National Space Agency (CNSA), the orbiter’s high-resolution camera captured images of the comet from a distance of about 30 million km (18.6 million mi). This makes the Tianwen-1 orbiter, which has been orbiting Mars for four years and eight months, one of the closest missions to observe the ISO since it was first detected (on May 7th, 2025).\nThe image shows 3I/ATLAS’s comet-like features, which include its tail and the gaseous envelope (coma) surrounding it. The images captured by China’s orbiter were also stitched together to create an animation that shows its trajectory and path as it gets closer to making its closest pass to the Sun.\nThis is the latest in a long line of indications that 3I/ATLAS is an interstellar comet, composed of water and volatiles that have been outgassing since it began to approach the Sun. It also offers a taste of what China’s Tianwen-2 mission will see when it rendezvous with a Near Earth Asteroid (NEA) and a comet in the coming years.\nThe team that manages the orbiter’s High-Resolution Imaging Camera (HiRIC) began preparing for the observation opportunity in early September. This included running repeated simulations, theoretical modeling, and extensive instrument checks.\nThe task of imaging 3I/ATLAS was particularly challenging because of its distance and small size (5.6 km, 3.5 mi in diameter), but also the speed at which the ISO and orbiter are traveling. Whereas 3I/ATLAS is around 58 km/s (36 mi/s), the orbiter has a relative speed of 86 km/s (53.5 mi/s).\nIn addition, the HiRIC camera was designed to study brightly lit features on the Martian surface, similar to the ESA’s\nMars Express\nand ExoMars Trace Gas Orbiter (TGO) missions. On\n, these orbiters also captured images of 3I/ATLAS using their cameras – the High-Resolution Stereo Camera (HRSC) and Colour and Stereo Surface Imaging System (CaSSIS), respectively. In all cases, 3I/ATLAS is roughly 10,000 to 100,000 times fainter than Mars’ surface features when imaged in daylight.\nHowever, the High-Resolution Stereo Camera (HRSC) on the Mars Express and the Colour and Stereo Surface Imaging System (CaSSIS) have exposure times of 0.5 seconds and 5 seconds, respectively. In Tianwen-1’s case, the images were acquired by its High-Resolution Imaging Camera (HiRIC). While its exposure time is not publicly disclosed, the camera was designed for high time\nand fast responses, which enabled the science team to capture this latest (albeit grainy and blurry) image of the ISO.\nLike its predecessors, 3I/ATLAS is a particularly interesting object due to the opportunities it presents for astronomical and astrobiological research. Since asteroids and comets are essentially leftover material from the formation of solar systems, studying these objects would allow scientists to learn what conditions are present in other star systems.\nEssentially, an ISO intercept mission (for which numerous concepts are being explored) could provide information that would otherwise be impossible, short of sending missions to other stars—an extremely time-consuming and expensive approach.\nIn the coming years, scientists hope to have a mission ready to go that could intercept future ISOs and study them up close. This includes the ESA’s Comet Interceptor, which is expected to be completed by 2029.\nAdapted from an article originally published in\nUniverseToday\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nSpace Exploration\nNASA Comet Hitchhiker Would Take Tour of Small Asteroids and Comets\nNASA Announces Progress on Asteroid Redirect Mission & Future Expeditions to Deep Space\nSpacecraft Reveal Siding Spring’s Effects on Martian Atmosphere\nNASA Prepares For Comet’s Close Encounter with Mars\nScienceCast Video Examines the Possibility of Colliding Atmospheres between Mars and Comet Siding Spring\nNASA Preparing for Comet Siding Spring’s “Close” Flyby of Mars\nAstronomers Anticipate Comet ISON’s Close Flyby of Mars\nAstronomers Watch as Comet 2013 A1 Heads Towards Mars\nComet 2013 A1 to Make a Very Close Flyby of Mars",
+          "hb": 1
+        },
+        {
+          "t": "新款 HMP Flash 为美国带来价格实惠的 75 MPH 电动滑板车",
+          "d": "2026-07-19",
+          "a": "",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "旧金山HMP Bikes推出新款高性能电动踏板车HMP Flash,最高时速75英里,专为美国市场打造。电动踏板车在欧洲和亚洲普及但在北美一直未获突破,HMP试图以高性能可负担产品打开北美传统座式电动车市场。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/18/new-hmp-flash-brings-affordable-75-mph-electric-scooters-to-the-us/",
+          "tp": "电动踏板车",
+          "aip": 1,
+          "kp": [
+            "最高时速[HMP Flash电动滑板车]: 75 MPH"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jul 18 2026 - 6:07 am PT\nElectric scooters are everywhere in much of Europe and Asia, but they’ve always remained something of an oddity in the US market. While American riders have recently embraced electric bicycles and, to a measurably smaller extent, electric motorcycles, traditional seated scooters have struggled to gain traction in North America. Now San Francisco-based HMP Bikes is hoping to change that with its new\n, a high-performance electric scooter designed from the ground up for riders who rack up serious mileage.\nUnlike many electric two-wheelers that focus on recreational riding, the Flash was designed with delivery riders in mind. That means an emphasis on practical features like real-world range, fast charging, removable batteries, and durability.\nIn addition to boasting a highway-capable 75 mph (120 km/h) top speed, perhaps the biggest figure for everyday commuter riders is the 70-mile (112 km) tested range. HMP says that figure comes from real-world riding on San Francisco city streets with a 200 lb (91 kg) rider and an approximately 80/20 split for city/highway riding. The company notably points out that it only publishes tested numbers instead of optimistic laboratory estimates.\nPerformance is also well beyond what most Americans think of when they hear “electric scooter.” For example, compared to the more\nurban-only moped-style entrants\nin the market, the Flash’s top speed of 75 mph (120 km/h) places it firmly in electric motorcycle territory. In HMP’s home state of California, the company notes that the Flash is registered as a motorcycle, meaning riders will need an M1 motorcycle license and a DOT-approved helmet.\nThe two-seater scooter is available in either single- or dual-battery configurations. The removable battery packs each store 3.3 kWh, with the dual-battery version offering a total capacity of 6.6 kWh to achieve that 70-mile (112 km) max range figure.\nBuyers can also choose whether to equip the scooter with an onboard 2 kW charger that uses a J1772 charging connector, allowing charging directly on the scooter. HMP says that configuration can recharge the dual-battery model from 20% to 80% in around two hours. Alternatively, owners can remove the batteries for off-bike charging or use the included 840 W portable charger from a standard household outlet.\nPricing starts at\nfor the single-battery model without the onboard charger and reaches\nfor the fully-optioned dual-battery version equipped with the integrated charger.\nBeyond the drivetrain, HMP has packed in an impressive list of standard equipment. ABS brakes, traction control, Apple CarPlay, Android Auto, a built-in dash cam, keyless start, center stand for stable parking, and a rear cargo rack all come standard.\nHeated grips are also included on versions equipped with the onboard charger, while IoT GPS tracking and a companion app are planned for a future update.\nI’ve always thought it was a shame that electric scooters never really caught on in the US the way they have across Europe and Asia.\nMy wife and I use a Gogoro scooter as our daily driver\n, and it’s great for the city and for hopping on urban highways. We can park anywhere for free, and our “fuel” costs for the month are less than the cost of a cup of coffee.\nThere’s something incredibly practical about the scooter format. You get water protection for your legs (no splashing when you hit a puddle), a comfortable upright seating position, built-in storage opportunities, and a step-through frame that’s easy to hop on and off dozens of times a day. It’s no surprise that delivery riders around the world gravitate toward scooters, and designing an electric model specifically for that kind of high-mileage, hard-use riding seems like a smart approach. Plus, it means that the rest of us who use it for normal commuting instead of all-day deliveries know it will be overbuilt for us.\nThe US market has largely skipped over scooters and gone straight from e-bikes to motorcycles, leaving a fairly significant gap in the middle. That’s especially true for electric models. There simply aren’t many highway-capable electric scooters available here, making the HMP Flash a fairly unique offering. The only other reasonably available alternative in the US market is\nthe BMW CE04\n, a nice scooter, but one that costs nearly US $13,000. At around a third of the price, the HMP Flash has a lot going for it.\nWill it become a mainstream success? That’s hard to say. Americans have historically turned a blind eye to scooters, while e-bikes have filled much of the urban mobility niche. But as cities continue looking for cleaner and more efficient transportation options and some commuters look for the ease and comfort of e-bikes combined with higher speeds for faster roads, I wouldn’t be surprised if products like the Flash start carving out a larger audience.\nIf nothing else, it’s refreshing to see another company trying something different in a US electric two-wheeler market that could certainly use a bit more variety.\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nMicah Toll is a personal electric vehicle enthusiast, battery nerd, and author of the Amazon #1 bestselling books\nDIY Lithium Batteries\nDIY Solar Power,\nThe Ultimate DIY Ebike Guide\nThe Electric Bike Manifesto\nThe e-bikes that make up Micah’s current daily drivers are the\n$999 Lectric XP 2.0\n$1,095 Ride1Up Roadster V2\n$1,199 Rad Power Bikes RadMission\n$3,299 Priority Current\n. But it’s a pretty evolving list these days.\nBest $999 electric bike ever!\nGreat e-bikes at great prices!",
+          "hb": 1
+        },
+        {
+          "t": "JACS：CO 压力驱动 Pt 纳米团簇重构",
+          "d": "2026-07-19",
+          "a": "催化视界",
+          "c": "通用技术/催化剂",
+          "as": "发表于《美国化学会志》（JACS）的研究揭示，CO气体压力可驱动铂（Pt）纳米团簇发生结构重构。该发现对理解催化剂在实际反应条件下的动态演变行为具有重要意义，为催化剂理性设计、活性位点调控与寿命优化提供新机制认知，助力燃料电池等应用。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/3H9ZXc91IyHqF6VX8wldDw",
+          "tp": "铂团簇重构",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

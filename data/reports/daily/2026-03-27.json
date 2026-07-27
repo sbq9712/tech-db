@@ -1,0 +1,250 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月27日　星期五",
+  "date_range": "2026-03-27",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "北师大团队构建评估框架测算全国349个城市屋顶光伏潜力及环境影响",
+      "新墨西哥大学团队揭示光辅助锂硫电池催化机理并发表于JACS",
+      "研究人员开发协同过渡金属催化策略实现废聚烯烃选择性回收"
+    ],
+    "AI与智能科技": [
+      "中科院公布新一代开源RISC-V处理器与如意操作系统研发进展",
+      "科研人员利用光子体系实现高维拓扑量子纠缠态的生成与稳健传输",
+      "研究团队首次在原子物理体系中观测到量子尺度的姆潘巴效应"
+    ],
+    "通用技术": [
+      "萤火虫公司月球着陆器首批数据挑战现有月球火山活动时间线",
+      "科研人员实现晶圆级p型半导体单层WSi2N4薄膜的可控制备",
+      "研究者在纳米光子铌酸锂平台实现兼具高稳定性的拓扑孤子频率梳"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "北师大团队构建评估框架测算全国349个城市屋顶光伏潜力及环境影响",
+        "新墨西哥大学团队揭示光辅助锂硫电池催化机理并发表于JACS",
+        "研究人员开发协同过渡金属催化策略实现废聚烯烃选择性回收"
+      ],
+      "entries": [
+        {
+          "t": "北师大孟凡鑫对全国屋顶光伏发展潜力及综合环境影响演化进程进行分析",
+          "d": "2026-03-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "北京师范大学孟凡鑫副教授团队结合机器学习、生命周期评价与未来情景模拟，构建了面向城市尺度的屋顶光伏开发潜力与碳-水-土地协同效应评估框架。团队基于124个城市建筑物数据训练LightGBM模型，估算中国349个城市建成区屋顶光伏潜力及电力自给率，并结合Ecoinvent数据库与各省发电结构计算综合资源环境影响。研究指出以往评估多聚焦运行阶段碳减排、忽视全生命周期及水资源消耗等关键要素，易高估光伏碳减排效益。",
+          "sc": 5.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1038/s41467-026-70923-0",
+          "tp": "屋顶光伏",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "近日，北京师范大学孟凡鑫副教授团队结合机器学习、生命周期评价与未来情景模拟方法，构建了面向城市尺度的屋顶光伏开发潜力与碳-水-土地协同效应评估框架。其首先利用一个基于124个城市建筑物分析的屋顶光伏面积数据集，训练了一个LightGBM机器学习模型；并以夜间灯光、人口、GDP、道路长度、建成区面积等作为预测变量，用该模型估算了中国349个城市建成区内的屋顶光伏潜力，并基于太阳辐射和系统效率计算了其理论发电量和城市电力自给率。而后结合Ecoinvent数据库，基于各省份的发电结构（煤、气、水、核、风、光、生物质等）和各类发电技术的生命周期影响因子，计算了各省份单位发电量的综合环境强度及经济成本。同时考虑了各省电力结构优化与光伏产业技术进展，在共享社会经济路径（SSPs）与典型浓度路径（RCPs）组合情景下，模拟预测2025–2050年我国城市屋顶光伏规模化部署的潜力。结果发现，2020年中国349个城市的屋顶光伏潜力总面积约为33290平方公里，其中东部城市化区域潜力较高，例如，重庆、潍坊、临沂、石家庄和保定等位居前列。99%的城市在非建成区的屋顶光伏潜力更大，范围从建成区的1.2倍到68倍不等；但深圳、汕头和五指山则在建成区表现出更高的潜力。当前相对于当地电力结构，屋顶光伏系统每千瓦时发电量可减少759克碳排放、节省3.4L水和0.05m2土地；其碳减排效益在河北、内蒙古、辽宁等以煤电为主的省份最为显著，在四川、云南等水电为主的省份则相对较弱；青海、湖北和云南等地的节水效益最为显著；黑龙江和海南的土地节约效益突出；水电大省四川和云南的节水和节地效益也相对较优。到2050年，化石燃料发展情景（SSP5）下屋顶光伏面积增幅最大，达到34.8%，而可持续发展情景（SSP1）增幅最小，仅为9.2%。中等路径（SSP245）下，预计到2050年全国安装容量将达到8.2TW，比2020年增加103%；此时碳减排效益将在2035–2040年达到峰值，2050年累计碳减排量可达2.04–2.18Gt二氧化碳当量，呈现先升高，再放缓的趋势。与之相反，节水和节地效益则呈现持续上升趋势，到2050年预计可分别节约水资源约17km3（相当于黄河地下水储量的29.2%）和节约土地约28.9万km2（相当于北京面积的18倍）。经济性分析结果显示，当前屋顶光伏的平准化度电成本已降至0.041-0.077 $/kWh，但在新疆、四川等地区超过16年的投资回收期仍然限制了其推广应用。从单位成本所能获得的碳-水-土地协同效益来看，黑龙江、吉林、河北、云南等地的成本效益最高，而甘肃、陕西、贵州、福建等地则面临较高成本；文章于2026年3月27日发表在Nature Communications。",
+          "b": "屋顶光伏能够利用闲置的城市屋顶空间进行本地发电，有助于提升城市能源自给能力、并减少碳排放/长距离输电损失，同时可避免大规模土地占用。现有针对屋顶光伏的研究多强调其光伏系统运行阶段的碳减排价值，未充分覆盖原材料生产、装备制造、运输安装、运维管理及退役回收等全生命周期环节，容易高估光伏的碳减排效益；相关评估多以单一减碳目标为导向，忽视水资源消耗、土地占用等关键资源环境要素，难以全面评估屋顶光伏规模化部署对资源环境的影响。\n近日，北京师范大学孟凡鑫副教授团队结合机器学习、生命周期评价与未来情景模拟方法，构建了面向城市尺度的屋顶光伏开发潜力与碳-水-土地协同效应评估框架。其首先利用一个基于124个城市建筑物分析的屋顶光伏面积数据集，训练了一个LightGBM机器学习模型；并以夜间灯光、人口、GDP、道路长度、建成区面积等作为预测变量，用该模型估算了中国349个城市建成区内的屋顶光伏潜力，并基于太阳辐射和系统效率计算了其理论发电量和城市电力自给率。而后结合Ecoinvent数据库，基于各省份的发电结构（煤、气、水、核、风、光、生物质等）和各类发电技术的生命周期影响因子，计算了各省份单位发电量的综合环境强度及经济成本。同时考虑了各省电力结构优化与光伏产业技术进展，在共享社会经济路径（SSPs）与典型浓度路径（RCPs）组合情景下，模拟预测2025–2050年我国城市屋顶光伏规模化部署的潜力。\n结果发现，2020年中国349个城市的屋顶光伏潜力总面积约为33290平方公里，其中东部城市化区域潜力较高，例如，重庆、潍坊、临沂、石家庄和保定等位居前列。99%的城市在非建成区的屋顶光伏潜力更大，范围从建成区的1.2倍到68倍不等；但深圳、汕头和五指山则在建成区表现出更高的潜力。当前相对于当地电力结构，屋顶光伏系统每千瓦时发电量可减少759g碳排放、节省3.4L水和0.05m2土地；其碳减排效益在河北、内蒙古、辽宁等以煤电为主的省份最为显著，在四川、云南等水电为主的省份则相对较弱；青海、湖北和云南等地的节水效益最为显著；黑龙江和海南的土地节约效益突出；水电大省四川和云南的节水和节地效益也相对较优。到2050年，化石燃料发展情景（SSP5）下屋顶光伏面积增幅最大，达到34.8%，而可持续发展情景（SSP1）增幅最小，仅为9.2%。中等路径（SSP245）下，预计到2050年全国安装容量将达到8.2TW，比2020年增加103%；此时碳减排效益将在2035–2040年达到峰值，2050年累计碳减排量可达2.04–2.18Gt二氧化碳当量，呈现先升高，再放缓的趋势。与之相反，节水和节地效益则呈现持续上升趋势，到2050年预计可分别节约水资源约17km3（相当于黄河地下水储量的29.2%）和节约土地约28.9万km2（相当于北京面积的18倍）。经济性分析结果显示，当前屋顶光伏的平准化度电成本已降至0.041-0.077 $/kWh，但在新疆、四川等地区超过16年的投资回收期仍然限制了其推广应用。从单位成本所能获得的碳-水-土地协同效益来看，黑龙江、吉林、河北、云南等地的成本效益最高，而甘肃、陕西、贵州、福建等地则面临较高成本；未来屋顶光伏的部署将优先在成本效益高的区域展开，且需要灵活的并网标准、加速的储能集成并提升区域平衡能力，以促进其广泛应用。对GDP排名前20的城市分析发现，GDP规模与光伏综合效益不成正比。例如，北京在水和土地节约方面表现最佳，青岛在碳减排方面领先，而重庆尽管发电潜力最大，但其三项效益均表现一般；表明未来需要针对不同城市的特点制定差异化的部署策略。文章于2026年3月27日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "沸石通道波动限域效应促进废聚乙烯选择性升级回收为丙烷",
+          "d": "2026-03-27",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "研究开发了协同过渡金属与氢键相转移催化策略，以廉价氟化钾（KF）为氟源，实现了烯丙基化合物的对映汇聚式氟化反应。该方法同时活化亲核试剂和亲电试剂，突破了传统氟化反应对映选择性低的瓶颈，为含氟药物和功能分子的合成提供了高效途径。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21380",
+          "tp": "废塑料催化升级",
+          "aip": 1,
+          "kp": [
+            "[产物选择性]: 丙烷选择性达70.2%",
+            "[催化策略]: 沸石通道波动限域加氢裂解(CUCH)",
+            "[催化剂]: ZSM-5分子筛",
+            "[底物]: 聚乙烯定向转化为丙烷"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Selective conversion of polyethylene (PE) into high-value bulk chemicals holds significant industrial application value. However, the uniform C-C bonds in the PE main chain render directed cleavage a formidable challenge. Here we developed a channel undulation-confinement hydrocracking (CUCH) strategy, achieving selectivity of propane up to 70.2% from PE conversion using a ZSM-5 zeolite catalyst. This selective conversion process originates from the deep β-scission of C-C bonds and the match of propane molecular size with the channel undulation factor (Ω = 0.71) of ZSM-5. Reaction kinetics analysis, thermodynamics and theoretical calculation reveal that Brønsted acid sites donate protons to activate PE, initiating C-C bonds cleavage to form alkanes and tricoordinated carbenium ions. Concurrently, the cracking degree of these carbenium ions is modulated by undulation factor (Ω) and the number of intracrystalline cages (Nc,s) in zeolite. This double confinement prolongs the residence time of C4+ intermediates, maximizing their cracking and enhancing the ultimate yield of propane. These findings provide a feasible strategy for the selective upcycling of waste PE.",
+          "hb": 1
+        },
+        {
+          "t": "新墨西哥大学Oleg Prezhdo借助图神经网络研究了光辅助锂硫电池中的催化反应路径",
+          "d": "2026-03-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "新墨西哥大学Oleg Prezhdo团队结合图论、机器学习与非绝热动力学，系统研究了光辅助锂硫电池的光电催化机理。通过引入光照加速S8经多硫化物阶段再生不溶性Li2S，可抑制穿梭效应、保护容量。研究用词袋模型编码多硫化锂积累为特征向量，揭示中间体积累对决速步的影响，发现Li2S2是保证电子反应快速进行的关键中间体。该工作建立了热力学与激发态动力学结合的分析框架，为复杂反应网络研究提供新工具。成果发表于JACS。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.6c03234",
+          "tp": "锂硫催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "锂硫电池拥有很高的能量密度和理论容量，但是充放电过程中的多硫化锂会溶于电解液并扩散到负极（穿梭效应），引起硫损失以及容量的快速衰减。通过在正极引入光照，可以加速S8分子快速经历多硫化物阶段重新生成不溶性的Li2S，从而抑制穿梭效应，保护容量。但是由于整个光-电催化过程涉及到16-电子的转移，因此反应网络十分复杂。Oleg V. Prezhdo和Run Long团队提出了结合图论、机器学习和非绝热动力学的理论化学方法，系统性研究了光辅助锂硫电池的光电催化机理。该工作建立了结合热力学和激发态动力学的分析框架，定量地分析了中间体的累积如何控制决速步。该工作使用词袋模型将反应网络中的多硫化锂积累编码为特征向量，并揭示了中间体积累对于速控步的影响。该工具表明Li2S2是保证电子反应过程快速进行的关键中间体。该工作可为类似的反应网络研究提供了工具。文章于2026年3月27日发表在Journal of the American Chemical Society。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "中科院公布新一代开源RISC-V处理器与如意操作系统研发进展",
+        "科研人员利用光子体系实现高维拓扑量子纠缠态的生成与稳健传输",
+        "研究团队首次在原子物理体系中观测到量子尺度的姆潘巴效应"
+      ],
+      "entries": [
+        {
+          "t": "中科院计算机/软件所、阿里达摩院分别更新其开源RISC-V处理器研发进展",
+          "d": "2026-03-27",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "中科院计算所与软件所公布开源RISC-V处理器系统香山和原生操作系统如意最新进展，新一代处理器核SPEC CPU2006实测16.5分/GHz，号称全球性能最强的开源RISC-V处理器核，并搭配数据中心与终端开源片上互连网络。如意操作系统实现对RVA23高性能国际标准的原生支持。芯动科技、进迭时空等已基于香山实现产品级交付。阿里达摩院亦发布玄铁C950，采用8指令译码、16级流水线、超1000条指令乱序窗口，最高主频3.2GHz。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.stdaily.com/web/gdxw/2026-03/27/content_493813.html",
+          "tp": "RISC-V",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "当前手机、平板等消费电子产品及计算机常用闭源的ARM、X86架构处理器，开源免费的RISC-V的架构逐步在物联网、车辆导航等嵌入式系统，以及云计算、网络/存储领域进行替代。除中科院计算机所、阿里巴巴外，美国SiFive的（Intelligence X390）、安谋科技（AndesCore™）等也均有基于RISC-V架构的产品发布。\nSPEC CPU2006评测程序2018年已停止维护更新，现多用SPEC CPU2017，SPECint是其中一个测试套件，用于测试处理器的整数运算性能，另有SPECfp用于测试浮点运算性能。阿里玄铁C950处理器的SPECint 2017评分粗略估算可能仍低于AMD在2020年发布的 Ryzen 7 5800X, 3.8GHz（最高4.7GHz）的15（峰值15.3）。",
+          "b": "据科技日报3月27日报道称，中国科学院计算技术研究所与软件研究所公布其开发的开源RISC-V（第五代精简指令集计算机，Reduced Instruction Set Computer V）处理器系统香山、RISC-V原生操作系统如意的研发进展。报道中称，RISC-V是全球免费开放的芯片底层架构，无需缴纳专利费、可自主修改。此次发布的新一代开源RISC-V处理器核SPEC CPU2006（计算机处理器测试程序）实测分值16.5分/GHz，宣称是目前全球性能最强的开源RISC-V处理器核。同时香山系统还搭配有数据中心开源片（即处理器核心）上互连网络、终端开源片上互连网络（核心间的连接线路）。如意RISC-V原生操作系统则实现对RVA23高性能国际标准的操作系统原生支持，为后续RISC-V软硬件协同创新提供了基础。文中称，目前芯动科技、进迭时空、蓝芯算力等企业已基于香山系统成功开发自有芯片产品，实现高性能开源芯片的产品级交付与规模化应用。\n3月24日，阿里达摩院也发布其RISC-V CPU玄铁C950，宣传采用8指令译码、16级流水线、超1000条指令乱序窗口，最高主频3.2GHz，单核通用性能在SPECint2006基准测试中突破70（约22/GHz；SPECint 2017=2.6/GHz），适用云计算，高性能AI计算等高性能计算场景，原生支持Qwen3、DeepSeek V3等大模型。",
+          "hb": 1
+        },
+        {
+          "t": "高维拓扑光子纠缠",
+          "d": "2026-03-27",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究实现了高维拓扑光子纠缠态的生成与操控。利用光子体系的拓扑特性编码高维量子态，在拓扑保护下实现量子纠缠的稳健传输，显著降低对制备缺陷和环境噪声的敏感性。该成果为拓扑量子计算和高维量子通信提供了新平台，有望提升量子信息处理的维度容量与抗干扰能力。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aec1344?af=R",
+          "tp": "拓扑光子纠缠",
+          "aip": 1,
+          "kp": [
+            "[量子态]: 高维拓扑光子纠缠",
+            "[编码机制]: 拓扑鲁棒性编码量子信息"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The generation and manipulation of high-dimensional quantum states lies at the heart of modern quantum computation. The use of topology to resiliently encode and transport quantum information has been widely investigated in condensed matter and has recently penetrated quantum photonics. However, a route to scale up to a large number of entangled topological photonic modes has been missing. In this work, we demonstrate a method to generate high-dimensional topological photonic entanglement. Our platform relies on designed silicon photonic waveguide topological superlattices, which support nonlinear generation of energy-time–entangled photon pairs on a superposition of multiple topological modes. We show strong signatures of entanglement of up to five topological modes with resilience to nanofabrication imperfections, providing a route toward scalable, fault-tolerant quantum photonic states.",
+          "hb": 1
+        },
+        {
+          "t": "姆佩巴效应走向量子化",
+          "d": "2026-03-27",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "姆潘巴效应——即热水比冷水更快结冰的反直觉现象——首次被证实存在于量子尺度。研究团队在原子物理体系中观测到类似的非平衡热力学行为，表明该效应并非宏观流体独有。这一发现为量子热力学、量子信息处理及新型量子器件的设计提供了理论基础，具有重要的技术应用潜力。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeh4838?af=R",
+          "tp": "量子姆潘巴效应",
+          "aip": 1,
+          "kp": [
+            "量子效应[姆佩巴效应]: 原子尺度观测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quirk of freezing water found on atomic scales, hinting at technological applications",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "萤火虫公司月球着陆器首批数据挑战现有月球火山活动时间线",
+        "科研人员实现晶圆级p型半导体单层WSi2N4薄膜的可控制备",
+        "研究者在纳米光子铌酸锂平台实现兼具高稳定性的拓扑孤子频率梳"
+      ],
+      "entries": [
+        {
+          "t": "私营月球着陆器首批科学成果挑战月球火山活动图景",
+          "d": "2026-03-27",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "私人月球着陆器Blue Ghost传回了首批科学探测数据，对现有的月球火山活动模型提出了挑战。Blue Ghost由美国Firefly Aerospace公司研制，是NASA商业月球有效载荷服务（CLPS）计划的一部分。探测数据显示，月球特定区域的月壤成分和岩石特征与此前基于阿波罗任务数据建立的月球火山活动时间线存在显著差异，暗示月球内部的岩浆活动可能比此前认为的更加复杂、持续时间更长。这一结果首次表明，NASA日益依赖的商业化月球探测模式不仅能够降低任务成本，还能产出具有里程碑意义的科研成果，为未来大规模月球科学探索开辟了新路径。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeh4835?af=R",
+          "tp": "月球火山活动",
+          "aip": 1,
+          "kp": [
+            "[数据来源]: Blue Ghost商业月球着陆器",
+            "[发现]: 挑战月球火山活动模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Blue Ghost data suggest NASA’s growing commercial Moon program can deliver results",
+          "hb": 1
+        },
+        {
+          "t": "晶圆级且掺杂可调的p型半导体单层WSi2N4薄膜",
+          "d": "2026-03-27",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "单层WSi2N4此前被理论预测为高性能p型半导体，具有高空穴迁移率和高开关比。本研究实现了晶圆级且掺杂可调的p型半导体单层WSi2N4薄膜的可控制备。作为新兴的二维过渡金属氮硅化物（MA2Z4家族），WSi2N4在纳电子器件中展现出优异潜力。晶圆级制备的实现和p型掺杂的可控调控为构建二维CMOS逻辑电路提供了关键p型沟道材料，填补了二维材料体系中高质量p型半导体的空白。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag191/8541869?rss=1",
+          "tp": "p型半导体薄膜",
+          "aip": 1,
+          "kp": [
+            "材料类型[WSi2N4单层]: p型半导体",
+            "生长规模[WSi2N4]: 晶圆级可控掺杂",
+            "迁移特性[WSi2N4]: 高空穴迁移率"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Monolayer WSi2N4 has been predicted to be a high-performance p-type semiconductor with high hole mobility, high on-state current density, high strength, and high thermal conductivity. Achieving large-area growth of monolayer WSi2N4 with controlled doping is a prerequisite for the scalable integration of device applications. However, only micrometer-sized monolayer WSi2N4 domains have been synthesized so far. Here, we report the growth of wafer-scale monolayer WSi2N4 films with submillimeter domains by chemical vapor deposition using a liquid Au/W bilayer as the growth substrate, with a growth rate three orders of magnitude higher than previously reported values. This method also enables efficient modulation of carrier doping concentration from 5.8 × 1012 cm−2 to 3.2 × 1013 cm−2 through in",
+          "hb": 1
+        },
+        {
+          "t": "纳米光子铌酸锂中的拓扑孤子频率梳",
+          "d": "2026-03-27",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究者在纳米光子铌酸锂平台上实现了拓扑孤子频率梳。拓扑孤子的引入赋予光频梳更高的稳定性和抗扰动能力，为精密计量、光钟和激光测距等应用提供了兼具集成化与鲁棒性的新光源方案。铌酸锂的电光可调特性进一步增强了该平台的实用潜力。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10292-2",
+          "tp": "铌酸锂频率梳",
+          "aip": 1,
+          "kp": [
+            "光梳类型[铌酸锂纳米光子]: 拓扑孤子频率梳",
+            "[片上频率梳]: 纳米光子铌酸锂平台"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Frequency combs have revolutionized metrology, ranging and optical clocks1, motivating substantial efforts on the development of chip-scale comb sources2,3. Some on-chip comb sources exist and have been implemented through electro-optic modulation4,5, mode-locked lasers6,7, quantum cascade lasers8,9,10 or soliton formation by Kerr nonlinearity11,12. However, widespread deployment of on-chip comb sources has remained elusive, as they still require radiofrequency sources, high-Q (high-quality factor) resonators or complex stabilization schemes while facing efficiency challenges. Here, we demonstrate an on-chip frequency comb source based on the integration of a lithium niobate nanophotonic circuit with a semiconductor laser that can alleviate these challenges. We show the formation of temporal topological solitons in an on-chip nanophotonic parametric oscillator with quadratic nonlinearity and low finesse. These solitons, independent of the dispersion regime, consist of phase defects separating two π-out-of-phase continuous wave solutions at the signal frequency, which is half the input pump frequency13,14. We use on-chip cross-correlation for temporal measurements and confirm formation of topological solitons as short as 60 fs around 2 μm, in agreement with a generalized parametrically forced Ginzburg–Landau theory15,16,17. Moreover, we demonstrate a proof-of-concept turn-key operation of a hybrid-integrated source of topological frequency comb. Topological solitons are potential candidates for the development of integrated comb sources, which are dispersion-sign agnostic and do not require high-Q resonators or high-speed modulators, and can provide access to hard-to-reach spectral regions, including mid-infrared regions18.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

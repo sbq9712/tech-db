@@ -1,0 +1,206 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月25日　星期四",
+  "date_range": "2025-12-25",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "内建电场策略实现工业级电流密度下二氧化碳高效电合成乙烯",
+      "机器学习建立分子构效关系模型筛选钙钛矿电池新型双功能界面材料"
+    ],
+    "AI与智能科技": [
+      "CrystalGAT计算平台集成图注意力网络实现柔性晶体材料筛选与性能优化"
+    ],
+    "通用技术": [
+      "阳离子催化剂实现单体快速聚合并在特定条件下定量解聚回收",
+      "双牺牲键策略以二氧化碳为碳源合成具备高韧性与可回收性的环氧树脂",
+      "掺杂Mo(III)钙钛矿利用d到d跃迁在环境条件下实现超窄近红外二区发射"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "内建电场策略实现工业级电流密度下二氧化碳高效电合成乙烯",
+        "机器学习建立分子构效关系模型筛选钙钛矿电池新型双功能界面材料"
+      ],
+      "entries": [
+        {
+          "t": "内建电场触发界面水活化实现工业级CO电还原制乙烯",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "该研究利用内建电场触发界面水分子活化，实现CO2电还原为乙烯（C2H4）的工业级电合成。相比传统化石裂解工艺，CO2电化学还原制乙烯具有碳中和潜力。内建电场定向极化界面水分子，促进质子耦合电子转移过程，提高C-C偶联效率，从而提升C2H4选择性和电流密度。该策略在工业级电流密度下实现了高法拉第效率，为CO2资源化利用和绿色化工生产提供了可行路径。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202517221?af=R",
+          "tp": "CO2电还原制乙烯",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: 内建电场La(OH)3-Cu复合电催化剂",
+            "[核心机制]: 内建电场激活界面水分子",
+            "[产物]: CO2电还原制乙烯达工业级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The electrochemical reduction of CO\n                    2\n                    to ethylene (C\n                    2\n                    H\n                    4\n                    ), as opposed to traditional industrial methods, stands out as an environmentally friendly benign and promising technical solution for producing value‐added chemicals using renewable electricity. Here, we introduce a built‐in electric field in La(OH)\n                    3\n                    ‐Cu (BEF@La(OH)\n                    3\n                    ‐Cu) electrocatalyst that can exclusively convert from CO\n                    2\n                    to C\n                    2\n                    H\n                    4\n                    with a maximum Faradaic efficiency of 84.2% and high intrinsic activity exceeding 842.0 mA cm\n                    −2\n                    , while maintaining robust stability of 110 h. Furthermore, the corresponding C\n                    2\n                    H\n                    4\n                    formation rate and energy efficiency can reach 2618.0 µmol cm\n                    −2\n                    h\n                    −1\n                    and 31.2%, respectively. The BEF@La(OH)\n                    3\n                    ‐Cu electrocatalyst was constructed by stacking La(OH)\n                    3\n                    and Cu layers, forming a built‐in electric field induced by electron transfer between La→O←Cu. The electric field effectively triggered H\n                    2\n                    O dissociation on La(OH)\n                    3\n                    ‐Cu interface for supplying active hydrogen (*H) species, which promoted multiple protonation steps in the process of CO\n                    2\n                    ‐to‐C\n                    2\n                    H\n                    4\n                    conversion. The *H species then easily migrate to Cu sites, reducing the energy barrier for the conversion from *CO to *COH, thus enhancing the efficient asymmetric *CO−*COH coupling and ultimately boosting the C\n                    2\n                    H\n                    4\n                    production under ampere‐level operation.",
+          "hb": 1
+        },
+        {
+          "t": "内建电场触发界面水活化：面向二氧化碳电合成乙烯的工业级应用",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "电化学还原CO2制乙烯相较于传统工业方法具有低碳排放优势，但实现工业级电流密度下的高选择性转化仍面临挑战。本研究提出了一种内建电场策略，通过催化剂界面设计激活水分子，促进CO2电还原为乙烯（C2H4）的高效C─C偶联反应。内建电场调控了界面水分子的取向和活化状态，优化了关键中间体的吸附与反应能垒，从而在高电流密度下实现了高法拉第效率的乙烯生成。该策略为工业级CO2电合成多碳化学品提供了催化剂界面工程的新思路，对碳资源电化学利用具有重要推动作用。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202517221?af=R",
+          "tp": "CO2电还原制乙烯",
+          "aip": 1,
+          "kp": [
+            "催化剂[CO2电还原制乙烯]: BEF@La(OH)3-Cu",
+            "[内建电场]: 触发界面水活化实现CO2选择性转化为乙烯",
+            "规模[CO2电还原]: 工业级电合成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The electrochemical reduction of CO\n                    2\n                    to ethylene (C\n                    2\n                    H\n                    4\n                    ), as opposed to traditional industrial methods, stands out as an environmentally friendly benign and promising technical solution for producing value‐added chemicals using renewable electricity. Here, we introduce a built‐in electric field in La(OH)\n                    3\n                    ‐Cu (BEF@La(OH)\n                    3\n                    ‐Cu) electrocatalyst that can exclusively convert from CO\n                    2\n                    to C\n                    2\n                    H\n                    4\n                    with a maximum Faradaic efficiency of 84.2% and high intrinsic activity exceeding 842.0 mA cm\n                    −2\n                    , while maintaining robust stability of 110 h. Furthermore, the corresponding C\n                    2\n                    H\n                    4\n                    formation rate and energy efficiency can reach 2618.0 µmol cm\n                    −2\n                    h\n                    −1\n                    and 31.2%, respectively. The BEF@La(OH)\n                    3\n                    ‐Cu electrocatalyst was constructed by stacking La(OH)\n                    3\n                    and Cu layers, forming a built‐in electric field induced by electron transfer between La→O←Cu. The electric field effectively triggered H\n                    2\n                    O dissociation on La(OH)\n                    3\n                    ‐Cu interface for supplying active hydrogen (*H) species, which promoted multiple protonation steps in the process of CO\n                    2\n                    ‐to‐C\n                    2\n                    H\n                    4\n                    conversion. The *H species then easily migrate to Cu sites, reducing the energy barrier for the conversion from *CO to *COH, thus enhancing the efficient asymmetric *CO−*COH coupling and ultimately boosting the C\n                    2\n                    H\n                    4\n                    production under ampere‐level operation.",
+          "hb": 1
+        },
+        {
+          "t": "机器学习驱动的界面材料设计：面向可扩展性与带隙通用性的高性能钙钛矿太阳能电池",
+          "d": "2025-12-25",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究将机器学习驱动的分子设计方法应用于钙钛矿太阳能电池界面材料筛选，整合相关性分析、聚类和LASSO回归，发现了新型双功能界面材料。该方法建立了分子结构-性能定量构效关系模型，高效搜索分子空间筛选出同时满足钝化缺陷、优化能级对齐和改善界面电荷传输的分子。所设计界面材料在不同带隙钙钛体系和放大组件中均展现出色的普适性和可扩展性，为钙钛矿太阳能电池的效率提升与商业化提供了数据驱动的材料发现范式。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00445-3?rss=yes",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "带隙范围[钙钛矿电池]: 1.55-1.85 eV",
+            "策略[界面修饰剂]: ML驱动发现BIPA分子"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Machine learning-driven molecular design integrating correlation analysis, clustering, and LASSO regression discovers BIPA, an efficient interface modifier that concurrently passivates defects, optimizes band alignment, and enhances perovskite crystallinity. This strategy enables high-efficiency, scalable, and stable perovskite solar cells across a wide band-gap range (1.55–1.85 eV).",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "CrystalGAT计算平台集成图注意力网络实现柔性晶体材料筛选与性能优化"
+      ],
+      "entries": [
+        {
+          "t": "CrystalGAT：基于AI的智能柔性晶体材料设计计算平台",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "CrystalGAT是一个基于AI的智能柔性晶体材料设计计算平台，旨在通过图注意力网络（GAT）等机器学习方法实现功能晶体的柔性化设计。赋予功能晶体柔韧性可大幅拓展其在柔性电子、传感和能量存储等领域的应用。平台整合了晶体结构预测、性质计算和柔性性能评估模块，实现从材料筛选到性能优化的全流程自动化。该平台有望加速新型柔性功能晶体材料的发现和工程化应用。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202518543?af=R",
+          "tp": "AI晶体材料设计",
+          "aip": 1,
+          "kp": [
+            "[材料设计]: 图注意力网络AI柔性晶体材料设计平台"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Endowing functional crystals with flexibility significantly broadens their potential applications in the field of flexible smart devices. Despite tremendous efforts to understand the foundational structural principles of flexibility, most discoveries of crystals with mechanical flexibility remain accidental. Currently, machine learning has become a transformative research paradigm in materials science. Here, we propose an innovative approach and develop a platform for predicting the mechanical properties of molecular crystals named CrystalGAT. CrystalGAT is a graph neural network model based on attention mechanisms, which constructs a robust optimal model through data augmentation strategies and achieves markedly superior prediction performance compared to established models. A high prediction accuracy of 90% is demonstrated on the validation set, alongside a promising generalization capability that extends to multicomponent systems. Most importantly, we have identified key segments influencing the mechanical properties of molecular crystals using CrystalGAT, successfully achieving a breakthrough in transforming brittle crystals into flexible photoresponsive crystals. Furthermore, it is possible to quickly screen for plastic multicomponent drug crystals, enhancing tableting performance. CrystalGAT provides an efficient method for flexible molecular crystal design, demonstrating its potential applications in material discovery and drug molecular modification. For user convenience, a dedicated website has been established:\n                    https://huggingface.co/spaces/ZZZCCCYYY/CrystalGAT\n                    .",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "阳离子催化剂实现单体快速聚合并在特定条件下定量解聚回收",
+        "双牺牲键策略以二氧化碳为碳源合成具备高韧性与可回收性的环氧树脂",
+        "掺杂Mo(III)钙钛矿利用d到d跃迁在环境条件下实现超窄近红外二区发射"
+      ],
+      "entries": [
+        {
+          "t": "阳离子催化剂策略实现超快可控聚合与高效解聚向循环经济迈进",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究开发了阳离子催化剂策略，实现超快可控聚合和高效解聚，构建化学可循环聚合物体系。化学可循环聚合物被认为是缓解塑料污染的理想方案之一。阳离子催化体系在温和条件下实现单体的快速聚合，并可在特定条件下定量解聚回原始单体，形成闭环循环。该策略兼具高聚合速率、分子量精确可控和解聚效率高等优势，为可持续高分子材料的设计提供了重要突破。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520392?af=R",
+          "tp": "可回收聚合物",
+          "aip": 1,
+          "kp": [
+            "[聚合策略]: 阳离子催化实现NCA超快可控聚合与解聚"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The development of chemically recyclable polymers is considered one of the ideal solutions to alleviate the growing polymer waste. Fast, controlled synthesis and closed‐loop recycling of amino acid (AA) polymers, as an important class of polyamides, are highly important for applications and circular polymer economy. Strong base‐initiated\n                    N\n                    ‐carboxyanhydrides (NCAs) polymerization can prepare AA polymers very quickly, however, has the long‐standing challenge of poor molecular weight controllability and numerous side reactions. Herein, we develop a highly efficient cationic‐catalyst strategy that enables both “ultrafast, controlled AA polymer synthesis” and “closed‐loop AA polymer recycling”. This robust and easily scalable cationic‐catalyst strategy is compatible with various organic strong bases as initiators, and enables the synthesis of molecular weight well‐controlled AA polymers on a hectogram scale (∼120 g) within minutes. Moreover, the cationic catalyst facilitates the efficient depolymerization of AA polymers into environmentally friendly amino acids, with a recovery rate of 85.9%. In addition, the catalyst itself can be recycled quantitatively. In short, the highly efficient cationic‐catalyst strategy implies practical and promising applications in polymerization and depolymerization chemistry, demonstrating great potential for the circular polymer economy and sustainable management of polymer waste.",
+          "hb": 1
+        },
+        {
+          "t": "双重牺牲策略制备坚韧可回收的CO2基环氧热固性树脂",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "传统热固性环氧树脂兼具高强度与优异耐热性，但交联网络导致难以回收再利用。本研究以CO2为碳源合成环氧树脂，并采用双牺牲键策略——在交联网络中引入两种可逆动态共价键，实现高强度与可回收性的协同。双牺牲机制使材料在受外力时通过键的优先断裂耗散能量，显著提升韧性；而在热或催化剂触发下动态键可重组，实现网络的拓扑重排与闭环回收。该策略为CO2资源化利用与可持续高性能热固性材料设计提供了新范式。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519660?af=R",
+          "tp": "CO2基环氧树脂",
+          "aip": 1,
+          "kp": [
+            "[可回收热固性]: CO2基PPC聚醇双牺牲键策略"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Developing thermosetting epoxy resins that concurrently deliver high performance (integrating superior strength with toughness) and chemical recyclability presents a persistent challenge in sustainable polymer advancement. Herein, we present a dual sacrificial strategy employing CO\n                    2\n                    ‐derived poly(ether‐carbonate) (PPC) polyols as functional epoxy hardeners. Flexible ether segments serve as sacrificial components enhancing toughness, while cleavable carbonate groups function as sacrificial sites facilitating degradation. This dual sacrificial design in PPC polyols demonstrably enhances mechanical properties while enabling degradability. Model reactions and curing kinetics analyses reveal a distinctive dual‐stage crosslinking process governed by hydroxyl transfer mechanisms. The resulting hierarchical cure yields thermosets with unconventional hyperbranched topologies embedded within uniform network structures, conferring: 1) tunable thermomechanical properties (\n                    T\n                    g\n                     = 53–129 °C) through precise polyol content control; 2) substantially elevated toughness (up to 5.2 MJ m\n                    −3\n                    ), exceeding conventional epoxy resins by &gt;300%; and 3) rapid catalytic chemical recyclability (&lt;4 h at 60 °C), with degradation products functioning as reusable hardeners. Practical validation via glass fiber‐reinforced composites and electronic packaging confirms robust performance with full recyclability. This integrated methodology reconciles the historical trade‐off between mechanical robustness and chemical recyclability in thermosets, establishing a viable pathway toward sustainable epoxy production.",
+          "hb": 1
+        },
+        {
+          "t": "Mo(III)掺杂钙钛矿的组态内自旋翻转d→d跃迁实现环境条件下的超窄近红外二区发射",
+          "d": "2025-12-25",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究通过在钙钛矿中掺杂Mo(III)，利用组态内自旋翻转d→d跃迁，在环境条件下实现了超窄近红外二区（NIR-II）发射。与传统稀土离子的f-f跃迁不同，Mo(III)的d→d跃迁在配位场调控下产生尖锐发射峰，半峰宽极窄且在空气环境中保持稳定。该方法避免了对昂贵稀土元素的依赖，为NIR-II发光材料的设计提供了新的跃迁机制，在生物成像和夜视传感等领域具有应用前景。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519144?af=R",
+          "tp": "钙钛矿近红外发光",
+          "aip": 1,
+          "kp": [
+            "发射体[NIR-II]: Mo(III)掺杂钙钛矿",
+            "跃迁类型[NIR-II]: t2g3组态内自旋翻转d→d跃迁"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Sharp near‐infrared‐II (NIR‐II) emissions are typically achieved through  electronic transitions of rare‐earth ions, while  transitions in transition metal ions are broad due to electron–ligand interactions. An exception is the intra‐configurational spin‐flip (ICSF)  transition like t\n                    2g\n                    3\n                    t\n                    2g\n                    3\n                    of Mo\n                    3+\n                    emitting sharp NIR‐II emission, but only at cryogenic temperatures under vacuum. The high oxophilicity of Mo\n                    3+\n                    created defects during the synthesis, quenching the emission at room temperature. Herein, we overcome this issue by synthesizing Mo\n                    3+\n                    − doped Cs\n                    2\n                    NaInCl\n                    6\n                    double perovskites in a reducing H\n                    3\n                    PO\n                    2\n                    environment. [MoCl\n                    6\n                    ]\n                    3−\n                    octahedra are formed, exhibiting ultra‐narrow ICSF  (\n                    2\n                    T\n                    1g\n                    /\n                    2\n                    E\n                    g\n                    4\n                    A\n                    2g\n                    ) NIR‐II emission at 1095 nm in ambient conditions. In addition, a second ICSF\n                    2\n                    T\n                    2g\n                    4\n                    A\n                    2g\n                    emission is observed at 700 nm, violating the Kasha's rule. The intensity of ICSF emissions increase with increasing temperature (7–350 K) due to vibronic coupling relaxing the Laporte selection rule. The samples are stable for more than 6 months in ambient conditions, allowing for a detailed study of fundamental photophysics and fabrications of phosphor‐converted light emitting diodes. This is the first Mo\n                    3+\n                    –based NIR‐II optoelectronic device, opening opportunities for applications like optical fibers and lasing.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

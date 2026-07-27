@@ -1,0 +1,251 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月10日　星期六",
+  "date_range": "2026-01-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中国环流器与东方超环实验跨越等离子体关键工程阈值",
+      "合源锂创与金羽新能投产360至400Wh/kg级固态电池产线",
+      "新型拓扑分子设计提升锌碘电池循环耐久性并抑制穿梭效应"
+    ],
+    "AI与智能科技": [
+      "亚50纳米铁电AlScN薄膜写入循环耐久性突破百亿次",
+      "深度对比学习算法实现全蛋白质组规模虚拟药物筛选",
+      "仿生液晶弹性体人工肌肉复合体实现力学驱动与感知一体化"
+    ],
+    "通用技术": [
+      "无铅卤化物锑发光二极管外量子效率达到22%",
+      "X射线自由电子激光实现50飞秒级固体等离子体成像",
+      "MXene太赫兹超材料传感平台实现体内血栓实时检测"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中国环流器与东方超环实验跨越等离子体关键工程阈值",
+        "合源锂创与金羽新能投产360至400Wh/kg级固态电池产线",
+        "新型拓扑分子设计提升锌碘电池循环耐久性并抑制穿梭效应"
+      ],
+      "entries": [
+        {
+          "t": "中国核聚变反应堆推动等离子体突破关键极限：后续展望",
+          "d": "2026-01-10",
+          "a": "Nature",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "中国核聚变反应堆在实验中将等离子体推过了关键阈值极限。此类突破通常指等离子体温度、约束时间或密度达到工程意义阈值（如电子温度突破亿度或实现高约束H模长脉冲运行）。中国环流器系列（HL-2A/3）及东方超环（EAST）是主力装置，近年来在长脉冲高参数等离子体领域持续刷新纪录。等离子体跨越关键极限意味着向自持燃烧和聚变堆工程化迈出重要一步，但距离净能量增益（Q>1）的商用聚变仍有距离，核心瓶颈包括材料耐辐照、氚自持及稳态运行工程化。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-00063-4",
+          "tp": "核聚变等离子体",
+          "aip": 1,
+          "kp": [
+            "[技术突破]: 中国核聚变反应堆等离子体突破关键极限"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "合源锂创、金羽新能分别称其固态电池制造基地/GW级产线投产",
+          "d": "2026-01-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "1月10日合源锂创宣布淮安固态电池制造基地投产，车规级产品能量密度达360Wh/kg，支持10C瞬时放电和-40℃运行。1月15日金羽新能称其1.2GWh固态电池产线投产，主产\"无际\"全固态锂金属电池(能量密度>400Wh/kg)、\"万山\"超快充半固态及\"山海\"高安全半固态电池。两企业参数亮眼，但量产可靠性仍待验证。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/HihrezsZzYBdRMxsBOGrEQ",
+          "tp": "固态电池量产",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月10日，合源锂创在官方公众号发文称，其在淮安的固态电池制造基地投产运行。据文中宣传，其当前轻型动力电池能量密度达250-300Wh/kg，可稳定循环1500次，并能通过5mm针刺测试；低空动力电池（270-360Wh/kg）最大瞬时放电功率15C，工作温度范围-20-55℃；具身智能电池能量密度280-360Wh/kg；车规级产品能量密度达360Wh/kg，循环寿命1000圈，支持10C瞬时放电和-40℃运行。\n1月15日，金羽新能在官方公众号发文称，其1.2GWh固态电池产线正式投产运营，将主要生产金羽新能“无际”系列全固态锂金属电池（圆柱容量涵盖8-52Ah，能量密度＞400Wh/kg，官网宣传页面为准固态电池）、“万山”系列超快充高功率半固态电池（6C/10.5C充放电倍率、循环≥1500次）及“山海”系列高安全半固态电池（-55℃至75℃范围放电、5C/10C室温充放循环2000圈容量保持率80%、2.5-45Ah）。据2025年8月金羽新能官网发文称，该产线为半固态电池示范线，",
+          "hb": 1
+        },
+        {
+          "t": "稠合环拓扑协同晶面调控与多碘化物捕获，实现超长寿命锌碘电池",
+          "d": "2026-01-10",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "研究通过稠环拓扑结构设计实现晶面控制和多碘化物螯合，显著提升锌碘电池的循环耐久性。稠环分子通过空间限域效应精准调控锌沉积取向并捕获多碘化物，有效抑制穿梭效应，实现了超长循环寿命。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07366A",
+          "tp": "锌碘电池",
+          "aip": 1,
+          "kp": [
+            "电解质调控剂[锌碘电池]: 咪唑并[1,2-b]哒嗪",
+            "功能[锌碘电池]: 晶面调控+多碘化物捕获"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Aqueous zinc-iodine batteries present a compelling route for sustainable energy storage yet remain hindered by uncontrolled dendritic growth and the parasitic polyiodide shuttle effect. Here, we surmount these challenges by introducing a bifunctional electrolyte modulator, imidazo[1,2-b]pyridazine (IP), characterized by a nitrogen-rich fused-ring aromatic topology, to orchestrate synergistic regulation of both anode and cathode interfaces. At the anode, IP partially displaces water molecules from the Zn2+ solvation sheath and self-assembles into a dense, dynamic adsorption interphase driven by strong π-π stacking interactions. This interfacial restructuring homogenizes ion flux and directs zinc deposition preferentially along the kinetically favorable (100) crystallographic plane, effectively inhibiting dendrite formation. Concurrently at the cathode, the electron-rich nitrogen centers of IP function as Lewis base sites to chemically immobilize soluble polyiodide species. This confinement mechanism mitigates the shuttle effect without compromising intrinsic redox kinetics. Translating this synergistic modulation into electrochemical performance, symmetric cells achieve an ultralong lifespan exceeding 8500 hours at a current density of 1 mA cm-2. Moreover, full Zn||I2 batteries demonstrate robust cyclability, retaining 89.36% of their initial capacity after 2000 cycles. Collectively, this work establishes a dual-site functional coordination strategy that opens a viable avenue for developing highly durable aqueous energy storage systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "亚50纳米铁电AlScN薄膜写入循环耐久性突破百亿次",
+        "深度对比学习算法实现全蛋白质组规模虚拟药物筛选",
+        "仿生液晶弹性体人工肌肉复合体实现力学驱动与感知一体化"
+      ],
+      "entries": [
+        {
+          "t": "亚50 nm铁电AlScN写入循环耐久性超过10¹⁰",
+          "d": "2026-01-10",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究报道了在亚50纳米铁电AlScN（氮化铝钪）薄膜中实现了超过10^10次写入循环的擦写耐久性。纤锌矿结构铁电材料，尤其是AlScN，近年来已成为存储器、压电器件等领域极具前景的新材料平台。研究证明该材料在纳米尺度器件中展现出极优异的循环稳定性，这一突破性耐久性指标解决了铁电存储器长期可靠性的关键瓶颈，使AlScN有望成为下一代非易失性存储器和纳机电系统的核心材料。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-68221-2",
+          "tp": "铁电AlScN存储器",
+          "aip": 1,
+          "kp": [
+            "极化强度[AlScN]: >100 μC/cm²",
+            "矫顽场[AlScN]: >3 MV/cm",
+            "循环寿命[<50nm]: >10^10次"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Wurtzite ferroelectrics, particularly aluminum scandium nitride (AlScN), have emerged as a promising material platform for non-volatile memories, offering high polarization values exceeding 100 μC/cm2. However, their high coercive fields (>3 MV/cm) have limited cycling endurance to ~107 cycles in previous reports. Here, we demonstrate unprecedented control of polarization switching in AlScN, achieving write cycling endurance exceeding 1010 cycles—a thousand-fold improvement over previous wurtzite ferroelectric benchmarks. Through precise voltage modulation in 45 nm-thick Al0.64Sc0.36N capacitors, we show that while complete polarization reversal (2Pr ≈ 200 μC/cm2) sustains ~108 cycles, partial switching extends endurance beyond 1010 cycles while maintaining a substantial polarization (>30 μC/cm2 for 2Pr). This exceptional endurance, combined with breakdown fields approaching 10 MV/cm in optimized 10 μm diameter devices, represents the highest reported values for any wurtzite ferroelectric. Our findings establish a new paradigm for reliability in nitride ferroelectrics, demonstrating that controlled partial polarization and size scaling enables both high endurance and energy-efficient operation.",
+          "hb": 1
+        },
+        {
+          "t": "深度对比学习实现全基因组虚拟筛选",
+          "d": "2026-01-10",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "该研究提出利用深度对比学习方法实现基因组规模的虚拟药物筛选。借助蛋白质结构预测的突破，该方法能高效在全蛋白质组范围内识别潜在药物结合位点，显著突破了现有虚拟筛选在计算规模和精度方面的瓶颈。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.ads9530?af=R",
+          "tp": "药物虚拟筛选",
+          "aip": 1,
+          "kp": [
+            "加速比[虚拟筛选]: 比分子对接快10^7倍",
+            "方法[虚拟筛选]: DrugCLIP对比学习框架"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Recent breakthroughs in protein structure prediction have opened new avenues for genome-wide drug discovery, yet existing virtual screening methods remain computationally prohibitive. We present DrugCLIP, a contrastive learning framework that achieves ultrafast and accurate virtual screening, up to 10 million times faster than docking, while consistently outperforming various baselines on in silico benchmarks. In wet-lab validations, DrugCLIP achieved a 15% hit rate for norepinephrine transporter, and structures of two identified inhibitors were determined in complex with the target protein. For thyroid hormone receptor interactor 12, a target that lacks holo structures and small-molecule binders, DrugCLIP achieved a 17.5% hit rate using only AlphaFold2-predicted structures. Finally, we released GenomeScreenDB, an open-access database providing precomputed results for ~10,000 human proteins screened against 500 million compounds, pioneering a drug discovery paradigm in the post-AlphaFold era.",
+          "hb": 1
+        },
+        {
+          "t": "仿生液晶弹性体人工肌肉-肌腱复合体实现双向传入-传出信号传导（Adv. Mater. 2/2026）",
+          "d": "2026-01-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "设计仿生液晶弹性体人工肌肉-肌腱复合体，实现双向传入-传出信号传导功能。该软体致动器模拟生物肌肉-肌腱系统的力学感知与驱动一体化机制，兼具机械驱动与本体感觉反馈能力，在软体机器人和神经接口领域具有重要应用前景。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.71898?af=R",
+          "tp": "液晶弹性体人工肌肉",
+          "aip": 1,
+          "kp": [
+            "材料[人工肌腱复合体]: 液晶弹性体",
+            "[功能]: 双向传入-传出信号传导"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "无铅卤化物锑发光二极管外量子效率达到22%",
+        "X射线自由电子激光实现50飞秒级固体等离子体成像",
+        "MXene太赫兹超材料传感平台实现体内血栓实时检测"
+      ],
+      "entries": [
+        {
+          "t": "基于二元主体-客体架构的高效无铅锑卤化物发光二极管，外量子效率达22%",
+          "d": "2026-01-10",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究实现了无铅卤化锑发光二极管22%的外量子效率，采用双组分主体-客体架构设计。用锑替代有毒的铅，通过主体-客体能量传递策略优化激子动力学和辐射复合效率，创下无铅卤化物LED的效率新纪录。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz5689?af=R",
+          "tp": "无铅锑卤化物LED",
+          "aip": 1,
+          "kp": [
+            "外量子效率[无铅锑卤化物LED]: 22%",
+            "架构[锑卤化物LED]: 二元主-客体",
+            "加工方式[锑卤化物LED]: 溶液法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Lead halide emitters hold great promise for next-generation light-emitting diodes (LEDs), but their heavy metal toxicity poses major barriers to commercialization. Therefore, developing efficient lead-free metal halide LEDs is highly desirable but remains a big challenge. Here, we report solution-processed lead-free antimony halide–based LEDs with an external quantum efficiency of 22% and a current efficiency of 55.84 candelas per ampere. The exceptional device performance is achieved through a binary host-guest architecture using a zero-dimensional organic-inorganic antimony(III) halide, which exhibits bright emission with a near-unity photoluminescence quantum yield. Optical and photophysical studies combined with theoretical calculations reveal the mechanism underlying its highly efficient self-trapped exciton emission. Efficient LEDs were achieved by doping (AylPPh\n                    3\n                    )\n                    2\n                    SbCl\n                    5\n                    into a binary host system, which improved film morphology, enhanced charge carrier mobility, and achieved better carrier balance. These enhancements resulted in substantially superior device performance compared to nondoped LEDs with (AylPPh\n                    3\n                    )\n                    2\n                    SbCl\n                    5\n                    as a neat emissive layer.",
+          "hb": 1
+        },
+        {
+          "t": "固体密度等离子体中电流丝化不稳定性的时间分辨 X 射线成像",
+          "d": "2026-01-10",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究将高强度光学激光与高亮度X射线自由电子激光结合，首次以200纳米空间和50飞秒时间分辨率对固体密度等离子体中的电流丝化不稳定性进行时间分辨X射线成像，成功表征了该天体物理和实验室等离子体中带电粒子流磁化过程的关键不稳定性。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67160-2",
+          "tp": "等离子体成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The streaming of energetic charged particles can magnetize astrophysical and laboratory plasmas via the current filamentation instability. Despite its importance, the experimental characterization of this instability has remained a challenge. Here, we report an experiment combining a high-intensity optical laser with a high-brightness X-ray free electron laser that successfully images the instability in solid-density plasmas with 200 nm spatial and 50 fs temporal resolution. We characterize the development of μm-scale filamentary structures and their evolution over tens of picoseconds through a non-linear merging process. The measured plasma density modulations and long merging time reveal the critical importance of space-charge effects and ion motion on this electron-driven instability. Supporting theoretical analysis and kinetic simulations help distinguish the relative role of space-charge and resistive effects. Our findings indicate that magnetic fields on the order of 10 megagauss are produced, with important implications for transport and radiation emission of energetic particles in plasmas.",
+          "hb": 1
+        },
+        {
+          "t": "MXene驱动太赫兹超材料作为实时生物传感平台用于体内血栓监测",
+          "d": "2026-01-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究开发了基于MXene材料构建的太赫兹超材料生物传感平台，用于实时体内血栓监测。利用MXene的高导电性和可调电磁响应特性，超材料结构对血栓形成过程中的微小介电变化具有高灵敏度。该平台实现了无需标记的实时检测，有望用于心脑血管疾病的早期预警和术中监测。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.71900?af=R",
+          "tp": "太赫兹生物传感",
+          "aip": 1,
+          "kp": [
+            "太赫兹超材料[体内传感]: MXene驱动实时血栓监测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

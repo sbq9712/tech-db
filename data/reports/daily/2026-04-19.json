@@ -1,0 +1,236 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月19日　星期日",
+  "date_range": "2026-04-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队调控结晶动力学抑制富锡相析出，提升无甲铵锡铅钙钛矿电池稳定性",
+      "研究者构建阴离子衍生钝化界面相，抑制钠金属与硬碳复合负极枝晶生长",
+      "研究揭示非晶硼化镍自歧化诱导氢吸附脱脱区机制，提升光催化析氢效率"
+    ],
+    "AI与智能科技": [
+      "荣耀闪电机器人以50分26秒完成半程马拉松，首次超越人类男子世界纪录",
+      "科研团队提出量子启发机器学习框架，提升时空混沌系统长期预测精度"
+    ],
+    "通用技术": [
+      "研究首次利用亚埃级三维电子衍射技术揭示液相环境中晶体结构与相变过程",
+      "研究者构建大环共价有机网络分离膜，实现亚埃级超高精度离子筛分",
+      "科研团队提出水触发光催化甲烷氧化偶联策略，温和条件下提升乙烷产率"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队调控结晶动力学抑制富锡相析出，提升无甲铵锡铅钙钛矿电池稳定性",
+        "研究者构建阴离子衍生钝化界面相，抑制钠金属与硬碳复合负极枝晶生长",
+        "研究揭示非晶硼化镍自歧化诱导氢吸附脱脱区机制，提升光催化析氢效率"
+      ],
+      "entries": [
+        {
+          "t": "抑制富锡相析出实现无MA锡铅钙钛矿太阳能电池的可控结晶",
+          "d": "2026-04-19",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究聚焦无甲铵基（MA-free）锡铅钙钛矿太阳能电池，通过抑制富锡相沉淀实现可控结晶。无甲铵锡铅钙钛矿是耐用全钙钛矿叠层电池（APTSCs）的关键组分，但Sn2+易于氧化和相分离导致器件性能退化。研究通过调控结晶动力学，有效抑制了富锡相的不均匀析出，提升了薄膜质量和器件稳定性。该策略为推动高效稳定的全钙钛矿叠层电池走向商业化提供了重要解决方案。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00617",
+          "tp": "锡铅钙钛矿电池",
+          "aip": 1,
+          "kp": [
+            "[添加剂]: RbSCN多功能调控剂",
+            "[结晶控制]: 抑制Sn富相析出与晶格应变",
+            "应用[Sn-Pb钙钛矿]: 无甲胺(MA-free)体系"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Methylammonium-free (MA-free) tin–lead perovskites are essential for durable all-perovskite tandem solar cells (APTSCs), yet the lower activation energy of Sn-based phases triggers a premature nucleation driving force, leading to detrimental Sn-rich phase precipitation and significant lattice strain. Herein, we introduce rubidium thiocyanate (RbSCN) as a multifunctional regulator to orchestrate the crystallization dynamics and strain evolution. SCN– selectively coordinates with Sn2+, retarding premature Sn-rich phase precipitation and synchronizing the growth rates of Sn/Pb-mixed phases. Simultaneously, Rb+ mitigates local lattice distortion, yielding structurally homogeneous films with minimized nonradiative recombination. Consequently, the optimized MA-free Sn–Pb device achieves a 22.92% power conversion efficiency (PCE) and exhibits enhanced operational stability. Integrating this into monolithic APTSCs realizes a PCE of 28.77% (TÜV-certified 28.53%). Notably, the VOC × FF product represents the highest value reported for MA-free APTSCs, highlighting the efficacy of synchronized crystallization in unleashing the potential of narrow-bandgap perovskites.",
+          "hb": 1
+        },
+        {
+          "t": "阴离子衍生钝化界面相用于钠电池抗腐蚀钠金属与硬碳复合负极",
+          "d": "2026-04-19",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "该研究提出阴离子衍生钝化界面相策略，用于构建金属钠与硬碳混合负极的抗腐蚀界面，以提升钠电池综合性能。钠电池因材料储量丰富而具有大规模储能潜力，但能量密度偏低和钠枝晶生长等问题制约了其发展。混合负极结合金属钠高比容量和硬碳优异循环稳定性的优势，阴离子衍生SEI层有效抑制了钠负极腐蚀和枝晶生长，实现了高能量密度与长循环寿命的兼顾，为下一代钠电池实用化提供了可行路径。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00843",
+          "tp": "钠金属电池负极",
+          "aip": 1,
+          "kp": [
+            "电解质[钠电池]: NaFSI/DME-TTE",
+            "[界面钝化]: 阴离子衍生钝化相",
+            "[负极]: Na金属+硬碳混合"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Sodium batteries hold great promises for energy storage due to material abundance yet fall short in energy density. Hybrid anodes integrating sodium metal and hard carbon (HC) boost energy density yet face poor aging stability. Herein, we report a NaFSI/1,2-dimethoxyethane (DME)-1,1,2,2-tetrafluoroethyl 2,2,3,3-tetrafluoropropyl ether (TTE) electrolyte, which enhances both anode and cathode interfacial stability via anion-derived interphases, mitigating hybrid anode corrosion and preserving cathode structural integrity during high voltage cycling. Consequently, the full cell with a high loading cathode (1.68 mAh cm–2) and limited Na inventory (N/P = 1.91) achieves 87.98% capacity retention after 200 cycles at 0.33 C and 99.82% average Coulombic efficiency. Notably, under intermittent cycling (24 h rest every 3 cycles), it retains 81.19% capacity after 100 cycles, outperforming conventional electrolytes that fail at ∼75 cycles. This study proposes an anti-corrosion electrolyte to realize hybrid sodium batteries with superior cycling longevity, providing insights into high energy density metal/ion batteries.",
+          "hb": 1
+        },
+        {
+          "t": "非晶硼化镍助催化剂中自歧化诱导的氢吸附/脱附区实现高效光催化析氢",
+          "d": "2026-04-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "该研究发现非晶态硼化镍助催化剂中的自歧化效应诱导了氢吸附/脱附区域的形成，从而高效促进光催化析氢反应。氢溢流是增强析氢动力学的经典策略，但在传统双组分体系中效率受限。非晶态硼化镍中不同B位点的自歧化创造了不对称的氢吸附-脱附微环境，使氢物种能高效迁移和释放。该机制为设计高效非贵金属析氢催化剂提供了全新理论框架。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01844",
+          "tp": "析氢电催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[光催化析氢]: 非晶硼化镍(a-NiB)",
+            "[机制]: 自歧化产生颗粒内H吸附/脱附区"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrogen spillover is a well-established strategy for enhancing hydrogen evolution kinetics; however, in conventional binary-component catalysts, its efficiency is often limited by long diffusion distances and significant interfacial resistance. Herein, we developed an efficient intraparticle hydrogen spillover pathway in isolated amorphous nickel boride (a-NiB) cocatalysts through an amorphization-induced self-disproportionation strategy, which significantly enhances H2-evolution kinetics. Combined experimental and theoretical results demonstrate that amorphization induces uneven compression and stretching of Ni-B bonds, leading to the electronic density disproportionation of nickel active sites. This effect creates spatially separated electron-deficient and electron-rich microzones within each a-NiB nanoparticle, promoting efficient hydrogen adsorption and desorption, respectively, and thereby enabling facile intraparticle hydrogen spillover within the a-NiB cocatalyst. When coupled with CdS photocatalysts, the a-NiB cocatalyst enables vigorous visible-light-driven H2 evolution with macroscopic bubble formation and achieves a quantum efficiency of 53%. This work redefines catalyst design in amorphous materials and opens new frontiers for energy synthesis technologies.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "荣耀闪电机器人以50分26秒完成半程马拉松，首次超越人类男子世界纪录",
+        "科研团队提出量子启发机器学习框架，提升时空混沌系统长期预测精度"
+      ],
+      "entries": [
+        {
+          "t": "荣耀开发的闪电机器人打破人类男子半程马拉松世界纪录",
+          "d": "2026-04-19",
+          "a": "",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "荣耀开发的闪电机器人以50分26秒成绩夺得2026北京亦庄人形机器人半程马拉松冠军，跑完21.0975km。该成绩超越人类男子半马世界纪录（基普利莫57分20秒），较去年首届冠军（天工队2小时40分）大幅提升。机器人身高169cm，采用自研一体化关节模组（峰值扭矩400Nm）、电机液冷散热（换热流量超4L/min）、高动态运控算法与多传感器融合导航，单块电池续航10km，全程换电一次。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.xinhuanet.com/20260419/18ae4ae7a893473088eb6d800f92476d/c.html?utm_source=copilot.com",
+          "tp": "闪电机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据新华社4月19日报道，荣耀开发的“闪电”机器人以50分26秒的净时成绩夺得2026北京亦庄半程马拉松暨人形机器人半程马拉松（21.0975km）冠军。文中称，该成绩打破了乌干达选手基普利莫在今年3月里斯本半程马拉松赛中创造的57分20秒的人类男子半程马拉松世界纪录；去年首届人形机器人半程马拉松中，天工队的人形机器人夺冠成绩为2小时40分42秒。据IT之家等媒体报道，荣耀该款机器人身高169cm，采用自研的一体化关节模组，其峰值扭矩可达400Nm；搭配电机液冷散热，可实现每分钟超4L的换热流量；同时采用高动态运控算法与多传感器融合技术，支持自主导航。另据新浪财经报道称，闪电机器人采用长续航电池，单块支持10km续航，全程进行了一次换电（补给站换电不罚时；站外换电或更换机器人本体会罚时）。",
+          "hb": 1
+        },
+        {
+          "t": "面向时空混沌预测的量子增强机器学习：实用化量子优势",
+          "d": "2026-04-19",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "本文提出了一种量子启发的机器学习框架（QIML），用于建模和预测高维时空混沌系统的长期行为。该框架利用量子计算中的张量网络表示方法来压缩传统神经网络模型中指数增长的参数空间，在不依赖真实量子硬件的前提下，通过经典模拟获得量子启发的特征映射优势。研究表明，QIML在Kuramoto-Sivashinsky等典型混沌系统中表现出优于传统方法的长期预测精度和计算效率，为复杂流体、气象等高维动力系统的实时预报提供了具有实际可操作性的新范式。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5049?af=R",
+          "tp": "量子机器学习",
+          "aip": 1,
+          "kp": [
+            "[框架]: 量子知情机器学习",
+            "[架构]: 量子生成模型+经典自回归",
+            "[应用]: 时空混沌预测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We introduce a quantum-informed machine learning (QIML) framework for modeling the long-term behavior of high-dimensional chaotic systems. QIML combines a one-time, offline-trained quantum generative model with a classical autoregressive predictor for spatiotemporal field generation. The quantum model learns a quantum prior (Q-Prior) that guides the representation of small-scale interactions and improves the modeling of fine-scale dynamics. We evaluate QIML on the Kuramoto-Sivashinsky equation, two-dimensional Kolmogorov flow, and the three-dimensional turbulent channel flow used as a realistic inflow condition. Across these systems, QIML improves predictive distribution accuracy by up to 17.25% and full-spectrum fidelity by up to 29.36% relative to classical baselines. For turbulent channel inflow, the Q-Prior is trained on a superconducting quantum processor and proves essential: without it, predictions become unstable, whereas QIML produces physically consistent long-term forecasts that outperform leading partial differential equation solvers. Beyond accuracy, QIML offers a memory advantage by compressing multimegabyte datasets into a kilobyte-scale Q-Prior, enabling scalable integration of quantum resources into scientific modeling.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究首次利用亚埃级三维电子衍射技术揭示液相环境中晶体结构与相变过程",
+        "研究者构建大环共价有机网络分离膜，实现亚埃级超高精度离子筛分",
+        "科研团队提出水触发光催化甲烷氧化偶联策略，温和条件下提升乙烷产率"
+      ],
+      "entries": [
+        {
+          "t": "亚埃级三维电子衍射揭示液体中的晶体结构与相变",
+          "d": "2026-04-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究利用亚埃级精度三维电子衍射（3DED）技术，首次揭示了液相中晶体的精细结构及相变过程。对晶体在液体环境中相变和结构动力学的原子级观测，是理解结晶、溶解及液固界面过程的基础科学问题。该技术突破了传统X射线衍射在纳米尺度和液体环境中的精度限制，为液相化学反应机理、药物多晶型研究及材料合成设计提供了前所未有的结构分析工具。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02069",
+          "tp": "三维电子衍射表征",
+          "aip": 1,
+          "kp": [
+            "[表征方法]: 液相TEM三维电子衍射",
+            "分辨率[液相晶体结构]: 亚埃级(<1Å)",
+            "[能力]: 相变与结构动力学原子尺度解析"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Atomic-scale insights into phase transitions and structural dynamics of crystals in liquids are fundamental for understanding chemical, physical, and biological processes. Liquid-phase transmission electron microscopy (LP-TEM) integrates diffraction, imaging, and spectroscopy and has opened new opportunities to study nanoscale materials in liquid environments. Yet, atomic-scale electron crystallographic analysis of crystals in liquids remains elusive. Here, we establish sub-Ångström liquid-phase three-dimensional electron diffraction (LP-3D ED) for capturing phase transformation and determining atomic crystal structures <i>in situ</i> by exploiting nanochannel liquid cells. The well-defined and ultrathin liquid layers confined within the nanochannels enable the acquisition of 3D ED data at 0.80 Å resolution from organic molecular crystals in liquids at room temperature. Using LP-3D ED combined with liquid flow control, we observe the β-to-α phase transformation of glycine and <i>in situ</i> crystallization of a novel hydrated aluminum-glycine phase in aqueous solution in the nanochannels. We demonstrate <i>ab initio</i> crystal structure determination at sub-Ångström resolution by LP-3D ED, and identify a novel hexanuclear aluminum-hydroxide-glycine cluster in the <i>in situ</i> formed aluminum-glycine phase. This work demonstrates the capability of LP-3D ED to probe structural evolution and to reveal solvated crystal structures of nano- and microcrystals directly in liquid environments.",
+          "hb": 1
+        },
+        {
+          "t": "基于大环共价有机网络实现亚埃级超高精度离子筛分",
+          "d": "2026-04-19",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究者利用大环共价有机网络构建出具有亚埃级（<1Å）离子筛分精度的超快分离膜，精准控制离子透过，在水-能源关联领域展现出卓越选择性。该材料有望应用于海水淡化、盐差能提取及锂资源回收等场景，为高效能源与水资源利用提供新材料路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0804?af=R",
+          "tp": "共价有机网络膜",
+          "aip": 1,
+          "kp": [
+            "分离精度[离子筛分]: <1 Å",
+            "[膜材料]: 大环共价有机网络超薄膜",
+            "[制备]: 界面聚合法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The water-energy nexus demands membranes with subångström ion-sieving precision, a capability hindered by the intrinsic selectivity limits of conventional materials. We fabricated ultrathin covalent organic network (CON) membranes via interfacial polymerization of 1,4,7,10-tetraazacyclododecane (cyclen) with either terephthaloyl chloride or isophthaloyl chloride. The resulting architectures demonstrate narrow pore size distribution and subångström-level ion resolution. CON-T membranes exhibit exceptional water permeance (22.2 liters per square meter per hour per bar) along with Li\n                    +\n                    /Mg\n                    2+\n                    and Cl\n                    −\n                    /SO\n                    4\n                    2−\n                    selectivities of 82.6 and 118.1, respectively. Monomer conformation engineering yielded CON-I membranes that set high benchmarks for Li\n                    +\n                    /Mg\n                    2+\n                    (326.7) and Cl\n                    −\n                    /SO\n                    4\n                    2−\n                    (376.9) selectivity. At the process scale, CON-T membranes facilitate highly efficient lithium resource extraction (97.4% recovery with 99.3% purity), while CON-I membranes enable Cl\n                    −\n                    production at ~99.9% purity from industrial wastewater. This methodology establishes a paradigm for high-resolution ion-sieving membranes that is fully compatible with industrial-scale polymeric membrane manufacturing, offering a viable solution for next-generation water-energy systems.",
+          "hb": 1
+        },
+        {
+          "t": "Au/GaN纳米结构上水触发光催化甲烷氧化偶联制C2H6",
+          "d": "2026-04-19",
+          "a": "Chem",
+          "c": "通用技术/催化剂",
+          "as": "将储量丰富的甲烷升级为高附加值乙烷通常需要巨大的工业能耗。该研究提出一种水触发的光催化甲烷氧化偶联策略，以金基催化剂在温和条件下实现甲烷向C2H6的选择性转化。水作为反应介质调控反应路径，有效降低过度氧化产物CO2的生成，提高了乙烷选择性和产率。该方法为天然气的高值化利用和温室气体资源化提供了绿色可持续的新途径，兼具基础催化研究和工业应用前景。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00099-9?rss=yes",
+          "tp": "甲烷光催化偶联",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: Au/GaN纳米结构",
+            "[反应路径]: 水触发光催化甲烷偶联制乙烷",
+            "[优势]: 抑制过度氧化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Upgrading abundant methane to valuable ethane typically requires immense industrial energy. This work presents a sustainable alternative using only sunlight and water. By employing an engineered nanomaterial, light generates active radicals from water that gently break methane’s tough chemical bonds. This unique water-triggered pathway prevents unwanted over-oxidation, delivering ethane with exceptional selectivity and stability. This conceptual breakthrough paves a remarkably green and economically viable route for next-generation chemical manufacturing beyond fossil fuels.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

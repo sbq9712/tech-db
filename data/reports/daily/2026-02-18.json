@@ -1,0 +1,215 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月18日　星期三",
+  "date_range": "2026-02-18",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "华南理工黄飞团队研发新型有机正极材料，无需导电碳粉面积容量达42 mAh/cm²",
+      "俄亥俄州立大学开发钢渣碳酸化捕集CO2联产工艺，点源捕集成本约50美元/吨",
+      "新型去合金化工艺以廉价块状金属直接制备纳米多孔电极，可支撑安培级制氢"
+    ],
+    "AI与智能科技": [
+      "北大王兴军团队提出超宽带集成光子方案，实现单通道512 Gbps光纤传输",
+      "研究人员推出基于语言模型的密码子优化流程以提升重组蛋白表达水平"
+    ],
+    "通用技术": [
+      "微软研发飞秒激光玻璃直写光学存储技术，120mm石英玻璃内容量达4.8 TB",
+      "宾州州立大学开发耐高温聚合物介电材料，150°C放电能量密度达18.7 J/cm³",
+      "多肽纳米机器人TriCAN通过三重信号触发相变以实现炎性骨缺损精准修复"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "华南理工黄飞团队研发新型有机正极材料，无需导电碳粉面积容量达42 mAh/cm²",
+        "俄亥俄州立大学开发钢渣碳酸化捕集CO2联产工艺，点源捕集成本约50美元/吨",
+        "新型去合金化工艺以廉价块状金属直接制备纳米多孔电极，可支撑安培级制氢"
+      ],
+      "entries": [
+        {
+          "t": "有机正极：华南理工大学黄飞教授研制新型有机正极材料",
+          "d": "2026-02-18",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "华南理工大学黄飞教授在新型n型导电聚合物PBFDO（聚苯并二呋喃二酮）研究中取得突破。该材料具有无侧链平面共轭结构，分子间π-π堆叠间距仅0.34nm，电导率高达2000 S/cm，锂离子扩散系数达1.8×10⁻⁸ cm²/s，远超现有有机正极。充放电中维持高n型掺杂态，无需导电碳粉即可运行，且在电解液中溶解度极低，从根本上解决有机材料衰减快的问题。据此制备出载量206 mg/cm²、面积容量42 mAh/cm²的有机正极，创纪录。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10174-7",
+          "tp": "有机正极材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "有机正极材料开发的重要驱动力之一在于其资源友好性，但易溶于电解液和电导率低仍是其主要制约因素。易溶于电解液：本文将易溶解视为有机正极的关键问题之一。现有部分研究特意设计可溶型有机正极，省去极片制备步骤，用于准二次电池；而本文仍采用不溶型、基于极片工艺的有机正极，用于二次电池。电导率低：有机材料的本征电导率普遍偏低，通常在10⁻¹³ ~ 10⁻⁵ S cm⁻¹范围，电极制备时需添加大量导电碳，约20–70 wt%。导电聚合物有望显著降低对额外导电剂的需求，但目前已开发的导电聚合物多为p型（202311专刊中提到的导电聚合物也特指p型），通过失去电子实现阴离子掺杂，而非接受电子储存锂离子，这会限制锂离子传输并导致电解液大量消耗。而已有报道的n型导电聚合物的电导率仍不够理想。故本文重点聚焦于n型导电聚合物的开发。本文通过针对性分子设计来同时应对上述两个问题，表现出极低的溶解度，同时电导率高达2000 S cm⁻¹，且锂离子扩散系数达1.8×10⁻⁸ cm² s⁻¹，无需添加导电碳粉即可运行.然而文中展示的Ah级软包电芯仅循环14圈，且倍率性能仅约0.022 C（基于5 mA g⁻¹、231 mAh g⁻¹计算），表明其技术成熟度大致处于3~4级水平。",
+          "b": "传统锂离子电池依赖钴、镍等资源有限的矿物基无机电极材料，不仅资源受限，且存在环境污染问题。有机电池凭借其材料丰富、可回收利用和环境友好等优势，被视为理想的替代方案。然而，有机电极材料固有的绝缘性和易溶于电解液的特性，严重阻碍了其实际应用，导致电极载量低、能量密度不足，难以满足商业化需求。华南理工大学黄飞教授在新型n型导电聚合物材料——聚苯并二呋喃二酮（PBFDO）的研究中取得重大突破（其中，n型即材料易得电子形成带负电的分子，同时与电解液中金属阳离子结合保持电中性）。PBFDO具有负电荷、无侧链的平面共轭结构，分子间π-π堆叠间距仅0.34纳米，形成了高效的电荷传输通道。该材料原始状态电导率高达2000 S cm⁻¹，且锂离子扩散系数达1.8×10⁻⁸ cm² s⁻¹，远超现有有机正极材料。更重要的是，PBFDO在充放电过程中能维持高n型掺杂状态，确保全程无需添加导电碳粉即可高效运行，同时其分子骨架在电解液中表现出极低的溶解度，从根本上解决了有机材料衰减快的问题。\n基于上述特性，研究团队制备出活性物质载量高达206 mg cm⁻²的有机正极，面积容量达到创纪录的42 mAh cm⁻²。团队进一步组装出能量密度高达255 Wh kg⁻¹的2.5 Ah安时级软包电池，该电池在-70°C至80°C的极端宽温域内均可稳定工作，且通过针刺测试不起火爆炸。此外，PBFDO电极还具备优异的柔韧性，可承受数万次弯曲。文章于2026年2月18日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "俄亥俄州立大学翟上提出Na2CO3循环过程以促进钢渣矿化捕集CO2同时联产胶凝材料与氢气",
+          "d": "2026-02-18",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "俄亥俄州立大学翟上团队提出可闭环再生的Na₂CO₃循环工艺，将钢渣碳酸化与CO₂捕集联产胶凝材料和氢气耦合。先用Na₂CO₃溶液使钢渣中钙硅酸盐快速碳酸化，再吸收CO₂沉淀高纯硅并再生Na₂CO₃。45°C、4%CO₂条件下捕集率59%，空气条件下35%，矿化量最高约2.79 mmol-C/g渣，较传统法提升4-9倍。点源捕集成本约50美元/吨CO₂，计入产品收益回收期约0.8年。成果发表于Energy & Environmental Science。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1039/D5EE07347B",
+          "tp": "钢渣矿化CO2",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "这项工作本质上是把“钢渣矿化+碱循环DAC+胶凝材料生产”三者真正耦合成一个闭环工程体系，工程价值高于传统矿化研究：首先，它解决了矿化路线最大痛点——反应动力学慢，通过Na₂CO₃循环将矿化速率提高4–9倍，使常温常压连续运行成为可能，在动力学上接近工程可行区间；其次，Na₂CO₃完全再生意味着避免了DAC体系最大的化学品成本和损耗问题；第三，副产物SiO₂和碳酸盐可直接进入水泥产业链；但其核心瓶颈是受钢渣资源量限制，属于典型的点源耦合型负碳技术而非无限扩展DAC路线，现实定位是钢铁行业脱碳基础设施的一部分。从TRL判断，目前属于TRL 3–4实验室验证阶段，距离工业化仍需解决固液分离能耗、连续反应器设计和杂质长期累积问题，但具备工程放大潜力。",
+          "b": "该团队提出一种可闭环再生的碳酸钠（Na2CO3）循环工艺：先用Na2CO3溶液将钢渣中的钙硅酸盐/游离CaO快速碳酸化生成富碳酸盐固体，再利用同一溶液吸收点源或空气中的CO2并沉淀高纯（亚）微米级无定形硅，同时实现Na2CO3再生；在45°C、4% CO2条件下循环捕集率达59%，空气343 ppm CO2条件下捕集率达35%，矿化量最高约2.79 mmol-C/g渣，相比传统钢渣加水混合矿化法提升4–9倍；机理上通过碳酸盐沉淀快速移除溶液Ca维持强热力学驱动力，促使Ca–硅酸盐持续溶解释放Ca而成为总体速率控制步骤；同时可耦合钢渣余热与水蒸气反应制氢（最高约1.01 mmol-H2/g渣），并通过经济分析给出不计产品收益时空气CO2的成本约252美元每吨CO2，点源捕集成本约50美元每吨CO2，计入产品收益后回收期分别约1.9和0.8年。研究成果2月18日发表于Energy & Environmental Science。",
+          "hb": 1
+        },
+        {
+          "t": "可扩展表面合金化-脱合金法从块体金属制备纳米多孔电极用于安培级碱性水",
+          "d": "2026-02-18",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "该研究提出一种可规模化的表面合金化-去合金化（Alloying-Dealloying）工艺，直接从廉价块状金属出发制备纳米多孔电极，用于碱性水电解制氢。去合金化选择性腐蚀过程自发形成三维互联多孔结构，大幅提升电催化活性面积与传质效率，使电极可在安培级大电流密度下稳定运行。该工艺原料成本低、无需复杂纳米合成，有望突破绿氢规模化电解槽中高成本贵金属催化剂的瓶颈。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521570?af=R",
+          "tp": "碱性水电解电极",
+          "aip": 1,
+          "kp": [
+            "[合成策略]: 气相表面合金化-去合金化",
+            "[电极]: 块体金属制纳米孔电极",
+            "[电解水]: 安培级碱性水裂解"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Commercial deployment of alkaline water electrolysis requires electrodes that can sustain ampere‐level current densities while remaining manufacturable at scale; however, most advanced electrocatalysts demonstrated in laboratories lack mechanical robustness and are incompatible with industrial production. Here we report a vapor‐phase surface alloying–dealloying (VPA‐CD) strategy that converts commodity metal sheets directly into bulk‐supported nanoporous electrodes via in situ formation of catalyst layers metallurgically bonded to dense substrates. Applied to Ni‐Mo and Ni‐Fe alloys, this approach yields Mo single‐atom‐doped nanoporous Ni with high hydrogen evolution activity and nanoporous Ni(Fe)/Ni\n                    3\n                    Fe heterostructures with excellent oxygen evolution activity, enabling ampere‐level alkaline electrolysis at low cell voltages. Beyond planar substrates, the method scales to large‐area and patterned architectures that directly integrate flow fields and catalyst layers; the resulting integrated electrolyzer achieves 1.0 A cm\n                    −2\n                    at only 1.84 V and remains stable for over 185 h, outperforming commercial benchmarks. These findings establish VPA‐CD as a robust and manufacturable route for engineering nanoporous electrodes, bridging the gap between catalyst discovery and device‐level hydrogen production.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "北大王兴军团队提出超宽带集成光子方案，实现单通道512 Gbps光纤传输",
+        "研究人员推出基于语言模型的密码子优化流程以提升重组蛋白表达水平"
+      ],
+      "entries": [
+        {
+          "t": "北京大学王兴军提出超宽带集成光子方案实现光纤-无线统一高速通信",
+          "d": "2026-02-18",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "北京大学王兴军团队提出超宽带集成光子方案，实现光纤与无线通信无缝融合。方案基于电光/光电转换技术，3-dB工作带宽超250 GHz，结合复数双向门控循环单元算法，实现短距光纤单通道512 Gbps及首次400 Gbps高速无线传输。通过全光辅助超宽带方案在138-223 GHz的86个信道上成功演示实时多通道8K视频传输，有望推动高速、高密度、低时延统一通信网络建设。发表于Nature。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10172-9",
+          "tp": "超宽带光子",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "电信系统正朝着超宽带、低时延方向演进，支持有线与无线链路及其无阻塞互连。然而，光纤通信与其无线对应系统之间长期存在的带宽失配，源于信号架构的根本差异以及硬件约束，阻碍了两个域之间的高速兼容传输。这一挑战进一步增加了统一系统设计的复杂性，并在宽带接入场景下限制了高吞吐密度、无拥塞光纤-无线链路的实现。本研究提出了一种超宽带（UWB）集成光子方案，能够在共享带宽基础设施上实现光纤与无线通信的无缝融合。该方案基于电光（EO）和光电（OE）转换技术，其3-dB工作带宽超过250 GHz，并具备跨架构适配能力，利用同一套器件并结合所提出的复数双向门控循环单元（complex-biGRU）算法，实现了短距光纤单通道512 Gbps的超高数据速率，以及据作者所知首次达到的400 Gbps高速无线传输。此外，通过全光辅助的超宽带无线方案实现了高密度接入，并在138至223 GHz的86个信道上成功演示了实时多通道8K视频传输。这些在统一电信发展中的成果，展示了构建高速、高密度、低时延通信网络的潜力。文章于2026年2月18日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "Pichia-CLM：基于语言模型的Komagataella phaffii密码子优化流程",
+          "d": "2026-02-18",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Pichia-CLM是一种基于语言模型的密码子优化流程，专为Komagataella（毕赤酵母）异源蛋白表达设计。该工具利用蛋白质语言模型（CLM）捕捉密码子使用偏好（CUB）的复杂调控规律，综合考虑翻译效率、mRNA稳定性等多重因素，突破传统逐密码子优化的局限。该流程可显著提升重组蛋白在毕赤酵母中的表达水平，为工业酶和生物药的异源生产提供新方案。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2522052123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "密码子优化语言模型",
+          "aip": 1,
+          "kp": [
+            "[密码子优化]: 语言模型驱动毕赤酵母密码子优化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The preference in synonymous codon usage—the so-called codon usage bias (CUB)—is governed by several factors such as the host organism, context and function of the gene, and the position of the codon within the gene itself. We demonstrated that this mapping can be learned from the host’s genome using language models and subsequently applied for codon optimization of heterologous proteins expressed by the host. This pipeline called Pichia–Codon language model (Pichia-CLM) was applied to the industrial host organism, Komagataella phaffii. With this approach, production of heterologous proteins was enhanced up to threefold compared to their native sequences. Furthermore, Pichia-CLM consistently yielded constructs with enhanced productivity for proteins of varied complexity, compared to commercially available tools. Finally, we showed that Pichia-CLM generates sequences resembling the properties of codon usage found in the host’s intrinsic host cell proteins and learned features such as avoiding negative cis-regulatory and repeat elements based on patterns in the genome data. These results show the potential of language models to unbiasedly learn patterns and design robust sequences for improved protein production.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "微软研发飞秒激光玻璃直写光学存储技术，120mm石英玻璃内容量达4.8 TB",
+        "宾州州立大学开发耐高温聚合物介电材料，150°C放电能量密度达18.7 J/cm³",
+        "多肽纳米机器人TriCAN通过三重信号触发相变以实现炎性骨缺损精准修复"
+      ],
+      "entries": [
+        {
+          "t": "Microsoft Research Project Silica Team开发出基于飞秒激光玻璃写入的长寿命光学存储技术Silica",
+          "d": "2026-02-18",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "微软研究院Project Silica团队报道基于飞秒激光直写玻璃的光学档案存储技术，在120mm见方、2mm厚石英玻璃中通过301层实现1.59 Gbit/mm³数据密度，总容量4.8 TB。单束激光写入吞吐量25.6 Mbit/s，每比特能耗10.1 nJ。技术拓展至成本更低的硼硅酸盐玻璃，加速老化测试表明数据寿命有望超1万年。这是首个包含写入、存储和读取完整端到端系统的超长期光学存储方案，发表于Nature。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-10042-w",
+          "tp": "玻璃光学存储",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "数字信息的长期保存对于守护人类知识传承至未来世代至关重要。现有的档案存储方案，如磁带和硬盘，受限于介质寿命较短，无法满足超长期数据保留需求。光学存储方法尤其是利用激光在坚固介质（如玻璃）中进行写入，已成为具有显著长寿命潜力的替代方案。此前的大量研究主要针对单一性能指标（如数据密度）进行优化，但尚未展示包含写入、存储和读取全流程的完整端到端系统。研究报道了一种基于飞秒激光直写玻璃的光学档案存储技术——Silica，该技术满足了档案存储的实际应用需求。在一块120毫米见方、2毫米厚的玻璃中，通过301层实现了1.59 Gbit mm⁻³的数据密度，总容量达4.8 TB。所采用的写入方式使单束激光的写入吞吐量达到25.6 Mbit s⁻¹（受激光重复频率限制），每比特能耗为10.1 nJ。此外，研究还将存储能力拓展至硼硅酸盐玻璃，这种介质成本更低，写入与读取复杂度也得到简化。对硼硅酸盐玻璃中写入体素的加速老化测试表明，其数据寿命有望超过10,000年。文章于2026年2月18日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "宾州州立大学Qiming Zhang引入高温不可混溶双极性聚合物共混物实现高能量密度介电材料",
+          "d": "2026-02-18",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "宾州州立大学Qiming Zhang团队提出高温不可混溶双极性聚合物共混体系，利用PEI与PBPDA通过纳米相分离自组装形成三维全聚合物纳米复合结构，实现超高介电常数（K>13）并在宽温域保持极低损耗（tanδ约0.002）。纳米结构界面作为移动电荷势垒，显著降低高温高场传导损耗。该材料在150°C放电能量密度达18.7 J/cm³、200°C达15.1 J/cm³、250°C达8.6 J/cm³，创高温聚合物介电材料新纪录。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10195-2",
+          "tp": "高温介电材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "用于电能存储的介电聚合物需要同时具备高介电常数（K）、低损耗和高击穿强度（Eb），并能够在高温下稳定工作。几十年来针对聚合物-无机复合材料的研究在实现这些目标方面仅取得有限进展。本研究提出了一种高温下不可混溶的双极性聚合物共混体系，利用PEI（Polyetherimide，聚醚酰亚胺）与PBPDA（Poly(4,4′-biphthalic anhydride-1,4-bis(4-aminophenoxy) benzene)），通过纳米相分离自组装形成三维全聚合物纳米复合结构。该纳米结构诱导了聚合物链的卷曲形态和大构象变化，结合两种聚合物相对较低的旋转势垒和高偶极矩，实现了超高介电响应（K > 13），同时在宽温度范围内保持极低损耗（tanδ 约 0.002）。与此同时，纳米结构界面作为移动电荷的势垒，在高电场和高温度下显著降低了传导损耗。这种具有同时高K、高Eb和低损耗的全聚合物三维纳米复合材料，在高温下展现出前所未有的放电能量密度（150 °C 时 18.7 J cm⁻³，200 °C 时 15.1 J cm⁻³，250 °C 时 8.6 J cm⁻³）。创高温聚合物介电新纪录。该方法适用于其他不可混溶双极性共混体系，体现了其普适性和可调性。本研究满足了电能存储领域的迫切需求，并为宽温区高能量密度聚合物介电材料提供了一种全新范式。文章于2026年2月18日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "TriCAN：相变分子机器人，实现炎症触发骨再生的闭环感知-计算-驱动控制",
+          "d": "2026-02-18",
+          "a": "Chem",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "现有药物载体在检测到单一信号时即释放药物，即使组织并非真正病变。该研究构建了多肽纳米机器人TriCAN（三相细胞适应性纳米机器人），需同时满足三个条件——接触成骨干细胞、酸性pH和过量氧化剂——才通过凝胶-液滴-溶液相变释放促成骨肽。该闭环感知-计算-驱动系统可修复炎性牙周骨缺损同时保护健康组织。",
+          "sc": 6.8,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00497-8?rss=yes",
+          "tp": "相变分子机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Most drug carriers fire as soon as they see one signal, even if the tissue is not truly diseased. This work builds a peptide “nanorobot,” TriCAN (tri-phasic cell-adaptive nanorobot), that waits for three conditions: contact with a bone-forming stem cell, acidic pH, and excess oxidants. Only then does a gel-to-droplet-to-solution phase transition uncage a bone-regenerating peptide, repairing inflamed periodontal bone while sparing healthy sites.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

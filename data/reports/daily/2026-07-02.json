@@ -1,0 +1,249 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月2日　星期四",
+  "date_range": "2026-07-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "TCL中环并购一道新能，首发802.5W钙钛矿晶硅叠层光伏组件",
+      "TAE Power Solutions向MARA交付首套聚变衍生混合储能原型系统",
+      "华能650℃超超临界燃煤发电技术方案通过评审，高温材料实现自主可控"
+    ],
+    "AI与智能科技": [
+      "Anthropic启动临床前药物试验，并同步发布Sonnet 5大模型",
+      "李飞飞等发表论文指出触觉反馈是机器人灵巧操作的关键突破方向",
+      "OpenAI发布GeneBench-Pro基准，专用于评估模型生物学计算能力"
+    ],
+    "通用技术": [
+      "我国首套水下焊接原位中子衍射研究装置于散裂中子源投入使用",
+      "特斯拉Cybertruck被曝频发家庭充电故障，官方暂未启动召回程序",
+      "SolaX将于2026年Intersolar展推出交流耦合架构的新型V2H系统"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "TCL中环并购一道新能，首发802.5W钙钛矿晶硅叠层光伏组件",
+        "TAE Power Solutions向MARA交付首套聚变衍生混合储能原型系统",
+        "华能650℃超超临界燃煤发电技术方案通过评审，高温材料实现自主可控"
+      ],
+      "entries": [
+        {
+          "t": "TCL中环完成一道新能并购！首发新品钙钛矿晶硅四端子叠层组件功率达802.5W!",
+          "d": "2026-07-02",
+          "a": "钙钛矿工厂",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "TCL中环完成对一道新能的并购整合，并首发新品钙钛矿-晶硅四端子叠层光伏组件，功率达到802.5W。该叠层技术将钙钛矿薄膜电池与晶硅电池通过四端子结构机械堆叠，充分利用不同材料的光谱吸收范围实现效率突破，802.5W的功率水平在行业处于领先地位。此次并购使TCL中环在N型电池与叠层技术路线上的产能布局进一步完善，加速钙钛矿叠层组件的商业化进程。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/wBAFXFG8ETgwbzARFeU_oQ",
+          "tp": "钙钛矿光伏",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "TCL中环完成一道新能并购！首发新品钙钛矿晶硅四端子叠层组件功率达802.5W! 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6",
+          "hb": 1
+        },
+        {
+          "t": "TAE Power Solutions向MARA交付聚变衍生混合储能系统",
+          "d": "2026-07-02",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "英国TAE Power Solutions宣布向比特币矿企MARA Holdings交付首套聚变衍生混合储能原型系统。该系统将聚变能源研究中的先进储能技术商业化应用，为高能耗的加密货币挖矿提供电力稳定性支持，探索了聚变技术衍生品在工业级储能场景的落地路径。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/uk-firm-launches-first-field-deployment-of-hybrid-battery-ultracapacitor-system",
+          "tp": "聚变衍生储能",
+          "aip": 1,
+          "kp": [
+            "[架构]: 电池+超级电容+智能控制（聚变衍生）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "UK-based TAE Power Solutions announced the shipment of its first hybrid energy storage prototype system to MARA Holdings in the US.\nThe delivery is the very first time this fusion-derived architecture will face a real-world trial-by-fire deployment. It will be installed immediately at a MARA site for operational testing. The system blends batteries, ultracapacitors, and smart controls to tackle both steady energy needs and sudden power spikes.\n“Shipping our first hybrid energy storage prototype to MARA is an important step in our collaboration to move this technology from development into a real-world operating environment,” said Francisco Garcia, General Manager, Stationary Energy Storage at TAE Power Solutions.\nMARA Holdings is one of the largest Bitcoin mining operations in the world.\nCryptocurrency mining\nrequires massive, continuous power that fluctuates wildly when machines turn on and off.\nThe company operates massive, power-hungry compute clusters. These systems require a high amount of\n. The power loads are volatile, spiking and dropping in microseconds. Those sudden power surges are a total nightmare for standard batteries.\nIf you try to force lithium-ion systems to absorb those rapid, violent fluctuations, then these batteries quickly degrade and burn out. To fix this, TAE is trying something different by building a hybrid storage system.\nMore from Energy\nUS scientists turn wasted methane into valuable liquid fuel using low cost catalyst\nCan fusion reactors produce their own fuel? MIT spinout joins UK blanket testing\nAdvanced US nuclear fuel capacity grows with 5th uranium enrichment cascade in New Mexico\nUS fusion startup makes history by converting plasma energy directly into electricity\nUnderground aquifer ‘thermal batteries’ to cool smart data centers and save water\nThe system pairs batteries with\nultracapacitors\n, which are power components that don’t store energy long-term, but can absorb and discharge massive electrical shocks instantly without breaking a sweat.\nIn strategically splitting the workload, this hybrid system uses ultracapacitors as a protective shield for conventional batteries. Standard batteries excel at steady energy delivery but degrade quickly when forced to handle sudden, violent power spikes.\nOn the other hand, ultracapacitors are built for speed. It can absorb and discharge rapid electrical surges nearly indefinitely, weathering a vastly higher number of charge and discharge cycles without wearing out.\nUltracapacitors absorb these high-stress, rapid fluctuations exclusively, allowing the hybrid architecture to insulate the batteries from cyclical strain. This combined approach overcomes the performance and lifespan limitations of conventional,\n-only storage, making it ideal for high-demand, high-performance applications.\nFor TAE, the deployment is a critical reality check. “MARA’s operating profile gives us a valuable opportunity to validate performance, collect field data, and refine the system ahead of future production deployments. It is exactly the type of demanding power environment where hybrid storage can demonstrate its value,” Garcia added.\nIf the prototype survives MARA’s demanding workload, the implications stretch far beyond crypto mining. This technology is built for the growing AI boom\nAI data centers are currently stretching local power grids to their absolute limits. If utilities and hyperscalers use hybrid storage to smooth out these massive compute loads, infrastructure can scale up without forcing cities to build entirely new\npower plants\n“As an integrated system, the hybrid platform is designed to support both short-duration power events and sustained energy needs in demanding applications such as high-performance computing and AI data centers,” the\ncompany stated.\nMARA and TAE expect to wrap up testing quickly, with additional full-scale production deployments already planned for later this year.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nMrigakshi is a science journalist who enjoys writing about space exploration, biology, and technological innovations. Her work has been featured in well-known publications including Nature India, Supercluster, The Weather Channel and Astronomy magazine. If you have pitches in mind, please do not hesitate to email her.\nUS fusion startup makes history by converting plasma energy directly into electricity\nNew humanoid robot built for companionship with 90% accuracy in recognizing emotions\nUS Marine Corps buys first autonomous ground vehicle fleet to run frontline missions\nHydrogen electrolyzer to adapt for fusion fuel by extracting tritium from heavy water\nUS company recovers 99.9 percent pure rare earth oxides from secondary sources",
+          "hb": 1
+        },
+        {
+          "t": "我国全面掌握 650℃ 高参数煤电核心高温材料成套生产技术，相关产业链关键环节实现自主可控",
+          "d": "2026-07-02",
+          "a": "IT之家",
+          "c": "零碳产业/能量循环/能源测/发电技术/火电",
+          "as": "华能650℃燃煤发电示范项目技术方案通过院士专家评审，锅炉、汽轮机及整体设计方案被认为总体合理可行。该项目为世界首台650℃超超临界机组，意味着我国全面掌握高参数煤电核心高温材料成套生产技术，关键产业链环节实现自主可控，将显著提升燃煤发电效率。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/971/374.htm",
+          "tp": "超超临界煤电材料",
+          "aip": 1,
+          "kp": [
+            "蒸汽温度[超超临界煤电]: 主/再热均650℃",
+            "主蒸汽压力[煤电机组]: 35兆帕",
+            "供电煤耗[一次再热]: <254 g/kWh（全球最低）",
+            "全厂热效率[煤电]: 50.1%（全球最高）",
+            "能效提升[vs现有机组]: 约5%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 1 日消息，综合华能浙江分公司和科技日报报道，华能 650℃ 燃煤发电示范项目技术方案评审会昨日在雄安新区召开。与会院士、专家一致认为华能 650℃ 燃煤发电示范项目锅炉、汽轮机和项目整体设计方案总体合理可行。\n据介绍，世界首台 650℃ 高效超超临界燃煤发电机组 —— 华能玉环电厂四期项目于 2025 年 11 月 8 日开工建设，目前已进入关键攻坚阶段。该项目主蒸汽和再热蒸汽温度均达到 650℃，设计主蒸汽压力达到 35 兆帕，是目前全球范围内燃煤机组最高参数。\n该项目采用中国华能研发的我国具有自主知识产权的高温合金新材料\n，实现了关键高温材料技术的完全自主可控。650℃ 燃煤发电示范项目可大幅提高发电效率，与现有机组相比提升约 5%，供电煤耗低于 254g/kWh（一次再热煤电全球最低），全厂热效率达到 50.1%（全球煤电最高），\n每年可减少二氧化碳排放量约 45 万吨\nIT之家了解到，评审会当天，该项目还迎来重大突破，项目首件汽轮机高压内杠、中压调门顺利完成铸造，首批高温合金无缝管顺利完成全流程生产与检验验收。\n这标志着我国已全面掌握 650℃ 高参数煤电核心高温材料成套生产技术\n，相关产业链关键环节实现自主可控，填补了全球高端煤电特种材料领域空白。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "Anthropic启动临床前药物试验，并同步发布Sonnet 5大模型",
+        "李飞飞等发表论文指出触觉反馈是机器人灵巧操作的关键突破方向",
+        "OpenAI发布GeneBench-Pro基准，专用于评估模型生物学计算能力"
+      ],
+      "entries": [
+        {
+          "t": "Anthropic开展临床前药物试验，发布Sonnet 5模型",
+          "d": "2026-07-02",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic宣布开展临床前药物试验，并同步发布新一代大模型Sonnet 5。此举标志着头部AI公司从纯软件服务向生命科学领域实质性拓展——利用大模型在分子设计、靶点筛选等方面的推理能力，介入药物发现早期阶段。临床前试验意味着已有候选化合物进入体外/动物验证，是AI制药从计算预测走向湿实验验证的关键一步。Sonnet 5的发布或为其提供更强的多模态与长程推理支撑，两者协同效应值得关注。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/anthropic-unfolds-claude-science-app-runs-pre-clinical-drug-trials",
+          "tp": "大模型药物研发",
+          "aip": 1,
+          "kp": [
+            "[新动向]: Anthropic开展临床前药物试验"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Anthropic Runs Pre-Clinical Drug Trials, Launches Sonnet 5 Model — The Information Read this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "李飞飞、Jim Fan和徐丹飞联合重磅论文：机器人灵巧手，可能走错了路",
+          "d": "2026-07-02",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "李飞飞、Jim Fan和徐丹飞联合发表论文，质疑当前机器人灵巧手研究路线。论文指出人类操控世界不只依赖视觉，触觉反馈同样关键——如插卡入槽、拧锁、分离纸杯等精细动作靠的是触觉感知与力反馈。研究认为纯视觉驱动的灵巧操作范式可能存在方向性偏差，触觉整合或是关键突破口。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/ysOE5U3iFiiRc9WT5AJAhg",
+          "tp": "灵巧手新论",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "李飞飞、Jim Fan和徐丹飞联合重磅论文：机器人灵巧手，可能走错了路 原创 张锦怡 张锦怡 DeepTech深科技 人类不只是用眼睛操控这个世界。 把一张薄卡片插进卡槽、拧开一把锁、从一叠纸杯中分出一个，这些动作之所以对人类毫不费力，靠的",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI 推出 GeneBench-Pro 基准测试，用于评估 AI 模型生物学计算能力",
+          "d": "2026-07-02",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "OpenAI于7月1日发布GeneBench-Pro基准测试，专为评估AI模型在生物学计算任务中的真实研究能力设计，重点考察模型面对杂乱数据时的分析判断、方法选择及结果可决策性，弥补传统评测不足。",
+          "sc": 8.5,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/971/383.htm",
+          "tp": "AI生物学基准",
+          "aip": 1,
+          "kp": [
+            "[题量]: 129题",
+            "[领域覆盖]: 10大领域21子领域",
+            "[评估方向]: 基因组学/定量生物学/转化医学"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 1 日消息，OpenAI 宣布推出 GeneBench-Pro 基准测试，主要用于评估 AI 模型在生物学计算任务中的真实研究能力，重点衡量模型面对杂乱数据时的分析判断、方法选择，以及研究结果是否足以支撑后续决策。\n据介绍，相比传统基准测试通常聚焦在“模型是否记住知识”或“能否按固定流程完成任务”，GeneBench-Pro 更强调在真实科研环境中的实用性，让模型面对“模糊、不完整、甚至带有干扰的数据环境”，令其判断分析得出结论。\n具体来看，GeneBench-Pro 基准测试任务覆盖基因组学、定量生物学和转化医学等多个方向，\n总共包含 129 道题目，分布在 10 个大领域和 21 个子领域\n，涵盖范围包括统计遗传学、群体遗传学、功能基因组学、蛋白质组学等，每道题都会给模型一份接近真实科研环境的数据集，以及简短的实验背景说明和一个与后续决策相关的目标问题。模型需要自己完成数据探索、选择分析方法，并在过程中不断修正策略，最终给出答案。\n为了避免传统长流程基准测试常见的评分偏差问题，OpenAI 在设计 GeneBench-Pro 时采用了合成数据（Synthetic Data）作为核心构建方式，这是因为如果直接用历史真实数据出题，往往会存在多条合理分析路径，导致模型即便利用错误方法也可能碰巧答对。\n而利用合成数据，OpenAI 可以完全掌握底层因果结构和数据生成过程，从而更准确地判断模型是否真的理解问题，而不是走捷径。\n目前，OpenAI 已经在 Hugging Face 开源了 10 道代表性的 GeneBench-Pro 示例题，并提供可交互界面供外部研究人员体验。后续官方会开放其中 50 道题给 Artificial Analysis 进行第三方独立评测，以验证不同模型在这一基准测试中的实际表现。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "我国首套水下焊接原位中子衍射研究装置于散裂中子源投入使用",
+        "特斯拉Cybertruck被曝频发家庭充电故障，官方暂未启动召回程序",
+        "SolaX将于2026年Intersolar展推出交流耦合架构的新型V2H系统"
+      ],
+      "entries": [
+        {
+          "t": "世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用--中国能源新闻网",
+          "d": "2026-07-02",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "我国自主研发的世界首套水下焊接原位中子衍射研究装置在中国散裂中子源工程投入使用。该装置利用中子衍射技术，可对水下焊接过程进行原位实时分析，揭示焊接残余应力与微观组织演变，为深海工程焊接质量评估与工艺优化提供关键科研支撑，标志着我国在中子科学与海洋工程交叉领域取得突破。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260701_1899004.html",
+          "tp": "中子衍射装置",
+          "aip": 1,
+          "kp": [
+            "[装置地位]: 世界首套水下焊接原位中子衍射装置"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用--中国能源新闻网\n中电传媒股份有限公司主办\n世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用\n7月1日，我国自主研发的、世界首套水下焊接原位中子衍射研究装置在中国散裂中子源工程材料谱仪上投入使用，并顺利完成首次水下焊接过程原位观测实验。这标志着我国在水下焊接过程中的微观结构实时观测与核心焊接机理揭示方面取得重大突破，可为大型水下结构物水下焊接技术的自主可控及焊接质量提升提供科学支撑。\n该装置由华南理工大学王振民教授团队联合中国散裂中子源科学中心李小虎、杜文婷团队共同研发，振海智能科技（珠海）有限公司负责制造。\n水下焊接原位中子衍射研究装置。科技日报记者叶青摄\n水下焊接是核电、海上风电、船舶、油气管线等大型水下结构物水下原位制造和运维的关键核心技术之一，是实现水下结构物应急以及永久修复的主要手段。随着我国海洋开发的不断深入，重大海洋基础设施水下维修的重要性日益凸显。\n过去，水下焊接主要依赖“焊后取样”方式，即在水下完成焊接后截取样本返回实验室检测。“该方式由于缺乏过程数据，难以明确影响焊接质量的具体环境变量，导致业界对水下焊缝组织演化、裂纹萌生、形变失效等‘黑箱’问题的认知，长期依赖焊后离位推测。”团队核心成员廖海鹏说。\n针对此，团队创新性提出研发水下焊接原位中子衍射研究装置。该装置旨在实验室环境中构建一个具备强穿透能力的“超级水下放大镜”，通过模拟真实的海洋水下环境，对水下焊接过程进行原位观测。“原位观测，即在焊接过程中可实时监测材料微观结构的动态变化。并在此之上，建立起从焊缝性能需求倒推工艺参数的闭环体系。”杜文婷介绍。\n研究团队。科技日报记者叶青摄\n经过3年多的攻关，团队先后攻克极端工况水下焊接制造、原位焊接装置与大型谱仪协同联动等核心技术难题。团队创新性地采用重水（D₂O）替代清水（H₂O）模拟水下环境，同时设计了一种中子束入射通道，让中子束得以在无水体干扰的路径中实现传输；开发出一种创新的原位观测策略，可获得不同位置、多个方向的微观结构演化规律；成功将自研水下焊接装备与工程材料谱仪精准适配，构建起国际首套水下焊接原位研究装置。\n王振民表示，该装置聚焦水下焊接过程中微观组织与残余应力场的动态演化，首次揭示了多重复杂热循环下水下焊接应力-相变的实时耦合机制，可为水下焊接工艺优化与焊缝结构安全评估提供直接的实验证据。\n值得一提的是，研发过程中，团队充分发挥中子衍射高穿透、高分辨的独特优势，实现了水下焊接熔池微观结构演变的动态原位观测，彻底打破了传统焊后离位分析的局限，使得动态建立水下焊接“工艺-组织-性能”精准映射模型成为可能。该研究成果不仅为大尺寸、高性能水下结构件的精准焊接制造与修复提供了核心技术支撑，更推动了我国水下焊接从依赖经验的“技艺”向数据驱动的“科学”转型。（\n“十四五”能源高质量发展\n水下机器人为海底电缆盖上“沙被”\n我国成功研制出大面积全钙钛矿叠层光伏组件\n太空建电站？中国有新突破\n绿色科技支撑“低碳向未来”\n我科研团队助力破解钙钛矿光伏产业化难题\n新能源用高性能芳纶绝缘纸关键技术获突破\n“科创中国新质生产力调研行”走进海博思创\n电力负荷多层级协同智算技术取得重要突破",
+          "hb": 1
+        },
+        {
+          "t": "Cybertruck故障导致家庭充电失效，特斯拉回避召回",
+          "d": "2026-07-02",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "报道指出越来越多特斯拉Cybertruck车主丧失家庭充电功能，疑似车辆缺陷导致，而特斯拉正回避正式召回。该事件反映出电动汽车在快速迭代中质量控制风险，以及厂商在安全责任与品牌声誉间的博弈，对行业监管与消费者权益保护具有警示意义。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/07/01/tesla-cybertruck-pcs-failures-no-recall/",
+          "tp": "电车充电故障",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 1 2026 - 6:51 am PT\nA growing number of Tesla Cybertruck owners are losing the ability to charge at home due to failures of the truck’s Power Conversion System (PCS), the unit that handles AC charging and steps the high-voltage pack down to the 48-volt system.\nTesla is aware of the problem and is quietly replacing the part case-by-case, but it has not issued a recall, and owners are waiting weeks for replacement units they can’t source.\nThe PCS combines the Cybertruck’s onboard charger and DC-DC converter into a single unit. When it fails, the truck loses Level 2 AC charging, the cheap overnight home charging that is one of the biggest advantages of owning an EV.\nOwners across the\nCybertruck Owners Club\nTesla Motors Club\nforums describe a consistent pattern. Home charging first drops from 48 amps to 24 amps, then stops entirely within days. The truck throws an “AC Charging Unavailable” warning and logs service-mode codes like\nPCS2_a094_acChargingUnavailable\nPCS2_a136_cycloAMosfetHealthCheckFailed\n, the last of which points to a failed MOSFET health check inside the converter.\nIn most cases the truck still drives and can still DC fast charge at Superchargers, though some owners report the truck dropping into a speed-limited Service Mode.\nMileage doesn’t appear to be the trigger. Forum members have posted failures at 11,994 miles, 16,677 miles, and 31,250 miles, with others reporting failures under 10,000 miles. Some trucks have failed a second time after a full PCS replacement.\nThere is no official failure rate, because only Tesla has that data. But the owner-run poll on the Cybertruck Owners Club is the closest thing to a public tally.\nAs of this week, 223 owners had voted: 91 (40.8%) said their PCS failed and was replaced under warranty, 15 (6.7%) suspected a failure pending confirmation, and only 2 (0.9%) had paid out of pocket. The remaining 116 (52%) reported no issue.\nThat is a self-selected poll in a thread specifically about PCS failures, so it over-represents the problem. It is not a reliable failure rate. But nearly 100 confirmed replacements from a single forum is a real signal, and separate active threads are tracking new failures weekly.\nSome Cybertruck owners having the issue were told by Tesla service advisors that the majority of Cybertrucks have the problematic PCS, but it doesn’t mean that they will fail.\nThe fix is a revised PCS (owners have tracked hardware revisions E, F, and now G, part number 1777777-T2-G) along with a new wiring harness. It is not a quick swap: technicians have to remove the tonneau cover, the bed floor, and parts of the air suspension to reach the unit. Trucks with the Terrestrial Armor underbody package add roughly eight hours of labor on top.\nThis isn’t Tesla’s first power-electronics problem on the Cybertruck. In late 2024, Tesla\nrecalled over 2,000 Cybertrucks to replace inverters\nthat could cause a loss of power, also a MOSFET issue.\nHere’s the part that matters most.\nFor trucks still under Tesla’s basic 4-year/50,000-mile warranty, the PCS replacement is free. For owners out of warranty, the repair reportedly ran $5,000 to $7,200 in parts and labor. Tesla has since dropped that out-of-warranty price to roughly $1,000 as a “goodwill” gesture.\nYou don’t offer to eat 80% of a repair bill on a part you believe the customer wore out. Charging a token $1,000 for a multi-thousand-dollar repair is a de facto admission that this is a manufacturing defect, not normal wear. And if it’s a defect, the honest move isn’t a discount, it’s replacing the failing units across the fleet for free, or issuing a recall.\nThe warranty situation makes the double standard sharper. Early 2024 and 2025 Foundation Series trucks, the ones most exposed to this, only carry the basic 50,000-mile coverage, and Tesla doesn’t offer an Extended Service Agreement for the Cybertruck. Meanwhile, Tesla quietly added a new 7-year/70,000-mile propulsion warranty for 2026 Cybertrucks that explicitly covers the PCS. It is not retroactive.\nCompare that to how another automaker handled a nearly identical problem. When Hyundai and Kia had widespread failures of their ICCU, the analogous power-conversion component, they\nextended warranties for affected cars\n. Tesla is doing the opposite: covering newer trucks going forward while leaving early adopters exposed.\nEven when the repair is free, the wait isn’t painless.\nOwners report replacement PCS units on national backorder, with service appointments and parts pushed out by weeks. Forum members have posted lead times of “14 days until next available appointment,” pickup dates slipping repeatedly, and one owner on X marking “week 8” still waiting. Another described being unable to AC charge with no Supercharger conveniently nearby.\nTo bridge the gap, Tesla pushed a firmware update that keeps Supercharging enabled on affected trucks even when AC charging is down, and it’s covering Supercharging costs for affected owners until their trucks are fixed. It’s a reasonable stopgap, and multiple owners have confirmed receiving it.\nBut relying on DC fast charging for daily driving for two months is exactly the ownership experience EVs are supposed to eliminate. As one Cybertruck owner put it on X, a PCS failure “would be equivalent of someone putting a locking gas cap that can’t be removed on a gas vehicle. When you run out, you’re done.”\nTesla is doing the bare minimum here, and getting credit for it because the free Supercharging optics are good.\nStrip that away and the situation is straightforward: a power-electronics component is failing on Cybertrucks at low mileage, often well before any reasonable person would expect a charger to wear out, and Tesla is handling it quietly, one truck at a time, without notifying NHTSA or issuing a recall. The company’s own pricing, dropping a $5,000-to-$7,000 repair to $1,000, tells you it knows this is a defect. You don’t give “goodwill” on damage the customer caused.\nThe reason to avoid a formal recall is obvious. A recall creates a public paper trail, a defect acknowledgment, and an obligation to fix every affected vehicle. Handling it case-by-case lets Tesla keep the failure rate off the books while it burns through a backorder of replacement units. This fits a broader pattern with the Cybertruck, a vehicle that has struggled with\nrecall after recall\ninflated sales figures\nsince launch.\nEarly Cybertruck buyers paid a premium to be first. They deserve the same protection Tesla is now extending to 2026 buyers, and the same treatment Hyundai and Kia gave their customers: an extended warranty on the affected part, or a recall to replace it for free. Anything less, while charging $1,000 and making owners wait two months to charge at home, isn’t goodwill. It’s damage control.\nIf you own a Cybertruck or any EV, powering it with home solar is one of the smartest ways to lock in low fueling costs, especially if you’re stuck paying for public fast charging. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "SolaX在2026年欧洲Intersolar展推出交流侧V2H系统",
+          "d": "2026-07-02",
+          "a": "pv magazine",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "SolaX在2026年德国Intersolar Europe展会上推出了一款新型AC侧车辆到家庭(V2H)系统。该系统的核心创新在于采用分离式架构，将交流充电与受控直流放电解耦，从而简化了系统设计并提升了能量管理灵活性。该方案使电动汽车电池能够作为家庭储能单元参与峰谷电价管理和备电，推动了V2H技术在分布式能源场景中的商业化应用。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/07/01/solax-introduces-ac-side-v2h-system-at-intersolar-europe-2026/",
+          "tp": "V2H双向充电",
+          "aip": 1,
+          "kp": [
+            "安装距离[充电机-逆变器]: 最远50米",
+            "[架构]: AC侧充电+可控DC放电分离"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe system features an architecture that separates AC charging from controlled DC discharging and allows the EV charger and inverter to be installed up to 50 meters apart.\nTechnology & Products\nEnergy Storage\nImage: SolaX Power\nSolaX Power recently introduced its Binary Series vehicle-to-home (V2H) system at Intersolar Europe 2026, presenting an AC-side approach to bidirectional charging for residential solar and storage applications.\nThe system is designed to connect a compatible electric vehicle with rooftop PV, home battery storage, and household loads. It enables the vehicle to charge from solar or grid electricity, and to discharge energy back to the home when required, depending on vehicle capability and system configuration.\nSolaX describes the Binary Series as the industry’s first AC-side V2H solution. The company bases the claim on an architecture that separates AC charging from controlled DC discharging, rather than treating EV charging and home energy supply as a fully coupled process.\nThe system’s BRY-A22D7 bidirectional EV charger supports adjustable AC charging from 1.4 kW to 22 kW and controlled DC discharging for residential use. The design is intended to support daily EV charging while adding home energy functions such as solar self-consumption, peak-load reduction, and backup support.\nAcross Europe, more households are combining solar PV, batteries, heat pumps, and electric vehicles. These systems are often installed at different times and managed through separate devices or applications. As a result, the value of residential energy systems increasingly depends on coordination rather than on individual hardware alone.\n“For residential V2H, the question is not only how much power a charger can move,” says James Li, Assistant to the General Manager and Marketing Director at SolaX Power. “It is whether the system can be fitted into real homes, used reliably every day, and managed in a way that respects the vehicle battery. That is the starting point for our AC-side design.”\nThe Binary Series allows the EV charger and inverter to be installed up to 50 meters apart, so installers have more flexibility in homes where the parking space, garage, utility room, and energy storage system are not located together.\nDuring discharge, the system coordinates the vehicle-side output, V2H charger, and storage inverter while operating within vehicle-defined limits. It is designed to support household loads without treating the EV battery as an unrestricted energy source.\nThe system forms part of SolaX’s wider PV, storage, charging, discharging, and heat-management platform. At launch, it is designed to work with SolaX X1-VAST and X3-G4 Pro hybrid inverters, with support for X3-Ultra planned.\nSolaX has also integrated the home battery and V2H charger into a single application, allowing users to view system status, energy flows, and charging or discharging settings from one platform.\nView author posts",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

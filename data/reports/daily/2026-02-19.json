@@ -1,0 +1,241 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月19日　星期四",
+  "date_range": "2026-02-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "表面合金化去合金技术实现块体金属制备纳米多孔电极，用于安培级碱性水电解。",
+      "循环加速CO2矿化技术将温室气体转化为稳定碳酸盐，制备具成本竞争力的水泥基材料。"
+    ],
+    "AI与智能科技": [
+      "自动化机器人系统配合AI执行实验全流程，于药物发现及蛋白工程领域引发学术争议。",
+      "研究利用浮体MOSFET器件固有热噪声构建概率比特，模拟Potts模型求解组合优化问题。",
+      "加州大学圣迭戈分校利用递归特征机算法提取大模型概念向量，实现模型输出精准操控。"
+    ],
+    "通用技术": [
+      "全玻片边缘层析成像系统结合边缘计算，实现接近专家水平的自主细胞病理学临床诊断。",
+      "研究人员制备12英寸晶圆级电学各向异性硼烯材料，应用于光电计算器件简化逻辑运算架构。",
+      "新型柔性器件集成液态金属，实现大面积压力测绘与自适应组织贴合的微型化无线连续监测。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "表面合金化去合金技术实现块体金属制备纳米多孔电极，用于安培级碱性水电解。",
+        "循环加速CO2矿化技术将温室气体转化为稳定碳酸盐，制备具成本竞争力的水泥基材料。"
+      ],
+      "entries": [
+        {
+          "t": "可扩展表面合金化-去合金化技术：从块体金属制备纳米多孔电极用于安培级碱性水电解",
+          "d": "2026-02-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "开发了可规模化的表面合金化-去合金化方法，直接从体相金属制备纳米多孔电极，用于安培级碱性水电解。该方法利用合金化和选择性刻蚀实现三维多孔结构构建，大幅提升电催化活性面积和传质效率。制备的电极能在工业级大电流密度下稳定运行，满足商业化碱性电解槽对高性能电极的需求，为绿氢规模化生产提供了低成本电极制造路线。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521570?af=R",
+          "tp": "碱性电解水电极",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Commercial deployment of alkaline water electrolysis requires electrodes that can sustain ampere‐level current densities while remaining manufacturable at scale; however, most advanced electrocatalysts demonstrated in laboratories lack mechanical robustness and are incompatible with industrial production. Here we report a vapor‐phase surface alloying–dealloying (VPA‐CD) strategy that converts commodity metal sheets directly into bulk‐supported nanoporous electrodes via in situ formation of catalyst layers metallurgically bonded to dense substrates. Applied to Ni‐Mo and Ni‐Fe alloys, this approach yields Mo single‐atom‐doped nanoporous Ni with high hydrogen evolution activity and nanoporous Ni(Fe)/Ni\n                    3\n                    Fe heterostructures with excellent oxygen evolution activity, enabling ampere‐level alkaline electrolysis at low cell voltages. Beyond planar substrates, the method scales to large‐area and patterned architectures that directly integrate flow fields and catalyst layers; the resulting integrated electrolyzer achieves 1.0 A cm\n                    −2\n                    at only 1.84 V and remains stable for over 185 h, outperforming commercial benchmarks. These findings establish VPA‐CD as a robust and manufacturable route for engineering nanoporous electrodes, bridging the gap between catalyst discovery and device‐level hydrogen production.",
+          "hb": 1
+        },
+        {
+          "t": "可扩展表面合金化-去合金化技术从块体金属制备纳米多孔电极用于安培级碱性水氧化",
+          "d": "2026-02-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "该研究提出一种可规模化表面合金化-去合金化工艺，直接从块体金属制造纳米多孔电极，面向碱性水电解制氢的商业化部署。传统纳米多孔电极依赖贵金属纳米颗粒负载，成本高且难以大批量生产。该方法通过对块体合金进行选择性腐蚀去合金化，在三维骨架上生成高比表面积、高催化活性的多孔结构，可在安培级大电流密度下长期稳定运行，大幅降低绿氢制备中电极材料成本，推动工业级电解水制氢规模化。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521570?af=R",
+          "tp": "碱性水电解电极",
+          "aip": 1,
+          "kp": [
+            "[合成策略]: 气相表面合金化-去合金化",
+            "[电极]: 块体金属制纳米孔电极",
+            "[电解水]: 安培级碱性水裂解"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Commercial deployment of alkaline water electrolysis requires electrodes that can sustain ampere‐level current densities while remaining manufacturable at scale; however, most advanced electrocatalysts demonstrated in laboratories lack mechanical robustness and are incompatible with industrial production. Here we report a vapor‐phase surface alloying–dealloying (VPA‐CD) strategy that converts commodity metal sheets directly into bulk‐supported nanoporous electrodes via in situ formation of catalyst layers metallurgically bonded to dense substrates. Applied to Ni‐Mo and Ni‐Fe alloys, this approach yields Mo single‐atom‐doped nanoporous Ni with high hydrogen evolution activity and nanoporous Ni(Fe)/Ni\n                    3\n                    Fe heterostructures with excellent oxygen evolution activity, enabling ampere‐level alkaline electrolysis at low cell voltages. Beyond planar substrates, the method scales to large‐area and patterned architectures that directly integrate flow fields and catalyst layers; the resulting integrated electrolyzer achieves 1.0 A cm\n                    −2\n                    at only 1.84 V and remains stable for over 185 h, outperforming commercial benchmarks. These findings establish VPA‐CD as a robust and manufacturable route for engineering nanoporous electrodes, bridging the gap between catalyst discovery and device‐level hydrogen production.",
+          "hb": 1
+        },
+        {
+          "t": "循环加速CO2矿化实现低成本竞争力的胶凝材料与氢气生产",
+          "d": "2026-02-19",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "该研究提出一种循环加速CO2矿化技术，用于制备具成本竞争力的水泥基材料。实现净负碳经济需要高效且经济的CO2捕集与利用方案。研究通过设计循环工艺路径，加速CO2与含钙/含镁矿物之间的碳化反应，将CO2永久封存为稳定的碳酸盐矿物，同时提升水泥材料的力学性能。相比传统水泥生产的高碳排放，该技术在矿化过程中实现碳的净固定，且通过工艺优化显著降低生产成本，使碳负性水泥材料具备大规模工程应用的经济可行性，为建筑行业脱碳提供切实路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07347B",
+          "tp": "CO2矿化水泥",
+          "aip": 1,
+          "kp": [
+            "关键工艺[CO2矿化]: Na2CO3循环加速",
+            "产物[CO2利用]: 碳酸盐胶凝材料+无定形硅"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Advancing a net-negative carbon economy requires efficient and cost-effective CO2 capture and utilization methods. Here, we introduce a novel sodium carbonate (Na2CO3) looping process that accelerates CO2 capture and mineralization by silicate feedstocks such as steel slags, producing a carbonate-rich product and amorphous silica as cementitious materials. Unlike conventional direct or acid-assisted mineralization, our chemical looping approach first carbonates the silicate using a Na2CO3 solution. The same solution then reactively captures CO2 and precipitates high-purity, (sub)micron-sized amorphous silica, while simultaneously regenerating the Na2CO3. Demonstrated on steel slags, the process achieved 59% and 35% capture for point-source and air CO2, respectively, mineralizing to up to 2.79 mmol-C g-1 slag. Compared to traditional slag-water CO2 mineralization, Na2CO3 looping captured and mineralized 4 to 9 times more CO2. Mechanistically, Na2CO3 looping accelerates mineralization by rapidly removing Ca via carbonate precipitation, thereby sustaining a strong thermodynamic driving force for continued Ca–silicate dissolution, which governs the overall carbonation rate. The process offers several key advantages and novelties: (1) no net chemical consumption due to complete Na2CO3 regeneration; (2) CO2 capture and mineralization occur at room temperature and 1 atm; (3) the CO2 source can be either point source or ambient air; (4) both the carbonation and reactive capture steps are exothermic, lowering system energy demand and eliminating external heat input; and (5) two cementitious products—carbonate-rich solids and amorphous silica—are generated separately, enabling flexible blending in downstream applications. Additionally, utilization of slag waste heat enables reaction with steam to produce up to 1.01 mmol-H2 g-1 slag. Without product revenues, levelized costs are only $252 and $50 per ton of CO2 for air and point-source capture, respectively; considering product revenues, the payback periods are only 1.9 and 0.8 for air and point-source CO2.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "自动化机器人系统配合AI执行实验全流程，于药物发现及蛋白工程领域引发学术争议。",
+        "研究利用浮体MOSFET器件固有热噪声构建概率比特，模拟Potts模型求解组合优化问题。",
+        "加州大学圣迭戈分校利用递归特征机算法提取大模型概念向量，实现模型输出精准操控。"
+      ],
+      "entries": [
+        {
+          "t": "自动驾驶'机器人实验室'会取代生物学家吗？一篇论文引发争议",
+          "d": "2026-02-19",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "该文章报道了一篇引发学术界争议的论文，该论文提出自动驾驶'机器人实验室'可能取代生物学家。自动化实验室利用机器人系统配合AI实现实验设计、执行和数据分析的全流程自动化，在高通量筛选、蛋白工程和药物发现领域展现了惊人效率。然而生物学家对此存在分歧：支持者认为自动化将释放科研生产力，反对者则担忧过度依赖机器可能导致生物学洞察力的缺失。这场辩论折射出AI驱动科研范式的深层变革。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-00453-8",
+          "tp": "自主实验机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "基于Potts模型的浮体MOSFET多态概率计算用于求解复杂组合优化问题",
+          "d": "2026-02-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "基于Potts模型利用浮体MOSFET器件实现多态概率计算，用于求解复杂组合优化问题。概率计算近年来因其在解决组合优化问题（COP）方面的潜力而受到关注。该研究以浮体MOSFET的固有热噪声作为随机性来源，构建多态概率比特（p-bit），模拟Potts自旋模型进行并行搜索。该方法降低了COP求解的能耗和时间，为超越冯·诺依曼架构的新型计算范式提供了硬件基础。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516797?af=R",
+          "tp": "概率计算芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Probabilistic computing has gained attention for solving combinatorial optimization problems (COPs), mainly using the Ising model, which may not be suitable for complex COPs. Instead, this work proposes a multi‐state probabilistic computing system based on the Potts model using stochastic threshold switching floating‐body metal‐oxide‐semiconductor field‐effect transistors (FB‐MOSFETs) as the multi‐state probabilistic bits (p‐bits) to solve challenging COPs. The system employs drain voltage sharing and a one‐hot sampling method to achieve controllable probabilistic behavior and scalable annealing. Experimental validations on spin glass and max‐4‐cut problems demonstrate that the system efficiently samples a tunable Boltzmann distribution while converging faster than traditional methods. Comparative analyses further highlight superior energy efficiency and decreased time‐to‐solution, underscoring the potential of multi‐state probabilistic computing for large‐scale, complex COPs using only MOSFET devices.",
+          "hb": 1
+        },
+        {
+          "t": "加利福尼亚大学圣迭戈分校Mikhail Belkin揭示大模型概念表征的可提取性与可操控性",
+          "d": "2026-02-19",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "加州大学圣迭戈分校Mikhail Belkin团队利用递归特征机（RFM）算法从语言及多模态模型中提取代表特定语义概念的线性向量，通过在激活状态中加减\"概念向量\"精准操控模型输出。超500概念测试效果显著，模型越大可操控性越强。基于概念向量构建的监控模型在识别AI幻觉和有害内容方面优于GPT-4o自我判断，揭示模型内部表征的可提取与可干预性，对安全防护和性能提升均有意义。",
+          "sc": 5.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aea6792",
+          "tp": "模型概念操控",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "人工智能模型蕴含着丰富的人类知识，理解这些知识的内在表征方式，对于提升模型能力与完善安全防护至关重要。本研究利用一种名为“递归特征机”（RFM）的算法，从语言模型、多模态模型等不同架构的AI系统中，提取出代表特定语义概念（如“有害内容”、“欺骗”、“保守派”等）的线性向量。通过向模型内部激活状态中添加或减去这些“概念向量”，研究人员能精准地引导（即“操控”）模型输出。例如，他们能使其在中文语境下表现出“阴谋论者”的性格，甚至将莎士比亚风格与阴谋论混合。\n实验证明，这种方法在超过500个概念的测试中效果显著，且模型规模越大、性能越新，其“可操控性”越强。在编程任务中，通过操控将模型输出从Python语言“转向”C++，其代码正确率甚至超过了直接提示模型使用C++的效果。\n此外，基于这些内部概念向量构建的监控模型，在识别AI“幻觉”（生成虚假信息）和检测有害内容方面，表现优于直接让AI模型（包括GPT-4o）进行自我判断，揭示了模型“知道”的远多于其表面表达的。\n研究指出，现代AI模型内化了大量人类知识，而通过理解并直接干预其内部表征，而非仅仅依赖提示词工程，将能更有效地释放模型潜能并建立安全护栏。文章于2026年2月19日发表在Science。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "全玻片边缘层析成像系统结合边缘计算，实现接近专家水平的自主细胞病理学临床诊断。",
+        "研究人员制备12英寸晶圆级电学各向异性硼烯材料，应用于光电计算器件简化逻辑运算架构。",
+        "新型柔性器件集成液态金属，实现大面积压力测绘与自适应组织贴合的微型化无线连续监测。"
+      ],
+      "entries": [
+        {
+          "t": "通过全切片边缘断层扫描实现临床级自主细胞病理学诊断",
+          "d": "2026-02-19",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究提出一种基于全玻片边缘层析成像的自主细胞病理学诊断系统，用于宫颈癌、肺癌等早期筛查。系统结合全玻片扫描与边缘计算，无需经验丰富的病理医生即可自动完成从成像到判读的全流程，在临床级准确率上接近专家水平。该方法显著降低了细胞学筛查对人工的依赖，有望提升欠发达地区的癌症早筛覆盖率与效率，推动病理诊断的自动化与普及化。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-10094-y",
+          "tp": "自主细胞病理断层成像",
+          "aip": 1,
+          "kp": [
+            "[诊断]: 全玻片边缘层析自主细胞病理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Cytopathology, often abbreviated as cytology, has a central role in the early detection of cancer, such as cervical, lung and bladder cancers, owing to its speed, simplicity and minimally invasive nature1,2,3,4,5,6,7,8,9. However, its effectiveness is limited by variability in diagnostic accuracy stemming from subjective visual interpretation10,11,12,13,14,15,16,17,18,19,20,21. Although many artificial intelligence (AI)-powered systems have been proposed to improve consistency22,23,24,25,26, none have achieved fully autonomous, clinical-grade performance. Existing approaches serve as assistive tools and still rely on human oversight for interpretation and decision-making22,23,24,25,26. Here we present a clinical-grade autonomous cytopathology pipeline that combines high-resolution, real-time optical whole-slide tomography with edge computing to deliver end-to-end automation. The system achieves practical performance in imaging speed, quality and data volume, with localized data compression enabling streamlined storage and accelerated AI-driven analysis. In addition to supporting cell-level classification, the platform enables flow cytometry-like, population-wide morphological profiling for comprehensive interpretation of cellular distributions and patterns. A vision transformer achieved area under the receiver operating characteristic (ROC) curve (AUC) values exceeding 0.99 at the single-cell level for detecting low-grade squamous intraepithelial lesions (LSILs), high-grade squamous intraepithelial lesions (HSILs) and adenocarcinoma. In a multicentre evaluation of 1,124 cervical liquid-based cytology samples across four centres, the AI model achieved slide-level AUC values of 0.86–0.91 for LSIL+ and 0.89–0.97 for HSIL+, with LSIL counts correlating strongly with human papillomavirus positivity and HSIL counts scaling with diagnostic severity. The system enables autonomous triage cytology, offering a foundation for routine, scalable and objective diagnostics.",
+          "hb": 1
+        },
+        {
+          "t": "12英寸电各向异性硼烯用于光电计算",
+          "d": "2026-02-19",
+          "a": "Nature Nanotechnology",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究展示了12英寸晶圆级电学各向异性硼烯（boridene）材料，用于光电计算器件。该材料具备双极性光电响应特性，可简化光计算架构，在光电逻辑运算与信号处理中展现独特优势。晶圆级制备能力是其从实验室走向工程应用的关键突破，为下一代光电融合计算芯片提供新材料平台。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02122-3",
+          "tp": "硼烯光电计算",
+          "aip": 1,
+          "kp": [
+            "材料尺寸[硼烯]: 12英寸",
+            "[光电计算]: 电各向异性硼烯实现双极响应传感器内计算",
+            "[集成瓶颈]: 生长温度高与不均匀性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Optoelectronic computing devices capable of bipolar responses offer a route to simplified architectures for processing complex tasks. However, advancing such systems towards large-scale, in-sensor computing has been constrained by the difficulty of monolithically integrating neuromorphic optoelectronic arrays with peripheral circuits, largely due to high material growth temperatures and the non-uniform performance of complex device stacks. Here we report Mo4/3B2Tz (Tz = O, OH, F) boridene as a low-thermal-budget platform for neuromorphic optoelectronics, enabling twelve-inch deposition below 150 °C with excellent wafer-scale uniformity. Ordered metal vacancies and interlayer registry variations generate an unusual electrical anisotropy in which through-plane conduction dominates over in-plane transport. This anisotropy enables a simplified three-terminal device architecture that exhibits intrinsic bipolar and highly linear programmable photoresponses. Correlative conductive atomic force microscopy and first-principles simulations reveal that vacancy-mediated interlayer charge transfer governs the observed behaviour. We further fabricate a 54 × 54-pixel2 optoelectronic computing array with a 99.48% yield and 16 fully separable states. Using a 3k-pixel system prototype, we demonstrate the diagnosis of ophthalmic disorders. Our work establishes Mo4/3B2Tz boridene as a scalable nanomaterial platform that brings neuromorphic optoelectronic computing closer to practical implementations.",
+          "hb": 1
+        },
+        {
+          "t": "基于液态金属的无线软植入压力传感器，具有大面积测绘和自适应植入功能",
+          "d": "2026-02-19",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "提出将液态金属集成到微加工无线软植入压力传感器中的新策略，解决传统柔性器件图形化分辨率有限和可扩展性差的问题。该传感器可实现大面积压力测绘并自适应贴合植入组织，配套可穿戴读出系统，为实时连续生理压力监测提供了微型化无线方案。",
+          "sc": 6.3,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2528796123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "软体传感器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Innovations in soft materials have advanced the development of implantable devices for pressure monitoring, but fabrication and integration challenges remain, such as limited patterning resolution and poor scalability, hindering their miniaturization and wireless sensing capabilities. This study introduces methods and advantageous features of incorporating liquid metal into microfabriated, wireless soft implantable pressure sensors and wearable readout systems for large-area pressure mapping and adaptive implantation with autonomous folding and self-healing capabilities. Eutectic gallium–indium, a type of liquid metal, serves as both the deformable electrode for capacitive sensors and a low-resistance conductor for inductors. It is integrated into a thin-film, battery-free, inductive-capacitive wireless sensing platform. Scalable wireless sensor arrays are created through microfabrication for large-area pressure mapping. The wireless pressure sensor is also integrated with soft ferromagnetic and self-healing layers in cuff-type sensors to allow for autonomous folding in response to external magnets, eliminating the need for suturing. In addition, a miniaturized wearable readout system integrated into medical gloves enables wireless and real-time pressure monitoring. The presented wireless soft pressure-sensing method with large-area mapping and secure implantation capabilities offers alternatives to conventional medical tools for intraoperative monitoring and examinations.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

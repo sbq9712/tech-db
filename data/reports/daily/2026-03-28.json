@@ -1,0 +1,257 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月28日　星期六",
+  "date_range": "2026-03-28",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新技术用单壁碳纳米管包覆正极颗粒，实现无导电剂干法厚电极制造",
+      "两步法引入有机铯盐可控掺杂，显著提升钙钛矿薄膜结晶质量与相稳定性",
+      "有机铯盐掺杂策略稳定α相结构，甲脒-铯钙钛矿电池获26.61%认证效率"
+    ],
+    "AI与智能科技": [
+      "研究团队在原子阱系统中首次于量子尺度实验证实姆潘巴效应",
+      "科研人员研发全硅基晶体管伊辛机，基于CMOS工艺求解组合优化问题",
+      "实验结合AI降维算法成功映射钙钛矿催化剂控制的自由基级联反应网络"
+    ],
+    "通用技术": [
+      "Firefly月球着陆器完成首批科考任务，实测数据重塑月球内部散热模型",
+      "研究人员制备出晶圆级p型半导体单层WSi₂N₄薄膜，具备高空穴迁移率",
+      "SWOT卫星首测堪察加M8.8地震短波长海啸波列，填补近海沟观测空白"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新技术用单壁碳纳米管包覆正极颗粒，实现无导电剂干法厚电极制造",
+        "两步法引入有机铯盐可控掺杂，显著提升钙钛矿薄膜结晶质量与相稳定性",
+        "有机铯盐掺杂策略稳定α相结构，甲脒-铯钙钛矿电池获26.61%认证效率"
+      ],
+      "entries": [
+        {
+          "t": "连续碳纳米管鞘层使干法厚电极实现超高能量密度与快速充电",
+          "d": "2026-03-28",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "开发了一种碳纳米管连续包覆技术，将单壁碳纳米管紧密缠绕在正极活性颗粒表面形成连续导电外壳，无需额外导电剂即可构建干法厚电极。该结构实现了超高能量密度和快速充电性能的兼顾：连续导电网络降低了电荷转移阻抗和极化，厚电极设计提高了活性材料负载量。该技术为高能量密度、低成本电池制造提供了新路径。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00076-0?rss=yes",
+          "tp": "碳纳米管厚电极",
+          "aip": 1,
+          "kp": [
+            "策略[厚电极]: CNT连续导电鞘层包裹",
+            "工艺[电极]: 干法加工",
+            "性能[厚电极]: 高能量密度+快充"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Wrapping cathode active particles with single-walled carbon nanotubes creates a continuous conductive sheath without excess additives during dry electrode processing. This strategy enables thick electrodes with high active material content, achieving both high energy density and fast-charging capability.",
+          "hb": 1
+        },
+        {
+          "t": "通过有机铯盐可控引入Cs⁺实现α-FA-Cs钙钛矿太阳能电池高认证效率",
+          "d": "2026-03-28",
+          "a": "Nature Energy",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "本研究提出了一种通过有机铯盐（organocaesium salts）在α-FA–Cs钙钛矿中可控引入Cs⁺的两步制备方法。甲脒-铯混合卤化物钙钛矿（FA1-xCsxPbI3）的光电性能高度依赖于Cs⁺的掺杂比例和分布均匀性。传统方法难以精确控制Cs⁺的掺入量，导致相分离和缺陷形成。有机铯盐策略通过调控前驱体反应动力学，实现了Cs⁺的均匀、定量掺入，显著提高了钙钛矿薄膜的结晶质量和相稳定性，为高效稳定钙钛矿太阳能电池的制备提供了新路径。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-026-02016-7",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "认证效率[α-FA-Cs钙钛矿电池]: 26.61%",
+            "[Cs+调控]: 有机铯盐调控α相Cs+掺入"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-step fabrication method of formamidinium–caesium metal halide perovskites (FA1-xCsxPbI3) offers superior control over crystallization regulation and therefore is more suitable for solar cell manufacturing. However, forming the ideal α phase required for stable devices remains challenging due to limited Cs+ incorporation and unclear phase transition mechanism. Here we design caesium 4-(diphenylphosphino)benzoate to enable efficient Cs+ doping and to homogenize cation distribution, obtaining high-quality perovskite films with improved phase stability. As a result, the solar cells fabricated via the two-step process achieve an efficiency of 26.91% (certified 26.61%). The devices incorporating a thermally stable charge-transport layer retain 95% of their initial efficiency (23.76%) after continuous operation under 1-sun illumination at the maximum power point tracking and 85 °C (ISOS-L-2 protocol) for 1,500 hours. This study provides insights into the phase transition pathway and the corresponding transition-state structure of FA0.9Cs0.1PbI3 as well as the mechanism of Cs+-driven lattice stabilization in perovskites.",
+          "hb": 1
+        },
+        {
+          "t": "在α-FA-Cs钙钛矿太阳能电池中通过有机铯盐实现可控Cs⁺掺杂，认证效率达26.61%",
+          "d": "2026-03-28",
+          "a": "Nature Energy",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究开发了一种通过有机铯盐控制Cs⁺掺入的α相FA-Cs钙钛矿太阳能电池制备方法。两步法制备甲脒-铯混合卤化物钙钛矿(FA1-xCsxPbI3)通过有机铯盐前驱体精确调控Cs⁺含量，有效稳定了α相结构，抑制了相分离和缺陷形成。器件获得了26.61%的认证效率，为高效钙钛矿太阳能电池的组分工程提供了新策略。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-026-02016-7",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[FA-Cs钙钛矿电池]: 26.61%（认证）",
+            "[Cs⁺调控]: 有机铯盐控制Cs⁺掺杂稳定α相",
+            "合成方法[钙钛矿]: 两步法结晶调控"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-step fabrication method of formamidinium–caesium metal halide perovskites (FA1-xCsxPbI3) offers superior control over crystallization regulation and therefore is more suitable for solar cell manufacturing. However, forming the ideal α phase required for stable devices remains challenging due to limited Cs+ incorporation and unclear phase transition mechanism. Here we design caesium 4-(diphenylphosphino)benzoate to enable efficient Cs+ doping and to homogenize cation distribution, obtaining high-quality perovskite films with improved phase stability. As a result, the solar cells fabricated via the two-step process achieve an efficiency of 26.91% (certified 26.61%). The devices incorporating a thermally stable charge-transport layer retain 95% of their initial efficiency (23.76%) after continuous operation under 1-sun illumination at the maximum power point tracking and 85 °C (ISOS-L-2 protocol) for 1,500 hours. This study provides insights into the phase transition pathway and the corresponding transition-state structure of FA0.9Cs0.1PbI3 as well as the mechanism of Cs+-driven lattice stabilization in perovskites.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究团队在原子阱系统中首次于量子尺度实验证实姆潘巴效应",
+        "科研人员研发全硅基晶体管伊辛机，基于CMOS工艺求解组合优化问题",
+        "实验结合AI降维算法成功映射钙钛矿催化剂控制的自由基级联反应网络"
+      ],
+      "entries": [
+        {
+          "t": "姆潘巴效应的量子化",
+          "d": "2026-03-28",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "姆潘巴效应（Mpemba effect）——热水比冷水更快结冰的反常现象——首次在量子尺度被实验证实。研究团队在原子阱系统中观测到，处于高能态的量子气体比低能态气体更快弛豫到基态，复现了经典姆潘巴效应的核心特征。这一发现不仅将一个经典的非平衡热力学悖论推广到量子领域，还为量子退火算法、量子热机以及超冷原子操控提供了新工具，暗示着量子态工程中存在类似'加热反而加速冷却'的效应，具有技术应用潜力。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeh4838?af=R",
+          "tp": "量子姆潘巴效应",
+          "aip": 1,
+          "kp": [
+            "量子效应[姆佩巴效应]: 原子尺度观测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quirk of freezing water found on atomic scales, hinting at technological applications",
+          "hb": 1
+        },
+        {
+          "t": "完全由硅晶体管构成的可扩展伊辛机",
+          "d": "2026-03-28",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出一种完全由硅基晶体管构成的互补金属氧化物半导体（CMOS）伊辛机（CIM）。该架构利用数字硬件模拟伊辛模型求解组合优化问题，凭借与成熟CMOS工艺兼容的优势，实现了可扩展、高能效的专用计算方案，在解决复杂优化、信号处理和机器学习任务方面具有广阔应用前景。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz2384?af=R",
+          "tp": "硅基伊辛机",
+          "aip": 1,
+          "kp": [
+            "[器件]:全硅MOSFET伊辛机",
+            "[功能]:MOSFET兼作振荡器与耦合器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We introduce a complementary metal-oxide semiconductor (CMOS) Ising machine (CIM) composed entirely of silicon-based metal-oxide semiconductor field-effect transistors (MOSFETs). Instead of adhering to the conventional functions of MOSFETs as switches or amplifiers, CIM adopts an unprecedented approach that uses the dual characteristics of MOSFETs to function as both oscillators and couplers, enabling the coupling strength between oscillators to be tuned through gate biasing. These dual behaviors facilitate effective synchronization within the CIM, while the use of MOSFETs ensures full compatibility with standard CMOS fabrication technology and provides a pathway toward scalable hardware implementation. We also address the challenge of frequency variability, a critical issue in a large-scale CIM, by finely tuning the gate voltage of the oscillating transistors. This strategy notably enhances the stability and reliability of the CIM, achieving a level of control that is difficult to attain in other Ising machines using heterotypic device architectures. This CIM was applied to solve a MaxCUT problem. The demonstrated advantages of our CIM, including its compact cell size, high scalability, and robust operation, represent a promising direction for the advancement of future large-scale and energy-efficient Ising machines.",
+          "hb": 1
+        },
+        {
+          "t": "超空间映射与迭代降维揭示由钙钛矿型催化剂控制的自由基级联网络",
+          "d": "2026-03-28",
+          "a": "Chem",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "研究结合机器人辅助实验和AI引导的降维分析，实现了复杂自由基级联反应超空间的高效映射，揭示了钙钛矿型催化剂对反应网络的控制机制。传统方法难以在多变量、高维反应空间中识别关键控制因素。研究通过迭代降维算法从海量实验数据中提取主导变量，构建了自由基级联网络的可解释模型。该数据驱动方法加速了复杂催化体系的设计优化，展示了AI与自动化实验在化学研究中的深度融合。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00053-7?rss=yes",
+          "tp": "AI驱动催化探索",
+          "aip": 1,
+          "kp": [
+            "[方法]: 机器人实验+AI降维映射反应超空间",
+            "[催化剂]: 钙钛矿型催化冷启动自由基级联",
+            "[产物数]: 最多十种离散产物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Robot-assisted experimentation combined with AI-guided dimensionality reduction enabled mapping of the reaction hyperspace and reconstruction of the mechanistic network for cold-start radical cascades catalyzed by previously untested perovskite-like materials, uncovering up to ten discrete—and often synthetically valuable—products.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "Firefly月球着陆器完成首批科考任务，实测数据重塑月球内部散热模型",
+        "研究人员制备出晶圆级p型半导体单层WSi₂N₄薄膜，具备高空穴迁移率",
+        "SWOT卫星首测堪察加M8.8地震短波长海啸波列，填补近海沟观测空白"
+      ],
+      "entries": [
+        {
+          "t": "私营月球着陆器首批科学成果挑战月球火山活动图景",
+          "d": "2026-03-28",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "Firefly Aerospace公司的蓝幽灵（Blue Ghost）私人月球着陆器完成首次科学任务,其搭载的NASA仪器获取的月壤热流和地下数据对传统月球火山活动模型提出挑战。测量结果显示月球内部散热速率可能低于此前估算,暗示月球的地质冷却历史更为复杂。这一成果同时验证了NASA商业月球有效载荷服务（CLPS）计划的可行性——私营着陆器能够以远低于传统任务的成本交付可靠的科学数据,为未来阿耳忒弥斯载人登月计划奠定基础。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeh4835?af=R",
+          "tp": "月球火山活动",
+          "aip": 1,
+          "kp": [
+            "[数据来源]: Blue Ghost商业月球着陆器",
+            "[发现]: 挑战月球火山活动模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Blue Ghost data suggest NASA’s growing commercial Moon program can deliver results",
+          "hb": 1
+        },
+        {
+          "t": "晶圆级且掺杂可调的p型半导体单层WSi₂N₄薄膜",
+          "d": "2026-03-28",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究实现了晶圆级、掺杂可调的p型半导体单层WSi₂N₄薄膜。理论预测表明WSi₂N₄具有高空穴迁移率和高开关比，是优异的p型半导体材料。该薄膜的制备为二维电子学器件（如互补逻辑电路、晶体管）提供了新材料平台，有望推动二维半导体在纳米电子学中的实际应用。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag191/8541869?rss=1",
+          "tp": "p型半导体薄膜",
+          "aip": 1,
+          "kp": [
+            "材料类型[WSi2N4单层]: p型半导体",
+            "生长规模[WSi2N4]: 晶圆级可控掺杂",
+            "迁移特性[WSi2N4]: 高空穴迁移率"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Monolayer WSi2N4 has been predicted to be a high-performance p-type semiconductor with high hole mobility, high on-state current density, high strength, and high thermal conductivity. Achieving large-area growth of monolayer WSi2N4 with controlled doping is a prerequisite for the scalable integration of device applications. However, only micrometer-sized monolayer WSi2N4 domains have been synthesized so far. Here, we report the growth of wafer-scale monolayer WSi2N4 films with submillimeter domains by chemical vapor deposition using a liquid Au/W bilayer as the growth substrate, with a growth rate three orders of magnitude higher than previously reported values. This method also enables efficient modulation of carrier doping concentration from 5.8 × 1012 cm−2 to 3.2 × 1013 cm−2 through in",
+          "hb": 1
+        },
+        {
+          "t": "SWOT 检测到 2025 年堪察加地震中与近海沟震源相关的分散性海啸",
+          "d": "2026-03-28",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "2025年7月29日堪察加发生M8.8地震后，NASA/CNES的SWOT卫星首次捕获到与近海沟震源相关的短波长海啸波列。通过对断层滑移的敏感性分析，确认海啸发源于海沟附近区域。该观测填补了陆基地震大地测量和深水传感器在近海沟区域的观测空白，对理解俯冲带海啸成因及沿海灾害预警具有重要价值。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeb8634?af=R",
+          "tp": "SWOT卫星海啸检测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tsunamis from large subduction earthquakes pose severe coastal hazards, yet their genesis near the trench remains poorly constrained by land-based seismic geodetic data and distant deep-water sensors. Following the 29 July 2025 magnitude 8.8 Kamchatka earthquake, the NASA/CNES Surface Water and Ocean Topography (SWOT) satellite captured a distinct train of short-wavelength tsunami waves, which we link to near-trench tsunamigenesis. Sensitivity analyses of earthquake slip indicated tsunamigenesis within 10 kilometers of the trench, an inference not attainable from land seismology and geodesy or sparse deep-water seafloor pressure records alone. These results provide the first high-resolution, two-dimensional spaceborne observation directly linking the measured dispersive tsunami wavefield to near-trench tsunamigenesis, extending earlier model- and gauge-based inferences. They establish SWOT as a constraint on source processes, with implications for tsunami hazard science and subduction-zone geodynamics.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

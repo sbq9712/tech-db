@@ -1,0 +1,254 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月10日　星期五",
+  "date_range": "2026-07-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "隆基绿能启动21GW铜电极背接触太阳能电池产线",
+      "美国建成首座年产能4GWh电网级钠离子储能电池工厂",
+      "Peak Energy拟在加州萨克拉门托投建4GWh钠离子电池工厂"
+    ],
+    "AI与智能科技": [
+      "AMD定于7月发布Zen 6架构处理器",
+      "加州科研团队用宇树G1机器人完成全球首例活体外科手术",
+      "特斯拉第三代Optimus定型并设定周产数千台目标"
+    ],
+    "通用技术": [
+      "XRISM探测器观测到黑洞喷流抑制星系恒星形成",
+      "科研团队实现单层石墨烯纯谷塞曼自旋轨道耦合调控",
+      "研究人员开发出具备学习与记忆功能的液晶聚合物电子器件"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "隆基绿能启动21GW铜电极背接触太阳能电池产线",
+        "美国建成首座年产能4GWh电网级钠离子储能电池工厂",
+        "Peak Energy拟在加州萨克拉门托投建4GWh钠离子电池工厂"
+      ],
+      "entries": [
+        {
+          "t": "隆基启动21GW铜金属化背接触太阳能电池量产",
+          "d": "2026-07-10",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "隆基绿能在国内启动21GW铜金属化背接触（BC）太阳能电池产线生产。背接触技术将电极全部移至电池背面，消除正面遮光损失，显著提升转换效率。采用铜金属化替代银浆可大幅降低材料成本，突破贵金属银对光伏产业规模化的制约。21GW产能标志着BC电池技术从实验室向大规模商业化制造迈进，对光伏行业降本增效具有重要推动作用。",
+          "sc": 8.8,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/07/09/longi-switches-on-21-gw-production-line-for-copper-metallized-back-contact-solar-cells/",
+          "tp": "背接触太阳电池",
+          "aip": 1,
+          "kp": [
+            "产能[隆基背接触电池]: 21 GW",
+            "金属化技术[背接触电池]: 无银铜基ACM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe Chinese manufacturer has started production at a 21 GW back-contact cell facility in China, marking the first large-scale deployment of its silver-free Alloy Contact Matrix (ACM) metallization technology.\nThe copper-based process aims to reduce costs, improve BC cell competitiveness, and support wider industrial adoption of back-contact modules.\nVincent Shaw\nTechnology & Products\nImage: Longi\nChinese PV manufacturer\nhas started production at a 21 GW back-contact (BC) cell manufacturing line at its Xixian production base in Shaanxi province, China. The project represents the first gigawatt-scale production deployment of Longi’s Alloy Contact Matrix (ACM) metallization technology.\nThe company describes the ACM metallization approach as a way to replace conventional silver paste with a copper-based alloy contact system. The company says the technology can enable the complete removal of silver from BC cells through the use of a nanoscale barrier layer, a copper-based alloy material and a matrix-style point-contact structure.\nThe barrier layer is designed to prevent copper diffusion into the silicon wafer, addressing a key reliability challenge associated with copper metallization. The alloy formulation is intended to improve oxidation resistance and enable integration into standard screen-printing and firing processes, avoiding the need for separate copper electroplating equipment, the manufacturer said.\nLongi also explained that the matrix contact structure reduces the metal-silicon contact area, which is intended to lower recombination losses while reducing metal consumption. The technology is claimed to be particularly suited to BC cell architectures, where all electrical contacts are located on the rear side of the cell. This design provides greater flexibility for alternative metallization approaches compared with conventional front-contact cells, where narrow front gridlines require high conductivity and minimal optical shading, the company stated.\nAccording to Longi, ACM cells have achieved a conversion efficiency of 27.6%, as certified by Germany’s Institute for Solar Energy Research Hamelin. Modules based on the technology have reached a power output of 672 W in certification tests conducted by TÜV Rheinland.\nLongi said the introduction of ACM into mass production has increased cell conversion efficiency by 0.2 to 0.3 percentage points compared with its previous-generation process, while increasing module output by 3 W to 5 W.\nThe main commercial driver for ACM is expected to be cost reduction rather than efficiency gains, as silver paste remains one of the largest non-silicon cost components in high-efficiency BC cells. By replacing silver with a copper-based alloy, Longi aims to reduce exposure to\nsilver price fluctuations\nand improve the competitiveness of BC modules against mainstream n-type products used in utility-scale applications.\nThe manufacturing process is also designed for industrial compatibility, according to the company. Unlike copper electroplating, ACM relies on printing and firing processes, which could lower equipment adaptation costs for existing BC production lines.\nLongi has not disclosed production yield data, detailed reliability results or long-term outdoor performance results for the new 21 GW facility. It said, however, that these factors will be closely monitored as copper-based metallization technologies move toward large-scale commercial deployment, particularly regarding long-term resistance to oxidation, diffusion and electromigration over a typical 25- to 30-year module lifetime.\nThe company announced\nplans to shift to copper-metallized solar cells\nVincent Shaw\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "美国首座钠离子电网储能工厂将为400万户家庭供电",
+          "d": "2026-07-10",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "美国首座钠离子电网储能电池工厂建成，年产能达4GWh，足以为400万户家庭供电。钠离子电池以丰富廉价的钠替代锂，原料成本大幅低于锂离子电池，且低温性能和安全性优异，被视为电网级储能的理想方案。该工厂的投产标志着钠离子电池从实验室走向规模化商用，有望重塑全球储能产业链格局，减少对锂资源的依赖。这对降低储能成本、加速可再生能源并网具有里程碑意义。",
+          "sc": 8.5,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/us-sodium-plant-to-power-million-homes",
+          "tp": "钠电池工厂",
+          "aip": 1,
+          "kp": [
+            "产能[钠离子储能工厂]: 4 GWh/年",
+            "技术路线[电网储能]: 钠离子电池",
+            "设施面积[加州工厂]: 183,000平方英尺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "An industrial manufacturing plant capable of producing 4 gigawatt-hours of battery systems annually—enough capacity to supply electricity to nearly four million households—will be built in Northern California.\nThe upcoming 183,000-square-foot facility establishes the first production site in the United States dedicated entirely to manufacturing sodium-ion energy storage systems for electrical grids.\nThe developer, Peak Energy, selected a site within Sacramento’s Metro Air Park for the assembly lines. By focusing on a high-capacity output right from the start, the plant is designed to provide large-scale equipment to utility companies experiencing heightened electrical demands.\n“Peak’s passively cooled sodium-ion battery energy storage systems, which reduce the cost of energy storage by 20% and have a 99% guaranteed uptime, are expected to enter production and begin shipments in Q1 2027,” noted a press release.\nConstructing and equipping the facility involves an initial capital expenditure of $71 million. Over the next 18 months, the establishment of the factory is expected to generate 239 local jobs focused on assembly,\n, and technical operations. Beyond direct employment at the plant, regional analysts expect secondary economic benefits for parts suppliers, freight handlers, and local service businesses.\nMore from Energy\nNuclear plant given life extension to power 2,500,000 homes for 20 more years\nAdvanced US nuclear battery deal targets 3000 MW power with $22.5 billion pipeline\nNew triple-junction perovskite solar cell achieves 27.3% efficiency with 770-hour life\nIron-to-rust cycle tapped by scientists for safe renewable energy transport\nChina unveils mega semi-submersible crane vessel that lifts 2,425 tons for offshore work\n“This facility is proof that America can lead not only in inventing the technology, but in building it at scale,” said Landon Mossburg, CEO and Co-Founder of Peak Energy. “With our manufacturing facility in Sacramento, we’re enabling American energy innovation to lower electric bills while creating high quality jobs.”\nA nationwide site evaluation process preceded the final selection of the Sacramento location. Management balanced multiple factors before choosing the site, prioritizing the regional availability of industrial laborers, logistical links to western power grids, and local economic development programs.\n“Peak’s growth in California is supported by a $10.5 million CalCompetes tax credit, which was awarded in May 2026,” added the press release.\nUnprecedented consumption patterns from\ndata storage centers\nand artificial intelligence computing infrastructure have placed new strains on municipal electricity grids. To address these capacity issues, the manufacturer enters the market with 6 gigawatt-hours of advance product orders already under contract from industrial buyers.\nThe stationary storage systems rely on a chemical structure using sodium ions, presenting an alternative to standard lithium-ion utility installations. To manage operational heat, the hardware uses a thermal strategy that entirely removes mechanical components like fans or liquid pumps. Eliminating these high-wear moving parts reduces long-term operating costs.\nThe construction of the Sacramento factory marks a shift from low-volume technology demonstrations to standardized, automated mass production. In August 2025, the firm completed its initial operational test by connecting a sodium-ion platform directly to the domestic energy grid.\nThat early pilot unit used a sodium-iron phosphate pyrophosphate molecular composition, making it the largest operational deployment of its specific chemical classification at that time.\n“Together, these milestones underscore growing confidence in Peak’s sodium-ion technology as a scalable solution for grid storage,” concluded the company in the\npress release\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nUS Air Force picks Longshot to test hypersonic tech with ground-based launcher\nWorld's first surgery using teleoperated humanoid robots conducted by US team\nGerman researchers' new plant removes ammonia from wastewater, advances circular water management\nNew in-memory computing chip promises faster processing with lower energy use\nRoyal Navy achieves world's first airborne launch of an uncrewed boat for sea missions",
+          "hb": 1
+        },
+        {
+          "t": "Peak将在萨克拉门托建设4吉瓦时钠离子电池工厂",
+          "d": "2026-07-10",
+          "a": "Renewables Now",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "Peak Energy宣布将在加州萨克拉门托建设一座4 GWh产能的钠离子电池超级工厂。该工厂将专注于电网级储能系统（BESS），利用钠离子技术替代传统锂离子方案，降低对关键矿产的依赖。钠离子电池具备成本优势和资源丰富性，被视为大规模储能领域的重要新兴技术路线。此举标志着钠离子电池从实验室走向规模化量产的关键一步。",
+          "sc": 7.2,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://renewablesnow.com/news/peak-to-build-4-gwh-sodium-ion-battery-factory-in-sacramento-1297821/",
+          "tp": "钠电池工厂",
+          "aip": 1,
+          "kp": [
+            "产能[钠离子电池工厂]: 4 GWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Peak to build 4-GWh sodium-ion battery factory in Sacramento | Energy Storage News | Renewables Now\nAdvanced search\nPolicy & Tenders\nPolicy & Tenders\nPolicy & Tenders\nLatest top stories\nBrookfield cleared as GoldenPeaks Poland stalking horse bidder\nabout 7 hours ago\nBYD to supply 11 GWh of battery storage for Abu Dhabi RTC project\nabout 10 hours ago\nEU inverter restriction expected to affect 28 GW of demand to 2030\nabout 13 hours ago\nBritish govt says yes to 740-MW One Earth solar project\nCEE investors call for rethink of EU inverter funding guidance\nPeak to build 4-GWh sodium-ion battery factory in Sacramento\nJul 9, 2026, 6:17:03 PM\nSladjana Djunisic\nEnergy Storage\nRegion/Country:\nLatest top stories\nBrookfield cleared as GoldenPeaks Poland stalking horse bidder\nabout 7 hours ago\nBYD to supply 11 GWh of battery storage for Abu Dhabi RTC project\nabout 10 hours ago\nEU inverter restriction expected to affect 28 GW of demand to 2030\nabout 13 hours ago\nBritish govt says yes to 740-MW One Earth solar project\nCEE investors call for rethink of EU inverter funding guidance\nLatest in Capacity\nMetlen, Tsakos formalise JV for 252-MW solar, storage project in Greece\nXCF starts renewable diesel production at flagship Reno biofuel plant\nAxpo starts operations at Italian biomethane plant\nLatest in Energy storage\nOtovo raises USD 7.25m in private placement to fund Green Panel deal\nQualitas Energy launches Chile power tender for up to 517 GWh/year\nPoland's Hanplast to build, invest in solar, battery complex in Ukraine\nLatest in USA\nNordex's Q2 order intake surpasses 3 GW with stable pricing\nPanel installation begins at Avangrid’s Oregon Trail solar park\nUtility SRP seals 600-MW offtake for SunZia Wind in New Mexico\nLatest in USA & CANADA\nQuebec aims for up to 25 GW of wind, 5 GW of solar by 2050\nPeak Power starts up 3.6-MW/7.2-MWh BESS at Vuteq Canada factory\nLRE powers up 278 MW of Oklahoma solar farm for Google\nLatest in Capacity\nMetlen, Tsakos formalise JV for 252-MW solar, storage project in Greece\nLatest in Energy storage\nOtovo raises USD 7.25m in private placement to fund Green Panel deal\nLatest in USA\nNordex's Q2 order intake surpasses 3 GW with stable pricing\nLatest in USA & CANADA\nQuebec aims for up to 25 GW of wind, 5 GW of solar by 2050\nMost read stories\nNew York tops 8 GW of distributed solar, moves ahead of 2030 target\nEnergy Storage\nEU awards EUR 2.5bn for clean energy across 11 member states\nUK freezes CfD AR8 strike prices at AR7 level\nOnshore Wind\nNova Scotia’s largest wind project of 1.26 GW gets enviro nod\nToday in Hydrogen (daily)\nDaily Newsletter\nCorporate PPAs (weekly)\nUpcoming events\nMESIA Business Breakfast on Smart Cities & Distributed Solar Integration\nSep 17, 2026\nEnergy Storage Central Eastern Europe\nToday in Hydrogen (daily)\nDaily Newsletter\nCorporate PPAs (weekly)\nUpcoming events\nMESIA Business Breakfast on Smart Cities & Distributed Solar Integration\nSep 17, 2026\nEnergy Storage Central Eastern Europe\nAlert section not found",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "AMD定于7月发布Zen 6架构处理器",
+        "加州科研团队用宇树G1机器人完成全球首例活体外科手术",
+        "特斯拉第三代Optimus定型并设定周产数千台目标"
+      ],
+      "entries": [
+        {
+          "t": "AMD确认7月22-23日Advancing AI 2026大会发布'Zen 6'处理器",
+          "d": "2026-07-10",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "AMD执行副总裁兼首席技术官Mark Papermaster在巴黎AI峰会确认，公司将于7月22-23日的Advancing AI 2026活动上正式推出下一代'Zen 6'架构处理器。Zen 6是AMD继Zen 5之后的全新CPU微架构，预计将在服务器和AI推理等高密度计算场景中提供更高性能和能效。此发布时间点的确认表明AMD正加速在AI基础设施市场的产品迭代节奏，与Intel等竞争对手争夺数据中心和AI算力市场。",
+          "sc": 9.2,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/974/769.htm",
+          "tp": "处理器架构",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 9 日消息，AMD 执行副总裁及首席技术官 Mark Papermaster 近日在 2026 巴黎人工智能峰会 | RAISE 峰会上接受外媒 theCUBE 采访时确认，\nAMD 将在 7 月 22~23 日的 AMD Advancing AI 2026 上推出基于 \"Zen 6\" 微架构的新一代处理器\n作为 AMD 年度开发者、客户及合作伙伴大会，AMD Advancing AI 2026 将在美国旧金山莫斯康展览中心西馆举行。\nMark Papermaster 表示：\n就我个人而言，我现在参与的每一次企业级对话中，都会提到这一点。因为企业们，你知道的，已经运行 x86 架构几十年了。他们不会放弃现有的安装基数。\n而我们 AMD 自 2017 年推出新一代 Zen 处理器以来，如今我们已迈入第六代。\n在 7 月 22 日和 23 日举行的 Advancing AI 活动中\n我们将推出这一新一代产品\n。它不仅延续了 x86 CPU 的领先地位，其设计理念也与我刚才所描述的情况相契合。它针对独立的传统 x86 工作负载进行了优化。",
+          "hb": 1
+        },
+        {
+          "t": "全球首例：美国研究团队远程操控宇树 G1 人形机器人完成活体动物外科手术",
+          "d": "2026-07-10",
+          "a": "IT之家",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "加州大学圣迭戈分校工程团队与外科医生合作，利用两台宇树G1人形机器人远程操控完成两例大型非灵长类哺乳动物活体胆囊切除手术，为全球首例人形机器人活体动物外科手术。该突破展示人形机器人在医疗外科手术场景中的应用潜力，推动远程手术技术发展。",
+          "sc": 8.8,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/974/777.htm",
+          "tp": "机器人远程手术",
+          "aip": 1,
+          "kp": [
+            "机器人型号[远程手术]: 宇树G1",
+            "手术类型[活体动物]: 胆囊切除术",
+            "传统系统重量[专用手术机器人]: ~816.5kg",
+            "成果发表: Nature"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 9 日消息，美国加利福尼亚大学圣迭戈分校（University of California San Diego）宣布，该校工程师团队和外科医生团队合作，利用两台宇树 G1 人形机器人，成功完成了两例\n大型非灵长类哺乳动物的活体胆囊切除手术\n两台机器人均由外科医生通过控制台进行远程操控实施手术。两例手术中，一例由单台机器人与外科医生协作完成，另一例则完全由外科医生远程操控两台机器人完成。相关研究成果已于当地时间 7 月 8 日发表在《Nature》。\n研究团队指出，专用的手术系统通常配备三到四个机械臂、专用工具以及专有软件。这些系统重约 1800 磅（IT之家注：约 816.5 千克），需要庞大的团队进行安装调试，并且会占用手术室极大的空间，往往还需要对手术室进行专门改造才能将其容纳。相比之下，人形机器人不仅体积小巧，还可以移动，在偏远且医疗资源匮乏的地区尤为实用。\n不过，远程操控人形机器人完成手术目前仍有许多问题需要解决。在手术过程中，机器人需要进行多次重新校准。因此，与使用现成的专用外科手术系统相比，本次手术操作耗费的时间要长得多。此外，远程操控带来的控制延迟等问题也需要进一步优化。\nhttps://www.nature.com/articles/s41586-026-10796-x",
+          "hb": 1
+        },
+        {
+          "t": "消息称特斯拉三代擎天柱人形机器人初步定型，马斯克放话达不成产能目标就开掉整个采购团队",
+          "d": "2026-07-10",
+          "a": "IT之家",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "据晚点LatePost报道，特斯拉第三代Optimus人形机器人已初步定型，并向供应链下发具体零件采购指引。产能目标为：9月达到1000台/周，年底提升至2000-2500台/周，最终规划年产百万台级别。马斯克以强硬态度要求供应商按期交付，称达不到产能目标将更换整个采购团队。这表明Optimus正从原型阶段加速迈向规模化量产，但周产数千台的目标对人形机器人供应链的成熟度和成本控制仍是巨大挑战。",
+          "sc": 8.7,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/974/782.htm",
+          "tp": "人形机器人量产",
+          "aip": 1,
+          "kp": [
+            "周产能目标[Optimus Gen3]: 9月1000台→年底2500台",
+            "年供应能力[供应链]: 10万台/年",
+            "[研发状态]: Gen3定型即将走出实验室"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 9 日消息，据晚点 LatePost 今日报道，多位特斯拉供应链人士透露，特斯拉近期终于下发具体的 Optimus 零件采购指引，要求供应商在今年 9 月将产能提到 1000 台 / 周，\n随后在年底提升到 2000-2500 台 / 周\n两位接近供应商的人士说，特斯拉会提前 2 个月左右下订单，现在他们已经看到 8 月数百台的具体订单。\n以此估算，特斯拉的供应商们将在年底具备每年向特斯拉供应\n10 万台 Optimus 零部件\n报道还称，给供应链下单前，在六月底的一次高管会上，马斯克评审通过了 Optimus 的最新版本，这意味着 Optimus Gen 3 在研发三年多后，终于将走出实验室，\n两位供应链人士都说，在这次会议上，马斯克要求团队在年底前实现产能目标，\n否则他会开掉整个 Optimus 采购团队\n—— 这比任何订单和预期指引都更能给供应链、资本市场甚至整个机器人产业信心。\nIT之家注意到，马斯克 7 月 1 日发布了一张大合照，并配文称，在弗里蒙特工厂参观 Optimus 擎天柱机器人生产线。\n有网友猜测，特斯拉近期减少 Optimus 公开演示，可能是因为量产进度已超出市场预期。对此，马斯克回应称：“不，\nOptimus 的生产一开始会极其缓慢\n，因为一切都是全新的。这不像制造汽车。”\n特斯拉弗里蒙特工厂曾用于生产 Model S 和 Model X 两款车型，如今已改造为人形机器人生产线。今年 5 月，\n最后一辆 Model S 和最后一辆 Model X 已在弗里蒙特工厂下线\n马斯克在今年 3 月谈到 Optimus 3 机器人时\n，将其描述为“迄今为止全球最先进的机器人”，并表示：“我还没见过任何能媲美 Optimus 3 的机器人演示。”在产能规划上，马斯克表示，低产量生产可在夏季启动，高产量生产则会在 2027 年展开。\n而在今年 4 月的 2026 年第一季度财报电话会上\n，马斯克确认 Optimus 机器人将于 7 月下旬或 8 月在弗里蒙特投产。不过，马斯克同时泼了冷水，直言 Optimus 初期产量会“相当缓慢”。原因在于，Optimus 对应的是一条全新生产线，还涉及 10000 个独特零部件，今年到底能爬到什么产量，“根本不可能预测”。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "XRISM探测器观测到黑洞喷流抑制星系恒星形成",
+        "科研团队实现单层石墨烯纯谷塞曼自旋轨道耦合调控",
+        "研究人员开发出具备学习与记忆功能的液晶聚合物电子器件"
+      ],
+      "entries": [
+        {
+          "t": "XRISM 揭示了从超大质量黑洞喷发的塑造星系的风",
+          "d": "2026-07-10",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "密歇根大学研究人员利用X射线成像与光谱任务（XRISM）发现证据，超大质量黑洞驱动的强劲风可能解释为何宇宙中最大星系所含恒星比科学家预期更少。现有理论预测大型星系应持续形成大量恒星，但观测显示恒星数量偏少。研究认为黑洞喷发的强大风可吹散星系内气体、抑制恒星形成，为这一长期宇宙学谜题提供新见解，揭示黑洞活动与星系演化的关联。",
+          "sc": 7.2,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/xrism-reveals-galaxy-shaping-winds-erupting-from-a-supermassive-black-hole/",
+          "tp": "黑洞星系风",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Powerful winds from supermassive black holes may explain why some of the universe’s largest galaxies stopped making as many stars as expected.\nAstronomers are gaining new insight into one of the universe’s biggest puzzles thanks to the X-Ray Imaging and Spectroscopy Mission (XRISM). Researchers at the University of Michigan have uncovered evidence that powerful winds driven by supermassive black holes may explain why the largest galaxies contain fewer stars than scientists expect.\nCurrent theories predict these giant\nshould hold much more stellar mass than they actually do. The new findings suggest that black holes can suppress star formation by blasting away the gas galaxies need to create new stars.\nare best known for their intense gravity, which prevents even light from escaping once it crosses the event horizon. Outside that boundary, however, they can also produce an accretion disk, a swirling ring of gas and dust that shines intensely across the electromagnetic spectrum, including in X-rays.\nConditions inside the accretion disk are extraordinarily energetic. As material spirals inward, friction and gravity heat it into an extremely hot\nUsing observations from\n, a mission led by the\nJapan Aerospace Exploration Agency\nin collaboration with\nEuropean Space Agency\n, University of Michigan doctoral student Xin “Cindy” Xiang found evidence supporting this scenario.\n“Previously, without XRISM, we could only see broad features of the outflows,” Xiang said. “But you need to be able to resolve fine features to answer important questions. What is their structure and geometry? How are the winds launched and when are they launched?”\nLaunched in 2023, XRISM began scientific observations in fall 2024. Its X-ray energy resolution is about 10 times better than that of its predecessor, allowing astronomers to study\nenvironments with far greater precision.\nXiang and her colleagues focused on NGC 4151, a bright galaxy located a little more than 50 million\n), where a supermassive black hole is actively consuming surrounding material. That process creates a bright accretion disk, making the galaxy an ideal laboratory for studying high-speed outflows.\n“With XRISM, we have the greatest resolution observing the brightest AGN, and we’re getting the richest information on outflows that we have observed so far for an accretion disk,” Xiang said.\nWorking alongside University of Michigan astronomy professor Jon Miller, Xiang previously demonstrated that the winds produced within NGC 4151’s accretion disk can reach speeds capable of blasting material away from the galaxy. Her research also points to magnetocentrifugal driving as the\nmechanism launching the winds\n, a process that resembles the forces responsible for triggering solar flares.\nAt the 248th meeting of the American Astronomical Society in Pasadena, California, Xiang presented a new technique for determining exactly when NGC 4151’s galaxy-shaping winds become active.\nBeing able to identify these periods could help astronomers know when to observe other active galaxies, improving the chances of catching similar outflows and deepening our understanding of how supermassive black holes influence galaxy evolution.\nBecause AGN winds can change dramatically over time, Xiang analyzed hundreds of days of XRISM observations of NGC 4151. She searched for peaks in the galaxy’s X-ray brightness, known as flares, and tracked how the signal evolved during the hours that followed.\nBeyond brightness alone, she also measured whether the detected X-rays were harder or softer, a property comparable to color in visible light. She combined these measurements into a new metric called the color intensity index, which Miller suggested shortening to “cindicity.”\n“Partly because my name is Cindy,” Xiang said. “But the idea is that, in the future, you could tell me the cindicity of your source at this moment and I can tell you the probability that you’re seeing a fast outflow.”\nIn NGC 4151, Xiang found that the strongest fast winds occurred when the X-rays were hard but relatively faint. Surprisingly, the fastest outflows did not appear during the X-ray flares themselves. Instead, they typically emerged about 10,000 seconds, or just under three hours, after a flare.\nThat delay represents the first direct timing connection between changes in X-ray emission and the powerful outflows that can reshape galaxies by limiting the formation of new stars.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nUniversity of Michigan\nScientists Watch Black Hole Create Near Light Speed Winds in Hours\nFaster Than Light? How X-Rays Unravel Mysteries of Black Hole Jets\nTwisted Black Hole Accretion Disks Revealed by XRISM’s Cutting-Edge X-Ray Vision\nXRISM’s X-Ray Insights Uncover the Hidden Structures of Black Holes and Supernovas\nGigantic Bubbles at Center of Milky Way Caused by Powerful Jet of Energy From Supermassive Black Hole\nAstronomers Identify the Smallest Supermassive Black Hole to Date\nIntermediate-Mass Black Hole Candidates Discovered at the Center of the Milky Way\nStudy Challenges Prevailing Ideas About How Supermassive Black Holes Grow\nScientists Convene to Take a Picture of the Supermassive Black Hole at the Center of the Milky Way",
+          "hb": 1
+        },
+        {
+          "t": "WSe2包覆单层石墨烯中纯谷-塞曼自旋轨道耦合的调控",
+          "d": "2026-07-10",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在WSe₂（二硒化钨）封装的单层石墨烯中实现了纯谷-塞曼自旋轨道耦合的精准调控。实验团队通过过渡金属硫族化物封装策略，在石墨烯中诱导出显著的自旋轨道耦合效应，并成功分离出纯谷-塞曼分量。该工作为石墨烯基自旋电子学和拓扑量子器件的开发奠定了基础，对量子计算和低功耗电子学具有潜在应用价值。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/46n3-pryp",
+          "tp": "石墨烯自旋轨道耦合",
+          "aip": 1,
+          "kp": [
+            "[谷-Zeeman SOC]: WSe₂封装石墨烯实现纯谷轨道耦合",
+            "[朗道能级]: 对称强制重排由谷-Zeeman竞争驱动"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Yaqing Han, Siqi Jiang, Jingkuan Xiao, Jiawei Jiang, Yulu Liu, Jiabei Huang, Yu Du, Di Zhang, Fuzhuo Lian, Wanting Xu, Siqin Wang, Kenji Watanabe, Takashi Taniguchi, Xiaoxiang Xi, Alexander S. Mayorov, Renjun Du, Kai Chang, Hongxin Yang, Lei Wang, and Geliang YuClearly resolved Landau levels reveal a symmetry-enforced Landau-level reordering driven by competition between fixed valley–Zeeman splitting and magnetic-field-dependent cyclotron energy.[Phys. Rev. Lett. 137, 027001] Published Wed Jul 08, 2026",
+          "hb": 1
+        },
+        {
+          "t": "液晶聚合物中具有记忆功能的可训练柔性电子器件",
+          "d": "2026-07-10",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究开发了具有液晶聚合物记忆功能的可训练软电子器件。现有软材料可作为传感器和执行器，但缺乏从外部信息中学习的能力。该研究通过引入液晶聚合物的记忆机制，使软电子器件能够通过训练适应外部刺激，实现学习功能。这一突破将记忆与学习能力引入柔性电子领域，为智能软材料、自适应传感器和仿生执行器的开发开辟了新方向。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee8616?af=R",
+          "tp": "液晶聚合物软电子",
+          "aip": 1,
+          "kp": [
+            "[可训练软电子]: 液晶低聚物网络具备学习记忆行为",
+            "材料[软电子]: 液晶聚合物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "State-of-the-art soft materials can be engineered as sensors and actuators, yet, methods for learning from external information remain a subject of current research. Inspired by the use of large datasets to train artificial intelligence, tuning physical responsiveness to relayed data would introduce learning behavior in soft materials. In this work, we develop a trainable liquid crystal oligomer network (LCON) that stores digital information directly into its molecular configuration. By functionalizing the anisotropic LCON with photo-switchable azobenzene, we simultaneously integrate basic logic and memory in a material through a binary-state system; we coin this design the trainable self-propelled gate (T-SPG). We can tune the memory of our T-SPG with photonic stimuli, allowing the system to be trained by a conventional digital controller. We demonstrate the trainability of the T-SPG through two hierarchical tasks: a lower-level binary classification task where the decision boundary is stored as material memory, and a higher-level motion task that uses the stored memory to trigger actuation.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月14日　星期二",
+  "date_range": "2026-04-14",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "美能源部杰斐逊实验室推进自旋极化聚变项目，拟两年内建原型设备",
+      "港城大团队开发机器学习平台筛选钙钛矿钝化分子以提升光伏器件稳定性",
+      "明阳集团与雄韬股份分别撤销内蒙古制氢产线及深圳氢燃料电池产业园项目"
+    ],
+    "AI与智能科技": [
+      "实验测试表明顶级AI智能体在复杂科研任务的跨学科推理中仍落后人类专家"
+    ],
+    "通用技术": [
+      "研究团队开发基于机械发光纳米换能器的体内深组织超声扫描光源系统",
+      "实验证实半合成硫酸化壳聚糖联用BMP-2可重建动脉化血管网络修复骨坏死",
+      "科研人员构建全范德华微腔结构以实现极低光学损耗的非线性光子学应用"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "美能源部杰斐逊实验室推进自旋极化聚变项目，拟两年内建原型设备",
+        "港城大团队开发机器学习平台筛选钙钛矿钝化分子以提升光伏器件稳定性",
+        "明阳集团与雄韬股份分别撤销内蒙古制氢产线及深圳氢燃料电池产业园项目"
+      ],
+      "entries": [
+        {
+          "t": "美国能源部出资探索通过实现燃料原子核自旋极化以提高聚变反应概率及能量输出",
+          "d": "2026-04-14",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国能源部杰斐逊实验室自旋极化聚变（SPF）项目获第二轮资助，探索在1亿度等离子体条件下实现燃料原子核自旋极化以提升聚变反应率。理论预测该技术可使反应率提升50%、能量输出增加70%-80%，降低反应堆点火要求。项目选用氘化锂和氦-3替代稀缺放射性氚，第二阶段将在未来两年进行设备建造与原型开发。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.jlab.org/news/releases/fusion-energy-project-gets-boost",
+          "tp": "聚变极化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月14日，美国能源部杰斐逊实验室（Jeffersonc Lab）发文称，其主导的自旋极化聚变（SPF）项目获得了能源部聚变能源科学计划的第二轮资助。文中称，该项目旨在探索在超高温（1亿度）等离子体条件下实现自旋极化，以提升聚变反应的反应发生概率和能量输出。\n文中称，亚原子粒子具有自旋特性，在强磁场和极低温度下，粒子的自旋会趋于平行排列（即被极化）；若极化状态能在1亿度的磁约束等离子体中保持，将使原子碰撞的表面积变大，从而增加聚变反应的概率。理论预测，该技术可使聚变反应率提升50%，系统能量输出增加70%-80%，进而有望降低反应堆点火要求，使其体积更小、造价更低。由于传统聚变燃料氚稀缺与放射性风险，该项目选用氘化锂（LiD）和氦-3作为替代。但纯氘化锂几乎无法极化，需先用电子束轰击破坏其完美晶体结构以产生顺磁中心，随后在极低温与强磁场下，利用微波将极化从电子转移至氘核。此外，极化后的燃料靶丸需通过压缩气体高速注入托卡马克装置，并在毫秒级的运输过程中依靠低温与磁线圈维持其极化状态。该项目第一阶段已完成同位素获取与设备设计；第二阶段将在未来两年进行设备建造与原型开发；最终阶段计划于2027年在DIII-D托卡马克装置上部署系统并测量聚变产物。",
+          "hb": 1
+        },
+        {
+          "t": "香港城市大学朱宗龙构建一种基于机器学习驱动的材料发现与自动化制造平台",
+          "d": "2026-04-14",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "香港城市大学朱宗龙团队构建机器学习驱动的材料发现与自动化制造闭环平台，用于钙钛矿太阳能电池研发。材料发现端基于RDKit生成18264种化合物库，结合DFT与SISSO算法建立结构-性质-性能模型（R²=0.921），经主动学习筛选出最优钝化分子5ANI。制造端采用贝叶斯优化自动调控制备工艺，显著提升器件性能、稳定性与重复性，突破传统试错瓶颈。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10482-y",
+          "tp": "钙钛矿AI",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "钙钛矿太阳能电池的商业化因依赖于人类专家经验的低效试错方法而在材料发现和器件制备方面受到瓶颈制约。\n香港城市大学朱宗龙等人引入了一种将机器学习驱动的材料发现与自动化制造平台相整合的自主闭环框架。该框架将机器学习（ML）驱动的材料发现与自动化制造平台深度融合，通过主动学习、量子化学建模、贝叶斯优化和符号回归等技术，形成从分子设计到器件优化的完整闭环系统，显著提升了钙钛矿太阳能电池的性能、稳定性和重复性。材料发现端，研究基于苯乙基胺骨架，通过RDKit生成18,264种化合物库，结合密度泛函理论（DFT）计算和可解释机器学习（SISSO算法），从20个已知钝化分子训练集出发，构建了定量结构-性质-性能关系模型。模型以SHAP分析识别关键描述符（分子体积Vm、工作函数EWF等），最终推导出简洁的解析表达式，准确预测钝化分子的器件PCE（R²=0.921）。通过主动学习（NGBoost），研究者快速筛选出57个高潜力候选分子，并从中选出4个进行实验验证，其中新分子5-（氨甲基）烟腈氢碘酸盐（5ANI）表现最优。制造端，自动化平台采用贝叶斯优化（Bayesian Optimization）和符号回归，在反馈循环中持续优化制备工艺。高精度自动化控制生成的高保真数据进一步反哺机器学习模型，实现闭环迭代。实验结果显示，使用5ANI钝化的0.05 cm²小面积器件认证MPPT效率达27.18%（正扫/反扫PCE分别为26.98%和27.22%），21.4 cm²小型组件PCE达23.49%。更重要的是，自动化平台使器件效率的重复性提升近5倍（变异系数CV从手动4.99%降至1.05%）。在ISOS-L-1I协议下，器件经1200小时连续运行后仍保持初始效率的98.7%，展现出优异的长期操作稳定性。文章于2026年4月14日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "明阳集团、雄韬股份分别撤销其制氢装备产线和氢燃料电池产业园项目",
+          "d": "2026-04-14",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "明阳集团撤销其位于内蒙古察哈尔高新区的风电传动链及氢能装备试制生产线项目审批，相关文件于2025年11月已完成用印。雄韬股份则终止深圳氢燃料电池产业园项目（已投入1.13亿元募集资金），剩余资金永久补充流动资金，原因系当前经济性、政策、市场和技术等多重因素叠加影响下放缓氢能投资、转向研发投入，反映国内氢能产业阶段性降温态势。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://fgw.nmg.gov.cn/tzxm/project/gsSegvDsgger.jspx?cbsnum=20250414101324400N&captcha=Ym15b3o=",
+          "tp": "氢能退潮",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "明阳内蒙风电传动系统和制氢装备生产项目于2025年4月14日准予备案，据当时相关媒体报道显示，项目总投资1亿元，计划在25年12月前在乌兰察布建设年产1000套全集成一体化智能传动链系统（风机中主轴、齿轮箱、发电机进行集成）生产线、和制氢设备试制生产线。但据明阳党建公众号4月20日发文，其乌兰察布基地全集成一体化智能风电传动链系统生产线已实现投产，此次项目撤销可能仅针对其原先规划的制氢设备试产线。",
+          "b": "4月14日，内蒙古察哈尔高新区发展和投资促进局发完成明阳全集成一体化智能风电传动链系统及氢能装备试制生产线项目的撤销审批（项目代码：2504-150982-89-02-490591），相关审批说明文件显示在2025年11月21日即完成用印。\n另据证券时报4月23日报道，雄韬股份通过了《关于部分募投项目终止、部分募投项目结项并将剩余募集资金永久补充流动资金的议案》，其中包括深圳雄韬氢燃料电池产业园项目（累计投入募集资金1.13亿元）。报道中称，其出于对当前经济性、政策、市场和技术等多重因素叠加影响，放缓了氢能产业园的建设投资，转向增加研发投入。而剩余募集资金拟将永久性补充流动资金，用于与公司主营业务相关的日常生产经营活动。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "实验测试表明顶级AI智能体在复杂科研任务的跨学科推理中仍落后人类专家"
+      ],
+      "entries": [
+        {
+          "t": "复杂任务中人类科学家完胜最强AI智能体",
+          "d": "2026-04-14",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "一项测试显示，在复杂科研任务上，人类科学家仍大幅领先当前最优秀的AI智能体。研究对比了人类研究者与顶级AI系统在实验设计、数据分析、问题解决等多维度任务上的表现，结果表明AI虽在特定环节高效，但在跨学科推理、创造性假设生成和复杂决策方面远不及人类专家，凸显了人类科学家的不可替代性。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01199-z",
+          "tp": "AI科研代理",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究团队开发基于机械发光纳米换能器的体内深组织超声扫描光源系统",
+        "实验证实半合成硫酸化壳聚糖联用BMP-2可重建动脉化血管网络修复骨坏死",
+        "科研人员构建全范德华微腔结构以实现极低光学损耗的非线性光子学应用"
+      ],
+      "entries": [
+        {
+          "t": "体内超声扫描光源",
+          "d": "2026-04-14",
+          "a": "Nature Materials",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究团队开发了基于聚焦超声扫描循环血流中机械发光纳米换能器的体内深组织光源系统。该方案可在不扰动周围组织的前提下，对生物体内任意区域进行高时空精度、可编程的局部照明，已在组织模拟体模中验证其可编程性，为光遗传学、深层组织成像和局部光治疗提供了突破性工具。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02556-z",
+          "tp": "超声体内光",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Biological systems operate across distributed regions with fast, localized dynamics, yet existing biointerfaces fall short of providing both high spatiotemporal precision and the ability to dynamically target any region without disturbing surrounding tissue. Here we present an in vivo deep-tissue light source based on focused ultrasound scanning of mechanoluminescent nanotransducers circulating through the vasculature. We demonstrate the programmability of this approach in tissue-mimicking phantoms and the endogenous circulatory system of animals, where tunable spatial resolution and dynamic light patterning are achieved. We validate the functionality of the ultrasound-scanning light source in opsin-expressing neurons through electrophysiological recordings and immunostaining in both the brain and the spinal cord. We showcase dynamic three-dimensional brain targeting and temporally resolved behavioural control in freely moving animals via the ultrasound-scanning in vivo light source. This non-invasive deep-tissue light source offers a versatile strategy for body-wide optical interfacing.",
+          "hb": 1
+        },
+        {
+          "t": "硫酸多糖重新编程软骨内骨化的动脉化血管生成以挽救有缺陷的骨坏死治疗",
+          "d": "2026-04-14",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究报道了一种半合成硫酸化壳聚糖（SCS），与骨形态发生蛋白BMP-2联用后可快速重建动脉化血管网络（H型血管和小动脉），通过重编程软骨内骨化的血管生成过程来修复糖皮质激素过量导致的骨坏死。该策略克服了传统生物材料直接血管化方法中血管模式紊乱和异质性大的瓶颈。",
+          "sc": 6.3,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2520755123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "多糖血管化",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Excessive administration of glucocorticoids leads to arterial involvement and induces osteonecrosis. Conventional biomaterial-based strategies aimed at direct vascularization have shown limited therapeutic efficacy, primarily due to pronounced heterogeneity of neovasculature and vascular mispatterning. Here, we report a semisynthetic sulfated chitosan (SCS) that, when combined with bone morphogenetic protein-2 (BMP-2), rapidly reconstructs arterialized vasculature (type H vessels and arterioles) within the deteriorated bone, thereby coupling active osteoprogenitor cells. SCS positively regulates BMP-2-induced hypertrophic chondrocytes, which in turn secrete endogenous vascular endothelial growth factor to mediate arterial neovascularization. Instead of directly enhancing the Smad1/5/8 signaling pathway, SCS mitigates the intrinsic chronic inflammatory process of bone deterioration, preventing inflammatory factors from disrupting cartilage-to-bone transformation. In an osteonecrosis model, the synergistic effect of SCS and BMP-2 sustainably improved the femoral head’s internal circulation system, rather than merely delaying disease progression. Therefore, this bioactive polysaccharide combined with an osteogenic factor enables arterialized vascularization during endochondral ossification, representing a promising therapeutic strategy for the treatment of ischemia-associated bone homeostasis disruption.",
+          "hb": 1
+        },
+        {
+          "t": "全范德华微腔用于低损耗非线性光子学",
+          "d": "2026-04-14",
+          "a": "Nature Materials",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "范德华（vdW）材料已成为下一代纳米光子学和光电子学的重要平台。本研究提出全范德华微腔结构，实现了低损耗非线性光子学应用。通过将不同二维材料堆叠形成光学微腔，利用其原子级平整界面和可调谐光学非线性，显著增强了二阶和三阶非线性光学效应，同时将光学损耗降至传统腔体的极低水平。该架构在片上光频率转换、量子光源产生和全光信号处理方面具有广泛应用前景，为集成光子回路的小型化与高效化开辟了新路径。",
+          "sc": 5.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02574-x",
+          "tp": "范德华光子微腔",
+          "aip": 1,
+          "kp": [
+            "[光子学平台]: 全范德华材料微腔",
+            "[应用方向]: 低损耗非线性光子学",
+            "[制备策略]: 纳米加工实现高Q值集成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Van der Waals (vdW) materials have emerged as a promising platform for next-generation nanophotonics and optoelectronics. However, employing vdW materials as a core photonic integration platform, rather than as passive or active overlays on conventional silicon-based platforms, remains challenging, leaving their full potential untapped. Here we develop a nanofabrication strategy that enables high-resolution patterning across a broad range of vdW materials, including insulators, semiconductors, ferroelectrics and their heterostructures, and we show that they can be used as the intrinsic platform for low-loss microcavity nonlinear photonic devices such as microdisks, photonic crystals and metasurfaces. We demonstrate vdW microdisk resonators with quality (Q) factors exceeding 106. Such Q factors enable efficient continuous-wave nonlinear optical processes, including second-harmonic generation, sum-frequency generation and optical parametric amplification, with full free-spectral-range thermal tunability. These results position vdW materials as key material building blocks for next-generation integrated photonics and optoelectronics.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

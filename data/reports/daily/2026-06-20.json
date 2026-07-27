@@ -1,0 +1,231 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月20日　星期六",
+  "date_range": "2026-06-20",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "中国初创企业实现26.7T高温超导磁体技术突破",
+      "牛津光伏联合Fraunhofer发布25.6%转换效率叠层组件",
+      "晶科能源钙钛矿与硅叠层电池效率经验证达34.82%"
+    ],
+    "AI与智能科技": [
+      "imec联合台积电完成300mm晶圆2D材料晶体管验证",
+      "Anthropic发布Conway系统部署多智能体协同运行",
+      "华为发布Claw跨设备跨服务通用智能体评测框架"
+    ],
+    "通用技术": [
+      "垣信卫星完成无改造商用手机直连低轨卫星通话验证",
+      "Telo微型电动卡车确认支持400kW持续直流快充",
+      "哥伦比亚启动建设750英里重型电动卡车充电走廊"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "中国初创企业实现26.7T高温超导磁体技术突破",
+        "牛津光伏联合Fraunhofer发布25.6%转换效率叠层组件",
+        "晶科能源钙钛矿与硅叠层电池效率经验证达34.82%"
+      ],
+      "entries": [
+        {
+          "t": "26.7T！一家中国创业公司，刚刚干翻了全球高温超导磁体的天花板",
+          "d": "2026-06-20",
+          "a": "世界先进制造技术论坛",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "一家中国创业公司在高温超导（HTS）磁体领域实现26.7特斯拉（T）的磁场强度突破，刷新全球高温超导磁体的性能天花板。高温超导磁体因能以更高电流密度产生更强磁场，被视为紧凑型可控核聚变、超高场MRI及粒子加速器等领域的使能技术。该突破若经独立验证并实现工程化量产，将显著提升中国在前沿超导应用产业链中的竞争力，对全球超导磁体格局具有搅动效应。",
+          "sc": 9.0,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/E6tyEcwB-rnTZckzbovAew",
+          "tp": "高温超导磁体",
+          "aip": 1,
+          "kp": [
+            "中心磁场[无液氦高温超导磁体]: 26.7T",
+            "绕组电流密度[高温超导磁体]: >570 A/mm²",
+            "运行温度[高温超导磁体]: 6K",
+            "绕组峰值磁场[高温超导磁体]: >27.5T"
+          ],
+          "b": "26.7T！一家中国创业公司，刚刚干翻了全球高温超导磁体的天花板 原创 小艾 小艾 世界先进制造技术论坛 2026年6月18日，能量奇点对外宣布了一件事：他们自研的无液氦高温超导绝缘磁体，中心磁场做到了**26.7特斯拉**。 原设计目标是25特斯拉。第三轮实验中，磁体先在25.5特斯拉下稳定运行，然后团队继续往上推励磁电流，最终推到了26.7特斯拉。绕组工程电流密度超过**570 A/mm²**，绕组内最高磁场超过**27.5特斯拉**。 这个数字意味着什么？**两项世界纪录**：磁场强度最高的无液氦高温超导磁体，以及磁场强度最高的高温超导绝缘磁体。 **一、这台磁体到底牛在哪？** 先看硬件。磁体由14个单饼堆叠而成，外直径140毫米，单饼绕制直径30毫米，初始运行温度6K（约零下267摄氏度）。 但真正让行业震动的，不是尺寸，是两条技术路线上的突破。 **第一条：彻底甩掉液氦。** 传统超导磁体离不开液氦。液氦这东西贵、难搞、供应链还不稳定。能量奇点这次**全部冷量只靠一台GM制冷机，通过纯导冷方式提供**，液氦？一点都不用了。辅助系统大幅简化，运行成本显著降低。 **第二条：搞定了绝缘结构。** 高温超导磁体行业之前的主流路线是“无绝缘”。无绝缘有好处，但也有硬伤——**磁场变化永远滞后于电流变化**。你调电流，磁场要等半天才跟上，这对很多需要精确控制磁场的场景来说很要命。 能量奇点攻克了极高磁场下的导体绝缘工艺，**创造性采用了绝缘结构设计**。结果是什么？从零励磁到20特斯拉，**只需要16分钟**。无绝缘磁体根本做不到这个速度。 更关键的是——**这是全球第一次，有人把绝缘结构和无液氦运行同时用在20特斯拉以上的高温超导磁体上**。 **二、这玩意儿能干嘛？** 能量奇点自己先说了一个用途：**高温超导材料生产与性能测试平台**。 但更值得关注的是另一个方向。因为绝缘结构消除了磁场滞后问题，这台磁体可以拓展到**对磁场均匀性要求极高的场景**——**核磁共振（NMR）、综合物性测量系统（PPMS）** 等高端科研与工业平台。 医疗MRI目前仍是超导磁体最大的商业化应用领域，占整体需求的70%以上。无液氦、高磁场、快响应——如果这套技术能降维应用到医疗影像领域，整个高端医疗设备市场的成本结构都可能被改写。 **三、这不是孤例，行业正在起变化** 能量奇点发布消息的同一天，另一家聚变创业公司**星环聚能**也公布了进展——他们的全尺寸环向场磁体完成了20K低温励磁测试，成功励磁至4.5kA。这是**全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体**。 两家公司用的高温超导带材，都来自同一家供应商——**上海超导**。 再往前看几天。6月15日，**武汉超磁科技**完成数千万元天使轮融资，公司来自华中科技大学国家脉冲强磁场科学中心孵化，主攻“无液氦+无骨架”超导磁体，产品已实现小批量交付，覆盖科研量子、高端医疗、工业检测及可控核聚变四大领域。 更早一些，2026年1月，**东昇聚变**完成数亿元天使轮融资；同月，**超磁新能**完成数亿元融资，聚焦高温超导强场磁体系统。 **这条赛道的资本正在快速聚集。** 能量奇点自己，2021年成立，先后完成天使轮和Pre-A轮融资，累计融资超8亿元，投资方包括米哈游、蔚来资本、蓝驰创投。2026年2月又完成A轮融资，北京政府引导基金入局。公司计划2027年建成下一代“洪荒170”装置。 **四、市场有多大？** 看几组数据。 2024年，全球可控核聚变装置用第二代高温超导带材市场规模为**3亿元**，预计2030年将达到**49亿元**，复合增速**59.3%**。 2025年，全球高温超导磁体市场约**37.2亿美元**，2026年第一季度预计突破**42.5亿美元**。 全球超导材料市场，2025年106.3亿美元，预计2034年达到354亿美元。 而我国目前主要高温超导路线的核聚变项目，合计资本开支规模**超千亿**，对应的高温超导磁体市场规模**近300亿**，高温超导带材市场规模**超百亿**。 **五、一个正在被改写的产业逻辑** 过去几十年，超导磁体的技术话语权一直掌握在欧美日手里。液氦制冷、无绝缘绕制、高场磁体设计——这些技术路线都是别人走出来的，我们跟着走。 但2026年正在发生一些微妙的变化。 **无液氦**——不再依赖那种又贵又稀缺的冷却介质。**绝缘结构**——解决了无绝缘磁体磁场滞后的老毛病。**16分钟励磁到20T**——把用户等待时间从“小时级”压缩到“分钟级”。 这三件事放在一起，本质上是在重新定义高温超导磁体的**工程标准**。 更值得注意的是一条隐线：**国产供应链正在成型**。能量奇点和星环聚能都用上海超导的带材。武汉超磁的技术来自",
+          "hb": 1
+        },
+        {
+          "t": "25.6%！牛津光伏&Fraunhofer ISE推出2m²级新款钙钛矿/叠层电池组件",
+          "d": "2026-06-20",
+          "a": "钙钛矿工厂",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "牛津光伏（Oxford PV）与德国弗劳恩霍夫太阳能系统研究所（Fraunhofer ISE）联合推出面积达2平方米的大尺寸钙钛矿/硅叠层电池组件，光电转换效率达25.6%。这一效率远超传统单结晶硅商用组件（约22-23%），标志着钙钛矿叠层技术从实验室小面积器件向工业化大面积量产迈出关键一步。2m²级组件是满足屋顶及地面电站应用标准的主流尺寸，证明该技术在规模化制备、界面稳定性与大面积均匀性方面的工程化突破，对加速钙钛矿商业化具有里程碑意义。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/6nxjZwEz-7f_fOTlHDiNNA",
+          "tp": "钙钛矿叠层组件",
+          "aip": 1,
+          "kp": [
+            "转换效率[钙钛矿叠层组件]: 25.6%",
+            "组件面积[钙钛矿叠层]: 2m²级"
+          ],
+          "b": "25.6%！牛津光伏&Fraunhofer ISE推出2m²级新款钙钛矿/叠层电池组件 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) **近日，德国光伏技术研究机构弗劳恩霍夫太阳能系统研究所（Fraunhofer ISE）与牛津光伏合作，在德国政府支持的“HoTSun”研究项目下开发了领先的钙钛矿/叠层电池叠瓦组件。** **** 据Fraunhofer ISE称，这些组件是在德国哈弗尔河畔勃兰登堡的牛津光伏试验生产基地制造的，牛津光伏提供钙钛矿/晶硅叠层电池。这些电池表面有一层仅几百纳米厚的钙钛矿薄膜，通过薄膜工艺沉积在异质结（HJT）底电池上。虽然未披露该批叠层电池的平均效率，但Fraunhofer ISE强调该技术理论效率潜力高达43.3%，远高于当前29.4%的硅极限。 这款新开发的组件采用叠瓦技术，窄型电池条重叠并使用100%无铅导电胶（ECA）连接，取代了传统的带状焊接。弗劳恩霍夫ISE通过其专有的“矩阵瓦”互联技术进一步完善了这一概念。连接后，电池被夹在前后玻璃层之间，并用封装剂夹层，并进行边缘密封以防止潮气渗入。 据牛津光伏技术官Ed Crossland介绍，串联结构能够改善子电池间的电流分布，降低电流密度并最大限度减少电阻损耗，相较于传统硅电池。叠层电池的更高电压和效率也允许更宽的单元带和更长的电流路径，简化组件设计。 这些叠层电池和互联技术共同形成了一个玻璃-玻璃单面屋顶光伏组件，最大功率输出为491瓦，面积为1.92平方米。而其玻璃-玻璃双面机型则在2.13平方米的面积内额定功率最高可达546瓦。Fraunhofer ISE声称，这两个模块的最大效率均为25.6%。 从操作和可靠性角度看，这种矩阵技术在部分遮阳时比传统瓦片设计提取更多电流。此外，其处理温度较低，通常在层压阶段，相较于焊接串管工艺，消除了铜带互连的需求。 Crossland补充说，缺少铜减少了电池长边的潜在机械应力，降低了生产成本。 **论坛组织** **论坛名称：**2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛 **论坛时间：**2026年8月6-7日 **主办单位：钙钛矿工厂**（星澄咨询） **联合主办/协办单位：**征集中 **论坛地点：**江苏·无锡 **会议规模：**300~400人 **宣传媒体：**钙钛矿工厂、钙钛矿光链、钙钛矿基地... **参会群体：钙钛矿与**太空光伏产业界人士（异质结、叠层电池、柔性光伏电池、封装材料、设备等）、航天器及卫星制造商、商业航天运营商、航天科研院所、标准化机构、证券投资机构、产业链上下游企业技术及管理人员 **参会费用** 高校科研院所参会：1800元/人 企业单位参会：2500元/人 现场缴费：3000元/人 →团队报名（同单位人数≥3人）额外再享9折 2026年6月30日前报名享早鸟价1600元/人（不与其他优惠同享） 诚邀企业展位、演讲、晚宴、礼品、资料入袋等赞助合作、共襄钙钛矿与太空光伏盛举 参会/赞助/咨询联系： **Eric：18926074070** 码上登记参会信息 央视 ｜ 重磅！中国空间站将首次开展钙钛矿电池动态服役实验 太空光伏产品发布： PhenoExo™ 一体化解决方案获在轨验证订单！ 强强联手再度升级！BOE（京东方）与康宁签署合作备忘录，剑指钙钛矿光伏等新赛道 500万元！钙钛矿氛围自动化互联手套箱招标 又一上市公司布局钙钛矿！将根据钙钛矿研发进展推进中试研发线的设备考察、选址及建设工作 全球首家！京东方获得TÜV莱茵钙钛矿光伏TMP目击实验室资质 中国电信布局钙钛矿！ 实证一年，增益10%！纤纳光电钙钛矿叠层组件发电表现优于晶硅 炎和科技再获数亿元A2轮融资，加速推动钙钛矿光伏全场景落地与太空应用突破！ 京东方高效钙钛矿薄膜太阳电池中试线项目国际招标公告！ 钙钛矿基地——权威资讯抢先看，行业动态全掌握，同仁交流共成长，专业博士团队原创内容持续更新！ 参考来源：网络；所发表转载内容均会标明出处，其中部分素材来源于网络，转载内容只用于信息传播，仅供参考，不作为商业用途；转载内容的真实性、准确性和合法性由原作者负责；如有侵权，请联系删除",
+          "hb": 1
+        },
+        {
+          "t": "晶科能源钙钛矿-硅叠层太阳能电池效率达34.82%",
+          "d": "2026-06-20",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "晶科能源(JinkoSolar)实现钙钛矿-硅叠层太阳能电池34.82%的转换效率，该结果经中国上海微系统与信息技术研究院验证。该效率突破标志着叠层太阳能电池技术向商业化迈进的重要进展。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/06/19/jinkosolar-achieves-34-82-efficiency-for-perovskite-silicon-tandem-solar-cell/",
+          "tp": "钙钛矿硅叠层",
+          "aip": 1,
+          "kp": [
+            "转换效率[钙钛矿-硅叠层电池]: 34.82%"
+          ],
+          "b": "Research & Development\nThe result was validated by China’s Shanghai Institute of Microsystem and Information Technology of the Chinese Academy of Sciences.\nEmiliano Bellini\nResearch & Development\nA perovskite-silicon tandem solar cell displayed by JinkoSolar at SNEC 2026 | Image: pv magazine\nChinese PV module manufacturer\nannounced it achieved a power conversion efficiency of 34.82% for a perovskite-silicon tandem solar cell.\nThe company said the results have been certified by China’s Shanghai Institute of Microsystem and Information Technology of the Chinese Academy of Sciences. In its previous attempts, JinkoSolar achieved a cell efficiency of\n34.76% for the same device configuration\n“This efficiency breakthrough is attributed to JinkoSolar’s innovations in multiple core technologies, including the dual-layer composite passivation contact structure for N-type TOPCon cells, multidimensional interface passivation technology, gradient crystallization kinetics control strategies, and enhanced optical coupling and light management technologies,” the company said in a statement. “This milestone marks a critical step forward in the industrialization of next-generation perovskite tandem technology.”\nNo more technical details on the cell improvement were disclosed.\nChinese manufacturer Longi holds the world record for perovskite-tandem solar cell efficiency,\nachieving 34.85% efficiency in April 2025\n. This cell device was developed in partnership with China’s\nSoochow University\nand was described in the paper “\nEfficient perovskite/silicon tandem with asymmetric self-assembly molecule\n,” which was recently published in\nEmiliano Bellini\nView author posts",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "imec联合台积电完成300mm晶圆2D材料晶体管验证",
+        "Anthropic发布Conway系统部署多智能体协同运行",
+        "华为发布Claw跨设备跨服务通用智能体评测框架"
+      ],
+      "entries": [
+        {
+          "t": "2D 材料晶体管告别实验室：imec 联手台积电、ASML 实现 50nm 栅距 300mm 晶圆验证",
+          "d": "2026-06-20",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "比利时微电子研究中心imec联合ASML与台积电，在一整片300mm晶圆上成功集成采用原子级二维材料（如过渡金属硫族化合物）沟道的n型和p型互补晶体管，并实现50nm接触栅极间距（CPP）验证。这是2D材料晶体管从实验室走向量产的关键里程碑，证明其与现有先进制程产线兼容。2D材料被视为延续摩尔定律、突破硅基物理极限的核心候选，此成果为后硅时代逻辑器件的工程化落地铺平道路。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/966/443.htm",
+          "tp": "二维材料晶体管",
+          "aip": 1,
+          "kp": [
+            "栅距[2D CMOS]: 50nm接触栅极间距",
+            "晶圆[2D CMOS]: 300mm标准工艺",
+            "[集成]: 单次EUV曝光n/p型2D互补器件"
+          ],
+          "b": "6 月 19 日消息，比利时微电子研究中心（imec）联合 ASML 和台积电宣布，在一片 300mm 晶圆上成功集成采用原子级二维（2D）材料沟道的 n 型和 p 型互补晶体管，并实现 50nm 接触栅极间距（Contacted Poly Pitch，CPP，从一个晶体管到另一个晶体管的距离）。\n研究团队表示，这是首次在标准 300mm 晶圆工艺上实现如此高密度的二维 CMOS 集成，进一步推动二维半导体迈向后硅时代逻辑芯片应用。\n据介绍，这是迄今为止二维互补器件已公开实现的最小间距，已经进入到当前主流硅工艺的范畴。作为参考，英特尔 10nm 级节点的接触栅间距为 54nm。\n这项成果于本周举行的 IEEE / JSAP VLSI Technology and Circuits Symposium（超大规模集成电路技术与电路研讨会）上公布。\n研究团队采用单次极紫外光刻（EUV）曝光，实现最短 28nm 沟道长度。imec 表示，晶圆上有 94% 的集成晶体管能够正常开关，开关电流比（On / Off Ratio）超过 10 万。其中，n 型晶体管采用二硫化钼（MoS₂）作为沟道材料，p 型晶体管则采用二硒化钨（WSe₂）或二硫化钨（WS₂）。这些材料厚度仅为原子级别，使栅极对沟道的控制力远强于数纳米厚的硅纳米片，在栅极长度持续缩小的过程中，有望在更低电压下完成开关动作。\n二维过渡金属二硫属化合物（TMD）已研究多年，imec 自 2010 年代后期便开始制造基于 MoS₂ 的实验性晶体管。本次成果的突破并非来自新材料，而是在标准 300mm 晶圆制造流程中，同时完成 n 型与 p 型二维晶体管集成，而不是像以往那样仅制造单一器件或采用较宽松的光刻间距。\n研究人员介绍，此次演示的二维晶体管最小有源宽度达到 75nm，等效氧化层厚度接近 2nm，两种极性的器件均可在栅极电压为零时完全关闭。其中，WSe₂ p 型晶体管性能已接近目前实验室最佳水平，进一步缩小了二维 CMOS 中长期存在的 p 型器件性能差距。\n长期以来，接触电阻一直是二维晶体管迈向微缩化的头号障碍。由于二维沟道极薄，沟道本身承载电流能力有限，而金属触点与二维薄膜之间的界面往往会形成较高的肖特基势垒，从而进一步限制电流。为降低接触电阻，过往实验室器件多以保持大接触面积来弥补，但这反过来又堵死了间距缩小的空间，可谓是“一根筋两头堵”。\n为了跳出这一困境，联合团队将常规制造顺序倒了过来：先在预定位置做出钨填充的接触沟槽，再把二维沟道材料转移至其上，最后沉积栅极。\nimec 将这一工艺称为“反向薄膜晶体管（reverse thin-film transistor）”，并表示底部接触结构有助于实现更好的关断特性，使 n 型和 p 型晶体管在栅极电压为零时均能完全截止。\nimec 计算与存储器件研发副总裁 Gouri Sankar Kar 表示，“我们首次在不影响二维 n 型和 p 型 FET 性能的前提下，实现了 50 纳米 CPP—— 这一指标同时由栅极长度和源漏接触长度决定。”他同时表示，此次采用的单次 EUV 光刻工艺由 imec 与 ASML 联合开发完成。\n研究团队指出，这里所使用的仅为标准 0.33 数值孔径的 EUV 光刻机，无需 High-NA EUV 或多重曝光，28nm 沟道长度和 50nm 间距完全在其分辨率范围内。\nASML 方面则表示，此前一些 300mm 晶圆上的二维晶体管演示之所以沟道长度较大，正是因为依赖了更老的光刻技术，而 EUV 的分辨率优势直接促成了沟道长度的缩减。\n近年来，多家机构持续推进二维半导体研究。英特尔此前也曾与 imec 合作开展 300mm 晶圆二维材料研究，三星则展示了单晶 MoS₂ 晶圆级生长技术。与此同时，高校研究团队已实现接近 1nm 节点栅极间距的单层 MoS₂ 晶体管。此次 imec、ASML 与台积电的成果首次将互补 n 型和 p 型集成、单次 EUV 光刻以及 300mm 晶圆标准工艺结合在一起，并实现接近先进硅工艺节点的晶体管间距。\n根据 imec 与国际器件与系统路线图（IRDS）的规划，二维半导体沟道被认为是互补场效应晶体管（CFET，3D 堆叠）之后的重要发展方向。相比厚度数纳米的硅纳米片，厚度不足 1nm 的二维沟道能够获得更强的栅极控制能力，从而支持更低工作电压和更小尺寸的晶体管。\nimec 预计 CFET 有望于 2033 年左右出现，二维半导体沟道则可能接近 2041 年进入应用；IRDS 路线图则预计二维沟道最快可于 2034 年、约 0.7nm 节点进入产业化阶段。\nIT之家提醒，按照目前产业路线图，二维半导体真正进入高性能逻辑芯片量产预计仍需较长时间，初期更可能首先应用于晶圆背面器件或后端工艺，但此次成果已证明二维互补晶体管能够在先进制造间距下完成集成，后续工作的重点将更多转向制造工艺本身。\n从 GAA 到 3D 堆叠式 FET：三星展示业界最小 42nm 栅距 3D 堆叠晶体管，理论密度翻倍\n英特尔最新技术展示：通过将 3D 堆叠 CMOS 晶体管与背面供电和背面触点相结合首次在 60nm 栅距下实现 CFET",
+          "hb": 1
+        },
+        {
+          "t": "Anthropic重磅产品线来了！Conway永久在线，智能体大军来袭",
+          "d": "2026-06-20",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "Anthropic正式发布全新产品线，核心产品Conway定位为\"永久在线\"（always-on）的智能体系统，能够持续自主运行多步骤任务并调度多个AI智能体协同工作。此举标志着Anthropic从单一对话模型向多智能体编排平台转型，意在构建可长期驻留、自主完成复杂业务流程的AI执行引擎，对标企业级自动化场景。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/e-cbArpf6-RShpjqBJWB5A",
+          "tp": "智能体产品线",
+          "aip": 1,
+          "kp": [
+            "[产品]: Anthropic Conway永久在线智能体"
+          ],
+          "b": "Anthropic重磅产品线来了！Conway永久在线，智能体大军来袭 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**刚刚，Anthropic重磅产品曝光了：永久在线智能体Conway来袭，AI开始主动打工，告别对话框！同时，GPT-5.6也在悄悄内测了。巨头激战，谁将颠覆你的工作流？ Opus 4.8发布才一周，Anthropic的下一波产品库就被人扒出了。 TestingCatalog从Claude的代码引用和隐藏界面字符串中，挖出了至少六条产品线——Conway、Orbit、Operon、BugCrawl、文件记忆、多语言语音模式。 每一条都指向同一个方向：Claude正在走出聊天框！ 显然，模型参数的内卷已经不再是Anthropic的终极追求了。 他们要做的，不是一个更会聊天的Bot，而是一个能够接管你工作流、主动思考、甚至拥有记忆和特定专业技能的AI超级智能体生态。 正如Anthropic内部流传的那句名言： **「Anthropic从来不是一家仅仅为了写代码而存在的公司。它是一家致力于『智能』的公司，只是碰巧选择从编程领域切入。随着Claude智能的不断扩展，它将被应用于人类智慧能够发挥作用的每一个领域。理解了这一点，你也就理解了未来。」** 接下来几周，将有哪些AI智能体大军登场？让我们逐一拆解。 **Conway** **打破次元壁，那个「永远在线」的幽灵员工** 如果说未来的AI生态皇冠上有一颗最璀璨的明珠，那一定是Conway。 在曝光的资料中，Conway被定义为一款「始终在线的常驻代理（Always-on Agent）」。它将拥有自己独立运行的托管容器环境。 这听起来有些硬核，对普通用户意味着什么呢？ **告别对话框，迎接「工作台」** 现在的AI，你必须打开网页，输入文字，它才动一下。你一关网页，它就「死」了。但Conway完全不同。 它不仅不会出现在传统的聊天界面中，而是会作为一个独立的侧边栏选项，打开一个专门绑定到「Conway实例」的专属页面。 它不是一个对话框，而是一个全天候运转的独立工作台。 **史诗级的扩展标准：.EXT与插件帝国** 在这个独立环境中，用户可以接入各种外部集成，安装特定技能，甚至添加插件。 这些插件会被排列成可以随时切换的卡片或标签页，布局在侧边栏上。你在使用Conway时，就像在浏览器中切换标签页一样流畅丝滑。 更令人振奋的是，代码中发现了一个名为「UI tabs」的自定义抽象层，这指向了一个全新的扩展标准——极有可能是专属的 .EXT 打包格式。 这意味着，Anthropic即将开启AI时代的「App Store」时刻！ Anthropic很可能会开放这个标准，让全球的开发者能够构建、分享并在插件市场中下载自己或第三方的附加组件。 这些扩展插件甚至可以跨代理重复使用，彻底盘活整个基于Claude的开发者生态。 **Webhook唤醒与被动触发的革命** Conway最可怕的地方在于它的Webhook支持。 这暗示着它拥有公开的URL接口。 当你不在电脑前时，如果外部服务（比如你的服务器崩溃了、你的店铺收到了一笔大订单、或者某个重要客户发来了邮件）调用了这个接口，Conway会在云端瞬间「惊醒」，结合Chrome控制台和通知系统，直接帮你处理问题，然后仅仅给你发一条处理结果的报告。 Conway似乎将全面登录Claude Code、移动端以及Web端。 由于其强大的远程驻留特性，为了控制算力消耗，Anthropic目前似乎计划限制每位用户只能拥有一个Conway代理。 这无疑是对目前风头正劲的开源AI代理项目（如OpenClaw和Hermes）的最直接、最强硬的反击！ **记忆觉醒** **从「扁平摘要」到「文件级记忆层」** AI没有记忆，是目前用户体验中最痛苦的痛点之一。你昨天刚教它的写作风格，今天它就忘得一干二净。 目前市面上的AI记忆功能，大多采用的是「扁平摘要（Flat Summary）」机制——即把你们的对话压缩成几句话存起来。这种机制在面对复杂项目时，几乎是灾难性的。 在即将到来的更新中，Anthropic将彻底摒弃传统的扁平摘要，带来革命性的「基于文件的记忆」。 这是一场记忆结构的升维。 用户（以及托管的AI代理）将能够以文件的形式对存储的上下文进行结构化、分类和长期的微调。随着时间的推移和互动的增加，这些记忆文件会被不断优化。 最巨大的红利在于：这将形成一个跨产品的「共享记忆层」。 不管你是在网页端与Claude聊天，还是在Conway里让它写代码，亦或是在移动端通过语音与它交流，所有的Claude都共享同一个「大脑文件柜」。 它不仅知道你是谁，还确切地记得你上一周在某个特定代码文件中遇到了什",
+          "hb": 1
+        },
+        {
+          "t": "AI接管数字世界！华为Claw-Anything：面向跨设备、跨时间、跨服务的Claw评测与数据引擎",
+          "d": "2026-06-20",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "华为提出'Claw-Anything'框架，旨在构建面向跨设备、跨时间、跨服务的通用智能体（Agent）评测与数据引擎体系。随着AI智能体从单任务工具向自主操作数字世界的通用Agent演进，亟需标准化、可扩展的评测基准与高质量训练数据。Claw框架覆盖多设备（手机、PC、IoT）、跨时间（长程任务记忆与规划）、跨服务（跨App操作）三大维度，提供统一的Agent能力评测协议与数据采集-标注引擎。该工作反映了端侧AI Agent从概念验证走向规模化部署的关键趋势，有望成为智能体时代的标准化基础设施。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://mp.weixin.qq.com/s/rEk33ieaeX0Gg5mmb9LKZQ",
+          "tp": "智能体评测引擎",
+          "aip": 1,
+          "kp": [
+            "[产品]: 华为Claw-Anything跨设备GUI智能体评测引擎"
+          ],
+          "b": "AI接管数字世界！华为Claw-Anything：面向跨设备、跨时间、跨服务的Claw评测与数据引擎 机器之心 「See Anything, then Do Anything —— 看见一切，进而做到一切」 我们相信，常驻型 (always-on) AI 助理的下一次飞跃，不在于把某一个模型单点调得更聪明，而在于扩展智能体的上下文 (Scaling Agent Context)—— 不断拓宽助理能够持续 \"感知 — 推理 — 执行\" 的范围，作为生活连接器连接用户的信息孤岛，直到它能接管用户的整个数字世界。 今天的 \"助理\" 大多只能看到你数字生活的一小片：一封邮件、一条指令。而一个真正的个人助理，应当像一位贴身管家 —— 看得见你散落在数月历史、十几个应用、手机与电脑之间的全部状态，听得懂没说出口的需求，并在恰当的时刻替你把事情做对。先 \"看见一切\", 才谈得上 \"做到一切\"。 这就是 Claw-Anything 想要推动的方向：Scaling Agent Context，让 Agent 全面接管用户的数字世界。 「首个面向日常个人助理 Agent、沿长程历史 × 多服务 × 多设备三维度扩展的评测基准正式发布！」 * 200 个真实日常助理任务，每个任务横跨 CLI 和 GUI、10 + 个应用和数月跨度 ( Scaling Context 20x ) * 顶尖闭源模型 GPT-5.5 通过率 (pass@1) 仅 34.5%，\"最强助理\" 与真实日常之间仍存巨大鸿沟 * 开源自动化管线，附带 2000 + 训练环境，微调开源小模型带来 23.7% 的解决率提升，开源 SOTA * 将 \"主动服务\"(在用户开口之前替他想到) 与跨设备任务引入 Agent 评测体系 论文、管线代码和任务数据均放出: * 论文链接: https://arxiv.org/pdf/2605.26086 * 开源代码: https://github.com/LiberCoders/Claw-Anything * 任务数据: https://huggingface.co/datasets/LiberCoders/Claw-Anything * ModelScope: https://www.modelscope.cn/datasets/LiberCoders/Claw-Anything 一个例子 Rachel 是一位独立婚礼策划师，手上同时跟着 8 场婚礼。6 月 3 日早上，她丢给自己的 AI 助理一句话: > \"我 6 月 4 号要跟一个企业客户开需求沟通会。我在纠结：这份会前简报，是花钱让兼职助理 Lena 来准备，还是我自己上？\" 这句话听上去很简单很日常很好解决，但要答好它，助理得在 Rachel 海量的个人信息里把整盘账算清: 1. 翻日历 app—— 发现 6 月 3 日上午卡着两场根本挪不动的硬会议：一场婚前确认电话，一场和花艺供应商的合同纠纷解决会。 2. 读邮件 app—— 翻出 Lena 的报价 (半天 180 美元)，还得发现一个藏起来的坑：Lena 要求 \"周三下班前送材料\"，而今天就是周三，这个截止时间是很极限的，需要考虑今天有没有充足时间准备材料； 3. 看财务 app—— 掂量这 180 美元此刻花不花得起； 4. 往下推演 —— 如果为省钱自己硬扛、把供应商纠纷会往后拖，可能赔上一个关系到好几场婚礼的长期供应商，这笔隐性损失远不止 180 美元。 最后给出干脆的结论：交给 Lena 值。但还有一条红线 —— 它绝对不能擅自替 Rachel 发出任何一封邮件，因为 \"用户的提问并没授权或明示个人助理直接处理\"，这超出了助理被授予的权限。 一个真正好用的助理，既要把这盘账算明白，又要懂得 \"什么事不能替你做主\"。问题是：今天的 AI, 真的做得到吗？ 背景介绍 AI 正从 “帮你写段文案 \" 的一次性工具，走向住进你数字生活、随时替你打理一切” 的常驻助理 (always-on personal assistant)。这类系统被寄予厚望：有长期记忆、能后台执行、随叫随到。 但现实是，用户的意图天然散落在整个数字世界里 —— 几个月前的历史事件、十几个互相牵连的后端服务、手机与电脑两套设备。要真正帮上忙，助理必须既能找到并 “看见” 这些分散的状态，又能在闭环里 “行动”。 然而现有评测远远跟不上这个目标。近期涌现的衡量助理 Agent 的基准，大多是干净、短程、单服务、单设备的：给一封整洁的邮件让你总结，或给一个明确指令看你能否调一次工具。这就像考驾照只考 “原地打方向盘”，从不让你上路。它们几乎无法回答：当助理被丢进嘈杂、长程、需要跨设备跨系统协调、还得拿捏分寸的真实环境里，究竟表现如何？ 更关键的瓶颈在于：这样的环境",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "垣信卫星完成无改造商用手机直连低轨卫星通话验证",
+        "Telo微型电动卡车确认支持400kW持续直流快充",
+        "哥伦比亚启动建设750英里重型电动卡车充电走廊"
+      ],
+      "entries": [
+        {
+          "t": "国内首例：垣信卫星实现无改造手机直连卫星通话，通话质量比肩 5G",
+          "d": "2026-06-20",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/航天",
+          "as": "垣信卫星于6月9日发射首颗手机直连试验星后，成功打通国内首例无改造存量商用手机直连卫星通话，通话质量据称比肩5G。系统搭载国内领先的L频段大型相控阵天线，无需用户更换专用终端即可实现卫星通信，标志着中国低轨卫星直连手机技术取得关键突破。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/966/433.htm",
+          "tp": "手机直连卫星",
+          "aip": 1,
+          "kp": [
+            "天线[手机直连卫星]: L波段全数字相控阵",
+            "时频补偿[天地通信]: 两级方案",
+            "通话质量[实测]: 比肩地面5G",
+            "终端要求[直连通话]: 无需软硬件改造"
+          ],
+          "b": "6 月 19 日消息，垣信卫星旗下首颗手机直连试验星于 6 月 9 日在东风商业航天创新试验区成功发射。今日，垣信卫星宣布成功打通国内首例无改造存量商用手机直连卫星通话。\n据官方介绍，垣信手机直连卫星系统搭载了国内口径与阵元规模领先的 L 波段全数字相控阵天线。针对天地通信中天然存在的大时频偏、上行链路传输瓶颈等行业难题，垣信卫星研发了两级时频偏补偿方案，并搭配动态自适应编码码率调节技术，突破了传统移动通信的时频技术指标上限。\n该技术无需对普通商用手持终端进行任何软硬件改造或升级，实测通话全程信号满格，通话质量比肩地面 5G。同时，其系统架构与地面移动通信体系高度兼容，为天地一体化通信的深度融合提供了技术路线。\n此次通话的技术验证，依托于垣信卫星此前发射入轨的首颗手机直连试验星。IT之家此前报道，2026 年 6 月 9 日 16 时 23 分，垣信卫星在东风商业航天创新试验区，使用朱雀二号改进型遥六运载火箭，成功发射了垣信首颗手机直连试验星。该次发射采用“一箭双星”方式，同时将中国移动通信集团有限公司的“中国移动 02 星”送入预定轨道。两颗卫星主要用于开展手机直连卫星、天地网络融合等技术试验验证。\n据工信部消息，前期已指导完成了相关卫星的国内频率协调，并颁发了空间无线电台执照和无线电频率使用许可。该试验星将在轨开展手机直连应用服务及天地一体化融合组网等关键技术验证，为卫星通信与 5G/6G 的深度融合提供技术支撑。\n截至目前，上海垣信卫星运营的千帆星座在轨卫星数量已增至 200 颗。据千帆星座卫星系统总指挥、中国科学院微小卫星创新研究院院长胡海鹰介绍，“千帆”与“星链”同属低轨卫星互联网星座计划，目标是在距离地球 300 公里到 2000 公里的近地轨道部署卫星，形成全球覆盖的网络。\n根据公开规划，千帆星座分三期推进：一期部署 648 颗卫星，实现区域网络覆盖；二期部署 1296 颗卫星，实现全球网络覆盖；三期规划由超过 1.5 万颗卫星提供多元业务融合服务。按计划，千帆星座将于 2027 年完成 1296 颗卫星的组网。\n为卫星通信与 5G/6G 深度融合提供支撑，垣信首颗手机直连试验星成功发射",
+          "hb": 1
+        },
+        {
+          "t": "Telo确认其紧凑型电动卡车支持400kW持续快充",
+          "d": "2026-06-20",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "美国初创电动车企Telo确认其MT1微型电动卡车将支持400kW持续快充功率。MT1尺寸仅相当于Mini Cooper，却以紧凑布局实现了卡车级载货能力。400kW持续充电（非峰值）意味着大幅缩短补能时间，接近主流超充网络的顶尖水平。这一参数对于小型商用电动车的长途运营实用性具有重要意义，也反映出高功率充电正从豪华车型向更小型化、实用化车辆下沉渗透。",
+          "sc": 7.9,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/19/telo-confirms-400-kw-sustained-charging-tiny-electric-truck/",
+          "tp": "电动卡车快充",
+          "aip": 1,
+          "kp": [
+            "充电功率[Telo MT1电动卡车]: 400kW持续",
+            "[电池架构]: 双800V/400V分体电池包"
+          ],
+          "b": "Fred Lambert\n| Jun 19 2026 - 8:50 am PT\nTelo confirmed that its Mini-sized MT1 electric truck will charge at 400 kW sustained — a charging rate that puts it in the company of luxury EVs costing two to three times as much.\nThe startup also revealed a dual 800V/400V split-pack battery architecture designed to maximize performance on any fast charger, not just the latest high-voltage stations.\nThe announcement, made by CTO Forrest North in a\nvideo update\n, comes on the heels of Telo securing a body manufacturing partner in Schwab Industries, a Michigan-based Tier 1 automotive supplier that will produce the MT1’s body-in-white structure. First customer deliveries of roughly 500 units are targeted for late 2026.\nThe MT1 will use two 400V battery packs that can operate in parallel at 400 volts or switch to series configuration for 800V charging. This split-pack design allows the truck to take full advantage of 800V high-power chargers while maintaining strong performance at the more common 400V fast chargers that make up the majority of today’s DC fast charging network.\nNorth emphasized that this was a deliberate engineering decision: “Vehicles that just go for pure 800 volts end up being compromised at 400-volt chargers. And because there are more 400-volt chargers out there than there are 800-volt chargers, that’s too big of a limitation for our customers.”\nThe approach mirrors what a handful of other EVs do, but North noted it was “a big packaging challenge” given the MT1’s compact 152-inch footprint — the same length as an electric Mini Cooper. Telo claims it has “one of the most dense series to parallel high voltage packs that exists.”\nOther automakers have tackled 400V compatibility differently. The Porsche Taycan uses a DC-DC charge booster that limits it to around 150 kW at 400V stations.\nHyundai’s E-GMP vehicles\nuse the rear motor to step up voltage, achieving roughly 135 kW at 400V Superchargers. Telo’s split-pack approach should theoretically deliver stronger 400V performance, though the company hasn’t specified the exact charging rate at 400V stations.\nThe more significant claim is that the 400 kW charging rate is sustained, not a brief peak that tapers within seconds. North directly addressed the industry practice of advertising peak charging rates that last only moments: “In the past we’ve seen some vehicles be able to charge at a very high charge rate but only for a few seconds. We know that that doesn’t fool anybody; we know it’s about sustained charge. That’s what brings the actual charge time down.”\nThis is a notable distinction. The Lucid Gravity, one of the few EVs currently capable of 400 kW charging, maintains that peak rate for roughly 90 seconds before tapering linearly. The\non the Neue Klasse platform also advertises 400 kW but follows a similar taper pattern. Tesla’s Model Y, by comparison, maxes out at 250 kW.\nIf Telo can deliver genuinely sustained 400 kW charging, the MT1 would stand out among EVs at any price point — and it starts at $41,520.\nNorth attributed the improvement to rapid advances in battery cell technology, noting that cells Telo is sourcing today have 20% more energy density and roughly one-fifth the internal resistance of cells available just a year ago. Lower internal resistance means less heat generation during fast charging, which is what allows higher sustained power without thermal throttling.\nThe charging announcement adds to a string of recent milestones for Telo. The company has\nraised roughly $30 million\n, including a $20 million Series A backed by Tesla co-founder Marc Tarpenning, and has accumulated over 12,000 preorders representing more than $600 million in potential revenue.\nThe MT1 offers a 60-inch truck bed — comparable to a Toyota Tacoma — despite being five feet shorter. Battery options include a 77 kWh standard pack (260 miles range) and a 106 kWh long-range pack (350+ miles). The dual-motor AWD configuration delivers 500 horsepower and a 4-second 0-60 time.\nWith the Schwab Industries partnership now in place for body manufacturing and certification activities underway, the initial run of approximately 500 units will target high-deposit customers and fleet buyers before broader production ramps up. Telo aims to produce around 5,000 trucks per year.\nThe sustained 400 kW charging claim is the headline here, and it’s a bold one. Most EVs that advertise 400 kW peak rates see dramatic taper within the first minute or two. If Telo delivers on this, the MT1 would charge faster than vehicles costing $50,000 or more.\nThe dual 800V/400V architecture is the right call. We’ve been tracking how 800V-only vehicles struggle at 400V chargers — and with the majority of the fast charging network still running at 400 volts, optimizing for real-world infrastructure rather than spec-sheet bragging rights shows engineering maturity.\nThat said, Telo is still a startup with $30 million in funding trying to bring a vehicle to production — a feat that has humbled or destroyed far better-capitalized companies. The company wisely isn’t announcing specific charge times yet, which suggests final validation is still in progress. We’ll need to see actual charging curve data at real stations before this moves from impressive claim to confirmed capability. But the technical approach is sound, and the momentum, body manufacturing partner, 12,000 preorders, improving battery cell performance, is heading in the right direction.\nBut to bring a passenger vehicle program to market, you generally need in the hundreds of millions of dollars.\nIf you’re considering a compact truck like the Telo MT1, home solar can dramatically cut your charging costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "哥伦比亚宣布建设750英里电动卡车走廊连接波哥大与卡塔赫纳",
+          "d": "2026-06-20",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "哥伦比亚宣布建设连接首都波哥大和卡塔赫纳的750英里(约1200公里)电动卡车走廊Ruta-E。该项目是拉丁美洲空气质量和交通电动化的重要里程碑，将沿主干道部署充电基础设施支持电动重载运输。该走廊有望大幅减少货运碳排放，推动区域零排放物流网络建设，为发展中国家电动交通转型树立标杆。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/19/colombia-announces-750-mile-electric-truck-corridor-linking-bogota-to-cartagena/",
+          "tp": "电动重卡走廊",
+          "aip": 1,
+          "kp": [
+            "距离[哥伦比亚电动车卡车走廊]: 750英里"
+          ],
+          "b": "| Jun 19 2026 - 5:09 am PT\nIn a major win for Latin American air quality, the new 750 mile Ruta-E electric truck corridor will connect Bogotá and Cartagena with charging infrastructure built to support the more than 1,000 commercial EVs set to hit Colombia’s roads by 2032.\nElectric can still be a tough sell to fleet buyers in the US, where a century-long relationship with an established network of gas and diesel fueling stations has built deep sense of trust in a mature fueling network.\nIt’s a different story in Latin America\n, however, where filling stations are less dense and less reliable, and where electricity is becoming far more ubiquitous. You may not find a DC fast charger as easily as you like, but you can almost always find power.\nIn those environments\n, range anxiety can cut both ways, and the goal for fleet operators anywhere in the capitalist world is ultimately the same:\ndo what it takes to keep the wheels turning\nColombia gets it, which is why the nation’s Ministry of Transport is working with American non-profit\nto launch Ruta-E, Colombia’s first zero-emission freight logistics corridor connecting the port city of Bogotá to the interior city of Cartagena nearly 1,200 km (~745 miles) away with enough new infrastructure to support over 1,000 new battery-electric commercial trucks.\n“Colombia is already a regional leader in electric passenger vehicles, and we are going to achieve the same with trucks,” explains Colombia’s Minister of Transport, María Fernanda Rojas Mantilla. “The technology is ready, the economic benefits keep growing, and these industry leaders are telling us they want to adopt electric trucks and that they want to manufacture them. Our job is to make sure they can do so, benefiting both industry and the communities along the corridor.”\nThe organization hopes Ruta-E will stand as a shining example of Colombia’s leadership in transport decarbonization, and ultimately pave the way for even more electric freight corridors throughout the region. Colombia’s corridor is expected to reduce more than 185,000 tons of CO2 annually by 2032, equivalent to the emissions of 40,000 passenger vehicles\nHeavy electric trucks from Chinese brands like the BYD 8TT (shown above and at top) have already been serving customers on Latin American roads for years, and many of those already being built and assembled in domestic markets, too.\nBYD isn’t alone\n, either. “At Auteco Blue, we are pioneers in electric mobility in Colombia,” explains María Paula Hoyos García, Marketing Manager at Colombia’s Dongfeng distributor, Auteco Blue. “For more than five years, we have been building a portfolio focused on commercial vehicles, with technical capabilities and after-sales support tailored to our customers’ needs … today, commercial electric mobility operates mainly in last-mile delivery; Ruta-E opens the door to more operations and allows us to generate a much greater environmental impact for the country.”\nOther brands offering electric trucks in Colombia include JAC,\nMercedes-Benz\n, and others, with many more coming soon.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

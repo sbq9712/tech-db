@@ -1,0 +1,102 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月22日　星期一",
+  "date_range": "2025-12-22",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究开发钴酞菁电化学脱氯催化体系，实现氯代有机物降解与资源化转化",
+      "日本通过柏崎刈羽核电站重启决议，预计2026年2月投运8.2GW反应堆",
+      "研究提出非均匀流动设计策略，通过优化流场构型提升PEM燃料电池性能"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究开发钴酞菁电化学脱氯催化体系，实现氯代有机物降解与资源化转化",
+        "日本通过柏崎刈羽核电站重启决议，预计2026年2月投运8.2GW反应堆",
+        "研究提出非均匀流动设计策略，通过优化流场构型提升PEM燃料电池性能"
+      ],
+      "entries": [
+        {
+          "t": "基于非质子耦合氧化还原特性酞菁钴的电化学脱氯与烃类高值化利用",
+          "d": "2025-12-22",
+          "a": "Nature Communications",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "研究开发了一种基于钴酞菁的电化学脱氯催化体系，利用非质子耦合氧化还原特性，实现对氯代挥发性有机化合物的有效降解和烃类资源化转化。该方法为污染水体治理提供了可持续的电催化路径，兼具环境修复与碳资源回收双重价值。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67720-6",
+          "tp": "电化学脱氯",
+          "aip": 1,
+          "kp": [
+            "催化剂[电化学脱氯]: 钴酞菁",
+            "[氧化还原特性]: 非质子耦合氧化还原",
+            "底物[脱氯]: 二氯甲烷→高附加值烃"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electrochemical dechlorination provides a sustainable method to treat chlorinated volatile organic compounds polluted water with producing value-added hydrocarbon. However, dechlorination of dichloromethane (CH2Cl2) generates *CH3 and *CH2Cl intermediates, which are highly unstable due to lack of efficient hyperconjugation from neighboring carbon sites. Herein, we report that cobalt phthalocyanine (CoPc) grafts onto sulfur-doped graphene toward efficient electrocatalysis of CH2Cl2 dechlorination at moderate potentials. It reveals that sulfoxide groups within graphene linked to Co sites by an axial coordination, resulting in an electron donation effect to decrease the barriers of elemental dechlorination step. While in situ electrochemically generates [Co1+Pc]⁻ species mediated the electron transfer from Co sites to CH2Cl2. The production rate of CH4 is significantly enhanced compares to the current level, and an additional case of producing C2H4 and C2H6 is achieved. For potential practical application, the electrochemical dechlorination of a diluted CH2Cl2 solution is validated in an electrofiltration module setup by an efficient flow-through mode.",
+          "hb": 1
+        },
+        {
+          "t": "日本将重启世界最大单一核电站",
+          "d": "2025-12-22",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "日本新潟县议会投票通过决议，同意柏崎刈羽核电站6、7号反应堆重新启用，预计2026年2月投运。该电站装机总容量8.2GW，为全球最大单一核电站，2011年福岛事故后停用。截至目前日本已有7个核电站、14个反应堆重启运行。此次重启标志着日本核电恢复进程持续推进。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "http://www.news.cn/20251222/88a92dc7e3fe4e51803abcaa6a68da21/c.html",
+          "tp": "柏崎核重启",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "柏崎刈羽核电站1-5号堆为沸水反应堆，6、7号为符合第三代反应堆标准的进步型沸水反应堆，目前只有6、7号被批准重启，1-5号没有重启计划。柏崎刈羽核电站两个较先进堆的重启，反映了在电力系统减排议题上，日本对于核能利用的态度，正由2011年来的尽量避免，重新转为积极利用。25年3月，日本政府批准了《第七次战略能源计划》，提出在2040年，将核电在日本能源结构的占比重新提升至20%，24年末，日本经产省也删除了“减少核电依赖”表述。据日本科学技术振兴机构数据，目前日本核电能源供应占比为仅为8.5%。由于日本地理的客观限制，其他新能源发电形式，尤其是光伏发电上限较低。重启、升级、新建核反应堆依然将是日本能源工业减排的重要路径。",
+          "b": "据新华网12月22日报道，日本新潟县县议会投票通过决议，同意位于该县的柏崎刈羽核电站的6、7号反应堆重新启用，预计将于2026年2月重新投入运行。该核电站采用沸水反应堆，自1985年开始建造，装机总容量为8.2GW，是世界上装机容量最大的单一核电站。2011年福岛核电站事故后，柏崎刈羽核电站与日本其他核电站被全部停用。截至目前，日本有7个核电站，14个反应堆重新启用处于运作中。",
+          "hb": 1
+        },
+        {
+          "t": "将不利影响转化为有利结果：利用非均匀流动来增强 PEM 燃料电池性能的设计策略",
+          "d": "2025-12-22",
+          "a": "ScienceDirect Publication: Applied Energy",
+          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
+          "as": "研究提出利用非均匀流动设计策略提升PEM燃料电池性能的创新思路。传统设计力求流场均匀分布，而该研究反其道而行，将原本被视为不利因素的非均匀流动转化为性能增益，通过优化流场几何构型改善反应物分配和排水效率，为质子交换膜燃料电池的性能优化开辟了新设计范式。",
+          "sc": 5.5,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.sciencedirect.com/science/article/pii/S0306261925019543?dgcid=rss_sd_all",
+          "tp": "PEM燃料电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

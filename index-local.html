@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>技术边界数据库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="filter-block">
+        <div class="filter-head">
+          <span class="filter-title">日期</span>
+          <button class="filter-clear" id="clearDateBtn" type="button" style="display:none">清除</button>
+        </div>
+        <div class="date-quick">
+          <button data-quick="today" type="button">今天</button>
+          <button data-quick="7d" type="button">近7天</button>
+          <button data-quick="30d" type="button">近30天</button>
+          <button data-quick="all" type="button">全部</button>
+        </div>
+        <div class="date-range">
+          <input type="date" id="dateFrom" class="date-input" />
+          <span class="date-sep">→</span>
+          <input type="date" id="dateTo" class="date-input" />
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head"><span class="filter-title">情报类型</span></div>
+        <div class="type-inline">
+          <div class="type-inline-item" data-type-group="news">
+            <span class="tree-checkbox checked" data-type-toggle="news"></span>
+            <span class="type-inline-label" data-type-popover="news">新闻 <span class="type-inline-count" id="newsCount"></span> ▾</span>
+            <div class="type-popover" id="popover-news">
+              <div class="type-popover-item" data-type="news" data-tag="技术突破"><span class="tree-checkbox checked"></span>技术突破 <span class="leaf-count" id="cnt-tech"></span></div>
+              <div class="type-popover-item" data-type="news" data-tag="产业进展"><span class="tree-checkbox checked"></span>产业进展 <span class="leaf-count" id="cnt-industry"></span></div>
+              <div class="type-popover-item" data-type="news" data-tag="政策监管"><span class="tree-checkbox checked"></span>政策监管 <span class="leaf-count" id="cnt-policy"></span></div>
+              <div class="type-popover-item" data-type="news" data-tag="资本运作"><span class="tree-checkbox checked"></span>资本运作 <span class="leaf-count" id="cnt-capital"></span></div>
+              <div class="type-popover-item" data-type="news" data-tag="行业观察"><span class="tree-checkbox checked"></span>行业观察 <span class="leaf-count" id="cnt-observe"></span></div>
+            </div>
+          </div>
+          <div class="type-inline-item" data-type-group="literature">
+            <span class="tree-checkbox checked" data-type-toggle="literature"></span>
+            <span class="type-inline-label" data-type-popover="literature">文献 <span class="type-inline-count" id="litCount"></span> ▾</span>
+            <div class="type-popover" id="popover-literature">
+              <div class="type-popover-item" data-type="literature" data-tag="研究论文"><span class="tree-checkbox checked"></span>研究论文 <span class="leaf-count" id="cnt-paper"></span></div>
+              <div class="type-popover-item" data-type="literature" data-tag="观点评论"><span class="tree-checkbox checked"></span>观点评论 <span class="leaf-count" id="cnt-review"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head">
+          <span class="filter-title">领域分类</span>
+          <span class="cat-actions">
+            <button class="filter-mini-btn" data-cat-action="all" type="button">全选</button>
+            <button class="filter-mini-btn" data-cat-action="none" type="button">全不选</button>
+          </span>
+        </div>
+        <input id="categorySearch" class="category-filter-input" type="text" placeholder="筛选分类…" autocomplete="off" />
+        <div class="category-tree" id="categoryTree"></div>
+      </div>
+
+    </aside>
+
+    <main class="content">
+      <div class="content-toolbar">
+        <div class="toolbar-left">
+          <div class="alert-levels-bar" id="alertLevels"></div>
+          <div class="count-module">
+            <div class="active-chips" id="activeChips"></div>
+            <div class="result-info"><span id="resultCount"></span></div>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="sort-toggle" id="sortToggle" type="button" title="切换排序方式">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+            <span class="sort-word" id="sortWord1">时间</span><span class="sort-sep">/</span><span class="sort-word" id="sortWord2">评分</span><span>排序</span>
+          </button>
+          <div class="pagination-inline">
+            <button id="prevPage" type="button">‹</button>
+            <span id="pageLabel"></span>
+            <button id="nextPage" type="button">›</button>
+          </div>
+          <div class="search-bar-top">
+            <input id="searchInput" type="text" placeholder="检索标题、正文…" autocomplete="off" />
+          </div>
+          <button class="theme-toggle" id="themeToggle" type="button" title="切换深色/浅色模式">
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </div>
+      </div>
+      <section id="recordList" class="record-list">
+        <div class="loading-hint">正在载入情报数据…</div>
+      </section>
+    </main>
+  </div>
+
+    <!-- Detail Modal -->
+  <div class="detail-overlay" id="detailOverlay"></div>
+  <div class="detail-modal" id="detailModal">
+        <div class="detail-body" id="detailContent"></div>
+  </div>
+
+  <!-- Source Panel Trigger -->
+  <button class="source-trigger" id="sourceTrigger" type="button" title="信息来源">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+    <span class="source-trigger-text">信息来源展示</span>
+  </button>
+  <!-- Source Panel -->
+  <div class="source-panel" id="sourcePanel">
+    <div class="source-panel-head">
+      <div class="source-panel-title">📡 信息来源</div>
+      <button class="source-panel-close" id="sourceClose" type="button">✕</button>
+    </div>
+    <div class="source-panel-summary" id="sourceSummary"></div>
+    <div class="source-panel-body" id="sourceBody"></div>
+  </div>
+  <div class="source-overlay" id="sourceOverlay"></div>
+    <script src="data/processed/lite-part-0.js"></script>
+  <script src="data/processed/lite-part-1.js"></script>
+  <script src="data/processed/lite-part-2.js"></script>
+  <script src="data/processed/lite-part-3.js"></script>
+  <script src="data/processed/lite-part-4.js"></script>
+  <script src="data/processed/lite-part-5.js"></script>
+  <script src="data/processed/lite-part-6.js"></script>
+  <script src="data/processed/lite-part-7.js"></script>
+  <script src="data/processed/lite-part-8.js"></script>
+  <script src="data/processed/lite-part-9.js"></script>
+  <script src="data/processed/lite-part-10.js"></script>
+  <script src="data/processed/lite-part-11.js"></script>
+  <script src="data/processed/lite-part-12.js"></script>
+  <script src="data/processed/lite-part-13.js"></script>
+  <script src="data/processed/lite-part-14.js"></script>
+  <script src="data/processed/lite-part-15.js"></script>
+  <script src="data/processed/lite-part-16.js"></script>
+  <script src="data/processed/lite-part-17.js"></script>
+  <script>window.__LITE_DATA__=(window.__LITE_PARTS__||[]).flat();window.__LITE_LOADED__=true</script>
+  <script src="data/processed/manifest-data.js"></script>
+  <script src="data/category-order-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Information Sources Panel Data
+    window.__SOURCES__ = {
+      total: 146,
+      categories: [
+        { name: '产业资讯', count: 56, icon: '📰', groups: [
+          { name: '垂直媒体', count: 50, items: ['机器之心','战略前沿技术','核闻天下','DeepTech深科技','环球零碳','南方能源观察','光子盒','矿业界','ESPLaza长时储能网','ESPLaza储热网','钙钛矿工厂','深远海风电','绿金','新智元','氢能技术前沿','地学前沿观察','焦耳时代','REAI Lab','DT洞见可持续','能源技术情报','集邦固态电池','世界先进制造技术论坛','新能源技术与装备','双碳情报','晚点LatePost','催化视界','中粉固态电池','可控核聚变','工业节能环保技术','国际能源小数据','现代情报','SOFC-SOEC-氢能技术','源网荷储创研新视界','热泵在线','麻省理工科技评论APP','新能源情报局','化工碳达峰碳中和','地热能在线','氢能云互联','未来城市数智评论','星源PlanetaryEnergy','能源环境经济与政策研究','氢创空间','世界科技研究与发展','VPP前沿观察','低碳节能环保技术','中国国际可再生能源署合作办公室','数据小魔方','起点钠电','钙钛矿学习交流平台','electrive','Batteries International','batteries news','Battery Tech Online','Supply Chain Digital','Electrek','pv magazine','interesting engineering','scitechdaily','perovskite-info','索比光伏','风电世界','4C Offshore','全球风电网','新能源网','the information','MIT Technology Review','Informationsdienst Wissenschaft-idw','ESS News','Batteries International News','pv magazine C&I PV','H2 View','Hydrogen Tech World','MIT Technology Review Climate','中国核电信息网-国内','中国核电信息网-国际','国际太阳能光伏网','Renewables Now','索比光伏-综合新闻','中国新能源网-新闻'] },
+          { name: '公司官媒', count: 3, items: ['仁烁光能','Gartner公司','昆山协鑫光电'] },
+          { name: '综合媒体', count: 3, items: ['网易知光谷','中国电力新闻网-新能源','中国电力新闻网-科技'] },
+        ]},
+        { name: '行业研究', count: 14, icon: '📊', groups: [
+          { name: '协会机构', count: 5, items: ['国际储能技术与产业联盟','中国可再生能源学会地热能专委会','国家新材料产业资源共享','社科院工业经济研究所','CSSD气候变化工作委员会'] },
+          { name: '咨询行研', count: 9, items: ['先进能源科技战略情报研究中心','中咨研究','腾讯研究院','CCUS国家地方联合工程研究中心','新华国研经济学研究院','国际能源研究中心','视知产业研究院','中国科学技术发展战略研究院','未来智库','BloombergNEF Press'] },
+        ]},
+        { name: '学术科研', count: 76, icon: '📄', groups: [
+          { name: '学术论文', count: 8, items: ['能源学人','IEEE电气电子工程学会','储能科学与技术','机工文献','物理储能','环球科学','能源环境经济文献精读','数据与情报科学英文刊'] },
+          { name: '文献期刊', count: 68, items: ['Chemical Reviews','ACS Energy Letters','Journal of the American Chemical Society','Advanced Materials','Advanced Energy Materials','Advanced Science','Nature Nanotechnology','Nature Energy','Nature Communications','Nature Sustainability','Nature Materials','Nature Chemical Engineering','Nature','Nature Reviews Materials','National Science Review','Nature Chemistry','Nature Electronics','Nature Reviews Clean Technology','Science Advances','Science','Chem','Joule','One Earth','Matter','Materials Today','Chemical Society Reviews','Energy & Environmental Science','Applied Energy','Energy Policy','PNAS'] },
+        ]},
+      ]
+    };
+  </script>
+</body>
+</html>

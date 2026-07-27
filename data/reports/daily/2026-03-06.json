@@ -1,0 +1,251 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月6日　星期五",
+  "date_range": "2026-03-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "双功能聚合物突破制备限制，环境空气下全钙钛矿叠层模组效率达26%",
+      "类冰水膜阻断氯离子腐蚀路径，无淡化海水电解制氢技术取得突破",
+      "香港城市大学研发溶剂共嵌机制，钠离子电池层状正极实现100C超高倍率充放电"
+    ],
+    "AI与智能科技": [
+      "OpenAI发布GPT-5.4模型，原生支持键鼠操作并实现百万tokens上下文",
+      "跨域基因组大模型Evo 2发布，实现完整DNA序列层面的生物系统从头设计",
+      "AI逆向预测结构导向剂，成功实现层间膨胀沸石分子筛的直接定向合成"
+    ],
+    "通用技术": [
+      "基于柔性传感器阵列的纺织紧身衣实现无摄像头全身动作捕捉",
+      "磁流体技术实现左心耳动态填充，消除封堵器周边残余漏并降低血栓风险",
+      "可3D打印碳纳米管聚合物复合材料实现极端环境下电磁与中子辐射多模态屏蔽"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "双功能聚合物突破制备限制，环境空气下全钙钛矿叠层模组效率达26%",
+        "类冰水膜阻断氯离子腐蚀路径，无淡化海水电解制氢技术取得突破",
+        "香港城市大学研发溶剂共嵌机制，钠离子电池层状正极实现100C超高倍率充放电"
+      ],
+      "entries": [
+        {
+          "t": "利用双功能聚合物在环境空气中制备宽禁带钙钛矿，用于全钙钛矿叠层太阳能组件",
+          "d": "2026-03-06",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究开发了一种双功能聚合物策略，实现宽带隙钙钛矿在空气环境中的高质量制备，推动全钙钛矿叠层太阳能电池组件的商业化。传统宽带隙钙钛矿在空气中易受湿度和氧气影响导致相分离和缺陷增加。该双功能聚合物同时作为结晶调控剂和缺陷钝化剂，锚定钙钛矿晶界并抑制碘离子迁移，在环境空气中制备的器件效率超过23%，叠层模组效率突破26%。该成果大幅降低了钙钛矿电池的制造门槛和成本。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00497-0?rss=yes",
+          "tp": "钙钛矿叠层电池",
+          "aip": 1,
+          "kp": [
+            "[制备环境]: 空气中制备宽禁带钙钛矿",
+            "[关键材料]: 双功能聚合物(结晶调控+防潮)",
+            "[应用]: 全钙钛矿叠层太阳能模组"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fabricating high-quality wide-band-gap perovskite solar cells in ambient air is key for commercializing tandem cells but remains challenging. This work introduces a molecularly designed polymer that enables uniform crystallization and moisture protection, achieving record efficiency for cells and modules. It provides a viable pathway toward industrial-scale production of all-perovskite tandem photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "用于防腐海水电解的类冰水膜",
+          "d": "2026-03-06",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "研究提出利用类冰水膜实现防腐海水电解的新策略。可再生能源驱动的海水直接电解制绿氢面临氯离子腐蚀难题。该工作构建了一种在电极表面原位形成的类冰结构水分子层，其选择性透过水分子而排斥氯离子，从根本上阻断腐蚀路径。实验验证了该保护层在真实海水条件下的长期稳定性，使无淡化直接海水电解成为可能，大幅降低绿氢制取的前处理成本，具有重大工程应用前景。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00098C",
+          "tp": "海水电解防腐",
+          "aip": 1,
+          "kp": [
+            "[防腐蚀策略]: 外Helmholtz面类冰水膜",
+            "[机制]: 强O-H键+有序氢键网阻挡Cl⁻",
+            "[应用]: 海水电解制绿氢"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Renewable-powered seawater electrolysis for green hydrogen is hindered by chloride corrosion. We introduce a protective interfacial water film strategy, where a highly ordered hydrogen-bonded network in the outer Helmholtz plane (OHP) leverages strong covalent O-H bonds and dense ice-like ordering to block Cl⁻ ingress. This engineered barrier within the electric double layer prevents chloride access to the Inner Helmholtz Plane (IHP), eliminating corrosive complexation. The film is realized via dynamic phosphorus migration during electrochemical reconfiguration of a phosphate-doped cobaltnickel-iron layered hydroxide (CNFPO), enriching phosphate species that electrostatically template interfacial water molecules. Combined in situ Raman spectroscopy (using D2O) and molecular dynamics reveal enrichment of tetrahedrally hydrogen-bonded water in the OHP, forming the Cl⁻-repelling barrier while ensuring the participation of free water in the reaction pathway was further verified via H₂O/D₂O kinetic isotope effect (KIE) experiments. Protected by this film, CNFPO achieves 24 mV overpotential at 10 mA cm -2 , >1200 h stability, and 76-fold current density enhancement in saturated saline.An anion-exchange membrane electrolyzer operates >1000 h at 500 mA cm -2 and 60 °C, validating practical viability.",
+          "hb": 1
+        },
+        {
+          "t": "香港城市大学刘奇在钠离子电池层状正极中实现可逆溶剂共嵌以获得超快倍率性能",
+          "d": "2026-03-06",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "香港城市大学刘奇团队发现采用二甘醇二甲醚基电解液时，溶剂分子可在高电压下可逆嵌入钠离子电池层状正极（NMO）层间，形成双层溶剂嵌入结构，既作为扩散促进剂降低钠离子迁移势垒，又充当亚纳米级支柱抑制结构坍塌。原位XRD和同步辐射超快XAS证实该过程在100C超高倍率下仍高度可逆，为钠离子电池超快充提供新机制。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-01995-x",
+          "tp": "钠电快充极",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "本文重点阐述了可逆溶剂共嵌对快充性能的提升作用，但尚未充分阐明该策略的普适性，以及溶剂反复嵌入脱出过程中产生的力学影响。从文中循环数据来看，电池初始容量为122.9 mAh g⁻¹，在13C倍率下循环500次后容量保持率约72%，可适用于超快充、对能量密度要求不高的应用场景。",
+          "b": "电化学插层是可充电电池中的一个关键过程。在传统的钠离子电池中，只有钠离子嵌入正极材料，且其扩散受到动力学限制。\n香港城市大学刘奇副教授团队研究发现，当采用二甘醇二甲醚（diglyme，简称G2）基电解液时，在高电压充电阶段（约3.35 V以上），溶剂分子会可逆地嵌入NMO层间，形成双层溶剂嵌入结构。这些嵌入的溶剂分子同时扮演两种关键角色：一是作为“扩散促进剂”，通过屏蔽效应和空间扩展大幅降低钠离子在体相中的迁移势垒；二是充当“亚纳米级支柱”，有效抑制高脱钠状态下层状结构的坍塌与相变带来的动力学阻塞。\n原位X射线衍射（in situ XRD）捕捉到溶剂嵌入导致的特征衍射峰出现与消失，证实该过程在高倍率（甚至5C以上）下仍具有高度可逆性。透射电镜和原位光学显微镜进一步显示，循环后颗粒呈现膨胀形态，并形成贯穿表里的大量微纳裂纹网络，有效促进钠离子与溶剂的双向传输。\n利用法国Soleil同步辐射光源开展的超快原位X射线吸收谱（operando ultrafast XAS）显示，即使充电倍率提升至100C（15 A g⁻¹），锰元素的氧化还原峰位仍能快速、可逆地移动，证明溶剂嵌入显著加速了体相氧化还原反应动力学。\n第一性原理计算进一步从原子尺度揭示机制：溶剂嵌入后，钠离子扩散势垒从0.20–0.41 eV大幅降低至0.11–0.14 eV；AIMD模拟显示钠离子在溶剂配位或非配位状态下均表现出显著增强的扩散能力；同时溶剂作为可移动支柱减弱了Na–O键强度，并对相邻钠层产生非局域激活效应。\n电化学性能方面，使用G2电解液的NMO半电池在10 A g⁻¹（约67C，充电时间约28–30秒）仍可输出77.4 mAh g⁻¹容量；在2 A g⁻¹下初始容量达122.9 mAh g⁻¹，500次循环后容量保持率仍超过70%。相比传统碳酸酯电解液（EDF），高电压区容量和倍率性能获得数倍提升。利用溶剂在正负极的双向可逆共嵌入特性的NMO||石墨全电池实现全电池在10 A g⁻¹下输出90 mAh g⁻¹（充电<40秒），并保持良好的循环稳定性。文章于2026年3月6日发表在Nature Energy。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "OpenAI发布GPT-5.4模型，原生支持键鼠操作并实现百万tokens上下文",
+        "跨域基因组大模型Evo 2发布，实现完整DNA序列层面的生物系统从头设计",
+        "AI逆向预测结构导向剂，成功实现层间膨胀沸石分子筛的直接定向合成"
+      ],
+      "entries": [
+        {
+          "t": "OpenAI正式发布GPT-5.4",
+          "d": "2026-03-06",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI发布GPT-5.4系列模型，首次将推理、编码和智能体能力整合至单一模型，是首个具备原生计算机使用能力的通用模型，支持通过截图和键鼠操作计算机，上下文窗口达100万tokens。在GDPval基准44个职业领域中83.0%项目达到或超过专业水平（前代70.9%），OSWorld-Verified基准成功率75.0%。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/926/344.htm",
+          "tp": "GPT5.4发布",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "目前LLM的两个主要下游应用是Vibe coding以及智能体。智能体对语言模型的主要需求是能够完成指令理解、将指令进行正确拆分并完成工具调用。GPT-5.4强化了其作为智能体进行工具调用的能力，并可以配合目前广泛流行的智能体工具OpenClaw。该组合代表着当前智能体智能程度的较高水平，可以关注该类工具的实用程度判断智能体领域的发展情况。",
+          "b": "IT之家3月6日消息，OpenAI今日正式发布了GPT-5.4系列模型，包括面向ChatGPT和API的GPT-5.4 Thinking版本，以及面向复杂任务的GPT-5.4 Pro 版本。这是OpenAI首次将前沿推理、编码和智能体能力整合至单一模型中，旨在提升专业工作的效率和准确性。在Codex和API层面，GPT-5.4是OpenAI首个具备原生计算机使用能力（computer-use capabilities）的通用模型，支持通过截图和键盘鼠标指令操作计算机，完成跨应用的复杂工作流程。GPT-5.4系列模型支持高达100万tokens的上下文窗口，使智能体能够规划、执行和验证长周期任务。\n据介绍，GPT-5.4在专业工作领域实现了大幅突破。在OpenAI所测试的44个职业领域的GDPval基准中，GPT-5.4在83.0%项目上可达到或超过行业专业水平，而前代GPT-5.2为70.9%。GPT-5.4在计算机使用基准测试中表现优异。在OSWorld-Verified基准（通过截图和键盘鼠标操作PC桌面环境）上，GPT-5.4实现了75.0%的成功率，远超GPT-5.2的47.3%，甚至超过人类表现（72.4%）。另外，GPT-5.4还融合了GPT-5.3-Codex的编码优势，在SWE-Bench Pro基准上与之持平或表现更优，同时延迟更低。Codex中的“/fast”模式可提升1.5倍token速度，保持同等智能水平。",
+          "hb": 1
+        },
+        {
+          "t": "用Evo 2跨越所有生命域的基因组建模与设计",
+          "d": "2026-03-06",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Evo 2是覆盖所有生命域的基因组建模与设计大模型，能在DNA层面理解和生成遗传信息。研究团队在涵盖细菌、古菌、真菌、植物和动物的跨域基因组数据上训练该模型，使其具备预测基因功能、识别调控元件及从头设计基因组序列的能力。与仅聚焦蛋白质的模型不同，Evo 2直接操作完整基因组尺度的DNA序列，为合成生物学、疾病研究和农业育种提供从头设计生物系统的工具，标志着从基因组测序到基因组工程的范式转变。",
+          "sc": 8.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10176-5",
+          "tp": "基因组大模型",
+          "aip": 1,
+          "kp": [
+            "[模型定位]: Evo 2跨全域生命基因组建模与设计"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "All of life encodes information with DNA. Although tools for genome sequencing, synthesis and editing have transformed biological research, we still lack sufficient understanding of the immense complexity encoded by genomes to predict the effects of many classes of genomic changes or to intelligently compose new biological systems. Artificial intelligence models that learn information from genomic sequences across diverse organisms have increasingly advanced prediction and design capabilities1,2. Here we introduce Evo 2, a biological foundation model trained on 9 trillion DNA base pairs from a highly curated genomic atlas spanning all domains of life to have a 1 million token context window with single-nucleotide resolution. Evo 2 learns to accurately predict the functional impacts of genetic variation—from noncoding pathogenic mutations to clinically significant BRCA1 variants—without task-specific fine-tuning. Mechanistic interpretability analyses reveal that Evo 2 learns representations associated with biological features, including exon–intron boundaries, transcription factor binding sites, protein structural elements and prophage genomic regions. The generative abilities of Evo 2 produce mitochondrial, prokaryotic and eukaryotic sequences at genome scale with greater naturalness and coherence than previous methods. Evo 2 also generates experimentally validated chromatin accessibility patterns when guided by predictive models3,4 and inference-time search. We have made Evo 2 fully open, including model parameters, training code5, inference code and the OpenGenome2 dataset, to accelerate the exploration and design of biological complexity.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 人工智能预测有机结构导向剂实现层间膨胀分子筛直接合成",
+          "d": "2026-03-06",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "本研究利用人工智能预测有机结构导向剂（OSDAs），实现了沸石分子筛的直接定向合成。沸石结晶是亚稳态条件下的复杂过程，机理尚不清晰，传统试错法筛选OSDA效率低下。研究团队以机器学习模型逆向设计适配特定沸石骨架拓扑的OSDA分子，从候选空间中筛选出最优结构导向剂，并成功将其应用于分子间互锁型沸石（Interlocked zeolite）的直接合成。该方法将AI驱动的分子设计与实验合成验证深度耦合，显著缩短了从结构设计到材料制备的周期，为沸石催化材料的定制化合成开辟了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22724",
+          "tp": "AI辅助分子筛合成",
+          "aip": 1,
+          "kp": [
+            "[方法]: 领域知识+ML预测OSDA",
+            "[产物]: 层间膨胀分子筛",
+            "[优势]: 替代试错筛选"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Zeolite crystallization is a metastable process under harsh conditions with poorly understood mechanisms, making the directed synthesis of specific frameworks challenging. Organic structure-directing agents (OSDAs) are key to framework control, but their discovery remains dominated by trial-and-error screening. Here, we develop a domain knowledge-informed machine learning model to predict OSDAs, which enables the successful synthesis of three novel zeolites, namely, ECNU-30, ECNU-34, and ECNU-40 (named after East China Normal University), validating the efficacy of the model. Traditional descriptor-based machine learning models exhibit limited predictive performance in screening OSDAs for unknown zeolite frameworks. Combining an end-to-end architecture with active learning, the ECNU-Zeoformer effectively overcomes this limitation, enabling more accurate prediction of OSDA-zeolite binding energies for selecting suitable OSDAs and superior generalizability to different framework topologies.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "基于柔性传感器阵列的纺织紧身衣实现无摄像头全身动作捕捉",
+        "磁流体技术实现左心耳动态填充，消除封堵器周边残余漏并降低血栓风险",
+        "可3D打印碳纳米管聚合物复合材料实现极端环境下电磁与中子辐射多模态屏蔽"
+      ],
+      "entries": [
+        {
+          "t": "适用于任意场景全身动作捕捉的纺织服",
+          "d": "2026-03-06",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出一种基于纺织物的全身动作捕捉紧身衣，利用柔性传感器阵列实现无标记、无摄像头的运动追踪。相比光学动捕系统，该方案成本低、场景适应性强，适用于医疗康复、运动分析与虚拟现实等任意日常环境中的连续姿态采集。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea2646?af=R",
+          "tp": "可穿戴运动捕捉",
+          "aip": 1,
+          "kp": [
+            "传感形态[可穿戴]: 透气排汗纺织集成传感",
+            "应用场景[运动捕捉]: 全身实时追踪"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Wearable technology has shown notable promise for tracking human motion, offering valuable insights for fields ranging from biomechanics to healthcare. Traditional motion capture systems, however, are often bulky and disruptive, making them impractical for daily use. Advances in textile-based sensing offer a promising alternative, enabling seamless integration of air- and sweat-permeable sensors into everyday clothing. Here, a sensorized textile suit designed for unobtrusive full-body motion capture is presented. The suit is capable of accurately tracking complex movements without interfering with routine activities. This wearable, using an individual-customized network of fabric-based sensors, autonomously identifies and monitors movement angles and patterns, providing insights into physical range, activity frequency, and exertion levels. Language models are shown to interpret motion data into descriptive language, enhancing its potential for real-world applications. This sensorized textile suit and corresponding algorithms represent a step forward in accessible, continuous movement monitoring in the form of everyday clothing, opening avenues for studying human behavior and health in natural environments.",
+          "hb": 1
+        },
+        {
+          "t": "基于磁流体的左心耳长期无血栓封堵",
+          "d": "2026-03-06",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "左心耳封堵术（LAAO）是预防房颤患者卒中的主流介入手段，但封堵器周边残余漏和器械相关血栓仍是两大核心并发症。该研究提出利用磁流体（magnetofluids）技术实现长期无血栓的左心耳封堵新方案，通过磁场可控的流体材料动态填充封堵器与心耳壁间隙，从根本上消除残余漏并降低血栓形成风险，为结构性心脏病介入治疗提供了创新材料思路。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-10091-1",
+          "tp": "磁流体封堵",
+          "aip": 1,
+          "kp": [
+            "封堵介质[LAAO]: 磁流体",
+            "输送方式[LAAO]: 心导管注射",
+            "适配性[LAAO]: 兼容所有类型左心耳"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Peri-device leak and device-related thrombus1 remain key challenges of current left atrial appendage occlusion (LAAO)2 owing to the incompatibility between the solid occluder and the left atrial appendage (LAA). Here we propose a personalized and complete LAAO using magnetofluids that is suitable for all types of LAAs. Magnetofluids can be injected into LAAs from cardiac catheters. In the presence of a sufficient magnetic field, magnetofluids can resist high-speed blood flow. Magnetofluids can precipitate into magnetogels in contact with water in the blood within only a few minutes. We further confirmed the long-term resilience and biocompatibility of the magnetogel over 10 months in a pig model in vivo. Neither device-related thrombus nor magnetogel leakage was observed in any pigs. The endocardium formed on the Watchman occluder was rough and incomplete, predisposing to thrombosis. Myocardial injuries were unavoidable due to the barbs of the Watchman occluder. The endocardium formed on our magnetogel was smooth, firm and thrombus-free. No crevice was observed between our magnetogel and the LAA, and no injury was caused to the myocardium. These findings may offer a promising clinical strategy for long-term thrombus-free LAAO.",
+          "hb": 1
+        },
+        {
+          "t": "超薄可拉伸可3D打印的互补型纳米管-聚合物复合材料用于极端环境下的多模态辐射屏蔽",
+          "d": "2026-03-06",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究开发了一种超薄、可拉伸、可3D打印的碳纳米管-聚合物互补复合材料，可同时屏蔽电磁干扰（EMI）和中子辐射。该材料体系在极端环境中展现出优异的多模态辐射防护能力，兼具柔性和轻量化优势。通过碳纳米管与聚合物的协同效应，实现了宽频段电磁波衰减和高效中子慢化/吸收，适用于航空航天和核工业等极端辐射环境。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202513805?af=R",
+          "tp": "纳米管复合屏蔽材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A novel material system capable of simultaneously attenuating electromagnetic interference (EMI) and neutron radiation, while retaining multifunctionality such as lightweight and mechanical stretchability, is urgently needed for versatile passivation platforms in advanced aerospace, defense, medical, and next-generation electronic applications operating under extreme environments. Here, we report (1) a neat composite comprising complementary nanotubes (boron nitride nanotubes, BNNTs, and single-walled carbon nanotubes, SWCNTs) for dual-mode attenuation that includes EMI and neutron shielding, and (2) its extension into a 3D-printed architecture using an intrinsically stretchable polydimethylsiloxane (PDMS) matrix, which altogether enables a robust and conformable shielding architecture for emerging applications. Utilizing direct ink writing, we achieve scalable fabrication of structurally complex geometries (e.g., freestanding honeycomb lattices) with tunable mechanical and shielding properties. The resulting neat composites demonstrate EMI shielding effectiveness exceeding 50 dB and neutron attenuation coefficient of 1.27 mm-1 (equivalent to ∼72% attenuation at a mm thickness) at thicknesses on the order of tens of micrometers, where the polymer composites exhibit the shielding effectiveness up to 23 dB at sub-millimeter thicknesses while maintaining mechanical resilience under cyclic strain and thermal extremes (-196°C to 250°C). These findings present a lightweight and robust shielding strategy for next-generation electronics in harsh environments.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

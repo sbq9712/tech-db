@@ -1,0 +1,209 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月10日　星期日",
+  "date_range": "2026-05-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研人员制备单片钙钛矿-硅四结叠层电池，光谱利用范围扩宽至近红外",
+      "新氯氧化物添加剂改善固态电池传导率，1C倍率下循环超3000次",
+      "大连化物所风冷燃料电池电堆比功率达1970 W/kg并完成无人机试飞"
+    ],
+    "AI与智能科技": [
+      "非弹性中子散射实验量化分子自旋-声子耦合强度以探究退相干机制"
+    ],
+    "通用技术": [
+      "时间分辨原生质谱法可直接测量生物大分子复合物组装与解离过程",
+      "加速级联催化策略提升一氧化氮电还原制氨法拉第效率与产率",
+      "新型Bi₂Te₃薄膜兼顾反位缺陷与杂化结构，实现可穿戴热电性能突破"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研人员制备单片钙钛矿-硅四结叠层电池，光谱利用范围扩宽至近红外",
+        "新氯氧化物添加剂改善固态电池传导率，1C倍率下循环超3000次",
+        "大连化物所风冷燃料电池电堆比功率达1970 W/kg并完成无人机试飞"
+      ],
+      "entries": [
+        {
+          "t": "单片钙钛矿-钙钛矿-钙钛矿-硅四结叠层太阳能电池效率突破21%",
+          "d": "2026-05-10",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该工作报道了单片式钙钛矿-钙钛矿-钙钛矿-硅四结叠层太阳电池，是叠层光伏领域向更高光电转换效率推进的重要尝试。通过将三层不同带隙钙钛矿子电池与硅底电池集成，可更充分地利用太阳光谱中从紫外到近红外的宽范围光子，有望突破传统单结和双结叠层电池的效率极限，为下一代超高效光伏组件提供新路径。",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00879",
+          "tp": "四结钙钛矿叠层",
+          "aip": 1,
+          "kp": [
+            "转换效率[四结叠层]: >21%",
+            "结构[钙钛矿-硅]: 单片四结串联"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Here, we demonstrate a proof-of-concept perovskite–perovskite–perovskite–silicon quadruple-junction tandem solar cell achieving a power conversion efficiency of 21.4% (steady state at 21.1%) and an open-circuit voltage of 4.01 V. To our knowledge, this is the first perovskite-based quadruple-junction tandem integrated on a silicon bottom cell, demonstrating the feasibility of a silicon-integrated four-junction architecture and establishing a baseline for future device optimization.",
+          "hb": 1
+        },
+        {
+          "t": "多功能氯氧化物添加剂实现高倍率全固态电池中离子/电子同步传导",
+          "d": "2026-05-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究提出一种多功能氯-氧化物添加剂策略，在电池体系中同时改善离子和电子传导。该添加剂使电池在4.5V截止电压下稳定运行，并在20MPa压力下1C倍率循环超过3000次仍保持稳定性能。该工作凸显了电解质/界面添加剂在提升高电压电池循环寿命和快充性能中的关键作用，对固态或高压锂电池的工程化具有重要参考价值。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22628",
+          "tp": "全固态电池正极",
+          "aip": 1,
+          "kp": [
+            "截止电压[固态NCM正极]: 4.5V",
+            "循环寿命[固态NCM正极]: >3000圈@1C",
+            "压力[固态电池测试]: 20MPa",
+            "添加剂: 氯化物-氧化物多功能",
+            "导电机理: 离子/电子双传导"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": ") at a cutoff voltage of 4.5 V and stable cycling at 1C for over 3000 cycles at 20 MPa). This study highlights the critical role of synergistically controlling electrochemical and mechanical properties in the design of composite cathodes for solid-state batteries.",
+          "hb": 1
+        },
+        {
+          "t": "大连化物所高比功率阴极闭合式风冷电堆通过鉴定测试",
+          "d": "2026-05-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
+          "as": "大连化物所陈忠伟团队开发的高比功率阴极闭合式风冷电堆通过科技成果鉴定及第三方测试。比功率达1970 W/kg，面功率密度1.15 W/cm²，成功完成氢能无人机试飞。通过催化层多尺度调控解决低湿下催化性能衰减及阳极反极碳腐蚀；非对称水分传输技术平衡风冷导致膜变干与保水传质需求；微通道强化传热与水热耦合技术解决高功率密度热管理难题。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.dicp.cas.cn/xwdt/ttxw/202605/t20260510_8199047.html",
+          "tp": "风冷燃料堆",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月10日，大连化物所在其官网发文称，陈忠伟研究员团队开发的高比功率阴极闭合式风冷电堆技术通过了科技成果鉴定和第三方测试验证。文中称，该风冷电堆比功率达1970 W/kg，面功率密度达1.15 W/cm2，成功进行了氢能无人机成功进行试飞。其通过催化层多尺度调控技术，解决了低湿环境下催化性能衰减及阳极反极引发碳腐蚀的问题；非对称水分传输技术则可平衡传统风冷堆中风冷导致膜变干电阻升高与保水传质需求的问题；还通过微通道强化传热与水热耦合技术，解决高功率密度下的热管理问题。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "非弹性中子散射实验量化分子自旋-声子耦合强度以探究退相干机制"
+      ],
+      "entries": [
+        {
+          "t": "利用非弹性中子散射实验量化分子量子比特中的自旋-声子耦合",
+          "d": "2026-05-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究利用非弹性中子散射(INS)实验量化分子量子比特中自旋-声子耦合强度。分子量子比特的自旋叠加态对局域环境高度敏感，可用于纳米尺度传感，但自旋-声子相互作用导致退相干是该领域核心挑战。通过INS直接观测自旋跃迁与晶格振动之间的能量交换，研究为理解分子自旋体系的退相干机制提供了关键实验数据，对设计长相干时间分子量子器件具有重要指导意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c03700",
+          "tp": "分子量子比特",
+          "aip": 1,
+          "kp": [
+            "[自旋-声子耦合]: 非弹性中子散射量化分子量子比特",
+            "[退相干]: 热可及声子谱引入自旋弛豫通道"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electronic spin superposition states enable nanoscale sensing through their sensitivity to the local environment, yet their sensitivity to vibrational motion also limits their coherence times. In molecular spin systems, chemical tunability and atomic-scale resolution are accompanied by a dense, thermally accessible phonon spectrum that introduces efficient spin relaxation pathways. Despite extensive theoretical work, there is little experimental consensus on which vibrational energies dominate spin relaxation or how molecular structure controls spin-phonon coupling (SPC). We present a fully experimental method to quantify SPC coefficients by combining temperature-dependent vibrational spectra from inelastic neutron scattering with spin relaxation rates measured by electron paramagnetic resonance. We apply this framework to two model S = 1/2 systems, copper(II) phthalocyanine (CuPc) and copper(II) octaethylporphyrin (CuOEP). Two distinct relaxation regimes emerge: below 40 K, weakly coupled lattice modes below 50 cm-1 dominate, whereas above 40 K, optical phonons above ∼185 cm-1 become thermally populated and drive relaxation with SPC coefficients nearly 3 orders of magnitude larger. Structural distortions in CuOEP that break planar symmetry soften the crystal lattice and enhance anharmonic scattering but also raise the energy of stretching modes at the molecular core where the spins reside. This redistributes vibrational energy toward the molecular periphery and out of plane, ultimately reducing SPC relative to CuPc and enabling room-temperature spin coherence in CuOEP. Although our method does not provide mode-specific SPC coefficients, it quantifies contributions from distinct spectral regions and establishes a broadly applicable, fully experimental link between crystal structure, lattice dynamics, and spin relaxation.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "时间分辨原生质谱法可直接测量生物大分子复合物组装与解离过程",
+        "加速级联催化策略提升一氧化氮电还原制氨法拉第效率与产率",
+        "新型Bi₂Te₃薄膜兼顾反位缺陷与杂化结构，实现可穿戴热电性能突破"
+      ],
+      "entries": [
+        {
+          "t": "时间分辨原生质谱法直接测量生物分子动力学",
+          "d": "2026-05-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该方法利用时间分辨原生质谱技术，在保持生物分子非共价相互作用的前提下，对生物大分子复合物的组装、解离及动力学过程进行直接测量。相较于传统分析方法，原生质谱能更真实地反映蛋白质等大分子在溶液中的天然状态，时间分辨能力可捕捉反应中间态，为生物分子相互作用机制研究提供高精度数据支撑。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21842",
+          "tp": "生物分子动力学质谱",
+          "aip": 1,
+          "kp": [
+            "检测方法[生物分子动力学]: 时间分辨原生质谱"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The functional outcomes of biomolecular interactions depend on the kinetics of association and dissociation between proteins and their binding partners, ranging from small molecules to other proteins, and are fundamental to understanding cooperativity, allostery, and drug action. However, existing kinetic methods, such as surface plasmon resonance and biolayer interferometry (BLI), require immobilization or labeling of one binding partner and are often indirect measurements. Here, we introduce a transformative time-resolved native mass spectrometry (MS) approach that enables direct, label-free, and immobilization-free quantification of biomolecular kinetics across diverse interactions within minutes using only picomolar sample amounts. We benchmarked the approach using well-characterized systems and obtained kinetic parameters that agreed with those measured by BLI. We further demonstrate the utility of time-resolved native MS in quantifying the kinetics of protein–small-molecule interactions, including those involving an irreversible inhibitor. By capturing the association and dissociation of biomolecular interactions in real time, time-resolved native MS overcomes longstanding limitations of conventional kinetic assays and transforms native MS from a static technique to a dynamic, quantitative tool for probing biomolecular kinetics and mechanisms that underpin therapeutic discovery.",
+          "hb": 1
+        },
+        {
+          "t": "加速级联催化实现工业级一氧化氮电还原制氨",
+          "d": "2026-05-10",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "电催化一氧化氮还原（NORR）制氨是实现人工氮循环的关键反应，但现有非贵金属催化剂在工业级电流密度下的活性与选择性仍不足。该研究开发加速级联催化策略，通过多活性位点协同耦合的串联反应路径，大幅提升工业级条件下NO电还原制NH3的法拉第效率与产率。该进展有望为分布式绿色合成氨及NOx废气资源化利用提供兼具成本与性能优势的催化剂设计方案。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.5660280?af=R",
+          "tp": "串联电催化还原制氨",
+          "aip": 1,
+          "kp": [
+            "催化剂[NO电还原制氨]: 富氧空位麦穗Co3O4-x/Cu自支撑",
+            "[工业级电流密度]: 串联催化加速NO还原"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    State‐of‐the‐art nonprecious metal catalysts for electrocatalytic nitric oxide reduction (NORR) to NH\n                    3\n                    suffer from mass transfer limitation and hydrogen evolution competition at industrial current densities. Herein, we report a class of self‐supporting wheat‐shaped oxygen vacancy‐rich Co\n                    3\n                    O\n                    4‐\n                    \n                      x\n                    \n                    /Cu electrocatalyst for achieving industrial‐level nitric oxide electroreduction to NH\n                    3\n                    . We demonstrate a tandem mechanism wherein Co\n                    3\n                    O\n                    4‐\n                    \n                      x\n                    \n                    enables water dissociation to generate active *H and the presence of oxygen vacancies reduce the reverse spillover energy of *H migration for the NORR, while highly conductive Cu sites facilitate the adsorption and activation of *NO, and promote hydrogenation and subsequent N‐O bond cleavage, and ultimately enable NH\n                    3\n                    desorption. The Co\n                    3\n                    O\n                    4‐\n                    \n                      x\n                    \n                    /Cu catalyst delivers an unprecedented NH\n                    3\n                    yield of 938.6 ± 11.8 µmol h\n                    −1\n                     cm\n                    −2\n                    and Faradaic efficiency (FE) of 94.9 ± 0.4% at −1.0 V against a reversible hydrogen electrode (RHE) and maintains exceptional stability of &gt; 350 h under industrial‐level current density of 300 mA cm\n                    −2\n                    , outperforming previously reported catalysts. As a proof of concept, the Co\n                    3\n                    O\n                    4‐\n                    \n                      x\n                    \n                    /Cu catalyst‐based Zn‐NO battery has a record power density of 9.4 mW cm\n                    −2\n                    and NH\n                    3\n                    yield of 752.1 ± 10 µg h\n                    −1\n                     cm\n                    −2\n                    .",
+          "hb": 1
+        },
+        {
+          "t": "Bi-Te反位缺陷与晶态-非晶态杂化结构协同实现创纪录热电性能",
+          "d": "2026-05-10",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对柔性可穿戴热电器件用n型Bi₂Te₃薄膜面临的瓶颈，提出协同利用Bi-Te反位缺陷与晶态-非晶态混合结构策略。反位缺陷优化载流子浓度，非晶相散射声子降低热导率，从而提升热电优值ZT。该混合结构兼顾柔性与热电性能，为可穿戴热电转换提供了新路径。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71038?af=R",
+          "tp": "柔性热电薄膜",
+          "aip": 1,
+          "kp": [
+            "缺陷工程[Bi2Te2.7Se0.3薄膜]: Bi-Te反位缺陷",
+            "结构[柔性热电]: 晶态-非晶态杂化",
+            "性能[室温ZT]: 创纪录高值"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Flexible n‐type Bi\n                    2\n                    Te\n                    3\n                    thin films are highly promising for wearable thermoelectric devices but still face major challenges in achieving a high room‐temperature figure of merit (\n                    ZT\n                    ) while maintaining performance under mechanical deformation. Here, we demonstrate that the synergistic tuning of Bi–Te antisite defects and crystalline‐amorphous hybridization effectively overcomes these limitations. Bi\n                    2\n                    Te\n                    2.7\n                    Se\n                    0.3\n                    thin films were fabricated via thermal evaporation followed by post‐annealing, during which antisite defect formation modulates carrier concentration, while crystalline‐amorphous hybridization enhances Hall mobility and phonon scattering. As a result, the optimized films achieve a high power factor of 35 µW cm\n                    −1\n                    K\n                    −2\n                    and a remarkable\n                    ZT\n                    of 1.48 near room temperature, surpassing most reported n‐type flexible thermoelectric thin films. A flexible thermoelectric device assembled from 162 pairs of these thin films delivers a power density of 114 µW cm\n                    −2\n                    and a normalized power density of 4.58 µW cm\n                    −2\n                    K\n                    −2\n                    under a small temperature difference of 5 K. When attached to the human body, the device generates an output voltage of 333 mV, sufficient to drive common wearable electronics. This defect‐phase co‐regulation strategy provides a general and scalable design pathway for achieving high‐performance flexible thermoelectric materials and devices.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

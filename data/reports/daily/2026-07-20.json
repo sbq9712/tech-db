@@ -1,0 +1,58 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月20日　星期一",
+  "date_range": "2026-07-20",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [],
+    "AI与智能科技": [
+      "芬兰阿尔托大学团队研制出全球首个超导量子热机，体积小于沙粒"
+    ],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "芬兰阿尔托大学团队研制出全球首个超导量子热机，体积小于沙粒"
+      ],
+      "entries": [
+        {
+          "t": "World’s First Superconducting Quantum Heat Engine Could Transform Quantum Computing",
+          "d": "2026-07-20",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "芬兰阿尔托大学Mikko Möttönen团队研制出全球首个超导量子热机，该器件体积小于一粒沙，能在接近绝对零度环境下将热能转化为有效功。研究发表于《Nature》，器件以量子比特为工作物质，循环执行加热、冷却和能量转换过程。这是首次在超导电路中实现循环式量子热机，为开发更强大量子计算机开辟了新路径，也为量子热力学基础研究提供了实验平台。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/worlds-first-superconducting-quantum-heat-engine-could-transform-quantum-computing/",
+          "tp": "量子热引擎",
+          "aip": 1,
+          "kp": [
+            "运行温度[量子热机]: 接近绝对零度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A machine smaller than a grain of sand has turned heat into useful work near\nabsolute zero\n, opening a new path to far more powerful quantum computers.\nResearchers at\nAalto University\nhave built the first cyclic quantum heat engine inside a superconducting circuit. The device uses a qubit, the basic unit of quantum information, as its working substance and repeatedly drives it through heating, cooling, and energy conversion.\nThe study, led by Academy Professor Mikko Möttönen, was published in\nNature Communications\nThe result brings a familiar technology into an unfamiliar world. Conventional heat engines power vehicles and electricity plants by moving energy between hot and cold environments. The Aalto device follows the same basic principle, but it operates on a microscopic scale where quantum mechanics determines how energy behaves.\nAt the center of the engine is a flux-tunable transmon qubit connected to a resonator and a quantum circuit refrigerator. Transmons are widely used in superconducting quantum computers because they can store and process quantum information while being controlled with microwave signals.\nThe refrigerator played two opposing roles. Instead of requiring separate hot and cold reservoirs, the researchers adjusted a single device to either heat or cool the qubit. They then changed the qubit’s energy level at carefully chosen moments, completing the four stages of a quantum Otto cycle.\nThe Otto cycle is best known as the thermodynamic process behind many gasoline engines. In this experiment, however, its working substance was not compressed gas inside a cylinder. It was a qubit exchanging extremely small amounts of energy inside a cryogenic circuit.\n“In our experiment, we built a nanofabricated heat engine using superconducting circuits and operated it in a cryostat near absolute zero. At its heart is a transmon qubit, one of the basic building blocks of modern quantum technologies,” says Tuomas Uusnäkki, the study’s first author.\nThe team began with the qubit in a thermal state and ran the engine for as many as three consecutive cycles. Single-shot measurements allowed the researchers to track changes in the qubit’s state and calculate how much heat it absorbed, how much work it produced, and how efficiently it operated.\n“Our quantum-circuit refrigerator can be tuned to both heat and cool the qubit on demand. Using carefully timed control pulses, we drove the engine in an Otto cycle and monitored the qubit state as the engine ran,” explains Uusnäkki.\nThe measurements showed that the engine produced positive work rather than merely shifting heat around the circuit. Its observed power and efficiency also agreed with the researchers’ simulations, providing evidence that the device behaved as a genuine cyclic heat engine.\n“This is the first experimental demonstration of a cyclic quantum heat engine in superconducting circuits. Using a single controllable quantum refrigerator as both the hot and cold environment of the engine makes it simpler and more versatile,” says Uusnäkki.\nQuantum heat engines have previously been demonstrated with systems including trapped ions, atomic gases, nuclear spins, and defects in diamonds. Superconducting circuits are especially important because they are already among the leading platforms for\nquantum computing\n, communication, and sensing. Until now, however, no experiment had completed a cyclic quantum heat engine using this technology.\nThe immediate significance is not the amount of work generated, which is extraordinarily small. Instead, the experiment shows that heat can be deliberately controlled and converted inside the same type of circuitry used to build quantum processors.\nThat capability may become valuable as quantum computers grow. Today’s superconducting machines depend on large numbers of microwave cables running between room-temperature electronics and processors kept at temperatures only a fraction of a degree above absolute zero. Each cable adds cost, occupies space, and can carry unwanted heat or noise into the system.\nThe researchers are now working toward a fully autonomous version of the engine. One possible application would be reading the state of a qubit without sending a microwave signal from the cold processor to room temperature. Placing more control functions directly inside the cryogenic circuit could reduce the amount of external wiring required.\n“Finland’s Quantum Technology Strategy envisions a quantum computer with one thousand logical qubits by 2035, which probably means hundreds of thousands of physical qubits. Doing that with current technology requires millions of microwave cables costing thousands of euros each. The cables also introduce noise into the system. Using autonomous devices instead would mostly eliminate the need for those cables,” Möttönen says.\nReference: “Initial demonstration of a quantum heat engine based on dissipation-engineered superconducting circuits” by Tuomas Uusnäkki, Timm Mörstedt, Wallace Teixeira, Miika Rasola and Mikko Möttönen, 5 May 2026,\nNature Communications\nDOI: 10.1038/s41467-026-72651-x\nThe researchers used the facilities of\n, Finland’s national research infrastructure for nano-, micro-, and quantum technology in their pioneering study. The work was funded by the Research Council of Finland and the Finnish Cultural Foundation.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAalto University\nQuantum Computing\nQuantum Technology\nSuperconduction\nPhysicists Break Quantum Barrier With Record-Breaking Qubit Coherence\nNew Simple Device Uses Sound Waves to Store Quantum Information\nEngineers Develop a Radical New Architecture for Quantum Computing\nYale Researchers Cross the “Break Even” Point in Preserving a Bit of Quantum Information\nResearchers Develop A Universal Quantum Gate\nResearchers Develop a New Quantum Error Correcting Code\nPhysicists Track Quantum Errors in Real Time\nPhysicists Create and Control a Large Quantum Mechanical System Built on Photons\nQuantum Bits Store Data for Nearly Two Seconds Using Laboratory Grown Diamonds",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

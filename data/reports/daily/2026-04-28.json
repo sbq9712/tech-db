@@ -1,0 +1,240 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月28日　星期二",
+  "date_range": "2026-04-28",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究构建氯桥配位介质，实现废旧正极材料180秒近100%浸出",
+      "Clean Planet英国废塑料制航空燃料试点工厂启用，单日处理量1吨",
+      "CFS为弗吉尼亚州400MW聚变电厂提交并网申请，预计2030年代初投运"
+    ],
+    "AI与智能科技": [
+      "自驱动化学实验室整合AI与机器人，数小时内完成化学反应条件筛选",
+      "研究实现1.55微米波段量子点单光子与光纤网络高效直接耦合",
+      "二硫化钼神经形态器件利用信号折叠机制突破忆阻器线性度限制"
+    ],
+    "通用技术": [
+      "NASA完成120kW锂燃料磁等离子体推进器测试，功率较霍尔推进器高25倍",
+      "研究利用光学纳米显微镜首次实时观测电池颗粒金属剥离协同行为",
+      "西北大学分析指出伊比利亚停电源于约2000MW发电损失引发电网频率失稳"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究构建氯桥配位介质，实现废旧正极材料180秒近100%浸出",
+        "Clean Planet英国废塑料制航空燃料试点工厂启用，单日处理量1吨",
+        "CFS为弗吉尼亚州400MW聚变电厂提交并网申请，预计2030年代初投运"
+      ],
+      "entries": [
+        {
+          "t": "构建稳健氯桥实现废旧正极180秒超快浸出",
+          "d": "2026-04-28",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "该研究构建了稳健的氯桥（Cl-bridge）配位介质，实现了废旧电池正极材料在180秒内的超快速浸出。氯离子作为还原配位介质在浸出过程中起关键作用，研究通过设计特定Cl-桥结构大幅提升了金属离子的传质和电子转移效率。该技术在极短时间内完成钴、镍、锂等有价金属的高效回收，浸出率接近100%，为废旧锂电池回收提供了革命性的快速浸出方案。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2577325?af=R",
+          "tp": "废旧电池回收",
+          "aip": 1,
+          "kp": [
+            "浸出时间[废旧正极回收]: 180s",
+            "浸出策略[废旧正极]: 构建氯桥增强Cl-富集反应性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Reductive coordination medium, especially Cl\n                    −\n                    , play a pivotal role in leaching processes for spent batteries recycling. However, poor mass transfer and limited reducibility of the reactive species often lead to sluggish leaching kinetics of critical metals. Herein, we propose a strategy to construct a robust chloride bridge that enhances the enrichment and reactivity of Cl\n                    −\n                    at the solid–liquid reaction interface. Based on this, the developed recycling system with a Cl‐SO\n                    3\n                    H bridge achieves complete leaching of Li, Ni, Co, and Mn within just 180 s. Specifically, the sulfur atom in the sulfonic acid group exhibits a high electron‐donating ability, which enhances the nucleophilicity and reducing capacity of Cl\n                    −\n                    within this bridge. This facilitates rapid migration and coordination of Cl\n                    −\n                    with metal ions on the spent cathode surface, accelerating the cleavage of metal─oxygen bonds. Furthermore, a closed‐loop recycling route based on solvent regeneration and reuse was designed in this work. Compared with conventional hydrometallurgical processes, this system improves the overall economic efficiency of spent battery recycling by nearly fourfold while halving carbon emissions.",
+          "hb": 1
+        },
+        {
+          "t": "Clean Planet Technologies废塑料制可持续航空燃料试点工厂在英国启用",
+          "d": "2026-04-28",
+          "a": "",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "英国Clean Planet Technologies称其位于肯特郡Sandwich的废塑料制可持续航空燃料（SAF）试点工厂正式启用，自称全球首个。工艺为塑料粉碎、加热催化转为合成油（单单元日处理1吨），再经除杂、蒸馏、加氢得SAF，宣称全生命周期温室气体排放比化石燃料低70%。处于试点阶段，规模化未经验证。",
+          "sc": 5.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.cleanplanet.com/post/world-s-first-pilot-facility-converts-non-recyclable-waste-plastic-to-aviation-fuel",
+          "tp": "废塑料制航油",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "当前废塑料制备SAF路径主要包括热解加氢、气化-费托合成、水热液化（超临界水，生物原油）、微波辅助催化热解等。热解路线主要将高密度聚乙烯（HDPE）等塑料在绝对无氧条件下热解、催化裂化，通过加氢除杂、精馏等步骤获取SAF。废塑料制备SAF的工厂试点运行。Clean Planet Technology专利主要通过对加氢步骤进行优化，包括将热解油依次通过三个串联冷却器进行分段冷凝，分别在320-340℃下截留重质馏分、170-190℃下截留中质馏分，以及40-60℃下截留轻质馏分 ；随后，控制系统以最终目标柴油的规格（15℃密度820-845 kg/m³、40℃运动粘度2.5-4 mm²/s、硫含量<10 mg/kg、十六烷值>51）为导向，动态计算并分配这三种馏分具体配比进行加氢处理或流化催化裂化（US12595427B2）。加氢阶段则可将高烯烃热解油与氢气、循环回来的近零烯烃液混合进入一段反应器（去除烯烃饱和与金属），在液相质量通量1至5 kg/s-m²的条件下运行，典型参数可设为300℃、44 barg、空速2 hr⁻¹，或375℃、83 barg、空速1 hr⁻¹ ；一段产物经闪蒸分离，部分液相作为稀释剂回流，剩余部分送入二段反应器，在更高的温度和压力下，完成脱硫、脱氮及加氢裂化等深度反应；最后，混合物进入分馏塔，分离出超低硫柴油和石脑油等成品燃料（US20250368904A1）。但具体的运行参数、产率、能耗、碳排等并未透露。该路径产物热值高、过程分解气燃烧易实现部分能量自给，但对PVC/PET等杂质较为敏感，易导致设备腐蚀和催化剂失活。近期有研究（Applied Energy，2026）对该路径经济环境效益进行分析，发现其全生命周期碳排0.050 kg CO2e/MJ，低于传统化石航油的0.089 kg CO2e/MJ；平准化生产成本（LCOP）为0.017 USD/MJ，略高于传统航油（0.014 USD/MJ）、低于气化费托合成、醇转喷气燃料等路线（0.05 USD/MJ）。但其相关数据来源于实验室及文献且集成有CCS系统，该路径的真实情况仍有待根据相关示范项目后续公布数据进行对比/代入验证。",
+          "b": "4月28日，英国塑料可持续利用技术公司Clean Planet Technologies在官网发文称，其位于肯特郡Sandwich的废塑料制可持续航空燃料（SAF）试点工厂正式启用。据宣传，该试点为全球首个废塑料制SAF工厂，其工艺为先将塑料粉碎、加热催化转变为合成油（单个处理单元日塑料处理量可达1吨）；而后经过除杂、蒸馏、加氢后得到SAF产品；其认为该产品生命周期温室气体排放比传统化石燃料低70%。",
+          "hb": 1
+        },
+        {
+          "t": "CFS为其在弗吉尼亚州的聚变电厂提交并网申请",
+          "d": "2026-04-28",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "美国联邦聚变能源公司（CFS）就弗吉尼亚州Chesterfield规划的ARC聚变发电厂向全美最大区域输电组织PJM提交并网申请，规划装机400MW，预计2030年代早期投运。PJM将进行电网模拟压力测试，审批预计4-6年。另与Realta Fusion合作设计制造磁镜聚变系统高温超导磁体。聚变商业化推进至并网阶段。",
+          "sc": 5.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://blog.cfs.energy/going-to-the-grid-cfs-applies-to-plug-our-first-arc-fusion-power-plant-into-pjm/",
+          "tp": "聚变电厂并网",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "CFS—高温超导托卡马克计划在2026年SPARC实验装置（140MW）等离子体放电；Google 已签署全球首个聚变购电协议（PPA），将承购其中 200 MW 的电力。此前并无聚变电厂提交相关申请。发电站并网需要进行转动惯量、短路容量支撑等入网稳定性审查。美国：从接入电网申请到商业运行>4年.提出了并网申请",
+          "b": "4月28日，美国联邦聚变能源公司（Commonwealth Fusion Systems，CFS）在官网发文称，其已就在弗吉尼亚州Chesterfield规划的聚变发电厂ARC接入批发电力市场PJM Interconnection（全美最大的区域输电组织，服务超6500万用户，装机容量约182GW）提交了并网申请。文中称，该电站利用聚变过程产生的热量加热水驱动蒸汽轮机进行发电，规划装机400MW，预计2030年代早期投运。申请通过后，PJM将通过电网模拟模型对其电厂发电系统进行压力测试与评估，确保并网可靠性，整个过程预计花费4-6年。\n另在4月2日，CFS发文宣布与美国磁镜聚变技术公司Realta Fusion达成合作，双方将对磁镜聚变系统高温超导磁体进行设计、制造。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "自驱动化学实验室整合AI与机器人，数小时内完成化学反应条件筛选",
+        "研究实现1.55微米波段量子点单光子与光纤网络高效直接耦合",
+        "二硫化钼神经形态器件利用信号折叠机制突破忆阻器线性度限制"
+      ],
+      "entries": [
+        {
+          "t": "能自主运行以寻找最佳反应的化学实验室",
+          "d": "2026-04-28",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "本文介绍了能自主运行以寻找最佳化学反应条件的自驱动化学实验室（Self-driving Lab）。这类平台将人工智能（贝叶斯优化、主动学习）、自动化机器人技术与高通量分析检测深度整合，在极少人工干预下自主完成试剂配比设计、反应执行、产物分析到下一轮实验规划的闭环迭代。相比传统试错法，自驱动实验室可在数小时内完成需数月才能穷举的反应条件空间搜索，显著加速新材料发现、药物合成路线优化和催化剂筛选。该技术代表了实验室自动化的范式转变，正在被化学、材料科学和制药行业广泛探索，有望大幅降低研发成本并缩短创新周期。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01283-4",
+          "tp": "自主化学实验室",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "原始电信波段中的量子相干光子-发射体界面",
+          "d": "2026-04-28",
+          "a": "Nature Nanotechnology",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究展示了在原始电信波段（original telecom band）实现量子相干光子-发射体界面的突破。量子点因其卓越的发光品质和可集成性，性能已远超其他量子发射体。该工作解决了量子网络通信中的核心挑战：将量子发射体（如量子点）的发射波长直接匹配光纤通信的最低损耗窗口（约1.55微米C波段），避免量子频率转换带来的损耗和噪声。实验实现了单光子发射与电信光纤网络的高效耦合，相干性得以保持。这一成果对构建可扩展的量子互联网、远程量子密钥分发（QKD）和分布式量子计算节点互联具有里程碑意义。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02156-7",
+          "tp": "量子光子接口",
+          "aip": 1,
+          "kp": [
+            "量子光源[通信波段]: 量子点实现原始通信波段相干光子-发射体界面"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum dots have set benchmarks that far surpass other quantum emitters owing to their ability to deliver high-quality, high-rate and pure photons. However, achieving these exceptional capabilities at telecom wavelengths, bridging the gap to fibre-optic infrastructure and scalable silicon photonics, remains a challenge. Overcoming this difficulty demands high-quality quantum materials and devices that, despite extensive efforts, have not yet been realized. Here we demonstrate waveguide-integrated InAs quantum dots and realize a fully quantum-coherent photon–emitter interface operating in the original telecommunication band (or O-band, 1,260–1,360 nm). We record transform-limited linewidths only 8% broader than the inverse lifetime and bright 41.7-MHz emission rate under 80-MHz π-pulse excitation. These findings showcase the potential of quantum dots for scalable quantum networks.",
+          "hb": 1
+        },
+        {
+          "t": "基于信号折叠的类脑神经形态硬件用于高效节能计算",
+          "d": "2026-04-28",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "基于二维材料（如二硫化钼MoS2）的神经形态硬件利用信号折叠机制实现类脑计算的能效优化。与传统冯·诺依曼架构不同，这类器件通过模拟生物突触的非线性响应和记忆效应，将计算与存储融合于同一物理单元，大幅降低数据搬运能耗。信号折叠原理使单个器件可表达多值逻辑状态，有望突破忆阻器线性度限制，推动边缘AI推理芯片的低功耗化发展。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01626-z",
+          "tp": "类脑计算硬件",
+          "aip": 1,
+          "kp": [
+            "器件材料[神经形态计算]: MoS2信号折叠架构",
+            "优势[神经形态硬件]: 突破精度-能效权衡"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Devices based on two-dimensional materials, such as molybdenum disulfide (MoS2), could be used to build neuromorphic compute-in-memory hardware due to their high electrostatic controllability. Scaling up such hardware is key to enhancing its application in edge artificial intelligence platforms. However, development has been limited due to a trade-off between weight precision and energy efficiency: methods to increase weight precision (such as using elevated operating voltages to encode other conductance states or using calibration and compensation schemes to mitigate device-to-device variations) are effective at improving performance but are energy intensive. Here we report on an in-hardware signal-folding scheme that can provide both high weight precision and high energy efficiency. The approach uses two folding schemes—input signal folding and weight conductance folding—to predefine signals applied for vector–matrix multiplication, and we implement the schemes using a vertical one-transistor–one-resistor MoS2 crossbar array. In both schemes, the signals are encoded into two combinatorial folded signals. The input signal folding decreases the operating voltage, whereas the weight conductance folding circumvents device-to-device variations to expand weight precision. Compared with computing with the unfolded signal, our method can reduce the power consumption of vector–matrix multiplication by up to 90%, while achieving similar accuracy and without calibration or compensation schemes.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "NASA完成120kW锂燃料磁等离子体推进器测试，功率较霍尔推进器高25倍",
+        "研究利用光学纳米显微镜首次实时观测电池颗粒金属剥离协同行为",
+        "西北大学分析指出伊比利亚停电源于约2000MW发电损失引发电网频率失稳"
+      ],
+      "entries": [
+        {
+          "t": "NASA完成120kW的锂燃料磁等离子体动力推进器测试",
+          "d": "2026-04-28",
+          "a": "",
+          "c": "通用技术/通信和运输/航天",
+          "as": "NASA完成锂燃料磁等离子动力学（MPD）推进器测试，最高功率达120kW，较Psyche探测器霍尔推进器高25倍以上。该推进器以锂金属蒸汽为工质，利用高电流与磁场相互作用电磁加速锂等离子体。目标未来提升至500kW-1MW级并验证高温耐受性，以满足载人火星任务需求。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.nasa.gov/missions/tech-demonstration/nasa-fires-up-powerful-lithium-fed-thruster-for-trips-to-mars/",
+          "tp": "等离子体推进",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月28日，美国国家航空航天局（NASA）在官网发文称，其完成了锂燃料磁等离子体动力推进器的测试试验，该推进器以锂金属蒸汽驱动，最高功率可达120kW，较其Psyche深空探测器使用的霍尔推进器（磁场捕获电子形成霍尔电流电离注入的氙气，电离出的Xe⁺在电场静电加速的作用下喷出形成推力）功率高出25倍以上。文中称，锂燃料磁等离子动力学（MPD）推进器利用高电流与磁场相互作用，通过电磁加速锂等离子体。其目标未来将单台电推进器的功率提升至500kW至1MW级别，并对高温耐受性进行验证，以能够满足载人火星任务。",
+          "hb": 1
+        },
+        {
+          "t": "单离子与亚颗粒分辨率下金属剥离协同效应的光学纳米显微研究",
+          "d": "2026-04-28",
+          "a": "Nature Materials",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究利用光学纳米显微镜在单离子和亚颗粒分辨率下，首次实时观测了电活性颗粒上离子-电子界面耦合反应的时空金属剥离协同行为。研究揭示了电池电化学反应中金属离子在颗粒表面的非均匀剥离动力学，发现不同颗粒区域存在显著的反应协同效应和滞后现象。这一突破为理解电池衰减机制、设计长寿命电极材料提供了原子尺度的直接实验证据。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02567-w",
+          "tp": "光学纳米成像",
+          "aip": 1,
+          "kp": [
+            "成像技术[电池界面]: 离子定位光学纳米镜单离子亚颗粒分辨率"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Coupled ion–electron interfacial reactivities on electroactive particles are complex and crucial to various battery chemistries and dynamics, yet direct visualization of these reactions remains elusive despite advances in operando imaging. Here we report ion-localization optical nanoscopy (ION) with single-ion, subparticle resolution that distinguishes microscopic static and dynamic disorder in ion-generation interfacial reactivity, offering nondestructive, real-time, non-equilibrium insights. We uncover diverse stripping dynamics of zinc anodes, revealing unexpected subparticle-level heterogeneity and challenging conventional views of uniform stripping on (002)-textured zinc. Mesoscale functional descriptors—intraparticle diffusive and electronic coupling strengths—that govern overall stripping uniformity are identified by ION, supported by computational methods and validated by in situ single-particle manipulation. Imaging-derived insights are further translated into ensemble-level strategies enabling exceptional anode reversibility. ION is cost-effective, high-throughput and broadly applicable to myriad ion-participated interfacial processes, including cathode (de)intercalation, solid–electrolyte interphase evolution, ion exchange and catalyst restructuring.",
+          "hb": 1
+        },
+        {
+          "t": "美国西北大学Yiming Wang对高比例可再生能源电网稳定性进行评述",
+          "d": "2026-04-28",
+          "a": "",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "西北大学Yiming Wang等结合事故评估与欧洲电网模型重新分析伊比利亚半岛大停电。指出核心是频率扰动与失同步而非局部电压异常：事故时半岛惯量极低（约2.19-2.69s），约2000MW发电损失在4秒内引发频率悬崖偏差，扰动波及700公里致约38000MW损失。对比增强跨境互联与构网型逆变器两条缓解路径的成本。",
+          "sc": 5.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1016/j.joule.2026.102522",
+          "tp": "新能源电网稳定",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2025年4月28日伊比利亚半岛大规模停电影响超5000万人，事故时西班牙电网可再生能源占比77.2%（太阳能56.4%）。该事件证明，高比例可再生能源电力系统中停电可能不再主要表现为传统线路过载级联，而更可能因频率、功率和电压动态快速耦合呈现秒级“雪崩式”扩展。\n近日，美国西北大学Yiming Wang等结合事故评估与欧洲大陆尺度电网模型重新分析了该事件。研究指出，尽管官方机构将事故起因归咎于局部无功功率控制不合规导致的电压异常，并否认惯量不足是根本原因，但研究强调，最终导致西班牙与法国跨境线路断开的核心是频率扰动与失同步。事故时伊比利亚半岛系统惯量极低（约2.19–2.69s），处于欧洲大陆预测范围下限。模拟显示，约2000MW的发电损失在不到4秒内即引发了明显的频率悬崖偏差，扰动波及700公里外的法国边界，最终导致失步解列和约38000MW功率损失。\n针对高比例新能源电网的稳定性需求，研究对比了两类缓解路径：一是增强跨境输电互联（如正在建设的西法海底电缆），使低惯量的伊比利亚半岛能从高惯量的法国电网“输入”稳定性；二是通过构网型逆变器让风电和太阳能提供合成惯量。成本权衡分析表明，单一技术补强效果有限（17亿美元仅投资合成惯量只能将频率偏差降低9%），而在相同投资下协同部署合成惯量与输电升级，可使改善幅度提升至23%。该研究强调，绿色电网的稳定性不能仅依赖单一设备补强，也不能仅将可再生能源视为脱碳电源，而需可再生能源、电力电子控制、储能与输电网络的系统级协同设计。文章于2026年6月15日发表在Joule。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

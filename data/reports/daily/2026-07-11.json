@@ -1,0 +1,255 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月11日　星期六",
+  "date_range": "2026-07-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "比亚迪储能获阿联酋11.275GWh电池订单创全球采购纪录",
+      "TCL中环投资26亿元将20GW TOPCon产线技改为BC电池",
+      "中国储能企业连续斩获中东电网级项目拓展全球市场份额"
+    ],
+    "AI与智能科技": [
+      "加速进化发布Booster T2平台搭载英伟达Thor芯片",
+      "300毫米晶圆产线成功制造并运行八量子比特器件",
+      "SK海力士赴美IPO募资265亿美元加码HBM存储扩产"
+    ],
+    "通用技术": [
+      "长征十号乙运载火箭首飞成功实现一子级垂直回收",
+      "美国周发电量首次突破10万吉瓦时应对高负荷压力",
+      "海南商业航天发射场完成长征十号乙火箭发射任务"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "比亚迪储能获阿联酋11.275GWh电池订单创全球采购纪录",
+        "TCL中环投资26亿元将20GW TOPCon产线技改为BC电池",
+        "中国储能企业连续斩获中东电网级项目拓展全球市场份额"
+      ],
+      "entries": [
+        {
+          "t": "比亚迪斩获全球最大光储项目11.3GWh电池订单",
+          "d": "2026-07-11",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "比亚迪储能获得全球最大光储一体化项目的11.275 GWh电池储能供应合同。该巨型项目将储能规模推至新高度，凸显中国储能在全球市场中的成本与技术竞争力。11.3 GWh的规模相当于数十万家庭用电需求，标志着长时储能正从辅助角色向电网核心基础设施转变。",
+          "sc": 7.8,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/10/byd-masdar-11-gwh-rtc-storage-abu-dhabi/",
+          "tp": "储能电池订单",
+          "aip": 1,
+          "kp": [
+            "储能供货[BYD-Masdar RTC]: 11.275 GWh",
+            "光伏装机[Abu Dhabi RTC]: 5.2 GW",
+            "总储能系统[RTC项目]: 19 GWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 10 2026 - 6:25 am PT\nBYD Energy Storage has landed a contract to supply 11.275 GWh of battery storage for Masdar’s Round the Clock (RTC) project in Abu Dhabi — one of the single largest energy storage procurements ever signed.\nThe RTC project pairs a 5.2 GW solar array with a 19 GWh battery system, making it the world’s largest combined solar-plus-storage plant. BYD’s award covers the majority of that storage.\nMasdar and the Emirates Water and Electricity Company (EWEC) are building the RTC plant to do something solar has never reliably done at gigawatt scale: deliver clean power 24 hours a day.\nfirst covered the project in January 2025\n, when Masdar announced plans for a 5.2 GW solar PV plant coupled with a 19 GWh battery energy storage system (BESS) capable of dispatching 1 GW of continuous baseload. Masdar chairman Dr. Sultan Al Jaber framed it as solving renewable energy’s oldest problem — intermittency.\nAccording to BYD, its share of the project is a single battery station rated at 1,644 MW / 11,275 MWh, using the company’s Haohan storage system. That one station holds more energy than most countries’ entire grid-storage fleets.\nHere’s the detail worth noting. When Masdar unveiled the RTC project in early 2025, it named CATL as its preferred battery supplier.\nThe actual contracts tell a different story. BYD secured 11.275 GWh, and Sungrow\nsigned for the remaining 7.5 GWh\nin an earlier phase. Combined, the two Chinese firms have locked up the full 19 GWh — leaving no room for Western battery makers on the world’s flagship storage project.\nIt’s a clean illustration of how thoroughly Chinese manufacturers dominate grid-scale storage. The same LFP cell scale that made BYD and CATL the world’s largest EV battery producers is now being turned directly on the utility market.\nThe Haohan system leans on BYD’s 2,710 Ah Blade Battery — a cell with more than 300% higher capacity than legacy grid-storage cells, according to the company.\nThe logic is straightforward: fewer, bigger cells mean fewer connections. BYD says that cuts battery management system complexity by 70% to 80% and packs 10 MWh into a standard 20-foot container. The system is rated IP66 for dust and sand and built to run from -30°C to 55°C — necessary in the Abu Dhabi desert.\nBYD says the accompanying GC Master energy management system can manage up to 15 GWh in a single station.\nThe Masdar deal isn’t a one-off. BYD recently landed a 12.5 GWh grid-storage contract in Saudi Arabia, and Chinese suppliers have been sweeping up Gulf storage projects as prices collapse.\nThe economics are moving fast. BYD is pushing sodium-ion storage toward costs as low as $0.04 per watt-hour, while CATL has pushed its Tener platform toward multi-decade durability. The competition is now over who can build the cheapest, longest-lived cells at the largest scale.\nThe numbers are just insane here. BYD and CATL have a massive advantage over the energy storage competition, such as Tesla, because they produce all their battery cells and therefore own the full production process, from battery cells to packs to deployment.\nIt’s unsurprising to see them land the biggest contracts, even though the size of the contracts is surprising.\nIf you’re powering your home in a sunny climate, the RTC project is a reminder that solar-plus-storage is now the cheapest way to deliver round-the-clock clean power — at any scale. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "比亚迪储能斩获全球最大单一储能采购合同，为阿联酋 11.275GWh 光储项目提供解决方案",
+          "d": "2026-07-11",
+          "a": "IT之家",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "比亚迪储能与阿联酋能源巨头Masdar签署合作协议，为阿布扎比\"全天候\"（RTC）光储项目提供11.275GWh储能解决方案，创全球最大单一储能采购合同记录。此前比亚迪刚拿下12.5GWh沙特电网侧储能项目。连续斩获中东大型储能订单，标志着中国储能企业在全球能源转型中的竞争力显著提升。",
+          "sc": 7.5,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/975/351.htm",
+          "tp": "光储项目签约",
+          "aip": 1,
+          "kp": [
+            "储能采购规模[阿联酋RTC光储]: 11.275GWh",
+            "光伏装机[RTC项目]: 5.2GW",
+            "总储能规划[RTC项目]: 19GWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 10 日消息，继拿下 12.5GWh 沙特全球最大电网侧储能项目后，比亚迪储能昨日宣布与阿联酋能源巨头 Masdar 签署合作协议，将为阿布扎比的“全天候”（Round the Clock，RTC）光储项目提供 11.275GWh 的储能解决方案。这一数字使其成为有史以来全球最大的单一储能采购合同之一。\n此次签约的 RTC 项目位于阿布扎比，是全球首个 GW 级全天候可再生能源项目，由 Masdar 与阿联酋水电公司（EWEC）联合开发，是全球规模最大、技术最先进的光储项目。\n该项目旨在通过“光伏 + 储能”的深度融合，攻克可再生能源间歇性难题，实现 24 小时不间断的清洁电力供应。\n项目于 2025 年 1 月首次披露，同年 10 月在阿布扎比沙漠中举行了奠基仪式，占地面积达 90 平方公里。整个项目将建设一座 5.2GW 的光伏电站，并配套一个高达 19GWh 的电池储能系统（BESS）。其目标是实现可再生能源领域的重大突破 —— 提供 1GW 的连续稳定基载电力，从而解决太阳能发电的间歇性问题。项目预计在 2027 年投运。\n根据 Masdar 在 2025 年初公布的计划，宁德时代曾被列为电池储能系统的首选供应商。然而，随着合同的最终落地，情况发生了变化。比亚迪拿下了其中 11.275GWh 的大单；而在更早的 2026 年 5 月，另一家中国公司阳光电源也已与 Masdar 达成协议，为该项目提供剩余的 7.5GWh 储能系统以及 2.6GW 的光伏逆变器。至此，两家中国公司共同瓜分了这 19GWh 的全部储能份额。\n比亚迪将采用其“Haohan”（浩瀚）储能系统来完成这一订单。该系统搭载了比亚迪全球最大的 2710Ah 储能专用刀片电池，单体容量相比传统储能电池提升了 300% 以上。通过使用更少、更大的电芯，该系统显著减少了连接线束，使得电池管理系统的复杂度降低了 70% 至 80%。\n据介绍，BYD Haohan 具备超级集成与超大容量优势，最小单元容量达 14.5MWh，问鼎全球之最。在等效 20 尺集装箱内，BYD Haohan 实现 10MWh 超大容量，大幅提升储能电站集成度。\n考虑到阿布扎比的沙漠环境，该系统具备 IP66 级防尘防水能力，可在-30°C 至 55°C 的极端温度下稳定运行。\n此外，比亚迪储能还为项目提供自研的 GC Master EMS 能源管理系统，可接入千万级点位，能力较行业顶尖水平提升 25%，算力提升 400% 以上，单场站管理能力突破 15GWh。",
+          "hb": 1
+        },
+        {
+          "t": "TCL中环将20 GW TOPCon电池产能转换为背接触 - pv magazine Global",
+          "d": "2026-07-11",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "TCL中环批准一项26亿元人民币（约3.82亿美元）的技改项目，将20 GW TOPCon电池产能转换为背接触（BC）电池技术。此举反映了光伏行业从主流TOPCon向效率更高的背接触技术路线的转型趋势。BC电池通过将正面电极转移至背面实现更高的光电转换效率，是N型技术的下一代升级方向。",
+          "sc": 8.0,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/07/10/tcl-zhonghuan-converts-20-gw-of-topcon-cell-capacity-to-back-contact/",
+          "tp": "背接触光伏电池",
+          "aip": 1,
+          "kp": [
+            "产能改造[TCL中环]: 20GW TOPCon电池+25GW组件转BC产线",
+            "改造投资[TCL中环]: 26亿元人民币",
+            "达产时间[BC产线]: 2027年Q1全面量产"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Markets & Policy\nTCL Zhonghuan approved a CNY 2.6 billion ($382 million) upgrade project to convert 20 GW of TOPCon cell and 25 GW of TOPCon module capacity into BC production lines, with ramp-up expected from Q3 2026 and full production by Q1 2027.\nVincent Shaw\nMarkets & Policy\nImage: TCL Zhonghuan\nChinese solar manufacturer\nTCL Zhonghuan\nsaid its board has approved a CNY 2.6 billion ($382 million) capacity upgrade project to expand its back-contact (BC) solar cell and module production capabilities. The upgrade work is scheduled to begin in July 2026, with the revamped facilities expected to reach full production by the end of the first quarter of 2027. The company plans to invest CNY 1.4 billion to convert 20 GW of existing TOPCon cell capacity into BC cell production lines. The conversion will cover 6 GW of capacity at its Quzhou facility and 14 GW at its Xinzhou facility. The upgraded cell lines are expected to begin production ramp-up by the end of the third quarter of 2026. In addition, TCL Zhonghuan will invest CNY 1.2 billion to upgrade 25 GW of existing TOPCon module capacity into BC module production lines. The module upgrades will involve 3 GW in Quzhou, 4 GW in Yixing, 8 GW in Jingshan, 9 GW in Tianjin, and 1 GW in Zhangzhou. These upgraded module lines are also expected to start production ramp-up by the end of the third quarter of 2026.\nDatang Group\nhas released the shortlisted suppliers for its 2026–2027 framework procurement of PV modules and inverters. The module tender covers a total of 11 GW, including 6 GW of n-type TOPCon modules, 1 GW of heterojunction (HJT) modules, and 4 GW of BC modules. Fifteen leading Chinese module manufacturers, including JinkoSolar, Trina Solar, and Longi, were shortlisted. The shortlisted bid prices ranged from CNY 0.705 ($0.091)/W to CNY 0.800/W ($0.104/W to $0.118/W) for TOPCon modules, CNY 0.741/W to CNY 0.772/W ($0.109/W to $0.114/W) for HJT modules, and CNY 0.790/W to CNY 0.812/W ($0.116/W to $0.119/W) for BC modules. The inverter tender totals 9.5 GW, comprising 8 GW of string inverters and 1.5 GW of central inverters. Zhuzhou Converter Technology National Engineering Research Center Co. Ltd., TBEA Xinjiang New Energy Co. Ltd., and Sineng Electric were shortlisted for string inverters. The first two companies were also shortlisted for central inverter supply.\nVincent Shaw\nView author posts",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "加速进化发布Booster T2平台搭载英伟达Thor芯片",
+        "300毫米晶圆产线成功制造并运行八量子比特器件",
+        "SK海力士赴美IPO募资265亿美元加码HBM存储扩产"
+      ],
+      "entries": [
+        {
+          "t": "加速进化发布 Booster T2 具身开发旗舰平台：搭载英伟达 Thor 芯片，2070TFLOPS 算力",
+          "d": "2026-07-11",
+          "a": "IT之家",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "加速进化发布具身智能开发旗舰平台Booster T2专业版并已开售。该平台搭载英伟达Thor芯片，算力达2070TFLOPS，配备14核CPU，定位面向具身智能算法研发与机器人开发。Thor芯片是英伟达专为机器人与自动驾驶设计的高性能计算平台，2070TFLOPS算力为当前具身开发平台中的顶尖水平。该产品的发布标志着国产具身智能硬件基础设施向高端化迈进，为开发者提供高性能本地算力支持。",
+          "sc": 7.3,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/975/340.htm",
+          "tp": "人形机器人平台",
+          "aip": 1,
+          "kp": [
+            "算力[Thor芯片]: 2070TFLOPS",
+            "推理延迟[端侧多模态]: ≤100ms",
+            "自由度[人形机器人]: 最高75",
+            "最大扭矩[自研关节]: 140Nm",
+            "双臂负载[静态]: 10kg"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 10 日消息，加速进化今日发布了具身开发旗舰平台 Booster T2，专业版现已开售，具体价格暂未公开（需在官网填写采购信息）。\n加速进化 Booster T2 专业版标配\n，算力达 2070TFLOPS，搭配 14 核 CPU（最高 2.6GHz）和 128GB 256bit LPDDR5X 内存，端侧多模态推理延迟低至 100ms。\n据介绍，加速进化 Booster T2\n全身最高 75 个自由度\n，身高 1.4 米；采用自研高爆发关节，最大扭矩可达 140Nm；双臂最大静态负载 10kg。\n加速进化 Booster T2 支持磁吸直冲设计，原生支持边用边充；标配大容量电池包，持续行走续航超 2 小时；采用工业级高强度机身架构，高层与底层 API 全面开放。\nIT之家附官方介绍如下：",
+          "hb": 1
+        },
+        {
+          "t": "300mm硅基MOS代工制造器件的八量子比特运行",
+          "d": "2026-07-11",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "该研究在300毫米晶圆代工厂制造的硅MOS（SiMOS）量子比特器件上实现了八量子比特协同运行。硅自旋量子比特因高相干性、可控性及与CMOS工艺兼容性被视为量子计算的有力平台。此次在工业级300mm产线上实现八比特操控，标志着硅基量子芯片从实验室向大规模制造迈出关键一步，验证了代工厂工艺在多比特集成中的可行性，为未来百比特级硅量子处理器奠定了工程基础。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74597-6",
+          "tp": "硅基量子比特",
+          "aip": 1,
+          "kp": [
+            "量子比特数[硅自旋]: 8比特线性阵列",
+            "制造工艺[硅量子比特]: 300mm CMOS兼容代工工艺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Silicon spin qubits are a promising platform for quantum computing due to their high coherence, controllability, and CMOS manufacturability, yet scalable implementations have so far been limited to a few qubits. Here, to take a step towards larger qubit systems, we tune and coherently control an eight-dot linear array of silicon spin qubits fabricated in a 300 mm CMOS-compatible foundry process, establishing operational scalability beyond the two-qubit regime. All eight qubits are successfully tuned and characterized as four double-dot pairs, exhibiting Ramsey dephasing times T2&#x2217;\" role=\"presentation\">T2∗{T}_{2}^{*} up to 41(2) μs and Hahn-echo coherence times T2Hahn\" role=\"presentation\">T2Hahn{T}_{2}^{{{{\\rm{Hahn}}}}} up to 1.31(4) ms. Readout of the central four qubits is achieved via a cascaded charge-sensing protocol, enabling high-fidelity measurements of the entire multi-qubit array in a two step process. Additionally, we demonstrate a two-qubit gate operation between adjacent qubits with low phase noise. We show that silicon spin qubit arrays can be scaled to medium-sized arrays of 8 qubits while maintaining system coherence.",
+          "hb": 1
+        },
+        {
+          "t": "募资 265 亿美元超阿里创外企赴美 IPO 纪录：SK 海力士 ADR 预示开盘价 180 美元，首日涨超 20%",
+          "d": "2026-07-11",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "韩国存储芯片巨头SK海力士正式登陆纳斯达克，发行1.779亿份ADR，每份定价149美元，对应十分之一股韩国普通股，募资约265亿美元，超越阿里巴巴创下外企赴美IPO最高纪录。ADR预示开盘价180美元，首日涨幅超20%。此举反映出全球资本市场对AI算力驱动下HBM存储需求的强烈预期，SK海力士作为英伟达核心HBM供应商，其上市表现成为半导体行业景气度的重要风向标。",
+          "sc": 7.1,
+          "i": "news",
+          "tg": "资本运作",
+          "u": "https://www.ithome.com/0/975/362.htm",
+          "tp": "存储芯片上市",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 10 日消息，韩国存储芯片巨头 SK 海力士今日正式在纳斯达克挂牌交易其美国存托凭证（ADR）。\n此次发行定价为每份 149 美元，共计发行 1.779 亿份 ADR，每份 ADR 对应十分之一股 SK 海力士韩国普通股。\nSK 海力士 ADR 于 7 月 10 日以“when-issued”（预发行）方式开始交易（预计 7 月 13 日转为常规模式），临时代码为 SKHYV（正式交易后股票代码变更为 SKHY）。\n截至纽约时间 7 月 10 日上午，做市商盘前报价显示 SK 海力士 ADR 价格约为每份 180 美元（IT之家注：现汇率约合 1224 元人民币），较发行价高出约 21%。\nSK 海力士此次募资规模约 265 亿美元（现汇率约合 1802.06 亿元人民币）。这一数字超过了阿里巴巴 2014 年创下的 250 亿美元赴美 IPO 融资纪录，成为外国企业在美国规模最大的首次公开募股。在全球证券史上，此次上市也仅次于 SpaceX（约 857 亿美元）和沙特阿美（2019 年），位列第三大 IPO。\n市场分析指出，ADR 溢价主要源于两个方面：一是韩国上市普通股转换为 ADR 存在一定限制，套利空间受限；二是投资者希望通过直接投资方式参与这家在 AI 高带宽存储器（HBM）领域占据领先地位的企业。瑞银此前在研报中建议投资者买入 SK 海力士 ADR、卖出其韩国上市股票，预计新发行证券可能以溢价模式交易。\n从认购情况来看，SK 海力士此次 ADR 发行获得了超过 7 倍的超额认购。超过 500 家投资机构参与认购，包括全球长线基金、科技主题专项基金、主权财富基金及大型跨国资产管理机构。Baillie Gifford、Coatue Management 和 Situational Awareness Partners 等机构合计表达了最高约 70 亿美元（现汇率约合 476.02 亿元人民币）的认购意向。由于需求强劲，部分重点投资者的获配规模被压缩。\nSK 海力士 CEO 郭鲁正出席了在纽约时代广场纳斯达克 MarketSite 举行的开市敲钟仪式。SK 集团会长崔泰源、SK Square 执行副会长崔再源等集团高层也共同出席。\n郭鲁正在仪式上表示：“今天是 SK 海力士非常值得骄傲的一天，也是具有历史意义的一天。如今，高带宽存储器已处于人工智能革命的核心。”\n根据计算，SK 海力士韩国上市股票今年已有 50 多个交易日涨跌幅达到 5% 以上，而去年全年约为 37 个交易日，再往前三年合计约 44 个交易日。该股周五收跌 0.3%。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "长征十号乙运载火箭首飞成功实现一子级垂直回收",
+        "美国周发电量首次突破10万吉瓦时应对高负荷压力",
+        "海南商业航天发射场完成长征十号乙火箭发射任务"
+      ],
+      "entries": [
+        {
+          "t": "现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "d": "2026-07-11",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，成功实现一子级垂直返回可控回收。这是中国运载火箭可重复使用技术的关键验证，标志着在火箭回收复用领域取得实质性突破，对降低航天发射成本、推动商业航天发展意义重大。",
+          "sc": 10.0,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260710/9f070975534d49739b9b010019bf6e28/c.html",
+          "tp": "火箭可控回收",
+          "aip": 1,
+          "kp": [
+            "[一子级回收]: 海上平台垂直着陆可控回收"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "现场视频：长征十号乙运载火箭实现一子级可控回收-新华网\n现场视频：长征十号乙运载火箭实现一子级可控回收\n现场视频：长征十号乙运载火箭实现一子级可控回收\n2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，一子级垂直返回，在海上回收平台成功回收。\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "hb": 1
+        },
+        {
+          "t": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "d": "2026-07-11",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "长征十号乙运载火箭首次飞行取得成功，标志着我国运载火箭首次实现可控回收。这是可重复使用火箭技术的重大突破，意味着中国已掌握火箭一级垂直回收技术，将大幅降低航天发射成本，对提升我国航天运输能力和商业航天竞争力具有里程碑意义。",
+          "sc": 9.8,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260710/7e71131b03d7440098c07c17f9762bc0/c.html",
+          "tp": "火箭可控回收",
+          "aip": 1,
+          "kp": [
+            "[一子级回收]: 海上平台垂直着陆可控回收"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收-新华网\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "hb": 1
+        },
+        {
+          "t": "美国周发电量首次突破创纪录的10万吉瓦时",
+          "d": "2026-07-11",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "美国电网周发电量首次突破100,000 GWh的历史纪录，标志着电网在极端高温和用电高峰压力下的韧性经受住了严峻考验。该里程碑反映了AI数据中心扩张、极端气候驱动的制冷需求增长以及电气化趋势对电力系统的巨大推动。电网在历史最高负荷下保持稳定运行，表明美国电力基础设施的调度能力和可靠性达到新水平，但也凸显了未来持续扩容与储能部署的紧迫性。",
+          "sc": 6.8,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/us-weekly-electricity-output-100000-gwh",
+          "tp": "电网负荷纪录",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The American power grid just survived its ultimate stress test. For the first time in history, weekly US electricity output crossed the 100,000 gigawatt-hour (GWh) threshold.\nIt was triggered by a punishing summer heat dome that smothered more than 200 million people.\nDuring the week of June 28 to July 4, 2026, the grid pumped out a record-shattering 100,996 GWh of energy, according to data released by the Edison Electric Institute (EEI). To put that into perspective: America’s utility companies delivered twice the amount of electricity New York City consumes in an entire year — all in just seven days.\nThe surge shattered a four-year-old record of 99,445 GWh set back in July 2022. It also pushed weekly power generation a massive 22 percent above the US baseline.\nThe immediate culprit was the weather. A\noccurs when a high-pressure system acts like a lid, trapping hot air over a region and baking it under prolonged, extreme temperatures.\nAs families tried to celebrate the Fourth of July, a sprawling heat dome pinned triple-digit temperatures and heat indices as high as 115°F across the central and eastern regions of the country. Air conditioners worked at maximum capacity.\nBut while the weather provided the spark, industry experts say the real story is the invisible infrastructure that didn’t fail.\n“Hitting 100,000 gigawatt-hours in a single week for the first time in history is a milestone — and a preview of what the grid of the future must be built to handle,”\nDrew Maloney, EEI President and CEO.\nMore from Energy\nWorld’s largest hybrid solar plant stores energy in molten salt to supply power at night\nGermany drills 1640 feet underground, finds geothermal heat potential beneath coal region\nUS firm launches modular sodium-ion battery to power data centers and utilities\nSoftware runs quadrillions of simulations to uncover 300 GW on the US power grid\nNuclear plant given life extension to power 2,500,000 homes for 20 more years\n“Meeting surging demand and ensuring the grid can withstand severe weather will require continued investment in America’s\ninfrastructure,” Maloney added.\nMajor utilities like Dominion Energy, Duke Energy, and FirstEnergy reported working around the clock to balance the soaring demand while managing localized, storm-induced outages. The fact that the lights stayed on is being hailed by industry group Concentric Energy Advisors as direct validation of recent, heavy capital spending.\ngeneration hit 4,346,875 GWh over the last 12 months, climbing 2.3 percent from the year before.\nKeeping up with this new reality will not be cheap.\nPower companies are already on track to invest $239 billion into the grid this year alone. Between now and 2030, total projected investments in high-capacity transmission lines, modernized distribution systems, and advanced grid-enhancing tech are expected to\nreach $1.4 trillion.\nHowever, funding that future remains a point of intense friction. A concurrent analysis by the Alliance for Innovation and Infrastructure warns that regulatory attempts to place blunt caps on a utility’s return on equity (ROE) could dry up the private capital needed to bankroll these massive infrastructure upgrades.\nThe heatwave collided with a massive, AI-driven surge in\n, as the US races to build new data centers to support artificial intelligence. This rapid construction is currently outstripping the expansion of the country’s electricity and water infrastructure, fueling warnings from utilities, regulators, and policymakers.\nAccording to the U.S. Department of Energy, data center power consumption is projected to more than double, jumping from four percent of total U.S. demand to nine\npercent by 2030\n. Research from Goldman Sachs and Gartner indicates that total data center draw is on track to\nwith AI-optimized servers accounting for roughly one-third of that load.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nMrigakshi is a science journalist who enjoys writing about space exploration, biology, and technological innovations. Her work has been featured in well-known publications including Nature India, Supercluster, The Weather Channel and Astronomy magazine. If you have pitches in mind, please do not hesitate to email her.\nUS firm launches modular sodium-ion battery to power data centers and utilities\nUS boosts defense radar output with $40M factory producing 30,000 systems annually\nSoftware runs quadrillions of simulations to uncover 300 GW on the US power grid\nHigh-energy lasers: Pentagon pushes 500-kW systems for cruise missile defense\nUS' aircraft carriers to get modernization support to counter new threats, remain battle-ready",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

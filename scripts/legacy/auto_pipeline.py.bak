@@ -1,0 +1,406 @@
+#!/usr/bin/env python3
+"""
+tech-db 全自动Pipeline：检测新数据 → 去重 → 分类 → 评分 → AI摘要 → 聚类合并 → 重建lite → push GitHub
+设计为cron每4小时运行。只有检测到新数据时才执行后续步骤（省token）。
+"""
+import json, os, sys, subprocess, time, hashlib, glob
+from datetime import datetime, timezone, timedelta
+
+REPO = "/home/rhett/tech-db-fresh"
+DATA_DIR = os.path.join(REPO, "data", "processed")
+LITE_PATH = os.path.join(DATA_DIR, "all-records-lite.json")
+STATE_FILE = "/tmp/techdb_sync_state.json"
+TOKEN = os.environ.get("GH_TOKEN", "")
+GH_PUSH_URL = f"https://sbq9712:{TOKEN}@github.com/sbq9712/tech-db.git" if TOKEN else None
+
+# Source repos
+SOURCES = {
+    "news": {"repo": "sbq9712/news-spider", "path": "data", "prefix": "articles-"},
+    "literature": {"repo": "sbq9712/literature-rss-spider", "path": "output", "prefix": "news_with_abstract_"},
+    "wechat": {"repo": "wodewoping-png/wechat-daily-news-csv", "path": "csv", "prefix": ""},
+}
+
+def log(msg):
+    ts = datetime.now(timezone(timedelta(hours=8))).strftime("%H:%M:%S")
+    print(f"[{ts}] {msg}")
+
+def gh_api(url):
+    """GitHub API call"""
+    try:
+        result = subprocess.run(
+            ["curl", "-sL", f"https://api.github.com/repos/{url}"],
+            capture_output=True, text=True, timeout=30
+        )
+        return json.loads(result.stdout)
+    except:
+        return None
+
+def get_source_files():
+    """Get latest file lists from all 3 source repos"""
+    new_files = {}
+    for name, info in SOURCES.items():
+        url = f"{info['repo']}/contents/{info['path']}"
+        data = gh_api(url)
+        if not isinstance(data, list):
+            log(f"  [WARN] {name}: API failed")
+            continue
+        csvs = sorted([d["name"] for d in data if d["name"].endswith(".csv")])
+        new_files[name] = csvs
+    return new_files
+
+def load_state():
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE) as f:
+            return json.load(f)
+    return {"known_files": {}}
+
+def save_state(state):
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f)
+
+def check_new_files():
+    """Check if any source repo has new files we haven't processed"""
+    state = load_state()
+    current = get_source_files()
+    
+    has_new = False
+    new_per_source = {}
+    for name, files in current.items():
+        known = set(state["known_files"].get(name, []))
+        current_set = set(files)
+        new = current_set - known
+        if new:
+            has_new = True
+            new_per_source[name] = sorted(new)
+            log(f"  {name}: {len(new)} new files: {', '.join(sorted(new)[:5])}")
+        else:
+            log(f"  {name}: up to date ({len(files)} files)")
+    
+    # Update state
+    for name, files in current.items():
+        state["known_files"][name] = files
+    save_state(state)
+    
+    return has_new, new_per_source, current
+
+def download_new_csvs(new_per_source, current):
+    """Download new CSV files"""
+    import csv as csv_mod
+    
+    new_records = []
+    for name, new_files in new_per_source.items():
+        info = SOURCES[name]
+        for fname in new_files:
+            url = f"https://raw.githubusercontent.com/{info['repo']}/main/{info['path']}/{fname}"
+            result = subprocess.run(
+                ["curl", "-sL", url, "-o", f"/tmp/techdb_{fname}"],
+                capture_output=True, timeout=30
+            )
+            local_path = f"/tmp/techdb_{fname}"
+            if not os.path.exists(local_path) or os.path.getsize(local_path) == 0:
+                log(f"  [WARN] Failed to download {fname}")
+                continue
+            
+            # Parse CSV
+            try:
+                with open(local_path, "r", encoding="utf-8") as f:
+                    reader = csv_mod.DictReader(f)
+                    cols = reader.fieldnames or []
+                    for row in reader:
+                        title = row.get("title", row.get("Title", ""))
+                        body = row.get("body", row.get("content", row.get("Body", "")))
+                        date = row.get("date", row.get("Date", fname.replace(".csv","").split("-")[-3:] and "-".join(fname.replace(".csv","").split("-")[-3:])))
+                        url_val = row.get("url", row.get("link", row.get("URL", "")))
+                        source = fname
+                        authors = row.get("authors", row.get("author", row.get("Authors", "")))
+                        
+                        if not title:
+                            continue
+                        
+                        new_records.append({
+                            "t": title[:500],
+                            "b": body[:2000] if body else "",
+                            "d": date or "",
+                            "u": url_val,
+                            "c": "未分类",
+                            "a": authors or source,
+                            "i": "l" if "literature" in name else "",
+                            "source": source,
+                        })
+            except Exception as e:
+                log(f"  [WARN] Parse error {fname}: {e}")
+    
+    return new_records
+
+def dedup_check(new_records, existing_lite):
+    """Check which new records are duplicates: title OR body-prefix OR URL"""
+    existing_titles = set()
+    existing_body_prefix = set()
+    existing_urls = set()
+    for r in existing_lite:
+        t = r.get("t", "").strip().lower()[:80]
+        b = r.get("b", "")[:80]
+        u = r.get("u", "").strip()
+        if t: existing_titles.add(t)
+        if b: existing_body_prefix.add(b)
+        if u: existing_urls.add(u)
+    
+    unique = []
+    dupes = 0
+    for r in new_records:
+        t = r.get("t","").strip().lower()[:80]
+        b = r.get("b","")[:80]
+        u = r.get("u","").strip()
+        if t in existing_titles or (b and b in existing_body_prefix) or (u and u in existing_urls):
+            dupes += 1
+        else:
+            unique.append(r)
+    
+    return unique, dupes
+
+def call_glm_batch(prompt, items, batch_size=10, timeout=180):
+    """Call GLM in batches"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    
+    def call(batch):
+        full_prompt = prompt + json.dumps(batch, ensure_ascii=False)
+        try:
+            result = subprocess.run(
+                ["hermes", "-z", full_prompt, "--provider", "zai", "-m", "glm-5.2", "--cli"],
+                capture_output=True, text=True, timeout=timeout, cwd="/home/rhett"
+            )
+            out = result.stdout.strip()
+            s, e = out.find("["), out.rfind("]")
+            if s >= 0 and e > s:
+                return json.loads(out[s:e+1])
+        except:
+            pass
+        return None
+    
+    results = []
+    batches = []
+    for i in range(0, len(items), batch_size):
+        batch = [{"id": j, **items[i+j]} for j in range(min(batch_size, len(items)-i))]
+        batches.append(batch)
+    
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        futures = {ex.submit(call, b): b for b in batches}
+        for f in as_completed(futures):
+            try:
+                r = f.result()
+                if r: results.extend(r)
+            except: pass
+    
+    return results
+
+def classify_and_score(records):
+    """Classify + score in two GLM passes"""
+    # Prepare items for GLM (id + title + body)
+    items = [{"id": i, "type": "literature" if r.get("i")=="l" else "news", "title": r["t"][:200], "body": r.get("b","")[:500]} for i, r in enumerate(records)]
+    
+    CLASSIFY_PROMPT = """你是技术情报语义分类与标签标注专家。对以下每条情报同时完成分类和打标签。
+分类优先级：零碳产业 > AI与智能科技 > 通用技术 > 不相关。
+只输出JSON数组：[{"id":0,"category":"完整路径或'不相关'","tag":"标签","topic":"5字主题"}]
+待处理情报：
+"""
+    SCORE_PROMPT = """对以下每条情报打5个维度分数（0-10分）。
+1. breakthrough: 纯政策/市场=0；渐进改进=5；新机理/新材料=10
+2. industry: 实验室概念=1；小规模验证=5；量产落地=10
+3. rarity: 转载旧闻=0；常规跟踪=5；独家首发=10
+4. data: 纯定性=0；定性+参数=5；多硬数据=10
+5. timeliness: 趋势综述=2；近期进展=6；突发=10
+只输出JSON数组：[{"id":0,"b":7.5,"i":6.0,"r":5.0,"d":8.0,"t":7.0}]
+待评估情报（跳过不相关）：
+"""
+    
+    log("  分类中...")
+    classify_results = call_glm_batch(CLASSIFY_PROMPT, items, batch_size=10)
+    
+    for r in classify_results:
+        idx = r.get("id")
+        if idx < len(records):
+            records[idx]["c"] = r.get("category", "未分类").replace("/", "-")
+            records[idx]["tg"] = r.get("tag", "")
+            records[idx]["tp"] = r.get("topic", "")
+    
+    classified = sum(1 for r in records if r.get("c","") not in ("","未分类"))
+    log(f"  分类完成: {classified}/{len(records)}")
+    
+    # Score only non-不相关
+    relevant_items = [{"id": i, "title": r["t"][:200], "body": r.get("b","")[:500], "category": r.get("c","")} 
+                      for i, r in enumerate(records) if r.get("c","") != "不相关"]
+    
+    log(f"  评分中... ({len(relevant_items)} 条相关)")
+    score_results = call_glm_batch(SCORE_PROMPT, relevant_items, batch_size=10)
+    
+    score_map = {r["id"]: r for r in score_results}
+    
+    THRESHOLDS = {"零碳产业": 6.3, "AI与智能科技": 6.5, "通用技术": 6.8}
+    BOOST_TAGS = {"政策监管", "行业观察"}
+    
+    for idx, r in enumerate(records):
+        if r.get("c","") == "不相关": continue
+        sc = score_map.get(idx)
+        if not sc: continue
+        
+        b, i, rr, d, t = sc.get("b",0), sc.get("i",0), sc.get("r",0), sc.get("d",0), sc.get("t",0)
+        tag = r.get("tg","")
+        is_lit = r.get("i") == "l"
+        
+        score = b*0.15 + i*0.20 + rr*0.25 + d*0.10 + t*0.30
+        if t >= 8: score += 0.3
+        elif t >= 7: score += 0.15
+        if tag in BOOST_TAGS: score += 0.5
+        if b >= 7: score += 0.4
+        if rr >= 7: score += 0.3
+        if i >= 7: score += 0.3
+        if is_lit: score -= 0.4
+        score = round(score, 1)
+        
+        r["sc"] = score
+        r["scd"] = {"b": b, "i": i, "r": rr, "d": d, "t": t}
+        
+        domain = r["c"].split("-")[0]
+        threshold = THRESHOLDS.get(domain, 6.8)
+        aip = 1 if score >= threshold else 0
+        if not aip:
+            max_dim = max(b,i,rr,d,t)
+            if is_lit and max_dim >= 9.0: aip = 1
+            elif not is_lit and max_dim >= 8: aip = 1
+        if not aip and not is_lit and tag == "技术突破" and b >= 6.5 and score >= 5.5:
+            aip = 1
+        if aip:
+            r["aip"] = 1
+    
+    scored = sum(1 for r in records if r.get("sc",0) > 0)
+    aip_count = sum(1 for r in records if r.get("aip"))
+    log(f"  评分完成: {scored} scored, {aip_count} AI精选")
+    
+    return records
+
+def gen_summaries(records):
+    """Generate AI summaries for all records"""
+    SUMMARY_PROMPT = """你是技术情报摘要专家。为以下每条情报生成100-200字的中文AI摘要。
+只输出JSON数组：[{"id":0,"summary":"..."}]
+待处理情报：
+"""
+    items = [{"id": i, "title": r["t"][:200], "body": r.get("b","")[:500]} for i, r in enumerate(records)]
+    log(f"  摘要生成中... ({len(items)} 条)")
+    results = call_glm_batch(SUMMARY_PROMPT, items, batch_size=20)
+    
+    for r in results:
+        idx = r.get("id")
+        if idx < len(records):
+            records[idx]["as"] = r.get("summary", "")
+    
+    has_summary = sum(1 for r in records if r.get("as","").strip())
+    log(f"  摘要完成: {has_summary}/{len(records)}")
+    return records
+
+def merge_and_rebuild(new_records):
+    """Merge new records into lite, rebuild chunks"""
+    with open(LITE_PATH) as f:
+        lite = json.load(f)
+    
+    # Dedup against existing
+    unique, dupes = dedup_check(new_records, lite)
+    log(f"  去重: {len(new_records)} → {len(unique)} ({dupes} duplicates)")
+    
+    if not unique:
+        log("  无新记录需要合并")
+        return 0
+    
+    # Append to lite
+    for r in unique:
+        lite.append(r)
+    
+    log(f"  合并后总记录: {len(lite)}")
+    
+    # Save
+    with open(LITE_PATH, "w") as f:
+        json.dump(lite, f, ensure_ascii=False, separators=(",",":"))
+    
+    # Rebuild chunks
+    for i in range(18):
+        start = i * 3000
+        end = min(start + 3000, len(lite))
+        chunk = lite[start:end] if start < len(lite) else []
+        content = 'window.__LITE_PARTS__=window.__LITE_PARTS__||[];window.__LITE_PARTS__.push(' + json.dumps(chunk, ensure_ascii=False, separators=(",",":")) + ');'
+        with open(os.path.join(DATA_DIR, f"lite-part-{i}.js"), "w") as f:
+            f.write(content)
+    
+    return len(unique)
+
+def git_push():
+    """Push changes to GitHub"""
+    if not TOKEN:
+        log("  [WARN] No GH_TOKEN, skipping push")
+        return False
+    
+    ts = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
+    cmds = [
+        ["git", "add", "-A"],
+        ["git", "commit", "-m", f"chore: auto-sync {ts}"],
+        ["git", "push", GH_PUSH_URL, "main"],
+    ]
+    for cmd in cmds:
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO, timeout=120)
+        if result.returncode != 0 and cmd[0] == "git" and cmd[1] == "push":
+            log(f"  [WARN] Push failed: {result.stderr[:200]}")
+            return False
+    log("  Pushed to GitHub")
+    return True
+
+def main():
+    log("=" * 50)
+    log("tech-db auto-sync pipeline starting")
+    
+    # Step 1: Check for new files
+    log("Step 1: Checking source repos...")
+    has_new, new_per_source, current = check_new_files()
+    
+    if not has_new:
+        log("No new files. Done.")
+        return
+    
+    # Step 2: Download and parse new CSVs
+    log("Step 2: Downloading new data...")
+    new_records = download_new_csvs(new_per_source, current)
+    log(f"  Parsed {len(new_records)} new records from CSVs")
+    
+    if not new_records:
+        log("No parseable records. Done.")
+        return
+    
+    # Step 3: Dedup against existing
+    log("Step 3: Dedup check...")
+    with open(LITE_PATH) as f:
+        existing = json.load(f)
+    unique, dupes = dedup_check(new_records, existing)
+    log(f"  {len(new_records)} → {len(unique)} unique ({dupes} dupes)")
+    
+    if not unique:
+        log("All records are duplicates. Done.")
+        return
+    
+    # Step 4: Classify + Score
+    log("Step 4: Classify + Score...")
+    unique = classify_and_score(unique)
+    
+    # Step 5: AI Summaries
+    log("Step 5: AI Summaries...")
+    unique = gen_summaries(unique)
+    
+    # Step 6: Merge + Rebuild
+    log("Step 6: Merge + Rebuild lite...")
+    # Re-read existing (may have changed)
+    merged_count = merge_and_rebuild(unique)
+    
+    # Step 7: Push
+    log("Step 7: Push to GitHub...")
+    git_push()
+    
+    log(f"Pipeline complete: +{merged_count} records")
+
+if __name__ == "__main__":
+    main()

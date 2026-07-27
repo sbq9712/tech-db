@@ -1,0 +1,241 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月6日　星期一",
+  "date_range": "2026-07-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "华中科技大学谢佳团队揭示钠沉积定量关系，研发稳定无负极钠电池",
+      "三星SDI规划投入1100亿元，扩建韩国两座工厂以实现2027年全固态电池量产",
+      "新加坡国立大学引入低成本添加剂，全固态钠电池循环寿命突破2000小时"
+    ],
+    "AI与智能科技": [
+      "谷歌Gemini 3.5 Pro前端代码生成能力突破，可一次性生成完整网页代码",
+      "加州大学伯克利分校发布系统，实现单目视频数据直接驱动机器人真机操作",
+      "Anthropic联合三星电子研发定制AI芯片，旨在降低第三方硬件依赖"
+    ],
+    "通用技术": [
+      "垣信卫星发射一箭20星，千帆星座在轨卫星总数增至238颗",
+      "长征十号乙火箭计划7月中旬首飞，将首次验证海上网系回收技术",
+      "丰田与Joby Aviation达成协议，合作推进电动空中出租车量产与实际部署"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "华中科技大学谢佳团队揭示钠沉积定量关系，研发稳定无负极钠电池",
+        "三星SDI规划投入1100亿元，扩建韩国两座工厂以实现2027年全固态电池量产",
+        "新加坡国立大学引入低成本添加剂，全固态钠电池循环寿命突破2000小时"
+      ],
+      "entries": [
+        {
+          "t": "【科技】华中科技大学谢佳Science子刊：“d带中心”火山图指导界面设计，实现稳定无负极钠电池",
+          "d": "2026-07-06",
+          "a": "储能科学与技术",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "华中科技大学谢佳团队在Science子刊发表关于无负极钠金属电池（AFSBs）的研究。无负极电池被视为钠离子电池的终极形态，首次充电时直接在集流体上沉积钠金属，省去预装负极从而提升能量密度。研究利用\"d带中心\"火山图理论指导集流体-电解质界面设计，揭示了金属-吸附物相互作用强度与沉积稳定性的定量关系，成功实现均匀致密的钠沉积，显著提升循环寿命。该工作为无负极碱金属电池的界面工程提供了理论框架。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/SCmuAmedrpPIJkj5O5kshw",
+          "tp": "钠电池界面设计",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "【科技】华中科技大学谢佳Science子刊：“d带中心”火山图指导界面设计，实现稳定无负极钠电池 储能科学与技术 无负极钠金属电池（AFSBs）是钠离子电池的“终极形态”——**去掉预装的钠负极，首次充电时直接在集流体上沉积钠金属**。这一",
+          "hb": 1
+        },
+        {
+          "t": "1100亿元长线投入！三星固态电池敲定2027年量产目标",
+          "d": "2026-07-06",
+          "a": "集邦固态电池",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "三星SDI公布长期扩产方案，累计投入25万亿韩元（约1100亿元人民币），用于韩国蔚山与天安厂区改造升级，布局全固态电池及钠离子等新一代电池技术，并敲定全固态电池2027年量产目标。这标志着固态电池从实验室迈向规模化量产的关键转折。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/G3pX4vnobTIQPNYDZi96_w",
+          "tp": "固态电池量产",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "1100亿元长线投入！三星固态电池敲定2027年量产目标 集邦固态电池 7月3日，三星SDI公布了长期扩产方案。企业将累计投入25万亿韩元（约1100.75亿元人民币），用于改造升级韩国蔚山与天安两大厂区，长期布局全固态及钠离子等新一代电池",
+          "hb": 1
+        },
+        {
+          "t": "低成本添加剂助力全固态钠电池循环寿命突破2000小时",
+          "d": "2026-07-06",
+          "a": "先进能源科技战略情报研究中心",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "新加坡国立大学团队在全固态钠电池中引入一种极低成本添加剂，显著提升了离子导电性和界面稳定性，使电池循环寿命突破2000小时。全固态钠电池以钠资源丰富、成本低为优势，但界面阻抗和枝晶生长长期制约其性能。该添加剂策略成本低廉、工艺简单，有望推动全固态钠电池从实验室走向工程化应用，对大规模储能领域具重要意义。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/viqFG-PW6qplxjQhZNVRwg",
+          "tp": "固态钠电池突破",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "低成本添加剂助力全固态钠电池循环寿命突破2000小时 CASEnergy CASEnergy 先进能源科技战略情报研究中心 5月6日，新加坡国立大学研究人员引入一种极低成本添加剂，研制出安全性更高、导电性更强且寿命更长的全固态钠电池。该研究",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "谷歌Gemini 3.5 Pro前端代码生成能力突破，可一次性生成完整网页代码",
+        "加州大学伯克利分校发布系统，实现单目视频数据直接驱动机器人真机操作",
+        "Anthropic联合三星电子研发定制AI芯片，旨在降低第三方硬件依赖"
+      ],
+      "entries": [
+        {
+          "t": "Gemini 3.5 Pro绝密泄露，前端能力赶超Fable 5",
+          "d": "2026-07-06",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "消息称谷歌Gemini 3.5 Pro即将发布，在前端代码生成能力上实现显著突破，接近甚至赶超Fable 5水平。据报道该模型能够一次性生成完整前端页面代码，大幅提升开发效率。经过约两个月迭代开发，Gemini 3.5 Pro在多模态理解和代码生成方面展现强劲实力，有望重塑AI辅助编程竞争格局。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/Kn_wsK9wU_vn0uVF-6GIkg",
+          "tp": "Gemini新模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Gemini 3.5 Pro绝密泄露，前端赶超Fable 5！ ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】憋了整整两个月，Gemini 3.5 Pro终于要来了！前端代码一次生成，",
+          "hb": 1
+        },
+        {
+          "t": "机器人看视频学操作！伯克利首次打通互联网视频到灵巧手真机部署链路",
+          "d": "2026-07-06",
+          "a": "新智元",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "UC Berkeley发布Do as I Do系统，首次打通从互联网视频到灵巧手真机部署的完整链路。仅需单目RGB视频即可将日常人类操作转化为机器人可执行动作，大幅降低技能获取对专家示教数据的依赖，为通用机器人操作学习开辟新范式。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/XfcD1_lipFIyFDnQi7SITg",
+          "tp": "视频学操作",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "机器人看视频学操作！伯克利首次打通互联网视频到灵巧手真机部署链路 新智元 新智元 新智元 ### ### **新智元报道** ##### **【新智元导读】只用单目RGB视频，Do as I Do将日常人类操作转化为 Sharpa Wave",
+          "hb": 1
+        },
+        {
+          "t": "Anthropic携手三星自研定制芯片",
+          "d": "2026-07-06",
+          "a": "IEEE电气电子工程学会",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "AI公司Anthropic与三星电子合作研发定制AI芯片，旨在降低对第三方芯片供应商的依赖并优化推理性能。此举反映了头部AI实验室加速芯片自主化趋势，通过定制硬件与模型架构协同设计提升性价比。三星凭借先进制程和封装产能，有望成为AI芯片定制化的重要合作伙伴。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/2-cK_gOd9TEhKwHyrWUGgQ",
+          "tp": "AI定制芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Anthropic携手三星自研定制芯片 Lucas Ropek Lucas Ropek IEEE电气电子工程师学会 **SUBSCRIBE** **to US** **Image Credits:** Samuel Boivin/NurPh",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "垣信卫星发射一箭20星，千帆星座在轨卫星总数增至238颗",
+        "长征十号乙火箭计划7月中旬首飞，将首次验证海上网系回收技术",
+        "丰田与Joby Aviation达成协议，合作推进电动空中出租车量产与实际部署"
+      ],
+      "entries": [
+        {
+          "t": "我国成功发射千帆星座组网卫星，千帆星座增至 238 颗",
+          "d": "2026-07-06",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/航天",
+          "as": "垣信卫星于7月5日在海南商业发射场使用长征八号甲火箭成功发射千帆星座组网卫星，平板卫星堆叠规模首次提升至一箭20星，千帆星座在轨卫星总数增至238颗，星座组网持续加速。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/972/856.htm",
+          "tp": "低轨卫星星座",
+          "aip": 1,
+          "kp": [
+            "堆叠规模[千帆发射]: 一箭20星",
+            "星座规模[千帆]: 238颗(一期648/三期1.5万+)",
+            "通信频段[千帆星座]: Ku、Q/V"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 5 日消息，北京时间 2026 年 7 月 5 日 21 时 43 分，垣信卫星在海南国际商业发射场，首次使用长征八号甲运载火箭成功发射千帆组网卫星，\n平板卫星堆叠规模首次提升至 1 箭 20 星\n，所有卫星准确送入预定轨道，顺利完成星箭分离，\n千帆极轨 15 组卫星由航天科技集团所属中国商业火箭公司作为总承包商提供发射服务。本次发射是长征系列运载火箭第 656 次发射。\n千帆星座增至 238 颗\nIT之家注：“千帆星座”是垣信卫星自主研发建设、商业化运营的低轨卫星互联网星座，使用 Ku、Q/V 等频段，主要提供宽带通信、互联网接入等服务。\n“千帆星座”一期将发射 648 颗卫星，提供区域网络覆盖；二期再发射 648 颗卫星，整体规模达到 1296 颗，提供全球网络覆盖；三期由超过 1.5 万颗卫星提供多元业务融合服务。",
+          "hb": 1
+        },
+        {
+          "t": "长征十号乙首飞锁定 7 月 10 日至 7 月 13 日期间，验证首创的“海上网系回收”技术",
+          "d": "2026-07-06",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/航天",
+          "as": "长征十号乙首飞窗口锁定7月10日至13日，将在文昌商业航天发射场验证全球首创的海上网系回收技术。该火箭为长征十号家族两级可重复使用商业火箭，标志中国可回收运载火箭工程化进入新阶段。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/972/847.htm",
+          "tp": "火箭海上网系回收",
+          "aip": 1,
+          "kp": [
+            "[回收方案]: 无着陆腿海上柔性网捕获",
+            "回收平台[长征十号乙]: 领航者号2.5万吨级DP定位",
+            "一子级动力[长征十号乙]: 7台YF-100K并联",
+            "二级推进剂[长征十号乙]: 液氧甲烷"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 5 日消息，据财联社今日报道，长征十号乙首飞窗口锁定 7 月 10 日至 13 日，将在文昌商业航天发射场验证全球首创的“海上网系回收”技术。\nIT之家注意到，长征十号乙是中国航天科技集团一院抓总研制、长征十号家族两级可重复使用商业货运火箭，为长征十号甲去载人化衍生型号，\n是我国全球首创海上网系回收验证箭，\n面向低轨卫星互联网、大型商业卫星、深空货运的低成本高频发射；\n同步验证载人登月同源一子级复用、7 台 YF-100K 并联动力、液氧甲烷二级等登月关键技术，作为载人登月工程技术验证平台。\n据此前官方公布信息，长征十号乙采用无着陆腿、海上柔性网捕获方案，\n。一子级完成分离再入，箭体末端释放挂钩，在指定回收海域由专用回收船领航者号（2.5 万吨级 DP 动力定位平台）巨型阻拦网精准锁钩缓冲回收。",
+          "hb": 1
+        },
+        {
+          "t": "丰田-Joby达成协议，电动飞行出租车逼近实际部署",
+          "d": "2026-07-06",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "丰田与Joby Aviation深化合作，推动电动空中出租车走向实际部署。两家制造巨头联手旨在加速空中出行商业化落地。Joby的eVTOL飞行器结合丰田的量产工程能力，有望解决城市空中交通在认证、制造和运营方面的关键瓶颈，空中出租车规模化运营正从愿景走向现实。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/science/toyota-backs-jobys-all-electric-air-taxis",
+          "tp": "电动空中出租车",
+          "aip": 1,
+          "kp": [
+            "[eVTOL量产]: Toyota与Joby合作制造航空器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Could air taxis finally be upon us? Two manufacturing giants are teaming up to make air mobility a reality. Prepare for vertical takeoff.\nFor nearly a decade, Toyota has reportedly “been at Joby Aviation’s side” as the company built the foundation for manufacturing its aircraft, said JoeBen Bevirt, founder and chief executive officer of Joby Aviation.\nWith expertise in production systems and operational excellence, Toyota has provided Joby with invaluable guidance and support to develop an electric air taxi.\nThe companies announced their official partnership and plans to launch the commercial production of Joby’s electric vertical take-off and landing (eVTOL) aircraft, aiming to optimize productivity, quality, and costs.\nJoby Aviation, a California-based transportation company, is developing an all-electric vertical take-off and landing air taxi. The company said it intends to operate an air taxi service in cities around the world while also selling its aircraft to other operators and partners.\nToyota noted that it has been in the North American market for nearly 70 years, with a strong focus on advancing sustainable, next-generation mobility through its Toyota and Lexus brands.\nWith nearly 64,000 employees in North America, the automaker has contributed to the design, engineering, and assembly of more than 50 million cars and trucks across its 14 manufacturing plants.\nMore from Science\nAerospace engineers cut composite curing time by almost 50% with 3960-FC material\nSimple molecular tweak reveals how to control excitons in 2D perovskites\nCanada and Japan join hands to reduce dependency on Chinese rare-earth minerals\nA diamond quantum sensor can pinpoint exactly where power gets wasted in a data center\nNew Musica supercomputer performs 45,110 trillion calculations/sec with 1,088 Nvidia chips\nToyota Chairman Akio Toyoda said the alliance aligns with the company’s long-standing approach to mobility.\n“Since our founding, we’ve been guided by the philosophy of providing mobility for all. Over time, we’ve continued to expand what mobility can mean,” Toyoda said.\n“We see air mobility as a natural extension of that philosophy—from the ground into the sky—and as a way to bring new value to people’s lives and to society. It’s really meaningful for us to take on this challenge together with Joby, a partner that shares the same vision,” he said.\nToyoda added that it believes the strengthened relationship represents “an important step forward in realizing the future mobility society.”\nThe companies stated that they will continue working together, leveraging their respective strengths to bring air mobility to society on a broader scale.\n“Together, we share a vision of making aerial mobility an everyday reality, and we look forward to delivering on that promise together,” said JoeBen Bevirt, founder and chief executive officer of Joby Aviation.\n“Today’s announcement reflects the strength of our relationship and our shared confidence in the opportunity ahead.”\nThe companies concluded in a press\nthat the strategic manufacturing alliance is intended to lay the foundation for commercial production and support the future growth of electric air-taxi manufacturing. Toyota will support Joby’s production capacity as the company works toward\ncertification and prepares for the anticipated growth in demand for its\nelectric air taxi.\nThe announcement was accompanied by a photo of Joby Aviation’s\nelectric air taxi\nat Fuji Speedway in Japan, taken during a week-long flight demonstration campaign conducted in collaboration with Toyota Motor Corporation in December 2025.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nOriginally from LA, Maria Mocerino has been published in Business Insider, The Irish Examiner, The Rogue Mag, Chacruna Institute for Psychedelic Plant Medicines, and now Interesting Engineering.\nUS semiconductor giant breaks ground on $9.3-billion memory chip plant expansion in Japan\n'World's largest' heavy-lift cargo aircraft targeted for military and disaster logistics\nConstruction of 2,000-ton stealthy submarine that can carry advanced weapons begins in Indonesia\nCanada and Japan join hands to reduce dependency on Chinese rare-earth minerals\nChinese semiconductor firm expands with $1.15 billion chip packaging plant",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

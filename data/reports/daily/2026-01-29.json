@@ -1,0 +1,251 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月29日　星期四",
+  "date_range": "2026-01-29",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "星能玄光完成FLAME场反磁镜聚变装置搭建并实现首次等离子体放电",
+      "研究提出室温电化学提取方法以实现废旧电池金属高选择性分离回收",
+      "研究量化硫化物全固态电池富镍正极机械应力与化学副反应的衰减占比"
+    ],
+    "AI与智能科技": [
+      "AlphaGenome深度学习模型实现从DNA序列预测功能性基因组测量数据",
+      "研究提出利用无机分子光刻介导层实现敏感电子材料的全干法无损加工",
+      "研究构建单一下一标记预测目标实现多模态模型图文视频统一学习生成"
+    ],
+    "通用技术": [
+      "甬江实验室团队利用四相点设计使压电陶瓷系数突破6000 pC/N",
+      "研究评估固态钍-229核钟频率可重复性验证10^-19量级测量不确定度",
+      "研究开发光驱动有机催化Birch还原法用于药物分子后期官能团化修饰"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "星能玄光完成FLAME场反磁镜聚变装置搭建并实现首次等离子体放电",
+        "研究提出室温电化学提取方法以实现废旧电池金属高选择性分离回收",
+        "研究量化硫化物全固态电池富镍正极机械应力与化学副反应的衰减占比"
+      ],
+      "entries": [
+        {
+          "t": "合肥星能玄光称其场反磁镜聚变装置FLAME完成搭建并进行了等离子体放电",
+          "d": "2026-01-29",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "1月29日，合肥星能玄光宣布其场反磁镜聚变装置FLAME完成搭建并完成首次等离子体放电演示。公司由中科大孙玄教授2024年3月成立，获蚂蚁集团、紫金矿业等数亿元融资，选择直线型场反位形（FRC）技术路线，通过场反自组织约束、强场反磁镜、电势垒强化轴向约束。计划2035年建成200MW聚变能电站，成本约10亿元。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/FvAvY2a_XW4TZxEgS8MTOQ",
+          "tp": "场反聚变",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月29日，合肥星能玄光在其官方公众号发文称，其研发的先进场反磁镜聚变装置FLAME完成搭建，并进行了首次等离子体放电演示。\n据相关报道称，星能玄光由中科大孙玄教授（曾任职于从事开发先进束流驱动场反位构型（FRC）氢硼聚变技术的TAE Technologies公司）成立于2024年3月，获得来自蚂蚁集团、紫金矿业、招商局创投等机构数亿元融资；其选择直线型场反位形（Field-Reversed Configuration，FRC）技术路线，通过场反位形自组织约束、强场反磁镜、电势垒强化轴向约束相结合的方式约束磁场环境，可以内部自组织形成场反等离子体，并通过使用串列磁镜和边界势垒增强等离子体约束力减少粒子和能量损失。星能玄光计划在2035年建成200MW聚变能电站，成本大约是10亿元人民币。",
+          "hb": 1
+        },
+        {
+          "t": "温和选择性的万能溶剂电化学提取矿石中关键元素",
+          "d": "2026-01-29",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
+          "as": "该研究提出一种温和且高选择性的电化学提取方法，利用Alkahest（万能溶剂概念）体系从复杂基质中选择性浸出关键金属元素（如锂、钴、镍、稀土等）。相比传统高温冶炼或强酸浸出，该方法在室温或温和条件下即可实现目标金属的高效分离回收，有望降低废旧电池、电子废弃物等二次资源回收的能耗与污染，为城市矿山中关键矿产的绿色提取提供新路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c04247",
+          "tp": "关键元素电化学提取",
+          "aip": 1,
+          "kp": [
+            "[关键元素提取]: 万能溶剂温和电化学浸取矿石"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "解耦硫化物基全固态电池富镍正极容量衰减中的化学与机械贡献",
+          "d": "2026-01-29",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究系统解耦了镍基富锂层状氧化物正极在硫化物基全固态电池中的化学与机械容量衰减贡献。全固态电池凭借高安全性和潜在高能量密度被视为下一代储能技术，但富镍正极的容量衰减机制尚不清晰。研究者通过原位表征与电化学分析，分别量化了界面副反应（化学因素）和颗粒开裂（机械因素）对容量损失的影响比例。结果表明机械应力导致的颗粒碎裂和界面接触丧失是主要衰减驱动力，为高镍正极在全固态体系中的工程化优化指明了方向。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506351?af=R",
+          "tp": "全固态电池正极衰减",
+          "aip": 1,
+          "kp": [
+            "正极[硫化物ASSB]: 富Ni层状氧化物",
+            "电解质[ASSB]: 硫化物型",
+            "容量衰减[ASSB]: 化学/机械贡献解耦"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    All‐solid‐state batteries (ASSBs) promise safer energy storage and the potential to outperform current lithium‐ion batteries. Ni‐rich cathodes deliver high energy density, whereas sulfide solid electrolytes offer exceptional Li\n                    +\n                    conductivity and inherent mechanical compliance, making their combination particularly attractive. Yet their capacity fades rapidly because (electro)chemical and mechanical degradation occur concurrently within the cathode. Here, we propose an approach to decouple these two factors in LiNi\n                    0.8\n                    Co\n                    0.1\n                    Mn\n                    0.1\n                    O\n                    2\n                    |Li\n                    6\n                    PS\n                    5\n                    Cl\n                    0.5\n                    Br\n                    0.5\n                    |Li metal cells by monitoring the state‐of‐charge window. Uncoated cathodes experience capacity fading primarily due to (electro)chemical degradation: interfacial reactions form resistive interphases consisting of NiO‐like rock salt, SO\n                    \n                      x\n                    \n                    , PO\n                    \n                      x\n                    \n                    , and related species that hinder Li\n                    +\n                    extraction, resulting in pronounced charge fading. A conformal LiNbO\n                    3\n                    coating on the cathode surface suppresses interfacial reactions, significantly mitigating charge fading but revealing dominant discharge fading arising from mechanical degradation, such as particle cracking and interfacial delamination. While the protective coating stabilizes the interface and improves initial performance, the increased capacity intensifies electrode volume changes, underscoring the need for integrated electro‐chemo‐mechanical design strategies. Evaluating charge and discharge fading outlines the interplay between (electro)chemical and mechanical degradation and offers a new diagnostic framework to guide the development of more durable, high‐energy‐density ASSBs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "AlphaGenome深度学习模型实现从DNA序列预测功能性基因组测量数据",
+        "研究提出利用无机分子光刻介导层实现敏感电子材料的全干法无损加工",
+        "研究构建单一下一标记预测目标实现多模态模型图文视频统一学习生成"
+      ],
+      "entries": [
+        {
+          "t": "AlphaGenome推进调控变异效应预测",
+          "d": "2026-01-29",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "AlphaGenome是基于深度学习的基因组调控变异效应预测模型，能够从DNA序列预测功能性基因组测量数据。该工具在解析非编码区变异对基因表达的影响方面取得显著进展，为理解疾病相关遗传变异的功能机制提供了强大工具，对精准医学和基因组学研究具有重要意义。",
+          "sc": 8.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-10014-0",
+          "tp": "AlphaGenome调控预测",
+          "aip": 1,
+          "kp": [
+            "输入序列长度[基因组调控预测]: 1 Mb",
+            "模型[基因组学]: AlphaGenome统一DNA序列模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Deep learning models that predict functional genomic measurements from DNA sequences are powerful tools for deciphering the genetic regulatory code. Existing methods involve a trade-off between input sequence length and prediction resolution, thereby limiting their modality scope and performance1,2,3,4,5. We present AlphaGenome, a unified DNA sequence model, which takes as input 1 Mb of DNA sequence and predicts thousands of functional genomic tracks up to single-base-pair resolution across diverse modalities. The modalities include gene expression, transcription initiation, chromatin accessibility, histone modifications, transcription factor binding, chromatin contact maps, splice site usage and splice junction coordinates and strength. Trained on human and mouse genomes, AlphaGenome matches or exceeds the strongest available external models in 25 of 26 evaluations of variant effect prediction. The ability of AlphaGenome to simultaneously score variant effects across all modalities accurately recapitulates the mechanisms of clinically relevant variants near the TAL1 oncogene6. To facilitate broader use, we provide tools for making genome track and variant effect predictions from sequence.",
+          "hb": 1
+        },
+        {
+          "t": "利用无机分子光刻介导剂实现敏感电子材料的通用全干法微加工方法",
+          "d": "2026-01-29",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究提出一种普适性全干法微加工技术，通过无机分子光刻介导层实现对敏感电子材料的无损图形化加工。传统光刻工艺在处理敏感电子材料时易因溶剂或热效应造成损伤，该方法利用无机分子中介层实现低温、无溶剂的图案转移，适用于多种对环境敏感的功能材料，为电子微器件制造提供了通用性新途径。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68593-z",
+          "tp": "无机分子光刻",
+          "aip": 1,
+          "kp": [
+            "光刻介质[全干法]: 无机硒分子",
+            "工艺[微加工]: 全干法无溶剂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Lithography is pivotal in fabricating micro/nanoscale patterns and processing materials for electronic microdevices. However, conventional organic polymeric resists inevitably entail the use of various chemical solutions or solvents, which especially compromise fragile electronic materials featuring atomic-level surfaces. Here, we introduce inorganic selenium molecules as a lithographic mediator for sensitive electronic material processing without direct exposure to solutions or solvents. Specifically, the inorganic selenium molecular film functions as both a lithographic mediator for direct patterning due to its weak intermolecular van der Waals interactions and as a protective encapsulation layer for atomic electronic materials without compromising structural and electronic characteristics. Wafer-scale arrays of sensitive materials with high-quality, sharp edges are facilely achieved by a non-destructive mechanical peeling of the selenium layer. This approach provides a solvent-free lithographic route for microfabricating sensitive materials and high-performance electronic devices.",
+          "hb": 1
+        },
+        {
+          "t": "基于下一token预测的多模态学习用于大型多模态模型",
+          "d": "2026-01-29",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "该论文提出将下一标记预测（next-token prediction）扩展为统一的多模态学习算法，使大型多模态模型能够同时从文本、图像和视频等多种模态中学习并生成内容。该方法打破了传统多模态模型中文本理解与图像生成分离的架构局限，用单一统一训练目标处理跨模态信息，显著提升了模型在视觉理解、推理和生成任务上的综合表现，为通用多模态基础模型提供了新范式。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-10041-x",
+          "tp": "多模态预测学习",
+          "aip": 1,
+          "kp": [
+            "[统一算法]: 下一token预测扩展至文本/图像/视频多模态",
+            "[目标]: 跨模态学习与生成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Developing a unified algorithm that can learn from and generate across modalities such as text, images and video has been a fundamental challenge in artificial intelligence. Although next-token prediction has driven major advances in large language models1, its extension to multimodal domains has remained limited, and diffusion models for image and video synthesis2,3 and compositional frameworks that integrate vision encoders with language models4 still dominate. Here we introduce Emu3, a family of multimodal models trained solely with next-token prediction. Emu3 equals the performance of well-established task-specific models across both perception and generation, matching flagship systems while removing the need for diffusion or compositional architectures. It further demonstrates coherent, high-fidelity video generation, interleaved vision–language generation and vision–language–action modelling for robotic manipulation. By reducing multimodal learning to unified token prediction, Emu3 establishes a robust foundation for large-scale multimodal modelling and offers a promising route towards unified multimodal intelligence.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "甬江实验室团队利用四相点设计使压电陶瓷系数突破6000 pC/N",
+        "研究评估固态钍-229核钟频率可重复性验证10^-19量级测量不确定度",
+        "研究开发光驱动有机催化Birch还原法用于药物分子后期官能团化修饰"
+      ],
+      "entries": [
+        {
+          "t": "甬江实验室任晓兵通过四相点设计实现高性能压电陶瓷",
+          "d": "2026-01-29",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "压电材料关键指标压电系数d₃₃数十年来难有根本突破，PZT多晶陶瓷定格在200-600 pC/N，弛豫单晶可达2000 pC/N但造价昂贵且稳定性差。甬江实验室任晓兵团队提出新策略：通过主动模式控制将多晶PZT陶瓷精确维持在其四相点（QP）状态。研究发现PZT相图中x=0.4、居里温度约350°C处存在立方、四方、单斜、菱方四相汇聚的四相点，具有三临界性质，晶格极度软化（储能模量约23 GPa），为实现超6000 pC/N高压电性能开辟新路径。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aec5660",
+          "tp": "压电陶瓷",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "压电材料是智能时代关键功能材料之一，作为力电信号转换的核心载体，广泛应用于各类精密智能设备的底层架构。其关键指标为压电系数（d₃₃），这一数值越高，材料的力电耦合转换性能越优异。然而，过去70余年，这项指标的发展几乎陷入停滞：自20世纪50年代锆钛酸铅（PZT）多晶陶瓷问世以来，其性能始终定格在200–600 pC/N区间，数十年未有根本性突破；20世纪80年代弛豫压电单晶出现，性能可达2000 pC/N量级，但造价堪比黄金，且稳定性差并极其脆弱，难以大规模应用。\n如何在多晶陶瓷中获得超过6000 pC/N的高压电性能，成为压电材料领域的重大挑战。\n甬江实验室任晓兵等人提出了一种全新策略：通过主动模式控制，将多晶PZT陶瓷精确维持在其四相点（Quadruple Point, QP）状态。研究发现，在Pb(Zr₁₋ₓTiₓ)O₃相图中，x=0.4、居里温度TC≈350°C处存在一个四相（立方C、四方T、单斜M、菱方R3m）汇聚的四相点。该点具有三临界（tricritical）性质，即热力学奇点，导致晶格极度“软化”（储能模量仅约23 GPa，接近聚合物水平），自由能面近似各向同性，极化旋转势垒趋近于零。\n研究团队设计了一种集成式主动控制模块，包括局部恒温器（将样品维持在TC附近并与环境热隔离）和简单直流偏置电路（施加适中电场≈20 V/mm实现原位极化对齐）。在此主动模式下，多晶QP陶瓷的d₃₃达到惊人的约6850 pC/N（d₃₃计与锁相放大器互验），比商用PZT陶瓷高10–30倍，比商用PMN-PT单晶高约4倍；逆压电应变系数d₃₃*在低场（40 V/mm）下达6600 pm/V，低迟滞（高场下几乎为0），展现出极高的灵敏度和驱动兼容性。\n更重要的是，该性能对环境温度不敏感：在模块外部环境从室温到350°C变化时，d₃₃保持恒定（仅因热绝缘不完美有轻微波动），远超传统预极化被动模式陶瓷的热退极化问题。这是因为主动模式将陶瓷的工作状态与环境解耦，始终维持在TC+直流偏置的最佳QP态。\n微观证据（原位TEM、SCBED、像差校正STEM）及相场模拟证实，四相点处存在纳米尺度多对称性共存，呈现类临界乳浊特征，导致巨介电（ε′≈21万）、近理想机电耦合（k₃₃≈85%）及完全的晶粒间极化对齐能力，从而实现多晶体中压电响应的最大化放大。文章于2026年1月29日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "固态钍-229核钟的频率可重复性",
+          "d": "2026-01-29",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "基于钍-229同核异能态超低能跃迁（约8 eV）的固态核钟研究，是该领域精密计量的重大进展。研究者评估了固态钍-229核钟的频率可重复性，验证其在囚禁离子和固态平台中的稳定性表现。相比传统光学原子钟，核钟的跃迁能量对环境扰动（如电场、磁场）极不敏感，理论上可实现10^-19量级的不确定度，有望成为新一代时间频率基准，并在暗物质探测、基本常数变化检验等基础物理领域发挥独特优势。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09999-5",
+          "tp": "固态钍核钟",
+          "aip": 1,
+          "kp": [
+            "发射体密度[固态229Th核钟vs光学晶格钟]: 高数个数量级",
+            "环境敏感性[核跃迁]: 固态晶体内核跃迁,固有低灵敏度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Solid-state thorium-229 (229Th) nuclear clocks1,2,3,4,5 are set to provide new opportunities for precision metrology and fundamental physics6,7,8. Taking advantage of inherent low sensitivity of a nuclear transition to its environment9, orders of magnitude more emitters can be hosted in a solid-state crystal compared with current optical lattice atomic clocks10. Furthermore, solid-state systems needing only simple thermal control11 are key to the development of field-deployable compact clocks. Here we explore and characterize the frequency reproducibility of the 229Th:CaF2 nuclear clock transition, a key performance metric for all clocks. We measure the transition linewidth and centre frequency as a function of the doping concentration, temperature and time. We report the concentration-dependent inhomogeneous linewidth of the nuclear transition, limited by the intrinsic host crystal12 properties. We determine an optimal working temperature for the 229Th:CaF2 nuclear clock at 196(5) K, at which the first-order thermal sensitivity vanishes. This would enable in situ temperature co-sensing using different quadrupole-split lines, reducing the temperature-induced systematic shift below the 10−18 fractional frequency uncertainty level. At 195 K, the reproducibility of the nuclear transition frequency is 220 Hz (fractionally 1.1 × 10−13) for two differently doped 229Th:CaF2 crystals over 7 months. These results form the foundation for understanding, controlling and harnessing the coherent nuclear excitation of 229Th in solid-state hosts and for their applications in constraining temporal variations of fundamental constants.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 光驱动有机催化Birch还原用于药物后期修饰与富sp3螺环合成",
+          "d": "2026-01-29",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "Birch还原是有机合成的核心反应，但其依赖液氨和碱金属还原剂的苛刻条件限制了广泛应用。本研究开发了光驱动有机催化Birch还原新方法，利用光能驱动有机催化剂实现温和条件下的Birch还原反应。该方法适用于药物分子的后期官能团化和富sp³螺环化合物的合成，具有反应条件温和、官能团兼容性好等优势，为药物合成和复杂分子构建提供了绿色高效的还原工具。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17373",
+          "tp": "光驱动Birch还原",
+          "aip": 1,
+          "kp": [
+            "还原电位[多环芳烃Birch]: ~-2.6V vs SCE",
+            "[光驱动]: 有机催化Birch还原用于药物修饰"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The Birch reduction is a cornerstone transformation in synthetic chemistry, yet its widespread application is limited by harsh conditions, poor functional group tolerance, and safety concerns. Recent photochemical strategies have offered milder alternatives but have largely been restricted to polycyclic arenes (Ered ∼ -2.6 V vs SCE) and poorly suited for complex molecules of pharmaceutical relevance. Here, we report a practical organocatalytic system that enables Birch-type reductions of electron-rich benzenes (Ered = <-3.4 V vs SCE) and heteroarenes under light irradiation and mild conditions. The method is based on an indoline-2-thione anion catalyst developed from our previously reported organic super-reducing photocatalysts. The protocol exhibits a broad substrate scope, including the late-stage functionalization of drug molecules bearing sensitive functional groups. Moreover, the synthetic utility of 1,4-dihydro products bearing an alcohol side chain was showcased through a two-step telescoped Birch reduction/spirocyclization sequence, granting streamlined access to sp3-rich spirocyclic scaffolds, a valuable motif in medicinal chemistry. Demonstrated scalability in both batch and continuous-flow operation further underscores the translational potential of this system. This collaborative work with colleagues at Johnson & Johnson highlights the power of light-driven organocatalysis to deliver industrially relevant methods for the synthesis of complex drug-like molecules.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

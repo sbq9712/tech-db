@@ -1,0 +1,220 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月18日　星期日",
+  "date_range": "2026-01-18",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究证实疏水金属有机框架可提升高压氨存储容量",
+      "离子筛分夹层技术解决锂金属软包电池枝晶生长问题",
+      "包钢650立方米蒸汽球罐发生爆炸致2死8失联84伤"
+    ],
+    "AI与智能科技": [
+      "优必选向空客交付Walker S2人形机器人用于航空制造",
+      "硅基CMOS工艺成功制造宽可调自旋轨道力矩电子器件"
+    ],
+    "通用技术": [
+      "AI微电极阵列电穿孔系统实现心肌细胞动作电位长时监测",
+      "无抗体染色质分析技术Af-CUT&Tag仅需500个细胞",
+      "集成原生质谱成像技术实现新鲜冷冻切片膜蛋白分析"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究证实疏水金属有机框架可提升高压氨存储容量",
+        "离子筛分夹层技术解决锂金属软包电池枝晶生长问题",
+        "包钢650立方米蒸汽球罐发生爆炸致2死8失联84伤"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 疏水金属有机框架通过几何设计实现优异高压氨存储",
+          "d": "2026-01-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "疏水性金属有机框架（MOFs）通常因主客体相互作用弱而被忽视用于氨存储。该研究通过几何设计策略证明，疏水性MOFs在高压条件下可实现优异的氨存储性能。研究挑战了传统认知——即强主客体相互作用是高效氨存储的必要条件，揭示了通过调控框架几何结构而非依赖亲水性位点，同样可实现高容量吸附。该成果为高压氨存储材料的理性设计提供了新范式。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18786",
+          "tp": "金属有机框架储氨",
+          "aip": 1,
+          "kp": [
+            "储氨材料[高压]: CAU-23疏水铝基MOF",
+            "[发现]: 几何结构而非亲水性决定高压氨吸附"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrophobic metal-organic frameworks (MOFs) are typically overlooked for ammonia storage due to weak host-guest interactions. Here, we demonstrate that four structurally analogous aluminum-based MOFs exhibit a counterintuitive behavior whereby framework geometry, rather than ligand hydrophilicity, determines high-pressure NH3 adsorption performance. The hydrophobic CAU-23 achieved an exceptional capacity matching hydrophilic analogs despite its poor low-pressure uptake. This pressure-dependent enhancement stems from the unique 4-cis-4-trans geometry of CAU-23 compared to the purely cis arrangement of MIL-160 and KMF-1 and the alternating cis-trans configuration of MOF-303. Critically, CAU-23 retained 95% capacity over three high-pressure cycles, whereas hydrophilic MOFs suffered 39-46% irreversible losses due to strong NH3-framework interactions that compromise structural integrity. Grand canonical Monte Carlo simulations reveal that high pressure enables NH3 clustering through intermolecular hydrogen bonding, bypassing the need for strong host-guest interactions. High-pressure powder X-ray diffraction measurements confirm the exceptional mechanical resilience of CAU-23, showing complete structural recovery upon decompression despite exhibiting the highest pressure sensitivity among the studied MOFs. An extended analog, HE-CAU-23, validates this design principle with further enhanced capacity. These findings reveal a paradigm shift toward hydrophobic MOFs with optimized geometry for high-performance and regenerable gas storage applications.",
+          "hb": 1
+        },
+        {
+          "t": "通过离子筛分夹层抑制浓度极化，实现510 Wh/kg长寿命锂金属软包电池",
+          "d": "2026-01-18",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究通过引入离子筛分夹层解决锂金属电池中锂离子与阴离子失控传输导致的浓度极化与锂枝晶生长问题。离子筛分层可选择性调控离子输运，抑制浓差极化效应，从而延长电池循环寿命并提升安全性。该策略为高能量密度锂金属电池的界面工程提供了新思路，有望加速其在电动汽车与储能领域的实际应用。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524476?af=R",
+          "tp": "锂金属软包电池",
+          "aip": 1,
+          "kp": [
+            "能量密度[软包锂金属电池]: 510 Wh/kg",
+            "界面策略[离子筛分]: 固定阴离子均匀Li+",
+            "电流密度[测试条件]: ≥3 mA/cm²"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Uncontrolled transport of lithium‐ion and anion induce concentration polarization and Li dendrite growth, severely hindering the development of high‐energy‐density Li‐metal batteries, especially under high current densities (≥3 mA cm\n                    −2\n                    ). Herein, we report an interfacial ion‐sieving strategy to immobilize anions and guide uniform lithium‐ion transport for stable Li‐metal batteries by introducing a poly(2‐acryloyloxyethyltrimethylammonium chloride‐co‐polyethylene glycol monomethyl ether methacrylate) (PAP) interlayer on Li metal anode. The quaternary ammonium groups effectively anchor anions and suppress their migration, while polyether chains facilitate homogeneous lithium‐ion transport and diffusion. This synergistic effect increases the lithium‐ion transference number, mitigates interfacial concentration polarization, and inhibits dendrite growth even at 5 mA cm\n                    −2\n                    . Impressively, we demonstrate a 7 Ah PAP‐Li||LiNi\n                    0.8\n                    Co\n                    0.1\n                    Mn\n                    0.1\n                    O\n                    2\n                    pouch cell with ultra‐high energy density (510 Wh kg\n                    −1\n                    ) and remarkable capacity stability (84.2%, 180 cycles), even under lean electrolyte (1.19 g Ah\n                    −1\n                    ) and high current density (3 mA cm\n                    −2\n                    ). Our findings highlight the potential of ion‐sieving interlayer as a promising strategy for the development of stable Li‐metal batteries.",
+          "hb": 1
+        },
+        {
+          "t": "包钢板材厂炼钢作业部一个650m3饱和水、蒸汽球罐发生爆炸",
+          "d": "2026-01-18",
+          "a": "",
+          "c": "零碳产业/物质循环/无机物/黑色金属/钢铁",
+          "as": "1月18日包钢板材厂炼钢作业部一个650m³饱和水蒸汽球罐发生爆炸，造成2人死亡、8人失联、84人受伤入院。厂区已停产，周边供电供水供气供暖及生态环境未受影响。专家分析爆炸原因可能为压力监测/紧急泄放装置故障、焊接处承压不足或人工操作及年检不到位，事故原因仍在调查中。",
+          "sc": 5.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.news.cn/20260119/abb4eef65c9d4422a0087f3c31c25986/c.html",
+          "tp": "钢厂爆炸事故",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "饱和水、蒸汽球罐可在钢铁冶炼、石油化工、集中供热及造纸等领域，起到能量回收存储利用、蒸汽需求调峰等作用；其生产应用相对成熟，但该类特种高压设备安全性是运行过程需关注的重点，该设备在热电联产、生物质发电、余热回收发电甚至电网调峰等方面均有一定应用价值，需对潜在的风险点进行识别关注。有报道称，包钢该饱和水、蒸汽球罐内径约10.7m，球罐充热压力达到2.0MPa，放热压力1.3MPa（常压约0.1 MPa），温度可达约200℃。\n而当罐体破裂出现泄露时压力骤降时，大量饱和水瞬时汽化膨胀造成冲击破坏；高温液体/气体也会对周围人员、设备造成危害。除罐体本身因设计、使用问题易造成失效外，阀门、压力表/液位计等监测控制设备失灵也会导致事故发生。\n在日常生产中，通过同步开展特种设备定期检验与传感监测装置灵敏度测试，切实保障运行安全",
+          "b": "据新华社1月19日报道，1月18日15时3分，包钢板材厂炼钢作业部的一个650m3饱和水、蒸汽球罐发生爆炸，造成厂区内2人死亡、8人失联、84人受伤在院治疗。目前事故厂区已停止生产，城市供电、供水、供气、通信运行及居民供暖正常，周边企业生产运营和生态环境未受影响。事故原因和责任仍在调查中。\n据南方周末采访中国消防协会科普委委员许传升分析，此次爆炸的原因可能是罐里的监测装置、压力的紧急泄放装置或某个焊接处承压能力出问题；也可能人工操作问题，如年检不到位等。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "优必选向空客交付Walker S2人形机器人用于航空制造",
+        "硅基CMOS工艺成功制造宽可调自旋轨道力矩电子器件"
+      ],
+      "entries": [
+        {
+          "t": "优必选与空中客车达成合作，Walker S2人形机器人进厂“造飞机”",
+          "d": "2026-01-18",
+          "a": "",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "优必选与空中客车签署人形机器人服务协议，空客采购工业版Walker S2用于航空制造工厂。Walker S2身高1.76米，搭载群脑网络2.0和Co-Agent智能体，配备第四代灵巧手与仿生手臂，全球首次实现自主换电，支持7×24小时作业。优必选2025年人形机器人订单超14亿元，2026年产能将达万台，并加速拓展欧美海外制造市场。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/914/232.htm",
+          "tp": "人形造飞机",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "优必选去年7月宣布推出面向智能制造场景的全尺寸工业人形机器人 Walker S2，通过迭代的群脑网络 2.0（BrainNet 2.0），搭载自研的全球首个专用于工业人形机器人本体的智能体技术 Co-Agent。Walker S2 身高 1.76 米，可完美复现拟人步态行走与精细操作能力，集成第四代工业级灵巧手与仿生手臂，其灵巧手采用类人尺寸设计，可实现亚毫米级的精细操作，且耐久性经测试超过 8 万次。工业机器人集成中心化的AI智能体，可以实现更高的智能水平和操作自由度，从而适应更复杂的工业生产场景。工业人形机器人相较于机械臂型工业机器人操作自由度更高、能够适配更多类型的任务，也对智能水平有更高需求。随着目前智能模型效果的提升，优必选也将该类尝试进行了落地，拿到了德州仪器和空客的订单并进行了百台级别的交付，在该领域处于领先地位。\n基于中心化和边缘计算的技术路线也在算力水平、调度难度、抗风险能力上各有优劣。",
+          "b": "IT之家1月18日消息，优必选今日发文称，欧洲航空巨头空中客车公司与“人形机器人第一股”优必选签署人形机器人服务协议。空中客车已采购优必选最新款工业版人形机器人Walker S2用于其制造工厂，未来双方将共同拓展人形机器人在航空制造场景的应用落地。2025年，优必选人形机器人订单总金额超14亿元领衔全球。2026年，优必选工业人形机器人的产能将达到万台规模。除中国本土市场外，优必选也开始逐步将人形机器人拓展至欧美等海外制造市场。\n优必选去年7月宣布推出面向智能制造场景的全尺寸工业人形机器人Walker S2，通过迭代的群脑网络2.0（BrainNet 2.0），搭载自研的全球首个专用于工业人形机器人本体的智能体技术Co-Agent。Walker S2身高1.76米，可完美复现拟人步态行走与精细操作能力，集成第四代工业级灵巧手与仿生手臂，其灵巧手采用类人尺寸设计，可实现亚毫米级的精细操作，且耐久性经测试超过8万次；仿生手臂采用全中空结构与集成走线设计，支持自主换电等高难度动作。该机器人全球首次实现自主换电，搭载双电池同充同放、标准化电池仓快换、双臂协同精准换电等技术，可实现7×24小时不间断作业。",
+          "hb": 1
+        },
+        {
+          "t": "基于硅兼容CMOS平台的宽可调自旋轨道力矩器件（Adv. Mater. 4/2026）",
+          "d": "2026-01-18",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该工作展示了一种基于硅基CMOS兼容工艺制造的宽范围可调自旋轨道力矩（SOT）器件。通过集成自旋轨道耦合材料层与标准CMOS工艺，实现了对磁矩翻转的高效电学调控，且调谐范围显著拓宽。该器件兼具自旋电子学的高效低功耗特性与半导体工艺的规模化制造兼容性，为下一代低功耗存储与逻辑芯片的工业级集成提供了可行路径。",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.71906?af=R",
+          "tp": "自旋矩器件",
+          "aip": 1,
+          "kp": [
+            "[自旋轨道矩器件]: 硅兼容CMOS平台实现宽范围可调"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "AI微电极阵列电穿孔系统实现心肌细胞动作电位长时监测",
+        "无抗体染色质分析技术Af-CUT&Tag仅需500个细胞",
+        "集成原生质谱成像技术实现新鲜冷冻切片膜蛋白分析"
+      ],
+      "entries": [
+        {
+          "t": "人工智能支持“遗传性非侵入性细胞内记录”，可长时间监测心脏动作电位",
+          "d": "2026-01-18",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "提出了'遗传性非侵入性细胞内记录'方法，将人工智能与微电极阵列-电穿孔系统（AI-MEA-EP）融合，实现对心肌细胞内动作电位的长时间监测。通过AI预测最佳电穿孔时机，克服传统膜穿孔导致细胞死亡或重封的难题，为心脏药物筛选与疾病研究提供了新工具。",
+          "sc": 7.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady3617?af=R",
+          "tp": "AI心电位记录",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Intracellular action potential (AP) recording that allows long-term monitoring is challenging because permanent membrane penetration is impossible due to cell death or resealing of perforated cell membrane. Herein, an \"inherited noninvasive intracellular recording\" methodology was proposed, which was based on the fusion of artificial intelligence (AI) with microelectrode array (MEA)-electroporation system (AI-MEA-EP) to enable prolonged monitoring of intracellular APs in cardiomyocytes. It used MEA-electroporation (MEA-EP) for minimally invasive collection of intracellular signals transiently (~1 minute), as well as noninvasive recording of extracellular signals in long term. The recorded extracellular APs were converted into corresponding intracellular APs by a convolutional neural network-long short-term memory-based AI model enhanced by model self-calibration. The intracellular APs detected by the AI-MEA-EP exhibited high consistency with those physically obtained through MEA-EP. It was demonstrated to monitor cardiac intracellular AP under drug treatments and glucose challenging during >5 consecutive days. This method offers a unique solution to achieve prolonged recording of intracellular signals for advancing cardiac research.",
+          "hb": 1
+        },
+        {
+          "t": "Af-CUT&Tag：一种灵敏且无抗体的染色质分析方法，使用基因编码标签和与 Tn5 融合的高亲和力结合物",
+          "d": "2026-01-18",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "开发了Af-CUT&Tag方法——一种无抗体染色质分析技术。该方法利用CRISPR整合的肽标签（HiBiT/ALFA-tag），通过与Tn5转座酶融合的工程化结合蛋白（LgBiT/NbALFA）识别靶位点，消除了对传统靶抗体的依赖。仅需500个细胞即可获得高质量染色质图谱，在特异性和灵敏度上表现优异。",
+          "sc": 7.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.nature.com/articles/s41467-026-68454-9",
+          "tp": "无抗体染色质",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Conventional chromatin profiling techniques are often limited by antibody availability and performance. Here, we introduce Af-CUT&Tag, a target antibody-free method that overcomes these limitations by using CRISPR-integrated peptide tags (HiBiT/ALFA-tag) recognized by engineered binders (LgBiT/NbALFA) fused to a Tn5 transposase. Af-CUT&Tag eliminates dependence on traditional target antibodies, achieving robust specificity and sensitivity with as few as 500 cells. It provides high-quality chromatin profiles, with improved signal-to-noise ratios and library quality compared with conventional antibody-based counterparts, while also enabling single-cell resolution (scAf-CUT&Tag). Applying Af-CUT&Tag to Hippo effectors (YAP1/TAZ) during liver regeneration reveals dynamic chromatin remodeling, including YAP1/TAZ-mediated control of lipid metabolism (e.g., Lpin1, Fasn) and heme clearance (Hpx, Trf). We further identify miR-122 as a critical regulator of these processes, impacting liver regeneration. The versatility of Af-CUT&Tag in cell lines, bulk tissues, and single nuclei establishes it as a powerful tool for studying gene regulation in development, disease, and regeneration.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 可溶性蛋白与膜蛋白的集成原生质谱成像",
+          "d": "2026-01-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "开发了集成式原生质谱成像技术，可在新鲜冷冻组织切片上直接分析可溶性蛋白和膜蛋白复合物，保持蛋白质天然构象与组装状态，为蛋白质空间分布与原位分析提供新工具。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16821",
+          "tp": "蛋白质质谱成像",
+          "aip": 1,
+          "kp": [
+            "[质谱成像]: nano-DESI同时成像可溶与膜蛋白"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Native ambient mass spectrometry enables the analysis of intact protein complexes directly from fresh frozen tissue sections together with visualization of their spatial distribution as part of a mass spectrometry imaging workflow. Native mass spectrometry imaging typically employs nanospray-desorption electrospray ionization (nano-DESI), a liquid junction sampling approach. Imaging of both soluble and membrane proteins has been demonstrated by native nano-DESI but, crucially, imaging of one protein type has always been at the expense of the other, requiring tailored sample preparation and multiple tissue sections. Here, we introduce a new mode of nano-DESI operation that combines soluble and membrane protein analysis into a single experiment, requiring no sample preparation and only a single tissue section, and which is compatible with mass spectrometry imaging. Chromatography-like separation of soluble and membrane protein signals, observed as varying elution profiles, occurs when the nano-DESI probe is parked in a fixed location on the tissue. The elution profiles of proteins in both kidney and brain tissue were explored. The results show that elution profiles are quick to record, offer insight into the classification of unknown proteins detected from tissue and enable signal-to-noise improvements to imaging and native top-down mass spectrometry workflows.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

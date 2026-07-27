@@ -1,0 +1,203 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月11日　星期日",
+  "date_range": "2026-01-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究设计氧桥联双催化位点催化剂，实现二氧化碳电还原制乙醇不对称碳碳偶联",
+      "研究团队优化催化剂与电极结构，实现工业级电流密度下析氢反应高效稳定转化",
+      "东方电气完成65米水深kW级水下抽水蓄能储能系统百次充放电试验"
+    ],
+    "AI与智能科技": [
+      "亚50纳米铁电铝钪氮材料擦写循环耐久度突破100亿次",
+      "研究构建灵长类视觉皮层启发神经网络模型，提升视觉决策任务能效与泛化能力"
+    ],
+    "通用技术": [
+      "研究团队以200纳米空间分辨率完成固体密度等离子体电流丝化不稳定性X射线成像",
+      "研究开发仿生三级淋巴结壳聚糖水凝胶，通过激活cGAS-STING通路增强抗肿瘤免疫"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究设计氧桥联双催化位点催化剂，实现二氧化碳电还原制乙醇不对称碳碳偶联",
+        "研究团队优化催化剂与电极结构，实现工业级电流密度下析氢反应高效稳定转化",
+        "东方电气完成65米水深kW级水下抽水蓄能储能系统百次充放电试验"
+      ],
+      "entries": [
+        {
+          "t": "氧桥双催化位点实现不对称C─C偶联高效电还原CO2制乙醇",
+          "d": "2026-01-11",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "该研究设计了氧桥联双催化位点催化剂，实现了不对称碳-碳偶联反应，高效将CO2转化为多碳产物。理解碳-碳偶联路径是实现选择性CO2电还原为高附加值化学品的关键瓶颈。氧桥结构精确调控了两个活性位点的空间距离与电子结构，促进了不对称中间体的定向偶联，提高了C2+产物的选择性，为CO2资源化利用和电催化机理研究提供了重要突破。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524425?af=R",
+          "tp": "CO2电还原制乙醇",
+          "aip": 1,
+          "kp": [
+            "催化剂[CO₂电还原]: Fe-O-Cu氧桥双原子位点",
+            "产物[CO₂电还原]: 乙醇",
+            "[机理]: 不对称C-C耦合控制中间体二聚化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Understanding C─C coupling pathways is essential for achieving selective CO\n                    2\n                    conversion into multi‐carbon products. However, controlling intermediates dimerization remains highly challenging due to both the complexity of the catalytic systems and the limited mechanistic knowledge into the C─C coupling process. In this work, a model dual‐site catalyst with precisely configured Fe‐O‐Cu sites is designed by covalently grafting iron‐phthalocyanine (FePc) onto copper nanowires via oxygen bridges (FeN\n                    4\n                    ‐O‐Cu NW), which enables probing of atomic‐level mechanistic insights into the C─C coupling pathways during electrochemical CO\n                    2\n                    reduction reaction (CO\n                    2\n                    RR). Remarkably, the FeN\n                    4\n                    ‐O‐Cu NW exhibits a 23.6‐fold enhancement in the ethanol‐to‐ethylene Faradaic efficiency ratio as compared to O‐Cu NW, achieving &gt; 80% C\n                    2+\n                    Faradaic efficiency at an industrially relevant current density of 1 A cm\n                    −2\n                    .\n                    13\n                    CO\n                    2\n                    /\n                    12\n                    CO co‐feed experiments together with a collection of\n                    operando\n                    /in‐situ characterizations reveal that the enhanced ethanol selectivity over FeN\n                    4\n                    ‐O‐Cu NW arises from asymmetric C─C coupling between *CO and *CHO intermediates, where *CO is generated at the low‐spin single‐Fe‐atom site, while *CHO is produced at the oxygen‐bridged Cu site. Density functional theory (DFT) calculations further unveil that the oxygen‐bridged Fe‐O‐Cu site can not only stabilize the in situ generated low‐spin Fe(II) active site for enhancing CO\n                    2\n                    activation and lowering *CO desorption energy but also construct an oxygen‐bridged Cu active site to stabilize the *OCHO intermediate, significantly lowering the *OCHO‐to‐*CHO conversion energy barrier, orchestrating an efficient asymmetric *CO─*CHO coupling path and boosting the CO\n                    2\n                    ‐to‐ethanol conversion.",
+          "hb": 1
+        },
+        {
+          "t": "工业电流密度下的直接氢能转换",
+          "d": "2026-01-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "研究实现工业级电流密度下的高效直接氢能转化，聚焦析氢反应在规模化条件下的性能突破。通过优化催化剂与电极结构，在高电流密度下保持高效率与长稳定性，解决了实验室成果向工业电解槽转化的核心瓶颈，对大规模绿氢生产具有重要工程意义。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522437?af=R",
+          "tp": "工业级析氢反应",
+          "aip": 1,
+          "kp": [
+            "[目标]: 工业电流密度析氢",
+            "[策略]: 直接氢能转换催化体系"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Realizing efficient hydrogen evolution reaction at an industrial scale and achieving high current density is of great significance for building a sustainable hydrogen energy system and is highly anticipated by both the scientific and industrial communities. The key to achieving this goal lies in developing a transformative catalytic system that can promote rapid and efficient hydrogen production at high current density. In this report, we propose a strategy to regulate the electrochemical environment and activation energy at the atomic level, enabling intelligent control of the surface charge distribution and bringing the\n                    p\n                    ‐band center of carbon active sites closer to the Fermi level, thereby giving rise to a new concept catalytic system of GDY/RhO\n                    x\n                    /NiO. Both the theoretical and experimental results evidenced the obvious charge redistribution and strong\n                    p‐d\n                    orbital coupling at the heterointerface, greatly enhancing the spatial charge inhomogeneity and improving the transformative electrocatalytic hydrogen evolution capability under alkaline conditions, with overpotentials of 60 and 67 mV to deliver large current densities of 500 and 1000 mA cm\n                    −2\n                    , respectively, and robust stability at industrial‐grade current densities for 200 h. This intelligent charge regulation strategy through differential\n                    p‐d\n                    orbital coupling provides a new direction for the design of high‐performance catalysts in industrial electrocatalytic processes.",
+          "hb": 1
+        },
+        {
+          "t": "东方电气称其完成kW级水下抽蓄储能系统充放电试验",
+          "d": "2026-01-11",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/机械能/重力储能",
+          "as": "东方电气研究院开发的kW级水下抽蓄储能系统东储一号完成65米水深百次充放电试验。低谷期利用富余电能驱动水泵抽出球内水体形成负压储能空间，高峰期水体在压差作用下涌入驱动水轮机发电回馈电网，实现了水下密闭空间的抽蓄储能方案验证。",
+          "sc": 5.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/h8-4M07itArNOzIO4FrLsA",
+          "tp": "水下抽蓄",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "有研究和报道称，水下抽蓄储能概念由物理学家Horst Schmidt-Böcking教授和Gerhard Luther在2011年左右提出，其技术原理大体如文中介绍，由储能容器（抗压耐腐蚀材料、例如钢筋混凝土）、涡轮机+发电机、泵+电动机、阀门、配重（防上浮）及电缆等辅助装置组成。主要利用水泵排出容器中的水，在容器内外形成水压差进行储能；放电时打开进水阀门利用压差向容器中充水并带动涡轮机发电。装置能量密度与压差有关，即随着装置位于水下深度增加而增加（例如，1000m水深处能量密度约为2640 Wh/m³）；功率则主要取决于进水阀门面积和瞬时压差，但随着罐内充水率增加压差减小，功率会下降，需通过调节流量来稳压；发电效率则主要受限于功率不稳定（导致涡轮机在非设计工况下运行，效率较低），以及罐内气体压缩膨胀热量损失、电机/发电机损耗等因素当前研究/实验中效率较低。\n除东方电气外，德国Fraunhofer研究所主导的StEnSea项目、美国Sperra公司的SPSH方案也均采用该技术。StEnSea项目一阶段已于2017年完成直径3m的混凝土球体在100m水下（博登湖）测试，功率约2-4kW，容量1-3kWh，效率0.4；且认为该钢筋混凝土材料带来的生态风险极小。该项目二阶段则计划联合Sperra公司，在洛杉矶海岸附近进行直径10m球体（3D打印混凝土）、水深500-700m的实验。但Sperra官网宣传预计2025年春季完成的和纽约州能源部署研究局合作项目，目前并无结项进展。\n相关研究中，海德堡大学D. Dubbers认为，该装置可一定程度解决陆地抽水蓄能地理条件限制，但水下作业（装置、安装、维护）的成本可能会高于陆地。但MIT的Rasmus Juhlin则认为，通过优化设计混凝土储罐的成本可以降至约0.15 €/Wh，且可借鉴海上油气平台经验，并与海上风电、制氢等项目进行配套使用。水下抽水蓄能技术目前整体仍处于初步技术验证阶段，除混凝土外的部件防腐蚀、持续稳压/发电装置及控制系统可能仍需进一步开发探索。",
+          "b": "1月11日，东方电气研究院在官方公众号发文称，其开发的kW级水下抽蓄储能系统“东储一号”完成65m水下百次水下充放电试验。文中称，在电网负荷低谷期，其可利用富余电能驱动水泵抽出球内水体，形成密闭负压储能空间；当电网进入负荷高峰期，开启球体入口阀门，水体在内外压差作用下快速涌入，驱动水轮机发电并回馈电网。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "亚50纳米铁电铝钪氮材料擦写循环耐久度突破100亿次",
+        "研究构建灵长类视觉皮层启发神经网络模型，提升视觉决策任务能效与泛化能力"
+      ],
+      "entries": [
+        {
+          "t": "亚50 nm铁电AlScN写入循环耐久度突破10¹⁰次",
+          "d": "2026-01-11",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "报道了亚50纳米铁电AlScN（铝钪氮）材料实现超过10¹⁰次擦写循环耐久性的突破。纤锌矿铁电材料AlScN作为新兴铁电平台，在非易失性存储器和压电器件中前景广阔。该超高耐久性表明其在下一代高可靠存储应用中具备工程可行性。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-68221-2",
+          "tp": "铁电AlScN存储器",
+          "aip": 1,
+          "kp": [
+            "极化强度[AlScN]: >100 μC/cm²",
+            "矫顽场[AlScN]: >3 MV/cm",
+            "循环寿命[<50nm]: >10^10次"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Wurtzite ferroelectrics, particularly aluminum scandium nitride (AlScN), have emerged as a promising material platform for non-volatile memories, offering high polarization values exceeding 100 μC/cm2. However, their high coercive fields (>3 MV/cm) have limited cycling endurance to ~107 cycles in previous reports. Here, we demonstrate unprecedented control of polarization switching in AlScN, achieving write cycling endurance exceeding 1010 cycles—a thousand-fold improvement over previous wurtzite ferroelectric benchmarks. Through precise voltage modulation in 45 nm-thick Al0.64Sc0.36N capacitors, we show that while complete polarization reversal (2Pr ≈ 200 μC/cm2) sustains ~108 cycles, partial switching extends endurance beyond 1010 cycles while maintaining a substantial polarization (>30 μC/cm2 for 2Pr). This exceptional endurance, combined with breakdown fields approaching 10 MV/cm in optimized 10 μm diameter devices, represents the highest reported values for any wurtzite ferroelectric. Our findings establish a new paradigm for reliability in nitride ferroelectrics, demonstrating that controlled partial polarization and size scaling enables both high endurance and energy-efficient operation.",
+          "hb": 1
+        },
+        {
+          "t": "受灵长类启发的视觉决策神经网络",
+          "d": "2026-01-11",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "构建了一种灵长类启发的神经网络模型用于视觉决策任务。人脑在复杂任务中展现出高效性、适应性和鲁棒性，是强大计算范式来源。该模型借鉴灵长类视觉皮层的层级处理和反馈机制，在视觉决策任务中实现更高能效和泛化能力，为类脑AI和神经科学交叉研究提供新思路。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2426883123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "灵长类启发视觉决策网络",
+          "aip": 1,
+          "kp": [
+            "[仿生来源]: 灵长类背侧视觉通路",
+            "[模型特点]: 神经元与突触动力学",
+            "[能力]: 类人视觉决策行为"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The human brain excels at complex tasks with remarkable efficiency, adaptability, and resilience, making it a powerful source of inspiration for AI. Here, we present a neural dynamics model inspired by the primate dorsal visual pathway, a circuit crucial for motion and spatial processing. Incorporating key neuronal and synaptic dynamics, the model reproduces human-like decision-making behaviors and neural activity patterns without the need for extensive training. Compared with conventional artificial networks, it exhibits superior robustness to perturbations such as noise and damage. To further enhance its performance, we introduce a neuroimaging-guided fine-tuning strategy. Correlations between MRI features and behavioral performance are mapped onto critical model parameters, guiding the optimization toward more biologically plausible operational regimes. This approach improves performance and adaptability while preserving biological plausibility and reducing the parameter search space. This is a demonstration of directly integrating human neuroimaging evidence into AI model optimization, establishing a methodology for brain-inspired modeling. By combining insights from primate electrophysiology, human neuroimaging, and biologically grounded modeling, our work narrows the gap between neuroscience and AI. It demonstrates how brain-inspired approaches can advance the development of adaptive, resilient, and interpretable AI systems, offering a paradigm for biologically grounded intelligence.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究团队以200纳米空间分辨率完成固体密度等离子体电流丝化不稳定性X射线成像",
+        "研究开发仿生三级淋巴结壳聚糖水凝胶，通过激活cGAS-STING通路增强抗肿瘤免疫"
+      ],
+      "entries": [
+        {
+          "t": "固体密度等离子体中电流丝化不稳定性的时间分辨 X 射线成像",
+          "d": "2026-01-11",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究团队利用高强度光学激光与高亮度X射线自由电子激光联用，首次在固体密度等离子体中以200纳米空间和50飞秒时间分辨率对电流丝化不稳定性进行了成像。该不稳定性通过带电粒子流磁化天体和实验室等离子体，但此前实验表征极其困难。该结果为理解天体物理和惯性约束聚变中的等离子体动力学提供了关键实验数据。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67160-2",
+          "tp": "等离子成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The streaming of energetic charged particles can magnetize astrophysical and laboratory plasmas via the current filamentation instability. Despite its importance, the experimental characterization of this instability has remained a challenge. Here, we report an experiment combining a high-intensity optical laser with a high-brightness X-ray free electron laser that successfully images the instability in solid-density plasmas with 200 nm spatial and 50 fs temporal resolution. We characterize the development of μm-scale filamentary structures and their evolution over tens of picoseconds through a non-linear merging process. The measured plasma density modulations and long merging time reveal the critical importance of space-charge effects and ion motion on this electron-driven instability. Supporting theoretical analysis and kinetic simulations help distinguish the relative role of space-charge and resistive effects. Our findings indicate that magnetic fields on the order of 10 megagauss are produced, with important implications for transport and radiation emission of energetic particles in plasmas.",
+          "hb": 1
+        },
+        {
+          "t": "模仿三级淋巴结的自我转化水凝胶激活 cGAS-STING 通路以增强抗肿瘤免疫治疗",
+          "d": "2026-01-11",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对三级淋巴结诱导药物非特异性分布引发自身免疫的风险，开发仿生三级淋巴结的自转化壳聚糖水凝胶。瘤周注射后快速原位凝胶化，经阿霉素和头孢噻肟杀伤肿瘤细胞和瘤内细菌后，高效吸附病原相关分子模式和肿瘤危险信号，激活cGAS-STING通路增强抗肿瘤免疫。",
+          "sc": 5.6,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz5078?af=R",
+          "tp": "水凝胶免疫",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The nonspecific distribution of tertiary lymph node (TLS)–inducing drugs may trigger autoimmune diseases. We developed a self-transforming chitosan hydrogel to act as a biomimetic TLS. The chitosan hydrogel solution was peritumorally injected in bacteria-colonized tumors in mice followed by the rapid in situ gelation. After killing tumor cells and intratumoral bacteria by doxorubicin and cefotaxime, the hydrogel efficiently adsorbed bacterial pathogen-associated molecular patterns, tumor cell–derived damage-associated molecular patterns, and tumor-associated antigens. These danger signals greatly potentiated immune cell recruitment into the hydrogel and sufficiently activated dendritic cells (DCs) by the absorbed DNA-mediated cGAS-STING activation. The activated DCs converted T cells into cytotoxic T cells, and these activated immune cells migrated through the pores of hydrogels into the tumor tissues, effectively remodeling the immunosuppressive microenvironment, thereby inhibiting the tumor growth and metastasis. These findings demonstrate a previously unidentified method to establish a safe, easy-to-control, and effective biomimetic TLS that offers a promising strategy for updating current combined immunotherapy against various tumors.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

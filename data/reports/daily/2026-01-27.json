@@ -1,0 +1,198 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月27日　星期二",
+  "date_range": "2026-01-27",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "Electrified Thermal Solutions热电池系统在得州测试，储热20MWh并输出1500℃热气",
+      "研究利用电化学方法实现三氟甲基芳烃室温Matteson型同系化反应",
+      "大众召回4.4万辆ID.4，其中670辆高压模组存在电极错位引发热失控风险"
+    ],
+    "AI与智能科技": [
+      "国星宇航完成千问大模型在轨部署，实现太空推理回传用时不到两分钟",
+      "微软发布3纳米工艺定制芯片Maia 200部署数据中心，称FP4性能大幅提升",
+      "研究提出单一位点定向外延生长策略，实现晶圆级二维单晶薄膜可控制备"
+    ],
+    "通用技术": [
+      "中科院物理所全超导用户磁体中心磁场达35.6特斯拉，打破世界纪录",
+      "",
+      ""
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "Electrified Thermal Solutions热电池系统在得州测试，储热20MWh并输出1500℃热气",
+        "研究利用电化学方法实现三氟甲基芳烃室温Matteson型同系化反应",
+        "大众召回4.4万辆ID.4，其中670辆高压模组存在电极错位引发热失控风险"
+      ],
+      "entries": [
+        {
+          "t": "美国Electrified Thermal Solutions公司称其使用导电耐火砖的储热系统启动测试",
+          "d": "2026-01-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/储热/固态储热",
+          "as": "美国Electrified Thermal Solutions公司宣布其商业规模Joule Hive热电池系统在得州SwRI启动测试。系统采用导电耐火砖同时作为电转热及储热材料，可储存20MWh热量，峰值温度1800℃，输出1500℃热气供工业炉窑使用，功率1-5MW，设计寿命超20年。已与ArcelorMittal等签署意向书，目标2026年商业部署、2030年前达2GW规模。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrifiedthermal.com/industrial-heat-goes-electric-electrified-thermal-solutions-turns-on-first-commercial-scale-joule-hive-thermal-battery/",
+          "tp": "导电砖储热",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月27日，美国储热技术公司Electrified Thermal Solutions公司在其官网发文称，其开发的商业规模的Joule Hive™热电池系统在得克萨斯州San Antonio的Southwest Research Institute（SwRI）启动测试。文中称，该系统可通过电网交流电（13.2 kV）进行充电蓄热，并在峰值温度1800℃（3275℉）时储存20MWh热量；热能以热气的形式（hot gas）供应给工业炉、锅炉和窑炉，热气温度1500℃（2730℉），最高可达1800℃，输出热功率1-5MW，能满足钢铁、水泥、化工和玻璃制造等行业的用热要求。Electrified Thermal Solutions称该系统设计寿命可>20年，目前已与多个行业（例如钢企ArcelorMittal）的客户签署意向书，目标在2026年开始商业部署、2030年前部署规模达2 GW。\n据Electrified Thermal Solutions官网介绍，其热电池采用一款导电耐火砖，可同时作为电转热及储热材料，不采用传统的电阻丝等器件加热；用热形式则与Rondo Energy相似，以空气/水为介质通过储热砖块进行热量输送，整体宣传的储热（1800℃）和输热温度（1800℃）也高于Rondo Energy的1500和1000℃。",
+          "hb": 1
+        },
+        {
+          "t": "电化学实现以三氟甲基芳烃为卡宾前体的室温Matteson型同系化反应",
+          "d": "2026-01-27",
+          "a": "Chem",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "本研究利用电化学方法实现了室温下的Matteson型同系化反应，以三氟甲基芳烃作为碳宾前驱体。经典Matteson同系化反应可精确实现有机硼烷的一碳插入延伸，但依赖高度敏感的有机锂或格氏试剂，反应条件苛刻。研究通过电化学还原三氟甲基芳烃，原位生成碳宾/碳宾等价物，在温和室温条件下完成了对有机硼化物的逐碳链延伸。该电化学策略避免了危险试剂的使用，提高了反应可控性和官能团兼容性，为有机合成中精确碳链构建和含氟有机分子合成提供了绿色高效的新方法。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00001-X?rss=yes",
+          "tp": "电化学碳链延长",
+          "aip": 1,
+          "kp": [
+            "反应温度[Matteson同系化]: 室温（电化学）",
+            "[电化学还原脱氟]: 三氟甲基芳烃作卡宾前体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The classic Matteson homologation enables precise one-carbon insertion into organoboranes but relies on sensitive organolithium reagents and cryogenic conditions. In Nature, Lyu, Quan, and co-workers report an electrochemical strategy that utilizes trifluoromethyl arenes to generate carbenoid nucleophiles via electroreductive defluorination at room temperature, enabling one-pot synthesis of homologated organoborons.",
+          "hb": 1
+        },
+        {
+          "t": "大众北美搭载SK电池的ID4车辆可能因模组电极错位而召回",
+          "d": "2026-01-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "美国NHTSA对44551辆搭载SK电池的大众ID.4发起两批召回。其中670辆因高压模组电芯电极错位可能引发热失控，需更换电池模组；其余因未安装自放电检测软件。大众将为召回及后续车辆加装SDD软件，SK在电芯堆叠工序增加监控摄像头进行异常识别。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.reuters.com/business/volkswagen-recall-over-44000-us-vehicles-over-battery-fire-risk-nhtsa-says-2026-01-27/",
+          "tp": "锂电池召回",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据Reuters等媒体1月27日报道，美国国家公路交通安全管理局（NHTSA）发起了两批共44551辆大众ID.4车型的召回措施，所涉及召回车辆的电池生产商均为SK（electrive称产地为美国佐治亚州）。其中670辆车的召回原因为部分高压模组中的电芯（high voltage battery）电极未对齐（mis-aligned electrode），并可能由此引发热失控事件，此部分车辆大众将进行高压电池模组更换；SK也将在电芯安装（cell stacking process）步骤增加监控摄像头以进行异常识别。其他车辆的召回原因为未安装自放电检测（SDD）软件，但目前并未明确可能发生自放电的根本原因；但实际已发生的热事件分析过程发现，高压电池模组存在电极出现位移的情况；对此大众将对召回及后续生产车辆进行自放电检测软件安装。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "国星宇航完成千问大模型在轨部署，实现太空推理回传用时不到两分钟",
+        "微软发布3纳米工艺定制芯片Maia 200部署数据中心，称FP4性能大幅提升",
+        "研究提出单一位点定向外延生长策略，实现晶圆级二维单晶薄膜可控制备"
+      ],
+      "entries": [
+        {
+          "t": "国星宇航称其完成千问大模型在轨部署并完成数据传输和推理",
+          "d": "2026-01-27",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "国星宇航宣布2025年11月将千问大模型Qwen3部署至\"星算\"计划01组太空计算中心，实现问题上传、在轨推理、结果回传全流程不到2分钟，称全球首次通用大模型在轨部署。\"星算\"计划由2400颗推理卫星和400颗训练卫星组成，2030年前完成千星组网商用，形成覆盖全球的太空训推算力网。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260127/1a31dcbd3cd44905854688a34d8f9497/c.html",
+          "tp": "在轨大模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据新华社、科技日报等媒体1月27日报道，国星宇航执行副总裁王亚波在中国信通院组织的“星算·智联”太空算力研讨会上透露，其在2025年11月将千问大模型Qwen3部署至“星算”计划01组太空计算中心，并成功执行多次端到端推理任务，问题从地面上传至卫星，由大模型完成在轨推理，并将结果数据回传地面，全流程耗时不到2分钟，宣传这是全球首次实现通用大模型在轨部署。\n报道中称，“星算”计划由2400颗推理计算卫星和400颗训练计算卫星组成，将部署在500-1000km晨昏轨道、太阳同步轨道和低倾角轨道，通过星地/星间激光通信组网，实现同轨/异轨高速数据传输；组网形成覆盖全球陆海空天的训推算力网，实现十万P（1 Peta=1015）级的推理算力和百万P级的训练算力；用以服务陆海空天领域的硅基智能体（如自动驾驶载具、无人机、智能机器人等）以及AI模型的推理和训练。该计划的01组太空计算中心已于2025年5月成功发射，完成了关键技术验证；02组、03组太空计算中心已投产，并计划在2026年实现轨道部署；2030年前将完成千星规模组网和商用，超过95%为推理计算卫星，同时完成超大规模训练计算卫星在轨验证；2035年前，完成全部组网，实现服务数以亿计硅基智能体的计算能力",
+          "hb": 1
+        },
+        {
+          "t": "微软发布新定制 AI 芯片 Maia 200",
+          "d": "2026-01-27",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "微软发布定制AI芯片Maia 200，采用台积电3nm工艺，已部署于数据中心。其FP4性能达亚马逊Trainium3三倍，FP8超谷歌TPUv7，每美元性能较现有硬件提升约30%，专为AI推理加速优化。将服务GPT-5.2等模型及Microsoft 365 Copilot，采用高效水冷实现\"零浪费\"以降低环境影响。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/916/680.htm",
+          "tp": "AI推理芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家1月27日消息，微软刚刚在官方博客正式发布了其定制AI加速芯片Maia 200，旨在为大规模AI计算提供更高性能与能效。该芯片采用台积电 3nm制程工艺制造，目前已开始部署于微软数据中心。\n根据微软公布的数据，Maia 200在特定性能指标上显著优于同类产品：其 FP4性能达到了亚马逊第三代Trainium芯片的三倍，FP8 性能则超过谷歌第七代 TPU；同微软数据中心目前部署的最新硬件相比，Maia 200的每美元性能提升约 30%。该芯片被设计为专门的推理加速器，重点优化 AI 生成内容（如回答用户提问）的持续计算任务，目标在于降低运行 ChatGPT、Copilot 等服务的调用成本。微软表示，Maia 200 将服务于包括 OpenAI 最新 GPT-5.2 模型在内的多种 AI 模型，并为 Microsoft Foundry 和 Microsoft 365 Copilot 带来成本优势。\n在可持续性方面，微软执行副总裁斯科特·盖茨在宣传视频中强调，Maia 200 采用了更高效的水冷设计方案，并可实现“零浪费”，以减少数据中心对当地环境与水资源的压力。该芯片已率先在美国爱荷华州得梅因附近的数据中心区域投入使用，下一步将部署于亚利桑那州凤凰城附近的美国西部第三数据中心区域。",
+          "hb": 1
+        },
+        {
+          "t": "大规模二维材料的单原子位点定向外延生长",
+          "d": "2026-01-27",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究提出单一位点定向的单向外延生长策略，实现大面积二维范德华层状材料的规模化合成。传统CVD法生长二维材料面临晶畴随机成核、取向不可控等瓶颈，导致晶界缺陷多、薄膜质量差。该策略通过精确定义单一催化位点的取向，诱导二维材料沿统一方向单向外延生长，从而消除晶界、实现晶圆级单晶薄膜的可控制备，为二维材料在集成电路中的实际集成应用铺平道路。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520837?af=R",
+          "tp": "2D材料定向外延",
+          "aip": 1,
+          "kp": [
+            "[单点位定向外延]: 大规模2D材料均匀晶向生长",
+            "[多晶域合并]: 关键依赖统一结晶取向"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Large‐scale synthesis of van der Waals (vdW) layered 2D materials remain a major challenge for their integration into high‐performance electronics and optoelectronics. Although the multi‐grain coalescence method provides a promising route to large‐area growth, its success critically depends on achieving uniform crystallographic orientation across all nucleated domains, a challenge that has not yet been fully resolved. Here, we present an effective strategy for realizing unidirectional epitaxial growth of 2D materials by controllably introducing single active sites on flat terraces. Using the heteroepitaxy of MoSe\n                    2\n                    on Au(111) as a model system, we combine molecular beam epitaxy with first‐principles calculations to validate this mechanism. We show that Se adsorption disrupts the intrinsic herringbone reconstruction of Au(111), releasing surface Au atoms that aggregate into stable dimers. These dimers act as symmetry‐breaking nucleation centers, guiding the unidirectional alignment of MoSe\n                    2\n                    domains. From the perspective of interfacial interactions, we further clarify how substrate surface activation enhances the epitaxial quality of 2D materials. This work establishes a scalable pathway toward large‐scale single‐crystal 2D films and provides a conceptual framework for advancing the epitaxial growth of 2D materials.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中科院物理所全超导用户磁体中心磁场达35.6特斯拉，打破世界纪录",
+        "",
+        ""
+      ],
+      "entries": [
+        {
+          "t": "我国全超导用户磁体中心磁场强度达到35.6特斯拉",
+          "d": "2026-01-27",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "中科院物理所依托综合极端条件实验装置研制的全超导用户磁体（可用孔径35mm）中心磁场达35.6特斯拉，刷新美国国家强磁场实验室保持的32.0T世界纪录。团队研发多线圈轴向自适应预紧、分区屏蔽电流抑制等核心技术提升电磁-机械安全裕度，下一步目标提升至40T及以上。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.iop.cas.cn/xwzx/snxw/202601/t20260128_8119785.html",
+          "tp": "全超导磁体",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月27日，中科院物理所发文称，其依托国家重大科技基础设施：综合极端条件实验装置研制的全超导用户磁体（可用孔径35毫米）中心磁场强度达到35.6特斯拉，相当于地磁场的70多万倍，刷新了全超导用户磁体新的世界纪录（原先由美国国家强磁场实验室保持的32.0特斯拉（可用孔径34毫米））。\n文中称，全超导磁体具有极高的磁场强度，且能耗极低，在先进科学仪器、高端医疗装备、能源交通等领域具有应用潜力。然而，其研制对磁场强度、稳定度、均匀度、有效口径以及长期运行可靠性等指标有着高要求。其联合电工所团队提出高场高温超导磁体全电磁精细设计理论与电磁结构随动调整方法，研发多线圈轴向自适应预紧、分区屏蔽电流抑制等核心技术，提升强磁场超导磁体的电磁-机械安全裕度；同时实现高温超导磁体健康监测、极低温高磁场精准测量，以及磁体系统与低温、测量系统集成。后续其目标将磁体的磁场强度提升至40特斯拉及更高。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

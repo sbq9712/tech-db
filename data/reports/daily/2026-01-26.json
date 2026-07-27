@@ -1,0 +1,198 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月26日　星期一",
+  "date_range": "2026-01-26",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "Origen完成3700吨/年零碳石灰窑测试，转化率超99%并集成DAC系统",
+      "港浸大联合团队量化中国页岩气碳汇潜力达66Gt CO₂e",
+      "研究提出基于伯努利原理调节扩散层的低耗高率氯气电合成方法"
+    ],
+    "AI与智能科技": [
+      "研究提出单点位定向外延策略，实现大面积无晶界二维半导体合成",
+      "科研团队利用应变梯度挠曲电效应，实现斯格明子低功耗精准操控",
+      "研究人员开发出基于铁电二维半导体的可重构神经形态视觉器件"
+    ],
+    "通用技术": [
+      "研究首次揭示二卤碳烯与烯烃反应中的双峰拟周环过渡态机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "Origen完成3700吨/年零碳石灰窑测试，转化率超99%并集成DAC系统",
+        "港浸大联合团队量化中国页岩气碳汇潜力达66Gt CO₂e",
+        "研究提出基于伯努利原理调节扩散层的低耗高率氯气电合成方法"
+      ],
+      "entries": [
+        {
+          "t": "Origen在北达科他州成功展示首个大规模零碳排放石灰窑",
+          "d": "2026-01-26",
+          "a": "",
+          "c": "零碳产业/物质循环/无机物/非金属/其它无机非金属",
+          "as": "Origen公司在北达科他州EERC完成首个大规模零排放石灰窑部署测试，产能约3700吨/年。其富氧燃料窑技术通过燃烧前分离氮气获得高浓度CO₂直接捕集封存，石灰石转化率超99%，实现石灰生产全过程近零碳排放，并集成直接空气捕集系统，为水泥等高排放工业脱碳提供可行路径。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.worldcement.com/the-americas/26012026/origen-complete-first-large-scale-test-of-zero-emission-lime-kiln-at-eerc/",
+          "tp": "零碳石灰窑",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "石灰生产是典型的高过程排放工业，CO₂主要来自石灰石分解本身而非燃料燃烧，传统能效提升或燃料替代难以实现深度减排。富氧燃烧结合碳捕集被认为是少数可行的工业脱碳路径之一，但长期受限于工程放大、系统稳定性与成本可控性。在此背景下，Origen在北达科他州 Energy & Environmental Research Center（EERC）完成其零排放石灰窑的大规模验证，标志着该路线迈入工程示范阶段。工程级验证：首次在大规模条件下实现富氧石灰窑稳定运行，石灰石转化率 >99%，验证了工艺成熟度。捕集路径清晰：通过富氧燃烧获得高浓度 CO₂，避免复杂分离步骤，为低成本捕集与永久封存创造条件。系统集成拓展：同步验证集成 DAC 与碳化环节，展示“点源减排 + 负排放”的复合脱碳潜力。行业外溢性：技术逻辑可迁移至水泥、钢铁等同类高温煅烧与高过程排放行业。-该示范表明富氧燃烧 + CCUS 在石灰行业已从概念走向可工程化路径，是少数真正触及过程排放核心的工业脱碳方案之一。但其商业化前景仍取决于氧气制备能耗、系统 CAPEX/OPEX 以及与现有产线的改造适配性。后续可执行跟踪：重点关注（1）单位石灰产品的综合能耗与成本变化，（2）ASU 与窑系统的协同优化潜力，（3）连续运行时长与负荷调节能力，以及（4）在水泥/钢铁等场景下的可复制性评估，以判断其从示范走向规模部署的现实边界。",
+          "b": "根据worldcement网站于1月26日报道，Origen公司在北达科他州能源与环境研究中心（EERC）成功完成其创新零排放石灰窑的首次大规模部署和测试（产能约为 3,700 吨/年石灰）。该技术通过Origen的专有富氧燃料窑技术，实现了超过99%的石灰石转化率，并捕获并永久存储所有操作排放，解决了石灰生产过程中的高碳排放问题。此外，Origen还验证了其集成的直接空气捕集系统，展示了其在吸收大气CO₂并进行碳化的能力，为工业脱碳提供了可行的新路径。在Origen的富氧石灰窑技术中，氧气在燃烧之前通过空气分离装置与氮气分离，所以燃烧之后可以得到的高浓度CO2可以直接进行捕集封存，同时提升了石灰生产的热效率，推动工业脱碳。",
+          "hb": 1
+        },
+        {
+          "t": "香港浸会大学郭美瑜评估中国页岩气全产业链地质负排放潜力",
+          "d": "2026-01-26",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "香港浸会大学郭美瑜联合广东工业大学、清华大学团队将生命周期评估与贴现现金流模型结合，量化中国页岩气全价值链协同应用CO₂压裂、吞吐及枯竭井封存技术的减排潜力与经济性。研究表明可累计实现约66Gt CO₂e碳汇潜力，四川盆地海相页岩具内生盈利能力，陆相页岩更依赖碳价机制与政策激励。成果发表于Nature Communications。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1038/s41467-026-68829-y",
+          "tp": "碳封存潜力",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "该文章对页岩气负排放路径的技术与政策意义评述，从“全产业链+全生命周期”的角度论证了页岩气并非必然与高碳锁定相绑定，而是在CO₂驱动型增产与封存技术协同条件下具备转化为地质负排放资产的可能性，其核心价值在于揭示地质条件、技术路径与碳定价三者之间的强耦合关系：在优质海相储层中，工程与经济条件已接近自洽，而在陆相与过渡相储层中，负排放能力更多是一种依赖政策补助的选项，这意味着页岩气负排放可能更适合作为区域化、情景化配置的中长期减排工具，而非普适型解决方案。",
+          "b": "香港浸会大学、广东工业大学与清华大学联合研究团队通过将生命周期评估（LCA）与贴现现金流（DCF）模型相结合，系统量化了中国页岩气全价值链在协同应用CO₂压裂、CO₂吞吐及枯竭井封存等技术条件下的减排潜力与经济可行性，研究表明上述CO₂相关技术不仅能够显著提高页岩气采收率，还可使页岩气产业从传统排放源转变为地质负排放碳汇，全国累计碳汇潜力可达约66Gt CO₂e，但其规模化落地在不同盆地存在显著经济差异，四川盆地海相页岩具备内生盈利能力，而陆相页岩更依赖碳价机制与政策激励，研究成果1月26日发表于Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "伯努利原理介导的 Cl2 电合成",
+          "d": "2026-01-26",
+          "a": "Nature Communications",
+          "c": "零碳产业/物质循环/无机物/非金属/其它无机非金属",
+          "as": "现有氯气合成技术普遍面临产率低或成本高的问题。受伯努利原理启发，研究开发了一种高效低成本的Cl2电合成电化学系统，阳极析氯反应通过三相气体扩散层连接气室。核心是利用伯努利原理调节气体扩散层，在三相边界处产生压差，优化Cl2生成与扩散过程，为绿色氯碱工业提供新路径。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-66643-6",
+          "tp": "氯气电合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Existing technologies for chlorine (Cl2) synthesis are generally suffered from low productivity or high production cost. Guided by Bernoulli’s principle, here we report an efficient yet cost-effective electrochemical system for Cl2 electrosynthesis, which is composed of anodic chlorine evolution reaction (CER) connected to gas chamber by triple-phase gas diffusion layer. The key is to modulate gas diffusion layer by Bernoulli’s principle, wherein the pressure difference at triple-phase boundary drives oriented Cl2 migration directly into gas chamber, thus preventing the crossover of anodic/cathodic products. By further joining with a pH-tolerant catalyst, a standalone prototype device is built for high-rate Cl2 production, operating at the Faradaic efficiencies of 96.3% ~ 87.6% in the current density range of 0.1 ~ 1.14 A cm−2, having superior Cl2 synthesis performance. Further technical-economic evaluations of our synthetic scheme demonstrate reduced Cl2 production cost, saving 6.75% (1.17 million dollar per year) as comparison to conventional chlor-alkali design. We expect these findings offer broader opportunities to develop industrially production processes for other chemical commodities.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究提出单点位定向外延策略，实现大面积无晶界二维半导体合成",
+        "科研团队利用应变梯度挠曲电效应，实现斯格明子低功耗精准操控",
+        "研究人员开发出基于铁电二维半导体的可重构神经形态视觉器件"
+      ],
+      "entries": [
+        {
+          "t": "大面积二维材料的单点位定向外延生长",
+          "d": "2026-01-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "该研究提出了一种单点位定向外延（single-site-directed unidirectional epitaxy）策略，用于大规模合成范德华层状二维材料。传统外延生长常面临多晶成核、晶界密度高和取向不一致等问题，严重制约二维材料的晶圆级集成。该方法通过在衬底上精确定义单一成核点位，引导晶体沿单一方向均匀扩展，从而获得大面积、单晶、无晶界的高质量二维薄膜。这一突破为二维材料在集成电路、光电器件和柔性电子中的产业化应用奠定了基础。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520837?af=R",
+          "tp": "2D材料定向外延",
+          "aip": 1,
+          "kp": [
+            "[单点位定向外延]: 大规模2D材料均匀晶向生长",
+            "[多晶域合并]: 关键依赖统一结晶取向"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Large‐scale synthesis of van der Waals (vdW) layered 2D materials remain a major challenge for their integration into high‐performance electronics and optoelectronics. Although the multi‐grain coalescence method provides a promising route to large‐area growth, its success critically depends on achieving uniform crystallographic orientation across all nucleated domains, a challenge that has not yet been fully resolved. Here, we present an effective strategy for realizing unidirectional epitaxial growth of 2D materials by controllably introducing single active sites on flat terraces. Using the heteroepitaxy of MoSe\n                    2\n                    on Au(111) as a model system, we combine molecular beam epitaxy with first‐principles calculations to validate this mechanism. We show that Se adsorption disrupts the intrinsic herringbone reconstruction of Au(111), releasing surface Au atoms that aggregate into stable dimers. These dimers act as symmetry‐breaking nucleation centers, guiding the unidirectional alignment of MoSe\n                    2\n                    domains. From the perspective of interfacial interactions, we further clarify how substrate surface activation enhances the epitaxial quality of 2D materials. This work establishes a scalable pathway toward large‐scale single‐crystal 2D films and provides a conceptual framework for advancing the epitaxial growth of 2D materials.",
+          "hb": 1
+        },
+        {
+          "t": "通过应变梯度有效操控斯格明子",
+          "d": "2026-01-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "斯格明子（Skyrmion）是具有拓扑保护的自旋结构，在存储、逻辑和传感器件中极具潜力，但精确操控其运动与位置是实用化的核心难题。本研究提出利用应变梯度（strain gradient）作为有效调控手段，通过机械应变场产生的挠曲电效应驱动和引导斯格明子，实现无需大电流或强磁场的低功耗操控。该方法为斯格明子自旋电子器件的读写定位提供了新机制，有望显著降低功耗并提升存储密度，推动拓扑自旋电子学走向实用。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518161?af=R",
+          "tp": "应变梯度磁斯格明子",
+          "aip": 1,
+          "kp": [
+            "[应变梯度]: 能量高效调控斯格明子密度与尺寸",
+            "[优势]: 避免过大应变导致塑性变形或开裂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Skyrmion‐based devices hold considerable potential for memory, logic, and sensing applications, where precise control over skyrmion density and size is essential. While strain engineering offers an energy‐efficient route to tune these properties, excessive strain can induce plastic deformation in magnetic films or lead to cracking, compromising the reliability of strain‐mediated skyrmion control. Here, we demonstrate strain gradients as an effective additional control parameter in magnetic multilayers. By introducing microscale periodic wrinkled structures in sputtered Pt/Co/Ta multilayers, strain gradients with varying magnitudes and directions are generated. Magnetic force microscopy reveals that both skyrmion density and size vary synchronously with the in‐plane strain gradient, enabling broader tunability than uniform strain approaches. Micromagnetic simulations confirm that these effects arise from strain and strain gradient modulation of the Dzyaloshinskii‐Moriya interaction and magnetic anisotropy. Moreover, this control strategy is reversible, cyclable, and transferable across different magnetic multilayers, providing a practical avenue for precise skyrmion engineering. This approach offers significant promise for advancing flexible spintronics, skyrmion‐based memory, and neuromorphic computing architectures.",
+          "hb": 1
+        },
+        {
+          "t": "基于铁电二维半导体的可重构垂直肖特基光电二极管用于感知精准、情境感知的神经形态视觉",
+          "d": "2026-01-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出一种基于铁电二维半导体的可重构垂直肖特基光电二极管，用于实现具有感知精度和情境感知能力的神经形态视觉系统。该器件将铁电材料可调的极化特性与二维半导体的高光响应能力相结合，通过铁电极化翻转动态调制肖特基势垒高度，实现光感知、计算和存储功能的一体化集成。这种存内感知计算架构能够在硬件层面模拟视觉系统的情境适应性和自适应调节能力，为仿生机器视觉、边缘智能感知和实时图像处理提供了低功耗、高精度的硬件解决方案。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521243?af=R",
+          "tp": "铁电2D光电二极管",
+          "aip": 1,
+          "kp": [
+            "[铁电2D半导体]: 可重构垂直肖特基光电二极管",
+            "[感存算一体]: 单器件集成传感/计算/存储",
+            "[应用]: 感知精度上下文感知神经形态视觉"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    To realize in‐memory sensing and computing platforms, it is essential to integrate sensing, computation, and memory functionalities within a single device, enabling energy‐ and time‐efficient vision systems with high perceptual precision. However, achieving such multi‐functional processing capability within a compact device structure remains a major challenge. Here, a reconfigurable vertical photodiode based on α‐In\n                    2\n                    Se\n                    3\n                    is presented, a ferroelectric 2D semiconductor. Gradual and reversible modulation of built‐in electric fields at the top and bottom Schottky junctions is achieved through partial out‐of‐plane polarization switching of α‐In\n                    2\n                    Se\n                    3\n                    , enabling multi‐level, non‐volatile, and polarity‐tunable photoresponsivity. This allows analog programmability with a high degree of freedom in processing within a two‐terminal metal‐ferroelectric semiconductor‐metal (MFsM) structure, effectively resolving trade‐off between structural compactness and computing versatility. Leveraging these intrinsic characteristics, we demonstrate a versatile sensor‐level perceptual processing framework using a reconfigurable photodiode crossbar array. By exploiting the high‐density spatial integration capability, the system adaptively configures its spatial support to prioritize either suppressing environmental noise for robust feature extraction or preserving fine‐grained details for precise classification, depending on the task requirements. These results lay the foundation for highly scalable and energy‐efficient neuromorphic vision system with high perceptual precision.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究首次揭示二卤碳烯与烯烃反应中的双峰拟周环过渡态机制"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 二卤碳烯与烯烃反应中的双峰 (2 + 1)/(4 + 1) 拟周环过渡态",
+          "d": "2026-01-26",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "首次报道二卤碳烯与烯烃反应中存在双峰(2+1)/(4+1)拟周环过渡态。准经典分子动力学模拟揭示了二溴卡宾与双亚甲基环庚烷反应中单一过渡态分叉产生两种实验产物的机制，IBO和PIO分析将其归因于双亲性轨道相互作用，对理解有机反应机理具有理论意义。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c13906",
+          "tp": "碳烯反应机",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We report the first example of ambimodal (2 + 1)/(4 + 1) pseudopericyclic transition states (TSs) in reactions between dihalocarbenes and olefins. Quasi-classical molecular dynamics simulations of the model reaction between dibromocarbene and 1,2-bis(methylene)cycloheptane reveal a single ambimodal TS that bifurcates to the experimentally observed (2 + 1) and (4 + 1) products. Intrinsic bond orbital (IBO) and principal interacting orbital (PIO) analyses attribute this ambimodality to the amphiphilicity of dibromocarbene: its empty p-type orbital engages the diene HOMO, while its σ-lone pair interacts with both the C2 and C4 lobes of the diene LUMO. The resulting ambimodal transition structure displays a large disparity in competing bond lengths─an outlier relative to established correlations between bond length differences and ambimodal selectivity. Entropic path sampling reveals a pronounced entropic trap along the (2 + 1) pathway, giving rise to a post-transition-state dynamical intermediate that promotes extensive roaming rather than immediate product formation. This dynamic window allows the weaker (4 + 1) interaction to develop and compete, thereby enabling ambimodality despite the substantial bond length difference. An analogous ambimodal (2 + 1)/(4 + 1) cycloaddition is identified between nucleophilic dimethoxycarbene and alkenyl aldehyde relevant to natural product synthesis, underscoring the generality and synthetic utility of this manifold. Together, these findings reveal how structure, orbital interactions, and post-transition-state dynamics cooperatively govern ambimodal selectivity in this previously unrecognized carbene reaction manifold and provide a foundation for developing new strategies to tune reaction selectivity.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月29日　星期日",
+  "date_range": "2026-03-29",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "微流控技术攻克钠电池高熵氟磷酸盐正极规模化合成难题",
+      "新型自适应电解质保障液态锂电池在超100摄氏度下稳定循环",
+      "2D与3D异质结技术提升反式钙钛矿太阳能电池效率至26.49%"
+    ],
+    "AI与智能科技": [
+      "AI处理算法突破水下电子皮肤微弱触觉感知灵敏度限制",
+      "全硅CMOS晶体管架构推出可低成本量产的组合优化伊辛机",
+      "机器人自动化实验与AI降维解析复杂催化剂反应动力学机制"
+    ],
+    "通用技术": [
+      "中科院物理所等机构研制埃米级光耦合无液氦扫描探针显微镜",
+      "中国航发AEP100兆瓦级液氢燃料涡桨发动机完成地面点火测试",
+      "60千瓦混合动力电推进系统无人机成功完成飞行演示验证"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "微流控技术攻克钠电池高熵氟磷酸盐正极规模化合成难题",
+        "新型自适应电解质保障液态锂电池在超100摄氏度下稳定循环",
+        "2D与3D异质结技术提升反式钙钛矿太阳能电池效率至26.49%"
+      ],
+      "entries": [
+        {
+          "t": "微流控高通量优化实现高熵氟磷酸盐正极的可扩展合成",
+          "d": "2026-03-29",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "研究利用微流控高通量优化平台，实现了高熵氟磷酸盐正极材料的可扩展合成，解决了高倍率钠离子电池正极大规模制备难题。该方法通过快速筛选多元组分比例，系统优化材料晶体结构与电化学性能，显著提升了钠离子电池的能量密度和循环稳定性，为大规模储能应用奠定基础。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag195/8551346?rss=1",
+          "tp": "高熵磷酸盐正极",
+          "aip": 1,
+          "kp": [
+            "[材料]:高熵Na3V1.9M0.1(PO4)2F3",
+            "[策略]:微流控高通量优化",
+            "[应用]:钠电高倍率正极"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Large-scale synthesis of high-entropy fluorophosphate cathode for high-rate sodium-ion batteries remains a huge challenge due to time-consuming conditional optimization and poor phase purity. Herein, for the first time, we overcome the bottlenecks of large-scale synthesis of high-entropy Na3V1.9M0.1(PO4)2F3 (HE-NVPF) cathode libraries by microfluidic high-throughput optimization (MHO) strategy. Due to precise regulation and in-situ monitoring of nucleation-growth kinetics, the microfluidic in-situ Raman spectrometer achieves high iteration efficiency of conditional optimization with 400 times increase over traditional strategies. Consequently, kilogram-scale HE-NVPF with high phase purity is rapidly synthesized within 2 hours, which delivers stable multielectron transfer, superior Na+ diffusion kinetics and negligible volume expansion/contraction, exhibiting reversible phase transition and excellent structural ruggedness. As a result, the representative Na3V1.9(Ca, Mg, Zr, Mn, Cr)0.1(PO4)2F3 cathode presents record-breaking rate capacity (108.6 mAh g−1 at 50 C), large energy density (371.9 Wh kg−1) and good cycling stability. This MHO strategy can be extended to synthesize other high-entropy Na3V1.9M0.1(PO4)2F3, such as M= (Mg, Zr, Co, Mn, Cr), (Zr, Ca, Fe, Mn, Cr), (Mg, Ca, Ni, Mn, Cr), (Zr, Cu, Mg, Mn, Cr) and (Ga, Zr, Ca, Mn, Cr). Our work provides a novel insight into machine intelligent synthesis of high-entropy materials and facilitates their industrialized process.",
+          "hb": 1
+        },
+        {
+          "t": "温度自适应电解液实现液态锂软包电池在≥100°C下的稳定循环",
+          "d": "2026-03-29",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究开发了一种温度自适应电解质，使液态锂电池能够在超宽温度范围（从零下到60°C以上）内实现稳定循环。传统锂电池电解质在低温下离子电导率骤降、高温下易分解，严重制约了极端环境应用。该自适应电解质通过溶剂化结构调控，在宽温域内维持稳定的离子传输动力学和界面化学兼容性，有效抑制了极端温度下的锂枝晶生长和副反应，为电动汽车、航空航天等领域全天候储能系统提供了实用化解决方案。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02956",
+          "tp": "宽温锂电池电解液",
+          "aip": 1,
+          "kp": [
+            "工作温度[液态锂金属软包]: ≥100°C",
+            "[电解质]: 温度自适应电解质"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Development of lithium batteries capable of operating over ultrawide temperature ranges, from subzero to temperatures ≥ 100 °C, is urgently needed yet remains highly challenging. This is primarily due to the inherent trade-off between sluggish kinetics at low temperatures and poor structural stability at high temperatures and high voltages. Herein, by systemically investigating the temperature responsiveness of various anions, a temperature-adaptive weakly solvating electrolyte (TAE) is elaborately designed in which the solvation structures are sensitive to temperature. As a result, TAE not only exhibits a higher Li+ transference number and ionic conductivity comparable to commercial electrolytes at ambient and subzero temperatures, but also leads to anion-derived gradient inorganic-rich interphases at high temperatures/cutoff voltages. Consequently, LiCoO2 || Li cells using TAE achieve capacity retentions of 89.6% after 500 cycles at ambient temperature and a cutoff voltage of 4.5 V, and 90.8% after 450 cycles at 80 °C. Moreover, 6.5 Ah pouch lithium-ion cells using TAE, with enhanced safety and ultrawide temperature ranges from -30 to 130 °C, deliver a capacity retention of 86.1% after 100 cycles at 100 °C. Notably, even at 120 °C, the cells retain 71.1% of their initial capacity over 60 cycles without significant swelling. This strategy empowers lithium batteries to autonomously adapt to external temperature, enabling reliable operation across diverse extreme environments.",
+          "hb": 1
+        },
+        {
+          "t": "原位形成胍衍生物与2D/3D异质结构实现26.49%高效稳定反式钙钛矿太阳能电池",
+          "d": "2026-03-29",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究在反式钙钛矿太阳能电池中原位形成胍类衍生物并构建2D/3D异质结构，同步解决效率与稳定性难题。胍类衍生物钝化界面缺陷并抑制离子迁移，2D/3D梯度结构增强湿热稳定性。优化后器件获得26.49%的光电转换效率，且在连续光照与高温高湿条件下保持优异的长期运行稳定性。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8890696?af=R",
+          "tp": "倒置钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "PCE[反式钙钛矿电池]: 26.49%",
+            "[添加剂]: HTA多功能添加剂",
+            "[原位反应]: HTA+FAI生成多氨基胍盐衍生物",
+            "[结构工程]: 2D/3D异质结"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Inverted perovskite solar cells (IPSCs) face challenges in achieving both high efficiency and stability due to defects that induce non‐radiative recombination. Here, we introduce 1H‐1,2,4‐triazole‐1‐ammonium chloride (HTA) as a multifunctional additive that reacts with formamidinium iodide (FAI) to generate a multi‐amino guanidinium derivative. This in situ formed compound enables dual passivation by coordinating with Pb\n                    2+\n                    ions and forming hydrogen bonds with I\n                    −\n                    ions, while simultaneously templating a 2D/3D heterostructure. HTA effectively regulates nucleation kinetics, reduces defect density, and optimizes energy‐level alignment. Consequently, the HTA‐treated device achieves a champion power conversion efficiency (PCE) of 26.49% (certified 26.20%) with significantly enhanced stability. The unencapsulated device retains 89.15% of its initial efficiency after 2000 h in ambient air, and the encapsulated device maintains 95% of its initial PCE after 1000 h of maximum power point tracking. This strategy provides a promising route for developing high‐performance and stable IPSCs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "AI处理算法突破水下电子皮肤微弱触觉感知灵敏度限制",
+        "全硅CMOS晶体管架构推出可低成本量产的组合优化伊辛机",
+        "机器人自动化实验与AI降维解析复杂催化剂反应动力学机制"
+      ],
+      "entries": [
+        {
+          "t": "AI增强仿生水下电子皮肤实现对微小触觉差异的精准捕获，助力无干扰水下交互",
+          "d": "2026-03-29",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "开发了AI增强的仿生水下电子皮肤（E-skin），能够精确捕捉微弱触觉差异，实现无干扰水下交互。针对未来海洋开发中水下机器人可靠触觉感知的需求，该电子皮肤结合AI算法处理传感信号，克服了现有水下触觉传感器灵敏度不足的问题，为深海探测与水下作业提供了先进的感知技术方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72938?af=R",
+          "tp": "水下触觉电子皮肤",
+          "aip": 1,
+          "kp": [
+            "[器件]: 摩擦电水下电子皮肤(E-skin)",
+            "[功能]: AI增强微小触觉差异识别",
+            "[优势]: 解耦水动力噪声"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Future marine exploitation requires underwater robots with reliable tactile perception. However, existing underwater haptic sensing technology remains challenged in discriminating similar physical properties among objects owing to strong hydrodynamic noise. Herein, we propose a triboelectric aquatic electronic skin (E‐skin) capable of decoupling tactile signatures arising from minimal differences in unsteady water flow and high hydrostatic pressure disturbance. This is achieved through a bioinspired fish lateral line mechanical design that integrates a bionic fish‐scale array to attenuate flow impact, thermoplastic polyurethane (TPU) powders to withstand hydrostatic compression, and an ionic hydrogel with asymmetric ion pairs to enhance signal output. The aquatic E‐skin exhibits high sensitivity to tiny vibrations caused by surface differences when sliding over objects. Leveraging a feature‐fusion machine learning, it extracts robust tactile vibrations during water flow motion and precisely classifies underwater minimal differences in texture and hardness, as well as roughness from 0.8 to 1600 µm. Additionally, integration of the E‐skin on a robotic fish demonstrates its potential in fish swimming state detection to achieve intelligent aquaculture. This AI‐enhanced E‐skin not only enhances the reliability of underwater minimal difference perception but also unlocks novel interaction capabilities for broad marine applications in disturbance‐rich aquatic environments.",
+          "hb": 1
+        },
+        {
+          "t": "全硅晶体管构成的可扩展伊辛机",
+          "d": "2026-03-29",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "本研究提出一种完全由硅基CMOS晶体管构成的伊辛机（CIM），利用数字电路模拟伊辛模型求解组合优化问题。相比光学和量子伊辛机，纯硅方案具备与现有半导体工艺完全兼容、可大规模量产、成本低廉等优势，在物流调度、芯片布线等NP难问题上具有实用化潜力。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz2384?af=R",
+          "tp": "硅基伊辛机",
+          "aip": 1,
+          "kp": [
+            "[器件]:全硅MOSFET伊辛机",
+            "[功能]:MOSFET兼作振荡器与耦合器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We introduce a complementary metal-oxide semiconductor (CMOS) Ising machine (CIM) composed entirely of silicon-based metal-oxide semiconductor field-effect transistors (MOSFETs). Instead of adhering to the conventional functions of MOSFETs as switches or amplifiers, CIM adopts an unprecedented approach that uses the dual characteristics of MOSFETs to function as both oscillators and couplers, enabling the coupling strength between oscillators to be tuned through gate biasing. These dual behaviors facilitate effective synchronization within the CIM, while the use of MOSFETs ensures full compatibility with standard CMOS fabrication technology and provides a pathway toward scalable hardware implementation. We also address the challenge of frequency variability, a critical issue in a large-scale CIM, by finely tuning the gate voltage of the oscillating transistors. This strategy notably enhances the stability and reliability of the CIM, achieving a level of control that is difficult to attain in other Ising machines using heterotypic device architectures. This CIM was applied to solve a MaxCUT problem. The demonstrated advantages of our CIM, including its compact cell size, high scalability, and robust operation, represent a promising direction for the advancement of future large-scale and energy-efficient Ising machines.",
+          "hb": 1
+        },
+        {
+          "t": "超空间映射与迭代降维揭示钙钛矿型催化剂控制的自由基级联网络",
+          "d": "2026-03-29",
+          "a": "Chem",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "该研究结合机器人自动化实验与AI引导的降维分析，对钙钛矿型催化剂控制的自由基级联反应网络进行了超空间映射。通过迭代降维算法从高维反应参数空间中提取关键控制变量，揭示了自由基传递与级联反应的动力学规律。该方法将复杂催化体系的机理解析效率提升数个量级，为催化剂理性设计提供了数据驱动新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00053-7?rss=yes",
+          "tp": "AI驱动催化探索",
+          "aip": 1,
+          "kp": [
+            "[方法]: 机器人实验+AI降维映射反应超空间",
+            "[催化剂]: 钙钛矿型催化冷启动自由基级联",
+            "[产物数]: 最多十种离散产物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Robot-assisted experimentation combined with AI-guided dimensionality reduction enabled mapping of the reaction hyperspace and reconstruction of the mechanistic network for cold-start radical cascades catalyzed by previously untested perovskite-like materials, uncovering up to ten discrete—and often synthetically valuable—products.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中科院物理所等机构研制埃米级光耦合无液氦扫描探针显微镜",
+        "中国航发AEP100兆瓦级液氢燃料涡桨发动机完成地面点火测试",
+        "60千瓦混合动力电推进系统无人机成功完成飞行演示验证"
+      ],
+      "entries": [
+        {
+          "t": "中科院物理所报道一种采用远端液化无液氦闭循环极低振动制冷方案的光耦合扫描探针显微镜",
+          "d": "2026-03-29",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "中科院物理所郇庆团队联合中科大谭世倞团队及中科艾科米公司成功研制新型无液氦闭循环光耦合扫描探针显微镜系统（OC-SPM），实现埃米级光谱学成像能力。系统采用远端液化方案，将压缩机置于独立氦循环中经柔性输液杆传输液氦，有效隔离震动并摆脱液氦补给依赖。基础工作温度低于3K，温度稳定性近±1mK，振动水平小于1pm，可数月连续运行。探头集成两个数值孔径0.46可移动透镜模组，光子收集效率最高22.8%。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/GhHFfW0ryJ3224n7mfbO6A",
+          "tp": "扫描探针",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "3月29日，中科院物理所在官方公众号发文称，该所郇庆团队联合中科大谭世倞团队、中科艾科米（北京）科技公司成功研制出一套新型无液氦闭循环光耦合扫描隧道显微镜系统（OC-SPM），实现了埃米级光谱学成像能力。文中称，该研究通过将压缩机置于独立氦循环中，利用柔性输液杆将液氦传输至扫描探头，有效隔离了震动噪音，缩小了系统体积，并摆脱了对液氦补给的依赖；系统基础工作温度低于3 K，温度稳定性接近±1 mK，振动水平小于1 pm，能够实现数月连续运行。系统在扫描探头上集成了两个数值孔径为0.46的可移动透镜模组，可提供最高22.8%的光子收集效率，可用于实现埃米级光谱学成像。",
+          "hb": 1
+        },
+        {
+          "t": "中国航发动研所研制的AEP100液氢燃料涡桨发动机完成地面点火测试",
+          "d": "2026-03-29",
+          "a": "",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国航发动研所研制的AEP100液氢燃料涡桨发动机完成基于地面试验环境的点火与性能调试试验，实现国内首次兆瓦级液氢燃料航空发动机整机性能达标。液氢航空发动机技术有望先期应用于无人空中物流、支线航空等场景，后期逐步向干线航空延伸，为绿色低碳航空提供新动力方案，标志我国在液氢航空动力领域取得重要突破。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/-xk4VwFM3LRWmiDGEh62-g",
+          "tp": "液氢发动机",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "3月29日，中国航空发动机集团动力研究所在官方公众号发文称，其研制的AEP100液氢燃料涡桨发动机完成了基于地面试验环境的点火与性能调试试验，实现了国内首次兆瓦级液氢燃料航空发动机整机性能达标。文中称，液氢航空发动机技术有望在无人空中物流、支线航空等场景先期应用，后期逐步向干线航空延伸。",
+          "hb": 1
+        },
+        {
+          "t": "我国60kW混合动力电推进系统无人机完成飞行验证",
+          "d": "2026-03-29",
+          "a": "",
+          "c": "通用技术/通信和运输/航空",
+          "as": "四川垚磊科技科研飞行试验平台完成60kW混合动力电推进系统无人机飞行演示验证。该系统由四川天府轻型动力科技研发，为增程式混合动力系统，最大功率80kW，耗油率0.65kg/(kW·h)，寿命300h，发动机干质量35kg。可应用于大型无人机空中供电吊舱（机载供电设备）以及200—1000公斤eVTOL增程器，为电动航空提供高效能源解决方案。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/YPThp06zlzQW_MX2AfPXxg",
+          "tp": "电推系统",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "3月29日，四川垚磊科技在官网发文称，采用其科研飞行试验平台测试验证的60kW混合动力电推进系统无人机完成飞行演示验证。相关报道称，该无人机系统由四川天府轻型动力科技进行研发，为增程式混合动力系统，最大功率80kW，耗油率0.65kg/(kW·h)，寿命300h，发动机干质量35kg，可用于大型无人机空中供电吊舱（机载供电设备）、200—1000公斤eVTOL增程器。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月16日　星期四",
+  "date_range": "2026-04-16",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "华柔光电宣称全钙钛矿叠层电池认证效率达31.73%",
+      "双铱活性位点掺杂工程打破酸性析氧反应活性与稳定性瓶颈",
+      "中科院金属所制备出抗拉强度900MPa且电导率90%的新型铜箔"
+    ],
+    "AI与智能科技": [
+      "芬兰与德国科研机构探索磁热效应与片上冷却替代氦-3制冷",
+      "研究揭示大语言模型合成数据中行为偏倚可跨代际隐式累积",
+      "研究证实大模型可通过隐藏信号隐蔽传播恶意特征与指令"
+    ],
+    "通用技术": [
+      "研究团队采用卷对卷纳米压印工艺实现每秒300件超构透镜制造",
+      "科研人员通过控制长程有序排列制备出像素化量子点超晶格LED",
+      "耶鲁大学团队结合干喷湿纺与焦耳热驱动甲烷热解制备低成本碳纤维"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "华柔光电宣称全钙钛矿叠层电池认证效率达31.73%",
+        "双铱活性位点掺杂工程打破酸性析氧反应活性与稳定性瓶颈",
+        "中科院金属所制备出抗拉强度900MPa且电导率90%的新型铜箔"
+      ],
+      "entries": [
+        {
+          "t": "华柔光电称其全钙钛矿叠层电池认证效率达31.73%",
+          "d": "2026-04-16",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "华柔光电在官方公众号宣称其研发的全钙钛矿叠层电池经国家光伏产业计量测试中心认证效率达31.73%，单电池开路电压2.224V。但报告中Isc、FF等关键参数未公布，技术细节缺失，数据可验证性有限。该效率如属实，在全钙钛矿叠层领域处于领先水平。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/04DFnY2M01wjKfNR_Wcxfg",
+          "tp": "钙钛矿叠层",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月16日，华柔光电在官方公众号发文称，其研发的全钙钛矿叠层电池的认证效率达到31.73%（国家光伏产业计量测试中心），单电池开路电压达到2.224V（报告中Isc、FF等其他参数并未公布）。",
+          "hb": 1
+        },
+        {
+          "t": "双铱活性位点突破酸性析氧反应的活性-稳定性极限",
+          "d": "2026-04-16",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "工业级酸性析氧反应（OER）对铱基催化剂的活性与稳定性提出极高要求，但两者通常不可兼得——活性越高，溶解越快。本研究通过掺杂工程（d-band电子结构调控）打破该瓶颈，设计出在酸性介质中兼具高OER活性和长循环稳定性的新型催化剂体系。研究深入解析了掺杂元素对活性位点电子结构、吸附能及溶解热力学的协同影响机制，为实现太瓦级绿色制氢提供了关键催化材料解决方案，具有重大能源战略价值。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee7510?af=R",
+          "tp": "析氧反应催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[酸性OER]: 晶格限制型双Ir活性位点",
+            "[机制]: 完全暴露Ir原子同时提升活性与稳定性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Meeting terawatt-scale global energy demands requires overcoming the activity-stability trade-off of iridium-based catalysts, the only industrially viable option for acidic water oxidation. Herein, we report a lattice-confinement strategy that creates patches of fully exposed Ir atoms, simultaneously enhancing oxygen evolution reaction (OER) activity and stability in acidic media. In situ vibrational and mass spectroscopy identify peroxo intermediates bridging adjacent Ir atoms, supporting an OER mechanism based on direct O─O radical coupling. Density functional theory reveals synergistic interactions between neighboring Ir atoms that enable O\n                    2\n                    evolution through a low-energy pathway. These abundant dual active sites achieve an ultralow overpotential of 198 millivolts at 10 milliamperes per square centimeter and a two-order-of-magnitude higher mass activity than commercial IrO\n                    2\n                    . Stability calculations further show that lattice confinement suppresses Ir dissolution, enabling durable operation beyond 2 months in acid. This work establishes lattice confinement as an effective route to high-performance catalysts for practical water electrolysis.",
+          "hb": 1
+        },
+        {
+          "t": "中国科学院金属研究所卢磊提出兼具高强度/高导电性与热稳定性的铜箔开发策略",
+          "d": "2026-04-16",
+          "a": "",
+          "c": "零碳产业/物质循环/无机物/有色金属/铜业",
+          "as": "中科院金属所卢磊通过杂质工程策略，以工业化直流电沉积工艺制备出10微米厚新型铜箔。其内含约3纳米的周期性梯度超纳米域（GSD），使铜箔兼具约900MPa抗拉强度、90%IACS电导率及卓越热稳定性，室温储存180天强度几乎无衰减，远超传统纳米晶铜箔，突破了铜箔领域长期存在的高强度与高导电性相互制约的权衡难题。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aed7758",
+          "tp": "高性能铜箔",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "在先进电子和能源存储领域，铜箔需同时具备超高强度、高导电性和良好热稳定性，但这些性能往往相互制约，实现兼顾始终是重大挑战。\n中国科学院金属研究所卢磊研究员通过创新的杂质工程策略，成功制备出一种新型10微米厚铜箔，突破了长期存在的性能权衡难题。研究团队采用工业化直流电沉积工艺，在CuSO₄电解液中以650 mA/cm²的高电流密度进行沉积，通过混合有机添加剂调控微观结构，制备出含有纳米晶粒和周期性梯度分布超纳米域（gradient super-nano domains，GSD）的铜箔。超纳米域尺寸约3纳米，由添加剂衍生的有机元素（C、O等）局部富集形成，在箔厚度方向呈周期性梯度分布，结构梯度参数可达113%/μm，整体域体积分数约3.2%。\n这种独特的梯度超纳米域架构带来了优异的性能协同：GSD-113铜箔的抗拉强度达到约900 MPa，标准电导率保持在90% IACS（国际退火铜标准），同时具有良好的延展性（延伸率约3%）和卓越的热稳定性。在室温储存180天后，其强度和硬度几乎无衰减，远优于传统纳米晶铜箔（后者24小时内强度损失约50%，晶粒发生严重粗化）。相比随机分布域或无域纳米晶铜箔，梯度结构显著提升了强度-延展性协同，并有效抑制了晶界自退火现象。\n微观机制研究表明，超纳米域通过双重作用实现强化与稳定：一方面借助半相干界面产生Zener钉扎和热力学稳定化，抑制高能晶界的迁移；另一方面在变形过程中，域富集层（II层）内形成高密度短螺型位错（10¹⁶ m⁻²），而域贫乏层（I层）则以长刃型位错为主，二者协同促进均匀变形、应变梯度塑性和额外加工硬化，从而打破传统Hall-Petch强化带来的导电性与稳定性损失。\n该策略不仅保持了极低的杂质总量（0.09 wt%），确保导电性能，同时完全兼容工业高速电沉积生产，具有显著的成本和规模化优势。研究为锂离子电池集流体和集成电路基材提供了高性能解决方案，也为其他高性能金属材料的通用设计提供了新路径。文章于2026年4月16日发表在Science。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "芬兰与德国科研机构探索磁热效应与片上冷却替代氦-3制冷",
+        "研究揭示大语言模型合成数据中行为偏倚可跨代际隐式累积",
+        "研究证实大模型可通过隐藏信号隐蔽传播恶意特征与指令"
+      ],
+      "entries": [
+        {
+          "t": "研究者正在寻找用于量子计算的氦-3冷却的替代方案",
+          "d": "2026-04-16",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "量子计算依赖稀有同位素氦-3的mK级稀释制冷机冷却，成本高昂且供应受限。德国kiutra公司正复兴磁热效应磁冷却技术实现无氦-3运行，芬兰VTT与阿尔托大学探索将制冷功能集成到量子芯片内部的'片上冷却'方案，利用超导隧道结或LED实现局部超低温。这些创新有望将庞大制冷系统缩小至手提箱大小，混合冷却方案被视为未来方向。文章发表于Science。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/content/article/helium-3-runs-scarce-researchers-seek-new-ways-chill-quantum-computers",
+          "tp": "量子制冷替代",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "三种代替方案：磁冷却：某些材料在施加磁场时，内部原子的磁 spins（磁矩）会从无序变为有序排列，这一过程会释放热量；移除磁场后，磁矩恢复无序状态，并从周围环境中吸收热量，从而实现制冷。光子冷却：当施加给LED的电压略低于其正常发光所需阈值时，电子无法直接从电源获得足够能量跃迁。此时，电子会从周围原子晶格中“窃取”热能，补充能量缺口并跃迁至较高能级；当电子回落时，以光子形式释放多余能量，从而将热量辐射出去。电子冷却：在金属与超导体之间设置一层薄绝缘势垒。超导体存在能隙，只有能量高于能隙的“热电子”才能隧穿至超导体一侧；而低能电子被阻挡。随着热电子被定向抽离，金属中剩余电子的平均能量降低，从而实现冷却。随着量子计算机规模不断扩展，其运行所需的接近绝对零度的超低温环境变得愈发关键。目前主流技术依赖稀释制冷机，而这类设备的核心冷却介质——氦-3，一种主要源自核武器中氚衰变的稀有同位素，正面临供应紧张与价格飙升的严峻挑战。总结了目前潜在的mK级制冷技术代替方案及其进展：基于氦-3的稀释冷却：已能稳定运行在20 mK磁冷却（Kiutra公司）：其现有产品最低温度达100 mK，2026年底前目标达到20 mK电子冷却（芬兰VTT）：2024年使用铌结将芯片从2.4 K冷却到1.6 K光子冷却（阿尔托大学）：仍处于早期实验验证阶段，目前仅达到50 K，远未达到量子计算所需的mK级低温",
+          "b": "当前学术界正在寻找代替用于量子计算机的mK级氦-3冷却技术的代替路线。德国kiutra公司正复兴基于磁热效应的磁冷却技术，已实现无氦-3运行，并计划进一步提升制冷功率。芬兰VTT技术研究中心与阿尔托大学的团队则专注于“片上冷却”方案，它是指将制冷功能直接集成到量子芯片内部或紧邻芯片的位置，取代传统外接大型稀释制冷机的方案，其核心思想是：量子计算真正需要的是降低芯片中电子及晶格的热能（而非整个环境温度），因此可以通过在芯片上制作微纳结构（如超导隧道结、发光二极管等），有针对性地将热电子抽走或将热量以光子形式辐射出去，从而实现局部超低温。芬兰VTT利用超导隧道结滤除高能电子，阿尔托大学探索通过发光二极管（LED）以光子形式辐射热量。这些创新有望将庞大的制冷系统缩小至手提箱大小，同时从根本上摆脱对稀有同位素的依赖。尽管稀释制冷机短期内仍将主导市场，但业界普遍认为，融合多种技术的混合冷却方案将是未来的发展方向。文章于2026年4月16日发表在Science。\n作者：柏林物理科学记者Zack Savitsky",
+          "hb": 1
+        },
+        {
+          "t": "语言模型通过数据中的隐藏信号传递行为特征",
+          "d": "2026-04-16",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "研究发现大语言模型能够通过数据中隐藏的信号传递行为特征，即模型生成的训练数据中嵌入了难以察觉的行为模式，这些模式会被后续训练的模型继承和放大。这一现象对合成数据驱动的模型迭代构成潜在风险：行为偏倚可在模型代际间隐式传播并累积，可能导致模型行为漂移、对齐失效或不可预测的能力涌现，凸显了合成数据质量审计的紧迫性。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10319-8",
+          "tp": "模型蒸馏隐藏信号",
+          "aip": 1,
+          "kp": [
+            "现象[LLM蒸馏]: 语义无关数据传递行为特征",
+            "领域[AI安全]: 模型蒸馏潜意识学习"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Large language models (LLMs) are increasingly used to generate data to train improved models1,2,3, but it remains unclear what properties are transmitted in this model distillation4,5. Here we show that distillation can lead to subliminal learning—the transmission of behavioural traits through semantically unrelated data. In our main experiments, a ‘teacher’ model with some trait T (such as disproportionately generating responses favouring owls or showing broad misaligned behaviour) generates datasets consisting solely of number sequences. Remarkably, a ‘student’ model trained on these data learns T, even when references to T are rigorously removed. More realistically, we observe the same effect when the teacher generates math reasoning traces or code. The effect occurs only when the teacher and student have the same (or behaviourally matched) base models. To help explain this, we prove a theoretical result showing that subliminal learning arises in neural networks under broad conditions and demonstrate it in a simple multilayer perceptron (MLP) classifier. As artificial intelligence systems are increasingly trained on the outputs of one another, they may inherit properties not visible in the data. Safety evaluations may therefore need to examine not just behaviour, but the origins of models and training data and the processes used to create them.",
+          "hb": 1
+        },
+        {
+          "t": "不良影响：大语言模型可利用隐藏信号传递恶意特征",
+          "d": "2026-04-16",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "研究揭示大语言模型可通过隐藏信号传播恶意特征。攻击者可在模型权重或训练数据中植入隐蔽触发机制，使LLM在看似正常交互中携带难以察觉的恶意指令或行为模式，并传染给下游模型或应用。该发现对LLM供应链安全构成严峻警示，凸显模型审计、供应链防护和对抗性检测在AI安全部署中的紧迫性。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-026-00906-0",
+          "tp": "模型蒸馏恶意信号",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究团队采用卷对卷纳米压印工艺实现每秒300件超构透镜制造",
+        "科研人员通过控制长程有序排列制备出像素化量子点超晶格LED",
+        "耶鲁大学团队结合干喷湿纺与焦耳热驱动甲烷热解制备低成本碳纤维"
+      ],
+      "entries": [
+        {
+          "t": "可见光超构表面透镜的卷对卷量产工艺：每秒300件",
+          "d": "2026-04-16",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队实现了每秒300单元的卷对卷（roll-to-roll）制造可见光超构透镜，突破了纳米光学元件大规模量产瓶颈。该方法采用纳米压印技术结合连续卷对卷工艺，在柔性基底上高效加工亚波长结构，将超构透镜的制造成本降低数个数量级，为增强现实、微型成像和消费光学的大规模商业化铺平道路。",
+          "sc": 9.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10369-y",
+          "tp": "超透镜卷对卷制造",
+          "aip": 1,
+          "kp": [
+            "产能[卷对卷超构透镜]: 300个/秒",
+            "[波段]: 可见光"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Metasurfaces have been extensively studied over the past decade for their ability to manipulate light at subwavelength scales1. One of the most critical trends emerging recently has been scalable manufacturing, which is paving the way for the commercialization and industrial adoption of metasurfaces2,3. However, the production throughput of metasurfaces has so far largely remained at the academic level, limiting their practical deployment. Here we demonstrate the roll-to-roll nanoimprinting of visible metalenses for large-scale, cost-effective and fully automated manufacturing at industrial-level throughput. Our system achieves a production rate of 300 metalenses per second, with a cost comparable with—or even lower than—that of conventional refractive optics. A conformal high-index titanium dioxide layer is deposited via atomic layer deposition to dramatically enhance optical performance. Experimental characterization confirms high optical efficiency and uniformity across the full patterned area, with consistently high yields. This work shows potential for the transition of metasurface technology from academic research to the real world.",
+          "hb": 1
+        },
+        {
+          "t": "像素化量子点超晶格LED",
+          "d": "2026-04-16",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "量子点(QD)超晶格具有区别于无序固体的集体光电性质，但其器件化集成一直面临挑战。本研究实现了像素化量子点超晶格LED，通过精确控制量子点的长程有序排列，展现出增强的电致发光性能。该成果将超晶格的集体效应引入实际发光器件，为下一代超高分辨率显示器、量子光源及新型光电集成器件开辟了道路。",
+          "sc": 8.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10392-z",
+          "tp": "量子点LED",
+          "aip": 1,
+          "kp": [
+            "器件[钙钛矿QD]: 像素化超晶格薄膜阵列LED",
+            "[制备策略]: 可扩展空间定义结构相干薄膜"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum dot (QD) superlattices offer collective optoelectronic properties distinct from disordered solids1,2,3,4, but their integration into high-resolution display devices remains elusive because of difficulties in achieving spatially defined, structurally coherent thin films. Here we report a scalable strategy for fabricating pixelated perovskite QD (PeQD) superlattice thin-film arrays that feature in-plane long-range order, vertical confinement and precise spatial patterning. By engineering rhombic dodecahedral CsPbBr3 nanocrystals with robust surface termination by a ligand-fluoride co-stabilization approach, we direct the formation of hexagonally close-packed superlattice films using capillary liquid-bridge confined assembly. These superlattice films exhibit reduced energetic disorder and enhanced electronic coupling. When integrated into light-emitting diodes (LEDs), the electrically driven PeQD superlattices yield an external quantum efficiency of 30.9%, high luminance of 117,144 cd m−2 and pixel densities of up to 5,080 pixels per inch. The devices show an extrapolated operational half-lifetime (T50) of 12,411 h at 100 cd m−2—more than 1,000-fold longer than previously reported pixelated PeQD LEDs. Moreover, we demonstrate the direct integration of patterned superlattices onto a commercial thin-film transistor backplane to construct a 1.85-inch active-matrix display with full greyscale control and video playback ability. These results establish colloidal QD superlattices as a viable material platform for next-generation high-resolution, stable and efficient perovskite displays.",
+          "hb": 1
+        },
+        {
+          "t": "耶鲁大学胡良兵通过干喷湿纺结合短时焦耳加热制备出低成本/碳排放的高强度碳纤维材料",
+          "d": "2026-04-16",
+          "a": "",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "耶鲁大学胡良兵团队提出电热碳纤维原位升级（ECU）策略，先以干喷湿纺制备炭黑/聚丙烯腈（CB/PAN）多孔碳纤维，再通过焦耳热驱动甲烷热解在纤维孔隙内沉积碳，实现低成本高性能碳纤维制备。该工艺有望降低碳纤维生产成本与碳排放，为大规模工业应用提供可行路线。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01815-w",
+          "tp": "低碳碳纤维",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "碳纤维（CFs）具有极高的比强度和结构轻量化特性，但目前全球的商业碳纤维高度依赖价格极其昂贵的聚丙烯腈（PAN）前驱体，且其氧化稳定和后续碳化过程伴随着巨大的能耗与环境碳排放负担（生产纯PAN基碳纤维的碳排放高达约30.00 kgCO₂ kg⁻¹）阻碍了其进一步推广应用。当前研究主要尝试引入木质素或炭黑（CB）等低成本、低碳足迹的替代原料作为填料来减少PAN的使用，但由于这些未发生化学键合的低质填料在聚合物衍生碳基体内部极易发生团聚并作为结构缺陷存在，导致复合纤维的机械性能发生灾难性下降（例如仅掺杂12 wt%炭黑即可导致拉伸强度降至~0.1 GPa），始终难以满足美国能源部（DOE）设定的大规模工业级承载需求门槛（约US$11.0–15.0 kg-1，并要求强度/模量达到可用于规模应用的门槛）。近日，耶鲁大学胡良兵教授团队提出一种电热碳纤维原位升级（ECU）策略，通过焦耳热驱动甲烷（CH₄）热解沉积，成功将低成本的炭黑/聚丙烯腈（CB/PAN）复合前驱体转化为高性能碳纤维。其先以PAN为粘结/骨架相，将商业热解炭黑（CB，粒径约200–400 nm；原文还指出较大CB颗粒如~280 nm有利于分散与可纺性）按20、30、40、60、70 wt%不同含量与PAN在DMF中共混，通过干喷湿纺制得CB/PAN连续前驱体纤维；纺丝过程采用空气隙、甲醇/二甲基乙酰胺（DMAc）凝固浴和热甘油牵伸，之后在530 K空气中稳定化20 min，并在1,588 K氮气中碳化10 min，获得具有沿轴向取向PAN微纤维网络和孔隙嵌入CB的多孔CB/PAN碳纤维。而后将这些多孔纤维作为焦耳加热元件，在CH4气氛下实施三步电热升级：第一步在氩气中于约2,100 K加热2 min以细化PAN来源碳结构；第二步将温度调至约1,700 K，在CH4中保持2–10 min，使甲烷热解并在纤维孔隙内沉积碳；第三步再在氩气中于约2,100 K加热2 min，对新沉积的CH4来源碳进行进一步结构精炼。表征分析结果表明，多孔结构为甲烷气体的渗入提供了通道，热解产生的高活性碳原子在极高温度梯度驱动下深度扩散并在孔隙内部沉积形成致密的sp²共轭碳网络，不仅将60-CB/40-PAN纤维的孔隙率从27.9%降至6.1%，还作为刚性“缝合剂”将松散的PAN衍生碳与炭黑颗粒重构融合为连续且致密的碳骨架。性能测试表明，CB/PAN纤维的电导率显著提高，其中60-CB/40-PAN样品电导率由约6.4×102 S m⁻¹提升至约8.5 × 10⁴ S m⁻¹； 60-CB/40-PAN样品抗拉强度由61±21 MPa升至479±106 MPa，约提升8倍，而在施加张力的ECU条件下，20-CB/80-PAN样品实现最高1.7 GPa抗拉强度和173 GPa模量，平均分别为1.45±0.25 GPa和147±28 GPa。同时热解过程中还联产高纯氢气：在step 2中CH4转化率达到93.2%±2.5%，H2收率为85.4%±4.3%。得益于廉价甲烷碳源的引入、电热工艺极短的耗时以及反应伴生的高纯副产绿氢（H₂收率高达85.4%），该碳纤维的生产成本低至约13.52 US$ kg⁻¹，碳排放量减至22.39 kgCO₂ kg⁻¹，并且该工艺还能在约40分钟内快速原位制造出高强度的碳/碳（C/C）复合材料（拉伸强度达0.68 GPa）。碳纤维（CFs）具有极高的比强度和结构轻量化特性，但目前全球的商业碳纤维高度依赖价格极其昂贵的聚丙烯腈（PAN）前驱体，且其氧化稳定和后续碳化过程伴随着巨大的能耗与环境碳排放负担（生产纯PAN基碳纤维的碳排放高达约30.00 kgCO₂ kg⁻¹）阻碍了其进一步推广应用。当前研究主要尝试引入木质素或炭黑（CB）等低成本、低碳足迹的替代原料作为填料来减少PAN的使用，但由于这些未发生化学键合的低质填料在聚合物衍生碳基体内部极易发生团聚并作为结构缺陷存在，导致复合纤维的机械性能发生灾难性下降（例如仅掺杂12 wt%炭黑即可导致拉伸强度降至~0.1 GPa），始终难以满足美国能源部（DOE）设定的大规模工业级承载需求门槛（约US$11.0–15.0 kg-1，并要求强度/模量达到可用于规模应用的门槛）。近日，耶鲁大学胡良兵教授团队提出一种电热碳纤维原位升级（ECU）策略，通过焦耳热驱动甲烷（CH₄）热解沉积，成功将低成本的炭黑/聚丙烯腈（CB/PAN）复合前驱体转化为高性能碳纤维。其先以PAN为粘结/骨架相，将商业热解炭黑（CB，粒径约200–400 nm；原文还指出较大CB颗粒如~280 nm有利于分散与可纺性）按20、30、40、60、70 wt%不同含量与PAN在DMF中共混，通过干喷湿纺制得CB/PAN连续前驱体纤维；纺丝过程采用空气隙、甲醇/二甲基乙酰胺（DMAc）凝固浴和热甘油牵伸，之后在530 K空气中稳定化20 min，并在1,588 K氮气中碳化10 min，获得具有沿轴向取向PAN微纤维网络和孔隙嵌入CB的多孔CB/PAN碳纤维。而后将这些多孔纤维作为焦耳加热元件，在CH4气氛下实施三步电热升级：第一步在氩气中于约2,100 K加热2 min以细化PAN来源碳结构；第二步将温度调至约1,700 K，在CH4中保持2–10 min，使甲烷热解并在纤维孔隙内沉积碳；第三步再在氩气中于约2,100 K加热2 min，对新沉积的CH4来源碳进行进一步结构精炼。表征分析结果表明，多孔结构为甲烷气体的渗入提供了通道，热解产生的高活性碳原子在极高温度梯度驱动下深度扩散并在孔隙内部沉积形成致密的sp²共轭碳网络，不仅将60-CB/40-PAN纤维的孔隙率从27.9%降至6.1%，还作为刚性“缝合剂”将松散的PAN衍生碳与炭黑颗粒重构融合为连续且致密的碳骨架。性能测试表明，CB/PAN纤维的电导率显著提高，其中60-CB/40-PAN样品电导率由约6.4×102 S m⁻¹提升至约8.5 × 10⁴ S m⁻¹； 60-CB/40-PAN样品抗拉强度由61±21 MPa升至479±106 MPa，约提升8倍，而在施加张力的ECU条件下，20-CB/80-PAN样品实现最高1.7 GPa抗拉强度和173 GPa模量，平均分别为1.45±0.25 GPa和147±28 GPa。同时热解过程中还联产高纯氢气：在step 2中CH4转化率达到93.2%±2.5%，H2收率为85.4%±4.3%。得益于廉价甲烷碳源的引入、电热工艺极短的耗时以及反应伴生的高纯副产绿氢（H₂收率高达85.4%），该碳纤维的生产成本低至约13.52 US$ kg⁻¹，碳排放量减至22.39 kgCO₂ kg⁻¹，并且该工艺还能在约40分钟内快速原位制造出高强度的碳/碳（C/C）复合材料（拉伸强度达0.68 GPa）。",
+          "b": "近日，耶鲁大学胡良兵教授团队提出一种电热碳纤维原位升级（ECU）策略，通过焦耳热驱动甲烷（CH₄）热解沉积，成功将低成本的炭黑/聚丙烯腈（CB/PAN）复合前驱体转化为高性能碳纤维。其先以PAN为粘结/骨架相，将商业热解炭黑（CB，粒径约200–400 nm；原文还指出较大CB颗粒如280 nm有利于分散与可纺性）按20、30、40、60、70 wt%不同含量与PAN在DMF中共混，通过干喷湿纺制得CB/PAN连续前驱体纤维；纺丝过程采用空气隙、甲醇/二甲基乙酰胺（DMAc）凝固浴和热甘油牵伸，之后在530 K空气中稳定化20 min，并在1,588 K氮气中碳化10 min，获得具有沿轴向取向PAN微纤维网络和孔隙嵌入CB的多孔CB/PAN碳纤维。而后将这些多孔纤维作为焦耳加热元件，在CH4气氛下实施三步电热升级：第一步在氩气中于约2,100 K加热2 min以细化PAN来源碳结构；第二步将温度调至约1,700 K，在CH4中保持2–10 min，使甲烷热解并在纤维孔隙内沉积碳；第三步再在氩气中于约2,100 K加热2 min，对新沉积的CH4来源碳进行进一步结构精炼。表征分析结果表明，多孔结构为甲烷气体的渗入提供了通道，热解产生的高活性碳原子在极高温度梯度驱动下深度扩散并在孔隙内部沉积形成致密的sp²共轭碳网络，不仅将60-CB/40-PAN纤维的孔隙率从27.9%降至6.1%，还作为刚性缝合剂将松散的PAN衍生碳与炭黑颗粒重构融合为连续且致密的碳骨架。性能测试表明，CB/PAN纤维的电导率显著提高，其中60-CB/40-PAN样品电导率由约6.4×102 S m⁻¹提升至约8.5 × 10⁴ S m⁻¹；60-CB/40-PAN样品抗拉强度由61±21 MPa升至479±106 MPa，约提升8倍，而在施加张力的ECU条件下，20-CB/80-PAN样品实现最高1.7 GPa抗拉强度和173 GPa模量，平均分别为1.45±0.25 GPa和147±28 GPa。同时热解过程中还联产高纯氢气：在step 2中CH4转化率达到93.2%±2.5%，H2收率为85.4%±4.3%。得益于廉价甲烷碳源的引入、电热工艺极短的耗时以及反应伴生的高纯副产绿氢（H₂收率高达85.4%），该碳纤维的生产成本低至约13.52 US$ kg⁻¹，碳排放量减至22.39 kgCO₂ kg⁻¹，并且该工艺还能在约40分钟内快速原位制造出高强度的碳/碳（C/C）复合材料（拉伸强度达0.68 GPa）。文章于2026年4月16日发表在Nature Sustainability。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

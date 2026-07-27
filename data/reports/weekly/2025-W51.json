@@ -1,0 +1,322 @@
+{
+  "type": "weekly",
+  "date_label": "2025-12-15 ~ 2025-12-21",
+  "date_range": "2025-12-15 ~ 2025-12-21",
+  "main_theme": "干法电极工艺实现10 mAh cm⁻²面容量，光子芯片绕过电子计算限制实现全光学视觉生成",
+  "overview": "电池制造与废料回收领域取得实质性参数突破。研究人员通过活性表面引导原纤化策略，在卷对卷干法工艺中将锂离子电池粘结剂含量降至超低水平，同时实现10 mAh cm⁻²面容量；通过加速脱氟动力学在锂负极表面构建超薄SEI层，延长了锂金属电池循环寿命。碳化钨（WC）催化剂被证实可在无需额外助剂的情况下兼容PVC，将废聚烯烃塑料转化为短链烃类。硬件与基础软件方面，全光合成芯片利用光计算并行性实现语义视觉内容生成。预印本服务器aiXiv开始系统性引入AI机器人执行论文评审与撰写流程。单层二氧化硅纳米片与原位石墨剥离导热垫分别在分子筛分渗透通量和AI芯片界面热阻控制上达成既定测试指标。",
+  "headlines": {
+    "零碳产业": [
+      "卷对卷干法电极工艺实现10 mAh cm⁻²面容量与超低粘结剂含量",
+      "加速脱氟动力学构建超薄SEI层以延长锂金属电池循环寿命",
+      "碳化钨催化剂实现PVC兼容型聚烯烃加氢裂化化学回收",
+      "非贵金属碳化钨催化剂为混合废塑料转化提供低成本方案"
+    ],
+    "AI与智能科技": [
+      "aiXiv预印本服务器引入AI机器人执行论文撰写与同行评审",
+      "全光合成芯片利用光计算并行性实现大规模语义视觉内容生成",
+      "原位石墨剥离复合导热垫解决高功率AI芯片界面散热瓶颈",
+      "aiXiv启动AI辅助审稿流程以应对激增的机器生成科学文献"
+    ],
+    "通用技术": [
+      "原位追踪技术首次证实贫氧CuO上氨电氧化的Gerischer-Marcus路径",
+      "面内多孔单层二氧化硅纳米片提升有机溶剂纳滤膜渗透通量",
+      "STICH空间可编程电粘附技术实现生物电子器件与湿润组织精准耦合"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "活性表面引导原纤化策略在卷对卷干法工艺中将锂离子电池面容量提升至10 mAh cm⁻²。加速含氟溶剂脱氟动力学可在锂负极表面构建致密SEI层以抑制枝晶生长。新型碳化钨催化剂因具备加氢与裂化双重活性，无需额外助剂即可在含氯环境下将聚烯烃废塑料转化为短链烃类。",
+      "headlines": [
+        "卷对卷干法电极工艺实现10 mAh cm⁻²面容量与超低粘结剂含量",
+        "加速脱氟动力学构建超薄SEI层以延长锂金属电池循环寿命",
+        "碳化钨催化剂实现PVC兼容型聚烯烃加氢裂化化学回收",
+        "非贵金属碳化钨催化剂为混合废塑料转化提供低成本方案"
+      ],
+      "entries": [
+        {
+          "t": "通过活性表面引导原纤化在卷对卷干法工艺锂离子电池中同时实现10 mAh cm⁻²面容量与超低粘结剂含量",
+          "d": "2025-12-20",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "基于粘结剂原纤化的干法电极制造是生产厚电极的 promising 策略，但传统工艺面临粘结剂含量高、厚电极面容量受限等瓶颈。本研究提出活性表面引导原纤化策略，精准调控粘结剂在活性材料表面的纤维网络形成，在将粘结剂含量降至超低水平的同时实现了10 mAh cm⁻²的超高面容量。该工艺适用于工厂级卷对卷大规模生产，为高能量密度锂离子电池的降本增效提供了可行路径。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504005?af=R",
+          "tp": "锂电池干法电极",
+          "aip": 1,
+          "kp": [
+            "面容量[干法电极LIB]: 10mAh/cm²",
+            "[工艺]: 活性表面引导纤维化,卷对卷"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Binder fibrillation‐based dry electrode manufacturing is a promising strategy for producing thick electrodes for high‐energy‐density lithium‐ion batteries. However, its roll‐to‐roll scalability remains limited by competing demands among process efficiency, mechanical integrity, and electrochemical performance, particularly under reduced binder content. Here, we address these challenges by investigating the fibrillation behavior of polytetrafluoroethylene (PTFE) binders depending on carbon additive type. Among the tested architectures, carbon nanotube (CNT) coating significantly improves key commercial metrics—reducing kneading time by over 75%, enhancing mechanical strength, and achieving superior electrochemical performance—while also offering compatibility with roll‐to‐roll manufacturing. Notably, this improvement stems from a shift in the shear force transfer medium—from isolated carbon additives to the modified surface of active materials—which enables active‐surface‐guided fibrillation and robust binder network formation. Based on this design rule, we demonstrate fab‐scale electrodes (≥100 g batch) with an areal capacity of 10 mAh cm\n                    −2\n                    and ultralow binder content (0.3 wt.%). These electrodes exhibit excellent rate capability (71.3% at 1C) and &gt;78% capacity retention over 500 cycles in graphite full cells. Furthermore, a 1 Ah‐class Li‐metal pouch cell and fully dry‐processed pouch cell confirm the scalability of this approach and set a new benchmark in dry electrode processing.",
+          "hb": 1
+        },
+        {
+          "t": "耐用锂金属电池中超薄固态电解质界面的加速脱氟动力学",
+          "d": "2025-12-21",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "锂金属电池循环寿命受限于电解液和锂库存因SEI不稳定而快速消耗。该研究通过加速电解液中含氟溶剂的脱氟动力学，在锂负极表面快速构建超薄且致密的SEI层，有效抑制锂枝晶生长和电解液持续分解，显著延长电池循环寿命，为高比能锂金属电池的耐久性提供了新策略。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16009",
+          "tp": "锂金属电池SEI",
+          "aip": 1,
+          "kp": [
+            "[SEI工程]: 原位生成超薄SEI",
+            "[脱氟动力学]: 加速电解液脱氟",
+            "[关键效果]: 减少电解液与锂库存在SEI中消耗"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The cycle life of lithium (Li) metal batteries is plagued by the rapid depletion of electrolyte and Li inventory due to the continuous formation of a massive, thick solid-electrolyte interphase (SEI). Here, in situ generation of an ultrathin SEI is proposed by accelerating defluorination kinetics of the electrolyte to retrench the amount of electrolyte and Li inventory in SEI formation for durable batteries. The ultrathin SEI is generated in a dimethoxy(dimethyl)silane (DMDMS)-based electrolyte. Compared with the dispersed contact ion pairs in routine electrolytes, DMDMS, with both ultrahigh solubility of Li salts and weak solvating power, is favorable for the formation of joint aggregates in the electrolyte. The joint aggregates exhibit a fast defluorination rate, inducing uniform and compact nucleation sites on the Li metal surface. The compact nucleation sites grow simultaneously and subsequently come into contact with each other. This process rapidly passivates the exposed anode surface and facilitates the formation of an ultrathin SEI. The prototype pouch cell (≥500 Wh kg-1) with the ultrathin SEI achieves 190 cycles and can operate at -30 °C with 66% energy retention. This work reveals the formation mechanism of the SEI and demonstrates the potential of meticulous SEI engineering in the development of durable Li metal batteries.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 本征双功能可调碳化钨催化剂实现高效PVC兼容型聚烯烃加氢裂化",
+          "d": "2025-12-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "研究开发了本征双功能且可调的碳化钨（WC）催化剂，用于聚烯烃的高效加氢裂化回收。加氢裂解可将废塑料转化为短链烃类燃料或化工原料。该WC催化剂同时具备加氢和裂化活性，无需额外助剂即可实现高效转化，且与PVC等含氯塑料兼容，解决了传统催化剂在混合废塑料处理中的中毒失活问题，为塑料化学回收规模化提供了实用方案。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c11845",
+          "tp": "加氢裂解催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[聚烯烃加氢裂解]: 碳化钨(本征双功能)",
+            "特性[PVC兼容]: 抗Cl中毒失活"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrocracking is a promising route for the chemical recycling of polyolefins (PO), converting them into short hydrocarbons over bifunctional catalysts with metal sites for hydrogenation and dehydrogenation, and Brønsted acid sites (BAS) for isomerization and C-C bond cleavage. However, PO feedstocks containing polyvinyl chloride (PVC) can release chlorine (Cl) under reaction conditions, deactivating conventional noble metal/zeolite catalysts. Moreover, the lack of site intimacy and the presence of micropores within conventional catalysts create challenges around the transport of high-molecular-weight, sterically encumbered polymer intermediates. Here, we report tungsten carbides (WxC) as a novel type of bifunctional catalysts that address these challenges. W/W2C phases on WxC offer \"metal\" sites, and -OH on WOx species introduces BAS in close proximity. The \"metal\":BAS ratio can be tuned through carburization temperature, leading to a volcano-shaped activity trend reflecting the requirement for metal-BAS balance. Kinetic data demonstrate that each PO chain undergoes sequential cleavage, while trends in cracking ideality and selectivity follow those in short-alkane hydrocracking. On the per-BAS basis, WxC is more efficient than conventional bifunctional catalysts by more than an order of magnitude, due to enhanced polymer transport. They maintain or show increased activity with 10 wt % PVC in the substrate. This work establishes transition-metal carbides as earth-abundant bifunctional catalysts with unique site proximity and heteroatom compatibility. These features, along with the broad structure space for rational tuning, make them promising options to tackle specific challenges that polymer feedstocks present in hydrocracking.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP]本征双功能可调碳化钨催化剂实现高效PVC兼容聚烯烃加氢裂化",
+          "d": "2025-12-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "研究开发本征双功能且可调的碳化钨(WC)催化剂，实现聚烯烃(PO)高效加氢裂解化学回收，且与PVC兼容。加氢裂解可将废塑料转化为短链碳氢化合物，WC催化剂同时具备裂解和异构化活性，为废塑料规模化化学回收提供了低成本非贵金属方案。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c11845",
+          "tp": "加氢裂解催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[聚烯烃加氢裂解]: 碳化钨(本征双功能)",
+            "特性[PVC兼容]: 抗Cl中毒失活"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrocracking is a promising route for the chemical recycling of polyolefins (PO), converting them into short hydrocarbons over bifunctional catalysts with metal sites for hydrogenation and dehydrogenation, and Brønsted acid sites (BAS) for isomerization and C-C bond cleavage. However, PO feedstocks containing polyvinyl chloride (PVC) can release chlorine (Cl) under reaction conditions, deactivating conventional noble metal/zeolite catalysts. Moreover, the lack of site intimacy and the presence of micropores within conventional catalysts create challenges around the transport of high-molecular-weight, sterically encumbered polymer intermediates. Here, we report tungsten carbides (WxC) as a novel type of bifunctional catalysts that address these challenges. W/W2C phases on WxC offer \"metal\" sites, and -OH on WOx species introduces BAS in close proximity. The \"metal\":BAS ratio can be tuned through carburization temperature, leading to a volcano-shaped activity trend reflecting the requirement for metal-BAS balance. Kinetic data demonstrate that each PO chain undergoes sequential cleavage, while trends in cracking ideality and selectivity follow those in short-alkane hydrocracking. On the per-BAS basis, WxC is more efficient than conventional bifunctional catalysts by more than an order of magnitude, due to enhanced polymer transport. They maintain or show increased activity with 10 wt % PVC in the substrate. This work establishes transition-metal carbides as earth-abundant bifunctional catalysts with unique site proximity and heteroatom compatibility. These features, along with the broad structure space for rational tuning, make them promising options to tackle specific challenges that polymer feedstocks present in hydrocracking.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "aiXiv预印本平台部署AI机器人参与论文撰写与同行评审，以应对机器生成文献的增加。全光合成芯片利用光计算并行性，直接生成大规模语义视觉内容，绕过传统电子计算算力瓶颈。基于原位石墨裂解技术的石墨-硅胶复合固态导热垫极低了界面热阻，满足高功率AI芯片散热需求。",
+      "headlines": [
+        "aiXiv预印本服务器引入AI机器人执行论文撰写与同行评审",
+        "全光合成芯片利用光计算并行性实现大规模语义视觉内容生成",
+        "原位石墨剥离复合导热垫解决高功率AI芯片界面散热瓶颈",
+        "aiXiv启动AI辅助审稿流程以应对激增的机器生成科学文献"
+      ],
+      "entries": [
+        {
+          "t": "一个全新的预印本服务器欢迎由AI撰写和审阅的论文",
+          "d": "2025-12-20",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "一种名为aiXiv的新型预印本服务器开始接受由AI撰写并由AI审稿的论文。随着机器生成科学文献的快速增长，传统人工同行评审已难以跟上节奏，aiXiv引入AI机器人辅助审稿以应对这一挑战。该平台旨在探索AI在科研出版全流程中的角色，包括自动撰写、自动评审与质量控制。此举引发了关于AI生成科学内容可靠性、学术诚信及出版伦理的广泛讨论，被视为科研出版模式变革的前沿实验。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aee8377?af=R",
+          "tp": "AI论文评审",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "With human peer review struggling to keep pace with machine-generated science, aiXiv enlists bots to help",
+          "hb": 1
+        },
+        {
+          "t": "用于大规模智能语义视觉生成的全光合成芯片",
+          "d": "2025-12-19",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究报道了面向大规模智能语义视觉生成的全光合成芯片。针对生成式AI面临的算力瓶颈，该光子芯片利用光计算并行性和低功耗特性，实现语义视觉内容的全光学生成，绕过电子计算的限制。该方案为解决AI算力短缺提供了光子学路径，在边缘智能和实时视觉生成场景中潜力显著。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adv7434?af=R",
+          "tp": "全光生成芯片",
+          "aip": 1,
+          "kp": [
+            "器件类型[光子计算]: 全光合成芯片",
+            "应用[光子AI]: 大规模语义视觉生成",
+            "优势[全光芯片]: 免维度转换"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Large-scale generative artificial intelligence (AI) is facing a severe computing power shortage. Although photonic computing achieves excellence in decision tasks, its application in generative tasks remains formidable because of limited integration scale, time-consuming dimension conversions, and ground-truth-dependent training algorithms. We produced an all-optical chip for large-scale intelligent vision generation, named LightGen. By integrating millions of photonic neurons on a chip, varying network dimension through proposed optical latent space, and Bayes-based training algorithms, LightGen experimentally implemented high-resolution semantic image generation, denoising, style transfer, three-dimensional generation, and manipulation. Its measured end-to-end computing speed and energy efficiency were each more than two orders of magnitude greater than those of state-of-the-art electronic chips, paving the way for acceleration of large visual generative models.",
+          "hb": 1
+        },
+        {
+          "t": "原位石墨裂解制备的固态导热垫用于高功率人工智能芯片的超低热阻散热",
+          "d": "2025-12-18",
+          "a": "Matter",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "针对人工智能硬件的高功率散热需求，研究开发了一种基于原位石墨剥离技术的石墨-硅胶复合固态导热垫。该材料实现了极低的热阻值，有效解决了高功率AI芯片的热管理瓶颈。石墨的原位剥离工艺使复合材料兼具高面内导热率与界面贴合性，为下一代AI计算硬件的热可靠性提供了创新解决方案。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00590-9?rss=yes",
+          "tp": "AI芯片散热材料",
+          "aip": 1,
+          "kp": [
+            "热阻[石墨-硅胶垫]: 1.8 mm²K/W",
+            "[制备方法]: 原位石墨开裂",
+            "[应用]: AI芯片散热"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Effective thermal management is critical for artificial intelligence hardware. A novel graphite-silicone composite achieves ultra-low thermal resistance (1.8 mm2K/W) while maintaining high flexibility, enabling more powerful and energy-efficient artificial intelligence hardware development.",
+          "hb": 1
+        },
+        {
+          "t": "新预印本平台欢迎由AI撰写与审阅的论文",
+          "d": "2025-12-19",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "新预印本服务器aiXiv引入AI机器人参与论文撰写和同行评审，以应对机器生成科学文献激增、人工审稿无法跟上的困境。该平台试图通过自动化审稿流程提升科学传播效率，但也引发了关于AI审稿可靠性和学术诚信的讨论。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aee8377?af=R",
+          "tp": "AI论文评审",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "With human peer review struggling to keep pace with machine-generated science, aiXiv enlists bots to help",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "原位追踪技术在含氧空位CuO上观测到氨电氧化反应的Gerischer-Marcus电子转移路径。面内多孔单层二氧化硅纳米片材料提升了有机溶剂纳滤膜的渗透通量与分子选择性。名为STICH的空间可编程电粘附技术利用壳聚糖/银纳米线水凝胶在图案化绿光下，实现了生物电子器件与湿润组织界面的位点选择性集成。",
+      "headlines": [
+        "原位追踪技术首次证实贫氧CuO上氨电氧化的Gerischer-Marcus路径",
+        "面内多孔单层二氧化硅纳米片提升有机溶剂纳滤膜渗透通量",
+        "STICH空间可编程电粘附技术实现生物电子器件与湿润组织精准耦合"
+      ],
+      "entries": [
+        {
+          "t": "原位追踪肼中间体揭示氧缺陷CuO上氨电氧化的Gerischer-Marcus路径",
+          "d": "2025-12-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究利用原位追踪技术揭示氨电氧化反应(AOR)中肼中间体的形成过程，首次在含氧空位催化剂上观测到Gerischer-Marcus电子转移路径。该发现阐明了AOR反应机理的关键瓶颈，为设计高效可持续能源催化剂提供了理论指导。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524377?af=R",
+          "tp": "氨电氧化机理",
+          "aip": 1,
+          "kp": [
+            "催化剂[氨电氧化]: 缺氧CuO",
+            "关键中间体[氨电氧化]: 肼N2H4",
+            "反应路径[氨电氧化]: Gerischer-Marcus"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The ammonia electrooxidation reaction (AOR) represents a pivotal process for sustainable energy technologies, yet its mechanism on non‐precious metal catalysts remains ambiguous, primarily due to the elusive nature of key reaction intermediates. Specifically, the role of oxygen vacancies (Ov) in steering the AOR pathway is not well understood. Herein, we directly captured the hydrazine (N\n                    2\n                    H\n                    4\n                    ) intermediate, which unequivocally confirms the operation of the Gerischer–Marcus (G–M) pathway on oxygen‐deficient copper oxide (CuO). This breakthrough was enabled by an aggregation‐induced emission electrochemiluminescence (AIE‐ECL) probe, which allows quantitative, real‐time detection of N\n                    2\n                    H\n                    4\n                    with ultrahigh sensitivity (0.163 nM). The direct visualization of probe consumption via fluorescence microscopy imaging provided orthogonal validation. Combined with in situ spectroscopy and DFT calculations, we establish that oxygen vacancies (Ov) act as a “steering wheel” to preferentially stabilize N\n                    2\n                    H\n                    4\n                    and channel the reaction preferentially along the G–M route. A direct correlation between Ov concentration and N\n                    2\n                    H\n                    4\n                    accumulation is demonstrated, linking atomic‐scale defect structure to macroscopic catalytic performance. This work not only presents a paradigm for probing elusive electrocatalytic intermediates but also delivers a fundamental principle for influencing reaction pathways through defect engineering.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 面内多孔单层二氧化硅纳米片助力高性能有机溶剂纳滤纳米层压膜",
+          "d": "2025-12-18",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究开发了具有面内多孔结构的单层二氧化硅纳米片，用于构建高性能有机溶剂纳滤（OSN）纳米层压膜。该膜材料在化学工业分子分离中展现出优异的溶剂耐受性和精确的分子筛分能力，相比传统膜材料显著提升了渗透通量和选择性。单层多孔纳米片的可控组装策略为新型二维材料膜的设计提供了通用平台。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c13454",
+          "tp": "氧化硅纳米片膜",
+          "aip": 1,
+          "kp": [
+            "[材料]: 单层二维介孔二氧化硅纳米片",
+            "[应用]: 纳米叠层有机溶剂纳滤膜"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Organic solvent nanofiltration (OSN) membranes hold substantial promise for energy-efficient molecular separations in chemical and pharmaceutical industries, yet current technologies often face limitations in solvent permeation and precise sieving. To address these issues, we introduce novel nanolaminated membranes assembled from single-layer, two-dimensional (2D) mesoporous silica nanosheets with inherently uniform in-plane pores. These silica nanosheets, synthesized via a surfactant-templated soft approach, feature highly ordered and tunable hexagonal porosity with sub-10 nm thickness. By adjusting the surfactant carbon chain length, silica nanosheets with controllable pore dimensions were prepared and subsequently stacked into defect-minimized nanolaminate structures. The resulting membranes exhibited polarity-dependent solvent permeation, with permeance values up to 238 L m-2 h-1 bar-1 [LMHB] for polar solvents. Molecular sieving evaluations further revealed robust size-selective performance, achieving molecular weight cut-offs as low as 678 Da with high solvent flux. Remarkably, these nanolaminated silica membranes surpassed existing state-of-the-art OSN membranes in both permeability and selectivity benchmarks. Our findings underscore the potential of precisely engineered 2D mesoporous silica nanosheets as scalable and chemically robust building blocks for next-generation OSN membranes tailored for advanced molecular separation applications.",
+          "hb": 1
+        },
+        {
+          "t": "肼中间体的原位追踪揭示贫氧CuO上氨电氧化的Gerischer-Marcus路径",
+          "d": "2025-12-20",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "利用原位（operando）追踪技术揭示了氨电氧化反应（AOR）在氧缺陷CuO上的反应中间体肼（N₂H₄），并首次实验证实了Gerischer–Marcus电子转移路径。氨电氧化是可持续能源技术的关键反应，但其机理长期存在争议。研究发现氧缺陷工程调控了CuO的电子结构，促进了肼中间体的生成与转化。该工作为理解氨电氧化的本征机制和设计高效催化剂提供了突破性见解。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524377?af=R",
+          "tp": "氨电氧化催化机理",
+          "aip": 1,
+          "kp": [
+            "[反应机理]: 缺氧CuO上氨电氧化经Gerischer–Marcus路径",
+            "[原位追踪]: 捕获联氨中间体揭示AOR机制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The ammonia electrooxidation reaction (AOR) represents a pivotal process for sustainable energy technologies, yet its mechanism on non‐precious metal catalysts remains ambiguous, primarily due to the elusive nature of key reaction intermediates. Specifically, the role of oxygen vacancies (Ov) in steering the AOR pathway is not well understood. Herein, we directly captured the hydrazine (N\n                    2\n                    H\n                    4\n                    ) intermediate, which unequivocally confirms the operation of the Gerischer–Marcus (G–M) pathway on oxygen‐deficient copper oxide (CuO). This breakthrough was enabled by an aggregation‐induced emission electrochemiluminescence (AIE‐ECL) probe, which allows quantitative, real‐time detection of N\n                    2\n                    H\n                    4\n                    with ultrahigh sensitivity (0.163 nM). The direct visualization of probe consumption via fluorescence microscopy imaging provided orthogonal validation. Combined with in situ spectroscopy and DFT calculations, we establish that oxygen vacancies (Ov) act as a “steering wheel” to preferentially stabilize N\n                    2\n                    H\n                    4\n                    and channel the reaction preferentially along the G–M route. A direct correlation between Ov concentration and N\n                    2\n                    H\n                    4\n                    accumulation is demonstrated, linking atomic‐scale defect structure to macroscopic catalytic performance. This work not only presents a paradigm for probing elusive electrocatalytic intermediates but also delivers a fundamental principle for influencing reaction pathways through defect engineering.",
+          "hb": 1
+        },
+        {
+          "t": "空间可编程电粘附实现原位位点选择性功能耦合",
+          "d": "2025-12-19",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队开发了名为STICH的空间可编程电粘附技术，实现生物电子器件与湿润组织表面的位点选择性功能耦合。该技术基于壳聚糖/银纳米线水凝胶基质中的玫瑰红光敏剂，在图案化绿光照射下原位激活，实现空间可控的组织粘附。这解决了手术中生物电子器件与湿组织精确集成时粘附位点空间控制不足的难题。该策略在微创手术中精准缝合、神经接口和可植入器件的功能化集成方面具有重要应用潜力。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511039?af=R",
+          "tp": "电粘附技术",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  Precise intraoperative integration of bioelectronic devices with wet tissue surfaces remains a challenge due to the limited spatial control of adhesion sites. Here, an in situ spatially programmable electrical bioadhesive (termed “STICH”) is reported that enables site‐selective adhesion and functional coupling via light‐activated bonding with wet biological tissue. Upon irradiation with patterned green light, Rose Bengal in a chitosan/silver nanowire hydrogel matrix generates singlet oxygen, which oxidizes amino acid residues into carbonyl groups on the tissue surface. The covalent bonding is then formed between the newly formed reactive carbonyl group and amine groups on chitosan. The spatially programmable adhesive allows robust tissue bonding with a lap‐shear strength of 160 kPa and precise adhesion regions at ≈2 µm resolution. The light‐patternable adhesive enables spatially resolved mechanical coupling for directional electromechanical sensing on ex vivo cardiac tissue. The low impedance adhesive interface also provides spatially programmed electrical coupling for in vivo neuromuscular stimulation on intraoperatively selected muscle groups. This platform advances microscale device‐tissue integration and paves the way for reconfigurable bioelectronic therapies.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

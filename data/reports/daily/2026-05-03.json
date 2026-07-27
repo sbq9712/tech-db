@@ -1,0 +1,258 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月3日　星期日",
+  "date_range": "2026-05-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究通过原球蛋白工程设计对映互补手性酶催化剂",
+      "连续电催化脱盐系统与二氧化碳还原反应实现同步耦合",
+      "Pd-Pt合金界面晶格氧促发C-C键断裂实现75.6%法拉第效率"
+    ],
+    "AI与智能科技": [
+      "三端可重构发光忆阻器实现电学与光学信号同步读出",
+      "丘脑底核压电神经调控技术实现帕金森病无创治疗",
+      "非易失性光子耦合器阵列实现无持续功耗光信号独立调控"
+    ],
+    "通用技术": [
+      "研究证实多网络弹性体磨损源于共价键断裂的分子损伤累积",
+      "pH响应高分子水凝胶粘合剂实现胃溃疡内窥镜微创递送",
+      "单晶三维共价有机框架实现丙烯三元混合物一步高效分离"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究通过原球蛋白工程设计对映互补手性酶催化剂",
+        "连续电催化脱盐系统与二氧化碳还原反应实现同步耦合",
+        "Pd-Pt合金界面晶格氧促发C-C键断裂实现75.6%法拉第效率"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 工程化对映互补原球蛋白用于立体收敛构建N-烷基化α-氨基酮",
+          "d": "2026-05-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "本文报道了通过对原球蛋白（protoglobin）进行工程改造，实现对映互补的立体汇聚合成。从E/Z烯烃混合物出发合成光学纯化合物是合成化学中的重要挑战。研究者通过蛋白质工程设计出互补的手性酶催化剂，能够将混合构型底物高效转化为单一对映异构体产物，体现了生物催化在不对称合成中的独特优势。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17989",
+          "tp": "酶催化不对称合成",
+          "aip": 1,
+          "kp": [
+            "[酶催化]: 原始球蛋白实现E/Z烯烃立体收敛合成N-烷基化α-氨基酮"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The synthesis of enantiopure compounds from a mixture of E/Z alkenes represents a notable challenge in synthetic chemistry. While enzymes excel in achieving unparalleled selectivity, their inherent specificity often confines activity to a single stereoisomeric substrate, consequently restricting the overall efficiency of such transformations. Here, we demonstrate that protoglobin-derived hemoproteins can catalyze stereoconvergent intermolecular amination using simple N-alkyl hydroxylamines as nitrene precursors, a transformation which remains elusive in synthetic chemistry. These engineered enzymes process E/Z mixtures of silyl enol ethers, enabling the precise incorporation of N-alkyl amino moieties (-NHAlkyl) into diverse molecular structures (up to 79% yield and 95% ee). Two complementary protoglobin variants were engineered using directed evolution to enable enantiodivergent synthesis of both enantiomers of α-aminoketones. This enzymatic platform achieves stereoconvergent and enantiodivergent transformations, facilitating the conversion of simple chemicals into an array of valuable pharmaceutical compounds featuring aminoketone functionalities.",
+          "hb": 1
+        },
+        {
+          "t": "免更换电解液的连续电催化脱盐耦合CO2还原：创纪录通量与效率",
+          "d": "2026-05-03",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "本研究构建了无需更换电解液的连续电催化脱盐系统，并将其与CO2还原反应耦合，同步实现海水/咸水脱盐与CO2资源化利用，提升电催化过程的经济性与可持续性。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9124699?af=R",
+          "tp": "电催化脱盐还原",
+          "aip": 1,
+          "kp": [
+            "[工艺]: 无需换液连续脱盐耦合CO2还原",
+            "[优势]: 记录通量+低成本"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "valorization.",
+          "hb": 1
+        },
+        {
+          "t": "Pd-Pt合金界面晶格氧在乙醇电氧化C-C键断裂中的作用研究",
+          "d": "2026-05-03",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
+          "as": "揭示Pd-Pt合金界面晶格氧在C-C键断裂中的关键作用，实现C1路径法拉第效率75.6%。该工作将催化剂中氧的角色从被动'清除剂'转变为主动参与反应的活性物种，代表了电催化有机物氧化机理的范式转变。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6830451?af=R",
+          "tp": "乙醇电氧化催化机理",
+          "aip": 1,
+          "kp": [
+            "[法拉第效率[C1路径]]: 75.6%",
+            "[催化剂]: Pd-Pt合金界面晶格氧",
+            "[反应]: 乙醇电氧化C-C断裂",
+            "[机理范式]: 主动进攻与系统编排机制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "and a C1-pathway Faradaic efficiency of 75.6%. This work reports a paradigm shift from a passive \"scavenger\" model to an active \"initial-attack and system-orchestration\" mechanism, redefining heterointerfaces as atomically programmable reaction-network architects. This paradigm offers a blueprint for mastering complex reaction networks, extending the frontier of rational catalyst design.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "三端可重构发光忆阻器实现电学与光学信号同步读出",
+        "丘脑底核压电神经调控技术实现帕金森病无创治疗",
+        "非易失性光子耦合器阵列实现无持续功耗光信号独立调控"
+      ],
+      "entries": [
+        {
+          "t": "面向集成神经形态显示系统的三端可重构易失/非易失发光忆阻器",
+          "d": "2026-05-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究开发了一种三端可重构易失/非易失发光忆阻器，将类脑快速学习与稳定存储集成于同一器件。该器件可在易失性（类工作记忆）与非易失性（类长期记忆）模式间动态切换，同时具备发光功能，实现电学与光学信号的同步读出。这种兼具计算、存储和光互连的多功能神经形态器件，突破了传统冯·诺依曼架构的存算分离瓶颈，为构建高能效、可重构的仿生视觉与智能感知系统提供了新的硬件基础。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73239?af=R",
+          "tp": "发光忆阻器",
+          "aip": 1,
+          "kp": [
+            "[器件]: 三端可重构易失/非易失忆阻器",
+            "[功能]: 集成发光+神经形态计算"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Reconfigurable volatile/nonvolatile neuromorphic devices integrate brain-like rapid learning with stable memory, providing a critical pathway toward edge-intelligent systems. The integration of reconfigurable devices and light-emitting functionality transforms the display from a passive output terminal into an integral hub of the intelligent system. However, integrating reconfigurable volatile/nonvolatile memory and light-emitting functionality within a single device remains a major challenge because of the inherent conflicts among multiple functions and the constraints of conventional two-terminal control. Here, for the first time, we present a three-terminal reconfigurable volatile/nonvolatile light-emitting memristor. The three-terminal configuration provides control of the emission region and memory states, enabling seamless transition between volatile, nonvolatile, and light-emission operations. By enabling spatial reconfigurability and temporal multiplexing of emission, the device improves scalability and simplifies system architecture and control, achieving a 69.23% reduction in data-transfer volume and a 40% reduction in system component count compared with separated architectures. In addition, it offers direct visual feedback while facilitating continuous learning in neuromorphic computing systems. Finally, we implement an anomaly-detection visualization system based on the reconfigurable volatile/nonvolatile light-emitting memristor, demonstrating its ability to produce direct visual output while processing information, thus enabling an integrated memory-compute-display architecture for next-generation edge-intelligent display systems.",
+          "hb": 1
+        },
+        {
+          "t": "丘脑底核压电神经调控改善帕金森病的运动与非运动症状",
+          "d": "2026-05-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究提出利用压电神经调控技术替代传统深部脑刺激(DBS)治疗神经退行性疾病的新方案。传统DBS需手术植入电极,创伤大且感染风险高。该研究以丘脑底核(STN)为靶点,通过压电材料将外部超声等机械能转化为局部电脉冲,无线且无创地对神经回路进行调控,显著改善了运动症状及非运动症状。这一方法规避了电极植入的开颅风险,为帕金森病等神经系统疾病的精准无创治疗提供了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec6955?af=R",
+          "tp": "压电神经调控",
+          "aip": 1,
+          "kp": [
+            "调控方式[帕金森STN]: 超声响应压电纳米颗粒微创无线神经调控",
+            "动物模型[PD]: 6-OHDA诱导帕金森病小鼠模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Traditional deep-brain stimulation via implanted electrodes can effectively treat neurological disorders, but surgical injury limits its clinical application. Here, we developed ultrasound-responsive piezoelectric nanoparticles for minimal-invasive and wireless neuromodulation. In the 6-OHDA-induced Parkinson's disease (PD) mouse model, these nanoparticles are injected into the subthalamic nucleus (STN) of the mouse brain. After ultrasound stimulation for several days, the motor behavior, particularly gait abnormalities and nonmotor symptoms such as pain and anxiety, in PD mice is alleviated without detectable toxicity. The piezoelectric nanoparticles can activate the STN area of the mouse after ultrasound stimulation. Our results demonstrate that piezoelectric-mediated neuromodulation of the STN reverses motor deficits in PD by modulating neural signals, thereby protecting dopaminergic neurons and enhancing levels of the neurotransmitter dopamine. This process can rescue and mitigate mitochondrial dysfunction and neuroinflammation in the nigrostriatal pathway. Our approach enables STN neuronal activation with minimal invasiveness, offering a promising strategy for treating neurodegenerative diseases.",
+          "hb": 1
+        },
+        {
+          "t": "非易失性光子现场可编程耦合器阵列",
+          "d": "2026-05-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "非易失性光子现场可编程耦合器阵列：该研究提出一种基于非易失性材料的光子可编程耦合器架构，可在无持续功耗条件下独立调控光信号的振幅与相位，实现通用酉变换功能。相比传统热光或电光调谐方案，非易失特性使器件具备断电状态保持能力，大幅降低静态功耗，为大规模光子神经网络、光矩阵计算及可重构光互连提供关键硬件基础，有望推动低功耗光子计算芯片的工程化进程。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec7329?af=R",
+          "tp": "光子耦合阵列",
+          "aip": 1,
+          "kp": [
+            "器件特性[光子耦合器阵列]: 非易失性可编程振幅与相位独立调控",
+            "功能[可编程光子网络]: 单芯片实现普适酉变换"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Programmable photonic networks carry out universal unitary functions by independently operating on the amplitude and phase of guided light. Exploiting the reconfigurability and spatiospectral degrees of freedom of these systems, the majority of state-of-the-art photonics applications, ranging from microwave photonics to photonic computing and optical communication links, can be demonstrated in one unified system. Existing techniques require a large footprint due to weak modulation efficiency, and continuous power dissipation to maintain the configured state. Here, we demonstrate a programmable recirculating mesh unit cell based on the nonvolatile low-loss phase-change material Sb2Se3. The demonstrated devices achieve an ultrashort active length (<10 μm, more than 15 times smaller than the current state of the art of competing technologies) and zero static power, in combination with high-extinction switching (>20 dB), broadband operation (>15 nm), and low insertion loss (<2 dB). This work forms the basis for nonvolatile field-programmable coupler arrays (nv-FPCAs) and zero-static power reconfigurable optical interconnects.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究证实多网络弹性体磨损源于共价键断裂的分子损伤累积",
+        "pH响应高分子水凝胶粘合剂实现胃溃疡内窥镜微创递送",
+        "单晶三维共价有机框架实现丙烯三元混合物一步高效分离"
+      ],
+      "entries": [
+        {
+          "t": "多网络弹性体的磨损源于分子损伤的持续累积而非微裂纹扩展",
+          "d": "2026-05-03",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究揭示了多重网络弹性体磨损的分子机制：磨损源于分子损伤的持续累积，而非微裂纹扩展。轮胎磨损每年释放数百万吨颗粒物，具有重大工业与环境影响。研究通过多重网络弹性体模型发现，应力作用下的共价键断裂在材料内部不断累积，最终导致表面材料逐层脱落。该发现修正了对弹性体磨损机理的传统认知，对轮胎耐磨性设计具有指导意义。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb9858?af=R",
+          "tp": "弹性体磨损",
+          "aip": 1,
+          "kp": [
+            "[多重网络弹性体磨损]: 分子链断裂持续累积而非微裂纹扩展"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tire wear releases millions of tons of particles annually, bearing immense industrial and environmental impact. However, efforts to mitigate the wear of elastomeric materials remain largely empirical, due to a limited understanding of the underlying damage mechanisms that cause wear. Using mechanochemical approaches on model multiple network elastomers, we uncover how polymer strand scission events-the elemental damage units in these disordered networks-evolve during frictional wear. Our findings demonstrate that discrete microslippage at rough contacting asperities damages the material several micrometers below the surface through stress-activated bond scission events. This steady accumulation of subsurface damage ultimately leads to material erosion through the generation of a degraded viscous layer, painting a picture of wear as a continuous damage growth process. Our approach further demonstrates an enhanced resilience to wear when tuning material architecture to reduce sensitivity to stress fluctuations, paving the way for knowledge-based strategies to develop more sustainable materials.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 可内窥镜递送的聚合物粘合剂：pH触发多重分子演化用于胃溃疡修复",
+          "d": "2026-05-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "本文开发了一种可通过内镜递送、具备pH触发多重粘附机制的高分子水凝胶粘合剂，用于胃溃疡治疗。传统水凝胶粘合剂面临内镜递送困难、湿润环境粘附力不足及胃酸降解等挑战。该材料利用胃部酸性环境触发多重交联与粘附机制，在湿润组织表面实现强效贴合，为微创消化道溃疡治疗提供了新方案。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04947",
+          "tp": "胃溃疡粘附水凝胶",
+          "aip": 1,
+          "kp": [
+            "[材料设计]: pH顺序响应粘附剂PNMH",
+            "[单体]: β-羧酸酰胺N-丙烯酰苯丙氨酸",
+            "[应用]: 胃溃疡内镜递送修复"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hydrogel adhesives show promise for gastric ulcer treatment, while facing challenges in endoscopic delivery, wet adhesion, and long-term gastric retention. Here, we engineered a sequential pH-responsive adhesive (PNMH) by polymerizing β-carboxylic-amide-functionalized N-acryloyl phenylalanine and hydroxyethyl acrylamide. Acid-induced protonation followed by hydrolysis of the β-carboxylic amide drives a pH-triggered quadruple evolution of intermolecular interactions from electrostatic repulsion to hydrophobicity-assisted hydrogen bonding, then to hydrophobicity-assisted electrostatic interaction, and finally to cation-π interaction. This unique mechanism enables facile endoscopic administration of PNMH and ultrafast gelation within ∼4 s upon exposure to gastric acid, forming a robust network and simultaneously displacing interfacial water to achieve immediate tissue adhesion (∼24.1 kPa). Furthermore, the interfacial adhesion strength with wet gastric tissue progressively intensifies to 34.3 kPa in the early stage of hydrolysis while maintaining long-term interfacial integration over 30 days under simulated gastric conditions. Moreover, PNMH exhibits a prolonged in vivo residence time of more than 4 days through in situ injection into the rat stomach. Rat and pig experiments demonstrate that PNMH, as a durable shield, protects ulcers from gastric acid/pepsin erosion and orchestrates healing through attenuating immune activation, suppressing matrix metalloproteinase-9 overexpression and promoting cytoskeleton-driven restoration of the mucosal barrier. Our work presents an advanced molecular design strategy for gastric-resistant polymer adhesives and provides a promising candidate for clinical gastric ulcer treatment.",
+          "hb": 1
+        },
+        {
+          "t": "单晶三维共价有机框架用于从丙炔/丙烯/丙烷混合物中一步分离丙烯",
+          "d": "2026-05-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究开发了单晶态三维共价有机框架（COF）材料，用于从丙炔/丙烯/丙烷三元混合物中一步分离纯化丙烯（C3H6）。传统丙烯纯化能耗极高，该COF材料利用精确的孔道尺寸和吸附选择性，实现了对C3烃类分子的高效筛分。该技术有望大幅降低丙烯分离的能耗成本，为石化工业节能分离提供新路径。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02509",
+          "tp": "共价有机框架分离",
+          "aip": 1,
+          "kp": [
+            "材料[C3分离]: 单晶3D COF",
+            "[分离应用]: 一步丙烯纯化(丙炔/丙烯/丙烷)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Developing energy-efficient technologies for purifying propylene (C3H6) from a ternary C3 hydrocarbon mixture is critically important but remains unexploited in porous covalent organic frameworks (COFs). Herein, two single-crystalline 3D COFs with uniform octahedral morphologies, TAM-TFTB-COF and TATB-TFS-COF, were synthesized via Schiff-base condensation of Td-symmetric building blocks. Both COFs display isostructural 3-fold interpenetrated dia-b networks based on 3D electron diffraction analysis, complemented by powder X-ray diffraction data and theoretical simulations. The N2 sorption isotherms of desolvated TAM-TFTB-COF and TATB-TFS-COF at 77 K exhibit type I sorption behavior with Brunauer-Emmett-Teller surface areas up to 2899 m2 g-1, among the top 3D imine-linked COFs. The activated TAM-TFTB-COF and TATB-TFS-COF show remarkably higher adsorption capacities for C3H4 (294.8 cm3 g-1) and C3H8 (205.2 cm3 g-1) than for C3H6 (173.4 cm3 g-1) for the former species and 246.6, 175.2, and 155.4 cm3 g-1 for the latter at 298 K and 1 bar. This endows the activated COFs with a one-step C3H6 purification capability from a C3H4/C3H6/C3H8 ternary mixture at 298 K according to single-component adsorption and dynamic breakthrough experimental results. On the basis of theoretical calculations, such a one-step C3H6 purification originates from the more intense multipoint supramolecular interactions of the framework with C3H4 and C3H8 than with C3H6 together with the favorable shape matching between the pores of the framework and C3H8. This work offers valuable insights for guiding the design of next-generation adsorbents for high-value gas purification.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

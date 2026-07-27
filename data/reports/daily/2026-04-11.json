@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月11日　星期六",
+  "date_range": "2026-04-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "湖州工控院联合绿储科技实现2MW级特高温热泵储能系统满负荷运行",
+      "新型三元无规共聚物受体将二元全聚合物太阳能电池效率提升至20.03%",
+      "量子点尺寸调控策略使全无机倒置钙钛矿太阳能电池效率突破22%"
+    ],
+    "AI与智能科技": [
+      "研究揭示大型推理模型思维痕迹机制以优化计算开销",
+      "微型化光生贝塞尔束超声技术实现非侵入式经颅脑神经精准调控",
+      "电刺激皮质纹状体回路证实可减轻自闭症相关自残行为"
+    ],
+    "通用技术": [
+      "研究在三维金属有机框架中首次发现g波对称性交错磁性",
+      "种子介导胶体合成法成功构建多金属及高熵合金纳米晶库",
+      "铁电畴工程驱动非常规磁子介导自旋力矩实现超低功耗器件设计"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "湖州工控院联合绿储科技实现2MW级特高温热泵储能系统满负荷运行",
+        "新型三元无规共聚物受体将二元全聚合物太阳能电池效率提升至20.03%",
+        "量子点尺寸调控策略使全无机倒置钙钛矿太阳能电池效率突破22%"
+      ],
+      "entries": [
+        {
+          "t": "湖州工业控制技术研究院 2MW 级/600℃特高温热泵储能示范项目成功运行",
+          "d": "2026-04-11",
+          "a": "手动导入",
+          "c": "零碳产业",
+          "as": "湖州工业控制技术研究院联合浙江绿储科技，成功实现2MW级/600℃特高温热泵储能示范项目满负荷运行。该项目以空气和熔盐为介质，将工业余热转化为高品质热能存储并释放为蒸汽。系统电功率约1.5MW，制热功率约2MW，COP达1.41，显著提升工业余热回收与高品质热能供给能力。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/zb4X1hW-zL64l7FB2OAMnQ?poc_token=HLCj3WmjLfBDGmPBkXDitNK0sT9oalAuJKcoQ-tM",
+          "tp": "高温热泵储能",
+          "aip": 1,
+          "kp": [
+            "规模：2MW级",
+            "出口温度：最高600℃"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||突破高温热泵出口温度\n\n参考先前浙江绿储：8MW/400℃；Echogen Power Systems：500kW/300℃等运行项目，该项目温度最高达600℃且规模达到2MW级",
+          "cm": ">200℃的高温热泵原先多处于概念验证和实验室测试阶段；用热场景包括石化、金属、水泥等生产。浙江绿储科技有限公司主要从事电能工业蒸汽供应、储热能领域的材料、关键设备的研发业务。其产品包括6/10kV智能熔盐电加热器、400℃/600℃特高温热泵等产品及系统，主要应用于风光大基地配储、火电超高灵活性改造、流程工业节能脱碳等领域。湖州工业控制技术研究院由湖州市和浙江大学共同创办，主要从事工业控制技术系统、工控软件、工业控制网络等开发，其可能通过模拟压力、温度、流量的波动条件调节压缩、膨胀、熔盐进出料等设备参数，维持系统稳定运行。\n该技术潜在风险/价值点在于：其可利用45℃余热，COP达1.41（理论值1.57）\n压缩机进口温度355℃，出口温度可达600℃\n此外系统包括储热+用热结构，其采用熔盐储热温度565℃，产生过热蒸汽540℃发电\n专利还有耦合特高温热泵（550℃ ~ 610℃）的压缩空气储能系统（减少冷却器使用）\n论据支持：其申请有类似相关专利（CN115930475B，区别在于利用发电系统冷凝器废热作为热源，经过一级热泵升温至90℃后进入二级热泵输出600度；空气、氦气优选）\n特高温热泵与压缩空气耦合专利申请（约193℃入口，空气工质，CN121782776A）\n高温热泵用压缩膨胀机组及高温热泵储能系统专利，进口温度100-200℃，出口>400（CN117846983A）；此外还有储热、发电相关专利布局",
+          "b": "4月11日，湖州工业控制技术研究院在官网发文称，其联合浙江绿储科技有限公司建设的2MW/600℃级特高温热泵储能示范项目在湖州市成功实现满负荷运行，温度高于其在25年公布的8MW/400℃热泵项目。文中称，该项目基于绿储科技的特高温热泵储能",
+          "hb": 1
+        },
+        {
+          "t": "增强分子堆积的规整共聚物受体实现二元全聚合物太阳能电池20.03%效率",
+          "d": "2026-04-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "有机太阳能电池的二元共混体系效率提升受限。本研究设计了一种三元无规共聚物受体材料，通过增强分子堆积有序性优化了形貌与电荷传输，实现20.03%的光电转换效率突破。该无规共聚策略为高效有机光伏受体的精准设计提供了新范式。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73031?af=R",
+          "tp": "全聚合物光伏",
+          "aip": 1,
+          "kp": [
+            "效率[二元全聚合物太阳能电池]: 20.03%",
+            "[分子堆积]: 规整共聚受体增强周期排列"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Ternary random copolymerization, which enables precise control over optoelectronic characteristics and processing compatibility by incorporating a third functional unit, serves as an effective method for tailoring polymer acceptor properties. However, competing reactivity ratios of monomers during random copolymerization induce sequence inhomogeneity, disrupting the periodic arrangement of monomers and the structure of polymer acceptor molecules. The intricate intermolecular interactions and aggregation behaviors in random copolymers pose significant challenges for achieving optimal morphology. Herein, we propose the concept of ternary regular copolymerization, which precisely controls copolymer microstructure, aligns the monomer arrangement, and enhances crystallization. Regular copolymers (named RC10) and random copolymers (named UC10) were synthesized by using monomers containing benzothiadiazole and benzoquinoxaline units. The intramolecular alternating arrangement of monomers endows the polymer acceptor with a well‐defined molecular conformation and enhanced molecular stacking. Consequently, the binary device based on PM6:RC10 achieves an impressive efficiency of 20.03%. Furthermore, another two regular copolymers were synthesized and characterized, both of which exhibit better photovoltaic performance as compared to that of their random counterparts, demonstrating the broad applicability of this strategy. Our study reveals that regular copolymerization holds significant potential for regulating molecular aggregation and alignment in polymer acceptors, providing valuable insights for designing high‐performance acceptor materials.",
+          "hb": 1
+        },
+        {
+          "t": "尺寸调控量子点中的激子‑光子临界耦合实现>22%效率的稳定倒置CsPbI3太阳能电池",
+          "d": "2026-04-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "通过尺寸调控实现量子点中激子-光子临界耦合，显著抑制全无机CsPbI3倒置钙钛矿太阳能电池的非辐射复合损失。该策略使器件光电转换效率突破22%，同时提升了器件的长期稳定性，为无铅/低铅钙钛矿光伏的产业化提供了新路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73024?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[CsPbI3倒置电池]: >22%",
+            "[界面工程]: CsPbBr3量子点@介孔二氧化硅"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    All‐inorganic CsPbI\n                    3\n                    inverted perovskite solar cells (PSCs) suffer from severe nonradiative recombination and interfacial defects, which limit their efficiency and stability. To address this, we developed an interface engineering strategy based on CsPbBr\n                    3\n                    quantum dots anchored in pore‐size‐tuned mesoporous silica nanoparticles (CPBQDs@MSNs), constructing a CsPbI\n                    3\n                    /CPBQDs@MSNs heterojunction. Notably, CPBQDs@M‐MSNs (∼8 nm) match the exciton Bohr radius of CsPbBr\n                    3\n                    (∼7 nm), enabling optimal exciton‐photon critical coupling. This coupling strongly suppresses nonradiative recombination and thermal activation of defects, leading to superior fluorescence stability over a broad temperature range. The CPBQDs@MSNs treatment further enhances crystallinity, reduces grain boundary defects, and optimizes interfacial energy level alignment, thereby facilitating efficient charge‐transport. Consequently, the inverted CsPbI\n                    3\n                    PSCs achieve a remarkable power conversion efficiency (PCE) of 22.15%, the highest value for such devices, along with a record open‐circuit voltage (\n                    V\n                    OC\n                    ) of 1.28 V. The devices exhibit excellent stability, retaining 93.16% of their initial PCE after 1300 h in ambient air and 98.14% after 1000 h of continuous illumination. This work highlights the crucial role of size‐controlled QDs in interfacial engineering and offers a promising strategy for developing high‐performance and stable perovskite optoelectronic devices.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究揭示大型推理模型思维痕迹机制以优化计算开销",
+        "微型化光生贝塞尔束超声技术实现非侵入式经颅脑神经精准调控",
+        "电刺激皮质纹状体回路证实可减轻自闭症相关自残行为"
+      ],
+      "entries": [
+        {
+          "t": "大型推理模型中的\"思维痕迹\"：认知成本还是表演性脚手架？",
+          "d": "2026-04-11",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "该研究探讨大型推理模型中'思维痕迹'（thinking traces）的本质：究竟是认知代价还是表演性脚手架。研究分析了思维链推理对模型性能的实际贡献，区分了真正有助于推理的中间步骤和可能仅作为表演性输出的冗余痕迹。该工作对理解推理模型的内部工作机制具有重要意义，为优化推理策略、降低不必要的计算开销提供了理论依据，也引发对'推理'本身定义的深层反思。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2604554123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "推理模型思维链",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "微型化光生贝塞尔束超声用于体积式经颅脑刺激",
+          "d": "2026-04-11",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "该研究开发了一种微型化、光学生成的贝塞尔束超声波技术，用于实现经颅体积式脑神经调控。贝塞尔束具有非衍射、深聚焦的特性，能够精准刺激形状不规则的小型脑区，克服传统超声换能器在空间分辨率和穿透深度上的限制。该系统体积微小且无需侵入性植入，有望推动神经科学研究对深层脑区的非侵入式精确调控，并在脑疾病治疗领域展现应用潜力。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz7708?af=R",
+          "tp": "超声脑刺激",
+          "aip": 1,
+          "kp": [
+            "[器件]: 光学产生贝塞尔束超声(OBUS)",
+            "[应用]: 微型化经颅体积式脑刺激"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Noninvasive stimulation of small, variably shaped brain subregions is crucial for advancing our understanding of brain functions. Current ultrasound neuromodulation faces two major trade-offs when targeting brain subregions: miniaturization versus volumetric control and spatial resolution versus transcranial capability. Here, we present an optically generated Bessel beam ultrasound (OBUS) device designed to overcome these limitations. This miniaturized device, measuring 2.33 millimeters in diameter, delivers a column-shaped field achieving a lateral resolution of 152 micrometers and an axial resolution of 1.93 millimeters, enabling targeting of brain subregions with an elongated volume of tissue activation. Immunofluorescence imaging of mouse brain slices confirms its ability to stimulate cells at depths up to 2.1 millimeters. In addition, OBUS outperforms conventional Gaussian ultrasound in transcranial transmission efficiency and beam shape preservation. Electrophysiological recordings and functional MRI captured rodent brain responses evoked by OBUS, demonstrating OBUS’s ability to noninvasively activate neural circuits in intact brains. This technology offers expanded possibilities for studying brain functions with precision and volumetric control.",
+          "hb": 1
+        },
+        {
+          "t": "通过电刺激小鼠和人类皮质纹状体回路来调节自闭症相关的自残行为",
+          "d": "2026-04-11",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "皮质纹状体回路功能障碍与自闭症谱系障碍中的自残行为相关。研究证实电刺激伏隔核可减轻自残行为并诱导结构可塑性改变，首次提供了回路调控与行为改变之间的因果证据，为难治性自残行为的靶向神经调控治疗奠定基础。",
+          "sc": 6.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb5842?af=R",
+          "tp": "脑刺激调控",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Dysfunction of corticostriatal circuitry is related to the emergence of self-injurious behavior (SIB) in autism spectrum disorder (ASD). Despite mounting interest in circuit-based interventions for severe, refractory SIB, the lack of causal evidence linking modulation of corticostriatal networks to changes in SIB has limited the advancement of effective, targeted therapies. In this study, we demonstrate that electrical stimulation of the nucleus accumbens (NAcc) mitigates SIB and induces structural changes along corticostriatal circuits in a mouse model relevant for ASD and children with severe SIB undergoing NAcc-targeted deep brain stimulation. In BTBR\n                    \n                      T\n                      +\n                      Itpr3\n                      tf\n                    \n                    /J mice, NAcc stimulation selectively reduced injurious self-grooming—a behavioral metric of SIB—and led to morphological changes in corticostriatal networks. In children with severe SIB, electric stimulation at a locus of optimal therapeutic response within the NAcc engaged widespread sensorimotor, limbic, and striatal networks and induced longitudinal structural changes in fronto-limbic-striatal brain regions. These findings highlight the role of the fronto-limbic-striatal network in SIB regulation and support corticostriatal neuromodulation as a mechanistic therapy for these extreme behaviors.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究在三维金属有机框架中首次发现g波对称性交错磁性",
+        "种子介导胶体合成法成功构建多金属及高熵合金纳米晶库",
+        "铁电畴工程驱动非常规磁子介导自旋力矩实现超低功耗器件设计"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 三维金属有机框架中g波交替磁性的涌现",
+          "d": "2026-04-11",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在三维金属有机框架（MOF）中发现了g波交错磁性（altermagnetism）的涌现。交错磁性兼具反铁磁体和铁磁体的关键特征：净磁化消失但具有自旋动量锁定效应。研究发现特定三维MOF结构中电子关联作用诱导出g波对称性的自旋劈裂，这是比传统d波更复杂的磁性序。该发现拓展了交错磁性材料的体系范围，为新型自旋电子学器件和无杂散场磁存储提供了新候选材料。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c15427",
+          "tp": "MOF交变磁性",
+          "aip": 1,
+          "kp": [
+            "磁性类型[3D MOF]: g波交替磁性",
+            "[核心特征]: 零净磁矩且破缺时间反演",
+            "[自旋劈裂]: 动量依赖且无需外场"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Altermagnets integrate key characteristics of both antiferromagnets and ferromagnets, exhibiting a vanishing net magnetic moment while breaking time-reversal symmetry and displaying momentum-dependent spin splitting in the absence of an external field. Recognized as one of the top ten Science breakthroughs of 2024, altermagnetism has drawn increasing attention, particularly in inorganic systems. In this work, using density functional theory calculations, we identify a g-wave altermagnetic state in thermally stable three-dimensional (3D) metal-organic frameworks (MOFs) based on Co(pymo)2 and its halogen-substituted derivatives, thereby extending the scope of altermagnetism to organic-containing 3D frameworks. A range of magnetic configurations was systematically evaluated for these systems, with the altermagnetic state being consistently found as the most energetically favorable. This feature is consistent with the antiferromagnetic coupling experimentally observed between Co ions connected via ligand bridges. The momentum-dependent spin splitting in the electronic structure emerges independently of spin-orbit coupling and is not significantly enhanced through the inclusion of heavy halogen elements. Additional canted spin configurations were also explored, which confirmed the robustness of the spin splitting against fluctuations. These results not only establish a momentous presence of g-wave altermagnetism in these 3D MOFs but also highlight the potential of molecular framework design for realizing symmetry-driven spin phenomena in a class of 3D materials beyond conventional inorganic systems.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 种子介导多金属及高熵合金纳米晶库的胶体合成及其增强催化性能",
+          "d": "2026-04-11",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "开发了种子介导胶体合成方法，系统构建了多金属和高熵合金纳米晶库。该方法精确控制纳米晶组成、尺寸和形貌，实现多种金属元素的均匀共还原与掺杂，显著提升了催化活性与稳定性。高熵合金纳米晶在电催化等领域展现出超越单金属催化剂的性能，为催化剂理性设计提供了新材料平台。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21040",
+          "tp": "高熵合金纳米催化剂",
+          "aip": 1,
+          "kp": [
+            "合成方法[高熵合金纳米晶]: 种子介导胶体合成构建纳米晶库",
+            "[催化性能]: 多金属协同增强催化活性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Engineering colloidally stable multimetallic nanocrystals offers many benefits in a wide range of applications and allows manipulation of physical, chemical, and electronic properties of materials at the nanoscale. Synthesis routes are challenged by the chemical complexity required to temporally and spatially coordinate the reduction and alloying of multiple metal species, which has hampered the development of tunable libraries of colloidal materials to date. In this work, we demonstrate a seed-mediated synthesis method to incorporate five or more metal elements into uniform, colloidally stable nanocrystals. By integrating machine learning-accelerated simulations, the synthesis of shortlisted high-entropy alloy nanocrystals was demonstrated. Multiple seed materials can be used, leading to a library of multimetallic nanocrystals with tunable electronic, physical, and alloy structures. The advantage of this synthetic protocol is highlighted in the preparation of catalytic materials that showed 2 orders of magnitude higher reaction rates than monometallic catalysts and outstanding thermal stability, thus highlighting the promise of this approach for high-performance materials in many areas.",
+          "hb": 1
+        },
+        {
+          "t": "多铁BiFeO3中铁电畴工程驱动的非常规磁振子介导自旋力矩",
+          "d": "2026-04-11",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "自旋电流通过磁矩操控实现低能耗信息处理，但其自旋极化方向需与磁化对齐才有效。本研究利用铁电畴工程实现了一种非常规的磁子介导自旋力矩：铁电极化翻转调控磁子传输路径与手性，使自旋力矩方向和大小可被电场主动调控。该机制无需电荷电流直接穿过磁性层，为超低功耗自旋电子器件与非易失性逻辑设计开辟了新范式。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-71437-5",
+          "tp": "多铁自旋力矩",
+          "aip": 1,
+          "kp": [
+            "[自旋力矩机制]: 磁子介导突破晶体对称性限制",
+            "[自旋源材料]: 多铁BiFeO3铁电畴工程"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Spin current provides an energy-efficient approach for manipulating magnetization, when its spin polarization aligns with the magnetization direction. However, conventional spin-source materials possess high crystalline symmetry, restricting spin polarization to be orthogonal to both spin and charge current directions. Here, we overcome this limitation by utilizing the concept of magnon-mediated spin-orbit torque through integration of the insulating multiferroic BiFeO3 with a conventional spin-source material. We observe that spin polarization generated by conventional spin-source material can excite unconventional magnon polarization due to the interplay between cycloidal antiferromagnetic order and the ferroelectric domain structure in BiFeO3. This produces an unconventional magnon torque that allows deterministic, field‑free switching of in‑plane magnetization collinear with the current direction, unattainable with conventional spin-source materials. Our results establish multiferroic-based heterostructure as a symmetry‑engineered magnon spin source, paving the way for low-power spintronic devices.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

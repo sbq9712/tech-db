@@ -1,0 +1,254 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月23日　星期四",
+  "date_range": "2026-04-23",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "溴修饰铜催化剂实现硝酸盐高效选择性合成氨",
+      "研究揭示正极氧气渗透导致高能锂电池SEI失稳",
+      "湖南大学利用室温钠基液态金属制备超薄钠金属负极"
+    ],
+    "AI与智能科技": [
+      "集成高速视觉与强化学习的乒乓机器人击败职业选手",
+      "自主机器人系统实现毫秒级动态物理对抗与精准回击",
+      "大语言模型推理能耗随序列长度激增挑战数据中心基建"
+    ],
+    "通用技术": [
+      "插层掺杂制备双壁碳纳米管纤维比电导率显著优于铜",
+      "n型聚合物射频整流器工作频率达18.5吉赫兹",
+      "深度神经网络结合离共振去耦实现单脉冲二维核磁共振"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "溴修饰铜催化剂实现硝酸盐高效选择性合成氨",
+        "研究揭示正极氧气渗透导致高能锂电池SEI失稳",
+        "湖南大学利用室温钠基液态金属制备超薄钠金属负极"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 溴修饰铜上脉冲驱动活性位点切换实现2e⁻+6e⁻级联硝酸盐制氨",
+          "d": "2026-04-23",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "利用脉冲驱动策略实现溴修饰铜催化剂上的活性位点动态切换，完成硝酸盐到氨的级联2e-+6e-还原转化。克服了稳态活性位点导致产物分散和能耗增加的问题，通过电势脉冲调控催化剂电子态，实现高效选择性氨合成，为电催化固氮提供新思路。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c00778",
+          "tp": "电化学合成氨",
+          "aip": 1,
+          "kp": [
+            "催化剂[NO3RR]: Br修饰Cu",
+            "电解方式[硝酸盐→氨]: 脉冲电还原",
+            "机制[8e⁻转移]: 活性位点自适应切换(2e⁻+6e⁻)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Steady active-site electronic states commonly lead to product decentralization and energy consumption increase when overcoming the kinetic mismatch within 8-electron transfer inherent in the electrocatalytic nitrate reduction reaction (NO3RR) to NH3. Here, we first report a reversible and self-adaptive regulation of Cu active sites by Br modification in pulsed electroreduction electrolysis (PE) to match distinct reaction kinetics steps of the (2 + 6)-electron pathway for the NO3RR on trace-Br-modified Cu/Cu2O catalysts (Br-Cu). Mechanistic investigations integrating in situ spectroscopy and DFT calculations reveal that Br-mediated electronic modulation and d-band center downshift strengthen Cu active sites to possess a reversibly tunable Cuδ+ (0 < δ < 1) state under PE, which selectively favor the first 2-electron (*NO3 → *NO2, δ close to 1) and the latter 6-electron (*NO2 → *NH3, δ close to 0) steps, delivering 94% Faradaic efficiency. The continuous-flow electrochemical cell employing Br-Cu maintains high NO3- conversion, NH3 Faradaic efficiency, and NH3 selectivity in approximately 700-h electrolysis while enabling efficient NH3 recovery from real aquaculture tailwater. This work presents a robust strategy for programmable self-adaptive electronic modulation toward sustainable NH3 electrosynthesis.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 高能锂离子电池中被忽视的氧气渗透导致固态电解质界面失稳",
+          "d": "2026-04-23",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "揭示高能量密度锂离子电池中氧气串扰对固体电解质界面膜（SEI）稳定性的破坏作用，这一此前被忽视的机制。高容量正极（如富镍氧化物）释放的氧气渗透至负极侧，引发SEI层分解和持续副反应，加速电池容量衰减，对高能量密度电池设计提出新的安全约束。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18889",
+          "tp": "锂电池SEI界面",
+          "aip": 1,
+          "kp": [
+            "退化机制[全电池]: O₂渗透破坏SEI",
+            "正极[高能锂电]: 富镍/富锂锰氧化物"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The pursuit of high-energy-density lithium-ion batteries (LIBs) through high-capacity cathodes (e.g., Ni-rich oxides, lithium-rich manganese oxides) is inevitably accompanied by lattice oxygen release and gas evolution, yet the systemic impacts of oxygen crossover in full-cell configurations remain underexplored. This study investigates how oxygen gas permeation across separators triggers capacity degradation in LIBs. By regulating separator permeability and employing differential electrochemical mass spectrometry (DEMS), we quantify oxygen transport pathways and their correlation with interfacial instability. Combined with cryogenic transmission electron microscopy and atomic force microscopy, we reveal that cathode-derived oxygen penetrates separators, attacking the anode to exacerbate heterogeneous solid electrolyte interphase (SEI) growth and mechanical destabilization. Continuous SEI fracture-reconstruction during cycling accelerates active lithium depletion and capacity fading. Employing low-permeability separators can effectively mitigate oxygen crossover and double the cycle life through stabilization of the anode interface. These findings establish oxygen gas crossover as one of the critical yet overlooked degradation vectors, bridging the knowledge gap between cathode oxygen release and anode failure mechanisms.",
+          "hb": 1
+        },
+        {
+          "t": "湖南大学吴英鹏通过室温钠基液态金属在Cu₂Se改性集流体上的快速自发反应制备薄钠金属负极",
+          "d": "2026-04-23",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "湖南大学吴英鹏团队利用反应诱导流变转变策略制备出厚度约8μm的超薄准固态钠金属负极（RTUT-Na）。将室温钠钾合金液态金属涂覆于Cu₂Se@Cu基底，液态金属与Cu₂Se剧烈放热反应形成NaSe-KSe-Cu复合框架网络，将高流动性液态金属转化为杨氏模量约2.47GPa的柔韧近固态结构，有效解决贫钠负极制造困难及循环寿命短的问题。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acsenergylett.6c00752",
+          "tp": "钠金属负极",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "钠由于其固有的高柔软性和高粘度，难以通过传统压延方法实现机械减薄，不利于降低了电池的能量密度，还会造成了电池制备过程中钠金属浪费。贫钠电则易因死钠累积快速失效，以液态方式加工钠虽有望制备超薄负极，却存在三维集流体制备复杂、熔融-凝固能耗高且固化电极仍生枝晶的问题，室温钠基液态金属虽具无枝晶潜力，但流动性难以保障电极稳定。具备无枝晶沉积特性的室温钠基液态金属（RT Na-LM）则固有的高流动性导致其在电池运行中难以维持稳定的电极结构。\n近日，湖南大学吴英鹏教授团队开发了一种由反应诱导的流变转变（Rheological transition）策略，制备出厚度约8 μm的超薄准固态钠金属负极（RTUT-Na），有效解决了贫钠负极制造困难及循环寿命短的问题。在惰性气氛中，将含58.2 wt% Na和41.8 wt% K的室温钠钾合金液态RT Na-LM涂覆于约4μm厚的Cu Se@Cu基底表面。液态金属与Cu Se发生剧烈放热反应，表面形成Na Se−K Se−Cu复合框架网络，实现液态金属的快速扩散与界面消耗，进而转化为柔韧且兼具机械性能的近固态结构。该结构杨氏模量约2.47GPa，增强电极的机械强度及抗压性能；超薄层形貌均匀致密，厚约8μm，Na和K稳定束缚于由Cu Se及Na Se/K Se构成的复合骨架中。进一步分析结果表明，Na、K液态合金与集流体的扩散反应自由能为负值（分别为−355.114和−378.415 kJ mol−1），驱动液态合金实现自发润湿及迅速流布，保障稳定扩散与均匀覆盖。力学与耐溶剂测试显示，该准固态电极可反复弯折、耐受高压挤压，在醚类电解液中结构完整，解决了纯液态金属易泄漏、团聚失效的问题。电化学测试表明，RTUT-Na电极在醚基与酯基电解液中表现出稳定极化电压及低界面阻抗，离子和电子传输性能显著优于传统电极。对称电池在0.5 mAh cm−2容量下稳定循环超过100小时，优于机械制备的Na@Cu对照组。全电池（RTUT-Na||NVP@C）在2 A g−1电流密度下循环2000次后容量保持率达84%，优于传统厚钠负极的52%，；软包电池在0.5 A g⁻¹下500次循环保持率84.6%且可耐180°弯折。文章于2026年4月23日发表在ACS Energy Letters。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "集成高速视觉与强化学习的乒乓机器人击败职业选手",
+        "自主机器人系统实现毫秒级动态物理对抗与精准回击",
+        "大语言模型推理能耗随序列长度激增挑战数据中心基建"
+      ],
+      "entries": [
+        {
+          "t": "认识Ace：能击败精英选手的乒乓球机器人",
+          "d": "2026-04-23",
+          "a": "Nature",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "研究人员开发了名为Ace的乒乓球机器人，能够击败精英级人类选手。该机器人集成了高速视觉追踪系统、实时运动预测算法和精密机械臂控制技术，以毫秒级速度响应对手击球轨迹。这一成果展示了机器人技术在动态对抗场景中的重大突破，其核心技术涵盖高速感知、轨迹预测与敏捷操控的协同集成，对未来运动机器人和人机交互领域具有重要参考价值。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01341-x",
+          "tp": "乒乓球机器人",
+          "aip": 1,
+          "kp": [
+            "[自主乒乓机器人]: 首个击败精英级选手的实体系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "自主机器人击败精英乒乓球选手",
+          "d": "2026-04-23",
+          "a": "Nature",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "该研究展示了一套自主机器人系统，能够在真实物理对战中击败精英乒乓球运动员。与AI在棋类和电子游戏中超越人类不同，乒乓球要求毫秒级感知、高速运动规划和精密物理执行。该机器人集成实时高速视觉追踪、旋转球预测、强化学习策略及高响应机械臂，可自适应对手风格并实时调整战术。系统在实战中击败了人类职业选手，标志着具身AI从虚拟博弈迈向高频动态物理对抗的重大突破，也验证了感知-规划-执行闭环在极限速度场景下的可行性。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10338-5",
+          "tp": "乒乓球机器人",
+          "aip": 1,
+          "kp": [
+            "[系统]: Ace自主乒乓球机器人",
+            "[关键能力]: 实时击败精英乒乓球选手",
+            "[技术挑战]: 高速精确对抗近人类反应极限"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Artificial intelligence (AI) systems now challenge or surpass human experts in many computer games1,2. Physical and real-time sports such as table tennis, however, remain a major open challenge because of their requirements for fast, precise and adversarial interactions near obstacles and at the edge of human reaction time3. Here we present Ace, to our knowledge the first real-world autonomous system competitive with elite human table tennis players. Ace addresses the challenges of physical real-time interaction through a new, high-speed perception system using event-based vision sensors4, and a new control system based on model-free reinforcement learning, as well as state-of-the-art high-speed robot hardware. Evaluated in matches against elite and professional players under official competition rules, Ace achieved several victories and demonstrated consistent returns of high-speed, high-spin shots. These results highlight the potential of physical AI agents to perform complex, real-time interactive tasks, suggesting broader applications in domains requiring fast, precise human–robot interaction.",
+          "hb": 1
+        },
+        {
+          "t": "AI推理能耗、效率提升路径与测试时扩展",
+          "d": "2026-04-23",
+          "a": "Joule",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "该研究在真实部署条件下评估了大语言模型推理的能耗，发现推理阶段的能量消耗远超此前估计，且随模型规模和序列长度显著增长。文章系统分析了提升推理能效的技术路径，包括模型量化、键值缓存优化、投机解码和批处理调度等。同时探讨了测试时计算扩展(test-time scaling)对能耗的额外影响，指出随着推理增强技术(如思维链推理)的普及，AI推理的能源足迹可能进一步放大，对数据中心基础设施和碳排放提出严峻挑战。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5?rss=yes",
+          "tp": "AI推理能耗",
+          "aip": 1,
+          "kp": [
+            "能耗[LLM推理]: <1 Wh/查询",
+            "能效优化[LLM推理]: 比常用估计低4-20倍",
+            "推理能耗[长推理链]: 显著增加",
+            "[效率潜力]: 单查询能耗可降8-20倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study estimates the energy use of large language model inference under realistic deployment conditions. It finds that optimized systems consume sub-watt-hour energy per query, 4–20× lower than widely cited estimates, while showing that long reasoning queries substantially increase energy demand and that efficiency improvements could reduce per-query energy use by 8–20×.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "插层掺杂制备双壁碳纳米管纤维比电导率显著优于铜",
+        "n型聚合物射频整流器工作频率达18.5吉赫兹",
+        "深度神经网络结合离共振去耦实现单脉冲二维核磁共振"
+      ],
+      "entries": [
+        {
+          "t": "西班牙马德里先进材料研究所JUAN JOSÉ VILATELA制备出兼顾极高导电与力学性能的双壁碳纳米管纤维",
+          "d": "2026-04-23",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "西班牙马德里先进材料研究所VILATELA团队采用气相法将四氯铝酸根离子插入双壁碳纳米管纤维管内通道，制得非共价掺杂插层化合物。该纤维室温电导率达24.5 MS/m（铜的41%），比电导率17,345 S·m²/kg，显著优于铜和铝，比强度为传统架空电缆五倍、重量仅一半。干燥环境性能稳定保持一年以上，潮湿环境经聚合物护套保护可保留80%导电率，有望在航空航天、电力传输领域替代传统金属导线。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aeb0673",
+          "tp": "碳纳米管纤维",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "碳纳米管（CNT）因其优异的导电、导热和力学性能，被认为是制造轻量化导体的理想材料。然而，如何将单个碳纳米管卓越的导电性真正转化为可在宏观尺度应用的高性能导线，长期以来一直是材料科学领域的重大挑战。\n西班牙马德里先进材料研究所JUAN JOSÉ VILATELA等人成功开发出一种新型插层型碳纳米管纤维。研究团队采用气相法，将四氯铝酸根离子（AlCl₄⁻）均匀插入高度取向的双壁碳纳米管（DWCNT）纤维的管内通道中，形成了一种非共价掺杂的插层化合物。该插层剂可接受每个阴离子约0.65个电子，且电荷转移主要发生在碳纳米管的外层。插层后，纤维在室温下的电导率最高达到24.5 MS/m，相当于铜的41%；比电导率（按密度归一化）高达17,345 S·m²/kg，显著优于铜和铝。同时，该纤维的比强度是传统架空电缆的五倍，而重量仅为后者的一半。\n在干燥环境中，该纤维可稳定保持性能超过一年；在潮湿环境下，导电率会因插层剂与水反应而下降，但采用聚合物电缆护套保护后，可保留80%的导电率。这一成果为开发兼具高导电、轻量化和高强度的下一代导体材料提供了全新路径，有望在航空航天、电力传输等领域替代传统金属电缆。文章于2026年4月23日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "工作频率达18.5 GHz的n型聚合物射频整流器",
+          "d": "2026-04-23",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究实现了基于n型聚合物半导体材料的射频整流器，工作频率达到18.5 GHz。这一成果标志着有机聚合物电子学在高频无线能量收集和通信领域的重大突破，为物联网设备、柔性电子和可穿戴系统中的无线供电方案提供了低成本、可印刷的新途径。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522754?af=R",
+          "tp": "聚合物射频整流器",
+          "aip": 1,
+          "kp": [
+            "工作频率[n型聚合物整流器]: 18.5 GHz",
+            "器件类型[RF]: 有机聚合物肖特基整流器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    As advancements in artificial intelligence, the Internet of Things (IoT), and telecommunication technologies continue to accelerate, the demand for cheaper radiofrequency (RF) electronics increases. However, developing devices that meet the stringent manufacturing and performance criteria for RF applications remains a significant challenge. Here, we demonstrate organic polymeric RF Schottky diodes and rectifier circuits that can operate up to 18.5 GHz, making them the fastest organic devices reported to date. The diodes feature the molecularly n‐doped polymer, namely N2200, deposited atop self‐aligned coplanar asymmetric nanogap electrodes (sub‐20‐nm nanogaps). The coplanar architecture reduces parasitic capacitances, while the engineered electron‐injecting contacts, in synergy with the n‐doped polymer, help decrease the contact resistance and boost the device's overall performance. The polymer Schottky diodes exhibit a low turn‐on voltage of ≈0.15 V, a high current rectification ratio exceeding 10\n                    5\n                    , and an ultra‐low capacitance of ≈2 pF. RF rectifier circuits featuring the polymer Schottky diodes yield a maximum output voltage (\n                    V\n                    PEAK\n                    ) of 1.43 V and an extrinsic cut‐off frequency of up to 18.5 GHz. The scalable manufacturing and unprecedented frequency response make these organic Schottky diodes a good candidate for applications in emerging RF electronics for wearables and the broader IoT device ecosystem.",
+          "hb": 1
+        },
+        {
+          "t": "单脉冲二维核磁共振：基于离共振去耦与深度神经网络重建异核二维谱",
+          "d": "2026-04-23",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "提出通过单一脉冲重建异核二维NMR谱的新方法，结合离共振去耦技术与深度神经网络，从一维实验数据中重建传统需多次扫描采集的二维谱图。该方法大幅缩短数据采集时间，在化学、材料科学和结构生物学等领域具有广泛应用潜力。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527937123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "二维核磁共振",
+          "aip": 1,
+          "kp": [
+            "[方法]: 单脉冲+离共振去耦+DNN重建",
+            "[应用]: 杂核2D NMR谱重建"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "NMR spectroscopy is ubiquitous in many areas of science, including chemistry, material science, biophysics, and structural biology. Heteronuclear two-dimensional (2D) NMR experiments form the basis of several NMR-based investigations, especially those involving biomolecules like proteins. However, in solution, as the molecule of interest becomes larger, transverse relaxation times of the spins of interest become shorter. This makes it difficult to record 2D\n                    1\n                    H–\n                    13\n                    C or\n                    1\n                    H–\n                    15\n                    N correlation maps of large protein molecules using standard Fourier transform–based experiments as they contain transfer delays that are long compared to the short relaxation times. Herein, we explore the possibility of leveraging deep neural networks (DNNs) to obtain 2D correlation maps of proteins while eliminating transfer delays from experiments. In this study, we show that 2D methyl\n                    1\n                    H–\n                    13\n                    C correlation maps can be obtained from experiments containing only a single\n                    1\n                    H excitation pulse followed by off-resonance\n                    13\n                    C continuous-wave decoupling. A DNN was successfully trained to reconstruct the 2D\n                    1\n                    H–\n                    13\n                    C correlation map from datasets recorded with two\n                    13\n                    C decoupling fields using protein samples enriched with isoleucine, leucine, and valine (ILV)\n                    13\n                    CHD\n                    2\n                    methyl-groups in a\n                    2\n                    H background. The efficacy of this strategy is demonstrated by using the DNN to reconstruct methyl\n                    1\n                    H–\n                    13\n                    C correlation maps of the ~8 kDa FF domain from human HYPA/FBP11, the ~18 kDa T4 phage lysozyme, the ~360 kDa α\n                    7\n                    α\n                    7\n                    particle from the\n                    Thermoplasma acidophilum\n                    proteasome and a ~530 kDa ancestrally reconstructed L\n                    8\n                    S\n                    8\n                    Rubisco complex. This study illustrates the potential for improving the sensitivity and resolution of NMR spectra by designing experiments tailored for use with DNNs.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

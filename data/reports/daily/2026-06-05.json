@@ -1,0 +1,246 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月5日　星期五",
+  "date_range": "2026-06-05",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究团队开发基于TRV递送系统的番茄可遗传基因组编辑方法",
+      "南澳大利亚州授予总计1,334 MW/5.3 GWh长时储能电池项目合同",
+      "无负极钠软包电池通过非对称醚调控在低温下实现200 Wh/kg能量密度"
+    ],
+    "AI与智能科技": [
+      "研究将混合专家架构引入片上光子计算平台以降低多任务处理能耗",
+      "苹果计划于9月推出由谷歌和英伟达提供算力及模型支持的新一代Siri",
+      "微软宣布升级其拓扑量子芯片，但马约拉纳零能模等核心机制仍待验证"
+    ],
+    "通用技术": [
+      "NASA X-59静音超声速飞机即将开展突破声障的核心里程碑测试",
+      "MIT工程师开发新型激光雷达芯片解决干涉问题并拓宽传感器视场角",
+      "波兰约30个风光电站遭网络攻击暴露电池储能系统网络保险覆盖缺口"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究团队开发基于TRV递送系统的番茄可遗传基因组编辑方法",
+        "南澳大利亚州授予总计1,334 MW/5.3 GWh长时储能电池项目合同",
+        "无负极钠软包电池通过非对称醚调控在低温下实现200 Wh/kg能量密度"
+      ],
+      "entries": [
+        {
+          "t": "番茄中病毒诱导的非转基因和无组织培养的可遗传基因组编辑",
+          "d": "2026-06-05",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/农林",
+          "as": "研究团队开发基于烟草脆裂病毒（TRV）的递送系统，搭载紧凑型ISYmu1 TnpB核酸内切酶，结合植株内芽再生技术，在不同番茄品种中实现体细胞和可遗传基因组编辑。该方法无需组织培养和转基因材料，突破传统育种对基因型的强依赖，为作物性状改良提供高效、普适的新路径。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2530029123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "基因编辑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Genome editing has emerged as a powerful tool for genome manipulation and trait improvement in crops. However, most commonly used approaches rely on tissue culture and transgenic materials, which are time-consuming, labor-intensive, and often strongly genotype-dependent. Here, we developed a Tobacco rattle virus (TRV)-based system to deliver the compact ISYmu1 TnpB endonuclease, coupled with in planta shoot regeneration, to achieve somatic and heritable genome editing across different tomato cultivars without tissue culture. By targeting\n                    SlPDS\n                    , we successfully generated virus-free homozygous mutant progeny in a single generation. Furthermore, we extended this system to the functional analysis of the previously uncharacterized\n                    SlDA1\n                    locus, revealing its involvement in organ size regulation, and recovered transgene-free\n                    SlDA1\n                    mutants displaying enlarged fruits. Given the wide host range of TRV, our system should be broadly applicable for rapid, nontransgenic and less genotype-dependent heritable genome editing, thereby advancing both functional genomics and crop improvement.",
+          "hb": 1
+        },
+        {
+          "t": "南澳大利亚州授予5.3 GWh储能电池合同",
+          "d": "2026-06-05",
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "南澳大利亚州政府授予总计1,334 MW/5.3 GWh的长时储能电池系统（BESS）项目合同，由AusServices等公司承建。该批项目是澳大利亚大规模部署长时电网级储能的重要里程碑，旨在支撑可再生能源高渗透率下的电网稳定性，为州域级电力系统提供调峰调频及备用容量，助力南澳加速实现清洁能源转型目标。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ess-news.com/2026/06/04/south-australia-awards-contracts-for-5-3-gwh-of-battery-storage/",
+          "tp": "储能项目招标",
+          "aip": 1,
+          "kp": [
+            "总容量[BESS合同]: 1334MW/5336MWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "AusServices Ltd (ASL) has announced six long duration battery energy storage system (BESS) projects totalling 1,334 MW/5,336 MWh have been awarded Firm Energy Reliability Mechanism Agreements (FERMAs) in South Australia’s FERM Tender Round 1.\nTogether, they are four times the capacity of the expanded 150 MW/193 MWh Horndale Power Reserve (HPR).\nTwo agreements were allocated to France-headquartered clean energy developer Neoen Australia for its Goyder Battery 600 MWh Stage 1 and 600 MWh Stage 2.\nOne agreement each was awarded to Singapore-based Ampyr Energy’s 1 GWh Northern Battery, Spain-based Iberdrola’s 800 MW Tungkillo BESS, Victorian-based Blackrock-owned Akaysha Energy’s 736 MWh Brinkworth BESS, and US-headquartered ZEBRE’s 400 MWh Dartmoor BESS.\nCommitted output capacity of the projects during Forecast LOR 2 and 3 events is 517 MW/4,136 MWh, which the projects must dispatch continuously for at least 8 hours during times of tight supply-demand balance.\n3,000 MWh of output capacity is expected by November 2028, followed by the additional 1,136 by November 2029.\nASL Chief Executive Officer Nevenka Codevelle said the tender attracted robust competition.\n“ASL’s evaluation prioritised projects with a clear and credible pathway to commercial operation, a meaningful contribution to system reliability, and strong value for SA electricity consumers,” Codevelle said. “Renewable generation [is] now supplying more than 70% of the state’s electricity. The projects secured through SA FERM Tender 1 will strengthen the power system by adding additional reliable, long‑duration dispatchable capacity.”\nSA Premier Tom Koutsantonis said too often the state has seen wholesale prices falling but price spikes for consumers due to isolated events where there is a lack of firming capacity.\n“Now we are helping fast-track projects that will more than double the state’s large-scale battery storage capacity and support an estimated AUD 2.2 billion ($1.5 billion) of local investment in new storage projects,” Koutsantonis said. “These will grow batteries’ contribution to our state’s generation capacity to more than double that of Victoria, New South Wales and Queensland, adding capacity to reach almost three-quarters of South Australia’s all-time peak demand, eclipsing all other major Australian grids.”",
+          "hb": 1
+        },
+        {
+          "t": "通过非对称醚调控溶剂-阴离子相互作用用于200 Wh/kg低温无负极钠软包电池",
+          "d": "2026-06-05",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "该研究通过设计含不对称醚基团的溶剂分子调控溶剂-阴离子相互作用，实现低温环境下钠金属负极的高可逆电镀/剥离。无负极钠软包电池在低温条件下达到200 Wh/kg的能量密度，突破了钠电池低温性能瓶颈。非对称醚结构有效调节溶剂化鞘层结构，抑制枝晶生长并提升库伦效率，为低成本大规模储能电池的低温运行提供了新路径。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3780082?af=R",
+          "tp": "无负极钠电池",
+          "aip": 1,
+          "kp": [
+            "能量密度[低温无负极钠金属软包]: 200 Wh/kg",
+            "[电解质]: 不对称醚调控溶剂-阴离子作用",
+            "[电池类型]: 低温无负极钠金属电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Achieving highly reversible Na plating/stripping is crucial for the stable operation of low‐temperature anode‐free sodium metal batteries (LT‐AFSMBs), yet simultaneously realizing ultra‐high Coulombic efficiency (CE) and long‐term durability, accompanied by high energy density, remains a formidable challenge. Herein, by regulating the molecular side chain, we design an asymmetric chain‐like ether solvent that elegantly balances weak Na\n                    +\n                    ‐dipole and strong anion‐dipole interactions. This rationally tailored electrolyte fosters an anion‐rich Na\n                    +\n                    coordination environment, which significantly lowers the desolvation barrier and drives the formation of a robust, anion‐derived solid electrolyte interphase with rapid interfacial dynamics. Consequently, the optimized electrolyte delivers an unprecedented average CE of 99.96% over 500 cycles at −20°C. Remarkably, even under stringent conditions of an ultra‐high cathode loading (28.05 mg cm\n                    −2\n                    ) and areal capacity (2.48 mAh cm\n                    −2\n                    ), the LT‐AFSMBs retain 85.9% of their initial capacity over 600 cycles at −20°C. Moreover, practical Ah‐level anode‐free pouch cells demonstrate stable operation for 300 cycles, yielding a high energy density exceeding 200 Wh kg\n                    −1\n                    (based on the mass of entire pouch cell). This paradigm‐shifting solvation strategy provides a highly viable and scalable blueprint for the next‐generation, extreme‐temperature energy storage systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究将混合专家架构引入片上光子计算平台以降低多任务处理能耗",
+        "苹果计划于9月推出由谷歌和英伟达提供算力及模型支持的新一代Siri",
+        "微软宣布升级其拓扑量子芯片，但马约拉纳零能模等核心机制仍待验证"
+      ],
+      "entries": [
+        {
+          "t": "面向可扩展多任务片上光神经网络的光子混合专家系统",
+          "d": "2026-06-05",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "光子计算以其高能效、高带宽特性被视为下一代AI硬件的有力候选，但当前片上光子神经网络在处理多任务时面临扩展性瓶颈。该研究将混合专家架构引入光子计算平台，通过动态路由将不同任务分配至专用光子专家子网络，实现可扩展的多任务片上光学神经网络。该方法充分利用光子并行处理优势，在保持精度不变的前提下显著降低能耗与计算开销，为大规模AI光子加速器的工程化部署提供了新思路。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73983-4",
+          "tp": "光子混合专家网络",
+          "aip": 1,
+          "kp": [
+            "[架构范式]: 光子混合专家系统",
+            "[优势]: 多任务片上光神经网络可扩展"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photonic computing offers an energy-efficient, high-bandwidth platform for artificial intelligence (AI) but currently faces scalability bottlenecks stemming from depth-dependent designs, linear optical structures, and intrinsic optical losses, along with high hardware and reconfiguration costs for multi-task processing. Here, we present a scaling paradigm that circumvents these limitations by expanding network width rather than depth, leveraging the intrinsic parallelism of photonics. We implement a scalable Photonic Mixture-of-Experts (PMoE) architecture, where parallel photonic cores function as expert networks. By dynamically routing inputs to these experts, the PMoE efficiently executes multi-task workloads without altering the physical optical weights. We fabricated a PMoE chip integrating three collaborative diffraction-based expert networks, featuring 18 parallel kernels within a compact intrinsic computational-core footprint of 0.067 mm2. Experimentally, the PMoE chip achieves multi-domain image classification with an average accuracy of 97.1%. While offering further scalability, this approach outperforms conventional optical networks and reduces digital parameter overhead by 67%. Our work underscores the scalability and efficiency of the PMoE architecture for next-generation large-scale photonic AI processors.",
+          "hb": 1
+        },
+        {
+          "t": "苹果将在谷歌和英伟达协助下于9月推出全新Siri",
+          "d": "2026-06-05",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "据The Information报道，苹果计划于9月推出由谷歌和英伟达协同支持的新一代Siri语音助手。此次升级标志着苹果在生成式AI助手领域的重大布局，预计将整合外部大模型能力以提升Siri的对话理解、多轮推理与任务执行水平。谷歌与英伟达的参与暗示新Siri可能借助先进的基础模型与云端算力，缩小与ChatGPT等竞品的差距，对消费级AI助手市场格局产生重要影响。",
+          "sc": 7.5,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/apple-launch-new-siri-september-help-google-nvidia",
+          "tp": "AI语音助手",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Apple to Launch New Siri in September With Help of Google, Nvidia — The Information Read this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "微软升级争议性量子芯片——研究人员仍持怀疑态度",
+          "d": "2026-06-05",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "微软对其争议性的拓扑量子芯片进行升级，声称将实现可比竞争方案更快规模化的拓扑量子计算机。然而学术研究者仍对该拓扑量子比特是否真正实现了马约拉纳零能模等核心物理机制持怀疑态度。该报道反映了量子计算硬件路线的分歧：产业宣传与学术验证之间存在明显落差，拓扑量子计算的工程可行性仍待独立验证。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-01788-y",
+          "tp": "拓扑量子芯片",
+          "aip": 1,
+          "kp": [
+            "[量子计算路线]: 拓扑量子比特可扩展性声称"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The tech giant says it will make ‘topological’ quantum computers that can be scaled up faster than competing technologies. The tech giant says it will make ‘topological’ quantum computers that can be scaled up faster than competing technologies.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "NASA X-59静音超声速飞机即将开展突破声障的核心里程碑测试",
+        "MIT工程师开发新型激光雷达芯片解决干涉问题并拓宽传感器视场角",
+        "波兰约30个风光电站遭网络攻击暴露电池储能系统网络保险覆盖缺口"
+      ],
+      "entries": [
+        {
+          "t": "NASA X-59静音超音速飞机即将迎来最关键测试",
+          "d": "2026-06-05",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航空",
+          "as": "NASA的X-59静音超声速喷气式飞机即将迎来其核心里程碑测试——突破声障飞行。该飞机采用独特外形设计以将超声速飞行产生的声爆降至极低水平，旨在验证超声速陆上飞行的可行性。若测试成功，将推动商用超声速客机回归，彻底改变民用航空对超声速飞行的噪音限制认知。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/nasas-x-59-sonic-boom-killer-is-ready-for-its-biggest-test-yet/",
+          "tp": "静音超音速飞机",
+          "aip": 1,
+          "kp": [
+            "[超音速飞行]: X-59即将首次突破音速测试"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s strange-looking X-59 jet is about to reach the milestone it was built for: flying faster than the speed of sound.\nNASA’s X-59 experimental aircraft is preparing for one of the most important phases of its flight testing program. The next series of flights will include the aircraft’s first journey beyond the speed of sound, along with several key tests needed for the mission’s future goals.\n“What comes next is the first time this one-of-a-kind aircraft will fly supersonic,” said Cathy Bahm, project manager for NASA’s Low Boom Flight Demonstrator. “We are starting toward the mission conditions test point that X-59 was designed for.”\nFollowing months of flight testing, the X-59 team completed a review of recent progress in late May and is now moving on to a new set of tests involving greater speeds and higher altitudes. These flights will help engineers evaluate how the aircraft performs under the operating conditions required for NASA’s Quesst mission, which aims to collect data on quiet supersonic flight.\nNASA expects the X-59 to exceed the speed of sound for the first time during test flights scheduled for early June. The aircraft is expected to fly faster than 630 mph at an altitude of about 43,000 feet, marking a major achievement for the program.\nThe aircraft will then attempt a “mission conditions” flight, reaching Mach 1.4 (925 mph) at roughly 55,000 feet. Those targets are especially important because they match the performance conditions NASA plans to use when flying the X-59 over U.S. communities in future tests. During those flights, researchers hope to gather public feedback on the aircraft’s quieter sonic “thump.”\nAlthough the X-59 was specifically designed to reduce the disruptive sonic boom normally associated with supersonic flight, the upcoming tests are not intended to demonstrate that capability. During this phase, the aircraft will fly alongside a conventional supersonic chase plane. Any quiet sound produced by the X-59 will be masked by the louder sonic booms generated by the chase aircraft.\nLater this summer, the chase plane will carry a specialized shock-sensing probe that will allow researchers to begin measuring the X-59’s shock waves.\nThe aircraft’s first phase of flight testing successfully achieved a number of objectives and provided engineers with valuable data.\nAfter its maiden flight in October 2025, the X-59 underwent a planned maintenance period before returning to flight operations in March 2026. Since then, the aircraft has completed 14 additional flights and reached several important milestones, including:\nEngineers used data from these flights to evaluate critical systems, including fuel delivery, hydraulics, environmental controls, and the aircraft’s eXternal Vision System. Instead of a traditional forward windshield, the X-59 relies on cameras that feed images to a display, allowing the pilot to see ahead.\nTeams also closely monitored the aircraft during takeoffs, landings, and flight operations. Strain gauges installed throughout the airframe measured structural loads and recorded how the aircraft responded to those forces.\nDuring the upcoming test campaign, pilots will continue working through planned test points while engineers monitor how the aircraft performs under supersonic conditions.\n“Flying at supersonic speeds is a major milestone for the X-59 team,” Bahm said. “Every step of envelope expansion brings us closer to demonstrating the quiet supersonic capability that is at the heart of the Quesst mission. Completing the first mission-conditions flight is especially meaningful – it’s the moment where we begin validating the aircraft in the environment it was designed for.”\nIn addition to reaching mission conditions, the X-59 is expected to achieve its top planned performance targets of Mach 1.6 (1,218 mph) and an altitude of 60,000 feet.\nEven so, not every future flight will be supersonic. The testing program will continue to include slower flights and operations at lower altitudes so engineers can evaluate the aircraft under a broad range of conditions.\n“These flights not only deepen our confidence in the X-59’s performance – they mark our progression toward the future phases of the mission that will ultimately help shape the future of supersonic travel,” Bahm said.\nAll flights completed so far, as well as those planned in the upcoming series, are part of Phase 1 of NASA’s Quesst mission. The goal of this stage is to verify the aircraft’s performance and airworthiness.\nSome of these flights will also begin testing equipment needed for future research, including a probe mounted on one of NASA’s F-15 research aircraft to measure the unique shock-wave signature produced by the X-59.\nInformation gathered during those early measurements will help prepare the team for Quesst Phase 2, scheduled to begin later this year. During that phase, engineers will directly measure the aircraft’s supersonic flight signature to confirm that it produces the quiet supersonic thump it was designed to create.\n“Aviation pioneer Otto Lilienthal said, ‘To design a flying machine is nothing. To build one is something. But to fly is everything.’ The 15 X-59 flights we’ve accomplished since March have been everything to this team and the mission,” Bahm said. “Every flight has pushed the boundaries of what’s possible, steadily expanding the envelope and strengthening our confidence in the aircraft.”\nWhile the accomplishments so far have been significant, Bahm said the team remains focused on what comes next.\n“As we look ahead to the upcoming flights, we’re poised to open the envelope even further – moving boldly toward the mission test point this aircraft was built to achieve,” Bahm said. “Flying supersonic and reaching these milestones isn’t just progress; it’s the realization of years of perseverance, innovation, and teamwork. Each step brings us closer to Phase 2, and to the future of commercial supersonic flight.”\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nNASA X-59 Quesst\nNASA Unveils Cutting-Edge Tech To Make Supersonic Flights Quieter\nOn the Brink of Revolution: NASA’s Quiet Supersonic X-59 Moves Toward Maiden Flight\nNASA’s X-59 Quesst: Overturning the 50-Year-Old Supersonic Speed Limit\nSilencing Sonic Booms: NASA’s X-59 Quiet Supersonic Aircraft Passes Critical Milestone\nNASA X-59 Experimental Aircraft’s Quiet Revolution in Supersonic Flight\nNASA’s X-59: A Supersonic Aircraft’s Patriotic Paint Transformation\nQuiet and Efficient – New Propeller Advance Paves Way for Electric Planes\nJet Engine Installed on NASA’s X-59 QueSST Quiet Supersonic Aircraft\nMajor Milestone As NASA’s X-59 QueSST Quiet SuperSonic Technology Aircraft Comes Together",
+          "hb": 1
+        },
+        {
+          "t": "麻省理工工程师解决困扰研究者多年的激光雷达重大难题",
+          "d": "2026-06-05",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "MIT工程师设计了一种新型激光雷达芯片，通过特殊工程化天线结构解决困扰学界多年的干扰问题，同时显著拓宽了传感器视场角。该芯片级方案有望降低激光雷达系统的复杂度与成本，推动自动驾驶、机器人等领域的感知硬件小型化。",
+          "sc": 8.0,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/mit-engineers-solve-a-major-lidar-problem-that-has-stumped-researchers-for-years/",
+          "tp": "芯片级激光雷达",
+          "aip": 1,
+          "kp": [
+            "[技术方案]: 硅光子芯片天线减小干扰扩大视场",
+            "[优势]: 消除机械运动部件提升可靠性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A new MIT-designed\nchip uses specially engineered antennas to reduce interference and widen the sensor’s field of view.\nBut today’s most powerful lidar sensors often come with major drawbacks: they are bulky, expensive, and rely on moving mechanical components that can wear out over time.\nResearchers at\nhave now demonstrated a potential solution. They developed a new silicon-photonics chip that could enable compact, durable lidar systems with no moving parts. Silicon photonics uses semiconductor technology to manipulate light rather than electricity, opening the door to lidar sensors that are smaller, cheaper, and easier to manufacture at scale.\nOne of the biggest obstacles facing silicon-photonics lidar has been its limited field of view. Existing chip-based systems struggle to scan wide angles, while methods for expanding their coverage typically introduce noise and reduce measurement\nTo overcome this challenge, the MIT team designed an array of integrated antennas that dramatically reduces unwanted interference, known as crosstalk, between neighboring antennas. Their approach allows a lidar chip to scan a much wider area while maintaining the low-noise, high-precision performance needed for demanding applications such as autonomous vehicles, aerial mapping, and construction-site monitoring.\nThe breakthrough could support the development of advanced lidar sensors for applications such as autonomous driving, aerial surveying, and construction site monitoring.\n“The functionality we demonstrated in this work solves a fundamental problem for integrated optical-phased-array technology, enabling future lidar sensors that can achieve significantly higher performance than we could demonstrate previously,” says Jelena Notaros, the Robert J. Shillman Career Development Associate Professor of Electrical Engineering and Computer Science (EECS) at MIT, a member of the Research Laboratory of Electronics, and senior author of a paper on this innovation.\nThe paper’s lead author is EECS graduate student Henry Crawford-Eng. Additional co-authors include EECS graduate students Andres Garcia Coleto, Benjamin M. Mazur, Daniel M. DeSantis, and Tal Sneh. The findings were published in\nNature Communications\nConventional lidar systems typically rely on a spinning unit that sends light pulses in multiple directions. The reflected light returns to the sensor, allowing the system to reconstruct a map of the environment.\nSilicon-photonics lidar systems instead steer light electronically using an integrated optical phased array (OPA), eliminating the need for moving parts.\nAn OPA contains a series of integrated antennas with tiny periodic corrugations along their surfaces. These corrugations scatter incoming light upward and outward from the photonic chip.\nHowever, placing antennas too close together creates interference between them, causing the emitted light to become distorted. To avoid this, engineers usually spread the antennas farther apart, but that creates a different problem.\nWhen antennas are spaced too widely, the array generates multiple copies of the light beam at different angles. As a result, the primary beam can only be steered within a limited range before it becomes indistinguishable from neighboring beams.\n“This limits our field of view, so the autonomous vehicle now only knows what is in front of it for a certain angular range,” Garcia Coleto explains.\nThese duplicate beams, called grating lobes, can confuse the sensor, create false positives, and waste energy.\nTo solve the issue, the MIT researchers designed reduced-crosstalk antennas that can be placed much closer together without producing significant interference.\nIn conventional OPAs, every antenna uses the same geometry and corrugation pattern, causing strong coupling when antennas are tightly packed.\nThe MIT team addressed this by creating three different antenna designs with varying widths and corrugation arrangements. These differences give each antenna a unique propagation coefficient, which affects how light travels through it.\n“Because the antennas have very different propagation coefficients, when we put them close together, essentially each antenna doesn’t ‘see’ the antenna next to it. Therefore, it won’t couple with its neighbor,” Garcia Coleto says.\nEven with different propagation characteristics, the antennas still needed to emit light in a uniform way.\nThe researchers carefully engineered the antennas to satisfy three requirements.\nEach antenna had to emit the same amount of light, direct the beam at the same angle for a given wavelength, and shift the emission angle consistently as the beam was steered across the array.\n“We have this challenge where we require the antennas to have different geometries to reduce the crosstalk, but we need to simultaneously design the antennas to have the same emission characteristics. While it is possible to engineer this, it is extremely difficult because, typically, when antennas are designed with different geometries, they tend to behave differently,” Crawford-Eng says.\nThe team first developed the electromagnetic theory describing how radiative modes interact, then used those findings to design and simulate the antennas.\nUsing this approach, the researchers built an OPA with antennas spaced much more closely together than those in traditional systems and then tested the device experimentally.\nIn a conventional OPA, coupling under similar conditions would reach roughly 100 percent. In the MIT system, coupling dropped to about 1 percent while still producing a single, precise beam. The design also enabled accurate beam steering across a wide field of view without generating grating lobes.\nThe researchers now plan to improve the technology further to expand the field of view even more. They are also investigating another possible solution for wide-angle functionality that emerged while developing the underlying theory.\n“This work addresses a longstanding challenge in integrated optical phased arrays: simultaneously achieving both a wide field of view, which requires dense antenna spacing, and high beam quality, which requires low crosstalk between neighboring antennas. The authors solve this problem with an elegant antenna design. Their innovation is an important step forward for chip-scale, solid-state beam-steering technology,” says Joyce Poon, professor of electrical and computer engineering at the University of Toronto and director of the Max Planck Institute of Microstructure Physics, who was not involved with this work.\nReference: “Reduced-crosstalk antennas for grating-lobe-free and wide-field-of-view integrated optical phased arrays” by Henry Crawford-Eng, Andres Garcia Coleto, Benjamin M. Mazur, Daniel M. DeSantis, Tal Sneh and Jelena Notaros, 7 May 2026,\nNature Communications\nDOI: 10.1038/s41467-026-71832-y\nThis research was supported, in part, by the Semiconductor Research Corporation, the National Science Foundation, an MIT MathWorks Fellowship, the U.S. Department of War, and the MIT Rolf G. Locher Endowed Fellowship.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nLidar Equipment\nWhen light Causes a Photoinduced Phase Transition\nFish-Eye Lens May Produce Quantum Entanglement Between Atoms\nEngineers Enhance the Interactions Between Light and Matter\nScientists Observe New Exotic Phenomena in Photonic Crystals\nResearchers Manipulate Nanoscale Particles with Light\nTwo-Stage Process Makes Incandescent Bulbs More Efficient\nPhysicists Observe Weyl Points for the First Time\nPhysicists Corral Electrons Using a New Quantum Tool\nHarvard and MIT Scientists Create Never-Before-Seen Form of Matter",
+          "hb": 1
+        },
+        {
+          "t": "波兰电网攻击揭示了电池存储的网络保险缺口 - Energy Storage",
+          "d": "2026-06-05",
+          "a": "ESS News",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "2025年12月29日波兰约30个风光电站遭遇网络安全事件，攻击者针对分布式可再生能源的通信基础设施和控制系统，干扰发电资产与配电网运营商之间的可见性（发电未直接中断）。该事件为保险承保商提供了评估分布式能源网络攻击路径的真实案例，而非依赖模型推演，暴露出电池储能系统在网络保险覆盖方面的显著缺口。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ess-news.com/2026/06/04/polish-grid-attack-reveals-cyber-insurance-gap-for-battery-storage/",
+          "tp": "储能网安全",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A cybersecurity incident affecting approximately 30 wind and solar sites across Poland on Dec. 29, 2025, provided underwriters with a real-world example of an attack pathway against distributed renewable assets to assess rather than model.\ncybersecurity incident\ninvolved malicious activity affecting communications infrastructure and control systems at distributed energy sites, reducing or disrupting visibility between generation assets and distribution system operators. Generation was not directly manipulated. At a wind or solar site, that distinction has operational significance. For battery storage, it matters less – because the control layer exposed to an attacker is also the layer governing cell safety.\n“The attack pathway demonstrated in Poland – compromise of internet-facing edge devices, absent multi-factor authentication, and reused credentials, therefore leading to access to remote terminal units, protection relays and operator interfaces – was already understood to be feasible,” said Tom Dryden, partner and head of cyber Europe at McGill and Partners. “What that example provided was confirmation that a capable actor will pursue that pathway against distributed assets and will do so with destructive, rather than just financial, intent.”\nThe affected Polish facilities continued to generate throughout the incident. Battery energy storage systems do not offer the same margin.\nControl layer\ncontrol layer\nan attacker would access – the battery and energy management system – is also the layer that governs charge rate, state of charge and cell temperature,” Dryden told\n. “Compromise or manipulation of that layer is not just a supervisory inconvenience but a direct means of forcing a cell beyond its safe operating threshold, with thermal runaway as the foreseeable consequence.”\nFor underwriting purposes, Dryden said, that moves the cyber-physical thermal-runaway scenario “from a modeled tail risk to a demonstrated exposure” – not because physical damage occurred in Poland, but because the incident confirmed that capable actors are actively pursuing the distributed edge of the power system.\nThe insurance market’s response to that exposure is complicated by a structural feature of how energy assets are covered. Conventional property and energy policies typically exclude malicious cyber triggers, subject to wording and market variations. Dedicated cyber-insurance policies are designed to respond to malicious acts – but do not automatically cover physical damage. A BESS operator whose battery management system is compromised and whose asset subsequently ignites may, depending on wording and endorsements, find the loss sitting at the seam between two markets.\n“A scenario like a\nmalicious-cause thermal-runaway loss\ncan fall between the two, unless carrying a properly designed cyber-insurance policy,” Dryden said. He added that the solution McGill and Partners has developed uses “an affirmative cyber wording addressing both the cyber physical exposure, and intangible exposures from a malicious ransomware or DDoS attack” – though the structure and limits of that wording are not publicly disclosed, and as with any manuscripted market solution, apply within current market constraints.\nCharalambos Konstantinou, associate professor and principal investigator of the SENTRY Lab at King Abdullah University of Science and Technology (KAUST), describes the attack surface as layered: communications and RTU access enables disruption and disconnection; control-parameter manipulation enables generation interference; firmware compromise – the deepest layer – persists across reboots.\nKonstantinou said the\ncommunications protocol mandated under IEEE 1547\nlacks native authentication and integrity features, framing this as a structural observation about protocol design, grounded in prior published research, rather than a comment on the Poland incident specifically.\n“Actuaries can’t price what they can’t see,” Konstantinou said, adding that his group’s firmware-integrity work is aimed at reducing that uncertainty. He and colleagues published a framework in IEEE Transactions on Power Systems in 2026 designing premiums and coverage for the operational-cost risk of attack-driven load variation in renewable-rich grids, using value-at-risk and tail-value-at-risk metrics. Konstantinou said the work indicates that large load variations can materially increase a grid’s daily operational cost – the kind of tail exposure an insurer needs to capture to price the risk accurately. The paper’s specific findings have not been independently verified by pv magazine prior to publication.\nThe gap between what an underwriter needs and what is currently visible is not structural.\n“The detection science exists,” Konstantinou said. “Our work shows firmware-level integrity verification is viable on inverter platforms.” The obstacle is integration: device integrity today is self-protective – secure boot and signed firmware, implemented differently on each vendor’s silicon – so a device verifies itself but emits no common signal a third party can read across a fleet. “The DER communication standards were never built to carry one,” he said.\nRegulatory limits\nNIS2 does not close the visibility gap. The directive imposes risk management and incident reporting obligations on energy sector operators but does not explicitly mandate a firmware-integrity signal. The Cyber Resilience Act reaches device manufacturers with requirements to protect programs and configuration against unauthorized modification – but as Konstantinou frames it, “an SBOM tells you what’s in the firmware, not what’s actually executing at runtime. So the integrity attestation an underwriter would need is still neither mandated nor exposed to operators in a standardized way.” Whether that integrity must be exposed as a standardized, externally verifiable attestation is left to harmonized standards still under development, with compliance timelines extending into the later part of the decade including widely cited 2027 implementation milestones.\nTransposition delays have compounded the regulatory picture. Many member states remained in transitional phases into 2026, more than a year after the October 2024 deadline. Dryden’s advice is not to treat the delay as permission to defer action.\n“We wouldn’t advise operators to defer action on improving cyber resiliency, pending either national transposition or the maturation of the cyber-insurance market,” he said. “The measures that establish regulatory compliance and the measures that establish insurability are substantially the same, and they warrant implementation now, irrespective of the date on which a given member state completes transposition.”\nThe current insurance market is, unusually, favorable to buyers.\n“The cyber-insurance market, including the more nuanced cyber-physical damage market, is currently highly competitive despite a volatile threat environment, driven mainly by oversupply of insurance capacity vs demand,” Dryden said, adding that the market was likely to stabilize on pricing over the next 12 months, with potential hardening beyond that if claims continue to rise.\nFor BESS operators, Dryden recommends two steps: assess and quantify\ncyber-physical exposure\nagainst the actual replacement cost of the principal asset rather than a nominal limit; then close the property-cyber gap through affirmative cyber cover designed specifically for the energy sector.\nThe real obstacle to closing the observability gap, Konstantinou said, is incentives: the manufacturer pays to expose the firmware-integrity signal, while the operator and insurer receive the benefit. That misalignment is why the gap persists despite the technical solution existing. But he sees the insurance market itself as a potential forcing function. “If underwriters discount fleets that can attest their firmware state, that pull could outrun the regulation,” he said.\nThe Poland incident has not moved insurance pricing. What it has done is shift the cyber-physical risk conversation, in Dryden’s words, “over from a conceptual concern into an evidenced operational threat.” The gap in coverage – and in the observability that would allow that coverage to be accurately priced – remains open.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

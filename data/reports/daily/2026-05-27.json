@@ -1,0 +1,242 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月27日　星期三",
+  "date_range": "2026-05-27",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "晶澳科技与金石能源全背接触硅太阳能电池效率达28.2%",
+      "赣锋锂业启动500瓦时/公斤固态电池试点生产",
+      "全背接触光伏器件消除正面栅线遮光以降低发电度电成本"
+    ],
+    "AI与智能科技": [
+      "美国白宫拟允许情报机构使用Anthropic公司Claude大模型",
+      "快手可灵AI视频生成业务年化收入达5亿美元",
+      "字节跳动今年资本支出计划或达700亿美元用于采购GPU算力"
+    ],
+    "通用技术": [
+      "SpaceX完成2026年全可重复使用超重型运载火箭星舰首飞测试",
+      "清华大学开发单原子催化剂在常压下将废塑料转化为航空煤油",
+      "Hermeus超音速飞机在高速飞行测试中达到1.21马赫突破音障"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "晶澳科技与金石能源全背接触硅太阳能电池效率达28.2%",
+        "赣锋锂业启动500瓦时/公斤固态电池试点生产",
+        "全背接触光伏器件消除正面栅线遮光以降低发电度电成本"
+      ],
+      "entries": [
+        {
+          "t": "晶澳科技与金石能源宣称28.2%效率背接触器件为硅太阳能电池世界最高效率",
+          "d": "2026-05-27",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "晶澳科技与金石能源宣布在硅太阳能电池领域创造世界最高效率纪录，其全背接触（BC）硅太阳能电池器件效率达到28.2%。该成果超越了此前由隆基绿能等企业保持的硅基太阳能电池效率记录，标志着背接触技术的产业化水平迈上新台阶。全背接触电池将正负电极均置于电池背面，消除了正面金属栅线遮光损失，最大化了光吸收面积。28.2%的效率接近单结硅电池的理论极限（约29.4%），对推进光伏发电度电成本下降具有重要意义。",
+          "sc": 9.5,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/05/25/ja-solar-gold-stone-energy-claim-worlds-highest-efficiency-for-silicon-solar-cells-with-28-2-efficient-back-contact-device/",
+          "tp": "硅太阳能电池效率",
+          "aip": 1,
+          "kp": [
+            "效率[单结硅太阳能电池]: 28.2%",
+            "[背接触器件]: TÜV认证硅电池世界最高效"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "JA Solar, Gold Stone Energy claim world’s highest efficiency for silicon solar cells with 28.2%-efficient back contact device\nThe result was certified by TÜV Rheinland and represents the highest efficiency ever recorded for a single-junction silicon solar cells.\nMay 25, 2026\nVincent Shaw\nModules & Upstream Manufacturing\nTechnology and R&D\nChina\nA production line of Golden Stone Energy\nImage: Golden Stone Energy\nShare\nChinese PV manufacturer JA Solar and China-based PV equipment supplier Gold Stone Energy have reported a 28.2% conversion efficiency for a hybrid back-contact (HBC) solar cell developed under their HBC industrialization project.\nThe result was certified by Germany’s TÜV Rheinland and, according to the companies, sets a new world record for back-contact (BC) solar cell efficiency. The previous record for the BC architecture was held by Longi, which reported\n28.13% efficiency for its hybrid interdigitated back-contact (HIBC) cell\n.\nHBC technology combines a back-contact electrode structure with passivation technologies used in mainstream high-efficiency crystalline silicon cell architectures. The cell front side has no metal gridlines, reducing optical shading losses, while the rear-contact design improves current collection. The technology is also intended to provide an upgrade path for existing TOPCon manufacturing assets.\nGold Stone Energy and JA Solar were previously linked through a 4 GW HBC upgrade and retrofit project. In a Hong Kong Stock Exchange filing, Golden Solar said its subsidiary Golden Solar New Energy Technology would license HBC patent technology to a joint venture established by JA Solar's unit Yiwu JA Solar and Gold Stone Energy. The project aims to produce HBC cells by retrofitting existing production capacity.\nThe announcement follows several recent back-contact efficiency gains by Chinese PV manufacturers. In late April, Trina Solar said its TOPCon-compatible hybrid back-contact (THBC) cell achieved\n28.0% efficiency\n, certified by Germany’s Institute for Solar Energy Research Hamelin (ISFH). The company said the result was achieved using a large-area 210R cell and added that it is accelerating THBC module industrialization.\nThe series of announcements highlights growing competition around back-contact architectures, as leading Chinese manufacturers pursue higher conversion efficiencies and improved module power density following the rapid commercialization of TOPCon technology.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
+          "hb": 1
+        },
+        {
+          "t": "赣锋启动500瓦时/公斤固态电池试产",
+          "d": "2026-05-27",
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中国电池材料巨头赣锋锂业宣布启动500 Wh/kg固态电池试点生产。该能量密度远超当前主流液态锂电池（约250-300 Wh/kg），是固态电池商业化进程的重要里程碑。固态电池采用固态电解质替代液态电解液，理论上兼具更高能量密度和更好安全性。赣锋此举标志着固态电池从实验室向工程化量产迈出关键一步，但量产成本、循环寿命和良率仍是规模化挑战。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.electrive.com/2026/05/21/ganfeng-starts-pilot-production-of-500-wh-kg-solid-state-batteries/",
+          "tp": "固态电池",
+          "aip": 1,
+          "kp": [
+            "能量密度[锂金属电池小批量]: 500 Wh/kg",
+            "能量密度[固态电池平台]: 400 Wh/kg"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Battery\nGanfeng starts pilot production of 500 Wh/kg solid-state batteries\nChinese battery materials specialist Ganfeng Lithium has reported progress in the development of solid-state batteries for electric mobility applications, including the start of small-batch production of a lithium-metal cell with an energy density of 500 Wh/kg and a cycle life milestone for its 400 Wh/kg battery platform.\nImage: Ganfeng Lithium\nBy Carla Westerheide\n21.05.2026 - 11:52\nGanfeng Lithium\nSolid-state\nBatteries\nAccording to an investor relations update, reported on by Chinese media, Ganfeng Lithium’s 10 Ah lithium-metal battery with an energy density of 500 Wh/kg has entered small-batch production. “The battery is the world’s first 10 ampere-hour (Ah) solid-state product to achieve the 500 Wh/kg energy density mark, setting an industry benchmark for the future commercialisation of lithium-metal batteries,”\nCN EV Post\nstates.\nMoreover, the company’s 400 Wh/kg solid-state battery has exceeded 1,100 charge cycles and completed engineering validation.\nThis comes only three months after the Chinese company announced that it had begun\nproduction of a semi-solid-state battery\nwith an energy density of 650 Wh/kg. The start of the pilot production phase of all-solid-state battery packs was also announced at the time.\nThe company is pursuing two parallel solid-state battery technology routes based on silicon-carbon and lithium-metal anodes. Ganfeng sees lithium-metal technology as a key route to higher energy density and faster commercialisation of next-generation batteries for electric vehicles and aviation applications. At the same time, the company is expanding its silicon-based battery portfolio with products offering energy densities ranging from 320 to 480 Wh/kg. According to Ganfeng, its 320 Wh/kg battery has already exceeded 1,000 charging cycles, while development of the 480 Wh/kg version is still ongoing.\nThe different battery configurations are intended to address varying requirements for energy density, durability and application scenarios. Ganfeng identified premium electric vehicles, drones, eVTOL aircraft, robotics and consumer electronics as target markets.\nGanfeng has long been one of the world’s largest lithium processors and supplies companies, such as\nHyundai\nand Changan. It also works with Dongfeng. The latter has begun extreme-cold testing of vehicles equipped with 350 Wh/kg solid-state batteries, while Changan plans to start trial installations of 400 Wh/kg solid-state batteries during 2026.\ncarnewschina.com\n,\ncnevpost.com\nTags\nGanfeng Lithium\nSolid-state\nBatteries\nBattery production\nsuppliers\nChina\n0 Comments\nabout „Ganfeng starts pilot production of 500 Wh/kg solid-state batteries“\nLeave a Reply\nCancel reply\nAlso read\nAutomobile\nQ1 results: Nio doubles sales and revenue\npublished 5 hours ago\nAutomobile\nVW launches the ID. Unyx 07 in China\npublished 5 hours ago\nBattery\nBasquevolt launches lithium-metal battery cell\n22.05.2026",
+          "hb": 1
+        },
+        {
+          "t": "晶澳科技与金石能源声称硅太阳能电池效率达28.2%，创背接触电池世界纪录",
+          "d": "2026-05-27",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "晶澳科技与金石能源联合宣布，在背接触硅太阳能电池领域实现28.2%的光电转换效率，声称创世界硅基太阳能电池效率新纪录。该突破通过背接触电池结构优化实现，有望进一步提升光伏组件单位面积发电量，降低度电成本。此项成果对推动晶体硅光伏技术接近其理论效率极限具有重要意义。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/05/25/ja-solar-gold-stone-energy-claim-worlds-highest-efficiency-for-silicon-solar-cells-with-28-2-efficient-back-contact-device/",
+          "tp": "背接触硅电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[背接触硅电池]: 28.2%",
+            "认证[最高效硅电池]: TÜV莱茵认证，单结硅电池最高"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "JA Solar, Gold Stone Energy claim world’s highest efficiency for silicon solar cells with 28.2%-efficient back contact device\nThe result was certified by TÜV Rheinland and represents the highest efficiency ever recorded for a single-junction silicon solar cells.\nMay 25, 2026\nVincent Shaw\nModules & Upstream Manufacturing\nTechnology and R&D\nChina\nA production line of Golden Stone Energy\nImage: Golden Stone Energy\nShare\nChinese PV manufacturer JA Solar and China-based PV equipment supplier Gold Stone Energy have reported a 28.2% conversion efficiency for a hybrid back-contact (HBC) solar cell developed under their HBC industrialization project.\nThe result was certified by Germany’s TÜV Rheinland and, according to the companies, sets a new world record for back-contact (BC) solar cell efficiency. The previous record for the BC architecture was held by Longi, which reported\n28.13% efficiency for its hybrid interdigitated back-contact (HIBC) cell\n.\nHBC technology combines a back-contact electrode structure with passivation technologies used in mainstream high-efficiency crystalline silicon cell architectures. The cell front side has no metal gridlines, reducing optical shading losses, while the rear-contact design improves current collection. The technology is also intended to provide an upgrade path for existing TOPCon manufacturing assets.\nGold Stone Energy and JA Solar were previously linked through a 4 GW HBC upgrade and retrofit project. In a Hong Kong Stock Exchange filing, Golden Solar said its subsidiary Golden Solar New Energy Technology would license HBC patent technology to a joint venture established by JA Solar's unit Yiwu JA Solar and Gold Stone Energy. The project aims to produce HBC cells by retrofitting existing production capacity.\nThe announcement follows several recent back-contact efficiency gains by Chinese PV manufacturers. In late April, Trina Solar said its TOPCon-compatible hybrid back-contact (THBC) cell achieved\n28.0% efficiency\n, certified by Germany’s Institute for Solar Energy Research Hamelin (ISFH). The company said the result was achieved using a large-area 210R cell and added that it is accelerating THBC module industrialization.\nThe series of announcements highlights growing competition around back-contact architectures, as leading Chinese manufacturers pursue higher conversion efficiencies and improved module power density following the rapid commercialization of TOPCon technology.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "美国白宫拟允许情报机构使用Anthropic公司Claude大模型",
+        "快手可灵AI视频生成业务年化收入达5亿美元",
+        "字节跳动今年资本支出计划或达700亿美元用于采购GPU算力"
+      ],
+      "entries": [
+        {
+          "t": "白宫与Anthropic接近达成情报机构使用AI的协议",
+          "d": "2026-05-27",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "白宫正与AI公司Anthropic接近达成协议，允许美国间谍情报机构使用其Claude系列大模型。此举标志着前沿AI正式进入国家安全核心领域，情报机构有望借助AI加速海量数据分析和情报处理。协议具体条款和部署范围尚未公开，但反映了政府层面对国产AI模型安全性和可靠性的认可，也引发关于AI军事化应用的伦理讨论。",
+          "sc": 8.8,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://www.theinformation.com/briefings/white-house-anthropic-near-deal-spy-agencies-use-ai",
+          "tp": "AI政府合作",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "White House, Anthropic Near Deal For Spy Agencies to Use AI  — The Information\nSign in\nSubscribe\nRead this briefing for free\nBriefing\nWhite House, Anthropic Near Deal For Spy Agencies to Use AI\nBy\nAmir Efrati",
+          "hb": 1
+        },
+        {
+          "t": "快手可灵AI视频业务年化收入达5亿美元",
+          "d": "2026-05-27",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "快手旗下AI视频生成业务Kling（可灵）年化收入已达5亿美元。该里程碑标志着AI视频生成工具正在实现大规模商业化，可灵作为全球领先的文生/图生视频模型之一，通过订阅和API服务获得可观收入。这一数据反映出AI视频赛道正从技术展示向实际商业变现加速转化。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.theinformation.com/briefings/kuaishous-kling-ai-video-unit-reaches-500-million-annualized-revenue",
+          "tp": "AI视频生成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Kuaishou’s Kling AI Video Unit Reaches $500 Million in Annualized Revenue — The Information\nSign in\nSubscribe\nRead this briefing for free\nBriefing\nKuaishou’s Kling AI Video Unit Reaches $500 Million in Annualized Revenue\nBy\nJuro Osawa\nContinued reading\nChina’s Kuaishou Plans to Spin Off Kling AI Video Unit at $20 Billion Valuation",
+          "hb": 1
+        },
+        {
+          "t": "字节跳动考虑今年资本支出达700亿美元，AI成本持续攀升",
+          "d": "2026-05-27",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "字节跳动据传正考虑今年高达700亿美元的资本支出计划，反映出AI时代科技公司基础设施投入的急剧攀升。巨额capex主要用于GPU算力采购、数据中心建设和AI大模型训练，体现了头部科技企业在AI军备竞赛中争夺算力高地的战略决心。",
+          "sc": 8.1,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://www.theinformation.com/briefings/bytedance-mulls-70-billion-capex-year-ai-costs-grow",
+          "tp": "AI基础设施投资",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ByteDance Mulls $70 Billion Capex This Year as AI Costs Grow — The Information\nSign in\nSubscribe\nRead this briefing for free\nBriefing\nByteDance Mulls $70 Billion Capex This Year as AI Costs Grow\nBy\nJuro Osawa",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "SpaceX完成2026年全可重复使用超重型运载火箭星舰首飞测试",
+        "清华大学开发单原子催化剂在常压下将废塑料转化为航空煤油",
+        "Hermeus超音速飞机在高速飞行测试中达到1.21马赫突破音障"
+      ],
+      "entries": [
+        {
+          "t": "SpaceX完成2026年首次星舰测试",
+          "d": "2026-05-27",
+          "a": "the information",
+          "c": "通用技术/通信和运输/航天",
+          "as": "SpaceX完成了2026年首次星舰飞行测试。星舰是SpaceX正在开发的全可重复使用超重型运载火箭，被视为实现火星殖民和大规模太空运输的关键载具。本次测试验证了火箭的飞行性能与关键技术，是其工程迭代的重要节点。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/spacex-completes-first-starship-test-2026",
+          "tp": "星舰试飞",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "SpaceX Completes First Starship Test of 2026 — The Information\nSign in\nSubscribe\nRead this briefing for free\nBriefing\nSpaceX Completes First Starship Test of 2026\nBy\nTheo Wayt",
+          "hb": 1
+        },
+        {
+          "t": "清华大学李亚栋报道一种Co/Al氧化物负载Ru单原子催化剂可塑料常压直接热解加氢制航油",
+          "d": "2026-05-27",
+          "a": "",
+          "c": "通用技术/催化剂",
+          "as": "清华大学李亚栋院士团队开发Co-Al氧化物负载Ru单原子催化剂（RuSA@CoAlOx），提出加氢热解-气相加氢串联策略，在常压160℃下将废塑料直接转化为航煤环烷烃，选择性超99%，周转频率超商业Ru/C催化剂101倍，50小时连续运行性能稳定，解决传统路线需高压氢气和长反应时间的瓶颈。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-02078-7",
+          "tp": "废塑料制航油",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "",
+          "b": "将塑料垃圾转化为航空燃料有助于实现航空业脱碳。但直接催化氢解、热解后加氢路线，均存在反应时间长（最长144小时）、需要高压氢气（3 MPa）或工艺复杂等问题，限制了低碳燃料的生产效率和经济性。\n近日，清华大学李亚栋院士团队认为加氢步骤增加了工艺的复杂性，并且受到多相传质的限制，阻碍了饱和燃料范围烃的高效生产；由此其提出加氢热解-气相加氢串联策略，将两步整合至同一连续反应器，免去中间冷凝、再加热和再加压过程，实现常压/低压下废塑料直接制航煤环烷烃。团队设计了Co-Al氧化物负载的Ru单原子催化剂（RuSA@CoAlOx），Ru呈+2到+3混合价态单分散，存在Ru-O键而无Ru-Ru相互作用。在160℃和0.15 MPa下，该催化剂实现苯乙烯完全转化，乙基环己烷选择性超99%，周转数达199.6；而Ru纳米颗粒的选择性骤降至20.1%。动力学表明，其表观活化能仅32.8 kJ/mol，远低于商业高负载钌基催化剂，且能迅速消除芳烃积累。连续固定床测试中，其50小时运行保持14.8%转化率和超99%选择性，周转频率达144 s⁻¹，超商业Ru/C和Ru/Al₂O₃催化剂101倍和83倍。理论计算证实，RuSA@CoAlOx费米能级附近的局域钌衍生峰使其芳环加氢能垒显著低于纳米颗粒（0.82 vs 1.06 eV）。工艺产率上，0.15 MPa及常压下环烷烃产率分别达94.8 wt%和59.4 wt%，较传统高压长时工艺在数秒内实现12倍增产，乙基环己烷选择性达94.1%。对聚苯乙烯、聚丙烯与聚乙烯及多种混合废塑料，燃料范围烃产率均达82.3~88 wt%以上。稳定性测试中，使用聚苯乙烯热解油在0.5 MPa下连续运行超110小时，催化剂保持芳烃完全转化，乙基环己烷选择性稳定在90%以上。\n此外，研究对制备的航煤环烷烃进行了燃烧性能与环保经济性评估。燃烧性能方面，740 K下喷油1.9 ms即初始发光，温度升至820 K和900 K时发光时间分别提前至1.3 ms和0.8 ms；且仅需40 MPa低压即可有效点火，远低于传统柴油所需的100 MPa以上。环保性上，生产1 MJ航煤产生4.3 g CO₂当量，较石油基航煤（15.7 g）减少73%。经济性方面，圣保罗最低售价为1.0美元/kg，伦敦和东京因能源及氢气成本较高为1.6–1.8美元/kg，催化剂、氢气和废塑料采购成本的波动是对最低售价影响最大的因素。文章于2026年5月27日发表在Nature Energy。",
+          "hb": 1
+        },
+        {
+          "t": "美国：Hermeus新型超音速飞机在里程碑测试中达到1.21马赫",
+          "d": "2026-05-27",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "美国初创公司Hermeus研发的超音速喷气式飞机在高速飞行测试中突破音障，达到马赫1.21的速度，标志着该机型研制的重要里程碑。Hermeus致力于打造高超声速商用客机，此次测试验证了其推进系统和气动设计的可行性。该进展对超音速商业航空的复苏具有积极意义，但距离载客运营仍有较长的工程化路程。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/transportation/hermeus-supersonic-flight-hits-mach-1-21",
+          "tp": "超音速飞机",
+          "aip": 1,
+          "kp": [
+            "[飞行速度]: Mach 1.21",
+            "[机型特征]: 私人开发无人超音速验证机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Transportation\nUS’ Hermeus supersonic jet breaks sound barrier at Mach 1.21 in high-speed flight test\nThe milestone marks the first supersonic flight by a privately developed uncrewed aircraft, achieved in under three months of testing.\nBy\nSujita Sinha\nTransportation\nMay 27, 2026 07:58 AM EST\nBy\nSujita Sinha\nMay 27, 2026 07:58 AM EST\nHermeus' uncrewed Quarterhorse Mk 2.1 crossed Mach 1.21 during its third test flight in New Mexico.\nHermeus\nOn Monday, the Atlanta-based aerospace company Hermeus confirmed a key flight milestone after its Quarterhorse Mk 2.1 aircraft broke the sound barrier during testing in New Mexico. The uncrewed plane reached Mach 1.21 on its third flight, which took place at Spaceport America in the restricted airspace above White Sands Missile Range.\nMk 2.1 achieved supersonic performance less than three months after its first flight in early March. It also comes just 364 days after the maiden flight of the original Mk 1.\nFirst private uncrewed supersonic achievement\nHermeus described the mission as the first supersonic flight for a privately developed uncrewed aircraft of its kind. The test happened during the plane’s third flight, when it moved from subsonic to supersonic speeds in controlled airspace over New Mexico.\n“This flight demonstrates a pace of execution that is extremely rare in modern aviation,”\nstated\nAJ Piplica, co-founder and outgoing CEO of Hermeus. “Our country’s ability to deliver new asymmetric military capability at scale depends on teams that can solve hard technical challenges quickly. That’s exactly what we’re proving with each test flight we conduct and each new aircraft we build at Hermeus.”\nThe company has also recently announced leadership changes. President Zach Shore will become CEO on June 1, and Piplica will move to executive chairman. This change comes as Hermeus expands its test program and gets ready for more advanced aircraft in the same series.\nHermeus achieved supersonic flight with its Quarterhorse Mk 2.1 aircraft less than three months after its debut.\nImage Credit:\nHermeus\nAircraft design and engine configuration\nThe Quarterhorse Mk 2.1 is roughly the size of an F-16 and uses a delta-wing design to remain stable at high speeds. It is powered by a modified afterburning turbofan engine from Pratt & Whitney, which helps it reach and keep up supersonic\nspeeds\nduring tests.\nThis aircraft is part of a rapid prototyping plan, where each flight helps improve the design. Engineers use flight data to adjust aerodynamics, engine performance, and control systems. This approach lets the team quickly test and confirm changes, cutting down the time needed to develop new aircraft.\nMk 2.1 also serves as a testbed for systems planned for future Quarterhorse models. The main goal is to lay the groundwork for faster aircraft by making quick, step-by-step improvements.\nExpansion of the Quarterhorse program\nHermeus is already working on the next stages of the program. Mk 2.2 is under development and will include the company’s Chimera II turbine-based combined-cycle engine. Mk 2.3 is planned to follow soon, continuing the step-by-step approach to improving performance.\nEach\naircraft\nin the series is built to go faster and keep up supersonic speeds for longer. Instead of long production cycles, the company updates its hardware frequently, using each prototype as a step toward the next.\nThe aerospace firm is developing the Quarterhorse program with the U.S. Department of Defense. This project is a step toward building the company’s planned Darkhorse hypersonic military aircraft and, later, the Halcyon concept, a 20-passenger hypersonic civil transport.\nBroader push in supersonic aviation\nThe milestone arrives as competition in high-speed flight programs is growing. Supersonic testing is on the rise in both the defense and commercial sectors, with several aircraft now advancing through flight validation.\nXB-1 demonstrator from Boom Supersonic reached Mach 1.122, supporting the development of its planned Overture airliner, which targets commercial service later this decade. Hermeus’ Mk 2.1 result of Mach 1.21 exceeds that benchmark in uncrewed testing. Meanwhile, NASA’s X-59 quiet\nsupersonic plane\n, built with Lockheed Martin, has finished several test flights and is getting ready for its first supersonic run.\nRecommended Articles\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBy subscribing, you agree to our\nTerms of Use\nand\nPolicies\nYou may unsubscribe at any time.\n0\nCOMMENT\nBy\nSujita Sinha\nA versatile writer, Sujita has worked with Mashable Middle East and News Daily 24. When she isn't writing, you can find her glued to the latest web series and movies.\nTRENDING\nLATEST\n1\nSeed-sized magnetic robot switches between five surgical tools in under one second\n2\nMultiple dead, several injured after chemical tank implodes at paper mill in Washington\n3\nUS advances plan to convert Cold War plutonium stockpiles into nuclear reactor fuel\n4\nUS nuclear recycling plant could extract 100 times more energy from uranium fuel\n5\nHawaii startup builds 3D-printed Navy boat using volcanic basalt composite\nMore from Transportation\nSee All\nTransportation\nWorld’s largest LNG-powered ship can haul 24,212 containers in a single trip\nTransportation\nChina launches first battery-swap truck network with 120-second recharge system\nTransportation\nFerrari’s first EV combines radical design, four motors and 330 miles of range\nTransportation\nChina’s BYD claims assisted driving slashes severe crash rates to one-sixth of human levels\nTransportation\nGermany’s new floating lab to test hydrogen, future ship tech, climate-compatible propulsion\nTransportation\nWorld’s largest LNG-powered ship can haul 24,212 containers in a single trip\nTransportation\nChina launches first battery-swap truck network with 120-second recharge system\nTransportation\nFerrari’s first EV combines radical design, four motors and 330 miles of range\nTransportation\nChina’s BYD claims assisted driving slashes severe crash rates to one-sixth of human levels\nTransportation\nGermany’s new floating lab to test hydrogen, future ship tech, climate-compatible propulsion",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

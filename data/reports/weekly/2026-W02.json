@@ -1,0 +1,312 @@
+{
+  "type": "weekly",
+  "date_label": "2026-01-05 ~ 2026-01-11",
+  "date_range": "2026-01-05 ~ 2026-01-11",
+  "main_theme": "光伏龙头遭反垄断约谈，国内首个兆瓦级热泵储能完成验证，新型多模态模型与仿生芯片陆续发布",
+  "overview": "1月8日，市场监管总局约谈通威、协鑫等6家光伏企业，明确禁止约定产能与销售价格。国电投在曲靖建成国内首个兆瓦级热泵储能工程化验证系统，投资9825万元，功率1MW，能量综合利用率达80%。阿里通义开源Qwen3-VL-Embedding-8B模型，在MMEB-V2测试集上超越此前开源模型。加州伯克利分校Yaghi团队研发出新型共价有机框架，在75%湿度下CO2吸附容量达2.19mmol/g。科研人员开发出无铅卤化物锑基发光二极管，外量子效率达到22%。",
+  "headlines": {
+    "零碳产业": [
+      "国电投建成国内首个兆瓦级热泵储能试验系统",
+      "新研究提出太阳能驱动低品位卤水直接提锂技术",
+      "市场监管总局约谈通威等六家光伏企业反垄断",
+      "伯克利研发新型共价有机框架用于直接空气捕集CO2"
+    ],
+    "AI与智能科技": [
+      "新架构实现振荡型化学受体晶圆级集成",
+      "铁电栅光电晶体管探索三态突触传感内处理",
+      "阿里开源多模态检索模型",
+      "光子集成回路宽波段传输损耗降至接近光纤水平"
+    ],
+    "通用技术": [
+      "联合激光设施实现固体密度等离子体不稳定性成像",
+      "无铅卤化物锑基发光二极管外量子效率达22%",
+      "研究团队开发出兼具高强度与大延展性双相合金"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "国电投在曲靖建成兆瓦级空气热力循环储能系统，投资9825万元，可输出560℃热能和-30℃冷能，能量综合利用率为80%。加州伯克利分校研发的共价有机框架COF-1000在75%湿度条件下CO2吸附容量达2.19mmol/g，吸附半时间为6.8分钟。",
+      "headlines": [
+        "国电投建成国内首个兆瓦级热泵储能试验系统",
+        "新研究提出太阳能驱动低品位卤水直接提锂技术",
+        "市场监管总局约谈通威等六家光伏企业反垄断",
+        "伯克利研发新型共价有机框架用于直接空气捕集CO2"
+      ],
+      "entries": [
+        {
+          "t": "国电投曲靖MW级空气热力循环储能项目投入试验运行",
+          "d": "2026-01-07",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/储热/压缩空气",
+          "as": "国电投MW级空气热力循环储能(CASE)项目在曲靖建成投入试验运行，是国内首个热泵储能工程化验证系统。投资9825万元，以空气为工质，功率1MW、储能4小时，可输出最高560℃热能和最低-30℃冷能，能量综合利用率80%。低谷电驱动压缩/膨胀装置储存热冷能，高峰期再发电。运行压力<2MPa，主要设备寿命达30年，可实现30-110%变负荷运行。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/yi5x2HhFDjPcFcvOv_wGIA",
+          "tp": "空气热力储能",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "电-储热-电体系，空气热力循环储能过程： CN118920525A，储电回路：电动机驱动高温压缩机压缩工质---升温（绝热压缩：电能-内能）高温工质依次通过储热模块分区储热（储热温度梯次降低500-200℃，不同模块可采用不同储热材料）---储热（等压放热）放热工质210℃经回热器换热---余热回收利用换热工质进入低温膨胀机膨胀---降温（绝热膨胀：内能-机械能）-65℃低温工质依次通过储冷模块分区储冷（储冷温度梯次升高-20到-60℃）---储冷（等压吸热）随后工质15℃进入回热器升温，再进入高温压缩机；发电回路：低温压缩机压缩经储冷模块释放后的工质，并通过回热器加热190℃---加压预升温（绝热压缩：低温减少消耗的功）工质进入储热模块逐级从低到高加热490℃---升温（等压吸热）高温高压工质进入高温膨胀机做功，驱动发电机发电---发电（绝热膨胀）做功后工质经过回热器+散热器散热后25℃进入储冷模块冷却工质-55℃---冷却（等压放热）冷却后工质进入低温压缩机再次循环；对比储电用电，储热长时更优优势。560℃高温，不用水蒸气工质膨胀发电、能量综合利用率80%。暂未进行评论，可找国内相关高校/公司考察调研",
+          "b": "据1月7日曲靖发布消息（曲靖市委宣传部官方账号），由国家电投集团中央研究院与云南国际电力投资有限公司联合研发的MW级空气热力循环储能（CASE）项目全面建成并投入试验运行。文中称，该项目投资9825万元、占地4789.06m2，是国内首个热泵储能工程化验证系统；可输出最高560℃的热能与最低-30℃的冷能，能量综合利用率80%。\n另据先前媒体报道所示，该技术以空气作为循环工质，功率1MW，储能时长4h；在用电低谷期，其利用新能源发电或谷电驱动压缩装置和膨胀装置将电能转换为热能和冷能，并分别储存于储热（熔盐）和储冷（防冻液）介质中；在用电高峰期，利用储存的热能和冷能驱动压缩装置和膨胀装置，实现系统对外供电。系统运行压力<2 MPa，可回收利用系统约110℃余热，并可实现30~110%变负荷高效运行（调峰调频）；预计系统主要设备机械部件运行时长可达30年。",
+          "hb": 1
+        },
+        {
+          "t": "太阳能驱动的低品位卤水直接提锂",
+          "d": "2026-01-05",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
+          "as": "研究提出一种太阳能驱动的低品位卤水直接提锂技术。利用光热转化材料将太阳能转化为局部热能，驱动锂离子从低浓度卤水中选择性迁移和富集，无需额外电能输入。该方法有效解决了传统提锂工艺对高品位锂矿的依赖和高能耗问题，对盐湖提锂和地热卤水资源的低成本开发具有重要意义。",
+          "sc": 8.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202512998?af=R",
+          "tp": "太阳能直接提锂",
+          "aip": 1,
+          "kp": [
+            "[驱动]: 太阳能驱动直接提锂",
+            "[原料]: 低品位卤水(高镁锂比)",
+            "[优势]: 绿色低成本"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  Owing to the crucial role in energy transformation for decarbonization, sustainable lithium (Li) supply has become growingly critical. Low‐quality brines hold vast potential due to infinite reserves and diverse distribution but desire green and cost‐effective extraction techniques against low Li concentrations and high magnesium‐to‐lithium ratios. Solar‐driven direct lithium extraction (SDLE) systems combining conventional evaporation and DLE techniques can overcome the present challenges of Li extraction, promising to advance the exploitation of low‐quality brines while simultaneously producing fresh water. However, the underlying construction principles and fundamental physical processes concerning SDLE systems are still uncovered comprehensively. This review first reveals the high‐efficient and energy‐effective Li extraction mechanisms from low‐quality brines. Then, this work systematically presents construction and enhancement strategies, and the latest advancements and engineering applications of various SDLE systems, covering adsorption, membrane separation, crystallization separation, and electrochemical extraction. Furthermore, this work highlights the rational design of SDLE devices for water‐Li co‐production. Finally, this work discusses the challenges and future prospects for realizing SDLE systems from lab discovery to scale‐up field demonstration. This review aims to bridge the gap between fundamental science and practical engineering behind the SDLE, unlocking different insights for resource sustainability and low‐grade brines mining.",
+          "hb": 1
+        },
+        {
+          "t": "市场监管总局约谈6家光伏龙头企业及行业协会，不得约定产能及销售价格等",
+          "d": "2026-01-08",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "1月8日，市场监管总局约谈中国光伏行业协会及通威、协鑫、大全能源、新特能源、亚洲硅业、东方希望等龙头企业，要求不得约定产能、产销量及销售价格；不得以任何形式进行市场划分、产量分配、利润分配；不得就价格、成本、产销量等信息开展沟通协调。此举表明光伏行业此前存在涉嫌垄断的协同行为。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.cnenergynews.cn/article/4PsQE1R9UTI",
+          "tp": "光伏反垄断约谈",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "约定产能、价格等举措，客观上的确都是垄断行为。光伏协会之前成立的多晶硅产能整合收购平台本质上就是龙头企业协商收购多余的产能，联合形成卡特尔。但相关举措的确可以在短期缓解内卷式竞争。在“十五五”明确提出用好市场退出、兼并重组来整治内卷式竞争的前提下，市场监管总局表达的这一态度与“十五五”的态度有一定不符。值得进一步探究。作为新能源产品中目前“内卷式”竞争的代表产业，光伏产业此次被约谈也表明了在“反内卷”的政策态度上，至少市场监管总局依然持较保守的态度。依照该报道内容，此次约谈的内容主要是阻止相关行业通过自行协商，约定产能、价格等形成寡头，从而影响市场秩序。然而，这与工信部此前对电池企业的座谈会传达的，通过限产能、制止价格战来制止“内卷式”竞争的政策动向有所矛盾。_x000B_针对这一问题，已与CPA进行探讨，并将相关观点结合到内卷式竞争报告中。",
+          "b": "据中国能源网报道，1月8日，中国证券报·中证金牛座记者从业内人士处核实，市场监管总局约谈了中国光伏行业协会、通威集团、协鑫科技、大全能源、新特能源、亚洲硅业（红狮）、东方希望。市场监管总局要求中国光伏行业协会及被约谈企业不得约定产能、产能利用率、产销量及销售价格；不得通过出资比例，以任何形式进行市场划分、产量分配、利润分配；不得当前、今后就价格、成本、产销量等信息开展沟通协调。",
+          "hb": 1
+        },
+        {
+          "t": "加州大学伯克利分校Omar M. Yaghi开发超快动力学共价有机框架用于直接空气捕集CO2",
+          "d": "2026-01-06",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "加州伯克利Yaghi团队通过理性孔结构设计与孔内原位聚合策略，构建大孔径富胺化共价有机框架COF-1000，实现环境条件下高CO2吸附容量（干燥1.31mmol/g，75%湿度2.19mmol/g）与极快动力学（吸附半时间6.8min），真实室外空气捕集通量达22.1mmol/g/d且循环稳定。1月7日发表于Nature Sustainability。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.5c18831",
+          "tp": "空气捕集碳",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "直接空气捕集（DAC）长期受限于低浓度驱动下的高再生能耗，主流路线依赖加热、减压或电化学手段实现溶剂/固体吸附剂再生。近年来，学界开始探索化学位移（pH swing）与光/电耦合的新型DAC机制，以期在常温下完成CO₂吸收与释放。在此背景下，橡树岭国家实验室 Radu Custelcean 团队提出光驱动pKa可逆跃迁的新思路，尝试从分子层面规避高温再生。机制创新：通过光致异构化实现约 2.8 pKa 单位的可逆跃迁，在水相中完成“光控pH摆动—吸收—暗态释放”的完整DAC闭环。能耗逻辑改变：将DAC再生从“热驱动”转为“光驱动化学位移”，理论上可显著降低再生能耗并简化系统。稳定性验证：体系在环境条件下可多轮循环运行，证明并非一次性光化学效应。容量仍偏低：单循环摩尔级容量有限，虽经溶剂工程提升至毫摩尔级，但距离工程化仍有量级差距。该工作属于DAC“能量耦合范式”的基础性突破，证明光能可直接驱动溶液化学位移完成CO₂捕集与释放，但当前更偏向分子机制验证而非工程路线。其真实潜力取决于是否能在可见光响应、分子寿命、光量子效率与体系放大方面取得实质进展。后续可执行跟踪：重点关注（1）是否向可见光/太阳光响应分子演进，（2）单位捕集量对应的光能输入与等效能耗，（3）是否出现连续流或界面化设计，用于评估其从“JACS级概念”走向“DAC子路线”的可能性。",
+          "b": "加州大学伯克利分校Yaghi教授团队通过理性孔结构设计与孔内原位聚合策略，构建了一种大孔径、富胺化的共价有机框架材料COF-1000，实现了在环境空气条件下兼具高CO2吸附容量与极快吸附–解吸动力学的直接空气捕集性能，该材料在400ppm CO2、干燥条件下吸附容量达1.31mmol g⁻¹，在75%相对湿度下提升至2.19mmol g⁻¹，吸附半时间缩短至6.8min，并在真实室外空气中实现高达22.1mmol g⁻¹ d⁻¹的CO2捕集通量且具备优异循环稳定性，研究成果1月7日发表于Nature Sustainability。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "阿里通义开源的Qwen3-VL-Embedding-8B多模态模型在MMEB-V2基准测试中超越既有开源模型。新研发的单片式细胞-忆阻器架构将生物受体直接集成在晶圆级阵列上，实现多通道并行检测。光子集成回路优化波导材料，将紫光到近红外波段传播损耗压缩至接近0.2 dB/km光纤水平。",
+      "headlines": [
+        "新架构实现振荡型化学受体晶圆级集成",
+        "铁电栅光电晶体管探索三态突触传感内处理",
+        "阿里开源多模态检索模型",
+        "光子集成回路宽波段传输损耗降至接近光纤水平"
+      ],
+      "entries": [
+        {
+          "t": "单片式细胞-忆阻器架构实现振荡化学受体在晶圆级集成，用于生物逼真味觉芯片",
+          "d": "2026-01-08",
+          "a": "Nature Materials",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出单片式细胞-忆阻器（cell-on-memristor）架构，实现了振荡型化学受体在晶圆级集成，构建了仿生味觉芯片。仿生味觉传感的核心挑战在于将生物受体的高灵敏选择性与半导体工艺的可扩展性融合。该架构将生物振荡型化学受体直接集成在忆阻器阵列上，利用忆阻器的阻变特性模拟生物味觉神经元的频率编码机制。晶圆级集成保证了传感器阵列的大规模一致性和可寻址性，该芯片在复杂液体环境中展示了多通道并行检测和模式识别能力。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-025-02436-y",
+          "tp": "忆阻器仿生芯片",
+          "aip": 1,
+          "kp": [
+            "[架构]: 单片化电池-忆阻器架构",
+            "[集成规模]: 晶圆级振荡型化学感受器",
+            "[应用]: 生物仿生味觉芯片"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Array fabrication and the wafer-scale integration of artificial oscillatory chemoreceptors are crucial for enabling biomimetic chips with bio-realistic chemoreception in practical bioapplications. However, existing chemoreceptors based on conventional architectures require sophisticated or non-scalable fabrication techniques due to inherent material or structural defects. Here we introduce a monolithic cell-on-memristor (CoM) chemoreceptive architecture featuring a unique oscillation mechanism for self-powered biosensing and in situ spike encoding. Through rational material selection and complementary metal–oxide–semiconductor-compatible fabrication, we realize the demonstration of a wafer-scale 10 × 10 CoM array with a spatial resolution of 51 pixels per inch and a very small pixel size of 150 μm, with potential for further scaling down. Using its bio-plausible ion-modulated voltage oscillations with spatiotemporal probabilistic spiking information, we exploit the CoM-array-based gustatory chip to replicate gustation for accuracy salty taste classification. Our CoM architecture offers a general and scalable approach for implementing chemoreceptive oscillatory systems aimed at human–machine biointegration applications.",
+          "hb": 1
+        },
+        {
+          "t": "铁电栅光电晶体管再探：面向传感器内图像处理的三态突触启发方法",
+          "d": "2026-01-05",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "受三方突触系统启发的神经形态器件可实现突触权重的增强调控。本文重新审视铁电栅控光电晶体管，提出借鉴三方突触（神经元-星形胶质细胞协同）结构的新架构，通过铁电材料极化与光信号的协同调控来增强突触权重的动态调节能力。该研究为光电神经形态计算提供了新的器件设计思路，有望在仿生视觉感知和低功耗神经形态芯片中应用。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202503475?af=R",
+          "tp": "铁电光电晶体管",
+          "aip": 1,
+          "kp": [
+            "[器件结构]: 铁电聚合物栅控有机光电晶体管",
+            "[功能]: 电独立第三端记忆与处理光信息"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  Neuromorphic devices inspired by the tripartite synapse system offer enhanced modulation of synaptic weight via a third terminal. However, using an electrically independent terminal for memorizing and processing optical information remains unexplored. Here, a ferroelectric‐gated phototransistor (FGPT) incorporating ferroelectric polymers and organic photoactive channels is revisited for neuromorphic vision systems. It is demonstrated that partial polarization switching in the ferroelectric gate insulator enables linear control of the photoactive channel. Furthermore, the photogating effect induced by charge trapping at the ferroelectric insulator/photoactive channel interface further enhances the photonic non‐volatile (PNV) characteristics of the FGPT. This allows memorized visual information, expressed as photoconductance, to be incrementally potentiated or depressed. The modulated photoconductance fully spans the current level within the dynamic range of the device (153 dB). Finally, the feasibility of the device for all‐day face recognition is shown by in‐sensor processing of visual information obtained from unstructured environments into the pre‐trained range. This approach results in up to a ≈40% improvement in recognition accuracy.",
+          "hb": 1
+        },
+        {
+          "t": "阿里通义发布并开源Qwen3-VL-Embedding&Reranker模型",
+          "d": "2026-01-08",
+          "a": "",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "阿里通义发布并开源Qwen3-VL-Embedding和Qwen3-VL-Reranker模型系列，基于Qwen3-VL构建，专为多模态信息检索与跨模态理解设计。Qwen3-VL-Embedding-8B在MMEB-V2上取得业界领先，超越所有先前开源模型和闭源商业服务。所有Reranker模型性能持续优于基础Embedding和基线Reranker，8B版本在多数任务中表现最佳。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/911/694.htm",
+          "tp": "通义多模态检索",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家1月8日消息，据通义大模型消息，今日正式发布并开源Qwen3-VL-Embedding和Qwen3-VL-Reranker模型系列，这两个模型基于Qwen3-VL构建，专为多模态信息检索与跨模态理解设计，为图文、视频等混合内容的理解与检索提供统一、高效的解决方案。Qwen3-VL-Embedding-8B模型在MMEB-V2上取得了业界领先的结果，超越了所有先前的开源模型和闭源商业服务。\n在纯文本多语言MMTEB基准测试上，Qwen3-VL-Embedding模型与同等规模的纯文本Qwen3-Embedding模型相比虽然有少许的性能差距。但与评测排行榜上其他同等规模的模型相比，它仍然展现出极具竞争力的性能表现。同时，所有Qwen3-VL-Reranker模型的性能均持续优于基础Embedding模型和基线Reranker模型，其中8B版本在大多数任务中达到了最佳性能。",
+          "hb": 1
+        },
+        {
+          "t": "面向紫光至近红外光子集成的光纤级低损耗技术",
+          "d": "2026-01-08",
+          "a": "Nature",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究致力于在紫光到近红外全波段范围内实现接近光纤级别的超低光损耗光子集成回路(PIC)。过去数十年，氮化硅和硅基光子集成电路的传输损耗已显著降低，但与石英光纤(~0.2 dB/km)相比仍存在数量级差距。研究通过优化波导材料纯度、侧壁粗糙度和模式限制设计，在宽波段内将传播损耗压缩至接近光纤水平。该突破对片上光互连、量子光子学和宽带光通信具有重要意义，有望消除光子芯片与光纤之间的耦合损耗瓶颈，实现真正的全光集成系统。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09889-w",
+          "tp": "低损耗光子集成芯片",
+          "aip": 1,
+          "kp": [
+            "波长范围[光子集成电路]: 紫光到近红外",
+            "核心挑战[短波段PIC]: 材料吸收和散射损耗显著增加"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Over the past decades, remarkable progress has been made in reducing the loss of photonic integrated circuits (PICs) wit",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "新研发的双组分无铅锑卤化物发光二极管通过能量传递策略优化激子动力学，外量子效率达到22%。研究团队利用高强度光学激光与X射线自由电子激光联用，首次以200纳米空间和50飞秒时间分辨率对固体密度等离子体中的电流丝化不稳定性完成成像。新开发的晶体-玻璃纳米双相合金通过晶体相与非晶相复合实现超高强度与大均匀塑性变形。",
+      "headlines": [
+        "联合激光设施实现固体密度等离子体不稳定性成像",
+        "无铅卤化物锑基发光二极管外量子效率达22%",
+        "研究团队开发出兼具高强度与大延展性双相合金"
+      ],
+      "entries": [
+        {
+          "t": "固体密度等离子体中电流丝化不稳定性的时间分辨 X 射线成像",
+          "d": "2026-01-11",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究团队利用高强度光学激光与高亮度X射线自由电子激光联用，首次在固体密度等离子体中以200纳米空间和50飞秒时间分辨率对电流丝化不稳定性进行了成像。该不稳定性通过带电粒子流磁化天体和实验室等离子体，但此前实验表征极其困难。该结果为理解天体物理和惯性约束聚变中的等离子体动力学提供了关键实验数据。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67160-2",
+          "tp": "等离子成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The streaming of energetic charged particles can magnetize astrophysical and laboratory plasmas via the current filamentation instability. Despite its importance, the experimental characterization of this instability has remained a challenge. Here, we report an experiment combining a high-intensity optical laser with a high-brightness X-ray free electron laser that successfully images the instability in solid-density plasmas with 200 nm spatial and 50 fs temporal resolution. We characterize the development of μm-scale filamentary structures and their evolution over tens of picoseconds through a non-linear merging process. The measured plasma density modulations and long merging time reveal the critical importance of space-charge effects and ion motion on this electron-driven instability. Supporting theoretical analysis and kinetic simulations help distinguish the relative role of space-charge and resistive effects. Our findings indicate that magnetic fields on the order of 10 megagauss are produced, with important implications for transport and radiation emission of energetic particles in plasmas.",
+          "hb": 1
+        },
+        {
+          "t": "基于二元主体-客体架构的高效无铅锑卤化物发光二极管，外量子效率达22%",
+          "d": "2026-01-10",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究实现了无铅卤化锑发光二极管22%的外量子效率，采用双组分主体-客体架构设计。用锑替代有毒的铅，通过主体-客体能量传递策略优化激子动力学和辐射复合效率，创下无铅卤化物LED的效率新纪录。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz5689?af=R",
+          "tp": "无铅锑卤化物LED",
+          "aip": 1,
+          "kp": [
+            "外量子效率[无铅锑卤化物LED]: 22%",
+            "架构[锑卤化物LED]: 二元主-客体",
+            "加工方式[锑卤化物LED]: 溶液法"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Lead halide emitters hold great promise for next-generation light-emitting diodes (LEDs), but their heavy metal toxicity poses major barriers to commercialization. Therefore, developing efficient lead-free metal halide LEDs is highly desirable but remains a big challenge. Here, we report solution-processed lead-free antimony halide–based LEDs with an external quantum efficiency of 22% and a current efficiency of 55.84 candelas per ampere. The exceptional device performance is achieved through a binary host-guest architecture using a zero-dimensional organic-inorganic antimony(III) halide, which exhibits bright emission with a near-unity photoluminescence quantum yield. Optical and photophysical studies combined with theoretical calculations reveal the mechanism underlying its highly efficient self-trapped exciton emission. Efficient LEDs were achieved by doping (AylPPh\n                    3\n                    )\n                    2\n                    SbCl\n                    5\n                    into a binary host system, which improved film morphology, enhanced charge carrier mobility, and achieved better carrier balance. These enhancements resulted in substantially superior device performance compared to nondoped LEDs with (AylPPh\n                    3\n                    )\n                    2\n                    SbCl\n                    5\n                    as a neat emissive layer.",
+          "hb": 1
+        },
+        {
+          "t": "固体密度等离子体中电流丝化不稳定性的时间分辨 X 射线成像",
+          "d": "2026-01-10",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究将高强度光学激光与高亮度X射线自由电子激光结合，首次以200纳米空间和50飞秒时间分辨率对固体密度等离子体中的电流丝化不稳定性进行时间分辨X射线成像，成功表征了该天体物理和实验室等离子体中带电粒子流磁化过程的关键不稳定性。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67160-2",
+          "tp": "等离子体成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The streaming of energetic charged particles can magnetize astrophysical and laboratory plasmas via the current filamentation instability. Despite its importance, the experimental characterization of this instability has remained a challenge. Here, we report an experiment combining a high-intensity optical laser with a high-brightness X-ray free electron laser that successfully images the instability in solid-density plasmas with 200 nm spatial and 50 fs temporal resolution. We characterize the development of μm-scale filamentary structures and their evolution over tens of picoseconds through a non-linear merging process. The measured plasma density modulations and long merging time reveal the critical importance of space-charge effects and ion motion on this electron-driven instability. Supporting theoretical analysis and kinetic simulations help distinguish the relative role of space-charge and resistive effects. Our findings indicate that magnetic fields on the order of 10 megagauss are produced, with important implications for transport and radiation emission of energetic particles in plasmas.",
+          "hb": 1
+        },
+        {
+          "t": "晶体-玻璃纳米双相合金实现超高强度与大均匀塑性变形",
+          "d": "2026-01-07",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "研究团队开发出晶体-玻璃纳米双相合金，在结构材料领域实现超高强度与大均匀延展性的协同突破。该材料通过纳米尺度的晶体相与非晶相复合，克服了传统高强度材料脆性大的瓶颈，为航空航天及工程结构应用提供新方向。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517926?af=R",
+          "tp": "晶玻璃双相合金",
+          "aip": 1,
+          "kp": [
+            "[结构]: 晶体-玻璃纳米双相合金",
+            "[性能]: 超高强度+大均匀塑性变形"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  Higher strength and larger ductility are always the pursuit of goal in the research of structural materials. Grain refinement and amorphization can enhance the strength of alloys, yet have their own limitations. The ductility of nanocrystalline alloys is usually low (&lt;5%), due to mechanical instability of the nanograin boundary. Shear band (SB) forms after yielding, inducing almost zero plasticity of metallic glasses (MGs). In this article, the recent development of the crystal‐glass nano‐dual‐phase (CG‐NDP) alloys, dramatically enhancing the strength and plasticity is reviewed. The grain boundary (GB) is replaced by a nanoscale amorphous phase. This structure configuration substantially increases the stress barrier against dislocation motion, enhancing the yield strength up to a near‐theoretical value. Furthermore, global plastic flow behavior of the nano‐sized amorphous phase can be activated, promoting emission of dislocations at the crystal‐glass interface. Some of these dislocations pass through the crystalline phase and are absorbed by the amorphous phase on the opposite interface, depicting a continuous emission‐motion‐annihilation process. These deformation mechanisms promote the large homogeneous plastic deformation under both compression and tension. A new mechanism of crystalline‐to‐amorphous phase transformation is further reviewed. Finally, their functional applications as electrolytic catalysis and wear‐resistant coatings is discussed.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月10日　星期二",
+  "date_range": "2026-02-10",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "一汽联合南开大学完成500Wh/kg富锂锰基固液电池装车测试，续航超1000公里",
+      "辉能科技法国敦刻尔克工厂动工，规划2032年全固态电池产能达12GWh",
+      "CasMiner深度学习模型实现99.63%预测准确率，成功筛选出高效新型Cas9蛋白"
+    ],
+    "AI与智能科技": [
+      "上海临港启用首个海上风电直连海底数据中心，电力容量24MW且绿电供给率超95%",
+      "科研团队开发基于半导体异质结的手性神经形态器件，实现圆偏振光探测与存储一体化"
+    ],
+    "通用技术": [
+      "首例阴离子杂双金属Co-Ga光还原剂问世，突破强还原剂依赖贵金属限制",
+      "研究揭示邻近诱导磁性效应对析氧反应的促进作用，提供非贵金属催化剂设计新机制",
+      "新型肽可电离脂质Dab4研发成功，实现高效低毒的mRNA体内递送"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "一汽联合南开大学完成500Wh/kg富锂锰基固液电池装车测试，续航超1000公里",
+        "辉能科技法国敦刻尔克工厂动工，规划2032年全固态电池产能达12GWh",
+        "CasMiner深度学习模型实现99.63%预测准确率，成功筛选出高效新型Cas9蛋白"
+      ],
+      "entries": [
+        {
+          "t": "CasMiner：高通量挖掘的深度学习工具，合理设计高效Cas9",
+          "d": "2026-02-10",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "开发了CasMiner深度学习模型用于高效挖掘和工程化新型Cas9蛋白，预测准确率达99.63%，并从公共数据库中鉴定出新型Cas9变体VpCas9，经实验验证具有高效编辑活性，为CRISPR工具箱扩展提供新范式。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag090/8469394?rss=1",
+          "tp": "基因编辑器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Since its inception, the CRISPR-Cas system, particularly Cas9, has demonstrated immense potential for life science applications, but expansion of the Cas9 toolkit is constrained by sequence alignment-based strategies for mining and optimization. Here, we developed CasMiner, a deep learning model for discovering and engineering novel Cas9 proteins. CasMiner achieved 99.63% accuracy in predicting Cas9s, and identified VpCas9 from public databases. Experimental validation showed that VpCas9 exhibits robust double-strand cleavage activity. Combining CasMiner and evolutionary analysis, we engineered three mutants with markedly increased structural rigidity and positive charge. In vivo",
+          "hb": 1
+        },
+        {
+          "t": "一汽称其开发的500Wh/kg富锂锰基固液电池完成装车测试",
+          "d": "2026-02-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "一汽宣布与南开大学陈军院士团队联合开发的富锂锰固液电池（500Wh/kg以上）完成装车测试，电池包142kWh、续航超1000km，采用富锂锰正极（>300mAh/g）、超浸润原位固化电解质及原位生成锂负极技术，后续目标系统能量密度340Wh/kg、续航1600km。另自媒体称小鹏固态电池450Wh/kg完成路测，但官方未确认。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/EaDPL0Rx2V00ZK6R2tnjaw",
+          "tp": "富锂锰电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月10日，中国一汽在官方公众号发文称，其旗下中汽新能电池科技公司联合南开大学陈军院士团队开发的富锂锰固液电池完成了装车测试。文中称，该电芯能量密度超过500Wh/kg，电池包电量达到142 kWh，装车后续航里程可达1000km以上；并宣传电池采用的富锂锰正极比容量超过300mAh/g；采用的超浸润原位固化复合电解质具有宽电化学窗口、稳定界面及阻燃等特性；同时采用原位生成锂负极技术解决金属锂箔使用问题；后续电池系统能量密度有望突破340Wh/kg，整包电量超过200 kWh，续航里程突破1600km，且电池系统无热扩散。据宣传描述，该电池可能为半固态+无锂金属负极体系，但具体富锂锰正极及电解质材料并未透露。\n另据有关自媒体发文报道称，小鹏汽车2月16日完成固态电池全场景路测，文中称路测的固态电池能量密度达到450Wh/kg，电池在吐鲁番55℃环境下连续充放电1000次，容量保持率达92%，无热失控、无鼓包、无衰减异常；在漠河-40℃环境下，电池放电保持率达91%，；在海拔5200米的青藏高原缺氧低压环境下，电池能量转换效率无损失。但截止至3月2日未见小鹏汽车官方公众号及官网有相关信息公布，也未见其在香港、等证券交易所进行信息披露。",
+          "hb": 1
+        },
+        {
+          "t": "辉能科技法国工厂动工，QuantumScape试点生产设施投运",
+          "d": "2026-02-10",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "辉能科技法国敦刻尔克工厂动工，生产第四代全无机固态锂陶瓷电池，2028年首期0.8GWh、2030年4GWh、2032年总产能12GWh。QuantumScape加州鹰线试点设施投运，其Cobra工艺将陶瓷隔膜烧结从数天压缩至数分钟，产线产出B样供大众PowerCo联合验证，为大规模量产铺路。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://battery-news.de/en/2026/02/11/prologium-breaks-ground-on-french-solid-state-battery-gigafactory/",
+          "tp": "全固态电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月10日，中国台湾辉能科技（ProLogium）在法国敦刻尔克举行动土仪式，其敦刻尔克工厂将生产第四代“超流体化全无机固态锂陶瓷电池”，这是该公司首座台湾地区以外的生产基地。该项目采用分期建设模式：2028年首期投产，初期产能约0.8 GWh；2030年提升至4 GWh；最终阶段预计2032年完工，总产能将达12 GWh（长期视市场需求可进一步扩充至48 GWh）。\n2月4日，美国固态电池企业QuantumScape位于加州圣何塞的“鹰线”（Eagle Line）试点生产设施正式宣告投运。该设施的技术突破主要源于其专有的“Cobra”工艺，可将陶瓷隔膜的传统烧结时间从数天大幅压缩至数分钟。首席技术官Tim Holme表示，鹰线主要作为固态电池规模化验证平台与学习工具，并非直接用于公司自身的大规模生产。该产线集成了14套自动化设备，未来将产出B样电芯，供客户送样、测试验证及产品整合使用。目前，该公司与大众汽车集团电池子公司PowerCo的合作已进入实质阶段：在完成A样开发后，双方正推进B样联合验证，下一阶段将共同开发C样，最终由PowerCo在其自有工厂采用QuantumScape的工艺实现量产。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "上海临港启用首个海上风电直连海底数据中心，电力容量24MW且绿电供给率超95%",
+        "科研团队开发基于半导体异质结的手性神经形态器件，实现圆偏振光探测与存储一体化"
+      ],
+      "entries": [
+        {
+          "t": "中交三航局承建的海上风电直连海底数据中心在上海临港正式启用",
+          "d": "2026-02-10",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "中交三航局承建的海上风电直连海底数据中心在上海临港启用，总投资16亿元、电力容量24MW。一期示范工程含2.3MW容量、2条35kV海缆、1个立式数据舱（海水散热），PUE目标1.15、绿电供给率超95%，用户包括中国电信等，系基于海兰云2020年海南原型测试的规模化升级。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/ojN30hoqtJcjh5RVFdt_jw",
+          "tp": "海底数据舱",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "陆地海底数据中心在土地资源利用（中卫数据中心园区1MW/775m2）、制冷能耗（仅次于计算设备）和耗水量方面存在一些问题。此前Microsoft Project Natick项目进行了验证（可靠性为陆地对照组的1/8），但后续搁置；美国Subsea Cloud公司规划3MW部署未见进展；Nautilus Data Technologies浮动式7MW数据中心21年建成，但建在河岸边。一期2.3MW的规模，浸入式，宣传投入运行。潜在存在问题：开仓维护的复杂性（参考海上风机）或冗余设计的成本，半浸入散热可能更便于维护；需海底电缆、光缆、能源配套设施建设；或可与漂浮式风机底座集成---Aikido推出可装载水下数据中心的漂浮式风机",
+          "b": "2月10日，中交集团第三航务局官方公众号发文称，其承建的海上风电直连的海底数据中心在上海临港正式启用。文中称，该项目由临港投控集团、上海海兰云科技公司投资建设并提供技术支持，采用专属海底电缆，将风机发出的绿色电力直接输送至海底的数据舱，整体规划投资16亿元，电力容量建设总规模24MW；项目一期为示范工程，包括电力容量2.3MW、2条35kV海缆、1个立式数据舱（海底电缆，利用海水散热），目标电源使用效率1.15、绿电供给率超过95%。有报道称，目前该海底数据中心的用户包括中国电信、上海仪电、临科智华等企业。2020年，海兰云在海南完成关键技术的预研和原型测试（有报道称单机架功率15-35kW），本次海风直连海底数据中心可能是基于其2020年版海底数据中心进行升级和规模化扩展。",
+          "hb": 1
+        },
+        {
+          "t": "基于光催化染料/聚合物半导体体异质结的手性神经形态器件用于圆偏振光探测与存储",
+          "d": "2026-02-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究基于光催化染料/聚合物半导体体异质结，开发了手光-神经形态器件，实现圆偏振光（CPL）的检测与记忆功能。神经形态计算模拟人脑的高能效信息处理方式，是后摩尔时代计算架构的关键方向。该器件利用手性材料对左/右旋圆偏振光的差异响应，将光学信号转化为电学记忆态，实现了感知与存储一体化，在手性光通信和仿生视觉系统领域具有应用前景。",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523436?af=R",
+          "tp": "手性神经形态器件",
+          "aip": 1,
+          "kp": [
+            "[器件架构]: 光催化染料/聚合物体异质结",
+            "[功能集成]: 圆偏振光检测与神经形态记忆",
+            "[瓶颈]: 材料不稳定且制备不可扩展"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Neuromorphic computing, which emulates the energy‐efficient processing of the human brain, has emerged as a key technology for next‐generation artificial intelligence. Integrating sensitivity to circularly polarized light (CPL) provides an additional degree of freedom for optical data encoding, yet practical implementation remains limited by material instability and complex, non‐scalable fabrication. This work introduces a chiropto‐neuromorphic device that addresses these challenges through a polarized light‐induced charge transfer doping mechanism. The system employs a solution‐processed bulk heterojunction (BHJ) composed of a chiral boron dipyrromethene (BODIPY) dye and a polymer semiconductor (PBTTT‐C12) to translate CPL handedness into a stable nonvolatile memory state. Chirality‐dependent charge transfer modulates the polymer's doping level, enabling precise control of synaptic weight. The device emulates key biological synaptic functions, including short‐ and long‐term plasticity, paired‐pulse facilitation, and stimulus‐dependent plasticity governed by light number, duration, and intensity, while maintaining distinct chiroptical selectivity. Notably, its energy consumption remains at the picojoule (pJ) level per synaptic event, comparable to biological synapses. By introducing chirality as a new control dimension for synaptic modulation, this study demonstrates a scalable and powerful platform for polarization‐encoded neuromorphic information processing and establishes a foundation for advanced artificial sensory systems capable of handling complex chiral optical signals.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "首例阴离子杂双金属Co-Ga光还原剂问世，突破强还原剂依赖贵金属限制",
+        "研究揭示邻近诱导磁性效应对析氧反应的促进作用，提供非贵金属催化剂设计新机制",
+        "新型肽可电离脂质Dab4研发成功，实现高效低毒的mRNA体内递送"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 揭示Co(-I)-Ga光还原剂催化富电子含氟芳烃加氢脱氟的机理",
+          "d": "2026-02-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "报道了首例基于第一过渡系金属的阴离子杂双金属Co(−I)−Ga光还原剂，实现了对富电子氟代芳烃的催化加氢脱氟反应。该体系利用Co(−I)的极端负氧化态提供强还原力，突破了一直以来强光还原剂多依赖贵金属的限制。研究阐明了Ga中心的电子供给与稳定化作用，为廉价金属驱动难还原键的活化开辟了新路径。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16672",
+          "tp": "光催化C-F键活化",
+          "aip": 1,
+          "kp": [
+            "光照波长[加氢脱氟]: 390 nm紫光",
+            "催化剂[加氢脱氟]: Co(-I)-Ga阴离子异双金属络合物",
+            "氢气压力[加氢脱氟]: 1 atm"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Strong photoreductants based on first-row transition metals are rare. We report an anionic heterobimetallic Co(-I)-Ga complex, [(H2)CoGa(N(o-(NCH2PiPr2)C6H4)3)]- ([2-H2]-), that catalyzes the hydrodefluorination of electron-rich fluoroarenes under violet light irradiation (390 nm), in the presence of stoichiometric alkoxide base, substoichiometric crown ether, and 1 atm H2. The photodissociation of H2 from [2-H2]- to form the 'naked' Co(-I) species [2]- was observed by ultrafast transient absorption spectroscopy. In combination with its reactivity profile, [2]- is proposed to be photoexcited to form an active photoreductant that reduces fluoroarenes via outer-sphere single-electron transfer. Detailed mechanistic studies suggest that the resultant Co(0) complex (2ox-H2), which is characterized by EPR spectroscopy, re-enters the catalytic cycle via a putative anionic Co(0) hydride intermediate [2ox-H]-. To the best of our knowledge, this is the first example of a 3d metal photoredox catalyst for C-F bond activation.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] Dzyaloshinskii–Moriya相互作用下邻近诱导磁性促进水氧化反应",
+          "d": "2026-02-10",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "该研究揭示了Dzyaloshinskii-Moriya相互作用诱导的近邻磁性效应如何促进水氧化反应。自旋极化控制多电子水氧化动力学，而IrO2等基准催化剂缺乏本征自旋调控能力。研究通过引入手性磁近邻效应，调控催化剂表面活性中心的电子自旋取向，从而优化反应中间体的吸附与电荷转移路径，提升析氧反应(OER)速率。这一机制为突破贵金属催化剂性能极限提供了全新设计思路，对电催化水裂解制氢具有重要意义。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17778",
+          "tp": "水氧化自旋催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[水氧化]: Co/IrO2双层膜",
+            "[机制]: 界面DMI诱导邻近磁性促进IrO2自旋极化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Spin polarization governs the kinetics of multielectron water oxidation, yet benchmark catalysts like IrO2 lack intrinsic ferromagnetism at ambient temperature, precluding spin control. Here, we exploit the interfacial Dzyaloshinskii-Moriya interaction (DMI) in Co/IrO2 bilayers to induce spin-polarized states in the surface IrO2. This DMI-driven spin polarization boosts intrinsic oxygen evolution reaction activity by 1 order of magnitude, achieving a turnover frequency of 4.17 s-1 at 300 mV overpotential. Ferromagnetic resonance spectroscopy quantifies strong interfacial spin polarization via a 100% increase in the Gilbert damping. Spin-polarized DFT shows that DMI stabilizes a ferromagnetic ground state in IrO2 and reveals that spin ordering alters the adsorption configurations and lowers reaction barriers for *OH dehydrogenation and O-O coupling. Inserting a Cu spacer eliminates DMI, quenching both magnetism and catalytic enhancement. Our results establish interfacial DMI as a general strategy to activate hidden spin states in nonmagnetic oxides, offering a new route to surpass the activity limits in water-oxidation catalysis.",
+          "hb": 1
+        },
+        {
+          "t": "优化肽可电离脂质可实现体内 Prime 编辑和蛋白质替代疗法的高效且低毒性的 mRNA 递送",
+          "d": "2026-02-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "建立肽可电离脂质（PILs）的结构-活性关系框架，通过系统优化构建模块、侧链长度和疏水尾，筛选出先导化合物Dab4，实现高效低毒的mRNA脂质纳米颗粒递送，可用于体内Prime编辑和蛋白质替代疗法。",
+          "sc": 6.6,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522552?af=R",
+          "tp": "脂质纳米递送",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Highly efficient mRNA lipid nanoparticle (LNP) often presents potential safety risks. Here, we establish a structure–activity relationship framework for peptide ionizable lipids (PILs) to facilitate the rational design of safe and effective mRNA‐LNPs. The PIL structure comprises three modular components: building block, side‐chain length, and hydrophobic tail. Through systematic optimization, a lead compound (Dab4) with four building blocks and a moderate side chain length was identified, demonstrating minimized hepatotoxicity while maintaining superior delivery performance. Leveraging this framework, a series of Dab4‐derived PILs with three tail types, including alkyl (a‐tail), ester (aat‐tail), and hydroxyl (e‐tail), were synthesized. This tail chemistry determined organ tropism, with B12‐a13Dab4 (a‐tail) showing optimal performance in the liver. The B12‐a13Dab4 LNP exhibited significantly higher hepatic delivery efficiency and markedly improved biosafety compared with the FDA‐approved SM‐102 formulation. Moreover, B12‐a13Dab4 LNP efficiently triggers in vivo prime editing by co‐delivering PE7 mRNA and epegRNA, and achieves significant therapeutic effects in a Hereditary Tyrosinemia Type 1 (HT‐1) model through repeated delivery fumarylacetoacetate hydrolase (FAH) mRNA. This study establishes rational design principles for PILs that strike a balance between efficacy and safety, offering a versatile mRNA‐LNP platform for the advancement of gene editing and protein replacement therapies.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月6日　星期六",
+  "date_range": "2026-06-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "日产联合牛津大学与Gelion启动硫基固态电池研发",
+      "TagEnergy获批建设620兆瓦Morwell电网级储能项目",
+      "B2U利用Waymo退役动力电池组建兆瓦级储能系统"
+    ],
+    "AI与智能科技": [
+      "小鹏汽车每年投5亿美元用于自动驾驶模型训练",
+      "黑客借Meta人工智能客服代理窃取用户Instagram账号",
+      "瑞士联邦理工实现高性能飞秒激光器光子芯片集成"
+    ],
+    "通用技术": [
+      "新研究提出三元溶剂体系实现大面积钙钛矿LED制备",
+      "荷兰7月起要求分布式光伏业主在用电高峰关断系统",
+      "研究人员首次捕获茂金属罕见隐藏状态揭示其形成步骤"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "日产联合牛津大学与Gelion启动硫基固态电池研发",
+        "TagEnergy获批建设620兆瓦Morwell电网级储能项目",
+        "B2U利用Waymo退役动力电池组建兆瓦级储能系统"
+      ],
+      "entries": [
+        {
+          "t": "日产携手合作伙伴开展硫基固态电池研究",
+          "d": "2026-06-06",
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "日产汽车联合牛津大学及电池材料制造商Gelion启动硫基固态电池研究项目，旨在开发低成本、高性能的下一代固态电池技术。硫基体系具有原料丰富、能量密度潜力高的优势，该合作聚焦于提升固态电池的工程化可行性与成本效率，为电动汽车动力电池的商业化突破提供技术支撑。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.electrive.com/2026/06/05/nissan-collaborates-with-partners-on-sulphur-based-solid-state-battery-research/",
+          "tp": "固态锂硫电池",
+          "aip": 1,
+          "kp": [
+            "[电池体系]: 固态锂硫电池",
+            "[技术路线]: 纳米包覆硫化物正极",
+            "[目标]: 高充电功率+能量密度+寿命"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nissan, the University of Oxford and battery material manufacturer Gelion are launching the research project “Cost-effective, Resilient Solid-state Li–S (CoRe-SoLiS)” this month. The project aims to develop a solid-state lithium-sulphur battery with high charging power, energy density and lifespan.\nImage: Gelion\nThe CoRe-SoLiS project, funded by the UK government, aims to integrate nano-encapsulated sulphur (NES) into a battery cell. This material is being developed by Gelion Technologies, based in Norwich, England, which was previously focused on batteries with liquid electrolytes. The project partners now plan to incorporate Gelion’s NES cathode into Nissan’s future solid-state batteries for electric vehicles.\nGelion’s approach involves replacing the conventional cathode in lithium-ion batteries with nano-encapsulated sulphur. According to the company, this material is cost-effective, easy to source and can be integrated into existing production lines.\nNissan’s involvement in the project is through the Nissan Technical Centre Europe (NTCE). The University of Oxford is also participating. The total cost of the project is expected to reach £3.4 million, equivalent to approximately €3.9 million. Around two-thirds of the budget (£2.4 million) is covered by public funding.\n“The Project brings together Gelion’s breakthrough NES™ sulfur‑based cathode active material with Nissan’s world‑leading solid‑state battery development capabilities,” the partners state. The goal is to create high-energy, long-lasting lithium-sulphur solid-state batteries specifically for automotive applications. The integration of Gelion’s cost-effective sulphur cathode is seen by the project team as addressing ‘the key barriers to mass‑market solid‑state battery adoption – durability and cost.’\nHowever, sulphur-based batteries face several inherent technical limitations that have hindered their commercialisation to date. Key challenges for lithium-sulphur (Li-S) batteries include limited performance and cycle life due to polysulphide formation. The project partners claim that these limitations can be overcome with NES technology, ‘unlocking performance levels previously considered unachievable for sulfur cathodes.’ No further details have been provided at this stage, except that the funded project is expected to accelerate R&D activities in this area and advance the integration of NES cathodes into solid-state battery systems.\n“Results from CoRe‑SoLiS will inform future scale‑up, manufacturing, and commercialisation efforts for solid‑state batteries, with potential to expand collaboration across the automotive and energy storage sectors,” the participants believe. Gelion already collaborates with TDK (Japan), QinetiQ (UK), and the Max Planck Institute of Colloids and Interfaces (Germany).\nGelion CEO John Wood comments: “This endorsement of our technology’s commercial potential in solid-state cells for automotive applications highlights the platform nature of NES™ building on our work in liquid electrolyte and graphitic anode systems. The two primary opportunities to push battery performance boundaries (independently) are solid-state and sulfur cathode material. This project combines both and we are excited by the way the core technologies have the potential to complement and extend each other.”\nAdrien Amigues, President of Gelion UK & Europe and Project Lead for CoRe-SoLiS, adds: “This project has the potential to be a game-changer for the UK, Nissan and Gelion. Our technology is particularly well-suited to solid-state batteries due to the exceptional physical properties of NES™ , its unique potential to substitute NMC and be used as a drop-in solution into existing and future solid-state battery production lines. I look forward very much to working with our partners to the benefit of all of our stakeholders.”\nabout „Nissan collaborates with partners on sulphur-based solid-state battery research“",
+          "hb": 1
+        },
+        {
+          "t": "澳大利亚州政府批准620兆瓦/2.5吉瓦时Morwell电池项目",
+          "d": "2026-06-06",
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "葡萄牙清洁能源开发商TagEnergy获得维多利亚州交通规划部门批准，将在澳大利亚建设装机容量620MW、储能2.5GWh的Morwell大型电池项目。该项目将成为南半球规模最大的电网级储能电站之一，选址于前燃煤电厂区域，标志着澳大利亚从化石能源向可再生能源转型的加速。该电池系统主要用于电网调频、削峰填谷和支撑光伏风电并网，预计显著提升维多利亚州电力系统的灵活性与稳定性。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ess-news.com/2026/06/05/australian-state-clears-620-mw-2-5-gwh-morwell-battery-project/",
+          "tp": "储能电站项目",
+          "aip": 1,
+          "kp": [
+            "[装机功率]: 620 MW",
+            "[储能容量]: 2.48 GWh(4小时)",
+            "[投资]: 13亿澳元",
+            "[位置]: 维多利亚州Latrobe Valley"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Portugal-based clean energy developer TagEnergy has received development approval from the Victorian Department of Transport and Planning for the proposed AUD 1.3 billion Morwell BESS.\nOne of the largest approved battery storage projects in Victoria’s Latrobe Valley, the 620 MW, four-hour Morwell BESS will have an energy storage capacity of up to 2.48 GWh, enough to supply electricity to more than 344,000 homes during periods of peak demand.\nLocated approximately 150 km east of Melbourne, the project will connect to the existing 500 kV Hazelwood Terminal Station, approximately 650 meters from the site.\nTagEnergy Managing Partner Australia Andrew Riggs said projects such as Morwell BESS will help meet growing demand for energy storage in Victoria.\n“Victoria’s electricity system is changing rapidly and battery storage will be essential to ensure reliable power remains available as demand continues to grow and new sources of generation come online,” Riggs said. “The Latrobe Valley has been at the center of Victoria’s electricity system for generations. Morwell BESS will help ensure the region remains a vital part of the state’s energy landscape for decades to come.”\nThe next stages of development include securing a grid connection agreement and completing the remaining activities required to support delivery.\nMorwell BESS is expected to reach financial close by the end of 2027 and be operational in late 2029.",
+          "hb": 1
+        },
+        {
+          "t": "B2U将退役Waymo电池改造为梯次利用储能系统",
+          "d": "2026-06-06",
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "洛杉矶储能企业B2U Storage Solutions与自动驾驶出租车公司Waymo达成战略合作，将Waymo车队退役的动力电池梯次利用于二次储能系统。B2U开发的CPS技术使退役电动车电池无需拆解即可直接组建兆瓦级储能阵列，大幅降低储能系统成本。该项目展示了电动汽车电池循环经济的新模式——当电池容量衰减至不适合车辆使用后，仍可在电网级储能中服役多年，延长电池全生命周期价值。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.electrive.com/2026/06/05/b2u-repurposes-used-waymo-batteries-for-second-life-energy-storage-systems/",
+          "tp": "电池梯次利用",
+          "aip": 1,
+          "kp": [
+            "[梯次利用]: Waymo退役EV电池再利用",
+            "[应用]: 储能系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Los Angeles-based energy storage manufacturer B2U Storage Solutions has announced a strategic partnership with robotaxi provider Waymo. The aim of the cooperation is to repurpose batteries from Waymo’s electric vehicle fleet after their decommissioning.\nImage: B2U Storage Solutions\nUsed battery packs from Waymo are set to gain a second life after their initial use in electric vehicles, specifically as part of stationary energy storage systems connected to the power grid. These systems will ‘provide valuable grid services in electricity markets from California to Texas—supporting the same electricity grids where Waymo’s autonomous fleet is already active,’ the partners state.\nThe rationale is that most traction batteries, while no longer suitable for vehicle use once their capacity falls to around 70–80%, still retain sufficient capacity for several additional years in second-life energy storage applications.\nB2U Storage Solutions\nstates that, under the agreement with Waymo, ‘thousands of retired vehicles from the road to the power sector.’ The company claims to have developed a cost-effective technology for integrating used vehicle batteries into high-performance battery energy storage systems. Once installed, B2U operates the storage units throughout their entire “second life”.The firm also ensures ‘proper recycling after the batteries’ residual value has been realized.’\nFreeman Hall, CEO of B2U Storage Solutions, comments: “This agreement marks a significant milestone in B2U’s mission to provide integrated repurposing services to the automotive industry. By extending the use of these batteries as grid storage, we are monetizing the full potential of EV batteries, now providing crucial stability to the power grid as energy demand continues to grow.”\nAdam Lenz, Head of Sustainability and Environmental Impact at Waymo, adds: “Our shared fleet of EVs provide a massive opportunity to support the growth of clean energy on the electricity grid while expanding the circular economy. Through this partnership, we can repurpose our batteries for local grid storage and ensure our batteries continue to provide economic and environmental value to the community long after they’ve retired from the road.”\nCurrently, Waymo’s fleet consists of around 3,000 electric Jaguar I-Pace vehicles. However, just a few days ago, Waymo announced that it will integrate its\nnew Ojai vehicle model\ninto public service in the coming weeks.\nabout „B2U repurposes used Waymo batteries for second-life energy storage systems“",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "小鹏汽车每年投5亿美元用于自动驾驶模型训练",
+        "黑客借Meta人工智能客服代理窃取用户Instagram账号",
+        "瑞士联邦理工实现高性能飞秒激光器光子芯片集成"
+      ],
+      "entries": [
+        {
+          "t": "小鹏每年投入5亿美元进行AI训练以击败特斯拉FSD",
+          "d": "2026-06-06",
+          "a": "Electrek",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "小鹏汽车自动驾驶负责人向Electrek透露,公司每年投入约5亿美元用于AI训练,目标是在自动驾驶能力上超越特斯拉FSD。高额算力投入反映端到端大模型路线对训练数据量和算力的极高需求。小鹏正通过自研智驾芯片与大规模集群训练相结合,加速城市NGP(导航辅助驾驶)向全场景自动驾驶演进,加剧中国智能驾驶军备竞赛。",
+          "sc": 8.0,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/06/05/xpeng-vla-interview-cvpr-language-poison-tesla-fsd/",
+          "tp": "自动驾驶AI训练",
+          "aip": 1,
+          "kp": [
+            "AI训练月投入[小鹏自动驾驶]: ~3亿RMB"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 5 2026 - 6:58 am PT\nXpeng’s head of autonomous driving told Electrek that the company is spending roughly 300 million RMB (~$41 million) per month on AI training alone and believes it has already reached parity with Tesla’s FSD v13 — with v14 within reach before the end of summer.\nI sat down with Dr. Xianming Liu, head of Xpeng’s General Intelligence Center, the day after he delivered a keynote at CVPR 2026 in Denver — sharing the stage with Tesla’s Ashok Elluswamy and leaders from Nvidia and Waymo at one of the world’s top computer vision conferences.\nThe conversation covered Xpeng’s VLA 2.0 architecture, the company’s sensor strategy, its Volkswagen licensing deal, and why Dr. Liu believes the entire autonomous driving industry needs to stop treating language models as the answer to self-driving.\nHere’s the full interview:\nDr. Liu has become known for a provocative statement: “language is poison” when it comes to autonomous driving. In our interview, he explained the nuance behind that headline.\nXpeng’s first-generation VLA (Vision-Language-Action) model used language tokens as an intermediate step — the system would see the road, translate what it saw into language-like representations, then convert those into driving actions. VLA 2.0, which\nI tested in Beijing in April\nand found comparable to Tesla’s FSD v14, removes that middle step entirely.\nBut Liu clarified that Xpeng hasn’t abandoned language completely. The system still accepts language as input — text prompts and instructions from the driver. What it removes is language as an intermediate output during the actual driving process.\n“We still utilize languages as input, so this is a key to improve the generalizability,” Liu said. “You talk to the vehicle and you give some instructions. The vehicle needs to understand how to execute these instructions. But during the driving, we don’t output any language tokens because this is a redundancy or a bottleneck of the model.”\nThe reasoning is straightforward: the car ingests roughly two billion visual tokens per second from its cameras but only needs maybe 10 or 20 tokens to control the steering wheel and pedals. That’s a massive dimensionality reduction, and adding a language translation step in between just introduces unnecessary computation and latency.\n“In order to get a language expression, you need to generate a lot of unnecessary computation to explain it. So that’s why we remove the language as intermediate layers, but we still keep the language as input,” he explained.\nLiu used his CVPR keynote to unveil something new — Xpeng’s world model, which he frames not as a separate technology from VLA but as “the other side of the same problem.”\nVLA 2.0 learns from human driving behavior — it studies how millions of drivers react in real situations and learns to replicate those decisions. The world model learns the physics of the environment — it predicts what will happen next in the scene, how other agents will move, what the consequences of any given action will be.\n“People trying to separate the two concepts, world model and VLA, as two dimensions of the technology, but actually they are the same,” Liu said. “Our goal is trying to build a foundation model powerful enough to understand the world.”\nThe practical application: Xpeng is now training VLA 2.0 to simultaneously predict what the cameras will see in the near future and what the car should do — combining driving and world prediction in one model. The company expects to deploy this upgrade to production vehicles later this year.\nXpeng has published a series of research papers backing this work, including\nfor controllable video generation,\nfor joint future prediction and planning, and\nwhich cuts world model computation by 70% with negligible quality loss. The company also had its “DrivePTS” paper on driving scene generation accepted at CVPR 2026.\nOne detail that often gets lost in Xpeng’s “pure vision” marketing: the P7+, G7, and other recent models\nstill carry three millimeter-wave radars and twelve ultrasonic sensors\nalongside their cameras. I asked Liu how those fit into an end-to-end architecture.\nHis answer was clear: they don’t feed into the main driving AI at all.\n“We do utilize these other sensors, but they are utilized for the active safety system, which requires an orthogonal system to be totally redundant with the main driving system,” Liu said. The radar and ultrasonics power AEB (automatic emergency braking) and AES (automatic emergency steering) — a completely separate safety layer.\nThe main driving system is vision-only. Liu’s reasoning comes down to information density and latency: “Camera readout time is a couple milliseconds, pretty quick, and the frequency could be very high. From the information density perspective, camera is one of the best sensors. If you’re using LiDAR, radars, the processing time is pretty long, usually tens or hundreds of milliseconds.”\nThis puts Xpeng in an interesting middle ground. Tesla famously removed radar and ultrasonic sensors entirely from its vehicles, relying solely on cameras for everything including active safety. Waymo goes the opposite direction with a full LiDAR suite. Xpeng uses cameras exclusively for the driving brain but keeps radar as a separate safety net.\nWhen I asked if the vision system could eventually get so good that the redundant safety layer becomes unnecessary, Liu was blunt: “We hope so, but to be honest, it’s not possible. We all make mistakes. System also makes mistakes. Even you can reach 99.9999%, you still have the chance to make mistakes. Adding another layer of redundancy definitely will help.”\nHe added: “You’re not talking about chatting with ChatGPT and making a mistake — you just say, ‘hey, this is so silly, redo.’ You’re talking about lives.”\nI asked Liu about the scale of Xpeng’s investment in autonomous driving. His answer was startling for a company that delivered roughly 200,000 vehicles last year.\n“There’s a lot of jokes on the internet saying I’m asking a lot of budget from the boss,” Liu said. “He said something like 300 million a month RMB for me to train the model. That’s roughly the truth. I do spend a lot of money.”\nThat’s roughly $41 million USD per month, or close to $500 million a year on AI model training alone — a significant figure for a company with\nRMB 47.66 billion ($6.5 billion) in cash\nat the end of 2025. Liu acknowledged this is unusual for a car company: “As a car company, you can never imagine such a big R&D investment because you can never make the money back. But our company is determined to be a Physical AI company.”\nXpeng disclosed at CVPR that its training infrastructure has achieved a 4,360% gain in single-job training efficiency over the past 12 months, with GPU utilization climbing from 40% to 90%. VLA 2.0 uses billions of parameters and consumes over four trillion tokens per model iteration.\nLiu was diplomatic but specific when comparing Xpeng’s approach to Tesla’s FSD.\n“I think we share similar underlying philosophy and principles, which is scaling up,” he said. “No matter Tesla or Xpeng or other companies working on this trajectory are working on the same thing — just following the scaling law, make sure you have a system which is data-driven and you can feed unlimited data into the model.”\nThe key difference, according to Liu, is data diversity. Chinese roads are significantly more chaotic than American ones — a point I experienced firsthand during my\n40-minute VLA 2.0 test drive in Beijing\n, where I encountered more edge cases than I’d see in weeks of driving in North America.\n“In China you have a larger chance to get corner cases and data. This is one advantage,” Liu said. He argued this could make it easier for Xpeng to expand internationally than for Tesla to bring FSD to China — not easier per se, but “you have more chances because you have more diverse data.”\nXpeng CEO He Xiaopeng made a public bet with Liu last year: if VLA 2.0 doesn’t match Tesla FSD performance by August 30, 2026, Liu has to streak naked across the Golden Gate Bridge.\nLiu says he’s safe. “I’m pretty confident I don’t need to run,” he told me. “The condition is reaching parity with Tesla FSD in the beginning of this year. Based on test drives, we already hit the goal.”\nHe claims Xpeng went from FSD v12 parity to “almost v14 or even better than v13” in just a few months, crediting the team’s rapid iteration speed. The August deadline still stands, but Liu seems relaxed about it.\nPerhaps the most revealing moment came when Liu described Xpeng’s identity. He compared the company to Google making Pixel phones — hardware exists primarily to demonstrate and collect data for the software.\n“Producing cars or manufacturing cars definitely is one of the main reasons we are working now,” he said. “We need physical devices in the real world to make sure we get feedback, we get data. Just like Google is producing Pixel devices just trying to demonstrate, ‘OK, this is what Android can do.’ But on the other hand, we want to make sure we are an AI company.”\nThis framing puts the\nVolkswagen VLA 2.0 licensing deal\nin context. Volkswagen became the first external customer for VLA 2.0 earlier this year, with deployment planned for 2027. Liu downplayed the technical challenge of porting the system to VW’s vehicles, noting that Xpeng already pushes OTA updates to more than 20 different car models internally.\n“Adding one or two cars for us, it’s not something novel or something new. You train a model and if you generalize it to 20 cars, it doesn’t matter if you have 21, 22, 23.”\nThe bigger goal, Liu suggested, is getting the entire industry on board: “If only Xpeng or Tesla working on that, it will never become true. You need a lot of partners, you need a lot of friends, you need everyone to accept the truth that automation is coming.”\nThis interview confirmed what I suspected after my\nVLA 2.0 test drive in April\n— Xpeng is running a legitimate autonomous driving program that managed to be quickly genuinely competitive with Tesla’s FSD. All while spending roughly 300 million RMB per month on AI training budget, which might sound like a lot, but in the grand scheme of AI spending, isn’t much.\nWhat struck me most was Liu’s clarity about architecture decisions. The “language is poison” framing sounds like a hot take, but his explanation is technically sound — converting continuous visual signals into discrete language tokens and back is inefficient for a real-time physical control system. It’s a different bet than what most of the industry is making with large language models, and it’s one that VLA 2.0’s on-road performance is starting to validate.\nThe Pixel analogy is also telling. Xpeng is signaling that it sees vehicle manufacturing as the means, not the end. With Volkswagen already licensing VLA 2.0 and\nXpeng reportedly in talks to buy a VW plant in Europe\n, the company is positioning itself as both a car maker and an AD technology supplier — essentially hedging on which business ultimately generates more value.\nTo me, it is becoming clear that they are aiming to be a ‘physical AI’ company more than an automaker at this point.\nIf you want to make sure your EV is charged for less, going solar is one of the smartest moves you can make. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "Meta遭黑客攻击表明：AI安全远不止Mythos",
+          "d": "2026-06-06",
+          "a": "MIT Technology Review",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "攻击者利用Meta的AI客服代理窃取Instagram账号，揭示了AI安全不仅关乎模型本身漏洞。该事件暴露了AI系统在业务集成中的信任链风险，凸显AI安全防护需要超越传统模型安全范畴。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.technologyreview.com/2026/06/05/1138437/the-meta-hack-shows-theres-more-to-ai-security-than-mythos/",
+          "tp": "AI客服安全",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "EXECUTIVE SUMMARY\nthat attackers had been using Meta’s AI customer support agent to steal Instagram accounts. Their approach was simple: They asked the agent to link the accounts to email addresses that they controlled, and the agent complied. One attacker broke into the dormant Obama White House account and made pro-Iran posts; others took over accounts with valuable, single-word handles, possibly in order to sell them.\nAI cybersecurity concerns are nothing new. Since Anthropic announced in April that its Mythos model was too good at hacking to be released to the general public, commentators, researchers, and federal officials alike have fixated on the idea that superpowered AI systems could lay waste to our computer infrastructure. That’s not quite what this Instagram hack was: There, AI was the target rather than the attacker, and the method was far simpler than anything Mythos would cook up. But as companies offload more work to AI, these comparatively unsophisticated attacks could wreak their own havoc.\n“As AI becomes more and more widely used—especially when AI is more and more widely used to automate our work flows, like account recovery—I think attackers are going to be more and more motivated to attack AI itself,” says Neil Gong, a professor of electrical and computer engineering at Duke University.\nGong and other scholars have been issuing warnings about the security vulnerabilities of AI agents for a while. They publish papers and blog posts detailing exploits such as indirect prompt injection, which involves hijacking agents using commands hidden in websites, emails, or other seemingly anodyne data sources. Compared with these techniques, the Meta hack was practically mindless. The only complication that hackers had to overcome was using a VPN that matched the true account owner’s location; then they directly asked the support agent to change the account’s email address, and it complied.\nMeta has not commented publicly on how this vulnerability slipped through the cracks. But given the simplicity of the exploit, Gong says, it should have been uncovered easily, before the agent was deployed. “It’s really surprising,” he says. “I don’t understand why they didn’t find this simple problem.”\nJessica Ji, a senior research analyst at Georgetown’s Center for Security and Emerging Technology, agrees. “It raises questions like: Were there even guardrails in place?” she says. “Did anyone think to test for this kind of scenario?” She notes that the oversight is particularly striking coming from a company like Meta, which has extensive expertise in both AI and cybersecurity. Meta did not respond to a request for comment for this article, but on Monday a Meta spokesperson\non X that the vulnerability had been resolved.\nAs embarrassing a moment as this might be for Meta in particular, it also highlights some core vulnerabilities shared by all AI agents. Unlike traditional software, agents can respond in flexible—and unexpected—ways to new circumstances, which is why they might be able to substitute for human customer support agents. But AI agents can also be tricked in ways that humans wouldn’t be, and because they can take real-world actions, those mistakes have consequences. “A human would say, ‘Okay, why do you want to change the email address?’ and maybe respond with a security question,” says Somesh Jha, a professor of computer science at the University of Wisconsin–Madison. “What is going on with these agents is they’re very eager to finish the task. It’s almost like some elementary school student who just wants to please the teacher.”\nThere are ways to mitigate the risks. Companies can use traditional software to build guardrails that make sure agents follow strict rules, such as always asking for answers to security questions before sending sensitive account information to a new email address. And the experts consulted for this article all agree that agents should undergo rigorous red-teaming, a process in which developers try their best to attack a system in order to discover its vulnerabilities before it is deployed.\nBut there are also countervailing forces. Companies want to deploy capable agents, and the more power an agent has—and the fewer guardrails it is subject to—the more work it can potentially take on. “Security and utility always have a trade-off,” says Bo Li, a professor of computer science at the  University of Illinois Urbana-Champaign. And adequate red-teaming can be expensive. Defenders have to expend more resources than attackers do, because attackers only need to discover a single exploit, while defenders try to discover and patch as many as they can. When attackers are working toward something as valuable as a single-word Instagram handle, they’ll pour resources into finding exploits, so defenders have to spend even more money to protect that prize.\nAs AI models continue to improve, hardening their defenses might actually get easier. Though the probabilistic nature of large language models means that LLM agents will always be vulnerable to some forms of attack, a more sophisticated model might have identified an attempt to change the email associated with the Obama White House account as suspicious. And AI systems can be used for agent red-teaming, much as participants in Anthropic’s Project Glasswing use Mythos to identify vulnerabilities in their software.\nStill, experts expect that the problem of securing AI agents will only become more pressing in the future. As agents grow more capable, companies that adopt them may want to give them more power, both to provide more services with fewer humans and to avoid being left behind by their competitors. In the fast-moving world of AI, the time needed to carefully secure risky agentic systems might seem like an unconscionable delay.\n“Everybody wants to be the first to do something and just push things out without careful scrutiny and red-teaming,” Jha says. “I think it’s a very dangerous thing.”\nAccording to Stanford’s 2026 AI Index, AI is sprinting, and we’re struggling to keep up.\nMIT Technology Review's authoritative overview of the 10 technologies, emerging trends, bold ideas, and powerful movements in AI in 2026.\nMusk kept his cool, and OpenAI’s lawyer bulldozed him with piercing questions about his motivations for suing the company.\nLaunching next week on T-Mobile's network, the cell plan takes a nuclear approach to online safety.\nIllustration by Rose Wong\nDiscover special offers, top stories,\nupcoming events, and more.",
+          "hb": 1
+        },
+        {
+          "t": "高性能飞秒激光器实现光子芯片集成",
+          "d": "2026-06-06",
+          "a": "新华网科技",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "瑞士洛桑联邦理工学院（EPFL）将高性能飞秒激光器集成到光子芯片上。飞秒激光器是超短脉冲激光源,传统上体积庞大、难以小型化。此次集成突破在于将超快激光产生能力压缩到芯片级光子平台,为光子集成电路提供片上光源,可大幅推进光通信、精密测量、医疗成像等领域的全光子化集成,是光子学从分立器件走向大规模集成的关键一步。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.news.cn/tech/20260605/b76b0b1d288040e494a903dd63d25564/c.html",
+          "tp": "光子芯片激光",
+          "aip": 1,
+          "kp": [
+            "脉冲能量[飞秒激光-光子芯片]: 1.05 nJ",
+            "脉宽[飞秒激光-光子芯片]: 147 fs",
+            "架构[飞秒激光器]: 马梅舍夫振荡器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "高性能飞秒激光器实现光子芯片集成-新华网\n高性能飞秒激光器实现光子芯片集成\n高性能飞秒激光器实现光子芯片集成\n光子芯片被放置在一枚1瑞士法郎硬币上。图片来源：瑞士洛桑联邦理工学院\n科技日报北京6月4日电 （记者张佳欣）瑞士洛桑联邦理工学院研究团队首次将高性能飞秒激光器集成到光子芯片上，它可产生能量达1.05纳焦，脉宽短至147飞秒的激光脉冲，性能可与传统台式飞秒激光器相媲美，为超快激光器的小型化和低成本化开辟了新路径。相关成果发表于最新一期《自然》杂志。\n光子芯片可以在微小的波导中引导和处理光信号，其作用有些类似电子芯片中的电路。近年来，许多原本需要大型光学设备才能实现的功能，已经逐渐被集成到这种芯片上。但飞秒激光器始终是最难攻克的一环，因为它既要产生极短脉冲，又要保持较高能量，对光场控制要求极高。\n此次突破的关键在于研究团队采用了一种此前较少受到关注的激光器架构，即马梅舍夫振荡器。在这种结构中，激光腔里的非线性波导被放置在两个光学滤波器之间，强光脉冲经过波导时会扩展出更宽的颜色范围，从而能够穿过滤波器并继续循环，较弱的光则无法做到这一点，会被自动滤除。\n光在芯片狭窄波导中传播时，会产生强烈的非线性相互作用。在许多传统设计中，这种效应容易导致激光脉冲失稳，而马梅舍夫振荡器对这一问题不那么敏感，因此更适合芯片环境。团队利用掺铒氮化硅平台制造了这种芯片激光器，虽然激光腔总长度达到42厘米，但通过在芯片上折叠布局，最终被压缩到仅有火柴头大小的区域。团队展示的样品可轻松放置在一枚1瑞士法郎硬币上，其体积远小于传统光纤激光器系统。\n光子芯片可采用与半导体芯片类似的晶圆级工艺批量制造，一次生产有望集成超过1000个激光腔。这意味着未来超快激光器的制造成本有望显著降低，并推动其从实验室走向更广泛应用。团队表示，这种芯片级激光器不仅可用于光谱分析、材料缺陷探测和医学诊断，还有望成为未来紧凑型光学原子钟的重要组成，为下一代通信和导航技术提供支撑。\n这一突破的核心价值在于绕开了芯片非线性效应的传统瓶颈。马梅舍夫振荡器的成功验证表明，光子集成不必一味追求新材料，旧架构在新平台上同样能焕发新生。但需警惕的是，芯片级激光器在批量制造中的一致性、长期稳定性以及与现有光电子系统的封装兼容性问题尚未解决。科研人员应加快建立标准化测试体系与工艺规范，避免陷入“实验室惊艳、产线难产”的困境，真正推动技术落地。\n家政服务业破局探路的成都样本观察\n海洋经济总量攀升 企业竞逐“深蓝”新赛道\n滨海新区：让实体经济基础稳固、基业长青\n黄金缘何成全球官方储备最大资产\n新老齐聚 中国男足6月再出征\n中东战地手记丨躲不开的袭击 守不住的家园\n大看台丨5个娃1个胖，孩子体重怎么管？\n向上的热土丨“千年药都”的链式生长\n高性能飞秒激光器实现光子芯片集成",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "新研究提出三元溶剂体系实现大面积钙钛矿LED制备",
+        "荷兰7月起要求分布式光伏业主在用电高峰关断系统",
+        "研究人员首次捕获茂金属罕见隐藏状态揭示其形成步骤"
+      ],
+      "entries": [
+        {
+          "t": "窦乐天最新Sci. Adv.全面解读：三元溶剂客服咖啡环效应，真空辅助刮涂实现大面积高效钙钛矿LED及静脉成像_手机网易网",
+          "d": "2026-06-06",
+          "a": "网易知光谷",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "发表于Science Advances的研究提出DMF/NMP/ACN三元溶剂体系,解决大面积钙钛矿LED制备中的\"咖啡环效应\"和结晶不均难题。利用乙腈(ACN)诱导马兰戈尼对流抑制溶质边缘聚集,配合真空辅助刮涂工艺,实现大面积高效钙钛矿LED。器件已成功应用于近红外静脉成像,推动钙钛矿光电器件从实验室小面积向产业化大面积制备迈进。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.163.com/dy/article/KULA7VDL0552LHQK.html",
+          "tp": "钙钛矿LED",
+          "aip": 1,
+          "kp": [
+            "EQE[近红外钙钛矿LED-10mm²]: 25.2%",
+            "EQE[近红外钙钛矿LED-224mm²]: 19.0%",
+            "发射峰[近红外LED]: ~795 nm",
+            "溶剂体系[刮涂]: DMF/NMP/ACN三元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "第一作者： Sung‑Doo Baek, Yuanhao Tang\n1.针对大面积钙钛矿LED中稀薄前驱液易产生咖啡环效应和结晶不均匀的难题，设计了DMF/NMP/ACN三元溶剂体系，利用ACN诱导马兰戈尼对流抑制溶质边缘聚集，同时协同调控配位环境加速相转变。\n数从2.8提升至3.1，并形成更易断裂的Pb‑O键，降低了成核势垒；同时ACN强化了NMP与FA⁺的氢键作用，解锁了NMP导致的动力学陷阱。\n3.基于该策略的近红外钙钛矿LED（发射峰~795 nm）在10 mm²面积上达到25.2%的外量子效率；成功将面积放大至224 mm²时仍保持19.0%的效率，462 mm²器件发光均匀。\n4.利用224 mm²器件作为均匀近红外光源，实现了人体手腕静脉的清晰成像，展示了其在生物医学可视化中的实用潜力。\n一、本研究针对的问题与挑战\n钙钛矿LED在近红外波段已实现超过30%的外量子效率，但其大面积化进程严重受阻：发光层厚度仅需数十纳米，前驱液浓度极低，在刮涂等放大工艺中溶剂蒸发缓慢，导致强烈的咖啡环效应和不可控的异相成核，薄膜均匀性和器件性能随面积增大急剧下降。传统气刀辅助方法存在气流不均、污染和可扩展性差等问题。\n本文报道了一种真空辅助刮涂结合三元溶剂工程的策略：在DMF/NMP二元体系中引入高挥发性乙腈（ACN）。ACN一方面通过产生表面张力梯度驱动马兰戈尼回流，有效抑制了咖啡环形成；另一方面，ACN加速溶剂挥发，快速触发过饱和，解锁NMP配位导致的动力学陷阱。X射线吸收精细结构表明，三元溶剂将Pb²⁺的碘配位数从2.8提高到3.1，且Pb‑O键伸长（更易断裂），同时ACN强化了NMP与FA⁺的氢键，从而加速了中间相向α相转变和辐射复合路径的建立。基于此，近红外钙钛矿LED在10 mm²面积上获得25.2%的外量子效率，在60 mm²和224 mm²上分别达到22.1%和19.0%，462 mm²器件发光均匀。利用224 mm²器件作为光源，成功实现了人体手腕静脉的高对比度近红外成像。该工作为大规模、低成本制造高性能钙钛矿发光二极管提供了通用溶剂工程框架。\n三元溶剂消除咖啡环效应与宏观均匀性\n在DMF单溶剂体系中，蒸发以径向毛细流为主，\n向边缘输运，形成严重咖啡环。引入NMP后有所改善但仍存在边缘堆积。加入ACN后，因其高挥发性产生表面张力梯度，驱动马兰戈尼回流，通过聚苯乙烯微球示踪直接观察到了显著的环流，抑制了咖啡环。在75 mm × 50 mm玻璃/ZnO衬底上，单溶剂薄膜布满咖啡环，二元薄膜边缘严重堆积，而三元薄膜宏观均匀、背景清晰可见（时钟塔透过薄膜可见）。厚度mapping显示三元薄膜厚度均匀约40 nm，二元薄膜边缘厚度超过400 nm。\n溶剂比例优化与光致发光均匀性\n二元体系中，NMP增加虽改善均匀性，但PL强度单调下降（归因于残余NMP引起缺陷），且过量NMP导致晶粒粗化。在DMF:NMP=6:1基础上加入ACN，PL强度在20% ACN时达到峰值，超过30%则发生相分离。PL强度热图和FLIM显示：单溶剂薄膜PL强度极不均匀且寿命差异大（>10 ns区域与快速衰减区域相邻）；二元薄膜有所改善但仍存在局部热点；三元薄膜在数百微米范围内寿命高度均匀（~1–2 ns），且PLQY在36.3 mW/cm²激发下达到78%（最高>80%），表明高\n原位PL揭示结晶动力学路径、\n配位环境与分子间相互作用机理\n原位监测真空抽气阶段：单溶剂薄膜PL在抽气过程中持续上升；二元薄膜在抽气初期PL极低且平台期长，仅在N₂回填时急剧跃升（证实NMP稳定中间相导致动力学陷阱）；三元薄膜PL连续平稳增长，无突变，表明ACN加速了溶剂脱附并解锁陷阱。热退火阶段：单溶剂薄膜PL峰值红移最慢；二元薄膜虽快速红移（结构转变快），但PL强度上升缓慢，达95%最大强度需~210 s；三元薄膜同时实现快速红移和最快PL强度上升（~150 s），证明其同时加速了相转变和辐射复合路径的建立。\nXANES显示三元溶剂中Pb L₃边向高能轻微位移，表明Pb电子密度变化。EXAFS拟合表明Pb‑I键长基本不变，但碘配位数从单溶剂的2.8增至三元溶剂的3.1，Pb‑O键长从2.28 Å伸长至2.40–2.41 Å（NMP形成更易断裂的弱配位）。FTIR显示，NMP加入使FA⁺的N‑H伸缩峰红移（氢键增强），三元体系红移更大，表明ACN通过部分置换或空间限域强化了NMP与FA⁺的氢键。NMR证实只有NMP与FA⁺发生显著化学位移。因此，三元溶剂协同重塑了配位环境：稳定了FA中间体，同时削弱Pb‑溶剂键，降低了成核势垒，促进了均匀快速结晶。\n大面积近红外LED器件性能及其应用\n器件结构：ITO/ZnO/钙钛矿/TFB/MoOₓ/Au。UPS显示三元溶剂薄膜价带顶从单溶剂的5.45 eV上移至5.35 eV，与TFB（5.3 eV）能级更匹配，利于空穴注入。单溶剂器件峰值EQE仅5.5%，二元13.8%，三元25.2%（10 mm²），且三元器件在高电流密度1000 mA/cm²下仍保持>10% EQE。平均EQE从4.1%提升至22.2%，变异系数从25.9%降至8.1%。三元器件在10 mA/cm²下T₈₀寿命23.4小时，在50 mA/cm²下3小时。放大至60 mm²时EQE 22.1%，224 mm²时19.0%，462 mm²器件整个像素区近红外发光均匀。与已报道大面积PeLED相比，本工作同时实现了高效率与大面积的领先水平。\n将224 mm²三元溶剂器件封装后作为近红外光源，置于手腕下方，用去除红外滤光片的摄像头采集反射光。在环境可见光下难以分辨的静脉，在近红外照射下呈现高对比度清晰图像，展示了该大面积均匀光源在生物医学可视化中的实际应用前景。\n本文针对大面积钙钛矿LED中稀薄前驱液易产生咖啡环和结晶不均匀的瓶颈，发展了真空辅助刮涂与三元溶剂工程相结合的协同策略。通过引入高挥发性ACN，不仅诱导马兰戈尼回流消除了宏观溶质偏析，还加速了过饱和、解锁了NMP配位导致的动力学陷阱。XAS和FTIR揭示了三元溶剂将Pb²⁺的碘配位数从2.8提升至3.1，伸长Pb‑O键并强化NMP与FA⁺的氢键，从而降低成核势垒、加速α相转变和辐射复合路径的建立。由此制备的近红外钙钛矿LED在10 mm²面积上达到25.2%的外量子效率，放大至224 mm²仍保持19.0%，462 mm²器件发光均匀。利用该大面积器件作为光源，成功实现了人体手腕静脉的高对比度近红外成像。这项工作为大规模、低成本制造高性能钙钛矿LED提供了通用的溶剂工程框架，并可推广至太阳能电池、光电探测器等其他大面积薄膜光电器件。\nBaek, S.-D., Tang, Y., Choi, H. et al. Tailoring crystallization kinetics for scalable and efficient large-area perovskite light-emitting diodes. Sci. Adv. 12, eaef3336 (2026).\nhttps://doi.org/10.1126/sciadv.aef3336\n知光谷光伏器件学术QQ群：641345719\n钙钛矿产教融合交流@知光谷（微信群）：需添加编辑微信\n为加强科研合作，我们为海内外科研人员专门开通了\n，备注：姓名-单位-研究方向（无备注请恕不通过），由编辑审核后邀请入群。",
+          "hb": 1
+        },
+        {
+          "t": "荷兰光伏业主被要求在高峰时段关断以缓解配电危机 - pv magazine Global",
+          "d": "2026-06-06",
+          "a": "pv magazine",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "荷兰市场监管机构将于7月1日起实施新的电网连接规则，要求分布式光伏业主在用电高峰时段关闭系统，以缓解配电网过载危机。荷兰光伏装机激增导致配电网络承载压力，新规反映了分布式可再生能源大规模接入对电网管理带来的挑战。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.pv-magazine.com/2026/06/05/grid-connection-delays-affect-thousands-of-dutch-customers-liander/",
+          "tp": "电网限电管理",
+          "aip": 1,
+          "kp": [
+            "[政策]: 荷兰7月1日起光伏优先级降级",
+            "[原因]: 配电网过载危机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Markets & Policy\nThe Dutch market regulator is set to introduce new rules for grid connections starting 1 July which will see householders and business owners slip down the priority queue. Grid operators have been urging people to change their consumption and generation behaviors.\nBlathnaid O’Dea\nMarkets & Policy\nCommercial & industrial\nSolar in the Netherlands is coming up against space constraints, both on land and on the grid. | Photo: Eneco\nLiander and Enedix, two of Netherlands’ largest distribution system operators (DSO), appealed to residential energy consumers to manage their expectations as the country deals with its severely congested grid.\nAccording to Liander, the largest Dutch DSO, around 7,300 customers are waiting longer than desired to connect to the grid to upgrade an existing small consumption connection to a new or heavier power connection. This places limitations on customers who want to add a heat pump or a charging station to their home or business.\nLiander’s Chief Operations Officer, Sarike van Wette, said a heavier connection is not always needed, and that reducing applications for unnecessary connections could save costs and help reduce strain on the electricity grid.\nVan Wette asked consumers to be more informed about what they can do to ease the burden on the grid, such as charging their cars at night or running their electrical appliances during the day when solar generation is at its peak.\nStandard grid connections that most households have allow space for a small hybrid heat pump, 12 solar panels, electric cooking with a one-phase hob, and standard electrical appliances. Van Wette advised those thinking of adding a heavier duty connection for an appliance to always consult the installer to check if more capacity is needed.\nEnexis has also asked its customers to reduce their consumption – and residential solar is one of the categories of service user highlighted.\nRutger van der Leeuw, CEO of Enexis, said in March that the DSO had completed a record amount of network updates in 2025, investing €1.9 billion and unlocking 542 MW of additional flexible capacity. Van der Leeuw claimed this is comparable to the annual electricity consumption of a city like Eindhoven.\n“We achieved this through flexibility contracts, congestion management, the 100th blockpower contract and the first collective grid transport agreement,” said the Enexis CEO.\nHe added that consumers would play a big role in how successfully the Netherlands can address its distribution crisis. “Business customers are increasingly aware that transmission scarcity can affect their operations, and that they must adapt to this new reality,” he said.\n“Customer willingness to avoid peak periods is growing. Pilots with central control of hybrid heat pumps show reductions in the evening peak of 10-25%. Many public charging points are now suitable for grid-aware charging, and solar panel owners can be compensated for temporarily reducing feeding during extreme peak moments.”\nLiander’s van Wette asked people to be patient over delays, adding that some locations are more constrained than others. “What can be done depends on the location,” the COO explained.\n“We realize that waiting for a new or heavier power connection has a major impact on people’s daily lives. For example, if they want to remodel, make it more sustainable or build a new house. Unfortunately, we cannot realize everything everywhere right away at the moment.”\nVan Wette added that Liander is receiving inquiries from frustrated customers asking why the wait is so long, plus why it varies depending on their location.\n“The answer is that the space on the net differs per neighborhood and even per street. That’s why one gets it and the other doesn’t. Or one faster than the other,” said van Wette. “From that situation, we must work within those limits to keep the grid safe and reliable.”\nreported that the AMC will impose\ngrid tariffs on large-scale solar in a bid to address congestion.\nBlathnaid O’Dea\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "化学家捕获了前所未见的奇异分子结构",
+          "d": "2026-06-06",
+          "a": "scitechdaily",
+          "c": "通用技术/催化剂",
+          "as": "化学家成功捕获了著名夹心分子（茂金属）的罕见隐藏状态，揭示了其形成过程中长期缺失的关键步骤。茂金属是有机金属化学中最重要的分子之一，金属位于两个碳基环之间形如分子三明治，广泛应用于催化、材料科学、能源技术和药物递送等领域。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://scitechdaily.com/chemists-capture-a-bizarre-molecular-structure-never-seen-before/",
+          "tp": "茂金属结构",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Scientists caught a famous “sandwich” molecule in a rare hidden state, uncovering a long-missing step in its formation.\nFor more than 70 years, metallocenes have been among the most important molecules in organometallic chemistry. These compounds feature a metal\npositioned between two carbon-based rings, creating a structure often described as a molecular sandwich. They are used in a wide range of fields, including catalysis, materials science, energy technologies, sensors, and drug delivery.\nDespite their importance, scientists have struggled to observe exactly how these molecules form because some of the key intermediate structures exist only briefly before transforming into something else.\nNow, researchers at the Okinawa Institute of Science and Technology (OIST) have captured and fully characterized a previously unseen intermediate stage in metallocene formation. Their findings, published in the\nJournal of the American Chemical Society\n, provide new insight into how these molecules are assembled, how they react, and how they can be redesigned for future applications.\nOne of the best-known metallocenes is ferrocene, a molecule consisting of an iron atom positioned between two five-carbon rings. The discovery of ferrocene was so significant that it helped earn its discoverers the 1973 Nobel Prize in Chemistry.\nFerrocene also follows a classic principle in organometallic chemistry. According to formal electron counting rules, stable transition metal complexes typically contain 18 electrons in their outermost shell.\nThe Organometallic Chemistry Group at OIST, led by Dr. Satoshi Takebayashi, has been investigating ways to move beyond this traditional limit. Last year, the team reported unusual ferrocene derivatives containing 20 electrons. During that work, the researchers also attempted to create similar 20-electron complexes using ruthenium. Instead, those reactions unexpectedly produced conventional 18-electron compounds.\nThat unexpected result sparked a closer investigation.\n“We were able to isolate an intermediate structure from our ruthenium complex formation reaction and characterize this with single-crystal X-ray diffraction. Surprisingly, we found the structure to be doubly ring-slipped,” says Takebayashi.\nRing-slippage occurs when fewer atoms in a molecular ring participate in bonding with the metal atom. In this newly discovered structure, bonding changed from involving all five carbon atoms in each ring to only a single carbon atom per ring.\nAccording to the researchers, this is the first time a double ring-slipped sandwich intermediate has been fully characterized at the molecular level.\nTo better understand the newly discovered ruthenocene derivative, the team combined several analytical techniques, including nuclear magnetic resonance (NMR) spectroscopy and mass spectrometry.\nThe researchers also used both computational modeling and laboratory experiments to trace the reaction pathway. Their investigation revealed that the doubly ring-slipped structure gives rise to an unstable single ring-slipped intermediate before eventually forming the final product.\nThe findings offer a much clearer picture of the sequence of events that occur during metallocene formation and transformation.\nBeyond solving a long-standing chemistry puzzle, the discovery could have practical implications.\n“There is a recent renewed interest in incorporating metallocenes into materials to access different properties. By understanding how they can react and deform, we can design tunable structures for use in drug delivery systems, catalysts, sensors and other settings,” Takebayashi adds.\nReference: “Molecular Structure of a Doubly Ring-Slipped Ruthenocene Intermediate” by Felix Wech, Yury Torubaev and Satoshi Takebayashi, 21 May 2026,\nJournal of the American Chemical Society\nDOI: 10.1021/jacs.6c04198\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nMolecular Chemistry\nOkinawa Institute of Science and Technology Graduate University\nScientists Create the Impossible: New Compound Challenges Fundamental Principle of Chemistry\nTurning Plastic Trash Into Treasure: Upcycling Plastic Into High-Quality Liquid Products\nUnique Particles – With Stickiness of Gecko Feet – Formed by Harnessing Chaos\nNew Material Captures Carbon Dioxide and Efficiently Converts It to Useful Organic Materials\nSuper Durable, Flexible, Water-Repelling Material Inspired by Porcupinefish\nScientists to Communicate Polymers More Easily With New Notation System\nStoring Secret Messages in Light-Sensitive Polymers\nChemists Edge Closer to Using Ribosome to Create Designer Polymers\nMIT Researchers Develop New Strategy for Stronger Polymers",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

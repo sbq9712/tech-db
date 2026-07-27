@@ -1,0 +1,251 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月24日　星期二",
+  "date_range": "2026-02-24",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "广东工大研发丝胶蛋白水溶性粘结剂实现电池无溶剂回收",
+      "明尼苏达数据中心将配建三十吉瓦时铁空气电池长时储能系统",
+      "研究提出不对称共价有机框架介质抑制锂电池枝晶生长"
+    ],
+    "AI与智能科技": [
+      "大语言模型成功指导合成高结晶度共价有机框架材料",
+      "双引擎AI框架结合生命周期评估加速航空替代燃料筛选",
+      "谷歌明州数据中心配建三点九吉瓦风光发电与长时储能"
+    ],
+    "通用技术": [
+      "单纳米颗粒碰撞电化学法揭示高熵合金析氧反应机制",
+      "对称单体聚合策略提升有机电化学晶体管载流子迁移率",
+      "碳纳米管薄膜微裂纹结构电子皮肤传感器研发取得进展"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "广东工大研发丝胶蛋白水溶性粘结剂实现电池无溶剂回收",
+        "明尼苏达数据中心将配建三十吉瓦时铁空气电池长时储能系统",
+        "研究提出不对称共价有机框架介质抑制锂电池枝晶生长"
+      ],
+      "entries": [
+        {
+          "t": "多功能不对称可溶性共价有机框架：稳定锂负极界面的多功能介质",
+          "d": "2026-02-24",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "针对锂金属电池中锂枝晶不可控生长和SEI不稳定的问题，设计了多功能不对称可溶性共价有机框架（COF）作为锂负极界面稳定介质。COF的有序孔道可均匀锂离子通量，其官能团调节SEI组分分布，有效抑制枝晶形成并降低界面阻抗。实验显示该策略显著提升锂负极的循环寿命和库伦效率，推动高能量密度锂金属电池实用化。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19821",
+          "tp": "COF稳定锂负极",
+          "aip": 1,
+          "kp": [
+            "[材料]: CityU-55不对称多功能COF",
+            "[结构设计]: 聚醚溶剂化+氟烷基高电负性侧基"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "To address the issues of uncontrollable lithium dendrite growth and an unstable solid electrolyte interphase (SEI) in lithium anodes, we designed an asymmetric and multifunctional COF material (CityU-55) composed of strongly solvating polyether and highly electronegative fluoroalkyl side groups. This material was employed as an artificial interphase layer to create a fast lithium-ion-conducting and fluorine-rich interphase on the anode, thereby mitigating interfacial problems. Notably, the introduction of side chains enhanced the solubility of the COF material, significantly improving its processability. This asymmetric COF enables distinct interfacial regulation. The CityU-55@Li anode exhibited improved reversibility of lithium deposition and substantially reduced the number of interfacial side reactions. Leveraging these synergistic properties, the lithium anode with this multifunctional artificial interphase layer showed a low nucleation barrier of 28 mV and excellent cycling stability of 4500 h at 1 mA cm-2 and 1 mAh cm-2. Additionally, compared with bare lithium anodes, full cells paired with LiFePO4 and LiNi0.8Co0.1Mn0.1O2 cathodes demonstrated remarkably better cycling stability, capacity retention, and capacity utilization at high rates. Our research indicates that asymmetric multifunctional side-chain engineering in COFs significantly expands structural diversity and provides a promising strategy for the development of high-performance lithium metal batteries.",
+          "hb": 1
+        },
+        {
+          "t": "广东工业大学林展教授设计可溶于水的电池粘结剂推动锂离子电池绿色可回收",
+          "d": "2026-02-24",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "广东工业大学林展教授开发基于天然丝胶蛋白的新型水溶性电池粘结剂，通过硫酸与蛋白分子间超分子氢键和离子相互作用形成双重交联结构。运行中电化学性能可比拟PVDF，50-70℃水中不到1分钟使活性材料从集流体完整脱附，无需有机溶剂或强腐蚀化学品即可直接回收。1.3Ah软包电池500次循环后保持85%容量，回收材料补锂再生后性能接近原始材料，技术经济分析优于传统冶金法。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01773-3",
+          "tp": "锂电绿色回收",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "锂离子电池市场的迅猛增长为其报废管理带来了巨大挑战，亟需可持续的解决方案。直接回收因其卓越的能效和环境效益，尤其是在保留目标材料原始化学结构和形态方面的优势，成为一种前景广阔的选择。然而，粘结剂将活性电极材料与集流体紧密结合，其分离通常涉及高能耗的热处理和使用对环境有害的化学品。\n广东工业大学林展教授开发出一种基于天然丝胶蛋白的新型水溶性粘结剂，通过硫酸与蛋白分子之间的超分子氢键和离子相互作用形成双重交联结构。该粘结剂在电池运行中具备与传统聚偏氟乙烯（PVDF）相当的电化学性能，同时在约50–70 °C水环境中可快速解离，使正负极活性材料在不到1分钟内从集流体上完整脱附，从而实现无需有机溶剂或强腐蚀化学品的直接回收。\n采用该粘结剂的NCM111正极和石墨负极表现出良好的结构稳定性与循环寿命，1.3 Ah软包电池在500次循环后仍保持85%的容量。回收过程中获得的正极材料纯度高、结构完整，经简单补锂再生后，其电化学性能接近原始材料。技术经济分析显示，该直接回收路线在成本、能耗与温室气体排放方面均显著优于传统冶金方法，并具有更高潜在利润。此外，该策略同样适用于磷酸铁锂和高电压尖晶石等多种正极体系，显示出良好的通用性。文章于2026年2月24日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "乙酰丙酮铝限域原位聚合物作为可持续固态锂硫电池的动态活性介质",
+          "d": "2026-02-24",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "针对固体聚合物电解质锂硫电池的界面不稳定和多硫化物穿梭问题，提出以铝乙酰丙酮络合物受限原位聚合构建动态活性介质。该体系在充放电过程中形成柔性离子导电界面，有效抑制多硫化锂穿梭并促进锂离子均匀沉积。固态设计提升安全性，动态聚合机制赋予界面自修复能力，为高比能、长寿命固态锂硫电池提供了新思路。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c14765",
+          "tp": "固态锂硫电池",
+          "aip": 1,
+          "kp": [
+            "[材料]: 乙酰丙酮铝限域原位聚合物电解质",
+            "[失效机制]: LiPS堵塞阴极-SPE界面"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Solid polymer electrolyte (SPE)-based lithium-sulfur (Li-S) batteries attract significant interest due to their high theoretical energy densities and enhanced safety profiles. However, the clogging of the cathode-SPE interface with ″dead″ lithium polysulfide (LiPS) is the core failure mechanism of the SPE-based Li-S battery. This induces a sluggish, irreversible electrochemical environment, hindering redox processes and limiting the practical implementation of high-energy-density solid-state Li-S batteries (SSLSBs). To address this problem, this study proposes the generation of a dynamic active medium (DAM) electrolyte system at the cathode interface. Based on the coordination effect between aluminum acetylacetonate and 1,3-dioxolane (DOL), this system is introduced between the cathode and in situ-polymerized polyDOL-based SPE, synergistically realizing three functions: (1) optimizing the electrode-electrolyte interfacial compatibility, (2) adsorbing and reactivating the LiPS accumulated at the interface, and (3) reducing the energy barriers of the S redox reactions and accelerating the sulfide conversion kinetics. This approach enables the SSLSB to reach a high energy density of 347 Wh kg-1 at a high S loading of 4.5 mg cm-2. The pouch cell configuration maintains a capacity retention rate as high as 85.3% after 80 cycles. Moreover, this interfacial DAM strategy provides an innovative engineering concept to suppress the accumulation of LiPS in SSLSBs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "大语言模型成功指导合成高结晶度共价有机框架材料",
+        "双引擎AI框架结合生命周期评估加速航空替代燃料筛选",
+        "谷歌明州数据中心配建三点九吉瓦风光发电与长时储能"
+      ],
+      "entries": [
+        {
+          "t": "谷歌将为其位于明尼苏达的数据中心建设1.6GW风光发电及300MW/30GWh铁空气电池配储",
+          "d": "2026-02-24",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "Xcel Energy宣布为谷歌明尼苏达州Pine Island数据中心提供1400MW风电和200MW光伏发电，并采用Form Energy技术建设300MW/30GWh的100小时铁空气电池长时储能系统。谷歌承担电网基建费用并确保当地电价不因该数据中心上涨。这是目前已知最大规模铁空气电池项目之一，标志超长时储能在数据中心供电场景的突破性应用。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://newsroom.xcelenergy.com/news/xcel-energy-to-power-new-google-data-center-in-minnesota",
+          "tp": "谷歌储配能",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月24日，美国能源服务提供商Xcel Energy在官网发文称，其将为谷歌在明尼苏达州Pine Island的数据中心（CNBC报道称目前尚未动工）供电，谷歌将承担该项目相关的电网基础建设费用，并将确保当地电价不会因此而涨价。文中称，Xcel Energy将为谷歌数据中心提供1400MW的风电、200MW的光伏发电，以及采用Form Energy技术建设的一个300MW/30GWh的100h铁空气电池长时储能系统。谷歌、Form Energy官网和官方社媒也发文、转载确认了该消息。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 利用大语言模型合成高结晶度共价有机框架",
+          "d": "2026-02-24",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "本研究利用大语言模型（LLM）指导高结晶度共价有机框架（COFs）的合成。COFs的长程有序结晶一直是网状化学领域的核心挑战，传统试错法效率低下。研究者将LLM作为材料合成的智能助手，通过对反应条件、单体选择和合成策略的推理与预测，加速筛选最优结晶条件，成功制备出高度结晶的COFs材料。该工作展示了LLM在实验化学中的变革性潜力，将AI推理能力与材料合成实践深度结合，为自动化化学合成提供了新范式。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c23233",
+          "tp": "大模型辅助COF合成",
+          "aip": 1,
+          "kp": [
+            "[加速效果]: COF结晶<1个月(vs数月-年)",
+            "[方法]: 深度研究Agent集成ChatGPT"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Crystallizing covalent organic frameworks (COFs) remain a central challenge in reticular chemistry, as achieving long-range order typically requires extensive trial-and-error optimization over many months or years. Here, we demonstrate that by integrating a deep research agent within ChatGPT, this process can be markedly accelerated, reducing the crystallization timeline to less than one month. Our approach, termed the LLM For Accelerated Synthesis Technique (LFAST), operates through two interlinked cycles. In the first, we formulated a structured, multistep prompt to guide the deep research agent in mining, correlating, and validating synthesis parameters from the relevant chemical literature. This yielded an expanded and refined design space for reaction condition screening. In the second, these conditions were executed by using an automated synthesis platform coupled with high-throughput powder X-ray diffraction analysis. Using a widely reported β-ketoenamine-linked COF, TpPa-SO3H, as a benchmark, LFAST produced frameworks with diffraction peaks corresponding to a 350% increase in crystallinity index (CI) relative to prior reports. The same protocol enabled the synthesis of an unreported β-ketoenamine-linked COF-2000 with an even higher structural order. To ensure reproducibility and data accessibility, we further introduce a standardized metadata format encompassing synthesis and PXRD data sets. This data-driven methodology transforms the way that COFs are crystallized and significantly accelerates the pace of materials discovery.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 双引擎人工智能框架加速可持续航空燃料组分合成",
+          "d": "2026-02-24",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "该研究提出一种双引擎人工智能框架，用于加速可持续航空燃料（SAF）的设计与筛选。框架结合机器学习分子逆向设计与生命周期评估（LCA），从海量候选燃料分子中高效筛选出兼具高能量密度、低碳足迹且与现有航空发动机兼容的drop-in燃料组分。该方法显著缩短了传统实验试错周期，为航空业脱碳和净零排放路径提供了数据驱动的材料发现范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22256",
+          "tp": "AI驱动航空燃料合成",
+          "aip": 1,
+          "kp": [
+            "[框架]: 双引擎AI加速SAF组分合成",
+            "[原料]: C1原料→高能量密度喷气燃料"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Decarbonizing aviation with sustainable drop-in fuels is essential for credible net-zero pathways. However, assembling energy-dense jet fuel hydrocarbons from C1 feedstocks demands multifunctional catalysts whose performance arises from nonlinear, high-dimensional interactions─beyond single-descriptor design rules. Here we present a dual-engine artificial intelligence framework that couples closed-loop active learning with interpretable machine learning, demonstrated for syngas conversion to sustainable aviation fuel. The approach autonomously explores vast catalyst spaces while distilling human-interpretable principles. We identify previously unreported compositions and a general rule: on a stable spinel backbone, placing a d-block metal at the tetrahedral (A)-site and an early lanthanide at the octahedral (B)-site creates cooperative d-f interactions that enable π-back-donation into the π* orbitals of oxygenated intermediates, strengthening adsorption and lowering formation barriers to accelerate intermediate generation and C-C coupling to jet-range aromatics. Guided by this rule, active sites such as Zn-Ce/Sm, Fe-Pr/La, and Ni-Ce achieve >75% selectivity to jet-fuel-range aromatic hydrocarbons with high space-time yields. Overall, the dual-engine approach not only accelerates discovery but also yields transparent, experimentally validated design rules─a generalizable blueprint for interpretable, AI-enabled catalyst design in complex sustainable chemistries.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "单纳米颗粒碰撞电化学法揭示高熵合金析氧反应机制",
+        "对称单体聚合策略提升有机电化学晶体管载流子迁移率",
+        "碳纳米管薄膜微裂纹结构电子皮肤传感器研发取得进展"
+      ],
+      "entries": [
+        {
+          "t": "揭示乙醇酸酯类混合离子-电子半导体材料的全部潜力：对称单体聚合策略提升电化学晶体管性能",
+          "d": "2026-02-24",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究通过对称单体聚合策略优化乙二醇修饰的混合离子-电子半导体材料，提升有机电化学晶体管（OECT）性能。OECT可将离子信号转化为电信号输出，在生物传感和神经接口领域前景广阔。对称聚合有效调控聚合物链规整度与分子量，显著提高载流子迁移率和跨导，推动OECT在可穿戴生物电子器件中的实际应用。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19024",
+          "tp": "混合离子电子半导体",
+          "aip": 1,
+          "kp": [
+            "[材料]: 乙二醇化混合离子-电子半导体",
+            "[策略]: 对称单体聚合提升电化学传输"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Organic electrochemical transistors (OECTs) enable the transduction of ionic signals into electronic outputs, positioning them as ideal candidates for next-generation sensing and (bio)signal processing applications. Recent years have witnessed the development of various OECT channel materials, affording insights into structural fine-tuning to achieve optimal performance and/or stability. However, homocouplings, commonly present in alternating conjugated polymers, have largely been overlooked. This study investigates the effect of homocoupling on OECT materials by employing two synthesis methods - standard Stille polymerization and an alternative symmetric approach - to create the p-type enhancement-mode benchmark polymer pgBTTT. The impact of homocoupling, and its absence, is studied by comparing the bulk properties of the two polymers and evaluating their respective OECT metrics. The new, homocoupling-free polymer exhibits a notably improved OECT performance (μC*), mainly due to an average 3-fold increase in electronic mobility (μ).",
+          "hb": 1
+        },
+        {
+          "t": "受豆腐皮形成启发：碳纳米管薄膜界面老化构建可编程裂纹结构光电表皮传感器",
+          "d": "2026-02-24",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "受豆腐皮形成过程启发，提出界面老化策略精确控制碳纳米管薄膜的微裂纹结构。该策略可在薄膜中形成可编程的裂纹网络，赋予器件优异的应变敏感性与光学透明度，由此制备的电子皮肤传感器在可穿戴健康监测和柔性电子领域具有应用潜力。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00674-5?rss=yes",
+          "tp": "碳纳米管薄膜",
+          "aip": 1,
+          "kp": [
+            "致密化[碳纳米管膜]: 界面老化法仿豆腐皮形成",
+            "传感器[表皮电子]: 可编程裂纹光电协同传感"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Inspired by the natural process of tofu skin formation, this study presents an interfacial aging strategy to precisely control the densification of carbon nanotube films. This simple method creates stretchable composite materials with highly programmable crack structures, yielding optoelectronic synergistic epidermal sensors. These sensors offer tunable sensitive electrical strain sensing and optical information encryption, marking a new advance for reliable, multifunctional wearable sensing.",
+          "hb": 1
+        },
+        {
+          "t": "单纳米颗粒碰撞揭示多元素合金在析氧反应中高熵抑制元素偏析效应",
+          "d": "2026-02-24",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究采用单纳米颗粒碰撞电化学方法，实时揭示多元素高熵合金在析氧反应（OER）中的元素偏析行为。发现高熵效应显著抑制了合金催化剂在反应条件下的结构重构和元素分离，维持均匀固溶体结构，从而提高催化稳定性。该原位探测技术为理解高熵合金催化机制提供了原子级见解，为设计耐久性电催化剂提供了理论指导。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522707?af=R",
+          "tp": "高熵合金析氧催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[OER]: 多元素合金纳米粒子",
+            "抑制机制[高熵合金OER]: 高熵效应抑制元素偏析"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  In the oxygen evolution reaction (OER), the structural reconstruction and elemental segregation of alloy catalysts are key factors influencing their activity and stability, while the irreversible structural evolution induced by high current density is the primary issue leading to performance degradation. Herein, we designed a multi‐element alloy nanoparticle (MEA‐NP) model electrocatalyst from binary (FeIr) to quinary alloy (FeCoNiIrRu), modulating the configuration entropy to explore its influence on structural stability. The single‐nanoparticle collision (SNC) based on scanning electrochemical cell microscopy (SECCM) was employed to facilitate efficient mass transfer and ultrahigh current density, thereby accelerating structural evolution during OER. By combining multidimensional feature extraction and clustering analysis of transient signals, it was found that increasing the number of constituent elements improves the structural stability under OER conditions, and high entropy effectively suppresses elemental segregation. Transmission electron microscopy (TEM), in situ Raman spectroscopy, and density functional theory (DFT) calculations further confirmed the advantages of the quinary alloy in terms of structural homogeneity and stability. This study established a statistical correlation between elemental segregation and single‐particle transient OER signals, proposed a strategy similar to “accelerated testing under extreme conditions”, providing new insights for the mechanistic study and rational design of OER catalysts.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

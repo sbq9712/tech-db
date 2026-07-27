@@ -1,0 +1,227 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月6日　星期二",
+  "date_range": "2026-01-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "加州大学伯克利分校构建共价有机框架材料，室外空气二氧化碳捕集通量达22.1mmol/g/d",
+      "中科院大连化物所离场电催化分解硫化氢技术通过评价，已建成年产十万立方米示范项目",
+      "Carba于明尼苏达州投运熔融盐热解反应器，实现农林废弃物连续化制备生物炭"
+    ],
+    "AI与智能科技": [
+      "研究提出基于无铅双钙钛矿忆阻器的人工神经元器件，实现低功耗神经形态信号处理",
+      "科研团队实现低噪声单声子-单光子转换方案，推进超导量子比特与光纤网络互联"
+    ],
+    "通用技术": [
+      "研究提出铁锡双金属位点d-p轨道协同策略，同步提升非贵金属氧还原催化活性和稳定性",
+      "科研人员合成Tri24Di6拓扑结构磷离子亚胺笼，实现丙炔与丙烯混合气的高效分离",
+      "纳米尺度晶体与玻璃双相结构新型合金研发成功，兼具超高强度与大均匀塑性变形能力"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "加州大学伯克利分校构建共价有机框架材料，室外空气二氧化碳捕集通量达22.1mmol/g/d",
+        "中科院大连化物所离场电催化分解硫化氢技术通过评价，已建成年产十万立方米示范项目",
+        "Carba于明尼苏达州投运熔融盐热解反应器，实现农林废弃物连续化制备生物炭"
+      ],
+      "entries": [
+        {
+          "t": "加州大学伯克利分校Omar M. Yaghi开发超快动力学共价有机框架用于直接空气捕集CO2",
+          "d": "2026-01-06",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "加州伯克利Yaghi团队通过理性孔结构设计与孔内原位聚合策略，构建大孔径富胺化共价有机框架COF-1000，实现环境条件下高CO2吸附容量（干燥1.31mmol/g，75%湿度2.19mmol/g）与极快动力学（吸附半时间6.8min），真实室外空气捕集通量达22.1mmol/g/d且循环稳定。1月7日发表于Nature Sustainability。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.5c18831",
+          "tp": "空气捕集碳",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "直接空气捕集（DAC）长期受限于低浓度驱动下的高再生能耗，主流路线依赖加热、减压或电化学手段实现溶剂/固体吸附剂再生。近年来，学界开始探索化学位移（pH swing）与光/电耦合的新型DAC机制，以期在常温下完成CO₂吸收与释放。在此背景下，橡树岭国家实验室 Radu Custelcean 团队提出光驱动pKa可逆跃迁的新思路，尝试从分子层面规避高温再生。机制创新：通过光致异构化实现约 2.8 pKa 单位的可逆跃迁，在水相中完成“光控pH摆动—吸收—暗态释放”的完整DAC闭环。能耗逻辑改变：将DAC再生从“热驱动”转为“光驱动化学位移”，理论上可显著降低再生能耗并简化系统。稳定性验证：体系在环境条件下可多轮循环运行，证明并非一次性光化学效应。容量仍偏低：单循环摩尔级容量有限，虽经溶剂工程提升至毫摩尔级，但距离工程化仍有量级差距。该工作属于DAC“能量耦合范式”的基础性突破，证明光能可直接驱动溶液化学位移完成CO₂捕集与释放，但当前更偏向分子机制验证而非工程路线。其真实潜力取决于是否能在可见光响应、分子寿命、光量子效率与体系放大方面取得实质进展。后续可执行跟踪：重点关注（1）是否向可见光/太阳光响应分子演进，（2）单位捕集量对应的光能输入与等效能耗，（3）是否出现连续流或界面化设计，用于评估其从“JACS级概念”走向“DAC子路线”的可能性。",
+          "b": "加州大学伯克利分校Yaghi教授团队通过理性孔结构设计与孔内原位聚合策略，构建了一种大孔径、富胺化的共价有机框架材料COF-1000，实现了在环境空气条件下兼具高CO2吸附容量与极快吸附–解吸动力学的直接空气捕集性能，该材料在400ppm CO2、干燥条件下吸附容量达1.31mmol g⁻¹，在75%相对湿度下提升至2.19mmol g⁻¹，吸附半时间缩短至6.8min，并在真实室外空气中实现高达22.1mmol g⁻¹ d⁻¹的CO2捕集通量且具备优异循环稳定性，研究成果1月7日发表于Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "大连化物所称其电催化分解硫化氢制氢和硫磺技术通过科技成果评价",
+          "d": "2026-01-06",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "中科院大连化物所李灿院士团队开发离场电催化全分解硫化氢制氢和硫磺技术，利用氧化还原媒介体（Ce3+/Ce4+等）将反应移离电极避免硫磺沉积，已联合企业建成10万m³/年示范项目，连续运行超1000h，硫化氢完全转化（尾气<1ppm），硫磺纯度>99.95%、氢气纯度>99.999%。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.dicp.ac.cn/xwdt/kyjz/202601/t20260106_8096190.html",
+          "tp": "硫化氢制氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "1月6日，中科院大连化物所发文称，该所李灿院士团队开发的离场电催化全分解硫化氢制氢和硫磺技术通过科技成果评价。文中称，其基于该技术，联合山东三维、榆林中科洁净能源创新研究院、灏鸣能源科技等公司建立了10万m3/年的示范项目，以天然气开采、炼油化工行业和煤化工过程伴生或副产的硫化氢为原料（称全球潜在待处理量超过4万亿m3），利用电子介导（氧化/还原媒介体，例如Ce3+/Ce4+，I-/I3-，Fe2+/Fe3+等）将电极表面反应移离电极，在电极外的反应器中分别完成硫化氢氧化制硫磺和质子还原产氢，避免了硫磺在电极表面沉积及污染电池隔膜，并排除了催化剂表面气泡粘附析氢反应的影响。该示范装置连续运行时间超过1000h，实现了硫化氢完全转化（尾气中硫化氢含量小于1 ppm），产品硫磺纯度大于99.95%、氢气纯度大于99.999%。",
+          "hb": 1
+        },
+        {
+          "t": "Carba采用熔融盐热解技术推进生物炭连续化生产",
+          "d": "2026-01-06",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "Carba在美国明尼苏达州投运熔融盐生物质热解反应器，将农林废弃物连续转化为生物炭。熔融盐作为传热与热缓冲介质提供均匀稳定温度，降低回转窑常见的温度波动、局部过热与机械故障风险，实现稳定连续运行，支撑以地下埋存为核心的长期碳移除项目。",
+          "sc": 5.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://biochartoday.com/news/carba-inaugurates-molten-salt-reactor-in-minnesota-to-boost-biochar-efficiency-and-yields/",
+          "tp": "生物炭热解",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "生物炭作为一种具备长期碳封存潜力的 CDR 路径，近年来受到关注，但产业端长期受制于间歇式或准连续设备（固定床、回转窑）在传热均匀性、开工率和稳定运行周期方面的工程瓶颈。随着生物炭从农业副产物走向规模化碳移除资产，对连续化、高可靠性生产工艺的需求显著上升。在此背景下，Carba在美国投运熔融盐热解反应器，尝试以化工思路重构生物炭生产路径。除熔融盐热解外，生物炭连续化生产尚存在多种技术路线，包括螺旋推进式热解、流化床等。其中多数路线在传热效率、连续稳定性或生物炭品质一致性方面存在权衡。Carba 采用熔融盐作为传热与热缓冲介质，实质上是以更高工程复杂度换取运行稳定性与温控确定性，更契合以长期碳移除为目标的连续化工业运行需求，而非单纯追求单位能效最优。工程逻辑升级：熔融盐作为高热容传热与热缓冲介质，本质上解决了传统炉型中温度波动与局部过热问题，为真正意义上的连续稳定运行提供条件。路径差异化：相较回转窑“连续但不稳”的现实运行状态，该路线强调温控与可靠性优先，更贴近化工连续反应器范式。CDR 适配性提升：连续化与质量一致性有利于对接生物炭长期埋存与碳信用核证体系，降低项目交付不确定性。该技术并非颠覆热解原理，而是一次工程层面的关键优化，若能在长周期运行中验证低能耗、低盐损与可维护性，有望成为生物炭规模化生产的重要分支路线。后续可执行跟踪：重点关注其连续运行时长、单位生物炭能耗、熔融盐循环寿命及是否获得主流 CDR 方法学认可，以判断其是否具备跨项目复制价值。",
+          "b": "2026年1月6日，据今日生物炭网站报道，Carba在美国明尼苏达州投运了一套基于熔融盐的生物质热解反应器，用于将农业和林业废弃物转化为生物炭。该装置旨在替代生物炭行业中常见的回转窑等传统设备，通过提升运行稳定性和连续运行能力，提高生物炭产量与生产效率，从而更好地支撑以地下埋存生物炭为核心的长期碳移除项目。\n该技术的核心是在无氧或低氧条件下，引入熔融盐作为主要的传热和热缓冲介质。熔融盐在高温下保持液态，具有较高的热容和良好的传热性能，可与生物质形成高效热接触，使反应区温度分布更加均匀和稳定。生物质在受控温度范围内发生热解反应，挥发分被释放并带走，固态碳骨架则转化为生物炭。熔融盐本身不作为主要反应物参与碳转化，而是通过稳定供热和隔绝氧气，降低传统炉体加热方式中常见的温度波动、局部过热和机械故障风险，从而有利于实现连续运行。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究提出基于无铅双钙钛矿忆阻器的人工神经元器件，实现低功耗神经形态信号处理",
+        "科研团队实现低噪声单声子-单光子转换方案，推进超导量子比特与光纤网络互联"
+      ],
+      "entries": [
+        {
+          "t": "基于Cs2AgBiBr6纳米离子忆阻器的人工难熔神经元用于高效运动信息处理",
+          "d": "2026-01-06",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出基于Cs₂AgBiBr₆钙钛矿纳米离子忆阻器的人工难熔神经元器件。生物神经元在编码运动信息方面具有极高效能，其物理实现可启发新型类脑计算硬件。Cs₂AgBiBr₆作为无铅双钙钛矿材料，兼具离子迁移特性与结构稳定性，器件通过模拟生物神经元的放电-不应答行为，实现了高效的事件驱动信号处理，有望推动低功耗神经形态计算。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519352?af=R",
+          "tp": "忆阻器人工神经元",
+          "aip": 1,
+          "kp": [
+            "[材料]: Cs2AgBiBr6纳米离子忆阻器",
+            "[功能]: 仿生难熔神经元",
+            "[应用]: 运动信息处理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Biological neurons are highly efficient in encoding motion information, and their physical realization can inspire the development of emerging bionic machine vision technologies for autonomous driving and video monitoring applications. However, due to the difficulty in emulating the complex ion movement dynamics within neurons, the use of hardware to comprehensively emulate neuronal firing dynamics for encoding function replication remains challenging. Herein, we report a bio‐inspired artificial neuron based on a Cs\n                    2\n                    AgBiBr\n                    6\n                    memristor, which can replicate both neuronal firing and refractory period behaviors for motion information processing. We demonstrate that the bidirectional migration of Ag\n                    +\n                    and Br\n                    −\n                    ions within Cs\n                    2\n                    AgBiBr\n                    6\n                    can induce threshold conductance switching along with a strong built‐in internal electric potential, mimicking neuronal excitation–resting responses to voltage pulse stimuli. The artificial neurons can dynamically respond to continuous inputs from moving objects, encoding motion features (such as velocity, direction, and acceleration), into compressed feature maps for accurate classification and trajectory prediction. Our biomimetic encoding and prediction framework offers a promising strategy for developing neuromorphic systems with biologically realistic behaviors that may rival the capabilities of the human brain in processing complex dynamic information.",
+          "hb": 1
+        },
+        {
+          "t": "面向量子网络的低噪声光力学单声子-光子转换",
+          "d": "2026-01-06",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "纳米结构光机械晶体（OMC）将长相干时间的机械模式与光学模式耦合，实现声子与光子之间的量子态转换。该研究报道了低噪声的单声子-单光子转换方案，目标是构建连接超导量子比特与光通信波段的光学量子网络。声子作为微波域量子态与光学域之间的桥梁，可解决超导量子处理器无法直接与光纤网络互联的难题。低噪声转换是实现保真度量子中继的关键指标。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67956-2",
+          "tp": "光机械声子光子转换",
+          "aip": 1,
+          "kp": [
+            "[器件]: 准二维光机械晶体",
+            "[功能]: 单声子-光子转换",
+            "[突破]: 克服热机械噪声"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nano-structured optomechanical crystals (OMC) form an interface between mechanical modes with long coherence times and telecom optical photons, ideal for long-distance distribution of quantum information. However, the implementation of scalable quantum networks based on OMCs has been inhibited by thermal mechanical noise. Here, we overcome this limitation using a quasi-two-dimensional OMC and generate single photons via single phonon-photon conversion. In this work, we verify the low thermal noise and high purity of the generated single photons through a Hanbury Brown-Twiss experiment with g(2)(0)=0.35&#x2212;0.08+0.10\" role=\"presentation\">g(2)(0)=0.35−0.08+0.10{g}^{(2)}(0)=0.3{5}_{-0.08}^{+0.10}. We perform Hong-Ou-Mandel interference of the emitted photons showcasing the indistinguishability and coherence with visibility V = 0.52 ± 0.15 after 1.43 km fiber delay. Lastly, we use two-photon interference to measure the temporal wavepackets of optomechanically generated single photons demonstrating narrow bandwidths as low as 10 MHz. Our results pave the way for multinode quantum networks of mechanical oscillators and hybrid entanglement generation between mechanical oscillators and telecom quantum emitters.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究提出铁锡双金属位点d-p轨道协同策略，同步提升非贵金属氧还原催化活性和稳定性",
+        "科研人员合成Tri24Di6拓扑结构磷离子亚胺笼，实现丙炔与丙烯混合气的高效分离",
+        "纳米尺度晶体与玻璃双相结构新型合金研发成功，兼具超高强度与大均匀塑性变形能力"
+      ],
+      "entries": [
+        {
+          "t": "d-p轨道协同Fe-Sn双原子对加速O-O键断裂并稳定Fe位点以增强氧还原反应",
+          "d": "2026-01-06",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "原子级分散的FeNC材料被视为替代贵金属Pt基催化剂的有力候选，但其氧还原反应(ORR)活性与稳定性仍受限。本研究提出Fe─Sn双金属位点的d─p轨道协同策略：通过Fe的3d轨道与Sn的5p轨道耦合，一方面加速氧分子中O─O键的断裂（ORR决速步），另一方面稳定Fe活性中心，抑制其团聚与脱金属失活。该协同机制从电子结构层面同时优化了催化动力学与耐久性，为设计低成本、高性能非贵金属电催化剂提供了新思路，对燃料电池和金属─空气电池的规模化应用具有重要意义。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524265?af=R",
+          "tp": "双原子对ORR催化",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: FeSnNC d-p双原子对(Fe-Sn)",
+            "[机制]: 加速O-O键断裂+稳定Fe位",
+            "[反应]: 氧还原(替代Pt)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Atomically dispersed FeNC materials have emerged as the promising catalysts for replacing precious Pt‐based catalysts in the oxygen reduction reaction (ORR). However, their widespread application remains limited by sluggish kinetics and the long‐term stability of the isolated Fe single‐atom sites. Herein, we report a highly active and durable catalyst (FeSnNC) featuring d‐block iron and p‐block‐metal tin dual‐atom pair sites. In situ infrared spectroscopy and X‐ray absorption spectroscopy, together with ab initio molecular dynamics and density functional theory calculations reveal that the Fe─Sn dual‐atom pair sites enable the bridge absorption of O\n                    2\n                    and facilitate direct O─O bond cleavage. The redirection of *OH desorption to the Sn site alleviates Fe‐site degradation, while Sn incorporation can also reinforce the Fe─N bond, jointly enhancing ORR activity and durability. Under alkaline conditions, the catalyst delivers a half‐wave potential of 0.91 V and a kinetic current density of 69 mA cm\n                    −2\n                    at 0.85 V, with negligible performance loss after 10,000 cycles. When applied in a zinc–air battery, FeSnNC exhibits a peak power density of 262 mW cm\n                    −2\n                    and a cycling lifetime exceeding 1,100 hours at 10 mA cm\n                    −2\n                    . This work demonstrates the great potential of d–p metal atomic pair sites in ORR catalysis and provides new insights into the rational design of atomically precise metal catalysts.",
+          "hb": 1
+        },
+        {
+          "t": "具有罕见Tri24Di6拓扑结构的磷离子型亚胺笼在丙炔/丙烯分离中的选择性捕获丙炔研究",
+          "d": "2026-01-06",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究设计了一种含膦离子型亚胺笼状多孔有机笼（POC），其具有罕见的Tri24Di6拓扑结构。通过将磷原子的丰富化学性质引入POC骨架，该材料在丙炔/丙烯（propyne/propylene）气体分离中表现出高选择性捕获丙炔的能力。这一成果对石油化工中高纯丙烯的制备具有重要意义，为低碳烯烃纯化提供了一种新型多孔材料策略。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c15864",
+          "tp": "有机笼气体分离",
+          "aip": 1,
+          "kp": [
+            "拓扑结构[多孔有机笼]: Tri24Di6",
+            "应用[气体分离]: 丙炔/丙烯选择性捕获丙炔"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The incorporation of phosphine units into porous organic cages (POCs) imparts the rich chemistry of phosphorus atoms to the POC system and enables a range of relevant applications. However, phosphine-containing POCs remain underexplored. In this work, quaternary phosphonium ionic cages were successfully constructed via the integration of phosphine groups, where premethylation and anion exchange of the triphenylphosphine (PPh3)-aldehyde precursor were employed before the imine condensation reaction. The counterions of the PPh3-aldehyde precursor were found to play a crucial role in dictating the topology of the resulting cage product. While the precursor bearing an iodide (I-) anion yielded a soluble [2 + 3] cage P-cage-I, the bis(trifluoromethane)sulfonimide (NTf2-) and hexafluorophosphate (PF6-) analogues (P-cage-NTf2 and P-cage-PF6) formed [4 + 6] assemblies with the rare Tri24Di6 (nomenclature for porous organic cage topology classification). Benefiting from the synergistic effects of a favorable topology, flexible windows, and guest-affinitive anions in the Tri24Di6 cage structure, P-cage-PF6 demonstrated excellent propyne/propylene separation performance, as confirmed by breakthrough experiments.",
+          "hb": 1
+        },
+        {
+          "t": "晶体-玻璃纳米双相合金实现超高强度与大的均匀塑性变形",
+          "d": "2026-01-06",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "该研究开发出晶体-玻璃纳米双相合金，同时实现了超高强度与极大均匀塑性变形能力，突破了结构材料领域强度与延展性难以兼得的传统瓶颈。通过在纳米尺度上构筑晶态与非晶态双相结构，材料中的非晶相阻碍位错运动提供强化，晶态相则通过塑性变形吸收能量提供延展性。该策略为新一代高性能结构合金的设计开辟了全新路径，在航空航天等领域具有广阔应用前景。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517926?af=R",
+          "tp": "晶玻璃双相合金",
+          "aip": 1,
+          "kp": [
+            "[结构]: 晶体-玻璃纳米双相合金",
+            "[性能]: 超高强度+大均匀塑性变形"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  Higher strength and larger ductility are always the pursuit of goal in the research of structural materials. Grain refinement and amorphization can enhance the strength of alloys, yet have their own limitations. The ductility of nanocrystalline alloys is usually low (&lt;5%), due to mechanical instability of the nanograin boundary. Shear band (SB) forms after yielding, inducing almost zero plasticity of metallic glasses (MGs). In this article, the recent development of the crystal‐glass nano‐dual‐phase (CG‐NDP) alloys, dramatically enhancing the strength and plasticity is reviewed. The grain boundary (GB) is replaced by a nanoscale amorphous phase. This structure configuration substantially increases the stress barrier against dislocation motion, enhancing the yield strength up to a near‐theoretical value. Furthermore, global plastic flow behavior of the nano‐sized amorphous phase can be activated, promoting emission of dislocations at the crystal‐glass interface. Some of these dislocations pass through the crystalline phase and are absorbed by the amorphous phase on the opposite interface, depicting a continuous emission‐motion‐annihilation process. These deformation mechanisms promote the large homogeneous plastic deformation under both compression and tension. A new mechanism of crystalline‐to‐amorphous phase transformation is further reviewed. Finally, their functional applications as electrolytic catalysis and wear‐resistant coatings is discussed.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

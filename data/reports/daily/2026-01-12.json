@@ -1,0 +1,133 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月12日　星期一",
+  "date_range": "2026-01-12",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究利用配体工程调控银簇MOF活性位点，提升酸性CO2电还原效率"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "硫脲功能化脂质4A3-LNSC8突破肝脏递送限制，实现mRNA向淋巴器官全身输送",
+      "研究采用不对称3d-5d轨道杂化解耦吸附行为，提升AEM水电解催化耐久性",
+      "科研团队建立态密度计算模型，预测高熵MOF混合金属位点的催化增强效应"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究利用配体工程调控银簇MOF活性位点，提升酸性CO2电还原效率"
+      ],
+      "entries": [
+        {
+          "t": "银簇基MOF中配体工程调控d带中心增强酸性CO₂电还原",
+          "d": "2026-01-12",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "研究通过配体工程调控银团簇基金属有机框架(Ag cluster-based MOFs)中银活性位点的d带中心位置，显著提升酸性条件下的CO₂电还原(eCO₂RR)性能。在酸性电解液中，CO₂溶解度和利用率更高，但竞争性析氢反应(HER)更严重。通过精确调控配体调节d带中心，优化了CO₂分子在银位点上的吸附能和中间体稳定性，在抑制HER的同时提高CO₂向CO的转化效率。该策略为设计高效酸性CO₂电还原催化剂提供了电子结构工程新方法。",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202518779?af=R",
+          "tp": "CO2电还原MOF催化剂",
+          "aip": 1,
+          "kp": [
+            "[策略]: 配体工程调控d带中心",
+            "[材料]: 银硫属醇团簇基MOF",
+            "[应用]: 酸性CO2电还原"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Acidic electrochemical CO\n                    2\n                    reduction reaction (eCO\n                    2\n                    RR) offers a promising way for achieving high CO\n                    2\n                    utilization efficiency and circumventing carbonate deposition issues. However, it is plagued by a compromised catalytic performance due to the severe hydrogen evolution reaction (HER). Here, two types of silver chalcogenolate cluster‐based MOFs were synthesized through ligand engineering by anchoring Ag\n                    12\n                    clusters with tri‐topic imidazole and pyridyl ligands respectively. The imidazole‐based MOF\n                    \n                      Ag\n                      12\n                      THIT\n                    \n                    demonstrated outstanding performance for the electroreduction of CO\n                    2\n                    to CO. In acidic electrolyte of pH ≈ 2, it achieved a Faradaic efficiency (FE) of 98.5% with a commercial current density of 328.0 mA cm\n                    −2\n                    at − 1.6 V versus RHE. Moreover, the CO partial current density (\n                    j\n                    CO\n                    ) reached a maximum of 447.2 mA cm\n                    −2\n                    with a FE\n                    CO\n                    of 96.8% at − 1.7 V versus RHE. No obvious degradation was observed during 70 h of continuous operation, and the performance significantly outperformed those of pyridyl‐based MOFs\n                    \n                      Ag\n                      12\n                      TPEB\n                    \n                    and\n                    \n                      Ag\n                      12\n                      TPMA\n                    \n                    . Mechanistic studies revealed that the imidazole ligand endows\n                    \n                      Ag\n                      12\n                      THIT\n                    \n                    with enhanced Lewis basicity and superior\n                    σ\n                    ‐donating ability, thereby strengthening the ligand field with an upshifted\n                    d\n                    ‐band center and reduced energy barriers. This ligand effect facilitates more efficient electron transfer to *COOH intermediates, thus promoting acidic CO\n                    2\n                    to CO conversion.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "硫脲功能化脂质4A3-LNSC8突破肝脏递送限制，实现mRNA向淋巴器官全身输送",
+        "研究采用不对称3d-5d轨道杂化解耦吸附行为，提升AEM水电解催化耐久性",
+        "科研团队建立态密度计算模型，预测高熵MOF混合金属位点的催化增强效应"
+      ],
+      "entries": [
+        {
+          "t": "硫脲功能化电离脂质能够将 mRNA 全身递送至次级淋巴器官和双模式淋巴转移成像",
+          "d": "2026-01-12",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "受阴离子配位化学启发，研究团队合理设计了硫脲功能化可电离脂质（TUILs），实现了mRNA向次级淋巴器官的高效特异性全身递送。领先分子4A3-LNSC8的硫脲连接子可结合多种阴离子，突破了脂质纳米颗粒传统上仅能递送至肝脏的限制。该技术同时实现了双模式淋巴转移成像，在免疫治疗和疫苗开发领域具有广阔应用前景。",
+          "sc": 7.1,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523579?af=R",
+          "tp": "脂质纳米递送",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Systemic delivery of messenger RNA (mRNA) to non‐hepatocytes using lipid nanoparticles (LNPs) remains challenging. Inspired by anion coordination chemistry, here we report the rational chemical design of thiourea‐functionalized ionizable lipids (TUILs) for delivering mRNA potently and specifically to the secondary lymphoid organs (SLOs). The leading TUIL, namely 4A3‐LNSC8, features an impressive thiourea‐based linker capable of binding with various halide anions (F\n                    −\n                    , Cl\n                    −\n                    , I\n                    −\n                    ) through hydrogen‐bonding interaction, enabling precise regulation of LNP organotropism in vivo. When administered systemically, the representative Cl‐4A3‐LNSC8 LNPs exclusively redirected mRNA delivery from the liver to SLOs, yielding a 65‐fold and 29‐fold increase in splenic mRNA expression compared to DLin‐MC3‐DMA and SM102 LNPs with the addition of anionic lipid (18PA). Notably, upon intravenous injection of 0.2 mg kg\n                    −1\n                    Cre mRNA, Cl‐4A3‐LNSC8 LNPs demonstrated strong tropism for splenic macrophages with high gene editing efficiency up to 65.7%, outperforming the current state‐of‐the‐art spleen‐targeted LNPs. Moreover, by leveraging iodine's CT contrast properties, I‐4A3‐LNSC8 LNPs mediated efficient theranostic mRNA delivery to lymph nodes, allowing early detection of lymphatic metastasis via dual‐modal CT and bioluminescence imaging. This work provides new insights into the development of cell‐specific ionizable lipids, advancing future applications of macrophage‐targeted therapies.",
+          "hb": 1
+        },
+        {
+          "t": "不对称3d-5d轨道杂化实现关键中间体解耦吸附：耐久高性能AEM水电解与锌空气电池",
+          "d": "2026-01-12",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究通过不对称3d-5d轨道杂化策略实现对关键中间体吸附行为的解耦，克服了传统催化剂在析氧反应中的内在标度关系限制。该策略在阴离子交换膜（AEM）水电解和锌-空气电池中均实现了高活性和高耐久性的双功能电催化性能，为打破吸附能线性关系瓶颈、设计高效双功能电催化剂提供了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524805?af=R",
+          "tp": "不对称轨道电催化",
+          "aip": 1,
+          "kp": [
+            "[轨道杂化]: 非对称3d-5d打破标度关系瓶颈",
+            "[应用]: AEM电解与锌空电池多功能电催化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Decoupling key intermediates’ adsorption via asymmetric 3d‐5d‐orbital hybridization overcomes the intrinsic scaling relation bottleneck, enabling rational design of high‐performance, durable multifunctional electrocatalysts for anion exchange membrane water electrolyzers (AEMWEs) and Zn–air batteries (ZABs). Here, we reveal that asymmetric 3d‐5d‐orbital hybridization, engineered through the synergy of lattice strain and defect structures in a nitrogen‐doped carbon‐supported PtCo alloy (PtCo@NPC), effectively decouples these adsorption energies of key intermediates. PtCo@NPC demonstrates exceptional multifunctional electrocatalytic performance for the hydrogen evolution reaction, oxygen evolution reaction, and oxygen reduction reaction in alkaline media. Density functional theory calculations suggest that electronic structure modulation tunes the adsorption characteristics of intermediates, while X‐ray absorption fine structure spectroscopy confirms the corresponding changes in the electronic states of surface Pt and Co atoms. When deployed in devices, PtCo@NPC enables AEMWEs to operate stably for 522 h at 1000 mA cm\n                    −2\n                    with a voltage decay rate of only 0.103 mV h\n                    −1\n                    and empowers ZABs to achieve a long cycle life of over 2520 cycles at 5.0 mA cm\n                    −2\n                    . This study highlights electronic‐structure modulation as a powerful strategy for advanced energy technologies.",
+          "hb": 1
+        },
+        {
+          "t": "通过预测性态密度计算在高熵金属有机框架（HEMOFs）中实现催化鸡尾酒效应",
+          "d": "2026-01-12",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究提出利用态密度（DOS）预测计算实现高熵金属有机框架（HEMOFs）中鸡尾酒效应的设计策略。高熵材料通过多种金属元素的协同作用产生超越单一组分加和的催化性能，但传统试错法难以精确调控。研究团队建立DOS计算模型，可预测混合金属位点对催化活性的非线性增强效应，为理性设计高熵催化剂提供了计算框架。该方法有望加速HEMOFs在电催化、光催化等能源转化反应中的应用探索。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519320?af=R",
+          "tp": "高熵MOF催化剂",
+          "aip": 1,
+          "kp": [
+            "[材料]: 高熵金属有机框架HEMOF",
+            "[理论方法]: 预测性态密度计算指导金属选择",
+            "[效应]: 鸡尾酒效应增强催化活性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    High‐entropy materials, particularly high‐entropy metal–organic frameworks (HEMOFs), represent a promising class of catalysts amenable to imparting superior activity via harnessing cocktail effects. However, optimal leveraging of these effects remains an outstanding challenge. Here, we introduce a promising, computationally driven roadmap for the rational selection of metal compositions in catalytic HEMOFs. Density functional theory (DFT) was first used to probe a key catalytic intermediate for CO\n                    2\n                    epoxidation in a series of compositionally related high‐entropy polynuclear clusters. A direct correlation between composition and predicted catalytic activity trends was established, capitalizing on clear differences in a new valence edge peak in the band gap as function of active metal site. Following that, a series of HEMOFs with DFT‐predetermined compositions were successfully synthesized. Remarkably, catalytic tests demonstrated the trends predicted by DFT, emphasizing the direct correlation between electronic structure and activity. The DFT‐predicted optimal HEMOF composition was validated experimentally and shown to exhibit over 40% greater activity than the least active variant. The strategy described herein demonstrates the immense promise of harnessing cocktail effects in HEMOFs, wherein synergistic intermetallic effects impart superior catalytic activity. Finally, this work serves as a first step toward enabling machine learning‐driven approaches to optimize catalytic performance through tailored metal compositions.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月2日　星期一",
+  "date_range": "2026-02-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "特斯拉确认其干法电极技术已实现规模化量产应用",
+      "能量奇点高温超导托卡马克装置实现1337秒稳态运行",
+      "研究揭示NaMOCl4固态电解质非晶态结构具备更高钠离子电导率"
+    ],
+    "AI与智能科技": [
+      "中科大潘建伟团队实现十公里光纤远程量子存储器纠缠"
+    ],
+    "通用技术": [
+      "科研人员在准二维杂化钙钛矿中首次实现室温极化子凝聚态",
+      "氧化物铁电材料中发现具备多态切换特性的极性手性气泡畴",
+      "研究发现无限层镍酸盐超导体超流体密度与转变温度具强相关性"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "特斯拉确认其干法电极技术已实现规模化量产应用",
+        "能量奇点高温超导托卡马克装置实现1337秒稳态运行",
+        "研究揭示NaMOCl4固态电解质非晶态结构具备更高钠离子电导率"
+      ],
+      "entries": [
+        {
+          "t": "马斯克称特斯拉的干法电极技术实现规模化应用",
+          "d": "2026-02-02",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "马斯克在X上祝贺特斯拉干法电极技术实现规模化应用，特斯拉官方转发称该工艺可降低成本与能耗、简化工厂布局。X自媒体分析特斯拉2023年申请的专利US20230411584A1（2025年8月授权），认为以可原纤化PTFE（<3wt%）为粘结剂，采用低剪切混合、减少压延次数（<5次），实现低粘结剂用量下干法电极制造，避免颗粒破碎。专利对具体工艺参数仅粗略描述，实际规模化工艺仍属保密。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://x.com/elonmusk/status/2018064502487482661?s=46&t=V_Oxc5rL-z-bbNRkdrmXHg",
+          "tp": "干电极工艺",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月2日，马斯克（Elon Musk）在其X社媒账号上发文，祝贺特斯拉（Tesla）团队干法电极技术的规模化应用；特斯拉官方账号也转发称，干式电极工艺可降低成本、能耗，并有助于简化工厂布局提高可扩展性。有X自媒体对特斯拉2023年8月申请的专利（US20230411584A1，已于2025年8月进行授权）进行分析，认为该专利可能与其干法正极制备工艺突破有关。该专利以可原纤化（分解为细小原纤的过程）的聚四氟乙烯（PTFE，<3wt%）为粘结剂，<8wt%的导电碳/多孔碳为导电剂，可适用LFP、LCO、NCM、NCA、硫碳等多种活性材料（含量90-99wt%），旨在通过共混、翻滚混合或声学混合等低剪切、低压和/或低速的非破坏性工艺（部分实例也采用了喷射研磨等高剪切工艺将PTFE与活性材料+导电剂共混物进行混合）、减少压延次数（<5次，一般为3次），实现低粘结剂用量情况下干法电极制造，并避免过程中颗粒破碎的问题。但专利中仅对相关工艺、参数等进行粗略描述，并未对干法电极加工方法进行具体限定，特斯拉实际规模化的干法工艺可能仍属于保密阶段。\n但据汽车网站autoevolution在2025年11月的一篇报道称，马斯克在2025年投资者日上表示其推进干法电池电极是个错误的决定，相关工艺应用流程比他想象的难得多；而本月该报道则表明目前特拉斯暂未放弃对干法电极的开发。国内设备厂商清研纳科也在2月2日发文称，其干法电极设备正式发货至日本头部车企，其在25年5月建成一条0.1GWh年产能的锂电池干法电极全自动产线。",
+          "hb": 1
+        },
+        {
+          "t": "能量奇点称其全高温超导托卡马克装置洪荒70实现1337s稳态长脉冲等离子体运行",
+          "d": "2026-02-02",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "2月2日，能量奇点宣布其高温超导托卡马克装置洪荒70成功实现1337秒稳态长脉冲等离子体运行。该突破得益于基于AI的等离子体反馈控制技术不断优化，解决了长时间等离子体与壁相互作用、AI实时诊断、高功率射频波电流驱动等物理工程问题，并通过改进壁处理降低等离子体杂质，实现脉冲长度稳步提升。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/zjxr7BymDq4V9HvUaUAtgw",
+          "tp": "超导托卡马克",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "2月2日，能量奇点在其官方公众号发文称，洪荒70高温超导托卡马克装置成功实现了1337秒稳态长脉冲等离子体运行。文中称，该技术得益于基于AI的等离子体反馈控制技术的不断优化，其宣传解决了长时间尺度下的等离子体与壁相互作用、基于AI的实时诊断、高功率射频波电流驱动、等离子体位形控制等物理和工程问题；并通过改进了装置的壁处理方式，进一步降低等离子体杂质，使得运行脉冲长度稳步提升。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP]晶态与非晶态NaMOCl4(M=Nb,Ta)固态电解质中超离子钠离子传导的微观机制",
+          "d": "2026-02-02",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "该研究利用分子动力学模拟和实验表征，系统揭示了NaMOCl4（M=Nb, Ta）固态电解质中超离子钠离子导电的微观机制。研究发现晶态和非晶态结构中Na+迁移路径和能垒存在显著差异，非晶态结构因局部结构无序降低了离子跃迁势垒，表现出更高的离子电导率。该工作为设计高离子导电率氯化物基固态电解质提供了原子尺度的理论指导。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03511",
+          "tp": "钠离子固体电解质",
+          "aip": 1,
+          "kp": [
+            "固体电解质[钠离子]: NaMOCl4(M=Nb,Ta)",
+            "[超离子导电]: 晶态与非晶态对比"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "中科大潘建伟团队实现十公里光纤远程量子存储器纠缠"
+      ],
+      "entries": [
+        {
+          "t": "中国科学技术大学潘建伟实现10公里光纤连接的远程量子存储器纠缠并展示器件无关量子密钥分发",
+          "d": "2026-02-02",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "中科大潘建伟团队通过10公里光纤盘卷连接实现两个节点间的远程量子存储器纠缠，其生存时间超过平均纠缠建立时间。该成果得益于长寿命囚禁离子存储器、高效电信波段接口及高可见度单光子纠缠协议。作为应用，团队在10公里距离上完成原理验证型器件无关量子密钥分发（DI-QKD）实验，渐近极限下101公里实现正密钥率，均比先前工作提升超两个数量级。论文2026年2月2日发表于Nature。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10177-4",
+          "tp": "量子存储器",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "量子网络整合量子通信、量子计量学和分布式量子计算，能够提供安全高效的信息传输、高分辨率传感以及信息处理的指数级加速。长距离确定性纠缠分发是构建可扩展量子网络的前提条件。然而，光纤中的指数级光子损耗阻碍了高效且确定性的纠缠分发。量子中继器通过引入纠缠交换、纠缠纯化和量子存储器，被认为是克服光纤量子网络这一限制的最有前景途径。尽管已有众多开创性工作，但仍存在关键瓶颈：远程存储器-存储器纠缠的退相干速度快于其在长距离上建立和纯化的速度。研究展示了两个节点间通过10公里光纤盘卷连接的存储器-存储器纠缠，其生存时间超过平均纠缠建立时间。这一成果得益于长寿命囚禁离子存储器的开发、高效电信波段接口以及高可见度单光子纠缠协议。作为应用，研究报告了在10公里距离上进行的有限尺寸分析的原理验证型器件无关量子密钥分发（DI-QKD）实验，并在渐近极限下实现了101公里距离的正密钥率，两者均比先前工作提升超过两个数量级。研究为量子中继器提供关键构建模块，并标志着向可扩展量子网络迈出的重要一步。文章于2026年2月2日发表在Nature。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研人员在准二维杂化钙钛矿中首次实现室温极化子凝聚态",
+        "氧化物铁电材料中发现具备多态切换特性的极性手性气泡畴",
+        "研究发现无限层镍酸盐超导体超流体密度与转变温度具强相关性"
+      ],
+      "entries": [
+        {
+          "t": "准二维杂化钙钛矿中的室温极化子凝聚态",
+          "d": "2026-02-02",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "准二维卤化物钙钛矿具有巨激子振子强度、可调发射光谱和极大激子结合能，是室温极化子学的理想平台，但此前在环境条件下一直未能实现玻色凝聚和极化子激射。本研究首次在准二维钙钛矿中实现了室温腔激子-极化子凝聚态，突破了该领域的长期瓶颈，为室温极化子激光器和量子光学器件的实用化奠定了关键基础。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-68723-7",
+          "tp": "钙钛矿极化子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quasi-2D halide perovskites are chemically synthesized realizations of quantum well stacks with giant exciton oscillator strengths, tunable emission spectra, and very large exciton binding energies. While these features render quasi-2D halide perovskites a promising platform for room-temperature polaritonics, bosonic condensation and polariton lasing in quasi-2D perovskites have so far remained elusive at ambient conditions. Here, we demonstrate room-temperature cavity exciton-polariton condensation in mechanically exfoliated crystals of the quasi-2D Ruddlesden-Popper iodide perovskite (BA)2(MA)2Pb3I10 in an open optical microcavity. We observe a polariton condensation threshold of 0.41 µJ cm−2 per pulse and detect a strong non-linear response. Interferometric measurements confirm the spontaneous emergence of spatial coherence across the condensate with an associated first-order autocorrelation reaching 0.6 with 1 ps coherence time and an effective de Broglie wavelength of 13 µm. Our results lay the foundation for a new class of room-temperature polariton lasers based on quasi-2D halide perovskites with great potential for hetero-integration with other van-der-Waals materials and combination with photonic crystals or waveguides.",
+          "hb": 1
+        },
+        {
+          "t": "氧化物铁电体中的多态极性手性气泡畴",
+          "d": "2026-02-02",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在氧化物铁电材料中发现了多态极性手征磁泡（Polar Chiral Bobbers）。这类新型极性拓扑结构具备多种稳定状态，可应用于未来高密度、低功耗电子器件，如超高密度非易失性存储。研究发现其手征特性与多态可切换性，为铁电拓扑物态的基础物理研究及新型信息存储器件设计开辟了方向。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202510518?af=R",
+          "tp": "铁电极性拓扑",
+          "aip": 1,
+          "kp": [
+            "[铁电氧化物]: 极性手性bobber实现多态存储",
+            "薄膜取向[铁电器件]: (111)取向超薄薄膜"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Polar topologies in ferroelectric oxides have potential applications in future electronic devices, such as high‐density non‐volatile memory and logic devices. However, their application in multistate storage remains largely unexplored, because the number of accessible topological states is limited. Here, we report a family of polar chiral bobbers in ultrathin (111)‐oriented ferroelectric PbTiO\n                    3\n                    films by combining phase‐field simulations with aberration‐corrected transmission electron microscopy. We find that a chiral bobber can exhibit eight distinct states, which can be applied to multistate storage exceeding the traditional binary (0/1) encoding. The polar chiral bobber can be easily manipulated with low energy to enable transitions between different states. These results suggest that polar chiral bobbers represent one of the promising candidates for applications in next‐generation topological electronics, advanced memory, and quantum computing.",
+          "hb": 1
+        },
+        {
+          "t": "无限层镍酸盐超导体Nd1-xSrxNiO2中超流体密度与转变温度的相关性",
+          "d": "2026-02-02",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在无限层镍酸盐超导体Nd₁₋ₓSrₓNiO₂中发现了零温超流体密度与超导转变温度之间存在强相关性。这一发现类似于超导态的Uemura关系，为理解镍酸盐超导体的配对机制提供了关键实验证据，也对该类新型超导材料与铜氧化物超导体之间的异同比较具有重要意义。",
+          "sc": 5.5,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag068/8450192?rss=1",
+          "tp": "镍基超导体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A strong correlation between zero-temperature superfluid density (ρ",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

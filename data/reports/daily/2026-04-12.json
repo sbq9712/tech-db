@@ -1,0 +1,228 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月12日　星期日",
+  "date_range": "2026-04-12",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "北理工黄佳琦团队开发基于阻抗衰减特征的锂沉积形貌无损定量诊断方法",
+      "研究利用量子点激子临界耦合，使全无机钙钛矿太阳能电池认证效率突破22%",
+      "研究构建Ir-Ru双单原子对催化剂，降低工业级质子交换膜电解水贵金属用量"
+    ],
+    "AI与智能科技": [
+      "新研究基于Transformer架构将基因组序列分析转化为翻译任务，推断种群参数",
+      "科研人员开发小型化贝塞尔束超声换能器，实现非侵入式高分辨率经颅脑刺激"
+    ],
+    "通用技术": [
+      "研究利用铁催化交叉环加成反应，合成兼具高韧性与化学可回收性的聚烯烃",
+      "研究设计近红外前药，利用肿瘤微环境酶触发原位自固定化以实现精准治疗",
+      "科研人员通过多铁材料铁电畴工程产生磁振子流，实现无焦耳热损耗的磁矩翻转"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "北理工黄佳琦团队开发基于阻抗衰减特征的锂沉积形貌无损定量诊断方法",
+        "研究利用量子点激子临界耦合，使全无机钙钛矿太阳能电池认证效率突破22%",
+        "研究构建Ir-Ru双单原子对催化剂，降低工业级质子交换膜电解水贵金属用量"
+      ],
+      "entries": [
+        {
+          "t": "北理工黄佳琦报道一种基于工作电池界面阻抗衰减特征定量分析锂沉积形貌的方法",
+          "d": "2026-04-12",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "北京理工大学黄佳琦教授团队开发出一种基于工作电池界面阻抗衰减特征反演析锂微观形貌的定量诊断方法。研究在Li||Cu半电池中引入锂参比电极解耦负极阻抗信号，利用三种电解液体系构建差异化沉锂形貌，建立电化学阻抗谱与微观沉积形貌之间的定量映射关系，为在不破坏电池运行前提下监测锂沉积形貌、评估电池安全阈值提供了新框架。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.5c23170",
+          "tp": "析锂诊断",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "锂离子电池在电动汽车与储能系统中的应用不断拓展，但在高倍率快充与低温等复杂工况下，石墨负极电势易降至0 V以下，从而不可避免地诱发界面析锂（锂沉积）。该过程不仅会消耗活性锂形成“死锂”、导致容量衰减，沉积的锂还会在不同动力学条件下形成差异显著的微观形貌（如极易刺穿隔膜的疏松多孔枝晶，或相对良性的致密层状、球状颗粒），直接决定了电池的安全阈值（包括固态电池中负极侧的析锂形貌同样至关重要）。然而，现有的微观表征或原位光学观测难以在不破坏电池运行的前提下实现定量监测，而电化学阻抗谱（EIS）虽对界面变化高度敏感，但目前仍缺乏将其与具体微观沉积形貌建立直接定量映射的系统认知与诊断框架。\n近日，北京理工大学黄佳琦教授团队开发出一种基于工作电池界面阻抗衰减特征反演析锂微观形态的定量诊断新方法。首先在Li||Cu半电池模型中引入锂参比电极解耦负极阻抗信号，并在1.0 mA cm⁻²的电流密度下，利用三种典型电解液体系人为构建了差异化的沉锂形貌：传统酯基电解液（LiPF₆/EC/DMC，促进疏松长枝晶生长）、醚基电解液（LiFSI/DME，产生中等柱状沉积）以及添加了LiNO₃的改性醚基电解液（LiFSI/DME-LiNO₃，形成最安全的致密球状颗粒）。通过全过程追踪的EIS测试及弛豫时间分布（DRT）解耦中频峰响应，发现随着沉积容量增加，电荷转移电阻（Rct）的急剧收缩本质上反映了有效电化学活性面积（ECSA）的增加。通过验证双电层电容（Cdl）证实，枝晶生长的酯基体系Cdl斜率达0.0149（沉积厚度达12.8 μm），表明ECSA呈现不规则的激增；而球状沉积的改性醚基体系Cdl最大值仅为0.13 mF，斜率低至0.0017，变化平稳。基于上述现象，团队发现Rct随沉积容量（时间）的演化严格遵循幂律函数分布（y=axb），并将拟合参数（即幂指数b的绝对值∣b∣）定义为锂生长因子（Li Growth Factor, LGF）。由此其建立了一种定量诊断标准：LGF > 2.0对应枝晶主导的高危疏松结构；1.7 < LGF < 2.0表征中等致密的柱状沉积；而LGF < 1.7则代表致密安全的球形颗粒。在电流密度调控下，从0.02 mA cm⁻²的块状沉积（LGF = 1.67）到2.0 mA cm⁻²的高纵横比枝晶（LGF = 3.04），LGF均随之阶梯式上升并准确匹配形貌；在−10 °C的恶劣低温环境下，极化加剧诱发了更细弱的枝晶，LGF值亦如期显著高于室温水平。在石墨||Li半电池测试中，0.5C至2C倍率下的LGF随倍率增加而逐渐增大，对应电镜下枝晶数量的增加；在带有内压扰动的大型软包电池中，跨越初始内压导致的Rct上升期后，衰减区间的LGF拟合值高达4.26，后续拆解证实了其内部存在严重的疏松枝晶。此外，该诊断体系具有早期预警能力，在锂析出的极早期阶段（0.3-0.4 mAh cm⁻²沉积量）即可使LGF快速收敛并输出稳定的形态预测值。文章于2026年4月12日发表在Journal of the American Chemical Society。",
+          "hb": 1
+        },
+        {
+          "t": "尺寸定制量子点中的激子-光子临界耦合实现效率超22%的稳定倒置CsPbI3太阳能电池",
+          "d": "2026-04-12",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究通过尺寸调控的量子点实现激子-光子临界耦合，使全无机CsPbI₃倒置钙钛矿太阳能电池的效率突破22%并显著提升稳定性。全无机CsPbI₃具有优越的热稳定性和光稳定性，但其倒置器件结构中严重的非辐射复合和界面缺陷导致效率偏低。研究团队将尺寸精确调控的量子点嵌入钙钛矿界面层，利用量子点与光场模式之间的强耦合效应（临界耦合条件），实现了对缺陷态的共振钝化和光子的循环再吸收。优化后器件的认证效率超过22%，同时在连续光照和高温环境中表现出出色的运行稳定性，为全无机钙钛矿电池的效率突破提供了独特思路。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73024?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[CsPbI3倒置电池]: >22%",
+            "[界面工程]: CsPbBr3量子点@介孔二氧化硅"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    All‐inorganic CsPbI\n                    3\n                    inverted perovskite solar cells (PSCs) suffer from severe nonradiative recombination and interfacial defects, which limit their efficiency and stability. To address this, we developed an interface engineering strategy based on CsPbBr\n                    3\n                    quantum dots anchored in pore‐size‐tuned mesoporous silica nanoparticles (CPBQDs@MSNs), constructing a CsPbI\n                    3\n                    /CPBQDs@MSNs heterojunction. Notably, CPBQDs@M‐MSNs (∼8 nm) match the exciton Bohr radius of CsPbBr\n                    3\n                    (∼7 nm), enabling optimal exciton‐photon critical coupling. This coupling strongly suppresses nonradiative recombination and thermal activation of defects, leading to superior fluorescence stability over a broad temperature range. The CPBQDs@MSNs treatment further enhances crystallinity, reduces grain boundary defects, and optimizes interfacial energy level alignment, thereby facilitating efficient charge‐transport. Consequently, the inverted CsPbI\n                    3\n                    PSCs achieve a remarkable power conversion efficiency (PCE) of 22.15%, the highest value for such devices, along with a record open‐circuit voltage (\n                    V\n                    OC\n                    ) of 1.28 V. The devices exhibit excellent stability, retaining 93.16% of their initial PCE after 1300 h in ambient air and 98.14% after 1000 h of continuous illumination. This work highlights the crucial role of size‐controlled QDs in interfacial engineering and offers a promising strategy for developing high‐performance and stable perovskite optoelectronic devices.",
+          "hb": 1
+        },
+        {
+          "t": "耦合电子缓冲双单原子对以解锁卓越的工业级PEM水电解",
+          "d": "2026-04-12",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "研究构建电子缓冲型Ir-Ru双单原子对催化剂，实现工业级质子交换膜（PEM）电解水。相邻Ir-Ru原子对间的电子缓冲效应优化了析氧反应（OER）中间体吸附能，加速反应动力学并降低过电位。该催化剂在工业电流密度下展现出远超商用IrO2的质量活性和长期耐久性，大幅降低贵金属用量，为绿氢大规模生产提供了高效低成本方案。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00109-1?rss=yes",
+          "tp": "PEM电解水催化剂",
+          "aip": 1,
+          "kp": [
+            "催化剂[PEM电解水]: Ir-Ru双单原子对",
+            "[合成方法]: 闪速焦耳热",
+            "[反应机制]: 直接*O-*O自由基偶联"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study demonstrates an electron-buffered effect between adjacent Ir-Ru pairs, which accelerates reaction kinetics via direct ∗O–∗O radical coupling and stabilizes the active sites. The findings link asymmetric dual-site coordination to flash Joule heating synthesis, providing insights into designing highly efficient and durable OER anodes for industrial proton exchange membrane water electrolyzers.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "新研究基于Transformer架构将基因组序列分析转化为翻译任务，推断种群参数",
+        "科研人员开发小型化贝塞尔束超声换能器，实现非侵入式高分辨率经颅脑刺激"
+      ],
+      "entries": [
+        {
+          "t": "溯祖与翻译：用于群体遗传学的语言模型",
+          "d": "2026-04-12",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "本文提出一种基于语言模型（Transformer架构）的群体遗传学新方法，将序列马尔可夫合并（SMC）等经典概率模型重新表述为序列到序列的翻译任务。通过对基因组序列的学习，模型能够推断种群历史、有效种群大小变化和重组率等关键参数。该方法有望突破传统概率模型在大规模基因组数据分析中的计算瓶颈，为群体遗传学引入深度学习范式。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2518956123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "基因组语言模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Probabilistic models such as the sequentially Markovian coalescent have long provided a powerful framework for population genetic inference, enabling reconstruction of demographic history and ancestral relationships from genomic data. However, these methods are inherently specialized, relying on predefined assumptions and/or limited scalability. Recent advances in simulation and deep learning provide an alternative approach: learning directly to generalize from synthetic genetic data to infer hidden evolutionary processes. Here we reframe the inference of coalescence times as a problem of translation between two biological languages: the sparse, observable patterns of mutation along the genome and the unobservable ancestral recombination graph that gave rise to them. Inspired by large language models, we develop cxt, a decoder-only transformer that autoregressively predicts coalescent events conditioned on local mutational context. We show that cxt performs competitively with state-of-the-art Markov Chain Monte Carlo-based likelihood models across a broad range of demographic scenarios, matching their accuracy in-distribution and approaching it in out-of-distribution, with the potential for improvement via fine-tuning. Trained on simulations spanning the stdpopsim catalog [J. R. Adrion\n                    et al\n                    .,\n                    eLife\n                    9\n                    , e54967 (2020); M. E. Lauterbur\n                    et al\n                    .,\n                    eLife\n                    12\n                    , e84874 (2023); G. Gower\n                    et al\n                    ., Accessible, realistic genome simulation with selection using stdpopsim. bioRxiv [Preprint] (2025).\n                    https://doi.org/10.1101/2025.03.23.644823\n                    .], the model generalizes robustly and enables efficient inference at scale, producing over a million coalescence predictions in minutes. cxt also produces well-calibrated approximate posteriors, enabling principled uncertainty quantification. We apply cxt to population genomic data from both humans and mosquitoes, highlighting the model’s ability to deal with the complexities of empirical data.",
+          "hb": 1
+        },
+        {
+          "t": "小型化光学生成贝塞尔束超声用于体积式经颅脑刺激",
+          "d": "2026-04-12",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "该研究开发了一种小型化光学生成贝塞尔波束超声换能器，用于经颅体积脑刺激。利用贝塞尔波束的无衍射特性，实现了对小型且形状不规则脑亚区的非侵入式精准超声调控，克服了传统聚焦超声在颅骨声学畸变下难以精确定位的瓶颈。该技术在脑功能研究、神经调控及潜在神经疾病治疗方面具有重要意义，为高空间分辨率的非侵入式脑干预提供了新工具，有望推动超声神经调控技术向临床应用转化。",
+          "sc": 6.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz7708?af=R",
+          "tp": "超声脑刺激",
+          "aip": 1,
+          "kp": [
+            "[器件]: 光学产生贝塞尔束超声(OBUS)",
+            "[应用]: 微型化经颅体积式脑刺激"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Noninvasive stimulation of small, variably shaped brain subregions is crucial for advancing our understanding of brain functions. Current ultrasound neuromodulation faces two major trade-offs when targeting brain subregions: miniaturization versus volumetric control and spatial resolution versus transcranial capability. Here, we present an optically generated Bessel beam ultrasound (OBUS) device designed to overcome these limitations. This miniaturized device, measuring 2.33 millimeters in diameter, delivers a column-shaped field achieving a lateral resolution of 152 micrometers and an axial resolution of 1.93 millimeters, enabling targeting of brain subregions with an elongated volume of tissue activation. Immunofluorescence imaging of mouse brain slices confirms its ability to stimulate cells at depths up to 2.1 millimeters. In addition, OBUS outperforms conventional Gaussian ultrasound in transcranial transmission efficiency and beam shape preservation. Electrophysiological recordings and functional MRI captured rodent brain responses evoked by OBUS, demonstrating OBUS’s ability to noninvasively activate neural circuits in intact brains. This technology offers expanded possibilities for studying brain functions with precision and volumetric control.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究利用铁催化交叉环加成反应，合成兼具高韧性与化学可回收性的聚烯烃",
+        "研究设计近红外前药，利用肿瘤微环境酶触发原位自固定化以实现精准治疗",
+        "科研人员通过多铁材料铁电畴工程产生磁振子流，实现无焦耳热损耗的磁矩翻转"
+      ],
+      "entries": [
+        {
+          "t": "铁催化丁二烯与α,ω-二烯的交叉[2+2]环加成：制备高延展性和化学可回收的聚(低聚环丁烷)",
+          "d": "2026-04-12",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "本文报道了铁催化丁二烯与α,ω-二烯的交叉[2+2]环加成反应，合成兼具韧性和化学可回收性的聚低聚环丁烷（poly(oligocyclobutanes)，pDVOCBs）。该类聚烯烃来源于丁二烯，在特定条件下可通过解聚实现化学回收为单体，形成闭环循环。铁催化剂实现了高区域和立体选择性的环丁烷环化，所得聚合物兼具优异力学韧性和可降解性，为可持续聚合物材料设计提供了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c23398",
+          "tp": "铁催化聚烯烃",
+          "aip": 1,
+          "kp": [
+            "催化剂[聚合]: 铁催化交叉[2+2]环加成",
+            "[特性]: 高结晶度+韧性+化学可回收聚烯烃"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Poly(divinyloligocyclobutanes) (pDVOCBs) are a distinct class of butadiene-derived, chemically recyclable polyolefins prepared from iron-catalyzed [2 + 2] cycloaddition followed by ruthenium-catalyzed ADMET polymerization. These polymers are highly crystalline, with high melting temperatures and unique rotator phases. The high degree of crystallinity in these materials not only leads to high stiffness over a broad temperature range but also results in brittle failure for polymers of modest molecular weights. Iron-catalyzed cross-[2 + 2] cycloaddition of butadiene and α,ω-dienes was accomplished, where the number of methylene units between the four-membered rings was systematically varied. Subsequent ADMET polymerization of the resulting telechelic oligomers provided a new class of chemically recyclable polyolefins that exhibit distinct thermomechanical properties. Specifically, methylene units induce changes in crystallinity that, in combination with the increased molecular weight, favored the formation of stable necks upon tensile deformation, with ∼10× enhanced ductility and improved toughness compared to pDVOCB. Through combined experimental and computational studies, the effects of methylene spacers on the crystal-to-rotator transition of the cyclobutane polymers were established. Ultimately, these methylene-modified cyclobutane polymers expand the range of properties and potential applications of this class of recyclable polyolefins.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 近红外前药酶触发自固定化用于肿瘤选择性癌症疫苗",
+          "d": "2026-04-12",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究设计了一种近红外（NIR）前药，利用肿瘤微环境中特异性高表达的酶触发其原位自固定化，使药物在肿瘤局部精准富集并释放。该策略结合光热/光动力治疗与原位肿瘤疫苗效应，实现了肿瘤选择性杀伤并激发抗原特异性免疫应答。",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20321",
+          "tp": "近红外前药递送",
+          "aip": 1,
+          "kp": [
+            "策略[肿瘤疫苗]: 酶触发NIR前药原位自固定",
+            "选择性[肿瘤杀伤]: 酶触发实现肿瘤选择性降低脱靶毒性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "In situ cancer vaccination, a strategy leveraging tumor antigens released from dying cancer cells to elicit antigen-specific immunity, has emerged as a highly promising modality in cancer immunotherapy. However, prevailing methodologies are constrained by insufficient selectivity for tumor killing, leading to off-target toxicity toward surrounding immune cells and consequently undermining the efficacy of in situ cancer vaccination. Herein, we develop an unprecedented self-immobilizing near-infrared (NIR) prodrug, ALPICD-2, which enables precise and efficacious in situ cancer vaccination through the synergistic integration of targeted ablation of cancer cells and preservation of tumor-infiltrating immune cells (TIICs). Mechanistically, upon activation by alkaline phosphatase enzyme overexpressed on cancer cells, the prodrug ALPICD-2 undergoes a pronounced hydrophilic switch, promoting its selective internalization and covalent self-immobilization into cancer cells with minimal off-target effects, accompanied by the activation of NIR fluorescence that enables real-time monitoring. The tumor-enriched prodrug induces potent cytotoxicity and immunogenic cell death, thereby initiating a cascade of innate and adaptive immune responses. Notably, this covalent immobilizing therapeutics effectively inhibits tumor growth and confers protection against tumor metastasis by enhancing the infiltration of effector CD8+ T cells and natural killer cells within tumor sites while suppressing the immunosuppressive TIICs. This study provides a powerful strategy and precise small-molecular platform for advancing in situ cancer vaccination.",
+          "hb": 1
+        },
+        {
+          "t": "多铁BiFeO3中铁电畴工程实现的非常规磁振子介导自旋力矩",
+          "d": "2026-04-12",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "本研究提出了一种由铁电畴工程驱动的非常规磁振子介导自旋力矩新机制。传统自旋流操控磁化需要自旋极化与磁矩方向对齐，而该工作利用铁电材料畴壁处的不对称性产生磁振子流，实现对相邻铁磁层磁矩的高效非接触式翻转。该机制无需电荷电流直接穿过磁性层，大幅降低焦耳热损耗，为超低功耗自旋电子器件（如磁存储、自旋逻辑）开辟了新范式，兼具电控可逆性与能量效率优势。",
+          "sc": 6.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-71437-5",
+          "tp": "多铁自旋力矩",
+          "aip": 1,
+          "kp": [
+            "[自旋力矩机制]: 磁子介导突破晶体对称性限制",
+            "[自旋源材料]: 多铁BiFeO3铁电畴工程"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Spin current provides an energy-efficient approach for manipulating magnetization, when its spin polarization aligns with the magnetization direction. However, conventional spin-source materials possess high crystalline symmetry, restricting spin polarization to be orthogonal to both spin and charge current directions. Here, we overcome this limitation by utilizing the concept of magnon-mediated spin-orbit torque through integration of the insulating multiferroic BiFeO3 with a conventional spin-source material. We observe that spin polarization generated by conventional spin-source material can excite unconventional magnon polarization due to the interplay between cycloidal antiferromagnetic order and the ferroelectric domain structure in BiFeO3. This produces an unconventional magnon torque that allows deterministic, field‑free switching of in‑plane magnetization collinear with the current direction, unattainable with conventional spin-source materials. Our results establish multiferroic-based heterostructure as a symmetry‑engineered magnon spin source, paving the way for low-power spintronic devices.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

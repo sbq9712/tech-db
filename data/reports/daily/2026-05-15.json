@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月15日　星期五",
+  "date_range": "2026-05-15",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "汉阳大学开发锌氧化替代析氧反应制氢路径，电位降至0.1V",
+      "流体结晶协同全环境印刷钙钛矿电池效率突破26%",
+      "牛津大学精确量化气溶胶与云层对全球光伏发电量损耗"
+    ],
+    "AI与智能科技": [
+      "反铁磁体开关器件实现皮秒级切换与超低功耗运行",
+      "自振荡类神经元器件研发成功，无需外部时钟自主产生信号",
+      "量化研究证实国家媒体管控显著影响大模型训练数据倾向"
+    ],
+    "通用技术": [
+      "诱导效应反转驱动聚合物催化剂，实现连续流光合成H₂O₂",
+      "二维金属有机框架中实现交替磁性化学工程调控",
+      "马兰戈尼涡流驱动胶体量子点相分离，实现多组份微加工"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "汉阳大学开发锌氧化替代析氧反应制氢路径，电位降至0.1V",
+        "流体结晶协同全环境印刷钙钛矿电池效率突破26%",
+        "牛津大学精确量化气溶胶与云层对全球光伏发电量损耗"
+      ],
+      "entries": [
+        {
+          "t": "牛津大学Roy Grainger对全球光伏发电量及其因云层和气溶胶引发的损耗进行测算",
+          "d": "2026-05-15",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "牛津大学Roy Grainger团队整合OpenStreetMap、Sentinel-2卫星图像和CNN，全球范围内筛选光伏设施坐标，利用SAM视觉大模型精确测量面板面积，通过历史反射率时间序列推断建成时间。结合NASA MERRA-2气溶胶数据，对比全天候、无云、无气溶胶条件，精确计算各电站实际发电量及云层和气溶胶导致的损失。研究揭示了化石燃料产生的大气气溶胶污染通过散射吸收太阳辐射抑制光伏发电效率的机制，为能源转型评估提供了量化工具。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1038/s41893-026-01836-5",
+          "tp": "光伏发电量",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "暂未考虑气溶胶-云相互作用的影响，实际损失可能会更高",
+          "b": "光伏发电可以提供低碳能源，并减少化石燃料燃烧产生的二氧化硫和细颗粒物等空气污染物。然而，全球能源转型并非简单的替代过程，化石燃料基础设施表现出强烈的路径依赖。现役煤电厂不仅持续排放温室气体，其产生的大气气溶胶污染还会通过散射和吸收太阳辐射，直接降低地表辐照度，抑制光伏系统的实际发电效率。\n近日，牛津大学Roy Grainger团队整合了OpenStreetMap开源地图、前人研究数据集与Sentinel-2卫星图像，通过卷积神经网络（CNN）在全球范围内初步筛选出潜在的光伏设施坐标；随后，结合PlanetScope与Google的高分辨率卫星图，利用SAM视觉大模型精准抠出并测量了光伏面板的实际物理面积；接着，通过分析Sentinel-2（2017-2024年）的历史地表反射率时间序列数据寻找突变点，推断出各电站的具体建成并网时间；基于这些确切的电站时空与面积信息，研究人员引入了NASA的MERRA-2气象再分析数据集（气溶胶数据，模拟+卫星校准），通过对比全天候、无云、无气溶胶三种不同辐射条件，精准计算出每个电站的实际发电量以及因云层和雾霾导致的发电损失；最后，将OMI卫星测得的微量气体观测数据与CEDS全球人为排放清单（分行业领域）输入到GEOS-Chem大气化学输送模型中进行空间模拟，推算出了燃煤电厂排放对光伏发电效率下降的具体贡献比例。\n结果显示，2023年，云层（404 TWh）+气溶胶（111 TWh）遮蔽导致全球光伏发电量损失高达515TWh（约占最优潜力的5.8%），这部分损失的能源相当于84座中型（1GW）燃煤电厂满负荷运转一年的总发电量。2017年至2023年间，全球现有光伏网络因气溶胶遭受的年均发电量损失，抵消了每年新增光伏装机发电量的30.0%，在人口稠密和高度工业化的地区抵消比例更高。中国有着全球最大规模的气溶胶光伏损失（61.3 TWh，2023年占总发电量的7.7%），29.0%的气溶胶光伏损失直接归因于燃煤电厂，但由于大规模实施了燃煤电厂超低排放改造，中国是唯一一个呈现损失持续下降趋势的主要经济体（年均下降1.4%），证明了空气治理对提升太阳能效能的作用。美国由于燃煤电厂和光伏设施在地理分布上较为分散，交叉影响较小，其气溶胶引发的光伏损失一直保持在较低水平，2023年仅为3.1%。通过GEOS-Chem大气化学传输模型，设置包含所有排放源的基础模拟以及仅激活电力部门排放的敏感性模拟，其发现由二氧化硫（主要来自煤炭燃烧）氧化形成的硫酸盐气溶胶，构成了光伏发电损失的最主要气溶胶类型。在空间统计层面，其计算了有效气溶胶光学厚度（Effective AOD）和对流层污染气体的垂直柱浓度，运用了双变量莫兰指数（Bivariate Moran's I statistic）对网格化数据进行空间相关性分析，证实了在部分国家，高产能的煤电区域与光伏发电损失最大的区域存在显著的正向空间重叠，支持了气溶胶带来的性能障碍并非太阳能固有的缺陷，而是化石燃料发电厂近距离运行带来的直接物理后果的观点。文章于2026年5月15日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "汉阳大学Rhokyun Kwak报道一种采用锌氧化代替析氧反应的电解水制氢路径",
+          "d": "2026-05-15",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "汉阳大学Rhokyun Kwak提出用锌氧化反应替代阳极析氧反应（OER）的电解水制氢新路径。阴极产氢，阳极锌氧化生成Zn²⁺并沉淀为99.8%高纯ZnO纳米颗粒。该体系理论整体电位仅约0.07V，实际约0.1V即开始产H₂，2.5V下电流密度达1000mA/cm²，全程无O₂产生，避免气体交叉和安全风险。与传统水电解（1.6-1.7V）相比大幅降低能耗，同时副产高附加值ZnO纳米材料，兼具制氢与材料合成双重效益。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1016/j.joule.2026.102477",
+          "tp": "锌辅助制氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "传统水电解制氢成本和能耗仍较高，主要受限于阳极的析氧反应（OER）。这主要由于OER是四电子反应，反应路径复杂，过电位高；O₂经济价值低，难以抵消制氢成本；且传统电解水同时产生H₂和O₂，容易出现气体交叉，带来膜降解和安全风险。已有研究尝试用解耦水电解或替代氧化反应辅助电解水降低能耗，但仍存在氧化还原介体稳定性差、电流密度低、废水中牺牲剂浓度不足等问题。\n近日，汉阳大学Rhokyun Kwak等提出了用锌氧化反应替代阳极OER，将水电解产氢过程与ZnO纳米颗粒合成直接耦合的方法；即阴极仍生产氢气，阳极侧则由锌金属氧化变为Zn2+，生成的Zn2+可与OH-在流道中反应生成沉淀，再经过过滤、洗涤、煅烧后可得到99.8%高纯ZnO纳米颗粒。实验结果表明，HER和锌氧化接近其理论电位启动，而OER需要很高过电位。传统水电解大约需要1.6–1.7 V才能明显运行，而该文提出的体系理论上整体电位仅约0.07 V，实际在约0.1 V就开始产H₂和ZnO；且在整个测试电压范围内，没有观察到O₂气泡，在2.5 V下电流密度达到约1,000 mA cm⁻²。与现有电解水技术相比，该体系可在75–1,014 mA cm⁻²范围内稳定运行，在100 mA cm⁻² 下能耗仅为5.36 kWh kg H₂⁻¹，即使计入锌氧化化学能也为25.73 kWh kg H₂⁻¹；在500 mA cm⁻²下能耗为29.48 kWh kg H₂⁻¹，计入锌化学能后为49.85 kWh kg H₂⁻¹。而传统商业水电解通常>200 mA cm⁻²，但电压>1.5 V；甲醇、尿素等替代氧化反应辅助水电解能耗较低，但由于废水或牺牲剂中反应物浓度有限，通常只能在较低电流密度下运行，多数低于100 mA cm⁻²；用氧化还原介体把HER和OER在时间或空间上分开方法可以减少 H₂/O₂ 同时产生带来的交叉和安全问题，但仍然涉及OER，而且介体需要反复充放电，稳定性和电压窗口限制使其通常低于200 mA cm⁻²。\n此外，高流速下OH-边界层较薄，ZnO不会明显在流道内部沉淀，电流响应稳定；低流速下边界层变厚，OH-与Zn2+过早重叠，ZnO在流道中间形成沉淀并造成电流波动；只要保持足够强的对流传输，就可以维持离子边界层分离，实现稳定运行和可控 ZnO生成。效率测试结果表明，在500 mA cm⁻²、3000 s条件下，H₂理论产量为5.6 mL，实际收集5.47 mL，对应法拉第效率97.7%；ZnO理论产量为18.98 mg，实际回收18.7 mg，对应法拉第效率98.5%；少量偏差主要可能来自气体泄漏、管路损失以及过滤洗涤过程中的ZnO损失。经济性分析结果表明，每生产1 kg H₂需要消耗约32.37 kg Zn，同时生成约40.27 kg ZnO。由于制备得到的ZnO纯度为99.8%、平均粒径为350.3 nm，其估算其最高可带来约5,279美元 kgH₂⁻¹的收益。文章于2026年5月15日发表在Joule。",
+          "hb": 1
+        },
+        {
+          "t": "流体-结晶协同实现全环境打印SAM基钙钛矿光伏效率超26%",
+          "d": "2026-05-15",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究报道了一种基于流体-结晶协同策略的全环境印刷（完全空气环境）钙钛矿太阳能电池，效率突破26%。此前钙钛矿太阳能电池的纪录效率主要依赖实验室惰性气氛下的旋涂工艺，难以规模化量产。研究通过自组装单分子层（SAM）基底结合流体动力学与结晶过程的协同调控，在全环境条件下实现大面积印刷制备，同时保持高器件性能。这一成果解决了钙钛矿太阳能电池从实验室走向工业化生产的核心瓶颈——环境稳定性与可印刷性，为低成本、高通量光伏器件的商业化部署提供了重要技术路径。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73373?af=R",
+          "tp": "钙钛矿全印刷光伏",
+          "aip": 1,
+          "kp": [
+            "转换效率[全空气印刷钙钛矿]: >26%",
+            "[工艺突破]: 首次全环境印刷SAM基钙钛矿电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    While lab‐scale spin‐coating in inert environments has delivered record efficiencies for perovskite solar cells (PSCs) employing self‐assembled monolayers (SAMs), their fabrication via fully ambient‐air printing—a prerequisite for low‐cost industrialization—remains unreported. Here, we report the first PSCs exceeding 26% efficiency based on fully ambient‐air printed SAMs and perovskite films and elucidate the governing role of SAM physicochemical properties through fluid‐crystallization synergy. SAMs with higher surface energy (\n                    γ\n                    ) flatten the perovskite ink meniscus, attenuating the temperature gradient and Marangoni stress along the gas‐liquid interface, thereby enabling more uniform perovskite deposition and smoother films. Simultaneously,\n                    γ\n                    systematically modulates perovskite crystallization by delaying nucleation onset and shifting the growth mode from continuous to instantaneous on higher‐\n                    γ\n                    SAMs. The fluid–crystallization synergy yields a record power conversion efficiency (PCE) of 26.31% (certified 25.85%), a benchmark for all reported ambient‐air printed devices, including non‐SAM‐based counterparts. The approach further enables scalable fabrication, achieving a champion PCE of 22.3% in 13.04 cm\n                    2\n                    mini‐modules with over 90% performance retention after 1200 h operation under the ISOS‐L‐1 protocol. This work establishes a quantitative link between SAM physicochemical properties and perovskite fluid dynamics and crystallization thermodynamics in ambient‐air printing, providing guidance for perovskite photovoltaics toward scalable ambient manufacturing.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "反铁磁体开关器件实现皮秒级切换与超低功耗运行",
+        "自振荡类神经元器件研发成功，无需外部时钟自主产生信号",
+        "量化研究证实国家媒体管控显著影响大模型训练数据倾向"
+      ],
+      "entries": [
+        {
+          "t": "国家媒体管控通过影响训练数据塑造大语言模型行为",
+          "d": "2026-05-15",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "该研究揭示了国家媒体控制如何通过影响训练数据进而改变大语言模型的行为。国家对媒体的控制会塑造LLM训练语料的政治倾向和信息内容，导致模型在敏感议题上呈现出系统性偏见。研究量化分析了不同媒体管制程度国家的训练数据对LLM输出的影响，为理解AI系统的意识形态偏差来源提供了实证依据，凸显了训练数据透明度的重要性。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-026-01486-9",
+          "tp": "LLM训练数据偏置",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "State control of the media is shown to alter the training data of large language models (LLMs) through its impact on the information environment. This has a substantial effect on the output of LLMs, with states rated more favourably in their own language when they have tighter media control. States with tight media control are rated more favourably by LLMs when prompted in their own language.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 用于非常规计算的自振荡类神经元器件",
+          "d": "2026-05-15",
+          "a": "Chemical Reviews: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "自持振荡器正在成为神经形态电子学的核心物理元件，为类脑计算提供硬件实现路径。本研究报道了一类具有神经元类似行为的自振荡器件，无需外部时钟即可自主产生周期性信号，可用于实现类脑的非线性动力学计算。这类器件可直接模拟生物神经元的兴奋、阈值和脉冲发射特性，在低功耗边缘智能、信号处理及非常规计算（如模式识别、优化求解）等场景中展现出独特优势，为后摩尔时代新型计算架构提供了器件基础。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acs.chemrev.5c00878",
+          "tp": "类神经振荡器件",
+          "aip": 1,
+          "kp": [
+            "器件[类脑计算]: 自振荡神经元器件",
+            "[功能]: 模拟生物神经元脉冲动力学"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Self-sustained oscillators are emerging as key physical elements for neuromorphic electronics, providing a hardware route to emulate the spiking dynamics of biological neurons. As conventional computing architectures struggle with power dissipation and parallel processing limitations, oscillatory devices offer a means to reproduce the brain's remarkable efficiency-performing adaptive and nonlinear tasks with minimal energy consumption. This review provides a unified synthesis of the diverse families of self-oscillating systems developed across physics, chemistry, and electronic engineering. We classify oscillators according to their operational mechanisms, distinguishing those driven by negative differential resistance (NDR) instabilities from those sustained by active-feedback amplifiers. Their common behavior is described within a nonlinear dynamical framework that links materials, electronic response, and the emergence of limit cycles in phase space. We discuss how these devices-ranging from electrochemical and memristive oscillators to transistor-based and hybrid architectures-can be modeled, measured, and coupled to form complex networks. Particular attention is given to the experimental identification of active elements and impedance signatures that reveal self-oscillation. By bridging device physics, nonlinear dynamics, and neuromorphic computing, this review outlines a coherent foundation for designing scalable, energy-efficient oscillatory systems that connect the physical principles of chemical and electronic oscillators with the computational logic of the brain.",
+          "hb": 1
+        },
+        {
+          "t": "基于反铁磁体的皮秒超低功耗开关器件",
+          "d": "2026-05-15",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究展示了一种基于反铁磁体的皮秒级超低功耗非易失性开关器件。反铁磁材料因相邻原子磁矩反平行排列，具有无杂散磁场、抗干扰强、超快自旋动力学等优势，可实现皮秒量级的开关切换速度，功耗远低于传统CMOS和铁磁存储器。该器件有望成为下一代存算一体计算架构的关键单元，在突破冯·诺依曼瓶颈、实现超高速低功耗信息处理方面具有深远影响。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adt3136?af=R",
+          "tp": "反铁磁开关器件",
+          "aip": 1,
+          "kp": [
+            "[开关器件]: Mn₃Sn/Ta反铁磁异质结",
+            "开关速度[反铁磁]: 皮秒级",
+            "功耗[反铁磁开关]: 超低功耗"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Developing an ultrafast and energy-efficient nonvolatile switching device may pose a strong impact on emerging computing architectures. However, processing speed has plateaued in the nanosecond regime, as further acceleration demands excessively large write power. We demonstrate ultralow power in picosecond switching using heterostructures of the antiferromagnet Mn\n                    3\n                    Sn and heavy metal tantalum, which exhibit spin-orbit torque switching by electrical pulses as short as 40 picoseconds. Power consumption in the picosecond regime is several orders of magnitude lower than in ferromagnetic counterparts owing to efficient angular momentum transfer. Compared with previously reported picosecond switching devices, our ultralow-power switching device realizes much less heating, higher endurance, and switching using photocurrent. These results pave the way to ultrafast nonvolatile memory and efficient optical-to-electrical conversion technology.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "诱导效应反转驱动聚合物催化剂，实现连续流光合成H₂O₂",
+        "二维金属有机框架中实现交替磁性化学工程调控",
+        "马兰戈尼涡流驱动胶体量子点相分离，实现多组份微加工"
+      ],
+      "entries": [
+        {
+          "t": "二维金属有机框架中交错磁性的化学工程调控",
+          "d": "2026-05-15",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "在二维金属有机框架材料中实现了交替磁性（Altermagnetism）的化学工程调控。交替磁性是一种新型磁性相，表现为无净磁化却具有非相对论性自旋劈裂，介于铁磁和反铁磁之间。该研究通过分子设计在二维MOF中构建这一物态，为下一代自旋电子学器件和无耗散信息存储提供了新的材料平台和设计范式。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22589",
+          "tp": "二维交变磁性材料",
+          "aip": 1,
+          "kp": [
+            "[磁相]: 交错磁体(非相对论自旋劈裂)",
+            "[材料]: 二维平面四配位Cr基MOF",
+            "[方法]: DFT计算验证"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Altermagnetism represents a novel magnetic phase exhibiting nonrelativistic spin splitting without net magnetization driven by lattice symmetry. Here, we introduce a general coordination-chemistry-based strategy to realize and control altermagnetic (AM) spin splitting in two-dimensional (2D) planar tetracoordinated Cr-based metal-organic frameworks (MOFs). Using density functional theory (DFT) calculations, we demonstrate that ligand symmetry and its arrangement within the lattice can be used to lower the crystallographic symmetry of Cr-based MOFs, enabling g-wave AM spin splitting up to 65 meV. Furthermore, frontier molecular orbital engineering (FMOE) allows selective ligand spin polarization, inducing a shift to d-wave AM anisotropy in polycyclic ligand-based 2D MOFs with spin splitting up to 83.9 meV. Microscopic magnetic exchange interaction (J) analysis reveals that ligand-mediated interactions dominate over metal-metal coupling, stabilizing AM order in systems with spin-polarized ligands. Interestingly, we further confirm AM spin splitting in the spin wave spectrum, where chiral magnon splitting is observed. Finally, we show that AM spin splitting gives rise to experimentally accessible charge-to-spin conversion, emerging as a linear response in d-wave and as a symmetry-allowed nonlinear effect in g-wave 2D AM MOFs. This work establishes coordination chemistry as a powerful and versatile route to symmetry control in 2D MOFs, enabling the rational design of 2D molecular materials with tunable electronic and AM properties for next-generation spintronic devices.",
+          "hb": 1
+        },
+        {
+          "t": "诱导效应反转驱动聚合物催化剂催化位点高效光充电用于连续流H₂O₂合成",
+          "d": "2026-05-15",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/催化剂",
+          "as": "研究提出诱导效应反转（inductive effect reversal）机制，驱动聚合物光催化位点高效光充电，实现连续流H₂O₂合成。该工作揭示了聚合物催化剂结构-电子构型的关联规律，通过调控光生电荷在催化活性位点上的富集效率，显著提升太阳能驱动过氧化氢光合成的产率与稳定性，为规模化绿色H₂O₂生产提供了新策略。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag284/8678204?rss=1",
+          "tp": "光催化过氧化氢合成",
+          "aip": 1,
+          "kp": [
+            "[诱导效应]: 氰基极化π共轭网络反转效应",
+            "催化剂[光催化H2O2]: 结晶碳氮化物CCN",
+            "[合成模式]: 连续流动光催化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Polymeric photocatalysts show great promise for solar-driven H2O2 production, yet their structural-electronic correlations and scalability remain insufficiently elucidated. Herein, we reveal the pivotal role of the inductive effect in polymeric semiconductors. Cyano groups polarize the π-conjugated network in crystalline carbon nitride (CCN), generating a negative inductive effect that enhances charge dynamics and O2 adsorption but limits electron availability for oxygen reduction. Introducing ether linkages into ordered CCN chains (OCCN) reverses this effect, further facilitating charge separation and lowering the barrier for *OOH intermediate formation. Notably, the resulting positive inductive effect enables efficient photocharging of cyano groups with hot electrons. Consequently, OCCN delivers a remarkable H2O2 yield of 13,136.4 µmol g−1 h−1 in water, even higher performance in seawater, and sustains 110.4 µmol h−1 generation in continuous flow. These findings establish inductive effect engineering as a powerful approach for advancing polymeric photocatalysts toward scalable solar-to-chemical conversion.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 马兰戈尼涡流驱动胶体量子点相分离用于多组份微加工",
+          "d": "2026-05-15",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究提出利用Marangoni涡流驱动胶体量子点的相分离，实现多种材料的确定性集成。传统半导体异质集成依赖昂贵的外延工艺，而该方法通过流体动力学操控纳米颗粒的自组装，在同一衬底上自发形成相分离图案。Marangoni效应源于表面张力梯度引发的液体流动，可在蒸发过程中精确调控量子点的空间分布，为低成本、可扩展的多材料光电器件制造提供了新路径。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c05529",
+          "tp": "量子点相分离",
+          "aip": 1,
+          "kp": [
+            "[机制]: Marangoni涡流驱动相分离",
+            "[材料]: 胶体量子点",
+            "[应用]: 多组分单片微制造"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The deterministic integration of multiple materials is the cornerstone of the semiconductor industry, traditionally accomplished through complex microfabrication techniques, such as lithography, transfer, and wafer bonding. Inspired by biological systems that precisely form intricate intracellular structures, self-assembly offers an efficient, bottom-up pathway for monolithic integration. The challenge, however, lies in controlling the transport of multiple components within the inherently chaotic and confined fluidic environments of microfabrication, which typically induces mixed phases and structural disorder. Herein, we utilize capillary bridges with Marangoni vortex flow to guide the segregation of colloidal quantum dots (CQDs) by size, enabling the efficient self-assembly of multicomponent microstructures. The fluid flow in our system establishes a regulated concentration gradient. This gradient drives the diffusiophoresis of larger CQDs away from the evaporation front, inducing a \"small-at-front\" segregation. The versatility and robustness of our platform are demonstrated by the various phase-segregated microstructures with customizable morphologies and diverse compositions. To showcase its practical application, we leverage this technique to integrate dual-wavelength lasers within a single photonic circuit, achieving the on-chip propagation of coherent light for optical communications. Our work introduces a novel approach to multicomponent microfabrication.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月8日　星期日",
+  "date_range": "2026-03-08",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "芳香甲脒配体突破湿气干扰，环境印刷钙钛矿电池效率达25.57%",
+      "Cu-N-C单原子催化剂动态重构，实现高效选择性乙炔半加氢反应",
+      "研究揭示电催化乙炔加氢过程中催化剂配位结构与氧化态演化规律"
+    ],
+    "AI与智能科技": [
+      "钒氧卟啉三聚体分子体系首次实现光激活量子比特耦合操控"
+    ],
+    "通用技术": [
+      "双通道可喷雾乳酸乳球菌纳米催化剂凝胶改善口腔鳞癌术后治疗",
+      "近红外二区纳米聚合物修饰CAR-NK细胞突破实体肺癌微环境屏障",
+      "电场驱动共价有机框架可逆化学键断裂，实现二维材料可编程切割"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "芳香甲脒配体突破湿气干扰，环境印刷钙钛矿电池效率达25.57%",
+        "Cu-N-C单原子催化剂动态重构，实现高效选择性乙炔半加氢反应",
+        "研究揭示电催化乙炔加氢过程中催化剂配位结构与氧化态演化规律"
+      ],
+      "entries": [
+        {
+          "t": "芳香甲脒配体双功能键合管理实现25.57%效率的气氛印刷钙钛矿",
+          "d": "2026-03-08",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该工作通过芳香族甲脒配体实现双功能键合管理，解决钙钛矿太阳能电池（PSC）在环境湿度条件下印刷制备时结晶难以控制的难题。甲脒配体同时调控钙钛矿薄膜的成核动力学与晶界缺陷钝化，抑制湿气诱导的非相成核，获得大晶粒、低缺陷密度的高质量薄膜。该策略推动PSC从惰性气氛制备走向低成本环境印刷工艺，加速其产业化进程。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520159?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[环境印刷钙钛矿电池]: 25.57%",
+            "[配体工程]: 芳香族甲脒配体双功能化键管理",
+            "[环境印刷]: 湿度条件下可控结晶"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ambient printing of perovskite solar cells (PSCs) faces severe challenges in controlling crystallization under humid conditions, leading to substantial performance losses compared to inertly processed devices. While ligand-assisted coordination is known to modulate crystal growth, a precise understanding of how specific chemical bonds influence crystallization dynamics during ambient printing remains elusive. Herein, we unveil a dual-functionalized bonding (DFB) mechanism enabled by aromatic formamidine ligands that concurrently coordinate with both the inorganic framework and organic cations during ambient printing. The key mechanistic insight lies in the ability of ligands to form simultaneous coordination bonds with [PbI6]4- octahedra and hydrogen bonds with formamidinium ions (FA+), which collectively delay nucleation, suppress the δ-phase formation, and widen the recrystallization window. By incorporating an electron-deficient triazole ring into the ligand backbone, we enhance this bifunctional binding effect, leading to superior crystallization control and defect suppression. The resulting perovskite films exhibit remarkable homogeneity, low trap density, and enhanced carrier diffusion. Consequently, ambient-printed devices achieve champion power conversion efficiencies of 25.57% for 0.09 cm2, 23.98% for 1.04 cm2, and 22.98% in 5 × 5 cm2 mini-modules. The optimized devices retain over 90% of their initial performance after 1,000 h of continuous operation. This work provides a profound mechanistic framework for molecular-level crystallization control in printed photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "芳香族甲脒配体双功能键合管理使环境印刷钙钛矿太阳能电池效率达25.57%",
+          "d": "2026-03-08",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "提出利用芳香族甲脒配体进行双功能键合管理策略，实现了环境湿度条件下印刷的钙钛矿太阳能电池25.57%的认证效率。环境印刷面临湿度下结晶控制的严峻挑战，该策略通过双功能配体同时钝化缺陷并调控结晶动力学，突破了非手套箱条件下制备高效器件的瓶颈，对钙钛矿电池的可扩展低成本制造具有重要推动作用。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520159?af=R",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[环境印刷PSC]: 25.57%",
+            "[配体]: 芳香族甲脒双功能键管理",
+            "[条件]: 环境气氛印刷(非惰性)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ambient printing of perovskite solar cells (PSCs) faces severe challenges in controlling crystallization under humid conditions, leading to substantial performance losses compared to inertly processed devices. While ligand-assisted coordination is known to modulate crystal growth, a precise understanding of how specific chemical bonds influence crystallization dynamics during ambient printing remains elusive. Herein, we unveil a dual-functionalized bonding (DFB) mechanism enabled by aromatic formamidine ligands that concurrently coordinate with both the inorganic framework and organic cations during ambient printing. The key mechanistic insight lies in the ability of ligands to form simultaneous coordination bonds with [PbI6]4- octahedra and hydrogen bonds with formamidinium ions (FA+), which collectively delay nucleation, suppress the δ-phase formation, and widen the recrystallization window. By incorporating an electron-deficient triazole ring into the ligand backbone, we enhance this bifunctional binding effect, leading to superior crystallization control and defect suppression. The resulting perovskite films exhibit remarkable homogeneity, low trap density, and enhanced carrier diffusion. Consequently, ambient-printed devices achieve champion power conversion efficiencies of 25.57% for 0.09 cm2, 23.98% for 1.04 cm2, and 22.98% in 5 × 5 cm2 mini-modules. The optimized devices retain over 90% of their initial performance after 1,000 h of continuous operation. This work provides a profound mechanistic framework for molecular-level crystallization control in printed photovoltaics.",
+          "hb": 1
+        },
+        {
+          "t": "电位驱动Cu-N-C催化剂的配位与氧化态演化以实现高效选择性乙酰化",
+          "d": "2026-03-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "该研究揭示Cu-N-C催化剂在电催化乙炔半加氢(eASH)中配位结构与氧化态的电位驱动演化规律。Cu单原子位点在反应条件下动态重构，实现乙炔高效选择性加氢，为乙烯纯化提供了可持续电催化路线，有望替代传统热催化工艺。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01236",
+          "tp": "乙炔电催化半氢化",
+          "aip": 1,
+          "kp": [
+            "催化剂[乙炔半加氢]: Cu单原子负载N掺杂碳",
+            "[电势驱动]: 配位与氧化态原位演化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electrocatalytic acetylene semihydrogenation (eASH) offers a sustainable route for ethylene purification, and the Cu single-atom catalyst (SAC) anchored on N-doped carbon (Cu-N-C) delivers exceptional performance in catalyzing eASH. However, identifying its true active sites under operating conditions remains a challenge. Here, using grand canonical ensemble density functional theory, we reveal that the Cu-N-C SAC undergoes a drastic, potential-driven structural evolution that fundamentally governs its catalytic performance. We construct a surface Pourbaix diagram to map the thermodynamic landscape of the active centers, demonstrating that the square-planar Cu(II)N4 motif reconstructs into low-coordinate, linear Cu(I)-hydride species under reducing potentials. This operando-generated Cu(I)-hydride center exhibits exceptional chemoselectivity, favoring acetylene adsorption via soft-soft acid-base interactions while kinetically suppressing overhydrogenation of ethylene and the hydrogen evolution reaction. Furthermore, we uncover a potential-dependent switch in the reaction mechanism: at low overpotentials, the reaction is mediated by interfacial water, whereas at high overpotentials, a pendant hydrogenated nitrogen ligand on the catalyst surface serves as an intramolecular proton shuttle, facilitating a highly efficient surface-enabled pathway. These findings establish a unified mechanistic paradigm linking applied potential to coordination geometry, oxidation state, and proton-transfer kinetics, providing critical insights for the design of high-performing eASH SACs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "钒氧卟啉三聚体分子体系首次实现光激活量子比特耦合操控"
+      ],
+      "entries": [
+        {
+          "t": "钒氧卟啉三聚体中的光激活量子比特耦合",
+          "d": "2026-03-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "钒卟啉三聚体分子体系首次实现光激活量子比特耦合。分子平台因其模块化和化学可调性，成为量子信息科学的重要载体。研究利用钒基卟啉三聚体中多个自旋中心，通过光激发实现量子比特间的可控耦合，为分子量子器件的相干操控和量子门操作提供了新路径，展现了分子量子比特在化学调控相干性方面的独特优势。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17205",
+          "tp": "光激活量子比特耦合",
+          "aip": 1,
+          "kp": [
+            "材料体系[分子量子比特]: 钒氧基卟啉三聚体",
+            "特性[量子比特]: 光激活超快量子比特耦合"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Molecules provide a modular and chemically tunable platform for quantum information science. In recent years, significant advances have been made in enabling optical spin initialization, coherent control, and both optical and electrical readout of molecular qubits. Yet, a central challenge remains: realizing scalable architectures through the controlled and ultrafast activation of interqubit interactions. Here, we present a molecular system composed of two vanadyl porphyrin qubits bridged by a free-base porphyrin chromophore, where the qubits are magnetically independent in the ground state but become coupled upon photoexcitation. Femtosecond transient absorption and time-resolved electron paramagnetic resonance experiments, supported by DFT calculations and spectral simulations, reveal that photoexcitation induces the formation of a spin-quintet state within subpicosecond time scales. Notably, long-lived spin polarization persists up to room temperature. Theoretical modeling offers design principles for harnessing this mechanism in future applications. These results provide a proof of concept for optically controlled spin interactions in molecules, paving the way for light-activated molecular quantum gates.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "双通道可喷雾乳酸乳球菌纳米催化剂凝胶改善口腔鳞癌术后治疗",
+        "近红外二区纳米聚合物修饰CAR-NK细胞突破实体肺癌微环境屏障",
+        "电场驱动共价有机框架可逆化学键断裂，实现二维材料可编程切割"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 可喷雾乳酸乳球菌纳米催化剂凝胶用于临床前口腔鳞状细胞的术后免疫调节",
+          "d": "2026-03-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "口腔鳞状细胞癌（OSCC）具有高度侵袭性。研究表明，肿瘤微环境中的微生物群会影响肿瘤进展和抗肿瘤免疫反应。研究人员开发了一种双通道可喷雾的乳酸乳球菌益生菌-纳米催化剂凝胶。该凝胶利用益生菌介导的免疫调节和纳米催化作用，旨在改善OSCC患者的术后治疗效果，为临床干预肿瘤微环境提供了一种极具前景的局部治疗新策略。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01542",
+          "tp": "纳米催化剂",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Oral squamous cell carcinoma (OSCC) is one of the most prevalent and aggressive head and neck cancers. Emerging evidence shows that distinct microbiomes coexist with tumor and immune cells in the tumor microenvironment (TME), shaping tumor progression and antitumor immunity. Harnessing probiotic-based immune modulation therefore represents a promising strategy to improve postoperative outcomes. Here, we develop a dual-channel sprayable Lactococcus lactis probiotic-nanocatalyst gel (L. lactis@Co4N/C@Gel) to potentiate postoperative immune reconstruction in OSCC. L. lactis can activate antitumor responses through Toll-like and NOD-like receptor pathways. However, its therapeutic benefit is constrained by lactate overproduction, which promotes tumor aggressiveness, immunosuppression, and therapy resistance. The incorporated Co4N/C nanoparticles efficiently scavenge L. lactis-derived lactate, thereby amplifying downstream immune activation. Benefiting from the thixotropic properties of calcium alginate, a sodium alginate solution containing L. lactis and CaCl2 solution containing Co4N/C nanoparticles can be cosprayed to achieve uniform wound coverage and rapid in situ gelation. In an orthotopic OSCC mouse model, L.lactis@Co4N/C@Gel effectively reconstructs postoperative antitumor immunity and markedly suppresses tumor recurrence. These findings highlight a microbiome-nanocatalyst synergistic strategy for improving postoperative immunotherapy in OSCC.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] NIR-II 纳米医学工程 CAR-NK 细胞用于精准导航和增强肺癌免疫治疗",
+          "d": "2026-03-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "嵌合抗原受体NK（CAR-NK）细胞疗法在治疗实体肺癌时，常因免疫抑制性肿瘤微环境（TME）导致细胞浸润不足和免疫激活不佳。为此，研究人员构建了一种名为CK-PSI的纳米工程CAR-NK生物混合物。该系统结合了近红外二区（NIR-II）纳米聚合物与小分子抑制剂，实现了对CAR-NK细胞的精准导航与光控靶向，从而有效突破了微环境屏障，显著增强了肺癌的免疫治疗效果。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01128",
+          "tp": "纳米免疫剂",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Despite the prominent success against hematologic malignancies in clinical settings, chimeric antigen receptor NK (CAR-NK) cell immunotherapy is still hindered in lung cancer tumors owing to insufficient infiltration and poor immune activation induced by the immunosuppressive tumor microenvironment (TME). Herein, a nanoengineered CAR-NK biohybrid (CK-PSI) was constructed by conjugating nanomedicine (PSI NPs) containing a near-infrared II (NIR-II) polymer and a specific small-molecule inhibitor of Smad3 (SIS3) to the surface of metabolic glycan-engineered CAR-NK cells via a bioorthogonal reaction. Anti-B7H3 CAR modification on cell vectors offers selectively targeted delivery of hitchhiking NIR-II nanomedicine into lung cancer tumors, simultaneously enabling real-time tracking of CAR-NK cells and precise localization of deep-seated tumors through NIR-II fluorescence imaging. NIR-II excitation mild photothermal therapy not only destroys tumor cells by thermal ablation but also promotes the infiltration and penetration of CK-PSI through the rupture of physical barriers within tumor tissues. More importantly, the in situ release of the Smad3 inhibitor further reduces extracellular matrix (ECM) deposition through TGF-β signaling pathway blockade in the TME, thereby boosting the infiltration and immune activation of CAR-NK cells. The bioorthogonal nanohybrid with NIR-II phototheranostic triggered cell localization and immunomodulatory capabilities provides a new paradigm for potentiating the infiltration and immune activation efficiency of CAR-NK cells against solid tumors.",
+          "hb": 1
+        },
+        {
+          "t": "电场驱动的分子手术刀：单层共价有机框架的可编程切割与重构",
+          "d": "2026-03-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出电场驱动的'分子手术刀'策略，实现对单层共价有机框架（COFs）的可编程切割与重构。含可逆键合的单层COFs具有动态结构特征，通过电场精确调控可逆化学键的断裂与重组，使COFs材料具备按需拆解和重新组装的能力，为智能响应型二维材料的结构编辑和动态调控开辟了新方向。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22955",
+          "tp": "单层COF电场重构",
+          "aip": 1,
+          "kp": [
+            "[重构策略]: 电场介导分子手术刀可编程解聚亚胺COF"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Monolayer covalent organic frameworks (COFs) featuring reversible linkages have emerged as promising platforms for dynamic structural reconfiguration. However, achieving programmable depolymerization and reconstruction of robust imine COFs remains a significant challenge. Here we present an \"electric-field-mediated molecular scalpel\" strategy that combines a localized electric field with bias-responsive boronic acid molecules to achieve localized C═N bond cleavage and nanoscale reconstruction, enabling precise patterning of in-plane imine/boroxine COF hybrid framework. In situ STM reveals a gradual depolymerization mechanism. Kinetic analysis, liquid-phase atomic force microscopy (AFM), nuclear magnetic resonance (NMR), and molecular dynamics (MD) simulations collectively validate a new electric-field-mediated interfacial reconfiguration mechanism of \"adsorption-activation-transformation\". In this process, boronic acid molecules compete for surface sites, destabilizing the imine lattice and promoting its depolymerization. This work provides the first (sub)molecular-level insight into the dynamic depolymerization of imine COFs and, with nanometer precision, enables the construction of in-plane hybrid framework between imine and boroxine COFs, thereby establishing a generalizable framework for electric-field-mediated nanoscale molecular engineering.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

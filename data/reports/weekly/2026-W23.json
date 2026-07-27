@@ -1,0 +1,310 @@
+{
+  "type": "weekly",
+  "date_label": "2026-06-01 ~ 2026-06-07",
+  "date_range": "2026-06-01 ~ 2026-06-07",
+  "main_theme": "天合光能叠层组件效率达29.2%，中国批准首款侵入式脑机芯片，上海石化量产T1000级碳纤维",
+  "overview": "天合光能经TÜV SÜD认证推出907瓦钙钛矿/硅叠层太阳能组件，整板转换效率达29.2%。中国本土团队研发的全球首款侵入式脑机接口芯片获批并于2024年10月完成患者董辉植入。上海石化攻克湿法T1000级高性能碳纤维技术并实现批量量化生产。英国海事联盟验证全球首个离网独立氢能动力中心，通过现场制氢-储氢-发电为海上作业船舶供电。微软发布拓扑量子芯片Majorana 2，将铅替代铝超导层使量子态持续时间从2毫秒升至20秒以上。比亚迪宣布为其自动驾驶系统过错导致的事故承担全部经济赔偿责任。",
+  "headlines": {
+    "零碳产业": [
+      "英国海事联盟验证全球首个离网浮动氢能中心实现船舶供电",
+      "天合光能发布907瓦钙钛矿硅叠层组件效率达29.2%",
+      "中科院化学所采用氮取代石墨炔实现金属空气电池太阳能充电",
+      "斯坦福鲍哲南团队揭示锂金属电池多孔界面时空化学偏析机制"
+    ],
+    "AI与智能科技": [
+      "中国批准全球首款侵入式脑机接口芯片并完成患者植入",
+      "微软发布拓扑量子芯片Majorana 2延长量子态持续时间",
+      "洛桑联邦理工学院展示纳焦耳级片上超快锁模激光器",
+      "研究人员提出基于纳米通道的纳米流体离子存储器架构"
+    ],
+    "通用技术": [
+      "上海石化实现T1000级高性能小丝束碳纤维批量量化生产",
+      "比亚迪承诺为其自动驾驶系统事故承担全部经济赔偿责任",
+      "NASA X-59静音超声速飞机即将进行突破声障核心测试",
+      "NASA费米望远镜首次探测到超亮超新星伽马射线辐射"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "天合光能推出功率907瓦的钙钛矿/硅叠层组件，经TÜV SÜD认证转换效率达29.2%。中科院化学所李玉良团队利用氮取代石墨炔将光耦合电池带隙拓宽至1.87eV，光照下显著降低充电过电位。英国支持的联盟成功验证世界首个离网独立氢能中心，直接为海上作业船舶供电。",
+      "headlines": [
+        "英国海事联盟验证全球首个离网浮动氢能中心实现船舶供电",
+        "天合光能发布907瓦钙钛矿硅叠层组件效率达29.2%",
+        "中科院化学所采用氮取代石墨炔实现金属空气电池太阳能充电",
+        "斯坦福鲍哲南团队揭示锂金属电池多孔界面时空化学偏析机制"
+      ],
+      "entries": [
+        {
+          "t": "全球首个浮动氢能中心验证成功，实现船舶离网供电",
+          "d": "2026-06-01",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "由英国支持的海事联盟成功验证了一个\"世界首个\"离网独立氢能动力中心，用于为船舶提供动力。该氢能中心无需接入电网，通过现场制氢-储氢-发电为海上作业船舶供电，为零排放航运提供了创新解决方案。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/energy/world-first-floating-hydrogen-hub",
+          "tp": "浮式氢能枢纽",
+          "aip": 1,
+          "kp": [
+            "储能容量[浮式氢能枢纽]: 约45MWh",
+            "平台[浮式氢能枢纽]: 3模块六边形浮台约12900平方英尺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A UK-backed maritime consortium has successfully validated a “world-first” grid-independent Hydrogen Power Hub designed to accelerate port decarbonization.\nAt the heart of the system are three modular hexagonal floating platforms spanning a combined footprint of nearly 12,900 square feet. The platforms integrate approximately 45MWh of battery energy storage, modular fuel cell systems, hydrogen-powered generation, onboard renewable energy sources, and advanced grid-forming AC/DC electrical architecture designed to deliver power directly to vessels.\nThe concept was validated through a six-month program under the UK Research and Innovation Clean Maritime Demonstrator Competition Round 6, conducted in partnership with the UK Shipping Office for Reducing Emissions. The effort included hydrodynamic, structural, electrical, and operational testing.\nThe partners say the project demonstrated that existing\n, battery, fuel-cell, and electrical technologies can be integrated into a modular floating system capable of supplying power to large ships at berth and deployed across ports worldwide.\nDesigned for large-scale maritime operations, the Hydrogen Power Hub can\nup to 5MW of continuous clean electricity directly to vessels at berth. The system supports both 6.6kV and 11kV shore power connections, providing enough capacity to serve medium-sized cruise ships and other power-intensive maritime assets.\nThe project is aimed at overcoming one of the biggest challenges in port decarbonization: access to reliable electrical infrastructure. Many ports still struggle to deploy shore power at scale because of limited grid capacity, lengthy utility connection timelines, space constraints, complex permitting requirements, and the high costs associated with conventional shore-side power installations.\nAccording to the consortium, the platform is capable of supplying approximately 91MWh of energy per week while supporting repeated vessel charging operations. The design is intended to minimize the need for major construction projects, land reclamation efforts, or costly upgrades to existing\ninfrastructure.\nTo support continuous operations, the platform consumes roughly 16,500 to 17,600 pounds of hydrogen per week, stored in modular, ISO-compatible low-pressure containers integrated into the floating structure. The approach is designed to simplify fuel\nwhile maintaining flexibility for different port environments.\nThe current configuration includes seven onboard hydrogen storage tanks, with refueling expected about twice per week. According to the project team, this setup allows ports to begin deploying hydrogen-powered shore power systems without first investing in permanent hydrogen infrastructure, potentially lowering barriers to adoption during the early stages of implementation.\nRather than depending on large generators, the system uses 1.3MW modular fuel cells to continuously charge onboard batteries, allowing energy to be rapidly delivered when ships connect at berth. It also integrates 146kW of onboard solar capacity, helping reduce hydrogen consumption.\nAdditional testing by the University of Strathclyde confirmed the platform’s stability, structural performance, motion characteristics, and multi-platform connectivity under different sea conditions, supporting its suitability for long-term\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Energy\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review",
+          "hb": 1
+        },
+        {
+          "t": "中科院化学所李玉良采用氮取代石墨炔光耦合电极实现金属空气电池太阳能充电与低过电位循环",
+          "d": "2026-06-02",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中科院化学所李玉良团队提出以氮取代石墨炔（NGDY）作为金属自由光耦合正极，实现可充电金属空气电池直接太阳能充电。NGDY通过改性sp杂化碳网络，在光激发下动态重构电子密度形成瞬态高活性位点，避免依赖贵金属催化剂。带隙从1.72eV拓宽至1.87eV，展现n型半导体特性，光照下显著降低充电过电位，为太阳能直接存储于电池提供了新策略。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-026-73926-z",
+          "tp": "光耦合电极",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "近年来，将太阳能直接存储于可充电金属空气电池（RMABs）中成为可持续能源领域的前沿课题。RMABs（如Zn||air、Li||O₂、Mg||air）具有高理论比能量、安全性和环境兼容性，但实际应用受限于正极氧气析出反应（OER）动力学缓慢、充电过电位高，以及依赖贵金属催化剂（Pt、IrO₂）导致成本高且易降解的问题。传统光耦合电极依赖半导体异质结或带隙工程，光仅生成外部载流子，而活性位点保持静态，导致光诱导催化增强有限，材料易在电化学条件下退化。\n近日，中科院化学所李玉良教授团队提出氮取代石墨炔（NGDY）为金属自由光耦合正极，实现RMABs的直接太阳能充电。NGDY通过改性sp杂化碳网络，在光激发下动态重构电子密度，形成瞬态高活性位点。其先在铜箔涂覆碳布（CC）表面原位生长NGDY纳米片，经超声剥离得到粉末，保持高结晶性与层状堆叠结构（厚度约3.4nm，约9层），原子级N:C比约1:3。光电化学表征显示，NGDY吸收可见光范围光谱，带隙从GDY的1.72eV拓宽至1.87eV（实验测），DFT计算为1.94eV；Mott–Schottky曲线证明其n型半导体特性；光照下光生电流达130.5µA cm⁻²，表明电子–空穴有效分离。光照下XPS、Raman和DFT模拟显示，光激发使sp-C的炔键电子部分转移至氮位点，产生高活性氧化中心，动态优化OER中间体吸附。原位Raman监测表明，OOH和O中间体在低充电电压下出现且迅速反应，光激发降低了中间体累积和充电反应障碍。DFT计算表明，光激发降低OER自由能，C3位点成为活性催化位点，中间体吸附能显著下降，表明增强界面反应动力学和稳定性。性能方面，NGDY基光耦合Zn||air电池（PZAB）在光照下1mAcm-2充电电压降至1.33V（低于理论1.65V及Pt/C+IrO₂对照1.91V），能量效率提高至96.9%，在100mAcm-2下稳定循环230次，库伦效率>96%，光照降低锌枝晶生成，改善安全性。Li||O₂电池（PLOB）光照下能量效率达96.3%，电压差显著减小且循环稳定；Mg||air、Fe||air和Al||air电池均显示充电电压下降和能效提升。固态PZAB在光照下充电电压从2.05V降至1.20V，能量效率提升至93.6%，可弯曲循环稳定。文章于2026年6月2日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "天合光能发布29.2%效率的907瓦叠层太阳能组件",
+          "d": "2026-06-02",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "天合光能（Trina Solar）宣布推出功率达907瓦的钙钛矿/硅叠层太阳能组件，经德国TÜV SÜD认证，整板转换效率达到29.2%。叠层电池通过将宽带隙钙钛矿顶电池与窄带隙硅底电池组合，可更高效利用太阳光谱中不同波段光子，突破单结硅电池的理论效率极限（约29.4%）。该成果标志着叠层光伏技术从实验室向产业化组件层面迈出关键一步。核心瓶颈在于大面积钙钛矿薄膜的均匀沉积、长期光热稳定性及铅基材料的环保合规问题，户外服役寿命仍待验证。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/06/01/trina-solar-announces-907-w-tandem-solar-module-with-29-2-efficiency/",
+          "tp": "叠层光伏组件",
+          "aip": 1,
+          "kp": [
+            "组件功率[n型TOPCon-钙钛矿叠层]: 907 W",
+            "转换效率[叠层组件TÜV认证]: 29.2%",
+            "[量产状态]: 面向量产设计"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD and is designed for mass production rather than laboratory-scale use.\nVincent Shaw\nTechnology & Products\nUtility-scale\nImagen: Trina Solar\nChinese PV manufacturer\nhas unveiled a 907 W n-type TOPCon-perovskite tandem solar module.\nAccording to the company, the module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD. The product is reportedly designed for mass production, rather than a laboratory-scale sample.\nThe module uses a two-terminal tandem cell architecture combining an n-type TOPCon crystalline silicon bottom device with a perovskite top cell. The design is intended to absorb a broader part of the solar spectrum than conventional single-junction silicon modules.\nThe module measures 2,384 mm by 1,303 mm and is based on 210 mm wafer technology. It incorporates large-area perovskite film deposition, tunnel recombination contact technology, and high-reliability encapsulation.\nThe company said its slot-die coating and vapor-assisted crystallization process improved film uniformity in large-area perovskite layers, while a composite indium tin oxide (ITO) tunneling layer wass used to reduce recombination losses between the top and bottom cells.\nThe panel also utilizes dual-layer co-extruded polyolefin elastomer (POE) encapsulation and a low water-vapor transmission backsheet, along with perovskite-specific sealing materials. According to Trinasolar, the product has passed International Electrotechnical Commission (IEC) 61215 and IEC 61730 reliability testing, including potential-induced degradation (PID), damp heat, thermal cycling, and ultraviolet (UV) aging tests.\nTrinasolar said it plans to accelerate production of its perovskite-silicon tandem module line in 2026, though large-scale commercial shipments are expected to begin in 2028–2029, according to a recent investor communication.\nIn December, the manufacturer announced that an industrial-scale tandem solar cell using a 210 mm half-cut format achieved a\ncertified power conversion efficiency of 32.6%\n, while a standard-size tandem module integrating the cells delivered a peak power output of 865 W. It said both results have been independently verified by European testing bodies and represent world-record performance for industrially relevant formats.\nTrina Solar said the latest results build on a series of tandem milestones reported over the past two years, including certified tandem modules exceeding 800 W and tandem cell efficiencies above 31% on industrial wafer formats. The company claimed it has now created or broken global benchmarks in solar cell efficiency or module power output 37 times.\nVincent Shaw\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "斯坦福鲍哲南揭示锂金属电池多孔界面时空化学偏析新机制",
+          "d": "2026-06-01",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "斯坦福大学鲍哲南、崔屹团队利用X射线光电子能谱、纳米二次离子质谱、同步辐射等多尺度表征技术，系统解析锂金属电池SEI时空化学演化。将SEI分为铜基底界面、锂沉积界面和循环残留三类，揭示三维锂晶粒生长驱动界面组分时空偏析，锂剥离后固结形成多孔残留框架，可封存电解液衍生组分持续诱发副反应，建立了偏析-限域力化耦合理论框架。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/jacs.6c04430",
+          "tp": "锂负极界面",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "锂沉积 / 剥离过程中 SEI 的化学组分与空间结构演化机制尚不明确。斯坦福大学鲍哲南、崔屹院士等人依托DME/LiFSI电解液体系，结合X射线光电子能谱、纳米二次离子质谱、同步辐射X射线吸收光谱及扫描电镜等多尺度表征技术，系统解析了锂金属电池SEI的时空化学演化规律，揭示了多孔界面的形成新机制。\n研究团队将SEI精准划分为铜基底界面SEI、锂沉积界面SEI和循环残留SEI三类，证实三维锂晶粒生长会驱动界面组分发生时空化学偏析，使FSI阴离子分解生成的氟化锂等无机物种，与锂表面富氧相形成空间分离的异质结构。而锂剥离引发的晶粒收缩与晶间坍塌，会将偏析的无机组分压缩、固结，形成具备多孔结构的残留SEI框架。\n研究进一步发现，该多孔界面可封存电解液衍生组分，这类深埋物种无法被常规表面检测手段捕捉，却会持续诱发副反应、增加离子传输阻力。该研究建立了全新的“偏析-限域”力化耦合理论框架，厘清了SEI结构、组分与电池性能的关联，为优化电解液体系、调控界面结构、抑制锂金属负极失效、提升锂金属电池长效稳定性提供了全新的设计思路与理论支撑。文章于2026年6月1日发表在Journal of the American Chemical Society。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "中国批准全球首款本土研发侵入式脑机接口芯片，2024年10月已完成河南患者董辉的植入手术。微软发布Majorana 2量子芯片，用铅替代铝超导层，关键量子态持续时间从2毫秒提升至20秒以上。洛桑联邦理工学院展示铒离子注入氮化硅光子集成电路，输出176MHz脉冲序列，脉冲能量达纳焦耳级。",
+      "headlines": [
+        "中国批准全球首款侵入式脑机接口芯片并完成患者植入",
+        "微软发布拓扑量子芯片Majorana 2延长量子态持续时间",
+        "洛桑联邦理工学院展示纳焦耳级片上超快锁模激光器",
+        "研究人员提出基于纳米通道的纳米流体离子存储器架构"
+      ],
+      "entries": [
+        {
+          "t": "中国批准全球首款侵入式脑机接口芯片——下一步是什么",
+          "d": "2026-06-02",
+          "a": "MIT Technology Review",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "中国批准了全球首款侵入式脑机接口芯片。2024年10月，河南患者董辉成为首批接受植入的受试者之一。该芯片由中国本土团队研发，标志中国在侵入式BCI赛道上取得监管层面的里程碑式突破，直接对标Neuralink等美国企业。文章详述了患者从决策到手术的全过程，反映出中国在神经接口领域加速从实验室走向临床应用的态势。",
+          "sc": 10.0,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.technologyreview.com/2026/06/01/1138133/china-world-first-brain-chip/",
+          "tp": "侵入式脑机芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "EXECUTIVE SUMMARY\nOne day last October, sitting in the courtyard of his house in China’s Henan province, Dong Hui decided to see if he could hold a pen to write.\nDong, 39, had sustained spinal cord injuries in a car accident six years earlier that left him paralyzed from the neck down. Slowly but determinedly, he wrote his name, “Thank you,” and then the date. This was the result of an 11-month-long rehabilitation enabled by an implant in his brain. Before that process, Dong could move his arms slightly but wasn’t able to use his fingers.\n“I couldn’t believe I was able to write again. I was so excited I even missed a stroke in my name,” he told\nMIT Technology Review\non a video call.\nIn November 2024, Dong became one of the first people in China to be given an invasive brain-computer interface (BCI) through brain surgery. He had signed up for a clinical trial with the device’s developer one month after seeing on TV how a BCI had apparently enabled another paralyzed Chinese man to hold his granddaughter.\nThis March, the implant Dong uses became the first invasive BCI product in the world to be approved for use beyond clinical trials. It’s now available to some patients with paralysis in their limbs due to spinal cord injuries. We spoke to a range of experts to understand why the device was able to reach this global milestone, what makes this moment so significant, and what to expect next.\nDong’s brain implant is a coin-size device called NEO. It was developed by\nNeuracle Technology\n, a Shanghai-based startup, together with researchers at Tsinghua University in Beijing.\nDuring a procedure that took just over an hour and a half, the device’s sensors, which collect Dong’s brain signals, were placed on his dura mater, the tough outer layer of tissue that covers and protects the brain. The signals are transmitted to a computer by an implant placed on Dong’s skull. The computer then translates the signals into commands for a soft robotic glove Dong wears during the 2.5-hour training sessions he completes each day to help him learn to grab.\nDong started his rehabilitation around a week after surgery. “On the ninth day of my training, my right hand successfully grabbed a ball without the glove,” he says. “That was a miraculous moment.”\nNow he continues with his training at home. He wants to be able to control his hands better in order to put on clothes, eat, and do other daily tasks without troubling his aging parents.\nA growing number of people with traumatic injuries in China are now poised to tread a similar path thanks to NEO’s recent approval. According to China’s National Medical Products Administration, the bureau responsible for drug supervision, the product is suitable for patients between 18 and 60 who have paralysis in all limbs due to spinal cord injuries but still have some residual function in their arms.\nNEO beat several other BCIs to approval, including one from Neuralink, a California-based company founded by Elon Musk. Since October 2023, Neuracle has conducted 36 clinical trials using NEO, including the one on Dong. Thirty-two of them took place in the space of a few months in 2025, with the details about one of the four first in-person trials published in a\npreprint paper\nlast July. Neuracle did not reply to a request for comment from\nMIT Technology Review\nOne reason for NEO’s fast approval could be that it has a “relatively less invasive” design than counterparts such as Neuralink’s N1 brain chip, says Avinash Singh, a BCI researcher at the University of Technology Sydney. NEO’s eight sensors sit on top of the brain’s protective membrane while Neuralink’s N1 chip directly penetrates the cortex, the outermost layer of the brain itself. Neuracle’s device faces fewer regulatory constraints because it presents a lower risk of hemorrhage, glial scarring, and long-term signal degradation, Singh says.\nChina’s strong support for its BCI industry also means that NEO was put on an expedited regulatory pathway; in comparison, the approval process of the US Food and Drug Administration can take several years, Singh adds.\nNEO’s approval is hugely important for the global BCI industry, says Wang Shouyan, a neuroscientist at Fudan University in Shanghai who was not involved in research or trialing for NEO. Even though research and development on BCIs has taken place for several decades, most of it happened in the lab. The news means that BCIs are now ready for large-scale manufacturing and clinical use in China, Wang says.\nFor Dong, however, it means something much more personal. “Now, it will be able to help not only me, but also thousands and thousands of other patients suffering from spinal cord injuries in China who are tortured by despair each day,” he says of NEO. “It will bring them hope and change their lives.”\nDays after NEO was approved, China started incorporating it into the country’s health insurance system by assigning it a unique code. This is one of the first steps toward a future where eligible Chinese patients pay a certain percentage of the BCI’s price if they need it during their treatment.\nThe growth of China’s BCI industry is expected to accelerate thanks to the government’s policy support and financial backing. The country’s latest five-year plan, published on the same day Neuracle received its approval, lists BCI as one of six key industries important to China’s future tech competitiveness, alongside quantum technology, humanoid robots, and others. Several Chinese startups, including NeuroXess and StairMed, have already worked in the field for many years.\n“China’s decision to double down on becoming a global leader in the field owes in part to what these companies have already accomplished,” says Meicen Sun, an information scientist at the University of Illinois Urbana-Champaign who studies information and technology policy.\nBut, Sun says, the biggest advantage China may have is that Chinese people, particularly patients like Dong, tend to welcome this technology and are genuinely enthusiastic about it. In comparison, in the US and Western Europe, testing technologies on human bodies elicits an “ick factor,” triggering concerns and even resistance, she says.\nNEO has become the world’s first invasive BCI to go commercial, but scientists interviewed by\nMIT Technology Review\ncaution against comparing Chinese and US efforts through the\nlens of a race\nA race implies an endpoint, but it is hard to say where that is for the development of BCIs, says Nick Ramsey, a neuroscientist at Radboud University Nijmegen in the Netherlands. Also, the US and China have fundamentally different visions, Sun says. The US is primarily concerned with being the first to do something and achieving state-of-the-art performance, while winning to China means capturing more consumers and using technology to deliver solutions on a societal scale.\n“Being exceptional and being accessible are two diametrically opposed definitions of winning,” Sun says.\nIn fact, neurotechnology has emerged as a rare tech sector where US-China collaboration is still happening despite geopolitical tensions. The US company Axoft,  based in Cambridge, Massachusetts, says it has teamed up with a Chinese company and a hospital in Shanghai to test its BCI on four patients in China and has plans to expand its trials in the country.\nLooking forward, China’s BCI industry is expected to speed up its growth over the next five years thanks to strong government support. “There is no comparable national-level ambition or coordinated map elsewhere in the world at the moment,” says Singh.\nMore BCIs are also in the pipeline for domestic approval in the country, including\n, developed by the Chinese Institute for Brain Research in Beijing and its affiliated startup, NeuCyber NeuroTech. The device, which sits on the dura mater, is designed to help those who have movement and speech difficulties due to spinal cord injuries or amyotrophic lateral sclerosis. These candidates could get the green light as early as 2028, Singh says.\nSynthetic biologists were tantalized by the idea of making mirror images of microbes. Then things got complicated.\nIn an early step towards artificial wombs, a biotech company claims it’s developed a “fully artificial” chicken egg.\nAnd why health experts believe it can be contained.\nAutomation, AI, and screening technologies are already transforming reproductive medicine.\nIllustration by Rose Wong\nDiscover special offers, top stories,\nupcoming events, and more.",
+          "hb": 1
+        },
+        {
+          "t": "微软发布升级版量子芯片Majorana 2",
+          "d": "2026-06-02",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "微软在arXiv发布升级版拓扑量子芯片Majorana 2，以铅替代前代铝超导层增强电子对结合力，关键量子态持续时间从2毫秒跃升至20秒以上，宣称规模化量子计算机交付时间缩短至2029年。但学界强烈质疑：新论文仅证明维持奇偶性状态不等于有效量子比特，缺乏叠加态演示，状态切换可能仅是电子跳跃，验证马约拉纳零模的核心协议因缺原始数据无法独立核实。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/d41586-026-01788-y",
+          "tp": "拓扑量子芯",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月2日，微软在arXiv发布预印本，公布升级版拓扑量子芯片“Majorana 2”。通过用铅替代前代铝超导层增强电子对结合力，其关键量子态持续时间从2毫秒跃升至超20秒。微软据此宣称，规模化量子计算机的交付时间将缩短一半，提前至2029年。\n然而学界强烈质疑。批评者指出，新论文仅证明设备维持了“奇偶性”状态，这不等于证实了有效量子比特，其观察到的状态切换可能仅是电子在量子点间的跳跃，而非真正的马约拉纳零模；且缺乏控制比特进入叠加态的演示，宣称的续航时间也不等同于叠加态存活时间。此外，验证零模的核心协议因缺原始数据无法独立核实。",
+          "hb": 1
+        },
+        {
+          "t": "洛桑联邦理工学院Tobias J. Kippenberg展示基于光子集成电路的超快锁模激光器",
+          "d": "2026-06-03",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "洛桑联邦理工学院Kipnis团队展示基于铒离子注入氮化硅光子集成电路的超快锁模激光器。采用Mamyshev振荡器架构，交替光谱滤波与自相位调制实现锁模，无需外部种子，输出176MHz脉冲序列，脉冲能量达纳焦耳级，比此前片上光源高两个数量级。脉冲可压缩至147飞秒，无需放大即可直接驱动1.5倍频程超连续谱，已用于太赫兹时域光谱仪实现5THz带宽和90dB动态范围，适用于芯片级频率计量和便携式光谱系统。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10517-4",
+          "tp": "锁模激光器",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "超快激光推动了科学技术的诸多进步：它使角膜手术成为可能，揭示了化学反应动力学，并促成了光学原子钟的发展。在过去的几十年中，研究付出了大量努力，旨在实现基于光子集成电路（PIC）的锁模激光器，这种激光器体积紧凑、可晶圆级制造，并兼容进一步的片上功能。然而，迄今为止的现有成果缺乏驱动非线性过程（如超连续谱产生）所需的脉冲能量。在此，研究展示了一种锁模激光器，通过使用铒离子注入氮化硅光子集成电路克服了这一挑战。该激光器基于Mamyshev振荡器架构，其中交替的光谱滤波和自相位调制实现了锁模，并能够支持大的非线性相移。它在无需外部种子的情况下运行，输出176兆赫兹的脉冲序列，脉冲能量达到纳焦耳级别，与光纤激光器相当，比以往基于光子集成电路的光源高出两个数量级。其输出表现出高相干性，可被线性压缩至147飞秒，并且无需任何进一步放大即可在Si3N4波导中直接驱动1.5倍频程的超连续谱。由该光源驱动的紧凑型太赫兹时域光谱仪实现了5太赫兹的带宽和90分贝的动态范围。研究展示了其在非接触式化学分析和检测中的应用。研究结果展示了集成超快激光器的潜力，其应用范围涵盖芯片级频率计量到便携式光谱系统。文章于2026年6月3日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "面向下一代计算的纳米流体离子存储器",
+          "d": "2026-06-04",
+          "a": "Nature Reviews Materials",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "受生物大脑高能效信息处理的启发,研究提出纳米流体离子存储器作为下一代计算架构。该器件利用纳米通道内离子传输实现类神经形态的信息存储与处理,具备低能耗、高并行与生物兼容特性,为超越冯·诺依曼架构的类脑计算与神经接口提供了新硬件平台。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41578-026-00919-1",
+          "tp": "纳米流体存储器",
+          "aip": 1,
+          "kp": [
+            "器件类型[纳米流体存储器]: 纳米流体忆阻器",
+            "[工作机制]: 纳米限域离子传输产生历史依赖性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The biological brain stores and processes information with exceptional energy efficiency, motivating the search for alternatives to traditional von Neumann computing systems that separate memory from processing. Nanofluidic memristors have emerged as promising building blocks for non-conventional neuromorphic computing, in which ion transport under nanoscale confinement generates history-dependent conductance for analog or digital switching. Their performance is governed by surface chemistry, device geometry and electrolyte properties, which together give rise to diverse memristive mechanisms and hysteresis loop types. Exploring new materials not only improves functionality but also deepens our understanding of the diverse physical mechanisms driving memristive behaviour. Despite rapid progress, challenges remain in mechanisms identification, fabrication scalability, variability control, fine tuning of memristive properties, and integration into higher-order neuromorphic architectures. This Perspective summarizes recent advances in materials and mechanisms, outlines characterization protocols and highlights emerging applications from in-sensor computing to visual processing and reservoir computing, while discussing how tailored nanochannel materials may enable next-generation, brain-inspired iontronic neuromorphic systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "上海石化联合上海石油化工研究院攻克湿法T1000级碳纤维关键技术，实现批量量化生产。比亚迪宣布为其全自动驾驶系统过错导致的事故承担全部经济赔偿责任。NASA X-59静音超声速飞机即将进行旨在将声爆降至极低水平的突破声障核心测试。",
+      "headlines": [
+        "上海石化实现T1000级高性能小丝束碳纤维批量量化生产",
+        "比亚迪承诺为其自动驾驶系统事故承担全部经济赔偿责任",
+        "NASA X-59静音超声速飞机即将进行突破声障核心测试",
+        "NASA费米望远镜首次探测到超亮超新星伽马射线辐射"
+      ],
+      "entries": [
+        {
+          "t": "NASA X-59静音超音速飞机即将迎来最关键测试",
+          "d": "2026-06-05",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航空",
+          "as": "NASA的X-59静音超声速喷气式飞机即将迎来其核心里程碑测试——突破声障飞行。该飞机采用独特外形设计以将超声速飞行产生的声爆降至极低水平，旨在验证超声速陆上飞行的可行性。若测试成功，将推动商用超声速客机回归，彻底改变民用航空对超声速飞行的噪音限制认知。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/nasas-x-59-sonic-boom-killer-is-ready-for-its-biggest-test-yet/",
+          "tp": "静音超音速飞机",
+          "aip": 1,
+          "kp": [
+            "[超音速飞行]: X-59即将首次突破音速测试"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s strange-looking X-59 jet is about to reach the milestone it was built for: flying faster than the speed of sound.\nNASA’s X-59 experimental aircraft is preparing for one of the most important phases of its flight testing program. The next series of flights will include the aircraft’s first journey beyond the speed of sound, along with several key tests needed for the mission’s future goals.\n“What comes next is the first time this one-of-a-kind aircraft will fly supersonic,” said Cathy Bahm, project manager for NASA’s Low Boom Flight Demonstrator. “We are starting toward the mission conditions test point that X-59 was designed for.”\nFollowing months of flight testing, the X-59 team completed a review of recent progress in late May and is now moving on to a new set of tests involving greater speeds and higher altitudes. These flights will help engineers evaluate how the aircraft performs under the operating conditions required for NASA’s Quesst mission, which aims to collect data on quiet supersonic flight.\nNASA expects the X-59 to exceed the speed of sound for the first time during test flights scheduled for early June. The aircraft is expected to fly faster than 630 mph at an altitude of about 43,000 feet, marking a major achievement for the program.\nThe aircraft will then attempt a “mission conditions” flight, reaching Mach 1.4 (925 mph) at roughly 55,000 feet. Those targets are especially important because they match the performance conditions NASA plans to use when flying the X-59 over U.S. communities in future tests. During those flights, researchers hope to gather public feedback on the aircraft’s quieter sonic “thump.”\nAlthough the X-59 was specifically designed to reduce the disruptive sonic boom normally associated with supersonic flight, the upcoming tests are not intended to demonstrate that capability. During this phase, the aircraft will fly alongside a conventional supersonic chase plane. Any quiet sound produced by the X-59 will be masked by the louder sonic booms generated by the chase aircraft.\nLater this summer, the chase plane will carry a specialized shock-sensing probe that will allow researchers to begin measuring the X-59’s shock waves.\nThe aircraft’s first phase of flight testing successfully achieved a number of objectives and provided engineers with valuable data.\nAfter its maiden flight in October 2025, the X-59 underwent a planned maintenance period before returning to flight operations in March 2026. Since then, the aircraft has completed 14 additional flights and reached several important milestones, including:\nEngineers used data from these flights to evaluate critical systems, including fuel delivery, hydraulics, environmental controls, and the aircraft’s eXternal Vision System. Instead of a traditional forward windshield, the X-59 relies on cameras that feed images to a display, allowing the pilot to see ahead.\nTeams also closely monitored the aircraft during takeoffs, landings, and flight operations. Strain gauges installed throughout the airframe measured structural loads and recorded how the aircraft responded to those forces.\nDuring the upcoming test campaign, pilots will continue working through planned test points while engineers monitor how the aircraft performs under supersonic conditions.\n“Flying at supersonic speeds is a major milestone for the X-59 team,” Bahm said. “Every step of envelope expansion brings us closer to demonstrating the quiet supersonic capability that is at the heart of the Quesst mission. Completing the first mission-conditions flight is especially meaningful – it’s the moment where we begin validating the aircraft in the environment it was designed for.”\nIn addition to reaching mission conditions, the X-59 is expected to achieve its top planned performance targets of Mach 1.6 (1,218 mph) and an altitude of 60,000 feet.\nEven so, not every future flight will be supersonic. The testing program will continue to include slower flights and operations at lower altitudes so engineers can evaluate the aircraft under a broad range of conditions.\n“These flights not only deepen our confidence in the X-59’s performance – they mark our progression toward the future phases of the mission that will ultimately help shape the future of supersonic travel,” Bahm said.\nAll flights completed so far, as well as those planned in the upcoming series, are part of Phase 1 of NASA’s Quesst mission. The goal of this stage is to verify the aircraft’s performance and airworthiness.\nSome of these flights will also begin testing equipment needed for future research, including a probe mounted on one of NASA’s F-15 research aircraft to measure the unique shock-wave signature produced by the X-59.\nInformation gathered during those early measurements will help prepare the team for Quesst Phase 2, scheduled to begin later this year. During that phase, engineers will directly measure the aircraft’s supersonic flight signature to confirm that it produces the quiet supersonic thump it was designed to create.\n“Aviation pioneer Otto Lilienthal said, ‘To design a flying machine is nothing. To build one is something. But to fly is everything.’ The 15 X-59 flights we’ve accomplished since March have been everything to this team and the mission,” Bahm said. “Every flight has pushed the boundaries of what’s possible, steadily expanding the envelope and strengthening our confidence in the aircraft.”\nWhile the accomplishments so far have been significant, Bahm said the team remains focused on what comes next.\n“As we look ahead to the upcoming flights, we’re poised to open the envelope even further – moving boldly toward the mission test point this aircraft was built to achieve,” Bahm said. “Flying supersonic and reaching these milestones isn’t just progress; it’s the realization of years of perseverance, innovation, and teamwork. Each step brings us closer to Phase 2, and to the future of commercial supersonic flight.”\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nNASA X-59 Quesst\nNASA Unveils Cutting-Edge Tech To Make Supersonic Flights Quieter\nOn the Brink of Revolution: NASA’s Quiet Supersonic X-59 Moves Toward Maiden Flight\nNASA’s X-59 Quesst: Overturning the 50-Year-Old Supersonic Speed Limit\nSilencing Sonic Booms: NASA’s X-59 Quiet Supersonic Aircraft Passes Critical Milestone\nNASA X-59 Experimental Aircraft’s Quiet Revolution in Supersonic Flight\nNASA’s X-59: A Supersonic Aircraft’s Patriotic Paint Transformation\nQuiet and Efficient – New Propeller Advance Paves Way for Electric Planes\nJet Engine Installed on NASA’s X-59 QueSST Quiet Supersonic Aircraft\nMajor Milestone As NASA’s X-59 QueSST Quiet SuperSonic Technology Aircraft Comes Together",
+          "hb": 1
+        },
+        {
+          "t": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网",
+          "d": "2026-06-04",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量量化生产。T1000级碳纤维拉伸强度极高，被称为\"能拉动10吨卡车的碳纤维\"，属于小丝束高端品种，打破了国外长期技术垄断。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://cpnn.com.cn/news/kj/202606/t20260603_1892665.html",
+          "tp": "T1000碳纤维量产",
+          "aip": 1,
+          "kp": [
+            "拉伸强度[T1000碳纤维]: 6.5GPa",
+            "拉伸模量[T1000碳纤维]: 300GPa",
+            "丝束规格[T1000]: 12K",
+            "[工艺]: 湿法批量生产"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网\n中电传媒股份有限公司主办\n能拉动10吨卡车的小丝束碳纤维量产\n6月2日，记者从中国石化获悉，中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量化生产。此次研发量产的高性能碳纤维为12K小丝束，每束碳纤维由12000根单丝组成，单丝直径相当于头发丝直径的十分之一，单股丝束拉伸强度超过6.5吉帕、拉伸模量超过300吉帕，相当于能拉动一辆重约10吨的中型卡车。\n此次量产标志着其在高性能碳纤维领域取得里程碑式突破。该材料可用于航空航天、具身智能、低空经济等高端领域和未来产业，将为我国关键领域发展提供核心战略材料支撑。\n碳纤维性能优越，被称为“新材料之王”“黑黄金”，密度不到钢的四分之一，强度却是钢的7至9倍，并具有耐腐蚀的特性。碳纤维按丝束规格分为大丝束和小丝束两类，行业内常用K代表丝束规格（1K即1000根单丝）。T代表拉伸强度等级，数值越大，强度越高。24K及以下为小丝束碳纤维，丝束更细、性能更均匀、精度更高，适配航空航天、高端装备等高性能场景；48K及以上为大丝束碳纤维，单线产能更大、成本更低，是支撑风电、储能等工业领域大规模应用的核心材料。\n此次技术突破，进一步丰富和完善了中国石化碳纤维产品谱系。目前，中国石化已拥有3K、6K、12K、24K、48K、60K等不同丝束规格近20种型号的碳纤维产品生产能力，产品性能涵盖通用级、高性能等级，可用于航空航天、高端制造、风电、交通、体育休闲等各类场景。截至2025年底，中国石化已在碳纤维及其复合材料领域申请专利868项，专利申请数排名全国第一、全球第三，获授权417项，完成PCT申请4项。\n“十四五”能源高质量发展\n广西电力科学技术协会揭牌成立\n香港理工大学·月山能源新一代矿业联合实验室揭牌\n全国首个绿色算力全栈AI平台上线运行\n氢铀反应起始过程首次完整记录\n太阳能新技术实现海水淡化及固体盐分离\n单壁碳纳米管产能达单台10吨级\n中国电科院发布一项电力人工智能重大成果\n南方电网实现“数字员工”主导配网抢修 故障处置压缩至分钟级",
+          "hb": 1
+        },
+        {
+          "t": "比亚迪承诺为其FSD竞品承担碰撞责任，特斯拉从未做到",
+          "d": "2026-06-02",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "比亚迪宣布将为其全自动驾驶（FSD）竞品系统承担因自动驾驶系统过错导致事故的全部经济赔偿责任，这一承诺是特斯拉从未做出的。该政策标志着自动驾驶责任归属的重大转变，可能加速消费者对自动驾驶技术的信任和接受。此举也被视为比亚迪在智能驾驶领域对特斯拉的竞争策略升级，将安全责任从车主转移到制造商。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/06/01/byd-gods-eye-accepts-liability-tesla-never-has/",
+          "tp": "自动驾驶担责",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 1 2026 - 2:46 am PT\nBYD says it will assume full financial liability for at-fault accidents that happen while its “God’s Eye” urban driving system is active in China — with no cap on the payout.\nIt’s a commitment Tesla has never made for “Full Self-Driving,” and it flips the industry’s standard liability model on its head.\nBYD announced the policy on May 28 at its vehicle intelligence strategy event, the same showcase where it\nrevealed China’s first in-house 4nm smart driving chip\nUnder the new guarantee, if a driver is using BYD’s urban “navigate-on-autopilot” function in compliance with regulations and is at fault in a crash, BYD will cover all direct economic losses the vehicle is liable for — repairs to the owner’s car, third-party property damage, and personal injury.\nThe terms are unusually generous. There’s no payout cap, owners don’t need to buy a separate “intelligent driving insurance” product, and a claim won’t raise their commercial insurance premium the following year.\nThe coverage applies to the God’s Eye A and B systems and runs for one year from delivery. Existing owners get it once they update to God’s Eye 5.0 over the air, and BYD says it isn’t restricted to the first or registered owner of the vehicle.\n“Taking on Level 3 and Level 4 liability early during the Level 2 stage demonstrates the company’s absolute confidence in its own technology,” BYD chairman and president Wang Chuanfu said.\nThis isn’t BYD’s first move here. The automaker\nunlocked L4 smart parking with a similar guarantee\nin July 2025, and it says that pledge pushed the feature’s actual usage rate from 21% to 93%. The new policy extends the same logic from parking to city driving, which BYD frames as a “double guarantee.”\nTesla’s “Full Self-Driving (Supervised)” is a Level 2 system, and the driver carries 100% of the responsibility. Tesla’s own owner’s manual is explicit: “You are responsible for the speed and control of your vehicle at all times, whether FSD (Supervised) is enabled or not.”\nThat’s the catch that defines the entire ADAS market. When the system performs, the automaker markets it as near-autonomous. When it fails, the liability sits entirely with the human in the seat — what we’ve previously called\nSchrödinger’s FSD\n: the car is driving itself right up until something goes wrong, at which point you were always the one driving.\nThe financial stakes of that distinction are not theoretical. A Miami federal jury\nhit Tesla with a $243 million judgment over a fatal Autopilot crash\n, assigning the company a third of the blame — a liability Tesla fought hard rather than absorbed voluntarily.\nBYD is doing the opposite. It is contractually stepping in front of that liability before regulators force the question.\nBYD is also bundling this into a far cheaper package than Tesla’s.\nThe LiDAR-equipped God’s Eye B system is a one-time 12,000-yuan option (about $1,770), and BYD is making it available across its entire lineup. Tesla’s equivalent, rebranded in China as “Tesla Assisted Driving,” and sold as Supervised FSD elsewhere, costs 64,000 yuan (about $9,400) as a one-off purchase in China, with no subscription option.\nSo BYD is offering full, uncapped crash liability on a system that costs roughly one-fifth of what Tesla charges for software that still puts every dollar of risk on the driver.\nBYD says it now has 3.15 million vehicles on the road with assisted driving, generating up to 200 million kilometers of driving data per day — the kind of fleet scale that, until recently, was Tesla’s signature advantage in the autonomy race.\nThe liability question is the one the entire “self-driving” industry has spent a decade avoiding, and BYD just answered it out loud.\nThere are caveats worth keeping in view. This is a China-only program, it’s tied to “compliant” use of the urban function, and it’s a one-year guarantee rather than a permanent change to how the system is classified. It’s as much a marketing weapon as a legal one — BYD’s own numbers show these guarantees dramatically boost feature usage, and usage is what feeds the data flywheel. This is a confidence play designed to sell hardware and harvest miles.\nBut that’s exactly why it matters. BYD looked at the same Level 2 framework Tesla hides behind and decided that standing behind its product was a competitive advantage rather than a legal exposure to be managed. Tesla, meanwhile, leans on arbitration clauses and “the driver is always responsible” disclaimers, and only accepts liability when a jury makes it.\nIf you’re confident your system is safe, putting your own money behind it is the most credible statement you can make. BYD just made it. The obvious question now: with 10 billion FSD miles and years of “next year” promises, why won’t Tesla?\nWith that said, BYD’s God Eye, like Tesla FSD, or ‘Tesla Assisted Driving’ in China, where they are having none of Tesla’s misleading labels, is a still a level 2 system and therefore, you need to pay attention when using it. I strongly recommend you do.\nIf you’re shopping for an EV, the smartest way to cut your long-term driving costs is to power it at home with solar. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "美国宇航局费米望远镜捕捉到超新星正在做一些前所未见的事情",
+          "d": "2026-06-04",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "NASA费米伽马射线空间望远镜首次探测到超亮超新星的伽马射线辐射。国际研究团队分析发现，这种极亮恒星爆炸的能量来源是新生磁星——一种具有极端磁场的中子星。这是首次为超亮超新星磁星驱动模型提供令人信服的观测证据，对理解宇宙中最亮爆炸事件机制具有里程碑意义。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/nasas-fermi-telescope-caught-a-supernova-doing-something-never-seen-before/",
+          "tp": "超新星磁星",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s Fermi telescope may have finally uncovered the magnetic powerhouse behind the universe’s brightest supernovae.\nAn international team of astronomers analyzing observations from\nNASA’s Fermi Gamma-ray Space Telescope\nhas found what appears to be the first convincing detection of gamma rays from a rare type of extraordinarily bright stellar explosion known as a superluminous supernova.\nTheir findings suggest the explosion was powered by a newly formed magnetar, an extremely magnetized\nneutron star\ncreated when a massive star collapsed. The discovery provides fresh insight into some of the most energetic explosions in the universe.\nNASA’s Fermi mission is part of a fleet of observatories that monitor changes across the cosmos, helping scientists better understand how the universe evolves.\n“For nearly 20 years, astronomers have\nsearched Fermi data\nfor gamma-ray signals from thousands of supernovae, and while a few intriguing hints have been reported, none were definitive until now,” study lead Fabio Acero at the French National Centre for Scientific Research (CNRS) and the University of Paris-Saclay.\nThe results were published in the journal\nAstronomy & Astrophysics\nCore-collapse supernovae occur when a massive star, many times larger than the Sun, exhausts the fuel needed to support itself. Without that energy source, the star’s core collapses under gravity and triggers a powerful explosion.\nThe collapse can leave behind either a neutron star roughly the size of a city or an even more compact\n. Meanwhile, a powerful shock wave blasts the outer layers of the star into space, creating a rapidly expanding cloud of hot, ionized gas.\nOver the past two decades, astronomers have identified nearly 400 unusually bright examples of these explosions. Known as superluminous supernovae, they can shine more than ten times brighter in visible light than typical supernovae.\nIn 2024, a study led by Li Shang of Anhui University in Hefei, China, suggested that Fermi’s Large Area Telescope may have detected gamma rays from one of these exceptional explosions years after it occurred.\nThat event, called SN 2017egm, erupted in the galaxy NGC 3191, about 440 million light-years from Earth in the constellation Ursa Major. Despite its great distance, it remains one of the nearest superluminous supernovae ever observed.\n“We searched for gamma rays from the six nearest superluminous supernovae seen during the first 16 years of Fermi’s mission,” said Guillem Martí-Devesa, a researcher previously at the University of Trieste in Italy and now a fellow at the Institute of Space Sciences in Barcelona, Spain. “Only SN 2017egm shows evidence for gamma rays, confirming earlier hints that some supernovae can be as luminous in gamma rays as they are in visible light. This opens up a new window for studying these fascinating events.”\nScientists have long debated what supplies the enormous energy behind superluminous supernovae. One leading explanation involves the birth of a magnetar, a neutron star possessing the strongest magnetic fields known in nature.\nThese magnetic fields can be up to 1,000 times stronger than those of ordinary neutron stars, reaching roughly 10 trillion times the strength of a refrigerator magnet.\nTo investigate, researchers conducted a detailed analysis of both the optical and gamma-ray observations of SN 2017egm. They compared the data with several theoretical models designed to explain the explosion’s behavior.\nOne model, developed by co-authors Indrek Vurm of the University of Tartu in Estonia and Brian Metzger of\nColumbia University\nin New York City, simulated how particles and radiation from a newly born magnetar would interact with the expanding material ejected by the supernova.\nScientists expect newborn magnetars to rotate extremely rapidly, completing hundreds of spins every second. This rapid rotation generates a powerful flow of electrons and positrons, which are the antimatter counterparts of electrons.\nThese particles create a huge region known as a\nmagnetar wind nebula\n, filled with highly energetic particles.\nWithin this environment, numerous interactions can create and absorb gamma rays. For example, an electron and a positron can annihilate each other and produce gamma-ray photons. Gamma rays can also collide and create new particle pairs.\nAs these interactions continue, gamma rays become trapped within the expanding supernova debris. Rather than escaping immediately, much of their energy is converted into lower-energy visible light. This process helps explain why superluminous supernovae shine so intensely.\n“About three months after the collapse, as the supernova debris expands and cools, the gamma rays can begin to leak out,” Acero said. “This magnetar model best reproduces the supernova’s luminosity and the arrival time of its gamma rays during the first months, but we see room for improvement at later times, when the visible light fades quite irregularly.”\nThe researchers believe other processes likely contributed to the supernova’s behavior as it gradually dimmed.\nPossible factors include material falling back onto the magnetar and interactions between the expanding blast wave and matter expelled by the star during the centuries before its final collapse.\nThe team also explored whether future facilities could detect similar events. Their analysis suggests the new ground-based Cerenkov Telescope Array Observatory could identify a supernova like SN 2017egm from as far away as about 500 million light-years with roughly 50 hours of observations.\nScientists expect that combining observations from facilities like the Cerenkov Telescope Array Observatory with data from NASA’s space-based telescopes will significantly improve understanding of these extraordinary explosions.\n“The magnetar central engine mechanism discussed in this paper builds upon a lot of observational and theoretical advances in magnetars over the last 20 years,” said Judy Racusin, a deputy project scientist for the Fermi mission at NASA’s Goddard Space Flight Center in Greenbelt, Maryland. “Observing gamma rays from supernovae will give us a new way to explore their inner workings.”\nReference: “Gamma-ray signature of superluminous supernovae:\n-LAT GeV detection of SN 2017egm and evidence of a central engine” by F. Acero, A. Acharyya, A. Adelfio, M. Ajello, E. Aviano, L. Baldini, J. Ballet, C. Bartolini, D. Bastieri, J. Becerra Gonzalez, R. Bellazzini, E. Bissaldi, R. Bonino, P. Bruel, S. Buson, R. A. Cameron, P. A. Caraveo, F. Casaburo, F. Casini, E. Cavazzuti, C. C. Cheung, N. Cibrario, G. Cozzolongo, P. Cristarella Orestano, F. Cuna, S. Cutini, F. D’Ammando, D. Depalo, S. W. Digel, N. Di Lalla, A. Dinesh, L. Di Venere, P. Fauverge, A. Fiori, A. Franckowiak, Y. Fukazawa, S. Funk, P. Fusco, F. Gargano, C. Gasbarra, D. Gasparrini, S. Germani, F. Giacchino, N. Giglietto, M. Giliberti, F. Giordano, M. Giroletti, I. A. Grenier, M.-H. Grondin, S. Guiriec, R. Gupta, E. Hays, J. W. Hewitt, A. Holzmann Airasca, D. Horan, X. Hou, T. Kayanoki, M. Kerr, M. Kuss, A. Laviron, M. Lemoine-Goumard, A. Liguori, J. Li, I. Liodakis, P. Loizzo, F. Longo, F. Loparco, S. López Pérez, L. Lorusso, M. N. Lovellette, P. Lubrano, S. Maldera, A. Manfreda, G. Martí-Devesa, R. Martinelli, M. N. Mazziotta, M. Michailidis, P. F. Michelson, N. Mirabal, T. Mizuno, P. Monti-Guarnieri, M. E. Monzani, A. Morselli, I. V. Moskalenko, M. Negro, N. Omodei, M. Orienti, E. Orlando, G. Panzarini, M. Persic, M. Pesce-Rollins, R. Pillera, T. A. Porter, G. Principe, S. Rainò, R. Rando, B. Rani, M. Razzano, A. Reimer, O. Reimer, M. Sánchez-Conde, P. M. Saz Parkinson, D. Serini, C. Sgrò, E. J. Siskind, G. Spandre, P. Spinelli, D. J. Suson, H. Tajima, D. J. Thompson, D. F. Torres, Z. Wadiasingh, K. Wood, G. Zaharijas, W. Zhang, E. Chatzopoulos, B. D. Metzger, P. J. Pessi and I. Vurm, 20 May 2026,\nAstronomy & Astrophysics\nDOI: 10.1051/0004-6361/202558547\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nFermi Gamma-ray Space Telescope\nNASA Goddard Space Flight Center\nDefying Expectations: NASA’s Fermi Sees No Gamma Rays From Nearby Supernova\nUnidentified Cosmic Phenomena: Fermi’s Gamma-Ray Discovery Shocks Astronomers\nCosmic Cinema: NASA Unveils Stunning 14-Year Time-Lapse of the Gamma-Ray Sky\nNASA’s Fermi Space Telescope Captures Cosmic Fireworks in Dynamic Gamma-Ray Sky\nStrange Long-Lasting Pulse of High-Energy Radiation Swept Over Earth\nNASA’s Fermi Space Telescope Hunts for Gravitational Waves From Monster Black Holes\nNASA’s Fermi Spots a Weird Pulse of High-Energy Radiation Racing Toward Earth\nNASA’s Roman Mission: Using Exploding Stars to Solve the Biggest Cosmic Mysteries\nNASA Spacecraft Unmask High-Energy Blast That Swept Through the Solar System – Magnetar Eruption in Nearby Galaxy",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

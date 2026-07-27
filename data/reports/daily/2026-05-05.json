@@ -1,0 +1,175 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月5日　星期二",
+  "date_range": "2026-05-05",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "Trillium生物基丙烯腈德州示范项目竣工，年内计划交付产品",
+      "倒置宽带隙钙钛矿叠层电池引入SnOX界面层，转换效率达28.43%",
+      "新提出能带匹配描述符打破标度关系，提升锂硫电池电催化活性"
+    ],
+    "AI与智能科技": [
+      "佐治亚理工研发HZO/Al₂O₃/HZO层叠铁电栅堆抗辐照FeFET存储单元"
+    ],
+    "通用技术": [
+      "Mg3Sb2基材料引入晶界重构策略，实现近室温区高热电优值",
+      "研究利用液相透射电镜直接观测RAFT水乳液聚合微观动态机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "Trillium生物基丙烯腈德州示范项目竣工，年内计划交付产品",
+        "倒置宽带隙钙钛矿叠层电池引入SnOX界面层，转换效率达28.43%",
+        "新提出能带匹配描述符打破标度关系，提升锂硫电池电催化活性"
+      ],
+      "entries": [
+        {
+          "t": "Trillium Renewable Chemicals生物基丙烯腈示范项目建设完成",
+          "d": "2026-05-05",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "美国Trillium Renewable Chemicals宣布其在德克萨斯州INEOS Nitriles工厂建设的100%生物基丙烯腈示范项目竣工，原料为植物基甘油。后续将进行调试工作，预计今年内实现产品出货，标志生物基丙烯腈向商业化迈出关键一步。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.trilliumchemicals.com/media/2026/05/05/trillium-raises-13m-to-launch-worlds-first-demonstration-plant-for-bio-based-acrylonitrile/",
+          "tp": "生物丙烯腈",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "当前生物基丙烯腈的生产方法主要有甘油氨氧化法（生物柴油副产物甘油脱水生成丙烯醛后进行催化氨氧化）、3-HP催化转化法（糖类微生物发酵制备3-羟基丙酸（3-HP），进行固酸催化脱水及氨腈化）、生物基丙烯/氨直接制备法（如生物乙醇脱水制丙烯再进行氨氧化反应）、生物基石脑油裂解丙烯制备等。INEOS Nitriles在2023年在德国科隆即建有生物基丙烯腈生产线（生物基原料（石脑油）+化石基原料混合制备，指定生物基原料掺杂比例的丙烯腈为100%生物基产品），并在24年3月正式开始销售，主要面向碳纤维制造领域；但可能由于生物基石脑油供应、原料氧含量/杂质多元化不一致（易导致结焦积碳）等问题仍需与化石原料掺混制备。\n据Trillium公司所申专利内容所示（NL2030511B1），其主要以生物柴油工厂的副产物甘油为原料，通过真空蒸馏纯化去除高沸点物质（如残留脂肪酸及其酯类，避免其导致脱水催化剂积碳覆盖反应位点）后，与NH₃、O₂（空气）、惰性稀释气体、阻聚剂（4hydroxy2,2,6,6tetramethylpiperidin 1oxyl，TEMPOL）、脱水催化剂（Ta₂O₅，Nb₂O₅等多孔载体+硼酸盐、硫酸盐、钨酸盐等活性材料；反应后需通入氧气在<350℃下烧焦再生）等在250-300℃、1.1-2 bar绝压下通过脱水反应生成丙烯醛；通过纯化塔浓缩、惰性气体稀释（丙烯醛含量1-5% v/v）并预加热（250-350℃）后与氨气、氧气与氨氧化催化剂（钼、铋、铁、锑、锡、钒、钨、锆、钛、铬、镍、铝、磷或镓等混合金属氧化物）在<450℃下反应，生成含丙烯腈的气流控制温度至10-40℃并通入吸收塔中；在吸收塔中使用含甘油的液体吸收剂（甘油浓度5-100 wt%，根据回收物的种类进行调节；将水吸收剂变为甘油基吸收剂，吸收率相同（99.5%）的情况下可减少吸收剂使用质量）吸收气态丙烯腈及副产物（如乙腈），形成富含丙烯腈的甘油流；而后通过蒸馏、汽提等步骤将甘油与丙烯腈（沸点77℃）分离，得到丙烯腈产品流和贫丙烯腈甘油流（可作为吸收剂循环回吸收塔，>50%比例循环）。",
+          "b": "5月5日，美国生物基化学品公司Trillium Renewable Chemicals在官网发文称，其在德克萨斯州INEOS Nitriles公司工厂的100%生物基（据先前报道为植物基甘油）丙烯腈示范项目建设完成。后续将进行相关调试工作，预计今年可实现产品出货。",
+          "hb": 1
+        },
+        {
+          "t": "倒置宽带隙钙钛矿子电池中溶液加工SnOX层实现28.43%效率全钙钛矿叠层电池",
+          "d": "2026-05-05",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "针对倒置结构宽带隙钙钛矿太阳能电池子电池，采用溶液工艺制备氧化锡（SnOX）层作为关键界面修饰材料。该方法可调控界面能级排列、降低缺陷态密度，从而提升开路电压与器件稳定性，对全钙钛矿叠层太阳能电池的效率突破与低成本大面积制备具有重要意义。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00227",
+          "tp": "钙钛矿太阳能电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[全钙钛矿叠层]: 28.43%",
+            "界面层[倒置宽带隙子电池]: 溶液加工SnOX"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "能带匹配描述符打破硫电催化剂的标度关系",
+          "d": "2026-05-05",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "硫氧化还原电催化中，催化剂活性长期受限于线性标度关系。本研究提出一种'能带匹配'描述符，能够打破传统标度关系的束缚，实现对硫氧化还原中间体吸附能的独立调控，为锂硫电池等体系中快速可逆硫反应的理性催化剂设计提供了可预测的理论工具。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02040",
+          "tp": "硫电催化描述符",
+          "aip": 1,
+          "kp": [
+            "[描述符]: 能带匹配描述符打破标度关系",
+            "[应用体系]: 锂硫电池硫氧化还原催化剂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A predictive descriptor is crucial for the rational design of catalysts that enable fast and reversible sulfur redox in lithium-sulfur (Li-S) batteries. Although several descriptors have been proposed, most remain constrained by the conventional adsorption-activity trade-off and the associated volcano-type behavior. Here, we uncover that the catalytic activity of widely used transition-metal sulfides is dictated by the d/p band-matching ratio between metal centers and surface sulfur atoms, thereby going beyond this limitation. By tuning the band-matching ratio, which modulates the interaction between lithium polysulfides and the catalyst surface, a linear correlation with the overpotentials of both sulfur reduction and evolution reactions is established, accelerating the sulfur conversion kinetics. NbS2, with a band-matching ratio of 99.2%, delivers a minimal bifunctional overpotential of 0.70 V (the sum of sulfur reduction reaction (SRR) and sulfur evolution reaction (SER) overpotentials), 4-fold lower than that of WS2 (2.85 V, with a band-matching ratio of 46.0%). The Li-S battery that delivers a high initial areal capacity of 10.98 mAh cm-2 with the NbS2 catalyst exhibits an exceptionally high retention of 90.29% after 100 cycles, surpassing most of the reports. This work establishes band matching as a general principle for sulfur electrocatalysis, providing a predictive design rule that transcends classical scaling relations for metal-sulfur batteries.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "佐治亚理工研发HZO/Al₂O₃/HZO层叠铁电栅堆抗辐照FeFET存储单元"
+      ],
+      "entries": [
+        {
+          "t": "佐治亚理工Asif Khan报道一种基于HZO/Al₂O₃/HZO层叠铁电栅堆的抗辐照FeFET存储单元",
+          "d": "2026-05-05",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "佐治亚理工Asif Khan提出基于HZO/Al₂O₃/HZO层叠铁电栅堆的抗辐照FeFET NAND存储方案，兼容垂直NAND的poly-Si沟道工艺。8/3/8nm层叠结构利用铁电极化实现非易失存储，Al₂O₃插层扩大存储窗口。经⁶⁰Co γ射线辐照测试验证优异抗辐照能力，有望替代传统电荷存储NAND在空间、航空航天等辐照环境中的应用。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.nanolett.5c05947",
+          "tp": "铁电存储器",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "NAND flash是当前固态存储的核心，支撑消费电子、数据中心和AI数据密集型应用。但在空间、航空航天和国防等辐照环境中，传统3D NAND的可靠性存在明显问题。电荷陷阱NAND或浮栅NAND依靠“电荷”存储数据，而γ辐照会在氧化物中产生电子—空穴对，并诱导缺陷形成，从而造成存储电荷损失、阈值电压下降和Bit-Flip（比特翻转）错误。已有FeRAM、MRAM、RRAM等非易失存储器具有较好抗辐照能力，但它们通常属于嵌入式存储或存储级存储，面密度远低于NAND，难以替代大容量固态存储。\n近日，佐治亚理工Asif Khan提出了一种基于层叠铁电栅堆的抗辐照铁电场效应晶体管（FeFET）NAND存储方案。采用与垂直NAND兼容的poly-Si channel FeFET，并构建8 nm Hf₀.₅Zr₀.₅O₂/3 nm Al₂O₃/8 nm Hf₀.₅Zr₀.₅O₂层叠栅堆，通过HZO铁电极化实现非易失存储，同时利用Al₂O₃插层及铁电/介电界面电荷扩大存储窗口，解决普通HZO-only FeFET存储窗口不足的问题。实验中，器件经⁶⁰Co γ射线辐照，剂量率为112 krad/h(air)，总剂量达到1 Mrad(air)和10 Mrad(air)；结果显示，在1 Mrad下编程态和擦除态阈值电压漂移与未辐照对照样品接近，几乎没有额外辐照退化，而即使在10 Mrad剂量下，最大可实现存储窗口仍基本保持，说明辐照并未破坏其基本铁电开关能力和大窗口存储能力。相比传统电荷陷阱NAND，该层叠FeFET的单位剂量阈值电压退化约降低30倍。从机理上看该器件的辐照退化具有明显的存储状态依赖性，完全编程态最稳定，擦除态和部分编程态在极高剂量下更易退化。该研究通过实验和Sentaurus TCAD模拟表明，在擦除态HVT中，铁电去极化场指向通道侧，γ辐照产生的空穴会向通道侧界面层附近迁移并被捕获，导致通道侧陷阱浓度显著增加，进而造成擦除态阈值电压在10 Mrad下约2 V的退化；而在完全编程态LVT中，去极化场方向远离通道侧，辐照诱导的陷阱主要分布在Al₂O₃或FE/Al₂O₃界面附近，对阈值电压影响较小，因此其漂移主要来自FeFET本身常见的去极化场效应，而不是额外TID损伤。文章还发现，随着辐照剂量增加，ISPP/ISPE 编程和擦除斜率下降，保持过程中的存储窗口loss增大，通道通过电压干扰后的低阈值态漂移在10 Mrad下略有增加，说明高剂量辐照会削弱阈值调控效率和部分可靠性指标，但这些问题可通过读参考电压校准、擦除-验证调整、数据刷新和ECC等系统策略补偿。文章于2026年5月5日发表在Nano Letters。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "Mg3Sb2基材料引入晶界重构策略，实现近室温区高热电优值",
+        "研究利用液相透射电镜直接观测RAFT水乳液聚合微观动态机制"
+      ],
+      "entries": [
+        {
+          "t": "应变介导晶界重构释放Mg3Sb2基材料近室温高热电性能",
+          "d": "2026-05-05",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究通过应变介导的晶界重构策略，在单一材料中实现了覆盖宽温区（含近室温）的高热电优值。传统热电材料难以同时兼顾室温与高温性能，该工作利用晶界处的局部应变场调控载流子与声子输运，抑制晶格热导率的同时保持高电导率。该策略拓宽了热电材料在废热回收、固态制冷等近室温场景中的实用化窗口。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01515H",
+          "tp": "Mg₃Sb₂热电材料",
+          "aip": 1,
+          "kp": [
+            "[晶界工程]: 应变介导晶界重构提升Mg3Sb2近室温热电性能"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving high thermoelectric efficiency across wide temperature range, including near room temperature, within a single Mg3Sb2-based material remains challenging, because the microstructures that favor low-temperature charge transport often conflict with those required for phonon suppression. Here we demonstrate that subtle lattice perturbations can steer a strain-mediated reconstruction of the grainboundary spectrum in Mg3Sb2-based system. The boundary-spectrum reconfiguration markedly weakens grain-boundary potential barriers and alleviates carrier scattering by raising the fraction of coherent twin boundaries, restoring the power factor near room temperature. Within the same processing window, the multifunctional CuGaTe2 additive also undergoes composition-partitioning, yielding uniformly dispersed in-situ Cu-Ga-rich intermetallic phase together with point defects. The resulting multi-length-scale defect landscape provides broadband phonon scattering and suppresses lattice thermal conductivity toward the diffusion limit. Consequently, the optimized alloy delivers an exceptional ZT ave of 1.3 at ΔT=250 K, that exceeds state-of-the-art n-type Bi 2 Te 3 , while maintaining ZT ave =1.59 from 300-723 K with a peak ZT of 2.08 at 623 K. Device demonstrations further validate the materials-level advantages with 8% for the assembled TE module (ΔT=300 K) and 12.4% for a single-leg generator (ΔT=400 K). These results establish grain-boundary spectrum reconstruction as an effective lever to unlock high near-room-temperature performance and bridge the long-standing temperature range issue in n-type Mg3Sb2 for wideranging waste-heat recovery.",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 透射电子显微镜观察可逆加成-断裂链转移水乳液聚合",
+          "d": "2026-05-05",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "该研究利用液相透射电子显微镜（LPTEM）结合干态TEM技术，首次直接观测可逆加成-断裂链转移（RAFT）水乳液聚合的微观过程。研究揭示了乳液体系中胶束形成、链增长和粒子演化的动态机制，弥补了非均相聚合机理长期缺乏原位观测工具的不足，对涂料、胶黏剂和先进材料的合成优化具有指导意义。",
+          "sc": 5.8,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "http://dx.doi.org/10.1021/jacs.6c00626",
+          "tp": "液相电镜法",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Heterogeneous polymerizations account for a significant fraction of global polymer production and underpin the synthesis of latexes used in coatings, adhesives, and advanced materials. Yet, despite their widespread use, emulsion polymerizations remain mechanistically underexplored due to the lack of direct observational tools compatible with liquid-phase environments. In this study, we leverage the combination of liquid-phase transmission electron microscopy (LPTEM) and dry-state transmission electron microscopy (TEM) with dynamic light scattering to visualize the nanoscale evolution of monomer droplets and particles during reversible addition-fragmentation chain-transfer (RAFT) aqueous emulsion polymerization of butyl acrylate. Using a poly(ethylene glycol)-based macro-chain transfer agent to stabilize the growing latex, we capture the progression of the emulsion mechanism, including micellar nucleation, particle growth, and relatively rare higher-order morphologies and morphological transitions in later stages. This visualization provides a mechanistic bridge between kinetic models and particle formation dynamics in emulsion systems. By addressing a key observational barrier, this work establishes a new platform for mechanistically guided design of advanced colloidal materials in solution-phase polymerization systems.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

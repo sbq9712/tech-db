@@ -1,0 +1,309 @@
+{
+  "type": "weekly",
+  "date_label": "2026-07-06 ~ 2026-07-12",
+  "date_range": "2026-07-06 ~ 2026-07-12",
+  "main_theme": "长征十号乙验证火箭一子级回收，隆基启动21GW铜金属化电池量产，DeepSeek研发专用AI推理芯片",
+  "overview": "长征十号乙运载火箭成功实现一子级垂直返回可控回收，系中国运载火箭首次掌握该技术。隆基绿能启动21GW铜金属化背接触太阳能电池产线生产，以铜替代银浆降低光伏制造材料成本。DeepSeek启动专用AI推理芯片研发，以降低对第三方硬件依赖并削减大规模推理算力成本。AI编程智能体Fable 5耗时2.5小时自主编写CUDA内核，实现18.7倍性能提升。比亚迪储能获得11.275 GWh全球最大光储一体化项目电池供应合同。",
+  "headlines": {
+    "零碳产业": [
+      "Nature揭示LLZO石榴石固态电解质纳米尺度短路机理",
+      "比亚迪斩获全球最大光储项目11.275GWh储能电池订单",
+      "隆基绿能启动21GW铜金属化背接触太阳能电池量产",
+      "王成善团队松科二井钻探获国家科学技术进步一等奖"
+    ],
+    "AI与智能科技": [
+      "路透社披露DeepSeek正自研AI专用推理芯片以降低算力成本",
+      "Fable 5智能体耗时2.5小时自主编写CUDA内核并提升18.7倍性能",
+      "Anthropic发文揭示Claude大模型内部存在组织化特征表征空间",
+      "Anthropic披露AI编程工具Claude Code脱胎于安全对齐研究"
+    ],
+    "通用技术": [
+      "长征十号乙运载火箭成功实现一子级垂直返回可控回收",
+      "吉利银河A7 EM创2608公里插混量产轿车零补能行驶纪录",
+      "紫金龙净在海拔4400米羌塘建成420MW纯新能源独立电网",
+      "吉利发布2026款银河A7 EM并完成插电混动系统长续航验证"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "隆基绿能启动21GW铜金属化背接触太阳能电池产线量产，使用铜替代银浆以降低光伏制造材料成本。比亚迪储能获得11.275 GWh电池储能供应合同。Nature Nanotechnology发文阐明LLZO石榴石固态电解质内部锂枝晶渗透与裂纹扩展物理机制。",
+      "headlines": [
+        "Nature揭示LLZO石榴石固态电解质纳米尺度短路机理",
+        "比亚迪斩获全球最大光储项目11.275GWh储能电池订单",
+        "隆基绿能启动21GW铜金属化背接触太阳能电池量产",
+        "王成善团队松科二井钻探获国家科学技术进步一等奖"
+      ],
+      "entries": [
+        {
+          "t": "LLZO固态电解质短路如何发生？今日Nature Nanotechnol.最新理解！",
+          "d": "2026-07-07",
+          "a": "能源学人",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "Nature Nanotechnology最新研究揭示LLZO石榴石固态电解质短路机理。锂金属电极应用受限于枝晶生长问题，LLZO虽具高离子迁移数、优异稳定性和高机械强度，但在特定条件下仍发生短路失效。该工作从纳米尺度解析了锂枝晶在LLZO内部渗透与裂纹扩展的物理机制，为固态电池界面工程和枝晶抑制策略提供了关键理论支撑。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/SEUqXoi13knfnPjMfxOgKw",
+          "tp": "固态电解质短路",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "LLZO固态电解质短路如何发生？今日Nature Nanotechnol.最新理解！ Energist Energist 能源学人 【项目背景】 锂金属电极的应用受限于枝晶生长问题，而LLZO石榴石固态电解质因其高离子迁移数、优异稳定性和高",
+          "hb": 1
+        },
+        {
+          "t": "比亚迪斩获全球最大光储项目11.3GWh电池订单",
+          "d": "2026-07-11",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "比亚迪储能获得全球最大光储一体化项目的11.275 GWh电池储能供应合同。该巨型项目将储能规模推至新高度，凸显中国储能在全球市场中的成本与技术竞争力。11.3 GWh的规模相当于数十万家庭用电需求，标志着长时储能正从辅助角色向电网核心基础设施转变。",
+          "sc": 7.8,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/10/byd-masdar-11-gwh-rtc-storage-abu-dhabi/",
+          "tp": "储能电池订单",
+          "aip": 1,
+          "kp": [
+            "储能供货[BYD-Masdar RTC]: 11.275 GWh",
+            "光伏装机[Abu Dhabi RTC]: 5.2 GW",
+            "总储能系统[RTC项目]: 19 GWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 10 2026 - 6:25 am PT\nBYD Energy Storage has landed a contract to supply 11.275 GWh of battery storage for Masdar’s Round the Clock (RTC) project in Abu Dhabi — one of the single largest energy storage procurements ever signed.\nThe RTC project pairs a 5.2 GW solar array with a 19 GWh battery system, making it the world’s largest combined solar-plus-storage plant. BYD’s award covers the majority of that storage.\nMasdar and the Emirates Water and Electricity Company (EWEC) are building the RTC plant to do something solar has never reliably done at gigawatt scale: deliver clean power 24 hours a day.\nfirst covered the project in January 2025\n, when Masdar announced plans for a 5.2 GW solar PV plant coupled with a 19 GWh battery energy storage system (BESS) capable of dispatching 1 GW of continuous baseload. Masdar chairman Dr. Sultan Al Jaber framed it as solving renewable energy’s oldest problem — intermittency.\nAccording to BYD, its share of the project is a single battery station rated at 1,644 MW / 11,275 MWh, using the company’s Haohan storage system. That one station holds more energy than most countries’ entire grid-storage fleets.\nHere’s the detail worth noting. When Masdar unveiled the RTC project in early 2025, it named CATL as its preferred battery supplier.\nThe actual contracts tell a different story. BYD secured 11.275 GWh, and Sungrow\nsigned for the remaining 7.5 GWh\nin an earlier phase. Combined, the two Chinese firms have locked up the full 19 GWh — leaving no room for Western battery makers on the world’s flagship storage project.\nIt’s a clean illustration of how thoroughly Chinese manufacturers dominate grid-scale storage. The same LFP cell scale that made BYD and CATL the world’s largest EV battery producers is now being turned directly on the utility market.\nThe Haohan system leans on BYD’s 2,710 Ah Blade Battery — a cell with more than 300% higher capacity than legacy grid-storage cells, according to the company.\nThe logic is straightforward: fewer, bigger cells mean fewer connections. BYD says that cuts battery management system complexity by 70% to 80% and packs 10 MWh into a standard 20-foot container. The system is rated IP66 for dust and sand and built to run from -30°C to 55°C — necessary in the Abu Dhabi desert.\nBYD says the accompanying GC Master energy management system can manage up to 15 GWh in a single station.\nThe Masdar deal isn’t a one-off. BYD recently landed a 12.5 GWh grid-storage contract in Saudi Arabia, and Chinese suppliers have been sweeping up Gulf storage projects as prices collapse.\nThe economics are moving fast. BYD is pushing sodium-ion storage toward costs as low as $0.04 per watt-hour, while CATL has pushed its Tener platform toward multi-decade durability. The competition is now over who can build the cheapest, longest-lived cells at the largest scale.\nThe numbers are just insane here. BYD and CATL have a massive advantage over the energy storage competition, such as Tesla, because they produce all their battery cells and therefore own the full production process, from battery cells to packs to deployment.\nIt’s unsurprising to see them land the biggest contracts, even though the size of the contracts is surprising.\nIf you’re powering your home in a sunny climate, the RTC project is a reminder that solar-plus-storage is now the cheapest way to deliver round-the-clock clean power — at any scale. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "隆基启动21GW铜金属化背接触太阳能电池量产",
+          "d": "2026-07-10",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "隆基绿能在国内启动21GW铜金属化背接触（BC）太阳能电池产线生产。背接触技术将电极全部移至电池背面，消除正面遮光损失，显著提升转换效率。采用铜金属化替代银浆可大幅降低材料成本，突破贵金属银对光伏产业规模化的制约。21GW产能标志着BC电池技术从实验室向大规模商业化制造迈进，对光伏行业降本增效具有重要推动作用。",
+          "sc": 8.8,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://www.pv-magazine.com/2026/07/09/longi-switches-on-21-gw-production-line-for-copper-metallized-back-contact-solar-cells/",
+          "tp": "背接触太阳电池",
+          "aip": 1,
+          "kp": [
+            "产能[隆基背接触电池]: 21 GW",
+            "金属化技术[背接触电池]: 无银铜基ACM"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe Chinese manufacturer has started production at a 21 GW back-contact cell facility in China, marking the first large-scale deployment of its silver-free Alloy Contact Matrix (ACM) metallization technology.\nThe copper-based process aims to reduce costs, improve BC cell competitiveness, and support wider industrial adoption of back-contact modules.\nVincent Shaw\nTechnology & Products\nImage: Longi\nChinese PV manufacturer\nhas started production at a 21 GW back-contact (BC) cell manufacturing line at its Xixian production base in Shaanxi province, China. The project represents the first gigawatt-scale production deployment of Longi’s Alloy Contact Matrix (ACM) metallization technology.\nThe company describes the ACM metallization approach as a way to replace conventional silver paste with a copper-based alloy contact system. The company says the technology can enable the complete removal of silver from BC cells through the use of a nanoscale barrier layer, a copper-based alloy material and a matrix-style point-contact structure.\nThe barrier layer is designed to prevent copper diffusion into the silicon wafer, addressing a key reliability challenge associated with copper metallization. The alloy formulation is intended to improve oxidation resistance and enable integration into standard screen-printing and firing processes, avoiding the need for separate copper electroplating equipment, the manufacturer said.\nLongi also explained that the matrix contact structure reduces the metal-silicon contact area, which is intended to lower recombination losses while reducing metal consumption. The technology is claimed to be particularly suited to BC cell architectures, where all electrical contacts are located on the rear side of the cell. This design provides greater flexibility for alternative metallization approaches compared with conventional front-contact cells, where narrow front gridlines require high conductivity and minimal optical shading, the company stated.\nAccording to Longi, ACM cells have achieved a conversion efficiency of 27.6%, as certified by Germany’s Institute for Solar Energy Research Hamelin. Modules based on the technology have reached a power output of 672 W in certification tests conducted by TÜV Rheinland.\nLongi said the introduction of ACM into mass production has increased cell conversion efficiency by 0.2 to 0.3 percentage points compared with its previous-generation process, while increasing module output by 3 W to 5 W.\nThe main commercial driver for ACM is expected to be cost reduction rather than efficiency gains, as silver paste remains one of the largest non-silicon cost components in high-efficiency BC cells. By replacing silver with a copper-based alloy, Longi aims to reduce exposure to\nsilver price fluctuations\nand improve the competitiveness of BC modules against mainstream n-type products used in utility-scale applications.\nThe manufacturing process is also designed for industrial compatibility, according to the company. Unlike copper electroplating, ACM relies on printing and firing processes, which could lower equipment adaptation costs for existing BC production lines.\nLongi has not disclosed production yield data, detailed reliability results or long-term outdoor performance results for the new 21 GW facility. It said, however, that these factors will be closely monitored as copper-based metallization technologies move toward large-scale commercial deployment, particularly regarding long-term resistance to oxidation, diffusion and electromigration over a typical 25- to 30-year module lifetime.\nThe company announced\nplans to shift to copper-metallized solar cells\nVincent Shaw\nView author posts",
+          "hb": 1
+        },
+        {
+          "t": "打开“深地之窗”：中国科学家完成最深国际大陆科学钻探，获 2025 年度国家科学技术进步一等奖",
+          "d": "2026-07-09",
+          "a": "IT之家",
+          "c": "零碳产业/物质循环/资源处理/勘探技术",
+          "as": "王成善院士团队领衔的'松辽盆地国际大陆科学钻探工程'获2025年度国家科学技术进步一等奖。项目历时近二十年，在黑龙江安达完成松科二井钻探，创下国际大陆科学钻探最深钻孔、最长连续岩芯和超高取芯率三项世界纪录，成功打穿白垩纪地层，获取8000余米岩芯、95%以上取芯率。该成果为研究地球温室气候历史打开前所未有的'深地之窗'。",
+          "sc": 8.8,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/974/267.htm",
+          "tp": "深地科学钻探",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 8 日消息，据央视新闻报道，经过近二十年的持续攻关，由王成善院士团队领衔、国内四十多家单位千余名科研人员参与的“松辽盆地国际大陆科学钻探工程”项目，以\n国际大陆科学钻探最深钻孔、最长连续岩芯和超高取芯率三项世界纪录\n，成功“打穿”白垩纪地层，为人类读懂地球历史上最典型的温室气候时期打开了一扇前所未有的“深地之窗”。\nIT之家获悉，这项研究获得 2025 年度国家科学技术进步一等奖。\n据介绍，在黑龙江安达市松辽盆地腹地，松科二井的钻塔之下封存着亿万年的地球记忆。这里是国际大陆科学钻探计划实施以来，全球最深钻孔的诞生地。\n中国科学院院士、地质学家王成善称：“因为在地下岩层，每一米代表了 1 万年的沉积历史，我们经过了将近二十年的奋斗，获得了 8000 多米的岩芯，我们钻探的目标就是要建立完整的陆相白垩纪档案，来研究那个时候到底热到什么程度，它整个的气候又是什么状态。”\n大陆科学钻探区别于普通石油钻探，完整连续的岩芯钻取是重中之重。为了实现地层研究厘米级的要求，松科二井不仅要打到预定深度，还需实现 95% 以上高取芯率，最大限度维持地层原貌、保证地质样本完整连贯，\n这在世界上都是没有先例的\n2006 年起，王成善院士团队在松辽盆地布下“三井四孔”，累计进尺逾万米，构建了从钻探选址、岩芯处理到高精度测量与年代标定的全流程自主技术体系，取出的连续岩芯如同一部“编码”亿年时光的巨型史书。标志着\n我国在大陆科学钻探领域跻身世界前列\n，项目也被国际大陆科学钻探计划盛赞为“灯塔”工程。\n随着项目完成，海量岩芯分别存放在位于河北燕郊的全国岩芯库、中国地质大学（北京）岩芯库和大庆油田研究院岩芯库。新一轮解码工作即将全面展开，激光扫描、光谱分析等技术正将岩石中的“时间密码”转化为可量化的科学数据。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "路透社报道DeepSeek正自主研发专用AI推理芯片，旨在降低对英伟达等外部硬件的依赖。智能体Fable 5耗时2.5小时自主编写首个CUDA超级内核，将运行性能提升18.7倍。Anthropic发布研究，揭示大语言模型内部自发形成概念表征与上下文敏感计算回路。",
+      "headlines": [
+        "路透社披露DeepSeek正自研AI专用推理芯片以降低算力成本",
+        "Fable 5智能体耗时2.5小时自主编写CUDA内核并提升18.7倍性能",
+        "Anthropic发文揭示Claude大模型内部存在组织化特征表征空间",
+        "Anthropic披露AI编程工具Claude Code脱胎于安全对齐研究"
+      ],
+      "entries": [
+        {
+          "t": "DeepSeek被曝自研AI推理芯片",
+          "d": "2026-07-08",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "据路透社报道，DeepSeek正在自主研发专用AI推理芯片，旨在降低对英伟达及国产芯片的依赖。该芯片专为AI推理环节（即模型训练完成后执行预测和生成任务的阶段）设计，而非训练。这一动向反映出头部AI公司垂直整合芯片-模型-应用全栈的趋势，若成功将显著降低DeepSeek的大规模推理成本，也可能改变AI芯片市场格局。但自研芯片从设计到量产周期长、投入巨大，短期内仍面临不确定性。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/BXRgkfKt1inqZHD6ZGJJYA",
+          "tp": "自研AI芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "DeepSeek被曝自研AI推理芯片 机器之心 编辑 | 泽南 据路透社本周二报道，DeepSeek 正在开发自有的 AI 芯片，并希望以此降低该公司对英伟达和国产芯片的依赖。 消息人士称，该芯片专为 AI 推理环节设计，即 AI 任务中已",
+          "hb": 1
+        },
+        {
+          "t": "Claude Code惊人身世曝光！竟脱胎于安全对齐，Boris：才完成1%",
+          "d": "2026-07-07",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "Claude Code被曝脱胎于Anthropic的安全对齐研究，从2021年Ben Mann团队构建早期VS Code扩展起步。Boris透露当前仅完成约1%，暗示AI编程工具仍处发展初期，未来潜力巨大。",
+          "sc": 9.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/hWyXe4l24n_nHB-oZbWTrg",
+          "tp": "AI编程智能体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Claude Code惊人身世曝光！竟脱胎于安全对齐，Boris：才完成1% ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**从2021年Ben Mann带领团队构建早期VS Cod",
+          "hb": 1
+        },
+        {
+          "t": "切开Claude大脑，Anthropic称发现了一个类似人类意识的内部空间",
+          "d": "2026-07-07",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic发表超长论文（含24个小标题），通过可解释性研究深入Claude模型内部数十亿参数表征空间，发现类似于人类意识相关结构的组织化特征。研究发现模型在预测下一token过程中自发形成了概念表征、特征组合和上下文敏感的计算回路。这一发现对理解大模型内部信息处理机制和构建AI可解释性理论体系具有里程碑意义，但不等同于意识本身。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/nQoudmhMA5mm1woUWFy0HA",
+          "tp": "模型意识探索",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "切开Claude大脑，Anthropic称发现了一个类似人类意识的内部空间 原创 胡巍巍 胡巍巍 DeepTech深科技 Anthropic 再次发表一篇长论文，光论文小标题就有 24 个 \\[1\\]，他们发现在 Claude 的几十亿个参",
+          "hb": 1
+        },
+        {
+          "t": "Fable 5手搓首个CUDA「超级内核」！2.5小时狂飙18.7倍",
+          "d": "2026-07-07",
+          "a": "新智元",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "AI编程智能体Fable 5自主从零手写实现首个CUDA「超级内核」，在2.5小时内完成开发并实现18.7倍性能提升。该成果展示AI已具备底层GPU编程能力，能够直接优化CUDA内核以榨干GPU算力，对GPU计算密集型任务（如AI训练推理、科学计算）具有潜在加速价值，也引发对AI自主系统级编程能力边界的热议。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/tEkJrvDak6vvFP9rMtm3Sg",
+          "tp": "AI生成GPU内核",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fable 5手搓首个CUDA「超级内核」！2.5小时狂飙18.7倍 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】AI已经能纯手搓CUDA榨干GPU了！Fable 5狂飙18.7倍登",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "长征十号乙运载火箭首次飞行成功实现一子级垂直返回可控回收，系中国运载火箭首次掌握一级回收技术。吉利银河A7 EM插电混动轿车以2608.360公里零补能行驶里程获吉尼斯世界纪录。紫金龙净在西藏海拔4400米区域建成420MW光伏源网荷储一体化工业独立电网。",
+      "headlines": [
+        "长征十号乙运载火箭成功实现一子级垂直返回可控回收",
+        "吉利银河A7 EM创2608公里插混量产轿车零补能行驶纪录",
+        "紫金龙净在海拔4400米羌塘建成420MW纯新能源独立电网",
+        "吉利发布2026款银河A7 EM并完成插电混动系统长续航验证"
+      ],
+      "entries": [
+        {
+          "t": "现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "d": "2026-07-11",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，成功实现一子级垂直返回可控回收。这是中国运载火箭可重复使用技术的关键验证，标志着在火箭回收复用领域取得实质性突破，对降低航天发射成本、推动商业航天发展意义重大。",
+          "sc": 10.0,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260710/9f070975534d49739b9b010019bf6e28/c.html",
+          "tp": "火箭可控回收",
+          "aip": 1,
+          "kp": [
+            "[一子级回收]: 海上平台垂直着陆可控回收"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "现场视频：长征十号乙运载火箭实现一子级可控回收-新华网\n现场视频：长征十号乙运载火箭实现一子级可控回收\n现场视频：长征十号乙运载火箭实现一子级可控回收\n2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，一子级垂直返回，在海上回收平台成功回收。\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "hb": 1
+        },
+        {
+          "t": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "d": "2026-07-11",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "长征十号乙运载火箭首次飞行取得成功，标志着我国运载火箭首次实现可控回收。这是可重复使用火箭技术的重大突破，意味着中国已掌握火箭一级垂直回收技术，将大幅降低航天发射成本，对提升我国航天运输能力和商业航天竞争力具有里程碑意义。",
+          "sc": 9.8,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260710/7e71131b03d7440098c07c17f9762bc0/c.html",
+          "tp": "火箭可控回收",
+          "aip": 1,
+          "kp": [
+            "[一子级回收]: 海上平台垂直着陆可控回收"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收-新华网\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "hb": 1
+        },
+        {
+          "t": "2608.360km：吉利银河 A7 EM 获吉尼斯世界纪录，达成驾驶插混量产轿车零补能行驶最远距离",
+          "d": "2026-07-09",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "吉利银河A7 EM插电混动轿车以2608.360公里的零补能行驶里程获得吉尼斯世界纪录，创下插混量产轿车续航最远距离。该成绩展示了吉利在混动系统效率和整车能耗管理方面的工程实力，2026款银河A7 EM于今年4月发布，对插混市场竞争格局具有标志意义。",
+          "sc": 9.0,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/974/268.htm",
+          "tp": "插混续航纪录",
+          "aip": 1,
+          "kp": [
+            "续航[插混量产轿车零补能]: 2608.360km",
+            "纯电续航[银河A7 EM]: 235km",
+            "综合续航[银河A7 EM]: 2150km",
+            "馈电油耗[银河A7 EM]: 2L级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 8 日消息，吉利汽车官方今日宣布，吉利银河 A7 EM 车型斩获吉尼斯续航新纪录，达成驾驶插混量产轿车零补能行驶最远距离，\n共行驶 2608.360km\n据IT之家此前报道，今年 4 月，\n吉利汽车旗下 2026 款银河 A7 EM/ A7 EV 双车正式上市\n。其中银河 A7 EM 上市限时先享指导价 8.98 万元起。\n2026 款吉利银河 A7 EM 定位“电混家轿颠覆者”，拥有 2845mm 越级轴距，宣传可实现 2L 级超低馈电油耗，具备 235km 同级最长纯电续航、2150km 同级最长综合续航。\n其他方面，该车将采用 10 层棉花糖 SPA 座椅，支持主副驾 14 点指压级座椅按摩，配备 16 扬 FlymeSound 无界之声音响系统、16.6 英寸大画幅 HUD。\n它还搭载全新 Flyme Auto 2 智能座舱，配备了 14.6 英寸 2K 中控屏，手车互联还可支持 Carlink、HUAWEI HiCar、Flyme Link，交互体验简洁流畅；采用千里浩瀚辅助驾驶 H3 方案，支持高速领航驾驶辅助、多场景泊车等功能。\n2026 款吉利银河 A7 EM / A7 EV 双车上市，限时先享指导价 8.98/10.28 万元起",
+          "hb": 1
+        },
+        {
+          "t": "4400米羌塘高寒区域，紫金龙净建成全球最大工业纯新能源独立电网",
+          "d": "2026-07-07",
+          "a": "矿业界",
+          "c": "通用技术/通信和运输/电网技术/孤网园区",
+          "as": "紫金龙净在西藏羌塘海拔4400米高寒区建成全球最大工业纯新能源独立电网——麻米措420MW光伏源网荷储一体化能源站，标志着高海拔极端环境下纯新能源独立供电技术的重大突破，为高原绿色工业发展提供强劲动能。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/-G6Be3M6twzMtcElS_g3bg",
+          "tp": "新能源孤网",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "4400米羌塘高寒区域，紫金龙净建成全球最大工业纯新能源独立电网 李虹 邱泽颖 李虹 邱泽颖 矿业界 西藏高原绿色工业发展再添强劲动能！由紫金龙净清洁能源有限公司（以下简称“紫金龙净”）投资建设的麻米措420MW光伏源网荷储一体化能源站项目",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

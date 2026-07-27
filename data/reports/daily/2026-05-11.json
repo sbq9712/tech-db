@@ -1,0 +1,219 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月11日　星期一",
+  "date_range": "2026-05-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "钙钛矿-硅四结叠层太阳能电池实现超21%光电转换效率",
+      "岩超聚能研制出屈服强度超700MPa仿星器三维异形超导磁体线圈",
+      "新型质子传递通道提升镍铁基催化剂碱性析氧反应稳定性"
+    ],
+    "AI与智能科技": [
+      "全固态铁电梯度掺杂二碲化钼器件实现物理硬件无干涉功能重构",
+      "AI爬虫高频抓取及大容量硬盘涨价推高互联网档案馆运营成本"
+    ],
+    "通用技术": [
+      "港科大研发80公斤级温室气体探测仪搭乘天舟十号入轨",
+      "巴黎文理研究大学探明胶体凝胶陈化后受重力突发坍塌机理"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "钙钛矿-硅四结叠层太阳能电池实现超21%光电转换效率",
+        "岩超聚能研制出屈服强度超700MPa仿星器三维异形超导磁体线圈",
+        "新型质子传递通道提升镍铁基催化剂碱性析氧反应稳定性"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 钙钛矿-钙钛矿-钙钛矿-硅四结叠层单片太阳能电池效率超21%",
+          "d": "2026-05-11",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究展示了首款概念性钙钛矿-钙钛矿-钙钛矿-硅四结叠层太阳能电池，通过将三个不同带隙的钙钛矿子电池与硅底电池单片集成，实现太阳光谱的广谱分段吸收，最大化光电利用效率。四结叠层设计突破传统双结与三结结构的效率天花板，向超越单结理论极限的目标迈出重要一步。该成果为下一代超高效光伏技术提供了全新的器件架构验证。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00879",
+          "tp": "四结叠层电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[四结叠层]: 21.4%",
+            "开路电压[四结叠层]: 4.01V",
+            "[器件结构]: 钙钛矿×3/硅四结(首例)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Here, we demonstrate a proof-of-concept perovskite–perovskite–perovskite–silicon quadruple-junction tandem solar cell achieving a power conversion efficiency of 21.4% (steady state at 21.1%) and an open-circuit voltage of 4.01 V. To our knowledge, this is the first perovskite-based quadruple-junction tandem integrated on a silicon bottom cell, demonstrating the feasibility of a silicon-integrated four-junction architecture and establishing a baseline for future device optimization.",
+          "hb": 1
+        },
+        {
+          "t": "岩超聚能称其开发出用于仿星器装置的不锈钢三维异形超导磁体线圈",
+          "d": "2026-05-11",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "上海岩超聚能科技研制出采用高强度不锈钢铠甲的仿星器三维异形超导磁体双饼线圈。不锈钢屈服强度超700MPa，为传统铜、铝合金铠甲2倍以上，但回弹和狭窄塑性成型窗口使加工困难。公司开发高精度弯曲-扭转复合成型工艺，解决回弹预测补偿、截面畸变控制等技术难点，线圈绕组三维形态形位误差控制在毫米级，满足仿星器复杂磁场位形对线圈空间位置的要求。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/iBZP6V22K9G8McAEElN4Hw",
+          "tp": "聚变超导体",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月11日，上海岩超聚能科技在官方公众号发文，称其研制出采用高强度不锈钢铠甲的仿星器三维异形超导磁体双饼线圈。文中称，当前仿星器装置中德国W7-X采用的铝合金铠甲、日本LHD采用的铜铠甲由于低温屈服强度等关键力学性能指标相对有限，在面对未来更高磁场、更大运行电流的工程需求时，难以提供足够的结构安全裕度。而高强度不锈钢铠甲屈服强度可超700MPa，是传统铜、铝合金铠甲的2倍以上，但由于回弹和狭窄的塑性成型窗口使其难以高精度制备加工。其开发的高精度弯曲–扭转复合成型工艺，可在非可展曲面成型中解决了回弹预测与补偿、截面畸变精密控制、内部超导导体填充空间精确维持等技术难点，将线圈绕组三维形态的形位误差有效控制在毫米级；首件双饼线圈的各项几何精度指标均达到了仿星器复杂磁场位形对线圈空间位置的要求。",
+          "hb": 1
+        },
+        {
+          "t": "加速质子传递通道突破工业级阴离子交换膜水电解活性与稳定性瓶颈",
+          "d": "2026-05-11",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "针对镍铁基氧化物在碱性析氧反应（OER）中活性与稳定性难以兼顾的瓶颈，构建加速质子转移通道以优化反应动力学。该策略通过降低质子输运势垒同步提升催化活性与耐久性，为电解水制氢等能源转化技术的工业化应用扫清关键障碍。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.1084711?af=R",
+          "tp": "AEM电解水催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[AEM水电解]: NiFeV0.5O氧化物",
+            "合成特点: 单批次可规模化",
+            "应用场景: 大面积膜电极组件"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Nickel‐iron‐based oxides are promising alkaline oxygen evolution reaction (OER) electrocatalysts, yet their practical implementation in anion exchange membrane (AEM) water electrolysis remains challenging for large‐area membrane‐electrode assembly (MEA) and stability due to complex synthesis and metal leaching issues. Herein, a scalable NiFeV\n                    0.5\n                    O electrocatalyst achieves the single‐batch production of tens of grams and facilitates the fabrication of a 100 cm\n                    2\n                    MEA using the catalyst‐coated membrane (CCM) approach. Using various in situ characterization methods, we track the OER intermediates and identify the dynamic leaching and readsorption of VO\n                    x\n                    −\n                    species. We pioneer an operando rotating ring‐disk electrode (RRDE) methodology with IrO\n                    x\n                    pH‐sensing probes, which maps the interfacial acidity and demonstrates that these species elevate the local pH by 1.8 units via a hydrogen‐bond‐accelerated proton transfer channel. Experimental and computational analyses reveal that the readsorbed VO\n                    x\n                    −\n                    species are anchored via directional Fe─O─V bonds, suppressing Fe leaching by eight‐fold compared to conventional NiFeO. Notably, when the gram‐scale synthesized NiFeV\n                    0.5\n                    O is applied as an anode catalyst in a practical AEM water electrolyzer, it delivers 3.0 A cm\n                    −2\n                    at a cell voltage of 1.88 V and exhibits remarkable stability at 1 A cm\n                    −2\n                    over 500 h with a low decay rate of 0.12 mV h\n                    −1\n                    .",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "全固态铁电梯度掺杂二碲化钼器件实现物理硬件无干涉功能重构",
+        "AI爬虫高频抓取及大容量硬盘涨价推高互联网档案馆运营成本"
+      ],
+      "entries": [
+        {
+          "t": "全固态铁电梯度掺杂可重构二碲化钼器件",
+          "d": "2026-05-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "提出一种全固态、铁电梯度掺杂的可重构二碲化钼（MoTe₂）器件。基于二维材料的可重构架构通过铁电场效应调控实现多功能集成，无需改变硬件物理连接即可切换器件功能，为下一代集成电路的高密度集成与灵活功能重构提供了路径。",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73338?af=R",
+          "tp": "可重构MoTe2器件",
+          "aip": 1,
+          "kp": [
+            "[材料]: 二碲化钼MoTe2",
+            "[机制]: 全固态铁电梯度掺杂实现可重构",
+            "[应用]: 后摩尔多功能可重构器件"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    2D material‐based reconfigurable devices present a compelling approach to advancing system integration and functionality in the post‐Moore era. The all‐solid‐state design offers enhanced reliability and scalability of reconfigurable devices. However, realizing multifunctional reconfigurability in simple all‐solid‐state configurations remains a significant challenge. In this work, we address this challenge through a ferroelectric‐graded‐doping (FeGD) strategy to develop an all‐solid‐state 2D reconfigurable device featuring both structural simplicity and functional richness. The device incorporates a poly(vinylidene fluoride‐trifluoroethylene) (P(VDF‐TrFE)) ferroelectric layer coupled with a 2D ambipolar MoTe\n                    2\n                    channel, enabling the integration of 12 distinct reconfigurable functionalities within a single‐gate device structure. These functionalities span nonvolatile memory operations, neuromorphic computing capabilities including both homosynaptic and heterosynaptic plasticity, as well as multiple in‐memory logic operations. The device demonstrates exceptional performance metrics, achieving a sub‐millisecond reconfiguration speed (&lt;1 ms), an extended retention time up to 10\n                    7\n                    s and outstanding on/off ratio exceeding 10\n                    6\n                    for nonvolatile memory operations, and large on/off ratios higher than 10\n                    3\n                    for fundamental logic operations (NAND, AND, OR, and NOR) and even more complex logic functions (IMP, RIMP, NIMP, and RNIMP), thereby establishing a versatile platform for next‐generation reconfigurable electronics.",
+          "hb": 1
+        },
+        {
+          "t": "AI浪潮致互联网档案馆/维基百科维护成本、存储硬件增长",
+          "d": "2026-05-11",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "受AI浪潮驱动，存储硬件价格大幅上涨，互联网档案馆（210PB档案、日增100TB）和维基百科维护成本飙升，28-30TB硬盘面临缺货或价格虚高。此外AI爬虫无休止抓取内容消耗流量，将运营成本转嫁给网站所有者。互联网档案馆拥有超6500万篇文章，服务器内存和硬盘供应紧张，基金会需极度谨慎分配资源，反映AI产业扩张对公共知识基础设施的外部性冲击。",
+          "sc": 4.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/948/819.htm",
+          "tp": "存储成本涨",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "针对类似大量数据只读备份的情形，玻璃存储是一种有潜力的技术路线。通过激光在玻璃内部烧蚀斑点的偏振性和大小不同，玻璃可以实现三维高密度的数据存储。其存储密度很大，大概1.6 GB/mm3，是机械硬盘的4-10倍。但是其读写需要特殊的设备，读写速度目前在10 MB/s，只有机械硬盘的1/5，固态硬盘的1/20，而且不能反复擦写。目前存储的主要关注点在AIDC，玻璃存储目前在AIDC内部没有太对应的生态位，但是磁带和光盘的存量市场较大。同时玻璃存储密度是常见存储设备中最大的，高于机械硬盘一个数量级。这种特性适合于上述的备份任务。但是类似任务有些来自非营利组织(如维基)，有些来自与政府、医院。国内的市场大小据统计有约100亿，但是其历史惯性可能会延缓相关的迭代进程。",
+          "b": "IT之家5月11日消息，由于AI浪潮带来了存储硬件涨价潮，目前互联网档案馆（网络时光机）和维基百科的维护成本正大幅上涨。\n以互联网档案馆为例，目前其拥有210PB档案，每天平台平均新增100TB数据，创始人布鲁斯特·卡勒透露，如今服务器所需的28-30TB硬盘要么缺货，要么价格虚高，目前平台正通过捐助者以“变通方法”尝试解决问题。如今维持平台所需的内存和硬盘供应已相当紧张，目前平台拥有超过6500万篇文章，业界涨价潮令基金会必须极度谨慎考虑资源分配。\n除硬件成本上升外，互联网档案馆和维基百科正不断遭受AI爬虫消耗流量，许多AI公司无休止地从互联网获取内容，还在无形中把更高的运营成本转嫁给了网站所有者，进一步让各大网站维护成本飞涨。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "港科大研发80公斤级温室气体探测仪搭乘天舟十号入轨",
+        "巴黎文理研究大学探明胶体凝胶陈化后受重力突发坍塌机理"
+      ],
+      "entries": [
+        {
+          "t": "香港科技大学轻小型（质量<80kg）高分辨率高精度二氧化碳和甲烷点源协同探测仪将进行在轨监测",
+          "d": "2026-05-11",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "香港科技大学牵头开发的轻小型（质量<80kg）高分辨率高精度二氧化碳和甲烷点源协同探测仪搭乘天舟十号上行入轨。基于法布里-珀罗干涉技术，将太阳光分解为同心圆环图像，解析亮度变化精准测量中低纬度重点排放源温室气体浓度。攻克核心镜片加工瓶颈，实现0.2nm超高光谱分辨率，空间分辨率达100米，可精准定位工厂设施等具体排放源，并同步监测两种温室气体。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/5/564455.shtm",
+          "tp": "碳排监测仪",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "当前CO₂/CH₄监测主要基于其各自分子会在特定的近红外/短波红外波段（NIR/SWIR，如1.6μm、2.0μm CO₂带；1.65μm CH₄ 带）吸收光子，通过光谱采样/反演可得出对应区域CO₂/CH₄浓度。太空监测主要基于地面反射光柱，光谱成像机制有色散型、干涉型（该新闻中设备采用的方式）。目前，已有面向大尺度碳循环的公里级科学卫星（如OCO-2、TanSat），其反演精度经TCCON验证可优于1ppm；另一方面是面向工业点源识别的25–30米级高分辨率星座（如GHGSat、Carbon Mapper），能够有效捕捉并量化局部排放羽流。CO₂ + CH₄共同监测（100米级）相较于地面站核算，太空监测地理覆盖范围相对更大，还可通过多星组网缩短全球重访周期（如欧盟拟部署的CO2M星座，3颗卫星合同投资约7亿欧元，分辨率是km级，单次幅度达250km，缩短至约3.5天）。但也受限于云层遮挡、海洋低反射率及高纬度太阳高度角等环境制约；且当前监测的设备分辨率越高、温室气体检测精度变低，单次成像区域及整体覆盖范围也会变小。港理工、GHGSat（整星质量15kg< Carbon Mapper的100-150kg）等干涉型轻小监测设备可能通过在已有空间站部署或搭乘一些低轨卫星以降低成本、提高整体覆盖面（此前OCO-3、NASA EMIT等监测设备在国际空间站进行了部署）。",
+          "b": "据科技日报5月11日报道称，由香港科技大学牵头开发的轻小型高分辨率高精度二氧化碳和甲烷点源协同探测仪搭乘天舟十号飞船上行入轨。文中称，该仪器基于法布里-珀罗干涉技术，将太阳光分解为特定谱段的同心圆环图像，通过解析圆环亮度变化，精准测量全球中低纬度重点排放源的二氧化碳和甲烷浓度。其研究解决了核心镜片加工工艺瓶颈，实现0.2nm超高光谱分辨率，两片核心镜片需同时满足角秒级平行度与超光滑表面精度要求，使得仪器分辨率达100米，可以精准定位工厂、设施等具体的排放源，明确排放来源；并可同时进行两种温室气体监测。",
+          "hb": 1
+        },
+        {
+          "t": "香港科技大学轻小型（质量<80kg）高分辨率高精度二氧化碳和甲烷点源协同探测仪将进行在轨监测",
+          "d": "2026-05-11",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "香港科技大学牵头开发的轻小型（质量<80kg）高分辨率高精度二氧化碳和甲烷点源协同探测仪搭乘天舟十号上行入轨。基于法布里-珀罗干涉技术，将太阳光分解为同心圆环图像，解析亮度变化精准测量中低纬度重点排放源温室气体浓度。攻克核心镜片加工瓶颈，实现0.2nm超高光谱分辨率，空间分辨率达100米，可精准定位工厂设施等具体排放源，并同步监测两种温室气体。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/5/564455.shtm",
+          "tp": "碳排监测仪",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "当前CO₂/CH₄监测主要基于其各自分子会在特定的近红外/短波红外波段（NIR/SWIR，如1.6μm、2.0μm CO₂带；1.65μm CH₄ 带）吸收光子，通过光谱采样/反演可得出对应区域CO₂/CH₄浓度。\n太空监测主要基于地面反射光柱，光谱成像机制有色散型、干涉型（该新闻中设备采用的方式）。目前，已有面向大尺度碳循环的公里级科学卫星（如OCO-2、TanSat），其反演精度经TCCON验证可优于1ppm；另一方面是面向工业点源识别的25–30米级高分辨率星座（如GHGSat、Carbon Mapper），能够有效捕捉并量化局部排放羽流。CO₂ + CH₄共同监测（100米级）相较于地面站核算，太空监测地理覆盖范围相对更大，还可通过多星组网缩短全球重访周期（如欧盟拟部署的CO2M星座，3颗卫星合同投资约7亿欧元，分辨率是km级，单次幅度达250km，缩短至约3.5天）。但也受限于云层遮挡、海洋低反射率及高纬度太阳高度角等环境制约；且当前监测的设备分辨率越高、温室气体检测精度变低，单次成像区域及整体覆盖范围也会变小。港理工、GHGSat（整星质量15kg< Carbon Mapper的100-150kg）等干涉型轻小监测设备可能通过在已有空间站部署或搭乘一些低轨卫星以降低成本、提高整体覆盖面（此前OCO-3、NASA EMIT等监测设备在国际空间站进行了部署）。",
+          "b": "据科技日报5月11日报道称，由香港科技大学牵头开发的轻小型高分辨率高精度二氧化碳和甲烷点源协同探测仪搭乘天舟十号飞船上行入轨。文中称，该仪器基于法布里-珀罗干涉技术，将太阳光分解为特定谱段的同心圆环图像，通过解析圆环亮度变化，精准测量全球中低纬度重点排放源的二氧化碳和甲烷浓度。其研究解决了核心镜片加工工艺瓶颈，实现0.2nm超高光谱分辨率，两片核心镜片需同时满足角秒级平行度与超光滑表面精度要求，使得仪器分辨率达100米，可以精准定位工厂、设施等具体的排放源，明确排放来源；并可同时进行两种温室气体监测。",
+          "hb": 1
+        },
+        {
+          "t": "巴黎文理研究大学C. Patrick Royall揭示了凝胶陈化延迟坍塌的机理",
+          "d": "2026-05-11",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "巴黎文理研究大学C. Patrick Royall团队以PDMS乳液液滴胶体凝胶为模型，结合宏观延时成像、粒子图像测速、原位叶片流变仪与多尺度共聚焦显微镜，揭示凝胶陈化后延迟坍塌机理。胶体凝胶随陈化粗化增强、模量升高，却会在数分钟至数年后重力作用下突发灾难性坍塌，影响保质期。研究用折射率匹配溶剂（水/乙二醇61:39）配制体系，PDMS为分散相骨架，羟乙基纤维素调控颗粒吸引作用，为失效机理提供直接实验证据。",
+          "sc": 5.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1073/pnas.2528499123",
+          "tp": "凝胶坍塌论",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "胶体凝胶可用于化妆品、食品、医药、水泥等领域，随陈化通过粗化过程不断增强，模量持续升高，但却会在静置数分钟至数年后，在重力作用下发生毫无预兆的突发性灾难性坍塌，影响产品保质期与使用性能。但相关失效机理尚不明晰，现有假说缺少直接实验证据。\n近日，巴黎文理研究大学C. Patrick Royall教授团队以聚二甲基硅氧烷（PDMS）乳液液滴胶体凝胶为模型体系，结合宏观延时成像、粒子图像测速、原位叶片流变仪与多尺度共聚焦显微镜等多尺度表征技术对凝胶从陈化到延迟坍塌的过程及机制进行探究。其首先配制水与乙二醇质量比61%:39%的折射率匹配溶剂，随后向溶剂中加入PDMS油滴与羟乙基纤维素，制备特定体积分数与聚合物浓度的乳液凝胶体系，将凝胶样品装入不同高度的样品瓶中，保证体系满足延迟坍塌发生条件。其中PDMS作为胶体凝胶的分散相颗粒，形成凝胶的骨架网络，密度小于溶剂，在坍塌过程中发生上浮（creaming）；羟乙基纤维素作为聚合物组分，调控胶体颗粒间的吸引作用，诱导凝胶发生旋节线分解与凝胶化，影响凝胶的陈化、粗化速率与延迟坍塌时间；水与乙二醇作为连续相，提供折射率匹配环境，便于显微成像，同时是富溶剂通道的主要组成，在坍塌过程中发生向下流动，驱动凝胶结构破坏；尼罗红染料则于荧光标记PDMS油滴，实现共聚焦显微镜下的清晰成像，区分凝胶相与富溶剂相。\n结果发现，宏观层面坍塌分为三个阶段，阶段I凝胶高度稳定、模量持续升高即不断增强，阶段II发生快速坍塌，阶段III坍塌后缓慢压实，坍塌时间由阶段I与II拟合交点确定。坍塌时间随聚合物浓度呈类阿伦尼乌斯标度关系，不同测试体系（流变仪样品瓶、微观分析样品瓶）的坍塌时间规律一致，叶片流变测试的小幅剪切可能使凝胶轻微硬化，导致坍塌时间略长；坍塌前仅有微小运动，坍塌后出现显著的垂直定向流动，形成与容器尺寸相关的宏观环流，驱动重溶剂向下、轻乳液液滴向上，揭示突发性坍塌的宏观流体动力学特征。显微镜结果发现，初始凝胶结构均匀，仅在高倍下可见网络链，随着时间推移，富溶剂通道首先在凝胶顶部出现并持续向下延伸，通道经过的区域凝胶网络发生显著粗化且无法恢复，最终整个样品均被粗化结构覆盖，为通道驱动坍塌提供直接视觉证据。聚焦通道头部在凝胶基质中的传播动力学，发现通道头部为夹带凝胶碎片的富溶剂区域，以约8 μm/s的速度向下运动，直观呈现通道从顶部向底部推进的微观过程，证实通道是坍塌的核心结构前驱体。凝胶网络的特征长度初期增长缓慢，坍塌前半段后急剧增大，与通道经过引发的粗化一致；通道的特征尺度远大于凝胶网络，且随时间呈t^1/3的幂律增长，明确了微观结构演化的定量规律。凝胶顶部存在显著增强的非均质性与相分离，顶部靠近气‑液界面区域形成大量富溶剂区域，而凝胶本体仍保持完整结构，明确延迟坍塌的触发位置为凝胶顶部，且该现象与溶剂蒸发无关；而因增强相分离形成富溶剂液滴，长大到临界尺寸后克服凝胶屈服应力形成向下通道，通道贯通后引发溶剂快速流动，最终导致凝胶灾难性坍塌并缓慢压实。文章于2026年5月11日发表在Proceedings of the National Academy of Sciences。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

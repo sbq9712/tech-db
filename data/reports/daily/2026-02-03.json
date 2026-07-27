@@ -1,0 +1,253 @@
+{
+  "type": "daily",
+  "date_label": "2026年2月3日　星期二",
+  "date_range": "2026-02-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "两亲性电荷调控剂有效抑制溴扩散，锌溴液流电池循环寿命达1.5万次",
+      "自分离三层聚合物电解质解决穿梭难题，提升全固态锂硫电池能量密度",
+      "高镍正极表面构建快锂离子扩散层，降低固态电池界面阻抗实现稳定循环"
+    ],
+    "AI与智能科技": [
+      "研究人员实现长寿命远距离离子纠缠，解决量子信息传输退相干难题",
+      "耶鲁团队提出量子生成模型QO-BRA，以小数据集生成新型金属结合蛋白",
+      "超声脑机接口技术引发审视，侵入式与无创方法仍存工程与伦理挑战"
+    ],
+    "通用技术": [
+      "深大团队爆炸喷涂一步完成钨层制备与钨钢连接，通过1000次高热负荷测试",
+      "质子耦合电子转移机制证实主导非均相类芬顿反应，为催化体系设计提供指导",
+      "表面活性剂层工程实现螺旋金纳米晶手性可逆切换，为光学器件提供材料基础"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "两亲性电荷调控剂有效抑制溴扩散，锌溴液流电池循环寿命达1.5万次",
+        "自分离三层聚合物电解质解决穿梭难题，提升全固态锂硫电池能量密度",
+        "高镍正极表面构建快锂离子扩散层，降低固态电池界面阻抗实现稳定循环"
+      ],
+      "entries": [
+        {
+          "t": "双化学体系调控：两亲性电荷调节剂解锁锌溴电池15000次循环",
+          "d": "2026-02-03",
+          "a": "Matter",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "该研究通过两亲性电荷调控剂实现双化学调控，大幅提升了锌溴电池的循环寿命至15,000次。锌溴电池虽具有低成本和高安全性优势，但面临溴扩散和锌副反应等严峻挑战。研究团队引入一种两亲性电荷调控剂，同时抑制溴的迁移扩散并调控锌负极的电沉积行为，从双重化学机制层面解决关键瓶颈。该成果显著提升了锌溴液流电池的长循环稳定性，为大规模储能应用提供了新路径。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00613-7?rss=yes",
+          "tp": "锌溴电池",
+          "aip": 1,
+          "kp": [
+            "面容量[静态锌溴电池]: 50 mAh cm−2",
+            "循环寿命[锌溴电池]: 15000次",
+            "[调控剂]: 双亲性电荷调节剂",
+            "[机制]: 锌沉积重分布+溴物种锚定"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Despite their low cost and high safety, zinc-bromine batteries face challenges from bromine diffusion and zinc side reactions. We introduce an amphiphilic charge moderator that simultaneously redistributes zinc deposition flux and electrostatically anchors bromine species. This dual-regulation enables static zinc-bromine batteries to achieve 50 mAh cm−2 and over 15,000 cycles, providing a general strategy for halogen-based batteries.",
+          "hb": 1
+        },
+        {
+          "t": "抗多硫化物且保护负极的自分离三层聚合物电解质稳定全固态锂硫电池",
+          "d": "2026-02-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "研究设计了自分离三层聚合物电解质，通过多硫化锂排斥层与负极保护层协同作用，解决全固态锂硫电池中LiPS穿梭难题。该策略同时实现LiPS传输的理性管理与锂负极界面稳定，显著提升电池循环寿命和能量密度，为高安全性全固态锂硫电池的实用化提供了关键材料方案。",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18042",
+          "tp": "固态锂硫电池",
+          "aip": 1,
+          "kp": [
+            "电解质[固态Li-S]: 自分离三层聚合物电解质",
+            "[多硫化物阻隔]: 纳米级离子选择性界面涂层"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Rational management of lithium polysulfide (LiPS) transport is essential for stable, high-energy-density Li-S batteries. We introduce a freestanding, self-segregated trilayer polymer electrolyte (TLE) that forms two layers of nanometer-thin, ion-selective coatings at the cathode and anode interfaces by autonomous phase separation of two immiscible polymers while preserving a highly conductive bulk matrix. In Li-S cells, these coatings simultaneously repel dissolved LiPS at the sulfur cathode and stabilize lithium plating and stripping at the Li metal anode without sacrificing ion transport. Operando optical cell monitoring and theoretical modeling reveal that the dual-functional coatings are responsible for stable Li metal anode operation and effective shuttle suppression. The TLE enables an initial discharge capacity of 1369 mAh g-1 (81.7% of theoretical) and maintains a stable capacity over 50 cycles at 0.2C. Fabricated by a single-step casting process, this scalable electrolyte membrane offers a practical route to durable, all-solid-state Li-S batteries.",
+          "hb": 1
+        },
+        {
+          "t": "微结构调控富镍正极材料：快Li+扩散层助力高倍率长循环全固态电池",
+          "d": "2026-02-03",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "针对全固态锂电池中镍富正极与硫化物电解质的界面挑战，研究者通过微观结构定制，在镍富正极表面构建快速锂离子扩散层。该设计降低了正极/电解质界面阻抗，改善离子传输动力学，使电池在高能量密度条件下实现稳定循环。该策略为高镍正极在全固态体系中的工程化应用提供了可行的界面工程路径。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00454-4?rss=yes",
+          "tp": "固态电池富镍正极",
+          "aip": 1,
+          "kp": [
+            "[正极]: 微结构调控富镍正极",
+            "[电解质]: 硫化物固态电解质",
+            "[关键设计]: 快Li+扩散层",
+            "[电池类型]: 全固态锂电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "All-solid-state lithium batteries (ASSBs) with Ni-rich cathodes and sulfide electrolytes hold immense promise for high energy density and safe energy storage. However, the application of Ni-rich cathodes in ASSBs still encounters several challenges of sluggish Li+ kinetics, internal stress accumulation, and interfacial instability. This study presents a microstructure-tailored Ni-rich cathode with fast Li+ diffusion layer and in situ Li2CO3 coating, enabling high-rate and long-cycling ASSBs.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究人员实现长寿命远距离离子纠缠，解决量子信息传输退相干难题",
+        "耶鲁团队提出量子生成模型QO-BRA，以小数据集生成新型金属结合蛋白",
+        "超声脑机接口技术引发审视，侵入式与无创方法仍存工程与伦理挑战"
+      ],
+      "entries": [
+        {
+          "t": "面向可扩展量子中继器的长寿命远程离子-离子纠缠",
+          "d": "2026-02-03",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "量子网络可整合量子通信、量子计量和分布式量子计算，为分布式量子应用提供基础。本研究实现了长寿命的远距离离子-离子纠缠，这是构建可扩展量子中继器的关键要素。远程离子纠缠的长寿命特性有助于延长纠缠保持时间，解决量子信息传输中的退相干问题，对构建大规模量子互联网具有重要突破意义。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10177-4",
+          "tp": "量子中继器",
+          "aip": 1,
+          "kp": [
+            "[纠缠类型]: 远程离子-离子纠缠",
+            "[应用]: 可扩展量子中继器",
+            "[特性]: 长寿命"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Quantum networks, integrating quantum communication, quantum metrology, and distributed quantum computing, could provide secure and efficient information transfer, high-resolution sensing, and an exponential speed-up in information processing1. Deterministic entanglement distribution over long distances is a prerequisite for scalable quantum networks2–5. However, the exponential photon loss in optical fibres prohibits efficient and deterministic entanglement distribution. Quantum repeaters6, incorporating entanglement swapping4,7,8 and entanglement purification9–11 with quantum memories, offer the most promising means to overcome this limitation in fibre-based quantum networks. Despite numerous pioneering efforts12–25, a critical bottleneck remains, as remote memory-memory entanglement suffers from decoherence more rapidly than it can be established and purified over long distances. Here, we demonstrate memory-memory entanglement between two nodes connected by 10 km of spooled fibre surviving beyond the average entanglement establishment time. This is enabled by the development of long-lived trapped-ion memories, an efficient telecom interface, and a high-visibility single-photon entanglement protocol26,27. As an application, we report a proof-of-principle device-independent quantum key distributio (DI-QKD) demonstration with finite-size analysis over 10 km and a positive key rate over 101 km in the asymptotic limit, with both distances exceeding previous work by more than two orders of magnitude28–30. Our work provides a critical building block for quantum repeaters and marks an important step toward scalable quantum networks.",
+          "hb": 1
+        },
+        {
+          "t": "耶鲁大学Victor Batista发表基于量子算符的自解码器用于从头分子设计",
+          "d": "2026-02-03",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "耶鲁大学Victor Batista团队提出QO-BRA量子生成模型，将量子电路与生成模型结合用于复杂生物分子从头设计。该模型使用实幅量子编码映射分子数据至量子态，采用对偶编码器与解码器算符确保正交归一性以保证可逆性与稳定性。仅用较小数据集训练即可生成结构合理、具功能潜力的新型金属结合蛋白序列。成果发表于Journal of Chemical Theory and Computation。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c01704",
+          "tp": "量子自解码",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "分子的从头设计可以借助生成式模型实现。Victor S. Batista团队尝试将量子电路与生成模型结合，用于复杂生物分子结构的生成与优化，该工作被命名为QO-BRA。QO-BRA使用实幅量子编码将分子数据映射到量子态，并采用对偶的编码器与解码器算符，确保变换的正交归一性，从而保证生成过程的可逆性与稳定性。该生成模型可以实现分子的高精度重构，且编码具有唯一性。\n借助模拟的量子算符，该工作将QO-BRA用于设计可结合Ca2+\\ Mg2+\\Zn2+离子的金属蛋白。仅使用相对较小的数据集做训练，即可生成具有结构合理性与功能潜力的新型金属结合蛋白序列。该工作展示了量子生成模型在生物分子设计中的可行性。文章于2026年2月3日发表在Journal of Chemical Theory and Computation。",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI投资的公司欲用超声读取思维，科学依据是否站得住脚？",
+          "d": "2026-02-03",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "OpenAI投资的初创企业宣称利用超声波技术实现非侵入式脑信号读取与思维解码，引发科学界对其可行性的审视。文章从超声神经调控原理、声波分辨率极限、信号解码准确性等维度评估该技术的科学基础，指出侵入式与无创方法之间的权衡，以及从概念验证到真正可用脑机接口仍存在的工程与伦理挑战。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-00329-x",
+          "tp": "超声脑机接口",
+          "aip": 1,
+          "kp": [
+            "[技术路线]: 功能性超声读脑"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "深大团队爆炸喷涂一步完成钨层制备与钨钢连接，通过1000次高热负荷测试",
+        "质子耦合电子转移机制证实主导非均相类芬顿反应，为催化体系设计提供指导",
+        "表面活性剂层工程实现螺旋金纳米晶手性可逆切换，为光学器件提供材料基础"
+      ],
+      "entries": [
+        {
+          "t": "深圳大学王兴立采用爆炸喷涂技术一步实现聚变装置钨基等离子体壁材料钨的制备与钨-钢连接",
+          "d": "2026-02-03",
+          "a": "",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "深圳大学王兴立团队采用爆炸喷涂技术一步同时实现聚变堆钨基面向等离子体壁材料钨的制备与钨-钢连接，解决传统工艺中钨钢热物理性能差异导致的大面积曲面连接困难问题。在钢基底沉积出孔隙率<1%、结合强度>50MPa的钨涂层，开发钨/铁/钢第一壁结构件并通过ITER标准1000次1MW/m2稳态高热负荷疲劳测试，完成小批量试制。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/finance/20260203/a92da484ed794560877de6f4604ffd66/c.html",
+          "tp": "聚变钨涂层",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据新华社2月3日报道，深圳大学王兴立副教授团队在聚变堆钨基面向等离子体壁材料与部件的制备上取得突破，其采用爆炸喷涂技术一步可同时实现钨的制备与钨-钢连接，解决了传统机加工钨片+钨钢焊接过程中，由于钨、钢在熔点、热膨胀系数等热物理性能上相差大，导致大面积曲面形状下二者连接困难的问题。报道中称，其利用爆炸喷涂成功在钢基底表面沉积出高致密度（孔隙率<1%）、高结合强度（>50 MPa）、高硬度（870HV0.1）、无氧杂质检出的毫米级厚钨涂层；其次，利用爆炸喷涂研制出低中子活化的纯铁中间层，由此开发出钨/铁/钢第一壁结构件并完成小批量试制，试制品成功通过ITER（国际热核聚变实验堆）标准下的第一壁部件高热负荷服役性能测试（1000次1 MW/m2稳态高热负荷疲劳测试）。此外，其还利用喷雾干燥造粒与爆炸喷涂相结合的方法研制出钨-钢功能梯度层结构的第一壁试制样，试样成分结构与预期一致，整体结合强度、耐高热负荷冲击性能增强。",
+          "hb": 1
+        },
+        {
+          "t": "质子耦合电子转移主导非均相类芬顿反应：表面O-H键解离自由能与质子活性的调控",
+          "d": "2026-02-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "研究揭示质子耦合电子转移（PCET）主导非均相类芬顿反应活性的机制，挑战了传统以电子为中心的反应框架。通过调控表面O-H键解离自由能和质子活性，阐明了PCET在调控催化剂反应动力学中的关键作用。该发现为环境修复领域高效催化体系的设计提供了新理论指导，推动芬顿类催化从经验优化走向理性设计。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21821",
+          "tp": "类芬顿反应机理",
+          "aip": 1,
+          "kp": [
+            "反应增强[类芬顿]: PCET调控提升两个数量级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fenton-like reactions are fundamental to environmental remediation, yet conventional electron-centric frameworks overlook critical proton transfer contributions. Here, we demonstrate that strategic modulation of proton transfer enhances heterogeneous Fenton-like reactivity by two orders of magnitude through validated proton-coupled electron transfer (PCET) mechanisms. Two complementary strategies emerged: modifying catalyst surface hydroxyl density and tuning solution pH. Mechanistic investigations revealed that hydroxyl modifications alter the surface O-H bond dissociation free energy (BDFE), while pH adjustments follow Brønsted-Evans-Polanyi (BEP) relationships. We developed electrochemical methods for quantifying BDFE alongside techniques for measuring net H• transfer rates involving surface hydroxyl groups. This paradigm transcends electron-centric approaches by establishing comprehensive theoretical frameworks for reaction enhancement and by providing transformative proton-transfer-based modulation strategies to overcome inherent activity limitations in practical Fenton-like applications.",
+          "hb": 1
+        },
+        {
+          "t": "表面活性剂层工程实现螺旋金纳米晶生长路径切换与手性光学活性逆转",
+          "d": "2026-02-03",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究通过表面活性剂层工程实现螺旋金纳米晶体生长路径的切换与手性光学活性的反转。螺旋金纳米晶因三维手性形貌具有显著的手性等离子体响应。通过调控表面活性剂，可精确控制纳米晶体手性从左旋到右旋的可逆切换，为手性纳米材料的可控合成及手性光学器件设计提供了新范式。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20595",
+          "tp": "手性金纳米晶",
+          "aip": 1,
+          "kp": [
+            "[表面活性剂工程]: 手性金纳米晶体生长路径可逆切换"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Helicoid gold (Au) nanocrystals exhibit pronounced chiroplasmonic responses arising from their three-dimensional chiral morphology and strong light-matter interactions. Achieving precise control over their chirality requires synthetic advances and a deeper understanding of the interplay among nanocrystal growth, structural chirality, and chiroptical activity. Here, we report a surfactant-layer engineering strategy that enables switching of growth pathways and reversal of chiroptical signals in helicoid Au nanocrystals by introducing aromatic additives, particularly 5-bromosalicylic acid (5-BSA), into a synthesis system using cysteine as chiral inducers. The incorporation of 5-BSA alters the growth pathway of helicoid Au nanocrystals, resulting in a transition in chiral morphology from C4-type pinwheel-like structures to C3-type propeller-like structures, accompanied by a reversal of the g-factor from -0.14 to +0.09. Mechanistic investigations reveal that 5-BSA modulates the surfactant interface, altering the relative growth rates along the ⟨100⟩ and ⟨111⟩ directions and deepening the concaveness of Au nanocrystals, which contributes to the reversal of chiroptical activity and the large g-factors. The strategy is generalizable to diverse aromatic molecules and chiral inducers, enabling the use of a single chiral inducer in one enantiomeric form to produce nanostructures with opposite signs of the chiroptical response. This work provides a flexible synthesis route for chiroplasmonic materials and deepens the mechanistic understanding linking enantioselective anisotropic growth and chiroptical responses.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

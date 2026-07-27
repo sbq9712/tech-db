@@ -1,0 +1,225 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月2日　星期一",
+  "date_range": "2026-03-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "伊利诺伊大学研发可编程微生物装配线将PET塑料降解为多种终端产物",
+      "斯坦福大学揭示提升升温速率可改善富镍层状正极微观结构与循环性能",
+      "苏黎世联邦理工开发氧化铪载体提升CO₂加氢制甲醇催化剂产量"
+    ],
+    "AI与智能科技": [
+      "研究人员构建集成锌离子微型电池与传感器的单片式机器人触觉感知系统",
+      "新工艺以碲化铂为电极触点实现晶圆级二维半导体晶体管一步法直接生长"
+    ],
+    "通用技术": [
+      "研究引入单原子La促进剂打破丙烷脱氢Pt催化剂活性与稳定性权衡",
+      "四苯基硅烷骨架工程化发射体实现纯绿光OLED高效率与长寿命突破",
+      "研究将聚集诱导发光转子与多金属氧酸盐集成实现高效光热转换"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "伊利诺伊大学研发可编程微生物装配线将PET塑料降解为多种终端产物",
+        "斯坦福大学揭示提升升温速率可改善富镍层状正极微观结构与循环性能",
+        "苏黎世联邦理工开发氧化铪载体提升CO₂加氢制甲醇催化剂产量"
+      ],
+      "entries": [
+        {
+          "t": "伊利诺伊大学Ting Lu提出一种用于塑料废弃物高效升级利用的可编程微生物装配线",
+          "d": "2026-03-02",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "伊利诺伊大学Ting Lu团队设计了一条可编程微生物装配线，由解构菌株将PET塑料降解为丙酮酸通用构建模块，再通过可互换的生产菌株灵活转化为化学品、燃料、酶、生物聚合物等多种终端产物。该组合式设计突破了传统生物升级利用仅产生单一产物的局限，为塑料废弃物处理与需求驱动的可持续生物制造提供可重构平台。成果发表于Nature Sustainability。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-025-01765-9",
+          "tp": "微生物降解塑料",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "生物升级利用是处理废弃塑料的一种有前景的策略。然而，当前实践主要聚焦于产生固定的单一产物，在满足多样化和不断变化的产品需求方面面临挑战。本研究呈现了一条可编程微生物装配线，能够将塑料废弃物高效且灵活地升级转化为多种终端产物。该装配线包含一株解构菌株，可将预处理的聚对苯二甲酸乙二醇酯分解代谢为丙酮酸——作为一种通用构建模块，以及一组可互换的生产菌株，能够将该构建模块转化为可定制的产物。这种设计使得微生物菌株能够快速、组合式地装配成多种生物制造系统。由此实现了可编程升级利用，生产出包括化学品、燃料、酶、生物聚合物在内的广泛终端产物。该工作建立了一个可重构的增值平台，为塑料废弃物的生物处理以及需求驱动的可持续生物制造提供了见解。文章于2026年3月2日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "斯坦福大学William Chueh揭示升温速率对富镍层状正极孔隙及其循环性能的影响机制",
+          "d": "2026-03-02",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "斯坦福大学William Chueh联合得州大学奥斯汀分校刘宜晋团队通过热重-质谱和原位加热XRD分析，揭示富镍层状正极Li(Ni0.9Mn0.1)O2在约370℃成核（低于LiOH熔点462℃），低温成核阶段因相变与离子半径变化导致非均匀应变和颗粒裂纹。研究表明提升升温速率使锂掺入在熔融态启动，促进锂氧均匀扩散，可改善微观结构均匀性与循环性能。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-01988-w",
+          "tp": "富镍正极改性",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "使用高镍层状氧化物正极材料有助于提高锂离子电池能量密度，但镍含量的增加会影响该材料的结构稳定性；且当前通过表面涂层、一次颗粒掺杂（如W、Mo）、二次颗粒浓度梯度设计或直接采用单晶形态一定程度可改善，但也会增加了合成的复杂性",
+          "b": "使用高镍层状氧化物正极材料有助于提高锂离子电池能量密度，但镍含量的增加会影响该材料的结构稳定性；且当前通过表面涂层、一次颗粒掺杂（如W、Mo）、二次颗粒浓度梯度设计或直接采用单晶形态一定程度可改善，但也会增加了合成的复杂性\n近日，斯坦福大学William Chueh教授团队联合德克萨斯大学奥斯汀分校刘宜晋教授首先对富镍正极的前驱体(Ni0.9Mn0.1)(OH)2和LiOH混合物进行热重-质谱联用分析、原位加热X射线衍射等表征分析。结果发现，层状Li(Ni0.9Mn0.1)O2的成核起始于约370℃，低于LiOH熔点（462℃），经历了LiOH熔化前与熔化后两个阶段；LixNi0.9Mn0.1O2的（003）峰在约400℃出现，成核阶段可能由于相变、Ni2+（0.69Å）氧化为Ni3+（0.56Å）以及锂镍反位缺陷消除使得晶胞体积收缩，并产生非均匀的应变，在颗粒内部形成裂纹和机械缺陷；而微晶生长始于约620℃。而为了规避固态锂传输及其导致的微观结构不均匀性，其通过提升升温速率，认为将温度快速升至LiOH熔点以上，可使锂的掺入将在熔融态下启动，并促进锂和氧气更均匀地扩散进入过渡金属颗粒。结果发现温升速率从每分钟2℃提升至每分钟10℃时，固相与液相锂化均向更高温度偏移，且液相锂化比例增加（34%提升至59%）；LiOH消耗更迅速，主要反应在10分钟内（380℃至480℃）完成；过渡金属氧化物颗粒从380℃开始表现出在混合物中自由漂浮的特征（过量LiOH未与前驱体颗粒反应），证实合成升温速率可调控锂化过程。三维X射线纳米成像（XNI）和透射X射线显微镜（TXM）等表征结果则发现，慢速升温合成的正极其内部大量均匀分布的纳米级孔隙；随着煅烧进行，大部分孔隙被填充，总体孔隙密度显著下降，但部分残余孔隙在合成后仍主要分布于颗粒表面区域且呈不均匀分布，易导致电解液优先浸润孔隙密集区域，造成电流密度不均匀，进而导致晶格应力不均、CEI增厚、阻抗上升等问题；而高升温速率则可使LiOH在较低温度下提前熔融，与过渡金属前驱体形成液-固均匀接触，最终烧结出的正极颗粒内部孔洞尺寸细小、分布均匀。测试结果表明，由10°C/min合成的正极制备的半电池100次循环容量保持率达97.7%，前100次循环（C/3=90mA g-1，2.7-4.4V）的电压曲线几乎完全重叠。采用石墨负极的全电池500次循环（C/3=90mA g-1，3-4.3V）后容量保持率达92.8%，平均库仑效率达99.87%。文章于2026年3月2日发表在Nature Energy。",
+          "hb": 1
+        },
+        {
+          "t": "苏黎世联邦理工Javier Pérez-Ramírez报道一种基于氧化铪的CO₂加氢制甲醇催化剂载体",
+          "d": "2026-03-02",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "苏黎世联邦理工Javier Pérez-Ramírez团队通过材料数据库筛选，发现氧化铪（HfO₂）作为CO₂加氢制甲醇催化剂载体优于传统ZrO₂，其更宽带隙和更高介电常数有利于稳定低价In物种与氧空位。火焰喷雾热解法合成的In-HfOₓ催化剂在553K、50bar条件下甲醇产量均高于In-ZrOₓ，为高效稳定CO₂加氢催化剂设计提供新方向。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41565-026-02135-y",
+          "tp": "CO₂加氢制甲醇",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "使用传统铜基催化剂的二氧化碳（CO2）加氢制备甲醇的过程中，存在甲醇选择性较低、已被水氧化失活等问题。氧化铟（In₂O₃）催化剂可通过防止过度还原和烧结提高稳定性，In₂O₃表面的氧空位是CO₂吸附活化的关键位点，而载体效应则显著影响催化性能；单斜相ZrO₂载体能够稳定分散InOₓ物种，In-O-Zr界面的形成可促进氧空位生成，进而提升甲醇产率，但当前其反应机理并不明晰。\n近日，苏黎世联邦理工学院Javier Pérez-Ramírez教授团队认为理想的载体应具备稳定的单斜晶格、宽的带隙以稳定带电的氢物种、能够稳定与氧空位相关的低价In物种等特性；其通过在材料数据库中筛选发现仅有ZrO₂在元素周期表中的同族元素氧化铪（HfO₂）符合相应标准，二者化学性质相似，HfO₂拥有更宽的带隙和更高的介电常数。该研究通过火焰喷雾热解法（FSP）合成不同In₂O₃含量的纳米In-Hf氧化物，并对比其与In-ZrOₓ催化剂在CO₂加氢反应中的性能（反应条件为553 K、50 bar、H₂/CO₂=4、空速24000 cm³ h⁻¹ gcat⁻¹）。结果发现，In-HfOₓ的甲醇产量均高于In-ZrOₓ；2 wt% In₂O₃负载量时，In-HfOₓ的甲醇时空收率达9.3 gMeOH h⁻¹ gIn⁻¹，较In-ZrOₓ提升70%。在低负载量（2 wt%）时，In-HfOₓ载体以单斜相HfO₂为主，其性能提升源于更高的CO₂转化率（~5% vs ~3%）和甲醇选择性（57% vs 35%）；随负载量增加，四方相/立方相比例升高，在高负载量（5-10 wt%）时，提升则主要来自甲醇选择性（80% vs 60%）。当负载量升至10 wt%时，两者性能趋于接近，表明此时体相In-O-In结构占主导地位；In-ZrOₓ体系在反应后发生四方相向单斜相的表面转变，仅残留少量四方相；而In-HfOₓ无论在体相还是表面均保持更高的单斜相比例。进一步分析表明，In-HfOₓ上甲醇生成的表观活化能低于CO生成，说明反应路径更倾向于甲醇合成；而In-ZrOₓ则更有利于逆水煤气变换反应生成CO。计算结果表明，在CO₂加氢反应条件下（553 K，H₂/CO₂=4）最稳定的构型是氧空位邻近的In(OH)₃物种，而无论HfO₂还是ZrO₂，表面羟基层锚定的In(OH)₃物种是热力学最稳定构型，形成能较体相取代构型低1.3-1.5 eV；不易聚集，更倾向于单原子分散。而In在HfO₂表面的偏析驱动力强于ZrO₂（ΔEseg = 0.41 eV），意味着HfO₂中体相取代的惰性In物种更少。HfO₂中抗磁性的Hf⁴⁺V₀˙˙构型比顺磁性的Hf³⁺V₀˙稳定0.09 eV，使CO₂+H₂反应气氛时2InHfOₓ中In氧化态保持稳定，而2InZrOₓ进一步还原，发生V₀˙、Zr³⁺及超氧物种的动态互变。且HfO₂(FSP)具有更强的H₂吸收能力，2InHfOₓ上甲酸盐（2876 cm⁻¹）覆盖度约为2InZrOₓ的两倍，从CO₂+H₂切换至He+H₂后，2InHfOₓ上甲酸盐信号衰减更快，加氢效率更高，甲醇程序升温脱附温度也比2InZrOₓ低200 K。\n而对共沉淀法InHfOₓ-CP、沉淀HfO₂载体湿浸渍In₂O₃/HfO₂(P)-WI、FSP-HfO₂载体湿浸渍In₂O₃/HfO₂(FSP)-WI等不同合成方法而言，活性均远低于FSP直接合成的2InHfOₓ；其均以单斜相HfO₂为主，In物种也呈原子级分散，但表面羟基化相对较低，而CO₂在羟基化In吸附物种上的吸附放热量（-2.03 eV）远高于取代位点（-0.80 eV），更有利于CO₂活化，由此限制了其性能。此外，该研究还合成了GaHfOₓ和ZnHfOₓ催化剂（2 wt% Ga₂O₃或ZnO），二者具有与InHfOₓ相似的比表面积和单斜相载体结构，反应后结构稳定；测试结果也证明，HfO₂可负责CO₂活化，而Ga、Zn单原子在反应中解离H₂，整体结合使得催化剂效率高于纯Ga₂O₃和ZnO，证明了HfO₂载体的普适性。文章于2026年3月2日发表在Nature Nanotechnology。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研究人员构建集成锌离子微型电池与传感器的单片式机器人触觉感知系统",
+        "新工艺以碲化铂为电极触点实现晶圆级二维半导体晶体管一步法直接生长"
+      ],
+      "entries": [
+        {
+          "t": "秒级集成的锌离子微电池与多功能传感器一体化系统用于机器人自主触觉感知",
+          "d": "2026-03-02",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "该研究构建了一种集成锌离子微型电池与多功能传感器的单片式系统，用于机器人自主触觉感知。系统采用一体化设计将储能与压力、温度等多模态传感功能集成于同一柔性基底，秒级响应实现能量供给与感知信号的协同输出。锌离子微型电池提供安全、高体积能量密度电源，传感器阵列实时采集触觉信息并反馈至机器人控制系统。该架构省去了外部连线与独立电源模块，为柔性机器人和可穿戴电子的高密度功能集成提供了示范。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520257?af=R",
+          "tp": "机器人触觉微系统",
+          "aip": 1,
+          "kp": [
+            "集成器件[机器人]: Zn微电池+传感器单片集成",
+            "[制造特点]: 秒级一体化集成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Highly integrated devices that combine energy storage with multi-functional sensing capabilities are pivotal for advancing the practical implementation of intelligent microsystems. However, their development is often hindered by inefficient manufacturing, reliability degradation stemming from interfacial mismatches, and challenges in achieving high-performance, interference-free operation. Herein, we demonstrate an ultrafast and efficient strategy to construct a monolithic multifunctional sensing and energy storage system via the Joule heating effect. This strategy enables seamless integration of all components within 8 s, intrinsically mitigating interfacial incompatibility and signal interference. Through the instantaneous thermal activation, the energy storage unit of anode-free Zn-ion micro-battery delivers a capacity of 850 µAh cm-2 and energy density of 1060 µWh cm-2, superior to most reported aqueous Zn-based micro-batteries. With a rapid charging time of 150 s, it powers the integrated device for over 6 h, achieving an impressive 24-h standby under low-current conditions after full charge. Furthermore, this flexible monolithic system can be directly integrated into unmanned systems such as robotic arms, enabling autonomous environmental perception and adaptive decision-making via machine learning, with object identification and classification accuracy exceeding 99%. This work paves the way for next-generation autonomous microrobots, smart healthcare, and human-machine interfaces.",
+          "hb": 1
+        },
+        {
+          "t": "通过一步PtTe₂/2H-MoTe₂异相形成直接生长晶圆级二维半导体晶体管",
+          "d": "2026-03-02",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出一种通过一步法实现晶圆级二维半导体晶体管直接生长的新策略。研究人员以PtTe₂（碲化铂）作为金属电极触点，与2H相过渡金属硫族化物（如MoS₂）形成范德华异质结，在晶圆尺度上直接生长出高性能2D半导体晶体管阵列。该工艺避免了传统转移工艺带来的界面污染与缺陷问题，显著降低了接触电阻，实现了大面积均匀的器件性能。这一方法为二维半导体从实验室走向下一代集成电路和大规模电子系统的实际集成应用提供了可扩展的工艺路径。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522270?af=R",
+          "tp": "二维半导体晶体管",
+          "aip": 1,
+          "kp": [
+            "[晶圆级生长]: 一步碲化形成PtTe2/2H-MoTe2异相结",
+            "器件类型[二维半导体]: p型晶体管"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2D semiconductors offer a promising platform for next-generation integrated circuits and large-scale electronic systems. Realizing high-performance p-type transistors, however, remains challenging due to Fermi-level pinning, high contact resistance, and poorly defined interfaces in conventional stepwise fabrication. Here, we demonstrate a single-step tellurization growth strategy that simultaneously forms PtTe2 contacts on 2H-MoTe2 channels to directly realize 2D semiconductor transistors. This approach forms PtTe2/2H-MoTe2 metal/semiconductor arrays with precise control of the MoTe2 phase at the PtTe2 electrode interface, while providing integrated van der Waals metallic contacts without the need for post-growth of metal contacts. Using this method, we achieve wafer-scale heterophase arrays characterized by uniform patterning and well-controlled 2H/1T' phase transformation dynamics. The heterojunctions display sharp and clean interfaces, as verified by TEM, STEM, and EDS mapping. Transistor arrays fabricated from these heterophase structures show Ohmic contacts with low Schottky barrier heights, delivering on/off ratios up to 5 × 104 and consistent mobility of 5-9 cm2/Vs across 100 devices, ensuring efficient carrier injection. Our results establish a scalable pathway for the direct growth of 2D semiconductor transistors, overcoming conventional multi-step device fabrication bottlenecks and providing a promising platform for large-scale, and reproducible 2D electronics.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "研究引入单原子La促进剂打破丙烷脱氢Pt催化剂活性与稳定性权衡",
+        "四苯基硅烷骨架工程化发射体实现纯绿光OLED高效率与长寿命突破",
+        "研究将聚集诱导发光转子与多金属氧酸盐集成实现高效光热转换"
+      ],
+      "entries": [
+        {
+          "t": "单原子La促进剂打破Al₂O₃负载Pt催化剂丙烷脱氢中活性-稳定性权衡",
+          "d": "2026-03-02",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究通过引入单原子La促进剂，打破了Al2O3负载Pt催化剂在丙烷脱氢（PDH）反应中的活性-稳定性权衡。PDH反应需高温驱动，但高温导致Pt颗粒烧结和积碳失活。单原子La通过与Pt位点形成电子相互作用，调控Pt的电子结构增强丙烯脱附，同时锚定Pt原子抑制高温迁移团聚。实验表明La修饰后催化剂在保持高丙烷转化率的同时显著延长了操作寿命，为工业PDH催化剂的理性设计提供了单原子促进策略。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202526039?af=R",
+          "tp": "丙烷脱氢催化剂",
+          "aip": 1,
+          "kp": [
+            "助剂[PDH]: 单原子La修饰Pt/Al2O3",
+            "[策略]: 原位快速除H2破活性-稳定性权衡"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving acceptable propane conversion in the endothermic propane dehydrogenation (PDH) reaction demands high temperatures, which exacerbate the activity-stability trade-off through low propylene selectivity and accelerated coking deactivation. Addressing this, we leverage the essence of Le Chatelier's principle-shifting reaction equilibrium through rapid in situ H2 removal-a strategy conventionally deemed unattainable on Al2O3 supports due to hydrogen spillover limitations. The synergistic sites between the La1-SnOx promoter and Pt enable the redistribution of surface H species away from the Pt active centers. Consequently, the La1-Ptn/SnOx/Al2O3 catalyst achieves propane conversions approaching the thermodynamic equilibrium conversion over 300-600 °C. Moreover, modulation of hydrogen surface diffusion behavior influences unselective C-C(H) scission of propylene and modifies coke structure and secondary cracking propensity, which is associated with the substantially improved durability observed for La1-Ptn/SnOx/Al2O3 compared to the Ptn/SnOx/Al2O3 (commercial mimic) catalyst. This superior performance demonstrates that, the introduction of La1-SnOx not only overcomes the inert hydrogen-trapping nature of Al2O3, but also alleviates the conventional activity-stability trade-off in PDH catalysis, illustrating how atomically dispersed promoters can circumvent intrinsic support limitations and thereby expand the performance boundaries of Al2O3-based dehydrogenation catalysts.",
+          "hb": 1
+        },
+        {
+          "t": "四苯基硅烷工程化MR-TADF发射体用于高效长寿命纯绿光OLED，色域接近BT.2020标准",
+          "d": "2026-03-02",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究以四苯基硅烷为核心骨架工程化多重共振热活化延迟荧光（MR-TADF）发射体，实现了纯绿光OLED的高效率、长寿命与接近BT.2020标准色域的协同突破。四苯基硅烷基团提供刚性三维构型，有效抑制分子间堆积淬灭并缩小发射半峰宽，从而提升色纯度。MR-TADF机制通过反向系间窜越高效利用三重态激子，实现100%内量子效率。该发射体兼顾了超窄带发射与操作稳定性，满足了高端显示对广色域和高耐久性的双重要求。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72684?af=R",
+          "tp": "OLED发光材料",
+          "aip": 1,
+          "kp": [
+            "发光材料[纯绿OLED]: 四苯基硅烷MR-TADF",
+            "色域[OLED]: 接近BT.2020标准"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Achieving the concurrent combination of superior color purity, high efficiency, and long operational durability remains a formidable challenge for organic light-emitting diodes (OLEDs), which are indispensable for realizing ultra-high-definition (UHD) displays. Herein, we propose a rational molecular design strategy that peripherally functionalizes the multi-resonance thermally activated delayed fluorescence (MR-TADF) skeleton with tetraphenylsilane (TPS) and deuterated TPS groups to address these challenges. The resulting emitters, p-DBFSi, m-DBFSi, and m-DBFSi-d, exhibit sharp green emission (515-517 nm) with ultra-narrow full-widths at half-maximum (FWHMs) below 0.070 eV, ranking among the narrowest green MR-TADF materials reported. OLEDs employing m-DBFSi and m-DBFSi-d as emitters deliver the purest green electroluminescence (CIEy = 0.76), extraordinary maximum external quantum efficiencies (EQEmax) of 40.1% and 41.9%, and maximum power efficiency (PEmax) approaching 200 lm W-1, without employing an additional sensitizer, positioning them among the state-of-the-art narrowband pure-green OLEDs. Furthermore, the m-DBFSi-d-based device exhibits remarkably enhanced operational stability with operational lifetime (LT80) of 2491 h at initial luminance of 1000 cd m-2. Collectively, this work establishes a TPS- and deuteration-engineered MR-TADF strategy that enables OLEDs to combine ultra-narrowband emission, outstanding efficiency, and exceptional durability, paving the way for next-generation UHD displays.",
+          "hb": 1
+        },
+        {
+          "t": "聚集诱导发光转子-多金属氧酸盐晶体中稳定自由基实现高效光热转换",
+          "d": "2026-03-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究通过合理设计具有明确分子结构的光热材料，将聚集诱导发光（AIE）转子单元与多金属氧酸盐（POM）晶体集成，利用自由基稳定化策略实现高效太阳能-热能转换。AIE转子在晶体中受限运动促进非辐射衰变路径，POM框架则提供刚性骨架和自由基稳定位点，协同增强光热转化效率。该材料体系具备明确的分子结构-性能关系，为设计高效光热转换材料提供了新的分子工程范式，在太阳能收集和光热治疗领域具有应用前景。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c00335",
+          "tp": "光热转换多金属氧酸盐",
+          "aip": 1,
+          "kp": [
+            "[NIR占比[太阳光谱]: ~54%",
+            "[材料设计]: AIE转子-多金属氧酸盐稳定自由基晶体",
+            "[应用]: 高效光热转换"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The rational design of photothermal materials with well-defined molecular structures and efficient solar energy conversion is crucial for advancing renewable energy technologies, particularly in harnessing the near-infrared region (∼54% of the solar spectrum). Despite significant progress, existing systems often compromise structural precision and fabrication control in pursuit of performance. Achieving the combination of broadband absorption, high conversion efficiency, and precise crystalline structure remains a critical challenge. Here, we report a one-pot synthesis of a crystalline photothermal material, namely APC, formed within minutes through the assembly of polyoxometalates (POMs) clusters with amino-modified tetraphenylethylene, a representative molecular rotor with an aggregation-induced emission (AIE) feature. This represents the first demonstration of AIE rotor-POM assemblies for photothermal conversion. Trace peroxides at ppm levels in the solvent oxidize AIE rotors during assembly, initiating rapid radical formation that is stabilized by the crystalline matrix. The resulting air-stable radicals enable broadband absorption beyond 2000 nm, while the intramolecular motion of AIE rotors efficiently converts absorbed energy into heat, achieving an exceptional photothermal conversion efficiency of 88.7% under 808 nm laser irradiation. Mechanistic studies reveal that strong intermolecular charge transfer between AIE rotors and POMs drives radical generation, stabilized by spatial confinement and partial SOMO-HOMO inversion. Under 1 sun illumination, APC achieves a high solar-to-vapor water evaporation efficiency of 97.5%, highlighting its promise for solar-driven desalination. This study introduces a rational design strategy for crystalline photothermal hybrids and establishes the mechanistic connections among molecular assembly, charge transfer, and radical stabilization.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

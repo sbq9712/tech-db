@@ -1,0 +1,175 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月16日　星期一",
+  "date_range": "2026-03-16",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究人员构建金属纳米团簇导电通道，实现创纪录无偏压太阳能光解水",
+      "英国投资25亿英镑，定址诺丁汉郡建设2040年投运的百兆瓦级聚变电站",
+      "新设计Rh-Mo双金属位点催化剂，近室温下实现二氧化碳加氢制甲醇"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "薛其坤团队改进镍基氧化物外延工艺，实现常压超导起始转变温度63K",
+      "研究利用SERS热点动态电化学重排，实现DNA寡核苷酸序列读出",
+      "上海交大提出时间卷积网络方法，化学反应动力学预测精度提升29%"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究人员构建金属纳米团簇导电通道，实现创纪录无偏压太阳能光解水",
+        "英国投资25亿英镑，定址诺丁汉郡建设2040年投运的百兆瓦级聚变电站",
+        "新设计Rh-Mo双金属位点催化剂，近室温下实现二氧化碳加氢制甲醇"
+      ],
+      "entries": [
+        {
+          "t": "界面金属纳米团簇通道引导电荷转移实现创纪录的无偏压太阳能光解水",
+          "d": "2026-03-16",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "研究设计了界面金属纳米团簇导电通道来定向引导电荷转移，实现了创纪录的无辅助（无偏压）太阳能光解水效率。光电化学（PEC）水分解是太阳能转化为化学能的最具前景方案之一，但界面电荷复合严重限制了太阳能-氢能转化效率。该工作在半导体-催化剂界面构建金属纳米团簇作为电子传输快速通道，有效抑制了界面电荷复合并促进了载流子向催化剂的高效转移。在无外加偏压条件下实现了突破性的STH效率，向实用化太阳能制氢迈出重要一步。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01306",
+          "tp": "光电化学分解水",
+          "aip": 1,
+          "kp": [
+            "[界面工程]: 金属纳米簇电荷通道",
+            "[光电催化]: 无辅助太阳能全解水"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photoelectrochemical (PEC) water splitting offers one of the most promising solutions for sustainable solar-to-chemical fuel conversion. However, sluggish charge migration across the photoelectrode interface fundamentally limits the PEC efficiency. Herein, we design and engineer an atomic-scale interfacial charge conduit by inserting metal nanoclusters between the cocatalyst and semiconductor. The distinct work-function differences among the cocatalyst, metal nanoclusters, and semiconductor induce interfacial band bending, enabling the selective, directional transport of photogenerated carriers from the semiconductor to the cocatalyst. Particularly, bismuth (Bi) nanoclusters synthesized through a universal laser-induced in situ growth strategy on 29 distinct bismuth-based semiconductors induce the formation of metal/semiconductor Schottky junctions and directionally steer electron migration into the semiconductor conduction band while effectively suppressing electron-hole recombination. Benefiting from the Bi nanoclusters and CoFe cocatalyst, the large-area (3 × 3 cm2) earth-abundant CoFe/Bi/BiVO4 photoanode achieves a photocurrent of 26 mA at 1.1 V versus RHE, maintaining stable performance for 600 h. For practical application, an all-oxide-semiconductor tandem PEC device combining a CoFe/Bi/BiVO4 photoanode and a Pt/TiO2/Ga2O3/Cu2O/CuO photocathode records an unassisted 4.8% solar-to-hydrogen conversion efficiency under AM 1.5G light illumination for 70 h. This work demonstrates the atomic-scale engineering of interfacial charge conduits for high-efficiency solar energy conversion.",
+          "hb": 1
+        },
+        {
+          "t": "英国球形托卡马克聚变发电项目STEP将在火电厂旧址启动建设并启动聚变超级计算机开发",
+          "d": "2026-03-16",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "英国发布《2026年核聚变战略》，投资25亿英镑推进可控核聚变市场化。STEP球形托卡马克聚变电站定址诺丁汉郡West Burton火电厂旧址，由ILIOS财团以2亿英镑承建，目标2040年代投运、输出功率≥100MW。同时政府出资4500万美元开发聚变超算（6.76亿次浮点运算AI加速建模），6月投运，以降低物理实验成本。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.gov.uk/government/news/britain-to-lead-fusion-energy-race-to-deliver-energy-security",
+          "tp": "聚变电站建设",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "英国在球形托克马克（Spherical Tokamak）装置的研发上有一定领先地位，去年，STEP母公司Tokamak Energy的ST40装置据称创下私营托克马克装置三重积纪录。作为英国核聚变战略的一部分，英国将放松简化对核聚变公司的监管。英国也将着力建立首个核聚变“市场框架”。同时，若英国能实现其计划，STEP反应堆有可能成为全球首个实现能量净输出的核聚变反应堆。此战略计划的STEP电站在技术成熟度上类似于中国合肥的BEST项目，都为示范堆。中国合肥BEST堆的优势在于2027年即可建成，预计2030年前后达成能量输出。STEP项目按其计划，优势在于可能成为全球首个达成能量净输出的核聚变反应堆。不过其距投产时间仍较远，该战略当前的目标仍是通过公-私投资，在英国达成完整的核聚变研发和制造产业链",
+          "b": "3月16日，英国政府发布《2026年核聚变战略》（UK Fusion Strategy 2026）,旨在通过确立全球首个可控核聚变的公开市场化框架并投资25亿英镑（220亿人民币）用于研发和STEP核聚变电站的建设。BBC和英国聚变产业协会也在同日发文称，其球形托卡马克聚变发电项目STEP将在诺丁汉郡的原先的West Burton火电厂（该电厂2023年关闭，目前正在拆除）进行建设。报道中称，该建设项目由英国建筑公司Kier集团与核工程公司Nuvia牵头组成的ILIOS财团中标，总投资达2亿英镑，目标在2040s完成建设运营；据项目官网介绍，该项目在建成后目标达到至少100MW输出功率。\n此外，英国政府还将出资4500万美元用于支持聚变超级计算机的开发，将实现6.76亿次浮点运算的AI加速建模，以加速核聚变设计、建模和运行，减少昂贵且耗时的物理实验所带来的成本、风险和时间；该计算机计划于今年6月投入运营。",
+          "hb": 1
+        },
+        {
+          "t": "原子级不对称Rh-Mo位点实现近室温下CO2加氢制甲醇",
+          "d": "2026-03-16",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "研究设计了原子级不对称Rh-Mo双金属位点催化剂，在近室温条件下实现了CO2加氢高效合成甲醇。CO2加氢制甲醇为温室气体的资源化利用和可持续非石油碳源提供了重要途径，但传统催化剂在低温下活性和选择性难以兼顾。该工作通过精确构建Rh-Mo异核双原子位点的配位不对称结构，优化了CO2吸附活化和中间体加氢的能垒，在近环境温度下实现了高甲醇选择性和高催化活性。该原子级催化剂设计策略为低温CO2转化催化剂的理性开发提供了新范式。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17025",
+          "tp": "CO2加氢制甲醇",
+          "aip": 1,
+          "kp": [
+            "[催化位点]: 原子级不对称Rh-Mo位",
+            "[反应温度]: 近室温",
+            "[反应]: CO2加氢制甲醇"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "CO2 hydrogenation to methanol offers a promising route for greenhouse gas mitigation and sustainable nonpetroleum carbon utilization. Rhodium (Rh), known for its high surface energy, excels in CO2 activation. However, its strong reducibility often leads to deep hydrogenation of CO2 to CH4, rather than stabilizing key C-O intermediates. Herein, we report a catalyst comprising Rh atoms embedded in a MoC lattice, constructed through an ultralow Rh loading that regulates matrix phase formation. This design results in atomic-scale asymmetric Rh-Mo coordination environments, which enhance CO2 molecular bending and facilitate C=O bond cleavage. Electron transfer modulation from neighboring Mo atoms stabilizes Rh in the Rhδ+ state, thereby improving the adsorption of C-O intermediates and promoting methanol formation. Notably, the catalyst delivers exceptional methanol selectivity of up to 95% at 110 °C, along with long-term operational stability. A high methanol formation rate of 1,287 μmol gRh-1 s-1 is also attained, highlighting the superior atomic utilization of Rh. This work presents an atomic-level design strategy for tailoring local coordination and electronic structure, driving efficient CO2 hydrogenation under mild conditions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "薛其坤团队改进镍基氧化物外延工艺，实现常压超导起始转变温度63K",
+        "研究利用SERS热点动态电化学重排，实现DNA寡核苷酸序列读出",
+        "上海交大提出时间卷积网络方法，化学反应动力学预测精度提升29%"
+      ],
+      "entries": [
+        {
+          "t": "薛其坤团队将镍基氧化物材料常压超导转变问题提升至63K",
+          "d": "2026-03-16",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "薛其坤团队改进镍基氧化物外延制备工艺，通过比常规高约1000倍的氧化环境及更高的生长温度，化解结构稳定性与精准氧化态之间的热力学矛盾。在SrLaAlO₄衬底上制备的(La,Pr)₃Ni₂O₇薄膜呈现三维超导特征，常压下起始转变温度达63K、零电阻37K、迈斯纳抗磁起始23K，较铜氧化物二维特性差异显著。成果发表于National Science Review。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://paper.sciencenet.cn/htmlpaper/2026/3/202631616232115147411.shtm",
+          "tp": "镍基超导63K",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据科技日报3月16日报道，薛其坤团队开发的镍基氧化物超导材料在常压下实现了最高63K的超导起始转变温度，最高37K的零电阻温度，迈斯纳抗磁性的起始温度提升到23K。报道中称，其对原先的强氧化原子逐层外延制备方法进行改进，通过更强的氧化环境（比常规方法高出约1000倍）和更高的生长温度（比传统方法高100°C左右），解决了镍基超导相合成中结构稳定性和超导相所需的精准氧化态之间的热力学矛盾，在SrLaAlO4（铝酸锶镧）衬底上制备的(La,Pr)3Ni2O7（镧镨镍氧化物）外延薄膜表现出强的层间耦合特征，具有较为显著的三维超导特性（称不同于具有强准二维特性的铜氧化物），当薄膜达到最优氧化状态时，其输运特征表现为典型的非费米液体行为，常压转变温度等指标均得到提升。相关研究也在2026年3月10日发表在National Science Review上。",
+          "hb": 1
+        },
+        {
+          "t": "SERS热点动态电化学重排实现DNA寡核苷酸的组成、长度和序列读取",
+          "d": "2026-03-16",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "利用SERS（表面增强拉曼光谱）热点处的动态电化学重排效应，实现了DNA寡核苷酸的组成、长度和序列读出。该研究突破了SERS此前主要用于小分子的局限，通过电化学驱动分子在金属纳米结构热点区域的重取向，获取DNA不同序列位点的拉曼指纹信息，为核酸的免标记、高通量检测开辟了新途径，在基因诊断和分子生物学中有重要应用潜力。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02165",
+          "tp": "表面增强拉曼DNA测序",
+          "aip": 1,
+          "kp": [
+            "[检测方法]: SERS热点动态电化学重排读取DNA",
+            "[挑战]: 表面选择规则致信号偏倚",
+            "[读取信息]: 组成/长度/序列"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Extending surface-enhanced Raman spectroscopy (SERS) from small molecules to macromolecules is important for various applications, yet it remains challenging due to the \"surface selection rule\". Molecular segments that bind closer to the substrate surface experience stronger signal enhancement and thus dominate the spectrum, resulting in an incomplete or biased SERS response that does not represent the overall molecular structure. DNA oligonucleotides exemplify this challenge, where SERS struggles to extract sequence-level information such as length and primary sequence due to relevant vibrational features being overshadowed by dominant peaks and noise, restricting complete molecular characterization. In this work, we introduce an electrochemical modulation strategy that dynamically reorients oligonucleotides near plasmonic hotspots to enrich information for SERS profiling, achieving comprehensive decoding of oligonucleotide's composition, length, and sequence. By tuning the surface potential of the substrate, we force adsorbed DNA oligonucleotides through distinct configurations and sequentially bring different types and numbers of bases into hotspots. Combining these configuration-specific spectra realizes SERS superprofiles that enrich vibrational information, showcasing a good resolution of 98.4% classification accuracy for 44 oligonucleotides. Importantly, these superprofiles exhibit chemistry-grounded relationships with key sequence characteristics, where integration with a stepwise machine learning (ML) framework enables accurate prediction of unseen oligonucleotides with an average 3.4% difference for base composition, 0.9 bases difference for length, and 100% accuracy for primary sequence. Overall, our electrochemical reorientation strategy overcomes the orientation- and surface-selection biases in static SERS for reliable structural prediction of unknown DNA oligonucleotides. We envisage expanding these dynamic SERS profiles to a vast range of analytes and substrates with diverse chemical functionalities and surface potentials, realizing an extensive space of analyte-surface configurations for future molecular characterization across various fields.",
+          "hb": 1
+        },
+        {
+          "t": "上海交通大学王衍明发表基于时间卷积网络的模型用于预测化学反应动力学",
+          "d": "2026-03-16",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "上海交通大学王衍明团队提出深度系综主动学习-时间卷积网络（DEAL-TCN）方法预测化学反应动力学。该方法使用主动学习框架中的委员会查询策略解决物种和时间的高维复杂性，借助一维时间卷积捕捉物种间长时间尺度耦合。在Mo-O-S测试体系上，输入前50ps轨迹后，模型在随后450ps预测中实现18.2%精度，相较基准LSTM及Transformer方法分别提升29%和24%。论文2026年3月16日发表于Journal of Chemical Theory and Computation。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c02153",
+          "tp": "化学动力学",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "化学反应模拟是机理研究的重要工具。目前已经有基于时间序列的机器学习方法用于捕捉化学反应轨迹中隐含的特征，从而实现轨迹的预测。长时间尺度的自回归方法往往存在误差积累的问题，同时生成足够长的轨迹采样需要的计算量过大。王衍明团队提出了深度系综主动学习-时间序列卷积网络(DEAL-TCN)方法，使用主动学习框架解决化学反应动力学中物种和时间的高维复杂性问题。其使用“委员会查询”方法，借助一维时间卷积来捕捉物种之间存在的长时间尺度耦合，从而实现对该过程的高效建模以及物种演化的预测。该工作在Mo-O-S测试体系上使用了该方法，实现了对于物种浓度的准确预测。将前50ps的轨迹输入后，模型在随后450 ps的预测过程中实现了18.2%的预测精度，相较于基准的LSTM以及Transformer方法提升了29%/24%的精度。文章于2026年3月16日发表在Journal of Chemical Theory and Conputation。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

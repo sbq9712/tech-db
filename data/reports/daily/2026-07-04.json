@@ -1,0 +1,245 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月4日　星期六",
+  "date_range": "2026-07-04",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究团队提出固态电解质多尺度协同设计，实现超5000%应变与80 MPa强度",
+      "脉络能源研发30x30平方厘米钙钛矿太空光伏组件，光电转换效率达21.79%",
+      "中科院研制全球最大核聚变超导磁体并通过验收"
+    ],
+    "AI与智能科技": [
+      "桥水联合评测显示前沿大模型金融推理准确率仅50%至70%",
+      "华为何庭波在预印本平台发布多层级电子系统时间缩微理论V2版本",
+      "疑似GPT-5.6系列模型底层代码遭曝光，传闻7月7日发布"
+    ],
+    "通用技术": [
+      "中国研制车载电磁弹射系统，实现无跑道发射无人机",
+      "沃尔沃首款A30 Electric电动铰接式自卸卡车正式投入作业",
+      "特高压天津南站投运国内首套变压器故障主动防御装置"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究团队提出固态电解质多尺度协同设计，实现超5000%应变与80 MPa强度",
+        "脉络能源研发30x30平方厘米钙钛矿太空光伏组件，光电转换效率达21.79%",
+        "中科院研制全球最大核聚变超导磁体并通过验收"
+      ],
+      "entries": [
+        {
+          "t": "固态电解质的多尺度协同设计：超5000%应变+80 MPa强度",
+          "d": "2026-07-04",
+          "a": "能源学人",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究提出力学集成梯度电解质设计策略，面向长循环固态锂电池。通过多尺度协同设计实现超5000%的超高应变和80MPa的力学强度，解决了传统固态电解质在界面接触和机械韧性方面的核心瓶颈。梯度结构使电解质在保持高离子导率的同时兼具优异力学性能，可有效抑制锂枝晶穿透并维持长期循环中电极/电解质界面的稳定接触。第一作者伊小萍，通讯作者潘文鼎、刘训良、李泓，为固态电池的实用化提供了重要的结构设计范式。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/NRs2FffkSw9-nycA6Md64A",
+          "tp": "固态锂电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "固态电解质的多尺度协同设计：超5000%应变+80 MPa强度 Energist Energist 能源学人 【文章信息】 力学集成梯度电解质：面向长循环固态锂电池的一体化设计策略 第一作者：伊小萍 通讯作者：潘文鼎，刘训良，李泓 单位：北",
+          "hb": 1
+        },
+        {
+          "t": "【钙钛矿】21.79%！脉络能源超轻柔钙钛矿太空光伏组件新突破",
+          "d": "2026-07-04",
+          "a": "索比光伏",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "广东脉络能源科技自主研发的30×30 cm²超轻柔钙钛矿太空光伏组件，经TÜV北德权威认证，光电转换效率达21.79%，为同面积级别超轻柔钙钛矿组件世界最高效率之一。该组件在保持高光电性能的同时具备超轻量化特性，面向航天太空应用场景。钙钛矿技术在太空光伏领域的突破，拓展了其在极端环境下的应用边界，产业化潜力值得关注。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202607/03/50025329.html",
+          "tp": "钙钛矿太空光伏",
+          "aip": 1,
+          "kp": [
+            "转换效率[30×30cm²钙钛矿太空组件]: 21.79%",
+            "功率质量比[超轻柔钙钛矿太空组件]: 26W/g",
+            "组件面积[脉络能源钙钛矿]: 30×30cm²"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "广东脉络能源科技有限公司自主研发的30×30 cm²超轻柔钙钛矿太空光伏组件，经第三方权威机构TÜV北德认证，光电转换效率达到21.79%，为同面积级别超轻柔钙钛矿光伏组件的世界最高效率之一\n。更关键的是，该组件在保持优异光电性能的同时，功率质量比高达26 W/g——这一指标显著超越多数薄膜光伏技术，处于国际领先水平。\n在航天领域，重量即成本。每增加一克发射载荷，都意味着更高的运载费用，同时挤占宝贵的有效载荷空间。因此，空间光伏的第一性原理极为明确：越轻越有价值。由于在轨补给昂贵、维修几乎不可能，“功率质量比”便成为衡量空间电源性能的终极标尺——同样质量送入轨道，能输出更多电力，就意味着卫星可承载更强载荷、延长工作寿命、降低发射成本。脉络能源此项成果，正是对这一指标的强力回应。\n商业航天的节奏正在加快。低轨通信星座、遥感监测网、物联网卫星，甚至未来可能出现的太空数据中心，都在成倍拉高对空间电力的需求。传统刚性光伏组件技术虽然成熟，但单位重量成本高、展开机构复杂、难以快速批量制造，很难匹配“低成本、高频次、大规模组网”的卫星部署节奏。行业迫切需要一种能同时满足高效率、轻量化、可折叠收纳、适合规模化生产的新型空间电源方案。\n柔性钙钛矿光伏组件的潜力，恰好踩在了这些需求的交汇点上。它具备高转换效率、极轻的材质、可弯曲折叠的特性，并且制造工艺有潜力实现卷对卷连续生产，成本控制空间可观。这意味着，空间光伏有望从过去“高成本、小批量、刚性结构”的固有模式，逐步转向“轻量化、柔性化、规模化制造”的新路径。对于我国商业航天和深空探测来说，这项技术的价值不仅停留在电池效率的提升层面，更关乎未来大规模天基设施能否实现能源自主供给。\n当然，空间应用对可靠性的要求极为苛刻。材料级别的实验室数据不能等同于航天级产品，地面环境测试通过也远非规模化上天的充分条件。柔性钙钛矿光伏组件仍需经历完整的系统级验证、辐照测试和长期在轨考核，才能真正走向工程应用。\n脉络能源的此次技术突破，正在逼近一个关键问题的答案：当卫星数量激增、功率需求攀升、发射成本日益敏感时，柔性钙钛矿光伏组件能否凭借更轻的材料，为更大的太空基础设施提供可靠能源？ 从当前进展看，这一答案正一步步接近现实。脉络能源也将持续深耕柔性钙钛矿光伏组件，从地面应用到太空探索，从技术攻关到场景拓展，不断拓展这一革命性技术的未来边界。\n索比光伏网 https://news.solarbe.com/202607/03/50025329.html",
+          "hb": 1
+        },
+        {
+          "t": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步",
+          "d": "2026-07-04",
+          "a": "世界先进制造技术论坛",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "2026年6月27日，中科院合肥物质科学研究院等离子体物理研究所研制的两套核聚变堆关键超导磁体——环向场超导磁体通过验收，为全球最大核聚变磁体。该成果标志着中国在\"人造太阳\"核心部件上取得重大突破，对实现可控核聚变商业化具有里程碑意义。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/16ey35WN0vgN_AI6Kyx6Jg",
+          "tp": "核聚变磁体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步 原创 小艾 小艾 世界先进制造技术论坛 2026年6月27日，中国科学院合肥物质科学研究院等离子体物理研究所传出一个重磅消息。 **两套核聚变堆关键超导磁体——环向场超",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "桥水联合评测显示前沿大模型金融推理准确率仅50%至70%",
+        "华为何庭波在预印本平台发布多层级电子系统时间缩微理论V2版本",
+        "疑似GPT-5.6系列模型底层代码遭曝光，传闻7月7日发布"
+      ],
+      "entries": [
+        {
+          "t": "桥水基金最新研究：前沿 AI 模型金融判断准确率未达 80% 可信门槛，GPT 和 Claude 仅有 50~70%",
+          "d": "2026-07-04",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "7月3日，桥水基金旗下AIA Labs联合OpenAI前CTO Mira Murati创立的Thinking Machines Lab，对GPT、Claude、Gemini等前沿大语言模型在基础金融判断任务上的表现进行系统评测。结果显示，这些模型准确率仅50%~70%，未达80%的可信应用门槛。研究揭示了当前LLM在金融推理领域的固有局限，对\"AI替代金融分析师\"的市场乐观预期构成冷静修正。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/972/445.htm",
+          "tp": "大模型金融评测",
+          "aip": 1,
+          "kp": [
+            "准确率[前沿LLM金融判断]: 基础~50%/优化~70%",
+            "可信门槛[金融判断]: 80%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 3 日消息，桥水基金旗下 AIA Labs 联合 OpenAI 前 CTO Mira Murati 创立的 Thinking Machines Lab 对包括 GPT、Claude 和 Gemini 在内的前沿大语言模型在基础金融信息筛选任务进行了测试，但结果表现不佳，而基于开源模型微调的自研模型在准确率和成本上均具有显著优势。\n研究团队从投资分析师的日常工作中提取了六项典型任务，包括判断一篇财经文章对高管层是否具有参考价值、判断央行文件是否预示未来利率变化方向等。\n报告指出，这些任务对专业投资者而言非常基础，但他们往往难以用语言清晰描述自己的判断逻辑。在前沿模型测试中，Gemini、Claude 和 GPT 各版本在使用基础提示词时平均准确率仅约 50%。\n即使经过专家撰写的详细提示词和三级分类体系（“相关且有趣”“相关但无趣”“不相关”）优化后，准确率提升至 70% 左右，仍未达到研究人员设定的 80% 可信部署门槛。\n报告还指出，模型迭代并未在该任务上带来显著进步，例如 GPT-5.4 比 GPT-5.2 价格高出 43%，但准确率仅略有提升。\n研究团队随后采用微调方案，以阿里开源模型 Qwen3-235B 为基座，通过 Thinking Machines Lab 的 Tinker 平台进行训练。训练数据集构建过程中，团队最初采购了非专业标注服务，但发现大量标签存在错误。由于专家标注成本高昂，团队设计了一套验证机制：先用有缺陷的标签训练模型，再让模型重新评估同一批数据，将模型判断与原始标签不一致的争议样本交由专家校正，以此在保证质量的同时控制成本。\n经过多轮训练优化 —— 包括交错批次训练、CISPO 损失函数与非对称裁剪、以及基于最佳验证准确率检查点的同策略蒸馏 —— 最终微调模型在测试中达到 84.7% 的准确率，优于测试中最佳前沿模型的 78.2%，错误率降低了 29.8%。同时，由于模型规模更小，推理成本仅为前沿模型的约十四分之一。\n报告指出，这一结果再次证明前沿模型并未囊括所有可用数据，大量专有企业数据和未编码的人类专业知识仍存在于大模型的知识盲区中，尤其是那些企业有意保持私密的数据。通过工具链微调开源模型，企业可以保留模型权重、数据乃至算力基础设施的控制权，避免将专有数据交给前沿实验室后成为其产品竞争的基础。桥水方面表示，该模型已投入日常使用，并认为这种针对特定组织需求定制的“差异化智能”将是未来方向。\nLearning to Replicate Expert Judgment in Financial Tasks - Thinking Machines Lab",
+          "hb": 1
+        },
+        {
+          "t": "华为何庭波发布“韬定律”V2版本",
+          "d": "2026-07-04",
+          "a": "国际能源研究中心",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "华为半导体负责人何庭波于7月3日在中科院ChinaXiv预印本平台发布《面向多层级电子系统的时间缩微理论》（业内简称\"韬定律\"）V2版本。相较5月25日发布的V1版本，V2进行了理论更新与完善，涉及多层级电子系统的时间尺度缩微原理，对芯片设计与电子系统架构具有指导意义。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/mmAsnxyPgOAd2G6b3iZCHw",
+          "tp": "时间缩微理论",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "华为何庭波发布“韬定律”V2版本 根据中国科学院科技论文预发布平台ChinaXiv最新公示论文，华为半导体负责人何庭波于7月3日发布《面向多层级电子系统的时间缩微理论》（业内也称“韬定律”）V2版本。 相比较5月25日发布的V1版本，新版论",
+          "hb": 1
+        },
+        {
+          "t": "趁火打劫！GPT-5.6三大模型全曝，定档7月7日？",
+          "d": "2026-07-04",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "疑似GPT-5.6系列三大模型的底层代码被曝光，传闻将于7月7日正式发布。泄露信息显示OpenAI正密集布局新一代多模型矩阵，可能在推理能力、多模态和上下文长度方面实现突破。该消息为爆料性质，具体参数和发布日期需以官方公告为准。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/nzb2fAi1oDdBGueU_QzW3w",
+          "tp": "GPT5.6定档",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "趁火打劫！GPT-5.6三大模型全曝，定档7月7日？ ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**突发偷跑！GPT-5.6三大神秘模型底层代码曝光，下周二重磅降临。这一波，Ope",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中国研制车载电磁弹射系统，实现无跑道发射无人机",
+        "沃尔沃首款A30 Electric电动铰接式自卸卡车正式投入作业",
+        "特高压天津南站投运国内首套变压器故障主动防御装置"
+      ],
+      "entries": [
+        {
+          "t": "中国车载电磁弹射器可发射攻击型无人机",
+          "d": "2026-07-04",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国展示了新型车载电磁弹射系统，可在无跑道条件下发射攻击型无人机。该模块化弹射装置安装在卡车平台上，通过电磁力将无人机加速至起飞速度，大幅降低了无人机作战对固定跑道设施的依赖，拓展了前线战术无人机快速部署的灵活性。",
+          "sc": 7.9,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/military/china-truck-mounted-electromagnetic-catapult-drones",
+          "tp": "电磁弹射无人机",
+          "aip": 1,
+          "kp": [
+            "[电磁弹射]: 模块化集装箱式部署无人机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China has showcased what may be one of its most innovative unmanned warfare concepts yet, according to reports. The modular, and containerized electromagnetic aircraft launch system is capable of deploying drones from almost any suitable location.\nThe system was recently demonstrated in a footage shared by the Beijing Institute of Technology’s (BIT) school of mechanical engineering. The weapon highlights Beijing’s growing emphasis on mobility, dispersion and rapid deployment as it modernises the People’s Liberation Army (PLA).\nUnlike conventional drone launch facilities that depend on permanent runways or dedicated airfields, China’s new system is mounted on standard eight-wheeled trucks carrying container-sized modules. During the demonstration, three trucks were aligned and mechanically connected to form a continuous launch platform. An electromagnetic catapult then accelerated a fixed-wing propeller drone to take-off speed before releasing it into flight.\nThe concept is based on modularity. Individual launch sections can be transported independently by road, rail or ship and assembled quickly wherever operations demand. This makes the system significantly more flexible than traditional fixed installations and could allow the PLA to disperse drone-launch\ncapabilities\nacross multiple locations, making them harder to detect and target.\nAccording to the developer, the aircraft catapult is only one member of a larger family of containerized military systems. Similar modules could reportedly accommodate missile launchers, radar units, electronic warfare equipment, command-and-control centres or logistics support packages. Standard container dimensions also enable civilian transportation infrastructure to move military assets with relative ease, improving operational flexibility,\nSuch an approach mirrors a broader trend in modern warfare, where mobility and concealment have become as important as firepower. Containerized systems can blend into commercial transport networks, complicating enemy surveillance and targeting efforts.\nThe launcher employs electromagnetic aircraft launch technology, commonly known as EMALS, which accelerates aircraft without using rockets or steam-powered catapults. Compared with conventional launch methods, electromagnetic systems provide smoother acceleration, reduced mechanical stress on aircraft and greater flexibility in handling drones of different sizes and weights.\n“Assembling a mobile electromagnetic catapult with a few trucks allows for launch capabilities from virtually anywhere, eliminating the need for even a standard road,”\nFu Qianshao, a mainland military analyst.\nChina has already incorporated EMALS aboard its newest naval platforms, including the Type 076 amphibious assault ship Sichuan, widely described as a future\ncarrier. The appearance of a mobile land-based version suggests the technology is expanding beyond naval operations.\nThe growing emphasis on mobile drone launch systems reflects lessons drawn from conflicts in Ukraine and the Middle East, where unmanned aircraft have become central to intelligence gathering, long-range strikes and battlefield surveillance. Fixed airbases have increasingly become vulnerable to missile attacks, forcing militaries to seek dispersed alternatives.\nA truck-mounted launcher could enable rapid deployment from highways, temporary airstrips or remote locations, reducing reliance on permanent infrastructure while maintaining operational tempo. Analysts believe such flexibility could prove valuable in any future high-intensity conflict where conventional airfields are under constant threat.\nIf fielded in significant numbers, containerized launch systems could complicate an adversary’s planning. Instead of targeting a limited number of known airbases, opponents would need to locate numerous mobile launch sites capable of appearing with little warning.\nThe modular design also fits China’s broader military strategy of distributed operations, where combat assets are spread across multiple locations to enhance survivability. Combined with long-range\n, electronic warfare systems and missile launchers housed in similar containers, the concept could create highly adaptable battlefield networks.\nHowever, questions remain regarding deployment speed, logistical requirements, power generation for electromagnetic launches and vulnerability to electronic warfare or precision strikes. Operational effectiveness will ultimately depend on how well these systems integrate with the PLA’s wider command-and-control architecture.\nMore from Military\nUS Navy’s 7,640-ton fast-attack nuclear submarine retires after 35 years of service\nNew surveillance software combines thermal imaging to detect military threats faster\nUS Army expands Arctic fleet with 19 new tracked vehicles for frozen battlefields\nUS firm starts building Navy’s next destroyer that can conduct anti-submarine ops\nUS Navy tests 3D-printed composite patches to speed up F/A-18 fighter jet repairs\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nPrabhat, an alumnus of the Indian Institute of Mass Communication, is a tech and defense journalist. While he enjoys writing on modern weapons and emerging tech, he has also reported on global politics and business. He has been previously associated with well-known media houses, including the International Business Times (Singapore Edition) and ANI.\nUS Navy's 7,640-ton fast-attack nuclear submarine retires after 35 years of service\nWatch: From laundry to making your bed, Isaac 1 humanoid robot is ready for house chores\n99% pure lithium extraction became possible with US scientists' new electrochemical method\nUS revives domestic uranium enrichment through $1.07 billion nuclear fuel push\n9 GWh sodium-ion battery agreement aims to slash diesel use at remote mining sites",
+          "hb": 1
+        },
+        {
+          "t": "首款沃尔沃A30 Electric铰接式自卸卡车投入作业",
+          "d": "2026-07-04",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "沃尔沃建筑设备公司（Volvo CE）推出的首款电动铰接式运输卡车A30 Electric已正式投入作业。该车型于去年Bauma工程机械展上首次发布，标志着重型建筑机械电动化的重要里程碑。电动铰接卡车在矿山、采石场及大型工地等场景中可实现零排放运营，降低运营成本的同时减少噪音污染，体现了工程机械行业向电气化转型的加速趋势。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/03/first-ever-volvo-a30-electric-articulated-haul-trucks-get-to-work/",
+          "tp": "电动铰接卡车",
+          "aip": 1,
+          "kp": [
+            "载重[Volvo电动铰接卡车]: 30吨",
+            "应用[A30Electric]: 首批客户实际部署"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jul 3 2026 - 5:31 am PT\nVolvo CE announced its first-ever electric articulated haul truck at last year’s Bauma construction expo\n; less than a year later, the first examples of Volvo’s new A30 Electric are in customers’ hands, doing real work.\nNorwegian contractor Leonhard Nilsen & Sønner AS became the first customer to deploy Volvo’s new, 30-ton A30 Electric articulated haul trucks,\nputting them to work at the Hafslund hydropower project and highlighting the fact that zero-emission equipment assets can support more sustainable infrastructure and energy production\n“We are proud to have secured the first A30 Electric haulers for LNS and the Hemsil 3 project, and we look forward to putting them to work,” says Steffen Solstrand Ludvigsen, Project Site Manager at LNS. “The project is a strong fit for this type of machine. We’ll be working in tunnels with blasting cycles, which allow time for charging between runs. That makes electric haulers particularly well suited to the work here.”\nSet to be completed in 2029,\nthe Hafslund hydro project is expected to generate more than 100 GWh of renewable electricity each year\n– and, by leaning into zero emission equipment options like Volvo’s, will have a relatively low sunk carbon cost at the outset.\n“Hafslund has a strong environmental focus and takes a forward-leaning approach to electrifying construction operations on our projects,” explains Lars Oust, Project Manager at Hafslund Kraft. “To succeed in the green transition, we need to adopt new technology and take the lead as a client, driving demand for this type of equipment. That’s why being the first in the world to use electric haulers is so important to us.”\nThe two Volvo A30 Electric models will be put to work first in the construction of 20 km long tunnel\n(~12.5 miles), where their zero-emission running will also help to keep the project’s workers safe in the the hydro plant’s enclosed, underground spaces.\nAs a truck, the new Volvo A30 Electric offers a 29 tonne (~64,000 lbs.) payload capacity and promises a “full day” of operation on a single charge of its 245 kWh li-ion battery pack. Motivation is provided by a 350 kW (~470 hp) electric motor, with power going through a torque-amplifying gear reduction gearbox. Depending on how you do the math, peak “at the wheel” torque numbers are well over 200,000 lb-ft – more than enough, in other words, to match the performance of diesel and\nenough to have a measurable impact on the rotational speed of the planet.\nLet us know what you think of the big articulated Volvo in the comments.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        },
+        {
+          "t": "国内首套变压器故障主动防御装置投入跳闸运行--中国能源新闻网",
+          "d": "2026-07-04",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "国内首套投入跳闸运行的变压器故障主动防御装置在特高压天津南变电站成功投运。该装置区别于传统事后保护,可在变压器故障演化早期主动识别隐患并触发跳闸隔离,实现从被动响应向主动防御的转变。其投运标志着我国在特高压电网关键设备状态感知与预测性保护技术上取得实质性突破。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260703_1899603.html",
+          "tp": "变压器主动防御",
+          "aip": 1,
+          "kp": [
+            "[变压器防御]: 局放监测+继电保护融合",
+            "[应用场景]: 特高压天津南站首套投运"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "国内首套变压器故障主动防御装置投入跳闸运行--中国能源新闻网\n中电传媒股份有限公司主办\n国内首套变压器故障主动防御装置投入跳闸运行\n6月27日，国内首套投跳闸变压器故障主动防御装置在特高压天津南变电站成功投运，这标志着我国变压器故障主动防御原创技术取得从理论研究、实验探索到产业化应用落地的重大阶段性应用成果，实现电力安全防护领域关键技术突破。\n变压器作为电力传输与分配的核心枢纽，其安全稳定运行直接关系到电网可靠性、能源供应安全性和社会经济可持续发展。\n“变压器主动防御装置重点依托创新融合局放监测和继电保护技术原理，基于变压器局放信号，在放电较小时准确报警，在爆燃前正确跳闸，切断引发爆燃的能量来源，实现爆燃事后补救到事前预防的根本性转变。这就好比我们智能驾驶汽车的自动紧急刹车系统，当检测到危险信号时，系统就会主动刹车，及时避免发生碰撞。”提及变压器故障主动防御技术创新，国网华北分部生产技术部高级工程师唐云鹏如数家珍。\n“要实现投跳闸关键一步，需要充分证明装置达到高可靠保护装置设计要求，制定安装、调试、传动、运维等多个实施方案，确保装置安全可靠运行。大家克服困难，对装置进行整体升级，并引入双套双冗余设计，提升硬件可靠性，同时还系统升级保护策略算法。”国网冀北电科院高电压与电力电子研究所副所长郝震说。\n据了解，主动防御装置聚焦新能源富集区与高负荷电网片区，选取特高压变电站或大型新能源电站扩大挂网试运行范围。目前已有33套装置试用3年，在180多万次的各类干扰下未发生过一次误动，充分证明装置达到保护级别的防误动水平；同时，在特高压变压器、换流变真实故障试验等共计171次与实际故障一致的试验中，装置都能精准正确动作，保护级别的防拒动能力也得到了充分验证。\n据电力行业权威专家评审鉴定，该项目成果的整体技术达到国际领先水平，主动防御装置具备可靠的正确动作能力和有效的防拒动、防误动能力，达到非电量保护装置设计要求，为变压器防爆燃提供了开创性解决方案。\n目前，该技术获评国家能源局“全国电力可靠性管理突出成果”，已通过专利许可模式完成成果转化，适配110千伏及以上电压等级的各类变压器设备。\n“面向未来，我们将继续深耕变压器、电抗器、换流变等大型充油设备安全防护领域，加速主动防御装置的产业化落地与市场推广，持续推动技术迭代升级，让更多创新成果服务于新型电力系统建设，用科技之光点亮万家灯火。”国网华北分部副主任李庆海表示。（\n“十四五”能源高质量发展\n锌离子混合设备储能密度达同类产品七倍\n快速化成工艺破解锂电池瓶颈\n国内首套煤矿专用地面压裂撬装装备研发成功\n我国又一特种机型重型燃机控制系统实现自主可控\n机器学习筛选出两种新型超导材料\n太阳能反应器在户外将废塑料转化为燃料\n世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用\n水下机器人为海底电缆盖上“沙被”",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

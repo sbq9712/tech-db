@@ -1,0 +1,241 @@
+{
+  "type": "daily",
+  "date_label": "2026年1月16日　星期五",
+  "date_range": "2026-01-16",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "斯坦福大学通过纳米银掺杂将固态电解质局部临界电流密度提升至280 mA cm⁻²",
+      "清华大学开发无正极活性材料全固态锂硫电池，利用LPSCl原位分解解决极化问题",
+      "阿德莱德大学提出中等浓度电解液界面溶剂化设计，兼顾高容量负极快充与低成本"
+    ],
+    "AI与智能科技": [
+      "智谱与华为开源GLM-Image模型，首次实现国产昇腾芯片全流程训练",
+      "研究人员在室温下实现单一滑动铁电晶体管数千种非易失性极化态的编程与读取",
+      "开普勒人形机器人通过沉浸式遥操系统完成全球首例人机协作高空焊接作业"
+    ],
+    "通用技术": [
+      "前谷歌CEO投资建造超哈勃体积私人太空望远镜，部署周期缩短至数年",
+      "科研人员首次观测到相干非线性X射线四光子与原子内壳层电子相互作用",
+      "研究利用单原子钌触发界面相变，在配对电解体系中实现安培级电流密度"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "斯坦福大学通过纳米银掺杂将固态电解质局部临界电流密度提升至280 mA cm⁻²",
+        "清华大学开发无正极活性材料全固态锂硫电池，利用LPSCl原位分解解决极化问题",
+        "阿德莱德大学提出中等浓度电解液界面溶剂化设计，兼顾高容量负极快充与低成本"
+      ],
+      "entries": [
+        {
+          "t": "斯坦福大学William C. Chueh通过纳米尺度银掺杂抑制锂枝晶",
+          "d": "2026-01-16",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "斯坦福大学William C. Chueh团队通过在LLZO固态电解质表面制备3 nm银涂层并热处理，使Ag⁺扩散至亚表面20-50 nm并沿晶界渗透。原位微探针SEM电化学实验显示，Ag⁺掺杂使局部临界电流密度从200提升至280 mA cm⁻²，电镀失效面积扩大超4倍，即使在纳米裂纹存在下仍显著增强抗枝晶能力和表面缺陷容忍度。DFT表明提升并非源于电子传导改善。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41563-025-02465-7",
+          "tp": "抑制锂枝晶",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "固态电池中锂枝晶的渗透限制了快速充电性能并导致短路，但其内在调控机制尚不明确。斯坦福大学William C. Chueh教授等人采用真空气相沉积在LLZO表面制备3 nm厚金属银涂层，并通过100–400°C热处理促进Ag⁺与Li⁺的离子交换。XPS深度剖面与纳米二次离子质谱分析表明，Ag⁺可扩散至LLZO亚表面20–50 nm深度，并沿晶界进一步渗透。DFT计算证实，Ag⁺倾向于占据LLZO中较大的八面体Li位点，形成局域化缺陷态，但其对LLZO的电子结构和能带间隙影响微弱，说明性能提升并非源于电子传导或润湿性改善。\n为评估Ag⁺掺杂对锂枝晶抑制的实效，团队开发了原位微探针扫描电镜（SEM）电化学平台，可在施加高达3 GPa局部应力的同时进行锂电镀实验。在121次局部电镀实验中，Ag⁺掺杂的LLZO（Ag⁺-LLZO）表现出优异的抗枝晶能力：即使存在纳米裂纹，其局部临界电流密度从200 mA cm⁻²提升至280 mA cm⁻²，且电镀失效面积扩大超过4倍（从17 μm²增至73 μm²）。这表明Ag⁺掺杂不仅提高了材料对电化学驱动力的耐受性，更显著增强了其对表面缺陷的容忍度。\n力学性能表征进一步揭示了其内在机制。原位纳米压痕实验表明，Ag⁺-LLZO的表面断裂所需载荷从5.7 mN大幅提高至27 mN，表面韧性提升近5倍。这种强化源于Ag⁺与Li⁺的离子半径失配引入的表面压缩应力，以及Ag⁺在晶界的偏聚对晶界韧性的增强。相比之下，未热处理或高温（400°C）退火的样品因锂损失或应力释放而性能下降。\n研究还通过宏观电池测试验证了该策略的普适性：Ag⁺-LLZO的临界电流密度较未涂层样品提升约50%，且在循环后仍保持表面韧性，说明Ag⁺在电化学过程中保持稳定，未显著迁移或还原。此外，团队对比了Cu、Pt等金属的掺杂效果，发现因离子半径较小，其强化作用均不及Ag⁺显著。\n该工作不仅为理解固态电解质中锂枝晶的力学‑电化学耦合机制提供了新视角，更提出了一种可扩展的表面工程策略：通过超薄金属涂层的热处理实现异质掺杂，在不影响离子电导的前提下，从材料本征力学性能入手提升固态电池的界面稳定性与循环寿命。文章于2026年1月16日发表在Nature Materials。",
+          "hb": 1
+        },
+        {
+          "t": "清华大学马维刚报道一种使用LPSCl原位分解形成正极活性材料的全固态锂硫电池",
+          "d": "2026-01-16",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "清华大学马维刚团队提出无正极活性材料的全固态锂硫电池设计，不在正极预载硫单质，而是通过LPSCl电解质充电时在导电碳界面原位分解生成硫等活性物质，解决了硫团聚与离子电子绝缘导致的极化问题。研究证实硫团簇内部锂扩散为限速步骤，采用LPSCl-KB（9:1）复合材料，首次充电时LPSCl氧化分解生成LiCl、Li₃PS₄和S₈。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1016/j.joule.2025.102239",
+          "tp": "固态锂硫电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "全固态锂硫电池具有高能量密度和高安全性潜力，但硫本身的离子、电子电导性差，加入导电碳和固态电解质则会降低能量密度；且制备过程中发生的硫团聚问题，也会因硫团簇因离子电子绝缘导致极化增大，限制电池整体性能。\n近日，清华大学马维刚教授团队提出了一种“无正极活性材料”的固态锂硫电池，即不在复合正极中预先加载硫单质，而通过电解质在充电时氧化分解，在导电碳界面原位生成硫等活性物质。该研究首先验证了常规全固态锂硫电池正极中硫会聚集为微米级团簇，且团簇内部锂的扩散慢于团簇间的界面反应，是主要限速步骤。针对该问题，研究设计使用Li6PS5Cl（LPSCl）-导电碳（KB）按9:1质量比混合球磨的复合物作为初始正极；Li-In合金作为负极；LPSCl作为电解质。首次充电过程中（2.3 V vs Li/Li⁺开始），LPSCl被氧化分解形成LiCl、Li₃PS₄和S₈；Li₃PS₄被进一步氧化为Li₂P₂S₆和更多的S₈，部分Li₂P₂S₆进一步脱锂形成其他产物；放电时，S₈首先被还原为Li₂S和Li₃PS，进一步放电将部分Li₃PS₄还原为Li₃P；再次充电时，Li₃P首先被氧化为Li₃PS₄，进一步氧化可生成Li2P2S。由此形成的正极活性材料层层厚度<1 μm，比表面积大，缓解了传质限制，提高了电气连接性能；LiCl惰性层还可钝化界面，限制过度分解，提高稳定性。\n测试结果表明，由此制备的LPSCl-KB||LPSCl||Li-In电池（正极负载量6.4 mg/cm²，0.3–2.8 V vs Li-In/Li⁺电压范围，测试压力50MPa）0.05C下面容量可达8.15 mAh/cm²；添加LiI（降低界面阻抗）后可进一步提高至9.25 mAh/cm²（0.07C），能量密度可达1278 Wh/kg（基于正极材料）。在50°C下循环500次后，其放电容量为初始值的95%（正极负载量4.84 mg/cm²，1.6mA/ cm²）；在3.2 mA cm⁻²（1C）电流密度下，容量衰减也不显著；室温循环767圈后，其比容量仍保持初始容量的81%（正极负载量5.4 mg/cm²，1.9mA/ cm²）。文章于2026年1月16日发表在Joule。",
+          "hb": 1
+        },
+        {
+          "t": "阿德莱德大学乔世璋提出中等浓度电解液中的界面溶剂化结构设计思路",
+          "d": "2026-01-16",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "阿德莱德大学乔世璋团队指出强界面电场下电解液界面溶剂化结构显著偏离体相，经典双电层模型无法解释实际电池中的接触离子对和空间位阻效应。研究提出在约1.0 M中等浓度电解液中构建阴离子富集和添加剂富集的界面结构，诱导形成LiF富集的坚固SEI，兼顾成本与离子导电率，在锂金属、硅等高容量负极体系中显著改善快充、低温及循环性能，超越超高浓度电解液策略。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-025-01937-z",
+          "tp": "界面溶剂化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "电极与电解质之间的界面化学在二次电池性能中起着关键作用。近期研究表明，界面化学与界面溶剂化结构（ISS）的演变密切相关。然而，实际电池界面区域中复杂的离子-溶剂相互作用，使得利用经典双电层模型理解界面溶剂化结构的动态过程颇具挑战。\n阿德莱德大学乔世璋研究指出，在强界面电场（>107 V cm⁻¹）作用下，界面区域的溶剂化结构显著偏离体相，导致离子迁移、去溶剂化行为及还原优先序发生根本改变。经典双电层模型仅适用于极稀溶液（<<1 M），无法解释实际电池中常见的接触离子对、离子聚集体及空间位阻、溶剂极化等效应。\n研究强调，通过构建阴离子富集和添加剂富集的界面溶剂化结构，即使在中等浓度电解液（~1.0 M）中，也能诱导形成高导电、无机物富集（尤其是LiF）的坚固SEI。这种SEI具有优异的库仑效率、宽电化学窗口和快速去溶剂化动力学，可显著改善快充、低温性能及循环稳定性，兼顾成本与离子导电率，是超越“超高浓度电解液”策略的更具实用前景路径。\n在锂金属、硅等高容量负极体系中，调控ISS可通过氟化电解液、局域高浓度电解液、弱溶剂化设计等手段，促进阴离子优先参与配位与还原，形成致密LiF-rich或异质无机SEI，有效抑制枝晶生长和体积膨胀。\n文章于2026年1月16日发表在Nature Energy。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "智谱与华为开源GLM-Image模型，首次实现国产昇腾芯片全流程训练",
+        "研究人员在室温下实现单一滑动铁电晶体管数千种非易失性极化态的编程与读取",
+        "开普勒人形机器人通过沉浸式遥操系统完成全球首例人机协作高空焊接作业"
+      ],
+      "entries": [
+        {
+          "t": "智谱华为合作的GLM-Image成为首个在国产芯片上完成全程训练的SOTA多模态模型",
+          "d": "2026-01-16",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "智谱联合华为开源GLM-Image图像生成模型，基于昇腾Atlas 800T A2和昇思MindSpore完成全流程训练，是首个在国产芯片上全程训练的SOTA多模态模型，开源24小时内登顶Hugging Face Trending榜首。模型采用自回归+扩散解码器混合架构，在CVTG-2K和LongText-Bench榜单获开源第一，擅长汉字生成与长文本渲染。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/913/681.htm",
+          "tp": "国产芯多模",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家1月16日消息，智谱1月14日宣布联合华为开源新一代图像生成模型GLM-Image，模型基于昇腾Atlas 800T A2设备和昇思MindSpore AI框架完成从数据到训练的全流程，是首个在国产芯片上完成全程训练的SOTA多模态模型。开源不到24小时，GLM-Image即登顶全球AI开源社区Hugging Face Trending榜第一。这也是首次完全依托国产芯片训练的国产模型在国际舞台上取得榜首身位。\n从架构上看，不同于开源常用的LDM方案，GLM-Image采用了「自回归+扩散解码器」混合架构，并在基本对齐主流方案的基础上验证了新架构在知识密集型场景下生成的优越性。从训练基础上看，GLM-Image实现了基于昇腾Atlas 800T A2设备和昇思MindSpore AI框架的全流程训练及推理适配，实际训练性能足以达到相应计算设备的汇报性能上限，验证了在国产算力上训练出SOTA模型的可行性。从性能表现上看，GLM-Image在CVTG-2K（复杂视觉文本生成）和LongText-Bench（长文本渲染）榜单获得开源第一，能够读懂指令，写对文字，尤其擅长汉字生成任务，可广泛应用于海报、PPT、科普图等知识密集型场景。",
+          "hb": 1
+        },
+        {
+          "t": "室温下在单一滑动铁电晶体管中调控数千种非易失性极化态",
+          "d": "2026-01-16",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究在单个滑动铁电晶体管中实现室温下数千个非易失性极化状态的操控。利用层间滑移产生的铁电极化，通过精确控制栅压实现对多个离散极化态的编程与读取。该器件可用于类脑计算以提升计算密度和存储容量，为超越传统二值存储的高密度信息处理开辟新路径。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01551-7",
+          "tp": "铁电多态存储器",
+          "aip": 1,
+          "kp": [
+            "极化态数[室温滑移铁电晶体管]: 数千个",
+            "突破[滑移铁电]: 室温突破32态上限"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Creating multiple polarization states in a single ferroelectric device is of use in neuromorphic computing to enhance computational resolution. However, the number of stable polarization states in such systems is typically limited to 32 at room temperature. Here we report the manipulation of thousands of non-volatile polarization states at room temperature in a sliding ferroelectric transistor that is composed of an aligned graphene monolayer atop hexagonal boron nitride. Solely regulated by source–drain pulses, more than 36 quasi-continuous polarization states can be generated at one doping level. Superimposing a gate voltage during the source–drain pulses can reversibly regulate the graphene Fermi energy between 84 doping levels, promoting the number of physically distinct polarization states to 3,024 (36 states × 84 doping levels). These polarization states can sustain for over 105 s and could potentially persist for 10 years. The abundant polarization states probably stem from the motion of polar domain walls and the moiré potential localizing the injected carriers. The simulation of during-training quantization in a deep residual network using the 3,024 polarization states shows a floating-point-comparable recognition accuracy (around 93.53%) for fashion images.",
+          "hb": 1
+        },
+        {
+          "t": "开普勒人形机器人实现全球首例“人机协作”高空焊接作业",
+          "d": "2026-01-16",
+          "a": "",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "开普勒人形机器人宣布实现全球首例人机协作高空焊接作业。其自研沉浸式全身遥操系统融合动捕、低时延通信和力反馈技术，操作员可远程1:1控制30公斤级双臂负载的K2大黄蜂，VR头显同步呈现第一视角。系统支持2000公里超远距离遥操，并记录多模态运动数据供机器人自主优化策略，部署仅需机器人本体+遥操设备+笔记本。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/913/749.htm",
+          "tp": "遥操高空焊",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家1月16日消息，开普勒人形机器人1月15日宣布实现全球首例“人机协作”高空焊接作业。开普勒宣布自研沉浸式全身遥操系统，融合动作捕捉、低时延通信、力反馈等多技术，实现人类对机器人远程1:1全身控制技术。当操作员通过遥操设备做出动作，30公斤级双臂负载的K2大黄蜂能在高空中同步响应；当焊接器械遇到阻力，力反馈系统实时传递压力感；当焊缝出现火花飞溅，VR头显同步呈现第一视角画面。\n此外，系统长续航作业周期内，高保真记录每一次操作的多模态运动数据（包括负载变化、路径偏差、力控调节等），通过真实世界与仿真环境的双向映射，让机器人在反复遥操中自主优化动作策略。开普勒解决方案还支持最长2000公里超远距离实时遥操。技术人员无需亲赴现场，即可远程指导偏远工厂完成重型工件焊接、大型设备检修等复杂作业。在部署层面，开普勒方案无需对现有厂房布局和产线结构进行大规模改造，仅需1:1同构的人形机器人本体+遥操设备+笔记本电脑，即可快速完成系统部署。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "前谷歌CEO投资建造超哈勃体积私人太空望远镜，部署周期缩短至数年",
+        "科研人员首次观测到相干非线性X射线四光子与原子内壳层电子相互作用",
+        "研究利用单原子钌触发界面相变，在配对电解体系中实现安培级电流密度"
+      ],
+      "entries": [
+        {
+          "t": "前谷歌CEO资助建造比哈勃更大的私人太空望远镜",
+          "d": "2026-01-16",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "前谷歌CEO埃里克·施密特通过旗下Schmidt Sciences投资建造一座体积超过哈勃望远镜的私人太空望远镜，并同时资助三台地面观测设备。该项目聚焦系外行星探测与近地天体监测，以私人资本填补政府航天预算缩减的空白。私人资助模式绕过NASA传统立项审批流程，将望远镜部署周期从数十年缩短至数年，代表了商业航天时代天文基础设施的新范式。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aef4618?af=R",
+          "tp": "私人空间望远镜",
+          "aip": 1,
+          "kp": [
+            "[观测设施]: 在轨望远镜口径超哈勃"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Schmidt Sciences invests in orbiting observatory and three ground-based instruments.",
+          "hb": 1
+        },
+        {
+          "t": "芯壳电子的相干非线性X射线四光子相互作用",
+          "d": "2026-01-16",
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "报道了X射线相干非线性四光子与原子内壳层电子的相互作用，开启了超快光谱学新体制。传统非线性光学主要局限于可见光波段与价电子；X射线波段的四光子过程可直接探测原子尺度内壳层电子的量子动力学，为研究复杂电子关联效应和超快电荷转移提供了前所未有的原子级探针工具，对理解量子材料中飞秒至阿秒时间尺度的电子动力学具有基础物理意义。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09911-1",
+          "tp": "X射线非线性光谱",
+          "aip": 1,
+          "kp": [
+            "方法[X射线光谱]: X射线四波混频探测内壳层电子",
+            "时间尺度[X射线]: 飞秒与阿秒级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Coherent nonlinear light–matter interaction with X-rays gives access to a regime in ultrafast spectroscopy in which atomic resolution meets femtosecond and attosecond timescales1,2. Particularly, X-ray four-wave mixing, involving several resonant transitions in a single coherent nonlinear process, has the potential to provide information on the electronic states coupling, coherent electron motion, correlation and dynamics, with state and site selectivity3,4,5. Here we demonstrate coherent, background-free four-photon interactions with core-shell electrons using single broadband X-ray pulses from a free-electron laser. The all-X-ray four-wave mixing signals, measured in gaseous neon, arise from doubly resonant nonlinear processes involving Raman transitions6, including X-ray coherent anti-Stokes electronic Raman scattering. The 2D spectral maps (photon-in/photon-out) represent a step towards multidimensional correlation spectroscopy at the atomic scale. Using a multicolour time-delayed X-ray pulse scheme, we further demonstrate the feasibility of extending the proposed methodology to the ultrafast time domain. These results reveal potential for studying localized electron dynamics in multiple systems, from biomolecules to correlated quantum materials, with applications in areas such as energy conversion, biomedical imaging and quantum information technologies.",
+          "hb": 1
+        },
+        {
+          "t": "原子钌介导的自发异质界面相变实现配对电解中的安培级催化性能",
+          "d": "2026-01-16",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "该研究发现原子级分散钌介导的自发异质界面相变策略，在配对电解中实现了安培级催化性能。相变调控是优化催化剂性能的重要手段，但可控触发界面相变仍具挑战。研究利用单原子Ru作为相变触发位点，驱动催化剂在电解过程中自发发生异质界面结构重构，形成高活性催化相。在配对电解体系中，阳极和阴极反应协同耦合，整体电流密度达到安培级别。该工作为动态催化剂设计和高效电化学合成提供了新范式。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520214?af=R",
+          "tp": "钌基电催化剂",
+          "aip": 1,
+          "kp": [
+            "相变机制[Co3S4/Co]: 原子Ru介导异质界面自发相变",
+            "性能[配对电解]: 安培级催化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Phase transition regulation is a promising strategy to optimize the catalytic properties of catalysts, playing a crucial role in enhancing electrocatalytic efficiency. However, the intrinsic relationship between atomic‐scale interface phase transitions and catalytic performance remains unclear. Herein, we report a heteroatomic interfacial phase transition of Co\n                    3\n                    S\n                    4\n                    /Co heterostructured nanosheets to Co\n                    9\n                    S\n                    8\n                    /Co by anchoring single‐atom Ru under thermal treatment (Ru\n                    SA\n                    –Co\n                    9\n                    S\n                    8\n                    /Co–T), resulting in ampere‐level catalytic performance for the sustained paired electrosynthesis. Theoretical calculations and in situ spectroscopy confirm the spontaneous transition to a more stable structure triggered by atomic Ru, which synergistically optimizes the formation kinetics of key intermediates and reduces the energy barrier of the rate‐determining steps on Ru\n                    SA\n                    ‐Co\n                    9\n                    S\n                    8\n                    /Co–T. Impressively, this catalyst can be directly applied in membrane electrode assembly electrolyzers for nitrite‐glycerol co‐electrolysis. Within a wide potential window of 1.2–2.0 V, the average Faradaic efficiencies of NH\n                    3\n                    and formate exceed 90%, with the highest yields reaching 95.83 mg h\n                    −1\n                    cm\n                    −2\n                    and 567.38 mg h\n                    −1\n                    cm\n                    −2\n                    at 2.0 V, respectively, alongside stable operation for 100 h at an industrial current density of 500 mA cm\n                    −2\n                    . Our work provides new insights into the development of high‐performance catalysts.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

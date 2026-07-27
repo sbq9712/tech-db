@@ -1,0 +1,252 @@
+{
+  "type": "daily",
+  "date_label": "2026年6月4日　星期四",
+  "date_range": "2026-06-04",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "Pd纳米片负载NiMo双原子催化剂实现乙二醇碳键高选择性断裂",
+      "Antares微型反应堆达初始临界并计划于2027年实现发电部署",
+      "研究证实微生物可利用柔电效应转化机械能并固定二氧化碳"
+    ],
+    "AI与智能科技": [
+      "研发纳米流体离子存储器以实现低能耗类神经形态信息处理",
+      "Windrose发布移动AI数据中心方案集成算力与拖车式电池储能",
+      "融合神经祖细胞与磁电纳米颗粒的微型机器人实现无线神经修复"
+    ],
+    "通用技术": [
+      "中国石化上海石化攻克湿法T1000级碳纤维技术实现批量生产",
+      "NASA费米望远镜首次探测到超新星新生磁星驱动的伽马射线辐射",
+      "研究提出利用滑移铁电性实现交变磁性材料的六态精确控制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "Pd纳米片负载NiMo双原子催化剂实现乙二醇碳键高选择性断裂",
+        "Antares微型反应堆达初始临界并计划于2027年实现发电部署",
+        "研究证实微生物可利用柔电效应转化机械能并固定二氧化碳"
+      ],
+      "entries": [
+        {
+          "t": "Pd纳米片上的NiMo双原子二聚体用于废塑料乙二醇的选择性C-H和C-C键断裂",
+          "d": "2026-06-04",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "研究通过CO气体介导合成钯纳米片(PdNS)作为首例钯烯载体,在其上负载NiMo双原子二聚体催化剂。该双原子位点可对乙二醇的C-H和C-C键实现高选择性断裂,展现了双原子催化剂在精细化学转化中的催化潜力,为生物质/多元醇增值利用提供了新路径。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73526?af=R",
+          "tp": "废塑料催化转化",
+          "aip": 1,
+          "kp": [
+            "催化剂[EG氧化]: NiMo双原子二聚体/Pd",
+            "合成[双原子]: CO2激光辐照10min",
+            "[废塑料]: 乙二醇C-H/C-C断裂",
+            "载体: 首例钯烯Pd纳米片"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Herein, we report the CO gas–mediated synthesis of palladium nanosheets (PdNS) as the first palladene support for atomically dispersed dimer catalysts. We further present the first report of NiMo dual‐atom dimer immobilization on PdNS (NiMo‐DA/PdNS) using rapid CO\n                    2\n                    laser irradiation within 10 min. The NiMo‐DA/PdNS platform exhibits enhanced ethylene glycol (EG) oxidation reaction (EGOR) activity with potential‐dependent product selectivity. At 1.0 V vs. RHE, glycolate (C2 product from selective C─H bond cleavage) was obtained with a Faradaic efficiency (FE) of 81% and a yield rate (YR) of 1.14 mmol h\n                    −1\n                    cm\n                    −2\n                    . At 1.6 V vs. RHE, formate (C1 product from C─C bond cleavage) was selectively produced with an FE of 77.9% and a YR of 0.39 mmol h\n                    −1\n                     cm\n                    −2\n                    . Theoretical calculations further corroborate these performance trends and elucidate the mechanism that C─C bond scission is facilitated by electron transfer to the catalyst surface at higher potentials, lowering the reaction free energy and enhancing C1 formation. This study demonstrates concurrent high selectivity toward both glycolate and formate while efficiently recovering high‐purity terephthalic acid (TPA) monomers from polyethylene terephthalate (PET) hydrolysate electrolysis over 50 h, highlighting the practical potential of atomically engineered catalysts with real‐world PET upcycling.",
+          "hb": 1
+        },
+        {
+          "t": "Antares Mark-0微型反应堆达到初始临界状态",
+          "d": "2026-06-04",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "Antares的Mark-0微型反应堆在爱达荷国家实验室经DOE授权达到初始临界状态，成为首家在DOE反应堆试点计划下实现先进反应堆临界的私营公司。反应堆采用TRISO燃料，不到12个月完成从概念到临界，验证了关键物理参数。R1设计实现100kW至1MW放电并持续6年以上，采用钠热管被动散热与氮气闭式布雷顿循环。Mark-0仅完成零功率验证，完整发电演示仍需后续证明，计划2027年发电、2028年部署美军。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://antaresindustries.com/updates/antares-achieves-criticality",
+          "tp": "微型核反应堆",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月4日，美国核裂变公司Antares发文，其Mark-0微型反应堆在爱达荷国家实验室（INL）经美国能源部（DOE）授权达到初始临界状态，意味着核反应堆内部链式反应已可自我维持，成为首家在DOE反应堆试点计划下实现先进反应堆临界的私营公司。文中称，该反应堆在不到12个月内安全实现从概念到临界，采用与“Project Pele”计划相同的TRISO三结构同向性核燃料以保障极端事故下的安全性，并验证了关键反应堆物理参数；设计完成的R1微型反应堆计划实现100kW至1MW对外放电功率并持续工作6年以上，具备工厂预制、方便运输和自我调节特质，传热与发电系统将采用纯被动散热的钠热管及更紧凑的氮气闭式布雷顿循环，旨在摆脱电网限制并减轻军事后勤负担。目前Mark-0阶段仅完成零功率临界验证，完整的热管传热和布雷顿循环发电仍需后续演示证明；该反应堆后续将在美国军事设施中落地应用，公司计划于2027年实现发电，并于2028年开始向美军驻地部署。",
+          "hb": 1
+        },
+        {
+          "t": "由挠曲电效应产生的胞外电子驱动微生物自养",
+          "d": "2026-06-04",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "研究发现微生物可通过柔电效应（flexoelectric）将机械力转化为胞外电子，驱动自养生长。机械力通过直接机械-电能转换成为微生物的新型能源，柔电效应使材料在应变梯度下产生电荷。研究表明微生物可利用这种机械生电机制获取能量并固定CO2。该发现拓展了对微生物能量代谢多样性的认识，为利用机械能驱动生物合成和开发新型生物电化学系统开辟了新途径。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74030-y",
+          "tp": "微生物电自养",
+          "aip": 1,
+          "kp": [
+            "能量转换[微生物自养]: 机械能→电能→生物量",
+            "[物理机制]: 挠曲电效应驱动胞外电子生成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Mechanical force has recently emerged as a microbial energy source through direct mechanical-to-electrical energy conversion. However, the flexoelectric effect, a universal mechanoelectrical coupling phenomenon, remains underexplored as an energy source for microbial life. Here, we report a mechanically-driven microbial growth mechanism whereby mechanical energy is converted into electrical energy via the flexoelectric effect of a mineral. This process supports microbial growth in the absence of sunlight and chemical energy sources. Using flexoelectric manganese oxide and electroactive Rhodopseudomonas palustris as a model biohybrid, we demonstrate that mechanical force bends manganese oxide nanosheets to generate free electrical charge. R. palustris captures and utilizes this electrical energy for growth by coupling carbon fixation and denitrification in the absence of chemical electron donors under dark conditions. This pathway is accessible to various electroactive microorganisms and flexoelectric minerals. These findings reveal a noteworthy energy acquisition pathway for microbial survival in energy-limited settings, providing crucial evidence for the diversity of mechanical-to-metabolic coupling in biological processes.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "研发纳米流体离子存储器以实现低能耗类神经形态信息处理",
+        "Windrose发布移动AI数据中心方案集成算力与拖车式电池储能",
+        "融合神经祖细胞与磁电纳米颗粒的微型机器人实现无线神经修复"
+      ],
+      "entries": [
+        {
+          "t": "面向下一代计算的纳米流体离子存储器",
+          "d": "2026-06-04",
+          "a": "Nature Reviews Materials",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "受生物大脑高能效信息处理的启发,研究提出纳米流体离子存储器作为下一代计算架构。该器件利用纳米通道内离子传输实现类神经形态的信息存储与处理,具备低能耗、高并行与生物兼容特性,为超越冯·诺依曼架构的类脑计算与神经接口提供了新硬件平台。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41578-026-00919-1",
+          "tp": "纳米流体存储器",
+          "aip": 1,
+          "kp": [
+            "器件类型[纳米流体存储器]: 纳米流体忆阻器",
+            "[工作机制]: 纳米限域离子传输产生历史依赖性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The biological brain stores and processes information with exceptional energy efficiency, motivating the search for alternatives to traditional von Neumann computing systems that separate memory from processing. Nanofluidic memristors have emerged as promising building blocks for non-conventional neuromorphic computing, in which ion transport under nanoscale confinement generates history-dependent conductance for analog or digital switching. Their performance is governed by surface chemistry, device geometry and electrolyte properties, which together give rise to diverse memristive mechanisms and hysteresis loop types. Exploring new materials not only improves functionality but also deepens our understanding of the diverse physical mechanisms driving memristive behaviour. Despite rapid progress, challenges remain in mechanisms identification, fabrication scalability, variability control, fine tuning of memristive properties, and integration into higher-order neuromorphic architectures. This Perspective summarizes recent advances in materials and mechanisms, outlines characterization protocols and highlights emerging applications from in-sensor computing to visual processing and reservoir computing, while discussing how tailored nanochannel materials may enable next-generation, brain-inspired iontronic neuromorphic systems.",
+          "hb": 1
+        },
+        {
+          "t": "盒装AI：Windrose计划将数据中心集装箱化",
+          "d": "2026-06-04",
+          "a": "Electrek",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "新能源车企Windrose公布将AI数据中心集装箱化方案，配套拖车式电池储能系统（BESS）与移动AI数据中心设计图。该方案将算力与储能集成于可运输单元，瞄准边缘AI推理与离网场景，体现数据中心向移动化、模块化演进的产业趋势。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/03/ai-in-a-box-windrose-wants-to-containerize-the-data-center/",
+          "tp": "移动AI数据中心",
+          "aip": 1,
+          "kp": [
+            "[方案]: 集装箱化移动AI数据中心"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jun 3 2026 - 4:30 am PT\nWindrose first published AI-generated drawings of its BESS-in-a-trailer and mobile AI data center concept back in February, but hand it to Windrose founder, Wen Han: he’s not leaving it at that – Han has signed a new strategic partnership with the mobile charging experts at LiFe-Younger to help turn his vision into reality.\nLiFe-Younger is pairing its iMContainer HD trailer concept with Windrose’ R700 electric semi truck in this rendering (above) shared on LinkedIn, where Han claims that the, “\ncontainer-sized unit contains 2 MWh of battery storage capacity and up to 2 MW of charging speed\n.” Specs on the LiFe-Younger site are a\nmore conservative, meanwhile,\nciting up to 1 MWh of storage capacity with up to 500 kW of charging speed\nThat said, the announcement is more forward-looking than it is about announcing a current product, so take that how you will.\nYou can check out the original post covering Windrose’ initial concept, below, then let us know what you think of packing large scale battery and charging solutions into standardized containers – something\n, at least, seem to think is a good idea – in the comments section at the bottom of the page.\nORIGINALLY PUBLISHED 09FEB2026\nWindrose is making big, fast moves in the heavy-duty EV space with its electric semi truck business already expanding into four continents — but CEO Wen Han doesn’t want to stop there. He’s got an idea for a mobile data center and BESS solution packed into one, and he really wants us to know about it.\nWindrose CEO Wen Han has been making headlines with his ultra-capable electric semi trucks\n, but herecently took to LinkedIn recently to promote a whole new idea that’s less about the trucks,\nand more about what they’re hauling\nLaunched under the headline, “Windrose = AI = energy in a box.” The idea described two standard-sized shipping containers (pulled by a Windrose R700, of course) with one packed full of batteries and the other packed with server racks and cooling equipment.\nWhat’s really wild, however, isn’t the idea — it’s the fact that Wen was in such a hurry to put the concept “out there” that he apparently used Google Gemini-rendered images (shown, above) to illustrate the concept.\nGoogle Gemini adds the star watermark as a transparency and safety measure so that people can tell the image was created by AI, and isn’t either a photo or human-made artwork.\nThat said, I’ve only ever seen the Windrose R700 in 6×2 configurations,\nwhile these illustrations show it in 4×2\n. The other image, which shows how the BESS trailer can be deployed as a mobile charging solution, seems to drag the lines across an active highway.\nThe artwork leaves something to be desired, is what I’m saying. But the idea?\nIt’s not too far removed from the containerized BESS Volvo showed off at Bauma last year\n. That system was designed to provide power to off-highway equipment and offices when grid power was unavailable, and be easily hauled off to reliable charging where grid\navailable. Combining that idea with a containerized data center would–\nActually, I’m not sure what it would do. You guys are smart, though. You have ideas. Take a look at Wen’s concept (as understood by Google Gemini, at least), then let us know what you think in the comments.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        },
+        {
+          "t": "用于脊髓损伤再生的磁电微型机器人",
+          "d": "2026-06-04",
+          "a": "Nature Materials",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "研究开发了名为NPCbots的生物混合微型机器人，将人诱导多能干细胞来源的神经祖细胞与磁电纳米颗粒整合，实现无线磁导航定位。NPCbots解决了神经干细胞移植存活率低、分化不可控和功能整合弱的问题，可通过磁电刺激引导脊髓损伤部位的神经再生，为脊髓损伤治疗提供了突破性方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02625-3",
+          "tp": "磁电微型机器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Spinal cord injury remains difficult to treat because of the intrinsically limited regenerative capacity of neurons. Although neural progenitor cell (NPC) therapies are promising, inadequate graft survival, uncontrolled differentiation and weak functional integration continue to restrict outcomes. Here we report biohybrid microrobots called NPCbots, fabricated by integrating human-induced pluripotent-stem-cell-derived NPCs with magnetoelectric nanoparticles, enabling wireless magnetic navigation and non-invasive neuronal stimulation. A lab-on-a-chip platform allows scalable fabrication and maintains cell viability and differentiation capacity. In a zebrafish spinal cord injury model, alternating magnetic field stimulation of NPCbots induced rapid in vivo neuronal and astrocytic differentiation, enhanced graft integration at the lesion site, and near-complete recovery of swimming and exploratory behaviours within 3 days. In a non-regenerating murine model of complete spinal cord transection, NPCbots were well tolerated for at least 28 days, localized effectively to the injury site, promoted neural differentiation and resulted in substantial improvements in motor function within 4 weeks. These results demonstrate that magnetically guided NPCbots combined with non-invasive magnetoelectric stimulation promote neural repair and functional recovery in preclinical spinal cord injury models.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中国石化上海石化攻克湿法T1000级碳纤维技术实现批量生产",
+        "NASA费米望远镜首次探测到超新星新生磁星驱动的伽马射线辐射",
+        "研究提出利用滑移铁电性实现交变磁性材料的六态精确控制"
+      ],
+      "entries": [
+        {
+          "t": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网",
+          "d": "2026-06-04",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量量化生产。T1000级碳纤维拉伸强度极高，被称为\"能拉动10吨卡车的碳纤维\"，属于小丝束高端品种，打破了国外长期技术垄断。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://cpnn.com.cn/news/kj/202606/t20260603_1892665.html",
+          "tp": "T1000碳纤维量产",
+          "aip": 1,
+          "kp": [
+            "拉伸强度[T1000碳纤维]: 6.5GPa",
+            "拉伸模量[T1000碳纤维]: 300GPa",
+            "丝束规格[T1000]: 12K",
+            "[工艺]: 湿法批量生产"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网\n中电传媒股份有限公司主办\n能拉动10吨卡车的小丝束碳纤维量产\n6月2日，记者从中国石化获悉，中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量化生产。此次研发量产的高性能碳纤维为12K小丝束，每束碳纤维由12000根单丝组成，单丝直径相当于头发丝直径的十分之一，单股丝束拉伸强度超过6.5吉帕、拉伸模量超过300吉帕，相当于能拉动一辆重约10吨的中型卡车。\n此次量产标志着其在高性能碳纤维领域取得里程碑式突破。该材料可用于航空航天、具身智能、低空经济等高端领域和未来产业，将为我国关键领域发展提供核心战略材料支撑。\n碳纤维性能优越，被称为“新材料之王”“黑黄金”，密度不到钢的四分之一，强度却是钢的7至9倍，并具有耐腐蚀的特性。碳纤维按丝束规格分为大丝束和小丝束两类，行业内常用K代表丝束规格（1K即1000根单丝）。T代表拉伸强度等级，数值越大，强度越高。24K及以下为小丝束碳纤维，丝束更细、性能更均匀、精度更高，适配航空航天、高端装备等高性能场景；48K及以上为大丝束碳纤维，单线产能更大、成本更低，是支撑风电、储能等工业领域大规模应用的核心材料。\n此次技术突破，进一步丰富和完善了中国石化碳纤维产品谱系。目前，中国石化已拥有3K、6K、12K、24K、48K、60K等不同丝束规格近20种型号的碳纤维产品生产能力，产品性能涵盖通用级、高性能等级，可用于航空航天、高端制造、风电、交通、体育休闲等各类场景。截至2025年底，中国石化已在碳纤维及其复合材料领域申请专利868项，专利申请数排名全国第一、全球第三，获授权417项，完成PCT申请4项。\n“十四五”能源高质量发展\n广西电力科学技术协会揭牌成立\n香港理工大学·月山能源新一代矿业联合实验室揭牌\n全国首个绿色算力全栈AI平台上线运行\n氢铀反应起始过程首次完整记录\n太阳能新技术实现海水淡化及固体盐分离\n单壁碳纳米管产能达单台10吨级\n中国电科院发布一项电力人工智能重大成果\n南方电网实现“数字员工”主导配网抢修 故障处置压缩至分钟级",
+          "hb": 1
+        },
+        {
+          "t": "美国宇航局费米望远镜捕捉到超新星正在做一些前所未见的事情",
+          "d": "2026-06-04",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "NASA费米伽马射线空间望远镜首次探测到超亮超新星的伽马射线辐射。国际研究团队分析发现，这种极亮恒星爆炸的能量来源是新生磁星——一种具有极端磁场的中子星。这是首次为超亮超新星磁星驱动模型提供令人信服的观测证据，对理解宇宙中最亮爆炸事件机制具有里程碑意义。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/nasas-fermi-telescope-caught-a-supernova-doing-something-never-seen-before/",
+          "tp": "超新星磁星",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s Fermi telescope may have finally uncovered the magnetic powerhouse behind the universe’s brightest supernovae.\nAn international team of astronomers analyzing observations from\nNASA’s Fermi Gamma-ray Space Telescope\nhas found what appears to be the first convincing detection of gamma rays from a rare type of extraordinarily bright stellar explosion known as a superluminous supernova.\nTheir findings suggest the explosion was powered by a newly formed magnetar, an extremely magnetized\nneutron star\ncreated when a massive star collapsed. The discovery provides fresh insight into some of the most energetic explosions in the universe.\nNASA’s Fermi mission is part of a fleet of observatories that monitor changes across the cosmos, helping scientists better understand how the universe evolves.\n“For nearly 20 years, astronomers have\nsearched Fermi data\nfor gamma-ray signals from thousands of supernovae, and while a few intriguing hints have been reported, none were definitive until now,” study lead Fabio Acero at the French National Centre for Scientific Research (CNRS) and the University of Paris-Saclay.\nThe results were published in the journal\nAstronomy & Astrophysics\nCore-collapse supernovae occur when a massive star, many times larger than the Sun, exhausts the fuel needed to support itself. Without that energy source, the star’s core collapses under gravity and triggers a powerful explosion.\nThe collapse can leave behind either a neutron star roughly the size of a city or an even more compact\n. Meanwhile, a powerful shock wave blasts the outer layers of the star into space, creating a rapidly expanding cloud of hot, ionized gas.\nOver the past two decades, astronomers have identified nearly 400 unusually bright examples of these explosions. Known as superluminous supernovae, they can shine more than ten times brighter in visible light than typical supernovae.\nIn 2024, a study led by Li Shang of Anhui University in Hefei, China, suggested that Fermi’s Large Area Telescope may have detected gamma rays from one of these exceptional explosions years after it occurred.\nThat event, called SN 2017egm, erupted in the galaxy NGC 3191, about 440 million light-years from Earth in the constellation Ursa Major. Despite its great distance, it remains one of the nearest superluminous supernovae ever observed.\n“We searched for gamma rays from the six nearest superluminous supernovae seen during the first 16 years of Fermi’s mission,” said Guillem Martí-Devesa, a researcher previously at the University of Trieste in Italy and now a fellow at the Institute of Space Sciences in Barcelona, Spain. “Only SN 2017egm shows evidence for gamma rays, confirming earlier hints that some supernovae can be as luminous in gamma rays as they are in visible light. This opens up a new window for studying these fascinating events.”\nScientists have long debated what supplies the enormous energy behind superluminous supernovae. One leading explanation involves the birth of a magnetar, a neutron star possessing the strongest magnetic fields known in nature.\nThese magnetic fields can be up to 1,000 times stronger than those of ordinary neutron stars, reaching roughly 10 trillion times the strength of a refrigerator magnet.\nTo investigate, researchers conducted a detailed analysis of both the optical and gamma-ray observations of SN 2017egm. They compared the data with several theoretical models designed to explain the explosion’s behavior.\nOne model, developed by co-authors Indrek Vurm of the University of Tartu in Estonia and Brian Metzger of\nColumbia University\nin New York City, simulated how particles and radiation from a newly born magnetar would interact with the expanding material ejected by the supernova.\nScientists expect newborn magnetars to rotate extremely rapidly, completing hundreds of spins every second. This rapid rotation generates a powerful flow of electrons and positrons, which are the antimatter counterparts of electrons.\nThese particles create a huge region known as a\nmagnetar wind nebula\n, filled with highly energetic particles.\nWithin this environment, numerous interactions can create and absorb gamma rays. For example, an electron and a positron can annihilate each other and produce gamma-ray photons. Gamma rays can also collide and create new particle pairs.\nAs these interactions continue, gamma rays become trapped within the expanding supernova debris. Rather than escaping immediately, much of their energy is converted into lower-energy visible light. This process helps explain why superluminous supernovae shine so intensely.\n“About three months after the collapse, as the supernova debris expands and cools, the gamma rays can begin to leak out,” Acero said. “This magnetar model best reproduces the supernova’s luminosity and the arrival time of its gamma rays during the first months, but we see room for improvement at later times, when the visible light fades quite irregularly.”\nThe researchers believe other processes likely contributed to the supernova’s behavior as it gradually dimmed.\nPossible factors include material falling back onto the magnetar and interactions between the expanding blast wave and matter expelled by the star during the centuries before its final collapse.\nThe team also explored whether future facilities could detect similar events. Their analysis suggests the new ground-based Cerenkov Telescope Array Observatory could identify a supernova like SN 2017egm from as far away as about 500 million light-years with roughly 50 hours of observations.\nScientists expect that combining observations from facilities like the Cerenkov Telescope Array Observatory with data from NASA’s space-based telescopes will significantly improve understanding of these extraordinary explosions.\n“The magnetar central engine mechanism discussed in this paper builds upon a lot of observational and theoretical advances in magnetars over the last 20 years,” said Judy Racusin, a deputy project scientist for the Fermi mission at NASA’s Goddard Space Flight Center in Greenbelt, Maryland. “Observing gamma rays from supernovae will give us a new way to explore their inner workings.”\nReference: “Gamma-ray signature of superluminous supernovae:\n-LAT GeV detection of SN 2017egm and evidence of a central engine” by F. Acero, A. Acharyya, A. Adelfio, M. Ajello, E. Aviano, L. Baldini, J. Ballet, C. Bartolini, D. Bastieri, J. Becerra Gonzalez, R. Bellazzini, E. Bissaldi, R. Bonino, P. Bruel, S. Buson, R. A. Cameron, P. A. Caraveo, F. Casaburo, F. Casini, E. Cavazzuti, C. C. Cheung, N. Cibrario, G. Cozzolongo, P. Cristarella Orestano, F. Cuna, S. Cutini, F. D’Ammando, D. Depalo, S. W. Digel, N. Di Lalla, A. Dinesh, L. Di Venere, P. Fauverge, A. Fiori, A. Franckowiak, Y. Fukazawa, S. Funk, P. Fusco, F. Gargano, C. Gasbarra, D. Gasparrini, S. Germani, F. Giacchino, N. Giglietto, M. Giliberti, F. Giordano, M. Giroletti, I. A. Grenier, M.-H. Grondin, S. Guiriec, R. Gupta, E. Hays, J. W. Hewitt, A. Holzmann Airasca, D. Horan, X. Hou, T. Kayanoki, M. Kerr, M. Kuss, A. Laviron, M. Lemoine-Goumard, A. Liguori, J. Li, I. Liodakis, P. Loizzo, F. Longo, F. Loparco, S. López Pérez, L. Lorusso, M. N. Lovellette, P. Lubrano, S. Maldera, A. Manfreda, G. Martí-Devesa, R. Martinelli, M. N. Mazziotta, M. Michailidis, P. F. Michelson, N. Mirabal, T. Mizuno, P. Monti-Guarnieri, M. E. Monzani, A. Morselli, I. V. Moskalenko, M. Negro, N. Omodei, M. Orienti, E. Orlando, G. Panzarini, M. Persic, M. Pesce-Rollins, R. Pillera, T. A. Porter, G. Principe, S. Rainò, R. Rando, B. Rani, M. Razzano, A. Reimer, O. Reimer, M. Sánchez-Conde, P. M. Saz Parkinson, D. Serini, C. Sgrò, E. J. Siskind, G. Spandre, P. Spinelli, D. J. Suson, H. Tajima, D. J. Thompson, D. F. Torres, Z. Wadiasingh, K. Wood, G. Zaharijas, W. Zhang, E. Chatzopoulos, B. D. Metzger, P. J. Pessi and I. Vurm, 20 May 2026,\nAstronomy & Astrophysics\nDOI: 10.1051/0004-6361/202558547\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nFermi Gamma-ray Space Telescope\nNASA Goddard Space Flight Center\nDefying Expectations: NASA’s Fermi Sees No Gamma Rays From Nearby Supernova\nUnidentified Cosmic Phenomena: Fermi’s Gamma-Ray Discovery Shocks Astronomers\nCosmic Cinema: NASA Unveils Stunning 14-Year Time-Lapse of the Gamma-Ray Sky\nNASA’s Fermi Space Telescope Captures Cosmic Fireworks in Dynamic Gamma-Ray Sky\nStrange Long-Lasting Pulse of High-Energy Radiation Swept Over Earth\nNASA’s Fermi Space Telescope Hunts for Gravitational Waves From Monster Black Holes\nNASA’s Fermi Spots a Weird Pulse of High-Energy Radiation Racing Toward Earth\nNASA’s Roman Mission: Using Exploding Stars to Solve the Biggest Cosmic Mysteries\nNASA Spacecraft Unmask High-Energy Blast That Swept Through the Solar System – Magnetar Eruption in Nearby Galaxy",
+          "hb": 1
+        },
+        {
+          "t": "通过滑移铁电性实现交替磁性的对称锁定六态控制",
+          "d": "2026-06-04",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出利用滑移铁电性实现对交变磁性（altermagnetism）的对称锁定六态控制。交变磁性多铁材料可在无净磁化下实现自旋劈裂，为低功耗自旋电子学提供了新途径；通过滑移铁电调控实现对磁态的精确多态写入与读取，有望推动非易失性存储与逻辑器件发展。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5229?af=R",
+          "tp": "滑移铁电控磁",
+          "aip": 1,
+          "kp": [
+            "[磁电耦合]: 六态高维耦合",
+            "[机制]: 滑移铁电性锁定对称性",
+            "[应用]: 低功耗自旋电子学"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Altermagnetic multiferroics offer a promising route to low-power spintronics by enabling spin splitting without net magnetization, extending beyond conventional spin-orbit coupling. However, achieving deterministic electric control has remained elusive. Here, a six-state platform for high-dimensional magnetoelectric coupling in altermagnets is established by exploiting the nondegenerate transition paths of sliding ferroelectrics as a symmetry-engineering knob, thereby transcending the conventional binary (up/down) paradigm of sliding ferroelectricity. First-principles calculations on bilayer manganese phosphorus trisulfide reveal a spin-polarization symmetry-locking mechanism. Polarization switching along the three nondegenerate paths not only reverses the spin splitting but also rotates its spin-splitting texture in 120° increments, yielding six nonvolatile, electrically addressable altermagnetic states. Furthermore, direct correspondence is established between the spin-splitting texture and the nonlinear Hall response, providing unique electrical fingerprints for each state. This work establishes a paradigm for electric field–driven reconstruction of momentum-space spin geometry, providing a versatile platform for controlling quantum phenomena in altermagnetic spintronics.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

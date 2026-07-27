@@ -1,0 +1,322 @@
+{
+  "type": "weekly",
+  "date_label": "2026-07-13 ~ 2026-07-19",
+  "date_range": "2026-07-13 ~ 2026-07-19",
+  "main_theme": "新型光伏电池转换效率刷新纪录至35.5%，软件定义3D芯片与9750亿参数开源模型相继发布，中印氢能交通设施投入运营。",
+  "overview": "隆基绿能钙钛矿/晶硅叠层电池经欧洲太阳能测试机构ESTI认证，转换效率达到35.5%；中科院化学所新型钙钛矿-有机叠层电池稳态光电转换效率达28.04%。东方算芯发布采用14nm工艺的3D芯片DF1000，算力达520TFLOPS@BF16。Thinking Machines Lab发布包含9750亿参数的开源大模型。中国石油独山子石化投产120万吨/年二期乙烯工程，全厂电气化率升至29.1%。长征十号乙运载火箭一级通过海上平台网系捕获方式成功回收。",
+  "headlines": {
+    "零碳产业": [
+      "中科院新型钙钛矿电池效率达28.04%创世界纪录",
+      "隆基绿能钙钛矿叠层电池转换效率达35.5%",
+      "独山子石化120万吨绿色低碳乙烯工程投产运行",
+      "光伏电池2027年起按2%至4%征收消费税"
+    ],
+    "AI与智能科技": [
+      "东方算芯发布14nm工艺3D芯片算力达520TFLOPS",
+      "Thinking Machines发布9750亿参数开源大模型",
+      "WAIC展出可运行1500亿参数模型的桌面超算",
+      "Bun投入16万美元用Claude重写百万行底层代码"
+    ],
+    "通用技术": [
+      "长征十号乙火箭一级首次实现海上网系捕获回收",
+      "全国最大2000吨级氢能货船正式下水",
+      "印度首列氢能列车开通投入城际通勤运营",
+      "小鹏L03首发内置Google Maps Auto SDK系统"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "中科院化学所与隆基绿能分别将钙钛矿及叠层电池转换效率提升至28.04%和35.5%。财政部等三部门规定自2027年4月起对光伏电池按2%征收消费税，新一代高效电池免征至2028年底。中国石油独山子石化120万吨/年乙烯工程投产，全厂电气化率由15.5%升至29.1%。",
+      "headlines": [
+        "中科院新型钙钛矿电池效率达28.04%创世界纪录",
+        "隆基绿能钙钛矿叠层电池转换效率达35.5%",
+        "独山子石化120万吨绿色低碳乙烯工程投产运行",
+        "光伏电池2027年起按2%至4%征收消费税"
+      ],
+      "entries": [
+        {
+          "t": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网",
+          "d": "2026-07-15",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中科院化学所李永舫院士、孟磊研究员团队在《自然》发表研究，提出\"全阶段调控\"策略，引入可光转换添加剂分子解决钙钛矿-有机叠层电池中碘溴离子相分离难题。经第三方认证，新型电池稳态光电转换效率达28.04%，刷新该类电池世界纪录。叠层结构上层钙钛矿吸收可见光、下层有机物吸收近红外光，可溶液加工、柔性大面积制造。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260714_1901983.html",
+          "tp": "钙钛矿光伏",
+          "aip": 1,
+          "kp": [
+            "光电转换效率[新型钙钛矿-有机叠层太阳能电池]: 28.04%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网\n中电传媒股份有限公司主办\n新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录\n易受到光照影响的电池材料，如何更稳定地利用光能？《自然》杂志13日发表的一项研究给出了答案：中国科学院化学研究所李永舫院士、孟磊研究员团队，提出“全阶段调控”策略，通过引入一种可光转换的添加剂分子，成功制备出新型钙钛矿-有机叠层太阳能电池。经第三方机构认证，该电池的稳态光电转换效率达到28.04%，刷新这类电池的世界纪录。\n近年来，以钙钛矿太阳能电池和有机太阳能电池为代表的新一代光伏技术发展迅速。这类电池的制造方式很特别，能像印报纸一样，通过溶液加工、卷对卷印刷等技术，实现柔性、大面积制造，成品又轻又薄，还能弯曲。将它们像三明治一样叠在一起的钙钛矿-有机叠层太阳能电池，能把太阳光谱“吃干榨尽”：上层钙钛矿吸收可见光，下层有机物吸收近红外光，理论发电效率远超单一材料电池。\n然而，这种叠层电池的上层有个难缠的问题。为了吸收足够的太阳光，薄膜中需要同时添加碘和溴两种元素。麻烦的是，在制备过程中或持续光照下，碘离子和溴离子容易“闹分家”，各自聚集成群。“这种相分离现象一旦发生，电池电压就会不断下降，性能持续衰退，成为阻碍其走向应用的致命短板。”孟磊说。\n图为钙钛矿-有机叠层太阳能电池器件。中国科学院化学研究所供图\n为了平息这场微观世界的纷争，研究团队向材料中加入一种名为TDB的添加剂分子。在电池薄膜成型之初，TDB像一位耐心的协调员，拖住溴离子快速聚集的脚步，确保碘和溴从一开始就均匀混合。而当电池见光工作时，TDB被光激活，转化成新结构的TAB分子。“新分子能够锚定在材料晶界上，抑制卤素离子迁移和相分离，完成了从‘惧光’到‘驭光’的蜕变。”孟磊解释。\n凭借这一贯穿制备与运行全过程的调控策略，团队制成的宽带隙钙钛矿太阳能电池的开路电压创下同类型电池最高纪录，将其与底层有机太阳能电池精准叠加后，整个叠层器件的实验室最高光电转换效率达28.80%，认证稳态效率锁定在28.04%。在持续光照625小时后，叠层太阳能电池仍保持初始效率的90%，展现出优异的稳定性。\n李永舫表示，这种钙钛矿有机叠层太阳能电池兼具轻薄与柔性优势，不仅有望用于建筑、交通、可穿戴设备等领域，更因其突出的柔性重量比，未来有潜力登上卫星和空间站，为人类提供更轻便高效的太空能源。\n“十四五”能源高质量发展\n“抢”回4.5亿度电能 国产“苇络AI”守护迎峰度夏电力线\n太阳能智能回收机落地明十三陵 助力文旅绿色低碳发展\n宁波大学团队在全钙钛矿叠层电池研究领域取得新突破\n新研究：集中供热余热可助力污水处理和城市减排\n中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最\n新工艺打造出更轻且旋转更快的风力涡轮机叶片\n我国高校开发新型电解液让锂金属电池“增能延寿”\n我国首台超临界CO₂车载空调在扬研发成功",
+          "hb": 1
+        },
+        {
+          "t": "隆基绿能钙钛矿/晶硅叠层电池效率达到35.5%",
+          "d": "2026-07-14",
+          "a": "手动导入",
+          "c": "零碳产业",
+          "as": "隆基绿能宣布其研发的钙钛矿/晶硅叠层太阳电池转换效率达到35.5%，经欧洲太阳能测试机构ESTI认证，再次刷新世界纪录。此外，隆基在大面积器件和叠层组件转换效率上均取得突破，相关效率数据获得国际权威认证并被收录，持续引领光伏电池技术的发展。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/y25UAw8wrsuu4CVdKz6msw",
+          "tp": "叠层太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率35.5%"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||钙钛矿/晶硅器件转换效率突破\n\n其将钙钛矿/叠层器件认证效率提升至35.5%，超过此前的34.8%进一步提升；同时其还宣传实现了34.3%（261cm²）和32.2%（274cm²）的大面积器件转换效率",
+          "cm": "",
+          "b": "隆基绿能钙钛矿/晶硅叠层电池效率达到35.5%\n7月14日，隆基绿能在官方公众号上发文宣布，经欧洲太阳能测试机构（ESTI）认证，其研发的钙钛矿/晶硅叠层太阳电池转换效率达到35.5%，再次刷新世界纪录。文中称，隆基团队此前的35.2%效率",
+          "hb": 1
+        },
+        {
+          "t": "我国首个全链条绿色低碳乙烯工程投产",
+          "d": "2026-07-18",
+          "a": "",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/石油化工",
+          "as": "7月16日,中国石油独山子石化塔里木120万吨/年二期乙烯及绿色低碳示范工程一次开车成功,产出合格乙烯,系国家'双碳'战略标志性工程及我国炼化行业首个全链条绿色低碳示范。三大核心机组全部改电驱,全厂电气化率由15.5%升至29.1%,采用绿电后年碳排放可减21.2万吨,并突破裂解炉低浓度CO₂捕集世界级难题。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260717/0cbf7001eef947e78c46f37f85ec63e0/c.html",
+          "tp": "绿色乙烯工程",
+          "aip": 1,
+          "kp": [
+            "产能[二期乙烯及配套工程]: 120万吨/年",
+            "全厂电气化率[改造后]: 29.1%",
+            "全厂电气化率[改造前]: 15.5%",
+            "年碳排放量减少量[采用绿电]: 21.2万吨以上",
+            "等效固碳面积[新增森林]: 84平方公里"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "我国首个全链条绿色低碳乙烯工程投产-新华网\n我国首个全链条绿色低碳乙烯工程投产\n我国首个全链条绿色低碳乙烯工程投产\n从中国石油获悉，7月16日，中国石油独山子石化塔里木120万吨/年二期乙烯及配套绿色低碳示范工程顺利产出合格乙烯产品，标志着项目一次开车成功。\n作为国家“双碳”战略标志性工程，它不仅是中西部地区单体规模最大的乙烯项目，更是我国炼化行业首个全链条践行绿色低碳发展理念的示范工程。\n工程动力系统实现了电气化重构。据了解，全球正在运行的300多套乙烯装置中，几乎全部用蒸汽驱动，全电驱动的屈指可数。该项目将乙烯装置三大核心机组全部改为电驱，让全厂电气化率由15.5%跃升至29.1%，采用绿电后，全厂年碳排放量可减少21.2万吨以上，等效固碳能力相当于新增84平方公里森林。\n这一工程还实现了碳捕集技术的突破。工程开工试车指挥部生产六部二氧化碳捕集装置负责人王锡连介绍，乙烯裂解炉烟气中二氧化碳浓度仅7.5%至8.2%，压力低、杂质繁杂、腐蚀性强，实现长期连续稳定捕集是世界级行业难题。\n面对仅有理论模拟数据、现场实操核心数据空白的现实，技术团队在广西中试装置现场持续攻坚28天，从零搭建整套工艺体系，最终按期高质量交付全套碳捕集工艺包与落地实施方案。\n中国石油集团公司董事长戴厚良表示，集团将持续推进绿色低碳转型升级，加快发展新兴产业和布局未来产业，推动企业向“油气热电氢”综合能源转变，炼化业务向“炼化生精材”产业链中高端迈进。（记者齐慧）\n透视“十五五”开局之年中国经济半年报\n第五轮高校毕业生“三支一扶”计划这样实施\n各地多举措推动文旅产业融合发展\n行走拉美手记丨墨西卡利的百年中国印记\n美式“勒索”加剧海湾国家对美信任赤字\n列国鉴丨记者观察：北极，越来越“热”的世界尽头\n向深扎根，外资如何与中国市场共生发展\n我国首个全链条绿色低碳乙烯工程投产",
+          "hb": 1
+        },
+        {
+          "t": "4月1日起，光伏电池将迎来2-4%消费税！",
+          "d": "2026-07-18",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "财政部、海关总署、税务总局7月17日联合发布公告，对电池消费税实施结构性调整：光伏电池自2027年4月起按2%征收，2028年4月上调至4%，打破多年免税惯例。钙钛矿、叠层、砷化镓等新一代高效电池可全额免征至2028年底，形成\"淘汰落后、扶持创新\"双向调节。短期传统电池制造企业成本承压，出口环节不受影响。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://news.solarbe.com/202607/17/50026110.html",
+          "tp": "光伏消费税",
+          "aip": 1,
+          "kp": [
+            "消费税税率[光伏电池2027年起]: 2%",
+            "消费税税率[光伏电池2028年起]: 4%",
+            "免税截止日期[新一代光伏电池]: 2028年12月31日"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7月17日，财政部、海关总署、税务总局联合发布《关于调整部分电池消费税政策的公告》\n，对国内电池产品消费税实施结构性调整，其中\n光伏电池将从2027年4月1日起按2%税率计征消费税，2028年4月1日起税率上调至4%，打破了多年来光伏电池免征消费税的惯例。\n针对产业技术迭代需求，新政配套设立专项免税条款，钙钛矿、叠层、砷化镓等新一代光伏电池可全额免征消费税（至2028年12月31日）。这意味着，前沿高效技术路线可继续享受成本红利，一定程度上加速钙钛矿叠层电池组件研发进程，为行业技术转型预留充足时间窗口，有效弱化短期成本冲击，形成“淘汰落后、扶持创新”的双向调节机制。\n分析人士指出，短期来看，传统光伏电池制造企业将直面持续加大的成本上行压力，只有具备效率和品牌溢价、能向下游组件环节转嫁税负的企业才能持续经营。对一体化组件企业而言，他们可以通过内部成本分摊缓冲消费税带来的利润收缩，但终端组件报价依然会出现小幅上调，光伏项目初始投资成本也会小幅抬升，市场装机观望情绪或将有所升温。\n值得一提的是，出口将成为制造企业对冲国内税负压力的重要缓冲渠道。此项消费税仅针对境内销售产品征收，光伏电池出口可正常办理消费税退税，具备成熟海外渠道、特别是拥有本地化产能布局的企业可以有效缓解压力。\n为进一步完善消费税制度，现将电池消费税政策调整事项公告如下：\n一、自2026年9月1日起，对无汞原电池、金属氢化物镍蓄电池（又称氢镍蓄电池或镍氢蓄电池）、锂原电池、锂离子蓄电池、全钒液流电池按照2%税率征收消费税；自2027年9月1日起，对上述电池产品按照4%税率征收消费税。\n二、自2027年4月1日起，对光伏电池（又称太阳能电池）按照2%税率征收消费税；自2028年4月1日起，对光伏电池按照4%税率征收消费税。\n三、自2026年9月1日起至2028年12月31日，对钠离子电池、固态电池、燃料电池及光伏电池中的钙钛矿电池、叠层电池、砷化镓电池免征消费税。\n四、纳税人生产、委托加工享受上述减免税政策的电池产品，应当符合该产品的国家标准，对不符合国家标准或没有国家标准的产品，不得享受上述减免税政策。\n纳税人应当在首次申报电池产品减免消费税之前，取得检测机构出具的该产品符合相应国家标准的检测报告。检测机构应当持有省级及以上市场监督管理部门依法颁发、现行有效的《检验检测机构资质认定证书》（使用CMA徽标），且《检验检测机构资质认定证书》附表中包括相应电池检测项目。\n五、纳税人从生产企业购进、委托加工收回，或以自营、委托方式直接进口已缴纳消费税的电池产品，用于连续生产应税电池产品的，准予按照当期生产领用数量扣除原料已缴纳的消费税税额。\n六、纳税人自产自用的应税电池产品，用于连续生产应税电池产品的，不缴纳消费税；用于连续生产应税电池以外的产品或用于其他方面的，应当在移送使用时申报缴纳消费税。\n七、除上述规定外，电池消费税征收管理的其他事项依照《中华人民共和国消费税暂行条例》、《中华人民共和国消费税暂行条例实施细则》等相关规定执行。\n《财政部 国家税务总局关于对电池 涂料征收消费税的通知》（财税〔2015〕16号）、《财政部 国家税务总局关于对电池 涂料征收进口环节消费税的通知》（财关税〔2015〕4号）规定与本公告规定不一致的，以本公告为准。\n电池消费税征收范围注释见附件1，电池进口环节消费税应税税目见附件2。\n附件：1.电池消费税征收范围注释\n2.电池进口环节消费税应税税目\n财政部 海关总署 税务总局",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "东方算芯在上海发布全球首颗3D芯片DF1000，在14nm节点下实现520TFLOPS@BF16算力。Thinking Machines Lab首发包含9750亿参数且完整开放权重的大模型。Bun创始人投入约16万美元使用Claude生成约100万行代码以重构底层设施。",
+      "headlines": [
+        "东方算芯发布14nm工艺3D芯片算力达520TFLOPS",
+        "Thinking Machines发布9750亿参数开源大模型",
+        "WAIC展出可运行1500亿参数模型的桌面超算",
+        "Bun投入16万美元用Claude重写百万行底层代码"
+      ],
+      "entries": [
+        {
+          "t": "软件定义近存计算3D芯片东方算芯DF1000在上海发布",
+          "d": "2026-07-13",
+          "a": "手动导入",
+          "c": "AI与智能科技",
+          "as": "东方算芯在上海发布全球首颗软件定义近存计算3D芯片DF1000。该芯片采用14nm工艺，通过“软件定义+3D堆叠近存计算”架构，在14nm节点下实现了520TFLOPS@BF16的算力。此技术突破了算力芯片瓶颈，实现软硬件解耦与动态重构，并基于全国产供应链打造自主可控的算力生态。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/976/025.htm",
+          "tp": "3D计算芯片",
+          "aip": 1,
+          "kp": [
+            "520TFLOPS算力"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||突破国产GPU运算速度指标边界\n\n其通过软件定义芯片技术实现软硬件解耦与动态重构，在14nm工艺节点下实现520TFLOPS@BF16的算力；接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)等在4/5nm工艺节点的制造水平",
+          "cm": "从性能而言，DF1000芯片的BF16算力(520TFLOPS)已经达到了接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)水平，不过后两者是基于台积电4/5nm工艺节点制造的。对比国内的计算显卡，摩尔线程的MTTS4000使用12nm工艺节点，INT8算力(往往高于BF16)只有200TFLOPS；华为昇腾910C的FP16算力为320TFLOPS。从数据看，东方算芯的芯片算力已经接近经过数次成熟迭代的GPU以及TPU产品，且接近或超越了国产的计算芯片。\nDF1000芯片的核心技术包括软件定义硬件、近存计算以及3D堆叠三部分。不同于现场可编程门阵列FPGA，软件定义硬件技术一般可以在程序执行过程中动态地改变电路的逻辑拓扑关系，从而加速特定的运算。近存计算技术将存储单元和计算单元集成到一张硅片上，大大增加了数据传输带宽。配合软件定义硬件技术，可以根据计算任务动态的改变电路逻辑结构，从而均衡计算耗时与内存读写耗时，增强硬件在真实任务上的性能。3D堆叠是用于提升计算密度的技术，由于14nm制程下，晶体管的2维密度相较于4nm制程要低数倍，因此可以通过将硅片打通后三位堆叠的方式提升单位体积内的运算速度。\n刚成立两年的公司可以克服众多技术困难实现国内领先水平的芯片设计，该工作以及相关的技术路线可以后续持续关注。",
+          "b": "全球首颗软件定义近存计算3D芯片：东方算芯DF1000在上海发布，14nm工艺\nIT之家7月13日消息，据第一财经报道，东方算芯今日在上海发布了东方算芯首颗旗舰芯片——DF1000。报道称，作为全球首颗软件定义近存计算3D芯片，DF1000",
+          "hb": 1
+        },
+        {
+          "t": "刚刚，Thinking Machines首发大模型：9750亿参数，完整开放权重",
+          "d": "2026-07-16",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Thinking Machines Lab首发大模型，参数规模约9750亿，完整开放权重。标志着Mira Murati创立的新公司正式加入开源大模型竞争，开放权重策略有助于推动可复现研究与生态繁荣，但实际能力仍需第三方基准验证。",
+          "sc": 10.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/tepazYmbyKk5iwRKQT_rOw",
+          "tp": "开源千亿模",
+          "aip": 1,
+          "kp": [
+            "模型参数[Thinking Machines首发大模型]: 9750+亿"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "刚刚，WAIC杀出国产「桌面超算」！150B大模型，放你桌上跑",
+          "d": "2026-07-17",
+          "a": "新智元",
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "在2026世界人工智能大会(WAIC)上,国产\"桌面超算\"产品亮相,宣称可在桌面上运行1500亿参数大模型。产品通过高密度算力集成与专用加速,实现大模型本地化推理部署,降低企业与个人使用大算力门槛。反映国产AI硬件向消费级与桌面级下沉的趋势。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/kC6ly-6mdrYuy5k5J9g1gw",
+          "tp": "桌面超算",
+          "aip": 1,
+          "kp": [
+            "模型参数[桌面超算大模型]: 150B"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "烧掉16万美金，狂飙100万行代码！Bun之父用Claude重写底层",
+          "d": "2026-07-17",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "Bun创始人宣布投入约16万美元，使用Claude（AI编程工具）重写Bun底层代码，生成约100万行代码。此举展示了AI辅助大规模系统软件开发的实践，引发关于AI编程智能体在底层基础设施重构中能力边界与成本的讨论。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/sC1_V3KAJjX9DX3dDEIEnQ",
+          "tp": "AI写代码",
+          "aip": 1,
+          "kp": [
+            "花费[重写底层]: 16万美金",
+            "代码行数[重写底层]: 100万行"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "7月10日长征十号乙运载火箭首飞，火箭一级在海上平台通过网系捕获方式成功回收。全国最大2000吨级氢能货船下水进入内河干线运输。小鹏在慕尼黑首发L03车型，成为首家内置Google Maps Auto SDK并将其数据用于驾驶辅助系统的亚太车企。",
+      "headlines": [
+        "长征十号乙火箭一级首次实现海上网系捕获回收",
+        "全国最大2000吨级氢能货船正式下水",
+        "印度首列氢能列车开通投入城际通勤运营",
+        "小鹏L03首发内置Google Maps Auto SDK系统"
+      ],
+      "entries": [
+        {
+          "t": "全国最大2000吨级氢能货船下水：氢能开始驶入内河干线",
+          "d": "2026-07-16",
+          "a": "铂道",
+          "c": "通用技术/通信和运输/水路运输",
+          "as": "全国最大2000吨级氢能货船下水，标志氢能应用正式进入内河干线运输场景。相比公路，内河航运脱碳需求迫切，氢燃料电池船可替代柴油动力、降低航线碳排放。但氢能船舶仍面临储氢系统体积大、加氢码头稀缺、法规标准不完善等问题，商业化运营需配套港口氢基础设施同步建设。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/kdf9Dw5o-PjmpP8Zw0zJdA",
+          "tp": "氢能货船下水",
+          "aip": 1,
+          "kp": [
+            "载重规模[氢能货船]: 2000吨级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "三问全球首次“网抱”式火箭回收",
+          "d": "2026-07-14",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "7月10日，长征十号乙运载火箭成功首飞，火箭一级在海上平台通过网系捕获方式成功回收。这是我国首次成功实施火箭一级可控回收，也是全球首次采用'网抱'式回收方案。该技术为可重复使用火箭提供了区别于垂直着陆的新路径，对降低航天发射成本具有战略意义。",
+          "sc": 8.3,
+          "i": "news",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260713/2b5777d71ec54dc8b3dd92fd35a3c8d2/c.html",
+          "tp": "火箭网系回收",
+          "aip": 1,
+          "kp": [
+            "火箭直径[长征十号乙]: 5米",
+            "[回收方式]: 网系捕获，全球首次",
+            "[火箭构型]: 两级大型液体运载火箭"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "三问全球首次“网抱”式火箭回收-新华网\n三问全球首次“网抱”式火箭回收\n三问全球首次“网抱”式火箭回收\n7月10日，长征十号乙运载火箭成功首飞，同时火箭一级在海上平台通过网系捕获方式成功回收。这是我国首次成功实施火箭一级可控回收，也是全球首次火箭网系回收，标志着我国在重复使用火箭技术领域取得历史性突破。\n网系回收是我国独创的一种新型箭地协同火箭回收模式，可让火箭不用靠“腿”站立，而是直接飞进一张大网里，被温柔地“抱”住。相比目前国际主流的垂直起降回收模式，这种箭船“共舞”的回收方式，有助于提高回收过程中捕获、缓冲的成功率。\n记者从中国航天科技集团了解到，这种能让火箭回收更“简单”的方案，技术并不简单。\n第一问：火箭返回，如何完成一套极限“体操”？\n长征十号乙运载火箭，是中国航天科技集团一院抓总研制的5米直径两级构型大型液体运载火箭。此次任务，火箭一级返回全程处于复杂气流中，就像完成一套极限“体操”。它要在不到6分钟时间里完成调头、减速、精确着陆等一系列高难度、高精度动作，实现“控得住”“回得准”“落得稳”“接得住”。\n火箭一级与二级分离后，开启了返回之旅。此时，它在惯性作用下，仍处于向上飞行状态，首先要滑行、调整姿态，在空中掉个头，由上升变为下坠。\n在高速下坠过程中，发动机点火反推，减缓降落速度。这一过程，要在极短时间内完成推进剂管理、贮箱增压、发动机预冷等一系列复杂准备。\n接下来，箭体上的栅格舵打开，如同张开一对小翅膀，帮助火箭调整姿态。与此同时，推进剂沉底管理系统同步工作，将储箱内的推进剂沉降集中至底部，为后续发动机点火做好准备。\n完成了滑行、调姿，火箭依靠栅格舵产生的气动阻力，进一步实施气动减速。这是防热设计的关键验证环节，箭体底部要承受严苛的气动加热和气动载荷考验。\n随着高度降低，火箭要再次启动发动机减速，并通过导航与定位装置获取回收平台的精确位置。进入网系后，火箭缓缓下降，箭上挂索机构展开；塔架四角的激光雷达实时测量火箭的位置和姿态，驱动呈“井”字形的绳索挂住火箭，并消除它下落的势能。就像一位父亲伸出双手，从高处接下自己的孩子。\n最后，回收系统为火箭系上“安全带”，使其完全稳固。\n第二问：回收系统怎样与火箭“双向奔赴”？\n网系回收并不是简单地“张网以待”，回收系统要与火箭“双向奔赴”，在动态中实现极为精准的协同匹配。\n据中国航天科技集团专家介绍，在火箭“找”船的同时，船也在“找”火箭，两个拥有各自六自由度运动的物体，要在海浪扰动下完成高动态“对接”。\n在茫茫大海上，回收平台在风浪中不可能静止不动，即便其配备的DP2级动力定位系统能抵抗漂移，却无法完全消除晃动；火箭下降时也不是完全直落，有一定的机动滚转，两者之间要实时接收平台的晃动与位置数据，主动补偿角度偏差。\n这一过程，除了考验火箭的智能控制与自主飞行技术、发动机在极端环境下保持稳定工作的能力等，也要求回收平台具备快速响应能力，要能精准判断火箭进入时机，并通过缓冲、固定等机构吸收冲击力。另一方面，回收系统的塔架结构高67米，相当于20多层楼，加上设备总重约5400吨，设计难度极大。总体来说，回收系统融合了机械工程、自动控制和材料科学等多领域技术。\n第三问：网系回收比传统方案好在哪？\n垂直起降是目前国际主流的火箭回收模式。回顾过往回收失败案例，大部分发生在最后着陆阶段，无论是落点、力度还是落地后的平衡，任一环节稍有偏差都可能导致功亏一篑。\n网系回收也属于垂直起降回收的一种，但这一方案降低了发动机和箭体调控难度，对火箭的着陆指标更友好。就如同给油瓶加上一个漏斗，通过网系的协同，可以“放大”捕获窗口，对火箭落点偏差有更强的适应能力。回收系统“接”住火箭以后，也能帮助它缓冲、固定，提高回收成功率。\n同时，网系回收有助于简化箭上结构，让火箭不需要配备复杂的着陆腿，从而减轻箭体重量，增加运载能力。\n后续，网系回收系统还可以通过系列化设计，适应不同规模火箭的回收需求。该方案将助力中国航天开展低成本、高频次、可持续的太空探索。(记者 付毅飞 何沛苁)\n“斯诺精神遗产”智库报告解析\n“90后”村支书：青春赴山海 归乡筑芳华\n特写丨台风登陆夜，风雨“长明灯”\n一周三轮互袭，美伊“灰色对抗”暗藏风险\n一场闹剧 十年祸端——“南海仲裁案”再起底\n美丽中国行·探访三江源丨用生命守护可可西里\n三问全球首次“网抱”式火箭回收",
+          "hb": 1
+        },
+        {
+          "t": "印度氢能列车今天正式开通",
+          "d": "2026-07-17",
+          "a": "铂道",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "印度首列氢能列车正式开通运营,标志着印度在轨道交通清洁化方面迈出实质性步伐。该列车采用氢燃料电池动力系统,实现零排放运行,服务于城际通勤。项目体现印度推动本土氢能装备制造与绿色交通的决心,为发展中国家氢能应用提供示范。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/2YgTzvE17tFjCNGyIYs5LQ",
+          "tp": "氢能列车",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "小鹏L03发布Google Maps Auto SDK——这对于亚太地区汽车制造商来说尚属首次",
+          "d": "2026-07-17",
+          "a": "",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "小鹏在慕尼黑全球首发L03电动SUV轿跑，成为首家内置Google Maps Auto SDK的亚太车企。该集成替换小鹏海外导航栈，并将地图数据 feed 至NGP与XPILOT ASSIST驾驶辅助系统，显著提升海外智驾能力。标志中国车企出海从硬件输出转向软件生态本地化，Google Maps Auto SDK首次在量产车落地。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/16/xpeng-l03-google-maps-auto-sdk/",
+          "tp": "智驾导航",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 16 2026 - 7:53 am PT\nXPeng used the global launch of its new L03 in Munich to announce that the electric SUV coupe is the first vehicle from any Asia-Pacific automaker to ship with Google Maps’ Auto SDK built in.\nThe integration replaces XPeng’s overseas navigation stack with Google Maps data and, more importantly, feeds map data into its NGP and XPILOT ASSIST driver-assistance systems outside China.\nThe Auto SDK lets automakers build their own navigation interface on top of Google’s underlying technology rather than embedding the standard Google Maps app or mirroring a phone. XPeng says drivers “will continue to use the familiar XPeng map application,” with the interface, rendering, and interactions designed in-house, while Google supplies real-time traffic-aware routing, place search, and EV energy and trip estimation underneath.\nPosts by XPENG_Global\nPractically, that means no app download and no smartphone screen-mirroring — the maps live natively in the car, alongside existing XPeng features like voice control and cross-screen display transfer.\n“Over 2 billion users turn to Google Maps each month, and we are pleased to bring our industry-leading technology to more drivers in Europe and beyond,” said Jorgen Behrens, VP/GM of Google Maps Automotive, who added that XPeng deployed the refreshed experience “in less than a year.”\nThe upgrade will roll out across “most” of XPeng’s overseas markets, with L03 buyers first in line before it reaches other models. It does not apply in China, where XPeng runs its own mapping.\nXPeng is careful with its wording here, and so should we be. The company is the “first automaker from APAC to ship a vehicle with Google Maps Auto SDK integration” — not the first automaker to do it at all.\nThat distinction belongs to\nRivian, which launched its Google Maps-based navigation\nusing the same Auto SDK in July 2025, a full year before XPeng. Rivian used the SDK to keep its own UI and charging-focused features while swapping in Google’s routing, ETAs, and place data — the same playbook XPeng is running now.\nGoogle has said it is in talks with additional automakers about Auto SDK implementations, so XPeng joining is less a coup than a sign the standard is spreading. What’s notable is the geography: a Chinese automaker leaning on Google’s map stack specifically because it is expanding into Western markets where its own navigation lacks coverage and freshness.\nThe map integration matters most for what sits on top of it. XPeng explicitly ties the Google Maps deal to the overseas rollout of NGP (Next Generation Pilot), its full-scenario assisted-driving system, and the next-generation\nVLA 2.0 architecture powering XPeng’s NGP\n“The future application of NGP (VLA 2.0) in overseas markets must rely on map data and navigation maneuvers,” the company said, calling the Google Maps data integration “a key upgrade that clears the path for NGP (VLA 2.0)’s international growth.”\nIn other words, XPeng can’t bring its assisted-driving system to Europe without a map layer it trusts across dozens of countries — and it’s outsourcing that layer to Google rather than building it market by market.\nThe L03 itself is built for that expansion. XPeng launched it simultaneously in China and roughly 64 other markets from Munich, and every trim carries the company’s in-house Turing AI chip with up to 1,500 TOPS of compute to support the second-generation VLA system. When XPeng\nrevealed the Mona L03 with 650 km of range for around $20,500\n, the aggressive pricing was the story; the Google Maps deal is how it plans to make the software travel.\nThis is a smart, unglamorous move, and it tells you something about how the China-to-Europe EV push actually works.\nChinese automakers are strong on hardware and increasingly strong on assisted-driving software — but navigation and map data across 60-plus countries is a genuinely hard problem that takes years and enormous data collection to solve. Rather than fight that battle, XPeng is renting Google’s answer. The Auto SDK approach lets it do that without surrendering its cabin experience, which is the right call: drivers keep the XPeng interface they know while the routing and place data underneath quietly get better.\nThe more interesting thread is the autonomy tie-in. XPeng is being honest that NGP can’t scale internationally without a reliable map backbone, and it’s choosing Google over trying to replicate its China mapping stack abroad. That’s a pragmatic admission that assisted driving in the West runs on someone else’s map data — the same dependency that shapes how far and how fast any of these systems can expand.\nThe open question is how much of NGP’s China capability actually survives the translation. A polished nav screen is easy to demo in Munich. Delivering full-scenario assisted driving across dozens of European regulatory regimes, on Google’s map layer, is the part worth watching.\nIf you’re shopping for an efficient EV like the L03, the cheapest miles you can put in it come from charging on home solar. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

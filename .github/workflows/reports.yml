@@ -1,0 +1,126 @@
+# tech-db report generation: daily, weekly, monthly
+# CST times: daily 06:00, weekly Mon 06:00, monthly 1st 06:00
+# 06:00 CST = 22:00 UTC (previous day)
+name: Report Generation
+
+on:
+  schedule:
+    # Daily at 06:00 CST (22:00 UTC previous day)
+    - cron: '0 22 * * *'
+    # Weekly on Monday 06:00 CST (Sunday 22:00 UTC)
+    - cron: '0 22 * * 0'
+    # Monthly on 1st 06:00 CST (last day of month 22:00 UTC)
+    - cron: '0 22 28-31 * *'
+  workflow_dispatch:
+    inputs:
+      report_type:
+        description: 'Report type'
+        required: true
+        type: choice
+        options:
+          - daily
+          - weekly
+          - monthly
+        default: daily
+
+permissions:
+  contents: write
+
+env:
+  ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
+
+jobs:
+  daily:
+    name: Daily Report
+    if: |
+      github.event_name == 'workflow_dispatch' && inputs.report_type == 'daily' ||
+      github.event_name == 'schedule' && github.event.schedule == '0 22 * * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild lite JSON from shards
+        run: python3 scripts/rebuild_lite_from_shards.py
+
+      - name: Generate daily report
+        run: |
+          python3 scripts/generate_reports.py --type daily 2>&1
+
+      - name: Commit and push
+        run: |
+          git add data/reports/
+          git diff --cached --quiet || git commit -m "report: daily $(date -u -d 'yesterday' +%%Y-%%m-%%d)"
+          git push
+
+  weekly:
+    name: Weekly Report
+    if: |
+      github.event_name == 'workflow_dispatch' && inputs.report_type == 'weekly' ||
+      github.event_name == 'schedule' && github.event.schedule == '0 22 * * 0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild lite JSON from shards
+        run: python3 scripts/rebuild_lite_from_shards.py
+
+      - name: Generate weekly report
+        run: |
+          LAST_MONDAY=$(date -u -d 'last monday' +%%Y-%%m-%%d)
+          python3 scripts/generate_reports.py --type weekly --date $LAST_MONDAY 2>&1
+
+      - name: Commit and push
+        run: |
+          git add data/reports/
+          git diff --cached --quiet || git commit -m "report: weekly $(date -u -d 'last monday' +%%Y-%%m-%%d)"
+          git push
+
+  monthly:
+    name: Monthly Report
+    if: |
+      github.event_name == 'workflow_dispatch' && inputs.report_type == 'monthly' ||
+      github.event_name == 'schedule' && github.event.schedule == '0 22 28-31 * *'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild lite JSON from shards
+        run: python3 scripts/rebuild_lite_from_shards.py
+
+      - name: Check if today is 1st (for schedule trigger)
+        run: |
+          # Only run on the 1st of the month (schedule fires on 28-31)
+          TOMORROW=$(date -u -d 'tomorrow' +%%d)
+          if [ "$TOMORROW" != "01" ]; then
+            echo "Tomorrow is not the 1st (it's $TOMORROW), skipping"
+            exit 0
+          fi
+          FIRST_OF_MONTH=$(date -u +%%Y-%%m-01)
+          python3 scripts/generate_reports.py --type monthly --date $FIRST_OF_MONTH 2>&1
+
+      - name: Commit and push
+        run: |
+          git add data/reports/
+          git diff --cached --quiet || git commit -m "report: monthly $(date -u +%%Y-%%m-01)"
+          git push

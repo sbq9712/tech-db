@@ -1,0 +1,260 @@
+{
+  "type": "daily",
+  "date_label": "2026年4月5日　星期日",
+  "date_range": "2026-04-05",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "准外延异质结界面重构使无镉Cu₂ZnSnS₄太阳能电池获11.96%认证效率",
+      "锯齿型钙钛矿衍生材料优化晶格动力学并提升环境稳定性与热导率",
+      "特定低温环境运行可抑制电解液分解并减缓锂离子电池容量衰减"
+    ],
+    "AI与智能科技": [
+      "碳纳米管中空结构填充功能材料构建三元逻辑以降低互连功耗",
+      "梯度下降方法实现热力学计算机参数化调控以执行目标计算任务",
+      "解耦自编码等变扩散模型实现针对特定子结构的三维分子定向修改"
+    ],
+    "通用技术": [
+      "中国航发MW级氢燃料航空涡桨发动机配装7.5吨级无人机完成首飞",
+      "钯催化非活化烯烃加氢甲酰化反应实现支链醛类化合物高选择性合成",
+      "电压控制磁各向异性效应在人工反铁磁多层膜中实现无电流磁化翻转"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "准外延异质结界面重构使无镉Cu₂ZnSnS₄太阳能电池获11.96%认证效率",
+        "锯齿型钙钛矿衍生材料优化晶格动力学并提升环境稳定性与热导率",
+        "特定低温环境运行可抑制电解液分解并减缓锂离子电池容量衰减"
+      ],
+      "entries": [
+        {
+          "t": "准外延异质结界面重构使无镉Cu₂ZnSnS₄太阳能电池实现11.96%认证效率",
+          "d": "2026-04-05",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "硫化物黄锡矿Cu2ZnSnS4（CZTS）作为不含镉的环保光伏材料具有重要应用前景。本研究通过准外延异质结界面重构策略，显著改善了CZTS/CdS异质结界面质量，认证效率达到11.96%，创造了无镉CZTS太阳能电池的认证效率新纪录。该工作表明界面工程是突破CZTS电池效率瓶颈的关键路径。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee0270?af=R",
+          "tp": "CZTS太阳能电池",
+          "aip": 1,
+          "kp": [
+            "转换效率[Cd-free CZTS太阳能电池]: 11.96%（认证）",
+            "界面[准外延异质结]: 抑制界面复合",
+            "器件形态[Cd-free CZTS]: 无镉硫化物黄锡矿结构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Sulfide kesterite Cu\n                    2\n                    ZnSnS\n                    4\n                    (CZTS) is a promising photovoltaic material with considerable potential for application in single-junction, multi-junction, and tandem solar cells. However, advancements in its certified power conversion efficiency (PCE) have remained slow, primarily due to severe interface recombination, which is a major limitation constraining the overall performance of CZTS solar cells. Here, we report an effective heterojunction interface engineering approach in which the CZTS/(Zn,Sn)O heterojunction is subjected to a controlled annealing treatment under dynamically flowing air atmosphere. This treatment induces Zn and Sn cation lattice diffusion to reconstruct a quasi-epitaxial contact at the intermediate interface. This reconstruction effectively suppresses defect-assisted interfacial carrier recombination and optimizes carrier dynamics by enhancing transport and collection efficiencies. Consequently, we achieved a highest certified efficiency of 11.96% for Cd-free, pure-sulfide CZTS solar cell (bandgap &gt; 1.5 eV) without extrinsic cation alloying. This study provides insights into heterojunction interface optimization and the performance enhancement mechanism in the development of kesterite solar cells.",
+          "hb": 1
+        },
+        {
+          "t": "具有优异稳定性和热导率的锯齿型钙钛矿衍生物",
+          "d": "2026-04-05",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "该研究报道一类具有锯齿型结构的钙钛矿型材料,展现出优异的稳定性和热导率。二维层状杂化钙钛矿是一类结构可调的新型半导体,在光伏和光电领域备受关注,但传统体系常受限于稳定性和热管理问题。锯齿型构型优化了有机-无机界面与晶格动力学,显著提升材料的环境稳定性与散热性能,为高性能光电器件提供更具应用前景的材料平台。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04451",
+          "tp": "钙钛矿材料",
+          "aip": 1,
+          "kp": [
+            "[钙钛矿结构]: 锯齿型perovskitoids兼具高稳定性和热导率",
+            "[结构调控]: 八面体倾斜与层间滑移破缺对称性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-dimensional (2D) layered hybrid perovskites constitute an emerging class of semiconductors with tunable structures and desirable properties, primarily governed by the inorganic sublattice. Octahedral tilting and distortions of the inorganic skeleton, as well as interlayer sliding and stacking, give rise to broken symmetries and are modulated by the organic spacers. The inorganic layers sandwiched between two organic layers typically maintain a planar geometry, but the corrugation of the inorganic slab itself in the out-of-plane direction remains largely unexplored. Here, we report a family of zigzag perovskitoids that exhibit common features in their single-crystal structures along with temperature-dependent lattice behavior. These zigzag perovskitoids exhibit markedly superior stability and thermal conductivity compared with 2D-planar perovskites AnPbI4 due to altered soft modes and vibrational behaviors modulated by distinct Pb-I motifs. Their unique optoelectronic properties, governed by the zigzag inorganic sublattice, also suggest promising applications. These findings provide insights into the control of stability, thermal transport, and optoelectronic properties in layered hybrid materials and open up possibilities for low-dimensional perovskite-based thermal management applications.",
+          "hb": 1
+        },
+        {
+          "t": "逆转锂离子电池耐久性的低温魔咒",
+          "d": "2026-04-05",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "该研究挑战传统热管理策略，证明低温环境可显著提升锂离子电池的耐久性。研究发现在特定低温条件下运行可抑制有害副反应和电解液分解，减缓容量衰减。这一发现为电池寿命优化提供了反直觉的新思路，有望改变电池热管理系统的设计范式。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00036-X?rss=yes",
+          "tp": "锂电池低温耐久性",
+          "aip": 1,
+          "kp": [
+            "[温度效应[锂离子电池]]: 低温延长循环寿命",
+            "[短期影响]: 低温致短期容量损失"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study challenges traditional thermal management strategies by demonstrating that low-temperature environments can significantly extend lithium-ion battery lifespan. Through a long-term field study, we show how cold exposure, despite short-term capacity loss, can enhance battery durability and reduce energy consumption. These findings have profound implications for optimizing clean energy systems.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "碳纳米管中空结构填充功能材料构建三元逻辑以降低互连功耗",
+        "梯度下降方法实现热力学计算机参数化调控以执行目标计算任务",
+        "解耦自编码等变扩散模型实现针对特定子结构的三维分子定向修改"
+      ],
+      "entries": [
+        {
+          "t": "填充碳纳米管三元晶体管",
+          "d": "2026-04-05",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "该研究提出填充型碳纳米管三元晶体管（Filled Carbon Nanotube Ternary Transistors），利用碳纳米管的中空结构填充功能材料，构建三值逻辑（ternary）器件以突破传统二值逻辑的功耗瓶颈。随着集成电路持续微缩，功耗已成为制约性能提升的关键限制因素，三元逻辑可在相同位宽下显著降低互连功耗并提升信息密度。该方案为后摩尔时代低功耗、高密度集成电路提供了新的器件架构方向。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523297?af=R",
+          "tp": "碳纳米管晶体管",
+          "aip": 1,
+          "kp": [
+            "[逻辑类型]: 多值逻辑MVL三值晶体管",
+            "[器件材料]: 填充型单壁碳纳米管",
+            "[优势]: 降低互连复杂度与开关损耗"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    As circuit integration continues to advance, power consumption has become a critical bottleneck limiting further development. Multi‐valued logic (MVL) has garnered extensive attention due to its potential to reduce interconnect complexity and switching losses. Single‐walled carbon nanotubes (SWCNTs), with their superior electrical properties, ultra‐small dimensions, and controllable aligned array growth, offer unique advantages for the large‐scale fabrication of high‐density MVL circuits. However, progress in this field using SWCNTs remains relatively lagging compared to two‐dimensional materials, primarily due to device stability issues arising from challenges in precise doping control. Here, we demonstrate a system consisting of acetylacetonate metal molecules encapsulated within SWCNTs (M(acac)\n                    x\n                    @s‐SWCNT), in which carrier concentration can be dynamically modulated under an applied electric field. Transistors based on this platform validate that this electric‐field‐controlled modulation yields three well‐defined logic states: 0, 1, and 2. These transistors demonstrate good uniformity and stable operation, showing a static power consumption of 8.2 pW and dynamic power consumption of 0.31 nJ (state 0 to 1) and 0.35 µJ (state 1 to 2). The ternary inverter based on this heterostructure exhibits rail‐to‐rail output capability, enabling the accurate execution of MVL operations. Ternary weight networks (TWNs) built with these transistors reduce computational complexity and storage, enabling efficient neuromorphic computing.",
+          "hb": 1
+        },
+        {
+          "t": "通过梯度下降训练热力学计算机",
+          "d": "2026-04-05",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "提出利用梯度下降方法训练热力学计算机的参数化方案。热力学计算机利用物理系统的自然弛豫过程求解优化与采样问题，但此前缺乏系统化的参数调节方法。该工作证明可通过梯度下降精确调控热力学硬件使其执行目标计算任务，为非冯·诺依曼架构的实用化训练迈出关键一步，潜在应用包括快速机器学习推理与组合优化。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2528413123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "热力学计算机",
+          "aip": 1,
+          "kp": [
+            "[计算范式]: 热力学计算机",
+            "[训练方法]: 梯度下降",
+            "[优化目标]: 最大化理想动力学轨迹概率"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "We show how to adjust the parameters of a thermodynamic computer by gradient descent in order to perform a desired computation at a specified observation time. Within a digital simulation of a thermodynamic computer, training proceeds by maximizing the probability with which the computer would generate an idealized dynamical trajectory. The idealized trajectory is designed to reproduce the activations of a neural network trained to perform the desired computation. This teacher-student scheme results in a thermodynamic computer whose finite-time dynamics enacts a computation analogous to that of the neural network. The parameters identified in this way can be implemented in the hardware realization of the thermodynamic computer, which will perform the desired computation automatically, driven by thermal noise. We demonstrate the method on a standard image-classification task, and estimate the thermodynamic advantage—the ratio of energy costs of the digital and thermodynamic implementations—to exceed seven orders of magnitude. Our results establish gradient descent as a viable training method for thermodynamic computing, enabling application of the core methodology of machine learning to this emerging field.",
+          "hb": 1
+        },
+        {
+          "t": "解耦自编码等变扩散模型用于3D分子可控生成",
+          "d": "2026-04-05",
+          "a": "Nature Communications",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "该工作提出一种解耦自编码等变扩散模型，用于三维分子的可控生成。在药物设计中，精准修饰分子结构同时保持关键化学约束至关重要。模型将分子表示分解为可控的解耦隐空间因子，结合等变神经网络保证三维旋转平移不变性，再通过扩散过程实现高质量分子生成。该方法能够针对特定子结构进行定向修改而不破坏整体药效团，为合理药物设计中的先导化合物优化提供了新工具。",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-71441-9",
+          "tp": "扩散模型分子生成",
+          "aip": 1,
+          "kp": [
+            "模型[3D分子生成]: 解缠结自编码等变扩散模型",
+            "控制能力[3D分子]: 多性质可控生成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Controlled generation of 3D molecules is highly valuable in drug design, enabling targeted modifications that preserve core structure and binding-relevant geometry while improving developability-related properties. While equivariant diffusion models achieve state-of-the-art de novo 3D molecule generation, reliably controlling multiple molecular properties remains challenging. A key limitation is structural: diffusion models typically lack an explicit latent space for targeted manipulation. We propose a semantics-guided equivariant autoencoding diffusion model that learns a disentangled semantic embedding of 3D molecules via an auxiliary encoder, to achieve fine-grained control over the generative denoising process. This semantic embedding enables efficient retrieval, random generation and controlled generation. By directly manipulating the embedding, we effectively steer the molecular generation toward desired compositions, shapes and physicochemical properties, and further enhance the generation quality with retrieval-augmented generation (RAG) using the embedding as the query. Importantly, the disentangled embedding offers significant advantages for joint manipulation of multiple properties. Experiments demonstrate precise and data-efficient property control while preserving non-targeted properties.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "中国航发MW级氢燃料航空涡桨发动机配装7.5吨级无人机完成首飞",
+        "钯催化非活化烯烃加氢甲酰化反应实现支链醛类化合物高选择性合成",
+        "电压控制磁各向异性效应在人工反铁磁多层膜中实现无电流磁化翻转"
+      ],
+      "entries": [
+        {
+          "t": "中国航发动研所MW级氢燃料航空涡桨发动机完成装机首飞",
+          "d": "2026-04-05",
+          "a": "",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国航发动研所自主研制的MW级氢燃料航空涡桨发动机AEP100配装7.5吨级无人运输机在株洲芦淞机场完成首飞。飞行时间16分钟，距离36km，速度220km/h，离地高度300m，发动机工作正常，验证了氢燃料动力系统与飞行平台的工程匹配可靠性。该进展标志着我国在航空脱碳和大功率氢动力航发领域取得重要突破。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/qeQtlSGl2eFjRHrsVZWU4Q",
+          "tp": "氢燃料涡桨",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月5日，中国航发动研所在官方公众号发文称，其自主研制的MW级氢燃料航空涡桨发动机AEP100配装7.5吨级无人运输机在株洲芦淞机场完成首飞。文中称，此次测试飞行过程中发动机工作正常，空中飞行时间16分钟，飞行距离36km，飞行速度220km/h，离地飞行高度300m，验证了氢燃料动力系统与飞行平台匹配的工程可靠性。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 钯催化烯烃的马尔科夫尼科夫氢甲酰化反应",
+          "d": "2026-04-05",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "报道钯催化非活化烯烃的马氏选择性加氢甲酰化反应。该方法突破了传统加氢甲酰化主要生成反马氏产物的局限，以优异的区域和立体选择性合成支链醛类化合物，为高值精细化学品合成提供了高效催化新方法。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c03803",
+          "tp": "烯烃氢甲酰化",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: 钯",
+            "[反应]: 马氏选择性烯烃氢甲酰化",
+            "[产物]: 支链醛",
+            "[底物]: 未活化烯烃"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Markovnikov hydroformylation of unactivated olefins represents a fundamental and highly valuable reaction for the formation of aliphatic branched aldehydes, but it remains challenging, because conventional hydroformylations typically exhibit anti-Markovnikov selectivity. Herein, we report a novel palladium-catalyzed Markovnikov hydroformylation of unactivated olefins to afford a series of branched aldehydes in high yields and with high regioselectivity. Crucial to the success of this reaction is the use of a unique neutral palladium catalyst coordinated with a novel (3',5'-bis(trifluoromethyl)-[1,1'-biphenyl]-2-yl)diphenylphosphane ligand, in conjunction with a silane-acetate acid system serving as the hydrogen surrogate. The mechanism of the reaction has been studied by several methods. The utility and versatility of this reaction are demonstrated by the efficient transformation of readily available olefins into high-value flavor and fragrance compounds.",
+          "hb": 1
+        },
+        {
+          "t": "电压控制磁各向异性效应驱动的人工反铁磁多层膜静态磁化翻转",
+          "d": "2026-04-05",
+          "a": "Nature Materials",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究利用电压控制磁各向异性（VCMA）效应在人工反铁磁多层膜中实现静态磁化翻转。该纯电场驱动方式无需电流即可实现磁矩操控，功耗极低，且人工反铁磁结构有效抑制杂散磁场干扰。该技术为超低功耗自旋电子器件和磁存储器的开发提供了新方案。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02575-w",
+          "tp": "电压磁化开关",
+          "aip": 1,
+          "kp": [
+            "[磁化翻转]: VCMA效应驱动静态磁化翻转",
+            "[功耗]: 超低功耗自旋器件写入",
+            "器件结构[自旋电子]: 人工反铁磁多层膜"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Voltage-induced magnetization switching based on the voltage-controlled magnetic anisotropy (VCMA) effect is expected to be the ultimate low-power-consumption writing method for spintronic devices such as non-volatile magnetoresistive random-access memory. However, for conventional VCMA-driven dynamic magnetization switching, in which sub-nanosecond voltage pulses induce bidirectional switching by inducing a half precession of magnetization, even a small variation in the pulse widths of the order of several picoseconds can cause switching failure. This has become a major obstacle for developing voltage-controlled magnetoresistive random-access memory. Here we report VCMA-driven static magnetization switching by exploiting an artificial antiferromagnetic trilayer structure with interlayer exchange coupling. By applying bipolar voltages to the antiferromagnetic structure, we can demonstrate repeatable bidirectional switching. Unlike conventional dynamic switching, VCMA-driven static magnetization switching is induced in a wide range of pulse widths. This unconventional writing method is expected to be a key for developing various ultralow-power spintronic devices.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

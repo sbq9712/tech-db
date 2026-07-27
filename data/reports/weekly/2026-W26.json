@@ -1,0 +1,316 @@
+{
+  "type": "weekly",
+  "date_label": "2026-06-22 ~ 2026-06-28",
+  "date_range": "2026-06-22 ~ 2026-06-28",
+  "main_theme": "中科院超导磁体与首钢废气制乙醇项目投入商业化，OpenAI首款自研芯片流片且三星HBM4销售额破十亿",
+  "overview": "中科院合肥等离子体所制备出运行电流98千安、最高磁场14.5特斯拉的CRAFT环向场超导磁体。首钢朗泽全球首套含CO₂工业尾气制乙醇项目进入商业化运营。OpenAI仅用时9个月通过AI辅助设计完成首款自研芯片流片，同期三星HBM4内存销售额在业界率先突破10亿美元。小米YU7 GT以10分29秒483创造纽博格林北环赛道自动驾驶圈速纪录。霍尼韦尔MTJ甲醇制航煤工艺正式通过ASTM国际标准审核认证。",
+  "headlines": {
+    "零碳产业": [
+      "中科院制备出14.5特斯拉CRAFT环向场超导磁体",
+      "首钢朗泽全球首套含CO₂工业尾气制乙醇项目商业化运营",
+      "霍尼韦尔MTJ甲醇制航煤工艺通过ASTM国际标准认证",
+      "中国绿发5MW级全碳型超级电容功率舱量产获CNAS认证"
+    ],
+    "AI与智能科技": [
+      "前OpenAI高管翁荔发文反思大模型Scaling Law规模法则局限性",
+      "三星HBM4内存销售额业界率先突破10亿美元并出样HBM4E",
+      "OpenAI耗时9个月通过AI辅助设计完成首款自研芯片流片",
+      "网传OpenAI即将发布GPT-5.6模型数学推理能力显著提升"
+    ],
+    "通用技术": [
+      "小米YU7 GT创10分29秒纽博格林北环自动驾驶圈速纪录",
+      "天文学家利用ALMA阵列观测到星际彗星3I/ATLAS异常高甲醇丰度",
+      "欧洲首台TES光谱仪投入运行灵敏度较传统设备提升千倍",
+      "小米全程无人驾驶状态完成纽博格林北环赛道性能验证"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "中科院制备出重582.4吨、储能120吉焦的全球最大聚变堆超导磁体，攻克0.04纳欧低阻超导接头技术。首钢朗泽利用厌氧微生物将工业尾气转化为乙醇，实现全球首套CO₂尾气制乙醇项目商业化运营。中国绿发4500F全碳型超级电容功率舱完成CNAS认证，瞬时功率响应≤10ms。",
+      "headlines": [
+        "中科院制备出14.5特斯拉CRAFT环向场超导磁体",
+        "首钢朗泽全球首套含CO₂工业尾气制乙醇项目商业化运营",
+        "霍尼韦尔MTJ甲醇制航煤工艺通过ASTM国际标准认证",
+        "中国绿发5MW级全碳型超级电容功率舱量产获CNAS认证"
+      ],
+      "entries": [
+        {
+          "t": "我国CRAFT聚变堆最高磁场14.5特斯拉的超导磁体生产下线",
+          "d": "2026-06-27",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "中科院合肥等离子体所宣布聚变堆主机关键系统CRAFT最大的部件——环向场（TF）超导磁体完成制备并下线验收。该磁体体积为ITER TF磁体的1.3倍、储能3倍，为全球最大聚变堆超导磁体，尺寸21×12×3.3米，重582.4吨，运行电流98千安，最高磁场14.5特斯拉，储能120吉焦，攻克0.04纳欧低阻超导接头等十余项关键技术。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/JHqU5O5yKYSUoyzG6yYXfw",
+          "tp": "聚变磁体下线",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月27日，中科院合肥等离子体所在官方公众号发文称，聚变堆主机关键系统综合研究设施（CRAFT）最大的部件——环向场（TF）磁体完成最后制备工艺，成功下线并通过专业组内部测试验收。文中称，该超导磁体体积是国际热核聚变堆ITER TF磁体的1.3倍，储能为3倍，是目前世界上最大的聚变堆超导磁体；单个磁体尺寸为21米×12米×3.3米，重达582.4吨，运行电流98千安，总储能120吉焦，最高磁场14.5特斯拉；该项目采用混合绕组创新设计，攻克了内部接头电阻0.04纳欧的低阻超导接头、低温绝缘等十余项关键技术难题。",
+          "hb": 1
+        },
+        {
+          "t": "重磅！霍尼韦尔MTJ制SAF工艺正式通过ASTM审核",
+          "d": "2026-06-24",
+          "a": "氢能技术前沿",
+          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
+          "as": "霍尼韦尔MTJ（甲醇制航煤）工艺正式通过ASTM国际标准审核认证，成为可持续航空燃料（SAF）规模化生产的重要技术路径。该工艺以甲醇为原料合成航空煤油，为航空业脱碳提供可行方案，有望加速SAF商业化进程。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/HPeUUx9OYSWHY2MUjCu0zQ",
+          "tp": "MTJ制SAF工艺",
+          "aip": 1,
+          "kp": [
+            "工艺路线[SAF]: MTJ甲醇制喷气燃料",
+            "认证状态[MTJ制SAF]: 通过ASTM审核"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "重磅！霍尼韦尔MTJ制SAF工艺正式通过ASTM审核 氢能技术前沿 _**2026 PtL与e-SAF技术与市场论坛**__**将于9月16-17日在吉林白城召开，会议将探讨全球航空业脱碳趋势与e‑SAF市场和供需分析，HEFA、G+FT、醇喷合成和PtL路线竞争力，DAC和生物质电厂烟气碳捕集绿色CO2，CO2电催化还原或逆水煤气变换制绿色合成气，费托合成、电子甲醇MTJ、CO2加氢一步法制e‑SAF技术研发、工艺路线、催化剂、先进设备和示范项目，e‑SAF国际认证、出口途径与出口潜力等。**_ 近日，霍尼韦尔UOP低碳技术再获里程碑式突破。其自主研发的甲醇制喷气燃料（MTJ）工艺已正式通过美国材料与试验协会（ASTM）的严苛审核，并被成功纳入ASTM D7566航空涡轮燃料合规目录。这一权威认证不仅标志着该工艺生产的航空燃料在技术与安全性上完全满足商业航空的标准，也为全球航空业的可持续航空燃料（SAF）供应开辟了一条全新路径。 霍尼韦尔UOP eFining™正是实现这一MTJ路径的核心工艺技术。作为一种甲醇制航空燃料工艺，eFining能可靠地将甲醇大规模转化为可持续航空燃料（SAF）或电制可持续航空燃料（eSAF），且成本低于同类技术。该工艺制备的燃料相比传统航空燃料可减少高达88%的温室气体排放。eFining技术的核心优势在于其原料灵活性——甲醇既可以来自生物质气化合成的绿色甲醇，也可以采用由绿氢和捕集的二氧化碳合成的电子甲醇（eMethanol），这大大拓宽了可持续航空燃料的原料类型。 图片来源：霍尼韦尔 作为ASTM D7566目录中的新路径，MTJ工艺允许将这些不同来源的甲醇进一步加工成为可持续航空燃料，其产品在化学成分上与传统化石燃料高度重合，能够以高达50%的比例与常规航空煤油进行直接调合，供现有飞机及机场基础设施无缝使用，无需进行任何硬件改造。 随着全球对航空业减排要求的日益收紧，MTJ工艺的合规化正逢其时。到2035年，全球SAF需求预计将从2025年的每日约4万桶激增至每日40万桶。该技术凭借极强的原料适应性，能够高效对接各地不同来源的甲醇供应链，将原料生产与燃料转换分离，支持模块化、可扩展的工厂设计，从而显著提升可持续航空燃料的产业化规模与区域供应灵活性。 此外，商业势头已在形成：Verso Energy宣布在欧洲和美国七个SAF生产地点部署eFining技术；吉林康乃尔在中国利用现有甲醇制烯烃装置打造全球最大的单址MTJ设施，年产SAF达28万吨；Power2X则在鹿特丹港建设年产能25万吨的低碳喷气燃料项目。 霍尼韦尔此次成功将MTJ工艺推入ASTM D7566目录，不仅再次巩固了其在航空碳减排技术领域的创新领先地位，更为全球航空公司及燃料供应商跨越绿色转型关键期提供了强有力的商业化技术支撑，推动SAF生态系统变得更加灵活、可扩展并具备长期满足需求的能力。 _**2026 PtL与e-SAF技术与市场论坛坛**__**将于9月16-17日在吉林白城召开，我们诚挚邀请行业专家作以下主题的演讲报告：**_ 1\\. 全球航空业脱碳趋势与e‑SAF市场前景 2\\. e‑SAF国际认证、出口途径与出口潜力 3\\. 航空公司、飞机制造商和航发制造商的SAF应用经验 4\\. HEFA、G+FT、醇喷合成和PtL路线的竞争力 5\\. 碱性、PEM、AEM和SOEC电解水制氢技术与设备 6\\. 大规模风电/光伏绿电制绿氢示范项目经验 7\\. 直接空气碳捕集（DAC）技术路线与成本下降趋势 8\\. 生物质锅炉富氧燃烧烟气碳捕集制绿色CO2优势分析 9\\. CO2电催化还原制合成气技术与先进电解设备 10\\. CO2和绿氢逆水煤气变换（RWGS）制合成气 11\\. 电制合成气费托（F-T）合成制e-SAF成本与竞争力分析 12\\. 绿氢和CO2制绿色甲醇工艺和催化剂 13\\. 绿色甲醇MTJ制e-SAF技术与示范项目 14\\. 绿氢和CO2直接生产e-SAF技术研发 15\\. CO2加氢一步法制烯烃进而齐聚制e-SAF工艺 16\\. 生物质气化与绿电、绿氢耦合制绿色甲醇与e-SAF _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开，会议将探讨海上风电与海上光伏投资趋势，海水淡化后制氢技术、设备和示范项目，海水直接电解制氢反应机理、电解槽材料体系与长周期稳定运行策略，海水无淡化原位直接电解制氢技术与示范，海水制氢与直接海洋碳捕集（DOC）耦合制绿色甲醇，海上浮式绿氢制绿氨装置，海上综合能源岛概念设计与实施方案等。**_ _**2026风光氢氨醇一体化论坛**__**将于7月15日在常州召开。会议将探讨绿氨和绿色甲醇下游应用与市场分析，风光氢氨醇一体化项目整体设计与工艺优化，风电和光伏发展趋势",
+          "hb": 1
+        },
+        {
+          "t": "全球首套！首钢朗泽含CO₂工业尾气制乙醇项目商业化运营",
+          "d": "2026-06-22",
+          "a": "DT洞见可持续",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "首钢朗泽实现全球首套含CO₂工业尾气制乙醇项目的商业化运营。该技术利用厌氧微生物将钢厂等工业尾气中的一氧化碳、二氧化碳转化为乙醇蛋白，不仅变废为宝降低碳排放，还打通了工业废气高值化利用的产业路径，对钢铁冶金行业的减碳增效具有重要示范意义。",
+          "sc": 9.2,
+          "i": "news",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/vCNFqn-0KY6n4csutu8omw",
+          "tp": "CO2制乙醇",
+          "aip": 1,
+          "kp": [
+            "[技术路线]: 含CO2尾气生物合成(二代负碳)",
+            "乙醇浓度[产品]: 99.9%以上",
+            "CO2消耗[每吨乙醇]: 0.5吨",
+            "规模[示范项目]: 万吨级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首套！首钢朗泽含CO₂工业尾气制乙醇项目商业化运营 点这里关注→ 点这里关注→ DT洞见可持续 **🔍**CCUS|首钢朗泽，CCUS 【DT洞见可持续】获悉，6月18日，首钢朗泽河北首朗二期项目一次性调试成功，顺利产出浓度为99.9%以上的合格无水乙醇产品，标志着全球首个利用含CO2工业尾气生物合成无水乙醇的万吨级示范项目实现全工艺流程贯通，正式进入商业化运营阶段。 十天前，首钢朗泽含CO2工业尾气生物合成无水乙醇项目—河北首朗二期项目成功完成种子罐干粉接种，正式进入试生产阶段。 相关阅读：全球首套！首钢朗泽含二氧化碳工业尾气生物合成无水乙醇项目成功接种 该项目是首钢朗泽在碳利用技术领域的又一次重大跨越，与此前以一氧化碳为原料的一代减碳技术不同，此次投用的二代负碳技术首次将工业尾气中的二氧化碳纳入生物转化路径，实现了从“减排”到“负碳”的本质跃升，产出每吨乙醇可直接消耗二氧化碳0.5吨，真正使工业排放变为“绿色原料、绿色材料”。这一突破为我国工业领域深度降碳开辟出新路径，对工业企业尾气治理和传统产业工艺流程再造具有里程碑意义。 **/DT-二氧化碳利用交流群/** 让专业的人聚在一起，CO2利用开发新能源与新材料上下游同行❤️↓ 平台声明：部分素材来自网络公开信息。分享仅为行业信息传递与交流，不代表本公众号立场和证实其真实性与否。欢迎行业投稿！如有需求，请联系我们：15356747796（微信同号）。 ↓↓↓",
+          "hb": 1
+        },
+        {
+          "t": "中国绿发5MW级全碳型超级电容功率舱实现量产及测试认证",
+          "d": "2026-06-22",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/超级电容器",
+          "as": "中国绿发研发的5MW级全碳型超级电容功率舱完成全套型式试验并获CNAS认证。4500F全碳型锂离子超级电容单体，簇级动态压差64mV，瞬时功率响应≤10ms。同等5MW/125kWh配置下体积和占地面积仅为竞品的70%和60%，海拔5000米可持续输出5MW额定功率。产品将在青海东岳独立储能项目落地，已建成全碳型锂离子电容器生产线。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/FHLBWrKFzE5KfcmVg3pyqw",
+          "tp": "超级电容器",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "全碳型超级电容器主要以碳材料（多孔碳、碳纳米管、碳纤维、石墨烯等）为电极，提供电荷存储的场所；以水系（如硫酸、氢氧化钾）或有机系（如四乙基铵四氟硼酸盐的PC/乙腈溶液）、离子液体为电解液，提供正负离子，在电场作用下于电极表面形成双电层。\n据绿发所申专利内容显示，宣传的全碳型电极材料可能为石墨烯多孔碳，同时采用离子凝胶（PVDF-HFP+EMIBF4/EMIPF6/EMITFSI）固态电解质、碳纳米管集流体；电压最高可达4V，比电容100~250F/g，能量密度50~106Wh/kg，循环1万圈容量保持率达80-98%。相关专利中的密封框+单元隔离+排气通道设计可能也有助于使其在海拔5000m低气压下稳定运行。",
+          "b": "6月22日，中国绿发在官方公众号发文称，其研发设计制造的5MW级全碳型超级电容功率舱在上海电气设备检测所有限公司完成全套型式试验，并取得具备国际互认效力的中国合格评定国家认可委员会（CNAS）认证报告。文中称，4500F全碳型锂离子超级电容单体，簇级动态压差64mV，瞬时功率响应速度≤10ms；在同等5MW功率、125kWh能量配置下，体积、土地占用面积为同等参数竞品的70%和60%；在海拔5000米工况下也可持续稳定输出5MW额定功率。该产品后续将在青海东岳独立储能项目中落地应用；其目前已建成投产全碳型锂离子电容器生产线。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "三星HBM4内存基于4nm逻辑Base Die，单堆栈36GB，带宽达3.3TB/s，销售额率先破10亿美元。OpenAI耗时9个月完成首款自研芯片流片，以降低对第三方算力硬件依赖。前OpenAI高管翁荔发文，指出模型性能随规模增长的Scaling Law在数据质量与训练效率上存在局限。",
+      "headlines": [
+        "前OpenAI高管翁荔发文反思大模型Scaling Law规模法则局限性",
+        "三星HBM4内存销售额业界率先突破10亿美元并出样HBM4E",
+        "OpenAI耗时9个月通过AI辅助设计完成首款自研芯片流片",
+        "网传OpenAI即将发布GPT-5.6模型数学推理能力显著提升"
+      ],
+      "entries": [
+        {
+          "t": "刚刚，翁荔博客上新：谨慎对待Scaling Law",
+          "d": "2026-06-26",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "前OpenAI高管翁荔在其个人博客发表最新文章，对大模型领域奉为圭臬的Scaling Law（规模法则）提出审慎反思。Scaling Law认为模型性能随算力、数据、参数规模增长可预测提升，但翁荔指出其在数据质量、训练效率、涌现能力可预测性等方面存在局限，单纯堆砌规模并非万能解。文章引发业界对后Scaling Law时代技术路线的深度讨论，涉及数据墙、算法创新与架构变革等方向，对大模型产业投资和技术演进判断具有重要参考价值。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/FIIr4ye0TJNdXg4nnRUCPw",
+          "tp": "Scaling Law",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚刚，翁荔博客上新：谨慎对待Scaling Law 机器之心 机器之心编辑部 刚刚，翁荔（Lilian Weng）的博客 Lil'Log 终于更新了！要知道，自从她联合创立了 Thinking Machines Lab 之后，她那让许多人受益良多的博客就鲜少更新了——距离她上一次更新，已经过去了 13 个月。 就在几个小时前，翁荔新作《谨慎对待 Scaling Law》上线，瞬间引爆社交网络。 博客链接：https://lilianweng.github.io/posts/2026-06-24-scaling-laws/ 翁荔表示，这篇关于 Scaling Law 的博客文章迟到了 3 年多，而这篇文章涵盖了 Scaling Law 的预测内容、计算最优分配的原理、Kaplan 等与 Chinchilla 的分歧原因，以及数据限制与拟合细节如何让外推变得困难等内容。 对此，网友们排队表示欢迎： 在分享博客的推文下方，翁荔自己评论感叹说，想必很多人会直接让 AI 来总结这篇文章，而不是真正地阅读这篇文章。 她还进一步表示，她很快还会设置一个模型来自动更新 Lil'Log。 机器之心也在 AI 的辅助下对翁荔大神这篇新作进行了整理翻译： 谨慎对待 Scaling Law Scaling law 是深度学习领域中最关键的经验发现之一。这一观察结果的形式很简单。随着我们扩大模型规模 N 、数据集规模 D 和计算量 C ，训练损失会以可预测的方式降低。这种降低趋势遵循幂律曲线，在双对数坐标图上表现为一条直线。我们可以将 Scaling law 视为一个框架。它描述了计算量、损失、模型规模与数据之间的关系。其核心在于如何将宝贵的计算资源在 N 和 D 之间进行最优分配。 这种可预测性让 Scaling law 在实践中具有极高的价值。一种常见的工作流程是，在少量小型训练任务上拟合 Scaling law，然后进行外推，以此估算更大模型所需的 token 数量和计算资源。 早期阶段：机器学习损失的可预测性 在 Scaling law 成为主流概念之前，研究人员就已经探讨过泛化误差随规模变化的可预测性。 Amari et al. (1992) 使用贝叶斯方法和退火近似推导出了四种类型的学习曲线。 1. 确定性学习算法，无噪声数据，具有唯一解：，其中 c 是某个常数。 2. 确定性学习算法，无噪声数据，具有多个等效解：。随着新数据点的加入，学习速度会加快。由于模型只需要学习参数的最优流形，无需寻找单一的解空间点。 3. 确定性学习算法，含噪数据：。数据中的噪声会增加学习难度。 4. 随机学习算法，含噪数据：。这里的不可约损失 E 是指随机学习器无法进一步降低的残差错误，例如当模型在大型数据上容量耗尽时。 这四种类型的学习曲线都遵循幂律： 其中 E 可以为 0 ，并且 α=-2,-1,-1/2。虽然他们的理论设定基于简化的二分类任务，但这也为构建经验性的机器学习损失预测模型指明了有用的方向。 早期的一项实证研究（Hestness et al. (2017)）解释了泛化误差、模型规模和数据之间的关系。对于给定的训练数据规模，他们通过网格搜索确定最佳拟合的模型规模，然后绘制损失与训练数据集规模的关系图。在深度学习的四个不同领域（神经机器翻译、图像分类、语言建模和语音识别）中，研究人员观察到了一个反复出现的模式： * 泛化误差作为一组因素（如数据规模）的幂律函数进行缩放。 * 模型的改进会改变误差曲线的位置，但似乎并未改变幂律指数。 * 有趣的是，架构的变化会改变幂律拟合的截距 (E)，但对指数 (α) 基本没有影响。幂律的斜率似乎是问题领域的属性，与模型架构关系不大。 * 拟合规模为 D 的数据集所需的大致模型参数 N 的数量同样遵循幂律缩放。 图1: Deep-Speech-2 (DS2) 与注意力语音模型的学习曲线（左图），以及各种规模的 DS2 模型的学习曲线（右图）。当训练数据量变得很大时，小模型的损失会趋于平缓。（图片来源：Hestness et al. 2017） 幂律学习曲线各阶段的概念图解分为三个阶段。在小数据区域，当没有足够的学习信号时，模型的表现仅略好于随机猜测。在中间的「幂律区域」，我们观察到了损失、数据与模型规模之间的幂律关系。最后的不可约误差区域可归因于数据中的噪声等因素。 图2: 幂律学习曲线各阶段的概念图解。（图片来源：Hestness et al. 2017） Rosenfeld et al. (2020) 进一步推进了这项工作。他们试图将误差建模为模型规模 N 和数据规模 D 的联合函数。这项研究跨越了多种不同的架构（ResNet、WRN、LSTM、Transformer）和优化器（Adam、SGD 变体）。在经验上",
+          "hb": 1
+        },
+        {
+          "t": "GPT-5.6大量实测流出：本周四或登场",
+          "d": "2026-06-23",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "据多方泄露信息，OpenAI即将发布的GPT-5.6模型已出现大量实测数据流出。从泄露的测试结果看，GPT-5.6在多步推理、代码生成和长文本理解方面均有显著提升，预计本周四正式发布。当前测试数据显示其在数学推理和复杂工具调用场景中表现突出，但真实性尚未得到官方确认。",
+          "sc": 10.2,
+          "i": "news",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/DCD9NhyunrnuodNbyBa3Pw",
+          "tp": "GPT-5.6大模型",
+          "aip": 1,
+          "kp": [
+            "[大模型]: GPT-5.6 Pro(kindle-alpha)实测泄露",
+            "[双向对话]: GPT-Bidi-1真人级双向对谈"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "GPT-5.6大量实测流出：本周四或登场 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**OpenAI重大更新曝光：GPT-5.6即将上线，已有大量实测流出，不仅能凭空创作名画，GPT-Bidi-1还能解锁「真·真人级」双向对谈。本周四，一起见证OpenAI的绝地反击。 就在这几天，OpenAI代号为 kindle-alpha 的模型大规模泄露了！ X上的顶流爆料者透露，目前已经对 GPT-5.6 Pro 进行了海量高强度的深度测试。 测试结果只有四个字：堪称神级。 只要你给出的提示词对了，这个模型几乎无所不能。 甚至，它还同步带出了自GPT-4o时代就让全网望眼欲穿的神秘项目——GPT-Bidi-1。 传说中本周四就要登场的 GPT-5.6 Pro ，背后到底有什么黑科技？ **震撼实测：凭空「捏」出蒙娜丽莎？视觉与UI的降维打击** 在@chetasluaX等用户传出的测试demo中，最惊艳的，莫过于GPT-5.6 Pro在图像与视觉理解上的强大统治力。 根据爆料，在实测对比中，GPT-5.6 Pro展现出了两种惊人能力。 首先，是完美像素级复刻。 在给出参考图的情况下，它能基于参考图瞬间生成极其精准的《蒙娜丽莎》复制品，甚至连原图被打码、覆盖网格线的部分，都能被它无缝脑补还原。 最惊人的，是第二张测试图。 在完全切断外部参考图片输入的情况下，模型仅仅依靠自身庞大的知识储备，直接「凭空」画出了一幅高质量的《蒙娜丽莎》。 有网友惊呼：天哪，有了这个谁还需要Fable模型？ 这不仅仅是简单的画图。 根据最新的前端开发者内测反馈，kindle-alpha 版本的升级重点在于前端/UI生成以及复杂视觉推理。 它不需要你输入几百字的复杂Prompt，也不需要外挂各种复杂的技能插件，就能直接理解复杂的图像，并一键生成可用的极强UI界面。 并且，GPT 5.6 专业版在前端开发上非常出色，几乎可以模仿图像中的所有元素。 此前的鹈鹕骑自行车，效果也很惊艳。 **** **千呼万唤始出来：GPT-Bidi-1，终结「对讲机式」AI** 在全网都在为GPT-5.6的画技惊呼时，懂行的硬核开发者们却盯住了另一个同步曝光的名字——GPT-Bidi-1。 自打GPT-4o发布以来，用户就一直在抱怨：现在的语音AI虽然声音好听，但交流起来依然像在用「对讲机」——你必须说完、停下、等待，然后AI才能回答。 而GPT-Bidi彻底打破了这堵墙！根据海外最新挖出的代码痕迹。 它的知识库实现了大更新。它的知识库截止时间被锁定在 2025年8月，极大概率是基于GPT-5.4底座打造的轻量化/特化模型。 而且，它能做到同频共振的「真」人机对话，实现边听边说！ 如果在它说话时你突然插嘴，它不会像以前那样死机或卡顿，而是能瞬间吸收你的打断，并自然地在半句话中调整回应逻辑。 你可以一边让它帮你查资料，一边随时用语音纠正它的方向，它就像一个坐在你对面的真人助理，随时随地与你同频互动。 **** **揭秘 Kindle-Alpha：为什么是本周四？** 为什么全网都笃定本周会放出大招？ 因为在OpenAI的 Codex 后端路由日志中，kindle-alpha 已经明晃晃地挂在了「候选发布」的名单上。 据多方可靠信源和AI社区的深度评测，GPT-5.6 此次的战略重心并非仅仅是陪你聊天，而是真正指向了Agentic工作流。 传闻中150万的超大上下文窗口，比此前的GPT-5.5提升了整整43%！这意味着你可以直接把几十万字的代码库或者几百页的财报扔给它。 另外，它实现了效率与成本的极致压缩。在执行典型任务时，其Token使用效率在原有基础上再次下降10%-15%。 而且，它在连续数小时的自主代理测试中，表现出了前所未有的可靠性。 显然，这是OpenAI向着自动化数字员工迈出的决定性一步。 **OpenAI背水一战，再不发布就晚了？** 热闹的爆料背后，其实藏着OpenAI难以言说的焦虑。结合最近的背景，你会发现，GPT-5.6的紧急排期发布，是一场真正的背水一战。 根据2026年6月的最新市场调研数据披露：ChatGPT的市场份额首次跌破了50%，目前卡在46.4%的生死线上。 面对竞争对手的疯狂围剿，OpenAI在过去一年烧掉了惊人的 340亿美元（其中研发投入高达190亿，营销烧掉60亿），而其年营收预估仅为130亿美元。 在冲刺万亿美元级别IPO的关键节点，OpenAI太需要一针强心剂了。GPT-5.6（Kindle-Alpha）的惊艳表现和双向语音大杀器GPT-Bidi-1的登场，正是Sam Altman用来稳住投资人、夺回市场霸权的底牌。 本周四，如果传言成真，我们将见证大模型能力的一次全新跃迁。 从凭空",
+          "hb": 1
+        },
+        {
+          "t": "三星电子 最新HBM4 内存销售额已在业界率先突破 10 亿美元",
+          "d": "2026-06-23",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "三星电子HBM4内存销售额在业界率先突破10亿美元（约67.87亿元人民币）。该产品2026年2月量产，基于1cnm DRAM Die和4nm逻辑Base Die，12Hi堆叠，单堆栈36GB，引脚速率13Gbps，总带宽3.3TB/s。此外三星已率先出样12Hi 48GB HBM4E，引脚速率提升至14-16Gbps，带宽达3.6TB/s。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/967/278.htm",
+          "tp": "高带宽内存",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "HBM是目前主流的搭配AI芯片的内存类型。其本质是DRAM，经过多层堆叠封装，实现了很高的存储密度以及读写速度。在大模型执行推理任务时，下文是由上文决定的，因此整个过程中需要消耗数百GB级别的内存，内存读写时间可以占到50%以上。目前高带宽内存已经成为英伟达AI芯片的技术路线。为了提升读写速度以及存储密度，三星开发了独特的DRAM堆叠的高带宽内存HBM以及内存与GPU芯片的连接技术，称作混合键合。目前HBM4已经量产，同时仍在推出新的系列。该技术路线的理念是通过先进封装，进一步提升芯片整体的计算速度与算力密度。AI推理任务是内存密集型的。在1M的上下文长度下，缓存占用可以到数百GB，内存读写占全部推理时间的50%以上。目前HBM显存带宽已经达到3TB/s以上，远超消费级显卡的500GB/s。目前HBM技术主要有三星主导，难点在于多层存储芯片的堆叠技术。",
+          "b": "IT之家 6 月 23 日消息，韩联社当地时间今日援引韩国芯片行业消息报道称，三星电子 HBM4 内存销售额已在业界率先突破 10 亿美元（IT之家注：现汇率约合 67.87 亿元人民币）大关。该产品此前于 2026 年 2 月 12 日正式量产。三星半导体的 HBM4 内存基于 1cnm DRAM Die 和 4nm 逻辑 Base Die，采用 12Hi 堆叠，单堆栈容量 36GB。其引脚速率可达 13Gbps，堆栈总带宽达 3.3TB/s。而在 HBM4 后，三星电子上月还率先出样了 12Hi 48GBHBM4E 内存，引脚速率进一步提升至 14~16Gbps，堆栈总带宽随之来到 3.6TB/s。",
+          "hb": 1
+        },
+        {
+          "t": "OpenAI首款芯片问世：用AI设计，9个月流片",
+          "d": "2026-06-25",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "OpenAI正式推出其首款自研芯片，据报道该芯片由AI辅助设计，从启动到完成流片仅用时约9个月，大幅短于传统芯片开发周期。此举标志着OpenAI在硬件层面的垂直整合布局，旨在降低对第三方AI加速芯片的依赖，优化大模型推理和训练的算力成本与能效。AI辅助设计工具显著加速了芯片架构探索和验证迭代，体现了人工智能在EDA（电子设计自动化）领域的应用潜力。该芯片的问世可能对AI算力供应链格局产生深远影响。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/uoElUKGxWe3O-T6j6iKQkA",
+          "tp": "AI推理芯片",
+          "aip": 1,
+          "kp": [
+            "[芯片]: OpenAI首款芯片",
+            "[设计方式]: AI参与设计",
+            "流片周期[OpenAI芯片]: 9个月"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "OpenAI首款芯片问世：用AI设计，9个月流片 机器之心 编辑 | 泽南 本周三，OpenAI 与博通合作，推出了自己的首款芯片：Jalapeño。 OpenAI CEO 山姆・奥特曼（Sam Altman）与博通 CEO 陈福阳（Tan Hock Eeng）共同展示新芯片的晶圆。 这些芯片将由博通（Broadcom）制造，用于 OpenAI 的人工智能推理负载，其中包括在 ChatGPT、Codex 等应用中驱动 AI 模型。 OpenAI 总裁 Greg Brockman 强调，Jalapeño 创下了极快的九个月流片记录，这很大程度上归功于 OpenAI 内部 AI 模型在整个设计流程中的深度参与。这种用 AI 加速底层硬件研发的速度让 OpenAI 内部团队也感到惊讶。 Jalapeño（意为墨西哥胡椒）是一个专为现代 LLM 推理，从零开始设计的全新方案，并非基于早期 AI 工作负载改造的通用加速器。它参考了 OpenAI 日常运行的系统，加速的任务包括 ChatGPT、Codex、API 以及未来的智能体产品，同时也面向当前及未来业界的 LLM 应用。OpenAI 的目标是将当今领先的 AI 加速器的性能和吞吐量与接近最快专用推理系统的延迟相结合，从而使 Jalapeño 适合大规模交互式 LLM 产品。 该芯片的性能仍未公布，但 OpenAI 称，早期测试表明，Jalapeño 的每瓦性能将显著优于目前最先进的技术。该公司预计将在未来几个月内发布一份详细的性能技术报告。 在 Jalapeño 上，新架构减少了数据传输，并平衡了计算、内存和网络资源，从而使实际利用率更接近理论峰值性能。博通的芯片实现和网络技术，包括 Tomahawk 网络芯片，助力了该平台实现大规模量产，天弘（Celestica）则负责系统集成、主板和机架。 如今 AI 的算力需求越来越大，各家公司对于芯片的需求也日益迫切，Brockman 表示 OpenAI「无法获得足够快的算力」，博通首席执行官陈福阳也支持这一观点，称该公司六家客户的计算需求「简直是永无止境」。 陈福阳表示，「这远远超出了我们能解决的范围……而且这不仅仅是 2026 年或 2027 年的问题，我们在 2028 年也看到了同样甚至更高的需求。」 Jalapeño 是 OpenAI 构建其模型和产品背后「完整技术栈」计划中的重要一步。OpenAI 表示，通过自行设计更多技术栈，其可以更高效地提供更多智能，并不断推动先进 AI 走向更广泛的应用。 自 OpenAI 在 2022 年开启生成式 AI 热潮以来，该公司一直是英伟达 GPU 的最大买家之一。日益昂贵的图形处理器是构建 AI 模型和运行大型工作负载的关键基础设施。但 OpenAI 的需求呈爆炸式增长，因此需要其他专用型芯片提供动力。 今年早些时候，OpenAI 与亚马逊达成了一项协议。其中包括使用其 Trainium 人工智能芯片的网络服务。OpenAI 也与英伟达的竞争对手 AMD 签署了协议，还与 AI 芯片制造商 Cerebras 展开了合作。 经过 18 个月的合作，OpenAI 和博通公开宣布计划将在今年晚些时候开始开发和部署 OpenAI 设计的芯片机架，最终目标是造出总计达到 10 吉瓦能耗规模的算力集群。 Jalapeño 是一款专用集成电路（ASIC），其灵活性不如英伟达的 GPU，但价格也更低，并且可以针对特定的 AI 任务进行定制化设计。 OpenAI 将这款芯片称为「智能处理器」，并将其描述为他们正在构建的平台中的第一个人工智能加速器，旨在使先进的 AI 更快、更可靠，并让更多人更容易获得。 OpenAI 与博通表示，他们的目标是在 2026 年底前初步部署 Jalapeño 芯片，并在未来几年内扩大部署规模。 参考内容： https://openai.com/index/openai-broadcom-jalapeno-inference-chip/ https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html © THE END 转载请联系本公众号获得授权 投稿或寻求报道：liyazhou@jiqizhixin.com",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "小米YU7 GT在纽博格林北环赛道以10分29秒483创造自动驾驶圈速纪录，全程采用无人驾驶状态。欧洲首台TES超导转变边沿传感器光谱仪投入运行，其灵敏度较传统设备提升最高1000倍。天文学家利用ALMA阵列观测确认星际彗星3I/ATLAS含有异常高丰度的有机甲醇分子。",
+      "headlines": [
+        "小米YU7 GT创10分29秒纽博格林北环自动驾驶圈速纪录",
+        "天文学家利用ALMA阵列观测到星际彗星3I/ATLAS异常高甲醇丰度",
+        "欧洲首台TES光谱仪投入运行灵敏度较传统设备提升千倍",
+        "小米全程无人驾驶状态完成纽博格林北环赛道性能验证"
+      ],
+      "entries": [
+        {
+          "t": "开辟新赛道：小米 YU7 GT 创全球首个纽北自动驾驶圈速纪录，官方圈速榜新增“自动驾驶”分类",
+          "d": "2026-06-23",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "小米YU7 GT以10分29秒483创造全球首个纽博格林北环赛道自动驾驶圈速纪录。纽北官方圈速榜首次设立\"自动驾驶\"分类，标志着自动驾驶技术进入高性能量产验证新阶段。小米借此开辟智能驾驶新赛道，验证了其端到端智驾系统的极限能力。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/967/234.htm",
+          "tp": "自动驾驶圈速",
+          "aip": 1,
+          "kp": [
+            "圈速纪录[纽北自动驾驶无人圈]: 10分29秒483"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Autumn_Dream\n6 月 22 日消息，小米汽车今日官宣，\n小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录\n，时间为 10 分 29 秒 483。\n小米创办人、董事长兼 CEO 雷军今日分享了小米 YU7 GT 使用自动驾驶功能征战纽北赛道后发生的一处细微变化 ——\n纽北官方圈速榜新增“自动驾驶”分类\n据IT之家今日早些时候报道，央视新闻今日发文谈及了小米此次取得的成绩，称从追赶到领跑，从跟跑到开创，这是中国新能源汽车蓬勃向上的缩影。\n今天，小米公布，纽博格林北环赛道迎来历史性时刻 —— 小米 YU7 GT（选配赛道专业套装）搭载自主研发的自动驾驶系统，在全程无人状态下完成纽北官方计时圈，\n成绩 10 分 29 秒 483\n全球首家，全程无人，全程自主。纽博格林北环赛道 20.832 公里，73 个弯道，中国工程师用一行行代码，把问号变成感叹号，\n也赋予了纽北百年赛道新的意义\n。从追赶到领跑，从跟跑到开创，\n这是中国新能源汽车蓬勃向上的缩影\n小米汽车官方今日也发文解释了为何用自动驾驶挑战纽北\n：在极限赛道上锤炼出的动态模型、高频扭矩分配和毫秒级救车能力，最终都会在我们的产品迭代中，逐步下发到每一个普通用户的量产车上。\n小米汽车的终极目标，是让用户在日常用车中，万一遇到暴雨积水、冰雪路面打滑等极端工况时，车子的底盘和智驾系统能像一位常驻的“幽灵专业赛车手”一样，做出正确决策，把车辆重新拉回可控范围之内。",
+          "hb": 1
+        },
+        {
+          "t": "小米YU7 GT再创纽博格林纪录——无人驾驶",
+          "d": "2026-06-23",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "小米YU7 GT在纽博格林北环赛道刷新圈速记录，此次亮点在于全程无人驾驶状态下完成。这标志着小米自动驾驶系统在高速度、高精度场景下的感知与控制能力达到新水平。无人驾驶赛道圈速记录对自动驾驶算法的极限性能验证具有重要参考价值，也展示了小米在智能驾驶和电动汽车底盘技术方面的工程实力。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/06/22/xiaomi-yu7-gt-sets-another-nurburgring-record-with-nobody-in-the-drivers-seat/",
+          "tp": "自动驾驶赛道",
+          "aip": 1,
+          "kp": [
+            "[自动驾驶]: 纽北首个无人自动驾驶圈速纪录"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jun 22 2026 - 3:01 am PT\nXiaomi returned to the Nürburgring to set another lap record, but this time it did it with nobody in the car at all, setting down the first official autonomous time at the world-famous racetrack.\nNürburgring is one of the world’s most famous racetracks, and one of the most difficult ones. The track is over 12 miles long through the German countryside and includes high and low speed turns, varied road surfaces and lots of bumps and hills. As such, it’s often used for vehicle benchmarking – and for bragging rights.\nOver the years we’ve seen a lot of back and forth from various EV manufacturers trying to go the quickest around this track.\nand others have gotten in on the record race.\nBut Xiaomi has been one of the strongest competitors lately.\nWhen Xiaomi first launched the high-performance version of its SU7 Ultra sport sedan, it took the car around Nürburgring and\nset a record\nas the fastest four-door car ever, gas or electric – albeit with a stripped-down prototype version of the car (it’s since\nimproved on that record\n, beating everything but 3 custom-built racecars). It later came back with the mass-produced, non-stripped version and won a\nproduction EV record\ninstead, which has\nsince been beaten\nThen it brought its YU7 GT and set the\noverall SUV record\n, beating everything, gas or electric, with\na time of 7:22.755\nBut it looks like Xiaomi wasn’t satisfied and wanted to go back for another bite of the apple, as it just announced another record in the YU7 GT: the\nfirst officially-timed fastest autonomous lap of the track\n, with a time of 10:29.483, set on June 8th.\nNow, if you’ll notice, that’s\nfar off of the human-driven record. A full three minutes behind is a huge gap, even on such a long track. Races can be decided by seconds, and a 10-and-a-half minute time would be representative of a much slower vehicle (for example, a Mercedes racecar from 1939 and a Ford Transit van have\nboth beaten that time\nBut… it’s still something, and you’ve got to start somewhere. (Xiaomi acknowledged this, calling the lap a starting point, not an end point)\nNürburgring and Xiaomi released video of the lap, which you can watch in full below, complete with in-car camera showing nobody at the wheel:\nAs you can see in the video, it’s going along at a nice enough pace… but it’s not really challenging the tires or apexes all that much. It does get up to 130mph (210km/h) on the back straight though, which isn’t too bad.\nWe don’t know exactly what autonomous system the YU7 GT was using, as its normal system is built for public roads, but isn’t intended to get up to 130mph or take turns like it did in the video above. So there must have been some custom software built in.\nWhile this is the first official autonomous lap of Nürburgring, it’s not the first attempt at autonomous racing. Ten whole years ago, Formula E announced a support series called “\n” which intended to have teams compete against one another with autonomous racecars.\nRoborace mostly ended up being a number of showcase events, rather than real races. The first event\nended up in a crash\n, and later the series hosted a couple\nman vs. machine matchups\n, in which the Robo-car was quite a bit slower than the human-driven one, but at one point Roborace said it managed to lap within 8% of a representative laptime from a human driver, quite a bit closer than the YU7 GT’s comparable time.\nRoborace did finally manage to organize\na full race season\n, though it was a series of time trials, rather than wheel-to-wheel racing (and yet, still fraught with issues).\nOther autonomous racing series exist and mostly consist of student teams, like the\nIndy Autonomous Challenge\nand Formula Student Driverless. They tend to focus less on raw laptime and more on challenges like successfully passing a vehicle traveling at constant speed.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
+          "hb": 1
+        },
+        {
+          "t": "星际访客 3I/ATLAS 正爆发出一种意想不到的化学物质",
+          "d": "2026-06-25",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "天文学家利用阿塔卡马大型毫米/亚毫米波阵列（ALMA）观测星际彗星3I/ATLAS，发现其含有异常丰富的甲醇——这是已知彗星中极为罕见的丰度水平。作为第三个被确认的星际天体，3I/ATLAS为采样其他恒星系统物质提供了珍贵窗口。异常的甲醇含量暗示其可能形成于富含有机分子的原始星周盘中，对理解行星系统形成的化学环境具有重要意义。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/interstellar-visitor-3i-atlas-is-bursting-with-an-unexpected-chemical/",
+          "tp": "星际彗星学",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Astronomers have found that interstellar comet 3I/ATLAS contains an unusually large amount of methanol.\nEvery interstellar object that passes through our solar system offers a rare chance to sample material forged around another star.\nNow, new observations of comet 3I/ATLAS using the Atacama Large Millimeter/submillimeter Array (\n) have revealed a chemical surprise: the comet is extraordinarily rich in methanol, an organic molecule found in comets but rarely in such abundance. The discovery could provide fresh clues about the conditions in a distant planetary system unlike our own.\n“Observing 3I/ATLAS is like taking a fingerprint from another solar system,” shares Nathan Roth, lead author on this research and a professor with American University, “The details reveal what it’s made of, and it’s bursting with methanol in a way we just don’t usually see in comets in our own solar system.”\nThe team used ALMA’s Atacama Compact Array in Chile to observe 3I/ATLAS on several dates in late 2025 as the comet moved closer to the Sun. Solar heating caused its icy surface to release gas and dust, producing a bright halo (or coma) around the nucleus.\nThe observations centered on faint submillimeter signals from two molecules: methanol (CH₃OH), a type of alcohol, and hydrogen cyanide (HCN), a nitrogen-bearing organic molecule often detected in comets. ALMA showed that 3I/ATLAS contains far more methanol relative to hydrogen cyanide than is normally seen in comets that formed in our solar system. Across two observing dates, the team found ratios of methanol to HCN of about 70 and 120, ranking 3I/ATLAS among the most methanol-rich comets ever studied in the solar system.\nThose results suggest that the icy material in 3I/ATLAS either formed under, or later experienced, conditions very different from those that shaped most comets near our Sun. Earlier observations with the\nJames Webb Space Telescope\nfound that 3I/ATLAS had a coma dominated by carbon dioxide when it was farther from the Sun. The new ALMA measurements add another unusual feature to its chemical profile: an abundance of methanol.\nALMA’s high-resolution imaging also showed that methanol and hydrogen cyanide do not leave the comet in the same way. Hydrogen cyanide appears to originate mainly from the comet’s nucleus, which is typical of comets in our solar system. Methanol, however, seems to come from both the nucleus and icy particles within the coma. These tiny ice grains behave like mini comets.\nAs 3I/ATLAS gets closer to the Sun and ice changes into gas, the grains release methanol as well. Similar activity has been seen in some comets from our own solar system, but this is the first time such detailed outgassing physics has been traced in an interstellar object.\nComet 3I/ATLAS is only the third confirmed object known to have entered our solar system from interstellar space, following 1I/‘Oumuamua and 2I/Borisov. Those earlier visitors also showed unusual traits. As astronomers find and study more objects from beyond our solar system, they are gaining a clearer and more complex picture of how planets and smaller icy bodies form around other stars.\nReference: “CH3OH and HCN in Interstellar Comet 3I/ATLAS Mapped with the ALMA Atacama Compact Array: Distinct Outgassing Behaviors and a Remarkably High CH3OH/HCN Production Rate Ratio” by Nathan X. Roth, Martin A. Cordiner, Dominique Bockelée-Morvan, Nicolas Biver, Jacques Crovisier, Stefanie N. Milam, Emmanuel Lellouch, Pablo Santos-Sanz, Dariusz C. Lis, Chunhua Qi, K. D. Foster, Jérémie Boissier, Kenji Furuya, Raphael Moreno, Steven B. Charnley, Anthony J. Remijan, Yi-Jehng Kuan and Lillian X. Hart, 6 March 2026,\nAstrophysical Journal Letters\nDOI: 10.3847/2041-8213/ae433b\nThis work was supported by the Planetary Science Division Internal Scientist Funding Program through the Fundamental Laboratory Research (FLaRe) work package (N.X.R., S.N.M., M.A.C., S.B.C.), as well as the\nAstrobiology Institute through the Goddard Center for Astrobiology (proposal 13-13NAI7-0032; S.N.M., M.A.C., S.B.C.).\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrochemistry\nNational Radio Astronomy Observatory\nPlanet Formation\nSolar System\nNew “Space Snowman” Discovery Shakes Up Solar System Theories\n“Things We’ve Never Seen Before” – New Findings Unveil True Nature of Wild 2 Comet\nAstonishing Discovery Reveals Water in Our Solar System May Have Originated Billions of Years Before the Sun\nUnusual Secrets Revealed in Analysis of Mysterious Visitor From the Depths of Space\nA Star Disturbed Solar System Comets and Asteroids 70,000 Years Ago\nALMA Discovers Surprisingly Complex Organic Molecules in Nearby Galaxy\nALMA Reveals Birth of Planets in Astonishing Detail\nPebble-Size Particles May Represent a New Class of Interstellar Particles\nResearchers Present New Model for Planetary Accretion",
+          "hb": 1
+        },
+        {
+          "t": "欧洲首台TES谱仪使此前不可能的X射线实验成为可能",
+          "d": "2026-06-28",
+          "a": "scitechdaily",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "欧洲首台TES(超导转变边沿传感器)光谱仪投入运行，灵敏度较传统设备提升最高1000倍，使此前无法实现的X射线实验成为可能。该仪器在材料科学、量子计算等前沿领域的精密能谱测量中具有突破性意义。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/europes-first-tes-spectrometer-makes-previously-impossible-x-ray-experiments-possible/",
+          "tp": "X射线TES谱仪",
+          "aip": 1,
+          "kp": [
+            "[器件]: TES跃迁边缘传感光谱仪",
+            "[灵敏度]: 1000倍提升",
+            "[地点]: BESSY II同步辐射"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Europe’s first TES spectrometer is transforming X-ray research with up to 1,000 times greater sensitivity, making once impossible experiments finally possible.\nEurope’s first and only TES spectrometer at a synchrotron light source is now operating at BESSY II, marking a major advance for X-ray research. Developed through a collaboration between HZB, the MPI-CEC (Mühlheim-an-der-Ruhr, Germany), and NIST (Boulder CO, USA), the new instrument can detect X-ray photons with an efficiency that is 100 to 1,000 times greater than conventional wavelength dispersive X-ray emission spectrometers.\nIts exceptional sensitivity will allow researchers to investigate the electronic properties of atomically thin materials, nanostructures, and extremely dilute atomic and molecular samples. The team is now inviting scientists to submit research proposals that take advantage of the new capability.\nSynchrotron facilities such as BESSY II generate exceptionally bright X-ray beams that scientists use to study the structure and properties of many different materials. Some of the most powerful techniques, including X-ray emission spectroscopy (XES) and Resonant Inelastic X-ray Scattering (RIXS), analyze the X-ray photons emitted by a sample after it is exposed to the beam.\nThese methods provide valuable information about a material’s electronic structure, but they require large numbers of emitted photons to produce meaningful data. As a result, XES and RIXS have traditionally been limited to bulk materials and samples with relatively high concentrations.\n“The superconducting Transition Edge Sensor (TES) array\ndetector that we have now put into operation at BESSY II is around 100 to 1000 times more efficient to detect photons than conventional XES and RIXS spectrometers,” says Régis Decker, HZB, responsible scientist of the new instrument.\nThat dramatic improvement makes it possible to examine samples that were previously too small or too dilute for these techniques.\nAccording to Decker, the new spectrometer will enable studies across a wide range of scientific fields.\n“This can provide new insights into molecular chemistry or molecular biology, but also into the quantum properties of systems in reduced dimensions such as atomic monolayers, nanostructures, and impurities. The TES spectrometer complements methods such as ARPES, which scans the electronic band structures of such systems,” says Régis Decker.\nThe increased sensitivity also speeds up many experiments. Measurements that once required hours can now, in some cases, be completed within minutes.\nThe instrument contains an array of 248 superconducting sensors that operate at an extremely low temperature of just 25 milli-Kelvin. Those conditions are achieved using a He4-He3 dilution refrigerator, a cooling technology similar to the systems used in quantum computers.\nWhen X-rays strike a sample, the material emits photons of its own. Each emitted photon is captured by one of the superconducting sensors, briefly raising its temperature enough to disrupt its superconducting state. That tiny change increases the sensor’s electrical resistance, which is measured using a circuit based on Superconducting Quantum Interference Devices (SQUIDs). This process allows the energy of each photon to be measured with remarkable precision.\nThe spectrometer is connected to a custom ultra-high vacuum sample chamber that allows researchers to transfer, prepare, and analyze samples while precisely controlling temperatures from 10 K to room temperature.\nThe complete system is installed at the BESSY II UE52-SGM beamline, which provides full polarisation control. Future enhancements will expand sample preparation capabilities and enable experiments in magnetic fields for X-ray Magnetic Circular Dichroism in absorption (XMCD) and emission (RIXS-MCD).\nTES spectrometers were originally created for astrophysics, where they were designed to detect extremely weak photon signals from distant objects.\nBefore the installation at BESSY II, only five TES spectrometers were operating at X-ray facilities worldwide, with four located in the United States and one in Japan. BESSY II now hosts the only synchrotron TES spectrometer in Europe.\n“We are looking forward to receiving exciting research proposals from our user community,” says Decker.\nReference: “A superconducting transition edge sensor array for synchrotron soft x-ray emission spectroscopies of low-dimensional and impurity-level concentration systems” by Régis Decker, Kelsey M. Morgan, Sergey Peredkov, Charles J. Titus, Galen C. O’Neil, Alexander Dillmann, Dmitry Tikhonov, Utkarsh Prakash, Axel Knop-Gericke, Joseph W. Fowler, Jonathan W. Dean, Nathan Nakamura, Raoul Blume, Detre Techner, Minmin Chen, Zechao Jin, Christian Weniger, Thomas Blume, Torsten Kachel, Nathan J. Ortiz, Douglas A. Bennett, John A. B. Mates, Daniel R. Schmidt, Jozsef Imrek, Joel C. Weber, Johnathon D. Gard, Leila Vale, Abigail L. Wessels, Bastian Klemke, Sebastian Gerischer, Mattis Fondell, Sebastian Eckert, Joel N. Ullom, Daniel S. Swetz, Serena DeBeer and Alexander Föhlisch, 10 June 2026,\nReview of Scientific Instruments\nDOI: 10.1063/5.0332443\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nHelmholtz-Zentrum Berlin\nSpectrometer\nSpectroscopy\nMass Spectrometry Breakthrough Detects Billions of Molecules at Once\nScientists Shrink a Lab Spectrometer to the Size of a Grain of Sand\nThis Tiny Device Could Turn Your Phone Into a Lab-Grade Spectrometer\nRevolutionizing OLEDs: New Spectroscopy Technique Extends Device Lifespan\nTiny Diamonds, Big Spark: A Laser-Free Leap in Quantum Spin Detection\nHarvard Builds Laser the Size of a Chip, Bright Enough to Map Invisible Worlds\nNew Silicon Discovery Could Supercharge Quantum Computers\nDetect Dangerous Gases in Seconds With New Technology\nBeyond Graphene: A New World of 2D Materials Is Opening Up",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

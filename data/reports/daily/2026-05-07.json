@@ -1,0 +1,245 @@
+{
+  "type": "daily",
+  "date_label": "2026年5月7日　星期四",
+  "date_range": "2026-05-07",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "复杂掺杂策略提升高压尖晶石正极材料快充能力与结构稳定性",
+      "溶液化学方法实现降解钙钛矿光伏材料晶体组分重建与回收再利用",
+      "中性锌锰电池激活Mn2+/Mn7+氧化还原对实现2.2V高放电平台"
+    ],
+    "AI与智能科技": [
+      "MIT团队建立广义耦合模理论以抑制硅基光相控阵天线串扰干扰",
+      "科研人员利用纳米结构与量子隧穿实现电子量子态远程无损传输",
+      "中科酷原发布200量子比特双核中性原子量子计算机汉原2号"
+    ],
+    "通用技术": [
+      "清华大学水热法制备含14种金属元素的高熵亚纳米线海水制氢催化剂",
+      "多层电容器结构优化铁电材料极化熵变实现室温电卡效应制冷",
+      "科罗拉多州立大学研发β-异亚丙基聚3-羟基烷酸酯近定量化学回收循环聚合物"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "复杂掺杂策略提升高压尖晶石正极材料快充能力与结构稳定性",
+        "溶液化学方法实现降解钙钛矿光伏材料晶体组分重建与回收再利用",
+        "中性锌锰电池激活Mn2+/Mn7+氧化还原对实现2.2V高放电平台"
+      ],
+      "entries": [
+        {
+          "t": "组分复杂掺杂使高压尖晶石正极兼具超快充电与化学-电化学-机械稳定性",
+          "d": "2026-05-07",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "通过成分复杂掺杂策略开发高压尖晶石正极材料，实现超快充与化学-电化学-机械稳定性协同提升。下一代锂离子电池需要兼具高电压稳定性和快速充电能力的正极材料，复杂掺杂有效抑制了高压下的相变和晶格应变问题，为高能量密度快充电池提供了新方案。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c00611",
+          "tp": "高电压尖晶石正极",
+          "aip": 1,
+          "kp": [
+            "[材料]: 无钴尖晶石氧化物",
+            "[掺杂策略]: 组分复杂掺杂",
+            "[性能]: 超快充与化学-电-机械稳定性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Next-generation lithium-ion batteries demand high-voltage cathodes that combine exceptional stability with ultrafast charging capability. Cobalt-free spinel-type oxides, owing to their high operating voltage, energy density, and cost effectiveness, are leading candidates, yet their cycle life is still constrained by intrinsic chemo-electro-mechanical instabilities. Here, by leveraging compositionally complex doping, we reconfigure the reaction thermodynamics of a high-voltage spinel cathode by extending its solid-solution regime to higher states of charge, enabling ultrafast charging while maintaining robust chemo-electro-mechanical stability. Multimodal characterization reveals that the reshaped reaction pathway effectively suppresses high-temperature intragranular cracking, interfacial rock salt phase transformation, and parasitic byproduct accumulation, thereby preserving efficient three-dimensional Li+ diffusion. The cathode delivers unprecedented ultrafast-charging durability, achieving 81.8% after 4000 cycles at 10 C (25 °C) and 82.0% after 1000 cycles at 3 C (60 °C). Our work demonstrates that compositionally complex doping can effectively modulate the thermodynamics of phase transformation and enhance the chemo-electro-mechanical stability of high-voltage spinel cathodes, providing new insights into the design of durable fast-charging cathode materials.",
+          "hb": 1
+        },
+        {
+          "t": "组分修复实现混合阳离子混合卤化物钙钛矿太阳能电池的回收再利用",
+          "d": "2026-05-07",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "钙钛矿光伏技术正在快速产业化，有望成为硅基太阳能电池的互补方案。然而混合阳离子、混合卤素钙钛矿的组分降解与回收困难制约了其规模化部署。本研究提出组分修复策略，通过溶液化学方法重建退化钙钛矿的晶体组分与晶格完整性，实现降解材料的再生与回收利用。该方法可有效恢复光电转换效率并去除杂质缺陷，为钙钛矿光伏组件的全生命周期管理与循环经济提供了切实可行的工程路径。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73266?af=R",
+          "tp": "钙钛矿电池回收",
+          "aip": 1,
+          "kp": [
+            "[回收策略]: 混合钙钛矿组分再生"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  The rapid industrial emergence of perovskite photovoltaics (PV) highlights their potential to complement silicon PV in meeting the growing global solar demand. As deployment scales, closed‐loop recycling of perovskite PV will be beneficial to conserve critical resources and mitigate environmental risks associated with lead. However, mixed‐cation, mixed‐halide perovskites—typical in record‐efficiency devices—undergo systematic composition drift during device fabrication. Consequently, material recovered from end‐of‐life modules inherits these deviations, degrading cell performance if reused without adjustment. To overcome this fundamental bottleneck in circular manufacturing, we developed a comprehensive quantification framework to audit and restore perovskite composition. By combining nuclear magnetic resonance (NMR), inductively coupled plasma‐optical emission spectroscopy (ICP‐OES), and ion chromatography (IC), we obtained full compositional fingerprints of the hybrid perovskite recovered from processed solar‐cell stacks, allowing us to resolve their altered composition and restore the material to match the original precursor formulation. Composition restoration effectively closed the performance gap, yielding recycled perovskite cells with efficiencies comparable to pristine devices. A cost analysis demonstrates this approach can achieve a 69.1% cost reduction, while preserving supply‐constrained elements like Cs and I. These results demonstrate a practical, compositionally informed pathway for the sustainable, closed‐loop manufacturing of complex perovskite absorbers.",
+          "hb": 1
+        },
+        {
+          "t": "激活Mn²⁺/Mn⁷⁺氧化还原对：2.2V放电平台的中性Zn||Mn化合物电池",
+          "d": "2026-05-07",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "自1952年首个商业化Zn||MnO2碱性一次电池以来，锰基电池长期依赖Mn4+/Mn3+氧化还原对。本研究首次激活Mn2+/Mn7+氧化还原反应，在中性Zn||Mn化合物电池中实现了2.2V的高放电平台，显著突破传统锰基电池电压限制。该高电压中性水系电池兼具安全性与能量密度优势，为大规模储能应用提供了新体系。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea1401?af=R",
+          "tp": "中性锌锰电池",
+          "aip": 1,
+          "kp": [
+            "放电平台[Zn||Mn电池]: 2.2 V",
+            "氧化还原对[中性电解液]: Mn²⁺/Mn⁷⁺"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "In 1952, the first commercially alkaline Zn||MnO\n                    2\n                    primary battery was developed, which is based on Mn\n                    4+\n                    /Mn\n                    3+\n                    redox reactions (MnO\n                    2\n                    ↔Mn\n                    2\n                    O\n                    3\n                    ). Subsequently, the single-electron (Mn\n                    3+\n                    /Mn\n                    2+\n                    and Mn\n                    7+\n                    /Mn\n                    6+\n                    ) and two-electron (Mn\n                    4+\n                    /Mn\n                    2+\n                    ) redox reactions of Mn compound (Mn-Comp) were achieved in aqueous Zn-based batteries. After that, however, the new Mn multivalent change redox reaction was no longer observed. In this study, we report a neutral superhydrophilic hydrogel electrolyte that activates a Mn\n                    2+\n                    /Mn\n                    7+\n                    conversion reaction (Mn\n                    2+\n                    ↔MnO\n                    4\n                    −\n                    ). This advance is attributed to an expanding electrochemical stability window and high Mn\n                    2+\n                    reaction activity. This enables a discharge plateau of ≥2.2 V in aqueous Zn metal batteries. The high reversibility of Mn\n                    2+\n                    /Mn\n                    7+\n                    conversion reactions during cycling was achieved by incorporating chelation groups in the designed hydrogel electrolyte, which effectively stabilizes the MnO\n                    4\n                    −\n                    . The aqueous Zn||Mn-Comp battery with a 2.2-V discharge plateau operates stably for ≥360 hours.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "MIT团队建立广义耦合模理论以抑制硅基光相控阵天线串扰干扰",
+        "科研人员利用纳米结构与量子隧穿实现电子量子态远程无损传输",
+        "中科酷原发布200量子比特双核中性原子量子计算机汉原2号"
+      ],
+      "entries": [
+        {
+          "t": "麻省理工学院Jelena Notaros报道一种集成光学天线阵列可抑制天线间的串扰干扰",
+          "d": "2026-05-07",
+          "a": "",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "麻省理工学院Jelena Notaros团队针对硅基光学相控阵（OPA）中天线间倏逝波耦合导致串扰的问题，修正了传统耦合模理论不适用于损耗波导的缺陷，建立了含传播损耗项的广义耦合模理论，推导出双损耗模式耦合解析解。基于该理论设计不同宽度光栅天线，通过增大传播系数差异显著抑制功率耦合，为密排无串扰OPA阵列设计提供理论指导。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-026-71832-y",
+          "tp": "光学相控阵",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "硅基集成光学相控阵（OPA）具有无机械运动、紧凑化、动态光束调控的优势，可用于激光雷达、光通信、光操控、3D打印等领域。其工作原理是将相干光分束后经独立相位调制，由光栅天线阵列辐射至自由空间，通过相位调控实现光束非机械扫描。但传统OPA存为抑制倏逝波耦合，天线间距通常大于波长，导致远场出现光栅旁瓣，限制无混叠视场（FOV）并降低系统信噪比；若采用半波长间距消除光栅旁瓣，相邻天线会发生强倏逝耦合，阵元间串扰急剧恶化，导致光束质量畸变。非周期阵列可抑制旁瓣，但孔径光照不均、信噪比下降；幅相联合优化能缓解串扰，但牺牲波束效率；端面发射天线可实现密排，但仅支持一维调控、发散角大；单衍射光栅方案无法生成复杂光束。\n近日，麻省理工学院Jelena Notaros等认为传统耦合模理论仅适用于无损耗系统，而光栅天线因辐射出光属于本征损耗波导，须引入传播损耗项修正。其推导了双损耗模式耦合的解析解，定义传播系数失谐量δ、损耗失谐量γ、拍频率β₀等参数，证明通过增大相邻天线的传播系数差异，可显著抑制功率耦合，建立了适用于损耗模式的广义耦合模理论。基于该理论，其设计了三种宽度不同（550/600/650 nm）的光栅天线，通过精细调控内扰宽度、未扰长度等几何参数，使三者在1550 nm工作波长下具备完全一致的发射特性，散射强度0.017 dB/μm、出射角-10.32°、波长色散-0.16°/nm，同时传播系数存在显著差异，满足低串扰条件。这种“异结构、同性能”的设计，既保证了阵列相干干涉的光束质量，又破坏了相邻波导的相位匹配条件，从物理机制上抑制串扰。仿真与实验结果一致验证了串扰抑制效果，在775 nm（半波长）间距下，标准同结构天线耦合效率接近100%，而三种低串扰天线交替排布时，耦合强度仅1%，降低两个数量级。实验制备的耦合测试结构与理论拟合高度吻合，证实广义损耗耦合模理论可精准预测光栅天线间的耦合行为。其基于低串扰天线构建了16阵元半波长间距集成OPA，采用树型分束网络与独立热光移相器，实现任意相位编码。实验测试表明，该OPA在1455 nm工作波长下实现无光栅旁瓣远场辐射，主动光束扫描范围达60°，波束发散角6.1°×0.3°，与理论预期高度一致；同时支持波长调谐扫束，在80 nm波长范围内实现天线维度15°角度扫描，全程保持高信噪比与单波束辐射。该成果可应用于自动驾驶导航、航空测绘、工地监测等场景。文章于2026年5月7日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "纳米尺度'传送带'实现电子量子态的远程传输",
+          "d": "2026-05-07",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究人员开发出一种纳米尺度「传送带」装置，能够在不破坏量子相干性的前提下将电子的量子态从一个位置传输至另一位置。该技术利用纳米结构与电子的相互作用，通过精确控制的量子隧穿过程实现量子信息的空间转移，类似于科幻中的「传送」概念但在量子物理框架内完全可行。这一突破对量子计算和量子信息传输具有深远意义：若能规模化，可实现量子处理器内部量子比特之间的高保真态转移，解决当前固态量子计算平台互联瓶颈，为构建大规模容错量子计算架构提供关键的元件级支撑。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-026-01157-9",
+          "tp": "电子量子态传输",
+          "aip": 1,
+          "kp": [
+            "[量子传输]: 纳米尺度电子量子态传送"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "中科酷原发布⁸⁷Rb与⁸⁵Rb双核中性原子量子计算机汉原2号",
+          "d": "2026-05-07",
+          "a": "",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "武汉中科酷原在2026苏州移动云大会发布双核中性原子量子计算机汉原2号，集成100个⁸⁷Rb与100个⁸⁵Rb原子，共200量子比特。两种同位素交错排布降低同核串扰，双核既支持并行计算也可一主一辅构建高稳定性逻辑比特。光镊阵列超500，相干时间T2*突破300ms，单比特门保真度优于99.9%，双比特门优于99%，量子比特寿命达100秒。仅需小型激光冷却，功耗低于7kW，无需复杂低温环境。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.stdaily.com/web/gdxw/2026-05/07/content_512907.html",
+          "tp": "中性原子量",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据5月7日科技日报报道，武汉中科酷原科技公司在2026苏州移动云大会上发布双核中性原子量子计算机汉原2号。报道中称，该量子计算机采用中性原子阵列技术，集成了100个⁸⁷Rb原子与100个⁸⁵Rb原子，构建起总计200个量子比特的双核协同计算系统；⁸⁷Rb与⁸⁵Rb两种同位素交错排布，拉大同核原子之间的空间距离，在单位面积内容纳更多量子比特的同时，显著降低同核串扰；且两个核心均为独立完整的中性原子量子比特阵列，既支持并行计算以提升运算效率，也可采用一主一辅的模式构建高稳定性逻辑比特；双同位素体系还提供了更丰富的相互作用形式和可调参数空间，为复杂多体系统模拟提供了更灵活的硬件基础。其整体光镊阵列数目超500，相干时间（T2*）突破300ms，单比特门操控保真度优于99.9%，双比特门操控保真度优于99%，量子比特的寿命提升到100秒；仅需小型激光冷却系统即可运行，整体功耗低于7kW，无需复杂低温制冷环境",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "清华大学水热法制备含14种金属元素的高熵亚纳米线海水制氢催化剂",
+        "多层电容器结构优化铁电材料极化熵变实现室温电卡效应制冷",
+        "科罗拉多州立大学研发β-异亚丙基聚3-羟基烷酸酯近定量化学回收循环聚合物"
+      ],
+      "entries": [
+        {
+          "t": "清华大学王训通过水热法制备一种含14种金属元素的海水直接制氢催化剂",
+          "d": "2026-05-07",
+          "a": "",
+          "c": "通用技术/催化剂",
+          "as": "清华大学王训团队通过水热法（160℃）制备出含14种金属元素的高熵亚纳米线（14-HEO SNWs，直径约1.2nm），元素均匀分散无相分离。该材料具有超高活性位点密度、类高分子柔性及强粘附性，在海水直接电解制氢中表现出优异催化活性与结构稳定性，有望解决高盐强腐蚀环境下催化剂失活脱落的难题。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41565-026-02175-4",
+          "tp": "海水电解氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "在高盐、高电流、强腐蚀环境下使得海水直接电解制氢的催化剂容易失活、脱落甚至结构崩塌。在工业级电流条件下，气泡冲击以及晶格氧机制（LOM）带来的结构不稳定性，使许多高性能催化剂难以长期稳定运行。\n近日，清华大学王训教授团队采用低温合成策略，首先将含有Mo、Ce、Cr、Co、Mn、Zn、Fe、Ni、Cu、Mg、Al、Bi、Cd和Sn等14种金属元素的化合物溶解在去离子水中，并与油胺、乙醇、油酸等混合，在160℃水热反应8h可制备直径约1.2nm、长数微米的亚纳米线结构（14-HEO SNWs）。14种金属元素均匀分散在同一根纳米线内部，没有出现明显团聚或相分离；且随着引入元素种类增加，材料形成能持续下降，表明高熵会使得亚纳米线结构稳定下来，同时创造更多特殊活性位点。而由于尺寸已经接近单晶胞尺度，大量原子直接暴露在表面，使其拥有极高活性位点密度；同时还具备类似高分子材料的柔性特征，使材料能够粘附在导电基底上。其超细柔性结构还可在溶液中形成类似聚合物的缠绕网络，能够形成稳定胶体，可用粘附金属，对玻璃、木材、PVC等多种材料，反复粘贴6次后粘附性能几乎无衰减；且在强酸、强碱中粘附性能几乎保持不变；碱性海水中浸泡28天依然保持较高粘性。此外，其随着引入元素数量的增加，析氧活性也持续提高，在1 M KOH中10 mA cm−2电流密度下过电位129 mV。在1 M KOH中，该催化剂能够在1000 mA cm−2条件下稳定运行超过4700小时，电压衰减速率0.38 μV h−1，电极界面依旧没有出现明显脱层或结构坍塌。在碱性海水中1000 mA cm−2电流密度下过电位306 mV，可连续稳定运行超过4400小时，析氧选择性接近100%，几乎没有检测到析氯副产物。由此构建的阴离子交换膜海水电解槽（AEMSE）在室温条件下，1.8V输出电流密度1000 mA cm−2；80 ℃下1.7 V输出电流密度3000 mA cm−2；在2000 mA cm−2条件下还能稳定运行3819小时以上；其系统能量效率可达81.9%，预估氢气成本0.82美元/汽油加仑当量GGE（gasoline gallon equivalent），低于美国能源部2026年提出的2美元。文章于2026年5月7日发表在Nature Nanotechnology。",
+          "hb": 1
+        },
+        {
+          "t": "多层电容器中室温附近的电卡效应",
+          "d": "2026-05-07",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究在多层电容器结构中实现了室温附近的显著电热效应（Electrocaloric Effect, ECE）。电热效应利用铁电材料在电场作用下发生可逆极化熵变产生制冷效果，是替代传统蒸气压缩制冷的固态环保制冷候选技术。通过超临界驱动的多层电容器设计，优化了电场分布和热传递性能，在室温温区获得了足够大的绝热温变（ΔT），推动电热制冷向实际应用迈近。该技术对零温室气体排放的制冷需求具有战略意义。",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10492-w",
+          "tp": "电热制冷材料",
+          "aip": 1,
+          "kp": [
+            "[电卡材料]: PbSc0.5Ta0.5O3多层电容器",
+            "退火时间[高B位有序]: 42天",
+            "[温度限制]: 仅高于室温居里温度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A growing number of cooling devices1,2,3,4 exploit large electrocaloric effects associated with a supercritically driven first-order ferroelectric phase transition in multilayer capacitors of PbSc0.5Ta0.5O3 (PST)5. However, these multilayer capacitors only operate above the room-temperature Curie temperature and require an energetically expensive 42-day anneal for high B-site order to maximize latent heat. Here we show that exaggerating valence mismatch through dilution with PbMg0.5W0.5O3 (PMW) maintains high B-site order and latent heat with no anneal, while disrupting dipolar order to reduce the Curie temperature as low as 230 K. Our multilayer capacitors of PST–PMW show supercritical electrocaloric effects of about 3 K across and well below room temperature owing to 17.1 V μm−1 fields we apply >107 times without breakdown. Using our multilayer capacitors in an ideal fluid regenerator and assuming work recovery yields cycle efficiencies of 70–90%. Taken together, our findings imply that multilayer capacitors of PST–PMW should now replace multilayer capacitors of PST in electrocaloric prototypes to permit electrocaloric refrigeration.",
+          "hb": 1
+        },
+        {
+          "t": "科罗拉多州立大学Eugene Chen对可大规模生产且性能可调的循环聚合物进行了研究",
+          "d": "2026-05-07",
+          "a": "",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "科罗拉多州立大学Eugene Chen团队研究了β-异亚丙基聚3-羟基烷酸酯（i-PHA）循环聚合物。其内酯单体可由生物源异丁酸工业合成，烷亚基取代基有效抑制解聚过程中的脱羧降解，实现近定量化学回收。通过对侧基受控氢化，可获得从高强度纤维到韧性热塑性塑料乃至环氧胶黏剂等性能多样的材料，发表于Science。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aed3914",
+          "tp": "循环聚合物",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "能够在同一聚合物框架内大规模生产并针对特定性能进行灵活调整的可循环聚合物，对于实现循环材料经济至关重要。为此，合成聚3-羟基烷酸酯作为生物来源聚3-羟基烷酸酯的高性能、化学可回收变体备受关注，但其单体合成困难且回收效率不足，限制了大规模应用。本研究考察了一种β-异亚丙基聚3-羟基烷酸酯（i-PHA），其内酯单体可通过现有工业方法由生物源异丁酸合成。烷亚基取代基有效抑制了聚3-羟基烷酸酯解聚过程中常见的脱羧降解，从而实现了对单体的近乎定量的化学回收。通过对β-异亚丙基侧基的受控氢化，可获得性能多样且可与多种商品聚合物媲美的聚3-羟基烷酸酯，涵盖从高强度纤维到韧性热塑性塑料，乃至强力环氧树脂胶黏剂。文章于2026年5月7日发表在Science。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

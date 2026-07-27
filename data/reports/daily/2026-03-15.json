@@ -1,0 +1,221 @@
+{
+  "type": "daily",
+  "date_label": "2026年3月15日　星期日",
+  "date_range": "2026-03-15",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型IrRuOₓ催化剂解决质子交换膜电解水动态运行稳定性难题",
+      "研究解析Cu基催化剂活性机制以突破CO2加氢制甲醇转化率限制",
+      "反型Al-ZrO₂/Cu催化剂实现PET塑料废物的定向化学回收"
+    ],
+    "AI与智能科技": [
+      "科研团队提出光电化学纳米流体忆阻器用于多模态神经形态计算",
+      "研究人员在二维半导体中实现室温局域激子的高辐射发射"
+    ],
+    "通用技术": [
+      "双反位缺陷策略使黄铜矿热电材料ZT值突破2.0创历史新高",
+      "嫦娥六号探测器在月球表面首次直接探测到负氢离子光谱",
+      "科研人员开发基于姜辣素的3D打印光树脂用于制造抗菌植入物"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型IrRuOₓ催化剂解决质子交换膜电解水动态运行稳定性难题",
+        "研究解析Cu基催化剂活性机制以突破CO2加氢制甲醇转化率限制",
+        "反型Al-ZrO₂/Cu催化剂实现PET塑料废物的定向化学回收"
+      ],
+      "entries": [
+        {
+          "t": "以Hollandite型IrRuOₓ阳极纳米催化剂应对质子交换膜水电解中的动态运行挑战",
+          "d": "2026-03-15",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "针对可再生电力波动下质子交换膜电解水(PEMWE)阳极动态运行不稳定问题，开发Hollandite型IrRuOx纳米催化剂。该催化剂在频繁启停与功率波动工况下表现出优异的结构稳定性和催化活性保持率，为绿氢生产耦合间歇性可再生能源提供了耐久性解决方案。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519741?af=R",
+          "tp": "PEM电解水制氢",
+          "aip": 1,
+          "kp": [
+            "[催化剂结构]: 铁锰矿型IrRuOx纳米晶",
+            "[合成方法]: 低温相变合成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    The operational instability of IrRu‐based anodes, particularly under the dynamic regimes inherent to renewable energy, remains a critical barrier to cost‐effective proton exchange membrane water electrolysis. Here, we address this challenge by designing hollandite‐structured IrRuO\n                    \n                      x\n                    \n                    nanocrystals (H‐IrRuO\n                    \n                      x\n                    \n                    ) via a low‐temperature phase‐transition synthesis. Distinct from the conventional rutile structure, the open hollandite framework stabilizes sub‐4‐valent metal sites within a unique coordination environment, which simultaneously enhances the oxygen evolution reaction activity and suppresses metal dissolution by mitigating overoxidation. When integrated into membrane electrode assemblies, the H‐IrRuO\n                    \n                      x\n                    \n                    catalyst layer demonstrates exceptional durability, operating stably at industrial current densities (1–2 A cm\n                    −2\n                    ) with a minimal voltage decay rate of &lt;4 µV h\n                    −1\n                    over 3700 h. Crucially, under harsh dynamic cycling, it retains 96% of its initial activity after 36 000 cycles, outperforming conventional benchmarks. This structural engineering strategy provides a viable path to durable, cost‐effective hydrogen production under realistic conditions.",
+          "hb": 1
+        },
+        {
+          "t": "解析CO2加氢制甲醇中活性-选择性权衡关系",
+          "d": "2026-03-15",
+          "a": "Chem",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "CO2加氢制甲醇是碳资源利用与减排的关键技术路径，但Cu基催化剂长期面临活性与选择性难以兼顾的矛盾：高温提升转化率却加剧副反应（如逆水煤气变换）。该研究通过深入解析Cu基催化剂活性-选择性权衡机制，提出在原子尺度调控活性位点几何与电子结构（如Cu-ZrO₂界面工程或单原子掺杂），在不牺牲选择性的前提下突破传统动力学限制。该方向对工业化碳捕集与转化（CCU）具有重要意义，有望实现CO2到绿色甲醇的高效催化转化。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00008-2?rss=yes",
+          "tp": "CO₂加氢制甲醇",
+          "aip": 1,
+          "kp": [
+            "[催化策略]: 调控Cu表面覆盖将CO2吸附重定向至ZrO2",
+            "[选择性]: 抑制Cu位直接C=O断裂减少CO生成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "For CO2 hydrogenation over Cu-based catalysts, boosting catalytic activity at elevated temperatures drastically compromises methanol selectivity. Herein, Cu chemical properties are tailored via controlled surface coverage, which redirects CO2 adsorption to ZrO2 sites through dual O-atom coordination. This suppresses CO formation from direct C=O bond cleavage at Cu sites, while H2 dissociated on Cu attacks the accessible C center, facilitating methanol synthesis via the formate pathway. This spatial decoupling of active sites effectively overcomes the activity-selectivity trade-off and achieves an excellent methanol yield.",
+          "hb": 1
+        },
+        {
+          "t": "反式Al-ZrO₂/Cu催化剂实现可分离对二甲苯和乙二醇的定向联产",
+          "d": "2026-03-15",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "全球塑料废弃物危机，尤其是聚对苯二甲酸乙二醇酯（PET）的积累，亟需可持续的回收解决方案。本研究设计了反型Al-ZrO₂/Cu催化剂，能够定向催化PET解聚并生成可分离的高附加值产物，实现塑料废物的高效化学回收与资源化利用。该策略为解决PET塑料污染闭环经济提供了新思路，兼具工业可扩展性与环保效益。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21016",
+          "tp": "PET塑料升级回收",
+          "aip": 1,
+          "kp": [
+            "[催化剂]: 反式Al-ZrO2/Cu",
+            "[原料]: PET废料",
+            "[产物]: 对二甲苯+乙二醇"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The global plastic waste crisis, especially from poly(ethylene terephthalate) (PET), demands urgent sustainable solutions. Using green hydrogen from renewable sources to hydrogenolyze PET shows promise for producing key industrial commodity chemicals including para-xylene (PX) and ethylene glycol (EG), which are essential for the production of polyester, antifreeze, and other chemicals. However, developing scalable, cost-effective, and atom-efficient processes for synthesizing drop-in chemicals via PET hydrogenolysis remains challenging. This study presents a catalytic system with a ternary Cu-Zr-Al inverse catalyst (Al-ZrO2/Cu) that operates at 180 °C and 6 MPa H2. It nearly quantitatively converts PET into PX (>99% yield) and EG (92% yield). The catalyst, with modulated surface acidity and abundant oxygen vacancies, selectively activates the benzylic C-O bonds in PET for efficient hydrogenolytic depolymerization. In hexafluoroisopropanol (HFIP)-mediated continuous-flow reactions, the process generates a spontaneously biphasic PX/EG mixture, simplifying separation. Mechanistic studies reveal that interfacial oxygen vacancies and Lewis acid centers synergistically activate H* species and macromolecular ester bonds. This work offers a strategic approach to interfacial catalyst design, providing a technically and economically feasible way to transform waste commodity plastics into high-demand bulk chemicals. By combining scalable catalysis with circular economy concepts, it enhances plastic waste valorization and delivers sustainable, large-scale solutions for global plastic pollution.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "科研团队提出光电化学纳米流体忆阻器用于多模态神经形态计算",
+        "研究人员在二维半导体中实现室温局域激子的高辐射发射"
+      ],
+      "entries": [
+        {
+          "t": "光电化学纳米流体忆阻器：一类新型类脑计算基本单元",
+          "d": "2026-03-15",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "本研究提出了一种光电化学纳米流体忆阻器，作为神经形态计算的新型基础构建块。受人类神经系统异质结构与多功能特性启发，传统固态忆阻器难以充分模拟生物神经的多模态信号处理与可塑性。该器件将光电化学效应与纳米流体通道相结合，能够同时响应光、电、化学信号，实现类似生物突触的多种学习与记忆功能，包括脉冲时序依赖可塑性（STDP）和光控突触权重调节。这一新器件族为构建高仿生度、多模态融合的神经形态计算系统开辟了路径，在脑机接口与智能传感领域具有潜在应用前景。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517362?af=R",
+          "tp": "光电化学纳米流体忆阻器",
+          "aip": 1,
+          "kp": [
+            "[器件概念]: 光电化学纳米流体忆阻器模拟视觉突触"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Due to the heterogeneous structures and functions of the human nervous system, innovation of neuromorphic building blocks has long been the goal of neuromorphic engineering. Here, we report on a new concept of photoelectrochemical nanofluidic memristor (PNM) with analogous synaptic transmission to that in human vision. By matching miniaturized n‐type or p‐type semiconducting electrodes with negatively‐ or positively‐charged nanochannels, four combinations of PNMs are produced with rich hysteresis characteristics and bio‐realistic retinomorphic functions. Heterologous regulation and algorithmic‐nanofluidic applications are further implemented in this device. As a proof of concept, the PNM will serve as a general technique to catalyze a new family of neuromorphic building blocks for advancing aqueous neuromorphic exploration.",
+          "hb": 1
+        },
+        {
+          "t": "二维半导体中电荷中和的 0D 量子阱实现室温局域激子的高辐射发射",
+          "d": "2026-03-15",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "研究团队在二维半导体中构建电荷中和的0D量子阱结构，实现室温下局域激子的高辐射发射。该方法克服了室温热能阻碍局域激子形成和多余电荷降低量子产率的难题，在光伏和发光器件领域具有应用潜力，为室温下的光-物质相互作用调控提供了新平台。",
+          "sc": 6.8,
+          "i": "literature",
+          "tg": "行业观察",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady2186?af=R",
+          "tp": "二维半导体激子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nondiffusing localized excitons (X\n                    L\n                    ) in two-dimensional semiconductors present a robust platform for mediating light-matter interactions, with potential applications in both photovoltaics and light-emitting devices. However, at room temperature, high thermal energy hinders X\n                    L\n                    formation, while excess charges diminish the quantum yield (QY) through nonradiative decay. Here, we present high-QY X\n                    L\n                    emission in ambient conditions by removing excess charges and inducing efficient exciton funneling into a Au nanohole. Specifically, by evaporating an H\n                    2\n                    O barrier between the n-type MoS\n                    2\n                    and the Au substrate, we induce a grounding effect on electrons. Dominantly populating excitons are then funneled and bound to the nanohole through the strain-induced zero-dimensional quantum well effect. We confirm the exciton confinement efficiency of ~98% using a drift-diffusion model, enabling bright X\n                    L\n                    emission at the nanoscale. Using tip-induced gigapascal-scale pressure, we control X\n                    L\n                    dynamics and QY in a reversible manner. Our approach provides an innovative strategy for X\n                    L\n                    -based nanophotonic devices.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "双反位缺陷策略使黄铜矿热电材料ZT值突破2.0创历史新高",
+        "嫦娥六号探测器在月球表面首次直接探测到负氢离子光谱",
+        "科研人员开发基于姜辣素的3D打印光树脂用于制造抗菌植入物"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 双反位缺陷和域结构协同提高黄铜矿 Cu0.7Ag0.3Ga1–xInxTe2(x = 0–0.5) 中 ZT > 2.0 的历史新高",
+          "d": "2026-03-15",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队提出双反位缺陷策略，在黄铜矿Cu₀.₇Ag₀.₃Ga₁₋ₓInₓTe₂中引入供体-受体缺陷对形成电中性构型，同时调控载流子浓度并抑制载流子散射，突破了热电参数间的强耦合限制。该策略使材料ZT值超过2.0，创历史新高，为高性能热电材料设计提供了新范式。",
+          "sc": 8.3,
+          "i": "literature",
+          "tg": "技术突破",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02266",
+          "tp": "热电新纪录",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Antisite defects, as intrinsic point defects in crystals, have demonstrated significant potential in optimizing the thermoelectric performance of materials, particularly by modulating the carrier concentration. However, they typically degrade carrier mobility due to the strong coupling among thermoelectric parameters. To address this limitation, we propose a dual-antisite defects strategy: by introducing donor-acceptor defect pairs to form electrically neutral configurations, carrier scattering can be significantly reduced due to charge compensation. Meanwhile, the presence of these point defects still maintains strong phonon scattering. This approach minimizes the loss of electrical mobility while effectively suppressing lattice thermal conductivity (κL). Using chalcopyrite CuGaTe2 as a matrix, we incorporated charge-balanced dual-antisite defects (AgGa″ and InCu··) via alloying. This type of electrically neutral dual-antisite defects can maintain carrier mobility while increasing carrier concentration and significantly suppresses κL by enhancing phonon scattering through the interaction between alloy disorder scattering induced by In alloying and nanodomains. Remarkably, in Cu0.7Ag0.3Ga0.6In0.4Te2, a record-high ZT value of 2.03 at 873 K was achieved. This dual-antisite defects strategy provides a new paradigm for defect engineering in thermoelectric materials, enabling the simultaneous optimization of electrical and thermal transport properties and offering a valid pathway toward high-performance thermoelectrics.",
+          "hb": 1
+        },
+        {
+          "t": "嫦娥六号揭示月球上依赖太阳风的氢离子",
+          "d": "2026-03-15",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "嫦娥六号搭载的NILS仪器首次在月球表面成功探测到负氢离子（H⁻）光谱，这是地外天体负离子的首次直接探测。研究表明这些负离子源于太阳风与月球表面的相互作用，为研究太阳风注入机制和月球表面等离子体环境提供了前所未有的观测数据，深化了对月球负离子起源和分布的理解。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adw1162?af=R",
+          "tp": "月球负离子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Apart from positive ions and electrons, negative ions are expected in various astrophysical environments. However, they have never been detected on the Moon until the Chang’E-6 mission. The NILS instrument onboard Chang’E-6 lander is the first dedicated instrument for detecting negative ions beyond Earth and has successfully obtained H\n                    −\n                    spectra on the lunar surface, providing an unprecedented opportunity to investigate their origin and distribution. Here, we present a positive correlation between the H\n                    −\n                    spectra and solar wind parameters, which provides direct evidence for the generation of negative ions from solar wind–surface interaction. Combined with Monte Carlo simulations, we predict a thin dayside H\n                    −\n                    layer and a long nightside H\n                    −\n                    tail, which can contribute to the lunar plasma environment, especially during an extreme solar wind density event. These findings greatly improve our understanding of the generation and distribution of negative ions on the Moon and other airless bodies.",
+          "hb": 1
+        },
+        {
+          "t": "用于复杂植入物设计的生物膜拮抗剂姜基 3D 打印光树脂展示了先进的多功能生物医学应用（Adv. Mater. 15/2026）",
+          "d": "2026-03-15",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究人员首次开发出基于姜辣素的3D打印光树脂材料，用于定制化抗生物膜高分辨率复杂植入物设计。该材料的可定制主链化学结构可模拟不同人体骨骼的强度，同时具备体外抗氧化和离体抗生物膜功效，以及体内生物相容性，有望降低植入物失败率，在多功能生物医学领域具有广阔应用前景。",
+          "sc": 7.5,
+          "i": "literature",
+          "tg": "行业观察",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72615?af=R",
+          "tp": "姜基3D树脂",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Ginger-Based 3D-Printed Complex Implants In their Research Article (DOI: 10.1002/adma.202503351), Shady Farah and co-workers proposed the first-ever ginger-based 3D-printable resin for tailored biofilm-antagonistic high-resolution complex implant designs. The prints' customizable backbone chemistry imitates the strength of different human bones. While acquiring in-vitro antioxidant and ex-vivo anti-biofilm efficacies, together with in-vivo biocompatibility, their propensity to avoid implant failure makes them promising tools for bone-tissue engineering applications.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

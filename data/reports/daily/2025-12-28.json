@@ -1,0 +1,254 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月28日　星期日",
+  "date_range": "2025-12-28",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "双活性位点策略实现安培级CO2电解转化并有效抑制析氢反应",
+      "级联能量转移技术突破开路电压限制，有机太阳能电池转换率达20.72%",
+      "铁催化剂自旋态调控实现温和条件下CO2与硝酸盐共电合成尿素"
+    ],
+    "AI与智能科技": [
+      "太赫兹等离激元神经网络架构实现并行计算与片上信号同步传输",
+      "有机电化学晶体管引入静电离子捕获位点延长神经形态器件电荷保持时间",
+      "基于扩散模型的去偏框架提升单细胞分辨率下基因扰动转录响应预测准确度"
+    ],
+    "通用技术": [
+      "固有电场结合微泡界面技术实现工业废水中苯酚超96%降解率",
+      "新型生物混合手性水凝胶通过多靶点机制抑制胶质母细胞瘤术后复发",
+      "开放空气环境超快光引发聚合技术提升低粘度树脂3D打印分辨率与均一性"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "双活性位点策略实现安培级CO2电解转化并有效抑制析氢反应",
+        "级联能量转移技术突破开路电压限制，有机太阳能电池转换率达20.72%",
+        "铁催化剂自旋态调控实现温和条件下CO2与硝酸盐共电合成尿素"
+      ],
+      "entries": [
+        {
+          "t": "双催化活性位点策略同时最大化CO2RR并抑制HER：安培级CO2至CO电解",
+          "d": "2025-12-28",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "研究采用双催化活性位点策略，在电催化CO2还原反应(CO2RR)中同时最大化CO2转化效率并抑制竞争性析氢反应(HER)，实现安培级CO2-to-CO电解。该设计突破传统单活性位点的性能瓶颈，推动CO2电解向工业化规模迈进。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202521247?af=R",
+          "tp": "CO2电还原制CO",
+          "aip": 1,
+          "kp": [
+            "[CO2-to-CO电解]: 安培级",
+            "[双催化活性位点]: 抑制HER最大化CO2RR"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The practical application of electrocatalytic CO\n                    2\n                    reduction reaction (CO\n                    2\n                    RR) holds a great promise but is hindered by low CO\n                    2\n                    solubility. Under CO\n                    2\n                    mass transfer limitations, the competing hydrogen evolution reaction (HER) is promoted, resulting in a decrease in CO\n                    2\n                    RR Faradaic efficiency. Before CO\n                    2\n                    supply reaches its maximum capacity, in neutral or alkaline conditions, increasing CO\n                    2\n                    RR selectivity requires additional hydrogen source from solvent H\n                    2\n                    O dissociation for CO\n                    2\n                    protonation. However, it is challenging to concurrently achieve CO\n                    2\n                    reduction and H\n                    2\n                    O dissociation at single active site. Herein, we synthesized a neighboring Ni‐Cr atomic pair configuration with distance of ∼2.7 Å. COMSOL Multiphysics finite‐element studies demonstrate that appropriate distance between dual active sites should be on the order of a few angstroms.\n                    Operando\n                    XAS and soft NEXAFS characterizations indicate that the Ni‐N\n                    3\n                    promotes CO\n                    2\n                    activation and Cr‐N\n                    2\n                    accelerates H\n                    2\n                    O dissociation. Theoretical investigations unveil the thermodynamic and kinetic superiorities of dual‐active‐site mechanism. Ni‐N\n                    3\n                    /Cr‐N\n                    2\n                    exhibits higher FE\n                    CO\n                    than Ni‐N\n                    3\n                    , whereas Cr‐N\n                    4\n                    displays a strong preference for HER. The zero‐gap MEA attains\n                    J\n                    of up to −1000 mA cm\n                    −2\n                    with a FE\n                    CO\n                    exceeding 85% at a cell voltage of −4.0 V, and maintains stable operation for over 100 h at a\n                    J\n                    of −200 mA cm\n                    −2\n                    .",
+          "hb": 1
+        },
+        {
+          "t": "打破跷跷板效应：荧光敏化剂级联能量转移实现20.72%效率有机太阳能电池",
+          "d": "2025-12-28",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究通过级联能量转移策略结合荧光敏化剂，突破有机太阳能电池的跷跷板效应限制，实现20.72%的光电转换效率。跷跷板效应是OSCs中开路电压与短路电流难以同时优化的固有矛盾，该成果标志着有机光伏向商业化效率门槛迈出关键一步。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519983?af=R",
+          "tp": "有机太阳能电池",
+          "aip": 1,
+          "kp": [
+            "效率[OSC]: 20.72%",
+            "[级联能量转移]: 荧光敏化剂SD-EDOT",
+            "体系[OSC]: PM6:BTP-eC9"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Though organic solar cells (OSCs) have achieved remarkable progress recently, the intrinsic limitation of the “seesaw effect” between open‐circuit voltage (\n                    V\n                    oc\n                    ) and short‐circuit current density (\n                    J\n                    sc\n                    ) hinders their further improvements. In this study, a fluorescent small molecule, namely SD‐EDOT, is incorporated into the widely used PM6:BTP‐eC9 system to overcome this challenge. The addition of SD‐EDOT lowers the energetic disorder and electron–phonon coupling within the system. More importantly, it forms an energy cascade between donor and acceptor, enabling a side cascade energy transfer pathway and a more favorable energetic landscape. The high fluorescent property of SD‐EDOT improves the utilization rate of high‐energy excitons. These effects collectively promote faster and more efficient charge generation (improving\n                    J\n                    sc\n                    ), deeper highest occupied molecular orbit of donors, and suppressed non‐radiative energy loss (elevating\n                    V\n                    oc\n                    ). Consequently, the ternary devices achieve simultaneously higher\n                    V\n                    oc\n                    and\n                    J\n                    sc\n                    , significantly boosting the power conversion efficiency from 18.75% to 20.72%. This study provides a rational strategy for mitigating the\n                    V\n                    oc\n                    –\n                    J\n                    sc\n                    trade‐off by incorporating a highly fluorescent third component with tailored energy levels, offering a promising pathway toward higher‐performance OSCs.",
+          "hb": 1
+        },
+        {
+          "t": "铁催化剂自旋态调制实现可控C-N偶联高效电合成尿素",
+          "d": "2025-12-28",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "研究通过铁催化剂的自旋态调控实现可控C-N偶联，将CO2与硝酸盐共电解高效合成尿素。该电化学路线在温和条件下实现C-N键选择生成，为可持续尿素合成提供了新策略，对农业化肥绿色生产具有潜在应用价值。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202512939?af=R",
+          "tp": "尿素电合成",
+          "aip": 1,
+          "kp": [
+            "催化剂[尿素电合成]: Fe基自旋态调控",
+            "[关键机制]: 自旋态调控C-N偶联模式"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    The co‐electrolysis of CO\n                    2\n                    and nitrate (NO\n                    3\n                    −\n                    ) presents a promising and sustainable method for urea synthesis. However, it remains challenging to modulate the intermediates reactivity and C─N coupling at the matchable stages. Here, we propose a strategy to regulate the C─N coupling mode on Fe site via spin state modulation. Both experimental and theoretical calculations revealed that the Cu\n                    2+\n                    ‐doped Fe\n                    3\n                    O\n                    4\n                    promoted C─N coupling at the early stage via the *CO + *NO\n                    2\n                    →*CONO\n                    2\n                    pathway, enhancing the catalytic performance significantly. The catalysts could achieve a urea Faradaic efficiency of 47.3% and a yield rate of 635.9 µg h\n                    −1\n                    mg\n                    cat.\n                    −1\n                    at low overpotential, along with exceptional stability over 30 h, representing one of the highest performances reported to date. Detailed experimental and theoretical analyses demonstrated that Cu doping lowered the e\n                    g\n                    electron density of Fe and enhanced *NO\n                    2\n                    adsorption. The adsorbed *NO\n                    2\n                    in turn further decreased Fe spin state through π backdonation, which facilitated CO\n                    2\n                    activation and increased *CO coverage. Moreover, optimizing the *NO\n                    2\n                    coverage also reduced the energy barrier for *CO + *NO\n                    2\n                    →*CONO\n                    2\n                    , and inhibited *NO\n                    2\n                    protonation, leading to high selectivity toward urea.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "太赫兹等离激元神经网络架构实现并行计算与片上信号同步传输",
+        "有机电化学晶体管引入静电离子捕获位点延长神经形态器件电荷保持时间",
+        "基于扩散模型的去偏框架提升单细胞分辨率下基因扰动转录响应预测准确度"
+      ],
+      "entries": [
+        {
+          "t": "色散工程太赫兹等离激元神经网络实现并行计算与片上通信",
+          "d": "2025-12-28",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "提出一种基于色散工程的太赫兹人工表面等离激元(Spoof Plasmon)神经网络，实现并行计算与片上通信功能。该器件利用太赫ertz频段的衍射神经网络原理，通过超表面结构实现光学计算的并行处理，同时借助spoof plasmon波导实现片上信号传输。该架构将计算与通信融合于单一太赫兹平台，为高速、低功耗的片上光计算系统提供了新思路。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202503584?af=R",
+          "tp": "太赫兹等离激元神经网络",
+          "aip": 1,
+          "kp": [
+            "[太赫兹人工等离激元NN]: 色散工程并行计算",
+            "[片上通信]: 低功耗光速处理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Diffractive neural networks offer a novel physical implementation for optical computing to achieve parallelism, low power consumption, and light‐speed processing. However, their limited dispersion engineering necessitates increasingly complex architectures for tasks such as spectrum recognition and simultaneous multi‐class classification, which in turn leads to increased energy demands. Here, we propose a spoof plasmonic neural network (SPNN) comprising cross‐cascaded spoof surface plasmonic waveguides with strong engineered dispersion properties designed for operation in the terahertz regime. This compact platform efficiently separates spectral components from a broadband input signal, achieving a data rate of 22 Gbit/s across two separated spectral channels. We experimentally show that the SPNN can simultaneously classify multiple inputs from Fashion‐MNIST+MNIST or Fashion‐MNIST+EMNIST datasets, achieving classification accuracies of 98.3% and 97.4% or 97.4% and 93.8%, respectively. For multi‐color CIFAR‐10 dataset classification, the network architecture incorporating multiple cascaded SPNNs realizes over 10% higher accuracy than single‐color‐channel methods by leveraging distinct color channels mapped to respective spectrum channels. These findings highlight the potential of SPNNs for machine learning applications and lay the groundwork for future terahertz chip integration.",
+          "hb": 1
+        },
+        {
+          "t": "有机电化学晶体管中的静电离子捕获实现创纪录的神经形态存储性能",
+          "d": "2025-12-28",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "报道了在有机电化学晶体管(OECT)中利用静电离子捕获机制实现创纪录的神经形态存储性能。OECT利用聚合物半导体的化学可调性，但传统器件受限于载流子保持时间短的问题。该工作通过在沟道中设计静电离子捕获位点，大幅延长了电荷保持时间，实现了高开关比、长保持时间的突触可塑性模拟，为低功耗有机神经形态计算器件的性能突破提供了关键机制。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519188?af=R",
+          "tp": "有机电化学晶体管",
+          "aip": 1,
+          "kp": [
+            "存储窗口[OECT]: 此前<5.3V",
+            "[静电离子捕获]: 分子级滞回控制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Organic electrochemical transistors (OECTs) leverage the chemical tunability of polymeric semiconductors; however, their potential as memory devices remains constrained by insufficient ion retention. Previous studies on physical trapping of ions within polymer crystalline domains have generally reported memory windows below 5.3 V. Here, we achieve molecular‐level hysteresis control by designing a dual‐functional zwitterionic crosslinker that creates an electrostatic ion‐trapping channel. Its fixed anionic sulfonate group establishes a repulsive barrier to delay ion injection, while its cationic ammonium site forms a deep electrostatic trap that creates a 2.03 eV barrier, thereby stabilizing the doped state, and collectively producing pronounced hysteresis. GIWAXS under sequential biasing reveals reversible lamellar dynamics, enabled by ionic interactions among side‐chain‐tethered zwitterion units. The resulting OECTs achieve record hysteresis strength (96.4 V) and memory window (8.65 V) while maintaining an on/off ratio ∼10\n                    6\n                    and 86.4% conductance retention after 200,000 pulses. Moreover, the Z‐FPA scheme generalizes to other polymer semiconductors, providing a polymer‐agnostic route to high‐fidelity neuromorphic OECTs. Synaptic metrics are more symmetric; device‐informed models reach 92.87% on MNIST, and ECG reservoir computing confirms biosignal compatibility. Our findings provide key molecular insights into the material design and operating mechanisms critical for advancing next‐generation neuromorphic OECTs.",
+          "hb": 1
+        },
+        {
+          "t": "预测未知：基于扩散模型的去偏框架用于单细胞分辨率的转录响应预测",
+          "d": "2025-12-28",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "研究提出基于扩散模型的去偏框架，用于单细胞分辨率下预测基因扰动后的转录响应。细胞对遗传扰动的响应预测对理解基因调控至关重要，但现有方法存在批次效应和选择偏差等问题。该框架利用扩散模型的生成能力对偏差进行校正，提升了扰动响应预测的准确性，有望加速功能基因组学研究与药物靶点发现。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2525268122?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "单细胞响应预测",
+          "aip": 1,
+          "kp": [
+            "预测框架[单细胞转录响应]: 扩散模型去偏",
+            "[数据源]: Perturb-seq CRISPR扰动"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Predicting cellular responses to genetic perturbations is critical for advancing our understanding of gene regulation. While single-cell CRISPR perturbation assays such as Perturb-seq provide direct measurements of gene function, the scale of these experiments is limited by cost and feasibility. This motivates the development of computational approaches that can accurately infer responses to unmeasured perturbations from related experimental data. We introduce dbDiffusion, a generative framework that integrates diffusion models with classifier-free guidance derived from perturbation information, operating in latent space through a variational autoencoder. Diffusion models are probabilistic generative models that approximate data distributions by reversing a Markovian diffusion process, progressively denoising Gaussian noise into structured outputs. By exploiting biological similarities in gene expression profiles and relationships among perturbations, dbDiffusion enables the conditional generation of gene expressions for previously unobserved perturbations. In contrast to competing approaches, dbDiffusion does not rely on Large Language Model or foundation models, which have been found to yield unsatisfactory results. Rather, it leverages embeddings derived from measured perturbations to generalize to unseen perturbations, effectively transferring information across related experimental conditions. In benchmarking against state-of-the-art methods on Perturb-seq datasets, dbDiffusion demonstrates superior accuracy in predicting perturbation responses. A methodological innovation of dbDiffusion is the integration of prediction-powered inference, which corrects for biases inherent in generative models and enables statistically rigorous downstream tasks, including the identification of differentially expressed genes. By combining deep generative modeling with principled inference, dbDiffusion establishes a scalable computational framework for predicting and analyzing transcriptomic perturbation responses, significantly extending the utility of Perturb-seq experiments.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "固有电场结合微泡界面技术实现工业废水中苯酚超96%降解率",
+        "新型生物混合手性水凝胶通过多靶点机制抑制胶质母细胞瘤术后复发",
+        "开放空气环境超快光引发聚合技术提升低粘度树脂3D打印分辨率与均一性"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 固有电场触发微泡界面处的苯酚氧化降解",
+          "d": "2025-12-28",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "针对工业废水中具有高毒性和难降解的苯酚，传统去除方法通常需要高能耗或昂贵的催化剂。本研究开发了一种利用微泡在气水界面处氧化降解苯酚的新技术，该方法由固有电场触发。高分辨率质谱分析表明，苯酚被逐步氧化为中间产物，并最终转化为醋酸。在处理3小时后，苯酚降解率超过96%。该技术提供了一种高效、低能耗且环保的工业废水处理方案。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16083",
+          "tp": "微泡水处理",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Phenol, recognized for its environmental persistence and toxicity, typically necessitates high-energy or costly catalytic methods for its removal from industrial wastewater. In this study, we demonstrate the oxidative degradation of phenol at air-water interfaces (AWIs) by microbubbling air through water. High-resolution mass spectrometry revealed the transformation of phenol into progressively oxidized intermediates and ultimately into acetic acid, with a degradation rate of over 96% after 3 h for a 2 mM phenol solution. Complementary vortex experiments constructed a detailed degradation pathway involving sequential hydroxylation, dehydrogenation, and ring-cleavage processes. Radical scavenger experiments and DFT calculations indicate that the mechanism may follow an interfacial electric field-induced excitation pathway via radical reactions. The oxidation trend of para-halogenated phenols (F < Cl < Br < (H) < I) aligns with each radical's HOMO-LUMO gap, supporting the interfacial field-induced molecular activation mechanism. Compared to conventional advanced oxidation processes, our method offers reagent-free operation, reduced secondary pollution, and high efficiency under mild conditions. These findings highlight the AWI-mediated oxidation as a sustainable strategy for degrading phenolic pollutants in water.",
+          "hb": 1
+        },
+        {
+          "t": "生物混合手性水凝胶通过多管齐下抑制肿瘤增强临床前术后胶质母细胞瘤治疗",
+          "d": "2025-12-28",
+          "a": "Nature Nanotechnology",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队开发了一种生物混合手性水凝胶，可在胶质母细胞瘤（GBM）手术切除后植入瘤腔，通过多机制协同抑制肿瘤复发。该水凝胶靶向对多种治疗耐药的胶质母细胞瘤干细胞，协调调控细胞因子信号程序和细胞外基质特性，全面抑制GSC扩增。在临床前模型中显著延长生存期，为术后GBM局部治疗提供了创新策略。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-025-02064-2",
+          "tp": "手性水凝胶治瘤",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Glioblastoma stem cells (GSCs), which exhibit resistance to multiple treatments, are a prominent driver of postoperative glioblastoma (GBM) relapse. Reducing the GSC population holds promise in GBM therapy but remains challenging due to the difficulty in coordinating the complex cytokine signalling programs and extracellular matrix characteristics that induce GSC expansion. Here we develop a biohybrid chiral hydrogel that allows intracavity implantation after GBM surgical debulking to comprehensively regulate GSC stemness, enhancing postoperative therapy. The hydrogel encapsulates GSC-membrane-coated nanoparticles that serve as potent decoys to broadly neutralize GSC-targeted pro-stemness and chemotaxis cytokines, allowing functional blocking and hydrogel infiltration of GSCs. Moreover, we showed that the D-chiral biohybrid hydrogel, in contrast to its L- and DL-chiral counterparts, further diminished the GSC stemness phenotype via D-chiral-geometry-regulated mechanotransduction pathways. In three orthotopic intracranial GBM models, the multi-pronged inhibition of GSC stemness enhanced gold-nanocluster-based hydrogel-scaffold-sensitized radioimmunotherapy, enabling the suppression of GBM relapse post-resection. This integrated regulation of biochemical and biophysical cues shows the potential for treating cancer-stem-cell-enriched malignancies.",
+          "hb": 1
+        },
+        {
+          "t": "开放空气下的超快光引发转移终止聚合实现低粘度树脂3D打印",
+          "d": "2025-12-28",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "该研究开发了开放环境下的超快光引发转移终止剂（Photoiniferter）聚合技术，使低粘度树脂可用于3D打印。光固化3D打印面临交联网络不均匀和低聚物残留等挑战，限制了打印件的力学性能。该Photoiniferter聚合机制实现了活性/可控自由基聚合，在空气中即可快速进行，显著提升了打印分辨率和材料均一性，为高性能3D打印树脂的开发提供了新策略。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519602?af=R",
+          "tp": "光聚合3D打印",
+          "aip": 1,
+          "kp": [
+            "[聚合方法]: 光引发转移终止剂聚合",
+            "[特点]: 开放空气超快聚合",
+            "[树脂粘度]: 低粘度",
+            "[应用]: 光固化3D打印"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract\n                  \n                    Photo‐curing 3D printing is fundamentally challenged by the formation of heterogeneous networks with uneven cross‐linking densities and unreacted monomer residues, which compromise the integrity and performance of printed parts. While photo‐controlled radical polymerization (photo‐RDRP) offers a path to precise network control, it is often limited by sluggish kinetics, necessitating viscous resins to compensate for slow curing rates. To overcome this, we employed a computer‐guided strategy to design a new photoiniferter, dithioindazolylcarboxylate (DTI). Computational analyses predicted DTI would be an efficient and oxygen‐tolerant photoiniferter. Under 415 nm light (10 mW cm\n                    −2\n                    ), DTI enabled the photoiniferter polymerization of methyl acrylate with an apparent propagation rate () of 0.809 min\n                    −1\n                    , over four‐fold higher than that of the existing dithiopyrazolylcarboxylate (DTP) with a  of 0.196 min\n                    −1\n                    in equivalent conditions under 425 nm (optimum for ). This was achieved while maintaining low molecular weight dispersity (\n                    Đ\n                     &lt; 1.1). DTI also exhibited better oxygen tolerance, maintaining 65.9% of its  (with respect to that under nitrogen) under an air‐purging condition (1 mL 30 s\n                    −1\n                    ), as compared to 13.3% for DTP under the same condition. This enabled ultrafast digital light processing (DLP) 3D printing at just 8 s per layer using routine low‐viscosity acrylic resins, producing high‐resolution, complex centimeter‐scale prototypes. The technology also enabled photo‐curing of anticorrosion coatings with an adhesion strength of 13.53 MPa and 720 h resistance to acetic acid salt spray.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}
