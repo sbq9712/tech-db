@@ -5,7 +5,7 @@
  */
 
 // ── Config ──
-const QA_API_BASE = `http://${window.location.hostname}:8765`;
+const QA_API_BASE = 'https://apartments-were-comedy-holidays.trycloudflare.com';
 
 // ── State ──
 const qaState = {
