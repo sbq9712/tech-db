@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=138" />
+  <link rel="stylesheet" href="styles.css?v=142" />
 </head>
 <body>
   <div class="layout">
@@ -16,6 +16,9 @@
         <button class="view-tab active" data-view="intelligence" type="button">广度情报总表</button>
         <button class="view-tab" data-view="reports" type="button">日报/周报/月报</button>
         <button class="view-tab" data-view="calendar" type="button">会议日历</button>
+      </div>
+      <div class="view-tabs view-tabs-second" id="viewTabsSecond">
+        <button class="view-tab" data-view="qa" type="button">数据库问答</button>
       </div>
 
       <div id="reportView" style="display:none">
@@ -125,6 +128,32 @@
       </div>
 
     </aside>
+
+    <!-- Q&A View (replaces main content area when active) -->
+    <div id="qaView" class="qa-view" style="display:none">
+      <div class="qa-sidebar" id="qaSidebar">
+        <button class="qa-new-chat-btn" id="qaNewChatBtn" type="button">+ 新建对话</button>
+        <div class="qa-conversation-list" id="qaConversationList"></div>
+      </div>
+      <div class="qa-main" id="qaMain">
+        <div class="qa-empty-state" id="qaEmptyState">
+          <div class="qa-graph-container" id="qaGraphContainer"></div>
+          <div class="qa-empty-tagline">本系统基于 LightRAG 构建的知识图谱进行回答</div>
+          <div class="qa-empty-stats" id="qaEmptyStats"></div>
+          <div class="qa-example-questions" id="qaExampleQuestions">
+            <div class="qa-example-item" data-q="固态电池最新研究进展有哪些？">固态电池最新研究进展有哪些？</div>
+            <div class="qa-example-item" data-q="钙钛矿太阳能电池的效率纪录是多少？">钙钛矿太阳能电池的效率纪录是多少？</div>
+            <div class="qa-example-item" data-q="CO2电催化还原的最新催化剂有哪些？">CO₂电催化还原的最新催化剂有哪些？</div>
+            <div class="qa-example-item" data-q="锂电池回收技术有哪些新突破？">锂电池回收技术有哪些新突破？</div>
+          </div>
+        </div>
+        <div class="qa-messages" id="qaMessages" style="display:none"></div>
+        <div class="qa-input-area">
+          <textarea class="qa-input" id="qaInput" placeholder="输入你的问题..." rows="1"></textarea>
+          <button class="qa-send-btn" id="qaSendBtn" type="button">发送</button>
+        </div>
+      </div>
+    </div>
 
     <main class="content">
       <div class="content-toolbar">
@@ -305,7 +334,8 @@
   </script>
   <script src="data/processed/manifest-data.js"></script>
   <script src="data/category-order-data.js"></script>
-  <script src="app.js?v=138"></script>
+  <script src="app.js?v=139"></script>
+  <script src="qa.js?v=144"></script>
   <script>
     // Information Sources Panel Data
     window.__SOURCES__ = {

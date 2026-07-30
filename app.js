@@ -86,7 +86,21 @@ function switchView(view) {
   if (reportContent) reportContent.style.display = 'none';
   if (calendarContent) calendarContent.style.display = 'none';
 
-  if (view === 'reports') {
+  const qaView = $('qaView');
+  const mainContent = document.querySelector('.content');
+
+  if (view === 'qa') {
+    if (qaView) qaView.style.display = 'flex';
+    if (mainContent) mainContent.style.display = 'none';
+    filterBlocks.forEach((b) => { b.style.display = 'none'; });
+    if (contentToolbar) contentToolbar.style.display = 'none';
+    recordList.style.display = 'none';
+    if (window.qaModule && window.qaModule.switchToQAView) {
+      window.qaModule.switchToQAView();
+    }
+  } else if (view === 'reports') {
+    if (qaView) qaView.style.display = 'none';
+    if (mainContent) mainContent.style.display = '';
     if (reportView) reportView.style.display = '';
     filterBlocks.forEach((b) => { b.style.display = 'none'; });
     if (contentToolbar) contentToolbar.style.display = 'none';
@@ -100,6 +114,8 @@ function switchView(view) {
     reportContent.style.display = '';
     renderReportView();
   } else if (view === 'calendar') {
+    if (qaView) qaView.style.display = 'none';
+    if (mainContent) mainContent.style.display = '';
     if (calendarSidebar) calendarSidebar.style.display = '';
     filterBlocks.forEach((b) => { b.style.display = 'none'; });
     if (contentToolbar) contentToolbar.style.display = 'none';
@@ -113,6 +129,8 @@ function switchView(view) {
     calendarContent.style.display = '';
     renderCalendarView();
   } else {
+    if (qaView) qaView.style.display = 'none';
+    if (mainContent) mainContent.style.display = '';
     filterBlocks.forEach((b) => { b.style.display = ''; });
     if (contentToolbar) contentToolbar.style.display = '';
     recordList.style.display = '';
