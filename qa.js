@@ -5,7 +5,7 @@
  */
 
 // ── Config ──
-const QA_API_BASE = 'https://apartments-were-comedy-holidays.trycloudflare.com';
+const QA_API_BASE = 'https://meetup-homeland-tariff-indices.trycloudflare.com';
 
 // ── State ──
 const qaState = {
