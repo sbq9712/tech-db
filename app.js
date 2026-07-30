@@ -85,6 +85,8 @@ function switchView(view) {
   if (calendarSidebar) calendarSidebar.style.display = 'none';
   if (reportContent) reportContent.style.display = 'none';
   if (calendarContent) calendarContent.style.display = 'none';
+  const qaSidebar = $('qaSidebar');
+  if (qaSidebar) qaSidebar.style.display = 'none';
 
   const qaView = $('qaView');
   const mainContent = document.querySelector('.content');
@@ -93,6 +95,7 @@ function switchView(view) {
     if (qaView) qaView.style.display = 'flex';
     if (mainContent) mainContent.style.display = 'none';
     filterBlocks.forEach((b) => { b.style.display = 'none'; });
+    if (qaSidebar) qaSidebar.style.display = '';
     if (contentToolbar) contentToolbar.style.display = 'none';
     recordList.style.display = 'none';
     if (window.qaModule && window.qaModule.switchToQAView) {

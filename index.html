@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=143" />
+  <link rel="stylesheet" href="styles.css?v=150" />
 </head>
 <body>
   <div class="layout">
@@ -72,6 +72,17 @@
         </div>
       </div>
 
+      <!-- Q&A conversation list (shown when QA view is active) -->
+      <div id="qaSidebar" style="display:none">
+        <div class="filter-block">
+          <button class="qa-new-chat-btn" id="qaNewChatBtn" type="button">+ 新建对话</button>
+        </div>
+        <div class="filter-block qa-conv-block">
+          <div class="filter-head"><span class="filter-title">历史对话</span></div>
+          <div class="qa-conversation-list" id="qaConversationList"></div>
+        </div>
+      </div>
+
       <div class="filter-block">
         <div class="filter-head">
           <span class="filter-title">日期</span>
@@ -131,10 +142,6 @@
 
     <!-- Q&A View (replaces main content area when active) -->
     <div id="qaView" class="qa-view" style="display:none">
-      <div class="qa-sidebar" id="qaSidebar">
-        <button class="qa-new-chat-btn" id="qaNewChatBtn" type="button">+ 新建对话</button>
-        <div class="qa-conversation-list" id="qaConversationList"></div>
-      </div>
       <div class="qa-main" id="qaMain">
         <div class="qa-empty-state" id="qaEmptyState">
           <div class="qa-graph-container" id="qaGraphContainer"></div>
@@ -334,8 +341,8 @@
   </script>
   <script src="data/processed/manifest-data.js"></script>
   <script src="data/category-order-data.js"></script>
-  <script src="app.js?v=140"></script>
-  <script src="qa.js?v=149"></script>
+  <script src="app.js?v=141"></script>
+  <script src="qa.js?v=150"></script>
   <script>
     // Information Sources Panel Data
     window.__SOURCES__ = {

@@ -847,17 +847,13 @@ function renderGraphCanvas(container, data) {
 
 // ── View switching integration ──
 function switchToQAView() {
-  // Hide sidebar filters, main content
+  // Hide main content
   document.querySelector('.content').style.display = 'none';
   qa$('qaView').style.display = 'flex';
-  
-  // Hide filter blocks in sidebar (but keep view tabs)
-  document.querySelectorAll('.sidebar > .filter-block').forEach(el => {
-    el.style.display = 'none';
-  });
-  document.querySelectorAll('.sidebar > div[id$="View"]').forEach(el => {
-    el.style.display = 'none';
-  });
+
+  // Show QA sidebar in the main sidebar
+  const qaSidebar = document.getElementById('qaSidebar');
+  if (qaSidebar) qaSidebar.style.display = '';
 
   // Initialize if not already
   if (!qaState._initialized) {
@@ -867,13 +863,13 @@ function switchToQAView() {
 }
 
 function switchFromQAView() {
-  // Restore sidebar and content
+  // Restore content
   document.querySelector('.content').style.display = '';
   qa$('qaView').style.display = 'none';
-  
-  document.querySelectorAll('.sidebar > .filter-block').forEach(el => {
-    el.style.display = '';
-  });
+
+  // Hide QA sidebar
+  const qaSidebar = document.getElementById('qaSidebar');
+  if (qaSidebar) qaSidebar.style.display = 'none';
 }
 
 // ── Stats loading ──
