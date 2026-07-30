@@ -2029,8 +2029,16 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
 
 /* Second row of view tabs */
 .view-tabs-second {
-  border-bottom: none;
-  margin-top: -1px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-top: 0;
+  background: var(--bg-canvas);
+}
+.view-tabs-second .view-tab {
+  color: var(--brand-lighter);
+  font-weight: 600;
+}
+.view-tabs-second .view-tab:hover {
+  background: var(--brand-bg);
 }
 
 /* Q&A View Layout */
