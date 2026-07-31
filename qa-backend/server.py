@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """FastAPI backend server for tech-db Q&A system.
 
-Uses fast vector search (numpy cosine similarity) for retrieval across ALL records,
-combined with GLM-5.2 streaming for answer generation.
+Hybrid retrieval: BM25 (keyword) + vector (semantic) fused via RRF.
+GLM-5.2 streaming for answer generation.
 
 Endpoints:
   POST /api/chat/stream  - Streaming chat (SSE)
   GET  /api/graph       - Get knowledge graph data for visualization
   GET  /api/stats       - System statistics
   GET  /api/health      - Health check
+  GET  /api/search       - Direct search (debug)
 
 Run:
   .venv/bin/python qa-backend/server.py
@@ -41,12 +42,23 @@ from config import (
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
-INDEX_FILE = WORKING_DIR / "vector_index.pkl"
+INDEX_FILE = WORKING_DIR / "vector_index_v2.pkl"
+BM25_FILE = WORKING_DIR / "bm25_index.pkl"
+JIEBA_DICT = WORKING_DIR / "jieba_custom_dict.txt"
 
 # ── Global state ──
 _vector_index = None  # numpy array (N, 1024)
 _index_meta = None    # list of metadata dicts
+_bm25_index = None    # BM25Okapi instance
+_bm25_meta = None     # BM25 metadata list
+_bm25_corpus = None   # tokenized corpus for BM25
 _records = None       # full records from all-records-lite.json
+
+# ── RRF parameters ──
+RRF_K = 60          # RRF constant (1/(rank+k))
+RETRIEVAL_TOP_K = 50  # candidates per route
+FINAL_TOP_K = 25     # max records after fusion
+RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
 
 
 def load_vector_index():
@@ -54,16 +66,34 @@ def load_vector_index():
     global _vector_index, _index_meta
     if _vector_index is not None:
         return
-    if INDEX_FILE.exists():
-        print(f"[startup] Loading vector index from {INDEX_FILE.name}...", flush=True)
-        with open(INDEX_FILE, "rb") as f:
+    # Try v2 first, fall back to v1
+    idx_file = INDEX_FILE if INDEX_FILE.exists() else WORKING_DIR / "vector_index.pkl"
+    if idx_file.exists():
+        print(f"[startup] Loading vector index from {idx_file.name}...", flush=True)
+        with open(idx_file, "rb") as f:
             data = pickle.load(f)
         _vector_index = data["embeddings"]
         _index_meta = data["meta"]
         print(f"[startup] Vector index loaded: {len(_index_meta)} records, dim={data['dim']}", flush=True)
     else:
-        print(f"[startup] WARNING: Vector index not found at {INDEX_FILE}", flush=True)
-        print(f"[startup] Run: python qa-backend/vector_index.py", flush=True)
+        print(f"[startup] WARNING: No vector index found", flush=True)
+
+
+def load_bm25_index():
+    """Load the pre-built BM25 index."""
+    global _bm25_index, _bm25_meta, _bm25_corpus
+    if _bm25_index is not None:
+        return
+    if BM25_FILE.exists():
+        print(f"[startup] Loading BM25 index...", flush=True)
+        with open(BM25_FILE, "rb") as f:
+            data = pickle.load(f)
+        _bm25_index = data["bm25"]
+        _bm25_meta = data["meta"]
+        _bm25_corpus = data.get("corpus_tokens")
+        print(f"[startup] BM25 index loaded: {len(_bm25_meta)} documents", flush=True)
+    else:
+        print(f"[startup] BM25 index not found (hybrid search disabled)", flush=True)
 
 
 def load_records():
@@ -74,7 +104,7 @@ def load_records():
     return _records
 
 
-async def vector_search(query: str, top_k: int = 20) -> list:
+async def vector_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
     """Search the vector index for the most similar records."""
     if _vector_index is None:
         return []
@@ -94,13 +124,101 @@ async def vector_search(query: str, top_k: int = 20) -> list:
     for idx in top_indices:
         meta = _index_meta[idx]
         score = float(scores[idx])
-        if score < 0.15:  # Skip very low similarity
-            continue
         results.append({
             "meta": meta,
             "score": score,
         })
     return results
+
+
+def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Search the BM25 index for keyword matches."""
+    if _bm25_index is None:
+        return []
+
+    import jieba
+    tokens = list(jieba.cut_for_search(query))
+    if not tokens:
+        return []
+
+    scores = _bm25_index.get_scores(tokens)
+    top_indices = np.argsort(scores)[::-1][:top_k]
+
+    results = []
+    for idx in top_indices:
+        score = float(scores[idx])
+        if score <= 0:
+            continue
+        meta = _bm25_meta[idx]
+        results.append({
+            "meta": meta,
+            "score": score,
+        })
+    return results
+
+
+def rrf_fuse(vec_results: list, bm25_results: list,
+             k: int = RRF_K, top_k: int = FINAL_TOP_K) -> list:
+    """Reciprocal Rank Fusion of vector and BM25 results.
+
+    Returns unified list of {meta, score} with RRF scores.
+    """
+    rrf_scores = {}  # record_idx -> {rrf, meta, vec_score, bm25_score}
+
+    for rank, result in enumerate(vec_results):
+        rec_idx = result["meta"]["idx"]
+        if rec_idx not in rrf_scores:
+            rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
+                                   "vec_score": 0.0, "bm25_score": 0.0}
+        rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
+        rrf_scores[rec_idx]["vec_score"] = result["score"]
+
+    for rank, result in enumerate(bm25_results):
+        rec_idx = result["meta"]["idx"]
+        if rec_idx not in rrf_scores:
+            rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
+                                   "vec_score": 0.0, "bm25_score": 0.0}
+        rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
+        rrf_scores[rec_idx]["bm25_score"] = result["score"]
+
+    # Sort by RRF score
+    fused = sorted(rrf_scores.values(), key=lambda x: -x["rrf"])[:top_k]
+
+    return [{
+        "meta": item["meta"],
+        "score": item["rrf"],
+        "vec_score": item["vec_score"],
+        "bm25_score": item["bm25_score"],
+    } for item in fused]
+
+
+async def hybrid_search(query: str) -> tuple:
+    """Hybrid retrieval: vector + BM25 → RRF fusion → dynamic cutoff.
+
+    Returns (search_results, is_relevant) where is_relevant indicates
+    whether results are good enough to generate an answer.
+    """
+    # Run both routes in parallel
+    vec_task = vector_search(query, top_k=RETRIEVAL_TOP_K)
+    bm25_task = asyncio.to_thread(bm25_search, query, RETRIEVAL_TOP_K)
+
+    vec_results, bm25_results = await asyncio.gather(vec_task, bm25_task)
+
+    # If BM25 not available, just use vector
+    if not bm25_results:
+        results = vec_results[:FINAL_TOP_K]
+    else:
+        results = rrf_fuse(vec_results, bm25_results)
+
+    # Dynamic cutoff: check if best result is relevant enough
+    is_relevant = False
+    if results:
+        best_vec_score = max((r.get("vec_score", 0) for r in results), default=0)
+        has_bm25_hit = any(r.get("bm25_score", 0) > 0 for r in results)
+        # Relevant if vector score is decent OR BM25 found something
+        is_relevant = best_vec_score >= RELEVANCE_FLOOR or has_bm25_hit
+
+    return results, is_relevant
 
 
 def build_context(search_results: list) -> tuple:
@@ -168,6 +286,15 @@ class ChatRequest(BaseModel):
 async def lifespan(app: FastAPI):
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
+    print("[startup] Loading BM25 index...", flush=True)
+    load_bm25_index()
+
+    # Load jieba custom dictionary for query tokenization
+    if JIEBA_DICT.exists():
+        import jieba
+        jieba.load_userdict(str(JIEBA_DICT))
+        print("[startup] Jieba custom dict loaded", flush=True)
+
     load_records()
     print(f"[startup] Records loaded: {len(_records)}", flush=True)
     print("[startup] Ready!", flush=True)
@@ -195,7 +322,9 @@ async def health():
         "status": "ok",
         "model": MODEL_NAME,
         "vector_index_ready": _vector_index is not None,
+        "bm25_ready": _bm25_index is not None,
         "indexed_records": len(_index_meta) if _index_meta else 0,
+        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
         "total_records": len(_records) if _records else 0,
         "time": datetime.now().isoformat(),
     }
@@ -219,12 +348,12 @@ async def chat_stream(req: ChatRequest):
                 })}
                 return
 
-            # Vector search
-            search_results = await vector_search(req.query, top_k=20)
+            # Hybrid search (vector + BM25 → RRF)
+            search_results, is_relevant = await hybrid_search(req.query)
 
-            if not search_results:
+            if not search_results or not is_relevant:
                 yield {"event": "done", "data": json.dumps({
-                    "answer": "抱歉，数据库中没有与您问题相关的信息。",
+                    "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
                     "citations": []
                 })}
                 return
@@ -368,9 +497,11 @@ async def stats():
     return {
         "total_records": total,
         "indexed_records": indexed,
+        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
         "graph_nodes": nodes,
         "graph_edges": edges,
         "vector_index_ready": _vector_index is not None,
+        "bm25_ready": _bm25_index is not None,
         "model": MODEL_NAME,
     }
 
@@ -386,7 +517,7 @@ async def search(q: str, top_k: int = 10):
     if not q.strip():
         return {"results": [], "query": q}
 
-    results = await vector_search(q.strip(), top_k=min(top_k, 50))
+    results, is_relevant = await hybrid_search(q.strip())
     context, citations = build_context(results)
     return {
         "query": q,

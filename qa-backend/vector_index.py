@@ -1,7 +1,11 @@
 """
-Fast vector index builder for all records.
-Creates a numpy-based cosine similarity index of all 58K records.
-This runs in ~30-60 minutes (embedding time only, no LLM calls).
+Vector index builder — v2 (canonical set + refined embedding text).
+
+Builds a numpy cosine-similarity index from the canonical record set:
+  valid category AND dp != 1 (non-duplicate).
+
+Embedding text = leaf category + title + tags + type + key params + AI summary.
+No body text (BM25 handles full-text keyword matching). No truncation.
 """
 import json, sys, time, asyncio, pickle, os
 import numpy as np
@@ -14,50 +18,67 @@ from config import embedding_func, EMBEDDING_DIM
 
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
 INDEX_DIR = REPO / "data" / "lightrag"
-INDEX_FILE = INDEX_DIR / "vector_index.pkl"
+INDEX_FILE = INDEX_DIR / "vector_index_v2.pkl"
 
-BATCH_SIZE = 128  # Embedding batch size (larger = faster on CPU)
+BATCH_SIZE = 64  # Reduced from 128 to avoid memory pressure
+
+# Categories excluded from the canonical set
+IRRELEVANT_CATS = {"不相关", "未分类", "手动导入", ""}
 
 
 def format_record_text(rec: dict) -> str:
-    """Format a record into text for embedding. Keep it SHORT for speed."""
-    title = rec.get("t", "") or ""
-    ai_summary = rec.get("as", "") or ""
-    body = rec.get("b", "") or rec.get("fb", "") or ""
+    """Format a record into concise, high-signal text for dense embedding.
+
+    Composition (no truncation, no body):
+      [leaf_category] title [tags] [type] key_params ai_summary
+    """
+    parts = []
+
     cat = rec.get("c", "") or ""
+    if cat and cat not in IRRELEVANT_CATS:
+        leaf = cat.split("/")[-1]
+        if leaf:
+            parts.append(f"[{leaf}]")
 
-    # Use title + AI summary (preferred) or truncated body
-    # Keep text short for fast embedding (~100-200 chars)
-    if ai_summary:
-        text = f"{title} {ai_summary[:200]}"
-    elif body:
-        text = f"{title} {body[:200]}"
-    else:
-        text = title
+    title = rec.get("t", "") or ""
+    if title:
+        parts.append(title)
 
-    if cat:
-        text = f"[{cat}] {text}"
+    tg = rec.get("tg", "") or ""
+    if tg:
+        parts.append(f"[{tg}]")
 
-    return text[:300]  # Hard cap at 300 chars
+    tp = rec.get("tp", "") or ""
+    if tp:
+        parts.append(f"[{tp}]")
+
+    kp = rec.get("kp", []) or []
+    if isinstance(kp, list) and kp:
+        parts.append("; ".join(str(k) for k in kp))
+
+    as_text = rec.get("as", "") or ""
+    if as_text:
+        parts.append(as_text)
+
+    return " ".join(parts)
 
 
 async def build_index():
     print(f"[1/3] Loading records from {LITE.name}...", flush=True)
     data = json.loads(LITE.read_text("utf-8"))
-    print(f"  Total records: {len(data)}", flush=True)
-    
-    # Filter relevant records
+    print(f"  Total records in file: {len(data)}", flush=True)
+
+    # Build canonical set: valid category AND dp != 1 (non-duplicate)
     records = []
     for i, rec in enumerate(data):
         cat = rec.get("c", "")
-        if not cat or cat in ("不相关", "未分类", ""):
+        dp = rec.get("dp", 0)
+        if cat in IRRELEVANT_CATS or dp == 1:
             continue
         records.append((i, rec))
-    
-    print(f"  Relevant records: {len(records)}", flush=True)
-    
-    # Check for existing progress
-    texts_file = INDEX_DIR / "index_texts.json"
+
+    print(f"  Canonical set (valid & non-dup): {len(records)}", flush=True)
+
     if INDEX_FILE.exists():
         print("  Index already exists. Checking...", flush=True)
         try:
@@ -69,7 +90,7 @@ async def build_index():
             print(f"  Index has {len(saved['embeddings'])}/{len(records)} records. Rebuilding...", flush=True)
         except Exception:
             print("  Index corrupted. Rebuilding...", flush=True)
-    
+
     print(f"\n[2/3] Embedding {len(records)} records (batch_size={BATCH_SIZE})...", flush=True)
     
     all_embeddings = []
