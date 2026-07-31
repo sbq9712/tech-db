@@ -46,3 +46,9 @@ scripts/gen_summaries_serial.py
 
 # One-off report orchestration script (already executed, kept locally only)
 scripts/gen_all_reports.sh
+
+# Node modules
+node_modules/
+
+# LightRAG data (large, not for git)
+data/lightrag/
