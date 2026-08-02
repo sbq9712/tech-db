@@ -131,7 +131,23 @@ def _get_model():
         import torch
         torch.set_num_threads(max(torch.get_num_threads(), 10))
         from sentence_transformers import SentenceTransformer
-        _MODEL = SentenceTransformer("/home/rhett/bge-m3-model", device="cpu")
+        # 查找模型路径：优先项目目录，其次 home 目录
+        model_candidates = [
+            REPO / "bge-m3-model",
+            Path.home() / "bge-m3-model",
+            Path("/home/rhett/bge-m3-model"),
+        ]
+        model_path = None
+        for p in model_candidates:
+            if (p / "pytorch_model.bin").exists() or (p / "model.safetensors").exists():
+                model_path = str(p)
+                break
+        if not model_path:
+            raise RuntimeError(
+                "bge-m3 模型未找到。请运行 ./setup.sh 下载模型，"
+                "或手动从 https://huggingface.co/BAAI/bge-m3 下载到项目根目录的 bge-m3-model/ 文件夹"
+            )
+        _MODEL = SentenceTransformer(model_path, device="cpu")
     return _MODEL
 
 async def _embedding_func_impl(texts: list) -> list:

@@ -50,5 +50,14 @@ scripts/gen_all_reports.sh
 # Node modules
 node_modules/
 
-# LightRAG data (large, not for git)
-data/lightrag/
+# LightRAG data: include small files + compressed indexes, exclude raw/large
+data/lightrag/*.pkl
+data/lightrag/*.log
+data/lightrag/concurrent_progress.json
+data/lightrag/ingest_progress.json
+data/lightrag/expand_graph.log
+data/lightrag/kv_store_*.json
+data/lightrag/vdb_*.json
+data/lightrag/graph_chunk_entity_relation.graphml
+data/lightrag/graph-export-backup.json
+data/lightrag/index_texts.json
