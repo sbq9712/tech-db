@@ -134,7 +134,7 @@ async def call_glm_api(prompt: str, semaphore: asyncio.Semaphore, max_retries: i
             "model": MODEL_NAME,
             "messages": messages,
             "temperature": 0.3,
-            "max_tokens": 4096,
+            "max_tokens": 8192,
         }
         data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
@@ -240,13 +240,14 @@ def format_record(record: dict) -> str:
 
 
 class GraphBuilder:
-    """Accumulates graph data with deduplication."""
+    """Accumulates graph data with deduplication and entity→record mapping."""
 
     def __init__(self):
         self.nodes = {}  # name -> {id, label, type, description, degree}
         self.edges = {}  # (source, target) -> {source, target, label, descriptions}
+        self.entity_to_records = {}  # entity_name -> set of record indices
 
-    def add_entities(self, entities: list):
+    def add_entities(self, entities: list, record_idx: int = None):
         for e in entities:
             name = e.get("name", "").strip()
             if not name or len(name) > 50:
@@ -267,7 +268,13 @@ class GraphBuilder:
                 if desc and len(desc) > len(self.nodes[name].get("description", "")):
                     self.nodes[name]["description"] = desc
 
-    def add_relations(self, relations: list):
+            # Track entity → record mapping
+            if record_idx is not None:
+                if name not in self.entity_to_records:
+                    self.entity_to_records[name] = set()
+                self.entity_to_records[name].add(record_idx)
+
+    def add_relations(self, relations: list, record_idx: int = None):
         for r in relations:
             try:
                 source = r.get("source", "").strip() if isinstance(r, dict) else ""
@@ -300,12 +307,6 @@ class GraphBuilder:
             except Exception:
                 continue
 
-            # Increment degree
-            if source in self.nodes:
-                self.nodes[source]["degree"] += 1
-            if target in self.nodes:
-                self.nodes[target]["degree"] += 1
-
     def merge(self, other: "GraphBuilder"):
         """Merge another builder into this one."""
         for name, node in other.nodes.items():
@@ -322,6 +323,12 @@ class GraphBuilder:
             else:
                 self.edges[key].setdefault("descriptions", []).extend(edge.get("descriptions", []))
 
+        # Merge entity→record mapping
+        for entity, recs in other.entity_to_records.items():
+            if entity not in self.entity_to_records:
+                self.entity_to_records[entity] = set()
+            self.entity_to_records[entity].update(recs)
+
     def export(self) -> dict:
         """Export to graph-export.json format."""
         nodes = list(self.nodes.values())
@@ -333,7 +340,9 @@ class GraphBuilder:
                 "label": edge.get("label", "相关"),
             }
             edges.append(e)
-        return {"nodes": nodes, "edges": edges}
+        # Convert entity_to_records sets to lists for JSON serialization
+        e2r = {k: sorted(list(v)) for k, v in self.entity_to_records.items()}
+        return {"nodes": nodes, "edges": edges, "entity_to_records": e2r}
 
     @property
     def node_count(self):
@@ -345,15 +354,25 @@ class GraphBuilder:
 
 
 def load_records(filter_ai_curated: bool = True, max_records: int = 0):
-    """Load records from all-records-lite.json."""
+    """Load canonical records (AI精选 ∪ 精选情报, deduplicated) from all-records-lite.json.
+
+    Filter: (aip==1 OR lv>0) AND dp!=1 AND valid category.
+    Returns list of (original_index, record_dict) tuples.
+    """
     raw = json.load(open(REPO / "data" / "processed" / "all-records-lite.json", encoding="utf-8"))
-    records = raw if isinstance(raw, list) else raw.get("records", [])
+    all_records = raw if isinstance(raw, list) else raw.get("records", [])
 
-    if filter_ai_curated:
-        records = [r for r in records if r.get("lv", 0) > 0]
-
-    # Exclude irrelevant categories
-    records = [r for r in records if r.get("c", "") not in ("不相关", "未分类")]
+    IRRELEVANT = {"不相关", "未分类", "手动导入", ""}
+    records = []
+    for i, r in enumerate(all_records):
+        cat = r.get("c", "")
+        dp = r.get("dp", 0)
+        aip = r.get("aip", 0)
+        lv = r.get("lv", 0)
+        if cat in IRRELEVANT or dp == 1:
+            continue
+        if aip == 1 or lv > 0:
+            records.append((i, r))
 
     if max_records > 0:
         records = records[:max_records]
@@ -419,7 +438,7 @@ async def process_batch(batch: list, batch_idx: int, semaphore: asyncio.Semaphor
 async def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--concurrency", type=int, default=3, help="Max concurrent API calls")
+    parser.add_argument("--concurrency", type=int, default=5, help="Max concurrent API calls")
     parser.add_argument("--max", type=int, default=0, help="Max records to process (0=all)")
     parser.add_argument("--rps", type=float, default=0, help="Max requests per second (0=unlimited)")
     args = parser.parse_args()
@@ -432,12 +451,12 @@ async def main():
     # Load records
     print("\n[1/3] Loading AI-curated records...", flush=True)
     records = load_records(filter_ai_curated=True, max_records=args.max)
-    print(f"  Found {len(records)} AI-curated records", flush=True)
+    print(f"  Found {len(records)} canonical records (AI精选 ∪ 精选情报, deduplicated)", flush=True)
 
     # Load progress
     progress = load_progress()
     done_titles = set(progress["done_titles"])
-    records = [r for r in records if r.get("t", "") not in done_titles]
+    records = [(idx, r) for idx, r in records if r.get("t", "") not in done_titles]
     print(f"  Already processed: {len(done_titles)}", flush=True)
     print(f"  Remaining: {len(records)}", flush=True)
 
@@ -468,16 +487,16 @@ async def main():
     save_interval_records = 50
     last_save_at = 0
 
-    # Build work queue
+    # Build work queue (records are (original_index, record_dict) tuples)
     queue = asyncio.Queue()
-    for record in records:
-        await queue.put(record)
+    for rec_tuple in records:
+        await queue.put(rec_tuple)
 
     async def worker(worker_id: int):
         nonlocal processed_count, success_count, error_count, last_save_at
         while True:
             try:
-                record = queue.get_nowait()
+                rec_idx, record = queue.get_nowait()
             except asyncio.QueueEmpty:
                 break
 
@@ -495,8 +514,8 @@ async def main():
 
             async with lock:
                 if entities or relations:
-                    builder.add_entities(entities)
-                    builder.add_relations(relations)
+                    builder.add_entities(entities, record_idx=rec_idx)
+                    builder.add_relations(relations, record_idx=rec_idx)
                     success_count += 1
                 else:
                     error_count += 1
