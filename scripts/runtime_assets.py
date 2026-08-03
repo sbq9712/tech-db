@@ -132,7 +132,10 @@ def safe_extract(archive: Path, destination: Path) -> None:
                 raise AssetError(f"Unsafe path in archive: {member.name}")
             if member.issym() or member.islnk():
                 raise AssetError(f"Links are not allowed in runtime archive: {member.name}")
-        bundle.extractall(destination, members=members)
+        if hasattr(tarfile, "data_filter"):
+            bundle.extractall(destination, members=members, filter="data")
+        else:  # Python 3.11 builds before extraction filters were backported.
+            bundle.extractall(destination, members=members)
 
 
 def combine_parts(parts: list[Path], destination: Path) -> None:
