@@ -33,11 +33,13 @@ jobs:
           OLD_TREE="$(git rev-parse HEAD^{tree})"
           CURRENT_COUNT="$(git rev-list --count HEAD)"
           RUNTIME_PATTERN='^data/lightrag/(bm25_index|graph-export|jieba_custom_dict|vector_index)'
+          PATH_LIST="$(mktemp)"
 
           if [ "$CURRENT_COUNT" -le 30 ]; then
             found=0
             for commit in $(git rev-list HEAD); do
-              if git ls-tree -r --name-only "$commit" | grep -Eq "$RUNTIME_PATTERN"; then
+              git ls-tree -r --name-only "$commit" > "$PATH_LIST"
+              if grep -Eq "$RUNTIME_PATTERN" "$PATH_LIST"; then
                 found=1
                 break
               fi
@@ -49,7 +51,7 @@ jobs:
           fi
 
           test "$(git rev-list --first-parent --since="$CUTOFF" --merges HEAD | wc -l)" -eq 0
-          FIRST_RECENT="$(git rev-list --first-parent --reverse --since="$CUTOFF" HEAD | head -1)"
+          FIRST_RECENT="$(git rev-list --first-parent --reverse --since="$CUTOFF" HEAD | sed -n '1p')"
           test -n "$FIRST_RECENT"
           BOUNDARY="$(git rev-parse "$FIRST_RECENT^")"
           INDEX_DIR="$(mktemp -d)"
@@ -101,7 +103,8 @@ jobs:
           test "$(git rev-parse "$NEW_TIP^{tree}")" = "$OLD_TREE"
           test "$(git rev-list --count "$NEW_TIP")" -le 30
           for commit in $(git rev-list "$NEW_TIP"); do
-            if git ls-tree -r --name-only "$commit" | grep -Eq "$RUNTIME_PATTERN"; then
+            git ls-tree -r --name-only "$commit" > "$PATH_LIST"
+            if grep -Eq "$RUNTIME_PATTERN" "$PATH_LIST"; then
               echo "Runtime asset remains reachable from $commit" >&2
               exit 1
             fi
