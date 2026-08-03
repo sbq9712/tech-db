@@ -53,6 +53,8 @@ _bm25_index = None    # BM25Okapi instance
 _bm25_meta = None     # BM25 metadata list
 _bm25_corpus = None   # tokenized corpus for BM25
 _records = None       # full records from all-records-lite.json
+_graph_data = None    # graph-export.json data (nodes, edges, entity_to_records)
+_entity_index = None  # entity_name -> list of record indices
 
 # ── RRF parameters ──
 RRF_K = 60          # RRF constant (1/(rank+k))
@@ -94,6 +96,24 @@ def load_bm25_index():
         print(f"[startup] BM25 index loaded: {len(_bm25_meta)} documents", flush=True)
     else:
         print(f"[startup] BM25 index not found (hybrid search disabled)", flush=True)
+
+
+def load_graph_index():
+    """Load knowledge graph with entity→record mapping."""
+    global _graph_data, _entity_index
+    if _graph_data is not None:
+        return
+    graph_file = WORKING_DIR / "graph-export.json"
+    if graph_file.exists():
+        print(f"[startup] Loading knowledge graph...", flush=True)
+        _graph_data = json.loads(graph_file.read_text("utf-8"))
+        e2r = _graph_data.get("entity_to_records", {})
+        _entity_index = {k: set(v) for k, v in e2r.items()}
+        print(f"[startup] Graph loaded: {len(_graph_data.get('nodes',[]))} nodes, "
+              f"{len(_graph_data.get('edges',[]))} edges, "
+              f"{len(_entity_index)} entity→record mappings", flush=True)
+    else:
+        print(f"[startup] Knowledge graph not found (graph search disabled)", flush=True)
 
 
 def load_records():
@@ -157,29 +177,29 @@ def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
     return results
 
 
-def rrf_fuse(vec_results: list, bm25_results: list,
+def rrf_fuse(vec_results: list, bm25_results: list, graph_results: list = None,
              k: int = RRF_K, top_k: int = FINAL_TOP_K) -> list:
-    """Reciprocal Rank Fusion of vector and BM25 results.
+    """Reciprocal Rank Fusion of multiple result lists.
 
     Returns unified list of {meta, score} with RRF scores.
     """
-    rrf_scores = {}  # record_idx -> {rrf, meta, vec_score, bm25_score}
+    rrf_scores = {}  # record_idx -> {rrf, meta, vec_score, bm25_score, graph_score}
+    all_routes = [
+        ("vec", vec_results, "vec_score"),
+        ("bm25", bm25_results, "bm25_score"),
+    ]
+    if graph_results:
+        all_routes.append(("graph", graph_results, "graph_score"))
 
-    for rank, result in enumerate(vec_results):
-        rec_idx = result["meta"]["idx"]
-        if rec_idx not in rrf_scores:
-            rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
-                                   "vec_score": 0.0, "bm25_score": 0.0}
-        rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
-        rrf_scores[rec_idx]["vec_score"] = result["score"]
-
-    for rank, result in enumerate(bm25_results):
-        rec_idx = result["meta"]["idx"]
-        if rec_idx not in rrf_scores:
-            rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
-                                   "vec_score": 0.0, "bm25_score": 0.0}
-        rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
-        rrf_scores[rec_idx]["bm25_score"] = result["score"]
+    for route_name, results, score_key in all_routes:
+        for rank, result in enumerate(results):
+            rec_idx = result["meta"]["idx"]
+            if rec_idx not in rrf_scores:
+                rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
+                                       "vec_score": 0.0, "bm25_score": 0.0,
+                                       "graph_score": 0.0}
+            rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
+            rrf_scores[rec_idx][score_key] = result["score"]
 
     # Sort by RRF score
     fused = sorted(rrf_scores.values(), key=lambda x: -x["rrf"])[:top_k]
@@ -189,34 +209,100 @@ def rrf_fuse(vec_results: list, bm25_results: list,
         "score": item["rrf"],
         "vec_score": item["vec_score"],
         "bm25_score": item["bm25_score"],
+        "graph_score": item.get("graph_score", 0),
     } for item in fused]
 
 
+def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Graph-based retrieval: match entities in query → get associated records.
+
+    Uses jieba posseg to extract entities from query, matches against
+    graph node names, then retrieves associated records via entity_to_records.
+    """
+    if _entity_index is None:
+        return []
+
+    import jieba.posseg as pseg
+
+    # Extract potential entities from query using POS tagging
+    words = pseg.cut(query)
+    query_terms = []
+    for word, flag in words:
+        word = word.strip()
+        if len(word) >= 2 and flag in ('n', 'nr', 'ns', 'nt', 'nz', 'vn', 'eng'):
+            query_terms.append(word)
+
+    # Also try exact match of full query substrings against entity names
+    # (handles multi-word entities like "磷酸铁锂")
+    # Check each entity name: is it a substring of the query?
+    matched_entities = set()
+    for entity_name in _entity_index:
+        if entity_name in query:
+            matched_entities.add(entity_name)
+    # Also check: is any query term a substring of an entity name?
+    for term in query_terms:
+        for entity_name in _entity_index:
+            if term in entity_name or entity_name in term:
+                matched_entities.add(entity_name)
+
+    if not matched_entities:
+        return []
+
+    # Score records: each matched entity contributes 1.0/hop (hop=0 for direct)
+    record_scores = {}  # record_idx -> score
+    for entity in matched_entities:
+        for rec_idx in _entity_index.get(entity, set()):
+            if rec_idx not in record_scores:
+                record_scores[rec_idx] = 0.0
+            record_scores[rec_idx] += 1.0
+
+    # Sort by score (more matched entities = higher score)
+    sorted_records = sorted(record_scores.items(), key=lambda x: -x[1])[:top_k]
+
+    results = []
+    for rec_idx, score in sorted_records:
+        # Find meta for this record
+        meta = None
+        for m in _index_meta:
+            if m.get("idx") == rec_idx:
+                meta = m
+                break
+        if not meta:
+            for m in _bm25_meta:
+                if m.get("idx") == rec_idx:
+                    meta = m
+                    break
+        if meta:
+            results.append({"meta": meta, "score": score})
+
+    return results
+
+
 async def hybrid_search(query: str) -> tuple:
-    """Hybrid retrieval: vector + BM25 → RRF fusion → dynamic cutoff.
+    """Hybrid retrieval: vector + BM25 + graph → RRF fusion → dynamic cutoff.
 
     Returns (search_results, is_relevant) where is_relevant indicates
     whether results are good enough to generate an answer.
     """
-    # Run both routes in parallel
+    # Run all routes in parallel
     vec_task = vector_search(query, top_k=RETRIEVAL_TOP_K)
     bm25_task = asyncio.to_thread(bm25_search, query, RETRIEVAL_TOP_K)
+    graph_task = asyncio.to_thread(graph_search, query, RETRIEVAL_TOP_K)
 
-    vec_results, bm25_results = await asyncio.gather(vec_task, bm25_task)
+    vec_results, bm25_results, graph_results = await asyncio.gather(
+        vec_task, bm25_task, graph_task
+    )
 
-    # If BM25 not available, just use vector
-    if not bm25_results:
-        results = vec_results[:FINAL_TOP_K]
-    else:
-        results = rrf_fuse(vec_results, bm25_results)
+    # Fuse via RRF
+    results = rrf_fuse(vec_results, bm25_results, graph_results if graph_results else None)
 
     # Dynamic cutoff: check if best result is relevant enough
     is_relevant = False
     if results:
         best_vec_score = max((r.get("vec_score", 0) for r in results), default=0)
         has_bm25_hit = any(r.get("bm25_score", 0) > 0 for r in results)
-        # Relevant if vector score is decent OR BM25 found something
-        is_relevant = best_vec_score >= RELEVANCE_FLOOR or has_bm25_hit
+        has_graph_hit = any(r.get("graph_score", 0) > 0 for r in results)
+        is_relevant = best_vec_score >= RELEVANCE_FLOOR or has_bm25_hit or has_graph_hit
 
     return results, is_relevant
 
@@ -288,6 +374,9 @@ async def lifespan(app: FastAPI):
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
     load_bm25_index()
+
+    print("[startup] Loading knowledge graph...", flush=True)
+    load_graph_index()
 
     # Load jieba custom dictionary for query tokenization
     if JIEBA_DICT.exists():
