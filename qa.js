@@ -860,6 +860,9 @@ function switchToQAView() {
     initQAView();
     qaState._initialized = true;
   }
+
+  // Ensure proper visibility state
+  renderMessages();
 }
 
 function switchFromQAView() {
