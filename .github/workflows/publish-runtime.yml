@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: runtime-v1-release
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout current and parent snapshots
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 3
 
       - name: Check whether the complete runtime Release already exists
         id: existing
@@ -50,12 +50,16 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p runtime/indexes dist
-          git show HEAD^:data/lightrag/vector_index_v2.pkl.gz > /tmp/vector_index_v2.pkl.gz
-          git show HEAD^:data/lightrag/bm25_index.pkl.gz > /tmp/bm25_index.pkl.gz
+          SOURCE_REF=HEAD^
+          if ! git cat-file -e "$SOURCE_REF:data/lightrag/vector_index_v2.pkl.gz"; then
+            SOURCE_REF=HEAD^^
+          fi
+          git show "$SOURCE_REF:data/lightrag/vector_index_v2.pkl.gz" > /tmp/vector_index_v2.pkl.gz
+          git show "$SOURCE_REF:data/lightrag/bm25_index.pkl.gz" > /tmp/bm25_index.pkl.gz
           gzip -dc /tmp/vector_index_v2.pkl.gz > runtime/indexes/vector_index_v2.pkl
           gzip -dc /tmp/bm25_index.pkl.gz > runtime/indexes/bm25_index.pkl
-          git show HEAD^:data/lightrag/graph-export.json > runtime/indexes/graph-export.json
-          git show HEAD^:data/lightrag/jieba_custom_dict.txt > runtime/indexes/jieba_custom_dict.txt
+          git show "$SOURCE_REF:data/lightrag/graph-export.json" > runtime/indexes/graph-export.json
+          git show "$SOURCE_REF:data/lightrag/jieba_custom_dict.txt" > runtime/indexes/jieba_custom_dict.txt
           tar -C runtime -czf dist/tech-db-indexes.tar.gz indexes
 
       - name: Download pinned bge-m3 snapshot
@@ -70,8 +74,10 @@ jobs:
               "BAAI/bge-m3",
               revision="5617a9f61b028005a4858fdac845db406aefb181",
               local_dir="runtime/models/bge-m3",
+              ignore_patterns=["onnx/*", "imgs/*", "*.jpg"],
           )
           PY
+          test "$(du -sm runtime/models/bge-m3 | cut -f1)" -lt 3000
           tar -C runtime -czf dist/bge-m3-model.tar.gz models
           split -b 1800m -d -a 2 dist/bge-m3-model.tar.gz dist/bge-m3-model.tar.gz.part-
           rm dist/bge-m3-model.tar.gz
