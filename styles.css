@@ -2144,21 +2144,21 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 24px 8px;
-  overflow-y: auto;
+  padding: 0 24px 4px;
+  overflow: hidden;
   min-height: 0;
 }
 
 .qa-graph-container {
   width: 100%;
   max-width: 920px;
-  height: 520px;
+  flex: 1;
+  min-height: 0;
   border-radius: 12px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
-  flex-shrink: 0;
 }
 .qa-graph-container canvas {
   display: block;
