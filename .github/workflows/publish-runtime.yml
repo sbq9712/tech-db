@@ -24,7 +24,7 @@ jobs:
       - name: Checkout current and parent snapshots
         uses: actions/checkout@v4
         with:
-          fetch-depth: 3
+          fetch-depth: 20
 
       - name: Check whether the complete runtime Release already exists
         id: existing
@@ -50,10 +50,14 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p runtime/indexes dist
-          SOURCE_REF=HEAD^
-          if ! git cat-file -e "$SOURCE_REF:data/lightrag/vector_index_v2.pkl.gz"; then
-            SOURCE_REF=HEAD^^
-          fi
+          SOURCE_REF=""
+          for candidate in $(git rev-list --max-count=20 HEAD -- data/lightrag/vector_index_v2.pkl.gz); do
+            if git cat-file -e "$candidate:data/lightrag/vector_index_v2.pkl.gz"; then
+              SOURCE_REF="$candidate"
+              break
+            fi
+          done
+          test -n "$SOURCE_REF"
           git show "$SOURCE_REF:data/lightrag/vector_index_v2.pkl.gz" > /tmp/vector_index_v2.pkl.gz
           git show "$SOURCE_REF:data/lightrag/bm25_index.pkl.gz" > /tmp/bm25_index.pkl.gz
           gzip -dc /tmp/vector_index_v2.pkl.gz > runtime/indexes/vector_index_v2.pkl
@@ -87,12 +91,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/offline/tech-db
-          rsync -a ./ /tmp/offline/tech-db/ \
-            --exclude .git --exclude .venv --exclude node_modules \
-            --exclude runtime --exclude dist --exclude .env
-          cp -a runtime /tmp/offline/tech-db/runtime
-          tar -C /tmp/offline -czf dist/tech-db-offline.tar.gz tech-db
+          tar --transform='s,^\.,tech-db,' \
+            --exclude='./.git' --exclude='./.venv' --exclude='./node_modules' \
+            --exclude='./dist' --exclude='./.env' \
+            -czf dist/tech-db-offline.tar.gz .
           split -b 1800m -d -a 2 dist/tech-db-offline.tar.gz dist/tech-db-offline.tar.gz.part-
           rm dist/tech-db-offline.tar.gz
 
