@@ -5,7 +5,7 @@
  */
 
 // ── Config ──
-const QA_API_BASE = 'https://providers-armor-kruger-literary.trycloudflare.com';
+const QA_API_BASE = 'https://paying-liked-desktop-net.trycloudflare.com';
 
 // ── State ──
 const qaState = {
