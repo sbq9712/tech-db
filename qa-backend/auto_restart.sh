@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Auto-restart server when vector index is updated
 # Run this in background: nohup ./auto_restart.sh &
 
-INDEX_FILE="/home/rhett/tech-db-fresh/data/lightrag/vector_index.pkl"
-PID_FILE="/tmp/qa_server.pid"
+set -euo pipefail
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RUNTIME_DIR="${TECH_DB_RUNTIME_DIR:-$PROJECT_DIR/runtime}"
+INDEX_FILE="$RUNTIME_DIR/indexes/vector_index_v2.pkl"
+PID_FILE="$RUNTIME_DIR/state/qa_server.pid"
+mkdir -p "$RUNTIME_DIR/state"
 
 while true; do
     # Check if server is running
@@ -11,13 +15,13 @@ while true; do
         PID=$(cat "$PID_FILE")
         if ! kill -0 "$PID" 2>/dev/null; then
             echo "$(date): Server not running, starting..."
-            cd /home/rhett/tech-db-fresh
+            cd "$PROJECT_DIR"
             .venv/bin/python qa-backend/server.py &
             echo $! > "$PID_FILE"
         fi
     else
         echo "$(date): Starting server..."
-        cd /home/rhett/tech-db-fresh
+        cd "$PROJECT_DIR"
         .venv/bin/python qa-backend/server.py &
         echo $! > "$PID_FILE"
     fi

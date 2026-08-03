@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Wait for vector index to be ready, then start the server
-INDEX_FILE="/home/rhett/tech-db-fresh/data/lightrag/vector_index.pkl"
+set -euo pipefail
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RUNTIME_DIR="${TECH_DB_RUNTIME_DIR:-$PROJECT_DIR/runtime}"
+INDEX_FILE="$RUNTIME_DIR/indexes/vector_index_v2.pkl"
 
 echo "Waiting for vector index to be built..."
 echo "Checking: $INDEX_FILE"
@@ -21,5 +24,5 @@ done
 echo "$(date): Vector index is ready! ($SIZE bytes)"
 echo "Starting server..."
 
-cd /home/rhett/tech-db-fresh
+cd "$PROJECT_DIR"
 .venv/bin/python qa-backend/server.py

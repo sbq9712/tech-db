@@ -205,6 +205,7 @@ def _policy_keywords_specific(text: str) -> set:
     if not text:
         return set()
     return {kw for kw in _POLICY_KW_SPECIFIC if kw in text}
+RELEASE_POSITIVE = re.compile(r"(?:发布|上线|推出|开放|开源|可用|预告|即将|将于|亮相)")
 RELEASE_NEGATIVE = re.compile(r"(?:泄露|曝光|传闻|实测|评测|作弊|叫停|延期|研究员|能力评价|基准测试)")
 
 

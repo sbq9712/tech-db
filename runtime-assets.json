@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "repository": "sbq9712/tech-db",
+  "release_tag": "runtime-v1",
+  "checksum_asset": "SHA256SUMS",
+  "components": {
+    "indexes": {
+      "asset": "tech-db-indexes.tar.gz",
+      "required_files": [
+        "indexes/vector_index_v2.pkl",
+        "indexes/bm25_index.pkl",
+        "indexes/graph-export.json",
+        "indexes/jieba_custom_dict.txt"
+      ]
+    },
+    "model": {
+      "asset_prefix": "bge-m3-model.tar.gz.part-",
+      "required_any": [
+        "models/bge-m3/model.safetensors",
+        "models/bge-m3/pytorch_model.bin"
+      ]
+    }
+  }
+}

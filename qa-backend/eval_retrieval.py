@@ -13,7 +13,9 @@ from rank_bm25 import BM25Okapi
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-INDEX_DIR = REPO / "data" / "lightrag"
+from config import WORKING_DIR
+
+INDEX_DIR = WORKING_DIR
 VECTOR_FILE = INDEX_DIR / "vector_index_v2.pkl"
 BM25_FILE = INDEX_DIR / "bm25_index.pkl"
 DICT_FILE = INDEX_DIR / "jieba_custom_dict.txt"

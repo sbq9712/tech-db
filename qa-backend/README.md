@@ -27,7 +27,7 @@ qa-backend/
 ├── start_server.sh      # 启动服务器
 ├── watch_and_restart.sh # 监控索引构建并自动重启
 ├── expand_graph.sh      # 索引完成后自动扩展知识图谱
-└── data/lightrag/
+└── runtime/indexes/
     ├── vector_index.pkl     # 向量索引 (numpy)
     └── graph-export.json    # 知识图谱数据
 ```
@@ -36,7 +36,7 @@ qa-backend/
 
 ### 1. 构建向量索引
 ```bash
-cd /home/rhett/tech-db-fresh
+./setup.sh
 .venv/bin/python qa-backend/vector_index.py
 ```
 预计耗时: 6-8 小时 (40K 记录, CPU)
@@ -44,7 +44,6 @@ cd /home/rhett/tech-db-fresh
 
 ### 2. 启动服务器
 ```bash
-cd /home/rhett/tech-db-fresh
 .venv/bin/python qa-backend/server.py
 ```
 服务器运行在 http://localhost:8765
@@ -52,7 +51,6 @@ cd /home/rhett/tech-db-fresh
 ### 3. 访问前端
 前端文件在项目根目录,通过 HTTP 服务器访问:
 ```bash
-cd /home/rhett/tech-db-fresh
 python3 -m http.server 8097
 ```
 然后打开 http://localhost:8097, 点击"数据库问答"标签

@@ -296,7 +296,7 @@ async def export_graph_data(rag):
                 })
 
     graph_json = {"nodes": nodes, "edges": edges}
-    output_file = REPO / "data" / "lightrag" / "graph-export.json"
+    output_file = WORKING_DIR / "graph-export.json"
     output_file.write_text(json.dumps(graph_json, ensure_ascii=False), "utf-8")
     print(f"  Graph exported: {len(nodes)} nodes, {len(edges)} edges", flush=True)
     print(f"  Saved to: {output_file}", flush=True)

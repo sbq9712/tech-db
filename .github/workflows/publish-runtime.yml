@@ -1,0 +1,131 @@
+name: Publish runtime assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - runtime-assets.json
+      - scripts/runtime_assets.py
+      - .github/workflows/publish-runtime.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: runtime-v1-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout current and parent snapshots
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check whether the complete runtime Release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          names="$(gh release view runtime-v1 --json assets --jq '.assets[].name' 2>/dev/null || true)"
+          if grep -qx 'SHA256SUMS' <<<"$names" \
+            && grep -qx 'tech-db-indexes.tar.gz' <<<"$names" \
+            && grep -q '^bge-m3-model.tar.gz.part-' <<<"$names" \
+            && grep -q '^tech-db-offline.tar.gz.part-' <<<"$names"; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "runtime-v1 is already complete; keeping the immutable assets."
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Prepare current search indexes from the parent snapshot
+        if: steps.existing.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p runtime/indexes dist
+          git show HEAD^:data/lightrag/vector_index_v2.pkl.gz > /tmp/vector_index_v2.pkl.gz
+          git show HEAD^:data/lightrag/bm25_index.pkl.gz > /tmp/bm25_index.pkl.gz
+          gzip -dc /tmp/vector_index_v2.pkl.gz > runtime/indexes/vector_index_v2.pkl
+          gzip -dc /tmp/bm25_index.pkl.gz > runtime/indexes/bm25_index.pkl
+          git show HEAD^:data/lightrag/graph-export.json > runtime/indexes/graph-export.json
+          git show HEAD^:data/lightrag/jieba_custom_dict.txt > runtime/indexes/jieba_custom_dict.txt
+          tar -C runtime -czf dist/tech-db-indexes.tar.gz indexes
+
+      - name: Download pinned bge-m3 snapshot
+        if: steps.existing.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check huggingface_hub
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(
+              "BAAI/bge-m3",
+              revision="5617a9f61b028005a4858fdac845db406aefb181",
+              local_dir="runtime/models/bge-m3",
+          )
+          PY
+          tar -C runtime -czf dist/bge-m3-model.tar.gz models
+          split -b 1800m -d -a 2 dist/bge-m3-model.tar.gz dist/bge-m3-model.tar.gz.part-
+          rm dist/bge-m3-model.tar.gz
+
+      - name: Build complete offline migration package
+        if: steps.existing.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/offline/tech-db
+          rsync -a ./ /tmp/offline/tech-db/ \
+            --exclude .git --exclude .venv --exclude node_modules \
+            --exclude runtime --exclude dist --exclude .env
+          cp -a runtime /tmp/offline/tech-db/runtime
+          tar -C /tmp/offline -czf dist/tech-db-offline.tar.gz tech-db
+          split -b 1800m -d -a 2 dist/tech-db-offline.tar.gz dist/tech-db-offline.tar.gz.part-
+          rm dist/tech-db-offline.tar.gz
+
+      - name: Create checksums and instructions
+        if: steps.existing.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd dist
+          sha256sum tech-db-indexes.tar.gz bge-m3-model.tar.gz.part-* tech-db-offline.tar.gz.part-* > SHA256SUMS
+          cat > README-OFFLINE.txt <<'EOF'
+          Tech-DB complete offline migration package
+
+          Linux/macOS:
+            cat tech-db-offline.tar.gz.part-* > tech-db-offline.tar.gz
+            tar -xzf tech-db-offline.tar.gz
+
+          Windows PowerShell:
+            $parts = Get-ChildItem tech-db-offline.tar.gz.part-* | Sort-Object Name
+            $out = [IO.File]::Create("tech-db-offline.tar.gz")
+            try { foreach ($p in $parts) { $in=[IO.File]::OpenRead($p); try {$in.CopyTo($out)} finally {$in.Dispose()} } } finally {$out.Dispose()}
+            tar -xzf tech-db-offline.tar.gz
+
+          Then copy .env.example to .env, enter your own ZAI_API_KEY, and run
+          start.cmd on Windows or ./start.sh on Linux/macOS.
+          EOF
+
+      - name: Publish or update runtime-v1 Release
+        if: steps.existing.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view runtime-v1 >/dev/null 2>&1; then
+            gh release upload runtime-v1 dist/* --clobber
+          else
+            gh release create runtime-v1 dist/* \
+              --target "$GITHUB_SHA" \
+              --title "Tech-DB Runtime v1" \
+              --notes "Versioned bge-m3 model, search indexes, checksums, and complete offline migration package. API keys are never included."
+          fi

@@ -36,8 +36,15 @@ from pydantic import BaseModel
 from sse_starlette.sse import EventSourceResponse
 
 from config import (
-    WORKING_DIR, llm_model_func, embedding_func,
+    WORKING_DIR, RUNTIME_DIR, ENV_FILE, llm_model_func, embedding_func,
     llm_stream_func, MODEL_NAME,
+)
+from guardrails import (
+    BudgetFuse,
+    GuardrailSettings,
+    RateLimiter,
+    admin_bypass,
+    client_identifier,
 )
 
 REPO = Path(__file__).resolve().parent.parent
@@ -61,6 +68,12 @@ RRF_K = 60          # RRF constant (1/(rank+k))
 RETRIEVAL_TOP_K = 50  # candidates per route
 FINAL_TOP_K = 25     # max records after fusion
 RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
+
+# ── Public-service guardrails ──
+GUARDRAILS = GuardrailSettings()
+RATE_LIMITER = RateLimiter(GUARDRAILS)
+BUDGET_FUSE = BudgetFuse(GUARDRAILS, RUNTIME_DIR / "state" / "usage.json")
+CHAT_SEMAPHORE = asyncio.Semaphore(GUARDRAILS.concurrency)
 
 
 def load_vector_index():
@@ -394,12 +407,20 @@ async def lifespan(app: FastAPI):
 # ── FastAPI App ──
 app = FastAPI(title="Tech-DB Q&A API", lifespan=lifespan)
 
+allowed_origins = [
+    origin.strip()
+    for origin in os.environ.get(
+        "QA_CORS_ORIGINS",
+        "https://sbq9712.github.io,http://localhost:8000,http://localhost:8097",
+    ).split(",")
+    if origin.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=allowed_origins,
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type", "X-Admin-Key"],
 )
 
 
@@ -410,18 +431,52 @@ async def health():
     return {
         "status": "ok",
         "model": MODEL_NAME,
+        "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
         "vector_index_ready": _vector_index is not None,
         "bm25_ready": _bm25_index is not None,
         "indexed_records": len(_index_meta) if _index_meta else 0,
         "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
         "total_records": len(_records) if _records else 0,
+        "limits": {
+            "per_minute": GUARDRAILS.per_minute,
+            "per_client_day": GUARDRAILS.per_client_day,
+            "global_day": GUARDRAILS.global_day,
+            "concurrency": GUARDRAILS.concurrency,
+        },
+        "budget": BUDGET_FUSE.status(),
         "time": datetime.now().isoformat(),
     }
 
 
 @app.post("/api/chat/stream")
-async def chat_stream(req: ChatRequest):
+async def chat_stream(req: ChatRequest, request: Request):
     """Streaming chat endpoint using SSE."""
+
+    query = req.query.strip()
+    if not query or len(query) > 2000:
+        return JSONResponse(
+            {"error": "问题不能为空，且长度不能超过 2000 个字符。"}, status_code=400
+        )
+
+    bypass = admin_bypass(GUARDRAILS.admin_key, request.headers.get("x-admin-key"))
+    socket_ip = request.client.host if request.client else "unknown"
+    client_id = client_identifier(request.headers, socket_ip)
+    allowed, reason, retry_after = RATE_LIMITER.check(client_id, bypass=bypass)
+    if not allowed:
+        return JSONResponse(
+            {"error": reason, "retry_after": retry_after},
+            status_code=429,
+            headers={"Retry-After": str(retry_after)},
+        )
+
+    try:
+        await asyncio.wait_for(CHAT_SEMAPHORE.acquire(), timeout=0.05)
+    except asyncio.TimeoutError:
+        return JSONResponse(
+            {"error": "当前问答请求较多，请稍后重试。", "retry_after": 5},
+            status_code=429,
+            headers={"Retry-After": "5"},
+        )
 
     async def event_generator():
         try:
@@ -438,7 +493,7 @@ async def chat_stream(req: ChatRequest):
                 return
 
             # Hybrid search (vector + BM25 → RRF)
-            search_results, is_relevant = await hybrid_search(req.query)
+            search_results, is_relevant = await hybrid_search(query)
 
             if not search_results or not is_relevant:
                 yield {"event": "done", "data": json.dumps({
@@ -463,6 +518,13 @@ async def chat_stream(req: ChatRequest):
             await asyncio.sleep(0.1)  # Small delay for UX
 
             # Step 3: Generation
+            budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+            if not budget_ok:
+                yield {"event": "error", "data": json.dumps({
+                    "message": "今日问答费用预算已达到上限，服务已自动暂停。"
+                })}
+                return
+
             yield {"event": "status", "data": json.dumps({
                 "step": "generating",
                 "message": "正在生成回答..."
@@ -501,7 +563,7 @@ async def chat_stream(req: ChatRequest):
             try:
                 # Stream directly from LLM
                 async for chunk in llm_stream_func(
-                    prompt=req.query,
+                    prompt=query,
                     system_prompt=system_prompt,
                     history_messages=llm_history,
                 ):
@@ -513,7 +575,7 @@ async def chat_stream(req: ChatRequest):
                 print(f"[stream-fallback] {e}", flush=True)
                 try:
                     answer = await llm_model_func(
-                        req.query,
+                        query,
                         system_prompt=system_prompt,
                         history_messages=llm_history,
                     )
@@ -537,6 +599,8 @@ async def chat_stream(req: ChatRequest):
             import traceback
             traceback.print_exc()
             yield {"event": "error", "data": json.dumps({"message": str(e)})}
+        finally:
+            CHAT_SEMAPHORE.release()
 
     return EventSourceResponse(event_generator())
 

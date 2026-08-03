@@ -1,0 +1,13 @@
+services:
+  qa:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8765:8765"
+    volumes:
+      - tech-db-runtime:/app/runtime
+    restart: unless-stopped
+
+volumes:
+  tech-db-runtime:

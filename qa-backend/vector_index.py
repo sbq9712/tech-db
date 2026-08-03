@@ -14,10 +14,10 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from config import embedding_func, EMBEDDING_DIM
+from config import embedding_func, EMBEDDING_DIM, WORKING_DIR
 
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
-INDEX_DIR = REPO / "data" / "lightrag"
+INDEX_DIR = WORKING_DIR
 INDEX_FILE = INDEX_DIR / "vector_index_v2.pkl"
 
 BATCH_SIZE = 64  # Reduced from 128 to avoid memory pressure

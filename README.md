@@ -6,13 +6,29 @@
 
 https://sbq9712.github.io/tech-db/
 
-## 本地使用（推荐）
+## 仅离线浏览数据库
 
 1. 下载整个仓库（Code → Download ZIP）
 2. 解压
 3. 双击 `index-local.html`
 
 所有数据和代码都在这一个文件里，无需安装任何软件，无需联网。
+
+AI 问答需要联网。完整的一键安装、离线迁移包和 Docker 用法见 [MIGRATION.md](MIGRATION.md)。
+
+## 一键启动数据库与 AI 问答
+
+- Windows：双击 `start.cmd`
+- Linux/macOS：运行 `./start.sh`
+- Docker：复制 `.env.example` 为 `.env` 后运行 `docker compose up --build`
+
+首次运行会从本仓库 Releases 下载固定版本的 `bge-m3` 模型和搜索索引，逐文件校验 SHA-256，并保存到不进入 Git 的 `runtime/`。GLM API Key 必须由每位部署者自行配置，绝不包含在仓库或迁移包中。
+
+## 自动检查
+
+- Windows：双击 `check.cmd`
+- Linux/macOS：运行 `./check.sh`
+- GitHub：每次 push 后自动运行同一套质量检查
 
 ## 本地开发/服务器模式
 
@@ -93,4 +109,4 @@ python3 scripts/build_local.py
 - 纯静态：HTML + CSS + JS，无框架依赖
 - 分类引擎：GLM 5.2（语义推理，非关键词匹配）
 - 字体：Outfit（数字清晰，0≠8）+ IBM Plex Mono
-- 主题：Linear 风格暗色（可切换浅色）
+- 页面：蓝白视觉基调，支持主流现代桌面和移动浏览器

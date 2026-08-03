@@ -32,6 +32,10 @@ scripts/master_fix.py
 
 # Local virtualenv (dev only)
 .venv/
+.env
+runtime/
+dist/
+bge-m3-model/
 
 # Backups of source-of-truth (local only)
 data/processed/all-records-lite.json.bak.*
@@ -60,4 +64,9 @@ data/lightrag/kv_store_*.json
 data/lightrag/vdb_*.json
 data/lightrag/graph_chunk_entity_relation.graphml
 data/lightrag/graph-export-backup.json
+data/lightrag/vector_index_v2.pkl.gz
+data/lightrag/bm25_index.pkl.gz
+data/lightrag/graph-export.json
+data/lightrag/graph-export-backup-old.json
+data/lightrag/jieba_custom_dict.txt
 data/lightrag/index_texts.json

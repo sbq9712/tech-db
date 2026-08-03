@@ -19,19 +19,24 @@ from collections import defaultdict
 
 # ── Config ──
 REPO = Path(__file__).resolve().parent.parent
-WORKING_DIR = REPO / "data" / "lightrag"
+RUNTIME_DIR = Path(os.environ.get("TECH_DB_RUNTIME_DIR", REPO / "runtime")).resolve()
+WORKING_DIR = Path(os.environ.get("TECH_DB_INDEX_DIR", RUNTIME_DIR / "indexes")).resolve()
 WORKING_DIR.mkdir(parents=True, exist_ok=True)
 
-ENV_FILE = os.path.expanduser("~/.config/anthropic-proxy.env")
-API_BASE = "https://api.z.ai/api/coding/paas/v4"
-MODEL_NAME = "glm-5.2"
+ENV_FILE = Path(os.environ.get("TECH_DB_ENV_FILE", REPO / ".env"))
+API_BASE = os.environ.get("ZAI_API_BASE", "https://api.z.ai/api/coding/paas/v4")
+MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.2")
 
 def load_api_key():
-    with open(ENV_FILE, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith("ZAI_API_KEY="):
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    key = os.environ.get("ZAI_API_KEY", "").strip()
+    if key:
+        return key
+    if ENV_FILE.is_file():
+        with ENV_FILE.open(encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("ZAI_API_KEY="):
+                    return line.split("=", 1)[1].strip().strip('"').strip("'")
     raise RuntimeError("ZAI_API_KEY not found")
 
 API_KEY = load_api_key()

@@ -12,23 +12,33 @@ from pathlib import Path
 
 # ── Paths ──
 REPO = Path(__file__).resolve().parent.parent
-WORKING_DIR = REPO / "data" / "lightrag"
+RUNTIME_DIR = Path(os.environ.get("TECH_DB_RUNTIME_DIR", REPO / "runtime")).resolve()
+WORKING_DIR = Path(os.environ.get("TECH_DB_INDEX_DIR", RUNTIME_DIR / "indexes")).resolve()
+MODEL_DIR = Path(os.environ.get("TECH_DB_MODEL_DIR", RUNTIME_DIR / "models" / "bge-m3")).resolve()
 WORKING_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── API Config ──
-ENV_FILE = os.path.expanduser("~/.config/anthropic-proxy.env")
-API_BASE = "https://api.z.ai/api/coding/paas/v4"
-MODEL_NAME = "glm-5.2"
+ENV_FILE = Path(os.environ.get("TECH_DB_ENV_FILE", REPO / ".env"))
+API_BASE = os.environ.get("ZAI_API_BASE", "https://api.z.ai/api/coding/paas/v4")
+MODEL_NAME = os.environ.get("ZAI_MODEL", "glm-5.2")
 
 def load_api_key():
-    with open(ENV_FILE, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith("ZAI_API_KEY="):
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
-    raise RuntimeError(f"ZAI_API_KEY not found in {ENV_FILE}")
-
-API_KEY = load_api_key()
+    """Read the API key lazily so health checks can start without a secret."""
+    key = os.environ.get("ZAI_API_KEY", "").strip()
+    if key:
+        return key
+    if ENV_FILE.is_file():
+        with ENV_FILE.open(encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("ZAI_API_KEY="):
+                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    if key:
+                        return key
+    raise RuntimeError(
+        "ZAI_API_KEY is not configured. Set it as an environment variable or "
+        f"copy .env.example to {ENV_FILE.name} and fill it in."
+    )
 
 
 # ── LLM Function (OpenAI-compatible, async) ──
@@ -60,7 +70,7 @@ async def llm_model_func(
         method="POST",
     )
     req.add_header("Content-Type", "application/json; charset=utf-8")
-    req.add_header("Authorization", f"Bearer {API_KEY}")
+    req.add_header("Authorization", f"Bearer {load_api_key()}")
     req.add_header("Accept", "application/json")
 
     def _do_request():
@@ -101,7 +111,7 @@ async def llm_stream_func(
     messages.append({"role": "user", "content": prompt})
 
     client = AsyncOpenAI(
-        api_key=API_KEY,
+        api_key=load_api_key(),
         base_url=API_BASE,
     )
 
@@ -131,11 +141,10 @@ def _get_model():
         import torch
         torch.set_num_threads(max(torch.get_num_threads(), 10))
         from sentence_transformers import SentenceTransformer
-        # 查找模型路径：优先项目目录，其次 home 目录
+        # Runtime assets are versioned and installed outside Git history.
         model_candidates = [
-            REPO / "bge-m3-model",
-            Path.home() / "bge-m3-model",
-            Path("/home/rhett/bge-m3-model"),
+            MODEL_DIR,
+            REPO / "bge-m3-model",  # legacy local installation
         ]
         model_path = None
         for p in model_candidates:
@@ -145,7 +154,7 @@ def _get_model():
         if not model_path:
             raise RuntimeError(
                 "bge-m3 模型未找到。请运行 ./setup.sh 下载模型，"
-                "或手动从 https://huggingface.co/BAAI/bge-m3 下载到项目根目录的 bge-m3-model/ 文件夹"
+                f"或运行 python scripts/runtime_assets.py install --components model。预期目录: {MODEL_DIR}"
             )
         _MODEL = SentenceTransformer(model_path, device="cpu")
     return _MODEL

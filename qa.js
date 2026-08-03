@@ -5,7 +5,16 @@
  */
 
 // ── Config ──
-const QA_API_BASE = 'https://paying-liked-desktop-net.trycloudflare.com';
+// Override without editing generated pages:
+//   localStorage.setItem('tech_db_qa_api', 'https://your-api.example.com')
+const QA_API_BASE = (() => {
+  const explicit = window.TECH_DB_CONFIG?.qaApiBase || localStorage.getItem('tech_db_qa_api');
+  if (explicit) return explicit.replace(/\/$/, '');
+  if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+    return 'http://localhost:8765';
+  }
+  return 'https://paying-liked-desktop-net.trycloudflare.com';
+})();
 
 // ── State ──
 const qaState = {
@@ -65,6 +74,20 @@ function initQAView() {
   // Check if graph data is available and render
   loadAndRenderGraph();
   loadStats();
+  window.addEventListener('online', updateQAConnectivity);
+  window.addEventListener('offline', updateQAConnectivity);
+  updateQAConnectivity();
+}
+
+function updateQAConnectivity() {
+  const input = qa$('qaInput');
+  const button = qa$('qaSendBtn');
+  if (!input || !button) return;
+  const offline = navigator.onLine === false;
+  input.placeholder = offline ? '数据库可离线浏览；AI 问答需要联网' : '输入你的问题...';
+  input.disabled = offline;
+  button.disabled = offline;
+  button.title = offline ? 'AI 问答需要联网' : '';
 }
 
 // ── Conversation management ──
@@ -276,6 +299,10 @@ async function sendQuestion() {
   const input = qa$('qaInput');
   const question = input.value.trim();
   if (!question || qaState.isStreaming) return;
+  if (navigator.onLine === false) {
+    showToast('数据库仍可离线浏览；AI 问答需要联网。');
+    return;
+  }
 
   // Create conversation if none exists
   if (!getActiveConversation()) {
@@ -325,6 +352,17 @@ async function sendQuestion() {
       }),
       signal: qaState.abortController.signal,
     });
+
+    if (!response.ok) {
+      let detail = {};
+      try { detail = await response.json(); } catch (_) { /* non-JSON proxy error */ }
+      const message = detail.error || `问答服务暂时不可用（HTTP ${response.status}）`;
+      if (response.status === 429 && detail.retry_after) {
+        throw new Error(`${message}，请在 ${detail.retry_after} 秒后重试`);
+      }
+      throw new Error(message);
+    }
+    if (!response.body) throw new Error('浏览器未收到流式响应');
 
     const reader = response.body.getReader();
     const decoder = new TextDecoder();

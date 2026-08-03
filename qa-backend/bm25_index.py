@@ -13,9 +13,12 @@ import jieba
 import jieba.posseg as pseg
 from rank_bm25 import BM25Okapi
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from config import WORKING_DIR
+
 REPO = Path(__file__).resolve().parent.parent
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
-INDEX_DIR = REPO / "data" / "lightrag"
+INDEX_DIR = WORKING_DIR
 BM25_FILE = INDEX_DIR / "bm25_index.pkl"
 DICT_FILE = INDEX_DIR / "jieba_custom_dict.txt"
 
