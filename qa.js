@@ -335,11 +335,11 @@ async function sendQuestion() {
   // Build history for API (exclude current question and empty assistant placeholder)
   const history = conv.messages.slice(0, -2).map(m => {
     const entry = { role: m.role, content: m.content };
-    // For assistant messages, prefer backend-authoritative searched_record_ids
-    // Fall back to [N] regex parsing for backward compat (old conversations)
+    // For assistant messages, prefer backend-authoritative cited_record_ids
+    // Fall back to [N] regex parsing only for old conversations (pre-v1.1)
     if (m.role === 'assistant') {
-      if (m.searched_record_ids && m.searched_record_ids.length) {
-        entry.searched_record_ids = m.searched_record_ids;
+      if (m.cited_record_ids !== undefined) {
+        entry.cited_record_ids = m.cited_record_ids;
       } else if (m.citations?.length) {
         const nums = [...m.content.matchAll(/\[(\d+)\]/g)].map(match => +match[1]);
         entry.cited_record_ids = nums
@@ -450,7 +450,8 @@ function handleSSEData(data, assistantMsg) {
     if (data.citations) {
       assistantMsg.citations = data.citations;
     }
-    // Store backend-authoritative searched record ids for exclusion in follow-ups
+    // Store backend-authoritative cited/searched record ids for exclusion in follow-ups
+    assistantMsg.cited_record_ids = data.cited_record_ids || [];
     assistantMsg.searched_record_ids = data.searched_record_ids || [];
   }
 
@@ -960,6 +961,7 @@ function saveConversationsToStorage() {
           content: m.content,
           citations: m.citations || [],
           searched_record_ids: m.searched_record_ids || [],
+          cited_record_ids: m.cited_record_ids || [],
         })),
       }));
     localStorage.setItem('qa_conversations', JSON.stringify(toSave));

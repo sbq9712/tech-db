@@ -89,9 +89,7 @@ HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
 MAX_HOP1_ENTITIES = 40  # Cap total hop=1 expansion entities to prevent explosion
 
 # ── Novelty exclusion ──
-EXCLUDE_WINDOW = 2      # Sliding window: exclude cited records from last N assistant turns.
-                        # Known limitation: with window=N, excluded content reappears in N+1 rounds.
-                        # Future: upgrade to global accumulating set per session.
+FETCH_K_CAP = 200       # Hard cap on fetch_k to bound retrieval cost for long conversations.
 
 # ── Public-service guardrails ──
 GUARDRAILS = GuardrailSettings()
@@ -476,12 +474,30 @@ seeking_novelty 判断依据（语义意图，非关键词匹配）：
     return (fallback, False, "llm fallback")
 
 
+def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
+    """Extract [N] markers from LLM answer and map to record_ids via citations array.
+
+    Returns deduplicated list of record_id ints, preserving first-seen order.
+    Hallucinated [N] (out of range) are silently dropped.
+    """
+    if not full_answer or not citations:
+        return []
+    nums = re.findall(r'\[(\d+)\]', full_answer)
+    result = []
+    for n_str in nums:
+        n = int(n_str)
+        c = next((c for c in citations if c["id"] == n), None)
+        if c and c.get("record_id", -1) >= 0:
+            result.append(c["record_id"])
+    return list(dict.fromkeys(result))  # dedupe, preserve order
+
+
 async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
     """Run three-route retrieval + RRF fusion + exclusion + quality gate.
 
     Returns (results, is_relevant).
     """
-    fetch_k = RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0)
+    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
 
     vec_task = vector_search(query, top_k=fetch_k)
     bm25_task = asyncio.to_thread(bm25_search, query, fetch_k)
@@ -739,19 +755,26 @@ async def chat_stream(req: ChatRequest, request: Request):
                  prev_assistant.get("cited_record_ids"))
             )
 
-            # Build exclude_ids with sliding window (only when seeking novelty
-            # AND previous round actually had results)
-            # Known limitation: with EXCLUDE_WINDOW=N, excluded content reappears in N+1 rounds
+            # Build exclude_ids: global accumulation of all prior assistant turns'
+            # cited record_ids. Only triggered when seeking novelty AND previous
+            # round had results.
+            #
+            # CRITICAL: use `is not None` to distinguish "field absent" (old data →
+            # fall back to searched_record_ids) from "field present but empty"
+            # (new data, LLM cited nothing → exclude nothing from this turn).
             exclude_ids = set()
             if seeking_novelty and prev_has_results:
-                recent_assistants = [m for m in req.history
-                                     if m.get("role") == "assistant"][-EXCLUDE_WINDOW:]
-                for msg in recent_assistants:
-                    ids = msg.get("searched_record_ids") or msg.get("cited_record_ids") or []
+                assistant_msgs = [m for m in req.history if m.get("role") == "assistant"]
+                for msg in assistant_msgs:
+                    cited = msg.get("cited_record_ids")
+                    if cited is not None:
+                        ids = cited
+                    else:
+                        ids = msg.get("searched_record_ids") or []
                     exclude_ids.update(ids)
                 if exclude_ids:
                     print(f"[search] Novelty query, excluding {len(exclude_ids)} records "
-                          f"(window={EXCLUDE_WINDOW})", flush=True)
+                          f"(global accumulated)", flush=True)
 
             # Hybrid search (vector + BM25 + graph → RRF)
             search_results, is_relevant, status = await hybrid_search(
@@ -766,18 +789,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                     yield {"event": "done", "data": json.dumps({
                         "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
                         "citations": [],
+                        "cited_record_ids": [],
                         "searched_record_ids": []
                     })}
                 elif not prev_has_results and seeking_novelty:
                     yield {"event": "done", "data": json.dumps({
                         "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
                         "citations": [],
+                        "cited_record_ids": [],
                         "searched_record_ids": []
                     })}
                 else:
                     yield {"event": "done", "data": json.dumps({
                         "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
                         "citations": [],
+                        "cited_record_ids": [],
                         "searched_record_ids": []
                     })}
                 return
@@ -872,9 +898,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })}
                     return
 
+            # Parse [N] citations from the generated answer
+            cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+
             yield {"event": "done", "data": json.dumps({
                 "answer": full_answer,
                 "citations": citations,
+                "cited_record_ids": cited_record_ids,
                 "searched_record_ids": searched_record_ids
             })}
 
