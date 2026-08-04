@@ -406,23 +406,44 @@ async def rewrite_query(query: str, history: list) -> str:
     return query
 
 
-async def hybrid_search(query: str) -> tuple:
+async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     """Hybrid retrieval: vector + BM25 + graph → RRF fusion → dynamic cutoff.
 
+    exclude_ids: record_ids cited in previous answers — excluded to surface new content.
     Returns (search_results, is_relevant) where is_relevant indicates
     whether results are good enough to generate an answer.
     """
+    # Fetch more candidates if we need to exclude some (for backfill)
+    fetch_k = RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0)
+
     # Run all routes in parallel
-    vec_task = vector_search(query, top_k=RETRIEVAL_TOP_K)
-    bm25_task = asyncio.to_thread(bm25_search, query, RETRIEVAL_TOP_K)
-    graph_task = asyncio.to_thread(graph_search, query, RETRIEVAL_TOP_K)
+    vec_task = vector_search(query, top_k=fetch_k)
+    bm25_task = asyncio.to_thread(bm25_search, query, fetch_k)
+    graph_task = asyncio.to_thread(graph_search, query, fetch_k)
 
     vec_results, bm25_results, graph_results = await asyncio.gather(
         vec_task, bm25_task, graph_task
     )
 
-    # Fuse via RRF
-    results = rrf_fuse(vec_results, bm25_results, graph_results if graph_results else None)
+    # Fuse via RRF — pass expanded top_k so we have backfill room after exclusion
+    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
+    results = rrf_fuse(
+        vec_results, bm25_results,
+        graph_results if graph_results else None,
+        top_k=fuse_top_k,
+    )
+
+    # Exclude previously cited records, then truncate to FINAL_TOP_K
+    if exclude_ids:
+        before = len(results)
+        results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
+        excluded_count = before - len(results)
+        results = results[:FINAL_TOP_K]
+        if excluded_count:
+            print(f"[search] Excluded {excluded_count} previously cited, "
+                  f"{len(results)} remaining", flush=True)
+    else:
+        results = results[:FINAL_TOP_K]
 
     # Dynamic cutoff: check if best result is relevant enough
     is_relevant = False
@@ -620,8 +641,16 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Rewrite follow-up queries using conversation history for better retrieval
             search_query = await rewrite_query(query, req.history)
 
-            # Hybrid search (vector + BM25 → RRF)
-            search_results, is_relevant = await hybrid_search(search_query)
+            # Collect record_ids cited in previous answers (to exclude and surface new content)
+            exclude_ids = set()
+            for msg in req.history:
+                if msg.get("role") == "assistant" and msg.get("cited_record_ids"):
+                    exclude_ids.update(msg["cited_record_ids"])
+            if exclude_ids:
+                print(f"[search] Excluding {len(exclude_ids)} previously cited records", flush=True)
+
+            # Hybrid search (vector + BM25 + graph → RRF)
+            search_results, is_relevant = await hybrid_search(search_query, exclude_ids=exclude_ids)
 
             if not search_results or not is_relevant:
                 yield {"event": "done", "data": json.dumps({
@@ -672,6 +701,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 3. 如果资料中没有相关信息，诚实回答"数据库中没有相关信息"
 4. 简单问题简短回答，复杂问题详细分析
 5. 使用中文回答，使用markdown格式
+6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据
 
 检索到的资料：
 {context}

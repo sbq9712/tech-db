@@ -333,10 +333,17 @@ async function sendQuestion() {
   updateSendButton();
 
   // Build history for API (exclude current question and empty assistant placeholder)
-  const history = conv.messages.slice(0, -2).map(m => ({
-    role: m.role,
-    content: m.content,
-  }));
+  const history = conv.messages.slice(0, -2).map(m => {
+    const entry = { role: m.role, content: m.content };
+    // For assistant messages, extract which records were actually [N]-cited in the answer
+    if (m.role === 'assistant' && m.citations?.length) {
+      const nums = [...m.content.matchAll(/\[(\d+)\]/g)].map(match => +match[1]);
+      entry.cited_record_ids = nums
+        .map(n => m.citations.find(c => c.id === n)?.record_id)
+        .filter(Boolean);
+    }
+    return entry;
+  });
 
   try {
     // Show status indicators
