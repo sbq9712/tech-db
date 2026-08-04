@@ -641,13 +641,20 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Rewrite follow-up queries using conversation history for better retrieval
             search_query = await rewrite_query(query, req.history)
 
-            # Collect record_ids cited in previous answers (to exclude and surface new content)
+            # Only exclude previously cited records when user is explicitly asking
+            # for "new/different" content (not when drilling deeper into a sub-topic)
+            NOVELTY_SIGNALS = ("还有", "别的", "其他", "侧面", "不同角度", "更多",
+                               "再补充", "另外", "除此之外", "新的", "换个角度")
+            is_seeking_novelty = any(sig in query for sig in NOVELTY_SIGNALS)
+
             exclude_ids = set()
-            for msg in req.history:
-                if msg.get("role") == "assistant" and msg.get("cited_record_ids"):
-                    exclude_ids.update(msg["cited_record_ids"])
-            if exclude_ids:
-                print(f"[search] Excluding {len(exclude_ids)} previously cited records", flush=True)
+            if is_seeking_novelty:
+                for msg in req.history:
+                    if msg.get("role") == "assistant" and msg.get("cited_record_ids"):
+                        exclude_ids.update(msg["cited_record_ids"])
+                if exclude_ids:
+                    print(f"[search] Novelty query, excluding {len(exclude_ids)} cited records",
+                          flush=True)
 
             # Hybrid search (vector + BM25 + graph → RRF)
             search_results, is_relevant = await hybrid_search(search_query, exclude_ids=exclude_ids)
