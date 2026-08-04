@@ -359,9 +359,11 @@ class GraphBuilder:
 
 
 def load_records(filter_ai_curated: bool = True, max_records: int = 0):
-    """Load canonical records (AI精选 ∪ 精选情报, deduplicated) from all-records-lite.json.
+    """Load records from all-records-lite.json.
 
-    Filter: (aip==1 OR lv>0) AND dp!=1 AND valid category.
+    filter_ai_curated=True:  AI精选 ∪ 精选情报 (~7,986 records)
+    filter_ai_curated=False: ALL valid records (valid category AND dp!=1) (~24,091 records)
+
     Returns list of (original_index, record_dict) tuples.
     """
     raw = json.load(open(REPO / "data" / "processed" / "all-records-lite.json", encoding="utf-8"))
@@ -372,12 +374,14 @@ def load_records(filter_ai_curated: bool = True, max_records: int = 0):
     for i, r in enumerate(all_records):
         cat = r.get("c", "")
         dp = r.get("dp", 0)
-        aip = r.get("aip", 0)
-        lv = r.get("lv", 0)
         if cat in IRRELEVANT or dp == 1:
             continue
-        if aip == 1 or lv > 0:
-            records.append((i, r))
+        if filter_ai_curated:
+            aip = r.get("aip", 0)
+            lv = r.get("lv", 0)
+            if not (aip == 1 or lv > 0):
+                continue
+        records.append((i, r))
 
     if max_records > 0:
         records = records[:max_records]
@@ -453,10 +457,10 @@ async def main():
     print(f"  Concurrency: {args.concurrency} | RPS limit: {args.rps or 'none'}", flush=True)
     print("=" * 60, flush=True)
 
-    # Load records
-    print("\n[1/3] Loading AI-curated records...", flush=True)
-    records = load_records(filter_ai_curated=True, max_records=args.max)
-    print(f"  Found {len(records)} canonical records (AI精选 ∪ 精选情报, deduplicated)", flush=True)
+    # Load records (ALL valid records for full graph coverage)
+    print("\n[1/3] Loading ALL valid records (24,091 target)...", flush=True)
+    records = load_records(filter_ai_curated=False, max_records=args.max)
+    print(f"  Found {len(records)} valid records (valid category AND dp!=1)", flush=True)
 
     # Load progress
     progress = load_progress()
@@ -469,7 +473,7 @@ async def main():
         print("  All records already processed! Nothing to do.", flush=True)
         return
 
-    # Load existing graph
+    # Load existing graph (including entity_to_records mapping!)
     builder = GraphBuilder()
     graph_file = WORKING_DIR / "graph-export.json"
     if graph_file.exists():
@@ -479,7 +483,13 @@ async def main():
         for edge in existing.get("edges", []):
             key = tuple(sorted([edge["source"], edge["target"]]))
             builder.edges[key] = edge
-        print(f"  Existing graph loaded: {builder.node_count} nodes, {builder.edge_count} edges", flush=True)
+        # CRITICAL: also load entity_to_records (was missing, causing data loss on restart!)
+        for entity, recs in existing.get("entity_to_records", {}).items():
+            builder.entity_to_records[entity] = set(recs) if isinstance(recs, list) else set(recs)
+        e2r_records = len(set(r for recs in builder.entity_to_records.values() for r in recs))
+        print(f"  Existing graph loaded: {builder.node_count} nodes, "
+              f"{builder.edge_count} edges, "
+              f"{len(builder.entity_to_records)} entity→record mappings ({e2r_records} records)", flush=True)
 
     # Process with worker queue pattern
     print(f"\n[2/3] Extracting entities with {args.concurrency}x concurrency...", flush=True)

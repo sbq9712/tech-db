@@ -145,6 +145,7 @@ def _get_model():
         model_candidates = [
             MODEL_DIR,
             REPO / "bge-m3-model",  # legacy local installation
+            Path.home() / "bge-m3-model",  # home directory installation
         ]
         model_path = None
         for p in model_candidates:

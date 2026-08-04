@@ -61,13 +61,21 @@ _bm25_meta = None     # BM25 metadata list
 _bm25_corpus = None   # tokenized corpus for BM25
 _records = None       # full records from all-records-lite.json
 _graph_data = None    # graph-export.json data (nodes, edges, entity_to_records)
-_entity_index = None  # entity_name -> list of record indices
+_entity_index = None  # entity_name -> set of record indices
+_graph_adj = None     # entity_name -> set of neighbor entity_names (adjacency from edges)
+_graph_nodes = None   # entity_name -> node info dict (type, degree, description)
+_idx_to_meta = None   # record_idx -> meta dict (fast lookup, avoids linear scan)
 
 # ── RRF parameters ──
 RRF_K = 60          # RRF constant (1/(rank+k))
 RETRIEVAL_TOP_K = 50  # candidates per route
 FINAL_TOP_K = 25     # max records after fusion
 RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
+
+# ── Graph hop=1 expansion parameters ──
+MAX_HOP1_DEGREE = 20    # Skip hop=1 neighbors with degree > this (super-node filter)
+HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
+MAX_HOP1_ENTITIES = 40  # Cap total hop=1 expansion entities to prevent explosion
 
 # ── Public-service guardrails ──
 GUARDRAILS = GuardrailSettings()
@@ -112,8 +120,8 @@ def load_bm25_index():
 
 
 def load_graph_index():
-    """Load knowledge graph with entity→record mapping."""
-    global _graph_data, _entity_index
+    """Load knowledge graph: entity→record mapping + adjacency list + node lookup."""
+    global _graph_data, _entity_index, _graph_adj, _graph_nodes
     if _graph_data is not None:
         return
     graph_file = WORKING_DIR / "graph-export.json"
@@ -122,9 +130,22 @@ def load_graph_index():
         _graph_data = json.loads(graph_file.read_text("utf-8"))
         e2r = _graph_data.get("entity_to_records", {})
         _entity_index = {k: set(v) for k, v in e2r.items()}
+
+        # Build adjacency list from edges (for hop=1 neighbor expansion)
+        _graph_adj = {}
+        for e in _graph_data.get("edges", []):
+            s, t = e.get("source"), e.get("target")
+            if s and t:
+                _graph_adj.setdefault(s, set()).add(t)
+                _graph_adj.setdefault(t, set()).add(s)
+
+        # Build node lookup (for degree/type filtering)
+        _graph_nodes = {n["id"]: n for n in _graph_data.get("nodes", [])}
+
         print(f"[startup] Graph loaded: {len(_graph_data.get('nodes',[]))} nodes, "
               f"{len(_graph_data.get('edges',[]))} edges, "
-              f"{len(_entity_index)} entity→record mappings", flush=True)
+              f"{len(_entity_index)} entity→record mappings, "
+              f"{len(_graph_adj)} adjacency entries", flush=True)
     else:
         print(f"[startup] Knowledge graph not found (graph search disabled)", flush=True)
 
@@ -227,17 +248,24 @@ def rrf_fuse(vec_results: list, bm25_results: list, graph_results: list = None,
 
 
 def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Graph-based retrieval: match entities in query → get associated records.
+    """Graph-based retrieval with hop=1 neighbor expansion.
 
-    Uses jieba posseg to extract entities from query, matches against
-    graph node names, then retrieves associated records via entity_to_records.
+    Hop=0: Match entities named in the query → get their associated records.
+    Hop=1: Expand to neighbors of matched entities → discover related records
+           the user didn't explicitly mention.
+
+    Super-node filter: neighbors with degree > MAX_HOP1_DEGREE are skipped
+    (e.g., "能量密度" degree=232 appears everywhere, not useful for expansion).
+
+    Co-occurrence boost: if multiple matched entities share a common neighbor,
+    that neighbor accumulates weight (naturally surfaces intersection topics).
     """
     if _entity_index is None:
         return []
 
     import jieba.posseg as pseg
 
-    # Extract potential entities from query using POS tagging
+    # ── Hop=0: Match entities directly named in the query ──
     words = pseg.cut(query)
     query_terms = []
     for word, flag in words:
@@ -245,14 +273,10 @@ def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
         if len(word) >= 2 and flag in ('n', 'nr', 'ns', 'nt', 'nz', 'vn', 'eng'):
             query_terms.append(word)
 
-    # Also try exact match of full query substrings against entity names
-    # (handles multi-word entities like "磷酸铁锂")
-    # Check each entity name: is it a substring of the query?
     matched_entities = set()
     for entity_name in _entity_index:
         if entity_name in query:
             matched_entities.add(entity_name)
-    # Also check: is any query term a substring of an entity name?
     for term in query_terms:
         for entity_name in _entity_index:
             if term in entity_name or entity_name in term:
@@ -261,32 +285,59 @@ def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
     if not matched_entities:
         return []
 
-    # Score records: each matched entity contributes 1.0/hop (hop=0 for direct)
+    # ── Hop=1: Expand to neighbors of matched entities ──
+    hop1_entities = {}  # entity_name -> accumulated weight
+    if _graph_adj is not None:
+        for entity in matched_entities:
+            neighbors = _graph_adj.get(entity)
+            if not neighbors:
+                continue
+            for nbr in neighbors:
+                if nbr in matched_entities:
+                    continue
+                # Super-node filter: skip generic high-degree entities
+                nbr_info = _graph_nodes.get(nbr) if _graph_nodes else None
+                if nbr_info and nbr_info.get("degree", 0) > MAX_HOP1_DEGREE:
+                    continue
+                hop1_entities[nbr] = hop1_entities.get(nbr, 0.0) + HOP1_WEIGHT
+
+        # Cap hop=1 expansion to prevent signal dilution
+        if len(hop1_entities) > MAX_HOP1_ENTITIES:
+            hop1_entities = dict(
+                sorted(hop1_entities.items(), key=lambda x: -x[1])[:MAX_HOP1_ENTITIES]
+            )
+
+    # ── Score records: hop=0 weight=1.0, hop=1 weight≈0.35 ──
     record_scores = {}  # record_idx -> score
     for entity in matched_entities:
         for rec_idx in _entity_index.get(entity, set()):
-            if rec_idx not in record_scores:
-                record_scores[rec_idx] = 0.0
-            record_scores[rec_idx] += 1.0
+            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + 1.0
+    for entity, weight in hop1_entities.items():
+        for rec_idx in _entity_index.get(entity, set()):
+            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + weight
 
-    # Sort by score (more matched entities = higher score)
     sorted_records = sorted(record_scores.items(), key=lambda x: -x[1])[:top_k]
 
+    # Build results using fast index lookup
     results = []
     for rec_idx, score in sorted_records:
-        # Find meta for this record
-        meta = None
-        for m in _index_meta:
-            if m.get("idx") == rec_idx:
-                meta = m
-                break
-        if not meta:
-            for m in _bm25_meta:
+        meta = _idx_to_meta.get(rec_idx) if _idx_to_meta else None
+        if meta is None:
+            for m in _index_meta:
                 if m.get("idx") == rec_idx:
                     meta = m
                     break
+            if not meta:
+                for m in _bm25_meta:
+                    if m.get("idx") == rec_idx:
+                        meta = m
+                        break
         if meta:
             results.append({"meta": meta, "score": score})
+
+    print(f"[graph] hop0={len(matched_entities)} entities, "
+          f"hop1={len(hop1_entities)} neighbors, "
+          f"{len(record_scores)} candidate records", flush=True)
 
     return results
 
@@ -390,6 +441,16 @@ async def lifespan(app: FastAPI):
 
     print("[startup] Loading knowledge graph...", flush=True)
     load_graph_index()
+
+    # Build fast record_idx → meta lookup (avoids linear scan in graph_search)
+    global _idx_to_meta
+    _idx_to_meta = {}
+    for m in _index_meta:
+        _idx_to_meta[m["idx"]] = m
+    for m in _bm25_meta:
+        if m["idx"] not in _idx_to_meta:
+            _idx_to_meta[m["idx"]] = m
+    print(f"[startup] Index meta lookup: {len(_idx_to_meta)} records", flush=True)
 
     # Load jieba custom dictionary for query tokenization
     if JIEBA_DICT.exists():
