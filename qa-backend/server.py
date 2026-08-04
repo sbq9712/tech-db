@@ -72,6 +72,15 @@ RETRIEVAL_TOP_K = 50  # candidates per route
 FINAL_TOP_K = 25     # max records after fusion
 RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
 
+# ── Quality gates ──
+# Strict thresholds: a route must clear these to count as a "strong signal"
+VEC_STRONG = 0.55    # cosine similarity for confident match (bad queries get ~0.50-0.54)
+BM25_STRONG = 5.0    # BM25 score for confident match (noise queries still get ~2-4)
+GRAPH_STRONG = 5.0   # Graph hit count for confident match (noise queries get ~4)
+# Topic exhaustion: when excluding records (novelty follow-up), if NO remaining
+# result clears ANY strong threshold, the topic is likely exhausted
+MIN_STRONG_RESULTS = 3  # need at least this many strong results to avoid "exhausted"
+
 # ── Graph hop=1 expansion parameters ──
 MAX_HOP1_DEGREE = 20    # Skip hop=1 neighbors with degree > this (super-node filter)
 HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
@@ -410,8 +419,9 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     """Hybrid retrieval: vector + BM25 + graph → RRF fusion → dynamic cutoff.
 
     exclude_ids: record_ids cited in previous answers — excluded to surface new content.
-    Returns (search_results, is_relevant) where is_relevant indicates
-    whether results are good enough to generate an answer.
+    Returns (search_results, is_relevant, is_topic_exhausted) where:
+      - is_relevant: results are good enough to generate a confident answer
+      - is_topic_exhausted: novelty follow-up but remaining results are weak
     """
     # Fetch more candidates if we need to exclude some (for backfill)
     fetch_k = RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0)
@@ -445,15 +455,28 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     else:
         results = results[:FINAL_TOP_K]
 
-    # Dynamic cutoff: check if best result is relevant enough
+    # ── Quality gates ──
     is_relevant = False
+    is_topic_exhausted = False
     if results:
-        best_vec_score = max((r.get("vec_score", 0) for r in results), default=0)
-        has_bm25_hit = any(r.get("bm25_score", 0) > 0 for r in results)
-        has_graph_hit = any(r.get("graph_score", 0) > 0 for r in results)
-        is_relevant = best_vec_score >= RELEVANCE_FLOOR or has_bm25_hit or has_graph_hit
+        best_vec = max((r.get("vec_score", 0) for r in results), default=0)
+        has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
+        has_strong_bm25 = any(r.get("bm25_score", 0) >= BM25_STRONG for r in results)
+        has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
 
-    return results, is_relevant
+        # is_relevant: require a SEMANTIC signal (vec or graph), not BM25 alone.
+        # BM25 matches individual words and produces false positives on common terms.
+        has_semantic_signal = has_strong_vec or has_strong_graph
+        is_relevant = has_semantic_signal  # BM25 alone can't declare relevance
+
+        # Topic exhaustion: novelty follow-up where no remaining result
+        # clears any strong semantic threshold — the well is running dry
+        if exclude_ids and not is_relevant:
+            is_topic_exhausted = True
+            print(f"[search] Topic exhausted: best_vec={best_vec:.3f}, "
+                  f"no strong semantic signals in remaining results", flush=True)
+
+    return results, is_relevant, is_topic_exhausted
 
 
 def build_context(search_results: list) -> tuple:
@@ -657,13 +680,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                           flush=True)
 
             # Hybrid search (vector + BM25 + graph → RRF)
-            search_results, is_relevant = await hybrid_search(search_query, exclude_ids=exclude_ids)
+            search_results, is_relevant, is_topic_exhausted = await hybrid_search(
+                search_query, exclude_ids=exclude_ids
+            )
 
             if not search_results or not is_relevant:
-                yield {"event": "done", "data": json.dumps({
-                    "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
-                    "citations": []
-                })}
+                if is_topic_exhausted:
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
+                        "citations": []
+                    })}
+                else:
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
+                        "citations": []
+                    })}
                 return
 
             # Build context and citations
@@ -700,6 +731,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                 for i, c in enumerate(citations)
             )
 
+            # Adjust system prompt if topic is exhausted but we still have weak results
+            exhaustion_note = ""
+            if is_topic_exhausted:
+                exhaustion_note = "\n\n⚠ 注意：前面的对话已经覆盖了这个话题的核心内容。以下检索到的资料相关性较低，可能只是边缘相关的内容。请在回答开头诚实说明这一点，不要强行生成不相关的分析。"
+
             system_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
 
 要求：
@@ -708,7 +744,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 3. 如果资料中没有相关信息，诚实回答"数据库中没有相关信息"
 4. 简单问题简短回答，复杂问题详细分析
 5. 使用中文回答，使用markdown格式
-6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据
+6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据{exhaustion_note}
 
 检索到的资料：
 {context}
