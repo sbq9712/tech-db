@@ -74,7 +74,9 @@ RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
 
 # ── Quality gates ──
 # Strict thresholds: a route must clear these to count as a "strong signal"
-VEC_STRONG = 0.55    # cosine similarity for confident match (bad queries get ~0.50-0.54)
+VEC_STRONG = 0.55    # PROVISIONAL: based on n=2 sample calibration (good ~0.65-0.71, bad ~0.50-0.54).
+                      # Not a permanent value — needs validation with broader query types
+                      # (specific entities, English, typos, ultra-broad queries) before fixing.
 BM25_STRONG = 5.0    # BM25 score for confident match (noise queries still get ~2-4)
 GRAPH_STRONG = 5.0   # Graph hit count for confident match (noise queries get ~4)
 # Topic exhaustion: when excluding records (novelty follow-up), if NO remaining
@@ -85,6 +87,11 @@ MIN_STRONG_RESULTS = 3  # need at least this many strong results to avoid "exhau
 MAX_HOP1_DEGREE = 20    # Skip hop=1 neighbors with degree > this (super-node filter)
 HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
 MAX_HOP1_ENTITIES = 40  # Cap total hop=1 expansion entities to prevent explosion
+
+# ── Novelty exclusion ──
+EXCLUDE_WINDOW = 2      # Sliding window: exclude cited records from last N assistant turns.
+                        # Known limitation: with window=N, excluded content reappears in N+1 rounds.
+                        # Future: upgrade to global accumulating set per session.
 
 # ── Public-service guardrails ──
 GUARDRAILS = GuardrailSettings()
@@ -304,9 +311,15 @@ def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
             for nbr in neighbors:
                 if nbr in matched_entities:
                     continue
-                # Super-node filter: skip generic high-degree entities
+                # Primary defense: super-node filter (high-degree entities)
                 nbr_info = _graph_nodes.get(nbr) if _graph_nodes else None
                 if nbr_info and nbr_info.get("degree", 0) > MAX_HOP1_DEGREE:
+                    continue
+                # Secondary heuristic: skip very short entity names (len<3).
+                # NOTE: Effect is limited — the real noise comes from high record-count
+                # entities with len>=3 (e.g. "人工智能（AI）" has 529 records at len=8).
+                # The degree filter above is the main defense.
+                if len(nbr) < 3:
                     continue
                 hop1_entities[nbr] = hop1_entities.get(nbr, 0.0) + HOP1_WEIGHT
 
@@ -351,82 +364,125 @@ def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
     return results
 
 
-async def rewrite_query(query: str, history: list) -> str:
-    """Rewrite a follow-up question into a standalone query using conversation context.
-
-    Strategy:
-    1. If there's no history, return the original query unchanged.
-    2. Try LLM-based rewriting (best quality).
-    3. If LLM fails (e.g., rate limit), fall back to keyword extraction from history.
-    """
-    if not history:
-        return query
-
-    # Build a compact prompt for query rewriting
-    recent = history[-4:]  # last 2 turns (user + assistant)
-    dialogue = ""
-    for msg in recent:
-        role = "用户" if msg.get("role") == "user" else "助手"
-        content = msg.get("content", "")[:200]  # truncate to keep it fast
-        dialogue += f"{role}: {content}\n"
-
-    prompt = f"""根据以下对话历史，将用户的最后一个问题改写为一个独立、完整的检索查询。
-要求：
-1. 只输出改写后的查询，不要解释
-2. 如果问题已经很明确，直接输出原问题
-3. 补充必要的上下文关键词，让检索系统能找到相关内容
-
-对话历史：
-{dialogue}
-
-用户最新问题：{query}
-
-改写后的检索查询："""
-
-    try:
-        rewritten = await llm_model_func(
-            prompt,
-            temperature=0.0,
-            max_tokens=128,
-        )
-        rewritten = rewritten.strip().strip('"').strip("'").strip("。")
-        if rewritten and len(rewritten) <= 200:
-            print(f"[query-rewrite] '{query}' → '{rewritten}'", flush=True)
-            return rewritten
-    except Exception as e:
-        print(f"[query-rewrite] LLM failed ({e}), using keyword fallback", flush=True)
-
-    # ── Keyword-based fallback (no API call needed) ──
-    # Extract the most recent user question from history and combine with current query
+def _keyword_fallback(query: str, history: list) -> str:
+    """Extract most recent user question from history and combine with current query."""
     last_user_msg = ""
     for msg in reversed(history):
         if msg.get("role") == "user" and msg.get("content", "").strip():
             last_user_msg = msg["content"].strip()
             break
-
     if last_user_msg:
-        # Simple heuristic: prepend the previous topic to the follow-up query
-        # Take the first ~30 chars of the last user message as context
         context_topic = last_user_msg[:30]
-        fallback_query = f"{context_topic} {query}"
-        print(f"[query-rewrite] Fallback: '{query}' → '{fallback_query}'", flush=True)
-        return fallback_query
-
+        return f"{context_topic} {query}"
     return query
 
 
-async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
-    """Hybrid retrieval: vector + BM25 + graph → RRF fusion → dynamic cutoff.
+def _parse_rewrite_json(text: str, fallback_query: str) -> tuple:
+    """Four-level JSON tolerance parser for GLM-5.2 output.
 
-    exclude_ids: record_ids cited in previous answers — excluded to surface new content.
-    Returns (search_results, is_relevant, is_topic_exhausted) where:
-      - is_relevant: results are good enough to generate a confident answer
-      - is_topic_exhausted: novelty follow-up but remaining results are weak
+    Returns (rewritten_query, seeking_novelty, reason).
     """
-    # Fetch more candidates if we need to exclude some (for backfill)
+    def _extract(obj):
+        q = obj.get("rewritten_query") or obj.get("query") or ""
+        q = q.strip().strip('"').strip("'").strip("。") if isinstance(q, str) else ""
+        if not q:
+            q = fallback_query
+        n = bool(obj.get("seeking_novelty", obj.get("novelty", False)))
+        r = obj.get("reason", "")
+        r = r.strip() if isinstance(r, str) else ""
+        return (q, n, r)
+
+    # Level 1: direct json.loads
+    try:
+        return _extract(json.loads(text))
+    except Exception:
+        pass
+
+    # Level 2: strip markdown code fences then json.loads
+    stripped = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.M)
+    try:
+        return _extract(json.loads(stripped))
+    except Exception:
+        pass
+
+    # Level 3: regex extract first {...} object then json.loads
+    m = re.search(r"\{.*\}", stripped, flags=re.DOTALL)
+    if m:
+        try:
+            return _extract(json.loads(m.group(0)))
+        except Exception:
+            pass
+
+    # Level 4: all failed → fallback
+    return (fallback_query, False, "json parse failed")
+
+
+async def rewrite_query(query: str, history: list) -> tuple:
+    """Rewrite follow-up query + detect novelty intent in a single LLM call.
+
+    Returns (rewritten_query, seeking_novelty, reason).
+    - rewritten_query: standalone retrieval query with context filled in
+    - seeking_novelty: user wants substantively different/new content
+    - reason: short justification for logging only
+    """
+    # Fast path: no history → no rewrite, no novelty
+    if not history:
+        return (query, False, "")
+
+    # Build compact dialogue context
+    recent = history[-4:]  # last 2 turns (user + assistant)
+    dialogue = ""
+    for msg in recent:
+        role = "用户" if msg.get("role") == "user" else "助手"
+        content = msg.get("content", "")[:200]
+        dialogue += f"{role}: {content}\n"
+
+    prompt = f"""根据以下对话历史，完成两个任务：
+
+1. 将用户最新问题改写为独立、完整的检索查询（补全代词和省略的上下文）
+2. 判断用户是否在寻求与已有回答实质不同的新内容/新方向/未涉及的角度
+
+seeking_novelty 判断依据（语义意图，非关键词匹配）：
+- true：用户希望看到之前回答中未涉及的新内容、新方向、新角度
+- false：用户在深挖当前话题的细节、追问澄清、或继续同一子话题
+- 示例（非穷举）："还有别的吗"→true，"刚才提到的XX具体是多少"→false
+
+输出格式（严格JSON，不要其他内容）：
+{{"rewritten_query": "...", "seeking_novelty": true/false, "reason": "..."}}
+
+对话历史：
+{dialogue}
+
+用户最新问题：{query}"""
+
+    try:
+        raw = await llm_model_func(
+            prompt,
+            temperature=0.0,
+            max_tokens=1024,  # GLM-5.2 reasoning model: needs 150-300 reasoning_tokens + content
+        )
+        if raw and raw.strip():
+            rewritten, seeking_novelty, reason = _parse_rewrite_json(raw, query)
+            print(f"[query-rewrite] '{query}' → '{rewritten}' "
+                  f"| novelty={seeking_novelty} | reason={reason}", flush=True)
+            return (rewritten, seeking_novelty, reason)
+    except Exception as e:
+        print(f"[query-rewrite] LLM failed ({e}), using keyword fallback", flush=True)
+
+    # Fallback: keyword concatenation, no novelty detection
+    fallback = _keyword_fallback(query, history)
+    print(f"[query-rewrite] Fallback: '{query}' → '{fallback}' | novelty=False",
+          flush=True)
+    return (fallback, False, "llm fallback")
+
+
+async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
+    """Run three-route retrieval + RRF fusion + exclusion + quality gate.
+
+    Returns (results, is_relevant).
+    """
     fetch_k = RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0)
 
-    # Run all routes in parallel
     vec_task = vector_search(query, top_k=fetch_k)
     bm25_task = asyncio.to_thread(bm25_search, query, fetch_k)
     graph_task = asyncio.to_thread(graph_search, query, fetch_k)
@@ -435,7 +491,6 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
         vec_task, bm25_task, graph_task
     )
 
-    # Fuse via RRF — pass expanded top_k so we have backfill room after exclusion
     fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
     results = rrf_fuse(
         vec_results, bm25_results,
@@ -443,7 +498,6 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
         top_k=fuse_top_k,
     )
 
-    # Exclude previously cited records, then truncate to FINAL_TOP_K
     if exclude_ids:
         before = len(results)
         results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
@@ -455,28 +509,40 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     else:
         results = results[:FINAL_TOP_K]
 
-    # ── Quality gates ──
+    # Quality gate: require semantic signal (vec or graph), not BM25 alone
     is_relevant = False
-    is_topic_exhausted = False
     if results:
-        best_vec = max((r.get("vec_score", 0) for r in results), default=0)
         has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
-        has_strong_bm25 = any(r.get("bm25_score", 0) >= BM25_STRONG for r in results)
         has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
+        is_relevant = has_strong_vec or has_strong_graph
 
-        # is_relevant: require a SEMANTIC signal (vec or graph), not BM25 alone.
-        # BM25 matches individual words and produces false positives on common terms.
-        has_semantic_signal = has_strong_vec or has_strong_graph
-        is_relevant = has_semantic_signal  # BM25 alone can't declare relevance
+    return results, is_relevant
 
-        # Topic exhaustion: novelty follow-up where no remaining result
-        # clears any strong semantic threshold — the well is running dry
-        if exclude_ids and not is_relevant:
-            is_topic_exhausted = True
-            print(f"[search] Topic exhausted: best_vec={best_vec:.3f}, "
-                  f"no strong semantic signals in remaining results", flush=True)
 
-    return results, is_relevant, is_topic_exhausted
+async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
+    """Hybrid retrieval with dual relevance check for topic exhaustion.
+
+    Returns (results, is_relevant, status) where status ∈ {"ok", "weak_query", "exhausted"}.
+    """
+    results, is_relevant = await _search_with_quality(query, exclude_ids)
+
+    status = "ok"
+    if not is_relevant:
+        if exclude_ids:
+            # Dual check: search without exclusion to distinguish causes
+            _, relevant_without_exclude = await _search_with_quality(query, None)
+            if relevant_without_exclude:
+                status = "exhausted"
+                print(f"[search] Topic exhausted: excluded results weak, "
+                      f"but unexcluded results strong", flush=True)
+            else:
+                status = "weak_query"
+                print(f"[search] Weak query: results poor with or without exclusion",
+                      flush=True)
+        else:
+            status = "weak_query"
+
+    return results, is_relevant, status
 
 
 def build_context(search_results: list) -> tuple:
@@ -661,39 +727,58 @@ async def chat_stream(req: ChatRequest, request: Request):
                 })}
                 return
 
-            # Rewrite follow-up queries using conversation history for better retrieval
-            search_query = await rewrite_query(query, req.history)
+            # Rewrite follow-up query + detect novelty intent (single LLM call)
+            search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
 
-            # Only exclude previously cited records when user is explicitly asking
-            # for "new/different" content (not when drilling deeper into a sub-topic)
-            NOVELTY_SIGNALS = ("还有", "别的", "其他", "侧面", "不同角度", "更多",
-                               "再补充", "另外", "除此之外", "新的", "换个角度")
-            is_seeking_novelty = any(sig in query for sig in NOVELTY_SIGNALS)
-
-            exclude_ids = set()
-            if is_seeking_novelty:
-                for msg in req.history:
-                    if msg.get("role") == "assistant" and msg.get("cited_record_ids"):
-                        exclude_ids.update(msg["cited_record_ids"])
-                if exclude_ids:
-                    print(f"[search] Novelty query, excluding {len(exclude_ids)} cited records",
-                          flush=True)
-
-            # Hybrid search (vector + BM25 + graph → RRF)
-            search_results, is_relevant, is_topic_exhausted = await hybrid_search(
-                search_query, exclude_ids=exclude_ids
+            # Check if previous round had no results (avoid "infinite no results" loop)
+            prev_assistant = next((m for m in reversed(req.history)
+                                   if m.get("role") == "assistant"), None)
+            prev_has_results = bool(
+                prev_assistant and
+                (prev_assistant.get("searched_record_ids") or
+                 prev_assistant.get("cited_record_ids"))
             )
 
+            # Build exclude_ids with sliding window (only when seeking novelty
+            # AND previous round actually had results)
+            # Known limitation: with EXCLUDE_WINDOW=N, excluded content reappears in N+1 rounds
+            exclude_ids = set()
+            if seeking_novelty and prev_has_results:
+                recent_assistants = [m for m in req.history
+                                     if m.get("role") == "assistant"][-EXCLUDE_WINDOW:]
+                for msg in recent_assistants:
+                    ids = msg.get("searched_record_ids") or msg.get("cited_record_ids") or []
+                    exclude_ids.update(ids)
+                if exclude_ids:
+                    print(f"[search] Novelty query, excluding {len(exclude_ids)} records "
+                          f"(window={EXCLUDE_WINDOW})", flush=True)
+
+            # Hybrid search (vector + BM25 + graph → RRF)
+            search_results, is_relevant, status = await hybrid_search(
+                search_query, exclude_ids=exclude_ids if exclude_ids else None
+            )
+
+            # Searched record ids for done event (backend-authoritative)
+            searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
+
             if not search_results or not is_relevant:
-                if is_topic_exhausted:
+                if status == "exhausted":
                     yield {"event": "done", "data": json.dumps({
                         "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
-                        "citations": []
+                        "citations": [],
+                        "searched_record_ids": []
+                    })}
+                elif not prev_has_results and seeking_novelty:
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
+                        "citations": [],
+                        "searched_record_ids": []
                     })}
                 else:
                     yield {"event": "done", "data": json.dumps({
                         "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
-                        "citations": []
+                        "citations": [],
+                        "searched_record_ids": []
                     })}
                 return
 
@@ -731,11 +816,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 for i, c in enumerate(citations)
             )
 
-            # Adjust system prompt if topic is exhausted but we still have weak results
-            exhaustion_note = ""
-            if is_topic_exhausted:
-                exhaustion_note = "\n\n⚠ 注意：前面的对话已经覆盖了这个话题的核心内容。以下检索到的资料相关性较低，可能只是边缘相关的内容。请在回答开头诚实说明这一点，不要强行生成不相关的分析。"
-
+            # Build system prompt
             system_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
 
 要求：
@@ -744,7 +825,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 3. 如果资料中没有相关信息，诚实回答"数据库中没有相关信息"
 4. 简单问题简短回答，复杂问题详细分析
 5. 使用中文回答，使用markdown格式
-6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据{exhaustion_note}
+6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据
 
 检索到的资料：
 {context}
@@ -793,7 +874,8 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             yield {"event": "done", "data": json.dumps({
                 "answer": full_answer,
-                "citations": citations
+                "citations": citations,
+                "searched_record_ids": searched_record_ids
             })}
 
         except Exception as e:
@@ -871,7 +953,7 @@ async def search(q: str, top_k: int = 10):
     if not q.strip():
         return {"results": [], "query": q}
 
-    results, is_relevant, _is_exhausted = await hybrid_search(q.strip())
+    results, _is_relevant, _status = await hybrid_search(q.strip())
     context, citations = build_context(results)
     return {
         "query": q,
