@@ -741,7 +741,7 @@ def git_push():
     # pipeline (gen_all_reports.sh) and git_push() never stages or commits it,
     # so in-flight report files must not block a data-sync push.
     dirty = subprocess.run(
-        ["git", "status", "--porcelain", "--untracked-files=normal", "--", ":(exclude)data/processed/lite-part-*.js", ":(exclude)data/processed/meta-part-*.js", ":(exclude)data/processed/summary-part-*.js", ":(exclude)data/processed/manifest-data.js", ":(exclude)data/reports/"],
+        ["git", "status", "--porcelain", "--untracked-files=normal", "--", ":(exclude)data/processed/lite-part-*.js", ":(exclude)data/processed/meta-part-*.js", ":(exclude)data/processed/summary-part-*.js", ":(exclude)data/processed/manifest-data.js", ":(exclude)data/processed/conferences.json", ":(exclude)data/reports/"],
         capture_output=True, text=True, cwd=REPO, timeout=30,
     )
     if dirty.returncode != 0 or dirty.stdout.strip():
@@ -899,6 +899,48 @@ def main():
         # Step 9: Commit state ONLY after successful push
         log("Step 9: Commit state...")
         commit_state(current, successfully_downloaded)
+
+        # Step 10: Rebuild search indexes (vector + BM25 + knowledge graph)
+        log("Step 10: Rebuilding search indexes...")
+
+        venv_python = os.path.join(REPO, ".venv", "bin", "python")
+        qa_backend = os.path.join(REPO, "qa-backend")
+
+        # 10a: BM25 index (fast, ~5 min)
+        log("  10a: Building BM25 index...")
+        bm25_result = subprocess.run(
+            [venv_python, os.path.join(qa_backend, "bm25_index.py")],
+            capture_output=True, text=True, cwd=REPO, timeout=600
+        )
+        if bm25_result.returncode != 0:
+            log(f"  [WARN] BM25 index build failed (non-fatal): {bm25_result.stderr[:200]}")
+        else:
+            log("  BM25 index built successfully.")
+
+        # 10b: Vector index (slow, ~3-5 hours for full rebuild)
+        log("  10b: Building vector index...")
+        vec_result = subprocess.run(
+            [venv_python, os.path.join(qa_backend, "vector_index.py")],
+            capture_output=False, cwd=REPO, timeout=14400  # 4 hour timeout
+        )
+        if vec_result.returncode != 0:
+            log(f"  [WARN] Vector index build failed (non-fatal)")
+        else:
+            log("  Vector index built successfully.")
+
+        # 10c: Knowledge graph (incremental, only new records)
+        log("  10c: Updating knowledge graph (incremental)...")
+        graph_result = subprocess.run(
+            [venv_python, os.path.join(qa_backend, "concurrent_ingest.py"),
+             "--concurrency", "5"],
+            capture_output=False, cwd=REPO, timeout=7200  # 2 hour timeout
+        )
+        if graph_result.returncode != 0:
+            log(f"  [WARN] Knowledge graph update failed (non-fatal)")
+        else:
+            log("  Knowledge graph updated successfully.")
+
+        log("Step 10 complete: All indexes rebuilt.")
 
         log(f"Pipeline complete: +{merged_count} records")
     except Exception as e:
