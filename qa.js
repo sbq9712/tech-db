@@ -346,6 +346,8 @@ async function sendQuestion() {
           .map(n => m.citations.find(c => c.id === n)?.record_id)
           .filter(Boolean);
       }
+      // Always send searched_record_ids when available (for prev_has_results gate)
+      if (m.searched_record_ids) entry.searched_record_ids = m.searched_record_ids;
     }
     return entry;
   });
