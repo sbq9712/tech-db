@@ -871,7 +871,7 @@ async def search(q: str, top_k: int = 10):
     if not q.strip():
         return {"results": [], "query": q}
 
-    results, is_relevant = await hybrid_search(q.strip())
+    results, is_relevant, _is_exhausted = await hybrid_search(q.strip())
     context, citations = build_context(results)
     return {
         "query": q,
