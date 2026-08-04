@@ -79,38 +79,56 @@ async def build_index():
 
     print(f"  Canonical set (valid & non-dup): {len(records)}", flush=True)
 
+    # ── Incremental mode: load existing index, only embed NEW records ──
+    existing_embeddings = None
+    existing_meta = []
     if INDEX_FILE.exists():
         print("  Index already exists. Checking...", flush=True)
         try:
             with open(INDEX_FILE, "rb") as f:
                 saved = pickle.load(f)
-            if len(saved["embeddings"]) == len(records):
-                print("  Index is complete!", flush=True)
-                return
-            print(f"  Index has {len(saved['embeddings'])}/{len(records)} records. Rebuilding...", flush=True)
-        except Exception:
-            print("  Index corrupted. Rebuilding...", flush=True)
+            saved_count = len(saved["embeddings"])
+            indexed_ids = {m["idx"] for m in saved["meta"]}
+            # Find records not yet in the index
+            new_records = [(i, r) for i, r in records if i not in indexed_ids]
+
+            if not new_records:
+                if saved_count == len(records):
+                    print("  Index is complete!", flush=True)
+                    return
+                else:
+                    # Meta count mismatch but all idx present — shouldn't happen, rebuild
+                    print(f"  [WARN] Meta inconsistency ({saved_count} embs vs {len(saved['meta'])} meta). Full rebuild.", flush=True)
+                    records = records  # proceed with full build below
+            else:
+                print(f"  Index has {saved_count}/{len(records)} records. "
+                      f"Incremental: {len(new_records)} new to embed.", flush=True)
+                existing_embeddings = saved["embeddings"]
+                existing_meta = saved["meta"]
+                records = new_records  # only embed the new ones
+        except Exception as e:
+            print(f"  Index corrupted ({e}). Rebuilding from scratch...", flush=True)
 
     print(f"\n[2/3] Embedding {len(records)} records (batch_size={BATCH_SIZE})...", flush=True)
-    
+
     all_embeddings = []
     all_meta = []
     start_time = time.time()
-    
+
     # Process in batches
     total_batches = (len(records) + BATCH_SIZE - 1) // BATCH_SIZE
     for batch_idx in range(total_batches):
         start = batch_idx * BATCH_SIZE
         end = min(start + BATCH_SIZE, len(records))
         batch = records[start:end]
-        
+
         texts = [format_record_text(rec) for _, rec in batch]
-        
+
         try:
             embeddings = await embedding_func(texts)
             embeddings = np.array(embeddings, dtype=np.float32)
             all_embeddings.append(embeddings)
-            
+
             for orig_idx, rec in batch:
                 all_meta.append({
                     "idx": orig_idx,
@@ -129,12 +147,12 @@ async def build_index():
             all_embeddings.append(np.zeros((len(batch), EMBEDDING_DIM), dtype=np.float32))
             for orig_idx, rec in batch:
                 all_meta.append({"idx": orig_idx, "t": rec.get("t", ""), "c": rec.get("c", "")})
-        
+
         done = end
         elapsed = time.time() - start_time
         rate = done / max(elapsed, 1)
         eta = (len(records) - done) / max(rate, 0.1)
-        
+
         if batch_idx % 10 == 0 or batch_idx == total_batches - 1:
             print(f"  [{done}/{len(records)}] Batch {batch_idx+1}/{total_batches} "
                   f"| {rate:.1f}/s ETA={eta/60:.0f}min", flush=True)
@@ -142,14 +160,22 @@ async def build_index():
         # Save incrementally every 50 batches so server can use partial index
         if (batch_idx + 1) % 50 == 0 or batch_idx == total_batches - 1:
             try:
-                partial_embs = np.vstack(all_embeddings)
-                norms = np.linalg.norm(partial_embs, axis=1, keepdims=True)
+                # Merge with existing embeddings if in incremental mode
+                new_embs = np.vstack(all_embeddings)
+                if existing_embeddings is not None:
+                    combined_embs = np.vstack([existing_embeddings, new_embs])
+                    combined_meta = existing_meta + all_meta.copy()
+                else:
+                    combined_embs = new_embs
+                    combined_meta = all_meta.copy()
+
+                norms = np.linalg.norm(combined_embs, axis=1, keepdims=True)
                 norms[norms == 0] = 1
-                partial_embs = partial_embs / norms
+                combined_embs = combined_embs / norms
 
                 partial_data = {
-                    "embeddings": partial_embs,
-                    "meta": all_meta.copy(),
+                    "embeddings": combined_embs,
+                    "meta": combined_meta,
                     "dim": EMBEDDING_DIM,
                 }
                 # Atomic save: write to temp file then rename
@@ -157,36 +183,44 @@ async def build_index():
                 with open(tmp_file, "wb") as f:
                     pickle.dump(partial_data, f, protocol=pickle.HIGHEST_PROTOCOL)
                 os.rename(tmp_file, str(INDEX_FILE))
-                print(f"  💾 Saved partial index: {len(all_meta)} records", flush=True)
+                total_now = len(combined_meta)
+                print(f"  💾 Saved index: {total_now} records "
+                      f"({len(all_meta)} new + {len(existing_meta) if existing_embeddings is not None else 0} existing)", flush=True)
             except Exception as e:
                 print(f"  ⚠️ Partial save failed: {e}", flush=True)
-            print(f"  [{done}/{len(records)}] Batch {batch_idx+1}/{total_batches} "
-                  f"| {rate:.1f}/s ETA={eta/60:.0f}min", flush=True)
     
-    print(f"\n[3/3] Saving index...", flush=True)
-    all_embeddings = np.vstack(all_embeddings)
-    
+    print(f"\n[3/3] Saving final index...", flush=True)
+    new_embeddings = np.vstack(all_embeddings)
+
+    # Merge with existing if incremental
+    if existing_embeddings is not None:
+        final_embeddings = np.vstack([existing_embeddings, new_embeddings])
+        final_meta = existing_meta + all_meta
+    else:
+        final_embeddings = new_embeddings
+        final_meta = all_meta
+
     # Normalize embeddings for cosine similarity
-    norms = np.linalg.norm(all_embeddings, axis=1, keepdims=True)
+    norms = np.linalg.norm(final_embeddings, axis=1, keepdims=True)
     norms[norms == 0] = 1
-    all_embeddings = all_embeddings / norms
-    
+    final_embeddings = final_embeddings / norms
+
     index_data = {
-        "embeddings": all_embeddings,
-        "meta": all_meta,
+        "embeddings": final_embeddings,
+        "meta": final_meta,
         "dim": EMBEDDING_DIM,
     }
-    
+
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
     # Atomic save: write to temp file then rename
     tmp_file = str(INDEX_FILE) + ".tmp"
     with open(tmp_file, "wb") as f:
         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
     os.rename(tmp_file, str(INDEX_FILE))
-    
+
     elapsed = time.time() - start_time
     size_mb = INDEX_FILE.stat().st_size / 1024 / 1024
-    print(f"  Saved {len(all_meta)} embeddings ({size_mb:.0f}MB) in {elapsed/60:.1f}min", flush=True)
+    print(f"  Saved {len(final_meta)} embeddings ({size_mb:.0f}MB) in {elapsed/60:.1f}min", flush=True)
     print(f"  Index file: {INDEX_FILE}", flush=True)
     print("\n✅ Vector index build complete!", flush=True)
 
