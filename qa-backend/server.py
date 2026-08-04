@@ -342,6 +342,70 @@ def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
     return results
 
 
+async def rewrite_query(query: str, history: list) -> str:
+    """Rewrite a follow-up question into a standalone query using conversation context.
+
+    Strategy:
+    1. If there's no history, return the original query unchanged.
+    2. Try LLM-based rewriting (best quality).
+    3. If LLM fails (e.g., rate limit), fall back to keyword extraction from history.
+    """
+    if not history:
+        return query
+
+    # Build a compact prompt for query rewriting
+    recent = history[-4:]  # last 2 turns (user + assistant)
+    dialogue = ""
+    for msg in recent:
+        role = "用户" if msg.get("role") == "user" else "助手"
+        content = msg.get("content", "")[:200]  # truncate to keep it fast
+        dialogue += f"{role}: {content}\n"
+
+    prompt = f"""根据以下对话历史，将用户的最后一个问题改写为一个独立、完整的检索查询。
+要求：
+1. 只输出改写后的查询，不要解释
+2. 如果问题已经很明确，直接输出原问题
+3. 补充必要的上下文关键词，让检索系统能找到相关内容
+
+对话历史：
+{dialogue}
+
+用户最新问题：{query}
+
+改写后的检索查询："""
+
+    try:
+        rewritten = await llm_model_func(
+            prompt,
+            temperature=0.0,
+            max_tokens=128,
+        )
+        rewritten = rewritten.strip().strip('"').strip("'").strip("。")
+        if rewritten and len(rewritten) <= 200:
+            print(f"[query-rewrite] '{query}' → '{rewritten}'", flush=True)
+            return rewritten
+    except Exception as e:
+        print(f"[query-rewrite] LLM failed ({e}), using keyword fallback", flush=True)
+
+    # ── Keyword-based fallback (no API call needed) ──
+    # Extract the most recent user question from history and combine with current query
+    last_user_msg = ""
+    for msg in reversed(history):
+        if msg.get("role") == "user" and msg.get("content", "").strip():
+            last_user_msg = msg["content"].strip()
+            break
+
+    if last_user_msg:
+        # Simple heuristic: prepend the previous topic to the follow-up query
+        # Take the first ~30 chars of the last user message as context
+        context_topic = last_user_msg[:30]
+        fallback_query = f"{context_topic} {query}"
+        print(f"[query-rewrite] Fallback: '{query}' → '{fallback_query}'", flush=True)
+        return fallback_query
+
+    return query
+
+
 async def hybrid_search(query: str) -> tuple:
     """Hybrid retrieval: vector + BM25 + graph → RRF fusion → dynamic cutoff.
 
@@ -553,8 +617,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                 })}
                 return
 
+            # Rewrite follow-up queries using conversation history for better retrieval
+            search_query = await rewrite_query(query, req.history)
+
             # Hybrid search (vector + BM25 → RRF)
-            search_results, is_relevant = await hybrid_search(query)
+            search_results, is_relevant = await hybrid_search(search_query)
 
             if not search_results or not is_relevant:
                 yield {"event": "done", "data": json.dumps({
