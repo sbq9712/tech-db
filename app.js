@@ -1682,6 +1682,14 @@ function renderCalendarView() {
         calRender();
       }
     });
+    // Sync month button highlight with actual state.calendarMonth
+    if (monthPicker) {
+      monthPicker.querySelectorAll('.cal-month-btn').forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.month) === state.calendarMonth);
+      });
+    }
+    // Sync year selector with actual state.calendarYear
+    if (yearSel) yearSel.value = String(state.calendarYear);
   }
 
   container.innerHTML = `<div class="calendar-main" id="calMain"><p class="empty-hint">正在载入会议数据…</p></div>`;

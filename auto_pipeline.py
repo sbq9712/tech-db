@@ -942,6 +942,69 @@ def main():
 
         log("Step 10 complete: All indexes rebuilt.")
 
+        # Step 11: Generate reports (daily always, weekly on Monday, monthly on 1st)
+        log("Step 11: Generating reports...")
+        try:
+            cst_now = datetime.now(timezone(timedelta(hours=8)))
+            yesterday_cst = (cst_now - timedelta(days=1)).strftime("%Y-%m-%d")
+            weekday = cst_now.weekday()  # 0=Monday
+
+            report_scripts = os.path.join(REPO, "scripts", "generate_reports.py")
+
+            # 11a: Daily report (always)
+            log(f"  11a: Daily report for {yesterday_cst}...")
+            daily_result = subprocess.run(
+                [sys.executable, report_scripts, "--type", "daily", "--date", yesterday_cst],
+                capture_output=True, text=True, cwd=REPO, timeout=120
+            )
+            if daily_result.returncode == 0:
+                log("  " + daily_result.stdout.strip().split('\n')[-1])
+            else:
+                log(f"  [WARN] Daily report failed: {daily_result.stderr[:200]}")
+
+            # 11b: Weekly report (Monday only)
+            if weekday == 0:
+                last_monday = (cst_now - timedelta(days=7)).strftime("%Y-%m-%d")
+                log(f"  11b: Weekly report for week of {last_monday}...")
+                weekly_result = subprocess.run(
+                    [sys.executable, report_scripts, "--type", "weekly", "--date", last_monday],
+                    capture_output=True, text=True, cwd=REPO, timeout=180
+                )
+                if weekly_result.returncode == 0:
+                    log("  " + weekly_result.stdout.strip().split('\n')[-1])
+                else:
+                    log(f"  [WARN] Weekly report failed: {weekly_result.stderr[:200]}")
+
+            # 11c: Monthly report (1st of month only)
+            if cst_now.day == 1:
+                first_of_prev = (cst_now.replace(day=1) - timedelta(days=1)).replace(day=1).strftime("%Y-%m-%d")
+                log(f"  11c: Monthly report for {first_of_prev}...")
+                monthly_result = subprocess.run(
+                    [sys.executable, report_scripts, "--type", "monthly", "--date", first_of_prev],
+                    capture_output=True, text=True, cwd=REPO, timeout=180
+                )
+                if monthly_result.returncode == 0:
+                    log("  " + monthly_result.stdout.strip().split('\n')[-1])
+                else:
+                    log(f"  [WARN] Monthly report failed: {monthly_result.stderr[:200]}")
+
+            # 11d: Commit and push reports
+            log("  11d: Committing reports...")
+            subprocess.run(["git", "add", "data/reports/"], cwd=REPO, timeout=30, capture_output=True)
+            staged_reports = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO, timeout=30)
+            if staged_reports.returncode == 1:
+                subprocess.run(["git", "commit", "-m", f"report: auto {cst_now.strftime('%Y-%m-%d')}"],
+                               cwd=REPO, timeout=30, capture_output=True)
+                subprocess.run(["git", "push", GH_PUSH_URL, "main"],
+                               cwd=REPO, timeout=120, capture_output=True)
+                log("  Reports committed and pushed.")
+            else:
+                log("  No new reports to commit.")
+
+            log("Step 11 complete.")
+        except Exception as re:
+            log(f"  [WARN] Report generation failed (non-fatal): {re}")
+
         log(f"Pipeline complete: +{merged_count} records")
     except Exception as e:
         log(f"[ERROR] Pipeline failed: {e}")
