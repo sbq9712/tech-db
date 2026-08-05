@@ -1685,7 +1685,7 @@ function renderCalendarView() {
     // Sync month button highlight with actual state.calendarMonth
     if (monthPicker) {
       monthPicker.querySelectorAll('.cal-month-btn').forEach(b => {
-        b.classList.toggle('active', parseInt(b.dataset.month) === state.calendarMonth);
+        b.classList.toggle('active', parseInt(b.dataset.month, 10) === state.calendarMonth);
       });
     }
     // Sync year selector with actual state.calendarYear
