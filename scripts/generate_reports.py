@@ -300,29 +300,41 @@ def generate_one(rtype, date_str, data):
 
 
 def generate_all(rtype, data):
+    """Generate reports for all completed periods.
+
+    Timing rules:
+    - Daily: generated for yesterday (always complete)
+    - Weekly: only for weeks whose last day (Sunday) has passed (< today)
+    - Monthly: only for months whose last day has passed (< today)
+    """
     dates = sorted(set(r.get("d", "") for r in data if r.get("d")))
     if not dates:
         log("no dates in data")
         return
     earliest = datetime.strptime(dates[0], "%Y-%m-%d")
-    yesterday = datetime.now() - timedelta(days=1)
+    today = datetime.now()
 
     if rtype == "daily":
+        yesterday = today - timedelta(days=1)
         current = earliest
         while current <= yesterday:
             generate_one("daily", current.strftime("%Y-%m-%d"), data)
             current += timedelta(days=1)
     elif rtype == "weekly":
-        current = earliest - timedelta(days=earliest.weekday())
-        while current <= yesterday:
+        # Week must be fully complete: Sunday (start + 6 days) must be before today
+        current = earliest - timedelta(days=earliest.weekday())  # align to Monday
+        while current + timedelta(days=6) < today:
             generate_one("weekly", current.strftime("%Y-%m-%d"), data)
             current += timedelta(days=7)
     elif rtype == "monthly":
+        # Month must be fully complete: last day of month must be before today
         current = earliest.replace(day=1)
-        while current <= yesterday:
+        while True:
+            last_day = (current.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
+            if last_day >= today:
+                break
             generate_one("monthly", current.strftime("%Y-%m-%d"), data)
-            next_month = (current.replace(day=28) + timedelta(days=4)).replace(day=1)
-            current = next_month
+            current = (current.replace(day=28) + timedelta(days=4)).replace(day=1)
 
 
 def main():

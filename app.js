@@ -1693,7 +1693,27 @@ function renderCalendarView() {
   }
 
   container.innerHTML = `<div class="calendar-main" id="calMain"><p class="empty-hint">正在载入会议数据…</p></div>`;
-  loadCalendarData().then(() => calRender());
+  loadCalendarData().then(() => {
+    // Populate year selector dynamically based on conference data
+    const confData = state.calendarData || [];
+    const confYears = [...new Set(confData.map(c => {
+      if (!c.start_date) return null;
+      const d = new Date(c.start_date);
+      return isNaN(d.getTime()) ? null : d.getFullYear();
+    }).filter(y => y !== null))].sort((a, b) => a - b);
+    if (yearSel) {
+      const currentVal = state.calendarYear;
+      yearSel.innerHTML = confYears.length > 0
+        ? confYears.map(y => `<option value="${y}">${y}年</option>`).join('')
+        : `<option value="${currentVal}">${currentVal}年</option>`;
+      // If current year not in data, default to the closest available year
+      if (confYears.length > 0 && !confYears.includes(currentVal)) {
+        state.calendarYear = confYears[confYears.length - 1]; // most recent
+      }
+      yearSel.value = String(state.calendarYear);
+    }
+    calRender();
+  });
 }
 
 function calGetFiltered() {

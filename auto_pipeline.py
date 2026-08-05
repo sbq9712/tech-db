@@ -640,6 +640,63 @@ def gen_summaries(records):
     log(f"  摘要完成: {has_summary}/{len(records)} (有正文记录: {has_body})")
     return records
 
+
+# ── 关键参数提取 ──
+def extract_key_params(records):
+    """Extract key technical parameters for each relevant record.
+    Only processes records with valid category (not 不相关/未分类/empty).
+    Uses GLM to extract structured key_params from title + body.
+    """
+    # Only extract for relevant records with body text
+    todo = [{"id": i,
+             "type": "literature" if r.get("i") == "l" else "news",
+             "title": r.get("t", "")[:200],
+             "body": r.get("b", "")[:500],
+             "category": r.get("c", "")}
+            for i, r in enumerate(records)
+            if r.get("c", "") in VALID_CATEGORY_LEAVES
+            and r.get("c", "") not in ("不相关", "未分类", "")]
+
+    if not todo:
+        log("  关键参数: 0 条需要提取")
+        return records
+
+    KP_PROMPT = """作为顶级情报分析专家，请基于深层语义理解提取输入文本中的关键技术情报。
+
+【禁止项】
+严禁降级为关键词或向量匹配。所有提取必须基于对全文技术内涵的理解。
+
+【提取规则】
+1. 有明确量化参数的，格式为：参数名[核心条件]: 参数值
+   例：能量密度[软包电池]: 350 Wh/kg
+   转换效率[钙钛矿叠层]: 30.4%
+2. 有明确属性但不可量化的，格式为：参数名[核心条件]: 定性特征
+   例：催化剂[碱性海水]: 镍铁层状双氢氧化物
+3. 无明确参数名但有关键技术状态/工艺特点/结论的，格式为：[核心条件]: 关键特征陈述
+4. 如无任何关键技术参数可提取，返回空数组
+
+只输出JSON数组：
+{"id":0,"key_params":["参数名[条件]: 值","..."]}
+待处理情报：
+"""
+
+    log(f"  关键参数提取中... ({len(todo)} 条)")
+    results = call_glm_batch(KP_PROMPT, todo, batch_size=10)
+
+    extracted = 0
+    for r in results:
+        idx = r.get("id")
+        if not isinstance(idx, int) or idx < 0 or idx >= len(records):
+            continue
+        kp = r.get("key_params", [])
+        if isinstance(kp, list) and kp:
+            records[idx]["kp"] = [str(k)[:200] for k in kp[:5]]
+            extracted += 1
+
+    log(f"  关键参数完成: {extracted}/{len(todo)} 条提取到参数")
+    return records
+
+
 # ── 合并 + 重建分片 ──
 def merge_and_rebuild(new_records):
     """Merge new records into lite, rebuild chunks. Returns (count, start_index)."""
@@ -840,6 +897,13 @@ def main():
         # Step 5: AI Summaries
         log("Step 5: AI Summaries...")
         unique = gen_summaries(unique)
+
+        # Step 5b: Extract key parameters
+        log("Step 5b: Extract key parameters...")
+        try:
+            unique = extract_key_params(unique)
+        except Exception as kp_err:
+            log(f"  [WARN] 关键参数提取失败 (non-fatal): {kp_err}")
 
         # Step 6: Merge + Rebuild
         log("Step 6: Merge + Rebuild lite...")
