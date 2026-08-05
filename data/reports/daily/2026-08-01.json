@@ -1,0 +1,146 @@
+{
+  "type": "daily",
+  "date_label": "2026年8月1日　星期六",
+  "date_range": "2026-08-01",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究阐明L-(+)-酒石酸生物合成机制并开发ECHO多模态优化框架",
+      "科研团队提出钠离子电池层状氧化物正极表面重建集成改性策略"
+    ],
+    "AI与智能科技": [
+      "OpenAI于华盛顿提前预览代号为Astra的人工智能模型"
+    ],
+    "通用技术": [
+      "科研人员研发靶向串联激活人工传感器用于胸主动脉瘤早期检测",
+      "三名科学家因确立交变磁性为第三种基本磁性形态荣获欧洲物理学奖"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究阐明L-(+)-酒石酸生物合成机制并开发ECHO多模态优化框架",
+        "科研团队提出钠离子电池层状氧化物正极表面重建集成改性策略"
+      ],
+      "entries": [
+        {
+          "t": "多模块工程酵母中从头进行 L-(+)-酒石酸生物合成",
+          "d": "2026-08-01",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "L-(+)-酒石酸是食品和制药领域的高价值手性有机酸。研究通过酶挖掘和验证，在酿酒酵母中实现了L-(+)-酒石酸的从头生物合成。研究阐明了由转酮醇酶和琥珀酸半醛脱氢酶催化5-酮-D-葡萄糖酸转化为L-(+)-酒石酸的两步反应机制，并开发了ECHO（酶委员会特异性催化混合优化器）多模态框架以优化该过程。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-76119-w",
+          "tp": "酵母合成酒石酸",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "L-(+)-tartaric acid (L-TA) is a high-value chiral organic acid essential for food and pharmaceuticals. Despite its industrial importance, sustainable green production is constrained by the lack of a fully defined biosynthetic pathway. Here, we report the de novo biosynthesis of L-TA in Saccharomyces cerevisiae through reaction-guided enzyme mining, experimental validation, and Enzyme Commission-specific Catalytic Hybrid Optimizer (ECHO)-assisted enzyme prioritization. We first elucidate the elusive two-step conversion from precursor 5-keto-D-gluconic acid (5-KGA) to L-TA, catalyzed by transketolase (TK) and succinate semialdehyde dehydrogenase (SSDH). To optimize this critical step, we develop the ECHO. This multimodal framework integrates sequence, substrate, and pocket-aware structural information to identify high-performance TK-SSDH pairs. By integrating this pathway with de novo precursor synthesis, cofactor engineering, and semi-rational protein engineering, a final L-TA titer of 6.59 mg L−1 was achieved in a 5-L bioreactor. By connecting computational mining and metabolic assembly through a multi-module engineering strategy, our study establishes a green platform for L-TA production and demonstrates an effective workflow for synthetic pathway design.",
+          "hb": 1
+        },
+        {
+          "t": "超越传统化学调制的钠层氧化物阴极的表面重建集成体缺陷工程",
+          "d": "2026-08-01",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "层状氧化物是钠离子电池极具前景的正极材料，但在循环过程中面临相变、不可逆氧损失和严重的界面退化问题。以O3-NaNi1/3Fe1/3Mn1/3O2正极为原型，研究提出了一种超越传统化学调制的集成改性策略，以同时提升体相、表面和界面性能。通过表面重建衍生的富Y NaYO2(NYO)涂层，促进了位点选择性的体相缺陷工程。该策略有效缓解了层状氧化物在充放电循环中的结构退化和界面劣化，大幅提升了电池的综合电化学性能。",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74313?af=R",
+          "tp": "钠电池阴极",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    As the most prospective cathode material for sodium‐ion batteries (SIBs), layered oxides persistently suffer from detrimental phase transitions, irreversible oxygen loss, and severe interfacial degradation during cycling. Herein, utilizing O3‐NaNi\n                    1/3\n                    Fe\n                    1/3\n                    Mn\n                    1/3\n                    O\n                    2\n                    cathode as prototype, we propose an integrated modification strategy beyond conventional chemical modulation to simultaneously boost the bulk, surface and interfacial properties. The Y‐enriched NaYO\n                    2\n                    (NYO) coating derived via surface reconstruction facilitates site‐selective bulk substitution whilst inducing suitably quantized local oxygen vacancy (O\n                    V\n                    ) defects through charge balancing. The synergistic interaction between Y─O─TM strong bond and the O\n                    V\n                    's charge‐buffering effect jointly modulates O\n                    2p\n                    orbital electronic band configuration, preventing excessive O oxidation and formation of O─O dimers arising from charge concentration. Moreover, the perovskite‐phase NYO surface serves as an inherent fast Na\n                    +\n                    conductor ensuring efficient ion transport at interface, whilst also providing a robust rigid mechanical barrier that effectively suppresses interfacial side reactions and dissolution of transition metals. As a result, anion redox reversibility and local chemical environment stability are elevated, thereby comprehensively boosting electrochemical reaction kinetics and charge transfer efficiency, as confirmed by theoretical calculations and advanced synchrotron characterization. This research establishes a novel paradigm for the advancement of high‐performance Na‐layered oxide cathodes incorporating synergistic multi‐mechanism modification.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "OpenAI于华盛顿提前预览代号为Astra的人工智能模型"
+      ],
+      "entries": [
+        {
+          "t": "独家：OpenAI 在华盛顿预览“Astra”人工智能模型",
+          "d": "2026-08-01",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "OpenAI在华盛顿提前预览了其代号为“Astra”的人工智能模型。关于该模型的具体技术参数、核心功能及发布时间等详细信息在本次情报中尚未披露。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+          "tp": "OpenAI发新模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Exclusive: OpenAI Previews ‘Astra’ AI Model in DC — The Information\nRead this briefing for free",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研人员研发靶向串联激活人工传感器用于胸主动脉瘤早期检测",
+        "三名科学家因确立交变磁性为第三种基本磁性形态荣获欧洲物理学奖"
+      ],
+      "entries": [
+        {
+          "t": "用于胸主动脉瘤和夹层早期检测和治疗干预的靶向串联激活人工尿液生物标志物传感器",
+          "d": "2026-08-01",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "针对胸主动脉瘤和夹层(TAAD)早期诊断困难的问题，研究开发了一种靶向串联激活人工尿液生物标志物传感器(TADEI)。该传感器用于TAAD早期生物标志物的实时光学成像和尿液分析，由近红外荧光团及三个关键组件偶联而成：靶向外发炎内皮细胞的VCAM-1靶向基序、响应炎症介质caspase-1的串联底物，以及与血管重塑相关蛋白酶legumain的底物。该传感器实现了TAAD的早期精准检测和动态治疗监测。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74390?af=R",
+          "tp": "人工尿液传感器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Thoracic aortic aneurysm and dissection (TAAD) is a life‐threatening cardiovascular disorder; current clinical imaging approaches primarily detect structural abnormalities at late stages and fail to enable early diagnosis or dynamic therapeutic monitoring. Here, we develop a targeted, tandem‐activated artificial urinary biomarker sensor (TADEI) for real‐time optical imaging and urinalysis of early biomarkers associated with TAAD. After identifying biomarkers from patient tissue samples, TADEI was designed with three key components conjugated to a near‐infrared fluorophore: a VCAM‐1–targeting moiety (overexpressed on inflamed endothelial cells), tandem‐responsive substrates for caspase‐1 (an inflammation mediator) and legumain (a protease relevant to vascular remodeling), and a renal‐clearance–enabling moiety. TADEI specifically targets TAAD lesions and activates its fluorescence upon reaction with these early biomarkers after systemic administration. Meanwhile, TADEI is excreted into urine via renal clearance (≈76%), converting TAAD biomarker levels into urinary signals for optical urinalysis. In a mouse model, a TADEI‐based urine test detected TAAD at least 12 days earlier than ultrasound imaging and 16 days earlier than plasma D‐dimer assays. The correlation between the urinary signal of activated TADEI and disease severity guided intervention that effectively inhibited TAAD progression, achieving 100% survival compared with 73% for ultrasound‐guided therapy and 40% without treatment.",
+          "hb": 1
+        },
+        {
+          "t": "发现交变磁力的科学家赢得重大物理学荣誉",
+          "d": "2026-08-01",
+          "a": "scitechdaily",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "美因茨约翰内斯·古腾堡大学的Jairo Sinova教授、Libor Šmejkal博士和Tomas Jungwirth教授因发现交变磁性而荣获2026年欧洲物理学会凝聚态物理分部欧洲物理学奖。这一发现打破了百年来磁性仅有铁磁性和反铁磁性两类的传统认知，确立了交变磁性作为第三种基本磁性有序形态的地位。该成果为凝聚态物理领域开创了全新的研究方向。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/scientists-who-uncovered-altermagnetism-win-major-physics-honor/",
+          "tp": "交变磁性发现",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A previously overlooked set of spin symmetries has revealed that magnetism does not fit neatly into just two categories.\nFor more than a century, physicists divided collinear magnets into two basic types. The discovery of altermagnetism has added a third, earning Professor Jairo Sinova of Johannes Gutenberg University Mainz (JGU), Dr. Libor Šmejkal and Professor Tomas Jungwirth the 2026 Europhysics Prize from the European Physical Society (EPS) Condensed Matter Division.\nOne of Europe’s leading honors in condensed matter physics, the prize recognizes their work establishing altermagnetism as a previously unknown fundamental form of magnetic order alongside ferromagnetism and antiferromagnetism. The finding has challenged a long-accepted picture of magnetism and created a research field with potential consequences for quantum materials, condensed matter physics and future information technologies.\n“This award recognizes a fundamental discovery that challenged one of the most established paradigms in condensed matter physics,” said Professor Jairo Sinova, Director of the Spin Phenomena Interdisciplinary Center (SPICE) at Mainz University. “Discovering that an entirely new magnetic phase had remained hidden for more than one hundred years demonstrates that even the most mature scientific fields can still hold fundamental surprises.”\nAltermagnetism emerged through a longstanding collaboration between Sinova’s group at Johannes Gutenberg University Mainz and Jungwirth’s team at the Institute of Physics of the Czech Academy of Sciences in Prague.\nŠmejkal, who also held an affiliation in Prague, worked at Mainz from 2016 to 2024. He first joined Sinova’s group as a doctoral researcher and later continued as a postdoctoral scientist. During those eight years at JGU, Šmejkal led the development of many of the theoretical ideas that ultimately supported the discovery.\nThe researchers combined modern symmetry theory with spintronics, a field that uses the spin of electrons to process and store information, to identify a fundamentally different kind of magnetic organization. Their predictions quickly prompted experimental groups worldwide to search for the effect. Spectroscopic and electrical transport measurements subsequently provided evidence of altermagnetism in several materials.\nResearch on altermagnetism now extends across Europe, North America and Asia, making it one of the most rapidly expanding areas of condensed matter physics.\nFor decades, the standard framework placed every collinear magnet into one of two groups. Ferromagnets have a net magnetization, making them central to conventional magnetic memory. Antiferromagnets are magnetically compensated, with opposing magnetic moments that cancel one another, and display very different electronic behavior.\nAltermagnets reveal that those categories do not cover every possibility. Like antiferromagnets, they have no overall magnetization. At the same time, they possess electronic properties that were previously associated only with ferromagnets.\nThis combination can support highly spin-polarized electrical currents and extremely fast magnetic dynamics. Those characteristics make altermagnets promising candidates for future spintronics technologies, which aim to manipulate electron spin rather than relying only on electrical charge.\nThe implications extend beyond possible devices. Altermagnetism defines a new symmetry class of matter and creates unexpected links with topological physics, unconventional superconductivity and strongly correlated quantum materials.\nThe path toward altermagnetism began with theoretical investigations of unusual magnetic transport effects, including the prediction of the crystal anomalous Hall effect. At first, these properties could have appeared to be isolated features of particular materials.\nFurther analysis revealed a broader explanation. The unusual behavior arose from a distinct magnetic phase controlled by spin symmetries that earlier classifications had overlooked.\nIn 2022, the researchers presented a complete symmetry-based classification of altermagnetism and identified hundreds of materials that could potentially display it. Experimental scientists have since confirmed altermagnetic behavior through several independent methods, including angle-resolved photoemission spectroscopy (ARPES), which maps the energy and motion of electrons inside materials, and electrical transport measurements.\nWithin only a few years, altermagnetism has generated hundreds of scientific papers and become a prominent subject at international physics conferences.\nThe EPS Europhysics Prize has honored major advances in condensed matter physics since 1975. It recognizes discoveries that have substantially moved the field forward, with a significant share of the contributing research conducted in Europe.\nSinova, Šmejkal and Jungwirth will receive the award at the 32nd General Conference of the European Physical Society Condensed Matter Division (CMD32), scheduled for September 2026 in Graz, Austria.\nReference: “Altermagnetic lifting of Kramers spin degeneracy” by J. Krempaský, L. Šmejkal, S. W. D’Souza, M. Hajlaoui, G. Springholz, K. Uhlířová, F. Alarab, P. C. Constantinou, V. Strocov, D. Usanov, W. R. Pudelko, R. González-Hernández, A. Birk Hellenes, Z. Jansa, H. Reichlová, Z. Šobáň, R. D. Gonzalez Betancourt, P. Wadley, J. Sinova, D. Kriegner, J. Minár, J. H. Dil and T. Jungwirth, 14 February 2024,\nDOI: 10.1038/s41586-023-06907-7\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAntiferromagnetism\nFerromagnetism\nJohannes Gutenberg Universitaet Mainz\nMagnetic Fields\nThis “Quantum” Material Fooled Scientists – but It’s Actually Something Even Stranger\nNew Type of Magnetism Discovered That Could Make Electronics 1000x Faster\nMagnetic Octupoles Revolutionize High-Speed, Energy-Saving Memory\nIlluminating the Quantum Realm: Light Unveils Hidden Magnetic Domains\nChilling Discoveries: Princeton Physicists Unlock Secrets of Kinetic Magnetism\nImpossible Until Now – Physicists Continuously Change the Type of Magnetism in a Crystal\nNo Lasers Needed: Optical Cavity’s Quantum Trick Alters Material Magnetism\nQuantum Chaos Unleashed: Surprising Breakthrough in Pursuit of Energy-Efficient Quantum Technologies\nSpin State Interaction From Copper Based Materials",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

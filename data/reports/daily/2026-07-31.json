@@ -1,0 +1,230 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月31日　星期五",
+  "date_range": "2026-07-31",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究证实极干燥室微量湿气亦可引发固态电池材料Li6PS5Cl降解",
+      "Rayzon与Navitas联合Caelux在印建设10GW钙钛矿叠层组件产能",
+      "锆基金属有机多面体水凝胶膜实现CO2与H2双模式可切换分离"
+    ],
+    "AI与智能科技": [
+      "磁性纳米机器人平台实现小鼠及灵长类动物椎管内厘米级导航",
+      "MiniMax发布全新开源人工智能视频生成大模型",
+      "强耦合介观导体量子动力学研究明确非平衡态传输信噪比极限"
+    ],
+    "通用技术": [
+      "机器学习指导级联泵浦单光子上转换响应时间缩短至54微秒",
+      "LuCo6Ge6材料室温零磁场下实现18.4 μV K-1横向塞贝克系数",
+      "冷冻电镜解析人SRCAP-CFDP1全酶9个结构揭示组蛋白交换机制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究证实极干燥室微量湿气亦可引发固态电池材料Li6PS5Cl降解",
+        "Rayzon与Navitas联合Caelux在印建设10GW钙钛矿叠层组件产能",
+        "锆基金属有机多面体水凝胶膜实现CO2与H2双模式可切换分离"
+      ],
+      "entries": [
+        {
+          "t": "干燥室条件下湿气诱导银汞矿 Li6PS5Cl 表面降解机制",
+          "d": "2026-07-31",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "银汞矿Li6PS5Cl（LPSC）兼具高室温离子电导率和机械柔软性，是全固态电池的核心材料。研究结合第一性原理计算和X射线光电子能谱深度剖析发现，即使露点为-60至-70°C的干燥室微量湿气也会引发LPSC特定的五步表面降解过程。具体步骤包括富硫表面的水分子吸附、P-S键减弱及热力学上有利的S-O取代等反应。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75537-0",
+          "tp": "固态电池降解",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Argyrodite Li₆PS₅Cl (LPSC) possesses both high Li-ion conductivity ( ~ 10 mS cm⁻¹ at room temperature) and mechanical softness, positioning it as a flagship solid electrolyte for next-generation all-solid-state batteries (ASSBs). However, even trace amounts of moisture in industrial dry rooms (dew-point –60 to –70 °C) rapidly degrade its surface, diminishing ionic transport and impeding scalable processes. Here, we elucidate the moisture-triggered surface degradation mechanism of LPSC under dry-room conditions by combining first-principles calculations with depth-profiling X-ray photoelectron spectroscopy analysis. The combined analysis reveals a five-step sequence: (i) H2O adsorptions on S-rich surface, (ii) P–S bond weakening followed by thermodynamically favoured S-O substitutions, (iii) rotation of the O-substituted PS₄ tetrahedra that drives O migration into subsurface layers, (iv) formation of an O-rich Li₆PO₅Cl-like surface, and (v) volume-shrinking phase separation into LiCl, Li₃PO₄, Li₂SO₄, LiOH, and Li2CO3. The resulting porous, O-enriched layer fails to passivate the electrolyte, causing a 36% drop in ionic conductivity within three days. These mechanistic insights highlight polyhedral-rigidity tuning and moisture-blocking surface chemistries as complementary strategies for stabilizing thiophosphate electrolytes during practical cell fabrication.",
+          "hb": 1
+        },
+        {
+          "t": "印度迎来 10GW 钙钛矿叠层组件项目，规划 2028 年量产-索比光伏网",
+          "d": "2026-07-31",
+          "a": "索比光伏-综合新闻",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "印度光伏制造商Rayzon Solar与Navitas Solar分别与美国Caelux公司签署五年协议，计划在印度建立总计10GW的钙钛矿-硅叠层光伏组件产能，目标于2028年实现商业化量产。该项目将采用Caelux的Active Glass专利技术，将钙钛矿层集成到TOPCon组件的顶层玻璃中。结合N型TOPCon技术，该混合叠层组件的最高转换效率可达28%。此举旨在提升印度本土高效光伏制造能力，并满足印度政府ALMM清单的准入要求。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202607/31/50026849.html",
+          "tp": "钙钛矿叠层组件",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "印度光伏组件制造商 Rayzon Solar 和 Navitas Solar 分别与美国 Caelux 公司签署了为期五年的商业化合作协议，旨在印度实现总计 10GW 的钙钛矿-硅叠层光伏组件产能。目前各方正致力于早期部署，并计划于 2028 年针对印度地面电站市场实现商业化量产。\nCaelux 的 Active Glass 技术将钙钛矿层集成到 TOPCon 组件的顶层玻璃中，形成混合叠层光伏组件。（图片来源：Caelux Corporation）\n印度对钙钛矿太阳能电池技术的关注正转化为具体的商业制造计划，Rayzon Solar 与 Navitas Solar 此次将分别整合 Caelux 的专利技术 Active Glass 与各自的 TOPCon 组件。Active Glass 是一种内置钙钛矿的特种玻璃，通过替代组件中的传统顶层玻璃，可以在光伏组件上方形成额外的钙钛矿发电层，从而将传统的硅光伏组件转化为叠层光伏组件。根据 Caelux 的数据，这种混合叠层组件与 n 型 TOPCon 技术结合后，转换效率最高可达 28%。\n在各自 5GW 的合作框架下，Rayzon 将利用其 11.3GW 的大规模双面制造平台，而 Navitas 则将依托其多 GW 规模的垂直一体化制造平台。Navitas Solar 联合创始人兼董事 Ankit Singhania 表示，通过结合制造经验与 Caelux 的钙钛矿技术，公司正在开辟印度大规模生产混合叠层光伏组件的最早路径。此外，这些混合组件还将满足印度政府批准型号与制造商清单（ALMM）的准入要求。\nRayzon Solar 首席执行官 Amit Barve 指出，这一伙伴关系提升了印度在高效率光伏技术领域的本土制造能力，有助于实现 2030 年 500GW 的清洁能源目标，目前该公司也正在建设一座 5.1GW 的 TOPCon 电池工厂。Caelux 表示，商业化规模预计在 2028 年实现并符合政府招标的公用事业市场资格。此前，Caelux 已于 2026 年 4 月与美国 Solx 公司签署了为期五年的 3GW 战略合作协议。",
+          "hb": 1
+        },
+        {
+          "t": "用于 CO2/H2 可切换分离的刺激响应金属有机多面体水凝胶膜",
+          "d": "2026-07-31",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "研究开发了一种刺激响应型金属有机多面体水凝胶膜，实现了CO2/H2的双模式可切换分离。该膜采用逐步分子级混合与聚合策略制备，将锆基金属有机多面体引入聚合物水凝胶中，获得了优异的填料分散性、界面相容性和溶液可加工性。Zr-MOP笼状结构有效增强了水凝胶的氢键网络，从而克服了单一膜难以同时满足CO2选择性和H2选择性分离机制的设计瓶颈。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aef4345?af=R",
+          "tp": "刺激响应分离膜",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Carbon capture is essential for producing blue hydrogen and syngas. However, designing a single membrane with dual CO\n                    2\n                    -selective and H\n                    2\n                    -selective separations has long been considered impractical because these modes rely on fundamentally different mechanisms. We report a stimuli-responsive membrane that overcomes this limitation by integrating two functional materials. A zirconium metal-organic polyhedron (Zr-MOP) polymerized hydrogel membrane was fabricated via a stepwise molecular-level blending and polymerization strategy, achieving excellent filler dispersion, strong interfacial compatibility, and good solution processability. The Zr-MOP cages reinforce the hydrogel hydrogen-bond network, enabling high CO\n                    2\n                    -philic performance with a CO\n                    2\n                    /H\n                    2\n                    separation factor of 44 and CO\n                    2\n                    permeability of 7025 Barrer. Upon dehydration, membrane shrinkage induces cage rearrangement and exposure of molecular sieving windows, switching the separation behavior to a highly H\n                    2\n                    -selective mode with an H\n                    2\n                    /CO\n                    2\n                    separation factor of 798. This transition is reversible and can be further regulated by pH stimuli. This work introduces a strategy for membranes with switchable and inverted separation functions.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "磁性纳米机器人平台实现小鼠及灵长类动物椎管内厘米级导航",
+        "MiniMax发布全新开源人工智能视频生成大模型",
+        "强耦合介观导体量子动力学研究明确非平衡态传输信噪比极限"
+      ],
+      "entries": [
+        {
+          "t": "自适应鞘内纳米机器人在小鼠和非人类灵长类动物中用于导航中枢神经系统治疗",
+          "d": "2026-07-31",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "研究开发了一种自适应磁性纳米机器人平台，实现了在小鼠和非人类灵长类动物体内的鞘内多模式集群运动。该平台由机械臂产生的磁场驱动，可编程形成链状、涡旋状和带状集群，其中涡旋状集群是自适应鞘内导航的最优策略。该系统能在椎管内实现厘米级导航，磁靶向增强中枢神经系统病灶的纳米机器人聚集与体内滞留，显著提升治疗效果。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec2918?af=R",
+          "tp": "纳米机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Intrathecal delivery for central nervous system (CNS) therapy lacks spatiotemporal control due to spinal canal anatomical constraints, especially at human scale. We developed an adaptive magnetic nanorobotic platform enabling multimode swarm mobility for in vivo spinal canal navigation in mice and nonhuman primates. Programmable chain-like, vortex-like, and ribbon-like swarm were accomplished, and vortex swarm was indicated as optimal strategy for adaptive intrathecal navigation. Driven by a robotic arm–generated magnetic field, the vortex swarms indicate navigation within spinal canal over centimeter distances, which magnetically enhanced accumulation at CNS target sites and prolonged their in vivo retention, thereby substantially enhancing their therapeutic efficacy compared with conventional passive intravascular delivery, with minimal side effects. Tests in nonhuman primates indicate that the nanorobotic swarm migration is from the gap between the bundles of cauda equina and then the spin cord, revealing their morphological adaption at the cauda equina interface to circumvent anatomical constraints.",
+          "hb": 1
+        },
+        {
+          "t": "中国MiniMax推出新的开源人工智能视频模型",
+          "d": "2026-07-31",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "中国公司MiniMax推出了一款全新的开源人工智能视频模型。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.theinformation.com/briefings/chinas-minimax-launches-new-open-source-ai-video-model",
+          "tp": "开源视频模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China’s MiniMax Launches New Open-Source AI Video Model — The Information\nRead this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "强耦合介观导体中的量子动力学不确定性关系",
+          "d": "2026-07-31",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究探讨了强耦合介观导体中的量子动力学不确定性关系（KUR）。KUR通过动态活性（计算系统与储层间交换事件的物理量）来限制电流的信噪比，从而为非平衡态传输的精度设定了基本极限。该框架为强耦合介观系统的量子动力学提供了理论支撑。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/9xcz-nlqk",
+          "tp": "量子动力学关系",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Gianmichele Blasi, Ricard Ravell Rodríguez, Mykhailo Moskalets, Rosa López, and Géraldine HaackKinetic uncertainty relations (KURs) set fundamental limits on the precision of nonequilibrium transport by bounding the signal-to-noise ratio of currents in terms of the dynamical activity, a quantity that counts exchange events between a system and its reservoirs. This framework is well establishe…[Phys. Rev. Lett. 137, 056302] Published Fri Jul 31, 2026",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "机器学习指导级联泵浦单光子上转换响应时间缩短至54微秒",
+        "LuCo6Ge6材料室温零磁场下实现18.4 μV K-1横向塞贝克系数",
+        "冷冻电镜解析人SRCAP-CFDP1全酶9个结构揭示组蛋白交换机制"
+      ],
+      "entries": [
+        {
+          "t": "可操纵级联泵浦单光子上转换",
+          "d": "2026-07-31",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出一种由机器学习指导的级联泵浦单光子上转换策略。该机制通过类似“乐高堆叠”的光子吸收，将镧系离子的中间态作为虚拟基态，直接实现单光子泵浦到目标能级。在NaYS2:Ho3+验证中，上转换发光增强了2-3个数量级，有效响应光谱扩展至约2100 nm，响应时间从30毫秒缩短至54微秒。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75688-0",
+          "tp": "单光子上转换",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photon upconversion (UC), while promising for infrared photonics, is fundamentally constrained by limited spectral response range, low efficiency, and slow response speeds. Here, we present a machine learning-guided single-photon UC strategy based on cascade pumping that implements a “LEGO-inspired photon stacking” mechanism, in which intermediate state of lanthanide ions (Ln3+) becomes a “virtual ground state” for direct single-photon pumping to target energy levels. As a proof-of-concept, the NaYS2:Ho3+ UC emissions are selectively enhanced by 2-3 orders of magnitude via precise population control. This mechanism extends efficient UC response to ~2100 nm and reduces response time from 30 ms to 54 μs. The approach generalizes to other Ln3+ (Tm3+/Pr3+/Er3+), and energy-transfer optimization in Ho3+-sensitized systems yields near-pure RGB emission. We further demonstrate the high-sensitivity and rapid-response UC narrowband photodetection, enabling low-threshold CO2 sensing with a sensitivity of 6.4×10−4 ppm−1. Our work offers strategy for developing single-photon UC and infrared photodetection technologies.",
+          "hb": 1
+        },
+        {
+          "t": "费米学驱动的戈薇金属中的角极横向热电",
+          "d": "2026-07-31",
+          "a": "Nature Materials",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出在戈薇晶格系统中利用“角极性”（依赖于轴向的载流子极性）来实现高零场横向热电响应。通过利用平带和范霍夫奇点驱动的电子态，LuCo6Ge6 表现出极大的角极性热电响应：在室温和零磁场条件下，实现了 18.4 μV K−1 的横向塞贝克系数和 105 A m−1 K−1 的横向珀尔帖电导率。平带与高电导率的协同作用使其性能提升了一个数量级。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02678-4",
+          "tp": "热电材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The exotic geometry of the kagome lattice drives emergent quantum states and advances energy technologies; however, the anomalous Nernst effect (ANE)-based magnetic systems are fundamentally limited by low thermopowers (−1) and stray-field interference. Here we propose goniopolarity (axis-dependent carrier polarity) to achieve high zero-field transverse thermoelectric responses in kagome systems. By exploiting flat-band- and van Hove singularity-driven electronic states, we uncover exceptionally large goniopolar thermoelectric responses in LuCo6Ge6, including a transverse thermopower of 18.4 μV K−1 and a transverse Peltier conductivity of 105 A m−1 K−1 at room temperature and zero field. The synergy of flat bands with high electrical conductivity yields values an order of magnitude greater than those achieved in conventional ANE-based systems. Our findings establish goniopolar kagome metals as promising candidates for thermoelectrics.",
+          "hb": 1
+        },
+        {
+          "t": "人SRCAP-CFDP1全酶交换组蛋白H2A.Z的结构机制",
+          "d": "2026-07-31",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究利用冷冻电镜技术解析了人SRCAP-CFDP1全酶的9个结构，揭示了染色质重塑复合物催化组蛋白H2A交换为H2A.Z的逐步机制。这一组蛋白交换过程需要瞬态激活因子CFDP1。CFDP1通过直接接触ATPase结构域等多亚基识别SRCAP-核小体的完全结合状态，诱导DNA广泛解旋、H2A-H2B二聚体排出及H2A.Z-H2B二聚体插入，且该过程不依赖结合ATP的水解。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aei7728?af=R",
+          "tp": "染色质重塑机制",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The conserved yeast SWR1 and human SRCAP chromatin remodeling complexes catalyze exchange of nucleosomal histone H2A for H2A.Z, but the underlying mechanism has remained obscure. Here, we show that histone exchange by SRCAP requires the transient activator CFDP1 and resolve nine cryo–electron microscopy structures of the SRCAP-CFDP1 holoenzyme that define the stepwise exchange mechanism. CFDP1 recognizes the conformation of the fully engaged SRCAP-nucleosome complex through interactions with multiple subunits—including direct contact with the ATPase domain—and induces conformational transitions that drive extensive DNA unwrapping, eviction of the H2A-H2B dimer, and insertion of the H2A.Z-H2B dimer, all without necessarily requiring hydrolysis of bound ATP. Collectively, these findings provide unprecedented insight into the mechanism of activator- and nucleotide-driven histone exchange from nucleosomal H2A to H2A.Z.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

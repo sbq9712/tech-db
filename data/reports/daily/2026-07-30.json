@@ -1,0 +1,230 @@
+{
+  "type": "daily",
+  "date_label": "2026年7月30日　星期四",
+  "date_range": "2026-07-30",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "吉利与比亚迪推进极速充电，锂电池充电时间缩短至四分钟内。",
+      "HL-3托卡马克实现反应堆级热离子模式，聚变三重积达0.69×10^20。",
+      "研究揭示富镍NCM811阴极因电荷状态失配导致内部锂离子转移的退化机制。"
+    ],
+    "AI与智能科技": [
+      "实验实现俘获离子自旋玻色子模拟器中温度与耗散率独立可调的热库。",
+      "研究人员在量子处理器上实现福克空间预热并探索时间晶体有序态。",
+      "学者解析具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。"
+    ],
+    "通用技术": [
+      "LHAASO-KM2A观测到10 TeV以上银河系宇宙线各向异性的能量相关变化。",
+      "超快非线性显微镜直接探测出单个纳米腔中激子极化激元的崩溃与复活。",
+      "新型全自动微滴数字PCR流程可在三小时内精准定量测量噬菌体感染性。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "吉利与比亚迪推进极速充电，锂电池充电时间缩短至四分钟内。",
+        "HL-3托卡马克实现反应堆级热离子模式，聚变三重积达0.69×10^20。",
+        "研究揭示富镍NCM811阴极因电荷状态失配导致内部锂离子转移的退化机制。"
+      ],
+      "entries": [
+        {
+          "t": "中国开始以秒为单位测量电动汽车充电时间，而不是分钟",
+          "d": "2026-07-30",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中国电动汽车极速充电竞赛已进入以秒计时的时代。吉利领克推出的10系列电动汽车首发搭载“金砖”电池，可在4分22秒内将电量从10%充至70%。同时，比亚迪也已推出多款搭载同样具备极致快充能力的“刀片2.0”电池的车型。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/07/30/china-is-starting-to-measure-ev-charging-times-in-seconds-not-minutes/",
+          "tp": "电车快充",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jul 30 2026 - 7:00 am PT\nOne of China’s newest EVs is also its fastest-charging, with the ability to fill its battery from 10-70% in 4 minutes and 22 seconds.\nBut that’s not the only recent announcement of a fast-charging battery that quotes how many seconds it takes to fill up, showing that the race for fast charging has entered a new era which treats seconds as the significant figure, rather than minutes.\nGeely subsidiary Lynk & Co. recently\nlaunched its new 10 series EVs\n, complete with extreme fast charging speed. The cars are the first to use Geely’s “Golden Brick” battery, with more models coming soon at various Geely brands.\nMeanwhile, BYD already has several vehicles out using its “Blade 2.0” battery, which also offers extremely fast charging.\nThese two batteries are both on the vanguard of a new generation of Chinese EVs that are making charging undeniably quick, at least if the right infrastructure is available.\nBYD says its Blade 2.0 can charge from 10-70% in 5 minutes. And Geely one-upped BYD by saying its Golden Brick can charge the same amount in 4 minutes and 22 seconds.\nAnother major battery manufacturer, CATL, recently\nshowed off a commercial battery\nthat can charge at an 8C rate, allowing a 20-80% charge in 6 minutes and 48 seconds. But that’s actually\ncompared to its recent announcement of a\nconsumer light-duty battery\nthat can charge from 10-80% in just 3 minutes and 44 seconds.\nCATL’s battery is not yet available in a vehicle, so it isn’t quite apples-to-apples when comparing to the BYD and Geely tech above, both of which are already on the road. But it’s not just a lab test of a cell, it’s a fully formed pack undergoing testing in real fast charging, and it’s from the world’s largest EV battery manufacturer, not\nsome startup\nmaking stuff up in the hunt for venture capital.\nCATL isn’t the only one with fast charging tech waiting in the wings. FAW group\njust announced\na battery that can charge from 10-70% in 3 minutes and 41 seconds. That’s a slightly slower rate than CATL’s 10-80% in 3:44, but the difference there is mere seconds.\nAnd so, we get to the point: the common thread among all of these is that each of them mention not just the number of minutes, but the number of\nit takes to get a full charge. So China is now working with a different significant figure – seconds, not minutes.\nhas long felt\nthat charging times are too long, and that EVs need to charge as fast as gas cars.\nNever mind that that isn’t really true in practice – EV owners know that charging at home is even easier than going to gas stations, and on roadtrips, your car will often be ready\n, among non-EV owners who are used to the anxiety-causing paradigm of being chained to gas stations, is that EV refueling needs to be substantially similar to the poor experience they’re used to.\nThere are still benefits. For example, higher power delivery means higher throughput, which means you can get more cars in and out of the same charging spot/station per day, which reduces land use needed. This can be important, particularly in urban environments, especially ones where people don’t have\naccess to home charging\nSo, regardless of whether these extremely fast charge times are necessary, the fact of the matter is that they already exist – at least in China.\nMeanwhile, in the US, our fastest-charging vehicles have been the\nHyundai/Kia E-GMP cars\n, which can charge from 10-80% in around 18 minutes on the right charger. That’s\nperfectly fine for roadtrips\n, especially since a driver will need to take a break every few hours while driving anyway.\nBut for people who rely on fast charging for all of their charging needs (seriously, try to\nfind a way to charge at home\nif you can), even 18 minutes of sitting around in your car can feel like a long time. A 3 minute, 41 second charge seems a lot more palatable.\nThere is one vehicle coming out soon in the US which will be able to charge drastically faster than the E-GMP cars, the\nMercedes AMG GT EV\n. That will be capable of about an 11 minute charge from 10-80% on a 600kW charger, which will put it well in the lead… but it’s going to be limited in production and cost well into the six figures. (In contrast, China’s fastest charging cars can be had for well under $30k)\nBut that one’s still measured in minutes. The difference between 11 minutes and 10 minutes and 30 seconds doesn’t seem like much, but the difference between 4 minutes and 3 minutes and 30 seconds seems a lot more significant. That’s why we didn’t start hearing seconds quoted in charging times until the minutes got down into single digits.\nThe question of 600kW chargers brings up another point – infrastructure rollout has been far faster inside China than outside it. Infrastructure is one of the major strengths of communist states, after all (for another example, see China’s rapid\nhigh speed rail network rollout\nannounced its 1,500kW chargers\nearlier this year, and soon after, Geely\nrolled out 1,500kW chargers of its own\n. And then, just yesterday, state-owned Dongfeng\nannounced its own 1,500kW charger\n, and says it’s working on even faster ones.\nBut it’s not just that the chargers exist, it’s that they’re already being deployed at a large scale. BYD plans to have 20,000 installed by year’s end, with\nseveral thousand\nalready installed at this point. That sort of fast scaling simply doesn’t happen outside of China.\nFor example, it took about three years before\nthe first “true” 500kW V4 Supercharger\nshowed up in the wild (CEO Elon Musk’s idiotic move to\nfire the entire Supercharger team\ncausing complete chaos with contractors\n, couldn’t have helped).\nEurope fares better with fast charging than the US, as there are several ~400kW charging units from companies like Alpitronic that are currently in operation, with\n600kW stations rolling out this year\nBut BYD isn’t content to wait in the overseas market, either. Europe recently\ngot its first BYD flash chargers\n, and the company plans to roll out\nof them in the next year. Perhaps BYD would roll out its flash charging system here, as it has in Europe, if the market were less hostile. But as of yet, it has no similar plans in the US (though\nCanada will get it soon\nIt’s still rare to find even one or two 350kW chargers at a US charging station, let alone anything quicker.\nPresident Biden’s Inflation Reduction Act and Infrastructure Investment and Jobs Act built programs to help accelerate the buildout of these chargers. But those programs have\nmoved slower than they should\n, for several reasons both at the state and federal level.\nOne of those reasons is intentional, held back by the republican party, mostly at the federal level.\nreality TV contestant\nsquatting in the Department of Transportation spent most of last year\nillegally trying to pause disbursement of funds\n, then being\nstopped by court\n. In addition, the joint office that Biden created to increase government collaboration and efficiency was\n, making DoT and DoE less efficient.\nEven after being stopped by court, DoT has\ntried to put up more roadblocks\nChinese components (the Biden-era regulation required a 55% US components, rather than 100%).\nNot only is this impossible because the US simply doesn’t make all the parts needed for EV chargers, it also restricts America from having access to the best chargers available (as we learned above are being made by Chinese companies), and is done in the context of republicans\nshipping EV jobs to China\nrenaissance in US manufacturing\nAll of this happened after the party’s candidate\nasked for and got bribes from the oil industry\n(in his campaign to run for an office he is\nConstitutionally barred from holding\n), so it’s no wonder why there have been so many attacks on the industry promising\na better future than oil\nSo, here, in the\nland of plenty\n, rather than competing to be the best of the best and working to onshore manufacturing of the best products out there, America is\npushing those products away\n, and letting the rest of the world enjoy these cool things that we are deprived of (and China is profitinf from providing them to the world).\nInstead, we wallow alone in the pollution forced on us as a result of those oil company bribes, subject to the whims of a senile dictator with\nno concept of how geopolitics (or anything) works\n, losing an industry we could have been a player in, and refusing to join the world in improving the fates of our citizens.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
+          "hb": 1
+        },
+        {
+          "t": "HL-3 research towards high-performance plasma and power exhaust solution",
+          "d": "2026-07-30",
+          "a": "Nuclear Fusion - latest papers",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "HL-3托amak项目致力于开发高性能等离子体与功率排散解决方案。通过设施升级，辅助加热功率达19.5兆瓦，AI控制系统实现了95.5%的破裂避免率。实验在兆安级等离子体电流下，实现了核心离子温度超10 keV的反应堆级热离子模式，聚变三重积达0.69×10^20 m-3·keV·s，并成功建立具有内部和双输运垒的高归一化贝塔场景，有效解决了边界等离子体兼容性问题。",
+          "sc": 8.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8709",
+          "tp": "托卡马克控制突破",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The HL-3 tokamak program addresses critical challenges in developing integrated high-performance scenarios compatible with power exhaust demands for ITER and future reactors. Through systematic facility enhancements including auxiliary heating upgrades to 19.5 MW and AI-enabled control systems achieving 95.5% disruption avoidance, HL-3 finished a new round of exploration and validation for high-performance operation and power exhaust solution. Experiments at mega-ampere plasma currents demonstrated a reactor-relevant hot-ion regime with core ion temperatures exceeding 10 keV and a fusion triple product of 0.69 × 1020 m−3·keV·s. High normalized beta scenarios featuring internal and double transport barriers were successfully established. To address the compatibility of the plasma boundary, various small- or no-edge localized mode (ELM) regimes were achieved, including the enhanced D-alpha H-mode, quiescent H-mode, and the quasi continuous exhaust regime. Investigations into power exhaust integration highlighted the efficacy of advanced divertor configurations, specifically snowflake and tripod geometries, in significantly reducing peak heat fluxes. Active ELM control was demonstrated via resonant magnetic perturbations, lower hybrid waves, and impurity supersonic molecular beam injection, complemented by real-time feedback control of divertor detachment. These developments establish the fundamental physics basis and technical foundations necessary for demonstrating and extrapolating high-performance operations to ITER and next-step devices.",
+          "hb": 1
+        },
+        {
+          "t": "通过内部锂离子转移实现 SOC 失配驱动的颗粒间同步：富镍复合阴极中未被识别的电极紧急降解途径",
+          "d": "2026-07-30",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "研究揭示了锂离子电池复合阴极中由非均匀反应动力学引起的长期退化机制。在富镍NCM811双峰模型系统中，颗粒间动力学失配导致了电荷状态（SOC）的不匹配。这种不匹配产生了电化学势梯度，进而驱动了自发的内部锂离子转移，成为电极加速降解的隐蔽途径。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71377?af=R",
+          "tp": "富锂阴极降解",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Non‐uniform reaction dynamics are ubiquitous in composite electrodes of lithium‐ion batteries (LIBs), yet they are commonly regarded as transient kinetic effects that relax and average out over time, rather than as drivers of long‐term degradation. Here, using a deliberately designed bimodal Ni‐rich NCM811 model system comprising two particle populations with identical chemistry but distinct reaction kinetics—polycrystalline and single‐crystal NCM811—we systematically tune inter‐particle kinetic mismatch at the electrode‐ensemble level. We show that the resulting non‐uniform dynamics generate inter‐particle state‐of‐charge (SOC) mismatch, creating electrochemical potential gradients that drive spontaneous internal Li‐ion transfer—a controlled mechanistic example of electrode‐emergent degradation in a composite cathode. Although this redistribution synchronizes particle SOC across the ensemble, it proceeds through transient internal currents associated with more severe surface degradation, including organic‐rich cathode–electrolyte interphase (CEI) formation and rock‐salt‐type surface reconstruction. These findings show that collective electrode‐level dynamics can provide an additional degradation contribution beyond material‐intrinsic processes, suggesting that performance decay in kinetically mismatched composite cathodes may be better understood as an emergent consequence of interacting particle populations rather than a simple summation of material‐intrinsic failure modes. Our work highlights the importance of explicitly accounting for reaction heterogeneity and inter‐particle kinetic mismatch in composite electrode design and optimization.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "实验实现俘获离子自旋玻色子模拟器中温度与耗散率独立可调的热库。",
+        "研究人员在量子处理器上实现福克空间预热并探索时间晶体有序态。",
+        "学者解析具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。"
+      ],
+      "entries": [
+        {
+          "t": "俘获离子自旋玻色子模拟器中温度可调热库的实验实现",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究人员提出并演示了一种为俘获离子系统运动模式构建热库的实验方案。该方案具有独立可调的温度和耗散率，能够实现稳健的热态制备，并在自旋玻色子模拟器中对开放系统动力学进行量子模拟。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/mf8d-91ws",
+          "tp": "量子热库模拟",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Visal So, Mingjian Zhu, Midhuna Duraisamy Suganthi, Abhishek Menon, George Tomaras, Roman Zhuravel, Han Pu, and Guido PaganoWe propose and demonstrate an experimental scheme to engineer thermal baths with independently tunable temperatures and dissipation rates for the motional modes of a trapped-ion system. This approach enables robust thermal-state preparation and quantum simulations of open-system dynamics in bosonic …[Phys. Rev. Lett. 137, 050604] Published Thu Jul 30, 2026",
+          "hb": 1
+        },
+        {
+          "t": "量子处理器上的福克空间预热和时间晶体有序",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "周期性驱动的量子多体系统展现出各种非平衡现象。系统因吸收能量而产生的加热效应是稳定和利用这些高度纠缠物质态的基本挑战。研究人员在量子处理器上实现了福克空间预热，并探索了时间晶体有序态。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/bq3c-c3d8",
+          "tp": "量子处理器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Zehang Bao et al.Periodically driven quantum many-body systems exhibit a wide variety of exotic nonequilibrium phenomena and provide a promising pathway for quantum applications. A fundamental challenge for stabilizing and harnessing these highly entangled states of matter is system heating by energy absorption from…[Phys. Rev. Lett. 137, 050407] Published Thu Jul 30, 2026",
+          "hb": 1
+        },
+        {
+          "t": "量子二聚体模型中精确可解的拓扑相变",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究人员考虑了一类广义的Rokhsar-Kivelson哈密顿量，通过逆向工程，使其在RK点具有任意边权重超位置的精确基态。研究重点集中在具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/gdd1-mxy3",
+          "tp": "拓扑相变模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Laura Shou, Jeet Shah, Matthew Lerner-Brecher, Amol Aggarwal, Alexei Borodin, and Victor GalitskiWe consider a family of generalized Rokhsar-Kivelson (RK) Hamiltonians, which are reverse-engineered to have an arbitrary edge-weighted superposition of dimer coverings as their exact ground state at the RK point. We focus on a quantum dimer model on the triangular lattice, with doubly periodic edge…[Phys. Rev. Lett. 137, 056503] Published Thu Jul 30, 2026",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "LHAASO-KM2A观测到10 TeV以上银河系宇宙线各向异性的能量相关变化。",
+        "超快非线性显微镜直接探测出单个纳米腔中激子极化激元的崩溃与复活。",
+        "新型全自动微滴数字PCR流程可在三小时内精准定量测量噬菌体感染性。"
+      ],
+      "entries": [
+        {
+          "t": "LHAASO-KM2A 观测到的极高能宇宙线中等尺度各向异性的能量相关变化",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "LHAASO合作组利用LHAASO-KM2A阵列，对能量在10 TeV以上的银河系宇宙线进行了观测。研究揭示了宇宙线到达方向中尺度各向异性的能量相关变化，确认出四个特定的各向异性区域，为探测局部磁环境提供了重要数据。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/7y56-75l9",
+          "tp": "宇宙线观测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Zhen Cao et al. (LHAASO Collaboration)Small deviations from isotropy in the arrival directions of Galactic cosmic rays serve as a unique probe of the local magnetic environment. In this Letter, we report observations of medium-scale anisotropies at energies above 10 TeV using the LHAASO-KM2A array. Our analysis identifies four regions o…[Phys. Rev. Lett. 137, 051004] Published Thu Jul 30, 2026",
+          "hb": 1
+        },
+        {
+          "t": "超快非线性显微镜揭示了单个纳米腔中激子极化子的崩溃和复活",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "由于极端的模式限制，单个等离激元纳米腔中激子极化激元的超快动力学可实现少激子强耦合和强非线性。研究人员利用超快非线性显微镜，直接探测了单个纳米腔中激子极化激元瞬态演化的崩溃与复活过程。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/dyyz-ddyg",
+          "tp": "激子极化子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Liyu Zhang, Zhongao Huang, Kai Wang, Chao Guan, Zijian He, Jiaxing Yang, Shuzheng Chen, Xiaobo Han, and Peixiang LuThe ultrafast dynamics of exciton-polaritons (EPs) in single plasmonic nanocavities are of fundamental interest due to extreme mode confinement ($V∼{10}^{−6}{λ}^{3}$), which enables few-exciton strong coupling and strong nonlinearity of EPs. However, directly probing transient evolutions of EPs in a…[Phys. Rev. Lett. 137, 056906] Published Thu Jul 30, 2026",
+          "hb": 1
+        },
+        {
+          "t": "Rapid and quantitative measurement of bacteriophage infectivity via fully automated droplet digital PCR",
+          "d": "2026-07-30",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究提出了一种名为dPhaST的全自动微滴数字PCR工作流程，用于快速定量测量噬菌体的感染性。该技术通过靶向保守的16S rRNA区域量化噬菌体诱导的DNA释放，可在3小时内测量多种细菌病原体的裂解活性。在涉及6个物种19个菌株的122种噬菌体-宿主组合测试中，dPhaST与标准斑点测试的一致性达95.9%，并能精准解析常规表型难以区分的微弱裂解活性。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75746-7",
+          "tp": "自动化检测仪",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The clinical translation of phage therapy for multidrug-resistant infections is constrained by the lack of rapid, standardized therapeutic phage selection. Here, we introduce digital phage susceptibility testing (dPhaST), an automated droplet digital PCR workflow that quantifies phage-induced DNA release as a molecular signature of lysis. By targeting conserved 16S rRNA regions, dPhaST measures lytic activity across diverse bacterial pathogens within 3 h. Across 122 phage–host combinations involving 19 bacterial strains from six species, dPhaST shows 95.9% concordance with spot tests while resolving weak and heterogeneous lytic activities that are not readily distinguished phenotypically. It remains robust during the early infection window despite phage-encoded nuclease activity and tolerates phage cross-contamination better than spot tests. The method captures defense-mediated interactions involving CRISPR–Cas and Sir2-HerA systems. In this work, we show that automated digital quantification enables rapid and mechanistically informative profiling of early phage lytic efficacy across Gram-positive and Gram-negative pathogens.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

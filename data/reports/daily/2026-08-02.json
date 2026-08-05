@@ -1,0 +1,77 @@
+{
+  "type": "daily",
+  "date_label": "2026年8月2日　星期日",
+  "date_range": "2026-08-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "WEST装置实验确立ICRH共振层偏移7厘米为最佳等离子体性能阈值",
+      "研究提出准等动力与分段全向磁场组合法以简化仿星器线圈设计"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "WEST装置实验确立ICRH共振层偏移7厘米为最佳等离子体性能阈值",
+        "研究提出准等动力与分段全向磁场组合法以简化仿星器线圈设计"
+      ],
+      "entries": [
+        {
+          "t": "ICRH 共振层位置对 WEST H 少数等离子体核心等离子体性能的影响",
+          "d": "2026-08-02",
+          "a": "Nuclear Fusion - latest papers",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "为了优化功率沉积，在WEST装置的氘等离子体中进行了氢少数离子回旋共振加热(ICRH)的系统实验研究。在保持全局等离子体参数和天线耦合基本恒定的前提下，对共振层的径向位置和少数离子浓度进行了专门扫描。结果表明，当共振层向高场侧(HFS)偏移约7厘米且氢少数离子浓度在5%至8%之间时，可获得最佳等离子体性能。更大的向内偏移会导致性能显著退化，当共振位于低场侧时，性能几乎减半。未观察到湍流特征对共振位置的明显依赖。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8d37",
+          "tp": "核聚变等离子体加热",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A systematic experimental study of hydrogen-minority ion cyclotron resonance heating (ICRH) has been performed in deuterium plasmas in WEST to optimize the power deposition. Dedicated scans of the radial position of the ion cyclotron resonant layer and of the minority concentration were carried out while keeping global plasma parameters and antenna coupling nearly constant. The maximum performance is obtained when the resonant layer is shifted towards the high-field side (HFS) by around 7 cm with a hydrogen minority concentration between 5% and 8%. A pronounced degradation occurs for larger inward displacements, whereas the performances are almost halved when the resonance is located in the low-field side. No clear dependence of turbulence characteristics on the resonance position is observed, indicating that the confinement variations are primarily governed by wave absorption and fast-ion confinement modifications. Infrared thermography and calorimetry measurements show that fast-ion ripple-induced losses are minimized for resonance positions beyond a certain value on the HFS, revealing a trade-off between optimal absorption and wall load mitigation. These results demonstrate that coordinated control of the resonant layer position and minority concentration allows simultaneous optimization of ICRH efficiency and fast-ion wall loads in a fully metallic reactor-relevant environment.",
+          "hb": 1
+        },
+        {
+          "t": "准等动力磁场和分段全向磁场的组合",
+          "d": "2026-08-02",
+          "a": "Nuclear Fusion - latest papers",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "准等动力(QI)磁场因能同时优化径向和平行新经典输运，成为近年来大多数聚变反应堆候选方案的仿星器磁构型首选。然而，高度准等动力性通常伴随着强烈的通量面成形和复杂的线圈几何形状。该研究将准等动力性与分段全向性(pwO)概念结合形成QI-pwO场：在低场区保持准等动力性，在高场区显著偏离准等动力性而不牺牲QI场的新经典输运特性。这种偏离使得在保持输运性能的同时，更容易集成优化的线圈设计。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8bbd",
+          "tp": "仿星器磁场优化",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Due to their simultaneous optimization for radial and parallel neoclassical transport, quasi-isodynamic (QI) fields have been the main choice of stellarator magnetic configuration for most fusion reactor candidates in recent years. However, achieving a high degree of quasi-isodynamicity often comes at the cost of a strong shaping of the flux surfaces of the stellarator and complex coil geometries. In this work, the concepts of quasi-isodynamicity and piecewise omnigenity (pwO) are combined to form QI-pwO fields. These fields are QI in the low-field region of the magnetic surface, whereas they significantly depart from quasi-isodynamicity in the high-field region without sacrificing the neoclassical transport properties of QI fields. This departure could make it easier to integrate the optimization of neoclassical transport with other physical and technological aspects of a stellarator reactor.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}
