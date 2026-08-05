@@ -1704,10 +1704,14 @@ function renderCalendarView() {
     }).filter(y => y !== null))].sort((a, b) => a - b);
     if (yearSel) {
       const currentVal = state.calendarYear;
-      yearSel.innerHTML = confYears.length > 0
+      const newOptions = confYears.length > 0
         ? confYears.map(y => `<option value="${y}">${y}年</option>`).join('')
         : `<option value="${currentVal}">${currentVal}年</option>`;
-      // If current year not in data, default to the closest available year
+      // Only rebuild innerHTML if options changed (avoid unnecessary DOM updates)
+      if (yearSel.innerHTML !== newOptions) {
+        yearSel.innerHTML = newOptions;
+      }
+      // If current year not in data, default to the most recent available year
       if (confYears.length > 0 && !confYears.includes(currentVal)) {
         state.calendarYear = confYears[confYears.length - 1]; // most recent
       }

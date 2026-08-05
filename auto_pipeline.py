@@ -648,16 +648,11 @@ def extract_key_params(records):
     Uses GLM to extract structured key_params from title + body.
     """
     # Only extract for relevant records with body text
-    todo = [{"id": i,
-             "type": "literature" if r.get("i") == "l" else "news",
-             "title": r.get("t", "")[:200],
-             "body": r.get("b", "")[:500],
-             "category": r.get("c", "")}
-            for i, r in enumerate(records)
-            if r.get("c", "") in VALID_CATEGORY_LEAVES
-            and r.get("c", "") not in ("不相关", "未分类", "")]
+    todo_ids = [i for i, r in enumerate(records)
+                if r.get("c", "") in VALID_CATEGORY_LEAVES
+                and r.get("c", "") not in ("不相关", "未分类", "")]
 
-    if not todo:
+    if not todo_ids:
         log("  关键参数: 0 条需要提取")
         return records
 
@@ -676,22 +671,41 @@ def extract_key_params(records):
 4. 如无任何关键技术参数可提取，返回空数组
 
 只输出JSON数组：
-{"id":0,"key_params":["参数名[条件]: 值","..."]}
+[{"id":0,"key_params":["参数名[条件]: 值","..."]}]
 待处理情报：
 """
+
+    todo = [{"id": local_id,
+             "title": records[gi].get("t", "")[:200],
+             "body": records[gi].get("b", "")[:500],
+             "category": records[gi].get("c", "")}
+            for local_id, gi in enumerate(todo_ids)]
 
     log(f"  关键参数提取中... ({len(todo)} 条)")
     results = call_glm_batch(KP_PROMPT, todo, batch_size=10)
 
+    # Build a set of ids that got results
+    got_kp = set()
     extracted = 0
     for r in results:
-        idx = r.get("id")
-        if not isinstance(idx, int) or idx < 0 or idx >= len(records):
+        local_id = r.get("id")
+        if not isinstance(local_id, int) or local_id < 0 or local_id >= len(todo_ids):
             continue
+        global_idx = todo_ids[local_id]
         kp = r.get("key_params", [])
         if isinstance(kp, list) and kp:
-            records[idx]["kp"] = [str(k)[:200] for k in kp[:5]]
+            records[global_idx]["kp"] = [str(k)[:200] for k in kp[:5]]
+            got_kp.add(global_idx)
             extracted += 1
+        else:
+            # Explicitly clear stale kp if LLM says no params
+            records[global_idx].pop("kp", None)
+
+    # Clear stale kp for records that were processed but got no result
+    for local_id in range(len(todo_ids)):
+        gi = todo_ids[local_id]
+        if gi not in got_kp:
+            records[gi].pop("kp", None)
 
     log(f"  关键参数完成: {extracted}/{len(todo)} 条提取到参数")
     return records

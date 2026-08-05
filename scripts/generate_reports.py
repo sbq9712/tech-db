@@ -302,7 +302,7 @@ def generate_one(rtype, date_str, data):
 def generate_all(rtype, data):
     """Generate reports for all completed periods.
 
-    Timing rules:
+    Timing rules (date-only comparison, no wall-clock time):
     - Daily: generated for yesterday (always complete)
     - Weekly: only for weeks whose last day (Sunday) has passed (< today)
     - Monthly: only for months whose last day has passed (< today)
@@ -312,7 +312,7 @@ def generate_all(rtype, data):
         log("no dates in data")
         return
     earliest = datetime.strptime(dates[0], "%Y-%m-%d")
-    today = datetime.now()
+    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
     if rtype == "daily":
         yesterday = today - timedelta(days=1)
@@ -321,13 +321,13 @@ def generate_all(rtype, data):
             generate_one("daily", current.strftime("%Y-%m-%d"), data)
             current += timedelta(days=1)
     elif rtype == "weekly":
-        # Week must be fully complete: Sunday (start + 6 days) must be before today
+        # Week must be fully complete: Sunday (start + 6 days) must be strictly before today
         current = earliest - timedelta(days=earliest.weekday())  # align to Monday
         while current + timedelta(days=6) < today:
             generate_one("weekly", current.strftime("%Y-%m-%d"), data)
             current += timedelta(days=7)
     elif rtype == "monthly":
-        # Month must be fully complete: last day of month must be before today
+        # Month must be fully complete: last day of month must be strictly before today
         current = earliest.replace(day=1)
         while True:
             last_day = (current.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
