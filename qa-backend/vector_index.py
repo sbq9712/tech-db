@@ -7,7 +7,7 @@ Builds a numpy cosine-similarity index from the canonical record set:
 Embedding text = leaf category + title + tags + type + key params + AI summary.
 No body text (BM25 handles full-text keyword matching). No truncation.
 """
-import json, sys, time, asyncio, pickle, os
+import json, sys, time, asyncio, pickle, os, hashlib
 import numpy as np
 from pathlib import Path
 
@@ -63,6 +63,11 @@ def format_record_text(rec: dict) -> str:
     return " ".join(parts)
 
 
+def _text_hash(text: str) -> str:
+    """Short hash of embedding text for staleness detection."""
+    return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
+
+
 async def build_index():
     print(f"[1/3] Loading records from {LITE.name}...", flush=True)
     data = json.loads(LITE.read_text("utf-8"))
@@ -79,33 +84,90 @@ async def build_index():
 
     print(f"  Canonical set (valid & non-dup): {len(records)}", flush=True)
 
-    # ── Incremental mode: load existing index, only embed NEW records ──
+    # ── Incremental mode: load existing index, detect new/changed/stale ──
     existing_embeddings = None
     existing_meta = []
+
+    # Compute text hashes for current canonical set
+    canonical_hashes = {}
+    for i, rec in records:
+        text = format_record_text(rec)
+        canonical_hashes[i] = _text_hash(text)
+
     if INDEX_FILE.exists():
         print("  Index already exists. Checking...", flush=True)
         try:
             with open(INDEX_FILE, "rb") as f:
                 saved = pickle.load(f)
-            saved_count = len(saved["embeddings"])
-            indexed_ids = {m["idx"] for m in saved["meta"]}
-            # Find records not yet in the index
-            new_records = [(i, r) for i, r in records if i not in indexed_ids]
 
-            if not new_records:
-                if saved_count == len(records):
-                    print("  Index is complete!", flush=True)
-                    return
+            # Build lookup: idx → (position_in_array, stored_hash)
+            saved_by_idx = {}
+            for pos, m in enumerate(saved["meta"]):
+                saved_by_idx[m["idx"]] = (pos, m.get("_th", ""))
+
+            canonical_ids = set(canonical_hashes.keys())
+            saved_ids = set(saved_by_idx.keys())
+
+            # Three sets:
+            # 1. new: in canonical but not in saved → need embedding
+            # 2. changed: in both but hash differs → need re-embedding
+            # 3. stale: in saved but not in canonical → drop (dp=1, reclassified, etc.)
+            new_ids = canonical_ids - saved_ids
+            stale_ids = saved_ids - canonical_ids
+            changed_ids = set()
+            for idx in canonical_ids & saved_ids:
+                _, stored_hash = saved_by_idx[idx]
+                # Skip change detection for records without stored hash (pre-migration index)
+                if stored_hash and stored_hash != canonical_hashes[idx]:
+                    changed_ids.add(idx)
+
+            need_embed_ids = new_ids | changed_ids
+            keep_ids = canonical_ids - need_embed_ids  # unchanged, keep as-is
+
+            if not need_embed_ids and not stale_ids:
+                # Check if existing meta needs _th migration (pre-incremental index)
+                needs_th_migration = any("_th" not in m for m in saved["meta"])
+                if needs_th_migration:
+                    print("  Index complete. Adding text hashes for future change detection...", flush=True)
+                    for m in saved["meta"]:
+                        idx = m["idx"]
+                        if idx in canonical_hashes:
+                            m["_th"] = canonical_hashes[idx]
+                    index_data = {
+                        "embeddings": saved["embeddings"],
+                        "meta": saved["meta"],
+                        "dim": EMBEDDING_DIM,
+                    }
+                    tmp_file = str(INDEX_FILE) + ".tmp"
+                    with open(tmp_file, "wb") as f:
+                        pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
+                    os.rename(tmp_file, str(INDEX_FILE))
+                    print(f"  Hashes written for {len(saved['meta'])} records.", flush=True)
                 else:
-                    # Meta count mismatch but all idx present — shouldn't happen, rebuild
-                    print(f"  [WARN] Meta inconsistency ({saved_count} embs vs {len(saved['meta'])} meta). Full rebuild.", flush=True)
-                    records = records  # proceed with full build below
-            else:
-                print(f"  Index has {saved_count}/{len(records)} records. "
-                      f"Incremental: {len(new_records)} new to embed.", flush=True)
-                existing_embeddings = saved["embeddings"]
-                existing_meta = saved["meta"]
-                records = new_records  # only embed the new ones
+                    print("  Index is complete and up-to-date!", flush=True)
+                return
+
+            # Separate keep vs need-embed from the canonical records list
+            records_to_embed = [(i, r) for i, r in records if i in need_embed_ids]
+
+            # Build "existing" arrays from kept records only (drop stale + changed)
+            if keep_ids:
+                keep_positions = sorted(saved_by_idx[i][0] for i in keep_ids)
+                existing_embeddings = saved["embeddings"][keep_positions]
+                existing_meta = [saved["meta"][p] for p in keep_positions]
+                # Strip _th from existing meta (internal field, not needed in output)
+                for m in existing_meta:
+                    m.pop("_th", None)
+
+            parts = []
+            if new_ids: parts.append(f"{len(new_ids)} new")
+            if changed_ids: parts.append(f"{len(changed_ids)} changed")
+            if stale_ids: parts.append(f"{len(stale_ids)} stale (dropped)")
+            print(f"  Incremental: {', '.join(parts)}. "
+                  f"Keeping {len(keep_ids)}, embedding {len(records_to_embed)}.", flush=True)
+
+            records = records_to_embed  # only embed new + changed
+
         except Exception as e:
             print(f"  Index corrupted ({e}). Rebuilding from scratch...", flush=True)
 
@@ -140,13 +202,15 @@ async def build_index():
                     "tg": rec.get("tg", []),
                     "sc": rec.get("sc", 0),
                     "u": rec.get("u", ""),
+                    "_th": canonical_hashes[orig_idx],
                 })
         except Exception as e:
             print(f"  ERROR batch {batch_idx}: {e}", flush=True)
             # Add zero embeddings for failed batch
             all_embeddings.append(np.zeros((len(batch), EMBEDDING_DIM), dtype=np.float32))
             for orig_idx, rec in batch:
-                all_meta.append({"idx": orig_idx, "t": rec.get("t", ""), "c": rec.get("c", "")})
+                all_meta.append({"idx": orig_idx, "t": rec.get("t", ""), "c": rec.get("c", ""),
+                                 "_th": canonical_hashes[orig_idx]})
 
         done = end
         elapsed = time.time() - start_time
