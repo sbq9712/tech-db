@@ -1655,12 +1655,13 @@ function renderCalendarView() {
   const container = $('calendarContent');
   if (!container) return;
 
+  const yearSel = $('calYear');
+  const monthPicker = $('calMonthPicker');
+  const catList = $('calCatList');
+
   // Attach sidebar event listeners (once)
   if (!container._calInit) {
     container._calInit = true;
-    const yearSel = $('calYear');
-    const monthPicker = $('calMonthPicker');
-    const catList = $('calCatList');
 
     if (yearSel) yearSel.addEventListener('change', () => {
       state.calendarYear = parseInt(yearSel.value);
