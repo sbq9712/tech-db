@@ -905,23 +905,25 @@ def main():
 
         venv_python = os.path.join(REPO, ".venv", "bin", "python")
         qa_backend = os.path.join(REPO, "qa-backend")
+        index_dir = os.path.join(REPO, "data", "lightrag")
+        index_env = {**os.environ, "TECH_DB_INDEX_DIR": index_dir}
 
         # 10a: BM25 index (fast, ~5 min)
         log("  10a: Building BM25 index...")
         bm25_result = subprocess.run(
             [venv_python, os.path.join(qa_backend, "bm25_index.py")],
-            capture_output=True, text=True, cwd=REPO, timeout=600
+            capture_output=True, text=True, cwd=REPO, timeout=600, env=index_env
         )
         if bm25_result.returncode != 0:
             log(f"  [WARN] BM25 index build failed (non-fatal): {bm25_result.stderr[:200]}")
         else:
             log("  BM25 index built successfully.")
 
-        # 10b: Vector index (slow, ~3-5 hours for full rebuild)
+        # 10b: Vector index (incremental, only new records embedded)
         log("  10b: Building vector index...")
         vec_result = subprocess.run(
             [venv_python, os.path.join(qa_backend, "vector_index.py")],
-            capture_output=False, cwd=REPO, timeout=14400  # 4 hour timeout
+            capture_output=False, cwd=REPO, timeout=14400, env=index_env
         )
         if vec_result.returncode != 0:
             log(f"  [WARN] Vector index build failed (non-fatal)")
@@ -933,7 +935,7 @@ def main():
         graph_result = subprocess.run(
             [venv_python, os.path.join(qa_backend, "concurrent_ingest.py"),
              "--concurrency", "5"],
-            capture_output=False, cwd=REPO, timeout=7200  # 2 hour timeout
+            capture_output=False, cwd=REPO, timeout=7200, env=index_env
         )
         if graph_result.returncode != 0:
             log(f"  [WARN] Knowledge graph update failed (non-fatal)")
