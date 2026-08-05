@@ -124,40 +124,45 @@ async def build_index():
             need_embed_ids = new_ids | changed_ids
             keep_ids = canonical_ids - need_embed_ids  # unchanged, keep as-is
 
-            if not need_embed_ids and not stale_ids:
-                # Check if existing meta needs _th migration (pre-incremental index)
-                needs_th_migration = any("_th" not in m for m in saved["meta"])
-                if needs_th_migration:
-                    print("  Index complete. Adding text hashes for future change detection...", flush=True)
-                    for m in saved["meta"]:
+            # Build "existing" arrays from kept records only (drop stale + changed)
+            if keep_ids:
+                keep_positions = sorted(saved_by_idx[i][0] for i in keep_ids)
+                existing_embeddings = saved["embeddings"][keep_positions]
+                existing_meta = [saved["meta"][p] for p in keep_positions]
+
+            if not need_embed_ids:
+                # Nothing to embed — either fully up-to-date, or only stale to prune
+                needs_th_migration = any("_th" not in m for m in (existing_meta or saved["meta"]))
+                if not stale_ids and not needs_th_migration:
+                    print("  Index is complete and up-to-date!", flush=True)
+                    return
+
+                # Write pruned index (stale removed, and/or _th hashes added)
+                if existing_embeddings is not None:
+                    print(f"  Writing pruned index ({len(existing_meta)} records, "
+                          f"dropped {len(stale_ids)} stale)...", flush=True)
+                    # Ensure all kept records have _th
+                    for m in existing_meta:
                         idx = m["idx"]
-                        if idx in canonical_hashes:
+                        if idx in canonical_hashes and "_th" not in m:
                             m["_th"] = canonical_hashes[idx]
+                    norms = np.linalg.norm(existing_embeddings, axis=1, keepdims=True)
+                    norms[norms == 0] = 1
+                    existing_embeddings = existing_embeddings / norms
                     index_data = {
-                        "embeddings": saved["embeddings"],
-                        "meta": saved["meta"],
+                        "embeddings": existing_embeddings,
+                        "meta": existing_meta,
                         "dim": EMBEDDING_DIM,
                     }
                     tmp_file = str(INDEX_FILE) + ".tmp"
                     with open(tmp_file, "wb") as f:
                         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
                     os.rename(tmp_file, str(INDEX_FILE))
-                    print(f"  Hashes written for {len(saved['meta'])} records.", flush=True)
-                else:
-                    print("  Index is complete and up-to-date!", flush=True)
+                    print(f"  Saved {len(existing_meta)} records.", flush=True)
                 return
 
             # Separate keep vs need-embed from the canonical records list
             records_to_embed = [(i, r) for i, r in records if i in need_embed_ids]
-
-            # Build "existing" arrays from kept records only (drop stale + changed)
-            if keep_ids:
-                keep_positions = sorted(saved_by_idx[i][0] for i in keep_ids)
-                existing_embeddings = saved["embeddings"][keep_positions]
-                existing_meta = [saved["meta"][p] for p in keep_positions]
-                # Strip _th from existing meta (internal field, not needed in output)
-                for m in existing_meta:
-                    m.pop("_th", None)
 
             parts = []
             if new_ids: parts.append(f"{len(new_ids)} new")
