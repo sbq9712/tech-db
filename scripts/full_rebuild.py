@@ -40,15 +40,13 @@ def main():
         log("FATAL: assert_keep_delete.py failed. Aborting.")
         sys.exit(1)
 
-    # ── Step 1: Acquire lock ──
-    log("=== Step 1: Acquiring pipeline lock ===")
-    from auto_pipeline import acquire_lock, clear_checkpoint, CHECKPOINT_FILE
-    if not acquire_lock():
-        log("FATAL: Another pipeline instance is running. Exiting.")
-        sys.exit(1)
+    # ── Step 1: Lock is held by the subprocess (auto_pipeline.py) which calls acquire_lock internally.
+    #    We just clear checkpoint if requested. ──
+    log("=== Step 1: Preparing checkpoint ===")
+    from auto_pipeline import clear_checkpoint, CHECKPOINT_FILE
 
-    if args.reset_checkpoint and CHECKPOINT_FILE.exists():
-        CHECKPOINT_FILE.unlink()
+    if args.reset_checkpoint and os.path.exists(CHECKPOINT_FILE):
+        os.remove(CHECKPOINT_FILE)
         log("  Checkpoint cleared.")
 
     # ── Step 2: Backup ──
@@ -84,12 +82,15 @@ def main():
     log("=== Step 6: Running full pipeline (this will take hours) ===")
     env = {**os.environ, "TECH_DB_INDEX_DIR": str(REPO / "data" / "lightrag")}
     pipeline_result = subprocess.run(
-        [sys.executable, "auto_pipeline.py"],
+        [sys.executable, str(REPO / "auto_pipeline.py")],
         cwd=REPO, env=env
     )
     if pipeline_result.returncode != 0:
         log("WARNING: Pipeline returned non-zero. Check output.")
-        log("  You can re-run with --resume (checkpoint will skip completed stages).")
+        log("  Rolling back lite JSON from backup...")
+        shutil.copy2(BACKUP_PATH, LITE_PATH)
+        log("  You can re-run with --reset-checkpoint after fixing the issue.")
+        sys.exit(1)
 
     # ── Step 7: Append curated records ──
     log("=== Step 7: Append curated records ===")
@@ -145,7 +146,11 @@ def main():
     log("  Cleared LightRAG state for full rebuild")
     result = subprocess.run([venv_python, os.path.join(qa_backend, "ingest.py"), "--resume"],
                           capture_output=True, text=True, cwd=REPO, env=env, timeout=7200)
-    log(result.stdout[-200:] if result.stdout else "(no output)")
+    if result.returncode != 0:
+        log("WARNING: Knowledge graph ingest failed!")
+        log(result.stderr[-300:] if result.stderr else "(no stderr)")
+    else:
+        log(result.stdout[-200:] if result.stdout else "(no output)")
 
     # ── Step 13: Rebuild conference calendar ──
     log("=== Step 13: Rebuild conference calendar ===")

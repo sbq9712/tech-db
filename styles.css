@@ -1004,7 +1004,7 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   border-color: var(--brand-border);
   outline: none;
 }
-.pagination-inline span {
+.pagination-inline #pageTotal {
   font-family: var(--num);
   font-size: 12px;
   color: var(--text-tertiary);

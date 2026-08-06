@@ -86,7 +86,7 @@ def call_glm_batch(prompt, items, batch_size=10, timeout=300, max_workers=3, che
                 if r:
                     results.extend(r)
                     if checkpoint_fn:
-                        checkpoint_fn(results)
+                        checkpoint_fn(list(results))  # snapshot to avoid concurrent mutation
             except Exception as e:
                 print(f"  [WARN] batch exception: {e}")
     return results

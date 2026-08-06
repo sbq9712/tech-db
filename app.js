@@ -1099,7 +1099,8 @@ function renderRecords() {
   state.page = Math.min(state.page, pages);
   const start = (state.page - 1) * PAGE_SIZE;
   const rows = state.filtered.slice(start, start + PAGE_SIZE);
-  $('pageInput').value = state.page;
+  const pi = $('pageInput');
+  if (pi && document.activeElement !== pi) pi.value = state.page;
   $('pageTotal').textContent = pages;
   $('prevPage').disabled = state.page <= 1;
   $('nextPage').disabled = state.page >= pages;

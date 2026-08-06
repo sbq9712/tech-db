@@ -317,30 +317,12 @@ def download_new_csvs(new_per_source):
                     for row in reader:
                         title = row.get("title", row.get("Title", ""))
                         # Body extraction: per-source primary column with assertion (T2)
-                        PRIMARY_COL = {"wechat": "clean_text", "news": "content", "literature": "abstract"}
-                        primary = PRIMARY_COL.get(name)
+                        # Uses shared _extract_body for consistency with diff hashing
+                        primary = PRIMARY_BODY_COL.get(name)
                         body = ""
-                        if primary:
-                            body = row.get(primary, "")
-                            if not body:
-                                log(f"  [WARN] {name} {fname}: 主列{primary}缺失，回退链取值")
-                                body = row.get("clean_text",
-                                        row.get("abstract",
-                                        row.get("content",
-                                        row.get("body",
-                                        row.get("Body",
-                                        row.get("content_preview",
-                                        row.get("digest",
-                                        row.get("summary", ""))))))))
-                        else:
-                            body = row.get("clean_text",
-                                    row.get("abstract",
-                                    row.get("content",
-                                    row.get("body",
-                                    row.get("Body",
-                                    row.get("content_preview",
-                                    row.get("digest",
-                                    row.get("summary", ""))))))))
+                        if primary and not row.get(primary):
+                            log(f"  [WARN] {name} {fname}: 主列{primary}缺失，回退链取值")
+                        body = _extract_body(row, name)
                         # Date extraction: prefer publish date from row, fallback to filename
                         pub_date = row.get("publish_time",
                                    row.get("published_at",
@@ -422,14 +404,24 @@ def dedup_check(new_records, existing_lite):
     return unique, dupes
 
 # ── Record-level diff (T6) ──
+# Shared body extraction logic for consistent hashing between diff and download
+PRIMARY_BODY_COL = {"wechat": "clean_text", "news": "content", "literature": "abstract"}
+
+def _extract_body(row, source_name):
+    """Extract body using source-specific primary column, with fallback chain.
+    Shared between download_new_csvs and _record_hash for consistency."""
+    primary = PRIMARY_BODY_COL.get(source_name)
+    if primary and row.get(primary):
+        return row[primary]
+    return (row.get("clean_text", row.get("abstract", row.get("content",
+            row.get("body", row.get("Body", row.get("content_preview",
+            row.get("digest", row.get("summary", ""))))))))) or ""
+
 def _record_hash(row, source_name):
     """Hash content-semantic fields only (excludes timestamps, filenames, row numbers)."""
     import hashlib
     t = (row.get("title", row.get("Title", "")) or "").strip()
-    # Body: use source-specific primary column for hash
-    PRIMARY_COL = {"wechat": "clean_text", "news": "content", "literature": "abstract"}
-    primary = PRIMARY_COL.get(source_name, "clean_text")
-    b = (row.get(primary, row.get("clean_text", row.get("abstract", row.get("content", "")))) or "").strip()
+    b = (_extract_body(row, source_name)).strip()
     u = (row.get("url", row.get("link", row.get("URL", ""))) or "").strip()
     a = (row.get("source", row.get("account_name", row.get("source_name", ""))) or "").strip()
     raw = f"{t}\x00{b}\x00{u}\x00{a}"
@@ -484,7 +476,7 @@ def upsert_records(lite, changed_records, deleted_urls):
     Does NOT touch manually imported records (source=='excel-import' or lv>=1).
     Returns updated lite list.
     """
-    PROTECTED = lambda r: r.get("source") == "excel-import" or r.get("lv", 0) >= 1
+    PROTECTED = lambda r: r.get("source") == "excel-import" or r.get("lv") == 3
 
     # Build URL → [idx] index for non-protected records only
     url_index = {}
@@ -605,7 +597,8 @@ def classify_and_score(records):
 """
 
     log("  分类中...")
-    # T4: Checkpoint support — skip already-classified records
+    # T4: Checkpoint support — ids are enumerate indices, stable within a single run.
+    #     full_rebuild.py MUST use --reset-checkpoint to clear stale ids from prior runs.
     cp = load_checkpoint()
     cp_classify = cp.get("classify", {})
     done_ids = set(cp_classify.get("completed_ids", []))
