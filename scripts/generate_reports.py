@@ -313,7 +313,7 @@ def generate_all(rtype, data):
     if not dates:
         log("no dates in data")
         return
-    earliest = datetime.strptime(dates[0], "%Y-%m-%d")
+    earliest = datetime.strptime(dates[0], "%Y-%m-%d").replace(tzinfo=CST)
     today = datetime.now(CST).replace(hour=0, minute=0, second=0, microsecond=0)
 
     if rtype == "daily":
