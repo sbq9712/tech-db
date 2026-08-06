@@ -8,6 +8,10 @@ data/processed/all-records-lite.json
 .pipeline_state.json
 .pipeline.lock
 .gh_env
+.rebuild_checkpoint.json
+
+# CSV cache for record-level diff (local only, ~100MB)
+data/csv_cache/
 data/processed/embeddings.json
 data/processed/embeddings-v2.json
 data/processed/clustering-decisions.jsonl

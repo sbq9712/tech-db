@@ -176,7 +176,9 @@
           </button>
           <div class="pagination-inline">
             <button id="prevPage" type="button">‹</button>
-            <span id="pageLabel"></span>
+            <span>第</span>
+            <input id="pageInput" type="text" inputmode="numeric" size="3" style="width:3em;text-align:center;" />
+            <span> / <span id="pageTotal"></span> 页</span>
             <button id="nextPage" type="button">›</button>
           </div>
           <div class="search-bar-top">
@@ -339,7 +341,7 @@
   </script>
   <script src="data/processed/manifest-data.js"></script>
   <script src="data/category-order-data.js"></script>
-  <script src="app.js?v=146"></script>
+  <script src="app.js?v=147"></script>
   <script src="qa.js?v=153"></script>
   <script>
     // Information Sources Panel Data

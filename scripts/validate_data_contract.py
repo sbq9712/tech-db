@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import re
 import sys
 from collections import Counter, defaultdict
 
@@ -61,6 +62,13 @@ def validate() -> list[str]:
     invalid_alerts = [i for i, record in enumerate(records) if record.get("lv", 0) >= 3 and not record.get("wr")]
     if invalid_alerts:
         errors.append(f"{len(invalid_alerts)} alert records missing warning reason")
+
+    # sr (source tracking) validation: if present, must match repo/filename pattern
+    sr_re = re.compile(r'^(wechat|news|literature)/.+$')
+    invalid_sr = [(i, r.get("sr")) for i, r in enumerate(records)
+                  if r.get("sr") and not sr_re.match(r["sr"])]
+    if invalid_sr:
+        errors.append(f"{len(invalid_sr)} records have invalid sr format")
 
     invalid_tags = []
     missing_tags = []

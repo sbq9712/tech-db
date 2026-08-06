@@ -52,11 +52,12 @@ def call_glm(prompt, system_msg="直接输出结果，不要输出思考过程�
     return content.strip()
 
 
-def call_glm_batch(prompt, items, batch_size=10, timeout=300, max_workers=3):
+def call_glm_batch(prompt, items, batch_size=10, timeout=300, max_workers=3, checkpoint_fn=None):
     """
     Batch LLM calls for classification/scoring/summary.
     prompt: instruction prompt (JSON array will be appended)
     items: list of dicts to send as JSON data
+    checkpoint_fn: optional callback(results_so_far) called after each batch completes
     Returns: list of parsed JSON dicts from all batches
     """
     def call(batch):
@@ -84,6 +85,8 @@ def call_glm_batch(prompt, items, batch_size=10, timeout=300, max_workers=3):
                 r = f.result()
                 if r:
                     results.extend(r)
+                    if checkpoint_fn:
+                        checkpoint_fn(results)
             except Exception as e:
                 print(f"  [WARN] batch exception: {e}")
     return results

@@ -1023,7 +1023,7 @@ function renderToolbar() {
   const displayCount = levelCounts[state.alertLevel] !== undefined
     ? levelCounts[state.alertLevel]
     : state.filtered.length;
-  $('resultCount').innerHTML = `共 <strong>${displayCount.toLocaleString()}</strong> 条结果`;
+  $('resultCount').innerHTML = `共 <strong>${displayCount.toLocaleString()}</strong> 条结果（本页 ${state.filtered.length > 0 ? Math.min(PAGE_SIZE, state.filtered.length - (state.page - 1) * PAGE_SIZE) : 0} 条）`;
   // Alert level clear button removed (now in top bar)
   const chips = [];
   if (state.query.trim()) chips.push({ label: '检索', value: state.query.trim(), key: 'query' });
@@ -1099,7 +1099,8 @@ function renderRecords() {
   state.page = Math.min(state.page, pages);
   const start = (state.page - 1) * PAGE_SIZE;
   const rows = state.filtered.slice(start, start + PAGE_SIZE);
-  $('pageLabel').textContent = `第 ${state.page} / ${pages} 页`;
+  $('pageInput').value = state.page;
+  $('pageTotal').textContent = pages;
   $('prevPage').disabled = state.page <= 1;
   $('nextPage').disabled = state.page >= pages;
   if (!rows.length) {
@@ -1402,6 +1403,21 @@ function bindEvents() {
   });
   on('prevPage', 'click', () => { if (state.page > 1) { state.page -= 1; renderRecords(); document.querySelector('.content').scrollTo({ top: 0, behavior: 'instant' }); } });
   on('nextPage', 'click', () => { const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE)); if (state.page < pages) { state.page += 1; renderRecords(); document.querySelector('.content').scrollTo({ top: 0, behavior: 'instant' }); } });
+  // Page input: allow typing a page number to jump directly
+  const pageInputEl = $('pageInput');
+  if (pageInputEl) {
+    pageInputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); pageInputEl.blur(); }
+    });
+    pageInputEl.addEventListener('blur', () => {
+      const pages = Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE));
+      const n = parseInt(pageInputEl.value, 10);
+      if (isNaN(n) || n < 1 || n > pages) { pageInputEl.value = state.page; return; }
+      state.page = n;
+      renderRecords();
+      document.querySelector('.content').scrollTo({ top: 0, behavior: 'instant' });
+    });
+  }
 
   // ── Global score tooltip (single floating div, not a child of score-box) ──
   const scoreTooltip = document.createElement('div');

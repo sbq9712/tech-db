@@ -59,8 +59,8 @@ VALID_CLASSIFICATIONS = VALID_CATEGORY_LEAVES | {"不相关", "未分类"}
 
 # Source repos
 SOURCES = {
-    "news": {"repo": "sbq9712/news-spider", "path": "data", "prefix": "articles-"},
-    "literature": {"repo": "sbq9712/literature-rss-spider", "path": "output", "prefix": "news_with_abstract_"},
+    "news": {"repo": "wodewoping-png/news-spider", "path": "data", "prefix": "articles-"},
+    "literature": {"repo": "wodewoping-png/literature-rss-spider", "path": "output", "prefix": "news_with_abstract_"},
     "wechat": {"repo": "wodewoping-png/wechat-daily-news-csv", "path": "csv", "prefix": ""},
 }
 
@@ -131,6 +131,33 @@ def file_content_hash(path):
         for chunk in iter(lambda: f.read(8192), b""):
             h.update(chunk)
     return h.hexdigest()
+
+# ── Checkpoint / resume support (T4) ──
+CHECKPOINT_FILE = os.path.join(REPO, ".rebuild_checkpoint.json")
+
+def load_checkpoint():
+    """Load checkpoint for interrupt-resume of LLM-heavy stages."""
+    if os.path.exists(CHECKPOINT_FILE):
+        try:
+            with open(CHECKPOINT_FILE, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
+
+def save_checkpoint(stage, completed_ids, results=None):
+    """Save checkpoint after each batch."""
+    cp = load_checkpoint()
+    cp[stage] = {"completed_ids": sorted(set(completed_ids))}
+    if results:
+        cp[stage]["results"] = results
+    with open(CHECKPOINT_FILE, "w") as f:
+        json.dump(cp, f, ensure_ascii=False)
+
+def clear_checkpoint():
+    """Remove checkpoint file after successful completion."""
+    if os.path.exists(CHECKPOINT_FILE):
+        os.remove(CHECKPOINT_FILE)
 
 def check_new_files():
     """检测新文件或内容变化的滚动文件。
@@ -264,6 +291,15 @@ def download_new_csvs(new_per_source):
 
             # 验证内容是否真的变化（针对滚动文件）
             chash = file_content_hash(local_path)
+            # T5: Persist CSV to data/csv_cache/ for future record-level diff
+            cache_dir = os.path.join(REPO, "data", "csv_cache", name)
+            os.makedirs(cache_dir, exist_ok=True)
+            cache_path = os.path.join(cache_dir, fname)
+            try:
+                import shutil
+                shutil.copy2(local_path, cache_path)
+            except Exception:
+                pass  # Non-fatal: cache is best-effort
             state = load_state()
             old_hash = state.get("file_hashes", {}).get(
                 f"{name}/{fname}",
@@ -280,16 +316,31 @@ def download_new_csvs(new_per_source):
                     reader = csv_mod.DictReader(f)
                     for row in reader:
                         title = row.get("title", row.get("Title", ""))
-                        # Body extraction: cover all 3 source formats
-                        # news-spider: content | literature: abstract | wechat: clean_text
-                        body = row.get("clean_text",
-                                row.get("abstract",
-                                row.get("content",
-                                row.get("body",
-                                row.get("Body",
-                                row.get("content_preview",
-                                row.get("digest",
-                                row.get("summary", ""))))))))
+                        # Body extraction: per-source primary column with assertion (T2)
+                        PRIMARY_COL = {"wechat": "clean_text", "news": "content", "literature": "abstract"}
+                        primary = PRIMARY_COL.get(name)
+                        body = ""
+                        if primary:
+                            body = row.get(primary, "")
+                            if not body:
+                                log(f"  [WARN] {name} {fname}: 主列{primary}缺失，回退链取值")
+                                body = row.get("clean_text",
+                                        row.get("abstract",
+                                        row.get("content",
+                                        row.get("body",
+                                        row.get("Body",
+                                        row.get("content_preview",
+                                        row.get("digest",
+                                        row.get("summary", ""))))))))
+                        else:
+                            body = row.get("clean_text",
+                                    row.get("abstract",
+                                    row.get("content",
+                                    row.get("body",
+                                    row.get("Body",
+                                    row.get("content_preview",
+                                    row.get("digest",
+                                    row.get("summary", ""))))))))
                         # Date extraction: prefer publish date from row, fallback to filename
                         pub_date = row.get("publish_time",
                                    row.get("published_at",
@@ -319,6 +370,7 @@ def download_new_csvs(new_per_source):
                             "a": source_name,
                             "i": "l" if "literature" in name else "n",
                             "source": fname,
+                            "sr": f"{name}/{fname}",
                         })
                 successfully_downloaded[name].append((fname, chash))
             except Exception as e:
@@ -368,6 +420,110 @@ def dedup_check(new_records, existing_lite):
             if b: existing_body_prefix.add(b)
             if u: existing_urls.add(u)
     return unique, dupes
+
+# ── Record-level diff (T6) ──
+def _record_hash(row, source_name):
+    """Hash content-semantic fields only (excludes timestamps, filenames, row numbers)."""
+    import hashlib
+    t = (row.get("title", row.get("Title", "")) or "").strip()
+    # Body: use source-specific primary column for hash
+    PRIMARY_COL = {"wechat": "clean_text", "news": "content", "literature": "abstract"}
+    primary = PRIMARY_COL.get(source_name, "clean_text")
+    b = (row.get(primary, row.get("clean_text", row.get("abstract", row.get("content", "")))) or "").strip()
+    u = (row.get("url", row.get("link", row.get("URL", ""))) or "").strip()
+    a = (row.get("source", row.get("account_name", row.get("source_name", ""))) or "").strip()
+    raw = f"{t}\x00{b}\x00{u}\x00{a}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+def diff_csv_records(old_csv_path, new_csv_path, source_name):
+    """Compare old and new CSV at record level using URL as key.
+    Returns dict with keys: unchanged, changed, deleted, new (lists of new-CSV rows).
+    """
+    def load_csv_rows(path):
+        """Load CSV into {normalize_url: [rows]} mapping."""
+        groups = {}
+        try:
+            with open(path, "r", encoding="utf-8-sig", newline="") as f:
+                reader = csv_mod.DictReader(f)
+                for row in reader:
+                    url_key = normalize_url(row.get("url", row.get("link", row.get("URL", ""))))
+                    if not url_key:
+                        continue
+                    groups.setdefault(url_key, []).append(row)
+        except Exception as e:
+            log(f"  [WARN] diff_csv load error {path}: {e}")
+        return groups
+
+    old_groups = load_csv_rows(old_csv_path)
+    new_groups = load_csv_rows(new_csv_path)
+
+    result = {"unchanged": [], "changed": [], "deleted": [], "new": []}
+
+    old_urls = set(old_groups.keys())
+    new_urls = set(new_groups.keys())
+
+    for url in new_urls - old_urls:
+        result["new"].extend(new_groups[url])
+
+    for url in old_urls - new_urls:
+        result["deleted"].append(url)
+
+    for url in old_urls & new_urls:
+        old_set_hash = sorted(_record_hash(r, source_name) for r in old_groups[url])
+        new_set_hash = sorted(_record_hash(r, source_name) for r in new_groups[url])
+        if old_set_hash == new_set_hash:
+            result["unchanged"].extend(new_groups[url])
+        else:
+            result["changed"].extend(new_groups[url])
+
+    return result
+
+# ── Upsert records (T7) ──
+def upsert_records(lite, changed_records, deleted_urls):
+    """Process changed and deleted records from rolling file updates.
+    Does NOT touch manually imported records (source=='excel-import' or lv>=1).
+    Returns updated lite list.
+    """
+    PROTECTED = lambda r: r.get("source") == "excel-import" or r.get("lv", 0) >= 1
+
+    # Build URL → [idx] index for non-protected records only
+    url_index = {}
+    for idx, r in enumerate(lite):
+        if PROTECTED(r):
+            continue
+        u = normalize_url(r.get("u", ""))
+        if u:
+            url_index.setdefault(u, []).append(idx)
+
+    # Handle changed: delete old, append new
+    changed_count = 0
+    if changed_records:
+        changed_urls = set()
+        for r in changed_records:
+            u = normalize_url(r.get("u", ""))
+            if u:
+                changed_urls.add(u)
+        # Delete old records with these URLs (non-protected only)
+        to_delete = set()
+        for u in changed_urls:
+            for idx in url_index.get(u, []):
+                if not PROTECTED(lite[idx]):
+                    to_delete.add(idx)
+        lite = [r for i, r in enumerate(lite) if i not in to_delete]
+        changed_count = len(to_delete)
+
+    # Handle deleted: remove records with these URLs
+    deleted_count = 0
+    if deleted_urls:
+        to_delete = set()
+        for u in deleted_urls:
+            for idx in url_index.get(u, []):
+                if not PROTECTED(lite[idx]):
+                    to_delete.add(idx)
+        lite = [r for i, r in enumerate(lite) if i not in to_delete]
+        deleted_count = len(to_delete)
+
+    return lite, changed_count, deleted_count
 
 # ── GLM 调用 ──
 # call_glm_batch is imported from llm_client (no longer uses hermes CLI)
@@ -449,7 +605,24 @@ def classify_and_score(records):
 """
 
     log("  分类中...")
-    classify_results = call_glm_batch(CLASSIFY_PROMPT, items, batch_size=10)
+    # T4: Checkpoint support — skip already-classified records
+    cp = load_checkpoint()
+    cp_classify = cp.get("classify", {})
+    done_ids = set(cp_classify.get("completed_ids", []))
+    if done_ids:
+        pending_items = [it for it in items if it["id"] not in done_ids]
+        log(f"  断点续跑: {len(done_ids)} 已完成, {len(pending_items)} 待处理")
+        # Restore previously classified results
+        classify_results = [r for r in cp_classify.get("results", []) if r.get("id") in done_ids]
+    else:
+        pending_items = items
+        classify_results = []
+    if pending_items:
+        def _cp_classify(results_so_far):
+            all_ids = done_ids | {r.get("id") for r in results_so_far if isinstance(r.get("id"), int)}
+            save_checkpoint("classify", all_ids, results_so_far)
+        new_results = call_glm_batch(CLASSIFY_PROMPT, pending_items, batch_size=10, checkpoint_fn=_cp_classify)
+        classify_results.extend(new_results)
 
     for r in classify_results:
         idx = r.get("id")
