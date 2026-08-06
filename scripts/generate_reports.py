@@ -3,9 +3,11 @@
 Outputs structured JSON files for rich frontend rendering.
 """
 import json, os, sys, argparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from collections import Counter
+
+CST = timezone(timedelta(hours=8))  # China Standard Time
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from llm_client import call_glm_json
@@ -312,7 +314,7 @@ def generate_all(rtype, data):
         log("no dates in data")
         return
     earliest = datetime.strptime(dates[0], "%Y-%m-%d")
-    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    today = datetime.now(CST).replace(hour=0, minute=0, second=0, microsecond=0)
 
     if rtype == "daily":
         yesterday = today - timedelta(days=1)
@@ -356,7 +358,7 @@ def main():
     elif args.date:
         generate_one(args.type, args.date, data)
     else:
-        yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+        yesterday = (datetime.now(CST) - timedelta(days=1)).strftime("%Y-%m-%d")
         generate_one(args.type, yesterday, data)
 
     log("DONE")

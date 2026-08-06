@@ -644,13 +644,20 @@ def gen_summaries(records):
 # ── 关键参数提取 ──
 def extract_key_params(records):
     """Extract key technical parameters for each relevant record.
-    Only processes records with valid category (not 不相关/未分类/empty).
+    Only processes records with valid category (not 不相关/未分类/empty)
+    AND sufficient body text (mirrors gen_summaries body guard).
     Uses GLM to extract structured key_params from title + body.
     """
-    # Only extract for relevant records with body text
     todo_ids = [i for i, r in enumerate(records)
                 if r.get("c", "") in VALID_CATEGORY_LEAVES
-                and r.get("c", "") not in ("不相关", "未分类", "")]
+                and r.get("c", "") not in ("不相关", "未分类", "")
+                and len(r.get("b", "").strip()) >= 10]
+
+    # Clear stale kp on records that are NOT eligible (changed category or no body)
+    todo_set = set(todo_ids)
+    for i, r in enumerate(records):
+        if i not in todo_set:
+            r.pop("kp", None)
 
     if not todo_ids:
         log("  关键参数: 0 条需要提取")
@@ -694,12 +701,15 @@ def extract_key_params(records):
         global_idx = todo_ids[local_id]
         kp = r.get("key_params", [])
         if isinstance(kp, list) and kp:
-            records[global_idx]["kp"] = [str(k)[:200] for k in kp[:5]]
-            got_kp.add(global_idx)
-            extracted += 1
-        else:
-            # Explicitly clear stale kp if LLM says no params
-            records[global_idx].pop("kp", None)
+            # Filter empty strings and strip whitespace, cap at 5 items
+            cleaned = [str(k).strip()[:200] for k in kp[:5] if str(k).strip()]
+            if cleaned:
+                records[global_idx]["kp"] = cleaned
+                got_kp.add(global_idx)
+                extracted += 1
+                continue
+        # Clear stale kp if LLM says no params or all params were empty
+        records[global_idx].pop("kp", None)
 
     # Clear stale kp for records that were processed but got no result
     for local_id in range(len(todo_ids)):
