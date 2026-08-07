@@ -40,14 +40,20 @@ def main():
         log("FATAL: assert_keep_delete.py failed. Aborting.")
         sys.exit(1)
 
-    # ── Step 1: Lock is held by the subprocess (auto_pipeline.py) which calls acquire_lock internally.
-    #    We just clear checkpoint if requested. ──
-    log("=== Step 1: Preparing checkpoint ===")
+    # ── Step 1: Check for stale lock, clear checkpoint ──
+    log("=== Step 1: Pre-flight checks ===")
     from auto_pipeline import clear_checkpoint, CHECKPOINT_FILE
+    lock_path = REPO / ".pipeline.lock"
+    if lock_path.exists():
+        log("  Removing stale .pipeline.lock")
+        lock_path.unlink()
 
     if args.reset_checkpoint and os.path.exists(CHECKPOINT_FILE):
         os.remove(CHECKPOINT_FILE)
         log("  Checkpoint cleared.")
+
+    # Also restore pipeline state NOW so we have good known_files before Step 5 wipes them
+    # (needed in case a previous failed run left state in bad shape)
 
     # ── Step 2: Backup ──
     log("=== Step 2: Backup ===")
@@ -86,11 +92,24 @@ def main():
         cwd=REPO, env=env
     )
     if pipeline_result.returncode != 0:
-        log("WARNING: Pipeline returned non-zero. Check output.")
-        log("  Rolling back lite JSON from backup...")
+        log("FATAL: Pipeline returned non-zero. Rolling back.")
         shutil.copy2(BACKUP_PATH, LITE_PATH)
-        log("  You can re-run with --reset-checkpoint after fixing the issue.")
+        # Restore pipeline state too
+        state_path = REPO / ".pipeline_state.json"
+        if state_path.exists():
+            state_path.unlink()
+        log("  lite JSON and pipeline state rolled back from backup.")
+        log("  Fix the issue and re-run with --reset-checkpoint.")
         sys.exit(1)
+
+    # CRITICAL: Verify the pipeline actually produced substantial output
+    data = json.loads(LITE_PATH.read_text("utf-8"))
+    if len(data) < 1000:
+        log(f"FATAL: Pipeline produced only {len(data)} records — expected ~50,000+.")
+        log("  This likely means the pipeline was skipped or failed silently.")
+        shutil.copy2(BACKUP_PATH, LITE_PATH)
+        sys.exit(1)
+    log(f"  Pipeline produced {len(data)} records ✓")
 
     # ── Step 7: Append curated records ──
     log("=== Step 7: Append curated records ===")

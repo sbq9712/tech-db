@@ -78,7 +78,7 @@ def acquire_lock():
     except (BlockingIOError, OSError):
         log("[SKIP] Another pipeline instance is running. Exiting.")
         os.close(lock_fd)
-        sys.exit(0)
+        sys.exit(1)
 
 # ── GitHub API（正确认证）──
 def gh_api(url):
