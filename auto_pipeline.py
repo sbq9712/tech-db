@@ -537,6 +537,8 @@ def translate_non_chinese_titles(records):
 
     translator = GoogleTranslator(source='auto', target='zh-CN')
     done = 0; failed = 0; skipped = 0
+    consecutive_failures = 0
+    MAX_CONSECUTIVE_FAILURES = 20  # abort if 20 consecutive failures (API likely down)
     import signal
 
     class TimeoutError(Exception):
@@ -554,14 +556,23 @@ def translate_non_chinese_titles(records):
             if translated and has_cn(translated):
                 records[idx]['t'] = translated
                 done += 1
+                consecutive_failures = 0
             else:
                 failed += 1
+                consecutive_failures += 1
         except TimeoutError:
             signal.alarm(0)
             skipped += 1
+            consecutive_failures += 1
         except Exception:
             signal.alarm(0)
             failed += 1
+            consecutive_failures += 1
+        if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+            signal.alarm(0)
+            remaining = len(targets) - (done + failed + skipped)
+            log(f"  [WARN] 标题翻译: 连续{MAX_CONSECUTIVE_FAILURES}次失败，跳过剩余{remaining}条")
+            break
     signal.signal(signal.SIGALRM, old_handler)
     log(f"  标题翻译: {done}/{len(targets)} 成功 (失败 {failed}, 超时跳过 {skipped})")
     return records
