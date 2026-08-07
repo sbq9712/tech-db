@@ -31,6 +31,41 @@ def main():
     parser.add_argument("--reset-checkpoint", action="store_true")
     args = parser.parse_args()
 
+    # ── Step 0a: Disable cron to prevent concurrent pipeline ──
+    log("=== Step 0a: Disable cron (prevent collision) ===")
+    crontab_backup = None
+    try:
+        result = subprocess.run(["crontab", "-l"], capture_output=True, text=True)
+        if result.returncode == 0 and result.stdout.strip():
+            crontab_backup = result.stdout
+            # Remove all auto_pipeline cron entries
+            lines = [l for l in crontab_backup.split("\n")
+                     if "auto_pipeline" not in l and l.strip()]
+            new_crontab = "\n".join(lines) + "\n"
+            subprocess.run(["crontab", "-"], input=new_crontab, text=True)
+            log("  Cron disabled (auto_pipeline entries removed)")
+        else:
+            log("  No cron entries found")
+    except Exception as e:
+        log(f"  [WARN] Could not disable cron: {e}")
+
+    # ── Step 0b: Kill any running pipeline processes ──
+    log("=== Step 0b: Kill any running pipeline processes ===")
+    try:
+        result = subprocess.run(["pgrep", "-f", "auto_pipeline.py"],
+                              capture_output=True, text=True)
+        if result.stdout.strip():
+            pids = result.stdout.strip().split("\n")
+            for pid in pids:
+                if pid.strip():
+                    os.kill(int(pid.strip()), 9)
+                    log(f"  Killed PID {pid.strip()}")
+            time.sleep(2)
+        else:
+            log("  No running pipeline processes found")
+    except Exception as e:
+        log(f"  [WARN] Could not check/kill pipeline processes: {e}")
+
     # ── Step 0: Pre-flight assertions ──
     log("=== Step 0: Pre-flight assertions ===")
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "assert_keep_delete.py")],
@@ -38,6 +73,9 @@ def main():
     print(result.stdout)
     if result.returncode != 0:
         log("FATAL: assert_keep_delete.py failed. Aborting.")
+        # Restore cron before exiting
+        if crontab_backup:
+            subprocess.run(["crontab", "-"], input=crontab_backup, text=True)
         sys.exit(1)
 
     # ── Step 1: Check for stale lock, clear checkpoint ──
@@ -102,6 +140,10 @@ def main():
             state_path.unlink()
         log("  lite JSON and pipeline state rolled back from backup.")
         log("  Fix the issue and re-run with --reset-checkpoint.")
+        # Restore cron before exiting
+        if crontab_backup:
+            subprocess.run(["crontab", "-"], input=crontab_backup, text=True)
+            log("  Cron restored.")
         sys.exit(1)
 
     # CRITICAL: Verify the pipeline actually produced substantial output
@@ -110,6 +152,9 @@ def main():
         log(f"FATAL: Pipeline produced only {len(data)} records — expected ~50,000+.")
         log("  This likely means the pipeline was skipped or failed silently.")
         shutil.copy2(BACKUP_PATH, LITE_PATH)
+        if crontab_backup:
+            subprocess.run(["crontab", "-"], input=crontab_backup, text=True)
+            log("  Cron restored.")
         sys.exit(1)
     log(f"  Pipeline produced {len(data)} records ✓")
 
@@ -233,6 +278,11 @@ def main():
     # sr field coverage
     has_sr = sum(1 for r in data if r.get("sr"))
     log(f"sr field coverage: {has_sr}/{len(data)} ({has_sr/len(data)*100:.1f}%)")
+
+    # ── Restore cron ──
+    if crontab_backup:
+        subprocess.run(["crontab", "-"], input=crontab_backup, text=True)
+        log("Cron restored.")
 
     log("\n=== REBUILD COMPLETE ===")
 
