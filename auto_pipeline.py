@@ -1173,7 +1173,9 @@ def main():
             raise RuntimeError(validation.stdout or validation.stderr or "data contract validation failed")
         log("  " + validation.stdout.strip())
         log("Step 8: Push to GitHub...")
-        if not git_push():
+        if os.environ.get("SKIP_PUSH"):
+            log("  SKIPPED (SKIP_PUSH env var set — caller handles push)")
+        elif not git_push():
             log("[FATAL] Push failed — state NOT committed. Files will be retried next run.")
             return  # 不 commit_state，下次 cron 自动重试
 
@@ -1182,48 +1184,52 @@ def main():
         commit_state(current, successfully_downloaded)
 
         # Step 10: Rebuild search indexes (vector + BM25 + knowledge graph)
-        log("Step 10: Rebuilding search indexes...")
-
-        venv_python = os.path.join(REPO, ".venv", "bin", "python")
-        qa_backend = os.path.join(REPO, "qa-backend")
-        index_dir = os.path.join(REPO, "data", "lightrag")
-        index_env = {**os.environ, "TECH_DB_INDEX_DIR": index_dir}
-
-        # 10a: BM25 index (fast, ~5 min)
-        log("  10a: Building BM25 index...")
-        bm25_result = subprocess.run(
-            [venv_python, os.path.join(qa_backend, "bm25_index.py")],
-            capture_output=True, text=True, cwd=REPO, timeout=600, env=index_env
-        )
-        if bm25_result.returncode != 0:
-            log(f"  [WARN] BM25 index build failed (non-fatal): {bm25_result.stderr[:200]}")
+        # Skip if caller (e.g. full_rebuild.py) will handle index rebuilding
+        if os.environ.get("SKIP_INDEX_BUILD"):
+            log("Step 10: SKIPPED (SKIP_INDEX_BUILD env var set — caller handles index rebuilding)")
         else:
-            log("  BM25 index built successfully.")
+            log("Step 10: Rebuilding search indexes...")
 
-        # 10b: Vector index (incremental, only new records embedded)
-        log("  10b: Building vector index...")
-        vec_result = subprocess.run(
-            [venv_python, os.path.join(qa_backend, "vector_index.py")],
-            capture_output=False, cwd=REPO, timeout=14400, env=index_env
-        )
-        if vec_result.returncode != 0:
-            log(f"  [WARN] Vector index build failed (non-fatal)")
-        else:
-            log("  Vector index built successfully.")
+            venv_python = os.path.join(REPO, ".venv", "bin", "python")
+            qa_backend = os.path.join(REPO, "qa-backend")
+            index_dir = os.path.join(REPO, "data", "lightrag")
+            index_env = {**os.environ, "TECH_DB_INDEX_DIR": index_dir}
 
-        # 10c: Knowledge graph (incremental, only new records)
-        log("  10c: Updating knowledge graph (incremental)...")
-        graph_result = subprocess.run(
-            [venv_python, os.path.join(qa_backend, "concurrent_ingest.py"),
-             "--concurrency", "5"],
-            capture_output=False, cwd=REPO, timeout=7200, env=index_env
-        )
-        if graph_result.returncode != 0:
-            log(f"  [WARN] Knowledge graph update failed (non-fatal)")
-        else:
-            log("  Knowledge graph updated successfully.")
+            # 10a: BM25 index (fast, ~5 min)
+            log("  10a: Building BM25 index...")
+            bm25_result = subprocess.run(
+                [venv_python, os.path.join(qa_backend, "bm25_index.py")],
+                capture_output=True, text=True, cwd=REPO, timeout=600, env=index_env
+            )
+            if bm25_result.returncode != 0:
+                log(f"  [WARN] BM25 index build failed (non-fatal): {bm25_result.stderr[:200]}")
+            else:
+                log("  BM25 index built successfully.")
 
-        log("Step 10 complete: All indexes rebuilt.")
+            # 10b: Vector index (incremental, only new records embedded)
+            log("  10b: Building vector index...")
+            vec_result = subprocess.run(
+                [venv_python, os.path.join(qa_backend, "vector_index.py")],
+                capture_output=False, cwd=REPO, timeout=14400, env=index_env
+            )
+            if vec_result.returncode != 0:
+                log(f"  [WARN] Vector index build failed (non-fatal)")
+            else:
+                log("  Vector index built successfully.")
+
+            # 10c: Knowledge graph (incremental, only new records)
+            log("  10c: Updating knowledge graph (incremental)...")
+            graph_result = subprocess.run(
+                [venv_python, os.path.join(qa_backend, "concurrent_ingest.py"),
+                 "--concurrency", "5"],
+                capture_output=False, cwd=REPO, timeout=7200, env=index_env
+            )
+            if graph_result.returncode != 0:
+                log(f"  [WARN] Knowledge graph update failed (non-fatal)")
+            else:
+                log("  Knowledge graph updated successfully.")
+
+            log("Step 10 complete: All indexes rebuilt.")
 
         # Step 11: Generate reports (daily always, weekly on Monday, monthly on 1st)
         log("Step 11: Generating reports...")
