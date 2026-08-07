@@ -536,18 +536,34 @@ def translate_non_chinese_titles(records):
         return records
 
     translator = GoogleTranslator(source='auto', target='zh-CN')
-    done = 0; failed = 0
+    done = 0; failed = 0; skipped = 0
+    import signal
+
+    class TimeoutError(Exception):
+        pass
+
+    def _timeout_handler(signum, frame):
+        raise TimeoutError("translate timed out")
+
+    old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
     for idx, title in targets:
         try:
+            signal.alarm(10)  # 10 second timeout per title
             translated = translator.translate(title[:5000])
+            signal.alarm(0)
             if translated and has_cn(translated):
                 records[idx]['t'] = translated
                 done += 1
             else:
                 failed += 1
+        except TimeoutError:
+            signal.alarm(0)
+            skipped += 1
         except Exception:
+            signal.alarm(0)
             failed += 1
-    log(f"  标题翻译: {done}/{len(targets)} 成功 (失败 {failed})")
+    signal.signal(signal.SIGALRM, old_handler)
+    log(f"  标题翻译: {done}/{len(targets)} 成功 (失败 {failed}, 超时跳过 {skipped})")
     return records
 
 
