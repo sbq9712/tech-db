@@ -522,63 +522,88 @@ def upsert_records(lite, changed_records, deleted_urls):
 
 # ── 标题翻译 ──
 def translate_non_chinese_titles(records):
-    """Translate titles that contain no Chinese characters to zh-CN using Google Translate."""
+    """Translate titles that contain no Chinese characters to zh-CN using Google Translate.
+    Uses ThreadPoolExecutor for parallel translation with per-request timeout."""
     has_cn = lambda s: bool(re.search(r'[\u4e00-\u9fff]', s or ''))
     targets = [(i, r['t']) for i, r in enumerate(records) if not has_cn(r.get('t', ''))]
     if not targets:
-        log(f"  标题翻译: 0 条需要翻译")
+        log(f"  \u6807\u9898\u7ffb\u8bd1: 0 \u6761\u9700\u8981\u7ffb\u8bd1")
         return records
 
     try:
         from deep_translator import GoogleTranslator
     except ImportError:
-        log(f"  [WARN] deep-translator 未安装，跳过标题翻译")
+        log(f"  [WARN] deep-translator \u672a\u5b89\u88c5\uff0c\u8df3\u8fc7\u6807\u9898\u7ffb\u8bd1")
         return records
 
-    translator = GoogleTranslator(source='auto', target='zh-CN')
+    # Monkey-patch requests.get to add timeout (deep_translator doesn't support it natively)
+    import requests as _requests_mod
+    _original_get = _requests_mod.get
+    def _patched_get(*args, **kwargs):
+        kwargs.setdefault('timeout', 15)
+        return _original_get(*args, **kwargs)
+
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    MAX_WORKERS = 8
+    PER_REQUEST_TIMEOUT = 15  # seconds
+
     done = 0; failed = 0; skipped = 0
-    consecutive_failures = 0
-    MAX_CONSECUTIVE_FAILURES = 20  # abort if 20 consecutive failures (API likely down)
-    import signal
+    log(f"  \u6807\u9898\u7ffb\u8bd1: {len(targets)} \u6761\u9700\u8981\u7ffb\u8bd1 ({MAX_WORKERS} \u5e76\u53d1)")
 
-    class TimeoutError(Exception):
-        pass
-
-    def _timeout_handler(signum, frame):
-        raise TimeoutError("translate timed out")
-
-    old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
-    for idx, title in targets:
+    def _translate_one(args_tuple):
+        """Translate a single title. Returns (record_idx, translated_text_or_None)."""
+        idx, title = args_tuple
+        # Each thread gets its own translator instance (not thread-safe to share)
+        t = GoogleTranslator(source='auto', target='zh-CN')
         try:
-            signal.alarm(10)  # 10 second timeout per title
-            translated = translator.translate(title[:5000])
-            signal.alarm(0)
-            if translated and has_cn(translated):
-                records[idx]['t'] = translated
-                done += 1
-                consecutive_failures = 0
-            else:
-                failed += 1
-                consecutive_failures += 1
-        except TimeoutError:
-            signal.alarm(0)
-            skipped += 1
-            consecutive_failures += 1
+            result = t.translate(title[:5000])
+            if result and has_cn(result):
+                return (idx, result)
+            return (idx, None)
         except Exception:
-            signal.alarm(0)
-            failed += 1
-            consecutive_failures += 1
-        if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
-            signal.alarm(0)
-            remaining = len(targets) - (done + failed + skipped)
-            log(f"  [WARN] 标题翻译: 连续{MAX_CONSECUTIVE_FAILURES}次失败，跳过剩余{remaining}条")
-            break
-    signal.signal(signal.SIGALRM, old_handler)
-    log(f"  标题翻译: {done}/{len(targets)} 成功 (失败 {failed}, 超时跳过 {skipped})")
+            return (idx, None)
+
+    _requests_mod.get = _patched_get
+    try:
+        completed = 0
+        abort = False
+        consecutive_failures = 0
+        MAX_CONSECUTIVE_FAILURES = 50
+
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+            futures = {ex.submit(_translate_one, item): item for item in targets}
+            for future in as_completed(futures):
+                completed += 1
+                try:
+                    idx, translated = future.result(timeout=PER_REQUEST_TIMEOUT + 5)
+                    if translated:
+                        records[idx]['t'] = translated
+                        done += 1
+                        consecutive_failures = 0
+                    else:
+                        failed += 1
+                        consecutive_failures += 1
+                except Exception:
+                    failed += 1
+                    consecutive_failures += 1
+
+                if completed % 500 == 0:
+                    log(f"    \u6807\u9898\u7ffb\u8bd1\u8fdb\u5ea6: {completed}/{len(targets)} (\u6210\u529f {done})")
+
+                # Check if we should abort (too many consecutive failures)
+                if consecutive_failures >= MAX_CONSECUTIVE_FAILURES and not abort:
+                    abort = True
+                    remaining = len(targets) - completed
+                    log(f"  [WARN] \u6807\u9898\u7ffb\u8bd1: \u8fde\u7eed{MAX_CONSECUTIVE_FAILURES}\u6b21\u5931\u8d25\uff0c\u53d6\u6d88\u5269\u4f59")
+                    for f in futures:
+                        f.cancel()
+                    break
+    finally:
+        _requests_mod.get = _original_get
+
+    log(f"  \u6807\u9898\u7ffb\u8bd1: {done}/{len(targets)} \u6210\u529f (\u5931\u8d25 {failed})")
     return records
 
-
-# ── 分类 + 评分 ──
 def classify_and_score(records):
     items = [{"id": i, "type": "literature" if r.get("i")=="l" else "news",
               "title": r["t"][:200], "body": r.get("b","")[:500]} for i, r in enumerate(records)]
