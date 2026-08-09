@@ -1153,13 +1153,17 @@ def main():
         total_after_merge = start_index + merged_count
 
         # Step 6b: Incremental clustering (new records only)
-        if merged_count > 0:
+        # Skip if caller sets SKIP_CLUSTER (clustering loads heavy embedding model → OOM risk)
+        if merged_count > 0 and not os.environ.get("SKIP_CLUSTER"):
             log("Step 6b: Incremental clustering...")
             try:
                 cluster_count = incremental_cluster(start_index, total_after_merge)
             except Exception as ce:
                 log(f"  [WARN] 增量聚类失败，跳过: {ce}")
                 cluster_count = 0
+        elif merged_count > 0:
+            log("Step 6b: SKIPPED (SKIP_CLUSTER env var set)")
+            cluster_count = 0
 
             # Step 6c: Extract conferences + dedup
             log("Step 6c: Extract conferences...")

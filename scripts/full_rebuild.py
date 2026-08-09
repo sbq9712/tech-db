@@ -126,7 +126,8 @@ def main():
     log("=== Step 6: Running full pipeline (this will take hours) ===")
     # SKIP_INDEX_BUILD: pipeline skips its own index building; full_rebuild handles it
     # (avoids redundant BM25+vector+knowledge graph rebuild for 60K records)
-    env = {**os.environ, "TECH_DB_INDEX_DIR": str(REPO / "data" / "lightrag"), "SKIP_INDEX_BUILD": "1", "SKIP_PUSH": "1"}
+    env = {**os.environ, "TECH_DB_INDEX_DIR": str(REPO / "data" / "lightrag"),
+           "SKIP_INDEX_BUILD": "1", "SKIP_PUSH": "1", "SKIP_CLUSTER": "1"}
     pipeline_result = subprocess.run(
         [sys.executable, str(REPO / "auto_pipeline.py")],
         cwd=REPO, env=env
