@@ -78,6 +78,8 @@ async def main():
         chunk_token_size=1200,
         chunk_overlap_token_size=100,
         entity_extract_max_gleaning=1,
+        default_embedding_timeout=600,
+        default_llm_timeout=300,
         addon_params={
             "language": "Simplified Chinese",
             "entity_types": [

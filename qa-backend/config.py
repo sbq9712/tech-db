@@ -27,14 +27,24 @@ def load_api_key():
     key = os.environ.get("ZAI_API_KEY", "").strip()
     if key:
         return key
-    if ENV_FILE.is_file():
-        with ENV_FILE.open(encoding="utf-8") as f:
-            for line in f:
+    # Check candidate locations (in order of preference)
+    candidate_files = [
+        ENV_FILE if ENV_FILE.is_file() else None,
+        Path.home() / ".config" / "anthropic-proxy.env",
+        REPO / ".gh_env",
+    ]
+    for f in candidate_files:
+        if f is None or not f.is_file():
+            continue
+        try:
+            for line in f.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if line.startswith("ZAI_API_KEY="):
                     key = line.split("=", 1)[1].strip().strip('"').strip("'")
                     if key:
                         return key
+        except OSError:
+            continue
     raise RuntimeError(
         "ZAI_API_KEY is not configured. Set it as an environment variable or "
         f"copy .env.example to {ENV_FILE.name} and fill it in."
