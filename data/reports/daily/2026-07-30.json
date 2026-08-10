@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "吉利与比亚迪推进极速充电，锂电池充电时间缩短至四分钟内。",
-      "HL-3托卡马克实现反应堆级热离子模式，聚变三重积达0.69×10^20。",
-      "研究揭示富镍NCM811阴极因电荷状态失配导致内部锂离子转移的退化机制。"
+      "HL-3托卡马克辅助加热提升至19.5兆瓦，兆安级电流下实现0.69聚变三乘积",
+      "德国黑森州比布利斯原核电站场址拟建全球首座商业激光聚变电站",
+      "领克10系列搭载金砖电池，4分22秒内可将电量从10%充至70%"
     ],
     "AI与智能科技": [
-      "实验实现俘获离子自旋玻色子模拟器中温度与耗散率独立可调的热库。",
-      "研究人员在量子处理器上实现福克空间预热并探索时间晶体有序态。",
-      "学者解析具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。"
+      "研究揭示三角晶格量子二聚体模型中具有双重周期边缘权重的拓扑相变",
+      "华为小艺物理竞赛理论考试得28.6分，验证盘古2.0 Pro模型多模态能力",
+      "科研团队实现俘获离子自旋玻色子模拟器温度与耗散率独立可调的热库"
     ],
     "通用技术": [
-      "LHAASO-KM2A观测到10 TeV以上银河系宇宙线各向异性的能量相关变化。",
-      "超快非线性显微镜直接探测出单个纳米腔中激子极化激元的崩溃与复活。",
-      "新型全自动微滴数字PCR流程可在三小时内精准定量测量噬菌体感染性。"
+      "研究在钛酸锶与铌酸钾钠薄膜界面发现室温下可重构的类铁电二维电子气",
+      "科研人员合成新型三核配合物，首次提出并证实接近累积五重键成键模型",
+      "研究证实全氟立方烷以σ*轨道作为电子受体，表现出非常规电荷分离动力学"
     ]
   },
   "sectors": [
@@ -26,43 +26,28 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "吉利与比亚迪推进极速充电，锂电池充电时间缩短至四分钟内。",
-        "HL-3托卡马克实现反应堆级热离子模式，聚变三重积达0.69×10^20。",
-        "研究揭示富镍NCM811阴极因电荷状态失配导致内部锂离子转移的退化机制。"
+        "HL-3托卡马克辅助加热提升至19.5兆瓦，兆安级电流下实现0.69聚变三乘积",
+        "德国黑森州比布利斯原核电站场址拟建全球首座商业激光聚变电站",
+        "领克10系列搭载金砖电池，4分22秒内可将电量从10%充至70%"
       ],
       "entries": [
         {
-          "t": "中国开始以秒为单位测量电动汽车充电时间，而不是分钟",
-          "d": "2026-07-30",
-          "a": "Electrek",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "中国电动汽车极速充电竞赛已进入以秒计时的时代。吉利领克推出的10系列电动汽车首发搭载“金砖”电池，可在4分22秒内将电量从10%充至70%。同时，比亚迪也已推出多款搭载同样具备极致快充能力的“刀片2.0”电池的车型。",
-          "sc": 8.8,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://electrek.co/2026/07/30/china-is-starting-to-measure-ev-charging-times-in-seconds-not-minutes/",
-          "tp": "电车快充",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "| Jul 30 2026 - 7:00 am PT\nOne of China’s newest EVs is also its fastest-charging, with the ability to fill its battery from 10-70% in 4 minutes and 22 seconds.\nBut that’s not the only recent announcement of a fast-charging battery that quotes how many seconds it takes to fill up, showing that the race for fast charging has entered a new era which treats seconds as the significant figure, rather than minutes.\nGeely subsidiary Lynk & Co. recently\nlaunched its new 10 series EVs\n, complete with extreme fast charging speed. The cars are the first to use Geely’s “Golden Brick” battery, with more models coming soon at various Geely brands.\nMeanwhile, BYD already has several vehicles out using its “Blade 2.0” battery, which also offers extremely fast charging.\nThese two batteries are both on the vanguard of a new generation of Chinese EVs that are making charging undeniably quick, at least if the right infrastructure is available.\nBYD says its Blade 2.0 can charge from 10-70% in 5 minutes. And Geely one-upped BYD by saying its Golden Brick can charge the same amount in 4 minutes and 22 seconds.\nAnother major battery manufacturer, CATL, recently\nshowed off a commercial battery\nthat can charge at an 8C rate, allowing a 20-80% charge in 6 minutes and 48 seconds. But that’s actually\ncompared to its recent announcement of a\nconsumer light-duty battery\nthat can charge from 10-80% in just 3 minutes and 44 seconds.\nCATL’s battery is not yet available in a vehicle, so it isn’t quite apples-to-apples when comparing to the BYD and Geely tech above, both of which are already on the road. But it’s not just a lab test of a cell, it’s a fully formed pack undergoing testing in real fast charging, and it’s from the world’s largest EV battery manufacturer, not\nsome startup\nmaking stuff up in the hunt for venture capital.\nCATL isn’t the only one with fast charging tech waiting in the wings. FAW group\njust announced\na battery that can charge from 10-70% in 3 minutes and 41 seconds. That’s a slightly slower rate than CATL’s 10-80% in 3:44, but the difference there is mere seconds.\nAnd so, we get to the point: the common thread among all of these is that each of them mention not just the number of minutes, but the number of\nit takes to get a full charge. So China is now working with a different significant figure – seconds, not minutes.\nhas long felt\nthat charging times are too long, and that EVs need to charge as fast as gas cars.\nNever mind that that isn’t really true in practice – EV owners know that charging at home is even easier than going to gas stations, and on roadtrips, your car will often be ready\n, among non-EV owners who are used to the anxiety-causing paradigm of being chained to gas stations, is that EV refueling needs to be substantially similar to the poor experience they’re used to.\nThere are still benefits. For example, higher power delivery means higher throughput, which means you can get more cars in and out of the same charging spot/station per day, which reduces land use needed. This can be important, particularly in urban environments, especially ones where people don’t have\naccess to home charging\nSo, regardless of whether these extremely fast charge times are necessary, the fact of the matter is that they already exist – at least in China.\nMeanwhile, in the US, our fastest-charging vehicles have been the\nHyundai/Kia E-GMP cars\n, which can charge from 10-80% in around 18 minutes on the right charger. That’s\nperfectly fine for roadtrips\n, especially since a driver will need to take a break every few hours while driving anyway.\nBut for people who rely on fast charging for all of their charging needs (seriously, try to\nfind a way to charge at home\nif you can), even 18 minutes of sitting around in your car can feel like a long time. A 3 minute, 41 second charge seems a lot more palatable.\nThere is one vehicle coming out soon in the US which will be able to charge drastically faster than the E-GMP cars, the\nMercedes AMG GT EV\n. That will be capable of about an 11 minute charge from 10-80% on a 600kW charger, which will put it well in the lead… but it’s going to be limited in production and cost well into the six figures. (In contrast, China’s fastest charging cars can be had for well under $30k)\nBut that one’s still measured in minutes. The difference between 11 minutes and 10 minutes and 30 seconds doesn’t seem like much, but the difference between 4 minutes and 3 minutes and 30 seconds seems a lot more significant. That’s why we didn’t start hearing seconds quoted in charging times until the minutes got down into single digits.\nThe question of 600kW chargers brings up another point – infrastructure rollout has been far faster inside China than outside it. Infrastructure is one of the major strengths of communist states, after all (for another example, see China’s rapid\nhigh speed rail network rollout\nannounced its 1,500kW chargers\nearlier this year, and soon after, Geely\nrolled out 1,500kW chargers of its own\n. And then, just yesterday, state-owned Dongfeng\nannounced its own 1,500kW charger\n, and says it’s working on even faster ones.\nBut it’s not just that the chargers exist, it’s that they’re already being deployed at a large scale. BYD plans to have 20,000 installed by year’s end, with\nseveral thousand\nalready installed at this point. That sort of fast scaling simply doesn’t happen outside of China.\nFor example, it took about three years before\nthe first “true” 500kW V4 Supercharger\nshowed up in the wild (CEO Elon Musk’s idiotic move to\nfire the entire Supercharger team\ncausing complete chaos with contractors\n, couldn’t have helped).\nEurope fares better with fast charging than the US, as there are several ~400kW charging units from companies like Alpitronic that are currently in operation, with\n600kW stations rolling out this year\nBut BYD isn’t content to wait in the overseas market, either. Europe recently\ngot its first BYD flash chargers\n, and the company plans to roll out\nof them in the next year. Perhaps BYD would roll out its flash charging system here, as it has in Europe, if the market were less hostile. But as of yet, it has no similar plans in the US (though\nCanada will get it soon\nIt’s still rare to find even one or two 350kW chargers at a US charging station, let alone anything quicker.\nPresident Biden’s Inflation Reduction Act and Infrastructure Investment and Jobs Act built programs to help accelerate the buildout of these chargers. But those programs have\nmoved slower than they should\n, for several reasons both at the state and federal level.\nOne of those reasons is intentional, held back by the republican party, mostly at the federal level.\nreality TV contestant\nsquatting in the Department of Transportation spent most of last year\nillegally trying to pause disbursement of funds\n, then being\nstopped by court\n. In addition, the joint office that Biden created to increase government collaboration and efficiency was\n, making DoT and DoE less efficient.\nEven after being stopped by court, DoT has\ntried to put up more roadblocks\nChinese components (the Biden-era regulation required a 55% US components, rather than 100%).\nNot only is this impossible because the US simply doesn’t make all the parts needed for EV chargers, it also restricts America from having access to the best chargers available (as we learned above are being made by Chinese companies), and is done in the context of republicans\nshipping EV jobs to China\nrenaissance in US manufacturing\nAll of this happened after the party’s candidate\nasked for and got bribes from the oil industry\n(in his campaign to run for an office he is\nConstitutionally barred from holding\n), so it’s no wonder why there have been so many attacks on the industry promising\na better future than oil\nSo, here, in the\nland of plenty\n, rather than competing to be the best of the best and working to onshore manufacturing of the best products out there, America is\npushing those products away\n, and letting the rest of the world enjoy these cool things that we are deprived of (and China is profitinf from providing them to the world).\nInstead, we wallow alone in the pollution forced on us as a result of those oil company bribes, subject to the whims of a senile dictator with\nno concept of how geopolitics (or anything) works\n, losing an industry we could have been a player in, and refusing to join the world in improving the fates of our citizens.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
-          "hb": 1
-        },
-        {
-          "t": "HL-3 research towards high-performance plasma and power exhaust solution",
+          "t": "HL-3高性能等离子和动力排气解决方案研究",
           "d": "2026-07-30",
           "a": "Nuclear Fusion - latest papers",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "HL-3托amak项目致力于开发高性能等离子体与功率排散解决方案。通过设施升级，辅助加热功率达19.5兆瓦，AI控制系统实现了95.5%的破裂避免率。实验在兆安级等离子体电流下，实现了核心离子温度超10 keV的反应堆级热离子模式，聚变三重积达0.69×10^20 m-3·keV·s，并成功建立具有内部和双输运垒的高归一化贝塔场景，有效解决了边界等离子体兼容性问题。",
-          "sc": 8.6,
+          "as": "HL-3托卡马克项目致力于开发兼容功率排气需求的高性能场景。通过将辅助加热提升至19.5兆瓦并采用实现95.5%破裂避免率的AI控制系统，HL-3完成了高性能运行验证。实验在兆安级等离子体电流下实现了超过10 keV的芯部离子温度和0.69×10^20 m−3·keV·s的聚变三乘积，并成功建立了带有内部和双重传输壁垒的高归一化β场景。",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
           "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8709",
-          "tp": "托卡马克控制突破",
+          "tp": "HL-3等离子体控制",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "辅助加热功率[HL-3托卡马克系统升级]: 19.5 MW",
+            "破裂避免率[AI控制系统]: 95.5%",
+            "等离子体电流[高性能实验]: 兆安培级"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -70,22 +55,47 @@
           "hb": 1
         },
         {
-          "t": "通过内部锂离子转移实现 SOC 失配驱动的颗粒间同步：富镍复合阴极中未被识别的电极紧急降解途径",
+          "t": "德国黑森州将建设国家激光聚变中心，拟在比布利斯推进商业激光聚变电站",
           "d": "2026-07-30",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "研究揭示了锂离子电池复合阴极中由非均匀反应动力学引起的长期退化机制。在富镍NCM811双峰模型系统中，颗粒间动力学失配导致了电荷状态（SOC）的不匹配。这种不匹配产生了电化学势梯度，进而驱动了自发的内部锂离子转移，成为电极加速降解的隐蔽途径。",
-          "sc": 8.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71377?af=R",
-          "tp": "富锂阴极降解",
+          "a": "中国核电信息网-国际",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "德国联邦研究、技术和航天部宣布在黑森州建设国家激光聚变中心，该中心是德国三个国家级聚变能力中心之一。聚焦能源公司将在比布利斯原核电站场址建设激光聚变产业化园区及全球首座商业激光聚变电站。比布利斯原场址由莱茵集团持有，具备现成基础设施。聚焦能源公司计划未来两年在比布利斯投入2亿欧元私人资本，到2030年累计投资约5亿欧元，以加速激光聚变技术工程化应用。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.cinie.net/article/57234.html",
+          "tp": "激光聚变产业进展",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[德国国家激光聚变中心]: 选址黑森州比布利斯原核电站场址，计划建设聚变产业化园区及全球首座商业激光聚变电站",
+            "聚变能力中心布局[德国'Fusion 2040'计划]: 分别聚焦激光聚变、磁约束聚变、燃料循环与材料研发"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  Non‐uniform reaction dynamics are ubiquitous in composite electrodes of lithium‐ion batteries (LIBs), yet they are commonly regarded as transient kinetic effects that relax and average out over time, rather than as drivers of long‐term degradation. Here, using a deliberately designed bimodal Ni‐rich NCM811 model system comprising two particle populations with identical chemistry but distinct reaction kinetics—polycrystalline and single‐crystal NCM811—we systematically tune inter‐particle kinetic mismatch at the electrode‐ensemble level. We show that the resulting non‐uniform dynamics generate inter‐particle state‐of‐charge (SOC) mismatch, creating electrochemical potential gradients that drive spontaneous internal Li‐ion transfer—a controlled mechanistic example of electrode‐emergent degradation in a composite cathode. Although this redistribution synchronizes particle SOC across the ensemble, it proceeds through transient internal currents associated with more severe surface degradation, including organic‐rich cathode–electrolyte interphase (CEI) formation and rock‐salt‐type surface reconstruction. These findings show that collective electrode‐level dynamics can provide an additional degradation contribution beyond material‐intrinsic processes, suggesting that performance decay in kinetically mismatched composite cathodes may be better understood as an emergent consequence of interacting particle populations rather than a simple summation of material‐intrinsic failure modes. Our work highlights the importance of explicitly accounting for reaction heterogeneity and inter‐particle kinetic mismatch in composite electrode design and optimization.",
+          "b": "德国黑森州将建设国家激光聚变中心，拟在比布利斯推进商业激光聚变电站\n德国联邦研究、技术和航天部 (BMFTR) 7月29日宣布，黑森州将成为德国国家激光聚变中心所在地。该中心是德国“Fusion 2040”计划和高技术议程下设立的三个国家级聚变能力中心之一，旨在推动聚变科研、产业和基础设施协同发展。\n根据安排，聚焦能源公司 (Focused Energy) 将在该中心建设中承担核心角色。项目选址位于黑森州比布利斯原核电站场址，聚焦能源公司计划在此建设激光聚变产业化园区，并推动建设其所称的全球首座商业激光聚变电站。\n德国此次布局的三个国家级聚变中心分别聚焦激光聚变、磁约束聚变、燃料循环与材料研发。激光聚变中心的申报由聚焦能源公司和Marvel Fusion公司 (Marvel Fusion) 联合推进，并获得黑森州、汉堡州和石勒苏益格-荷尔斯泰因州支持。项目还将吸纳光子学、电站工程等领域企业以及近20家科研合作伙伴参与。\n按照规划，比布利斯将承担产业化功能，建设聚变产业化园区;汉堡州和石勒苏益格-荷尔斯泰因州将建设聚变研发园区，提供研发支撑;其他地区的科研机构则通过卫星网络参与协作。\n比布利斯原核电站场址由莱茵集团 (RWE) 持有，具备既有工业基础设施和可扩展土地。莱茵集团将作为产业合作方，为项目提供基础设施和许可审批经验支持。聚焦能源公司表示，利用原有核电站场址有助于缩短建设周期、降低前期成本，并加快激光聚变技术向工程化应用转化。\n聚焦能源公司计划未来两年在比布利斯投入2亿欧元私人资本，到2030年累计投资约5亿欧元。该公司近期还完成2.4亿美元A轮融资，称这是全球聚变行业迄今规模最大的已完全落实A轮融资之一。\n聚焦能源公司成立于2021年，源自达姆施塔特工业大学 (TU Darmstadt) 相关科研环境，总部位于德国达姆施塔特，并在柏林、奥斯汀和旧金山设有分支机构。公司现有约200名科研人员和工程师，目标是在2030年代中期前，与产业和科研伙伴共同在比布利斯建成激光聚变电站。\n激光聚变属于惯性约束聚变技术路线，基本原理是利用高能激光压缩并加热聚变燃料，使氢同位素原子核在极端条件下发生聚变反应并释放能量。聚焦能源公司称，1克聚变燃料释放的能量可与约11吨煤相当。",
+          "hb": 1
+        },
+        {
+          "t": "中国开始以秒为单位测量电动汽车充电时间，而不是分钟",
+          "d": "2026-07-30",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中国电动汽车极速充电竞赛迈入以“秒”为单位的新阶段。吉利旗下领克推出的10系列电动汽车首发搭载“金砖”电池，能在4分22秒内将电池电量从10%充至70%。同时，比亚迪也推出了具备极快充电速度的“刀片2.0”电池。两家车企的新一代电池技术正引领行业进入超快充时代。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/07/30/china-is-starting-to-measure-ev-charging-times-in-seconds-not-minutes/",
+          "tp": "电动汽车秒级快充",
+          "aip": 1,
+          "kp": [
+            "充电时间[极充电池从10%充至70%]: 4分22秒",
+            "[快充技术发展阶段]: 进入以“秒”为关键计量单位的极致快充时代"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "One of China’s newest EVs is also its fastest-charging, with the ability to fill its battery from 10-70% in 4 minutes and 22 seconds.\nBut that’s not the only recent announcement of a fast-charging battery that quotes how many seconds it takes to fill up, showing that the race for fast charging has entered a new era which treats seconds as the significant figure, rather than minutes.\nGeely subsidiary Lynk & Co. recently launched its new 10 series EVs, complete with extreme fast charging speed. The cars are the first to use Geely’s “Golden Brick” battery, with more models coming soon at various Geely brands.\nMeanwhile, BYD already has several vehicles out using its “Blade 2.0” battery, which also offers extremely fast charging.\nThese two batteries are both on the vanguard of a new generation of Chinese EVs that are making charging undeniably quick, at least if the right infrastructure is available.\nSeconds are starting to matter in EV charging times\nBYD says its Blade 2.0 can charge from 10-70% in 5 minutes. And Geely one-upped BYD by saying its Golden Brick can charge the same amount in 4 minutes and 22 seconds.\nAnother major battery manufacturer, CATL, recently showed off a commercial battery that can charge at an 8C rate, allowing a 20-80% charge in 6 minutes and 48 seconds. But that’s actually slow compared to its recent announcement of a consumer light-duty battery that can charge from 10-80% in just 3 minutes and 44 seconds.\nCATL’s battery is not yet available in a vehicle, so it isn’t quite apples-to-apples when comparing to the BYD and Geely tech above, both of which are already on the road. But it’s not just a lab test of a cell, it’s a fully formed pack undergoing testing in real fast charging, and it’s from the world’s largest EV battery manufacturer, not some startup making stuff up in the hunt for venture capital.\nCATL isn’t the only one with fast charging tech waiting in the wings. FAW group just announced a battery that can charge from 10-70% in 3 minutes and 41 seconds. That’s a slightly slower rate than CATL’s 10-80% in 3:44, but the difference there is mere seconds.\nAnd so, we get to the point: the common thread among all of these is that each of them mention not just the number of minutes, but the number of seconds it takes to get a full charge. So China is now working with a different significant figure – seconds, not minutes.\nDo such quick charge times matter?\nThe public has long felt that charging times are too long, and that EVs need to charge as fast as gas cars.\nNever mind that that isn’t really true in practice – EV owners know that charging at home is even easier than going to gas stations, and on roadtrips, your car will often be ready by the time that you’re done with your stop. But the perception, among non-EV owners who are used to the anxiety-causing paradigm of being chained to gas stations, is that EV refueling needs to be substantially similar to the poor experience they’re used to.\nThere are still benefits. For example, higher power delivery means higher throughput, which means you can get more cars in and out of the same charging spot/station per day, which reduces land use needed. This can be important, particularly in urban environments, especially ones where people don’t have access to home charging.\nSo, regardless of whether these extremely fast charge times are necessary, the fact of the matter is that they already exist – at least in China.\nWhat’s the best we have in the US?\nMeanwhile, in the US, our fastest-charging vehicles have been the Hyundai/Kia E-GMP cars, which can charge from 10-80% in around 18 minutes on the right charger. That’s perfectly fine for roadtrips, especially since a driver will need to take a break every few hours while driving anyway.\nBut for people who rely on fast charging for all of their charging needs (seriously, try to find a way to charge at home if you can), even 18 minutes of sitting around in your car can feel like a long time. A 3 minute, 41 second charge seems a lot more palatable.\nThere is one vehicle coming out soon in the US which will be able to charge drastically faster than the E-GMP cars, the Mercedes AMG GT EV. That will be capable of about an 11 minute charge from 10-80% on a 600kW charger, which will put it well in the lead… but it’s going to be limited in production and cost well into the six figures. (In contrast, China’s fastest charging cars can be had for well under $30k)\nBut that one’s still measured in minutes. The difference between 11 minutes and 10 minutes and 30 seconds doesn’t seem like much, but the difference between 4 minutes and 3 minutes and 30 seconds seems a lot more significant. That’s why we didn’t start hearing seconds quoted in charging times until the minutes got down into single digits.\nIt’s not just the batteries, but the chargers, too\nThe question of 600kW chargers brings up another point – infrastructure rollout has been far faster inside China than outside it. Infrastructure is one of the major strengths of communist states, after all (for another example, see China’s rapid high speed rail network rollout).\nBYD only announced its 1,500kW chargers earlier this year, and soon after, Geely rolled out 1,500kW chargers of its own. And then, just yesterday, state-owned Dongfeng announced its own 1,500kW charger, and says it’s working on even faster ones.\nBut it’s not just that the chargers exist, it’s that they’re already being deployed at a large scale. BYD plans to have 20,000 installed by year’s end, with several thousand already installed at this point. That sort of fast scaling simply doesn’t happen outside of China.\nFor example, it took about three years before the first “true” 500kW V4 Supercharger showed up in the wild (CEO Elon Musk’s idiotic move to fire the entire Supercharger team, thus causing complete chaos with contractors, couldn’t have helped).\nEurope fares better with fast charging than the US, as there are several ~400kW charging units from companies like Alpitronic that are currently in operation, with 600kW stations rolling out this year.\nBut BYD isn’t content to wait in the overseas market, either. Europe recently got its first BYD flash chargers, and the company plans to roll out thousands of them in the next year. Perhaps BYD would roll out its flash charging system here, as it has in Europe, if the market were less hostile. But as of yet, it has no similar plans in the US (though Canada will get it soon.)\nThe US chose to have worse charging\nIt’s still rare to find even one or two 350kW chargers at a US charging station, let alone anything quicker.\nPresident Biden’s Inflation Reduction Act and Infrastructure Investment and Jobs Act built programs to help accelerate the buildout of these chargers. But those programs have moved slower than they should, for several reasons both at the state and federal level.\nOne of those reasons is intentional, held back by the republican party, mostly at the federal level.\nThe reality TV contestant squatting in the Department of Transportation spent most of last year illegally trying to pause disbursement of funds, then being stopped by court. In addition, the joint office that Biden created to increase government collaboration and efficiency was dismantled, making DoT and DoE less efficient.\nEven after being stopped by court, DoT has tried to put up more roadblocks by refusing funding to chargers with any Chinese components (the Biden-era regulation required a 55% US components, rather than 100%).\nNot only is this impossible because the US simply doesn’t make all the parts needed for EV chargers, it also restricts America from having access to the best chargers available (as we learned above are being made by Chinese companies), and is done in the context of republicans shipping EV jobs to China by canceling Biden-era programs that had led to a renaissance in US manufacturing.\nTop comment by WhereIsTheElectricMiata?\nThe growing number of tech bans on whole classes of products like robots (including Roombas) and routers is also keeping us from having nice things. Of course they claim it’s for security and to build our manufacturing base, and then they arbitrarily give waivers without regard for any security reassurances or plans for investments. And there is no effort to remediate the actual security and privacy issues that current products in our homes have.\nAll of this happened after the party’s candidate asked for and got bribes from the oil industry (in his campaign to run for an office he is Constitutionally barred from holding), so it’s no wonder why there have been so many attacks on the industry promising a better future than oil.\nSo, here, in the land of plenty, rather than competing to be the best of the best and working to onshore manufacturing of the best products out there, America is pushing those products away, and letting the rest of the world enjoy these cool things that we are deprived of (and China is profitinf from providing them to the world).\nInstead, we wallow alone in the pollution forced on us as a result of those oil company bribes, subject to the whims of a senile dictator with no concept of how geopolitics (or anything) works, losing an industry we could have been a player in, and refusing to join the world in improving the fates of our citizens.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on EnergySage, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started here. – ad*\nFTC: We use income earning auto affiliate links. More.",
           "hb": 1
         }
       ]
@@ -94,66 +104,74 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "实验实现俘获离子自旋玻色子模拟器中温度与耗散率独立可调的热库。",
-        "研究人员在量子处理器上实现福克空间预热并探索时间晶体有序态。",
-        "学者解析具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。"
+        "研究揭示三角晶格量子二聚体模型中具有双重周期边缘权重的拓扑相变",
+        "华为小艺物理竞赛理论考试得28.6分，验证盘古2.0 Pro模型多模态能力",
+        "科研团队实现俘获离子自旋玻色子模拟器温度与耗散率独立可调的热库"
       ],
       "entries": [
-        {
-          "t": "俘获离子自旋玻色子模拟器中温度可调热库的实验实现",
-          "d": "2026-07-30",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究人员提出并演示了一种为俘获离子系统运动模式构建热库的实验方案。该方案具有独立可调的温度和耗散率，能够实现稳健的热态制备，并在自旋玻色子模拟器中对开放系统动力学进行量子模拟。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/mf8d-91ws",
-          "tp": "量子热库模拟",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Author(s): Visal So, Mingjian Zhu, Midhuna Duraisamy Suganthi, Abhishek Menon, George Tomaras, Roman Zhuravel, Han Pu, and Guido PaganoWe propose and demonstrate an experimental scheme to engineer thermal baths with independently tunable temperatures and dissipation rates for the motional modes of a trapped-ion system. This approach enables robust thermal-state preparation and quantum simulations of open-system dynamics in bosonic …[Phys. Rev. Lett. 137, 050604] Published Thu Jul 30, 2026",
-          "hb": 1
-        },
-        {
-          "t": "量子处理器上的福克空间预热和时间晶体有序",
-          "d": "2026-07-30",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "周期性驱动的量子多体系统展现出各种非平衡现象。系统因吸收能量而产生的加热效应是稳定和利用这些高度纠缠物质态的基本挑战。研究人员在量子处理器上实现了福克空间预热，并探索了时间晶体有序态。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/bq3c-c3d8",
-          "tp": "量子处理器",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Author(s): Zehang Bao et al.Periodically driven quantum many-body systems exhibit a wide variety of exotic nonequilibrium phenomena and provide a promising pathway for quantum applications. A fundamental challenge for stabilizing and harnessing these highly entangled states of matter is system heating by energy absorption from…[Phys. Rev. Lett. 137, 050407] Published Thu Jul 30, 2026",
-          "hb": 1
-        },
         {
           "t": "量子二聚体模型中精确可解的拓扑相变",
           "d": "2026-07-30",
           "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究人员考虑了一类广义的Rokhsar-Kivelson哈密顿量，通过逆向工程，使其在RK点具有任意边权重超位置的精确基态。研究重点集中在具有双周期边缘的三角晶格量子二聚体模型中精确可解的拓扑相变。",
-          "sc": 7.4,
+          "as": "本研究探讨了一族广义的Rokhsar-Kivelson（RK）哈密顿量。通过逆向工程，该模型在RK点能够以任意边权重的二聚体覆盖叠加态作为其精确基态。研究聚焦于三角晶格上的量子二聚体模型，发现并描述了其中具有双重周期性边缘权重的精确可解的拓扑相变。",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
           "u": "http://link.aps.org/doi/10.1103/gdd1-mxy3",
-          "tp": "拓扑相变模型",
+          "tp": "拓扑相变",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "基态[三角晶格量子二聚体模型]: 在Rokhsar-Kivelson点可精确求解为二聚体覆盖的任意边缘加权叠加态"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
           "b": "Author(s): Laura Shou, Jeet Shah, Matthew Lerner-Brecher, Amol Aggarwal, Alexei Borodin, and Victor GalitskiWe consider a family of generalized Rokhsar-Kivelson (RK) Hamiltonians, which are reverse-engineered to have an arbitrary edge-weighted superposition of dimer coverings as their exact ground state at the RK point. We focus on a quantum dimer model on the triangular lattice, with doubly periodic edge…[Phys. Rev. Lett. 137, 056503] Published Thu Jul 30, 2026",
+          "hb": 1
+        },
+        {
+          "t": "华为官宣小艺高分超出第 56 届国际物理奥林匹克竞赛理论金牌线",
+          "d": "2026-07-30",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "在第56届国际物理奥林匹克竞赛中，华为小艺在理论考试中取得28.6分（满分30分），超出金牌分数线。考试涵盖流体力学、相对论散射、光学多次反射及磁制冷循环等复杂题目。这验证了小艺Agentic系统在解决多模态复杂任务上的能力。小艺已接入盘古openPangu 2.0 Pro模型，单卡吞吐率达其他主流开源模型的2倍。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/983/901.htm",
+          "tp": "AI解物理题",
+          "aip": 1,
+          "kp": [
+            "理论考试成绩[华为小艺参加IPhO 2026]: 28.6分(满分30分)",
+            "[AI复杂任务求解能力验证]: Agentic系统在复杂科学问题求解及多模态复杂任务中展现潜力",
+            "[IPhO理论考试技术特征]: 模型复杂、推导繁琐、综合性强且无套路化公式可直接套用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 7 月 30 日消息，第 56 届国际物理奥林匹克竞赛（IPhO 2026）日前正式落幕，华为官方今日宣布，小艺在理论考试中取得 28.6 分（满分 30 分）的成绩，高分超出金牌线。\n公开资料显示，国际物理奥林匹克（IPhO）理论考试以模型复杂、推导繁琐、综合性强著称，无套路化公式可直接套用。\n本届三道理论大题分别覆盖：流体静力学力矩平衡与相对论散射、光学多次反射及渐晕线包络线推导（含泰勒展开）、磁制冷循环中麦克斯韦关系证明与降温时间积分计算，这类题目对顶尖物理系学生仍具较高难度。\n华为官方表示，这不仅标志着华为小艺在复杂科学问题求解领域筑牢了坚实技术底座，也验证了小艺的 Agentic 系统在解决多模态复杂任务的潜力。\nIT之家注：小艺是华为公司自主研发的 AI 智慧助手，基于最新的人工智能技术，提供 AI 知识问答、AI 写作、AI 文档阅读、文档助手、编码助手、鸿蒙代码生成等功能。目前小艺已适配网页 / 手机 / 平板 / 手表 / 智慧屏 / 车机 / 家庭中控 / PC / 耳机 / 音箱端使用。\n今年 6 月，华为小艺 Claw 接入开源盘古 openPangu 2.0 Pro 模型，可重点提升鸿蒙系统级任务执行能力。据介绍，openPangu 2.0 模型更亲和昇腾算力，单卡吞吐率可达其他业界主流开源模型的 2 倍。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "俘获离子自旋玻色子模拟器中温度可调热库的实验实现",
+          "d": "2026-07-30",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究团队提出并展示了一种实验方案，能够为俘获离子系统的运动模式构建温度和耗散率可独立调节的热库。该方法能够实现稳健的热态制备，并支持在玻色子系统中进行开放系统动力学的量子模拟。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/mf8d-91ws",
+          "tp": "量子模拟器",
+          "aip": 1,
+          "kp": [
+            "热库特性[俘获离子自旋玻色子模拟器]: 温度和耗散率可独立调节"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Visal So, Mingjian Zhu, Midhuna Duraisamy Suganthi, Abhishek Menon, George Tomaras, Roman Zhuravel, Han Pu, and Guido PaganoWe propose and demonstrate an experimental scheme to engineer thermal baths with independently tunable temperatures and dissipation rates for the motional modes of a trapped-ion system. This approach enables robust thermal-state preparation and quantum simulations of open-system dynamics in bosonic …[Phys. Rev. Lett. 137, 050604] Published Thu Jul 30, 2026",
           "hb": 1
         }
       ]
@@ -162,66 +180,75 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "LHAASO-KM2A观测到10 TeV以上银河系宇宙线各向异性的能量相关变化。",
-        "超快非线性显微镜直接探测出单个纳米腔中激子极化激元的崩溃与复活。",
-        "新型全自动微滴数字PCR流程可在三小时内精准定量测量噬菌体感染性。"
+        "研究在钛酸锶与铌酸钾钠薄膜界面发现室温下可重构的类铁电二维电子气",
+        "科研人员合成新型三核配合物，首次提出并证实接近累积五重键成键模型",
+        "研究证实全氟立方烷以σ*轨道作为电子受体，表现出非常规电荷分离动力学"
       ],
       "entries": [
         {
-          "t": "LHAASO-KM2A 观测到的极高能宇宙线中等尺度各向异性的能量相关变化",
+          "t": "室温下可重构类铁电二维电子气",
           "d": "2026-07-30",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "LHAASO合作组利用LHAASO-KM2A阵列，对能量在10 TeV以上的银河系宇宙线进行了观测。研究揭示了宇宙线到达方向中尺度各向异性的能量相关变化，确认出四个特定的各向异性区域，为探测局部磁环境提供了重要数据。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/7y56-75l9",
-          "tp": "宇宙线观测",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Author(s): Zhen Cao et al. (LHAASO Collaboration)Small deviations from isotropy in the arrival directions of Galactic cosmic rays serve as a unique probe of the local magnetic environment. In this Letter, we report observations of medium-scale anisotropies at energies above 10 TeV using the LHAASO-KM2A array. Our analysis identifies four regions o…[Phys. Rev. Lett. 137, 051004] Published Thu Jul 30, 2026",
-          "hb": 1
-        },
-        {
-          "t": "超快非线性显微镜揭示了单个纳米腔中激子极化子的崩溃和复活",
-          "d": "2026-07-30",
-          "a": "Recent Articles in Phys. Rev. Lett.",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "由于极端的模式限制，单个等离激元纳米腔中激子极化激元的超快动力学可实现少激子强耦合和强非线性。研究人员利用超快非线性显微镜，直接探测了单个纳米腔中激子极化激元瞬态演化的崩溃与复活过程。",
-          "sc": 7.9,
+          "as": "研究在 (001) 钛酸锶（STO）和铌酸钾钠（KNN）薄膜间的 SrO 界面处发现了室温下的类铁电二维电子气。实验证实了其具有强铁电性，并通过铁电极化实现了室温下对界面传输的非易失性控制，构建出任意几何形状的可重构导电通道。",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/dyyz-ddyg",
-          "tp": "激子极化子",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74190?af=R",
+          "tp": "二维电子气",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "二维电子气[(001)STO与KNN薄膜间SrO界面]: 室温下存在类铁电二维电子气",
+            "铁电性[室温2DEG]: 压电响应力显微镜、二次谐波生成等证实了稳健的铁电性"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Author(s): Liyu Zhang, Zhongao Huang, Kai Wang, Chao Guan, Zijian He, Jiaxing Yang, Shuzheng Chen, Xiaobo Han, and Peixiang LuThe ultrafast dynamics of exciton-polaritons (EPs) in single plasmonic nanocavities are of fundamental interest due to extreme mode confinement ($V∼{10}^{−6}{λ}^{3}$), which enables few-exciton strong coupling and strong nonlinearity of EPs. However, directly probing transient evolutions of EPs in a…[Phys. Rev. Lett. 137, 056906] Published Thu Jul 30, 2026",
+          "b": "ABSTRACT\n                  Engineering ferroelectric two‐dimensional electron gases (2DEGs) offers a promising route toward nonvolatile and reconfigurable electronic functionalities, yet room temperature implementations remain scarce. Here, we report a room temperature ferroelectric‐like 2DEG at the SrO‐ interface between (001)  (STO) and  (KNN) thin films. Robust ferroelectricity is confirmed by piezoforce microscopy, optical second harmonic generation, Nb‐/Ti‐ edges x‐ray linear dichroism, scanning transmission electron microscopy, and macroscopic polarization measurements. The ferroelectric polarization enables nonvolatile control of interfacial transport and the realization of reconfigurable conducting channels with arbitrary geometry at room temperature. The coupling between ferroelectric order and 2DEG conductivity arises from the extension of the polarization into the interfacial unit cells hosting the electron gas. These results establish / heterostructures as a ferroelectric‐like oxide electronic platform, opening pathways for low‐power, nonvolatile electronic and spin‐orbitronic devices.",
           "hb": 1
         },
         {
-          "t": "Rapid and quantitative measurement of bacteriophage infectivity via fully automated droplet digital PCR",
+          "t": "接近全金属铀酰类似物中的累积五重键",
           "d": "2026-07-30",
-          "a": "Biological sciences : Nature Communications subject feeds",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究提出了一种名为dPhaST的全自动微滴数字PCR工作流程，用于快速定量测量噬菌体的感染性。该技术通过靶向保守的16S rRNA区域量化噬菌体诱导的DNA释放，可在3小时内测量多种细菌病原体的裂解活性。在涉及6个物种19个菌株的122种噬菌体-宿主组合测试中，dPhaST与标准斑点测试的一致性达95.9%，并能精准解析常规表型难以区分的微弱裂解活性。",
-          "sc": 7.8,
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "继发现双原子分子的多重键和过渡金属四重键、五重键之后，三核系统的累积多重键探索仍属空白。研究提出了一种新的成键模型——累积五重键，并成功合成和表征了具有接近累积五重键成键作用的新型三核配合物[Co-U-Co]。高级量子化学计算表明，这种累积多重键由特定的轨道相互作用构成，极大扩展了对共价相互作用的理解。",
+          "sc": 7.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-75746-7",
-          "tp": "自动化检测仪",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag462/8747578?rss=1",
+          "tp": "五重键探析",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "多重键累积[三核系统]: 累积五重键",
+            "突破性特征[累积多重键]: 超过三重键倍数的累积键首次被理论预测和实验分离出（在接近全金属铀酰类似物中）"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The clinical translation of phage therapy for multidrug-resistant infections is constrained by the lack of rapid, standardized therapeutic phage selection. Here, we introduce digital phage susceptibility testing (dPhaST), an automated droplet digital PCR workflow that quantifies phage-induced DNA release as a molecular signature of lysis. By targeting conserved 16S rRNA regions, dPhaST measures lytic activity across diverse bacterial pathogens within 3 h. Across 122 phage–host combinations involving 19 bacterial strains from six species, dPhaST shows 95.9% concordance with spot tests while resolving weak and heterogeneous lytic activities that are not readily distinguished phenotypically. It remains robust during the early infection window despite phage-encoded nuclease activity and tolerates phage cross-contamination better than spot tests. The method captures defense-mediated interactions involving CRISPR–Cas and Sir2-HerA systems. In this work, we show that automated digital quantification enables rapid and mechanistically informative profiling of early phage lytic efficacy across Gram-positive and Gram-negative pathogens.",
+          "b": "While the progression from single (H2), double (O2), and triple (N2) bonds in diatomic molecules to the discovery of transition metal quadruple (Re–Re) and quintuple (Cr–Cr) bonds has significantly expanded our understanding of covalent interactions, the exploration of cumulative multiple bonds in trinuclear systems has remained largely unexplored. Until now, cumulative bonds beyond triple multiplicity have neither been experimentally isolated nor theoretically predicted. Here, we propose a new bonding model—cumulative quintuple bonds—and report the synthesis and characterization of a novel trinuclear species, [Co–U–Co], which exhibits bonding interactions approaching cumulative quintuple bonds. Advanced quantum chemical calculations reveal that the cumulative multiple bonds consist of one pair of U–Co σ",
+          "hb": 1
+        },
+        {
+          "t": "全氟立方烷作为基于 σ* 轨道的电子受体，超越经典电子转移模型",
+          "d": "2026-07-30",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究证实全氟立方烷是一种非常规的电子受体，其最低未占轨道完全由σ*轨道构成。与通过π*轨道离域稳定电荷的传统受体不同，全氟立方烷利用紧凑立方骨架将电子限制在类点电荷结构中。皮秒瞬态吸收光谱直接证实，结合了二甲基芴与全氟立方烷的分子在极性溶剂中发生光致分子内电荷分离与复合，表现出超越经典电子转移模型的动力学行为。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-76044-y",
+          "tp": "新型电子受体",
+          "aip": 1,
+          "kp": [
+            "[全氟立方烷电子受体]: 最低未占分子轨道完全由σ*轨道组成",
+            "[全氟立方烷电子结构]: 紧凑立方骨架局域化电子形成点电荷结构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Perfluorocubane is an unconventional electron acceptor whose lowest unoccupied molecular orbital is composed entirely of σ* orbitals. In contrast to conventional acceptors that stabilize excess charge through π*-orbital delocalization, perfluorocubane confines an electron with its compact cubic scaffold, giving rise to an almost point-charge-like electronic structure. Such an electronic configuration is expected to produce electron-transfer (ET) behavior beyond established donor–acceptor models. Here we investigate intramolecular photoinduced ET in a donor–acceptor molecule combining dimethylfluorene and perfluorocubane. Picosecond time-resolved transient absorption spectroscopy directly reveals charge separation and recombination in polar solvents. Analysis of the ET kinetics within the semiclassical Marcus framework yields an unusually large electronic coupling together with a substantial reorganization energy, an uncommon combination in π-conjugated donor–acceptor systems. These distinctive ET characteristics are attributed to the σ*-derived LUMO and the compact cubic architecture of perfluorocubane, establishing this molecule as a platform for accessing previously unexplored regimes of molecular electron-transfer chemistry.",
           "hb": 1
         }
       ]

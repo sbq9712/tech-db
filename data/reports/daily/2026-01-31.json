@@ -6,19 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究人员基于电子共振效应制备出15安时级无负极锂金属软包电池",
-      "华东理工团队完成沼气制绿色甲醇中试，碳转化率近100%",
-      "研究利用表面超晶格空间限域效应提升锂二氧化碳电池循环寿命"
+      "华东理工团队完成沼气制绿色甲醇中试，碳转化率近100%且成本降30%",
+      "研究揭示NaMOCl4固体电解质中超离子Na离子电导率的微观传导机制",
+      "新溶剂化鞘设计推动无负极铜锂电池实现4 mAh cm−2可逆循环"
     ],
-    "AI与智能科技": [
-      "国内机构推进光子芯片研发以提升矩阵运算算力并降低能耗",
-      "研究团队应用生成扩散模型降低高分辨率气象模拟计算成本",
-      "科研人员提出基于光脉冲的真随机数发生器用于硬件安全认证"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "科研团队制备出晶圆级超薄均匀范德华铁电氧化物薄膜",
-      "学者利用Kagome超导体实现零磁场下的量化射频整流",
-      "研究在菱方多层石墨烯中发现可通过电场调控的磁电耦合效应"
+      "实验在层状电子化合物YCl中实现费米能级骰子晶格平带"
     ]
   },
   "sectors": [
@@ -26,40 +20,37 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究人员基于电子共振效应制备出15安时级无负极锂金属软包电池",
-        "华东理工团队完成沼气制绿色甲醇中试，碳转化率近100%",
-        "研究利用表面超晶格空间限域效应提升锂二氧化碳电池循环寿命"
+        "华东理工团队完成沼气制绿色甲醇中试，碳转化率近100%且成本降30%",
+        "研究揭示NaMOCl4固体电解质中超离子Na离子电导率的微观传导机制",
+        "新溶剂化鞘设计推动无负极铜锂电池实现4 mAh cm−2可逆循环"
       ],
       "entries": [
         {
-          "t": "基于电子共振效应的稳定15安时无负极锂软包电池",
+          "t": "[ASAP] 结晶和非晶态NaMOCl4 (M = Nb, Ta)固体电解质中超离子Na离子电导率的微观机制",
           "d": "2026-01-31",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "研究人员利用电子共振效应成功制备出稳定的15安时级无负极锂金属软包电池（AFLMB）。无负极锂金属电池具有可充电电池中最高的理论能量密度，但长期面临锂枝晶和循环稳定性难题。该工作通过电子共振效应调控锂沉积行为，在安时级容量下实现稳定循环，为高能量密度电池的实用化迈出重要一步。",
-          "sc": 7.9,
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06811H",
-          "tp": "无负极锂电池",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03511",
+          "tp": "固态钠离子电解质",
           "aip": 1,
-          "kp": [
-            "容量[无负极锂软包]: 15 Ah",
-            "机制[SEI]: 电子共振效应"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Ah-level anode-free Li metal batteries (AFLMBs) exhibit the highest theoretical energy density for rechargeable batteries; however, their practical application is hindered by serious electrolyte depletion and active Li consumption. The insufficiently protective solid electrolyte interphase (SEI) limits the Li retention during the prolonged cycling. Here we establish two criteria, i.e., electron resonance energy and exchange repulsion energy, using the principle of electron resonance to facilitate the formation of stable SEI with high content of anion reduction products. Based on this principle, fractional electron transfer from anions to solvent molecules helps decrease the electron density around the anions, thereby facilitating the preferential reduction of anions. This electron resonance mechanism effectively promotes the incorporation of anion-decomposition products into the SEI, mitigating electrolyte consumption and dead Li formation. Additionally, battery stability is improved through the anode-free configuration in the optimized electrolyte due to the reduced galvanic corrosion and Li metal inventory. Using an electrolyte enlighted by electron resonance effect, an anode-free Cu||LiNi0.8Mn0.1Co0.1O2 pouch cell with a 15-Ah capacity was assembled, achieving a high energy density of 500 Wh kg-1 with excellent reversibility. This study offers insights into advanced electrolyte design, focusing on anion-decomposed interphase to boost the stable application of Ah-level AFLMBs.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
           "t": "华东理工牵头开发的沼气全碳定向转化制绿色甲醇中试项目成功产出绿色甲醇",
           "d": "2026-01-31",
-          "a": "",
+          "a": "News",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
           "as": "华东理工陈德院士团队联合多家单位，完成沼气全碳定向转化制绿色甲醇中试项目投料开车，产出符合航运绿色燃料标准的绿色甲醇。以有机垃圾沼气为原料，采用电驱动混合重整造气耦合催化加氢技术，碳近100%转化，8吨湿垃圾产约1吨绿色甲醇，成本较传统路线降30%以上。获ISCC认证，计划建设万吨级产业化示范项目。",
-          "sc": 6.4,
+          "sc": 6.5,
           "i": "n",
           "tg": "产业进展",
           "u": "https://news.ecust.edu.cn/2026/0131/c6a197429/page.htm",
@@ -73,51 +64,16 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 表面超晶格诱导空间限域实现锂-二氧化碳电池高电压与长循环寿命",
+          "t": "为可逆 4 mAh cm−2 无 AEM 铜锂电池设计坚固的溶剂化鞘",
           "d": "2026-01-31",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "ScienceDirect Publication: Materials Today",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究提出利用表面超晶格（Surface Superlattice）诱导的空间限域效应，实现锂-二氧化碳（Li-CO₂）电池的高电压稳定运行。Li-CO₂电池作为碳中和战略中的前沿储能技术，长期受限于过电位高、循环寿命短等瓶颈。研究团队通过在电极表面构建周期性超晶格结构，对反应中间体进行纳米级空间约束，有效调控CO₂还原/析出反应路径，降低能量势垒并提升电压平台。该策略为下一代高能量密度碳循环电池提供了结构设计层面的新思路，对推进碳中和储能体系工程化具有潜在意义。",
-          "sc": 6.9,
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17407",
-          "tp": "锂二氧化碳电池",
-          "aip": 1,
-          "kp": [
-            "[正极]: 纳米晶PtIrFeCoCuZn高熵金属间化合物",
-            "[机制]: 表面超晶格空间限域",
-            "[应用]: Li-CO2电池",
-            "[性能]: 高放电电压与长循环寿命"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The development of high-performance lithium-carbon dioxide (Li-CO2) batteries is crucial for advancing carbon-neutral energy storage systems. However, this system still faces the challenge of balancing high discharge voltage with long-term stability. To address this issue, we have successfully designed and synthesized a novel nanocrystalline PtIrFeCoCuZn (PIFCCZ) high-entropy intermetallic cathode catalyst with an L12-type atomic ordered structure. The surface superlattice of PIFCCZ induces a molecular-level spatial confinement effect, which effectively disrupts the conventional crystallization pathway of discharge products, enabling the separated nucleation and growth of finely crystalline Li2CO3 and amorphous Li2C2O4. The precisely controlled interfacial coupling between discharge products and catalyst surface significantly enhances the reversible decomposition of discharge products and reduces the CO2 evolution overpotential to 0.24 V. The Li-CO2 battery incorporating this catalyst achieved a high discharge voltage of 3.08 V, an energy efficiency of 93.7%, and stable operation for over 1000 h at a current density of 20 μA·cm-2. This study provides a breakthrough strategy for resolving the inherent trade-offs among output voltage, energy efficiency, and cycling stability in Li-CO2 batteries.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [
-        "国内机构推进光子芯片研发以提升矩阵运算算力并降低能耗",
-        "研究团队应用生成扩散模型降低高分辨率气象模拟计算成本",
-        "科研人员提出基于光脉冲的真随机数发生器用于硬件安全认证"
-      ],
-      "entries": [
-        {
-          "t": "中国押注光子计算芯片——它们能驱动AI吗？",
-          "d": "2026-01-31",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "中国正大力押注光计算芯片（光子芯片），试图以此在AI算力竞争中弯道超车。光芯片利用光子替代电子进行计算，核心优势在于超高带宽、低延迟和极低功耗，尤其在矩阵乘加运算（AI推理核心操作）上潜力巨大。国内多家企业和研究机构已在硅光集成、光神经网络架构上取得进展。然而关键瓶颈依然存在：光器件的小型化与集成度远不及成熟CMOS工艺，光-电信号转换开销大，且缺乏统一的设计生态和软件栈。光芯片能否真正从实验室走向大规模AI数据中心商用，取决于光子集成密度、良率和与现有数字芯片的异构融合方案能否取得工程突破。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00274-9",
-          "tp": "光计算芯片",
+          "u": "https://www.sciencedirect.com/science/article/pii/S1369702126000465?dgcid=rss_sd_all",
+          "tp": "无负极锂电池",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -125,121 +81,40 @@
           "cm": "",
           "b": "",
           "hb": 0
-        },
-        {
-          "t": "基于生成扩散模型的公里级对流可分辨模型模拟",
-          "d": "2026-01-31",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "该研究利用生成式扩散模型来模拟千米尺度对流可分辨气象模型，以深度生成网络替代传统高分辨率数值天气预报中计算量巨大的物理参数化过程。该方法在保持风暴系统和对流结构真实性的同时大幅降低了计算成本，有望提升高分辨率天气预报和气候模拟的实时效率。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adv0423?af=R",
-          "tp": "扩散模型天气模拟",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Storm-scale convection-allowing models (CAMs) explicitly resolve convective dynamics within the atmosphere to predict the evolution of thunderstorms and mesoscale convective systems that result in damaging extreme weather. Deep learning models have, thus far, not proven skillful in this regime of kilometer-scale atmospheric simulation, despite being competitive at coarser resolutions with state-of-the-art global, medium-range weather forecasting. We present a generative diffusion model called StormCast, which emulates the High-Resolution Rapid Refresh (HRRR)—National Oceanic and Atmospheric Administration’s state-of-the-art 3-kilometer operational CAM. StormCast autoregressively predicts 99 state variables at the kilometer scale using a 1-hour time step, with dense vertical resolution in the atmospheric boundary layer, conditioned on 26 synoptic variables. We show successfully learned kilometer-scale dynamics including competitive 1- to 6-hour forecast skill for composite radar reflectivity alongside physically realistic convective cluster evolution, moist updrafts, and cold pool morphology. These results present opportunities for improving kilometer-scale regional ML weather prediction and future climate hazard dynamical downscaling.",
-          "hb": 1
-        },
-        {
-          "t": "用于安全视觉的光致熵技术",
-          "d": "2026-01-31",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究提出一种基于光脉冲（photospike）的真随机数发生器（PS-TRNG），利用光探测中固有的随机性来生成高质量熵源，用于安全视觉感知应用。该方案将物理随机性与视觉信息采集结合，有望在图像加密、硬件安全认证和隐私保护视觉系统中实现应用。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516947?af=R",
-          "tp": "光学真随机数发生器",
-          "aip": 1,
-          "kp": [
-            "器件[真随机数]: CuV2O6/SnO2量子点光电尖峰",
-            "[安全视觉]: 光致熵真随机数发生器"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    We present a photospike‐based true random number generator (PS‐TRNG) that exploits the intrinsic randomness from light–matter interaction and stochastic charge trapping. By integrating copper vanadate (CuV\n                    2\n                    O\n                    6\n                    ) nanostructures with a tin dioxide quantum dot (SnO\n                    2\n                    QD) layer, the device induces probabilistic trapping–de‐trapping dynamics, producing random photospike currents under optical pulse trains. The spike currents show high entropy and enable multi‐level random number generation beyond binary, providing ternary outputs with near‐ideal statistics (33.30% uniformity, 33.28% inter‐Hamming distance) and full success in all 15 NIST tests. We further develop an image authenticity verification system by integrating the PS‐TRNG with a mobile platform and custom‐designed circuit board, enabling hardware‐based detection of unauthorized image modifications. The random numbers are embedded as a hidden layer within the image data without degrading visual quality, enabling detection of unauthorized modifications. The system can successfully identify image modifications, even those involving highly sophisticated manipulations generated by artificial intelligence (AI)‐based image editing tools. The device maintains stable operation over 2 million cycles and remains reliable even after more than 460 days, demonstrating its long‐term stability.",
-          "hb": 1
         }
       ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研团队制备出晶圆级超薄均匀范德华铁电氧化物薄膜",
-        "学者利用Kagome超导体实现零磁场下的量化射频整流",
-        "研究在菱方多层石墨烯中发现可通过电场调控的磁电耦合效应"
+        "实验在层状电子化合物YCl中实现费米能级骰子晶格平带"
       ],
       "entries": [
         {
-          "t": "晶圆级超薄均匀范德华铁电氧化物",
+          "t": "层状电子化合物 YCl 中费米能级骰子晶格平带的实验实现",
           "d": "2026-01-31",
-          "a": "AAAS: Science: Table of Contents",
+          "a": "Nature Communications",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "铁电材料在非易失性存储和下一代电子器件中具有巨大潜力，但传统铁电薄膜面临尺寸缩减困难、界面缺陷多等瓶颈。该研究实现了晶圆级、超薄且均匀的范德华铁电氧化物薄膜，利用范德华界面的无悬挂键特性，克服了传统外延生长对晶格匹配的苛刻要求，为二维电子学集成、柔性存储和高密度铁电器件提供了可规模化制备的新路径。",
-          "sc": 7.4,
+          "as": "",
+          "sc": 6.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adz1655?af=R",
-          "tp": "铁电氧化物薄膜",
-          "aip": 1,
-          "kp": [
-            "[范德华铁电氧化物]: 晶圆级超薄均匀",
-            "[集成兼容性]: 后端工艺BEOL兼容"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Ferroelectrics have great potential for nonvolatile memory and next-generation electronics, but conventional ferroelectric oxide films generally suffer structural nonuniformity, interfacial depolarization, and performance degradation, particularly when downscaled to advanced technology nodes. We demonstrate uniform, wafer-scale synthesis and back-end-of-line-compatible integration of ultrathin van der Waals (vdW) high-dielectric constant ferroelectric oxide Bi2SeO5, retaining an optimal coercive field and robust ferroelectricity at monolayer thickness. Ultrathin vdW ferroelectric oxides formed atomically uniform interfaces with two-dimensional semiconductors and yielded ferroelectric field-effect transistor (FeFET) arrays with a low operating voltage (0.8 volts), exceptional cycling endurance (>1.5 × 1012 cycles), fast write speed (20 nanoseconds), high on/off ratio (106), 10-year retention, ultralow energy consumption (2.8 femtojoules per bit per square micrometer), and <5% device-to-device variation. Reconfigurable logic-in-memory circuits with these FeFETs function at supply voltages of <1 volt.",
-          "hb": 1
-        },
-        {
-          "t": "Kagome 超导体约瑟夫森二极管中的量化射频整流",
-          "d": "2026-01-31",
-          "a": "Nature Nanotechnology",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "利用Kagome超导体CsV3Sb5在零磁场下实现了量化射频整流，基于机械剥离单晶纳米梁制备的约瑟夫森二极管器件可从射频辐照产生量化直流电压。该成果无需外加偏压即可实现自驱动低温器件，为超导电子学和低温应用开辟了新路径。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-025-02120-x",
-          "tp": "超导二极管",
+          "u": "https://www.nature.com/articles/s41467-026-69049-0",
+          "tp": "电子化合物平带",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Superconducting diodes promise low-dissipation rectification for superconducting electronics and low-temperature applications. Generating a quantized d.c. voltage from radio-frequency (rf) irradiation without external bias could enable self-powered cryogenic devices but are challenging to realize. Here we use the kagome superconductor CsV3Sb5 to demonstrate quantized rf rectification at zero magnetic field. We fabricate transport devices from mechanically exfoliated single-crystal nanobeams with a thickness of 100–200 nm and a width of 1 μm contacted by gold electrodes. These devices exhibit Josephson effects, probably originating from intrinsic weak links within the material, and show Josephson diode effects even at zero external magnetic field. Under rf irradiation without a current bias, a d.c. voltage emerges and scales linearly with the microwave frequency f as {V}_{{\\rm{d.c.}}}={hf}/2e, where h is Planck’s constant and e is the electron charge. At constant frequency, the voltage increases in quantized steps with increasing rf power, consistent with the emergence of Shapiro steps. Our work establishes CsV3Sb5 as a potential platform for cryogenic-temperature wireless power sources and self-powered voltage standards.",
-          "hb": 1
-        },
-        {
-          "t": "菱方多层石墨烯中的轨道纵向磁电耦合",
-          "d": "2026-01-31",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在菱面体堆叠多层石墨烯中发现了轨道纵向磁电耦合效应，即通过电场操控磁化、磁场调控电极化。这一发现源于多层石墨烯中独特的对称性破缺和轨道自由度，为新型低功耗自旋电子器件和拓扑量子材料的开发提供了实验证据与物理基础。",
-          "sc": 6.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2506751123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "石墨烯磁电耦合",
-          "aip": 1,
-          "kp": [
-            "[耦合类型]: 无需自旋轨道耦合的纵向磁电耦合",
-            "材料体系[磁电耦合]: 菱面体堆叠多层石墨烯"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Magnetoelectric coupling enables the manipulation of magnetization by electric fields and polarization by magnetic fields. While typically found in heavy element materials with large spin-orbit coupling, recent experiments on rhombohedral-stacked pentalayer graphene have demonstrated a longitudinal magnetoelectric coupling (LMC) without spin-orbit coupling. Here, we develop a microscopic theory of LMC in layered quantum materials and identify how it is controlled by a \"layer-space\" quantum geometry. Focusing on rhombohedral multilayer graphene systems, we find that the interplay between LMC and valley-polarized order produces a butterfly shaped magnetic hysteresis controlled by out-of-plane electric field: a signature of LMC and a multiferroic valley order. Furthermore, we identify a nonlinear LMC in rhombohedral multilayer graphene under time-reversal symmetry, while the absence of centrosymmetry enables the generation of a second-order nonlinear electric dipole moment in response to an out-of-plane magnetic field. Our theoretical framework provides a quantitative understanding of LMC, as well as the emergent magnetoelectric properties of rhombohedral multilayer graphene.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

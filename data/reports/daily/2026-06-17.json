@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "南京大学联合研制的全钙钛矿叠层光伏组件转换效率达26.2%。",
-      "厦门大学团队证实2C快速化成可抑制无钴富锂正极结构退化。",
-      "高转换效率新型光伏器件为度电成本下降提供技术路线参考。"
+      "Stellantis与Factorial启动北美首次固态电池整车路测，能量密度达375Wh/kg",
+      "南京大学谭海仁团队研制出光电转换效率达26.2%的全钙钛矿叠层组件",
+      "美国Helion公司获华盛顿州卫生部放射性材料许可证，将建全球首座聚变能发电厂"
     ],
     "AI与智能科技": [
-      "智谱开源GLM-5.2模型，单位token算力消耗降低至原先2.9倍。",
-      "开发者逆向工程解锁苹果M4芯片15.8TFLOPS本地训练算力。",
-      "马斯克拟出资约600亿美元收购AI代码工具企业Anysphere。"
+      "Cursor发布1.5万亿参数大模型，在超10万块GPU上完成预训练",
+      "智谱开源GLM-5.2模型，具备1M上下文并在Code Arena盲测取得首位",
+      "DeepSeek完成首轮融资510亿元，腾讯与宁德时代等参投估值近4000亿元"
     ],
     "通用技术": [
-      "清华大学研发动态纳米孔膜，氢氧根电导率最高达222.9mS/cm。",
-      "全国首个商业空间碎片监测星座首发星在无锡研制完成。",
-      "受算力租赁业务预期影响，SpaceX上市首日估值触及2.9万亿美元。"
+      "中核集团实现丰度超99.99%硅-28同位素公斤级量产，解决量子芯片材料瓶颈",
+      "阿尔法磁谱仪合作组发布国际空间站收集的重宇宙核通量独特性质数据",
+      "PandaX-4T合作组利用氙-136数据完成标量中微子和暗物质相互作用首次直接搜索"
     ]
   },
   "sectors": [
@@ -26,29 +26,33 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "南京大学联合研制的全钙钛矿叠层光伏组件转换效率达26.2%。",
-        "厦门大学团队证实2C快速化成可抑制无钴富锂正极结构退化。",
-        "高转换效率新型光伏器件为度电成本下降提供技术路线参考。"
+        "Stellantis与Factorial启动北美首次固态电池整车路测，能量密度达375Wh/kg",
+        "南京大学谭海仁团队研制出光电转换效率达26.2%的全钙钛矿叠层组件",
+        "美国Helion公司获华盛顿州卫生部放射性材料许可证，将建全球首座聚变能发电厂"
       ],
       "entries": [
         {
-          "t": "刷新世界纪录：我国成功研制出大面积全钙钛矿叠层光伏组件，光电转换效率 26.2%",
+          "t": "Stellantis与Factorial Energy宣布： 启动固态电池道路测试",
           "d": "2026-06-17",
-          "a": "IT之家",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "南京大学谭海仁、肖科、王元元团队联合仁烁光能，成功研制出大面积全钙钛矿叠层光伏组件，光电转换效率达26.2%，刷新世界纪录。该突破解决了大面积钙钛矿叠层器件效率衰减的工程瓶颈，对全钙钛矿叠层电池的产业化与低成本高效光伏组件量产具有重要推动意义。",
-          "sc": 8.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.ithome.com/0/965/126.htm",
-          "tp": "钙钛矿叠层",
+          "a": "中粉固态电池",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "Stellantis与Factorial Energy宣布，已将自主研发的FEST®固态电池集成至Dodge Charger Daytona测试车，正式启动北美地区首次固态电池整车的道路测试。该固态电池能量密度达375Wh/kg，支持18分钟内充至15%-90%电量，适用温度范围-30℃至45℃。测试将重点验证电池在真实复杂工况下的性能、安全与可靠性，以推进固态电池技术逐步迈向商业化应用阶段。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/Ozn0geP_kPN-8yItYsVstw",
+          "tp": "固态电池道路测试",
           "aip": 1,
           "kp": [
-            "效率[全钙钛矿叠层组件]: 26.2%",
-            "规模[叠层组件]: 大面积世界纪录",
-            "认证[叠层光伏]: JET权威认证"
+            "能量密度[FEST®固态电池]: 375Wh/kg",
+            "快充能力[FEST®固态电池]: 18分钟内实现15%至90%快速充电",
+            "工作温度范围[FEST®固态电池]: -30℃至45℃保持稳定运行",
+            "搭载平台[固态电池集成测试]: STLA Large平台Dodge Charger Daytona开发测试车"
           ],
-          "b": "6 月 16 日消息，据南京大学今日分享，该校先进制造学院肖科助理教授、化学学院王元元教授、现代工程与应用科学学院谭海仁教授团队在全钙钛矿叠层光伏技术取得重要突破。\n团队联合仁烁光能产业化研究团队，\n成功研制出大面积全钙钛矿叠层光伏组件\n，经日本电气安全和环境技术实验室（JET）国际权威认证，该组件的光电转换效率高达 26.2%，\n刷新了该面积等级全钙钛矿叠层光伏组件的世界纪录\n据介绍，传统 ALD-SnO\n/Au/ PEDOT:PSS 结构的隧穿复合结面临\n：（1）超薄金属复合层在大面积上实现均匀分布与高精度控制极为困难，微小的厚度变化会对叠层底电池的寄生吸收造成严重影响，同时金属扩散将对器件稳定性产生不可逆的损害；（2）PEDOT:PSS 材料的光学性质与化学稳定性较差，严重影响叠层结构中的光学管理及器件稳定性。\n而全钙钛矿叠层太阳能电池的可利用的光谱更宽，且钙钛矿材料吸光系数高，\n仅需亚微米厚度即可实现高效光电转换\n，同时能够显著降低发射重量并简化太阳翼展开机构，这为空间轻量化光伏系统提供了理想方案。\n团队此次制备出一种 65 平方厘米的无空穴传输层的隧穿复合结结构的光伏组件，该结构采用纳米晶功能层替代传统超薄金属复合层，并去除 PEDOT:PSS 空穴传输层，\n实现了界面连接层的结构重构\n基于刮涂工艺，研究团队还针对铅-锡窄带隙钙钛矿开发了一种由 2-甲氧基乙醇和四氢呋喃组成的二元共溶剂体系。两者协同作用，\n实现了大尺寸钙钛矿薄膜的均匀可控制备\n，为叠层组件的规模化制造奠定了工艺基础。\n本研究工作得到了国家重点研发计划、国家杰出青年科学基金、国家自然科学基金、中国博士后科学基金、江苏省自然科学基金、中央高校基本科研业务费项目、关键地球物质循环前沿科学中心“GeoX”等多个项目的资助。\n目前，相关研究成果以“Nanocrystal-tailored junction for all-perovskite tandem solar module”为题，于 2026 年 6 月 15 日，以快速预览形式在线发表于国际顶级学术期刊《自然》主刊。\nhttps://www.nature.com/articles/s41586-026-10768-1",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Stellantis与Factorial Energy宣布： 启动固态电池道路测试 中粉固态电池 6月11日，Stellantis与美国固态电池企业Factorial Energy宣布，已将自主研发的FEST®固态电池成功集成至一辆基于STLA Large平台打造的Dodge Charger Daytona开发测试车，并正式启动道路测试项目，以验证电池在真实使用环境下的性能、安全性和可靠性。 据了解，这是北美地区首次将先进固态电池技术集成至汽车开发车辆，也是双方此前公布的固态电池示范项目取得的重要进展。此前，双方已完成车规级FEST®固态电池单体的验证工作，此次则进一步实现从电芯到整车应用的跨越。 根据双方披露的信息，2025年测试的FEST®固态电池能量密度达到375Wh/kg，可在18分钟内实现15%至90%的快速充电，并能够在-30℃至45℃的温度范围内保持稳定运行。 在此次整车集成过程中，工程团队在现有电池包基础上导入固态电池单元，并采用Stellantis开发的专利机械架构，同时针对电池管理系统和电池包设计进行优化，以满足汽车行业对于安全性、耐久性及性能表现的要求。 Stellantis首席工程与技术官Ned Curic表示，电池开发需要在续航、充电速度、成本及可靠性等多个指标之间取得平衡。此次进展表明固态电池正逐步接近商业化应用阶段，有望为未来电动车带来更长续航、更快充电速度以及更低成本。同时，FEST®技术与现有锂离子电池制造工艺具有较高兼容性，也为未来规模化生产提供了可行路径。 目前，双方已启动道路测试与标定工作，重点验证电池包在充放电、车辆行驶以及复杂工况下的性能和可靠性，并进一步评估整车安全表现。 Factorial首席执行官Siyu Huang表示，此次项目涵盖电芯化学体系、电池包架构以及整车测试等多个环节，是固态电池产业化过程中一次重要的全栈式协同开发。道路测试的开展不仅验证了FEST®技术的实际应用能力，也为未来车规级固态电池的量产和导入积累经验。 Factorial是美国固态电池技术企业，目前获得 Mercedes-Benz、Stellantis、Hyundai Motor Group 等车企投资支持。公司表示，未来将继续推进固态电池技术的开发、标定及产业化进程，加快其在新能源汽车领域的商业应用。 信息来源：集邦固态电池 **_注：图片非商业用途，存在侵权告知删除_**",
           "hb": 1
         },
         {
@@ -56,33 +60,44 @@
           "d": "2026-06-17",
           "a": "钙钛矿工厂",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "某机构成功研制出光电转换效率达26.2%的光伏器件，刷新世界纪录。高转换效率是光伏技术降低度电成本的核心指标，该突破对晶硅或新型薄膜太阳能电池的技术路线竞争具有重要参考价值，但具体技术路线与量产可行性待披露。",
-          "sc": 8.2,
+          "as": "南京大学谭海仁团队联合仁烁光能成功研制出大面积全钙钛矿叠层光伏组件。经认证，该65平方厘米组件的光电转换效率高达26.2%，刷新世界纪录。该研究采用无空穴传输层的隧穿复合结结构，以纳米晶功能层替代传统超薄金属复合层，并开发二元共溶剂体系实现大尺寸薄膜均匀制备，成果发表于《自然》。",
+          "sc": 9.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/0dYRqpfU8foBm3lQ989NfQ",
-          "tp": "光伏电池效率",
+          "tp": "钙钛矿效率",
           "aip": 1,
           "kp": [
-            "转换效率[光伏器件]: 26.2%"
+            "光电转换效率[65平方厘米全钙钛矿叠层光伏组件]: 26.2%",
+            "组件面积[全钙钛矿叠层光伏组件世界纪录]: 65平方厘米",
+            "吸光材料厚度[全钙钛矿叠层太阳能电池]: 亚微米级"
           ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
           "b": "研制成功！光电转换效率达26.2%，刷新世界纪录！ 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) **随着人类太空活动的增多，研发高效、轻质并能适应空间环境的新一代空间光伏技术，成为迫切需求。16日，记者从南京大学获悉，该校教授谭海仁团队联合仁烁光能（苏州）有限公司团队成功研制出大面积全钙钛矿叠层光伏组件，经日本电气安全环境研究所（JET）认证，该组件的光电转换效率高达26.2%，刷新了该面积等级全钙钛矿叠层光伏组件的世界纪录。相关研究成果15日以快速预览的形式在线发表于国际学术期刊《自然》。** 南京大学教授谭海仁团队联合仁烁光能（苏州）有限公司团队联合研发的65平方厘米全钙钛矿叠层光伏组件。研究团队供图 论文通讯作者、南京大学现代工程与应用科学学院教授谭海仁介绍，全钙钛矿叠层太阳能电池的可利用的光谱更宽，且钙钛矿材料吸光系数高，仅需亚微米厚度即可实现高效光电转换，同时能够显著降低发射重量并简化太阳翼展开机构，这为空间轻量化光伏系统提供了理想方案。 团队此次制备出一种65平方厘米的无空穴传输层的隧穿复合结结构的光伏组件，该结构采用纳米晶功能层替代传统超薄金属复合层，并去除PEDOT:PSS空穴传输层，实现了界面连接层的结构重构。 同时，基于刮涂工艺，研究团队针对铅-锡窄带隙钙钛矿开发了一种由2-甲氧基乙醇和四氢呋喃组成的二元共溶剂体系。两者协同作用，实现了大尺寸钙钛矿薄膜的均匀可控制备，为叠层组件的规模化制造奠定了工艺基础。 **论坛组织** **论坛名称：**2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛 **论坛时间：**2026年8月6-7日 **主办单位：钙钛矿工厂**（星澄咨询） **联合主办/协办单位：**征集中 **论坛地点：**江苏·无锡 **会议规模：**300~400人 **宣传媒体：**钙钛矿工厂、钙钛矿光链、钙钛矿基地... **参会群体：钙钛矿与**太空光伏产业界人士（异质结、叠层电池、柔性光伏电池、封装材料、设备等）、航天器及卫星制造商、商业航天运营商、航天科研院所、标准化机构、证券投资机构、产业链上下游企业技术及管理人员 **参会费用** 高校科研院所参会：1800元/人 企业单位参会：2500元/人 现场缴费：3000元/人 →团队报名（同单位人数≥3人）额外再享9折 2026年6月30日前报名享早鸟价1600元/人（不与其他优惠同享） 诚邀企业展位、演讲、晚宴、礼品、资料入袋等赞助合作、共襄钙钛矿与太空光伏盛举 参会/赞助/咨询联系： **Eric：18926074070** 码上登记参会信息 央视 ｜ 重磅！中国空间站将首次开展钙钛矿电池动态服役实验 太空光伏产品发布： PhenoExo™ 一体化解决方案获在轨验证订单！ 强强联手再度升级！BOE（京东方）与康宁签署合作备忘录，剑指钙钛矿光伏等新赛道 500万元！钙钛矿氛围自动化互联手套箱招标 又一上市公司布局钙钛矿！将根据钙钛矿研发进展推进中试研发线的设备考察、选址及建设工作 全球首家！京东方获得TÜV莱茵钙钛矿光伏TMP目击实验室资质 中国电信布局钙钛矿！ 实证一年，增益10%！纤纳光电钙钛矿叠层组件发电表现优于晶硅 炎和科技再获数亿元A2轮融资，加速推动钙钛矿光伏全场景落地与太空应用突破！ 京东方高效钙钛矿薄膜太阳电池中试线项目国际招标公告！ 钙钛矿基地——权威资讯抢先看，行业动态全掌握，同仁交流共成长，专业博士团队原创内容持续更新！ 参考来源：网络；所发表转载内容均会标明出处，其中部分素材来源于网络，转载内容只用于信息传播，仅供参考，不作为商业用途；转载内容的真实性、准确性和合法性由原作者负责；如有侵权，请联系删除",
           "hb": 1
         },
         {
-          "t": "厦门大学谢清水通过快速化成以提高无钴富锂层状正极材料稳定性",
+          "t": "世界上第一座聚变能源工厂在美国获得监管机构批准",
           "d": "2026-06-17",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "厦门大学谢清水团队颠覆传统认知，发现对无钴富锂层状氧化物Li1.2Mn0.6Ni0.2O2正极材料，快速化成（2C）反而优于慢速化成（0.2C）。快充因电化学极化保留更多残余锂离子，尤其在4.8V氧氧化平台区减少深度脱锂导致的结构损伤。同步辐射表征揭示慢速化成中深度脱锂引发过渡金属迁移、层滑移和岩盐相化成，而快速化成中残余锂离子发挥\"自钉扎效应\"抑制结构退化，显著提升容量和循环稳定性，同时大幅降低制造成本。",
-          "sc": 7.1,
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国聚变能源公司Helion获得华盛顿州卫生部颁发的放射性材料许可证和放射性气体排放许可证，获准建设全球首座聚变能发电厂。此次监管放行清除了发电机厂房建设的障碍。聚变能源利用类似太阳的化学反应产生能量，且不产生传统核裂变所需处理的大量放射性废料。",
+          "sc": 8.8,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-025-09553-3",
-          "tp": "锂电池正极",
+          "tg": "政策监管",
+          "u": "https://interestingengineering.com/energy/worlds-first-fusion-power-plant-washington",
+          "tp": "聚变电厂获批",
           "aip": 1,
-          "kp": [],
-          "b": "在锂离子电池制造中，化成环节通常采用低倍率充放电循环来构建稳定的电极-电解质界面，但这一过程耗时长、成本高，约占总生产成本的30%。传统观点认为缓慢化成对电池长期稳定性至关重要。本文挑战了这一认知：对于富锂层状氧化物（LLOs）正极材料，传统慢速化成不仅耗时，还可能加剧结构退化，而快速化成反而能显著提升容量和循环稳定性。\n研究聚焦无钴富锂层状氧化物Li1.2Mn0.6Ni0.2O2。实验显示，初始充电倍率从0.2C提高到2C时，充电容量从337 mAh g⁻¹降至248 mAh g⁻¹，对应脱出的锂离子量从1.07减少至0.79个/单元。这意味着快速充电因电化学极化保留了更多残余锂离子，尤其在氧氧化相关的电压平台区（约4.8 V），残余锂显著减少了深度脱锂导致的结构损伤。\n多尺度同步辐射表征（原位XRD、PDF、EXAFS、HAADF-STEM、TXM-XANES等）揭示了核心机制：在慢速（0.2C）化成中，深度脱锂使锂缺陷基体变得脆弱，导致过渡金属（TM）离子迁移、层间阳离子无序、层滑移和岩盐相化成，造成严重晶格畸变和不可逆氧损失。而在快速（2C）化成中，残余锂离子发挥“自钉扎效应”，作为动力学屏障抑制TM离子迁移，维持层状结构完整性，减少局部结构重构。\n采用快速化成后，电池在1C倍率下循环200圈后放电容量达232-233 mAh g⁻¹，容量保持率高达97.1%-98.4%，较传统工艺提升约20%容量和36%循环寿命。结构演化分析显示，初始循环中化成的适度缺陷有助于缓解后续应力，而均匀深度脱锂则加速疲劳相产生。文章于2026年6月17日发表在Nature。",
+          "kp": [
+            "监管资质[聚变发电厂建设]: 获得放射性材料许可证和放射性空气排放许可证",
+            "行业地位[聚变发电厂]: 世界上首座获批建设的聚变能源发电厂"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "US-based fusion energy company Helion has received the regulatory clearances to build the world’s first fusion energy power plant. The company has received a Radioactive Materials License (RML) and a Radioactive Air Emissions License (RAEL) from the Washington Department of Health (DOH), clearing the way to begin construction of the generator building at the power plant site.\nAs the world looks for newer ways to meet it energy demands without emitting carbon, fusion energy seems to be the most likely option. Using the chemical reaction that occurs on the Sun, fusion energy can potentially generate large amounts of energy from simpler atoms like hydrogen and its isotopes.\nUnlike its counterpart, nuclear fission, fusion energy does not produce large amounts of radioactive waste that need to be stored safely. Moreover, unlike renewables like wind and solar, fusion energy plants can work on demand, meeting energy requirements as they arise, without the investments required in energy storage too.\nFor all its benefits, nuclear fusion is still not a commercially available technology because the fusion reactors have not been able to generate more energy than they consume. Washington-state-based Helion Energy, though, is confident that it can achieve this fairly soon.\nWhile it has not yet published any peer-reviewed papers demonstrating how its fusion reactor works, the company is proceeding to build a fusion reactor that it will deploy commercially. It also has an agreement in place with Microsoft to supply 50 MW of power to a data center from its fusion reactor by 2028.\nThe facility dubbed\nis under construction in Malaga, Washington state and recently became the first such facility in the world to secure regulatory licenses to construct the nuclear plant. So far, the assembly and office building of the plant were completed but the recent grant of licenses from the DOH allows Helion to begin constructing the reactor as well.\nAs a nuclear energy company, Helion should ideally be seeking approval from the US Nuclear Regulatory Commission (NRC). However, the NRC regulates nuclear fusion under the byproduct material framework, putting it in the same category for approvals as particle accelerators and hospitals, instead of nuclear reactors.\nThis is not just a distinction made by the NRC but one also ratified by the US Congress in the ADVANCE Act of 2024, and it shows that nuclear fusion has a very different safety profile from fission and hence its path to deployment is also different.\nThe issuance of the RML and RAEL licenses by the Washington DOH is a major milestone for Helion as it confirms that it has facilities, personnel, and safety programs that meet the safety standards for a fusion facility at the Malaga site.\n“We are extremely proud to be granted these licenses from the Washington DOH, making us the first company in the world with the regulatory approvals in place for\nfusion power plant\noperations,” said David Kirtley, CEO of Helion Energy, in a press release shared with\nInteresting Engineering\n“We have a long history of working with the DOH to license our previous fusion activities. Today’s announcement represents the rigor of that work and opens the door for practical, commercial, safe fusion power.”\nIn addition to the approvals needed to build its reactor,\nhas also secured a transmission interconnection agreement with Chelan County Public Utility District that will enable energy generated from its fusion power plant to be supplied to the grid, a global first as well.\nThe question now is whether Helion will be able to meet its deadline to power Microsoft’s data center by 2028 from its fusion power plant.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAmeya is a science writer based in Hyderabad, India. A Molecular Biologist at heart, he traded the micropipette to write about science during the pandemic and does not want to go back. He likes to write about genetics, microbes, technology, and public policy.\nNew 600MW storage project could turn wasted wind power into clean electricity\nYasen-class vs Virginia-class: The nuclear submarines built for the next undersea war\nNew atom-level calculations show transistors could shrink below 4 nanometers\nJetZero secures North Carolina's largest $4.7B incentive deal for 50% fuel-cut Z4 jets\nNew RapidStriker system uses 360-degree vision and automated fire to neutralize drones\nMore from Energy\nNuclear waste could be turned into advanced reactor fuel with US firms’ new deal\nHadron patents integral pressurized-water reactor to fit Halo systems in one vessel\nUK’s new nuclear control room simulator mimics multiple reactor types safely\nUS student aims to build lithium battery alternative for extreme cold operations\nNew 600MW storage project could turn wasted wind power into clean electricity\nNuclear waste could be turned into advanced reactor fuel with US firms’ new deal\nHadron patents integral pressurized-water reactor to fit Halo systems in one vessel\nUK’s new nuclear control room simulator mimics multiple reactor types safely\nUS student aims to build lithium battery alternative for extreme cold operations\nNew 600MW storage project could turn wasted wind power into clean electricity",
           "hb": 1
         }
       ]
@@ -91,63 +106,76 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "智谱开源GLM-5.2模型，单位token算力消耗降低至原先2.9倍。",
-        "开发者逆向工程解锁苹果M4芯片15.8TFLOPS本地训练算力。",
-        "马斯克拟出资约600亿美元收购AI代码工具企业Anysphere。"
+        "Cursor发布1.5万亿参数大模型，在超10万块GPU上完成预训练",
+        "智谱开源GLM-5.2模型，具备1M上下文并在Code Arena盲测取得首位",
+        "DeepSeek完成首轮融资510亿元，腾讯与宁德时代等参投估值近4000亿元"
       ],
       "entries": [
         {
+          "t": "刚被马斯克收购，Cursor掏出新模型：10万卡加持，和Opus、GPT一样大",
+          "d": "2026-06-17",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "被SpaceX以600亿美元收购的Cursor在首届旗舰大会上发布了一款1.5万亿参数的新大模型，该模型在超过10万块GPU上完成预训练。Cursor CEO Michael Truell表示，新模型规模与Opus、GPT相当，甚至指出当前GPT-5.5等主流模型参数均低于2万亿。他强调当前AI领域的唯一护城河是规模化扩展，并对Google、OpenAI、xAI等竞争对手的模型发展现状与面临的瓶颈进行了评价。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/12M8FmYM5Sv8jVpBQCGyPw",
+          "tp": "Cursor发布新大模型",
+          "aip": 1,
+          "kp": [
+            "模型参数量[Cursor新发布大模型]: 1.5万亿+",
+            "预训练规模[Cursor新发布大模型]: 超过10万块GPU",
+            "模型规模[Anthropic顶级大模型]: 约10万亿参数"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚被马斯克收购，Cursor掏出新模型：10万卡加持，和Opus、GPT一样大 机器之心 编辑 | 泽南、陈陈 刚刚被 SpaceX 宣布以 600 亿美元收购的 Cursor，发布大模型了。 本周二，Cursor 宣布了一个新的 1.5 万亿 + 参数模型，该模型在超过 10 万块 GPU 上进行了预训练。 消息是在旧金山举行的 Cursor Compile 上宣布的，这是 Cursor 举办的首届旗舰大会。 根据 Cursor 年仅 25 岁的 CEO Michael Truell 的说法，新模型规模和 Opus、GPT 一样大。Opus 4.5 到 4.8，以及 GPT-5 到 GPT-5.5，其实都没有那么大！它们都低于 2 万亿参数（啊！好像发现了什么大秘密）。 这意味着，以 GPT-5.5 和 Opus 4.8 当前的性能，对开源模型来说是可以达到的。 Michael 认为现在这个阶段，唯一的护城河就是规模化扩展。 到目前为止，Anthropic 是唯一一家成功跃迁到约 10 万亿参数规模的 AI 实验室，Michael 认为 OpenAI 想在年底前重新追上 Anthropic 并不容易。Anthropic 只需要在接下来一到两年里继续往 Mythos 上砸 RL 计算资源，它就会持续变强。 Michael 也谈到了他对其他几家头部 AI 实验室的看法。在他看来，Google 的模型规模没有推到同等水平，同时在稀疏化路线上走得过于激进，后训练和强化学习能力也还没有充分转化为稳定、好用的产品体验。OpenAI 则仍在消化 GPT-4.5 之后的路线调整压力，xAI 和 Meta 还在为下一阶段的大模型竞争做准备。 不过，也有人很快提出质疑：Michael 所说的「Opus 和 GPT-5.5 万亿参数模型」到底从何而来？令人怀疑。 抛开这些外部判断，Cursor 这次真正值得关注的地方在于：它不再只满足于调用现成模型，而是开始系统性训练自己的底座模型。 这也是 Michael Truell 在演讲中首次较完整披露的新模型计划。 和 Cursor 过去使用的模型相比，这个新模型有三个明显变化。 第一，它的规模更大。这是他们迄今为止训练过的最大模型，规模已经接近前沿大模型公司的水准。 第二，它是从零开始训练的，不是基于开源模型继续微调（这家公司前段时间还曾卷入「Cursor 套壳 Kimi」的争议）。Michael 也特别补充说，他们依然喜欢开源，也希望未来能找到更多回馈开源社区的方式。但从零训练的好处在于，团队可以更完整地控制模型行为，并让模型更贴合他们和开发者真正关心的工作负载。 第三，这次训练使用的算力规模远超以往。相比他们过去能动用的算力，这次大约提升了 10 到 20 倍。过去从 Composer 1 到 Composer 2.5，相关模型更多是在相对有限的算力条件下训练出来的，和前沿实验室相比差距很大。这也限制了模型能力继续提升的空间。因为很多改进最终都会受制于一个问题：能不能用更多 GPU、跑更长时间的训练。现在算力规模上来之后，他们认为模型会有机会带来真正差异化的能力。 更重要的是，这个新模型不会只面向代码能力。团队希望它具备更通用的智能，因为 Cursor 的目标不只是让 AI 写代码，而是让任何人都能构建自己想要的东西。眼下真正的瓶颈，已经不只是「代码写得好不好」，而是 AI 能不能像一个工程师同事一样工作。 这意味着模型需要会使用工程师常用的工具，能做规划，能测试软件，能真正点进界面里检查按钮和交互，也能清楚地向用户展示 Agent 到底改了什么。换句话说，Cursor 想把模型能力从单纯的代码生成，推进到更完整的软件工程协作能力。 演讲中，Michael 还提到，这个模型的训练已经启动，预计会在接下来的几周内发布。相关能力背后也有外部算力或基础设施合作支持。这背后的支持说的肯定是 SpaceX 了。 当然，真正的答案还要等模型发布后才能揭晓。 参考链接： https://x.com/scaling01/status/2067017700384125238 https://x.com/Yuchenj\\_UW/status/2066891492187320405 https://x.com/nickadobos/status/2066929277757800833?s=46 © THE END 转载请联系本公众号获得授权 投稿或寻求报道：liyazhou@jiqizhixin.com",
+          "hb": 1
+        },
+        {
           "t": "智谱开源 GLM-5.2 模型：1M 无损上下文，Code Arena 上全球可用模型第一",
           "d": "2026-06-17",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
           "as": "智谱于6月17日上线并开源GLM-5.2模型，在Code Arena前端开发盲测中取得全球可用模型第一。该模型上下文长度达1M，长程任务表现介于Claude Opus 4.7与4.8之间，是排名最高的开源模型。在主流编程基准上保持开源SOTA。GLM-5.2实现了极致Infra优化，1M上下文下单位token FLOPs降低至2.9倍，Day 0完成与华为昇腾、寒武纪、壁仞等国产算力平台推理适配，下半年昇腾950超节点将成为算力底座。",
-          "sc": 6.7,
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.ithome.com/0/948/819.htm",
           "tp": "长程大模型",
           "aip": 1,
           "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "GLM-5.2是目前开源模型中性能最强的，且在长程任务执行以及编程能力上接近Opus 4.8以及GPT-5.5。代表着其在AI的两项核心能力上已经接近全球第一梯队。GLM-5.2在智能体与编程能力上接近全球第一梯队。同时，由于其是开源的，因此可以由国内的各个硬件厂商进行自由适配，同时能够为国内硬件生态提供有竞争力的软件产品。GLM-5.2一方面性能强劲，同时也有利于提升国内的AI算力的竞争力。国内华为、摩尔线程的芯片已经部署在数据中心。强劲的模型性能有利于Token经济的发展。",
           "b": "IT之家 6 月 17 日消息，智谱今日宣布上线并开源 GLM-5.2。在全球百万用户参与盲测的前端开发评估系统 Code Arena 上，GLM-5.2 取得全球可用模型第一的表现。官方表示，GLM-5.2 专为长程任务能力而生，特色包括：上下文长度达到1M，稳定支撑长程任务，多个长程任务基准表明 GLM-5.2 的表现介于 Claude Opus 4.7 与 4.8 之间，是排名最高的开源模型。Coding 能力更强体感、更实用。在主流编程基准上，GLM-5.2 保持开源 SOTA，与 Claude Opus 4.8 处于可比区间。同时GLM5.2做到了极致 Infra 优化，Day 0 运行在国产算力平台。在 1M 上下文长度下，将单位 token 的 FLOPs 降低至 2.9 倍；已在 Day 0 完成与华为昇腾、平头哥、摩尔线程、寒武纪、昆仑芯、沐曦、海光、壁仞等国产算力平台的推理适配；预计下半年昇腾 950 超节点上市后，也将成为 GLM-5.2 强劲的算力底座。",
           "hb": 1
         },
         {
-          "t": "开发者绕过苹果软件限制，成功解锁 M4 芯片 15.8TFLOPS 的 AI 算力",
+          "t": "DeepSeek 以 4000 亿元估值完成首轮外部融资：510 亿元到账，投资方含梁文锋、腾讯、宁德时代、京东、网易等",
           "d": "2026-06-17",
           "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "苹果M4芯片内置神经网络引擎（NPU）原本仅开放推理功能，开发者可运行预训练模型但无法用于模型训练。X用户@0x0SojalSec声称已绕过M4的软件限制，对M4 SoC完成逆向工程，成功解锁高达15.8TFLOPS的AI算力用于本地模型训练。这一突破意味着开发者可利用Mac设备端侧NPU进行AI模型微调甚至从零训练，显著降低对云端GPU的依赖。苹果此前通过系统层面锁定NPU训练接口，此次绕过揭示了Apple Silicon硬件潜力与软件限制之间的巨大鸿沟，但可能面临苹果后续系统更新封堵。",
-          "sc": 8.4,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/965/128.htm",
-          "tp": "M4芯片算力解锁",
-          "aip": 1,
-          "kp": [
-            "AI算力[M4神经引擎]: 15.8TFLOPS",
-            "训练方式[M4]: 数据全置RAM运行",
-            "通信[M4逆向]: 自定义MIL非CoreML/Metal"
-          ],
-          "b": "6 月 16 日消息，苹果 M4 等芯片中的神经网络引擎原本只开放给推理使用，导致开发者可以运行预训练 AI 模型，却不能直接用来训练新模型。不过，X 用户 @0x0SojalSec 自称绕过了 M4 的软件限制，并对 M4 SoC 完成逆向工程。\n把数据都放在 RAM 中运行\n，因此速度非常快，体验也相当流畅。\n@0x0SojalSec 今天凌晨在 X 上分享了一个 GitHub 代码库，展示如何\n。苹果并未开放直接与这些芯片通信的权限，因此其没有使用 Core ML、Metal 等苹果工具，也没有调用 GPU，而是\n从零开发了一套自定义 MIL\n（（IT之家注：模型中间语言），用这套工具与 M4 进行通信。\n由于 M4 的相关硬件能力遭到“锁定”，整个过程还需要一些变通手段。比如，训练进程卡住、需要重置后才能继续时，自定义 MIL 会调用“exec ()”命令，让进程重新启动并继续训练。这样一来，程序可以刷新当前状态，避免直接崩溃，同时继续学习。\n@0x0SojalSec 表示，为了提高速度，解锁 M4 的过程\n完全没有写入 NAND 闪存\n。NAND 闪存写入速度较慢，而 RAM 速度更快，因此整个流程可以保持高速运行。突破软件限制后，\n或 Mac 中的 M4 可以达到\n15.8TFLOPS 的 AI 处理性能\n，足以承担 AI 模型训练任务。\n需要提醒的是，目前还无法确认同一套自定义 MIL 能否用于更新的 Apple Silicon，也无法确认 exec () 在新平台上能否按预期工作。",
-          "hb": 1
-        },
-        {
-          "t": "全球首富红眼All in！马斯克600亿收购Cursor，挤上ASI末班车",
-          "d": "2026-06-17",
-          "a": "新智元",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "据外媒报道，特斯拉CEO马斯克有意斥资约600亿美元收购AI编程工具Cursor（开发商Anysphere），意在抢占通用人工智能（AGI）乃至人工超级智能（ASI）赛道。Cursor作为基于大模型的智能代码编辑器，掌握海量开发数据与编程能力，被视为通往AGI的关键工具链。若交易达成，将显著改变AI开发工具市场格局，凸显科技巨头对ASI基础设施的激烈争夺。",
-          "sc": 8.3,
-          "i": "news",
+          "as": "人工智能公司DeepSeek完成首轮外部融资，实际到账约510亿元，企业估值近4000亿元。投资方包括创始人梁文锋、腾讯、宁德时代、网易及国家人工智能产业投资基金等。创始人梁文锋要求外部投资者将资金投入有限合伙企业，设置五年锁定期，除国家人工智能产业投资基金外，其余投资者无投票权。融资资金将用于扩展AI基础设施、加强研发、股权激励及商业化进程。",
+          "sc": 8.8,
+          "i": "n",
           "tg": "资本运作",
-          "u": "https://mp.weixin.qq.com/s/ewc1BEp5NGsNcJRMK7JMVQ",
-          "tp": "Cursor并购案",
+          "u": "https://www.ithome.com/0/965/686.htm",
+          "tp": "AI大模型融资",
           "aip": 1,
           "kp": [
-            "交易金额[SpaceX收购Anysphere]: 600亿美元"
+            "融资金额[DeepSeek首轮外部融资]: 约510亿元",
+            "企业估值[DeepSeek]: 近4000亿元",
+            "入股金额[宁德时代入股中恒电气]: 约41亿元",
+            "入股金额[宁德时代入股世纪互联]: 约9.42亿美元",
+            "资产管理规模[幻方量化巅峰时期]: 突破700亿元"
           ],
-          "b": "全球首富红眼All in！马斯克600亿收购Cursor，挤上ASI末班车 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】600亿全股票，IPO第四天落槌！马斯克拿下AI史上最大并购，但他为什么非买不可？** 刚刚，SpaceX签署最终协议，600亿全股票收购Cursor母公司Anysphere。 AI并购史上，从没见过这个量级的交易。 消息一出，SPCX盘中最高暴涨超17%，市值冲破2.9万亿美元，一度超越微软坐上全球第四。 随后回落至涨约5%，以2.7万亿退回第五。 四天前，SpaceX刚以135美元/股登陆纳斯达克，拿下史上最大科技IPO。 同一周，马斯克身家突破1.32万亿美元，成了人类第一个万亿富翁。 但为什么这样一个身家万亿的人，上市第四天就开始All in了？ **两个「输家」，一张ASI末班车票** 先看马斯克自己的AI。 2023年创办xAI，砸数十亿在孟菲斯建了两座超算中心，百万张H100等效算力。2026年2月全股票合并xAI，估值超万亿。 看起来，这是一个火箭+AI+社交的超级帝国。但实际上，11位联创到3月底走光了，5月xAI正式解散。 说白了，模型这仗，他自己打不赢。 xAI去年亏了63.5亿，今年Q1又亏24.7亿，Grok在主流benchmark上全面落后于Claude和GPT。钱烧了，团队散了，产品还是没立住。 再看他要买的这家公司。 Cursor，四个MIT本科生fork VS Code的课余项目，两年做到20亿美元ARR，CEO特鲁尔今年才25岁。 传奇是传奇，但它正在被Anthropic活活掐死。 2025年，Cursor是Anthropic最大的单一客户，巅峰时期贡献了将近一半收入。也就是说，Anthropic赚的钱里快一半是Cursor交的。 然后Anthropic亲自下场了。 2025年底Claude Code上线，Anthropic用自家模型做了一个跟Cursor直接竞争的编程工具。 到2026年初，Claude Code年化收入直奔25亿，比Cursor的20亿还多5亿。 这就是Anthropic的打法——用你交的钱训出来的模型，做了一个更好的你，然后抢你的用户。 效果也是立竿见影。Cursor市场份额从41%掉到26%。JetBrains调查里46%开发者把Claude Code选为「最喜欢」，Cursor只有19%。 想翻盘，就得训自己的模型。但训模型需要算力，4月特鲁尔承认缺乏训练算力已经「瓶颈化」了增长。 一个团队散了的，一个被平台方腰斩的。两个都在输的玩家，凑到了一起。 现在，编程工具赛道已经三分天下。 GitHub Copilot归微软，Claude Code归Anthropic，Codex归OpenAI。三把椅子坐满了。 Cursor是最后一个不属于任何模型厂商的独立入口。 错过这一个，就没有下一个了。 马斯克1月在达沃斯给了一个时间表： 2026年底AI超过任何单个人类，2030年前后到达超级智能。 编程工具是这条路上最先变成真金白银的接口，今天帮程序员写代码，明天可能自己写完整个软件栈。 谁控制了这个接口，谁就卡住了超级智能变成生产力的第一英里。 600亿不是在买一个编程工具。是万亿富翁红着眼打的一场背水之战—— ASI这班车，再不上就没了。 **能打赢Anthropic吗？** 如今的马斯克，算力、产品、用户、天文数字的市值这些都不缺，就缺一个能打的模型。 但缺的这块，可能已经在路上了。 收购官宣的同一天，Cursor在旧金山Fort Mason办了首届开发者大会Compile。特鲁尔站在台上预告了一个新模型： 1.5万亿参数。10万张GPU从零预训练。不再基于此前的开源模型。计算量是现有Composer模型的10到20倍。 尺寸更是直接对标Claude Opus和GPT 5.5。 特鲁尔承认以前Composer模型的训练算力跟前沿实验室没法比，但这次不一样了。目标不再是跟跑，是追上甚至超越。 而且这个模型不只写代码。 用特鲁尔的话说，瓶颈早就不是写代码了，「而是你希望从一个工程师同事那里得到的一切——用工具、做规划、测试软件、在界面上点按钮。」 除了新模型，Compile上还官宣了两件事：移动端App正式上线，以及直接进军GitHub的领地。 换句话说，Cursor的野心已经不是编程工具，是开发者的整个工作台。 但时间是最大的敌人。 算力租约一年进账260亿（Anthropic 150亿，谷歌110亿），比SpaceX去年全年营收还多，现在断不起。 然而，每多租一个月，Anthropic就多一个月用这些GPU训Claude Code，抢Cursor的用户。 断早了，收入先塌。断晚了，开发者被抢完，60",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 17 日消息，企查查数据显示，杭州深度求索人工智能基础技术研究有限公司已于 2026 年 6 月 16 日完成首轮外部融资，整体融资规模约 510 亿元，企业估值近 4000 亿元。\n本轮融资的投资方阵容涵盖了产业资本、互联网巨头与国家队，具体投资方包括创始人梁文锋、腾讯、宁德时代、网易、京东、Monolith 砺思资本、IDG 资本、正心谷投资、拾象科技以及国家人工智能产业投资基金合伙企业（有限合伙）。\nDeepSeek 成立于 2023 年 7 月 17 日，总部位于浙江省杭州市拱墅区，主要从事大语言模型及多模态 AI 技术研发，其推出的 DeepSeek 系列开源模型是国内领先的开源大模型之一。公司此前一直由其母公司 —— 梁文锋于 2015 年创立的幻方量化全资支持，幻方量化巅峰时期资产管理规模突破 700 亿元。正是凭借量化业务积累的利润，DeepSeek 才得以维持多年独立运营。\n此外，宁德时代近期在 AI 数据中心领域动作频频 ——2026 年 4 月以约 41 亿元入股智算中心 HVDC 市场龙头中恒电气，5 月又以约 9.42 亿美元入股 IDC 公司世纪互联。\n据此前路透社报道，梁文锋要求外部投资者将资金投入由其管理的有限合伙企业，而非直接持股 DeepSeek，并对所有投资者设置五年锁定期。据接近梁文锋的人士解释，此举旨在筛选投资者，排除追求快速退出的资本。国家人工智能产业投资基金是唯一例外，直接入股并享有投票权。其余外部投资者均不享有投票权，仅能获取特定财务信息并享有后续融资优先认购权。\n此次融资所得计划用于扩展 AI 基础设施、加强研发能力、向员工提供股权激励及加快商业化进程。\n消息称 DeepSeek 首轮融资拟筹集 500 亿元，腾讯、宁德时代等参投",
           "hb": 1
         }
       ]
@@ -156,60 +184,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "清华大学研发动态纳米孔膜，氢氧根电导率最高达222.9mS/cm。",
-        "全国首个商业空间碎片监测星座首发星在无锡研制完成。",
-        "受算力租赁业务预期影响，SpaceX上市首日估值触及2.9万亿美元。"
+        "中核集团实现丰度超99.99%硅-28同位素公斤级量产，解决量子芯片材料瓶颈",
+        "阿尔法磁谱仪合作组发布国际空间站收集的重宇宙核通量独特性质数据",
+        "PandaX-4T合作组利用氙-136数据完成标量中微子和暗物质相互作用首次直接搜索"
       ],
       "entries": [
         {
-          "t": "清华大学刘凯构建动态纳米孔提升电化学装置阴离子传导性能",
+          "t": "比黄金贵3倍！中国搞定99.99%纯硅，量子芯片终于不用看别人脸色了",
           "d": "2026-06-17",
-          "a": "",
+          "a": "世界先进制造技术论坛",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "清华大学刘凯团队将刚性大环葫芦[7]脲（CB[7]）与阳离子聚合物QPPT共组装，构建动态纳米孔阴离子传导膜。CB[7]通过强阳离子-偶极相互作用与季铵基团分子级整合，形成平均直径约1.1nm的连续纳米孔网络。30wt% CB[7]负载时膜拉伸强度达76.2MPa，30-80°C下氢氧根电导率达95.2-222.9mS/cm，活化能低至0.11eV。该策略兼具高离子传导性能与优异机械化学稳定性，适用于水电解、燃料电池和碳捕集等电化学装置。",
-          "sc": 6.9,
+          "as": "中核集团核工业理化工程研究院历经四年研发，成功实现丰度超99.99%的硅-28同位素公斤级自主量产。硅-29同位素的自旋会干扰量子比特稳定运行，高纯度硅-28解决了硅基量子计算的材料瓶颈。硅基量子芯片的制造工艺与现有半导体芯片工艺基本一致，该突破使我国可直接利用成熟的半导体产业链设备进行晶体生长、晶圆切片与光刻等制造环节。",
+          "sc": 9.2,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-026-10666-6",
-          "tp": "纳米孔膜材",
-          "aip": 1,
-          "kp": [],
-          "b": "纳米孔阴离子传导膜因其在降低电化学装置（如水电解、燃料电池和碳捕集）电阻方面的潜力而备受关注。然而，现有的成孔方法，例如通过内在微孔聚合物或共价有机和金属有机骨架进行骨架工程，受到结构控制受限、机械脆弱或合成要求苛刻的困扰。\n清华大学刘凯副教授等人将刚性大环主体葫芦[7]脲（CB[7]）与阳离子聚合物客体季铵化聚(哌啶-三联苯)（QPPT）共组装，构建出均匀、动态的纳米级通道网络，同时显著提升膜的机械和化学稳定性。\nCB[7]的羰基边缘与QPPT上的季铵基团通过强阳离子-偶极相互作用实现分子级整合，形成“端口结合”构型。30wt% CB[7]负载量（QCB30）时，膜表现出优异性能：拉伸强度达76.2 MPa，杨氏模量显著提高，耐湿干循环能力强；同步辐射广角X射线散射、CO₂吸附和正电子湮没寿命谱证实，CB[7]作为分子楔子扩大链间距，形成平均直径约1.1 nm的连续纳米孔，这些孔是共组装的 emergent 属性，而非单一组分固有特征。\n纳米孔显著提升离子传输效率。QCB30在30–80°C下氢氧根电导率达95.2–222.9 mS cm⁻¹，活化能低至0.11 eV（高温区），表明从车辆扩散转向Grotthuss机制主导的低摩擦传输。低场NMR和脉冲场梯度NMR显示，水分子动力学改善，Grotthuss贡献大幅提升。准弹性中子散射和分子动力学模拟进一步揭示，超分子交联赋予孔壁皮秒-埃级动态波动，使通道能自适应匹配传输离子，降低能垒。\n在碱性水电解应用中，QCB30膜组装的非贵金属膜电极组件在30wt% KOH中实现12.5 A cm⁻²@2.04 V，远超QPPT和商业膜；稀电解质和纯水条件下性能同样突出，H₂纯度>99.99%，气体交叉低，且在1.5 A cm⁻²下稳定运行超1600小时，展现出色耐久性。文章于2026年6月17日发表在Nature。",
-          "hb": 1
-        },
-        {
-          "t": "全国首个商业空间碎片监测专用星座首发星出征",
-          "d": "2026-06-17",
-          "a": "IT之家",
-          "c": "通用技术/通信和运输/航天",
-          "as": "全国首个商业空间碎片监测专用星座「LX630」首发星在无锡梁溪空天产业园出征，由遨天巡宇航工业有限公司研制。该星座填补我国商业空间碎片监测领域空白，对太空交通安全、卫星碰撞预警及空间碎片编目管理具有重要意义，商业航天在空间态势感知领域取得突破。",
-          "sc": 7.4,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/965/130.htm",
-          "tp": "空间碎片监测",
+          "u": "https://mp.weixin.qq.com/s/KU6OK0LfTix7iTu3kOzSnA",
+          "tp": "硅同位量产",
           "aip": 1,
           "kp": [
-            "载荷[碎片监测]: 高星等目标探测相机",
-            "星载计算[LX630]: AI自主运行免地面干预"
+            "同位素丰度[自主量产硅-28]: 超过99.99%",
+            "研发周期[硅-28同位素量产]: 四年",
+            "天然硅占比[硅-28]: 92.2%",
+            "[硅-29同位素对量子芯片的影响]: 原子核自旋会持续干扰量子比特的稳定运行"
           ],
-          "b": "6 月 16 日消息，今日上午，在位于梁溪空天产业园的遨天巡宇（无锡）航天工业有限公司，随着试验队旗完成交接，\n全国首个商业空间碎片监测专用星座 ——“LX630”首发星正式出征\n据介绍，LX630 星座是我国首个商业空间碎片监测专用星座，既能为航天器提供轨道安全和数据应用服务，保障巨型星座高效安全运行，支撑太空交通的协同管理，也能服务国家太空战略安全，为各类太空资产增值赋能。\n该卫星搭载高星等目标探测相机\n，可覆盖低轨、高轨全天域近地空间目标。这意味着，它不仅能在广袤宇宙中快速扫描，还能精准锁定并识别微小的空间碎片，支撑建立动态更新的微小空间碎片编目库。\nIT之家注意到，该卫星还配备星载 AI 计算机，支持“自主思考”的能力，依托智能算法，\n无需地面频繁干预，即可灵活执行常态巡查、应急响应与快速追踪任务\n。配合多款新型推进系统，这颗卫星拥有极其灵活的“太空走位”能力，能自如地进行多轨道移动，开展抵近探测等高难度动作。\n按照规划，LX630 星座首发星将于今年 7 月发射升空，\n由 14 颗卫星组成的 LX630 星座系统将于 2027 年全面建成并投入运营\n，届时将实现对近地轨道全时全域的空间目标探测，为航天器在轨安全运行提供精准预警，推动全球空间治理合作。",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "比黄金贵3倍！中国搞定99.99%纯硅，量子芯片终于不用看别人脸色了 原创 小艾 小艾 世界先进制造技术论坛 6月15日，一条消息在科技圈炸了锅。 中核集团旗下核工业理化工程研究院正式宣布，经过四年研发，**首次成功实现丰度超过99.99%的硅-28同位素自主量产**。 **** 这事有多大？这么说吧——**硅基量子芯片最核心的那块材料，我们终于自己造出来了。** ### 一、从92%到99.99%，四年磨一剑 先看数字。自然界里的硅，天然有三种同位素：硅-28占92.2%，硅-29占4.68%，硅-30占3.1%。 日常用没问题。普通芯片、太阳能电池板，天然硅就够了。 但一到量子计算，硅-29就成了大麻烦。**硅-29的原子核有自旋，会持续干扰量子比特的稳定运行**。核理化院稳定同位素技术研发中心副总经理蔡伟打了个比方：**相当于1万个硅原子里混了几百颗“黑豆”，要用筷子一个一个夹走**。 而这次，**中国科学家硬是把这个比例从92%左右拉到了99.99%以上**。 难度有多大？**硅-28和硅-29只差一个中子的质量**，要从十几亿粒“大米”里只靠重量挑出特定的几粒。 核理化院团队干了四年。这不是实验室里摆弄几个样品，**是公斤级量产**。 中科院院士俞大鹏的评价很直接：**这一突破彻底解决了硅基量子计算“无米之炊”的燃眉之急**。 你可能会问：量子计算不是有好几条路吗？超导、离子阱、光量子……为什么硅基这么重要？ 答案就一条——**硅基量子芯片的制造工艺，和现在半导体芯片的工艺基本一致**。 这意味着什么？意味着**全球已经积累了六十年的半导体产业链，从材料到设备到晶圆制造，可以直接拿来用**。 超导量子计算要零下273度，操作复杂、成本高。硅基不一样。**一旦材料搞定，后面的晶体生长、晶圆切片、光刻、封装，全是现成的**。 **这是中国半导体产业几十年积累的“老本”，在下一代计算革命里还能接着用。** ### 三、“比黄金还贵”的材料，现在自己有了 核理化院稳定同位素首席专家谢全新说了一句很直白的话：**高丰度硅-28“远比黄金更金贵”**。 有多贵？**市面上一克高丰度硅-28的价格，是一克黄金的3倍**。 全球能规模化生产这东西的国家，屈指可数。2024年全球硅-28产量大约只有219.9千克，长期属于严控出口品类。 **以前我们高度依赖进口**。蔡伟说得很实在：**硅基量子计算必须用硅-28，如果做不到，想构建自主完整的量子计算产业，几乎不可能。从海外进口，会严重受制于人**。 现在好了。**核理化院副院长刘成业明确表示，目前高纯硅-28大规模量产在技术层面已经没有障碍，试验线产能正在持续提升，能短时间内满足国内需求**。 **** **稳定同位素分离中央控制室** ### 四、不止是量子计算，高端芯片也能用 很多人只盯着量子计算，其实**高丰度硅-28的应用场景远不止这一个**。 蔡伟介绍，**高丰度硅-28的晶体结构更“规整”，电子的量子隧穿效应更少，具备更优异的低热噪声、高导热、高载流子迁移率**。 翻译成大白话：**用这种材料做的芯片，运行更稳、发热更少、性能更好**。 国内行业专家甚至提出：**如果把高丰度硅-28用作先进半导体材料，带来的芯片性能提升，相当于改进了一代制程工艺**。 在2到3纳米甚至更先进的芯片制程里，这东西的价值不可估量。 除此之外，**高端导航、计量基准、精密测量这些领域，硅-28也是关键材料**。它本身就是定义“千克”质量基准的核心材料之一。 ### 五、从“点状突破”到“链式发展” 这次突破还有一个大背景——**正值《核技术应用产业高质量发展三年行动方案（2024-2026年）》收官之年**。 核理化院院长助理韩莉果介绍，**稳定同位素在核医学成像、精准放疗、核安保溯源、基础物理研究等领域具有不可替代的战略价值**。 长期以来，**全球稳定同位素制备技术高度集中，壁垒极高**，已成为制约我国量子科技、先进半导体、高端医疗装备等关键产业链自主可控的重要环节。 但变化正在发生。**核理化院此前已先后实现了钼、碲、镍、锌、硅、镱等12种元素、26种稳定同位素的生产**。 **这不是单一突破，是一张国产稳定同位素的版图正在加速拼接**。 韩莉果说得很清楚： **“未来我们仍将全力开展稳定同位素研发并拓展量产能力，这对保障我国关键领域产业链供应链安全具有重大战略意义。”** ### 六、全球格局在变 长期以来，欧洲掌握着全球主要的稳定同位素研发和生产能力。**中国加入硅-28的供给体系，正在从供需两端重构全球稳定同位素产业格局**。 刘成业说： **“中国加入供给体系，有望推动产品价格下降，使更多科研机构和中小企业受益。”** 在需求端，**我国多种稳定同位素自主供应能力将激发国内量子科...",
           "hb": 1
         },
         {
-          "t": "SpaceX估值暴涨至2.6万亿美元，一度超越亚马逊",
+          "t": "重宇宙核磷、氯、氩、钾和钙的性质：阿尔法磁谱仪的结果",
           "d": "2026-06-17",
-          "a": "IEEE电气电子工程学会",
+          "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "通用技术/通信和运输/航天",
-          "as": "SpaceX上市首个完整交易日股价大涨20%，周二受收购AI代码企业Cursor及股票期权交易开启双重利好推动，估值一度飙升至2.9万亿美元，超越亚马逊，尾盘回落至约2.6万亿美元。公司去年营收1870亿美元但亏损49亿。新收入渠道包括与Anthropic、谷歌的算力租赁合作（尚无法律约束力），Cursor收购完成后其营收将并入财报。反映航天巨头向AI基础设施扩张的战略动向。",
-          "sc": 7.3,
-          "i": "n",
-          "tg": "资本运作",
-          "u": "https://mp.weixin.qq.com/s/5-crXnFZMNB5KGHj8T4OPQ",
-          "tp": "太空科技估值",
+          "as": "阿尔法磁谱仪（AMS）合作组报告了在国际空间站上收集到的宇宙射线中磷、氯、氩、钾和钙通量的独特性质。在13.5年的运行中，共收集了100万个事件，覆盖了从GV到TV的刚性范围，为理解重宇宙核的性质提供了关键数据。该成果发表于《物理评论快报》。",
+          "sc": 9.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/d2vf-fw3v",
+          "tp": "宇宙核探索",
           "aip": 1,
-          "kp": [],
-          "b": "SpaceX估值暴涨至2.6万亿美元，一度超越亚马逊 Sean O'Kane Sean O'Kane IEEE电气电子工程师学会 **SUBSCRIBE** **to US** **Image Credits:**Orlando Sentinel/Getty Images SpaceX市值一度超越亚马逊，跻身全球企业估值第五位，甚至险些赶超微软；不过在周二收盘前，该股涨幅尽数回落。 这家刚完成上市的企业，周一上市首个完整交易日股价便大涨20%。周二市场传出两大利好：SpaceX宣布收购AI代码开发企业Cursor，同时公司股票期权交易正式开启，多重消息推动其股价进一步冲高，公司估值一度飙升至2.9万亿美元，尾盘才大幅回落。 即便如此，SpaceX去年营收1870亿美元，亏损高达49亿美元；反观亚马逊，2025年营收7170亿美元，净利润达到780亿美元。不过SpaceX近期开辟了全新收入渠道，分别与Anthropic、谷歌达成算力租赁合作；待到第三季度完成对Cursor公司的收购后，Cursor的营收也将并入SpaceX财报。 与Anthropic、谷歌的合作协议目前尚不具备法律约束力，但投资者对此似乎毫不在意。自周五上市以来，Elon Musk这家兼顾航天与人工智能业务的企业，估值累计暴涨约1万亿美元。 此次上市为SpaceX募得近8600亿美元新增资金，募资底气主要来自其对外宣称将打造一家价值数万亿美元的AI业务板块。但这个说法显得颇为夸张 —— 该公司不久前才将旗下AI部门近乎彻底重组、推倒重来。 SpaceX早在今年4月就首次披露了与Cursor的合作计划。彼时Musk坦言，其旗下人工智能企业xAI（现已并入SpaceX）“初次搭建时方向完全出错”，他正从零开始、重新搭建整套AI业务。本次收购，SpaceX将以价值600亿美元的公司股票完成支付。 这场创纪录的SpaceX首次公开募股，上市初始估值约1.7万亿美元，为Musk的企业募得近8600亿美元资金。SpaceX仅拿出总股本约4%的股份进入流通交易，此前已有专家预判，这种流通股占比会导致该股股价极易出现剧烈波动。 周二市场走势印证了这一判断。纳斯达克交易所数据显示，当日全天SpaceX股票成交量超3亿股，占上市后全部5.55亿股流通股份的半数以上。 盘后交易时段股价依旧剧烈波动，SpaceX估值在此期间再度短暂超越亚马逊总市值，随后再度回落。 微信号｜IEEE电气电子工程师学会 新浪微博｜IEEE中国 Bilibili | IEEE中国 **· IEEE电气电子工程师学会 ·** 机器人行业迈向真实应用，专家关注2026年关键转变 电池厂商优化替代铅酸电池的便捷方案 一段从“重新搭建一切”开始的职业道路 人工智能可在元宇宙中构建新世界，但也引发重大的伦理问题",
+          "kp": [
+            "事件采集量[阿尔法磁谱仪宇宙射线探测]: 100万个",
+            "数据采集周期[国际空间站阿尔法磁谱仪]: 13.5年",
+            "探测刚性范围[宇宙核素P, Cl, Ar, K, Ca]: GV至TV"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): A. Aceituno et al. (AMS Collaboration)We report the unique properties of cosmic phosphorus (P), chlorine (Cl), argon (Ar), potassium (K), and calcium (Ca) fluxes in the GV to TV rigidity range collected by the Alpha Magnetic Spectrometer (AMS) on the International Space Station. With a total of one million events collected over 13.5 yea…[Phys. Rev. Lett. 136, 241002] Published Wed Jun 17, 2026",
+          "hb": 1
+        },
+        {
+          "t": "使用 PandaX-4T 探测标量中微子和标量暗物质相互作用",
+          "d": "2026-06-17",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "PandaX-4T合作组利用氙-136双贝塔衰变数据，完成了对中微子、暗物质粒子之间可能存在的标量媒介相互作用的首次直接能谱搜索。该研究证实了双贝塔衰变实验是探测此类奇异相互作用的强有力工具。该成果发表于《物理评论快报》。",
+          "sc": 8.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/pn9y-g5k7",
+          "tp": "暗物质探测",
+          "aip": 1,
+          "kp": [
+            "[标量相互作用探测]: 使用136Xe双β衰变数据进行首次直接谱搜索"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Tao Li et al. (PandaX Collaboration)Scalar-mediated interactions may exist among neutrinos, dark matter particles, or between the two. Double $β$-decay experiments provide a powerful tool to probe such exotic interactions. Using $^{136}\\mathrm{Xe}$ double $β$-decay data from PandaX-4T, we perform the first direct spectral search in th…[Phys. Rev. Lett. 136, 241802] Published Wed Jun 17, 2026",
           "hb": 1
         }
       ]

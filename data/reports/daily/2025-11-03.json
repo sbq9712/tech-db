@@ -1,0 +1,122 @@
+{
+  "type": "daily",
+  "date_label": "2025年11月3日　星期一",
+  "date_range": "2025-11-03",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队研发无阳极锂金属电池，能量密度达1270 Wh L−1",
+      "新型钠硫电池采用Ni/Co催化，适用温度范围扩展至-20至50°C",
+      "Cu6Sn5合金催化电还原二氧化碳生成甲酸盐技术取得进展"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "专为儿童定制的基因编辑疗法正式进入临床试验阶段"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队研发无阳极锂金属电池，能量密度达1270 Wh L−1",
+        "新型钠硫电池采用Ni/Co催化，适用温度范围扩展至-20至50°C",
+        "Cu6Sn5合金催化电还原二氧化碳生成甲酸盐技术取得进展"
+      ],
+      "entries": [
+        {
+          "t": "主体和电解质的协同耦合在无阳极锂金属​​电池中实现 1270 Wh L−1",
+          "d": "2025-11-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202515906?af=R",
+          "tp": "无阳极锂电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于高倍率钠硫电池的价态适应性 Ni/Co 催化，宽温范围为 -20 至 50 °C",
+          "d": "2025-11-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511862?af=R",
+          "tp": "钠硫电池催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "激光合成 Cu6Sn5 合金中原子级 Ag─Sn 配位工程，用于节能电还原 CO2 生成甲酸盐",
+          "d": "2025-11-03",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202506697?af=R",
+          "tp": "电还原生成甲酸盐",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "专为儿童定制的基因编辑疗法正式进入临床试验阶段"
+      ],
+      "entries": [
+        {
+          "t": "每日简报：为儿童定制基因编辑疗法进入临床试验",
+          "d": "2025-11-03",
+          "a": "Nature",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-025-03619-y",
+          "tp": "基因编辑疗法",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

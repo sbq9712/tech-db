@@ -6,19 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "钙钛矿/硅叠层电池研究取得突破宽禁带顶电池实现2.00V开路电压",
-      "选择性钝化工艺解决界面漏电问题钙钛矿/硅叠层电池效率达32.9%",
-      "研究利用原位振动光谱揭示铜纳米晶粒电化学还原二氧化碳机理"
+      "阳光电源签署阿布扎比7.5吉瓦时储能及2.6吉瓦光伏逆变器供应协议",
+      "研究人员利用银纳米颗粒锚定碘阴离子开发无穿梭效应锌碘电池",
+      "科学家合成稠环受体结构共价有机框架以增强过氧化氢光合作用效率"
     ],
-    "AI与智能科技": [
-      "科研团队开发可拉伸神经形态电路实现体表多模态信号低功耗实时处理",
-      "ProteomeLM语言模型实现跨物种蛋白质相互作用及基因必需性预测",
-      "研究构建木聚糖增强纳米流体忆阻器利用光信号调制离子神经网络"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "实验首次在自偏置磁光光子晶体中观测到手性连续体束缚态模式",
-      "科研人员在块体铁电体中发现具有负泊松比的本征拉胀压电效应",
-      "研究提出空间工程热力学门控策略实现合成大麻素高保真识别"
+      "准透明陶瓷光子引擎实现1.2公里白光通信及71.8兆赫兹带宽",
+      "欧洲物理学家计划建造91公里长的新型粒子对撞机",
+      "科研人员开发4-氨基吡啶鎓基轮烷分子梭无金属活性模板合成路径"
     ]
   },
   "sectors": [
@@ -26,230 +22,149 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "钙钛矿/硅叠层电池研究取得突破宽禁带顶电池实现2.00V开路电压",
-        "选择性钝化工艺解决界面漏电问题钙钛矿/硅叠层电池效率达32.9%",
-        "研究利用原位振动光谱揭示铜纳米晶粒电化学还原二氧化碳机理"
+        "阳光电源签署阿布扎比7.5吉瓦时储能及2.6吉瓦光伏逆变器供应协议",
+        "研究人员利用银纳米颗粒锚定碘阴离子开发无穿梭效应锌碘电池",
+        "科学家合成稠环受体结构共价有机框架以增强过氧化氢光合作用效率"
       ],
       "entries": [
         {
-          "t": "钝化剂配位活性的靶向增强使高效钙钛矿/硅叠层太阳能电池实现2.00 V开路电压",
+          "t": "阳光电源赢得阿布扎比24/7太阳能存储项目7.5 GWh Masdar订单 - Energy Storage",
           "d": "2026-05-22",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究聚焦钙钛矿/硅叠层太阳能电池，通过增强钝化剂的配位活性，在宽禁带钙钛矿顶电池中实现了2.00V的高开路电压（Voc）。叠层结构是下一代光伏技术中最具前景的路线，但宽禁带钙钛矿中的界面缺陷导致的非辐射复合严重限制了Voc和整体效率。研究通过分子设计提升钝化剂与钙钛晶面活性位点的配位能力，有效钝化表面缺陷态并抑制载流子损耗，从而大幅缩小Voc与理论极限之间的差距。2.00V的开路电压代表了该领域的重大突破，对推动叠层电池突破单结晶硅效率极限具有重要意义。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71077?af=R",
-          "tp": "钙钛矿硅叠层电池",
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "阳光电源与阿布扎比Masdar公司签署协议，为阿联酋RTC 1号（北部）项目提供7.5 GWh的液冷储能系统以及2.6 GW的光伏逆变器解决方案。该项目由Masdar和EWEC联合开发，结合了5.2 GW的太阳能光伏和19 GWh的电池储能，是全球首个吉瓦级全天候太阳能加储能项目，旨在提供全天候清洁能源。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.ess-news.com/2026/05/22/sungrow-wins-7-5-gwh-masdar-order-for-abu-dhabi-24-7-solar-storage-project/",
+          "tp": "储能大订单",
           "aip": 1,
           "kp": [
-            "开路电压[钙钛矿/硅叠层]: 2.00 V",
-            "[钝化策略]: 增强磷氧钝化剂配位活性",
-            "[瓶颈]: 宽带隙钙钛矿缺陷致开压损失"
+            "储能系统订单规模[阿联酋RTC 1项目]: 7.5 GWh",
+            "光伏逆变器供应规模[阿联酋RTC 1项目]: 2.6 GW",
+            "储能系统技术路线[Masdar项目]: PowerTitan 3.0液冷储能系统"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Perovskite/silicon tandem solar cells are the leading next‐generation photovoltaic technology. Wide‐bandgap perovskite top cells are crucial for high‐performance tandem cells, yet significant open‐circuit voltage loss due to high defect density and insufficient crystallinity remains a critical bottleneck. While phosphine oxide (P═O) moieties serve as effective defect passivators, conventional single P═O species lack sufficient reactivity to achieve efficient defect passivation and crystallization regulation. Herein, we propose a universal molecular design strategy based on phosphorus‐oxygen bonds. Incorporation of electron‐donating alkyl substituents into the molecular backbone of the additive enhances the electron density of the P═O bond, thereby strengthening its coordination and passivation capabilities. This targeted electron modulation strengthens phosphorus oxide–perovskite interactions, suppressing non‐radiative recombination. Additionally, the electron‐optimized structure enhances intermolecular interactions with perovskite precursors, favoring regulated crystallization. Consequently, the\n                    V\n                    oc\n                    of the perovskite/silicon tandem solar cell is increased from 1.93 to 1.99 V (certified 2.00 V), and a champion efficiency of 32.74% is achieved (certified 31.52%). This work demonstrates a molecular modification strategy to enhance the coordination activity of passivators, thereby achieving high‐performance perovskite/silicon tandem solar cells.",
+          "b": "Sungrow has signed an agreement with Abu Dhabi-based Masdar to supply 7.5 GWh of battery energy storage systems for the RTC 1 Plant (North) project in the United Arab Emirates, adding another large Middle East order to the Chinese inverter and storage supplier’s pipeline.\nUnder the agreement, Sungrow will provide\nPowerTitan 3.0 liquid-cooled energy storage systems\n, as well as 2.6 GW of PV inverter solutions. The equipment will support Masdar’s round-the-clock renewable energy project in Abu Dhabi, which combines 5.2 GW of solar PV capacity with 19 GWh of battery storage. The project is being developed by Masdar and Emirates Water and Electricity Co. (EWEC).\nMasdar has described the project as the world’s first giga-scale 24/7 solar and battery storage project. It is designed to deliver up to 1 GW of baseload renewable power every day by using oversized solar generation and large-scale storage to smooth output. The project is expected to start operation in 2027.\nSungrow said the project will deploy more than 1,000 PowerTitan 3.0 systems, which are equipped with 684 Ah stacked battery cells, with a total deployment of 3.44 million cells. Each BESS is designed around an eight-hour charging and 16-hour discharging cycle to support continuous renewable power delivery. The system uses AC block design and cluster-level management, which Sungrow said are intended to improve safety, efficiency and operational availability.\nThe PowerTitan 3.0 platform incorporates a fully liquid-cooled silicon carbide power conversion system with maximum efficiency of 99.3% and system round-trip efficiency of 90%, according to Sungrow. The company said the system can operate at temperatures of up to 55 ℃ without derating, a key requirement for desert conditions in the UAE.\nThe order is also linked to Sungrow’s increasing efforts for larger-format storage technology. The company launched PowerTitan 3.0 in 2025, offering 10-foot, 20-foot and 30-foot configurations for two- to 12-hour storage applications. The 30-foot version supports up to 12.5 MW/50 MWh per AC block and uses up to 684 Ah stacked battery cells.\nMasdar is one of the UAE’s major clean energy developers. The company says it has developed and partnered on more than 65 GW of clean energy projects across more than 40 countries and is targeting a 100 GW portfolio by 2030. Sungrow said it had installed more than 1,000 GW of power electronic converters worldwide by the end of 2025. The Abu Dhabi deal follows several large Middle East orders for Sungrow.\nIn July 2024, the company signed three storage contracts with Saudi Arabia’s Algihaz Holding totaling 7.8 GWh, covering projects in Najran, Madaya and Khamis Mushait. Sungrow also previously agreed to supply 536 MW/600 MWh of storage and 2.2 GW of PV inverter solutions for Saudi Arabia’s NEOM Green Hydrogen Project.",
           "hb": 1
         },
         {
-          "t": "金字塔尖选择性钝化实现32.9%效率的钙钛矿/硅叠层太阳能电池",
+          "t": "银纳米颗粒锚定碘阴离子可实现无梭锌碘电池",
           "d": "2026-05-22",
-          "a": "Matter",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿/硅叠层太阳能电池在金字塔织构化硅表面面临钙钛矿覆盖差和电学短路问题。研究人员通过对金字塔峰进行选择性钝化处理，显著改善了钙钛矿薄膜的均匀沉积与界面接触质量，有效抑制了漏电通道。该策略使叠层电池效率突破32.9%，创下单结钙钛矿/硅串联器件效率新高，为高效光伏组件的工程化量产提供了关键工艺路径。",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
           "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00187-6?rss=yes",
-          "tp": "钙钛矿硅叠层电池",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8096588?af=R",
+          "tp": "锌碘电池",
           "aip": 1,
-          "kp": [
-            "转换效率[钙钛矿/硅叠层]: >32.9%",
-            "[钝化策略]: 金字塔尖峰选择性沉积Al2O3",
-            "[解决的问题]: 织构硅上钙钛盖覆差与漏电"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Perovskite/silicon tandem solar cells suffer from poor perovskite coverage and electrical shunting on pyramid-textured silicon. Here, peak-selective passivation is introduced by locally depositing Al2O3 on pyramid peaks, enabling pinhole-free perovskite films and suppressed leakage. This design delivers over 33% efficiency with enhanced stability, offering a practical pathway for tandem photovoltaics.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "[ASAP] 通过原位振动光谱学洞察铜纳米晶粒",
+          "t": "外封底：稠环受体-π-受体结构可实现近红外吸收介孔共价有机框架，以增强 H2O2 光合作用",
           "d": "2026-05-22",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "铜基催化剂在电化学CO2还原反应中具有独特的C-C偶联能力，但其微观反应机理尚不完全清楚。本研究利用原位振动光谱技术对铜纳米晶粒进行了深入探测，直接观测了催化界面的中间物种和反应动态过程，为理解铜催化CO2还原中C-C偶联的关键步骤提供了分子层面的实验证据，对设计高效碳资源转化催化剂具有重要指导意义。",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/煤化工",
+          "as": "",
           "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22767",
-          "tp": "铜纳米晶CO2还原",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2026-m1905104000?af=R",
+          "tp": "光催化产双氧水",
           "aip": 1,
-          "kp": [
-            "催化剂[CO2电还原]: Cu纳米晶",
-            "[表征]: 原位SERS+SEIRAS振动光谱",
-            "[机制]: 解析C-C偶联表面吸附物演化"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Cu-based catalysts are uniquely capable of C-C coupling during electrochemical CO2 reduction (CO2R), yet further mechanistic understanding remains hampered by the lack of spectroscopically resolved descriptors that demonstrate how surface adsorbates emerge and evolve within their catalytic environment. Here, we correlate in situ surface-enhanced Raman spectroscopy (SERS) and surface-enhanced infrared absorption spectroscopy (SEIRAS) to resolve the potential-dependent dynamics during CO2R on Cu nanograin catalysts. By building on previous benchmarking of low overpotential performance and nanograin structural evolution, we offer a diagnostic framework linking vibrational signatures to catalytic function, unveiling which species appear, persist, and turnover as the electrified surface and interfacial environment evolve under bias. The onset of linear CO is marked below -0.45 V, coincident with persistent adsorbed *OH/*O domains beyond the CO2R onset. In this context, Cu nanograins serve as a platform to dissect contributions of adsorbate coverage. By carefully dissecting the potential dependence of emergent twin-defect/step CO stretch bands (P1-P2), alongside the prototypical terrace-site CO stretch band (P3), we provide important context for interpreting coupled spectroscopic trends driven by coverage effects and resolve this for the evidently complex nanograin morphology. Together, these observations highlight the intertwined roles of surface stabilization and interfacial flux in steering multicarbon product formation. By directly linking vibrational signatures to catalytic behavior, this work aims to bridge the gap between observation and control and help guide toward a predictive framework of fine-tuned selectivity for CO2R.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队开发可拉伸神经形态电路实现体表多模态信号低功耗实时处理",
-        "ProteomeLM语言模型实现跨物种蛋白质相互作用及基因必需性预测",
-        "研究构建木聚糖增强纳米流体忆阻器利用光信号调制离子神经网络"
-      ],
-      "entries": [
-        {
-          "t": "用于体表边缘计算的大规模可拉伸神经形态电路",
-          "d": "2026-05-22",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究者开发了一种大规模可拉伸神经形态电路，专用于体上边缘计算。该电路采用本征可拉伸电子材料，能够在皮肤表面实时处理多模态传感信号，模拟生物突触的计算方式实现低功耗、高并发的信息处理。与传统刚性芯片不同，该系统可随身体形变而稳定工作，为可穿戴健康监测、人机交互和软体机器人等场景提供了无需云端依赖的实时智能推理能力，代表了柔性电子与神经形态计算融合的重要进展。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01639-8",
-          "tp": "可拉伸神经形态电路",
-          "aip": 1,
-          "kp": [
-            "[柔性神经形态]: 可拉伸有机电化学晶体管边缘计算",
-            "[制造突破]: 可扩展制造解决柔性电路瓶颈"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Intrinsically stretchable electronics can be used to make wearable devices that collect large amounts of multimodal sensory data. This has led to a demand for enhanced near-sensor computing capabilities that can process such data. One potential solution is neuromorphic edge computing implemented using stretchable organic electrochemical transistors, but the lack of a scalable fabrication method for these transistors has limited the size and complexity of the systems. Here we report the fabrication of large-scale, intrinsically stretchable organic electrochemical transistor arrays with a density up to 10,000 transistors per square centimetre. The transistors exhibit good synaptic performance, including linear, precise conductance programming and good retention. The performance uniformity of the array enables the hardware implementation of a stretchable artificial neural network for processing health data, including heart attack risk assessment and kernel convolution for locating propagation wavefronts. We also explore the potential of implementing reinforcement learning algorithms on the neuromorphic circuits for use in soft robotics.",
-          "hb": 1
-        },
-        {
-          "t": "ProteomeLM：蛋白质组规模语言模型实现跨物种蛋白质-蛋白质相互作用与基因必需性的准确快速预测",
-          "d": "2026-05-22",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "开发了蛋白质组规模的预训练语言模型ProteomeLM，可跨物种快速准确预测蛋白质-蛋白质相互作用和基因必需性。该模型基于海量蛋白质序列训练，学习到蛋白质功能与进化信息的深层表征，在多物种基准数据集上预测准确率显著优于传统方法。ProteomeLM为疾病靶点发现、药物研发和合成生物学设计提供了高效计算工具，大幅降低了实验筛选成本。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2524201123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "蛋白质语言模型",
-          "aip": 1,
-          "kp": [
-            "[模型架构]: Transformer蛋白质组级语言模型",
-            "[预测任务]: 跨物种蛋白相互作用与基因必需性",
-            "[训练方式]: 全蛋白质组上下文掩码重建"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Language models trained on biological sequences are advancing inference tasks from the scale of single proteins to that of genomic neighborhoods. Here, we introduce ProteomeLM, a transformer-based language model that uniquely operates on entire proteomes from species spanning the tree of life. ProteomeLM is trained to reconstruct masked protein embeddings using the whole proteomic context, yielding contextualized protein representations that reflect proteome-scale functional constraints. Notably, ProteomeLM’s attention coefficients encode protein–protein interactions (PPI), despite being trained without interaction labels. Furthermore, it enables interactome-wide PPI screening that is substantially more accurate, and orders of magnitude faster, than amino acid coevolution-based methods. We further develop ProteomeLM-PPI, a supervised model that combines ProteomeLM embeddings and attention coefficients to achieve state-of-the-art PPI prediction across benchmarks and species. Finally, we introduce ProteomeLM-Ess, a supervised gene essentiality predictor that generalizes across diverse taxa. Our results demonstrate the potential of proteome-scale language models for addressing function and interactions at the organism level.",
-          "hb": 1
-        },
-        {
-          "t": "光调控木聚糖增强纳米流体忆阻器用于离子神经网络机器人运动调节",
-          "d": "2026-05-22",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了一种光调控的木聚糖增强纳米流体忆阻器，用于构建离子人工神经网络。该器件利用纳米流通道中离子的非线性传输行为模拟生物突触功能，并通过光信号调制实现兴奋性与抑制性信号的动态平衡。木聚糖作为天然高分子材料增强了通道的结构稳定性与生物相容性。该器件在类脑计算和信息处理领域展现出潜力，为下一代仿生智能器件和柔性神经形态硬件提供了新的材料与技术路线。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73462?af=R",
-          "tp": "纳米流体忆阻器",
-          "aip": 1,
-          "kp": [
-            "材料[忆阻器]: 木聚糖增强2D纳米流体膜",
-            "[功能]: 光调控离子忆阻",
-            "[应用]: 离子神经网络调控机器人运动"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  The balance between excitatory and inhibitory (E/I) signaling underpins complex neural functions in biological systems. However, replicating such ion‐mediated regulation with biobased materials in artificial systems remains challenging. Herein, we demonstrate two distinct light‐modulated 2D nanofluidic memristors based on paper‐mill waste (xylan) reinforced membranes that emulate complementary E/I synaptic signaling, enabling precise robotic motion control via ionic neural networks. The memristors were constructed using xylan‐reinforced MXene membranes with asymmetric electrolytes, leveraging the interfacial interactions between the functional groups of xylan derivatives and MXene to achieve nanofluidic membrane assembly and precise control over surface charge and ion selectivity. Upon illumination, the photothermal effect of MXene induces a uniform thermal field that enables thermally activated ion transport in the interlayer spacing, allowing these biomass‐based memristors to emulate key excitatory and inhibitory synaptic behaviors. These complementary memristors further implement reconfigurable Boolean logic operations and serve as foundational components for ionic circuits, as demonstrated in series and parallel configurations. As a proof‐of‐concept, an E/I‐integrated ionic neural network achieved precise control of ten robotic motion modes by tuning light pulses, concentration gradients, and ion selectivity. This work highlights the potential of biomass‐reinforced materials for nanofluidic memristors and explores new frontiers in the application of biomass materials.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "实验首次在自偏置磁光光子晶体中观测到手性连续体束缚态模式",
-        "科研人员在块体铁电体中发现具有负泊松比的本征拉胀压电效应",
-        "研究提出空间工程热力学门控策略实现合成大麻素高保真识别"
+        "准透明陶瓷光子引擎实现1.2公里白光通信及71.8兆赫兹带宽",
+        "欧洲物理学家计划建造91公里长的新型粒子对撞机",
+        "科研人员开发4-氨基吡啶鎓基轮烷分子梭无金属活性模板合成路径"
       ],
       "entries": [
         {
-          "t": "自偏置磁光光子晶体连续体中手性束缚态的观察",
+          "t": "Tailoring quasi-transparent ceramic as a laser-driven photonic engine for kilometer-level white light communication",
           "d": "2026-05-22",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "a": "Matter",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在自偏置磁光光子晶体中实验观测到手性连续体束缚态（BIC）。这类模式具有无穷大品质因数和手性响应，此前理论预测需在打破时间反演对称性的磁光光子晶体中实现，但实验一直未果。该成果无需外加磁场即可工作，在手性光学、传感和光子器件领域具重要意义。",
-          "sc": 6.8,
+          "as": "通过在铝硅酸盐玻璃中进行温和的阶梯式结晶，制备了晶圆级铈离子掺杂石榴石型准透明陶瓷。作为高功率光子引擎，该材料支持距离超过1.2公里的室外白光通信，其-3分贝带宽高达71.8兆赫兹，在白光通信和未来低空经济应用中展现出巨大潜力。",
+          "sc": 8.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2536341123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "手性束缚态",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Chiral bound states in the continuum (BICs) are confined photonic modes with infinite quality factors and chiral response, offering significant potential for chiral optics. Although a novel type of spin-orbital-locking chiral BIC was recently predicted in magneto-optical (MO) photonic crystals (PhCs) that break time-reversal symmetry (TRS), its experimental realization has remained elusive. Here, we report an experimental observation of such chiral BICs in self-biased MO PhCs, which operate without external magnetic fields. Moreover, we experimentally demonstrate that the chirality and the surrounding near-circular polarization of these chiral BICs can be switched simply by reversing the remanent magnetization, without any structural changes. Unlike conventional chiral BICs that preserve TRS, these magnetically induced chiral BICs exhibit exceptional robustness against structural imperfections and perturbations. This work represents a significant advancement in topological photonics for chiral BICs, opening pathways toward robust chiral optical devices.",
-          "hb": 1
-        },
-        {
-          "t": "块体铁电体中的本征拉胀-压电效应",
-          "d": "2026-05-22",
-          "a": "National Science Review Advance Access",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "压电材料在电场作用下发生形变，纵向和横向压电系数通常符号相反。该研究在块体铁电体中发现了本征拉胀（auxetic）压电效应，即纵向和横向应变同号，泊松比为负值。这种反常行为源于铁电体特殊的晶体对称性和极化旋转机制，打破了传统压电响应的认知框架，在新型传感器、执行器和声学换能器件设计方面具有独特应用价值。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag295/8688108?rss=1",
-          "tp": "铁电体压电效应",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00185-2?rss=yes",
+          "tp": "透明陶瓷光引擎",
           "aip": 1,
           "kp": [
-            "[物理效应]: 本征拉胀压电效应",
-            "[材料形态]: 体铁电材料",
-            "[特征]: 纵横压电系数同号"
+            "-3 dB带宽[准透明陶瓷光子引擎驱动白光通信]: 高达71.8 MHz",
+            "通信距离[准透明陶瓷光子引擎驱动白光通信]: 超过1.2公里",
+            "材料组成[准透明陶瓷光子引擎]: Ce3+掺杂石榴石型Lu(Ca2-xMgx)Al3Si2O12:Ce3+"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Piezoelectric materials deform under an electric field, typically exhibiting opposite signs in their longitudinal and transverse piezoelectric coefficients. Achieving the same sign for both coefficients enables the ‘auxetic piezoelectric effect’, where the material expands or contracts simultaneously in all directions. Although this unconventional effect has recently been observed in carefully engineered single-crystal heterostructures along specific crystallographic directions, a low-cost intrinsic bulk polycrystalline material that combines auxetic response with high-temperature stability has remained elusive. Here, we first predict and experimentally demonstrate a catalog of bulk materials exhibiting this counterintuitive intrinsic auxetic piezoelectric effect, namely the Aurivillius ferroelectrics. Theoretical analyses reveal that this effect originates from the relative sliding deformation between differently charged structural units within their layered architecture, and that it remains robust over a broad temperature range (5–1000 K). Furthermore, we show that the auxetic nature of bulk Aurivillius ceramics can be exploited to enhance the effective longitudinal piezoelectric response by an order of magnitude, achieving coexistence of strong piezoelectricity and high operating temperature. This work establishes Aurivillius ferroelectrics as a platform for auxetic piezoelectrics and opens avenues for advanced electromechanical devices.",
+          "b": "A wafer-scale Ce3+-doped garnet-type Lu(Ca2-xMgx)Al3Si2O12:Ce3+ quasi-transparent ceramic has been fabricated through a mild stepped crystallization in aluminosilicate glasses. As a high-power photonic engine, it supports outdoor VLC over 1.2-kilometer distances with a −3 dB bandwidth of up to 71.8 MHz, showing extraordinary potential for VLCs and future low-altitude economy application.",
           "hb": 1
         },
         {
-          "t": "空间工程热力学门控：用于合成大麻素化学类别区分的亚稳态组件",
+          "t": "官方消息：欧洲物理学家计划建造 91 公里长的粒子对撞机",
           "d": "2026-05-22",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "a": "Latest News from Science Magazine",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "提出空间工程热力学门控策略，基于解聚集诱导发光机制，打破超分子化学中固有的稳定性-敏感性困境，实现对合成大麻素的高保真化学类别识别。该策略可用于现场快速筛查，应对新型精神活性物质的致死风险。",
-          "sc": 6.2,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3463809?af=R",
-          "tp": "合成大麻素检测",
+          "as": "",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/content/article/it-s-official-europe-physicists-plan-build-91-kilometer-particle-collider",
+          "tp": "粒子对撞机",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  Synthetic cannabinoids (SCs), a rapidly evolving class of new psychoactive substances (NPS), trigger severe neurotoxicity and fatalities while evading rapid, structure‐selective on‐site screening. To enable high‐fidelity recognition of such chemically inert targets, we propose a generalizable “Steric‐Engineered Thermodynamic Gating” strategy based on disaggregation‐induced emission (DIE) mechanism that breaks the intrinsic “stability‐sensitivity” deadlock in supramolecular sensing. Distinct from trial‐and‐error optimization, this approach rationally exploits steric bulk to induce active packing frustration, creating metastable aggregates designed to selectively detect SCs via synergistic non‐covalent interactions (e.g., π–π stacking and hydrogen bonding). Functioning as a thermodynamic filter, this assembly remains inert against non‐target interferents yet selectively undergoes cooperative disassembly upon binding with specific SCs via multivalent synergy, transforming a quenched “off” state into a robust blue‐shifted “on” signal. Validating this strategy with EDMB‐PINACA, the system exhibits ultrafast response (&lt;1 s) and high sensitivity (LOD 4.7 µM); integrated into a 3D‐printed portable chip, it enables reliable, false‐positive‐free screening in authentic samples (e.g., e‐liquids, petals) with exceptional immunity to complex matrix interference. This work establishes a methodological blueprint for engineering aggregate metastability to recognize low‐reactivity analytes, offering a theoretical foundation for designing intelligent field‐deployable optics beyond the limitations of traditional molecular recognition.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "无金属活性模板：4-氨基吡啶鎓基轮烷分子梭的直接途径",
+          "d": "2026-05-22",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8134791?af=R",
+          "tp": "分子梭材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

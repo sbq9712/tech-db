@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "国家电投绿氨项目创全球单次出口纪录并攻克极寒稳定运行难题",
-      "法国ITEN研发600 Wh/L全陶瓷固态电池专供植入式心脏辅助设备",
-      "科研团队利用有机催化剂实现二氧化碳与双环烷烃交替共聚"
+      "阳明交大联合开发自适应界面技术，室内钙钛矿光伏效率突破40%",
+      "国家电投完成3750吨绿氨出口交付，创全球风光氢氨单批次规模纪录",
+      "红旗研发12C峰值充电率动力电池，8分钟内可完成整车极速补能"
     ],
     "AI与智能科技": [
-      "神经科学研究探明前岛叶至眶额叶皮层网络主导呼吸中断意识检测",
-      "新光捕获架构提升碲超掺杂硅光电探测器短波长红外量子效率",
-      "合肥量子产业年营收超60亿元并集聚107家产业链规上企业"
+      "科研人员引入光捕获架构，使碲超掺杂硅光电探测器短波红外量子效率大幅提升",
+      "合肥集聚107家量子企业，本源量子估值近240亿元且国仪量子科创板过会",
+      "Raygun生成式AI框架实现天然蛋白质微型化修饰与功能扩充"
     ],
     "通用技术": [
-      "低温阴极发光技术揭示硼-10同位素六方氮化硼极化子耦合机制",
-      "科研团队在全光驱动超材料中首次实现太赫兹频率光子时间晶体",
-      "双修饰耻垢分枝杆菌孔蛋白A纳米孔实现多肽序列精确读取"
+      "御微半导体发运国内首款90至28nm制程掩模图形缺陷检测设备",
+      "低温阴极荧光技术证实富同位素六方氮化硼中Fröhlich型极化子耦合现象",
+      "研究提出双圆拉曼光学活性作为识别凝聚态物理多极序的新探测手段"
     ]
   },
   "sectors": [
@@ -26,66 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "国家电投绿氨项目创全球单次出口纪录并攻克极寒稳定运行难题",
-        "法国ITEN研发600 Wh/L全陶瓷固态电池专供植入式心脏辅助设备",
-        "科研团队利用有机催化剂实现二氧化碳与双环烷烃交替共聚"
+        "阳明交大联合开发自适应界面技术，室内钙钛矿光伏效率突破40%",
+        "国家电投完成3750吨绿氨出口交付，创全球风光氢氨单批次规模纪录",
+        "红旗研发12C峰值充电率动力电池，8分钟内可完成整车极速补能"
       ],
       "entries": [
+        {
+          "t": "自适应空穴传输界面使室内钙钛矿太阳能电池效率突破 40%",
+          "d": "2026-07-29",
+          "a": "perovskite-info",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "台湾阳明交通大学与Flexwave公司合作开发出一种自适应界面纳米结构（SAIN）技术。将其应用于倒置钙钛矿太阳能电池后，在标准1太阳光照下功率转换效率接近20%；在2000勒克斯室内光下效率达38.16%，搭配光学增强膜后室内效率突破40%。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.perovskite-info.com/self-adaptive-hole-transport-interface-pushes-indoor-perovskite-solar-cells",
+          "tp": "钙钛矿光伏电池",
+          "aip": 1,
+          "kp": [
+            "光电转换效率[室内钙钛矿太阳能电池配合SAIN]: 突破40%",
+            "光电转换效率[室内光照2000 lux条件]: 38.16%",
+            "光电转换效率[标准1-sun光照条件]: 接近20%",
+            "空穴提取接触界面[倒置钙钛矿电池]: 自适应界面纳米结构(SAIN)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Self-adaptive hole-transport interface pushes indoor perovskite solar cells past 40% efficiency\nResearchers from Taiwan's National Yang Ming Chiao Tung University and Flexwave have developed a self-adaptive interfacial nanostructure (SAIN) for the hole-extraction contacts of inverted perovskite solar cells, reporting a power conversion efficiency (PCE) approaching 20% under standard 1-sun illumination and 38.16% under indoor lighting at 2,000 lux - a figure that climbs above 40% once paired with an optical enhancement film, placing the device among the most efficient indoor perovskite solar cells reported to date.\nThe team explains that \"regular\" n-i-p configurations tend to reach higher efficiencies, but inverted PeSCs offer better long-term stability and are easier to stack into multijunction devices, making the p-i-n architecture an attractive target for further improvement. A major bottleneck in inverted PeSCs is the buried hole-transport layer (HTL) sitting beneath the perovskite film. Because the perovskite crystallizes directly on top of it, the HTL's quality shapes both the interface and the growing perovskite layer itself, and a poor HTL drives up non-radiative recombination - carriers lost to defects rather than converted into current, which shows up as low photoluminescence quantum yield in the finished film. Today's leading inverted devices typically grow their perovskite on either a hole-conducting polymer such as poly(triarylamine) (PTAA) or a self-assembled monolayer (SAM) built from carbazole-based molecules. Each has drawbacks: high-quality PTAA is costly to produce, while SAMs are difficult to deposit as a conformal, densely packed layer, which hurts device-to-device reproducibility. Both materials are also hydrophobic, complicating full-coverage perovskite deposition over large areas. Hybrid PTAA-plus-SAM contacts have been explored to combine their strengths, but so far only for standard 1-sun operation, leaving their potential for indoor photovoltaics untested.\nIndoor photovoltaics are a particularly attractive niche for perovskites, since their bandgap can be tuned to match the emission spectrum of common indoor light sources, making PeSCs well suited to powering low-energy Internet of Things (IoT) devices and sensors - letting them run longer between battery changes.\nThe team's SAIN structure combines PTAA with the SAM molecule (3,6-Dimethyl-9H-carbazol-9-yl)butyl)phosphonic acid, known as Me-4PACz. Fabrication starts with spin-coating a diluted PTAA solution onto the indium tin oxide (ITO) electrode, filling in the grain boundaries of the ITO surface, before Me-4PACz is applied on top. Rather than forming a fixed, static layer, the SAM molecules adopt an orientation that adapts to the underlying PTAA, producing a surface tuned to support high-quality perovskite growth above it. This self-adaptive arrangement aligns the energy levels across the contact and cuts down surface recombination, addressing the reproducibility and coverage problems that have limited PTAA- and SAM-only contacts.\nUnder standard 1-sun illumination, the SAIN-based device reached a PCE of close to 20%. Under indoor lighting, performance was markedly stronger: 33.54% at 200 lux and 38.16% at 2,000 lux. Adding an optical enhancement film on top pushed the indoor PCE past 40%, ranking the device among the best-performing indoor PeSCs reported so far. The devices also showed improved reproducibility compared with PTAA- or SAM-only contacts, a factor the researchers point to as encouraging for future large-scale production and commercialization of indoor perovskite photovoltaics.\nMaterialstoday Energy\nJul 29,2026 by\nRoni Peleg\nSimilar Entries\nResearchers develop indium-free titanium oxynitride recombination layer for 33.3%-efficient perovskite-silicon tandems\nResearchers boost vacuum-deposited PSCs to 25.53% efficiency using acetate-driven crystallization control\nNew strategy stabilizes the perovskite/C60 interface, delivering 27.43% efficiency\nGCL SI achieves 33.44% efficiency for flexible perovskite-silicon tandem cell\nResearchers uncover the hidden chemistry driving gradual reverse-bias degradation in perovskite solar cells\nJA Solar to convert a Yangzhou module line to perovskite tandem production\nIndia's MNRE earmarks $24 million for a perovskite PV manufacturing pilot line\nEpson increases investment in Gosan Tech to expand inkjet manufacturing for perovskite solar modules",
+          "hb": 1
+        },
         {
           "t": "国家电投“氢洲·绿氨”实现规模化出口--中国能源新闻网",
           "d": "2026-07-29",
           "a": "中国电力新闻网-新能源",
           "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "国家电投“氢洲·大安绿氨”项目实现3750吨绿氨规模化出口至韩国，创全球最大单批次绿氨出口纪录。该示范项目于2025年7月投产，配套80万千瓦新能源装机，年产绿氨18万吨，创下五项“全球之最”。自主研发的“绿电—氢—氨”柔性管控系统解决了风光波动与化工稳产难题，并在极寒环境下安全稳定运行超300天。",
-          "sc": 8.7,
+          "as": "国家电投“氢洲·绿氨”示范项目完成全球最大单批次3750吨绿氨出口，从连云港发往韩国。该项目年产绿氨18万吨，创五项“全球之最”，自主研发的柔性协同管控系统解决了风光出力波动与化工连续稳产难题，并在零下30℃极寒中安全运行超300天。这标志着中国风光氢氨全产业链迈入规模化国际商业交付新阶段。",
+          "sc": 8.2,
           "i": "n",
           "tg": "产业进展",
           "u": "https://cpnn.com.cn/news/xny/202607/t20260729_1905194.html",
           "tp": "绿氨规模化出口",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "出口规模[国家电投“氢洲·绿氨”单批次出口]: 3750吨",
+            "[技术状态]: 创全球绿氨最大单批次出口纪录，标志中国绿色燃料产业迈入国际商业交付新阶段，完成从技术示范到规模化国际商业交付的跨越"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "国家电投“氢洲·绿氨”实现规模化出口--中国能源新闻网\n中电传媒股份有限公司主办\n国家电投“氢洲·绿氨”实现规模化出口\n——创全球绿氨最大单批次出口纪录，标志我国绿色燃料产业迈入国际商业交付新阶段\n7月28日，江苏连云港。在港口的万吨级泊位上，一艘巨轮已整装待发。悬挂在码头围栏上的“氢洲通四海，绿氨达五洲”的红底白字条幅分外醒目。\n下午15时许，三声远航的汽笛声划破海平面的宁静，巨轮缓缓离泊，船尾拖出一道银白色的航迹，海鸥在桅杆间盘旋鸣叫，仿佛在为这场跨越国界的绿色远航送行。3750吨“氢洲·绿氨”，满载着中国绿色能源产业的自信，从连云港破浪起航，驶向韩国。\n这一刻，一个产业的历史坐标就此定格：全球最大单批次绿氨出口，中国绿色燃料首次以全生命周期碳减排贡献获得国际市场绿色价值认可。从东北平原零下30℃极寒中的万吨级绿氨装置，到黄海之滨晨光里的远洋巨轮，中国风光氢氨全产业链终于完成了从“技术示范”到“规模化国际商业交付”的破浪远航。\n从“五项全球之最”到“安全稳定运行超300天”\n本次出口绿氨全部产自国家电投集团“氢洲·大安绿氨”示范项目。该项目作为国家清洁低碳氢能示范工程、战略性新兴产业“百大工程”，于2025年7月建成投产，配套新能源装机80万千瓦，年产绿氢3.2万吨、绿氨18万吨，一举创下全球最大单体绿氨装置等五项“全球之最”。\n投产至今，项目安全稳定运行超300天，零碳低碳水平领先。该项目自主研发的“绿电—氢—氨”柔性协同管控系统，可不断升级选优，已成功解决了风光出力波动与化工连续稳产的世界级共性难题，入选2025年度国家能源局能源行业十大科技创新成果。在东北零下30℃极寒环境下，项目实现整冬无冻凝、零安全生产事故，以极端条件下的稳定运行，为绿氨的清洁价值提供了坚实的工业化底座。\n全球首张认证撬动国际绿色价值认可\n基于对全球能源治理趋势的深刻洞察，电投绿能前瞻性启动了ISCC EU国际认证布局，主动以国际通行的碳合规语言，为中国绿氨融入全球绿色燃料贸易体系铺就通道。\n2025年10月，“氢洲·大安绿氨”示范项目获颁全球首张“非生物来源可再生燃料氨（RFNBO Ammonia）”认证。该认证由国际可持续发展与碳认证体系（ISCC EU）授予、法国必维集团核证，全面满足欧盟《可再生能源指令》（REDIII）最严苛要求，碳足迹的计算覆盖从风光发电、电解水制氢、绿氨合成到储运外销的全供应链，每一批次绿氨均可实现从绿电资源到交付港口的全流程溯源与核查。\n依托这一国际通行的“绿色身份证明”，本批次绿氨首次以“全生命周期碳减排贡献”获得国际市场绿色价值认可，书写了我国绿氨从普通化工原料迈向绿色燃料价值出口的新篇章。3750吨绿氨相比国内传统煤制合成氨，全生命周期减排二氧化碳超万吨，相当于约100万棵树木一年的固碳量。\n中国方案嵌入全球绿色燃料供应链\n此次规模化出口并获得国际绿色价值认可，既是国家电投集团落实国家《“十五五”碳达峰行动方案》的标志性实践，也是中国深度参与全球气候治理的重要成果。\n随着IMO碳强度指标趋严、EU ETS覆盖航运等政策密集落地，全球对可溯源、可核查的绿色燃料需求日益迫切。绿氨作为兼具绿色燃料与清洁工业原料双重属性的核心载体，正成为全球能源变革的关键赛道。本次中国绿氨实现规模化出口，标志着中国绿氨产品以自主技术和国际认证深度嵌入全球绿色燃料供应链。项目构建了从“核心装备”到“港口出海”的全链路协同：国氢科技、阳光电源、隆基绿能提供制氢装备，国核自仪负责智慧控制系统，盛虹集团承接港口储运，形成多技术路线协同联动，打通了绿氨外运的关键枢纽。全产业链的无缝对接，为新能源富集地区开辟了一条可储存、可运输、可增值、可溯源的清洁能源消纳新通道，形成了“绿电资源—绿氨载体—国际市场”的价值闭环。\n从中国制造到中国创造，从产品出口到标准引领——3750吨绿氨跨海而去。这不仅是一次绿色燃料的规模化远航，更是中国绿色能源技术标准与产业范式的全球输出，为深化绿色丝绸之路合作、完善全球气候治理体系注入了中国动力。这一实践，正是能源领域新质生产力发展的生动实践，也是绿色能源领域培育新动能的有力印证。\n“氢洲”定过万重山，为全球能源绿色转型贡献国家电投方案\n码头上，“风光无限国家电投、氢洲绿氨赋能未来”的巨幅标语迎风舒展，与远方渐行渐远的巨轮构成一幅壮阔画面。电投绿能党委书记、董事长杨玉峰表示：“本次‘氢洲· 绿氨’首船规模出海，是我们国家电投集团绿色氢基能源产业的里程碑式突破。3750吨绿氨以全生命周期碳减排贡献获得国际市场绿色价值认可，充分证明了中国清洁能源产品的全球竞争力。下一步，公司将持续做强国际化自主品牌‘氢洲HYGLOBAL’，深耕全链条技术创新与标准体系建设，不断拓宽绿氢、绿氨、绿甲醇、绿航油等绿色燃料的海外应用场景，为全球能源绿色低碳转型贡献可复制、可推广的国家电投方案。”\n“十四五”能源高质量发展\n中国风电持续赋能全球绿色转型\n上半年全国光伏发电量同比增长超过40%\n新疆首个新能源智能摩托车项目落地\n山西储能新规向“圈而不建”亮剑\n广西能源拟投建贺州140万千瓦抽水蓄能电站\n山东发布首批67个新能源标志性应用场景项目\n新能源汽车维修作业安全国标8月施行\n海兴电力等成立新能源公司 经营范围含电池制造业务",
+          "b": "国家电投“氢洲·绿氨”实现规模化出口--中国能源新闻网\n中国能源传媒集团\n中电传媒股份有限公司主办\n能源中国IOS版\n国家电投“氢洲·绿氨”实现规模化出口\n——创全球绿氨最大单批次出口纪录，标志我国绿色燃料产业迈入国际商业交付新阶段\n7月28日，江苏连云港。在港口的万吨级泊位上，一艘巨轮已整装待发。悬挂在码头围栏上的“氢洲通四海，绿氨达五洲”的红底白字条幅分外醒目。\n下午15时许，三声远航的汽笛声划破海平面的宁静，巨轮缓缓离泊，船尾拖出一道银白色的航迹，海鸥在桅杆间盘旋鸣叫，仿佛在为这场跨越国界的绿色远航送行。3750吨“氢洲·绿氨”，满载着中国绿色能源产业的自信，从连云港破浪起航，驶向韩国。\n这一刻，一个产业的历史坐标就此定格：全球最大单批次绿氨出口，中国绿色燃料首次以全生命周期碳减排贡献获得国际市场绿色价值认可。从东北平原零下30℃极寒中的万吨级绿氨装置，到黄海之滨晨光里的远洋巨轮，中国风光氢氨全产业链终于完成了从“技术示范”到“规模化国际商业交付”的破浪远航。\n从“五项全球之最”到“安全稳定运行超300天”\n本次出口绿氨全部产自国家电投集团“氢洲·大安绿氨”示范项目。该项目作为国家清洁低碳氢能示范工程、战略性新兴产业“百大工程”，于2025年7月建成投产，配套新能源装机80万千瓦，年产绿氢3.2万吨、绿氨18万吨，一举创下全球最大单体绿氨装置等五项“全球之最”。\n投产至今，项目安全稳定运行超300天，零碳低碳水平领先。该项目自主研发的“绿电—氢—氨”柔性协同管控系统，可不断升级选优，已成功解决了风光出力波动与化工连续稳产的世界级共性难题，入选2025年度国家能源局能源行业十大科技创新成果。在东北零下30℃极寒环境下，项目实现整冬无冻凝、零安全生产事故，以极端条件下的稳定运行，为绿氨的清洁价值提供了坚实的工业化底座。\n全球首张认证撬动国际绿色价值认可\n基于对全球能源治理趋势的深刻洞察，电投绿能前瞻性启动了ISCC EU国际认证布局，主动以国际通行的碳合规语言，为中国绿氨融入全球绿色燃料贸易体系铺就通道。\n2025年10月，“氢洲·大安绿氨”示范项目获颁全球首张“非生物来源可再生燃料氨（RFNBO Ammonia）”认证。该认证由国际可持续发展与碳认证体系（ISCC EU）授予、法国必维集团核证，全面满足欧盟《可再生能源指令》（REDIII）最严苛要求，碳足迹的计算覆盖从风光发电、电解水制氢、绿氨合成到储运外销的全供应链，每一批次绿氨均可实现从绿电资源到交付港口的全流程溯源与核查。\n依托这一国际通行的“绿色身份证明”，本批次绿氨首次以“全生命周期碳减排贡献”获得国际市场绿色价值认可，书写了我国绿氨从普通化工原料迈向绿色燃料价值出口的新篇章。3750吨绿氨相比国内传统煤制合成氨，全生命周期减排二氧化碳超万吨，相当于约100万棵树木一年的固碳量。\n中国方案嵌入全球绿色燃料供应链\n此次规模化出口并获得国际绿色价值认可，既是国家电投集团落实国家《“十五五”碳达峰行动方案》的标志性实践，也是中国深度参与全球气候治理的重要成果。\n随着IMO碳强度指标趋严、EU ETS覆盖航运等政策密集落地，全球对可溯源、可核查的绿色燃料需求日益迫切。绿氨作为兼具绿色燃料与清洁工业原料双重属性的核心载体，正成为全球能源变革的关键赛道。本次中国绿氨实现规模化出口，标志着中国绿氨产品以自主技术和国际认证深度嵌入全球绿色燃料供应链。项目构建了从“核心装备”到“港口出海”的全链路协同：国氢科技、阳光电源、隆基绿能提供制氢装备，国核自仪负责智慧控制系统，盛虹集团承接港口储运，形成多技术路线协同联动，打通了绿氨外运的关键枢纽。全产业链的无缝对接，为新能源富集地区开辟了一条可储存、可运输、可增值、可溯源的清洁能源消纳新通道，形成了“绿电资源—绿氨载体—国际市场”的价值闭环。\n从中国制造到中国创造，从产品出口到标准引领——3750吨绿氨跨海而去。这不仅是一次绿色燃料的规模化远航，更是中国绿色能源技术标准与产业范式的全球输出，为深化绿色丝绸之路合作、完善全球气候治理体系注入了中国动力。这一实践，正是能源领域新质生产力发展的生动实践，也是绿色能源领域培育新动能的有力印证。\n“氢洲”定过万重山，为全球能源绿色转型贡献国家电投方案\n码头上，“风光无限国家电投、氢洲绿氨赋能未来”的巨幅标语迎风舒展，与远方渐行渐远的巨轮构成一幅壮阔画面。电投绿能党委书记、董事长杨玉峰表示：“本次‘氢洲· 绿氨’首船规模出海，是我们国家电投集团绿色氢基能源产业的里程碑式突破。3750吨绿氨以全生命周期碳减排贡献获得国际市场绿色价值认可，充分证明了中国清洁能源产品的全球竞争力。下一步，公司将持续做强国际化自主品牌‘氢洲HYGLOBAL’，深耕全链条技术创新与标准体系建设，不断拓宽绿氢、绿氨、绿甲醇、绿航油等绿色燃料的海外应用场景，为全球能源绿色低碳转型贡献可复制、可推广的国家电投方案。”\n学习贯彻四中全会精神\n“十四五”能源高质量发展\n中国风电持续赋能全球绿色转型\n上半年全国光伏发电量同比增长超过40%\n新疆首个新能源智能摩托车项目落地\n山西储能新规向“圈而不建”亮剑\n广西能源拟投建贺州140万千瓦抽水蓄能电站\n山东发布首批67个新能源标志性应用场景项目\n新能源汽车维修作业安全国标8月施行\n海兴电力等成立新能源公司 经营范围含电池制造业务",
           "hb": 1
         },
         {
-          "t": "ITEN 固态电池瞄准植入式心脏设备",
+          "t": "这家中国汽车制造商刚刚用 8 分钟即可充电的电动汽车电池击败了比亚迪",
           "d": "2026-07-29",
-          "a": "Battery Tech Online",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "法国固态电池制造商ITEN启动了一项开发计划，将其全陶瓷固态电池技术应用于三级植入式医疗设备，如心脏泵和神经刺激器。该电池目标能量密度为600 Wh/L，容量超2Ah。其全陶瓷架构彻底消除了热失控风险，并支持在20分钟内通过无线方式恢复80%的电量。与英国Ilika主攻300 µAh容量神经调节电池不同，ITEN专注于为心脏辅助设备提供更高容量的电池。",
-          "sc": 8.1,
+          "a": "INSIDEEVs",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "红旗宣布研发出实验性电动汽车电池，打破了此前的充电速度记录。该款电池峰值充电率达到12C，能够在不到4分钟的时间内将电量充至60%，实现仅8分钟左右的极速补能，展现了极高的充电效率。",
+          "sc": 8.0,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://www.batterytechonline.com/portable/solid-state-batteries-move-to-life-critical-implants-as-iten-targets-cardiac-pump-market",
-          "tp": "全陶瓷固态电池",
+          "u": "https://insideevs.com/news/803094/hongqi-four-minute-charging-test/",
+          "tp": "红旗超充电池发布",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "充电倍率[红旗实验电池]: 12C",
+            "补能比例[红旗实验电池充电]: 60%",
+            "充电时间[红旗实验电池补能60%]: 低于4分钟",
+            "满充时间[红旗实验电池]: 8分钟"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "French manufacturer's all-ceramic battery technology eliminates thermal runaway risk while delivering fast-charging capability for next-generation ventricular assist devices and neurostimulators.\nJuly 28, 2026\nIllustration of ITEN solid-state battery implanted in human body.\nITEN targets 600 Wh/L energy density and 2+ Ah capacity for Class III implantable cardiac pumps and neurostimulators.\nAll-ceramic architecture eliminates thermal runaway risk and enables 80% charge recovery in under 20 minutes wirelessly.\nUK's Ilika targets neuromodulation with 300 µAh batteries; ITEN pursues higher-capacity cells for cardiac assist devices.\nFrance-based solid-state battery manufacturer\nhas launched a development program to adapt its technology for Class III implantable medical devices—think cardiac pumps and neurostimulators that operate inside the body for years at a time.\nThe move builds on ITEN's earlier work in medical applications. Earlier this year,\nBattery Technology covered the company's breakthrough in powering smart contact lenses\n, showing its expanding footprint across medical device categories.\nOperating under the SOLIMED project within Europe's IPCEI Tech4Cure initiative, the development program tackles challenges unique to devices implanted in the human body. ITEN is engineering its solid-state technology to meet demanding requirements: safety, energy density, fast charging, reliability, and miniaturization.\nThe performance targets are ambitious: 600 Wh/L energy density, capacity exceeding 2 Ah, and 80% charge recovery in under 20 minutes. If achieved, these specs would represent a substantial leap for implantable device power systems, particularly for cardiac assist applications where ITEN plans to deploy solid-state batteries.\n10 Ways Tech Can Help on the Campsite or Trail\nInside ITEN's solid-state battery manufacturing line in Dardilly, France. Credit: ITEN\nITEN's approach centers on a full-ceramic electrode architecture that differs fundamentally from conventional lithium-ion batteries. The company uses nanomaterials expertise to create stacked ceramic electrodes overmolded into battery modules, eliminating liquid electrolytes and organic materials entirely.\nThis all-solid-state design removes thermal runaway and flammability risks—crucial when a battery operates inside the human body for extended periods. The monolithic ceramic architecture also drastically reduces cell volume variation, which typically limits battery lifetime in conventional designs.\nFor cardiac assist devices, ITEN plans to develop battery packs with multiple modules and integrated battery management systems. The technology's intrinsic stability minimizes swelling and temperature increases during operation—addressing primary safety concerns for implantable applications.\nHigher energy density could enable more compact battery packs suitable for internal placement. The fast-charging capability is designed to support transcutaneous (through-the-skin) wireless recharging, allowing implanted batteries to recover most capacity in minutes rather than hours.\nExtended operating life is another key objective. Longer-lasting battery subsystems could reduce how often patients need surgical procedures to replace implanted battery packs—a meaningful quality-of-life improvement for people with cardiac assist devices, neurostimulators, hearing implants, and other active implants.\n7 Portable Power Stations Worth Owning in 2026\n\"Implantable medical devices represent one of the most demanding applications for any energy storage technology,\" stated Vincent Cobée, CEO of ITEN. \"This development program is a major milestone for ITEN and a strong validation of our core solid-state technology platform.\"\nBeyond the cells themselves, ITEN's program will explore advanced battery packaging solutions. The company plans to evaluate new biocompatible overmolding materials for complete battery subsystems, potentially offering alternatives to the traditional titanium cases used for implantable batteries.\nCombining solid-state cell technology, compact pack design, and biocompatible encapsulation could enable tighter integration in future implantable medical devices.\nIllustration of SSB structure. Credit: ITEN\nITEN is among the few companies worldwide with industrial-scale solid-state battery production capabilities. The company controls the entire value chain from materials and cell design to manufacturing, holding more than 40 patent families. But the company isn't alone in pursuing solid-state technology for implantable devices. UK-based\nIlika Technologies\nhas developed the\nStereax M300\n, a miniature solid-state battery with 300 µAh capacity in an ultra-thin form factor (5.6 mm × 3.6 mm × 0.9 mm).\nAdvanced Battery Designs Shaping Wearable Device Evolution\nBoth companies use solid-state architecture for safety and reliability, but they're targeting different market segments. Ilika's Stereax platform focuses on low-to-medium power applications like gastric stimulation, vagus nerve stimulation, and neuromodulation devices. ITEN's program targets significantly higher capacity—exceeding 2 Ah—for power-intensive applications like cardiac assist pumps.\nThe capacity difference reflects distinct application demands. Neuromodulation devices typically need microwatt-to-milliwatt power levels, while cardiac pumps require substantially more energy storage to support continuous mechanical circulatory support. ITEN's 600 Wh/L energy density target and fast-charging capability (80% recovery in under 20 minutes) position its technology for these more demanding therapeutic applications.\nCardiac assist applications provide the initial use case, but ITEN sees broader opportunities across the Class III medical device market. The company already develops and supplies batteries for Class I and Class II medical devices; this program extends its technology into the more demanding implantable device segment.\nThe stringent quality and reliability requirements of Class III devices could drive improvements across ITEN's entire medical device portfolio. The project also contributes to European technological sovereignty in healthcare innovation as part of the IPCEI Tech4Cure initiative.\nMichael C. Anderson\nAs editor-in-chief of\nBattery Technology\n, Michael C. Anderson leads the brand’s coverage of advancements in battery technology as well as associated materials and manufacturing techniques across industries such as automotive/EVs, e-mobility, maritime, aerospace, medtech, and consumer electronics.\nMike is also a member of\nThe Battery Show North America Advisory Board\n, where he contributes his expertise to advising on industry trends and speaker selection for The Battery Show North America while helping to shape discussions on battery technology and electrification.\nBattery Technology\nsenior editor Maria Guerra De Egui are joint\n2025 Neal Award Winners\nin the category of \"Best Coverage of the 2024 Election on Your Served Market.\"\nMike was a recent guest journalist on the popular automotive-industry webcast, Autoline After Hours.\nMike has been covering manufacturing and transportation technology developments for more than 25 years. At SME (\nThe Society of Manufacturing Engineers\n), he served as lead editor of\nAerospace & Defense Manufacturing\n, lead editor of\nMedical Manufacturing\n, senior editor for\nManufacturing Engineering,\nand acting lead editor of\nSmart Manufacturing\n. He has also been senior editor of\nCutting Tool Engineering\n, senior technical editor of Gardener Business Media’s\nAutomotive Design & Production\n, PR manager at B2B advertising/PR agency G. Temple Associates, and editor at the SM Wu Manufacturing Research Center at the University of Michigan.\nThis all followed more than a decade of teaching English, ESL, literature, and argumentation as a lecturer at Eastern Michigan University (Ypsilanti, MI) and, for five years, at Sakura no Seibo Junior College (Fukushima, Japan).\nMike has a bachelor’s degree in English language and literature and a master’s degree in rhetoric and written communication from Eastern Michigan University.\nSee more from\nMichael C. Anderson",
-          "hb": 1
-        },
-        {
-          "t": "CO2与双环烷烃交替共聚制备环状聚酯",
-          "d": "2026-07-29",
-          "a": "Nature",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "研究提出了一种闭环的CO2基聚酯平台，通过简单的有机催化剂引发，实现CO2与双环烷烃（双环丁烷和双环戊烷）单体的完美交替共聚。该方法克服了热力学限制，成功制备出高性能且可回收的环状聚酯，为惰性CO2转化为实用高分子材料提供了可行路径。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10848-2",
-          "tp": "CO2制备环状聚酯",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Transforming abundant but inert CO2 into useful polymers has been pursued since the 1960s (ref. 1) and has typically been achieved by copolymerization with a reactive comonomer, aided by a catalyst, which can address both thermodynamic constraints and high kinetic barriers associated with CO2 fixation and incorporation2,3,4,5. However, making polyesters remains a challenge as alternating copolymerization of CO2 with alkenes is thermodynamically infeasible6. Here we introduce a closed-loop CO2-based polyester platform for producing high-performance yet recyclable polyesters by direct alternating copolymerization of CO2 with bicycloalkanes, bicyclic butane (BCB) and pentane (BCP) monomers. This copolymerization is initiated by a simple organic catalyst and proceeds in a perfectly alternating fashion to high-molar-mass polyesters with maximum (50 mol%) CO2 incorporation and architecturally defined backbones, in which the in-chain ring structure enables tailorable thermal and mechanical properties. These polyesters exhibit desired orthogonal performance and end-of-life outcomes. Although the BCB-CO2 polyesters exhibit exceptional thermal and hydrolytic stability across the full pH range, they can be selectively depolymerized in bulk and base-catalysed conditions to regenerate pure BCB monomers in >90% isolated yield. The BCP-CO2 polyesters can also be selectively depolymerized but to bicyclolactones. Sequential depolymerization–repolymerization cycles establish circular lifecycles for BCB/BCP-CO2 high-performance polyesters.",
+          "b": "Hongqi says its experimental battery can add 60% charge in under four minutes with a peak charging rate of 12C.",
           "hb": 1
         }
       ]
@@ -94,43 +107,26 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "神经科学研究探明前岛叶至眶额叶皮层网络主导呼吸中断意识检测",
-        "新光捕获架构提升碲超掺杂硅光电探测器短波长红外量子效率",
-        "合肥量子产业年营收超60亿元并集聚107家产业链规上企业"
+        "科研人员引入光捕获架构，使碲超掺杂硅光电探测器短波红外量子效率大幅提升",
+        "合肥集聚107家量子企业，本源量子估值近240亿元且国仪量子科创板过会",
+        "Raygun生成式AI框架实现天然蛋白质微型化修饰与功能扩充"
       ],
       "entries": [
-        {
-          "t": "岛状路由至眶额皮层可实现呼吸意识",
-          "d": "2026-07-29",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "通过对神经外科患者进行颅内皮层活动记录，研究揭示了人类大脑感知并响应呼吸中断的机制。呼吸中断的意识检测由前岛叶的早期反应预测，该区域随后将信号路由至眶额叶和运动前皮层进行评估与补偿。这些皮层区域优先编码吸气努力或气流，揭示了呼吸感知的特定神经通路。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb3326?af=R",
-          "tp": "呼吸感知机制",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "How does the human brain detect and respond to disruptions in breathing? While animal studies have advanced our understanding of respiratory control, breathing distress in humans remains difficult to treat. It often arises not only from pulmonary lesions or brainstem dysfunction but also from how higher brain regions interpret breathing signals shaped by emotion and experience. We recorded intracranial cortical activity in neurosurgical patients during an interoceptive task involving transient breathing challenges. Conscious detection of these disruptions was predicted by early responses in the anterior insula, which routed signals to orbitofrontal and premotor cortices for appraisal and compensation. These cortical regions preferentially encoded inspiratory effort or airflow, revealing signal-specific processing that echoes functional segregation in brainstem centers. The present findings identify a dynamic insular-frontal circuit for sensing and adapting to respiratory challenges, offering insight into the neural basis of breathing awareness and its disruption in disease.",
-          "hb": 1
-        },
         {
           "t": "通过光捕获策略在碲超掺杂硅光电探测器中实现短波长红外量子效率的突破",
           "d": "2026-07-29",
           "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究提出了一种全新的光捕获架构，能够使碲超掺杂硅光电探测器在短波长红外波段的量子效率取得重大突破。这项技术进展有望推动与CMOS工艺兼容的夜视技术的发展。",
-          "sc": 7.9,
+          "as": "研究采用光捕获架构策略，在碲超掺杂硅光电探测器中实现了短波长红外量子效率的重大突破。这种新型光捕获结构设计能够与CMOS工艺兼容，为开发兼容CMOS的夜视技术提供了可行的路径。",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
           "u": "http://link.aps.org/doi/10.1103/96rx-zx6l",
-          "tp": "红外光电探测器",
+          "tp": "硅光电探测器",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "光电探测器[碲超掺杂硅]: 实现短波长红外量子效率突破并兼容CMOS工艺的夜视技术"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -142,18 +138,45 @@
           "d": "2026-07-29",
           "a": "新华网科技",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "合肥量子产业连续三年位居全球第二，集聚107家产业链企业，营收超60亿元。本源量子获近30亿元融资，投后估值近240亿元；国仪量子科创板IPO注册生效。依托中国科大的科研成果，如“九章四号”和“祖冲之三号”，合肥在量子通信、计算和精密测量领域取得突破，将前沿技术成功转化为规模化产业。",
-          "sc": 7.9,
+          "as": "合肥量子产业已连续3年居全球第2位，集聚107家产业链企业，营收规模超60亿元。近期，合肥三大量子创业企业齐聚资本市场：本源量子注册资本增至3.6亿元，投后估值近240亿元；国仪量子科创板IPO注册生效；国盾量子已挂牌。科研方面，中国科大潘建伟团队研制的“九章四号”量子计算原型机，计算速度比最快超级计算机快10的54次方倍，再次刷新量子计算优越性世界纪录。合肥在量子通信、计算和精密测量领域均已建成具有国际领先水平的原型机和网络。",
+          "sc": 7.8,
           "i": "n",
           "tg": "资本运作",
           "u": "https://www.news.cn/tech/20260729/2d49711e571b4e7f80cb71e1633f8bac/c.html",
-          "tp": "量子产业融资",
+          "tp": "量子科技融资",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "注册资本[本源量子]: 3.6亿元",
+            "Pre-IPO融资额[本源量子]: 近30亿元",
+            "投后估值[本源量子]: 逼近240亿元",
+            "IPO状态[国仪量子]: 注册生效",
+            "产业排名[合肥量子产业]: 全球第2位"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "资本抢滩“量子”赛道 合肥凭何成“主场”-新华网\n资本抢滩“量子”赛道 合肥凭何成“主场”\n资本抢滩“量子”赛道 合肥凭何成“主场”\n2026年7月，国家企业信用信息公示系统的一条变更信息，点燃了中国量子产业的资本圈——本源量子的注册资本从3000万元飙升至3.6亿元，增幅高达1100%。一个月前，这家企业刚完成近30亿元Pre-IPO轮融资，投后估值逼近240亿元，刷新国内量子计算领域单轮融资纪录。\n几乎同时，国仪量子科创板IPO状态变更为“注册生效”。从受理到过会再到注册获批，该公司仅用半年时间便叩开资本市场大门。加上此前已挂牌的“量子科技第一股”国盾量子，合肥“量子大道”上最早萌芽的三家创业企业，悉数站在了资本市场的聚光灯下。\n目前，合肥量子产业已连续3年居全球第2位，集聚107家量子产业链企业，营收规模超60亿元。\n一条3.5公里的“量子大道”，何以长成一座世界级的“量子之城”？这座不靠海、不沿边的中部城市，凭什么跑出了全球第二？\n“荒原”上长出60亿元新赛道\n2026年5月，国际学术期刊《自然》发表了一项重磅成果。中国科学技术大学潘建伟院士等研究团队联合研制的可编程量子计算原型机“九章四号”，在求解高斯玻色取样问题时，其计算速度比全球最快的超级计算机快10的54次方倍。\n这个数字大到超出日常认知，标志着中国团队再次刷新了量子计算优势比的世界纪录，成功建立了国际上最强的“量子计算优越性”。\n时间倒回至1998年，北京香山科学会议上，中国科学技术大学郭光灿院士向台下讲述了一个当时科学界最前沿的主题——量子通信与量子计算。彼时，量子科技在国内仍处于基础研究的“荒原期”，产业化更无从谈起。\n此后近30年时间，几代科研人员在合肥接力奔跑。在量子通信领域，国际首个基于量子纠缠的城域三节点量子网络被成功构建；在量子计算领域，超导量子计算原型机“祖冲之三号”成功问世；在量子精密测量领域，国际首个基于原子核自旋的城际量子传感网络建成……这些从实验室里“长出来”的家底，构成了合肥量子产业最深厚的底座。\n而真正让合肥区别于其他科创城市的，是从实验数据到产业指数的那一步跨越。\n2009年，国盾量子在合肥“量子大道”诞生，成为国内首批量子科技产业化公司。彼时无人预料到，这家脱胎于中科大实验室、聚焦量子科技产业化的企业，会在十年后成为科创板“量子科技第一股”。\n“我们是‘第一个吃螃蟹的人’。”国盾量子副总裁唐世彪回忆说，企业创业之初的目标，就是让前沿技术走出实验室、服务国家信息安全需求。“科技与产业，可以在相互成就中彼此校准方向。”\n随后，量子测量领域的国仪量子来了，量子计算领域的本源量子也来了。如今的合肥，量子通信、量子测量、量子计算三大赛道全面铺开。\n中电信量子推出全球首个运营商级量子安全即时通讯与办公平台“天翼量子密信”，其量子通信业务用户数超过600万，广泛覆盖政务、政法、金融等行业；国仪量子自主研发的宽场NV显微镜、量子钻石单自旋谱仪等产品打破国外垄断，应用于半导体检测、先进材料、生物医学等领域；本源量子第四代自主超导量子计算机“本源悟空-180”上线运行并面向全球开放，用户集中于高校、科研院所以及金融、医药、能源等对超高性能算力有迫切需求的行业。\n从国内第一家量子产业化公司诞生，到集聚产业链企业107家、产业规模超60亿元，合肥用十几年时间完成了一场从基础研究到产业爆发的“量子跃迁”。\n“合肥一方面依托本地优质高校与科研机构深耕前沿基础研发，另一方面打通从实验室成果到产业落地的转化通道。”中国科学技术发展战略研究院副研究员韩军徽指出，科技创新、产业培育与城市更新在合肥实现了协同发展——这恰是“量子之城”崛起的核心逻辑。\n跨越“死亡之谷”的三把密钥\n科研强，不意味着产业化顺。从实验室到市场，横亘着一条众所周知的“死亡之谷”——概念验证、工程化、中试、审批，任何一个环节卡住，技术就可能只停留在论文里。\n合肥花了十几年时间，为跨越这道难关打造了三把“密钥”。\n密钥一：耐心资本，做企业的“长跑搭档”。\n2009年，国盾量子成立时，量子技术在中国尚属“无人区”，市场认知几乎为零。“在其他地方还对量子技术存有质疑的时候，合肥市就愿意投入。”唐世彪说。此后，国盾量子的发展始终有当地支持的身影。\n针对量子科技投入大、周期长、回报慢的特点，安徽省和合肥市设立了量子科技发展专项基金，逐步形成“引导基金+国资平台+社会资本”的接力投资模式。\n国仪量子的成长轨迹印证了这一点。企业发展初期，在研发、工程化验证和市场拓展等关键阶段，社会资本、产业资本和长期资本持续提供支持；近期，合肥市属国有资本平台兴泰资本旗下基金进一步投资，推进企业技术研发、产品迭代和产业化布局。\n“对国仪量子这类企业来说，资本的作用不只是‘给钱’，更重要的是提供时间和耐心。”国仪量子副总裁许克标说，合肥对量子产业秉持“长期主义”，构建了一方科技企业能“长出来”的优质土壤。\n密钥二：场景驱动，让政府成为“首发用户”。\n2023年，安徽云玺量子科技有限公司（简称“云玺量子”）研发的“量子印章”发布，解决了传统印章管理中“以人管章、手工登记”的行业痛点。但问题也随之而来——谁会成为第一个用户？\n“这是我们真正面对市场时最需要破解的难题。”云玺量子创始人、董事长童迎伟说，新技术必须在真实环境中经受检验，才能赢得市场信任。\n对此，合肥给出的回应是——“政务先行”，让政府成为新技术的“首发用户”。2023年11月，合肥包河区、瑶海区等区县的数百个村（社区）率先试点“量子印章”。如今，云玺量子的客户规模超3万家，产品远销美国、日本、阿联酋等全球市场。“合肥为首发场景搭建了平台，推动科技成果快速从‘书架’走向‘货架’。”童迎伟说。\n合肥市场景应用创新促进中心有限公司相关负责人表示，合肥市已发布智能网联汽车量子安全通信网络、量子加密智慧办公等一批场景机会，推动20余个量子场景项目落地，服务量子产业高质量发展。\n在合肥，量子技术在真实场景中不断被验证与重塑。在量子企业林立的合肥高新区，候店变电站成为国内首个融合量子通信、量子测量和量子计算三大技术的变电站。用量子技术服务量子单位，合肥“拼”出了一个生态闭环。\n密钥三：机制创新，制度与科技“两个轮子”一起转。\n今年6月，中国量子科技共保体在合肥正式发布。这是国内首个定向服务量子信息产业的专业风险共保平台，由10家保险机构共同组建。\n相关保险机构代表表示，破解量子企业研发投入高、试验风险大、风险保障供给不足等难题，是他们创新服务的初衷。未来，共保体将为量子企业提供高额风险保额、定制化方案设计与前置式风控服务的一体化综合保障。\n类似的制度和政策创新在合肥并不罕见：实现规上量子企业首席质量官制度全覆盖，推动量子产品从“实验室良品”转向“生产线优品”；发布全国首个量子科技产业商业秘密保护指引，让量子技术从“留不住人”转向“带不走芯”；成立全国首个城市场景创新促进中心，让量子产品从“研发完成再找市场”转向“在真实场景中边用边改”……\n“坚持科技创新和制度创新‘两个轮子’一起转。”这是合肥量子产业的真实写照。\n放眼全球，量子科技已成为大国科技竞争的焦点。根据《2026全球量子科技产业发展展望》，全球量子产业正迎来从百亿级向万亿级跨越的市场拐点，预计到2035年产值将突破760亿美元。立足国内，“十五五”规划纲要明确前瞻布局量子科技等未来产业。\n合肥，既身处时代的风口，也站在竞速的十字路口。\n对于已跻身全球产业竞争前沿的合肥而言，“领跑者”的位置意味着没有现成的路标可循。审视当下，部分上游核心材料和器件仍依赖进口；技术转化链条中，从“样品”到“产品”再到“商品”的每一步仍有卡点；国际技术合作封锁持续收紧，全球人才竞争日趋激烈……\n“种果树前十年只能看到叶子，合肥愿意等，但市场不一定愿意等。”一位量子产业投资人的话，道出了长跑者的焦虑。\n进入2026年，合肥量子科技产业发展的脚步愈发清晰有力。\n——政策端，制度供给持续加码，为产业发展立柱架梁。\n安徽省、合肥市两级“十五五”规划纲要绘就了量子产业高质量发展路线图：布局建设量子科技产业研究院、国家量子通信技术创新中心与量子人才科创载体；推进量子信息“千家场景”专项行动，落地各类应用场景超3000个；在政务、金融、能源、气象等多领域打造“量子+”标杆示范项目……\n——科研端，原始创新频频突破，为产业跃升蓄积势能。\n潘建伟院士团队在国际上首次实现可扩展量子中继基本模块突破，使远距离量子网络构建成为现实可能；合肥量超融合计算中心正式上线运行，面向科研机构和产业用户提供量子算力服务……\n“合肥将持续推动产业集聚、场景落地、生态赋能，以建设国家量子科技和产业中心为引领，形成布局完整、技术先进、运行高效、支撑有力的量子科技未来产业创新体系。”合肥市科技局副局长洪芳说。\n从1998年香山科学会议算起，合肥在量子这条路上已经走了近30年。从一条3.5公里的“量子大道”到一座全球第二的“量子之城”，从国盾量子的“第一股”到本源量子的“240亿元估值”——合肥正将长期布局转化为长期坚持，再将长期坚持转化为持续收获。\n量子长跑，远未到终点。对合肥而言，最值得期待的，永远是下一程的跨越。 （记者 郭晨 班娟娟）\n倒计时100天，第九届进博会热力满满\n深耕细作优服务 暖心举措惠民生\n从第九届鲁迅文学奖看新大众文艺兴起\n列国鉴丨记者观察：美伊打打停停的困境与出路\n生活观察丨“一周备餐”会产生亚硝酸盐吗\n唠“科”话丨户外运动，为啥不建议穿“迷彩”？\n夏日经济观察丨文旅新场景如何撬动消费新动能\n资本抢滩“量子”赛道 合肥凭何成“主场”",
+          "b": "2026年7月，国家企业信用信息公示系统的一条变更信息，点燃了中国量子产业的资本圈——本源量子的注册资本从3000万元飙升至3.6亿元，增幅高达1100%。一个月前，这家企业刚完成近30亿元Pre-IPO轮融资，投后估值逼近240亿元，刷新国内量子计算领域单轮融资纪录。\n几乎同时，国仪量子科创板IPO状态变更为“注册生效”。从受理到过会再到注册获批，该公司仅用半年时间便叩开资本市场大门。加上此前已挂牌的“量子科技第一股”国盾量子，合肥“量子大道”上最早萌芽的三家创业企业，悉数站在了资本市场的聚光灯下。\n目前，合肥量子产业已连续3年居全球第2位，集聚107家量子产业链企业，营收规模超60亿元。\n一条3.5公里的“量子大道”，何以长成一座世界级的“量子之城”？这座不靠海、不沿边的中部城市，凭什么跑出了全球第二？\n“荒原”上长出60亿元新赛道\n2026年5月，国际学术期刊《自然》发表了一项重磅成果。中国科学技术大学潘建伟院士等研究团队联合研制的可编程量子计算原型机“九章四号”，在求解高斯玻色取样问题时，其计算速度比全球最快的超级计算机快10的54次方倍。\n这个数字大到超出日常认知，标志着中国团队再次刷新了量子计算优势比的世界纪录，成功建立了国际上最强的“量子计算优越性”。\n时间倒回至1998年，北京香山科学会议上，中国科学技术大学郭光灿院士向台下讲述了一个当时科学界最前沿的主题——量子通信与量子计算。彼时，量子科技在国内仍处于基础研究的“荒原期”，产业化更无从谈起。\n此后近30年时间，几代科研人员在合肥接力奔跑。在量子通信领域，国际首个基于量子纠缠的城域三节点量子网络被成功构建；在量子计算领域，超导量子计算原型机“祖冲之三号”成功问世；在量子精密测量领域，国际首个基于原子核自旋的城际量子传感网络建成……这些从实验室里“长出来”的家底，构成了合肥量子产业最深厚的底座。\n而真正让合肥区别于其他科创城市的，是从实验数据到产业指数的那一步跨越。\n2009年，国盾量子在合肥“量子大道”诞生，成为国内首批量子科技产业化公司。彼时无人预料到，这家脱胎于中科大实验室、聚焦量子科技产业化的企业，会在十年后成为科创板“量子科技第一股”。\n“我们是‘第一个吃螃蟹的人’。”国盾量子副总裁唐世彪回忆说，企业创业之初的目标，就是让前沿技术走出实验室、服务国家信息安全需求。“科技与产业，可以在相互成就中彼此校准方向。”\n随后，量子测量领域的国仪量子来了，量子计算领域的本源量子也来了。如今的合肥，量子通信、量子测量、量子计算三大赛道全面铺开。\n中电信量子推出全球首个运营商级量子安全即时通讯与办公平台“天翼量子密信”，其量子通信业务用户数超过600万，广泛覆盖政务、政法、金融等行业；国仪量子自主研发的宽场NV显微镜、量子钻石单自旋谱仪等产品打破国外垄断，应用于半导体检测、先进材料、生物医学等领域；本源量子第四代自主超导量子计算机“本源悟空-180”上线运行并面向全球开放，用户集中于高校、科研院所以及金融、医药、能源等对超高性能算力有迫切需求的行业。\n从国内第一家量子产业化公司诞生，到集聚产业链企业107家、产业规模超60亿元，合肥用十几年时间完成了一场从基础研究到产业爆发的“量子跃迁”。\n“合肥一方面依托本地优质高校与科研机构深耕前沿基础研发，另一方面打通从实验室成果到产业落地的转化通道。”中国科学技术发展战略研究院副研究员韩军徽指出，科技创新、产业培育与城市更新在合肥实现了协同发展——这恰是“量子之城”崛起的核心逻辑。\n跨越“死亡之谷”的三把密钥\n科研强，不意味着产业化顺。从实验室到市场，横亘着一条众所周知的“死亡之谷”——概念验证、工程化、中试、审批，任何一个环节卡住，技术就可能只停留在论文里。\n合肥花了十几年时间，为跨越这道难关打造了三把“密钥”。\n密钥一：耐心资本，做企业的“长跑搭档”。\n2009年，国盾量子成立时，量子技术在中国尚属“无人区”，市场认知几乎为零。“在其他地方还对量子技术存有质疑的时候，合肥市就愿意投入。”唐世彪说。此后，国盾量子的发展始终有当地支持的身影。\n针对量子科技投入大、周期长、回报慢的特点，安徽省和合肥市设立了量子科技发展专项基金，逐步形成“引导基金+国资平台+社会资本”的接力投资模式。\n国仪量子的成长轨迹印证了这一点。企业发展初期，在研发、工程化验证和市场拓展等关键阶段，社会资本、产业资本和长期资本持续提供支持；近期，合肥市属国有资本平台兴泰资本旗下基金进一步投资，推进企业技术研发、产品迭代和产业化布局。\n“对国仪量子这类企业来说，资本的作用不只是‘给钱’，更重要的是提供时间和耐心。”国仪量子副总裁许克标说，合肥对量子产业秉持“长期主义”，构建了一方科技企业能“长出来”的优质土壤。\n密钥二：场景驱动，让政府成为“首发用户”。\n2023年，安徽云玺量子科技有限公司（简称“云玺量子”）研发的“量子印章”发布，解决了传统印章管理中“以人管章、手工登记”的行业痛点。但问题也随之而来——谁会成为第一个用户？\n“这是我们真正面对市场时最需要破解的难题。”云玺量子创始人、董事长童迎伟说，新技术必须在真实环境中经受检验，才能赢得市场信任。\n对此，合肥给出的回应是——“政务先行”，让政府成为新技术的“首发用户”。2023年11月，合肥包河区、瑶海区等区县的数百个村（社区）率先试点“量子印章”。如今，云玺量子的客户规模超3万家，产品远销美国、日本、阿联酋等全球市场。“合肥为首发场景搭建了平台，推动科技成果快速从‘书架’走向‘货架’。”童迎伟说。\n合肥市场景应用创新促进中心有限公司相关负责人表示，合肥市已发布智能网联汽车量子安全通信网络、量子加密智慧办公等一批场景机会，推动20余个量子场景项目落地，服务量子产业高质量发展。\n在合肥，量子技术在真实场景中不断被验证与重塑。在量子企业林立的合肥高新区，候店变电站成为国内首个融合量子通信、量子测量和量子计算三大技术的变电站。用量子技术服务量子单位，合肥“拼”出了一个生态闭环。\n密钥三：机制创新，制度与科技“两个轮子”一起转。\n今年6月，中国量子科技共保体在合肥正式发布。这是国内首个定向服务量子信息产业的专业风险共保平台，由10家保险机构共同组建。\n相关保险机构代表表示，破解量子企业研发投入高、试验风险大、风险保障供给不足等难题，是他们创新服务的初衷。未来，共保体将为量子企业提供高额风险保额、定制化方案设计与前置式风控服务的一体化综合保障。\n类似的制度和政策创新在合肥并不罕见：实现规上量子企业首席质量官制度全覆盖，推动量子产品从“实验室良品”转向“生产线优品”；发布全国首个量子科技产业商业秘密保护指引，让量子技术从“留不住人”转向“带不走芯”；成立全国首个城市场景创新促进中心，让量子产品从“研发完成再找市场”转向“在真实场景中边用边改”……\n“坚持科技创新和制度创新‘两个轮子’一起转。”这是合肥量子产业的真实写照。\n“量子长跑”远未到终点\n放眼全球，量子科技已成为大国科技竞争的焦点。根据《2026全球量子科技产业发展展望》，全球量子产业正迎来从百亿级向万亿级跨越的市场拐点，预计到2035年产值将突破760亿美元。立足国内，“十五五”规划纲要明确前瞻布局量子科技等未来产业。\n合肥，既身处时代的风口，也站在竞速的十字路口。\n对于已跻身全球产业竞争前沿的合肥而言，“领跑者”的位置意味着没有现成的路标可循。审视当下，部分上游核心材料和器件仍依赖进口；技术转化链条中，从“样品”到“产品”再到“商品”的每一步仍有卡点；国际技术合作封锁持续收紧，全球人才竞争日趋激烈……\n“种果树前十年只能看到叶子，合肥愿意等，但市场不一定愿意等。”一位量子产业投资人的话，道出了长跑者的焦虑。\n进入2026年，合肥量子科技产业发展的脚步愈发清晰有力。\n——政策端，制度供给持续加码，为产业发展立柱架梁。\n安徽省、合肥市两级“十五五”规划纲要绘就了量子产业高质量发展路线图：布局建设量子科技产业研究院、国家量子通信技术创新中心与量子人才科创载体；推进量子信息“千家场景”专项行动，落地各类应用场景超3000个；在政务、金融、能源、气象等多领域打造“量子+”标杆示范项目……\n——科研端，原始创新频频突破，为产业跃升蓄积势能。\n潘建伟院士团队在国际上首次实现可扩展量子中继基本模块突破，使远距离量子网络构建成为现实可能；合肥量超融合计算中心正式上线运行，面向科研机构和产业用户提供量子算力服务……\n“合肥将持续推动产业集聚、场景落地、生态赋能，以建设国家量子科技和产业中心为引领，形成布局完整、技术先进、运行高效、支撑有力的量子科技未来产业创新体系。”合肥市科技局副局长洪芳说。\n从1998年香山科学会议算起，合肥在量子这条路上已经走了近30年。从一条3.5公里的“量子大道”到一座全球第二的“量子之城”，从国盾量子的“第一股”到本源量子的“240亿元估值”——合肥正将长期布局转化为长期坚持，再将长期坚持转化为持续收获。\n量子长跑，远未到终点。对合肥而言，最值得期待的，永远是下一程的跨越。 （记者 郭晨 班娟娟）",
+          "hb": 1
+        },
+        {
+          "t": "使用 Raygun 微型化和修饰天然蛋白质",
+          "d": "2026-07-29",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "研究引入了名为Raygun的生成式人工智能框架，利用基于蛋白质语言模型嵌入构建的概率编码，对蛋白质序列进行大规模且保留原有功能的修改。该技术不再将蛋白质编码为高维空间中长度可变的序列，而是表示为概率分布，成功实现了天然蛋白质的微型化、修饰和扩充，突破了现有计算蛋白质设计的局限。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10842-8",
+          "tp": "蛋白质语言模型",
+          "aip": 1,
+          "kp": [
+            "[Raygun AI框架]: 基于蛋白质语言模型实现大规模、保留功能的天然蛋白质序列生成式修改、微型化和修饰"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Proteins have evolved over billions of years through coordinated substitutions, insertions and deletions, yet computational protein design cannot fully replicate nature's ability to engineer new proteins from existing templates. Protein language models1-3 generate informative per-residue representations, but harnessing them for large-scale, function-preserving sequence modifications has remained beyond reach. Here we introduce Raygun, a generative artificial intelligence framework that enables miniaturization, modification and augmentation of proteins, using a probabilistic encoding of protein sequences constructed from language model embeddings. Our key conceptual advance is to encode each protein not as a sequence of variable length in high-dimensional space, but as a probability distribution in fixed dimensions, making proteins of any length directly commensurable. Controlled by just two parameters governing substitutions and length changes, Raygun can shrink proteins by 10-25% (sometimes more than 50%), expand them beyond their natural size, and introduce extensive sequence diversity, all while preserving predicted structural integrity and functional sites. In cell-based validation, Raygun miniaturized fluorescent proteins (2 shorter than 96% of fluorescent proteins in FPbase) and TurboID, a synthetic biotin ligase that has been widely adopted for proteomics. It also expanded epidermal growth factor (EGF), generating variants with higher EGFR-binding affinity than the wild type. These results show that protein function can be faithfully captured in a length-agnostic representation, enabling the kind of coordinated, large-scale sequence modifications that characterize natural protein evolution.",
           "hb": 1
         }
       ]
@@ -162,24 +185,50 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "低温阴极发光技术揭示硼-10同位素六方氮化硼极化子耦合机制",
-        "科研团队在全光驱动超材料中首次实现太赫兹频率光子时间晶体",
-        "双修饰耻垢分枝杆菌孔蛋白A纳米孔实现多肽序列精确读取"
+        "御微半导体发运国内首款90至28nm制程掩模图形缺陷检测设备",
+        "低温阴极荧光技术证实富同位素六方氮化硼中Fröhlich型极化子耦合现象",
+        "研究提出双圆拉曼光学活性作为识别凝聚态物理多极序的新探测手段"
       ],
       "entries": [
+        {
+          "t": "御微半导体：国内首款可完整覆盖 90~28nm 掩模图形缺陷检测设备发运国内头部晶圆厂",
+          "d": "2026-07-29",
+          "a": "IT之家",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "御微半导体宣布国内首款覆盖90至28nm制程的掩模图形缺陷检测设备Raptor-600发运国内头部晶圆厂。该设备搭载自研高分辨率紫外成像系统、纳米级高精度运动平台及并行计算引擎，可快速检出掩模图形缺损和表面污染物，适配掩模制造与晶圆厂场景。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/983/341.htm",
+          "tp": "掩模缺陷检测仪",
+          "aip": 1,
+          "kp": [
+            "制程节点覆盖范围[掩模图形缺陷检测设备]: 90~28nm",
+            "设备型号[御微半导体掩模缺陷检测设备]: Raptor-600",
+            "检测定位精度[纳米级高精度运动平台]: 微米级稳定精度",
+            "核心组件[掩模缺陷检测设备]: 自研高分辨率透反射双光路紫外成像系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 7 月 29 日消息，御微半导体今日宣布，全新自研的国内首款可完整覆盖 90nm 至 28nm 制程节点的掩模图形缺陷检测设备 Raptor-600 正式发运国内头部晶圆厂。\n掩模版是芯片光刻环节的核心“母版”，它的品质直接左右整片晶圆的生产良率。细微的图形缺陷，都有可能造成整批晶圆全部报废。\nIT之家获悉，该设备可分辨精细图形、规避辅助图形干扰，快速检出图形缺损、表面污染物等各类问题，同时适配掩模制造厂、晶圆厂两大场景，满足全流程品质管控需求。\n官方表示，自 2025 年初，可完整覆盖 90nm 及以上的初代机型 Raptor-500 交付落地后，经过一年多现场产线迭代打磨，Raptor-600 完成全方位技术升级：\n- 自研高分辨率透反射双光路紫外成像系统，同步捕捉各类影响掩模及光刻良率缺陷；\n- 搭载纳米级高精度运动平台，保障检测定位微米级稳定精度；\n- 配套超大图像并行计算引擎，缺陷识别速度与适配性大幅提升。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+          "hb": 1
+        },
         {
           "t": "富同位素六方氮化硼中的 Fröhlich 型极化子",
           "d": "2026-07-29",
           "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究利用低温阴极发光技术，揭示了富集硼-10同位素的六方氮化硼中的弗洛里希型激子-声子耦合机制。激子-声子相互作用决定了六方氮化硼的光学响应，该研究填补了其定量分析方面的空白。",
-          "sc": 7.7,
+          "as": "研究利用低温阴极荧光技术，揭示了富集硼-10同位素的六方氮化硼中激子-声子相互作用的定量机制。激子-声子相互作用决定了六方氮化硼的光学响应，该研究成功观测并证实了其中的Fröhlich型极化子耦合现象。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
           "u": "http://link.aps.org/doi/10.1103/b8n2-tl4n",
           "tp": "氮化硼极化子",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "激子-声子耦合[硼-10富集六方氮化硼]: 呈现Fröhlich型极化子耦合特征"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -187,41 +236,24 @@
           "hb": 1
         },
         {
-          "t": "等离激元超材料时间晶体",
+          "t": "轴向多极级双圆拉曼光学活性",
           "d": "2026-07-29",
-          "a": "Nature",
+          "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "光子时间晶体通过在时间上周期性调制光学性质，有望实现类似于空间光子晶体的光-物质相互作用进展，但实验实现需要超强、超快的光学调制。研究展示了一种在太赫兹频率下运行的全光驱动表面等离激元腔超材料，成功实现了光子时间晶体。该成果克服了极短时间尺度上调制的实验挑战，填补了全光手段实现光子时间晶体领域的空白。",
-          "sc": 7.6,
+          "as": "研究提出多极有序（如八极有序）可以通过双圆拉曼光学活性进行实验探测。多极有序是理解凝聚态物理中隐藏顺序的关键概念，但由于缺乏与常规外部刺激的直接耦合，其实验识别极具挑战性。该研究发现双圆拉曼光学活性可以作为识别多极序的新手段。",
+          "sc": 7.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10825-9",
-          "tp": "超材料时间晶体",
+          "u": "http://link.aps.org/doi/10.1103/m2dl-ghbf",
+          "tp": "多极级光学活性",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "实验识别[轴向多极级（如八极级）双圆拉曼光学活性]: 提供了不依赖与常规外部刺激直接耦合的隐藏秩序实验鉴定新途径"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Spatial photonic crystals (SPCs) are unique structures for light–matter interactions because they achieve a large and spatially periodic dielectric contrast on wavelength scales1,2,3,4. Their temporal analogues, photonic time crystals (PTCs), promise similar advances by periodically modulating optical properties in time5,6,7,8,9,10,11, but require strong, ultrafast modulation, which is challenging to obtain experimentally5,12,13,14,15. Driven metamaterials have been considered as a route to realize PTCs, yet all-optical implementations have remained unknown because of the challenge of achieving modulation on such short timescales. Here we demonstrate the all-optical realization of a photonic time crystal, achieved with a surface plasmon cavity metamaterial operating at terahertz frequencies. We demonstrate strong (near-unity) and coherent (sub-optical cycle) periodic driving of the plasmonic metamaterial enabled by field-induced dynamical modulation of the kinetic energy of the carriers and effective mass reaching up to 80% of their rest mass. Our spectroscopic measurements show a transition into the PTC regime mediated by an exceptional point, at which two Floquet-driven optical eigenmodes coalesce. In the PTC regime, emergent gain is shown to reduce plasmonic losses by more than 50% (refs. 16,17), and we predict plasmonic lasing to be within experimental reach. These results establish a robust platform for time-domain photonics in plasmonic systems.",
-          "hb": 1
-        },
-        {
-          "t": "固定在纳米孔上的逐步缩短的肽的顺序读取",
-          "d": "2026-07-29",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "为实现多肽序列的准确解码，研究提出了一种基于纳米孔的瞬时孔分析物环化策略。该技术使用经过双重修饰（结合镍离子的NTA接头和目标多肽）的工程化耻垢分枝杆菌孔蛋白A纳米孔，在顺序读取中能够生成分布狭窄、一致且依赖序列的识别事件，实现多肽的精确测序。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10881-1",
-          "tp": "纳米孔肽测序技术",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Accurate decoding of peptide sequences is crucial in proteomics. However, achieving this goal is a technical challenge, owing to the compositional and structural complexity of peptides1. Studies inspired by the success of nanopore nucleic acid sequencing have shown that nanopore-based techniques can also be applied to peptide sequencing2,3. The key is to generate narrowly distributed, consistent and sequence-dependent events during sequential nanopore readout. Here we introduce a nanopore-based strategy termed transient pore analyte looping (tPAL). We develop an engineered Mycobacterium smegmatis porin A (MspA) nanopore that is dual modified with a nickel-ion-bound nitrilotriacetic acid (NTA-Ni) adapter and the target peptide. This distinctive sensing configuration enables precise recognition of the N terminus of the immobilized peptide by multiple re-readings. With the aid of cholesterolized aminopeptidase, the immobilized peptide can be shortened sequentially in single-amino-acid increments, yielding sequence-dependent, stepwise and narrowly distributed signal alterations that provide clues to allow peptide sequence decoding. Our strategy achieves single-amino-acid resolution and effectively identifies single-amino-acid mutations, post-translational modifications and unnatural-amino-acid insertions—indicative of its versatility in nanopore proteomics and chiral peptide analyses.",
+          "b": "Author(s): Hikaru Watanabe, Rikuto Oiwa, Hitoshi Mori, and Ryotaro AritaMultipolar order, such as octupolar order, is a key concept in condensed matter physics, particularly in light of elusive hidden orders. However, its experimental identification remains challenging due to the absence of direct coupling to conventional external stimuli. In this Letter, we propose tha…[Phys. Rev. Lett. 137, 056903] Published Wed Jul 29, 2026",
           "hb": 1
         }
       ]

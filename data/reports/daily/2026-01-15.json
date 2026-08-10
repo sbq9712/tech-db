@@ -6,19 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "新型SAM修饰剂将无甲胺倒置钙钛矿太阳能电池光电转换效率提升至26.29%",
-      "UNIGRID交付采用NaCrO₂正极钠离子电池，规划2026年产能达1GWh",
-      "亚马逊引入力拓Nuton公司微生物浸取法获取纯度99.99%的数据中心用铜"
+      "UNIGRID首批NaCrO2正极钠离子电池交付，规划2026年产能达1GWh。",
+      "力拓Nuton与亚马逊达成合作，向其数据中心供应微生物浸取高纯铜。"
     ],
     "AI与智能科技": [
-      "研究明确Hf0.5Zr0.5O2外延薄膜临界应变窗口以稳定极性正交相结构",
-      "新基础模型基于大规模连续血糖监测数据预训练以适配多项代谢评估任务",
-      "ORCA框架结合纳米孔测序实现多重RNA修饰类型同步定量检测"
+      "新型混合忆阻器阵列引入疲劳机制，解决高频尖峰神经网络硬件处理难题。",
+      "单脉冲忆阻硬件系统研发成功，变率低于1%以提升脑机接口计算能效。"
     ],
     "通用技术": [
-      "UCLA团队合成室温热导率达1100 W K⁻¹ m⁻¹的亚稳态氮化钽材料",
-      "研究者利用低相变温度形状记忆合金实现零摄氏度以下弹热制冷效应",
-      "科学家首次观测到飞秒X射线与原子内层电子的相干非线性四光子耦合过程"
+      "加州大学洛杉矶分校合成θ相氮化钽，室温热导率达1100 W K⁻¹ m⁻¹。",
+      "新分层壳结构锁定钙钛矿纳米晶体，光致发光量子产率趋近极限值。"
     ]
   },
   "sectors": [
@@ -26,41 +23,36 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "新型SAM修饰剂将无甲胺倒置钙钛矿太阳能电池光电转换效率提升至26.29%",
-        "UNIGRID交付采用NaCrO₂正极钠离子电池，规划2026年产能达1GWh",
-        "亚马逊引入力拓Nuton公司微生物浸取法获取纯度99.99%的数据中心用铜"
+        "UNIGRID首批NaCrO2正极钠离子电池交付，规划2026年产能达1GWh。",
+        "力拓Nuton与亚马逊达成合作，向其数据中心供应微生物浸取高纯铜。"
       ],
       "entries": [
         {
-          "t": "用于自组装单分子层/钙钛矿的三功能酰肼基修饰剂实现26.29%效率的无MA倒置钙钛矿太阳能电池",
+          "t": "UNIGRID称其采用NaCrO2正极的钠离子电池完成出货",
           "d": "2026-01-15",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "针对倒置钙钛矿太阳能电池中空穴传输层（HTL）均匀性和埋底界面缺陷问题，开发了一种基于酰肼的三功能自组装单分子层（SAM）修饰剂。该修饰剂同时钝化界面缺陷、调节能级对齐并改善界面接触，实现了26.29%的光电转换效率，且器件不含甲胺（MA-free），显著提升了钙钛矿太阳能电池的效率和长期稳定性。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202513535?af=R",
-          "tp": "倒置钙钛矿电池",
+          "a": "Prnewswire",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "美国钠电公司UNIGRID宣布采用NaCrO₂正极的钠离子电池产品已出货交付，采用代工生产模式以加速全球扩展。公司2025年10月披露全球制造能力达每年100 MWh，目标2026年达1 GWh，产品已获UN 38.3危险品运输认证。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.prnewswire.com/news-releases/unigrid-begins-commercial-scale-deliveries-of-sodium-ion-batteries-302662483.html?tc=eml_cleartime",
+          "tp": "钠电池出货",
           "aip": 1,
-          "kp": [
-            "效率[倒置无MA钙钛矿电池]: 26.29%",
-            "修饰剂[SAM/钙钛矿]: 4-(甲硫基)苯甲酰肼",
-            "[功能]: 三官能团界面修饰"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Inverted perovskite solar cells (PSCs) face challenges in hole‐transport layer (HTL) uniformity and buried interface defect passivation. To address these issues, we introduce 4‐(methylthio)benzhydrazide (MTBH) as a triple‐functional modifier for self‐assembled monolayers (SAMs)/perovskite to enhance the performance of inverted PSCs. MTBH simultaneously optimizes the [4‐(3,6‐dimethyl‐9H‐carbazol‐9‐yl)butyl]phosphonic acid (Me‐4PACz) SAMs and passivates perovskite defects through ternary synergistic interactions: (1) P═O→S‐C coordination between Me‐4PACz and MTBH improves SAMs ordering and energy‐level alignment; (2) N─H⋯I\n                    −\n                    hydrogen bonding passivates iodine vacancies; (3) C═O→Pb\n                    2+\n                    coordination repairs undercoordinated lead defects. These interactions regulate perovskite crystallization kinetics, inducing a “fast nucleation‐slow growth” mode that yields high‐quality films with reduced residual stress (18.0 MPa versus Control's 60.1 MPa) and suppressed grain‐boundary defects. Consequently, MTBH‐incorporated devices achieve a champion power conversion efficiency (PCE) of 26.29% (versus 23.62% for control) with a high fill factor (FF: 84.94%) and open‐circuit voltage (\n                    V\n                    OC\n                    : 1.19 V). The devices also exhibit exceptional stability, retaining 93.76% PCE after 2000 h in ambient air and 98.0% after 470 h of maximum power point tracking.",
+          "cm": "https://www.prnewswire.com/news-releases/unigrid-leverages-foundries-to-grow-production-capacity-10x-in-2025-302596889.html\n据UNIGRID官网更新及专利检索信息显示，其钠电产品采用NaCrO2正极、可能采用Sn/硬碳负极（Sn含量>1wt%）、醚基电解质（要求不含C=O（羰基）、硫、苯环、磷酸酯、不饱和碳碳键（C=C/C≡C）、卤素官能团，室温电导率可达8mS/cm，氧化稳定性最高可>5V vs Na/Na⁺）；产品类型包括12V电源（4-210Ah，循环寿命>1万圈，温度范围-40~60℃，低自放电率，3270电芯最大支持3C/10C充放电）、家用储能单元（210Ah，9.7 kWh，最大0.5C充放，充电温度-20~60℃，25℃可循环1万圈）。\nUNIGRID相关技术多来自于加州大学圣地亚哥分校孟颖教授团队，公司CEO（Darren H. S. Tan）和CTO（Erik A. Wu）也均毕业于该校。其相关无负极或固态钠电（例如钠硼氢化物等）研究多采用NaCrO2正极，有研究发现，NaCrO2为O3型层状结构，实际可逆容量约120mAh/g（Na1−xCrO2，0≤x≤0.5，此时对Na/Na⁺电位约3.6V，脱钠量x>0.5即电压>3.7V时易导致铬离子迁移占据钠位点，结构发生不可逆相变），放电平台在3V左右，且由于层间距较大，Na⁺扩散动力学快，整体倍率性能较好；但NaCrO2对空气中水和二氧化碳较为敏感，易反应生成NaOH和Na2CO3。\n孟颖教授针对锡基负极的研究内容包括SnO（440 mAh/g，倍率循环性能较好）、SnO2/C（412 mAh/g，倍率性能较差）、SnS/还原氧化石墨烯（rGO）+硬碳（598 mAh/g，反应产物Na2S及硬碳可抑制膨胀）、SnS2+rGO（630 mAh/g，层状结构和rGO支撑抑制膨胀），主要目的在于抑制Sn循环膨胀粉化；UNIGRID产品可能基于上述材料进行优化改进，但实际体系仍需进一步确认。",
+          "b": "1月15日，美国钠电公司UNIGRID在PR Newswire发文称，其已实现NCO（官网宣传使用NaCrO2正极）钠离子电池产品出货交付。文中称，其采用产品采用代工生产模式，有助于其技术在全球快速扩展和生产。另据2025年10月报道称，其全球制造能力已达到每年100MWh，并目标在2026年达到1GWh；同时，其产品获得了UN 38.3（联合国针对危险品运输制定的规章范本）认证。",
           "hb": 1
         },
         {
           "t": "UNIGRID称其采用NaCrO2正极的钠离子电池完成出货",
           "d": "2026-01-15",
-          "a": "",
+          "a": "Prnewswire",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "美国钠电公司UNIGRID宣布采用NaCrO₂正极的钠离子电池产品已出货交付，采用代工生产模式以加速全球扩展。公司2025年10月披露全球制造能力达每年100 MWh，目标2026年达1 GWh，产品已获UN 38.3危险品运输认证。",
-          "sc": 6.3,
+          "sc": 6.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.prnewswire.com/news-releases/unigrid-begins-commercial-scale-deliveries-of-sodium-ion-batteries-302662483.html?tc=eml_cleartime",
@@ -76,10 +68,10 @@
         {
           "t": "亚马逊与力拓旗下Nuton公司就矿石直接微生物浸取制备铜的购买达成战略合作",
           "d": "2026-01-15",
-          "a": "",
+          "a": "Nuton",
           "c": "零碳产业/物质循环/无机物/有色金属/铜业",
           "as": "力拓旗下微生物浸铜技术公司Nuton与亚马逊达成两年战略合作。亚马逊数据中心将使用Nuton从硫化物矿石直接微生物浸取获得的99.99%纯度铜，同时亚马逊向Nuton提供云服务和数据分析支持，加速其微生物浸出铜技术优化，推动绿色铜生产在数据中心领域的应用。",
-          "sc": 6.2,
+          "sc": 6.1,
           "i": "n",
           "tg": "产业进展",
           "u": "https://nuton.tech/rio-tinto-and-amazon-web-services-collaborate-to-bring-low-carbon-nuton-copper-to-us-data-centres/",
@@ -98,73 +90,51 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究明确Hf0.5Zr0.5O2外延薄膜临界应变窗口以稳定极性正交相结构",
-        "新基础模型基于大规模连续血糖监测数据预训练以适配多项代谢评估任务",
-        "ORCA框架结合纳米孔测序实现多重RNA修饰类型同步定量检测"
+        "新型混合忆阻器阵列引入疲劳机制，解决高频尖峰神经网络硬件处理难题。",
+        "单脉冲忆阻硬件系统研发成功，变率低于1%以提升脑机接口计算能效。"
       ],
       "entries": [
         {
-          "t": "稳定极性正交Hf0.5Zr0.5O2外延薄膜中无尺度畴壁的临界应变窗口",
+          "t": "使用混合忆阻器阵列进行疲劳尖峰时序相关可塑性学习的尖峰神经网络",
           "d": "2026-01-15",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究聚焦铁电氧化铪锆（Hf0.5Zr0.5O2）外延薄膜中极性正交相（o-phase）的稳定化问题。HZO铁电薄膜被视为下一代存储器与神经形态计算器件的革命性材料，但其铁电正交相在薄膜制备中难以稳定获得。研究通过精确控制临界应变窗口，成功稳定了极性正交相结构。该发现为铁电存储器的可靠性与规模化制造提供了关键工程指导，但应变控制在大面积晶圆级集成中的可重复性仍是挑战。",
-          "sc": 7.7,
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "报道了一种混合忆阻器阵列架构，通过配对具有不同动力学特性的忆阻器构建兼具短期疲劳和长期记忆的突触元件。该元件由具有内在疲劳行为的高均匀界面动态忆阻器，与基于二氧化铪的单晶体管-非易失性忆阻器耦合而成。该设计有效解决了传统尖峰时序相关可塑性硬件难以适应高频输入和处理复杂时序信息的难题。",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521362?af=R",
-          "tp": "铁电薄膜应变调控",
+          "u": "https://www.nature.com/articles/s41928-025-01554-4",
+          "tp": "忆阻器脉冲网络",
           "aip": 1,
           "kp": [
-            "[材料]: Hf₀.₅Zr₀.₅O₂外延铁电薄膜",
-            "[关键条件]: 临界应变窗口稳定极性正交相"
+            "架构设计[实现疲劳尖峰时序相关可塑性]: 包含具有不同动态特性的忆阻器阵列的混合架构"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Ferroelectric (Hf, Zr)O\n                    2\n                    (HZO) films are well positioned to revolutionize the next‐generation memories and neuromorphic computing, though metastability of their polar orthorhombic phase remains a daunting challenge. Here, we demonstrate that the phase structure of epitaxial HZO films can be effectively tuned on yttria‐stabilized‐zirconia (YSZ) substrate, resulting in tetragonal, orthorhombic, and monoclinic phases with distinct strain states modulated by film thickness. A critical strain window (+1.16% &lt;\n                    \n                      ε\n                      yy\n                    \n                    &lt; +2.30%) is identified to stabilize the polar orthorhombic phase, outside of which tetragonal or monoclinic phase emerges. Tetragonal‐orthorhombic phase transition is observed from lattice relaxation, confirming that the phase structure of HZO is governed by strain. 90° nanoscale domains with interleaved yet atomically sharp domain walls are also revealed, rendering direct experimental evidence for scale‐free ferroelectricity. Our findings not only establish critical conditions for stable polar orthorhombic HZO, but also shed new insight into unconventional scaling of ferroelectric fluorite oxides.",
+          "b": "Neuromorphic systems based on spike-timing-dependent plasticity offer energy-efficient learning but face limitations in terms of adapting to high-frequency inputs, restricting their effectiveness in processing complex temporal information. Synaptic fatigue dynamics, analogous to biological short-term plasticity, can increase the effectiveness, but this feature is difficult to efficiently incorporate in hardware. Here we report a hybrid architecture in which arrays of memristors with distinct dynamics are paired to create synaptic elements with short-term fatigue and long-term memory. The elements consist of an interfacial dynamic memristor with high uniformity and intrinsic fatigue behaviour coupled to a hafnia-based one-transistor–one-non-volatile memristor. The design enables a hardware-efficient implementation of fatigue spike-timing-dependent plasticity, enhancing the temporal learning capabilities of spiking neural networks. We show that the resulting neural network can be used for unsupervised online learning with high adaptability to both rate- and timing-coded spikes, high noise resilience and superior performance over conventional spike-timing-dependent plasticity approaches.",
           "hb": 1
         },
         {
-          "t": "用于连续血糖监测数据的基础模型",
+          "t": "基于单尖峰编码的人机界面端到端忆阻硬件系统",
           "d": "2026-01-15",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "研究开发了一种面向连续血糖监测（CGM）数据的基础模型。CGM技术能生成详细的葡萄糖动态时间序列数据，但其临床和科研潜力尚未被充分挖掘。该基础模型通过在大规模CGM数据上预训练，学习血糖动态的通用表征，可适配多种下游任务，如血糖预测、异常检测和代谢健康评估。该工作有望将CGM数据从简单的监测工具升级为精准代谢健康管理的智能分析平台。",
-          "sc": 7.4,
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "构建了一种基于单脉冲编码的鲁棒忆阻硬件系统。系统利用均匀的氧化钒忆阻器创建编码变率低于1%的单脉冲电路，用于输入编码和神经处理；同时开发了电导固化策略和映射方案，以限制氧化铪/氧化钽忆阻器因弛豫引起的电导漂移，确保突触计算精度。相比传统的速率编码，单脉冲编码具有更高的处理速度和能效。",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09925-9",
-          "tp": "葡萄糖监测大模型",
+          "u": "https://www.nature.com/articles/s41928-025-01544-6",
+          "tp": "忆阻器脑机接口",
           "aip": 1,
           "kp": [
-            "模型类型[CGM数据]: 生成式基础模型GluFormer",
-            "训练规模[CGM基础模型]: 10812名成人1000万+测量",
-            "训练方式[GluFormer]: 自监督学习"
+            "编码方式[忆阻硬件系统]: 单尖峰编码",
+            "相对优势[单尖峰编码相较于速率编码]: 处理速度更快且能效更高"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Continuous glucose monitoring (CGM) generates detailed temporal profiles of glucose dynamics, but its full potential for achieving glucose homeostasis and predicting long-term outcomes remains underutilized. Here we present GluFormer, a generative foundation model for CGM data trained with self-supervised learning on more than 10 million glucose measurements from 10,812 adults mainly without diabetes1,2. Using autoregressive prediction, the model learned representations that transferred across 19 external cohorts (n = 6,044) spanning 5 countries, 8 CGM devices and diverse pathophysiological states, including prediabetes, type 1 and type 2 diabetes, gestational diabetes and obesity. These representations provided consistent improvements over baseline blood glucose and HbA1c levels and other CGM-derived measures for forecasting glycaemic parameters3,4. In individuals with prediabetes, GluFormer stratified those likely to experience clinically significant increases in HbA1c over a 2-year period, outperforming baseline HbA1c and common CGM metrics. In a cohort of 580 adults with short-term CGM and a median follow-up of 11 years5, GluFormer identified individuals at elevated risk of diabetes and cardiovascular mortality more effectively than HbA1c. Specifically, 66% of incident diabetes cases and 69% of cardiovascular deaths occurred in the top risk quartile, compared with 7% and 0%, respectively, in the bottom quartile. In clinical trials, baseline CGM representations improved outcome prediction. A multimodal extension of the model that integrates dietary data generated plausible glucose trajectories and predicted individual glycaemic responses to food. Together, these findings indicate that GluFormer provides a generalizable framework for encoding glycaemic patterns and may inform precision medicine approaches for metabolic health.",
-          "hb": 1
-        },
-        {
-          "t": "通过深度学习和纳米孔直接 RNA 测序全面绘制 RNA 修饰动态和串扰图",
-          "d": "2026-01-15",
-          "a": "Nature Communications",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "开发了ORCA深度学习框架，利用纳米孔直接RNA测序实现RNA修饰全景图谱的综合检测与标注。该方法采用域对抗学习，可同时检测和定量多种RNA修饰类型，填补了多重修饰同时检测的空白，为揭示表观转录组整体景观及修饰间串扰机制提供了新工具。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-68419-y",
-          "tp": "RNA修饰图谱",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Despite the extensive studies of individual RNA modifications, the lack of methods to detect multiple modification types simultaneously has left the global epitranscriptomic landscape and its underlying crosstalk largely unexplored. Here, we present ORCA (Omni-RNA modification Characterization and Annotation), a deep learning framework that enables comprehensive mapping of RNA modification landscape using nanopore direct RNA sequencing. ORCA employs domain adversarial learning to detect and quantify a wide range of modifications by leveraging mixed stoichiometry-driven signal and sequence variability between modified and unmodified nucleotides. It also incorporates a transfer learning module for accurate annotation of modification types with minimal prior knowledge. Applying ORCA to multiple human cell lines reveals widespread, isoform-specific modification patterns, as well as intricate cooperative and competitive interactions among neighboring modification sites. This approach substantially expands the repertoire of known RNA modification sites and elucidates their spatial organization, revealing the emerging roles of RNA modifications in splicing regulation. ORCA thus provides an unbiased and generalizable framework for decoding RNA modification dynamics and their regulatory complexity across diverse biological contexts.",
+          "b": "Neuromorphic systems are crucial for the development of intelligent human–machine interfaces. Memristive hardware can emulate the neuron dynamics of biological systems, but typically uses rate coding, whereas single-spike coding (in which information is expressed by the firing time of a sole spike per neuron and the relative firing times between neurons) is faster and more energy efficient. Here we report a robust memristive hardware system that uses single-spike coding. For input encoding and neural processing, we use uniform vanadium oxide memristors to create a single-spiking circuit with under 1% coding variability. For synaptic computations, we develop a conductance consolidation strategy and mapping scheme to limit conductance drift due to relaxation in a hafnium oxide/tantalum oxide memristor chip, achieving relaxed conductance states with standard deviations within 1.2 μS. We also develop an incremental step and width pulse programming strategy to prevent resource wastage. The combined end-to-end hardware single-spike-coded system exhibits an accuracy degradation under 1.5% relative to a software baseline. We show that this approach can be used for real-time vehicle control from surface electromyography. Simulations show that our system consumes around 38 times lower energy with around 6.4 times lower latency than a conventional rate coding system.",
           "hb": 1
         }
       ]
@@ -173,18 +143,17 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "UCLA团队合成室温热导率达1100 W K⁻¹ m⁻¹的亚稳态氮化钽材料",
-        "研究者利用低相变温度形状记忆合金实现零摄氏度以下弹热制冷效应",
-        "科学家首次观测到飞秒X射线与原子内层电子的相干非线性四光子耦合过程"
+        "加州大学洛杉矶分校合成θ相氮化钽，室温热导率达1100 W K⁻¹ m⁻¹。",
+        "新分层壳结构锁定钙钛矿纳米晶体，光致发光量子产率趋近极限值。"
       ],
       "entries": [
         {
           "t": "加州大学洛杉矶分校胡永杰合成了热导率约为铜三倍的θ相氮化钽材料",
           "d": "2026-01-15",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/其它先进材料",
           "as": "加州大学洛杉矶分校胡永杰团队合成亚稳态θ相氮化钽材料，室温热导率达1100 W K⁻¹ m⁻¹，约为铜的三倍，刷新金属材料热导率纪录。同步辐射X射线散射揭示其具有大声光间隙和声子聚束能带结构，超快光谱证实声电耦合极弱。该材料六边形钽氮网格排列使导热主要由晶格振动贡献，为激光器、微电子器件热管理提供新可能。成果发表于Science。",
-          "sc": 8.3,
+          "sc": 8.1,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1126/science.aeb1142",
@@ -198,48 +167,42 @@
           "hb": 1
         },
         {
-          "t": "基于低相变温度合金的零摄氏度以下弹热制冷",
+          "t": "加州大学洛杉矶分校胡永杰合成了热导率约为铜三倍的θ相氮化钽材料",
           "d": "2026-01-15",
-          "a": "Nature",
+          "a": "Doi",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究利用低相变温度形状记忆合金实现了零下温区的弹热制冷效应。弹热制冷通过机械应力驱动固-固相变释放/吸收潜热，是一种零温室气体排放的新型固态制冷技术，被视为传统蒸汽压缩制冷的有力替代方案。传统弹热材料相变温度较高，难以满足冷冻温区应用需求。研究通过合金成分设计降低马氏体相变温度，使弹热效应在零下温度仍保持高效热响应，拓展了固态制冷技术在冷冻冷藏等场景的适用范围。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09946-4",
-          "tp": "弹热制冷合金",
+          "as": "加州大学洛杉矶分校胡永杰团队合成亚稳态θ相氮化钽材料，室温热导率达1100 W K⁻¹ m⁻¹，约为铜的三倍，刷新金属材料热导率纪录。同步辐射X射线散射揭示其具有大声光间隙和声子聚束能带结构，超快光谱证实声电耦合极弱。该材料六边形钽氮网格排列使导热主要由晶格振动贡献，为激光器、微电子器件热管理提供新可能。成果发表于Science。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1126/science.aeb1142",
+          "tp": "高导热材料",
           "aip": 1,
-          "kp": [
-            "温度[弹热制冷]: 零下摄氏度",
-            "材料[弹热制冷]: 低相变温度形状记忆合金"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Elastocaloric cooling using shape-memory alloys (SMAs) is a promising greenhouse gas (GHG)-free alternative to conventional vapour-compression refrigeration that relies on high global warming potential (GWP) gas refrigerants1,2,3,4. However, existing elastocaloric systems have not yet reached sub-zero Celsius temperatures, which restricts their application in various freezing scenarios5,6. Here we constructed a compression-based, regenerative elastocaloric cooling device using low-transition-temperature tubular NiTi units in a cascaded configuration. The selected NiTi alloy exhibited superelasticity and substantial entropy changes down to −20 °C. Moreover, low-freezing-point aqueous calcium chloride solution was used as the heat-transfer fluid, ensuring effective flow at low operational temperatures. Our desktop device achieved a heat-source temperature of −12 °C from a room-temperature heat sink, paving the way for next-generation green elastocaloric freezing technologies.",
+          "cm": "氮化钽材料的电导率与金属材料相当，较铜低两个数量级，但是热导率更高。这种现象来自导热机制不同，金属主要依靠自由电子导热，而氮化钽主要依赖于晶格振动导热。这一材料在2021年就被理论研究预测具有很高的热导率，本工作成功合成了粒径10-100μm的单晶，并表征了其性质。这一定程度上说明，聚焦于单晶性质的材料设计与性质预测走在计算机材料设计的前列。该类问题理论工具充足、有较多的结构-性质数据、可以快速从新的AI方法种受益。\n回归到材料本身，尽管其作为金属材料打破了热导率记录，但是单晶金刚石的热导率可以达到2000 W K-1 m-1，甚至两倍于该材料。在实际应用中，导热材料还需要考虑加工难度和界面热阻。由于金刚石加工难度大、和金属材料界面热阻大，使得界面处成为导热决速步，因此精密仪器、电子电路中还是广泛使用银(430 W K-1 m-1)做导热材料。该材料可能也会面临类似的问题，因此目前还是理论价值更大，应用潜力取决于合成成本、加工难度和表面处理。",
+          "b": "高热导率材料在激光器、微电子器件、低温精密仪器中广泛应用，目前主要使用银。胡永杰团队和成了一种亚稳态的氮化钽材料，在室温下实现了1100 W K-1 m-1的热导率，接近铜热导率400 W K-1 m-1的三倍，刷新金属材料热导率纪录。基于同步辐射X射线散射表明，该类材料具有大的声光间隙和声子聚束的能带结构，从而抑制了声子散射。超快光谱表明该材料的声电耦合非常弱，与第一性原理计算结果一致。该工作为电子器件中的热管理提供了新的可能性。\n该材料的电子结构类似金属，因此表现出远高于陶瓷的电导率，从而被归于金属材料。θ相氮化钽材料具有独特的原子结构，钽和氮成六边形网格排列，使得声电耦合大大削弱。不同于普通金属材料，氮化钽中的导热主要由晶格振动贡献，声子作为晶格振动的量子化粒子，声电耦合弱使得晶格振动不会被电子干扰，从而导致了高热导率。文章于2025年1月15日发表在Science。",
           "hb": 1
         },
         {
-          "t": "X射线与核壳电子的相干非线性四光子相互作用",
+          "t": "分层壳锁定并稳定钙钛矿纳米晶体，量子产率接近一致",
           "d": "2026-01-15",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究首次观测到X射线波段与原子内层电子（core-shell）发生的相干非线性四光子相互作用。利用飞秒X射线自由电子激光，在超快光谱学中开启了全新的非线性光学维度——内层电子同时参与四个X射线光子的相干耦合过程，为探测原子内层电子动力学及元素选择性成像提供了前所未有的手段。",
-          "sc": 7.4,
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09911-1",
-          "tp": "X射线非线性光谱",
+          "u": "https://www.science.org/doi/abs/10.1126/science.ady1370?af=R",
+          "tp": "钙钛矿纳米晶",
           "aip": 1,
-          "kp": [
-            "方法[X射线光谱]: X射线四波混频探测内壳层电子",
-            "时间尺度[X射线]: 飞秒与阿秒级"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Coherent nonlinear light–matter interaction with X-rays gives access to a regime in ultrafast spectroscopy in which atomic resolution meets femtosecond and attosecond timescales1,2. Particularly, X-ray four-wave mixing, involving several resonant transitions in a single coherent nonlinear process, has the potential to provide information on the electronic states coupling, coherent electron motion, correlation and dynamics, with state and site selectivity3,4,5. Here we demonstrate coherent, background-free four-photon interactions with core-shell electrons using single broadband X-ray pulses from a free-electron laser. The all-X-ray four-wave mixing signals, measured in gaseous neon, arise from doubly resonant nonlinear processes involving Raman transitions6, including X-ray coherent anti-Stokes electronic Raman scattering. The 2D spectral maps (photon-in/photon-out) represent a step towards multidimensional correlation spectroscopy at the atomic scale. Using a multicolour time-delayed X-ray pulse scheme, we further demonstrate the feasibility of extending the proposed methodology to the ultrafast time domain. These results reveal potential for studying localized electron dynamics in multiple systems, from biomolecules to correlated quantum materials, with applications in areas such as energy conversion, biomedical imaging and quantum information technologies.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

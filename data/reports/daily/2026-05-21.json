@@ -6,19 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "怀卡托大学研究指出增强岩石风化因全路径损失面临碳封存持久性存疑",
-      "研究团队提出有机盐补钠策略使钠离子电池能量密度突破180Wh/kg",
-      "热调控界面水分子结构重塑CO2电还原路径实现近单位法拉第效率"
+      "赣锋锂业能量密度500Wh/kg锂金属电池进入小批量试产阶段",
+      "赣锋锂业400Wh/kg电池平台达成循环寿命技术节点",
+      "Antora Energy投运50兆瓦热碳热电池系统为POET供能"
     ],
-    "AI与智能科技": [
-      "先进大语言模型在标准三方图灵测试中实现与人类难以区分的对话模拟",
-      "研究团队开发基于可拉伸电子材料的大规模神经形态电路实现体表端侧计算",
-      "ProteomeLM预训练模型实现蛋白质相互作用与基因功能的低成本快速预测"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "中科院物理所研制无液氦亚K强磁场扫描隧道显微镜兼容5T超导磁体",
-      "科研人员首次合成超铀元素镎瞬态配合物并验证其C-H键活化反应活性",
-      "研究提出利用消费级激光雷达多角度运动采样重建非视距物体三维轮廓"
+      "中科院物理所研制无液氦扫描隧道显微镜最低温度达420mK",
+      "新型干式强磁场系统兼容5T磁体并可长期连续运行",
+      "WS2与MoS2结中空腔重构被证实影响激子弛豫与电荷转移"
     ]
   },
   "sectors": [
@@ -26,74 +22,73 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "怀卡托大学研究指出增强岩石风化因全路径损失面临碳封存持久性存疑",
-        "研究团队提出有机盐补钠策略使钠离子电池能量密度突破180Wh/kg",
-        "热调控界面水分子结构重塑CO2电还原路径实现近单位法拉第效率"
+        "赣锋锂业能量密度500Wh/kg锂金属电池进入小批量试产阶段",
+        "赣锋锂业400Wh/kg电池平台达成循环寿命技术节点",
+        "Antora Energy投运50兆瓦热碳热电池系统为POET供能"
       ],
       "entries": [
         {
-          "t": "怀卡托大学Terry Isson认为岩石风化实现碳移除的持久性存疑",
+          "t": "赣锋开始试产500Wh/kg固态电池",
           "d": "2026-05-21",
-          "a": "",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "怀卡托大学Terry Isson在Science发文指出增强岩石风化碳封存持久性存疑：钙镁离子向海洋输运中易形成次生碳酸钙矿物并释放CO2，亚马逊河口可截留67%镁离子。现有监测仅关注施用点忽略全路径损失，若计入采矿运输排放该技术甚至可能成为净排放源，呼吁碳市场暂缓为其发放信用。",
-          "sc": 7.0,
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "赣锋锂业在固态电池研发上取得进展，能量密度达500Wh/kg的10Ah锂金属电池已进入小批量试产阶段，成为全球首款达到该能量密度的10Ah固态产品。此外，其400Wh/kg电池平台也达成了循环寿命里程碑。",
+          "sc": 8.7,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.science.org/doi/10.1126/science.adz2620",
-          "tp": "岩石风化质疑",
+          "tg": "技术突破",
+          "u": "https://www.electrive.com/2026/05/21/ganfeng-starts-pilot-production-of-500-wh-kg-solid-state-batteries/",
+          "tp": "固态电池",
+          "aip": 1,
+          "kp": [
+            "羰基电化学还原[-Gly界面催化体系]: 在水相电解中将羰基深度脱氧还原为亚甲基（-CH2-），克服了常规还原停留在醇阶段的脱附限制"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Battery\nGanfeng starts pilot production of 500 Wh/kg solid-state batteries\nChinese battery materials specialist Ganfeng Lithium has reported progress in the development of solid-state batteries for electric mobility applications, including the start of small-batch production of a lithium-metal cell with an energy density of 500 Wh/kg and a cycle life milestone for its 400 Wh/kg battery platform.\nImage: Ganfeng Lithium\nBy Carla Westerheide\n21.05.2026 - 11:52\nGanfeng Lithium\nSolid-state\nBatteries\nAccording to an investor relations update, reported on by Chinese media, Ganfeng Lithium’s 10 Ah lithium-metal battery with an energy density of 500 Wh/kg has entered small-batch production. “The battery is the world’s first 10 ampere-hour (Ah) solid-state product to achieve the 500 Wh/kg energy density mark, setting an industry benchmark for the future commercialisation of lithium-metal batteries,”\nCN EV Post\nstates.\nMoreover, the company’s 400 Wh/kg solid-state battery has exceeded 1,100 charge cycles and completed engineering validation.\nThis comes only three months after the Chinese company announced that it had begun\nproduction of a semi-solid-state battery\nwith an energy density of 650 Wh/kg. The start of the pilot production phase of all-solid-state battery packs was also announced at the time.\nThe company is pursuing two parallel solid-state battery technology routes based on silicon-carbon and lithium-metal anodes. Ganfeng sees lithium-metal technology as a key route to higher energy density and faster commercialisation of next-generation batteries for electric vehicles and aviation applications. At the same time, the company is expanding its silicon-based battery portfolio with products offering energy densities ranging from 320 to 480 Wh/kg. According to Ganfeng, its 320 Wh/kg battery has already exceeded 1,000 charging cycles, while development of the 480 Wh/kg version is still ongoing.\nThe different battery configurations are intended to address varying requirements for energy density, durability and application scenarios. Ganfeng identified premium electric vehicles, drones, eVTOL aircraft, robotics and consumer electronics as target markets.\nGanfeng has long been one of the world’s largest lithium processors and supplies companies, such as\nHyundai\nand Changan. It also works with Dongfeng. The latter has begun extreme-cold testing of vehicles equipped with 350 Wh/kg solid-state batteries, while Changan plans to start trial installations of 400 Wh/kg solid-state batteries during 2026.\ncarnewschina.com\n,\ncnevpost.com\nTags\nGanfeng Lithium\nSolid-state\nBatteries\nBattery production\nsuppliers\nChina\n0 Comments\nabout „Ganfeng starts pilot production of 500 Wh/kg solid-state batteries“\nLeave a Reply\nCancel reply\nAlso read\nAutomobile\nQ1 results: Nio doubles sales and revenue\npublished 5 hours ago\nAutomobile\nVW launches the ID. Unyx 07 in China\npublished 5 hours ago\nBattery\nBasquevolt launches lithium-metal battery cell\n22.05.2026",
+          "hb": 1
+        },
+        {
+          "t": "赣锋锂业开始小规模生产500Wh/kg固态电池",
+          "d": "2026-05-21",
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://batteriesnews.com/ganfeng-lithium-starts-small-scale-production-of-500-wh-kg-solid-state-batteries/",
+          "tp": "固态电池量产",
           "aip": 1,
           "kp": [],
-          "lv": 1,
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "5月21日，怀卡托大学Terry Isson等在Science发布观点称岩石风化去除大气CO₂后向水体迁移过程可能造成泄漏。增强岩石风化（增强碱度）技术通过向陆地或海洋施加钙、镁等富含阳离子的矿物，加速岩石溶解，将大气中的CO₂转化为溶解无机碳（主要为碳酸氢根和碳酸根），理论上可实现海洋长期储碳，同时缓解海洋酸化。该观点认为，释放出的钙、镁离子在从土壤、河流向海洋输运途中，极易通过吸附或沉淀形成次生矿物——包括碳酸钙（方解石、文石）和黏土矿物。当钙离子与碳酸氢根结合形成碳酸钙固体时，会发生逆反应——每生成一分子碳酸钙，就会释放一分子CO₂回到环境中。这意味着原本被固定的碳不仅未能长期封存，反而发生“泄漏”。\n此外，现有监测与碳核算体系仅关注施用点（如土壤表层30厘米）的碱度变化，完全忽略了从陆地到河口、近海全路径中的离子损失。研究显示，亚马逊河口可截留高达67%的镁离子，类似现象也见于长江口。若计入采矿、研磨和运输的碳排放，增强碱度甚至可能成为净排放源。\n作者呼吁，在全面量化全链条碳损失及生态风险（如重金属释放、粉尘危害）之前，碳市场不应盲目为该项技术发放减排信用。真正的持久固碳，必须经得起从陆地到海洋的全程检验。",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "通过有机盐驱动钠补充实现能量密度超180 Wh/kg的钠离子电池",
+          "t": "Antora热碳热电池赢得美国5GWh储能项目 - Energy Storage",
           "d": "2026-05-21",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "钠离子电池研究取得突破性进展。针对P2型层状钠金属氧化物正极材料固有的大量钠离子缺失问题，研究团队提出有机盐驱动的钠补充策略，成功将钠离子电池能量密度提升至180 Wh/kg以上。该方法通过在正极材料合成过程中引入有机盐前驱体，实现钠位缺陷的有效补偿，显著改善循环稳定性与首圈库仑效率。这一成果缩小了钠离子电池与锂离子电池在能量密度上的差距，为大规模储能和低成本电动汽车应用提供了新路径。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73448?af=R",
-          "tp": "钠离子电池",
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/储热/固态储热",
+          "as": "Antora Energy在美国南达科他州生物燃料巨头POET的大型生物加工设施中，投运了一个50兆瓦/5吉瓦时（GWh）的热碳热电池储能系统。该项目建设耗时约一年，是全球规模最大的储能装置之一。在Grok Ventures作为唯一外部投资者的项目级融资支持下，系统顺利完成财务结算并投运。根据长期的供热承购协议，该系统将全天候为POET提供50兆瓦的具有价格竞争力的能源。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ess-news.com/2026/05/21/antoras-hot-carbon-thermal-batteries-win-5-gwh-energy-storage-project-in-us/",
+          "tp": "热电池项目投运",
           "aip": 1,
           "kp": [
-            "能量密度[钠离子电池]: >180 Wh/kg",
-            "[补钠策略]: 四苯基硼酸钠补钠",
-            "[正极材料]: P2型层状钠金属氧化物"
+            "储能容量[Antora热碳热电池]: 5 GWh",
+            "项目额定功率[美国南达科他州大石城储能项目]: 50 MW",
+            "项目建设周期[Antora热储能系统]: 约1年",
+            "储热技术路线[Antora]: 热碳热电池"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Compensating for the substantial sodium ion deficit inherent in P2‐type layered sodium metal oxide cathodes represents a promising strategy for advancing high‐performance sodium‐ion batteries. However, current approaches still fail to reconcile the trade‐off between pre‐sodiation dosage and energy density. Herein, we introduce a soluble sodium compensator, sodium tetraphenylborate (NaBPh\n                    4\n                    ), rationally discovered through a combined unsupervised and supervised machine‐learning screening of boron‑centered anions, which can release sufficient sodium ions to replenish the entire sodium deficit of P2‐type oxides. In P2‐Na\n                    0.67\n                    Ni\n                    0.08\n                    Ti\n                    0.12\n                    Mn\n                    0.8\n                    O\n                    2\n                    || hard carbon full cells, this compensator endows the full cell with an ultra‐long cycle life exceeding 3700 cycles, while a 5 Ah pouch cell achieves a remarkable energy density of 184 Wh kg\n                    −1\n                    at 0.1C. This work establishes a versatile strategy for addressing high sodium‐deficiency systems, thereby expanding the research scope and practical application potential of sodium‐ion full cells.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 通过界面水分子重构热调控CO2活化路径实现安培级近单位法拉第效率",
-          "d": "2026-05-21",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "该工作提出通过界面水结构的热调控来调控CO2电还原路径的突破性策略。电化学CO2还原制CO是碳利用技术的关键步骤，但高选择性难以长期维持。研究表明温度变化可重塑电极界面处水分子的排布结构，进而精确调控CO2活化中间体的生成路径，为提升CO选择性与能量效率提供了新思路。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c02677",
-          "tp": "CO2电还原制CO",
-          "aip": 1,
-          "kp": [
-            "[CO选择性]: 近100%",
-            "[电流密度]: 安培级",
-            "[调控机制]: 界面水重构热调控CO₂活化路径"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Electrochemical reduction of CO2 to CO is a key step in carbon utilization technologies, yet maintaining high CO selectivity under elevated temperatures relevant to industrial membrane-electrode-assembly (MEA) electrolyzers remains challenging due to the competing hydrogen evolution reaction (HER). Additionally, the temperature dependence of CO selectivity on Cu-based catalysts has remained largely unexplored. Here, we demonstrate that incorporating atomic In or Sn into Cu fundamentally reshapes the selectivity of Cu catalysts at elevated temperatures. Dilute alloy catalysts, In1Cu and Sn1Cu, achieve >95% FE of CO over a broad current-density window (0.1-1.1 A cm-2) at 60 °C in MEA electrolyzers, far exceeding their performance at ambient temperature. In situ attenuated total reflection surface-enhanced infrared absorption spectroscopy suggests that elevating temperature depletes interfacial water activity, which favors a shift in CO2 activation from a proton-coupled *COOH pathway toward an electron-driven *COO--associated pathway, while also suppressing HER and CO hydrogenation. In contrast, benchmark CO-selective catalysts such as Ag exhibit minimal temperature-induced changes in CO production at 20-60 °C. These findings identify temperature as an unavoidable yet previously underutilized operating parameter in MEA electrolyzers for high-rate, selective CO production on Cu-based catalysts.",
+          "b": "Antora Energy has commissioned its 5 GWh thermal energy storage system at US biofuels giant POET’s Big Stone City bioprocessing facility in South Dakota, US.\nThe 50 MW / 5 GWh facility some 180 miles / 300 kilometers west of Minneapolis, Minnesota, was constructed in around a year, and serves as one of the largest energy storage installations globally.\nAustralian private investment and venture capital firm founded by Atlassian co-founder Mike Cannon-Brookes, Grok Ventures provided project-level financing as the sole external investor the thermal energy storage system (TES). Grok’s investment enabled the project to reach financial close and be commissioned.\nThe system will provide POET with 50 MW of competively priced, around-the-clock energy under a\nlong term heat\nofftake agreement, enabling the plant to increase its bioethanol production.\nThe project uses Antora’s technology to improve efficiency and lower costs at POET Bioprocessing – Big Stone, helping produce homegrown fuel.\nImage: POET\nAntora co-founder and CEO Andrew Ponec said: “With this project, Antora is delivering affordable energy to POET – fast. We are proud of what this deployment means for the workers who designed, built and installed these batteries, and more broadly, for American manufacturing.”\nGrok Ventures\ninfrastructure and private equity head Ridhaa Ahmed said Antora has built something genuinely compelling.\n“Our conviction in the technology, the team, and the commercial fundamentals gave us the confidence to structure a financing solution befitting the project’s transformative nature,” Ahmed said.\n“The commercial logic is strong, the opportunity consequential, and we look forward to continuing our partnership with Antora as they scale this technology across America and the world.”\nThe project selectively and rapidly charges during periods of surplus local energy production, making use of existing grid infrastructure, offering a model to integrated thermal energy storage.\nImage: Antora\nImage: Antora",
           "hb": 1
         }
       ]
@@ -101,92 +96,22 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "先进大语言模型在标准三方图灵测试中实现与人类难以区分的对话模拟",
-        "研究团队开发基于可拉伸电子材料的大规模神经形态电路实现体表端侧计算",
-        "ProteomeLM预训练模型实现蛋白质相互作用与基因功能的低成本快速预测"
-      ],
-      "entries": [
-        {
-          "t": "大语言模型通过标准三方图灵测试",
-          "d": "2026-05-21",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "研究验证大语言模型通过标准三方图灵测试。图灵测试不仅是机器智能的衡量标准，也反映人类对机器的感知。实验表明先进LLM在模拟人类对话方面达到难以区分的程度，引发对人工智能身份认知、社会影响及AI能力边界的深层讨论。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2524472123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "大模型图灵测试",
-          "aip": 1,
-          "kp": [
-            "[测试模型]: GPT-4.5/GPT-4o/LLaMa-3.1-405B/ELIZA"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The Turing test has been widely discussed as a test of machine intelligence, but it also provides a measure of how humans distinguish other humans from machines. We evaluated 4 systems (ELIZA, GPT-4o, LLaMa-3.1-405B, and GPT-4.5) in two randomized, controlled, and preregistered Turing tests on independent populations. Participants had 5 min conversations simultaneously with another human participant and one of these systems before judging which conversational partner they thought was human. When prompted to adopt a humanlike persona, GPT-4.5 was judged to be the human 73% of the time: significantly more often than interrogators selected the real human participant. LLaMa-3.1, with the same prompt, was judged to be the human 56% of the time—not significantly more or less often than the humans it was being compared to. Without these prompts, however, the same models performed significantly worse (38% and 36%), and did not consistently outperform baseline models, ELIZA and GPT-4o (23% and 21%, respectively). A third study replicated these results in 15-min games: two PERSONA-prompted models achieved pass rates of 56% and 59%. The results constitute empirical evidence that artificial systems can pass a standard three-party Turing test. Interrogators’ reasoning focused more on stylistic and socio-emotional aspects of human behavior rather than more traditional notions of intelligence. The results have implications for debates about what kind of intelligence is exhibited by large language models, the social impacts these systems are likely to have, and the aspects of human behavior that people continue to see as unique.",
-          "hb": 1
-        },
-        {
-          "t": "用于体表边缘计算的大规模可拉伸神经形态电路",
-          "d": "2026-05-21",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究团队开发了大规模可拉伸神经形态电路，用于体表边缘计算。该器件利用本征可拉伸电子材料构建，能够处理大量多模态传感数据并实现片上神经形态计算。与传统可穿戴设备将数据上传云端不同，该电路在采集端即可完成信息处理，大幅降低延迟和功耗。这一突破为可穿戴健康监测、软体机器人等需要实时本地智能处理的应用开辟了新路径。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01639-8",
-          "tp": "可拉伸神经形态电路",
-          "aip": 1,
-          "kp": [
-            "[柔性神经形态]: 可拉伸有机电化学晶体管边缘计算",
-            "[制造突破]: 可扩展制造解决柔性电路瓶颈"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Intrinsically stretchable electronics can be used to make wearable devices that collect large amounts of multimodal sensory data. This has led to a demand for enhanced near-sensor computing capabilities that can process such data. One potential solution is neuromorphic edge computing implemented using stretchable organic electrochemical transistors, but the lack of a scalable fabrication method for these transistors has limited the size and complexity of the systems. Here we report the fabrication of large-scale, intrinsically stretchable organic electrochemical transistor arrays with a density up to 10,000 transistors per square centimetre. The transistors exhibit good synaptic performance, including linear, precise conductance programming and good retention. The performance uniformity of the array enables the hardware implementation of a stretchable artificial neural network for processing health data, including heart attack risk assessment and kernel convolution for locating propagation wavefronts. We also explore the potential of implementing reinforcement learning algorithms on the neuromorphic circuits for use in soft robotics.",
-          "hb": 1
-        },
-        {
-          "t": "ProteomeLM：蛋白质组规模语言模型实现蛋白质相互作用和基因功能的精准快速预测",
-          "d": "2026-05-21",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "ProteomeLM是一种蛋白质组规模的蛋白质语言模型，能够快速、准确地预测蛋白质-蛋白质相互作用（PPI）和基因功能。该模型在大规模蛋白质序列数据上预训练，学习到氨基酸序列中的深层语义表示，可将表征迁移至下游预测任务。相比传统实验方法，ProteomeLM大幅降低了PPI网络构建和功能注释的时间与成本，为药物靶点发现、疾病机制解析及合成生物学设计提供高效计算工具。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2524201123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "蛋白质语言模型",
-          "aip": 1,
-          "kp": [
-            "[模型架构]: transformer蛋白质组级语言模型",
-            "[训练任务]: 全蛋白组上下文掩码嵌入重建"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Language models trained on biological sequences are advancing inference tasks from the scale of single proteins to that of genomic neighborhoods. Here, we introduce ProteomeLM, a transformer-based language model that uniquely operates on entire proteomes from species spanning the tree of life. ProteomeLM is trained to reconstruct masked protein embeddings using the whole proteomic context, yielding contextualized protein representations that reflect proteome-scale functional constraints. Notably, ProteomeLM’s attention coefficients encode protein–protein interactions (PPI), despite being trained without interaction labels. Furthermore, it enables interactome-wide PPI screening that is substantially more accurate, and orders of magnitude faster, than amino acid coevolution-based methods. We further develop ProteomeLM-PPI, a supervised model that combines ProteomeLM embeddings and attention coefficients to achieve state-of-the-art PPI prediction across benchmarks and species. Finally, we introduce ProteomeLM-Ess, a supervised gene essentiality predictor that generalizes across diverse taxa. Our results demonstrate the potential of proteome-scale language models for addressing function and interactions at the organism level.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中科院物理所研制无液氦亚K强磁场扫描隧道显微镜兼容5T超导磁体",
-        "科研人员首次合成超铀元素镎瞬态配合物并验证其C-H键活化反应活性",
-        "研究提出利用消费级激光雷达多角度运动采样重建非视距物体三维轮廓"
+        "中科院物理所研制无液氦扫描隧道显微镜最低温度达420mK",
+        "新型干式强磁场系统兼容5T磁体并可长期连续运行",
+        "WS2与MoS2结中空腔重构被证实影响激子弛豫与电荷转移"
       ],
       "entries": [
         {
           "t": "中科院物理所开发出无液氦亚K强磁场扫描隧道显微镜",
           "d": "2026-05-21",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
           "as": "中科院物理所郇庆团队联合企业研制无液氦亚K强磁场扫描隧道显微镜，具备⁴He和³He两种制冷模式，最低电子温度420mK，温度稳定性±0.1mK，震动<1pm，兼容5T超导磁体。相比传统湿式STM，干式系统具备长期连续运行、可高温烘烤、兼容常规实验室等优势，成果发表于Review of Scientific Instruments。",
           "sc": 7.4,
@@ -203,46 +128,42 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 瞬态三酰胺胺镎(V)–单(亚胺基)配合物：有效核电荷驱动的C–H激活和氢原子转移",
+          "t": "中科院物理所开发出无液氦亚K强磁场扫描隧道显微镜",
+          "d": "2026-05-21",
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "中科院物理所郇庆团队联合企业研制无液氦亚K强磁场扫描隧道显微镜，具备⁴He和³He两种制冷模式，最低电子温度420mK，温度稳定性±0.1mK，震动<1pm，兼容5T超导磁体。相比传统湿式STM，干式系统具备长期连续运行、可高温烘烤、兼容常规实验室等优势，成果发表于Review of Scientific Instruments。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1063/5.0325806",
+          "tp": "无液氦显微",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "5月21日，中科院物理所在官方公众号发文称，该所郇庆团队中科艾科米、北京飞斯科科技等企业，研制出新型无液氦亚K强磁场扫描隧道显微镜（STM）系统。文中称，传统“湿式”制冷受限于液氦储量及资源紧缺，难以满足长效科研需求。随氦气闭循环技术突破，无液氦的“干式”系统具有长效连续运行等优势，但其机械震动对高灵敏物理测量会造成影响。\n此次开发的系统具备⁴He‑⁴He、⁴He‑³He两种制冷工作模式，系统基础温度（有效电子温度）分别可达894 mK（1.06 K）和420 mK（610 mK），并可兼容室温孔径超导磁体。可实现温度稳定性接近±0.1 mK，震动水平小于1pm，从低温到室温宽温区内连续变温成像，0-5T连续变场，并能够稳定运行数月。相较已有液氦杜瓦的湿式STM方案的低温维持时间有限、运行成本高、烘烤受限、所需安装空间较大等诸多问题，该系统展现着长期连续运行、宽温域可调、可高温烘烤、系统高度兼容常规实验室、无需地下安装空间与磁体配置灵活等诸多优势。相关研究成果也在Review of Scientific Instruments上发表。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] WS2/MoS2 结中的空腔重建激子弛豫和电荷转移",
           "d": "2026-05-21",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "首次报道了超铀元素镎的瞬态单亚胺基配合物。镎(V)-单亚胺基配合物通过[NpIII(TrenTIPS)]与叠氮化物反应生成，伴随N2释放。有效核电荷驱动的C-H键活化和氢原子转移反应证明了该瞬态物种的反应活性，填补了锕系单亚胺基化学中镎元素的长期空白。",
-          "sc": 7.0,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00505",
-          "tp": "超铀配合物",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02510",
+          "tp": "激子弛豫研究",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Metal-mono(imido) linkages have been known for seven decades, and they are found in transition metal, main group, lanthanide, thorium, and uranium complexes. However, transuranium-mono(imido) complexes remain unknown in any scenario. Here, we present evidence for transient neptunium(V)-mono(imido) complexes. Treatment of [NpIII(TrenTIPS)] (1, TrenTIPS = {N(CH2CH2NSiPri3)3}3-) with N3R (R = SiMe3; 1-adamantyl, Ad) results in N2 evolution and dark purple solutions consistent with the formation of [NpV(TrenTIPS)(NR)] (3NpNR). However, solutions of 3NpNR rapidly turn orange, where for R = SiMe3 the isolated 1:1 products are [NpIV(TrenTIPS){N(H)SiMe3}] (4a) and [NpIV(TrenTIPS-2H){N(H)SiMe3}] (4b, TrenTIPS-2H = {N(CH2CH2NSiPri3)2(NCH2CH2NSiPri2C[Me]=CH2)}3-). The latter contains a dehydrogenated-Pri vinyl functionality accounting for the source of the two amido H atoms. The reaction for R = Ad proceeds similarly, but only [NpIV(TrenTIPS){N(H)Ad}] (5a) could be unequivocally confirmed, though its isolation suggests generality of the imido-to-amido functional group transformation. Complexes 4a/4b exhibit slow relaxation of their magnetization, adding to the small number of transuranium single ion magnets. Experimental and computational analysis suggests that the amido products are formed by C-H activation and two sequential hydrogen atom transfer reactions involving a three-step proton-coupled electron-transfer sequence of H• radical abstraction, electron transfer, then another H• radical abstraction step. In contrast to transient 3NpNR, the 5f2 uranium(IV)-imido complex [K(2.2.2-cryptand)][UIV(TrenTIPS)(NSiMe3)] (8UNSiMe3) is robust, even in boiling THF, suggesting the transience of 5f2 3NpNR is not due to the 5fn-count but the increased effective nuclear charge of neptunium vs uranium. This work highlights divergence of uranium- and neptunium-imido stabilities, emphasizing that the latter is an inherently challenging synthetic target.",
-          "hb": 1
-        },
-        {
-          "t": "利用消费级激光雷达通过运动诱导采样对隐藏物体成像",
-          "d": "2026-05-21",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究提出一种利用消费级LiDAR设备（如手机、AR眼镜中的固态LiDAR）实现非视距成像的新方法。通过运动诱导采样，即设备移动过程中累积的多角度测量数据，重建被遮挡物体的三维轮廓。该技术突破了传统LiDAR仅能成像视距内目标的限制，有望应用于自动驾驶、机器人导航及增强现实等场景。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10502-x",
-          "tp": "LiDAR成像",
-          "aip": 1,
-          "kp": [
-            "[成像能力]: 非视域(NLOS)成像",
-            "[采样方法]: 运动诱导采样",
-            "[硬件]: 消费级LiDAR"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Light-detection and ranging (LiDAR) is being increasingly deployed for consumer imaging across handheld, wearable and robotic applications1,2,3,4. These sensors measure the time-of-flight of light at picosecond resolution, which could enable them to image objects hidden from their field of view. Although such non-line-of-sight (NLOS) imaging capabilities have been shown on research-grade LiDAR devices, they remain challenging to achieve on consumer devices due to poor signal quality resulting from low laser power, low spatial resolution, and object and camera motion. Here we propose a multi-frame fusion strategy to overcome these challenges and demonstrate NLOS imaging on consumer LiDAR. We introduce the motion-induced aperture sampling model to unify the effects of object shape, object motion and camera motion under a single measurement model. Using this model, we demonstrate several NLOS capabilities on a smartphone-grade LiDAR: (1) three-dimensional reconstruction; (2) single- and multi-object tracking; and (3) camera localization using hidden objects. Previously, NLOS imaging capabilities were restricted to bulky and expensive research-grade hardware that requires extensive set-up and calibration. Our results represent a shift towards plug-and-play NLOS imaging, where anyone can image hidden objects with off-the-shelf hardware (for less than US$100) and no additional set-up. We believe democratization of such capabilities will advance consumer applications of NLOS imaging.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

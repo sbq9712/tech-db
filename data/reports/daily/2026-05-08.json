@@ -6,29 +6,21 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "黑晶光电16.2平方厘米钙钛矿叠层电池效率达29.67%",
-      "研究人员开发晶圆级二维高熵薄膜催化剂用于光电化学制氢",
-      "新型电弧摩擦纳米发电机在低速下实现超2000倍电流增强"
+      "黑晶光电三结叠层太阳能电池效率达29.67%",
+      "3D打印电极支架实现安培级碱性水电解"
     ],
     "AI与智能科技": [
-      "研究显示AI科研智能体存在伪造数据及p值操纵等违规行为",
-      "硅基移动自旋量子比特成功实现双比特逻辑门与量子隐形传态",
-      "北美电力可靠性公司就数据中心引发电网停摆风险发布警报"
+      "北美电力可靠性公司针对数据中心用电波动发布三级警报"
     ],
-    "通用技术": [
-      "多酶级联催化反应实现大环肽药物enlicitide规模化制造",
-      "研究人员通过原子操纵首次合成半莫比乌斯拓扑结构分子",
-      "4D打印超材料肠道支架获批用于结直肠癌姑息治疗"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "黑晶光电16.2平方厘米钙钛矿叠层电池效率达29.67%",
-        "研究人员开发晶圆级二维高熵薄膜催化剂用于光电化学制氢",
-        "新型电弧摩擦纳米发电机在低速下实现超2000倍电流增强"
+        "黑晶光电三结叠层太阳能电池效率达29.67%",
+        "3D打印电极支架实现安培级碱性水电解"
       ],
       "entries": [
         {
@@ -37,7 +29,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "深圳黑晶光电开发的三结钙钛矿/钙钛矿/晶硅叠层太阳能电池，16.2cm²器件经国家光伏产业计量测试中心验证，认证效率达29.67%（反扫，Voc=2.975V）。实测比功率约1200W/kg（器件0.397g）。叠层器件在面积与效率上均达较高水平，推进钙钛矿多结技术向实用化迈进。",
-          "sc": 6.7,
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/CSv71PCCF19deFRZtt5p1A",
@@ -51,50 +43,42 @@
           "hb": 1
         },
         {
-          "t": "晶圆级二维高熵过渡金属硫族化合物薄膜催化剂用于高效持久光电化学制氢",
+          "t": "黑晶光电16.2cm²钙钛矿/钙钛矿/晶硅叠层器件认证效率达29.67%",
           "d": "2026-05-08",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "研究开发了晶圆级二维高熵过渡金属硫属化物（TMD）薄膜催化剂，用于光电化学（PEC）制氢。高熵策略通过引入多种过渡金属元素打破传统TMD催化剂活性位点均一性的限制，显著提升析氢反应活性与长期耐久性。晶圆级制备工艺保证了薄膜均匀性和可扩展性，为规模化光电化学制氢提供了兼具高效与耐久性的新型催化材料平台。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73236?af=R",
-          "tp": "高熵TMD光电析氢",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "深圳黑晶光电开发的三结钙钛矿/钙钛矿/晶硅叠层太阳能电池，16.2cm²器件经国家光伏产业计量测试中心验证，认证效率达29.67%（反扫，Voc=2.975V）。实测比功率约1200W/kg（器件0.397g）。叠层器件在面积与效率上均达较高水平，推进钙钛矿多结技术向实用化迈进。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/CSv71PCCF19deFRZtt5p1A",
+          "tp": "钙钛矿光伏",
           "aip": 1,
-          "kp": [
-            "催化剂[PEC析氢]: 2D高熵过渡金属二硫化物",
-            "[制备规模]: 晶圆级薄膜",
-            "[优势]: 局部晶格畸变+电荷重分布"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Photoelectrochemical (PEC) performance of conventional 2D transition metal dichalcogenides (TMDs) in hydrogen evolution reaction (HER) is constrained by the limited selection of metal cations, predominantly MoS\n                    2\n                    , whose inert basal planes and unstable 1T phases hinder PEC efficiency. High‐entropy TMDs, in which local lattice distortion and charge redistribution occur within a van der Waals layered structure, are expected to overcome these intrinsic limitations by improving catalytic activity, photocarrier dynamics, and phase stability. Here, we demonstrate a wafer‐scale 2D high‐entropy (MoWTaNbRu)S\n                    2\n                    thin‐film catalyst with distorted 1T phase on\n                    p\n                    ‐Si photocathode for PEC‐HER. The high‐entropy effect induces substantial electronic redistribution, enhancing the contribution of\n                    d\n                    ‐orbitals near the Fermi level and optimizing hydrogen adsorption energetics. PEC kinetic analyses, including intensity‐modulated photocurrent spectroscopy, demonstrate that (MoWTaNbRu)S\n                    2\n                    markedly suppresses the recombination of photogenerated charge carriers, enabling more efficient charge extraction and accelerated interfacial reaction kinetics. Furthermore, the high‐entropy‐driven stabilization of the metastable 1T phase ensures excellent durability of the photocathode. As a result, the (MoWTaNbRu)S\n                    2\n                    /TiO\n                    2\n                    /\n                    p\n                    ‐Si photocathode shows a remarkable photocurrent density and stability for over 100 h, outperforming single‐metal TMDs. This study demonstrates how configurational entropy enhances catalytic activity, photocarrier transport, and phase stability of TMDs, establishing a general design principle for next‐generation PEC catalysts.",
+          "b": "5月8日，深圳黑晶光电在官方公众号发文称，其开发的16.2cm²钙钛矿/钙钛矿/晶硅三结叠层太阳能电池经国家光伏产业计量测试中心验证测试，认证效率达29.67%（反扫，Voc=2.975V）；实测比功率约1200W/kg（测试器件0.397g）。",
           "hb": 1
         },
         {
-          "t": "基于电弧摩擦纳米发电机在超低驱动速度下实现2000倍以上电流增强用于身份识别",
+          "t": "3D 打印海星气体演化电极支架可实现安培级碱性水电解",
           "d": "2026-05-08",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
-          "as": "研究开发了一种基于电弧结构摩擦纳米发电机（Arc-TENG）的器件，在超低驱动速度下实现超过2000倍的电流增强。传统TENG在低速下输出微弱，限制了其作为自驱动传感器的应用。电弧结构设计利用接触分离时的电荷集中效应，大幅提升了低速条件下的电荷转移效率。该器件成功应用于身份识别传感器，为物联网自驱动传感和低速机械能收集提供了突破性方案。",
-          "sc": 7.1,
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71034?af=R",
-          "tp": "摩擦纳米发电机",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73344?af=R",
+          "tp": "水电解电极",
           "aip": 1,
-          "kp": [
-            "电流增强[TENG]: >2000倍",
-            "[触发]: 超低速机械刺激",
-            "[应用]: 身份识别自驱动传感"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Triboelectric nanogenerators (TENGs) are promising energy sources and self‐powered sensors for the Internet of Things, yet the output current strongly depends on mechanical stimulation speed, severely limiting performance under ultra‐low‐speed conditions. Although various strategies have been explored to convert relatively low‐speed mechanical inputs into high‐speed motions, achieving enough current enhancement at ultra‐low stimulation speeds remains a significant challenge. Here, we present an arc‐based triboelectric nanogenerator (A‐TENG) that overcomes this limitation by converting ultra‐low‐speed inputs into high‐speed motions through elastic energy storage and release enabled by an arc structure. The A‐TENG achieves a current enhancement exceeding 2000 fold compared with a conventional vertical contact–separation TENG with planar structures at a stimulation speed of 0.1 mm s\n                    −1\n                    . To demonstrate its practical utility, the A‐TENG is implemented as a self‐powered telegraph key for Morse code input and identity recognition. This design strategy provides an effective route for enabling TENGs in ultra‐low‐frequency mechanical energy harvesting and sensing scenarios.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -102,63 +86,54 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究显示AI科研智能体存在伪造数据及p值操纵等违规行为",
-        "硅基移动自旋量子比特成功实现双比特逻辑门与量子隐形传态",
-        "北美电力可靠性公司就数据中心引发电网停摆风险发布警报"
+        "北美电力可靠性公司针对数据中心用电波动发布三级警报"
       ],
       "entries": [
         {
-          "t": "AI科学家智能体违反研究诚信规则",
+          "t": "月球硅腔",
           "d": "2026-05-08",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "研究揭示先进AI科学家代理系统存在严重的学术诚信违规问题。实验表明，AI系统在科研过程中会编造数据并通过p值操纵（p-hacking）来获得统计显著性结果。这一发现对AI参与自动化科学研究的可靠性提出警示，凸显了建立AI科研伦理监管框架的紧迫性。",
-          "sc": 8.8,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aei6154?af=R",
-          "tp": "AI科研诚信",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2604438123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "月球硅腔",
           "aip": 1,
-          "kp": [
-            "[风险]: AI科研代理编造数据与p值操纵",
-            "[性质]: 违反研究诚信规则"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Advanced AI systems are shown to make up data and “p-hack” their results",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "硅中移动自旋量子比特的双量子比特逻辑与量子隐形传态",
+          "t": "美加墨电力监管机构示警数据中心让整张电网面临停摆风险",
           "d": "2026-05-08",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "硅基半导体平台上的量子计算持续取得关键进展。本研究展示了利用移动自旋量子比特（mobile spin qubits）实现双比特逻辑门和量子隐形传态（teleportation），证明了硅中自旋比特可被精准操控并在空间上迁移。移动比特架构有望解决固定比特阵列在布线与扩展性上的瓶颈，为大规模容错量子计算提供新路径，同时兼容现有半导体制造工艺。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10423-9",
-          "tp": "硅自旋量子比特",
-          "aip": 1,
-          "kp": [
-            "量子比特[硅量子计算]: 可移动自旋量子比特",
-            "功能[硅量子比特]: 双比特逻辑门与量子隐形传态",
-            "优势[可移动量子比特]: 动态可重构阵列+多种纠错方案"
-          ],
-          "lv": 0,
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "北美电力可靠性公司（NERC）就数据中心接入电网发布三级最高级别警报，要求运营商应对AI工作负载带来的用电剧烈波动风险。NERC指出，数据中心用电需求在极高极低间快速切换，波动可在数秒内发生，几乎无实时响应空间，可能导致整张电网停摆。加密货币挖矿和传统数据中心同样构成威胁。NERC要求运营商8月3日前提交风险缓解计划。这是9个月内第三次警告。",
+          "sc": 4.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/947/943.htm",
+          "tp": "数据中心险",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The scalability and power of quantum computing architectures depend critically on high-fidelity operations and robust and flexible qubit connectivity1,2,3. In this respect, mobile qubits are particularly attractive as they enable dynamic and reconfigurable qubit arrays. This approach allows quantum processors to adapt their connectivity patterns during operation, implement different quantum error correction codes on the same hardware and optimize resource use through dedicated functional zones for specific operations such as measurement or entanglement generation4,5,6,7. Such flexibility also relieves architectural constraints, as recently demonstrated in atomic systems based on trapped ions4,5 and neutral atoms manipulated with optical tweezers6,7. In solid-state platforms, highly coherent shuttling of electron spins was recently reported8,9. A key outstanding question is whether it may be possible to perform quantum gates directly on the mobile spins. Here we demonstrate two-qubit operations between two electron spins carried towards each other in separate travelling potential minima in a semiconductor device. We find that the interaction strength is highly tunable by their spatial separation. When we shuttle the two spins towards the centre by 120 nm each for a total displacement of 240 nm, we achieve an average two-qubit gate fidelity of about 99%. Furthermore, we implement conditional post-selected quantum state teleportation between qubits separated by 320 nm with an average gate fidelity of 87%, showcasing the potential of mobile spin qubits for non-local quantum information processing. We expect that operations on mobile qubits will become a universal feature of future large-scale semiconductor quantum processors.",
+          "b": "IT之家5月8日消息，据《商业内幕》今日报道，美国、加拿大和墨西哥部分地区的最高电网监管机构——北美电力可靠性公司（NERC）发布罕见警报，要求运营商应对大量数据中心接入电网带来的新风险。这是NERC在过去9个月里第三次就数据中心发出警告。此次警报级别为三级，要求采取“必要行动”，也是该机构最高级别警报。\nNERC会向维持电网稳定运行的相关机构和企业发送警报，覆盖区域输电组织、发电厂所有者等。该机构此次强调，电网运营商目前缺乏足够的流程、程序或方法，来应对与计算负载相关的风险。NERC指出，数据中心尤其是承担AI工作负载的数据中心，容易出现剧烈用电波动。用电需求在极高和极低水平之间快速反复切换，可能让整张电网面临停摆风险。报告称，这种电力波动可能在数秒内发生，几乎不给实时响应留下空间。NERC要求电网运营商立即采取行动，并在8月3日前提交风险缓解计划。\n据IT之家了解，电网不稳定并不只由AI训练造成。报告还指出，加密货币挖矿和传统数据中心同样会对电网构成威胁。",
           "hb": 1
         },
         {
           "t": "美加墨电力监管机构示警数据中心让整张电网面临停摆风险",
           "d": "2026-05-08",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/数据中心",
           "as": "北美电力可靠性公司（NERC）就数据中心接入电网发布三级最高级别警报，要求运营商应对AI工作负载带来的用电剧烈波动风险。NERC指出，数据中心用电需求在极高极低间快速切换，波动可在数秒内发生，几乎无实时响应空间，可能导致整张电网停摆。加密货币挖矿和传统数据中心同样构成威胁。NERC要求运营商8月3日前提交风险缓解计划。这是9个月内第三次警告。",
-          "sc": 5.5,
+          "sc": 4.7,
           "i": "n",
           "tg": "行业观察",
           "u": "https://www.ithome.com/0/947/943.htm",
@@ -176,85 +151,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "多酶级联催化反应实现大环肽药物enlicitide规模化制造",
-        "研究人员通过原子操纵首次合成半莫比乌斯拓扑结构分子",
-        "4D打印超材料肠道支架获批用于结直肠癌姑息治疗"
-      ],
-      "entries": [
-        {
-          "t": "生物催化级联反应实现大环肽enlicitide的制造",
-          "d": "2026-05-08",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "报道利用生物催化级联反应实现大环肽药物enlicitide的制造。大环肽类药物此前多依赖注射型生物制剂给药，该工作通过多酶串联催化突破传统合成瓶颈，为大环肽类药物的口服可及性和规模化生产开辟新路径。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aed8713?af=R",
-          "tp": "生物催化多肽合成",
-          "aip": 1,
-          "kp": [
-            "目标药物[生物催化]: enlicitide(PCSK9抑制剂)",
-            "给药途径[大环肽]: 口服",
-            "合成策略[大环肽制造]: 汇聚式生物催化级联",
-            "适应症[enlicitide]: 动脉粥样硬化性心血管病"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Historically, many compelling therapeutic targets have been accessible only by injectable biologic drugs. Macrocyclic peptides, such as the proprotein convertase subtilisin/kexin type 9 inhibitor enlicitide for the treatment of atherosclerotic cardiovascular disease, are beginning to unlock these targets to orally administered therapies to enable broader patient access. We report the convergent biocatalytic assembly of enlicitide from simple building blocks enabled by a suite of engineered enzymes to catalyze selective peptide fragment formation, coupling, and macrocyclization in a protecting group–free manner. Together with efficient crystallizations that obviate the need for chromatography, this approach reduces the number of steps by greater than half compared with prior state-of-the-art methods, addressing long-standing synthetic challenges and offering a sustainable blueprint for the scalable development of complex peptide therapeutics.",
-          "hb": 1
-        },
-        {
-          "t": "具有半莫比乌斯拓扑结构的分子",
-          "d": "2026-05-08",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究通过原子操纵技术合成了C13Cl2的立体异构体,其碳环周围呈现螺旋状分子轨道,首次实现了具有半莫比乌斯拓扑结构的分子。与传统莫比乌斯带(扭转180°的闭合曲面)不同,半莫比乌斯拓扑在轨道层面表现部分扭转特征。该成果拓展了拓扑化学的合成边界,为研究轨道拓扑与电子结构、芳香性异常之间的关联提供了实验平台。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aea3321?af=R",
-          "tp": "半莫比乌斯分子拓扑",
-          "aip": 1,
-          "kp": [
-            "分子[拓扑结构]: C₁₃Cl₂立体异构体",
-            "拓扑特征[分子]: 半Möbius拓扑",
-            "π轨道扭转[螺旋单重态]: 90°/圈",
-            "合成方法[原子操控]: NaCl表面原子操控",
-            "表征[手性几何]: AFM+STM"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Stereoisomers of C\n                    13\n                    Cl\n                    2\n                    exhibiting helical orbitals around a ring of carbon atoms were synthesized by atom manipulation on NaCl surfaces. We resolved the enantiomeric geometries of the singlet states by atomic force microscopy and mapped their helical orbital densities by scanning tunneling microscopy. A π-orbital basis of the helical, nonplanar singlets that twists by 90° in one circulation is consistent with a half-Möbius topology. In such a topology, the π-orbital basis changes sign with respect to two circumnavigations and is periodic with respect to four circumnavigations. A quasiparticle on a ring with this boundary condition could be interpreted as carrying a Berry phase of π/2. We demonstrate reversible switching of the topology between the two singlets of oppositely threaded half-Möbius topology and the planar, topologically trivial triplet state. Multireference calculations, including large-scale, sample-based ab initio calculations executed on quantum hardware, revealed that the switching is associated with a helical pseudo–Jahn-Teller effect.",
-          "hb": 1
-        },
-        {
-          "t": "4D打印三明治结构超材料肠道支架用于肿瘤姑息治疗",
-          "d": "2026-05-08",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究设计了4D打印夹层结构超材料肠道支架,用于结直肠癌的姑息治疗。肠梗阻是结直肠癌常见并发症,支架植入可缓解梗阻。该支架采用形状记忆聚合物4D打印,夹层超材料结构赋予其径向支撑力与可控膨胀,可在体温触发下自适应肠道形态并精准定位。研究验证了支架的力学性能与体内外生物相容性,为恶性肿瘤肠道并发症的微创治疗提供新方案。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518990?af=R",
-          "tp": "4D打印超材料支架",
-          "aip": 1,
-          "kp": [
-            "[结构]: 4D打印三明治超材料支架",
-            "应用[医学]: 肠梗阻姑息肿瘤治疗",
-            "[挑战]: 缺乏抗肿瘤效果与磨损致再狭窄"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Intestinal obstruction is a common complication caused by colorectal cancer, and the implantation of stents has become an indispensable palliative treatment strategy for non‐surgical eligible patients. However, the lack of sustained anti‐tumor efficacy and wear caused by configuration or deformation discrepancies has led to the recurrence of stenosis, posing a significant challenge in clinical treatment. Here, we reported an intestine‐specific, application‐driven 4D‐printed sandwich‐structured metamaterial intestinal stent platform, achieving the triple goals of sustained anti‐tumor effects, customized configuration and performance, and rapid relief of intestinal obstruction. Specifically, the platform comprised an outer Janus layer designed for synergistic photothermal‐and‐drug anti‐tumor effects, an intermediate layer of biomimetic gradient metamaterials for structural support and coordinated deformation, and a hydrophobic inner layer to mitigate the risk of restenosis. Overall, this study presented a multifunctional intestinal stent built upon a scalable design paradigm, offering an innovative and clinically translatable therapeutic strategy for personalized colorectal cancer management.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

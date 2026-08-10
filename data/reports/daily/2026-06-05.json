@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究团队开发基于TRV递送系统的番茄可遗传基因组编辑方法",
-      "南澳大利亚州授予总计1,334 MW/5.3 GWh长时储能电池项目合同",
-      "无负极钠软包电池通过非对称醚调控在低温下实现200 Wh/kg能量密度"
+      "SNEC展会展出面积超36万平米，天合光能与晶科分别展出907W叠层与25.91%效率TOPCon组件。",
+      "研究剖析阴离子交换膜零间隙二氧化碳电解槽水盐传输机制，以应对千小时运行稳定性限制。",
+      "研究揭示醚类局部超浓缩电解质两阶段演化机制，有效缓解硅阳极材料降解。"
     ],
     "AI与智能科技": [
-      "研究将混合专家架构引入片上光子计算平台以降低多任务处理能耗",
-      "苹果计划于9月推出由谷歌和英伟达提供算力及模型支持的新一代Siri",
-      "微软宣布升级其拓扑量子芯片，但马约拉纳零能模等核心机制仍待验证"
+      "小鹏汽车年投5亿美元研发自动驾驶，其VLA 2.0技术暂定于夏季末推出v14版本。",
+      "瑞士联邦理工在光子芯片上集成掺铒氮化硅飞秒激光器，实现1.05纳焦脉冲能量输出。",
+      "科研团队提出基于多副本纠缠态膨胀网络的测试方法，实现多部分量子系统非局域性稳健检验。"
     ],
     "通用技术": [
-      "NASA X-59静音超声速飞机即将开展突破声障的核心里程碑测试",
-      "MIT工程师开发新型激光雷达芯片解决干涉问题并拓宽传感器视场角",
-      "波兰约30个风光电站遭网络攻击暴露电池储能系统网络保险覆盖缺口"
+      "实验观测n型碲烯薄膜巨负磁阻现象，零场电阻降幅达90%并可持续至35特斯拉。",
+      "研究在8×8光镊阵列中制备基态锂-6原子，实现高于98.5%的运动基态保真度。",
+      "团队采用三元溶剂真空辅助刮涂工艺，在10平方毫米面积制备外量子效率25.2%的钙钛矿LED。"
     ]
   },
   "sectors": [
@@ -26,72 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究团队开发基于TRV递送系统的番茄可遗传基因组编辑方法",
-        "南澳大利亚州授予总计1,334 MW/5.3 GWh长时储能电池项目合同",
-        "无负极钠软包电池通过非对称醚调控在低温下实现200 Wh/kg能量密度"
+        "SNEC展会展出面积超36万平米，天合光能与晶科分别展出907W叠层与25.91%效率TOPCon组件。",
+        "研究剖析阴离子交换膜零间隙二氧化碳电解槽水盐传输机制，以应对千小时运行稳定性限制。",
+        "研究揭示醚类局部超浓缩电解质两阶段演化机制，有效缓解硅阳极材料降解。"
       ],
       "entries": [
         {
-          "t": "番茄中病毒诱导的非转基因和无组织培养的可遗传基因组编辑",
+          "t": "SNEC Day2—打卡展馆之“最”",
           "d": "2026-06-05",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/农林",
-          "as": "研究团队开发基于烟草脆裂病毒（TRV）的递送系统，搭载紧凑型ISYmu1 TnpB核酸内切酶，结合植株内芽再生技术，在不同番茄品种中实现体细胞和可遗传基因组编辑。该方法无需组织培养和转基因材料，突破传统育种对基因型的强依赖，为作物性状改良提供高效、普适的新路径。",
+          "a": "索比光伏-综合新闻",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "2026年SNEC展会展出面积超36万平方米，吸引全球3600余家参展商，华为室内展位面积最大达1548平米。天合光能展出目前最高功率907W的钙钛矿/晶硅叠层组件；晶科能源推出效率达25.91%的飞虎5.0 TOPCon组件，步入700W+时代；通威THC-G12异质结铜互连组件输出功率达802.43W，全面积转换效率25.83%。此外，通威展示了双面率高达90±5%的组件，正泰新能展出了长度达2595mm的长尺寸光伏组件。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202606/05/50023980.html",
+          "tp": "光伏展最产品",
+          "aip": 1,
+          "kp": [
+            "展出面积[2026年SNEC展会]: 超过36万平方米",
+            "最高功率组件[天合光能钙钛矿/晶硅叠层组件]: 907W",
+            "最高组件效率[晶科能源飞虎5(Tiger Neo 5.0) TOPCon组件]: 25.91%",
+            "同尺寸功率[晶科能源飞虎5(Tiger Neo 5.0) TOPCon组件]: 700W",
+            "效率上限[多数企业常规TOPCon组件]: 不超过24.8%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "SNEC展会赛程过半，全产业链重磅产品持续亮相。昨天，，今天将继续带您回顾展会亮点，盘点本届展会展品之“最”，带大家逐一打卡出圈黑科技。\n2026年SNEC展会的展出面积超过36万平方米，吸引了全球95个国家和地区的3600余家参展商参与。本次展览共14个场馆，展台面积超过1000平米的企业有5家。分别是华为、艾罗、协鑫、创维、TCL，其中室内展位面积最大的企业是华为，展位面积1548平方米。\n最高功率组件，907W，来自天合光能。\n面向未来晶硅叠层时代，天合光能以刷新世界纪录、功率突破907W的钙钛矿/晶硅叠层组件亮相。该款组件将推动钙钛矿叠层技术从实验室研发向规模化应用加速演进，成为本届展会关注的技术焦点之一。\n█ 最高效TOPCon组件\n多数企业的TOPCon组件效率不超过24.8%，仅少数企业突破这一上限。其中，晶科能源全新一代飞虎5（Tiger Neo 5.0）组件通过高纯均质硅底、广谱陷光结构、全域钝化工艺、无隙晶阵封装等工艺全面提效，同尺寸功率从670W跃升至700W，组件效率达25.91%，正式引领TOPCon步入700W+新时代。\n通威正式宣布THC-G12异质结铜互连组件再次刷新纪录。经国际权威机构TÜV莱茵测试，在2384*1303mm标准组件尺寸下，通威THC-G12异质结铜互连组件输出功率突破至802.43W，全面积转换效率高达25.83%，这是该系列组件自发布以来第十二次刷新行业功率纪录。\n天合光能重THBC融合了TOPCon、HJT、BC三大核心技术优势，实现效率与功率的同步跃升，最高效率达25.9%，适用于单面分布式场景。\n最高双面率组件来自通威太阳能，达到惊人的90±5%，背面发电效率几乎可以与正面持平。\n最长光伏组件依然来自正泰新能。上一年SNEC展会，他们带来了长度2499mm的N8 PRO组件，今年再次将长度提升至2595mm，功率最高达825W。\n旭合科技直接将光伏组件摆在舞台上，任凭观众踩踏，对产品可靠性非常有信心。这款组件如果装在屋顶上，安装和运维难度将大幅下降，屋顶利用也更加充分。\n█ 组串式逆变器功率之最\n大型风光基地建设的核心需求，特变电工推出核心搭载\n500kW大功率组串式逆变器。该产品额定功率500kW、峰值功率550kW\n1500Vdc~1600V\n双高压架构，大幅拓宽满载电压范围并提升整机运行效率，有效摊薄\n、支架及桩基等核心建设成本。\n上能电气精准洞察市场需求，倾力打造全场景光伏逆变解决方案。本次推出的全新构网型\n智能运维系统，全方位保障让客户使用更安心。\n，以高发电、高安全、易运维优势，为沙戈荒、海上光伏等大型电站提供新一代解决方案。该产品延续\n大子阵，实现系统深度降本\n“赤霄2.0”460kW光伏逆变器\n搭载自主核心器件，无功支撑能力提升\n。同时，产品应用无泵自循环相变散热技术，散热性能提升\n。当前，产品已在高海拔山地、坑塘湿地、沙戈荒等极端场景完成实证，运行稳定。\n█ 集中式逆变器功率之最\n5MW/10MW集中式逆变升压一体机\n液冷集中式逆变器集成，具备\n台逆变器，大大降低了建设和运维成本，成为大基地大子阵应用的优选。此外，在全球出海储能产品方面，科华数能\n等场景，特变电工推出全新一代集中逆变器技术路线\n——T-Block1.6MW\n双核模块化逆变器，典型方案为\n衍生方案为4.8MW&9.375MW集中式逆变升压一体机\n。针对海外市场，特变电工\n海外组串式智能光伏箱变，将低压开关柜、变压器、环网柜、测控装置及通讯系统高度集成于\n上能电气展出的模块化集中式逆变解决方案，包含\n两种规格的模块化单机产品，能够根据客户实际需求，\n灵活扩展为覆盖从3.2MW到9.6MW的方案\n集中式变流升压一体机，相较传统方案，征地及工程综合成本降低\n隆基展位人多到离谱！里三层外三层全是人，这就是行业龙头的号召力！\n爱旭股份的展位上有大量国际友人交流、探讨，主持人英语那叫一个6~\n润马光能延续之前的“土豪”风，每次抽奖直接送出5台平板，实名羡慕获奖观众！\n2026 SNEC 最 \"诱惑\" 的产品名诞生——亚玛顿 1.6mm 黑丝印浮法玻璃。名字自带画面感，看完过目不忘！薄如蝉翼却坚如磐石，颜值与实力双在线，这波起名直接封神！\n苏超火热进行中，连云港队小组赛8轮总战绩0胜2平6负，连当地光伏企业航天机电都看不下去，确实需要加油了！\n展馆内温度较高，晶澳、英利等企业贴心地准备了冰激凌，味道不错哦~\n展馆内突然飘来香气？原来是汇耀品尚、大海光伏的爆米花出锅了。\n展会期间上海非常闷热，百佳年代等企业提供的小风扇能给大家带来阵阵凉意，攒足力气继续逛！",
+          "hb": 1
+        },
+        {
+          "t": "了解阴离子交换膜零间隙 CO2 电解槽中相互关联的离子和水传输",
+          "d": "2026-06-05",
+          "a": "Nature Energy",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "阴离子交换膜零间隙二氧化碳电解槽在工业级电流密度（>200 mA cm⁻²）下难以实现千小时以上的长期稳定运行，主要归因于盐沉淀和电极水浸导致二氧化碳传输受阻。该研究剖析了系统中相互关联的离子和水传输机制，明确了优化系统水盐平衡策略对未来延长电解槽寿命的关键作用。",
           "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2530029123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "基因编辑",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Genome editing has emerged as a powerful tool for genome manipulation and trait improvement in crops. However, most commonly used approaches rely on tissue culture and transgenic materials, which are time-consuming, labor-intensive, and often strongly genotype-dependent. Here, we developed a Tobacco rattle virus (TRV)-based system to deliver the compact ISYmu1 TnpB endonuclease, coupled with in planta shoot regeneration, to achieve somatic and heritable genome editing across different tomato cultivars without tissue culture. By targeting\n                    SlPDS\n                    , we successfully generated virus-free homozygous mutant progeny in a single generation. Furthermore, we extended this system to the functional analysis of the previously uncharacterized\n                    SlDA1\n                    locus, revealing its involvement in organ size regulation, and recovered transgene-free\n                    SlDA1\n                    mutants displaying enlarged fruits. Given the wide host range of TRV, our system should be broadly applicable for rapid, nontransgenic and less genotype-dependent heritable genome editing, thereby advancing both functional genomics and crop improvement.",
-          "hb": 1
-        },
-        {
-          "t": "南澳大利亚州授予5.3 GWh储能电池合同",
-          "d": "2026-06-05",
-          "a": "ESS News",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "南澳大利亚州政府授予总计1,334 MW/5.3 GWh的长时储能电池系统（BESS）项目合同，由AusServices等公司承建。该批项目是澳大利亚大规模部署长时电网级储能的重要里程碑，旨在支撑可再生能源高渗透率下的电网稳定性，为州域级电力系统提供调峰调频及备用容量，助力南澳加速实现清洁能源转型目标。",
-          "sc": 7.7,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.ess-news.com/2026/06/04/south-australia-awards-contracts-for-5-3-gwh-of-battery-storage/",
-          "tp": "储能项目招标",
+          "u": "https://www.nature.com/articles/s41560-026-02052-3",
+          "tp": "CO2电解槽传输",
           "aip": 1,
           "kp": [
-            "总容量[BESS合同]: 1334MW/5336MWh"
+            "运行时间[阴离子交换膜零间隙CO2电解槽]: >1,000小时",
+            "电流密度[阴离子交换膜零间隙CO2电解槽]: >200 mA cm−2",
+            "失效机制[阴离子交换膜零间隙CO2电解槽]: 盐沉淀和/或水淹限制CO2向催化层传输",
+            "优化策略[阴离子交换膜零间隙CO2电解槽]: 优化系统和内部的水及离子平衡"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "AusServices Ltd (ASL) has announced six long duration battery energy storage system (BESS) projects totalling 1,334 MW/5,336 MWh have been awarded Firm Energy Reliability Mechanism Agreements (FERMAs) in South Australia’s FERM Tender Round 1.\nTogether, they are four times the capacity of the expanded 150 MW/193 MWh Horndale Power Reserve (HPR).\nTwo agreements were allocated to France-headquartered clean energy developer Neoen Australia for its Goyder Battery 600 MWh Stage 1 and 600 MWh Stage 2.\nOne agreement each was awarded to Singapore-based Ampyr Energy’s 1 GWh Northern Battery, Spain-based Iberdrola’s 800 MW Tungkillo BESS, Victorian-based Blackrock-owned Akaysha Energy’s 736 MWh Brinkworth BESS, and US-headquartered ZEBRE’s 400 MWh Dartmoor BESS.\nCommitted output capacity of the projects during Forecast LOR 2 and 3 events is 517 MW/4,136 MWh, which the projects must dispatch continuously for at least 8 hours during times of tight supply-demand balance.\n3,000 MWh of output capacity is expected by November 2028, followed by the additional 1,136 by November 2029.\nASL Chief Executive Officer Nevenka Codevelle said the tender attracted robust competition.\n“ASL’s evaluation prioritised projects with a clear and credible pathway to commercial operation, a meaningful contribution to system reliability, and strong value for SA electricity consumers,” Codevelle said. “Renewable generation [is] now supplying more than 70% of the state’s electricity. The projects secured through SA FERM Tender 1 will strengthen the power system by adding additional reliable, long‑duration dispatchable capacity.”\nSA Premier Tom Koutsantonis said too often the state has seen wholesale prices falling but price spikes for consumers due to isolated events where there is a lack of firming capacity.\n“Now we are helping fast-track projects that will more than double the state’s large-scale battery storage capacity and support an estimated AUD 2.2 billion ($1.5 billion) of local investment in new storage projects,” Koutsantonis said. “These will grow batteries’ contribution to our state’s generation capacity to more than double that of Victoria, New South Wales and Queensland, adding capacity to reach almost three-quarters of South Australia’s all-time peak demand, eclipsing all other major Australian grids.”",
+          "b": "Achieving long-term stability in low-temperature anion exchange membrane zero-gap carbon dioxide (CO2) electrolysers is challenging, with few reports of cells operating for >1,000 hours at industry-relevant current densities (>200 mA cm−2). Most cells fail on much shorter timescales owing to salt precipitation and/or flooding, both of which restrict CO2 transport to the catalyst layer. In principle, both failure mechanisms can be mitigated by optimizing the water and ion balance within the system but the interconnected nature of ion and water transport is rarely addressed. In this Perspective, we examine the ion and water transport processes that currently limit long-term operation of these cells and outline the implications for future salt- and water-management strategies in anolyte-fed and water-fed anion exchange membrane CO2 electrolysers. We highlight that zero-gap CO2 electrolysers are inherently prone to water and ion imbalances and require simultaneous balancing to prolong system lifetimes towards industry requirements.",
           "hb": 1
         },
         {
-          "t": "通过非对称醚调控溶剂-阴离子相互作用用于200 Wh/kg低温无负极钠软包电池",
+          "t": "电极组学揭示了支撑电化学机械弹性的硅阳极演化时代",
           "d": "2026-06-05",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "该研究通过设计含不对称醚基团的溶剂分子调控溶剂-阴离子相互作用，实现低温环境下钠金属负极的高可逆电镀/剥离。无负极钠软包电池在低温条件下达到200 Wh/kg的能量密度，突破了钠电池低温性能瓶颈。非对称醚结构有效调节溶剂化鞘层结构，抑制枝晶生长并提升库伦效率，为低成本大规模储能电池的低温运行提供了新路径。",
-          "sc": 7.6,
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "研究利用电极组学揭示了醚类局部超浓缩电解质（LSCEs）缓解硅阳极降解的演化过程。在初始高电位下，阳极复合材料由醚类溶剂和阴离子氧化还原形成。随着电位降低，第一次演化爆发使复合材料富含醇锂和氧化锂，并耗尽硫氧化物物种。随着电池循环，发生了第二次演化爆发，促使先前消失的硫氧化物重新出现，从而支撑了硅阳极的电化学机械弹性。",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3780082?af=R",
-          "tp": "无负极钠电池",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adx0930?af=R",
+          "tp": "硅阳极电化学弹性",
           "aip": 1,
           "kp": [
-            "能量密度[低温无负极钠金属软包]: 200 Wh/kg",
-            "[电解质]: 不对称醚调控溶剂-阴离子作用",
-            "[电池类型]: 低温无负极钠金属电池"
+            "[局域超浓缩电解液缓解硅负极降解]: 通过醚类溶剂和阴离子氧化还原在初期高电位下形成复合物，并在低电位下富集醇锂和锂化合物"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Achieving highly reversible Na plating/stripping is crucial for the stable operation of low‐temperature anode‐free sodium metal batteries (LT‐AFSMBs), yet simultaneously realizing ultra‐high Coulombic efficiency (CE) and long‐term durability, accompanied by high energy density, remains a formidable challenge. Herein, by regulating the molecular side chain, we design an asymmetric chain‐like ether solvent that elegantly balances weak Na\n                    +\n                    ‐dipole and strong anion‐dipole interactions. This rationally tailored electrolyte fosters an anion‐rich Na\n                    +\n                    coordination environment, which significantly lowers the desolvation barrier and drives the formation of a robust, anion‐derived solid electrolyte interphase with rapid interfacial dynamics. Consequently, the optimized electrolyte delivers an unprecedented average CE of 99.96% over 500 cycles at −20°C. Remarkably, even under stringent conditions of an ultra‐high cathode loading (28.05 mg cm\n                    −2\n                    ) and areal capacity (2.48 mAh cm\n                    −2\n                    ), the LT‐AFSMBs retain 85.9% of their initial capacity over 600 cycles at −20°C. Moreover, practical Ah‐level anode‐free pouch cells demonstrate stable operation for 300 cycles, yielding a high energy density exceeding 200 Wh kg\n                    −1\n                    (based on the mass of entire pouch cell). This paradigm‐shifting solvation strategy provides a highly viable and scalable blueprint for the next‐generation, extreme‐temperature energy storage systems.",
+          "b": "Here, we advance electrode-omics to identify evolutionary bursts by which ethereal locally superconcentrated electrolytes (LSCEs) mitigate silicon anode degradation through its epochs of electrochemical and chemical reactions. Anode composites form initially at high potential from ethereal solvent and anion [bis(fluorosulfonyl)imide (FSI\n                    −\n                    )] redox. A first evolutionary burst at lower potential enriches composites with lithium alkoxides (LiO–R) and lithium oxide (Li\n                    2\n                    O) and depletes sulfur oxides (SO\n                    \n                      x\n                    \n                    ) species. As the cells are cycled, a second evolutionary burst takes place, where previously extinct SO\n                    \n                      x\n                    \n                    species reemerge concurrently with a loss of LiO–R and Li\n                    2\n                    O. This identifies reactions rooted in “SuFEx” chemistry, where oxoanionic LiO–R and Li\n                    2\n                    O species, electrochemically generated in the solid-electrolyte interphase, chemically react with FSI\n                    −\n                    in the electrolyte to form emergent species. This sequence of evolutionary bursts produces a mechanically resilient composite that reduces silicon anode cracking over hundreds of cycles, leading to overpotential increase of only ~0.01 volts after 200 cycles.",
           "hb": 1
         }
       ]
@@ -100,71 +107,75 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究将混合专家架构引入片上光子计算平台以降低多任务处理能耗",
-        "苹果计划于9月推出由谷歌和英伟达提供算力及模型支持的新一代Siri",
-        "微软宣布升级其拓扑量子芯片，但马约拉纳零能模等核心机制仍待验证"
+        "小鹏汽车年投5亿美元研发自动驾驶，其VLA 2.0技术暂定于夏季末推出v14版本。",
+        "瑞士联邦理工在光子芯片上集成掺铒氮化硅飞秒激光器，实现1.05纳焦脉冲能量输出。",
+        "科研团队提出基于多副本纠缠态膨胀网络的测试方法，实现多部分量子系统非局域性稳健检验。"
       ],
       "entries": [
         {
-          "t": "面向可扩展多任务片上光神经网络的光子混合专家系统",
+          "t": "小鹏汽车每年花费 5 亿美元进行人工智能训练，以击败特斯拉 FSD",
           "d": "2026-06-05",
-          "a": "Physical sciences : Nature Communications subject feeds",
+          "a": "Electrek",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "小鹏汽车自动驾驶负责人表示，公司每月在人工智能训练上的花费约3亿元人民币（约4100万美元），全年投入达5亿美元。小鹏认为其技术已达到与特斯拉FSD v13持平的水平，并预计在夏季结束前实现v14版本。小鹏分享了其VLA 2.0架构，并指出整个自动驾驶行业不应再将语言模型视作唯一方向。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/05/xpeng-vla-interview-cvpr-language-poison-tesla-fsd/",
+          "tp": "自动驾驶大模型",
+          "aip": 1,
+          "kp": [
+            "AI训练资金投入[小鹏自动驾驶]: 每月约3000万人民币（约4100万美元）",
+            "自动驾驶技术对比[小鹏智驾 vs 特斯拉FSD]: 已达到与FSD v13同等水平，并在夏季前冲击v14版本"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 5 2026 - 6:58 am PT\nXpeng’s head of autonomous driving told Electrek that the company is spending roughly 300 million RMB (~$41 million) per month on AI training alone and believes it has already reached parity with Tesla’s FSD v13 — with v14 within reach before the end of summer.\nI sat down with Dr. Xianming Liu, head of Xpeng’s General Intelligence Center, the day after he delivered a keynote at CVPR 2026 in Denver — sharing the stage with Tesla’s Ashok Elluswamy and leaders from Nvidia and Waymo at one of the world’s top computer vision conferences.\nThe conversation covered Xpeng’s VLA 2.0 architecture, the company’s sensor strategy, its Volkswagen licensing deal, and why Dr. Liu believes the entire autonomous driving industry needs to stop treating language models as the answer to self-driving.\nHere’s the full interview:\nDr. Liu has become known for a provocative statement: “language is poison” when it comes to autonomous driving. In our interview, he explained the nuance behind that headline.\nXpeng’s first-generation VLA (Vision-Language-Action) model used language tokens as an intermediate step — the system would see the road, translate what it saw into language-like representations, then convert those into driving actions. VLA 2.0, which\nI tested in Beijing in April\nand found comparable to Tesla’s FSD v14, removes that middle step entirely.\nBut Liu clarified that Xpeng hasn’t abandoned language completely. The system still accepts language as input — text prompts and instructions from the driver. What it removes is language as an intermediate output during the actual driving process.\n“We still utilize languages as input, so this is a key to improve the generalizability,” Liu said. “You talk to the vehicle and you give some instructions. The vehicle needs to understand how to execute these instructions. But during the driving, we don’t output any language tokens because this is a redundancy or a bottleneck of the model.”\nThe reasoning is straightforward: the car ingests roughly two billion visual tokens per second from its cameras but only needs maybe 10 or 20 tokens to control the steering wheel and pedals. That’s a massive dimensionality reduction, and adding a language translation step in between just introduces unnecessary computation and latency.\n“In order to get a language expression, you need to generate a lot of unnecessary computation to explain it. So that’s why we remove the language as intermediate layers, but we still keep the language as input,” he explained.\nLiu used his CVPR keynote to unveil something new — Xpeng’s world model, which he frames not as a separate technology from VLA but as “the other side of the same problem.”\nVLA 2.0 learns from human driving behavior — it studies how millions of drivers react in real situations and learns to replicate those decisions. The world model learns the physics of the environment — it predicts what will happen next in the scene, how other agents will move, what the consequences of any given action will be.\n“People trying to separate the two concepts, world model and VLA, as two dimensions of the technology, but actually they are the same,” Liu said. “Our goal is trying to build a foundation model powerful enough to understand the world.”\nThe practical application: Xpeng is now training VLA 2.0 to simultaneously predict what the cameras will see in the near future and what the car should do — combining driving and world prediction in one model. The company expects to deploy this upgrade to production vehicles later this year.\nXpeng has published a series of research papers backing this work, including\nfor controllable video generation,\nfor joint future prediction and planning, and\nwhich cuts world model computation by 70% with negligible quality loss. The company also had its “DrivePTS” paper on driving scene generation accepted at CVPR 2026.\nOne detail that often gets lost in Xpeng’s “pure vision” marketing: the P7+, G7, and other recent models\nstill carry three millimeter-wave radars and twelve ultrasonic sensors\nalongside their cameras. I asked Liu how those fit into an end-to-end architecture.\nHis answer was clear: they don’t feed into the main driving AI at all.\n“We do utilize these other sensors, but they are utilized for the active safety system, which requires an orthogonal system to be totally redundant with the main driving system,” Liu said. The radar and ultrasonics power AEB (automatic emergency braking) and AES (automatic emergency steering) — a completely separate safety layer.\nThe main driving system is vision-only. Liu’s reasoning comes down to information density and latency: “Camera readout time is a couple milliseconds, pretty quick, and the frequency could be very high. From the information density perspective, camera is one of the best sensors. If you’re using LiDAR, radars, the processing time is pretty long, usually tens or hundreds of milliseconds.”\nThis puts Xpeng in an interesting middle ground. Tesla famously removed radar and ultrasonic sensors entirely from its vehicles, relying solely on cameras for everything including active safety. Waymo goes the opposite direction with a full LiDAR suite. Xpeng uses cameras exclusively for the driving brain but keeps radar as a separate safety net.\nWhen I asked if the vision system could eventually get so good that the redundant safety layer becomes unnecessary, Liu was blunt: “We hope so, but to be honest, it’s not possible. We all make mistakes. System also makes mistakes. Even you can reach 99.9999%, you still have the chance to make mistakes. Adding another layer of redundancy definitely will help.”\nHe added: “You’re not talking about chatting with ChatGPT and making a mistake — you just say, ‘hey, this is so silly, redo.’ You’re talking about lives.”\nI asked Liu about the scale of Xpeng’s investment in autonomous driving. His answer was startling for a company that delivered roughly 200,000 vehicles last year.\n“There’s a lot of jokes on the internet saying I’m asking a lot of budget from the boss,” Liu said. “He said something like 300 million a month RMB for me to train the model. That’s roughly the truth. I do spend a lot of money.”\nThat’s roughly $41 million USD per month, or close to $500 million a year on AI model training alone — a significant figure for a company with\nRMB 47.66 billion ($6.5 billion) in cash\nat the end of 2025. Liu acknowledged this is unusual for a car company: “As a car company, you can never imagine such a big R&D investment because you can never make the money back. But our company is determined to be a Physical AI company.”\nXpeng disclosed at CVPR that its training infrastructure has achieved a 4,360% gain in single-job training efficiency over the past 12 months, with GPU utilization climbing from 40% to 90%. VLA 2.0 uses billions of parameters and consumes over four trillion tokens per model iteration.\nLiu was diplomatic but specific when comparing Xpeng’s approach to Tesla’s FSD.\n“I think we share similar underlying philosophy and principles, which is scaling up,” he said. “No matter Tesla or Xpeng or other companies working on this trajectory are working on the same thing — just following the scaling law, make sure you have a system which is data-driven and you can feed unlimited data into the model.”\nThe key difference, according to Liu, is data diversity. Chinese roads are significantly more chaotic than American ones — a point I experienced firsthand during my\n40-minute VLA 2.0 test drive in Beijing\n, where I encountered more edge cases than I’d see in weeks of driving in North America.\n“In China you have a larger chance to get corner cases and data. This is one advantage,” Liu said. He argued this could make it easier for Xpeng to expand internationally than for Tesla to bring FSD to China — not easier per se, but “you have more chances because you have more diverse data.”\nXpeng CEO He Xiaopeng made a public bet with Liu last year: if VLA 2.0 doesn’t match Tesla FSD performance by August 30, 2026, Liu has to streak naked across the Golden Gate Bridge.\nLiu says he’s safe. “I’m pretty confident I don’t need to run,” he told me. “The condition is reaching parity with Tesla FSD in the beginning of this year. Based on test drives, we already hit the goal.”\nHe claims Xpeng went from FSD v12 parity to “almost v14 or even better than v13” in just a few months, crediting the team’s rapid iteration speed. The August deadline still stands, but Liu seems relaxed about it.\nPerhaps the most revealing moment came when Liu described Xpeng’s identity. He compared the company to Google making Pixel phones — hardware exists primarily to demonstrate and collect data for the software.\n“Producing cars or manufacturing cars definitely is one of the main reasons we are working now,” he said. “We need physical devices in the real world to make sure we get feedback, we get data. Just like Google is producing Pixel devices just trying to demonstrate, ‘OK, this is what Android can do.’ But on the other hand, we want to make sure we are an AI company.”\nThis framing puts the\nVolkswagen VLA 2.0 licensing deal\nin context. Volkswagen became the first external customer for VLA 2.0 earlier this year, with deployment planned for 2027. Liu downplayed the technical challenge of porting the system to VW’s vehicles, noting that Xpeng already pushes OTA updates to more than 20 different car models internally.\n“Adding one or two cars for us, it’s not something novel or something new. You train a model and if you generalize it to 20 cars, it doesn’t matter if you have 21, 22, 23.”\nThe bigger goal, Liu suggested, is getting the entire industry on board: “If only Xpeng or Tesla working on that, it will never become true. You need a lot of partners, you need a lot of friends, you need everyone to accept the truth that automation is coming.”\nThis interview confirmed what I suspected after my\nVLA 2.0 test drive in April\n— Xpeng is running a legitimate autonomous driving program that managed to be quickly genuinely competitive with Tesla’s FSD. All while spending roughly 300 million RMB per month on AI training budget, which might sound like a lot, but in the grand scheme of AI spending, isn’t much.\nWhat struck me most was Liu’s clarity about architecture decisions. The “language is poison” framing sounds like a hot take, but his explanation is technically sound — converting continuous visual signals into discrete language tokens and back is inefficient for a real-time physical control system. It’s a different bet than what most of the industry is making with large language models, and it’s one that VLA 2.0’s on-road performance is starting to validate.\nThe Pixel analogy is also telling. Xpeng is signaling that it sees vehicle manufacturing as the means, not the end. With Volkswagen already licensing VLA 2.0 and\nXpeng reportedly in talks to buy a VW plant in Europe\n, the company is positioning itself as both a car maker and an AD technology supplier — essentially hedging on which business ultimately generates more value.\nTo me, it is becoming clear that they are aiming to be a ‘physical AI’ company more than an automaker at this point.\nIf you want to make sure your EV is charged for less, going solar is one of the smartest moves you can make. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "高性能飞秒激光器实现光子芯片集成",
+          "d": "2026-06-05",
+          "a": "新华网科技",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "光子计算以其高能效、高带宽特性被视为下一代AI硬件的有力候选，但当前片上光子神经网络在处理多任务时面临扩展性瓶颈。该研究将混合专家架构引入光子计算平台，通过动态路由将不同任务分配至专用光子专家子网络，实现可扩展的多任务片上光学神经网络。该方法充分利用光子并行处理优势，在保持精度不变的前提下显著降低能耗与计算开销，为大规模AI光子加速器的工程化部署提供了新思路。",
+          "as": "瑞士洛桑联邦理工学院团队首次将高性能飞秒激光器集成到光子芯片上。研究团队采用掺铒氮化硅平台和马梅舍夫振荡器架构，在火柴头大小的区域内实现了147飞秒脉宽、1.05纳焦能量的激光脉冲。该芯片对非线性相互作用具有低敏感性，可使用晶圆级工艺批量制造。该成果使超快激光器实现小型化和低成本化，适用于光谱分析、医学诊断和紧凑型传感器。",
           "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260605/b76b0b1d288040e494a903dd63d25564/c.html",
+          "tp": "光子芯片集成",
+          "aip": 1,
+          "kp": [
+            "脉冲能量[集成至光子芯片的高性能飞秒激光器]: 1.05纳焦",
+            "脉冲宽度[集成至光子芯片的高性能飞秒激光器]: 147飞秒",
+            "核心架构[高性能飞秒激光器光子芯片集成]: 马梅舍夫振荡器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "高性能飞秒激光器实现光子芯片集成-新华网\n高性能飞秒激光器实现光子芯片集成\n高性能飞秒激光器实现光子芯片集成\n光子芯片被放置在一枚1瑞士法郎硬币上。图片来源：瑞士洛桑联邦理工学院\n科技日报北京6月4日电 （记者张佳欣）瑞士洛桑联邦理工学院研究团队首次将高性能飞秒激光器集成到光子芯片上，它可产生能量达1.05纳焦，脉宽短至147飞秒的激光脉冲，性能可与传统台式飞秒激光器相媲美，为超快激光器的小型化和低成本化开辟了新路径。相关成果发表于最新一期《自然》杂志。\n光子芯片可以在微小的波导中引导和处理光信号，其作用有些类似电子芯片中的电路。近年来，许多原本需要大型光学设备才能实现的功能，已经逐渐被集成到这种芯片上。但飞秒激光器始终是最难攻克的一环，因为它既要产生极短脉冲，又要保持较高能量，对光场控制要求极高。\n此次突破的关键在于研究团队采用了一种此前较少受到关注的激光器架构，即马梅舍夫振荡器。在这种结构中，激光腔里的非线性波导被放置在两个光学滤波器之间，强光脉冲经过波导时会扩展出更宽的颜色范围，从而能够穿过滤波器并继续循环，较弱的光则无法做到这一点，会被自动滤除。\n光在芯片狭窄波导中传播时，会产生强烈的非线性相互作用。在许多传统设计中，这种效应容易导致激光脉冲失稳，而马梅舍夫振荡器对这一问题不那么敏感，因此更适合芯片环境。团队利用掺铒氮化硅平台制造了这种芯片激光器，虽然激光腔总长度达到42厘米，但通过在芯片上折叠布局，最终被压缩到仅有火柴头大小的区域。团队展示的样品可轻松放置在一枚1瑞士法郎硬币上，其体积远小于传统光纤激光器系统。\n光子芯片可采用与半导体芯片类似的晶圆级工艺批量制造，一次生产有望集成超过1000个激光腔。这意味着未来超快激光器的制造成本有望显著降低，并推动其从实验室走向更广泛应用。团队表示，这种芯片级激光器不仅可用于光谱分析、材料缺陷探测和医学诊断，还有望成为未来紧凑型光学原子钟的重要组成，为下一代通信和导航技术提供支撑。\n这一突破的核心价值在于绕开了芯片非线性效应的传统瓶颈。马梅舍夫振荡器的成功验证表明，光子集成不必一味追求新材料，旧架构在新平台上同样能焕发新生。但需警惕的是，芯片级激光器在批量制造中的一致性、长期稳定性以及与现有光电子系统的封装兼容性问题尚未解决。科研人员应加快建立标准化测试体系与工艺规范，避免陷入“实验室惊艳、产线难产”的困境，真正推动技术落地。\n家政服务业破局探路的成都样本观察\n海洋经济总量攀升 企业竞逐“深蓝”新赛道\n滨海新区：让实体经济基础稳固、基业长青\n黄金缘何成全球官方储备最大资产\n新老齐聚 中国男足6月再出征\n中东战地手记丨躲不开的袭击 守不住的家园\n大看台丨5个娃1个胖，孩子体重怎么管？\n向上的热土丨“千年药都”的链式生长\n高性能飞秒激光器实现光子芯片集成",
+          "hb": 1
+        },
+        {
+          "t": "通过具有多副本纠缠态的膨胀网络测试真正的多部分非局域性",
+          "d": "2026-06-05",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究提出了一种测试多部分量子系统真正非局域性的新方法。假设在一个由真正多部分纠缠态的多个副本膨胀而成的量子网络中，该团队提出了一种具有抗噪能力的稳健方法。这一成果为深入理解多部分量子系统的行为特性及其在实际量子网络通信和计算中的潜在应用提供了重要见解。",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-73983-4",
-          "tp": "光子混合专家网络",
+          "u": "http://link.aps.org/doi/10.1103/mwxx-ln9v",
+          "tp": "量子非局域性",
           "aip": 1,
           "kp": [
-            "[架构范式]: 光子混合专家系统",
-            "[优势]: 多任务片上光神经网络可扩展"
+            "[多部分量子非局域性测试方法]: 使用多副本真正多部分纠缠态膨胀网络的抗噪声方法"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Photonic computing offers an energy-efficient, high-bandwidth platform for artificial intelligence (AI) but currently faces scalability bottlenecks stemming from depth-dependent designs, linear optical structures, and intrinsic optical losses, along with high hardware and reconfiguration costs for multi-task processing. Here, we present a scaling paradigm that circumvents these limitations by expanding network width rather than depth, leveraging the intrinsic parallelism of photonics. We implement a scalable Photonic Mixture-of-Experts (PMoE) architecture, where parallel photonic cores function as expert networks. By dynamically routing inputs to these experts, the PMoE efficiently executes multi-task workloads without altering the physical optical weights. We fabricated a PMoE chip integrating three collaborative diffraction-based expert networks, featuring 18 parallel kernels within a compact intrinsic computational-core footprint of 0.067 mm2. Experimentally, the PMoE chip achieves multi-domain image classification with an average accuracy of 97.1%. While offering further scalability, this approach outperforms conventional optical networks and reduces digital parameter overhead by 67%. Our work underscores the scalability and efficiency of the PMoE architecture for next-generation large-scale photonic AI processors.",
-          "hb": 1
-        },
-        {
-          "t": "苹果将在谷歌和英伟达协助下于9月推出全新Siri",
-          "d": "2026-06-05",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "据The Information报道，苹果计划于9月推出由谷歌和英伟达协同支持的新一代Siri语音助手。此次升级标志着苹果在生成式AI助手领域的重大布局，预计将整合外部大模型能力以提升Siri的对话理解、多轮推理与任务执行水平。谷歌与英伟达的参与暗示新Siri可能借助先进的基础模型与云端算力，缩小与ChatGPT等竞品的差距，对消费级AI助手市场格局产生重要影响。",
-          "sc": 7.5,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/apple-launch-new-siri-september-help-google-nvidia",
-          "tp": "AI语音助手",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Apple to Launch New Siri in September With Help of Google, Nvidia — The Information Read this briefing for free",
-          "hb": 1
-        },
-        {
-          "t": "微软升级争议性量子芯片——研究人员仍持怀疑态度",
-          "d": "2026-06-05",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "微软对其争议性的拓扑量子芯片进行升级，声称将实现可比竞争方案更快规模化的拓扑量子计算机。然而学术研究者仍对该拓扑量子比特是否真正实现了马约拉纳零能模等核心物理机制持怀疑态度。该报道反映了量子计算硬件路线的分歧：产业宣传与学术验证之间存在明显落差，拓扑量子计算的工程可行性仍待独立验证。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-01788-y",
-          "tp": "拓扑量子芯片",
-          "aip": 1,
-          "kp": [
-            "[量子计算路线]: 拓扑量子比特可扩展性声称"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The tech giant says it will make ‘topological’ quantum computers that can be scaled up faster than competing technologies. The tech giant says it will make ‘topological’ quantum computers that can be scaled up faster than competing technologies.",
+          "b": "Author(s): Qian-Xi Zhang, Ming-Xing Luo, Ya-Li Mao, Hu Chen, Yu-Hang Yao, Zhi-Lian Liu, Shao-Ming Fei, Xue Yang, and Zheng-Da LiUnderstanding the nonlocality of multipartite quantum systems provides valuable insights into their behaviors and potential applications. In this Letter, assuming a quantum network inflated with multiple copies of genuine multipartite entangled states, we propose a novel noise-robust approach to tes…[Phys. Rev. Lett. 136, 220201] Published Fri Jun 05, 2026",
           "hb": 1
         }
       ]
@@ -173,71 +184,81 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "NASA X-59静音超声速飞机即将开展突破声障的核心里程碑测试",
-        "MIT工程师开发新型激光雷达芯片解决干涉问题并拓宽传感器视场角",
-        "波兰约30个风光电站遭网络攻击暴露电池储能系统网络保险覆盖缺口"
+        "实验观测n型碲烯薄膜巨负磁阻现象，零场电阻降幅达90%并可持续至35特斯拉。",
+        "研究在8×8光镊阵列中制备基态锂-6原子，实现高于98.5%的运动基态保真度。",
+        "团队采用三元溶剂真空辅助刮涂工艺，在10平方毫米面积制备外量子效率25.2%的钙钛矿LED。"
       ],
       "entries": [
         {
-          "t": "NASA X-59静音超音速飞机即将迎来最关键测试",
+          "t": "量子几何驱动的碲烯中栅极可调巨负磁阻",
           "d": "2026-06-05",
-          "a": "scitechdaily",
-          "c": "通用技术/通信和运输/航空",
-          "as": "NASA的X-59静音超声速喷气式飞机即将迎来其核心里程碑测试——突破声障飞行。该飞机采用独特外形设计以将超声速飞行产生的声爆降至极低水平，旨在验证超声速陆上飞行的可行性。若测试成功，将推动商用超声速客机回归，彻底改变民用航空对超声速飞行的噪音限制认知。",
-          "sc": 9.4,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/nasas-x-59-sonic-boom-killer-is-ready-for-its-biggest-test-yet/",
-          "tp": "静音超音速飞机",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在n型碲烯薄膜中观察到巨负磁阻现象，其电阻降幅达到零场电阻的−90%。该效应在低温下可持续至35特斯拉，并在化学势偏离导带外尔节点时受到抑制，证明了其量子几何起源。研究提出了量子几何增强扩散和磁电自旋相互作用这两种机制，解释了在内建极化场下回旋运动的Weyl费米子自旋锁定现象。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74066-0",
+          "tp": "碲烯磁阻效应",
           "aip": 1,
           "kp": [
-            "[超音速飞行]: X-59即将首次突破音速测试"
+            "负磁阻效应[n-type碲烯薄膜栅极可调]: 达到零场电阻的-90%",
+            "磁场耐受[巨负磁阻效应持续条件]: 低温下持续至35 T",
+            "[物理机制]: 量子几何驱动且在化学势远离导带外尔节点时受抑制"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "’s strange-looking X-59 jet is about to reach the milestone it was built for: flying faster than the speed of sound.\nNASA’s X-59 experimental aircraft is preparing for one of the most important phases of its flight testing program. The next series of flights will include the aircraft’s first journey beyond the speed of sound, along with several key tests needed for the mission’s future goals.\n“What comes next is the first time this one-of-a-kind aircraft will fly supersonic,” said Cathy Bahm, project manager for NASA’s Low Boom Flight Demonstrator. “We are starting toward the mission conditions test point that X-59 was designed for.”\nFollowing months of flight testing, the X-59 team completed a review of recent progress in late May and is now moving on to a new set of tests involving greater speeds and higher altitudes. These flights will help engineers evaluate how the aircraft performs under the operating conditions required for NASA’s Quesst mission, which aims to collect data on quiet supersonic flight.\nNASA expects the X-59 to exceed the speed of sound for the first time during test flights scheduled for early June. The aircraft is expected to fly faster than 630 mph at an altitude of about 43,000 feet, marking a major achievement for the program.\nThe aircraft will then attempt a “mission conditions” flight, reaching Mach 1.4 (925 mph) at roughly 55,000 feet. Those targets are especially important because they match the performance conditions NASA plans to use when flying the X-59 over U.S. communities in future tests. During those flights, researchers hope to gather public feedback on the aircraft’s quieter sonic “thump.”\nAlthough the X-59 was specifically designed to reduce the disruptive sonic boom normally associated with supersonic flight, the upcoming tests are not intended to demonstrate that capability. During this phase, the aircraft will fly alongside a conventional supersonic chase plane. Any quiet sound produced by the X-59 will be masked by the louder sonic booms generated by the chase aircraft.\nLater this summer, the chase plane will carry a specialized shock-sensing probe that will allow researchers to begin measuring the X-59’s shock waves.\nThe aircraft’s first phase of flight testing successfully achieved a number of objectives and provided engineers with valuable data.\nAfter its maiden flight in October 2025, the X-59 underwent a planned maintenance period before returning to flight operations in March 2026. Since then, the aircraft has completed 14 additional flights and reached several important milestones, including:\nEngineers used data from these flights to evaluate critical systems, including fuel delivery, hydraulics, environmental controls, and the aircraft’s eXternal Vision System. Instead of a traditional forward windshield, the X-59 relies on cameras that feed images to a display, allowing the pilot to see ahead.\nTeams also closely monitored the aircraft during takeoffs, landings, and flight operations. Strain gauges installed throughout the airframe measured structural loads and recorded how the aircraft responded to those forces.\nDuring the upcoming test campaign, pilots will continue working through planned test points while engineers monitor how the aircraft performs under supersonic conditions.\n“Flying at supersonic speeds is a major milestone for the X-59 team,” Bahm said. “Every step of envelope expansion brings us closer to demonstrating the quiet supersonic capability that is at the heart of the Quesst mission. Completing the first mission-conditions flight is especially meaningful – it’s the moment where we begin validating the aircraft in the environment it was designed for.”\nIn addition to reaching mission conditions, the X-59 is expected to achieve its top planned performance targets of Mach 1.6 (1,218 mph) and an altitude of 60,000 feet.\nEven so, not every future flight will be supersonic. The testing program will continue to include slower flights and operations at lower altitudes so engineers can evaluate the aircraft under a broad range of conditions.\n“These flights not only deepen our confidence in the X-59’s performance – they mark our progression toward the future phases of the mission that will ultimately help shape the future of supersonic travel,” Bahm said.\nAll flights completed so far, as well as those planned in the upcoming series, are part of Phase 1 of NASA’s Quesst mission. The goal of this stage is to verify the aircraft’s performance and airworthiness.\nSome of these flights will also begin testing equipment needed for future research, including a probe mounted on one of NASA’s F-15 research aircraft to measure the unique shock-wave signature produced by the X-59.\nInformation gathered during those early measurements will help prepare the team for Quesst Phase 2, scheduled to begin later this year. During that phase, engineers will directly measure the aircraft’s supersonic flight signature to confirm that it produces the quiet supersonic thump it was designed to create.\n“Aviation pioneer Otto Lilienthal said, ‘To design a flying machine is nothing. To build one is something. But to fly is everything.’ The 15 X-59 flights we’ve accomplished since March have been everything to this team and the mission,” Bahm said. “Every flight has pushed the boundaries of what’s possible, steadily expanding the envelope and strengthening our confidence in the aircraft.”\nWhile the accomplishments so far have been significant, Bahm said the team remains focused on what comes next.\n“As we look ahead to the upcoming flights, we’re poised to open the envelope even further – moving boldly toward the mission test point this aircraft was built to achieve,” Bahm said. “Flying supersonic and reaching these milestones isn’t just progress; it’s the realization of years of perseverance, innovation, and teamwork. Each step brings us closer to Phase 2, and to the future of commercial supersonic flight.”\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nNASA X-59 Quesst\nNASA Unveils Cutting-Edge Tech To Make Supersonic Flights Quieter\nOn the Brink of Revolution: NASA’s Quiet Supersonic X-59 Moves Toward Maiden Flight\nNASA’s X-59 Quesst: Overturning the 50-Year-Old Supersonic Speed Limit\nSilencing Sonic Booms: NASA’s X-59 Quiet Supersonic Aircraft Passes Critical Milestone\nNASA X-59 Experimental Aircraft’s Quiet Revolution in Supersonic Flight\nNASA’s X-59: A Supersonic Aircraft’s Patriotic Paint Transformation\nQuiet and Efficient – New Propeller Advance Paves Way for Electric Planes\nJet Engine Installed on NASA’s X-59 QueSST Quiet Supersonic Aircraft\nMajor Milestone As NASA’s X-59 QueSST Quiet SuperSonic Technology Aircraft Comes Together",
+          "b": "Negative magnetoresistance in conventional two-dimensional electron gases is a well known phenomenon, but its origin in complex and topological materials endowed with nontrivial quantum geometry remains elusive. Here, we report a giant negative magnetoresistance reaching −90% of the zero-field resistance, R0, in n-type tellurene films. The effect persists up to 35 T at cryogenic temperatures and is suppressed when the chemical potential moves away from the conduction-band Weyl node, suggesting a quantum geometric origin. We propose two mechanisms: quantum geometric enhancement of diffusion and a magnetoelectric spin interaction that locks the spin of a cyclotron-moving Weyl fermion, in the presence of an intrinsic inversion-breaking polar field E\" role=\"presentation\">E{{\\boldsymbol{{\\mathcal{E}}}}} and an applied magnetic field B, to its guiding-center drift, (E&#x00D7;B)&#x22C5;&#x03C3;\" role=\"presentation\">(E×B)⋅σ({{\\boldsymbol{{\\mathcal{E}}}}}\\times {{{\\bf{B}}}})\\cdot \\sigma. The resulting diffusion enhancement yields &#x0394;Rzz/R0=&#x2212;&#x03B2;g(E&#x00D7;B)2\" role=\"presentation\">ΔRzz/R0=−βg(E×B)2\\Delta {R}_{zz}/{R}_{0}=-{\\beta }_{g}{({{\\boldsymbol{{\\mathcal{E}}}}}\\times {{{\\bf{B}}}})}^{2}, with βg set by the quantum metric. Our findings establish a quantum geometric, non-Markovian memory effect in magnetotransport.",
           "hb": 1
         },
         {
-          "t": "麻省理工工程师解决困扰研究者多年的激光雷达重大难题",
+          "t": "基态费米子镊子阵列的可编程组装",
           "d": "2026-06-05",
-          "a": "scitechdaily",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "MIT工程师设计了一种新型激光雷达芯片，通过特殊工程化天线结构解决困扰学界多年的干扰问题，同时显著拓宽了传感器视场角。该芯片级方案有望降低激光雷达系统的复杂度与成本，推动自动驾驶、机器人等领域的感知硬件小型化。",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究在8×8光镊阵列中实现了费米子锂-6（$^{6}\\mathrm{Li}$）原子任意双成分乘积态的确定性制备。通过利用自旋分辨的大微分磁矩并采用并行化操作，该系统实现了高于98.5%的运动基态保真度。这一成果展示了基态费米子原子阵列的可编程组装能力，为量子模拟和计算奠定了基础。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/fsmh-dz71",
+          "tp": "原子阵列组装",
+          "aip": 1,
+          "kp": [
+            "基态保真度[$6\\mathrm{Li}$原子8x8光镊阵列制备]: 高于98.5%",
+            "自旋分辨率技术[费米子光镊阵列]: 利用大微分磁矩实现",
+            "阵列规模[费米子镊子阵列]: 8×8光镊阵列",
+            "制备目标[费米子原子阵列]: $6\\mathrm{Li}$原子的任意双分量积态"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Naman Jain, Jin Zhang, Marcus Culemann, and Philipp M. PreissWe demonstrate deterministic preparation of arbitrary two-component product states of fermionic $^{6}\\mathrm{Li}$ atoms in an $8×8$ optical tweezer array, achieving motional ground-state fidelities above 98.5%. Leveraging the large differential magnetic moments for spin-resolution, with parallelized…[Phys. Rev. Lett. 136, 223402] Published Fri Jun 05, 2026",
+          "hb": 1
+        },
+        {
+          "t": "窦乐天最新Sci. Adv.全面解读：三元溶剂客服咖啡环效应，真空辅助刮涂实现大面积高效钙钛矿LED及静脉成像_手机网易网",
+          "d": "2026-06-05",
+          "a": "网易知光谷",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究团队开发了真空辅助刮涂结合DMF/NMP/ACN三元溶剂工程策略，成功解决了大面积钙钛矿LED在涂布过程中的咖啡环效应和结晶不均问题。三元溶剂中的高挥发性乙腈(ACN)诱导马兰戈尼对流，将Pb²⁺的碘配位数提升至3.1，加速了相转变。基于此方法制备的近红外钙钛矿LED在10 mm²面积上外量子效率达25.2%，224 mm²面积上仍保持19.0%，并成功实现人体手腕静脉的高清晰度成像。",
           "sc": 8.0,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://scitechdaily.com/mit-engineers-solve-a-major-lidar-problem-that-has-stumped-researchers-for-years/",
-          "tp": "芯片级激光雷达",
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.163.com/dy/article/KULA7VDL0552LHQK.html",
+          "tp": "钙钛矿LED制备",
           "aip": 1,
           "kp": [
-            "[技术方案]: 硅光子芯片天线减小干扰扩大视场",
-            "[优势]: 消除机械运动部件提升可靠性"
+            "溶剂体系[大面积钙钛矿LED制备]: DMF/NMP/ACN三元溶剂体系",
+            "抑制机制[克服咖啡环效应]: 利用ACN诱导马兰戈尼对流抑制溶质边缘聚集",
+            "外量子效率[10 mm²近红外钙钛矿LED]: 25.2%",
+            "外量子效率[224 mm²面积放大器件]: 19.0%",
+            "发射峰[近红外钙钛矿LED]: ~795 nm"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A new MIT-designed\nchip uses specially engineered antennas to reduce interference and widen the sensor’s field of view.\nBut today’s most powerful lidar sensors often come with major drawbacks: they are bulky, expensive, and rely on moving mechanical components that can wear out over time.\nResearchers at\nhave now demonstrated a potential solution. They developed a new silicon-photonics chip that could enable compact, durable lidar systems with no moving parts. Silicon photonics uses semiconductor technology to manipulate light rather than electricity, opening the door to lidar sensors that are smaller, cheaper, and easier to manufacture at scale.\nOne of the biggest obstacles facing silicon-photonics lidar has been its limited field of view. Existing chip-based systems struggle to scan wide angles, while methods for expanding their coverage typically introduce noise and reduce measurement\nTo overcome this challenge, the MIT team designed an array of integrated antennas that dramatically reduces unwanted interference, known as crosstalk, between neighboring antennas. Their approach allows a lidar chip to scan a much wider area while maintaining the low-noise, high-precision performance needed for demanding applications such as autonomous vehicles, aerial mapping, and construction-site monitoring.\nThe breakthrough could support the development of advanced lidar sensors for applications such as autonomous driving, aerial surveying, and construction site monitoring.\n“The functionality we demonstrated in this work solves a fundamental problem for integrated optical-phased-array technology, enabling future lidar sensors that can achieve significantly higher performance than we could demonstrate previously,” says Jelena Notaros, the Robert J. Shillman Career Development Associate Professor of Electrical Engineering and Computer Science (EECS) at MIT, a member of the Research Laboratory of Electronics, and senior author of a paper on this innovation.\nThe paper’s lead author is EECS graduate student Henry Crawford-Eng. Additional co-authors include EECS graduate students Andres Garcia Coleto, Benjamin M. Mazur, Daniel M. DeSantis, and Tal Sneh. The findings were published in\nNature Communications\nConventional lidar systems typically rely on a spinning unit that sends light pulses in multiple directions. The reflected light returns to the sensor, allowing the system to reconstruct a map of the environment.\nSilicon-photonics lidar systems instead steer light electronically using an integrated optical phased array (OPA), eliminating the need for moving parts.\nAn OPA contains a series of integrated antennas with tiny periodic corrugations along their surfaces. These corrugations scatter incoming light upward and outward from the photonic chip.\nHowever, placing antennas too close together creates interference between them, causing the emitted light to become distorted. To avoid this, engineers usually spread the antennas farther apart, but that creates a different problem.\nWhen antennas are spaced too widely, the array generates multiple copies of the light beam at different angles. As a result, the primary beam can only be steered within a limited range before it becomes indistinguishable from neighboring beams.\n“This limits our field of view, so the autonomous vehicle now only knows what is in front of it for a certain angular range,” Garcia Coleto explains.\nThese duplicate beams, called grating lobes, can confuse the sensor, create false positives, and waste energy.\nTo solve the issue, the MIT researchers designed reduced-crosstalk antennas that can be placed much closer together without producing significant interference.\nIn conventional OPAs, every antenna uses the same geometry and corrugation pattern, causing strong coupling when antennas are tightly packed.\nThe MIT team addressed this by creating three different antenna designs with varying widths and corrugation arrangements. These differences give each antenna a unique propagation coefficient, which affects how light travels through it.\n“Because the antennas have very different propagation coefficients, when we put them close together, essentially each antenna doesn’t ‘see’ the antenna next to it. Therefore, it won’t couple with its neighbor,” Garcia Coleto says.\nEven with different propagation characteristics, the antennas still needed to emit light in a uniform way.\nThe researchers carefully engineered the antennas to satisfy three requirements.\nEach antenna had to emit the same amount of light, direct the beam at the same angle for a given wavelength, and shift the emission angle consistently as the beam was steered across the array.\n“We have this challenge where we require the antennas to have different geometries to reduce the crosstalk, but we need to simultaneously design the antennas to have the same emission characteristics. While it is possible to engineer this, it is extremely difficult because, typically, when antennas are designed with different geometries, they tend to behave differently,” Crawford-Eng says.\nThe team first developed the electromagnetic theory describing how radiative modes interact, then used those findings to design and simulate the antennas.\nUsing this approach, the researchers built an OPA with antennas spaced much more closely together than those in traditional systems and then tested the device experimentally.\nIn a conventional OPA, coupling under similar conditions would reach roughly 100 percent. In the MIT system, coupling dropped to about 1 percent while still producing a single, precise beam. The design also enabled accurate beam steering across a wide field of view without generating grating lobes.\nThe researchers now plan to improve the technology further to expand the field of view even more. They are also investigating another possible solution for wide-angle functionality that emerged while developing the underlying theory.\n“This work addresses a longstanding challenge in integrated optical phased arrays: simultaneously achieving both a wide field of view, which requires dense antenna spacing, and high beam quality, which requires low crosstalk between neighboring antennas. The authors solve this problem with an elegant antenna design. Their innovation is an important step forward for chip-scale, solid-state beam-steering technology,” says Joyce Poon, professor of electrical and computer engineering at the University of Toronto and director of the Max Planck Institute of Microstructure Physics, who was not involved with this work.\nReference: “Reduced-crosstalk antennas for grating-lobe-free and wide-field-of-view integrated optical phased arrays” by Henry Crawford-Eng, Andres Garcia Coleto, Benjamin M. Mazur, Daniel M. DeSantis, Tal Sneh and Jelena Notaros, 7 May 2026,\nNature Communications\nDOI: 10.1038/s41467-026-71832-y\nThis research was supported, in part, by the Semiconductor Research Corporation, the National Science Foundation, an MIT MathWorks Fellowship, the U.S. Department of War, and the MIT Rolf G. Locher Endowed Fellowship.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nLidar Equipment\nWhen light Causes a Photoinduced Phase Transition\nFish-Eye Lens May Produce Quantum Entanglement Between Atoms\nEngineers Enhance the Interactions Between Light and Matter\nScientists Observe New Exotic Phenomena in Photonic Crystals\nResearchers Manipulate Nanoscale Particles with Light\nTwo-Stage Process Makes Incandescent Bulbs More Efficient\nPhysicists Observe Weyl Points for the First Time\nPhysicists Corral Electrons Using a New Quantum Tool\nHarvard and MIT Scientists Create Never-Before-Seen Form of Matter",
-          "hb": 1
-        },
-        {
-          "t": "波兰电网攻击揭示了电池存储的网络保险缺口 - Energy Storage",
-          "d": "2026-06-05",
-          "a": "ESS News",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "2025年12月29日波兰约30个风光电站遭遇网络安全事件，攻击者针对分布式可再生能源的通信基础设施和控制系统，干扰发电资产与配电网运营商之间的可见性（发电未直接中断）。该事件为保险承保商提供了评估分布式能源网络攻击路径的真实案例，而非依赖模型推演，暴露出电池储能系统在网络保险覆盖方面的显著缺口。",
-          "sc": 7.4,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.ess-news.com/2026/06/04/polish-grid-attack-reveals-cyber-insurance-gap-for-battery-storage/",
-          "tp": "储能网安全",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A cybersecurity incident affecting approximately 30 wind and solar sites across Poland on Dec. 29, 2025, provided underwriters with a real-world example of an attack pathway against distributed renewable assets to assess rather than model.\ncybersecurity incident\ninvolved malicious activity affecting communications infrastructure and control systems at distributed energy sites, reducing or disrupting visibility between generation assets and distribution system operators. Generation was not directly manipulated. At a wind or solar site, that distinction has operational significance. For battery storage, it matters less – because the control layer exposed to an attacker is also the layer governing cell safety.\n“The attack pathway demonstrated in Poland – compromise of internet-facing edge devices, absent multi-factor authentication, and reused credentials, therefore leading to access to remote terminal units, protection relays and operator interfaces – was already understood to be feasible,” said Tom Dryden, partner and head of cyber Europe at McGill and Partners. “What that example provided was confirmation that a capable actor will pursue that pathway against distributed assets and will do so with destructive, rather than just financial, intent.”\nThe affected Polish facilities continued to generate throughout the incident. Battery energy storage systems do not offer the same margin.\nControl layer\ncontrol layer\nan attacker would access – the battery and energy management system – is also the layer that governs charge rate, state of charge and cell temperature,” Dryden told\n. “Compromise or manipulation of that layer is not just a supervisory inconvenience but a direct means of forcing a cell beyond its safe operating threshold, with thermal runaway as the foreseeable consequence.”\nFor underwriting purposes, Dryden said, that moves the cyber-physical thermal-runaway scenario “from a modeled tail risk to a demonstrated exposure” – not because physical damage occurred in Poland, but because the incident confirmed that capable actors are actively pursuing the distributed edge of the power system.\nThe insurance market’s response to that exposure is complicated by a structural feature of how energy assets are covered. Conventional property and energy policies typically exclude malicious cyber triggers, subject to wording and market variations. Dedicated cyber-insurance policies are designed to respond to malicious acts – but do not automatically cover physical damage. A BESS operator whose battery management system is compromised and whose asset subsequently ignites may, depending on wording and endorsements, find the loss sitting at the seam between two markets.\n“A scenario like a\nmalicious-cause thermal-runaway loss\ncan fall between the two, unless carrying a properly designed cyber-insurance policy,” Dryden said. He added that the solution McGill and Partners has developed uses “an affirmative cyber wording addressing both the cyber physical exposure, and intangible exposures from a malicious ransomware or DDoS attack” – though the structure and limits of that wording are not publicly disclosed, and as with any manuscripted market solution, apply within current market constraints.\nCharalambos Konstantinou, associate professor and principal investigator of the SENTRY Lab at King Abdullah University of Science and Technology (KAUST), describes the attack surface as layered: communications and RTU access enables disruption and disconnection; control-parameter manipulation enables generation interference; firmware compromise – the deepest layer – persists across reboots.\nKonstantinou said the\ncommunications protocol mandated under IEEE 1547\nlacks native authentication and integrity features, framing this as a structural observation about protocol design, grounded in prior published research, rather than a comment on the Poland incident specifically.\n“Actuaries can’t price what they can’t see,” Konstantinou said, adding that his group’s firmware-integrity work is aimed at reducing that uncertainty. He and colleagues published a framework in IEEE Transactions on Power Systems in 2026 designing premiums and coverage for the operational-cost risk of attack-driven load variation in renewable-rich grids, using value-at-risk and tail-value-at-risk metrics. Konstantinou said the work indicates that large load variations can materially increase a grid’s daily operational cost – the kind of tail exposure an insurer needs to capture to price the risk accurately. The paper’s specific findings have not been independently verified by pv magazine prior to publication.\nThe gap between what an underwriter needs and what is currently visible is not structural.\n“The detection science exists,” Konstantinou said. “Our work shows firmware-level integrity verification is viable on inverter platforms.” The obstacle is integration: device integrity today is self-protective – secure boot and signed firmware, implemented differently on each vendor’s silicon – so a device verifies itself but emits no common signal a third party can read across a fleet. “The DER communication standards were never built to carry one,” he said.\nRegulatory limits\nNIS2 does not close the visibility gap. The directive imposes risk management and incident reporting obligations on energy sector operators but does not explicitly mandate a firmware-integrity signal. The Cyber Resilience Act reaches device manufacturers with requirements to protect programs and configuration against unauthorized modification – but as Konstantinou frames it, “an SBOM tells you what’s in the firmware, not what’s actually executing at runtime. So the integrity attestation an underwriter would need is still neither mandated nor exposed to operators in a standardized way.” Whether that integrity must be exposed as a standardized, externally verifiable attestation is left to harmonized standards still under development, with compliance timelines extending into the later part of the decade including widely cited 2027 implementation milestones.\nTransposition delays have compounded the regulatory picture. Many member states remained in transitional phases into 2026, more than a year after the October 2024 deadline. Dryden’s advice is not to treat the delay as permission to defer action.\n“We wouldn’t advise operators to defer action on improving cyber resiliency, pending either national transposition or the maturation of the cyber-insurance market,” he said. “The measures that establish regulatory compliance and the measures that establish insurability are substantially the same, and they warrant implementation now, irrespective of the date on which a given member state completes transposition.”\nThe current insurance market is, unusually, favorable to buyers.\n“The cyber-insurance market, including the more nuanced cyber-physical damage market, is currently highly competitive despite a volatile threat environment, driven mainly by oversupply of insurance capacity vs demand,” Dryden said, adding that the market was likely to stabilize on pricing over the next 12 months, with potential hardening beyond that if claims continue to rise.\nFor BESS operators, Dryden recommends two steps: assess and quantify\ncyber-physical exposure\nagainst the actual replacement cost of the principal asset rather than a nominal limit; then close the property-cyber gap through affirmative cyber cover designed specifically for the energy sector.\nThe real obstacle to closing the observability gap, Konstantinou said, is incentives: the manufacturer pays to expose the firmware-integrity signal, while the operator and insurer receive the benefit. That misalignment is why the gap persists despite the technical solution existing. But he sees the insurance market itself as a potential forcing function. “If underwriters discount fleets that can attest their firmware state, that pull could outrun the regulation,” he said.\nThe Poland incident has not moved insurance pricing. What it has done is shift the cyber-physical risk conversation, in Dryden’s words, “over from a conceptual concern into an evidenced operational threat.” The gap in coverage – and in the observability that would allow that coverage to be accurately priced – remains open.",
+          "b": "第一作者： Sung‑Doo Baek, Yuanhao Tang\n1.针对大面积钙钛矿LED中稀薄前驱液易产生咖啡环效应和结晶不均匀的难题，设计了DMF/NMP/ACN三元溶剂体系，利用ACN诱导马兰戈尼对流抑制溶质边缘聚集，同时协同调控配位环境加速相转变。\n数从2.8提升至3.1，并形成更易断裂的Pb‑O键，降低了成核势垒；同时ACN强化了NMP与FA⁺的氢键作用，解锁了NMP导致的动力学陷阱。\n3.基于该策略的近红外钙钛矿LED（发射峰~795 nm）在10 mm²面积上达到25.2%的外量子效率；成功将面积放大至224 mm²时仍保持19.0%的效率，462 mm²器件发光均匀。\n4.利用224 mm²器件作为均匀近红外光源，实现了人体手腕静脉的清晰成像，展示了其在生物医学可视化中的实用潜力。\n一、本研究针对的问题与挑战\n钙钛矿LED在近红外波段已实现超过30%的外量子效率，但其大面积化进程严重受阻：发光层厚度仅需数十纳米，前驱液浓度极低，在刮涂等放大工艺中溶剂蒸发缓慢，导致强烈的咖啡环效应和不可控的异相成核，薄膜均匀性和器件性能随面积增大急剧下降。传统气刀辅助方法存在气流不均、污染和可扩展性差等问题。\n本文报道了一种真空辅助刮涂结合三元溶剂工程的策略：在DMF/NMP二元体系中引入高挥发性乙腈（ACN）。ACN一方面通过产生表面张力梯度驱动马兰戈尼回流，有效抑制了咖啡环形成；另一方面，ACN加速溶剂挥发，快速触发过饱和，解锁NMP配位导致的动力学陷阱。X射线吸收精细结构表明，三元溶剂将Pb²⁺的碘配位数从2.8提高到3.1，且Pb‑O键伸长（更易断裂），同时ACN强化了NMP与FA⁺的氢键，从而加速了中间相向α相转变和辐射复合路径的建立。基于此，近红外钙钛矿LED在10 mm²面积上获得25.2%的外量子效率，在60 mm²和224 mm²上分别达到22.1%和19.0%，462 mm²器件发光均匀。利用224 mm²器件作为光源，成功实现了人体手腕静脉的高对比度近红外成像。该工作为大规模、低成本制造高性能钙钛矿发光二极管提供了通用溶剂工程框架。\n三元溶剂消除咖啡环效应与宏观均匀性\n在DMF单溶剂体系中，蒸发以径向毛细流为主，\n向边缘输运，形成严重咖啡环。引入NMP后有所改善但仍存在边缘堆积。加入ACN后，因其高挥发性产生表面张力梯度，驱动马兰戈尼回流，通过聚苯乙烯微球示踪直接观察到了显著的环流，抑制了咖啡环。在75 mm × 50 mm玻璃/ZnO衬底上，单溶剂薄膜布满咖啡环，二元薄膜边缘严重堆积，而三元薄膜宏观均匀、背景清晰可见（时钟塔透过薄膜可见）。厚度mapping显示三元薄膜厚度均匀约40 nm，二元薄膜边缘厚度超过400 nm。\n溶剂比例优化与光致发光均匀性\n二元体系中，NMP增加虽改善均匀性，但PL强度单调下降（归因于残余NMP引起缺陷），且过量NMP导致晶粒粗化。在DMF:NMP=6:1基础上加入ACN，PL强度在20% ACN时达到峰值，超过30%则发生相分离。PL强度热图和FLIM显示：单溶剂薄膜PL强度极不均匀且寿命差异大（>10 ns区域与快速衰减区域相邻）；二元薄膜有所改善但仍存在局部热点；三元薄膜在数百微米范围内寿命高度均匀（~1–2 ns），且PLQY在36.3 mW/cm²激发下达到78%（最高>80%），表明高\n原位PL揭示结晶动力学路径、\n配位环境与分子间相互作用机理\n原位监测真空抽气阶段：单溶剂薄膜PL在抽气过程中持续上升；二元薄膜在抽气初期PL极低且平台期长，仅在N₂回填时急剧跃升（证实NMP稳定中间相导致动力学陷阱）；三元薄膜PL连续平稳增长，无突变，表明ACN加速了溶剂脱附并解锁陷阱。热退火阶段：单溶剂薄膜PL峰值红移最慢；二元薄膜虽快速红移（结构转变快），但PL强度上升缓慢，达95%最大强度需~210 s；三元薄膜同时实现快速红移和最快PL强度上升（~150 s），证明其同时加速了相转变和辐射复合路径的建立。\nXANES显示三元溶剂中Pb L₃边向高能轻微位移，表明Pb电子密度变化。EXAFS拟合表明Pb‑I键长基本不变，但碘配位数从单溶剂的2.8增至三元溶剂的3.1，Pb‑O键长从2.28 Å伸长至2.40–2.41 Å（NMP形成更易断裂的弱配位）。FTIR显示，NMP加入使FA⁺的N‑H伸缩峰红移（氢键增强），三元体系红移更大，表明ACN通过部分置换或空间限域强化了NMP与FA⁺的氢键。NMR证实只有NMP与FA⁺发生显著化学位移。因此，三元溶剂协同重塑了配位环境：稳定了FA中间体，同时削弱Pb‑溶剂键，降低了成核势垒，促进了均匀快速结晶。\n大面积近红外LED器件性能及其应用\n器件结构：ITO/ZnO/钙钛矿/TFB/MoOₓ/Au。UPS显示三元溶剂薄膜价带顶从单溶剂的5.45 eV上移至5.35 eV，与TFB（5.3 eV）能级更匹配，利于空穴注入。单溶剂器件峰值EQE仅5.5%，二元13.8%，三元25.2%（10 mm²），且三元器件在高电流密度1000 mA/cm²下仍保持>10% EQE。平均EQE从4.1%提升至22.2%，变异系数从25.9%降至8.1%。三元器件在10 mA/cm²下T₈₀寿命23.4小时，在50 mA/cm²下3小时。放大至60 mm²时EQE 22.1%，224 mm²时19.0%，462 mm²器件整个像素区近红外发光均匀。与已报道大面积PeLED相比，本工作同时实现了高效率与大面积的领先水平。\n将224 mm²三元溶剂器件封装后作为近红外光源，置于手腕下方，用去除红外滤光片的摄像头采集反射光。在环境可见光下难以分辨的静脉，在近红外照射下呈现高对比度清晰图像，展示了该大面积均匀光源在生物医学可视化中的实际应用前景。\n本文针对大面积钙钛矿LED中稀薄前驱液易产生咖啡环和结晶不均匀的瓶颈，发展了真空辅助刮涂与三元溶剂工程相结合的协同策略。通过引入高挥发性ACN，不仅诱导马兰戈尼回流消除了宏观溶质偏析，还加速了过饱和、解锁了NMP配位导致的动力学陷阱。XAS和FTIR揭示了三元溶剂将Pb²⁺的碘配位数从2.8提升至3.1，伸长Pb‑O键并强化NMP与FA⁺的氢键，从而降低成核势垒、加速α相转变和辐射复合路径的建立。由此制备的近红外钙钛矿LED在10 mm²面积上达到25.2%的外量子效率，放大至224 mm²仍保持19.0%，462 mm²器件发光均匀。利用该大面积器件作为光源，成功实现了人体手腕静脉的高对比度近红外成像。这项工作为大规模、低成本制造高性能钙钛矿LED提供了通用的溶剂工程框架，并可推广至太阳能电池、光电探测器等其他大面积薄膜光电器件。\nBaek, S.-D., Tang, Y., Choi, H. et al. Tailoring crystallization kinetics for scalable and efficient large-area perovskite light-emitting diodes. Sci. Adv. 12, eaef3336 (2026).\nhttps://doi.org/10.1126/sciadv.aef3336\n知光谷光伏器件学术QQ群：641345719\n钙钛矿产教融合交流@知光谷（微信群）：需添加编辑微信\n为加强科研合作，我们为海内外科研人员专门开通了\n，备注：姓名-单位-研究方向（无备注请恕不通过），由编辑审核后邀请入群。",
           "hb": 1
         }
       ]

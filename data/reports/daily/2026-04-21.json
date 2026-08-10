@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Noon Energy与Meta签署1GW/100GWh固体氧化物燃料电池长时储能协议",
-      "东方日升与华晟新能源刷新异质结钙钛矿叠层电池转换效率至34.91%",
-      "柏林洪堡大学首次将硬X射线光电子能谱应用于硫化物固态电池界面研究"
+      "Noon Energy与Meta签署1GW/100GWh长时储能协议，首期25MW验证项目定于2028年投运。",
+      "Noon Energy固体氧化物燃料电池标称能量密度达300Wh/kg，往返效率维持于80%至90%。",
+      "三层结构太阳能电池光电转换效率取得突破性进展。"
     ],
     "AI与智能科技": [
-      "华中科技大学董建绩团队研发三维光AI芯片实现6554 TOPS计算速度",
-      "深度学习工具CrystalX实现晶体材料X射线衍射数据原子结构自动化解析",
-      "去中心化科研网络推动科学AI智能体自主交互与实验数据共享"
+      "华中科技大学董建绩团队在Nature Communications发表三维光AI芯片研究成果。",
+      "该三维光芯片采用飞秒激光刻蚀技术，8×8八层器件实现6554 TOPS计算速度。",
+      "测试数据显示该器件MNIST手写数字分类准确率达93%，光图样生成保真度为94%。"
     ],
     "通用技术": [
-      "微污染物激活惰性催化位点机制实现近100%水处理氧化剂利用率",
-      "亚波长极紫外显微镜实现飞秒激光激发下磁畴壁动力学实时观测",
-      "逻辑门控DNA分子机器通过响应溶酶体微环境实现靶向细胞干扰"
+      "研究人员开发出生物基可回收聚合物膜，无需手性选择剂即可完成对映选择性纳滤。",
+      "该薄膜通过具有双立体中心的本征手性聚合物自组装构建，实现对映体的高效截留。",
+      "定量分析揭示操作压力对对映选择性的调节机制，确立可持续手性分离设计路线。"
     ]
   },
   "sectors": [
@@ -26,18 +26,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Noon Energy与Meta签署1GW/100GWh固体氧化物燃料电池长时储能协议",
-        "东方日升与华晟新能源刷新异质结钙钛矿叠层电池转换效率至34.91%",
-        "柏林洪堡大学首次将硬X射线光电子能谱应用于硫化物固态电池界面研究"
+        "Noon Energy与Meta签署1GW/100GWh长时储能协议，首期25MW验证项目定于2028年投运。",
+        "Noon Energy固体氧化物燃料电池标称能量密度达300Wh/kg，往返效率维持于80%至90%。",
+        "三层结构太阳能电池光电转换效率取得突破性进展。"
       ],
       "entries": [
         {
           "t": "Noon Energy与Meta达成1GW/100GWh可逆固体氧化物燃料电池储能项目合作协议",
           "d": "2026-04-21",
-          "a": "",
+          "a": "Noon",
           "c": "零碳产业/能量循环/能量存储/其它储能技术",
           "as": "美国可逆固体氧化物燃料电池储能公司Noon Energy与Meta达成1GW/100GWh的100小时长时储能合作协议，先建25MW/2.5GWh验证项目（预计2028年），再交付1GW项目。其技术基于YSZ等固体氧化物电池，正极用钆掺杂氧化铈将CO₂转化为碳存储，负极生成O₂，通过分子数减少实现无需泵的自动气体传输。标称能量密度300Wh/kg，往返效率80-90%。",
-          "sc": 7.4,
+          "sc": 7.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.noon.energy/post/noonenergyandmetapartnership",
@@ -51,42 +51,42 @@
           "hb": 1
         },
         {
-          "t": "东方日升新能源、安徽华晟新能源更新其异质结硅基/钙钛矿叠层电池效率进展",
+          "t": "Noon Energy与Meta达成1GW/100GWh可逆固体氧化物燃料电池储能项目合作协议",
           "d": "2026-04-21",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "东方日升新能源宣布其1cm²异质结（HJT）硅基钙钛矿叠层电池转换效率达31.95%（Voc=1.988V，FF=79.11%），采用水浴浸渍法制备自组装单分子层解决金字塔绒面界面沉积均匀性问题。安徽华晟新能源HJT/钙钛矿叠层电池认证效率达34.91%，G12H尺寸（220cm²）器件测试效率达31.1%，显示国内叠层电池技术持续突破。",
-          "sc": 6.5,
+          "a": "Noon",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "美国可逆固体氧化物燃料电池储能公司Noon Energy与Meta达成1GW/100GWh的100小时长时储能合作协议，先建25MW/2.5GWh验证项目（预计2028年），再交付1GW项目。其技术基于YSZ等固体氧化物电池，正极用钆掺杂氧化铈将CO₂转化为碳存储，负极生成O₂，通过分子数减少实现无需泵的自动气体传输。标称能量密度300Wh/kg，往返效率80-90%。",
+          "sc": 7.7,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/e_DmXjP0BX9lZZJ1zJ4RUw",
-          "tp": "钙钛矿叠层",
+          "tg": "产业进展",
+          "u": "https://www.noon.energy/post/noonenergyandmetapartnership",
+          "tp": "长时储能",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "4月21日，东方日升新能源在官方公众号发文称，其开发的1cm²异质结（HJT）硅基钙钛矿叠层电池转换效率达到31.95%（Voc=1.988V，Isc=20.06mA，FF=79.11%），最大功率可达31.55mW。文中称，其采用水浴浸渍法等工艺进行自组装单分子层制备，解决了HJT电池表面金字塔绒面结构上电荷传输界面层沉积均匀性及覆盖度等问题，以降低缺陷密度，改善电荷传输，提升器件性能。\n4月28日，安徽华晟新能源在官方公众号发文称，其HJT/钙钛矿叠层电池认证效率达34.91%，G12H尺寸（220cm2）器件测试效率达到31.1%。",
+          "b": "4月21日，美国可逆固体氧化物燃料电池储能公司Noon Energy在官网发文称，其与Meta达成1GW/100GWh的100h长时储能项目合作协议。文中称，双方将先建设一个25MW/2.5GWh的储能项目进行验证，预计2028年建成；完成验证后再进行1GW/100GWh项目交付。\n2026年1月前沿技术追踪对Noon Energy长时储能系统成功运行数千小时进行了报道。结合其所申专利及相关文章内容，其储能技术可能为可逆固体氧化物（相关文章中提及有钇稳定的氧化锆YSZ、(La0.9Sr0.1)0.98Ga0.8Mg0.2O3−δ等）燃料电池，正极使用钆掺杂氧化铈（如10 mol% Gd-doped CeO2）、镍基催化剂逐步将CO2转换为C进行存储；负极则将氧离子氧化生成O2；整体通过将部分气体产物转化为固体/液体低蒸气压产物（或分子数显著减少的气体产物），在封闭系统中制造持续的压力+浓度差实现无需泵/压缩机的自动气体传输。整体的工作温度400-1000℃、压力0.1-500 bar、标称充电电压1.08 V、能量密度300Wh/kg（650 Wh/L）、80-90%的往返效率。据该公司承接的加州能源委员会项目，目标系统级往返效率（RTE）需至少50%，平准化储能成本LCOS<$0.05/kWh（CAPEX< $20/kWh）。截至目前该公司暂未有更多技术信息披露。",
           "hb": 1
         },
         {
-          "t": "柏林洪堡大学Philipp Adelhelm通过原位硬X射线光电子能谱对Li₃YCl₆固态电解质界面反应机制",
+          "t": "三层太阳能电池达到效率里程碑",
           "d": "2026-04-21",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "柏林洪堡大学Philipp Adelhelm团队开发可施加实际堆叠压力的原位电池装置，结合operando硬X射线光电子能谱（HAXPES，探测深度约14.1nm）对硫化物基固态半电池（TiS2|Li3YCl6）早期界面降解机制进行深度分辨探究。采用激光切割不锈钢箔窗口作为穿透式集流体，保证3000eV硬X射线直接照射电极。该工作首次将HAXPES应用于硫化物基固态电极原位演变研究。",
-          "sc": 6.5,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1021/acsenergylett.6c00551",
-          "tp": "固态电解质",
+          "a": "Nature",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-026-01149-9",
+          "tp": "三结电池效率",
           "aip": 1,
           "kp": [],
-          "lv": 1,
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "固态电池性能受到固固界面问题影响，实际运行中为保持电极与电解质接触所需施加的高堆叠压力也阻碍了对发生降解的深层界面进行原位实时探测与复杂机理分析。当前X射线光电子能谱（XPS）被广泛用于确定材料化学状态，但其浅探测深度（仅5-10 nm）通常需要依赖易引入结构和化学伪影的破坏性离子溅射，而具备大探测深度、能实现无损探测的硬X射线光电子能谱（HAXPES）此前尚未被应用于探究硫化物基固态电极的原位演变。\n近日，柏林洪堡大学Philipp Adelhelm教授团队开发了一种能够施加实际堆叠压力的原位电池装置，并结合原位硬X射线光电子能谱（operando HAXPES）对硫化物基固态半电池（TiS2|Li3YCl6）中由电化学驱动的早期界面降解机制进行了深度分辨的探究。采用厚度200μm的不锈钢箔激光切割出0.2mm×1.0mm窗口作为穿透式电流集流体，保证3000eV硬X射线（探测深度约14.1 nm）能够直接照射上层电极，避免跨越集流体干扰。电池组装包含60:40质量比的TiS2:Li3YCl6复合正极、Li3YCl6电解质和锂金属负极，实验室电池以495 MPa堆压下成型，并在室温以0.12 mA（0.15 mA/cm²，C/12速率）于0.8–3.0V范围内循环，原位电池通过螺钉定值扭矩0.3 Nm控制堆压。原位测试结果表明，在首次放电中，Ti2p谱线显示TiS2于约2.1 V开始锂化，形成LiTiS2（Ti 2p3/2峰由455.3 eV向低结合能移动，最大位移约−1.2 eV），同期TiOx组分显著增加。O 1s谱结合表层厚度拟合显示含氧Ti相关的覆盖层厚度从最初约2 nm增长至放电末端约5–6 nm，表明氧不仅为外源污染，而是在电化学驱动下向正极集流体侧富集，参与界面重构。进行到2.3-2.1 V时，Li3YCl6固态电解质开始发生电化学还原，并在探针体积内生成Y2Cl3和表面偏析的LiCl，说明卤化物电解质在该电位区间并非完全稳定，而是在负极侧界面发生电化学分解。容量衰减和极化增大与TiOx层持续增厚密切相关。首圈放电曲线上仍具TiS2固溶锂的特征，随后峰位逐步向低电位移动，充放电平台劣化，dQ/dV曲线中1.9V肩峰消失，体现界面阻抗逐渐升高并引发动力学恶化。能量色散X射线光谱（EDX）测量在2 kV下比10 kV检测到更强氧信号，确认氧富集主要发生在近表面或近集流体界面区域，而非均匀扩散至整个电极。由此，该研究认为放电初期，靠近集流体区域产生局部过电位和强电子注入，优先促使TiS2还原，诱导电极内及界面中原有的弱束缚含氧物种（如电极或电解质表面终止基、加工残留氧羟基等）向该区域迁移。由于Ti–O键能（约670 kJ/mol）显著高于Ti–S键（约420 kJ/mol），且TiO2生成焓低于TiS2，氧一旦进入还原的TiS2晶格，从热力学角度更稳定，易形成TiS2−xOx混合阴离子或氧硫化物相，最终演变为无定形TiOx富集层，抑制电子和离子传输，提升界面极化，致使长期容量衰减加剧；同时，Li3YCl6还原产生的Y2Cl3和LiCl在界面的积累进一步恶化复合电极内的离子/电子通道。文章于2026年4月21日发表在ACS Energy Letters。",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -94,15 +94,15 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "华中科技大学董建绩团队研发三维光AI芯片实现6554 TOPS计算速度",
-        "深度学习工具CrystalX实现晶体材料X射线衍射数据原子结构自动化解析",
-        "去中心化科研网络推动科学AI智能体自主交互与实验数据共享"
+        "华中科技大学董建绩团队在Nature Communications发表三维光AI芯片研究成果。",
+        "该三维光芯片采用飞秒激光刻蚀技术，8×8八层器件实现6554 TOPS计算速度。",
+        "测试数据显示该器件MNIST手写数字分类准确率达93%，光图样生成保真度为94%。"
       ],
       "entries": [
         {
           "t": "华中科技大学董建绩报道可编程的三维光AI芯片",
           "d": "2026-04-21",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "华中科技大学董建绩团队提出使用飞秒激光在玻璃上刻蚀的三维光芯片，通过级联光子灯笼波导阵列与移相器阵列实现矩阵操作，解决一维输入输出界面、波导交叉及数据传输瓶颈问题。8×8八层器件部署神经网络实现6554 TOPS计算速度，MNIST分类准确率93%，光图样生成保真度94%。成果发表于Nature Communications。",
           "sc": 7.0,
@@ -119,45 +119,23 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] CrystalX：基于深度学习的高精度晶体结构分析",
+          "t": "华中科技大学董建绩报道可编程的三维光AI芯片",
           "d": "2026-04-21",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "CrystalX是一种基于深度学习的晶体结构分析工具，旨在实现高精度的晶体材料原子结构解析。晶体结构分析是化学与材料科学的核心任务，传统方法依赖X射线衍射数据的人工解读，效率有限。CrystalX利用深度神经网络自动提取衍射图谱中的结构特征，有望大幅提升解析精度与速度，推动新材料发现与固态化学研究。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21832",
-          "tp": "深度学习晶体分析",
-          "aip": 1,
-          "kp": [
-            "[工具]: CrystalX深度学习晶体结构分析",
-            "[优势]: 高精度+降低晶体学专业知识门槛"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Atomic structure analysis of crystalline materials is a paramount endeavor in both chemical and material sciences. This sophisticated technique necessitates not only a solid foundation in crystallography but also a profound comprehension of the intricacies of the accompanying software, posing a significant challenge in meeting rigorous daily demands. For the first time, we confront this challenge head-on by harnessing the power of deep learning for fully automated routine structure analysis at the full-atom level. To validate the performance of the model, named CrystalX, we employed a data set comprising over 50,000 X-ray diffraction measurements derived from authentic experiments. Under a strict temporal validation scheme that separates training and test data by publication time, CrystalX substantially outperformed the automated baseline and was adept at deciphering intricate geometric patterns. Remarkably, CrystalX revealed that even peer-reviewed publications harbor expert interpretation errors that can evade stringent CheckCIF A/B-level alerts, yet CrystalX adeptly rectifies them. It has already been successfully applied in our day-to-day pipeline, enabling fully automated, human-free structure analysis of newly discovered compounds. Overall, CrystalX marks the beginning of a new era of automating routine structural analysis within self-driving laboratories.",
-          "hb": 1
-        },
-        {
-          "t": "禁止人类参与：科学AI智能体拥有了自己的社交网络",
-          "d": "2026-04-21",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "随着AI驱动的科研自主智能体快速发展，一种全新概念正在兴起：为科学AI智能体建立专属的社交网络。该平台允许不同实验室、不同领域的AI智能体自主交互、共享实验数据与方法，形成去中心化的科研协作生态。这标志着从人类主导的学术交流向'机器间科学对话'的范式转变，有望大幅加速跨学科发现，但也引发了对AI自主科研治理、结果可复现性与知识产权归属的深层讨论。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-01278-1",
-          "tp": "科研Agent社交网络",
+          "a": "Doi",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "华中科技大学董建绩团队提出使用飞秒激光在玻璃上刻蚀的三维光芯片，通过级联光子灯笼波导阵列与移相器阵列实现矩阵操作，解决一维输入输出界面、波导交叉及数据传输瓶颈问题。8×8八层器件部署神经网络实现6554 TOPS计算速度，MNIST分类准确率93%，光图样生成保真度94%。成果发表于Nature Communications。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-026-72316-9",
+          "tp": "三维光芯片",
           "aip": 1,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "光芯片可以实现更高密度的引脚、更低的延迟和更高的能效，目前面临的主要问题是一维输入输出界面（只能分布在芯片边缘），光通路之间存在波导交叉以及由此带来的数据传输瓶颈、光波串扰和功率损耗。该工作提出了一种使用飞秒激光在玻璃上刻蚀的3D光芯片。其包含级联结构，使用交替出现的光子灯笼波导阵列和移相器阵列来实现矩阵操作。在一个8×8的8层器件中，该工作部署神经网络，实现了6554 TOPS的计算速度，并在MNIST数据分类任务上实现93%的准确率和94%的光图样生成保真度。文章于2026年4月21日发表在Nature Communications。",
+          "hb": 1
         }
       ]
     },
@@ -165,73 +143,32 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "微污染物激活惰性催化位点机制实现近100%水处理氧化剂利用率",
-        "亚波长极紫外显微镜实现飞秒激光激发下磁畴壁动力学实时观测",
-        "逻辑门控DNA分子机器通过响应溶酶体微环境实现靶向细胞干扰"
+        "研究人员开发出生物基可回收聚合物膜，无需手性选择剂即可完成对映选择性纳滤。",
+        "该薄膜通过具有双立体中心的本征手性聚合物自组装构建，实现对映体的高效截留。",
+        "定量分析揭示操作压力对对映选择性的调节机制，确立可持续手性分离设计路线。"
       ],
       "entries": [
         {
-          "t": "微污染物解锁惰性催化位点，实现近完全化学利用率的快速水净化",
+          "t": "用于对映选择性纳滤的生物基可回收聚合物膜的立体规则自组装",
           "d": "2026-04-21",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "该研究发现微污染物可解锁催化剂中的惰性催化位点，实现快速水净化和近完全化学品利用率。在高级氧化工艺中，过氧化物和活性物种的利用效率通常较低，造成氧化剂浪费和二次污染。研究表明特定微污染物分子通过与惰性位点相互作用，原位激活其催化活性，从而在污染物降解过程中高效利用氧化剂。该机制实现了近100%的化学品利用率，显著降低了水处理的药剂成本。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73103?af=R",
-          "tp": "催化水去污",
-          "aip": 1,
-          "kp": [
-            "催化剂[水去污]: Co基MOF(PKU-24)六配位结构",
-            "[催化机制]: 微污染物解锁惰性位点近完全化学利用",
-            "[电子调控]: 强电子局域化抑制Co位点氧化还原活性"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The utilization efficiencies of peroxide and the evolved reactive species are typically low in advanced oxidation processes due to their self‐quenching or scavenging by background factors in water matrices. Here, we design a new Co‐based metal‐organic framework (PKU‐24) with a six‐coordinate structure that induces strong electron localization and suppresses the redox activity of Co sites, thereby blocking the electron‐transfer pathway. Interestingly, electron‐rich pollutants with oriented dipole moments can act as molecular “switches”, effectively turning on PKU‐24 activity for peroxymonosulfate (PMS) activation. Computations reveal that the dipole moment of pollutants is the decisive descriptor governing the behavior of organic contaminants in activating inert Co centers and reopening the electron‐transfer channel to mediate SO\n                    5\n                    •−\n                    toward selective singlet oxygen generation. Additionally, this work develops a large‐scale synthesis method for PKU‐24 with a single synthesis yield of ∼0.55 kg (costing ∼0.52 USD g\n                    −1\n                    ) and achieves long‐term, efficient, continuous treatment of organic wastewater. This work introduces a new principle for the design of pollutant‐sensitive Fenton‐like catalysts to achieve effective organic elimination while significantly reducing peroxide consumption.",
-          "hb": 1
-        },
-        {
-          "t": "亚波长极紫外显微镜揭示超快退磁过程中的畴壁稳定性",
-          "d": "2026-04-21",
-          "a": "Nature Materials",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究采用亚波长极限分辨率的极紫外显微技术，实时观测飞秒激光激发下磁畴壁的动力学行为和稳定性。结果揭示畴壁在超快光激发下的响应机制，为超快自旋电子学和基于畴壁运动的新型存储器件提供了关键实验依据。该技术突破使得磁纳米结构的时间-空间耦合表征成为可能，助力下一代高速、低功耗磁存储技术发展。",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "一种具有双立体中心、本征手性的生物基聚合物自组装成致密薄膜，无需添加手性选择剂即可实现高对映选择性和稳健的纳滤性能。对渗透液和截留液的定量分析揭示了压力如何调节对映选择性和对映体截留率，确立了立体规则自组装作为可持续手性分离的设计路线。",
           "sc": 6.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-026-02583-w",
-          "tp": "极紫外磁性畴壁显微",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00160-8?rss=yes",
+          "tp": "聚合物纳滤膜",
           "aip": 1,
           "kp": [
-            "方法[磁畴动力学]: 飞秒EUV显微镜直接观测退磁",
-            "分辨率[EUV显微]: 亚波长时空分辨"
+            "聚合物膜结构[对映选择性纳滤]: 具有双重立体中心的内在手性生物基聚合物",
+            "分离机制[对映选择性纳滤]: 紧密堆积的立体规则自组装（无需添加额外手性选择剂）",
+            "调控因素[对映选择性及截留率]: 压力调节"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Ultrafast control of magnetic textures relies on understanding how domain walls respond to femtosecond laser excitation. Previous X-ray scattering studies suggested transient domain-wall broadening and motion during reversible demagnetization. Yet such dynamics have never been observed directly, owing to insufficient spatiotemporal resolution in existing techniques. Here we introduce femtosecond extreme ultraviolet microscopy with sub-wavelength 13.5-nm spatial resolution, enabling direct real-space imaging of domains in ferri- and ferromagnetic thin films during laser-induced demagnetization. Within an experimental precision better than 2 nm, domain-wall positions and widths remain unchanged up to the onset of irreversible magnetic switching at 50%–80% demagnetization. These findings establish quantitative limits for reversible domain-wall motion and spin transport upon ultrafast demagnetization, while implying that irreversible reconfiguration underlies characteristic changes in diffraction signatures at high fluence. The approach expands time-resolved microscopy into the nanometre and femtosecond regime, enabling element-specific studies of coupled spin, charge and lattice dynamics in quantum and functional materials.",
-          "hb": 1
-        },
-        {
-          "t": "逻辑门控分子机器封装环境响应 DNA 致动器，用于可调细胞溶酶体干扰",
-          "d": "2026-04-21",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究设计了一种逻辑门控的溶酶体靶向分子机器，内部封装ATP驱动的DNA致动器，能够响应溶酶体微环境自组装成不同尺度的纳米结构。这种可编程的DNA纳米组装体可诱导细胞器功能障碍和细胞死亡，实现了对细胞干扰能力的尺度依赖性调控，为精准抗癌治疗提供了新策略。",
-          "sc": 5.9,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202525542?af=R",
-          "tp": "DNA分子机器",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Intracellular DNA nanoassemblies have proven to potently induce organelle dysfunction and cell death, while their scale‐dependent capacity of cellular interference remains undefined. To address it, here we engineer a logic‐gated lysosome‐targeted molecular machine that encapsulates ATP‐driven DNA actuators, which can assemble into different‐scaled nanoarchitectures in response to lysosomal microenvironments. Such a design enables the programmable DNA nanoassembly and tunable lysosome interference, straightforwardly visualized by atomic force microscopy (AFM) and bio‐transmission electron microscopy (bio‐TEM), respectively, showing that larger DNA assemblies promote stronger membrane permeabilization and greater cytotoxicity. It evidences the pronounced scale‐dependent lysosome interference and clues how to rationally design DNA nanoassemblies for cell regulation. We further investigate the primary pathway of programmed cell death induced by DNA nanoassemblies, which reveals the cathepsin‐mediated caspase‐independent lysosomal cell death, alongside a minor caspase‐dependent pathway. This work demonstrates a programmable “dual‐signal logic–structural assembly–functional output” cascade at the suborganelle level, which would establish a new paradigm for DNA‐based nanotherapeutics.",
+          "b": "An intrinsically chiral, biobased polymer with dual stereogenic centers self-assembles into a tightly packed membrane, enabling enantioselective and robust nanofiltration performance without added chiral selectors. Quantifying the permeate and retentate revealed how pressure tunes enantioselectivity and enantiomer rejection, establishing stereoregular self-assembly as a design route to sustainable chiral separations.",
           "hb": 1
         }
       ]

@@ -1,0 +1,272 @@
+{
+  "type": "daily",
+  "date_label": "2026年8月8日　星期六",
+  "date_range": "2026-08-08",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型固态聚合物电解质实现450 Wh/kg锂金属电池热机械耐受",
+      "星环聚能完成8.8亿元融资用于建造负三角球形托卡马克装置",
+      "东京电力为柏崎刈羽核电站制定海水超31摄氏度临时停机标准"
+    ],
+    "AI与智能科技": [
+      "英伟达拟向Lancium投资30亿美元以锁定数吉瓦AI算力电力",
+      "D-Wave实现500纳秒双轨擦除量子比特纠缠门并保持低错误率",
+      "法律AI企业Harvey拟以155亿美元估值筹集至少5亿美元资金"
+    ],
+    "通用技术": [
+      "Niron Magnetics获1.5亿美元贷款建年产1500吨无稀土磁体工厂",
+      "威猛发布可每小时处理100吨月球土壤的Interlune重型挖掘机",
+      "光化学动态核极化技术将蛋白质构象核磁检测灵敏度提升220倍"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型固态聚合物电解质实现450 Wh/kg锂金属电池热机械耐受",
+        "星环聚能完成8.8亿元融资用于建造负三角球形托卡马克装置",
+        "东京电力为柏崎刈羽核电站制定海水超31摄氏度临时停机标准"
+      ],
+      "entries": [
+        {
+          "t": "催化聚合固体电解质使 450 Wh kg−1 锂金属电池具有热机械滥用耐受性",
+          "d": "2026-08-08",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "报告了一种与卷对卷工艺兼容、厚9.6微米的固态聚合物电解质膜。该膜以聚乙烯为基质，通过路易斯酸性Li1.3Al0.3Ti1.7(PO4)3催化1,3-二氧戊环原位聚合制备，转化率达99.1%，25℃下机械强度达191.7 MPa，离子电导率达418.7 mS。结合双添加剂策略解决多尺度界面不相容问题：三(4-氟苯基)膦构建富氟界面提升正极耐压至4.8V，Mg(TFSI)2形成Li-Mg合金使负极Li⁺扩散势垒降至0.127 eV，助力锂金属电池实现450 Wh kg−1的能量密度及热机械滥用耐受性。",
+          "sc": 9.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-76381-y",
+          "tp": "固态锂电池",
+          "aip": 1,
+          "kp": [
+            "固体聚合物电解质膜厚度[卷对卷兼容/聚乙烯基质]: 9.6μm",
+            "单体转化率[路易斯酸Li1.3Al0.3Ti1.7(PO4)3催化原岩聚合]: 99.1%",
+            "机械强度[固体聚合物电解质膜]: 191.7 MPa",
+            "离子电导[25°C]: 418.7 mS",
+            "能量密度[锂金属电池]: 450 Wh/kg"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Practical implementation of solid polymer electrolytes is constrained by interfacial instability and manufacturing scalability. Here, we report a roll-to-roll compatible, 9.6-μm-thick solid polymer electrolyte membrane synthesized via in situ 1,3-dioxolane polymerization catalyzed by Lewis-acidic Li1.3Al0.3Ti1.7(PO4)3 on a polyethylene matrix, achieving a 99.1% conversion rate. The resulting membrane demonstrates 191.7 MPa mechanical strength and 418.7 mS ionic conductance at 25 °C. To resolve multiscale interfacial incompatibilities, a dual-additive strategy is employed: tris(4-fluorophenyl) phosphine constructs a fluorine-rich interphase extending positive electrode tolerance to 4.8 V, while Mg(TFSI)2 forms a Li–Mg alloy lowering the negative electrode Li⁺ diffusion barrier to 0.127 eV. Validated in 1.2 Ah pouch cells, this system attains specific energy and energy density of 456.7 Wh kg⁻1 and 911.1 Wh L⁻1 (based on the total mass and volume of the pouch cell, respectively), stable wide-temperature cycling (−20 to 55 °C), and prevents thermal propagation under abuse conditions.",
+          "hb": 1
+        },
+        {
+          "t": "星环聚能完成8.8亿元A++轮融资，将推进聚变装置与关键技术工程化",
+          "d": "2026-08-08",
+          "a": "中国核电信息网-国内",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "星环聚能完成8.8亿元A++轮融资，资金将用于上海实验基地建设及NTST负三角球形托卡马克的建造与安装。公司在核心技术上取得重大进展，自主研制的全尺寸高温超导环向场磁体已成功完成4.5 kA低温励磁测试。此外，星环一号设计及AI等离子体控制等关键技术的工程化正在稳步推进。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.cinie.net/article/59195.html",
+          "tp": "星环聚能融资",
+          "aip": 1,
+          "kp": [
+            "融资金额[星环聚能A++轮]: 8.8亿元人民币",
+            "[资金用途]: 推进NTST负三角球形托卡马克建造与运行、CTRFR-1“星环一号”设计建造",
+            "[关键技术工程化方向]: 聚变堆级高温超导磁体、AI等离子体控制",
+            "基地建设状态[上海嘉定实验基地]: 已完成桩基工程，推进装置大厅等核心区域建设"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "星环聚能完成8.8亿元A++轮融资，将推进聚变装置与关键技术工程化\n星环聚能近日宣布完成新一轮A++轮融资，融资金额为8.8亿元人民币。本轮融资由深投控资本、深担创投、农银资本、交银投资、纪源资本、永鑫方舟、可可资本、优势资本等机构联合投资，老股东上海科创集团旗下知识产权基金等机构继续跟投。\n公司表示，本轮融资资金将与此前A轮、A+轮融资资金共同用于上海嘉定实验基地建设、NTST负三角球形托卡马克建造与运行、CTRFR-1“星环一号”设计建造，以及聚变堆级高温超导磁体、AI等离子体控制等关键技术的持续工程化推进。\n自A+轮融资完成以来，星环聚能相关工作已从关键节点突破转向装置平台、关键部件、配套系统和产品交付协同推进阶段。上海嘉定实验基地于2026年4月开工，目前已完成桩基工程，正在推进装置大厅等核心区域建设。按照计划，基地将在2026年下半年逐步具备装置建设和设备进场准备条件，未来将承担公司后续装置运行和工程验证任务。\nNTST总体建设已进入实质推进阶段。围绕该装置建设，星环聚能正在推进装置本体、关键部件及配套系统建设，真空室、杜瓦、结构件、磁体等核心部件制造加工，以及冷却、电源、诊断、信息、安全等系统开发与交付均按计划进行。相关线圈绕制、线圈盒制造、原材料进场及供应链协同也在同步推进。待装置大厅具备条件后，NTST将进入安装调试阶段，用于后续工程验证和物理研究。\n在高温超导磁体方面，星环聚能自主研发的全尺寸高温超导环向场磁体已完成20 K低温励磁测试，并成功励磁至4.5 kA。该磁体高约4米、宽约2米，尺寸与未来聚变装置需求一致，并非缩比模型。公司称，该磁体面向球形托卡马克聚变堆应用，含线圈盒工程电流密度超过40 A/mm²，绕组电流密度达到375 A/mm²，多次测试结果显示性能稳定。全尺寸高温超导欧姆场磁体、电流引线等核心部件也在继续开展低温测试验证。\n在电源系统方面，NTST装置磁体电源采用星环聚能自主研发的通用脉冲电源方案。该方案基于模块化设计，可通过串并联扩展满足PF、CS、TF磁体驱动需求。目前，该电源系统已由样机研制转入工程化交付阶段，并开启批量生产。团队已完成覆盖PCBA、整机组装及测试流程的批量生产工艺验证，并引入自主设计的自动化测试工装，以提升模块测试效率和产品一致性。NTST-TF电源系统已完成全系统组装，进入测试阶段，阶段性测试结果显示各项功能达到设计指标。\n星环聚能还在推进AI技术在聚变研发和实验分析中的应用。公司自主开发的TokaPilot智能体已用于诊断信号处理、实验分析、异常检测和数据标注等环节，并逐步形成“领域专家+智能体”的协同研发模式。围绕聚变实验场景，公司正在构建智能体工具链，推动实验数据、分析程序与物理模型联动。\n面向聚变装置建设需求，星环电子已形成脉冲功率电源、信号调理设备、信号采集与传感设备等核心电子电气产品方向，部分产品已面向高校、科研院所及高端装备场景交付。星环聚能表示，后续将继续围绕重复重联球形托卡马克技术路线，在高温超导磁体、AI等离子体控制、装置系统集成和关键产品交付等方向持续投入，推进聚变能源工程化与商业化进程。",
+          "hb": 1
+        },
+        {
+          "t": "海温升高倒逼核电安全新规：东电为柏崎刈羽核电站设临停标准",
+          "d": "2026-08-08",
+          "a": "中国核电信息网-国际",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "东京电力公司针对柏崎刈羽核电站周边海水温度升高，设定了临时停止核电机组运行的自主判断标准。核心指标包括：7天平均海水温度超31摄氏度、观测到34摄氏度以上水温，或33摄氏度以上水温持续12小时。该标准旨在防止高温海水影响严重事故下应急柴油发电机等关键设备的冷却效率。此举将海水温度正式纳入核电站运行风险管理的量化变量。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.cinie.net/article/59316.html",
+          "tp": "核电设高温停机线",
+          "aip": 1,
+          "kp": [
+            "临停触发条件一[柏崎刈羽核电站7天平均海水温度]: 超过31摄氏度",
+            "临停触发条件二[柏崎刈羽核电站单次观测水温]: 34摄氏度以上",
+            "临停触发条件三[柏崎刈羽核电站33摄氏度以上水温持续时间]: 持续12小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "海温升高倒逼核电安全新规：东电为柏崎刈羽核电站设临停标准\n东京电力控股公司8月7日宣布，针对新潟县柏崎刈羽核电站周边海水温度升高的情况，已设定一套自主判断标准，用于评估是否暂时停止核电机组运行。这一标准并非外部监管机构直接下达的强制要求，而是东电基于安全运行需要主动设置的应对措施。\n根据东电公布的条件，当核电站周边海域7天平均海水温度超过31摄氏度时，或观测到34摄氏度以上水温时，以及33摄氏度以上水温持续12小时时，东电将考虑临时停运相关核电设施。这些数字化门槛显示，海水温度已被纳入核电站运行风险管理的重要变量。\n东电解释称，核电站在严重事故情况下可能需要启用应急柴油发电机等设备，而这些设备依赖海水进行冷却。如果海水温度过高，冷却效率可能下降，进而影响设备性能发挥。换言之，海水不仅是核电站日常运行环境的一部分，也关系到事故应对系统能否稳定工作。\n报道提到，8月7日当地海水温度为28摄氏度，东电称今夏水温高于往年平均水平。历史上，2010年9月曾出现过7天平均海水温度超过31摄氏度的情况，这说明相关风险并非纯粹假设，而是在过去气候条件下已有先例。\n这一举措反映出，在全球海洋升温背景下，核电站安全评估正在面对新的气候压力。过去核电风险讨论多集中于地震、海啸、设备老化和人为管理问题，如今高温海水对冷却系统的影响也开始成为运营方必须提前设防的因素。柏崎刈羽核电站作为日本重要核电设施，其运行标准调整也可能为其他沿海核电站提供参考。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "英伟达拟向Lancium投资30亿美元以锁定数吉瓦AI算力电力",
+        "D-Wave实现500纳秒双轨擦除量子比特纠缠门并保持低错误率",
+        "法律AI企业Harvey拟以155亿美元估值筹集至少5亿美元资金"
+      ],
+      "entries": [
+        {
+          "t": "Nvidia 将向 Blackstone 支持的 Stargate 电力公司投资高达 30 亿美元",
+          "d": "2026-08-08",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "英伟达同意向德州AI园区的电力基础设施开发商Lancium投资最高30亿美元。其中首期20亿美元将获得约20%的股份，另外10亿美元将在满足特定电力接入指标后注入，持股比例可能增至30%。这笔企业估值约100亿美元的交易旨在为英伟达的AI芯片锁定数吉瓦的电力供应。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/articles/nvidia-invest-3-billion-blackstone-backed-power-firm-behind-stargate",
+          "tp": "英伟达投数据中心",
+          "aip": 1,
+          "kp": [
+            "初始投资额[Lancium电力基础设施公司]: 20亿美元",
+            "后续承诺投资[获得额外计划电力后]: 10亿美元",
+            "企业总估值[Lancium及资产组合]: 约100亿美元",
+            "股权占比[基于20亿美元初始投资]: 约20%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nvidia has agreed to invest $2 billion into Lancium, the power infrastructure developer behind the OpenAI and Oracle AI campus in Texas, and has agreed to commit another $1 billion as the developer secures additional planned power, three people familiar with the transaction said. The deal values Lancium and its portfolio of land and power connections at around $10 billion in enterprise value, which includes the investment and its debt. The $2 billion would give Nvidia a roughly 20% stake in the Blackstone-backed power developer. Nvidia’s stake could grow to around 30% with the additional $1 billion once more of Lancium’s campuses hit certain thresholds, including grid hookups, the people said. The deal is intended to help Nvidia secure multiple gigawatts of pending power rights for its chip customers’ data projects at a time when energy for AI data centers is becoming harder to come by. Lancium is among a group of companies such as Cloverleaf Infrastructure and Crusoe that find land parcels for AI data centers near substations and transmission lines with available capacity. Such powered land developers are attracting interest from private equity firms and big tech companies. The Information earlier reported that Lancium was in talks with major tech companies including Nvidia for a minority stake sale that could fetch an enterprise value from $7 to $10 billion. Lancium has already secured and is developing 4 gigawatts of power on the Texas grid that it has contracted to other customers. Additionally, it has powered land under development in Texas that could draw as much as 15 gigawatts of electricity that it is waiting to receive the right to connect. A wrinkle came Monday, when Texas Gov. Greg Abbott ordered a pause in new data center grid connections until projects can go through further reviews. It’s unclear how these new reviews impact the timing of Lancium’s next campuses, but its 15 gigawatts are considered well-positioned for approval because the utility American Electric Power has already completed required studies to energize lines to its campuses. The 4 gigawatts of power that Lancium has already contracted includes the 1.2 gigawatts for the Oracle and Open AI campus at Abilene that’s part of OpenAI’s Stargate computing rollout. It also includes 900 megawatts for a new data center that Lancium partner Crusoe is building for Microsoft in Abilene, a gigawatt that QTS Data Centers recently contracted for in Turkey, Tex. and another gigawatt that Crusoe is building in Childress, Tex. Lancium is laying the groundwork to develop even more powered land by 2035 that could benefit from yet another proposed high-voltage transmission network in Texas, The Information has previously reported . The capital should help it expand the business as it eyes a potential initial public offering in 2027, two of the people said. If it decides to go forward with a public listing, it would follow a string of data center and infrastructure developers such as Switch and CyrusOne to consider an IPO. The Nvidia investment in Lancium is only an equity stake and does not include credit guarantees for data center construction and leases, according to the people. However, Nvidia has been considering credit guarantees for other projects— including a massive proposed 10 gigawatt project in Ohio that involves OpenAI and SoftBank. In recent months, Nvidia has been ramping up the pace and scale of its investing. In the quarter ending in April, it poured $18.6 billion into private companies and infrastructure funds, more than it invested in the entire year prior. This year alone, Nvidia has written separate $2 billion checks into cloud providers CoreWeave and Nebius, networking firms Lumentum and Coherent, and semiconductor company Marvell.",
+          "hb": 1
+        },
+        {
+          "t": "科学网-《自然》（20260806出版）一周论文导读",
+          "d": "2026-08-08",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "D-Wave Quantum Inc.在《自然》发表研究，设计并实现了一种用于双轨擦除量子比特（编码在一对超导微波腔中）的两量子比特纠缠门。实验证明操作中错误层级结构得以保持。该门持续时间约500纳秒，擦除率约0.5%，剩余泡利错误低于0.1%，比特翻转错误在10^-6水平。此结果为实现快速、可扩展的纠错系统提供了路径。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/8/569530.shtm",
+          "tp": "量子比特纠缠门",
+          "aip": 1,
+          "kp": [
+            "门速度[双轨擦除量子比特纠缠门]: 持续约500纳秒",
+            "擦除率[双轨擦除量子比特纠缠门]: 每门约0.5%",
+            "剩余泡利错误[双轨擦除量子比特纠缠门]: 低于0.1%",
+            "比特翻转错误[双轨擦除量子比特纠缠门]: 处于10^-6水平"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "《自然》（20260806出版）一周论文导读\nNature, 6 August 2026, Volume 656 Issue 8126\n《自然》2026年8月6日，第656卷，8126期\n物理学Physics\nAn entangling gate for dual-rail erasure qubits\n双轨擦除量子比特的纠缠门\n▲ 作者：D-Wave Quantum Inc.\n▲ 链接：https://www.nature.com/articles/s41586-026-10822-y\n在此，研究者设计并实现了一种用于双轨量子比特（一种编码在一对超导微波腔中的擦除量子比特）的两量子比特纠缠门。实验证明，在操作过程中，错误层级结构基本得以保持。该门速度快（持续约500纳秒），擦除率低（每门约0.5%），剩余泡利错误低于0.1%，且具有强偏置的去相位错误特征，其中比特翻转错误实际上不存在，处于10-6水平。\n这些结果为实现快速抑制错误、可扩展的纠错系统提供了更快捷的路径，研究者通过详细的表面码模拟支持了这一论断。\n▲ Abstract：\nHere we design and realize a two-qubit entangling gate for dual-rail cavity qubits, a type of erasure qubit encoded in a pair of superconducting microwave cavities. Our experimental demonstration confirms that the error hierarchy is largely preserved during the gate. The gate is fast (about 500 ns duration) and shows low erasure rates of approximately 0.5% per gate, remaining Pauli errors below 0.1%, and a strong bias towards dephasing errors, in which bit-flips are practically non-existent at the 10-6 level. These results enable a faster path to error-corrected systems that rapidly suppress errors as they scale; a claim we support with our detailed surface code simulations.\n材料科学Material Sciences\nNon-epitaxial perovskite polariton laser diode operating under direct current\n非外延钙钛矿极化激元激光二极管实现直流驱动\n▲ 作者：Anatoly P. Pushkarev, Daria Khmelevskaia et al.\nhttps://www.nature.com/articles/s41586-026-10824-w\n研究者开发了一种实现钙钛矿激光器电泵浦的新策略。研究者将溶液中生长的CsPbBr3微晶片与化学惰性的单壁碳纳米管电极集成，并将其嵌入光学微腔中。\n通过将微器件在恒定电流下降温至8K，形成了钙钛矿p-i-n二极管，从而在高电流密度下实现平衡的载流子注入。该钙钛矿微腔二极管工作在强耦合区间，在65μA直流电流下表现出极化激元激光。\n▲ Abstract：\nCHere we develop a new strategy for achieving direct electrical pumping of a perovskite laser. We integrate a solution-grown CsPbBr3 microplate with chemically inert single-walled carbon nanotube (SWCNT) electrodes and embed them into an optical microcavity. By cooling the microdevice down to 8 K at a constant current, a perovskite p–i–n diode is formed that facilitates a balanced carrier injection at high current densities. The perovskite microcavity diode operates in the strong coupling regime, exhibiting polariton lasing under a direct current of 65μA.\n人工智能Artificial Intelligence\nLarge language models can predict the results of social science experiments\n大语言模型能够预测社会科学实验的结果\n▲ 作者：Ashwini Ashokkumar, Luke Hewitt, Isaias Ghezae & Robb Willer\nhttps://www.nature.com/articles/s41586-026-10742-x\n研究者构建了一个包含70项预注册、具有全国代表性的美国调查实验的档案库，涵盖469个实验效应和119330名参与者。研究者提示一个大语言模型模拟具有代表性的美国个体样本对实验刺激的反应，然后通过比较不同条件下的模拟响应来推断处理效应。由GPT-4（其训练数据截止日期早于档案中许多研究的发表日期）得出的预测与实际处理效应高度相关，其准确性与聚合的人类预测相当。\n对于模型训练数据截止日期之前尚未发表或公开的研究，以及来自主流开源权重模型的预测，相关性仍然较高。尽管相关性较高，但预测系统性地高估了效应量。在一个包含606个效应的15项大型研究的次级档案库中，相关性较低，但与聚合专家预测者的水平相当。\n为评估对科学实践的影响，研究者调查了460位社会科学家关于可能用途和感知风险的意见，并利用档案库评估了若干应用（试点测试、干预选择、识别需要复现的效应）和风险（偏差、滥用）。综合来看，这些结果表明，大语言模型可以增强科学和实践中的实验方法，同时也引发了关于负责任使用的重要考量。\n▲ Abstract：\nHere we built an archive of 70 preregistered, nationally representative survey experiments in the USA involving 469 experimental effects and 119,330 participants. We prompted an LLM to simulate how representative samples from American individuals would respond to experimental stimuli, and then we inferred treatment effects by comparing simulated responses across conditions. Predictions derived from GPT-4, whose training-data cutoff predated the publication of many studies in our archive, were strongly correlated with actual treatment effects, achieving accuracy similar to pooled human forecasts. Correlations remained high for studies not published or publicly posted by the model’s training-data cutoff date and for predictions from prominent open-weight models. Despite high correlations, predictions systematically overestimated effect sizes. In a secondary archive of 15 megastudies featuring 606 effects, correlations were lower but comparable to those of pooled expert forecasters. To assess implications for scientific practice, we surveyed 460 social scientists about probable uses and perceived risks and used our archives to assess several applications (pilot testing, intervention selection, identifying effects needing replication) and risks (bias, misuse). Together, these results indicate that LLMs can augment experimental methods in science and practice while raising important considerations for responsible use.\n古生物学Palaeontology\nHigh-fidelity modular skeletons authenticate a Cambrian origin for Bryozoa\n高保真模块化骨架证实苔藓虫起源于寒武纪\n▲ 作者：Baopeng Song (宋宝鹏), Zhifei Zhang (张志飞) et al.\nhttps://www.nature.com/articles/s41586-026-10590-9\n研究者报告了来自中国寒武纪早期仙女洞组的P. gatehousei以及一个新分类单元Dayingomelission hexaclitia（新属新种）的精美化石。这些标本在模块化骨架中原位保存了磷酸盐化软组织，揭示了关键解剖结构，包括针状体、环肌、膜囊和环形隔膜。这一系列特征为这些分类单元属于苔藓动物门提供了确凿证据。\n纳入这些新特征的系统发育分析将其鉴定为窄唇纲冠群。这些结果确认了苔藓动物门在寒武纪的起源，并揭示了其群体构型中出乎意料的高度早期分异，表明苔藓动物多样化是寒武纪辐射的组成部分。此外，已分化的窄唇纲冠群的早期出现，暗示苔藓动物干群的起源比最初显现的更为古老。\n▲ Abstract：\nHere we report exquisite fossils of P. gatehousei and a new taxon, Dayingomelission hexaclitia gen. et sp. nov., from the early Cambrian Xiannüdong Formation of China. These specimens preserve in situ phosphatized soft tissues in modular skeletons, revealing critical anatomical structures, including styles, annular muscles, membranous sacs and ring septa. This suite of traits provides definitive evidence that these taxa belong to the Bryozoa. Phylogenetic analysis incorporating these new features identifies them as crown group stenolaemates. These results confirm a Cambrian origin for the phylum and reveal an unexpected early disparity in colonial architecture, demonstrating that bryozoan diversification was an integral component of the Cambrian radiation. Moreover, the early appearance of a differentiated stenolaemate crown group indicates a still deeper origin for the bryozoan stem lineage than was first apparent.\n医学Medicine\nDisparate privacy risks from medical AI\n医疗人工智能带来的差异化隐私风险\n▲ 作者：Moritz A. Knolle, Martin J. Menten et al.\nhttps://www.nature.com/articles/s41586-026-10688-0\n研究者呈现了医疗诊断应用中AI模型首批针对患者层面的隐私审计之一。他们聚焦于旨在确定特定个体的数据是否被用于训练模型的成员推断攻击。在一系列多样化的医疗数据集上，研究者表明成员推断攻击可对单个患者达到近乎完美的成功率，即使聚合性能并未显著偏离随机猜测。\n进一步发现，攻击成功率高的患者数量随模型容量增加而大幅上升，而代表性不足的群体——按疾病状态、自报种族、保险类型、性别或成像方案分层——面临不成比例的高攻击成功率。综合来看，研究结果表明，聚合隐私指标可能严重低估个体隐私风险。\n研究者所观察到的差异化风险概况是否延伸到成员推断攻击之外，仍是一个有待解答的问题，这促使我们进一步开发适用于所有数据贡献患者的风险评估与缓解技术。\n▲ Abstract：\nHere we present one of the first patient-level privacy audits of AI models for medical diagnostic applications. We focus on membership inference attacks (MIAs), which seek to determine whether the data of a given individual were used to train a model. Across a diverse range of medical datasets, we show that MIAs can achieve near-perfect success rates for individual patients, even when the aggregate performance does not substantially deviate from random guessing. We further find that the number of patients with high attack success increases substantially with model capacity, and that underrepresented groups—stratified by disease status, self-reported race, insurance, sex or imaging protocol—face disproportionately high attack success. Together, our findings show that aggregate privacy metrics can severely underestimate individual privacy risk. Whether the disparate risk profiles we observe extend to attacks beyond MIAs remains an open question, motivating the further development of risk assessment and mitigation techniques that cater to all data-contributing patients.\nTargeting cancer-specific mutations with RNA-triggered chromatin shredding\n利用RNA触发染色质碎屑靶向癌症特异性突变\n▲ 作者：Jingkun Zeng, Zhiyuan Cheng et al.\nhttps://www.nature.com/articles/s41586-026-10738-7\n研究者利用Cas12a2（一种具有反式核酸酶切割活性的RNA引导CRISPR核酸酶）进行编程，通过靶向癌症特异性转录本选择性地杀死癌细胞。该方法通过诱导染色质反式碎屑并触发DNA损伤反应和细胞死亡，从而限制细胞生长。\n与现有方法不同，RNA引导的Cas12a2能够感知细胞RNA特征，实现对不可成药的突变进行精准靶向。转录本激活的染色质碎屑为针对不可成药靶点的精准疾病治疗提供了一种创新方法。\n▲ Abstract：\nHere we program Cas12a2, an RNA-guided CRISPR nuclease with trans-nucleolytic cleavage activity, to kill cancer cells selectively by targeting cancer-specific transcripts. This approach limited cell growth by inducing trans shredding of chromatin and triggering DNA-damage responses and cell death. In contrast to existing methods, RNA-guided Cas12a2 senses cellular RNA signatures, enabling precise targeting of undruggable mutations. Transcript-activated chromatin shredding provides an innovative approach to precision disease treatments for undruggable targets.\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        },
+        {
+          "t": "Harvey 正在洽谈筹集 155 亿美元估值的资金",
+          "d": "2026-08-08",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "法律AI初创公司Harvey正以155亿美元的估值进行融资，计划筹集至少5亿美元。得益于年化收入激增至3.5亿美元（较1月份增长80%），其估值较五个月前溢价40%。光速创投有意领投本轮融资，资金将用于对抗新兴竞争对手Legora等同业公司。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/articles/harvey-talks-raise-funding-15-5-billion-valuation",
+          "tp": "法律AI融资",
+          "aip": 1,
+          "kp": [
+            "预期融资金额[Harvey法律AI初创公司]: 至少5亿美元",
+            "投后估值[本次融资]: 155亿美元",
+            "年化收入[当前状态]: 超过3.5亿美元",
+            "收入增长率[相较于1月份的1.9亿美元]: 超过80%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Legal AI startup Harvey is in talks to raise at least $500 million at a $15.5 billion valuation including the investment, a 40% premium to its last valuation five months ago. The fundraising follows a revenue surge at the legal AI startup, according to a person with knowledge of the fundraise. Four-year-old Harvey is currently generating more than $350 million in annualized revenue, up more than 80% from the $190 million in annualized revenue it was generating in January, according to the person. Lightspeed Venture Partners has been interested in leading the round, the person said. The fundraise could help Harvey build up a bigger warchest as it competes with up-and-coming rivals like Legora. Stockholm-based Legora surpassed $100 million in ARR in April, 18 months after launching its product publicly. (Recurring revenue usually refers to the value of existing software subscriptions or contracts over the next 12 months.) The funding talks come as Harvey and other startups developing AI-powered applications face growing competition from OpenAI and Anthropic, whose models underpin their apps. And recently, some law firms have said that they want to build their own AI apps , rather than just purchasing apps from smaller legal startups. Harvey said in June that it’s looking to develop its own models in-house, which could help it manage rising AI costs and lower its dependence on Anthropic and OpenAI. Other AI application startups like Cursor and Cognition have tried a similar playbook. San Francisco-based Harvey generates revenue by selling subscriptions for its AI tools to law firms and corporate legal departments. It also customizes frontier models with public and synthetic data the company has generated, and Harvey eventually hopes to partner with law firms to help them custom-create their own AI models. Earlier this year, Harvey introduced tools to help its customers create custom agents, which can help lawyers review documents, draft memos and more. In May, Harvey released an open-source benchmark to measure how effective AI models are at agentic legal work. Legora also makes tech for agentic legal work. The legal apps makers have also sought to buy or partner with legal libraries. Harvey partners with LexisNexis and, in 2024, was interested in buying vLex , a legal research service, to help train its product. Clio, a Harvey competitor, purchased vLex from private equity firm Oakley Capital for $1 billion in November 2025. Harvey was cofounded in 2022 by CEO Winston Weinberg, a former lawyer, and Gabe Pereyra, a former research scientist at Google DeepMind and Meta Platforms. It’s previously raised more than $1 billion in funding from investors including Sequoia Capital, Andreessen Horowitz, Kleiner Perkins, GV and OpenAI. Harvey has said that it serves law firms and businesses including NBCUniversal, HSBC, Corrs Chambers Westgarth and DLA Piper International.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "Niron Magnetics获1.5亿美元贷款建年产1500吨无稀土磁体工厂",
+        "威猛发布可每小时处理100吨月球土壤的Interlune重型挖掘机",
+        "光化学动态核极化技术将蛋白质构象核磁检测灵敏度提升220倍"
+      ],
+      "entries": [
+        {
+          "t": "从 2027 年开始，美国每年将生产 1,500 吨无稀土磁体",
+          "d": "2026-08-08",
+          "a": "interesting engineering",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "Niron Magnetics获得了美国战略资本办公室高达1.5亿美元的有条件贷款承诺。这笔为期20年的资金将用于在明尼苏达州建造一座占地28.7万平方英尺的商业规模制造厂。该工厂计划于2027年投入运营，每年生产多达1500吨无稀土的氮化铁永磁体。该项目将创造175个就业岗位，并为美国防系统、数据中心和电动汽车等提供国产磁体来源。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://interestingengineering.com/innovation/1500-tons-of-rare-earth-free-magnets-set-for-annual-us-production-starting-2027",
+          "tp": "无稀土磁体",
+          "aip": 1,
+          "kp": [
+            "年产能[无稀土磁体商业化工厂]: 最高1500吨氮化铁永磁体",
+            "投产时间[无稀土磁体商业化工厂]: 2027年",
+            "贷款额度[美国战略资本办公室]: 最高1.5亿美元",
+            "贷款期限[美国战略资本办公室]: 20年"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Niron Magnetics has secured a conditional commitment for a loan of up to $150 million from the US Department of War’s Office of Strategic Capital (OSC). Announced on August 7 by President Donald Trump in Washington, DC, the 20-year financing would fund construction and equipment at the company’s commercial-scale manufacturing plant in Sartell, Minnesota. The 287,000-square-foot facility is scheduled to begin operating in 2027 and produce up to 1,500 tons of rare-earth-free Iron Nitride permanent magnets annually. Niron says the project will create 175 jobs while giving US manufacturers a domestic magnet source for defense systems, data centers, robots, aircraft, electric motors and industrial equipment. Iron Nitride offers a different supply-chain strategy Conventional high-performance magnets often rely on rare earth elements processed overseas. That dependence exposes manufacturers to export restrictions, volatile prices and disruptions as demand rises across electrification, automation, artificial intelligence and military platforms. Niron’s technology instead uses domestically available iron and nitrogen. Developed at the University of Minnesota and scaled over 13 years, the process removes the need for rare earth mining, offshore separation and heavy rare earth inputs. “Permanent magnets are foundational to the technologies driving America’s economic competitiveness and national security,” said Jonathan Rowntree, CEO of Niron Magnetics. “This conditional commitment recognizes the importance of Niron’s rare-earth -free approach and the urgency of building domestic manufacturing capacity for a technology the world increasingly depends on,” he added. “We are accelerating commercialization of an American-developed magnet technology that offers manufacturers a domestic path to high-performance permanent magnets built without rare earth materials,” Rowntree continued. Magnets underpin AI, robotics and advanced motors Permanent magnets convert electrical energy into motion in motors and help generate electricity in energy systems. Their performance influences the size, efficiency and power density of equipment ranging from robotic actuators and factory machinery to aerospace systems and electric drivetrains. Data centers and AI infrastructure require magnets across cooling systems, power-management equipment and storage hardware. Domestic production could support multiple technology supply chains, while providing defense contractors with components less exposed to foreign controls. “Niron Magnetics is helping Minnesota lead the way in manufacturing to support our national security,” said Congressman Tom Emmer. “This conditional commitment from the Office of Strategic Capital will help Niron create approximately 175 high-quality jobs in Sartell, helping Minnesota’s economy grow and thrive. It’s great to see companies in our own backyard powering our economy and supporting our military,” he continued. A modular platform targets greater capacity The Sartell plant will combine material-to-magnet production under one roof and serve as the first stage of Niron’s modular manufacturing platform. The company is selecting a site for another US plant designed to produce 10,000 tons annually, with groundbreaking expected in 2028. Niron is scaling as global demand for permanent magnets is projected to rise from about 280,000 tons today to more than 600,000 tons by 2035. However, the loan is not final. It remains dependent on OSC completing due diligence, Niron securing a minimum equity investment, and the parties satisfying conditions before financing documents are signed.",
+          "hb": 1
+        },
+        {
+          "t": "新型威猛 (Vermeer) 月球挖掘机让重型装备太空竞赛升温 [更新]",
+          "d": "2026-08-08",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/航天",
+          "as": "国际设备制造商威猛发布了其全尺寸Interlune挖掘机原型机。该重型装备专为月球表面作业设计，具备每小时挖掘并吞噬100公吨月球岩石和土壤的能力，旨在执行氦气等有价值资源的开采任务。同时，Interlune与威猛宣布扩大战略合作伙伴关系，旨在为人类在月球建立永久定居点提供关键的重型挖掘基础设施和自主移动服务。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/08/08/heavy-equipment-space-race-heats-up-with-new-vermeer-lunar-excavator/",
+          "tp": "月球挖掘机原型",
+          "aip": 1,
+          "kp": [
+            "挖掘吞吐量[Vermeer Interlune月球挖掘机]: 100公吨/小时",
+            "提取目标物质[Vermeer Interlune月球挖掘机]: 氦气"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electric Heavy Machinery\nJo Borrás\n| Aug 8 2026 - 6:00 am PT\nInternational equipment manufacturer Vermeer has unveiled a full-scale prototype of its Interlune excavator, a machine designed to ingest 100 metric tons of rocks and dirt per hour, extracting valuable helium as it makes its way across the surface … of the Moon.\nUPDATE 08AUG26\n: Interlune and Vermeer have expand their partnership.\nLast week, Interlune and Vermeer announced they would be expanding their strategic partnership to develop and deliver the critical infrastructure and services necessary for a permanent human presence on the Moon (read: helium mining).\n“Reliable, autonomous mobility and heavy-duty excavation are the backbones of any permanent settlement on the Moon,”\nsays Rob Meyerson, co-founder and CEO of Interlune\n. “By working with Vermeer, we are moving from developing prototypes to repeatable, scalable systems that will help build the Moon Base and enable the harvesting of lunar resources to power the future.”\nThe expanded collaboration between the companies builds on a joint development agreement that led to the full-scale prototype of the all-electric Interlune excavator that we covered earlier last May. Development has been ongoing, and the two companies insist will be able to deliver a mission-ready tool by 2028,\naligning their efforts with NASA’s Moon Base program plan\n. You can read that original article, below.\nORIGINALLY PUBLISHED 24MAY2025\nReviewing the helium tech; via Interlune.\nHelium plays a critical role in the manufacturing of semiconductors, chips, optics, and all the other stuff that makes EVs, autonomy, the Internet, and the rest of twenty-first century life possible. The problem is that, despite being the second-most common element in the universe,\nhelium is pretty rare on Earth\nand we are rapidly running out\n. As such, there are intense economic and political pressures to find new and reliable sources of helium somewhere,\nanywhere\nelse, and that demand has sparked a new modern space race focused on harvesting helium on the Moon and getting it back home.\nTo that end, companies like American lunar mining startup Interlune and the Iowa-based equipment experts at Vermeer are partnering on the development of suite of interplanetary equipment assets capable of digging up lunar materials like rocks and sand from up to three meters below the surface, extract helium-3 (a light, stable isotope of helium believed to exist in abundance on the Moon), then package it, contain it, and ship it back to Earth.\n“When you’re operating equipment on the Moon, reliability and performance standards are at a new level,” says Rob Meyerson, Interlune CEO. “Vermeer has a legacy of innovation and excellence that started more than 75 years ago, which makes them the ideal partner for Interlune.”\nEnter: Japan\nKomatsu lunar excavator; photo by the author.\nAmerica isn’t the only spacefaring nation eyeing a helium mine on the Moon. Japan announced similar plans back in 2023,\nwith Japanese construction giant Komatsu announcing plans to develop a fully electric excavator capable of operating on the lunar surface\nThe company showed a scaled prototype of the machine at the 2025 Consumer Electronics Show (CES)\nin Las Vegas\n(above), emphasizing the need to develop new ways to operate equipment assets in the extreme temperatures of extraplanetary environments beyond diesel or even\nhydrogen combustion\nOn the airless surface of the moon, it would be impossible for an internal combustion engine to operate on the moon’s surface because there is no oxygen for combustion. Electrically powered machines seem the obvious solution with solar power generation supplying the electricity. But the answer is not that simple.\nTemperature changes on the surface of the moon are extreme. They can soar to 110° C and plummet to -170° C. Developing electric construction machinery to perform in this environment is no easy task, but Komatsu is tackling issues one by one as they appear. Using thermal control and other electrification technologies, we are engineering solutions.\nDespite Komatsu’s apparent head start, however, Vermeer seem to pulled ahead – not just in terms of machine development, but in terms of extraction potential as well.\n“The high-rate excavation needed to harvest helium-3 from the Moon in large quantities has never been attempted before, let alone with high efficiency,” said Gary Lai, Interlune co-founder and CTO. “Vermeer’s response to such an ambitious assignment was to move fast. We’ve been very pleased with the results of the test program to date and look forward to the next phase of development.”\nInterlune is funded by grants from the US Department of Energy and NASA TechFlights. In 2023, the company received a National Science Foundation (NSF) Small Business Innovation Research award to develop the technology to size and sort lunar regolith (read: dirt). Interlune has raised $18 million in funding so far, and is planning its first mission to the Moon before 2030.\nElectrek’s Take\nInterlune helium harvester concept; via Interlune.\nWe’ve got space travel, weird mineral extraction from another planet that’s essential for our technology, and a rapid,\nunchecked proliferation of AI\n. All we need now is big worms, a whole bunch of hallucinogenic narcotics,\nand the will to smash up a bunch of data centers with baseball bats\n– then we’ll have a pretty decent Dune LARP going. Yee-ha!\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\nEnergySage\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nFeatured\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nComments\nI’ve been involved in the electric vehicle transition in one way or another since 1997, and have covered the industry as a journalist since 2008. You can catch more of my work on Quick Charge and The Heavy Equipment Podcast with Mike Switzer.\nNOTE: any opinions expressed here are solely my own and do not necessarily reflect those of the Federal government, the State of Illinois, Electrek, or anyone else. Nothing here should be interpreted as a statement of official policy, legal guidance, or an endorsement unless expressly labeled as such.\nJo Borrás's favorite gear\nENERGYSAGE\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        },
+        {
+          "t": "用于快速蛋白质构象和配体结合分析的光 CIDNP 增强 19F NMR",
+          "d": "2026-08-08",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "将光化学诱导动态核极化（photo-CIDNP）技术与基因编码的19F标记相结合，使19F NMR光谱检测蛋白质构象的灵敏度最高提升220倍。该方法使用市售低成本的19F标记氨基酸类似物，适用于6.6至54.2 kDa的蛋白质。系统可在6.5分钟内检测100 nM的蛋白质，并在数分钟内快速分析低微摩尔浓度范围内的配体结合，能够准确表征解离常数低于5 μM的极强相互作用。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://pubs.acs.org/jacsat/article/doi/10.1021/jacs.6c09740/5250662/Photo-CIDNP-Enhanced-19F-NMR-for-Rapid-Protein",
+          "tp": "核磁共振技术",
+          "aip": 1,
+          "kp": [
+            "灵敏度[光CIDNP增强19F NMR]: 提升220倍",
+            "检测下限[光CIDNP增强19F NMR]: 100 nM蛋白质",
+            "检测时间[光CIDNP增强19F NMR]: 6.5分钟"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Abstract 19F NMR spectroscopy is a powerful probe of protein conformation and dynamics but is intrinsically limited by low sensitivity common to other NMR techniques. Here, we integrate photochemically induced dynamic nuclear polarization (photo-CIDNP) with genetically encoded 19F labels to enhance sensitivity by up to 220-fold, enabling the detection of 100 nM protein within 6.5 min. This approach employs commercially available, cost-effective 19F-labeled amino acid analogues and is broadly applicable to proteins ranging from 6.6 to 54.2 kDa. It allows rapid analysis of conformational changes and ligand binding in the low-micromolar range within minutes. Notably, it can readily characterize interactions with dissociation constants below 5 μM, which are challenging to access using conventional NMR. The combination of photo-CIDNP-induced sensitivity enhancement with the environmental responsiveness of 19F NMR establishes a practical platform for protein structural and interaction studies.",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "RNA引导ISCro4桥重组酶在人类细胞实现靶向DNA精准重组",
-      "界面水合工程实现海水电解同步析氢与水镁石矿化生成",
-      "Li-Ga化合物负极抑制枝晶生长并提升固态电池循环稳定性"
+      "Group14在韩国启动车规级硅电池材料规模化生产",
+      "研究通过重编码稀有密码子实现五种非规范氨基酸同步掺入",
+      "智能非牺牲中间相提升无阳极固态锂金属电池锂可逆性"
     ],
     "AI与智能科技": [
-      "博睿康侵入式脑机接口获国家药监局批准成为全球首发临床应用器械",
-      "纳米光子波导技术实现低功耗与高集成度片上光束扫描",
-      "硅基光子倾斜渐变波导结构实现光信号向自由空间低损耗耦合"
+      "国家药监局批准博睿康全球首个侵入式脑机接口医疗器械",
+      "博睿康脑机接口系统采用硬脑膜外植入恢复瘫痪患者手部功能",
+      "英伟达等六巨头成立光计算互连协议小组速率目标3.2Tb/s"
     ],
     "通用技术": [
-      "新型超导材料与混合架构设计实现40特斯拉级微型磁体",
-      "非互易热光子学技术实现垂直墙面与相邻地面零能耗同步制冷",
-      "高通量质谱技术XA-Novo实现单克隆抗体氨基酸序列无参考直接解析"
+      "嫦娥六号揭示月球表面依赖太阳风氢离子的存在机制",
+      "电化学控制液态金属系统实现可控铺展与固体运输",
+      "镁铝榴石型IrRuOx纳米催化剂应对质子交换膜水电解动态运行"
     ]
   },
   "sectors": [
@@ -26,73 +26,67 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "RNA引导ISCro4桥重组酶在人类细胞实现靶向DNA精准重组",
-        "界面水合工程实现海水电解同步析氢与水镁石矿化生成",
-        "Li-Ga化合物负极抑制枝晶生长并提升固态电池循环稳定性"
+        "Group14在韩国启动车规级硅电池材料规模化生产",
+        "研究通过重编码稀有密码子实现五种非规范氨基酸同步掺入",
+        "智能非牺牲中间相提升无阳极固态锂金属电池锂可逆性"
       ],
       "entries": [
         {
-          "t": "使用 RNA 引导的桥重组酶对人类细胞进行可编程基因组编辑",
+          "t": "Group14 Accelerates EV-Scale Production of Breakthrough Silicon Battery Material in South Korea",
           "d": "2026-03-13",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "该研究展示了使用RNA引导的桥重组酶在人类细胞中进行可编程基因组编辑的最新进展。基因大小DNA片段的定点插入一直是一项未被满足的技术需求。基于IS110家族丝氨酸重组酶的双特异性RNA引导机制，研究人员发现ISCro4桥重组酶在人类细胞中具有高度活性。结合质粒或全RNA递送方式，该研究不仅验证了其介导靶向DNA重组的有效性，还通过结构生物学分析揭示了其活性增强的分子机制，为基因组精准编辑提供了新工具。",
-          "sc": 7.6,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adz1884?af=R",
-          "tp": "基因组编辑",
+          "u": "https://batteriesnews.com/group14-accelerates-ev-scale-production-of-breakthrough-silicon-battery-material-in-south-korea/",
+          "tp": "硅电池材料量产",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Site-specific insertion of gene-sized DNA fragments remains an unmet need in the field of genome editing. IS110-family serine recombinases have recently been shown to mediate programmable DNA recombination in bacteria by using a bispecific RNA guide (bridge RNA) that simultaneously recognizes target and donor sites. In this work, we have shown that the bridge recombinase ISCro4 is highly active in human cells and provided structural insights into its enhanced activity. Using plasmid- or all-RNA–based delivery, ISCro4 supports programmable multikilobase excisions and inversions and facilitates donor DNA insertion at genomic sites with efficiencies that exceed 6%. Last, we assessed ISCro4 specificity and off-target activity. These results establish a framework for the development of bridge recombinases as next-generation tools for editing modalities that are beyond the capabilities of current technologies.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "界面水合工程同步调控海水析氢与水镁矿矿化",
+          "t": "重新编码多个稀有密码子可以同时掺入多达五个不同的非规范氨基酸",
+          "d": "2026-03-13",
+          "a": "Nature Chemistry",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41557-026-02084-y",
+          "tp": "稀有密码子重编码",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "一种智能非牺牲中间相，可提高无阳极固态锂金属电池的锂可逆性",
           "d": "2026-03-13",
           "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "海水直接电解制取绿色氢气和水镁石矿物面临关键界面挑战。该研究提出界面水合工程策略，同步实现析氢反应和水镁石矿物生成，解决了传统海水电解中界面副反应和腐蚀问题。该方案将氢能生产与矿物回收耦合，有望降低海水制氢成本并提升工程可行性。",
-          "sc": 6.9,
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9254860?af=R",
-          "tp": "海水电解界面工程",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.8031463?af=R",
+          "tp": "固态锂电池",
           "aip": 1,
-          "kp": [
-            "[界面工程]: 纳米结构氢键组装体水合调控",
-            "[应用]: 海水电解联产水镁石与绿氢"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Seawater electrolysis for production of brucite minerals and green H\n                    2\n                    encounters critical interfacial challenges under high‐current operation. Competing gas evolution and magnesium crystallization lead to bubble accumulation and heterogeneous precipitation at the interface, occluding active sites and compromising stability. Here, we develop a nanostructured hydrogen‐bonded assembly that decouples H\n                    2\n                    evolution from brucite mineralization through interfacial hydration control. In the assembly, a cobalt phosphide catalyst combined with superaerophobic copolymer matrix creates hydration‐repulsive interfaces where ordered water networks expel H\n                    2\n                    bubbles and precipitate brucite evenly. This synergy sustains stable seawater electrolysis at 1000 mA cm\n                    −2\n                    for over 1000 h with stoichiometric co‐production efficiency for both brucite and H\n                    2\n                    . Extending to photoelectrocatalysis, a perylene diimide‐integrated variant achieves 4.5 mA cm\n                    −2\n                    photocurrent and 9.9% quantum efficiency for seawater photoelectrocatalysis. By interfacial hydration engineering, this work establishes a platform that synergizes H\n                    2\n                    generation with value‐added mineral production, addressing the fundamental trade‐off between gas evolution and mineralization in scalable marine resource utilization.",
-          "hb": 1
-        },
-        {
-          "t": "高导电无枝晶Li-Ga化合物负极用于高性能锂全固态电池",
-          "d": "2026-03-13",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "研究开发高电导率且无枝晶的锂-镓（Li-Ga）化合物负极，用于高性能全固态锂电池。Li-Ga合金负极通过镓组分引入实现均匀的离子/电子混合导电界面，有效抑制锂枝晶生长，同时降低界面阻抗。该负极在全固态体系中展现出优异循环稳定性和高可逆容量，为解决固态电池界面兼容性和安全性瓶颈提供了实用化材料方案。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70732?af=R",
-          "tp": "锂镓固态电池负极",
-          "aip": 1,
-          "kp": [
-            "负极[全固态电池]: Li-Ga化合物",
-            "[特性]: 高导电无枝晶"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Lithium All-Solid-State Batteries In article number e05248, Cheol-Min Park and co-workers illustrate the high-energy characteristics of LiGa compound anodes for Li all-solid-state batteries (LASSBs), highlighting the intrinsically high conductivity and dendrite-free behavior of the LiGa phase. LiGa-based LASSBs, show outstanding electrochemical performance, establishing LiGa as a promising anode platform for next-generation all-solid-state battery technologies.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,18 +94,18 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "博睿康侵入式脑机接口获国家药监局批准成为全球首发临床应用器械",
-        "纳米光子波导技术实现低功耗与高集成度片上光束扫描",
-        "硅基光子倾斜渐变波导结构实现光信号向自由空间低损耗耦合"
+        "国家药监局批准博睿康全球首个侵入式脑机接口医疗器械",
+        "博睿康脑机接口系统采用硬脑膜外植入恢复瘫痪患者手部功能",
+        "英伟达等六巨头成立光计算互连协议小组速率目标3.2Tb/s"
       ],
       "entries": [
         {
           "t": "国家药监局批准博睿康医疗植入式脑机接口手部运动功能代偿产品的注册申请",
           "d": "2026-03-13",
           "a": "手动导入",
-          "c": "AI与智能科技",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
           "as": "国家药监局批准博睿康医疗的植入式脑机接口手部运动功能代偿系统注册申请，这是全球首个进入临床应用的侵入式脑机接口医疗器械。该产品采用硬脑膜外微创植入与无线供能通信技术，专门用于辅助颈段脊髓损伤所致四肢瘫患者恢复手部抓握功能，临床试验效果显著。",
-          "sc": 10.3,
+          "sc": 10.0,
           "i": "n",
           "tg": "政策监管",
           "u": "https://www.nmpa.gov.cn/zhuanti/cxylqx/cxylqxlm/20260313134742156.html",
@@ -125,45 +119,42 @@
           "hb": 1
         },
         {
-          "t": "纳米光子波导芯片对外光束扫描",
+          "t": "国家药监局批准博睿康医疗植入式脑机接口手部运动功能代偿产品的注册申请",
           "d": "2026-03-13",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究展示了一种无缝的芯片到外部世界光子接口，利用纳米光子波导实现片上光束扫描。该技术可在单一芯片上实现宽角度、高速率的光束偏转，直接赋能光学位距测量（LiDAR）、显示、光通信和计算等多个应用领域。相比传统机械式光束偏转方案，纳米光子波导方案体积更小、功耗更低、集成度更高，是光子芯片走向大规模商用的关键接口突破。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-10038-6",
-          "tp": "纳米光子波导扫描",
+          "a": "手动导入",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "国家药监局批准博睿康医疗的植入式脑机接口手部运动功能代偿系统注册申请，这是全球首个进入临床应用的侵入式脑机接口医疗器械。该产品采用硬脑膜外微创植入与无线供能通信技术，专门用于辅助颈段脊髓损伤所致四肢瘫患者恢复手部抓握功能，临床试验效果显著。",
+          "sc": 10.0,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.nmpa.gov.cn/zhuanti/cxylqx/cxylqxlm/20260313134742156.html",
+          "tp": "脑机接口获批",
           "aip": 1,
-          "kp": [
-            "[技术目标]: 光子芯片到自由空间2D衍射极限光束扫描",
-            "[突破]: 克服现有光束扫描基本权衡"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A seamless chip-to-world photonic interface enables broad advancements in optical ranging, display, communication, computation and quantum information science. The ideal solution enables two-dimensional scanning of a diffraction-limited beam from anywhere on a photonic integrated circuit to a large number of resolvable spots. Current beam-scanning technologies are limited by a fundamental trade-off: photonic-integrated-circuits with diffractive optics offer scalability but have poor mode quality1,2, whereas inertially limited micromechanical scanners provide high-quality beams but lack scalable integration3,4. Here we report a photonic ski-jump—a nanoscale waveguide monolithically integrated on a piezoelectric cantilever—to overcome these limitations. It passively curls ~90° out-of-plane within a less-than-0.1 mm2 footprint, emits a submicrometre, broadband diffraction-limited beam, and exhibits kilohertz-rate mechanical resonances with quality factors of over 10,000. Fabricated in a volume complementary metal–oxide–semiconductor (CMOS) foundry, our device enables scalable two-dimensional beam scanning. Driven on-resonance at CMOS-level voltages, it achieves a footprint-adjusted spot rate of 68.6 mega spots s–1 mm–², exceeding state-of-the-art micro-electro-mechanical systems mirrors by more than 50-fold, which is sufficient for one million pixels at 100 Hz from an approximately 1.5 mm diameter footprint. We demonstrate full-colour image and video projection, and single-photon initialization and readout from silicon vacancy centres in diamond. Finally, by demonstrating uniformity across a 64 ski-jump array, we establish a pathway to achieving greater than one gigaspot resolution at kilohertz rates within a sub-5-cm-diameter footprint, creating a seamless optical pipeline between integrated photonic processors and the free-space world.",
+          "kp": [],
+          "lv": 3,
+          "wr": "技术应用规模/进程扩展||宣传为全球首个获准入市的侵入式脑机接口产品",
+          "cm": "脑机接口主要通过捕捉、处理、转译大脑神经元的放电信号，实现信息的传输（也可反向（人工耳蜗）或双向传输）；\n按通信装置连接形式可分为侵入式（大脑灰质）、半侵入式（颅腔内，灰质外）及非侵入式（颅骨外）\n消费级非侵入式早已有产品上市（助眠、冥想），医疗级非侵入式21年即有产品获批（美国药监局FDA-IpsiHand脑卒中、Flow Neuroscience抑郁症等）。实际的用途及对应捕捉脑活动包括：想要运动时运动皮层和感觉皮层的变化、注视目标时枕叶皮层视觉诱发信号变化、刺激视觉皮层提供光感知、语言区变化转换为合成语音等等；\n24年1月自neuralink（侵入脑皮层）开始侵入式脑机接口开始在人体进行实验，Synchron（脑皮层血管）、Paradromics（皮层）、中科院脑智卓越中心（皮层）逐步实现计算机操控、物品抓握、轮椅/机械狗操纵、太空实验等。\n博睿康成立于2011年，创始人胥红来、黄肖山博士毕业于清华大学生物医学工程。最初由清华启迪控股孵化，后获得太平洋保险等控股公司、厦门象屿集团、上海/苏州国资等注资。23年10月开始进行首例人体实验（颅骨内、硬膜外），后续也有颅骨上，头皮下实验案例，宣传25年进行了>30例；\n此次脑机接口类型：半侵入式\n应用类型：运动控制\n操控方式：无线信号传输+气动手套代偿\n并于24年8月提交国家药监局审批，26年3月获批。\n潜在风险/价值点：可优先占据市场\n但其为硬脑膜外微创植入技术，并未侵入脑膜\n更多功能脑机接口产品/技术（单手指、多自由度设备、视觉/语音形成/输出…）还处于研发试验阶段并未获批。\n论据支持：Neuralink、Paradromics、中科院脑智卓越中心等侵入式脑机接口机构可实现电脑游戏、机器人/轮椅设备操控、语言发声、视觉恢复等，均在试验过程中，尚未获准；\nSynchron血管侵入仍在试验，但可操作互联电子设备、发短信等；Precision Neuroscience硬膜下仍在试验；同样硬膜外的芯智达也未获许可",
+          "b": "3月13日，国家药品监督管理局在官网发布通告，称其批准了博睿康医疗科技（上海）有限公司植入式脑机接口手部运动功能代偿系统创新产品注册申请；科技日报称，该产品获得我国三类（最高级别风险）医疗器械注册证。报道宣传此次获批实现脑机接口医疗器械全球",
           "hb": 1
         },
         {
-          "t": "光子'滑雪跳台'引导硅芯片光束偏转",
+          "t": "英伟达、AMD等科技六巨头联手定义未来AI光互连协议",
           "d": "2026-03-13",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究人员开发出一种名为'光子滑雪跳台'(photonic ski jump)的新型硅基光子器件结构，能够高效地将光束从硅芯片表面导出。该结构通过精密设计的倾斜渐变波导，实现芯片内光信号向自由空间或光纤的低损耗耦合，为硅基光子集成芯片的光互连提供了简洁高效的解决方案。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/d41586-026-00489-w",
-          "tp": "硅基光子接口",
-          "aip": 1,
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "AMD、博通、英伟达联合微软、Meta、OpenAI成立光计算互连（OCI）多源协议小组，开发通用光物理层及组件，以光缆取代铜缆提升带宽与功耗可预测性。标准支持机架间纵向扩展，速率目标3.2Tb/s，采用协议无关设计，可兼容NVLink与UALink，实现不同处理器在同一光纤基础设施上运行。该组织由超大规模用户端主导，区别于JEDEC等传统标准组织。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/928/672.htm",
+          "tp": "光互连标准",
+          "aip": 0,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
+          "cm": "目前GPU机柜内部一般使用铜缆进行数据互联，因为其转换模块成本更低，功耗更小，不会增加机柜内散热压力。但是长距离下铜缆信号损耗更快，因此光互连是机柜之间的主要技术路线。该协议提出的目的是为了统一光学物理层，兼容不同厂商(英伟达、AMD、博通)的互联协议，从而标准化集群中的光纤。",
+          "b": "IT之家3月13日消息，科技媒体Tom's Hardware发布博文，报道称AMD、博通（Broadcom）与英伟达（Nvidia）三大芯片巨头，联手微软、Meta及OpenAI云计算和AI巨头，成立了光计算互连（OCI）多源协议（MSA）小组。IT之家援引博文介绍，科技界六大巨头组建的OCI MSA小组，核心任务是开发一种通用的光物理层（PHY）及统一组件，用光缆取代传统的铜缆。这种转变不仅能显著提升带宽，还能提供更可预测的功耗表现。\n根据规划，该标准将支持AI系统内部和机架间的纵向扩展连接，数据传输速度最终将升至3.2 Tb/s。对于微软和Meta这种运营着庞大数据中心的超大规模服务商而言，这意味着他们可以在不牺牲性能的前提下，连接更多加速器，构建更强大的算力池。与以往排他性的技术标准不同，OCI规范采用了“协议无关”的设计理念，能够同时支持英伟达的NVLink以及AMD、博通主导的UALink协议，意味着不同的处理器和互连协议可以在同一套光纤基础设施和交换机上运行。\n值得关注的是，OCI MSA与传统的行业标准组织（如JEDEC）存在显著差异。首先，它由微软、Meta等“用户端”而非单纯的“供应商”主导，更贴合实际应用场景。其次，它采用了多源协议（MSA）模式，跳过了传统标准组织繁杂的共识流程，目的是快速达成电气和光接口的一致性。",
+          "hb": 1
         }
       ]
     },
@@ -171,76 +162,69 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新型超导材料与混合架构设计实现40特斯拉级微型磁体",
-        "非互易热光子学技术实现垂直墙面与相邻地面零能耗同步制冷",
-        "高通量质谱技术XA-Novo实现单克隆抗体氨基酸序列无参考直接解析"
+        "嫦娥六号揭示月球表面依赖太阳风氢离子的存在机制",
+        "电化学控制液态金属系统实现可控铺展与固体运输",
+        "镁铝榴石型IrRuOx纳米催化剂应对质子交换膜水电解动态运行"
       ],
       "entries": [
         {
-          "t": "40特斯拉微型磁体",
+          "t": "嫦娥六号揭示月球上依赖太阳风的氢离子",
           "d": "2026-03-13",
           "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "超高磁场（40特斯拉级）是推动凝聚态物理、核磁共振、量子材料等前沿领域突破的关键工具。传统超导磁体受限于材料临界场强，难以低成本实现如此高的磁场。该研究报道了40特斯拉级微型磁体的最新进展，通过新型超导材料或混合磁体架构设计，大幅缩小磁体体积并降低能耗，使超高磁场从大型国家实验室专用设施走向更普及的应用场景。这一技术突破有望加速新型量子材料的发现、提升NMR检测灵敏度，并推动便携式强磁场在医学成像和材料表征中的应用。",
-          "sc": 7.4,
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
+          "sc": 8.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz5826?af=R",
-          "tp": "微型超强磁场磁体",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adw1162?af=R",
+          "tp": "月球探测",
           "aip": 1,
-          "kp": [
-            "磁场[全HTS微型磁体]: 42 T(4饼线圈)",
-            "磁场[全HTS微型磁体]: 38 T(2饼线圈)"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Ultrahigh magnetic fields enable substantial advancements across a wide range of scientific disciplines. Traditionally, steady fields above 40 tesla have been achievable only with large resistive magnets that consume megawatts of power. Here, we demonstrate peak fields of 38 and 42 tesla using two compact all-HTS magnets, composed of two and four pancake coils, respectively. These magnets achieve current densities of up to 2257 amps per square millimeter and feature an exceptionally small bore diameter of 3.1 millimeters. Furthermore, the magnet coils are small enough to fit in the palm of a hand and consume less than 1 watt of power. Such compact magnets are realized through specialized winding methods that enable seamless winding over the small diameter while preserving the current-carrying capacity of the HTS tape. Nuclear magnetic resonance (NMR) experiments were performed inside the 3-millimeter magnet bore to provide calibration points for Hall sensors. These results show the potential of compact all-HTS magnets to enable widely accessible high-field NMR and other applications.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "垂直表面与相邻地面的非互易辐射制冷",
+          "t": "电化学环境中液态金属运动和边界相互作用的成分控制",
           "d": "2026-03-13",
-          "a": "Joule",
+          "a": "Matter",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "Liu等人将非互易热光子学引入多体系统，实现了垂直表面与相邻地面的同步辐射制冷。非互易辐射制冷打破了传统互易性热辐射的限制，允许不同表面在红外波段以不对称方式交换热量，从而在无需额外能耗的情况下同时降低垂直墙面和地面温度。该研究为建筑节能、城市热岛缓解和被动冷却技术提供了全新物理机制，有望推动多体热管理系统的工程化应用。",
-          "sc": 7.2,
+          "as": "一种电化学控制的液态金属系统展现出依赖于合金成分的运动、形变和极性反转行为。这些现象由电毛细管力、氧化物弹性与界面氧化的相互作用引起，可实现类似弹簧的形变与动态运动。集成导电边界后，系统能实现液态金属的可控铺展、碎裂及固体运输。",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00032-2?rss=yes",
-          "tp": "非互惠辐射制冷",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00036-6?rss=yes",
+          "tp": "液态金属控制",
           "aip": 1,
           "kp": [
-            "[机制]: 非互易热光子学解耦辐射路径",
-            "[功能]: 垂直面冷却与地面热缓解同步"
+            "[电化学液态金属系统]: 表现出依赖于合金的运动、变形和极性反转，由电毛细管力、氧化物弹性和界面氧化相互作用引起；结合导电边界可实现受控铺展、碎裂和固体传输"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Liu et al. introduce nonreciprocal thermal photonics to many-body systems, enabling simultaneous vertical surface cooling and ground-level heat mitigation. By decoupling radiative pathways, the study demonstrates path-selective and independent heat flow control, setting the foundation for advanced thermal management in complex, realistic urban environments.",
+          "b": "We present an electrochemically controlled liquid metal system showing alloy-dependent motion, deformation, and polarity reversal. These behaviors arise from the interplay between electrocapillary forces, oxide elasticity, and interfacial oxidation, producing spring-like deformation and dynamic motion. Integrating conductive boundaries enables controlled spreading, fragmentation, and solid transport.",
           "hb": 1
         },
         {
-          "t": "XA-Novo：基于高通量质谱的单克隆抗体及抗体混合物从头测序技术",
+          "t": "使用镁铝榴石型 IrRuOx 阳极纳米催化剂应对质子交换膜水电解的动态运行",
           "d": "2026-03-13",
-          "a": "Nature Communications",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "XA-Novo是一种基于高通量质谱的从头测序技术，用于解析单克隆抗体及抗体混合物的氨基酸序列。传统抗体测序依赖已知数据库比对，而从头测序无需参考序列即可直接从质谱碎片离子推断完整序列。该技术突破了抗体药物开发的序列确认瓶颈，在生物类似药研发、抗体发现和免疫组学研究中具有广泛应用前景。",
-          "sc": 7.2,
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-70496-y",
-          "tp": "抗体质谱从头测序",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519741?af=R",
+          "tp": "水电解催化剂",
           "aip": 1,
-          "kp": [
-            "[技术方法]: 单罐多酶梯度消化结合束搜索组装器重建全长抗体序列",
-            "[测序范围]: 高通量从头测序单克隆抗体及混合物"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Elucidating antibody sequences by mass spectrometry-based de novo sequencing is essential but remains technically challenging. Here we present XA-Novo, an accurate and high-throughput de novo sequencing solution that integrates a single-pot multi-enzymatic gradient digestion method with a beam search-based assembler (Fusion) to reconstruct full-length antibody sequences directly from bottom-up mass spectrometry data. Benchmarking across well-characterized antibodies from multiple species demonstrates that XA-Novo outperforms commercial solutions in identification sensitivity, sequence completeness, and reconstruction accuracy. Furthermore, XA-Novo successfully reconstructs six immunotherapeutic antibodies with unknown sequences, and in vitro/vivo assays validate that these generated antibodies exhibit functionality equivalent to their commercial counterparts. Moreover, XA-Novo achieves over 99.54% accurate sequence coverage in distinguishing mixed COVID-19 neutralizing antibodies, exceeding the performance of current assemblers reported for single-antibody sequencing. Overall, XA-Novo establishes a reliable, scalable, and broadly applicable workflow for routine antibody sequencing, thereby accelerating both fundamental antibody research and therapeutic antibody development.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

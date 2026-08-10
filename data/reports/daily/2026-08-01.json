@@ -6,15 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究阐明L-(+)-酒石酸生物合成机制并开发ECHO多模态优化框架",
-      "科研团队提出钠离子电池层状氧化物正极表面重建集成改性策略"
+      "Entropy公司投产全球首座燃气轮机商业碳捕获工厂，二氧化碳捕获率超90%",
+      "宁德时代数亿元领投贝塔聚变，加速脉冲型场反位形磁惯性约束技术研发",
+      "中广核200兆瓦海上光伏项目全容量并网，大直径管桩技术降本超10%"
     ],
     "AI与智能科技": [
-      "OpenAI于华盛顿提前预览代号为Astra的人工智能模型"
+      "IDC预测2025年中国工业具身智能机器人市场规模达57.4亿元",
+      "微电子科学与工程专业以7814元月收入首登国内本科毕业生薪资榜首",
+      "国家药监局批准全球首款微创侵入式脑机接口医疗器械上市"
     ],
     "通用技术": [
-      "科研人员研发靶向串联激活人工传感器用于胸主动脉瘤早期检测",
-      "三名科学家因确立交变磁性为第三种基本磁性形态荣获欧洲物理学奖"
+      "国际研究团队首次在实验中实现光子时间晶体，完成太赫兹光皮秒级调控",
+      "蒙电入沪特高压直流过江工程开工，设计输送容量800万千瓦",
+      "美因茨大学科研团队发现打破传统分类的第三种基本磁体交变磁体"
     ]
   },
   "sectors": [
@@ -22,46 +26,76 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究阐明L-(+)-酒石酸生物合成机制并开发ECHO多模态优化框架",
-        "科研团队提出钠离子电池层状氧化物正极表面重建集成改性策略"
+        "Entropy公司投产全球首座燃气轮机商业碳捕获工厂，二氧化碳捕获率超90%",
+        "宁德时代数亿元领投贝塔聚变，加速脉冲型场反位形磁惯性约束技术研发",
+        "中广核200兆瓦海上光伏项目全容量并网，大直径管桩技术降本超10%"
       ],
       "entries": [
         {
-          "t": "多模块工程酵母中从头进行 L-(+)-酒石酸生物合成",
+          "t": "美国邻国启动世界上第一座碳捕获燃气轮机工厂",
           "d": "2026-08-01",
-          "a": "Biological sciences : Nature Communications subject feeds",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "L-(+)-酒石酸是食品和制药领域的高价值手性有机酸。研究通过酶挖掘和验证，在酿酒酵母中实现了L-(+)-酒石酸的从头生物合成。研究阐明了由转酮醇酶和琥珀酸半醛脱氢酶催化5-酮-D-葡萄糖酸转化为L-(+)-酒石酸的两步反应机制，并开发了ECHO（酶委员会特异性催化混合优化器）多模态框架以优化该过程。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-76119-w",
-          "tp": "酵母合成酒石酸",
+          "a": "interesting engineering",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "Entropy公司位于艾伯塔省的Glacier天然气工厂完成了“Glacier Phase 2”碳捕获与封存（CCS）项目。这是全球首个应用于发电天然气轮机的商业燃烧后碳捕获系统。该设施通过化学洗涤器去除废气中的二氧化碳，捕获率超过90%，随后将分离出的气体压缩并注入地下进行长期储存。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/energy/us-worlds-first-carbon-capture-system",
+          "tp": "燃气轮机碳捕",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[全球首个商业燃后碳捕集系统]: 应用于天然气燃气轮机发电",
+            "CCS技术[Glacier Phase 2]: 化学CO₂洗涤器工艺"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "L-(+)-tartaric acid (L-TA) is a high-value chiral organic acid essential for food and pharmaceuticals. Despite its industrial importance, sustainable green production is constrained by the lack of a fully defined biosynthetic pathway. Here, we report the de novo biosynthesis of L-TA in Saccharomyces cerevisiae through reaction-guided enzyme mining, experimental validation, and Enzyme Commission-specific Catalytic Hybrid Optimizer (ECHO)-assisted enzyme prioritization. We first elucidate the elusive two-step conversion from precursor 5-keto-D-gluconic acid (5-KGA) to L-TA, catalyzed by transketolase (TK) and succinate semialdehyde dehydrogenase (SSDH). To optimize this critical step, we develop the ECHO. This multimodal framework integrates sequence, substrate, and pocket-aware structural information to identify high-performance TK-SSDH pairs. By integrating this pathway with de novo precursor synthesis, cofactor engineering, and semi-rational protein engineering, a final L-TA titer of 6.59 mg L−1 was achieved in a 5-L bioreactor. By connecting computational mining and metabolic assembly through a multi-module engineering strategy, our study establishes a green platform for L-TA production and demonstrates an effective workflow for synthetic pathway design.",
+          "b": "Image of the Glacier gas plant.\nEntropy Inc (Entropy), a subsidiary of Advantage Energy Limited (Advantage), has now officially completed works on its “Glacier Phase 2” carbon capture and storage (CCS) project at the\nGlacier Gas Plant\nin Saddle Hills County, Alberta.\nThis makes it the first commercial post-combustion CCS system applied to a natural-gas turbine generating electricity. According to the company, they have essentially added a chemical CO₂ scrubber to a natural-gas processing plant and a new gas-fired generator.\nSo, while the plant still burns natural gas for power, the exhaust gases are now scrubbed of, they claim, more than 90% of CO₂. The separated gases are then compressed and injected underground for long-term storage.\n“We are proud of the work our team and service providers have done to safely bring Glacier Phase 2 online right on schedule,” explained Sanjay Bishnoi, Chief Executive Officer of Entropy, in\na press release\nA first-of-its-kind carbon capture and storage setup\n“This first-of-a-kind asset will provide reliable, baseload, low-carbon power to our customer, Advantage, and sell merchant power to the AESO system. As demand for reliable, low-emission electricity grows, we believe Glacier Phase 2 will mark an important milestone for the industry,” he added.\nAccording to Entropy, the\nGlacier Gas Plant\nconsists of two main kinds of gas-burning equipment. The first are eleven reciprocating gas engines, totaling about 30 MW, which mechanically drive compressors used to process and move natural gas. The second is a new 15 MW gas turbine that generates electricity.\nMore from Energy\nChina makes major nuclear expansion move, adds four new projects in $25 billion energy investment\nUS: First of kind 100 MW sodium cooled small modular reactor deployment gets a boost\nUS startup turning mining waste into defense minerals gets funds to reduce China reliance\nConvertus secures $135M to build its planned next-gen waste-to-fuel plant\n$104M Utah heavy rare earth expansion targets materials for six million EVs yearly\nThe plant is described as “co-generation,” which means it can simultaneously produce electricity and large quantities of hot exhaust. It is this exhaust gas that is used, primarily, to drive the\ncarbon capture process.\nSpecifically, it is used to regenerate CO₂ capture solvent. The capture process works by passing collected exhaust gases in ductwork through a special absorber that contains this solvent.\nThe solvent then binds with the CO₂, which is then, in turn, heated by the recovered exhaust gas. This results in a concentrated stream of CO₂, which can then be compressed and injected into permanent underground geological storage. Once complete, the solvent is then recycled and reused.\nUsing gas exhaust to clean itself\nThis makes it a form of post-combustion capture because the CO₂ is removed after the gas has already been burned. According to Entropy, the total system is designed to capture up to 192,000 tonnes annually, including the earlier Glacier capture installations.\n“We extend a huge thanks to our valued vendors and to the team at Advantage. By aligning schedules and working collaboratively, we eliminated bottlenecks and successfully installed all plant-to-plant interconnects within the strict three-week Glacier Gas Plant turnaround, all with zero impact on daily operations,” said James Martin, COO, Entropy.\n“It’s great to see Entropy’s success with Glacier Phase 2 operating as the first post-combustion CCS system on a gas turbine for power generation. Their technology and business model provide a low-carbon solution that is highly scalable to help meet today’s growing demand for clean, firm power,” said Jarad Daniels, CEO of the Global CCS Institute.\n“It’s encouraging to see this phase of the project online, demonstrating that CCS can support both climate goals and long-term competitiveness,” he concluded.\nRecommended Articles\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nChina makes major nuclear expansion move, adds four new projects in $25 billion energy investment\nChina grabs six of top 10 humanoid robot spots, but US quality is higher: Report\nUS: First of kind 100 MW sodium cooled small modular reactor deployment gets a boost\nUS ally plans to commission 'world's largest' 14,000-ton destroyer to counter China\nUS: $1B Arizona project expands ultra-pure gas supply for advanced chipmaking",
           "hb": 1
         },
         {
-          "t": "超越传统化学调制的钠层氧化物阴极的表面重建集成体缺陷工程",
+          "t": "宁德时代再度领投贝塔聚变新一轮融资",
           "d": "2026-08-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "层状氧化物是钠离子电池极具前景的正极材料，但在循环过程中面临相变、不可逆氧损失和严重的界面退化问题。以O3-NaNi1/3Fe1/3Mn1/3O2正极为原型，研究提出了一种超越传统化学调制的集成改性策略，以同时提升体相、表面和界面性能。通过表面重建衍生的富Y NaYO2(NYO)涂层，促进了位点选择性的体相缺陷工程。该策略有效缓解了层状氧化物在充放电循环中的结构退化和界面劣化，大幅提升了电池的综合电化学性能。",
-          "sc": 6.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74313?af=R",
-          "tp": "钠电池阴极",
+          "a": "中国核电信息网-国内",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "宁德时代于7月31日以数亿元资金再次领投聚变前沿科技公司贝塔聚变新一轮融资，这是继6月领投种子轮后的再次加码。贝塔聚变成立于2025年底，聚焦脉冲型场反位形（FRC）磁惯性约束路线。该路线通过快速磁压缩提高等离子体密度，以脉冲方式运行，装置结构简化且研发周期较短。公司核心团队来自国内外顶尖聚变机构，目标是在6至8年内实现50至100兆瓦级并网发电。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.cinie.net/article/57557.html",
+          "tp": "投资贝塔聚变",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "投资规模[宁德时代领投贝塔聚变]: 数亿元（含6月种子轮及7月新一轮）",
+            "技术路线[贝塔聚变可控核聚变]: 脉冲型场反位形(FRC)磁惯性约束"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    As the most prospective cathode material for sodium‐ion batteries (SIBs), layered oxides persistently suffer from detrimental phase transitions, irreversible oxygen loss, and severe interfacial degradation during cycling. Herein, utilizing O3‐NaNi\n                    1/3\n                    Fe\n                    1/3\n                    Mn\n                    1/3\n                    O\n                    2\n                    cathode as prototype, we propose an integrated modification strategy beyond conventional chemical modulation to simultaneously boost the bulk, surface and interfacial properties. The Y‐enriched NaYO\n                    2\n                    (NYO) coating derived via surface reconstruction facilitates site‐selective bulk substitution whilst inducing suitably quantized local oxygen vacancy (O\n                    V\n                    ) defects through charge balancing. The synergistic interaction between Y─O─TM strong bond and the O\n                    V\n                    's charge‐buffering effect jointly modulates O\n                    2p\n                    orbital electronic band configuration, preventing excessive O oxidation and formation of O─O dimers arising from charge concentration. Moreover, the perovskite‐phase NYO surface serves as an inherent fast Na\n                    +\n                    conductor ensuring efficient ion transport at interface, whilst also providing a robust rigid mechanical barrier that effectively suppresses interfacial side reactions and dissolution of transition metals. As a result, anion redox reversibility and local chemical environment stability are elevated, thereby comprehensively boosting electrochemical reaction kinetics and charge transfer efficiency, as confirmed by theoretical calculations and advanced synchrotron characterization. This research establishes a novel paradigm for the advancement of high‐performance Na‐layered oxide cathodes incorporating synergistic multi‐mechanism modification.",
+          "b": "宁德时代再度领投贝塔聚变新一轮融资\n7月31日，宁德时代以数亿元资金继续领投聚变前沿科技公司贝塔聚变(Beta Fusion)新一轮融资。企业信息查询平台显示，贝塔聚变本轮融资相关信息已于当日更新。这是宁德时代继今年6月初以数亿元领投贝塔聚变种子轮融资后，对该公司的再次加码。\n贝塔聚变(北京)能源科技有限公司成立于2025年底，注册资本100万元人民币，主要聚焦脉冲型场反位形(FRC)磁惯性约束路线，探索可控核聚变商业化路径。公司创始人曹志平是国内较早从事脉冲型场反位形路线研究并推动商业化的青年科研人员。公开信息显示，他曾参与相关商业化企业的筹备与技术论证，工作范围涉及装置设计、物理理论和实验运行等环节。\n据贝塔聚变披露，其核心成员来自国内外聚变科研院所，包括中国科学院等离子体物理研究所、国际热核聚变实验堆组织(ITER Organization)、德国马克斯·普朗克等离子体物理研究所(Max Planck Institute for Plasma Physics)等机构，研究方向覆盖偏滤器工程、磁约束聚变理论、等离子体数值模拟和诊断等领域。公司方面称，团队具备从理论研究到工程研发落地的全链条技术能力。\n脉冲型场反位形磁惯性约束是磁约束核聚变技术路线之一。与托卡马克等追求长脉冲或稳态运行的路线不同，FRC路线主要通过快速磁压缩提高等离子体密度，以脉冲方式运行，装置结构相对简化，研发迭代周期可能较短。\n按照贝塔聚变此前披露的规划，公司目标是在约6至8年内推进50至100兆瓦级并网发电。其未来潜在应用场景包括人工智能数据中心、智能城市等分布式能源领域。",
+          "hb": 1
+        },
+        {
+          "t": "“核光互补”！中广核宁德200兆瓦海上光伏项目全容量并网发电",
+          "d": "2026-08-01",
+          "a": "中国核电信息网-国内",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中广核宁德200兆瓦海上光伏项目于7月31日全容量并网发电，这是中广核首个“核光同场”项目。项目利用核电基地周边海域，装机容量200兆瓦，配套20兆瓦/40兆瓦时备用系统，预计年均发电约3亿千瓦时。项目成功攻克“大直径巨型混凝土管桩”等技术，使管桩与支架建设成本降低10%以上，实现了海域资源的立体化和集约化利用。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.cinie.net/article/57641.html",
+          "tp": "海上光伏并网",
+          "aip": 1,
+          "kp": [
+            "装机容量[中广核宁德海上光伏项目]: 200兆瓦",
+            "备用系统[中广核宁德海上光伏项目]: 20兆瓦/40兆瓦时",
+            "支撑结构[海上光伏]: 大直径巨型混凝土管桩与轻量化新型支架体系（提升防腐与承载）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "“核光互补”！中广核宁德200兆瓦海上光伏项目全容量并网发电\n从中国广核集团获悉，7月31日，中广核宁德200兆瓦海上光伏项目全容量并网发电。该项目是福建省动员海上光伏项目之一，也是中广核首个“核光同场”海上光伏项目，对推动地方能源结构绿色转型、建设新型能源系统、推动区域打造零碳示范园区等具有重要示范意义。\n项目福鼎市太姥山湾村宁德核场选址水区范围内，利用核电基地周边海域资源，实现“核光满足”立体化开发。场区总面积约为3020亩，装机容量为200兆瓦，配套建设20兆瓦/40兆瓦时备用系统。项目运行期25年内，预计全年平均水面上网约3亿千米时，后续标煤电站约9.13万亿、秋季约19.8万亿镇。\n项目的220千伏送出线路全长12公里，是电力外送的枢纽最高输送通道，其中跨海段铁塔高达138米，为目前闽东地区电铁塔，成为挺立海疆的绿色能源新地标。\n“项目建设过程中，针对近海工况复杂、传统全钢支撑结构易腐蚀、建设及运维成本高等行业难题，我们搭建了海上光伏管桩支架技术相关平台，成功完成‘大直径巨型混凝土管桩’‘轻量化新型支架体系’等技术攻关，有效提升了管桩承载能力和长效防腐能力，实现了相关平台的管桩、支架总体建设成本降低10%以上，可复制、可推广的自主化近海光伏建设方案技术。”中广核新能源福建公司工程管理部经理吴成恩介绍说。\n中广核宁德200兆瓦海上光伏项目实现了海域资源的立体化、集约化利用，探索出一条核电与电力互补的联动路径。下一步，中广核将继续深耕“核风光储”多能互补领域，为实现国家“双碳”目标和建设新型能源体系贡献“中广核方案”。",
           "hb": 1
         }
       ]
@@ -70,26 +104,76 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "OpenAI于华盛顿提前预览代号为Astra的人工智能模型"
+        "IDC预测2025年中国工业具身智能机器人市场规模达57.4亿元",
+        "微电子科学与工程专业以7814元月收入首登国内本科毕业生薪资榜首",
+        "国家药监局批准全球首款微创侵入式脑机接口医疗器械上市"
       ],
       "entries": [
         {
-          "t": "独家：OpenAI 在华盛顿预览“Astra”人工智能模型",
+          "t": "IDC 报告：2025 年中国工业具身智能机器人市场达 57.4 亿元，商业化进程全面提速",
           "d": "2026-08-01",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "OpenAI在华盛顿提前预览了其代号为“Astra”的人工智能模型。关于该模型的具体技术参数、核心功能及发布时间等详细信息在本次情报中尚未披露。",
-          "sc": 8.0,
+          "a": "IT之家",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "IDC数据显示，2025年中国工业具身智能机器人市场规模约为57.4亿元。其中，以工业机器人为载体的具身智能应用占据主体地位，市场规模约36.2亿元，已广泛应用于上下料、质检及装配等场景。以人形机器人为代表的新型载体处于探索阶段，市场规模约21.1亿元，主要用于示范产线与场景验证。产业竞争正转向模型、数据与场景落地能力的综合竞争。",
+          "sc": 7.5,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
-          "tp": "OpenAI发新模型",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/984/627.htm",
+          "tp": "具身智能市场",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "市场规模[2025年中国工业具身智能机器人]: 57.4亿元",
+            "市场规模[2025年以工业机器人为载体的具身智能应用]: 36.2亿元",
+            "产业竞争重心[工业具身智能机器人]: 从机器人本体性能转向模型、数据、工程化和场景落地能力的综合竞争"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Exclusive: OpenAI Previews ‘Astra’ AI Model in DC — The Information\nRead this briefing for free",
+          "b": "IT之家 8 月 1 日消息，7 月 31 日，国际数据公司（IDC）数据显示，2025 年中国工业具身智能机器人市场规模约为 57.4 亿元，其中以工业机器人为载体的具身智能应用市场规模约 36.2 亿元，成为当前产业商业化落地的主要方向。随着产业竞争从机器人本体性能逐步转向模型、数据、工程化和场景落地能力的综合竞争，工业具身智能机器人正在成为智能制造发展的重要方向。\n工业具身智能机器人是指面向工业生产环境，通过融合人工智能模型、多模态感知系统、机器人控制系统与机器人本体，使机器人具备感知、学习、决策与执行等能力闭环，并能够在真实工业场景中完成自主作业任务、与人员及生产设备进行交互的智能机器人系统。\nIDC 数据显示，2025 年，中国工业具身智能机器人市场进入商业化加速阶段，整体市场规模约为 57.4 亿元。当前市场主要以多形态机器人为载体，通过对工业生产线和制造工位进行智能化升级，实现感知、学习、决策和执行能力融合，推动制造场景向更加柔性化、自主化方向发展。\nIDC 数据显示，2025 年以工业机器人为载体的具身智能应用市场规模约为 36.2 亿元，占据当前市场主体地位。主要包括协作机器人、复合（移动操作）机器人、多关节机器人等。该类机器人依托成熟工业基础，通过融合视觉感知、力控技术、环境理解以及具身智能模型能力，实现“机器人硬件 + 智能软件 + 行业服务”的一体化交付，已应用于上下料、质量检测、打磨修复、柔性装配、物料搬运等工业场景。\n2025 年，以人形机器人为代表的新型具身智能载体正在进入工业场景探索阶段，市场规模约为 21.1 亿元。当前应用主要集中于示范产线部署、场景验证及 POC 测试。人形机器人具备更强的形态通用性和复杂环境适应潜力，但当前处于技术能力完善与商业化模式探索阶段，产品成本、可靠性、工程化成熟度以及实际生产效率等因素正在进一步验证。\n未来三至五年，中国工业具身智能机器人市场将进入由单点场景验证向生产流程级应用扩展的重要阶段。IDC 认为，行业将呈现以下发展趋势：\n- 从单工位智能走向生产流程智能。机器人将突破单一任务限制，与 MES、WMS、ERP、PLC 以及工业互联网平台深度融合，从执行单一任务的设备，逐步演进为生产系统中的智能节点。\n- 工业知识成为模型能力的重要组成。工业具身智能模型需要进一步融合工艺规则、设备机理和生产经验，实现从“完成任务”向“理解生产过程”演进。未来模型竞争不仅取决于数据规模，也取决于工业知识融合能力。\n- 多形态机器人长期共存。未来工业场景将形成多机器人协同格局：人形机器人适用于高柔性、非结构化任务；移动操作机器人适用于跨空间任务；协作机器人适用于人机协作场景；专用工业机器人适用于高精度、高稳定任务。未来竞争重点不是机器人形态，而是谁能够真正解决工业问题。\n- 数据闭环与工程化能力决定规模化落地。随着市场进入批量部署阶段，真实工业数据积累、模型迭代效率以及规模化交付能力将成为关键竞争因素。能够建立：数据采集 → 模型训练 → 工业部署 → 反馈优化闭环体系的企业，将获得长期竞争优势。\n- ROI 成为商业落地核心指标。IDC 用户调研显示，超过 80% 的制造企业希望工业具身智能机器人项目能够在两年内实现投资回收。未来，能够实现快速部署、稳定运行并产生明确经济价值的解决方案，将优先获得市场认可。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "中国最高薪本科专业易主：计算机类整体下滑，“微电子科学与工程”首夺第一",
+          "d": "2026-08-01",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "《2026年中国本科生就业报告》显示，微电子科学与工程专业以7814元月收入首夺本科毕业生薪资榜首，电子科学与技术、自动化分列二三位。此前连续11年位居第一的信息安全降至第四，软件工程、计算机科学与技术等计算机类专业月收入排名出现显著下滑。微电子科学与工程、电子科学与技术等“硬科技”专业排名近年持续上升。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/984/633.htm",
+          "tp": "微电子专业薪酬",
+          "aip": 1,
+          "kp": [
+            "平均月收入[本科毕业半年后/微电子科学与工程]: 7814元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 8 月 1 日消息，麦可思研究院上周发布了《2026 年中国本科生就业报告》（就业蓝皮书），今年本科毕业生毕业半年后平均月收入最高的专业，已由微电子科学与工程取代。\n微电子科学与工程专业以 7814 元位居第一，电子科学与技术、自动化分列第二、第三，原来第一的信息安全则降至第四。\n报告还称，曾长期占据高薪专业前列的计算机类专业，月收入位次正在下滑；与此同时，电子信息、自动化、机械等“硬科技”相关专业的月收入排名持续上升。\n报告提到，本科生毕业半年后的月收入水平，是反映专业就业质量的重要参考指标之一。历年就业蓝皮书数据显示，信息安全长期占据本科高薪专业榜首位置。自 2014 届起，信息安全连续 11 年位居本科高薪专业第一，直到 2025 届才被微电子科学与工程超越。\n数据显示，微电子科学与工程自 2017 届首次进入榜单时排名第 11 位，此后整体呈现持续上升态势：2018 届排名第 9 位，2021 届升至第 8 位，2022 届进入前六，2023 届、2024 届连续位列第二，最终于 2025 届登顶，成为新的本科高薪专业第一名。\n- 电子科学与技术也从 2016 届的第 9 位稳步升至第 2 位；\n- 自动化由第 19 位升至第 3 位；\n- 光电信息科学与工程则从第 28 位一路升至第 5 位。\n过去十年，计算机类专业曾多年霸占高薪专业榜：信息安全连续 11 年排名第一，软件工程连续 6 年稳居第二，网络工程连续 5 年位列第三，计算机科学与技术连续 6 年位于前十，物联网工程也连续 8 年位居前十。\n但近年来，这些专业的排名开始出现不同程度的下降：\n- 信息安全专业丢掉第一宝座；\n- 软件工程从连续多年排名第 2 位下降至 2025 届的第 13 位；\n- 计算机科学与技术从最高的第 4 位（2021 届）下降至第 32 位；\n- 网络工程由第 3 位（2016 届）降至第 47 位。\n上升最快的专业大多集中在电子信息、自动化、机械、电气、材料等领域，与集成电路、高端装备、智能制造等产业密切相关。\nIT之家查询公开资料获悉，麦可思公司成立于 2006 年，控股方为河南国有资本运营集团投资有限公司，隶属于河南省国资委。麦可思为 1600 多所高校提供年度数据跟踪与诊断服务，也是《中国大学生就业报告》（即就业蓝皮书，由社科文献出版社每年出版）的唯一撰稿人。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "科学网-脑机接口的百年探索与中国实践",
+          "d": "2026-08-01",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "脑机接口在人脑与外部设备间创建直接连接通路，目前正处于向规范化临床应用过渡的关键期。脑机接口发展历经学术探索、科学论证和应用实践三个阶段。1924年人类首次捕获8-13赫兹的脑电α波，成为该技术的科学起点。2026年，国家药监局批准了全球首款微创侵入式脑机接口医疗器械上市，标志我国在该领域技术应用进入快车道。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569204.shtm",
+          "tp": "脑机接口实践",
+          "aip": 1,
+          "kp": [
+            "商业化里程碑[2026年脑机接口医疗器械]: 国家药监局批准全球首款微创侵入式脑机医疗设备上市",
+            "临床应用阶段[脑机接口发展]: 从早期临床试验向规范化临床应用过渡的关键跨越期",
+            "波频范围[人脑α波特征]: 8-13赫兹"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "中国科学院院士赵继宗\n脑机接口的百年探索与中国实践\n伴随脑科学研究的不断深耕，脑机接口在医疗健康领域的应用前景十分广阔。目前，脑机接口正处在从早期临床试验向规范化临床应用过渡的关键跨越期，尽管仍有诸多技术、伦理及长期可靠性问题亟待解决，但已取得里程碑式突破。\n政策长期赋能之下，近年来，中国脑机接口发展提速，技术应用进入“快车道”。北京、天津、广州、武汉、南京等多地医疗机构纷纷设立脑机接口门诊或临床研究病房。2026年，国家药监局批准国产微创侵入式脑机接口医疗器械上市，这是全球首款取得商业化上市注册证的微创脑机医疗设备。\n脑机接口的百年历史\n脑机接口（brain-computer interface, BCI），是指在人或动物脑与外部设备间创建的直接连接通路。\n脑机接口发展至今，跨越了100多年，经过了三个阶段。\n1924年到20世纪70年代，属于学术探索的阶段。20世纪70年代到20世纪末，是科学论证的阶段。进入21世纪，脑机接口发展迅速，进入了应用实践的阶段。\n1924年，德国精神科医生汉斯·贝格（Hans Berger）首次记录到人脑α波。α波频率为8-13赫兹，人在闭眼放松、保持清醒时会清晰出现，一旦进入睡眠，α波便会大幅衰减、基本消失，这也是判断人体进入睡眠状态的核心依据。时至今日，脑电波仍是脑机接口最主流、应用最广泛的信号来源，1924年人类首次捕获脑电波的科学突破，也成为脑机接口技术发展的科学起点。\n1969年，美国华盛顿大学医学院神经科学家埃伯哈德·费兹（Eberhard Erich Fetz）将猴大脑神经元连接到仪表盘，设计游戏让猴通过特定思考，触发仪表盘的指针转动，完成了首个实现大脑直接操控外部设备的原型实验。\n1973年，美国加州大学洛杉矶分校计算机专家雅克·维达尔（Jacques J. Vidal）发表里程碑论文，首次提出并定名“BCI（脑机接口）”，搭建起该领域核心概念框架。\n1978年，人工视觉领域先驱威廉·多贝尔（William Dobelle）为失明患者杰瑞（Jerry）完成手术，在其大脑视觉皮层植入68通道铂电极阵列。这套被称作“多贝尔眼”的系统由特制眼镜、便携计算机构成。眼镜搭载微型摄像头与测距传感器，采集画面后传输至腰间计算机完成图像处理，再转化电脉冲刺激大脑皮层，让杰瑞感知到光幻视点阵，以此勾勒物体轮廓。该实验开创了借助脑机技术重建受损感官、突破生理障碍的研究方向。\n1998年，埃默里大学菲利普·肯尼迪（Philip Kennedy）完成脑部植入手术，依靠自研神经营养电极连接人脑与计算机，帮助一名闭锁综合征患者实现意念操控电脑光标。同年，布朗大学约翰·多诺霍（John Donoghue）团队启动BrainGate脑机接口前置研发；2004年，BrainGate为一名四肢瘫痪患者植入高密度电极阵列，患者依靠意念控制机械臂完成抓取、操控电脑光标，标志高密度侵入式脑机接口迈入功能性人体临床验证阶段。\n2005年，BrainGate为一名瘫痪患者植入皮层电极，患者术后超千天仍可依靠脑电信号稳定操控电脑光标；2012年，升级后的BrainGate2系统实现意念操控机械手抓取咖啡、送至嘴边后放回桌面。\n2016年，白宫前沿会议上，一名车祸致四肢瘫痪患者，依托匹兹堡大学搭载犹他电极阵列的双向触觉反馈意念机械臂，与奥巴马完成碰拳互动，这场面向公众的实操展示，成为全球双向感官闭环脑机交互的标志性案例。\n脑机接口技术飞速发展，落地应用持续拓宽。当前全球高校与科研机构的脑机接口相关研究涵盖五大核心赛道：三类脑信号采集方案（侵入式微电极阵列、非侵入式脑电采集、皮层柔性电极阵列）、无创神经调控干预技术，以及作为底层支撑的类脑芯片与神经形态计算。\n2019年，Neuralink公司公布脑机接口原型（N1系统）重大突破：系统搭载96根直径4~6微米柔性线程，合计3072个电极；该实验室样机通过外置USB-C接口传输、读取脑电信号。\n2021年，科技创新2030“脑科学与类脑研究”重大项目（中国脑计划）正式落地，全面推动国内脑机接口产业创新发展。项目包含五大研究板块：脑认知原理解析、认知障碍相关重大脑疾病发病机理与干预技术、类脑计算与脑机智能技术及应用、儿童青少年脑智发育、技术平台建设。\n同一时期海外也迎来关键技术突破：美国斯坦福大学克里希纳·谢诺伊（Krishna Shenoy）团队研发出意念手写字母侵入式脑机系统，受试者输入速度可达90字符/分钟，接近普通人群手机打字水平。\n有望消除超30亿患者困扰\n脑机接口落地场景十分丰富，主要覆盖五大应用领域：临床医疗、教育培训、军事航天、VR游戏娱乐、智能机器人。\n其中，临床医疗是脑机接口最核心、需求最迫切的落地赛道。而神经系统疾病构成了该领域最主要的应用需求。\n神经系统疾病覆盖全生命周期，各年龄段高发病症各有不同：0~4岁以早产脑病、脑膜炎、神经管畸形为主；5~19岁多见癫痫、偏头痛、自闭症谱系障碍；中青年群体高发卒中、糖尿病神经病变；老年阶段则集中出现卒中、阿尔茨海默病等疾病。\n2025年世界卫生组织（WHO）发布《神经病学全球状况报告》指出，全球超30亿人受神经系统疾病困扰，每年因此造成超1100万人死亡；报告梳理出十大高发神经系统疾病，涵盖中风、阿尔茨海默病及其他痴呆症、特发性癫痫、自闭症谱系障碍等。\n脑卒中为全球第二大死亡、第三大致残病因，每年新增1200万病例；53% 发病于70岁以下，89% 发生在中低收入国家，是我国居民首位致死疾病，发病后近七成至八成患者留下偏瘫、失语、认知衰退等后遗症；我国阿尔茨海默病（AD）患者超980万，未来将成为全球 AD 病患第一大国，现阶段无根治药物，仅可延缓病情；国内65岁以上人群帕金森病患病率1.7%，患者超500万，占全球近四成；渐冻症（ALS）属罕见进展性神经疾病，40~50岁高发，全国患者约10万，晚期全身瘫痪需呼吸机支持，目前尚无根治方案。\n依据全国残疾人抽样调查数据，我国残疾人约8500万，肢体、听力、视力残疾人数居前三，大量残障由脑疾病引发，现有干预康复手段覆盖不足。\n面对庞大的神经系统疾病患者群体，脑机接口被寄予厚望。\n2026年全国两会期间，脑机接口首次被单独写入政府工作报告，与量子科技、6G等并列，被明确列为“十五五”规划前瞻布局、重点培育的未来产业。国家、地方、产业端多级政策持续加码：国家层面，工信部等七部委于2025年7月联合印发《关于推动脑机接口产业创新发展的实施意见》，定义其为生命科学与信息科学交叉前沿技术；地方层面，北京市于2025年1月出台专项行动方案，加速布局本土产业发展；行业层面，2023年中国信通院牵头成立脑机接口产业联盟，联动全国顶尖医院、高校搭建政产学研用协同平台，全方位助推产业发展。\n北京领跑脑机接口全链条发展\n脑机接口分为无创脑机接口、微创脑机接口两大类。\n无创脑机接口依靠头戴设备采集脑电信号，优势是无需手术、佩戴便捷可随时摘除；短板是信号微弱、空间分辨率低，难以精准定位脑区与神经元活动。\n微创脑机接口有三种手术方式：\n（1）通过微创开颅将电极阵列植入脑组织内，可采集高精度神经信号；缺陷是易引发免疫排斥、疤痕增生，长期使用可能出现信号衰减，同时存在术后炎症风险。\n（2）通过微创开颅将（ECoG）电极置于硬脑膜外，采集的脑电信号质量优于无创脑机接口，国内“北脑一号”为此路线代表设备。\n（3）通过神经介入方式，将电极系统经血管通路植入脑部血管内，以记录脑电信号。2024年美国相关产品研发成果广受关注。\n依托多元技术路线布局，北京已建成覆盖基础研究、设备研发、临床诊疗、人才培育的脑机接口完整创新链条，形成政、产、学、研、医协同转化特色模式：北京脑科学与类脑研究所牵头成立的北京芯智达神经技术有限公司联合清华大学、北京大学和中国科学院相关研究所完成产学研协同，由国家发改委支持“国家神经系统疾病临床医学研究中心”强化创新能力“两重”配套专项经费在北京天坛医院建成标准化脑机专科病房；自研全球首款无线半侵入式设备“北脑一号”，已在全国16家医院开展针对脊髓损伤、脑卒中、渐冻症等导致的运动或言语功能障碍患者的临床植入，同步推进二代产品验证。按照《加快北京市脑机接口创新发展行动方案（2025—2030年）》，将完成多中心临床试验并出台国内首部行业指南与标准。\n产业硬件、临床场地逐步完善的同时，行业软性发展短板逐步凸显，当下脑机接口行业现存核心痛点是临床适配专业人才稀缺。北京已率先开设专项培训班、开展手术直播教学，脑机临床适配师将成为全新职业。\n目前，脑机接口还处在临床试验阶段，许多技术和伦理问题尚待解决。随着脑研究深入，未来脑机接口在医疗健康领域的应用前景十分广阔。",
           "hb": 1
         }
       ]
@@ -98,27 +182,56 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研人员研发靶向串联激活人工传感器用于胸主动脉瘤早期检测",
-        "三名科学家因确立交变磁性为第三种基本磁性形态荣获欧洲物理学奖"
+        "国际研究团队首次在实验中实现光子时间晶体，完成太赫兹光皮秒级调控",
+        "蒙电入沪特高压直流过江工程开工，设计输送容量800万千瓦",
+        "美因茨大学科研团队发现打破传统分类的第三种基本磁体交变磁体"
       ],
       "entries": [
         {
-          "t": "用于胸主动脉瘤和夹层早期检测和治疗干预的靶向串联激活人工尿液生物标志物传感器",
+          "t": "科学网-从空间维度拓展到时间维度——光子时间晶体实现太赫兹光超快调控",
           "d": "2026-08-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "针对胸主动脉瘤和夹层(TAAD)早期诊断困难的问题，研究开发了一种靶向串联激活人工尿液生物标志物传感器(TADEI)。该传感器用于TAAD早期生物标志物的实时光学成像和尿液分析，由近红外荧光团及三个关键组件偶联而成：靶向外发炎内皮细胞的VCAM-1靶向基序、响应炎症介质caspase-1的串联底物，以及与血管重塑相关蛋白酶legumain的底物。该传感器实现了TAAD的早期精准检测和动态治疗监测。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74390?af=R",
-          "tp": "人工尿液传感器",
+          "a": "科学网新闻",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "国际研究团队首次在实验中实现了光子时间晶体，使材料光学性质在皮秒尺度发生周期性变化，成功实现了对太赫兹光的超快动态调控。传统光子晶体主要依靠空间结构调控光传播，而此次突破将光的调控拓展至时间维度。太赫兹频段频率比现有电子元件高约1000倍，该技术突破为未来超快光计算、新型通信系统及太赫兹激光器研发开辟了全新路径。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/8/569198.shtm",
+          "tp": "光子时间晶体",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "光学性质周期性变化时间尺度[光子时间晶体/太赫兹光调控]: 皮秒尺度",
+            "太赫兹频段[电子技术与光子技术交界处]: 频率比当前电子元件使用频率高约1000倍"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  Thoracic aortic aneurysm and dissection (TAAD) is a life‐threatening cardiovascular disorder; current clinical imaging approaches primarily detect structural abnormalities at late stages and fail to enable early diagnosis or dynamic therapeutic monitoring. Here, we develop a targeted, tandem‐activated artificial urinary biomarker sensor (TADEI) for real‐time optical imaging and urinalysis of early biomarkers associated with TAAD. After identifying biomarkers from patient tissue samples, TADEI was designed with three key components conjugated to a near‐infrared fluorophore: a VCAM‐1–targeting moiety (overexpressed on inflamed endothelial cells), tandem‐responsive substrates for caspase‐1 (an inflammation mediator) and legumain (a protease relevant to vascular remodeling), and a renal‐clearance–enabling moiety. TADEI specifically targets TAAD lesions and activates its fluorescence upon reaction with these early biomarkers after systemic administration. Meanwhile, TADEI is excreted into urine via renal clearance (≈76%), converting TAAD biomarker levels into urinary signals for optical urinalysis. In a mouse model, a TADEI‐based urine test detected TAAD at least 12 days earlier than ultrasound imaging and 16 days earlier than plasma D‐dimer assays. The correlation between the urinary signal of activated TADEI and disease severity guided intervention that effectively inhibited TAAD progression, achieving 100% survival compared with 73% for ultrasound‐guided therapy and 40% without treatment.",
+          "b": "从空间维度拓展到时间维度——光子时间晶体实现太赫兹光超快调控\n太赫兹电磁波诱导产生强烈、快速的时间调制，从而实现光子时间晶体——一种在时间维度上形成的光子晶格。图片来源：德国德累斯顿-罗森多夫亥姆霍兹中心\n科技日报记者张佳欣\n据最新一期《自然》杂志报道，法国巴黎综合理工学院、法兰西公学院以及德国德累斯顿-罗森多夫亥姆霍兹中心的国际研究团队首次在实验中实现了光子时间晶体，使材料光学性质能够在皮秒尺度发生周期性变化，并实现了对太赫兹光的超快动态调控。这一突破将光子晶体对光的调控从空间维度拓展到时间维度，为超快光计算、新型通信系统，以及太赫兹激光器研发开辟了新路径。\n改变光与材料相互作用的方式，是光纤通信、激光器及化学和生物传感器等技术发展的基础。近年来，科学家不断探索新的光调控方式，并关注其在太赫兹频段的应用潜力。太赫兹频段处于电子技术与光子技术的交界处，其频率比当前电子元件使用频率高约1000倍，有望为观测和操控物质提供新手段，但相关技术开发仍相对滞后。\n在物理学中，晶体指的是组成单元按照规则、周期性排列形成的结构。例如，在固体材料中，原子的排列方式决定了材料中电子的能量状态，也影响其发出的光子的性质。20世纪80年代，科学家进一步发展出光子晶体，通过让不同材料按照周期结构排列，利用材料折射率差异调控光的传播行为。\n光子晶体可以阻挡、引导或增强特定波长的光，其作用方式类似半导体控制电子运动。目前，光子晶体已成为众多光子器件的重要基础。不过，传统光子晶体主要依靠空间结构调控光学性质。科学家进一步提出疑问，如果能够让材料的光学性质随时间周期变化，是否可以形成一种“光子时间晶体”？\n此前，这一领域的研究主要停留在理论层面，或者局限于基于电路的器件。此次研究中，科学家首次在实验中实现了这一设想。他们展示了一种由光学元件构成的光子时间晶体器件，通过周期性改变材料的光学性质，实现了对光子的时间调控。该器件工作于太赫兹频段。在这一频段，光以每秒约1000亿次的频率振荡。\n该器件由微米尺度的金属“垛口状”结构组成，其下方依次为绝缘层和铟锑混合材料。这些结构能够形成微型光学腔，使光子被限制在金属层和半导体层之间。\n研究团队向该器件发射太赫兹激光脉冲后发现，材料的光学性质，尤其是反射光能力，能够随时间发生强烈调制。这是一项实验突破，因为要同时实现强度足够大、速度足够快的调制极具挑战性，这种变化需要发生在皮秒尺度，即万亿分之一秒的万亿分之一。\n该器件的核心是半导体层。激光脉冲作用后，会产生科学家所称的“表面等离激元”，即电子形成一种集体波动状态。这种状态的变化，会周期性改变材料与光相互作用的方式，从而导致器件光学性质发生变化。\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        },
+        {
+          "t": "蒙电入沪过江工程在上海开工，将创下五个世界之最",
+          "d": "2026-08-01",
+          "a": "IT之家",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "内蒙古库布齐沙漠基地送电上海工程（蒙电入沪工程）受端配套过江工程在上海开工。该工程采用特高压直流输电，全长约1800千米，设计输送容量800万千瓦，年计划向上海输送约400亿千瓦时电量。过江工程将建设12.2千米电力专用隧道，创下设计输送容量最大、GIL安装规模最大等五个世界之最。隧道内设4回500千伏气体绝缘金属封闭输电线路，工程动态投资112.64亿元。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/984/624.htm",
+          "tp": "蒙电入沪开工",
+          "aip": 1,
+          "kp": [
+            "输送容量[蒙电入沪特高压直流工程]: 800万千瓦",
+            "年输电量[蒙电入沪特高压直流工程]: 约400亿千瓦时",
+            "线路全长[蒙电入沪特高压直流工程]: 约1800千米",
+            "跨江电力专用隧道长度[上海崇明受端配套过江工程]: 12.2千米",
+            "受端换流站转换交流电压等级[上海崇明]: 500千伏"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 8 月 1 日消息，据电网头条消息，7 月 30 日，内蒙古库布齐沙漠基地送电上海工程（简称蒙电入沪工程）受端配套过江工程在上海崇明正式开工建设，国网上海电力将建设一条 12.2 千米的跨江电力专用隧道。\n蒙电入沪工程拟采用特高压直流输电技术，起于内蒙古达拉特旗送端换流站，止于上海崇明受端换流站，途经内蒙古、山西、河北、山东、江苏和上海等 6 省（自治区、直辖市），全长约 1800 千米、设计输送容量达 800 万千瓦，投运后计划每年向上海输送约 400 亿千瓦时电量，相当于上海 2025 年全社会用电量的近两成。\n工程建成后，内蒙古库布齐沙漠基地的风电、光伏发电，将经特高压直流线路输送至上海崇明岛，由岛上受端换流站转换为 500 千伏交流电后，通过此次开工建设的受端配套过江工程穿越长江，在江苏太仓一侧登陆，穿过太仓进入上海嘉定，最终汇入上海主网。\nIT之家获悉，隧道建成后将创下五个世界之最：成为世界上设计输送容量最大、GIL 安装规模最大、盾构掘进距离最长、隧道直径最大、江底埋设最深的电力专用隧道。\n工程起于上海崇明岛，下穿长江主航道至江苏太仓，新建过江隧道 12.2 千米、陆上隧道 1.83 千米。工程动态投资 112.64 亿元，计划 2030 年年底建成投运。\n其中，过江隧道直径 14.6 米，隧道埋设最深约 95 米，内设 4 回 500 千伏气体绝缘金属封闭输电线路（GIL）管廊。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
           "hb": 1
         },
         {
@@ -126,18 +239,20 @@
           "d": "2026-08-01",
           "a": "scitechdaily",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "美因茨约翰内斯·古腾堡大学的Jairo Sinova教授、Libor Šmejkal博士和Tomas Jungwirth教授因发现交变磁性而荣获2026年欧洲物理学会凝聚态物理分部欧洲物理学奖。这一发现打破了百年来磁性仅有铁磁性和反铁磁性两类的传统认知，确立了交变磁性作为第三种基本磁性有序形态的地位。该成果为凝聚态物理领域开创了全新的研究方向。",
-          "sc": 7.0,
+          "as": "物理学家成功发现了被传统磁学分类遗漏的第三种基本磁体类型——交变磁体（Altermagnetism）。一百多年来，共线磁体仅被划分为两类，交变磁性的发现打破了这一局限。美因茨约翰内斯·古腾堡大学的Jairo Sinova教授和Libor Šmejkal博士等人凭借该自旋对称性的突破性发现，荣获了重大的物理学荣誉。",
+          "sc": 7.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://scitechdaily.com/scientists-who-uncovered-altermagnetism-win-major-physics-honor/",
           "tp": "交变磁性发现",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[交变磁体微观特征]: 相邻磁性原子上的自旋极化方向与原子形态（电子密度倾斜）交替变化"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A previously overlooked set of spin symmetries has revealed that magnetism does not fit neatly into just two categories.\nFor more than a century, physicists divided collinear magnets into two basic types. The discovery of altermagnetism has added a third, earning Professor Jairo Sinova of Johannes Gutenberg University Mainz (JGU), Dr. Libor Šmejkal and Professor Tomas Jungwirth the 2026 Europhysics Prize from the European Physical Society (EPS) Condensed Matter Division.\nOne of Europe’s leading honors in condensed matter physics, the prize recognizes their work establishing altermagnetism as a previously unknown fundamental form of magnetic order alongside ferromagnetism and antiferromagnetism. The finding has challenged a long-accepted picture of magnetism and created a research field with potential consequences for quantum materials, condensed matter physics and future information technologies.\n“This award recognizes a fundamental discovery that challenged one of the most established paradigms in condensed matter physics,” said Professor Jairo Sinova, Director of the Spin Phenomena Interdisciplinary Center (SPICE) at Mainz University. “Discovering that an entirely new magnetic phase had remained hidden for more than one hundred years demonstrates that even the most mature scientific fields can still hold fundamental surprises.”\nAltermagnetism emerged through a longstanding collaboration between Sinova’s group at Johannes Gutenberg University Mainz and Jungwirth’s team at the Institute of Physics of the Czech Academy of Sciences in Prague.\nŠmejkal, who also held an affiliation in Prague, worked at Mainz from 2016 to 2024. He first joined Sinova’s group as a doctoral researcher and later continued as a postdoctoral scientist. During those eight years at JGU, Šmejkal led the development of many of the theoretical ideas that ultimately supported the discovery.\nThe researchers combined modern symmetry theory with spintronics, a field that uses the spin of electrons to process and store information, to identify a fundamentally different kind of magnetic organization. Their predictions quickly prompted experimental groups worldwide to search for the effect. Spectroscopic and electrical transport measurements subsequently provided evidence of altermagnetism in several materials.\nResearch on altermagnetism now extends across Europe, North America and Asia, making it one of the most rapidly expanding areas of condensed matter physics.\nFor decades, the standard framework placed every collinear magnet into one of two groups. Ferromagnets have a net magnetization, making them central to conventional magnetic memory. Antiferromagnets are magnetically compensated, with opposing magnetic moments that cancel one another, and display very different electronic behavior.\nAltermagnets reveal that those categories do not cover every possibility. Like antiferromagnets, they have no overall magnetization. At the same time, they possess electronic properties that were previously associated only with ferromagnets.\nThis combination can support highly spin-polarized electrical currents and extremely fast magnetic dynamics. Those characteristics make altermagnets promising candidates for future spintronics technologies, which aim to manipulate electron spin rather than relying only on electrical charge.\nThe implications extend beyond possible devices. Altermagnetism defines a new symmetry class of matter and creates unexpected links with topological physics, unconventional superconductivity and strongly correlated quantum materials.\nThe path toward altermagnetism began with theoretical investigations of unusual magnetic transport effects, including the prediction of the crystal anomalous Hall effect. At first, these properties could have appeared to be isolated features of particular materials.\nFurther analysis revealed a broader explanation. The unusual behavior arose from a distinct magnetic phase controlled by spin symmetries that earlier classifications had overlooked.\nIn 2022, the researchers presented a complete symmetry-based classification of altermagnetism and identified hundreds of materials that could potentially display it. Experimental scientists have since confirmed altermagnetic behavior through several independent methods, including angle-resolved photoemission spectroscopy (ARPES), which maps the energy and motion of electrons inside materials, and electrical transport measurements.\nWithin only a few years, altermagnetism has generated hundreds of scientific papers and become a prominent subject at international physics conferences.\nThe EPS Europhysics Prize has honored major advances in condensed matter physics since 1975. It recognizes discoveries that have substantially moved the field forward, with a significant share of the contributing research conducted in Europe.\nSinova, Šmejkal and Jungwirth will receive the award at the 32nd General Conference of the European Physical Society Condensed Matter Division (CMD32), scheduled for September 2026 in Graz, Austria.\nReference: “Altermagnetic lifting of Kramers spin degeneracy” by J. Krempaský, L. Šmejkal, S. W. D’Souza, M. Hajlaoui, G. Springholz, K. Uhlířová, F. Alarab, P. C. Constantinou, V. Strocov, D. Usanov, W. R. Pudelko, R. González-Hernández, A. Birk Hellenes, Z. Jansa, H. Reichlová, Z. Šobáň, R. D. Gonzalez Betancourt, P. Wadley, J. Sinova, D. Kriegner, J. Minár, J. H. Dil and T. Jungwirth, 14 February 2024,\nDOI: 10.1038/s41586-023-06907-7\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAntiferromagnetism\nFerromagnetism\nJohannes Gutenberg Universitaet Mainz\nMagnetic Fields\nThis “Quantum” Material Fooled Scientists – but It’s Actually Something Even Stranger\nNew Type of Magnetism Discovered That Could Make Electronics 1000x Faster\nMagnetic Octupoles Revolutionize High-Speed, Energy-Saving Memory\nIlluminating the Quantum Realm: Light Unveils Hidden Magnetic Domains\nChilling Discoveries: Princeton Physicists Unlock Secrets of Kinetic Magnetism\nImpossible Until Now – Physicists Continuously Change the Type of Magnetism in a Crystal\nNo Lasers Needed: Optical Cavity’s Quantum Trick Alters Material Magnetism\nQuantum Chaos Unleashed: Surprising Breakthrough in Pursuit of Energy-Efficient Quantum Technologies\nSpin State Interaction From Copper Based Materials",
+          "b": "Altermagnetic crystal: not only the directions of spin polarization (in magenta and cyan) alternate on neighboring magnetic atoms, but also the atomic shapes themselves – as shown by tilting the dumbbell-shaped electron densities in two different directions. The blue beamline illustrates the photoemission experiment on a synchrotron that was used to demonstrate altermagnetism. Credit: Libor Šmejkal und Anna Birk Hellenes / JGU\nA previously overlooked set of spin symmetries has revealed that magnetism does not fit neatly into just two categories.\nFor more than a century, physicists divided collinear magnets into two basic types. The discovery of altermagnetism has added a third, earning Professor Jairo Sinova of Johannes Gutenberg University Mainz (JGU), Dr. Libor Šmejkal and Professor Tomas Jungwirth the 2026 Europhysics Prize from the European Physical Society (EPS) Condensed Matter Division.\nOne of Europe’s leading honors in condensed matter physics, the prize recognizes their work establishing altermagnetism as a previously unknown fundamental form of magnetic order alongside ferromagnetism and antiferromagnetism. The finding has challenged a long-accepted picture of magnetism and created a research field with potential consequences for quantum materials, condensed matter physics and future information technologies.\n“This award recognizes a fundamental discovery that challenged one of the most established paradigms in condensed matter physics,” said Professor Jairo Sinova, Director of the Spin Phenomena Interdisciplinary Center (SPICE) at Mainz University. “Discovering that an entirely new magnetic phase had remained hidden for more than one hundred years demonstrates that even the most mature scientific fields can still hold fundamental surprises.”\nA partnership uncovered hidden magnetic order\nAltermagnetism emerged through a longstanding collaboration between Sinova’s group at Johannes Gutenberg University Mainz and Jungwirth’s team at the Institute of Physics of the Czech Academy of Sciences in Prague.\nŠmejkal, who also held an affiliation in Prague, worked at Mainz from 2016 to 2024. He first joined Sinova’s group as a doctoral researcher and later continued as a postdoctoral scientist. During those eight years at JGU, Šmejkal led the development of many of the theoretical ideas that ultimately supported the discovery.\nThe researchers combined modern symmetry theory with spintronics, a field that uses the spin of electrons to process and store information, to identify a fundamentally different kind of magnetic organization. Their predictions quickly prompted experimental groups worldwide to search for the effect. Spectroscopic and electrical transport measurements subsequently provided evidence of altermagnetism in several materials.\nResearch on altermagnetism now extends across Europe, North America and Asia, making it one of the most rapidly expanding areas of condensed matter physics.\nSchematic illustration of the structure of an altermagnetic crystal: The unique symmetry of the electron distribution underlies the extraordinary properties of this newly discovered class of magnetic materials. Credit: Libor Šmejkal\nMagnetism no longer fits two categories\nFor decades, the standard framework placed every collinear magnet into one of two groups. Ferromagnets have a net magnetization, making them central to conventional magnetic memory. Antiferromagnets are magnetically compensated, with opposing magnetic moments that cancel one another, and display very different electronic behavior.\nAltermagnets reveal that those categories do not cover every possibility. Like antiferromagnets, they have no overall magnetization. At the same time, they possess electronic properties that were previously associated only with ferromagnets.\nThis combination can support highly spin-polarized electrical currents and extremely fast magnetic dynamics. Those characteristics make altermagnets promising candidates for future spintronics technologies, which aim to manipulate electron spin rather than relying only on electrical charge.\nThe implications extend beyond possible devices. Altermagnetism defines a new symmetry class of matter and creates unexpected links with topological physics, unconventional superconductivity and strongly correlated quantum materials.\nOverlooked symmetries revealed a new phase\nThe path toward altermagnetism began with theoretical investigations of unusual magnetic transport effects, including the prediction of the crystal anomalous Hall effect. At first, these properties could have appeared to be isolated features of particular materials.\nFurther analysis revealed a broader explanation. The unusual behavior arose from a distinct magnetic phase controlled by spin symmetries that earlier classifications had overlooked.\nIn 2022, the researchers presented a complete symmetry-based classification of altermagnetism and identified hundreds of materials that could potentially display it. Experimental scientists have since confirmed altermagnetic behavior through several independent methods, including angle-resolved photoemission spectroscopy (ARPES), which maps the energy and motion of electrons inside materials, and electrical transport measurements.\nA new field gains major recognition\nWithin only a few years, altermagnetism has generated hundreds of scientific papers and become a prominent subject at international physics conferences.\nThe EPS Europhysics Prize has honored major advances in condensed matter physics since 1975. It recognizes discoveries that have substantially moved the field forward, with a significant share of the contributing research conducted in Europe.\nSinova, Šmejkal and Jungwirth will receive the award at the 32nd General Conference of the European Physical Society Condensed Matter Division (CMD32), scheduled for September 2026 in Graz, Austria.\nReference: “Altermagnetic lifting of Kramers spin degeneracy” by J. Krempaský, L. Šmejkal, S. W. D’Souza, M. Hajlaoui, G. Springholz, K. Uhlířová, F. Alarab, P. C. Constantinou, V. Strocov, D. Usanov, W. R. Pudelko, R. González-Hernández, A. Birk Hellenes, Z. Jansa, H. Reichlová, Z. Šobáň, R. D. Gonzalez Betancourt, P. Wadley, J. Sinova, D. Kriegner, J. Minár, J. H. Dil and T. Jungwirth, 14 February 2024,\nDOI: 10.1038/s41586-023-06907-7\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nGoogle News\nAntiferromagnetism\nFerromagnetism\nJohannes Gutenberg Universitaet Mainz\nMagnetic Fields\nMagnetism\nArticles\nThis “Quantum” Material Fooled Scientists – but It’s Actually Something Even Stranger\nNew Type of Magnetism Discovered That Could Make Electronics 1000x Faster\nMagnetic Octupoles Revolutionize High-Speed, Energy-Saving Memory\nIlluminating the Quantum Realm: Light Unveils Hidden Magnetic Domains\nChilling Discoveries: Princeton Physicists Unlock Secrets of Kinetic Magnetism\nImpossible Until Now – Physicists Continuously Change the Type of Magnetism in a Crystal\nNo Lasers Needed: Optical Cavity’s Quantum Trick Alters Material Magnetism\nQuantum Chaos Unleashed: Surprising Breakthrough in Pursuit of Energy-Efficient Quantum Technologies\nSpin State Interaction From Copper Based Materials",
           "hb": 1
         }
       ]

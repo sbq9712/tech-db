@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Pd纳米片负载NiMo双原子催化剂实现乙二醇碳键高选择性断裂",
-      "Antares微型反应堆达初始临界并计划于2027年实现发电部署",
-      "研究证实微生物可利用柔电效应转化机械能并固定二氧化碳"
+      "xAI向特斯拉采购2.69亿美元Megapack电池，单月采购额超去年全年",
+      "LHD实验观测到3.7691埃处W47+钨离子谱线，刷新最高电荷态纪录",
+      "新型无铜Ag/Cr2O3电催化剂实现二氧化碳还原乙醇法拉第效率超50%"
     ],
     "AI与智能科技": [
-      "研发纳米流体离子存储器以实现低能耗类神经形态信息处理",
-      "Windrose发布移动AI数据中心方案集成算力与拖车式电池储能",
-      "融合神经祖细胞与磁电纳米颗粒的微型机器人实现无线神经修复"
+      "宝马新款iX3单次充电续航达781公里，成为NAF测试续航最长电动车",
+      "研究采用从头计算方法揭示原子核反转区岛结构演化中的量子纠缠规律",
+      "Pinterest与AWS达成40亿美元协议，将采用Trainium芯片执行计算任务"
     ],
     "通用技术": [
-      "中国石化上海石化攻克湿法T1000级碳纤维技术实现批量生产",
-      "NASA费米望远镜首次探测到超新星新生磁星驱动的伽马射线辐射",
-      "研究提出利用滑移铁电性实现交变磁性材料的六态精确控制"
+      "研究人员利用氮化硼空间限域反应合成直径近1纳米的单壁MoS2纳米管",
+      "新镍催化交叉偶联法实现无手性配体下重氮化合物与卤代烷的手性键构建",
+      "NASA X-59静音超音速实验机即将首次突破音障执行飞行测试"
     ]
   },
   "sectors": [
@@ -26,74 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Pd纳米片负载NiMo双原子催化剂实现乙二醇碳键高选择性断裂",
-        "Antares微型反应堆达初始临界并计划于2027年实现发电部署",
-        "研究证实微生物可利用柔电效应转化机械能并固定二氧化碳"
+        "xAI向特斯拉采购2.69亿美元Megapack电池，单月采购额超去年全年",
+        "LHD实验观测到3.7691埃处W47+钨离子谱线，刷新最高电荷态纪录",
+        "新型无铜Ag/Cr2O3电催化剂实现二氧化碳还原乙醇法拉第效率超50%"
       ],
       "entries": [
         {
-          "t": "Pd纳米片上的NiMo双原子二聚体用于废塑料乙二醇的选择性C-H和C-C键断裂",
+          "t": "SpaceX 的 xAI 刚刚又购买了价值 2.69 亿美元的 Tesla Megapacks",
           "d": "2026-06-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "研究通过CO气体介导合成钯纳米片(PdNS)作为首例钯烯载体,在其上负载NiMo双原子二聚体催化剂。该双原子位点可对乙二醇的C-H和C-C键实现高选择性断裂,展现了双原子催化剂在精细化学转化中的催化潜力,为生物质/多元醇增值利用提供了新路径。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73526?af=R",
-          "tp": "废塑料催化转化",
-          "aip": 1,
-          "kp": [
-            "催化剂[EG氧化]: NiMo双原子二聚体/Pd",
-            "合成[双原子]: CO2激光辐照10min",
-            "[废塑料]: 乙二醇C-H/C-C断裂",
-            "载体: 首例钯烯Pd纳米片"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Herein, we report the CO gas–mediated synthesis of palladium nanosheets (PdNS) as the first palladene support for atomically dispersed dimer catalysts. We further present the first report of NiMo dual‐atom dimer immobilization on PdNS (NiMo‐DA/PdNS) using rapid CO\n                    2\n                    laser irradiation within 10 min. The NiMo‐DA/PdNS platform exhibits enhanced ethylene glycol (EG) oxidation reaction (EGOR) activity with potential‐dependent product selectivity. At 1.0 V vs. RHE, glycolate (C2 product from selective C─H bond cleavage) was obtained with a Faradaic efficiency (FE) of 81% and a yield rate (YR) of 1.14 mmol h\n                    −1\n                    cm\n                    −2\n                    . At 1.6 V vs. RHE, formate (C1 product from C─C bond cleavage) was selectively produced with an FE of 77.9% and a YR of 0.39 mmol h\n                    −1\n                     cm\n                    −2\n                    . Theoretical calculations further corroborate these performance trends and elucidate the mechanism that C─C bond scission is facilitated by electron transfer to the catalyst surface at higher potentials, lowering the reaction free energy and enhancing C1 formation. This study demonstrates concurrent high selectivity toward both glycolate and formate while efficiently recovering high‐purity terephthalic acid (TPA) monomers from polyethylene terephthalate (PET) hydrolysate electrolysis over 50 h, highlighting the practical potential of atomically engineered catalysts with real‐world PET upcycling.",
-          "hb": 1
-        },
-        {
-          "t": "Antares Mark-0微型反应堆达到初始临界状态",
-          "d": "2026-06-04",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "Antares的Mark-0微型反应堆在爱达荷国家实验室经DOE授权达到初始临界状态，成为首家在DOE反应堆试点计划下实现先进反应堆临界的私营公司。反应堆采用TRISO燃料，不到12个月完成从概念到临界，验证了关键物理参数。R1设计实现100kW至1MW放电并持续6年以上，采用钠热管被动散热与氮气闭式布雷顿循环。Mark-0仅完成零功率验证，完整发电演示仍需后续证明，计划2027年发电、2028年部署美军。",
-          "sc": 7.0,
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "SpaceX最新修改的S-1 IPO文件显示，xAI在2026年4月购买了价值2.69亿美元的特斯拉Megapack电池产品，单月购买量超过2024年全年。自2024年以来，xAI购买特斯拉Megapack的总花费已近10亿美元，突显了人工智能数据中心巨大的耗电需求以及马斯克旗下公司之间深度的内部业务关联。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://antaresindustries.com/updates/antares-achieves-criticality",
-          "tp": "微型核反应堆",
-          "aip": 1,
-          "kp": [],
-          "lv": 1,
-          "wr": "",
-          "cm": "",
-          "b": "6月4日，美国核裂变公司Antares发文，其Mark-0微型反应堆在爱达荷国家实验室（INL）经美国能源部（DOE）授权达到初始临界状态，意味着核反应堆内部链式反应已可自我维持，成为首家在DOE反应堆试点计划下实现先进反应堆临界的私营公司。文中称，该反应堆在不到12个月内安全实现从概念到临界，采用与“Project Pele”计划相同的TRISO三结构同向性核燃料以保障极端事故下的安全性，并验证了关键反应堆物理参数；设计完成的R1微型反应堆计划实现100kW至1MW对外放电功率并持续工作6年以上，具备工厂预制、方便运输和自我调节特质，传热与发电系统将采用纯被动散热的钠热管及更紧凑的氮气闭式布雷顿循环，旨在摆脱电网限制并减轻军事后勤负担。目前Mark-0阶段仅完成零功率临界验证，完整的热管传热和布雷顿循环发电仍需后续演示证明；该反应堆后续将在美国军事设施中落地应用，公司计划于2027年实现发电，并于2028年开始向美军驻地部署。",
-          "hb": 1
-        },
-        {
-          "t": "由挠曲电效应产生的胞外电子驱动微生物自养",
-          "d": "2026-06-04",
-          "a": "Biological sciences : Nature Communications subject feeds",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "研究发现微生物可通过柔电效应（flexoelectric）将机械力转化为胞外电子，驱动自养生长。机械力通过直接机械-电能转换成为微生物的新型能源，柔电效应使材料在应变梯度下产生电荷。研究表明微生物可利用这种机械生电机制获取能量并固定CO2。该发现拓展了对微生物能量代谢多样性的认识，为利用机械能驱动生物合成和开发新型生物电化学系统开辟了新途径。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74030-y",
-          "tp": "微生物电自养",
+          "tg": "资本运作",
+          "u": "https://electrek.co/2026/06/04/spacex-xai-269-million-tesla-megapack-purchase-s1-filing/",
+          "tp": "xAI采购储能设备",
           "aip": 1,
           "kp": [
-            "能量转换[微生物自养]: 机械能→电能→生物量",
-            "[物理机制]: 挠曲电效应驱动胞外电子生成"
+            "采购额[xAI购买Tesla Megapack]: 2.69亿美元",
+            "累计采购额[xAI购买Tesla Megapack]: 约10亿美元"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Mechanical force has recently emerged as a microbial energy source through direct mechanical-to-electrical energy conversion. However, the flexoelectric effect, a universal mechanoelectrical coupling phenomenon, remains underexplored as an energy source for microbial life. Here, we report a mechanically-driven microbial growth mechanism whereby mechanical energy is converted into electrical energy via the flexoelectric effect of a mineral. This process supports microbial growth in the absence of sunlight and chemical energy sources. Using flexoelectric manganese oxide and electroactive Rhodopseudomonas palustris as a model biohybrid, we demonstrate that mechanical force bends manganese oxide nanosheets to generate free electrical charge. R. palustris captures and utilizes this electrical energy for growth by coupling carbon fixation and denitrification in the absence of chemical electron donors under dark conditions. This pathway is accessible to various electroactive microorganisms and flexoelectric minerals. These findings reveal a noteworthy energy acquisition pathway for microbial survival in energy-limited settings, providing crucial evidence for the diversity of mechanical-to-metabolic coupling in biological processes.",
+          "b": "Fred Lambert\n| Jun 4 2026 - 5:58 am PT\nSpaceX’s amended S-1 IPO filing, published yesterday, reveals that xAI purchased another $269 million worth of Tesla Megapack products in April 2026 alone. That single month exceeds what xAI spent on Tesla Megapacks in all of 2024.\nThe purchase brings total Megapack spending by xAI to roughly $1 billion since 2024 — a staggering figure that underscores both how power-hungry AI data centers have become and how deeply intertwined Elon Musk’s companies are.\nThe related-party transaction disclosures in\nSpaceX’s S-1/A filing\nbreak down xAI’s Tesla purchases with unusual granularity. Here’s the full Megapack purchase history:\nThat’s roughly $1 billion in Megapack products over less than two and a half years.\nThe filing states: “xAI is party to certain commercial, licensing, and support agreements with Tesla. Under these agreements, xAI obtained goods and services of $191 million in 2024, $506 million in 2025, and $303 million from January 1, 2026 through April 30, 2026 ($269 million of which relates to purchases of Megapacks in April 2026).”\nBeyond Megapacks, the S-1 also confirms SpaceX purchased $131 million worth of Cybertrucks at MSRP in 2025 —\na purchase we already knew inflated Cybertruck sales numbers\n. SpaceX itself also obtained $147 million in goods and services from Tesla in 2025, up from just $4 million in 2024.\nwe detailed when Tesla’s own 10-K/A filing came out\n, the web of related-party transactions between Musk’s companies is growing rapidly, with Tesla recognizing $573 million in revenue from SpaceX and xAI in 2025.\nxAI’s Colossus supercomputer in Memphis and its expanding data center footprint require massive, reliable power capacity. The Megapacks serve as grid-scale battery storage — buffering power from the grid and from on-site generation to keep AI training workloads running around the clock.\nxAI has already deployed 168 Megapack units at its Memphis facility and planned to scale to roughly 1 GWh of buffering capacity. At the scale xAI is building — targeting 2 GW of compute capacity — the battery storage needs are enormous.\nFor Tesla’s energy division, which\ngenerated $12.8 billion in revenue in 2025\n, the xAI purchases represent a meaningful chunk of business. The $573 million Tesla recognized from SpaceX and xAI alone accounted for roughly 4.5% of total energy revenue.\nHere’s the part that should concern anyone who cares about Tesla’s mission. While xAI is buying billions in Megapacks — which is good — the power those Megapacks are storing and dispatching comes overwhelmingly from natural gas.\nxAI has been running\nnearly 50 gas turbines at its Mississippi data center\n, won permits to build a 41-turbine natural gas power plant in Southaven, and according to its own permit applications, the combined facilities could emit more than 6 million tons of greenhouse gases per year.\nwe wrote last week\n, there’s a glaring contradiction between Tesla’s stated mission — moving from a “mine-and-burn hydrocarbon economy” to a “solar electric economy” — and xAI’s aggressive embrace of natural gas generation.\nxAI announced plans for a small 100 MW solar farm adjacent to the Colossus facility back in late 2025, but that’s a token gesture compared to the gigawatts of gas generation xAI is deploying.\nThe Megapack purchases are genuinely good news for Tesla Energy, but a billion dollars in orders from a single customer over two years validates that its growth is increasingly reliant on the Musk companies.\nBut more importantly, we’d love to see SpaceX and xAI buy Tesla solar panels and inverters alongside those Megapacks. Right now, the Megapacks at xAI’s data centers are essentially storing and dispatching fossil fuel power. That’s a perfectly valid use of battery storage from a grid-reliability standpoint, but it’s not exactly advancing the “solar electric economy” that Tesla’s master plan promises.\nxAI is planning to spend $2.8 billion on more natural gas generation. Imagine if even a fraction of that went to utility-scale Tesla solar installations paired with Megapacks. The data centers would still get the reliable power they need, xAI would reduce its growing emissions liability (the EPA is already\ntightening rules on data center generators\n), and Musk’s companies would at least be consistent in their stated commitment to clean energy.\nThe fact that Tesla is selling its energy storage products to a sister company that burns natural gas around the clock is not a great look. Megapacks are a piece of the clean energy puzzle, but they’re not the whole picture — and SpaceX’s IPO filing makes that gap harder to ignore.\nWith energy storage demand from AI data centers surging, locking in your own clean energy at home is smarter than ever. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "在用于融合等离子体诊断的大型螺旋装置中，探索 X 射线波长范围 3.7–4.0 Å 中 W43+–W47+ 高电荷钨杂质离子的发射光谱",
+          "d": "2026-06-04",
+          "a": "Nuclear Fusion - latest papers",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "本研究利用大型螺旋装置（LHD）在中心电子温度约4 keV的等离子体条件下，研究了3.7–4.0 Å波段高电荷钨杂质离子（W43+–W47+）的X射线晶体发射光谱。通过同轴钨弹丸注入并综合10次放电数据，结合FAC计算与碰撞辐射模型，精确识别了发射谱线。其中3.7691 Å处的W47+谱线刷新了LHD中观测到的最高电荷态记录，并利用XCS的高色散特性开发了三种诊断方法。",
+          "sc": 8.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae712e",
+          "tp": "等离子诊断",
+          "aip": 1,
+          "kp": [
+            "中心电子温度[大型螺旋装置等离子体]: 约4 keV",
+            "X射线波长范围[钨杂质离子发射光谱]: 3.7–4.0 Å",
+            "电荷态范围[高电荷钨杂质离子]: W43+–W47+"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This paper reports x-ray crystal spectroscopy (XCS) on highly charged ions of tungsten impurity within the Large Helical Device (LHD) under plasma conditions with a central electron temperature around 4 keV. By combining measured spectra with Flexible Atomic Code (FAC) calculations and a collisional radiative model weighted by ADAS ionization and recombination rates, emission lines from W43+ to W47+ charge states were systematically identified in the 3.7–4.0 Å band. The dataset was constructed by integrating 10 discharges to cover the entire wavelength range, using tungsten introduced reproducibly via coaxial W pellet injection. Notably, the W47+ line at 3.7691 Å extends the highest charge state observed to date in the LHD. Leveraging the high dispersion characteristics of XCS, three diagnostics directly relevant to ITER-class edge/pedestal plasmas with Te of several keV were demonstrated: (i) simultaneous measurement of multiple charge states via EUV-x-ray co-observation. This enables monitoring the evolution of tungsten charge state distribution in response to electron temperature variations, supporting impurity transport studies and operational monitoring. (ii) Ion temperature estimation from the Doppler width of the W46+ 3.8784 Å line showing a core peak, including error propagation via determination of instrument functions and cross-comparison with the charge exchange recombination spectroscopy. (iii) An electron temperature indicator based on the W46+ 3.8784/3.8956 Å intensity ratio. This exhibits strong sensitivity to Te, and FAC calculations reproduced the observed Te dependence of the line intensity ratio in the Te range of 3–5 keV.",
+          "hb": 1
+        },
+        {
+          "t": "界面氢键网络调节能够在无铜电催化剂上选择性地将二氧化碳还原为乙醇",
+          "d": "2026-06-04",
+          "a": "Chem",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "研究设计了一种无铜的Ag/Cr2O3电催化剂，在约160 mA/cm²的电流密度下，将二氧化碳电还原为乙醇的法拉第效率提升至50%以上。高氯酸根破坏了连续氢键网络抑制析氢反应，而Ag-Cr不对称位点稳定了碳碳耦合中间体，降低了生成乙醇的反应能垒，实现了优于乙烯的乙醇选择性生成。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00144-0?rss=yes",
+          "tp": "无铜还原催化剂",
+          "aip": 1,
+          "kp": [
+            "[CO2还原为乙醇]: 使用无铜的Ag/Cr2O3催化剂",
+            "法拉第效率[高氯酸盐辅助下]: >50%",
+            "电流密度[高氯酸盐辅助下]: ~160 mA/cm2",
+            "[界面氢键网络调节]: 高氯酸盐破坏连续氢键网络，抑制竞争性析氢反应",
+            "[Ag-Cr不对称位点]: 稳定C-C耦合中间体并降低乙醇反应路径能垒"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Selective electroreduction of CO2 into ethanol—a storable fuel—has been limited almost exclusively to copper. Herein, a copper-free Ag/Cr2O3 catalyst is designed to produce ethanol with >50% faradaic efficiency at ∼160 mA/cm2 with the assistance of perchlorate. The presence of perchlorate disrupts the continuous hydrogen-bond network, thereby inhibiting the competing hydrogen evolution. The Ag–Cr asymmetric sites further stabilize the C–C coupling intermediates and lower the ethanol pathway barriers over ethylene, thus enabling selective ethanol generation.",
           "hb": 1
         }
       ]
@@ -102,71 +107,75 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研发纳米流体离子存储器以实现低能耗类神经形态信息处理",
-        "Windrose发布移动AI数据中心方案集成算力与拖车式电池储能",
-        "融合神经祖细胞与磁电纳米颗粒的微型机器人实现无线神经修复"
+        "宝马新款iX3单次充电续航达781公里，成为NAF测试续航最长电动车",
+        "研究采用从头计算方法揭示原子核反转区岛结构演化中的量子纠缠规律",
+        "Pinterest与AWS达成40亿美元协议，将采用Trainium芯片执行计算任务"
       ],
       "entries": [
         {
-          "t": "面向下一代计算的纳米流体离子存储器",
-          "d": "2026-06-04",
-          "a": "Nature Reviews Materials",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "受生物大脑高能效信息处理的启发,研究提出纳米流体离子存储器作为下一代计算架构。该器件利用纳米通道内离子传输实现类神经形态的信息存储与处理,具备低能耗、高并行与生物兼容特性,为超越冯·诺依曼架构的类脑计算与神经接口提供了新硬件平台。",
-          "sc": 8.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41578-026-00919-1",
-          "tp": "纳米流体存储器",
-          "aip": 1,
-          "kp": [
-            "器件类型[纳米流体存储器]: 纳米流体忆阻器",
-            "[工作机制]: 纳米限域离子传输产生历史依赖性"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The biological brain stores and processes information with exceptional energy efficiency, motivating the search for alternatives to traditional von Neumann computing systems that separate memory from processing. Nanofluidic memristors have emerged as promising building blocks for non-conventional neuromorphic computing, in which ion transport under nanoscale confinement generates history-dependent conductance for analog or digital switching. Their performance is governed by surface chemistry, device geometry and electrolyte properties, which together give rise to diverse memristive mechanisms and hysteresis loop types. Exploring new materials not only improves functionality but also deepens our understanding of the diverse physical mechanisms driving memristive behaviour. Despite rapid progress, challenges remain in mechanisms identification, fabrication scalability, variability control, fine tuning of memristive properties, and integration into higher-order neuromorphic architectures. This Perspective summarizes recent advances in materials and mechanisms, outlines characterization protocols and highlights emerging applications from in-sensor computing to visual processing and reservoir computing, while discussing how tailored nanochannel materials may enable next-generation, brain-inspired iontronic neuromorphic systems.",
-          "hb": 1
-        },
-        {
-          "t": "盒装AI：Windrose计划将数据中心集装箱化",
+          "t": "宝马新款 iX3 一次充电可行驶 485 英里，是 NAF 测试中续航里程最长的电动汽车",
           "d": "2026-06-04",
           "a": "Electrek",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "新能源车企Windrose公布将AI数据中心集装箱化方案，配套拖车式电池储能系统（BESS）与移动AI数据中心设计图。该方案将算力与储能集成于可运输单元，瞄准边缘AI推理与离网场景，体现数据中心向移动化、模块化演进的产业趋势。",
-          "sc": 7.4,
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "在挪威汽车联盟（NAF）和Motor杂志的夏季续航测试中，宝马新款iX3（首款Neue Klasse电动车）单次充电续航达485英里（约781公里），成为测试中续航最长的电动汽车。宝马曾承诺该车型续航提升30%、充电速度加快30%。目前新车已在美国和欧洲开放订购。",
+          "sc": 8.2,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/03/ai-in-a-box-windrose-wants-to-containerize-the-data-center/",
-          "tp": "移动AI数据中心",
+          "u": "https://electrek.co/2026/06/04/bmws-new-ix3-drove-485-miles-longest-range-ev-naf-test/",
+          "tp": "宝马电车续航实测",
           "aip": 1,
           "kp": [
-            "[方案]: 集装箱化移动AI数据中心"
+            "续航里程[宝马新款iX3测试]: 485英里",
+            "续航提升[宝马新款iX3]: 30%",
+            "充电速度提升[宝马新款iX3]: 30%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "| Jun 3 2026 - 4:30 am PT\nWindrose first published AI-generated drawings of its BESS-in-a-trailer and mobile AI data center concept back in February, but hand it to Windrose founder, Wen Han: he’s not leaving it at that – Han has signed a new strategic partnership with the mobile charging experts at LiFe-Younger to help turn his vision into reality.\nLiFe-Younger is pairing its iMContainer HD trailer concept with Windrose’ R700 electric semi truck in this rendering (above) shared on LinkedIn, where Han claims that the, “\ncontainer-sized unit contains 2 MWh of battery storage capacity and up to 2 MW of charging speed\n.” Specs on the LiFe-Younger site are a\nmore conservative, meanwhile,\nciting up to 1 MWh of storage capacity with up to 500 kW of charging speed\nThat said, the announcement is more forward-looking than it is about announcing a current product, so take that how you will.\nYou can check out the original post covering Windrose’ initial concept, below, then let us know what you think of packing large scale battery and charging solutions into standardized containers – something\n, at least, seem to think is a good idea – in the comments section at the bottom of the page.\nORIGINALLY PUBLISHED 09FEB2026\nWindrose is making big, fast moves in the heavy-duty EV space with its electric semi truck business already expanding into four continents — but CEO Wen Han doesn’t want to stop there. He’s got an idea for a mobile data center and BESS solution packed into one, and he really wants us to know about it.\nWindrose CEO Wen Han has been making headlines with his ultra-capable electric semi trucks\n, but herecently took to LinkedIn recently to promote a whole new idea that’s less about the trucks,\nand more about what they’re hauling\nLaunched under the headline, “Windrose = AI = energy in a box.” The idea described two standard-sized shipping containers (pulled by a Windrose R700, of course) with one packed full of batteries and the other packed with server racks and cooling equipment.\nWhat’s really wild, however, isn’t the idea — it’s the fact that Wen was in such a hurry to put the concept “out there” that he apparently used Google Gemini-rendered images (shown, above) to illustrate the concept.\nGoogle Gemini adds the star watermark as a transparency and safety measure so that people can tell the image was created by AI, and isn’t either a photo or human-made artwork.\nThat said, I’ve only ever seen the Windrose R700 in 6×2 configurations,\nwhile these illustrations show it in 4×2\n. The other image, which shows how the BESS trailer can be deployed as a mobile charging solution, seems to drag the lines across an active highway.\nThe artwork leaves something to be desired, is what I’m saying. But the idea?\nIt’s not too far removed from the containerized BESS Volvo showed off at Bauma last year\n. That system was designed to provide power to off-highway equipment and offices when grid power was unavailable, and be easily hauled off to reliable charging where grid\navailable. Combining that idea with a containerized data center would–\nActually, I’m not sure what it would do. You guys are smart, though. You have ideas. Take a look at Wen’s concept (as understood by Google Gemini, at least), then let us know what you think in the comments.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "b": "Peter Johnson\n| Jun 4 2026 - 7:26 am PT\nbeat out the competition, driving 485 miles on a single charge, making it the longest-range EV during Motor and NAF’s summer range test.\nAs the first Neue Klasse EV, BMW promised the new iX3 would be a game-changer, delivering a 30% improvement in driving range and 30% faster charging speeds.\norders now open\nin the US and Europe, the new BMW iX3 is already showing what it’s capable of.\nDuring this year’s\nsummer EV range test\n, held by the Norwegian Automobile Federation (NAF) and Motor Magazine, the BMW iX3 50 xDrive drove further than any other model, achieving a driving range of 485 miles (781 km) on a single charge.\nWhile it wasn’t quite enough to top the record of 517 miles (832 km) achieved by\nthe Lucid Air\nlast summer, it’s still slightly higher than its official WLTP range of 478 miles (770 km).\nPlacing second was Lucid’s electric SUV, the Gravity, which achieved 447 miles (720 km) on a single charge.\nThe Mercedes-Benz CLA 350 4Matic came in third (675 km/419 mi), followed by the Mercedes-Benz GLC 400 4Matic, XPeng X9, Polestar 3, Mercedes-Benz GLB 350 4Matic, Toyota C-HR+, Kia EV4, and Hyundai IONIQ 9.\nAll of them started their journey in Oslo with a fully charged battery, traveling as far as possible until they ran out of power and could no longer maintain the speed limit.\nDrivers use regenerative braking throughout the trip, mostly during the first loop through Oslo, and then adaptive cruise control as needed. In addition, all vehicles are driven in normal mode.\nWhile they didn’t rank in the top 10, several new EVs beat their official WLTP range figures, including the XPeng X9 (+11.4%),\n(+5.4%), Hyundai Inster (+3.5%), and Kia PV5 (+1.8%).\nWhile the real-world driving range is helpful, NAF’s test is not just about which EV can travel the farthest. It’s more to prove which vehicles live up to their manufacturers’ claims.\nBMW opened orders for the new 2027 iX3 50 xDrive in the US last month, starting at $61,500 with an EPA-estimated driving range of up to 434 miles.\nAfter opening orders in Europe in September, BMW’s CEO, Oliver Zipse, said the new iX3 received\nover 50,000 orders\nin its first six months on sale, roughly a third of the brand’s total.\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nPeter Johnson is covering the auto industry’s step-by-step transformation to electric vehicles. He is an experienced investor, financial writer, and EV enthusiast. His enthusiasm for electric vehicles, primarily Tesla, is a significant reason he pursued a career in investments. If he isn’t telling you about his latest 10K findings, you can find him enjoying the outdoors or exercising",
           "hb": 1
         },
         {
-          "t": "用于脊髓损伤再生的磁电微型机器人",
+          "t": "使用从头算法进行反转区岛中的纠缠研究",
           "d": "2026-06-04",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "研究开发了名为NPCbots的生物混合微型机器人，将人诱导多能干细胞来源的神经祖细胞与磁电纳米颗粒整合，实现无线磁导航定位。NPCbots解决了神经干细胞移植存活率低、分化不可控和功能整合弱的问题，可通过磁电刺激引导脊髓损伤部位的神经再生，为脊髓损伤治疗提供了突破性方案。",
-          "sc": 7.1,
+          "a": "Recent Articles in Phys. Rev. C",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究采用从头计算方法，利用质子-中子纠缠熵、互信息和量子相对熵等量子纠缠测度，深入探讨了原子核在趋近反转区岛时的结构演化。研究揭示了纠缠模式随核结构变化的具体规律，证明了量子纠缠是探究原子核结构的独特且有效的视角。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-026-02625-3",
-          "tp": "磁电微型机器",
+          "u": "http://link.aps.org/doi/10.1103/m66g-vtqq",
+          "tp": "量子纠缠",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "核结构[反转区岛]: 使用质子-中子纠缠熵等量子纠缠度量方法进行从头算演化研究"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Spinal cord injury remains difficult to treat because of the intrinsically limited regenerative capacity of neurons. Although neural progenitor cell (NPC) therapies are promising, inadequate graft survival, uncontrolled differentiation and weak functional integration continue to restrict outcomes. Here we report biohybrid microrobots called NPCbots, fabricated by integrating human-induced pluripotent-stem-cell-derived NPCs with magnetoelectric nanoparticles, enabling wireless magnetic navigation and non-invasive neuronal stimulation. A lab-on-a-chip platform allows scalable fabrication and maintains cell viability and differentiation capacity. In a zebrafish spinal cord injury model, alternating magnetic field stimulation of NPCbots induced rapid in vivo neuronal and astrocytic differentiation, enhanced graft integration at the lesion site, and near-complete recovery of swimming and exploratory behaviours within 3 days. In a non-regenerating murine model of complete spinal cord transection, NPCbots were well tolerated for at least 28 days, localized effectively to the injury site, promoted neural differentiation and resulted in substantial improvements in motor function within 4 weeks. These results demonstrate that magnetically guided NPCbots combined with non-invasive magnetoelectric stimulation promote neural repair and functional recovery in preclinical spinal cord injury models.",
+          "b": "Author(s): Rohit M. Shinde and Praveen C. SrivastavaQuantum entanglement provides a unique perspective for probing nuclear structure. In this work, we employ quantum entanglement measures, including proton-neutron entanglement entropy, mutual information, and quantum relative entropy, to investigate the evolution of entanglement patterns as we approa…[Phys. Rev. C 113, 064307] Published Thu Jun 04, 2026",
+          "hb": 1
+        },
+        {
+          "t": "Pinterest 承诺使用 Trainium 芯片，并与 AWS 合作花费 40 亿美元",
+          "d": "2026-06-04",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "Pinterest宣布承诺将使用AWS的Trainium芯片进行计算工作，并与AWS达成了一项总价值高达40亿美元的合作协议。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/briefings/pinterest-commits-using-trainium-chips-spend-4-billion-aws",
+          "tp": "芯片采购",
+          "aip": 1,
+          "kp": [
+            "合作金额[Pinterest与AWS]: 40亿美元",
+            "硬件承诺[Pinterest]: 使用Trainium芯片"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Pinterest Commits to Using Trainium Chips, Spend $4 Billion with AWS — The Information\nRead this briefing for free",
           "hb": 1
         }
       ]
@@ -175,75 +184,74 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国石化上海石化攻克湿法T1000级碳纤维技术实现批量生产",
-        "NASA费米望远镜首次探测到超新星新生磁星驱动的伽马射线辐射",
-        "研究提出利用滑移铁电性实现交变磁性材料的六态精确控制"
+        "研究人员利用氮化硼空间限域反应合成直径近1纳米的单壁MoS2纳米管",
+        "新镍催化交叉偶联法实现无手性配体下重氮化合物与卤代烷的手性键构建",
+        "NASA X-59静音超音速实验机即将首次突破音障执行飞行测试"
       ],
       "entries": [
         {
-          "t": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网",
+          "t": "扶手椅型 MoS2 纳米管在 1 纳米极限的受限生长",
           "d": "2026-06-04",
-          "a": "中国电力新闻网-科技",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量量化生产。T1000级碳纤维拉伸强度极高，被称为\"能拉动10吨卡车的碳纤维\"，属于小丝束高端品种，打破了国外长期技术垄断。",
-          "sc": 9.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://cpnn.com.cn/news/kj/202606/t20260603_1892665.html",
-          "tp": "T1000碳纤维量产",
-          "aip": 1,
-          "kp": [
-            "拉伸强度[T1000碳纤维]: 6.5GPa",
-            "拉伸模量[T1000碳纤维]: 300GPa",
-            "丝束规格[T1000]: 12K",
-            "[工艺]: 湿法批量生产"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "能拉动10吨卡车的小丝束碳纤维量产--中国能源新闻网\n中电传媒股份有限公司主办\n能拉动10吨卡车的小丝束碳纤维量产\n6月2日，记者从中国石化获悉，中国石化上海石化联合上海石油化工研究院成功攻克湿法T1000级高性能碳纤维关键技术，实现批量化生产。此次研发量产的高性能碳纤维为12K小丝束，每束碳纤维由12000根单丝组成，单丝直径相当于头发丝直径的十分之一，单股丝束拉伸强度超过6.5吉帕、拉伸模量超过300吉帕，相当于能拉动一辆重约10吨的中型卡车。\n此次量产标志着其在高性能碳纤维领域取得里程碑式突破。该材料可用于航空航天、具身智能、低空经济等高端领域和未来产业，将为我国关键领域发展提供核心战略材料支撑。\n碳纤维性能优越，被称为“新材料之王”“黑黄金”，密度不到钢的四分之一，强度却是钢的7至9倍，并具有耐腐蚀的特性。碳纤维按丝束规格分为大丝束和小丝束两类，行业内常用K代表丝束规格（1K即1000根单丝）。T代表拉伸强度等级，数值越大，强度越高。24K及以下为小丝束碳纤维，丝束更细、性能更均匀、精度更高，适配航空航天、高端装备等高性能场景；48K及以上为大丝束碳纤维，单线产能更大、成本更低，是支撑风电、储能等工业领域大规模应用的核心材料。\n此次技术突破，进一步丰富和完善了中国石化碳纤维产品谱系。目前，中国石化已拥有3K、6K、12K、24K、48K、60K等不同丝束规格近20种型号的碳纤维产品生产能力，产品性能涵盖通用级、高性能等级，可用于航空航天、高端制造、风电、交通、体育休闲等各类场景。截至2025年底，中国石化已在碳纤维及其复合材料领域申请专利868项，专利申请数排名全国第一、全球第三，获授权417项，完成PCT申请4项。\n“十四五”能源高质量发展\n广西电力科学技术协会揭牌成立\n香港理工大学·月山能源新一代矿业联合实验室揭牌\n全国首个绿色算力全栈AI平台上线运行\n氢铀反应起始过程首次完整记录\n太阳能新技术实现海水淡化及固体盐分离\n单壁碳纳米管产能达单台10吨级\n中国电科院发布一项电力人工智能重大成果\n南方电网实现“数字员工”主导配网抢修 故障处置压缩至分钟级",
-          "hb": 1
-        },
-        {
-          "t": "美国宇航局费米望远镜捕捉到超新星正在做一些前所未见的事情",
-          "d": "2026-06-04",
-          "a": "scitechdaily",
-          "c": "通用技术/通信和运输/航天",
-          "as": "NASA费米伽马射线空间望远镜首次探测到超亮超新星的伽马射线辐射。国际研究团队分析发现，这种极亮恒星爆炸的能量来源是新生磁星——一种具有极端磁场的中子星。这是首次为超亮超新星磁星驱动模型提供令人信服的观测证据，对理解宇宙中最亮爆炸事件机制具有里程碑意义。",
-          "sc": 8.3,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/nasas-fermi-telescope-caught-a-supernova-doing-something-never-seen-before/",
-          "tp": "超新星磁星",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "’s Fermi telescope may have finally uncovered the magnetic powerhouse behind the universe’s brightest supernovae.\nAn international team of astronomers analyzing observations from\nNASA’s Fermi Gamma-ray Space Telescope\nhas found what appears to be the first convincing detection of gamma rays from a rare type of extraordinarily bright stellar explosion known as a superluminous supernova.\nTheir findings suggest the explosion was powered by a newly formed magnetar, an extremely magnetized\nneutron star\ncreated when a massive star collapsed. The discovery provides fresh insight into some of the most energetic explosions in the universe.\nNASA’s Fermi mission is part of a fleet of observatories that monitor changes across the cosmos, helping scientists better understand how the universe evolves.\n“For nearly 20 years, astronomers have\nsearched Fermi data\nfor gamma-ray signals from thousands of supernovae, and while a few intriguing hints have been reported, none were definitive until now,” study lead Fabio Acero at the French National Centre for Scientific Research (CNRS) and the University of Paris-Saclay.\nThe results were published in the journal\nAstronomy & Astrophysics\nCore-collapse supernovae occur when a massive star, many times larger than the Sun, exhausts the fuel needed to support itself. Without that energy source, the star’s core collapses under gravity and triggers a powerful explosion.\nThe collapse can leave behind either a neutron star roughly the size of a city or an even more compact\n. Meanwhile, a powerful shock wave blasts the outer layers of the star into space, creating a rapidly expanding cloud of hot, ionized gas.\nOver the past two decades, astronomers have identified nearly 400 unusually bright examples of these explosions. Known as superluminous supernovae, they can shine more than ten times brighter in visible light than typical supernovae.\nIn 2024, a study led by Li Shang of Anhui University in Hefei, China, suggested that Fermi’s Large Area Telescope may have detected gamma rays from one of these exceptional explosions years after it occurred.\nThat event, called SN 2017egm, erupted in the galaxy NGC 3191, about 440 million light-years from Earth in the constellation Ursa Major. Despite its great distance, it remains one of the nearest superluminous supernovae ever observed.\n“We searched for gamma rays from the six nearest superluminous supernovae seen during the first 16 years of Fermi’s mission,” said Guillem Martí-Devesa, a researcher previously at the University of Trieste in Italy and now a fellow at the Institute of Space Sciences in Barcelona, Spain. “Only SN 2017egm shows evidence for gamma rays, confirming earlier hints that some supernovae can be as luminous in gamma rays as they are in visible light. This opens up a new window for studying these fascinating events.”\nScientists have long debated what supplies the enormous energy behind superluminous supernovae. One leading explanation involves the birth of a magnetar, a neutron star possessing the strongest magnetic fields known in nature.\nThese magnetic fields can be up to 1,000 times stronger than those of ordinary neutron stars, reaching roughly 10 trillion times the strength of a refrigerator magnet.\nTo investigate, researchers conducted a detailed analysis of both the optical and gamma-ray observations of SN 2017egm. They compared the data with several theoretical models designed to explain the explosion’s behavior.\nOne model, developed by co-authors Indrek Vurm of the University of Tartu in Estonia and Brian Metzger of\nColumbia University\nin New York City, simulated how particles and radiation from a newly born magnetar would interact with the expanding material ejected by the supernova.\nScientists expect newborn magnetars to rotate extremely rapidly, completing hundreds of spins every second. This rapid rotation generates a powerful flow of electrons and positrons, which are the antimatter counterparts of electrons.\nThese particles create a huge region known as a\nmagnetar wind nebula\n, filled with highly energetic particles.\nWithin this environment, numerous interactions can create and absorb gamma rays. For example, an electron and a positron can annihilate each other and produce gamma-ray photons. Gamma rays can also collide and create new particle pairs.\nAs these interactions continue, gamma rays become trapped within the expanding supernova debris. Rather than escaping immediately, much of their energy is converted into lower-energy visible light. This process helps explain why superluminous supernovae shine so intensely.\n“About three months after the collapse, as the supernova debris expands and cools, the gamma rays can begin to leak out,” Acero said. “This magnetar model best reproduces the supernova’s luminosity and the arrival time of its gamma rays during the first months, but we see room for improvement at later times, when the visible light fades quite irregularly.”\nThe researchers believe other processes likely contributed to the supernova’s behavior as it gradually dimmed.\nPossible factors include material falling back onto the magnetar and interactions between the expanding blast wave and matter expelled by the star during the centuries before its final collapse.\nThe team also explored whether future facilities could detect similar events. Their analysis suggests the new ground-based Cerenkov Telescope Array Observatory could identify a supernova like SN 2017egm from as far away as about 500 million light-years with roughly 50 hours of observations.\nScientists expect that combining observations from facilities like the Cerenkov Telescope Array Observatory with data from NASA’s space-based telescopes will significantly improve understanding of these extraordinary explosions.\n“The magnetar central engine mechanism discussed in this paper builds upon a lot of observational and theoretical advances in magnetars over the last 20 years,” said Judy Racusin, a deputy project scientist for the Fermi mission at NASA’s Goddard Space Flight Center in Greenbelt, Maryland. “Observing gamma rays from supernovae will give us a new way to explore their inner workings.”\nReference: “Gamma-ray signature of superluminous supernovae:\n-LAT GeV detection of SN 2017egm and evidence of a central engine” by F. Acero, A. Acharyya, A. Adelfio, M. Ajello, E. Aviano, L. Baldini, J. Ballet, C. Bartolini, D. Bastieri, J. Becerra Gonzalez, R. Bellazzini, E. Bissaldi, R. Bonino, P. Bruel, S. Buson, R. A. Cameron, P. A. Caraveo, F. Casaburo, F. Casini, E. Cavazzuti, C. C. Cheung, N. Cibrario, G. Cozzolongo, P. Cristarella Orestano, F. Cuna, S. Cutini, F. D’Ammando, D. Depalo, S. W. Digel, N. Di Lalla, A. Dinesh, L. Di Venere, P. Fauverge, A. Fiori, A. Franckowiak, Y. Fukazawa, S. Funk, P. Fusco, F. Gargano, C. Gasbarra, D. Gasparrini, S. Germani, F. Giacchino, N. Giglietto, M. Giliberti, F. Giordano, M. Giroletti, I. A. Grenier, M.-H. Grondin, S. Guiriec, R. Gupta, E. Hays, J. W. Hewitt, A. Holzmann Airasca, D. Horan, X. Hou, T. Kayanoki, M. Kerr, M. Kuss, A. Laviron, M. Lemoine-Goumard, A. Liguori, J. Li, I. Liodakis, P. Loizzo, F. Longo, F. Loparco, S. López Pérez, L. Lorusso, M. N. Lovellette, P. Lubrano, S. Maldera, A. Manfreda, G. Martí-Devesa, R. Martinelli, M. N. Mazziotta, M. Michailidis, P. F. Michelson, N. Mirabal, T. Mizuno, P. Monti-Guarnieri, M. E. Monzani, A. Morselli, I. V. Moskalenko, M. Negro, N. Omodei, M. Orienti, E. Orlando, G. Panzarini, M. Persic, M. Pesce-Rollins, R. Pillera, T. A. Porter, G. Principe, S. Rainò, R. Rando, B. Rani, M. Razzano, A. Reimer, O. Reimer, M. Sánchez-Conde, P. M. Saz Parkinson, D. Serini, C. Sgrò, E. J. Siskind, G. Spandre, P. Spinelli, D. J. Suson, H. Tajima, D. J. Thompson, D. F. Torres, Z. Wadiasingh, K. Wood, G. Zaharijas, W. Zhang, E. Chatzopoulos, B. D. Metzger, P. J. Pessi and I. Vurm, 20 May 2026,\nAstronomy & Astrophysics\nDOI: 10.1051/0004-6361/202558547\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nFermi Gamma-ray Space Telescope\nNASA Goddard Space Flight Center\nDefying Expectations: NASA’s Fermi Sees No Gamma Rays From Nearby Supernova\nUnidentified Cosmic Phenomena: Fermi’s Gamma-Ray Discovery Shocks Astronomers\nCosmic Cinema: NASA Unveils Stunning 14-Year Time-Lapse of the Gamma-Ray Sky\nNASA’s Fermi Space Telescope Captures Cosmic Fireworks in Dynamic Gamma-Ray Sky\nStrange Long-Lasting Pulse of High-Energy Radiation Swept Over Earth\nNASA’s Fermi Space Telescope Hunts for Gravitational Waves From Monster Black Holes\nNASA’s Fermi Spots a Weird Pulse of High-Energy Radiation Racing Toward Earth\nNASA’s Roman Mission: Using Exploding Stars to Solve the Biggest Cosmic Mysteries\nNASA Spacecraft Unmask High-Energy Blast That Swept Through the Solar System – Magnetar Eruption in Nearby Galaxy",
-          "hb": 1
-        },
-        {
-          "t": "通过滑移铁电性实现交替磁性的对称锁定六态控制",
-          "d": "2026-06-04",
-          "a": "AAAS: Science Advances: Table of Contents",
+          "a": "AAAS: Science: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究提出利用滑移铁电性实现对交变磁性（altermagnetism）的对称锁定六态控制。交变磁性多铁材料可在无净磁化下实现自旋劈裂，为低功耗自旋电子学提供了新途径；通过滑移铁电调控实现对磁态的精确多态写入与读取，有望推动非易失性存储与逻辑器件发展。",
-          "sc": 8.1,
+          "as": "研究利用氮化硼纳米管内部的空间限域反应，成功合成了直径接近1纳米的单壁二硫化钼（MoS2）纳米管。这种限域几何结构稳定了高度应变的MoS2纳米管，形成了结构明确的扶手椅型构型。随着管径减小，其带隙系统性地发生收缩。",
+          "sc": 8.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5229?af=R",
-          "tp": "滑移铁电控磁",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aee3446?af=R",
+          "tp": "二硫化钼纳米管",
           "aip": 1,
           "kp": [
-            "[磁电耦合]: 六态高维耦合",
-            "[机制]: 滑移铁电性锁定对称性",
-            "[应用]: 低功耗自旋电子学"
+            "[单壁二硫化钼(MoS2)纳米管]: 扶手椅型",
+            "纳米管直径[受限生长]: 接近1 nm"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Altermagnetic multiferroics offer a promising route to low-power spintronics by enabling spin splitting without net magnetization, extending beyond conventional spin-orbit coupling. However, achieving deterministic electric control has remained elusive. Here, a six-state platform for high-dimensional magnetoelectric coupling in altermagnets is established by exploiting the nondegenerate transition paths of sliding ferroelectrics as a symmetry-engineering knob, thereby transcending the conventional binary (up/down) paradigm of sliding ferroelectricity. First-principles calculations on bilayer manganese phosphorus trisulfide reveal a spin-polarization symmetry-locking mechanism. Polarization switching along the three nondegenerate paths not only reverses the spin splitting but also rotates its spin-splitting texture in 120° increments, yielding six nonvolatile, electrically addressable altermagnetic states. Furthermore, direct correspondence is established between the spin-splitting texture and the nonlinear Hall response, providing unique electrical fingerprints for each state. This work establishes a paradigm for electric field–driven reconstruction of momentum-space spin geometry, providing a versatile platform for controlling quantum phenomena in altermagnetic spintronics.",
+          "b": "Atomically thin nanotubes of semiconducting transition metal dichalcogenides offer a platform for exploring quantum phenomena at the one-dimensional limit and for realizing nanoscale transistor channels. However, conventional syntheses produce only large-diameter (&gt;10 nm), multiwalled tubes with uncontrolled chiralities. We report the synthesis of single-walled molybdenum disulfide (MoS\n                    2\n                    ) nanotubes with diameters approaching 1 nm, achieved through spatially confined reactions inside boron nitride (BN) nanotubes. The confined geometry stabilizes otherwise inaccessible, highly strained MoS\n                    2\n                    nanotubes, yielding structurally well-defined armchair configurations. Their bandgaps shrink systematically with decreasing diameter, in accordance with long-standing theoretical predictions. The insulating BN sheath simultaneously provides an intrinsic gate-all-around architecture, thereby promising access to truly nanoscale transistor channels.",
+          "hb": 1
+        },
+        {
+          "t": "Stereoretentive radical-based alkyl-alkyl cross-coupling",
+          "d": "2026-06-04",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究开发了一种无需手性配体、导向基团或外部氧化还原剂，即可实现两种不同瞬态烷基自由基的立体保留型自由基-自由基交叉偶联方法。该反应采用镍催化和底物控制的氧化还原中性机制，精确实现了重氮化合物介导的自由基生成与卤素原子转移的动力学匹配，成功构建了手性C(sp3)-C(sp3)键。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aef6981?af=R",
+          "tp": "自由基交叉偶联",
+          "aip": 1,
+          "kp": [
+            "[立体保留型自由基-自由基交叉偶联]: 构建C(sp3)–C(sp3)键",
+            "[反应前驱体]: 手性纯磺酰肼和无手性伯烷基"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The construction of stereogenic C(sp\n                    3\n                    )–C(sp\n                    3\n                    ) bonds through cross-coupling remains a formidable challenge owing to competing β-hydride elimination and homocoupling as well as the poor inherent stereocontrol of radical pathways. In this work, we report a scalable stereoretentive radical-radical cross-coupling of two distinct, transient alkyl radicals, derived from enantioenriched sulfonylhydrazides and achiral primary and secondary alkyl halides, achieved without chiral ligands, directing groups, or exogenous redox agents. This substrate-controlled approach leverages a nickel-catalyzed, redox-neutral manifold, which enables precise kinetic matching of diazene-mediated radical generation and halogen atom transfer. The reaction produced enantiospecificities of 80 to 96% and synthetically useful yields (up to 90%) across diverse piperidine and pyrrolidine scaffolds while tolerating ethers, free amines, aryl halides, heterocycles, olefins, and other sensitive motifs. Mechanistic studies support caged radical rebound at nickel to preserve chirality, followed by nickel(I)-nickel(III)–mediated radical capture and reductive elimination.",
+          "hb": 1
+        },
+        {
+          "t": "NASA 的 X-59 音爆杀手已准备好进行迄今为止最大规模的测试",
+          "d": "2026-06-04",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航空",
+          "as": "NASA的X-59静音超音速实验机已准备好进入其飞行测试计划的最重要阶段。该实验机即将执行首次超音速飞行测试及一系列关键任务测试。这标志着该独特机型将正式突破音障，并朝着其设计的核心任务条件迈进，以实现降低超音速音爆影响的测试目标。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/nasas-x-59-sonic-boom-killer-is-ready-for-its-biggest-test-yet/",
+          "tp": "超音速测试",
+          "aip": 1,
+          "kp": [
+            "飞行测试里程碑[NASA X-59实验飞机]: 突破音障实现超音速飞行"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s strange-looking X-59 jet is about to reach the milestone it was built for: flying faster than the speed of sound.\nNASA’s X-59 experimental aircraft is preparing for one of the most important phases of its flight testing program. The next series of flights will include the aircraft’s first journey beyond the speed of sound, along with several key tests needed for the mission’s future goals.\n“What comes next is the first time this one-of-a-kind aircraft will fly supersonic,” said Cathy Bahm, project manager for NASA’s Low Boom Flight Demonstrator. “We are starting toward the mission conditions test point that X-59 was designed for.”\nFollowing months of flight testing, the X-59 team completed a review of recent progress in late May and is now moving on to a new set of tests involving greater speeds and higher altitudes. These flights will help engineers evaluate how the aircraft performs under the operating conditions required for NASA’s Quesst mission, which aims to collect data on quiet supersonic flight.\nNASA expects the X-59 to exceed the speed of sound for the first time during test flights scheduled for early June. The aircraft is expected to fly faster than 630 mph at an altitude of about 43,000 feet, marking a major achievement for the program.\nThe aircraft will then attempt a “mission conditions” flight, reaching Mach 1.4 (925 mph) at roughly 55,000 feet. Those targets are especially important because they match the performance conditions NASA plans to use when flying the X-59 over U.S. communities in future tests. During those flights, researchers hope to gather public feedback on the aircraft’s quieter sonic “thump.”\nAlthough the X-59 was specifically designed to reduce the disruptive sonic boom normally associated with supersonic flight, the upcoming tests are not intended to demonstrate that capability. During this phase, the aircraft will fly alongside a conventional supersonic chase plane. Any quiet sound produced by the X-59 will be masked by the louder sonic booms generated by the chase aircraft.\nLater this summer, the chase plane will carry a specialized shock-sensing probe that will allow researchers to begin measuring the X-59’s shock waves.\nThe aircraft’s first phase of flight testing successfully achieved a number of objectives and provided engineers with valuable data.\nAfter its maiden flight in October 2025, the X-59 underwent a planned maintenance period before returning to flight operations in March 2026. Since then, the aircraft has completed 14 additional flights and reached several important milestones, including:\nEngineers used data from these flights to evaluate critical systems, including fuel delivery, hydraulics, environmental controls, and the aircraft’s eXternal Vision System. Instead of a traditional forward windshield, the X-59 relies on cameras that feed images to a display, allowing the pilot to see ahead.\nTeams also closely monitored the aircraft during takeoffs, landings, and flight operations. Strain gauges installed throughout the airframe measured structural loads and recorded how the aircraft responded to those forces.\nDuring the upcoming test campaign, pilots will continue working through planned test points while engineers monitor how the aircraft performs under supersonic conditions.\n“Flying at supersonic speeds is a major milestone for the X-59 team,” Bahm said. “Every step of envelope expansion brings us closer to demonstrating the quiet supersonic capability that is at the heart of the Quesst mission. Completing the first mission-conditions flight is especially meaningful – it’s the moment where we begin validating the aircraft in the environment it was designed for.”\nIn addition to reaching mission conditions, the X-59 is expected to achieve its top planned performance targets of Mach 1.6 (1,218 mph) and an altitude of 60,000 feet.\nEven so, not every future flight will be supersonic. The testing program will continue to include slower flights and operations at lower altitudes so engineers can evaluate the aircraft under a broad range of conditions.\n“These flights not only deepen our confidence in the X-59’s performance – they mark our progression toward the future phases of the mission that will ultimately help shape the future of supersonic travel,” Bahm said.\nAll flights completed so far, as well as those planned in the upcoming series, are part of Phase 1 of NASA’s Quesst mission. The goal of this stage is to verify the aircraft’s performance and airworthiness.\nSome of these flights will also begin testing equipment needed for future research, including a probe mounted on one of NASA’s F-15 research aircraft to measure the unique shock-wave signature produced by the X-59.\nInformation gathered during those early measurements will help prepare the team for Quesst Phase 2, scheduled to begin later this year. During that phase, engineers will directly measure the aircraft’s supersonic flight signature to confirm that it produces the quiet supersonic thump it was designed to create.\n“Aviation pioneer Otto Lilienthal said, ‘To design a flying machine is nothing. To build one is something. But to fly is everything.’ The 15 X-59 flights we’ve accomplished since March have been everything to this team and the mission,” Bahm said. “Every flight has pushed the boundaries of what’s possible, steadily expanding the envelope and strengthening our confidence in the aircraft.”\nWhile the accomplishments so far have been significant, Bahm said the team remains focused on what comes next.\n“As we look ahead to the upcoming flights, we’re poised to open the envelope even further – moving boldly toward the mission test point this aircraft was built to achieve,” Bahm said. “Flying supersonic and reaching these milestones isn’t just progress; it’s the realization of years of perseverance, innovation, and teamwork. Each step brings us closer to Phase 2, and to the future of commercial supersonic flight.”\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nNASA X-59 Quesst\nNASA Unveils Cutting-Edge Tech To Make Supersonic Flights Quieter\nOn the Brink of Revolution: NASA’s Quiet Supersonic X-59 Moves Toward Maiden Flight\nNASA’s X-59 Quesst: Overturning the 50-Year-Old Supersonic Speed Limit\nSilencing Sonic Booms: NASA’s X-59 Quiet Supersonic Aircraft Passes Critical Milestone\nNASA X-59 Experimental Aircraft’s Quiet Revolution in Supersonic Flight\nNASA’s X-59: A Supersonic Aircraft’s Patriotic Paint Transformation\nQuiet and Efficient – New Propeller Advance Paves Way for Electric Planes\nJet Engine Installed on NASA’s X-59 QueSST Quiet Supersonic Aircraft\nMajor Milestone As NASA’s X-59 QueSST Quiet SuperSonic Technology Aircraft Comes Together",
           "hb": 1
         }
       ]

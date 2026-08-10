@@ -1,0 +1,80 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月31日　星期五",
+  "date_range": "2025-10-31",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队揭示细小裸藻光系统I超复合体结构特征"
+    ],
+    "AI与智能科技": [
+      "基于晶圆级二维半导体的现场可编程门阵列研发取得进展"
+    ],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队揭示细小裸藻光系统I超复合体结构特征"
+      ],
+      "entries": [
+        {
+          "t": "细小裸藻光系统 I 超复合体发散进化的结构见解",
+          "d": "2025-10-31",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/传统生物化工",
+          "as": "",
+          "sc": 6.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea6241?af=R",
+          "tp": "光合系统结构",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "基于晶圆级二维半导体的现场可编程门阵列研发取得进展"
+      ],
+      "entries": [
+        {
+          "t": "基于晶圆级二维半导体的现场可编程门阵列",
+          "d": "2025-10-31",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf458/8307503?rss=1",
+          "tp": "二维半导体FPGA",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

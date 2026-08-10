@@ -6,71 +6,40 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "科研人员研发安培级无膜双极电催化氨合成系统，法拉第效率超100%",
-      "研究提出熵驱动溶剂化设计策略，改善钠离子电池醚类电解液低温性能",
-      "两性离子界面调控技术有效抑制微米硅负极体积膨胀，提升准固态锂电池寿命"
+      "科研机构研发超薄锂阳极界面技术，推进450 Wh/kg级锂金属电池长循环应用",
+      "研究团队采用表面晶格调制工艺，制备出高性能4.6 V钴酸锂正极材料",
+      "新型两性离子中间层技术提升非富勒烯有机太阳能电池光电转换效率至21%"
     ],
     "AI与智能科技": [
-      "科研人员构建集成原位多尺度结构表征的自主纳米颗粒合成平台",
-      "TeleAI与中国电信开源千亿参数细粒度MoE语义大模型TeleChat3"
+      "中电信与TeleAI开源千亿参数细粒度MoE语义大模型TeleChat3",
+      "TeleChat3模型总参数量达105B，训练数据规模超15T",
+      "该系列模型在十余项基准测试中表现达到GPT-OSS-120B同等水平"
     ],
-    "通用技术": [
-      "研究人员通过配体设计在钛基框架中引入簇应变，提升材料光催化性能",
-      "科研团队利用自旋层耦合效应实现单层反铁磁材料垂直奈尔矢量电学检测",
-      "研究开发结合切向流过滤技术的收敛混合策略，实现替西帕肽克级规模合成"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "科研人员研发安培级无膜双极电催化氨合成系统，法拉第效率超100%",
-        "研究提出熵驱动溶剂化设计策略，改善钠离子电池醚类电解液低温性能",
-        "两性离子界面调控技术有效抑制微米硅负极体积膨胀，提升准固态锂电池寿命"
+        "科研机构研发超薄锂阳极界面技术，推进450 Wh/kg级锂金属电池长循环应用",
+        "研究团队采用表面晶格调制工艺，制备出高性能4.6 V钴酸锂正极材料",
+        "新型两性离子中间层技术提升非富勒烯有机太阳能电池光电转换效率至21%"
       ],
       "entries": [
         {
-          "t": "基于表面重构的安培级无膜双极氨电合成，法拉第效率超过100%",
+          "t": "450 Wh Kg−1 级长循环锂金属电池超薄锂阳极上的工程应力-电位耦合界面",
           "d": "2025-12-26",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
-          "as": "该研究实现了一种安培级无膜双极电催化氨合成系统，法拉第效率超过100%。研究通过表面重构催化剂的精确电子结构调控，在无隔膜条件下实现了氮气的高效还原。超过100%的法拉第效率暗示体系中可能存在非电化学路径的贡献，如化学固氮或中间产物的循环利用。该方法突破了传统电催化固氮中电流密度低和需离子交换膜的限制，为分布式绿氨生产提供了新思路。",
-          "sc": 7.4,
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202521629?af=R",
-          "tp": "电催化合成氨",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519442?af=R",
+          "tp": "锂金属电池界面",
           "aip": 1,
-          "kp": [
-            "[催化剂]: 阴极电化学重构NiFe-LDH",
-            "[法拉第效率]: >100%",
-            "[电流密度]: 安培级",
-            "[氧空位]: 富集于Fe周围",
-            "[构型]: 无膜双极性电合成"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Awaking the force of materials for specific efficacy by precise electronic modulation remains a fundamental challenge in catalysis. Herein, we transform ordinary NiFe‐layered double hydroxide (NiFe‐LDH) into a high‐performance NO\n                    3\n                    −\n                    ‐to‐NH\n                    3\n                    electrocatalyst via cathodic electrochemical restructuring, which effectively induces oxygen vacancy (O\n                    v\n                    ) clusters preferentially localized around low‐valence Ni sites. The resultant restructured NiFe‐LDH (NiFe‐LDH‐R) demonstrates excellent concentration‐universal NH\n                    3\n                    electrosynthesis activity in 1 M KOH, notably sustaining high Faradaic efficiencies (FEs, 88.5%–95%) across a broad potential range and attaining an ampere‐level current density (−1.46 A cm\n                    −2\n                    ) together with a remarkable yield rate of 104.1 mg\n                    NH3\n                    h\n                    −1\n                    cm\n                    −2\n                    . In situ spectroscopic analyses reveal boosted hydrogenation kinetics and a thermodynamically favorable NOH pathway for NiFe‐LDH‐R, which is further decoded by theoretical calculations indicating that synergized O\n                    v\n                    /Fe and low‐valence Ni sites, respectively enhance NO\n                    3\n                    −\n                    adsorption and directional active hydrogen (*H) supply, thus streamlining overall energy barriers. Moreover, a new‐style membrane‐free bipolar electrosynthesis system is established, which enables unprecedent NH\n                    3\n                    FEs exceeding 100% and scalable NH\n                    3\n                    valorization into 4.1 g of methenamine. This study rekindles power of electrochemical restructuring in catalyst advance and pioneers a new paradigm for energy‐efficient electrochemical NH\n                    3\n                    production and fixation.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 面向钠离子电池低温醚基电解液的熵驱动溶剂化设计",
-          "d": "2025-12-26",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "本文聚焦钠离子电池醚类电解质的低温性能问题，提出基于熵驱动溶剂化设计策略。通过调控电解液溶剂化结构来降低凝固点并提升低温离子传输性能，为钠离子电池在寒冷环境中的可靠运行提供电解液工程思路。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03431",
-          "tp": "钠电池低温电解液",
-          "aip": 1,
-          "kp": [
-            "[电解质]: 低温醚基钠电池电解液",
-            "[设计]: 熵驱动溶剂化调控"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -78,26 +47,42 @@
           "hb": 0
         },
         {
-          "t": "两性离子诱导界面电势调控稳定准固态锂离子电池微米硅负极",
+          "t": "通过表面晶格调制实现高性能 4.6 V LiCoO2 正极材料",
           "d": "2025-12-26",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究利用两性离子诱导的界面电势调控，稳定了准固态锂离子电池中的微米硅（μ-Si）负极。微米硅因高理论比容量是高能锂电池的理想负极材料，但其充放电过程中的巨大体积膨胀导致界面不稳定和容量快速衰减。研究者通过在硅表面构建两性离子功能层，精确调控固态电解质界面（SEI）的电势分布和离子传输，有效抑制了体积膨胀引发的界面粉化。该策略显著提升了微米硅负极在准固态体系中的循环寿命和库伦效率。",
-          "sc": 6.6,
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522965?af=R",
-          "tp": "硅负极准固态锂电池",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521637?af=R",
+          "tp": "钴酸锂正极材料",
           "aip": 1,
-          "kp": [
-            "稳定化策略[微米硅负极]: 两性离子诱导界面电位调控",
-            "电池类型[准固态]: 锂离子电池"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Abstract\n                  \n                    Micron‐sized silicon (μ‐Si) is an attractive anode material for high‐energy lithium‐ion batteries owing to its high tap density, large specific capacity, and compatibility with scalable manufacturing. Its practical deployment, however, is impeded by an uncontrolled interfacial‐potential landscape that drives heterogeneous Li\n                    +\n                    transport, spatially non‐uniform reduction and recurrent solid‐electrolyte interphase (SEI) rupture, thereby accelerating capacity fade. Here, we report a zwitterion‐modified quasi‐solid‐state electrolyte that regulates the interfacial‐potential distribution at the μ‐Si/electrolyte interface. In situ polymerization of 3‐(1‐vinyl‐3‐imidazolyl)propanesulfonate (VIPS) within a conventional carbonate electrolyte yields PVIPSE, whose spatially proximate imidazolium and sulfonate groups stabilize μ‐Si anodes through synergistic effects: (i) electrostatic screening that equalizes potential across the inner/outer Helmholtz planes and homogenizes Li\n                    +\n                    flux; (ii) Li\n                    +\n                    –sulfonate coordination that restructures the solvation environment and biases reduction pathways toward an inorganic‐rich, electronically insulating SEI; and (iii) selective partitioning of fluoroethylene carbonate at the interface to promote uniform LiF‐rich passivation. Scanning electrochemical microscopy directly visualizes the reduced interfacial‐potential heterogeneity and improved SEI uniformity. As a result, the quasi‐solid‐state PVIPSE enables stable long‐term cycling of μ‐Si anodes, establishing interfacial‐potential regulation as a distinct and effective design principle, orthogonal to solvation engineering and mechanical reinforcement, for stabilizing high‐capacity alloying anodes.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于 21% 效率的非富勒烯有机太阳能电池的同源引导两性离子中间层",
+          "d": "2025-12-26",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520669?af=R",
+          "tp": "有机太阳能电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -105,38 +90,37 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "科研人员构建集成原位多尺度结构表征的自主纳米颗粒合成平台",
-        "TeleAI与中国电信开源千亿参数细粒度MoE语义大模型TeleChat3"
+        "中电信与TeleAI开源千亿参数细粒度MoE语义大模型TeleChat3",
+        "TeleChat3模型总参数量达105B，训练数据规模超15T",
+        "该系列模型在十余项基准测试中表现达到GPT-OSS-120B同等水平"
       ],
       "entries": [
         {
-          "t": "[ASAP] 原位多尺度结构表征引导的自主纳米颗粒合成",
+          "t": "国内首个全国产化千亿参数细粒度MoE语义大模型开源",
           "d": "2025-12-26",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "本文开发了集成原位多尺度结构表征的自主纳米颗粒合成平台。该平台将自动化合成与原位结构分析相结合，能够在广阔的参数空间中快速探索和优化纳米材料制备条件，加速新材料的发现与工艺开发。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c03875",
-          "tp": "自主纳米合成平台",
-          "aip": 1,
-          "kp": [
-            "自主合成平台[纳米颗粒]: 微液滴反应器+原位SAXS/WAXS+高斯优化"
-          ],
-          "lv": 0,
+          "a": "News",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "中电信人工智能科技与TeleAI开源国内首个全国产化训练的千亿参数细粒度MoE语义模型TeleChat3-105B-A4.7-Thinking。模型共105B参数、激活4.7B，含1共享专家+192路由专家（每次激活4个），训练数据超15T。在IFEval、Math-500等十余个基准上对标GPT-OSS-120B、Qwen3-32B。同步开源稠密模型TeleChat3-36B-Thinking。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.sciencenet.cn/htmlnews/2025/12/557771.shtm",
+          "tp": "国产大模型",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Autonomous synthesis platforms promise rapid exploration of vast parameter spaces; yet, integrating in situ structural characterization in closed-loop synthesis optimization remains challenging. We demonstrate a realization of such a closed-loop platform coupled with a droplet-flow microreactor, in situ X-ray scattering methods (SAXS/WAXS), and Gaussian process optimization to synthesize citrate-reduced Au nanoparticles with targeted characteristics. The system efficiently explored ∼19,000 synthesis recipes through 365 experiments, achieving precise control over size (4-60 nm) and polydispersity (σ < 0.11) across large citrate/gold ratios, exceeding traditional synthesis boundaries (1-10). Beyond confirming classical Turkevich-Frens trends, partial-dependence analysis revealed strong nonlinear coupling among precursor, citrate, and pH effects. Combining quantitative SAXS/WAXS analysis with electron microscopy characterization, we uncovered that crystallite size (dc) and particle size (d) follow dc = 0.18d + β, where synthesis chemistry controls the intercept β while maintaining a universal slope. This parallel-band structure enables independent tuning of crystallite domain size at fixed particle diameter through a combination of chloride, gold precursor, citrate, and pH contributions (cross-validated Spearman ρ = 0.7 ± 0.1). High-resolution electron microscopy shows multiple lattice-fringe orientations within single particles, directly confirming polycrystalline domains and the ability to tune dc at the fixed d. The platform's validation includes indistinguishable static versus flowing measurements, stable droplet transport at 100 °C, and <5% run-to-run variation, establishing a robust framework for mapping and controlling multiscale nanoparticle structure across expansive chemical spaces. The developed closed-loop platform can be applied to a borad range of nanosyntheis processes.",
+          "b": "12月26日，中国科学报报道。近日，中电信人工智能科技有限公司和中国电信人工智能研究院（TeleAI）的星辰语义大模型研发团队宣布，国内首个全国产化训练的千亿参数细粒度MoE语义大模型TeleChat3-105B-A4.7-Thinking正式开源。该模型采用细粒度MoE架构，基础模型训练数据超15T，共包括1个共享专家和192个路由专家（每次激活4个专家），模型整体共105B参数量，实际激活参数为4.7B，专家稀疏比处于业界前列。在IFEval、Math-500、AIME2025、Tau2-Bench等十多个权威评测集上，效果对标GPT-OSS-120B、Qwen3-30B-A3B、Qwen3-32B等模型。\n此外，团队还同步开源了稠密参数模型TeleChat3-36B-Thinking，在知识问答、逻辑推理、智能体等维度实现了能力提升，并实现了文本创作、语义理解、角色扮演等任务的针对性优化。据了解，此前中电信人工智能科技有限公司和中国电信人工智能研究院（TeleAI）已陆续开源自研的TeleChat、TeleChat2及TeleChat2.5系列模型，以传统稠密参数架构为主，模型尺寸覆盖十亿到千亿，构建了全尺寸大模型的开源布局。",
           "hb": 1
         },
         {
           "t": "国内首个全国产化千亿参数细粒度MoE语义大模型开源",
           "d": "2025-12-26",
-          "a": "",
+          "a": "News",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
           "as": "中电信人工智能科技与TeleAI开源国内首个全国产化训练的千亿参数细粒度MoE语义模型TeleChat3-105B-A4.7-Thinking。模型共105B参数、激活4.7B，含1共享专家+192路由专家（每次激活4个），训练数据超15T。在IFEval、Math-500等十余个基准上对标GPT-OSS-120B、Qwen3-32B。同步开源稠密模型TeleChat3-36B-Thinking。",
-          "sc": 5.8,
+          "sc": 6.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://news.sciencenet.cn/htmlnews/2025/12/557771.shtm",
@@ -154,75 +138,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "研究人员通过配体设计在钛基框架中引入簇应变，提升材料光催化性能",
-        "科研团队利用自旋层耦合效应实现单层反铁磁材料垂直奈尔矢量电学检测",
-        "研究开发结合切向流过滤技术的收敛混合策略，实现替西帕肽克级规模合成"
-      ],
-      "entries": [
-        {
-          "t": "[ASAP] 钛骨架中通过团簇应变诱导反应活性",
-          "d": "2025-12-26",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "金属-氧簇合物的可控形变策略对调控电荷分离和氧化还原活性具有重要潜力，但故意引入簇应变的合成方法极为匮乏。该研究在钛基框架结构中通过配体设计引入簇应变，成功诱导新的反应活性位点。应变工程使Ti-oxo簇的电荷输运和光催化性能发生显著变化，为设计高效光催化/电催化材料提供了新的结构调控维度，拓展了金属-氧簇化学的功能边界。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c16069",
-          "tp": "钛基金属有机框架",
-          "aip": 1,
-          "kp": [
-            "簇应变工程[Ti框架MUV-10]: Ca2+→Sr2+/Ba2+诱导Ti2M2簇畸变"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Despite their potential to control charge separation and redox activity, deliberate strategies to distort metal-oxo clusters in molecular frameworks remain limited. Here we present a proof-of-concept for cluster strain engineering using the titanium-organic framework MUV-10 as a model. Replacing Ca2+ with larger alkaline-earth cations (Sr2+, Ba2+) induces predictable distortions of Ti2M2 clusters and a cubic-to-tetragonal cell transformation while preserving the overall connectivity. This local strain alters Ti-O coordination geometry, enhances ligand-to-metal charge transfer, and promotes the photogeneration of Ti3+ sites, as validated by photocatalytic CO2 methanation under standardized conditions. Importantly, the extent of distortion follows the trend anticipated from the Goldschmidt tolerance factor, a classical descriptor from perovskite chemistry, that we repurpose here to rationalize strain in reticular frameworks. Taken together, these findings establish a conceptual link between oxide catalysis and reticular chemistry, highlighting cluster strain as a potential structural switch to modulate redox reactivity in molecular solids.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 单层共线反铁磁体中基于自旋-层耦合的垂直奈尔矢量检测",
-          "d": "2025-12-26",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "共线反铁磁材料中垂直奈尔矢量的精确探测是自旋电子学应用的核心挑战。研究团队利用自旋-层耦合效应，在单层共线反铁磁材料中实现了垂直奈尔矢量的电学检测。该方法突破了传统反铁磁序参量难以直接读取的瓶颈，为超快、高密度反铁磁自旋电子器件（如存储单元、逻辑门）提供了可扩展的读出方案，推动反铁磁材料从基础物理向器件化迈进。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19267",
-          "tp": "反铁磁自旋检测",
-          "aip": 1,
-          "kp": [
-            "[检测方法]: 层霍尔效应检测垂直Néel向量",
-            "[材料]: 单层Co2S2共线反铁磁"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The precise detection of a perpendicular Néel vector in collinear antiferromagnetic (AFM) materials has long been expected for advancing two-dimensional AFM spintronics. Here, we proposed the perpendicular Néel vector detection using the layer Hall effect in collinear antiferromagnets down to the monolayer limit. Through materials screening, the Co2S2 is identified as a prototypical AFM monolayer with the spin-layer coupling and perpendicular magnetic anisotropy. Thanks to the electrically engineered layer-locked band edges and Berry curvatures from spin-layer coupling, a sizable layer-polarized anomalous Hall conductivity of σxy up to ∼110 S/cm is obtained in monolayer Co2S2. Intriguingly, the sign of σxy changes when the Néel vector is reversed, providing an efficient route for detecting the AFM order. Moreover, the achievement of the Néel vector detection via the layer Hall effect is further demonstrated in altermagnetic monolayer Ca(CoN)2. The present findings open an avenue to explore the Néel vector detection for atomic-scale AFM materials and spintronic devices.",
-          "hb": 1
-        },
-        {
-          "t": "替西帕肽的收敛混合克级合成：切向流过滤辅助天然化学连接脱硫方法",
-          "d": "2025-12-26",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究针对替西帕肽（Tirzepatide，GLP-1/GIP双激动剂降糖减重药）大规模合成中的瓶颈，提出一种四片段收敛式混合SPPS/LPPS策略，结合固相与液相多肽合成各自优势，并引入切向流过滤辅助的天然化学连接脱硫技术。该路线有望实现克级到商业规模的替西帕肽高效制造。",
-          "sc": 6.1,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520060?af=R",
-          "tp": "多肽合成工艺",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  The development of scalable and efficient manufacturing of high‐volume complex synthetic peptides and proteins, like tirzepatide (TZP, 1), faces major hurdles due to the limitations of traditional Solid Phase Peptide Synthesis (SPPS) and Liquid Phase Peptide Synthesis (LPPS). To enable the commercial synthesis of tirzepatide, we pioneered an innovative four‐fragment convergent hybrid SPPS/LPPS strategy combining their individual strengths. Integrating advanced techniques, like flow chemistry for fragment condensation and nanofiltration for intermediate purification, ensures high efficiency and scalability, setting a new standard for large‐scale production. Given the broader reliance on inefficient linear SPPS in the field, our work underscores the potential of hybrid synthesis strategies to transform peptide manufacturing. The convergent approach allows for the simultaneous synthesis of high purity peptide fragments, significantly reducing overall manufacturing time and increasing API throughput. Concurrently, we established a two‐fragment route leveraging Native Chemical Ligation (NCL) followed by tandem desulfurization. This method achieves the chemoselective coupling of unprotected peptide fragments in aqueous media, without epimerization. Crucially, we employed tangential flow filtration (TFF) to effectively purify intermediates between ligation and desulfurization, circumventing solvent‐intensive steps. This NCL/TFF combination offers a powerful, orthogonal, and greener path to TZP, representing a meaningful innovation in synthetic peptide process chemistry.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

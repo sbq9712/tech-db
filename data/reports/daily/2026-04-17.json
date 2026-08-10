@@ -6,19 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究开发深共晶电解质抑制高压副反应，提升4.8V锂金属电池循环稳定性。",
-      "研究揭示自组装单分子层π共轭机制，提升倒置钙钛矿太阳能电池电荷提取效率。",
-      "深圳大学团队提出石墨聚集体改性工艺，将高倍率锂离子吸附能降至-0.20eV。"
+      "深圳大学团队采用PAN前驱体共混工艺制备石墨负极，提升高倍率锂离子传输性能",
+      "新加坡国大团队用生物聚合物涂覆铜催化剂，工业级电流密度下C₂₊法拉第效率超91%"
     ],
     "AI与智能科技": [
-      "研究开发氮化物相变非易失性存储器，低功耗特性适配边缘AI推理硬件需求。",
-      "研究人员构建人工多巴胺-离子级联突触器件，实现自适应类脑神经形态注意力调控。",
-      "科研团队提出固相硫属化合成方法，解决过渡金属二硫属化物单层大面积均匀制备难题。"
+      "机器学习模型在实际量子计算系统中实现对时空混沌演化的预测"
     ],
     "通用技术": [
-      "研究团队集成纳米压印技术实现卷对卷连续工艺，超构透镜产能达每秒300单元。",
-      "研究利用离子特异性冷冻诱导近红外磷光效应，实现隐蔽冰层实时可视化监测。",
-      "研究人员精确控制量子点周期性排列，成功制备具备高色纯度的像素化超晶格LED。"
+      "研究证实Mo-固氮酶催化N2还原过程无需亚硫酸盐参与",
+      "科研团队合成稳定负曲多环烃自由基，用作磁性碳黑锌矿分子链段",
+      "研究发现DNA损伤衍生的组蛋白修饰可介导蛋白质间交联"
     ]
   },
   "sectors": [
@@ -26,63 +23,17 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究开发深共晶电解质抑制高压副反应，提升4.8V锂金属电池循环稳定性。",
-        "研究揭示自组装单分子层π共轭机制，提升倒置钙钛矿太阳能电池电荷提取效率。",
-        "深圳大学团队提出石墨聚集体改性工艺，将高倍率锂离子吸附能降至-0.20eV。"
+        "深圳大学团队采用PAN前驱体共混工艺制备石墨负极，提升高倍率锂离子传输性能",
+        "新加坡国大团队用生物聚合物涂覆铜催化剂，工业级电流密度下C₂₊法拉第效率超91%"
       ],
       "entries": [
         {
-          "t": "用于耐久4.8 V锂金属电池的局域低共熔电解液",
-          "d": "2026-04-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "面向高能量密度储能需求，开发了一种局域化深共晶电解质，用于4.8V锂金属电池体系。富锂锰基氧化物（LRMO）正极理论比容量远超传统正极材料，但面临高电压下电解质分解、正极结构相变和锂枝晶生长等严峻挑战。该深共晶电解质通过组分间的强相互作用在电极表面原位构建稳定钝化层，有效抑制了高压副反应和界面寄生腐蚀，使锂金属负极和LRMO正极在高截止电压下实现长期循环稳定性。该策略为下一代500 Wh/kg级电池的电解质设计提供了新思路。",
-          "sc": 8.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04977",
-          "tp": "锂金属电池电解质",
-          "aip": 1,
-          "kp": [
-            "电压[锂金属电池]: 4.8V",
-            "能量密度[LRMO正极]: >500 Wh/kg",
-            "电解质[Li金属电池]: 局域深共晶电解质"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Lithium metal batteries employing lithium-rich manganese-based oxide (LRMO) cathode promise ultrahigh energy density (more than 500 Wh kg-1), offering a disruptive route for power sources of electric vehicles and low-altitude aircraft, etc. Nevertheless, conventional electrolytes with weak anion-solvent interactions fail to form robust interfaces on both high-voltage LRMO cathodes and highly reactive lithium metal anodes. Here, we design a localized deep eutectic electrolyte (LDEE) by introducing a highly fluorinated ether diluent into a deep eutectic electrolyte (DEE). This diluent triggers electronic redistribution within hydrogen bond donors, relocating and intensifying hydrogen-bonding active sites. As a result, while maintaining strong Li+ solvation, the anion-solvent interactions are reinforced, and the anionic solvation structure is locally compacted. Both the cathodic interface and the anodic interphase are derived from anions, suppressing parasitic reactions at the lithium anode and mitigating lattice-oxygen release from the LRMO cathode. The battery with LDEE maintains 80% capacity after 200 cycles within 2-4.8 V. Benefiting from this electrolyte, the as-assembled 12.8 Ah LRMO||Li pouch cell delivers a high energy density of 616.2 Wh kg-1 and exhibits excellent safety under nail penetration and 130 °C oven tests. This work provides a viable strategy for achieving high energy density and long cycling stability in lithium metal batteries.",
-          "hb": 1
-        },
-        {
-          "t": "自组装单分子层中π共轭与空穴-电子分离实现高效倒置钙钛矿太阳能电池",
-          "d": "2026-04-17",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "自组装单分子层（SAMs）作为钙钛矿等倒置太阳能电池空穴传输层的首选材料，其π共轭体系与空穴-电子分离机制对器件性能至关重要。研究揭示了SAMs分子结构设计如何优化界面电荷提取效率，为实现高效稳定光伏器件提供新思路。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70942?af=R",
-          "tp": "钙钛矿太阳能电池",
-          "aip": 1,
-          "kp": [
-            "[HTL材料]: π共轭自组装单层",
-            "[机制]: 单分子层实现空穴-电子分离"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Self‐assembled monolayers (SAMs) have emerged as the material of choice for hole transport layers (HTLs) in inverted perovskite solar cells (PSCs), where their favourable interfacial contact with the perovskite active layer enables remarkable power conversion efficiency (PCE). However, commercially available carbazole‐phosphonic acid‐based SAMs with excessively long alkyl chain linkers exhibit compromised hole transport due to their insulating properties. Here, through a stepwise chemical modification of conjugated linkers and anchor groups, we investigate a series of SAMs with enhanced hole–electron delocalization of molecules. Among the molecules, MCz‐ICA featuring a unique conjugation‐extension structure comprising a phenyl ring and two vinylene units as the linker, along with a cyanoacetic acid anchor, exhibits a more favourable configuration. The enhanced orbital delocalization and hole–electron separation increase the molecular dipole moment, thereby improving the interfacial contact of both perovskite and NiO\n                    x\n                    layers, which facilitates efficient hole extraction and suppresses non‐radiative recombination, and ultimately leads to an impressive PCE of 26.69% (certified 26.47%) of the p‐i‐n structured PSCs. Moreover, the device could maintain over 92.5% of its initial performance after 1000 h of continuous operation according to the ISOS‐L‐2I protocol.",
-          "hb": 1
-        },
-        {
           "t": "深圳大学刘剑洪报道一种石墨聚集体报复改性的石墨负极以提高其表面锂离子传输性能",
           "d": "2026-04-17",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "深圳大学刘剑洪团队提出线性-梯状-平面（LLP）合成策略制备石墨聚集体（GA），以液态PAN为前驱体，经220℃预氧化和3000℃碳化石墨化处理，单批次产能约20kg。将商业石墨与7%PAN前驱体共混改性后得到GA包覆石墨负极，表面锂离子吸附能降低（-0.20至-0.24eV），可缓解锯齿边缘强吸附导致的SEI膜分布不均和锂枝晶问题，提升高倍率工况下的锂离子传输性能，且工艺适配现有工业流程。",
-          "sc": 5.8,
+          "sc": 6.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41893-026-01813-y",
@@ -94,6 +45,44 @@
           "cm": "电解液与石墨负极界面的锂离子传输速率缓慢，导致高倍率工况下电池容量大幅衰减，而石墨锯齿边缘对锂离子的强吸附作用，还会引发固体电解质界面膜分布不均、锂枝晶析出等安全与性能问题。而当前多数改性技术尚存在合成流程复杂、规模化产能不足、无法适配现有工业生产流程等缺陷。近日，深圳大学刘剑洪教授团队提出了一种线性-梯状-平面（LLP）的合成策略，以制备石墨聚集体（GA）。其以液态聚丙烯腈（PAN）为前驱体，首先在空气中220℃预氧化3h，促使线性分子链发生环化反应（六元环），形成共轭阶梯形结构的红色固体中间体；而后再在惰性Ar气氛保护下进行高温碳化石墨化（3000℃，8h），使梯形结构进一步转化为热力学稳定的平面结构，最终得到石墨聚集体，单批次产能可达约20kg。表征结果发现，该石墨聚集体拉曼光谱的2D峰强、D峰低，表明其具有高度石墨化、大范围sp²平面和较少缺陷。将商业石墨与7%的PAN前驱体共混，经过220℃预氧化3h和1250℃石墨化处理5h后可得到石墨聚集体包覆改性的石墨负极，可保持石墨形貌特征，活性表面积有所降低。GA包覆石墨负极表面锂离子的吸附能较弱（-0.20至-0.24eV），GA与石墨边缘交接处的结合能（-0.43至-0.46eV）也低于原始石墨边缘（-0.48至-0.62eV）；有助于提升锂离子迁移率、促进锂离子从界面快速转移至石墨体相、提升离子嵌入动力学和倍率性能。测试结果表明，采用改性石墨负极的扣电（NMC532||1MLiPF6+EC/EMC+2%VC）首圈库仑效率达96.27%，可逆容量350.7mAh/g，5C高倍率放电容量保持率是传统石墨的1.6倍，200次循环后容量保持率仍达91.71%，优于商用石墨。NMC532||改性石墨的18650圆柱电芯在常温1C倍率循环1000次容量保持率达87.9%，3C高倍率循环500次仍保持83.9%，在-10℃低温环境下，2C、3C放电容量保持率分别达到93.2%与92.2%。此外，石墨聚集体微弱的层间作用力使其可通过简易工艺剥离为高质量少层石墨烯。文章于2026年4月17日发表在Nature Sustainability。",
           "b": "电解液与石墨负极界面的锂离子传输速率缓慢，导致高倍率工况下电池容量大幅衰减，而石墨锯齿边缘对锂离子的强吸附作用，还会引发固体电解质界面膜分布不均、锂枝晶析出等安全与性能问题。而当前多数改性技术尚存在合成流程复杂、规模化产能不足、无法适配现有工业生产流程等缺陷。\n近日，深圳大学刘剑洪教授团队提出了一种线性-梯状-平面（LLP）的合成策略，以制备石墨聚集体（GA）。其以液态聚丙烯腈（PAN）为前驱体，首先在空气中220℃预氧化3h，促使线性分子链发生环化反应（六元环），形成共轭阶梯形结构的红色固体中间体；而后再在惰性Ar气氛保护下进行高温碳化石墨化（3000℃，8h），使梯形结构进一步转化为热力学稳定的平面结构，最终得到石墨聚集体，单批次产能可达约20kg。表征结果发现，该石墨聚集体拉曼光谱的2D峰强、D峰低，表明其具有高度石墨化、大范围sp²平面和较少缺陷。将商业石墨与7%的PAN前驱体共混，经过220℃预氧化3h和1250℃石墨化处理5h后可得到石墨聚集体包覆改性的石墨负极，可保持石墨形貌特征，活性表面积有所降低。GA包覆石墨负极表面锂离子的吸附能较弱（-0.20至-0.24eV），GA与石墨边缘交接处的结合能（-0.43至-0.46eV）也低于原始石墨边缘（-0.48至-0.62eV）；有助于提升锂离子迁移率、促进锂离子从界面快速转移至石墨体相、提升离子嵌入动力学和倍率性能。测试结果表明，采用改性石墨负极的扣电（NMC532||1MLiPF6+EC/EMC+2%VC）首圈库仑效率达96.27%，可逆容量350.7mAh/g，5C高倍率放电容量保持率是传统石墨的1.6倍，200次循环后容量保持率仍达91.71%，优于商用石墨。NMC532||改性石墨的18650圆柱电芯在常温1C倍率循环1000次容量保持率达87.9%，3C高倍率循环500次仍保持83.9%，在-10℃低温环境下，2C、3C放电容量保持率分别达到93.2%与92.2%。此外，石墨聚集体微弱的层间作用力使其可通过简易工艺剥离为高质量少层石墨烯。文章于2026年4月17日发表在Nature Sustainability。",
           "hb": 1
+        },
+        {
+          "t": "深圳大学刘剑洪报道一种石墨聚集体报复改性的石墨负极以提高其表面锂离子传输性能",
+          "d": "2026-04-17",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "深圳大学刘剑洪团队提出线性-梯状-平面（LLP）合成策略制备石墨聚集体（GA），以液态PAN为前驱体，经220℃预氧化和3000℃碳化石墨化处理，单批次产能约20kg。将商业石墨与7%PAN前驱体共混改性后得到GA包覆石墨负极，表面锂离子吸附能降低（-0.20至-0.24eV），可缓解锯齿边缘强吸附导致的SEI膜分布不均和锂枝晶问题，提升高倍率工况下的锂离子传输性能，且工艺适配现有工业流程。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01813-y",
+          "tp": "石墨聚集体",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "电解液与石墨负极界面的锂离子传输速率缓慢，导致高倍率工况下电池容量大幅衰减，而石墨锯齿边缘对锂离子的强吸附作用，还会引发固体电解质界面膜分布不均、锂枝晶析出等安全与性能问题。而当前多数改性技术尚存在合成流程复杂、规模化产能不足、无法适配现有工业生产流程等缺陷。近日，深圳大学刘剑洪教授团队提出了一种线性-梯状-平面（LLP）的合成策略，以制备石墨聚集体（GA）。其以液态聚丙烯腈（PAN）为前驱体，首先在空气中220℃预氧化3h，促使线性分子链发生环化反应（六元环），形成共轭阶梯形结构的红色固体中间体；而后再在惰性Ar气氛保护下进行高温碳化石墨化（3000℃，8h），使梯形结构进一步转化为热力学稳定的平面结构，最终得到石墨聚集体，单批次产能可达约20kg。表征结果发现，该石墨聚集体拉曼光谱的2D峰强、D峰低，表明其具有高度石墨化、大范围sp²平面和较少缺陷。将商业石墨与7%的PAN前驱体共混，经过220℃预氧化3h和1250℃石墨化处理5h后可得到石墨聚集体包覆改性的石墨负极，可保持石墨形貌特征，活性表面积有所降低。GA包覆石墨负极表面锂离子的吸附能较弱（-0.20至-0.24eV），GA与石墨边缘交接处的结合能（-0.43至-0.46eV）也低于原始石墨边缘（-0.48至-0.62eV）；有助于提升锂离子迁移率、促进锂离子从界面快速转移至石墨体相、提升离子嵌入动力学和倍率性能。测试结果表明，采用改性石墨负极的扣电（NMC532||1MLiPF6+EC/EMC+2%VC）首圈库仑效率达96.27%，可逆容量350.7mAh/g，5C高倍率放电容量保持率是传统石墨的1.6倍，200次循环后容量保持率仍达91.71%，优于商用石墨。NMC532||改性石墨的18650圆柱电芯在常温1C倍率循环1000次容量保持率达87.9%，3C高倍率循环500次仍保持83.9%，在-10℃低温环境下，2C、3C放电容量保持率分别达到93.2%与92.2%。此外，石墨聚集体微弱的层间作用力使其可通过简易工艺剥离为高质量少层石墨烯。文章于2026年4月17日发表在Nature Sustainability。",
+          "b": "电解液与石墨负极界面的锂离子传输速率缓慢，导致高倍率工况下电池容量大幅衰减，而石墨锯齿边缘对锂离子的强吸附作用，还会引发固体电解质界面膜分布不均、锂枝晶析出等安全与性能问题。而当前多数改性技术尚存在合成流程复杂、规模化产能不足、无法适配现有工业生产流程等缺陷。\n近日，深圳大学刘剑洪教授团队提出了一种线性-梯状-平面（LLP）的合成策略，以制备石墨聚集体（GA）。其以液态聚丙烯腈（PAN）为前驱体，首先在空气中220℃预氧化3h，促使线性分子链发生环化反应（六元环），形成共轭阶梯形结构的红色固体中间体；而后再在惰性Ar气氛保护下进行高温碳化石墨化（3000℃，8h），使梯形结构进一步转化为热力学稳定的平面结构，最终得到石墨聚集体，单批次产能可达约20kg。表征结果发现，该石墨聚集体拉曼光谱的2D峰强、D峰低，表明其具有高度石墨化、大范围sp²平面和较少缺陷。将商业石墨与7%的PAN前驱体共混，经过220℃预氧化3h和1250℃石墨化处理5h后可得到石墨聚集体包覆改性的石墨负极，可保持石墨形貌特征，活性表面积有所降低。GA包覆石墨负极表面锂离子的吸附能较弱（-0.20至-0.24eV），GA与石墨边缘交接处的结合能（-0.43至-0.46eV）也低于原始石墨边缘（-0.48至-0.62eV）；有助于提升锂离子迁移率、促进锂离子从界面快速转移至石墨体相、提升离子嵌入动力学和倍率性能。测试结果表明，采用改性石墨负极的扣电（NMC532||1MLiPF6+EC/EMC+2%VC）首圈库仑效率达96.27%，可逆容量350.7mAh/g，5C高倍率放电容量保持率是传统石墨的1.6倍，200次循环后容量保持率仍达91.71%，优于商用石墨。NMC532||改性石墨的18650圆柱电芯在常温1C倍率循环1000次容量保持率达87.9%，3C高倍率循环500次仍保持83.9%，在-10℃低温环境下，2C、3C放电容量保持率分别达到93.2%与92.2%。此外，石墨聚集体微弱的层间作用力使其可通过简易工艺剥离为高质量少层石墨烯。文章于2026年4月17日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "新加坡国立大学Andrew Barnabas Wong通过生物聚合物涂层调控微环境提升电化学CO2还原性能",
+          "d": "2026-04-17",
+          "a": "Doi",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "新加坡国立大学Andrew Barnabas Wong等利用甲壳素、壳聚糖和纤维素等天然生物聚合物在铜纳米颗粒表面涂覆2-5nm亲水层，优化催化剂微环境。涂层增强局部CO₂/CO浓度、降低水活性、调节离子电导率和pH值，颠覆了亲水材料不适用于CO₂RR的固有认知。修饰后铜催化剂在600mA/cm²下实现91±3.3%的C₂₊法拉第效率，与银纳米颗粒组成串联体系后性能进一步提升，为工业级CO₂电还原提供新策略。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-02040-7",
+          "tp": "电还原催化",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "随着全球对碳中和目标的追求，利用可再生电力驱动电化学二氧化碳还原反应（CO₂RR）将CO₂转化为高能量密度、高经济价值的多碳（C₂₊）燃料（如乙烯、乙醇），被视为减缓过量碳排放的关键策略之一。然而，尽管铜基催化剂具有独特的C–C偶联能力，但在工业级高电流密度下，如何抑制竞争性的析氢反应并维持高选择性生成C₂₊产物，始终是巨大挑战。这一瓶颈的核心在于催化剂微环境的调控——即如何有效提升局部CO₂/CO浓度、管理局域水活性和离子传导。传统上，疏水材料被认为有利于抑制析氢，而亲水材料则因易引发副反应而被普遍认为不适用。\n新加坡国立大学Andrew Barnabas Wong等人展示了一种基于甲壳素、壳聚糖和纤维素等天然生物聚合物的可扩展策略。通过在铜纳米颗粒表面涂覆仅2–5纳米的亲水性生物聚合物层，研究人员巧妙地优化了催化剂微环境：涂层增强了局部CO₂/CO浓度、降低了局域水活性、提供了适宜的离子电导率并调节了局部pH值。\n实验结果显示，在流动电解池中，修饰后的铜催化剂在600 mA cm⁻²电流密度下实现了91±3.3%的C₂₊法拉第效率。更令人瞩目的是，当与银纳米颗粒组成串联催化体系后，甲壳素修饰的铜-银催化剂在1.6 A cm⁻²的超高电流密度下仍能达到90±1.7%的C₂₊选择性，并在2.2 A cm⁻²下保持83±3.2%的选择性，相应的C₂₊生成速率高达5926 μmol h⁻¹ cm⁻²，性能超越绝大多数已报道的铜基材料。\n研究团队通过原位拉曼光谱、红外光谱、共聚焦显微镜及密度泛函理论计算等多重手段证实，生物聚合物涂层的作用机制与传统疏水策略截然不同：它们并非排斥水分子，而是通过形成强氢键网络束缚水分子活性，从而抑制析氢；同时，涂层促进钾离子/氢氧根离子传输，提高了局部pH和中间体*CO的覆盖度与稳定性，从而大幅提升C–C偶联效率。\n此外，这些储量丰富、无毒且成本极低的生物聚合物（价格仅为Nafion的约0.1%）成功替代了传统含氟离聚物（如Nafion）作为阴极离聚物，在离子传导和微环境调控方面表现出相当甚至更优的C₂₊选择性，为摆脱“永久化学品”PFAS的环境困扰提供了理想的无氟替代方案。文章于2026年4月17日发表在Nature Energy。",
+          "hb": 1
         }
       ]
     },
@@ -101,77 +90,27 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究开发氮化物相变非易失性存储器，低功耗特性适配边缘AI推理硬件需求。",
-        "研究人员构建人工多巴胺-离子级联突触器件，实现自适应类脑神经形态注意力调控。",
-        "科研团队提出固相硫属化合成方法，解决过渡金属二硫属化物单层大面积均匀制备难题。"
+        "机器学习模型在实际量子计算系统中实现对时空混沌演化的预测"
       ],
       "entries": [
         {
-          "t": "基于电场诱导相变的氮化物非易失性存储器",
+          "t": "量子信息机器学习利用实际量子优势预测时空混沌",
           "d": "2026-04-17",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究报道了一种基于氮化物材料的非易失性存储器，通过电场诱导的相变机制实现数据存储。传统非易失性存储（如Flash）在存算一体和近存储计算场景下面临功耗、耐久度和读写速度瓶颈。该器件利用电场驱动材料在不同晶相之间的可逆转变来编码0/1状态，具有低功耗、高开关比和快速切换的潜力。氮化物体系与现有半导体工艺兼容性较好，有利于集成。该技术在近存储/存内计算架构中前景广阔，可能为后摩尔时代的低功耗存储与边缘AI推理硬件提供新路径，但工程化量产的耐久性与一致性仍需验证。",
-          "sc": 8.0,
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-026-02565-y",
-          "tp": "氮化物相变存储器",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5049?af=R",
+          "tp": "量子机器学习",
           "aip": 1,
-          "kp": [
-            "开关电压[Al0.7Sc0.3N存储器]: 超低(~-1V)",
-            "器件材料[非易失存储]: Al0.7Sc0.3N",
-            "[工作机制]: 电场诱导相变"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Non-volatile memory technology holds great promise for data storage and near-memory or in-memory computing. However, significant challenges remain, including programming latency, energy consumption, stability and endurance of the storage medium. Here we report an Al0.7Sc0.3N-based non-volatile memory device that exhibits outstanding performance, including ultralow switching voltage (−1). In particular, the device demonstrates exceptional stability and reliability, achieving a write endurance exceeding 108 cycles at 583 K with minimal cycle-to-cycle and device-to-device variations. In situ scanning transmission electron microscopy analysis reveals that resistance switching is driven by an electric-field-induced phase transition between the wurtzite (high-resistance) and rocksalt (low-resistance) phases of Al0.7Sc0.3N. These results underscore the potential of electric-field-induced phase transition memory as a next-generation non-volatile memory solution, offering high speed, low power consumption and exceptional reliability—even under high temperatures—making it well suited for high-density data storage and advanced computing applications.",
-          "hb": 1
-        },
-        {
-          "t": "用于自适应类脑注意力的人工多巴胺-离子级联突触",
-          "d": "2026-04-17",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究构建了一种人工多巴胺-离子级联突触器件，模拟生物神经系统中化学-离子联合信号处理机制。器件利用多巴胺类神经递质的分子识别与离子输运耦合，实现自适应神经形态注意力调控。与依赖纯电信号的固态突触不同，该器件更贴近生物智能的化学编码方式，在类脑计算、自适应感知及低功耗神经形态硬件方面具有突破性潜力。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521464?af=R",
-          "tp": "神经形态突触器件",
-          "aip": 1,
-          "kp": [
-            "[仿生突触]: 人工多巴胺-离子级联突触",
-            "[信号机制]: 生化信号转化为可调突触权重"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Biological intelligence operates through chemo‐ionic signal processing, where neurotransmitters encode information as spatiotemporal chemical gradients that regulate ionic dynamics across neural synapses. Given the diversity of chemical neurotransmitters and ion species, developing an artificial chemo‐ionic cascade synapse that can translate biochemical signals into tunable synaptic weights will be of great significance for brain‐inspired computing and brain‐computer interfaces. Here, we present an artificial dopamine (DA)‐ionic cascade synapse by integrating a sensitive DA sensor with an ionic elastomer‐based neuromorphic device. The oxidation of DA generates localized electric fields that electrostatically modulate ion migration within the ionic elastomer device, enabling chemical‐to‐ionic signal transduction and dynamic plasticity control. Consequently, biochemical cues like DA concentration can be directly reflected in tunable ionic synaptic weights, which can then be used to control a robotic platform for recognition tasks. This artificial synapse exhibits biochemical signal‐driven behavioral selectivity in an object‐grasping task, completing a perception‐decision‐execution loop. This work establishes a framework for processing biochemical information via native ionic dynamics, paving the way for chemically neuromorphic systems and embodied human‐machine interaction.",
-          "hb": 1
-        },
-        {
-          "t": "固相硫属化法合成高质量过渡金属二硫属化物单层",
-          "d": "2026-04-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究提出固相硫族化方法，用于合成高质量的过渡金属硫族化合物（TMD）单层材料。TMD单层具有独特的电学、光子和量子特性，但传统合成方法难以兼顾大面积均匀性与晶体质量。固相硫族化策略通过精确控制前驱体与硫族源的固相反应条件，实现了单层TMD的高质量可控制备，为二维材料在电子器件、光电器件和量子信息技术领域的规模化应用铺平道路。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c02187",
-          "tp": "硫族化物单层合成",
-          "aip": 1,
-          "kp": [
-            "[合成方法]: 固相硫属化替代氧化物CVD",
-            "[优势]: 减少缺陷与厚度不均匀"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Transition-metal dichalcogenide (TMD) monolayers exhibit unique electronic, photonic, and quantum phenomena, yet their material quality remains constrained by defects and thickness inhomogeneity during chemical vapor deposition. Here, we identify the limitations of the common metal trioxide precursors: high volatility that induces stochastic vapor-phase nucleation and multilayer growth, and liberated oxygen-species-mediated chemical etchants that degrade lattice integrity. We demonstrate that an acid-mediated one-step modification, dissolving trioxides in hydrochloric acid, fundamentally redirects the precursor chemistry toward nonvolatile and substrate-anchored dioxide phase. This enforces a spatially confined solid-phase chalcogenization (SPC), minimizing the vapor-phase species and thereby suppressing dechalcogenization and vertical growth. The resulting uniform monolayers, synthesized as isolated triangular flakes or continuous films, achieve state-of-the-art low defect densities: 1.87 × 1012 cm-2 for MoS2 and 1.26 × 1012 cm-2 for WSe2. Our work establishes SPC as a simple and unified mechanistic framework to drive TMD synthesis toward the intrinsic structural limits.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -179,77 +118,67 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究团队集成纳米压印技术实现卷对卷连续工艺，超构透镜产能达每秒300单元。",
-        "研究利用离子特异性冷冻诱导近红外磷光效应，实现隐蔽冰层实时可视化监测。",
-        "研究人员精确控制量子点周期性排列，成功制备具备高色纯度的像素化超晶格LED。"
+        "研究证实Mo-固氮酶催化N2还原过程无需亚硫酸盐参与",
+        "科研团队合成稳定负曲多环烃自由基，用作磁性碳黑锌矿分子链段",
+        "研究发现DNA损伤衍生的组蛋白修饰可介导蛋白质间交联"
       ],
       "entries": [
         {
-          "t": "可见光超构透镜的卷对卷量产工艺：每秒300单元",
+          "t": "[尽快] Mo-固氮酶催化的 N2 还原不需要亚硫酸盐",
           "d": "2026-04-17",
-          "a": "Nature",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队实现了可见光波段超构透镜（metalens）的卷对卷（roll-to-roll）连续化制造，生产速率达到每秒300个单元。超构表面利用亚波长尺度纳米结构操控光场，可替代传统折射透镜实现超薄、轻量化光学元件。此前超构透镜主要依赖电子束光刻等低产能工艺，无法大规模量产。该工作将纳米压印或光刻技术集成到连续辊压产线上，突破了产能瓶颈，使超构透镜在手机摄像头、AR/VR显示、传感器等消费电子领域的规模化应用成为可能。",
-          "sc": 8.6,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10369-y",
-          "tp": "超透镜卷对卷制造",
+          "u": "http://dx.doi.org/10.1021/jacs.6c04174",
+          "tp": "固氮酶催化研究",
           "aip": 1,
-          "kp": [
-            "产能[卷对卷超构透镜]: 300个/秒",
-            "[波段]: 可见光"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Metasurfaces have been extensively studied over the past decade for their ability to manipulate light at subwavelength scales1. One of the most critical trends emerging recently has been scalable manufacturing, which is paving the way for the commercialization and industrial adoption of metasurfaces2,3. However, the production throughput of metasurfaces has so far largely remained at the academic level, limiting their practical deployment. Here we demonstrate the roll-to-roll nanoimprinting of visible metalenses for large-scale, cost-effective and fully automated manufacturing at industrial-level throughput. Our system achieves a production rate of 300 metalenses per second, with a cost comparable with—or even lower than—that of conventional refractive optics. A conformal high-index titanium dioxide layer is deposited via atomic layer deposition to dramatically enhance optical performance. Experimental characterization confirms high optical efficiency and uniformity across the full patterned area, with consistently high yields. This work shows potential for the transition of metasurface technology from academic research to the real world.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "离子特异性冷冻诱导近红外磷光：界面协同实现'隐形冰'成像",
+          "t": "[ASAP] 稳定负曲多环烃自由基：磁性碳黑锌矿的分子链段",
           "d": "2026-04-17",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究提出一种基于离子特异性效应的冷冻诱导近红外磷光策略，用于实现结冰的灵敏检测。结冰严重威胁航空、输电线路及风能系统安全，而现有方法难以探测隐蔽或透明冰层。研究利用特定离子在结冰过程中界面协同作用触发近红外磷光信号发射，实现对结冰的实时、高灵敏可视化监测。该技术有望为极端环境下的防冰除冰预警系统提供新型传感方案，显著提升基础设施运行安全性。",
-          "sc": 7.6,
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.7443864?af=R",
-          "tp": "冰冻诱导近红外磷光",
+          "u": "http://dx.doi.org/10.1021/jacs.6c05422",
+          "tp": "碳黑锌矿分子",
           "aip": 1,
-          "kp": [
-            "[发光探针]: 芳基吡咯并吡咯PP4P-X系列",
-            "[检测原理]: 离子特异性冻致近红外磷光成像透明冰",
-            "[阴离子类型]: F⁻/Br⁻/I⁻/NO₃⁻/SCN⁻"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Icing threatens the safety of aviation, power‐transmission and wind‐energy systems, yet concealed or transparent ice remains difficult to detect. Here we report a freezing‐induced near‐infrared (NIR) phosphorescence (FIP) imaging strategy based on aryl‐substituted pyrrolo[3,2‐b]pyrrole probes PP4P‐X (X = F\n                    −\n                    , Br\n                    −\n                    , I\n                    −\n                    , NO\n                    3\n                    −\n                    , and SCN\n                    −\n                    ). Across the PP4P‐X series, freezing broadly amplifies the steady‐state emission, whereas a NIR phosphorescence band at 750 nm enables deep‐penetration, low‐background imaging with pronounced counterion dependence. The FIP turn‐on is strongest for PP4P‐F, followed by PP4P‐Br, switching from undetectable emission to intense phosphorescence. Mechanistic investigations reveal that specific adsorption of F\n                    −\n                    /Br\n                    −\n                    at the ice‐water interface induces dense aggregation at the freezing front, strengthening molecular interactions to promote intersystem crossing and suppress triplet non‐radiative decay. Leveraging this interfacial regulation, PP4P‐F enables high‐contrast, centimeter‐scale ice imaging in diverse frozen media, with a 152‐fold increase in signal‐to‐background ratio (SBR). In wind‐tunnel aircraft icing tests, FIP imaging accurately maps the onset, thickness evolution, and downstream propagation of ice along the wing leading edge and correlates with laser‐measured ice thickness. Overall, this work establishes a noncontact, in situ, and quantitative approach for “invisible ice” detection and provides a framework for NIR phosphorescent probes in frozen‐phase monitoring.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "像素化量子点超晶格LED",
+          "t": "[ASAP] 通过 DNA 损伤衍生的组蛋白修饰实现蛋白质-蛋白质交联",
           "d": "2026-04-17",
-          "a": "Nature",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究实现了像素化量子点超晶格LED。量子点超晶格具有区别于无序固体的集体光电特性，但此前在器件化方面面临巨大挑战。该工作通过精确控制量子点的周期性排列，构建了像素化的超晶格发光器件，展现出窄带发射、高色纯度和可调谐等优势。这一突破对下一代显示技术、量子光源和集成光子学具有里程碑意义。",
-          "sc": 7.5,
+          "as": "",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10392-z",
-          "tp": "量子点LED",
+          "u": "http://dx.doi.org/10.1021/jacs.6c03639",
+          "tp": "蛋白质交联研究",
           "aip": 1,
-          "kp": [
-            "器件[钙钛矿QD]: 像素化超晶格薄膜阵列LED",
-            "[制备策略]: 可扩展空间定义结构相干薄膜"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Quantum dot (QD) superlattices offer collective optoelectronic properties distinct from disordered solids1,2,3,4, but their integration into high-resolution display devices remains elusive because of difficulties in achieving spatially defined, structurally coherent thin films. Here we report a scalable strategy for fabricating pixelated perovskite QD (PeQD) superlattice thin-film arrays that feature in-plane long-range order, vertical confinement and precise spatial patterning. By engineering rhombic dodecahedral CsPbBr3 nanocrystals with robust surface termination by a ligand-fluoride co-stabilization approach, we direct the formation of hexagonally close-packed superlattice films using capillary liquid-bridge confined assembly. These superlattice films exhibit reduced energetic disorder and enhanced electronic coupling. When integrated into light-emitting diodes (LEDs), the electrically driven PeQD superlattices yield an external quantum efficiency of 30.9%, high luminance of 117,144 cd m−2 and pixel densities of up to 5,080 pixels per inch. The devices show an extrapolated operational half-lifetime (T50) of 12,411 h at 100 cd m−2—more than 1,000-fold longer than previously reported pixelated PeQD LEDs. Moreover, we demonstrate the direct integration of patterned superlattices onto a commercial thin-film transistor backplane to construct a 1.85-inch active-matrix display with full greyscale control and video playback ability. These results establish colloidal QD superlattices as a viable material platform for next-generation high-resolution, stable and efficient perovskite displays.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

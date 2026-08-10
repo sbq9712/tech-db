@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "西班牙国家电网接入全球首台大规模100%纯氢燃料发电机组并网供电",
-      "纯氢发动机克服回火与爆震难题实现稳定输出验证分布式发电可行性",
-      "南京大学谭海仁团队研发全钙钛矿叠层组件认证效率达26.2%"
+      "联泓新科全球首套五万吨级二氧化碳基可降解PPC装置投产",
+      "南京大学谭海仁团队研发全钙钛矿叠层组件效率达26.2%",
+      "In₂O₃纳米晶复合结结合高速刮涂技术提升叠层组件载流子传输"
     ],
     "AI与智能科技": [
-      "腾讯Robotics X实验室开源基于指套式数据采集的HyVLA-0.5机器人操作模型",
-      "业内开源首个独立测量AI编程智能体评测框架的基准以校准分数偏差",
-      "中核集团实现丰度超99.99%的硅-28同位素量产满足量子计算芯片材料需求"
+      "中核集团首次自主量产丰度超99.99%的硅-28同位素",
+      "蚂蚁集团测试AI版支付宝应用采用对话式交互界面",
+      "Anthropic模型Fable因出口管制下线且OpenAI收购云企业Ona"
     ],
     "通用技术": [
-      "伊利诺伊大学研发可再生热固性材料完成六代循环且热机械性能保持不变",
-      "麻省理工学院开发可在轨切换推力特性的双模式火箭推进系统用于微卫星深空探测",
-      "比亚迪公开采用基线成像对比识别技术的车底生命体检测AI专利"
+      "伊利诺伊大学团队研发可再生热固性材料完成六代循环测试",
+      "新型热固性材料引入稀疏可断裂交联结点实现室温解构回收",
+      "温度诱导分层策略利用水乙醇溶剂高产率剥离单层Ti3C2Tx"
     ]
   },
   "sectors": [
@@ -26,64 +26,20 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "西班牙国家电网接入全球首台大规模100%纯氢燃料发电机组并网供电",
-        "纯氢发动机克服回火与爆震难题实现稳定输出验证分布式发电可行性",
-        "南京大学谭海仁团队研发全钙钛矿叠层组件认证效率达26.2%"
+        "联泓新科全球首套五万吨级二氧化碳基可降解PPC装置投产",
+        "南京大学谭海仁团队研发全钙钛矿叠层组件效率达26.2%",
+        "In₂O₃纳米晶复合结结合高速刮涂技术提升叠层组件载流子传输"
       ],
       "entries": [
-        {
-          "t": "全球首台大规模100%氢燃料发动机为西班牙电网供电",
-          "d": "2026-06-15",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "西班牙国家电网成功接入全球首台大规模100%纯氢燃料发电机组，实现纯氢直接燃烧并网供电。该突破验证了纯氢发动机在大容量电力供应场景的可行性，为天然气发电资产脱碳转型提供关键路径，对加速电网深度脱碳具有里程碑意义。",
-          "sc": 9.6,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/energy/large-scale-hydrogen-engine-spanish-grid",
-          "tp": "纯氢发动机",
-          "aip": 1,
-          "kp": [
-            "燃料[大型内燃机]: 100%纯氢",
-            "里程碑[瓦锡兰]: 全球首台大型纯氢发动机并网"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A large-scale power engine has successfully supplied electricity to Spain’s national grid using 100% pure hydrogen fuel. The trial, conducted by technology group Wärtsilä in the northern town of Bermeo, is the first time an engine of this scale has operated entirely on pure hydrogen under real-world grid conditions.\n“This is the world’s first demonstration of a large-scale hydrogen engine running on 100% pure hydrogen,” said the company in a press release.\nThe operation utilized the Wärtsilä 31H2 model, which currently stands as the largest pure hydrogen engine in existence. While previous power plant designs relied on engines that mixed hydrogen with standard natural gas, this test confirms that grid-connected generators can function without any fossil fuel inputs.\n“The Wärtsilä 31H2 engine, part of the Wärtsilä 31 platform, one of the world’s most efficient multi-fuel 4-stroke engines, shows that hydrogen can move beyond theory into real-world energy infrastructure,” added the company.\nAccording to the company, Spain was selected for the project because the country has established a high percentage of\nrenewable energy sources\nand is actively trying to decrease its dependence on unpredictable global fuel markets.\nThis development addresses a major structural problem facing modern electrical grids. International projections indicate that global solar and wind installations will expand by approximately 4,600 gigawatts by 2030.\nBecause wind and solar electricity production fluctuates based on weather conditions and the time of day, grid operators require highly flexible backup power systems that can start quickly during periods of low generation or high consumer demand.\n“Green hydrogen produces no carbon emissions, enabling clean power generation while supporting the decarbonisation of renewable-heavy grids,” highlighted the\npress release\n. When wind or solar farms produce more electricity than consumers need, that excess power can run electrolyzers to split water into oxygen and hydrogen gas.\nThis hydrogen is stored and subsequently burned in engines like the 31H2 to generate emissions-free electricity when weather-dependent sources are offline, ensuring a continuous power supply.\nBeyond traditional grid stabilization, the engine platform is engineered to supply electricity to remote regions that lack connection to main power lines. The manufacturer also expects the technology to support industries that require constant, high-volume electricity.\nThis includes industrial manufacturing operations and artificial intelligence data centers, which face pressure to reduce their\ncarbon footprints\nwhile maintaining uninterrupted operational uptime.\nFollowing the verification of the engine’s mechanical performance, company officials stated that widespread adoption now depends on external economic factors rather than engineering capabilities.\n“Our Wärtsilä 31H2 hydrogen engine is operating on 100% hydrogen and supplying power to Spain’s national grid, demonstrating that large-scale hydrogen engines can provide the flexible, dispatchable sustainable power needed to support future renewable energy systems,” remarked Rasmus Teir, Director of Technology Strategy & Decarbonisation at Wärtsilä.\nHe concluded that commercial expansion will require governments to establish clear regulatory frameworks, secure investment pathways, and build the physical pipelines and storage facilities necessary to transport sustainable fuels to power generation sites.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nArchaeologists identified oldest structure at UNESCO site Hadrian's Villa\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nWorld's first 'three-lane' optical fiber network in China boosts data transfer by 5x\nMore from Energy\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power",
-          "hb": 1
-        },
-        {
-          "t": "全球首个100%纯氢发动机并网",
-          "d": "2026-06-15",
-          "a": "氢能技术前沿",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "全球首个100%纯氢发动机成功实现并网发电,标志着氢能在内燃机路线上的重大工程突破。与掺氢燃烧或燃料电池不同,该发动机以纯氢为唯一燃料,通过优化的燃烧系统、进气策略及耐高温材料设计,克服了氢燃料回火、爆震及高温氮氧化物排放等难题,实现稳定输出并接入电网供电。这一成果为分布式发电、工业脱碳及可再生能源调峰提供了区别于燃料电池的低成本技术路径,加速了氢能的规模化落地。",
-          "sc": 9.5,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/a6ZcquzesGB87REqOH-FjA",
-          "tp": "纯氢发动机",
-          "aip": 1,
-          "kp": [
-            "燃料纯度[氢发动机]: 100%纯氢",
-            "里程碑[氢发动机]: 全球首个并网"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "全球首个100%纯氢发动机并网 氢能技术前沿 _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开，会议将探讨海上风电与海上光伏投资趋势，海水淡化后制氢技术、设备和示范项目，海水直接电解制氢反应机理、电解槽材料体系与长周期稳定运行策略，海水无淡化原位直接电解制氢技术与示范，海水制氢与直接海洋碳捕集（DOC）耦合制绿色甲醇，海上浮式绿氢制绿氨装置，海上综合能源岛概念设计与实施方案等。** 2026年6月11日，据芬兰瓦锡兰集团（Wärtsilä Corporation）官方新闻稿，瓦锡兰在西班牙成功完成全球首个100%纯氢发动机电网级验证，标志着氢能调峰技术从实验室迈向实际能源基础设施的关键突破。该发动机已稳定向西班牙国家电网供电，首次证明大规模氢燃料发电可完全替代传统化石能源，为可再生能源波动期提供零碳可调度电力。_ 本次测试的核心设备为瓦锡兰31H2发动机。该发动机隶属于瓦锡兰31平台，瓦锡兰称该平台是全球最高效的多燃料四冲程发动机平台之一。根据瓦锡兰官方说法，瓦锡兰31H2是目前全球最大的纯氢发动机，其性能正在贝尔梅奥进行验证。 瓦锡兰表示，这一示范是从“氢就绪”技术迈向100%纯氢运行的重要一步，为未来相关能力的大规模应用铺平道路。在可再生能源占比持续提升的电力系统中，绿氢可用于储存多余的可再生电力，并在风电、光伏出力下降或用电需求上升时提供可调度电力，从而提升系统灵活性和供电可靠性。需要注意的是，目前该项目仍处于验证阶段，瓦锡兰尚未公开完整的运行时长、效率、排放和长期稳定性数据。 瓦锡兰技术战略与脱碳总监拉斯穆斯·泰尔表示，随着各国快速扩展风电和太阳能发电，能源转型面临的最大挑战之一，是如何在可再生能源发电低谷或需求高峰期间，以可持续方式维持可靠电力供应。他表示，瓦锡兰31H2氢发动机正在以100%氢气运行并向西班牙国家电网供电，显示大型氢发动机有潜力为未来可再生能源系统提供灵活、可调度的可持续电力。 信息来源：瓦锡兰（Wärtsilä Corporation）官方新闻稿 _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开，我们诚挚邀请行业专家作以下主题的演讲报告：**_ 1\\. 全球海上风电和海上光伏技术与投资趋势 2\\. 海水制氢的两大技术路线：海水淡化后制氢和海水直接电解制氢 3\\. 海水淡化先进技术与关键设备 4\\. 海上风电光伏、海水淡化和碱性/PEM/AEM制氢一体化设计 5\\. 海水无淡化原位直接电解制氢技术与示范进展 6\\. 海水直接电解制氢-海水的高效预处理方案 7\\. 海水直接电解制氢抗氯腐蚀和抗结垢电极及催化剂 8\\. 服务于海水直接制氢的先进电解液添加剂 9\\. 海水直接电解制氢-长周期稳定运行的挑战与解决思路 10\\. 海上制氢抗波动柔性控制技术与启停机工艺 11\\. 海底长距离输氢管道技术挑战与材料选型 12\\. 一站式海上浮式绿氢制绿氨系统设计 13\\. 海水制氢与直接海洋碳捕集（DOC）耦合制绿色甲醇 14\\. 服务于海上制氢的先进制氢电源技术 15\\. 天然海水制氢并联产高纯度氢氧化镁（MgOH）工艺 16\\. 海水制氢技术在含盐工业废水处理的应用价值 17\\. 海上能源岛概念设计、系统架构、实施方案和工程挑战 18\\. 海上综合能源岛优势分析和典型项目进展 _**2026风光氢氨醇一体化论坛**__**将于7月15日在常州召开。会议将探讨绿氨和绿色甲醇下游应用与市场分析，风光氢氨醇一体化项目整体设计与工艺优化，风电和光伏发展趋势与绿电成本展望，功率波动环境下电解水制氢技术与设备，服务于绿氨生产的先进工艺和催化剂，生物质气化与电解水绿氢耦合制绿色甲醇，CO2加氢制甲醇示范项目与运行经验，绿氨和绿色甲醇的国际标准与认证等。**_ _**2026塑料化学回收技术与市场论坛**__**将于8月18日在济南召开，会议将探讨全球和中国塑料回收政策和规划，废塑料气化、催化裂解、热裂解和化学解聚技术与装备，服务于废塑料裂解油的高性能催化剂、吸附剂和分析检测设备，废塑料化学回收示范装置与运行经验，塑料化学回收与大型石化装置耦合方案，塑料化学回收装置的ISCC认证，下游用户对化学回收PCR塑料的需求和愿景等。**_ 此外，亚化咨询绿色能源化工领域项目数据库精选如下，欢迎联系亚化咨询了解详情： * 《中国生物质气化技术与项目数据库》 * 《全球和中国绿色甲醇项目数据库》 * 《全球和中国绿氨项目数据库》 * 《中国可持续航空燃料（SAF）项目数据库》 * 《全球和中国可控核聚变项目数据库》 * 《中国绿氢项目数据库》 **亚化咨询会议赞助项目介绍** 主题演讲 做一个主题演讲，介绍您的公司和业务 现场展台 现场展板(2m\\*3m)，也可展示设备、样品、资料 会",
-          "hb": 1
-        },
         {
           "t": "南京大学谭海仁全钙钛矿叠层组件认证效率26.2%",
           "d": "2026-06-15",
           "a": "手动导入",
-          "c": "零碳产业",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "南京大学谭海仁团队在全钙钛矿叠层组件研究上取得突破，认证效率达26.2%。团队开发全溶液加工In₂O₃纳米晶复合结替代传统金基结构，解决了界面降解和寄生吸收问题。结合钙钛矿前驱体掺杂与二元共溶剂高速刮涂技术，显著提升了载流子传输性能，大幅抑制了大面积器件的性能衰减。",
           "sc": 7.2,
           "i": "n",
-          "tg": "",
+          "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10768-1",
           "tp": "钙钛矿电池",
           "aip": 1,
@@ -97,6 +53,52 @@
           "cm": "大面积全钙钛矿串联太阳能组件的产业化进程长期受制于效率与稳定性瓶颈。传统小面积器件效率已突破30%，但大面积组件效率长期停滞在24.5%以下。其核心痛点在于：\n复合结缺陷：传统金基隧穿复合结（TRJ）中，Au在高温下易扩散，PEDOT:PSS具有酸性导致界面降解，且两者在近红外区域存在强烈的寄生吸收。\n成膜质量差：大面积刮涂Pb-Sn窄带隙钙钛矿时，存在结晶不均匀和残余应变问题，加剧性能损失。\n潜在风险/价值点：全溶液法合成超细油胺包覆In₂O₃纳米晶，平滑界面，降低接触缺陷密度，提高效率\n钙钛矿体相引入空穴选择性材料：0.2 mol% MeO-2PACz，延长载流子寿命\n低沸点、高挥发性的共混溶剂，刮涂速度提升至28~30 mm/s\n后续可待解决项：宽带隙顶电池的相分离和离子迁移问题尚未彻底根除\nIn₂O₃纳米晶的合成需在无水无氧的氮气氛围下阶梯升温至280°C反应",
           "b": "大面积全钙钛矿串联太阳能组件效率远落后于小面积器件，核心瓶颈在于传统金基隧穿复合结（TRJ）存在Au扩散、PEDOT:PSS酸性导致界面降解和近红外寄生吸收等问题，且大面积刮涂Pb-Sn窄带隙钙钛矿时结晶不均匀和残余应变进一步加剧性能损失。",
           "hb": 1
+        },
+        {
+          "t": "南京大学谭海仁全钙钛矿叠层组件认证效率26.2%",
+          "d": "2026-06-15",
+          "a": "手动导入",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "南京大学谭海仁团队在全钙钛矿叠层组件研究上取得突破，认证效率达26.2%。团队开发全溶液加工In₂O₃纳米晶复合结替代传统金基结构，解决了界面降解和寄生吸收问题。结合钙钛矿前驱体掺杂与二元共溶剂高速刮涂技术，显著提升了载流子传输性能，大幅抑制了大面积器件的性能衰减。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10768-1",
+          "tp": "钙钛矿电池",
+          "aip": 1,
+          "kp": [
+            "面积：65 cm2",
+            "效率： 26.2%",
+            "Voc=2.182V，FF=77.4%，平均Jsc=15.6 mA cm⁻²"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||突破全钙钛矿叠层组件电效率指标边界\n\n参考先前的性能：NREL 2025：809 cm2-22.8% 仁烁光能\nSCIENCE 2024：20.25 cm²-24.5% 谭海仁",
+          "cm": "大面积全钙钛矿串联太阳能组件的产业化进程长期受制于效率与稳定性瓶颈。传统小面积器件效率已突破30%，但大面积组件效率长期停滞在24.5%以下。其核心痛点在于：\n复合结缺陷：传统金基隧穿复合结（TRJ）中，Au在高温下易扩散，PEDOT:PSS具有酸性导致界面降解，且两者在近红外区域存在强烈的寄生吸收。\n成膜质量差：大面积刮涂Pb-Sn窄带隙钙钛矿时，存在结晶不均匀和残余应变问题，加剧性能损失。\n潜在风险/价值点：全溶液法合成超细油胺包覆In₂O₃纳米晶，平滑界面，降低接触缺陷密度，提高效率\n钙钛矿体相引入空穴选择性材料：0.2 mol% MeO-2PACz，延长载流子寿命\n低沸点、高挥发性的共混溶剂，刮涂速度提升至28~30 mm/s\n后续可待解决项：宽带隙顶电池的相分离和离子迁移问题尚未彻底根除\nIn₂O₃纳米晶的合成需在无水无氧的氮气氛围下阶梯升温至280°C反应",
+          "b": "大面积全钙钛矿串联太阳能组件效率远落后于小面积器件，核心瓶颈在于传统金基隧穿复合结（TRJ）存在Au扩散、PEDOT:PSS酸性导致界面降解和近红外寄生吸收等问题，且大面积刮涂Pb-Sn窄带隙钙钛矿时结晶不均匀和残余应变进一步加剧性能损失。",
+          "hb": 1
+        },
+        {
+          "t": "联泓新科5万吨级二氧化碳基生物可降解PPC装置成功投产",
+          "d": "2026-06-15",
+          "a": "化工碳达峰碳中和",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "联泓新科旗下联泓格润的全球首套5万吨级二氧化碳基生物可降解聚碳酸亚丙酯（PPC）产业化装置成功投产。该装置采用与中国科学院长春应用化学研究所联合开发的超临界聚合工业化技术及第四代多核锌系催化剂，以二氧化碳和环氧丙烷为原料生产生物可降解材料。这是PPC技术从小试到万吨级全面落地的里程碑，标志着全球最大单套PPC装置正式量产。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/BXdFB2ZRWG54U_VmkoddqQ",
+          "tp": "PPC装置投产",
+          "aip": 1,
+          "kp": [
+            "装置规模[二氧化碳基生物可降解PPC]: 全球首套5万吨级产业化装置",
+            "原料[PPC合成]: 二氧化碳（CO₂）和环氧丙烷（PO）通过催化共聚反应",
+            "[产业化状态]: 顺利打通全流程，一次开车成功并产出合格产品"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "联泓新科5万吨级二氧化碳基生物可降解PPC装置成功投产 化工碳达峰碳中和 以下文章来源于DT洞见可持续 ，作者点这里关注→ **DT洞见可持续** . 向世界讲好中国可持续故事。我们聚焦可持续材料和绿色燃料，深耕生物基、回收、CO₂转化利用的化学品、材料，以及绿色燃料领域，为您带来前沿资讯与深度解读。 生物基和生物制造产业服务平台：https://bio-basedlink.net/ 【生物基能源与材料】获悉，5月29日，联泓新科旗下联泓格润的全球首套5万吨级二氧化碳基聚碳酸亚丙酯（PPC）产业化装置，顺利打通全流程，一次开车成功，产出合格产品。 来源：联泓 从5月21日第一釜投料，到25日连续生产四釜浆料，再到27日挤压切粒，前后不到九天。这也是联泓新科自2022年启动PPC技术工业化放大工作以来，历经四年、从小试到中试再到万吨级的全面落地。全球最大单套PPC产业化装置，正式进入量产阶段。 什么是PPC？为什么是联泓？ PPC，全称聚碳酸亚丙酯，是以二氧化碳（CO₂）和环氧丙烷（PO）为原料，通过催化共聚反应合成的一类生物可降解材料。 这条路线本身并不新鲜。早在1969年，日本科学家井上祥平就首次合成了PPC。美国、日本此后数十年持续研究，但始终没有走到工业化生产这一步——催化剂效率低、高黏度物料难以输送、超临界反应体系控制复杂，这些工程化难题横亘在实验室成果和量产之间。 联泓格润选择了一条难度更高、但成本竞争力也更强的路：超临界聚合工业化技术。 这项技术的背后，是中国科学院长春应用化学研究所王献红团队——一支深耕CO₂固定与利用领域超过二十年的团队。2021年，联泓新科与长春应化所签署合作协议，联合开发基于第四代多核锌系催化剂的PPC超临界聚合工业化技术。 自2022年起，该公司启动PPC技术工业化放大工作。四年间，团队在无成熟案例可参考、无现成运行经验可借鉴的情况下，成功突破了技术放大、设备安装调试、开车等阶段的挑战，尤其是开车阶段，面对反应体系复杂、多系统串联等挑战，团队集中技术力量重点突破催化剂活性控制、高粘度物料输送、超临界反应体系控制等关键技术难点，实现装置稳定运行。 更关键的是联泓格润一体化项目打通了从甲醇制烯烃（MTO）、丙烯到环氧丙烷（PO）的全链条：甲醇制烯烃（130万吨，2025年投产）→丙烯制环氧丙烷（30万吨，2025年开车成功）→环氧丙烷+CO₂制PPC（5万吨，2026年投产）。 PPC的两种核心原料均自产，不依赖外部采购。对于一个成本敏感的基础化工材料来说，这意味着在定价上拥有极大的主动权。 降解材料赛道，PPC有何优势？ 可降解材料市场上，已有PLA、PBAT等多个品类，并形成了各自的应用基本盘。PPC的定位则是：阻隔性最优的生物降解材料。 来源：浙江大学 张兴宏教授，《二氧化碳基高分子：可生物降解的通用塑料》 点击阅读：浙江大学张兴宏：CO₂变塑料，能否破解生物降解材料成本困局？ 当然，PPC也有短板需要正视：玻璃化温度约在25-37℃，加工窗口窄，耐热性不如PLA，不适合高温使用场景。 从应用场景来看，目前最被看好的是农用地膜，PPC的高韧性、耐水性和适中降解速率，使其成为\"解决农膜污染难题的良好材料\"；其次是食品保鲜膜、快递袋等薄膜包装。 性能是入场券，但真正决定PPC能不能跑出来的，是成本。 成本才是真正的\"杀手锏\" 可降解材料的普及瓶颈，归根结底是性价比问题。 目前PLA树脂市场价格约1.7-2.2万元/吨，PBAT约1.1-1.2万元/吨左右，而普通石油基PE的价格在8000-10000元/吨，而且PLA、PBAT的综合性能远低于PE、PP——性价比差，是可降解材料大规模替代传统塑料最大的障碍。 和主流降解材料相比，PPC的性价比显示出明显优势。 据浙江大学张兴宏团队基于万吨级规模的测算，PPC的生产成本约为7824元/吨，与石油基PE的差距仅在400元左右。这是张兴宏团队的研究测算结果，联泓目前尚未公布实际生产成本——但考虑到原料全自产的结构优势，业内普遍认为其成本控制能力处于行业前列。 如果这个成本区间能在产业化中兑现，对整个可降解材料市场而言是一次真正的结构性冲击。 再看竞争格局。国内PPC产业化的参与者并不多：浙江台州邦丰塑料是最早实现工业化的企业之一，现已注销，产能曾达万吨级。内蒙古蒙西集团、华峰集团、河南天冠、中科金龙等公司，也有千吨到数万吨产能布局。而联泓格润此次投产的5万吨级装置，是目前全球最大单套PPC产业化装置，规模优势显著。 更值得关注的是国际竞争维度：日本和美国是最早开展PPC基础研究的国家，但截至目前，两国均未实现工业化生产。中国，成了全球PPC产业化的唯一主场。 PPC能不能真正跑出来，还需要时间验证：下游应用开发、配方工艺适配、产品市场定价，都是接下...",
+          "hb": 1
         }
       ]
     },
@@ -104,70 +106,76 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "腾讯Robotics X实验室开源基于指套式数据采集的HyVLA-0.5机器人操作模型",
-        "业内开源首个独立测量AI编程智能体评测框架的基准以校准分数偏差",
-        "中核集团实现丰度超99.99%的硅-28同位素量产满足量子计算芯片材料需求"
+        "中核集团首次自主量产丰度超99.99%的硅-28同位素",
+        "蚂蚁集团测试AI版支付宝应用采用对话式交互界面",
+        "Anthropic模型Fable因出口管制下线且OpenAI收购云企业Ona"
       ],
       "entries": [
         {
-          "t": "腾讯Robotics X开源HyVLA-0.5：基于亚毫米级指套UMI与真机强化，摆脱繁重遥操",
+          "t": "拿下99.99%高纯硅！中国量子计算全速超越",
           "d": "2026-06-15",
-          "a": "机器之心",
-          "c": "AI与智能科技/具身智能/模型和具身操作系统",
-          "as": "腾讯Robotics X实验室开源HyVLA-0.5机器人操作模型。该方案采用亚毫米级精度的指套式UMI（通用操作接口）进行数据采集，并结合真机强化学习训练，大幅降低对传统遥操作的依赖，实现机器人灵巧操作技能的高效获取与迁移。开源旨在推动具身智能社区在低成本数据采集与真机学习方向的研究进展。",
-          "sc": 8.6,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/RpbFcoo28yHdNvPQjaUX4g",
-          "tp": "机器人VLA模型",
-          "aip": 1,
-          "kp": [
-            "[数据采集]: 亚毫米级指套UMI真机强化"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "腾讯Robotics X开源HyVLA-0.5：基于亚毫米级指套UMI与真机强化，摆脱繁重遥操 原创 关注具身智能的 关注具身智能的 机器之心 机器之心编辑部 6 月 15 日，腾讯 Robotics X、福田实验室与混元团队联合发布面向真实世界机器人操作任务的端到端具身智能模型 Hy-Embodied-0.5-VLA（简称 HyVLA-0.5）。HyVLA-0.5 基于自研的亚毫米级高精度指套式 UMI 数据采集软硬件（专利：2025020117CN），构建了超过 10000 小时的人类示教数据，使模型在监督训练阶段无需任何遥操作数据，也能在多本体真机任务中取得高部署成功率；基于纯自研 UMI 数据训练的模型，HyVLA-0.5 在 RoboTwin 2.0 仿真基准的简单与复杂设置下均超过 90%，是目前该榜单上 SOTA 的开源 VLA 模型。 在此基础上，HyVLA-0.5 首次将 Proximalized Preference Optimization（PRO）系统性引入基于流匹配的 VLA 强化后训练，充分利用真实机器人失败数据，实现真实机器人任务接近 100% 的成功率。 随着 VLA 模型在机器人连续控制中展现出越来越强的潜力，业界也逐渐意识到，通用机器人能力的形成不能只依赖更大的模型或更强的策略。真实机器人部署需要数据、模型、预训练、后训练和执行系统协同设计，既要能学习复杂操作技能，也要能在真实硬件约束下稳定运行。 HyVLA-0.5 正是在这一背景下提出，目标是推动 VLA 从模型能力验证走向可持续迭代、可跨本体迁移、可真实部署的机器人系统。 Hy-Embodied-0.5-VLA 的整体系统架构，涵盖数据采集、模型架构、跨本体监督微调、强化学习后训练等关键环节，体现了其从数据到模型再到策略优化的全栈式设计。 * 项目：https://tairos.tencent.com/openSourceModels/hy-embodied-0.5-vla * 代码：https://github.com/Tencent-Hunyuan/Hy-Embodied-0.5-VLA * 数据：https://huggingface.co/datasets/tencent/Hy-Embodied-0.5-VLA-Data 一套覆盖 “从数据到落地” 的机器人学习栈 高精度 UMI 数据采集软硬件：构建万小时具身数据基础 数据是机器人基础模型能力的根基。HyVLA-0.5 自研了高精度指套式 UMI 数据采集装置，并配套运动捕捉定位，实现了面向人类示教的高保真数据采集。该装置不仅能够记录第一视角视觉信息，还能通过外部光学运动捕捉系统获得亚毫米级 6-DoF 轨迹标注；部分夹爪还集成了末端力 / 力矩传感能力，使数据天然包含可用于力感知、力控学习的物理交互信息。 基于这套自研采集系统，HyVLA-0.5 构建了超过 10,000 小时、覆盖 70 类任务、超过 100 万条 episode 的 Hy-UMI-10K 数据集。该数据集涵盖厨房、洗衣、收纳、清洁、工具使用、柔性物体操作等多类日常场景，为学习精细操作、长程任务和跨场景泛化提供了规模化基础。HyVLA-0.5 计划开放其中 2,000 小时自采 UMI 数据，与学术界和产业界共同推进高质量机器人数据、评测与模型训练范式的共研共建。 自研 UMI 数据采集工作站 自采 Hy-UMI-10K 数据集组成 模型架构：基于 Hy-Embodied-0.5 引入行动、记忆和跨本体能力 在模型侧，HyVLA-0.5 基于腾讯 Robotics X 和混元联合自研的 Hy-Embodied-0.5 具身视觉语言模型进行扩展，将其面向视觉语言理解的能力进一步连接到机器人连续控制。系统引入基于流匹配的行动专家模块，直接生成连续动作轨迹；同时通过双塔结构将视觉语言理解与动作生成解耦，使语义感知、空间理解和底层控制能够在统一框架中协同工作。 为了支持真实机器人中的时序感知，HyVLA-0.5 进一步设计了一个紧凑记忆编码器，将多帧、多视角视觉历史压缩为紧凑的当前帧表示，从而在不显著增加视觉 token 数量的情况下引入短时记忆。系统还采用增量式动作块表示，让策略预测相对于当前末端执行器状态的增量动作，从而降低对特定机器人关节结构和运动学的依赖，为后续跨本体迁移和统一部署奠定基础。 HyVLA-0.5 模型架构。MoT 架构搭建，借助共享联合注意力机制实现多模态信息交互，图像编码器被拓展为轻量化记忆编码器，沿用 Hy-Embodied-0.5 模型的设计思路，引入局部双向注意力对多视角观测信息建模。 持续预训练与监督微调：从 UMI 行动先验到同本体 / 跨本体真机任务 在训练流程上，HyVLA-",
-          "hb": 1
-        },
-        {
-          "t": "打破SWE-bench唯分数论，首个独立测量harness的基准开源了",
-          "d": "2026-06-15",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "针对当前AI编程智能体评测过度依赖SWE-bench分数的问题,业内开源了首个独立测量评测框架(harness)本身的基准。该基准旨在区分模型真实能力与评测工具链误差,揭示不同harness实现造成的分数偏差,推动代码智能体评测走向可复现、可校准,纠正\"唯分数论\"对模型能力判断的误导。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://mp.weixin.qq.com/s/iCty7MvtQDZzJNhV9nCZIA",
-          "tp": "SWE-bench基准",
-          "aip": 1,
-          "kp": [
-            "评测方法[SWE-bench]: 独立测量harness的开源基准"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "打破SWE-bench唯分数论，首个独立测量harness的基准开源了 编辑｜杨文 编程 Agent 的评测，一直是本糊涂账。 SWE\\-bench 如今已成事实标准，几乎每家发布新模型或新 Agent 框架，都会拿出一个 SWE-bench 分数来证明自己有多强。 但这些数字真的能直接横向比较吗？ LLM Agent 的能力，本质上是模型和 harness 共同决定的，同一个模型换一套 harness，在 SWE-bench、Terminal-bench 等评测上的分数能相差十几甚至二十多个百分点，差距堪比换一代模型。 也就是说，一个 SWE-bench 分数背后，同时藏着三个变量：底层用的是哪个大模型、把大模型包装成 Agent 的 harness 是怎么设计的、评测用的是哪批任务。 SWE-agent、AutoCodeRover、OpenHands、mini-SWE-agent，每个系统都有自己的提示词模板、工具接口、最大轮数、超时策略和停止逻辑。模型、harness、任务集，三个变量打包在一起，很难判断 A 比 B 高出的那几个点，是模型更强、harness 设计更优，还是任务集选得更有利。 另一方面，OpenClaw 这类原本面向通用工具调用场景的 Agent，根本进不去 SWE-bench 的评分流程，「通用 Agent 到底有没有写代码能力」这个问题，也因此长期处于无法验证的状态。 近日，基元律动联合无问芯穹，清华大学、北京大学、SEE 基金等机构发了篇论文，并完全开源代码和数据，试图把这笔糊涂账理清楚。 * 论文链接：https://arxiv.org/pdf/2606.12344v1 * GitHub：https://github.com/opensquilla/claw-swe-bench * Hugging Face：https://huggingface.co/datasets/TokenRhythm/Claw-SWE-Bench 论文提出了一套 claw for coding 适配器，第一次让 OpenClaw 这类通用 Agent，能够在 SWE-bench 式的真实代码任务上交出可评分的答卷。 在这套适配器之上，他们构建了 Claw-SWE-Bench，一个覆盖 8 种编程语言、43 个真实代码仓库、350 个 GitHub issue 修复任务的多语言基准，外加一个专门给学术圈和小团队用的轻量版 Lite-80。 该基准强制要求所有系统在统一的 prompt、预算和评分流程下汇报 API 总成本，让准确率和运行代价能够在同一张表里被直接解读。 这也是 SWE-bench 式基准中，第一次让 harness 作为可独立测量的变量加以控制。 而在搭建评测环境的过程中，他们还顺手发现并修复了 SWE-Bench-Multilingual 官方数据集里的一处答案泄露问题，并已向上游提交了修复 PR。 基元律动由原华为诺亚方舟实验室主任、盘古大模型负责人王云鹤创立，离职仅两个月便完成首轮融资。 Claw-SWE-Bench，正是其首个对外亮相的技术成果。 适配器解决了什么？ OpenClaw 这类通用 Agent，本来面向的是更广泛的工具使用场景。它可以调用工具、读写文件、执行命令、保留会话状态，也可以生成自然语言解释。 但 SWE-bench 的评分中，系统必须提交一个可应用到代码仓库的 diff patch，评估器只看 patch 和测试结果，对自然语言回答和 Agent 的交互轨迹一概不理。这种差异，源自于测评方式本身的限制，并不真实反映 Agent 的能力。 这种差异带来几个直接问题。 其一，SWE-bench 需要一个干净、可复现的 Docker 工作区，通用 Agent 则依赖自己的运行环境、工具配置、API 访问和会话状态。 其二，SWE-bench 只读取 model\\_patch 字段，而通用 Agent 原生输出的可能是最终回答、结构化消息或日志。 其三，通用 Agent 在执行过程中可能生成各种缓存、元数据、会话文件，一旦这些内容混进 git diff，便会污染最终提交给评估器的 patch。 因此，OpenClaw 无法原生进入 SWE-bench 评分流程，并不说明它没有写代码能力。更准确地说，是我们需要将通用 Agent 的行为转化成 SWE-bench 可以读取、应用和评分的标准化内容。 Claw-SWE-Bench 的解决思路是引入一个 adapter（适配器）层。 OpenClaw 式 harness 与 SWE-bench 之间不匹配。适配器将通用 Agent 交互转换为可由 SWE-bench 评分的补丁预测，同时通过外部控制确保公平性、可比性和成本可追踪。 不同 h",
-          "hb": 1
-        },
-        {
-          "t": "中核集团实现丰度超过99.99%的硅-28同位素自主量产",
-          "d": "2026-06-15",
-          "a": "",
+          "a": "光子盒",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "中核集团成功实现丰度超99.99%的硅-28同位素自主量产。硅-28因原子核自旋为零，可降低量子计算中的环境噪声干扰，有助于提高量子比特相干时间，是量子计算芯片的关键基础材料。该突破实现了高丰度硅-28的国产化量产能力。",
-          "sc": 6.9,
+          "as": "中核集团宣布我国首次自主量产丰度超99.99%的硅-28同位素，打破国外垄断。高纯硅-28消除了天然硅中硅-29核自旋带来的磁干扰，是制备硅基量子芯片的基础核心材料。这一突破解决了底层材料限制，为我国硅基量子计算从实验室走向工业化量产奠定了基石，相关指标已达国际先进水平。",
+          "sc": 9.5,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/vGsMcRYstu0X4oj4o3UbBw",
-          "tp": "同位素量产",
+          "u": "https://mp.weixin.qq.com/s/p3r30hENySyNSMQN_tI9hw",
+          "tp": "高纯硅量产助力量子计算",
           "aip": 1,
-          "kp": [],
-          "lv": 1,
+          "kp": [
+            "同位素丰度[中国自主量产硅-28]: 超过99.99%",
+            "单/多量子比特门保真度[同位素纯硅-28原子处理器]: 99.10%至99.99%"
+          ],
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "6月15日，中核集团在官方公众号发文称，其成功实现丰度超过99.99%的硅-28同位素自主量产。文中称，硅-28同位素因原子核自旋为零、可降低量子计算中的环境噪声干扰，有助于提高量子比特的相干时间。",
+          "b": "拿下99.99%高纯硅！中国量子计算全速超越 光子盒 光子盒 光子盒 2026年6月15日，中核集团发布消息称：我国科学家在稳定同位素富集领域取得关键性突破，**首次成功实现丰度超过99.99%的硅-28同位素自主量产**，**产品关键指标达国际先进水平**。 这是一个足以写入我国半导体、量子计算发展史中的具有历史性意义的重大突破。 长期以来，高纯同位素纯化硅材料的制造技术全被极少数发达国家所垄断。然而今天“纯硅”的自主批量生产，宣告我国实现了硅基量子芯片制备所需的高纯度核心材料限制的破解，也让将多年实验室中的一些顶尖科研技术拿到了工业化量产的“入场券”。 就在数月前（2025年12月17日），新南威尔士大学和硅量子计算有限公司（SQC）也发表了《Nature》的一篇重磅论文，宣布基于同位素纯硅—28衬底实现了11量子比特的原子处理器，研究实现了保真度范围在99.10%至99.99%之间的单量子比特门和多量子比特门，标志着硅量子计算单器件研究取得突破向材料与器件的系统集成迈进的历史性一步。 今天，中国纯硅的突破，补齐了这条万亿级产业链最底层的基石。 **为什么量子计算要用“99.99％的纯硅”呢？** 要理解这两项突破性的意义相叠加的好处，倒需要先回到量子计算的基本挑战：量子比特的“相干性”（稳定性）和“可控性”（可控性）平衡问题。 目前全球主流的量子计算路线有超导、离子、中性原子和硅基半导体等。特别是硅基半导体（特别是在硅中的磷原子自旋路线）被认为寄予厚望，因为其与庞大的现代工业级半导体CMOS工艺天然契合，最具实用前景。 但是大自然给硅基芯片制造却设置了巨大的障碍。天然硅的组成元素有三种同位素：硅-28（92.2％左右）、硅-29（4.7％左右）和硅-30（3.1％左右）。这其中硅-29元素的原子核具有1/2的磁自旋。 随处可见的这些杂质核自旋就像一个永远无休止的杂乱的背景磁场在骚扰量子比特，使得量子比特信息不断丢失，这就是半导体物理术语中的“核自旋浴退相干”效应。 因此要让硅量子比特安安静静地工作很长时间，就需要把这些硅\\-29等杂质彻底清除，制造出一块绝对干净的“核磁真空”空间。 这就是为什么中核集团自主量产“丰度超过99.99%的硅\\-28”具有如此恐怖的杀伤力。在“充分”纯化的硅\\-28同位素衬底中，由于完全没有环境的磁噪声，磷原子核自旋相干时间可达几秒。 这就意味着量子信息能够在里面安全地“静态存储”，带来完美的量子逻辑门操作物理土壤后继这一系列高保真度的“静态存储”操作。 **从“单点突破”到“14|15平台”的模块化奇迹** 在拥有了纯的硅28衬底之后，下一步怎样在纳米级之间摆放原子、使其协作?这也是登顶《Nature》的11比特的量子原子处理器所要回答的问题。 该研究基于一个非常著名的平台“14|15平台”（因为硅Si处于元素周期表的第14族、磷P在15族所以称为14|15）。SQC正是利用一种极其精致的氢残留光刻技术，在原子级中如纳米级一般精确地点放一个磷原子。 在这么精致的工艺中，许多磷原子的核自旋超精细地相互连接着一个其他单个分享的电子(e)，这就组成了一个高效的“多核自旋库”。这样一种特殊的构造拥有巨大的物理优势：天然有量子无损(QND)读出，可以在不损坏量子态下读出信息； 拥有原生多量子比特门，使得局域操控非常高效； “核自旋存储＋电子自旋互联”：核自旋充当巨大的“内存”，共享电子自旋用于在寄存器间进行快速的量子门“计算”与互联。 然而，“14|15平台”之前长期被钉死在实验室的某个单点优化上，最多只能在单寄存器内操控4个量子比特；一旦想要扩充比特数，多寄存器间的量子互联就在拥挤的空间和杂电噪声下彻底崩塌，跨模块纠缠的保真度就无法企及量子纠错极限。 而这一次，Michelle Simmons院士组构建出电子交换耦合通道。研究人员在纯化的硅—28衬底上，把2个彼此连接的中心间距都精确地为13纳米的独立寄存器——1个寄存有4个磷原子核自旋的4P寄存器，1个寄存有5个磷原子核自旋的5P寄存器互联在一起，构成了9个核自旋数据量子比特、2个电子辅助量子比特的11比特原子处理器。 **99.99%保真度与规模化的“反常定律”** 量子计算疯狂追求比特数而不追求比特质量是没有意义的。 行业的声音是：99%的门保真度是容错量子计算的最低门槛，99.9%是对表面码量子纠错工程实用的要求。 打开这篇《Nature》论文的实验数据，让人吃惊的是控制和操作的精度。 SQC创始人Michelle Simmons讲过这样一个“颠覆性”的物理现象：“在超导、离子阱等量子系统中，大规模是一个平衡妥协的过程，系统越大噪声和串扰越大，质量越低。但我们的硅原子结构就完全不同了——随着量子比特数量的增加，整个体系的质量和控制能力却变强了...",
+          "hb": 1
+        },
+        {
+          "t": "解密 AI 版支付宝，20 年来最大改版即将发布",
+          "d": "2026-06-15",
+          "a": "晚点LatePost",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "蚂蚁集团正在测试内部代号为“宝计划”的AI版支付宝，这是该应用近20年来最大的一次改版。新版本以对话驱动为核心，采用用户一键切换进入全新界面的激进路线，而非简单内嵌AI助手。该项目由支付宝事业群总裁李俊挂帅，保密级别极高，预计近日上线并以每月两次的频率迭代。上线后默认仍为原版，用户可自行将AI版设为首选。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/REvYW37gD3d2qOdM7lb5mQ",
+          "tp": "支付宝AI化",
+          "aip": 1,
+          "kp": [
+            "产品形态[AI版支付宝]: 以对话驱动的全新交互界面",
+            "迭代频率[AI版支付宝]: 每月两次"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "解密 AI 版支付宝，20 年来最大改版即将发布 原创 晚点团队 晚点团队 晚点LatePost 超级 App 的 AI 改造，支付宝掀开了一角。 **文丨****陈然** 蚂蚁集团正在测试 AI 版支付宝。这是支付宝近二十年来最彻底的一次改版，新版本不是在现有 App 里增加一个 AI 助手，而是让用户一键切换，进入一个全新的、以对话驱动的支付宝。 晚点了解到，该项目在内部的代号为 “宝计划”，产品预计近日上线，后续将以每月两次的频率进行迭代。知情人士称，切换以一种留有余地的方式推进，新版本上线后，默认打开的仍是原来的支付宝，用户可自行将 AI 版设为首选界面。 从 2025 年开始，中国互联网巨头拥抱 AI 时代呈现出两条截然不同的路径：是推出独立的原生 AI 应用，还是在原有 App 上进行 AI 化改造。 在此之前，外界讨论了几个月的是微信的 AI 改造。从腾讯 2025 年三季度财报释放信号开始，微信 AI 助手多次传出消息，官方两度出面辟谣。 支付宝与微信很可能在相近的时间段启动各自的 AI 版。从公开信息看，微信的方案更接近在现有应用内嵌入一个助手；而支付宝的路线更加激进。 两家都手握 10 亿级用户和数百万小程序，任何一次伤筋动骨的改版，都牵动着庞大的用户群和复杂的商业利益。今年 1 月，蚂蚁集团 CEO 韩歆毅在接受晚点专访时说：“我们对支付宝的 AI 化还在摸索中，这事不容易做。” 当各方都在等微信先出牌时，支付宝率先推出了产品。 **一个最高保密级的项目** “宝计划” 旨在探索支付宝的智能化，由支付宝事业群总裁李俊挂帅，是蚂蚁的最高保密级项目。在内部，阿福与 AI 版支付宝被并称为 “蚂蚁 AI 的双翼”。 “宝计划” 项目经历了一场迅速的组织调整与架构隐藏，保密程度高到无关员工一度无法刷卡进入相关区域。在蚂蚁内部及供应链相关人士中，还流传着它将推出一款类似 “豆包手机” 操作体验的说法。 AI 改版这件事支付宝准备了不止两年。晚点了解到，早在 2023 年下半年，支付宝事业群管理层就 “如何走向智能化” 在内部发起过讨论，随后组建了专门的项目组。当时摆在面前的第一个问题，是在原支付宝端上改造，还是另起一个新端。考虑到原端架构与业务纵横交错的复杂性，项目组最初选择了先做一个独立的原生 AI 端。 沿着这条路，支付宝做过几次尝试。2024 年 9 月的上海外滩大会上，支付宝发布了 AI 生活管家 “支小宝”，但效果不及预期，反倒是同时存在于支付宝端内、借助首页流量的智能体助手，日活稳定在数百万量级，积累了充分的数据。此后，团队把重心移回了支付宝端内。 一位知情人士透露，这次调头大致发生在 2025 年 3 月。当时蚂蚁正集中力量做健康应用 “蚂蚁阿福”，通用 AI “灵光” 也在推进，算力和开发资源有限；再做一个独立 App，不仅要与这些项目争夺资源，还要承担让用户从零迁移的巨大成本。权衡之下，团队不再坚持独立端的路线。 与此同时，一个判断在内部逐渐清晰：服务好支付宝既有的 10 亿用户底盘，让用户以零迁移成本获得 AI 服务，比站外重新拉起一个新应用更有效。 2025 年 12 月，AI 版支付宝项目正式立项。晚点了解到，项目最早的班底是支付宝端智能助理团队，此后又陆续加入了算法、C 端产品和小程序业务等团队。 而产品路线最终既不是独立的原生 App，也不是在现有应用里内嵌助手，而是让用户一键切换进入全新的 AI 版支付宝，再随用户习惯迁移，逐步完成支付宝内部所说的 “腾笼换鸟”。 **数百万个小程序 AI 如何调动** 把 AI 做进一个已有数亿用户、沉淀了十几年行为惯性的应用里，是整个中国互联网大厂此刻都在面对的难题。每一家都既想革命性，又怕用户不习惯；既想 AI 无所不能，又难以在一夜之间重构沉淀多年的产品体系。 在交互方式上，“宝计划” 要改变的是用户使用支付宝的基本动作：从过去的 “服务即应用”，打开一个个小程序来办事，转向 “服务即对话”，用一句自然语言或语音解决需求。为了确定新的交互形态，项目组前后出过 100 多个产品设计版本；基于自然语言成为 AI 交互主流的判断，团队最终选择了以对话为核心的交互方案。 和微信一样，支付宝身后是数以百万计的小程序生态，衣食住行、政务民生、医疗教育，几乎所有服务都以小程序的形态挂在上面。据晚点了解，要让 AI 替用户把这些事办完，主要难点是让 AI 理解平台上数以百万计的服务本身，而不只是理解用户意图。围绕这一点，项目曾对技术路线做过一次调整，转向优先解决 AI 对服务数据的理解问题。 “AI 到这个阶段，单纯的对话已经不是关键。” 一位接近项目的人士说，“长程任务和服务闭环，才是竞争和价值的焦点。” 在具体的接入方式上，支付宝采取了 “双轨”，一边推动...",
+          "hb": 1
+        },
+        {
+          "t": "腾讯研究院AI速递 20260615",
+          "d": "2026-06-15",
+          "a": "腾讯研究院",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "AI行业动态：1. Anthropic发布最强模型Fable 5，因“秘密降智”争议及美国商务部以国家安全为由的出口管制，于发布四天后被强制全球下线；2. OpenAI收购云执行公司Ona以完善智能体基础设施，其Codex产品周活突破500万；3. 李飞飞联合创立的World Labs发布首批空间智能论文，利用成熟2D生成模型降低3D内容生成门槛。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/SCTxA-ObhmUii5BQhTnacQ",
+          "tp": "前沿AI监管",
+          "aip": 1,
+          "kp": [
+            "模型属性[Fable 5/Mythos 5]: 移除网安过滤层",
+            "周活跃用户[OpenAI Codex]: 超500万",
+            "用户增长率[OpenAI Codex]: 年内增长400%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "腾讯研究院AI速递 20260615 李瑞龙、腾小研 李瑞龙、腾小研 腾讯研究院 生成式AI 一、Anthropicr Fable 5发布四天遭美国政府强制下线 1.Anthropic于6月9日公开发布迄今最强模型Fable 5，开发者社群盛赞为史上最强公开模型，附带严格安全限制，同步推出移除网安过滤层的Mythos 5； 2.发布次日被曝对前沿AI请求\"秘密降智\"且不告知用户，引发开源与安全两派同声批评，Anthropic致歉并撤回，随后微软又以数据留存政策为由禁止员工使用； 3.6月12日商务部长以国家安全为由发函出口管制，禁止向任何外国公民开放，Anthropic当晚全球下线两款模型，正争取尽快恢复。 https://mp.weixin.qq.com/s/nzkhgWSi13Cw\\_Di0G2KwLQ 二、OpenAI收购云执行公司Ona，Codex周活突破500万 1.IPO前夜，OpenAI收购专注安全云执行与编排技术的Ona（前身为德国云开发环境公司Gitpod），为Codex补上让Agent持久自主运行的基础设施； 2.Codex每周活跃用户已超500万，年内增长400%，知识工作者占比达五分之一，正从程序员助手长成面向所有人的干活智能体； 3.收购恰逢三大IPO同期（Anthropic、OpenAI、SpaceX），OpenAI意在向华尔街证明已具备让Agent大规模安全干活的企业级平台能力。 https://mp.weixin.qq.com/s/uGy6R6rT4h4rs6RQFGPpQg 三、李飞飞World Labs同日发布首批三篇空间智能论文 1.李飞飞联合创立的World Labs同日发布三篇技术论文，均由实习生主导，共享核心思路：借助成熟2D生成模型降低3D内容生成门槛； 2.World Tracing从单图恢复遮挡面完整三维几何，Modality Forcing让文生图模型同时具备深度感知，Flex4DHuman从单目视频重建动态4D人体； 3.论文发布同日，联合创始人Christoph Lassner因多起个人事故宣布离职，将以顾问身份继续支持公司。 https://mp.weixin.qq.com/s/tSorVEK3cAszxBw\\_MKLzMQ 四、月之暗面发布并开源 Kimi K2.7 Code编程模型 1.月之暗面发布并开源Kimi K2.7 Code，显著提升长上下文编程的指令遵循与长程任务性能，改善过度思考倾向，平均token消耗减少30%； 2.多项基准提升明显，Kimi Code Bench v2提升21.8%、MLS Bench Lite提升31.5%，Agent自主执行能力提升约10%，须开启思考模式发挥最佳性能； 3.API标准输入输出价格与K2.6一致（每百万token 6.5元和27元），6月15日推出输出速度5-6倍的高速版，6倍速仅需2倍价格。 https://mp.weixin.qq.com/s/NBw1VAA9MjpKv-Rirq9qDg 五、智谱GLM-5.2全量开放，强调前沿智能属于所有人 1.在部分前沿模型突然不可用之际，智谱选择开放路线，强调前沿智能不应只属于少数人，也不应被少数规则随时收回； 2.GLM-5.2是智谱迄今能力最强的开源模型，支持真正可用的1M上下文，长程任务保持领先，最强国产Coding模型之一； 3.6月13日晚面向GLM Coding Plan全量用户开放，覆盖Lite/Pro/Max/团队版，API下周上线，模型下周开源并遵循MIT协议。 https://mp.weixin.qq.com/s/LDrbtLM0wiCTJorvd5GY9w 前沿科技 六、SpaceX登陆纳斯达克，马斯克成首位万亿美元富翁 1.SpaceX正式登陆纳斯达克，收盘市值升至约2.1万亿美元，盘中一度逼近2.3万亿美元，募资750亿美元创人类史上最大IPO纪录； 2.马斯克纸面身家突破1万亿美元，约4400名现任及前任员工因IPO成为百万富翁，其中约400人身家超1亿美元； 3.今年2月SpaceX并入xAI（此前已吞并X），构成火箭、卫星互联网、AI、社交四合一巨无霸，但因AI建设疯狂烧钱已由盈转亏。 https://mp.weixin.qq.com/s/Max8qaBAPTPmctz--cGZEg 报告观点 七、谷歌AI Studio：窄域超智能将率先在可验证领域实现 1.Google AI Studio负责人Logan Kilpatrick预计最短12个月内模型将吸收消化Agent Harness大部分能力，红利会从折腾框架转移到他处； 2.他认为当前AI编程已近似窄域超智能，AGI不会一步到位，编程、数学、金融、科学等可验证性领域会率先出现参差不齐...",
           "hb": 1
         }
       ]
@@ -176,15 +184,15 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "伊利诺伊大学研发可再生热固性材料完成六代循环且热机械性能保持不变",
-        "麻省理工学院开发可在轨切换推力特性的双模式火箭推进系统用于微卫星深空探测",
-        "比亚迪公开采用基线成像对比识别技术的车底生命体检测AI专利"
+        "伊利诺伊大学团队研发可再生热固性材料完成六代循环测试",
+        "新型热固性材料引入稀疏可断裂交联结点实现室温解构回收",
+        "温度诱导分层策略利用水乙醇溶剂高产率剥离单层Ti3C2Tx"
       ],
       "entries": [
         {
           "t": "伊利诺伊大学Jeffrey Moore报道以链缠结为承载单元的可再生高性能热固性材料可在多次再生后保持热机械性能",
           "d": "2026-06-15",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/强度材料",
           "as": "伊利诺伊大学Jeffrey Moore团队提出以链缠结为承载单元的可再生热固性材料策略。通过前沿开环易位聚合（FROMP）生成超高分子量聚烯烃长刚性链，形成热稳定高密度缠结，Tg达170℃，接近传统热固性抗蠕变水平。引入1mol%稀疏可断裂交联结点固定拓扑，室温即可解构回收。该材料完成至少6代循环再生，Tg、模量、强度基本不变，并扩展至碳纤维增强体系。",
           "sc": 7.2,
@@ -201,45 +209,45 @@
           "hb": 1
         },
         {
-          "t": "MIT新型双模火箭系统可将微型卫星送往火星",
+          "t": "伊利诺伊大学Jeffrey Moore报道以链缠结为承载单元的可再生高性能热固性材料可在多次再生后保持热机械性能",
           "d": "2026-06-15",
-          "a": "scitechdaily",
-          "c": "通用技术/通信和运输/航天",
-          "as": "MIT研究人员开发了一种双模式火箭推进系统，可使微小卫星具备深空探测能力。该发动机集两种推进模式于一体，能在轨灵活切换推力特性，兼顾高推力机动与高效比冲巡航。这一设计大幅降低了微小卫星执行星际任务的成本和复杂度，有望使低成本立方星承担火星探测等深空科学任务，拓展小型航天器的任务边界。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://scitechdaily.com/mits-new-dual-mode-rocket-system-could-send-tiny-satellites-to-mars/",
-          "tp": "微卫星双模推进",
+          "a": "Doi",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "伊利诺伊大学Jeffrey Moore团队提出以链缠结为承载单元的可再生热固性材料策略。通过前沿开环易位聚合（FROMP）生成超高分子量聚烯烃长刚性链，形成热稳定高密度缠结，Tg达170℃，接近传统热固性抗蠕变水平。引入1mol%稀疏可断裂交联结点固定拓扑，室温即可解构回收。该材料完成至少6代循环再生，Tg、模量、强度基本不变，并扩展至碳纤维增强体系。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41563-026-02646-y",
+          "tp": "可再生热固性材料",
           "aip": 1,
-          "kp": [
-            "[推进系统]: 双模态火箭发动机集成于单一封装"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "’s new two-in-one space engine could turn tiny satellites into surprisingly capable deep-space explorers.\nResearchers at MIT are testing a new propulsion technology that could give small satellites a major boost in capability. The system combines two very different forms of spacecraft propulsion in a single package, allowing satellites to perform both rapid maneuvers and highly efficient long-distance travel.\nAt the heart of the design is a single propellant that can power both chemical and electric thrusters. Traditionally, these systems require separate fuel sources, adding complexity and taking up valuable space on a spacecraft.\n“If you can have chemical and electrical propulsion in one small package, it’s the best of both worlds,” says Amelia Bruno, a former postdoctoral researcher in MIT’s Department of Aeronautics and Astronautics (AeroAstro). “This opens the door for small satellites to do even more science, more observations, and more interesting missions, all on a smaller and cheaper platform.”\nBruno is the lead author of a study published in the Journal of Propulsion and Power. The research demonstrates that a type of environmentally friendlier monopropellant originally developed by the U.S. Air Force for chemical propulsion can also be used to operate miniature electric thrusters known as electrospray thrusters.\nElectrospray thrusters are tiny propulsion devices, roughly the size of a dime, that use electric fields to charge particles in a liquid propellant. Those charged particles are then expelled into space, producing thrust.\nThese thrusters are exceptionally fuel-efficient and are well suited for slow, precise maneuvers. They can gradually propel spacecraft across vast distances, making them attractive for long-duration missions.\nChemical thrusters serve a different purpose. They generate much higher levels of thrust for short periods, making them useful when spacecraft need to accelerate quickly, change direction rapidly, or perform other demanding maneuvers.\nThe mission will mark the first in-space test of this type of dual-mode propulsion system on a small satellite. According to Bruno, success could help pave the way for future deep-space exploration by compact spacecraft.\n“We could send CubeSats to\n, or the asteroid belt, where they could make the journey slowly, using electrospray thrusters,” says study co-author Paulo Lozano, the Miguel Alemán Velasco Professor of Aeronautics and Astronautics at MIT. “You could then use your chemical thrusters to quickly move to look at interesting features. You could have a lot more flexibility to do a lot more things.”\nThe study was also co-authored by Matthew Corrado, a former MIT graduate student in AeroAstro.\nLozano’s laboratory designs and tests electrospray propulsion systems for satellites ranging in size from a lunchbox to a small carry-on suitcase. These miniature spacecraft are significantly less expensive to launch than traditional satellites.\nBecause every component must be compact, propulsion systems for small satellites face strict size limitations. Electrospray technology addresses that challenge.\nThe thrusters developed by Lozano’s group are about the size of a thumbnail. Each sits above a small reservoir filled with ionic liquid propellant. When connected to a power source, electrical voltage charges ions within the liquid. Those charged particles are then directed through tiny emitters and expelled into space, generating thrust.\nOver the last decade, the research team has evaluated numerous designs and propellant formulations. Much of their work has focused on ionic liquids, which are salt-based materials that remain liquid under conditions where many other substances would not.\n“Ionic liquids are very stable and can even remain a liquid in space, which not a lot of materials can do,” Bruno says. “And it’s basically a sea of ions, which is why we base our technology around it, so we can pull those ions out into an electrospray.”\nBruno and Lozano have also worked with the U.S. Air Force, which developed a new ionic liquid propellant called Advanced SpaceCraft Energetic Non-Toxic propellant (ASCENT). The fuel was originally intended for use in chemical propulsion systems.\nASCENT was designed as a safer alternative to hydrazine, a commonly used spacecraft fuel that poses significant handling risks because of its toxicity.\n“ASCENT happens to be an ionic liquid mixture,” Bruno says. “And we said, hey, that’s the stuff we typically use. Theoretically, this should work. Let’s go figure out how.”\nTo test that idea, the researchers fueled electrospray thrusters with ASCENT and measured their performance. Each thruster was attached to a cube-shaped reservoir roughly the size of a LEGO brick and filled with one gram of propellant. The liquid has a viscosity similar to baby oil.\nThe thrusters were mounted on opposite sides of a CubeSat placed on a custom MagLev test platform. Located inside a vacuum chamber, the setup allows researchers to simulate conditions found in space by magnetically levitating the spacecraft.\nDuring a series of experiments, the team applied different voltage levels to the thrusters. The resulting sprays generated enough force to spin the CubeSat, much like a floating top. Researchers measured the thrust produced and monitored fuel efficiency during continuous operation lasting as long as 100 hours.\nThe results showed that ASCENT successfully powered the electrospray thrusters. Performance was comparable to that achieved with conventional ionic liquid propellants already used in electric propulsion systems.\n“Compared to our normal electrospray propellants, ASCENT can provide similar performance in terms of thrust,” Bruno says. “Now that we know our thrusters work with ASCENT, we can start thinking of all the ways we can make them even better.”\nBecause ASCENT can support both chemical and electric propulsion, future spacecraft could rely on a single fuel tank to power both systems. That approach would simplify spacecraft design while preserving the advantages of each propulsion method.\nThe concept will receive its first real-world demonstration through NASA’s Green Propulsion Dual Mode mission, currently scheduled for launch in November.\n“This will be the first time that a satellite will have a shared propellant tank,” says Lozano.\nHe believes the technology could prove useful not only for interplanetary exploration but also for missions closer to Earth, including weather monitoring and climate research.\n“Say there’s a storm coming, and you’d want to deploy your constellation of small satellites to observe over one location,” he says. “You could choose to send them quickly or slowly depending on the nature of the observation. And the only way to do that is if you have two propulsion systems, which is now possible.”\nReference: “Performance Characterization of Electrospray Thrusters with Energetic Ionic Liquid Monopropellant” by Amelia R. Bruno, Matthew N. Corrado and Paulo C. Lozano, 31 May 2026,\nJournal of Propulsion and Power\nDOI: 10.2514/1.B40175\nThe research was supported in part by NASA.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nBotched Pressure Test of Russian Soyuz Capsule Delays Launch by a Month\nJuno Spacecraft Completes First Trajectory Correction Maneuver\nNASA’s THEMIS Satellite Records Effect of Geomagnetic Storms on Radiation Belts\nNASA’s Cassini Spacecraft Shows Dune Patterns of Titan\nNASA’s Voyager 1 Spacecraft Operating at Coldest Temperature Ever\nOrion Mockup Takes Final Splash Test\nNASA Plans Trajectory Maneuver for Mars Science Laboratory Spacecraft\nNASA Probe Takes Close-Up Photos of Giant Vesta Asteroid\nNASA’s Voyager 1 in “Cosmic Purgatory”",
+          "b": "热固性塑料的高模量和抗蠕变能力来自永久共价交联网络，但也使材料难以回收。现有可回收热固性依赖动态共价键交换或可断裂共聚单元，但前者可能引入蠕变或降低热稳定性，后者再生后性能易受分子量和网络拓扑漂移影响。\n近日，伊利诺伊大学Jeffrey Moore团队提出缠结主导的可再生热固性网络。通过前沿开环易位聚合（FROMP）在无溶剂条件下生成超高分子量聚烯烃链，长刚性链之间形成热稳定高密度缠结。p(endo-H₂DCPD)的Tg为170℃，缠结间距Me约1.9kg mol⁻¹，表观终端黏度达3×10¹¹Pa s。拉伸和断裂测试表明，仅靠缠结即可接近传统热固性的抗蠕变和韧性水平。为获得真正热固性尺寸稳定性，在缠结骨架中引入1mol%稀疏可断裂交联结点（BisNBE），实现“稀疏结点固定拓扑、链缠结承担载荷”的设计。材料解构时加入EVE和TBAF即可室温溶解，回收的羟基封端低聚物经NBE-SiBr再活化可重新成为下一代网络的可断裂结点。\n多代再生结果证明，基于exo-H₂DCPD的热固性可连续完成至少6代FROMP-解构-再活化循环，Tg、模量、强度和断裂伸长率基本保持不变。该策略还扩展到碳纤维增强复合材料（可同时回收低聚物和完整碳纤维）和增材制造结构。文章于2026年6月15日发表在Nature Materials。",
           "hb": 1
         },
         {
-          "t": "比亚迪新AI系统可检测车辆下方生命体",
+          "t": "温度诱导分层：一种通过低凝固点溶剂中体积变化均匀分层多层 Ti3C2TX 的方法",
           "d": "2026-06-15",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "比亚迪推出一项AI专利技术，可在车辆底部检测活体生物。其核心采用基线成像方法，先建立车辆底盘的标准视觉参考，再通过实时图像对比识别异常变化，从而发现藏匿在车底的动物或人员。该技术可应用于行车安全预警与智能底盘感知，提升车辆周围安全防护能力。",
-          "sc": 7.5,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/transportation/china-byd-ai-system-underneath-cars",
-          "tp": "车底AI检测系统",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究提出了一种温度诱导分层（TIDE）策略，利用水-乙醇溶剂可逆的体积膨胀和收缩产生的“分子千斤顶”效应，对多层Ti3C2Tx进行均匀分层。这种可持续的物理方法能够高产率地剥离出大面积、高导电的单层和少层二维材料。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00228-6?rss=yes",
+          "tp": "MXene剥离技术",
           "aip": 1,
           "kp": [
-            "[技术]: 车底基线成像对比检测生命体"
+            "剥离策略[多层Ti3C2TX均匀分层]: 温度诱导分层 (TIDE)",
+            "驱动机制[TIDE策略]: 水-乙醇溶剂可逆收缩膨胀产生的“分子千斤顶”效应",
+            "[Ti3C2TX单层剥离产物]: 大面积、高电导率单层和少层颗粒，且产率高"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "At the heart of the patented technology is a baseline imaging approach that creates a visual reference of the vehicle’s underside. When the car is switched off and in a stable state, the system captures and stores an image of the underbody, establishing a snapshot of what the area should normally look like.\nLater, when the vehicle is preparing to move or performing a safety check, new real-time images are taken and compared with the stored reference. Rather than processing the entire underbody scene every time, the software focuses only on areas where it detects a change from the baseline image.\nThese altered sections are isolated as target images and sent for more detailed analysis, allowing the system to reduce computing demands while quickly identifying anything unusual\nthe vehicle.\nRather than repeatedly processing every component beneath the car, the patented system is designed to ignore elements that remain unchanged from one scan to the next. Fixed structures such as the\npack housing, suspension components, aerodynamic covers, and other underbody hardware are treated as part of the reference environment, allowing the software to concentrate on anything that appears or moves after the baseline image has been recorded.\nOnce a new or altered area has been identified, the technology performs a more detailed examination of that specific section. It extracts visual features from the target image, analyses them using its detection algorithms, and determines whether the object is a living organism. The system can then assess the detected subject’s condition or status before deciding whether further action or a safety warning is required,\nCarNewsChina\nUnlike in-cabin monitoring technologies, identifying living organisms beneath a vehicle presents a far more complex computer-vision challenge. The space underneath a parked car is highly unpredictable, with constantly changing environmental conditions that can interfere with accurate detection.\nShifting shadows, uneven lighting, road debris, accumulated dirt, and different ground textures all create visual noise that makes reliable recognition difficult. Conventional motion-detection systems can also generate false positives, often failing to distinguish between ordinary environmental changes and the presence or movement of a person or\nbeneath the vehicle.\nInstead of depending exclusively on object-recognition software, BYD’s patented technology first builds a unique visual reference of the area beneath each parked vehicle. By comparing new images against this stored baseline, the system can quickly identify anything that has changed in the underbody environment before carrying out a more advanced analysis.\nOnly after these differences have been isolated does the\napply its recognition algorithms to determine whether the detected object is a person, an animal, or another living organism. This layered, two-step process is designed to improve the accuracy of the detection system while cutting down on false alarms triggered by fixed structures or other non-threatening objects that remain stationary beneath the vehicle.\nThe patent also aligns with BYD’s broader push into advanced vehicle safety systems. The company recently unveiled another invention designed to detect forgotten occupants inside a car using radar-based sensing and signal analysis.\nTogether, the two technologies monitor opposite sides of the vehicle – one focusing on the cabin and the other on the space underneath. The approach suggests\nis building a wider sensing ecosystem that combines computer vision, radar, and intelligent monitoring to improve overall vehicle awareness.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nArchaeologists identified oldest structure at UNESCO site Hadrian's Villa\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nWorld's first 'three-lane' optical fiber network in China boosts data transfer by 5x\nMore from Transportation\nTransportation\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nTransportation\nNuclear shipping: Large vehicle carrier with molten salt reactor gets design approval\nTransportation\nNew plane prototype conducts maiden piloted flight, can transform hybrid-electric aircraft future\nTransportation\nKLM operates first passenger flight to Germany with synthetic kerosene-blended fuel\nTransportation\nWorld’s first electric TaxiBot tows Airbus A320 jets at 26 mph in the Netherlands\nTransportation\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nTransportation\nNuclear shipping: Large vehicle carrier with molten salt reactor gets design approval\nTransportation\nNew plane prototype conducts maiden piloted flight, can transform hybrid-electric aircraft future\nTransportation\nKLM operates first passenger flight to Germany with synthetic kerosene-blended fuel\nTransportation\nWorld’s first electric TaxiBot tows Airbus A320 jets at 26 mph in the Netherlands",
+          "b": "Exfoliating MXenes into large, intact monolayers remains challenging. Yang et al. introduce a temperature-induced delamination (TIDE) strategy that harnesses reversible expansion and contraction of a water-ethanol solvent to generate a gentle “molecular jack” effect. This sustainable physical approach produces large-area, highly conductive Ti3C2Tx monolayers and few-layer particles with high yield, offering a scalable route to high-quality two-dimensional materials.",
           "hb": 1
         }
       ]

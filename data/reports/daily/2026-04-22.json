@@ -6,38 +6,34 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "马克斯·普朗克研究所利用冷冻电镜首次纳米尺度观测锂枝晶穿透固态电解质全过程",
-      "新钙钛矿光伏制备工艺放弃惰性气氛依赖，在空气环境中实现高通量量产测试",
-      "三层结构叠层太阳能电池拓展光谱覆盖范围，光电转换效率实现里程碑式突破"
+      "马克斯·普朗克研究所首次观测锂枝晶穿透石榴石固态电解质过程",
+      "研究证实锂枝晶穿透固态电解质由机械断裂而非电子泄漏诱发",
+      "研究人员利用sp杂化激活碘化锌，实现Ah级海水基锌碘软包电池"
     ],
     "AI与智能科技": [
-      "索尼AI融合事件视觉与强化学习构建乒乓球系统，首次实现与人类精英选手竞技",
-      "微软提出蒙特卡洛模拟框架测算单次AI查询能耗，显示系统优化可提升20倍能效",
-      "CrystalX引入深度神经网络从衍射数据提取特征，提升复杂晶体结构解析速度"
+      "索尼AI构建自主乒乓球系统，凭借旋转读取能力击败多名人类精英选手",
+      "索尼AI实体交互系统研究成果发表于Nature，实现对人类选手竞技",
+      "微软研究人员提出AI查询能耗估算框架，测得部署优化可提升20倍能效"
     ],
-    "通用技术": [
-      "新单脉冲核磁共振技术结合深度神经网络，实现异核二维光谱快速重建",
-      "单脉冲结合离共振去耦技术缩短二维核磁共振采样时间，保持图谱信噪比",
-      "双单原子工程NADH氧化酶模拟物提升原位生物转化效率，用于心肌损伤保护"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "马克斯·普朗克研究所利用冷冻电镜首次纳米尺度观测锂枝晶穿透固态电解质全过程",
-        "新钙钛矿光伏制备工艺放弃惰性气氛依赖，在空气环境中实现高通量量产测试",
-        "三层结构叠层太阳能电池拓展光谱覆盖范围，光电转换效率实现里程碑式突破"
+        "马克斯·普朗克研究所首次观测锂枝晶穿透石榴石固态电解质过程",
+        "研究证实锂枝晶穿透固态电解质由机械断裂而非电子泄漏诱发",
+        "研究人员利用sp杂化激活碘化锌，实现Ah级海水基锌碘软包电池"
       ],
       "entries": [
         {
           "t": "马克斯·普朗克可持续材料研究所Gerhard Dehm实现锂枝晶穿透石榴石固态电解质过程观测",
           "d": "2026-04-22",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "马克斯·普朗克可持续材料研究所张玉伟等利用多尺度冷冻电镜与微机械断裂模型，首次在纳米尺度直接观测锂枝晶穿透石榴石型电解质（LLZTO）全过程。实验发现锂枝晶完整填充裂纹尖端，前方1微米内无可测锂富集，直接排除\"预成核连通\"假说。晶体取向分析显示锂枝晶几乎不发生塑性变形，主要处于静水应力状态，证实穿透由机械断裂而非电子泄漏诱发。",
-          "sc": 6.8,
+          "sc": 7.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10415-9",
@@ -51,42 +47,37 @@
           "hb": 1
         },
         {
-          "t": "挑战传统光伏假设：低成本钙钛矿组件量产的高通量空气环境制备工艺",
+          "t": "马克斯·普朗克可持续材料研究所Gerhard Dehm实现锂枝晶穿透石榴石固态电解质过程观测",
           "d": "2026-04-22",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿太阳能组件（PSM）因低成本潜力成为光伏领域的重要方向，但商业化受限于规模化制造瓶颈。本研究提出一种高通量、开放式空气环境下的制备路线，挑战传统认为钙钛矿必须依赖惰性气氛或真空沉积工艺的假设。该方案旨在解决大面积、高效率、长稳定性三者兼顾的工程化难题，为钙钛矿光伏从实验室向产业化落地提供了新的工艺路径，有望显著降低制造成本并提升生产节拍。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00488A",
-          "tp": "钙钛矿组件低成本量产",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "马克斯·普朗克可持续材料研究所张玉伟等利用多尺度冷冻电镜与微机械断裂模型，首次在纳米尺度直接观测锂枝晶穿透石榴石型电解质（LLZTO）全过程。实验发现锂枝晶完整填充裂纹尖端，前方1微米内无可测锂富集，直接排除\"预成核连通\"假说。晶体取向分析显示锂枝晶几乎不发生塑性变形，主要处于静水应力状态，证实穿透由机械断裂而非电子泄漏诱发。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10415-9",
+          "tp": "锂枝晶观测",
           "aip": 1,
-          "kp": [
-            "[制备工艺]: 开放环境高通量钙钛矿模组生产",
-            "[分析]: 单结与钙钛矿-硅叠层技术经济评估"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Perovskite solar modules (PSMs) offer a promising pathway to low-cost photovoltaics, yet their commercialization is challenged by manufacturing scalability, device uniformity, additive costs, interlayer complexity, and module stability. This study introduces a comprehensive technoeconomic analysis of single junction PSM’s and projections for tandem perovskite-Si modules that integrate all materials and manufacturing steps, module performances, projected lifetimes, and manufacturing costs across scales. We highlight an open-air manufacturing approach to fabricate all active layers of serially interconnected PSMs, including electrodes and charge transport layers, enabling high-throughput production without inert or vacuum environments. The analysis reveals two orders of magnitude throughput enhancement and cost reductions of 24% in all-spray production, escalating to over 60% at 1 GW factory capacity compared to conventional methods. Levelized cost of energy (LCOE) projections for utility-scale installations over 30 years, accounting for module replacement and recycling, demonstrate the potential to achieve the 2030 US target of $0.03/kWh with realistic 7 – 11-year PSM lifetimes, outperforming incumbent silicon-based modules. Neither four terminal (4T) nor two terminal (2T) tandem-Si PSMs improve over single junction or silicon LCOE regardless of higher efficiencies at any modeled lifetime. Addressing PSM technical challenges with a cost-modeling framework guides commercialization efforts and provides a convincing pathway for challenging incumbent Si-based PV.",
+          "b": "全固态电池因用不可燃的固态电解质替代液态电解液，并兼容锂金属负极，被视为下一代高安全、高能量密度储能系统的关键方向。然而，一个长期困扰科学界的“软穿透硬”悖论——质地柔软的锂枝晶竟然能穿透坚硬陶瓷电解质，导致电池短路——严重制约了其实际应用。这一现象的微观机制究竟是源于锂枝晶内部压力积累引发的机械断裂，还是电子泄漏沿晶界诱发孤立锂核并逐步连通，长期以来争议不断。\n德国马克斯·普朗克可持续材料研究所的张玉伟（Yuwei Zhang）及其合作者，利用多尺度冷冻电子显微镜与微机械断裂模型，首次在纳米尺度上直接观测到锂枝晶穿透石榴石型电解质（LLZTO）的全过程。实验发现，无论是沿晶界还是穿晶扩展，锂枝晶都完整地填充了裂纹尖端，而在尖端前方约1微米的区域内，并未检测到任何可测量的锂富集或孤立锂核。这一结果直接排除了“预成核连通”假说。更关键的是，对裂纹内锂枝晶的晶体取向分析显示，锂内部几乎不发生晶格旋转，仅在与电解质界面附近存在微小的取向梯度，表明锂枝晶在受限空间内基本不产生塑性变形，而主要处于一种近乎无剪切的静水应力状态（hydrostatic stress state，指材料内部某一点在三个互相垂直的方向上受到相等的正应力，且完全不存在剪切应力）。该应力可高达约600兆帕，足以在脆性陶瓷电解质的裂纹尖端诱导出同等量级的拉应力，驱动裂纹持续扩展。相场断裂模型进一步证实，无论锂的屈服强度如何变化，静水应力始终是主导“软穿硬”现象的核心驱动力，而塑性变形仅局域在界面附近。\n基于这一力学驱动的穿透机制，研究团队提出了一个反直觉的应对策略：与其试图完全阻止锂枝晶，不如主动引导其方向。他们在电解质中预先制备了垂直于枝晶生长方向的横向工程化空洞（例如维氏压痕诱导的裂纹阵列）。实验和模拟均显示，锂枝晶在遇到这类横向空洞时会自动发生约45°的偏转，从而绕开直达对电极的短路路径。相比之下，圆形空洞则无法改变枝晶的直线前进方向。文章于2026年4月22日发表在Nature。",
           "hb": 1
         },
         {
-          "t": "三层叠太阳能电池达到效率里程碑",
+          "t": "通过 π sp-p 键合激活碘化锌的 sp 杂交，实现 Ah 级海水基可穿戴锌碘软包电池",
           "d": "2026-04-22",
-          "a": "Nature",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该报道介绍了三层结构(triple-decker)叠层太阳能电池在光电转换效率上取得的里程碑式突破。叠层太阳能电池通过将多个不同带隙的光吸收层堆叠，可更高效地利用全光谱太阳光。三层结构的设计进一步拓展了光谱覆盖范围，相比传统单结和双结电池显著提升了理论效率上限。该进展标志着多结太阳能电池技术向商业化高效光伏应用迈出了关键一步，有望降低平准化度电成本。",
-          "sc": 7.3,
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/d41586-026-01149-9",
-          "tp": "三结太阳能电池",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00836D",
+          "tp": "锌碘软包电池",
           "aip": 1,
-          "kp": [
-            "[器件结构]: 三叠层太阳能电池"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -99,15 +90,34 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "索尼AI融合事件视觉与强化学习构建乒乓球系统，首次实现与人类精英选手竞技",
-        "微软提出蒙特卡洛模拟框架测算单次AI查询能耗，显示系统优化可提升20倍能效",
-        "CrystalX引入深度神经网络从衍射数据提取特征，提升复杂晶体结构解析速度"
+        "索尼AI构建自主乒乓球系统，凭借旋转读取能力击败多名人类精英选手",
+        "索尼AI实体交互系统研究成果发表于Nature，实现对人类选手竞技",
+        "微软研究人员提出AI查询能耗估算框架，测得部署优化可提升20倍能效"
       ],
       "entries": [
         {
           "t": "索尼AI的Peter Dürr提出面向真实对抗环境的实体AI乒乓系统",
           "d": "2026-04-22",
-          "a": "",
+          "a": "Doi",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "索尼AI的Peter Dürr团队构建名为Ace的自主乒乓球系统，融合事件视觉传感器高速感知、无模型强化学习控制与高速机器人硬件，首次实现与顶尖人类选手竞技。Ace击败5名精英选手中的3名，但对2名职业选手7局仅胜1局，优势主要来自超人般的旋转读取能力而非速度碾压。成果彰显实体AI执行复杂实时交互任务的潜力，发表于Nature。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10338-5",
+          "tp": "对抗乒乓AI",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "人工智能系统已在众多电子游戏中挑战甚至超越人类专家，但乒乓球等物理实时运动由于需要障碍物附近极速、精准的对抗性交互且逼近人类反应极限，仍是重大开放挑战。研究首次构建了名为Ace的自主系统，该系统能与顶尖人类乒乓球选手竞技。通过融合基于事件视觉传感器的新型高速感知系统、基于无模型强化学习的控制系统及先进高速机器人硬件，研究解决了物理实时交互的难题。Ace击败了5名精英选手中的3名，但在面对2名职业选手时整体处于劣势（7局仅胜1局），其优势主要来自超人般的旋转读取能力，而非单纯的速度碾压。这些成果彰显了实体AI智能体执行复杂实时交互任务的潜力，表明其在需快速精准人机协作领域具有广阔应用前景。文章于2026年4月22日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "索尼AI的Peter Dürr提出面向真实对抗环境的实体AI乒乓系统",
+          "d": "2026-04-22",
+          "a": "Doi",
           "c": "AI与智能科技/具身智能/硬件和控制",
           "as": "索尼AI的Peter Dürr团队构建名为Ace的自主乒乓球系统，融合事件视觉传感器高速感知、无模型强化学习控制与高速机器人硬件，首次实现与顶尖人类选手竞技。Ace击败5名精英选手中的3名，但对2名职业选手7局仅胜1局，优势主要来自超人般的旋转读取能力而非速度碾压。成果彰显实体AI执行复杂实时交互任务的潜力，发表于Nature。",
           "sc": 7.3,
@@ -126,42 +136,20 @@
         {
           "t": "微软Felipe Oviedo对当前AI模型单次查询能耗进行估算",
           "d": "2026-04-22",
-          "a": "",
+          "a": "Cell",
           "c": "AI与智能科技/AI硬件层/数据中心",
           "as": "微软Felipe Oviedo等提出自下而上的Monte Carlo模拟框架，在稳态服务条件下结合节点功耗、PUE、token长度及模型吞吐能力估算单次AI查询能耗。研究表明基于小规模或非优化部署的估算通常高估真实能耗，模型架构改进、智能路由、服务优化和硬件升级有望带来8-20倍能效提升。框架应用于DeepSeek-R1 671B、Llama 3等模型，为容量规划与政策制定提供依据。",
-          "sc": 6.5,
+          "sc": 6.1,
           "i": "n",
           "tg": "行业观察",
           "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00114-5",
           "tp": "查询能耗",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
           "b": "随着人工智能推理扩展到每天数十亿次查询，单次查询的能耗估计对于容量规划、效率干预和政策制定变得越来越重要。然而，许多公开估算基于非生产环境，目前公开流传的“单次查询能耗”差异可超过一个数量级。这种情况可能由于不同研究采用的测量边界不同；也可能是基准测试并不能反映真实生产环境中的批处理、并发和稳态服务条件。\n近日，微软Felipe Oviedo等研究认为基于小规模或非优化部署得到的单次查询能耗，通常高估了真实AIinference的能耗；更多、更长的推理确实会增加总能耗，但模型架构改进、智能路由、服务优化和硬件升级有望共同把这种增长控制住，预计可以带来8–20倍的可预见能效提升。\n其提出了一个自下而上的Monte Carlo模拟框架，其将一次查询定义为单次“输入提示—模型输出”的文本事件，并在稳态服务条件下，结合节点功耗、数据中心电能使用效率（PUE）、token输入输出长度（普通查询中位输出长度为300token；测试时扩展场景，中位输出长度为5000token）以及不同模型在H100节点上的token吞吐能力，估算单次查询的能耗。其首先DeepSeek-R1 671B、Llama 3.1 405B、Llama 3.1 NemotronUltra 253B、Mixtral 8x 22B和Llama3.1 70B五个模型在普通查询场景下的单次能耗，结果表明这些模型在生产优化部署中的能耗与现有生产级测量结果大体一致；但与基于非生产环境、未考虑批处理和推理加速的估算值相比则偏低。对三类参数量超过2000亿的模型构建的前沿模型基线场景，其在普通查询条件下，单次查询能耗中位数为0.31Wh，与近期面向生产部署的公开披露基本一致，如GPT-4o的0.30Wh、ChatGPT的0.34Wh，以及GeminiApps的0.24Wh，与2009年Google曾披露的单次websearch约0.3Wh也处于同一数量级。该研究还发现单次查询能耗会随着输出token增长近似线性增加，测试时扩展场景参数量超过2000亿模型的单次查询能耗中位数升至3.91Wh，而且相当一部分查询会超过10Wh；长查询的能耗也相对较高，DeepSeek-R1中位数可达10.6Wh。\n基于此上述结果，该研究认为下一代模型可通过蒸馏、低比特量化、MoE推理优化、更高效的注意力机制以及更节制的推理长度控制等方式实现1.5–10倍的改进。按服务级别目标进行自适应服务、prefill与decoding阶段分离、KVcache管理与量化、speculative decoding，以及根据查询复杂度进行智能模型路由等可在在服务平台和工作负载管理层面实现1.5–5倍的改进。在硬件和数据中心层面，其认为通过Blackwell架构、自定义AI推理芯片、功率管理技术，以及冷板和浸没式冷却等更高效的数据中心散热方案有望实现1.5–2.5倍的改进。整体来看，其预估在普通查询场景中，硬件/数据中心改进可将单次能耗中位数从0.31Wh降至0.16Wh，服务平台优化可降至0.11Wh，而模型改进可进一步降至0.08Wh；在长推理场景中，相对降幅也大致相似。若三类优化联合采用，一个保守的组合可以实现约8–9倍的总体下降，而较乐观的组合可达约20倍。但该文章也指出，其研究模型主要针对高利用率下的单节点推理，没有充分纳入多节点协同、网络时延和启动过程；对长查询token分布的设定仍是理想化的；对于极长上下文的prefill开销，模型也可能低估；此外，文章聚焦的是自回归文本生成，并不适用于扩散类图像或视频生成。文章于2026年4月22日发表在Joule。",
-          "hb": 1
-        },
-        {
-          "t": "CrystalX：基于深度学习的高精度晶体结构分析",
-          "d": "2026-04-22",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "CrystalX是一种基于深度学习的晶体结构分析方法，旨在实现高精度的原子结构解析。在化学和材料科学中，晶体材料的原子结构分析是理解其物理化学性质的核心环节。传统X射线衍射解析依赖人工经验且耗时长，CrystalX利用深度神经网络从衍射数据中自动提取结构特征，大幅提升了解析速度与准确度。该方法对复杂晶体结构、超晶格及缺陷体系展现出良好的泛化能力，有望成为材料研发和药物晶体筛选中的高通量结构解析工具。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21832",
-          "tp": "深度学习晶体分析",
-          "aip": 1,
-          "kp": [
-            "[工具]: CrystalX深度学习晶体结构分析",
-            "[优势]: 高精度+降低晶体学专业知识门槛"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Atomic structure analysis of crystalline materials is a paramount endeavor in both chemical and material sciences. This sophisticated technique necessitates not only a solid foundation in crystallography but also a profound comprehension of the intricacies of the accompanying software, posing a significant challenge in meeting rigorous daily demands. For the first time, we confront this challenge head-on by harnessing the power of deep learning for fully automated routine structure analysis at the full-atom level. To validate the performance of the model, named CrystalX, we employed a data set comprising over 50,000 X-ray diffraction measurements derived from authentic experiments. Under a strict temporal validation scheme that separates training and test data by publication time, CrystalX substantially outperformed the automated baseline and was adept at deciphering intricate geometric patterns. Remarkably, CrystalX revealed that even peer-reviewed publications harbor expert interpretation errors that can evade stringent CheckCIF A/B-level alerts, yet CrystalX adeptly rectifies them. It has already been successfully applied in our day-to-day pipeline, enabling fully automated, human-free structure analysis of newly discovered compounds. Overall, CrystalX marks the beginning of a new era of automating routine structural analysis within self-driving laboratories.",
           "hb": 1
         }
       ]
@@ -169,76 +157,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "新单脉冲核磁共振技术结合深度神经网络，实现异核二维光谱快速重建",
-        "单脉冲结合离共振去耦技术缩短二维核磁共振采样时间，保持图谱信噪比",
-        "双单原子工程NADH氧化酶模拟物提升原位生物转化效率，用于心肌损伤保护"
-      ],
-      "entries": [
-        {
-          "t": "单脉冲二维核磁共振：通过偏共振去耦与深度神经网络重建异核二维谱",
-          "d": "2026-04-22",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究提出一种利用单脉冲结合离共振去耦和深度神经网络重建异核二维NMR光谱的新方法。传统二维NMR需要多次脉冲序列采集，耗时较长。该方法通过离共振去耦技术获取丰富的频率编码信息，再利用深度学习从单次采集数据中重建完整二维谱，大幅缩短实验时间。该技术在化学、材料科学和结构生物学等领域具有广泛应用潜力，尤其有利于不稳定样品的快速表征。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527937123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "二维核磁共振",
-          "aip": 1,
-          "kp": [
-            "[方法]: 单脉冲+离共振去耦+DNN重建",
-            "[应用]: 杂核2D NMR谱重建"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "NMR spectroscopy is ubiquitous in many areas of science, including chemistry, material science, biophysics, and structural biology. Heteronuclear two-dimensional (2D) NMR experiments form the basis of several NMR-based investigations, especially those involving biomolecules like proteins. However, in solution, as the molecule of interest becomes larger, transverse relaxation times of the spins of interest become shorter. This makes it difficult to record 2D\n                    1\n                    H–\n                    13\n                    C or\n                    1\n                    H–\n                    15\n                    N correlation maps of large protein molecules using standard Fourier transform–based experiments as they contain transfer delays that are long compared to the short relaxation times. Herein, we explore the possibility of leveraging deep neural networks (DNNs) to obtain 2D correlation maps of proteins while eliminating transfer delays from experiments. In this study, we show that 2D methyl\n                    1\n                    H–\n                    13\n                    C correlation maps can be obtained from experiments containing only a single\n                    1\n                    H excitation pulse followed by off-resonance\n                    13\n                    C continuous-wave decoupling. A DNN was successfully trained to reconstruct the 2D\n                    1\n                    H–\n                    13\n                    C correlation map from datasets recorded with two\n                    13\n                    C decoupling fields using protein samples enriched with isoleucine, leucine, and valine (ILV)\n                    13\n                    CHD\n                    2\n                    methyl-groups in a\n                    2\n                    H background. The efficacy of this strategy is demonstrated by using the DNN to reconstruct methyl\n                    1\n                    H–\n                    13\n                    C correlation maps of the ~8 kDa FF domain from human HYPA/FBP11, the ~18 kDa T4 phage lysozyme, the ~360 kDa α\n                    7\n                    α\n                    7\n                    particle from the\n                    Thermoplasma acidophilum\n                    proteasome and a ~530 kDa ancestrally reconstructed L\n                    8\n                    S\n                    8\n                    Rubisco complex. This study illustrates the potential for improving the sensitivity and resolution of NMR spectra by designing experiments tailored for use with DNNs.",
-          "hb": 1
-        },
-        {
-          "t": "单脉冲二维核磁共振：通过离共振去耦和深度神经网络重建异核2D谱图",
-          "d": "2026-04-22",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究提出了一种利用单脉冲采集和离共振去耦技术，结合深度神经网络重建异核二维NMR光谱的新方法。传统二维NMR需要长时间的多脉冲采样序列，该创新方法大幅缩短了数据采集时间。深度学习网络从一维投影数据中重建出完整的异核二维相关谱，在保持谱图分辨率和信义比的同时显著提升了检测效率，为化学和生物大分子结构解析提供了快速NMR表征手段。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527937123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "二维核磁共振",
-          "aip": 1,
-          "kp": [
-            "[方法]: 单脉冲离共振去耦+深度神经网络",
-            "[应用]: 重构异核2D NMR谱"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "NMR spectroscopy is ubiquitous in many areas of science, including chemistry, material science, biophysics, and structural biology. Heteronuclear two-dimensional (2D) NMR experiments form the basis of several NMR-based investigations, especially those involving biomolecules like proteins. However, in solution, as the molecule of interest becomes larger, transverse relaxation times of the spins of interest become shorter. This makes it difficult to record 2D\n                    1\n                    H–\n                    13\n                    C or\n                    1\n                    H–\n                    15\n                    N correlation maps of large protein molecules using standard Fourier transform–based experiments as they contain transfer delays that are long compared to the short relaxation times. Herein, we explore the possibility of leveraging deep neural networks (DNNs) to obtain 2D correlation maps of proteins while eliminating transfer delays from experiments. In this study, we show that 2D methyl\n                    1\n                    H–\n                    13\n                    C correlation maps can be obtained from experiments containing only a single\n                    1\n                    H excitation pulse followed by off-resonance\n                    13\n                    C continuous-wave decoupling. A DNN was successfully trained to reconstruct the 2D\n                    1\n                    H–\n                    13\n                    C correlation map from datasets recorded with two\n                    13\n                    C decoupling fields using protein samples enriched with isoleucine, leucine, and valine (ILV)\n                    13\n                    CHD\n                    2\n                    methyl-groups in a\n                    2\n                    H background. The efficacy of this strategy is demonstrated by using the DNN to reconstruct methyl\n                    1\n                    H–\n                    13\n                    C correlation maps of the ~8 kDa FF domain from human HYPA/FBP11, the ~18 kDa T4 phage lysozyme, the ~360 kDa α\n                    7\n                    α\n                    7\n                    particle from the\n                    Thermoplasma acidophilum\n                    proteasome and a ~530 kDa ancestrally reconstructed L\n                    8\n                    S\n                    8\n                    Rubisco complex. This study illustrates the potential for improving the sensitivity and resolution of NMR spectra by designing experiments tailored for use with DNNs.",
-          "hb": 1
-        },
-        {
-          "t": "双单原子工程 NADH 氧化酶模拟物增强原位 NAD+ 生物转化，实现靶向心肌缺血/再灌注保护",
-          "d": "2026-04-22",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "设计了双单原子工程的NADH氧化酶模拟物，可增强原位NAD+生物转化，用于靶向心肌缺血/再灌注（I/R）损伤保护。该纳米酶高效催化NADH氧化为NAD+，改善心肌能量代谢、缓解炎症，克服了现有NAD+补充策略递送效率低的问题，为I/R损伤的临床治疗提供了新方案。",
-          "sc": 6.3,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/adma.202519122?af=R",
-          "tp": "单原子催化",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Myocardial ischemia/reperfusion (I/R) injury is a globally recognized pathological condition that results in life‐threatening organ dysfunction. Supplementation with nicotinamide adenine dinucleotide (NAD\n                    +\n                    ) can improve myocardial energy metabolism, alleviate inflammation, and mitigate I/R injury. However, its clinical applicability is constrained by the poor efficacy and delivery limitations of current NAD\n                    +\n                    supplementation strategies. Here, we design a dual single‐atom nanozyme with nicotinamide adenine dinucleotide (NADH) oxidase‐mimicking activity for in situ NAD\n                    +\n                    biotransformation and I/R injury treatment. Upon M2 macrophage membrane coating, the nanozyme selectively targets ischemic myocardium, facilitating in situ NAD\n                    +\n                    biotransformation by eliminating excess NADH, while concurrently scavenging reactive oxygen species, restoring mitochondrial bioenergetics, attenuating inflammation, and inhibiting apoptosis. Mechanistic investigations demonstrate that the nanozyme activates the NAD\n                    +\n                    ‐SIRT1 axis, enhancing ATP biosynthesis and oxidative phosphorylation, while suppressing TNF signaling and NF‐κB pathways. Collectively, the engineered NOX‐like nanozyme offers a novel therapeutic strategy for myocardial I/R injury by modulating both mitochondrial bioenergetics and oxidative stress defense pathways through restoring NAD\n                    +\n                    /NADH homeostasis.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

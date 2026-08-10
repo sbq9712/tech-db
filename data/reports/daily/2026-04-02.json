@@ -6,19 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "香港城市大学团队揭示液滴去污机制，提出光伏板节水清洁策略",
-      "中科大研制角向箍缩装置，首次实时获取等离子体内爆演化证据",
-      "德国科研机构联合启动聚变项目，开发反应堆内壁钨涂层沉积技术"
+      "香港城市大学团队揭示液滴去污机制并提出光伏板节水清洁策略",
+      "中科大兰涛团队首次实时获取角向箍缩内爆演化证据并提出可变磁通耦合模型"
     ],
-    "AI与智能科技": [
-      "科研人员开发自主智能体工作流，实现电子显微镜自动控制与实时分析",
-      "研究人员实现晶圆级低温生长超薄二硫化钨，用于先进制程后端互连",
-      "研究将非手性分子掺杂至胆甾型液晶，实现手性诱导自旋选择性效应"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究人员利用热成像技术，观测到金红石二氧化钌交错磁体磁畴对比",
-      "Artemis II执行载人绕月飞行，验证猎户座飞船生命保障与深空通信",
-      "麻省理工学院基于交通摄像头与手机数据，生成曼哈顿实时排放清单"
+      "研究人员开发公斤级水介导无缺陷单层MXene纳米片剥离新策略",
+      "MIT团队结合交通摄像头与手机数据构建曼哈顿近实时车辆排放清单"
     ]
   },
   "sectors": [
@@ -26,15 +20,14 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "香港城市大学团队揭示液滴去污机制，提出光伏板节水清洁策略",
-        "中科大研制角向箍缩装置，首次实时获取等离子体内爆演化证据",
-        "德国科研机构联合启动聚变项目，开发反应堆内壁钨涂层沉积技术"
+        "香港城市大学团队揭示液滴去污机制并提出光伏板节水清洁策略",
+        "中科大兰涛团队首次实时获取角向箍缩内爆演化证据并提出可变磁通耦合模型"
       ],
       "entries": [
         {
           "t": "香港城市大学Steven Wang揭示液滴对光伏器件表面污染颗粒的去除机制并报道一种节水的喷液清洁策略",
           "d": "2026-04-02",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "香港城市大学Steven Wang团队揭示了液滴撞击去除光伏表面污染颗粒的物理机制，发现颗粒下方限域气体形成高压区、液滴弯曲界面产生负压，压力不平衡提供向上加速度。研究以韦伯数、液滴-颗粒尺度比和颗粒润湿性为核心参数建立判据与相图，区分共同抬升、分离、黏附等不同结果。基于此提出节水喷液清洁策略，有望大幅降低全球太阳能板清洁每年消耗的100亿加仑用水。",
           "sc": 6.2,
@@ -42,7 +35,7 @@
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41893-026-01804-z",
           "tp": "光伏板清洁",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 2,
           "wr": "",
@@ -53,7 +46,7 @@
         {
           "t": "中科大兰涛提出针对角向箍缩的可变磁通耦合模型",
           "d": "2026-04-02",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
           "as": "中科大兰涛团队研制胶囊形角向箍缩装置，集成五通道激光光纤干涉仪、八通道磁探针阵列及超高速成像系统，全球首次实时定量获取角向箍缩内爆过程等离子体质量和电流演化直接证据。实验发现等离子体环电流呈\"先快速上升、后逐渐下降\"的非单调演化，与经典模型的固定比例假设不符。据此提出可变磁通耦合模型，引入时变耦合系数，为紧凑型聚变和磁惯性约束聚变内爆动力学提供更准确的理论框架。",
           "sc": 7.2,
@@ -70,22 +63,22 @@
           "hb": 1
         },
         {
-          "t": "弗劳恩霍夫制造与自动化研究所将开发基于离子液体和有机溶剂的聚变装置内壁钨涂层制备技术",
+          "t": "香港城市大学Steven Wang揭示液滴对光伏器件表面污染颗粒的去除机制并报道一种节水的喷液清洁策略",
           "d": "2026-04-02",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "德国马普等离子体物理研究所、IoLiTec和弗劳恩霍夫IPA联合启动\"GalvanoFusion\"项目，开发基于离子液体和有机溶剂无水电解液的钨电化学沉积技术，用于聚变反应堆第一壁钨防护层制备。钨熔点超3000°C、可承受10 MW/m²热负荷，但整体钨部件昂贵且难加工。无水电解液可克服水基电镀中钨氢过电位低导致的析氢问题。项目由德国BMFTR\"聚变2040\"计划资助，执行期2026年1月至2028年12月。",
-          "sc": 7.0,
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "香港城市大学Steven Wang团队揭示了液滴撞击去除光伏表面污染颗粒的物理机制，发现颗粒下方限域气体形成高压区、液滴弯曲界面产生负压，压力不平衡提供向上加速度。研究以韦伯数、液滴-颗粒尺度比和颗粒润湿性为核心参数建立判据与相图，区分共同抬升、分离、黏附等不同结果。基于此提出节水喷液清洁策略，有望大幅降低全球太阳能板清洁每年消耗的100亿加仑用水。",
+          "sc": 6.2,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://nachrichten.idw-online.de/2026/04/02/neuartige-beschichtungstechnologie-fuer-fusionskraftwerke-elektrochemisches-verfahren-fuer-wolframschichten",
-          "tp": "聚变钨涂层",
-          "aip": 1,
+          "u": "https://doi.org/10.1038/s41893-026-01804-z",
+          "tp": "光伏板清洁",
+          "aip": 0,
           "kp": [],
-          "lv": 1,
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "4月2日，德国Informationsdienst Wissenschaft发文称，由马克斯普朗克等离子体物理研究所（IPP）、特种电解液制造商IoLiTec及弗劳恩霍夫制造技术与自动化研究所（IPA）组成的研究团队，正在依托名为“GalvanoFusion”的项目，开发一种纯钨涂层电化学沉积技术，旨在提供一种聚变反应堆内壁（即第一壁）钨防护层易于加工制备的方法。其认为，钨作为面向等离子体表面的材料，熔点超过3000°C可承受高达10 MW/m²的热负荷；但钨价格较高且机械加工困难，整体使用钨部件既不经济也不现实，使用易加工基材+沉积薄钨涂层成为较为的理想方案。\n该研究团队将采用基于离子液体和有机溶剂的无水电解液体系，可克服传统水基电镀工艺中因钨的氢过电位低产生的析氢问题。该项目由德国联邦研究、技术与航天部（BMFTR）在“聚变2040”资助计划下提供经费（资助编号13F1034A），执行期为2026年1月1日至2028年12月31日。",
+          "cm": "灰尘积累会降低光伏系统的发电效率，采用液体喷射的方法有效但耗水量巨大，全球太阳能板清洁每年消耗高达100亿加仑水，相当于200万人的年用水需求。需要在保证清洁效果的同时提高水资源利用效率。",
+          "b": "灰尘积累会降低光伏系统的发电效率，采用液体喷射的方法有效但耗水量巨大，全球太阳能板清洁每年消耗高达100亿加仑水，相当于200万人的年用水需求。需要在保证清洁效果的同时提高水资源利用效率。\n近日，香港城市大学Steven Wang教授团队首先通过实验模拟自然界中的清洁过程，其将直径0.7mm的钢质颗粒置于超疏水玻璃基底上，然后释放约5μL的水滴以不同速度撞击颗粒，撞击后会在颗粒上铺展、回缩，随后带着颗粒一起跳离表面/落回基底。韦伯数、液滴撞击速度、颗粒与液滴的尺寸比、颗粒的润湿性对清洁结果影响较大，当撞击速度较低时，液滴与颗粒结合但无法一起跳起；中等速度下，两者结合并共同跳起；高速撞击时，颗粒在上升过程中与液滴分离；模拟分析结果显示，颗粒下方的限域气体形成高压区，而液滴弯曲界面产生负压，这种压力不平衡提供了向上的加速度；亲水性颗粒会促使回弹液滴形成条带状，而疏水性颗粒则保持近球形。该研究以韦伯数、液滴-颗粒尺度比以及颗粒润湿性为核心参数的判据与相图，用于区分颗粒与液滴共同抬升、抬升后分离、仅发生黏附而不离面等不同结果；三相接触线的位置以及颗粒表面对液滴的黏附方式，会直接决定颗粒与液滴在起跳后是否仍保持耦合。当颗粒表面更容易与液滴保持合适接触时，液滴对颗粒的“包裹—抬升”过程就更加稳定；反之，颗粒可能在抬升过程中提前与液滴分离；在亲水性颗粒上，接触线钉扎在下半部分，接触面积超过50%；而疏水性颗粒上，接触线快速向上迁移。二氧化硅颗粒（10μm-2mm）实验结果也证明，微米级颗粒的去除行为理想地处于Regime 1（颗粒-液滴结合并跳起）；当颗粒直径增大到1毫米mm、韦伯数达到100时，Regime 1与Regime 2（颗粒与液滴分离）之间的边界出现。\n基于上述机制，其提出了一种液滴拖把（liquid droplet mops, LDMs）的策略，其将8个交错排列的出液口安装在电机驱动的线性滑轨上，可在模块上方扫过并从高处释放液滴，可将一串受控液滴精准送到污染区域，利用液滴“撞击—抬升—带离”的方式完成去污。高速画面显示，液滴在25毫秒内完成第一次回弹，实现了污染物（SiO₂和NaCl颗粒）高效去除；在超疏水涂层光伏板上的单位面积耗水量仅约0.34 L/m²（污染面积115cm²），即可实现约99.9%的颗粒去除率，而传统液体喷射法耗水量高出6至14倍。在不同湿度（30%-90%）和温度（10-50°C）条件下，该方法对二氧化硅和氯化钠颗粒均保持99%以上的高去除率。即使在最高3.5m/s的风速下，清洁效率和水耗保持不变；大于5m/s大风条件下，水耗增加不超过40%，去除率依然维持高水平。经过十次清洁循环后，太阳能板的电输出性能与液体喷射清洁相当。全球模拟计算结果显示，采用该方法可将太阳能板清洁年用水量从约120亿加仑降至20亿加仑，中国和美国每年可节约超过50亿加仑水。文章于4月2日发表在Nature Sustainability。",
           "hb": 1
         }
       ]
@@ -93,122 +86,28 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研人员开发自主智能体工作流，实现电子显微镜自动控制与实时分析",
-        "研究人员实现晶圆级低温生长超薄二硫化钨，用于先进制程后端互连",
-        "研究将非手性分子掺杂至胆甾型液晶，实现手性诱导自旋选择性效应"
-      ],
-      "entries": [
-        {
-          "t": "基于自主智能体平台桥接电子显微镜与材料分析",
-          "d": "2026-04-02",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "该工作开发了一套自主智能体（agentic）工作流，将电子显微镜成像与材料分析过程打通。系统能够自动控制电镜设备、采集原子尺度图像，并利用AI驱动的分析模块对微观结构进行实时识别与表征，涵盖催化、储能及半导体器件等关键场景。该自主平台大幅减少了人工干预，加速了从显微图像到材料洞察的闭环，为高通量材料发现和质量管控提供了可扩展的自动化方案。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0583?af=R",
-          "tp": "电镜自主分析",
-          "aip": 1,
-          "kp": [
-            "[平台架构]: 自主智能体整合电镜分析全流程"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Electron microscopy (EM) reveals atomic-scale structures that underpin catalysis, energy storage, and semiconductor reliability, yet current workflows remain fragmented across segmentation, crystallographic reconstruction, property modeling, and literature review, often requiring weeks of expert effort. Although recent artificial intelligence models have assisted individual steps, the diversity of EM modalities and tasks means existing approaches remain siloed and perform poorly in complex multistage workflows. We present EMSeek, a modular, provenance-tracked multiagent platform that connects EM to materials insight through five key units: reference-guided one-for-all segmentation, mask-aware reconstruction of crystal structures from EM data, a gated mixture of experts property predictor with uncertainty calibration, literature retrieval with citation anchoring, and physical consistency checks with audit-ready reporting. These units are orchestrated by large language models (LLMs) that automatically plan, invoke, and execute tools, minimizing human intervention. On 20 material systems and five tasks, EMSeek delivers segmentation about twice as fast as Segment Anything with higher accuracy, achieves more than 90% structural similarity on STEM2Mat, and, with about 2% labeled calibration, matches or surpasses strong single experts on three out-of-distribution property benchmarks. A complete query runs in 2 to 5 minutes per image, roughly 50 times faster than expert workflows. Case studies on two-dimensional lattices and nanoparticles validate EMSeek’s ability to automate complex workflows, with integrated uncertainty calibration and audit signals that provide scientists with rigorous yet actionable guidance to accelerate materials discovery.",
-          "hb": 1
-        },
-        {
-          "t": "晶圆级低温生长超薄二硫化钨用于双功能互连阻挡层与衬层",
-          "d": "2026-04-02",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该工作实现低温晶圆级生长超薄二硫化钨（WS₂），面向先进制程后端互连（BEOL）的双功能应用。随着集成电路铜互连需缩减至纳米尺度，电阻率因尺寸效应急剧上升。超薄WS₂作为二维过渡金属硫族化合物兼具高迁移率和原子级厚度，可在BEOL兼容的低温下大面积生长，兼顾互连保护层与功能层双重角色，为摩尔定律延续提供新材料方案。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01592-6",
-          "tp": "二硫化钨互连阻挡层",
-          "aip": 1,
-          "kp": [
-            "材料[互连势垒]: 超薄WS₂",
-            "合成[ALD]: 低温晶圆级热原子层沉积"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In the future, the miniaturization of integrated circuits will require copper wires to be scaled down in the back-end-of-line (BEOL) process. This will, in turn, require a scaling down of the barrier and liner coatings that prevent copper diffusion and ensure metal adhesion to the dielectric. Here we show that thin (2) layers can be grown on the wafer-scale using thermal atomic layer deposition without plasma at BEOL-compatible temperatures (350 °C) and can function as both barriers and liners for interconnects. We show that the WS2 can reduce the resistivity of 10-nm-thick copper films by more than six orders of magnitude compared with a reference system (without the WS2 layer) due to the improved wettability of copper. Monolayer WS2 can prevent copper diffusion into silicon dioxide (SiO2) under thermal stress, and it is projected to improve wire lifetimes under electrical stress. Density functional theory calculations also highlight the potential of multilayer WS2 films as diffusion barriers due to misaligned grain boundaries.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 掺杂胆甾型液晶的非手性电子给体-受体分子中的手性诱导自旋选择性",
-          "d": "2026-04-02",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究将非手性电子给体-受体分子掺杂到手性胆甾型液晶中，实现了手性诱导自旋选择性（CISS）效应。胆甾型液晶的超分子手性环境使非手性分子的自由基对自旋动力学受到调控，表现出自旋选择性。该发现拓展了CISS效应的适用体系范围，在量子信息处理和自旋电子学应用方面具有潜在价值。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01757",
-          "tp": "手性自旋选择性",
-          "aip": 1,
-          "kp": [
-            "[自旋选择性]: 超分子手性转移实现CISS效应",
-            "[量子信息]: 胆甾液晶调控自由基对自旋动力学"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Chirality-induced spin selectivity (CISS) enables control over radical pair spin dynamics for applications in quantum information science (QIS). In this study, we show that this control can be achieved through supramolecular chirality transfer, rather than relying on the intrinsic molecular chirality of the molecule used to generate the radical pair. We investigate how doping an achiral donor-bridge-acceptor (D-B-A) molecule into a cholesteric liquid crystal affects the spin dynamics of a spin-correlated radical pair (D•+-B-A•-, SCRP) formed by photoinitiated, subnanosecond, two-step charge separation, where D = p-methoxyaniline (MeOAn), B = 4-(N-piperidinyl)naphthalene-1,8-dicarboximide (ANI), and A = naphthalene-1,8:4,5-bis(dicarboximide) (NDI), compound 1. The cholesteric phase of 4-cyano-4'-n-pentylbiphenyl (5CB) was prepared by the addition of the chiral dopant (R)-2-octyl 4-[4-(hexyloxy)benzoyloxy]benzoate (R811) or its enantiomer (S811). Compound 1 was then doped into these mixtures to form (1/5CB/R811) and (1/5CB/S811). Circular dichroism spectra indicate that chirality transfer occurs from the chiral medium to 1. Time-resolved electron paramagnetic resonance spectroscopy at 85 K was used to observe the SCRP resulting from photoexcitation of B in 1 aligned in 5CB/R811 and 5CB/S811, as well as in 5CB lacking the chiral dopant. The resulting spectra reveal distinct line shape changes indicative of a strong CISS contribution (>83%) to the spin dynamics of D•+-B-A•- formation in the cholesteric phase of 5CB/R811 and 5CB/S811. These results demonstrate that CISS can be effectively induced by supramolecular chirality transfer in SCRPs that lack intrinsic molecular chirality; thus expanding the potential use of CISS for QIS applications.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究人员利用热成像技术，观测到金红石二氧化钌交错磁体磁畴对比",
-        "Artemis II执行载人绕月飞行，验证猎户座飞船生命保障与深空通信",
-        "麻省理工学院基于交通摄像头与手机数据，生成曼哈顿实时排放清单"
+        "研究人员开发公斤级水介导无缺陷单层MXene纳米片剥离新策略",
+        "MIT团队结合交通摄像头与手机数据构建曼哈顿近实时车辆排放清单"
       ],
       "entries": [
         {
-          "t": "交变磁性RuO2中180°畴对比度的热成像",
+          "t": "公斤级水介导的无缺陷单层 MXene 纳米片剥离策略",
           "d": "2026-04-02",
-          "a": "National Science Review Advance Access",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究利用热成像技术观测到金红石二氧化钌（RuO2）中交错磁体180度畴对比。交错磁体是一类新型磁性材料，具有奈尔矢量依赖的自旋劈裂能带结构，为非常规超导和自旋电子学器件提供了丰富的研究平台。热成像结果直观揭示了其磁畴分布与热响应特性，为理解交错磁体的微观磁性机制提供了实验证据。",
-          "sc": 7.6,
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag203/8571577?rss=1",
-          "tp": "交变磁体畴成像",
-          "aip": 1,
-          "kp": [
-            "成像方法[交替磁体RuO2]: 锁相热成像",
-            "[畴分辨]: 0°与180°反奈尔矢量畴",
-            "材料[交替磁性]: RuO2"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Altermagnets host Néel-vector-dependent spin-splitting band structures, offering fertile ground for unconventional condensed-matter phenomena and spintronic applications. Experimental access to their properties, however, is challenging due to the obstacle for imaging 0o and 180o domains with opposite Néel vectors. Here, by exploiting the lock-in thermography to map the domain-dependent thermal contrast originating from the spin-dependent Peltier effect, we achieve real-space imaging of altermagnetic domain signatures of RuO2 in the scale of micrometer. Moreover, we find that magnetic field cooling can enable deterministic control of domain alignment and hence achieve the long-desired uniform 0o or 180o domain determined by the magnetic field direction. These switchable uniform domains restore the characteristic macroscopic magneto-responses of altermagnets, such as spin currents arising from the altermagnetic spin-dependent Seebeck effect. Our findings establish a robust thermal fingerprint of altermagnetism and extend the frontier of spin caloritronics into this emerging class of magnetic materials.",
-          "hb": 1
-        },
-        {
-          "t": "起飞！Artemis II任务送人类重返月球——开启探索新时代",
-          "d": "2026-04-02",
-          "a": "Nature",
-          "c": "通用技术/通信和运输/航天",
-          "as": "Artemis II任务成功将宇航员送往月球，标志着人类深空探索新时代的开启。该任务是阿波罗计划以来首次载人绕月飞行，验证了猎户座飞船生命保障系统和深空通信能力。Artemis计划旨在建立可持续月球存在并为载人火星任务奠定基础，此次飞行对深空辐射防护、长期生命维持及地月运输体系进行了关键验证。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00978-y",
-          "tp": "载人登月",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72943?af=R",
+          "tp": "MXene剥离策略",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -220,7 +119,7 @@
         {
           "t": "麻省理工Songhua Hu基于交通摄像头录像与手机数据对纽约曼哈顿范围内的车辆排放进行估算",
           "d": "2026-04-02",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/通信和运输/陆路运输",
           "as": "MIT Songhua Hu提出基于计算机视觉和动态交通分配（DTA）的中观框架，利用331个曼哈顿交通摄像头实时图像和Cuebiq匿名手机定位数据，结合EPA MOVES排放参数，生成近实时高分辨率城市交通排放清单。YOLOv8检测视频帧提取车队组成和流量，手机数据构建OD矩阵。该框架不依赖侵入式高频车辆追踪，填补了宏观模型时空分辨率粗糙与微观模型数据成本高昂之间的空白，支持动态政策评估。",
           "sc": 6.1,
@@ -228,7 +127,26 @@
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41893-026-01797-9",
           "tp": "尾气排放估",
-          "aip": 1,
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "道路交通是全球主要的碳排放和空气污染物来源，当前宏观模型依赖静态、平均化的数据，虽然能估算城市总排放量，但其时空分辨率粗糙，无法捕捉交通流的动态变化，难以反映排放的热点区域和峰值时段；微观模型虽然能提供高分辨率的估算，但其要求获取每辆车秒级的行驶轨迹等精细数据，在大规模城市环境中，由于数据获取成本高、计算量巨大以及隐私问题，这类模型的应用受到限制。\n近日，麻省理工学院Songhua Hu等提出一种基于计算机视觉和动态交通分配（DTA）的多层次中观框架，可利用城市中无处不在的、易于获取的大数据源（如公开的交通摄像头和匿名的手机定位数据），在不依赖侵入式、高频车辆追踪的前提下，生成近实时、高分辨率的城市交通排放清单，为动态的政策评估和精细化的环境管理提供可能。其使用包括纽约市曼哈顿331个交通摄像头的实时图像（每2-5秒更新一次）用于提取车队组成、交通流量和信号灯时间；Cuebiq提供的移动电话位置数据（MPLD）用于构建起始-目的地（OD）矩阵；同时其整合了美国环保署（EPA）MOVES模型中的车辆排放参数，结合气象数据和车辆注册统计数据进行校准。其首先利用YOLOv8模型检测视频帧中的车辆，并通过一个在12种MOVES标准车型上精细调优的ConvNeXt图像分类器，实现了对车辆类型的精确识别（平均准确率达92.9%），从而获取路段级的车队构成信息。同时，通过分析摄像头视频中车辆的到达和排队模式，该框架能够推断出信号交叉口的红绿灯配时信息（平均绝对误差2-5秒）。为解决交通摄像头覆盖范围有限的问题，其将摄像头观测到的交通量作为地面真值，在一个集成了优化算法的动态交通分配（DTA）模型中进行标定，将分配交通量与观测交通量的相关性从0.34提升至0.94。基于标定后的全路网交通量和密度，再利用道路特有的基本图（Fundamental Diagram, FD）关系来估算路网中每条道路的平均速度，获得完整的、精细化的交通流信息。其基于先前推断出的信号配时和估算出的路段平均速度，重构了车辆的秒级驾驶循环（红灯期间车速为零，绿灯期间则模拟一个典型的“加速-巡航-减速”过程），并将路段级的车队构成、驾驶循环等高分辨率输入数据，导入美国环保署（EPA）官方的MOVES 排放率矩阵（MOVES-Matrix）中，通过计算车辆比功率（VSP）或标定牵引功率（STP）来确定车辆的瞬时运行模式（OpMode），并匹配相应的排放率，生成高时空分辨率的CO、NOx、CO₂和PM2.5等多种污染物的排放清单。\n针对曼哈顿地区的分析结果显示，连接曼哈顿与邻近区域的主要桥梁和隧道，其排放密度比路网平均水平高出319%至513%；排放量在一天内（早晚高峰）、一周内（工作日与周末）以及不同季节和特殊事件（如暴风雪、节假日）期间均表现出显著的波动性。传统模型与该模型相比，由于未能捕捉到信号灯引起的频繁加减速和怠速过程导致PM2.5的总排放量被低估约49%；使用全市平均替代路段级具体构成，会导致NOx和PM2.5的估算产生-15%到+25%的偏差，因为重型车辆的分布并不均匀；若完全不使用摄像头提供的高分辨率信息，各类污染物的总排放量将被低估32%至45%。此外，该模拟结果还显示将10%的高峰时段出行转移至平峰时段，可减少4-7%的排放；将10%的驾车出行转移至公共交通，则可减少14-17%的排放。应用该框架对曼哈顿新实施的拥堵收费政策进行了近实时评估，发现在政策实施8周后，区域内交通量下降了10%，平均车速提升了12%，最终使得各类污染物排放量减少了16%至22%。但当前估算仅限于车辆的在途行驶排放（running emissions），未包含车辆制造、燃料生产等上游环节的生命周期排放，也忽略了由车辆冷启动和热启动产生的启动排放，而后者在短途出行频繁的城市环境中尤为重要；且由于缺乏城市级的真实排放值，对最终排放总量的直接验证仍然是一个挑战；同时该框架依赖于多源众包数据，因此其性能可能受到数据采样偏差、空间覆盖度不均以及恶劣天气或夜间等不利观测条件的影响。文章于4月2日发表在Nature Sustainability。",
+          "hb": 1
+        },
+        {
+          "t": "麻省理工Songhua Hu基于交通摄像头录像与手机数据对纽约曼哈顿范围内的车辆排放进行估算",
+          "d": "2026-04-02",
+          "a": "Doi",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "MIT Songhua Hu提出基于计算机视觉和动态交通分配（DTA）的中观框架，利用331个曼哈顿交通摄像头实时图像和Cuebiq匿名手机定位数据，结合EPA MOVES排放参数，生成近实时高分辨率城市交通排放清单。YOLOv8检测视频帧提取车队组成和流量，手机数据构建OD矩阵。该框架不依赖侵入式高频车辆追踪，填补了宏观模型时空分辨率粗糙与微观模型数据成本高昂之间的空白，支持动态政策评估。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41893-026-01797-9",
+          "tp": "尾气排放估",
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",

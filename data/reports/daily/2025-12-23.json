@@ -6,45 +6,36 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "协同偶极工程使宽带隙钙钛矿串联光伏突破92.8% Shockley-Queisser电压极限",
-      "多元共晶电解液调控溶剂化结构以实现水系铝离子电池富铝合金生长",
-      "解析非晶二维纳米片短程有序结构，实现安培级电流密度海水电解"
+      "新型互锁准固态锌溴电池正极实现稳定循环32000次",
+      "粘附引导CEI技术支持LiCoO2电池在45℃下稳定运行4.6V",
+      "瑞士卷反应器集成甲烷氧化与热电转换实现氢电联产"
     ],
-    "AI与智能科技": [
-      "科研团队基于二维半导体墨水构建柔性单片三维互补电路",
-      "对称破缺拓扑表面态实现1.3T垂直磁化的无场确定性自旋轨道矩翻转"
-    ],
-    "通用技术": [
-      "对称破缺拓扑结构实现1.3T垂直磁化强度的无外场确定性翻转",
-      "操控缺陷偶极态在单弛豫铁电薄膜中实现巨双向电卡效应"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "协同偶极工程使宽带隙钙钛矿串联光伏突破92.8% Shockley-Queisser电压极限",
-        "多元共晶电解液调控溶剂化结构以实现水系铝离子电池富铝合金生长",
-        "解析非晶二维纳米片短程有序结构，实现安培级电流密度海水电解"
+        "新型互锁准固态锌溴电池正极实现稳定循环32000次",
+        "粘附引导CEI技术支持LiCoO2电池在45℃下稳定运行4.6V",
+        "瑞士卷反应器集成甲烷氧化与热电转换实现氢电联产"
       ],
       "entries": [
         {
-          "t": "协同偶极工程使宽带隙钙钛矿串联光伏突破92.8% Shockley-Queisser电压极限",
+          "t": "一种可稳定循环 32000 次的互锁准固态锌溴电池正极",
           "d": "2025-12-23",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究通过协同偶极工程策略，在宽带隙钙钛矿中实现了92.8%的Shockley-Queisser电压极限，为叠层光伏电池的顶部电池提供了突破性方案。偶极工程有效调控了钙钛矿表面的能级排列与界面非辐射复合损失，显著提升了开路电压。该成果对突破单结太阳能电池效率极限、推进钙钛矿/硅叠层电池商业化具有重要意义。",
-          "sc": 7.4,
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c02738",
-          "tp": "宽禁带钙钛矿",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517292?af=R",
+          "tp": "锌溴电池正极",
           "aip": 1,
-          "kp": [
-            "电压[宽带隙钙钛矿]: 92.8% SQ极限",
-            "[策略]: 协同偶极工程"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -52,163 +43,56 @@
           "hb": 0
         },
         {
-          "t": "多元共晶电解液的溶剂化结构设计实现水系铝离子电池富铝合金生长",
+          "t": "粘附引导 CEI 可在 45°C 下实现稳定的 4.6 V LiCoO2",
           "d": "2025-12-23",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "水系铝离子电池具有本征安全、低成本和高体积容量优势，但强水合作用阻碍了富铝合金的可逆沉积。本研究通过多组分共晶电解质的溶剂化结构设计，调控Al³⁺配位环境，抑制水分子的竞争反应，实现了水系体系中富铝合金的生长。该策略有效改善了铝负极的电化学可逆性，为水系铝离子电池实用化提供了电解质工程新思路。",
-          "sc": 7.0,
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17537",
-          "tp": "水系铝离子电池",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf571/8402818?rss=1",
+          "tp": "钴酸锂界面设计",
           "aip": 1,
-          "kp": [
-            "[电解质]: 深共晶电解质(DEE)",
-            "组分比[DEE摩尔比]: 1:40:20:2"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Aqueous aluminum-ion batteries (AAIBs) offer intrinsic safety, low cost, and high volumetric capacity, but strong hydrat...",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "解码非晶二维纳米片中的短程有序结构以实现高效耐久的安培级海水电解",
+          "t": "将甲烷部分氧化和热电发电集成在瑞士卷反应器中：氢和电的双重生产和生命周期评估",
           "d": "2025-12-23",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "非晶纳米材料曾被视为结构无序，现已证明具有优异催化性能。本研究聚焦非晶二维纳米材料在海水电解中的应用，揭示了其短程有序结构对催化活性和耐久性的关键作用。该催化剂在安培级电流密度下实现了高效耐用的海水电解，为绿氢的大规模低成本制备提供了新路径。研究还通过结构表征深入解析了非晶态活性位点的原子级配位环境，为理性设计非晶电催化剂提供了理论指导。",
+          "a": "ScienceDirect Publication: Applied Energy",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "",
           "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504584?af=R",
-          "tp": "海水裂解制氢",
+          "u": "https://www.sciencedirect.com/science/article/pii/S0306261925020069?dgcid=rss_sd_all",
+          "tp": "热电发电技术",
           "aip": 1,
-          "kp": [
-            "[催化剂]: 无定形Ni(OH)₂纳米片",
-            "[表征]: 原子探针层析+operando光谱",
-            "[应用]: 安培级海水氧化",
-            "[发现]: 揭示短程有序隐藏结构"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Amorphous nanomaterials, once considered structurally disordered, are now recognized for exceptional catalytic performance, yet their atomic‐scale origins remain elusive. Here, we combine atom probe tomography (APT), theoretical simulation, and operando spectroscopy to reveal the hidden architecture of amorphous Ni(OH)\n                    2\n                    nanosheets (a‐Ni(OH)\n                    2\n                    NSs)—a highly active and durable catalyst for alkaline seawater electrolysis. As cathodes in anion exchange membrane water electrolyzers, a‐Ni(OH)\n                    2\n                    NSs deliver a remarkably low cell voltage of 1.89 V at 1.0 A cm\n                    −\n                    2\n                    , outperforming crystalline Ni(OH)\n                    2\n                    (2.53 V) and commercial Pt/C (2.39 V), while sustaining over 1000 h of stable operation with negligible decay (&lt;0.02 mV h\n                    −1\n                    ). APT enables 3D, atom‐by‐atom mapping—including hydrogen—revealing four distinct short‐range order (SRO) motifs with thickness‐dependent distributions. These motifs act synergistically: surface O–Ni–OH SROs promote water dissociation, interior Ni–OH SROs optimize proton reduction, and bridging O–Ni–O and Ni–OH\n                    2\n                    SROs accelerate proton transport via hydrogen‐bond networks. This coordinated motif network fully accounts for the exceptional performance, transforming the view of amorphous materials from “black boxes” to atomically designable systems. Our findings establish APT as a transformative platform for uncovering functional motifs in amorphous catalysts, paving the way for rational design of next‐generation materials for sustainable energy conversion.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队基于二维半导体墨水构建柔性单片三维互补电路",
-        "对称破缺拓扑表面态实现1.3T垂直磁化的无场确定性自旋轨道矩翻转"
-      ],
-      "entries": [
-        {
-          "t": "基于2D半导体墨水的柔性单片三维互补电路",
-          "d": "2025-12-23",
-          "a": "Nature Communications",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "柔性可穿戴电子系统需要高密度、低功耗且可无缝集成的电路。本研究基于二维半导体墨水，构建柔性单片3D互补电路。通过将二维半导体材料制成可溶液加工墨水，实现逐层堆叠的3D集成，大幅提高器件密度和功能复杂度。互补逻辑设计有效降低功耗，该成果推动了柔性电子在可穿戴健康监测、柔性显示和物联网传感器中的应用。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-025-66419-y",
-          "tp": "二维半导体柔性电路",
-          "aip": 1,
-          "kp": [
-            "[集成]: 单片3D垂直堆叠",
-            "[材料]: 2D半导体墨水",
-            "[应用]: 柔性可穿戴电子"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Emerging flexible and wearable electronic systems require high-density, low-power circuits that can seamlessly integrate with soft substrates. Monolithic 3D (M3D) integration using 2D semiconductors offers a compelling route in fulfilling these requirements by enabling vertical stacking without compromising mechanical compliance. However, current M3D approaches utilizing 2D semiconductors often require high-temperature processing or transfer steps that hinder their scalability on flexible substrates. Herein, we present a low-temperature M3D integration strategy based on 2D semiconductor inks, which is enabled by a tailored anion-cation doping approach for precise carrier control in n- and p-type devices. Our methodology yields vertically assembled complementary metal-oxide-semiconductor circuits – including inverters, logic, and photosensor-integrated gates, and ring oscillators (ROs) – fabricated entirely at ≤150 °C. Notably, the inverters exhibit a voltage gain up to 462 at a supply voltage of 4 V, and the 5-stage ROs can operate at a maximum oscillation frequency of 13.5 kHz. Beyond their electrical performances, the circuits display robust mechanical stabilities, conforming to curved surfaces, and excellent skin compatibilities. This study reports a scalable, low-temperature platform for the fabrication of M3D electronics in wearable low-power neuromorphic computing systems and bio-integrated electronics.",
-          "hb": 1
-        },
-        {
-          "t": "基于对称破缺拓扑表面态的无场确定性巨自旋轨道矩1.3T垂直磁化翻转",
-          "d": "2025-12-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究利用对称性破缺的拓扑表面态，实现了1.3 T垂直磁化的无外场确定性巨自旋轨道矩（SOT）翻转。无外场控制垂直磁化是自旋电子存储与逻辑器件的核心挑战，传统方案需外加磁场辅助。通过拓扑材料的对称性破缺表面态产生面内对称性破缺的自旋流，实现了纯电学驱动的确定性磁化翻转，为高性能低功耗自旋器件开发铺平道路。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519678?af=R",
-          "tp": "自旋轨道矩存储",
-          "aip": 1,
-          "kp": [
-            "垂直磁化[SOT切换]: 1.3 T",
-            "[特性]: 无场确定性自旋轨道矩切换",
-            "[机制]: 对称性提升的拓扑表面态"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The field‐free control of perpendicular magnetization using spin‐orbit torque (SOT) is a key challenge in spintronics, simplifying design and integration for both memory and logic applications. Unlike conventional heavy metal/ferromagnet heterostructures that already break out‐of‐plane symmetry, thus can readily offer in‐plane switching, realizing deterministic out‐of‐plane switching requires breaking additional in‐plane symmetries. In this study, we demonstrate field‐free switching in a heterostructure composed of a self‐intercalated 2D magnet, Cr\n                    3\n                    Te\n                    4\n                    , and a topological insulator, (Bi\n                    0.75\n                    Sb\n                    0.25\n                    )\n                    2\n                    Te\n                    3\n                    . In this system, the surface states of the topological insulator ensure efficient charge‐to‐spin conversion, but not deterministic on its own. The ordered 2 × 1 self‐intercalation of the perpendicular magnet provides additional symmetry breaking on the interface, rendering a combined unidirectional m (C\n                    s\n                    ) symmetry. This synergy allows for extremely strong, field‐free SOT switching of Cr\n                    3\n                    Te\n                    4\n                    with perpendicular coercivity ≈1.3 T. Unlike exfoliated 2D materials that tend to be single‐crystal, our wafer‐scale deposition naturally nucleates three equivalent types of 2 × 1 sublattices, and therefore the combined SOT switching manifests an apparent three‐fold angular dependence. These findings highlight a promising pathway toward efficient, topological insulator‐based spintronic device and material engineering.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "对称破缺拓扑结构实现1.3T垂直磁化强度的无外场确定性翻转",
-        "操控缺陷偶极态在单弛豫铁电薄膜中实现巨双向电卡效应"
-      ],
-      "entries": [
-        {
-          "t": "对称性破缺拓扑下无场确定性1.3T垂直磁化的巨自旋轨道力矩翻转",
-          "d": "2025-12-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "利用自旋轨道矩（SOT）实现无外磁场控制垂直磁化是自旋电子学的关键挑战。本研究实现无场确定性巨自旋轨道矩切换，垂直磁化强度达1.3T，并通过对称性提升拓扑结构消除对外加磁场的依赖。该成果对开发高密度、低功耗自旋存储器和逻辑器件至关重要，有望推动下一代自旋转移矩磁存储（STT-MRAM）和自旋逻辑芯片的商业化。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519678?af=R",
-          "tp": "自旋轨道矩开关",
-          "aip": 1,
-          "kp": [
-            "[饱和磁化强度]: 1.3T",
-            "[切换]: 无外场自旋轨道力矩",
-            "[机制]: 对称破缺拓扑表面态"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The field‐free control of perpendicular magnetization using spin‐orbit torque (SOT) is a key challenge in spintronics, simplifying design and integration for both memory and logic applications. Unlike conventional heavy metal/ferromagnet heterostructures that already break out‐of‐plane symmetry, thus can readily offer in‐plane switching, realizing deterministic out‐of‐plane switching requires breaking additional in‐plane symmetries. In this study, we demonstrate field‐free switching in a heterostructure composed of a self‐intercalated 2D magnet, Cr\n                    3\n                    Te\n                    4\n                    , and a topological insulator, (Bi\n                    0.75\n                    Sb\n                    0.25\n                    )\n                    2\n                    Te\n                    3\n                    . In this system, the surface states of the topological insulator ensure efficient charge‐to‐spin conversion, but not deterministic on its own. The ordered 2 × 1 self‐intercalation of the perpendicular magnet provides additional symmetry breaking on the interface, rendering a combined unidirectional m (C\n                    s\n                    ) symmetry. This synergy allows for extremely strong, field‐free SOT switching of Cr\n                    3\n                    Te\n                    4\n                    with perpendicular coercivity ≈1.3 T. Unlike exfoliated 2D materials that tend to be single‐crystal, our wafer‐scale deposition naturally nucleates three equivalent types of 2 × 1 sublattices, and therefore the combined SOT switching manifests an apparent three‐fold angular dependence. These findings highlight a promising pathway toward efficient, topological insulator‐based spintronic device and material engineering.",
-          "hb": 1
-        },
-        {
-          "t": "通过操控对称性缺陷偶极态实现单弛豫铁电薄膜中的巨双向电卡效应",
-          "d": "2025-12-23",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究通过操控对称性匹配的缺陷偶极态，在单层弛豫铁电薄膜中实现了巨双向电卡效应。电卡效应利用电场驱动的可逆极化变化实现制冷，在高度集成电子器件散热领域极具潜力。缺陷偶极工程使薄膜同时产生正负双向电卡响应，拓宽了工作温区并显著提升制冷效率，为下一代固态制冷技术的发展提供了重要突破。",
-          "sc": 6.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506036?af=R",
-          "tp": "电卡制冷薄膜",
-          "aip": 1,
-          "kp": [
-            "ΔT[弛豫铁电薄膜]: 约30K级(原文截断)",
-            "[缺陷工程]: 对称保形缺陷偶极态调控双向EC"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Electrocaloric effect (EC) holds great potential for acting as an advanced cooling solution in highly integrated chips. One of the key restrictions for the practical implementation of EC is how to maximize and control the bidirectional positive and negative electrocaloric effects (PEC and NEC) within a single low‐power EC film. In this study, the remarkable temperature changes of\n                    ΔT\n                    = 30.2 K for PEC and\n                    ΔT\n                    = −10.2 K for NEC are achieved via calculation in (111)‐oriented Pb(Ni\n                    1/3\n                    Nb\n                    2/3\n                    )\n                    0.5\n                    Zr\n                    0.15\n                    Ti\n                    0.35\n                    O\n                    3\n                    (PNN‐PT‐PZ) relaxor thin films, exceedingly almost all representative EC cooling options. Such giant bidirectional electrocaloric effects are ascribed to the different symmetry conforming behavior of defect dipoles at distinct thermal activation states. At room temperature, the interfacial stress and large driving electric field intensified the symmetry conforming between defect dipoles and intrinsic polarization, which facilitated positive coupling for PEC. In comparison, the high temperature not only enables the tetragonal→rhombohedral transitions with positive pyroelectric constants, but also disrupts the intrinsic polarization and symmetry conforming state of defect dipoles, both leading to a polar disorder state under applying electric fields and the appearance of large NEC amplitude. Our findings provide essential insights for developing high‐efficiency silicon‐compatible EC cooling technologies used in chip‐level thermal management.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

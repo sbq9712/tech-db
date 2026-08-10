@@ -1,0 +1,122 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月15日　星期一",
+  "date_range": "2025-12-15",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "二聚体受体材料将有机太阳能电池光电转换效率提升至20.85%",
+      "新型钠离子电池实现180 Wh/kg能量密度并具备长循环寿命",
+      "分子电催化剂改善大面积锌碘电池碘氧化还原动力学性能"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "不对称杂原子框架材料深蓝光器件外量子效率突破40%且符合BT.2020标准"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "二聚体受体材料将有机太阳能电池光电转换效率提升至20.85%",
+        "新型钠离子电池实现180 Wh/kg能量密度并具备长循环寿命",
+        "分子电催化剂改善大面积锌碘电池碘氧化还原动力学性能"
+      ],
+      "entries": [
+        {
+          "t": "具有小单重态-三重态能隙的二聚体受体可抑制三重态损失并将有机太阳能电池的效率提高到 20.85%",
+          "d": "2025-12-15",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524341?af=R",
+          "tp": "有机太阳能电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 180 Wh/kg 长循环寿命钠离子电池",
+          "d": "2025-12-15",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03155",
+          "tp": "钠离子电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 具有局部偶极子的分子电催化剂增强大面积容量 Zn-I2 电池的碘氧化还原动力学",
+          "d": "2025-12-15",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03344",
+          "tp": "锌碘电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "不对称杂原子框架材料深蓝光器件外量子效率突破40%且符合BT.2020标准"
+      ],
+      "entries": [
+        {
+          "t": "抑制不对称杂原子框架中的区域间电荷转移跃迁使BT.2020深蓝色电致发光的EQE超过40%",
+          "d": "2025-12-15",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517512?af=R",
+          "tp": "深蓝光致发光",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

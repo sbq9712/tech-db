@@ -1,0 +1,80 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月24日　星期五",
+  "date_range": "2025-10-24",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "水系锌电池研究取得进展，V2O3与Se杂化实现10 A g-1下高度稳定循环"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "新型烷基MOF材料创分离纪录，实现C2H4中痕量C3H6的高效捕获"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "水系锌电池研究取得进展，V2O3与Se杂化实现10 A g-1下高度稳定循环"
+      ],
+      "entries": [
+        {
+          "t": "V2O3 与 Se 增强 d-p 轨道杂化可实现 10 A g−1 下高度稳定的水系锌电池",
+          "d": "2025-10-24",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516093?af=R",
+          "tp": "水系锌电池轨道杂化",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "新型烷基MOF材料创分离纪录，实现C2H4中痕量C3H6的高效捕获"
+      ],
+      "entries": [
+        {
+          "t": "具有成本效益的可规模化生产超稳定烷基 MOF，具有单分子 C3H6 陷阱，可从 C2H4 中捕获痕量 C3H6 创纪录",
+          "d": "2025-10-24",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202515496?af=R",
+          "tp": "MOF气体分离",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

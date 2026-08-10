@@ -6,18 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究利用4-甲基吡啶添加剂抑制缺陷，提升宽禁带钙钛矿电池效率与稳定性",
-      "新型无有机溶剂弱溶剂化电解质解决枝晶生长瓶颈，延长水系锌碘电池循环寿命",
-      "安时级水系锌碘电池实现在宽温域及高电流密度下长周期稳定运行"
+      "晶澳与金石能源联合研发HBC电池，经TÜV认证转换效率达28.2%",
+      "DAS Solar与新南威尔士大学优化TBC电池无主栅技术，量产效率超27%",
+      "Power2X Djewels绿氨及清洁能源基础设施项目正式启动工程建设"
     ],
     "AI与智能科技": [
-      "华为提出半导体演进韬定律，通过时间常数缩微预计2031年达到1.4nm同等密度",
-      "华为以优化寄生参数及统一内存编址缩短信号时延，过去六年已量产381款芯片"
+      "华为提出半导体韬（τ）定律，以时间常数缩微替代几何缩微优化系统时延"
     ],
     "通用技术": [
-      "新型钽基协同催化剂实现常温下甲烷光催化直接转化为高附加值丙酮",
-      "研究通过氧空位工程将介电材料转化为压电催化剂，在超声驱动下触发癌细胞多通路死亡",
-      "X射线诱导有机纳米粒子持续产生活性氧，实现余辉成像引导深部肿瘤治疗"
+      "西班牙与葡萄牙查明停电源于过电压事件，拟修编规则并部署构网技术",
+      "科研人员开发新型冷冻复活技术，成功避免脑组织极低温结晶损伤",
+      "古巴实施第114号决议，将可再生能源统一上网电价提升至每千瓦时90比索"
     ]
   },
   "sectors": [
@@ -25,76 +24,73 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究利用4-甲基吡啶添加剂抑制缺陷，提升宽禁带钙钛矿电池效率与稳定性",
-        "新型无有机溶剂弱溶剂化电解质解决枝晶生长瓶颈，延长水系锌碘电池循环寿命",
-        "安时级水系锌碘电池实现在宽温域及高电流密度下长周期稳定运行"
+        "晶澳与金石能源联合研发HBC电池，经TÜV认证转换效率达28.2%",
+        "DAS Solar与新南威尔士大学优化TBC电池无主栅技术，量产效率超27%",
+        "Power2X Djewels绿氨及清洁能源基础设施项目正式启动工程建设"
       ],
       "entries": [
         {
-          "t": "4-甲基吡啶介导的宽带隙钙钛矿薄膜均质化用于高效全钙钛矿叠层太阳能电池",
+          "t": "晶澳太阳能、金石能源宣称采用效率高达 28.2% 的背接触器件，硅太阳能电池效率达到世界最高水平",
           "d": "2026-05-25",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "pv magazine",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "宽禁带(WBG)钙钛矿是多结叠层太阳能电池顶电池的关键材料,但混合卤素体系易产生相分离和膜层不均问题。该研究采用4-甲基吡啶作为添加剂,通过配位与钝化作用实现钙钛矿薄膜的均质化,有效抑制缺陷与非辐射复合,显著提升宽禁带钙钛矿电池的效率与稳定性。该策略为高效多结光伏(钙钛矿/硅叠层等)顶电池的产业化提供了简洁有效的工艺路径。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73477?af=R",
-          "tp": "全钙钛矿叠层",
+          "as": "晶澳太阳能与金石能源联合开发出一款转换效率高达28.2%的混合背接触（HBC）太阳能电池。该效率结果已获得德国TÜV Rheinland的认证。据两家公司表示，这一成果刷新了单结硅太阳能电池和背接触（BC）太阳能电池的效率世界纪录。",
+          "sc": 9.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/05/25/ja-solar-gold-stone-energy-claim-worlds-highest-efficiency-for-silicon-solar-cells-with-28-2-efficient-back-contact-device/",
+          "tp": "光伏效率破纪录",
           "aip": 1,
           "kp": [
-            "添加剂[宽禁带钙钛矿]: 4-甲基吡啶",
-            "[功能]: 均质化碘溴结晶动力学"
+            "转换效率[单结硅太阳能电池/背接触器件]: 28.2%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Mixed‐halide wide‐bandgap (WBG) perovskites are promising top‑cell materials for multi‐junction photovoltaics owing to their tunable bandgap and excellent photoelectronic properties. However, their solution processing often suffers from mismatched crystallization kinetics between iodine and bromine species, leading to compositional inhomogeneity and limited device performance. Herein, we report a solvent engineering strategy by introducing 4‐methylpyridine (4‐MePy) as a coordinating modulator. 4‐MePy possesses strong coordinating ability and a moderate boiling point. It selectively retards the rapid crystallization of bromine‐rich components by interacting more strongly with lead bromide, thereby homogenizing the halide distribution. The resulting perovskite films exhibit low defect density, reduced lattice strain, and uniform composition and morphology. These improvements suppress carrier recombination and increase the halide migration barrier. Consequently, single‐junction WBG cells with a bandgap of 1.77 eV achieve a champion power conversion efficiency (PCE) of 20.68% and a high open‑circuit voltage (\n                    V\n                    OC\n                    ) of 1.35 V. When integrated into all‐perovskite tandem solar cells, this strategy delivers PCEs of 29.70% (certified 29.17%) on 0.05 cm\n                    2\n                    and 29.00% on 1 cm\n                    2\n                    devices.",
+          "b": "JA Solar, Gold Stone Energy claim world’s highest efficiency for silicon solar cells with 28.2%-efficient back contact device\nThe result was certified by TÜV Rheinland and represents the highest efficiency ever recorded for a single-junction silicon solar cells.\nMay 25, 2026\nVincent Shaw\nModules & Upstream Manufacturing\nTechnology and R&D\nChina\nA production line of Golden Stone Energy\nImage: Golden Stone Energy\nShare\nChinese PV manufacturer JA Solar and China-based PV equipment supplier Gold Stone Energy have reported a 28.2% conversion efficiency for a hybrid back-contact (HBC) solar cell developed under their HBC industrialization project.\nThe result was certified by Germany’s TÜV Rheinland and, according to the companies, sets a new world record for back-contact (BC) solar cell efficiency. The previous record for the BC architecture was held by Longi, which reported\n28.13% efficiency for its hybrid interdigitated back-contact (HIBC) cell\n.\nHBC technology combines a back-contact electrode structure with passivation technologies used in mainstream high-efficiency crystalline silicon cell architectures. The cell front side has no metal gridlines, reducing optical shading losses, while the rear-contact design improves current collection. The technology is also intended to provide an upgrade path for existing TOPCon manufacturing assets.\nGold Stone Energy and JA Solar were previously linked through a 4 GW HBC upgrade and retrofit project. In a Hong Kong Stock Exchange filing, Golden Solar said its subsidiary Golden Solar New Energy Technology would license HBC patent technology to a joint venture established by JA Solar's unit Yiwu JA Solar and Gold Stone Energy. The project aims to produce HBC cells by retrofitting existing production capacity.\nThe announcement follows several recent back-contact efficiency gains by Chinese PV manufacturers. In late April, Trina Solar said its TOPCon-compatible hybrid back-contact (THBC) cell achieved\n28.0% efficiency\n, certified by Germany’s Institute for Solar Energy Research Hamelin (ISFH). The company said the result was achieved using a large-area 210R cell and added that it is accelerating THBC module industrialization.\nThe series of announcements highlights growing competition around back-contact architectures, as leading Chinese manufacturers pursue higher conversion efficiencies and improved module power density following the rapid commercialization of TOPCon technology.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
           "hb": 1
         },
         {
-          "t": "无有机溶剂的弱溶剂化电解质使安时级锌碘电池在多种苛刻条件下持久运行",
+          "t": "DAS Solar 与新南威尔士大学打造效率 27%、银含量更低的隧道背接触太阳能电池",
           "d": "2026-05-25",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "开发了一种无有机溶剂的弱溶剂化电解质体系，使安时级水系锌碘电池在多种严苛工况下实现长循环稳定运行。该电解质设计有效抑制了锌枝晶生长和碘穿梭效应，提升了电池在宽温域、高电流密度条件下的耐久性。研究结果推动了大规模安全储能技术向实用化迈进，为水系电池工程化提供了关键解决方案。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04647",
-          "tp": "锌碘电池电解质",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "新南威尔士大学（UNSW）与DAS Solar合作，为隧穿氧化物钝化背接触（TBC）硅太阳能电池开发了一种无主栅金属栅线优化技术。该技术能更高效地在背面收集电流，同时将银耗量降低了3至4毫克/瓦。首批采用该技术量产的TBC电池转换效率已超过27%。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/05/25/das-solar-unsw-build-tunnel-back-contact-solar-cell-with-27-efficiency-lower-silver-content/",
+          "tp": "低银背接触电池",
           "aip": 1,
           "kp": [
-            "电解质[锌碘电池]: 无有机溶剂弱溶剂化电解质",
-            "规模[锌碘电池]: 安时级"
+            "转换效率[隧道氧化物钝化背接触(TBC)硅太阳能电池量产]: >27%",
+            "银消耗量[零母线金属网格优化方法]: 降低3-4 mg/W"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Aqueous zinc–iodine batteries represent a promising sustainable energy-storage technology, offering intrinsic safety, cost-effectiveness, and competitive energy density. However, their practical deployment has been hindered by the instability of both the I2 cathode and Zn anode. While traditional weakly solvating electrolytes (WSEs) partially alleviate these issues, they inherently rely on high-viscosity organic cosolvents that impede ion transport, limiting performance under demanding conditions. Here, we overcome this trade-off by pioneering an organic-solvent-free WSE, achieved by incorporating guanidine sulfate, a salt-type diluent with kosmotropic–chaotropic properties, at an optimized concentration. The formulated electrolyte simultaneously facilitates Zn2+ desolvation and transport while improving electrolyte stability. Furthermore, it promotes the formation of a robust electrode–electrolyte interphase on both electrodes, effectively suppressing polyiodide shuttling and stabilizing Zn plating/stripping. Consequently, the Zn||I2 cells achieve exceptional performance across diverse harsh operating conditions, including ultralong cycling (92% capacity retention after 10000 cycles at 30 C), high-rate capability (134 mAh g–1 at 200 C), and durable cycling with a low negative/positive capacity ratio (≈1.09), lean electrolyte condition (7.5 mL Ah–1), and a wide temperature range (−10 to 60 °C). These metrics are consistently preserved in Ah-scale pouch cells (0.5–2 Ah). This work redefines WSE design through salt-type diluents, offering a scalable pathway to durable aqueous batteries for sustainable energy storage.",
+          "b": "DAS Solar, UNSW build tunnel back-contact solar cell with 27% efficiency, lower silver content\nResearchers from UNSW and DAS Solar developed a zero-busbar metal grid optimization approach for tunnel oxide passivated back-contact (TBC) silicon solar cells, enabling more efficient current collection at the rear surface while reducing silver consumption by 3–4 mg/W. The first TBC cells produced in mass manufacturing using this technique have demonstrated efficiencies exceeding 27%.\nMay 25, 2026\nEmiliano Bellini\nModules & Upstream Manufacturing\nTechnology and R&D\nAustralia\nChina\nThe TBC cell\nImage: DAS Solar\nShare\nA research team comprising scientists from the\nUniversity of New South Wales\n(UNSW) in Australia and Chinese PV manufacturer\nDAS Solar\nhave developed a new technique for the optimization of metal grid design of silicon back contact (BC) solar cells applying tunnel oxide passivated contact (TBC) at the rear surface.\nThe cell is based on a zero-busbar (ZBB) design, which the scientists said required significantly lower silver (Ag) content for metallization.\n“Compared with the multi-busbar (MBB) schemes, the ZBB design cuts silver paste consumption by around 3-4 mg/W,” the research's lead author, Dengyuan Song, told\npv magazine\n. “The specific value varies slightly according to different metallization pattern designs of solar cells. Such a reduction in silver consumption is highly significant and practically remarkable. In particular, under the current frequent fluctuations in silver prices, lowering silver consumption plays a vital role in stabilizing production costs, and supporting the large-scale industrialization of TBC solar cells.”\n“Supported by advanced solar cell simulation technology from UNSW, DAS Solar began mass production of ZBB TBC cell technology in early to the second half of 2025. The series welding equipment, soldering processes, and silver pastes have been fully optimized and are ready for industrial-scale manufacturing,” Song went on to say. “\nAt present, DAS Solar has realized large-scale production of TBC cells with silver consumption of approximately 6 mg/W. The peak conversion efficiency of premium batches in mass production exceeds 27%, which further proves that ZBB technology possesses excellent cost performance.”\nThe 160-μm-thick ZBB TBC cell has dimensions of 182 mm × 105 mm. The front surface is textured with random upright pyramids at a 53° base angle and passivated using an aluminum oxide (Al₂O₃)/silicon nitride (SiNₓ)/silicon dioxide (SiO₂) stack. The inclusion of a low-refractive-index SiO₂ layer further reduces front-surface reflectance.\nThe experimental setting\nImage: DAS Solar\nAt the rear side, the device relies on p-type polycrystalline silicon, n-type polycrystalline silicon, and an undoped gap region. The p-poly and n-poly regions are planar to enhance surface passivation quality.\nUsing SunSolve for optical modelling and Quokka3 for electrical modelling, the academics measured the performance of the ZBB TBC cell and compared it to that of a reference device built with typical electrical contact pads used as current collection and interconnection points.\nOptical results indicate that current generation is largely insensitive to finger width, but decreases slightly as finger pitch increases due to reduced light trapping. For pad-based designs, performance was primarily found to be limited by busbar-related losses, making wider and more numerous busbars and pads beneficial for efficiency. In contrast, zero-busbar (ZBB) designs shift current collection to fingers, where losses scale more strongly with finger geometry, favoring larger busbar segmentation and efficient current routing.\nAcross both architectures, reducing finger width via improved screen-printing technology offers clear efficiency gains. Pad-based cells were found to require at least 11 mg/W of Ag paste, while ZBB cells maintain similar efficiency at 7 mg/W.\n“The absolute efficiency gain of ZBB over pad-based TBC is at least 0.1%, which would significantly increase if Ag paste consumption were below 10 mg/W. From the reduction of Ag paste consumption point of view, ZBB configuration is definitely advantageous, although the increased challenge of interconnection and module reliability requires careful examination,” the academics concluded.\nThe new methodology was described in “\nGrid Optimization of Tunnel Oxide Passivated Back Contact Silicon Solar Cells\n,” published in\nProgress in Photovoltaics\n.\nIn\nanother recent study conducted with UNSW\n, DAS Solar unveiled a new circuit-model–based method to accurately detect hot-spot risks in TOPCon back-contact modules, overcoming limitations of the IEC 61215 approach caused by low shunt resistance.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
           "hb": 1
         },
         {
-          "t": "无有机溶剂弱溶剂化电解质实现多种苛刻条件下耐用安时级锌碘电池",
+          "t": "Power2X Djewels项目进入建设阶段",
           "d": "2026-05-25",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究开发了一种无有机溶剂、弱溶剂化电解质体系，使安时级水系锌-碘电池在多种苛刻条件下（宽温域、高电流密度）实现长循环寿命。弱溶剂化电解质设计有效抑制了多碘化物穿梭效应和锌负极枝晶生长，解决了水系锌碘电池容量快速衰减的核心瓶颈。该方案兼具本征安全性与低成本，为大规模储能应用提供了可行路径。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04647",
-          "tp": "锌碘电池电解质",
+          "a": "Hydrogen Tech World",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "Power2X的Djewels项目正式进入建设阶段。该项目旨在推进绿氨及相关清洁能源基础设施的开发与落地。这一进展标志着该清洁能源计划从前期规划正式转向实际工程建设，为后续扩大可持续燃料的生产规模奠定了基础。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://hydrogentechworld.com/power2x-djewels-project-enters-construction",
+          "tp": "绿氨项目建设",
           "aip": 1,
           "kp": [
-            "[无溶剂弱溶剂化电解液]: Ah级锌碘电池",
-            "[恶劣工况]: I2正极与Zn负极稳定性",
-            "[Ah级规模]: 面向实际部署"
+            "项目状态[Power2X Djewels项目]: 进入建设阶段"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Aqueous zinc–iodine batteries represent a promising sustainable energy-storage technology, offering intrinsic safety, cost-effectiveness, and competitive energy density. However, their practical deployment has been hindered by the instability of both the I2 cathode and Zn anode. While traditional weakly solvating electrolytes (WSEs) partially alleviate these issues, they inherently rely on high-viscosity organic cosolvents that impede ion transport, limiting performance under demanding conditions. Here, we overcome this trade-off by pioneering an organic-solvent-free WSE, achieved by incorporating guanidine sulfate, a salt-type diluent with kosmotropic–chaotropic properties, at an optimized concentration. The formulated electrolyte simultaneously facilitates Zn2+ desolvation and transport while improving electrolyte stability. Furthermore, it promotes the formation of a robust electrode–electrolyte interphase on both electrodes, effectively suppressing polyiodide shuttling and stabilizing Zn plating/stripping. Consequently, the Zn||I2 cells achieve exceptional performance across diverse harsh operating conditions, including ultralong cycling (92% capacity retention after 10000 cycles at 30 C), high-rate capability (134 mAh g–1 at 200 C), and durable cycling with a low negative/positive capacity ratio (≈1.09), lean electrolyte condition (7.5 mL Ah–1), and a wide temperature range (−10 to 60 °C). These metrics are consistently preserved in Ah-scale pouch cells (0.5–2 Ah). This work redefines WSE design through salt-type diluents, offering a scalable pathway to durable aqueous batteries for sustainable energy storage.",
+          "b": "First Ammonia signs supply and service agreements with Topsoe for first 100 MW of solid oxide electrolyzers for its Texas plant\nRead Story",
           "hb": 1
         }
       ]
@@ -103,17 +99,35 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "华为提出半导体演进韬定律，通过时间常数缩微预计2031年达到1.4nm同等密度",
-        "华为以优化寄生参数及统一内存编址缩短信号时延，过去六年已量产381款芯片"
+        "华为提出半导体韬（τ）定律，以时间常数缩微替代几何缩微优化系统时延"
       ],
       "entries": [
         {
           "t": "华为发布半导体与电子系统演进的新原则韬（τ）定律",
           "d": "2026-05-25",
-          "a": "",
+          "a": "Huawei",
           "c": "AI与智能科技/AI硬件层/半导体",
           "as": "华为提出韬（τ）定律，以\"时间常数缩微\"替代\"几何缩微\"作为半导体演进新原则，通过优化器件寄生参数、逻辑折叠缩短关键路径、全栈软硬芯协同设计和灵衢总线统一内存编址压缩信号时延。过去六年已量产381款芯片，预计2031年晶体管密度达1.4nm同等水平。",
-          "sc": 7.6,
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.huawei.com/cn/news/2026/5/ieee-iscas-tau-scaling",
+          "tp": "半导体韬定律",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "3D堆叠在目前的高带宽内存HBM中用的比较多，就是直接把内存晶圆和计算晶圆做纳米级对齐，然后挤压，直接定点形成化学键，互联在一起。这样大大缩短计算单元和存储单元的空间距离，称作混合键合技术。\n逻辑芯片也可以按照这种思路，分层刻蚀，然后层间互联。目前台积电、英特尔、三星这种代工厂在做相关的工艺开发；华为则也会有一些这种芯片的核心设计经验。层间键合也有纳米级精度要求，目前的高精度对准仪可以做到50nm的对准精度，芯片表面会预留用来键合的节点，从而实现集成电路的三维堆叠。这个方式确实可以实现更高的计算单元密度。其主要问题是对准率提高比较困难，以及需要非常精细的化学抛光以实现原子级精度的接触表面，同时会有些散热以及热应变带来的问题。",
+          "b": "5月25日，华为在其官网发文，提出了一种半导体产业发展的原则--韬（τ）定律，其能够以“时间（τ，时间常数）缩微”替代“几何缩微”作为半导体与电子系统演进的新指导原则，通过逻辑折叠等创新技术，持续压缩信号传播时延，不断提升晶体管密度，从而实现半导体与电子系统的持续演进。\n文中称，其通过优化晶体管和互连电阻及寄生电容，从物理底层最大限度缩微器件级时间常数τ；通过逻辑折叠技术突破传统平面布局的物理边界，缩短关键路径的走线长度并有效降低信号传播的电阻和电容负载，实现晶体管密度和电路性能提升；通过“软件、架构、芯片”的全栈软硬芯协同设计，基于实际工作负载实现指令流和数据流的细粒度控制，提高系统级并行度和效率，降低端到端执行时间；系统层面定义灵衢总线，重构计算系统互联协议，实现超节点的统一内存编址和原生内存语义，降低系统通信时延。\n此外文中还宣传，过去六年基于韬（τ）定律，华为已成功设计并量产了381款芯片；预计到2031年，基于韬（τ）定律的高端芯片晶体管密度将达到1.4nm制程的同等水平。",
+          "hb": 1
+        },
+        {
+          "t": "华为发布半导体与电子系统演进的新原则韬（τ）定律",
+          "d": "2026-05-25",
+          "a": "Huawei",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "华为提出韬（τ）定律，以\"时间常数缩微\"替代\"几何缩微\"作为半导体演进新原则，通过优化器件寄生参数、逻辑折叠缩短关键路径、全栈软硬芯协同设计和灵衢总线统一内存编址压缩信号时延。过去六年已量产381款芯片，预计2031年晶体管密度达1.4nm同等水平。",
+          "sc": 7.7,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.huawei.com/cn/news/2026/5/ieee-iscas-tau-scaling",
@@ -132,70 +146,75 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新型钽基协同催化剂实现常温下甲烷光催化直接转化为高附加值丙酮",
-        "研究通过氧空位工程将介电材料转化为压电催化剂，在超声驱动下触发癌细胞多通路死亡",
-        "X射线诱导有机纳米粒子持续产生活性氧，实现余辉成像引导深部肿瘤治疗"
+        "西班牙与葡萄牙查明停电源于过电压事件，拟修编规则并部署构网技术",
+        "科研人员开发新型冷冻复活技术，成功避免脑组织极低温结晶损伤",
+        "古巴实施第114号决议，将可再生能源统一上网电价提升至每千瓦时90比索"
       ],
       "entries": [
         {
-          "t": "钽单原子/镓路易斯酸协同催化剂驱动甲烷直接光催化转化为丙酮",
+          "t": "一个令人不安的事实：西班牙停电的真实情况",
           "d": "2026-05-25",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "在温和条件下将甲烷光催化直接转化为C3及以上含氧化合物是催化化学的重大挑战。该研究提出一种协同钽（Ta）基催化策略，实现甲烷到丙酮的光催化直接转化。相比传统甲烷转化需要高温高压且产物以C1为主，该路线在常温下即可获得高附加值C3产物，为天然气资源的非燃烧高值化利用开辟新路径，对碳资源高效转化意义重大。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2764179?af=R",
-          "tp": "甲烷光催化转化",
+          "a": "pv magazine",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "西班牙和葡萄牙曾发生的大规模停电非网络攻击或单一可再生能源引起，而是由快速发展的过电压事件导致。该事件暴露了高比例可再生能源电力系统在电压控制、电网协调和传统运行实践方面的弱点。事故促使两国改革电压控制规则，并加速部署电池、构网技术及可再生能源电压支持以增强电网稳定性。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.pv-magazine.com/2026/05/25/an-uncomfortable-truth-what-spains-blackout-really-showed/",
+          "tp": "西班牙停电分析",
           "aip": 1,
           "kp": [
-            "[催化剂]: Ta单原子锚定γ-Ga₂O₃量子点",
-            "[反应]: 甲烷光催化常温直接转丙酮",
-            "[产物]: ≥C3含氧化合物"
+            "[西班牙和葡萄牙大停电原因]: 由快速移动的过电压事件导致，而非单纯由网络攻击或可再生能源引起",
+            "[电网暴露的弱点]: 电压控制、电网协调及传统运行实践存在缺陷",
+            "[改革与应对措施]: 改革电压控制规则、扩大电网弹性措施并加速部署相关技术"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Direct photocatalytic conversion of methane to ≥ C3 oxygenates under ambient conditions remains highly challenging and largely unexplored due to the current carbon‐terminated adsorption configurations and insufficient concentration of intermediates. Herein, we demonstrated efficient γ‐Ga\n                    2\n                    O\n                    3\n                    quantum dot catalysts with high‐density Ta single atoms anchored at Ga\n                    IV\n                    vacancies (Ta\n                    1\n                    ‐Ga\n                    2\n                    O\n                    3\n                    QDs), featuring a synergistic Ta single‐atom/Ga Lewis acid architecture. The unsaturated d\n                    0\n                    ‐TaO\n                    4\n                    site stabilizes key acetyl intermediates in a distinctive oxygen‐terminated η\n                    1\n                    (O)‐CH\n                    3\n                    CO configuration, minimizing steric hindrance while enhancing carbonyl carbon electrophilicity, greatly facilitating the second C–C coupling step. Concurrently, Ga sites enrich –CH\n                    3\n                    intermediates for sequential C–C coupling conversion. The synergistic architecture achieved single‐step photocatalytic conversion of CH\n                    4\n                    and H\n                    2\n                    O to acetone with a yield of 86.7 µmol g\n                    −1\n                    h\n                    −1\n                    , with the carbon‐based selectivity of 56.2% or the liquid phase selectivity of 81.2%, and a 20.7% apparent quantum yield (AQY) at 254 nm, which has not been achieved by the current noble metal‐based photocatalysts. This work demonstrates the unique capability of unsaturated\n                    d\n                    0\n                    single‐atom sites for modulation of intermediate configurations, unlocking a pathway for ≥ C3 oxygenate synthesis from methane.",
+          "b": "An uncomfortable truth: What Spain’s blackout really showed\nSpain and Portugal experienced a historic blackout caused not by cyberattacks or renewables alone, but by a fast-moving overvoltage event that exposed weaknesses in voltage control, grid coordination, and legacy operating practices in a renewable-heavy power system. Investigations concluded the outage was multifactorial, prompting Spain and Portugal to reform voltage-control rules, expand grid resilience measures, and accelerate deployment of batteries, grid-forming technologies, and renewable-based voltage support to stabilize future electricity networks.\nMay 25, 2026\nRicardo PLC\nLegal\nMarkets\nOpinion & Analysis\nPolicy\nTechnology and R&D\nUtility Scale PV\nSpain\nImage: Claudio Schwarz, Unsplash\nShare\nAt 12:33 CEST on April 28, 2025, an outage cut power across continental Spain and Portugal and briefly affected a small area of southwest France. This was the first full blackout in the history of the Spanish system and its first loss of power event in history caused by overvoltage problems.\nThe event was not the simple story many first reached for. It was not a cyberattack. It was not a straightforward failure of solar or wind power plants. It was not solely caused by lack of spinning generation. It was a fast-moving voltage event in a system where generation, grid operation, protection settings, regulation and visibility did not move at the same speed as the energy transition.\nVoltage control\nBefore delving into the consequences of the event and what they mean for Spain and for the wider European system, let’s start with the basics, what is voltage control. Everyone understands what a power shortage is, but what about reactive power? Voltage is the power grid equivalent of “pressure” in a gas-hydraulic network. A power system does not only need enough megawatts; it also needs megavars (reactive power) to stay within safe limits so equipment can operate correctly. If voltage rises or falls too far, generators, transformers and protection systems can disconnect to avoid damage, which can make a disturbance spread quickly.\nFor the sake of comparison, frequency is the part of power-system stability most people now associate with renewables, inertia and rotating machines. Voltage is less visible but just as decisive. It depends on reactive power, local network conditions, generator behaviour, protection settings, and the ability of grid operators to see and command assets in real time.\nThis is why the Spanish blackout was not simply a question of having enough power or spinning reserve available. The key issue was whether the system had enough fast, local tools to manage voltage and reactive power as conditions changed. In a solar-heavy system, that means conventional plants, renewables, batteries and grid equipment all need to be able to support voltage dynamically, not just produce electricity.\nVoltage control requires of dedicated measurements and indicators to make sure that the system is working within acceptable limits, and research shows that the Spanish system was exhibiting signs of stress already days and even months prior to the blackout. An initial alarm was recorded on January 31, when abnormal voltage variations pushed a Spanish nuclear plant into its under-excitation limit; further abnormal voltage swings appeared on April 22 and 24; and, on the morning of April 28, instability was visible from around 9:00 am, growing as the day progressed. What is more important here is that voltage can remain within formal operating limits while still varying too quickly to be considered secure.\nConsequently, a question arises, are modern, highly renewable penetrated power systems ready to detect these types of rapid voltage movements before they become a cascading overvoltage event? The Spanish experience shows that at least, from an operation procedure and security triggering event point of view, they are not.\nMoreover, if the Spanish operator had properly identified the root causes of the event and had wished to tackle it quick enough, could the technologies dispatched at the time of the event solve the problem? It all seems that they would have failed. Why? Solar and wind can provide voltage support, but only if the rules, incentives, communications and plant settings require them to do so, which was not the case. SolarPower Europe, UNEF, APREN and other renewables associations put it bluntly after the ENTSO-E report: “It’s not about renewables, it’s about voltage control.”\nExpert reports\nThe previously referred to March 2026 ENTSO-E final report investigating the event concluded that the blackout resulted from multiple interacting factors: oscillations, gaps in voltage and reactive power control, different voltage regulation practices, rapid output reductions, generator disconnections in Spain, and uneven stabilisation capabilities. Those factors produced fast voltage increases and cascading generation disconnections. ENTSO-E’s language matters because it moves the debate away from a single villain and toward system design.\nSpain’s own government report reached a similar conclusion earlier, in June 2025. It described the blackout as a multifactorial overvoltage event. The system lacked sufficient dynamic voltage control capability; oscillations between noon and 12:30 conditioned system operation; and some generation assets disconnected in ways the government described as apparently inappropriate.\nIn other words, expert reports were not a verdict against renewables. It was a verdict against running a modern renewable-heavy system with legacy operating assumptions. Solar and wind can provide voltage support, but only if the rules, incentives, communications and plant settings require them to do so. SolarPower Europe, UNEF, APREN and other renewables associations put it bluntly after the ENTSO-E report: “It’s not about renewables, it’s about voltage control.” They also noted that Spain updated Operational Procedure (P.O.) 7.4 in June 2025 to enable renewables to contribute to voltage control.\nRegulatory actions\nThat regulatory change is one of the most tangible post-blackout reforms. Spanish independent competition regulator CNCM has published in Spain’s official journal the resolution of June 12, 2025, modifying operating procedures for the development of a voltage-control service in the Spanish peninsular system. The revised P.O. 7.4 creates a framework for the system operator to use reactive capability from generation, demand and storage assets to keep voltage within safe limits, and introduces remuneration for the more demanding real-time setpoint-following service.\nImplementation has begun. Red Eléctrica said in October 2025 that it had carried out authorisation tests for the first renewable plants able to provide dynamic voltage control under the new P.O. 7.4. By May 2026, Redeia’s chair was telling shareholders that 14.5 GW already offered voltage control with setpoints, including 6 GW of renewables. That is a real change from the pre-blackout system, where the voltage toolbox was too dependent on conventional plants and manual grid devices.\nBut the cost of stabilization has also become visible. Red Eléctrica’s “reinforced operation” regime, introduced after the blackout to strengthen voltage control, cost €711 million ($827.3 million) through April 2026, according to Redeia. The same shareholder meeting showed how politically contested the issue remains: some shareholders demanded resignations, while Redeia argued that official reports showed the incident was unprecedented, unpredictable and multifactorial.\nPortugal has moved too. Its government announced a package focused on grid resilience, faster planning, renewables, critical infrastructure and international cooperation. Measures include doubling the number of black-start power stations, a €137 million investment in grid operation and control, a 750 MVA battery storage auction, and €25 million for critical infrastructure such as hospitals, water providers and utilities. Portugal also explicitly linked supply security to stronger Iberian and European interconnections.\nConclusions\nThe deeper consequence is that “flexibility” can no longer mean only storage arbitrage or demand shifting. The Iberian market is entering a phase in which solar output, negative prices, curtailment and voltage control all meet in the same hours. WSP’s Electricity Market Outlook for Iberia projects solar-led expansion through the late 2020s, with storage scaling rapidly from 2026 onward and exceeding 30 GW by 2050. It also warns that solar faces severe capture-price erosion and that negative-price exposure can reach around 50% of solar generation in the short term. In that context, batteries, grid-forming inverters, dynamic voltage control and interconnection are not optional add-ons. They are the operating system of the near future.\nThe Spanish blackout serves as a warning to other European power networks and for the future of system operations. Renewable penetration can be a success story, but it comes in hand with an uncomfortable truth, too much, at the same time, using legacy rules, guidelines, communication systems and network coordination can untap problems never suffered from before.\nAuthor: Daniel Serrano, Associate Director – Sustainable Energy Systems at Ricardo PLC\nRicardo is a member of professional service firm WSP Group, uniting engineering, advisory and science-based expertise to shape communities to advance humanity.\n​\n​\nFrom local beginnings to a globe-spanning presence today, it operates in over 50 countries and provides solutions and delivers innovative projects across sectors: Transport & Infrastructure, Property & Buildings, Earth & Environment, Water, Power & Energy and Mining & Metals.\nThe views and opinions expressed in this article are the author’s own, and do not necessarily reflect those held by\npv magazine\n.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
           "hb": 1
         },
         {
-          "t": "氧空位设计的 CaCu3Ti4O12 纳米催化剂用于压电驱动级联细胞凋亡/铜垂亡/铁死亡治疗",
+          "t": "科学家发现冷冻和复活活脑组织的新方法",
           "d": "2026-05-25",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "研究者通过氧空位工程将经典介电材料CaCu3Ti4O12（CCTO）转化为高效压电催化纳米材料。在超声驱动下，该催化剂可触发癌细胞级联凋亡、铜垂亡和铁死亡，实现多通路协同抗癌治疗，为压电催化治疗的材料优化提供了新思路。",
-          "sc": 6.2,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73482?af=R",
-          "tp": "压电催化",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Ultrasound (US) induced piezoelectric catalytic therapy is an emerging cancer treatment method. However, the development and optimization of piezoelectric catalyst remain the major challenge. Herein, we have converted the classical dielectric material CaCu\n                    3\n                    Ti\n                    4\n                    O\n                    12\n                    (CCTO) into an efficient piezoelectric material through oxygen vacancy (V\n                    O\n                    ) engineering, enabling piezoelectric catalytic‐driven cascade tumor therapy. The introduction of V\n                    O\n                    results in strong polarization and a robust piezoelectric coefficient. Density functional theory (DFT) calculations reveal that V\n                    O\n                    acts as an electron trap to suppress the recombination of electron and hole, enhancing the catalytic efficiency. The piezoelectric effect can “open” the cell membrane, facilitating the materials influx and triggering reactive oxygen species (ROS) storm. Meanwhile, the cavitation effect of US and tumor cell over‐expressed glutathione (GSH) accelerate Cu and Ca release, causing intracellular ions overload. ROS and Ca ions damage mitochondria to evoke apoptosis, which accordingly shuts down the Cu\n                    +\n                    outflow pathway and expedites cuproptosis. Moreover, ROS and GSH depletion triggers ferroptosis. This process establishes a positive feedback loop mechanism. Transcriptome sequencing confirms the activation of cell death‐related pathways. This study represents the first paradigm to create piezoelectricity through V\n                    O\n                    in CCTO for tumor therapy, advancing the applications of quadruple perovskites in tumor treatment.",
-          "hb": 1
-        },
-        {
-          "t": "使用 X 射线激活有机纳米粒子的长效动态疗法进行余辉成像引导的深部肿瘤治疗",
-          "d": "2026-05-25",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "a": "scitechdaily",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "针对传统动态疗法穿透深度浅的问题，研究提出X射线诱导长效动态疗法。通过X射线激活有机纳米粒子持续产生活性氧，结合余辉成像引导深部肿瘤诊疗，克服了无机材料生物安全性顾虑和有机材料ROS产率低的瓶颈，在深部肿瘤治疗中潜力显著。",
-          "sc": 6.1,
-          "i": "literature",
+          "as": "科学家从西伯利亚蝾螈中获取灵感，开发出能够安全冷冻并复活脑组织的新方法。该技术成功防止了极低温度下冰结晶对脆弱的脑细胞和神经连接造成的微观损伤，使得生物组织在冷冻数十年后无损恢复功能成为可能。",
+          "sc": 7.7,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.3922737?af=R",
-          "tp": "纳米诊疗",
+          "u": "https://scitechdaily.com/scientists-discover-new-way-to-freeze-and-revive-living-brain-tissue/",
+          "tp": "脑组织冷冻复活",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "冷冻保护机制[活体脑组织低温保存]: 防止微观冰晶对细胞和神经连接的损伤"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Traditional dynamic therapies, including photodynamic, sonodynamic and chemodynamic therapies, are limited by shallow penetration and lack of sustained effects. X‐ray induced dynamic therapy overcomes penetration barriers, yet current inorganic materials raise biosafety concerns, while organic counterparts often show low reactive oxygen species (ROS) yield. To address these limitations, we propose X‐ray induced long‐acting dynamic therapy, a minimally invasive strategy for deep‐tissue tumor treatment. We propose X‐ray induced persistent ROS generation and luminescence mechanisms in fused‐triple‐anthracene nanoparticles (FTA NPs), which generate electrons and FTA\n                    •+\n                    under X‐ray irradiation to producing singlet oxygen (\n                    1\n                    O\n                    2\n                    ) and hydroxyl radicals (OH), while endoperoxides (EPOs) sustain ROS and afterglow luminescence for over 15 min, with relatively stronger afterglow than conventional organic afterglow materials, such as MEHPPV NPs. In addition, FTA NPs achieve 6 cm tissue penetration under X‐ray, overcoming light limitations and boosting therapeutic efficacy. Furthermore, we introduce fractionated irradiation, splitting high doses into multiple low‐dose sessions, which enhances ROS generation, reduces radiation risk and more effectively treats subcutaneous and orthotopic pancreatic tumors than continuous irradiation. Strong afterglow luminescence allows real‐time imaging and treatment monitoring, while metal‐free FTA NPs ensure high biocompatibility and safety. Thus, long‐acting dynamic therapy offers a safe and efficient strategy for deep‐seated tumors.",
+          "b": "Share\nFacebook\nTwitter\nLinkedIn\nPinterest\nTelegram\nEmail\nReddit\nCryogenics is the science of preserving biological material at extremely low temperatures. A major challenge is preventing ice crystals from damaging delicate tissues like the brain, which is why scientists are developing new freezing methods that can protect cells and neural connections. Credit: Shutterstock\nScientists have taken a major step toward safely freezing and reviving brain tissue by preventing the microscopic damage normally caused by ice crystals.\nWhat if living tissue could be frozen for years, or even decades, and later revived without losing its function? Scientists searching for ways to make this possible have turned to an unlikely source of inspiration: the Siberian salamander, a tiny amphibian capable of surviving some of the harshest cold on Earth.\nAccording to some reports, the Siberian salamander can remain in hibernation at temperatures approaching 50 degrees below freezing and endure for decades trapped in permafrost. Once conditions warm, it simply resumes normal activity. Researchers say the secret lies in the animal’s remarkable natural “antifreeze” system.\nThe salamander’s liver produces glycerol, an alcohol that lowers the freezing point inside its body and helps protect cells and tissues during freezing and thawing. Without such protection, extreme cold is usually devastating to living organisms because ice crystals form inside tissues.\n“The formation of ice crystals is the reason why extreme cold is usually so harmful to living beings,” explains Dr. Alexander German from the Department of Molecular Neurology at Uniklinikum Erlangen. “This is because the crystals can mechanically damage cells, thereby destroying the sensitive nanostructure of the tissue.”\nDr. Fang Zheng and Dr. Alexander German. Credit: Alexander German\nTissue fluid solidifies into a glass-like state\nHuman embryos can also be stored for many years through extreme deep freezing. For this to work, the cells are treated with chemicals that, similar to glycerol, stop ice crystals from forming. “The tissue also solidifies when cooled to below -130 degrees,” says German. “However, the water in and between the cells transitions into a glass-like state.” Glass is solid like ice, but its molecules are arranged randomly rather than in the orderly pattern seen in crystals.\nThis process is known as vitrification. Until now, however, researchers have not been able to freeze nerve tissue, or even whole brain regions, in a way that allows them to function again after thawing. One major obstacle is that the antifreeze substances used in the process can be toxic to delicate cells. Brain tissue is especially vulnerable because it contains hundreds of millions of nerve cells connected by countless tiny contact points called synapses. Neurons communicate through these connections.\nOptimized preservatives and freezing process\nEarlier vitrification techniques disrupted this intricate network and damaged the synapses. Even if the cells themselves survived, the preserved structure could no longer work properly. “However, we have optimized the composition of the preservatives and the cooling process so that the neural tissue remains intact,” emphasizes German.\nThe stereomicroscopic images show brain sections at -160 degrees Celsius. The tissue on the left has been preserved through vitrification, while the tissue on the right has been destroyed by crystallization and cracking. Credit: Alexander German\nThe team tested the method on brain sections. Using their approach, the researchers cooled the hippocampus, a region of a rodent brain involved in memory storage, to -130 degrees\nCelsius\n. “We were able to use electron microscopy images to prove that the nanostructure of the tissue was not altered by the freezing process,” says German. “After thawing, electrical signals spontaneously formed again in the hippocampus, propagating normally through the neural networks.”\nThe nerve cells did more than resume signaling. Dr. Fang Zheng, a brain researcher at the Institute of Physiology and Pathophysiology (Director: Prof. Dr. Christian Alzheimer) at FAU, showed that long-term potentiation could also be triggered at the synapses of the nerve cells. This is a key cellular process in which frequently used synapses become stronger, allowing them to transmit information more effectively. “This mechanism is of central importance for learning processes and the storage of new memory content,” says German.\nCould treatment of incurable diseases be scheduled for the future?\nThe method developed in the study appears to allow brain tissue to be preserved in a functional state for long periods and then examined later to test whether it still works. For example, in some epilepsy patients, surgeons remove nerve cells during an operation. Samples like these could be stored and used years later to test medications. Cryopreservation of diseased tissue could also support research into neurodegenerative disorders.\nAlexander German also hopes that one day it may be possible to place entire organisms into a form of artificial hibernation and revive them after a long period. “This could be an option for space travel, for example, or for people suffering from a currently incurable disease,” he says. “Because at a later date, there may be a treatment option that can help the person affected.”\nReference: “Functional recovery of the adult murine hippocampus after cryopreservation by vitrification” by Alexander German, Enes Yağız Akdaş, Cassandra Flügel-Koch, Ezgi Erterek, Renato Frischknecht, Anna Fejtova, Jürgen Winkler, Christian Alzheimer and Fang Zheng, 3 March 2026,\nProceedings of the National Academy of Sciences\n.\nDOI: 10.1073/pnas.2516848123\nThis work was supported by German Society of Cryobanks (A.G. and J.W.); German Research Foundation grants SFB 1483 and FOR 5534 (A.G.); and Interdisciplinary Center for Clinical Research Erlangen project J111 (A.G.), E37 (A.F.), and ELAN project P166 (E.Y.A.).\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nGoogle\nand\nGoogle News\n.\nBrain\nCryology\nNeurology\nNeuroscience",
+          "hb": 1
+        },
+        {
+          "t": "古巴将可再生能源电力出口关税提高30倍",
+          "d": "2026-05-25",
+          "a": "pv magazine",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "古巴出台2026年第114号决议，大幅提高了可再生能源出口至国家电力系统（SEN）的上网电价。新政策取消了原有的住宅与非住宅差异化定价，实行统一的每千瓦时90古巴比索（约合3.75美元）单一电价。对于部分发电商，电价补偿标准最高提高了30倍。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.pv-magazine.com/2026/05/25/cuba-raises-renewable-electricity-export-tariff-30-fold/",
+          "tp": "古巴上调光伏关税",
+          "aip": 1,
+          "kp": [
+            "出口关税[古巴可再生能源余电上网]: CUP 90 ($3.75)/kWh",
+            "[关税调整幅度]: 相较原有关税提高30倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Cuba raises renewable electricity export tariff 30-fold\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiated pricing system for residential and non-residential producers.\nMay 25, 2026\nLuis Ini\nMarkets\nMarkets & Policy\nCentral & South America\nCuba\nImage: Alexander Kunze, Unsplash\nShare\nFrom\npv magazine LatAm\nCuba has raised the tariff paid for renewable electricity exported to the National Electric System (SEN), increasing compensation for some producers by as much as 30-fold under a new pricing framework.\nResolution 114/2026, issued by Cuba’s Ministry of Finance and Prices, establishes a single tariff of CUP 90/kWh for electricity supplied to the grid from residential and non-residential renewable energy systems. The measure applies to distributed generation assets including solar PV and wind installations.\nUnder the previous framework established by Resolution 238/2023, non-residential producers received CUP 3/kWh for renewable electricity exported to the grid, while residential users received CUP 6/kWh. The updated tariff raises payments 30-fold for non-residential producers and 15-fold for residential users.\nThe new resolution also exempts residential and non-residential producers from taxes on income generated through renewable electricity sales to the SEN. Cuba’s Ministry of Finance and Prices said the measure is intended to support the country’s energy diversification strategy and increase renewable generation amid continuing fuel supply constraints.\nThe policy allows households and businesses with distributed generation systems to sell surplus electricity that is not consumed onsite and inject it into the national grid. Most systems covered by the framework are expected to be solar installations.\nThe tariff revision comes as Cuba continues to face electricity shortages, fuel supply limitations, and recurring blackouts. At the same time, the country is pursuing a broader solar deployment strategy. A national program announced in March 2024 targets installation of up to 92 solar parks by 2028, with a combined capacity target of 2 GW.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nMandatory utility fees distort price signals for rooftop solar in the US\n23 May 2026\nRegulators in 27 U.S. states are shifting residential electricity pricing toward higher fixed monthly charges and lower usage-based rates, weakening t...",
           "hb": 1
         }
       ]

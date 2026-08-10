@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Helion Energy原型机Polaris实现等离子体温度达1.5亿摄氏度",
-      "新型分层固体电解质界面在工业条件下实现高效电化学合成氨",
-      "锂离子扩散优化策略提升电化学合成氨百毫安电流密度下效率"
+      "Helion Energy原型机Polaris实现氘氚聚变等离子体温度达1.5亿摄氏度",
+      "Helion Energy于华盛顿州启动商业聚变装置建设并计划向微软供电",
+      "研究人员开发冠醚编程共价有机框架纳米通道以提升固态锂电池导电率"
     ],
     "AI与智能科技": [
-      "研究构建连续波窄线宽真空紫外激光源以驱动核钟跃迁",
-      "α-In2Se3光电耦合特性应用于开发低功耗光控铁电晶体管",
-      "片上量子电动力学系统实现非厄米腔例外点以增强传感灵敏度"
+      "人工智能代理已开始自主雇佣人类执行包括科研在内的实体空间任务",
+      "科研团队在正色散铌酸锂微谐振器中实现高效宽带克尔梳发生",
+      "完全植入式皮质基底节神经接口实现在家环境下的运动状态分类"
     ],
     "通用技术": [
-      "中科院工热所研制的500千瓦天然气管网压差发电系统投运",
-      "宽禁带半导体氧化镓实现室温稳健铁电性以集成功率与存储",
-      "调控催化剂活性位点结构无序度提升过氧化氢合成反应性能"
+      "中科院工热所等研制的500kW零碳复温天然气压差发电系统在山东投运",
+      "该系统实现天然气管网减压发电冬季零外部燃料加热工况运行",
+      "科研人员采用双调谐策略精确合成具有光热响应的共轭分子结构"
     ]
   },
   "sectors": [
@@ -26,18 +26,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Helion Energy原型机Polaris实现等离子体温度达1.5亿摄氏度",
-        "新型分层固体电解质界面在工业条件下实现高效电化学合成氨",
-        "锂离子扩散优化策略提升电化学合成氨百毫安电流密度下效率"
+        "Helion Energy原型机Polaris实现氘氚聚变等离子体温度达1.5亿摄氏度",
+        "Helion Energy于华盛顿州启动商业聚变装置建设并计划向微软供电",
+        "研究人员开发冠醚编程共价有机框架纳米通道以提升固态锂电池导电率"
       ],
       "entries": [
         {
           "t": "Helion Energy称其磁惯性约束聚变装置氘氚聚变等离子体温度达1.5亿℃",
           "d": "2026-02-13",
-          "a": "",
+          "a": "Helionenergy",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
           "as": "美国聚变公司Helion Energy宣布其脉冲式磁惯性约束聚变原型机Polaris以氘氚燃料使等离子体温度达1.5亿°C，超过其第六代原型机的1亿°C。公司将继续测试以达到氘氦3聚变最佳温度，推进核聚变商业运营。Helion已于2025年7月在华盛顿州开始商业聚变装置建设，计划为Microsoft输送聚变电力。该进展标志着私营聚变企业在等离子体加热方面取得重要阶段性突破。",
-          "sc": 7.2,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.helionenergy.com/articles/helion-achieves-new-fusion-energy-milestones/",
@@ -51,48 +51,42 @@
           "hb": 1
         },
         {
-          "t": "层状界面实现离子快速传输",
+          "t": "Helion Energy称其磁惯性约束聚变装置氘氚聚变等离子体温度达1.5亿℃",
           "d": "2026-02-13",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
-          "as": "研究报道了一种分层结构的固体电解质界面(SEI)，能够在工业条件下实现高效氨合成。该界面设计优化了离子传输动力学，加速了电化学氮还原反应中的质子-电子耦合传递过程。分层SEI同时抑制了竞争性析氢反应，提高了氨的法拉第效率和产率，为电催化合成氨替代传统Haber-Bosch工艺提供了新思路，推动绿色化肥生产。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aee6886?af=R",
-          "tp": "层状界面氨合成",
+          "a": "Helionenergy",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国聚变公司Helion Energy宣布其脉冲式磁惯性约束聚变原型机Polaris以氘氚燃料使等离子体温度达1.5亿°C，超过其第六代原型机的1亿°C。公司将继续测试以达到氘氦3聚变最佳温度，推进核聚变商业运营。Helion已于2025年7月在华盛顿州开始商业聚变装置建设，计划为Microsoft输送聚变电力。该进展标志着私营聚变企业在等离子体加热方面取得重要阶段性突破。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.helionenergy.com/articles/helion-achieves-new-fusion-energy-milestones/",
+          "tp": "核聚变进展",
           "aip": 1,
-          "kp": [
-            "[结构]: 层级固体电解质界面相快速输运离子",
-            "[条件]: 工业运行条件下合成氨"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "A hierarchical solid-electrolyte interphase can produce ammonia under industrial operating conditions",
+          "b": "2月13日，美国聚变公司Helion Energy在官网发文称，其脉冲式磁惯性约束聚变测试原型机Polaris以氘氚燃料，使等离子体温度达到1.5亿℃，超过其第六代原型机的1亿℃。Helion称其将继续测试，以达到氘氦3聚变的最佳温度推进实现核聚变商业运营。文中称，其于2025年7月已开始在华盛顿州进行商业聚变装置的建设，以为Microsoft输送聚变电力。",
           "hb": 1
         },
         {
-          "t": "增强的锂离子扩散提升N2-to-NH3在100 mA cm⁻²下的电流效率",
+          "t": "冠醚编程的共价有机框架纳米通道使固态锂金属电池具有准单离子电导率",
           "d": "2026-02-13",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
-          "as": "电化学锂介导氮还原（NRR）可在环境条件下将N2转化为氨（NH3），被视为绿色合成氨的潜在路径。然而在大电流密度下实现高电流效率一直是核心挑战。本研究通过增强锂离子扩散策略，显著提升了100 mA cm⁻²高电流密度下N2至NH3的电流效率。其核心机制在于优化锂离子在电极界面的传输动力学，促进活性锂对N2的持续活化与质子化耦合，从而抑制竞争性析氢副反应。该进展对推动电化学合成氨从实验室走向工业级电流密度运行具有重要意义，为分布式绿氨生产提供了新思路。",
-          "sc": 7.8,
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adw5462?af=R",
-          "tp": "电化学合成氨",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag098/8482764?rss=1",
+          "tp": "固态锂电池",
           "aip": 1,
-          "kp": [
-            "电流密度[Li介导N₂还原]: 100 mA cm⁻²",
-            "[SEI界面]: 协同去溶剂化-扩散层改善Li⁺传输"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Electrochemical lithium (Li)–mediated nitrogen (N\n                    2\n                    ) reduction could enable production of ammonia (NH\n                    3\n                    ) at ambient temperatures and pressures, offering a route to reduce carbon emissions in the chemical sector. However, NH\n                    3\n                    productivity is often limited by sluggish Li-ion desolvation and diffusion at the solid electrolyte interphase (SEI). Here, we present a concerted desolvation:diffusion layered SEI architecture that provides abundant Li-ion flux for efficient N\n                    2\n                    conversion toward NH\n                    3\n                    production at high current densities. The SEI comprises stacked inorganic layers with low ion-binding affinity and high ion-conductivity functionalities that increase Li-ion flux by two orders of magnitude. This design strategy achieved N\n                    2\n                    electroreduction in a 2 M lithium difluoro(oxalato)borate electrolyte with a Faradaic efficiency of 98% and an energy efficiency of 21% for NH\n                    3\n                    production at 100 milliamperes per square centimeter (mA cm\n                    −2\n                    ). The system sustained an 80% Faradaic efficiency over 40 hours, after which performance declined.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,76 +94,67 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究构建连续波窄线宽真空紫外激光源以驱动核钟跃迁",
-        "α-In2Se3光电耦合特性应用于开发低功耗光控铁电晶体管",
-        "片上量子电动力学系统实现非厄米腔例外点以增强传感灵敏度"
+        "人工智能代理已开始自主雇佣人类执行包括科研在内的实体空间任务",
+        "科研团队在正色散铌酸锂微谐振器中实现高效宽带克尔梳发生",
+        "完全植入式皮质基底节神经接口实现在家环境下的运动状态分类"
       ],
       "entries": [
         {
-          "t": "连续波窄线宽真空紫外激光光源",
+          "t": "人工智能代理正在雇佣人类“肉空间工人”——包括一些科学家",
           "d": "2026-02-13",
           "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "本文报道了一种连续波、窄线宽真空紫外（VUV）激光源的实现方案。该研究背景源于229Th核素在约148.4 nm处的超低能同核异能跃迁——这是目前已知的唯一核跃迁，被视为构建核钟的核心基础。现有的148.4 nm附近连续波相干光源极为稀缺，严重制约了对该跃迁的精密光谱测量和核钟开发。该激光源通过非线性频率转换等手段在真空紫外波段实现窄线宽连续输出，有望直接驱动229Th核跃迁的激发与探测，为下一代超高精度核钟的时间频率基准研究开辟道路。",
-          "sc": 7.7,
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10107-4",
-          "tp": "核时钟激光源",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-026-00454-7",
+          "tp": "AI代理雇佣人类",
           "aip": 1,
-          "kp": [
-            "[核跃迁]: 229Th同质异能跃迁约148.4nm",
-            "[应用]: 核钟",
-            "[进展]: Th核透明晶体+连续波VUV激光"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The exceptionally low-energy isomeric transition in 229Th at around 148.4 nm (refs. 1,2,3,4,5,6) offers a unique opportunity for coherent nuclear control and the realization of a nuclear clock7,8. Recent advances, most notably the incorporation of large ensembles of 229Th nuclei in transparent crystals6,9,10,11 and the development of pulsed vacuum ultraviolet (VUV) lasers12,13,14, have enabled initial laser spectroscopy of this transition15,16,17. However, the lack of an intense, narrow-linewidth VUV laser has precluded coherent nuclear manipulation8,18. Here we introduce and report a continuous-wave (CW) laser at 148.4 nm, generated by means of four-wave mixing (FWM)19 in cadmium vapour. The source delivers more than 100 nW of power with a projected linewidth well below 100 Hz and supports broad wavelength tunability. This represents a five-orders-of-magnitude improvement in linewidth over all previous single-frequency lasers below 190 nm (refs. 12,13,14,20). We develop a spatially resolved homodyne technique that places a stringent upper bound on FWM-induced phase noise, thereby supporting the feasibility of sub-hertz VUV linewidths. Our work addresses the central challenge towards a 229Th-based nuclear clock and establishes a widely tunable, ultranarrow-linewidth laser platform for potential applications across quantum information science21,22,23,24, condensed-matter physics25 and high-resolution VUV spectroscopy26.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "光-铁电耦合增强的α-In2Se3晶体管及其光控模式切换",
+          "t": "正色散 x 切割铌酸锂微谐振器中的高效宽带克尔梳发生",
           "d": "2026-02-13",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "AAAS: Science Advances: Table of Contents",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究利用α-In2Se3的铁电与光电耦合特性，开发了光控增强型铁电晶体管。通过光场调控铁电极化状态，实现类神经突触的可塑性响应，为神经形态计算中的复杂模式识别提供了一种低功耗、光可编程的新型硬件方案，在类脑计算与光电融合器件领域具有应用潜力。",
-          "sc": 7.5,
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202514329?af=R",
-          "tp": "光铁电耦合晶体管",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb5758?af=R",
+          "tp": "铌酸锂光梳",
           "aip": 1,
-          "kp": [
-            "[器件]: α-In₂Se₃光铁电耦合晶体管",
-            "[功能]: 光控逻辑与神经形态计算模式切换"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Neuromorphic computing is an ideal approach for achieving complex pattern recognition works; however, it is usually incompatible with digital logic processing units, limiting its application scope. Leveraging an opto‐ferroelectric coupling enhanced effect, we herein achieve the light‐controlled mode switchover between logic processing and neuromorphic computing in a ferroelectric transistor with α‐In\n                    2\n                    Se\n                    3\n                    /h‐BN as gate dielectrics and MoS\n                    2\n                    as channel. Under dark conditions, the transistor operates in digital logic mode with a high current on/off ratio of 10\n                    9\n                    , ultra‐low subthreshold swing (SS) of 33 mV/dec, and low leakage current of 5.6 × 10\n                    −13\n                    A, which is promising for logic processing applications. The inverter and NOR circuits with high noise margin and low power consumption were further implemented via interconnecting n‐ and p‐type transistors. Under light conditions, the ferroelectric polarization field of α‐In\n                    2\n                    Se\n                    3\n                    is significantly enhanced, leading to an enlarged hysteresis window (Δ\n                    V\n                    ) and switching the transistor into an optoelectronic synapse mode for neuromorphic computing, which can support image classification with an accuracy of up to 94.43% and a low energy consumption of 0.47 pJ/spike. This work provides an opto‐ferroelectric coupling‐enhanced transistor that addresses the incompatibility issue between digital logic and neuromorphic computing units, offering a new pathway for next‐generation computing devices.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "片上非厄米腔量子电动力学",
+          "t": "使用完全植入式皮质基底节神经接口进行在家运动状态分类",
           "d": "2026-02-13",
-          "a": "Nature Nanotechnology",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究在片上量子电动力学系统中实现了非厄米腔QED物理。聚焦于非厄米系统中的例外点——即至少两个本征态发生汇聚相变的奇点，展示了例外点在增强传感灵敏度、调控光-物质相互作用等方面的独特优势。该平台为拓扑光子学和量子传感的片上集成提供了实验基础。",
-          "sc": 7.2,
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02132-1",
-          "tp": "非厄米腔QED",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz4733?af=R",
+          "tp": "植入式神经接口",
           "aip": 1,
-          "kp": [
-            "[非厄米CQED]: 片上反常点增强单发射体辐射"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Exceptional points (EPs) are singularities in non-Hermitian systems where at least two eigenstates coalesce. They provide additional control over light–matter interactions and can, for example, enhance radiation from ensembles of photonic emitters. Advanced control over the characteristics of single quantum emitters via EPs remains, however, elusive. Here we engineer the quantum vacuum, the lowest energy state of the electromagnetic field, via a chiral EP to shape the spontaneous emission of a single quantum emitter. We develop a heterogeneously integrated lithium niobate-GaAs photonic circuit comprising high-quality quantum emitters, low-loss photonic circuits, electro-optic modulators and piezoelectric actuators. We dynamically tune the clockwise–counterclockwise mode coupling to access EPs, thereby inducing anomalous spontaneous emission dynamics with a sevenfold lifetime modulation (120–850 ps) and tunable chirality. Furthermore, we shape the emission spectra at the single-photon level via an EP-controlled local density of states, generating squared-Lorentzian, Fano-asymmetric and EP-induced transparency emissions. The latter manifests as a suppression of photon emission at zero detuning, arising from the non-Lorentzian optical response characteristics inherent to EP systems. This work unveils uncommon cavity quantum electrodynamics unique to EPs and exemplifies how the concept of non-Hermitian quantum photonics may contribute towards high-performance topological quantum light sources.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -177,9 +162,9 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中科院工热所研制的500千瓦天然气管网压差发电系统投运",
-        "宽禁带半导体氧化镓实现室温稳健铁电性以集成功率与存储",
-        "调控催化剂活性位点结构无序度提升过氧化氢合成反应性能"
+        "中科院工热所等研制的500kW零碳复温天然气压差发电系统在山东投运",
+        "该系统实现天然气管网减压发电冬季零外部燃料加热工况运行",
+        "科研人员采用双调谐策略精确合成具有光热响应的共轭分子结构"
       ],
       "entries": [
         {
@@ -202,50 +187,42 @@
           "hb": 1
         },
         {
-          "t": "宽禁带半导体Ga2O3中稳健的室温铁电性",
+          "t": "中科院工程热物理所开发的无外部燃料加热天然气运输管网压差发电系统正式投运",
           "d": "2026-02-13",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "本研究在宽禁带半导体Ga2O3中实现了室温下的稳健铁电性，解决了功率处理与非易失性存储器长期以来因材料不兼容而难以集成的问题。Ga2O3本身具有超宽禁带、高击穿电场等优势，叠加铁电极化特性，为功率电子器件与存储功能的单片集成开辟了新路径，在高压、高频、高功率电子系统及非易失性存储领域具有重要应用前景。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5225?af=R",
-          "tp": "氧化镓铁电性",
-          "aip": 1,
-          "kp": [
-            "铁电性[宽禁带半导体]: κ-Ga2O3室温铁电",
-            "[生长方法]: MOCVD工业兼容",
-            "[材料特性]: 亚稳κ相氧化镓"
-          ],
-          "lv": 0,
+          "a": "",
+          "c": "通用技术/通信和运输/管网技术",
+          "as": "中科院工程热物理所联合北京中科九朗研制的零碳复温天然气压差发电系统在山东曲阜正式投运。系统利用天然气管网中下游减压时的压力能驱动透平膨胀机发电，最高功率500kW。针对天然气膨胀降压后降温导致冰堵的问题，采用零碳复温流程使冬季零燃料、零外部补热工况下出口温度保持0°C以上，减少对燃气加热炉等外部热源的依赖，实现天然气管网压力能回收的低碳化运行。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/r3vhMajth-WvlsCdesg4vw",
+          "tp": "管网压差能",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "For decades, the integration of power handling and nonvolatile memory has been fundamentally impeded by the incompatibility between wide-bandgap semiconductors and ferroelectric materials. We resolve this challenge by demonstrating robust room-temperature ferroelectricity in epitaxial metastable κ-Ga\n                    2\n                    O\n                    3\n                    , grown via industry-compatible metal-organic chemical vapor deposition, creating an intrinsically ferroelectric wide-bandgap semiconductor. Through systematic characterization including piezoresponse force microscopy, polarization hysteresis measurements, and positive up–negative down tests, we provide conclusive evidence of stable ferroelectric switching down to 5-nanometer thickness—exceeding conventional ferroelectric limits—via a unique octahedral-tetrahedral transformation. Ferroelectric tunnel junctions achieve giant tunneling electroresistance exceeding 10\n                    5\n                    . This fundamental discovery in a mainstream semiconductor challenges conventional materials paradigms and enables monolithic integration of power and memory functionalities on a unified platform.",
+          "cm": "天然气加压运输：提高单位时间运输量；\n降压加热：缓解膨胀吸热造成其中水结冰问题。（量大完全脱水成本高）.ORC装置+地热源/储热模块，提供天然气降温加热+冷能利用\n但先前已有相关专利（CN205117427U_x000B_ORC、CN105041395B 制冰储冷）；东方电气也有通过传感器监测反馈调节进气量缓解结冰的。据工程热物理所在申专利（CN120291943A）信息显示，其集成了有机朗肯循环（ORC）技术、高压天然气预热系统，以避免天然气膨胀过程中由于温度过低引发的结冰/结霜现象，缓解膨胀发电过程效率降低问题；ORC发电单元则利用天然气膨胀过程中的冷能作为工质循环冷源，冷凝热则也可对天然气进行加热；系统热源来自于地热水源和太阳能辐照。专利中的三级天然气压差+ORC耦合发电系统最大功率达370kW（进气口压力5.3MPa），此次宣传的最大500kW功率则可能进一步提高了一级膨胀机的进气压力（有文章称我国大输量、长距离天然气输送管道的设计压力通常为12/10MPa）。ORC工质等该专利中并未说明。",
+          "b": "2月13日，中科院工程热物理所在官方公众号发文称，其联合北京中科九朗能源科技公司（工程热物理所孵化）研制的零碳复温天然气压差发电系统在山东曲阜正式投运。文中介绍，天然气压差发电系统利用天然气运输管网在中下游减压时的产生压力能，驱动压差透平膨胀机发电，实现压力能向电能的转化；但天然气膨胀降压后温度降低，其中含有的水分结冰，容易引起冰堵现象，通常需要燃气加热炉等外部热源加热来解决冰堵问题。该系统的最高发电功率为500kW，宣传采用的零碳复温流程使得在冬季零燃料、零外部补热的工况下，出口温度保持0℃以上，减少了对燃气加热炉等外部热源的依赖。",
           "hb": 1
         },
         {
-          "t": "活性位点结构混沌作为攀登2e-ORR火山图顶峰的阶梯",
+          "t": "通过双调谐策略精确合成π-共轭[3]环烷和所罗门链以实现光热响应",
           "d": "2026-02-13",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究提出利用活性位点结构的\"混沌\"（无序性）作为提升二电子氧还原反应（2e-ORR）性能的策略。中性介质中2e-ORR可绿色高效地产过氧化氢，研究通过调控催化剂活性位点的结构无序度，成功攀登2e-ORR火山图顶峰，实现了优异的H2O2选择性与活性。",
-          "sc": 7.1,
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c15908",
-          "tp": "双电子氧还原催化剂",
+          "u": "https://www.nature.com/articles/s41467-026-69503-z",
+          "tp": "光热响应材料",
           "aip": 1,
-          "kp": [
-            "[设计原则]: 原子熵调控活性位点混沌",
-            "催化剂[2e-ORR中性]: 四配位Co单原子",
-            "[产物]: H₂O₂"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Two-electron oxygen reduction reaction (2e-ORR) in neutral media offers an eco-friendly and practical strategy for efficient synthesis of hydrogen peroxide (H2O2), yet limited understanding of electrocatalytic mechanisms and poor catalyst activity hinder its development. We propose a strategic design principle for high-performance four-coordinated Co single-atom catalysts based on atomic entropy fluctuation by both geometric and electronic modifications, quantitatively described by the descriptor φ, which is able to capture the impact of local entropy fluctuations on catalytic performance. φ serves as an effective metric for elucidating the relationship between ORR activity and the coordination environment in Co single-atom catalyst systems, thereby elucidating the origin of the high activity of CoN3S, which lies close to the apex of the volcano peak. Based on the prediction, the as-synthesized Co-N3SC catalyst achieved a 97% selectivity for H2O2 electrosynthesis at low overpotentials in neutral electrolytes. Impressively, Co-N3SC exhibited remarkable stability and delivered a cumulative yield of 10.58 g of H2O2 in flow cell devices (110 h @0.18A). In a solid-state electrolyte electrolyzer, it achieved a production rate of 10.25 mol gcat-1 h-1, enabling the direct synthesis of high-purity urea peroxide. This work offers not only strategies for designing highly active and selective 2e-ORR catalysts but deep insights into coordination environment-activity regulation and validation of practical catalyst applications.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Fervo Energy与英伟达合作开发地热AI平台优化勘探与储层管理",
-      "拆解显示海钠钠离子电池制造工艺与特斯拉产品相当并进入量产阶段",
-      "一汽解放钠离子重卡完成极寒测试，零下40度保持90%可用电量"
+      "中国绿发研发全球首台5兆瓦级全碳型锂离子超级电容功率舱",
+      "中科院等机构开发三维光热蒸发材料，日产淡水超20升",
+      "隆基发布Hi-MO 9光伏组件，最高输出功率达680W"
     ],
     "AI与智能科技": [
-      "OpenAI计划周四发布GPT-5.6，实测数据显示其推理与代码能力提升",
-      "三星HBM4内存业界率先突破10亿美元销售额并计划于2026年量产",
-      "OpenAI发布GPT-5.5-Cyber模型，在网络安全攻防测试中超越Mythos 5"
+      "字节跳动发布豆包2.1大模型，日均处理API Tokens达180万亿",
+      "三星HBM4内存销售额突破10亿美元，将于2026年2月量产",
+      "三星率先出样48GB HBM4E，带宽达3.6TB/s"
     ],
     "通用技术": [
-      "小米YU7 GT以10分29秒创下纽博格林北环赛道首个自动驾驶圈速纪录",
-      "小米自动驾驶系统在纽博格林赛道实现全程无人驾驶并刷新圈速记录",
-      "科研团队利用钼-229原子核跃迁构建首台核钟，理论精度达10的负19次方"
+      "南京大学团队揭示凝聚态物质中“引力子模”的几何振荡起源",
+      "中国天文学家利用爱因斯坦探针卫星发现未知X射线瞬变源",
+      "科研团队制备超低功函数表面电烯，提升合成氨催化效率"
     ]
   },
   "sectors": [
@@ -26,67 +26,78 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Fervo Energy与英伟达合作开发地热AI平台优化勘探与储层管理",
-        "拆解显示海钠钠离子电池制造工艺与特斯拉产品相当并进入量产阶段",
-        "一汽解放钠离子重卡完成极寒测试，零下40度保持90%可用电量"
+        "中国绿发研发全球首台5兆瓦级全碳型锂离子超级电容功率舱",
+        "中科院等机构开发三维光热蒸发材料，日产淡水超20升",
+        "隆基发布Hi-MO 9光伏组件，最高输出功率达680W"
       ],
       "entries": [
         {
-          "t": "Fervo Energy携手英伟达开发地热AI平台",
+          "t": "全球首台5兆瓦级全碳型锂离子超级电容试验成功--中国能源新闻网",
           "d": "2026-06-23",
-          "a": "中国可再生能源学会地热能专委会",
-          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
-          "as": "美国增强型地热能开发商Fervo Energy与英伟达（NVIDIA）合作开发地热AI平台，旨在利用人工智能优化地热资源勘探、井位规划和储层管理。该合作将结合Fervo在地热钻探和运营方面的经验与英伟达的AI计算能力，提升地热能开发的效率和经济性，推动这一清洁基荷能源的规模化部署。",
-          "sc": 8.8,
+          "a": "中国电力新闻网-新能源",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/超级电容器",
+          "as": "中国绿发锂电容公司成功研发全球首台5兆瓦级全碳型锂离子超级电容功率舱，并取得CNAS认证。该设备单体采用预嵌锂技术和多孔电极结构，能量密度达16Wh/kg，功率密度达18kW/kg。功率舱转换效率超95%，瞬时功率响应在10毫秒内，循环寿命超百万次。该设备可实时调度22400支单体，在海拔5000米极限工况下持续输出5兆瓦功率，有效解决传统锂电无法适配高频充放电调频场景的问题。",
+          "sc": 9.3,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/yF77F2TcyUvSOIw8B339ng",
-          "tp": "地热AI平台",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/xny/202606/t20260623_1896680.html",
+          "tp": "超级电容试验",
           "aip": 1,
           "kp": [
-            "[合作]: Fervo-英伟达开发地热AI平台"
+            "设备类型[全碳型超级电容功率舱]: 全球首台5兆瓦级",
+            "响应时间[超级电容电网调频]: 毫秒级响应",
+            "[全碳型锂离子超级电容]: 具备循环寿命更长、安全性更高、低温衰减更小、无锂枝晶燃烧风险等优势",
+            "[应用模式]: 适合与传统锂电储能设备组合使用以适配高频充放电场景"
           ],
-          "b": "Fervo Energy携手英伟达开发地热AI平台 原创 程素微 程素微 中国可再生能源学会地热能专委会 [](https://mp.weixin.qq.com/s?__biz=Mzk0MDQ5MTE5OQ==&mid=2247491348&idx=1&sn=cc9a4216f09a103b9f8a64f6017ae4ab&scene=21#wechat_redirect) Fervo Energy、NVIDIA 与美国太平洋西北国家实验室（PNNL）宣布，将共同开发一套面向增强型地热系统（EGS）的下一代数字孪生平台，平台名称为 **EGS-Twin**。该平台将融合实时现场数据、基于物理机理的建模方法以及人工智能预测能力，用于推进关键地热基础设施建设，并最大化地热发电能力。 该合作于 **2026年6月22日**对外公布。Fervo Energy 表示，EGS-Twin 的目标是通过高分辨率现场数据、物理模型和 AI 预测技术的融合，实时洞察地下储层行为和系统运行表现。这对于增强型地热系统尤为关键，因为 EGS 项目的核心难点不只是钻井和压裂，更在于如何持续理解地下裂缝网络、热量回收、流体流动和发电效率之间的动态关系。 在平台开发过程中，PNNL 研究人员将利用 Fervo 的行业经验和现场数据，在 NVIDIA AI 基础设施上训练可规模化的人工智能模型。训练完成后的 AI 模型将被集成到 **NVIDIA Omniverse** 库中，从而帮助地热运营商更快识别和响应地下变化，优化发电量，并增强增强型地热系统的规模化能力。 Fervo 首席技术官兼联合创始人 **Jack Norbeck** 表示，随着 Fervo 建设和运营其 **GeoBlock** 资产，数字孪生将有助于加快地热开发的学习曲线。他认为，将高保真物理模型与 AI 驱动预测结合起来，有潜力重塑储层管理方式，提高热量回收效率，并增强系统可靠性。 PNNL 将负责开发相关工作流程和数据管线，并利用高性能计算能力开展大规模模拟，其中包括美国能源部的超级计算资源。PNNL 团队将使用 Fervo 在内华达州和犹他州项目中已经掌握的专有现场数据，立即开始数字孪生模型训练。随着后续更多生产数据上线，平台也将持续优化完善。按照计划，该平台预计将在 **2029年**投入实施。 此次合作被视为将人工智能和先进计算能力深度引入清洁能源领域的重要一步。其目标不仅是服务地热单个项目优化，更是支撑 **24小时、每周7天稳定供应的零碳电力**部署，以满足全球不断增长的能源需求。 Fervo Energy 在公司简介中表示，其定位是一家现代化电力公司，核心目标是满足市场对经济、可靠新增电力供应的迫切需求。通过大规模部署增强型地热系统，Fervo 已经建立起一种可复制、工业化的公用事业级电力开发方式。公司正试图将地热转变为一种清洁、可靠且具有成本竞争力的能源解决方案，以满足 AI 超大规模数据中心、公用事业公司以及更加电气化经济体系的增长需求。 声明后半部分为前瞻性陈述说明。Fervo 提醒投资者，新闻稿中有关目标、预期、预测、未来计划、潜在能力、项目时间表和市场前景等内容，均属于前瞻性陈述。这些陈述涉及风险、不确定性和假设，并不构成对未来业绩的保证。实际结果可能与公司当前表述存在重大差异。 Fervo 列举的潜在风险包括：地热业务扩张和进入新市场的不确定性；环境法规和许可要求带来的合规挑战；经济环境和市场需求变化对未来经营结果和增长预测的影响；气候政策和环境监管对运营成本的影响；地热行业固有的运营风险和潜在责任；能源价格和材料成本波动；复杂供应链依赖；资本市场、利率和融资条件变化；电力购买协议和框架协议实际落地的不确定性；法律诉讼和索赔风险；品牌声誉和公众舆论风险；政治反对对审批和市场接受度的影响；增长战略执行延误或失败；关键人员依赖和劳动力成本问题；技术系统和网络安全风险；全球经济与政治环境变化；以及公司对资源潜力、初始热储规模和发电能力估算可能不准确等问题。 Fervo 还指出，由于其所处行业竞争激烈且变化迅速，新的风险可能不断出现。公司无法预测所有风险，也无法完全评估各种因素或因素组合对业务结果的影响。因此，投资者不应过度依赖前瞻性陈述。所有前瞻性陈述仅代表新闻稿发布当日或相关陈述作出当日的判断，除非法律要求，Fervo 不承担更新或修订这些陈述的义务。 总体来看，这条新闻的核心意义在于：Fervo 正在把增强型地热从“工程驱动”进一步推向“数据驱动和智能化运营”。EGS-Twin 不只是一个展示型数字孪生平台，而是试图把现场数据、储层物理、AI 预测和高性能计算结合起来，形成可持续迭代的地热开发大脑。对于下一代地热而言，钻井和压裂解决的是“把资源打开”的问题，而数字孪",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首台5兆瓦级全碳型锂离子超级电容试验成功--中国能源新闻网\n中电传媒股份有限公司主办\n全球首台5兆瓦级全碳型锂离子超级电容试验成功\n记者6月22日从中国绿发投资集团获悉，该集团旗下北京绿发中科锂电容科技有限公司（以下简称中国绿发锂电容公司）自主研发设计制造的5兆瓦级全碳型超级电容功率舱日前完成全套型式试验，顺利取得具备国际互认效力的中国合格评定国家认可委员会（CNAS）认证报告。这是国内首款、全球首台整舱通过CNAS认证型式试验的5兆瓦级全碳型超级电容功率储能设备。\n当前新型电力系统建设加速推进，储能设备在电网调频领域扮演着日益重要的角色。传统锂电储能设备储存的总电量较高，但循环寿命仅数千次，无法适配高频充放电。相比之下，超级电容储存的总电量虽不及锂电储能设备，但其功率密度极高，可对电网的调频指令进行毫秒级响应，且循环寿命超长，适配频繁、高强度的调频场景。因此，超级电容适合与传统锂电储能设备组合使用。\n“相较市场上常见的混合型超级电容和双电层电容，全碳型锂离子超级电容具备循环寿命更长、安全性更高、低温衰减更小、无锂枝晶燃烧风险等优势。”中国绿发锂电容公司董事长厉明表示。\n厉明介绍，这款超级电容功率舱内置中国绿发锂电容公司自产4500法拉大容量全碳型锂离子超级电容单体。超级电容单体采用预嵌锂技术，多孔电极结构设计，能量密度达到16瓦时每千克（Wh/kg），功率密度达到18千瓦每千克（KW/kg）。功率舱采用主动均衡策略，可实时调度22400支超级电容单体，簇级动态压差仅64毫伏，转换效率超95%，瞬时功率响应速度在10毫秒内，整舱循环使用寿命超百万次级别，适配每日数百次高频充放电工况。\n“不仅如此，该设备在海拔5000米极限工况下，可持续稳定输出5兆瓦功率，是国内少数可覆盖青藏高原全域风光储能项目的兆瓦级超级电容装备。”厉明说。\n本次通过型式试验的5兆瓦全碳型锂离子超级电容功率舱，将在青海东岳独立储能项目中落地应用。其将为储能电站带来毫秒级快速响应，实现百万次超长循环，全生命周期无需更换电芯，同时适配高原极寒环境，无需额外配套温控、增压设备，可大幅降低场站配套投资，提升电站调频收益。（\n“十四五”能源高质量发展\n装机占比超60% 新疆新能源产业活力迸发\n1至5月云南新能源电池产业增加值同比增长78.2％\n山西新能源全面“报量报价”参与现货市场\n我国将启动2026年新能源汽车下乡\n承德大力发展清洁能源产业\n中国水电装机十年增长40% 水风光互补模式加速新型能源体系构建\n宁波“炼”成全国分布式光伏“第一城”\n北京绿色出行蔚然成风 地面公交新能源化率突破80%",
           "hb": 1
         },
         {
-          "t": "拆解发现中国钠离子电池制造品质可媲美特斯拉",
+          "t": "碳讯 | 我国高效太阳能海水淡化获得重大突破",
           "d": "2026-06-23",
-          "a": "Electrek",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "拆解报告显示，中国钠离子电池制造商海钠（Hina）量产电池在制造工艺与结构质量上已达到与特斯拉电池相当的水平。钠离子电池以储量丰富、成本低廉的钠替代锂，正极采用层状氧化物或聚阴离子体系，负极多用硬碳。海钠产品在一致性、封装工艺和热管理设计上展现了成熟的工程化能力，标志着钠电路线已从实验室验证进入规模化量产阶段。这将对锂资源依赖度高的储能和低端动力市场形成成本竞争压力。",
-          "sc": 8.6,
+          "a": "环球零碳",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "中科院过程工程研究所与深圳大学联合团队提出高分子“锁扣”机制，将纳米颗粒编织成三维光热蒸发材料，大幅提升太阳能海水蒸发速率。自然光照下该装置每日产淡水20.16升，水质达世卫组织饮用水标准，且成功灌溉农田完成作物生长周期。装置运行两年后产水成本低于瓶装水。此外，国家能源局推进非公共电网可再生能源项目绿证核发；全球首台5兆瓦级全碳型锂离子超级电容试验成功。",
+          "sc": 9.2,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://electrek.co/2026/06/22/chinese-sodium-ion-battery-matches-tesla-build-quality/",
-          "tp": "钠离子电池拆解",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/CcD3_rTrHCYMbP4KzEHIMA",
+          "tp": "太阳能海水淡化",
           "aip": 1,
           "kp": [
-            "[电阻一致性]: 120电芯间变化5.3%",
-            "[评估对象]: Hina钠离子电池",
-            "[对标结论]: 与Tesla锂电品质相当"
+            "产水能力[太阳能海水淡化装置]: 20.16升/日",
+            "核心技术[三维光热蒸发材料]: 高分子“锁扣”机制"
           ],
-          "b": "Fred Lambert\n| Jun 22 2026 - 6:05 am PT\nA commercial sodium-ion battery from Chinese manufacturer Hina matches Tesla’s lithium-ion cells on manufacturing quality and internal design, according to an independent teardown published in the\nCell Reports Physical Science\nResearchers at Germany’s RWTH Aachen University measured cell-to-cell resistance varying by just 5.3% across 120 cells — a sign of tightly controlled mass production rivaling the best lithium cells on the market.\nThe study, led by Christian Siebert and Moritz Schütte, set out to benchmark a widely used Hina sodium-ion cell against more advanced Tesla lithium-ion technology.\nThe team ran impedance spectroscopy — a non-destructive method — across 120 cells to gauge uniformity, then tested performance at currents and temperatures ranging from −20°C to 45°C. They used X-rays to image the internal structure before physically dismantling the cells to measure electrode dimensions, composition, and microstructure.\nThe standout finding was structural. The Hina cell uses a “tabless, double-aluminum current collector design that reduces resistance and ensures a uniform temperature distribution — and also mirrors the current design of Tesla batteries,” the researchers wrote.\nThat tabless architecture is the same headline feature Tesla introduced with its 4680 cell. The researchers say this is the first commercially available sodium-ion battery to use it. Sodium-ion has a structural cost advantage here, too: it can use aluminum current collectors on both sides of the cell, while lithium-ion requires more expensive copper on the anode side.\n“We were positively surprised by how uniform the cells are,” Schütte said.\nThe skepticism is warranted on the parts that matter most for electric cars. The researchers were clear that the cell still trails leading lithium-ion technology on two fronts.\nThe first is energy density. “Today’s commercial sodium-ion cells generally have lower energy density than the best lithium-ion cells, and the technology is less mature overall,” Schütte said. That keeps sodium better suited to stationary storage, grid services, and shorter-range or commercial vehicles than to long-range passenger EVs.\nThe second is cold-weather charging. Sodium handles cold\nwell, but charging is the problem. “For applications that require frequent charging at low ambient temperatures, appropriate thermal management or operating strategies will be important because low-temperature charging remains a clear weakness,” Schütte said.\nThe teardown also turned up an oddity: unexpectedly high and unevenly distributed copper in parts of the cathode, which the researchers said “raises interesting questions about its role in performance and aging.” Schütte added that he’d like to see future sodium cells “free of nickel and copper” while reaching competitive energy density.\nThe finding lands as China’s battery giants push sodium-ion from lab curiosity to mass production. We reported in April that\nCATL is launching its Naxtra sodium-ion batteries in EVs in 2026\n, targeting around 175 Wh/kg now and roughly 600 km (372 miles) of range as the chemistry matures, with charging down to −30°C.\nThe technology is already on the road. In February, CATL and Changan unveiled the\nworld’s first mass-produced sodium-ion EV\n, the Changan Nevo A06. And researchers have been chipping away at sodium’s weak spots, with one group demonstrating a\nsodium-ion cell with 11-minute charging and 450 km of range\nHina, a spin-off of the Chinese Academy of Sciences, supplies cells for both vehicles and grid storage and has shown commercial packs rated around 165 Wh/kg.\nThe headline writes itself: a Chinese sodium-ion battery “matching” Tesla, but it’s worth being precise about what the study actually says, because the distinction is the whole story.\nThis isn’t sodium beating lithium on the spec sheet. On energy density, the metric that decides how far an EV goes, sodium still loses. What the German team confirmed is something arguably more important for the long game: an independent Western academic teardown found that a Chinese sodium-ion cell is being built at a quality and design level on par with the best lithium cells, using abundant, cheap, supply-chain-friendly materials. A 5.3% spread in resistance across 120 cells is the kind of consistency that only comes from a mature production line, not a lab bench.\nThat’s the real takeaway. The knock on sodium has always been that it’s a promising chemistry stuck in the “not quite ready” phase. This teardown says the manufacturing is already there — the remaining gaps are energy density and sub-zero charging, both of which are engineering problems with clear roadmaps rather than fundamental barriers. Combined with CATL putting sodium packs into production cars this year, it’s another data point in how far ahead China’s battery industry has pulled.\nThe open question is whether that quality translates beyond grid storage and entry-level cars into the mainstream EV market. If sodium closes the density gap the way LFP did, the cost math gets very hard for everyone else to ignore.\nMy bet is that those sodium cells are fairly cheap already.\nIf you’re charging an EV at home, pairing it with rooftop solar is one of the smartest ways to lock in low fuel costs for the long haul. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "碳讯 | 我国高效太阳能海水淡化获得重大突破 环球零碳研究所 环球零碳研究所 环球零碳 **环球零碳** **碳中和领域的《新青年》** _**01**_ **我国高效太阳能海水淡化获得重大突破** 6月22日从中国科学院过程工程研究所获悉，该所与深圳大学联合团队提出一种高分子“锁扣”机制，成功将纳米颗粒编织成三维光热蒸发材料，使太阳能海水蒸发速率大幅提升，并通过户外试验装置，实现了从海水淡化到农业灌溉的初步探索。相关研究成果发表在国际学术期刊《先进材料》杂志。 自然光照下，该装置每日产淡水20.16升，可满足约10人的基本饮水，水质达到世卫组织饮用水标准。产出的淡水已成功灌溉5平方米农田一整年，菠菜、玉米、小白菜等作物均完成完整生长周期，验证了农业灌溉的可行性。全生命周期成本分析显示，装置运行两年后，产水成本将低于市售瓶装水。 **（来源：科技日报）** _**02**_ **国家能源局：推进非公共电网可再生能源发电项目绿证核发** 6月23日，国家能源局综合司发布关于组织推进非公共电网可再生能源发电项目绿证核发的通知，通知提出，由电网企业、电力交易机构归集报送基础数据的非公共电网项目绿证核发。 参照《国家发展改革委国家能源局关于完善价格机制促进新能源发电就近消纳的通知》等文件中关于发电项目计量装置安装的要求，由电网企业安装电量计量装置准确计量各环节电量数据的非公共电网项目，其绿证核发、划转、核销流程与公共电网项目一致，由北京、广州、内蒙古电力交易中心按照绿证核发相关数据接口要求，归集报送基础数据至国家绿证核发交易系统，经审核后核发绿证。 **（来源：国家能源局）** _**03**_ **全球首台5兆瓦级全碳型锂离子超级电容试验成功** 6月22日从中国绿发投资集团获悉，该集团旗下北京绿发中科锂电容科技有限公司自主研发设计制造的5兆瓦级全碳型超级电容功率舱日前完成全套型式试验，顺利取得具备国际互认效力的中国合格评定国家认可委员会（CNAS）认证报告。 据介绍，这是国内首款、全球首台整舱通过CNAS认证型式试验的5兆瓦级全碳型超级电容功率储能设备。这款超级电容功率舱内置中国绿发锂电容公司自产4500法拉大容量全碳型锂离子超级电容单体。超级电容单体采用预嵌锂技术，多孔电极结构设计，能量密度达到16瓦时每千克（Wh/kg），功率密度达到18千瓦每千克。 本次通过型式试验的5兆瓦全碳型锂离子超级电容功率舱，将在青海东岳独立储能项目中落地应用。 **（来源：科技日报）** _**04**_ **通威股份：拟以50.6亿元增资全资子公司** 6月22日盘后，光伏龙头企业通威股份公告称，拟以自有资金50.6亿元向全资子公司通威太阳能科技有限公司（以下简称通威太阳能科技）进行增资。 通威股份公告披露的财务数据显示，截至2026年一季度末，通威太阳能科技资产负债率为101.24%。 6月22日晚间，通威股份相关负责人表示，本次增资不涉及新增项目投资，资金仍在合并报表体内流转，不会对公司产生现金流压力。 通威股份在公告中表示，本次对全资子公司通威太阳能科技增资，有利于其优化资本结构，促进业务发展。 **（来源：每日经济新闻）** _**05**_ **宁德时代将在欧洲建电动卡车换电站** 6月22日，宁德时代与英国能源公司章鱼能源（Octopus Energy）宣布将成立合资公司，双方将共同建设欧洲重卡换电网络。宁德时代将把骐骥换电技术引入欧洲，通过提升重型卡车的补能效率，推动公路货运的电动化转型。 根据规划，2027年双方将在英国建成首批示范换电站，优先覆盖高速公路主干线及核心物流港口。预计到2035年，换电站网络将扩大至30座以上，业务辐射至苏格兰和威尔士，形成覆盖全英核心干线的换电网络。 **（来源：宁德时代）** _**06**_ **SpaceX再获AI算力大单** 财联社6月23日电，最新消息显示，与开源人工智能初创公司Reflection AI与SpaceX签署了一项大型算力合作协议，成为最新一家使用Colossus基础设施的外部客户。 根据泄露的资料，Reflection将立即获得SpaceX的GB300使用权，用于训练和运行先进模型。按照协议，从2026年7月1日起至2029年，Reflection将每月向SpaceX支付1.5亿美元。Reflection称，这项协议将为其提供额外算力资源，以加速实现其所谓的“美国开放智能”（American open intelligence）。 在前三个月结束后，任何一方都可以提前90天通知终止合同。如果协议执行至期满，Reflection向SpaceX的总支付金额将达到约63亿美元。 **（来源：财联社）** _**07**_ **亚马逊签署在德最大单笔购电协议** 6月23日消息，A...",
           "hb": 1
         },
         {
-          "t": "中国钠离子卡车电池在-40°F严寒下仍保持90%电量",
+          "t": "隆基推出680W背接触太阳能组件，效率为25.17% - pv magazine China",
           "d": "2026-06-23",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "一汽解放完成了一款钠离子电池重卡的为期七个月真实道路测试，结果显示该电池在零下40华氏度（约-40°C）极寒环境下仍保持90%的可用电量。传统锂离子电池在低温下容量与功率急剧衰减，而钠离子因较低的溶剂化能和更宽的工作温度范围表现出优异低温性能。一汽解放的钠电重卡瞄准北方矿区、港口等极端工况场景，验证了钠离子电池在重载运输中的可靠性，填补了锂电在极寒地区应用的空白。",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "隆基在慕尼黑展会上发布Hi-MO 9 Prime背接触太阳能组件。该产品基于HPBC技术，采用重新设计的叠片电池架构，消除电池间隙并隐藏焊带以最大化有效面积，最高输出功率达680W，转换效率为25.2%。该双玻组件还采用STAC互联技术，提升了遮光耐受性和可靠性。",
           "sc": 8.6,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/transportation/chinese-truck-maker-tests-sodium-ion-battery",
-          "tp": "钠离子电池重卡",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/06/23/longi-launches-680-w-back-contact-solar-module-with-25-2-efficiency/",
+          "tp": "隆基发布高功率组件",
           "aip": 1,
           "kp": [
-            "[低温保持率]: -40°F保持90%电量",
-            "[测试里程]: 超9300英里",
-            "[测试周期]: 7个月全工况实车"
+            "输出功率[隆基Hi-MO 9 Prime背接触组件]: 680W",
+            "组件效率[隆基HPBC背接触组件]: 25.2%",
+            "核心技术[双玻光伏组件]: 基于HPBC技术的叠层电池架构，消除电池间隙并隐藏焊带，采用STAC互联技术"
           ],
-          "b": "Chinese heavy truck maker FAW Jiefang has completed a seven-month real-world test of a sodium-ion battery electric truck, marking another step in China’s push to commercialize lower-cost alternatives to lithium-ion batteries for transport.\nThe company conducted a full-condition, systematic trial covering more than 9,300 miles with its electric truck fleet.\nUnlike laboratory testing, the trial followed real-world service operations, exposing the battery packs to long-distance runs, repeated charging cycles, changing road conditions, and extreme weather.\nThe test centered on a 339 kWh sodium-ion battery pack co-developed by FAW Jiefang and Chinese battery company Zhongke Haina.\nThe results are being seen as an important sign that sodium-ion batteries can move beyond passenger cars and smaller vehicles into demanding commercial trucking applications.\nSodium-ion batteries are gaining attention because they use more abundant and potentially cheaper materials than conventional lithium-ion batteries. That could make them attractive for\nelectric vehicles\n, especially in markets where cost, supply security, and durability matter.\nFor heavy trucks, however, the challenge is more difficult. Commercial vehicles face high loads, long operating hours, and strict uptime demands.\nBatteries must withstand frequent, fast charging, high energy output, and wide temperature swings without significant performance loss.\nFAW Jiefang’s test was designed to examine those conditions. The truck fleet was operated in both high and low temperatures over nearly seven months. The sodium-ion battery system was also exposed to repeated high-frequency use rather than controlled laboratory cycles.\nOne of the most notable results came in extreme cold. At -40°F, the 339 kWh battery pack retained more than 90% of its usable capacity, according to the companies.\nZhongke Haina said the test also supported claims around faster charging and improved battery safety, two areas seen as crucial for commercial vehicle adoption.\n“A full charge takes only 20-25 minutes, significantly reducing refueling time and effectively improving logistics and transportation efficiency. Furthermore, the battery has a cycle life exceeding 8,000 cycles under fast charging conditions, far surpassing industry standards,” read Haina’s\nofficial WeChat account\nThe chemistry is also seen as having safety advantages because of its thermal stability. For heavy-duty vehicles carrying large battery packs, safety under frequent operation and heavy load remains a key concern.\nThe FAW Jiefang test comes as Chinese battery and vehicle companies accelerate work on sodium-ion technology. The sector is being driven by the search for alternatives to lithium-ion batteries that can balance cost, performance, safety, and supply chain resilience.\nCompanies including CATL and BYD are also pursuing sodium-ion batteries. CATL has reportedly committed more than $700 million to build out a 40 GWh annual sodium battery production plant in Fujian, while BYD has claimed progress on a long-life sodium battery capable of more than 10,000 charging cycles.\nFor FAW Jiefang, the latest test suggests sodium-ion batteries may have a role in heavy-duty electric trucks, particularly in cold regions and high-use logistics operations.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nAtharva is a full-time content writer with a post-graduate degree in media & amp; entertainment and a graduate degree in electronics & telecommunications. He has written in the sports and technology domains respectively. In his leisure time, Atharva loves learning about digital marketing and watching soccer matches. His main goal behind joining Interesting Engineering is to learn more about how the recent technological advancements are helping human beings on both societal and individual levels in their daily lives.\nF21 heavyweight torpedoes to bolster battle power of Netherlands' next Orka-Class submarines\nL3Harris delivers new aircraft for Air Force One fleet, made extensive upgrades on Boeing 747-8\nBoeing to bolster P-8A Poseidon's anti-submarine warfare readiness, gets $880M contract\nChina conducts live-fire drill of ballistic missiles that deliver advanced battle power\nUS firm unveils 1.5 GW nuclear plant project with 300 MW small modular reactors\nMore from Transportation\nTransportation\nWatch United Airlines pilot flies Boom Supersonic’s Mach 2 jet in simulator\nTransportation\nChinese mine deploys 140-ton EV trucks with giant swappable 770 kWh batteries\nTransportation\nVideo: World’s first autonomous Nürburgring lap completed by 1,003-hp Xiaomi YU7 GT car\nTransportation\nFrench firm’s business jet achieves major milestone, reaches 40,000-feet with Mach 0.82 speed\nTransportation\nNorway clears funding for world’s largest ship tunnel through dangerous sea route\nTransportation\nWatch United Airlines pilot flies Boom Supersonic’s Mach 2 jet in simulator\nTransportation\nChinese mine deploys 140-ton EV trucks with giant swappable 770 kWh batteries\nTransportation\nVideo: World’s first autonomous Nürburgring lap completed by 1,003-hp Xiaomi YU7 GT car\nTransportation\nFrench firm’s business jet achieves major milestone, reaches 40,000-feet with Mach 0.82 speed\nTransportation\nNorway clears funding for world’s largest ship tunnel through dangerous sea route",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nLongi has unveiled the Hi-MO 9 Prime, a new back-contact module based on HPBC technology that delivers up to 680 W of output and 25.2% efficiency through a redesigned stacked-cell architecture that eliminates inter-cell gaps and conceals busbars to maximize active area.\nThe dual-glass module also features improved shading tolerance and enhanced reliability through LONGi’s STAC interconnection technology.\nEmiliano Bellini\nTechnology & Products\nCommercial & industrial\nUtility-scale\nThe Hi-MO 9 Prime showcased at the Smarter E trade show | Image: pv magazine\nChinese solar module manufacturer Longi has launched today a new back contact (BC) panel at the Smarter E trade show in Munich, Germany.\n“This new product incorporates a redesigned cell architecture compared with the previous generation, utilizing an advanced stacking technology that maximizes the module’s active surface area by eliminating gaps between cells,” the company’s product manager, Miki Risita, told\npv magazine.\n“The approach is comparable to shingled-cell designs but significantly reduces mechanical stress between cells, enhancing long-term reliability. In addition, the module features concealed busbars, further increasing the active area available for power generation and contributing to higher overall efficiency.”\nThe Hi-MO 9 Prime series relies on the company’s\nhybrid passivated back contact\n(HPBC) cell technology and the Selective Temperature Alloy Connection (STAC) technology, which the company said minimizes localized thermal stress during manufacturing and significantly improves long-term, cell-level stability. “Its sustainable, lead-free material design also enhances resistance against electrode corrosion, while the specialized BC cell interconnection structure helps disperse current concentration to reduce hotspot-related risks,” Risita added.\n. It is offered with power ratings ranging from 650 W to 680 W and reaches a maximum module efficiency of up to 25.17% in its highest-power configuration. The modules are built with 132 half-cut back-contact cells, measure 2,382 mm × 1,134 mm × 30 mm and weigh 33.5 kg.\nThe dual-glass panels are designed for a maximum system voltage of 1,500 V and are suitable for utility-scale and commercial PV installations.\nThe product features a temperature coefficient of -0.26%/C and is rated for front-side snow and wind loads of up to 5,400 Pa and rear-side loads of 2,400 Pa. The module is also certified to withstand hail impacts from 25 mm ice balls travelling at 23 m/s.\n“Beyond delivering higher baseline power, the Hi-MO 9 Prime delivers superior partial shading tolerance to protect those revenue streams. Its highly parallel BC cell structure helps drastically reduce electrical losses caused by localized shading from row-to-row obstructions, dust, fallen leaves, or other temporary objects,” the manufacturer said in a statement released. “When a single cell is shaded, the Hi-MO 9 Prime can reduce power loss by more than 70% compared with conventional non-BC modules. This supports far more stable, predictable energy generation in high-GCR configurations and complex, real-world operating environments.”\n“Commercial production is scheduled to begin later this year,” Risita stated. “The company has already secured initial orders for delivery toward the end of 2026, with production volumes expected to ramp up at the start of the first quarter of 2027.”\nEmiliano Bellini\nView author posts",
           "hb": 1
         }
       ]
@@ -95,60 +106,70 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "OpenAI计划周四发布GPT-5.6，实测数据显示其推理与代码能力提升",
-        "三星HBM4内存业界率先突破10亿美元销售额并计划于2026年量产",
-        "OpenAI发布GPT-5.5-Cyber模型，在网络安全攻防测试中超越Mythos 5"
+        "字节跳动发布豆包2.1大模型，日均处理API Tokens达180万亿",
+        "三星HBM4内存销售额突破10亿美元，将于2026年2月量产",
+        "三星率先出样48GB HBM4E，带宽达3.6TB/s"
       ],
       "entries": [
         {
-          "t": "GPT-5.6大量实测流出：本周四或登场",
+          "t": "刚刚，豆包大模型2.1发布，又一次跨越生产级质变点",
           "d": "2026-06-23",
-          "a": "新智元",
+          "a": "机器之心",
           "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "据多方泄露信息，OpenAI即将发布的GPT-5.6模型已出现大量实测数据流出。从泄露的测试结果看，GPT-5.6在多步推理、代码生成和长文本理解方面均有显著提升，预计本周四正式发布。当前测试数据显示其在数学推理和复杂工具调用场景中表现突出，但真实性尚未得到官方确认。",
-          "sc": 10.2,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/DCD9NhyunrnuodNbyBa3Pw",
-          "tp": "GPT-5.6大模型",
+          "as": "字节跳动在火山引擎Force大会上发布了新一代通用大模型豆包2.1。数据显示，豆包大模型日均处理的API Tokens已达180万亿，火山引擎在中国公有云MaaS市场份额达到49.5%。豆包2.1聚焦生产力落地，在代码生成、Agent（智能体）与VLM（视觉语言模型）三大核心能力上实现突破，多项基准测试成绩超越Claude Opus 4.7。",
+          "sc": 9.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/NiLniO_7EEc7DcS-i-PBqQ",
+          "tp": "豆包模型发布",
           "aip": 1,
           "kp": [
-            "[大模型]: GPT-5.6 Pro(kindle-alpha)实测泄露",
-            "[双向对话]: GPT-Bidi-1真人级双向对谈"
+            "日调用量[豆包大模型API Tokens]: 180万亿",
+            "市场规模[火山引擎中国公有云MaaS]: 49.5%",
+            "[企业大模型应用采纳]: 正在跨越能力阈值与生产力瓶颈的质变点"
           ],
-          "b": "GPT-5.6大量实测流出：本周四或登场 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**OpenAI重大更新曝光：GPT-5.6即将上线，已有大量实测流出，不仅能凭空创作名画，GPT-Bidi-1还能解锁「真·真人级」双向对谈。本周四，一起见证OpenAI的绝地反击。 就在这几天，OpenAI代号为 kindle-alpha 的模型大规模泄露了！ X上的顶流爆料者透露，目前已经对 GPT-5.6 Pro 进行了海量高强度的深度测试。 测试结果只有四个字：堪称神级。 只要你给出的提示词对了，这个模型几乎无所不能。 甚至，它还同步带出了自GPT-4o时代就让全网望眼欲穿的神秘项目——GPT-Bidi-1。 传说中本周四就要登场的 GPT-5.6 Pro ，背后到底有什么黑科技？ **震撼实测：凭空「捏」出蒙娜丽莎？视觉与UI的降维打击** 在@chetasluaX等用户传出的测试demo中，最惊艳的，莫过于GPT-5.6 Pro在图像与视觉理解上的强大统治力。 根据爆料，在实测对比中，GPT-5.6 Pro展现出了两种惊人能力。 首先，是完美像素级复刻。 在给出参考图的情况下，它能基于参考图瞬间生成极其精准的《蒙娜丽莎》复制品，甚至连原图被打码、覆盖网格线的部分，都能被它无缝脑补还原。 最惊人的，是第二张测试图。 在完全切断外部参考图片输入的情况下，模型仅仅依靠自身庞大的知识储备，直接「凭空」画出了一幅高质量的《蒙娜丽莎》。 有网友惊呼：天哪，有了这个谁还需要Fable模型？ 这不仅仅是简单的画图。 根据最新的前端开发者内测反馈，kindle-alpha 版本的升级重点在于前端/UI生成以及复杂视觉推理。 它不需要你输入几百字的复杂Prompt，也不需要外挂各种复杂的技能插件，就能直接理解复杂的图像，并一键生成可用的极强UI界面。 并且，GPT 5.6 专业版在前端开发上非常出色，几乎可以模仿图像中的所有元素。 此前的鹈鹕骑自行车，效果也很惊艳。 **** **千呼万唤始出来：GPT-Bidi-1，终结「对讲机式」AI** 在全网都在为GPT-5.6的画技惊呼时，懂行的硬核开发者们却盯住了另一个同步曝光的名字——GPT-Bidi-1。 自打GPT-4o发布以来，用户就一直在抱怨：现在的语音AI虽然声音好听，但交流起来依然像在用「对讲机」——你必须说完、停下、等待，然后AI才能回答。 而GPT-Bidi彻底打破了这堵墙！根据海外最新挖出的代码痕迹。 它的知识库实现了大更新。它的知识库截止时间被锁定在 2025年8月，极大概率是基于GPT-5.4底座打造的轻量化/特化模型。 而且，它能做到同频共振的「真」人机对话，实现边听边说！ 如果在它说话时你突然插嘴，它不会像以前那样死机或卡顿，而是能瞬间吸收你的打断，并自然地在半句话中调整回应逻辑。 你可以一边让它帮你查资料，一边随时用语音纠正它的方向，它就像一个坐在你对面的真人助理，随时随地与你同频互动。 **** **揭秘 Kindle-Alpha：为什么是本周四？** 为什么全网都笃定本周会放出大招？ 因为在OpenAI的 Codex 后端路由日志中，kindle-alpha 已经明晃晃地挂在了「候选发布」的名单上。 据多方可靠信源和AI社区的深度评测，GPT-5.6 此次的战略重心并非仅仅是陪你聊天，而是真正指向了Agentic工作流。 传闻中150万的超大上下文窗口，比此前的GPT-5.5提升了整整43%！这意味着你可以直接把几十万字的代码库或者几百页的财报扔给它。 另外，它实现了效率与成本的极致压缩。在执行典型任务时，其Token使用效率在原有基础上再次下降10%-15%。 而且，它在连续数小时的自主代理测试中，表现出了前所未有的可靠性。 显然，这是OpenAI向着自动化数字员工迈出的决定性一步。 **OpenAI背水一战，再不发布就晚了？** 热闹的爆料背后，其实藏着OpenAI难以言说的焦虑。结合最近的背景，你会发现，GPT-5.6的紧急排期发布，是一场真正的背水一战。 根据2026年6月的最新市场调研数据披露：ChatGPT的市场份额首次跌破了50%，目前卡在46.4%的生死线上。 面对竞争对手的疯狂围剿，OpenAI在过去一年烧掉了惊人的 340亿美元（其中研发投入高达190亿，营销烧掉60亿），而其年营收预估仅为130亿美元。 在冲刺万亿美元级别IPO的关键节点，OpenAI太需要一针强心剂了。GPT-5.6（Kindle-Alpha）的惊艳表现和双向语音大杀器GPT-Bidi-1的登场，正是Sam Altman用来稳住投资人、夺回市场霸权的底牌。 本周四，如果传言成真，我们将见证大模型能力的一次全新跃迁。 从凭空",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚刚，豆包大模型2.1发布，又一次跨越生产级质变点 原创 关注大模型的 关注大模型的 机器之心 编辑｜泽南 想不到，真的想不到。 每一天，大家调用的豆包大模型 API Tokens 竟有 180 万亿。距离首次发布才不到两年，Token 的数字就飙涨了超 1500 倍。因为 AI 能力的突破，火山引擎如今已占到中国公有云 MaaS 市场的 49.5%，成为当之无愧的第一，「万亿 Tokens 俱乐部」成员更是突破了 200 家。 刚刚，火山引擎 Force 原动力大会上，我们见证了一波大数字，与此同时还有字节的新一代通用大模型豆包大模型 2.1，以及一系列多模态新模型的发布。 几个数字背后，是爆发性的技术突破。如今的大模型行业，正在从技术探索期全面迈入产业规模化，不论技术还是落地，豆包大模型已经跑在了前面。 豆包大模型 2.1 直面生产力 AI 落地的过程中，Token 消耗是直观的表象。 这次大会上，火山引擎抛出了一个关键的行业判断：企业采纳大模型，正在跨越「质变点」。 当模型能力跨越了阈值，生产力瓶颈被突破，Token 的用量就会呈指数级上升。就像此前图像领域的 Nano Banana、文本和编程领域的 Claude Opus 4.6，以及视频领域的 Seedance 2.0，它们很大程度上成为了 AI 进入真实生产环境的关键分水岭。 很多人认为 Opus 4.6 是大模型真正进入生产力阶段的节点，原因在于它解决了此前 AI 的几个核心的痛点（不可靠、不持久、不深入），让 AI 从回答问题进化到了处理工作的阶段。 今天发布的豆包大模型 2.1 也要在代码生成、Agent（智能体）与 VLM（视觉语言模型）三大核心能力上跨越这一质变点 —— 它在多项评测任务中甚至超越了 Opus 4.7。 其中，豆包 2.1 Pro 在 Terminal Bench 2.1、SWE-Pro、SciCode 等代码评测中进入第一梯队： Coding 能力评测。 在 GDPVal、MCP-Atlas 等智能体、真实环境工具使用评测上，豆包 2.1 Pro 也位居全球前列： Agent 能力评测。 在实际使用过程中，豆包 2.1 的 Coding 能力有了跨越式进化，比如在代码生成的过程中，不再局限于片段补全或单文件生成，而是跑通了「仓库级理解 + 端到端项目交付 + 自测闭环」的完整链路，能够独立完成真实工程任务。 大会上展示的是一项芯片设计 RTL（寄存器传输级）测试的效果，豆包 2.1 Pro 连续运行近 18 小时，经历 9 轮迭代，跑通了仿真、测试、综合检查等完整工程流程，秀了一把真实工程场景里的生产级 Coding 交付能力。 智能体方面，豆包 2.1 驱动的智能体从能执行简单任务，升级成了能在接口报错、数据缺失等复杂异常环境下，依然进行「动态路径规划 + 异常自纠 + 交付产物 」的成熟智能体。 我们对此进行了测试，发现现在豆包 App、桌面端的模式选择上多出了一个「办公任务」选项，专门来跑多智能体。 假如我是个计算机视觉（CV）的研究者，想让豆包的智能体来帮我们分类一下 2 月份某天 arXiv 上全部该领域的论文，顺便看看有没有人引用了我以前的工作。把这个任务交给豆包 2.1 后，一群智能体开始了工作： 如果你点进去看细节，可以看到当天该领域有超过 100 个领域内论文 ID，一个人自己看肯定是看不过来的。我们给出任务后，智能体自行进行了搜索，自行计划使用工具，写 Python 脚本进行分类，中间出错了会自行纠正，最后完成了还会通知你。 生成的结果看起来不错： 除了文本与代码能力的提升，豆包大模型原来的强项多模态能力（视频理解、图像推理与跨图分析）在 2.1 版上也大幅强化，在大部分多模态基准成绩上领先 Opus 4.7，正在指向更复杂的现实世界互动。 GUI、图像理解等 VLM 能力评测成绩。 例如在视频理解方面，豆包 2.1 不仅能「看懂」画面，还能处理长视频的跨时序逻辑；在图像推理上，针对复杂的图表数据（如金融报表、工业设计图），其空间理解能力和跨图对比分析能力都有了肉眼可见的提升。这意味着，AI 模型不再是单纯地处理文本，现在已能像专业人士一样看懂复杂的视觉资料。 为满足不同场景的算力与成本需求，豆包大模型 2.1 同步推出两款主力型号：适配高性能场景的 Doubao-Seed-2.1-pro，以及主打性价比的 Doubao-Seed-2.1-turbo。除了通过火山引擎接入 API，我们也能在豆包、TRAE、扣子等应用中体验到最新的模型。 从技术报告中我们能看到，豆包大模型 2.1 引入了一种专为前沿研究和高级工程任务设计的推理时（Inference-time）配置：Seed2.1 Deep Think。该模式不直接输...",
           "hb": 1
         },
         {
           "t": "三星电子 最新HBM4 内存销售额已在业界率先突破 10 亿美元",
           "d": "2026-06-23",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "三星电子HBM4内存销售额在业界率先突破10亿美元（约67.87亿元人民币）。该产品2026年2月量产，基于1cnm DRAM Die和4nm逻辑Base Die，12Hi堆叠，单堆栈36GB，引脚速率13Gbps，总带宽3.3TB/s。此外三星已率先出样12Hi 48GB HBM4E，引脚速率提升至14-16Gbps，带宽达3.6TB/s。",
-          "sc": 8.2,
+          "sc": 7.8,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.ithome.com/0/967/278.htm",
           "tp": "高带宽内存",
           "aip": 1,
           "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "HBM是目前主流的搭配AI芯片的内存类型。其本质是DRAM，经过多层堆叠封装，实现了很高的存储密度以及读写速度。在大模型执行推理任务时，下文是由上文决定的，因此整个过程中需要消耗数百GB级别的内存，内存读写时间可以占到50%以上。目前高带宽内存已经成为英伟达AI芯片的技术路线。为了提升读写速度以及存储密度，三星开发了独特的DRAM堆叠的高带宽内存HBM以及内存与GPU芯片的连接技术，称作混合键合。目前HBM4已经量产，同时仍在推出新的系列。该技术路线的理念是通过先进封装，进一步提升芯片整体的计算速度与算力密度。AI推理任务是内存密集型的。在1M的上下文长度下，缓存占用可以到数百GB，内存读写占全部推理时间的50%以上。目前HBM显存带宽已经达到3TB/s以上，远超消费级显卡的500GB/s。目前HBM技术主要有三星主导，难点在于多层存储芯片的堆叠技术。",
           "b": "IT之家 6 月 23 日消息，韩联社当地时间今日援引韩国芯片行业消息报道称，三星电子 HBM4 内存销售额已在业界率先突破 10 亿美元（IT之家注：现汇率约合 67.87 亿元人民币）大关。该产品此前于 2026 年 2 月 12 日正式量产。三星半导体的 HBM4 内存基于 1cnm DRAM Die 和 4nm 逻辑 Base Die，采用 12Hi 堆叠，单堆栈容量 36GB。其引脚速率可达 13Gbps，堆栈总带宽达 3.3TB/s。而在 HBM4 后，三星电子上月还率先出样了 12Hi 48GBHBM4E 内存，引脚速率进一步提升至 14~16Gbps，堆栈总带宽随之来到 3.6TB/s。",
           "hb": 1
         },
         {
-          "t": "战胜Mythos 5，OpenAI安全专用GPT-5.5-Cyber完全体来了",
+          "t": "三星电子 最新HBM4 内存销售额已在业界率先突破 10 亿美元",
           "d": "2026-06-23",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "OpenAI发布安全专用模型GPT-5.5-Cyber完整版，在网络安全攻防测试中战胜Mythos 5。该模型专为安全领域优化，强化了漏洞挖掘、威胁分析等能力，标志着AI在网络安全实战中达到新高度。",
-          "sc": 8.2,
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "三星电子HBM4内存销售额在业界率先突破10亿美元（约67.87亿元人民币）。该产品2026年2月量产，基于1cnm DRAM Die和4nm逻辑Base Die，12Hi堆叠，单堆栈36GB，引脚速率13Gbps，总带宽3.3TB/s。此外三星已率先出样12Hi 48GB HBM4E，引脚速率提升至14-16Gbps，带宽达3.6TB/s。",
+          "sc": 7.8,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/BRSFTUWwyuKo41m8nmp7Xg",
-          "tp": "安全专用大模型",
+          "u": "https://www.ithome.com/0/967/278.htm",
+          "tp": "高带宽内存",
           "aip": 1,
           "kp": [],
-          "b": "战胜Mythos 5，OpenAI安全专用GPT-5.5-Cyber完全体来了 机器之心 机器之心编辑部 OpenAI 在网络安全领域又往前推了一步。 今天，OpenAI 宣布扩展 Daybreak 安全计划，推出更新版 GPT-5.5-Cyber、Codex Security 插件、Daybreak Cyber Partner Program，以及面向开源生态的 Patch the Planet 计划等。 其中最受关注的，是 GPT-5.5-Cyber 完整版的发布。OpenAI 称，更新后的 GPT-5.5-Cyber 在 CyberGym 上取得 85.6% 的成绩，高于 GPT-5.5 的 81.8%。这一成绩也超过了 Anthropic Mythos 5 的 83.8%。 OpenAI CEO 奥特曼表示，「OpenAI 希望与美国政府和安全生态合作，帮助所有企业提升安全性。GPT-5.5-Cyber 完整版现已发布，并在 CyberGym 上取得当前 SOTA 表现。」 OpenAI 总裁 Greg Brockman 写到，「通过 OpenAI Daybreak，我们正在用新的工具和模型加速漏洞修补，而不只是加速漏洞发现。OpenAI 的模型现在已经能够为主流浏览器、网络基础设施和操作系统中的关键漏洞发现并生成补丁，涉及 FreeBSD、Linux 内核等系统；同时也帮助 cURL、Go、Python、Sigstore 等项目推进漏洞修复。」 不过，网友们似乎并不买账，大家更期待 OpenAI 发布的是 GPT-5.6。 此次的几大更新包括如下： * GPT-5.5-Cyber：在最初仅开放预览版之后，OpenAI 将通过持续的受限发布机制，向可信防守方推出 GPT-5.5-Cyber 的完整版本。该模型在 CyberGym 上取得了新的最佳表现，得分达到 85.6%，高于 GPT-5.5 的 81.8%。 * Codex Security：OpenAI 将发布 Codex Security 插件更新，把其从内部使用和客户使用模型过程中积累的经验，整合成一套解决方案，用于加速现有系统中漏洞的发现与修复，并自动阻止新的漏洞进入生产环境。 * Patch the Planet：这是 OpenAI 与 Trail of Bits 共同发起的项目，并与 HackerOne、Calif、研究人员和维护者合作，帮助被广泛使用的开源项目从发现漏洞走向真正修复。 * Daybreak Cyber Partner Program：OpenAI 将通过这一计划，让安全合作伙伴在自己的产品和服务中，以可信访问方式使用其最强的模型，把这些能力扩展到更多组织。 更新 GPT-5.5-Cyber：能力与更开放的使用边界并行 OpenAI 正在发布 GPT-5.5-Cyber 的更新版本。这是一个面向高级、授权网络安全工作的模型，既更具能力，也更少出现不必要拒答。 GPT-5.5-Cyber 的最初预览版，主要目标是减少专业工作流中的不必要拒绝。这次更新更进一步。它是 OpenAI 迄今在发现并帮助修补软件漏洞方面最强的模型，同时保留了 GPT-5.5 的通用智能，以及处理长期、复杂任务的能力。 该模型可以在大型代码库中持续进行更深入分析：识别与安全相关的组件，追踪存在漏洞的代码是否可达，在受控环境中验证可能的问题，开发并测试补丁，并为人工审查准备证据。目标是帮助防守方走完整个修复闭环，而不只是产生更多漏洞发现。 在 CyberGym 上，更新后的 GPT-5.5-Cyber 在单模型评估中达到 85.6%，高于 GPT-5.5 的 81.8%。CyberGym 衡量的是一个智能体能否在软件环境中复现已知漏洞。这也是 OpenAI 测得的单模型最高 CyberGym 分数。 GPT-5.5-Cyber 在另外两个要求很高的真实安全基准上也超过了 GPT-5.5。在 ExploitGym 上，GPT-5.5-Cyber 得分 39.5%，高于 GPT-5.5 的 25.95%。ExploitGym 测试的是智能体能否把已知漏洞转化为可工作的漏洞利用，并实现未经授权的代码执行。在 SEC-bench Pro 上，GPT-5.5-Cyber 得分 69.8%，高于 GPT-5.5 的 63.1%。SEC-bench Pro 评估的是复杂软件目标上的长周期漏洞发现和概念验证生成能力。 基准测试只是故事的一部分。真正重要的是，在实际场景中，模型能否发现真实漏洞，能否从噪声中识别出可行动的问题，并帮助防守方安全地完成修复。随着协调披露工作的结束，OpenAI 会继续在复杂代码库和真实修复工作流中评估该模型的表现。 围绕 OpenAI 的网络安全方法，包括今",
+          "lv": 2,
+          "wr": "",
+          "cm": "HBM是目前主流的搭配AI芯片的内存类型。其本质是DRAM，经过多层堆叠封装，实现了很高的存储密度以及读写速度。在大模型执行推理任务时，下文是由上文决定的，因此整个过程中需要消耗数百GB级别的内存，内存读写时间可以占到50%以上。目前高带宽内存已经成为英伟达AI芯片的技术路线。为了提升读写速度以及存储密度，三星开发了独特的DRAM堆叠的高带宽内存HBM以及内存与GPU芯片的连接技术，称作混合键合。目前HBM4已经量产，同时仍在推出新的系列。该技术路线的理念是通过先进封装，进一步提升芯片整体的计算速度与算力密度。AI推理任务是内存密集型的。在1M的上下文长度下，缓存占用可以到数百GB，内存读写占全部推理时间的50%以上。目前HBM显存带宽已经达到3TB/s以上，远超消费级显卡的500GB/s。目前HBM技术主要有三星主导，难点在于多层存储芯片的堆叠技术。",
+          "b": "IT之家 6 月 23 日消息，韩联社当地时间今日援引韩国芯片行业消息报道称，三星电子 HBM4 内存销售额已在业界率先突破 10 亿美元（IT之家注：现汇率约合 67.87 亿元人民币）大关。该产品此前于 2026 年 2 月 12 日正式量产。三星半导体的 HBM4 内存基于 1cnm DRAM Die 和 4nm 逻辑 Base Die，采用 12Hi 堆叠，单堆栈容量 36GB。其引脚速率可达 13Gbps，堆栈总带宽达 3.3TB/s。而在 HBM4 后，三星电子上月还率先出样了 12Hi 48GBHBM4E 内存，引脚速率进一步提升至 14~16Gbps，堆栈总带宽随之来到 3.6TB/s。",
           "hb": 1
         }
       ]
@@ -157,63 +178,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "小米YU7 GT以10分29秒创下纽博格林北环赛道首个自动驾驶圈速纪录",
-        "小米自动驾驶系统在纽博格林赛道实现全程无人驾驶并刷新圈速记录",
-        "科研团队利用钼-229原子核跃迁构建首台核钟，理论精度达10的负19次方"
+        "南京大学团队揭示凝聚态物质中“引力子模”的几何振荡起源",
+        "中国天文学家利用爱因斯坦探针卫星发现未知X射线瞬变源",
+        "科研团队制备超低功函数表面电烯，提升合成氨催化效率"
       ],
       "entries": [
         {
-          "t": "开辟新赛道：小米 YU7 GT 创全球首个纽北自动驾驶圈速纪录，官方圈速榜新增“自动驾驶”分类",
+          "t": "我国科研团队揭示“引力子模”的起源",
+          "d": "2026-06-23",
+          "a": "新华网科技",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "南京大学杜灵杰团队揭示了凝聚态物质中“引力子模”的起源，确认其源自关联电子中“部分子”的几何振荡。研究团队在比绝对零度高约0.05度、磁场强度超地球10万倍的极端条件下，利用共振非弹性偏振光散射系统进行实验。通过在更强磁场下用光子撞击强关联电子，团队发现了高能“引力子模”，并证实当一种“部分子”变为电中性时，其对应的“引力子模”也会随之消失。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.news.cn/tech/20260623/e65c910336f84ca99c4b7efb742eecbb/c.html",
+          "tp": "引力子模起源",
+          "aip": 1,
+          "kp": [
+            "实验温度[引力子模观测极端环境]: 绝对零度高约0.05摄氏度（约0.05 K）",
+            "磁场强度[引力子模观测极端环境]: 地球平均磁场10万倍以上",
+            "[引力子模起源]: 源自关联电子中“部分子”的几何振荡",
+            "[实验测试方法]: 利用共振非弹性偏振光散射系统，用光子撞击砷化镓量子阱里的电子"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "我国科研团队揭示“引力子模”的起源-新华网\n我国科研团队揭示“引力子模”的起源\n我国科研团队揭示“引力子模”的起源\n“凝聚态物质中引力子模的实验发现”是2024年度“中国科学十大进展”之一。记者6月22日从该成果主要完成人、南京大学教授杜灵杰处获悉，近日他和团队确认此前观测到的“引力子模”源自关联电子中“部分子”的几何振荡。\n国际学术期刊《自然·物理》22日在线发表相关新成果。\n此次研究的艺术创作图，非弹性光散射实验产生两种“引力子模”，揭示关联电子中涌现出“部分子”结构。（南京大学供图）\n2024年，杜灵杰团队用自行设计制造的共振非弹性偏振光散射系统，在温度仅比绝对零度高约0.05摄氏度、磁场强度是地球平均磁场10万倍以上的极端环境下，成功观测到凝聚态物质中的“引力子模”，但“引力子模”的产生机理仍待明确。\n“我们这台实验设备就像微型粒子对撞机。大型对撞机用高能电子撞击质子，我们用光子撞击砷化镓量子阱里的电子。”杜灵杰介绍。\n二十世纪六十年代末，理论物理学家费曼根据电子撞击质子时发生的深度非弹性散射现象，提出质子内部存在“部分子”。后来又有学者将“部分子”引入分数量子霍尔效应，认为在极低温、强磁场等极端条件下，看似“铁板一块”的关联电子会裂解出若干“部分子”。\n在新研究中，杜灵杰团队尝试让光子在更强的磁场下撞击一群强关联电子，结果在能量更高的区域观测到一种全新的非弹性光散射现象，发现了高能“引力子模”。团队通过调控实验条件，发现“引力子模”会随着“部分子”的变化而变化，例如，一种“部分子”变为电中性，其对应的“引力子模”也会消失。\n“这些结果说明，‘引力子模’源于关联电子中不同‘部分子’的几何振荡。”杜灵杰说。（记者陈席元）\n扬帆奋进体育强国建设新征程\n新华鲜报丨“粽”享端午 1.24亿人次出游\n迈入“不惑之年”的书展何以吸引世界目光\n揭秘“AI换脸”诈骗黑色产业链\n谁能在生日当天，捧起大力神杯？\n列国鉴丨在“美国粮仓”感受农民的烦恼\n记者手记丨布列斯特英雄要塞上的战争与和平\n经济政策一线微观察丨田野焕新，乡村振兴呼唤更多青年力量\n我国科研团队揭示“引力子模”的起源",
+          "hb": 1
+        },
+        {
+          "t": "中国科学家利用爱因斯坦探针发现神秘双闪 X 射线源，现有理论难以解释",
           "d": "2026-06-23",
           "a": "IT之家",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "小米YU7 GT以10分29秒483创造全球首个纽博格林北环赛道自动驾驶圈速纪录。纽北官方圈速榜首次设立\"自动驾驶\"分类，标志着自动驾驶技术进入高性能量产验证新阶段。小米借此开辟智能驾驶新赛道，验证了其端到端智驾系统的极限能力。",
-          "sc": 9.4,
+          "c": "通用技术/通信和运输/航天",
+          "as": "中国天文学家利用爱因斯坦探针卫星发现神秘双闪X射线瞬变源EP240305a。该源在软X射线波段产生两次持续约100-250秒的耀发，间隔约200秒，随后数天内迅速衰减。多波段后随观测发现其射电辐射持续数周且探测到近红外源。研究团队排除了潮汐瓦解事件、X射线双星爆发、热核暴发和磁星巨耀发等已知宇宙爆发类型。",
+          "sc": 7.9,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/967/234.htm",
-          "tp": "自动驾驶圈速",
+          "tg": "行业观察",
+          "u": "https://www.ithome.com/0/967/685.htm",
+          "tp": "X射线瞬变源",
           "aip": 1,
           "kp": [
-            "圈速纪录[纽北自动驾驶无人圈]: 10分29秒483"
+            "耀发持续时间[EP240305a双闪X射线源软X射线波段]: 每次约100至250秒",
+            "耀发间隔时间[EP240305a双闪X射线源宁静期]: 约200秒"
           ],
-          "b": "Autumn_Dream\n6 月 22 日消息，小米汽车今日官宣，\n小米 YU7 GT 达成全球首个纽北自动驾驶圈速纪录\n，时间为 10 分 29 秒 483。\n小米创办人、董事长兼 CEO 雷军今日分享了小米 YU7 GT 使用自动驾驶功能征战纽北赛道后发生的一处细微变化 ——\n纽北官方圈速榜新增“自动驾驶”分类\n据IT之家今日早些时候报道，央视新闻今日发文谈及了小米此次取得的成绩，称从追赶到领跑，从跟跑到开创，这是中国新能源汽车蓬勃向上的缩影。\n今天，小米公布，纽博格林北环赛道迎来历史性时刻 —— 小米 YU7 GT（选配赛道专业套装）搭载自主研发的自动驾驶系统，在全程无人状态下完成纽北官方计时圈，\n成绩 10 分 29 秒 483\n全球首家，全程无人，全程自主。纽博格林北环赛道 20.832 公里，73 个弯道，中国工程师用一行行代码，把问号变成感叹号，\n也赋予了纽北百年赛道新的意义\n。从追赶到领跑，从跟跑到开创，\n这是中国新能源汽车蓬勃向上的缩影\n小米汽车官方今日也发文解释了为何用自动驾驶挑战纽北\n：在极限赛道上锤炼出的动态模型、高频扭矩分配和毫秒级救车能力，最终都会在我们的产品迭代中，逐步下发到每一个普通用户的量产车上。\n小米汽车的终极目标，是让用户在日常用车中，万一遇到暴雨积水、冰雪路面打滑等极端工况时，车子的底盘和智驾系统能像一位常驻的“幽灵专业赛车手”一样，做出正确决策，把车辆重新拉回可控范围之内。",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 23 日消息，天文学家利用爱因斯坦探针卫星发现了一个不寻常的 X 射线瞬变源，该源无法归入任何已知的宇宙爆发类型。相关分析论文已于 6 月 13 日发表在《皇家天文学会月刊》上。\n该研究详细分析了一个编号为 EP240305a 的 X 射线瞬变源。该源由爱因斯坦探针卫星（Einstein Probe，EP）于 2024 年 3 月 5 日探测到，因其表现出的独特性质无法归入任何已知的宇宙爆发类型，引起了国际天文学界的广泛关注。\n研究团队报告称，爱因斯坦探针卫星搭载的宽视场 X 射线望远镜在 2024 年 3 月 5 日北京时间 22 时 15 分 31 秒的定标观测期间捕捉到了这一事件。该源在软 X 射线波段产生了两次显著的耀发，每次持续时间约 100 至 250 秒，两次耀发之间间隔约 200 秒的宁静期。在此之后，其 X 射线辐射在数天内迅速衰减。\n发现这一异常信号后，研究人员迅速调动了多台地面与空间望远镜，在 X 射线、光学、近红外和射电等多个波段进行了后随观测。分析表明，该源的射电辐射衰减速度远慢于 X 射线，持续了数周时间，揭示出存在一个不断演化的喷流。在爆发位置探测到了一个微弱且持续变暗的近红外源，但光学波段没有任何探测。\n为了确定 EP240305a 的本质，研究团队将其特性与已知的明亮暂现事件进行了逐一比对。他们排除了源于喷流的潮汐瓦解事件（TDE）和典型的 X 射线双星爆发，因为这类事件通常需要数月才会消退，而 EP240305a 在数天内就已暗淡。即使是可以在数周内消退的短时标 X 射线双星爆发子类，也未表现出如此强烈的射电辐射。同样，热核暴发也被排除，原因是其测量温度过低，且射电信号持续时间远超此类事件应有的水平。磁星巨耀发同样被排除，因为这类事件从上升到消退通常不到一秒，远快于 EP240305a 每次持续数分钟的耀发。此外，其射电信号持续时间过长，也与典型的恒星耀斑不符。\n有趣的是，EP240305a 的特性与伽马射线暴（GRB）的多项特征高度吻合。其双闪模式类似于一些伽马射线暴中已知的“双暴”现象，X 射线亮度变化模式也符合伽马射线暴的典型样式，射电辐射随时间的衰减行为亦与伽马射线暴余辉的预期一致。然而，一个关键问题在于：整个观测期间从未探测到实际的伽马射线。这使其成为天文学家所称的“伽马射线暗”类伽马射线暴样事件。\n研究人员在论文中解释称，此类情形中伽马射线辐射缺失或微弱可能归因于若干因素，例如喷流指向偏离地球轴线、喷流未能完全突破周围物质，或者喷流是含有额外物质从而压制了伽马射线输出的“脏火球”（dirty fireball）。\n基于现有数据，研究人员尚无法确切断定 EP240305a 的本质。论文总结称：“就 EP240305a 而言，目前的数据不允许我们确凿地认定其源于伽马射线暴，因此我们谨慎地将其归类为一个伽马射线暗类伽马射线暴样瞬变源，或更宽泛地称为河外快速 X 射线瞬变源（extragalactic fast X-ray transient）”。\n研究团队同时指出，此类暗弱事件容易被更明亮、更显著的爆发所掩盖，难以被灵敏度较低的仪器捕捉。而像爱因斯坦探针这样的高灵敏度望远镜，配合其他波段的快速后随观测，对于捕获和研究这类暗弱且容易被忽视的事件至关重要。\n据公开资料，爱因斯坦探针卫星（EP）是中国科学院空间科学（二期）战略性先导科技专项的空间科学任务，自发射以来已探测到超 180 个瞬变事件。\nhttps://doi.org/10.1093/mnras/stag1138\n我国成功发射爱因斯坦探针卫星，探索宇宙中暂现和爆发天体\n人类首次目睹黑洞如此极端“进食”：我国“天关”卫星或首次捕捉中等质量黑洞撕裂白矮星事件\n仿生“龙虾眼”探测宇宙，“天关”卫星获得首个全天 X 射线天图\n捕捉宇宙“焰火”，我国爱因斯坦探针卫星首批在轨科学探测图像发布",
           "hb": 1
         },
         {
-          "t": "小米YU7 GT再创纽博格林纪录——无人驾驶",
+          "t": "空气稳定表面电烯的制备及其在氨合成中的应用",
           "d": "2026-06-23",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "小米YU7 GT在纽博格林北环赛道刷新圈速记录，此次亮点在于全程无人驾驶状态下完成。这标志着小米自动驾驶系统在高速度、高精度场景下的感知与控制能力达到新水平。无人驾驶赛道圈速记录对自动驾驶算法的极限性能验证具有重要参考价值，也展示了小米在智能驾驶和电动汽车底盘技术方面的工程实力。",
-          "sc": 8.2,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://electrek.co/2026/06/22/xiaomi-yu7-gt-sets-another-nurburgring-record-with-nobody-in-the-drivers-seat/",
-          "tp": "自动驾驶赛道",
-          "aip": 1,
-          "kp": [
-            "[自动驾驶]: 纽北首个无人自动驾驶圈速纪录"
-          ],
-          "b": "| Jun 22 2026 - 3:01 am PT\nXiaomi returned to the Nürburgring to set another lap record, but this time it did it with nobody in the car at all, setting down the first official autonomous time at the world-famous racetrack.\nNürburgring is one of the world’s most famous racetracks, and one of the most difficult ones. The track is over 12 miles long through the German countryside and includes high and low speed turns, varied road surfaces and lots of bumps and hills. As such, it’s often used for vehicle benchmarking – and for bragging rights.\nOver the years we’ve seen a lot of back and forth from various EV manufacturers trying to go the quickest around this track.\nand others have gotten in on the record race.\nBut Xiaomi has been one of the strongest competitors lately.\nWhen Xiaomi first launched the high-performance version of its SU7 Ultra sport sedan, it took the car around Nürburgring and\nset a record\nas the fastest four-door car ever, gas or electric – albeit with a stripped-down prototype version of the car (it’s since\nimproved on that record\n, beating everything but 3 custom-built racecars). It later came back with the mass-produced, non-stripped version and won a\nproduction EV record\ninstead, which has\nsince been beaten\nThen it brought its YU7 GT and set the\noverall SUV record\n, beating everything, gas or electric, with\na time of 7:22.755\nBut it looks like Xiaomi wasn’t satisfied and wanted to go back for another bite of the apple, as it just announced another record in the YU7 GT: the\nfirst officially-timed fastest autonomous lap of the track\n, with a time of 10:29.483, set on June 8th.\nNow, if you’ll notice, that’s\nfar off of the human-driven record. A full three minutes behind is a huge gap, even on such a long track. Races can be decided by seconds, and a 10-and-a-half minute time would be representative of a much slower vehicle (for example, a Mercedes racecar from 1939 and a Ford Transit van have\nboth beaten that time\nBut… it’s still something, and you’ve got to start somewhere. (Xiaomi acknowledged this, calling the lap a starting point, not an end point)\nNürburgring and Xiaomi released video of the lap, which you can watch in full below, complete with in-car camera showing nobody at the wheel:\nAs you can see in the video, it’s going along at a nice enough pace… but it’s not really challenging the tires or apexes all that much. It does get up to 130mph (210km/h) on the back straight though, which isn’t too bad.\nWe don’t know exactly what autonomous system the YU7 GT was using, as its normal system is built for public roads, but isn’t intended to get up to 130mph or take turns like it did in the video above. So there must have been some custom software built in.\nWhile this is the first official autonomous lap of Nürburgring, it’s not the first attempt at autonomous racing. Ten whole years ago, Formula E announced a support series called “\n” which intended to have teams compete against one another with autonomous racecars.\nRoborace mostly ended up being a number of showcase events, rather than real races. The first event\nended up in a crash\n, and later the series hosted a couple\nman vs. machine matchups\n, in which the Robo-car was quite a bit slower than the human-driven one, but at one point Roborace said it managed to lap within 8% of a representative laptime from a human driver, quite a bit closer than the YU7 GT’s comparable time.\nRoborace did finally manage to organize\na full race season\n, though it was a series of time trials, rather than wheel-to-wheel racing (and yet, still fraught with issues).\nOther autonomous racing series exist and mostly consist of student teams, like the\nIndy Autonomous Challenge\nand Formula Student Driverless. They tend to focus less on raw laptime and more on challenges like successfully passing a vehicle traveling at constant speed.\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
-          "hb": 1
-        },
-        {
-          "t": "每日简报：首个\"核\"时钟让原子钟黯然失色",
-          "d": "2026-06-23",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "两个独立研究团队成功创建了首台核钟，利用钍-229原子核跃迁作为时间基准，其精度有望超越现有原子钟。核钟利用原子核内同质异能跃迁（约8.4 eV），对环境扰动极不敏感，理论精度可达10的负19次方量级。同期报道还包括海洋监测卫星任务因公众关注而获得保留的好消息。",
-          "sc": 8.1,
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/催化剂",
+          "as": "研究制备了氧掺杂的BaSiN2作为对空气稳定的表面电烯材料。该材料表面具有超低功函数（约1.5 eV），能将表面浮动电子提供给吸附的氮气，形成钝化表面。通过表面活化氮的加氢反应，该表面可持续再生。在负载钌的辅助下，这种交替路径的Ru/BaSiN2:O催化剂在合成氨反应中展现出极高的催化效率。",
+          "sc": 7.9,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-01997-5",
-          "tp": "核时钟",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74820-4",
+          "tp": "电烯氨合成",
           "aip": 1,
           "kp": [
-            "[时钟类型]: 核钟（两团队首次实现）"
+            "功函数[氧掺杂BaSiN2表面电烯]: 约1.5 eV",
+            "空气稳定性[氧掺杂BaSiN2表面电烯]: 对空气和水分稳定",
+            "催化机制[表面电烯]: 通过表面漂浮电子层供电子以催化化学反应（如合成氨）"
           ],
-          "b": "Two research teams have created a new, long-awaited type of timekeeper. Plus, how backlash has saved an ocean-monitoring network targeted by Trump and how our cultural heritage is put at risk by climate change. Two research teams have created a new, long-awaited type of timekeeper. Plus, how backlash has saved an ocean-monitoring network targeted by Trump and how our cultural heritage is put at risk by climate change.",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electrenes are unique materials characterized by a surface floating electron layer, which results in an ultra-low work function, making them ideal candidates for catalyzing chemical reactions via electron donation. However, these materials are extremely sensitive to air and moisture, thereby limiting their potential applications. Here, we demonstrate that oxygen-doped BaSiN2 is an air-stable surface electrene. Its highly active surface, with an ultra-low WF of approximately 1.5 eV, can donate surface floating electrons to adsorbed N2, forming an N2-passivated surface, which can be constantly regenerated through hydrogenation of surface-activated N2. This alternating pathway, particularly with the assistance of Ru loading, effectively produce ammonia: the Ru/BaSiN2:O catalyst exhibits high ammonia synthesis rate of 43 mmol gcat−1 h−1 at 300 °C and 0.9 MPa, and much superior air stability compared to the most active electrides and hydrides-based heterogeneous catalysts reported to date. This discovery opens a new way for electrene-driven heterogeneous catalysis.",
           "hb": 1
         }
       ]

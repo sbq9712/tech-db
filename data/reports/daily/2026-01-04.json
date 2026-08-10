@@ -6,93 +6,59 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究设计BCMA/CD19双靶点CAR-T疗法，五例难治性重症肌无力患者实现无药缓解",
-      "科研人员制备十微米级无阳离子无序单晶颗粒，提升超高镍正极材料结构稳定性",
-      "新型直流摩擦纳米发电机面世，体积摩擦电荷密度达224 nC/cm³"
+      "红旗天工06固态电池样车下线，采用60Ah硫化物电解质电池",
+      "吉利计划今年完成自研固态电池Pack下线并启动装车验证",
+      "奇瑞计划今年推出搭载固态电池的电动汽车量产车型"
     ],
-    "AI与智能科技": [
-      "科研团队利用柔性电解质栅控晶体管构建储备池计算系统处理神经形态信息",
-      "研究整合AlphaFold2等模型开发抗体设计流水线，提升胞内靶向稳定性",
-      "研究人员采用压电纳米颗粒实现超声驱动的长效无线深部脑电刺激以抑制癫痫"
-    ],
-    "通用技术": [
-      "多铁性超晶格中观测到极性涡旋阵列，为高密度信息存储提供新型拓扑结构",
-      "磁性薄膜界面工程取得进展，室温下成功观测并稳定非平庸拓扑自旋构型",
-      "研究结合高通量实验与机器学习模型，提升不对称催化反应底物适用范围"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究设计BCMA/CD19双靶点CAR-T疗法，五例难治性重症肌无力患者实现无药缓解",
-        "科研人员制备十微米级无阳离子无序单晶颗粒，提升超高镍正极材料结构稳定性",
-        "新型直流摩擦纳米发电机面世，体积摩擦电荷密度达224 nC/cm³"
+        "红旗天工06固态电池样车下线，采用60Ah硫化物电解质电池",
+        "吉利计划今年完成自研固态电池Pack下线并启动装车验证",
+        "奇瑞计划今年推出搭载固态电池的电动汽车量产车型"
       ],
       "entries": [
         {
-          "t": "BCMA/CD19 CAR T 细胞疗法治疗难治性重症肌无力：d 的蛋白质组学特征和单细胞转录组学",
+          "t": "红旗称其搭载固态电池的天工06车型样车试制下线",
           "d": "2026-01-04",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "该研究针对六例难治性重症肌无力患者设计BCMA/CD19双靶点CAR-T细胞疗法，安全性良好（仅1级细胞因子释放综合征）。CAR-T扩增导致深度B细胞清除，乙酰胆碱受体抗体滴度持续下降，五例患者实现无药缓解。蛋白质组学和单细胞转录组学分析揭示了治疗机制。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb6424?af=R",
-          "tp": "工程化细胞",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Myasthenia gravis (MG) is an autoimmune disorder characterized by B cell dysfunction. Here, we designed B cell maturation antigen (BCMA)/CD19 chimeric antigen receptor T cell (CAR T cell) therapy for six refractory MGs, demonstrating favorable safety with grade 1 cytokine release syndrome observed. CAR T cell expansion induced profound B cell depletion, a sustained reduction in acetylcholine receptor (AChR) antibody titers, and symptom improvement. Five patients achieved drug-free remission with minimal manifestations by month 6, persisting through the 12-month follow-up despite B cell reconstitution. Reconstituted B cells showed naïve predominance with diminished AChR specificity and functional capacities. Olink proteomics revealed up-regulation of anti-inflammatory factors, along with down-regulation of proinflammatory molecules. Single-cell sequencing revealed that age-associated B cells (ABCs) were up-regulated in a relapsed patient, and differential gene analysis indicated that Fc receptor-like 5 (FCRL5) expression was elevated in ABCs, whereas CAR T cell responders exhibited a down-regulated trend. Notably, similar ABC expansion and FCRL5 up-regulation occurred in rituximab-relapsed patients. Our findings support BCMA/CD19 CAR T cell therapy as feasible, tolerable, and effective in MG, identifying FCRL5 as a previously unidentified target in relapse.",
-          "hb": 1
-        },
-        {
-          "t": "通过无阳离子无序的10微米单晶颗粒逼近超高镍正极理论密度极限",
-          "d": "2026-01-04",
-          "a": "Nature Energy",
+          "a": "",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究通过制备无阳离子无序的10微米级单晶颗粒，使超高镍层状氧化物正极材料接近理论密度极限。单晶结构有效抑制常规多晶材料中晶界开裂和界面副反应导致的容量快速衰减，无阳离子无序确保镍锂离子有序排列提高结构稳定性。该材料在高比能锂离子电池中表现优异循环稳定性和倍率性能，为电动汽车高能量密度正极材料工程化提供关键突破。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-025-01909-3",
-          "tp": "超高镍正极材料",
-          "aip": 1,
-          "kp": [
-            "晶粒尺寸[超高镍单晶]: 10 μm",
-            "[富镍正极]: 无阳离子无序单晶颗粒",
-            "[密度极限]: 接近理论密度"
-          ],
-          "lv": 0,
+          "as": "红旗研发总院宣布搭载全固态电池（硫化物电解质，10Ah和60Ah容量）的天工06车型样车试制下线。同期吉利计划今年完成自研全固态电池首个Pack下线并装车验证，奇瑞也计划今年推出搭载固态电池的电动汽车，多家车企加速固态电池产业化竞速。",
+          "sc": 5.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/3B-3eARY1QaAFJNB3XpHkg",
+          "tp": "硫化物固态电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Single-crystalline layered oxides offer a promising solution to mitigate the rapid capacity decay observed in conventional polycrystalline nickel-rich oxide cathodes. However, achieving both morphological (large grain size) and structural (cation-disorder-free) control in single crystals remains challenging due to the trade-off between grain growth and phase stability, particularly at high-nickel contents. Here we report cation-disorder-free ultrahigh-nickel single-crystalline oxide cathodes with ~10-μm particle sizes, comparable to commercial secondary particles, that deliver high volumetric capacity and stable cycling. These single crystals withstand calendering and resist intra-granular cracking, achieving electrode densities of up to 77% of the theoretical crystal density. The improved stability is linked to reduced structural strain and modified glide behaviour due to the absence of cation disorder, emphasizing its critical role in chemomechanical behaviour. Additionally, gas evolution is reduced by a factor of 25, and the thermal onset temperature drops by more than 20 °C at ~4.5 V versus Li/Li+, underscoring superior safety features and energy density potential.",
+          "b": "2026年1月4日，红旗研发总院在官方公众号发文称，搭载其研发的全固态电池包的红旗天工06车型样车试制下线。据文中信息透露，其固态电池采用硫化物电解质，容量包括10Ah和60Ah。\n另据IT之家等媒体1月24日报道称，1月22日的吉利控股集团战略解析会上，宣传今年其自研全固态电池将完成首个Pack下线，并进行装车验证。Electrive则称，奇瑞也计划在今年推出搭载其固态电池的电动汽车产品。",
           "hb": 1
         },
         {
-          "t": "受伊索寓言启发将体积摩擦电荷极限压缩至224 nC cm⁻³新纪录",
+          "t": "红旗称其搭载固态电池的天工06车型样车试制下线",
           "d": "2026-01-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
-          "as": "本研究将摩擦纳米发电机（DC-TENG）的体积摩擦电荷密度挤压至224 nC/cm³的新纪录。直流型TENG因输出高、波纹系数低而备受关注，但电荷密度受限于材料接触面积和电荷复合。研究通过极端电荷压缩策略——优化摩擦层材料配对、表面微结构工程与电荷泵浦架构——大幅突破传统输出上限，为自驱动传感器、可穿戴电子及蓝色能源收集提供了更高能量密度的解决方案。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202515482?af=R",
-          "tp": "直流摩擦纳米发电机",
-          "aip": 1,
-          "kp": [
-            "[体积电荷密度]: 224nC/cm³",
-            "[结构]: 双通道密集电极3D打印"
-          ],
-          "lv": 0,
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "红旗研发总院宣布搭载全固态电池（硫化物电解质，10Ah和60Ah容量）的天工06车型样车试制下线。同期吉利计划今年完成自研全固态电池首个Pack下线并装车验证，奇瑞也计划今年推出搭载固态电池的电动汽车，多家车企加速固态电池产业化竞速。",
+          "sc": 5.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/3B-3eARY1QaAFJNB3XpHkg",
+          "tp": "硫化物固态电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Direct‐current triboelectric nanogenerators (DC‐TENGs) attract attention for their high output and low crest factor. However, inefficient spatial layouts create harmful discharge regions, causing internal charge loss. Inspired by Aesop's fable “The Crow and the Pitcher,” projection micro stereolithography integrates densely packed dual‐channel charge‐collecting electrodes into the slider, developing an Aesop's Fables‐inspired DC‐TENG (AF‐TENG) based on extreme spatial compression. This design creates efficient charge‐release pathways and achieves a record surface charge density of 14.2 mC m\n                    −\n                    2\n                    . To eliminate device dimension effects on performance evaluation, a novel metric, volumetric triboelectric charge, is introduced to normalize charge transport efficiency and provide a universal standard for evaluating DC‐TENG designs. Comprehensive theoretical and experimental optimizations enable the AF‐TENG to achieve 800 V output and a record 224 nC cm\n                    −\n                    3\n                    volumetric charge, with a fingertip‐sized device lighting 32 2 W LEDs and driving hygrometers and calculators, advancing performance and establishing an evaluation system as a benchmark for future DC‐TENGs.",
+          "b": "2026年1月4日，红旗研发总院在官方公众号发文称，搭载其研发的全固态电池包的红旗天工06车型样车试制下线。据文中信息透露，其固态电池采用硫化物电解质，容量包括10Ah和60Ah。\n另据IT之家等媒体1月24日报道称，1月22日的吉利控股集团战略解析会上，宣传今年其自研全固态电池将完成首个Pack下线，并进行装车验证。Electrive则称，奇瑞也计划在今年推出搭载其固态电池的电动汽车产品。",
           "hb": 1
         }
       ]
@@ -100,147 +66,14 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队利用柔性电解质栅控晶体管构建储备池计算系统处理神经形态信息",
-        "研究整合AlphaFold2等模型开发抗体设计流水线，提升胞内靶向稳定性",
-        "研究人员采用压电纳米颗粒实现超声驱动的长效无线深部脑电刺激以抑制癫痫"
-      ],
-      "entries": [
-        {
-          "t": "基于柔性电解质栅控TFT的时间可重构储备池计算用于高性能类脑处理",
-          "d": "2026-01-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究利用柔性电解质栅控薄膜晶体管(TFT)构建时域可重构储备池计算(RC)系统，实现高性能神经形态信息处理。储备池计算以其训练简单、适合处理时序信号著称，但传统硬件实现缺乏时域可调性。该工作利用电解质栅控TFT的离子动力学实现记忆效应和非线性映射，并通过栅压调控实现储备池状态的时域重构，适应不同任务需求。该方案在时序预测和模式识别中表现优异，为边缘计算的柔性神经形态硬件提供了新路径。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202507979?af=R",
-          "tp": "神经形态计算芯片",
-          "aip": 1,
-          "kp": [
-            "[储池计算]: 柔性电解质栅控TFT实现时间可重构神经形态处理"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Reservoir computing (RC), a brain‐inspired neuromorphic algorithm, offers simplicity and efficiency for processing spatiotemporal signals. However, conventional RC systems face limitations in handling diverse temporal scales and spatial complexities due to invariant temporal dynamics. This study introduces a temporally reconfigurable RC system utilizing ultrathin, flexible, all‐solid‐state electrolyte‐gated thin‐film transistors (UFLEX TFTs) with high performance: an on/off ratio of ≈10\n                    7\n                    , endurance beyond 2.5 × 10\n                    4\n                    pulses, and low variability. UFLEX TFTs, based on molybdenum disulfide (MoS\n                    2\n                    ) channels and organic–inorganic hybrid AlO\n                    x\n                    dielectrics, enable modulation of temporal dynamics via simple electrical signals. The system maintains mechanical flexibility and robust performance after bending tests. By extracting features across varied temporal and spatial scales, it achieves classification accuracies of 90.3% for CIFAR‐10 object images and 81.8% for NIH chest X‐ray images. This work lays a foundation for flexible neuromorphic hardware systems capable of efficient, high‐performance spatiotemporal signal processing.",
-          "hb": 1
-        },
-        {
-          "t": "人工智能辅助蛋白质设计可快速将抗体序列转换为针对不同肽和组蛋白修饰的体内抗体",
-          "d": "2026-01-04",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "研究团队开发了AI驱动的体内抗体设计流水线，整合AlphaFold2、ProteinMPNN和活细胞筛选技术，在保留表位结合能力的同时优化抗体框架区。该方法可快速将常规抗体序列转换为在细胞内还原环境中稳定折叠、溶解性良好的体内抗体，针对不同多肽和组蛋白修饰实现胞内靶向，为治疗、诊断和成像应用开辟了新途径。",
-          "sc": 6.1,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adx8352?af=R",
-          "tp": "蛋白质设计",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Intrabodies are engineered antibodies that function inside living cells, enabling therapeutic, diagnostic, and imaging applications. While powerful, their development has been hindered by challenges associated with their folding, solubility, and stability in the reduced intracellular environment. Here, we present an artificial intelligence–driven pipeline integrating AlphaFold2, ProteinMPNN, and live-cell screening to optimize antibody framework regions while preserving epitope-binding complementarity-determining regions. Using this approach, we successfully converted 19 of 26 antibody sequences into functional single-chain variable fragment intrabodies, including a panel targeting diverse histone modifications for real-time imaging of chromatin dynamics and gene regulation. Notably, 18 of these 19 sequences had failed to convert using the standard approach, demonstrating the unique effectiveness of our method. As antibody sequence databases expand, our method will accelerate intrabody design, making their development easier, more cost effective, and broadly accessible for biological research.",
-          "hb": 1
-        },
-        {
-          "t": "超声有源压电纳米刺激器用于长效无线深部脑电刺激以抑制癫痫发作",
-          "d": "2026-01-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "研究提出利用压电纳米颗粒作为无线纳米刺激器，实现超声驱动的长效无线深部脑电刺激(DBS)，用于抑制癫痫发作。传统电刺激需植入电极和脉冲发生器，易导致神经组织损伤和炎症；经颅磁刺激和超声刺激又无法在深部脑区直接产生有效电信号。压电纳米材料为微创深部脑刺激提供了新途径。",
-          "sc": 5.6,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202420447?af=R",
-          "tp": "无线脑电刺激",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  Electrical deep brain stimulation is effective for epilepsy suppression, but will lead to neural tissue damage and inflammation due to implantation of electrodes and a pulse generator. Transcranial magnetic and transcranial ultrasound stimulation cannot directly generate effective electrical signals in deep brain regions. Here, the use of piezoelectric nanoparticles is proposed as wireless nanostimulators for deep brain electrical stimulation and minimally invasive suppression of epilepsy. Polydopamine‐coated barium titanate piezoelectric nanostimulators can adhere to neuronal membrane and generate pulsed electrical signals under ultrasound irradiation, effectively activating neurons through modulating voltage‐gated calcium channels on the membrane. These nanostimulators can be minimal‐invasively implanted into target deep brain regions, such as the hippocampal CA1, through stereotactic microinjection and remain stable for at least 14 weeks with negligible inflammatory reactions. These implanted nanostimulators precisely and effectively activate surrounding neurons and associated neural circuits in vivo under a portable low‐intensity ultrasound transducer. This piezoelectric nanostimulator‐based wireless deep brain electrical stimulation effectively suppresses epileptic seizures in both optogenetic and pilocarpine‐induced epilepsy rat models. By combining the deep penetration of ultrasound with the efficacy of piezoelectric stimulation, this minimally invasive method holds great promise for effective suppression of epileptic seizures and management of other neural disorders.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "多铁性超晶格中观测到极性涡旋阵列，为高密度信息存储提供新型拓扑结构",
-        "磁性薄膜界面工程取得进展，室温下成功观测并稳定非平庸拓扑自旋构型",
-        "研究结合高通量实验与机器学习模型，提升不对称催化反应底物适用范围"
-      ],
-      "entries": [
-        {
-          "t": "多铁性超晶格中极性涡旋-反涡旋对阵列的涌现",
-          "d": "2026-01-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "铁电拓扑结构以纳米级尺寸和外电场可调性著称，在超高密度信息存储领域极具潜力。多铁性超晶格中极性涡旋-反涡旋对阵列的涌现为探索新型拓扑态提供了独特平台，这种周期性排列的拓扑偶极构型有望用于开发新一代非易失性存储器和高密度逻辑器件，突破传统铁电存储的尺寸极限。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202501894?af=R",
-          "tp": "多铁极性涡旋阵列",
-          "aip": 1,
-          "kp": [
-            "[拓扑]: 极性涡旋-反涡旋阵列",
-            "[应用]: 高密度低功耗存储器件"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Ferroelectric topologies, renowned for their nanoscale dimensions and external electric field tunability, are emerging as leading candidates for high‐density, low‐power memory devices in the Big Data era. While polar configurations such as vortices, flux‐closure domains, center‐type domains, skyrmions, and merons have been extensively explored, antivortices remain largely underdeveloped. In this work, the discovery and realization of stable polar vortex‐antivortex pair arrays within multiferroic‐dielectric superlattices are reported with integrated experimental and theoretical efforts, enabled by low‐symmetry BiFeO\n                    3\n                    with diagonal spontaneous polarization. By employing atomic‐level engineering to precisely modulate the architecture of BiFeO\n                    3\n                    layers, achieving unprecedented periodicities as small as 4.5 nm. These arrays exhibit exceptional thermal stability, preserving their structural integrity above room temperature, and reversible polarization switching under applied electric fields. Additionally, the sensitivity of domain wall configurations to the dielectric layer thickness offers further tunability. These findings not only expand the scope of ferroelectric topologies but also provide a versatile platform for harnessing antivortices in practical applications, paving the way for next‐generation ultrahigh‐density, low‐power memory technologies.",
-          "hb": 1
-        },
-        {
-          "t": "界面诱导的非平凡拓扑自旋织构稳定性：揭示室温Hopfion和Skyrmion",
-          "d": "2026-01-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究系统阐述了界面诱导效应对拓扑自旋结构（如孤子型自旋织构和狄拉克电子集合体）的稳定机制，首次在室温下观测到Hopfions和Skyrmions等非平庸拓扑自旋构型。通过磁性薄膜界面工程调控，实现了拓扑自旋态的有效稳定，突破了传统低温限制，为低功耗自旋电子学器件的室温应用开辟了新路径。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511754?af=R",
-          "tp": "室温拓扑自旋",
-          "aip": 1,
-          "kp": [
-            "[稳定性]: 界面诱导室温稳定拓扑自旋结构",
-            "[应用]: 长程信息载体",
-            "[结构]: 非平庸拓扑自旋纹理(霍普夫子和斯格明子)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  Topological spin configurations, such as soliton‐like spin texture and Dirac electron assemblies, have recently emerged in fundamental science and technology. Achieving stable topological spin textures at room temperature is crucial for their use as long‐range information carriers. However, their creation and manipulation are hindered by multi‐step field training and competing interactions. Thus, a spontaneous ground state for multidimensional topological spin textures is desirable, with skyrmions forming swirling, hedgehog‐like spin structures in two dimensions and hopfions as their twisted 3D counterparts. Here, the first observation of robust and reproducible topological spin textures of hopfions and skyrmions observed at room temperature and in zero magnetic field is reported, which are stabilized by geometric confinement and protected by interfacial magnetism in a ferromagnet/topological insulator/ferromagnet trilayer heterostructure. These skyrmion‐hopfion configurations are directly observed at room temperature with Lorenz transmission electron microscopy. Using micromagnetic modeling, the experimental observations of hopfion‐skyrmion assemblies are reproduced. This model reveals a complete picture of how spontaneously organized skyrmion lattices encircled by hopfion rings are controlled by surface electrons, uniaxial anisotropy, and Dzyaloshinskii‐Moriya interaction. This study provides evidence that topological chiral spin textures can facilitate the development of magnetic topological carriers, paving the way for ultralow‐power and high‐density information processing.",
-          "hb": 1
-        },
-        {
-          "t": "通过高通量实验和机器学习对 1,2-二羰基的对映和区域选择性单还原进行通用驱动优化",
-          "d": "2026-01-04",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "针对单一模型优化底物普适性不足的问题，研究者结合高通量实验（HTE）和多底物筛选策略，利用定量1H NMR和19F NMR手性分析，对1,2-二羰基化合物的对映和区域选择性单还原反应进行通用驱动优化。该多模型方法有效提升了不对称催化反应的底物适用范围，为通用性催化剂开发提供了范式。",
-          "sc": 6.4,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519425?af=R",
-          "tp": "高通量筛选",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    The longstanding quest for substrate generality stems from the unpredictability of single‐model optimization. Leveraging high‐throughput experimentation (HTE), we present a practical multi‐substrate screening strategy for the general asymmetric mono‐reduction of 1,2‐dicarbonyls. Quantitative\n                    1\n                    H NMR spectroscopy combined with simultaneous chiral analysis by\n                    19\n                    F NMR for pooled crude mixtures accelerated the workflow eightfold. Robust screening of 31 chiral oxazaborolidinium ion (COBI) variants across eight substrates tackled even ethyl/methyl differentiation. HTE data were utilized in a machine learning (ML) model with CGR (Condensed Graphs of Reaction)‐based descriptors, identifying catalysts for target substrates without quantum chemical calculations. The ARMS (Automated Reaction Mapping for various Substituents) system was introduced to streamline SMILES (Simplified Molecular Input Line Entry System) preprocessing for multi‐substrate datasets. The resulting chiral\n                    α\n                    ‐silyloxy ketones, obtained in excellent yields (up to &gt;99%) and selectivities (up to &gt;99% ee, &gt;20:1 r.r.), could be readily transformed into high‐value compounds, such as (\n                    S\n                    )‐bupropion.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

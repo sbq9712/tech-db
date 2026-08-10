@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "通威钙钛矿/晶硅叠层电池效率达32.02%且组件功率破776W",
-      "宁德时代换电站规模超两千座并以每月两百座速度扩建",
-      "央企公布海上风电与海水制氢一体化能源岛结构专利"
+      "通威股份210mm尺寸钙钛矿叠层电池效率达32.02%并建成5MW试验线",
+      "脉冲电解技术将25%低浓度二氧化碳电解的一氧化碳选择性提升至78.6%",
+      "研究开发出兼具高韧性与高杨氏模量的支柱芳烃自组装有机纳米片"
     ],
     "AI与智能科技": [
-      "北大杨玉超团队研发忆阻器芯片将大脑建模缩短至0.43秒",
-      "DeepMind质疑OpenAI算力扩展定律存在算法缺陷",
-      "Robinhood将Claude接入两千七百万散户交易决策流程"
+      "北京大学等机构联合研发40纳米忆阻器芯片将3D重建计算速度提升约500倍",
+      "DeepMind指出2020年Scaling Law论文存在代码错误导致业界算力分配失当",
+      "后台数据显示GPT-5.5模型推理Token生成被异常截断于516等固定数值"
     ],
     "通用技术": [
-      "中国测试卫星发动机在轨连续运行14小时刷新推进耐久度",
-      "科研团队研发插层技术实现高质量二维晶体秒级剥离",
-      "三维共价有机框架材料实现核废料中氙气高选择性捕获"
+      "研究揭示海水微滴界面羟基自由基级联反应机制显著增强大气汞氧化能力",
+      "美军B-2轰炸机在菲律宾海演习中首次完成AGM-158C反舰导弹实弹投射",
+      "研究人员利用静电纺丝同步光交联工艺制成液晶弹性体热光响应执行器"
     ]
   },
   "sectors": [
@@ -26,9 +26,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "通威钙钛矿/晶硅叠层电池效率达32.02%且组件功率破776W",
-        "宁德时代换电站规模超两千座并以每月两百座速度扩建",
-        "央企公布海上风电与海水制氢一体化能源岛结构专利"
+        "通威股份210mm尺寸钙钛矿叠层电池效率达32.02%并建成5MW试验线",
+        "脉冲电解技术将25%低浓度二氧化碳电解的一氧化碳选择性提升至78.6%",
+        "研究开发出兼具高韧性与高杨氏模量的支柱芳烃自组装有机纳米片"
       ],
       "entries": [
         {
@@ -36,59 +36,68 @@
           "d": "2026-07-05",
           "a": "钙钛矿工厂",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "通威宣布其210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，同时210-66版型半片组件功率突破776W。钙钛矿/晶硅叠层是光伏领域最具前景的下一代技术路线，通过宽带隙钙钛矿顶电池与窄带隙晶硅底电池串联，突破单结晶硅电池29.4%的Shockley-Queisser理论极限。32.02%的全面积效率代表商业化尺寸叠层电池的世界领先水平，若量产化将显著降低光伏度电成本。776W组件功率在现有产线兼容性方面也具有重要意义。",
-          "sc": 8.8,
+          "as": "通威股份在钙钛矿-晶硅叠层电池技术上取得重大突破。通过独创的“气相沉积-溶液两步法”与骨架层设计，成功解决了全制绒表面钙钛矿成核结晶难题及边缘效应。其商用尺寸（210×105mm²）全面积叠层电池转换效率突破32.02%，210-66版型半片组件功率突破776W。通威已建成行业首条全自动5MW级试验线，持续推进量产化进程。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "行业观察",
+          "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/lVQq8FX_1fFdP5se1aBfnQ",
-          "tp": "叠层光伏",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "通威：210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，210-66版型半片组件功率突破776W 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw=",
-          "hb": 1
-        },
-        {
-          "t": "宁德时代每月建设超200座换电站",
-          "d": "2026-07-05",
-          "a": "Electrek",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "宁德时代旗下的巧克力换电（Choco-SEB）换电网络建设速度惊人，正以每月200余座换电站的节奏扩张，并于2026年6月30日部署了第2000座换电站。这一规模化部署标志着换电模式在中国补能体系中的地位从试点走向主流，凸显CATL在标准化电池包、站点自动化与运维网络方面的工程能力与资本投入力度。",
-          "sc": 8.3,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/07/04/catl-is-building-more-than-200-battery-swap-stations-every-month/",
-          "tp": "换电网络部署",
+          "tp": "钙钛矿叠层",
           "aip": 1,
           "kp": [
-            "部署速度[换电网络]: 200站/月",
-            "累计部署[CATL换电]: 2000站"
+            "转换效率[210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池]: 突破32.02%",
+            "组件功率[210-66版型半片组件]: 突破776W",
+            "[产业化面临挑战]: 从实验室走向量产仍面临可量产电池路线技术等三大关键要素挑战"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "| Jul 4 2026 - 7:40 am PT\nThe CATL-backed Choco-SEB battery swap network deployed its 2,000th swapping station June 30th, wrapping up another month of incredibly rapid growth that’s seen the company average more than 200 deployments in\nmonth of 2026. (!)\nAs America celebrates its 250th birthday, EV battery giant CATL is reaching a major operational milestone, having deployed its 2,000th battery swap station on June 30th as it charges towards its larger, stated goal of having 3,000 stations fully up and running across the Chinese mainland and Hong Kong by the end of 2026.\nCATL first announced that it had co-developed 10 new electric vehicle models with domestic automakers that use its swappable batteries last December\n, as part of a bid to drive a trend that the company hopes will replace up to a third of the gas stations in China.\nAs of Wednesday, the company’s network of battery swap stations covered 180 cities across 31 provinces in China alone, with many more coming online quickly in Western markets as well,\nthanks to CATL’s newly announced partnership with companies like Octopus Energy committed to bringing large-scale battery swapping to UK and European markets\n“Battery swapping will be a significant part of the future of commercial transport,” said Dr. Robin Zeng, chairman and CEO of CATL,\nin a statement\n. “We have field-proven this technology in China, and we are delighted to bring it to the UK and Europe as part of our joint venture with Octopus.”\nChoco-SEB’s latest expansion targeted a diverse range of urban markets, tourist spots, and commercial districts, and the company is reportedly preparing to enter new major routes like Beijing-Harbin, Beijing-Kunming, Beijing-Tibet, Daqing-Guangzhou, and Lanzhou-Haikou expressways.\nIf the current pace holds, CATL will have more than 4,000 battery swapping stations deployed globally by the end of 2026,\nup from ~700 stations last October and ZERO\n(0) at the start of 2025, proving once again that great things are possible with enough goodwill and corporate collaboration.\nHere’s hoping that battery swap times that rival gas station fillups lead to even broader EV deployment somewhat sooner than later\nCarNewsChina\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "b": "通威：210mm×105mm尺寸全面积钙钛矿/晶硅叠层电池转换效率突破32.02%，210-66版型半片组件功率突破776W 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) 【演讲预告】沃格集团研究院专家刘海勇博士：UTG涂层在模拟太空环境中的可靠性研究 【演讲预告】 肖特UTG玻璃面向商业卫星太阳翼应用解决方案 7月2-3日，2026焦耳时代钙钛矿技术创新与产业链生态峰会在浙江宁波隆重举行。通威股份光伏技术中心主任工程师张一峰博士受邀出席并作主题演讲，系统分享通威在钙钛矿-晶硅叠层领域的研发布局、工程化里程碑与产业化路径。 峰会期间，通威股份光伏技术中心主任工程师张一峰博士作题为《钙钛矿-晶硅叠层电池规模化制备技术进展和产业化展望》的主题演讲。他指出，钙钛矿-硅叠层电池虽已在效率上超越传统晶硅电池，但从实验室走向量产仍面临三大关键要素：可量产电池路线技术、可量产组件技术，以及可靠性、良率的同步提升。技术路线的量产可行性应优先于绝对效率提升，针对业内普遍关注的边缘效应问题，通威通过创新的骨架层设计，成功实现制绒表面“无边缘效应”的钙钛矿薄膜制备，大幅提升全面积效率。 2025年8月，通威建成行业首条全自动5MW级钙钛矿-晶硅叠层电池试验线。今年3月30日，李强总理在通威调研时，专门视察了钙钛矿/异质结叠层试验线。 在技术路线上，通威坚持“气相沉积-溶液两步法”，通过独创的蒸镀+涂布两步法反应机理调控，成功解决全制绒表面钙钛矿“成核”与“结晶”两大难题。截至目前，商用尺寸叠层电池（210×105mm²）全面积转换效率突破32.02%，210-66版型半片组件功率突破776W，试验线月平均效率超过28%。张一峰博士表示，针对商用尺寸叠层电池和组件稳定性开发，通威已开始构建多维度户外实证体系工作。从电池到组件、再到系统层级搭建实证矩阵，用真实场景发电数据反哺技术迭代与产品优化，打通“研发-验证-量产-应用”的闭环。 张一峰博士表示，可靠性是钙钛矿叠层技术从“实验室效率奇迹”走向“电站资产价值”的必经关口。通威率先提出钙钛矿叠层组件UV解决方案，通过光转功能层与截止功能层的“双重屏障”设计，配合“可修复”技术，保障组件长期稳定运行。在封装方面，通威创新推出全体系低应力层压方案，实现4.6%的功率增益，并开发超低温互联技术攻克热敏感瓶颈。 面向未来，通威钙钛矿叠层技术将聚焦三大方向：一是推进低银、无银化技术导入；二是面向车载光伏、太空光伏等多场景开展定制化产品开发；三是推进多维度户外实证工作。通威将坚持电池-组件-实证电站一体化研发模式，打通叠层发电全套技术体系，最终实现钙钛矿-硅叠层产品的量产转化。 【演讲预告】 蓝箭鸿擎 赤羽太阳翼 负责人 潘沈鸿 ：柔性太阳翼在轨展开的冲击响应与减振控制策略 【演讲预告】沃格集团研究院专家刘海勇博士：UTG涂层在模拟太空环境中的可靠性研究 【演讲预告】 肖特UTG玻璃面向商业卫星太阳翼应用解决方案 【演讲预告】 星翼芯能联合创始人兼技术总监 张国栋：钙钛矿光伏的空间应用需求、验证路径与产业机会 【演讲预告】哈工大航天学院刘立武：智能空间展开结构设计及其柔性太阳翼验证 **论坛组织** **论坛名称：**2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛 **论坛时间：**2026年8月6-7日 **主办单位：钙钛矿工厂**（星澄咨询） **联合主办/协办单位：**征集中 **论坛地点：**江苏·无锡 **会议规模：**300~400人 **宣传媒体：**钙钛矿工厂、钙钛矿光链、钙钛矿基地... **参会群体：钙钛矿与**太空光伏产业界人士（异质结、叠层电池、柔性光伏电池、封装材料、设备等）、航天器及卫星制造商、商业航天运营商、航天科研院所、标准化机构、证券投资机构、产业链上下游企业技术及管理人员 **参会费用** 高校科研院所参会：1800元/人 企业单位参会：2500元/（优惠价2000元/人，2026年7月16日前报名可享） 现场缴费：3000元/人 →团队报名（同单位人数≥3人）额外再享9折 诚邀企业展位、演讲、晚宴、礼品、资料入袋等赞助合作、共襄钙钛矿与太空光伏盛举 参会/赞助/咨询联系： **Eric：18926074070** 码上登记参会信息 央视 ｜ 重磅！中国空间站将首次开展钙钛矿电池动态服役实验 太空光伏产品发布： PhenoExo™ 一体化解决方案获在轨验证订单！ 强强联手再度升级！BOE（京东方）与康宁签署合作备忘录，剑指钙钛矿光伏...",
           "hb": 1
         },
         {
-          "t": "央企海上能源岛专利公布！",
+          "t": "ACS Energy Lett.：脉冲电解稀CO2！",
           "d": "2026-07-05",
-          "a": "氢能技术前沿",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "央企公布海上能源岛相关专利，涉及集海上风电、光伏、海水制氢于一体的综合性海上能源基础设施平台结构设计和能源集成方案。同期2026海水制氢与海上能源岛论坛将在常州召开，四川大学谢和平院士团队将介绍全新原理的海水直接电解制氢技术。反映海上综合能源利用正从概念走向工程验证阶段。",
-          "sc": 6.9,
+          "a": "催化视界",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "针对工业低浓度CO2电解过程中的传质受限和氢析出问题，研究采用脉冲电解策略。在MEA电解槽中，通过设置工作期与休息期使催化剂层CO2浓度恢复。在25% CO2浓度和400 mA cm⁻²的高电流密度下，脉冲电解将CO选择性从25.6%大幅提升至78.6%，产率和能量生产率也实现倍增。该策略在稀释气和高电流工况下效果最为显著。",
+          "sc": 7.8,
           "i": "n",
           "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/iRbQ-LDwnUDZC9LaiiBEmw",
-          "tp": "海上制氢平台",
+          "u": "https://mp.weixin.qq.com/s/swL2w8MmaK6AK6rTn1Z-Fg",
+          "tp": "脉冲电解CO2",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "CO选择性[25% CO2、400 mA cm-2脉冲电解]: 从25.6%提高到78.6 ± 2.0%",
+            "产率[25% CO2、400 mA cm-2脉冲电解]: 从13.7提高到21.0",
+            "CO2浓度范围[MEA电解槽测试]: 5-100%",
+            "电流密度范围[MEA电解槽测试]: 100-400 mA cm-2",
+            "催化剂[MEA电解槽阴极]: Ag"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "央企海上能源岛专利公布！ 亚化咨询 亚化咨询 氢能技术前沿 * _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开**_ * 来自四川大学、谢和平院士团队的领导专家将介绍《全新原理的海水直接电解制氢技术》 * 来自崂",
+          "b": "ACS Energy Lett.：脉冲电解稀CO2！ 催化视界 工业 CO2 来源并不总是高纯气体。发酵尾气、烟道气和其他低浓度排放流往往被 N2 等气体稀释，送入电解槽后，真正到达催化剂层的 CO2 更少。对于 Ag 阴极还原 CO2 制 CO 来说，低浓度加高电流密度最容易把反应推入传质受限区，氢析出也会趁机抢占电流。 这篇文章的思路很工程化：不只换催化剂，而是改变电流的时间结构。脉冲电解把反应拆成工作期和休息期，工作期快速消耗 CO2，休息期让 CO2 重新扩散回催化剂层，从而让界面像会呼吸一样恢复反应物供应。 成果简介 作者在 MEA 电解槽中用 Ag 阴极、IrO2 阳极和 0.1 M KHCO3 阳极液，考察 5-100% CO2、100-400 mA cm\\-2 条件下的静态与脉冲运行。脉冲参数包括工作时间 tact、休息时间 trest 和工作电流密度 jact，范围覆盖毫秒到秒级。 最有代表性的结果出现在稀释气和高电流下。25% CO2、400 mA cm\\-2 时，脉冲把 CO 选择性从 25.6% 提高到 78.6 ± 2.0%，产率从 13.7 提高到 21.0 ± 2.0 mol m\\-2 h\\-1，能量生产率也从 0.77 提升到 2.59 mol kWh\\-1。 文章还给出一个重要边界：脉冲并非永远优于静态。对于 100% CO2 或较低电流密度，界面传质压力本来较小，脉冲改善有限；真正需要动态控制的是那些 CO2 供给不足、催化剂表面容易被抽空的工况。 研究亮点 亮点一：把“传质受限”转化为可调时间变量，通过 tact/trest 管理催化剂层 CO2 浓度。 亮点二：在 25% 和 10% CO2 等稀释条件下，脉冲对选择性、产率和能量生产率的改善最明显。 亮点三：模型显示短脉冲可维持更高局部 CO2，同时改变 OH\\- 积累和局部 pH，为后续自适应控制提供依据。 配图精析 图 1：脉冲电解的闭环测试框架 这张示意图把实验逻辑串在一起：气体混合后进入加湿和 MEA 电解槽，产物被冷凝与气相分析，同时数据进入模型预测。上方的脉冲波形强调本研究并非只改变平均电流，而是把时间尺度、扩散恢复和催化剂层浓度放进同一个控制变量中。 这种设置也让实验结果更接近未来控制系统：气体组成、脉冲参数和产物分析形成闭环后，电解器可以根据进料波动自动调整波形，而不是固定在一个静态电流点上运行。 图 2：静态运行下，CO2 越稀、负荷越高，CO 表现越差 基线测试显示，在较高 CO2 组成下，Ag 阴极可以保持较好的 CO 选择性；但当进料降到 25%、10% 甚至 5% CO2，并继续提高电流密度时，CO 产率和选择性快速下滑。这一页说明问题的主因不是催化剂完全失活，而是 CO2 补给跟不上消耗。 图 3：选择性地图显示最佳 tact/trest 区域 等值图把脉冲参数空间展开：在 100% CO2 下，很多条件都能保持高 CO 选择性；气体越稀，参数窗口越窄。对 25% CO2 和 400 mA cm\\-2 这样的严苛组合，短周期脉冲能明显拉回 CO 选择性，说明休息期确实帮助界面重新补充 CO2。 读这张图时不能只找颜色最亮的格子，还要注意不同 CO2 浓度下最优区的位置在移动。这说明传质限制并不是一个常数，而会随气体组成和电流密度同步变化。 图 4：产率地图揭示选择性和产率并不总同步 产率最优区和选择性最优区并不完全重合。较长休息期有利于恢复 CO2、提高选择性，但会降低占空比；较短休息期更利于维持通量，却可能牺牲局部恢复。作者因此强调，脉冲电解不是一个固定配方，而是需要按 CO2 浓度和负荷共同优化。 图 5：静态与最优脉冲对比，稀释工况受益最大 柱状图直观展示脉冲的价值：100% CO2 时提升有限，因为反应物本来充足；25% 和 10% CO2 下，脉冲同时提高 CO 选择性、产率和能量生产率。尤其在 25% CO2、400 mA cm\\-2，三项指标都显著优于静态运行。 这组对比也解释了为什么作者同时报告选择性、产率和能量生产率。只提高 CO 选择性但牺牲太多产率，工程价值有限；能同时提升三者的参数区，才是真正值得后续放大的运行窗口。 图 6：模型显示脉冲提高催化剂层 CO2 浓度 多物理场模型把实验现象落到界面浓度上：静态高负荷下催化剂层 CO2 被迅速抽空，脉冲则在每个休息期给扩散留出时间，使下一次工作期从更有利的局部环境开始。底部时间曲线进一步说明，毫秒级控制可以直接调节瞬态微环境。 模型结果把“脉冲有效”从经验现象推进到可设计规则：如果已知催化剂层中 CO2 的恢复时间，就可以反推 trest；如果要维持目标产率，则可再由占空比限制 tact，这为自动优化留下了接口。 总结展望 这项工作对稀 C...",
+          "hb": 1
+        },
+        {
+          "t": "基于支柱[5]芳烃的自组装有机纳米片：专为卓越的机械强度和离子电导率而设计",
+          "d": "2026-07-05",
+          "a": "ACS Applied Materials & Interfaces: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "提出利用超分子方法合成三种基于支柱[5]芳烃的自组装有机纳米片（SONs），以解决固态导体离子电导率与机械强度之间的矛盾。研究发现，增加氢键位点和亲水性有助于实现最高韧性（66328±424 kJ/m³）；而提高疏水性并减少氢键位点则有利于优化杨氏模量（659.1±22 MPa）。该纳米片复合薄膜在机械和离子传导性能上表现出优异的调控效果。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://pubs.acs.org/doi/10.1021/acsami.6c07160",
+          "tp": "超分子固态电解质",
+          "aip": 1,
+          "kp": [
+            "[超分子固态电解质设计]: 采用基于支柱[5]芳烃的自组装有机纳米片(SONs)，其力学与离子导电特性受控于氢键位点数量、-H···π相互作用等超分子作用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The widely utilized design of solid-state conductors encounters a compromise between ion conductivity and mechanical strength. Here, a supramolecular approach is proposed for addressing this issue, utilizing three solution-processable pillararene-based self-assembled organic nanosheets (SONs). The efficacy of the mechanical and ion-conducting properties of the six composite films obtained from SONs with two different polymers are linked to the number of H-bonding sites, -H···π interactions and hydrophilicity. The study demonstrates that augmentation of H-bonding sites and hydrophilicity is essential in achieving the highest level of toughness (66,328 ± 424 kJ/m3), while increasing hydrophobicity and decreasing H-bonding sites are critical for optimizing the Young's modulus (659.1 ± 22 MPa). The conductivity analysis of Li, Na, and K ions indicated that H-bonding sites, hydrophilicity, and the films' flexibility are crucial for achieving the highest K-ion conductivity of 7.1 × 10-3 S cm-1, along with a maximum transport number of 0.86 at 298 K. The computational studies elucidate the stabilization energy, the nature of the radial distribution function plot, and the distance traveled over time, ultimately determining trends among three ions, pillararene derivatives, and two polymers. This study articulates a supramolecular design strategy for pillararene aimed at developing stretchable ion conductors suitable for energy storage devices.",
           "hb": 1
         }
       ]
@@ -97,9 +106,9 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "北大杨玉超团队研发忆阻器芯片将大脑建模缩短至0.43秒",
-        "DeepMind质疑OpenAI算力扩展定律存在算法缺陷",
-        "Robinhood将Claude接入两千七百万散户交易决策流程"
+        "北京大学等机构联合研发40纳米忆阻器芯片将3D重建计算速度提升约500倍",
+        "DeepMind指出2020年Scaling Law论文存在代码错误导致业界算力分配失当",
+        "后台数据显示GPT-5.5模型推理Token生成被异常截断于516等固定数值"
       ],
       "entries": [
         {
@@ -107,37 +116,24 @@
           "d": "2026-07-05",
           "a": "DeepTech深科技",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "北京大学杨玉超团队研制出全球首款基于可控存内计算的忆阻器神经动力学芯片。该芯片利用忆阻器阵列在模拟域直接完成微分方程求解，实现大脑皮层表面重建任务仅需0.43秒，而传统数字芯片需数十分钟。芯片通过存内计算消除冯诺依曼瓶颈，在神经动力学建模和偏微分方程求解上展现出数量级能效提升，为类脑计算和科学计算芯片化开辟新路径。",
-          "sc": 8.3,
+          "as": "北京大学与中科院团队联合研发出全球首创的基于可控存内计算的忆阻器神经动力学芯片。该40纳米制程芯片利用相变存储器同时进行数据存储与计算步长调整，单次神经动力系统迭代仅需2.12毫秒。在进行大脑皮层表面3D重建等复杂任务时，计算速度比传统GPU快近500倍，误差低于千分之一毫米，彻底解决了神经动力系统数值积分耗时长的问题。",
+          "sc": 8.4,
           "i": "n",
-          "tg": "行业观察",
+          "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/KIwZyEKkUXm8olhM8Kc5dQ",
-          "tp": "神经动力芯",
+          "tp": "存内计算芯片",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[芯片制程]: 40纳米",
+            "任务计算耗时[大脑皮层表面重建]: 0.43秒",
+            "迭代时间[神经动力系统单次]: 2.12毫秒",
+            "重建误差[3D表面重建]: 低于千分之一毫米",
+            "[计算速度]: 比此前最好的GPU快将近500倍"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "全球首次基于可控存内计算！忆阻器神经动力学芯片面世，0.43秒搞定大脑表面建模 原创 胡巍巍 胡巍巍 DeepTech深科技 你知道吗？对于一块普通芯片来讲，要想处理大脑皮层表面重建这样一个复杂数学任务，至少也得花费几十分钟。由北京大学杨玉",
-          "hb": 1
-        },
-        {
-          "t": "Claude能替2700万散户炒股了：它一幻觉，赔的是你的真钱",
-          "d": "2026-07-05",
-          "a": "新智元",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "Robinhood推出AI驱动的投资顾问功能，将Claude等大语言模型接入2700万散户的交易决策链路，引发市场对AI炒股风险的高度关注。大模型的'幻觉'问题意味着它可能生成看似合理但事实错误的投资建议，而用户投入的是真金白银。核心争议在于：AI投资顾问在生成买卖建议时缺乏对实时市场数据的确定性推理能力，且大模型无法保证输出的可重复性和一致性。文章还涉及监管层面的挑战——AI投资建议的责任归属、投资者适当性管理的合规边界。该事件折射出AI在金融决策场景中'能力与风险不匹配'的系统性矛盾。",
-          "sc": 8.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/3Ydgw14JUwHInZlc-qoYDw",
-          "tp": "AI金融代理",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Claude能替2700万散户炒股了：它一幻觉，赔的是你的真钱 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**3月还在争AI能不能炒股，Robinhood转手就把下单键塞进了270",
+          "b": "全球首次基于可控存内计算！忆阻器神经动力学芯片面世，0.43秒搞定大脑表面建模 原创 胡巍巍 胡巍巍 DeepTech深科技 你知道吗？对于一块普通芯片来讲，要想处理大脑皮层表面重建这样一个复杂数学任务，至少也得花费几十分钟。由北京大学杨玉超教授团队和中国科学院上海微系统与信息技术研究所宋志棠研究员团队打造的新芯片，把这一时间压到了零点几秒。 这是一颗 40 纳米制程的芯片，运行一次神经动力系统的单次迭代时间仅需要 2.12 毫秒，比此前已知最快的同类芯片快了几十倍之多。 它的核心能力藏在一种名为相变存储器的器件里，研究人员把这种存储器做出了新花样，一边用它来存储数据，一边用它来调整计算的步长。研究中，他们利用这颗芯片进行了大脑皮层和灰质表面的 3D 重建，结果显示误差低于千分之一毫米，速度比此前最好的 GPU 快了将近五百倍之多。 对于神经动力系统来说，“神经”说的是它里面嵌入了神经网络，可被用于学习数据里的规律。“动力系统”指的是一套数学方程，可被用来描述一个东西随时间变化的规律。当这两样叠加在一起，就成为了一个既能学习又能演化的计算模型。 这样的模型很适合用来重建 3D 物体的表面，因为物体的形状是千变万化的，使用传统方法一帧接一帧地算，不仅慢而且还容易出错。 （来源：《科学》） 神经动力系统则能够把形状变化当作是一个连续流动的过程，它先从一张粗糙的模板出发，然后让模板慢慢地发生变形，直到能够贴合上真实的物体表面。从数学角度来看这套方法非常严格，可以保证在变形的过程中，曲面不会自己穿破自己，这样一来出来的结果永远是光滑、完整且没有破洞的 3D 网格，这一特性对于医学影像、计算机图形学和 AR/VR 等场景非常重要。 但是神经动力系统存在一个巨大的问题，计算起来太慢了。它需要反复地做数值积分，每一步都需要调整步长，步长太大就会导致结果不稳，步长太小则会导致算不完，这时控制器就要不停地试错。 这个试错的过程会涉及到大量的读、写、乘、加，传统芯片在进行这些操作的时候要来回搬运数据，不仅费时而且费电。本次研究人员换了一种思路，他们利用相变存储器来做步长的调整。 相变存储器，是一种依靠热量来改变自身电阻的材料，能够通电加热让晶体状态发生改变，这时电阻就会跟着变。研究人员发现这种电阻变化并不是死板的，它拥有一种叫作漂移的现象，也就是电阻会慢慢地自己走一点，以前学界觉得这是缺陷，但是本次研究人员觉得这可能是机会。 研究中，他们把电阻漂移加以控制，让它按着预先设计的方向和速度前进。当步长要变大的时候就把电阻调整到某个值，当步长要变小的时候就调整到另一个值。在这个过程之中，完全不需要额外的计算电路，也不需要来回地搬运数据，当电阻自己走完这段路程，步长就能够自动调好。 这个设计方案把步长搜索的硬件面积压缩到了传统方案的十分之一。在芯片上还有一片相变存储阵列，它专门用来运行神经网络，每一步要算的乘法和加法直接可以在存储器里完成。数据不需要搬出去，电流一通结果就会出来。 在芯片上，相变存储器阵列运行着神经网络，同一片材料又负责步长漂移，这两种功能是互不干扰的，配合得十分和谐。这样一来，让相变存储器利用这种方式变成了计算的一部分，不再只是存数据的地方。 在传统芯片的设计方案里，步长调整需要依靠一堆数字电路完成，计数器、比较器、乘法器和加法器这些东西堆在一起，不仅非常占地方，而且每次调整都要读数据、算数据、写数据，来回得折腾好几轮。 相变存储器的漂移效应则能把这几步全给绕过去，电阻会自己发生变化，变化的速度和方向都是受控的，这就相当于直接在物理层面完成了步长的调节。 图 | 从左到右：杨玉超、宋志棠（来源：资料图） 据了解，为了达到上述控制精度，研究人员在材料和工艺上做了很多优化。他们在相变材料里掺了一些碳，碳的作用在于可以细化晶粒，能够让材料在反复相变之后仍能保持稳定的电学性能。 测试结果显示，这颗芯片的写擦次数能够达到十的十次方，换算成为实际使用时间，能够连续跑上好几年都没问题。当温度从零度变化到七十度时，电阻分布只会发生整体移动，不同电阻档位之间一直保持着清晰的间隔，完全不会混在一起。这一点的重要性在于，由于芯片在实际设备里会遇到各种各样的温度环境，比如手机发烫、冬天户外和服务器机房里散热不良等，所以每一种情况都必须保持稳定。 相变存储器的另一个优点是能够存多级电阻。对于普通存储器来说，它们只能存 0 和 1 两种状态。而本次芯片能够稳稳地存 16 种不同的电阻值，在阵列里排列成一个差分结构，每一个存储单元能够表达正负各八个等级。这就等于在同样的面积里放进去了更多的权重信息，神经网络运行起来也就更快。 为了让器件达到上述密度和稳定度，研究人员在工艺上做了不少努力，掺了一些碳来对晶粒进行细化，从而让材料在反复相变之后仍能保持稳定的性能，这让芯片...",
           "hb": 1
         },
         {
@@ -145,18 +141,43 @@
           "d": "2026-07-05",
           "a": "新智元",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "DeepMind研究员深夜爆料指出OpenAI的Scaling Law存在严重缺陷，暗示万亿级算力投入可能存在浪费。该爆料引发行业震动，质疑当前大模型训练中算力规模扩展的基本假设。若问题属实，可能深刻影响未来AI基础设施投资策略和模型开发方向，对Scaling Law范式构成重大挑战。",
-          "sc": 7.9,
+          "as": "DeepMind研究员指出，OpenAI在2020年发布的Scaling Law原始论文存在代码bug，导致AI行业得出了“优先扩大模型参数量而非增加数据量”的错误结论。分析称，这一参数量与算力正比的错误公式，使得业界在过去几年内训练了大量“体量过大且训练不足”的模型，白白消耗了海量算力。这一曝光揭示了GPT-3等早期大模型存在“虚胖”问题，也表明基于错误Scaling Law的算力扩张策略并不符合真实的模型训练规律。",
+          "sc": 8.3,
           "i": "n",
           "tg": "行业观察",
           "u": "https://mp.weixin.qq.com/s/2GS2jY-jvfPJm9cP2tqLUA",
-          "tp": "缩放定律疑",
+          "tp": "缩放定律争议",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[Scaling Law原始论文]: 存在致命bug导致模型虚胖及算力浪费",
+            "[GPT-3]: 模型规模严重虚胖"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "OpenAI塌房！Scaling law原作曝bug，万亿算力全白烧 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**DeepMind研究员深夜爆料：OpenAI的Scaling L",
+          "b": "OpenAI塌房！Scaling law原作曝bug，万亿算力全白烧 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**DeepMind研究员深夜爆料：OpenAI的Scaling Law原始论文竟有致命bug！全球AI白白烧掉万亿算力，GPT-3其实严重「虚胖」。 OpenAI误导了整个AI圈好几年！ 过去五年，整个AI行业都被Scaling Law推着往前冲。 奥特曼坚信AGI的底气就来自这条曲线。 现在，有人站出来说：这条曲线，一开始就错了。 不是事后诸葛。说这话的，是当年就在OpenAI做大模型优化的研究员**Diogo Almeida**。 刚刚，他发出一篇博客，标题冷得发指——《Scaling Laws, Honestly》。 开头一句直接把话说死：最初那版scaling law是错的，因为存在一个bug。 传送门：https://www.completeskeptic.com/p/scaling-laws-honestly DeepMind那位以扩散模型封神的**Sander Dieleman**，转头就在推特上把它顶了上去，说这是一段有意思的LLM往事： 原始scaling law因为一个bug而错了，大概率害得业界在一堆「体量过大、训练不足」的模型上，白白烧掉了海量算力。 一个bug，烧掉两年。 当bug被撕开，我们看到的，不仅是算力的黑洞，更是一条被语言本身重塑的、远比想象中更深刻的智能边界。 **Scaling Law竟是LLM版「地心说」** 2020年，**OpenAI**给出结论：在固定的算力预算下，你应该优先把模型做大，而不是拿更多数据去喂它。 用公式说，最优参数量正比于算力的0.73次方——参数，是那个更该猛冲的变量。 这句话，直接定义了GPT-3那一代的长相。堆参数。往死里堆。1750亿。 它告诉全世界的开发者：别问，问就是堆参数；只要你把模型做得足够大，神迹就会发生。 两年后，DeepMind甩出**Chinchilla**，把这个结论掀了个底朝天：模型和数据，应该差不多同等重要地一起放大，大约每个参数配20个token才划算。 他们训了一个700亿参数的Chinchilla，喂了1.4万亿token——体量不到GPT-3的一半，数据是它的四倍多。 结果，同样的算力预算，全面反超2800亿参数、却只喂了3000亿token的Gopher。 翻译成人话：同样一笔钱，一个把它养成了\"虚胖\"的壮汉，一个把它练成了精瘦的拳手。 拖更三年，北大校友翁荔深入探讨了后续研究中对两者差异的主流解释，即差异在于他们计算参数总数的方式。 而这还没完。就连「正确」的那个Chinchilla，自己也不干净。 2024年，Besiroglu等人把Chinchilla原文的数据点扒出来重跑，发现它自己那套拟合里也藏着bug: 优化器里的loss尺度设得过高，把Huber损失按样本求了平均、而不是求和，导致拟合过早终止。 纠正bug的论文，自己带着另一个bug。 到这儿，那句被无数人挂在嘴边的「第一性原理」，忽然有点站不住了。 所谓Scaling Law，从来就不是牛顿三定律那种铁打的物理规律，它只是一条经验拟合出来的曲线。 当**Diogo Almeida认为真相并非如此，**不是方法不一样，「是最初那版scaling law本身有个bug。」 **OpenAI三招骗了全球AI同行？** 要制造一个让全球AI集体相信的谎言，只需要三步。 **第一步：囚禁数据。** OpenAI论文给所有模型——不管它是还在学习走路的孩子（小模型），还是已经长成巨人的模型，喂了完全相同的「饭量」。大约130B tokens数据。 小模型因此被「喂饱」甚至「撑到」，而真正需要海量数据来填满其容量的大模型，却在同一token预算下严重营养不良。 上下滑动查看 Chinchilla论文后来一针见血地指出：他们对所有模型使用了「对所有模型使用了固定的训练Token数和学习率调度方案。」（fixed number of training tokens and learning rate schedule）。 这就像让幼儿园小朋友和博士生用同一张试卷、同一时间考试，然后宣称「成绩只与天赋有关」。 **第二步：掩耳盗铃的LR衰减。** 他们使用了余弦学习率衰减（Cosine Decay），让学习率在训练接近终点时平滑地趋近于零。 训练快到预设的终点时，学习率被人为地一点点摁到零，模型的进步自然就「平」下来了。 曲线一走平，看上去就像：这模型已经学到头了，再喂也没用了。 研究者们于是得出结论：「加数据没用了，模型已经饱和。」 这不是模型的极限，这是学习率把模型的成长之路人为掐断。它制造出一种完美的...",
+          "hb": 1
+        },
+        {
+          "t": "GPT-5.5突遭暗中降智，思考一到516就断！越难越翻车",
+          "d": "2026-07-05",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI的GPT-5.5模型在处理复杂编程任务时出现性能大幅下降。开发者分析后台数据发现，GPT-5.5在生成回复时，推理Token数量被异常截断，大量卡在516、1034和1552这三个固定数值上。针对2026年2月至6月期间数十万条数据的统计显示，GPT-5.5包揽了超八成的“精准516”异常事件。在GPT-5.5的响应中，接近一半Token卡在516及以上的节点，导致模型复杂推理过程被强制中断。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/kcbeyVe80dvghoFT-UP64w",
+          "tp": "大模型推理受限",
+          "aip": 1,
+          "kp": [
+            "复杂推理截断比例[遇到特定数字如516]: 约80%",
+            "推理Token截断点[复杂任务]: 516（及其倍数如1034、1552）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "GPT-5.5突遭暗中降智，思考一到516就断！越难越翻车 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】GPT-5.5大翻车，竟被数字「516」活活卡死。80%复杂推理被悄悄截断，开发者怒轰OpenAI暗中阉割算力：花最贵的钱，买最烂的体验！** 简直太诡异了。 OpenAI当家王牌GPT-5.5，这几天在复杂编程任务上突然「拉胯」，大幅降智。 细思极恐的是，有人找到了让它瞬间崩溃的「死亡密码」： 数字516 大批Codex开发者集体吐槽，验证了这个离谱的Bug。 堂堂顶级大模型，为何会被一个数字搞崩？ **GPT-5.5死卡「516」** **80%任务悄悄降智** 事情的真相，是这样的…… 一周前，Codex开发者@vguptaa45，拉出后台元数据，意外发现了一条让人头皮发麻的规律—— GPT-5.5的大量回复，其推理Token的数量，竟死死地卡在「516」这个数字上。 传送门：https://github.com/openai/codex/issues/30364 而且，不止一个点位。在1034和1552这两个节点，同样出现了诡异的集中爆发。 在编号#30364的GitHub Issue里，开发者摊开了一份统计： 分析窗口从2026年2月1日-6月27日，覆盖390,195条响应级Token记录、865个会话。 其中，推理Token精确等于516的事件，一共3363次。 在一次跨模型的横向对比中，结果触目惊心—— GPT-5.5，只占全部响应量的19.3%，却包揽了82.0%的「精准516」事件。 换句话说，全网所有卡在516这个死结上的回复，超过八成都出自GPT-5.5一家之手。 接下来，再和自家GPT系模型对比，一个关键指标叫「精准516/大于等于516的比例」。 在GPT-5.5身上，接近**一半**的「深度思考」回复，最后都精准落在了516这堵墙上。 而到了GPT-5.2，这个比例是0.34%——几乎为零。 它的比值，比其他所有非GPT-5.5模型的基准值，高出了整整**33.6倍**。 不得不说，这种断崖式的、只砸向单一模型的分布，怎么看都不像是大模型在自然地「思考」。 它更像是，某个藏在深处的开关，被悄悄拨到了「516」这一格。 **** **而且，越用越「笨」了** ### 按常理，一个模型频繁触发「516」，至少说明它「想得多」、推理量大。 事实恰恰相反。 数据显示，就在「516现象」急剧恶化的5月和6月，GPT-5.5的整体推理强度—— 无论是平均值还是P90（90分位），反而比2月到4月大幅缩水。 一边是「516死结」越卡越频繁，一边是模型整体「越想越少」。 这两组极其诡异的矛盾数据，指向了一个让所有付费用户细思极恐的可能： GPT-5.5在处理复杂、高风险任务时，可能正在被某种隐藏的「推理预算上限」或「截断机制」，悄悄地按下暂停键。 你以为你花了钱、买了最强模型、开了最高档，让它去死磕一个硬骨头。 结果它想到一半，啪，到516了，收工，交卷。答案对不对？不管了。 **GitHub万人上访，开发者怒了** 一石激起千层浪。 #30364这个帖子一发出，评论区瞬间挤满了「苦主」—— 我也一直被这个问题折磨，快疯了。 同样的毛病，求OpenAI给个说法！ 有人翻出，其实早在#29353这个帖子里，就有人复现过： GPT-5.5跑到刚好516个推理Token就「短路」停机，然后交出了一个错误答案。 这一次，开发者只是把这个孤例，用横跨5个月的海量数据，锤成了铁证。 甚至有开发者已经把战火烧到了Reddit，发帖直言「你有一半的高风险Codex请求，可能正在被悄悄降级」。 HK上的网友表示，给到一个推理的问题，最终使用6000-8000个思考Token，才会输出正确结果。 还有人在Codex和Claude两个AI中，来回徘徊。 面对汹涌的民意，社区正式向Codex团队递上了一张「通缉令」，句句诛心： 这到底是推理预算被限了，是路由出了问题，是被截断了，是触发了某种fallback，还是调度器在搞鬼，导致回复统统在516/1034/1552附近戛然而止？ 如果这是「正常设计」，那请告诉我们—— 516，究竟是一个正常的思考终点，一个预算天花板，还是一个被降级的「劣质档位」？ 这一连串反问，等的就是OpenAI一个正面回答。 不过，提出者本人说得很克制：他没有声称这就「证明」了 OpenAI在偷偷截断思维链。 他的原话是，这更像一个「GPT-5.5特有的、看起来符合某种阈值化推理预算行为」的异常聚集。 是不是OpenAI主动阉割算力这个结论，还差OpenAI官方的一句话。 **不光变笨，更「变毒舌」了** 最近全网另一波吐槽，则精准戳向了GPT-5.5的...",
           "hb": 1
         }
       ]
@@ -165,77 +186,73 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国测试卫星发动机在轨连续运行14小时刷新推进耐久度",
-        "科研团队研发插层技术实现高质量二维晶体秒级剥离",
-        "三维共价有机框架材料实现核废料中氙气高选择性捕获"
+        "研究揭示海水微滴界面羟基自由基级联反应机制显著增强大气汞氧化能力",
+        "美军B-2轰炸机在菲律宾海演习中首次完成AGM-158C反舰导弹实弹投射",
+        "研究人员利用静电纺丝同步光交联工艺制成液晶弹性体热光响应执行器"
       ],
       "entries": [
         {
-          "t": "中国\"创纪录\"卫星发动机可持续运行14小时",
+          "t": "海水微滴上的自由基级联驱动大气汞氧化",
           "d": "2026-07-05",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航天",
-          "as": "据中国媒体报道，一款中国卫星发动机在轨道运行中创下连续14小时持续推进的纪录。这一成就标志着卫星推进系统在耐久性和可靠性方面的重大技术突破，对提升卫星在轨机动能力和延长任务执行时间具有重要意义。该发动机的长时间持续工作能力可为卫星轨道调整、姿态控制及深空探测任务提供更持久的动力支撑。",
-          "sc": 8.7,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "研究揭示了海水微滴界面能够维持自由基级联反应，显著增强其氧化能力。海水微滴界面自发生成的羟基自由基（·OH）与大量溴离子和碳酸氢根离子发生协同反应，生成包括活性溴（·Br）和碳酸根（·CO3-）在内的次级自由基网络。这种自持的界面循环反应机制极大提升了海水微滴的氧化能力。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://pubs.acs.org/doi/10.1021/jacs.6c05171",
+          "tp": "微滴汞氧化",
+          "aip": 1,
+          "kp": [
+            "[海水微滴气-水界面]: 自发产生羟基自由基并维持自由基级联反应，其氧化能力显著超越纯水微滴"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The air-water interface of aqueous microdroplets enables the spontaneous generation of hydroxyl radicals (·OH). However, the environmental fate and effect of these primary oxidants in complex, ion-rich media such as seawater remains uncharted. Here, we discover that the interface of seawater microdroplets sustains a radical cascade, which markedly amplifies their oxidative power beyond that of pure water microdroplets. Spontaneously produced ·OH at the interface quickly engages in synergistic reactions with abundant bromide and bicarbonate ions, initiating a network of secondary radicals, including reactive bromine (·Br) and carbonate (·CO3-) species. The coexistence and interconversion within this self-sustaining interfacial cycle are demonstrated through radical trapping and spectroscopic methods. To assess the environmental implications of this process, we have quantified its role in the dark oxidation of gaseous elemental mercury. Our findings advance the understanding from mere interfacial oxidant generation to the radical networks by specific ions, offering a novel framework for predicting chemical reactivity in environmental aqueous microdroplets.",
+          "hb": 1
+        },
+        {
+          "t": "美B-2轰炸机首次公开披露发射“远程反舰导弹”打击海上目标",
+          "d": "2026-07-05",
+          "a": "战略前沿技术",
+          "c": "通用技术/通信和运输/航空",
+          "as": "在2026年“勇敢之盾”演习期间，美军一架B-2隐身轰炸机在菲律宾海上空成功发射AGM-158C“远程反舰导弹”并命中靶船。这是美军首次公开披露B-2具备发射该型导弹的能力。此次秘密进行的集成使得B-2轰炸机正式具备防区外远程反舰作战能力，最多可携带16枚，显著增强了美空军的跨平台对海打击实力。",
+          "sc": 7.4,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/space/china-satellite-engine-continuous-operation",
-          "tp": "卫星推进发动机",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/7dDCahJrlHFCD2rJdREYHg",
+          "tp": "隐身轰炸机",
           "aip": 1,
           "kp": [
-            "推力[卫星发动机]: 750 N",
-            "连续运行[卫星发动机]: 14小时"
+            "武器集成[美B-2隐身轰炸机]: 成功发射AGM-158C“远程反舰导弹”并具备防区外远程反舰能力",
+            "参演部队[“勇敢之盾”2026演习B-2轰炸机]: 隶属于第509轰炸机联队"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A Chinese satellite engine has reportedly broken a record for 14 hours of continuous thrust in orbit, Chinese media reports. The engine was able to produce 169 pounds-force (750 Newtons) of thrust, and fired for a total of 3.2 hours over 5 manoeuvres over a total of 14 hours.\nFor reference, the satellite was launched on June 23 on board a Long March-7A from Wenchang Spacecraft Launch Site, Hainan Province, China.\nThe satellite’s (\nCommunications Technology Experiment Satellite 26A\n) test took place during the satellite’s maiden flight in June. This test has now safely put the satellite in a stable Earth orbit of around 22,000 miles (35,800 km) from its delivery elliptical transfer orbit.\nEngines of this kind are used to perform the final leg of satellite deployment once it is delivered to space from Earth. This is a bit like you needing to take a taxi from an airport to your final destination.\nSuch engines are also used to make small final corrections once in position. They can also be used to keep the satellite in orbit over the years, or potentially relocate the satellite later down the line.\nThe thrust of the engine doesn’t sound like much when compared to a rocket engine (typically in the kilonewton range), but once outside of Earth’s atmosphere, you don’t need that much to get around.\nMore from Space\nNASA’s new supercomputer with 262,000 CPU cores can solve problems with increased efficiency\nUS firm files FCC application for 100,000-satellite data center constellation\nNASA commits $590 million to four Moon missions for permanent lunar outpost\nOrbital propellant depots move closer to reality with NASA cryocoupler tests\nCase Studies\nThe technology that could replace radio communication in space\nOnce in space, there is no air resistance, and objects are already travelling at around 17,448 mph (7.8 km/s) thanks to Earth’s existing orbital velocity. This means that even small, continuous pushes in thrust can be enough to make changes in orbital position.\nrecent test,\nthe satellite engine’s test is significant, as such engines must work flawlessly in a vacuum without any possible need for repair or recovery. They must also operate at extremely high temperatures and restart multiple times without incident.\nChinese state media claims that the recent test has now left its US rivals “far behind” too. However, even a cursory glance at the claims shows this is a little overegged.\nThe claim is likely meant to refer to the engines’ designed total endurance of around 14 hours tops. For reference, most existing engines are designed for around 7 hours of total endurance.\nHowever, the recent test only ran the engine for a total of 3.2 hours, not 14. Total endurance of an engine is also not the only metric that matters anyway.\nEngineers care much more about the fuel efficiency of an engine, its reliability, mass, cost, and thrust-to-weight ratio. So, in other words, one particular engine can be better in one area while worse in another.\nBut perhaps the most interesting aspect of this news is the potential military applications for this new engine. More capable engines of this kind could easily be militarized to allow military satellites to reach orbit much more quickly.\nThey could also enable them to carry more payload instead of fuel, and be able to manoeuvre in orbit much more easily for threat avoidance or repositioning purposes.\nSo, while certain claims about the recent test appear to be hyperbolic, this is genuinely an impressive technical achievement for the team behind it. What’s more, the technology appears to have been mostly domestically produced, meaning\nChinese space research\nis making moves to reduce its reliance on imported technologies.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nRolls-Royce breaks ground on 1-million-square-foot facility for submarine reactors\nGermany opens world's largest power semiconductor fab with massive $5.7B investment\nNew graphene interface keeps lithium-sulfur batteries running for 1,000 cycles\nNew Musica supercomputer performs 45,110 trillion calculations/sec with 1,088 Nvidia chips\nLead-cooled nuclear reactors move closer to deployment with standardized grid design",
+          "b": "美B-2轰炸机首次公开披露发射“远程反舰导弹”打击海上目标 战略前沿技术 以下文章来源于海鹰资讯 ，作者颜思铭 **海鹰资讯** . 北京海鹰科技情报研究所官方资讯平台。涵盖科技情报研究、信息咨询、标准化研究、知识产权研究、档案管理、资料翻译、科技刊物编辑出版、文献检索、影视传媒等多个专业领域。 电话 | 010-82030532 手机 | 18501361766 微信 | tech9999 邮箱 | yw@techxcope.com **来源：海鹰资讯** **作者：颜思铭 在“勇敢之盾”2026演习期间，美空军全球打击司令部下属的一架B-2轰炸机在菲律宾海上空发射了AGM-158C“远程反舰导弹”并成功命中靶船，使美军隐身轰炸机正式具备了防区外远程反舰能力。目前，美空军正加速提升隐身轰炸机的对海打击能力，包括B-2在内，“远程反舰导弹”已逐步集成至多款美空军空中平台，将明显增强其防区外对海作战能力。 **** B-2在演习中投放“远程反舰导弹” 美军着手提升隐身轰炸机的反舰能力 演习中出动的B-2轰炸机隶属于第509轰炸机联队，在美本土的怀特曼空军基地进行作战准备，“远程反舰导弹”在该基地挂载于飞机上，随后这架B-2前往关岛安德森空军基地，于6月27日从关岛起飞参加演习。 B-2轰炸机在怀特曼空军基地挂装导弹 本次演习是B-2轰炸机首次公开披露发射“远程反舰导弹”，美空军表示该弹与B-2轰炸机的集成是秘密进行的，此前的国防预算或其他文件均未提及该计划，但也未透露本次演习是否是B-2首次投放“远程反舰导弹”。 AGM-158C“远程反舰导弹”的尺寸规格与“联合防区外空地导弹”系列相同，此前B-2最多可携带16枚“联合防区外空地导弹”，因此可能也会携带相同数量的“远程反舰导弹”。 美空军此前已将“快沉”精确制导反舰炸弹集成至B-2轰炸机，以增强其空中反舰能力，并已经进行过投放测试。 B-2此前试射“增程型联合防区外空地导弹”（左），该弹可挂装于弹舱内旋转挂架（右为装载于B-52轰炸机的旋转挂架），“远程反舰导弹”也可以采用同样方式挂载于轰炸机弹舱中 “远程反舰导弹”进一步扩展适用平台范围 目前已集成“远程反舰导弹”的空中平台包括美海军的F/A-18E/F战斗机以及美空军的B-1B轰炸机，未来该弹还将集成至F-15E战斗机、F-15EX战斗机、F-16V战斗机、部分F-35战斗机、P-8A海上巡逻机和B-52轰炸机。 由于该弹已被证明可用于B-2轰炸机，当前已可运用“联合防区外空地导弹”的机型，基本未来都计划集成“远程反舰导弹”，说明未来B-21也可能会集成该弹，从而具备远程反舰能力。虽然与B-2相比B-21的载弹量可能只有其一半，但未来美空军将会采购100架以上B-21，因此穿透式反舰能力将强于目前仅有19架的B-2机队。 几点认识 相对于此前的“快沉”炸弹，集成“远程反舰导弹”将显著拓展B-2的反舰打击范围，增强美军隐身空中平台的对海作战能力以及反舰作战的灵活性，对太平洋地区潜在的冲突具有重要意义。 目前大型水面舰艇编队配合航空母舰的舰载机，具备很强的远程防空能力，而“远程反舰导弹”的射程仅约200海里，此前计划装备“远程反舰导弹”的空中平台都不具备较强的隐身能力，上述射程范围并不足以保证面对远程防空力量时导弹载机的生存能力，而将B-2、B-21等具备高度隐身能力的轰炸机与该弹相结合，可能将形成一种全新的“穿透式反舰”作战能力，可直接打击水面舰艇编队的核心，不必先打击外侧的护航舰队，还可从其他方向威胁诸如后勤舰 艇等高价值目标，使对手的防御决策更加复杂。 当然具体到B-2轰炸机，其整合“远程反舰导弹”的实际效果可能仍将受到限制，如飞机的任务能力率较低且维护复杂，难以快速出动，与灵活性、时敏性要求较强的反舰任务能力存在一定的矛盾，目前美空军主要运用该机执行打击预先计划的固定目标，可在一定程度上回避快速出动能力较差的问题。而且B-2机队规模较小，美空军全球打击司令部的主要任务仍是打击对手的纵深的政治、经济、军事和关键基础设置等重要战略目标，可能难以腾出足够数量的轰炸机协助海军执行反舰任务。 以下图片链接包含《世界军事热点问题研究》季刊、《全球太空动态》月刊、《远望周刊》、《俄军情周报》、《美军情周报》、《防空反导简报》、《网络空间简报》、《前沿科技动态与颠覆性技术》等期刊，请滑动或点击图片进入商城查看。 一网打尽系列文章，请回复以下关键词查看： **创新发展：** 习近平 创新中国 协同创新 科研管理 成果转化 新科技革命 基础研究 产学研 **热点专题：** 军民融合民参军 工业4.0商业航天国家重点研发计划装备采办摩尔定律诺贝尔奖国家实验室军工百强试验鉴定双一流净评估 **前沿科技：** 颠覆性技术**仿生**脑科学精准医学...",
           "hb": 1
         },
         {
-          "t": "多环芳烃自由基阴离子介导的有机碱金属插层实现秒级高质量二维晶体剥离",
+          "t": "静电纺丝液晶弹性体作为无应力热响应和光响应执行器",
           "d": "2026-07-05",
-          "a": "Physical sciences : Nature Communications subject feeds",
+          "a": "ACS Applied Materials & Interfaces: Latest Articles (ACS Publications)",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "报道了基于多环芳烃自由基阴离子介导有机碱金属插层的秒级剥离技术，实现高质量二维晶体的规模化制备。现有自上而下和自下而上方法在质量与产量间存在权衡，该插层剂对石墨、MoS2等多种层状材料实现高效插层，数秒内完成剥离，所得纳米片具有大横向尺寸、高单层率的特点，为二维材料产业化提供了可扩展方案。",
-          "sc": 7.8,
+          "as": "通过将静电纺丝与同步光交联相结合的单步制造工艺，成功制备了液晶弹性体（LCE）执行器。研究人员设计合成支化低聚物以平衡可纺性和交联度，并优化光引发系统和静电纺丝装置，实现了液晶域的长程排列。该纤维材料表现出优异的无应力热响应和光响应驱动特性，可应用于软体机器人、人工肌肉等领域。",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-75142-1",
-          "tp": "二维材料剥离",
+          "u": "https://pubs.acs.org/doi/10.1021/acsami.6c09275",
+          "tp": "电纺液晶执行器",
           "aip": 1,
           "kp": [
-            "剥离时间[PAH插层法]: ~12s",
-            "[插层试剂]: PAH自由基阴离子有机碱金属",
-            "[可调控性]: 还原电位可调"
+            "[液晶弹性体(LCEs)执行器制造]: 结合静电纺丝与同步光交联的单步制造工艺，实现了介晶单元的预定排列"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Scalable production of high-quality 2D nanosheets remains challenging because existing top-down and bottom-up methods typically face a trade-off between material quality, yield, and cost. Here, we report the seconds-scale (~12 s) production of high-quality 2D crystals via polycyclic aromatic hydrocarbon radical anion (PAH•-)-mediated organoalkali intercalation. The tunable reduction potential and electron-transfer capability of PAH•- enable ultrafast alkali-ion intercalation within seconds in the stable potential of layered hosts. For graphite, sodium naphthalenide (Na-Naph) forms a stage-1 graphite intercalation compound in only 1 s, and subsequent hydrolysis-driven exfoliation in 11 s yields graphene with >88% yield and >50% single-layer ratio, with a negligible increase in defect density (ID/IG ratio from ~0.10 to ~0.11). This strategy is further extended to the exfoliation of few-layer (3-5 layers) transition-metal sulfides, selenides, and tellurides while preserving their intrinsic crystal phases. This work establishes a practical, high-yield route for rapid intercalation-driven exfoliation, offering a scalable platform for manufacturing high-quality 2D crystals.",
-          "hb": 1
-        },
-        {
-          "t": "柔性三维共价有机框架中热响应与氙触发门控开孔实现选择性氙捕获",
-          "d": "2026-07-05",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "报道了一种柔性三维共价有机框架（COF），具有温度响应与氙气触发的开门效应，实现氙气的选择性捕获。该COF通过动态骨架呼吸行为，在特定条件下打开孔道选择性吸附Xe分子，而对Kr等相似尺寸气体排斥。这种智能软多孔晶体材料为核废料处理中Xe/Kr分离及医用同位素纯化提供了高选择性、低能耗的新策略。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-75235-x",
-          "tp": "COF气体分离",
-          "aip": 1,
-          "kp": [
-            "[骨架材料]: 3D柔性COF(FCOF-XJ)",
-            "[门控机制]: 热响应与氙触发开孔",
-            "[构建单元]: 柔性+刚性四面体组合"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The development of dynamically responsive soft porous crystals (SPCs) is crucial for advanced gas separation due to their stimuli-triggered structural transitions. Herein, we report a 3D covalent organic framework (FCOF-XJ) constructed from flexible tetrahedral (F-3D-Td) and rigid tetrahedral (3D-Td) building blocks, exhibiting unique temperature-dependent selective adsorption of xenon (Xe). FCOF-XJ features thermoresponsive -O-C-C-C-O- single bonds that enable temperature-dependent conformational switching. The adaptive pore structure of FCOF-XJ enables an Xe-triggered gate-opening effect, with 4 times increase of Xe adsorption and a high Xe/Kr selectivity (36.9 at 298 K, 1 bar) among porous organic materials, surpassing most of metal-organic frameworks (MOFs). Breakthrough experiments reveal a defined high-purity Xe recovery window from Xe/Kr mixtures under non-ideal dynamic conditions, enabled by thermoresponsive pore-gating dynamics. This work establishes a flexible COF platform for thermoresponsive and Xe-selective capture based on guest-triggered framework gating.",
+          "b": "Actuators based on liquid crystalline elastomers (LCEs) can realize reversible and complex shape changes exploitable in soft robotics, actuators, surface haptics, photocontrolled microfluidic, and artificial muscles. A key prerequisite for the actuation of LCEs lies in predetermined alignment of mesogenic units. Here, we describe a single-step fabrication process for manufacturing LCE actuators using electrospinning coupled with simultaneous photo-cross-linking. Branched oligomers were designed and synthesized to address the trade-off between electrospinnability and cross-linking density. Moreover, optimizing the photoinitiator system and electrospinning setup allowed us to achieve long-range alignment of liquid crystalline domains. These fibrous materials display impressive stress-free thermal actuation without the need for external loads, reaching reversible deformations of over 30%. Additionally, we explored photoresponsive behavior by integrating photothermal dyes, enabling movement triggered by either UV or blue light. These results provide a scalable framework for developing smart materials suitable for applications in soft robotics and artificial muscles.",
           "hb": 1
         }
       ]

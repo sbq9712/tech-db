@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究团队提出固态电解质多尺度协同设计，实现超5000%应变与80 MPa强度",
-      "脉络能源研发30x30平方厘米钙钛矿太空光伏组件，光电转换效率达21.79%",
-      "中科院研制全球最大核聚变超导磁体并通过验收"
+      "中石化新疆准东一期光热制氢项目公示，设计年产绿氢660吨",
+      "Ampera首发3D打印钍基微堆模块，单机功率达30兆瓦",
+      "中科院纳米能源所研发自充电纺织品，纤维凝胶化时间缩至5秒内"
     ],
     "AI与智能科技": [
-      "桥水联合评测显示前沿大模型金融推理准确率仅50%至70%",
-      "华为何庭波在预印本平台发布多层级电子系统时间缩微理论V2版本",
-      "疑似GPT-5.6系列模型底层代码遭曝光，传闻7月7日发布"
+      "华为发布韬定律V2版本，麒麟2026芯片晶体管密度提升53.5%",
+      "英伟达GB300系统单兆瓦并发承载6.14万智能体，能效提升20倍",
+      "欧洲量子企业IQM登陆纳斯达克，募资3.37亿欧元加速商业拓展"
     ],
     "通用技术": [
-      "中国研制车载电磁弹射系统，实现无跑道发射无人机",
-      "沃尔沃首款A30 Electric电动铰接式自卸卡车正式投入作业",
-      "特高压天津南站投运国内首套变压器故障主动防御装置"
+      "中科院等离子体所研制出全球最大核聚变磁体，运行电流达98千安",
+      "研究提出无金属催化氢化新路线，产物可有效抑制耐药菌株",
+      "新式温敏响应窗户系统问世，利用流体形变实现动态遮阳"
     ]
   },
   "sectors": [
@@ -26,70 +26,78 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究团队提出固态电解质多尺度协同设计，实现超5000%应变与80 MPa强度",
-        "脉络能源研发30x30平方厘米钙钛矿太空光伏组件，光电转换效率达21.79%",
-        "中科院研制全球最大核聚变超导磁体并通过验收"
+        "中石化新疆准东一期光热制氢项目公示，设计年产绿氢660吨",
+        "Ampera首发3D打印钍基微堆模块，单机功率达30兆瓦",
+        "中科院纳米能源所研发自充电纺织品，纤维凝胶化时间缩至5秒内"
       ],
       "entries": [
         {
-          "t": "固态电解质的多尺度协同设计：超5000%应变+80 MPa强度",
+          "t": "全球最大光热裂解水制氢项目公示！",
           "d": "2026-07-04",
-          "a": "能源学人",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究提出力学集成梯度电解质设计策略，面向长循环固态锂电池。通过多尺度协同设计实现超5000%的超高应变和80MPa的力学强度，解决了传统固态电解质在界面接触和机械韧性方面的核心瓶颈。梯度结构使电解质在保持高离子导率的同时兼具优异力学性能，可有效抑制锂枝晶穿透并维持长期循环中电极/电解质界面的稳定接触。第一作者伊小萍，通讯作者潘文鼎、刘训良、李泓，为固态电池的实用化提供了重要的结构设计范式。",
-          "sc": 8.9,
+          "a": "氢能技术前沿",
+          "c": "零碳产业/能量循环/能源测/发电技术/光热",
+          "as": "全球最大光热裂解水制氢项目（和曦新疆新能源中石化准东6号站一期）进行环评公示。项目位于新疆，占地50亩，建设太阳能碟式光热RSOC裂解水制氢一体化站。核心设施包含碟式聚光系统、高温储热装置、斯特林发电机组等。一期建成后日产绿氢2吨、绿氧16吨，年产绿氢达660吨，实现了零碳制氢技术的工程化应用。",
+          "sc": 9.2,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/NRs2FffkSw9-nycA6Md64A",
-          "tp": "固态锂电池",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "固态电解质的多尺度协同设计：超5000%应变+80 MPa强度 Energist Energist 能源学人 【文章信息】 力学集成梯度电解质：面向长循环固态锂电池的一体化设计策略 第一作者：伊小萍 通讯作者：潘文鼎，刘训良，李泓 单位：北",
-          "hb": 1
-        },
-        {
-          "t": "【钙钛矿】21.79%！脉络能源超轻柔钙钛矿太空光伏组件新突破",
-          "d": "2026-07-04",
-          "a": "索比光伏",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "广东脉络能源科技自主研发的30×30 cm²超轻柔钙钛矿太空光伏组件，经TÜV北德权威认证，光电转换效率达21.79%，为同面积级别超轻柔钙钛矿组件世界最高效率之一。该组件在保持高光电性能的同时具备超轻量化特性，面向航天太空应用场景。钙钛矿技术在太空光伏领域的突破，拓展了其在极端环境下的应用边界，产业化潜力值得关注。",
-          "sc": 8.2,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://news.solarbe.com/202607/03/50025329.html",
-          "tp": "钙钛矿太空光伏",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/ZiSC7AVNHsLMCdB3I-S3xA",
+          "tp": "光热裂解制氢",
           "aip": 1,
           "kp": [
-            "转换效率[30×30cm²钙钛矿太空组件]: 21.79%",
-            "功率质量比[超轻柔钙钛矿太空组件]: 26W/g",
-            "组件面积[脉络能源钙钛矿]: 30×30cm²"
+            "系统规模[热耦合海水直接电解制氢系统]: 110千瓦级",
+            "产能规模[太阳能碟式光热RSOC裂解水制氢项目(一期)]: 年产2万吨",
+            "日产绿氢[太阳能碟式光热裂解水制氢]: 2吨",
+            "日产绿氧[太阳能碟式光热裂解水制氢]: 16吨"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "广东脉络能源科技有限公司自主研发的30×30 cm²超轻柔钙钛矿太空光伏组件，经第三方权威机构TÜV北德认证，光电转换效率达到21.79%，为同面积级别超轻柔钙钛矿光伏组件的世界最高效率之一\n。更关键的是，该组件在保持优异光电性能的同时，功率质量比高达26 W/g——这一指标显著超越多数薄膜光伏技术，处于国际领先水平。\n在航天领域，重量即成本。每增加一克发射载荷，都意味着更高的运载费用，同时挤占宝贵的有效载荷空间。因此，空间光伏的第一性原理极为明确：越轻越有价值。由于在轨补给昂贵、维修几乎不可能，“功率质量比”便成为衡量空间电源性能的终极标尺——同样质量送入轨道，能输出更多电力，就意味着卫星可承载更强载荷、延长工作寿命、降低发射成本。脉络能源此项成果，正是对这一指标的强力回应。\n商业航天的节奏正在加快。低轨通信星座、遥感监测网、物联网卫星，甚至未来可能出现的太空数据中心，都在成倍拉高对空间电力的需求。传统刚性光伏组件技术虽然成熟，但单位重量成本高、展开机构复杂、难以快速批量制造，很难匹配“低成本、高频次、大规模组网”的卫星部署节奏。行业迫切需要一种能同时满足高效率、轻量化、可折叠收纳、适合规模化生产的新型空间电源方案。\n柔性钙钛矿光伏组件的潜力，恰好踩在了这些需求的交汇点上。它具备高转换效率、极轻的材质、可弯曲折叠的特性，并且制造工艺有潜力实现卷对卷连续生产，成本控制空间可观。这意味着，空间光伏有望从过去“高成本、小批量、刚性结构”的固有模式，逐步转向“轻量化、柔性化、规模化制造”的新路径。对于我国商业航天和深空探测来说，这项技术的价值不仅停留在电池效率的提升层面，更关乎未来大规模天基设施能否实现能源自主供给。\n当然，空间应用对可靠性的要求极为苛刻。材料级别的实验室数据不能等同于航天级产品，地面环境测试通过也远非规模化上天的充分条件。柔性钙钛矿光伏组件仍需经历完整的系统级验证、辐照测试和长期在轨考核，才能真正走向工程应用。\n脉络能源的此次技术突破，正在逼近一个关键问题的答案：当卫星数量激增、功率需求攀升、发射成本日益敏感时，柔性钙钛矿光伏组件能否凭借更轻的材料，为更大的太空基础设施提供可靠能源？ 从当前进展看，这一答案正一步步接近现实。脉络能源也将持续深耕柔性钙钛矿光伏组件，从地面应用到太空探索，从技术攻关到场景拓展，不断拓展这一革命性技术的未来边界。\n索比光伏网 https://news.solarbe.com/202607/03/50025329.html",
+          "b": "全球最大光热裂解水制氢项目公示！ 亚化咨询 亚化咨询 氢能技术前沿 * _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开**_ * 来自四川大学、谢和平院士团队的领导专家将介绍《全新原理的海水直接电解制氢技术》 * 来自崂山实验室的领导专家将介绍《我国首台（套）110千瓦级热耦合海水直接电解制氢系统》 * 来自氢致能源的领导专家将介绍《电解海水制氢技术与产业化》 * 来自中国科学院大连化物所的领导专家将介绍《海水制氢联产淡水新技术》 * 来自华北电力大学经济与管理学院的领导专家将介绍《面向电-碳-氢-醇协同的海上综合能源岛》 * 来自哈尔滨工业大学的领导专家将介绍《基于储能材料的海水制氢技术及其在海岛发电示范应用》 2026年6月26日，和曦(新疆)新能源有限公司中石化准东6号站太阳能碟式光热裂解水制氢年产2万吨项目（一期）环境影响报告书第二次环境信息公示。 和曦(新疆)新能源有限公司中石化准东6号站太阳能碟式光热裂解水制氢年产2 万吨项目（一期）主要建设内容是新建太阳能碟式光热RSOC裂解水制氢设备建设一体化制氢站，日产绿氢 2 吨、绿氧 16 吨（年产绿氢 660 吨、绿氧 5280 吨）；包括太阳能碟式聚光系统、高温储热装置、斯特林发电机组、RS0C制氢反应器、气体收集与分离设备、氢气纯化设施、气体泵、阀、管等设备以及其他供配电设施、智能控制系统等附属设施工程。占地面积50亩，位于新疆维吾尔自治区昌吉回族自治州准东经济技术开发区中国石化加油站（准东第六站）西北侧。 此前的2026年6月25日，第九届中国—亚欧博览会在新疆乌鲁木齐正式开幕，和曦新疆新能源携自研碟式光热制氢系统亮相准东开发区展区，面向中外客商展示零碳制氢创新技术，共探西北能源转型新路径。 本届博览会以 “丝路新机遇・亚欧新活力” 为主题，准东开发区作为新疆千亿级国家级产业园区，聚焦新质生产力打造特色展台，沙盘与实物模型同步展出，完整呈现传统能源向绿色低碳升级的产业图景。在绿色发展板块，和曦新能源碟式光热RSOC裂解水制氢系统成为焦点。依托碟式聚光、高温储热、斯特林发电一体化技术，以太阳能为唯一能源实现无化石能耗、零碳排放制绿氢，完美适配准东丰富光照资源，可服务煤化工耦合、交通加氢、园区供能等多元场景。 2026年4月，中石化新疆石油分公司、和曦新能源有限公司在准东与国家级新疆准东经济技术开发区主要领导交流准东氢能发展，围绕氢能产业布局、技术创新、项目落地等核心议题深入洽谈，共商区域氢能产业高质量发展大计。 中国石化新疆石油分公司党委书记卢叶春介绍企业氢能布局与规划，指出准东产业基础雄厚、能源保障能力突出，将聚焦绿氢制备、煤化工耦合用氢、加氢站建设等领域深化合作，推动氢能在工业、交通等多场景示范应用，助力准东能源结构绿色转型。和曦新能源董事长许金鹏表示，公司将以此次座谈为契机，加快推进光热制氢项目在准东布局落地，依托碟式光热制氢核心技术，推动技术成果转化，为开发区绿氢产业提供坚实技术支撑，助力打造绿氢规模化应用示范基地。 _**2026海水制氢与海上能源岛论坛**__**将于7月16日在常州召开**_ **会议日程\\-2026海水制氢与海上能源岛论坛（****7****月****16****日****常****州）** **全球海上制氢现状与展望** _——__DNV挪威船级社（已定）_ **全新原理的海水直接电解制氢技术** _——__四川大学、谢和平院士团队（已定）_ **海洋可再生能源技术创新与发展展望** _——__东南大学南通海洋高等研究院（已定）_ **我国首台（套）110千瓦级热耦合海水直接电解制氢系统** _——__崂山实验室（已定）_ **基于储能材料的海水制氢技术及其在海岛发电示范应用** _——__哈尔滨工业大学(深圳)（已定）_ **电解海水制氢联产淡水系统研究和优化** _——__清华大学深圳国际研究生院（已定）_ **电解海水制氢技术与产业化** _——__深圳清华大学研究院/深圳氢致能源（已定）_ **面向电\\-碳-氢-醇协同的海上综合能源岛** _——__华北电力大学经济与管理学院（已定）_ **全球海水制氢场景逻辑与市场机遇** _——__明阳智慧能源集团（已定）_ **海水制氢联产淡水新技术** _——__大化所（已定）_ **直接海洋碳捕集耦合海上风电制氢生产绿色化学品** _——碳能（已定）_ **基于有机液体储氢技术的海上风电绿氢制储运一体化解决方案** _——__北京海望氢能科技有限公司（已定）_ **海上制氢和海水碳捕集耦合制绿色甲醇** _——亚化咨询（已定）_ **海上能源岛网荷储体系构建与关键技术研究** _——__浙江省电力设计院（待定）_ _**2026风光氢氨醇一体化论坛**_...",
           "hb": 1
         },
         {
-          "t": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步",
+          "t": "3D打印微型核反应堆问世，AI算力迎来全新“心脏”",
           "d": "2026-07-04",
-          "a": "世界先进制造技术论坛",
+          "a": "DeepTech深科技",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "2026年6月27日，中科院合肥物质科学研究院等离子体物理研究所研制的两套核聚变堆关键超导磁体——环向场超导磁体通过验收，为全球最大核聚变磁体。该成果标志着中国在\"人造太阳\"核心部件上取得重大突破，对实现可控核聚变商业化具有里程碑意义。",
-          "sc": 8.1,
+          "as": "美国核能初创公司Ampera利用3D打印技术制造出全球首个全尺寸核反应堆模块，旨在为AI数据中心等提供清洁能源。该钍基微型反应堆采用3D打印碳化硅堆芯和压力容器，最高可提供30兆瓦发电能力，设计无需更换燃料且可运行30年。作为次临界反应堆，其需外部中子源维持裂变，具备物理上防功率失控和快速启停的动态调节能力。",
+          "sc": 7.9,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/16ey35WN0vgN_AI6Kyx6Jg",
-          "tp": "核聚变磁体",
+          "u": "https://mp.weixin.qq.com/s/wl5FmCnTjZ3g_1GdG7CcbA",
+          "tp": "3D打印微反应堆",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "最高商业发电能力[钍基微型反应堆系统]: 30兆瓦",
+            "设计运行寿命[钍基微型反应堆系统]: 连续运行30年",
+            "核心材料[3D打印反应器核心和压力容器]: 完全3D打印的碳化硅",
+            "[系统维护特性]: 无需中途更换燃料和频繁维护，几乎不产生碳排放"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步 原创 小艾 小艾 世界先进制造技术论坛 2026年6月27日，中国科学院合肥物质科学研究院等离子体物理研究所传出一个重磅消息。 **两套核聚变堆关键超导磁体——环向场超",
+          "b": "3D打印微型核反应堆问世，AI算力迎来全新“心脏” 刘雅坤 刘雅坤 DeepTech深科技 **** AI 时代，面临传统电网和可再生能源的压力，科技巨头们争夺的资源已不仅仅是 GPU，而是稳定、低价、全天候不断电的清洁能源。现在，解决方案或许又多了一个新的选择。 近日，美国核能初创公司 Ampera 称，已基于 3D 打印完成全球首个全尺寸核反应堆模块，旨在为 AI 数据中心、国防应用、工业设施和偏远地区等提供清洁电力。 该模块将用于 Ampera 的钍基微型反应堆系统，最高可提供 30 兆瓦商业发电能力，有望连续运行 30 年。更重要的是，该反应堆采用完全 3D 打印的碳化硅反应器核心和压力容器，设计方面无需中途更换燃料和频繁维护，也几乎不产生碳排放。 那么，这套系统究竟采用了怎样的技术路线？ “这种新一代核反应堆堆芯和压力容器为工厂化、大规模生产的核能奠定了基础，”Ampera 公司 CEO Brian Matthews 表示，“它采用的先进技术和增材制造工艺，为新型核技术加速推向市场提供了一条清晰的商业路径。” 图丨Ampera 公司 CEO Brian Matthews 进行技术展示（来源：Ampera） Ampera 所开发的，是一种次临界、固态、工厂预制的钍基核反应堆。次临界意味着，燃料本身并不维持核链式反应，只有持续提供外部中子源时，反应堆才能维持裂变，因此在物理本质上有利于杜绝功率失控飙升的可能性。 与传统临界反应堆相比，这种架构理论上可以更快启停。传统核反应堆停机后，受氙中毒等瞬态效应影响，往往需要较长时间才能重新启动。 而 Ampera 的次临界架构的维持基于外部中子源，在实现即时重启、稳定的功率爬升速率和快速的功率变化方面，具有更好的动态调节能力。因此，其拥有广阔的应用前景，包括在野外军事作业、船舶配套供电，以及数据中心园区可变负荷调节等。 据公开信息，Ampera 的设备可装入标准 40 英尺集装箱，这种规格方便系统通过多种途径运输，包括卡车、铁路、轮船或军用运输机等。 （来源：Ampera） 这种模块化运输能力，建立在整套反应堆系统高度集成的设计之上。从结构层面，反应堆堆芯位于容器内部，周围环绕着多层屏蔽层，它还包括热交换器、涡轮机和发电机。 其主要冷却剂是氦气，将反应堆堆芯的热量传递到热交换器。热能被传递给超临界二氧化碳（sCO₂），后者驱动闭式布雷顿循环涡轮机发电。该系统不使用水进行冷却，而是依靠氦气和发电侧的空冷冷凝器。 得益于超临界二氧化碳循环的高性能，单个反应堆堆芯可输出 30 兆瓦热能，通过发电系统转化后，能够稳定输出 15 兆瓦电能，能量转化效率接近 50%。该公司规模更大的 30 兆瓦商业配置采用两个反应堆堆芯并联运行，整个系统占地约 86 立方米。 图丨Ampera钍基微型反应堆工作流程（来源：Ampera） 在燃料方面，Ampera 公司也进行了独特的设计。它采用的是固态燃料，这种颗粒由钍燃料核心和包裹其外的多层陶瓷和碳层组成。其燃料平台建立在受商业秘密保护的专有工艺和 60 多项核燃料制造专利上，其中包括用于生产高质量安全三结构各向同性（TRISO）燃料颗粒的专有喷射技术。 钍是一种储量丰富的元素，其在地壳中的含量是铀的三倍多，且天然钍无需浓缩，不仅简化了供应链还降低了扩散风险。先进的钍燃料循环系统有望实现比传统铀燃料循环系统更高的燃料利用率。国际原子能机构（IAEA）的报告显示，钍有可能为人类的能源需求提供长期解决方案。 由于钍\\-232 不具备裂变性，必须通过中子轰击“增殖”成铀\\-233，这一过程在反应堆堆芯内约需要 20 至 30 天。增殖完成后，铀\\-233 将在反应堆的整个运行周期内维持产生能量的裂变过程。一旦关闭中子发生器，反应堆就会停止运行。为获得单独、稳定的中子源，Ampera 自主研发了一套专有中子驱动系统，用于启动反应堆，并持续维持裂变反应。 “钍是未来超安全、清洁能源生产的发展方向，”Matthews表示，“通过在美国生产 TRISO 钍核，我们可以确保在扩大生产规模的同时获得充足的燃料供应，并最大限度地降低价格波动风险。” 在保障钍供应方面，该公司也进行了准备。今年 2 月，Ampera 已在澳大利亚成立子公司 Ampera Australia Pty Ltd，并计划自行生产 TRISO 燃料芯核。 图丨独居石晶体是为Ampera公司内部核燃料生产提供原料的主要含钍矿物（来源：Ampera） 除了燃料体系之外，Ampera 另一项核心创新来自反应堆本体的制造方式。反应堆的核心部件是一个球形回旋体堆芯，这种设计旨在最大限度地提高中子效率和热性能。传统制造方法的局限性无法制备这种复杂的结构，Ampera的解决方案是使用增材制造技术。 回旋体核心结构采用 3...",
+          "hb": 1
+        },
+        {
+          "t": "北京纳米能源所董凯AM：面向大规模生产的自充电纺织品",
+          "d": "2026-07-04",
+          "a": "能源学人",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中科院北京纳米能源所董凯团队在Advanced Materials发表研究，开发出基于“收集-管理-存储”策略的自充电动力纺织品。研究利用Zn²⁺辅助原位快速交联技术，实现海藻酸钠/聚乙烯醇水凝胶电解质在纤维电极表面小于5秒的快速凝胶化，突破了纤维锌离子电池连续化生产瓶颈。结合乙基纤维素/镀银尼龙纱线制备的纤维状摩擦纳米发电机，该共编织系统能有效转化并储存人体运动能，成功为智能手机、AI眼镜等商用设备稳定供电。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/EKoh4Im8RqxtqdlzTSxxfg",
+          "tp": "自充电纺织品",
+          "aip": 1,
+          "kp": [
+            "凝胶化时间[Zn²⁺辅助原位交联海藻酸钠/聚乙烯醇水凝胶电解质]: <5秒"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "北京纳米能源所董凯AM：面向大规模生产的自充电纺织品 Energist Energist 能源学人 【研究背景】 可穿戴设备的普及让个人供电问题迫在眉睫。传统刚性电池笨重、不柔韧，且无法在户外自充电，难以满足实际需求。理想方案是构建“自供能”系统，将人体运动能就地转化为电能并储存。摩擦纳米发电机（TENG）擅长捕获低频不规则运动能，锌离子电池（ZIB）兼具高安全性和高容量，二者组合极具潜力。然而，集成可穿戴化仍面临两大瓶颈：长期运行稳定性和规模化连续制造。尤其是纤维状锌离子电池（F-ZIB），电解质与电极界面兼容性差，传统凝胶制备耗时数小时甚至数天，严重阻碍了自充电织物的产业化进程。 【研究介绍\\] 近日，中国科学院北京纳米能源与纳米系统研究所董凯团队，提出了一种基于“收集-管理-存储”一体化策略的运动赋能自充电动力纺织品。该工作创新性地开发了一种Zn²⁺辅助原位快速交联海藻酸钠/聚乙烯醇（SA/PVA）水凝胶电解质，实现了在纤维电极表面的秒级凝胶化（<5秒），从而突破了纤维锌离子电池的连续化生产瓶颈。同时，团队设计并制备了基于乙基纤维素/镀银尼龙（EC/Ag-PA）纱线的纤维状摩擦纳米发电机（F-TENG），并集成柔性能量管理模块，通过共编织技术构建了完整的织物能源系统。该系统成功实现了为智能手机、智能戒指和AI眼镜等商用设备稳定供电，为下一代自供能可穿戴系统提供了一种普适且可行的能源解决方案。 该研究成果以“Scalable Production of Motion‐Enabled Self‐Charging Power Textiles with Highly Durable Zinc-Ion Fiber Batteries”为题发表在国际顶级期刊《Advanced Materials》上。朱俊波博士和赵继忠博后为本文共同第一作者。 【核心内容】 要实现纤维状锌离子电池的连续化生产，关键在于电解质材料的快速成型能力及其与纤维电极的界面相容性。传统水凝胶制备方法（如溶液浇铸、冻融循环、热引发聚合）周期长、工艺复杂，难以匹配工业化纺织流程。本研究选用的SA/PVA双网络水凝胶体系，巧妙地利用了Zn2+对海藻酸钠（SA）中羧酸根的强配位作用，实现离子诱导的瞬时交联。这种Zn2+辅助原位交联策略不仅将凝胶化时间缩短至5秒以内，为卷对卷连续生产提供了可能；更重要的是，该凝胶在纤维电极表面原位成型时，其收缩应力能与螺旋缠绕的电极结构形成机械互锁，实现自适应的紧密界面接触，有效解决了传统电池中电极-电解质界面分离的难题。同时，PVA的引入提供了丰富的氢键网络，不仅增强了凝胶的机械韧性，还通过限制自由水分子活性，显著抑制了锌枝晶生长和析氢等副反应，从而保障了电池在复杂形变下的长期稳定性。 图1. 运动驱动自充电动力纺织品的结构设计 图2. F-ZIB的制备流程与SA/PVA水凝胶电解质的结构表征 图3. 水凝胶电解质的电化学性能与第一性原理计算 图4. 锌沉积行为和循环性能 图5. F-TENG的制备与性能 图6. 集成织物能源系统及应用 **【结论】** 该研究成功构建了一种可规模化生产的运动自充电动力织物。其核心突破在于：一是开发了秒级成型的SA/PVA水凝胶电解质，完美适配纤维电池的工业化连续制造；二是通过系统性的材料设计、理论计算和电化学分析，阐明了该凝胶抑制枝晶和副反应的协同机理，确保了电池的高性能与长寿命；三是通过共编织与能量管理技术，实现了真正的“收集-管理-存储”闭环系统。这项工作不仅为可穿戴设备提供了可靠的能源方案，更为智能纤维与下一代集成可穿戴系统的产业化发展开辟了新的道路。 【文献详情】 Junbo Zhu, Jizhong Zhao, Jin He, Yi Luo, Chuanhui Wei, Yuanwu Wang, Xiaoxuan Fan, Tianmei Lyu, Kai Dong\\*. Scalable Production of Motion‐Enabled Self‐Charging Power Textiles with Highly Durable Zinc‐Ion Fiber Batteries. Advanced Materials (2026) 0: e73836. 【作者简介】 董凯，中国科学院北京纳米能源与纳米系统研究所研究员，智能纤维材料课题组负责人，博士生导师。东华大学博士，佐治亚理工学院访问学者，北京市海外高层次人才，北京市特聘专家。聚焦于具有自主式供电和自驱动传感功能的机械能电能转化智能纤维材料，在基于摩擦电效应的机电转化纤维材料的机械能驱动电荷转移机制、发电和传感性能提升、智能化集成应用等方面取得了一系列研究成果，目前以第一作者或者通讯作者身份在Nature Communic...",
           "hb": 1
         }
       ]
@@ -98,69 +106,80 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "桥水联合评测显示前沿大模型金融推理准确率仅50%至70%",
-        "华为何庭波在预印本平台发布多层级电子系统时间缩微理论V2版本",
-        "疑似GPT-5.6系列模型底层代码遭曝光，传闻7月7日发布"
+        "华为发布韬定律V2版本，麒麟2026芯片晶体管密度提升53.5%",
+        "英伟达GB300系统单兆瓦并发承载6.14万智能体，能效提升20倍",
+        "欧洲量子企业IQM登陆纳斯达克，募资3.37亿欧元加速商业拓展"
       ],
       "entries": [
-        {
-          "t": "桥水基金最新研究：前沿 AI 模型金融判断准确率未达 80% 可信门槛，GPT 和 Claude 仅有 50~70%",
-          "d": "2026-07-04",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "7月3日，桥水基金旗下AIA Labs联合OpenAI前CTO Mira Murati创立的Thinking Machines Lab，对GPT、Claude、Gemini等前沿大语言模型在基础金融判断任务上的表现进行系统评测。结果显示，这些模型准确率仅50%~70%，未达80%的可信应用门槛。研究揭示了当前LLM在金融推理领域的固有局限，对\"AI替代金融分析师\"的市场乐观预期构成冷静修正。",
-          "sc": 9.4,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.ithome.com/0/972/445.htm",
-          "tp": "大模型金融评测",
-          "aip": 1,
-          "kp": [
-            "准确率[前沿LLM金融判断]: 基础~50%/优化~70%",
-            "可信门槛[金融判断]: 80%"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "7 月 3 日消息，桥水基金旗下 AIA Labs 联合 OpenAI 前 CTO Mira Murati 创立的 Thinking Machines Lab 对包括 GPT、Claude 和 Gemini 在内的前沿大语言模型在基础金融信息筛选任务进行了测试，但结果表现不佳，而基于开源模型微调的自研模型在准确率和成本上均具有显著优势。\n研究团队从投资分析师的日常工作中提取了六项典型任务，包括判断一篇财经文章对高管层是否具有参考价值、判断央行文件是否预示未来利率变化方向等。\n报告指出，这些任务对专业投资者而言非常基础，但他们往往难以用语言清晰描述自己的判断逻辑。在前沿模型测试中，Gemini、Claude 和 GPT 各版本在使用基础提示词时平均准确率仅约 50%。\n即使经过专家撰写的详细提示词和三级分类体系（“相关且有趣”“相关但无趣”“不相关”）优化后，准确率提升至 70% 左右，仍未达到研究人员设定的 80% 可信部署门槛。\n报告还指出，模型迭代并未在该任务上带来显著进步，例如 GPT-5.4 比 GPT-5.2 价格高出 43%，但准确率仅略有提升。\n研究团队随后采用微调方案，以阿里开源模型 Qwen3-235B 为基座，通过 Thinking Machines Lab 的 Tinker 平台进行训练。训练数据集构建过程中，团队最初采购了非专业标注服务，但发现大量标签存在错误。由于专家标注成本高昂，团队设计了一套验证机制：先用有缺陷的标签训练模型，再让模型重新评估同一批数据，将模型判断与原始标签不一致的争议样本交由专家校正，以此在保证质量的同时控制成本。\n经过多轮训练优化 —— 包括交错批次训练、CISPO 损失函数与非对称裁剪、以及基于最佳验证准确率检查点的同策略蒸馏 —— 最终微调模型在测试中达到 84.7% 的准确率，优于测试中最佳前沿模型的 78.2%，错误率降低了 29.8%。同时，由于模型规模更小，推理成本仅为前沿模型的约十四分之一。\n报告指出，这一结果再次证明前沿模型并未囊括所有可用数据，大量专有企业数据和未编码的人类专业知识仍存在于大模型的知识盲区中，尤其是那些企业有意保持私密的数据。通过工具链微调开源模型，企业可以保留模型权重、数据乃至算力基础设施的控制权，避免将专有数据交给前沿实验室后成为其产品竞争的基础。桥水方面表示，该模型已投入日常使用，并认为这种针对特定组织需求定制的“差异化智能”将是未来方向。\nLearning to Replicate Expert Judgment in Financial Tasks - Thinking Machines Lab",
-          "hb": 1
-        },
         {
           "t": "华为何庭波发布“韬定律”V2版本",
           "d": "2026-07-04",
           "a": "国际能源研究中心",
           "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "华为半导体负责人何庭波于7月3日在中科院ChinaXiv预印本平台发布《面向多层级电子系统的时间缩微理论》（业内简称\"韬定律\"）V2版本。相较5月25日发布的V1版本，V2进行了理论更新与完善，涉及多层级电子系统的时间尺度缩微原理，对芯片设计与电子系统架构具有指导意义。",
-          "sc": 9.3,
+          "as": "华为何庭波发布了“韬定律”V2版本，提出以“时间缩微”替代“几何缩微”的后摩尔时代缩放理论。该理论通过降低时间常数τ，在器件、电路、芯片和系统四个层级协同优化。V2版本给出了量产数据：六年量产381款芯片；以麒麟2026芯片为例，晶体管密度提升53.5%至238 MT/mm²，P核能效提升41%，峰值频率提升近13%。路线图显示，2026年将发布首款完整采用“逻辑折叠”技术的芯片，2031年高端芯片晶体管密度将达到1.4纳米制程同等水平。",
+          "sc": 10.3,
           "i": "n",
-          "tg": "行业观察",
+          "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/mmAsnxyPgOAd2G6b3iZCHw",
           "tp": "时间缩微理论",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "芯片量产数量[过去六年]: 381款",
+            "晶体管密度[麒麟2026芯片]: 从155 MT/mm²提升至 238 MT/mm² (提升53.5%)",
+            "P核能效[麒麟2026芯片]: 提升41%",
+            "峰值频率[麒麟2026芯片]: 提升近13%",
+            "产品路线图[逻辑折叠技术]: 2026年秋季发布首款完整采用该技术的麒麟芯片"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "华为何庭波发布“韬定律”V2版本 根据中国科学院科技论文预发布平台ChinaXiv最新公示论文，华为半导体负责人何庭波于7月3日发布《面向多层级电子系统的时间缩微理论》（业内也称“韬定律”）V2版本。 相比较5月25日发布的V1版本，新版论",
+          "b": "华为何庭波发布“韬定律”V2版本 根据中国科学院科技论文预发布平台ChinaXiv最新公示论文，华为半导体负责人何庭波于7月3日发布《面向多层级电子系统的时间缩微理论》（业内也称“韬定律”）V2版本。 相比较5月25日发布的V1版本，新版论文在原有理论框架基础上，补充了大量工程落地细节、实测量化数据与产品演进路线，进一步完善了以时间常数τ为核心的后摩尔时代缩放理论体系。 V2版本延续了V1的核心主张：用 “时间缩微” 替代 “几何缩微” 。其核心是系统性降低时间常数τ（信号切换时间），通过器件、电路、芯片、系统四个层级协同优化，目标是在不依赖极致制程的前提下提升性能。 V2版本最大的亮点是提供了经过量产验证的实测量化数据： 芯片量产验证：过去六年已设计并量产了381款芯片。 性能实测提升：以麒麟2026芯片为例，相比传统设计： 晶体管密度：从155 MT/mm² 提升至 238 MT/mm²，跃升 53.5%。 能效与频率：P核能效提升41%，峰值频率提升近13%。 V2版本披露了清晰的产品路线图： 短期（2026年）：秋季发布首款完整采用“逻辑折叠”技术的麒麟芯片。 中期（2031年）：高端芯片晶体管密度预计达到1.4纳米制程同等水平。 V2版本的发布，标志着“韬定律”已从理论框架迈入了工程验证与规模量产的新阶段。",
           "hb": 1
         },
         {
-          "t": "趁火打劫！GPT-5.6三大模型全曝，定档7月7日？",
+          "t": "一兆瓦养活6万智能体！英伟达GB300碾压前代20倍",
           "d": "2026-07-04",
           "a": "新智元",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "疑似GPT-5.6系列三大模型的底层代码被曝光，传闻将于7月7日正式发布。泄露信息显示OpenAI正密集布局新一代多模型矩阵，可能在推理能力、多模态和上下文长度方面实现突破。该消息为爆料性质，具体参数和发布日期需以官方公告为准。",
-          "sc": 9.2,
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "独立评测机构Artificial Analysis推出首个专为AI智能体设计的推理基准AA-AgentPerf，采用“每兆瓦并发智能体数”作为核心指标取代传统token生成速度。英伟达公布的评测成绩显示，在相同的一兆瓦电力下，最新的GB300 NVL72系统能同时承载61400个智能体并发，其能效约为上一代H200系统的20倍。该基准反映了AI负载从单一对话向复杂智能体任务的转变。",
+          "sc": 9.0,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/nzb2fAi1oDdBGueU_QzW3w",
-          "tp": "GPT5.6定档",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/UctqWjFE1fS2EHmI2kF1VA",
+          "tp": "GB300算力性能",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "并发智能体数[GB300 NVL72每兆瓦]: 61400个",
+            "并发智能体数[H200每兆瓦]: 约2600个",
+            "并发智能体能效比[GB300 NVL72对比H200]: 约为20倍",
+            "评估指标[AA-AgentPerf基准]: 每兆瓦并发智能体数"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "趁火打劫！GPT-5.6三大模型全曝，定档7月7日？ ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**突发偷跑！GPT-5.6三大神秘模型底层代码曝光，下周二重磅降临。这一波，Ope",
+          "b": "一兆瓦养活6万智能体！英伟达GB300碾压前代20倍 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】跑分跑了这么多年，新基准偏说FLOPS量不动智能体了，英伟达GB300一上来，就把上代甩开20倍。** 同样一兆瓦电，英伟达最新的GB300 NVL72能同时扛住61400个智能体，上一代H200只扛得住大约2600个。 这中间，差了整整20倍。 英伟达公布的AA-AgentPerf成绩：在每秒20与60个token两档服务标准下，GB300 NVL72每兆瓦的并发智能体数，都约为H200的20倍。 6月12日，英伟达刚放出这组数字的时候，外界第一反应是又一次性能炫技。 但真正变了的，并非这代芯片有多猛，而是丈量算力的那把尺子。 它就是独立评测机构Artificial Analysis发布的新基准：AA-AgentPerf。 Artificial Analysis在官方博客中将它称为业界第一个专门为「AI智能体（AI agent）」设计的推理基准。 它的主指标也和以往不同：并非每秒多少token，而是「每兆瓦并发智能体数（Agents per Megawatt）」。 通俗点说，就是每给系统供1兆瓦的电力，它能同时「养活」多少个智能体。 FLOPS量了这么多年，每秒吐多少token也用得好好的，为什么还要推出AA-AgentPerf这个新基准？ **旧尺子** **量不动智能体了** 要回答这个问题，得先弄明白智能体跑起来时到底是个什么负载。 Artificial Analysis的判断很明确，2026年最主流的AI负载，和那些老基准当年设计时瞄准的东西，早就不是一回事了：老基准量的是定长的合成请求，还顺手关掉了生产环境里真会开的那些优化。 英伟达官方也打了一个贴切的比方： 一次普通的对话，是百米冲刺，模型接一个问题，吐一段回答，结束；但一个智能体干活，更像跑接力。 它把一个目标拆成几十上百个步骤，读文件、写代码、跑命令、看结果，再决定下一步，一棒接一棒，直到任务真正做完。 这一路下来，几十次甚至上百次的大模型调用串在一起，每一次都把越滚越长的上下文递给下一棒，还夹杂着编译、查库、跑搜索这些工具调用。 复杂度并非简单相加，而是层层相乘。 英伟达用「接力」比喻智能体负载。一个目标被拆成几十上百步，大模型调用与工具调用一棒接一棒，串成不断变长的长链。 问题恰恰就出在这里。 市面上现有的推理基准测试，量的都是单次调用，一个请求进去多久回来、一台机器能同时接多少个请求。 它们原本就不是为智能体设计的。链式调用、工具等待、上下文膨胀，这些东西对系统的压榨方式，和单次请求完全是两回事。 仅是长会话就藏着老基准的测试盲区：同一段长长的前缀，会一轮一轮重复出现，谁能把它缓存住、不必每次重算，谁就省下大笔算力。 再加上工具结果动不动把上下文撑爆、输出却常常只有几百个token，调度器和显存层级扛不扛得住这种忽长忽短的节奏，直接决定一套系统是顺畅运转还是当场崩掉。 这恰恰是固定长度的合成测试无法触及的地方。 对于真金白银买卡、建数据中心的人来说，他们真正关心的是这套系统到底能同时养活多少个干活的智能体，每一度电、每一块GPU又换来多少有用产出。 这些问题老基准测试答不上来。 **第一个为智能体造的尺子** AA-AgentPerf的做法和老基准不一样，不喂那种长度固定的合成提示词，而是回放真实的编程智能体轨迹。 AA-AgentPerf回放的智能体轨迹示意。从一个请求出发，LLM调用与工具调用交替推进，直到任务真正完成。 这些轨迹，是让智能体去解真实代码仓库里的问题攒出来的，覆盖12种以上编程语言，一段会话最长能跑到200轮，上下文轻松冲破10万token。 输入长度从5千到13万token不等，平均约2.7万。真正把长度撑起来的，并非提示词本身，而是一轮轮累积的工具输出和对话历史。 更关键的，是它怎么算成绩。 它不去拼极致的并发数。并发一旦堆太高，每个智能体都慢得像爬，并发数再大，也只是中看不中用。 AA-AgentPerf反过来做：先锁死一个服务标准，每个智能体的输出速度、首字延迟（TTFT）都得达标，再看系统守住这条线，最多能扛住多少个智能体。 这套约束有个名字，叫服务等级目标（SLO）。 这套标准还分了几档，从每秒20个token的够用档，到每秒180个token的飞快档，每一档单独测一遍最大并发，对应市面上真实存在的几种服务水平。 服务等级目标（SLO）如何卡住最大并发。绿点是达标区，一旦并发堆高、速度跌破门槛，对应的并发上限就是这套系统的成绩。 它还做了一件别的基准不太敢做的事，把厂商在生产里真会开的优化全都放开。 KV cache复用、推测解码、把预填充和解码拆开部署，这些以前常被...",
+          "hb": 1
+        },
+        {
+          "t": "周报 | 欧洲量子第一股IQM正式敲钟纳斯达克；谷歌量子AI等在量子处理器上首次观测无无序局域化......",
+          "d": "2026-07-04",
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "欧洲量子计算公司IQM完成业务合并后，正式以代码“IQMX”在纳斯达克全球精选市场挂牌交易，成为首家在美大型交易所上市的欧洲量子硬件开发商，募资3.37亿欧元用于加速商业推广。此外，谷歌量子AI团队及合作者在量子处理器上首次观测到无无序局域化现象，通过构建量子线路有效降低了无序采样代价，相关成果发表于《Science》。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://mp.weixin.qq.com/s/-Iu_c_8eUaHSuOWONYdv_Q",
+          "tp": "量子企业上市",
+          "aip": 1,
+          "kp": [
+            "融资金额[IQM量子计算公司合并上市]: 3.37亿欧元（3.85亿美元）",
+            "技术路线[IQM量子处理器]: 全栈超导处理器"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "周报 | 欧洲量子第一股IQM正式敲钟纳斯达克；谷歌量子AI等在量子处理器上首次观测无无序局域化...... 原创 光子盒 光子盒 光子盒 IQM完成与RAAQ的业务合并，成为首家在美国大型交易所上市的欧洲量子计算公司 7月2日，在与Real Asset Acquisition Corp.正式完成业务合并后，IQM Quantum Computers正式在纳斯达克全球精选市场以代码“IQMX”开始首日公开交易。此次公开亮相标志着欧洲量子硬件开发商首次在美国主要证券交易所上市。在最终确定的3.37亿欧元（3.85亿美元）形式现金支持下，这家总部位于芬兰埃斯波的公司进入公开市场，立即准备流动资本，以扩大其垂直整合的供应链，加速其全栈超导处理器的商业推广。 来源： https://iqm.tech/press-releases/iqm-quantum-computers-becomes-first-european-quantum-computing-company-listed-on-a-major-u-s-exchange/ 谷歌量子AI等在量子处理器上首次观测无无序局域化 本研究构建了初始态为所有无序构型叠加的量子线路（在格点规范场论中视为规范扇区叠加），以降低量子多体无序系统中无序采样的代价。实验中，一、二维晶格均观测到无无序情况下的反常局域化：微扰被抑制扩散。但熵测量显示，叠加制备态与直接无序采样态存在根本差异。基于该叠加态，提出对无序构型采样具有多项式加速的算法，回应了多体局域化研究的长期难题。研究成果于7月2日发表于《Science》（科学）。 来源： https://www.science.org/doi/10.1126/science.adr9680 ###### **印度与美国深化半导体、人工智能和量子技术领域的合作** 6月28日，据INDIA TODAY报道，印度和美国正在加速在半导体、人工智能、量子技术和关键矿产领域的合作。印度官方官员指出，双边合作正从政策框架迈向实质性项目，私营企业将在推动上述底层技术商业化落地中发挥不可或缺的核心作用。在政府建立赋能框架的基础上，两国未来将重点依托产业界在资源拓展、创新执行与投资上的主导能力，共同打造安全、韧性的全球深科技供应链。 来源： https://www.indiatoday.in/world/story/india-us-private-sector-ai-semiconductor-quantum-critical-minerals-partnership-ptag-2935831-2026-06-28 NSA物理科学实验室与DEVCOM陆军研究办公室合作，启动QuantumEAGLe倡议 6月30日，国家安全局（NSA）物理科学实验室（LPS）与美国陆军作战能力发展司令部（DEVCOM）陆军研究办公室（ARO）合作，宣布启动量子生态系统推进、增长与领导力（QuantumEAGLe）倡议，以支持总统的量子行政命令。该倡议旨在加速美国量子计算生态发展，巩固其在全球前沿技术领域的领导地位。该计划聚焦五大核心环节：深化产业协同、制定商业落地路线图、强化量子核心硬件供应链、开发具量子优势及容错纠错能力的算法，以及攻坚量子比特性能等底层基础研究。 来源： https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4529557/nsa-devcom-army-research-office-launch-quantumeagle-initiative/ NIST与SRI扩大合作，建立量子制造工程中心 6月29日，SRI宣布将通过扩大与NIST的合作建立量子制造工程中心，以助力美国量子零部件和系统的生产规模化。该中心最初将聚焦于与低温恒温器、激光器、量子芯片、集成光子电路、标准、质量控制及国内供应链相关的制造挑战。SRI表示，QMEC将与量子公司、供应商和终端用户合作，开展以里程碑为驱动的项目，旨在使关键量子元件能够大规模制造。 来源： https://www.nist.gov/news-events/news/2026/06/nist-launches-center-drive-manufacture-quantum-technologies WiMi宣布探索神经网络，用于双场量子密钥分布优化 6月29日，WiMiHologram正在研究利用神经网络模型优化双场量子密钥分布（TF-QKD）系统中的参数选择，旨在减少计算时间并提升系统性能。公司评估了三种机器学习模型——BPNN、RBFNN和GRNN，发现RBFNN和GRNN在高维参数空间中预测准确率更高，而BP...",
           "hb": 1
         }
       ]
@@ -169,74 +188,79 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国研制车载电磁弹射系统，实现无跑道发射无人机",
-        "沃尔沃首款A30 Electric电动铰接式自卸卡车正式投入作业",
-        "特高压天津南站投运国内首套变压器故障主动防御装置"
+        "中科院等离子体所研制出全球最大核聚变磁体，运行电流达98千安",
+        "研究提出无金属催化氢化新路线，产物可有效抑制耐药菌株",
+        "新式温敏响应窗户系统问世，利用流体形变实现动态遮阳"
       ],
       "entries": [
         {
-          "t": "中国车载电磁弹射器可发射攻击型无人机",
+          "t": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步",
           "d": "2026-07-04",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航空",
-          "as": "中国展示了新型车载电磁弹射系统，可在无跑道条件下发射攻击型无人机。该模块化弹射装置安装在卡车平台上，通过电磁力将无人机加速至起飞速度，大幅降低了无人机作战对固定跑道设施的依赖，拓展了前线战术无人机快速部署的灵活性。",
-          "sc": 7.9,
-          "i": "news",
+          "a": "世界先进制造技术论坛",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "中国科学院等离子体物理研究所成功验收全球最大核聚变超导磁体，核心技术100%国产化。该磁体长21米、重582吨，体积与储能分别为国际热核聚变实验堆ITER同型号磁体的1.3倍和3倍。其运行电流达98千安，中心磁场6.5特斯拉，最高磁场达14.5特斯拉。该磁体用于在极低温与强辐射极端条件下产生磁场约束上亿度等离子体，需稳定运行60年，历时6年完成研制。",
+          "sc": 9.3,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://interestingengineering.com/military/china-truck-mounted-electromagnetic-catapult-drones",
-          "tp": "电磁弹射无人机",
+          "u": "https://mp.weixin.qq.com/s/16ey35WN0vgN_AI6Kyx6Jg",
+          "tp": "核聚变磁体",
           "aip": 1,
           "kp": [
-            "[电磁弹射]: 模块化集装箱式部署无人机"
+            "技术状态[核聚变堆关键超导磁体]: 核心技术全部实现100%国产化",
+            "尺寸参数[全球最大聚变堆超导磁体]: 长21米、宽12米、高3.3米",
+            "重量参数[全球最大聚变堆超导磁体]: 582吨",
+            "相对体积[对比ITER同型号磁体]: 1.3倍",
+            "相对储能[对比ITER同型号磁体]: 3倍"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "China has showcased what may be one of its most innovative unmanned warfare concepts yet, according to reports. The modular, and containerized electromagnetic aircraft launch system is capable of deploying drones from almost any suitable location.\nThe system was recently demonstrated in a footage shared by the Beijing Institute of Technology’s (BIT) school of mechanical engineering. The weapon highlights Beijing’s growing emphasis on mobility, dispersion and rapid deployment as it modernises the People’s Liberation Army (PLA).\nUnlike conventional drone launch facilities that depend on permanent runways or dedicated airfields, China’s new system is mounted on standard eight-wheeled trucks carrying container-sized modules. During the demonstration, three trucks were aligned and mechanically connected to form a continuous launch platform. An electromagnetic catapult then accelerated a fixed-wing propeller drone to take-off speed before releasing it into flight.\nThe concept is based on modularity. Individual launch sections can be transported independently by road, rail or ship and assembled quickly wherever operations demand. This makes the system significantly more flexible than traditional fixed installations and could allow the PLA to disperse drone-launch\ncapabilities\nacross multiple locations, making them harder to detect and target.\nAccording to the developer, the aircraft catapult is only one member of a larger family of containerized military systems. Similar modules could reportedly accommodate missile launchers, radar units, electronic warfare equipment, command-and-control centres or logistics support packages. Standard container dimensions also enable civilian transportation infrastructure to move military assets with relative ease, improving operational flexibility,\nSuch an approach mirrors a broader trend in modern warfare, where mobility and concealment have become as important as firepower. Containerized systems can blend into commercial transport networks, complicating enemy surveillance and targeting efforts.\nThe launcher employs electromagnetic aircraft launch technology, commonly known as EMALS, which accelerates aircraft without using rockets or steam-powered catapults. Compared with conventional launch methods, electromagnetic systems provide smoother acceleration, reduced mechanical stress on aircraft and greater flexibility in handling drones of different sizes and weights.\n“Assembling a mobile electromagnetic catapult with a few trucks allows for launch capabilities from virtually anywhere, eliminating the need for even a standard road,”\nFu Qianshao, a mainland military analyst.\nChina has already incorporated EMALS aboard its newest naval platforms, including the Type 076 amphibious assault ship Sichuan, widely described as a future\ncarrier. The appearance of a mobile land-based version suggests the technology is expanding beyond naval operations.\nThe growing emphasis on mobile drone launch systems reflects lessons drawn from conflicts in Ukraine and the Middle East, where unmanned aircraft have become central to intelligence gathering, long-range strikes and battlefield surveillance. Fixed airbases have increasingly become vulnerable to missile attacks, forcing militaries to seek dispersed alternatives.\nA truck-mounted launcher could enable rapid deployment from highways, temporary airstrips or remote locations, reducing reliance on permanent infrastructure while maintaining operational tempo. Analysts believe such flexibility could prove valuable in any future high-intensity conflict where conventional airfields are under constant threat.\nIf fielded in significant numbers, containerized launch systems could complicate an adversary’s planning. Instead of targeting a limited number of known airbases, opponents would need to locate numerous mobile launch sites capable of appearing with little warning.\nThe modular design also fits China’s broader military strategy of distributed operations, where combat assets are spread across multiple locations to enhance survivability. Combined with long-range\n, electronic warfare systems and missile launchers housed in similar containers, the concept could create highly adaptable battlefield networks.\nHowever, questions remain regarding deployment speed, logistical requirements, power generation for electromagnetic launches and vulnerability to electronic warfare or precision strikes. Operational effectiveness will ultimately depend on how well these systems integrate with the PLA’s wider command-and-control architecture.\nMore from Military\nUS Navy’s 7,640-ton fast-attack nuclear submarine retires after 35 years of service\nNew surveillance software combines thermal imaging to detect military threats faster\nUS Army expands Arctic fleet with 19 new tracked vehicles for frozen battlefields\nUS firm starts building Navy’s next destroyer that can conduct anti-submarine ops\nUS Navy tests 3D-printed composite patches to speed up F/A-18 fighter jet repairs\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nPrabhat, an alumnus of the Indian Institute of Mass Communication, is a tech and defense journalist. While he enjoys writing on modern weapons and emerging tech, he has also reported on global politics and business. He has been previously associated with well-known media houses, including the International Business Times (Singapore Edition) and ANI.\nUS Navy's 7,640-ton fast-attack nuclear submarine retires after 35 years of service\nWatch: From laundry to making your bed, Isaac 1 humanoid robot is ready for house chores\n99% pure lithium extraction became possible with US scientists' new electrochemical method\nUS revives domestic uranium enrichment through $1.07 billion nuclear fuel push\n9 GWh sodium-ion battery agreement aims to slash diesel use at remote mining sites",
+          "b": "中国人造太阳再创纪录，全球最大核聚变磁体通过验收，离无限能源又近一大步 原创 小艾 小艾 世界先进制造技术论坛 2026年6月27日，中国科学院合肥物质科学研究院等离子体物理研究所传出一个重磅消息。 **两套核聚变堆关键超导磁体——环向场超导磁体和高温超导中心螺管线圈，同时完成验收和测试，核心技术全部实现100%国产化**。 消息一出，整个能源圈都震动了。资本市场反应更快——**核聚变概念股盘中直接掀起了涨停潮**。 这个磁体到底有多大？长21米、宽12米、高3.3米，总重量582吨。**相当于400辆家用轿车摞在一起的重量**。 它是目前**全球尺寸最大的聚变堆超导磁体**，体积是国际热核聚变实验堆ITER同型号磁体的**1.3倍**，储能达到它的**3倍**。 说白了，**别人还在造小号的，中国直接造了个超大杯**。 **一、这个“大磁铁”到底是干什么的？** 很多人可能不了解，核聚变需要把氘和氚加热到**上亿摄氏度**。这么高的温度，任何材料都扛不住，一碰就化了。 那怎么办？**用磁场把它托起来**。 超导磁体通电后产生极强的磁场，像一个**无形的“磁笼”** ，把上亿度的等离子体牢牢约束在真空腔体里，不让它碰到容器壁。 环向场磁体就是干这个活的——**负责构建环向磁场，约束等离子体，减少高能粒子对器壁的冲击**。 这个磁体的参数有多猛？ **运行电流98千安，总储能120吉焦，16个磁体协同工作，能在装置中心产生6.5特斯拉的磁场，最高磁场达到14.5特斯拉**。 6.5特斯拉是什么概念？**地球磁场只有0.00005特斯拉左右**。这个磁体产生的磁场，是地球磁场的**十几万倍**。 而且这套磁体要在**极低温、大电流、强辐射、高应力**的极端条件下，**稳定运行60年**。 **二、历时六年，全链条国产化** 这个项目**整整搞了6年**——从设计、预研、研制到测试，一步一步啃下来的。 中国科学院合肥物质院等离子体所所长宋云涛说了一句话让人印象深刻： **“这个线圈是目前世界上重量最大、储能最高的全超导线圈。我们用的特种不锈钢、绝缘材料、超导材料全部是国产的。”** **全部国产，没有一个零件是靠别人的**。 项目一共**申请授权专利47项，制定标准14项**。 更厉害的是，**同一天完成测试的高温超导中心螺管线圈**，同样实现了完全国产化。 这个线圈是**紧凑型聚变能实验装置（BEST）的核心部件之一**，作用是感应和驱动等离子体电流，动态调节等离子体的约束形态。 它的额定运行电流是**46.5千安**，是EAST装置中心螺管运行电流的**6倍**。 实测数据显示，线圈**稳定载流60千安，储能6.03兆焦**，核心性能达到**国际领先水平**。 等离子体所副所长秦经刚说得很直接： **“中心螺管磁体的性能，直接决定聚变装置能否点得着、稳得住。”** **三、中国在核聚变领域到底什么水平？** **实话实说——已经是全球第一梯队，部分领域在领跑**。 之前大家熟悉的EAST（东方超环），已经**多次打破世界纪录**。 2023年4月，EAST实现**403秒稳态高约束模式等离子体运行**。2025年1月，又完成了**1亿摄氏度1000秒的“高质量燃烧”** 。2026年1月，又证实了**托卡马克密度自由区的存在**，找到了突破密度极限的方法。 **从2021年的101秒，到2025年的1000秒，短短几年翻了10倍**。 而这次超导磁体的突破，相当于给“人造太阳”**装上了全世界最强的心脏**。 有了这颗“心脏”，接下来的实验只会更快、更猛。 **四、全球格局正在发生变化** 过去几十年，可控核聚变基本是“**永远还要50年**”的学界笑谈。 但这两年，**情况彻底变了**。 全球近40个国家都在推进聚变计划。投资主要集中在**两个中心——美国和中国**。美国投资占比约53%，中国占比34%。 中国在专利数量上**全球领先**，创新机构数量占比约42%。当然也有短板——**99%的专利集中在本土，而美国企业垄断了大部分高价值专利**。 但**中国有一个美国比不了的优势——大规模工程建设的经验和高效的执行能力**。 这次582吨的超导磁体，从设计到验收只用了6年。这种速度，放在全世界都找不出第二家。 **五、产业正在加速，钱正在涌进来** 核聚变已经被写入国家 **“十五五”规划纲要**，被列入**未来产业重点方向**。 2025年，国务院国资委正式将核聚变纳入 **“未来产业十大工程”** ，**2030年前计划投入超3000亿元**，平均每年投资超600亿元。 产业层面也在加速。 2026年1月，**星环聚能完成10亿元A轮融资**，刷新了国内民营聚变企业单笔融资纪录。 6月30日，**合肥星核聚变完成8.3亿元...",
           "hb": 1
         },
         {
-          "t": "首款沃尔沃A30 Electric铰接式自卸卡车投入作业",
+          "t": "Nat. Synth.：无金属催化抑菌！",
           "d": "2026-07-04",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "沃尔沃建筑设备公司（Volvo CE）推出的首款电动铰接式运输卡车A30 Electric已正式投入作业。该车型于去年Bauma工程机械展上首次发布，标志着重型建筑机械电动化的重要里程碑。电动铰接卡车在矿山、采石场及大型工地等场景中可实现零排放运营，降低运营成本的同时减少噪音污染，体现了工程机械行业向电气化转型的加速趋势。",
-          "sc": 7.8,
+          "a": "催化视界",
+          "c": "通用技术/催化剂",
+          "as": "Nature Synthesis发表的研究提出一种无金属催化氢化紫精的新路线。该反应使用甲酸/DMF体系在140°C左右进行，甲酸同时作为氢源和还原推动力，将双吡啶鎓骨架选择性氢化为哌啶衍生物。该技术无需H2压力和贵金属催化剂，适用于小分子、大环、共价有机框架（COF）和金属有机框架（MOF）等多种结构。测试表明，部分氢化产物对革兰氏阳性菌和耐药菌株具有明显的抑制作用。",
+          "sc": 7.5,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/07/03/first-ever-volvo-a30-electric-articulated-haul-trucks-get-to-work/",
-          "tp": "电动铰接卡车",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/qMwgTff96JtuEPNIMieNEQ",
+          "tp": "无金属催化氢化",
           "aip": 1,
           "kp": [
-            "载重[Volvo电动铰接卡车]: 30吨",
-            "应用[A30Electric]: 首批客户实际部署"
+            "反应温度[无金属催化氢化紫精]: 140 °C左右",
+            "反应体系[无金属催化氢化紫精]: 甲酸/DMF体系",
+            "氢源[无金属催化紫精氢化]: 甲酸（同时释放CO2推动还原）",
+            "[无金属催化]: 不需要H2压力和贵金属，产物具自发结晶特性并带来细菌抑制活性"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "| Jul 3 2026 - 5:31 am PT\nVolvo CE announced its first-ever electric articulated haul truck at last year’s Bauma construction expo\n; less than a year later, the first examples of Volvo’s new A30 Electric are in customers’ hands, doing real work.\nNorwegian contractor Leonhard Nilsen & Sønner AS became the first customer to deploy Volvo’s new, 30-ton A30 Electric articulated haul trucks,\nputting them to work at the Hafslund hydropower project and highlighting the fact that zero-emission equipment assets can support more sustainable infrastructure and energy production\n“We are proud to have secured the first A30 Electric haulers for LNS and the Hemsil 3 project, and we look forward to putting them to work,” says Steffen Solstrand Ludvigsen, Project Site Manager at LNS. “The project is a strong fit for this type of machine. We’ll be working in tunnels with blasting cycles, which allow time for charging between runs. That makes electric haulers particularly well suited to the work here.”\nSet to be completed in 2029,\nthe Hafslund hydro project is expected to generate more than 100 GWh of renewable electricity each year\n– and, by leaning into zero emission equipment options like Volvo’s, will have a relatively low sunk carbon cost at the outset.\n“Hafslund has a strong environmental focus and takes a forward-leaning approach to electrifying construction operations on our projects,” explains Lars Oust, Project Manager at Hafslund Kraft. “To succeed in the green transition, we need to adopt new technology and take the lead as a client, driving demand for this type of equipment. That’s why being the first in the world to use electric haulers is so important to us.”\nThe two Volvo A30 Electric models will be put to work first in the construction of 20 km long tunnel\n(~12.5 miles), where their zero-emission running will also help to keep the project’s workers safe in the the hydro plant’s enclosed, underground spaces.\nAs a truck, the new Volvo A30 Electric offers a 29 tonne (~64,000 lbs.) payload capacity and promises a “full day” of operation on a single charge of its 245 kWh li-ion battery pack. Motivation is provided by a 350 kW (~470 hp) electric motor, with power going through a torque-amplifying gear reduction gearbox. Depending on how you do the math, peak “at the wheel” torque numbers are well over 200,000 lb-ft – more than enough, in other words, to match the performance of diesel and\nenough to have a measurable impact on the rotational speed of the planet.\nLet us know what you think of the big articulated Volvo in the comments.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "b": "Nat. Synth.：无金属催化抑菌！ 催化视界 紫精是可逆氧化还原和超分子材料中的经典结构，但把双吡啶鎓骨架选择性氢化到哌啶衍生物通常依赖 H2 和贵金属催化剂。对于带电、易配位、结构多样的底物来说，金属残留、过氢化和后处理都会限制材料级应用。 这篇 Nature Synthesis 工作提供了一条很干净的替代路线：用甲酸/DMF 体系在无金属条件下氢化紫精，得到 4-(piperidin-4-yl)-3-piperideine 型产物。反应不仅覆盖小分子，还能延伸到大环、笼状结构、共价有机框架和金属有机框架，并进一步带来细菌抑制活性。 成果简介 作者的核心发现是，甲酸既提供氢源，也通过放出 CO2 推动还原过程；DMF 与甲酸形成合适的反应介质，使带正电的紫精盐能够在 140 °C 左右转化。反应产物往往会自发结晶，这让分离、结构解析和材料构筑变得更直接。 与经典金属氢化不同，这条路线不需要 H2 压力，也不依赖 Pt 或 Rh。对于含多个吡啶鎓单元的分子和框架材料，避免金属催化剂尤其重要，因为金属位点可能被底物强吸附、被框架孔道排斥，或在后续生物测试中引入干扰。 机制上，反应与 Eschweiler-Clarke 和 Lukeš 还原有相似逻辑：甲酸参与氢转移并脱羧，吡啶鎓环逐步从芳香阳离子转向部分饱和的哌啶/哌啶烯结构。DFT 表明 1,2-氢转移和 1,4-氢转移的能垒竞争决定产物路径。 材料维度是本文的亮点之一。小分子紫精、双环芳烃、macrocycle、POF/MOF 前体都能进入这套还原-组装逻辑，说明反应不仅是一个底物范围表，而是把紫精的氧化还原骨架改造成新的饱和阳离子材料平台。 更有意思的是，产物对细菌表现出抑制作用。作者通过 MIC/MBC 测试表明，部分氢化后的紫精衍生物对革兰氏阳性菌和耐药菌株有活性，这把无金属合成、带电框架和抗菌材料三条线连在了一起。 这种功能转化说明，氢化并不是把紫精“去功能化”，而是在保留阳离子特征的同时改变疏水性、构象和膜相互作用。对材料化学来说，核心骨架的选择性饱和可能比简单接枝更直接。 研究亮点 甲酸/DMF 实现无金属紫精氢化，避免 H2 和贵金属催化剂。 底物覆盖小分子、大环、笼状结构、POF 和 MOF 等多级结构。 产物可自发结晶，并在 MIC/MBC 测试中表现出细菌抑制能力。 配图精析 图1 从金属氢化转向甲酸无金属氢化 图1把路线差异讲得很直观：过去需要 H2、Pt 或 Rh 催化剂，而本文用 HCOOH/DMF 在无金属条件下把紫精还原成哌啶衍生物。对复杂阳离子分子来说，这个替换不只是绿色化学口号，而是避免金属中毒、残留和孔道扩散限制的关键。 图2 多层级紫精体系都能被氢化 图2展示了底物范围和结构证据。不同链长、刚性骨架、大环和框架前体在反应后给出晶体、显微图和单晶结构，说明还原并没有把复杂超分子结构完全打散。很多产物直接析晶，也让作者能够用 SCXRD 看到哌啶化后的立体构型。 这张图值得细看的是“结构层级”的连续性：从单个双吡啶鎓到更大的环、笼和框架，反应处理的是同一种电子缺陷骨架。它提示紫精材料的后修饰可以不再局限于外侧取代基，而能直接改写核心芳香阳离子。 图3 机制类比指向甲酸氢转移 图3把本文反应放在 Eschweiler-Clarke 与 Lukeš 反应之间理解。共同点是甲酸相关的氢转移和脱羧，差别在于本文面对的是双吡啶鎓骨架，氢化后得到的不是简单烷基化胺，而是带可调阳离子和部分饱和环的材料单元。这个类比帮助读者把看似特殊的紫精氢化放回经典有机还原框架中。 图4 单吡啶鎓模型解释 1,2/1,4 路径竞争 图4用 DFT 计算单吡啶鎓模型的自由能面。1,2-氢转移和 1,4-氢转移会导向不同中间体，能垒差异决定哪条路径更容易积累。图中以 kcal mol\\-1 标出的台阶说明，甲酸并不是一次性给氢，而是通过连续氢转移和质子/电子重排把芳香环逐步拉出芳香稳定。 图5 苄基紫精的连续双环还原与抗菌入口 图5把计算扩展到苄基紫精的双环连续还原。第一只吡啶鎓环被还原后，第二只环的能量景观随电荷和构象重新调整，最终形成不对称但可分离的部分饱和产物。下方 MIC/MBC 表格紧接着出现，说明作者并没有停在机制计算，而是把这些新阳离子结构放进了生物活性测试。 从催化和材料角度看，这张图的价值在于把反应路径、产物结构和功能联系起来。若后续能系统调节 N-取代基、饱和程度和框架孔道，紫精氢化可能成为一类抗菌阳离子材料的后合成工具。 总结展望 这项工作打开了紫精后修饰的新窗口，但也留下几个需要继续验证的问题：甲酸/DMF 高温体系对更脆弱官能团的兼容性、框架材料放大后的孔道保持，以及氢化程度与抗菌选择性之间的定量关系。 对催化发现方向读者而言，本文最有启发的是...",
           "hb": 1
         },
         {
-          "t": "国内首套变压器故障主动防御装置投入跳闸运行--中国能源新闻网",
+          "t": "PNAS｜这扇窗越热越遮阳",
           "d": "2026-07-04",
-          "a": "中国电力新闻网-科技",
-          "c": "通用技术/通信和运输/电网技术/其它电网技术",
-          "as": "国内首套投入跳闸运行的变压器故障主动防御装置在特高压天津南变电站成功投运。该装置区别于传统事后保护,可在变压器故障演化早期主动识别隐患并触发跳闸隔离,实现从被动响应向主动防御的转变。其投运标志着我国在特高压电网关键设备状态感知与预测性保护技术上取得实质性突破。",
-          "sc": 7.4,
+          "a": "REAI Lab",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "PNAS发表的研究提出一种名为HISTEMI的窗户平台，利用流体黏性指进不稳定性实现温度自响应遮阳。该系统将低黏度吸光液体注入高黏度透明外相液体的1毫米厚夹层中，低温时流体分叉稀疏透光，高温时形态密集实现遮阳。该技术同时具备被动材料自响应和主动可调节特性，利用流体形态变化动态管理太阳能和热环境，为降低建筑温室气体排放和冷热负荷提供了新方案。",
+          "sc": 7.5,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://cpnn.com.cn/news/kj/202607/t20260703_1899603.html",
-          "tp": "变压器主动防御",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/SfenCSE6qN_QCeSH_V6Dhw",
+          "tp": "热致变色智能窗",
           "aip": 1,
           "kp": [
-            "[变压器防御]: 局放监测+继电保护融合",
-            "[应用场景]: 特高压天津南站首套投运"
+            "[智能响应材料]: 利用流体在玻璃夹层的不稳定性产生分叉花纹，实现热致遮阳（天冷透光，天热遮阳）"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "国内首套变压器故障主动防御装置投入跳闸运行--中国能源新闻网\n中电传媒股份有限公司主办\n国内首套变压器故障主动防御装置投入跳闸运行\n6月27日，国内首套投跳闸变压器故障主动防御装置在特高压天津南变电站成功投运，这标志着我国变压器故障主动防御原创技术取得从理论研究、实验探索到产业化应用落地的重大阶段性应用成果，实现电力安全防护领域关键技术突破。\n变压器作为电力传输与分配的核心枢纽，其安全稳定运行直接关系到电网可靠性、能源供应安全性和社会经济可持续发展。\n“变压器主动防御装置重点依托创新融合局放监测和继电保护技术原理，基于变压器局放信号，在放电较小时准确报警，在爆燃前正确跳闸，切断引发爆燃的能量来源，实现爆燃事后补救到事前预防的根本性转变。这就好比我们智能驾驶汽车的自动紧急刹车系统，当检测到危险信号时，系统就会主动刹车，及时避免发生碰撞。”提及变压器故障主动防御技术创新，国网华北分部生产技术部高级工程师唐云鹏如数家珍。\n“要实现投跳闸关键一步，需要充分证明装置达到高可靠保护装置设计要求，制定安装、调试、传动、运维等多个实施方案，确保装置安全可靠运行。大家克服困难，对装置进行整体升级，并引入双套双冗余设计，提升硬件可靠性，同时还系统升级保护策略算法。”国网冀北电科院高电压与电力电子研究所副所长郝震说。\n据了解，主动防御装置聚焦新能源富集区与高负荷电网片区，选取特高压变电站或大型新能源电站扩大挂网试运行范围。目前已有33套装置试用3年，在180多万次的各类干扰下未发生过一次误动，充分证明装置达到保护级别的防误动水平；同时，在特高压变压器、换流变真实故障试验等共计171次与实际故障一致的试验中，装置都能精准正确动作，保护级别的防拒动能力也得到了充分验证。\n据电力行业权威专家评审鉴定，该项目成果的整体技术达到国际领先水平，主动防御装置具备可靠的正确动作能力和有效的防拒动、防误动能力，达到非电量保护装置设计要求，为变压器防爆燃提供了开创性解决方案。\n目前，该技术获评国家能源局“全国电力可靠性管理突出成果”，已通过专利许可模式完成成果转化，适配110千伏及以上电压等级的各类变压器设备。\n“面向未来，我们将继续深耕变压器、电抗器、换流变等大型充油设备安全防护领域，加速主动防御装置的产业化落地与市场推广，持续推动技术迭代升级，让更多创新成果服务于新型电力系统建设，用科技之光点亮万家灯火。”国网华北分部副主任李庆海表示。（\n“十四五”能源高质量发展\n锌离子混合设备储能密度达同类产品七倍\n快速化成工艺破解锂电池瓶颈\n国内首套煤矿专用地面压裂撬装装备研发成功\n我国又一特种机型重型燃机控制系统实现自主可控\n机器学习筛选出两种新型超导材料\n太阳能反应器在户外将废塑料转化为燃料\n世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用\n水下机器人为海底电缆盖上“沙被”",
+          "b": "PNAS｜这扇窗越热越遮阳 REAI Lab REAI Lab REAI Lab 这扇窗越热越会遮阳 夏天的窗户，有时候像一块诚实的麻烦。 太阳从玻璃外面推门进来，空调在里面拼命往回拉。玻璃本身很安静，几乎不表态。它要么透光，要么贴膜，要么靠电致变色、百叶、遮阳帘来改变脾气。真正辛苦的，还是后面的空调、风机和电表。PNAS 这篇论文做了一件有点反直觉的事：研究团队没有把流体里的不稳定性当成缺陷压下去，而是把它放进窗户，让一团液体在玻璃夹层里长出分叉花纹。天冷时，它长得更散，窗户更透；天热时，它长得更圆、更密，窗户更遮阳。 这不是一块单纯“会变色”的玻璃。它更像一扇带着流体记忆的窗，既能被温度自己触发，也能通过注入速度改掉自己的响应曲线。 建筑的冷热负荷已经是一个沉重账本。论文开头给出的背景数字很直接：全球供暖和制冷负荷约占温室气体排放的 15%，并可能到本世纪中叶翻倍。真正难的地方在于，主动系统可调但耗能，被动材料省能但脾气固定。空调像一个能调的机器，热致变色窗像一个省心但不太听话的材料。 这篇论文试图把两边接起来。 这张图展示了 HISTEMI 的基本思路。低黏度、吸光的有色液体被注入高黏度、透明的外相液体中，在 1 毫米厚的窗体夹层里形成黏性指进花纹。左侧是温度改变流体黏度和分叉形态，右侧是它同时获得“材料自响应”和“用户可调节”的空间。论文把这个平台叫 HISTEMI，全名是 Homeostatic Interface for Solar and Thermal Environmental Management using Instability。名字很长，机制却可以从一个很老的流体现象说起。 1958 年，Saffman 和 Taylor 研究过一种后来被称为“黏性指进”的不稳定性。当一种低黏度流体被推进高黏度流体里，界面常常不会保持一个圆滑边界，而会裂出手指一样的分叉。做油藏驱替、涂布、微流控的人，经常想办法压住它，因为它会让界面失控。 这篇论文反过来问：如果分叉不是失控，而是传感器呢？ 窗户夹层里放两种液体。内相是吸光的水-甘油-食用色素混合液，外相是透明矿物油。温度变化时，两种液体的黏度变化幅度不同。冷的时候，黏度差更大，界面更容易长出细密分叉；热的时候，黏度差缩小，界面更稳定，吸光液体铺得更圆、更密。 于是，花纹本身就变成了遮阳开关。 这张图是论文的核心证据之一。4°C、24°C、48°C 下，同样的注入过程会长出不同形态：低温时分叉更强，高温时界面更接近圆形。论文测得，在 4-48°C 范围内，平均指宽增加约 200%，内外半径比增加约 66%。 这里最有趣的地方，不在于图案漂亮，而在于图案和热量方向相反。 冷的时候，室内需要太阳多进来。此时液体长出更多分叉，吸光液体覆盖不那么密，窗户透过率更高。热的时候，室内需要太阳少进来。此时液体界面更稳定，吸光区域更完整，窗户透过率下降。论文把这称为负反馈。热量越想进来，窗户越会把自己变暗；室外越冷，窗户越愿意把光放进来。 实验数字把这个直觉压实了。论文在 1 毫米间隙窗体中，以 4 mL/min 的注入流量测试。高温下，吸光液体更接近完整圆形覆盖；当面板温度高于 40°C，最终透过率低于 0.07。低温下，分叉降低覆盖密度；当面板温度低于 10°C，透过率高于 0.5。 一块玻璃突然有了类似恒温动物的动作。热了收紧入口，冷了放开入口。 这张图把花纹、透光率和室内温度连在一起。高温花纹让透光率下降，照射后的室内温度趋向更低平衡；低温花纹让透光率更高，室内获得更多太阳热。右侧还显示了注入-回抽循环中的可重复性。 热致变色窗并不新。问题在于，很多被动窗材料的响应曲线一旦由材料组成决定，就很难让用户按需求改它。住宅、办公室、温室、实验室对“舒服温度”的理解并不一样，同一栋建筑白天、晚上、冬天、夏天也不一样。 HISTEMI 的第二个动作，是把“材料脾气”变成可调参数。 在这套系统里，花纹不只受温度影响，也受注入流速、注入体积、液体储存位置影响。改变流速，就像给窗户换一条反馈轨道；改变有色液体在注入前接触的是室外温度还是室内温度，也会改变两相黏度差，进而改变花纹形态。这就把它从一块固定响应材料，推向一个低能耗但可编程的建筑界面。它不必像空调那样用大量能量搬运热，也不必像普通热致变色窗那样只有一条写死的曲线。它可以在“被动省能”和“主动可调”之间走一条中间路。论文还做了建筑模拟。研究团队用波士顿一个参考办公室模型，比较了严格被动热致变色窗、严格主动 HVAC 系统，以及 HISTEMI 的表现。 这张图展示了模拟办公室、太阳得热系数随温度和流速变化、冬夏季温控偏差、HVAC 能耗以及效率-可调性空间。论文给出的判断是，HISTEMI 的能效接近被动系统，可调性接近主动系统；在示例...",
           "hb": 1
         }
       ]

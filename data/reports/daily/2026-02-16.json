@@ -6,19 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院物理所开发微米锡负极配方以单壁碳纳米管抑制膨胀粉化",
-      "研究人员利用电场驱动竞争配位机制提升层状氧化物正极循环寿命",
-      "双分子异空间共钝化策略制备无甲胺宽带隙钙钛矿提升叠层电池开路电压"
+      "新型半液态锂硫电池解决固液相变问题，理论能量密度达2500 Wh/kg。",
+      "中科院物理所开发微米锡负极，配比单壁碳纳米管抑制材料膨胀粉化。",
+      "胡勇胜团队确立钠电池微米锡负极工艺，单壁碳纳米管最佳添加量为2wt%。"
     ],
-    "AI与智能科技": [
-      "科研团队构建三维Ag2Se热电网络实现多物理信号自供电感知",
-      "研究观测到金属型θ相氮化钽单晶具备高热导率与导电性",
-      "物理所开发可规模化微米锡负极以碳纳米管网络缓解团聚膨胀"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "新方法结合快魔角旋转核磁共振技术高分辨率探测单原子配位结构",
-      "中科院提出碳纳米管网络配方控制比例以阻碍钠合金化进程",
-      "新策略协同钝化钙钛矿表面界面缺陷抑制非辐射复合现象"
+      "机器学习优化二氧化碳激光烧蚀技术，制备出应变达400%的超全疏材料。"
     ]
   },
   "sectors": [
@@ -26,18 +20,41 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院物理所开发微米锡负极配方以单壁碳纳米管抑制膨胀粉化",
-        "研究人员利用电场驱动竞争配位机制提升层状氧化物正极循环寿命",
-        "双分子异空间共钝化策略制备无甲胺宽带隙钙钛矿提升叠层电池开路电压"
+        "新型半液态锂硫电池解决固液相变问题，理论能量密度达2500 Wh/kg。",
+        "中科院物理所开发微米锡负极，配比单壁碳纳米管抑制材料膨胀粉化。",
+        "胡勇胜团队确立钠电池微米锡负极工艺，单壁碳纳米管最佳添加量为2wt%。"
       ],
       "entries": [
         {
+          "t": "用于大规模储能的半液态锂硫电池",
+          "d": "2026-02-16",
+          "a": "Nature Reviews Clean Technology",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "半液态锂硫电池因其多电子氧化还原反应、2500 Wh kg–1的高理论能量密度和成本效益成为大规模储能的重要技术。现有挑战在于可溶性液态中间产物的形成及固态硫的不可控沉淀影响循环稳定性。将可溶性硫化物作为正极活性材料的半液态锂硫电池设计，解决了不可逆的固-液-固相变问题，为可再生能源系统提供了可靠储能支撑。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s44359-026-00147-4",
+          "tp": "半液态锂硫电池",
+          "aip": 1,
+          "kp": [
+            "理论能量密度[锂硫电池]: 2500 Wh/kg",
+            "[多电子氧化还原反应]: 高理论能量密度且具有成本效益",
+            "[半液态锂硫电池]: 面临可溶性液态中间产物形成等重大挑战"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Reliable access to electricity from renewable sources such as wind and solar underpins the green economy, and energy storage is an essential component of this system. Among various energy storage technologies, lithium–sulfur (Li–S) batteries have attracted interest due to their multielectron redox reactions, high theoretical energy density (2,500 Wh kg–1) and cost-effectiveness. However, major challenges in realizing their potential lie in the formation of soluble liquid intermediates and uncontrolled precipitation of solid sulfur species, impairing long-term cycling stability. In this Review, we discuss the development of semi-liquid Li–S batteries with soluble sulfur species as cathode active materials (catholytes), which can resolve the irreversible solid–liquid–solid phase transitions that affect conventional Li–S systems. In both static and redox-flow configurations, the attainable energy density of semi-liquid Li–S batteries is governed primarily by the solubility and utilization of active sulfur species in non-aqueous catholytes. Rational optimization of the catholyte composition, electrode substrates and cell architectures is therefore required to balance sulfur utilization, mass transport and device-level constraints. Continued advances in improving sulfur solubility in catholytes and reducing system complexity and cost will be critical for translating semi-liquid Li–S batteries into scalable technologies for large-scale energy storage.",
+          "hb": 1
+        },
+        {
           "t": "物理所胡勇胜报道一种具有单壁碳纳米管和粘结剂网络的微米锡负极可缓解团聚及膨胀粉化问题",
           "d": "2026-02-16",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "中科院物理所胡勇胜团队设计可规模化生产的微米级锡负极，以微米锡粉、单壁碳纳米管（SWCNTs）、CMC粘结剂按92:2:6比例制备。SWCNT自发吸附锡颗粒表面降低表面张力，抑制冷焊团聚，与粘结剂交联形成3D导电网络连接膨胀后的锡颗粒，并促进形成以NaF和有机成分为主的柔性SEI膜。微米锡较纳米锡比表面积更小、压实密度更高、成本更低。但SWCNT含量过高（4wt%）会致网络过密阻碍钠合金化，需控制最佳比例。",
-          "sc": 6.8,
+          "sc": 7.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41560-026-01974-2",
@@ -51,48 +68,22 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 赫姆霍兹面电场驱动的离子-分子竞争配位实现高压高倍率性能",
+          "t": "物理所胡勇胜报道一种具有单壁碳纳米管和粘结剂网络的微米锡负极可缓解团聚及膨胀粉化问题",
           "d": "2026-02-16",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "通过电场驱动的离子-分子竞争配位机制增强层状氧化物正极（LOC）与电解液之间的界面稳定性。在锂电池运行过程中，正极-电解液界面降解是限制电池寿命的关键瓶颈。该策略利用外加电场调控界面配位化学，抑制有害副反应，有望显著提升高能量密度层状氧化物正极的循环寿命和界面耐久性。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21008",
-          "tp": "钠电池高压界面",
+          "as": "中科院物理所胡勇胜团队设计可规模化生产的微米级锡负极，以微米锡粉、单壁碳纳米管（SWCNTs）、CMC粘结剂按92:2:6比例制备。SWCNT自发吸附锡颗粒表面降低表面张力，抑制冷焊团聚，与粘结剂交联形成3D导电网络连接膨胀后的锡颗粒，并促进形成以NaF和有机成分为主的柔性SEI膜。微米锡较纳米锡比表面积更小、压实密度更高、成本更低。但SWCNT含量过高（4wt%）会致网络过密阻碍钠合金化，需控制最佳比例。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-01974-2",
+          "tp": "钠电锡负极",
           "aip": 1,
-          "kp": [
-            "[策略]: 电场驱动竞争性离子-分子配位",
-            "[应用]: 高压高温钠离子电池"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Enhancing the interfacial stability between layered oxide cathodes (LOCs) and the electrolyte is considered to be pivotal for sodium-ion batteries (SIBs). However, the critical challenges of electrolyte oxidation and cathode degradation driven by the interfacial electric field remain unsolved, particularly under high-voltage and high-temperature conditions. Herein, we harness the interfacial electric field to precisely steer the species adsorption and solvation structure configuration of the Helmholtz plane (HP) through the steric exclusion effects of cations and the competitive coordination of multiple anions, thereby tailoring the interfacial chemistry of LOCs. Under electric field activation, the synergistic effect of ionic-molecular adsorption and coordination facilitates the formation of a robust inorganic-rich cathode electrolyte interphase, equipped with a uniform thickness and low energy barrier for smooth Na<sup>+</sup> diffusion. These endow the O3-NaNi<sub>1/3</sub>Fe<sub>1/3</sub>Mn<sub>1/3</sub>O<sub>2</sub> cathode with an enhanced capacity retention of 73.5% after 250 cycles under extreme operating conditions of 4.5 V and 60 °C. Furthermore, the viability of HP engineering is proven in practical Ah-level pouch cells, showcasing 79.5% capacity retention after 80 cycles at 4.3 V and 60 °C. This work underscores the relevance of HP regulation and interfacial chemistry manipulated by the electric field, providing valuable insights into electrolyte engineering for SIBs.",
-          "hb": 1
-        },
-        {
-          "t": "双分子异空间共钝化实现高效无MA宽禁带钙钛矿用于全钙钛矿叠层太阳能电池",
-          "d": "2026-02-16",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "研究提出双分子异空间共钝化策略，制备高效无甲胺（MA-free）宽带隙钙钛矿，用于全钙钛矿叠层太阳能电池。该策略协同钝化钙钛矿表面和界面缺陷，抑制非辐射复合，显著提升宽带隙子电池的开路电压和稳定性，助力突破S-Q极限。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70755?af=R",
-          "tp": "钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "[策略]: 双分子异空间共钝化",
-            "材料[叠层电池]: 无MA宽禁带钙钛矿",
-            "应用[全钙钛矿叠层]: 突破S-Q极限"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    All‐perovskite tandem solar cells (AP‐TSCs) offer the potential to surpass the Shockley–Queisser (S–Q) limit of single‐junction perovskite solar cells (PSCs). Nevertheless, the wide‐bandgap (WBG) sub‐cells suffer from severe open‐circuit voltage (\n                    V\n                    OC\n                    ) losses induced by surface defects and energy‐level mismatch at the WBG perovskite/C\n                    60\n                    interface. Herein, we implemented a bimolecular passivation strategy by achieving hetero‐spatial distribution of piperazinium bromide (PipBr) and 3‐(methylthio) propylamine hydrobromide (3MTPABr) in the WBG perovskite surface layer. Pip\n                    +\n                    facilitates a reconstruction of the perovskite surface to form an anchored‐gradient passivation region, while 3MTPA\n                    +\n                    constructs an ultrathin low‐dimensional perovskite capping layer atop this reconstructed region. This thumbtack‐type spatial distribution of the two molecules effectively passivates surface defects and optimizes the energy‐level alignment at the perovskite/C\n                    60\n                    interface, achieving suppressed interfacial non‐radiative recombination, enhanced charge transport, and improved surface hydrophobicity. Consequently, single‐junction gas‐quenched MA‐free WBG (∼1.76 eV) PSCs achieve a power conversion efficiency (PCE) of 20.80% (with a certified value of 20.02%) and retain 91.1% of their initial PCE after 600 h of operation under 1.0 sun illumination, demonstrating the importance of spatial molecular distribution in WBG perovskite co‐passivation. Notably, the fabricated 2‐terminal AP‐TSC device attains a PCE of 28.34%, highlighting its considerable potential for AP‐TSC applications.",
+          "b": "用于钠离子电池的锡金属负极具有理论容量和压实密度高、可在空气环境中制备，与现有生产线兼容等优势；但循环过程中较大的体积变化导致颗粒逐渐粉化、浆料制备过程中团聚等问题则限制了其实际应用。\n近日，中科院物理所胡勇胜研究员团队设计了一种可规模化生产的微米级锡负极，其以微米锡粉、单壁碳纳米管（SWCNTs）、羧甲基纤维素钠（CMC）粘结剂为原料，按照92:2:6的质量比溶解在去离子水中进行搅拌混合，而后使用挤压涂布机将浆料均匀涂覆在铝箔上，在60℃干燥后使用5-10ton的压力进行辊压。其中微米锡相较于纳米锡具有更小的比表面积、更高的压实密度以及更低的成本；SWCNT可自发吸附在锡颗粒表面，降低表面张力，从而抑制其因莫氏硬度低（1.5）而发生的冷焊团聚，并可与粘结剂交联形成3D导电网络，连接膨胀后的锡颗粒；同时可促进形成以NaF和有机成分为主的柔性SEI膜，抑制不稳定的Na2CO3生成。但较高比例（4wt%）的SWCNT含量则可能会导致形成的SWCNT-CMC交联网络过于致密，使大量的微米锡颗粒被包覆而处于屏蔽状态，无法进行钠合金化；离子传输阻力也相对较大。\n测试结果表明（电解质均为1M NaPF6+二乙二醇二甲醚G2），由此制备的半电池在0.1 A g-1条件下容量达789.4 mAh g-1。使用Na[Cu1/9Ni2/9Fe1/3Mn1/3]O2正极的扣电初始放电容量为115.2 mAh g-1（基于正极容量）、首效82.6%、0.2 A g-1条件下循环350次容量保持率为82.2%。2.7Ah的软包电池在0.1A、1V-4.1V条件下能量密度超200Wh kg-1（453Wh L-1）；4C（8A，1.5-3.8V）电流下循环600次容量保持率约75%；在-20℃放电（室温充电，0.4A）时容量保持率达65.6%且稳定循环50圈；且验证了大规模浆料搅拌（无团聚）和连续涂布辊压的工艺可行性。文章于2026年2月16日发表在Nature Energy。",
           "hb": 1
         }
       ]
@@ -100,90 +91,38 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队构建三维Ag2Se热电网络实现多物理信号自供电感知",
-        "研究观测到金属型θ相氮化钽单晶具备高热导率与导电性",
-        "物理所开发可规模化微米锡负极以碳纳米管网络缓解团聚膨胀"
-      ],
-      "entries": [
-        {
-          "t": "三维Ag2Se热电网络推进多模态智能感知",
-          "d": "2026-02-16",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "研究提出一种三维Ag₂Se热电网络结构，将热电材料与多模态感知系统深度融合，推进具身智能发展。Ag₂Se作为兼具优异热电性能和柔性的材料，可同时感知温度梯度、机械压力等多种物理信号，为软体机器人和可穿戴设备提供自供电多模态传感方案。该工作展示了热电材料在智能感知领域的跨界潜力，是材料科学与具身AI交叉的前沿探索。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506640?af=R",
-          "tp": "热电感知网络",
-          "aip": 1,
-          "kp": [
-            "材料体系[热电网络]: 三维Ag2Se",
-            "[器件特点]: 单片集成多模态感知",
-            "应用[具身AI]: 多模态感知与物理交互"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Embodied artificial intelligence (Embodied AI) depends on the integration of multimodal sensing and physical interaction to achieve autonomous perception and adaptive control in complex environments. However, conventional multimodal sensing systems often rely on separate sensors for each physical stimulus, leading to integration challenges and signal interference. Here, we report a monolithic bimodal sensor based on a 3D Ag\n                    2\n                    Se thermoelectric network that enables simultaneous and decoupled detection of temperature and pressure within a single device. The sensor demonstrates a high temperature sensitivity of −122.7 µV K\n                    −1\n                    with a fast response time of ∼0.14 s, and a high pressure sensitivity of −2.94% kPa\n                    −1\n                    with a fast response time of about 0.08 s, indicating excellent signal isolation between the two sensing channels. When combined with deep learning, the sensor enables a real‐time intelligent sorting system that achieves 96% recognition accuracy across nine materials, outperforming single‐mode sensing approaches. This work provides an integrated multimodal sensing solution that advances the deployment of embodied AI in complex environments.",
-          "hb": 1
-        },
-        {
-          "t": "金属型θ-TaN单晶的高热导率",
-          "d": "2026-02-16",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "随着集成电路集成度持续攀升，金属互连层既要高效供电又需有效散热，热导率成为关键性能指标。本研究在金属型θ相氮化钽(θ-TaN)单晶中观测到高热导率，该材料兼具良好的导电性与优异的导热能力，明显优于当前主流互连材料。这一发现为先进节点互连与热管理方案提供了新的候选材料，有望缓解高功耗芯片的热瓶颈问题。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag106/8483893?rss=1",
-          "tp": "氮化钽高导热",
-          "aip": 1,
-          "kp": [
-            "热导率[θ-TaN单晶]: 突破400 W/m·K金属上限",
-            "[合成方法]: 高压合成六方θ-TaN",
-            "[材料类型]: 金属性六方氮化钽单晶"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Metallic materials are critical in integrated circuits as they not only deliver power but also dissipate heat. However, their performance is constrained as metals’ thermal conductivity is capped with a value of about 400 W m-1 K-1. Here, we shatter this long-standing ceiling by high-pressure synthesis of the metallic hexagonal tantalum mononitride (θ",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新方法结合快魔角旋转核磁共振技术高分辨率探测单原子配位结构",
-        "中科院提出碳纳米管网络配方控制比例以阻碍钠合金化进程",
-        "新策略协同钝化钙钛矿表面界面缺陷抑制非辐射复合现象"
+        "机器学习优化二氧化碳激光烧蚀技术，制备出应变达400%的超全疏材料。"
       ],
       "entries": [
         {
-          "t": "[ASAP] 利用快速魔角旋转NMR聚焦顺磁性单原子位点研究",
+          "t": "通过机器学习引导的激光烧蚀实现超可拉伸的超全疏表面",
           "d": "2026-02-16",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "结合宽带快魔角旋转（fast MAS）核磁共振（NMR）技术，提出了一种表征材料中顺磁性单原子位点的新方法。顺磁性单原子催化剂因其独特的催化活性备受关注，但其局域结构的精确表征一直是难题。该快MAS NMR方法能够在高分辨率下探测顺磁中心的化学环境与配位结构，为深入理解单原子催化剂的活性起源和反应机制提供了重要的分析工具。",
-          "sc": 6.9,
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究开发了一种简单、可扩展且无溶剂的二氧化碳激光烧蚀技术，用于制造超可拉伸的超全疏表面。结合机器学习框架，该技术直接锁定了最优的激光烧蚀条件，避免了繁琐的试错实验。最终制造出的表面在400%的应变和超过5000次拉伸-释放循环等多种形变模式下，均能稳定保持超全疏特性。",
+          "sc": 7.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c20153",
-          "tp": "核磁共振表征",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00653-8?rss=yes",
+          "tp": "超可拉伸表面",
           "aip": 1,
           "kp": [
-            "表征技术[顺磁单原子位点]: 快速魔角旋转NMR",
-            "[方法]: 结合ab initio相关波函数计算",
-            "[模型体系]: Fe@PCN-224 MOF"
+            "拉伸应变[超可拉伸超全疏表面]: 400%",
+            "循环次数[超全疏性保持]: 5000+次拉伸-释放循环",
+            "加工工艺[超全疏表面制备]: 无溶剂CO2激光烧蚀技术",
+            "[机器学习]: 用于在无需大量试错的情况下识别最佳激光烧蚀条件"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A new approach for characterizing paramagnetic sites in materials is introduced. It combines broadband fast magic-angle spinning (MAS) NMR data with <i>ab initio</i> computed paramagnetic NMR shifts using correlated wave functions. This study presents a challenging example of this. With Fe coordinated in a model compound, the PCN-224 porphyrin metal-organic framework (Fe@PCN-224 MOF) was used to elucidate the coordination geometry and electronic structure using <sup>1</sup>H and <sup>13</sup>C MAS NMR spectra of the ligand atoms. The computationally predicted <sup>13</sup>C NMR shifts on the paramagnetic Fe@PCN-224 MOF compared unprecedentedly well with experimental <sup>13</sup>C NMR shifts and equally well for the diamagnetic counterpart, the Fe-free PCN-224 MOF. This is despite the 25 times wider NMR shift range of 1200 ppm for the paramagnetic Fe@PCN-224 MOF. We conclude that this approach is applicable to crystalline, noncrystalline, and molecular systems.",
+          "b": "We developed a simple, scalable, and solvent-free CO2 laser ablation technique to fabricate ultra-stretchable superomniphobic surfaces. Since laser-material interactions are highly complex, we used a machine learning framework to identify the optimal laser ablation conditions without extensive trial-and-error experimentation. The resulting surfaces can retain superomniphobicity in multiple deformation modes, including 400% strain and 5,000+ stretch-release cycles.",
           "hb": 1
         }
       ]

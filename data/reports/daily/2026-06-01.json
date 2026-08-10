@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "英国海事联盟验证全球首个浮动氢能中心，实现船舶离网制氢储氢与供电",
-      "斯坦福大学鲍哲南团队解析锂金属电池SEI时空化学偏析机制",
-      "中科院青岛能源所揭示EMC不可逆分解致双离子电池石墨正极开裂机理"
+      "天合光能量产设计907瓦叠层组件，全面板转换效率达29.2%",
+      "广东储能系统中标价降至0.973元/Wh，1MWh项目年净收益达25.3万",
+      "中科院青岛能源所探明双离子电池石墨正极剥离系溶剂不可逆分解所致"
     ],
     "AI与智能科技": [
-      "华东师大吴健团队实现无额外功率下超快激光非线性光学相互作用增强20倍",
-      "软银宣布将向法国人工智能数据中心投资最高750亿欧元",
-      "麻省理工学院将新建量子研究实验室，获马萨诸塞州最高2500万美元资助"
+      "全球首个侵入式脑机接口芯片获批临床试验，截瘫患者已恢复书写功能",
+      "DNA折纸纳米片实现活体神经元跨膜离子传输，净电导约2 nS",
+      "2025年全国数据生产总量达52.26泽字节，智能算力规模增至159万PFlops"
     ],
     "通用技术": [
-      "SpaceX获美国太空军价值40亿美元发射服务与航天能力支持合同",
-      "科研人员在透射电镜下利用电子束实现胸腺嘧啶二聚体单晶裂分反应精准控制",
-      "科研团队揭示电荷密度波与超导交织体系中的超导电流耦合机制"
+      "硅宝科技单壁碳纳米管单台设备产能达10吨级，采用等离子体浮游法工艺",
+      "2026年4月全国核发可交易绿证1.77亿个，单独交易均价为4.63元/个",
+      "研究构建电场诱导MXene膜，通过通道塑性收缩实现锂镁离子有效分离"
     ]
   },
   "sectors": [
@@ -26,63 +26,70 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "英国海事联盟验证全球首个浮动氢能中心，实现船舶离网制氢储氢与供电",
-        "斯坦福大学鲍哲南团队解析锂金属电池SEI时空化学偏析机制",
-        "中科院青岛能源所揭示EMC不可逆分解致双离子电池石墨正极开裂机理"
+        "天合光能量产设计907瓦叠层组件，全面板转换效率达29.2%",
+        "广东储能系统中标价降至0.973元/Wh，1MWh项目年净收益达25.3万",
+        "中科院青岛能源所探明双离子电池石墨正极剥离系溶剂不可逆分解所致"
       ],
       "entries": [
         {
-          "t": "全球首个浮动氢能中心验证成功，实现船舶离网供电",
+          "t": "天合光能推出效率为 29.2% 的 907 W 串联太阳能组件 - pv magazine China",
           "d": "2026-06-01",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "由英国支持的海事联盟成功验证了一个\"世界首个\"离网独立氢能动力中心，用于为船舶提供动力。该氢能中心无需接入电网，通过现场制氢-储氢-发电为海上作业船舶供电，为零排放航运提供了创新解决方案。",
-          "sc": 9.0,
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中国光伏制造商天合光能发布了一款功率为907瓦的n型TOPCon-钙钛矿叠层太阳能组件。经德国TÜV SÜD测试，该组件实现了29.2%的全面板转换效率。该产品专为大规模量产设计而非实验室样品，采用双端叠层电池架构，将n型TOPCon晶体硅底电池与钙钛矿顶电池相结合，旨在更广泛地吸收太阳光谱。",
+          "sc": 9.1,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/energy/world-first-floating-hydrogen-hub",
-          "tp": "浮式氢能枢纽",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/06/01/trina-solar-announces-907-w-tandem-solar-module-with-29-2-efficiency/",
+          "tp": "天合串联组件",
           "aip": 1,
           "kp": [
-            "储能容量[浮式氢能枢纽]: 约45MWh",
-            "平台[浮式氢能枢纽]: 3模块六边形浮台约12900平方英尺"
+            "组件输出功率[n型TOPCon-钙钛矿叠层组件]: 907 W",
+            "全面板转换效率[n型TOPCon-钙钛矿叠层组件]: 29.2%",
+            "产品定位[n型TOPCon-钙钛矿叠层组件]: 面向大规模量产设计而非实验室规模"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A UK-backed maritime consortium has successfully validated a “world-first” grid-independent Hydrogen Power Hub designed to accelerate port decarbonization.\nAt the heart of the system are three modular hexagonal floating platforms spanning a combined footprint of nearly 12,900 square feet. The platforms integrate approximately 45MWh of battery energy storage, modular fuel cell systems, hydrogen-powered generation, onboard renewable energy sources, and advanced grid-forming AC/DC electrical architecture designed to deliver power directly to vessels.\nThe concept was validated through a six-month program under the UK Research and Innovation Clean Maritime Demonstrator Competition Round 6, conducted in partnership with the UK Shipping Office for Reducing Emissions. The effort included hydrodynamic, structural, electrical, and operational testing.\nThe partners say the project demonstrated that existing\n, battery, fuel-cell, and electrical technologies can be integrated into a modular floating system capable of supplying power to large ships at berth and deployed across ports worldwide.\nDesigned for large-scale maritime operations, the Hydrogen Power Hub can\nup to 5MW of continuous clean electricity directly to vessels at berth. The system supports both 6.6kV and 11kV shore power connections, providing enough capacity to serve medium-sized cruise ships and other power-intensive maritime assets.\nThe project is aimed at overcoming one of the biggest challenges in port decarbonization: access to reliable electrical infrastructure. Many ports still struggle to deploy shore power at scale because of limited grid capacity, lengthy utility connection timelines, space constraints, complex permitting requirements, and the high costs associated with conventional shore-side power installations.\nAccording to the consortium, the platform is capable of supplying approximately 91MWh of energy per week while supporting repeated vessel charging operations. The design is intended to minimize the need for major construction projects, land reclamation efforts, or costly upgrades to existing\ninfrastructure.\nTo support continuous operations, the platform consumes roughly 16,500 to 17,600 pounds of hydrogen per week, stored in modular, ISO-compatible low-pressure containers integrated into the floating structure. The approach is designed to simplify fuel\nwhile maintaining flexibility for different port environments.\nThe current configuration includes seven onboard hydrogen storage tanks, with refueling expected about twice per week. According to the project team, this setup allows ports to begin deploying hydrogen-powered shore power systems without first investing in permanent hydrogen infrastructure, potentially lowering barriers to adoption during the early stages of implementation.\nRather than depending on large generators, the system uses 1.3MW modular fuel cells to continuously charge onboard batteries, allowing energy to be rapidly delivered when ships connect at berth. It also integrates 146kW of onboard solar capacity, helping reduce hydrogen consumption.\nAdditional testing by the University of Strathclyde confirmed the platform’s stability, structural performance, motion characteristics, and multi-platform connectivity under different sea conditions, supporting its suitability for long-term\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Energy\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nNew US battery facility to produce 10,000-ton EV anode materials, reduce foreign dependence\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWorld’s largest tokamak cools 330-ton superconducting magnet for fusion plasma\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review",
+          "b": "Technology & Products\nThe module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD and is designed for mass production rather than laboratory-scale use.\nVincent Shaw\nTechnology & Products\nUtility-scale\nImagen: Trina Solar\nChinese PV manufacturer\nhas unveiled a 907 W n-type TOPCon-perovskite tandem solar module.\nAccording to the company, the module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD. The product is reportedly designed for mass production, rather than a laboratory-scale sample.\nThe module uses a two-terminal tandem cell architecture combining an n-type TOPCon crystalline silicon bottom device with a perovskite top cell. The design is intended to absorb a broader part of the solar spectrum than conventional single-junction silicon modules.\nThe module measures 2,384 mm by 1,303 mm and is based on 210 mm wafer technology. It incorporates large-area perovskite film deposition, tunnel recombination contact technology, and high-reliability encapsulation.\nThe company said its slot-die coating and vapor-assisted crystallization process improved film uniformity in large-area perovskite layers, while a composite indium tin oxide (ITO) tunneling layer wass used to reduce recombination losses between the top and bottom cells.\nThe panel also utilizes dual-layer co-extruded polyolefin elastomer (POE) encapsulation and a low water-vapor transmission backsheet, along with perovskite-specific sealing materials. According to Trinasolar, the product has passed International Electrotechnical Commission (IEC) 61215 and IEC 61730 reliability testing, including potential-induced degradation (PID), damp heat, thermal cycling, and ultraviolet (UV) aging tests.\nTrinasolar said it plans to accelerate production of its perovskite-silicon tandem module line in 2026, though large-scale commercial shipments are expected to begin in 2028–2029, according to a recent investor communication.\nIn December, the manufacturer announced that an industrial-scale tandem solar cell using a 210 mm half-cut format achieved a\ncertified power conversion efficiency of 32.6%\n, while a standard-size tandem module integrating the cells delivered a peak power output of 865 W. It said both results have been independently verified by European testing bodies and represent world-record performance for industrially relevant formats.\nTrina Solar said the latest results build on a series of tandem milestones reported over the past two years, including certified tandem modules exceeding 800 W and tandem cell efficiencies above 31% on industrial wafer formats. The company claimed it has now created or broken global benchmarks in solar cell efficiency or module power output 37 times.\nVincent Shaw\nView author posts",
           "hb": 1
         },
         {
-          "t": "斯坦福鲍哲南揭示锂金属电池多孔界面时空化学偏析新机制",
+          "t": "0.973元/Wh！广东储能系统价格跌到历史低位，现在装到底能赚多少？",
           "d": "2026-06-01",
-          "a": "",
+          "a": "索比光伏",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "斯坦福大学鲍哲南、崔屹团队利用X射线光电子能谱、纳米二次离子质谱、同步辐射等多尺度表征技术，系统解析锂金属电池SEI时空化学演化。将SEI分为铜基底界面、锂沉积界面和循环残留三类，揭示三维锂晶粒生长驱动界面组分时空偏析，锂剥离后固结形成多孔残留框架，可封存电解液衍生组分持续诱发副反应，建立了偏析-限域力化耦合理论框架。",
-          "sc": 7.4,
+          "as": "广东储能系统最新中标价跌至0.973元/Wh的历史低位，叠加珠三角全国第一的峰谷价差。以1MWh系统（总投资115万）为例，采用一天两充两放的最优策略，年净收益可达25.3万元，4.5年回本。结合需量费管控、光储联动等另外三条收益路径，整体收益还可提升30%~50%。",
+          "sc": 8.8,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1021/jacs.6c04430",
-          "tp": "锂负极界面",
+          "tg": "行业观察",
+          "u": "https://news.solarbe.com/202606/01/50023768.html",
+          "tp": "工商业储能收益",
           "aip": 1,
-          "kp": [],
-          "lv": 1,
+          "kp": [
+            "系统中标价[广东储能系统(深南电中山项目)]: 0.973元/Wh",
+            "最大峰谷价差[广东珠三角五市目录电价]: 1.1577元/kWh",
+            "总投资[1MWh含安装储能系统]: 约115万元",
+            "内部收益率(IRR)[保守做法(一充一放,净差价0.45元)]: 约6%~8%",
+            "内部收益率(IRR)[中性做法(一充一放,净差价0.58元)]: 约10%~12%"
+          ],
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "锂沉积 / 剥离过程中 SEI 的化学组分与空间结构演化机制尚不明确。斯坦福大学鲍哲南、崔屹院士等人依托DME/LiFSI电解液体系，结合X射线光电子能谱、纳米二次离子质谱、同步辐射X射线吸收光谱及扫描电镜等多尺度表征技术，系统解析了锂金属电池SEI的时空化学演化规律，揭示了多孔界面的形成新机制。\n研究团队将SEI精准划分为铜基底界面SEI、锂沉积界面SEI和循环残留SEI三类，证实三维锂晶粒生长会驱动界面组分发生时空化学偏析，使FSI阴离子分解生成的氟化锂等无机物种，与锂表面富氧相形成空间分离的异质结构。而锂剥离引发的晶粒收缩与晶间坍塌，会将偏析的无机组分压缩、固结，形成具备多孔结构的残留SEI框架。\n研究进一步发现，该多孔界面可封存电解液衍生组分，这类深埋物种无法被常规表面检测手段捕捉，却会持续诱发副反应、增加离子传输阻力。该研究建立了全新的“偏析-限域”力化耦合理论框架，厘清了SEI结构、组分与电池性能的关联，为优化电解液体系、调控界面结构、抑制锂金属负极失效、提升锂金属电池长效稳定性提供了全新的设计思路与理论支撑。文章于2026年6月1日发表在Journal of the American Chemical Society。",
+          "b": "装了储能赚不到钱，很多广东工厂老板有过这种感受。问题往往不是储能不行，而是账算错了——或者只算了一条收益，漏掉了另外三条。\n先看两个关键数字：2026年4月广东储能系统最新中标价0.973元/Wh(深南电中山项目)，比2022年锂价高峰时的约2.0元/Wh跌了超过50%;广东珠三角五市目录电价最大峰谷价差1.1577元/kWh(CNESA，2026年1月)，全国第一。\n储能成本历史低位、峰谷价差历史高位——两件事同时发生，这是广东近几年装储能最合算的时机。\n问题是，「最合算的时机」和「实际赚到钱」之间，还差一个正确的算法。\n同样一套1MWh储能系统，含安装总投资约115万元，在广东：\n保守做法(一充一放，净差价0.45元)：年净收益约10.4万元，回收期约11年，IRR约6%~8%\n中性做法(一充一放，净差价0.58元)：年净收益约15.1万元，回收期约7.6年，IRR约10%~12%\n最优做法(两充两放，广东可实现)：年净收益约25.3万元，回收期约4.5年，IRR约14%~18%\n从10.4万到25.3万，同一套设备差出来14.9万元/年，10年累计差出近150万——比系统本身还贵。差距完全来自充放策略的优化：广东的分时价格结构允许每天做两次充放(夜间低谷充→早高峰放，午间平段充→下午高峰放)，两充两放比一充一放年净收益多出67%。\n峰谷套利只是储能四条收益路径的第一条。另外三条——两部制用户的需量费管控(每降低100kW需量，年节省5~6万元)、光储联动增收(有光伏的业主把余电变成套利电)、辅助服务市场参与——往往被忽视，但叠加起来可以将整体收益提升30%~50%。\n索比光伏网对广东工商业储能的完整收益图谱、三情景精确测算、广东充放电策略时段说明、五类最合算的企业类型，逐一拆解。\n以下为报告节选，完整版扫码获取",
           "hb": 1
         },
         {
           "t": "青岛能源所崔光磊发现共嵌入溶剂的不可逆分解造成双离子电池石墨正极剥离的机理",
           "d": "2026-06-01",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
           "as": "中科院青岛能源所崔光磊团队通过原位拉曼光谱和原位光学显微技术结合有限元模拟与DFT计算，发现双离子电池石墨正极剥离的真正原因并非体积膨胀，而是共插层溶剂EMC在4.9V以上的不可逆氧化分解。实验显示EMC在4.9V达最大插层量后迅速分解产生气泡导致电极开裂，阐明了无机盐离子液体体系中体积膨胀却几乎无剥离的矛盾。",
-          "sc": 7.4,
+          "sc": 7.6,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1002/aenm.71132",
-          "tp": "双离子电池",
+          "tp": "双离子正极剥离",
           "aip": 1,
           "kp": [],
           "lv": 1,
@@ -97,70 +104,79 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "华东师大吴健团队实现无额外功率下超快激光非线性光学相互作用增强20倍",
-        "软银宣布将向法国人工智能数据中心投资最高750亿欧元",
-        "麻省理工学院将新建量子研究实验室，获马萨诸塞州最高2500万美元资助"
+        "全球首个侵入式脑机接口芯片获批临床试验，截瘫患者已恢复书写功能",
+        "DNA折纸纳米片实现活体神经元跨膜离子传输，净电导约2 nS",
+        "2025年全国数据生产总量达52.26泽字节，智能算力规模增至159万PFlops"
       ],
       "entries": [
         {
-          "t": "中国团队无需额外功率即可实现20倍激光交互增强",
+          "t": "中国已批准世界上第一个侵入式脑机芯片——下一步是什么",
           "d": "2026-06-01",
-          "a": "interesting engineering",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "华东师范大学吴健团队利用明亮压缩真空（一种量子光），在不增加总激光功率的情况下，将超快激光相互作用的非线性光学过程增强了20倍以上。该突破有望催生更安全、更精确的高强度光学系统，对量子光学和精密测量具有重要意义。",
-          "sc": 7.2,
+          "a": "MIT Technology Review",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "中国已批准全球首个侵入式脑机接口芯片进入人体试验。一位因车祸颈下高位截瘫6年的39岁患者，在植入该脑机接口并经过11个月康复训练后，成功通过意念控制手臂握笔写出自己的名字。这项技术使他恢复了原本无法活动的手指功能，能够重新进行书写。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.technologyreview.com/2026/06/01/1138133/china-world-first-brain-chip/",
+          "tp": "侵入式脑机接口",
+          "aip": 1,
+          "kp": [
+            "[侵入式脑机芯片]: 中国已批准世界首个此类芯片",
+            "[康复训练效果]: 颈部以下瘫痪患者经11个月植入康复后实现握笔写字"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "EXECUTIVE SUMMARY\nOne day last October, sitting in the courtyard of his house in China’s Henan province, Dong Hui decided to see if he could hold a pen to write.\nDong, 39, had sustained spinal cord injuries in a car accident six years earlier that left him paralyzed from the neck down. Slowly but determinedly, he wrote his name, “Thank you,” and then the date. This was the result of an 11-month-long rehabilitation enabled by an implant in his brain. Before that process, Dong could move his arms slightly but wasn’t able to use his fingers.\n“I couldn’t believe I was able to write again. I was so excited I even missed a stroke in my name,” he told\nMIT Technology Review\non a video call.\nIn November 2024, Dong became one of the first people in China to be given an invasive brain-computer interface (BCI) through brain surgery. He had signed up for a clinical trial with the device’s developer one month after seeing on TV how a BCI had apparently enabled another paralyzed Chinese man to hold his granddaughter.\nThis March, the implant Dong uses became the first invasive BCI product in the world to be approved for use beyond clinical trials. It’s now available to some patients with paralysis in their limbs due to spinal cord injuries. We spoke to a range of experts to understand why the device was able to reach this global milestone, what makes this moment so significant, and what to expect next.\nDong’s brain implant is a coin-size device called NEO. It was developed by\nNeuracle Technology\n, a Shanghai-based startup, together with researchers at Tsinghua University in Beijing.\nDuring a procedure that took just over an hour and a half, the device’s sensors, which collect Dong’s brain signals, were placed on his dura mater, the tough outer layer of tissue that covers and protects the brain. The signals are transmitted to a computer by an implant placed on Dong’s skull. The computer then translates the signals into commands for a soft robotic glove Dong wears during the 2.5-hour training sessions he completes each day to help him learn to grab.\nDong started his rehabilitation around a week after surgery. “On the ninth day of my training, my right hand successfully grabbed a ball without the glove,” he says. “That was a miraculous moment.”\nNow he continues with his training at home. He wants to be able to control his hands better in order to put on clothes, eat, and do other daily tasks without troubling his aging parents.\nA growing number of people with traumatic injuries in China are now poised to tread a similar path thanks to NEO’s recent approval. According to China’s National Medical Products Administration, the bureau responsible for drug supervision, the product is suitable for patients between 18 and 60 who have paralysis in all limbs due to spinal cord injuries but still have some residual function in their arms.\nNEO beat several other BCIs to approval, including one from Neuralink, a California-based company founded by Elon Musk. Since October 2023, Neuracle has conducted 36 clinical trials using NEO, including the one on Dong. Thirty-two of them took place in the space of a few months in 2025, with the details about one of the four first in-person trials published in a\npreprint paper\nlast July. Neuracle did not reply to a request for comment from\nMIT Technology Review\nOne reason for NEO’s fast approval could be that it has a “relatively less invasive” design than counterparts such as Neuralink’s N1 brain chip, says Avinash Singh, a BCI researcher at the University of Technology Sydney. NEO’s eight sensors sit on top of the brain’s protective membrane while Neuralink’s N1 chip directly penetrates the cortex, the outermost layer of the brain itself. Neuracle’s device faces fewer regulatory constraints because it presents a lower risk of hemorrhage, glial scarring, and long-term signal degradation, Singh says.\nChina’s strong support for its BCI industry also means that NEO was put on an expedited regulatory pathway; in comparison, the approval process of the US Food and Drug Administration can take several years, Singh adds.\nNEO’s approval is hugely important for the global BCI industry, says Wang Shouyan, a neuroscientist at Fudan University in Shanghai who was not involved in research or trialing for NEO. Even though research and development on BCIs has taken place for several decades, most of it happened in the lab. The news means that BCIs are now ready for large-scale manufacturing and clinical use in China, Wang says.\nFor Dong, however, it means something much more personal. “Now, it will be able to help not only me, but also thousands and thousands of other patients suffering from spinal cord injuries in China who are tortured by despair each day,” he says of NEO. “It will bring them hope and change their lives.”\nDays after NEO was approved, China started incorporating it into the country’s health insurance system by assigning it a unique code. This is one of the first steps toward a future where eligible Chinese patients pay a certain percentage of the BCI’s price if they need it during their treatment.\nThe growth of China’s BCI industry is expected to accelerate thanks to the government’s policy support and financial backing. The country’s latest five-year plan, published on the same day Neuracle received its approval, lists BCI as one of six key industries important to China’s future tech competitiveness, alongside quantum technology, humanoid robots, and others. Several Chinese startups, including NeuroXess and StairMed, have already worked in the field for many years.\n“China’s decision to double down on becoming a global leader in the field owes in part to what these companies have already accomplished,” says Meicen Sun, an information scientist at the University of Illinois Urbana-Champaign who studies information and technology policy.\nBut, Sun says, the biggest advantage China may have is that Chinese people, particularly patients like Dong, tend to welcome this technology and are genuinely enthusiastic about it. In comparison, in the US and Western Europe, testing technologies on human bodies elicits an “ick factor,” triggering concerns and even resistance, she says.\nNEO has become the world’s first invasive BCI to go commercial, but scientists interviewed by\nMIT Technology Review\ncaution against comparing Chinese and US efforts through the\nlens of a race\nA race implies an endpoint, but it is hard to say where that is for the development of BCIs, says Nick Ramsey, a neuroscientist at Radboud University Nijmegen in the Netherlands. Also, the US and China have fundamentally different visions, Sun says. The US is primarily concerned with being the first to do something and achieving state-of-the-art performance, while winning to China means capturing more consumers and using technology to deliver solutions on a societal scale.\n“Being exceptional and being accessible are two diametrically opposed definitions of winning,” Sun says.\nIn fact, neurotechnology has emerged as a rare tech sector where US-China collaboration is still happening despite geopolitical tensions. The US company Axoft,  based in Cambridge, Massachusetts, says it has teamed up with a Chinese company and a hospital in Shanghai to test its BCI on four patients in China and has plans to expand its trials in the country.\nLooking forward, China’s BCI industry is expected to speed up its growth over the next five years thanks to strong government support. “There is no comparable national-level ambition or coordinated map elsewhere in the world at the moment,” says Singh.\nMore BCIs are also in the pipeline for domestic approval in the country, including\n, developed by the Chinese Institute for Brain Research in Beijing and its affiliated startup, NeuCyber NeuroTech. The device, which sits on the dura mater, is designed to help those who have movement and speech difficulties due to spinal cord injuries or amyotrophic lateral sclerosis. These candidates could get the green light as early as 2028, Singh says.\nSynthetic biologists were tantalized by the idea of making mirror images of microbes. Then things got complicated.\nIn an early step towards artificial wombs, a biotech company claims it’s developed a “fully artificial” chicken egg.\nAnd why health experts believe it can be contained.\nAutomation, AI, and screening technologies are already transforming reproductive medicine.\nIllustration by Rose Wong\nDiscover special offers, top stories,\nupcoming events, and more.",
+          "hb": 1
+        },
+        {
+          "t": "DNA 切片上的细胞内神经元记录",
+          "d": "2026-06-01",
+          "a": "Nature Nanotechnology",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "本文利用DNA折纸纳米片（直径0.8纳米）锚定在活体神经元细胞膜上，实现了生物混合电子学中高度稳定的跨膜离子传输（净电导约2 nS）。该人工离子通道表现出类似天然通道的随机开闭特性，在不破坏神经元生理功能的前提下实现了细胞内药物递送。结合膜片钳技术，研究成功获取了可重复的跨DNA纳米片细胞内电压测量数据，为神经接口技术提供了新途径。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://interestingengineering.com/innovation/chinese-physicists-achieve-20x-laser-boost",
-          "tp": "量子光增强",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Chinese researchers have reportedly demonstrated a new way to dramatically enhance ultrafast laser interactions without increasing overall laser power. Their findings could potentially open the door to safer and more precise high-intensity optical systems.\nIn a study published in\n, researchers led by Jian Wu at East China Normal University made the discovery using a form of quantum light known as bright squeezed vacuum.\nUsing this, they boosted a key nonlinear optical process by more than 20 times compared to a conventional laser pulse carrying the same average energy.\nAccording to the team, their work tackles one of the biggest limitations in modern laser physics.\nAt present, many\nadvanced optical effects\nrely on nonlinear interactions, where multiple photons interact with matter almost simultaneously. This is critical for various fields ranging from attosecond (10\nseconds) physics to high harmonic generation and ultrafast imaging.\nThe problem is that nonlinear effects usually require extremely intense laser pulses, which can damage the very materials or systems being studied.\nInstead of increasing laser power, the team altered the statistical behavior of the light itself. Unlike standard laser light, where photons arrive at a relatively steady rate, bright squeezed vacuum produces extreme fluctuations in photon density.\nThis creates short-lived bursts of very high instantaneous intensity even when the overall average energy remains modest. That distinction proved crucial.\nTo test the idea,\nthe researchers\nused the quantum light source to trigger tunneling ionization in sodium atoms. In this process, a sufficiently intense electromagnetic field distorts the atom’s potential barrier so strongly that an electron can effectively tunnel out through quantum mechanical effects.\nThe team found that a bright squeezed vacuum pulse containing just 300 nanojoules of average energy produced the same nonlinear ionization effect as a conventional laser pulse with more than 20 times the effective intensity.\nImportantly, the enhancement came without increasing average power, reducing the risk of thermal or structural damage.\nThe researchers also demonstrated that they could tune the interaction strength by modifying the quantum statistical properties of the light, rather than altering pulse energy itself.\nTraditionally, stronger nonlinear effects have required progressively more powerful lasers. This work suggests that carefully engineered quantum fluctuations may achieve similar results with far lower energy costs.\nThe findings could prove especially important for attosecond science, a field focused on observing electron dynamics over timescales measured in billionths of a billionth of a second.\nAttosecond experiments typically require extreme laser intensities, often pushing materials and optical components close to their damage limits.\nThe study also highlights a broader trend in optics and quantum engineering. Rather than treating quantum fluctuations as noise to be minimized, physicists are increasingly exploring ways to use them as functional tools.\nWhile the approach remains highly experimental, the results suggest that the quantum statistical properties of light may become just as important as raw laser power in future generations of ultrafast optical technology.\nYou can view the study or yourself in the journal\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Innovation\nUS scientists’ new quantum lab targets next-generation computing breakthroughs\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles\nUS scientists’ new quantum lab targets next-generation computing breakthroughs\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles",
-          "hb": 1
-        },
-        {
-          "t": "软银将向法国AI数据中心投资最高750亿欧元",
-          "d": "2026-06-01",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "软银宣布将在法国投资最高750亿欧元，建设人工智能数据中心。此举标志着软银在欧洲AI基础设施领域的最大规模押注，旨在满足大模型训练与推理对算力和电力日益增长的需求。法国凭借低碳核电网和欧盟政策支持成为吸引投资的关键因素。该计划有望推动欧洲AI算力自主化，但也面临能源供给、审批周期与地缘政治等多重挑战。",
-          "sc": 6.6,
-          "i": "news",
-          "tg": "资本运作",
-          "u": "https://www.theinformation.com/briefings/softbank-invest-75-billion-euros-ai-data-centers-france",
-          "tp": "AI数据中心投资",
+          "u": "https://www.nature.com/articles/s41565-026-02180-7",
+          "tp": "DNA神经元记录",
           "aip": 1,
           "kp": [
-            "[投资额]: 最高750亿欧元"
+            "离子电导[DNA折纸离子通道]: 约2 nS",
+            "尺寸[DNA折 片]: 0.8 nm",
+            "细胞内记录[活神经元]: 高度稳定的离子传输与随机性"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Softbank to Invest Up To 75 Billion Euros on AI Data Centers in France — The Information Read this briefing for free",
+          "b": "Transmembrane ionic flow through artificial ion channels is integral to the development of biohybrid electronics, such as neural interface technologies. However, achieving accurate and stable intracellular access through these synthetic analogues has remained a challenge. Here we use DNA origami tiles (0.8 nm diameter), anchored into live neuronal membranes, both with and without cholesterol tags, to demonstrate highly stable ion transport (net ~2 nS), channel-like stochasticity and intracellular drug delivery without disrupting neuronal physiology. These results are supported by molecular dynamics simulations. Using a suite of patch-clamp techniques, including two-photon-targeted variants, we obtain repeatable intracellular and quasi-intracellular voltage measurements across DNA tiles, eliminating the need for membrane break-in even from thin dendritic structures (~1 µm), which are inaccessible with standard electrodes. This advancement establishes an ‘outside looking in’ method to probe intracellular voltage dynamics using DNA nanostructure-based transmembrane access.",
           "hb": 1
         },
         {
-          "t": "美国科学家新建量子实验室瞄准未来计算突破",
+          "t": "2025年我国数据生产总量约占全球27%",
           "d": "2026-06-01",
-          "a": "interesting engineering",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "麻省理工学院将新建量子研究实验室，马萨诸塞州政府承诺最高2500万美元投资，旨在突破未来量子计算关键技术。该设施将聚焦量子比特相干性提升、量子纠错和量子互连等核心难题，推动美国在量子计算、量子传感和量子通信领域的国际竞争力，被视为争夺量子技术制高点的重要布局。",
-          "sc": 6.4,
+          "a": "新华网科技",
+          "c": "AI与智能科技/AI硬件层/计算集群",
+          "as": "《全国数据资源调查报告（2025年）》显示，2025年全国数据生产总量达52.26泽字节，同比增长27.28%，占全球约27.44%。企业是数据生产主力，具身智能、低空经济等新兴领域数据增速显著。截至2025年底，全国智能算力规模达159万PFlops。用于AI训练和推理的数据总量为199.48艾字节，其中推理数据量首超训练数据量，高质量数据集数量超11万个。",
+          "sc": 7.7,
           "i": "n",
-          "tg": "政策监管",
-          "u": "https://interestingengineering.com/innovation/us-scientists-quantum-lab-computing-breakthroughs",
-          "tp": "量子计算",
+          "tg": "行业观察",
+          "u": "https://www.news.cn/tech/20260601/b573c9be5852405c82d52e3e719403d6/c.html",
+          "tp": "算力数据增长",
           "aip": 1,
           "kp": [
-            "投资额[MIT量子实验室]: 2500万美元"
+            "数据生产总量[2025年全国年度]: 52.26泽字节",
+            "同比增长[2025年全国数据生产总量]: 27.28%",
+            "全球占比[2025年我国数据生产总量]: 约27.44%",
+            "同比增长[具身智能数据生产量]: 477.78%",
+            "同比增长[低空经济数据生产量]: 75%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Massachusetts will invest up to $25 million in a new quantum research facility at the Massachusetts Institute of Technology (MIT), a move state officials say will strengthen the region’s position in one of the world’s most competitive emerging technologies.\nGovernor Maura Healey announced the funding commitment for MIT’s planned Quantum Systems Laboratory (QSL), a facility expected to support advanced quantum computing and sensing research while creating hundreds of jobs and expanding training opportunities for future scientists and engineers.\nThe state funding will serve as matching funds to leverage federal and private investment in the project, which will be located at the center of MIT’s Cambridge campus.\nQuantum technology is widely viewed as one of the next major frontiers in computing. Researchers believe future quantum systems could eventually tackle certain calculations far beyond the reach of today’s most powerful supercomputers, with potential applications spanning drug discovery, advanced materials, logistics, cybersecurity, defense, and artificial intelligence.\nAccording to\nMassachusetts state officials\nand MIT, the Quantum Systems Laboratory will function as a shared-use facility that brings together researchers from academia, government, and industry to work on next-generation quantum technologies.\nOne of the facility’s goals is to advance the emerging field of quantum-enhanced sensing, which leverages quantum-mechanical effects to improve measurement precision. Such technologies could eventually find applications in navigation, medical imaging, environmental monitoring, and national security.\nThe laboratory is also expected to support the development of standardized interfaces for quantum hardware, enabling external researchers and commercial partners to test sensors and other components on a common research platform.\nOfficials described the concept as creating a “plug-and-play” environment for quantum technologies, potentially lowering barriers for startups and research groups developing new devices.\nMIT already hosts a growing quantum ecosystem that has produced companies such as QuEra and Atlantic Quantum, both of which are working to commercialize quantum technologies.\nThe announcement reflects a broader race among U.S. states and countries to attract\nquantum research\n, talent, and investment. Governments worldwide have committed billions of dollars to quantum initiatives over the past decade as the technology increasingly moves from laboratory experimentation toward commercial development.\nMassachusetts officials said the project is expected to support 164 full-time construction jobs and roughly 100 additional positions through suppliers and professional services during development. Once operational, the facility is projected to house approximately 220 permanent jobs.\nBeyond employment, state leaders emphasized workforce development as a key objective. MIT plans to expand its collaboration with the University of Massachusetts Boston through existing National Science Foundation-supported research programs focused on quantum sensing and\nAI-driven analysis\nof quantum systems. Future initiatives could include joint research projects, student training opportunities, and expanded partnerships with other public universities.\nThe investment also aligns with Massachusetts’ broader strategy of strengthening leadership in advanced technologies such as artificial intelligence, robotics,\nbiotechnology\n, and quantum computing.\nGreater Boston is already home to one of the world’s largest concentrations of quantum researchers, startups, venture capital firms, and research institutions. Supporters of the project argue that maintaining that advantage will require continued investment in specialized facilities, which are often too expensive for individual organizations to build on their own.\nThe state said funding for the project will come from the Commonwealth Federal Match and Debt Reduction Fund, which was created to attract federal investment and support economic development priorities.\nWhile large-scale practical quantum computers remain a work in progress, governments and technology companies increasingly view the field as a strategic industry that could shape future scientific discovery and economic competitiveness. With the new Quantum Systems Laboratory, Massachusetts is positioning itself to remain at the center of that effort.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nKaif Shaikh is a journalist and writer passionate about turning complex information into clear, impactful stories. His writing covers technology, sustainability, geopolitics, and occasionally fiction. A graduate in Journalism and Mass Communication, his work has appeared in the Times of India and beyond. After a near-fatal experience, Kaif began seeing both stories and silences differently. Outside work, he juggles far too many projects and passions, but always makes time to read, reflect, and hold onto the thread of wonder.\nNuclear fusion durability gets US breakthrough with first-ever hydrogen-uranium scan\nWarships to detect, track quiet submarines over long ranges with new high‑performance sonar\n8 ancient technologies that were far more advanced than we realized\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nMore from Innovation\nChinese physicists achieve 20x laser interaction boost without extra power using quantum tech\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles\nChinese physicists achieve 20x laser interaction boost without extra power using quantum tech\nUS firm validates quantum-secure communications over 1.2-mile free-space link\nMonolithic 3D silicon chips achieve near-perfect yields at low temperatures\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nStretchable hydrogel generator delivers stable power after 8,000 bending cycles",
+          "b": "2025年我国数据生产总量约占全球27%-新华网\n2025年我国数据生产总量约占全球27%\n2025年我国数据生产总量约占全球27%\n日前发布的《全国数据资源调查报告（2025年）》（以下简称《报告》）显示，2025年，全国年度数据生产总量达52.26泽字节，同比增长27.28%，增速较上年提升2.28个百分点。我国数据生产总量占全球约27.44%。\n《报告》显示，2025年，我国数据资源规模保持高速增长态势。从主体看，企业成为数据生产的主力，数据生产增量约九成来自企业数据。从行业和领域看，工业制造、交通物流、软件和信息技术服务业等行业数据生产量增幅较大，同比分别增长1.27泽字节、1.22泽字节、0.92泽字节。具身智能、低空经济等新兴领域数据生产量高速增长，增速分别为477.78%和75%。全国数据存储总量达2.53泽字节，同比增长21.05%。\n不仅如此，我国算力基础设施建设稳步推进。《报告》显示，“东数西算”工程全面实施，全国一体化算力网加快构建，智能算力供给水平稳步提升。截至2025年底，全国智能算力规模达159万PFlops（PFlops指每秒千万亿次浮点运算）。通用算力向智能算力的代际更替加速，成为支撑人工智能发展的关键基础设施。\n值得关注的是，数据赋能人工智能迈入规模化应用新阶段。调查显示，2025年，用于人工智能训练和推理的数据总量为199.48艾字节，同比增长42.86%。推理数据量达101.34艾字节，首超训练数据量。高质量数据集数量超11万个，规模超908拍字节，同比分别增长61.13%和142.58%。全年词元调用量约21100万亿，词元正成为人工智能的新度量衡。（记者/刘园园）\n智库报告阐释新时代淮河生态文明发展之路\n以创新破局 以实干提质 以服务惠民\n焦点丨禁烟标识成摆设，二手烟治理为何“禁而不止”\n6月“天象剧场”上新 火星合月等将亮相\n随笔丨理解“姆巴佩困境”\n记者手记丨土耳其如何控烟\n中东战地手记丨炮火阴影下的加沙儿童\nVlog丨与君同游灯火里 一夜鱼龙舞徽州\n2025年我国数据生产总量约占全球27%",
           "hb": 1
         }
       ]
@@ -169,73 +185,79 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "SpaceX获美国太空军价值40亿美元发射服务与航天能力支持合同",
-        "科研人员在透射电镜下利用电子束实现胸腺嘧啶二聚体单晶裂分反应精准控制",
-        "科研团队揭示电荷密度波与超导交织体系中的超导电流耦合机制"
+        "硅宝科技单壁碳纳米管单台设备产能达10吨级，采用等离子体浮游法工艺",
+        "2026年4月全国核发可交易绿证1.77亿个，单独交易均价为4.63元/个",
+        "研究构建电场诱导MXene膜，通过通道塑性收缩实现锂镁离子有效分离"
       ],
       "entries": [
         {
-          "t": "SpaceX获美国太空军40亿美元合同",
+          "t": "单壁碳纳米管产能达单台10吨级--中国能源新闻网",
           "d": "2026-06-01",
-          "a": "the information",
-          "c": "通用技术/通信和运输/航天",
-          "as": "SpaceX获得美国太空军一份价值40亿美元的合同，标志着商业航天公司在国防航天领域的地位进一步巩固。该合同涵盖SpaceX为美军提供发射服务和航天能力支持，体现了美国国防部将商业航天能力纳入国家安全航天体系的战略方向。此举也反映出在SpaceX可重复使用火箭技术显著降低发射成本的背景下，传统国防承包商（如ULA）在军事发射市场正面临越来越大的竞争压力。",
-          "sc": 6.4,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/spacex-awarded-4-billion-contract-u-s-space-force",
-          "tp": "航天发射合同",
-          "aip": 1,
-          "kp": [
-            "[合同金额]: 40亿美元"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "SpaceX Is Awarded $4 billion Contract with U.S. Space Force — The Information Read this briefing for free",
-          "hb": 1
-        },
-        {
-          "t": "在电子显微镜下控制化学反应：由电子束电离引发、电子转移介导放大的胸腺嘧啶二聚体单晶到单晶裂分",
-          "d": "2026-06-01",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "在电子显微镜下实现了对化学反应的精准控制：利用电子束电离引发胸腺嘧啶二聚体的单晶到单晶裂分反应，并通过电子转移介导机制实现信号放大。研究选取三种光二聚获得的胸腺嘧啶二聚体晶体，在透射电镜中实时观测辐射化学过程，为在原子尺度操控和观测化学反应提供了新方法。",
-          "sc": 6.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2592959?af=R",
-          "tp": "电镜控制化学反应",
-          "aip": 1,
-          "kp": [
-            "[反应]: 电子束引发胸腺嘧啶二聚体单晶分裂"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Three crystalline thymine dimers (TDs) obtained by solid‐state topochemical photodimerization were selected to explore radical ion‐initiated solid‐to‐solid splitting reactions when exposed to the high‐energy beam of an electron microscope. While samples of\n                    cis\n                    ‐\n                    syn\n                    ‐thymine dimer (\n                    c,s\n                    ‐TD) were available from a previous study, samples of\n                    cis\n                    ‐\n                    syn\n                    ‐N,N‐dimethyl‐thymine dimer (\n                    c\n                    ,\n                    s\n                    ‐TD‐Me) and\n                    cis\n                    ‐\n                    anti\n                    ‐N,N‐dimethyl‐thymine dimer (\n                    c\n                    ,\n                    a\n                    ‐TD‐Me) were obtained by photoreaction of crystalline N,N‐dimethyl‐thymine (T‐Me). The unexpected formation of\n                    c\n                    ,\n                    a\n                    ‐TD‐Me was rationalized on a topochemical basis based on a high‐resolution x‐ray structure of T‐Me refined with DFT‐calculated non‐spherical scattering factors. When exposed to the electron beam (30–300 kV), recrystallized dimers underwent the expected splitting reaction back to T and T‐Me as the only products. Electron beam‐induced reactions studied as a function of electron fluence, beam energy, and temperature confirmed an ionization‐induced chain reaction propagated by a single electron transfer (SET) process with a chain length up to 80 000 product molecules per electron. Microcrystal electron diffraction (3D ED) analysis of the photodimers allowed crystal structure determination with approximately 30% of the monomers formed in situ. A long‐lived transient formed in single crystals of\n                    c\n                    ,\n                    s\n                    ‐TD‐Me was assigned by EPR as the TD‐Me\n                    •+\n                    , in support of the suggested reaction mechanism.",
-          "hb": 1
-        },
-        {
-          "t": "电荷密度波交织超导体中的超流效应",
-          "d": "2026-06-01",
-          "a": "Nature Communications",
+          "a": "中国电力新闻网-科技",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究在电荷密度波与超导 intertwined（交织）体系中发现了超导电流（超流）效应。通过研究准粒子的能量-动量色散关系，揭示了电荷密度波与超导配对之间的耦合机制。这一发现对理解非常规超导体中超导与电荷序竞争与共存的物理本质具有重要意义，为探索高温超导机理、设计新型量子材料提供了关键实验证据与理论线索。",
-          "sc": 5.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-73778-7",
-          "tp": "超导物理",
+          "as": "硅宝科技成功研发单壁碳纳米管材料，采用等离子体浮游法工艺打破国外垄断。该材料作为硅碳负极的顶级导电剂，具备反应效率高、纯度高、缺陷率低等优势，能显著提升锂电池快充性能和循环寿命。单台设备产能已达到10吨级，标志着中国在单壁碳纳米管规模化生产及高端材料自主可控方面取得重要突破。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202606/t20260601_1891959.html",
+          "tp": "碳纳米管量产",
           "aip": 1,
           "kp": [
-            "[超流效应]: 超电流诱导准粒子谱Doppler位移",
-            "体系[超导]: 电荷密度波交织超导体"
+            "单台产能[等离子体浮游法单壁碳纳米管]: 10吨级",
+            "技术优势[等离子体浮游法制备单壁碳纳米管]: 反应效率高、产品纯度高、缺陷率低",
+            "研发费用[硅宝科技]: 年均超亿元"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The energy-momentum (E-k) dispersion of quasiparticles constitutes a fundamental concept in condensed matter systems. The ability to modify the E-k dispersion, exemplified by supercurrent-induced Doppler shifts of Bogoliubov quasiparticle spectra in superconductors, enables manipulation of various emergent quantum properties. However, investigations into the supercurrent effect on superconductors intertwined with charge orders remain scarce. Here, we report that the Meissner current, generated by the diamagnetic response to an applied in-plane magnetic field, can tailor Bogoliubov quasiparticle excitations at the precursor charge density wave (CDW) vectors. Our scanning tunneling spectroscopic imaging reveals a field-driven symmetry breaking of CDW modulations, specifically a C3v-to-Cs transition, in superconducting NbSe2. Model calculations suggest that the observed anisotropy originates from a selective Doppler-shift-induced E-k dispersion reconstruction. Furthermore, altering the field direction enables on-demand tuning of anisotropic CDW modulations and visualization of their momentum-space distribution. These results highlight a novel mechanism for controlling emergent electronic phases through momentum-space engineering.",
+          "b": "单壁碳纳米管产能达单台10吨级--中国能源新闻网\n中电传媒股份有限公司主办\n单壁碳纳米管产能达单台10吨级\n单壁碳纳米管。受访单位供图\n记者5月26日获悉，成都硅宝科技股份有限公司（以下简称“硅宝科技”）研发的单壁碳纳米管在近日举办的第十八届深圳国际电池技术交流会/展览会上亮相，引发行业广泛关注。该材料采用等离子体浮游法工艺，成功打破了国外技术垄断。\n据悉，单壁碳纳米管是硅碳负极材料中的一种顶级导电剂与电极增强材料，能显著提升锂离子电池的快充能力与循环寿命，是新能源、电子信息等高端领域的核心关键材料。相较于传统制备工艺，等离子体浮游法具有反应效率高、产品纯度高、缺陷率低等优势，有效解决了国内单壁碳纳米管制备中生产效率低、生产成本高的行业痛点。\n“我们生产的单壁碳纳米管，是国内首批采用等离子体法达到单台10吨级产能的产品。这一产能数据虽然看似不大，但在行业内具有标志性意义，标志着我国在单壁碳纳米管规模化生产领域实现重要突破，为国内相关高端产业的材料自主可控提供了有力支撑。”硅宝科技负责人表示。\n记者了解到，硅宝科技年均研发费用超亿元，依托公司的国家企业技术中心、CNAS认可检验中心等创新平台，建立了国际一流的研发体系，形成具有自主知识产权的核心技术优势。目前，硅宝科技已构建硅碳负极材料与高端胶粘剂双主业发展格局，一方面发力锂电核心材料，另一方面深耕胶粘剂领域，技术涵盖有机硅密封胶、聚氨酯密封胶、硅烷改性聚醚、硅碳负极材料等多种体系，全方位赋能战略性新兴产业升级。（\n“十四五”能源高质量发展\n中国电科院发布一项电力人工智能重大成果\n南方电网实现“数字员工”主导配网抢修 故障处置压缩至分钟级\n甲烷治理成为缓解全球变暖最快速有效的路径\n“充电预约+智能排队”系统让“碰运气”变为“可预期”\n华能绿电护航2026世界智能产业博览会\n海上风电是怎么跨过大海来到我家的？\n国网湖北电力以科技手段提升汛期供电可靠性\n可生物降解的湿气发电机制成",
+          "hb": 1
+        },
+        {
+          "t": "国家能源局：2026年4月全国可再生能源绿色电力证书核发及交易数据",
+          "d": "2026-06-01",
+          "a": "索比光伏-综合新闻",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "2026年4月，国家能源局核发可再生能源绿证2.37亿个，涉及发电项目181.48万个，其中可交易绿证占比74.85%。全国共交易绿证7110万个，其中绿电交易绿证2972万个，单独交易绿证4138万个。在单独交易中，2025年电量对应绿证交易最多，达3512万个，平均价格为4.63元/个；2026年电量对应绿证平均价格为5.84元/个。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://news.solarbe.com/202606/01/50023735.html",
+          "tp": "绿证核发与交易",
+          "aip": 1,
+          "kp": [
+            "绿证核发量[2026年4月全国可再生能源]: 2.37亿个",
+            "涉及发电项目数[2026年4月绿证核发]: 181.48万个",
+            "可交易绿证占比[2026年4月绿证核发]: 74.85%",
+            "绿证交易量[2026年4月全国]: 7110万个",
+            "绿证平均价格[电量生产年为2024年]: 1.12元/个"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2026年4月，国家能源局核发绿证2.37亿个，涉及可再生能源发电项目181.48万个，其中可交易绿证1.77亿个，占比74.85%。本期核发2026年3月可再生能源电量对应绿证1.71亿个，占比72.16%。\n2026年4月，全国交易绿证7110万个，其中绿色电力交易绿证2972万个。\n2026年4月，全国单独交易绿证4138万个，其中电量生产年为2024年的绿证交易422万个，平均价格1.12元/个;电量生产年为2025年的绿证交易3512万个，平均价格4.63元/个;电量生产年为2026年的绿证交易204万个，平均价格5.84元/个。",
+          "hb": 1
+        },
+        {
+          "t": "通过 MXene 膜中电压诱导的亚纳米通道可塑性进行自适应纳米流体离子筛分",
+          "d": "2026-06-01",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "传统固定孔径膜难以精确分离相似离子。本文提出一种利用电压诱导MXene膜亚纳米通道发生塑性收缩的自适应筛分机制。通过电场编程改变通道尺寸，构建出智能分离路径，能够选择性地允许锂离子通过并同时阻挡镁离子。这种电控通道塑性概念为精确离子分离膜的设计提供了新思路，在锂资源回收和水处理等领域具有重要的应用前景。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00217-1?rss=yes",
+          "tp": "MXene离子筛分",
+          "aip": 1,
+          "kp": [
+            "通道调控机制[MXene膜分离锂镁离子]: 电压诱导亚纳米通道收缩产生自适应渗透路径",
+            "离子筛分性能[电控MXene膜]: 允许锂离子通过同时阻挡镁离子"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Most membranes separate ions via fixed channels, which limits the precision with which they can distinguish similar ionic species. Here, voltage induces the shrinkage of MXene membrane channels, creating an adaptive pathway that allows lithium ions to pass while blocking magnesium ions. This work introduces the concept of electrically programmed channel plasticity for constructing smarter separation membranes, with applications in lithium recovery, water treatment, and other ion-selective technologies.",
           "hb": 1
         }
       ]

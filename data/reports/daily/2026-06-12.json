@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "北京大学魏文胜团队研发RNA编辑技术，国际首次应用于DMD治疗",
-      "新型界面结晶技术消除吸湿性瓶颈，全钙钛矿叠层电池效率达29.1%",
-      "派能科技发布8MWh液冷储能系统，采用自研大容量电芯能密度达426Wh/L"
+      "北化机发布3000Nm³/h常压碱性电解槽，电流密度达12kA/㎡",
+      "国家能源集团建成400MW光氢储项目，年产绿氢482吨",
+      "瓦锡兰在西班牙完成100%纯氢运行大规模发动机并网测试"
     ],
     "AI与智能科技": [
-      "Anthropic被曝隐蔽限制Claude模型推理能力，随后撤回相关限制措施",
-      "华盛顿大学开发多模态AI智能体系统，将产品碳足迹评估缩短至一分钟",
-      "谷歌DeepMind资助研究数百万AI智能体大规模交互引发的级联失效风险"
+      "研究人员演示新型量子算法实现从头算多费米子结构计算",
+      "科研团队开发可注射无引线生物电子接口SEED用于神经调节",
+      "新型纳米流体忆阻器实现超160开关比可用于突触计算"
     ],
     "通用技术": [
-      "科研人员利用光辅助准粒子隧穿效应，实现单微波光子快速连续探测",
-      "行业专家确认光储微电网具备提供具竞争力基荷电力的技术条件",
-      "美国物流企业Arcbest采购特斯拉Semi，测得能效表现为1.55 kWh/英里"
+      "研究在拓扑半金属TaIrTe4中首次观测到室温非线性霍尔效应",
+      "纳米机械传感器实现低于零点波动的脉冲力高精度解析",
+      "北大团队开发蓝光钙钛矿LED，491nm处器件外量子效率达21%"
     ]
   },
   "sectors": [
@@ -26,49 +26,81 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "北京大学魏文胜团队研发RNA编辑技术，国际首次应用于DMD治疗",
-        "新型界面结晶技术消除吸湿性瓶颈，全钙钛矿叠层电池效率达29.1%",
-        "派能科技发布8MWh液冷储能系统，采用自研大容量电芯能密度达426Wh/L"
+        "北化机发布3000Nm³/h常压碱性电解槽，电流密度达12kA/㎡",
+        "国家能源集团建成400MW光氢储项目，年产绿氢482吨",
+        "瓦锡兰在西班牙完成100%纯氢运行大规模发动机并网测试"
       ],
       "entries": [
         {
-          "t": "我国原创RNA编辑技术世界首次应用于罕见病治疗",
+          "t": "中国中化旗下北化机发布3000Nm³/h常压碱性水电解制氢装置--中国能源新闻网",
           "d": "2026-06-12",
-          "a": "新华网科技",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "昌平实验室/北京大学魏文胜团队研发的RNA编辑技术LEAPER首次应用于罕见病治疗。团队基于该平台开发\"RNA外显子跳跃技术\"，精准修复DMD基因读码框，使细胞重新生成功能正常的蛋白。这是中国原创RNA编辑技术首次进入临床研究，也是国际首次将RNA编辑用于杜氏肌营养不良症治疗，成果发表于《细胞》期刊。",
-          "sc": 8.7,
+          "a": "中国电力新闻网-新能源",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "中国中化旗下北化机发布自主研发的3000Nm³/h常压碱性水电解制氢装置。单台最高产氢3000Nm³/h，成套最高20000Nm³/h，电流密度达12kA/㎡。该装置能根据风光发电变化在10%至120%范围内动态调整产能，具备高安全性和低能耗特点。首批装置将应用于中石化示范项目。",
+          "sc": 8.2,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://www.news.cn/tech/20260611/386621ea45514c138558895718120f76/c.html",
-          "tp": "RNA编辑疗法",
-          "aip": 1
+          "u": "https://cpnn.com.cn/news/xny/202606/t20260612_1894839.html",
+          "tp": "碱性电解槽",
+          "aip": 1,
+          "kp": [
+            "单台氢气产能[常压碱性水电解制氢装置]: 3000Nm³/h",
+            "成套装置产能[常压碱性水电解制氢装置]: 20000Nm³/h",
+            "电流密度[常压碱性水电解制氢装置]: 12kA/㎡",
+            "产能动态调整范围[光伏及风力发电出力变化适应]: 10%—120%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "中国中化旗下北化机发布3000Nm³/h常压碱性水电解制氢装置--中国能源新闻网\n中电传媒股份有限公司主办\n中国中化旗下北化机发布3000Nm³/h常压碱性水电解制氢装置\n6月10日，中国中化旗下蓝星（北京）化工机械有限公司（以下简称“北化机”）在北京经济技术开发区举行发布会，正式推出自主研发的3000Nm³/h常压碱性水电解制氢装置。\n发布会现场。（受访者供图）\n据了解，本次发布的装置单台氢气产能最高可达3000Nm³/h，成套装置产能最高可达20000Nm³/h，电流密度最高12kA/㎡，能够根据光伏及风力发电出力变化对电解槽氢气产能进行10%—120%范围内动态调整。该装置具备智能化程度高、安全性高、低能耗、高能效、运输及维护便捷等特点，可保障项目工厂更加安全稳定地长周期生产运行。首批装置将应用于中石化新星公司新型电解槽工业化应用示范项目开展测试。同时，结合北化机成熟的熔盐储能技术，可构建“绿电-绿氢-绿热”多能互补系统解决方案，为源网荷储一体化、风光大基地、微电网等项目提供从核心装备到系统集成的全链条解决方案，实现能源就地生产、消纳与价值最大化。\n发布会上，北化机与同属中国中化旗下的中国化工信息中心有限公司、中化商务有限公司、西南化工研究设计院有限公司签署《绿色化工产业合作框架协议》。\n据介绍，中国中化长期深耕绿色化工与新能源领域，始终积极响应国家科技创新战略，将氢能列为重点支持的战略新兴领域业务，持续加大氢能领域前沿技术布局与资源投入，从机制保障层面持续赋能所属企业开展关键装备的创新研发和产业落地，北化机电解水制氢工艺技术研究与装置开发被列为中国中化TOP50项目，并圆满完成验收。此次签约正是积极响应中央企业科技成果产业化联合体《推动中央企业科技成果产业化协同发展倡议书》、主动推动体系内优势资源深度协同的具体实践。\n“十四五”能源高质量发展\n新能源汽车渗透率何以节节攀升\n世界级示范: 通榆吉电100兆瓦光热项目双节点告捷\n63%！新能源乘用车零售渗透率再创新高\n塔里木油田今年绿电发电量已突破11亿度\n我国海上风电加快向深远海发展\n新能源二手车交易量同比增长近30%\n中广核单机容量最大的风电机组完成吊装\n“海风之心”抵达广东阳江海域 进入浮托安装阶段",
+          "hb": 1
         },
         {
-          "t": "界面介导结晶实现无PEDOT:PSS全钙钛矿叠层电池，效率达29.1%且耐久性增强",
+          "t": "国家能源集团：江苏400MW“光储制氢”项目全面建成",
           "d": "2026-06-12",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究通过界面介导结晶策略，以吩噻嗪功能化界面替代吸湿性PEDOT:PSS空穴传输层，实现了全钙钛矿叠层太阳能电池29.1%的认证效率并显著提升器件耐久性。PEDOT:PSS的吸湿性和相不稳定性长期制约全钙钛矿叠层电池的产业化。吩噻嗪界面层有效抑制了亚稳态相分离，优化了宽带隙顶电池与窄带隙底电池的界面接触，为突破叠层钙钛矿电池效率和稳定性瓶颈提供了关键进展。",
-          "sc": 8.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00185-6?rss=yes",
-          "tp": "全钙钛矿叠层电池",
-          "aip": 1
-        },
-        {
-          "t": "派能科技推出8MWh储能系统，能量密度达426Wh/L - pv magazine Global",
-          "d": "2026-06-12",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "Pylontech(派能科技)在2026年SNEC展会上推出PyOcean系列8MWh液冷储能系统，能量密度达426Wh/L。该系列采用自研588Ah和601Ah大容量电芯，面向电网侧及大型商业储能场景。液冷技术有效提升散热效率和循环寿命，8MWh单舱容量降低了系统占地面积和安装成本。426Wh/L的体积能量密度在当前液冷储能系统中处于领先水平，体现了大容量电芯+液冷集成路线的工程化进展，对降低储能度电成本(LCOS)有积极意义。",
-          "sc": 7.3,
+          "a": "索比光伏-综合新闻",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "全国规模最大的光氢储一体化项目——国家能源集团江苏如东“光氢储一体化”项目全面建成。项目包含40万千瓦光伏、60兆瓦/120兆瓦时储能站及1500标方/小时绿电制氢装置。项目年发电量达4.68亿千瓦时，年产高纯绿氢482吨。配套储能站有效平抑电网波动，制氢装置实现零碳闭环。所产绿氢定向供应长三角区域并配套加氢站投用。目前该项目已完成全系统联合调试并达标，形成完整的“绿电生产-存储-转化”产业链。",
+          "sc": 7.9,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/11/pylontech-launches-8-mwh-storage-system-with-426-wh-l-energy-density/",
-          "tp": "储能系统",
-          "aip": 1
+          "u": "https://news.solarbe.com/202606/12/50024299.html",
+          "tp": "光储制氢项目建成",
+          "aip": 1,
+          "kp": [
+            "光伏装机规模[江苏如东光氢储一体化项目]: 40万千瓦(400MW)",
+            "储能配置[江苏如东光氢储一体化项目]: 60兆瓦/120兆瓦时",
+            "制氢装置产能[绿电制氢]: 1500标方/小时",
+            "预期发电量[江苏如东光氢储一体化项目]: 年发电量4.68亿千瓦时",
+            "绿氢产能[绿电制氢装置]: 年产高纯绿氢482吨"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全国规模最大光氢储一体化项目——国家能源集团国华投资江苏分公司如东“光氢储一体化”项目全面建成，开启“源网荷储氢”一体化协同运行模式。\n该项目坐落于江苏如东洋口港，是国家第三批大型光伏基地重点项目。项目集40万千瓦\n、60兆瓦/120兆瓦时储能站、1500标方/小时绿电制氢装置于一体，形成完整的“绿电生产——存储——转化”产业链。\n：年发电量4.68亿千瓦时，可满足近20万户家庭年度用电需求，相当于减排二氧化碳超30万吨；\n配套储能站：有效平抑电网出力波动，提升新能源消纳能力；\n制氢装置：年产高纯绿氢482吨，实现“绿电制绿氢”零碳闭环，所产绿氢定向供应长三角区域，配套加氢站同步投用，打通绿氢应用全链条。\n目前，该项目已完成全系统联合调试，各项性能指标均满足设计要求。该项目将持续优化一体化运行模式，以绿电为基、氢能为桥、储能为盾，助力长三角地区构建清洁低碳、安全高效的现代能源体系，为推动能源革命与绿色发展贡献“国能样板”。",
+          "hb": 1
+        },
+        {
+          "t": "氢流：瓦锡兰测试 100% 氢发动机 - pv magazine China",
+          "d": "2026-06-12",
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能源测/发电技术/火电",
+          "as": "瓦锡兰宣布在西班牙贝梅奥成功演示了全球首个100%纯氢运行的大规模发动机，并向西班牙国家电网供电。此次测试标志着技术超越了“氢 ready”阶段，推进了灵活的低碳发电技术。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/06/12/the-hydrogen-stream-wartsila-testing-100-hydrogen-engine/",
+          "tp": "瓦锡兰氢发动机",
+          "aip": 1,
+          "kp": [
+            "燃料比例[瓦锡兰大型发动机]: 100%纯氢燃料",
+            "[大型氢发动机]: 成功并网供电，实现全球首次100%纯氢大型发动机规模 demonstration"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Markets & Policy\nWärtsilä has successfully demonstrated what it says is the world’s first large-scale engine running on 100% hydrogen, supplying power to Spain’s grid in Bermeo and advancing flexible low-carbon generation technology.\nSergio Matalucci\nMarkets & Policy\nTechnology & Products\nCommercial & industrial\nEnergy Storage\nWärtsilä Energy has successfully operated a new 100% hydrogen engine supplying power to Spain’s national electricity grid in Bermeo, Spain | Image: Wärtsilä\nhas successfully operated a new 100% hydrogen engine supplying electricity to Spain’s national grid in Bermeo, northern Spain, marking what it describes as the world’s first demonstration of a large-scale engine running exclusively on pure hydrogen. The test represents a step beyond hydrogen-ready systems, showing that engine-based power generation can operate on 100% hydrogen under real grid conditions. The Wärtsilä 31H2 engine, part of the company’s Wärtsilä 31 platform, is currently undergoing performance validation at the site. “This is a trial for the future of renewable power,” said Rasmus Teir, Director of Technology Strategy & Decarbonisation at Wärtsilä. “Today, our Wärtsilä 31H2 hydrogen engine is operating on 100% hydrogen and supplying power to Spain’s national grid.” The company says the demonstration supports the case for flexible, dispatchable generation needed to balance growing shares of wind and solar power. Green hydrogen, which produces no carbon emissions at the point of use, can also provide long-duration energy storage and grid stability during periods of low renewable output. Wärtsilä adds that the hydrogen-fuelled engine platform could in future serve energy-intensive sectors such as data centres and industrial facilities, as well as off-grid applications.The Bermeo trial builds on earlier work with hydrogen-ready engine power plants and comes as Spain continues to expand its renewable energy system and reduce reliance on fossil fuel imports.\nWashington-based\nhas opened AirPlant One, which it says is the first commercial-scale facility in the United States producing sustainable aviation fuel (SAF) from CO₂ and renewable electricity. The plant also produces e-naphtha. “The ribbon cutting, held at the Moses Lake, Washington facility with Alaska Airlines and Microsoft, marks the beginning of commercial-scale production and sets the stage for commercial flights in the U.S. powered by jet fuel made from air,” the company said on Wednesday.\nAlaska Airlines\nwill operate regular domestic flights using e-SAF produced at AirPlant One. Microsoft supported the scale-up through an investment from its Climate Innovation Fund and a sustainable aviation fuel offtake agreement. “Using a book-and-claim accounting model, pioneered alongside Alaska Airlines, this agreement will allow Microsoft to reduce reported emissions associated with business travel. This partnership underscores Microsoft’s commitment to advancing clean energy solutions with transformative impacts for aviation and global industry.”\nEuropean consortium\nhas launched HyCavern, a three-year project to develop and validate underground hydrogen storage based on mined, lined rock caverns for regions where conventional storage is not feasible. “A key ambition of HyCavern is to make underground hydrogen storage more scalable and replicable by adapting cavern designs to diverse geological conditions,” the consortium said. Partners include the Clean Hydrogen Partnership and organisations such as SINTEF, Fundación Hidrógeno Aragón, the University of Edinburgh, Hive Ventures, Delft University of Technology, Fraunhofer ILT, the University of Oxford, AGH University of Krakow, Comec Innovative, swisstopo, Baker Hughes, Deloitte, Planck Technologies, and Picum.\nSalzgitter Flachstah\nl have signed a seven-year agreement for the supply of 10,000 tonnes of green hydrogen per year from 2030. “This is the first major purchase agreement for hydrogen from the 320 MW production plant EWE is building in Emden and also Salzgitter AG’s first major contract with a hydrogen supplier,” Salzgitter said after the signing in Berlin.\nA research team from the\nUniversity of Perugia\nhas demonstrated that large-scale integration of surplus PV electricity with industrial alkaline water electrolysis (AWE) is technically feasible under projected 2030 power system constraints in Italy. The study, published in\nRenewable Energy Focus\n, finds that a modular AWE configuration with up to nine parallel trains, each rated at 20 tonnes H₂/h, enables load-following operation while maintaining stable electrochemical performance, thermal management and efficiency across a wide operating range. The modelled system achieves electrolyzer load factors ranging from around 3% in winter to 97% in peak summer periods.\nSergio Matalucci\nView author posts",
+          "hb": 1
         }
       ]
     },
@@ -76,49 +108,75 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Anthropic被曝隐蔽限制Claude模型推理能力，随后撤回相关限制措施",
-        "华盛顿大学开发多模态AI智能体系统，将产品碳足迹评估缩短至一分钟",
-        "谷歌DeepMind资助研究数百万AI智能体大规模交互引发的级联失效风险"
+        "研究人员演示新型量子算法实现从头算多费米子结构计算",
+        "科研团队开发可注射无引线生物电子接口SEED用于神经调节",
+        "新型纳米流体忆阻器实现超160开关比可用于突触计算"
       ],
       "entries": [
         {
-          "t": "遭社区强烈反对后，Anthropic 调整 Claude Fable 5 面向研究员的“降智”措施",
+          "t": "量子计算机上的从头算多费米子结构计算",
           "d": "2026-06-12",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Anthropic 被曝在用户不知情的情况下，对竞争对手使用其最新模型 Claude Fable 5 进行 AI 研发时施加\"降智\"限制，即悄悄降低模型推理能力输出。此举引发 AI 研究社区强烈反对，被认为破坏了科研公平性与模型透明度原则。迫于舆论压力，Anthropic 随后调整了该措施。此事件凸显了头部 AI 厂商在商业化竞争与开放科研之间的深层矛盾：模型权限的分层管控正从\"用户可见\"转向\"隐蔽操作\"，引发行业对模型中立性、研究可复现性及反竞争行为的担忧，可能加速监管机构对 AI 模型访问透明度的介入。",
-          "sc": 7.5,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://www.ithome.com/0/963/208.htm",
-          "tp": "大模型安全策略",
-          "aip": 1
+          "a": "Recent Articles in Phys. Rev. C",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "为克服现有量子算法在求解自束缚量子多体问题（如核物理与粒子物理问题）中能量级访问受限和结构信息不足的缺陷，研究人员提出并演示了一种新型量子计算算法。该算法在量子计算机上实现了从头算的多费米子结构计算，成功获取了更全面的量子系统结构与能级信息，拓展了量子计算机在复杂微观物理体系中的应用能力。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/1spg-5ld3",
+          "tp": "量子多体计算",
+          "aip": 1,
+          "kp": [
+            "[自束缚量子多体问题]: 引入并演示了一种新型量子从头计算算法，以克服现有算法能级受限和结构信息有限的局限性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Weijie Du, Yangguang Yang, Zixin Liu, Chao Yang, and James P. VaryTo overcome the limitations of existing algorithms for solving self-bound quantum many-body problems—such as those encountered in nuclear and particle physics—that access only a restricted subset of energy levels and provide limited structural information, we introduce and demonstrate a novel quantu…[Phys. Rev. C 113, L061302] Published Fri Jun 12, 2026",
+          "hb": 1
         },
         {
-          "t": "华盛顿大学Vikram Iyer开发多模态AI智能体对电子产品全生命周期碳足迹进行评估",
+          "t": "用于无电池无线外周神经调节的可注射、无引线生物电子接口",
           "d": "2026-06-12",
-          "a": "",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "华盛顿大学Vikram Iyer团队开发多模态多智能体AI系统，用于电子产品摇篮到工厂门口碳足迹估算。系统以产品名称或图片为输入，LCA Agent构建数据模板，Stakeholders Agent检索网页、规格书、FCC数据库和拆解信息，视觉链路用YOLOv11估算PCB尺寸并匹配排放因子。将数据收集时间从数周缩短至1分钟内，碳足迹估算MAPE在19%以内，iPhone案例MAPE为18.02%。",
-          "sc": 6.1,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41928-026-01653-w",
-          "tp": "AI碳足迹评估",
-          "aip": 0
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "研究开发了名为SEED的无电池、无引线生物电子接口，专为微创外周神经调节设计。该设备可通过标准14G注射针头进行注射，利用65kHz低频谐振感应耦合在磁准静态范围内工作。其螺旋-螺旋电极几何形状促进了纵向神经参与并限制了场扩散，实现了无内部有源电子器件的可编程神经调控。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeg1437?af=R",
+          "tp": "注入式生物电子",
+          "aip": 1,
+          "kp": [
+            "工作频率[SEED生物电子接口]: 65千赫兹",
+            "递送方式[无电池无线外周神经调节]: 通过标准14号针头经皮注射",
+            "工作机制[可注射无引线生物电子接口]: 磁准静态谐振感应耦合"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Injectable bioelectronics offer a minimally invasive approach to peripheral nerve stimulation but remain limited by onboard energy storage and fragile leads. Here, we present SEED, a leadless, battery-free bioelectronic interface engineered for percutaneous delivery through a standard 14-gauge needle. SEED (Stimulating Electrode for Electroceutical Delivery) operates in the magnetoquasistatic regime using low-frequency (65 kilohertz) resonant inductive coupling, externalizing waveform generation and control, enabling programmable neuromodulation without onboard active electronics. A spiral-helix electrode geometry promotes longitudinal nerve engagement while limiting off-target field spread. Benchtop and ex vivo characterization demonstrates precise, programmable control of stimulation frequency, pulse width, and amplitude under physiologically relevant conditions. In vivo validation in a rat sciatic nerve model confirms frequency-locked motor responses and graded neural recruitment following percutaneous deployment. SEED exhibits strong radiopacity and acoustic contrast, supporting compatibility with ultrasound and computed tomography for image-guided neuromodulation. This platform provides a scalable pathway toward minimally invasive bioelectronic therapies.",
+          "hb": 1
         },
         {
-          "t": "谷歌DeepMind担忧数百万智能体开始交互后的后果",
+          "t": "基于聚电解质构象的仿生纳米流体忆阻器，用于突触学习和内存逻辑计算",
           "d": "2026-06-12",
-          "a": "MIT Technology Review",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "Google DeepMind正在资助研究，探讨数百万AI智能体(agent)大规模交互可能带来的潜在风险。研究聚焦于多智能体系统涌现出的集体行为不可预测性、级联失效、协调失控等问题。DeepMind担忧，随着智能体数量与自主性增长，现有安全框架可能无法覆盖多智能体协同失败、目标对齐冲突及社会层面影响等新型威胁。",
-          "sc": 7.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/",
-          "tp": "多智能体安全",
-          "aip": 1
+          "a": "Wiley-Online-Library: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "研究报道了一种基于氧化石墨烯纳米通道内聚电解质构象转变的纳米流体忆阻器（PCM）。该器件通过电场驱动聚电解质的可逆构象转变来实现类似生物突触的离子动力学。其具有可调的切换阈值和超过160的开关比，展现出长期增强和抑制、多级记忆保留等丰富的突触功能，可用于突触学习和内存逻辑计算。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73598?af=R",
+          "tp": "仿生流体忆阻器",
+          "aip": 1,
+          "kp": [
+            "[聚电解质构象纳米流体忆阻器]: 通过电场驱动的聚电解质可逆构象转变运行，实现突触学习与内存逻辑计算"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Bioinspired neuromorphic and in‐memory computing requires devices that store and process information through ionic dynamics analogous to biological synapses. Here, we report a polyelectrolyte conformational nanofluidic memristor (PCM) that integrates synaptic plasticity, neuromorphic learning, and stateful ionic logic within a single aqueous platform. The device operates through electric‐field‐driven, reversible conformational transitions of polyelectrolytes confined inside graphene oxide nanochannels, enabling analog conductance tuning, a sharp, tunable switching threshold, and an ON/OFF ratio exceeding 160. These conformational dynamics endow the PCM with rich synaptic functions, including long‐term potentiation and depression, multilevel memory retention, and symmetric weight update rules. By directly mapping the experimentally measured potentiation/depression curves into a physical learning model, we demonstrate high‐accuracy neuromorphic learning, achieving 97.1% recognition accuracy on the Modified National Institute of Standards and Technology (MNIST) handwritten‐digit dataset. Beyond learning, interconnected PCM units perform stateful ionic OR, IMP, and NAND operations, establishing universal in‐memory logic within the same ionic platform. This work introduces a bioinspired nanofluidic computing paradigm that unites the adaptive learning of neural networks and deterministic logic, paving the way to scalable and brain‐like ionic processors.",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +184,76 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研人员利用光辅助准粒子隧穿效应，实现单微波光子快速连续探测",
-        "行业专家确认光储微电网具备提供具竞争力基荷电力的技术条件",
-        "美国物流企业Arcbest采购特斯拉Semi，测得能效表现为1.55 kWh/英里"
+        "研究在拓扑半金属TaIrTe4中首次观测到室温非线性霍尔效应",
+        "纳米机械传感器实现低于零点波动的脉冲力高精度解析",
+        "北大团队开发蓝光钙钛矿LED，491nm处器件外量子效率达21%"
       ],
       "entries": [
         {
-          "t": "通过光辅助准粒子隧穿至超导岛实现单微波光子的快速连续探测",
+          "t": "${\\mathrm{TaIrTe}}_{4}$ 中的室温固有非线性平面霍尔效应",
+          "d": "2026-06-12",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究在非磁性拓扑半金属TaIrTe4中首次观察到了室温下的固有非线性平面霍尔效应。研究证实，通过轨道机制，面内磁场能够产生Berry曲率极化偶极子，进而引发该非线性霍尔效应。这一发现不依赖于材料的磁性，为理解拓扑半金属中的量子输运现象及开发新型自旋/轨道电子学器件提供了重要理论依据。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/hbdj-2hgf",
+          "tp": "非线性霍尔效应",
+          "aip": 1,
+          "kp": [
+            "[非磁性拓扑半金属TaIrTe4]: 展现室温下的固有非线性平面霍尔效应，通过轨道机制产生Berry联络极化率偶极子"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Chang Jiang, Fan Yang, Yu Zhao, Jinshan Yang, Peng Yu, Huiying Liu, Yuda Zhang, Zehao Jia, Xiangyu Cao, Li Tian, Jingyi Yan, Zheng Liu, Zhongkai Liu, Xian-Lei Sheng, Cong Xiao, Shengyuan A. Yang, Shaoming Dong, and Faxian XiuA room-temperature intrinsic nonlinear planar Hall effect in the nonmagnetic topological semimetal TaIrTe4 reveals how an in-plane magnetic field generates a Berry-connection-polarizability dipole through an orbital mechanism.[Phys. Rev. Lett. 136, 236302] Published Fri Jun 12, 2026",
+          "hb": 1
+        },
+        {
+          "t": "纳米机械传感器可解析零点波动以下的脉冲力",
           "d": "2026-06-12",
           "a": "Recent Articles in Phys. Rev. Lett.",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究提出了一种通过光辅助准粒子隧穿至超导岛来实现单个微波光子快速连续探测的新机制。单微波光子探测在量子信息处理和天文探测中具有重要应用，但现有方案受限于探测速率和灵敏度。该方案利用超导岛上的光辅助准粒子隧穿效应，将微波光子转化为可测量的电信号，实现了对单个微波光子的连续快速检测，为量子通信和量子计量中的超低能光子探测开辟了新途径。",
-          "sc": 7.3,
+          "as": "研究人员大幅提升了悬浮纳米粒子运动测量的灵敏度，利用纳米机械传感器成功解析了低于零点波动的脉冲力。这项技术突破实现了对极微弱瞬时作用力的高精度探测，为未来开展暗物质搜索、量子力学基础测试以及精密重力测量等前沿物理研究开辟了新途径。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/mj91-ntm4",
-          "tp": "微波光子探测",
-          "aip": 1
+          "u": "http://link.aps.org/doi/10.1103/9wzm-3qyb",
+          "tp": "纳米机械传感器",
+          "aip": 1,
+          "kp": [
+            "[悬浮纳米粒子机械传感器]: 提升了运动测量的灵敏度，能够解析零点波动以下的脉冲力"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Martynas Skrabulis, Martin Colombano Sosa, Nicola Carlon Zambon, Andrei Militaru, Massimiliano Rossi, Martin Frimmer, and Lukas NovotnyResearchers boosted the sensitivity for measurements of the motion of a levitated nanoparticle, with potential uses in dark matter searches.[Phys. Rev. Lett. 136, 233604] Published Fri Jun 12, 2026",
+          "hb": 1
         },
         {
-          "t": "光储微电网现已可提供具竞争力的基荷电力",
+          "t": "严纯华院士领衔！北京大学周欢萍团队：钙钛矿纳米晶薄膜 | Nature",
           "d": "2026-06-12",
-          "a": "ESS News",
-          "c": "通用技术/通信和运输/电网技术/孤网园区",
-          "as": "在SNEC展会全球储能大会全体会议上，行业专家指出太阳能+储能微电网已能提供具备竞争力的基荷电力。随着光伏成本下降和储能技术成熟，微电网在离网区域、工业供电和电网稳定性支撑等场景的可行性持续提升，储能正从补充能源角色向主力可靠电源转变。",
-          "sc": 7.2,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://www.ess-news.com/2026/06/11/solar-plus-storage-microgrids-now-delivering-competitive-baseload-power/",
-          "tp": "光储微电网",
-          "aip": 1
-        },
-        {
-          "t": "车队在惊叹的1.55 kWh/英里能效表现后采购特斯拉Semi电动卡车",
-          "d": "2026-06-12",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "美国物流巨头ArcBest采购两辆特斯拉Semi电动半挂卡车，此前测试中该车实现了1.55 kWh/mile的能效表现，令业界瞩目。这一能效水平显著优于传统柴油重卡，标志着电动重卡在长途货运领域的经济可行性已获商业验证。车队级采购表明电动重卡正从试点走向规模化部署。",
-          "sc": 7.2,
+          "a": "索比光伏",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "北京大学周欢萍、严纯华院士团队开发了“原位纳米晶限域”策略，解决了蓝光钙钛矿LED制备中高结晶度与小尺寸无法兼顾的矛盾。该策略利用原位聚合物的空间限制，制备出光致发光量子产率达83%的高质量纳米晶。制备的天蓝光器件外量子效率达6.5%，寿命提升两个数量级，491nm处外量子效率达21%。",
+          "sc": 7.8,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/11/arcbest-buys-tesla-semis-abf-freight-pilot/",
-          "tp": "电动重卡",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202606/12/50024328.html",
+          "tp": "钙钛矿LED",
+          "aip": 1,
+          "kp": [
+            "外量子效率[天蓝光钙钛矿LED]: 6.5%",
+            "工作寿命[天蓝光钙钛矿LED]: 提升两个数量级",
+            "技术瓶颈[蓝光钙钛矿发光二极管]: 难以兼顾“高结晶度”与“小尺寸”",
+            "解决策略[原位纳米晶限域]: 实现纳米晶尺寸约束与高度结晶的协同优化"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "近日，严纯华院士领衔的北京大学周欢萍团队在钙钛矿发光二极管领域取得重要突破。针对蓝光器件长期存在的“高结晶度”与“小尺寸”难以兼得的技术瓶颈，团队开发出“原位纳米晶限域”策略，实现了钙钛矿纳米晶的尺寸约束与高度结晶的协同优化。基于该方法制备的天蓝光钙钛矿LED外量子效率达6.5%，工作寿命提升两个数量级，为高性能蓝光及叠层白光器件开辟了新路径。相关成果发表于\n金属卤化物钙钛矿因其优异的发光特性，已成为下一代发光二极管（LED）的有力候选材料。尽管绿光和红光钙钛矿LED（PeLED）的外量子效率（EQE）已超过30%，但蓝光PeLED的性能仍显著落后，主要瓶颈在于通过原位合成法在基底上制备钙钛矿纳米晶时，同时实现“高结晶度”与“小尺寸”存在固有矛盾。高结晶度有助于抑制非辐射复合，而纳米级晶粒则能通过载流子限域效应提升辐射效率。然而，传统溶剂工程、退火及添加剂策略虽能改善结晶性，却往往导致微米级晶粒；而原位生长的纳米晶又常面临单分散性差、表面缺陷多和结晶度低的问题。因此，开发一种能同时精确控制钙钛矿纳米晶结晶度与尺寸限制的简便、可控且普适的方法，对于推动蓝光PeLED发展至关重要。\n针对以上难题，北京大学周欢萍、严纯华院士以及孙聆东等研究者在Nature上发表了题为“In situ nanocrystal confinement for efficient blue perovskite LEDs”的论文，报道了一种通过原位聚合驱动纳米晶限域策略，高效合成高质量蓝光钙钛矿纳米晶薄膜的方法。该策略利用原位形成的聚合物网络在晶体生长过程中施加纳米尺度的空间限制，成功制备出尺寸小、光致发光量子产率（PLQY）高达83%的钙钛矿纳米晶。同时，具有充足配位点的可聚合单体能够延长钙钛矿团簇的晶格重排时间，从而提升纳米晶的结晶度。利用这些纳米晶制备的蓝光PeLED在491 nm处实现了21.8%的外量子效率（EQE），这是目前蓝光PeLED的最高性能之一。该工作实现了对钙钛矿结晶热力学与有机配体反应的协同调控，深化了对配体工程影响纳米晶合成机制的理解，为发展高效PeLED及其他光电器件提供了新思路。\n图1、原位纳米晶限域策略的示意图及核心机制© 2026 Nature\n图2 钙钛矿结晶动力学分析© 2026 Nature\n图3、钙钛矿纳米晶体的发光特性© 2026 Nature\n图4、PeLED器件的性能和稳定性© 2026 Nature\n综上所述，该项研究提出的原位聚合限域策略，通过聚合物网络在结晶过程中的动态空间限制与多齿配位协同作用，成功解决了钙钛矿纳米晶“高结晶度”与“小尺寸”难以兼得的难题。该策略不仅能将晶粒尺寸降至约11 nm并诱导室温立方相，显著抑制电子-声子耦合导致的非辐射损失，还具有良好的普适性，可扩展至其他钙钛矿体系及胶体纳米晶合成。基于此优化的蓝光PeLED实现了21.8%的创纪录EQE和显著提升的工作稳定性。这项工作不仅为高性能蓝色PeLED提供了可行方案，也推动了配体工程在钙钛矿纳米晶合成领域的理论认知。",
+          "hb": 1
         }
       ]
     }

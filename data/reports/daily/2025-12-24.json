@@ -6,72 +6,36 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "锌溴电池采用互锁型准固态正极实现三万两千次稳定循环",
-      "粘附导向界面膜实现4.6V高压与45℃高温下钴酸锂稳定运行",
-      "内建电场触发水分子活化实现工业级电流密度CO2电合成乙烯"
+      "研究人员开发超季铵化生物质固体电解质以提升柔性锌空气电池离子传导率",
+      "钠离子电池低温醚基电解质采用熵驱动溶剂化设计改善低温性能",
+      "表面重构NiFe氢氧化物催化剂实现安培级无膜双极氨电合成"
     ],
-    "AI与智能科技": [
-      "拓扑表面态对称性破缺实现1.3T垂直磁化无场翻转",
-      "CrystalGAT平台集成图注意力网络实现柔性晶体逆向设计",
-      "新型神经形态电子皮肤实现低功耗实时疼痛与损伤感知"
-    ],
-    "通用技术": [
-      "金属有机框架材料实现多组分混合物一步法乙烯纯化",
-      "光场串联光热催化体系实现高选择性CO2转化为多碳烯烃",
-      "NewTAML铁配合物体系实现室温条件断裂碳氢键降解抗生素"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "锌溴电池采用互锁型准固态正极实现三万两千次稳定循环",
-        "粘附导向界面膜实现4.6V高压与45℃高温下钴酸锂稳定运行",
-        "内建电场触发水分子活化实现工业级电流密度CO2电合成乙烯"
+        "研究人员开发超季铵化生物质固体电解质以提升柔性锌空气电池离子传导率",
+        "钠离子电池低温醚基电解质采用熵驱动溶剂化设计改善低温性能",
+        "表面重构NiFe氢氧化物催化剂实现安培级无膜双极氨电合成"
       ],
       "entries": [
         {
-          "t": "锌溴电池用互锁型准固态正极实现32000次稳定循环",
+          "t": "超季铵化生物质固体电解质：构建可持续柔性锌空气电池的超离子传导",
           "d": "2025-12-24",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究为锌溴电池设计了一种互锁型准固态正极，实现了高达32000次循环的稳定性能。传统锌溴静态电池采用固态溴正极，具有低成本、高安全性等优势，但面临溴穿梭和多溴化物溶解等挑战。该准固态正极通过互锁结构有效锚定溴物种，抑制穿梭效应，同时维持高效的电化学反应动力学，为大规模长寿命储能系统提供了可行的技术路径。",
-          "sc": 7.5,
+          "as": "",
+          "sc": 6.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517292?af=R",
-          "tp": "锌溴电池正极",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202505711?af=R",
+          "tp": "柔性锌空气电池",
           "aip": 1,
-          "kp": [
-            "[电池体系]: 锌溴静态电池",
-            "[正极设计]: 互锁式准固态溴正极",
-            "[循环寿命]: 32000次"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Zinc‐bromine static batteries employing solid bromine cathodes present compelling advantages of low‐cost, high‐safety, and extended‐lifespan for large‐scale energy storage applications. However, solid‐state bromine cathodes suffer from polybromide‐induced shuttle effects and substantial volume variations, leading to poor reversibility and severe self‐discharge. Herein, an inter‐locking, quasi‐solid bromine cathode enabling energetic static zinc‐bromine batteries are developed. Theoretical calculation and characterizations confirm that polyacrylamide (PAM) effectively encapsulates tribromide molecules within the charged bromine cathode, suppressing bromine dissolution and mitigating self‐discharge. Meanwhile, its flexibility accommodates volume changes and maintains conductive integrity. The resultant zinc‐bromine battery achieves ≈32000 cycles at 1 mAh cm\n                    −2\n                    , with an ultralow decay rate of 0.00016% per cycle. Meanwhile, it delivers scalable areal capacity up to 50 mAh cm\n                    −2\n                    . Pouch cell with 200 mAh demonstrates remarkable stability of 3500 cycles, while displays capacity retention of ≈93% after 48 h resting. The 1.5 Ah pouch cell delivers a practical energy density of 70 Wh kg\n                    −1\n                    based on the total mass of pouch cell, while its modular integration (≈18 Wh) enables storage of hybrid energy harvesting from solar and wind sources, demonstrating versatile applicability in multi‐scenario energy systems. This strategy establishes a viable pathway for developing practical zinc‐bromine batteries toward grid‐scale energy storage applications.",
-          "hb": 1
-        },
-        {
-          "t": "粘附导向的正极电解质界面膜实现45°C下4.6V稳定钴酸锂",
-          "d": "2025-12-24",
-          "a": "National Science Review Advance Access",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究通过粘附引导策略构建正极电解质界面膜（CEI），实现了LiCoO₂在4.6V高截止电压和45°C高温条件下的稳定循环。高压下LiCoO₂面临严重的界面副反应和结构退化问题。粘附引导的CEI设计通过分子级界面修饰形成致密稳定的保护层，有效抑制电解液氧化分解和钴溶解，为高电压钴酸锂正极在严苛工况下的可靠运行提供了实用化方案。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf571/8402818?rss=1",
-          "tp": "钴酸锂正极",
-          "aip": 1,
-          "kp": [
-            "[CEI策略]: 粘附引导CEI",
-            "[工作电压]: 4.6 V",
-            "[测试温度]: 45°C",
-            "[正极]: LiCoO2"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -79,187 +43,56 @@
           "hb": 0
         },
         {
-          "t": "内建电场触发界面水活化实现CO₂电合成乙烯的工业化级生产",
+          "t": "[ASAP] 钠离子电池低温醚基电解质的熵驱动溶剂化设计",
           "d": "2025-12-24",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "电化学还原CO₂制乙烯相较于传统工业方法具有绿色可持续的优势。本研究利用内建电场触发界面水分子活化，实现工业级CO₂电合成乙烯。内建电场通过调控催化界面处的水分子取向和解离过程，促进了C-C偶联反应的选择性，提高了乙烯法拉第效率。该策略在工业级电流密度下展现出优异的CO₂转化性能，为电化学CO₂还原技术的规模化应用提供了界面工程新思路。",
-          "sc": 7.2,
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 6.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202517221?af=R",
-          "tp": "CO2电还原制乙烯",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03431",
+          "tp": "钠电池电解质",
           "aip": 1,
-          "kp": [
-            "催化剂[CO2电还原制乙烯]: BEF@La(OH)3-Cu",
-            "[内建电场]: 触发界面水活化实现CO2选择性转化为乙烯",
-            "规模[CO2电还原]: 工业级电合成"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Abstract\n                  \n                    The electrochemical reduction of CO\n                    2\n                    to ethylene (C\n                    2\n                    H\n                    4\n                    ), as opposed to traditional industrial methods, stands out as an environmentally friendly benign and promising technical solution for producing value‐added chemicals using renewable electricity. Here, we introduce a built‐in electric field in La(OH)\n                    3\n                    ‐Cu (BEF@La(OH)\n                    3\n                    ‐Cu) electrocatalyst that can exclusively convert from CO\n                    2\n                    to C\n                    2\n                    H\n                    4\n                    with a maximum Faradaic efficiency of 84.2% and high intrinsic activity exceeding 842.0 mA cm\n                    −2\n                    , while maintaining robust stability of 110 h. Furthermore, the corresponding C\n                    2\n                    H\n                    4\n                    formation rate and energy efficiency can reach 2618.0 µmol cm\n                    −2\n                    h\n                    −1\n                    and 31.2%, respectively. The BEF@La(OH)\n                    3\n                    ‐Cu electrocatalyst was constructed by stacking La(OH)\n                    3\n                    and Cu layers, forming a built‐in electric field induced by electron transfer between La→O←Cu. The electric field effectively triggered H\n                    2\n                    O dissociation on La(OH)\n                    3\n                    ‐Cu interface for supplying active hydrogen (*H) species, which promoted multiple protonation steps in the process of CO\n                    2\n                    ‐to‐C\n                    2\n                    H\n                    4\n                    conversion. The *H species then easily migrate to Cu sites, reducing the energy barrier for the conversion from *CO to *COH, thus enhancing the efficient asymmetric *CO−*COH coupling and ultimately boosting the C\n                    2\n                    H\n                    4\n                    production under ampere‐level operation.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "表面重构 NiFe-氢氧化物上法拉第效率超过 100% 的安培级无膜双极氨电合成",
+          "d": "2025-12-24",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202521629?af=R",
+          "tp": "双极氨电合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "拓扑表面态对称性破缺实现1.3T垂直磁化无场翻转",
-        "CrystalGAT平台集成图注意力网络实现柔性晶体逆向设计",
-        "新型神经形态电子皮肤实现低功耗实时疼痛与损伤感知"
-      ],
-      "entries": [
-        {
-          "t": "利用对称性破缺拓扑表面态实现无场、确定性1.3 T垂直磁化的巨自旋轨道力矩翻转",
-          "d": "2025-12-24",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究利用拓扑材料的对称性破缺表面态，实现了无外加磁场条件下1.3 T垂直磁化的确定性巨自旋轨道矩（SOT）翻转。传统SOT翻转垂直磁化需要外加磁场辅助，限制了器件集成度。该工作通过拓扑表面态的内禀对称性破缺产生面内自旋分量，免除了对外部磁场的需求，实现了确定性的双向翻转。1.3 T的高磁化强度满足高密度存储要求，对自旋电子存储器（如SOT-MRAM）的实用化具有里程碑意义。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519678?af=R",
-          "tp": "自旋轨道转矩开关",
-          "aip": 1,
-          "kp": [
-            "垂直磁化[SOT切换]: 1.3 T",
-            "[特性]: 无场确定性自旋轨道矩切换",
-            "[机制]: 对称性提升的拓扑表面态"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The field‐free control of perpendicular magnetization using spin‐orbit torque (SOT) is a key challenge in spintronics, simplifying design and integration for both memory and logic applications. Unlike conventional heavy metal/ferromagnet heterostructures that already break out‐of‐plane symmetry, thus can readily offer in‐plane switching, realizing deterministic out‐of‐plane switching requires breaking additional in‐plane symmetries. In this study, we demonstrate field‐free switching in a heterostructure composed of a self‐intercalated 2D magnet, Cr\n                    3\n                    Te\n                    4\n                    , and a topological insulator, (Bi\n                    0.75\n                    Sb\n                    0.25\n                    )\n                    2\n                    Te\n                    3\n                    . In this system, the surface states of the topological insulator ensure efficient charge‐to‐spin conversion, but not deterministic on its own. The ordered 2 × 1 self‐intercalation of the perpendicular magnet provides additional symmetry breaking on the interface, rendering a combined unidirectional m (C\n                    s\n                    ) symmetry. This synergy allows for extremely strong, field‐free SOT switching of Cr\n                    3\n                    Te\n                    4\n                    with perpendicular coercivity ≈1.3 T. Unlike exfoliated 2D materials that tend to be single‐crystal, our wafer‐scale deposition naturally nucleates three equivalent types of 2 × 1 sublattices, and therefore the combined SOT switching manifests an apparent three‐fold angular dependence. These findings highlight a promising pathway toward efficient, topological insulator‐based spintronic device and material engineering.",
-          "hb": 1
-        },
-        {
-          "t": "CrystalGAT：基于AI的智能柔性晶体材料设计计算平台",
-          "d": "2025-12-24",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "研究开发了CrystalGAT——基于人工智能的柔性晶体材料智能设计计算平台。赋予功能晶体柔韧性可大幅拓展其在柔性电子、传感器和能量器件中的应用。该平台集成图注意力网络（GAT）与晶体结构预测算法，实现从目标性能到候选晶体结构的逆向设计。平台支持高通量筛选和性质预测，加速了柔性晶体材料的发现和优化过程，为材料基因组计划提供了有力的计算工具。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202518543?af=R",
-          "tp": "AI晶体材料设计",
-          "aip": 1,
-          "kp": [
-            "[材料设计]: 图注意力网络AI柔性晶体材料设计平台"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Endowing functional crystals with flexibility significantly broadens their potential applications in the field of flexible smart devices. Despite tremendous efforts to understand the foundational structural principles of flexibility, most discoveries of crystals with mechanical flexibility remain accidental. Currently, machine learning has become a transformative research paradigm in materials science. Here, we propose an innovative approach and develop a platform for predicting the mechanical properties of molecular crystals named CrystalGAT. CrystalGAT is a graph neural network model based on attention mechanisms, which constructs a robust optimal model through data augmentation strategies and achieves markedly superior prediction performance compared to established models. A high prediction accuracy of 90% is demonstrated on the validation set, alongside a promising generalization capability that extends to multicomponent systems. Most importantly, we have identified key segments influencing the mechanical properties of molecular crystals using CrystalGAT, successfully achieving a breakthrough in transforming brittle crystals into flexible photoresponsive crystals. Furthermore, it is possible to quickly screen for plastic multicomponent drug crystals, enhancing tableting performance. CrystalGAT provides an efficient method for flexible molecular crystal design, demonstrating its potential applications in material discovery and drug molecular modification. For user convenience, a dedicated website has been established:\n                    https://huggingface.co/spaces/ZZZCCCYYY/CrystalGAT\n                    .",
-          "hb": 1
-        },
-        {
-          "t": "具有主动疼痛和损伤感知能力的类脑机器人电子皮肤",
-          "d": "2025-12-24",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了一种具备主动疼痛和损伤感知能力的神经形态机器人电子皮肤。面向人形机器人在亲密接触场景中日益增长的高级感知需求，该电子皮肤模仿生物体感觉系统，能够在受到有害刺激时产生类似疼痛的响应，并识别组织损伤。系统采用神经形态计算架构实现低功耗、高灵敏度的实时感知，有望显著提升人机交互的安全性与共情能力，为人形机器人在医疗护理、家庭服务等近距离接触场景中的部署奠定基础。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2520922122?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "神经形态电子皮肤",
-          "aip": 1,
-          "kp": [
-            "[器件]: 神经形态机器人电子皮肤NRE-skin",
-            "[功能]: 主动痛觉与损伤感知"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Humanoid robots with advanced sensory capabilities are increasingly demanded for empathetic, close-contact interactions with humans. Electronic skin (E-skin) is a key enabling technology for such tactile perception. However, current E-skins are limited to basic tactile sensing with simple circuit architecture. Here, we introduce a neuromorphic robotic e-skin (NRE-skin) that not only provides fundamental tactile sensing but also integrates advanced features, such as active pain and injury detection. The NRE-skin encodes dynamic tactile stimuli into neural-like pulse trains and features active pain detection that triggers protective reflexes. Additionally, its injury sensing and modular design enable precise localization of damaged areas and rapid replacement of affected skin. By emulating human sensory and protective systems, the NRE-skin facilitates more natural and safer human–robot interactions.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "金属有机框架材料实现多组分混合物一步法乙烯纯化",
-        "光场串联光热催化体系实现高选择性CO2转化为多碳烯烃",
-        "NewTAML铁配合物体系实现室温条件断裂碳氢键降解抗生素"
-      ],
-      "entries": [
-        {
-          "t": "金属有机框架中定制协同配位环境实现多组分混合物一步法乙烯纯化新纪录",
-          "d": "2025-12-24",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "本研究在金属有机框架（MOF）中构建了量身定制的协同结合环境，实现了从多组分混合物中一步法分离纯化乙烯的高纪录性能。通过精确调控MOF孔道内多位点的协同吸附作用，使得C2H4与C2H6及其他组分之间的吸附差异最大化，避免了传统低温精馏的高能耗分离过程。该材料为工业级乙烯纯化提供了节能的一步分离方案。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202518996?af=R",
-          "tp": "MOF乙烯纯化",
-          "aip": 1,
-          "kp": [
-            "[分离应用]: 多组分混合物一步乙烯纯化",
-            "[策略]: 等网状设计精修孔道化学"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Precise control over pore environments in porous materials remains a long‐standing challenge for efficient ethylene (C\n                    2\n                    H\n                    4\n                    ) purification via physisorption, particularly when targeting impurities with distinct physicochemical properties such as carbon dioxide (CO\n                    2\n                    ) and ethane (C\n                    2\n                    H\n                    6\n                    ). In this study, we report an isoreticular design strategy to fine‐tune the local pore chemistry of metal‐organic frameworks (MOFs), enabling the simultaneous selective adsorption of CO\n                    2\n                    and C\n                    2\n                    H\n                    6\n                    . Through rational organic ligand engineering, the hydroxyl‐functionalized analogue PCP‐TPA‐2OH (also termed as ZU‐925, ZU represents Zhejiang University) breaks the bottleneck of only C\n                    2\n                    H\n                    6\n                    capture exhibited by the parent PCP‐TPA. The tailored synergistic binding environment of ZU‐925 makes it be new benchmark in one‐step C\n                    2\n                    H\n                    4\n                    purification from CO\n                    2\n                    /C\n                    2\n                    H\n                    6\n                    /C\n                    2\n                    H\n                    4\n                    ternary mixtures. Ultra‐purity C\n                    2\n                    H\n                    4\n                    (99.99%) along with high productivity of 17.8 L kg\n                    −1\n                    could be realized through only one‐step adsorption. Molecular simulations reveal that the preferential binding of C\n                    2\n                    H\n                    6\n                    arises from a tailored pore environment featuring aligned aromatic units and electronegative oxygen atoms, while Lewis basic hydroxyl groups locally modulate the pore chemistry, contributing to enhanced CO\n                    2\n                    capture. This study provides valuable insights into the design of advanced adsorbents for multiple impurity removal via isoreticular chemistry.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 光场协同串联光热催化实现高选择性CO2转化为C2+烯烃",
-          "d": "2025-12-24",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究开发了光场串联光热催化策略，实现CO2高选择性直接转化为多碳烯烃(C2+)。该光热协同催化体系克服了CO2还原中产物选择性和转化效率的关键瓶颈，为将CO2转化为高附加值化学品提供了新路线，在碳资源利用和温室气体减排方面具有重要的工程应用前景。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c18890",
-          "tp": "光热催化CO2还原",
-          "aip": 1,
-          "kp": [
-            "产物[CO2光热转化]: C2+烯烃",
-            "调控策略[光热串联催化]: 空间调制光场",
-            "催化构型[CO2转化]: 光场编排串联活性位点"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The direct photothermal conversion of CO2 into multicarbon olefins with high selectivity presents a promising route for sustainable carbon utilization. However, achieving high activity and selectivity simultaneously remains a formidable challenge due to intrinsic trade-offs in catalytic efficiency. Here, we introduce a spatially modulated light-field that orchestrates tandem active sites, enabling one-pot CO2-to-olefin conversion. Light-field-driven reduction rapidly transforms bimetallic ferrite into alloyed carbide in situ, forming synergistic CoFe oxide/carbide interfaces. At a CO2 conversion of 39.6%, the optimized system in a batch reactor delivers a C2-4 olefin productivity of 2.05 mmol g-1 h-1, of which 78.5% corresponds to C2H4 and C3H6, while under flow conditions it achieves a C2+ olefin selectivity of 72% among the hydrocarbon products, thereby establishing a benchmark for photothermal CO2-to-olefin conversion. Mechanistic investigations demonstrate that light-modulated interfacial coupling between oxide and alloy carbide phases dynamically reconfigures the electronic structure of unsaturated CoFe active sites, thereby mitigating mass-transfer limitations during C1-intermediate hydrogenation and directing selectivity toward C2+ olefins. Furthermore, scalability tests confirm the feasibility of this approach, as an integrated reactor system produces 66.1 L m-2 of C2-4 olefins per day under ambient sunlight. This work paves the way for advanced light-driven catalytic systems for industrial CO2 high value-added conversion.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 超越酶模拟：NewTAML/过氧化物抽取sp3 C–H键以启动氟喹诺酮类抗生素的生物超越性水净化矿化",
-          "d": "2025-12-24",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "NewTAML铁配合物/过氧化物体系突破了酶模拟的局限，能在中性水溶液和室温条件下直接断裂sp3 C-H键，启动对氟喹诺酮类抗生素的全矿化降解。该体系实现了将有机污染物完全转化为CO2、水和无机离子的\"生物超越型\"水净化，对抗生素污染水体的高级氧化处理具有突破意义，无需极端pH或高温条件。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c12768",
-          "tp": "铁催化水净化降解",
-          "aip": 1,
-          "kp": [
-            "催化剂[水体净化]: Fe(III) NewTAML",
-            "氧化剂[NewTAML]: H2O2",
-            "反应条件[氟喹诺酮降解]: 中性水相/室温",
-            "催化性能[NewTAML/H2O2]: 生物超越(超酶活性)",
-            "靶标[C-H活化]: sp3 C-H键"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In neutral aqueous media under ambient temperature, the bis-amido-bis-sulfonamido-ligated [FeIII{4-NO2C6H3-1,2-(NCOCMe2NSO2)2CHMe}(OH2)]- NewTAML catalyst (2), activates hydrogen peroxide to mimic and greatly surpass enzymatic activity (biotranscendence) by sweeping fluoroquinolone antibiotics rapidly toward minerals. Stepwise identification of intermediates was paired with mechanistic examination of key steps. For ofloxacin, the 2/H2O2 activated catalyst (AC) first attacks ofloxacin's piperazine unit in two enzyme-mimicking parallel pathways, cleaving secondary (desaturation) and primary (N-demethylation) sp3 C-H bonds via H atom abstraction to form dehydro- and desmethyl-ofloxacin, respectively; desaturation is a novel expression of TAML peroxidase-like reactivity. Kinetic data obtained with selectively deuterated ofloxacin compounds revealed for desaturation and N-demethylation, respectively, kinetic isotope effects (kH/kD) of 8.6 and 3.8; ΔH‡ and ΔS‡ are presented. Dehydro- and desmethyl-ofloxacin are further oxidized through several identified intermediates toward minerals; ion chromatography revealed F-, CH3COO-, HCOO-, NO2-, and NO3- as final products. 2/H2O2 similarly oxidizes ciprofloxacin and norfloxacin. Desaturation by 2/H2O2 of 1-methyl-4-phenylpiperazine delivered a rate that is comprehensibly half that of ofloxacin. DFT calculations provided compelling evidence that the 2/H2O2 effective AC is oxidized by two-electrons above the ferric state producing ofloxacin desaturation via sequential hydrogen atom abstraction, single electron transfer and hydrolysis events. Iron(IV) compounds, once considered plausible as ACs in TAML/peroxide C-H bond activations, cannot oxidize ofloxacin sp3 C-H bonds. The temporal toxicity profile of ofloxacin's degradation intermediates based on in silico toxicities highlights that 2/H2O2 can serve as a powerful safe-and-sustainable-by-design (SSbD) fluoroquinolone detoxifying water treatment.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

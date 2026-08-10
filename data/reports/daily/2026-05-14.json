@@ -6,19 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "华中科大陈炜团队研发双功能分子添加剂以提升甲脒铅碘钙钛矿器件热力学稳定性",
-      "加州大学陈政团队提出预烧结与高温球磨工艺将废旧磷酸铁锂回收升级为锰铁磷酸锂",
-      "研究提出裂解稠环共轭结构并结合聚集诱导发光基团以提升深蓝光OLED发光效率"
+      "全环境印刷SAM钙钛矿光伏电池光电转换效率突破26%",
+      "华中科大陈炜团队研发双功能分子添加剂，攻克甲脒铅碘器件室温相不稳定性难题"
     ],
     "AI与智能科技": [
-      "德国NVision以有机分子构建可控量子比特实现2毫秒以上自旋相干时间",
-      "科研团队完成覆盖8176个光学模式及1024个压缩态的超大规模高斯玻色采样实验",
-      "研究开发超分子水凝胶神经探针实现慢性疼痛管理中的双向脑机通信与闭环神经调控"
+      "德国NVision以有机分子构建可控量子比特，4K环境下自旋相干时间超2ms",
+      "研究团队提出基于反铁磁材料的皮秒级超低功耗开关器件"
     ],
     "通用技术": [
-      "马里兰大学任申强团队提出低温铜有机基质转化策略实现8.95微欧厘米低电阻率",
-      "科研团队开发基于碳纳米管的柔性射频晶体管实现超100吉赫兹工作频率",
-      "研究通过热力学引导策略实现千克级高纯度碘化铜团簇沉淀以制备低成本发光二极管"
+      "研究揭示通过操纵自旋电子调节酶活性机制，实现非键合铵稳定锰-氧σ键",
+      "马里兰大学研发低温转化铜导体技术，电阻率达8.95 μΩ·cm且具备强酸碱耐受性"
     ]
   },
   "sectors": [
@@ -26,18 +23,36 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "华中科大陈炜团队研发双功能分子添加剂以提升甲脒铅碘钙钛矿器件热力学稳定性",
-        "加州大学陈政团队提出预烧结与高温球磨工艺将废旧磷酸铁锂回收升级为锰铁磷酸锂",
-        "研究提出裂解稠环共轭结构并结合聚集诱导发光基团以提升深蓝光OLED发光效率"
+        "全环境印刷SAM钙钛矿光伏电池光电转换效率突破26%",
+        "华中科大陈炜团队研发双功能分子添加剂，攻克甲脒铅碘器件室温相不稳定性难题"
       ],
       "entries": [
         {
+          "t": "流体结晶协同作用可实现 >26% 效率的全环境印刷 SAM 钙钛矿光伏电池",
+          "d": "2026-05-14",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73373?af=R",
+          "tp": "印刷钙钛矿光伏",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
           "t": "华中科大陈炜报道一种双功能分子添加剂3-PMPCl可提高甲脒铅碘器件稳定性",
           "d": "2026-05-14",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "华中科大陈炜团队设计双功能分子添加剂3-PMPCl（1-吡啶-3-基甲基-哌嗪盐酸盐），通过分子锁策略调控FAPbI3钙钛矿晶格熵。吡啶基团强配位Pb²⁺，柔性哌嗪环适应晶格振动，实现双位点锚定[PbI₆]⁴⁻八面体，抑制晶格膨胀与相变。同时与FA⁺形成氢键复合物，解除转动限制，提高FA⁺转动熵，增强α相热力学稳定性。该策略从根本上解决了FAPbI3室温相不稳定的难题，为高效率钙钛矿器件的长期运行提供新方案。",
-          "sc": 6.3,
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1126/science.aeb9953",
@@ -51,44 +66,22 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 切割稠环共轭结构并引入聚集诱导发光效应实现超20%效率（原文截断）",
+          "t": "华中科大陈炜报道一种双功能分子添加剂3-PMPCl可提高甲脒铅碘器件稳定性",
           "d": "2026-05-14",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "提高光致发光量子产率（PLQY）以降低能量损失是有机发光二极管（OLED）领域进一步发展的核心瓶颈。该研究提出通过裂解稠环共轭结构并引入聚集诱导发光（AIE）基团的新型分子设计策略，有效抑制了分子间紧密堆积导致的发光猝灭（ACQ效应），同时保持高效的电荷传输能力。该策略为突破高效深蓝光OLED材料的效率极限提供了新思路。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22943",
-          "tp": "有机太阳能电池",
-          "aip": 1,
-          "kp": [
-            "效率[有机太阳能电池]: 超过20% PCE",
-            "策略[OSC]: 裂解稠环引入AIE效应"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "How to reduce energy loss by enhancing the photoluminescence quantum yield (PLQY) is currently one big bottleneck to further increase the open-circuit voltage (VOC) and power conversion efficiency (PCE) of organic solar cells (OSCs). Utilizing the aggregation-induced emission (AIE) effect should be effective to enhance the PLQY. However, there is no reliable molecular design strategy to realize AIE while maintaining the appropriate aggregation behavior of materials. In this study, through cleavage of the conjugated structure of the shamrock-shaped molecule of AQ-fNI, a nonfullerene acceptor (NFA), AQ-NI, with AIE effect was developed. AQ-NI exhibits a higher PLQY (14.6%) than that of AQ-fNI (6.16%), enabling an exceptionally low energy loss of 0.494 eV and consequently a high VOC of 0.960 V. Moreover, the becoming stacking characteristics of AQ-NI facilitate the modulation of aggregation behavior in the active layer, resulting in a favorable phase-separated morphology and enhanced charge carrier transport. As a result, the layer-by-layer (LBL)-fabricated binary OSCs based on D18/AQ-NI achieved a high PCE of 19.14%. In addition, AQ-NI could serve as a guest molecule in a bulk-heterojunction structure, and D18:L8-BO:AQ-NI-based ternary OSCs realized an improved PCE of 20.22% in comparison with the D18:L8-BO-based binary device (PCE = 19.39%). Our findings provide a simple and promising strategy for designing high-performance NFAs with AIE effect and establish a fundamental correlation between AIE properties and OSC performance.",
-          "hb": 1
-        },
-        {
-          "t": "加州大学圣地亚哥分校陈政报道一种预烧结+球磨+高温的磷酸铁锂正极回收制备锰铁磷酸锂方法",
-          "d": "2026-05-14",
-          "a": "",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "加州大学圣地亚哥分校陈政团队报道预烧结+球磨+高温的磷酸铁锂（LFP）回收制备锰铁磷酸锂（LMFP）方法。废旧LFP与低成本前驱体450℃预烧结生成与LFP同构的LiMnPO4中间体，高能球磨细化颗粒并原子尺度混合，650℃高温烧结借助浓度梯度驱动的原子互扩散生成纯相均匀LMFP固溶体，蔗糖碳化形成导电网络。该法克服了直接制备LMFP的晶格失配、相分离、锰分布不均等瓶颈，实现了废LFP的高值化升级回收。",
-          "sc": 6.1,
+          "as": "华中科大陈炜团队设计双功能分子添加剂3-PMPCl（1-吡啶-3-基甲基-哌嗪盐酸盐），通过分子锁策略调控FAPbI3钙钛矿晶格熵。吡啶基团强配位Pb²⁺，柔性哌嗪环适应晶格振动，实现双位点锚定[PbI₆]⁴⁻八面体，抑制晶格膨胀与相变。同时与FA⁺形成氢键复合物，解除转动限制，提高FA⁺转动熵，增强α相热力学稳定性。该策略从根本上解决了FAPbI3室温相不稳定的难题，为高效率钙钛矿器件的长期运行提供新方案。",
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1016/j.joule.2026.102474",
-          "tp": "锂电回收法",
+          "u": "https://doi.org/10.1126/science.aeb9953",
+          "tp": "钙钛矿稳定",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "磷酸铁锂（LFP）电池凭借其高安全、长寿命、低成本优势，占据全球近50%的锂电市场；但回收规模也同样较大。传统火法/湿法冶金回收能耗高、流程复杂、二次污染严重，且仅能回收元素，无法直接升级材料价值。而废LFP直接制备高能量锰铁磷酸锂（LMFP），又面临晶格失配、相分离、锰分布不均等瓶颈。\n近日，加州大学圣地亚哥分校陈政教授团队报道一种预烧结生成同构中间体+机械化学活化+高温均质化的LFP直接制备LMFP的回收方法。其首先将废旧LFP与碳酸锂、碳酸锰、磷酸二氢铵等低成本前驱体混合，在450℃预烧结，优先生成与LFP晶体结构完全匹配的LiMnPO4（LMP）中间体。将中间体进行高能球磨，细化颗粒、诱导非晶化、增加反应活性位点，同时让LFP-rich与LMP-rich区域在原子尺度紧密混合，降低后续均质化反应的热力学与动力学能垒。而后将活化后的中间体与少量蔗糖（碳源）混合，在650℃高温烧结，借助锰/铁离子浓度梯度驱动的原子级互扩散，直接生成纯相、元素分布均匀、碳层均匀包覆的LMFP固溶体；蔗糖碳化后形成连续导电网络，进一步提升材料电子导电性，兼顾结构稳定性与电化学性能。表征结果发现，由此制备出的LMFP为纯相正交晶系橄榄石结构，无杂相生成；Mn、Fe、P、C在颗粒内原子级均匀分布，无元素偏析；颗粒表面均匀包覆2.79±0.88nm无定形碳层，既提升导电性，又抑制锰溶解，强化循环稳定性。测试结果发现，其在0.1C下放电比容量155.5 mAh/g，平均放电电压3.75V，能量密度较LFP提升10%-20%，达到商用LMFP水平；Fe2+/Fe3+与Mn2+/Mn3+氧化还原对极化38.9mV、93.4mV，低于商用LMFP；C/3下循环200次，容量保持率98.7%，电压保持率99.5%；此外，其在3C下仍保持120.8 mAh/g容量。\n该研究还通过该方法实现了公斤级（650g）的放大实验，采用工业级废旧LFP黑料（含导电碳、PVDF粘结剂杂质）为原料，产出的uLMFP-sE64仍保持152.3 mAh/g（0.1C）容量，100次循环容量保持率97.8%。uLMFP-sE64（90%活性材料）||1M LiPF6+EC/EMC||Gr软包电池2.5-4.4V循环700圈仍保持80%容量。文章于2026年5月14日发表在Joule。",
+          "b": "基于甲脒铅碘（FAPbI3）钙钛矿的单结器件认证效率已不断逼近理论极限，但其光活性α相在室温下存在严重的相不稳定问题，制约了器件的长期运行。这主要由于α相在室温下并非热力学稳定相，其稳定存在依赖于150°C以上甲脒（FA+）离子动态取向无序所提供的熵稳定效应；当温度降至工作温度时，FA+离子旋转熵贡献减弱，且原本被抑制的[PbI6]4−八面体倾斜模式被释放，引发体积膨胀与骨架重构，导致不利熵增，推高α相的吉布斯自由能，使其处于亚稳态导致α相易自发转变为光电非活性的δ相。而传统策略如表面缺陷钝化或成分掺杂，未能从根本上解决这一热力学不稳定性，\n近日，华中科大陈炜教师团队提出了一种基于分子锁的晶格熵调控策略，设计一种双功能分子添加剂1-吡啶-3-基甲基-哌嗪盐酸盐（3-PMPCl）。柔性哌嗪环可适应晶格振动，优化吸附构型；吡啶基团具有强配位能力，与Pb²⁺牢固结合；亚甲基连接提供分子柔性，实现双位点锚定。3-PMPCl可均匀分布在晶界，强锚定[PbI₆]⁴⁻八面体，抑制晶格膨胀、扭曲、无序，降低相变驱动力；同时可与FA⁺形成氢键复合物，解除转动限制，显著提高FA⁺转动熵，增强α相热力学稳定性，老化400小时后，Pb–I键长几乎不变；表面相变势垒从0.75 eV提高至5.24 eV提升7倍，体相势垒达3.07 eV，高温高湿下难以跨越，从根源阻止α→δ相转变；改性样品几乎无变化，证明晶格畸变被抑制；湿热条件下，对照样品出现明显的δ相峰，而3-PMPCl样品纯α相保持200分钟不变；85℃热老化200h、室温氮气保存860 h均无δ相。单结ITO/NiOₓ/Me-4PACz/PEACl/FAPbI₃+3-PMPI/PCBM/BCP/Ag器件认证效率27.6%；FA-Cs混合钙钛矿器件认证效率27.5%。Voc×FF达Shockley-Queisser极限的91.8%，非辐射复合损失降至最低。85℃、1 sun，1019小时后仍保留93%初始效率；85℃、85% RH条件，1150小时效率下降4.3%；室温氮气中存放860小时、85℃热老化200小时、空气暴露40天，均未检测到δ相。文章于2026年5月14日发表在Science。",
           "hb": 1
         }
       ]
@@ -97,18 +90,17 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "德国NVision以有机分子构建可控量子比特实现2毫秒以上自旋相干时间",
-        "科研团队完成覆盖8176个光学模式及1024个压缩态的超大规模高斯玻色采样实验",
-        "研究开发超分子水凝胶神经探针实现慢性疼痛管理中的双向脑机通信与闭环神经调控"
+        "德国NVision以有机分子构建可控量子比特，4K环境下自旋相干时间超2ms",
+        "研究团队提出基于反铁磁材料的皮秒级超低功耗开关器件"
       ],
       "entries": [
         {
           "t": "德国NVision展示使用有机分子构建可控量子比特路径",
           "d": "2026-05-14",
-          "a": "",
+          "a": "Science",
           "c": "AI与智能科技/其它智能科技/量子信息",
           "as": "德国NVision Imaging Technologies公司获5500万美元融资并在Science发布预印本，首次以有机分子构建可控量子比特。团队设计含卡宾的单分子，利用碳原子未配对电子，以激光编码、操控和读出量子信息。4K环境下自旋相干时间超2ms，可精确频率持续发射明亮光子，性能优于诸多现有方案。与传统晶体缺陷路线不同，NVision通过有机合成精确设计分子结构，可定制量子比特频率、亮度等特性，有望挑战超导、离子阱等主流平台。",
-          "sc": 7.3,
+          "sc": 7.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.science.org/content/article/molecules-emerge-new-kind-building-block-quantum-computers",
@@ -122,49 +114,42 @@
           "hb": 1
         },
         {
-          "t": "8176个模式中1024个压缩态的高斯玻色取样",
+          "t": "德国NVision展示使用有机分子构建可控量子比特路径",
           "d": "2026-05-14",
-          "a": "Nature",
+          "a": "Science",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究团队实现了具有1,024个压缩态、覆盖8,176个光学模式的超大规模高斯玻色采样实验，在量子计算优越性方面取得重大突破。高斯玻色采样是证明光量子处理器超越经典计算机能力的关键任务，此次规模远超此前纪录，将可采样希尔伯特空间维度推向极高量级。大规模、高保真度量子处理器的构建是实现容错量子计算的基础性挑战，该成果不仅在原理上验证了光量子体系的扩展性，也为量子化学模拟、组合优化等实际应用场景奠定了硬件基础。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10523-6",
-          "tp": "高斯玻色取样",
+          "as": "德国NVision Imaging Technologies公司获5500万美元融资并在Science发布预印本，首次以有机分子构建可控量子比特。团队设计含卡宾的单分子，利用碳原子未配对电子，以激光编码、操控和读出量子信息。4K环境下自旋相干时间超2ms，可精确频率持续发射明亮光子，性能优于诸多现有方案。与传统晶体缺陷路线不同，NVision通过有机合成精确设计分子结构，可定制量子比特频率、亮度等特性，有望挑战超导、离子阱等主流平台。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/content/article/molecules-emerge-new-kind-building-block-quantum-computers",
+          "tp": "分子量子态",
           "aip": 1,
-          "kp": [
-            "压缩态数[高斯玻色采样]: 1024",
-            "模式数[高斯玻色采样]: 8176",
-            "[应用]: 容错玻色纠错码"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The development of large-scale, high-fidelity quantum processors is a fundamental scientific challenge, essential for exploring the boundaries of classical computation and advancing towards fault-tolerant systems. Gaussian boson sampling not only serves as a prominent model for demonstrating quantum computational advantage1,2,3 but can also generate bosonic error-correcting codes for fault-tolerant quantum computing4,5,6. However, its scalability has been hindered by significant photon loss in increasingly large and complex encoding circuits. Here we show a programmable photonic quantum processor, Jiuzhang 4.0, which incorporates 1,024 high-efficiency squeezed states into a hybrid spatial–temporal encoded 8,176-mode circuit. By achieving 92% source efficiency and 51% overall system efficiency, the processor produces samples with detection events up to 3,050 photons, representing an order-of-magnitude increase in scale over previous demonstrations7,8,9,10. This architecture realizes a cubic scaling of connectivity (163 = 4, 096), enabling sampling within a Hilbert space of dimension approximately 102,461. The experimental results are rigorously validated against all current classical simulation methods, especially the matrix product state algorithms recently designed to exploit photon loss11. The ability to control thousands of photons in programmable low-loss quantum processors pushes the experimental frontier into a regime far beyond classical tractability and opens a pathway to trillion-qumode three-dimensional cluster states and fault-tolerant photonic quantum hardware.",
+          "b": "据5月14日Science官网发布新闻报道，德国NVision Imaging Technologies公司近日宣布获得5500万美元新融资，并发布预印本论文，展示了一种以有机分子为核心的量子计算路径。该研究是分子首次被用于构建可控量子比特（qubit），有望挑战目前主流的原子、离子和超导电路等平台。\n2015年起，NVision创始人Ilai Schwartz最初利用金刚石偏振分子示踪剂增强MRI信号，后转向其他有机分子。其中一类具有洁净、稳健量子特性的有机分子脱颖而出，其MRI偏振器本质上是一个“低效量子计算机”，于是转向开发分子量子计算技术。在最新研究中，团队设计并操控了一种含卡宾（carbene）的单分子。该分子碳原子带有未配对电子，研究人员用光（激光）对其进行量子信息的编码、操控和读出。在4K环境下，该分子自旋相干时间超过2ms，并能以精确频率持续发射明亮光子，性能优于许多现有方案。\n与传统方法不同，NVision不依赖晶体缺陷，而是通过有机合成精确设计分子结构，利用核或价电子自旋存储信息。这种“定制分子”可通过调整原子位置和化学键强度，优化量子比特的频率、亮度等特性。分子薄膜还能被打印到光子芯片上，便于实现多量子比特纠缠。\n普林斯顿大学物理学家Nathalie de Leon评价称，这是过去十年努力方向的实质性进展，但仍需证明可扩展性、纠缠能力和容错纠错能力。Ulm大学Martin Plenio等专家指出，分子平台的优势在于可借助制药工业的合成工具库，几乎拥有无限设计空间。尽管距离实用量子计算机尚远，但该技术未来可能在量子传感、分布式量子网络等领域发挥作用。NVision团队乐观认为，分子-光子混合系统有望实现比中性原子等平台更快的运算速度，并简化纠错流程。",
           "hb": 1
         },
         {
-          "t": "超分子水凝胶神经探针用于慢性疼痛管理的双向脑机通信与神经调控",
+          "t": "基于反铁磁体的皮秒超低功耗开关器件",
           "d": "2026-05-14",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "该研究开发了一种超分子水凝胶神经探针，实现了脑机双向通信与神经调控一体化，用于慢性疼痛管理。探针不仅能高保真记录深部脑区神经信号，还可通过电刺激进行闭环神经调控，在慢性疼痛动物模型中显著缓解痛觉行为。超分子水凝胶的柔性生物界面有效降低了传统刚性电极的炎症反应和组织损伤，为慢性疼痛这类难治性神经疾病提供了植入式精准治疗的创新技术路线。",
-          "sc": 7.4,
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 6.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73367?af=R",
-          "tp": "脑机接口神经调控",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adt3136?af=R",
+          "tp": "反铁磁开关器件",
           "aip": 1,
-          "kp": [
-            "电极材料[脑机接口]: 超分子水凝胶神经探针",
-            "[功能]: 双向脑机通信与神经调控"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  Chronic pain continues to pose a significant therapeutic challenge due to its complex pathophysiology and the limited efficacy of conventional pharmacological treatments. Brain‐machine interfaces (BMIs) have emerged as a promising strategy for recording neural activity, modulating neural circuits, and treating neurological disorders. However, the long‐term performance of conventional rigid implantable probes is severely constrained by their mechanical mismatch with soft brain tissue. This mismatch provokes chronic inflammatory responses and results in gradual signal deterioration. Additionally, most existing probes lack integrated functionality for simultaneous in situ neuromodulation and neural signal recording. In this work, we developed a supramolecular hydrogel based on α‐helical polypeptide cross‐linkers, achieving an optimal balance of mechanical compliance, electrical conductivity, and optical transparency. When implanted in the rat prelimbic cortex, the hydrogel probe enabled stable recording of local field potentials (LFPs) for up to 16 weeks. Importantly, the probe enabled in situ neuromodulation while concurrently recording evoked LFPs, resulting in enhanced prelimbic cortical activity, increased mechanical withdrawal thresholds, and reduced cold allodynia in a chronic neuropathic pain model. These findings advance neural interface technology by enabling integrated, long‐term monitoring and neuromodulation, representing a paradigm shift in the design of implantable devices for chronic pain therapy.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -172,23 +157,41 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "马里兰大学任申强团队提出低温铜有机基质转化策略实现8.95微欧厘米低电阻率",
-        "科研团队开发基于碳纳米管的柔性射频晶体管实现超100吉赫兹工作频率",
-        "研究通过热力学引导策略实现千克级高纯度碘化铜团簇沉淀以制备低成本发光二极管"
+        "研究揭示通过操纵自旋电子调节酶活性机制，实现非键合铵稳定锰-氧σ键",
+        "马里兰大学研发低温转化铜导体技术，电阻率达8.95 μΩ·cm且具备强酸碱耐受性"
       ],
       "entries": [
         {
+          "t": "[ASAP] 通过操纵自旋电子来调节酶活性，非键合铵稳定锰-氧 σ-键",
+          "d": "2026-05-14",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02992",
+          "tp": "酶活性调节",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
           "t": "马里兰大学帕克分校任申强提出的铜抗氧化与腐蚀防护策略",
           "d": "2026-05-14",
-          "a": "",
+          "a": "Science",
           "c": "通用技术/材料工程/耐腐蚀材料",
           "as": "马里兰大学任申强团队提出基于反应性铜-有机基质（CuOM）的分子策略，利用多巴胺、抗坏血酸等还原性配体，在100-150°C低温下将铜甲酸盐原位转化为金属铜网络，同步构建碳质与Cu(I)复合钝化层。核心创新为\"反应-钝化一体化\"设计，所得导体电阻率低至8.95 μΩ·cm，在强酸强碱中稳定超16小时，显著优于商用铜箔，解决了导电性与耐腐蚀性的长期权衡难题。",
-          "sc": 6.3,
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.science.org/doi/10.1126/science.aed4488",
           "tp": "铜防腐策略",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -197,48 +200,22 @@
           "hb": 1
         },
         {
-          "t": "工作频率超过100 GHz的柔性射频碳纳米管晶体管",
+          "t": "马里兰大学帕克分校任申强提出的铜抗氧化与腐蚀防护策略",
           "d": "2026-05-14",
-          "a": "Nature Electronics",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了工作频率超过100GHz的柔性射频碳纳米管晶体管，面向第六代无线通信技术需求。该器件利用碳纳米管的高迁移率和柔性基底兼容性，在保持高频性能的同时实现机械柔性。这一突破解决了6G终端对超高频柔性电子器件的需求，在可穿戴通信、物联网和柔性电子系统中具有广泛应用前景。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01632-1",
-          "tp": "碳纳米管射频晶体管",
-          "aip": 1,
-          "kp": [
-            "工作频率[柔性CNT晶体管]: >100GHz",
-            "器件[射频]: 柔性碳纳米管薄膜晶体管"
-          ],
-          "lv": 0,
+          "a": "Science",
+          "c": "通用技术/材料工程/耐腐蚀材料",
+          "as": "马里兰大学任申强团队提出基于反应性铜-有机基质（CuOM）的分子策略，利用多巴胺、抗坏血酸等还原性配体，在100-150°C低温下将铜甲酸盐原位转化为金属铜网络，同步构建碳质与Cu(I)复合钝化层。核心创新为\"反应-钝化一体化\"设计，所得导体电阻率低至8.95 μΩ·cm，在强酸强碱中稳定超16小时，显著优于商用铜箔，解决了导电性与耐腐蚀性的长期权衡难题。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aed4488",
+          "tp": "铜防腐策略",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The development of the sixth generation of wireless communications technology requires terminals that can operate at frequencies above 100 GHz. For human-centric applications, these terminals should also be flexible and have low power. However, current flexible radio-frequency transistors typically have lower maximum frequencies, in part due to the poor thermal conductivity of flexible substrates. Here we report radio-frequency transistors that are based on aligned carbon nanotube arrays on flexible substrates, having current-gain cut-off frequencies (fT) and power-gain cut-off frequencies (fmax) above 100 GHz. This is achieved by using electrothermal co-design to improve the heat dissipation and radio-frequency performance of the devices. The transistors exhibit an on-state current of 0.947 mA µm−1, a transconductance of 0.728 mS µm−1, a peak extrinsic fT of 152 GHz, a peak extrinsic fmax of 102 GHz and a power consumption under 200 mW mm−1. We also show that the devices can be used to create flexible radio-frequency amplifiers with an output power of 64 mW mm−1 and an 11-dB power gain in the K band.",
-          "hb": 1
-        },
-        {
-          "t": "热力学引导的千克级碘化铜簇沉淀用于高效溶液加工发光二极管",
-          "d": "2026-05-14",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究通过热力学引导策略实现了千克级碘化铜团簇的可控制备，用于高效溶液加工型发光二极管。铜卤化物团簇因强发射和重金属效应成为有前途的电致发光材料，但大规模合成困难。研究者利用热力学指导沉淀过程，实现了高纯度、高产量制备，所制LED器件展现出优异发光性能，为低成本的铜基发光材料产业化提供了可行路径。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aef2453?af=R",
-          "tp": "铜卤化物发光材料",
-          "aip": 1,
-          "kp": [
-            "合成策略[铜卤化物簇]: 热力学驱动的分子设计",
-            "合成规模[铜碘化物]: 公斤级沉淀法",
-            "应用[溶液加工LED]: 高效电致发光"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Copper halide clusters are emerging as attractive electroluminescent materials due to their strong emission and heavy metal–free nature, but their cost-effective practical application has been limited by the inherent trade-off between scalable synthesis and solution processability. This dilemma motivates us to design a universal thermodynamically motivated molecular design strategy. Alkyl-free aromatic ligand diphenyl-2-pyridylphosphine (Ph\n                    2\n                    PPy) reduces the entropy gain and increases the enthalpy change in dissolution, which maximizes the tunability of solubility and allows the coexistence of scalable single-step precipitation and solution processability. The kilogram-scale synthesis demonstrates near-unity yield, high reproducibility, operational robustness, and high product purity, while also being applicable to other alkyl-free precursors. We achieve uniform crystalline films with a photoluminescence quantum yield of 85.49% by kinetically controlled hot solution process. The electroluminescent devices achieve a record external quantum efficiency of 21.08% and a maximum luminance of 66,388 candela per square meter—the highest among doping-free, solution-processed copper halides, paving the way toward cost-effective light-emitting technologies.",
+          "b": "铜凭借其卓越的导电导热性能，是电子和能源领域不可替代的关键材料。然而，铜极易氧化腐蚀，严重制约其长期可靠性。现有防护技术往往依赖高温烧结或复杂多步工艺，且常含有毒元素，难以兼容热敏基底，并面临导电性与耐腐蚀性之间的长期权衡难题。\n马里兰大学帕克分校任申强等人提出了一种基于反应性铜-有机基质（CuOM）的分子策略。研究团队利用多巴胺、抗坏血酸等儿茶酚类还原性配体，在环境空气中、100至150°C的低温条件下，即可将铜甲酸盐原位转化为金属铜网络，并同步构建超薄碳质与Cu(I)复合钝化层。\n该策略的核心创新在于“反应-钝化一体化”设计。配体分子不仅介导铜离子的低温还原，还通过配位辅助溶剂润湿促进纳米颗粒间的融合；原位生成的Cu₂O在颗粒界面充当“可移除桥梁”，经还原后形成连续的渗流导电通路。与此同时，残余有机组分转化为表面非晶碳质层，有效阻隔氧气与腐蚀介质的渗透。\n实验数据显示，所得导体电阻率低至8.95 μΩ·cm，接近块体铜水平。在耐腐蚀性方面，该材料在100 mM盐酸和氢氧化钠中稳定超过16小时（商用铜箔7小时内即失效），在硫化钠溶液中超过200小时，140°C高温下超过240小时仍保持性能稳定。此外，基于该导体的锂离子电池集流体在500次循环后容量保持率超过98%，太阳能电池光电转换效率亦可与银电极器件媲美。\n相较于传统需600°C以上高温烧结或依赖有毒防护剂的方法，该技术将加工温度降至原有水平的四分之一以下，且无需惰性气氛保护，可直接在纸张、聚合物等柔性基底上印刷电路，为柔性天线、微电子互连及增材制造提供了兼具低成本、高导电性与环境耐久性的材料平台。文章于2026年5月14日发表在Science。",
           "hb": 1
         }
       ]

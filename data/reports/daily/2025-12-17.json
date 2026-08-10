@@ -1,0 +1,195 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月17日　星期三",
+  "date_range": "2025-12-17",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队解码富锂层状阴极中配体至金属电荷转移的铁氧活度",
+      "研究人员通过抑制铁迁移实现钠离子层状氧化物阴极高度可逆氧氧化还原"
+    ],
+    "AI与智能科技": [
+      "科研人员制造出沟道与接触长度均低于35纳米的高性能二硫化钼晶体管",
+      "研究团队在二硫化钼上外延生长锑接触实现18纳米长度下98 Ω·μm接触电阻",
+      "研究人员在硅基平台开发出集成11个量子位的原子处理器"
+    ],
+    "通用技术": [
+      "PhaseT3M技术结合电子冷冻断层扫描实现1.6埃分辨率三维成像",
+      "科研人员首次观察到莫尔等离子体斯格明子簇的微观物理现象"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队解码富锂层状阴极中配体至金属电荷转移的铁氧活度",
+        "研究人员通过抑制铁迁移实现钠离子层状氧化物阴极高度可逆氧氧化还原"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 通过富锂层状阴极中的配体到金属的电荷转移来解码铁的氧活度",
+          "d": "2025-12-17",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c10485",
+          "tp": "富锂阴极研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 抑制铁迁移以实现钠离子层状氧化物阴极的高度可逆氧氧化还原",
+          "d": "2025-12-17",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c15943",
+          "tp": "钠离子阴极研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "科研人员制造出沟道与接触长度均低于35纳米的高性能二硫化钼晶体管",
+        "研究团队在二硫化钼上外延生长锑接触实现18纳米长度下98 Ω·μm接触电阻",
+        "研究人员在硅基平台开发出集成11个量子位的原子处理器"
+      ],
+      "entries": [
+        {
+          "t": "沟道和接触长度低于 35 nm 的高性能二硫化钼晶体管",
+          "d": "2025-12-17",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "随着硅材料达到缩放极限，二维材料成为晶体管进一步微型化的关键方向。研究人员采用与工业兼容的金属有机化学气相沉积技术，生长出晶圆级二硫化钼，并成功制造出沟道长度和接触长度分别缩减至35纳米和30纳米的晶体管，有效探索了少层材料在解决高关态漏电流和接触电阻过高方面的潜力。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01499-8",
+          "tp": "二硫化钼晶体管",
+          "aip": 1,
+          "kp": [
+            "沟道长度(LCH)[高性能二硫化钼晶体管]: < 35 nm",
+            "接触长度(LC)[高性能二硫化钼晶体管]: < 35 nm"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "As silicon reaches its scaling limits, two-dimensional materials are a promising route for further transistor miniaturization. Advances in contact engineering, channel length (LCH) scaling and high-κ dielectric integration have led to impressive two-dimensional transistor performance, but challenges remain, including high off-state leakage currents due to negative threshold voltage values and high contact resistances as contact length (LC) is reduced. A monolayer-centric approach has also limited the exploration of the advantages that few-layer (two to three) materials may offer. Here we show that industry-compatible metal–organic chemical vapour deposition can be used to grow wafer-scale molybdenum disulfide (MoS2) and fabricate transistors with LCH and LC scaled to 35 nm and 30 nm, respectively. We integrate a high-κ gate dielectric with an equivalent oxide thickness of less than 2.5 nm and create monolayer, bilayer and trilayer MoS2 transistors. The scaled trilayer transistors exhibit an on-state current of 220 µA µm−1, a positive threshold voltage and off-state current below 10 pA µm−1 at zero gate bias. Trilayer MoS2 transistors show enhanced performance compared with monolayer devices at scaled LC due to a shorter transfer length and lower Schottky barrier height. To illustrate the reliability and reproducibility of the approach, we provide statistics for approximately 1,000 scaled devices.",
+          "hb": 1
+        },
+        {
+          "t": "用于二维晶体管的按比例缩放的晶体锑欧姆接触",
+          "d": "2025-12-17",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "过渡金属二硫化物被视为硅的潜在替代品，可用于制造埃米节点工艺下接触栅极间距低于40纳米的晶体管。研究人员通过分子束外延技术，在二硫化钼上外延生长了晶态半金属锑接触，在18纳米的接触长度下实现了98 Ω·μm的接触电阻。基于此构建的晶体管接触栅极间距为40纳米，单层、双层和三层二硫化钼沟道的驱动电流分别达到0.85、0.95和1.08 mA/μm。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01500-4",
+          "tp": "二维晶体管接触",
+          "aip": 1,
+          "kp": [
+            "接触栅极间距[过渡金属二硫属化物晶体管]: 低于40nm",
+            "接触长度[晶态半金属锑接触]: 小于20nm",
+            "[二硫化钼]: 通过分子束外延在表面外延生长晶态半金属锑形成欧姆接触"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Transition metal dichalcogenides are a potential alternative to silicon and could be used to create transistors with a contacted gate pitch below 40 nm as required by the ångström-node transistor technology. However, it remains challenging to maintain an ohmic contact when the contact length is reduced to less than 20 nm. Here we show that crystalline semi-metallic antimony contacts can be epitaxially grown on molybdenum disulfide (MoS2) by molecular beam epitaxy, creating ohmic contacts with a resistance of 98 Ω µm at a contact length of 18 nm. We use the contacts to build scaled field-effect transistors with a contacted gate pitch of 40 nm with drive currents of 0.85 mA µm−1, 0.95 mA µm−1 and 1.08 mA µm−1 for monolayer, bilayer and trilayer MoS2 channels, respectively. Statistical analysis of transistor arrays confirms that the crystalline antimony contacts are reproducible and stable.",
+          "hb": 1
+        },
+        {
+          "t": "硅中的 11 量子位原子处理器",
+          "d": "2025-12-17",
+          "a": "Nature",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09827-w",
+          "tp": "硅量子位处理器",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "PhaseT3M技术结合电子冷冻断层扫描实现1.6埃分辨率三维成像",
+        "科研人员首次观察到莫尔等离子体斯格明子簇的微观物理现象"
+      ],
+      "entries": [
+        {
+          "t": "PhaseT3M：通过具有非线性相位检索功能的电子冷冻断层扫描以 1.6 Å 分辨率进行 3D 成像",
+          "d": "2025-12-17",
+          "a": "Nature Communications",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-67303-5",
+          "tp": "冷冻断层扫描成像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "莫尔等离子体斯格明子簇的观察",
+          "d": "2025-12-17",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adx0478?af=R",
+          "tp": "等离子体斯格明子",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

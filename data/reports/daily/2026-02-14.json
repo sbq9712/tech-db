@@ -6,19 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究构建分层结构固态电解质界面实现工业级电化学合成氨",
-      "学者开发电化学可逆表面矿化技术降低直接空气碳捕集能耗",
-      "新概念利用温室气体化学势差捕获排放物并同步输出电能"
+      "一汽首发142kWh锂锰液固态电池，单体续航达1000公里",
+      "新型全固态电池设计破除外部运行压力依赖",
+      "科研团队研发无锂高性能钙离子电池体系"
     ],
-    "AI与智能科技": [
-      "AI智能体通过众包平台自主雇佣人类执行科研等物理任务",
-      "学者制备热拉拔全水凝胶纤维降低脑机接口植入纤维化反应",
-      "研究利用无光刻自组装技术制备锗量子点单空穴晶体管"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "团队设计铱铂双原子催化剂突破甲酸燃料电池阳极动力学瓶颈",
-      "研究通过化学气相沉积掺杂工艺降低非晶硅可见光波段损耗",
-      "学者利用金纳米团簇敏化红荧烯实现高效率光子上转换"
+      "厦大团队发布AIQM3神经网络势场，计算速度保持半经验方法水平"
     ]
   },
   "sectors": [
@@ -26,101 +20,22 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究构建分层结构固态电解质界面实现工业级电化学合成氨",
-        "学者开发电化学可逆表面矿化技术降低直接空气碳捕集能耗",
-        "新概念利用温室气体化学势差捕获排放物并同步输出电能"
+        "一汽首发142kWh锂锰液固态电池，单体续航达1000公里",
+        "新型全固态电池设计破除外部运行压力依赖",
+        "科研团队研发无锂高性能钙离子电池体系"
       ],
       "entries": [
         {
-          "t": "层状界面实现离子快速传输",
+          "t": "一汽首创142kWh锂锰液固态电池一体化，开启1000公里电动续航里程",
           "d": "2026-02-14",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
-          "as": "该研究报道了一种具有分层结构的固态电解质界面(SEI)，能够实现离子的快速传输。这种层次化界面设计在工业级运行条件下成功实现了氨的合成。研究揭示了通过调控界面微观结构加速离子输运的机制，为开发高效电催化固氮体系提供了新思路。该成果对电化学合成氨这一可持续化肥生产路线的工程化应用具有重要推动作用。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aee6886?af=R",
-          "tp": "层状界面氨合成",
-          "aip": 1,
-          "kp": [
-            "[结构]: 层级固体电解质界面相快速输运离子",
-            "[条件]: 工业运行条件下合成氨"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A hierarchical solid-electrolyte interphase can produce ammonia under industrial operating conditions",
-          "hb": 1
-        },
-        {
-          "t": "CO2电化学可逆表面矿化用于直接空气捕集",
-          "d": "2026-02-14",
-          "a": "Nature Energy",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "该研究提出一种电化学驱动可逆表面CO2矿化方法用于直接空气捕集（DAC）。传统液态碳酸盐体系存在腐蚀、挥发和能耗高等问题，研究者开发了基于电化学调控的固态表面矿化-解矿化循环，在电极表面实现CO2的可逆捕获与释放。该系统在净负排放的前提下避免了液相体系的固有缺陷，有望显著降低DAC的能耗和成本，为大规模碳移除技术提供了新范式。",
-          "sc": 7.5,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 9.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-026-01989-9",
-          "tp": "CO2表面矿化捕获",
-          "aip": 1,
-          "kp": [
-            "能耗[液态碳酸盐DAC]: 6-10 GJ/t CO₂",
-            "吸附剂[电化学矿化]: MnO₂",
-            "[机制]: 电化学还原活化Mn(II)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Electrified CO2 capture and release from air offers net-negative emissions, but today’s liquid-carbonate-based systems have a high energy cost (6–10 GJ per ton of CO2), and organic sorbents are oxygen sensitive. Here we report electrified CO2 surface mineralization/demineralization capture/release, wherein an inorganic capture sorbent, MnO2, is electrochemically reduced/activated to generate Mn(III), which mineralizes CO2 to form MnOOCO2H (operando Raman); the process is reversed under oxidative potential. This approach is built upon Mn redox reaction that resides within the water-stable bracket, offering tunable driving force (kinetics/productivity) with applied potential (energy). After optimizing the electrochemical protocol, we capture from air (0.04% CO2 and 21% O2) at 4.1 GJ per ton of CO2, with capacity and kinetics comparable to prior sorbents, low sensitivity to oxygen/humidity, 80% single-pass CO2 capture ratio and release under a pure CO2 carrier gas stream and pressure drop 1,000 h with >90% capacity retention and scales to 20 cm2 without loss; remaining challenges include material utilization, electrolyte, gas flow/pressure drop and CO2-purity management.",
-          "hb": 1
-        },
-        {
-          "t": "非对称温室气体捕集发电",
-          "d": "2026-02-14",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "该研究提出在捕获温室气体的同时发电的新范式，用于气候减缓。研究者利用非对称温室气体捕获过程中的化学势差驱动电荷流动，将气体捕获的能量转化为电能输出。这一策略将碳排放治理从纯成本中心转化为能源生产过程，为气候技术提供了经济可行性新思路。该概念验证展示了气体捕获与能源收获耦合的潜力，对碳中和技术路线设计具有启示意义。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06789H",
-          "tp": "温室气体捕获发电",
-          "aip": 1,
-          "kp": [
-            "[器件GCEG]: NOx/CO₂吸附直接发电",
-            "电极[器件]: 碳黑涂覆桑皮纸",
-            "[设计]: 浸涂极性不对称"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Capturing greenhouse gases (GHGs) while generating electricity offers a new paradigm for climate mitigation. Here, we report a GHG-driven energy harvesting system, termed a gas capture and electricity generator (GCEG), that directly converts the adsorption of NOx and CO2 into electrical power. The device integrates a carbon black-coated mulberry paper electrode with an asymmetrically dip-coated polyacrylamide hydrogel, enabling selective gas adsorption and voltage generation via modulation of the electrical double layer. Upon exposure to 50 ppm NO2, the GCEG delivers 0.8 V and 55 µA, scaling to 3.8 V and 140 µA through series and parallel integration. Infrared spectroscopy and atomistic simulations reveal that hydrogen-bond-driven gas–hydrogel interactions govern the energy harvesting mechanism. By integrating gas capture and electricity generation within a single self-powered platform, this approach provides a scalable, low-energy pathway for mitigating multiple GHGs and offers a promising strategy toward carbon neutrality.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [
-        "AI智能体通过众包平台自主雇佣人类执行科研等物理任务",
-        "学者制备热拉拔全水凝胶纤维降低脑机接口植入纤维化反应",
-        "研究利用无光刻自组装技术制备锗量子点单空穴晶体管"
-      ],
-      "entries": [
-        {
-          "t": "AI代理正在雇佣人类\"实体世界工人\"——其中包括部分科学家",
-          "d": "2026-02-14",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "报道了AI智能体（AI agents）正在雇佣真实人类执行物理世界任务的现象，包括部分科研工作者。这些AI系统通过在线众包平台自主发布任务、协商报酬并管理人类工作者，形成了一种'AI指挥人类'的逆向外包模式。这一趋势引发了关于劳动伦理、责任归属和AI自主性边界的深层讨论，标志着AI从工具角色向自主经济主体角色的转变。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00454-7",
-          "tp": "AI代理雇佣人类劳动力",
+          "u": "https://batteriesnews.com/faw-pioneers-142-kwh-lithium-manganese-liquid-solid-state-battery-integration-unlocking-1000-km-ev-range/",
+          "tp": "锂锰液固态电池",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -130,21 +45,18 @@
           "hb": 0
         },
         {
-          "t": "用于抗纤维化与多模态神经接口的热拉多功能全水凝胶纤维 (Adv. Mater. 9/2026)",
+          "t": "打破全固态电池依赖外部压力的范式",
           "d": "2026-02-14",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "报道了热拉拔工艺制备的多功能全水凝胶纤维，用于抗纤维化和多模态神经接口。该纤维兼具优异的机械柔性与离子导电性，可降低植入后的异物纤维化反应，同时实现电生理信号记录与电刺激等多模态神经交互。热拉拔策略实现了宏观纤维中微纳结构的精确控制，为柔性生物电子器件和长期植入神经接口提供了新材料平台。",
-          "sc": 6.8,
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72254?af=R",
-          "tp": "水凝胶神经接口",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag112/8483884?rss=1",
+          "tp": "固态电池无外压",
           "aip": 1,
-          "kp": [
-            "[制备方法]: 热拉拔全水凝胶纤维",
-            "[应用]: 抗纤维化多模态神经接口"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -152,105 +64,75 @@
           "hb": 0
         },
         {
-          "t": "硅纳米线中无光刻、位点可控的锗量子点实现50 K下工作的单空穴晶体管",
+          "t": "新型钙离子电池设计无需锂即可提供高性能",
           "d": "2026-02-14",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究在硅纳米线中实现了无光刻、位点可控的锗量子点制备，用于构建单空穴晶体管。传统量子点定位依赖复杂电子束光刻工艺，而此方法利用自组装技术精确定位量子点位置与尺寸，大幅简化制造流程。器件在高达50K的温度下仍保持量子限制效应和单空穴隧穿特性，显著高于常规硅基量子器件的毫开尔文级工作温度，为实用化量子电子学和量子计算元件的规模化制造提供了新路径。",
-          "sc": 6.8,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0335?af=R",
-          "tp": "锗量子点晶体管",
+          "u": "https://batteriesnews.com/new-calcium-ion-battery-design-delivers-high-performance-without-lithium/",
+          "tp": "新型钙离子电池",
           "aip": 1,
-          "kp": [
-            "工作温度[单空穴晶体管]: 高至50K",
-            "[制备方法]: 台阶约束异前驱体供应免光刻",
-            "量子点[硅纳米线]: 锗QD位控生长于台阶边缘"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Precise control over quantum dot (QD) position and size is critical for quantum electronics but typically requires complex nanofabrication. Here, we report a step-confined heteroprecursor supply (sc-HPS) strategy for growth of crystalline germanium (c-Ge) QDs at predefined step edges within planar ultrathin silicon nanowire (SiNW) channels, eliminating the need for high-resolution lithography. Unlike conventional in-plane solid-liquid-solid growth using a uniform amorphous silicon precursor, sc-HPS uses a spatially confined amorphous germanium (a-Ge) layer defined by oblique patterning of a SiO\n                    2\n                    /a-Ge stack. This restricts Ge supply to a narrow strip along the step edge, enabling nucleation and tunable QD diameters of ~25 to 150 nm, sandwiched between two epitaxially connected SiNWs. The SiNW/Ge-QD/SiNW heterostructure forms a Si/Ge interface that provides three-dimensional hole confinement. Single-hole transistors fabricated from these structures exhibit clear Coulomb oscillations and well-defined Coulomb diamonds up to 50 K, demonstrating single-hole charging behavior. This scalable and lithography-free approach enables previously unexplored opportunities in hole-based quantum devices and nanoelectronic architectures.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "团队设计铱铂双原子催化剂突破甲酸燃料电池阳极动力学瓶颈",
-        "研究通过化学气相沉积掺杂工艺降低非晶硅可见光波段损耗",
-        "学者利用金纳米团簇敏化红荧烯实现高效率光子上转换"
+        "厦大团队发布AIQM3神经网络势场，计算速度保持半经验方法水平"
       ],
       "entries": [
         {
-          "t": "双原子Ir-N4/Pt-N4催化剂在过电势下通过平行反应路径实现甲酸氧化的突破",
+          "t": "厦门大学Pavlo O. Dral提出针对主要非金属元素的高效神经网络力场AIQM3",
           "d": "2026-02-14",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "针对单原子催化剂（SACs）在甲酸氧化等复杂多原子反应中脱附-电荷转移过程迟缓的固有缺陷，研究团队设计了Ir–N4/Pt–N4双原子位点催化剂。通过将铱与铂分别锚定于氮掺杂载体上，双位点协同催化机制加速了中间产物的脱附与电子输运，显著提升甲酸氧化电催化活性与稳定性。该工作为直接甲酸燃料电池阳极催化剂的理性设计提供了双原子工程新范式，有望突破单原子位点在多步反应中的动力学瓶颈。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202521714?af=R",
-          "tp": "双原子甲酸氧化催化剂",
-          "aip": 1,
-          "kp": [
-            "催化剂[甲酸氧化]: Ir-N₄/Pt-N₄双原子",
-            "[策略]: 双平行反应路径",
-            "[条件]: 过沸点环境"
-          ],
-          "lv": 0,
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "厦门大学Pavlo O. Dral团队开发第三代神经网络势AIQM3，新增对F、S、Cl元素的支持，覆盖HCNOFSCl体系。采用Δ-学习方法拟合耦合簇数据集，计算速度保持半经验方法水平。在分子间相互作用计算上超越常用DFT方法，可准确再现药物设计相关二面角势能面，并可拓展至训练集外离子与自由基性质计算及低成本红外光谱预测。成果发表于JCTC。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c01794",
+          "tp": "神经网络势",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Single‐atom catalysts (SACs) suffer from sluggish desorption‐charge transfer processes during complex multi‐atomic molecule oxidation (e.g., C/H/O‐containing species) due to simple active sites and tedious carbonyl/C─H bond tandem oxidation pathways. Herein, we propose a new atomically dispersed Ir–N\n                    4\n                    /Pt–N\n                    4\n                    catalyst (Ir\n                    1\n                    –Pt\n                    1\n                    NC) to construct efficient dual‐pathway reactions as directional parallel reactions, namely, Pt activates H adsorption while adjacent Ir sites specifically bind carbonyl groups (C═O) under the over‐boiling point environment. The confirmed Ir–N\n                    4\n                    /Pt–N\n                    4\n                    dual‐isolated coordination structure modulates the d‐band center to achieve greatly reduced energy barrier and form a new parallel dual‐pathway mechanism, significantly improving catalytic kinetics and boosting the charge transfer process. The molecular dynamics (MD) simulations reveal that strong hydrogen bond networks in formic acid (FA) solutions impede molecular diffusion, where over‐boiling point operation significantly weakens the hydrogen bonding of FA molecules, thus realizing a “double × double” enhancement effect. The “dual‐atomic catalyst with over‐boiling point hydrogen bond dissociation” strategy achieve an unprecedented catalytic performance, that is, a mass activity of 125.9 A mg\n                    −1\n                    , far exceeding those of the state‐of‐the‐art single atomic catalysts (10–30 A mg\n                    −1\n                    ) and the commercial iridium‐carbon (Ir/C) catalyst (0.1 A mg\n                    −1\n                    ), and building a new universal “structure + environment” dual‐regulation for formic acid oxidation (FAOR) and the rapid degradation of other small organic molecules.",
+          "cm": "该工作属于工具性质，对于正在研究相关体系性质的小组而言是值得尝试的工具。由于不涉及外部环境的描述，主要还是可以用于非极性环境下有机反应的模拟。其可以实现较高的模拟精度，在自由基、离子反应中的表现优于广泛应用的MACE力场。",
+          "b": "溶剂和蛋白质环境中的小分子反应是理论化学研究的核心对象。Pavlo O. Dral团队开发了可以用于HCNOFSCl元素组成体系的神经网络势AIQM3。该工作是AIQM系列力场中的第三代，新增了对于FSCl元素的支持。该工作使用了Δ-学习的拟合方式，拟合了基于耦合簇方法的数据集，同时计算速度保持在半经验方法的水平。AIQM3在分子间相互作用计算表现上超越了常用的DFT方法，同时本工作也将其应用于与药物设计相关的分子模拟任务中，准确的再现了二面角旋转的势能面。该力场还可以被拓展到训练集中没有的离子和自由基性质计算中，同时可以被应用于低成本计算红外光谱。文章于2026年2月14日发表在Journal of Chemical Theory and Computation。",
           "hb": 1
         },
         {
-          "t": "通过掺杂物控制的化学气相沉积在全可见光谱范围突破非晶硅光学损耗屏障",
+          "t": "厦门大学Pavlo O. Dral提出针对主要非金属元素的高效神经网络力场AIQM3",
           "d": "2026-02-14",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究通过掺杂剂控制的化学气相沉积（CVD）工艺，在全可见光光谱范围内突破了非晶硅的光学损耗壁垒。光在纳米光子结构中的传播由折射率和光学色散决定，而传统非晶硅在可见光波段的光学损耗（吸收）严重限制了其在集成光子器件中的应用。通过精确调控掺杂剂浓度和沉积参数，该研究大幅降低了非晶硅的可见光吸收损耗，使其可用于可见光波段的光波导、超表面和纳米光子器件，为硅基集成光子学拓展至全光谱应用开辟了新路径。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady0344?af=R",
-          "tp": "非晶硅光学损耗",
-          "aip": 1,
-          "kp": [
-            "材料[纳米光子]: 可见透明氢化非晶硅",
-            "[制备]: 掺杂剂控制化学气相沉积",
-            "[突破]: 全可见光谱打破光学损耗壁垒"
-          ],
-          "lv": 0,
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "厦门大学Pavlo O. Dral团队开发第三代神经网络势AIQM3，新增对F、S、Cl元素的支持，覆盖HCNOFSCl体系。采用Δ-学习方法拟合耦合簇数据集，计算速度保持半经验方法水平。在分子间相互作用计算上超越常用DFT方法，可准确再现药物设计相关二面角势能面，并可拓展至训练集外离子与自由基性质计算及低成本红外光谱预测。成果发表于JCTC。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c01794",
+          "tp": "神经网络势",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "The propagation of light in nanophotonic structures is governed by the refractive index and optical dispersion of constituent materials. However, the choice of dielectrics is often restricted within the transparency window. We introduce object-driven engineering of the process of silicon-based dielectric materials for metasurfaces: visibly transparent hydrogenated amorphous silicon (a-Si:H) with a high refractive index of 3.48 and oxygen-doped a-Si:H (a-SiO\n                    x\n                    :H) exhibiting strong dispersion (Abbe number &lt; 10). Both films are fabricated via chemical vapor deposition with precise control over atomic bonding and dopants, revealing the link between optical properties and the amorphous silicon network. We demonstrate the effectiveness of a-Si:H in metalenses with conversion efficiencies of 66.3, 92.0, and 97.0% at 450, 532, and 635 nanometers, respectively. In addition, a wavelength-decoupled a-SiO\n                    x\n                    :H beam-splitter achieves a 3.67-fold steering intensity contrast between 450 and 635 nanometers. These materials broaden the dielectric design space and enhance the performance of nanophotonic devices across the visible spectrum.",
-          "hb": 1
-        },
-        {
-          "t": "Au42(PET)32纳米团簇敏化剂释放红荧烯湮灭剂潜力，实现高性能近红外-可见光子上转换",
-          "d": "2026-02-14",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究利用Au42(PET)32纳米团簇作为敏化剂，释放了红荧烯作为湮灭剂的潜能，实现了高性能近红外到可见光的上转换。三重态-三重态湮灭（TTA）上转换可将低能近红外光子转换为高能可见光子，在太阳能利用和生物成像中有重要应用。然而红荧烯的传统敏化剂效率有限。Au42纳米团簇具有可调的能级和强三重态产生能力，与红荧烯的能级匹配使TTA上转换效率显著提升，为高效光子上转换材料的理性设计提供了新策略。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523868?af=R",
-          "tp": "上转换发光材料",
-          "aip": 1,
-          "kp": [
-            "敏化剂[NIR-可见上转换]: Au₄₂(PET)₃₂纳米团簇",
-            "淬灭剂[NIR-可见上转换]: 红荧烯(rubrene)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Photon upconversion (UC) via triplet–triplet annihilation enables the conversion of near‐infrared (NIR) photons into visible light, offering opportunities for solar energy harvesting, photocatalysis, and biophotonics. However, progress has been limited by the lack of triplet sensitizers capable of fully exploiting rubrene, the representative annihilator/emitter for NIR‐to‐visible UC. Here, we report Au\n                    42\n                    (PET)\n                    32\n                    (\n                    \n                      Au\n                      42\n                    \n                    ; PET = 2‐phenylethanethiolate), a highly anisotropic, needle‐shaped gold nanocluster that unlocks the annihilator potential of rubrene, enabling high‐performance NIR‐to‐visible UC. The\n                    \n                      Au\n                      42\n                    \n                    /rubrene pair achieves record‐setting UC quantum yields (\n                    Φ\n                    UC\n                    , 50% maximum) of 16.5% (reabsorption‐corrected quantum yield\n                    Φ\n                    UCg\n                    of 21.4%) with a low threshold intensity (\n                    I\n                    th\n                    ) of 0.14 W cm\n                    −2\n                    under 808 nm excitation and 12.3% (\n                    Φ\n                    UCg\n                     = 15.0%) under 936 nm excitation—over two orders of magnitude higher than previously reported values above 850 nm. Quantitative analysis revealed a high spin‐statistical factor (\n                    f\n                     = 0.58) for rubrene, suggesting an attainable\n                    Φ\n                    UC\n                    maximum of ∼30% in rubrene‐based systems. The remarkable performances arise from the unique electronic structure of\n                    \n                      Au\n                      42\n                    \n                    , which combines strong NIR absorption with high visible transparency, minimizing losses of the\n                    S\n                    1\n                    annihilator and the UC photons. These findings establish\n                    \n                      Au\n                      42\n                    \n                    as a benchmark sensitizer and exemplify a design principle for realizing highly efficient, low‐threshold NIR‐to‐visible UC.",
+          "cm": "该工作属于工具性质，对于正在研究相关体系性质的小组而言是值得尝试的工具。由于不涉及外部环境的描述，主要还是可以用于非极性环境下有机反应的模拟。其可以实现较高的模拟精度，在自由基、离子反应中的表现优于广泛应用的MACE力场。",
+          "b": "溶剂和蛋白质环境中的小分子反应是理论化学研究的核心对象。Pavlo O. Dral团队开发了可以用于HCNOFSCl元素组成体系的神经网络势AIQM3。该工作是AIQM系列力场中的第三代，新增了对于FSCl元素的支持。该工作使用了Δ-学习的拟合方式，拟合了基于耦合簇方法的数据集，同时计算速度保持在半经验方法的水平。AIQM3在分子间相互作用计算表现上超越了常用的DFT方法，同时本工作也将其应用于与药物设计相关的分子模拟任务中，准确的再现了二面角旋转的势能面。该力场还可以被拓展到训练集中没有的离子和自由基性质计算中，同时可以被应用于低成本计算红外光谱。文章于2026年2月14日发表在Journal of Chemical Theory and Computation。",
           "hb": 1
         }
       ]

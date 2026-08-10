@@ -6,18 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "新预质子化路径提升CO2电还原合成正丙醇法拉第效率",
-      "双路径抑制氯气析出实现工业级阴离子交换膜海水电解",
-      "CO2电解槽嵌入纳米线催化剂聚合物膜扩散层以消除盐结晶"
+      "北理工黄佳琦研发原位聚合粘结SEI策略，锂金属电池循环寿命延长至320次",
+      "中国能建投运MW级全液态二氧化碳储能机组，储能密度较传统方案提升120倍"
     ],
-    "AI与智能科技": [
-      "科研人员开发超声可追踪磁性微机器人用于清除颅内毒素",
-      "单晶二维Bi2O2Se半导体薄膜实现硅衬底晶圆级外延集成"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "机械化学受体工程开发近红外荧光探针实现输尿管血管正交成像",
-      "研究开发螺旋双金属DNA催化剂实现对映选择性立体控制",
-      "混合液态金属阴极解决可拉伸OLED高应变下电极断裂问题"
+      "科研人员揭示非相对论共线反铁磁体中自旋分裂扭矩驱动的磁记忆机制",
+      "学者完成高温超导磁等离子体动力推进器建模与实验性能演示"
     ]
   },
   "sectors": [
@@ -25,208 +20,139 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "新预质子化路径提升CO2电还原合成正丙醇法拉第效率",
-        "双路径抑制氯气析出实现工业级阴离子交换膜海水电解",
-        "CO2电解槽嵌入纳米线催化剂聚合物膜扩散层以消除盐结晶"
+        "北理工黄佳琦研发原位聚合粘结SEI策略，锂金属电池循环寿命延长至320次",
+        "中国能建投运MW级全液态二氧化碳储能机组，储能密度较传统方案提升120倍"
       ],
       "entries": [
         {
-          "t": "[ASAP]CO2电催化还原为正丙醇的预质子化反应路径",
+          "t": "北理工黄佳琦通过原位粘结提升SEI机械稳定性",
           "d": "2025-12-30",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "本研究提出预质子化反应路径策略，实现CO2电还原合成高能密度产物正丙醇（n-propanol）。传统CO2电还原主要生成C1-C2产物，C3产物的选择性极低。研究者通过在反应路径中引入预质子化步骤，优化CO中间体的偶联和质子化过程，促进了C-C-C键的形成，显著提高了n-propanol的法拉第效率。该路径为间歇性可再生能源存储为高能量密度液体燃料提供了有前景的碳中和技术路线。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19578",
-          "tp": "CO2电还原制丙醇",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "北理工黄佳琦提出胶黏SEI策略，通过电解液添加剂CTS在锂金属表面原位聚合形成聚硅氧烷，将SEI中LiF等无机纳米颗粒胶合。G-SEI杨氏模量提升109%至2.3 GPa，有效抑制SEI裂纹扩展。实用条件下扣式电池循环320次（传统183次），库仑效率98.7%。505 Wh/kg软包电池循环175次，厚度膨胀仅16.6%，并驱动无人机完成起飞悬停降落。2025年12月发表于Advanced Materials。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.202519565",
+          "tp": "锂金属电池",
           "aip": 1,
-          "kp": [
-            "产物[CO2电还原]: n-丙醇",
-            "路径[CO2电还原]: 预质子化降低C-C偶联能垒"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The electroreduction of CO2 into high-energy-density n-propanol represent a promising approach for storing intermittent renewable electricity. However, the electrosynthesis of n-propanol encounters substantial challenges owing to the high energy barrier C-C coupling steps and the competition from C2 products, resulting in exceedingly low selectivity. Herein, we introduce a novel preprotonation reaction pathway in a mixed-coordination copper catalyst to overcome these limitations. Specifically, high-coordination copper sites (HCN-Cu) predominantly generate CO, creating a CO-rich environment for low-coordination copper sites (LCN-Cu) via a spillover effect. The LCN-Cu sites, characterized by their reduced *CO adsorption energy and enhanced water dissociation capability, facilitate the preprotonation of C1 and C2 intermediates. Consequently, protonation of *CO to form *COH occurs prior to its dimerization with another *CO molecule, thereby circumventing the traditionally high-energy barrier *CO-*CO coupling process. Density Functional Theory calculations further confirm that the rate-determining step in this pathway shifts from traditional C-C coupling to *COH formation, reducing the reaction energy barrier from 1.63 to 0.98 eV. The lower C-C coupling energy barrier will generate more *C2 intermediates and continuously couple into C3, further mitigating competition with C2 products. Following this preprotonation pathway, the mixed-coordination copper achieves record-high n-propanol Faradaic selectivity of 17.6%.",
+          "b": "纳米结构固体电解质界面（SEI）在锂（Li）金属负极上的机械不稳定性严重限制了锂金属电池的循环寿命，因为SEI因负极体积波动而不断开裂和再生。\n北理工黄佳琦教授提出一种新型“胶黏”SEI纳米结构，通过电解液添加剂六甲基环三硅氧烷（CTS）在锂金属表面原位聚合形成聚硅氧烷，将SEI中的无机纳米颗粒（如LiF）有效胶合。该胶黏SEI（G-SEI）颗粒间内聚力显著增强，杨氏模量提升109%至2.3 GPa（传统SEI仅1.1 GPa），大幅提高对体积波动的耐受性，抑制SEI裂纹扩展和再生。\n实验验证显示，在实用条件下（高载量正极、薄锂负极、贫电解液），采用G-SEI的锂金属扣式电池循环寿命达320次（传统SEI仅183次），平均库仑效率提升至98.7%。原型505 Wh/kg软包电池实现175次稳定循环，且厚度膨胀仅16.6%。该电池展现优异高倍率放电性能，成功驱动微型无人机完成起飞、悬停和降落全过程，验证了其在高功率场景下的实用潜力。文章于2025年12月30日发表在Advanced Materials。",
           "hb": 1
         },
         {
-          "t": "双路径氯离子抑制实现稳定的工业级阴离子交换膜海水电解",
+          "t": "北理工黄佳琦通过原位粘结提升SEI机械稳定性",
           "d": "2025-12-30",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "研究提出双路径氯离子抑制策略，实现工业规模阴离子交换膜（AEM）海水电解稳定运行。通过同时抑制阳极氯气析出反应并提升析氢效率，解决了海水电解中氯腐蚀这一核心瓶颈，为直接海水制氢的工程化提供了可行路径。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202505239?af=R",
-          "tp": "海水直接电解制氢",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "北理工黄佳琦提出胶黏SEI策略，通过电解液添加剂CTS在锂金属表面原位聚合形成聚硅氧烷，将SEI中LiF等无机纳米颗粒胶合。G-SEI杨氏模量提升109%至2.3 GPa，有效抑制SEI裂纹扩展。实用条件下扣式电池循环320次（传统183次），库仑效率98.7%。505 Wh/kg软包电池循环175次，厚度膨胀仅16.6%，并驱动无人机完成起飞悬停降落。2025年12月发表于Advanced Materials。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.202519565",
+          "tp": "锂金属电池",
           "aip": 1,
-          "kp": [
-            "[海水电解]: 双路径氯抑制策略",
-            "[机制]: Fe-SOxδ⁻键合"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Suppressing anodic chlorine evolution while enhancing hydrogen production in seawater electrolysis requires simultaneous regulation of the Cl\n                    −\n                    adsorption behavior and inhibition of its kinetic migration. However, integrated strategies to mitigate the associated corrosive effects remain underexplored. Herein, we demonstrate a dual‐pathway strategy, where the Fe‐SO\n                    x\n                    δ−\n                    bonding and the formation of SO\n                    x\n                    δ−\n                    anion‐rich layers synergistically provide effective protection for SO\n                    x\n                    δ−\n                    ‐Ni\n                    3\n                    S\n                    4\n                    @NiFe‐MOF/NF catalysts in seawater environments. Experimental and theoretical studies reveal that partial SO\n                    x\n                    δ−\n                    chemically coordinates with Fe sites, altering the local electronic structure and increasing the Cl\n                    −\n                    adsorption energy. Simultaneously, uncoordinated SO\n                    x\n                    δ−\n                    leaches into the electrolyte and spontaneously forms the surface anion‐rich layers via polarization effect, hampering the kinetic migration of Cl\n                    −\n                    . Benefiting from this dual protection, the catalyst achieves a low overpotential of 350 mV at 1.5 A cm\n                    −2\n                    and superior stability over 600 h with a small decay rate of 0.93 µV h\n                    −1\n                    in alkaline seawater. The assembled seawater electrolyzer presents a small cell voltage (1.74 V @ 1 A cm\n                    −2\n                    ), high‐energy conversion efficiency (75.6%), and lower H\n                    2\n                    production cost ($0.88 per GGE) than the target set by the U.S. Department of Energy. The proposed dual‐pathway regulation strategy offers a new paradigm for the design of high‐performance chloride‐resistant catalysts.",
+          "b": "纳米结构固体电解质界面（SEI）在锂（Li）金属负极上的机械不稳定性严重限制了锂金属电池的循环寿命，因为SEI因负极体积波动而不断开裂和再生。\n北理工黄佳琦教授提出一种新型“胶黏”SEI纳米结构，通过电解液添加剂六甲基环三硅氧烷（CTS）在锂金属表面原位聚合形成聚硅氧烷，将SEI中的无机纳米颗粒（如LiF）有效胶合。该胶黏SEI（G-SEI）颗粒间内聚力显著增强，杨氏模量提升109%至2.3 GPa（传统SEI仅1.1 GPa），大幅提高对体积波动的耐受性，抑制SEI裂纹扩展和再生。\n实验验证显示，在实用条件下（高载量正极、薄锂负极、贫电解液），采用G-SEI的锂金属扣式电池循环寿命达320次（传统SEI仅183次），平均库仑效率提升至98.7%。原型505 Wh/kg软包电池实现175次稳定循环，且厚度膨胀仅16.6%。该电池展现优异高倍率放电性能，成功驱动微型无人机完成起飞、悬停和降落全过程，验证了其在高功率场景下的实用潜力。文章于2025年12月30日发表在Advanced Materials。",
           "hb": 1
         },
         {
-          "t": "[ASAP]零间距CO2电解槽中嵌入纳米线催化剂的聚合物膜气体扩散层防止盐析",
+          "t": "中国能建称其MW级全液态二氧化碳储能机组投运",
           "d": "2025-12-30",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "本研究开发了一种集成纳米线催化剂的聚合物膜-气体扩散层，应用于零间隙CO2电解槽中，有效防止盐结晶堵塞问题。传统CO2电解中阳离子（如K+）迁移至阴极形成碳酸盐结晶，严重降低电解槽寿命。该设计采用多孔聚合物膜替代液态电解质，配合纳米线催化剂结构，优化了离子传输路径，在保持高CO2转化效率的同时从根本上抑制了盐结晶，为CO2电解技术的工业规模长期稳定运行提供了关键解决方案。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03821",
-          "tp": "CO2电解槽聚合物膜",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "中国能建联合中国航发开发的MW级全液态二氧化碳储能机组投运。全液态存储相比传统低压气态+高压液态方案，储能密度提升约120倍，占地面积大幅缩减。研发了-50℃高导热复合固态冰蓄冷装置（液化冷量回收率>95%）及低熔点宽温域熔盐材料（分解温度>620℃）以提升储热换热效率。该技术为长时物理储能提供新路线。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/k4cFbUuyNvgQIM8co7zhHw",
+          "tp": "液态碳储能",
           "aip": 1,
-          "kp": [
-            "器件[CO2电解]: 零间隙电解池+聚合物膜GDL",
-            "解决[CO2电解]: 防盐沉淀失效"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "12月30日，中国能建华电华源公司在官方公众号发文称，其联合中国航发等机构开发的MW级全液态二氧化碳储能机组实现发电投运。文中称，二氧化碳储能是一种以二氧化碳为工质的闭式压缩气体长时物理储能技术，传统的压缩二氧化碳储能系统采用低压气态和高压液态形式存储二氧化碳，整体储能密度低，储气库占地面积大。全液态二氧化碳储能系统采用液态形式存储，在保证往返效率的前提下可提高整体储能密度（宣传约120倍），减少占地面积。该项目研究团队通过研制了-50℃高导热复合固态冰蓄冷装置，使二氧化碳液化冷量回收率超过95%；并研发了熔融温度80℃、分解温度620℃以上的低熔点宽温域熔盐材料，可替代导热油等常规中高温储热材料，以提升储热密度与换热效率、减少系统热回收效率损失。",
+          "hb": 1
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研人员开发超声可追踪磁性微机器人用于清除颅内毒素",
-        "单晶二维Bi2O2Se半导体薄膜实现硅衬底晶圆级外延集成"
-      ],
-      "entries": [
-        {
-          "t": "MOF功能化超声可追踪磁性微型机器人用于颅内毒素清除",
-          "d": "2025-12-30",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了功能化金属有机框架（MOF）超声可追踪磁性微机器人，用于颅内毒素清除。脑脊液（CSF）等特殊微环境中的毒素累积（如神经毒素、代谢废物）对中枢神经系统造成严重损害，但血脑屏障严重限制了传统药物递送和清除手段的效率。研究团队设计的磁性微机器人可在外部磁场驱动下精确导航至脑室深处，MOF涂层提供高比表面积特异性吸附毒素分子，同时超声成像特性使微机器人在体内实时可追踪。该平台有望为脑积水、颅内感染及神经退行性疾病的毒素清除提供微创精准治疗方案。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516357?af=R",
-          "tp": "磁性微型机器人",
-          "aip": 1,
-          "kp": [
-            "[微机器人]: MOF功能化磁性微机器人",
-            "[追踪方式]: 超声可追踪",
-            "[应用靶标]: 颅内脑脊液胆红素清除"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Toxin accumulation within specialized microenvironments, such as cerebrospinal fluid (CSF), poses significant clinical challenges. In particular, bilirubin in CSF can cause severe damage to the brain and neural tissues. Current therapeutic strategies for intracranial bilirubin clearance suffer from poor targeting, inadequate detoxification capacity, and reliance on invasive procedures. Here, we demonstrate multifunctional microrobots designed for toxin removal in specialized anatomical compartments. The proposed ultrasound‐trackable microbubbles@PCN‐333 microrobots (UMPCs) feature a hollow hydrogel microbubble core for enhanced ultrasound imaging contrast, an outer metal–organic framework (MOF) layer for proactive and high‐capacity toxin adsorption, and embedded ferroferric oxide (Fe\n                    3\n                    O\n                    4\n                    ) nanoparticles to enablec. Magnetic actuation enhances the UMPC's bilirubin capture efficiency through improved mass transfer. By integrating an ultrafast ultrasound imaging system with magnetic actuation, we achieve real‐time tracking and precise control of UMPCs within the CSF. This strategy offers a minimally invasive and actively guided approach for efficient intracranial bilirubin clearance, opening new avenues for targeted toxin‐removal in anatomically confined environments.",
-          "hb": 1
-        },
-        {
-          "t": "单晶二维Bi2O2Se半导体薄膜在硅衬底上的外延集成",
-          "d": "2025-12-30",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "本研究实现了单晶二维Bi2O2Se半导体薄膜在硅衬底上的外延集成。将单晶二维半导体集成到硅基平台上是实现硅电子学与二维材料优异性能融合的关键。Bi2O2Se因其高迁移率和合适带隙被视为理想沟道材料。研究者通过精确控制外延生长条件，在硅上获得了晶圆级单晶Bi2O2Se薄膜，界面缺陷极低，展现出优异的电学性能，为后硅时代高迁移率逻辑器件的规模化制造铺平了道路。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c18957",
-          "tp": "二维半导体硅集成",
-          "aip": 1,
-          "kp": [
-            "材料[2D半导体]: 单晶Bi2O2Se",
-            "集成[2D/硅]: 外延直接生长"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Integrating single-crystalline two-dimensional (2D) semiconductors onto silicon is critical to achieving the convergence of 2D materials with silicon (Si) lines. Compared with transfer, direct growth of 2D semiconductors on silicon offers benefits such as process compatibility with mainstream Si technology and the ability to form clean and uniform heterointerfaces. However, the direct growth of single-crystal 2D semiconductors on silicon is usually challenged by weak interfacial interactions and uncontrolled chemical reactions. Herein, we demonstrate an epitaxial integration strategy to grow single-crystalline 2D semiconductors on a Si (100). Through introducing a SrTiO3 buffer layer, which mitigates detrimental side reactions and offers excellent lattice match, successful coherent epitaxy of a single-crystal Bi2O2Se film on silicon has been achieved. The as-synthesized Bi2O2Se film exhibits outstanding single crystallinity and uniformity on a centimeter scale. Furthermore, transistors fabricated on 2D Bi2O2Se revealed a high field-effect mobility of up to ∼230 cm2 V-1 s-1. Our work provided a superior strategy for scalable preparation of high-quality 2D semiconductors on industrialized Si substrates.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "机械化学受体工程开发近红外荧光探针实现输尿管血管正交成像",
-        "研究开发螺旋双金属DNA催化剂实现对映选择性立体控制",
-        "混合液态金属阴极解决可拉伸OLED高应变下电极断裂问题"
+        "科研人员揭示非相对论共线反铁磁体中自旋分裂扭矩驱动的磁记忆机制",
+        "学者完成高温超导磁等离子体动力推进器建模与实验性能演示"
       ],
       "entries": [
         {
-          "t": "[ASAP]近红外I区和II区荧光粉的机械化学受体工程实现输尿管-血管正交成像",
+          "t": "非相对论共线反铁磁体中自旋分裂扭矩驱动的磁记忆",
           "d": "2025-12-30",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Nature Communications",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "本研究通过机械化学受体工程策略开发了近红外一区（NIR-I）和近红外二区（NIR-II）荧光探针，实现了术中输尿管与血管的正交成像。精准识别输尿管和周围血管对预防手术中医源性损伤至关重要。通过机械化学策略精确调控荧光团电子结构，获得覆盖两个近红外窗口的高量子产率探针，利用不同发射波长实现输尿管和血管的独立标记与实时可视化，显著提升了外科手术的安全性。",
-          "sc": 7.3,
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17089",
-          "tp": "近红外荧光探针",
+          "u": "https://www.nature.com/articles/s41467-025-68065-w",
+          "tp": "自旋分裂扭矩",
           "aip": 1,
-          "kp": [
-            "染料[近红外成像]: 力化学受体NIR-I/NIR-II",
-            "应用[术中成像]: 输尿管-血管双通道导航"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Accurate intraoperative identification of the ureters and surrounding vasculature is essential for preventing iatrogenic injuries during laparoscopic surgery. While fluorescence imaging (FLI) offers a promising solution, conventional single-channel systems lack the capacity for multistructure anatomical differentiation. Here, we present a dual-channel near-infrared (NIR) FLI strategy facilitated by mechanochemistry-assisted acceptor engineering, which allows the subsequent screening of spectrally orthogonal fluorophores. Two of the resulting NIR fluorophores, TQx-FTA (NIR-I, λem = 755 nm) and TPzCl-FTA (NIR-II, λem = 1122 nm), exhibit large Stokes shifts of up to 280 nm, minimal spectral overlap, and high photostability. When formulated into nanoparticles, they enable high signal-to-background ratios and crosstalk-free imaging under white-light and 980 nm excitation. In rabbit models, both antegrade and retrograde infusion workflows provided high-contrast visualization of the ureters and vasculature. The system accurately detected ureteral pathologies, including strictures, obstructions, and injury-induced leakage, with quantitative fluorescence profiles confirming the anatomical precision. Compared to single-channel imaging, the dual-channel system offered a superior ability for structural differentiation. This integrated chemical and imaging platform overcomes key limitations in conventional FLI and offers a clinically translatable approach for high-resolution surgical navigation.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "[ASAP]通过动态反应距离调控实现螺旋双金属DNA催化剂对映选择性可切换的立体控制",
+          "t": "负耦合拓扑激子极化子",
           "d": "2025-12-30",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究开发了螺旋双金属DNA催化剂，通过动态调控反应距离实现可切换的对映选择性立体控制。该催化体系借鉴金属酶中双金属中心的协同催化特性，为手性分子合成提供了新型生物杂化催化平台。",
-          "sc": 7.3,
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17408",
-          "tp": "DNA双金属催化剂",
+          "u": "https://www.nature.com/articles/s41467-025-68025-4",
+          "tp": "拓扑激子极化",
           "aip": 1,
-          "kp": [
-            "催化剂[不对称催化]: 螺旋双金属DNA",
-            "特性[催化剂]: 可切换对映选择性"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Bimetallic centers, found in some metalloenzymes and synthetic small-molecule catalysts, offer unique catalytic features arising from proximal and appropriately positioned two metal centers. However, the integration of such dual-metal centers into a highly programmable DNA scaffold for asymmetric catalysis remains unexplored. Herein, we introduce a new mode of stereocontrol enabled by bimetallic DNA catalysts. Diverging from traditional steric-induced stereocontrol, our approach leverages dynamic regulation of the spatial relationship between two metal-binding substrates to dictate stereoselectivity. By modulating the intermetallic distance and orientation, we achieve complete reversal of enantioselectivity, allowing access to both enantiomers of 1,5-dicarbonyl compounds with vicinal chiral centers.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "混合液态金属阴极实现高性能本征可拉伸OLED",
+          "t": "高温超导 MPD 推进器的高性能：分析 MHD 建模和实验演示",
           "d": "2025-12-30",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究开发了混合液态金属阴极，实现高性能本征可拉伸OLED器件。可拉伸发光器件是下一代可穿戴电子和植入式医疗设备的核心组件，但传统可拉伸OLED在拉伸状态下面临电极断裂、载流子注入效率骤降和发光不均匀等瓶颈。研究团队采用液态金属作为阴极材料，结合导电弹性体网络，使器件在大幅拉伸（应变超过100%）条件下仍保持稳定的电致发光性能。液态金属的自愈合特性和优异导电性有效消除了拉伸引起的电极损伤问题。该成果在可拉伸显示、电子皮肤和体内光治疗器件等领域具有广阔应用前景。",
-          "sc": 6.9,
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
+          "sc": 6.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518254?af=R",
-          "tp": "可拉伸OLED",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf589/8407247?rss=1",
+          "tp": "超导推进器",
           "aip": 1,
-          "kp": [
-            "[阴极材料]: 混合液态金属",
-            "[器件类型]: 本征可拉伸OLED"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Intrinsically stretchable light‐emitting diodes (LEDs) are essential for next‐generation wearable and implantable optoelectronics. However, achieving high‐performance in intrinsically stretchable LEDs remains elusive due to the absence of a stretchable cathode that concurrently ensures efficient electron injection, mechanical compliance, and high optical reflectance. Here, we introduce a hybrid liquid metal—liquid metal particle (Hyb‐LM) cathode, engineered by selective rupture of surface liquid metal particles (LMPs), which facilitates their transformation into a continuous liquid metal (LM) layer. The resulting bilayer structure, comprising a surface LM layer and an underlying LMP layer, exhibits an exceptional combination of low work function (∼4.1 eV), high reflectance (∼90%), low sheet resistance (2.70 × 10\n                    −\n                    2\n                    Ω sq\n                    −1\n                    ), and negligible resistance changes under 150% strain (R/R\n                    0\n                    = 1.03 at 150% strain), overcoming fundamental limitations in state‐of‐the‐art stretchable cathodes. The Hyb‐LM cathode enables the realization of intrinsically stretchable organic LEDs with a low turn‐on voltage of 3.0 V, a maximum luminance of 17 670 cd m\n                    −2\n                    , and a record‐high current efficiency of 10.35 cd A\n                    −1\n                    , representing a critical advancement toward stretchable displays and implantable optoelectronics.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

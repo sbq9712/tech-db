@@ -6,18 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "碳化钨催化剂实现聚烯烃加氢裂化高效转化并可兼容含氯废塑料",
-      "氟化卤化物固态电解质拓宽电化学窗口，提升高压钠电池循环稳定性",
-      "基于香豆素固体添加剂的有机太阳能电池光电转换效率达20.32%"
+      "锂电池干法工艺实现10 mAh cm−2面容量与超低粘合剂含量",
+      "美国发布第100届GWDC路线图，分析CdTe光伏科学与供应链挑战",
+      "空间太阳能发电技术探索直接向地球传输清洁能源路径"
     ],
     "AI与智能科技": [
-      "原位石墨裂解制备复合导热垫，降低高功率AI芯片界面热阻",
-      "深度扩散模型处理卫星云图数据，实现4小时雷暴临近预报"
+      "科研团队研发全光合成芯片，用于大规模智能语义视觉生成",
+      "新型触觉反馈环仅重18克，集成三轴力感应软态皮肤"
     ],
     "通用技术": [
-      "面内多孔单层二氧化硅纳米片提升有机溶剂纳滤膜渗透通量",
-      "冷冻电镜解析人类信号肽肽酶SPPL2a高分辨率三维结构",
-      "四硫富瓦烯导电金属有机框架实现室温高灵敏湿度传感检测"
+      "美国签署太空行政令，计划2028年载人重返月球及部署月表核反应堆"
     ]
   },
   "sectors": [
@@ -25,49 +23,24 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "碳化钨催化剂实现聚烯烃加氢裂化高效转化并可兼容含氯废塑料",
-        "氟化卤化物固态电解质拓宽电化学窗口，提升高压钠电池循环稳定性",
-        "基于香豆素固体添加剂的有机太阳能电池光电转换效率达20.32%"
+        "锂电池干法工艺实现10 mAh cm−2面容量与超低粘合剂含量",
+        "美国发布第100届GWDC路线图，分析CdTe光伏科学与供应链挑战",
+        "空间太阳能发电技术探索直接向地球传输清洁能源路径"
       ],
       "entries": [
         {
-          "t": "[ASAP] 本征双功能可调碳化钨催化剂实现高效PVC兼容型聚烯烃加氢裂化",
+          "t": "通过活性表面引导纤维化同时实现工厂级干法处理锂离子电池的 10 mAh cm−2 和超低粘合剂含量",
           "d": "2025-12-18",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "研究开发了本征双功能且可调的碳化钨（WC）催化剂，用于聚烯烃的高效加氢裂化回收。加氢裂解可将废塑料转化为短链烃类燃料或化工原料。该WC催化剂同时具备加氢和裂化活性，无需额外助剂即可实现高效转化，且与PVC等含氯塑料兼容，解决了传统催化剂在混合废塑料处理中的中毒失活问题，为塑料化学回收规模化提供了实用方案。",
-          "sc": 8.1,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c11845",
-          "tp": "加氢裂解催化剂",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504005?af=R",
+          "tp": "干法处理锂电池",
           "aip": 1,
-          "kp": [
-            "催化剂[聚烯烃加氢裂解]: 碳化钨(本征双功能)",
-            "特性[PVC兼容]: 抗Cl中毒失活"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Hydrocracking is a promising route for the chemical recycling of polyolefins (PO), converting them into short hydrocarbons over bifunctional catalysts with metal sites for hydrogenation and dehydrogenation, and Brønsted acid sites (BAS) for isomerization and C-C bond cleavage. However, PO feedstocks containing polyvinyl chloride (PVC) can release chlorine (Cl) under reaction conditions, deactivating conventional noble metal/zeolite catalysts. Moreover, the lack of site intimacy and the presence of micropores within conventional catalysts create challenges around the transport of high-molecular-weight, sterically encumbered polymer intermediates. Here, we report tungsten carbides (WxC) as a novel type of bifunctional catalysts that address these challenges. W/W2C phases on WxC offer \"metal\" sites, and -OH on WOx species introduces BAS in close proximity. The \"metal\":BAS ratio can be tuned through carburization temperature, leading to a volcano-shaped activity trend reflecting the requirement for metal-BAS balance. Kinetic data demonstrate that each PO chain undergoes sequential cleavage, while trends in cracking ideality and selectivity follow those in short-alkane hydrocracking. On the per-BAS basis, WxC is more efficient than conventional bifunctional catalysts by more than an order of magnitude, due to enhanced polymer transport. They maintain or show increased activity with 10 wt % PVC in the substrate. This work establishes transition-metal carbides as earth-abundant bifunctional catalysts with unique site proximity and heteroatom compatibility. These features, along with the broad structure space for rational tuning, make them promising options to tackle specific challenges that polymer feedstocks present in hydrocracking.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 面向高压全固态钠离子电池的氟化卤化物固态电解质实现可逆氧氧化还原",
-          "d": "2025-12-18",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "研究开发了氟化卤化物固态电解质，用于高压全固态钠离子电池，并实现了可逆氧氧化还原反应。该电解质材料通过氟离子掺杂拓宽了电化学窗口，使正极材料中的氧离子可参与电荷补偿而不释放氧气，显著提升了能量密度和循环稳定性。全固态设计消除了液态电解液的安全隐患，结合钠资源的低成本优势，为大规模储能系统提供了有前景的技术路线。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03248",
-          "tp": "固态钠电池电解质",
-          "aip": 1,
-          "kp": [
-            "电解质[全固态钠电池]: 氟化卤化物",
-            "特性[高压正极]: 可逆氧氧化还原"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -75,26 +48,42 @@
           "hb": 0
         },
         {
-          "t": "基于香豆素的挥发性和非挥发性固体添加剂实现效率达20.32%的有机太阳能电池",
+          "t": "直接来自太空的清洁能源",
           "d": "2025-12-18",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "a": "Nature Sustainability",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "开发基于香豆素的挥发性与非挥发性固体添加剂体系，用于优化有机太阳能电池活性层形貌与分子堆积。该策略使器件光电转换效率突破20.32%，创有机太阳能电池效率新纪录，为有机光伏商业化提供了简单高效的添加剂工程方案。",
-          "sc": 7.5,
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524002?af=R",
-          "tp": "有机太阳能电池添加剂",
+          "u": "https://www.nature.com/articles/s41893-025-01742-2",
+          "tp": "太空清洁能源",
           "aip": 1,
-          "kp": [
-            "PCE[有机太阳能电池]: 20.32%",
-            "[添加剂]: 香豆素基挥发性/非挥发性固体添加剂"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Abstract\n                  \n                    Solid additives, including volatile solid (VS) and non‐volatile solid (non‐VS) additives, have drawn great attention due to their crucial function in improving photovoltaic performance of organic solar cells (OSCs), while the post‐treatment of non‐VS additives is more convenient. However, compared with VS additives, non‐VS additives often fall‐short in optimizing device morphology, and their systematic comparisons in working mechanisms are still lacking. Herein, we design and synthesize two coumarin‐derived additives, including volatile 7‐(diethylamino)‐2\n                    H\n                    ‐chromen‐2‐one (C5) and nonvolatile 3‐(benzo[\n                    d\n                    ]thiazol‐2‐yl)‐7‐(diethylamino)‐2\n                    H\n                    ‐chromen‐2‐one (C6), to assess their various impacts on device performance. Both the C5‐ and C6‐treated OSCs obtain optimized morphology, improved charge transfer, and less energy loss than the additive‐free device, while C6 plays an additional charge transport channel to promote the exciton utilization through Föster‐Reasonable energy transfer (FRET) between C6 and the donor. As a result, the OSC based on C6 treated D18:L8‐BO obtained an impressive efficiency of 20.32%, as the highest value among the reported small molecule non‐VS additive‐treated devices, which is higher than those of additive‐free (18.85%) and C5‐treated (19.55%) ones. Our work provides a deep insight into the different mechanisms by which non‐VS and VS additives boost photovoltaic performance of the resulting OSCs.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "第 100 届 GWDC 路线图：CdTe 光伏发电面临的科学和供应链挑战",
+          "d": "2025-12-18",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00416-7?rss=yes",
+          "tp": "CdTe光伏挑战",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -102,76 +91,50 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "原位石墨裂解制备复合导热垫，降低高功率AI芯片界面热阻",
-        "深度扩散模型处理卫星云图数据，实现4小时雷暴临近预报"
+        "科研团队研发全光合成芯片，用于大规模智能语义视觉生成",
+        "新型触觉反馈环仅重18克，集成三轴力感应软态皮肤"
       ],
       "entries": [
         {
-          "t": "原位石墨裂解制备的固态导热垫用于高功率人工智能芯片的超低热阻散热",
+          "t": "用于大规模智能语义视觉生成的全光合成芯片",
           "d": "2025-12-18",
-          "a": "Matter",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "针对人工智能硬件的高功率散热需求，研究开发了一种基于原位石墨剥离技术的石墨-硅胶复合固态导热垫。该材料实现了极低的热阻值，有效解决了高功率AI芯片的热管理瓶颈。石墨的原位剥离工艺使复合材料兼具高面内导热率与界面贴合性，为下一代AI计算硬件的热可靠性提供了创新解决方案。",
-          "sc": 7.9,
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "",
+          "sc": 6.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00590-9?rss=yes",
-          "tp": "AI芯片散热材料",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adv7434?af=R",
+          "tp": "光电芯片",
           "aip": 1,
-          "kp": [
-            "热阻[石墨-硅胶垫]: 1.8 mm²K/W",
-            "[制备方法]: 原位石墨开裂",
-            "[应用]: AI芯片散热"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Effective thermal management is critical for artificial intelligence hardware. A novel graphite-silicone composite achieves ultra-low thermal resistance (1.8 mm2K/W) while maintaining high flexibility, enabling more powerful and energy-efficient artificial intelligence hardware development.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "利用深度扩散模型处理卫星数据实现四小时雷暴临近预报",
+          "t": "具有三轴力感应皮肤的 18 g 触觉反馈环",
           "d": "2025-12-18",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "利用深度扩散模型处理卫星云图数据，实现4小时时效的雷暴临近预报。对流（雷暴）在数小时内快速发展且破坏力强，临近预报极具挑战性。该深度学习模型从卫星序列数据中学习对流系统演化规律，显著提升了中尺度强对流天气的短临预报能力。",
-          "sc": 7.5,
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "研究人员开发出一款重仅18克的触觉反馈环，可提供三自由度的力感知与反馈。该系统采用折纸启发的结构基座实现高效紧凑的力传递，并结合拓扑优化的金字塔微结构软力敏感受觉皮肤，能够同时检测剪切力和法向力。该技术在虚拟现实和增强现实的多感官交互领域具有应用前景。",
+          "sc": 6.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2517520122?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "雷暴临近预报",
+          "u": "https://www.nature.com/articles/s41928-025-01515-x",
+          "tp": "触觉反馈指环",
           "aip": 1,
           "kp": [
-            "预报时长[深度扩散模型]: 4小时临近预报",
-            "[性能]: 超越物理数值天气预报",
-            "[数据源]: 卫星数据"
+            "重量[触觉反馈环]: 18 g",
+            "力感知与反馈自由度[触觉反馈环]: 三自由度(三轴)",
+            "结构基础[触觉反馈环]: 折纸启发结构"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Convection (thunderstorm) develops rapidly within hours and is highly destructive, posing a significant challenge for nowcasting and resulting in substantial losses to infrastructure and society. After the emergence of AI-based methods, convection nowcasting has experienced rapid advancements, with its performance surpassing that of physics-based numerical weather prediction and other conventional approaches. However, the lead time and coverage of it still leave much to be desired and hardly meet the needs of disaster emergency response. Here, we propose a deep diffusion model for satellite data (DDMS) to establish an AI-based convection nowcasting system. Specifically, DDMS employs diffusion processes to effectively simulate complicated spatiotemporal evolution patterns of convective clouds, achieving more accurate forecasts of convective growth and dissipation over longer lead times. Additionally, it combines geostationary satellite brightness temperature data and domain knowledge from meteorological experts, thereby achieving planetary-scale forecast coverage. During long-term tests and objective validation based on the FengYun-4A satellite, our system achieves effective convection nowcasting up to 4 h, with broad coverage (about 20,000,000 km\n                    2\n                    ), remarkable accuracy, and high resolution (15 min; 4 km). Its performance reaches a new height in convection nowcasting compared to the existing models. In terms of application, our system is highly transferable with the potential to collaborate with multiple satellites for global convection nowcasting. Furthermore, our results highlight the remarkable capabilities of diffusion models in convective clouds forecasting, as well as the significant value of geostationary satellite data when empowered by AI technologies.",
-          "hb": 1
-        },
-        {
-          "t": "面向大功率AI芯片的原位石墨化裂解固态导热垫的超低热阻特性",
-          "d": "2025-12-18",
-          "a": "Matter",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "面向高功率AI芯片的散热需求，开发了一种基于原位石墨裂解工艺的石墨-硅胶复合固态导热垫。该材料实现了极低的热阻，显著优于传统导热界面材料，能够有效降低芯片与散热器之间的界面热阻，提升大功率AI芯片的散热效率与运行稳定性，对数据中心和高性能计算硬件的热管理具有重要意义。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00590-9?rss=yes",
-          "tp": "石墨导热垫",
-          "aip": 1,
-          "kp": [
-            "热阻[石墨硅胶垫]: 1.8 mm²K/W",
-            "[AI芯片散热]: 原位石墨裂解制备导热垫"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Effective thermal management is critical for artificial intelligence hardware. A novel graphite-silicone composite achieves ultra-low thermal resistance (1.8 mm2K/W) while maintaining high flexibility, enabling more powerful and energy-efficient artificial intelligence hardware development.",
+          "b": "Wearable human–machine interfaces could provide immersive, multisensory interactions, turning everyday items into smart haptic devices for virtual and augmented reality. However, the development of tactile wearables with kinaesthetic feedback remains limited by the size and weight of the devices, which restricts portability and comfort. Here we report a haptic ring that weighs 18 g and offers three-degrees-of-freedom force sensing and feedback. The system has an origami-inspired structural base that provides efficient and compact force transmission, and a soft force-sensing skin capable of simultaneously detecting shear and normal forces. The force-sensing skin is made by combining a topology-optimized, laser-patterned layer that has pyramid microstructures with a layer with four resistive pixels, an approach that ensures linear sensitivity and a rapid response time. The ring, which is powered by soft pneumatic actuators and integrated with inkjet-printed bending sensors, can provide kinaesthetic force feedback of up to 6.5 N.",
           "hb": 1
         }
       ]
@@ -180,72 +143,45 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "面内多孔单层二氧化硅纳米片提升有机溶剂纳滤膜渗透通量",
-        "冷冻电镜解析人类信号肽肽酶SPPL2a高分辨率三维结构",
-        "四硫富瓦烯导电金属有机框架实现室温高灵敏湿度传感检测"
+        "美国签署太空行政令，计划2028年载人重返月球及部署月表核反应堆"
       ],
       "entries": [
         {
-          "t": "[ASAP] 面内多孔单层二氧化硅纳米片助力高性能有机溶剂纳滤纳米层压膜",
+          "t": "特朗普签署太空战略行政令，提出2028重返月球等目标",
           "d": "2025-12-18",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了具有面内多孔结构的单层二氧化硅纳米片，用于构建高性能有机溶剂纳滤（OSN）纳米层压膜。该膜材料在化学工业分子分离中展现出优异的溶剂耐受性和精确的分子筛分能力，相比传统膜材料显著提升了渗透通量和选择性。单层多孔纳米片的可控组装策略为新型二维材料膜的设计提供了通用平台。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c13454",
-          "tp": "氧化硅纳米片膜",
-          "aip": 1,
-          "kp": [
-            "[材料]: 单层二维介孔二氧化硅纳米片",
-            "[应用]: 纳米叠层有机溶剂纳滤膜"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Organic solvent nanofiltration (OSN) membranes hold substantial promise for energy-efficient molecular separations in chemical and pharmaceutical industries, yet current technologies often face limitations in solvent permeation and precise sieving. To address these issues, we introduce novel nanolaminated membranes assembled from single-layer, two-dimensional (2D) mesoporous silica nanosheets with inherently uniform in-plane pores. These silica nanosheets, synthesized via a surfactant-templated soft approach, feature highly ordered and tunable hexagonal porosity with sub-10 nm thickness. By adjusting the surfactant carbon chain length, silica nanosheets with controllable pore dimensions were prepared and subsequently stacked into defect-minimized nanolaminate structures. The resulting membranes exhibited polarity-dependent solvent permeation, with permeance values up to 238 L m-2 h-1 bar-1 [LMHB] for polar solvents. Molecular sieving evaluations further revealed robust size-selective performance, achieving molecular weight cut-offs as low as 678 Da with high solvent flux. Remarkably, these nanolaminated silica membranes surpassed existing state-of-the-art OSN membranes in both permeability and selectivity benchmarks. Our findings underscore the potential of precisely engineered 2D mesoporous silica nanosheets as scalable and chemically robust building blocks for next-generation OSN membranes tailored for advanced molecular separation applications.",
-          "hb": 1
-        },
-        {
-          "t": "人类信号肽肽酶的结构见解",
-          "d": "2025-12-18",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "人类信号肽肽酶（SPP）是目前唯一尚未在结构上被完全表征的膜内蛋白酶家族。本研究利用冷冻电子显微镜技术，成功解析了人类SPPL2a在无配体和抑制剂结合两种功能状态下的高分辨率结构。结构显示SPPL2a包含九个跨膜螺旋，且在无配体状态下已形成反平行β-发夹结构。这一重大突破不仅填补了该关键蛋白酶家族的结构生物学空白，也为深入理解膜内蛋白水解机制以及开发针对相关疾病的靶向药物奠定了坚实基础。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2528340122?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "蛋白酶结构",
-          "aip": 1,
+          "a": "太空探索",
+          "c": "通用技术/通信和运输/航天",
+          "as": "特朗普签署《确保美国太空优势》行政令，提出Artemis计划2028年载人重返月球、2030年前建永久月球前哨站为火星探索做准备；2028年开发下一代导弹防御原型支持铁穹计划；为商业航天吸引500亿美元投资、2030年前以商业方案替代国际空间站；2030年前在月表部署核反应堆。多项量化目标全面强化美国太空战略。",
+          "sc": 2.8,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.whitehouse.gov/presidential-actions/2025/12/ensuring-american-space-superiority/",
+          "tp": "太空行政令",
+          "aip": 0,
           "kp": [],
-          "lv": 0,
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "The signal peptide peptidase (SPP) remains the only intramembrane protease family that is yet to be structurally characterized. Here, we report the cryoelectron microscopy (cryo-EM) structures of human SPPL2a in two functional states: ligand-free and inhibitor-bound, at average resolutions of 3.3 and 3.6 Å, respectively. SPPL2a contains nine transmembrane helices with a conserved fold for the SPP and presenilin families. In the ligand-free state, an antiparallel β-hairpin is already formed near the active site, reminiscent of presenilin 1 (PS1) in its substrate-bound state. Binding by the small molecule inhibitor L685,458 triggers further conformational rearrangement in SPPL2a. Together with the cryo-EM structure of compound E-bound PS1, our findings reveal insights into selective inhibitor recognition and substrate gating by aspartyl intramembrane proteases. Structure-based sequence analysis unveils key differences between the SPP and presenilin families that underlie their function and assembly.",
+          "cm": "美国目前的Artemis登月计划由NASA的SLS火箭执行。该计划各阶段已延期6年，最近的Artemis II载人试射目前预计在2026年4月进行。继AI与核能后，这是第三个特朗普以行政令形式提出发展计划的前沿科技领域。结合日前中国申请20万颗卫星以及商业航天准入科创板。航天可能成为中美科技竞争的又一个重要领域。这一总统令中规划了多个雄心勃勃的计划，但就目前美国官方NASA以及整体科技的进度来看，大部分几乎没有可能实现。Artemis 计划唯一施行的Artemis I延期了6年，预计于今年进行的Artemis II目前已延期4年。在月球部署核反应堆等计划也几乎没有可能。不过，该行政令也强调了通过融资等手段对商业航天的支持。商业航天作为除AI与核能外特朗普唯三明确支持的前沿科技，接下来美国商业航天的发展以及与中国的竞争值得关注。",
+          "b": "2025年12月18日，特朗普签署名为《确保美国太空优势》的行政令，提出太空科技的开发和运用美国实力、愿景与意志的体现，并在行政令中提出了多个具体目标。这些目标有：\n太空探索\n通过Artemis计划，在2028年前让美国人重返月球；\n在2030年前建立永久月球前哨站，为进一步（载人）火星探索做准备。\n太空国家安全\n2028年前开发下一代导弹防御原型以支持美国“铁穹”导弹防御计划；\n加强从低轨到地月空间的威胁探测，包括防止核武器进入太空。\n商业太空经济发展\n2028年前为商业航天市场吸引500亿美元新增投资；\n2030年前，通过商业方案替代国际空间站。\n先进太空技术与基础设施\n2030年前在月球表面部署核反应堆，探索在月球轨道部署反应堆；\n改善太空与地球天气预报能力，采用固定价格合同等商业模式；\n建设地面、轨道与月球基础设施，支持太空工业体系。\n此外，还有优化研究投入，加强太空管理、碎片治理，改善基础设施与政策效率等方向性要求。",
           "hb": 1
         },
         {
-          "t": "[ASAP] 基于四硫富瓦烯导电金属有机框架的筛选型化学电阻湿度传感",
+          "t": "特朗普签署太空战略行政令，提出2028重返月球等目标",
           "d": "2025-12-18",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究设计了基于四硫富瓦烯（TTF）的导电金属有机框架（MOF）材料，利用其筛分效应实现高灵敏度的化学电阻型湿气传感。导电MOF兼具高结晶度、大比表面积和可调的客体响应特性，通过水分子在孔道内的吸附引起电阻变化实现检测。该材料在室温下即可工作，兼具高选择性和快速响应，为环境湿度监测和工业过程控制提供了新方案。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c16110",
-          "tp": "导电MOF湿敏传感",
-          "aip": 1,
-          "kp": [
-            "材料[湿敏]: 四硫富瓦烯基导电MOF",
-            "[机制]: 筛分效应+化学电阻"
-          ],
-          "lv": 0,
+          "a": "太空探索",
+          "c": "通用技术/通信和运输/航天",
+          "as": "特朗普签署《确保美国太空优势》行政令，提出Artemis计划2028年载人重返月球、2030年前建永久月球前哨站为火星探索做准备；2028年开发下一代导弹防御原型支持铁穹计划；为商业航天吸引500亿美元投资、2030年前以商业方案替代国际空间站；2030年前在月表部署核反应堆。多项量化目标全面强化美国太空战略。",
+          "sc": 2.8,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.whitehouse.gov/presidential-actions/2025/12/ensuring-american-space-superiority/",
+          "tp": "太空行政令",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "Electrically conductive metal-organic frameworks (MOFs) combine high crystallinity and large surface area with guest-tunable electrical conductivity, making them ideal for chemiresistive gas sensing. Whereas many sensitive and selective MOF-based chemiresistive sensors have been fabricated, their underlying sensing mechanisms often remain elusive, primarily due to the reliance on polycrystalline films. Herein, we overcome this limitation by investigating chemiresistive moisture sensing using single crystals of a series of isostructural MOFs, M<sub>2</sub>(TTFTB) (M<sup>2+</sup> = Mn<sup>2+</sup>, Co<sup>2+</sup>, Zn<sup>2+</sup>, Cd<sup>2+</sup>; TTFTB<sup>4-</sup> = tetrathiafulvalene tetrabenzoate). We reveal that electrical conductivity in these materials is strongly affected by Coulombic interactions between TTF<sup>•+</sup> radical defects and charge-balancing anions. In dry conditions, these interactions induce charge trapping. The adsorption of water vapor screens the hole-anion interactions, mitigating charge trapping and thereby significantly enhancing electrical conductivity. This mechanism is particularly pronounced in Zn<sub>2</sub>(TTFTB) owing to the high Coulombic potential of Zn<sup>2+</sup>. This study establishes a general methodology for understanding charge transport in MOFs and provides critical guidelines for the rational design of high-performance chemiresistive sensors.",
+          "cm": "美国目前的Artemis登月计划由NASA的SLS火箭执行。该计划各阶段已延期6年，最近的Artemis II载人试射目前预计在2026年4月进行。继AI与核能后，这是第三个特朗普以行政令形式提出发展计划的前沿科技领域。结合日前中国申请20万颗卫星以及商业航天准入科创板。航天可能成为中美科技竞争的又一个重要领域。这一总统令中规划了多个雄心勃勃的计划，但就目前美国官方NASA以及整体科技的进度来看，大部分几乎没有可能实现。Artemis 计划唯一施行的Artemis I延期了6年，预计于今年进行的Artemis II目前已延期4年。在月球部署核反应堆等计划也几乎没有可能。不过，该行政令也强调了通过融资等手段对商业航天的支持。商业航天作为除AI与核能外特朗普唯三明确支持的前沿科技，接下来美国商业航天的发展以及与中国的竞争值得关注。",
+          "b": "2025年12月18日，特朗普签署名为《确保美国太空优势》的行政令，提出太空科技的开发和运用美国实力、愿景与意志的体现，并在行政令中提出了多个具体目标。这些目标有：\n太空探索\n通过Artemis计划，在2028年前让美国人重返月球；\n在2030年前建立永久月球前哨站，为进一步（载人）火星探索做准备。\n太空国家安全\n2028年前开发下一代导弹防御原型以支持美国“铁穹”导弹防御计划；\n加强从低轨到地月空间的威胁探测，包括防止核武器进入太空。\n商业太空经济发展\n2028年前为商业航天市场吸引500亿美元新增投资；\n2030年前，通过商业方案替代国际空间站。\n先进太空技术与基础设施\n2030年前在月球表面部署核反应堆，探索在月球轨道部署反应堆；\n改善太空与地球天气预报能力，采用固定价格合同等商业模式；\n建设地面、轨道与月球基础设施，支持太空工业体系。\n此外，还有优化研究投入，加强太空管理、碎片治理，改善基础设施与政策效率等方向性要求。",
           "hb": 1
         }
       ]

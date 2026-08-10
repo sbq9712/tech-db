@@ -6,19 +6,18 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "哈工大发布物理驱动神经网络力场，实现液态电解质化学精度预测",
-      "研究提出二聚体受体分子折叠策略，有机太阳能电池效率超20%",
-      "酯-烷基连接基工程优化分子堆积，兼顾有机光伏高转换率与稳定性"
+      "哈工大课题组发布神经网络力场实现锂电池液态电解质化学精度预测",
+      "全球最大压缩空气储能电站在中国全面投入商业运营"
     ],
     "AI与智能科技": [
-      "研究展示104超导量子比特浅层电路，加速求解经典组合优化问题",
-      "硅晶体实现锑同位素对精确掺杂，为量子比特阵列构建提供工艺路径",
-      "新型硒基选择器揭示电荷触发切换机制，实现超低漏电流存储"
+      "研究人员利用钙钛矿纳米晶高熵合金化实现室温单光子纯度达96%",
+      "Evo 2模型发布，实现跨生命多领域基因组的建模与设计",
+      "科研团队推出专用于计算机断层扫描的视觉语言基础模型Merlin及数据集"
     ],
     "通用技术": [
-      "郑州大学在高温高压下合成毫米级纯相六方金刚石，硬度超立方金刚石",
-      "研究利用DNA分子力传递机制，实现外加超低机械力下化学键99.9%断裂率",
-      "六方金刚石确认为稳定独立碳相，揭示石墨至金刚石的相变转换路径"
+      "研究证实X射线可触发钙钛矿纳米晶超晶格产生超荧光闪烁",
+      "郑州大学团队合成毫米级纯相六方金刚石并证实其高热稳定性",
+      "郑州大学单崇新团队通过高温高压技术合成纯相六方金刚石"
     ]
   },
   "sectors": [
@@ -26,18 +25,17 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "哈工大发布物理驱动神经网络力场，实现液态电解质化学精度预测",
-        "研究提出二聚体受体分子折叠策略，有机太阳能电池效率超20%",
-        "酯-烷基连接基工程优化分子堆积，兼顾有机光伏高转换率与稳定性"
+        "哈工大课题组发布神经网络力场实现锂电池液态电解质化学精度预测",
+        "全球最大压缩空气储能电站在中国全面投入商业运营"
       ],
       "entries": [
         {
           "t": "哈尔滨工业大学王博开发了物理驱动的神经网络力场用于液态电解质模拟",
           "d": "2026-03-04",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "哈工大王博、余旷课题组发布用于液态电解质模拟的神经网络力场PhyNEO-Electrolyte，基于物理和数据驱动策略，仅用单体和两体能量分解分析数据训练，通过长短程相互作用分解严格保持长程渐进行为。在EC/EMC等体系中实现化学精度预测，正确模拟密度和扩散系数等依赖长程相互作用的性质。论文发表于JCTC。",
-          "sc": 6.9,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1021/acs.jctc.5c02100",
@@ -51,48 +49,42 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 酯-烷基连接基调控头对头二聚体的分子折叠实现有机太阳能电池超20%效率",
+          "t": "哈尔滨工业大学王博开发了物理驱动的神经网络力场用于液态电解质模拟",
           "d": "2026-03-04",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "有机太阳能电池领域，研究提出通过酯-烷基连接基调控头对头二聚体受体的分子折叠策略。该设计优化了分子构象与堆积，使二聚体受体同时实现高效率和良好稳定性。器件效率突破20%，证明连接基工程是调节聚集体形貌和光伏性能的有效途径，为低成本柔性太阳能电池商业化提供新思路。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c20384",
-          "tp": "有机太阳能电池",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "哈工大王博、余旷课题组发布用于液态电解质模拟的神经网络力场PhyNEO-Electrolyte，基于物理和数据驱动策略，仅用单体和两体能量分解分析数据训练，通过长短程相互作用分解严格保持长程渐进行为。在EC/EMC等体系中实现化学精度预测，正确模拟密度和扩散系数等依赖长程相互作用的性质。论文发表于JCTC。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c02100",
+          "tp": "电解质模拟",
           "aip": 1,
-          "kp": [
-            "转换效率[有机太阳能电池]: >20%",
-            "[分子设计]: 酯-烷基连接基调控头对头二聚体分子折叠"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Dimeric acceptors have demonstrated significant potential for the simultaneous realization of high efficiency, good stability, and even stretchability in organic solar cells (OSCs). However, most dimeric acceptors suffer from compromised efficiency due to insufficient morphological control. Herein, we design and synthesize three head-to-head flexible alkyl-chain-linked dimeric acceptors, CH-E2, CH-E6, and CH-E10, along with their monomeric counterpart CH-E1, by systematically varying the alkyl linker lengths via esterification. This synthetic approach avoids conventional metal-catalyzed coupling reactions, eliminating the need for expensive catalysts and toxic intermediates, such as organotin reagents. Results demonstrate that the linker lengths critically govern molecular conformations, packing motifs, and aggregation behavior. The binary PM6:CH-E6 and ternary PM6:CH-E6:CH-E1 devices, benefiting from favorable film microstructures, enhanced charge carrier dynamics, and reduced Eloss, achieve PCEs of 19.17 and 20.14%, respectively. Furthermore, the flexible alkyl chain linkage inhibits molecular diffusion, thereby stabilizing the active layer morphology under thermal and mechanical stress. Thus, CH-E6-based devices exhibit significantly improved MPP operational stability and thermal endurance. The crack-onset strain (COS) of the PM6:CH-E6 blend film reaches 20%, twice that of PM6:CH-E1.",
+          "b": "由于化学配比空间很大，高精度的液态电解质体系模拟对于锂离子电池的高效设计很重要。经典力场对原子间的相互作用进行了极大简化，不容易刻画多体相互作用等部分，从而影响对模型体系的物理描述。王博、余旷课题组发表了用于模拟液态电解质体系的神经网络力场PhyNEO-Electrolyte。该力场采取自下而上的策略训练，同时对体系大小有很好的可扩展性。该力场基于物理和数据驱动的策略，仅使用单体和两体的能量分解分析(EDA)数据训练。通过将长短程相互作用分解，该力场严格保持了相互作用的长程渐进行为，从而能够正确地描述静电相互作用。该工作在EC\\EMC等多种电解液常见成分体系中进行了测试，实现了化学精度内的预测误差，并能够正确模拟体系密度以及扩散系数等依赖于长程相互作用精度的性质。文章于2026年3月4日发表在Journal of Chemistry Theory and Computation.",
           "hb": 1
         },
         {
-          "t": "酯-烷基连接基调控头对头二聚体的分子折叠使有机太阳能电池效率超过20%",
+          "t": "全球最大压缩空气储能站现已在中国全面投入运营",
           "d": "2026-03-04",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "研究团队通过调控酯-烷基连接基实现头对头二聚体受体的分子折叠调控，在有机太阳能电池中获得了超过20%的光电转换效率。该分子折叠策略有效优化了分子堆积与能级排列，同时兼顾高效率与器件稳定性，为高效稳定有机光伏材料的分子设计提供了新范式。",
-          "sc": 7.0,
+          "a": "Latest news about ESS Projects & Applications | ESS News",
+          "c": "零碳产业/能量循环/能量存储/储热/压缩空气",
+          "as": "",
+          "sc": 7.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c20384",
-          "tp": "有机太阳能电池",
+          "u": "https://www.ess-news.com/2026/03/04/worlds-largest-compressed-air-energy-storage-station-now-fully-operational-in-china/",
+          "tp": "压缩空气储能",
           "aip": 1,
-          "kp": [
-            "效率[有机太阳能电池二聚体受体]: >20%",
-            "[结构调控]: 酯-烷基链调控头对头二聚体分子折叠"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Dimeric acceptors have demonstrated significant potential for the simultaneous realization of high efficiency, good stability, and even stretchability in organic solar cells (OSCs). However, most dimeric acceptors suffer from compromised efficiency due to insufficient morphological control. Herein, we design and synthesize three head-to-head flexible alkyl-chain-linked dimeric acceptors, CH-E2, CH-E6, and CH-E10, along with their monomeric counterpart CH-E1, by systematically varying the alkyl linker lengths via esterification. This synthetic approach avoids conventional metal-catalyzed coupling reactions, eliminating the need for expensive catalysts and toxic intermediates, such as organotin reagents. Results demonstrate that the linker lengths critically govern molecular conformations, packing motifs, and aggregation behavior. The binary PM6:CH-E6 and ternary PM6:CH-E6:CH-E1 devices, benefiting from favorable film microstructures, enhanced charge carrier dynamics, and reduced Eloss, achieve PCEs of 19.17 and 20.14%, respectively. Furthermore, the flexible alkyl chain linkage inhibits molecular diffusion, thereby stabilizing the active layer morphology under thermal and mechanical stress. Thus, CH-E6-based devices exhibit significantly improved MPP operational stability and thermal endurance. The crack-onset strain (COS) of the PM6:CH-E6 blend film reaches 20%, twice that of PM6:CH-E1.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,77 +92,71 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究展示104超导量子比特浅层电路，加速求解经典组合优化问题",
-        "硅晶体实现锑同位素对精确掺杂，为量子比特阵列构建提供工艺路径",
-        "新型硒基选择器揭示电荷触发切换机制，实现超低漏电流存储"
+        "研究人员利用钙钛矿纳米晶高熵合金化实现室温单光子纯度达96%",
+        "Evo 2模型发布，实现跨生命多领域基因组的建模与设计",
+        "科研团队推出专用于计算机断层扫描的视觉语言基础模型Merlin及数据集"
       ],
       "entries": [
         {
-          "t": "104超导量子比特浅层量子电路增强的组合优化",
+          "t": "钙钛矿纳米晶的高熵合金化可在室温下实现高纯度单光子发射",
           "d": "2026-03-04",
-          "a": "National Science Review Advance Access",
+          "a": "Matter",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究展示了利用浅层量子电路（含104个超导量子比特）加速求解组合优化问题的实验突破。通过量子-经典混合方案，在经典算法难以高效求解的实际问题上实现了性能提升，验证了含噪声中等规模量子（NISQ）设备在实用优化场景中的可行性，朝量子计算实用化迈出关键一步。",
-          "sc": 7.3,
+          "as": "一种通过高熵合金化在钙钛矿纳米晶中实现室温高纯度单光子发射的材料设计方法。引入多种金属阳离子引起晶格无序，从而局域化激子、减弱电声子耦合并抑制陷阱辅助复合。该机制实现了近乎无闪烁的深蓝光发射，室温下单光子纯度高达96%，为实用量子光源提供了材料设计方案。",
+          "sc": 8.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag124/8503488?rss=1",
-          "tp": "超导量子优化计算",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00023-8?rss=yes",
+          "tp": "钙钛矿光子源",
           "aip": 1,
           "kp": [
-            "量子比特[超导量子计算]: 104",
-            "[算法]: 浅层电路量子采样策略"
+            "单光子纯度[室温下高熵合金化钙钛矿纳米晶]: 96%",
+            "发射特征[深蓝光发射]: 接近无闪烁",
+            "内在材料设计机制[多金属阳离子引入]: 引起晶格无序化从而局域激子，减弱电声子耦合并抑制陷阱辅助复合"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A pivotal task for quantum computing is to speed up solving problems that are both classically intractable and practically valuable. Among these, combinatorial optimization problems have attracted tremendous attention due to their broad applicability and natural fitness to Ising Hamiltonians. Here we propose a quantum sampling strategy, based on which we design an algorithm for accelerating solving the ground states of Ising model, a class of NP-hard problems in combinatorial optimization. The algorithm employs a shallow-circuit quantum sampling subroutine to navigate the energy landscape. Using up to 104 superconducting qubits, we experimentally demonstrate that this algorithm outputs favorable solutions against even a highly-optimized classical simulated annealing algorithm and illustrate the path toward quantum speedup based on the time-to-solution metric against simulated annealing under serial execution. Our results indicate a promising alternative to classical heuristics for combinatorial optimization, where quantum advantage might become possible on near-term superconducting quantum processors.",
+          "b": "High-entropy alloying enables robust room temperature single-photon emission in perovskite nanocrystals. By introducing multiple metal cations, the lattice disorder localizes excitons, weakens electron-phonon coupling, and suppresses trap-assisted recombination. These coupled mechanisms enable nearly non-blinking deep-blue emission with high single-photon purity (96% at room temperature), establishing an intrinsic materials design route toward practical quantum light sources.",
           "hb": 1
         },
         {
-          "t": "硅中¹²¹Sb和¹²³Sb同位素对的同位素选择性共掺杂",
+          "t": "使用 Evo 2 跨生命各个领域进行基因组建模和设计",
           "d": "2026-03-04",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "硅中杂质离子供体的确定性制备是推进量子计算的关键需求。本研究提出同位素选择性共掺杂策略，在硅晶体中将121Sb和123Sb同位素对精确植入指定位置。该方法利用同位素质量差异实现选择性掺杂，可确定性构建锑原子量子比特阵列，为硅基量子处理器的大规模可扩展制造提供了可靠工艺路径。",
-          "sc": 7.1,
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522240?af=R",
-          "tp": "硅锑同位素掺杂",
+          "u": "https://www.nature.com/articles/s41586-026-10176-5",
+          "tp": "跨物种基因组建模",
           "aip": 1,
-          "kp": [
-            "[掺杂离子]: (121Sb123Sb)2+",
-            "[检测效率]: 94%",
-            "[同位素选择]: 硅中Sb同位素对共掺杂"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A reliable route to the deterministic fabrication of impurity ion donors in silicon is required to advance quantum computing architectures based upon such systems. This paper reports the ability to dope isotopically-defined unique (121Sb123Sb)2+ molecular ions into silicon with measured detection efficiencies of 94% being obtained. Atomically resolved imaging of the doped Sb ions reveals substitutionally incorporated atoms with a Sb-to-Sb separation of ≈2 nm post-implantation, thus indicating suitability to form coupled qudit systems. Molecular dynamics simulations support the preference for doped Sb atoms to occupy lattice sites, driven by fast (≈1s) re-crystallization of localized ion implantation induced damage at 300 K. The Sb doping method used is fully compatible with integration into processing that includes pre-enrichment of the silicon host to sub-3 ppm 29Si levels. As such, we present a potential pathway to the creation of scaled qudit arrays within silicon platforms for quantum computing.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "硒选择器中的电荷触发开关机制实现超低漏电流",
+          "t": "Merlin：计算机断层扫描视觉语言基础模型和数据集",
           "d": "2026-03-04",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "针对AI模型快速增长对动态随机存取存储器能力的挑战，研究揭示了一种硒基选择器的电荷触发切换机制，可实现超低泄漏电流。该器件在降低能耗和提升存储密度方面展现出潜力，为下一代高能效存储技术提供了新的器件方案。",
-          "sc": 6.6,
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-026-02499-5",
-          "tp": "硒选通器件",
+          "u": "https://www.nature.com/articles/s41586-026-10181-8",
+          "tp": "医学视觉语言大模型",
           "aip": 1,
-          "kp": [
-            "[选通管]: 硒基OTS电荷触发开关",
-            "特性[选通管]: 超低漏电流"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The rapid growth of artificial intelligence models has outpaced the capabilities of current dynamic random-access memory/flash storage systems in speed, density and energy efficiency. Three-dimensional phase-change memory offers a scalable solution, yet cross-point integration is limited by selector performance. Here, by reverse-tracing previously reported ovonic threshold switch (OTS) materials, we identify amorphous elemental selenium as a highly effective OTS selector. It exhibits an ultralow leakage current (4 × 10−12 A), an on/off current ratio exceeding 108, high drive current density (21.2 MA cm−2), fast switching speed (~20 ns) and endurance up to 2 × 109 cycles. Photoexcitation spectroscopy and density functional theory calculations reveal a charge-triggered mechanism: dense trap pairs in amorphous selenium strongly pin the Fermi level and suppress leakage, while full carrier excitation in these traps near threshold, together with impact-ionization-induced avalanche multiplication, enables abrupt switching and high on-current. Integrated selenium-selector/phase-change memory arrays demonstrate reliable write/erase operations with a 0.75-V read margin. These results clarify the OTS mechanism and establish amorphous selenium as a leading selector material for three-dimensional memory.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -178,18 +164,41 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "郑州大学在高温高压下合成毫米级纯相六方金刚石，硬度超立方金刚石",
-        "研究利用DNA分子力传递机制，实现外加超低机械力下化学键99.9%断裂率",
-        "六方金刚石确认为稳定独立碳相，揭示石墨至金刚石的相变转换路径"
+        "研究证实X射线可触发钙钛矿纳米晶超晶格产生超荧光闪烁",
+        "郑州大学团队合成毫米级纯相六方金刚石并证实其高热稳定性",
+        "郑州大学单崇新团队通过高温高压技术合成纯相六方金刚石"
       ],
       "entries": [
         {
+          "t": "量子有序钙钛矿纳米晶超晶格中的辐射触发超荧光闪烁",
+          "d": "2026-03-04",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "X射线可触发钙钛矿纳米晶超晶格产生超荧光，实现集体发射而非非相干复合。这种闪烁特性具有超快、相干和高效的特点，并具有大斯托克斯位移，有效解决了密集纳米晶组件中严重的重吸收问题。该研究确立了量子闪烁新机制，实现了在离子辐射下获取相干光学信号。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00022-6?rss=yes",
+          "tp": "超荧光闪烁体",
+          "aip": 1,
+          "kp": [
+            "闪烁发光机制[X射线激发的钙钛矿纳米晶超晶格]: 激活集体发射而非非相干复合（实现超荧光）",
+            "发光特征[量子有序超晶格]: 超快、相干、高效，且具有大斯托克斯位移",
+            "自吸收抑制[高密度纳米晶组装体]: 通过大斯托克斯位移有效解决重吸收问题"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nanostructured scintillators offer new ways to control how ionizing radiation is converted into light. This work shows that X-rays can trigger superfluorescence in perovskite nanocrystal superlattices, activating collective emission rather than incoherent recombination. The resulting scintillation is ultrafast, coherent, and highly efficient, with a large Stokes shift that suppresses the long-standing issue of reabsorption in dense nanocrystal assemblies. These findings establish quantum scintillation as a new regime, enabling access to coherent optical observables under ionizing radiation.",
+          "hb": 1
+        },
+        {
           "t": "郑州大学单崇新合成并研究了六方金刚石的性质",
           "d": "2026-03-04",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/强度材料",
           "as": "郑州大学单崇新团队从高度取向热解石墨在高温高压下合成毫米级纯相六方金刚石，借助结构表征和理论模拟确认其结构并揭示石墨-六方金刚石转变路径。表征发现六方金刚石硬度略高于立方金刚石且热稳定性很高，证明其可作为稳定独立碳相存在，为石墨-金刚石转变物理研究提供实验证据。论文发表于Nature。",
-          "sc": 7.3,
+          "sc": 7.1,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10212-4",
@@ -203,26 +212,22 @@
           "hb": 1
         },
         {
-          "t": "DNA介导的力传递实现精准高效的机械化学活化",
+          "t": "郑州大学单崇新合成并研究了六方金刚石的性质",
           "d": "2026-03-04",
-          "a": "Chem",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "Kim 等人将 DNA 分子开发为机械化学支架，利用 DNA 的精确可编程性和分子张力响应特性，实现了在外加超低机械力下的高效化学键断裂——15 分钟内断裂率达 99.9%。该策略通过 DNA 折纸或链置换反应将力精确传递至特定化学键，克服了传统机械力化学中力无法定向施加、反应效率低的核心难题。这一成果在力响应药物释放、分子传感和智能材料等领域展现出广阔前景。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00511-X?rss=yes",
-          "tp": "DNA力化学",
+          "a": "Doi",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "郑州大学单崇新团队从高度取向热解石墨在高温高压下合成毫米级纯相六方金刚石，借助结构表征和理论模拟确认其结构并揭示石墨-六方金刚石转变路径。表征发现六方金刚石硬度略高于立方金刚石且热稳定性很高，证明其可作为稳定独立碳相存在，为石墨-金刚石转变物理研究提供实验证据。论文发表于Nature。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10212-4",
+          "tp": "六方金刚石",
           "aip": 1,
-          "kp": [
-            "键断裂效率[超声15min]: 99.9%",
-            "力传导支架[力化学]: DNA分子",
-            "表征方法[力化学]: 测序与质谱联用"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Kim et al. establish DNA as a mechanochemical scaffold, achieving efficient bond scission (99.9% within 15 min) under ultrasound. Sequencing and mass spectrometry enable precise mechanophore characterization, advancing both fundamental mechanochemistry and potential therapeutic applications.",
+          "b": "被誉为“终极半导体”的立方金刚石（CD）在科学研究和工业应用中均引起了广泛关注。其同质异形体——六方金刚石（HD）更具吸引力，因为它与陨石撞击相关的独特性质备受关注。然而，由于缺乏确凿的实验证据以证明其存在，HD的物理性质仍然largely未被探索。郑州大学杨西贵、程少博、单崇新、孙建团队成功从高度取向的热解石墨在高温高压下合成了毫米级、纯相的六方金刚石。该工作借助结构表征和理论模拟，确认了六方金刚石的结构，并揭示了石墨向六方金刚石转变的反应路径。表征结果指出六方金刚石硬度略高于立方金刚石，同时具有很高的热稳定性。该工作证明了六方金刚石可以作为稳定的独立碳相，同时提供了石墨-金刚石转变的物理研究。但是六方金刚石的性能和应用研究还需要进一步探索。文章于2026年3月4日发表在Nature。",
           "hb": 1
         }
       ]

@@ -6,19 +6,18 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "瓦锡兰成功演示全球首台大型纯氢燃料发动机",
-      "Sadi公司发布集成九项功能的热泵家庭能源枢纽系统",
-      "通用汽车推进锂锰富集电芯研发并缩减磷酸铁锂投入"
+      "东南大学团队研发择优取向Fe负极降低水系铁离子电池腐蚀电流",
+      "SOLiTHOR研发出10安时固态电池电芯能量密度达465 Wh/kg"
     ],
     "AI与智能科技": [
-      "实验首次捕获物质隐匿相，验证量子材料瞬态转变",
-      "苹果更新Core Image RAW 9处理管线，整合CoreML模型",
-      "英伟达面向中国客户推介基于Arm架构的Vera CPU"
+      "中科院联合郑州大学在囚禁离子实验中将纠缠制备时间缩短至132微秒",
+      "Anthropic暂停非美国用户访问其最新AI模型以遵守出口管制规定",
+      "智谱AI发布编程工具ZCode 3.0版本并全面切换自研Agent内核"
     ],
     "通用技术": [
-      "美企计划于2027年进行无人舰艇试射高超声速导弹测试",
-      "科研人员开发出像素达百万级的可编程纳米剪纸矩阵",
-      "OPTIMA-ATRP技术实现高通量合成聚合物生物共轭物"
+      "全球首条百万片级体全息光波导自动化产线在天津投产",
+      "中欧研究团队首次成功展示基于稀有同位素的核钟原型",
+      "科研人员开发出可在布尔逻辑门控下模拟人类皮肤力学的木质素囊泡"
     ]
   },
   "sectors": [
@@ -26,49 +25,70 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "瓦锡兰成功演示全球首台大型纯氢燃料发动机",
-        "Sadi公司发布集成九项功能的热泵家庭能源枢纽系统",
-        "通用汽车推进锂锰富集电芯研发并缩减磷酸铁锂投入"
+        "东南大学团队研发择优取向Fe负极降低水系铁离子电池腐蚀电流",
+        "SOLiTHOR研发出10安时固态电池电芯能量密度达465 Wh/kg"
       ],
       "entries": [
         {
-          "t": "氢能动态：瓦锡兰测试100%氢燃料发动机",
+          "t": "东南大学胡林峰通过[110]择优取向抑制水系铁离子电池负极析氢和腐蚀",
           "d": "2026-06-13",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "芬兰瓦锡兰(Wärtsilä)公司成功演示了据称是全球首台大型纯氢燃料发动机，实现100%氢燃料运行。这标志着船用及固定式发电领域向零碳动力系统迈出关键一步，氢燃料发动机有望为大规模工业脱碳和清洁能源存储提供可行的内燃机替代方案。",
-          "sc": 9.1,
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "东南大学胡林峰团队构建[110]择优取向Fe负极，抑制水系铁离子电池析氢和腐蚀。DFT表明BCC Fe(110)面表面能最低、氢吸附自由能最高，最不利于HER。通过1000℃ Ar/H₂退火使(110)取向占比升至79.1%。浸泡10天后(110)-Fe无明显副产物或点蚀，HER起始电位更负，腐蚀电流降低，为水系铁离子电池长寿命提供新思路。",
+          "sc": 6.9,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/12/the-hydrogen-stream-wartsila-testing-100-hydrogen-engine/",
-          "tp": "纯氢发动机示范",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.73744",
+          "tp": "铁电池析氢抑制",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "水系铁离子电池以工业铁为负极、Fe²⁺为载流子，具备低成本和高安全性潜力，但铁负极在水系电解液中易发生析氢和腐蚀，造成绝缘副产物、死铁、界面阻抗升高和寿命衰减。已有电解液或三维结构优化难以从根本上调控Fe²⁺沉积/剥离行为，因此晶面取向是否能同时降低HER、腐蚀和死铁形成成为关键问题。\n近日，东南大学胡林峰、吴宇平、纪元辉以及南京航空航天大学朱孔军等构建[110]择优取向Fe负极。DFT计算显示，BCC Fe(110)面表面能为0.152eV Å⁻²，低于(200)、(211)和(111)面；其氢吸附自由能为0.605eV，高于其他晶面，说明更不利于氢吸附和HER。研究将商业Fe箔在Ar/H₂气氛中1000℃退火，利用相变过程获得高[110]取向Fe箔，RTC(110)由37.3%升至79.1%，残余压应力和晶界密度显著降低。\n腐蚀和沉积结果证实，[110]取向改变了水系界面反应。1.0M FeSO₄中浸泡10天后，商业Fe出现片状副产物，900℃退火Fe存在点蚀，而(110)-Fe未见明显副产物或点蚀；其电解液接触角由商业Fe的95.4°降至70.3°，HER起始电位更负，腐蚀电流密度仅1.4μA cm⁻²。原位光学显微和对称软包电池气相色谱均显示，(110)-Fe沉积更平滑致密，H₂生成更少。对称电池中，(110)-Fe电荷转移阻抗约16kΩ，低于900-Fe和商业Fe，并可在0.5mA cm⁻²/0.5mAh cm⁻²下稳定超过750h，在2mA cm⁻²/2mAh cm⁻²下稳定250h。\nFe||Ti非对称电池中，(110)-Fe初始库仑效率为78.73%，高于商业Fe的35.14%和900-Fe的52.27%，150圈后平均库仑效率仍为97.18%。全电池以PANI为正极、(110)-Fe为负极、1.0M FeSO₄为电解液，在0.5–5.0A g⁻¹下容量均优于对照；0.5A g⁻¹循环2100圈后容量保持率为90.2%，而商业Fe和900-Fe分别在450圈和770圈后失效。5.0A g⁻¹电流密度下，(110)-Fe||PANI电池循环8540圈后容量保持率仍为99.3%，显示晶面工程可显著延长水系铁电池寿命。文章于2026年6月13日发表在Advanced Materials。",
+          "hb": 1
         },
         {
-          "t": "首款9合1热泵将用电负荷转变为能源枢纽",
+          "t": "东南大学胡林峰通过[110]择优取向抑制水系铁离子电池负极析氢和腐蚀",
           "d": "2026-06-13",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/供热技术/热泵",
-          "as": "前特斯拉高管Drew Baglino创立的Sadi公司推出集成九项功能于一体的热泵系统，将传统单一负荷设备转型为家庭能源枢纽。该热泵整合制热、制冷、热水、储能管理及电网交互等功能，旨在提升设备利用率与能效，降低家庭总能耗与碳排。这一架构思路将热泵从末端设备升级为分布式能源系统的核心节点，对家庭电气化与电网灵活调度具有示范意义。",
-          "sc": 8.7,
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "东南大学胡林峰团队构建[110]择优取向Fe负极，抑制水系铁离子电池析氢和腐蚀。DFT表明BCC Fe(110)面表面能最低、氢吸附自由能最高，最不利于HER。通过1000℃ Ar/H₂退火使(110)取向占比升至79.1%。浸泡10天后(110)-Fe无明显副产物或点蚀，HER起始电位更负，腐蚀电流降低，为水系铁离子电池长寿命提供新思路。",
+          "sc": 6.9,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/12/first-9-in-1-heat-pump-transforms-load-into-an-energy-hub/",
-          "tp": "多功能热泵系统",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/adma.73744",
+          "tp": "铁电池析氢抑制",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "水系铁离子电池以工业铁为负极、Fe²⁺为载流子，具备低成本和高安全性潜力，但铁负极在水系电解液中易发生析氢和腐蚀，造成绝缘副产物、死铁、界面阻抗升高和寿命衰减。已有电解液或三维结构优化难以从根本上调控Fe²⁺沉积/剥离行为，因此晶面取向是否能同时降低HER、腐蚀和死铁形成成为关键问题。\n近日，东南大学胡林峰、吴宇平、纪元辉以及南京航空航天大学朱孔军等构建[110]择优取向Fe负极。DFT计算显示，BCC Fe(110)面表面能为0.152eV Å⁻²，低于(200)、(211)和(111)面；其氢吸附自由能为0.605eV，高于其他晶面，说明更不利于氢吸附和HER。研究将商业Fe箔在Ar/H₂气氛中1000℃退火，利用相变过程获得高[110]取向Fe箔，RTC(110)由37.3%升至79.1%，残余压应力和晶界密度显著降低。\n腐蚀和沉积结果证实，[110]取向改变了水系界面反应。1.0M FeSO₄中浸泡10天后，商业Fe出现片状副产物，900℃退火Fe存在点蚀，而(110)-Fe未见明显副产物或点蚀；其电解液接触角由商业Fe的95.4°降至70.3°，HER起始电位更负，腐蚀电流密度仅1.4μA cm⁻²。原位光学显微和对称软包电池气相色谱均显示，(110)-Fe沉积更平滑致密，H₂生成更少。对称电池中，(110)-Fe电荷转移阻抗约16kΩ，低于900-Fe和商业Fe，并可在0.5mA cm⁻²/0.5mAh cm⁻²下稳定超过750h，在2mA cm⁻²/2mAh cm⁻²下稳定250h。\nFe||Ti非对称电池中，(110)-Fe初始库仑效率为78.73%，高于商业Fe的35.14%和900-Fe的52.27%，150圈后平均库仑效率仍为97.18%。全电池以PANI为正极、(110)-Fe为负极、1.0M FeSO₄为电解液，在0.5–5.0A g⁻¹下容量均优于对照；0.5A g⁻¹循环2100圈后容量保持率为90.2%，而商业Fe和900-Fe分别在450圈和770圈后失效。5.0A g⁻¹电流密度下，(110)-Fe||PANI电池循环8540圈后容量保持率仍为99.3%，显示晶面工程可显著延长水系铁电池寿命。文章于2026年6月13日发表在Advanced Materials。",
+          "hb": 1
         },
         {
-          "t": "通用汽车推进LMR电池电芯研发，LFP计划逐步淡出",
+          "t": "固态电池达到465 Wh/kg，通过极限安全测试",
           "d": "2026-06-13",
-          "a": "electrive",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "通用汽车（GM）正在重新审视其电动汽车电池战略，电池负责人Kurt Kelty透露公司将推进锂锰富集（LMR）电池电芯的研发，同时逐步缩减此前对磷酸铁锂（LFP）电池的计划投入。LMR正极材料兼具高能量密度和成本优势，被视为兼顾性能与经济性的下一代路线。GM的战略调整反映出美国车企在IRA政策环境和供应链本土化要求下，对电池技术路线的重新博弈。",
-          "sc": 8.6,
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "欧洲电池初创公司SOLiTHOR成功研发出首个10安时的固态电池演示电芯。该软包电池在堆叠层面的能量密度达到465 Wh/kg和1400 Wh/L。该技术采用专有的固态复合电解质和面容量为8mAh/cm2的高负载正极，并通过不需要传统液态电解质的溶胶-凝胶工艺制成。此项突破验证了其实验室化学技术在特种电源商业化量产方面的可行性。",
+          "sc": 7.8,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.electrive.com/2026/06/12/gm-advances-lmr-battery-cells-as-lfp-plans-fade/",
-          "tp": "锂锰富锂电池",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/energy/solid-state-battery-cell-aerospace-defense",
+          "tp": "固态电池突破",
+          "aip": 1,
+          "kp": [
+            "能量密度[固态电池电芯(软包设计)]: 465 Wh/kg",
+            "体积能量密度[固态电池电芯(软包设计)]: 1400 Wh/L",
+            "电池容量[固态电池演示电芯]: 10 Ah"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "European battery startup SOLiTHOR has produced its first 10 Ah demonstration cell, marking an increase in the physical scale of its solid-state lithium battery technology. The company intends for this larger format to show that its laboratory chemistry can transition into commercial production for industries requiring specialized power sources.\nAlongside the production of the larger cell, the company reported stack-level energy densities of 465 Wh/kg and 1400 Wh/L within a pouch design. Engineers reached these figures by introducing a high-loading cathode with an areal capacity of 8mAh/cm2 into the company’s proprietary Solid Composite Electrolyte.\nUnlike traditional lithium-ion systems or certain semi-solid designs, this chemistry uses a sol-gel process that functions without requiring any liquid electrolyte injections during assembly.\nLaboratory evaluations indicate specific performance characteristics under varied operational environments. When testing multilayer pouch cells at a temperature of 25°C, the cells sustained continuous discharge rates reaching 5C without experiencing major drops in capacity.\nThe same units tolerated short 30-second power pulses up to 10C when held at a 50% state of charge. This specific energy discharge behavior is relevant for machinery that requires brief, intense\nenergy outputs\n, such as unmanned aerial vehicles during departure and descent sequences.\n“SOLiTHOR has developed a chemistry that allows the industry to rethink the manufacturing of solid-state battery cells,” said Dr. Fanny Bardé, Co-Founder and Chief Technology Officer at SOLiTHOR.\nLong-term stability tests were conducted on smaller 1 Ah multilayer pouch cells. These units completed more than 500 full discharge cycles while maintaining over 80% of their original storage capacity, which provides an initial benchmark for the operational lifespan of the chemistry.\nDuring standardized safety protocols, the fully charged multilayer cells were subjected to intentional overcharging and direct nail penetration.\n“In safety assessments, SOLiTHOR’s technology successfully passed the overcharge and nail penetration tests on a 100% charge multilayer pouch cell with no smoke, leakage, thermal runaway, or fire,” highlighted the company in a press release.\n“These technical achievements not only prove that the chemistry works, but that it delivers the combination of energy density, power performance, and cycle life required for practical applications,” added Bardé.\nThe manufacturing framework for the new chemistry relies on roll-to-roll processing systems already common in the battery sector. By removing the liquid filling stage entirely and accelerating the subsequent\nchemical formation\nand aging protocols, the production timeline for these steps is shortened by two-thirds.\nBecause these specific phases normally represent one-quarter of total cell manufacturing expenditures, their reduction alters the overall processing economics.\n“Existing Li-ion facilities can be upgraded for solid-state production with no new equipment, limited switching costs, and reduced operational costs,” noted the\npress release\nThe company is targeting initial applications for its battery cells within the aerospace, maritime, transport, and defense sectors.\n“With this major technical update, we are demonstrating that our technology can be realistically produced, satisfying the demands of high-performance and high-value applications within aerospace, dual-use, and mobility,” concluded Rodrigo P. Navarro, CEO at SOLiTHOR.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from Energy\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nUS’ first vertically integrated solar factory starts production to power 1.3M homes\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nUS’ first vertically integrated solar factory starts production to power 1.3M homes",
+          "hb": 1
         }
       ]
     },
@@ -76,49 +96,79 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "实验首次捕获物质隐匿相，验证量子材料瞬态转变",
-        "苹果更新Core Image RAW 9处理管线，整合CoreML模型",
-        "英伟达面向中国客户推介基于Arm架构的Vera CPU"
+        "中科院联合郑州大学在囚禁离子实验中将纠缠制备时间缩短至132微秒",
+        "Anthropic暂停非美国用户访问其最新AI模型以遵守出口管制规定",
+        "智谱AI发布编程工具ZCode 3.0版本并全面切换自研Agent内核"
       ],
       "entries": [
         {
-          "t": "被预测数十年的隐藏物相终于被实验捕获",
-          "d": "2026-06-13",
-          "a": "scitechdaily",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "科学家经过数十年理论预测后，首次成功捕获了一种长期 elusive 的物质\"隐匿相\"。该隐藏相态展现出引人关注的量子特性，其发现依托于超快激光或同步辐射等先进探测手段，实时捕捉了材料在极端条件下的瞬态结构转变。这一突破不仅验证了早期凝聚态物理理论预言，也为探索新型量子材料、拓扑物态及潜在量子计算应用开辟了全新方向。",
-          "sc": 8.0,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/hidden-phase-of-matter-finally-captured-after-decades-of-predictions/",
-          "tp": "隐蔽量子相态",
-          "aip": 1
-        },
-        {
-          "t": "有史以来最大更新：苹果发布 Core Image RAW 9 处理管线，提升 RAW 图像质量",
+          "t": "中国科学家突破量子速度极限：非厄米体系实现纠缠加速",
           "d": "2026-06-13",
           "a": "IT之家",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "苹果发布Core Image RAW 9处理管线，系2017年RAW 8以来首次重大更新。去马赛克与降噪整合至CoreML模型同步处理，支持784款相机RAW文件，显著提升图像质量并解决富士X-Trans传感器伪色和细节丢失问题。",
-          "sc": 7.9,
-          "i": "news",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "中国科学院精密测量院冯芒团队联合郑州大学，在囚禁离子实验中首次实现非厄米体系纠缠生成的加速，突破了传统厄米量子速度极限。实验利用两枚40Ca+离子构建系统，通过引入可调耗散通道，将纠缠制备时间从200微秒最快缩短至132微秒，速度提升约1.52倍。研究表明，纠缠产生越快，布居泄漏概率会相应增加导致成功率降低。团队选取了兼顾加速与成功率的工作点并验证了高保真度。成果发表于《物理评论快报》。",
+          "sc": 7.8,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://www.ithome.com/0/963/729.htm",
-          "tp": "RAW图像AI处理",
-          "aip": 1
+          "u": "https://www.ithome.com/0/963/987.htm",
+          "tp": "量子纠缠加速",
+          "aip": 1,
+          "kp": [
+            "量子比特编码[40Ca+离子]: 基态与亚稳态能级",
+            "驱动激光[量子比特相干跃迁]: 729 nm",
+            "耦合激光[引入可调耗散通道]: 854 nm",
+            "Bell态制备门时间[仅有相干相互作用]: 200微秒",
+            "纠缠制备时间[引入耗散通道加速]: 132微秒"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 13 日消息，量子纠缠作为量子计算、量子通信和量子传感领域的核心资源，其制备速度长期受限于传统厄米量子系统中量子比特间的耦合强度。能否突破这一限制、实现更快的量子操控，一直是量子信息科学领域的前沿热点。\n中国科学院精密测量科学与技术创新研究院冯芒研究团队与郑州大学等单位合作，在囚禁离子实验平台中首次实现了非厄米体系中纠缠生成的加速，成功超越传统厄米量子速度极限。\n研究团队利用两枚 40Ca+ 离子构建线性 Paul 阱系统，量子比特编码在 40Ca+ 离子的基态与亚稳态能级上，通过 729 nm 激光驱动量子比特相干跃迁，854 nm 激光将 | 1 > 态耦合到短寿命激发态并引入可调耗散通道，同时利用双色激光场实现两离子之间的有效相互作用。\n在仅有相干相互作用时，耦合强度为 J = 2π×625 Hz，对应的 Bell 态制备门时间为 200 微秒；在固定相干耦合强度的条件下选取三组逐步接近例外点的参数后，纠缠制备时间依次缩短为 177 微秒、155 微秒和 132 微秒，速度提升约 1.52 倍。\n通常情况下，耗散效应被认为是破坏量子相干性的不利因素，但可控的耗散能将系统参数调至奇异点（例外点）附近，导致希尔伯特空间发生几何畸变，从而为量子态演化提供“捷径”。利用这一机制，产生最大纠缠态的速度比传统厄米方案有了显著提升。\n不过值得注意的是，非厄米加速并非毫无代价 —— 理论分析和实验工作点均表明，纠缠产生越快，布居泄漏到计算子空间之外的概率也越大，因此成功概率相应降低。\n研究团队在实验中选取了兼顾加速效率与成功概率的工作点，并通过宇称振荡测量验证了所制备纠缠态仍具有高保真度，从而成功展示了非厄米加速在实际应用中的可行性。\n相关研究成果已于 2026 年 5 月 28 日在线发表于《物理评论快报》，这项成果首次在可编程量子系统中实验证实了非厄米体系能够突破传统公认的量子速度极限，也证明了经过精确设计的耗散不仅可以成为加速量子态制备的可控资源，更打破了长期以来将耗散单纯视为有害因素的固有认知。\nhttps://journals.aps.org/prl/abstract/10.1103/g8v5-rbq7",
+          "hb": 1
         },
         {
-          "t": "英伟达向中国客户推销Vera CPU",
+          "t": "在美国提出安全风险后，Anthropic 限制顶级模型",
           "d": "2026-06-13",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "英伟达（Nvidia）正面向中国客户推介其Vera CPU产品，试图在出口管制背景下维持中国市场存在。Vera CPU基于Arm架构，定位为数据中心和AI推理场景的通用处理器，可能与Grace CPU系列相关。此举反映英伟达在中国市场受美国芯片出口限制后，寻求通过非受限产品线（如CPU等非高端GPU）维持营收的战略调整。该动态对中美半导体博弈及国产替代进程具有风向标意义。",
-          "sc": 7.7,
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "AI公司Anthropic已暂停非美国用户对其最先进AI模型的访问权限，以遵守美国政府实施的新出口管制规定。美国商务部已将最新发布的Fable 5和Mythos 5模型列入出口管制清单。这一指令直接封锁了外国政府、企业、研究人员及在美外籍人士使用该公司最新AI系统的渠道。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://interestingengineering.com/ai-robotics/anthropic-blocks-international-users",
+          "tp": "AI出口限制",
+          "aip": 1,
+          "kp": [
+            "访问限制对象[顶级AI模型]: 非美国用户及在美外国公民"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "AI giant Anthropic has been forced to suspend access to its most advanced artificial intelligence models for users outside the US after the Trump administration imposed sweeping new export restrictions on the technology. The decision effectively blocks foreign governments, businesses, researchers, and individuals, as well as foreign nationals residing in the US, from using the company’s latest AI systems.\nAccording to a US administration official, Commerce Secretary Howard Lutnick informed Anthropic CEO Dario Amodei in a letter sent on Friday that the company’s newly released Fable 5 and Mythos 5 models are now classified under export control rules.\nTo comply with the directive, Anthropic has moved to disable\nfor all affected users, reflecting Washington’s growing view that cutting-edge AI capabilities should be treated as\nstrategically\nsensitive technologies.\nAnthropic said it chose to disable access to its two newest AI models entirely because the new US restrictions apply to a wide range of users, making selective enforcement impractical. The rules cover foreign governments, companies, and individuals, and even extend to some foreign-born Anthropic employees working in the country,\nthe Wall Street Journal\n“The net effect of this order is that we must abruptly disable\nand Mythos 5 for all our customers to ensure compliance. Access to all other Claude models is not affected,” the company said in a\non X, noting that they were “working to restore access as soon as possible”.\nalso notes that the decision marks one of the clearest signs yet that Washington is willing to intervene directly in the global AI race, treating advanced models as strategic technologies rather than ordinary commercial products.\nFor companies such as\nand its rivals, which are competing aggressively to release ever more capable systems ahead of highly anticipated public listings, regulatory hurdles and forced slowdowns can carry enormous financial consequences. Any disruption to product rollouts or access to international markets risks delaying growth plans and could ultimately cost the industry billions of dollars in lost revenue and valuation.\nThe suspension of access to Mythos could have immediate consequences far beyond the AI sector, as governments and private organizations have increasingly relied on the model to detect and fix software vulnerabilities. A prolonged shutdown could disrupt ongoing\ncybersecurity\noperations and delay critical defensive work across a range of industries,\nSectors such as finance, energy, and critical infrastructure have already integrated the technology into their security workflows. The development comes only days after Anthropic introduced Fable, a next-generation model built on the same advanced architecture as Mythos, making it available to the public with additional safeguards designed to limit potentially dangerous capabilities.\nTensions between Anthropic and the Trump administration have been building for months over the rules governing how the Pentagon can deploy the company’s AI systems. At the center of the dispute are the safety guardrails and operational limits attached to Anthropic’s models.\nAccording to Washington DC-based AI columnist Ron Schmelzer, the biggest takeaway from the latest restrictions is that governments are increasingly treating advanced AI as a strategic technology, on par with nuclear capabilities or high-grade encryption.\n“While the US was focusing on preventing foreign users from accessing Anthropic’s most powerful models, Anthropic’s reaction of making it unavailable to everyone shows that there’s a tension here between the AI mega companies efforts to rapidly increase their market share and profitability and governments efforts to make sure that AI is used for their benefit. In this push and pull, who will win, multi-billion dollar companies (or even trillion-dollar) or powerful governments?” he tells\nInteresting Engineering (IE)\nThe latest decision to impose new restrictions could further intensify that standoff, raising the stakes in an increasingly contentious debate over the\nuse of advanced AI.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from AI and Robotics\nAI and Robotics\nAI got smarter and twice as expensive in 2026. Here’s which model is worth it\nAI and Robotics\nNew research shows robot ‘personality’ in games hinges on timing and turn-taking\nAI and Robotics\nFIFA World Cup 2026 gets Boston Dynamics’ robot dogs for venue security patrols\nAI and Robotics\nWatch: Korean humanoid robot performs viral K-POP dance, learns by watching videos\nAI and Robotics\nRobot hand uses touch and vision to harvest ripe fruit with near-100% accuracy\nAI and Robotics\nAI got smarter and twice as expensive in 2026. Here’s which model is worth it\nAI and Robotics\nNew research shows robot ‘personality’ in games hinges on timing and turn-taking\nAI and Robotics\nFIFA World Cup 2026 gets Boston Dynamics’ robot dogs for venue security patrols\nAI and Robotics\nWatch: Korean humanoid robot performs viral K-POP dance, learns by watching videos\nAI and Robotics\nRobot hand uses touch and vision to harvest ripe fruit with near-100% accuracy",
+          "hb": 1
+        },
+        {
+          "t": "智谱 AI 编程工具 ZCode 3.0 版本发布：切换自研 ZCode Agent 内核，深度适配 GLM-5.2",
+          "d": "2026-06-13",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "智谱AI发布编程工具ZCode 3.0版本，全面切换至自研ZCode Agent内核，深度适配GLM-5.2开源模型，针对长程推理、工具调用和大型工程执行链路进行优化，后续不再维护第三方Agent。GLM-5.2支持1M上下文，向Coding Plan全量用户开放，专享150%配额。ZCode 3.0更新包含分组式任务工作区、Zread项目知识库、可视化Git分支图谱、可定制交互体验、全方位监控看板及多类型附件智能适配等功能。",
+          "sc": 7.3,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/nvidia-pitches-vera-cpu-chinese-customers",
-          "tp": "英伟达Vera CPU",
-          "aip": 1
+          "u": "https://www.ithome.com/0/963/985.htm",
+          "tp": "AI编程工具发布",
+          "aip": 1,
+          "kp": [
+            "Agent内核[ZCode 3.0]: 自研 ZCode Agent",
+            "上下文长度[GLM-5.2大模型]: 1M",
+            "配额专享比率[GLM Coding Plan订阅用户应用内]: 150%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 13 日消息，智谱今日发布了 AI 编程工具\n深度适配 GLM-5.2\n官方表示，ZCode 3.0 全面\n切换自研 ZCode Agent 内核\n。针对满血 GLM 深度优化长程推理、工具调用和大型工程执行链路，整体任务完成效果已显著优于第三方 Agent；\n后续版本将聚焦自研 Agent 体验，不再内置或维护其他 Agent 适配\n此外，升级或已订阅 GLM Coding Plan 用户应用内相比 API 调用专享 150% 配额。\n智谱今日还宣布 GLM-5.2 将面向 GLM Coding Plan 全量用户开放，智谱称\nGLM-5.2 是智谱迄今能力最强的开源模型\n，支持真正可用的 1M 上下文，并在长程任务中继续保持领先。\nIT之家附 ZCode 3.0 其他更新内容如下：\n全新分组式任务工作区，支持拖拽折叠、跨区迁移、批量管理，高效管控多 Agent 并发任务\nZread 智能项目知识库，自动生成结构化项目文档，支持目录浏览、进度监测、一键重生成、随时终止构建\n可视化 Git 分支图谱，直观呈现分支拓扑关系，支持快捷切分支、AI 自动生成标准化提交注释\n可定制化聊天交互体验，自由开关流式渲染、思考过程展示、性能模式，兼容高低配设备\n全方位状态监控看板，聚合聊天摘要、任务进度、模型用量图表、上下文占用提醒\n多类型附件智能适配，支持图片、文件路径、白板截图上传，优化代码批注、会话内容插入等交互操作\n全新一体化视觉体系，适配深浅双主题，重构启动、登录、欢迎页面，全面升级界面视觉与操作体验",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +176,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "美企计划于2027年进行无人舰艇试射高超声速导弹测试",
-        "科研人员开发出像素达百万级的可编程纳米剪纸矩阵",
-        "OPTIMA-ATRP技术实现高通量合成聚合物生物共轭物"
+        "全球首条百万片级体全息光波导自动化产线在天津投产",
+        "中欧研究团队首次成功展示基于稀有同位素的核钟原型",
+        "科研人员开发出可在布尔逻辑门控下模拟人类皮肤力学的木质素囊泡"
       ],
       "entries": [
         {
-          "t": "美国海军无人舰艇将于2027年试射高超音速导弹",
+          "t": "全球首条百万片级体全息光波导自动化产线在天津投产，消费级 AR 核心显示技术重大量产突破",
+          "d": "2026-06-13",
+          "a": "IT之家",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "全球首条百万片级体全息光波导自动化产线在天津正式投产，年产能达100万片。该产线拥有1500平方米千级洁净车间及定制全息光刻设备，解决了AR眼镜镜片厚重、漏光及价格高昂的痛点。体全息光栅波导（VHG）具备不泄露信息、轻薄和高通透性等物理特性。此产线的投产标志着我国在消费级AR核心显示技术及车载AR-HUD领域实现了重大规模化量产突破。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/963/988.htm",
+          "tp": "AR光波导量产",
+          "aip": 1,
+          "kp": [
+            "自动化产线产能[体全息光波导]: 100万片/年",
+            "洁净车间级别[尼卡光学天津产线]: 千级",
+            "核心显示技术[消费级AR]: 体全息光栅波导(VHG)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 13 日消息，据天津高新区官方消息，6 月 13 日，由天津企业尼卡光学设计建设的\n全球首条百万片级体全息光波导自动化产线\n在天津滨海高新区华苑科技园正式投产。\n这条年产能达 100 万片的产线，标志着\n我国在消费级 AR（增强现实）核心显示技术领域实现了重大规模化量产突破\n，解锁了高性价比 AR 眼镜和车载 AR-HUD 走向大众市场的“最后一公里”。\n据介绍，AR 眼镜作为新一代 AI 智能终端，长期面临镜片厚重、漏光明显、价格高企等推广难点。体全息光栅波导（Volume Holographic Grating，VHG）凭借不泄露显示信息、接近普通镜片、超高通透性、结构轻薄等物理特性，被公认为消费级 AR 设备的重要技术路线。\n长期以来，AR 光波导核心的高性能材料与高精设备面临国外“卡脖子”风险。IT之家获悉，此次投产的天津产线，拥有 1500 平方米千级洁净车间及精密环控系统，全线采用独家定制的全息光刻设备及工艺平台，\n目前，尼卡方案已广泛应用于消费级 AR 眼镜及车载 AR-HUD 等领域，与多家消费电子、汽车制造头部厂商开展深入合作。",
+          "hb": 1
+        },
+        {
+          "t": "经过数十年的努力建成世界上第一个工作核钟",
           "d": "2026-06-13",
           "a": "interesting engineering",
-          "c": "通用技术/通信和运输/水路运输",
-          "as": "美国国防科技公司Saronic和Castelion宣布计划将自主无人战舰与高超声速导弹相结合，于2027年进行海上发射测试。该项目将Saronic的无人水面舰艇与Castelion的高超声速导弹系统集成，旨在验证无人平台搭载高超声速武器的作战概念。这一组合代表了美军分布式杀伤和快速打击能力的前沿发展方向，无人舰艇的隐蔽性和低成本特性与高超声速武器的突防速度相结合，可能改变未来海上力量投送格局。",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "中国和欧洲的两个独立研究团队成功展示了首个工作的核钟，其基于稀有同位素的原子核特性构建。由于原子核比原子钟中的电子更能免受环境干扰，核钟有望成为有史以来最精确的计时工具。这一突破不仅代表了新一代计时技术的诞生，还有望改进导航、重力传感以及物理定律的测试。",
           "sc": 7.6,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/military/us-drone-ship-to-fire-hypersonic-missiles",
-          "tp": "无人水面舰艇",
-          "aip": 1
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/innovation/first-nuclear-clock-thorium-229",
+          "tp": "核钟研发突破",
+          "aip": 1,
+          "kp": [
+            "研发状态[核钟]: 世界首个工作核钟研制成功",
+            "核心材料[核钟]: 具有独特性质的稀有同位素"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "For decades, nuclear clocks have existed as one of physics’ most tempting promises. A device that could keep time even more accurately than today’s best atomic clocks. Now, two independent research teams have turned this idea into reality.\nResearchers in China and Europe have demonstrated working nuclear clocks based on the nucleus of\n, a rare isotope whose unique properties have long made it the leading candidate for next-generation timekeeping.\nThe achievement represents much more than a new kind of clock. Since a nucleus is far better shielded from environmental disturbances than the electrons used in atomic clocks,\nnuclear clocks\ncould eventually become the most precise timekeepers ever built.\nPlus, this breakthrough could improve navigation, gravitational sensing, and tests of the laws governing the universe.\nAs the researchers note, “by making a laser-addressed atomic nucleus an operational clock reference, this work extends quantum metrology from electronic to nuclear transitions, and opens a new platform for compact clocks, solid-state nuclear quantum sensors and precision tests of fundamental physics.”\nModern atomic clocks keep time by measuring the frequency of light absorbed or emitted when electrons jump between specific energy levels inside an atom.\nAs these frequencies are extremely stable, counting their oscillations provides an exceptionally accurate way to measure time. Physicists have long envisioned building a clock using a nucleus instead of electrons. The idea is attractive because atomic nuclei are much smaller and more isolated from the outside world.\nStray electric and magnetic fields that can slightly disturb electrons have far less influence on the nucleus. In principle, that should allow\na nuclear clock\nto achieve even greater stability and precision.\n“Such a nuclear clock might rival or outperform current optical clocks based on electron-shell transitions in atoms or ions, is expected to be more robust against external perturbations, and provides enhanced sensitivity in clock-based tests of fundamental principles of physics,” the researchers explained.\nHowever, the problem is that almost all nuclear energy transitions are far too energetic to be controlled with lasers. They typically require high-energy gamma rays rather than ordinary laser light.\nThorium-229 is a remarkable exception. Its nucleus possesses an unusually low-energy excited state that can be reached using ultraviolet laser light. For years, physicists recognized that this made thorium-229 the only known\nrealistic candidate for a nuclear clock\nEven so, the task remained extraordinarily difficult. The required transition occurs at a wavelength of roughly 148 nanometers, deep in the vacuum ultraviolet region of the electromagnetic spectrum.\nProducing stable laser light at this wavelength and precisely matching it to the nuclear transition pushed existing technology to its limits.\nThe two groups solved the problem using broadly similar strategies. One team, led by researchers at Tsinghua University, and another from the Vienna Center for Quantum Science and Technology, embedded thorium-229 atoms inside calcium fluoride crystals.\n“Here, we implement a thorium-229 nuclear clock by stabilizing a continuous-wave laser to the 148 nm nuclear transition with rapid feedback based on continuous absorption spectroscopy,” the researchers from the Vienna Center\nThe crystal acts as a solid host that holds large numbers of thorium nuclei in place while allowing laser light to interact with them. Both groups then illuminated the crystals with highly specialized continuous-wave vacuum ultraviolet lasers tuned near the thorium nuclear transition.\nAlthough the overall concept was similar, the teams optimized different parts of the experiment. The Chinese researchers relied on a more\npowerful laser\nsystem to drive the nuclear transition. The European team instead used crystals containing a higher concentration of thorium nuclei, increasing the number of nuclei available for measurement.\nOnce they had successfully excited the nuclei, the researchers needed to demonstrate that the system could function as a true clock rather than simply detecting the transition.\nThe Chinese team locked the frequency of their vacuum ultraviolet laser directly to the nuclear resonance. In effect, the thorium nucleus became a frequency reference that continuously corrected the laser.\nThe researchers reported a fractional frequency instability approaching one part in 10 trillion after a day of operation, showing that the nuclear transition could serve as a stable timekeeping signal.\nThe European team chose a different test. Instead of focusing solely on clock performance, they used their nuclear clock as a scientific probe.\nThe researchers searched for\nultralight dark matter\n, a hypothetical form of matter that could subtly alter the energy levels inside atomic nuclei. If such particles existed, they might produce tiny periodic shifts in the thorium transition frequency.\n“We use the nuclear clock to constrain models of ultralight dark matter by searching for periodic fluctuations and slow drifts in the nuclear transition energy, on time scales between 20 sec and one day,” the Vienna team said.\nNo evidence of dark matter was detected. However, the experiment demonstrated that the nuclear clock was sensitive enough to rival or exceed the capabilities of the world’s best atomic clocks when searching for such effects.\nTogether, the two studies provide the strongest evidence yet that practical nuclear clocks are no longer a theoretical concept but an operational technology.\nWhile these first-generation devices are still laboratory systems, they mark the beginning of a new era in precision measurement.\nFuture nuclear clocks could outperform today’s most advanced atomic clocks because the thorium nucleus is naturally protected from many sources of noise that limit current technologies.\nAccording to the researchers, such clocks could eventually improve satellite navigation, provide more precise gravitational measurements, and enable new tests of fundamental physics.\nThe next major goal is to refine the technology, reduce its size and complexity, and compare multiple nuclear clocks against one another.\nYou can read the studies\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nRupendra Brahambhatt is an experienced writer, researcher, journalist, and filmmaker. With a B.Sc (Hons.) in Science and PGJMC in Mass Communications, he has been actively working with some of the most innovative brands, news agencies, digital magazines, documentary filmmakers, and nonprofits from different parts of the globe. As an author, he works with a vision to bring forward the right information and encourage a constructive mindset among the masses.\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nScientists forge 24,000-atom mini universe that generates time without a single clock\nMore from Innovation\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nWorld’s first ‘three-lane’ optical fiber network in China boosts data transfer by 5x\nChinese military study outlines strategy to target US warships from 1,800 miles away\nBeyond rare earths: this new magnet material could reshape motors\nUS scientists’ new alloys cut truck engine weight by 15%, boost fuel efficiency by over 10%\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nWorld’s first ‘three-lane’ optical fiber network in China boosts data transfer by 5x\nChinese military study outlines strategy to target US warships from 1,800 miles away\nBeyond rare earths: this new magnet material could reshape motors\nUS scientists’ new alloys cut truck engine weight by 15%, boost fuel efficiency by over 10%",
+          "hb": 1
         },
         {
-          "t": "可编程光学百万像素纳米剪纸矩阵",
-          "d": "2026-06-13",
-          "a": "Wiley-Online-Library: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究提出一种可编程光学百万像素纳米剪纸矩阵，通过像素级编程控制微型光学阵列，像素数量达到百万级别。这种大规模可编程纳米剪纸结构有望应用于先进光学调控领域，实现前所未有的光场操控能力，对光学计算、显示和成像技术具有突破性意义。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73647?af=R",
-          "tp": "纳米剪纸光学阵列",
-          "aip": 1
-        },
-        {
-          "t": "用于高通量合成聚合物生物共轭物的耐氧光诱导小型加速原子转移自由基聚合（OPTIMA-ATRP）",
+          "t": "用于机械可重构生物皮逻辑门控合成的成纤维细胞模拟木质素聚合物体",
           "d": "2026-06-13",
           "a": "Wiley-Online-Library: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "研究者开发了OPTIMA-ATRP技术——一种耐氧的光诱导小型加速原子转移自由基聚合方法，用于高通量合成聚合物生物共轭物。该方法以\"从生物分子上生长聚合物\"的思路，克服了传统\"接枝到\"方法的局限，为改善生物治疗药物的药代动力学性质提供了新途径，具有规模化合成生物杂化材料的潜力。",
-          "sc": 7.1,
-          "i": "literature",
-          "tg": "行业观察",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6617585?af=R",
-          "tp": "光诱导聚合",
-          "aip": 1
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "提出将木质素与二乙烯基配体共组装的策略，构建了模拟成纤维细胞功能的聚合物囊泡，用于机械可重构生物皮肤的合成。由于木质素囊泡由较弱的π-π堆积驱动，疏水配体能有效嵌入芳香环之间，其界面分布可通过分子工程调节。这些囊泡可在布尔逻辑门控下编程，以模拟人类皮肤在不同生理阶段的力学变化。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6127627?af=R",
+          "tp": "仿生木质素材料",
+          "aip": 1,
+          "kp": [
+            "成纤维细胞模拟聚合物体[合成策略]: 木质素与二乙烯配体共组装",
+            "[仿生逻辑门控合成]: 聚合物体能够精确编程体相材料以模拟人类皮肤的老化力学行为"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  Ageing is inevitable and accompanied by progressive loss of skin elasticity. Fibroblasts, embedded within the extracellular matrix, finely regulate skin mechanics via membrane‐bound ligands. Creating synthetic assemblies that mimic fibroblast function is appealing yet challenging. Here, we present a strategy that co‐assembles lignin with divinyl ligands to generate fibroblast‐mimicking polymersomes, enabling precise programming of bulk materials to emulate human skin across distinct physiological stages. Because lignin polymersomes are driven by relatively weak π–π stacking, hydrophobic ligands efficiently intercalate among aromatic rings, and their interfacial distribution can be tuned via molecular engineering. The polymersomes can be programmed in a Boolean logic‑gate manner (OR, AND, and NOT) to synthesize skin‐mimetic gels with tailored mechanical properties, analogous to fibroblast behavior. Furthermore, the platform enables on‑demand, high‑resolution 3D printing of complex bioskin architectures. This work provides a biomimetic paradigm for the synthesis and precise control over assembly from the molecular to the macroscopic scale.",
+          "hb": 1
         }
       ]
     }

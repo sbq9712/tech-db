@@ -6,19 +6,18 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究证实共蒸发工艺可制备高效钙钛矿与CIGS叠层太阳能电池",
-      "多齿硅烷桥接策略提升钙钛矿有机叠层太阳能电池效率与稳定性",
-      "密歇根大学联合孚能科技提出机器学习方法降低电池寿命预测成本"
+      "爱沙尼亚与芬兰电网事故后100兆瓦Hertz 1锂电池投入运行",
+      "南科大徐保民团队开发自组装单分子层以提升钙钛矿电池界面稳定性",
+      "锆金属有机框架在可见光下实现环状碳酸酯高效光合作用"
     ],
     "AI与智能科技": [
-      "华盛顿大学推出OpenScholar检索增强模型提升科学文献综合准确率",
-      "普渡大学研制YIG自旋波滤波器带宽达663MHz适配6G通信",
-      "研究团队开发脲酶驱动微泡机器人具备靶向穿透及体内成像能力"
+      "密歇根大学联合孚能科技提出Discovery Learning以降低电池寿命预测成本",
+      "华盛顿大学推出OpenScholar检索增强模型，文献综合正确率超GPT-4o",
+      "闭环机器学习框架实现对未涉及电极材料的电池寿命零样本预测"
     ],
     "通用技术": [
-      "首尔大学开发透明辐射制冷车窗膜可降低车辆空调能耗超20%",
-      "SpaceX向FCC申请部署100万颗卫星构建近地轨道数据中心",
-      "研究利用DNA框架结合阳离子硅烷实现二氧化硅矿化分子级调控"
+      "首尔大学开发透明辐射制冷车窗膜，夏季车辆空调能耗降低超20%",
+      "嫦娥六号取回月球背面样本并构建早期撞击历史年代学模型"
     ]
   },
   "sectors": [
@@ -26,26 +25,24 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究证实共蒸发工艺可制备高效钙钛矿与CIGS叠层太阳能电池",
-        "多齿硅烷桥接策略提升钙钛矿有机叠层太阳能电池效率与稳定性",
-        "密歇根大学联合孚能科技提出机器学习方法降低电池寿命预测成本"
+        "爱沙尼亚与芬兰电网事故后100兆瓦Hertz 1锂电池投入运行",
+        "南科大徐保民团队开发自组装单分子层以提升钙钛矿电池界面稳定性",
+        "锆金属有机框架在可见光下实现环状碳酸酯高效光合作用"
       ],
       "entries": [
         {
-          "t": "[ASAP] 共蒸发实现高效钙钛矿-Cu(In,Ga)Se₂叠层太阳能电池",
+          "t": "100 MW Hertz 1 电池在爱沙尼亚-芬兰电网事故后投入运行",
           "d": "2026-02-04",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "本研究通过共蒸发工艺实现了高效钙钛矿-Cu(In,Ga)Se₂（CIGS）叠层太阳能电池。钙钛矿-CIGS叠层结构兼具宽带隙顶电池和窄带隙底电池优势，理论效率极限远超单结器件。研究利用共蒸发方法精确控制钙钛矿层的组分与界面质量，优化了隧穿复合结和光学匹配，有效降低了电压损失。该成果展示了全蒸发工艺制备叠层电池的可行性，为突破单结效率瓶颈、推进高效率薄膜光伏技术提供了新路径。",
-          "sc": 7.9,
+          "a": "Latest news about ESS Projects & Applications | ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c04203",
-          "tp": "钙钛矿叠层电池",
+          "tg": "观点评论",
+          "u": "https://www.ess-news.com/2026/02/04/100-mw-hertz-1-battery-enters-operation-after-estonia-finland-grid-incident/",
+          "tp": "储能并网运行",
           "aip": 1,
-          "kp": [
-            "[叠层电池]: 钙钛矿-CIGS共蒸发法制备"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -53,46 +50,42 @@
           "hb": 0
         },
         {
-          "t": "多齿硅烷桥连实现高效稳定的钙钛矿-有机叠层太阳能电池",
+          "t": "南方科大徐保民报道一种基于双咔唑二聚体结构自组装单分子层可优化其制备均匀性及界面稳定性",
           "d": "2026-02-04",
-          "a": "RSC - Energy Environ. Sci. latest articles",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿-有机叠层太阳能电池（POTSCs）相比其他钙钛矿叠层架构具有独特优势，但界面缺陷和相稳定性问题制约其效率与寿命。本研究提出多齿硅烷桥接策略，通过阳离子型硅烷偶联剂在钙钛矿与有机层界面形成多重配位键，有效钝化缺陷并增强层间稳定性。该分子工程方法显著提升了器件光电转换效率和操作稳定性，推动了叠层光伏技术的实用化进程。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06253E",
-          "tp": "钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "[器件]: 钙钛矿-有机叠层太阳能电池",
-            "[界面工程]: 多齿硅烷桥连修复能学无序",
-            "[子电池]: 宽带隙钙钛矿"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Perovskite–organic tandem solar cells (POTSCs) offer significant advantages over other perovskite-based tandem architectures owing to their straightforward processing and broad tuneability. However, the interfacial energetics disorder and resulting heterogeneous photoactive phase in wide bandgap perovskite subcells significantly undermine their long-term stability. Here, we develop a multidentate anchoring-bridging strategy that establishes a periodic passivating array that coordinates with dangling Pb2+ on the perovskite surface to reduce vacancy-mediated halide migration. The network with fluorinated chains reconfigures the interfacial dielectric landscape, significantly increasing the migration activation barrier for halide vacancies at the perovskite/electron transport layer interface, suppressing ion migration and significantly enchancing longevity. Poly-FPTS-treated tandem devices delivered a power conversion efficiency (PCE) of 26.5%, with a high open-circuit voltage of 2.178 V. A steady-state certified efficiency of 25.1% was achieved in Japan Electrical Safety & Environmental Technology Laboratories (JET), as reported in Solar Cell Efficiency Tables (version 65). Under continuous 1-sun illumination at the maximum power point (ISOS-L-1I protocol), these devices retained 92% of their initial efficiency after 1000 hours, and they exhibited an efficiency loss",
-          "hb": 1
-        },
-        {
-          "t": "密歇根大学安娜堡分校宋子由报道一种闭环机器学习方法称可减少新电池产品寿命预测成本",
-          "d": "2026-02-04",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "密歇根大学宋子由团队联合孚能科技提出Discovery Learning机器学习方法，融合主动学习、物理约束学习和零样本学习构建类人推理闭环框架，包含Learner、Interpreter和Oracle三个智能体。该方法充分利用历史电池数据集，可对未涉及的电极材料、电池设计和循环协议组合进行寿命预测，解决AI模型泛化能力差、标签成本高的问题，加速下一代电池研发。",
-          "sc": 6.9,
+          "as": "南科大徐保民团队联合港城大Alex Jen设计基于双咔唑二聚体结构的空穴选择性自组装单分子层，引入酰胺单元构建分子内及分子与TCO间的氢键网络，C-C键旋转灵活性形成扭曲结构增强空间位阻，削弱Π-Π相互作用防止过度紧密堆积，从而促进分子均匀排布、优化能级匹配、降低空穴传输损耗，提升全钙钛矿叠层电池界面稳定性。",
+          "sc": 6.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-025-09951-7",
-          "tp": "电池寿命测",
+          "u": "https://doi.org/10.1038/s41560-026-01964-4",
+          "tp": "钙钛矿叠层",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "对新电池设计方案的寿命进行快速评估，有助于提高下一代电池的研发和落地速度并节约测试造成的能源消耗。当前基于物理模型的寿命预测方法虽然理论严谨，但当前电池的退化机制并不完整且存在争议，限制了其准确性。基于数据分析的方法仍需进行老化实验结果来进行训练，未能充分利用历史数据，只能在原型完成后才能给出可靠预测，导致训练、推理成本高；且AI驱动的电池寿命预测模型泛化能力差、如真实寿命等标签设置成本高的问题暂未得到解决。\n近日，密歇根大学安娜堡分校宋子由助教团队联合孚能科技提出了一种Discovery Learning的机器学习方法，将主动学习、物理约束学习和零样本学习融合构建成类人推理闭环学习框架，其包含Learner、Interpreter和Oracle三个智能体。Learner主动选择信息量最大的测试样本（先前未涉及到的电极材料、电池设计和循环协议的组合）；Interpreter利用物理约束学习构建通用可解释的物理特征空间，对齐新的测试样本与历史数据（现有公共电池数据集，包括电极材料/电池设计、带循环寿命（初始容量的90%）标签的老化数据）特征分布差异；Oracle执行零样本学习（从历史电池数据中学习，无需进行老化试验），基于构建的特征空间对选定的测试样本进行初级推断，并将推断结果作为“伪标签（通过物理引导学习和零样本学习得到的预测值--循环寿命的主要推理结果）”反馈给Learner主动学习，进行次级推理并选择下一批查询样本；由此不断迭代，直至满足预设终止条件，最终完成整个预测流程。\n基于该模型，研究使用包含八种（NMC811||石墨、NMC811+NMC9||硅碳，存在一定批次、电极厚度、颗粒大小、电解液/非活性材料差异，73–84 Ah）123个大型锂离子软包电池（分成37个组别）的工业级电池退化数据集、六种商业型号的小容量圆柱形锂离子电池（LFP||石墨、NMC811||SiOx+石墨、NCA||SiOx+石墨、NMC811||硅碳、NMC622||硅碳，能量密度/倍率特性存在差异，1.1–3.5 Ah）公共数据集（等效全循环圈数EFCs）。在没有Learner的开环设置中，Oracle在未知制造变异性的条件下，对37组电池的平均循环寿命预测达到了6.4%的组级平均绝对百分比误差（MAPE），相关系数达0.97，且9.1%的单体级误差证实了预测精度并非源于组内平均的偶然性；通过可解释性分析，研究发现较低的负极活性材料体积分数和较高的锂化学计量数（均指向较小的电极比表面积）对长寿命预测有积极影响，这与已知的电池设计原则一致；同时，特征重要性会随工况变化，例如负极膜电阻在高温、低倍率下更为关键，也符合SEI生长副反应的主导机制；且该模型预测的泛化性较好。使用Learner（查询选择过程首先进行无监督轮次—小样本量下查询预算占比较大，然后进行有监督轮次）的闭环设置中，在37个电池组的平均循环寿命预测中主动选择了26个组组进行实验，最终达到7.2%的组级MAPE（均方根误差为91圈，相关系数0.95），仅需51%电池原型的前50个EFCs数据即可预测全部37组的平均循环寿命，有助于降低降低了原型制造数量和测试时长/能耗。文章于2026年2月4日发表在Nature。",
+          "b": "传统空穴选择性自组装单分子层（SAMs）因分子间相互作用过强，易发生自聚集，导致分子堆积稀疏、与透明导电氧化物（TCO）界面接触不良等问题，造成宽带隙子电池电荷传输损失限制了全钙钛矿叠层电池效率提升。\n近日，南方科技大学徐保民教授团队联合香港城市大学Alex Jen教授设计了一种基于双咔唑的二聚体结构，将酰胺单元（-CO–NH-）作为双重氢键供体（N-H）和受体（C=O）引入双咔唑二聚体中，构建起分子内部及分子与透明导电氧化物间的氢键网络，以促进分子均匀排布、优化能级匹配、降低空穴传输损耗，提升器件界面稳定性。其通过将4PACz、4BCzPA或AOCzPA溶解于乙醇/DMF混合溶剂，配制浓度为 0.6 mg/ml的SAMs溶液；而后以5000 rpm转速旋涂30秒，随后在100℃下退火10分钟，形成SAMs层。该结构通过C–C键将两个咔唑单元耦合，并引入双膦酸锚定基团。连接处的C–C键具有旋转灵活性，使两个咔唑平面呈一定的二面角（扭曲结构），增强了空间位阻效应；扭曲结构削弱了分子间的Π-Π相互作用，防止SAMs分子像传统4PACz那样发生过度紧密堆积（close-packing）或形成胶束状纳米颗粒；同时还提升了分子在乙醇等溶剂中的溶解度，减少了溶液法制备薄膜时的分子团聚。酰胺基团则可同时提供电子给体（N–H）和电子受体（C=O），改变了原先仅靠膦酸基团相互作用的单一模式；酰胺基团能与膦酸基团、以及其他酰胺基团之间形成多种类型的分子间氢键，平衡了分子间的作用力，使分子排列更均匀，从而抑制了局部过度聚集，形成了高度均匀、无针孔的分子层；此外酰胺基团还能与TCO表面的羟基（-OH）形成额外的氢键（C=O···HO-Sn/In和N–H···O-Sn/In），增强了分子在底物上的吸附能，并能消除了纳米空隙，确保了空穴传输层在TCO上的完全覆盖。而更有序的偶极子排列提高了ITO的功函数，将空穴提取的能级偏移从0.92 eV降低至0.42 eV；同时具有更快的空穴提取速率，并有效抑制了界面的非辐射复合。\n由此制备的FTO/ITO-SAMs-钙钛矿-C₆₀-BCP-Cu单结器件（1.77 eV-Cs₀.₁MA₀.₁FA₀.₈Pb(I₀.₆Br₀.₄)₃）效率达21.56%（Vₒc=1.35 V，FF=85.76%）；1.56 eV（Cs₀.₀₅MA₀.₁FA₀.₈₅PbI₃）单结效率达26.80%（认证 26.57%）；FTO-SAMs-1.77 eV 宽带隙钙钛矿-C₆₀-ALD-SnO₂-Au-PEDOT:PSS-1.26 eV窄带隙钙钛矿（Cs₀.₁MA₀.₃FA₀.₆Pb₀.₅Sn₀.₅I₃）-C₆₀-BCP-Cu叠层器件效率达30.19%（认证效率29.38%，稳态效率28.40%）；叠层电池在氮气氛围1-sun光照下638小时保持90%初始效率；85℃黑暗环境下868小时保持72%初始效率；空气氛围下420小时仍维持高稳定性。文章于2026年2月4日发表在Nature Energy。",
           "hb": 1
+        },
+        {
+          "t": "[ASAP] 可见光照射下苝二酰亚胺接枝锆金属有机框架上高效卤素自由基介导的环状碳酸酯光合作用",
+          "d": "2026-02-04",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
+          "as": "",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c17348",
+          "tp": "光催化转化CO2",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,18 +93,37 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "华盛顿大学推出OpenScholar检索增强模型提升科学文献综合准确率",
-        "普渡大学研制YIG自旋波滤波器带宽达663MHz适配6G通信",
-        "研究团队开发脲酶驱动微泡机器人具备靶向穿透及体内成像能力"
+        "密歇根大学联合孚能科技提出Discovery Learning以降低电池寿命预测成本",
+        "华盛顿大学推出OpenScholar检索增强模型，文献综合正确率超GPT-4o",
+        "闭环机器学习框架实现对未涉及电极材料的电池寿命零样本预测"
       ],
       "entries": [
         {
+          "t": "密歇根大学安娜堡分校宋子由报道一种闭环机器学习方法称可减少新电池产品寿命预测成本",
+          "d": "2026-02-04",
+          "a": "Doi",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "密歇根大学宋子由团队联合孚能科技提出Discovery Learning机器学习方法，融合主动学习、物理约束学习和零样本学习构建类人推理闭环框架，包含Learner、Interpreter和Oracle三个智能体。该方法充分利用历史电池数据集，可对未涉及的电极材料、电池设计和循环协议组合进行寿命预测，解决AI模型泛化能力差、标签成本高的问题，加速下一代电池研发。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09951-7",
+          "tp": "电池寿命预测",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "对新电池设计方案的寿命进行快速评估，有助于提高下一代电池的研发和落地速度并节约测试造成的能源消耗。当前基于物理模型的寿命预测方法虽然理论严谨，但当前电池的退化机制并不完整且存在争议，限制了其准确性。基于数据分析的方法仍需进行老化实验结果来进行训练，未能充分利用历史数据，只能在原型完成后才能给出可靠预测，导致训练、推理成本高；且AI驱动的电池寿命预测模型泛化能力差、如真实寿命等标签设置成本高的问题暂未得到解决。\n近日，密歇根大学安娜堡分校宋子由助教团队联合孚能科技提出了一种Discovery Learning的机器学习方法，将主动学习、物理约束学习和零样本学习融合构建成类人推理闭环学习框架，其包含Learner、Interpreter和Oracle三个智能体。Learner主动选择信息量最大的测试样本（先前未涉及到的电极材料、电池设计和循环协议的组合）；Interpreter利用物理约束学习构建通用可解释的物理特征空间，对齐新的测试样本与历史数据（现有公共电池数据集，包括电极材料/电池设计、带循环寿命（初始容量的90%）标签的老化数据）特征分布差异；Oracle执行零样本学习（从历史电池数据中学习，无需进行老化试验），基于构建的特征空间对选定的测试样本进行初级推断，并将推断结果作为“伪标签（通过物理引导学习和零样本学习得到的预测值--循环寿命的主要推理结果）”反馈给Learner主动学习，进行次级推理并选择下一批查询样本；由此不断迭代，直至满足预设终止条件，最终完成整个预测流程。\n基于该模型，研究使用包含八种（NMC811||石墨、NMC811+NMC9||硅碳，存在一定批次、电极厚度、颗粒大小、电解液/非活性材料差异，73–84 Ah）123个大型锂离子软包电池（分成37个组别）的工业级电池退化数据集、六种商业型号的小容量圆柱形锂离子电池（LFP||石墨、NMC811||SiOx+石墨、NCA||SiOx+石墨、NMC811||硅碳、NMC622||硅碳，能量密度/倍率特性存在差异，1.1–3.5 Ah）公共数据集（等效全循环圈数EFCs）。在没有Learner的开环设置中，Oracle在未知制造变异性的条件下，对37组电池的平均循环寿命预测达到了6.4%的组级平均绝对百分比误差（MAPE），相关系数达0.97，且9.1%的单体级误差证实了预测精度并非源于组内平均的偶然性；通过可解释性分析，研究发现较低的负极活性材料体积分数和较高的锂化学计量数（均指向较小的电极比表面积）对长寿命预测有积极影响，这与已知的电池设计原则一致；同时，特征重要性会随工况变化，例如负极膜电阻在高温、低倍率下更为关键，也符合SEI生长副反应的主导机制；且该模型预测的泛化性较好。使用Learner（查询选择过程首先进行无监督轮次—小样本量下查询预算占比较大，然后进行有监督轮次）的闭环设置中，在37个电池组的平均循环寿命预测中主动选择了26个组组进行实验，最终达到7.2%的组级MAPE（均方根误差为91圈，相关系数0.95），仅需51%电池原型的前50个EFCs数据即可预测全部37组的平均循环寿命，有助于降低降低了原型制造数量和测试时长/能耗。文章于2026年2月4日发表在Nature。",
+          "hb": 1
+        },
+        {
           "t": "华盛顿大学Hannaneh Hajishirzi提出一种专为科学文献合成设计的检索增强语言模型",
           "d": "2026-02-04",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI软件层/工程改进/工作流",
           "as": "华盛顿大学Hannaneh Hajishirzi团队提出OpenScholar检索增强语言模型，从4500万篇开放获取论文中识别相关段落并生成带引文支持的回答。团队开发ScholarQABench基准（2967个专家查询、208个长篇回答）。OpenScholar-8B在多篇论文综合任务上正确率比GPT-4o高6.1%，引文准确率达人类专家水平，而GPT-4o在78-90%情况下会虚构引文。",
-          "sc": 7.0,
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-025-10072-4",
@@ -125,41 +137,22 @@
           "hb": 1
         },
         {
-          "t": "普渡大学Sunil A. Bhave研制出用于6G通讯的自旋波滤波器",
+          "t": "密歇根大学安娜堡分校宋子由报道一种闭环机器学习方法称可减少新电池产品寿命预测成本",
           "d": "2026-02-04",
-          "a": "",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "普渡大学Sunil A. Bhave团队提出基于YIG（钇铁石榴石）材料的自旋梯形滤波器架构，仅需单一磁偏置即可工作，可依托现代微加工实现晶圆级制造。该滤波器插入损耗仅2.54dB，带宽达663MHz，中心频率可调范围7.08-21.6GHz，首次实现大带宽、高线性度、可调谐、可集成综合性能，为6G通信提供新硬件路径。成果发表于Nature。",
-          "sc": 6.9,
+          "a": "Doi",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "密歇根大学宋子由团队联合孚能科技提出Discovery Learning机器学习方法，融合主动学习、物理约束学习和零样本学习构建类人推理闭环框架，包含Learner、Interpreter和Oracle三个智能体。该方法充分利用历史电池数据集，可对未涉及的电极材料、电池设计和循环协议组合进行寿命预测，解决AI模型泛化能力差、标签成本高的问题，加速下一代电池研发。",
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-025-10057-3",
-          "tp": "自旋波滤波",
+          "u": "https://doi.org/10.1038/s41586-025-09951-7",
+          "tp": "电池寿命预测",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
-          "cm": "通讯理论中，完整的信号转换与发射流程包括以下几步。首先需要将比特序列经过QAM映射变换为符号序列，随后使用脉冲成形滤波器将其映射为基带信号。基带信号的频谱宽度即对应通讯信号的带宽。为了防止不同信号之间串扰，需要将其经过上变频，将频率平移变换到频段(如5G可以为3.5 GHz)附近的射频信号，并以电磁波的方式发射。在该过程中，基带信号的频谱宽度越宽，发射信号的频率就越大，从而信号的传输速率就越大。\n该文中的期间有潜力作为一种射频滤波器的技术路线。因为其在高频段具有良好性能、同时具有大带宽，这两点正是新的通讯技术所要求的。同时、该器件的低损耗、可调范围大也是两个重要优点。不过后续的制造成本将会是该方案能否成功被工业界采纳的重要因素。",
-          "b": "自旋波滤波器由于其可调频、低损耗特性，成为未来可调通讯系统的重要候选技术。传统自旋波滤波器存在带宽不足、尺寸偏大以及易有跨信道干扰的问题，限制了其在现代通信系统的应用。Sunil A. Bhave团队提出了一种基于YIG(钇铁石榴石)材料的自旋梯形滤波器架构，仅需要单一磁偏置即可工作，并可依托现代微加工技术实现晶圆级制造，更容易大规模集成。该滤波器的插入损耗很低，为2.54 dB，带宽可达到663 MHz，中心频率可调范围为7.08 – 21.6 GHz。这意味着该滤波器首次实现了大带宽、高线性度、可调谐、可集成的综合性能，为6G通信系统提供了新的硬件路径。文章于2026年2月4日发表在Nature。",
-          "hb": 1
-        },
-        {
-          "t": "酶促微泡机器人",
-          "d": "2026-02-04",
-          "a": "Nature Nanotechnology",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "研究团队开发了酶促微泡机器人，具备可控运动、增强生物可降解性、高体内成像对比度以及有效靶向和穿透病灶等能力。该微机器人以天然蛋白壳经脲酶修饰驱动，兼具运动可控性和生物相容性，在生物医学应用中展现出多功能微纳米机器人平台的潜力。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-025-02109-6",
-          "tp": "酶促微泡机器人",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
           "cm": "",
-          "b": "The development of micro- and nanorobots has amplified the demand for intelligent multifunctional machines in biomedical applications, but most microrobotic systems struggle to achieve the attributes needed for those applications. Here we introduce enzymatic microbubble robots that exhibit steerable motion, enhanced biodegradability, high in vivo imaging contrast, and effective targeting and penetration of disease sites. These microrobots feature natural protein shells modified with urease to decompose bioavailable urea for autonomous propulsion, whereas an internal microbubble serves as an ultrasound imaging contrast agent for deep tissue imaging and navigation. Magnetic nanoparticle integration enables imaging-guided magnetically controlled motion and catalase functionalization facilitates chemotactic movement towards hydrogen peroxide gradients, directing robots to tumour sites. Focused ultrasound triggers robot shell collapse and inertial cavitation of the released microbubbles, creating mechanical forces that enhance therapeutic payload penetration. In vivo studies validate the tumour-targeting and therapeutic efficacy of these robots, demonstrating enhanced antitumour effects. This multifunctional microbubble robotic platform has the potential to transform medical interventions and precision therapies.",
+          "b": "对新电池设计方案的寿命进行快速评估，有助于提高下一代电池的研发和落地速度并节约测试造成的能源消耗。当前基于物理模型的寿命预测方法虽然理论严谨，但当前电池的退化机制并不完整且存在争议，限制了其准确性。基于数据分析的方法仍需进行老化实验结果来进行训练，未能充分利用历史数据，只能在原型完成后才能给出可靠预测，导致训练、推理成本高；且AI驱动的电池寿命预测模型泛化能力差、如真实寿命等标签设置成本高的问题暂未得到解决。\n近日，密歇根大学安娜堡分校宋子由助教团队联合孚能科技提出了一种Discovery Learning的机器学习方法，将主动学习、物理约束学习和零样本学习融合构建成类人推理闭环学习框架，其包含Learner、Interpreter和Oracle三个智能体。Learner主动选择信息量最大的测试样本（先前未涉及到的电极材料、电池设计和循环协议的组合）；Interpreter利用物理约束学习构建通用可解释的物理特征空间，对齐新的测试样本与历史数据（现有公共电池数据集，包括电极材料/电池设计、带循环寿命（初始容量的90%）标签的老化数据）特征分布差异；Oracle执行零样本学习（从历史电池数据中学习，无需进行老化试验），基于构建的特征空间对选定的测试样本进行初级推断，并将推断结果作为“伪标签（通过物理引导学习和零样本学习得到的预测值--循环寿命的主要推理结果）”反馈给Learner主动学习，进行次级推理并选择下一批查询样本；由此不断迭代，直至满足预设终止条件，最终完成整个预测流程。\n基于该模型，研究使用包含八种（NMC811||石墨、NMC811+NMC9||硅碳，存在一定批次、电极厚度、颗粒大小、电解液/非活性材料差异，73–84 Ah）123个大型锂离子软包电池（分成37个组别）的工业级电池退化数据集、六种商业型号的小容量圆柱形锂离子电池（LFP||石墨、NMC811||SiOx+石墨、NCA||SiOx+石墨、NMC811||硅碳、NMC622||硅碳，能量密度/倍率特性存在差异，1.1–3.5 Ah）公共数据集（等效全循环圈数EFCs）。在没有Learner的开环设置中，Oracle在未知制造变异性的条件下，对37组电池的平均循环寿命预测达到了6.4%的组级平均绝对百分比误差（MAPE），相关系数达0.97，且9.1%的单体级误差证实了预测精度并非源于组内平均的偶然性；通过可解释性分析，研究发现较低的负极活性材料体积分数和较高的锂化学计量数（均指向较小的电极比表面积）对长寿命预测有积极影响，这与已知的电池设计原则一致；同时，特征重要性会随工况变化，例如负极膜电阻在高温、低倍率下更为关键，也符合SEI生长副反应的主导机制；且该模型预测的泛化性较好。使用Learner（查询选择过程首先进行无监督轮次—小样本量下查询预算占比较大，然后进行有监督轮次）的闭环设置中，在37个电池组的平均循环寿命预测中主动选择了26个组组进行实验，最终达到7.2%的组级MAPE（均方根误差为91圈，相关系数0.95），仅需51%电池原型的前50个EFCs数据即可预测全部37组的平均循环寿命，有助于降低降低了原型制造数量和测试时长/能耗。文章于2026年2月4日发表在Nature。",
           "hb": 1
         }
       ]
@@ -168,18 +161,17 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "首尔大学开发透明辐射制冷车窗膜可降低车辆空调能耗超20%",
-        "SpaceX向FCC申请部署100万颗卫星构建近地轨道数据中心",
-        "研究利用DNA框架结合阳离子硅烷实现二氧化硅矿化分子级调控"
+        "首尔大学开发透明辐射制冷车窗膜，夏季车辆空调能耗降低超20%",
+        "嫦娥六号取回月球背面样本并构建早期撞击历史年代学模型"
       ],
       "entries": [
         {
           "t": "首尔国立大学Seung Hwan Ko开发可规模化透明辐射制冷车窗膜用于降低车辆能耗与碳排放",
           "d": "2026-02-04",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/其它先进材料",
           "as": "首尔国立大学Seung Hwan Ko团队开发可规模化制造的透明辐射制冷（STRC）车窗膜，通过多层光谱工程实现高可见光透过率的同时强反射近红外太阳热并宽带吸收发射中红外，无需外部能量即可高效辐射车内热量。跨洲跨季节实车测试显示最高降温6.1℃，夏季空调能耗降低超20%，全美推广有望年减约2540万吨CO2排放。成果发表于Energy & Environmental Science。",
-          "sc": 8.0,
+          "sc": 8.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1039/d5ee06609c",
@@ -193,45 +185,42 @@
           "hb": 1
         },
         {
-          "t": "SpaceX申请部署100万颗卫星以建立轨道数据中心",
+          "t": "首尔国立大学Seung Hwan Ko开发可规模化透明辐射制冷车窗膜用于降低车辆能耗与碳排放",
           "d": "2026-02-04",
-          "a": "",
-          "c": "通用技术/通信和运输/航天",
-          "as": "美国FCC正式受理SpaceX提交的轨道数据中心系统申请，该系统计划部署多达100万颗近地轨道卫星（轨道高度500-2000公里），依赖高带宽光学卫星间链路与Starlink一、二代卫星互联，用于在轨数据处理与传输。SpaceX申请使用18.3-19.3GHz下行与28.6-29.1GHz上行频段，申请进入公开意见征询阶段。",
-          "sc": 6.6,
+          "a": "Doi",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "首尔国立大学Seung Hwan Ko团队开发可规模化制造的透明辐射制冷（STRC）车窗膜，通过多层光谱工程实现高可见光透过率的同时强反射近红外太阳热并宽带吸收发射中红外，无需外部能量即可高效辐射车内热量。跨洲跨季节实车测试显示最高降温6.1℃，夏季空调能耗降低超20%，全美推广有望年减约2540万吨CO2排放。成果发表于Energy & Environmental Science。",
+          "sc": 8.2,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://docs.fcc.gov/public/attachments/DA-26-113A1.pdf",
-          "tp": "轨道算力网",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1039/d5ee06609c",
+          "tp": "辐射制冷膜",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
-          "cm": "以SpaceX目前的能力，几乎不可能在FCC规定下完成这一发射计划，更多是在轨道空间有限的情况下提前占据份额。结合本周SpaceX宣布与xAI合并，这一动态所代表的趋势有两种不互斥的可能：一，马斯克在为SpaceX今年6月可能进行的IPO造势，二，马斯克对于建立太空数据中心有很强的决心。\n2025年，SpaceX总共进行了165次发射，全部为猎鹰9号，该火箭每次可发射Starlink V1.5或Starlink V2卫星20颗左右，全年发射能力约3300颗，且都是500公里的近地轨道，轨道数据中心更高的轨道，更重的卫星会导致火箭单次卫星发射数量更低。按目前SpaceX的发射能力，100万颗卫星需要300年以上，即使发射能力在逐年提升，100万颗卫星入轨依然是短期内几乎不可能实现的数字。国际电信联盟（International Telecommunication Union, ITU）要求在7年的建设准备期限后，2年内完成计划数量10%，前4年完成20%，第7年需全部完成，否则将收回申请的数量。",
-          "b": "2月4日，美国联邦通信委员会（Federal Communications Commission, FCC）空间局宣布，正式受理SpaceX提交的“轨道数据中心系统”（Orbital Data Center System）申请，SpaceX将该计划称为“迈向可掌握太阳能量的卡尔达肖夫二级文明的第一步”。该系统计划部署多达100万颗近地轨道（NGSO）卫星，轨道高度介于500至2000公里，包括30度倾角与太阳同步轨道。卫星将依赖高带宽的光学卫星间链路，并与Starlink第一、二代卫星互联，用于在轨数据处理与传输。\nSpaceX申请使用18.3-19.3GHz（下行）与28.6-29.1GHz（上行）频段。FCC表示，该申请现进入公开意见征询阶段，最终回复截至3月23日。",
+          "cm": "本文系统评估了可规模化透明辐射制冷（STRC）在车辆热管理中的应用潜力，通过多层光谱设计、跨地区实车测试及情景建模，验证了其在真实工况下对降低车舱温度和HVAC能耗的有效性。研究针对车辆“车舱温度常高于环境温度”的特点，采用宽带中红外发射/吸收策略，相较传统选择性发射路径具有一定针对性，并在可见光透过率、耐久性等方面满足车规要求，显示出一定工程可行性。需要注意的是，文中美国车队层面的减排结果基于高渗透率情景假设，更多反映技术减排潜力上限而非现实部署预测，其实际效果仍取决于成本、市场接受度及不同气候条件下的长期表现。总体而言，该工作为车辆被动热管理提供了一种具有参考价值的补充技术路线，但其规模化应用前景仍需进一步工程与经济层面的验证。",
+          "b": "该研究针对车辆在阳光暴晒下因热容量小、空间封闭而快速升温、空调能耗高的问题，提出了一种可规模化制造的透明辐射制冷（STRC）车窗膜，通过多层光谱工程设计，在保证高可见光透过率满足法规要求的同时，实现对近红外太阳热的强反射以及中红外波段的宽带吸收与发射，从而在无需外部能量输入的情况下将车内热量高效向外辐射。研究通过跨洲、跨季节的全尺寸实车测试验证了其在停车与行驶工况下均可显著降低车舱温度（最高达6.1℃），并在夏季实现超过20%的空调能耗降低，而冬季供暖惩罚极小。进一步的全国尺度模型评估表明，若在美国现有车辆中推广应用，STRC有望每年减少约2540万吨二氧化碳排放，相当于减少约500万辆汽车的排放。研究成果2月4日发表于Energy & Environmental Science。",
           "hb": 1
         },
         {
-          "t": "阳离子二氧化硅簇附着调控DNA框架介导硅化的分子机制",
+          "t": "嫦娥六号背面样本的月球年代学模型及其对早期撞击历史的影响",
           "d": "2026-02-04",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "生物矿物的组织复杂性长期以来启发科学家探索生物编程的分子机制。本研究利用DNA框架编程二氧化硅矿化过程，引入阳离子型硅烷催化剂实现对DNA模板引导矿化的分子级调控。通过精细调谐硅烷分子的结构特性，实现了对矿化速率、形貌和空间精度的可控编程。该工作为设计具有复杂层级结构的仿生无机材料开辟了新途径，在纳米器件和生物医学领域具有广阔应用前景。",
-          "sc": 6.9,
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
+          "sc": 8.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2529275123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "DNA框架硅化",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady9265?af=R",
+          "tp": "月球样本年代",
           "aip": 1,
-          "kp": [
-            "[合成策略]: DNA框架编程硅化",
-            "[结晶路径]: 阳离子硅簇非经典附着"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The organizational complexity of biominerals has long fascinated scientists seeking to understand biological programming and implement new developments in biomimetic materials chemistry. Nonclassical crystallization pathways have been observed and analyzed in typical crystalline biominerals, such as calcium phosphate, calcium carbonate, and ferric oxide, involving the controlled attachment and reconfiguration of nanoparticles and clusters on organic templates. However, the understanding of templated amorphous silica mineralization remains limited, hindering the rational design of complex silica-based materials. Here, we report the finding of ultrastable and monodispersed cationic silica cluster (CSC) and their assembly using DNA nanostructures as programmable attachment templates. Cryo-EM imaging reveal that a typical CSC with a diameter of gyration of ~3.9 nm and an average molecular weight of ~8, 262 Da is characteristic of a branched hierarchical structure. We demonstrate high-fidelity silicification by tuning the composition and structure of CSC, providing a unified model of silicification by cluster attachment. Our findings pave the way toward the molecular tuning of pre- and postnucleation stages of sol-gel reactions and provide insights for the design of silica-based materials with controlled organization and functionality.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

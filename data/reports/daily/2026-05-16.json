@@ -6,18 +6,11 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究提出流体结晶协同策略，全环境印刷钙钛矿光伏效率突破26%",
-      "新技术将阳极反应耦合氧化锌合成，实现无氧电解水联产高值材料",
-      "科研团队采用LiAl负极抑制枝晶，显著提升全固态电池倍率性能"
+      "新型双光纤互穿网络技术将有机太阳能电池效率提升至20.31%"
     ],
-    "AI与智能科技": [
-      "科研团队开发亚毫伏光子概率比特，突破传统电子架构功耗瓶颈",
-      "新型反铁磁开关器件实现皮秒级磁矩翻转，打破传统存储物理极限"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "学者采用拓扑衍生策略合成单晶二维共价有机框架，实现原子级结构解析",
-      "研究通过化学工程手段调控二维金属有机框架，成功实现交变磁性",
-      "研究揭示氢化锂光催化固氮波长依赖性，为温和条件合成氨提供机理指导"
+      "铒基卤化物LED实现1540nm红外电致发光，光电效率达3.06%"
     ]
   },
   "sectors": [
@@ -25,213 +18,61 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究提出流体结晶协同策略，全环境印刷钙钛矿光伏效率突破26%",
-        "新技术将阳极反应耦合氧化锌合成，实现无氧电解水联产高值材料",
-        "科研团队采用LiAl负极抑制枝晶，显著提升全固态电池倍率性能"
+        "新型双光纤互穿网络技术将有机太阳能电池效率提升至20.31%"
       ],
       "entries": [
         {
-          "t": "流体-结晶协同实现全环境印刷SAM基钙钛矿光伏效率突破26%",
+          "t": "3D 侧链拓扑驱动的双光纤互穿网络实现 20.31% 效率的逐层有机太阳能电池",
           "d": "2026-05-16",
           "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究提出流体-结晶协同策略，在全环境条件下（非惰性气氛）印刷制备基于SAM（自组装单分子层）空穴传输层的钙钛矿太阳能电池，效率突破26%。传统高效率钙钛矿电池依赖实验室旋涂与惰性环境，该工作通过调控溶剂蒸发与结晶动力学的协同效应，实现了环境空气中全印刷工艺的器件级性能飞跃，对钙钛矿光伏的规模化量产和商业化具有重要意义。",
-          "sc": 7.7,
+          "as": "",
+          "sc": 6.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73373?af=R",
-          "tp": "钙钛矿全印刷光伏",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73422?af=R",
+          "tp": "有机太阳能电池",
           "aip": 1,
-          "kp": [
-            "转换效率[全空气印刷钙钛矿]: >26%",
-            "[工艺突破]: 首次全环境印刷SAM基钙钛矿电池"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    While lab‐scale spin‐coating in inert environments has delivered record efficiencies for perovskite solar cells (PSCs) employing self‐assembled monolayers (SAMs), their fabrication via fully ambient‐air printing—a prerequisite for low‐cost industrialization—remains unreported. Here, we report the first PSCs exceeding 26% efficiency based on fully ambient‐air printed SAMs and perovskite films and elucidate the governing role of SAM physicochemical properties through fluid‐crystallization synergy. SAMs with higher surface energy (\n                    γ\n                    ) flatten the perovskite ink meniscus, attenuating the temperature gradient and Marangoni stress along the gas‐liquid interface, thereby enabling more uniform perovskite deposition and smoother films. Simultaneously,\n                    γ\n                    systematically modulates perovskite crystallization by delaying nucleation onset and shifting the growth mode from continuous to instantaneous on higher‐\n                    γ\n                    SAMs. The fluid–crystallization synergy yields a record power conversion efficiency (PCE) of 26.31% (certified 25.85%), a benchmark for all reported ambient‐air printed devices, including non‐SAM‐based counterparts. The approach further enables scalable fabrication, achieving a champion PCE of 22.3% in 13.04 cm\n                    2\n                    mini‐modules with over 90% performance retention after 1200 h operation under the ISOS‐L‐1 protocol. This work establishes a quantitative link between SAM physicochemical properties and perovskite fluid dynamics and crystallization thermodynamics in ambient‐air printing, providing guidance for perovskite photovoltaics toward scalable ambient manufacturing.",
-          "hb": 1
-        },
-        {
-          "t": "直接耦合ZnO纳米颗粒合成实现无氧电解水",
-          "d": "2026-05-16",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "传统电解水受限于缓慢的析氧反应（OER）。该研究提出一种无氧电解水新策略，将阳极反应直接耦合氧化锌（ZnO）纳米颗粒合成，绕过OER瓶颈，同时联产高附加值ZnO纳米材料。该方案既降低能耗又实现资源增值，为绿色制氢和纳米材料制备开辟了协同路径。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00161-3?rss=yes",
-          "tp": "无氧电解水制氢",
-          "aip": 1,
-          "kp": [
-            "[策略]: 锌氧化替代析氧反应",
-            "[副产物]: 联产ZnO纳米粒子",
-            "[优势]: 低能耗产氢"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Conventional water electrolysis is limited by the sluggish oxygen evolution reaction. This study shows that zinc oxidation can replace the oxygen evolution reaction, enabling lower-energy hydrogen production while simultaneously generating valuable zinc oxide nanoparticles.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 通过成分与结构工程实现无枝晶LiAl负极的超高倍率全固态电池",
-          "d": "2026-05-16",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "传统锂离子电池采用石墨负极和易燃液态电解液，在能量密度与安全性方面面临瓶颈。本研究提出以LiAl合金作为全固态电池负极，兼具高理论容量与优异界面稳定性，从根本上抑制锂枝晶生长。LiAl负极配合固态电解质实现了超高倍率充放电性能，循环寿命显著提升。该方案有望推动高安全、高能量密度固态电池从实验室走向规模化应用，对电动汽车和储能系统具有重要工程价值。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00968",
-          "tp": "全固态电池负极",
-          "aip": 1,
-          "kp": [
-            "负极[全固态电池]: LiAl固溶体无枝晶",
-            "[工艺]: 熔融等温处理+压制",
-            "[特性]: 超高倍率"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Conventional lithium-ion batteries with graphite anodes and flammable liquid electrolytes face energy density and safety limitations. All-solid-state batteries (ASSBs) offer improved safety but suffer from lithium dendrite growth and interfacial instability. Here, a LiAl solid solution anode is developed via melting isothermal processing and compaction. Among the compositions tested (LiAl-1:3, LiAl-1:4, and LiAl-1:5), LiAl-1:4 delivers optimal performance. Symmetric cells achieve a critical deposition current density of 1.35 mA cm–2 and stable cycling for 800 h at 3 mA cm–2. Full cells with LiNi0.9Co0.05Mn0.05O2 cathodes exhibit high-rate capability (110.4 mAh g–1 at 30C) and outstanding longevity: 89.1% capacity retention after 1000 cycles at 1C (8.34 mg cm–2), over 17 000 cycles at 20C, and 12 000 cycles at 100C (2.29 mg cm–2). Characterization reveals that uniform Al distribution and a porous structure suppress dendrites and stabilize interfaces, while surface Li2O enhances Li+ transport. This work establishes design principles for high-power ASSBs via stoichiometric and microstructural optimization.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队开发亚毫伏光子概率比特，突破传统电子架构功耗瓶颈",
-        "新型反铁磁开关器件实现皮秒级磁矩翻转，打破传统存储物理极限"
-      ],
-      "entries": [
-        {
-          "t": "用于概率计算的亚毫伏可调光子p比特",
-          "d": "2026-05-16",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究提出亚毫伏级可调谐光子概率比特（p-bit）架构，将随机性从噪声转化为概率计算的基石。p-bit是介于经典比特与量子比特之间的概率单元，可用于求解组合优化、机器学习采样等NP难题。研究团队利用集成光子器件实现超低能耗（亚毫伏量级调谐）的随机数生成与概率运算，克服了传统电子p-bit功耗高、速度慢的瓶颈。该方案兼具光子学的高速并行优势与概率计算的灵活性，为超越冯·诺依曼架构的新型计算硬件提供了可行路径，在低温CMOS兼容的光子集成平台上具有规模化潜力。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb9277?af=R",
-          "tp": "光子概率比特",
-          "aip": 1,
-          "kp": [
-            "[器件]: 光诱导偏置可调概率比特",
-            "[调谐电压]: 亚毫伏级",
-            "[应用]: 概率计算"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Randomness, once dismissed as unwanted noise, is now emerging as a foundation for intelligent computation. Probabilistic bits (p-bits), which fluctuate between 0 and 1 with tunable probability, offer a route to solve complex problems through stochastic logic and energy-based optimization. Here, we present light-induced bias-tunable probabilistic-bit (LBP-bit) devices that generate entropy through light-induced charge polarity switching in a back-to-back junction. The probability of each device’s stochastic bitstream can be precisely tuned with submillivolt bias without disturbing the underlying distribution. This unique separation of randomness generation (by light) and probability control (by bias) enables stable control of output probability, essential for scalable probabilistic computing (p-computing). The proposed p-computing framework demonstrates integer factorization as a representative example of probabilistic search on computationally intensive problems. Max-Cut problems, representative combinatorial optimization tasks, are evaluated, demonstrating that light in this device functions as the stochastic source enabling probabilistic computation.",
-          "hb": 1
-        },
-        {
-          "t": "基于反铁磁体的皮秒超低功耗开关器件",
-          "d": "2026-05-16",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "基于反铁磁材料（antiferromagnet）的超快超低功耗非易失性开关器件研究。反铁磁材料因其独特的自旋排列特性，可实现皮秒级（ps）超快磁矩翻转，且不受外部磁场干扰，有望突破传统半导体和铁磁存储器件在速度与功耗上的物理极限。该器件在新兴计算架构（如存内计算、神经形态计算）中具有颠覆性潜力，为下一代高性能、低能耗非易失性存储与逻辑技术开辟了全新路径，是自旋电子学领域的重要突破。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adt3136?af=R",
-          "tp": "反铁磁开关器件",
-          "aip": 1,
-          "kp": [
-            "[开关器件]: Mn₃Sn/Ta反铁磁异质结",
-            "开关速度[反铁磁]: 皮秒级",
-            "功耗[反铁磁开关]: 超低功耗"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Developing an ultrafast and energy-efficient nonvolatile switching device may pose a strong impact on emerging computing architectures. However, processing speed has plateaued in the nanosecond regime, as further acceleration demands excessively large write power. We demonstrate ultralow power in picosecond switching using heterostructures of the antiferromagnet Mn\n                    3\n                    Sn and heavy metal tantalum, which exhibit spin-orbit torque switching by electrical pulses as short as 40 picoseconds. Power consumption in the picosecond regime is several orders of magnitude lower than in ferromagnetic counterparts owing to efficient angular momentum transfer. Compared with previously reported picosecond switching devices, our ultralow-power switching device realizes much less heating, higher endurance, and switching using photocurrent. These results pave the way to ultrafast nonvolatile memory and efficient optical-to-electrical conversion technology.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "学者采用拓扑衍生策略合成单晶二维共价有机框架，实现原子级结构解析",
-        "研究通过化学工程手段调控二维金属有机框架，成功实现交变磁性",
-        "研究揭示氢化锂光催化固氮波长依赖性，为温和条件合成氨提供机理指导"
+        "铒基卤化物LED实现1540nm红外电致发光，光电效率达3.06%"
       ],
       "entries": [
         {
-          "t": "[ASAP] 通过拓扑衍生策略合成单晶二维双节点共价有机框架",
+          "t": "铒基卤化物 LED 的圆偏振 1540 nm 短波红外电致发光，效率达到创纪录的 3.06%",
           "d": "2026-05-16",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究报道了单晶二维双节点共价有机框架（2D COFs）的合成方法突破。传统COFs多为多晶粉末，难以进行精确的原子级结构表征，严重制约了对材料构效关系的深入理解。研究团队通过精心设计单体连接策略和反应条件，成功生长出具有高结晶度的单晶2D COF材料，使其能够通过单晶X射线衍射实现精确的原子级结构解析。这一成果克服了COF领域长期存在的结晶性瓶颈，为理性设计新型多孔晶态材料奠定了基础，有望推动气体分离、催化、储能等应用的发展。",
-          "sc": 7.2,
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04922",
-          "tp": "单晶二维COF",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73399?af=R",
+          "tp": "近红外LED",
           "aip": 1,
-          "kp": [
-            "[合成策略]: 拓扑衍生sql→衍生网络",
-            "[产物]: 单晶二维双节点[4+4]COF"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Growing single-crystal two-dimensional covalent organic frameworks (2D COFs) for precise atomic-level structural determination presents a formidable yet crucial challenge. Here, we develop a topology derivation strategy to design and synthesize five single-crystal 2D binodal [4 + 4] COFs, transforming the parent edge-transitive sql topology network into two distinct derivative networks with pseudo-bex and pseudo-hcb topologies by strategically varying the symmetry of the organic building blocks. Their precise structures are unambiguously resolved by three-dimensional electron diffraction with a resolution of up to 0.90 Å, and all non-hydrogen atoms are directly located. A systematic structure analysis reveals that the imine bond orientation dictates intralayer arrangements, yielding both planar and unconventional wavy layers. We also observe that all COFs prefer an inclined, staggered AB stacking pattern, with layers inclined along three distinct directions, breaking the diagram that [4 + 4] COFs exhibit AA stacking. Furthermore, we demonstrate that, compared with traditional low-crystallinity powdery phases, single-crystal COFs significantly boost C2H2/CO2 separation performance, underscoring the critical importance of constructing advanced materials with highly ordered structures. Atomically precise structure determination provides a definitive foundation for linking structural order to emergent properties in 2D COFs, pushing the boundaries of reticular chemistry.",
-          "hb": 1
-        },
-        {
-          "t": "二维金属有机框架中交替磁性的化学工程调控",
-          "d": "2026-05-16",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究通过化学工程手段在二维金属-有机框架中实现交变磁性。交变磁性是一种新型磁相，具有无需净磁化即可产生非相对论性自旋劈裂的特性。该工作利用二维MOF的可设计性，通过精确调控磁性中心的排列与耦合，为自旋电子学材料开发开辟了新的化学设计空间。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22589",
-          "tp": "二维交变磁性材料",
-          "aip": 1,
-          "kp": [
-            "[磁相]: 交错磁体(非相对论自旋劈裂)",
-            "[材料]: 二维平面四配位Cr基MOF",
-            "[方法]: DFT计算验证"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Altermagnetism represents a novel magnetic phase exhibiting nonrelativistic spin splitting without net magnetization driven by lattice symmetry. Here, we introduce a general coordination-chemistry-based strategy to realize and control altermagnetic (AM) spin splitting in two-dimensional (2D) planar tetracoordinated Cr-based metal-organic frameworks (MOFs). Using density functional theory (DFT) calculations, we demonstrate that ligand symmetry and its arrangement within the lattice can be used to lower the crystallographic symmetry of Cr-based MOFs, enabling g-wave AM spin splitting up to 65 meV. Furthermore, frontier molecular orbital engineering (FMOE) allows selective ligand spin polarization, inducing a shift to d-wave AM anisotropy in polycyclic ligand-based 2D MOFs with spin splitting up to 83.9 meV. Microscopic magnetic exchange interaction (J) analysis reveals that ligand-mediated interactions dominate over metal-metal coupling, stabilizing AM order in systems with spin-polarized ligands. Interestingly, we further confirm AM spin splitting in the spin wave spectrum, where chiral magnon splitting is observed. Finally, we show that AM spin splitting gives rise to experimentally accessible charge-to-spin conversion, emerging as a linear response in d-wave and as a symmetry-allowed nonlinear effect in g-wave 2D AM MOFs. This work establishes coordination chemistry as a powerful and versatile route to symmetry control in 2D MOFs, enabling the rational design of 2D molecular materials with tunable electronic and AM properties for next-generation spintronic devices.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 氢化锂催化剂上波长依赖的固氮加氢制氨",
-          "d": "2026-05-16",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "光催化氮气还原（N₂→NH₃）可在温和条件下利用太阳能合成氨，被视为替代传统Haber-Bosch高温高压工艺的绿色路线。本研究系统考察了光催化剂在特定波长光照下的活性差异，发现不同激发波长对氮气活化与加氢路径的选择性产生显著影响。通过波长依赖性分析，可精确调控催化剂电子结构与反应中间体行为，从而提升NH₃产率与法拉第效率。该工作为理性设计高效光催化固氮体系提供了机理层面的指导。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04222",
-          "tp": "光催化合成氨",
-          "aip": 1,
-          "kp": [
-            "[光催化剂]: 氢化锂LiH",
-            "[发现]: 中间体光响应影响NH₃合成",
-            "[反应]: 光催化N₂还原"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Photocatalytic nitrogen (N2) reduction offers a renewable route for mild-condition ammonia (NH3) synthesis and has garnered increasing attention. Most efforts have focused on tailoring the band structures of photocatalysts, yet the photon-responsive behavior of key reactive intermediates (such as NH and NH2) that could have a strong impact on the energetics of individual steps has remained essentially uninvestigated primarily due to their low abundance and high lability. Herein, we report a transition-metal-free lithium hydride (LiH) catalyst that forms detectable lithium hydride with hydrogen vacancies (LiH1–x), lithium imide (Li2NH), and lithium amide (LiNH2) intermediate states during NH3 formation and therefore exhibits dynamic photoresponsive behaviors. This catalyst provides an ideal platform to investigate the wavelength-tailored regulation of intermediates in this bellwether reaction of catalysis. Specifically, ultraviolet light activates LiH for N2 reduction, forming LiH1–x, Li2NH, and LiNH2 species. Those species/states can absorb ultraviolet and visible light, enabling efficient H2 dissociation and sequential hydrogenation to produce NH3. In this unique scenario, the reaction energetics of individual steps are wavelength dependent, thus decoupling the scaling relations that constrain thermal catalysis. Such a cumulative photon effect on the catalyst and reactive species leads to a prominent NH3 concentration of ca. 0.25%, exceeding the thermodynamic limit of 0.13% at 644 K and atmospheric pressure.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "韩华Qcells钙钛矿与晶硅叠层太阳能电池取得UL与IEC可靠性认证。",
-      "实验发现氘-氘核聚变在亚2 keV能量下存在反应产额平台。",
-      "“星枢计划”算力卫星应用钙钛矿叠层复合发电方案，功率达15KW。"
+      "财政部等三部门明确2026年起对钠离子与固态电池免征消费税",
+      "新型非晶态卤氧化物固态电解质提升全固态钠离子电池离子传导率",
+      "韩华Qcells钙钛矿晶硅叠层电池实现28.6%转换效率并获双认证"
     ],
     "AI与智能科技": [
-      "国内算力服务商针对Agent推理优化调度，日处理量达10万亿Token。",
-      "Cropin联合谷歌云发布农业代理式AI平台OrbitAI以保障供应链。",
-      "上海人工智能实验室发布110亿参数规模的多模态科学基础模型“神珍”。"
+      "量子计算企业两仪万象完成数亿元融资并实现万级原子阵列操控",
+      "广东韶关数据中心集群首次以虚拟电厂形式参与电力现货交易",
+      "DeepSeek即将发布V4版本模型提升代码与智能体执行能力"
     ],
     "通用技术": [
-      "天问一号探测器在距离约3000万公里处拍摄到星际彗星3I/ATLAS图像。",
-      "HMP Bikes针对北美市场推出最高时速75英里的电动踏板车HMP Flash。",
-      "JACS刊文证实CO气体压力可驱动铂纳米团簇发生结构重构。"
+      "上海星枢计划首发算力卫星采用复合发电方案实现15KW功率",
+      "单层Fe3O5材料验证电场控制自旋极化与导电性切换机制",
+      "氧化石墨烯复合膜实现精准层间距控制以提升海水淡化效率"
     ]
   },
   "sectors": [
@@ -26,72 +26,76 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "韩华Qcells钙钛矿与晶硅叠层太阳能电池取得UL与IEC可靠性认证。",
-        "实验发现氘-氘核聚变在亚2 keV能量下存在反应产额平台。",
-        "“星枢计划”算力卫星应用钙钛矿叠层复合发电方案，功率达15KW。"
+        "财政部等三部门明确2026年起对钠离子与固态电池免征消费税",
+        "新型非晶态卤氧化物固态电解质提升全固态钠离子电池离子传导率",
+        "韩华Qcells钙钛矿晶硅叠层电池实现28.6%转换效率并获双认证"
       ],
       "entries": [
+        {
+          "t": "三部门：9月1日起，对钠电池、固态电池等免征消费税",
+          "d": "2026-07-19",
+          "a": "中粉固态电池",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "财政部、海关总署和税务总局发布公告，分步调整电池产品消费税政策。自2026年9月1日起，无汞原电池、锂离子蓄电池等传统电池按2%税率征收消费税，2027年9月1日起税率升至4%。光伏电池自2027年4月1日起分步按2%、4%征收。政策明确，自2026年9月1日起至2028年12月31日，对钠离子电池、固态电池、燃料电池及部分新型光伏电池免征消费税，以推动行业技术进步和产业升级。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://mp.weixin.qq.com/s/AveIhSSZBDaiUvSL2iQm2A",
+          "tp": "电池免征消费税",
+          "aip": 1,
+          "kp": [
+            "消费税税率[无汞原电池/锂电池/全钒液流电池等自2026年9月起]: 按照2%税率征收",
+            "消费税税率[光伏电池自2027年4月起]: 按照2%税率征收",
+            "免税政策[钠离子电池/固态电池/燃料电池及钙钛矿等新技术电池]: 自2026年9月1日起至2028年12月31日免征消费税"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "三部门：9月1日起，对钠电池、固态电池等免征消费税 中粉固态电池 7**月17日，财政部、海关总署、税务总局发布公告，明确自2026年9月1日起，分步调整部分电池产品消费税政策。** 我国当前对电池征收4%的消费税，这是从2015年2月起开始实施的税收政策。政策同时明确，对包括锂原电池、锂离子蓄电池、太阳能电池在内的七类电池免征消费税。 根据公告，此次政策调整将分类分步对部分电池恢复征收消费税。自2026年9月1日起，对无汞原电池、金属氢化物镍蓄电池、锂原电池、锂离子蓄电池、全钒液流电池按照2%税率征收消费税；自2027年9月1日起，按照4%税率征收消费税。自2027年4月1日起，对光伏电池（又称“太阳能电池”）按照2%税率征收消费税；自2028年4月1日起，按照4%税率征收消费税。 同时，部分新技术电池在一定期限内享受消费税免税优惠。根据公告，自2026年9月1日起至2028年12月31日，对钠离子电池、固态电池、燃料电池及光伏电池中的钙钛矿电池、叠层电池、砷化镓电池免征消费税。 业内人士称，总的来看，此次政策调整顺应我国电池产业发展形势变化，有利于更好发挥消费税调节作用，促进资源节约和环境保护；有利于促进电池行业健康高质量发展，推动行业技术进步和产业升级。 **公告全文如下：** 为进一步完善消费税制度，现将电池消费税政策调整事项公告如下： 一、自 2026 年 9 月 1 日起，对无汞原电池、金属氢化物镍蓄电池（又称氢镍蓄电池或镍氢蓄电池）、锂原电池、锂离子蓄电池、全钒液流电池按照2%税率征收消费税；自 2027 年 9 月 1 日起，对上述电池产品按照 4%税率征收消费税。 二、自 2027 年 4 月 1 日起，对光伏电池（又称太阳能电池）按照2%税率征收消费税；自 2028 年 4 月 1 日起，对光伏电池按照 4% 税率征收消费税。 三、**自 2026 年 9 月 1 日起至 2028 年 12 月 31 日，对钠离子电池、固态电池、燃料电池及光伏电池中的钙钛矿电池、叠层电池、砷化镓电池免征消费税。** 四、纳税人生产、委托加工享受上述减免税政策的电池产品，应当符合该产品的国家标准，对不符合国家标准或没有国家标准的产品，不得享受上述减免税政策。纳税人应当在首次申报电池产品减免消费税之前，取得检测机构出具的该产品符合相应国家标准的检测报告。检测机构应当持有省级及以上市场监督管理部门依法颁发、现行有效的《检验检测机构资质认定证书》（使用 CMA 徽标），且《检验检测机构资质认定证书》附表中包括相应电池检测项目。 五、纳税人从生产企业购进、委托加工收回，或以自营、委托方式直接进口已缴纳消费税的电池产品，用于连续生产应税电池产品的，准予按照当期生产领用数量扣除原料已缴纳的消费税税额。 六、纳税人自产自用的应税电池产品，用于连续生产应税电池产品的，不缴纳消费税；用于连续生产应税电池以外的产品或用于其他方面的，应当在移送使用时申报缴纳消费税。 七、除上述规定外，电池消费税征收管理的其他事项依照《中华人民共和国消费税暂行条例》、《中华人民共和国消费税暂行条例实施细则》等相关规定执行。《财政部国家税务总局关于对电池涂料征收消费税的通知》（财税〔2015〕16 号）、《财政部国家税务总局关于对电池涂料征收进口环节消费税的通知》（财关税〔2015〕4 号）规定与本公告规定不一致的，以本公告为准。 温馨提醒:为降低参会企业负担，促进行业交流，会务组特别设立优惠票，转发通知并全员可见，参与缴费交1送1（2000/2位）！高校及研发单位1500/2位（含4餐）！旨在为产学研用搭建精准对接平台!截止时间为2026年8月1日。会务组解先生：15010096957（微信同号） “高比能固态电池关键材料技术大会”自2019年起已连续举办7届，累计近4000位产业代表出席交流，是固态电池领域集技术交流、项目合作、采配对接于一体的专业沟通平台。大会致力于推动固态电池及关键材料的产业化进程，为新技术、新项目、新材料、新工艺带来广泛的曝光机会。欢迎相关企业、院所出席大会，分享报告，展示产品。 **大会报告** 报告题目：氧化物固体电解质与高性能固液固态电池研发进展 郭向欣 教授 青岛大学 报告题目：全固态电池用硅基负极材料研究进展 杨乐之 副所长 长沙矿冶研究院有限责任公司 报告题目：硫化物固态电解质的改性研究 张子奇 CTO 合肥因势新材料科技有限公司 报告题目：双轮驱动：氧化物电解质与硫化锂的协同发展之路 黄继龙 博士/产品经理 江苏久吾高科技股份有限公司 报告题目：硫化物电解质智能成套装备开发及应用 秦涛 董事长 广东茹天机械设备科技有限公司 下一代高比能固态动力电池关键材料技术挑战与产业化制备突破进展研究 张永柱 教授/研究员 中南大学/加拿大...",
+          "hb": 1
+        },
+        {
+          "t": "Cyclic P3O93– Trimer: A Network Former for Amorphous Superionic Conductors in Sodium Solid‐State Batteries",
+          "d": "2026-07-19",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "研究引入环状三偏磷酸根离子（P3O9^3-）作为网络形成单元，通过简便的机械化学合成法构建了一系列新型非晶态卤氧化物固态电解质。P3O9^3-独特的九氧供体结构能够与金属离子形成坚固的三维配位网络。该材料成功结合了快速Na+传导、高压稳定性和可变形性，为全固态钠离子电池（ASSNIBs）固态电解质的设计提供了突破性方案。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.4295699?af=R",
+          "tp": "固态钠电池电解",
+          "aip": 1,
+          "kp": [
+            "[全固态钠离子电池非晶超离子导体网络形成体]: 环状三偏磷酸根阴离子 (P3O9^3-)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Achieving solid‐state electrolytes (SSEs) that combine fast Na\n                    +\n                    conduction, high‐voltage stability, and deformability remains a formidable challenge for all‐solid‐state sodium‐ion batteries (ASSNIBs). Here, we introduce a cyclic trimetaphosphate anion (P\n                    3\n                    O\n                    9\n                    3–\n                    ) as a transformative network‐forming unit to construct a new family of amorphous oxyhalide SSEs via facile mechanochemical synthesis. The unique nine‐oxygen‐donor architecture of P\n                    3\n                    O\n                    9\n                    3–\n                    enables robust, three‐dimensional coordination with metal chlorides (\n                    M\n                    Cl\n                    \n                      n\n                    \n                    ,\n                    M\n                    = Zr, Ta, Hf, Nb, Al), forming a rigid yet disordered framework where isolated Cl\n                    –\n                    anions are strategically liberated. This distinctive structure enables a dynamic anion‑assisted transport mechanism: the P\n                    3\n                    O\n                    9\n                    3–\n                    ‑bridged network provides stable conduction channels, while the mobile Cl\n                    –\n                    anions dynamically assist Na\n                    +\n                    hopping by mitigating steric and electrostatic barriers, collectively achieving an ultralow activation energy of 0.33 eV. The optimized electrolyte exhibits a high room‐temperature ionic conductivity of 0.80 mS·cm\n                    −1\n                    and a wide electrochemical window of 1.4–4.2 V. ASSNIBs assembled with a NaNi\n                    0.33\n                    Fe\n                    0.33\n                    Mn\n                    0.33\n                    O\n                    2\n                    cathode demonstrate stable cycling at 4.2 V, retaining 92% capacity after 300 cycles at 0.5C. This work pioneers the use of macrocyclic polyphosphates in SSEs, establishing a new design paradigm that simultaneously addresses ionic conductivity, stability, and interfacial compatibility.",
+          "hb": 1
+        },
         {
           "t": "韩华Qcells钙钛矿/晶硅叠层电池获UL和IEC双权威认证！",
           "d": "2026-07-19",
           "a": "钙钛矿工厂",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "韩华Qcells宣布其钙钛矿/晶硅叠层太阳能电池成功获得了UL和IEC双权威认证。这一重要里程碑标志着该新一代光伏技术在可靠性和商业化应用上取得了关键突破。钙钛矿叠层技术被业界视为突破传统硅基电池效率极限的核心路径，此次获得国际权威标准认证，将极大加速该高效光伏技术的产业化落地进程，进一步巩固韩华在下一代光伏市场的领先地位。",
-          "sc": 8.5,
+          "as": "韩华Qcells成为首家其钙钛矿/晶硅叠层太阳能电池获得UL和IEC 61215双认证的公司。认证产品出自德国比特费尔德-沃尔芬的试点生产线，采用纯大规模工艺制造。该叠层电池采用双端子结构和专有的Q.ANTUM PERC架构，结合全面积M10基板。在2024年12月，该配置的电池组实现了28.6%的功率转换效率。",
+          "sc": 8.0,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/7Yj-gAUyMP4f13b-Fiylpw",
-          "tp": "叠层电池",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "亚keV能量体系中的增强核聚变",
-          "d": "2026-07-19",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "研究在金属箔中发现氘-氘核聚变在亚2 keV能量下呈现明显的反应产额平台，即存在非零的最小反应率，与传统认知形成鲜明对比。凝聚态中电子和结构环境可显著改变核聚变速率，暗示通过材料工程可能降低聚变能垒，对紧凑型聚变能源研究具有启发意义。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74421-1",
-          "tp": "金属箔聚变",
+          "tp": "叠层电池获认证",
           "aip": 1,
           "kp": [
-            "库仑势垒高度[核聚变]: 数百keV",
-            "能量上限[氘-氘核聚变反应产额平台]: <2keV"
+            "认证标准[韩华Qcells钙钛矿/晶硅叠层电池]: 获UL和IEC 61215双认证",
+            "生产制造工艺[Qcells德国试点生产线]: 采用纯大规模生产工艺制造"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Nuclear fusion requires overcoming or traversing a repulsive Coulomb barrier of hundreds of kiloelectronvolts, rendering the probability of fusion at sub-keV energies vanishingly small. Yet in condensed matter, the electronic and structural environment of reacting nuclei can profoundly alter fusion rates. Here we demonstrate that deuterium–deuterium fusion within metallic foils exhibits a pronounced reaction yield plateau (i.e., a finite, non-vanishing yield floor) below 2 keV—in stark contrast to the expected exponential suppression at low energy. At the lowest energies measured, this corresponds to fusion yields enhanced by more than 10¹⁸ relative to bare-nucleus (unscreened) expectations. Using a dual-chamber platform that combines electrochemical deuterium loading with low-energy ion-beam bombardment, we observe this behavior in both palladium and titanium hydrides. These results reveal a previously unrecognized regime of low-energy nuclear reactions in solids, demonstrating that materials degrees of freedom can fundamentally renormalize tunneling probabilities and fusion cross-sections.",
+          "b": "韩华Qcells钙钛矿/晶硅叠层电池获UL和IEC双权威认证！ 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) 议程更新！极电、创锐、纤纳、恒星力量、德融、蓝箭鸿擎、星翼、福斯特、肖特、沃格、安普太、上海商星、电科蓝天、创锐、昇帆、烁威、哈工大/哈工大（深圳）等二十家单位报告共赴无锡太空光伏盛会！ 近日，韩华Qcells成为首家获得UL标准与合作（UL）和国际电工委员会（IEC）认证的晶硅/钙钛矿叠层太阳能技术的公司。德国技术咨询公司TÜV Rheinland验证了该技术是否符合IEC和UL 61215标准的要求——这是一套评估太阳能技术可靠性和可融资性的基准，这也被视为钙钛矿叠层光伏产品商业化的障碍。 测试的电池和组件来自Qcells位于德国比特费尔德-沃尔芬的试点生产线。公司强调，这些产品均采用纯大规模生产工艺制造，涵盖电池和组件制造——表明认证设备代表商业生产线的生产能力，而非定制实验室样品。比特费尔德-沃尔芬场地通过PEPPERONI项目获得德国联邦经济与能源部、萨克森-安哈尔特州和欧盟的资助。 Qcell的叠层产品采用双端子结构，基于公司专有的Q.ANTUM钝化发射器后接触（PERC）架构，将钙钛矿顶层与硅底电池配对。认证模块使用全面积M10基板上的叠层太阳能电池。采用该配置建造的电池组在2024年12月实现了28.6%的功率转换效率。 Qcells德国联合研发负责人Fabian Fertig表示，达成这些里程碑使公司更接近推出一款可靠、成本效益高且性能更高的产品。Qcells补充说，认证显示其产品正接近符合衡量商业准备度的稳定性和标准化标准。 由星澄咨询（钙钛矿工厂&太空光伏）主办的2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛将于2026年8月6-7日在无锡召开，会议旨在打通太空光伏、钙钛矿光伏、柔性太阳翼与商业航天应用板块，围绕前沿技术与材料、封装与辅材、设备展开研讨，欢迎产业链相关单位踊跃参与&合作。以下为本次论坛第一批邀请报告内容： 论坛演讲预告（最新） **《新型封装材料用于钙钛矿电池及太阳翼可靠性研究》** **杭州福斯特应用材料股份有限公司 林维红 博士 研究院院长** **《钙钛矿光伏的空间应用需求、验证路径与产业机会》** **上海星翼芯能科技有限公司 张国栋博士 联合创始人兼技术总监** **《肖特UTG玻璃面向商业卫星太阳翼应用解决方案》** 肖特中国销售负责人 熊鹏 **《UTG涂层在模拟太空环境中的可靠性研究》** **沃格集团研究院专家 刘海勇 博士** **《钙钛矿电池在柔性太阳翼应用相关》** 恒星力量（北京）科技有限公司 神秘嘉宾 联合创始人 **《柔性太阳翼在轨展开的冲击响应与减振控制策略》** **蓝箭鸿擎科技有限公司 潘沈鸿 赤羽太阳翼负责人** **《面向星座级供给的钙硅叠层空间电源工程化实践》** **上海安普态新能源有限公司 鲁林峰 创始人** **《砷化镓太阳电池低成本制造和发展趋势》** **江苏宜兴德融科技有限公司 王伟明 首席科学家兼副总经理** **《柔性钙钛矿CIGS叠层电池进展与太空下的应用探索》** 西湖大学特聘研究员，西湖阳光（杭州）科技有限公司 王睿教授 创始人 **《太空高算力卫星平台大面积太阳翼实现路径及关键问题》** **哈尔滨工业大学（深圳） 彭福军 教授** **《钙钛矿应用创新及产业化展望》** 极电光能有限公司 姜伟龙 博士 副总裁 **《智能空间展开结构设计及其柔性太阳翼验证》** **哈尔滨工业大学航天学院航天科学与力学系副主任 刘立武 教授** **《柔性高效电池在低轨卫星能源系统中的集成方案与可靠性验证》** **神秘单位（非公开） 神秘嘉宾 （非公开）** **《钙钛矿光伏：从地面走向太空》** 杭州纤纳光电科技股份有限公司 联合创始人 **《基于天地协同的光伏器件空间应用方法探讨》** 北京昇帆科技有限公司 王举 总经理 《大功率柔性太阳翼现状及发展趋势浅析》 中电科蓝天科技股份有限公司 张伟 博士 《TBD》 上海航天空间技术有限公司 李昊 机热工程部部长 《太空钙钛矿光伏的技术挑战和产业化进展》 北京烁威光电科技有限公司 徐帆 联合创始人兼CTO 《TBD》 杭州创锐光谱科技集团有限公司 神秘嘉宾 \\*以上报告排序仅用于展示，随着会议邀请工作进展不断更新，不代表具体演讲日程排序，最终版以会场发布为准。 **论坛组织** **论坛名称：**2026年国际太空光伏与钙钛矿论坛暨柔...",
           "hb": 1
-        },
-        {
-          "t": "发电功率15KW！“星枢计划“算力卫星采用高效光伏电池搭配钙钛矿叠层复合发电方案",
-          "d": "2026-07-19",
-          "a": "钙钛矿工厂",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "“星枢计划”算力卫星采用高效光伏电池搭配钙钛矿叠层的复合发电方案，实现了高达15KW的发电功率。该创新方案结合了传统高效电池的稳定性与钙钛矿电池优异的光电转换效率，旨在为太空算力卫星提供强大的能源支持。随着太空算力需求的激增，高功率太阳能供电系统成为关键瓶颈，此复合发电技术的应用将极大提升太空算力载荷的供电上限，助力太空数据中心建设。",
-          "sc": 7.1,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/x_kqFUjRxKGoY5iCXDGfdg",
-          "tp": "星载钙钛矿",
-          "aip": 1,
-          "kp": [
-            "发电功率[星枢计划算力卫星]: 15KW"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
         }
       ]
     },
@@ -99,71 +103,80 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "国内算力服务商针对Agent推理优化调度，日处理量达10万亿Token。",
-        "Cropin联合谷歌云发布农业代理式AI平台OrbitAI以保障供应链。",
-        "上海人工智能实验室发布110亿参数规模的多模态科学基础模型“神珍”。"
+        "量子计算企业两仪万象完成数亿元融资并实现万级原子阵列操控",
+        "广东韶关数据中心集群首次以虚拟电厂形式参与电力现货交易",
+        "DeepSeek即将发布V4版本模型提升代码与智能体执行能力"
       ],
       "entries": [
         {
-          "t": "Agent拉爆算力？中国杀出新物种：日冲10万亿Token，还赚钱了",
+          "t": "两仪万象完成数亿元A+轮融资",
           "d": "2026-07-19",
-          "a": "新智元",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "报道中国AI基础设施领域涌现的'新物种'——主打Agent推理算力的服务厂商，宣称日处理Token量冲至10万亿级别并实现盈利。其核心差异在于面向Agent多轮长链推理的算力调度优化，而非传统训练/对话负载。这折射出Agent爆发对推理算力需求的指数级拉升，但'日冲10万亿Token'的统计口径与盈利可持续性仍需穿透核实。",
-          "sc": 8.2,
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "两仪万象完成数亿元A+轮融资，由君联资本领投，多方机构跟投。其联合清华团队的最新进展包括：利用光学超表面捕获11000个单原子创世界纪录；发布毫米级光学腔并实现16原子独立操控；阵列中两比特门保真度达99.5%，突破纠错阈值具备逻辑比特编码能力；并发布了快速重排万量级原子无缺陷阵列的算法。",
+          "sc": 8.8,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/gAFPx7XyjnNzdrGoJmZ00w",
-          "tp": "算力新物种",
+          "tg": "资本运作",
+          "u": "https://mp.weixin.qq.com/s/Rnh4eXbiUFnLmn4OBg8cHw",
+          "tp": "两仪万象A+融资",
           "aip": 1,
           "kp": [
-            "处理量[Token]: 10万亿Token/日"
+            "单原子捕获数目[原子量子计算世界纪录]: 11000个",
+            "独立操控原子数[毫米量级光学腔实验展示]: 16个",
+            "实测协同率[光学腔中光和原子强耦合]: 100以上"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "Cropin 与 Google Cloud 推出 OrbitAI 供应平台",
-          "d": "2026-07-19",
-          "a": "",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "Cropin与谷歌云联合发布OrbitAI,全球首个农业代理式AI平台,专为食品与农业生态系统设计。平台提供先进自主智能,帮助食品饮料采购负责人保护全球采购网络免受气候冲击冲击,保障粮食供应链安全。",
-          "sc": 8.1,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://supplychaindigital.com/news/cropin-google-cloud-launch-orbitai-supply-platform",
-          "tp": "农业智能体",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Cropin & Google Cloud Launch OrbitAI Supply Platform\nPrioritise Us\nThe world's first agentic AI platform for agriculture helps food and beverage procurement leaders protect global sourcing networks from climate shocks\nWith the aim of helping to secure global food supply chains against severe climate disruptions, Cropin and Google Cloud have come together to launch OrbitAI.\nhas been designed specifically for the global food and agriculture ecosystem, and will offer advanced autonomous intelligence to complex upstream supply chains.\nWith mounting pressure from ever more volatile weather patterns and shifting geopolitical landscapes, companies operating in the\nfood and beverage industry\nwill look to systems, such as OrbitAI from Cropin, to help manage supply risks independently.\nCropin’s collaboration with Google Cloud will combine agritech data and enterprise cloud infrastructure, leveraging Google Cloud's Gemini models to process vast amounts of planetary and agricultural data.\nUnlike traditional gen AI applications that focus primarily on data summarisation and content generation, OrbitAI utilises specialised AI agents that can independently monitor crop health and predict regional yield shocks. These agents alert\nprocurement managers\nto potential shortages before they impact downstream operations.\n“OrbitAI represents a milestone in agricultural technology,” says Krishna Kumar, Chief Executive Officer at Cropin. “The platform empowers businesses to secure their supply networks autonomously.”\nFood companies can use the platform to optimise their sourcing strategies across different regions, as it will enable procurement teams to navigate climate uncertainties with greater precision.\nKey Facts: OrbitAI Capabilities\nTrack crop health anomalies across global sourcing zones.\nPredict potential supply chain disruptions before harvest.\nOptimise procurement decisions using autonomous AI agents.\nSashikumar Sreedharan, Managing Director of Google Cloud India, explains that the industry is experiencing a fundamental shift in how\nautomation delivers value\nSashikumar says: “The next transformation in AI is moving away from technology demonstrations and focusing on measurable outcomes, specifically addressing the core challenge of 'cost to serve' versus 'capacity to serve'.\n“By building on Google Cloud's AI infrastructure, OrbitAI allows organisations to deploy agentic workflows that scale capacity exponentially, tackling complex real-world challenges with unprecedented pace and efficiency.”\nClimate change continues to disrupt the predictable flow of raw materials to\nmanufacturing facilities\n. Recent examples include the El Niño weather cycle that induced severe droughts and shifting rainfall globally, while consecutive heatwaves in May and June 2026 cut UK milk deliveries by nearly 4% compared to weekly averages.\nCropin provides real-time visibility into the lowest tiers of the agricultural supply chain. The platform helps companies reduce waste by aligning agricultural production directly with processing schedules. This capability ensures that food processors maintain consistent production levels.\nWe are helping organisations build more sustainable and predictable supply chains.\nYossi Matias, VP Engineering & Research at Google\nGoogle Cloud’s role in the collaboration will be to provide the underlying computational power and security required for large-scale enterprise deployments. The tech giant ensures that the system can handle massive datasets efficiently.\n\"Our partnership with Cropin brings scalable innovation to the agricultural ecosystem,\" says Yossi Matias, VP Engineering & Research at Google. \"We are helping organisations build more\nsustainable and predictable supply chains\nThe platform is designed to scale across diverse geographies, from smallholder farms to massive commercial operations. This flexibility allows multinational corporations to standardise their risk management frameworks on a global scale.\nAs regulatory\ndemands around traceability tighten\n, the platform also aims to assist in tracking environmental metrics. It provides the data needed to verify sustainable sourcing practices confidently.\nFounder & CEO\nHead of Google Research",
+          "b": "两仪万象完成数亿元A+轮融资 光子盒 **日前，两仪万象**科技有限公司（以下简称“两仪万象”）完成数亿元A+轮融资。这是继4月初两仪万象官宣A轮融资后，时隔三个月，再次完成新一轮融资。 本轮融资由君联资本领投。新增投资机构包括北京基石创投、上海科创基金、北洋海棠基金和中信建投投资，形成了一个由地方、财务和券商等多元化机构组成的投资矩阵。A轮的投资方顺为资本和科大讯飞持续加注，展示了刘庆峰等民族实业派企业家对两仪万象的认可和对其成长的长期支持。 自4月初以来，由清华原子量子计算团队和两仪万象组成的原子量子计算产学研联合研究团队，取得了一系列新的进展： * 利用光学超表面产生光镊阵列的新技术，捕获了11000个单原子，创造了原子量子计算中捕获原子数目的世界纪录，在量子计算的所有技术路线中率先将可获取比特资源推进到万量级。该工作的研究论文已于6月初公布（https://arxiv.org/abs/2606.02715 ）。 * 团队发布国际上唯一的毫米量级的光学腔，可同时容纳上百的原子。目前已展示光学腔中16个原子的独立操控，实现了光和原子的强耦合，原子实测协同率在100以上，是原子量子计算提高测量精度和速度的“利器”。该工作的研究论文已于7月初公布（https://arxiv.org/pdf/2607.04090 ）。 * 团队发布了快速重排万量级原子无缺陷阵列的算法和能解码原子比特丢失信息的解码器，为下一步大规模原子无缺陷阵列重排和编码逻辑比特奠定了算法基础。两个算法的研究论文已于4月份公布（https://arxiv.org/abs/2604.08669，https://arxiv.org/abs/2604.14269）。 * 阵列中两比特门保真度已达99.5%，突破了编码纠错码所需要的纠错阈值，已具备编码逻辑比特的能力。 * 两仪万象和天津大学精密测试技术及仪器全国重点实验室共同建设量子科技联合研究中心。 * 以清华原子量子计算团队和两仪万象及其子公司组建的“冷原子北京市重点实验室”获批成立。 * 两仪万象位于通明湖国家信创园的总部办公区和千平米实验室投入使用。 两仪万象成立两年来，从清华园到通明湖，打通了一条从基础研究到未来产业的快车道，已形成了一个基础研究赋能未来产业，未来产业反哺基础研究的良性循环。 当前，以冷原子量子计算北京市重点实验室建设为契机，在一个新的起点上，不断推进从原理、技术到算法的基础研究全方位创新，致力于建设从整机、上下游到衍生品的未来产业全栈式生态，推动基础研究和未来产业的全面覆盖、深度融合和国际引领。基础研究和未来产业，就像一双翅膀一样，带动团队以扶摇直上九万里之势，向着更高、更远的目标，更快、更稳地前行。 参考链接 https://mp.weixin.qq.com/s/n417NaB8KUiPnDzs4VvGcw 相关阅读 11000个原子！清华和两仪万象联合刷新原子捕获数目世界纪录 两仪万象完成亿级A轮融资，加速推进原子量子计算产业和生态 “两仪万象技术交流会”在中关村成功举行 “原子量子计算科技与产业论坛”成功举办 [](https://mp.weixin.qq.com/s?__biz=MzAxMTgyMDQ2Mw==&mid=2247612854&idx=1&sn=f1676a502cfd5f973a9edab12d7ee3e4&scene=21#wechat_redirect) [](https://mp.weixin.qq.com/s?__biz=MzAxMTgyMDQ2Mw==&mid=2247612365&idx=3&sn=6d614c7388ea824950a6546e6658df0f&scene=21#wechat_redirect) [](https://mp.weixin.qq.com/s?__biz=MzAxMTgyMDQ2Mw==&mid=2247612601&idx=1&sn=c57e004887c28ef7e5cb08de695ed230&scene=21#wechat_redirect)",
           "hb": 1
         },
         {
-          "t": "打破模态壁垒，11B通用底座，上智院开放多模态科学基础模型「神珍」",
+          "t": "算电协同元年：首单“算随电调”落地，数据中心如何成为VPP的“超级充电宝”？",
           "d": "2026-07-19",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "上海人工智能实验室（上智院）发布并开放多模态科学基础模型「神珍」，参数规模达110亿（11B），定位为通用底座。该模型旨在打破不同科学模态（文本、图像、分子结构、实验数据等）间的壁垒，支撑跨学科科学发现、预测与推理任务。",
-          "sc": 8.1,
+          "a": "VPP前沿观察",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "2026年5月，广东韶关中国联通等3个大型数据中心集群首次以虚拟电厂形式参与电力现货市场交易，实现“算随电调”。在电价低谷时段调增算力任务消纳低成本电力，高峰时段调减非紧急算力任务。这标志着数据中心从单一用电大户转变为响应电力价格、参与系统调节的新型市场主体，将柔性用电行为转化为经济收益。",
+          "sc": 8.4,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/9kC37uYyOlO_e4a7gbEv1A",
-          "tp": "多模态模型",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/rXOvzxejxKta-Cc1MC52Tw",
+          "tp": "算电协同落地",
           "aip": 1,
           "kp": [
-            "参数规模[通用底座]: 11B"
+            "参与主体[数据中心虚拟电厂]: 中国大型数据中心首次以虚拟电厂形式参与电力现货市场交易",
+            "调度策略[算随电调]: 电价低谷时段调增算力任务全速运转，电价高峰时段非紧急任务主动错峰"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "算电协同元年：首单“算随电调”落地，数据中心如何成为VPP的“超级充电宝”？ 原创 VPP前沿观察 VPP前沿观察 VPP前沿观察 算电协同元年：首单“算随电调”落地，数据中心如何成为VPP的“超级充电宝”？ > 2026年5月14日，广东韶关中国联通数据中心运营后台，监控大屏上跳动着一条前所未有的调度指令：不是“压减负荷”，而是“调增算力任务”。电价低谷时段，服务器全速运转；电价高峰时段，非紧急任务主动错峰。这一天，中国大型数据中心首次以虚拟电厂形式参与电力现货市场交易，实现了“算随电调”。 “它标志着数据中心正在从单纯的用电大户，转变为能够响应电力价格、参与系统调节、支撑新能源消纳的新型市场主体。”华北电力大学能源互联网研究中心副主任王永利如此评价。 数据中心与虚拟电厂的这场“联姻”，被业内视为2026年最具想象空间的能源新场景。 01 一场没有先例的交易 5月14日，中国联通集团韶关数据中心、中国移动集团广州及湛江数据中心共3个大型数据中心集群，依托广东电网能源投资有限公司“粤能投虚拟电厂运营平台”，正式参与现货市场电能量交易与结算。 这笔交易的逻辑并不复杂。广电能投公司作为虚拟电厂聚合商，结合广东电力现货日前价格预测，向三个数据中心发出调节指令： 电价低谷时段（10:00—14:00）：调增算力任务，提升用电负荷，充分消纳低成本电力。 电价高峰时段（16:00—20:00）：调减非紧急算力任务，合理压减负荷。 灵活调节负荷：在电价高峰时段实施错峰调控。 过去，算力任务的优先级只看数据队列的先来后到；现在，电价成了调度决策的变量之一。广东电网能源投资有限公司市场交易事业部总经理朱振海解释道：“我们可以帮助用户科学优化用电时段、合理调控用电规模，把柔性用电行为转化为实实在在的经济收益。数据中心本身属性不变，但借助平台聚合调度，电力消费产生了全新的资产价值。” 这不仅是数据中心的一次“现货灵活购”，更是虚拟电厂资源池的一次重大扩容——从工业负荷、储能、充电桩，扩展到了算力负荷。 02 为什么是广东？ 数据中心接入虚拟电厂参与电力现货交易，不是简单的“平台对接”，而是需要同时满足四个条件：现货市场规则能运行、价格信号能反映供需、负荷资源能被调度、交易结算能闭环。 广东恰恰同时具备这四个条件。 市场基础成熟。广东是全国电力市场化改革的先行者。2026年2月，广东首批发电类虚拟电厂以“报量报价”方式正式参与电力现货市场交易。南方区域电力现货市场于2026年1月率先进入连续结算试运行。截至2026年上半年，广东已拥有60家虚拟电厂运营商，在各省中名列前茅。 政策体系完善。早在2024年，广东便发布了《广东省虚拟电厂参与电力市场交易实施方案》。2025年，广州发布虚拟电厂高质量发展实施方案，提出至2027年底接入容量达500万千瓦、调节能力达150万千瓦。 资源聚合能力强。“粤能投虚拟电厂运营平台”作为省级统一聚合平台，已具备多品类资源的聚合调度能力。中国联通粤港澳大湾区创新研究院副院长马晨表示，此次联通算网调度平台与粤能投平台首次实现电力非实时调度，“有效解决数据中心使用电力市场门槛高、技术复杂的难题”。 广东的实践意义在于：它不只是完成了一笔现货交易，而是搭建了一个“算力+新型电力系统”的样板间。 03 算电协同：从“用电巨兽”到“灵活资源” 长久以来，数据中心的标签一直是“用电巨兽”。AI算力爆发式增长，让数据中心的用电量持续攀升。2025年，算力中心用电量已占全社会用电量的1.6%，“十五五”末预计将达6%左右。 但“用电量大”的另一面，是“调节潜力大”。 数据中心的负荷并非铁板一块。训练任务、推理任务、数据备份、模型调优……大量算力任务具有时间弹性——只要在截止时间前完成，具体何时运行并不影响最终结果。这种“柔性算力负荷”，正是虚拟电厂最需要的可调节资源。 虚拟电厂平台成为搭建电网、电力市场与算力负荷之间的协同桥梁： 电价走高时：合理错峰非紧急算力任务，减少高价时段购电。 电价走低时：统筹放开可延后算力任务，充分消纳低成本电力。 数据中心不再是电网的“被动负担”，而是能够根据价格信号主动调节的“灵活资源”。这种角色转换，正是算电协同的核心价值所在。 04 双边收益模型：数据中心和电网如何“双赢”？ 算电协同不是单向的“让数据中心牺牲”，而是一个双边收益的正和博弈。 数据中心的收益：降低用电成本 通过“现货灵活购”，数据中心在电价低谷时段增加用电、高峰时段减少用电，直接降低了平均购电成本。广东首单交易中，参与的数据中心实实在在降低了用电成本。上海更验证了这一模式的规模效应——通过跨省算力调度，让算力任务结合电力现货价格在上海、安徽、新疆等地互相转移，算力用电成本下降约31%。 中国移动广东分公司绿色低碳首席专家杨杰表示：“通过...",
+          "hb": 1
+        },
+        {
+          "t": "DeepSeek V4「满血版」曝光了！最快明天发布",
+          "d": "2026-07-19",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "DeepSeek V4正式版即将发布，包含Flash与Pro两个版本。开发者测试显示，V4整体表现接近Opus 4.8级别，编码能力直追GPT-5.6 Sol，3D和SVG生成显著提升，Agent能力大幅增强。识别特征为思维链第一人称使用“I'm”，其价格较同类竞品显著更低，首轮测试已有3D游戏生成Demo流出。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/GFNuj8qKN37QA2Kc1CjBrA",
+          "tp": "大模型发布",
+          "aip": 1,
+          "kp": [
+            "[DeepSeek V4版本]: 包含Flash与Pro两个版本",
+            "基础性能[DeepSeek V4 Pro]: 整体接近Opus 4.8级别",
+            "编码能力[DeepSeek V4 Pro]: 直追GPT-5.6 Sol",
+            "Agent能力[DeepSeek V4 Pro]: 大幅增强，3D和SVG生成显著变好",
+            "思维链特征[DeepSeek V4 GA版验货]: 第一人称开口为“I'm”或“I'll”而非“Let me”"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "DeepSeek V4「满血版」曝光了！最快明天发布 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** 全网等了快三个月！ DeepSeek V4正式版，可能最早明日发布，最迟不过这几天。 目前，一部分人已提前拿到了DeepSeek V4（GA）灰度测试的权限。 一共有两个版本：DeepSeek V4 Flash，DeepSeek V4 Pro。 **DeepSeek V4「满血版」** **终于要来了** 大家最关心的想必是，如何知道自己，有没有被灰度到？ 博主AiBattle给出了一个民间「验货口诀」：看思维链（CoT）的第一人称。 如果模型的思考过程开口是「I'm」「I'll」，而不是老版本的「Let me」。 那么恭喜你，你大概率已经用上了V4 GA版！ 在Fable 5与GPT-5.6 Sol持续角力的当下，全网对开源AI的大招，可以说是拉满了期待值。 一位开发者Pankaj Kumar体验后，率先对V4的性能做了一个中肯的总结： * 整体表现接近Opus 4.8级别，编码直追GPT-5.6 Sol； * Agent能力大幅增强，3D和SVG生成显著变好； * 同样一个任务，V4所需的迭代轮数，比Fable 5多。 他表示，从目前的生态位来看，V4大概率打不过刚发布的Kimi K3，但价格会显著更低。 如果这个性能真配上这个价格，那可能又是一次DeepSeek时刻。 **** **首轮测试已出** ### 如今，DeepSeek V4（GA）首轮测试demo，已经开始外流。 可以说，外界对此褒贬不一： 有人认为它已经能打平Claude 5，但部分开发者也指出，Pro版并未比Flash版领先太多。 如下是一款由V4 Pro生成的3D模拟射击游戏，核心玩法是操控攻城弩车进行打靶训练，基础的UI功能也均已完备。 V4正式版打造的一款《我的世界》+《无人深空》的混合游戏HTML，可玩度还是比较高的。 下面这款「割绳子」经典游戏，也由V4一次跑出来的。 如下也是V4生成的一些demo，一个Xbox手柄SVG测试，还有游戏生成。 **首次引入「峰谷计费」** **依旧真香** 再造「DeepSeek时刻」，最大的变数是价格。 所有爆料都指向同一个说法：性能可能不是第一，但价格会显著更低。 上个月底，DeepSeek向所有API用户发了一封邮件，称即将在7月中旬，上线V4正式版。 GA发布后同步调整API定价，引入「峰谷计费」。 * deepseek-v4-pro：百万输出tokens平时0.87美元，高峰1.74美元；缓存未命中的输入平时0.435美元。 * deepseek-v4-flash更狠：百万输出0.28美元，高峰0.56美元，缓存命中的输入0.0028美元。 也就是说，那个从不涨价的「价格屠夫」，第一次给自己的算力装上了计价器。 对个人用户影响不大，但对那些把Agent挂在工作时间不间断跑的团队来说，这是实打实要重新算的一笔账。 好在缓存命中的价格依然极低，把批量任务、评测跑分、数据生成挪到高峰之外，成本还能压回去。 不过，相较于Fable 5百万输出定价50美元，V4在性价比上依旧是是最香的。 毕竟，性能也达到了Opus级。V4预览版发布时，官方自测的SWE-bench Verified中—— DeepSeek-V4-Pro-Max距Claude Opus 4.6 Max仅差0.2个百分点，价格却只有对方的七分之一。 但在长上下文检索、专业软件工程和部分知识推理评测中，Opus仍保持领先。 顺带提一句，deepseek-chat和deepseek-reasoner两个老模型名，7月24日正式下线。 不管怎样，全网苦等三个月的这只「靴子」，终于要落地了。 从目前流出的信息看，V4大概率不会是那个「全项第一」的模型。 Fable 5和GPT-5.6 Sol在前，Kimi K3在侧，V4想靠纯性能掀桌子，难度不小。 但DeepSeek从来打的，就不是这张牌。 真正的看点是那条被反复验证的老路径：把Opus级的能力，价格压到七分之一。 毕竟，在动辄百万Token几十美元的巨头面前，哪怕是装上了「峰谷计价器」， V4也是那个大杀四方的「价格屠夫」。 参考资料： https://x.com/pankajkumar\\_dev/status/2078536231026372846 编辑：桃子 **秒追ASI**",
+          "hb": 1
         }
       ]
     },
@@ -171,71 +184,76 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "天问一号探测器在距离约3000万公里处拍摄到星际彗星3I/ATLAS图像。",
-        "HMP Bikes针对北美市场推出最高时速75英里的电动踏板车HMP Flash。",
-        "JACS刊文证实CO气体压力可驱动铂纳米团簇发生结构重构。"
+        "上海星枢计划首发算力卫星采用复合发电方案实现15KW功率",
+        "单层Fe3O5材料验证电场控制自旋极化与导电性切换机制",
+        "氧化石墨烯复合膜实现精准层间距控制以提升海水淡化效率"
       ],
       "entries": [
         {
-          "t": "中国天问一号罕见的星际彗星3I/ATLAS特写照片",
+          "t": "发电功率15KW！“星枢计划“算力卫星采用高效光伏电池搭配钙钛矿叠层复合发电方案",
           "d": "2026-07-19",
-          "a": "",
+          "a": "钙钛矿工厂",
           "c": "通用技术/通信和运输/航天",
-          "as": "中国天问一号轨道器在星际彗星3I/ATLAS掠过火星时拍到罕见近距离图像,揭示这颗诞生于太阳系外彗星的朦胧彗发和彗尾。国家航天局称高分辨率相机在约3000万公里外完成拍摄,是深空探测的重要观测成果。",
-          "sc": 7.4,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://scitechdaily.com/chinas-tianwen-1-captures-rare-close-up-images-of-interstellar-comet-3i-atlas/",
-          "tp": "天问拍彗星",
-          "aip": 1,
-          "kp": [
-            "拍摄距离[天问一号轨道飞行器]: 约3000万公里"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "China’s Tianwen-1 orbiter caught a rare glimpse of 3I/ATLAS as it swept past\n, revealing the hazy coma and tail of a comet born beyond our solar system.\nThe interstellar object known as 3I/ATLAS just flew past Mars, and China’s Tianwen-1 mission managed to snap some pics with its high-resolution camera. According to the China National Space Agency (CNSA), the orbiter’s high-resolution camera captured images of the comet from a distance of about 30 million km (18.6 million mi). This makes the Tianwen-1 orbiter, which has been orbiting Mars for four years and eight months, one of the closest missions to observe the ISO since it was first detected (on May 7th, 2025).\nThe image shows 3I/ATLAS’s comet-like features, which include its tail and the gaseous envelope (coma) surrounding it. The images captured by China’s orbiter were also stitched together to create an animation that shows its trajectory and path as it gets closer to making its closest pass to the Sun.\nThis is the latest in a long line of indications that 3I/ATLAS is an interstellar comet, composed of water and volatiles that have been outgassing since it began to approach the Sun. It also offers a taste of what China’s Tianwen-2 mission will see when it rendezvous with a Near Earth Asteroid (NEA) and a comet in the coming years.\nThe team that manages the orbiter’s High-Resolution Imaging Camera (HiRIC) began preparing for the observation opportunity in early September. This included running repeated simulations, theoretical modeling, and extensive instrument checks.\nThe task of imaging 3I/ATLAS was particularly challenging because of its distance and small size (5.6 km, 3.5 mi in diameter), but also the speed at which the ISO and orbiter are traveling. Whereas 3I/ATLAS is around 58 km/s (36 mi/s), the orbiter has a relative speed of 86 km/s (53.5 mi/s).\nIn addition, the HiRIC camera was designed to study brightly lit features on the Martian surface, similar to the ESA’s\nMars Express\nand ExoMars Trace Gas Orbiter (TGO) missions. On\n, these orbiters also captured images of 3I/ATLAS using their cameras – the High-Resolution Stereo Camera (HRSC) and Colour and Stereo Surface Imaging System (CaSSIS), respectively. In all cases, 3I/ATLAS is roughly 10,000 to 100,000 times fainter than Mars’ surface features when imaged in daylight.\nHowever, the High-Resolution Stereo Camera (HRSC) on the Mars Express and the Colour and Stereo Surface Imaging System (CaSSIS) have exposure times of 0.5 seconds and 5 seconds, respectively. In Tianwen-1’s case, the images were acquired by its High-Resolution Imaging Camera (HiRIC). While its exposure time is not publicly disclosed, the camera was designed for high time\nand fast responses, which enabled the science team to capture this latest (albeit grainy and blurry) image of the ISO.\nLike its predecessors, 3I/ATLAS is a particularly interesting object due to the opportunities it presents for astronomical and astrobiological research. Since asteroids and comets are essentially leftover material from the formation of solar systems, studying these objects would allow scientists to learn what conditions are present in other star systems.\nEssentially, an ISO intercept mission (for which numerous concepts are being explored) could provide information that would otherwise be impossible, short of sending missions to other stars—an extremely time-consuming and expensive approach.\nIn the coming years, scientists hope to have a mission ready to go that could intercept future ISOs and study them up close. This includes the ESA’s Comet Interceptor, which is expected to be completed by 2029.\nAdapted from an article originally published in\nUniverseToday\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nSpace Exploration\nNASA Comet Hitchhiker Would Take Tour of Small Asteroids and Comets\nNASA Announces Progress on Asteroid Redirect Mission & Future Expeditions to Deep Space\nSpacecraft Reveal Siding Spring’s Effects on Martian Atmosphere\nNASA Prepares For Comet’s Close Encounter with Mars\nScienceCast Video Examines the Possibility of Colliding Atmospheres between Mars and Comet Siding Spring\nNASA Preparing for Comet Siding Spring’s “Close” Flyby of Mars\nAstronomers Anticipate Comet ISON’s Close Flyby of Mars\nAstronomers Watch as Comet 2013 A1 Heads Towards Mars\nComet 2013 A1 to Make a Very Close Flyby of Mars",
-          "hb": 1
-        },
-        {
-          "t": "新款 HMP Flash 为美国带来价格实惠的 75 MPH 电动滑板车",
-          "d": "2026-07-19",
-          "a": "",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "旧金山HMP Bikes推出新款高性能电动踏板车HMP Flash,最高时速75英里,专为美国市场打造。电动踏板车在欧洲和亚洲普及但在北美一直未获突破,HMP试图以高性能可负担产品打开北美传统座式电动车市场。",
-          "sc": 6.8,
+          "as": "上海“星枢计划”首发算力星座在2026世界人工智能大会发布，定位为旗舰级太空算力星座。项目由复旦大学与上海星枢天算牵头研制，首发星座采用“一主二辅”星簇架构。该算力卫星创新采用高效光伏电池搭配钙钛矿叠层复合发电方案，发电功率达到15KW，致力于打造天地一体化智能算力网络与太空算力基础设施。",
+          "sc": 8.2,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://electrek.co/2026/07/18/new-hmp-flash-brings-affordable-75-mph-electric-scooters-to-the-us/",
-          "tp": "电动踏板车",
+          "u": "https://mp.weixin.qq.com/s/x_kqFUjRxKGoY5iCXDGfdg",
+          "tp": "算力卫星发布",
           "aip": 1,
           "kp": [
-            "最高时速[HMP Flash电动滑板车]: 75 MPH"
+            "发电功率[“星枢计划”算力卫星]: 15KW",
+            "复合发电方案[“星枢计划”算力卫星]: 高效光伏电池搭配钙钛矿叠层",
+            "星座部署规模[“星枢计划”商业运营阶段]: 完成千星部署"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "| Jul 18 2026 - 6:07 am PT\nElectric scooters are everywhere in much of Europe and Asia, but they’ve always remained something of an oddity in the US market. While American riders have recently embraced electric bicycles and, to a measurably smaller extent, electric motorcycles, traditional seated scooters have struggled to gain traction in North America. Now San Francisco-based HMP Bikes is hoping to change that with its new\n, a high-performance electric scooter designed from the ground up for riders who rack up serious mileage.\nUnlike many electric two-wheelers that focus on recreational riding, the Flash was designed with delivery riders in mind. That means an emphasis on practical features like real-world range, fast charging, removable batteries, and durability.\nIn addition to boasting a highway-capable 75 mph (120 km/h) top speed, perhaps the biggest figure for everyday commuter riders is the 70-mile (112 km) tested range. HMP says that figure comes from real-world riding on San Francisco city streets with a 200 lb (91 kg) rider and an approximately 80/20 split for city/highway riding. The company notably points out that it only publishes tested numbers instead of optimistic laboratory estimates.\nPerformance is also well beyond what most Americans think of when they hear “electric scooter.” For example, compared to the more\nurban-only moped-style entrants\nin the market, the Flash’s top speed of 75 mph (120 km/h) places it firmly in electric motorcycle territory. In HMP’s home state of California, the company notes that the Flash is registered as a motorcycle, meaning riders will need an M1 motorcycle license and a DOT-approved helmet.\nThe two-seater scooter is available in either single- or dual-battery configurations. The removable battery packs each store 3.3 kWh, with the dual-battery version offering a total capacity of 6.6 kWh to achieve that 70-mile (112 km) max range figure.\nBuyers can also choose whether to equip the scooter with an onboard 2 kW charger that uses a J1772 charging connector, allowing charging directly on the scooter. HMP says that configuration can recharge the dual-battery model from 20% to 80% in around two hours. Alternatively, owners can remove the batteries for off-bike charging or use the included 840 W portable charger from a standard household outlet.\nPricing starts at\nfor the single-battery model without the onboard charger and reaches\nfor the fully-optioned dual-battery version equipped with the integrated charger.\nBeyond the drivetrain, HMP has packed in an impressive list of standard equipment. ABS brakes, traction control, Apple CarPlay, Android Auto, a built-in dash cam, keyless start, center stand for stable parking, and a rear cargo rack all come standard.\nHeated grips are also included on versions equipped with the onboard charger, while IoT GPS tracking and a companion app are planned for a future update.\nI’ve always thought it was a shame that electric scooters never really caught on in the US the way they have across Europe and Asia.\nMy wife and I use a Gogoro scooter as our daily driver\n, and it’s great for the city and for hopping on urban highways. We can park anywhere for free, and our “fuel” costs for the month are less than the cost of a cup of coffee.\nThere’s something incredibly practical about the scooter format. You get water protection for your legs (no splashing when you hit a puddle), a comfortable upright seating position, built-in storage opportunities, and a step-through frame that’s easy to hop on and off dozens of times a day. It’s no surprise that delivery riders around the world gravitate toward scooters, and designing an electric model specifically for that kind of high-mileage, hard-use riding seems like a smart approach. Plus, it means that the rest of us who use it for normal commuting instead of all-day deliveries know it will be overbuilt for us.\nThe US market has largely skipped over scooters and gone straight from e-bikes to motorcycles, leaving a fairly significant gap in the middle. That’s especially true for electric models. There simply aren’t many highway-capable electric scooters available here, making the HMP Flash a fairly unique offering. The only other reasonably available alternative in the US market is\nthe BMW CE04\n, a nice scooter, but one that costs nearly US $13,000. At around a third of the price, the HMP Flash has a lot going for it.\nWill it become a mainstream success? That’s hard to say. Americans have historically turned a blind eye to scooters, while e-bikes have filled much of the urban mobility niche. But as cities continue looking for cleaner and more efficient transportation options and some commuters look for the ease and comfort of e-bikes combined with higher speeds for faster roads, I wouldn’t be surprised if products like the Flash start carving out a larger audience.\nIf nothing else, it’s refreshing to see another company trying something different in a US electric two-wheeler market that could certainly use a bit more variety.\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nMicah Toll is a personal electric vehicle enthusiast, battery nerd, and author of the Amazon #1 bestselling books\nDIY Lithium Batteries\nDIY Solar Power,\nThe Ultimate DIY Ebike Guide\nThe Electric Bike Manifesto\nThe e-bikes that make up Micah’s current daily drivers are the\n$999 Lectric XP 2.0\n$1,095 Ride1Up Roadster V2\n$1,199 Rad Power Bikes RadMission\n$3,299 Priority Current\n. But it’s a pretty evolving list these days.\nBest $999 electric bike ever!\nGreat e-bikes at great prices!",
+          "b": "发电功率15KW！“星枢计划“算力卫星采用高效光伏电池搭配钙钛矿叠层复合发电方案 上海证券报 上海证券报 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) 议程更新！极电、创锐、纤纳、恒星力量、德融、蓝箭鸿擎、星翼、福斯特、肖特、沃格、安普太、上海商星、电科蓝天、创锐、昇帆、烁威、哈工大/哈工大（深圳）等二十家单位报告共赴无锡太空光伏盛会！ 7月18日下午，在2026世界人工智能大会“未来计算 未来算力”专题论坛上，上海标志性太空数字基建工程“星枢计划”首发星座正式对外发布。 “星枢计划”寓意“星空的核心、算力总枢纽”，是上海重点布局的太空算力产业标杆项目，项目定位为上海市旗舰级太空算力星座工程，工程验证阶段发射2颗算力星+12颗边缘计算星，商业部署阶段发射50颗算力星+100边缘计算星，商业运营阶段完成千星部署。由复旦大学联合上海星枢天算牵头研制运营，复旦大学提供全套天基大模型底层技术支撑，金亚秋、王建宇、褚君浩、李军四位院士担任星枢计划首席科学家。首发星座创新采用“一主二辅”星簇架构，致力于打造天数天算、地数天算双向协同的天地一体化智能算力网络，建成国内首个标准化在轨分布式计算、多源感知、星间高速传输一体化太空算力基础设施与天基行业大模型底座。 据工商注册信息，上海星枢天算由钧达股份控股子公司巡天千河和星算未来、星遥光宇三方共同出资设立，其中巡天千河持股74%。巡天千河技术团队来源于航天八院的整建制团队，是国内领先的卫星整星总体企业。 **“一主二辅”星簇架构** **打造闭环太空算力单元** 记者获悉，本次对外发布的首发星座采用1颗中心算力主星+伏羲气象星+即时遥感星极简星簇布局，构成独立闭环最小算力验证单元，三星依托星间激光链路互联互通，**所有数据采集、AI推理、研判分析全部在轨完成，无需下传海量原始遥感数据。** 中心算力主星，是星座的“太空大脑”，作为全域调度核心与算力枢纽，搭载自研分布式全域混合算力调度平台，由上海星枢天算公司牵头研制，中国科学院上海技术物理研究所王建宇院士载荷工程团队的支持，依托复旦大学金亚秋院士团队研发的微波视觉大模型，统一汇聚两颗辅星感知数据并完成多模态融合分析，提供“按需即问即算”太空算力服务。主星研制上具有五项大颠覆性国产硬件创新，填补多项国内技术空白： ——**搭载定制国产航天级GPU芯片**，实现32P超高在轨算力输出，填补国内卫星大规模原位实时计算领域技术空白。 ——**搭载验证在轨遥感大模型与具身智能感知运维系统**，可在轨完成算力GPU载荷模块化重组等操作，并开展微波视觉智能解译与自主感知前沿技术验证。 ——**采用高效光伏电池搭配钙钛矿叠层复合发电方案**，发电功率15KW，在轨光电转化效率大幅超越传统单晶硅星载太阳能板，成本远低于传统砷化镓太阳能板，匹配超高算力持续功耗需求，能源综合利用效率达到行业顶尖水平。 ——**搭载航天级微通道主动液冷模块**，舱体采用多层超轻被动隔热复合材料，外部配置大尺寸可展开式辐射散热器，形成三级协同散热体系，将是国内首个实现星载GPU长效稳定热控成套方案。 ——**开展面向算力互连的星间星地高速激光通信验证，突破400Gbps星间/星地光通信**，开展地面光学相控阵接收，结合先进的阵列收发和信号处理技术，实现高性能、高可靠、大带宽算力互连。 伏羲气象星由上海科学智能研究院、复旦大学、巡天千河共同研制，搭载高精度微波辐射计载荷，具备全天候、三维立体探测能力。卫星可精准获取全球大气温湿度及云水分布信息，依托“伏羲”无缝隙端到端气象预测大模型体系，实现从观测数据同化到预报的一体化，提供高频更新、高精度的智能预报结果，为全球极端天气预警和防灾减灾提供有力支撑。 超低轨即时遥感星由太驿微行航天科技有限公司牵头，联合复旦大学褚君浩院士和华东师范大学李军院士团队研制，搭载高分辨率可见光及红外载荷，2POPS边缘算力实现遥感大模型在轨推理，具备区域短重访、高成像频次、天基计算分析等核心特性，可实现城市地表、农林、海岸线大范围快速成像，为数字三维城市、区域综合治理、应急灾情勘察提供遥感影像和在轨智能计算支撑。 **多批次规模化星座组网** **赋能产业发展服务国家战略** 据悉，“星枢计划”推出两大核心全域场景服务，释放天基算力广阔市场需求。一方面，提供按需即问即算分布式太空算力服务。依托“一主二辅”星簇分布式算力底座，搭建标准化算力调用接口，面向政府、能源、航运、金融、科研机构提供分时、在轨算力租赁。地面企业海量时空数据可加密...",
           "hb": 1
         },
         {
-          "t": "JACS：CO 压力驱动 Pt 纳米团簇重构",
+          "t": "Ferroelectric Switchable Altermagnetic-Like Compensated Ferrimagnets with Charge Ordering",
           "d": "2026-07-19",
-          "a": "催化视界",
-          "c": "通用技术/催化剂",
-          "as": "发表于《美国化学会志》（JACS）的研究揭示，CO气体压力可驱动铂（Pt）纳米团簇发生结构重构。该发现对理解催化剂在实际反应条件下的动态演变行为具有重要意义，为催化剂理性设计、活性位点调控与寿命优化提供新机制认知，助力燃料电池等应用。",
-          "sc": 6.5,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/3H9ZXc91IyHqF6VX8wldDw",
-          "tp": "铂团簇重构",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究预测单层Fe3O5具有混合自旋劈裂机制，结合了交磁性的k路径交替自旋劈裂和亚铁磁性的塞曼劈裂。这种具有极低磁化但显著非相对论自旋劈裂的非常规共线磁体，通过引入铁电性和电荷有序化增加了功能化自由度。基于自旋-电荷耦合的隐藏磁电效应，其自旋劈裂可完全由电场切换。该材料具有高度自旋极化的导电性，并在极化比率上表现优异。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://pubs.acs.org/doi/10.1021/jacs.6c08853",
+          "tp": "铁电交变磁体",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "磁性状态[Fe3O5单层]: 预测展现混合自旋劈裂机制，叠加铁电性和电荷有序实现铁电可开关的交变磁样补偿铁磁体"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "Unconventional collinear magnets with almost zero magnetization but prominent nonrelativistic spin splitting, such as altermagnets, can inherit the advantages of both ferromagnets and antiferromagnets. By incorporating more degrees of freedom such as ferroelectricity and charge ordering, these unconventional magnets can be even more interesting and functionalized. With this design principle, the Fe3O5 monolayer is predicted to exhibit a hybrid spin-splitting mechanism, with the superposition of the altermagnetic-like k-path alternating splitting and ferrimagnet-like Zeeman splitting. Benefiting from the hidden magnetoelectricity based on spin-charge coupling, such spin splitting can be fully switched by an electric field. Its conductivity is highly spin-polarized, with a polarization ratio above 99%, comparable to half-metals but with zero magnetization.",
+          "hb": 1
+        },
+        {
+          "t": "Nature-水/冰相变研究",
+          "d": "2026-07-19",
+          "a": "热辐射与微纳光子学",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "联合研究团队在《Nature》发表关于氧化石墨烯-聚多巴胺复合膜的研究。研究利用纳米限域水与体相水冻结温度差异，提出“组装-反应时间尺度分离”策略，制备出层间距精准可控且在水环境中长期稳定的复合膜。该膜解决了传统膜在水溶液中易溶胀导致筛分性能下降的问题，在海水淡化和高价值金属离子分离领域具有重要应用潜力。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/CtYaf7yp86NHX6psoDaKbw",
+          "tp": "控冰相变研究",
+          "aip": 1,
+          "kp": [
+            "复合膜材料[水/冰相变调控研究]: 具有可控层间距的氧化石墨烯-聚多巴胺复合膜",
+            "相变温度差异机制[纳米限域水与体相水]: 冻结温度不同"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nature-水/冰相变研究 热辐射与微纳光子学 以下文章来源于超疏水防冰表面 ，作者超疏水防冰表面 **超疏水防冰表面** . 聚焦表面工程领域的防除冰前沿研究与技术进展 ****中国科学院理化技术研究所王健君教授、薛涵副教授、香港城市大学曾晓成教授、北京师范大学朱重钦教授、方维海院士等众多合作者Nature：具有可控层间距的氧化石墨烯-聚多巴胺复合膜 **引用格式：**Lu Y, Wei L, Xie Z, et al. Graphene oxide-polydopamine membranes with controlled interlayer spacing\\[J\\]. Nature, 2026: 1-7.** 近日，中国科学院理化技术研究所王健君教授、薛涵副教授、香港城市大学曾晓成教授、北京师范大学朱重钦教授、方维海院士等众多合作者组成的联合研究团队在《Nature》发表题为“Graphene oxide-polydopamine membranes with controlled interlayer spacing”的研究论文。该工作利用纳米限域水与体相水冻结温度不同的特性，提出“组装\\-反应时间尺度分离”策略，制备出层间距可精准调控、在水环境中长期稳定的聚多巴胺纳米柱支撑氧化石墨烯膜。 氧化石墨烯膜具有规整的二维亚纳米通道，在海水淡化和高价值金属离子分离领域具有重要潜力。然而，传统膜在水中容易溶胀，导致层间距变化和筛分性能下降；常规交联方法虽可提高稳定性，却难以兼顾通道尺寸连续调节与高通量传输。 针对这一问题，研究团队利用纳米限域水冻结温度较低的特点：当膜外体相水冻结时，片层间的限域水仍保持液态，并驱动多巴胺分子快速组装成纳米柱，从而调节层间距；进一步降温后，限域水冻结，组装过程随即停止。随后，多巴胺发生聚合，并与氧化石墨烯表面的含氧官能团形成稳定连接，实现“先调距、再固距”。 实验结果显示，该膜干态层间距可在5.9—10.2 Å范围内连续调节，重复制备误差小于0.1 Å。膜在水中浸泡30天后仍保持稳定结构，在2 m·s⁻¹水流冲刷下持续60分钟仍保持完整。用于错流过滤时，膜连续运行30天后NaCl截留率仍约为99.0%，水渗透率达到67.9 L·m⁻²·h⁻¹·bar⁻¹。在离子分离方面，该膜可将锂离子摩尔占比由5.3%提升至90.8%；对于水合尺寸相差不足0.1 Å的铷离子和钾离子，Rb⁺/K⁺分离因子达到5320。理论计算表明，不同离子穿越亚纳米通道时具有不同的部分脱水合行为，这是实现高选择性筛分的重要机制。 该研究将纳米限域水的基础科学特性转化为膜材料制备方法，为海水淡化、盐湖提锂、铷资源富集及近似尺寸离子的精准分离提供了新的技术路径。 图1：时间尺度分离的组装与反应策略用于制备复合GOMs及其表征。a，调控及稳定复合GOM层间距（D₁至D₂）的示意图。DA分子以浅蓝色球体表示；浅蓝色圆柱体代表反应后的PDA纳米柱；灰黑色片层结构代表GO片层；蓝色条带代表限域水；灰色开裂条带代表限域冰；带有破碎裂纹的蓝色块代表主体冰；无破碎裂纹的蓝色块代表主体水。b，计算所得的平均力势与集体变量（两个DA分子之间的距离，|xDA₁ − xDA₂|）的关系。(i) 表示一个DA靠近含氧基团。从(i)到(ii)（蓝线）表示靠近含氧基团的DA被拉向另一个DA；从(i)到(iii)（红线）表示远处的DA被拉向含氧基团。右侧面板为构型(i)、(ii)和(iii)的示意图。c, d，复合GOM选区横截面扫描电镜图像 (c) 及透射电镜图像 (d)。e，通过XRD图谱对比原始GOM（上图）与复合GOM（下图）的抗溶胀性能。水中浸泡时间：复合GOM为1天（深蓝）、7天（蓝）、30天（浅蓝）；原始GOM为0.1小时（浅灰）、1小时（灰）、2小时（黑）。f，原始GOM与复合GOM在2 m/s水流冲刷下的照片。PMF为平均力势缩写。比例尺：200 nm (c)，5 nm (d)，10 mm (f)。 图2：GOM层间距的调控与稳定化。a，通过改变DA浓度和组装时间可连续调节XRD测得的层间距。蓝色小提琴图展示了在相同条件下制备的若干样品层间距的分布范围；浅蓝色区域内的黑点表示该条件下的平均层间距。该分布来源于对每种条件下超过50个独立制备膜的统计分析。左上角插图为DA浓度为0.03 mM、组装时间60 min条件下层间距的典型分布。b，使用0.06 mM DA制备的复合GOM中DA组装体尺寸随时间的变化。组装尺寸通过多次独立实验采集的俯视TEM图像进行统计确定。误差棒表示标准差；红色虚线为拟合趋势线。插图为组装10 min和60 min后的TEM图像。c，示意图表明随着组装时间延长，两个维度（俯视图和侧视图）均同步增大。浅蓝色球体代表反应...",
+          "hb": 1
         }
       ]
     }

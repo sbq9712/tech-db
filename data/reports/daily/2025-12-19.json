@@ -6,86 +6,72 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "碳化钨催化剂实现聚烯烃高效加氢裂解，提供废塑料低成本化学回收方案",
-      "干法电极制造工艺突破传输瓶颈，锂离子电池实现10 mAh/cm²高面容量",
-      "钙钛矿氧化物电极引入ZrOx纳米涂层，解决固体氧化物燃料电池稳定性难题"
+      "研究团队利用聚阴离子配位化学将氟化物电解质离子电导率提升至支持5V全固态电池水平",
+      "科学家通过多电子转移反应机制开发出无腐蚀性电网级锌溴液流电池",
+      "新型分子肌肉固体电解质材料研发取得突破"
     ],
-    "AI与智能科技": [
-      "全光合成芯片利用光计算并行特性，实现低功耗大规模语义视觉内容生成",
-      "预印本平台aiXiv引入AI机器人参与论文撰写与同行评审以提升处理效率",
-      "晶圆级结晶锑欧姆接触技术降低接触电阻，突破二维半导体器件工程化瓶颈"
-    ],
-    "通用技术": [
-      "空间可编程电粘附技术STICH实现生物电子器件与湿润组织的精准集成",
-      "丙烯酸直接催化烯丙基化反应取得突破，实现手性1,4-间隔二烯模块化合成",
-      "铅杂配位策略构建高核钛氧簇合物，利用压电效应增强光催化活性"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "碳化钨催化剂实现聚烯烃高效加氢裂解，提供废塑料低成本化学回收方案",
-        "干法电极制造工艺突破传输瓶颈，锂离子电池实现10 mAh/cm²高面容量",
-        "钙钛矿氧化物电极引入ZrOx纳米涂层，解决固体氧化物燃料电池稳定性难题"
+        "研究团队利用聚阴离子配位化学将氟化物电解质离子电导率提升至支持5V全固态电池水平",
+        "科学家通过多电子转移反应机制开发出无腐蚀性电网级锌溴液流电池",
+        "新型分子肌肉固体电解质材料研发取得突破"
       ],
       "entries": [
         {
-          "t": "[ASAP]本征双功能可调碳化钨催化剂实现高效PVC兼容聚烯烃加氢裂化",
+          "t": "通过聚阴离子配位化学提高氟化物电解质的离子电导率，实现 5 V 级全固态电池",
+          "d": "2025-12-19",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00414-3?rss=yes",
+          "tp": "全固态电池电解",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过多电子转移反应实现网格级无腐蚀锌/溴液流电池",
+          "d": "2025-12-19",
+          "a": "Nature Energy",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-025-01907-5",
+          "tp": "锌溴液流电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 变革性分子肌肉固体电解质",
           "d": "2025-12-19",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "研究开发本征双功能且可调的碳化钨(WC)催化剂，实现聚烯烃(PO)高效加氢裂解化学回收，且与PVC兼容。加氢裂解可将废塑料转化为短链碳氢化合物，WC催化剂同时具备裂解和异构化活性，为废塑料规模化化学回收提供了低成本非贵金属方案。",
-          "sc": 7.7,
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c11845",
-          "tp": "加氢裂解催化剂",
-          "aip": 1,
-          "kp": [
-            "催化剂[聚烯烃加氢裂解]: 碳化钨(本征双功能)",
-            "特性[PVC兼容]: 抗Cl中毒失活"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Hydrocracking is a promising route for the chemical recycling of polyolefins (PO), converting them into short hydrocarbons over bifunctional catalysts with metal sites for hydrogenation and dehydrogenation, and Brønsted acid sites (BAS) for isomerization and C-C bond cleavage. However, PO feedstocks containing polyvinyl chloride (PVC) can release chlorine (Cl) under reaction conditions, deactivating conventional noble metal/zeolite catalysts. Moreover, the lack of site intimacy and the presence of micropores within conventional catalysts create challenges around the transport of high-molecular-weight, sterically encumbered polymer intermediates. Here, we report tungsten carbides (WxC) as a novel type of bifunctional catalysts that address these challenges. W/W2C phases on WxC offer \"metal\" sites, and -OH on WOx species introduces BAS in close proximity. The \"metal\":BAS ratio can be tuned through carburization temperature, leading to a volcano-shaped activity trend reflecting the requirement for metal-BAS balance. Kinetic data demonstrate that each PO chain undergoes sequential cleavage, while trends in cracking ideality and selectivity follow those in short-alkane hydrocracking. On the per-BAS basis, WxC is more efficient than conventional bifunctional catalysts by more than an order of magnitude, due to enhanced polymer transport. They maintain or show increased activity with 10 wt % PVC in the substrate. This work establishes transition-metal carbides as earth-abundant bifunctional catalysts with unique site proximity and heteroatom compatibility. These features, along with the broad structure space for rational tuning, make them promising options to tackle specific challenges that polymer feedstocks present in hydrocracking.",
-          "hb": 1
-        },
-        {
-          "t": "通过活性表面引导原纤化在织物级干法工艺锂电池中同时实现10 mAh/cm²面容量与超低粘结剂含量",
-          "d": "2025-12-19",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "研究开发了基于活性表面引导纤维化的粘结剂纤维化干法电极制造工艺，在锂离子电池中同时实现10 mAh cm⁻²的高面容量和超低粘结剂含量。干法工艺避免了溶剂使用，适用于大规模卷对卷生产。该技术解决了厚电极中离子/电子传导性衰减的关键瓶颈，推动了干法电极技术的工业化进程。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504005?af=R",
-          "tp": "锂电池干法电极",
-          "aip": 1,
-          "kp": [
-            "面容量[干法电极LIB]: 10mAh/cm²",
-            "[工艺]: 活性表面引导纤维化,卷对卷"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Binder fibrillation‐based dry electrode manufacturing is a promising strategy for producing thick electrodes for high‐energy‐density lithium‐ion batteries. However, its roll‐to‐roll scalability remains limited by competing demands among process efficiency, mechanical integrity, and electrochemical performance, particularly under reduced binder content. Here, we address these challenges by investigating the fibrillation behavior of polytetrafluoroethylene (PTFE) binders depending on carbon additive type. Among the tested architectures, carbon nanotube (CNT) coating significantly improves key commercial metrics—reducing kneading time by over 75%, enhancing mechanical strength, and achieving superior electrochemical performance—while also offering compatibility with roll‐to‐roll manufacturing. Notably, this improvement stems from a shift in the shear force transfer medium—from isolated carbon additives to the modified surface of active materials—which enables active‐surface‐guided fibrillation and robust binder network formation. Based on this design rule, we demonstrate fab‐scale electrodes (≥100 g batch) with an areal capacity of 10 mAh cm\n                    −2\n                    and ultralow binder content (0.3 wt.%). These electrodes exhibit excellent rate capability (71.3% at 1C) and &gt;78% capacity retention over 500 cycles in graphite full cells. Furthermore, a 1 Ah‐class Li‐metal pouch cell and fully dry‐processed pouch cell confirm the scalability of this approach and set a new benchmark in dry electrode processing.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP]利用氧缺陷ZrOₓ纳米涂层调和钙钛矿氧化物电极表面稳定性-活性困境",
-          "d": "2025-12-19",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
-          "as": "研究通过在钙钛矿氧化物电极表面引入缺氧型ZrOx纳米涂层，有效解决了稳定性与活性之间的矛盾。该纳米涂层在保持催化活性的同时显著提升了电极的长期稳定性，为固体氧化物燃料电池等能源器件的电极设计提供了新策略。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03514",
-          "tp": "钙钛矿氧化物电极",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18427",
+          "tp": "分子固态电解质",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -99,152 +85,14 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "全光合成芯片利用光计算并行特性，实现低功耗大规模语义视觉内容生成",
-        "预印本平台aiXiv引入AI机器人参与论文撰写与同行评审以提升处理效率",
-        "晶圆级结晶锑欧姆接触技术降低接触电阻，突破二维半导体器件工程化瓶颈"
-      ],
-      "entries": [
-        {
-          "t": "用于大规模智能语义视觉生成的全光合成芯片",
-          "d": "2025-12-19",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究报道了面向大规模智能语义视觉生成的全光合成芯片。针对生成式AI面临的算力瓶颈，该光子芯片利用光计算并行性和低功耗特性，实现语义视觉内容的全光学生成，绕过电子计算的限制。该方案为解决AI算力短缺提供了光子学路径，在边缘智能和实时视觉生成场景中潜力显著。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adv7434?af=R",
-          "tp": "全光生成芯片",
-          "aip": 1,
-          "kp": [
-            "器件类型[光子计算]: 全光合成芯片",
-            "应用[光子AI]: 大规模语义视觉生成",
-            "优势[全光芯片]: 免维度转换"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Large-scale generative artificial intelligence (AI) is facing a severe computing power shortage. Although photonic computing achieves excellence in decision tasks, its application in generative tasks remains formidable because of limited integration scale, time-consuming dimension conversions, and ground-truth-dependent training algorithms. We produced an all-optical chip for large-scale intelligent vision generation, named LightGen. By integrating millions of photonic neurons on a chip, varying network dimension through proposed optical latent space, and Bayes-based training algorithms, LightGen experimentally implemented high-resolution semantic image generation, denoising, style transfer, three-dimensional generation, and manipulation. Its measured end-to-end computing speed and energy efficiency were each more than two orders of magnitude greater than those of state-of-the-art electronic chips, paving the way for acceleration of large visual generative models.",
-          "hb": 1
-        },
-        {
-          "t": "新预印本平台欢迎由AI撰写与审阅的论文",
-          "d": "2025-12-19",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "新预印本服务器aiXiv引入AI机器人参与论文撰写和同行评审，以应对机器生成科学文献激增、人工审稿无法跟上的困境。该平台试图通过自动化审稿流程提升科学传播效率，但也引发了关于AI审稿可靠性和学术诚信的讨论。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aee8377?af=R",
-          "tp": "AI论文评审",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "With human peer review struggling to keep pace with machine-generated science, aiXiv enlists bots to help",
-          "hb": 1
-        },
-        {
-          "t": "用于二维晶体管的规模化晶态锑欧姆接触",
-          "d": "2025-12-19",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究团队开发了规模化结晶锑（Sb）欧姆接触技术，用于二维过渡金属硫族化合物（TMD）晶体管。TMD材料被视为硅基半导体的有力替代者，可实现极短沟道晶体管，但长期受限于金属-半导体接触电阻过高的问题。该工作通过在TMD上形成结晶锑接触层，显著降低了接触电阻，在晶圆级尺度上实现了高性能、低功耗的二维晶体管器件。这一突破为后摩尔时代超越硅基极限的电子器件工程化量产奠定了关键基础。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-025-01500-4",
-          "tp": "二维晶体管",
-          "aip": 1,
-          "kp": [
-            "接触材料[2D晶体管]: 晶态半金属锑",
-            "接触长度[欧姆接触]: <20nm",
-            "栅极间距[埃米节点]: <40nm"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Transition metal dichalcogenides are a potential alternative to silicon and could be used to create transistors with a contacted gate pitch below 40 nm as required by the ångström-node transistor technology. However, it remains challenging to maintain an ohmic contact when the contact length is reduced to less than 20 nm. Here we show that crystalline semi-metallic antimony contacts can be epitaxially grown on molybdenum disulfide (MoS2) by molecular beam epitaxy, creating ohmic contacts with a resistance of 98 Ω µm at a contact length of 18 nm. We use the contacts to build scaled field-effect transistors with a contacted gate pitch of 40 nm with drive currents of 0.85 mA µm−1, 0.95 mA µm−1 and 1.08 mA µm−1 for monolayer, bilayer and trilayer MoS2 channels, respectively. Statistical analysis of transistor arrays confirms that the crystalline antimony contacts are reproducible and stable.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "空间可编程电粘附技术STICH实现生物电子器件与湿润组织的精准集成",
-        "丙烯酸直接催化烯丙基化反应取得突破，实现手性1,4-间隔二烯模块化合成",
-        "铅杂配位策略构建高核钛氧簇合物，利用压电效应增强光催化活性"
-      ],
-      "entries": [
-        {
-          "t": "空间可编程电粘附实现原位位点选择性功能耦合",
-          "d": "2025-12-19",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队开发了名为STICH的空间可编程电粘附技术，实现生物电子器件与湿润组织表面的位点选择性功能耦合。该技术基于壳聚糖/银纳米线水凝胶基质中的玫瑰红光敏剂，在图案化绿光照射下原位激活，实现空间可控的组织粘附。这解决了手术中生物电子器件与湿组织精确集成时粘附位点空间控制不足的难题。该策略在微创手术中精准缝合、神经接口和可植入器件的功能化集成方面具有重要应用潜力。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202511039?af=R",
-          "tp": "电粘附技术",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  Precise intraoperative integration of bioelectronic devices with wet tissue surfaces remains a challenge due to the limited spatial control of adhesion sites. Here, an in situ spatially programmable electrical bioadhesive (termed “STICH”) is reported that enables site‐selective adhesion and functional coupling via light‐activated bonding with wet biological tissue. Upon irradiation with patterned green light, Rose Bengal in a chitosan/silver nanowire hydrogel matrix generates singlet oxygen, which oxidizes amino acid residues into carbonyl groups on the tissue surface. The covalent bonding is then formed between the newly formed reactive carbonyl group and amine groups on chitosan. The spatially programmable adhesive allows robust tissue bonding with a lap‐shear strength of 160 kPa and precise adhesion regions at ≈2 µm resolution. The light‐patternable adhesive enables spatially resolved mechanical coupling for directional electromechanical sensing on ex vivo cardiac tissue. The low impedance adhesive interface also provides spatially programmed electrical coupling for in vivo neuromuscular stimulation on intraoperatively selected muscle groups. This platform advances microscale device‐tissue integration and paves the way for reconfigurable bioelectronic therapies.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 丙烯酸直接催化对映选择性C(sp2)–H烯丙基化：模块化合成手性1,4-间隔二烯",
-          "d": "2025-12-19",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "报道了丙烯酸C(sp2)-H键直接对映选择性烯丙基化反应，实现手性1,4-跳过二烯的模块化合成。该策略突破了羧酸C-H官能化的对映选择性控制难题，为手性多烯类天然产物和药物分子的多样性合成提供了高效新路径。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17825",
-          "tp": "铑催化C-H活化",
-          "aip": 1,
-          "kp": [
-            "催化剂[Csp2-H烯丙基化]: 手性CpxRh(III)",
-            "产物[不对称偶联]: 手性1,4-间隔二烯"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The direct enantioselective C-H functionalization of carboxylic acids represents a formidable yet highly appealing goal in synthesis, offering efficient access to chiral molecules from abundant feedstocks. Herein, we disclose a chiral CpxRh(III)-catalyzed strategy for the enantioselective alkenyl C-H allylation of acrylic acids. This transformation achieves a unique asymmetric C(sp2)-C(sp3) cross-coupling between two olefin coupling partners─acrylic acids and allyl acetates─delivering valuable enantioenriched 1,4-dienes with high efficiency and excellent enantioselectivity. This transformation exhibits a broad substrate scope and high functional group tolerance, with its synthetic utility demonstrated through scalable synthesis and diverse downstream derivatizations. This strategy establishes a versatile and practical approach to asymmetric alkenyl C-H functionalization for the convenient synthesis of valuable enantioenriched architectures.",
-          "hb": 1
-        },
-        {
-          "t": "铅杂配位增强压电效应促进高核钛氧簇的压电光催化活性",
-          "d": "2025-12-19",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "通过铅异配位策略构建高核钛氧簇合物，利用压电效应增强压电-光催化活性。压电材料通常以固态存在且结构模糊，该原子级明确结构的簇合物揭示了压电场与光生载流子分离的协同机制，为高效光催化降解和能量转化提供分子级设计平台。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea4692?af=R",
-          "tp": "压电光催化材料",
-          "aip": 1,
-          "kp": [
-            "材料[压电光催化]: Ti₂₆Pb₁₀高核钛氧簇",
-            "[增强机制]: 铅杂配位引入压电效应"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Piezoelectric materials usually exist in solid-state forms with obscure structures, hindering atomic-level understanding of structure-property relationships. Here, we report the piezoelectric high-nuclearity titanium-oxide molecular cluster, Ti\n                    26\n                    Pb\n                    10\n                    , constructed via a dopant metal coordination strategy. The cluster framework comprises 26 Ti atoms linked by binuclear units, with 10 Pb\n                    2+\n                    ions anchored through distinct coordination: 2 embedded and 8 surface exposed. Ti\n                    26\n                    Pb\n                    10\n                    displays a piezoelectric constant 5.5 times higher than PbTiO\n                    3\n                    , as confirmed by piezoresponse force microscopy. Density functional theory simulations reveal stress-induced lattice distortion and bandgap shifts. Critically, leveraging piezo-photocatalytic synergy, Ti\n                    26\n                    Pb\n                    10\n                    enables ultraefficient tetracycline degradation, achieving a rate 15 times faster than PbTiO\n                    3\n                    under combined light and ultrasound, with a superior synergy factor. Mechanistic studies indicate that local electric fields coupled with light excitation promote\n                    1\n                    O\n                    2\n                    generation. This work extends titanium-oxide clusters into piezo-photocatalysis and provides a rational design paradigm for multifield synergistic catalysis and atomic-level structure-activity insights.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

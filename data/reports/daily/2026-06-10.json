@@ -6,19 +6,18 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "海辰储能发布1300Ah电芯与6.9MWh系统，攻克4至8小时电网储能",
-      "美国Twelve投产首个CO2转化航空燃料工厂，已获阿拉斯加航空采购",
-      "香港大学研发阻变存储器存算平台，三维CT重建能效提升23.5倍"
+      "美国Twelve投产二氧化碳原料商业化航空燃料工厂，已获阿拉斯加航空采购",
+      "落基山实验室开发还原氧化串联工艺，实现木质素转化己二酸产率达26%"
     ],
     "AI与智能科技": [
-      "谷歌发布Gemini 3.5模型，支持70余种语言低延迟双向语音互译",
-      "港大研发阻变存储器存算一体架构，三维CT重建能效提升23.5倍",
-      "研究人员提出192维复用光子计算架构，提升矩阵计算吞吐量"
+      "研究开发原位聚合物纳米晶体限制技术，蓝色钙钛矿LED光致发光产率达83%",
+      "实验确认MoSe2异质结中存在双组分激子凝聚，为高温凝聚态提供新方案",
+      "科研人员利用光辅助准粒子隧穿机制，实现对单个微波光子的连续检测"
     ],
     "通用技术": [
-      "华为发布构网型储能变流器，提升新能源场站弱电网支撑能力",
-      "浙江7月实施电价新政，大工业峰谷套利价差降幅达41%",
-      "乘联会：2026年5月中国乘用车销量前16名车型均为电动汽车"
+      "研究人员开发特异性分子胶dHuR，通过降解RNA结合蛋白抑制结直肠癌",
+      "实验证实单壁碳纳米管在水中存在光诱导量子摩擦，扩散常数下降约50%",
+      "江门中微子观测站发布首批59.1天数据，精确测量反应堆中微子振荡"
     ]
   },
   "sectors": [
@@ -26,49 +25,66 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "海辰储能发布1300Ah电芯与6.9MWh系统，攻克4至8小时电网储能",
-        "美国Twelve投产首个CO2转化航空燃料工厂，已获阿拉斯加航空采购",
-        "香港大学研发阻变存储器存算平台，三维CT重建能效提升23.5倍"
+        "美国Twelve投产二氧化碳原料商业化航空燃料工厂，已获阿拉斯加航空采购",
+        "落基山实验室开发还原氧化串联工艺，实现木质素转化己二酸产率达26%"
       ],
       "entries": [
         {
-          "t": "海辰储能推出1300Ah电芯与6.9MWh系统，瞄准8小时储能",
-          "d": "2026-06-10",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "中国电池制造商海辰储能(Hithium)推出面向4-8小时长时储能应用的大容量1300Ah电芯和6.9MWh集装箱储能系统。大容量电芯可降低系统单位成本和占地面积，提升能量密度。该产品在2026年上海SNEC展会上亮相，瞄准电网侧长时储能市场，应对可再生能源消纳对更长放电时长的需求。",
-          "sc": 8.7,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
-          "tp": "长时储能电芯",
-          "aip": 1
-        },
-        {
-          "t": "海辰储能推出1300Ah电芯与6.9MWh系统，瞄准8小时储能",
-          "d": "2026-06-10",
-          "a": "ESS News",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "海辰储能在2026年上海SNEC展会上发布两款大容量储能电芯及配套集装箱系统，重点面向4-8小时长时储能应用场景。新产品采用大尺寸电芯设计以降低系统BOM成本和提升能量密度。该布局反映了储能行业向更长时长、更低度电成本方向发展的趋势，满足电网级储能对长时放电能力的需求。",
-          "sc": 8.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.ess-news.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
-          "tp": "长时储能系统",
-          "aip": 1
-        },
-        {
           "t": "美国Twelve公司称其以CO2为原料的商业化规模可持续航空燃料工厂投产",
           "d": "2026-06-10",
-          "a": "",
+          "a": "Twelve",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
           "as": "美国Twelve公司宣布以CO₂为原料的商业化规模E-Jet可持续航空燃料工厂AirPlant One投产，同时生产E-Naphtha可持续石脑油。航空燃料符合ASTM D7566规范，成本锚定电力协议价格，已与阿拉斯加航空、微软达成采购协议；石脑油产品已供货奔驰（汽车内饰）、宝洁（汰渍成分）等。标志着CO₂电化学转化燃料从实验室走向商业化。",
-          "sc": 7.1,
+          "sc": 7.2,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.twelve.co/post/airplant-one-opens-in-moses-lake-america-s-first-commercial-e-jet-fuel-plant-begins-operations",
           "tp": "合成燃料",
-          "aip": 1
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "Circularity Fuels公司称其完成畜禽粪便沼气制SAF试点实验\n6月16日，美国可再生化工品技术公司Circularity Fuels在其官网发文转载诸多媒体报道称，其在加州一处奶牛养殖场完成将畜禽粪便沼气制备可持续航空燃料（SAF）的试验。文中称，该试点首先通过电气化双重整反应将沼气变为合成气，而后通过费托合成路径制备SAF；宣传甲烷转化率超过98%，二氧化碳转化率超过90%，并称其实验持续6个月，可持续处理含有约65%甲烷和35%二氧化碳的未经处理的沼气；其预估商业设施的开发均摊成本可低于10万美元/桶（国际标准计量约159L，文中未明确）/天，并预计于2027年开始建设首个商业规模设施。二者制SAF均为费托合成，主要区别在于原料及合成气制备路径.Twelve路径：CO2+H2O电解制得CO+H2+O2—碳负载Au/Ag催化剂；装置亮点：pH梯度防止质子、HCO3-传导、可根据压力温度调节CO、H2比例\n制备参数：50~500 mA/cm²、6.9 Mpa、室温-80℃。Circularity Fuels路径：沼气CO2+CH4电阻加热干/湿重整制得CO+H2装置亮点：底层铁铬铝合金、不锈钢等材料电阻加热基底+上层沉积针对性催化剂（根据不同反应可选择不同催化剂）制备参数：专利中暂无相关反应路径，主要为CO2捕集加氢制甲烷的双功能（捕集+催化）催化剂。沼气/CO2制备SAF路径规模化探索",
+          "b": "6月10日，美国CO2转化利用技术公司Twelve在官网发文称，称其以CO2为原料的商业化规模E-Jet燃料生产工厂AirPlant One投产，同时还生产E-Naphtha™（可持续石脑油）。文中称，其合成的航空燃料符合ASTM D7566规范，并称其成本锚定于电力协议价格，已与阿拉斯加航空、微软达成投资/采购协议；而基于石脑油生产的产品也已向奔驰（汽车内饰）、PANGAIA（聚碳酸酯太阳镜镜片）和宝洁（用于汰渍洗衣液部分成分）。",
+          "hb": 1
+        },
+        {
+          "t": "美国Twelve公司称其以CO2为原料的商业化规模可持续航空燃料工厂投产",
+          "d": "2026-06-10",
+          "a": "Twelve",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "美国Twelve公司宣布以CO₂为原料的商业化规模E-Jet可持续航空燃料工厂AirPlant One投产，同时生产E-Naphtha可持续石脑油。航空燃料符合ASTM D7566规范，成本锚定电力协议价格，已与阿拉斯加航空、微软达成采购协议；石脑油产品已供货奔驰（汽车内饰）、宝洁（汰渍成分）等。标志着CO₂电化学转化燃料从实验室走向商业化。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.twelve.co/post/airplant-one-opens-in-moses-lake-america-s-first-commercial-e-jet-fuel-plant-begins-operations",
+          "tp": "合成燃料",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "Circularity Fuels公司称其完成畜禽粪便沼气制SAF试点实验\n6月16日，美国可再生化工品技术公司Circularity Fuels在其官网发文转载诸多媒体报道称，其在加州一处奶牛养殖场完成将畜禽粪便沼气制备可持续航空燃料（SAF）的试验。文中称，该试点首先通过电气化双重整反应将沼气变为合成气，而后通过费托合成路径制备SAF；宣传甲烷转化率超过98%，二氧化碳转化率超过90%，并称其实验持续6个月，可持续处理含有约65%甲烷和35%二氧化碳的未经处理的沼气；其预估商业设施的开发均摊成本可低于10万美元/桶（国际标准计量约159L，文中未明确）/天，并预计于2027年开始建设首个商业规模设施。二者制SAF均为费托合成，主要区别在于原料及合成气制备路径.Twelve路径：CO2+H2O电解制得CO+H2+O2—碳负载Au/Ag催化剂；装置亮点：pH梯度防止质子、HCO3-传导、可根据压力温度调节CO、H2比例\n制备参数：50~500 mA/cm²、6.9 Mpa、室温-80℃。Circularity Fuels路径：沼气CO2+CH4电阻加热干/湿重整制得CO+H2装置亮点：底层铁铬铝合金、不锈钢等材料电阻加热基底+上层沉积针对性催化剂（根据不同反应可选择不同催化剂）制备参数：专利中暂无相关反应路径，主要为CO2捕集加氢制甲烷的双功能（捕集+催化）催化剂。沼气/CO2制备SAF路径规模化探索",
+          "b": "6月10日，美国CO2转化利用技术公司Twelve在官网发文称，称其以CO2为原料的商业化规模E-Jet燃料生产工厂AirPlant One投产，同时还生产E-Naphtha™（可持续石脑油）。文中称，其合成的航空燃料符合ASTM D7566规范，并称其成本锚定于电力协议价格，已与阿拉斯加航空、微软达成投资/采购协议；而基于石脑油生产的产品也已向奔驰（汽车内饰）、PANGAIA（聚碳酸酯太阳镜镜片）和宝洁（用于汰渍洗衣液部分成分）。",
+          "hb": 1
+        },
+        {
+          "t": "落基山国家实验室Allison Werner提出还原-氧化串联策略实现木质素高收率转化",
+          "d": "2026-06-10",
+          "a": "Doi",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "落基山国家实验室Allison Werner团队开发还原-氧化串联+生物漏斗化工艺，实现杨木木质素到己二酸高产转化，实验产率26 wt%（理论57 wt%）。流程：还原催化分馏提取木质素→钼碳化物催化加氢脱氧去酚→Co/Mn/Br催化自氧化断裂C-C键产出芳香羧酸（单体产率73 wt%）→工程改造Pseudomonas putida发酵转化。为木质素高值化替代化石己二酸提供可行路线。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10580-x",
+          "tp": "木质素转化",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "背景信息补充：木质素通常占木质纤维素类生物质干重的20%~30%，但当前这部分木质素极难被微生物直接利用，基于化学法的木质素解聚策略主要针对芳基醚键断裂，单体产率有限（约30 wt%），且C-C键连接的寡聚物进一步制约了整体产率，现有单一产物最高产率仅约20 wt%，故当前利用大多通过高温气化以获得合成气。然而这显著增加了成本——正因如此，此前以秸秆为代表的农业废弃物大多被直接露天焚烧。情报价值点提取：报道了一种创新的还原-氧化-生物漏斗化工艺，从杨木木质素原料出发，实现26 wt%的己二酸实验产率（己二酸/木质素），理论最高达57 wt%，超越此前单一产物约20 wt%的上限。Comment：本文提出的新路线并非依赖单一步骤或单项技术，将化学组成复杂的木质素直接转化为单一产物，而是分解为一系列更小的任务：先将木质素转化为较小的化合物，再去除会干扰后续反应的化学基团，提高其水溶性，并生成细菌能够代谢的中间体。每一步都改变了物料形态，从而降低下一步的化学复杂度。然而，其每一步都会引入潜在的物料损失点——损失可能源于不完全转化，也可能源于生成了无法继续进入下一步的产物。故该方法还需提高中间体组分控制能力，回收更多可用的物料。",
+          "b": "在全球推动化工制造脱碳、寻求可再生原料替代化石资源的背景下，木质素作为植物生物质中最丰富的芳香聚合物，其高效解聚并转化为单一高价值化学品长期面临挑战。传统木质素解聚策略主要针对芳基醚键断裂，单体产率有限（约30 wt%），且C-C键连接的寡聚物进一步制约了整体产率，现有单一产物最高产率仅约20 wt%。\n本文开发了一种化学还原-氧化与生物漏斗化相结合的工艺，成功实现杨木木质素到己二酸（尼龙6,6关键单体）的高产转化，实验产率达26 wt%（克己二酸/克木质素），理论最高产率57 wt%。工艺流程如下：首先通过还原催化分馏（RCF）提取木质素，获得含单体和寡聚物的RCF油；随后采用钼碳化物催化剂进行催化加氢脱氧（HDO），生成脱氧烷基芳烃混合物，去除抑制性酚类（这些酚类物质具有抗氧化性，会抑制后续的氧化反应）；接着在Co/Mn/Br催化体系下进行自氧化，高效断裂C–C键，产出以苯甲酸和苯二羧酸异构体为主的芳香羧酸单体，让它们能轻松溶解在发酵液中，单体产率高达73 wt%（基于HDO油）。\n研究团队进一步工程改造土壤细菌Pseudomonas putida KT2440，通过整合邻苯二甲酸降解途径、适应性实验室进化等策略，构建工程菌株KMM037。该菌株能将混合芳香羧酸高效转化为单一中间体——粘康酸内酯（muconolactone），在摇瓶和0.5 L生物反应器中均展现高转化率和选择性。最后经化学氢化，粘康酸内酯以近定量产率转化为己二酸。\n该工艺对松木和桦木等不同木质素原料同样适用，展现良好灵活性。与石油化工中芳烃还原-氧化路线类似，此方法突破了木质素C–C键的转化瓶颈，为生物炼制提供高产平台，有望推动可再生尼龙单体等化学品的工业化生产。文章于2026年6月10日发表在Nature。",
+          "hb": 1
         }
       ]
     },
@@ -76,49 +92,74 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "谷歌发布Gemini 3.5模型，支持70余种语言低延迟双向语音互译",
-        "港大研发阻变存储器存算一体架构，三维CT重建能效提升23.5倍",
-        "研究人员提出192维复用光子计算架构，提升矩阵计算吞吐量"
+        "研究开发原位聚合物纳米晶体限制技术，蓝色钙钛矿LED光致发光产率达83%",
+        "实验确认MoSe2异质结中存在双组分激子凝聚，为高温凝聚态提供新方案",
+        "科研人员利用光辅助准粒子隧穿机制，实现对单个微波光子的连续检测"
       ],
       "entries": [
         {
-          "t": "谷歌发布实时语音互译模型 Gemini 3.5 Live Translate：可识别 70 余种语言，谷歌翻译 App 就能用",
+          "t": "原位纳米晶体限制高效蓝色钙钛矿 LED",
           "d": "2026-06-10",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "谷歌发布实时语音互译模型Gemini 3.5 Live Translate，支持自动识别70余种语言并实现低延迟双向语音翻译。该模型已集成至谷歌翻译App中，用户可直接体验实时语音互译功能。相比传统翻译工具，该模型在多语种识别准确性和翻译流畅度方面均有显著提升，标志着端侧实时语音翻译技术的重要进展。",
-          "sc": 8.5,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/962/143.htm",
-          "tp": "实时语音互译",
-          "aip": 1
-        },
-        {
-          "t": "香港大学Xiaojuan Qi提出一种用于稀疏输入信号重建的软硬件协同优化框架",
-          "d": "2026-06-10",
-          "a": "",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "香港大学Xiaojuan Qi团队提出稀疏输入信号重建的软硬件协同优化框架。软件层用神经场隐式表示信号，低秩分解和结构化剪枝压缩；硬件层设计基于阻变存储器的存内计算平台，含高斯编码器和MLP处理引擎。在40nm 256Kb RRAM宏上，三维CT重建、新视角合成和动态场景合成分别实现23.5倍、21.0倍、32.3倍能效提升，突破冯·诺依曼瓶颈。",
-          "sc": 7.0,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-026-10646-w",
-          "tp": "存内计算",
-          "aip": 1
-        },
-        {
-          "t": "用于高并行光计算的192维波长/模式/偏振复用光子架构",
-          "d": "2026-06-10",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究提出一种192维波分/模分/偏振复用的光子计算架构，利用片上光子神经网络中的矩阵-向量乘法（MVM）核心计算原语，通过波长、模式、偏振三重复用大幅提升单芯片的计算并行度与吞吐量，突破传统电子互连的带宽与功耗瓶颈，为下一代高能效AI光子加速器提供了新的架构方案。",
-          "sc": 7.1,
+          "a": "Nature",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "研究通过原位聚合驱动的纳米晶体限制技术，成功合成了由高质量纳米晶体组成的钙钛矿薄膜，解决了原位合成中“高结晶度”与“小尺寸”之间的矛盾，制备出高效的蓝色钙钛矿LED。原位形成的聚合物网络在钙钛矿纳米晶体生长过程中施加了纳米级空间限制，使纳米晶体保持较小尺寸，且光致发光量子产率高达83%。",
+          "sc": 8.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag350/8704112?rss=1",
-          "tp": "光子计算架构",
-          "aip": 1
+          "u": "https://www.nature.com/articles/s41586-026-10596-3",
+          "tp": "蓝色钙钛矿LED",
+          "aip": 1,
+          "kp": [
+            "[钙钛矿LED]: 通过原位聚合驱动的纳米晶体限制技术合成，解决高结晶度与小尺寸之间的矛盾，实现高效蓝光发射"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Metal halide perovskites have emerged as promising semiconductors for light-emitting diodes (LEDs) owing to their excellent luminescence properties1. However, their performance remains limited, primarily owing to the inherent contradiction between ‘high crystallinity’ and ‘small size’ in the in situ synthesis of perovskite nanocrystals on substrates. Here we report efficient blue perovskite LEDs (PeLEDs) achieved via in situ polymerization-driven nanocrystal confinement to synthesize perovskite films composed of high-quality nanocrystals. The in situ-formed polymer network imposes nanoscale spatial constraints during perovskite nanocrystal growth, enabling nanocrystals with small sizes and a high photoluminescence quantum yield of 83%. Furthermore, polymerizable monomers with sufficient coordination sites allow a prolonged lattice rearrangement of perovskite clusters, promoting the crystallinity of the nanocrystals. The synthesized perovskite nanocrystals are utilized in the fabrication of PeLEDs, resulting in an external quantum efficiency of 21.8% at 491 nm, which is among the highest performances in blue PeLEDs. This work simultaneously controls the thermal dynamics of perovskite crystallization and organic ligand reactions, which helps to advance understanding of the effect of ligand engineering on nanocrystal synthesis, benefiting the development of efficient PeLEDs and other optoelectronic technologies.",
+          "hb": 1
+        },
+        {
+          "t": "电子空穴双层中的双组分激子凝聚",
+          "d": "2026-06-10",
+          "a": "Nature",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "研究在MoSe2/hBN/WSe2电子-空穴双层结构中发现了双组分激子玻色-爱因斯坦凝聚（BEC）的证据。该异质结构包含具有四种自旋-谷味道的平衡激子流体。通过在稀释制冷机中使用磁光光谱学探测，研究揭示了具有不同味道极化的三个激子凝聚物相。在零磁场下，其多体基态呈现出特定的状态，为研究高温平衡凝聚态提供了新途径。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10636-y",
+          "tp": "激子玻色凝聚",
+          "aip": 1,
+          "kp": [
+            "激子凝聚[电子空穴双层]: MoSe2/hBN/WSe2双组分激子玻色-爱因斯坦凝聚(BEC)",
+            "宏观量子相干性[激发态]: 高温强相互作用、电可调谐及多分量自旋有序"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Macroscopic quantum coherence emerges when bosons condense into a Bose–Einstein condensate (BEC)1,2,3,4,5. Excitons are a long-sought solid-state route to high-temperature BECs with strong interactions, electrical tunability and potentially multicomponent spinor order, but conclusive evidence for equilibrium condensation has remained elusive. Here we report evidence for two-component exciton BECs in MoSe2/hBN/WSe2 electron–hole bilayers6,7,8,9 by probing the spin–valley susceptibility of constituent electrons and holes. This heterostructure hosts equilibrium exciton fluids with four spin–valley flavours. Magneto-optical spectroscopy in a dilution refrigerator reveals three exciton condensate phases with distinct flavour polarizations. At zero magnetic field, the many-body ground state is a coherent superposition of two condensed intravalley exciton flavours. Under a magnetic field, the intravalley exciton condensate first switches to a two-component intervalley condensate through a first-order quantum phase transition at a weak critical field and then turns into a fully polarized single-component condensate at high fields. The condensate signatures form a dome in density–temperature space, persisting up to approximately 1.8 K. Our results establish van der Waals electron–hole bilayers as a versatile platform for strongly interacting, multicomponent exciton BECs.",
+          "hb": 1
+        },
+        {
+          "t": "通过光辅助准粒子隧道到超导岛快速连续检测单个微波光子",
+          "d": "2026-06-10",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究人员发现了一种通过光辅助准粒子隧穿到超导岛，实现对单个传播微波光子进行快速连续检测的新机制。这种机制实现了微波频段的光电效应模拟，能够高效探测单个微波光子。该技术在量子信息处理、量子通信以及暗物质探测等实际应用中具有极高的潜在价值。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/mj91-ntm4",
+          "tp": "微波光子检测",
+          "aip": 1,
+          "kp": [
+            "光子检测机制[微波光子连续检测]: 光辅助准粒子隧穿至超导岛，实现微波光电效应"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): J. Basset, O. Stanisavljević, J. Gabelli, M. Aprili, and J. EstèveA new mechanism for the detection of individual propagating microwave photons that realizes a microwave analogue of the photoelectric effect could be used for practical applications in quantum information and dark matter search.[Phys. Rev. Lett. 136, 237001] Published Wed Jun 10, 2026",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +167,76 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "华为发布构网型储能变流器，提升新能源场站弱电网支撑能力",
-        "浙江7月实施电价新政，大工业峰谷套利价差降幅达41%",
-        "乘联会：2026年5月中国乘用车销量前16名车型均为电动汽车"
+        "研究人员开发特异性分子胶dHuR，通过降解RNA结合蛋白抑制结直肠癌",
+        "实验证实单壁碳纳米管在水中存在光诱导量子摩擦，扩散常数下降约50%",
+        "江门中微子观测站发布首批59.1天数据，精确测量反应堆中微子振荡"
       ],
       "entries": [
         {
-          "t": "华为发布构网型储能变流器（PCS）",
+          "t": "HuR 分子胶降解剂抑制 BRAF 突变结直肠癌",
           "d": "2026-06-10",
-          "a": "pv magazine",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "华为发布新型构网型储能变流器(PCS)解决方案，集成PCS硬件、电站级控制系统和基于AI的能源管理平台。构网型PCS可在无电网支撑的情况下自主建立电压和频率参考，为弱电网和高比例新能源并网场景提供电网支撑能力。该方案面向大规模储能电站应用，提升了新能源场站的电网惯量和稳定性。",
-          "sc": 8.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/09/huawei-unveils-grid-forming-pcs/",
-          "tp": "构网型PCS",
-          "aip": 1
+          "a": "Nature",
+          "c": "通用技术/催化剂",
+          "as": "针对BRAF突变的结直肠癌治疗难题，研究人员通过化学文库设计和蛋白质组学筛选，开发出一种名为dHuR的分子胶降解剂。dHuR能够特异性降解人抗原R（HuR）这种促进肿瘤生长、侵袭和耐药性的RNA结合蛋白。其机制是通过结合CRBN泛素连接酶形成独特的复合物表面，从而有效靶向并抑制BRAF突变结直肠癌的进展。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10613-5",
+          "tp": "分子胶降解剂",
+          "aip": 1,
+          "kp": [
+            "致病突变比例[结直肠癌患者]: 约10%携带BRAF功能获得性突变(特别是V600E)",
+            "干预策略[克服BRAF抑制剂耐药]: 采用HuR分子胶降解剂抑制MAPK通路重激活"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "BRAF gain-of-function mutations, particularly BRAF(V600E), affect roughly 10% of all patients with colorectal cancer (CRC), and portend poor prognosis with limited therapeutic interventions. BRAF inhibitors such as encorafenib are ineffective due to MAPK pathway reactivation driven by BRAF dimerization. Combined inhibition of BRAF and EGFR, although approved therapies, results in short survival benefits and frequent treatment resistance and relapse1,2,3. Here, through rational chemical library design coupled with parallel proteomic screening, we identified dHuR as a molecular glue degrader of human antigen R (HuR), an RNA-binding protein that drives tumour growth, invasion and therapy resistance. dHuR binds to the CRBN ubiquitin ligase to create a unique benzofuran-tethered composite surface to recruit HuR as a neosubstrate by engaging its β-hairpin G-loop degron, as revealed by the cryo-electron microscopy structure of the ternary complex. dHuR abrogated BRAF expression by inducing its exon 18 skipping, and demonstrated superior suppression of BRAF-mutant CRC tumours including those gaining resistance to BRAF inhibitors. Finally, we performed kinome library CRISPR screening and revealed that inactivation of EGFR or MEK enhanced dHuR cytotoxicity, thus establishing a combinatorial strategy to treat patients with refractory BRAF-mutant CRC.",
+          "hb": 1
         },
         {
-          "t": "浙江工商业分时电价新政（浙发改价格〔2026〕112号）深度解读：储能套利空间收窄、光伏度电价值下移，应对策略全解析",
+          "t": "碳纳米管在水中的光诱导量子摩擦",
           "d": "2026-06-10",
-          "a": "索比光伏",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "浙江省2026年7月1日起执行工商业分时电价新政(浙发改价格〔2026〕112号)，近三年力度最大的电价结构性调整。三板斧包括取消上午峰电、计价基数收窄、浮动比例统一。大工业10kV峰谷套利价差降幅41%，光伏度电价值降幅32%，典型光储充项目EIRR从29.78%降至11.67%，全省工商业用户无例外覆盖。",
-          "sc": 7.4,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://news.solarbe.com/202606/09/50024168.html",
-          "tp": "浙电价新政",
-          "aip": 1
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究证明了近红外荧光单壁碳纳米管（SWCNTs）在水中会表现出光诱导的量子摩擦现象。通过测量发现，功能化SWCNTs在水溶液中的扩散常数与激发功率呈线性关系，下降了约50%。这种量子摩擦源于液体与固体电子之间的动量直接转移。当激子被局域化（如在具有量子缺陷的SWCNTs中）时，该效应随之消失。",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10632-2",
+          "tp": "碳管量子摩擦",
+          "aip": 1,
+          "kp": [
+            "量子摩擦[水中近红外荧光单壁碳纳米管]: 光诱导的液固电子间动量直接转移现象",
+            "测量方式[量子摩擦特征]: 表现出依赖激发功率的光谱展宽现象"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Friction slows down moving objects at both macroscopic and microscopic scales1. At the electronic level, quantum friction describes direct transfer of momentum between a liquid and the electrons of a solid2. Owing to its microscopic nature, this phenomenon remains experimentally challenging to capture3. Here we show that near-infrared fluorescent single-walled carbon nanotubes (SWCNTs) exhibit light-induced quantum friction in water. It is measured by observing an excitation-power-dependent linear decrease of around 50% in the diffusion constants of functionalized SWCNTs in aqueous solution. This effect disappears when excitons are localized, as in the case of SWCNTs with quantum defects. We further show that the chemical manipulation of exciton concentration by molecules that increase or decrease SWCNT fluorescence also modulates the diffusion constant by up to a factor of 2. Optical pump terahertz (THz) probe spectroscopy shows an instantaneous response (around 30 cm−1) that we assign to direct exciton–water coupling in the range of water Debye modes. It is followed by an increasing (>100 ps) response in the range of intermolecular translational modes of the hydrogen bond network of water (>100 cm−1), resembling heating. Classical molecular dynamics simulations further support a mechanism in which the fluctuating dipole moments of excitons create frictional forces. These findings establish light-induced quantum friction between excitons in SWCNTs and water and show that electronic excitations can be used to control nanoscale motion and fluid properties.",
+          "hb": 1
         },
         {
-          "t": "中国燃油车销量持续下滑，销量前16名已全部是电动车",
+          "t": "使用第一个 JUNO 数据测量反应堆中微子振荡",
           "d": "2026-06-10",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "据中国乘联会数据，2026年5月中国销量前16的车型全部为电动汽车，燃油车（ICE）销量持续暴跌。这一里程碑数据标志着中国汽车市场电动化转型进入加速临界点——电动汽车不再仅占据榜首个别位置，而是全面主导畅销榜单。燃油车市场份额的急剧萎缩对传统车企构成生存压力，也印证了中国新能源汽车政策的深远成效。",
-          "sc": 6.9,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/09/ice-car-sales-continue-to-plummet-in-china-the-top-16-cars-are-now-evs/",
-          "tp": "电动汽车市场",
-          "aip": 1
+          "a": "Nature",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "JUNO（江门中微子观测站）利用首批59.1天的探测数据精确测量了反应堆中微子振荡。该探测器是一座2万吨级液体闪烁体探测器，距离多个反应堆堆芯52.5公里，旨在以低于百分之一的精度解析反应堆中微子的干涉图样，从而确定中微子质量顺序并测试三味中微子框架。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10538-z",
+          "tp": "中微子振荡探测",
+          "aip": 1,
+          "kp": [
+            "[中微子振荡的量子宏观效应]: 受轻子味混合角和中微子质量平方差异(超越标准模型的基本参数)控制",
+            "[三味中微子框架研究]: 需要对轻子味混合角和中微子质量平方差异等基本参数进行精确测量，以测试框架完整性、确定质量顺序并探索新物理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Neutrino oscillations (see refs. 1,2 and references therein), a quantum effect manifesting at macroscopic scales, are governed by lepton flavour mixing angles and neutrino mass-squared differences3 that are fundamental parameters of particle physics, representing phenomena beyond the Standard Model. Precision measurements of these parameters are essential for testing the completeness of the three-flavour framework, determining the mass ordering of neutrinos and probing possible new physics. The Jiangmen Underground Neutrino Observatory (JUNO)4 is a 20-ktonne liquid-scintillator detector located 52.5 km from multiple reactor cores, designed to resolve the interference pattern of reactor neutrinos with sub-percent precision5,6. Here we report, using the first 59.1 days of data collected since detector completion in August 2025, the first simultaneous high-precision determination of two neutrino oscillation parameters, sin2&#x03B8;12=0.3092&#x00B1;0.0087\" role=\"presentation\">sin2θ12=0.3092±0.0087{\\sin }^{2}{\\theta }_{12}=0.3092\\,\\pm \\,0.0087 and &#x0394;m212=(7.50&#x00B1;0.12)&#x00D7;10&#x2212;5eV2\" role=\"presentation\">Δm212=(7.50±0.12)×10−5eV2\\Delta {m}_{21}^{2}=(7.50\\,\\pm \\,0.12)\\times 1{0}^{-5}\\,{\\mathrm{eV}}^{2} for the normal mass ordering scenario, improving the precision by a factor of 1.6 relative to the combination of all previous measurements. These results advance the basic understanding of neutrinos, validate the design of the detector and indicate the readiness of JUNO for resolving the neutrino mass ordering with a larger dataset. The rapid achievement with a short exposure highlights the potential of JUNO to push the frontiers of precision neutrino physics and paves the way for its broad scientific programme.",
+          "hb": 1
         }
       ]
     }

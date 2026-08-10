@@ -1,0 +1,80 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月2日　星期二",
+  "date_range": "2025-12-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型离子液体凝胶电解质显著提升四电子锌碘电池机械强度与稳定性"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "加压镍酸盐单晶体超导温度达96K"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型离子液体凝胶电解质显著提升四电子锌碘电池机械强度与稳定性"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 用于四电子锌碘电池的机械强度高且坚韧的离子液体凝胶电解质",
+          "d": "2025-12-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18431",
+          "tp": "锌碘电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "加压镍酸盐单晶体超导温度达96K"
+      ],
+      "entries": [
+        {
+          "t": "加压镍酸盐单晶的体超导温度高达 96 K",
+          "d": "2025-12-02",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-025-09954-4",
+          "tp": "镍基超导体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

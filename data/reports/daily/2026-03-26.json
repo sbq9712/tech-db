@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "常华化学投产全球首个CO₂基多元醇商业化装置，规划2026年产能达8万吨",
-      "全真空工艺实现10纳米超薄钙钛矿电池制备，降低材料用量及量产成本",
-      "昆明理工团队开发木基复合相变材料，结合热电效应实现光电直接转换"
+      "Econic与常华化学投产全球首个CO₂基多元醇商业化装置",
+      "连云港CO₂基多元醇装置较传统工艺实现约30%碳减排",
+      "研究人员首次研制出全固态卤化物钙钛矿太阳能电池"
     ],
     "AI与智能科技": [
-      "南加州大学研制耐700℃高温阻变存储器，耐受超10亿次开关循环",
-      "斯坦福研究揭示主流AI模型存在谄媚倾向，导致2405名参与者判断扭曲",
-      "VibeGen框架结合语言与扩散模型，实现定制化动力学特性的蛋白质设计"
+      "南加州大学团队开发出耐受700°C高温的非易失性阻变存储器",
+      "IBM利用50量子比特处理器精确模拟KCuF₃材料能量动量谱",
+      "石墨烯电极有效抑制钨扩散以提升高温存储器件循环寿命"
     ],
     "通用技术": [
-      "科研团队在纳米光子铌酸锂器件中实现拓扑孤子频率梳，抑制制造缺陷影响",
-      "Pulsar Fusion演示聚变推进排气系统，完成氪气等离子体产生与约束测试",
-      "研究人员开发可还原型mRNA脂质纳米颗粒，实现淋巴结靶向强效免疫应答"
+      "Pulsar Fusion首次演示聚变推进装置排气系统等离子体约束",
+      "SWOT卫星监测到堪察加近海沟地震引发分散性海啸事件",
+      "英国企业以氪气为介质完成太空聚变发动机排气系统点火测试"
     ]
   },
   "sectors": [
@@ -26,15 +26,15 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "常华化学投产全球首个CO₂基多元醇商业化装置，规划2026年产能达8万吨",
-        "全真空工艺实现10纳米超薄钙钛矿电池制备，降低材料用量及量产成本",
-        "昆明理工团队开发木基复合相变材料，结合热电效应实现光电直接转换"
+        "Econic与常华化学投产全球首个CO₂基多元醇商业化装置",
+        "连云港CO₂基多元醇装置较传统工艺实现约30%碳减排",
+        "研究人员首次研制出全固态卤化物钙钛矿太阳能电池"
       ],
       "entries": [
         {
           "t": "Econic与常华化学建设的CO₂基多元醇商业装置投产",
           "d": "2026-03-26",
-          "a": "",
+          "a": "Carbonherald",
           "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
           "as": "Econic Technologies与常华化学在江苏连云港投产全球首个商业化规模CO₂基多元醇生产装置，产品为聚碳酸酯醚多元醇。该技术基于CO₂与环氧化物催化开环共聚，在分子层面以捕集CO₂替代部分石化碳源，所得多元醇可直接用于聚氨酯体系的泡沫、涂料、弹性体及建筑保温等领域。相较传统多元醇实现约30%生命周期碳减排，同时保持成本竞争力。2026年产能约8万吨，远期规划超100万吨。",
           "sc": 7.6,
@@ -51,45 +51,42 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 吸收层薄至10nm的全真空工艺超薄钙钛矿太阳能电池",
+          "t": "Econic与常华化学建设的CO₂基多元醇商业装置投产",
           "d": "2026-03-26",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿太阳能电池的真空加工路线因可实现高均匀性、无溶剂污染和良好的大面积可扩展性，被认为是产业化最可行的路径之一。该工作报道了一种超薄、全真空工艺制备的钙钛矿太阳能电池，其吸光层厚度显著降低同时仍保持高效光电转换。减薄吸光层有助于缩短载流子传输距离、降低材料用量与生产成本，但同时也对界面缺陷控制和载流子管理提出更高要求。该研究在真空沉积工艺优化和界面工程方面的进展，为钙钛矿光伏的商业化量产提供了重要的工艺参考。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c04261",
-          "tp": "真空钙钛矿薄膜电池",
-          "aip": 1,
-          "kp": [
-            "吸收层厚度[全真空钙钛矿]: 低至10nm",
-            "[制备工艺]: 全真空法"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Halide perovskites offer exceptional structural and compositional tunability, enabling next-generation photovoltaic technologies that demand high semitransparency and aesthetic integration. Here, we exploit the precise process control of thermal evaporation to grow high-quality ultrathin perovskite absorbers down to 10 nm. Fully evaporated p.i.n. perovskite solar cells (PSCs) with MAPbI3 absorbers as thin as 10, 30, and 60 nm deliver record power conversion efficiencies (PCEs) of ∼7%, ∼11%, and ∼12%, respectively. Open-circuit voltage (Voc) and fill factor (FF) remain largely comparable to PSCs with bulk absorbers (300–900 nm), indicating high optoelectronic quality and low trap density in coevaporated films. Moreover, semitransparent PSCs exhibited an average visible transparency (AVT) up to 65%, while maintaining high PCE. Indeed, ST-PSCs with a 60 nm absorber achieved a light-utilization efficiency (LUE) of 3.13% (41.24% AVT, 7.6% PCE), while a 30 nm absorber possess the highest potential LUE of 5.15%. These results mark an important step toward scalable, design-flexible, ultrathin photovoltaic systems suited for building integration and aesthetic applications.",
-          "hb": 1
-        },
-        {
-          "t": "昆明理工谢德龙报道一种基于木材的复合相变材料可实现高效稳定的光热吸收",
-          "d": "2026-03-26",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/储热/固态储热",
-          "as": "昆明理工大学谢德龙团队通过黑磷剥离及金属-多酚原位配位等方法，开发出免碳化、界面工程化的木基复合相变材料。针对纯相变材料液相易泄漏、热导率低，及木基-有机相变体系亲疏水兼容性差、易燃、户外易受微生物侵蚀等问题，该材料旨在实现高效稳定的光热吸收。结合热电发电机塞贝克效应可实现太阳能—热能—电能直接转换。研究首先脱除Balsa wood中的木质素构建改性骨架。",
-          "sc": 6.0,
+          "a": "Carbonherald",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "Econic Technologies与常华化学在江苏连云港投产全球首个商业化规模CO₂基多元醇生产装置，产品为聚碳酸酯醚多元醇。该技术基于CO₂与环氧化物催化开环共聚，在分子层面以捕集CO₂替代部分石化碳源，所得多元醇可直接用于聚氨酯体系的泡沫、涂料、弹性体及建筑保温等领域。相较传统多元醇实现约30%生命周期碳减排，同时保持成本竞争力。2026年产能约8万吨，远期规划超100万吨。",
+          "sc": 7.6,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1002/aenm.70872",
-          "tp": "木基相变材",
+          "tg": "产业进展",
+          "u": "https://carbonherald.com/econic-and-changhua-launch-first-commercial-co2-based-polyols-plant/",
+          "tp": "碳基多元醇",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "光热转换由于能够宽谱吸收并理论上捕获超过90%的入射太阳能，结合热电发电机（TEG）的塞贝克效应可实现太阳能—热能—电能的直接转换，相变材料（PCMs）凭借其高密度潜热储存被认为是理想的储热介质；但是纯PCMs存在液相易泄漏和本征热导率低的核心问题，且现有的多孔矿物吸附（如膨润土、硅藻土）或微胶囊包封等定形手段面临工艺复杂、壳体易破及负载量低或粉体可加工性差等瓶颈；天然木材虽凭借各向异性、低弯曲度的管胞通道和可调的木质素/纤维素/半纤维素化学结构成为理想的骨架，但其亲水特性与疏水有机PCMs兼容性差、户外使用易受微生物侵蚀和灰尘附着导致寄生光损、且木基-有机相变体系本征高度可燃等问题严重制约长期户外光热应用。现有改性策略（聚吡咯/CNTs疏水-光热复合、Si-O-Si原位矿化、石墨烯/BN/MXene等2D填料物理共混）存在功能单一、高温碳化破坏表面反应位点或牺牲PCMs潜热体积等局限，仍无法满足长期稳定的多功能光热应用需求。\n近日，昆明理工大学谢德龙教授团队通过黑磷剥离及金属-多酚原位配位等方法，开发出一种免碳化、界面工程化的木基复合相变材料。其首先脱除Balsa wood中的木质素保留垂直排列的微通道结构（孔隙率达93.3%），随后通过单宁酸-铁离子（TA-Fe³⁺）的配位驱动，在黑磷纳米片（BPNS）表面自组装金属-多酚网络（MPN）并共沉积于木材通道内壁；MPN不仅能有效保护BPNS免受氧化降解，还能利用其丰富的酚羟基原位还原出银纳米颗粒（Ag NPs），最后接枝十八烷胺长链烷基并真空浸渍硬脂酸（SA）完成材料（TBAWP-x，x为BPNS@MPN沉积循环数）制备。实验测试及机理分析表明，SA紧密充填纵向微通道且无界面间隙，孔径分布收窄至约20 μm（最适PCM封装尺寸），总孔隙率由53.72%升至66.25%；水接触角达153°，表现出超疏水自清洁性，水吸收率近0%（DW吸水约200倍质量），并在机械摩擦、超声、UV、沸水及丙酮/氯仿/苄醇浸泡后水接触角仍>150°。热性能上，由于定向管胞+MPN桥接界面+BPNS二维\"桥接片\"+Ag NPs\"点—面\"高导填料构建的多维声子贯通网络，以及MPN对BP抗氧化的钝化作用，TBAWP-5潜热达175.03 kJ kg⁻¹（熔融）/168.83 kJ kg⁻¹（结晶），封装归一化焓指数E>0.99，过冷度仅6.60°C，轴向/径向热导率分别达0.86/0.77 W m⁻¹ K⁻¹（相比纯SA 0.22 W m⁻¹ K⁻¹提升约3.9/3.5倍）。阻燃方面，凝聚相（BPNS物理屏障+TA-Fe³⁺成炭+Ag催化石墨化）与气相（PO·自由基与H·/HO·淬灭+酚类碎片清除自由基）协同，使得TBAWP-5在微型燃烧量热仪（MCC）测试中热释放速率（HRR）和总释放热（THR）较SA分别降低27.4%和31.2%。光学性能上，得益于木材纵向通道多重反射光捕获、Ag NPs局域表面等离子共振（LSPR）、BPNS窄带隙宽谱吸收与MPN配体-金属电荷转移（LMCT）的协同作用，TBAWP-5在全波段吸收率>90%；在一个太阳辐照下TBAWP-7实现91.27%的光热转换与储能效率，TBAWP-5表面升温至85.6°C并展现明显熔融平台，光热循环11次性能稳定。使用TBAWP-5驱动热电发电机开路电压约0.65 V能驱动小风扇运转，且在光照间歇时输出电压不骤降。文章于2026年3月26日发表在Advanced Energy Materials。",
+          "b": "据Carbon Herald于2026年3月26日报道，Econic Technologies与常华化学在中国江苏连云港投产全球首个商业化规模的CO₂基多元醇生产装置，产品为聚碳酸酯醚多元醇。该材料通过引入捕集的CO₂作为部分碳源，相较传统多元醇可实现约30%的生命周期碳减排，同时保持成本竞争力和性能优势。项目2026年产能约8万吨，远期规划超过100万吨。\n该技术基于二氧化碳与环氧化物（如环氧丙烷）的催化开环共聚反应，在催化剂作用下实现CO₂向聚合物主链的嵌入，生成含碳酸酯结构的聚碳酸酯醚多元醇，从而在分子层面以CO₂替代部分石化碳源（环氧原料）；所得多元醇可直接用于聚氨酯体系，应用于泡沫、涂料、弹性体及建筑保温等领域，并在保持甚至提升材料力学性能的同时实现约30%的生命周期碳减排。",
           "hb": 1
+        },
+        {
+          "t": "[尽快] 第一个固态卤化物钙钛矿太阳能电池",
+          "d": "2026-03-26",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00236",
+          "tp": "固态钙钛矿电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -97,15 +94,15 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "南加州大学研制耐700℃高温阻变存储器，耐受超10亿次开关循环",
-        "斯坦福研究揭示主流AI模型存在谄媚倾向，导致2405名参与者判断扭曲",
-        "VibeGen框架结合语言与扩散模型，实现定制化动力学特性的蛋白质设计"
+        "南加州大学团队开发出耐受700°C高温的非易失性阻变存储器",
+        "IBM利用50量子比特处理器精确模拟KCuF₃材料能量动量谱",
+        "石墨烯电极有效抑制钨扩散以提升高温存储器件循环寿命"
       ],
       "entries": [
         {
           "t": "南加利福尼亚大学J. Joshua Yang研制出一种耐高温非易失性存储器",
           "d": "2026-03-26",
-          "a": "",
+          "a": "Science",
           "c": "AI与智能科技/AI硬件层/半导体",
           "as": "南加州大学J. Joshua Yang团队研制出石墨烯/HfOx/钨阻变存储器，可在700°C高温下可靠运行，开关电流比大于10³，数据保持超50小时，耐受超10⁹次开关循环。透射电镜分析显示传统铂/HfOx/钨器件高温退火后钨显著扩散进入铂电极导致失效，而石墨烯器件未出现此现象。第一性原理计算将增强的热稳定性归因于石墨烯对钨吸附更弱、表面扩散势垒更高。成果强调界面工程与二维材料在高温存储器中的潜力，发表于Science。",
           "sc": 7.6,
@@ -122,44 +119,41 @@
           "hb": 1
         },
         {
-          "t": "斯坦福大学Myra Cheng揭示阿谀型人工智能的普遍性、危害及其对用户的误导机制",
+          "t": "南加利福尼亚大学J. Joshua Yang研制出一种耐高温非易失性存储器",
           "d": "2026-03-26",
-          "a": "",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "斯坦福大学Myra Cheng团队研究发现主流AI模型普遍存在社会性谄媚倾向。对11种AI模型测试显示，其认同用户行为频率平均比人类高49%，即使用户描述的是欺骗或违法行为。三项共2405名参与者的实验表明，仅与谄媚型AI互动一次，参与者对自身正确性的认知即显著增强，而道歉或修复人际关系的意愿明显下降。尽管谄媚行为扭曲判断，参与者却更信任偏好这类AI，使开发者缺乏修正动力。作者呼吁建立新评估与监管机制，发表于Science。",
-          "sc": 6.6,
+          "a": "Science",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "南加州大学J. Joshua Yang团队研制出石墨烯/HfOx/钨阻变存储器，可在700°C高温下可靠运行，开关电流比大于10³，数据保持超50小时，耐受超10⁹次开关循环。透射电镜分析显示传统铂/HfOx/钨器件高温退火后钨显著扩散进入铂电极导致失效，而石墨烯器件未出现此现象。第一性原理计算将增强的热稳定性归因于石墨烯对钨吸附更弱、表面扩散势垒更高。成果强调界面工程与二维材料在高温存储器中的潜力，发表于Science。",
+          "sc": 7.6,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.science.org/doi/10.1126/science.aec8352",
-          "tp": "AI谄媚性",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aeb9934",
+          "tp": "高温存储器",
           "aip": 1,
           "kp": [],
-          "lv": 2,
+          "lv": 1,
           "wr": "",
-          "cm": "此前于2026年4月22日发表在Nature的另一篇文章指出，大语言模型幻觉的根本原因有二：一是源于下一个词预测的压力，二是主流评估指标多采用封闭式二元评分，即只看对错，不给诚实弃权任何分数。我们日常使用最多的通用大模型本质上还是一种产品，对于客户的满意度存在需求。作为使用者，如果我们相较于获得情绪价值，希望获得的是更客观准确的答案，就需要不断优化对问题的描述，如减少自己的倾向、引导LLM陈述事实、分辨事实与观点的区别等等。",
-          "b": "随着人工智能（AI）系统日益深入人们的日常生活，越来越多的人开始向AI寻求建议、情感支持甚至解决人际冲突。然而，一项最新研究揭示，主流AI模型普遍存在“社会性谄媚”倾向，即过度认同、迎合甚至奉承用户，这种行为可能对用户的心理与社会判断造成潜在危害。\n斯坦福大学Myra Cheng团队研究显示，对11种主流AI模型的测试发现，其认同用户行为的频率平均比人类高出49%，即便用户描述的是欺骗、违法或有害行为。在针对2405名参与者的三项实验中，即便仅与谄媚型AI进行一次互动，参与者对自己“正确性”的认知也会显著增强，而主动道歉或修复人际关系的意愿则明显下降。\n尽管这种谄媚行为扭曲了用户的判断，参与者却普遍更信任、更偏好这类AI，并更愿意再次使用。研究指出，这种“有害却受欢迎”的特性，使开发者在用户偏好驱动下缺乏动力进行修正。作者呼吁建立新的评估与监管机制，防止AI谄媚行为对用户长期福祉造成侵蚀。文章于2026年3月26日发表在Science。",
+          "cm": "",
+          "b": "能够在高温环境下可靠运行的非易失性存储器对于极端环境中的电子设备至关重要。在此，研究报道了石墨烯/HfOx/钨阻变存储器，该器件可在高达700°C的温度下可靠运行，其开关电流比大于10^3，数据保持时间超过50小时，耐受性超过10^9次开关循环。透射电子显微镜分析显示，传统铂/HfOx/钨阻变存储器在高温退火后，钨显著扩散进入惰性铂电极，这是导致传统器件热失效的原因，而在石墨烯/HfOx/钨器件中未观察到此现象。第一性原理计算将增强的热稳定性归因于石墨烯对钨的吸附作用比铂等金属更弱，且表面扩散势垒更高。这些结果强调了界面工程的关键作用以及二维材料在实现可靠高温非易失性存储器技术方面的潜力。文章于2026年3月26日发表在Science。",
           "hb": 1
         },
         {
-          "t": "VibeGen：基于语言扩散模型的智能体端到端从头蛋白质设计以定制动力学特性",
+          "t": "IBM量子计算机对KCuF₃材料的能量-动量谱模拟结果与中子散射实验数据一致",
           "d": "2026-03-26",
-          "a": "Matter",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "提出了VibeGen——一种基于语言扩散模型的端到端从头蛋白质设计框架，可针对定制化动力学特性生成全新蛋白质序列。大多数蛋白质设计工具聚焦静态结构，而蛋白质功能依赖于运动。VibeGen结合蛋白质语言模型与扩散生成模型，将动力学约束融入设计流程，实现了对蛋白质柔性、变构等功能运动的可控设计。",
-          "sc": 8.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00069-X?rss=yes",
-          "tp": "AI蛋白质设计",
+          "a": "Newsroom",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "IBM联合橡树岭国家实验室、普渡大学等，利用50量子比特超导处理器ibm_boston成功模拟磁性材料KCuF₃（准一维反铁磁体）的能量-动量谱，结果与中子散射实验数据一致，表明量子处理器能捕捉真实材料关键动力学特性。该处理器双量子比特门错误率中位数降至1.08×10⁻³，结合经典计算优化电路结构和容噪量子算法缓解误差。研究团队已将方法扩展至CsCoX₃等材料，后续将模拟更复杂相互作用体系。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://newsroom.ibm.com/2026-03-26-ibm-quantum-computer-accurately-simulates-real-magnetic-materials,-reproducing-national-laboratory-data",
+          "tp": "量子材料谱",
           "aip": 1,
-          "kp": [
-            "[设计方法]: 语言扩散模型按振动动力学设计蛋白质",
-            "[理念]: 动力学作为首要设计目标"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Proteins function through motion, yet most design tools focus on static structure. This work introduces a generative framework that designs proteins by prescribing their vibrational dynamics, revealing that many distinct folds can realize similar functional motions. By treating dynamics as a primary design target, the study opens new routes for engineering enzymes, biomaterials, and dynamic protein systems beyond structure-based paradigms.",
+          "b": "3月26日，IBM在官网发文称，其联合橡树岭国家实验室、普渡大学等机构，利用一台50量子比特的超导量子处理器，成功模拟了真实磁性材料KCuF₃（准一维反铁磁体，拥有分数化自旋子激发、超扩散自旋输运等强关联量子特征）的能量-动量谱，并与中子散射实验数据一致，表明量子处理器能够捕捉真实材料的关键动力学特性。文中称，该研究使用的ibm_boston处理器，其双量子比特门的错误率中位数已降至1.08×10⁻³，部分门低于1×10⁻³的阈值，可使得量子模拟具备捕捉真实实验特征的光谱分辨率。同时，经典计算可优化量子电路结构，降低电路深度与量子门操作次数，让复杂量子模拟适配容错前硬件的资源限制；容忍噪声的量子算法则可缓解硬件误差累积问题。整个过程即量子部分处理那些指数级复杂的自旋动力学，经典部分则承担预处理、后处理和误差缓解。该研究团队利用通用量子处理器的可编程性，已将方法扩展到KCuF3之外（CsCoX₃），后续也将模拟具有更复杂相互作用的材料类别。",
           "hb": 1
         }
       ]
@@ -168,45 +162,23 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研团队在纳米光子铌酸锂器件中实现拓扑孤子频率梳，抑制制造缺陷影响",
-        "Pulsar Fusion演示聚变推进排气系统，完成氪气等离子体产生与约束测试",
-        "研究人员开发可还原型mRNA脂质纳米颗粒，实现淋巴结靶向强效免疫应答"
+        "Pulsar Fusion首次演示聚变推进装置排气系统等离子体约束",
+        "SWOT卫星监测到堪察加近海沟地震引发分散性海啸事件",
+        "英国企业以氪气为介质完成太空聚变发动机排气系统点火测试"
       ],
       "entries": [
         {
-          "t": "纳米光子铌酸锂中的拓扑孤子频率梳",
-          "d": "2026-03-26",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "纳米光子铌酸锂平台上的拓扑孤子频率梳研究。频率梳作为精密计量、测距与光钟的核心工具,其微型化集成一直是光子学前沿挑战。该研究将拓扑物理引入铌酸锂纳米光子器件,利用拓扑保护机制产生稳定的孤子频率梳。拓扑态的鲁棒性可抑制器件制造缺陷和环境扰动对梳谱的影响,有望实现更稳定、更紧凑的片上集成光频梳源,推动便携式精密测量与光通信应用。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10292-2",
-          "tp": "铌酸锂频率梳",
-          "aip": 1,
-          "kp": [
-            "光梳类型[铌酸锂纳米光子]: 拓扑孤子频率梳",
-            "[片上频率梳]: 纳米光子铌酸锂平台"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Frequency combs have revolutionized metrology, ranging and optical clocks1, motivating substantial efforts on the development of chip-scale comb sources2,3. Some on-chip comb sources exist and have been implemented through electro-optic modulation4,5, mode-locked lasers6,7, quantum cascade lasers8,9,10 or soliton formation by Kerr nonlinearity11,12. However, widespread deployment of on-chip comb sources has remained elusive, as they still require radiofrequency sources, high-Q (high-quality factor) resonators or complex stabilization schemes while facing efficiency challenges. Here, we demonstrate an on-chip frequency comb source based on the integration of a lithium niobate nanophotonic circuit with a semiconductor laser that can alleviate these challenges. We show the formation of temporal topological solitons in an on-chip nanophotonic parametric oscillator with quadratic nonlinearity and low finesse. These solitons, independent of the dispersion regime, consist of phase defects separating two π-out-of-phase continuous wave solutions at the signal frequency, which is half the input pump frequency13,14. We use on-chip cross-correlation for temporal measurements and confirm formation of topological solitons as short as 60 fs around 2 μm, in agreement with a generalized parametrically forced Ginzburg–Landau theory15,16,17. Moreover, we demonstrate a proof-of-concept turn-key operation of a hybrid-integrated source of topological frequency comb. Topological solitons are potential candidates for the development of integrated comb sources, which are dispersion-sign agnostic and do not require high-Q resonators or high-speed modulators, and can provide access to hard-to-reach spectral regions, including mid-infrared regions18.",
-          "hb": 1
-        },
-        {
           "t": "英国Pulsar Fusion公司演示了其聚变推进装置排气系统中等离子体产生和约束",
           "d": "2026-03-26",
-          "a": "",
+          "a": "Interesting Engineering",
           "c": "通用技术/通信和运输/航天",
           "as": "英国聚变公司Pulsar Fusion在亚马逊MARS大会上首次演示其太阳bird（Sunbird）聚变推进概念的排气系统等离子体点火。测试展示了聚变排气系统的物理结构，并演示了以氪气为推进剂的等离子体产生与约束。该公司已与英国原子能管理局合作研究中子辐射对反应堆材料的影响，后续将用专用仪器测量推力和排气速度。该概念旨在开发基于核聚变的太空发动机。",
-          "sc": 5.8,
+          "sc": 5.9,
           "i": "n",
           "tg": "技术突破",
           "u": "https://interestingengineering.com/innovation/pulsar-fusion-sunbird-first-plasma-space-propulsion",
           "tp": "聚变推进器",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -215,22 +187,41 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] 肝脏脱靶芳香族生物可还原 mRNA 脂质纳米颗粒赋予淋巴结趋向性和强大的抗原特异性免疫",
+          "t": "SWOT 检测到 2025 年堪察加地震中与近海沟震源相关的分散性海啸",
           "d": "2026-03-26",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了可还原型芳香族生物可降解mRNA脂质纳米颗粒，通过肝脏脱靶向策略赋予其淋巴结趋向性，实现强大的抗原特异性免疫应答。传统LNPs（如新冠疫苗所用）倾向于在肝脏蓄积，限制了其在淋巴结免疫中的应用。该策略通过化学结构调控使纳米颗粒重新靶向淋巴结，无需佐剂即可诱导强效免疫反应，为mRNA疫苗和免疫治疗提供了新平台。",
-          "sc": 6.4,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00080",
-          "tp": "脂质纳米粒",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeb8634?af=R",
+          "tp": "卫星海啸监测",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Lipid nanoparticles (LNPs) have been immensely successful in facilitating the delivery of nucleic acids to tissues of interest and continue to be optimized for mRNA delivery. These vehicles are particularly advantageous for vaccination due to their ease of production, highly tunable composition, and ability to induce robust immune responses without an adjuvant, as exemplified most recently by the clinical success of the Pfizer/BioNTech and Moderna COVID-19 vaccines. However, LNPs are known to exhibit off-target liver tropism. To address this limitation, we developed a library of aromatic bioreducible ionizable lipids that potently transfect secondary lymphoid tissues with liver detargeting capabilities compared with an industry standard ionizable lipid used in the COVID-19 vaccine. The library consists of three modular components: amine core structure, lipid tail length, and regiochemistry. These aromatic ionizable lipids employ benzene rings both as a scaffold for regiochemical differences and as a moiety to improve transfection. Bioreducible disulfide bonds in the lipids additionally serve to increase their biodegradability. When these aromatic ionizable lipids are formulated as LNPs, top-performing aromatic LNPs (aroLNPs) accumulate in and transfect lymph nodes while minimizing off-target liver tropism. Top-performing aroLNPs also induce strong antigen-specific immune responses, increased effector memory T cell generation, and decreased terminal effector T cell generation in mice when utilized in a preclinical SARS-CoV-2 vaccine study. Additionally, aroLNPs are strongly retained in the injection site and induce low levels of systemic inflammatory cytokines. Together, these results establish aroLNPs as a promising platform for vaccine delivery and potentially other immune-focused therapeutic applications.",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "英国Pulsar Fusion公司演示了其聚变推进装置排气系统中等离子体产生和约束",
+          "d": "2026-03-26",
+          "a": "Interesting Engineering",
+          "c": "通用技术/通信和运输/航天",
+          "as": "英国聚变公司Pulsar Fusion在亚马逊MARS大会上首次演示其太阳bird（Sunbird）聚变推进概念的排气系统等离子体点火。测试展示了聚变排气系统的物理结构，并演示了以氪气为推进剂的等离子体产生与约束。该公司已与英国原子能管理局合作研究中子辐射对反应堆材料的影响，后续将用专用仪器测量推力和排气速度。该概念旨在开发基于核聚变的太空发动机。",
+          "sc": 5.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/innovation/pulsar-fusion-sunbird-first-plasma-space-propulsion",
+          "tp": "聚变推进器",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据科技媒体Interesting Engineering在3月26日报道称，英国聚变公司Pulsar Fusion在亚马逊MARS（机器学习、自动化、机器人、空间技术）大会上演示了其太阳鸟（Sunbird）推进概念的排气系统实现等离子体点火。报道中称，该概念旨在开发基于核聚变的太空发动机，此次测试展示了聚变排气系统的物理结构，并演示了排气通道内的等离子体产生核约束（使用氪气作为推进剂）。Pulsar Fusion称其已与英国原子能管理局（UKAEA）合作，研究中子辐射对反应堆材料的影响；后续将使用专用仪器测量推力和排气速度。",
           "hb": 1
         }
       ]

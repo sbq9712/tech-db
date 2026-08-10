@@ -6,19 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院化学所研发氮取代石墨炔电极实现金属空气电池太阳能直接充电",
-      "天合光能发布907瓦钙钛矿与硅叠层光伏组件转换效率达29.2%",
-      "Tandem PV展出效率达30.4%的四端子钙钛矿与硅叠层商业示范模组"
+      "中科院化学所采用氮取代石墨炔光耦合正极，实现金属空气电池太阳能直接充电",
+      "氟化碳酸氧铋热熔合构建亲锂人工SEI，研制出首个安时级氟化物转换软包电池"
     ],
     "AI与智能科技": [
-      "中国批准全球首款侵入式脑机接口芯片并完成首批患者植入手术",
-      "微软发布拓扑量子芯片Majorana 2但其量子比特有效性遭学界质疑",
-      "Anthropic与SpaceX联合披露合作细节并预警算力扩张加剧水资源消耗"
+      "微软发布升级版拓扑量子芯片Majorana 2，量子态维持时间超20秒",
+      "宇树科技科创板IPO过会，拟募资42亿元投建智能机器人研发制造基地"
     ],
     "通用技术": [
-      "比亚迪承诺为其自动驾驶系统过错导致的事故承担全部经济赔偿责任",
-      "国家能源局四月核发可再生能源绿证2.37亿个含可交易绿证1.77亿个",
-      "欧洲配电网审批滞后致使约455吉瓦电池储能项目滞留并网等待队列"
+      "长征十二号乙火箭完成首飞，将千帆极轨08组卫星送入预定轨道",
+      "二维电化学电池实现亚皮秒级离子相干弹道传输，300飞秒内穿过80纳米通道",
+      "单链寡脱氧核苷酸5'端花青修饰，使CRISPR-Cas9同源定向修复效率达30%"
     ]
   },
   "sectors": [
@@ -26,22 +24,21 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院化学所研发氮取代石墨炔电极实现金属空气电池太阳能直接充电",
-        "天合光能发布907瓦钙钛矿与硅叠层光伏组件转换效率达29.2%",
-        "Tandem PV展出效率达30.4%的四端子钙钛矿与硅叠层商业示范模组"
+        "中科院化学所采用氮取代石墨炔光耦合正极，实现金属空气电池太阳能直接充电",
+        "氟化碳酸氧铋热熔合构建亲锂人工SEI，研制出首个安时级氟化物转换软包电池"
       ],
       "entries": [
         {
           "t": "中科院化学所李玉良采用氮取代石墨炔光耦合电极实现金属空气电池太阳能充电与低过电位循环",
           "d": "2026-06-02",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
           "as": "中科院化学所李玉良团队提出以氮取代石墨炔（NGDY）作为金属自由光耦合正极，实现可充电金属空气电池直接太阳能充电。NGDY通过改性sp杂化碳网络，在光激发下动态重构电子密度形成瞬态高活性位点，避免依赖贵金属催化剂。带隙从1.72eV拓宽至1.87eV，展现n型半导体特性，光照下显著降低充电过电位，为太阳能直接存储于电池提供了新策略。",
-          "sc": 7.5,
+          "sc": 7.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41467-026-73926-z",
-          "tp": "光耦合电极",
+          "tp": "光耦合金属空气电池",
           "aip": 1,
           "kp": [],
           "lv": 1,
@@ -51,49 +48,45 @@
           "hb": 1
         },
         {
-          "t": "天合光能发布29.2%效率的907瓦叠层太阳能组件",
+          "t": "中科院化学所李玉良采用氮取代石墨炔光耦合电极实现金属空气电池太阳能充电与低过电位循环",
           "d": "2026-06-02",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "天合光能（Trina Solar）宣布推出功率达907瓦的钙钛矿/硅叠层太阳能组件，经德国TÜV SÜD认证，整板转换效率达到29.2%。叠层电池通过将宽带隙钙钛矿顶电池与窄带隙硅底电池组合，可更高效利用太阳光谱中不同波段光子，突破单结硅电池的理论效率极限（约29.4%）。该成果标志着叠层光伏技术从实验室向产业化组件层面迈出关键一步。核心瓶颈在于大面积钙钛矿薄膜的均匀沉积、长期光热稳定性及铅基材料的环保合规问题，户外服役寿命仍待验证。",
-          "sc": 8.4,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/01/trina-solar-announces-907-w-tandem-solar-module-with-29-2-efficiency/",
-          "tp": "叠层光伏组件",
-          "aip": 1,
-          "kp": [
-            "组件功率[n型TOPCon-钙钛矿叠层]: 907 W",
-            "转换效率[叠层组件TÜV认证]: 29.2%",
-            "[量产状态]: 面向量产设计"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Technology & Products\nThe module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD and is designed for mass production rather than laboratory-scale use.\nVincent Shaw\nTechnology & Products\nUtility-scale\nImagen: Trina Solar\nChinese PV manufacturer\nhas unveiled a 907 W n-type TOPCon-perovskite tandem solar module.\nAccording to the company, the module achieved a full-panel conversion efficiency of 29.2% in testing by Germany’s TÜV SÜD. The product is reportedly designed for mass production, rather than a laboratory-scale sample.\nThe module uses a two-terminal tandem cell architecture combining an n-type TOPCon crystalline silicon bottom device with a perovskite top cell. The design is intended to absorb a broader part of the solar spectrum than conventional single-junction silicon modules.\nThe module measures 2,384 mm by 1,303 mm and is based on 210 mm wafer technology. It incorporates large-area perovskite film deposition, tunnel recombination contact technology, and high-reliability encapsulation.\nThe company said its slot-die coating and vapor-assisted crystallization process improved film uniformity in large-area perovskite layers, while a composite indium tin oxide (ITO) tunneling layer wass used to reduce recombination losses between the top and bottom cells.\nThe panel also utilizes dual-layer co-extruded polyolefin elastomer (POE) encapsulation and a low water-vapor transmission backsheet, along with perovskite-specific sealing materials. According to Trinasolar, the product has passed International Electrotechnical Commission (IEC) 61215 and IEC 61730 reliability testing, including potential-induced degradation (PID), damp heat, thermal cycling, and ultraviolet (UV) aging tests.\nTrinasolar said it plans to accelerate production of its perovskite-silicon tandem module line in 2026, though large-scale commercial shipments are expected to begin in 2028–2029, according to a recent investor communication.\nIn December, the manufacturer announced that an industrial-scale tandem solar cell using a 210 mm half-cut format achieved a\ncertified power conversion efficiency of 32.6%\n, while a standard-size tandem module integrating the cells delivered a peak power output of 865 W. It said both results have been independently verified by European testing bodies and represent world-record performance for industrially relevant formats.\nTrina Solar said the latest results build on a series of tandem milestones reported over the past two years, including certified tandem modules exceeding 800 W and tandem cell efficiencies above 31% on industrial wafer formats. The company claimed it has now created or broken global benchmarks in solar cell efficiency or module power output 37 times.\nVincent Shaw\nView author posts",
-          "hb": 1
-        },
-        {
-          "t": "Tandem PV发布30.4%效率的钙钛矿/硅叠层示范组件",
-          "d": "2026-06-02",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "叠层光伏公司Tandem PV宣布推出效率达30.4%的钙钛矿/硅叠层示范模组。该100平方厘米迷你模组采用公司专有的四端子钙钛矿玻璃叠层技术，叠置于传统硅电池之上。这一效率突破标志着钙钛矿/硅叠层太阳能电池从实验室小面积器件向商业化可用面积模组的关键工程化进展。",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "中科院化学所李玉良团队提出以氮取代石墨炔（NGDY）作为金属自由光耦合正极，实现可充电金属空气电池直接太阳能充电。NGDY通过改性sp杂化碳网络，在光激发下动态重构电子密度形成瞬态高活性位点，避免依赖贵金属催化剂。带隙从1.72eV拓宽至1.87eV，展现n型半导体特性，光照下显著降低充电过电位，为太阳能直接存储于电池提供了新策略。",
           "sc": 7.8,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://www.pv-magazine.com/2026/06/01/tandem-pv-announces-30-4-efficient-perovskite-silicon-demonstration-module/",
-          "tp": "钙钛矿硅叠层",
+          "u": "https://doi.org/10.1038/s41467-026-73926-z",
+          "tp": "光耦合金属空气电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "近年来，将太阳能直接存储于可充电金属空气电池（RMABs）中成为可持续能源领域的前沿课题。RMABs（如Zn||air、Li||O₂、Mg||air）具有高理论比能量、安全性和环境兼容性，但实际应用受限于正极氧气析出反应（OER）动力学缓慢、充电过电位高，以及依赖贵金属催化剂（Pt、IrO₂）导致成本高且易降解的问题。传统光耦合电极依赖半导体异质结或带隙工程，光仅生成外部载流子，而活性位点保持静态，导致光诱导催化增强有限，材料易在电化学条件下退化。\n近日，中科院化学所李玉良教授团队提出氮取代石墨炔（NGDY）为金属自由光耦合正极，实现RMABs的直接太阳能充电。NGDY通过改性sp杂化碳网络，在光激发下动态重构电子密度，形成瞬态高活性位点。其先在铜箔涂覆碳布（CC）表面原位生长NGDY纳米片，经超声剥离得到粉末，保持高结晶性与层状堆叠结构（厚度约3.4nm，约9层），原子级N:C比约1:3。光电化学表征显示，NGDY吸收可见光范围光谱，带隙从GDY的1.72eV拓宽至1.87eV（实验测），DFT计算为1.94eV；Mott–Schottky曲线证明其n型半导体特性；光照下光生电流达130.5µA cm⁻²，表明电子–空穴有效分离。光照下XPS、Raman和DFT模拟显示，光激发使sp-C的炔键电子部分转移至氮位点，产生高活性氧化中心，动态优化OER中间体吸附。原位Raman监测表明，OOH和O中间体在低充电电压下出现且迅速反应，光激发降低了中间体累积和充电反应障碍。DFT计算表明，光激发降低OER自由能，C3位点成为活性催化位点，中间体吸附能显著下降，表明增强界面反应动力学和稳定性。性能方面，NGDY基光耦合Zn||air电池（PZAB）在光照下1mAcm-2充电电压降至1.33V（低于理论1.65V及Pt/C+IrO₂对照1.91V），能量效率提高至96.9%，在100mAcm-2下稳定循环230次，库伦效率>96%，光照降低锌枝晶生成，改善安全性。Li||O₂电池（PLOB）光照下能量效率达96.3%，电压差显著减小且循环稳定；Mg||air、Fe||air和Al||air电池均显示充电电压下降和能效提升。固态PZAB在光照下充电电压从2.05V降至1.20V，能量效率提升至93.6%，可弯曲循环稳定。文章于2026年6月2日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "亲锂氟化 Bi2O2CO3 热熔合产生异质 SEI 和无枝晶锂镀层，用于首个 Ah 级氟化物转换软包电池",
+          "d": "2026-06-02",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "为提升阳极界面的电化学与机械稳定性，研究提出将掺氟的碳酸氧铋（F-BOC）与金属锂进行热熔合，构建亲锂的人工固态电解质界面（ASEI）。氟的引入增强了F-BOC的锂吸附能力，形成各向同性且致密的结构，有效阻挡TFSI⁻阴离子并调节锂离子的沉积与剥离，实现无枝晶的锂镀层，并成功应用于首个安时级氟化物转换软包电池。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71139?af=R",
+          "tp": "锂金属电池界面",
           "aip": 1,
           "kp": [
-            "转换效率[钙钛矿/硅4端叠层mini-module]: 30.4%",
-            "面积[示范组件]: 100 cm²",
-            "[结构]: 4端钙钛矿玻璃层+Maxeon IBC硅电池"
+            "电池规格[氟化物转换软包电池]: 首个Ah级",
+            "界面工程[锂金属负极]: 亲锂氟化Bi2O2CO3热熔合构建异质SEI",
+            "技术特征[锂镀层]: 无枝晶"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Technology & Products\nThe 100 cm² mini-module, featuring the company’s proprietary 4-terminal perovskite glass layer atop a high-efficiency Maxeon IBC silicon solar cell, is now in third-party certification. Company CEO Scott Wharton says the breakthrough paves the way for full-size modules that hit 28% efficiency later this year, aimed at the utility-scale market.\nBen Zientara\nTechnology & Products\nUtility-scale\nImage: Tandem PV\nU.S.-based perovskite/silicon solar module maker Tandem PV has achieved a conversion efficiency of 30.4% from a 100 cm² demonstration module in internal testing. The module features the company’s proprietary 4-terminal perovskite glass in a tandem configuration on top of an interdigitated back contact (IBC) cell produced by Maxeon.\nAccording to Tandem PV CEO Scott Wharton, who spoke with\npv magazine USA\nabout the achievement, breaking the 30% barrier has been a company goal for some time.\nIn a social media post announcing the achievement, Wharton called the 30% threshold “a level of performance beyond where conventional silicon solar panels can realistically go,” adding that the demonstration module is “a sign that perovskite-silicon tandem solar is moving onto a new performance curve.”\nNotably, unlike some other perovskite efficiency records — such as the recent 1 cm² perovskite test cell produced by a Chinese Academy of Sciences research team that\nachieved 32.89% efficiency in certified testing\n— the Tandem PV module is built using a process designed to scale quickly to production modules.\nWharton estimates a full-sized module using the design could achieve 28% efficiency — offering 12% more output from the same surface area as the current silicon-based efficiency leader, a\n545 W back-contact solar module with 25% efficiency\nThe Tandem PV demonstration module is now advancing through third-party certification of its performance.\nDesign specifics\nWhile Wharton noted the underlying Maxeon cell in the Tandem PV module operates at roughly 25% efficiency on its own, he admitted the addition of the perovskite glass reduces that efficiency slightly as the tandem layer filters some of the wavelengths that would have reached the silicon surface.\nHowever, Wharton said the perovskite layer converts 9% of the sun’s energy on its own, leading to the 30.4% figure, and the CEO estimated his company would be able to hit 10% efficiency for its perovskite layer in the near future.\nAs for durability, Wharton said Tandem PV’s latest products are showing an estimated degradation rate of about 1% per year in UV-accelerated lifetime testing at 65°C, a figure supported by data from tests of Tandem’s current modules in the field.\nThat’s not quite the\n0.59% per year average degradation\nseen in more mature silicon cell technologies, but it’s not far off.\nLooking to the future, Wharton said Tandem PV will be able to keep pace with the latest innovations in silicon solar cell technology, because the company’s perovskite glass-over silicon design does not lock its modules into reliance on a specific cell architecture.\n“One of the things about our approach is that we can use really any cells,” the CEO said, noting that the design can integrate tunnel oxide passivated contact (TOPCon), heterojunction (HJT), or passivated emitter and rear cell (PERC) technologies. “Our products can naturally get better. We just have to sit back and watch the industry innovate.”\nGranholm joins Tandem PV board\nIn other news, Tandem PV announced the addition of former U.S. Energy Secretary Jennifer Granholm to its board of directors, alongside current board members including Wharton, company co-founder and CTO Colin Bailie, and co-founder and managing director Chris Eberspacher.\n“The idea of building the next generation of clean-energy factories in America is incredibly exciting,” said Granholm in a statement. “Tandem PV is taking a breakthrough technology from a promising idea to real manufacturing, and doing it at exactly the moment when the country needs more affordable, reliable power.”\nBen Zientara\nView author posts",
+          "b": "ABSTRACT\n                  \n                    The artificial solid electrolyte interface (ASEI) is regarded as a simple yet highly effective approach to enhance both the electrochemical and mechanical stability of the anode‐electrolyte interface. In this study, we propose the thermal fusion of fluorine‐incorporated Bi\n                    2\n                    O\n                    2\n                    CO\n                    3\n                    (F‐BOC) with lithium metal to construct a lithium‐philic ASEI functioning as an interface rectifier to regulate lithium‐ion deposition and stripping. The introduction of fluorine promotes the Li adsorption capability of F‐BOC, and the formation of an isotropic and compact structure that blocks TFSI\n                    −\n                    anions outside the ASEI layer. Under sustained electrochemical operation, a heterogeneous LiF‐Li\n                    2\n                    CO\n                    3\n                    conductive nanodomain region is generated from F‐BOC, facilitating the lithium‐ion transport across the LiF‐Li\n                    2\n                    CO\n                    3\n                    interface, which effectively suppresses lithium dendrite growth and electrode expansion. The F‐BOC‐modified LiNi\n                    0.8\n                    Co\n                    0.1\n                    Mn\n                    0.1\n                    O\n                    2\n                    full cells demonstrate excellent cycling stability, with a high capacity retention of 85.88% over 600 cycles at 1 C and a capacity retention of 90.3% over 120 cycles under high active material loading 20 mg cm\n                    −2\n                    . Moreover, the modified thin lithium anodes (60 µm in thickness) achieve stable cycling in 15‐layer pouch cells based on high‐capacity FeF\n                    3\n                    , delivering a capacity of nearly 1 Ah, which is the highest level for fluoride conversion reaction batteries.",
           "hb": 1
         }
       ]
@@ -102,37 +95,17 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "中国批准全球首款侵入式脑机接口芯片并完成首批患者植入手术",
-        "微软发布拓扑量子芯片Majorana 2但其量子比特有效性遭学界质疑",
-        "Anthropic与SpaceX联合披露合作细节并预警算力扩张加剧水资源消耗"
+        "微软发布升级版拓扑量子芯片Majorana 2，量子态维持时间超20秒",
+        "宇树科技科创板IPO过会，拟募资42亿元投建智能机器人研发制造基地"
       ],
       "entries": [
         {
-          "t": "中国批准全球首款侵入式脑机接口芯片——下一步是什么",
-          "d": "2026-06-02",
-          "a": "MIT Technology Review",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "中国批准了全球首款侵入式脑机接口芯片。2024年10月，河南患者董辉成为首批接受植入的受试者之一。该芯片由中国本土团队研发，标志中国在侵入式BCI赛道上取得监管层面的里程碑式突破，直接对标Neuralink等美国企业。文章详述了患者从决策到手术的全过程，反映出中国在神经接口领域加速从实验室走向临床应用的态势。",
-          "sc": 10.0,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.technologyreview.com/2026/06/01/1138133/china-world-first-brain-chip/",
-          "tp": "侵入式脑机芯片",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "EXECUTIVE SUMMARY\nOne day last October, sitting in the courtyard of his house in China’s Henan province, Dong Hui decided to see if he could hold a pen to write.\nDong, 39, had sustained spinal cord injuries in a car accident six years earlier that left him paralyzed from the neck down. Slowly but determinedly, he wrote his name, “Thank you,” and then the date. This was the result of an 11-month-long rehabilitation enabled by an implant in his brain. Before that process, Dong could move his arms slightly but wasn’t able to use his fingers.\n“I couldn’t believe I was able to write again. I was so excited I even missed a stroke in my name,” he told\nMIT Technology Review\non a video call.\nIn November 2024, Dong became one of the first people in China to be given an invasive brain-computer interface (BCI) through brain surgery. He had signed up for a clinical trial with the device’s developer one month after seeing on TV how a BCI had apparently enabled another paralyzed Chinese man to hold his granddaughter.\nThis March, the implant Dong uses became the first invasive BCI product in the world to be approved for use beyond clinical trials. It’s now available to some patients with paralysis in their limbs due to spinal cord injuries. We spoke to a range of experts to understand why the device was able to reach this global milestone, what makes this moment so significant, and what to expect next.\nDong’s brain implant is a coin-size device called NEO. It was developed by\nNeuracle Technology\n, a Shanghai-based startup, together with researchers at Tsinghua University in Beijing.\nDuring a procedure that took just over an hour and a half, the device’s sensors, which collect Dong’s brain signals, were placed on his dura mater, the tough outer layer of tissue that covers and protects the brain. The signals are transmitted to a computer by an implant placed on Dong’s skull. The computer then translates the signals into commands for a soft robotic glove Dong wears during the 2.5-hour training sessions he completes each day to help him learn to grab.\nDong started his rehabilitation around a week after surgery. “On the ninth day of my training, my right hand successfully grabbed a ball without the glove,” he says. “That was a miraculous moment.”\nNow he continues with his training at home. He wants to be able to control his hands better in order to put on clothes, eat, and do other daily tasks without troubling his aging parents.\nA growing number of people with traumatic injuries in China are now poised to tread a similar path thanks to NEO’s recent approval. According to China’s National Medical Products Administration, the bureau responsible for drug supervision, the product is suitable for patients between 18 and 60 who have paralysis in all limbs due to spinal cord injuries but still have some residual function in their arms.\nNEO beat several other BCIs to approval, including one from Neuralink, a California-based company founded by Elon Musk. Since October 2023, Neuracle has conducted 36 clinical trials using NEO, including the one on Dong. Thirty-two of them took place in the space of a few months in 2025, with the details about one of the four first in-person trials published in a\npreprint paper\nlast July. Neuracle did not reply to a request for comment from\nMIT Technology Review\nOne reason for NEO’s fast approval could be that it has a “relatively less invasive” design than counterparts such as Neuralink’s N1 brain chip, says Avinash Singh, a BCI researcher at the University of Technology Sydney. NEO’s eight sensors sit on top of the brain’s protective membrane while Neuralink’s N1 chip directly penetrates the cortex, the outermost layer of the brain itself. Neuracle’s device faces fewer regulatory constraints because it presents a lower risk of hemorrhage, glial scarring, and long-term signal degradation, Singh says.\nChina’s strong support for its BCI industry also means that NEO was put on an expedited regulatory pathway; in comparison, the approval process of the US Food and Drug Administration can take several years, Singh adds.\nNEO’s approval is hugely important for the global BCI industry, says Wang Shouyan, a neuroscientist at Fudan University in Shanghai who was not involved in research or trialing for NEO. Even though research and development on BCIs has taken place for several decades, most of it happened in the lab. The news means that BCIs are now ready for large-scale manufacturing and clinical use in China, Wang says.\nFor Dong, however, it means something much more personal. “Now, it will be able to help not only me, but also thousands and thousands of other patients suffering from spinal cord injuries in China who are tortured by despair each day,” he says of NEO. “It will bring them hope and change their lives.”\nDays after NEO was approved, China started incorporating it into the country’s health insurance system by assigning it a unique code. This is one of the first steps toward a future where eligible Chinese patients pay a certain percentage of the BCI’s price if they need it during their treatment.\nThe growth of China’s BCI industry is expected to accelerate thanks to the government’s policy support and financial backing. The country’s latest five-year plan, published on the same day Neuracle received its approval, lists BCI as one of six key industries important to China’s future tech competitiveness, alongside quantum technology, humanoid robots, and others. Several Chinese startups, including NeuroXess and StairMed, have already worked in the field for many years.\n“China’s decision to double down on becoming a global leader in the field owes in part to what these companies have already accomplished,” says Meicen Sun, an information scientist at the University of Illinois Urbana-Champaign who studies information and technology policy.\nBut, Sun says, the biggest advantage China may have is that Chinese people, particularly patients like Dong, tend to welcome this technology and are genuinely enthusiastic about it. In comparison, in the US and Western Europe, testing technologies on human bodies elicits an “ick factor,” triggering concerns and even resistance, she says.\nNEO has become the world’s first invasive BCI to go commercial, but scientists interviewed by\nMIT Technology Review\ncaution against comparing Chinese and US efforts through the\nlens of a race\nA race implies an endpoint, but it is hard to say where that is for the development of BCIs, says Nick Ramsey, a neuroscientist at Radboud University Nijmegen in the Netherlands. Also, the US and China have fundamentally different visions, Sun says. The US is primarily concerned with being the first to do something and achieving state-of-the-art performance, while winning to China means capturing more consumers and using technology to deliver solutions on a societal scale.\n“Being exceptional and being accessible are two diametrically opposed definitions of winning,” Sun says.\nIn fact, neurotechnology has emerged as a rare tech sector where US-China collaboration is still happening despite geopolitical tensions. The US company Axoft,  based in Cambridge, Massachusetts, says it has teamed up with a Chinese company and a hospital in Shanghai to test its BCI on four patients in China and has plans to expand its trials in the country.\nLooking forward, China’s BCI industry is expected to speed up its growth over the next five years thanks to strong government support. “There is no comparable national-level ambition or coordinated map elsewhere in the world at the moment,” says Singh.\nMore BCIs are also in the pipeline for domestic approval in the country, including\n, developed by the Chinese Institute for Brain Research in Beijing and its affiliated startup, NeuCyber NeuroTech. The device, which sits on the dura mater, is designed to help those who have movement and speech difficulties due to spinal cord injuries or amyotrophic lateral sclerosis. These candidates could get the green light as early as 2028, Singh says.\nSynthetic biologists were tantalized by the idea of making mirror images of microbes. Then things got complicated.\nIn an early step towards artificial wombs, a biotech company claims it’s developed a “fully artificial” chicken egg.\nAnd why health experts believe it can be contained.\nAutomation, AI, and screening technologies are already transforming reproductive medicine.\nIllustration by Rose Wong\nDiscover special offers, top stories,\nupcoming events, and more.",
-          "hb": 1
-        },
-        {
           "t": "微软发布升级版量子芯片Majorana 2",
           "d": "2026-06-02",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/其它智能科技/量子信息",
           "as": "微软在arXiv发布升级版拓扑量子芯片Majorana 2，以铅替代前代铝超导层增强电子对结合力，关键量子态持续时间从2毫秒跃升至20秒以上，宣称规模化量子计算机交付时间缩短至2029年。但学界强烈质疑：新论文仅证明维持奇偶性状态不等于有效量子比特，缺乏叠加态演示，状态切换可能仅是电子跳跃，验证马约拉纳零模的核心协议因缺原始数据无法独立核实。",
-          "sc": 7.8,
+          "sc": 7.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/d41586-026-01788-y",
@@ -146,22 +119,46 @@
           "hb": 1
         },
         {
-          "t": "SpaceX披露Anthropic合作最新细节，警示数据中心用水风险",
+          "t": "宇树科技通过科创板上市审核",
           "d": "2026-06-02",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "SpaceX披露了与Anthropic合作的最新细节，同时预警数据中心水资源消耗风险。AI大规模算力部署不仅带来巨大电力需求，冷却用水同样构成严峻约束，水资源正成为AI基础设施扩张的关键瓶颈，凸显了算力增长与可持续性之间的深层矛盾。",
-          "sc": 8.2,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/briefings/spacex-discloses-updated-details-anthropic-deal-flags-data-center-water-risks",
-          "tp": "数据中心水耗风险",
+          "a": "新华网科技",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "通用机器人公司宇树科技的科创板IPO申请通过上市审核。宇树科技专注于通用人形机器人、四足机器人及具身智能模型的研发生产。公司营收实现快速增长，预计2026年上半年营收超10.5亿元。此次IPO计划募资42.02亿元，用于智能机器人模型、新型产品研发及制造基地建设等项目。宇树科技也是科创板预先审阅机制实施后的第2家申报企业。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.news.cn/tech/20260602/8463deaf5c1d4c748fdf73157a5befeb/c.html",
+          "tp": "宇树过会上市",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "营业收入[宇树科技2023年]: 1.59亿元",
+            "营业收入[宇树科技2024年]: 3.93亿元",
+            "营业收入[宇树科技2025年]: 16.99亿元",
+            "募集资金计划[宇树科技科创板IPO]: 42.02亿元"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "SpaceX Discloses Updated Details of Anthropic Deal, Flags Data Center Water Risks — The Information\nRead this briefing for free",
+          "b": "宇树科技通过科创板上市审核-新华网\n宇树科技通过科创板上市审核\n宇树科技通过科创板上市审核\n新华社上海6月1日电（记者刘羽佳、潘清）记者从上海证券交易所获悉，6月1日，我国通用机器人公司宇树科技科创板IPO（首次公开发行股票）申请通过上交所上市审核委员会审议。\n宇树科技是一家国际领先的高性能通用机器人公司，专注于高性能通用人形机器人、四足机器人、机器人组件及具身智能模型的研发、生产和销售业务。公司在全球范围率先实现高性能四足机器人的公开销售与行业落地。\n招股说明书显示，2023年至2025年，宇树科技营业收入分别为1.59亿元、3.93亿元、16.99亿元；净利润分别为-1114.51万元、9547.47万元、2.78亿元。公司预计，2026年1至6月营业收入约为10.52亿元至11.28亿元；扣除非经常性损益后归属于母公司股东的净利润约为2.36亿元至2.83亿元。\n宇树科技此次IPO计划募集资金为42.02亿元，募投项目包括智能机器人模型研发项目、机器人本体研发项目、新型智能机器人产品开发项目和智能机器人制造基地建设项目。\n2025年6月，证监会推出进一步深化科创板改革的“1+6”政策措施，提出面向优质科技型企业试点IPO预先审阅机制。宇树科技是科创板预先审阅机制实施后的第2家申报企业。\n新华鲜报丨缤纷“六一” 多彩童年\n雄安日记丨我在雄安当智慧图书管理员\n警惕针对“养老钱”的诈骗陷阱\n罕见纵深推进，以军对黎行动会否搅动美伊谈判\n中东战地手记丨别让战火吞噬童年\n奔跑吧，“10后 ”！赛场上的别样童年\nVlog丨走过中国的街巷 我读懂了“中国式安全感”\n宇树科技通过科创板上市审核",
+          "hb": 1
+        },
+        {
+          "t": "微软发布升级版量子芯片Majorana 2",
+          "d": "2026-06-02",
+          "a": "Doi",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "微软在arXiv发布升级版拓扑量子芯片Majorana 2，以铅替代前代铝超导层增强电子对结合力，关键量子态持续时间从2毫秒跃升至20秒以上，宣称规模化量子计算机交付时间缩短至2029年。但学界强烈质疑：新论文仅证明维持奇偶性状态不等于有效量子比特，缺乏叠加态演示，状态切换可能仅是电子跳跃，验证马约拉纳零模的核心协议因缺原始数据无法独立核实。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/d41586-026-01788-y",
+          "tp": "拓扑量子芯",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月2日，微软在arXiv发布预印本，公布升级版拓扑量子芯片“Majorana 2”。通过用铅替代前代铝超导层增强电子对结合力，其关键量子态持续时间从2毫秒跃升至超20秒。微软据此宣称，规模化量子计算机的交付时间将缩短一半，提前至2029年。\n然而学界强烈质疑。批评者指出，新论文仅证明设备维持了“奇偶性”状态，这不等于证实了有效量子比特，其观察到的状态切换可能仅是电子在量子点间的跳跃，而非真正的马约拉纳零模；且缺乏控制比特进入叠加态的演示，宣称的续航时间也不等同于叠加态存活时间。此外，验证零模的核心协议因缺原始数据无法独立核实。",
           "hb": 1
         }
       ]
@@ -170,72 +167,80 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "比亚迪承诺为其自动驾驶系统过错导致的事故承担全部经济赔偿责任",
-        "国家能源局四月核发可再生能源绿证2.37亿个含可交易绿证1.77亿个",
-        "欧洲配电网审批滞后致使约455吉瓦电池储能项目滞留并网等待队列"
+        "长征十二号乙火箭完成首飞，将千帆极轨08组卫星送入预定轨道",
+        "二维电化学电池实现亚皮秒级离子相干弹道传输，300飞秒内穿过80纳米通道",
+        "单链寡脱氧核苷酸5'端花青修饰，使CRISPR-Cas9同源定向修复效率达30%"
       ],
       "entries": [
         {
-          "t": "比亚迪承诺为其FSD竞品承担碰撞责任，特斯拉从未做到",
+          "t": "长征十二号乙火箭首飞成功 助力星座组网",
           "d": "2026-06-02",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "比亚迪宣布将为其全自动驾驶（FSD）竞品系统承担因自动驾驶系统过错导致事故的全部经济赔偿责任，这一承诺是特斯拉从未做出的。该政策标志着自动驾驶责任归属的重大转变，可能加速消费者对自动驾驶技术的信任和接受。此举也被视为比亚迪在智能驾驶领域对特斯拉的竞争策略升级，将安全责任从车主转移到制造商。",
-          "sc": 8.8,
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "长征十二号乙遥一运载火箭在东风商业航天创新试验区首飞成功，顺利将千帆极轨08组卫星送入预定轨道。该火箭是新一代单芯级四米级可重复使用运载火箭，采用全液氧煤油动力方案，近地轨道运载能力达20吨级。火箭应用了多项创新设计及飞行控制技术，单位质量入轨成本大幅下降，为我国大规模互联网星座组网提供了新的运载支撑。",
+          "sc": 8.9,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://electrek.co/2026/06/01/byd-gods-eye-accepts-liability-tesla-never-has/",
-          "tp": "自动驾驶担责",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Fred Lambert\n| Jun 1 2026 - 2:46 am PT\nBYD says it will assume full financial liability for at-fault accidents that happen while its “God’s Eye” urban driving system is active in China — with no cap on the payout.\nIt’s a commitment Tesla has never made for “Full Self-Driving,” and it flips the industry’s standard liability model on its head.\nBYD announced the policy on May 28 at its vehicle intelligence strategy event, the same showcase where it\nrevealed China’s first in-house 4nm smart driving chip\nUnder the new guarantee, if a driver is using BYD’s urban “navigate-on-autopilot” function in compliance with regulations and is at fault in a crash, BYD will cover all direct economic losses the vehicle is liable for — repairs to the owner’s car, third-party property damage, and personal injury.\nThe terms are unusually generous. There’s no payout cap, owners don’t need to buy a separate “intelligent driving insurance” product, and a claim won’t raise their commercial insurance premium the following year.\nThe coverage applies to the God’s Eye A and B systems and runs for one year from delivery. Existing owners get it once they update to God’s Eye 5.0 over the air, and BYD says it isn’t restricted to the first or registered owner of the vehicle.\n“Taking on Level 3 and Level 4 liability early during the Level 2 stage demonstrates the company’s absolute confidence in its own technology,” BYD chairman and president Wang Chuanfu said.\nThis isn’t BYD’s first move here. The automaker\nunlocked L4 smart parking with a similar guarantee\nin July 2025, and it says that pledge pushed the feature’s actual usage rate from 21% to 93%. The new policy extends the same logic from parking to city driving, which BYD frames as a “double guarantee.”\nTesla’s “Full Self-Driving (Supervised)” is a Level 2 system, and the driver carries 100% of the responsibility. Tesla’s own owner’s manual is explicit: “You are responsible for the speed and control of your vehicle at all times, whether FSD (Supervised) is enabled or not.”\nThat’s the catch that defines the entire ADAS market. When the system performs, the automaker markets it as near-autonomous. When it fails, the liability sits entirely with the human in the seat — what we’ve previously called\nSchrödinger’s FSD\n: the car is driving itself right up until something goes wrong, at which point you were always the one driving.\nThe financial stakes of that distinction are not theoretical. A Miami federal jury\nhit Tesla with a $243 million judgment over a fatal Autopilot crash\n, assigning the company a third of the blame — a liability Tesla fought hard rather than absorbed voluntarily.\nBYD is doing the opposite. It is contractually stepping in front of that liability before regulators force the question.\nBYD is also bundling this into a far cheaper package than Tesla’s.\nThe LiDAR-equipped God’s Eye B system is a one-time 12,000-yuan option (about $1,770), and BYD is making it available across its entire lineup. Tesla’s equivalent, rebranded in China as “Tesla Assisted Driving,” and sold as Supervised FSD elsewhere, costs 64,000 yuan (about $9,400) as a one-off purchase in China, with no subscription option.\nSo BYD is offering full, uncapped crash liability on a system that costs roughly one-fifth of what Tesla charges for software that still puts every dollar of risk on the driver.\nBYD says it now has 3.15 million vehicles on the road with assisted driving, generating up to 200 million kilometers of driving data per day — the kind of fleet scale that, until recently, was Tesla’s signature advantage in the autonomy race.\nThe liability question is the one the entire “self-driving” industry has spent a decade avoiding, and BYD just answered it out loud.\nThere are caveats worth keeping in view. This is a China-only program, it’s tied to “compliant” use of the urban function, and it’s a one-year guarantee rather than a permanent change to how the system is classified. It’s as much a marketing weapon as a legal one — BYD’s own numbers show these guarantees dramatically boost feature usage, and usage is what feeds the data flywheel. This is a confidence play designed to sell hardware and harvest miles.\nBut that’s exactly why it matters. BYD looked at the same Level 2 framework Tesla hides behind and decided that standing behind its product was a competitive advantage rather than a legal exposure to be managed. Tesla, meanwhile, leans on arbitration clauses and “the driver is always responsible” disclaimers, and only accepts liability when a jury makes it.\nIf you’re confident your system is safe, putting your own money behind it is the most credible statement you can make. BYD just made it. The obvious question now: with 10 billion FSD miles and years of “next year” promises, why won’t Tesla?\nWith that said, BYD’s God Eye, like Tesla FSD, or ‘Tesla Assisted Driving’ in China, where they are having none of Tesla’s misleading labels, is a still a level 2 system and therefore, you need to pay attention when using it. I strongly recommend you do.\nIf you’re shopping for an EV, the smartest way to cut your long-term driving costs is to power it at home with solar. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
-          "hb": 1
-        },
-        {
-          "t": "国家能源局：2026年4月全国可再生能源绿色电力证书核发及交易数据",
-          "d": "2026-06-02",
-          "a": "索比光伏-综合新闻",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "2026年4月，国家能源局核发可再生能源绿色电力证书（绿证）2.37亿个，涉及可再生能源发电项目181.48万个，其中可交易绿证1.77亿个，占比74.85%。本期核发2026年3月可再生能源电量对应绿证1.71亿个。绿证制度的规模化核发与交易，为可再生能源电力的环境价值市场化提供了量化凭证，推动绿色电力消费体系持续完善。",
-          "sc": 7.4,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://news.solarbe.com/202606/01/50023735.html",
-          "tp": "绿证交易数据",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260602/fdd2d2df60fb44f18aef71a1fd531acc/c.html",
+          "tp": "火箭首飞成功",
           "aip": 1,
           "kp": [
-            "核发量[绿证]: 2.37亿个"
+            "火箭构型[长征十二号乙]: 两级单芯级全液氧煤油动力运载火箭",
+            "总高[长征十二号乙火箭]: 约72米",
+            "直径[长征十二号乙火箭]: 4.37米",
+            "近地轨道运载能力[长征十二号乙火箭]: 20吨级",
+            "[核心特性]: 具备多轨道任务适应能力、大直径共底贮箱、一体化尾段设计及可重复使用"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "2026年4月，国家能源局核发绿证2.37亿个，涉及可再生能源发电项目181.48万个，其中可交易绿证1.77亿个，占比74.85%。本期核发2026年3月可再生能源电量对应绿证1.71亿个，占比72.16%。\n2026年4月，全国交易绿证7110万个，其中绿色电力交易绿证2972万个。\n2026年4月，全国单独交易绿证4138万个，其中电量生产年为2024年的绿证交易422万个，平均价格1.12元/个;电量生产年为2025年的绿证交易3512万个，平均价格4.63元/个;电量生产年为2026年的绿证交易204万个，平均价格5.84元/个。",
+          "b": "长征十二号乙火箭首飞成功 助力星座组网-新华网\n长征十二号乙火箭首飞成功 助力星座组网\n长征十二号乙火箭首飞成功 助力星座组网\n6月1日，长征十二号乙遥一运载火箭在东风商业航天创新试验区发射升空，将搭载的千帆极轨08组卫星顺利送入预定轨道，飞行试验任务取得圆满成功。\n长征十二号乙运载火箭是中国航天科技集团商业火箭有限公司抓总研制的新一代单芯级四米级可重复使用运载火箭，主要面向我国大规模互联网星座组网等商业发射需求。\n6月1日16时40分，长征十二号乙遥一运载火箭在东风商业航天创新试验区发射升空。新华社发（汪江波 摄）\n火箭采用两级构型及全液氧煤油动力方案，总高约72米，直径4.37米，具备多轨道任务适应能力。该箭优化总体布局，应用一体化尾段设计、大直径共底贮箱、级间气动分离技术等创新设计，近地轨道运载能力达20吨级，是目前我国运力最大的单芯级火箭。\n型号研制负责人介绍，火箭搭载了具备故障诊断与重构功能的飞行控制软件，能够在飞行过程中自主应对异常状态，提升任务可靠性。同时，创新应用注气式蓄压器技术，简化了抑制纵向耦合振动的阀门管路，从系统层面增强飞行安全。\n在研制效率方面，团队用21个月完成了从图纸设计到型号首飞的全流程工作，通过数字化协同设计缩短了总装测试周期。发射端采用多推进剂兼容与快速恢复能力的自建研试工位，有效压缩了发射周期。\n此外，火箭在成本控制上进行了多元探索，包括供应链体系优化、车规级器件应用等，推动单位质量入轨成本下降。\n中国商火相关负责人表示，长征十二号乙运载火箭的成功入列，为后续高密度发射和大规模星座组网提供了新的运载能力支撑，公司正稳步推进重复使用技术攻关，以提升发射服务的效率和灵活性。（记者顾天成、张建松）\n智库报告阐释新时代淮河生态文明发展之路\n新华鲜报丨缤纷“六一” 多彩童年\n雄安日记丨我在雄安当智慧图书管理员\n警惕针对“养老钱”的诈骗陷阱\n罕见纵深推进，以军对黎行动会否搅动美伊谈判\n中东战地手记丨别让战火吞噬童年\n奔跑吧，“10后 ”！赛场上的别样童年\nVlog丨走过中国的街巷 我读懂了“中国式安全感”\n长征十二号乙火箭首飞成功 助力星座组网",
           "hb": 1
         },
         {
-          "t": "配电网锁死欧洲455吉瓦电池储能项目",
+          "t": "量子相干类克拉尼共振：将离子编程为亚皮秒传导的物质波",
           "d": "2026-06-02",
-          "a": "ESS News",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "咨询机构AFRY为Beyond Fossil Fuels开展的最新研究显示，欧洲配电网连接排队机制正严重制约储能产业发展，约455 GW的电池储能项目被困于并网审批队列中无法推进。这一数字远超欧洲当前实际运营的储能装机容量，凸显配电网基础设施扩容严重滞后于可再生能源与储能投资的现实。瓶颈主要在于配电网容量不足、连接审批流程冗长以及电网运营商对储能接入的保守态度。研究警示，若不加速配电网现代化升级与审批制度改革，欧洲能源转型与清洁电力目标将面临系统性风险。",
-          "sc": 6.8,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究证明，二维电化学电池（硼烯/氮化硼/石墨烯）在受到10 kHz临界频率电脉冲的共振激发时，离子传导模式从扩散漂移转变为相干弹道物质波。时间分辨泵浦-探测光谱学捕捉到了28 THz的强烈振荡特征，证实了这种亚皮秒级波动。整个插层离子集合在300飞秒内以相干波包的形式同步穿过80纳米的通道，实现了对离子传输的相干控制。",
+          "sc": 8.0,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.ess-news.com/2026/06/01/distribution-grid-locks-up-455-gw-of-european-battery-storage-projects/",
-          "tp": "配电网储能并网",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2604081123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "离子相干传导",
           "aip": 1,
           "kp": [
-            "搁置储能项目[欧洲配电网]: 455 GW",
-            "搁置可再生项目[欧洲配电网]: 375 GW",
-            "搁置资产价值[欧洲八国]: 约1000亿欧元"
+            "临界激发频率[二维电化学细胞离域传导]: 10 kHz",
+            "[离子传导机制]: 硼烯/六方氮化硼/石墨烯器件在临界频率电脉冲共振激发下，将扩散漂移传导转变为相干的类克拉尼物质波弹道式传导",
+            "传导时间尺度[离子物质波]: 亚皮秒级"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A study by consultancy AFRY for Beyond Fossil Fuels finds that distribution grid connection queues are blocking approximately 455 GW of battery storage projects and 375 GW of renewable energy capacity across eight European markets, with the held-up clean energy assets valued at around €100 billion.\nThe analysis covers Bulgaria, the Czech Republic, the United Kingdom, Germany, Greece, Italy, Poland, and Spain, and concludes that distribution network constraints have become a structural barrier to energy transition deployment comparable in scale to transmission grid bottlenecks, but with far less regulatory transparency.\nBESS connection queues are most severe in Germany and the United Kingdom, where backlogs each exceed 100 GW, according to AFRY. The consultancy warns that delays in bringing storage assets online raise system costs by limiting the ability to absorb renewable surpluses, reduce curtailment, and provide grid flexibility services.\nAcross the eight markets studied, distribution operators receive on average more than 11,000 annual connection requests for renewable energy and storage projects above 1 MW, of which around 70% relate to solar PV installations.\nIn Spain, AFRY said connection delays are affecting projects valued at approximately €7 billion. An increasing number of substations and access points are reaching saturation, creating lengthy waiting lists for new renewable and storage installations. The storage queue in Spain represents approximately 40% of the country’s national storage capacity target, the report found, indicating that battery storage deployment is advancing faster than the grid infrastructure needed to integrate it.\nAFRY identifies six main causes behind the growing queues: insufficient distribution network expansion, inadequate forward planning, excessively long administrative and permitting processes, inefficient queue management systems, speculative projects reserving capacity without execution, and supply chain and qualified workforce constraints.\nThe report also flags a transparency gap. While transmission networks typically publish detailed information on available capacity and pending requests, distribution grid data remains fragmented and inconsistent across countries, complicating investment planning and increasing uncertainty for developers. AFRY called on distribution system operators to significantly improve their governance and administrative processes so that the energy transition can deliver results where it matters most — in communities, businesses, and homes.",
+          "b": "Achieving coherent control of ionic transport in solids, analogous to electron waveguides, remains a fundamental challenge, as ionic motion is typically limited by slow, stochastic hopping. Here, we demonstrate that a two-dimensional electrochemical cell (borophene/h-BN/graphene) possesses a collective ionic eigenmode, which, when resonantly excited by a “critical-frequency” electrical pulse (10 kHz), transforms ionic conduction from diffusive drift into a coherent, ballistic wave. Time-resolved pump–probe spectroscopy directly reveals this transition through the emergence of a strong 28 THz oscillation, a spectroscopic fingerprint of subpicosecond, wavelike motion. The entire intercalated ion ensemble moves in phase, traversing the 80 nm channel as a coherent wave packet in under 300 fs, corresponding to &gt;1,000-fold speed enhancement over classical diffusion. Leveraging this resonant control principle, we realize an electrochemical device that can be charged in picoseconds with a laser pulse. This work demonstrates that quantum-level, Chladni-like resonance is achievable for ionic matter, establishing a universal pathway to programmable, ultrafast coherent ionic conduction. By transforming ions from disordered particles into controllable matter-waves, we unlock the field of coherent ionics for picosecond-scale energy storage and neuromorphic computing.",
+          "hb": 1
+        },
+        {
+          "t": "花青修饰的 ssODN 通过染色质和化学调节增强干细胞胚胎模型中的 CRISPR-Cas9 HDR",
+          "d": "2026-06-02",
+          "a": "Biological sciences : Nature Communications subject feeds",
+          "c": "通用技术/催化剂",
+          "as": "研究证实，对单链寡脱氧核苷酸进行简单的5'端花青修饰，能够显著提升干细胞模型中CRISPR-Cas9同源定向修复（HDR）的效率，并使细胞存活率提高2至3倍。在三维人类囊胚模型中，该技术实现了高达30%的原位HDR效率。经过基因编辑的囊胚保留了正常的发育潜力和着床特征，机制分析表明HDR的增强与染色质和化学调节相关基因的上调有关。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-73901-8",
+          "tp": "CRISPR基因编辑",
+          "aip": 1,
+          "kp": [
+            "HDR效率提升[5'端花青修饰的ssODN]: 在人类干细胞模型中实现2-3倍的生存优势",
+            "HDR效率[三维人类胚胎模型原位编辑]: 高达30%的HDR效率",
+            "修饰策略[单链寡脱氧核苷酸]: 进行简单的5'端花青修饰"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "While CRISPR–Cas9 has transformed biomedical research, precise genome editing via homology-directed repair (HDR) remains limited by low efficiency and cytotoxicity, particularly in sensitive systems. Here, we show that simple 5′ cyanine modifications of single-stranded oligodeoxynucleotides (ssODNs) markedly enhance HDR efficiency across human stem cell models, providing a 2–3-fold survival advantage. This approach enables in situ HDR in 3D human embryo models (blastoids), achieving up to 30% HDR—a 2.5–3-fold improvement over unmodified ssODNs—without compromising viability or developmental potential. Edited blastoids recapitulate key implantation features, including epiblast outgrowths surrounded by hypoblasts and trophoblasts. Mechanistically, enhanced HDR is associated with upregulation of HDR-related genes, including linker histone H1.0, which binds 5′Cy5-ssODNs and promotes HDR. Additionally, 5′Cy5 increases stability and nuclear availability of ssODNs. Molecular dynamics and free energy analyses suggest that 5′Cy5 promotes compact, circular-like conformations, validated by atomic force microscopy, and enhances donor–target duplex stability. Together, these findings establish cyanine-modified ssODNs as a simple, biocompatible strategy to improve precise genome editing.",
           "hb": 1
         }
       ]

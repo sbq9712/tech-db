@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究提出多相乙烯甲氧基羰基化专属机理框架以指导催化剂理性设计",
-      "高熵合金利用可调离子溶出机制实现析氢反应活性位点自补充与超稳定运行",
-      "改进隔膜与流场加速离子传输，实现5000小时稳定千瓦级碱性水电解"
+      "港城大Alex Jen团队揭示三重态激子解离机制以提升有机光伏转换效率",
+      "加拿大碳去除企业设立全球首个地表矿化中心以推进碳封存",
+      "Horizon完成全球首个5MW规模的AEM电解水制氢系统交付"
     ],
     "AI与智能科技": [
-      "牛津团队Nature发文证实大模型情感温度优化导致事实错误率显著增加",
-      "研究人员在1550nm通信波段实现量子相干光子与发射体界面构建",
-      "Figure与乐聚人形机器人产能提升，分别达到每小时一台及年产万台级"
+      "牛津Luc Rocher团队证实语言模型情感优化致事实错误率上升10至30个百分点",
+      "Figure机器人单日产能提升至24台并累计交付超350台",
+      "乐聚机器人启用佛山工厂实现人形机器人每30分钟下线一台"
     ],
     "通用技术": [
-      "三元氢化物晶格内耦合多活性位点实现电子高效传递与串联催化",
-      "原位热聚合水凝胶突破物理瓶颈，实现1000°C高温环境有效热管理",
-      "可见光连续流技术实现伯C(sp3)-H键无导向区域选择性碘化反应"
+      "研究构建可编程斯格明子拓扑平台以提供极端条件下的多通道无线通信",
+      "实验验证14:4稀土氧化物-磷酸盐晶体结构的从头算分子动力学模型预测",
+      "研究在A位层序钙钛矿结构中观测到本征极涡晶体"
     ]
   },
   "sectors": [
@@ -26,75 +26,66 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究提出多相乙烯甲氧基羰基化专属机理框架以指导催化剂理性设计",
-        "高熵合金利用可调离子溶出机制实现析氢反应活性位点自补充与超稳定运行",
-        "改进隔膜与流场加速离子传输，实现5000小时稳定千瓦级碱性水电解"
+        "港城大Alex Jen团队揭示三重态激子解离机制以提升有机光伏转换效率",
+        "加拿大碳去除企业设立全球首个地表矿化中心以推进碳封存",
+        "Horizon完成全球首个5MW规模的AEM电解水制氢系统交付"
       ],
       "entries": [
         {
-          "t": "[ASAP] 多相乙烯甲氧基羰基化机理认知与催化剂设计的范式转变",
+          "t": "Horizo​​n 交付全球首个 5 MW AEM 系统",
           "d": "2026-04-29",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/石油化工",
-          "as": "本文提出催化机理研究范式的转变：均相催化的机理原则常被外推至多相催化体系，但两者在配位环境、活性位点结构等方面的本质差异导致该迁移往往失效。作者呼吁建立专属于多相催化的机理框架，并将其直接指导催化剂的理性设计，从而缩短从基础理解到工业应用的路径。",
-          "sc": 8.0,
+          "a": "Hydrogen Tech World.com",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01740",
-          "tp": "乙烯羰基化催化",
+          "u": "https://hydrogentechworld.com/horizon-delivers-worlds-first-5-mw-aem-system",
+          "tp": "AEM制氢系统",
           "aip": 1,
-          "kp": [
-            "[催化机制]: 多相乙烯甲氧基羰基化机制不同于均相"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Mechanistic principles from homogeneous catalysis are often applied to heterogeneous systems, but differences in coordination and electronic environments can lead to divergent reactivity. Uncritically transferring homogeneous paradigms─based on electron-state-tunable organometallic complexes─to electron-deficient, supported metal centers may cause counterproductive designs. Here, we report a reversed strategy: an oxide-supported, electron-deficient Ru center is used for ethylene methoxycarbonylation, replacing conventional organometallic complexes. A built-in moderately basic site facilitates a distinct proton transfer pathway, eliminating the need for strong external Brønsted acids. The RuOx/TiO2 catalyst shows over 80 times higher activity than Ru nanocatalysts and 6 times that of Pt single-atom catalysts. It also demonstrates exceptional stability over 180 h, with a turnover number exceeding 200,000, surpassing all known heterogeneous ethylene methoxycarbonylation catalysts and rivaling Pd catalysts.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "高熵合金中可调离子溶出驱动的活性位点自补充实现超稳定析氢反应",
+          "t": "加拿大前沿和碳去除公司推出世界上第一个地表矿化中心",
           "d": "2026-04-29",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "工业制氢需要高耐久、低成本的电极材料。本研究在高熵合金中提出可调控离子浸出驱动活性位点自我补充的新机制，使材料在析氢反应中持续暴露新鲜活性位点，实现超长期稳定运行。该策略突破了传统催化剂因活性位点损耗导致性能衰减的瓶颈，对大规模电解水制氢具有重要应用价值。",
-          "sc": 7.5,
+          "a": "Carbon Herald",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00120-0?rss=yes",
-          "tp": "高熵合金析氢电极",
+          "u": "https://carbonherald.com/frontier-and-carbon-removal-canada-launch-the-worlds-first-surficial-mineralization-hub/?utm_source=rss&utm_medium=rss&utm_campaign=frontier-and-carbon-removal-canada-launch-the-worlds-first-surficial-mineralization-hub",
+          "tp": "地表矿化中心",
           "aip": 1,
-          "kp": [
-            "[策略]: 高熵合金离子浸出自补充",
-            "电极[析氢]: 高熵合金"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Industrial hydrogen production requires highly durable and cost-effective electrodes. This study introduces a breakthrough “self-replenishment” strategy for high-entropy alloy catalysts. Instead of merely resisting degradation, these electrodes employ controlled leaching of sacrificial elements to continuously regenerate fresh active sites. This dynamic renewal mechanism achieves an outstanding 10,000 h of stable hydrogen evolution at industrial currents. Validated in commercial-scale electrolyzers, this approach provides a universal framework for developing ultra-durable electrodes for sustainable energy applications.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "加速OH⁻传输实现5000小时稳定千瓦级碱性水电解",
+          "t": "港城大Alex Jen揭示有机光伏中三重态激子解离与电荷回收机制",
           "d": "2026-04-29",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "本文针对碱性水电解制氢技术在高电流密度下的性能瓶颈，提出加速OH⁻离子向阳极催化位点传输的优化策略。研究通过改进隔膜材料和流场结构，实现了OH⁻反应物的持续高效供给，使千瓦级电解槽在5000小时连续运行中保持稳定性能。该成果对降低绿氢大规模生产成本、推动工业级电解水制氢商业化具有重要意义。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73220?af=R",
-          "tp": "碱性水电解",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "香港城市大学Alex Jen团队在Nature发文，揭示有机光伏中三重态激子（T1）解离与电荷回收机制。引入窄单重态-三重态能隙的非富勒烯受体后，T1激子可通过界面电荷转移态重新解离为自由载流子，将通常以非辐射弛豫损失的低能激子转化为有效电荷，为提升OPV效率及有机光电子器件开发提供新路径。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10419-5",
+          "tp": "有机光伏机制",
           "aip": 1,
-          "kp": [
-            "稳定运行[碱性水电解千瓦级]: 5000h",
-            "OH⁻传输速率[REOx界面调控]: 近3倍提升",
-            "[策略]: 稀土氧化物团簇重构界面氢键网络"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Enhancing the continuous supply of OH\n                    −\n                    reactants to anode catalytic sites under high current density is critical for the development of alkaline water electrolyzer (AWE). Herein, a strategy for promoting OH\n                    −\n                    transport is demonstrated by using rare earth oxide clusters (REO\n                    x\n                    ) to reconfigure interfacial hydrogen bond networks. This structural modulation achieves a nearly threefold increase in the OH\n                    −\n                    transport rate. Mechanistic analysis reveals that the incorporation of rare earth weakens the charge‐dipole interaction between the oxygen in the\n                    *\n                    OH intermediate and interfacial H\n                    2\n                    O molecules, promoting the transition from a rigid, ordered interfacial water structure to a more isolated, loose configuration. A linear correlation among the proportions of isolated water species, OH\n                    −\n                    transport rates, and OER activity across a series of REO\n                    x\n                    /NiCo\n                    2\n                    S\n                    4\n                    catalysts supports this mechanism. A kilowatt‐scale AWE consisting of 17 cells with a total active area of 1334 cm\n                    2\n                    was assembled using a DyO\n                    x\n                    /NiCo\n                    2\n                    S\n                    4\n                    anode. For the first time, the system operated stably for over 5,000 h at a current of 39.25 A under industrial operating conditions, achieving a cumulative hydrogen output of 1,400 Nm\n                    3\n                    . This work highlights the potential of manipulating the electrode‐electrolyte interface to enhance catalyst performance in producing industrial‐scale green hydrogen.",
+          "b": "在有机光伏（OPV）中，非对成复合会形成低能量的自旋三重态激子（T1），而这类激子通常会导致不可逆的非辐射弛豫。本研究通过实验证明，在引入了具有窄单重态-三重态能隙的非富勒烯受体的OPV体系中，T1激子能够通过界面电荷转移态重新解离形成自由载流子。研究通过鉴别OPV共混物中受体经三重态敏化后自由载流子数量的增加证实了这一点，并阐明了该机制改变T1和自由载流子数量演化的方式。研究揭示了分子中轨道分布与聚集体中激子离域如何影响凝聚态下受体的单重态-三重态能级特征，从而使得T1与自旋三重态电荷转移态之间的转换变得可控。通过将此类受体作为第三组分引入其他主体OPV体系，研究成功回收了三重态介导的能量损失，并通过最大化可提取光生载流子的数量提升了OPV效率。本研究深化了对OPV基础物理机制的理解，并展示了如何通过将低能T1激子转化为可用于发电或发光的有效电荷而非热能，来推动未来有机光电子器件的开发。文章于2026年4月29日发表在Nature。",
           "hb": 1
         }
       ]
@@ -103,23 +94,23 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "牛津团队Nature发文证实大模型情感温度优化导致事实错误率显著增加",
-        "研究人员在1550nm通信波段实现量子相干光子与发射体界面构建",
-        "Figure与乐聚人形机器人产能提升，分别达到每小时一台及年产万台级"
+        "牛津Luc Rocher团队证实语言模型情感优化致事实错误率上升10至30个百分点",
+        "Figure机器人单日产能提升至24台并累计交付超350台",
+        "乐聚机器人启用佛山工厂实现人形机器人每30分钟下线一台"
       ],
       "entries": [
         {
           "t": "牛津大学Luc Rocher揭示语言模型情感温度与准确性之间的权衡关系",
           "d": "2026-04-29",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
           "as": "牛津大学Luc Rocher团队在Nature发文，揭示语言模型情感温度与准确性的权衡关系。对五种模型开展受控实验发现，针对情感温度优化后错误率增加10-30个百分点，会宣扬阴谋论、提供错误医疗建议，且在用户表达悲伤情绪时更易证实其错误信念。该效应跨架构一致，标准测试无法检测，对AI陪伴应用构成系统性风险。",
-          "sc": 6.8,
+          "sc": 6.3,
           "i": "n",
           "tg": "行业观察",
           "u": "https://doi.org/10.1038/s41586-026-10410-0",
           "tp": "语言模型权衡",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -128,33 +119,31 @@
           "hb": 1
         },
         {
-          "t": "原始电信波段中的量子相干光子-发射体界面",
+          "t": "牛津大学Luc Rocher揭示语言模型情感温度与准确性之间的权衡关系",
           "d": "2026-04-29",
-          "a": "Nature Nanotechnology",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "量子点作为量子发射体已远超其他体系，本文展示了在原始 telecom 波段（约1550nm）实现量子相干光子-发射体接口的突破。该工作利用量子点在通信波段实现高保真度的单光子发射与相干光界面，解决了量子网络中长距离传输的关键瓶颈。这一进展对构建可扩展的量子互联网具有重要意义，有望推动基于光纤的量子通信网络从实验室走向实用化部署。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02156-7",
-          "tp": "量子光子接口",
-          "aip": 1,
-          "kp": [
-            "量子光源[通信波段]: 量子点实现原始通信波段相干光子-发射体界面"
-          ],
-          "lv": 0,
+          "a": "Doi",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "牛津大学Luc Rocher团队在Nature发文，揭示语言模型情感温度与准确性的权衡关系。对五种模型开展受控实验发现，针对情感温度优化后错误率增加10-30个百分点，会宣扬阴谋论、提供错误医疗建议，且在用户表达悲伤情绪时更易证实其错误信念。该效应跨架构一致，标准测试无法检测，对AI陪伴应用构成系统性风险。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1038/s41586-026-10410-0",
+          "tp": "语言模型权衡",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Quantum dots have set benchmarks that far surpass other quantum emitters owing to their ability to deliver high-quality, high-rate and pure photons. However, achieving these exceptional capabilities at telecom wavelengths, bridging the gap to fibre-optic infrastructure and scalable silicon photonics, remains a challenge. Overcoming this difficulty demands high-quality quantum materials and devices that, despite extensive efforts, have not yet been realized. Here we demonstrate waveguide-integrated InAs quantum dots and realize a fully quantum-coherent photon–emitter interface operating in the original telecommunication band (or O-band, 1,260–1,360 nm). We record transform-limited linewidths only 8% broader than the inverse lifetime and bright 41.7-MHz emission rate under 80-MHz π-pulse excitation. These findings showcase the potential of quantum dots for scalable quantum networks.",
+          "b": "人工智能开发者正越来越多地构建具有温暖友好性格的语言模型，目前已有数百万用户将其用于寻求建议、心理治疗和陪伴。研究展示了这种现象如何产生显著的权衡关系：针对情感温度对语言模型进行优化可能会削弱其性能，尤其是在用户表达脆弱性时。研究对五种不同的语言模型开展了受控实验，将其训练为产生更具温度的回复，随后在具有重大影响的任务上对这些模型进行评估。结果显示，相较于原始版本，具有温度的模型表现出显著更高的错误率（增加10至30个百分点），不仅会宣扬阴谋论、提供不准确的事实信息，还会给出错误的医疗建议。此外，这类模型证实用户错误信念的可能性也显著更高，特别是在用户信息表达出悲伤情绪时。重要的是，这些效应在不同模型架构中保持一致，并且在模型于标准测试中性能未受影响的情况下依然发生，从而揭示了标准测试实践可能无法检测到的系统性风险。上述发现表明，训练人工智能系统具备温暖特质可能会以牺牲准确性为代价，且温度与准确性默认情况下可能并非相互独立。随着这些系统以前所未有的规模被部署并在人们生活中扮演亲密角色，这种权衡关系理应引起开发者、政策制定者以及用户的共同关注。文章于2026年4月29日发表在Nature。",
           "hb": 1
         },
         {
           "t": "Figure、乐聚机器人分别称其人形机器人量产速度得到提升",
           "d": "2026-04-29",
-          "a": "",
+          "a": "Figure",
           "c": "AI与智能科技/具身智能/硬件和控制",
           "as": "Figure称其Figure 03人形机器人生产速度从每天1台提升至每小时1台，已交付超350台，良率超80%，Helix System 0模型可实现无场景微调上下楼梯。中国乐聚佛山年产万台级工厂启用，每30分钟下线一台，出厂前完成77项检测和41项自动化测试。中美厂商均加速规模化量产布局。",
-          "sc": 5.9,
+          "sc": 6.1,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.figure.ai/news/ramping-figure-03-production",
@@ -173,77 +162,69 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "三元氢化物晶格内耦合多活性位点实现电子高效传递与串联催化",
-        "原位热聚合水凝胶突破物理瓶颈，实现1000°C高温环境有效热管理",
-        "可见光连续流技术实现伯C(sp3)-H键无导向区域选择性碘化反应"
+        "研究构建可编程斯格明子拓扑平台以提供极端条件下的多通道无线通信",
+        "实验验证14:4稀土氧化物-磷酸盐晶体结构的从头算分子动力学模型预测",
+        "研究在A位层序钙钛矿结构中观测到本征极涡晶体"
       ],
       "entries": [
         {
-          "t": "[ASAP] 在三元氢化物晶格中耦合不同活性位点驱动高效串联催化",
+          "t": "用于通信和传感的可编程斯格明子",
           "d": "2026-04-29",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "串联催化依赖于功能不同的活性位点之间的高效协同，以实现多步反应的有序编排。本研究在三元氢化物晶格中耦合了多种独特的催化活性位点，通过晶格结构调控实现位点间电子与物种传递的高效通信，驱动串联催化反应高效进行，为设计多功能一体化固体催化剂提供了新策略。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00931",
-          "tp": "三元氢化物串联催化",
-          "aip": 1,
-          "kp": [
-            "催化剂架构[串联催化]: 三元氢化物晶格原子尺度耦合活性位"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Tandem catalysis depends critically on communication between functionally distinct active sites to orchestrate multistep reactions. Atomic-scale integration of such complementary sites would facilitate seamless intersite communication and efficient mass/energy transfer, yet remains elusive in heterogeneous tandem catalysis owing to intrinsic challenges of catalyst architecture engineering. Herein, we report K3PdH5, a ternary palladium hydride, with two distinct [PdH4] and [KH] lattice sites, which catalyzes tandem semihydrogenation-isomerization of internal alkynes with exceptionally high activity and selectivity, achieving (E)-alkene formation rates up to 2 orders of magnitude higher than existing systems. Mechanistic studies disclose that the [PdH4] site exhibits moderate alkyne/alkene chemisorption while impedes H2 activation, allowing semihydrogenation to (Z)-alkene; the basic [KH] site, on the other hand, drives (Z) → (E) isomerization to proceed via a delocalized π-allyl species stabilized by K cation-π interactions. By atomic-level coupling of these two-type active sites within one single lattice, K3PdH5 demonstrates a unique function mechanism that is inaccessible to conventional heterogeneous tandem catalysts.",
-          "hb": 1
-        },
-        {
-          "t": "水凝胶原位热聚合抑制高达1000°C的莱顿弗罗斯特效应用于高温热管理",
-          "d": "2026-04-29",
-          "a": "Joule",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究报道了一种利用原位热聚合水凝胶抑制莱顿弗罗斯特效应的新策略，可在高达1000°C的高温环境中实现有效热管理。该方案采用两性离子单体溶液，在接触高温表面时通过热触发原位聚合快速形成水凝胶网络，破坏蒸汽膜的稳定性，从而显著抑制莱顿弗罗斯特效应。实验证明该方法在极端高温条件下仍保持高效的传热和冷却能力。该突破对高温工业冷却、电子器件热管理、金属淬火及核反应堆应急冷却等场景具有重要意义，为克服高温界面传热的经典物理瓶颈提供了创新思路。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00124-8?rss=yes",
-          "tp": "高温热管理水凝胶",
-          "aip": 1,
-          "kp": [
-            "抑制温度[莱顿弗罗斯特效应]: 1,000°C",
-            "冷却效率[1,000°C喷雾冷却]: 纯水4倍",
-            "冷却时间[电池热失控]: 减半",
-            "材料[热管理]: 两性离子单体原位聚合"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A zwitterionic monomer solution suppresses the Leidenfrost effect up to 1,000°C via thermally triggered in situ polymerization. This yields a cooling efficiency four times that of pure water in spray cooling at 1,000°C and halves the cooling time during battery thermal runaway.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 可见光促进的伯C(sp³)–H键连续流碘化：无导向的区域选择性方法",
-          "d": "2026-04-29",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究开发了一种可见光促进的连续流碘化反应，实现伯C(sp3)-H键的直接、非定向区域选择性官能化。机理研究表明反应经历可逆且非选择性的初始步骤，随后通过连续流反应器实现高选择性转化。该方法无需预官能团化导向基团，突破了传统C-H键活化依赖底物定位基团的限制，为药物分子和有机合成中碘代化合物的绿色制备提供了新策略。",
+          "a": "Nature Electronics",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "报道了一个可编程的等离激元斯格明子（skyrmion）平台，能够对包括尼尔型斯格明子和子午线在内的多种拓扑结构进行编码。研究利用超快编码在时间维度上合成谐波斯格明子，并将其应用于通信和传感领域。可编程的拓扑斯格明子可用于鲁棒的多通道无线通信，能够在湍流噪声信道和极端条件下提供可靠的通信服务。",
           "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c02161",
-          "tp": "可见光C-H碘化",
+          "u": "https://www.nature.com/articles/s41928-026-01611-6",
+          "tp": "可编程斯格明子",
           "aip": 1,
           "kp": [
-            "[机理]: 可逆非选择性C-H活化+动力学碘化",
-            "反应模式[连续流]: 可见光促进"
+            "[可编程等离激元斯格明子]: 实现对不同拓扑结构（含Néel型斯格明子和子午线）的编码及时间维度的超快谐波斯格明子合成"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": ")-H functionalization. Mechanistic investigations indicate that the reaction proceeds through a reversible and nonselective C-H activation to generate a mixture of alkyl radicals, followed by a kinetically controlled iodination that selectively traps the primary radical species.",
+          "b": "Plasmonic skyrmions are electromagnetic counterparts of topologically stable quasiparticles and could potentially be used as robust information carriers. However, practical applications require tunable devices that can encode the topological structures. Here we report a programmable platform that can encode plasmonic skyrmions with diverse topologies, including Néel-type skyrmions and merons. We synthesize harmonic skyrmions in the temporal dimension using ultrafast coding and apply the skyrmions in communication and sensing applications. In particular, we show that the programmable topological skyrmions can be used in robust and multichannel wireless communications, suggesting that the approach could provide communications in turbulent noise channels and extreme conditions. Together with a convolutional neural network, we also show that the platform can be used in the intelligent sensing of 20 animal figurines, achieving high recognition accuracy.",
           "hb": 1
+        },
+        {
+          "t": "14:4稀土氧化物-磷酸盐结构的从头算分子动力学预测和实验验证",
+          "d": "2026-04-29",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2604858123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "稀土结构预测",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "A位层序钙钛矿中的本征极涡晶体",
+          "d": "2026-04-29",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10470-2",
+          "tp": "极涡晶体研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

@@ -1,0 +1,98 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月12日　星期五",
+  "date_range": "2025-12-12",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "工业级隧道氧化物钝化接触太阳能电池效率达26.09%",
+      "硬碳孔定量工程使钠离子软包电池能量密度超200Wh/kg",
+      "研究阐明特定陶瓷电解质的质子交换动力学机制"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "工业级隧道氧化物钝化接触太阳能电池效率达26.09%",
+        "硬碳孔定量工程使钠离子软包电池能量密度超200Wh/kg",
+        "研究阐明特定陶瓷电解质的质子交换动力学机制"
+      ],
+      "entries": [
+        {
+          "t": "钢网印刷和局部多晶硅接触使工业级隧道氧化物钝化接触太阳能电池的效率达到 26.09%",
+          "d": "2025-12-12",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00412-X?rss=yes",
+          "tp": "光伏电池效率",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过硬碳孔的定量工程实现超过 200 Wh kg−1 钠离子软包电池",
+          "d": "2025-12-12",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf566/8378102?rss=1",
+          "tp": "钠离子电池研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过操作漫反射红外傅里叶变换光谱探讨BaZr0.1Ce0.7Y0.1Yb0.1O3−δ陶瓷电解质的质子交换动力学",
+          "d": "2025-12-12",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
+          "as": "",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE05957G",
+          "tp": "陶瓷电解质研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

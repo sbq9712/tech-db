@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "海洋温差发电技术完成真实海域工程验证，系统稳定性获测试",
-      "国家能源局推进非公共电网绿证核发，离网光伏等项目纳入体系",
-      "崂山实验室研制成功首套110千瓦级热耦合海水直接电解制氢系统"
+      "Alsym推无锂钠离子电池储能系统，向加州部署500兆瓦时容量。",
+      "大连化物所研制气-固氢负离子原型电池，常温常压能量利用率达93.9%。",
+      "研究揭示深层岩浆负压与储层连通性是驱动大型堤坝入侵的必要条件。"
     ],
     "AI与智能科技": [
-      "DeepSeek被曝自研AI推理芯片，旨在降低外部算力依赖",
-      "明尼苏达大学研究证实单层强化学习微调可超越全参数训练效果",
-      "研究人员验证单层强化学习训练法，有效降低模型计算开销"
+      "OpenAI计划于周四正式公开发布最新的GPT-5.6系列人工智能模型。",
+      "SpaceXAI计划于周三推出全新AI模型并接入代码编辑器Cursor。",
+      "MiniMax计划推出拥有2.7万亿参数的大型人工智能模型。"
     ],
     "通用技术": [
-      "中国计量院建成首套高精度圆度基准装置，测量精度降至6纳米",
-      "小鹏MONA L03搭载驾驶员失能辅助系统，可自动靠边停车呼叫救援",
-      "美国电网引入软件优化管理方案，预计释放300GW输电线路容量"
+      "中国计量院建成首套高精度圆度基准装置，测量不确定度降至6纳米。",
+      "LARES-2卫星成功测量地球坐标系拖动效应，相对不确定度达千分之一。",
+      "易控智驾以87.92港元/股在港交所主板挂牌，募资约22.98亿港元。"
     ]
   },
   "sectors": [
@@ -26,66 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "海洋温差发电技术完成真实海域工程验证，系统稳定性获测试",
-        "国家能源局推进非公共电网绿证核发，离网光伏等项目纳入体系",
-        "崂山实验室研制成功首套110千瓦级热耦合海水直接电解制氢系统"
+        "Alsym推无锂钠离子电池储能系统，向加州部署500兆瓦时容量。",
+        "大连化物所研制气-固氢负离子原型电池，常温常压能量利用率达93.9%。",
+        "研究揭示深层岩浆负压与储层连通性是驱动大型堤坝入侵的必要条件。"
       ],
       "entries": [
         {
-          "t": "终于有人把 “海水温差发电” 扔进真海里了",
+          "t": "不可燃钠离子 BESS 面向网格规模存储",
           "d": "2026-07-08",
-          "a": "REAI Lab",
-          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
-          "as": "海洋温差发电（OTEC）技术首次在真实海域进行工程验证。OTEC利用热带海面温水与深层冷水温差驱动热机发电，理论储量巨大但长期停留在概念阶段。此次海试验证了换热器效率、冷水管铺设和系统稳定性等关键工程指标。OTEC优势在于可提供稳定基荷电力（不受昼夜和天气影响），区别于间歇性可再生能源。",
+          "a": "Battery Tech Online",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "Alsym公司推出无锂钠离子电池储能系统（BESS），将向加州部署500兆瓦时容量。该电池采用地球上储量丰富的材料（钠、铁、硬碳），无需钴、镍或锰。其不可燃的磷酸焦磷酸铁钠化学成分从根本上消除了热失控风险，且能在-40°C至60°C的极端温度下仅依靠被动冷却运行，适用于锂离子电池无法胜任的极端气候环境。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.batterytechonline.com/stationary-batteries/non-flammable-sodium-ion-bess-targets-grid-scale-storage",
+          "tp": "钠离子储能系统",
+          "aip": 1,
+          "kp": [
+            "电池体系[无锂钠离子BESS]: 使用钠、铁、硬碳，无钴、镍、锰",
+            "化学特性[钠离子电池]: 非可燃的磷酸焦磷酸铁钠化学体系，无热失控风险",
+            "部署规模[加州电网级储能]: 500 MWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Alsym's lithium-free sodium-ion battery operates in extreme temps without thermal runaway risk. Targets markets where lithium-ion cannot go.\nJuly 7, 2026\nRenewable energy developer Juniper Energy will deploy 500 megawatt hours (MWh) of Alsym's Na-Series BESS across the state of California.\nAlsym energy\nLithium-free chemistry uses earth-abundant materials: sodium, iron, hard carbon—no cobalt, nickel, or manganese required\nNon-flammable sodium iron pyrophosphate chemistry eliminates thermal runaway risk at the chemical level for safer deployments\nOperates from –40°C to 60°C with passive cooling only, enabling deployment in extreme climates where lithium-ion fails\nAccording to a survey conducted in 2024, nearly\nthree-quarters of the world's population supports\nthe idea of phasing out fossil fuel utilization as a way of moving to cleaner energy across the globe. Despite the advancement from both public opinion and public policy, the affordability of electricity amid rising costs is becoming a significant challenge to the concept of mass electrification. According to the Center for American Progress, achieving universal rural electrification would require an\nestimated annual investment of nearly $20 billion\n. Still, this remains more of a billion-person problem than a billion-dollar problem, says Mukesh Chatter, co-founder and chief executive officer at\nAlsym Energy\n, a Massachusetts-based startup company that develops and supplies a lithium-free, sodium-ion-based battery energy storage system (BESS).\n\"Around the world today, more than one billion people don't have electricity, or only have access to it sometimes — condemning them to a cycle of no growth, no education, and a life of poverty,\" said Chatter. \"We project that our solution could help 7 billion people, because as massive deployments happen as a function of time, the planet will be helped from a clean energy perspective. The risk of fire in communities, and homes and residential, commercial, industrial will also be less or be avoided overall.\"\nWhy GM is Betting on Sodium-Ion Batteries for BESS\nMukesh Chatter, co-founder and CEO at Alsym Energy. Credit: Alsym Energy\nNa-Series BESS\n, aptly named after the symbol for sodium on the periodic table of elements, features a non-flammable, sodium iron pyrophosphate (NFPP+) chemistry combined with an in-house proprietary technology that eliminates the risk of thermal runaway at the chemical level while still providing \"best-in-class energy density.\" With a goal of building a lower-cost, safer BESS option that can be deployed around the world, Chatter and his organization are advancing the commercialization roadmap, and through a flurry of initiatives and partnerships that emphasize safety, domestic manufacturing & production, and operational efficiencies he expects to ship cells and modules to strategic partners starting in Q3 2026.\nDriven to undertake a widescale mission to help others in part to honor the legacy of his late mother, who died due to complications of late-stage ovarian cancer nearly 10 years ago, Chatter turned to his background in electrical engineering to launch the company alongside former colleague and MIT professor Kripa Varanasi to advance his initiative rooted in what he has found to be a social responsibility.\nTempo's Thermochemical Energy Storage Aims to Make Industrial Electrification Economically Viable\n\"I wanted to take the passion that has made me successful and deploy that same passion into making a larger difference to the lives of many people,\" said Chatter. \"It was one of those times when you ask yourself – what is my purpose? I don't want to be too philosophical, but that's exactly what this means to me. I think we can make a big difference for this unmet need today.\"\nAlsym Energy BESS container. Credit: Alsym Energy\nThrough a newly formed collaboration with advanced manufacturing, engineering, and industrial development company\nRe:Build Manufacturing\n, Framingham, MA, Alsym has begun development of commercial-scale battery cells in the United States. The two companies intend to establish a competitive battery cell manufacturing capacity to support national energy security needs by focusing on commercial-scale sodium-ion battery cell manufacturing capacity in Re:Build's existing facility in New Kensington, PA, an area that reportedly possesses a deep, historical manufacturing expertise.\nThe domestic-first approach is expected to ensure that BESS original equipment manufacturers and developers can maximize tax benefits under the Inflation Reduction Act (IRA) of 2022, legislation that is considered to be landmark federal law that is projected to cut greenhouse gas emissions by approximately 40 percent by 2030 and represents the largest climate and energy investment made in American history. \"Partnering with Re:Build allows us to accelerate our roadmap toward domestic commercial production,\" said Chatter. \"Their expertise in precision manufacturing and battery components is the perfect match for us. Together, we are providing a path for BESS integrators and developers to access high-quality cells that are not only non-flammable and high performance but are backed by a reliable, non-Foreign Entity of Concern (FEOC) supply chain—meaning a supply chain free from entities that may pose national security risks—that is fully compliant with tax credit and defense procurement rules.\"\nIDTechEx Analyst Discusses BESS Safety Innovations and Trends\nThe organization has also recently announced a partnership with renewable energy developer\nJuniper Energy\nin San Mateo, CA, to deploy 500 megawatt hours (MWh) of the Na-Series BESS across the state of California as more organizations consider shifting away from lithium-ion in some of the most demanding climates in the United States. By integrating the Na-Series, Juniper Energy will begin to deploy storage that is expected to eliminate any current fire risks associated with deployments involving traditional chemistries while reducing levelized cost of storage.\nPlans for the program's initial phase will focus on multi-megawatt deployments with a long-term vision to scale across Juniper's entire development pipeline. With a fast-charging capability of 30 minutes, the BESS is expected to enable Juniper to capitalize on a range of revenue-generating use cases from daily solar shifting to frequency regulation with the potential for multiple daily cycles. Among the other significant aspects of this arrangement will be the presence of the BESS units in the Mojave Desert and other high-temperature regions while helping the state to hedge against environmental concerns related to the concentration of rare-metal mining in the region. \"Juniper Energy is a forward-thinking developer that recognizes the inherent limitations of lithium in warmer environments,\" said Chatter. \"Our Na-Series technology was built for exactly this: providing high-performance, fast-charging storage that doesn't require complex cooling or risks community safety.\"\nThis past April, Alsym also signed a letter of intent with leading sustainable long duration energy storage system (LDES) manufacturer\n, Wilsonville, OR, to assist the organization in its plans to add 8.5 gigawatt hours (GWh) of sodium ion cells and modules to its portfolio. This pairing will mark ESS Tech's entry into the short and medium duration BESS segment and is expected to expand the company's addressable market beyond its established position in LDES. \"We are very pleased to be partnering with ESS,\" said Chatter. \"As demand grows, it is increasingly clear that the industry needs solutions beyond lithium-ion to meet the speed and scale projections. By combining high performance, inherent safety, and supply chain resilience, Alsym's Na-Series delivers that capability, and ESS brings deep experience delivering grid-scale systems that maximize the value of renewable energy. Together, we are enabling a better path forward for energy storage.\"\nDesigned to address use cases traditionally served by lithium ion and those where lithium cannot, without the inherent thermal runaway risks, the Na-Series is not strictly a standard sodium ion. It is a proprietary combination of earth-abundant materials that are free of lithium, cobalt, nickel, and manganese; hard carbon for structural stability needed during charge and discharge phases; a proprietary electrolyte for both safety and performance. Additionally, the NFPP-based cathode combined with a unique package of dopants allow the system to operate with best-in-class energy density. The batteries also use aluminum current collectors that aren't subject to the same dissolution issues as copper that's utilized in lithium-ion. Unlike lithium, the Na-Series can charge and discharge up to 2C (twice their capacity per hour) without impacting service life. The batteries can maintain operation from –40°C to 60°C using only passive cooling despite the climate conditions. The robust hard carbon and stable electrodes reduce the range of mechanisms that cause degradation in lithium-ion batteries. \"We have sodium with dopants, other materials that integrated into the electrode material,\" Chatter explained. \"Sodium ion is a broad-based word, but once you look into the specifics, that's what separates us from the rest of the crowd. I genuinely believe we are farthest along by a wide margin compared to any other sodium ion company in the United States. And we're gaining good traction. I'm excited about it.\"\nChatter also says that Alsym's efforts have been accelerated by the adoption of artificial intelligence (AI) through a physics-informed AI platform that is fundamentally improving how the company is discovering, developing, and scaling new chemistries. The platform\nutilizes physics-guided AI\nto narrow an otherwise endless range of battery chemistries — and rapidly converges on deployable options that are non-flammable and high-performance as opposed to exploring candidates in isolation. Machine learning is integrated with automated, closed-loop experimentation to extract maximum actionable learning from each test to facilitate progress across materials, cell design, and operating conditions beyond traditional trial-and-error approaches. Continuous electrochemical materials, molecular diagnostics, and feedback are applied to understand how and why batteries perform as they do to predict scaling from lab to prototype to pilot and commercial production. The AI also drives optimized system-level end-to-end co-design of materials, cell architecture, and manufacturing processes for what is expected to be better performance, safety, cost and manufacturability at scale.\nIn accelerated rate calorimetry testing, Na-Series BESS cells were heated from room temperature to 400°C without experiencing thermal runaway. In nail penetration tests conducted on fully charged cells, no rupture, fire, or flame was observed at any point.\n\"The safety of Na-Series enables deployments everywhere lithium-ion batteries can, and all the places lithium can't,\" said Chatter. \"Social responsibility is a good thing—it's a civic duty. I think most people want to do the right thing for the larger cause. But the means have to exist to be able to help. And what we are doing is producing those means.\"\nJoe Darrah is an award-winning freelance journalist based in the Philadelphia region who covers a variety of topics, including healthcare and medical technology. His articles have been published in more than 40 publications.\nSee more from",
+          "hb": 1
+        },
+        {
+          "t": "全球首例气-固氢负离子原型电池并实现常温常压高效储氢",
+          "d": "2026-07-08",
+          "a": "先进能源科技战略情报研究中心",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "中国科学院大连化学物理研究所开发出全球首例气-固氢负离子原型电池，实现“充氢放电、充电放氢”的常温常压高效储氢模式。该电池以金属镁和氢气为电极活性物质，初始放电容量达1526毫安时/克，在0.3伏电压下室温可释放约6.0%重量的氢气。其常温常压下运行能量利用效率高达93.9%，较传统热储氢提升三分之一，打破了传统储氢依赖高压或深冷极端条件的局限。",
           "sc": 8.8,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/XrpkVimCBrpdbWGN6oN1tw",
-          "tp": "海洋温差发电",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/oJoXWeUY17_auKpNQCLoNg",
+          "tp": "氢负离子电池",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "初始放电容量[气-固氢负离子原型电池]: 1526毫安时/克",
+            "重量释氢量[0.3伏电压室温下]: 约6.0%",
+            "能量利用效率[气-固氢负离子原型电池]: 高达93.9%",
+            "[气-固氢负离子原型电池]: 实现“充氢放电、充电放氢”的“氢电共储”模式，打破极端工况储氢局限"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "终于有人把 “海水温差发电” 扔进真海里了 REAI Lab REAI Lab REAI Lab “海水温差发电”扔进真海里了 海洋温差发电最像一个被工程世界反复搁置的老念头。 它的原理并不新，热带海面是暖的，几百米到上千米深处的海水是冷的",
+          "b": "全球首例气-固氢负离子原型电池并实现常温常压高效储氢 CASEnergy CASEnergy 先进能源科技战略情报研究中心 5月13日，中国科学院大连化学物理研究所开发出全球首例以氢气和金属为电极的气\\-固氢负离子原型电池。该电池创新性地实现“充氢放电、充电放氢”的“氢电共储”模式，为常温常压高效储氢提供了原型验证。 该电池以金属镁和氢气分别为负、正极活性物质：放电时，氢气在正极被还原为氢负离子，金属在负极氧化形成氢化物；充电时则释放氢气分子并再生金属，实现边充放电、边储放氢。测试显示，电池初始放电容量达1526毫安时/克，0.3伏电压下室温可释放约6.0%重量的氢气。 氢负离子兼具高反应性与高能量特征，是下一代全固态电池的关键路径之一，但其在自然条件下极不稳定，难以直接参与电化学储能。且传统储氢技术高度依赖高压（700个大气压）或深冷（\\-253℃）等极端条件。本次开发的气\\-固氢负离子原型电池在常温常压下即可运行，且能量利用效率高达93.9%，较传统热储氢提升三分之一，从根本上打破了极端工况对储氢应用局限。 这一原创性成果开辟了全新的储氢技术路线，在宏观尺度上实现了从“依赖极端条件被动储氢”向“常温常压电化学主动储氢”的跨越。未来将发展更高性能的氢负离子导体和电极材料，推动该原型电池实用化，助力氢能产业发展。 （汤匀） 来源：我所开发出首例气—固氢负离子原型电池并实现常温常压高效储氢. https://www.dicp.ac.cn/xwdt/ttxw/202605/t20260513\\_8200561.html 感谢喜欢**先进能源科技战略情报研究中心**微信公众号的您能够持续保持关注，我们将继续和您一路同行。",
           "hb": 1
         },
         {
-          "t": "国家能源局60号文解读：离网光伏、绿电直连项目可申请绿证，非公共电网全打通",
+          "t": "深层岩浆负压和连通性导致大型堤坝入侵",
           "d": "2026-07-08",
-          "a": "索比光伏",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "国家能源局发布国能综通资质〔2026〕60号文，推进非公共电网可再生能源发电项目绿证核发。覆盖工厂屋顶光伏自用、离网光伏、绿电直连等长期游离于绿证体系之外的项目。该政策打通非公共电网项目的绿证申请通道，扩大了绿证覆盖范围，对分布式光伏、工业园区绿电自发自用等项目具有直接经济激励意义，是绿证制度的重要完善。",
-          "sc": 8.7,
-          "i": "news",
-          "tg": "政策监管",
-          "u": "https://news.solarbe.com/202607/07/50025512.html",
-          "tp": "绿证核发政策",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "零碳产业/物质循环/资源处理/勘探技术",
+          "as": "2024年12月，约1.4立方公里岩浆在埃塞俄比亚裂谷下方侵入并持续了约3个月。大地测量和地震数据表明，该大型岩墙由深度在6至12公里之间的岩浆储层网络补给。深层岩浆储层中形成的负压条件导致了大量岩浆的排出。研究指出，构造应力和充足的岩浆不足以驱动巨型岩墙侵入，此类事件仅在岩浆储层连通性建立后才会发生。",
+          "sc": 8.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed6073?af=R",
+          "tp": "深层岩浆活动",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "岩浆传播体积[埃塞俄比亚裂谷堤坝入侵]: 1.4立方千米",
+            "岩浆活动持续时间[埃塞俄比亚裂谷堤坝入侵]: 约3个月",
+            "岩浆源深度[岩浆储层网络]: 6至12千米"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "2026年6月23日，国家能源局综合司发了一份通知，文号国能综通资质〔2026〕60号——《关于组织推进非公共电网可再生能源发电项目绿证核发的通知》。 \"非公共电网\"——这五个字，覆盖的是一批长期游离在绿证体系之外的发电项目：工厂屋顶光伏自...",
-          "hb": 1
-        },
-        {
-          "t": "我国首台（套）110千瓦级热耦合海水直接电解制氢成功研制！",
-          "d": "2026-07-08",
-          "a": "氢能技术前沿",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "崂山实验室牵头研制成功中国首台（套）110千瓦级热耦合海水直接电解制氢系统。该技术将工业废热或可再生能源热源耦合至电解过程，直接利用海水（无需淡化预处理）进行电解制氢，解决传统电解淡水依赖问题。110千瓦级的成功研制标志着从实验室原理验证向中试工程化迈出关键一步，对海上风电/海岛能源自给场景具重要应用价值。",
-          "sc": 8.7,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/sRQp67qBN-2GQDDVUQxi0w",
-          "tp": "海水电解制氢",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "我国首台（套）110千瓦级热耦合海水直接电解制氢成功研制！ 氢能技术前沿 * 来自崂山实验室的领导专家将介绍《我国首台（套）110千瓦级热耦合海水直接电解制氢系统》 “热耦合海水直接电解制氢”成果发布会透露，中国已成功研制出首台套110千瓦",
+          "b": "Large dikes are the main mechanism of crustal extension in volcanic areas, but the processes in the underlying magma system that supply the required volumes remain unclear. We show that 1.4 cubic kilometers of magma propagated under the Ethiopian rift in December 2024 and continued for ~3 months. Geodesy and seismicity reveal that the dike was fed from a network of magma reservoirs between 6 to 12 kilometers in depth with pathways rapidly forming between them. We calculate pressure changes in the reservoirs and show that underpressure developed in the deeper portion, creating the conditions to drain large magma volumes. We find that tectonic stress and availability of magma alone are not enough to drive intrusion of massive dikes. These events will start only after magma connectivity and deep underpressure develop. Similar conditions may be important for the transfer of large magma volumes from the mantle and the formation of large igneous provinces.",
           "hb": 1
         }
       ]
@@ -94,69 +107,70 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "DeepSeek被曝自研AI推理芯片，旨在降低外部算力依赖",
-        "明尼苏达大学研究证实单层强化学习微调可超越全参数训练效果",
-        "研究人员验证单层强化学习训练法，有效降低模型计算开销"
+        "OpenAI计划于周四正式公开发布最新的GPT-5.6系列人工智能模型。",
+        "SpaceXAI计划于周三推出全新AI模型并接入代码编辑器Cursor。",
+        "MiniMax计划推出拥有2.7万亿参数的大型人工智能模型。"
       ],
       "entries": [
         {
-          "t": "DeepSeek被曝自研AI推理芯片",
+          "t": "OpenAI 将于周四公开推出 GPT-5.6 系列模型",
           "d": "2026-07-08",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "据路透社报道，DeepSeek正在自主研发专用AI推理芯片，旨在降低对英伟达及国产芯片的依赖。该芯片专为AI推理环节（即模型训练完成后执行预测和生成任务的阶段）设计，而非训练。这一动向反映出头部AI公司垂直整合芯片-模型-应用全栈的趋势，若成功将显著降低DeepSeek的大规模推理成本，也可能改变AI芯片市场格局。但自研芯片从设计到量产周期长、投入巨大，短期内仍面临不确定性。",
-          "sc": 9.2,
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "据The Information报道，OpenAI计划于周四正式公开发布其最新的GPT-5.6系列人工智能模型。",
+          "sc": 9.8,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/BXRgkfKt1inqZHD6ZGJJYA",
-          "tp": "自研AI芯片",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "DeepSeek被曝自研AI推理芯片 机器之心 编辑 | 泽南 据路透社本周二报道，DeepSeek 正在开发自有的 AI 芯片，并希望以此降低该公司对英伟达和国产芯片的依赖。 消息人士称，该芯片专为 AI 推理环节设计，即 AI 任务中已",
-          "hb": 1
-        },
-        {
-          "t": "消息称 Deepseek 正在自研 AI 芯片：面向推理场景，减少依赖英伟达、华为",
-          "d": "2026-07-08",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "据路透社援引知情人士消息，DeepSeek（深度求索）正在自主研发面向AI推理场景的专用芯片，以减少对英伟达和华为的依赖。若属实，DeepSeek将加入自研芯片的AI公司行列。自研推理芯片可针对模型推理进行架构优化，降低部署成本，但也面临芯片设计、流片和供应链的多重挑战。",
-          "sc": 8.2,
-          "i": "news",
           "tg": "产业进展",
-          "u": "https://www.ithome.com/0/973/810.htm",
-          "tp": "AI推理芯片自研",
+          "u": "https://www.theinformation.com/briefings/openai-publicly-launch-gpt-5-6-family-models-thursday",
+          "tp": "模型发布",
           "aip": 1,
           "kp": [
-            "[芯片定位]: 面向AI推理场景自研芯片",
-            "[战略目标]: 降低对英伟达、华为的依赖"
+            "[GPT-5.6系列模型]: 计划于周四公开发布"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 7 日消息，据路透社今日援引三位知情人士消息，中国人工智能初创公司 DeepSeek（深度求索）正在研发自有 AI 芯片。如果消息属实，此举有望降低其对英伟达、华为的依赖。 DeepSeek 自研的 AI 芯片主要面向 AI 推理场...",
+          "b": "OpenAI To Publicly Launch GPT-5.6 Family of Models on Thursday — The Information\nRead this briefing for free",
           "hb": 1
         },
         {
-          "t": "RL训练一层就够了！单层RL超越全参数训练，跨任务跨模型跨算法全部验证",
+          "t": "独家：SpaceXAI 计划最快周三推出带有 Cursor 的新模型",
           "d": "2026-07-08",
-          "a": "机器之心",
+          "a": "the information",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "明尼苏达大学张子健等研究发现，强化学习（RL）训练中仅微调模型单层即可超越全参数训练效果，并在跨任务、跨模型架构、跨RL算法三个维度上全面验证。该发现挑战了\"更多可训练参数=更好性能\"的直觉假设，大幅降低RL训练的计算开销，对高效后训练和模型对齐具有重要实践意义。",
-          "sc": 8.4,
+          "as": "据The Information独家报道，SpaceXAI计划最快于周三推出一款全新的人工智能模型，并将与代码编辑器Cursor进行结合。",
+          "sc": 9.7,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/u6-CbyiQ-uhXi6cwyNlomA",
-          "tp": "强化学习优",
+          "tg": "技术突破",
+          "u": "https://www.theinformation.com/briefings/exclusive-spacexai-plans-launch-new-model-cursor-soon-wednesday",
+          "tp": "推出新模型",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "RL训练一层就够了！单层RL超越全参数训练，跨任务跨模型跨算法全部验证 机器之心 本文第一作者为明尼苏达大学博士生张子健，指导老师为洪明毅教授。其他作者包括北京大学的胡日臻，Amazon的Hongzhou Lin，明尼苏达大学的Athana",
+          "b": "Exclusive: SpaceXAI Plans to Launch New Model with Cursor as Soon as Wednesday — The Information\nRead this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "独家：中国MiniMax计划推出2.7万亿参数模型",
+          "d": "2026-07-08",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "据The Information独家报道，中国AI初创公司MiniMax正计划推出一款拥有2.7万亿参数的大型人工智能模型。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.theinformation.com/briefings/exclusive-chinas-minimax-plans-launch-2-7-trillion-parameter-model",
+          "tp": "推超大参数模型",
+          "aip": 1,
+          "kp": [
+            "模型参数量[MiniMax新模型]: 2.7万亿"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Exclusive: China’s MiniMax Plans to Launch 2.7-Trillion Parameter Model — The Information\nRead this briefing for free",
           "hb": 1
         }
       ]
@@ -165,9 +179,9 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国计量院建成首套高精度圆度基准装置，测量精度降至6纳米",
-        "小鹏MONA L03搭载驾驶员失能辅助系统，可自动靠边停车呼叫救援",
-        "美国电网引入软件优化管理方案，预计释放300GW输电线路容量"
+        "中国计量院建成首套高精度圆度基准装置，测量不确定度降至6纳米。",
+        "LARES-2卫星成功测量地球坐标系拖动效应，相对不确定度达千分之一。",
+        "易控智驾以87.92港元/股在港交所主板挂牌，募资约22.98亿港元。"
       ],
       "entries": [
         {
@@ -175,63 +189,66 @@
           "d": "2026-07-08",
           "a": "世界先进制造技术论坛",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "2026年7月7日，中国计量科学研究院宣布建成我国首套高精度圆度基准装置。圆度测量不确定度从20纳米降至6纳米，精度提升3倍以上，达到国际先进水平。圆度是精密制造的核心几何参数，直接影响轴承、发动机缸体、光学元件等高端零部件的加工精度。该装置的建成为中国高端装备制造提供了自主可控的圆度计量溯源能力。",
+          "as": "中国计量科学研究院建成我国首套高精度圆度基准装置，解决了高准确度圆度评定、主轴误差分离等技术难题。该装置将圆度测量不确定度从20纳米降至6纳米，达到国际先进测量精度。这一突破填补了国内国家级圆度量值溯源源头的空白，实现了核心关键技术自主可控，为航空航天、高端机床、先进光学和半导体制造等战略产业提供了高可靠、高精度的量值基准支持。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/Ai6TobBbOQcqlVP6WQw6Zg",
+          "tp": "圆度基准装置",
+          "aip": 1,
+          "kp": [
+            "测量不确定度[高精度圆度基准装置]: 6纳米",
+            "[圆度计量]: 攻克国内圆度量值缺乏国家级溯源源头的卡脖子问题"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "一根“看不见的圆规”，正在改写中国高端制造的命运 原创 小艾 小艾 世界先进制造技术论坛 2026年7月7日，中国计量科学研究院宣布：我国首套高精度圆度基准装置正式建成。 **圆度测量不确定度从20纳米降至6纳米**，测量能力达到国际先进水平。 听起来像是一条专业新闻。但它的分量，远比表面看到的要重。 **一、圆度是什么？为什么它这么重要？** 先解释一个概念。圆度是几何量形位公差体系里的核心基础参数之一。 说得直白一点：一个零件“有多圆”，直接决定了它能不能用、好不好用。 **精密主轴不圆，机床加工精度就上不去。光学镜片不圆，成像就会模糊。半导体晶圆不圆，芯片良率就会暴跌**。 圆度测量精度，直接关系到精密主轴、先进光学元件、半导体芯片等高端制造产品的性能表现和装配质量。 以前我们国家有平面度计量基准，但**圆度量值一直缺乏国家级溯源源头**。 这意味着什么？意味着国内企业生产的圆度相关产品，没有一个“国家标准答案”可以对照。要校准设备、要验证精度，只能找国外机构。 **这是一个典型的“卡脖子”问题**。 **二、这次突破，到底突破了什么？** 这套装置由中国计量科学研究院研制。在技术上，它解决了三个国际性难题： 高准确度圆度评定、主轴误差分离、滤波一致性控制。 具体来说，装置创新提出了基于高准确度圆度滤波与全效数据利用的圆度计算模型，解决了标准半球分离后轮廓重构的稳定性难题。 同时，自主研发的新型误差分离技术大幅抑制了主轴回转误差。 **把圆度测量不确定度从20纳米压缩到6纳米**。 20纳米是什么概念？一根头发丝的直径大约是8万纳米。6纳米，已经是原子级别的测量精度。 **这意味着我国在高准确度圆度测量的核心关键技术上，实现了自主可控**。 **三、哪些行业会直接受益？** 这套装置将为**航空航天、高端机床、先进光学、半导体制造**等战略产业提供高可靠、高精度的量值溯源支撑。 一个一个说。 **航空航天**：飞机发动机的转子、轴承、涡轮盘，对圆度的要求极高。圆度偏差一点点，高速运转下就可能出大问题。0.3微米级的轴类测量技术已经能显著提升航天零部件的合格率与装配一致性。有了国家级圆度基准，航空制造的质量控制有了“准绳”。 **高端机床**：机床主轴的回转精度，直接决定加工精度。主轴不圆，加工出来的零件就不圆。圆度基准装置的建成，为机床行业提供了精确的校准标尺。 **先进光学**：光学镜片、反射镜的圆度直接影响成像质量。在纳米级精度要求下，圆度测量是绕不过去的一环。 **半导体制造**：晶圆的圆度、平整度，直接关系到光刻精度和芯片良率。半导体器件的厚度通常在纳米级别。6纳米的测量能力，正好卡在了半导体制造最需要的位置。 **四、这不是孤立的突破，而是一个趋势的信号** 把这件事放在更大的背景里看，意义更清晰。 2025年，中国精密仪器市场规模已经达到约9600亿元。全球工业测量设备市场2025年达到57.6亿美元，预计2032年将增长到95.57亿美元。 **这是一个千亿级、且还在快速增长的市场**。 与此同时，国产替代正在加速。 在2026年CCMT机床展上，国产精密测量已经展现出从“能用”走向“好用”、从“单点替代”走向“系统自主”的趋势。 “十四五”以来，我国新建国家计量基准34项，同比增长89%，多项达到国际先进水平。按照《计量强基工程总体方案》，到2030年，我国将实现60%以上国家计量基准核心装置自主可控。 圆度基准装置的建成，只是这个大趋势中的一个节点。 **五、行业洗牌正在发生** 精密测量是制造业的“眼睛”。眼睛看不清，手就做不准。 过去，国内高端制造企业做圆度相关的检测和校准，往往要依赖国外的计量标准和校准服务。不仅成本高，周期长，还受制于人。 现在，**国家级圆度基准建成了，整个量值溯源体系有了“根”**。 这意味着什么？ **国内圆度测量仪的生产厂家，有了可以对照的国家标准。** 以前说自己的设备精度高，拿不出国家级溯源证明。现在可以了。 **高端制造企业做产品验证和质量控制，有了国内的权威依据。** 不用再把样品送到国外去校准。 **整个产业链的精度水平，有了统一提升的基础。** 这是一场从“根”上开始的国产替代。 **六、一点思考** 精密计量这件事，平时很少有人关注。它不像芯片、光刻机那样站在聚光灯下。 **但它是一切精密制造的基础。** 没有准确的圆度基准，精密主轴做不准。主轴做不准，机床精度上不去。机床精度上不去，什么都做不出来。 **这是一条看不见的链条，但每一环都卡着产业的命门。** 圆度基准装置的建成，填补的是整个国家几何量计量体系里一个关键的空白。它不直接产出产品，但它让所有产品的精度有了统一的“坐标系”。 从20纳米到6纳米，数字看起来不大。**但在这个量级上，每一纳米的进步，...",
+          "hb": 1
+        },
+        {
+          "t": "LARES-2 卫星测量地球周围的坐标系拖动效应",
+          "d": "2026-07-08",
+          "a": "Nature",
+          "c": "通用技术/通信和运输/航天",
+          "as": "激光测距技术被用于在弱场状态下高精度测试引力，以验证爱因斯坦的广义相对论。研究利用新发射的LARES-2卫星及其优异的轨道和极低的面质比，结合LAGEOS和GRACE卫星，成功测量了地球周围的坐标系拖动效应。测量结果的相对不确定度达到千分之一水平，精度比以往的太阳系测量结果提升了一个数量级。",
+          "sc": 8.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10715-0",
+          "tp": "卫星验证相对论",
+          "aip": 1,
+          "kp": [
+            "[LARES-2卫星测试坐标系拖动效应]: 极低面质比和高度均匀的后向反射器分布",
+            "[广义相对论弱场测试]: 优化的轨道设计实现极高精度的激光测距"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Laser-ranging provides some of the most precise tests of gravity in the weak-field regime, enabling experimental probes of Einstein’s general theory of relativity using the Earth as a laboratory1. A central test of general relativity is the amplitude of frame-dragging, that is, the dragging of spacetime by a rotating mass2,3,4,5. Owing to its optimized orbit, a very low surface-to-mass ratio and a highly uniform retroreflector distribution, we show that the recently launched Laser Relativity Satellite 2 (LARES-2)6—together with its predecessor LAGEOS and the GRACE satellites—enables a measurement of terrestrial frame-dragging with a relative uncertainty at the one-part-in-a-thousand level, representing an order-of-magnitude improvement over previous Solar System determinations. This result provides a stringent confirmation of general relativity in the near-Earth environment and places strong constraints on alternative gravitational models that predict deviations specifically in frame-dragging, including scalar–tensor extensions such as Chern–Simons gravity7,8. Beyond tests of fundamental physics, the combined analysis of LARES-2 and LAGEOS also improves the determination of Earth’s lunisolar tides, illustrating the broader geophysical impact of high-precision relativistic satellite experiments.",
+          "hb": 1
+        },
+        {
+          "t": "刚刚，07687.HK诞生！全球矿区无人驾驶第一股登陆港交所",
+          "d": "2026-07-08",
+          "a": "矿业界",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "2026年7月8日，易控智驾（股票代码07687.HK）正式在港交所主板挂牌上市，成为全球矿区无人驾驶第一股。此次全球发售H股发行价为87.92港元/股，募资约22.98亿港元，获得紫金矿业、徐工集团等11家基石投资者支持。该公司致力于提供全矿级无人驾驶整体解决方案，标志着矿区无人驾驶正式以独立产业形态进入全球资本市场。",
           "sc": 8.4,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/Ai6TobBbOQcqlVP6WQw6Zg",
-          "tp": "高精度圆度",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "一根“看不见的圆规”，正在改写中国高端制造的命运 原创 小艾 小艾 世界先进制造技术论坛 2026年7月7日，中国计量科学研究院宣布：我国首套高精度圆度基准装置正式建成。 **圆度测量不确定度从20纳米降至6纳米**，测量能力达到国际先进水",
-          "hb": 1
-        },
-        {
-          "t": "小鹏 MONA L03 官宣首搭驾驶员失能辅助系统：自动靠边、呼叫救援",
-          "d": "2026-07-08",
-          "a": "IT之家",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "小鹏MONA L03首搭驾驶员失能辅助系统，在高速辅助驾驶场景下，系统检测到驾驶员失去驾驶能力时可自动靠边停车并呼叫救援。该功能拓展了ADAS的安全边界，从辅助驾驶延伸至驾驶员健康应急响应。小鹏同时发布实测视频，展示了该系统在紧急情况下的自主处置能力，是智能驾驶安全冗余的重要进展。",
-          "sc": 8.3,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/973/811.htm",
-          "tp": "驾驶员失能辅助",
+          "tg": "资本运作",
+          "u": "https://mp.weixin.qq.com/s/_xzjNcFtiKsLpZ3Zvj76NQ",
+          "tp": "矿区无人驾驶第一股",
           "aip": 1,
           "kp": [
-            "算力[图灵芯片]: 1500TOPS",
-            "智驾系统[MONA L03]: 第二代VLA",
-            "失能辅助[高速路]: 自动靠边停车+呼叫救援"
+            "上市定价[易控智驾港股IPO]: 87.92港元/股",
+            "募资总额[易控智驾港股IPO]: 约22.98亿港元",
+            "发售股数[易控智驾全球发售H股]: 26,132,000股"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 7 日消息，小鹏汽车官方今日宣布，MONA L03 首搭驾驶员失能辅助系统。据介绍，高速路辅助驾驶时， 驾驶员失去驾驶能力，车辆也能自动靠边、呼叫救援 小鹏汽车官方还放出了 MONA L03 驾驶员失能辅助系统的实测视频。 小鹏汽车...",
-          "hb": 1
-        },
-        {
-          "t": "软件即可释放美国电网300GW容量，无需新建任何发电厂",
-          "d": "2026-07-08",
-          "a": "pv magazine",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "先进电网扫描软件有望在不新建任何发电厂的情况下为美国电网释放高达300 GW的额外容量。该技术在Energy Empire播客中被详细介绍，通过优化现有输电线路和电网管理实现容量提升。这一方案以纯软件方式释放巨大输电潜力，对加速可再生能源并网和缓解电力短缺具有重要现实意义，同时显著降低基础设施投资成本。",
-          "sc": 6.9,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://www.pv-magazine.com/2026/07/07/software-can-unlock-300-of-capacity-on-u-s-grid-without-building-a-single-power-plant/",
-          "tp": "电网容量挖掘",
-          "aip": 1,
-          "kp": [
-            "可释放容量[美国电网]: 300 GW",
-            "技术[输电容量发现]: 高级电网扫描软件"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Applications & Installations Advanced grid-scanning software, as detailed on the Energy Empire podcast with host Jigar S...",
+          "b": "刚刚，07687.HK诞生！全球矿区无人驾驶第一股登陆港交所 李平 李平 矿业界 2026年7月8日，易控智驾正式在香港交易所主板挂牌上市，股票代码**07687.HK**，成为****全球矿区无人驾驶第一股****。 本次全球发售H股共26,132,000股，发行价格为87.92港元/股，募资总额约22.98亿港元。 易控智驾核心管理层及IPO团队共同见证历史时刻 随着开市锣声响起，**在****易控智驾创始人兼****CEO****蓝水生、联合创始人兼董事长张磊等核心管理层、****海内外产业链伙伴、矿业客户代表及长期投资者的共同见证下**，易控智驾正式登陆香港联合交易所主板。****全球矿区无人驾驶第一股的诞生，不仅********是易控智驾发展的重要里程碑，也标志着矿区无人驾驶正式以独立产业形态进入全球资本市场。**这一长期扎根实体经济的新兴产业，正成为推动全球矿业智能化变革的重要力量。** 本次IPO获得包括紫金矿业、徐工集团、富达国际、摩根大通、霸菱、Indus、Jain Global、Regal、广发基金、鼎晖投资、Seven Grand共计11家基石投资者支持。**产业资本与国际资本的共同参与，印证了资本市场对公司长期价值及矿区无人驾驶产业前景的高度认可。** 易控智驾创始人兼CEO蓝水生与联合创始人兼董事长张磊共同敲锣 ****易控智驾创始人兼********CEO********蓝水生****在上市仪式上表示，港股上市是资本市场对易控智驾过去八年深耕矿区赛道的一份认可，更是公司奔赴下一程的全新起点。 “从2018年成立至今，我们始终认准一个道理：技术的价值，最终要落到帮客户解决实际问题上。所以我们一头扎进矿山的复杂严苛场景里，**坚持以客户需求为核心推进技术创新，和客户并肩探索、合作共赢****。**从单台矿卡的无人化改造，到全矿级的整体解决方案，从局部试点到常态化运营，我们一步步把技术做扎实。今天登陆港交所，不仅是易控智驾发展的重要里程碑，也意味着矿区无人驾驶这条已具备商业应用基础的产业赛道，开始被更广泛地看见。 未来，我们会继续坚守科技创新的底色，把客户价值放在首位，和所有伙伴共赢前行；同时以本次上市为契机加快全球化布局，把在中国矿山场景中验证成熟的技术、产品和解决方案带向全球，用科技赋能全球矿业的绿色智能升级。” 自2018年成立以来，易控智驾始终专注大型露天矿区无人驾驶赛道。以2025年收入计算，**公司位居******中国商用车智能驾驶行业第一******。**同时，也是**中国规模最大的矿区无人驾驶技术服务商**，截至2025年12月31日，公司累计部署**2580**辆活跃无人驾驶矿卡，**占据国内市场份额的******55.5%********，****并成为****全球首家**且**目前唯一**拥有超2500辆活跃无人驾驶矿卡车队的企业。** 规模领先的背后，是商业能力的持续验证。公司解决方案已在全国三十余座矿山规模化落地，覆盖煤矿、金属矿及非金属矿全矿种，并连续三年在所有终端客户集团保持**100%**客户留存率。从全国首个常态化无人运行项目，到全球最大规模无人矿卡车队，易控智驾不仅**率先验证了矿区L4级自动驾驶的商业闭环，更以规模化实践重新定义了矿区无人驾驶产业的价值坐标。** **矿区无人驾驶不是通用自动驾驶技术的简单迁移。**长期扎根矿山一线，易控智驾持续积累对矿山生产组织、运输工艺及车辆工程的系统理解，**融「懂矿、懂车、懂AI」三重能力为一体，构筑了场景驱动、全栈自研、持续迭代的技术体系。** 依托真实场景持续迭代，公司率先在多模态融合感知、多线程决策规划及预测算法等核心技术上破局，实现雨雪雾尘等复杂工况下稳定运行，支持矿区混装、混行、混卸全流程混编作业。在此基础上，公司进一步打造“著山+暮野”双产品体系，贯通“设备-平台-应用-管理”全链条，以标准化、模块化架构持续提升跨场景适配能力与规模化交付效率，持续构筑全球矿山智能化发展的技术底座。 在全球能源转型、新型工业化与人工智能技术深度融合的背景下，矿区无人驾驶作为自动驾驶商业化最成熟、最具经济价值的应用场景之一，正成为推动“智慧矿山”建设和矿区数智化升级的重要抓手，也正在打开产业智能化升级的广阔空间。 据弗若斯特沙利文预测，到2030年，全球矿区无人驾驶解决方案市场规模将增长至73亿美元。面向这一轮产业发展机遇，易控智驾凭借先进的技术、稳定的客户群及成熟的商业部署能力，正加快将先发优势转化为系统性增长动能。 与此同时，**公司也正加速向轻资产、高附加值的技术服务模式升级。**客户持车模式无人矿卡规模从2023年的60台跨越式增长至2025年的1709台，带动资本效率持续优化，经营韧性、盈利质量与高质量发展势能同步提升。 在稳...",
           "hb": 1
         }
       ]

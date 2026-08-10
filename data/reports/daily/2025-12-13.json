@@ -1,0 +1,77 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月13日　星期六",
+  "date_range": "2025-12-13",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型三基序分子连接实现高效整体光合作用制取H2O2",
+      "共价有机框架通道利用羰基诱导效应加速Mg2+传输"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型三基序分子连接实现高效整体光合作用制取H2O2",
+        "共价有机框架通道利用羰基诱导效应加速Mg2+传输"
+      ],
+      "entries": [
+        {
+          "t": "具有长寿命电荷载体的三基序分子连接，可实现 H2O2 的高效整体光合作用",
+          "d": "2025-12-13",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523341?af=R",
+          "tp": "光合制过氧化氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "分子交通控制：通过共价有机框架通道中羰基诱导的离子偶极相互作用实现快速 Mg2+ 运输",
+          "d": "2025-12-13",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524857?af=R",
+          "tp": "镁离子运输",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

@@ -6,15 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "马里兰大学研发阴离子桥接溶剂化鞘策略，水系锌电池循环千次库仑效率达99.99%",
-      "研究证实液态金属路线可直接再生退役正极材料，跳过分解步骤降低回收能耗",
-      "新界面工程策略攻克锌碘电池氯离子腐蚀，稳定海水基电池四电子氧化还原反应"
+      "马里兰大学开发阴离子桥接溶剂化策略，水系锌电池循环千次库仑效率达99.99%",
+      "研究采用湿化学法定制C-F构型，实现600 Wh/kg锂氟化碳软包电池能量密度"
     ],
-    "AI与智能科技": [],
+    "AI与智能科技": [
+      "科研人员研发出具备磁引导跨血管导航能力的液态金属微型机器人",
+      "原生稀疏注意力算法通过软硬件协同设计提升长上下文处理效率"
+    ],
     "通用技术": [
-      "卡尔斯鲁厄理工合成空气稳定铁单离子源，收率达95%可替代部分贵金属催化剂",
-      "研究构建单原子催化剂疏水微环境，解决水竞争吸附实现二氧化碳高选择性产甲烷",
-      "研究揭示连接基团改变卡宾持久性，提供调控抗菌碳低聚物杀灭功效的新机制"
+      "美国宇航局公布首张探测器飞越月球期间拍摄的地球与月面图像",
+      "卡尔斯鲁厄理工开发出收率95%的空气稳定铁(I)单离子源以替代贵金属催化剂"
     ]
   },
   "sectors": [
@@ -22,22 +23,21 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "马里兰大学研发阴离子桥接溶剂化鞘策略，水系锌电池循环千次库仑效率达99.99%",
-        "研究证实液态金属路线可直接再生退役正极材料，跳过分解步骤降低回收能耗",
-        "新界面工程策略攻克锌碘电池氯离子腐蚀，稳定海水基电池四电子氧化还原反应"
+        "马里兰大学开发阴离子桥接溶剂化策略，水系锌电池循环千次库仑效率达99.99%",
+        "研究采用湿化学法定制C-F构型，实现600 Wh/kg锂氟化碳软包电池能量密度"
       ],
       "entries": [
         {
           "t": "马里兰大学王春生提出阴离子桥接溶剂化鞘新策略提高水系锌电池稳定性",
           "d": "2026-04-07",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
           "as": "马里兰大学王春生团队提出\"阴离子桥接\"溶剂化鞘策略，利用高供体数（>18）氟化阴离子进入锌离子第一溶剂化鞘并与第二鞘水分子形成强氢键，在2M中等浓度下实现类似\"盐包水\"电解液的界面化学特性。2M三氟乙酸锌电解液离子电导率达26-35 mS/cm，形成富ZnF₂疏水SEI膜。Zn||NaV₃O₈电池在1.5 mA/cm²下循环1000次平均库仑效率99.99%，初始比能量约130 Wh/kg，解决了水系锌电池枝晶和水分解问题。",
-          "sc": 6.6,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41565-026-02148-7",
-          "tp": "水系锌电池",
+          "tp": "水系锌电池电解液",
           "aip": 1,
           "kp": [],
           "lv": 1,
@@ -47,16 +47,64 @@
           "hb": 1
         },
         {
-          "t": "基于液态金属路线的直接正极回收",
+          "t": "马里兰大学王春生提出阴离子桥接溶剂化鞘新策略提高水系锌电池稳定性",
           "d": "2026-04-07",
-          "a": "National Science Review Advance Access",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "该研究探索了一条利用液态金属实现电池正极材料直接回收的新路线。传统回收依赖强酸浸出或高温冶炼，成本高且破坏材料结构。液态金属路线旨在通过低能耗的物理化学过程，将退役正极材料中的活性组分直接再生为可再利用形态，跳过完全分解再合成的步骤，从而大幅降低回收能耗与碳排放，推动锂离子电池的闭环循环经济。",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "马里兰大学王春生团队提出\"阴离子桥接\"溶剂化鞘策略，利用高供体数（>18）氟化阴离子进入锌离子第一溶剂化鞘并与第二鞘水分子形成强氢键，在2M中等浓度下实现类似\"盐包水\"电解液的界面化学特性。2M三氟乙酸锌电解液离子电导率达26-35 mS/cm，形成富ZnF₂疏水SEI膜。Zn||NaV₃O₈电池在1.5 mA/cm²下循环1000次平均库仑效率99.99%，初始比能量约130 Wh/kg，解决了水系锌电池枝晶和水分解问题。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41565-026-02148-7",
+          "tp": "水系锌电池电解液",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "水系锌金属电池因成本低、安全性高，被视为电网级储能的理想选择。然而，传统水系电解液（浓度约1 M）中，锌离子第一溶剂化鞘层内的六个水分子极易引发水分解和锌枝晶生长，严重降低电池的库仑效率。虽然“盐包水”或水系-有机杂化电解液能形成稳定的固态电解质界面，但存在动力学差、成本高等问题。\n马里兰大学王春生教授团队利用具有高供体数（>18）的氟化阴离子，使其进入锌离子的第一溶剂化鞘层，并通过阴离子与第二溶剂化鞘层水分子形成强氢键，构建了“阴离子桥接”的二级溶剂化结构。该设计在2 M的中等浓度下，实现了类似“盐包水”电解液的界面化学特性，同时避免了其高粘度、高成本与低离子电导率的缺陷。\n研究筛选出的2 M三氟乙酸锌水系电解液表现尤为突出。其在25°C下离子电导率高达26–35 mS cm⁻¹，并能形成富含ZnF₂的疏水固态电解质界面。测试表明，采用该电解液的Zn||NaV₃O₈·1.5H₂O电池，在1.5 mA cm⁻²电流密度下循环1000次，平均库仑效率高达99.99%，初始比能量约为130 Wh kg⁻¹（基于正负极总质量）。相比之下，使用传统2 M Zn(OTf)₂电解液的电池在相同条件下迅速失效。文章于2026年4月7日发表在Nature Nanotechnology。",
+          "hb": 1
+        },
+        {
+          "t": "通过湿化学法定制 600 Wh kg-1 Li/O-CFx 软包电池 O-CFx 阴极中的 C-F 配置",
+          "d": "2026-04-07",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/一次电池",
+          "as": "",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE00658B",
+          "tp": "高比能锂电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "科研人员研发出具备磁引导跨血管导航能力的液态金属微型机器人",
+        "原生稀疏注意力算法通过软硬件协同设计提升长上下文处理效率"
+      ],
+      "entries": [
+        {
+          "t": "用于磁引导跨血管导航的液态金属微型机器人（Adv. Mater. 20/2026）",
+          "d": "2026-04-07",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "",
           "sc": 7.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag213/8607083?rss=1",
-          "tp": "液态金属电池回收",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72923?af=R",
+          "tp": "液态金属微控",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -66,49 +114,57 @@
           "hb": 0
         },
         {
-          "t": "锌负极界面工程破解可持续海水基Zn-I2电池中氯化物腐蚀与四电子氧化还原兼容性困境",
+          "t": "原生稀疏注意力：共同设计算法和硬件以实现实际的长上下文效率",
           "d": "2026-04-07",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "针对水系锌碘电池中海水电解液的氯离子腐蚀与四电子氧化还原兼容性矛盾，提出锌负极界面工程策略。通过构建保护性界面层抑制腐蚀并稳定碘转化反应，使海水基Zn-I₂电池在长循环中保持高库仑效率与容量保持率，为可持续海洋能源存储提供可行方案。",
-          "sc": 7.0,
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70915?af=R",
-          "tp": "锌碘电池",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag212/8627038?rss=1",
+          "tp": "稀疏注意力算法",
           "aip": 1,
-          "kp": [
-            "[界面工程]: 锌负极界面工程抑制Cl⁻腐蚀与析氢",
-            "[氧化还原]: 四电子Zn-I₂转化(I⁻/I⁺)",
-            "电解质[海水基Zn-I₂电池]: 海水"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Aqueous zinc–iodine (Zn–I\n                    2\n                    ) batteries using seawater electrolytes offer a promising route toward sustainable and low‐cost energy storage for four‐electron zinc–iodine (Zn–I\n                    2\n                    ) batteries, owing to their inherent safety and natural chloride content that stabilizes high‐valent iodine species. However, severe Cl\n                    −\n                    ‐induced corrosion and hydrogen evolution at the zinc anode fundamentally conflict with the iodine redox chemistry at the cathode, aggravating dendrite growth and leading to rapid battery failure. Herein, we propose a synergistic interfacial engineering strategy by constructing a dense Ti protective layer on zinc metal via magnetron sputtering (Ti@Zn). The Ti layer with desirable Zn‐affinity and Cl\n                    −\n                    ‐repelling properties, synchronously suppresses chloride corrosion, accelerates Zn\n                    2+\n                    migration/desolvation kinetics, and inhibits undesirable side reactions. Thus, uniform Zn\n                    2+\n                    flux and deposition morphology are realized by homogenizing the interfacial electric field. Consequently, the optimized Ti@Zn anode enables high reversibility in both symmetric cells (500 h at 10 mA cm\n                    −2\n                    ) and Ti@Zn//Cu cells (Coulombic efficiency of 99.89% for 4000 cycles). Moreover, the Ti@Zn//AC@I\n                    2\n                    pouch cells display high‐capacity retention ratio of 97.1% at 1 A g\n                    −1\n                    after 850 cycles, and excellent rate capability of 144.5 mAh g\n                    −1\n                    at 5 A g\n                    −1\n                    , demonstrating sustainable four‐electron iodine conversion chemistry.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [],
-      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "卡尔斯鲁厄理工合成空气稳定铁单离子源，收率达95%可替代部分贵金属催化剂",
-        "研究构建单原子催化剂疏水微环境，解决水竞争吸附实现二氧化碳高选择性产甲烷",
-        "研究揭示连接基团改变卡宾持久性，提供调控抗菌碳低聚物杀灭功效的新机制"
+        "美国宇航局公布首张探测器飞越月球期间拍摄的地球与月面图像",
+        "卡尔斯鲁厄理工开发出收率95%的空气稳定铁(I)单离子源以替代贵金属催化剂"
       ],
       "entries": [
         {
+          "t": "地球落下和日食：美国宇航局发布了第一张飞越月球的图像",
+          "d": "2026-04-07",
+          "a": "BBC News",
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.bbc.com/news/articles/cyv183v02j3o?at_medium=RSS&at_campaign=rss",
+          "tp": "NASA月球图像",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
           "t": "卡尔斯鲁厄理工Oliver Townrow报道了空气稳定的铁(I)单离子源[Fe(durene)2][BArF24]",
           "d": "2026-04-07",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/催化剂",
           "as": "卡尔斯鲁厄理工学院Oliver Townrow团队开发出空气稳定的紫色晶体铁(I)单离子源[Fe(durene)₂][BArF₂₄]。铁(I)是铁催化核心活性物种但遇空气极易氧化分解。该团队采用TMS₂Pz*作为有机还原剂，通过精确单电子转移将[Fe(Bz*)₂][PF₆]₂选择性还原为Fe(I)物种，收率95%，过量还原剂也不会过还原；再经NaBArF₂₄盐交换定量获得目标产物。铁成本低、产量高，催化性能可对标铑、铱、钯等贵金属，有望替代[Rh(cod)₂][BF₄]等核心催化剂。",
           "sc": 7.0,
@@ -125,44 +181,22 @@
           "hb": 1
         },
         {
-          "t": "[ASAP]单原子催化剂上的介观疏水微环境工程引导CO2光还原为CH4",
+          "t": "卡尔斯鲁厄理工Oliver Townrow报道了空气稳定的铁(I)单离子源[Fe(durene)2][BArF24]",
           "d": "2026-04-07",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Doi",
           "c": "通用技术/催化剂",
-          "as": "该研究在单原子催化剂上引入介观疏水微环境工程，引导CO2光催化还原高选择性生成CH4。CO2光还原制CH4长期受竞争性水吸附和CO中间体易脱附困扰。通过在单原子活性位点周围构建疏水微环境，抑制水分子竞争吸附并促进CO2富集，有效调控反应路径向深度加氢方向进行，实现高选择性的CH4产物生成。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01672",
-          "tp": "光催化CO2还原",
-          "aip": 1,
-          "kp": [
-            "催化剂[CO₂光还原制CH₄]: Cu-C单原子位点",
-            "[界面工程]: 介观疏水微环境排斥体相水并抑制*CO脱附"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The selective photoreduction of CO2 to CH4 is notoriously challenged by competitive water adsorption and the facile desorption of the *CO intermediate. Herein, we tackle this dual challenge through the mesoscopic engineering of a single-atom catalyst with Cu-C sites, which transforms the surface into a hydrophobic environment. This engineered interface not only repels bulk water to ensure efficient CO2 access but also leverages confined water clusters to stabilize CO2 molecules. Crucially, finite element simulations reveal that the lattice distortion-induced surface roughness effectively hinders the diffusion of CO molecules, leading to a localized enrichment of the *CO intermediate around the active Cu sites. This physical confinement effect, synergizing with the electronic π-backdonation from Cu, suppresses premature desorption of the *CO intermediate and promotes its further reduction. Consequently, the catalyst achieves a high CH4 selectivity of 98.43% and a production rate of 16.43 μmol g-1 h-1, with notable activity preserved even under 700 nm irradiation. This work underscores that governing the mass transport of key intermediates at the mesoscale is a decisive design principle for steering catalytic selectivity.",
-          "hb": 1
-        },
-        {
-          "t": "改变膜中卡宾的持久性作为调节抗菌碳酸低聚物杀灭功效的机制",
-          "d": "2026-04-07",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队此前提出阳离子寡聚咪唑盐（OIM）碳可通过N-杂环卡宾（NHC）辅助转位机制杀灭细菌。本研究发现连接咪唑环的连接基团深刻影响寡聚物的胞质摄取效率，进而调控其抗菌活性。在模拟细菌膜的疏水环境中，不同连接基改变了卡宾的持久性，揭示了通过膜中卡宾寿命调控抗菌碳低聚物杀灭功效的新机制。",
-          "sc": 5.9,
-          "i": "literature",
+          "as": "卡尔斯鲁厄理工学院Oliver Townrow团队开发出空气稳定的紫色晶体铁(I)单离子源[Fe(durene)₂][BArF₂₄]。铁(I)是铁催化核心活性物种但遇空气极易氧化分解。该团队采用TMS₂Pz*作为有机还原剂，通过精确单电子转移将[Fe(Bz*)₂][PF₆]₂选择性还原为Fe(I)物种，收率95%，过量还原剂也不会过还原；再经NaBArF₂₄盐交换定量获得目标产物。铁成本低、产量高，催化性能可对标铑、铱、钯等贵金属，有望替代[Rh(cod)₂][BF₄]等核心催化剂。",
+          "sc": 7.0,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202517460?af=R",
-          "tp": "抗菌低聚物",
+          "u": "https://doi.org/10.1021/jacs.6c01660",
+          "tp": "铁单离子源",
           "aip": 1,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    We previously proposed that cationic oligoimidazolium (OIM) carbon acids kill bacteria via an N‐heterocyclic carbene (NHC)‐assisted translocation process to reach intracellular targets. Herein, we found that the linkers joining the imidazolium rings in OIM chains profoundly affect the oligomers’ cytosolic uptakes, which correlate with their antibacterial potency. In a hydrophobic environment (DMSO) mimicking a bacterial membrane bilayer, different OIM NHCs were found to be non‐transient, and persistent, but with measured half‐lives varying from 15.6 to 75.9 min, depending on the linkers and indicating that increased linker‐NHC interaction stabilizes the NHC and leads to increased NHC lifetimes. NHC is more hydrophobic than the precursor imidazolium charge, so that linker‐stabilized NHCs with longer lifetimes result in increased observed OIM net hydrophobicity measured via LC‐MS retention time. More hydrophobic OIM copolymers persist in membranes rather than translocate to the cytosol, and vice versa. A lead compound\n                    (15)\n                    shows superior efficacy against extended‐spectrum beta‐lactamase\n                    Klebsiella pneumoniae\n                    in a murine thigh infection model. This study establishes linker‐stabilized NHC in the membrane as a key handle to tune the antibacterial efficacy of cationic carbon acids, providing insights for rational design of next‐generation cationic antimicrobials to tackle multi‐drug‐resistant bacteria.",
+          "b": "单离子源是均相催化的核心基础材料，可在温和条件下通过配体交换释放特定金属离子，构建稳定催化活性中心，目前化工多数核心催化反应，均依赖铑、铱、钯等贵金属催化剂，代表性的[Rh(cod)₂][BF₄]已适配超14000种催化反应、700余种配体合成。铁作为优质金属催化材料，产量高、成本低，催化性能可对标多数贵金属；但铁(I)（Fe+）是铁催化的核心活性物种，遇空气极易氧化分解，无法稳定储存。\n近日，卡尔斯鲁厄理工学院Oliver Townrow团队开发出一种空气稳定的紫色晶体铁(I)单离子源[Fe(durene)2][BArF24]（durene=1,2,4,5-四甲基苯）。其首先采用1,4-双(三甲基硅基)-2,3,5,6-四甲基二氢吡嗪（TMS2Pz*）作为有机还原剂，通过分解PF6-生成PF5和SiMe3F实现精确的单电子转移，将研磨细的[Fe(Bz*)2][PF6]2粉末在甲苯中与TMS2Pz*搅拌过夜即可选择性得到深紫色的[Fe(Bz*)2][PF6]（2BZ*），收率95%，即使使用过量还原剂，也不会发生过还原；随后在二氯甲烷中以NaBArF24进行盐交换，定量获得[Fe(Bz*)2][BArF24]（3Bz*）。但由于六甲基苯的六个甲基提供了过大的空间屏蔽3Bz*难以与供体配体反应。而后其将芳烃配体从六甲基苯替换为均四甲苯（1,2,4,5-四甲基苯，比Bz少两个甲基）。以相同的TMS2Pz还原–NaBArF24盐交换流程，获得[Fe(durene)2][BArF24]（3Dur），结晶收率75%，可以数克级进行制备。此外，其还以类似策略合成了[Fe(mesitylene)2][BArF24]（3Mes，mesitylene=1,3,5-三甲基苯），收率30%。表征结果显示，三个配合物均显示两个可逆/准可逆单电子波，甲基增多使铁中心更富电子，氧化和还原电位均向更负方向移动。[Fe(Bz*)2][BArF24]（3Bz*）的Fe+/2+氧化电位（约−0.5 V）比文献中已知的铁(I)夹心化合物的对应电位正得多，表明其在溶液中不易发生自发的单电子氧化去活化，更适合作为单离子源应用于配体交换。\n该研究以3Dur为单离子源其制定了一种统一的配体交换流程，在氟苯中将3Dur与目标配体在氩气下室温搅拌过夜，浓缩后用正己烷分层结晶；均四甲苯释放至母液中可回收。其选取了二膦（[Fe(dppe)2][BArF24]和[Fe(dppbz)2][BArF24]）、单膦（[Fe(PMePh2)4][BArF24]）、N-杂环卡宾（NHC，[Fe(IMe4)4][BArF24]）和三联吡啶四类配体（[Fe(4-Ph-terpy)2][BArF24]），合成了一系列铁(I)配合物，并在Kumada偶联中演示了原位生成活性催化剂的应用。进一步分析结果显示，低色散能、适中总相互作用能和高泡利排斥是设计新型单离子源时应考虑的关键参数。文章于2026年4月7日发表在Journal of the American Chemical Society。",
           "hb": 1
         }
       ]

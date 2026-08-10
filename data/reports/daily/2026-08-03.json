@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "国轩高科斥资70亿美元在摩洛哥建设年产能10吉瓦时电池工厂",
-      "中广核宁德200兆瓦海上光伏项目全容量并网年均发电3亿千瓦时",
-      "海南首座华龙一号核反应堆并网发电即将进入商业运营"
+      "2025年全球核电发电量达2845太瓦时，中国贡献超34太瓦时净增长",
+      "中广核宁德200兆瓦海上光伏项目并网，大直径管桩技术使建设成本降10%",
+      "研究揭示青藏高原五大生态系统由气候敏感的细菌群落相互连接"
     ],
     "AI与智能科技": [
-      "北京大学发现经颅交流电刺激可显著提升大脑语音识别正确率",
-      "国际刑警组织报告指人工智能参与非洲百分之五十五网络犯罪案件",
-      "算力需求导致存储产能收缩主流手机及电脑品牌普遍提价三百元起"
+      "北京大学团队通过调节左脑α节律成功拓宽人类大脑言语理解带宽",
+      "美国多州撤销数据中心税收减免，每千兆瓦AI计算设备成本将增加7%",
+      "AI算力挤压先进存储产能，中端手机价格普遍上涨300至1000元"
     ],
     "通用技术": [
-      "新型高熵合金在1000摄氏度下实现2.2吉帕屈服强度与抗冲击性能",
-      "科研团队合成带负电空腔钴团簇催化剂实现高效率光催化偶联反应",
-      "特斯拉赛博皮卡底盘护板改用碳纤维材料以降低成本并减轻重量"
+      "厦门大学研发新型二维层状四氧化三钴，显著提升质子交换膜水电解效率",
+      "研究人员设计带负电空腔的Co4团簇光催化剂，实现高效C-P偶联反应",
+      "1.5吨级倾转旋翼无人机首飞成功，最大航程达1900公里且载荷300公斤"
     ]
   },
   "sectors": [
@@ -26,28 +26,57 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "国轩高科斥资70亿美元在摩洛哥建设年产能10吉瓦时电池工厂",
-        "中广核宁德200兆瓦海上光伏项目全容量并网年均发电3亿千瓦时",
-        "海南首座华龙一号核反应堆并网发电即将进入商业运营"
+        "2025年全球核电发电量达2845太瓦时，中国贡献超34太瓦时净增长",
+        "中广核宁德200兆瓦海上光伏项目并网，大直径管桩技术使建设成本降10%",
+        "研究揭示青藏高原五大生态系统由气候敏感的细菌群落相互连接"
       ],
       "entries": [
         {
-          "t": "摩洛哥拥有非洲第一家电池制造厂 - pv magazine China",
+          "t": "A climate-sensitive, contemporary multi-sphere bacterial metacommunity across the Tibetan Plateau",
           "d": "2026-08-03",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "中国国轩高科旗下的国轩动力摩洛哥公司正在摩洛哥盖尼特拉大西洋免税区完成非洲首个电池超级工厂的调试。该工厂总投资近65亿摩洛哥迪拉姆（约合70亿美元），采用从正极到电芯的磷酸铁锂（LFP）电池技术。工厂初始年产能设定为10吉瓦时，主要面向汽车市场和固定式储能领域。",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/农林",
+          "as": "青藏高原的大气、冰川、河流、湖泊和土壤五大生态系统构成了气候敏感的细菌群落。超过94%的操作分类单元出现在两个及以上生态系统中。气溶胶为冰川微生物群提供种子，冰川作为接收器、过滤器和中继站将微生物输出到其他生态系统。年降水量对细菌丰富度和群落独特性的影响比温度更显著。",
           "sc": 8.3,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/08/03/morocco-hosts-africas-first-battery-manufacturing-plant/",
-          "tp": "电池工厂",
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag463/8750262?rss=1",
+          "tp": "高原微生物群落",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "16S rRNA基因数据集[青藏高原多圈层生态系统]: 3373个样本",
+            "跨界分布OTU占比[青藏高原宏群落]: >94%存在于至少两个生态系统",
+            "全圈层分布OTU占比[青藏高原宏群落]: ~6%"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Technology & Products\nThe factory, belonging to Chinese company Gotion High-Tech, is based on the cathode-to-cell lithium-iron-phosphate (LFP) battery technology with an initial capacity of 10 GWh intended for the automotive market.\nTechnology & Products\nManufacturing\nImage: Gotion Power Morocco\nMorocco is laying a new cornerstone in its industrial strategy. In the country’s Kenitra Atlantic Free Zone, Chinese group\nGotion High-Tech\nis finalizing the commissioning of the first battery gigafactory in Africa.\nIntended for use in the automotive and stationary storage sectors, the project was formalized through a memorandum of understanding in 2023, with an estimated investment cost of MAD 65 billion (almost $7 billion).\nBuilt by Gotion Power Morocco, Gotion’s local subsidiary, the plant is expected to begin production by the end of the summer and is based on cathode-to-cell technology using LFP (lithium-iron-phosphate) chemistry. This architecture allows the cathode to be directly integrated into the cell in order to reduce costs and improve thermal safety. The energy density is therefore slightly lower than that of NMC (nickel-manganese-cobalt) batteries.\nThe project is supported by a recent €100 million loan from the African Development Bank, which also plans to mobilize up to an additional €141 million from other financial partners, in its capacity as mandated lead arranger under the New African Financial Architecture for Development.\nThe first industrial phase of the Gotion project anticipates a production capacity of 10 GWh per year, with a gradual increase to 100 GWh in the long term. For Gotion High-Tech, listed on the Shenzhen Stock Exchange and one of the world’s leading manufacturers of lithium-ion batteries, the Moroccan site represents a strategic link for exports to Europe, while also contributing to the growing regional demand for electric mobility.\n“In terms of electric mobility, the batteries produced in Kenitra are primarily intended to power automotive production sites based in Morocco and in Southern Europe, fitting into existing regional industrial chains,” Khalid Qalam, president of Gotion Power Morocco, stated earlier this month in the journal of the Regional Investment Center of the Rabat-Salé-Kénitra region.",
+          "b": "The Tibetan Plateau hosts interacting atmospheric, glacier, river, lake, and soil ecosystems, yet the organization and climatic sensitivity of their bacterial communities remain unclear. Here, we compiled a 16S rRNA gene dataset of 3373 samples across five ecosystems and nine habitats. More than 94% of Operational Taxonomic Units occurred in at least two ecosystems, and ~6% in all five, thus revealing a metacommunity in which aerosols seed glacier microbiomes, and glaciers act as sinks, filters, and relays, exporting microbes to rivers, lakes, and soils. Nevertheless, community uniqueness and core microbiomes demonstrate robust habitat filtering and distinct biogeographic fingerprints. Mean annual precipitation exerts more potent effects on richness and community uniqueness than temperature or solar radiation, but exerts opposite influences on bacterial beta diversity in glacier versus downstream ecosystems. These findings provide novel insights into microbial interconnectedness and climate sensitivity in the Tibetan Plateau.",
+          "hb": 1
+        },
+        {
+          "t": "2025年全球核电发电量创历史新高，净增长主要来自中国",
+          "d": "2026-08-03",
+          "a": "中国核电信息网-国内",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "《世界能源统计评论》显示，2025年全球核电发电量达2845太瓦时，创历史新高，同比增长1.3%。其中，中国核电发电量增加超34太瓦时，贡献了全球核电的净增长。美国、中国、法国分别以826、485、390太瓦时位居全球核电发电量前三名。若剔除中国，世界其他地区近十年核电发电量呈减少趋势。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.cinie.net/article/58019.html",
+          "tp": "全球核电增长",
+          "aip": 1,
+          "kp": [
+            "发电量[2025年全球核电]: 2845太瓦时",
+            "净增长量[2025年全球核电]: 约30太瓦时",
+            "发电量[2025年中国核电]: 485太瓦时",
+            "净增长量[2025年中国核电]: 超34太瓦时",
+            "发电量[2025年美国核电]: 826太瓦时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2025年全球核电发电量创历史新高，净增长主要来自中国\n最新发布的《世界能源统计评论》显示，2025年全球核电站发电量达到2845太瓦时，较2024年增加约30太瓦时，同比增长1.3%，创历史新高。其中，中国核电发电量增加超过34太瓦时，成为全球核电净增长的主要来源。\n这项纪录需要放在更长周期中观察。全球核电发电量上一次高点出现在2006年，当年为2803太瓦时。也就是说，2025年的全球核电发电量虽已超过此前峰值，但19年间累计增幅约为1.5%，并未呈现全球范围内快速扩张的态势。\n过去十年，全球核电发电量从2015年的2576太瓦时增至2025年的2845太瓦时，增幅约10.5%。同期，中国核电发电量从171太瓦时增至485太瓦时，增加约314太瓦时;而全球核电发电量净增约270太瓦时。这意味着，若剔除中国因素，世界其他地区2025年的核电发电量较十年前减少约44太瓦时。\n从国家看，美国仍是全球最大核电生产国。2025年，美国核电发电量为826太瓦时，占全球总量约29%;中国以485太瓦时位居第二，占比17.1%;法国排名第三，发电量为390太瓦时，占比13.7%。俄罗斯、韩国、日本和加拿大也位居主要核电生产国之列。\n不过，美国核电发电量近十年总体变化不大。2015年，美国核电发电量为839太瓦时，略高于2025年水平。相比之下，中国核电发电量十年间接近增长两倍，年均增速接近11%。若两国保持近年来的增长趋势，中国与美国之间的核电发电量差距将继续缩小。\n除中国外，法国和日本也对2025年全球核电增长有所贡献。法国核电发电量增加9.6太瓦时，达到390太瓦时，但仍低于2015年水平。日本核电发电量增加9.2太瓦时，同比增长11.1%，达到94太瓦时。日本核电产量已从福岛核事故后的低谷回升，但仍远低于事故前水平;2010年，日本核电发电量约为292太瓦时。\n区域格局也在变化。2015年至2025年，亚太地区核电发电量从约420太瓦时增至近845太瓦时，十年间翻了一番，目前约占全球核电发电量的30%。北美地区2025年核电发电量为921太瓦时，低于2015年的952太瓦时;欧洲核电发电量从2015年的968太瓦时降至2025年的759太瓦时，降幅接近22%。\n发达经济体与新兴经济体之间的差异同样明显。过去十年，经济合作与发展组织(OECD)成员国核电发电量减少约96太瓦时，非OECD国家核电发电量增加近366太瓦时。尽管OECD国家仍占全球核电发电量的较大份额，但新增增长已更多来自亚洲等地区。\n从全球能源结构看，核电发电量创下新高，并未明显提升核能在能源供应中的占比。2025年，全球核能供应量为31.0艾焦耳，高于上一年的30.7艾焦耳;同期全球能源总供应量从592.2艾焦耳增至600.3艾焦耳。由此计算，核能在全球能源供应中的份额由5.19%小幅降至5.17%。\n国家能源局数据显示，截至目前，中国大陆地区在运和核准在建核电机组共120台，装机容量1.35亿千瓦，总规模居世界第一。其中，在运机组62台、装机容量6614万千瓦，居世界第二;核准在建机组58台、装机容量6951万千瓦，居世界第一。\n总体来看，2025年全球核电发电量刷新纪录，更多反映出中国核电持续扩张对全球总量的拉动作用。美国仍保持核电发电量第一的位置，但产量长期趋于稳定;欧洲整体低于十年前水平;亚洲，尤其是中国，正在成为全球核电增长的主要重心。",
           "hb": 1
         },
         {
@@ -55,37 +84,24 @@
           "d": "2026-08-03",
           "a": "索比光伏-综合新闻",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "中广核宁德200兆瓦海上光伏项目全容量并网发电，成为福建省首批及中广核首个“核光同场”项目。项目利用核电基地海域资源，配套20兆瓦/40兆瓦时储能，预计年均上网电量约3亿千瓦时，每年可减排二氧化碳约19.8万吨。建设期间团队攻克了易腐蚀等难题，成功研发大直径混凝土管桩与轻量化支架，使相关建设成本降低10%以上，打造了可复制的近海光伏建设方案。",
+          "as": "中广核宁德200兆瓦海上光伏项目于7月31日全容量并网发电。该项目为福建省首批、中广核首个“核光同场”项目，配套20兆瓦/40兆瓦时储能。项目场区面积约3020亩，25年运行期内预计年平均上网电量约3亿千瓦时。建设期间成功应用大直径混凝土管桩等技术，使管桩及支架建设成本降低10%以上，并建成138米高的闽东地区最高跨海输电铁塔。",
           "sc": 8.2,
           "i": "n",
-          "tg": "技术突破",
+          "tg": "产业进展",
           "u": "https://news.solarbe.com/202608/03/50026930.html",
           "tp": "海上光伏并网",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "装机容量[中广核海上光伏]: 200兆瓦",
+            "储能配置[海上光伏配套]: 20兆瓦/40兆瓦时",
+            "运行期[海上光伏项目]: 25年",
+            "年均上网电量[海上光伏项目]: 约3亿千瓦时",
+            "标煤消耗减少[海上光伏项目等效]: 约9.13万吨"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "从中国广核集团获悉，7月31日，中广核宁德200兆瓦海上光伏项目全容量并网发电。该项目是福建省首批海上光伏项目之一，也是中广核首个“核光同场”海上光伏项目，对推动地方能源结构绿色转型、构建新型能源体系、助力区域打造零碳示范园区等具有重要示范意义。\n该项目位于福鼎市太姥山镇备湾村宁德核电站场址水区范围内，利用核电基地既有海域资源实现“核光互补”立体化开发。场区总面积约3020亩，装机容量200兆瓦，配套建设20兆瓦/40兆瓦时储能系统。项目运行期25年内，预计年平均上网电量约3亿千瓦时，等效减少标煤消耗约9.13万吨、减排二氧化碳约19.8万吨。\n项目配套的220千伏送出线路全长12公里，是电力外送的枢纽通道，其中跨海段铁塔高达138米，为目前闽东地区最高输电铁塔，成为挺立海疆的绿色能源新地标。\n“项目建设过程中，针对近海工况复杂、传统全钢支撑结构易腐蚀、建设及运维成本高等行业难题，我们搭建了海上光伏管桩支架技术实证平台，成功完成‘大直径高性能混凝土管桩’‘轻量化新型支架体系’等技术攻关，有效提升了管桩承载能力和长效防腐耐久性能，实现了该实证平台的管桩、支架总体建设成本降低10%以上，形成了可复制、可推广的自主化近海光伏建设技术方案。” 中广核新能源福建公司工程管理部经理吴成恩介绍说。\n中广核宁德200兆瓦海上光伏项目实现了海域资源的立体化、集约化利用，探索出一条核电与光伏电力互补的联动路径。下一步，中广核将继续深耕“核风光储”多能互补领域，为实现国家“双碳”目标和建设新型能源体系贡献“中广核方案”。",
-          "hb": 1
-        },
-        {
-          "t": "中国海南电网并网首座1.2吉瓦华龙一号核反应堆",
-          "d": "2026-08-03",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "中国海南省首座采用自主技术的“华龙一号”核反应堆成功并网发电，为其进入商业运营奠定了重要基础。该反应堆配备了先进的安全特性和数字化管理系统，可提供零碳能源，助力中国实现2060年碳中和目标。此次并网标志着华龙一号技术在清洁能源供应和气候目标落实上取得实质性进展。",
-          "sc": 7.7,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/energy/china-hualong-one-reactor-hainan",
-          "tp": "华龙一号并网",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "For the first time, the indigenously built Hualong One nuclear reactor was connected to the grid in China’s Hainan province, marking an important milestone before it assumes commercial operations. The reactor boasts advanced safety features and digital management systems while also supplying carbon-free energy as the Asian giant looks to meet its net zero targets by 2060.\nEven as the US has withdrawn from the Paris Agreement for the second time, China has remained steadfast in its commitments to meet its climate goals. While developed countries like the US and UK were aiming for a 2050 deadline to meet their carbon-neutral goals, China had sought an additional decade to achieve this.\nWith the UK contemplating drilling in the North Sea and pushing its climate targets, and the US completely dismissing its previous intentions, China’s steadfast approach is a beacon of hope for countries most vulnerable to climate change. In addition to rolling out large-scale renewables, China is also relying on nuclear energy to meet its energy demands without emitting carbon.\nInteresting Engineering\nhas previously reported how China is aggressively building nuclear reactors as it looks to reach the peak of its carbon emissions by 2030. A critical ingredient of this aggressive stance are pressurized water reactors (PWRs), with the indigenously developed Hualong One occupying a prime position.\nA Generation III nuclear reactor, the Hualong One was jointly developed by the China General Nuclear Power Group (CGN) and the China National Nuclear Corporation (CNNC). One of its most notable features is the double containment shell for radioactive material. A single\nnuclear reactor produces an electric power output of about 1,170 to 1,200 megawatts (gross).\nMore from Energy\n97.5% of US data centers are urban, shattering rural myth, study finds\nHistoric U.S. nuclear site eyes four SMR-300 reactors after 49 years of service\nFusion energy startup signs five-year research agreement with the U.S. government\nUS firm to boost next-gen grid modernization, advance resilience with battery storage\nSodium-ion batteries explained: Are they really the next big thing for EVs?\nThe inner containment shell is built with 4.26 feet (1.3 m) of reinforced concrete with a six-millimeter steel plate lining. On the outside is a nearly a six feet (1.8m) thick shell made from high-strength concrete, which protects the reactor from external physical attacks.\nThe reactor features a passive emergency cooling system that can kick in during an emergency, even if there is no power supply or human to supervise the effort. The system consists of a tank that can store up to 2,645 US tons (2,400 tonnes) of water and is fed by gravity instead. When called into action, the water can keep the reactor cool for up to 72 hours, giving operators additional time to respond to the emergency.\nChina is also using\ndigital management systems\nincluding video surveillance, 5G communications and artificial intelligence (AI), which have been developed indigenously to monitor the reactor and power plant through its lifecycle.\nThis is the first Hualong One nuclear reactor in China’s southern Hainan province to be\nconnected to\ngrid. Before becoming fully operational, the reactor will undergo extensive commissioning, efficiency and performance testing.\nThe reactor has been installed as Unit 3 of the Phase II Changjiang Nuclear Power Plant in Hainan, which consists of another 1.2 gigawatt (GW) reactor. Once both these reactors are operational, the second phase of the power plant will generate 18 billion kilowatt-hours (kWh) of electricity annually.\nThis is estimated to save 6.3 million tonnes of coal from being burned every year and prevent 11.6 million tonnes of carbon dioxide from being released into the atmosphere. This is in line with Hainan province’s long-term climate strategy, which also aims to peak its emissions by 2030. In another 15 years, the region wants to establish a low-carbon footprint by reducing its emissions by as much as 75 percent and finally achieve carbon neutrality by 2060.\nChina has drawn up similar region-specific\ncarbon neutrality goals\nas it looks to achieve country-wide goals by 2060.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nAmeya is a science writer based in Hyderabad, India. A Molecular Biologist at heart, he traded the micropipette to write about science during the pandemic and does not want to go back. He likes to write about genetics, microbes, technology, and public policy.\nRussia floats out 13,800-ton nuclear-powered submarine ahead of sea trials\nVideo: Foundation's new robotic hand catches baseball mid-air with human-like precision\nScientists develop new lightbulb-inspired reactor that could transform industrial decarbonization\nBYD enters humanoid robot race with august debut\nUS tech helps unmanned surface vessel conduct search mission, spot target autonomously",
+          "b": "从中国广核集团获悉，7月31日，中广核宁德200兆瓦海上光伏项目全容量并网发电。该项目是福建省首批海上光伏项目之一，也是中广核首个“核光同场”海上光伏项目，对推动地方能源结构绿色转型、构建新型能源体系、助力区域打造零碳示范园区等具有重要示范意义。\n该项目位于福鼎市太姥山镇备湾村宁德核电站场址水区范围内，利用核电基地既有海域资源实现“核光互补”立体化开发。场区总面积约3020亩，装机容量200兆瓦，配套建设20兆瓦/40兆瓦时储能系统。项目运行期25年内，预计年平均上网电量约3亿千瓦时，等效减少标煤消耗约9.13万吨、减排二氧化碳约19.8万吨。\n项目配套的220千伏送出线路全长12公里，是电力外送的枢纽通道，其中跨海段铁塔高达138米，为目前闽东地区最高输电铁塔，成为挺立海疆的绿色能源新地标。\n“项目建设过程中，针对近海工况复杂、传统全钢支撑结构易腐蚀、建设及运维成本高等行业难题，我们搭建了海上光伏管桩支架技术实证平台，成功完成‘大直径高性能混凝土管桩’‘轻量化新型支架体系’等技术攻关，有效提升了管桩承载能力和长效防腐耐久性能，实现了该实证平台的管桩、支架总体建设成本降低10%以上，形成了可复制、可推广的自主化近海光伏建设技术方案。” 中广核新能源福建公司工程管理部经理吴成恩介绍说。\n中广核宁德200兆瓦海上光伏项目实现了海域资源的立体化、集约化利用，探索出一条核电与光伏电力互补的联动路径。下一步，中广核将继续深耕“核风光储”多能互补领域，为实现国家“双碳”目标和建设新型能源体系贡献“中广核方案”。\n索比光伏网 https://news.solarbe.com/202608/03/50026930.html",
           "hb": 1
         }
       ]
@@ -94,9 +110,9 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "北京大学发现经颅交流电刺激可显著提升大脑语音识别正确率",
-        "国际刑警组织报告指人工智能参与非洲百分之五十五网络犯罪案件",
-        "算力需求导致存储产能收缩主流手机及电脑品牌普遍提价三百元起"
+        "北京大学团队通过调节左脑α节律成功拓宽人类大脑言语理解带宽",
+        "美国多州撤销数据中心税收减免，每千兆瓦AI计算设备成本将增加7%",
+        "AI算力挤压先进存储产能，中端手机价格普遍上涨300至1000元"
       ],
       "entries": [
         {
@@ -104,56 +120,69 @@
           "d": "2026-08-03",
           "a": "新华网科技",
           "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "北京大学团队首次揭示左脑听觉皮层的α节律是限定言语理解带宽的核心机制。研究发现，个体α峰值频率与言语速率阈限呈显著正相关。通过高精度经颅交流电刺激和重复听觉刺激等技术“加速”该节律，可显著提升被试者快速语音识别正确率，成功拓宽大脑言语接收“带宽”。该成果为突破人类交流生理极限及增强脑机接口通信带宽提供了全新范式。",
-          "sc": 7.9,
+          "as": "北京大学心理与认知科学学院团队揭示了拓宽脑机接口“通信带宽”的新范式。研究发现，左脑听觉皮层的α节律是限定言语理解带宽的核心生理机制。通过高精度经颅交流电刺激和重复听觉刺激等多模态神经调控技术“加速”该节律，被试者能够听懂原本无法分辨的超快速语音，切实拓宽了大脑言语接收“带宽”。研究证实，静息态下个体α峰值频率与言语速率阈限呈显著正相关，为突破人类交流生理极限提供了全新方案。",
+          "sc": 7.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.news.cn/tech/20260803/3480a516d4744e86ad56dcc9ce780f87/c.html",
-          "tp": "脑机通信新范式",
+          "tp": "脑机通信带宽",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "环境信息传递速率[人类感觉器官]: 约1100万比特/秒",
+            "认知速率上限[人类有意识认知、决策与语言加工]: 10至50比特/秒",
+            "核心机制[限定言语理解带宽]: 左脑听觉皮层的α节律",
+            "[脑机接口通信带宽增强]: 通过多模态神经调控技术“加速”α节律，使被试者能听懂超快速语音"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "开辟脑机接口“通信带宽”增强新范式-新华网\n开辟脑机接口“通信带宽”增强新范式\n开辟脑机接口“通信带宽”增强新范式\n人类大脑与物理世界之间存在“通信带宽”。感觉器官每秒向大脑传递约1100万比特的环境信息，而人类有意识的认知、决策与语言加工，其速率上限却被严格限定在10至50比特每秒。这一悬殊落差在日常生活中随处可见，例如，当对方语速过快时，便难以听清其所言。因此，如何拓宽生物智能与物理世界之间的信息接收“带宽”，成为脑机接口与认知神经科学共同面对的关键课题。\n何种生理机制，决定了大脑加工信息的速度上限？前不久，北京大学心理与认知科学学院、IDG麦戈文脑科学研究所团队首次揭示，左脑听觉皮层的α节律是限定言语理解带宽的核心机制。研究通过多模态神经调控技术成功“加速”了这一节律，使被试者能够听懂原本无法分辨的超快速语音，拓宽了大脑的言语接收“带宽”。这一发现为突破人类交流的生理极限、增强脑机接口“通信带宽”提供了全新范式。\n在认知神经科学领域，α振荡被视为大脑感知与认知的重要时间组织者，如同为信息流划定节拍的“内部时钟”。我们建立了新的认知实验范式，综合运用心理物理学、头皮脑电图、高精度经颅交流电刺激、重复听觉刺激与立体定向脑电图等技术，系统考察言语理解带宽的神经瓶颈及其机制。\n我们首先建立了测量个体言语速率阈限的行为范式。结果显示，静息态下全脑平均的个体α峰值频率与言语速率阈限呈显著正相关：α节律越快，被试者理解快速语音的能力（即言语接收“带宽”）越强。该相关性在左侧颞叶电极通道上尤为稳健。\n团队还运用高精度经颅交流电刺激，在个体阈限频率附近施加加速或减速的α频段刺激。结果表明，仅在加速刺激条件下，被试者的快速语音识别正确率显著提升，言语接收“带宽”被切实拓宽。更具启发性的是，当改用重复听觉刺激进行无创调控时，加速听觉刺激同样增强了被试者对快速语音的识别能力。\n为更直接地追踪“带宽”瓶颈的皮层起源，我们与首都医科大学三博脑科医院合作，在难治性癫痫患者的听觉皮层植入深部电极。记录结果证实，听觉皮层的局部α峰值频率与个体言语速率阈限高度相关，且该效应具有皮层特异性：仅见于听觉皮层，在躯体感觉皮层与视觉皮层中均不成立。\n颅内电极记录还揭示出一个关键的半球不对称现象：加速听觉刺激可显著提高左侧听觉皮层的α频率，对右侧听觉皮层则无此作用。更重要的是，左侧听觉皮层的神经包络跟踪强度能够预测被试者随后的言语识别表现，跟踪越强，识别越准确。这进一步表明，左侧听觉皮层的α节律为快速语音解析提供了不可或缺的时间骨架，构成决定人类言语“通信带宽”的核心节点。\n长期以来，脑机接口研究多聚焦于如何更精准地“读取”与“写入”神经信号。本研究则提供了一条互补思路：通过理解并调控大脑自身的节律机制，直接提升机体接收信息的“带宽”上限。这意味着，未来的脑机接口不仅可作为大脑与机器之间的“翻译器”，还可能成为拓宽人类感知与交流“带宽”的“增强器”，为高速人机协同、神经康复乃至超越生理极限的信息交流开辟新的可能。\n（方 方 作者为北京大学心理与认知科学学院教授，谷业凯、吕泽滢采访整理）\n各地各部队扎实做好双拥工作成效显著\n箫中真意解语人 访香港洞箫大师谭宝硕\n列国鉴丨记者观察：比利时，“薯条控”乐园\n记者手记丨迦太基海角上的一抹蓝白\n开辟脑机接口“通信带宽”增强新范式",
+          "b": "人类大脑与物理世界之间存在“通信带宽”。感觉器官每秒向大脑传递约1100万比特的环境信息，而人类有意识的认知、决策与语言加工，其速率上限却被严格限定在10至50比特每秒。这一悬殊落差在日常生活中随处可见，例如，当对方语速过快时，便难以听清其所言。因此，如何拓宽生物智能与物理世界之间的信息接收“带宽”，成为脑机接口与认知神经科学共同面对的关键课题。\n何种生理机制，决定了大脑加工信息的速度上限？前不久，北京大学心理与认知科学学院、IDG麦戈文脑科学研究所团队首次揭示，左脑听觉皮层的α节律是限定言语理解带宽的核心机制。研究通过多模态神经调控技术成功“加速”了这一节律，使被试者能够听懂原本无法分辨的超快速语音，拓宽了大脑的言语接收“带宽”。这一发现为突破人类交流的生理极限、增强脑机接口“通信带宽”提供了全新范式。\n在认知神经科学领域，α振荡被视为大脑感知与认知的重要时间组织者，如同为信息流划定节拍的“内部时钟”。我们建立了新的认知实验范式，综合运用心理物理学、头皮脑电图、高精度经颅交流电刺激、重复听觉刺激与立体定向脑电图等技术，系统考察言语理解带宽的神经瓶颈及其机制。\n我们首先建立了测量个体言语速率阈限的行为范式。结果显示，静息态下全脑平均的个体α峰值频率与言语速率阈限呈显著正相关：α节律越快，被试者理解快速语音的能力（即言语接收“带宽”）越强。该相关性在左侧颞叶电极通道上尤为稳健。\n团队还运用高精度经颅交流电刺激，在个体阈限频率附近施加加速或减速的α频段刺激。结果表明，仅在加速刺激条件下，被试者的快速语音识别正确率显著提升，言语接收“带宽”被切实拓宽。更具启发性的是，当改用重复听觉刺激进行无创调控时，加速听觉刺激同样增强了被试者对快速语音的识别能力。\n为更直接地追踪“带宽”瓶颈的皮层起源，我们与首都医科大学三博脑科医院合作，在难治性癫痫患者的听觉皮层植入深部电极。记录结果证实，听觉皮层的局部α峰值频率与个体言语速率阈限高度相关，且该效应具有皮层特异性：仅见于听觉皮层，在躯体感觉皮层与视觉皮层中均不成立。\n颅内电极记录还揭示出一个关键的半球不对称现象：加速听觉刺激可显著提高左侧听觉皮层的α频率，对右侧听觉皮层则无此作用。更重要的是，左侧听觉皮层的神经包络跟踪强度能够预测被试者随后的言语识别表现，跟踪越强，识别越准确。这进一步表明，左侧听觉皮层的α节律为快速语音解析提供了不可或缺的时间骨架，构成决定人类言语“通信带宽”的核心节点。\n长期以来，脑机接口研究多聚焦于如何更精准地“读取”与“写入”神经信号。本研究则提供了一条互补思路：通过理解并调控大脑自身的节律机制，直接提升机体接收信息的“带宽”上限。这意味着，未来的脑机接口不仅可作为大脑与机器之间的“翻译器”，还可能成为拓宽人类感知与交流“带宽”的“增强器”，为高速人机协同、神经康复乃至超越生理极限的信息交流开辟新的可能。\n（方 方 作者为北京大学心理与认知科学学院教授，谷业凯、吕泽滢采访整理）",
           "hb": 1
         },
         {
-          "t": "国际刑警组织：AI 已成非洲网络犯罪核心驱动力",
+          "t": "独家：随着美国各州废除税收减免政策，数据中心成本将上升",
           "d": "2026-08-03",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "国际刑警组织指出，AI已成为非洲网络犯罪的核心驱动力，参与了该地区55%的网络犯罪案件，使攻击速度和规模大幅提升。2025年非洲移动网络用户超11亿，因AI工具和自动化推动，网络犯罪导致的经济损失飙升至4.84亿美元。犯罪分子利用AI生成虚假视频进行诈骗。非洲多国正在联合打击网络犯罪，17个国家制定或修订了法律，国际刑警组织已逮捕超1500名嫌疑人并查扣大量电子设备。",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "美国多个曾大力吸引数据中心的州正撤销或暂停数据中心的销售税减免政策。这一变动可能导致每千兆瓦AI计算设备的成本增加7%或数十亿美元。据统计，今年夏季已有4个州撤销相关税收优惠，另有9个州正考虑废除措施。州长和议员们此举是为了回应外界对当初为吸引微软、谷歌等科技巨头而过度让步的指责。",
           "sc": 7.6,
           "i": "n",
           "tg": "政策监管",
-          "u": "https://www.ithome.com/0/985/252.htm",
-          "tp": "AI网络犯罪",
+          "u": "https://www.theinformation.com/newsletters/ai-infrastructure/exclusive-data-center-costs-set-rise-u-s-states-move-repeal-tax-breaks",
+          "tp": "数据中心税收",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "成本增幅[美国各州废除销售税减免]: 每吉瓦AI算力成本增加数十亿美元或使设备成本上升7%以上",
+            "政策动态[税收激励缩减]: 至少4个州已撤销或暂停税收优惠，9个州正考虑撤销"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "8 月 3 日消息，国际刑警组织今日发布博文称，人工智能已参与非洲 55% 网络犯罪案件，使攻击速度更快、规模更大，也让受害者越来越难防范和追查。\n非洲正在加快推进数字化转型，2025 年非洲移动网络用户数已超过 11 亿。\n然而该地区各国的网络犯罪法律仍然较为繁杂\n，执法机构无法有效应对 AI 犯罪现象。\n自 2024 年以来，网络犯罪给非洲带来的经济损失已经由 1.92 亿美元\n（IT之家注：现汇率约合 12.98 亿元人民币）\n飙升至 4.84 亿美元\n（现汇率约合 32.72 亿元人民币）\n。国际刑警组织认为，这主要受 AI 工具和自动化工具推动。\n网络诈骗仍是非洲报告数量最多的犯罪类型\n，攻击者利用移动支付平台、AI 技术和社交媒体扩大范围并寻找更多目标。\n令人触目惊心的是，接受调查的非洲国家中，有 72% 国家境内存在诈骗中心，南非和西非地区尤甚。\n此外，犯罪分子的诈骗手段也在升级。他们利用 AI 生成技术，从窃取的真人照片中伪造视频，用虚假身份开设银行账户、SIM 卡并申请贷款。\n不过非洲各国正在联合打击网络犯罪。\n2025 年共有 17 个国家制定或修订网络犯罪法律\n，塞内加尔推出在线举报平台，打击涉及儿童的网络违法行为。国际刑警组织已在四项行动中逮捕超 1500 名犯罪嫌疑人，查扣数百台电子设备，\n（现汇率约合 6.76 亿元人民币）",
+          "b": "Governors and legislatures in U.S. states that previously welcomed data centers are suddenly moving to rip away sales tax breaks that could raise the price of every gigawatt of AI computing by several billion dollars, potentially adding 7% or more to equipment costs. In little-noticed moves that sharply accelerated this summer, four states rolled back or paused data center tax incentives, while officials in nine other states are considering repeal measures, according to the National Conference of State Legislatures, an advocacy and research association for state lawmakers, and The Information’s analysis. The reason is simple: Governors and lawmakers from both parties are defending themselves from charges that they gave away too much when they vied to attract Microsoft, Google, Meta Platforms, Amazon, Oracle and others earlier in the boom. Now the officials say the tax breaks are depriving them of revenue and may no longer be needed to attract business. Instead of just rolling back all tax breaks, some states could end up stiffening requirements for tech firms to win exemptions: for example, by requiring that they guarantee a certain number of new jobs or help pay for public infrastructure. And local authorities could still give city or county-level property tax abatements, with similar conditions, to attract development. Tax-break repeals are one of a growing list of factors raising the costs of AI data centers. Tech firms are paying a lot more than they bargained for to generate the power they need and fortify infrastructure ranging from water to transmission lines. In many states, they are also scrambling to install new equipment to satisfy power regulators’ demands that the facilities won’t harm or overload grid equipment. Each new expense cuts into the profit margins for tech and data center firms. Lately these concerns have impacted the financial terms of some debt deals for data centers. Repeals of sales tax exemptions on chips and server purchases could hit the tech industry especially hard. Tech firms had been depending on them to make their projects pencil out. In many cases, such as Meta’s move to build a multi-gigawatt site in Louisiana, companies wouldn’t commit to projects until states passed such exemptions. That’s because IT equipment is by far the single biggest expense for an AI data center, and operators expect to replace the chips every five or so years. As we’ve reported, a gigawatt-scale campus requires roughly $40 billion in IT equipment, compared with $19 billion for the land, facilities, non-IT equipment and on-site power that might supplement or replace a grid connection. (A gigawatt is enough power for a medium-size city like Denver.) In a state imposing, say, a 7% state sales tax, that $40 billion expense per gigawatt could grow by nearly $3 billion a gigawatt to roughly $43 billion. The biggest new threat is in Texas, which is supposed to dethrone Virginia as the world’s largest data center market in power capacity by 2030, according to JLL. After holding a celebratory groundbreaking with Google CEO Sundar Pichai last year, Gov. Greg Abbott in June suddenly directed the Texas Legislature in its next session to “repeal sales tax exemptions and other outdated or unnecessary incentives for data centers.” That’s a big deal, because tens of gigawatts of AI campuses are already underway or announced in the Lone Star State, and the grid operator there has received requests to connect hundreds of gigawatts more. Dan Diorio, executive vice president of state policy and government affairs for the Data Center Coalition, an advocacy group representing major tech and data center firms, rushed to a hearing in Austin, Texas, last week, trying to save the tax benefits, which have been in place since 2013. The Legislature is due to take up the issue when it reconvenes in 2027. “If those go away or are yanked all of a sudden, your entire business plan is in flux,” said Diorio. Other states have been following suit. Washington state, home of Amazon and Microsoft, last month ended a sales and use tax exemption for the replacement and refurbishment of data center equipment, over the industry’s objection. The change could bring in $207 million in taxes by 2029 according to state projections. And last month Arizona paused exemptions for data center sales taxes for three years. Even as more voters buy into sometimes questionable narratives that AI data centers are bad for the economy, the working class and water , it’s hard to argue that tech companies shouldn’t pay taxes like everybody else. And if they’re coming to a state like Texas because it’s easier to build there due to free-market regulations, they might come even if the tax changes go through. Diorio told me the industry would “welcome the opportunity to work with the legislatures to put in more guardrails” to make sure tax incentives are pegged to performance goals like job creation and local investment. He points out that 40 states already give tax exemptions to manufacturers for purchasing capital-intensive equipment, and AI data centers should be no different. And he cites a study the coalition commissioned from consultancy PwC, as well as a similar report by the Virginia Assembly’s own auditor, showing that direct and indirect tax receipts and economic benefits derived from data centers exceed foregone sales tax revenue. (In fairness to Diorio, there’s plenty of other anecdotal and quantitative evidence supporting that argument .) Such economic benefits are one reason Virginia Gov. Abigail Spanberger, a moderate Democrat, and the Virginia legislature recently stopped short of repealing the sales tax exemption for data centers in her state. They instead negotiated a compromise—a new tax on electricity consumption. As a result, data centers will pay an estimated $600 million a year, collectively, in additional taxes, Diorio said. They would have paid $1 billion or more in sales taxes if the tax exemption had been repealed, he added. And in Louisiana, where Meta is spending $50 billion to develop facilities that could scale to 5 GW, Gov. Jeff Landry issued an executive order in June saying he would require data center companies to “fully fund” their electricity needs to continue to receive tax breaks there. The order was a way to nudge utility regulators to enforce their own proposals protecting ratepayers from footing the bill for any costs associated with data centers. Nicholas Miller, a policy associate with the National Conference of State Legislatures, said he expects more states to follow Landry’s example in setting requirements for tech firms to receive tax exemptions. Threatening to repeal the current incentives on the books “is one possible way to have leverage over these projects.” He believes the negotiations are less about stopping projects than about “weighing the cost and benefits and making sure communities get a good deal.” A worse alternative is a moratorium on data center development, which New York just passed. The industry might just need to accept some of these tax changes. What’s a few billion among friends? New From Our Reporters Exclusive China Begins Mass Production of Homegrown DUV Chip Tools By The Information Staff Exclusive Chinese AI Startup Moonshot Seeks More Nvidia Blackwell Chips for Next Model By The Information Staff Exclusive OpenRouter Financials Suggest Steep Price For Possible Acquirer Stripe By Amir Efrati and Stephanie Palazzolo Exclusive TSMC Develops AI Chip Packaging Tech to Counter Intel By Qianer Liu Dealmaker Neocloud Nscale Gets Ready to Pitch Investors on Multibillion Dollar IPO By Valida Pau and Cory Weinberg Exclusive Data Center Operator CyrusOne Lays IPO Groundwork By Valida Pau Upcoming Events Wednesday, September 23 — AI Agenda Live SF 2026 Join us to explore the real-world shifts, new architectures, and enterprise strategies defining the next era of AI. Secure your spot today to hear directly from top minds at Google DeepMind, OpenAI, Atlassian, and more. More details Tuesday, October 27 — The Information’s 2026 WTF Summit Tickets on sale now: The Information returns to Napa Valley October 27–28 to convene senior women across tech, media, and finance. Join us for two days of intimate, candid conversations with the leaders navigating today’s global shifts. More details",
           "hb": 1
         },
         {
           "t": "AI算力需求“虹吸”存储产能 消费级供给收缩 消费电子产品价格显著上涨 高价格局料将延续",
           "d": "2026-08-03",
           "a": "新华网科技",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "2026年以来，AI算力需求爆发导致先进存储产能被大量“虹吸”，消费级存储芯片供给收缩、价格暴涨，直接引发手机、电脑等消费电子产品全面涨价。OPPO、vivo、苹果、微软等主流品牌先后调价，中端手机机型普遍提价300至1000元，部分专业数码产品涨幅超3000元。机构研判显示，此轮电子产品的高价格局预计将至少延续至2027年。",
-          "sc": 6.8,
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "受AI算力需求爆发挤压先进存储产能的影响，手机、电脑等消费电子产品自2026年起全面涨价。中端手机机型普遍提价300至1000元，苹果部分产品涨幅达25%。存储价格暴涨直接传导至终端，机构预计高价格局将延续，此轮涨价已导致第二季度全球智能手机出货量同比下滑11%。",
+          "sc": 7.4,
           "i": "n",
           "tg": "行业观察",
           "u": "https://www.news.cn/tech/20260803/be8279f022b746b5b2882d6eccb90ded/c.html",
-          "tp": "算力虹吸存储产能",
+          "tp": "算力虹吸存储",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "价格涨幅[主流中端手机机型]: 300至1000元",
+            "价格涨幅[专业数码产品]: 超过3000元",
+            "[存储市场供需格局]: AI算力需求爆发“虹吸”先进存储产能，导致消费级供给收缩、价格暴涨直接传导至终端",
+            "[涨价趋势预期]: 消费电子高价格局至少延续至2027年"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "AI算力需求“虹吸”存储产能 消费级供给收缩 消费电子产品价格显著上涨 高价格局料将延续-新华网\nAI算力需求“虹吸”存储产能 消费级供给收缩 消费电子产品价格显著上涨 高价格局料将延续\nAI算力需求“虹吸”存储产能 消费级供给收缩 消费电子产品价格显著上涨 高价格局料将延续\n2026年以来，从手机到电脑，消费电子市场正经历一轮由存储芯片驱动的全面涨价。OPPO、vivo、苹果、微软等主流品牌先后调价，主流中端手机机型普遍提价300至1000元，部分专业数码产品涨幅超过3000元。行业普遍认为，此轮涨价核心是AI算力需求爆发“虹吸”先进存储产能，各大存储厂商将多数产能投向高附加值AI存储，消费级供给收缩，存储价格暴涨直接传导至终端。对于后续走势，机构研判出现一定分歧——多家机构判断高价格局至少延续至2027年，也有观点认为价格见顶时间可能早于预期。\n年内这轮涨价从手机产品开始。2026年3月10日，OPPO公告自3月16日起对A系列、K系列及一加部分已发售机型调价；3月16日，vivo发布《关于vivo及iQOO部分产品建议零售价调整的说明》称，受全球半导体及存储成本持续大幅上涨的影响，上调部分产品建议零售价。\n《经济参考报》记者梳理发现，华为Nova16系列产品较上一代Nova15系列对应产品起售价上涨300元至500元；一加15系列等机型经历两轮调价，累计涨幅在400元至1100元；荣耀、OPPO、vivo、华为等品牌部分新一代中端机价格较上一代普遍上涨300元至1000元。\n涨价很快传导至电脑端。2026年6月25日，苹果对MacBook、iPad全系实施全球涨价，中国市场整体涨幅约15%至25%。其中，Mac Studio涨幅最高，涨价3500元。目前，中国市场iPhone、Apple Watch、AirPods未参与调价。随后，微软宣布自8月1日起调整Xbox主机全球价格，512GB版上涨100美元，1TB版上涨150美元，停产2TB版本。\n业内人士指出，涨价或将抑制消费需求。7月，全球性市场研究公司Counterpoint Research发布的初步数据显示，2026年第二季度全球智能手机出货量同比下滑11%，创2013年以来同期最低。该机构还维持全年出货量下滑约14%的预测，并将市场大幅下滑的核心诱因归结为移动存储供应严重紧张。\n终端产品价格上涨也传导至消费电子上游零部件企业。业内人士指出，为控制整机成本，终端品牌为了优先保障SoC（系统级芯片）、存储等核心配置，对面板、镜头等非核心零部件降规或减少采购。\n深天马A在2026年半年度业绩预告中称，预计公司上半年归母净利润亏损7.20亿元至7.50亿元，上年同期为盈利2.06亿元。公司在互动平台回答投资者提问时表示，2026年上半年，存储等电子元器件价格持续快速上涨，对消费电子终端需求和成本带来阶段性压力，是上半年公司相关业务经营承压的主要原因。\nAI算力需求“虹吸”存储产能\n市场普遍认为，年内消费电子涨价的核心推手，是AI服务器需求爆发带来的存储芯片产能结构性转移。与过往由消费电子需求复苏带动的存储周期不同，本轮涨价的核心逻辑在于：AI算力对高附加值存储产品产生“虹吸效应”，直接挤压了消费级存储产品的供给空间，导致相关存储产品价格一路飙升，最终传导至手机、电脑等终端产品。\n集邦咨询（TrendForce）数据显示，2026年第一季度，通用型DRAM（动态随机存取存储器）合约价格环比增长93%-98%，第二季度环比增长58%-63%；NAND（闪存颗粒）合约价格一季度环比增长55%-60%，第二季度环比增长55%-60%。\n全球半导体观察（DRAMeXchange）数据显示，2026年6月通用PC DRAM（DDR4 8Gb 1Gx8）平均固定交易价格升至21美元。自2016年6月该机构开始追踪此项数据（当时的价格为2.9美元）以来，涨幅已超过六倍，创下历史新高。\n微软在宣布Xbox主机涨价时明确指出，目前游戏主机所用存储和内存的价格已上涨2.5倍以上，公司预计到2027年秋季价格还会翻一番，成本压力已无法通过内部消化承担。\n近日，SK海力士披露的2026年第二季度DRAM平均售价环比上涨约30%，NAND平均售价环比上涨约55%。SK海力士预计，2026年全球DRAM的需求量同比增速将达到约25%，NAND需求量增速将达到约16%-19%。\n在此背景下，三星、SK海力士、美光等存储芯片巨头正纷纷加大资本投入，抓紧扩产。但从产能周期来看，存储芯片制造是典型的“重资产、长周期”行业。业内专家表示，芯片制造投资巨大，短期内难以快速扩张。一般来说，新建存储产能需要两年左右。当前许多存储芯片厂设备还存在瓶颈，实际产能释放可能更久。\n与此同时，AI算力需求的爆发催生了对HBM（高带宽内存）、DDR5（第五代双倍速率内存）以及AI企业级SSD（固态硬盘）等高附加值领域的巨量需求，相关产品利润远高于普通DRAM。各家存储厂商虽纷纷扩产，但新增晶圆产能多数倾斜布局高附加值HBM等产品，导致消费级DRAM及NAND产能被挤占，实际有效供给增量稀缺。国际半导体产业协会（SEMI）中国总裁冯莉3月表示，2026年HBM市场规模预计增长58%至546亿美元，占DRAM市场近四成，尽管三星、SK海力士、美光三大原厂已将70%的新增产能倾斜至HBM，但HBM产能缺口仍达50%至60%。\n对于存储产品后续价格走势，多家机构判断，2026年三季度存储芯片整体涨价幅度预计有所放缓，目前价格上涨对需求的抑制作用已经开始显现。\n谨慎观点认为，消费端对高价的承受力已接近极限，价格见顶时间可能早于市场预期。集邦咨询的报告显示，2026年第三季整体DRAM格局持续极度紧缺，但因消费级应用需求下修及高基期作用，合约价涨幅收敛，预计将季增13%-18%。NAND主要需求仍由AI推理与大型数据中心建设支撑，但因合约价格已达历史高点，消费端客户在需求放缓的情况下，对价格承受力已达极限，预估整体NAND合约价将季增10%-15%，幅度较前几季明显缩减。\n杰富瑞（Jefferies）7月28日发布的研报指出，目前存储芯片价格可能更接近峰值。虽然市场预计第三季度存储芯片价格将环比再上涨25%-30%，但实际涨幅可能更温和，或在15%-20%之间。分析师认为，大部分价格上涨是由云服务提供商推动的，而消费电子产品制造商对进一步加价表现出疲态。2027年进一步环比上涨的前景可见度较低，存储芯片价格见顶的时间可能早于预期。\n也有部分机构认为，AI需求驱动的结构性紧缺仍将支撑高价态势至少延续至2027年。国泰海通研报表示，存储行业已经成为制约AI基建的关键瓶颈，AI需求驱动的结构性短缺贯穿全产业链，供需缺口仍在加深。2026年第三季度合约价涨幅放缓并非周期见顶信号，长期来看存储价格的上涨趋势有望延续至2027年。\n中信证券研报认为，在AI需求带动下，存储仍处于超级景气周期前中段，供不应求局面或至少持续至2027年。\n瑞银（UBS）近日发布的行业调研显示，2026年下半年，存储芯片价格上行空间进一步扩大。该机构将DRAM合约价格预期上调，预计第三季度环比上涨32%，显著高于此前17%的预期；预计第四季度环比上涨18%，此前预期上涨12%。NAND合约价格预期同样被上调，预计第三季度环比上涨30%，此前预期上涨17%；预计第四季度环比上涨12%。\n从供需结构来看，瑞银认为DRAM行业供需紧张局面将至少持续至2028年上半年。2027年存储芯片需求预计同比增长36.2%，而供给端增速仅为19.3%，供需缺口难以弥合。若不考虑下游客户库存回补的缓冲效应，2027年实际供需缺口将从2026年的-8.1%进一步扩大至-13.6%，失衡程度达到过去30年来罕见水平。\n对于消费电子市场而言，涨价压力将持续存在。业内人士指出，下半年发布的新一代旗舰手机、笔记本电脑价格或进一步上涨，消费者换机周期可能进一步拉长。上游零部件行业分化还将持续，具备库存优势和定价能力的企业将受益于价格上涨，非核心零部件厂商则可能继续面临需求收缩压力。（记者 陆宇安）\n各地各部队扎实做好双拥工作成效显著\n箫中真意解语人 访香港洞箫大师谭宝硕\n列国鉴丨记者观察：比利时，“薯条控”乐园\n记者手记丨迦太基海角上的一抹蓝白\nAI算力需求“虹吸”存储产能 消费级供给收缩 消费电子产品价格显著上涨 高价格局料将延续",
+          "b": "2026年以来，从手机到电脑，消费电子市场正经历一轮由存储芯片驱动的全面涨价。OPPO、vivo、苹果、微软等主流品牌先后调价，主流中端手机机型普遍提价300至1000元，部分专业数码产品涨幅超过3000元。行业普遍认为，此轮涨价核心是AI算力需求爆发“虹吸”先进存储产能，各大存储厂商将多数产能投向高附加值AI存储，消费级供给收缩，存储价格暴涨直接传导至终端。对于后续走势，机构研判出现一定分歧——多家机构判断高价格局至少延续至2027年，也有观点认为价格见顶时间可能早于预期。\n消费电子产品价格上涨\n年内这轮涨价从手机产品开始。2026年3月10日，OPPO公告自3月16日起对A系列、K系列及一加部分已发售机型调价；3月16日，vivo发布《关于vivo及iQOO部分产品建议零售价调整的说明》称，受全球半导体及存储成本持续大幅上涨的影响，上调部分产品建议零售价。\n《经济参考报》记者梳理发现，华为Nova16系列产品较上一代Nova15系列对应产品起售价上涨300元至500元；一加15系列等机型经历两轮调价，累计涨幅在400元至1100元；荣耀、OPPO、vivo、华为等品牌部分新一代中端机价格较上一代普遍上涨300元至1000元。\n涨价很快传导至电脑端。2026年6月25日，苹果对MacBook、iPad全系实施全球涨价，中国市场整体涨幅约15%至25%。其中，Mac Studio涨幅最高，涨价3500元。目前，中国市场iPhone、Apple Watch、AirPods未参与调价。随后，微软宣布自8月1日起调整Xbox主机全球价格，512GB版上涨100美元，1TB版上涨150美元，停产2TB版本。\n业内人士指出，涨价或将抑制消费需求。7月，全球性市场研究公司Counterpoint Research发布的初步数据显示，2026年第二季度全球智能手机出货量同比下滑11%，创2013年以来同期最低。该机构还维持全年出货量下滑约14%的预测，并将市场大幅下滑的核心诱因归结为移动存储供应严重紧张。\n终端产品价格上涨也传导至消费电子上游零部件企业。业内人士指出，为控制整机成本，终端品牌为了优先保障SoC（系统级芯片）、存储等核心配置，对面板、镜头等非核心零部件降规或减少采购。\n深天马A在2026年半年度业绩预告中称，预计公司上半年归母净利润亏损7.20亿元至7.50亿元，上年同期为盈利2.06亿元。公司在互动平台回答投资者提问时表示，2026年上半年，存储等电子元器件价格持续快速上涨，对消费电子终端需求和成本带来阶段性压力，是上半年公司相关业务经营承压的主要原因。\nAI算力需求“虹吸”存储产能\n市场普遍认为，年内消费电子涨价的核心推手，是AI服务器需求爆发带来的存储芯片产能结构性转移。与过往由消费电子需求复苏带动的存储周期不同，本轮涨价的核心逻辑在于：AI算力对高附加值存储产品产生“虹吸效应”，直接挤压了消费级存储产品的供给空间，导致相关存储产品价格一路飙升，最终传导至手机、电脑等终端产品。\n集邦咨询（TrendForce）数据显示，2026年第一季度，通用型DRAM（动态随机存取存储器）合约价格环比增长93%-98%，第二季度环比增长58%-63%；NAND（闪存颗粒）合约价格一季度环比增长55%-60%，第二季度环比增长55%-60%。\n全球半导体观察（DRAMeXchange）数据显示，2026年6月通用PC DRAM（DDR4 8Gb 1Gx8）平均固定交易价格升至21美元。自2016年6月该机构开始追踪此项数据（当时的价格为2.9美元）以来，涨幅已超过六倍，创下历史新高。\n微软在宣布Xbox主机涨价时明确指出，目前游戏主机所用存储和内存的价格已上涨2.5倍以上，公司预计到2027年秋季价格还会翻一番，成本压力已无法通过内部消化承担。\n近日，SK海力士披露的2026年第二季度DRAM平均售价环比上涨约30%，NAND平均售价环比上涨约55%。SK海力士预计，2026年全球DRAM的需求量同比增速将达到约25%，NAND需求量增速将达到约16%-19%。\n在此背景下，三星、SK海力士、美光等存储芯片巨头正纷纷加大资本投入，抓紧扩产。但从产能周期来看，存储芯片制造是典型的“重资产、长周期”行业。业内专家表示，芯片制造投资巨大，短期内难以快速扩张。一般来说，新建存储产能需要两年左右。当前许多存储芯片厂设备还存在瓶颈，实际产能释放可能更久。\n与此同时，AI算力需求的爆发催生了对HBM（高带宽内存）、DDR5（第五代双倍速率内存）以及AI企业级SSD（固态硬盘）等高附加值领域的巨量需求，相关产品利润远高于普通DRAM。各家存储厂商虽纷纷扩产，但新增晶圆产能多数倾斜布局高附加值HBM等产品，导致消费级DRAM及NAND产能被挤占，实际有效供给增量稀缺。国际半导体产业协会（SEMI）中国总裁冯莉3月表示，2026年HBM市场规模预计增长58%至546亿美元，占DRAM市场近四成，尽管三星、SK海力士、美光三大原厂已将70%的新增产能倾斜至HBM，但HBM产能缺口仍达50%至60%。\n高价态势或将延续\n对于存储产品后续价格走势，多家机构判断，2026年三季度存储芯片整体涨价幅度预计有所放缓，目前价格上涨对需求的抑制作用已经开始显现。\n谨慎观点认为，消费端对高价的承受力已接近极限，价格见顶时间可能早于市场预期。集邦咨询的报告显示，2026年第三季整体DRAM格局持续极度紧缺，但因消费级应用需求下修及高基期作用，合约价涨幅收敛，预计将季增13%-18%。NAND主要需求仍由AI推理与大型数据中心建设支撑，但因合约价格已达历史高点，消费端客户在需求放缓的情况下，对价格承受力已达极限，预估整体NAND合约价将季增10%-15%，幅度较前几季明显缩减。\n杰富瑞（Jefferies）7月28日发布的研报指出，目前存储芯片价格可能更接近峰值。虽然市场预计第三季度存储芯片价格将环比再上涨25%-30%，但实际涨幅可能更温和，或在15%-20%之间。分析师认为，大部分价格上涨是由云服务提供商推动的，而消费电子产品制造商对进一步加价表现出疲态。2027年进一步环比上涨的前景可见度较低，存储芯片价格见顶的时间可能早于预期。\n也有部分机构认为，AI需求驱动的结构性紧缺仍将支撑高价态势至少延续至2027年。国泰海通研报表示，存储行业已经成为制约AI基建的关键瓶颈，AI需求驱动的结构性短缺贯穿全产业链，供需缺口仍在加深。2026年第三季度合约价涨幅放缓并非周期见顶信号，长期来看存储价格的上涨趋势有望延续至2027年。\n中信证券研报认为，在AI需求带动下，存储仍处于超级景气周期前中段，供不应求局面或至少持续至2027年。\n瑞银（UBS）近日发布的行业调研显示，2026年下半年，存储芯片价格上行空间进一步扩大。该机构将DRAM合约价格预期上调，预计第三季度环比上涨32%，显著高于此前17%的预期；预计第四季度环比上涨18%，此前预期上涨12%。NAND合约价格预期同样被上调，预计第三季度环比上涨30%，此前预期上涨17%；预计第四季度环比上涨12%。\n从供需结构来看，瑞银认为DRAM行业供需紧张局面将至少持续至2028年上半年。2027年存储芯片需求预计同比增长36.2%，而供给端增速仅为19.3%，供需缺口难以弥合。若不考虑下游客户库存回补的缓冲效应，2027年实际供需缺口将从2026年的-8.1%进一步扩大至-13.6%，失衡程度达到过去30年来罕见水平。\n对于消费电子市场而言，涨价压力将持续存在。业内人士指出，下半年发布的新一代旗舰手机、笔记本电脑价格或进一步上涨，消费者换机周期可能进一步拉长。上游零部件行业分化还将持续，具备库存优势和定价能力的企业将受益于价格上涨，非核心零部件厂商则可能继续面临需求收缩压力。（记者 陆宇安）",
           "hb": 1
         }
       ]
@@ -162,28 +191,32 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新型高熵合金在1000摄氏度下实现2.2吉帕屈服强度与抗冲击性能",
-        "科研团队合成带负电空腔钴团簇催化剂实现高效率光催化偶联反应",
-        "特斯拉赛博皮卡底盘护板改用碳纤维材料以降低成本并减轻重量"
+        "厦门大学研发新型二维层状四氧化三钴，显著提升质子交换膜水电解效率",
+        "研究人员设计带负电空腔的Co4团簇光催化剂，实现高效C-P偶联反应",
+        "1.5吨级倾转旋翼无人机首飞成功，最大航程达1900公里且载荷300公斤"
       ],
       "entries": [
         {
-          "t": "An alloy that can take the heat and the hit",
+          "t": "科学网-新型二维材料为酸性水电解提供高效催化剂",
           "d": "2026-08-03",
-          "a": "Nature Materials",
-          "c": "通用技术/材料工程/耐热材料",
-          "as": "一种新型分层异构结构高熵合金展现出卓越的耐高温与抗冲击性能。该合金结合了双峰核壳晶粒、纳米析出物以及氧化物颗粒。这些微观结构在高达1000°C的温度下依然保持高度稳定。力学测试表明，该材料在高应变率载荷条件下，能够提供2.2 GPa的屈服强度，同时不会牺牲材料的冲击韧性，成功兼顾了极高强度与抗冲击能力。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-026-02702-7",
-          "tp": "高熵耐热合金",
+          "a": "科学网新闻",
+          "c": "通用技术/催化剂",
+          "as": "厦门大学黄小青教授与苏州大学邵琪教授合作，在《自然》发表关于新型高效酸性水电解催化剂的成果。研究打破传统尖晶石四氧化三钴中四面体位点惰性的局限，采用真空介导熔碱力化学合成法，成功制备出新型三方相二维层状四氧化三钴。该材料由共享边八面体构成，全为活性位点。其独特结构能有效优化反应中间体吸附并显著抑制钴溶解，大幅提升了催化剂活性和稳定性，为下一代质子交换膜水电解提供了新材料范式。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569264.shtm",
+          "tp": "高效催化剂",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "催化材料[酸性电解水阳极析氧反应]: 新型三方相二维层状四氧化三钴",
+            "合成方法[消除惰性位点构建全八面体活性位点]: 真空介导的熔碱力化学合成法",
+            "[材料结构特点]: 边共享八面体配位的二维层状结构，能有效优化反应中间体吸附并显著抑制钴的溶解"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A hierarchically heterostructured high-entropy alloy combines bimodal core–shell grains, nanoprecipitates and oxide particles that remain stable up to 1,000 °C, delivering 2.2 GPa yield strength under high strain-rate loading without sacrificing impact toughness.",
+          "b": "新型二维材料为酸性水电解提供高效催化剂\n8月3日，记者从厦门大学获悉，该校化学化工学院黄小青教授与苏州大学邵琪教授合作，提出了一种有别于传统尖晶石结构的全新设计策略，制备出新型钴基析氧催化材料，大幅提升了酸性电解水阳极催化剂的活性和稳定性。相关成果于7月29日刊登在《自然》期刊。\n传统尖晶石结构四氧化三钴是酸性析氧反应的代表性非贵金属催化剂，但其晶体结构中，仅八面体位点为催化活性中心，而四面体位点呈现催化惰性，限制了整体催化效率。研究团队提出“消除惰性位点，构建全八面体活性位点”的设计构想，采用真空介导的熔碱力化学合成法，成功制备出新型三方相二维层状四氧化三钴。该材料由三个紧密堆叠的子层构成，在每个子层中，八面体通过共享边的方式连接，形成独特结构。\n机理研究表明，这种边共享八面体配位的二维层状结构，能有效优化反应中间体的吸附，并显著抑制钴的溶解，从而大幅提升催化剂的活性和稳定性。该项研究打破了尖晶石结构四氧化三钴的结构局限，通过惰性位点消除、活性位点构建及混合价态精准调控，为开发下一代高性价比质子交换膜水电解阳极催化剂提供了重要的材料范式。\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
           "hb": 1
         },
         {
@@ -191,37 +224,47 @@
           "d": "2026-08-03",
           "a": "National Science Review Advance Access",
           "c": "通用技术/催化剂",
-          "as": "研究设计并规模化合成了一种具有明确带负电空腔的原子级精确Co4团簇光催化剂，用于高效光催化交叉脱氢C-P偶联反应。这种独特的负电荷空腔能够在一锅法连续C-P偶联反应中有效稳定阳离子中间体。该催化剂成功实现了羟基化N-芳基-四氢异喹啉(N-aryl-THIQ)产物的均相合成，并获得了极高的产率。",
-          "sc": 7.5,
+          "as": "研究设计并合成了具有明确带负电空腔的原子级精确Co4团簇光催化剂。该负电空腔有效稳定了一锅法顺序C-P偶联反应中的阳离子中间体，从而提高了反应效率和选择性。这种催化剂能够利用光催化交叉脱氢C-P偶联反应，实现重要膦化合物的环保、均相合成。",
+          "sc": 7.4,
           "i": "l",
           "tg": "研究论文",
           "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag467/8750263?rss=1",
           "tp": "光催化C-P耦合",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[光催化交叉脱氢C-P偶联合成磷化物]: 原子级精确的Co4簇催化剂带有明确设计的带负电空腔",
+            "[催化剂调控机制]: 调节反应性中间体的形成和释放以提高目标产物的效率和选择性",
+            "[Co4簇催化剂]: 具备放大合成能力"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Photocatalytic cross-dehydrogenative C–P coupling is a promising and environmentally sustainable method for the synthesis of important phosphides. The development of effective photocatalysts capable of regulating the formation and release of reactive intermediates is crucial for enhancing the efficiency and selectivity of target products; but it remains an extremely challenging task. In this study, we designed and scale-up synthesized an atomically precise Co4 cluster photocatalyst with a well-defined negatively charged cavity that can be used to effectively stabilize cationic intermediates during a one-pot sequential C–P coupling reaction. This unique Co4 cluster enables the homogeneous synthesis of hydroxylated N-aryl-tetrahydroisoquinoline (N-aryl-THIQ) products with a yield as high as 99% through photothermal catalytic oxidation of molecular oxygen (O2). Subsequently, these hydroxylated products act as stable reservoirs for reactive iminium cation intermediates, which effectively promote the heterogeneous nucleophilic substitution reaction of equimolar substrates under non-illumination conditions, achieving THIQ phosphides with an optimized yield exceeding 95%. More importantly, the employed photocatalytic strategy ensures the quantitative recovery of Co4 through recrystallization and enables the preparation of phosphide products over 10-gram via cyclic reactions. The experimental results (co-crystal structure of the Co4 unit with the intermediate product, UV-vis titration, XPS, and ESR characterizations) combined with DFT calculations disclosed that the negatively charged cavity in the Co4 cluster is instrumental in mediating reactive species through electrostatic and π-conjugated interactions, resulting in hydroxylation and nucleophilic substitution reactions. This work pioneers the negatively charged cavity engineering in catalysts, which efficiently mediates cationic intermediates, thereby enabling highly efficient photocatalytic C–P coupling reactions.",
+          "b": "Photocatalytic cross-dehydrogenative C–P coupling is a promising and environmentally sustainable method for the synthesis of important phosphides. The development of effective photocatalysts capable of regulating the formation and release of reactive intermediates is crucial for enhancing the efficiency and selectivity of target products; but it remains an extremely challenging task. In this study, we designed and scale-up synthesized an atomically precise Co4 cluster photocatalyst with a well-defined negatively charged cavity that can be used to effectively stabilize cationic intermediates during a one-pot sequential C–P coupling reaction. This unique Co4 cluster enables the homogeneous synthesis of hydroxylated N",
           "hb": 1
         },
         {
-          "t": "铝合金 → 碳纤维，特斯拉 Cybertruck 赛博皮卡底盘护板升级",
+          "t": "科学网-“启直5号”倾转旋翼无人机首飞成功",
           "d": "2026-08-03",
-          "a": "IT之家",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "特斯拉Cybertruck赛博皮卡的底盘护板材质已由铝合金升级为碳纤维。特斯拉工程师确认，内部测试表明碳纤维底板相比铝材更耐用、重量更轻且成本更低。改用碳纤维还能更好地塑造螺栓周围区域。这是Cybertruck自2023年交付以来首次更换底盘护板材料，进一步增强了车身耐用性。",
-          "sc": 7.4,
+          "a": "科学网新闻",
+          "c": "通用技术/通信和运输/航空",
+          "as": "南京航空航天大学产业化企业启直航空研发的1.5吨级“启直5号”倾转旋翼无人机在滁州试飞基地首飞成功。本次飞行全程由飞控系统自主控制，顺利完成了起飞、悬停、机动飞行等科目，验证了气动布局、动力及飞控系统的可靠性。该机最大飞行速度达450千米/小时，有效载荷300公斤，航程1900公里，兼具垂直起降与高速巡航优势。研发团队已全面掌握总体设计、旋翼系统等六大核心技术。",
+          "sc": 7.3,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/985/248.htm",
-          "tp": "特斯拉材料升级",
+          "tg": "产业进展",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569263.shtm",
+          "tp": "旋翼无人机",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "最大起飞重量级别[启直5号倾转旋翼无人机]: 1.5吨级",
+            "最大飞行速度[启直5号]: 450千米/小时",
+            "有效载荷[启直5号]: 300公斤",
+            "航程[启直5号]: 1900公里",
+            "核心技术[启直5号倾转旋翼无人机]: 掌握总体设计、传动系统、旋翼系统、飞行控制、结构设计、气动噪声六大技术"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "8 月 3 日消息，特斯拉工程师 Wes Morrill 上周（7 月 31 日）在 X 平台确认，Cybertruck 赛博皮卡的底盘护板已经由铝合金升级为碳纤维。\n还能够进一步增强车身耐用性\n据 Wes Morrill 介绍，特斯拉内部测试表明，碳纤维不仅比铝更耐用，同时重量更轻、成本更低。同时改用碳纤维底板可以更好地塑造螺栓周围区域，\n作为参考，Cybertruck 自 2023 年交付以来，一直使用铝合金底盘护板。IT之家了解到，碳纤维是一种含碳量在 95% 以上的高强度、高模量的新型纤维材料，具有",
+          "b": "“启直5号”倾转旋翼无人机首飞成功\n8月1日，由南京航空航天大学科技成果产业化企业——南京启直航空科技有限公司研发的1.5吨级“启直5号”倾转旋翼无人机在滁州试飞基地首次公开飞行成功，标志着启直系列倾转旋翼无人机向产业化迈出了关键的一步。\n在试飞现场，随着首飞指令的下达，在发动机的轰鸣声中，“启直5号”倾转旋翼无人机依次完成起飞、悬停、机动飞行、降落等系列科目。本次飞行全程由飞控系统自主控制，飞行状态稳定、各项参数达标，充分验证了整机气动布局、动力系统、飞控系统等的可靠性与先进性。\n首飞现场  南航供图\n据悉，“启直5号”由南航直升机研究院院长、直升机动力学全国重点实验室常务副主任、启直航空创始人招启军团队牵头研发，凝聚了该校在直升机气动设计、结构优化、智能飞控、系统集成等领域的深厚技术积累，其最大飞行速度450千米/小时、有效载荷300公斤、航程1900公里，具备“垂直起降+全域适配+高速巡航”三大优势。启直航空以自主可控倾转旋翼技术为核心，全面掌握总体设计、传动系统、旋翼系统、飞行控制、结构设计、气动噪声六大核心技术，构建起覆盖整机正向设计全流程的自主可控技术体系。\n南航校长姜斌对“启直5号”首飞表示热烈祝贺。他指出，低空经济是国家新兴支柱产业，直升机及低空飞行器技术是航空领域重点发展方向，南航人要秉承航空报国初心，持续深耕直升机领域，加速攻克关键核心技术。\n他希望启直航空以此次首飞为契机，加快后续试飞验证和型号研制步伐，早日实现产品的工程化、规模化、产业化，让“启直”系列无人机在低空经济中大显身手，为我国航空产业高质量发展贡献更大的南航智慧和南航力量。",
           "hb": 1
         }
       ]

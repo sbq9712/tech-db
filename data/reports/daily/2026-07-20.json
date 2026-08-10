@@ -5,45 +5,183 @@
   "main_theme": null,
   "overview": null,
   "headlines": {
-    "零碳产业": [],
-    "AI与智能科技": [
-      "芬兰阿尔托大学团队研制出全球首个超导量子热机，体积小于沙粒"
+    "零碳产业": [
+      "2026上半年国内锂电储能集装箱系统均价同比涨幅均超10%",
+      "天津大学等联合团队研发全固态锂硫电池室温循环超15000次",
+      "Pacific Fusion脉冲电源原型机完成3000次放电测试"
     ],
-    "通用技术": []
+    "AI与智能科技": [
+      "腾讯混元开源HiLS-Attention算法实现上下文512倍免训外推",
+      "月之暗面发布开源3万亿参数Kimi K3模型",
+      "Claude Fable 5大模型提出雅可比猜想的数学反例"
+    ],
+    "通用技术": [
+      "长征十号乙运载火箭完成首飞并实现全球首次海上网系回收",
+      "我国自主研制ITER钨铜连接部件通过万次热循环疲劳测试",
+      "研究解析光合放氧复合物中脂肪族侧链生成羧酸配体机制"
+    ]
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "2026上半年国内锂电储能集装箱系统均价同比涨幅均超10%",
+        "天津大学等联合团队研发全固态锂硫电池室温循环超15000次",
+        "Pacific Fusion脉冲电源原型机完成3000次放电测试"
+      ],
+      "entries": [
+        {
+          "t": "2026上半年储能价格：各类集装箱系统价格上涨均超10%，925家企业/联合体参与报价",
+          "d": "2026-07-20",
+          "a": "储能与电力市场",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "2026上半年，中国储能市场各类集装箱系统均价较2025年全年上涨均超10%，二季度价格趋于稳定。1至4小时锂电储能系统均价在0.522至0.968元/Wh之间。本期分析基于507个项目的1521个有效投标报价，涉及925家企业和联合体，2小时工商业储能柜均价为0.756元/Wh。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/oKU0K1N9G57auF0meEXEdg",
+          "tp": "储能市场价格分析",
+          "aip": 1,
+          "kp": [
+            "平均报价[2026上半年1小时锂电储能系统]: 0.968元/Wh",
+            "平均报价[2026上半年2小时锂电储能系统]: 0.637元/Wh",
+            "平均报价[2026上半年3小时锂电储能系统]: 0.600元/Wh",
+            "平均报价[2026上半年4小时锂电储能系统]: 0.522元/Wh",
+            "平均报价[2026上半年不区分倍率锂电储能系统]: 0.550元/Wh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2026上半年储能价格：各类集装箱系统价格上涨均超10%，925家企业/联合体参与报价 寻熵研究院 寻熵研究院 储能与电力市场 2026上半年中国储能市场价格关键数字 1小时、2小时、3小时、4小时以及不区分倍率的锂电储能系统平均报价分别为0.968元/Wh、0.637元/Wh、0.600元/Wh、0.522元/Wh和0.550元/Wh 1小时、2小时、3小时和4小时锂电储能项目EPC的平均报价分别为1.690/Wh、1.050元/Wh、0.932元/Wh和0.946元/Wh 2小时工商业储能柜平均报价0.756元/Wh，比同倍率的集装箱储能系统贵19%；2小时工商业电柜项目EPC均价1.176元/Wh，比同倍率的集装箱储能项目EPC贵12% 直流侧均价0.444元/Wh，储能电芯均价0.359元/Wh 储能系统价格在一季度延续了2025年下半年以来的上升势头，二季度上涨趋势明显放缓，整体趋于稳定 本次分析基于1521个有效投标报价数据进行 2026上半年，寻熵研究院共计收集整理了国内储能市场1521个有效投标报价数据，包括锂电储能系统、工商业储能柜、EPC总包、电芯、直流侧、PCS、项目施工等不同类别，以及液流电池、铅炭电池、钠离子电池、飞轮等非锂电储能技术和混合储能方案。 这1521个有效报价主要来自2026上半年完成采招的507个项目，报价主体涉及925家企业和联合体。 2026上半年各类储能投标报价样本及分布 _数据来源：寻熵研究院统计分析_ 看个广告休息一下 **2026年上半年锂电储能系统报价分析** 寻熵研究院在2026上半年共计收集到422个锂电储能系统报价，涉及1/2/3/4小时储能系统、未明确倍率储能系统，以及2小时和4小时工商业储能电柜等不同产品和倍率类型。 根据寻熵研究院的统计分析，2026上半年各倍率储能系统均价较2025全年均价均有明显的增加，其中各类集装箱储能系统价格上涨均已超过10%，集中在13%-20%区间。 储能系统价格自2025年下半年起出现了明显上涨的态势，并且延续到了2026年一季度。自二季度起，上涨趋势明显放缓，整体价格走势趋于稳定，并未形成大涨或大跌的局面。 有关2025年全年储能系统和EPC价格情况的分析，详见：2025储能价格：系统均价同比降幅超10%，1355家企业和联合体参与报价 **各类储能系统的价格情况** * **1小时储能系统**：报价区间在0.82~1.215元/Wh，平均报价为0.968元/Wh，平均中标价1.008元/Wh。2026上半年均价比2025全年均价上涨20%。 * **2小时储能系统**：报价区间在0.488~1.171元/Wh，平均报价为0.637元/Wh，略高于0.621元/Wh的平均中标价。2026上半年均价比2025全年均价上涨14%。 * **3小时储能系统**：报价区间在0.472~0.793元/Wh，平均报价为0.600元/Wh，平均中标价为0.557元/Wh。2026上半年均价比2025全年均价上涨18%。 * **4小时储能系统**：报价区间在0.420~0.623元/Wh，平均报价0.522元/Wh，平均中标价略低于平均报价，为0.516元/Wh。2026上半年均价比2025全年均上涨13%。 * **未明确倍率的储能系统**：主要来自集采框采项目，报价区间在0.491~0.7元/Wh，平均报价0.559元/Wh。 * **2小时工商业电柜系统**：报价区间在0.650~0.87元/Wh，平均报价0.756元/Wh。2026上半年均价比2025全年均价上涨2%。 * 电芯：报价范围0.325-0.394元/Wh，平均报价0.359元/Wh。2026上半年平均报价比2025全年均价上涨23%。 * 直流侧：报价范围0.348-0.527元/Wh，平均报价0.444元/Wh。2026上半年平均报价比2025全年均价上涨1%。 2026上半年各类储能系统 报价区间、平均报价和平均中标价 数据来源：寻熵研究院统计分析。 **储能系统月均价格** 根据寻熵研究院的统计分析，2小时集装箱储能系统的月均价格（不含工商业储能柜）在2026年初延续了2025年下半年以来的上涨态势，在3月出现了阶段性小高峰。二季度涨幅逐渐收窄，并未形成大幅上涨的态势。6月均价较2025年12月高出15%。 注：以下讨论的储能系统价格均对应集装箱式储能系统的价格，不含工商业储能柜，有关工商业储能柜价格的更多分析，详见即将发布的研究报告《2026上半年储能市场全景分析报告》。 2025-2026上半年 2小时储能系统月度均价和平均报价 数据来源：寻熵研究院统计分析。_注：不包含2小时工商业储能柜报价。_ 4小时储能系统月均报价自2025年7月起开启了连续6个月的大幅上...",
+          "hb": 1
+        },
+        {
+          "t": "【科技】天大杨全红/王莉、清华深研院吕伟、深理工耿传楠AM：室温超高倍率全固态锂硫电池中，硫催化与硫化物电解液分解的尺寸权衡关系",
+          "d": "2026-07-20",
+          "a": "储能科学与技术",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "天津大学、清华大学深圳国际研究生院及深圳理工大学的联合团队揭示了全固态锂硫电池中催化加速会引发硫化物固态电解质寄生分解的瓶颈问题。为此，团队设计了空间选择性催化剂架构，将精确尺寸的钴团簇限制在超微孔碳主体内，实现紧密接触转化的同时物理隔离电解质。基于此设计的电池在25.0 mA cm⁻²（15 C）的超高电流密度下，实现了室温稳定循环超15000次，为高功率固态电池提供了通用设计原则。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/XtmIMIqomYfARIU8ZCjMhQ",
+          "tp": "固态锂硫电池",
+          "aip": 1,
+          "kp": [
+            "全固态锂硫电池最大循环次数[室温, 25.0 mA cm⁻²(15 C)]: 超过15000次",
+            "电池电流密度[全固态锂硫电池]: 25.0 mA cm⁻²",
+            "空间选择性催化剂[全固态锂硫电池]: 精确尺寸钴团簇限制在超微孔碳主体内"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "【科技】天大杨全红/王莉、清华深研院吕伟、深理工耿传楠AM：室温超高倍率全固态锂硫电池中，硫催化与硫化物电解液分解的尺寸权衡关系 储能科学与技术 全固态锂硫电池（ASSLSBs）为实现下一代安全和高比能存储带来了巨大希望，然而其功率能力从根本上受到迟缓的固态硫氧化还原动力学的限制。 2026年07月16日，天津大学「国家杰青」杨全红/王莉、清华大学深圳国际研究生院吕伟、深圳理工大学耿传楠团队首次揭示，在重叠的电化学窗口下，这种催化加速不可避免地会引发硫化物固态电解质（SSEs）严重的寄生分解，这是一项关键但被忽视的瓶颈，它会破坏Li⁺传输并限制高倍率性能。为了将高效硫转化与界面降解解耦，研究人员设计了一种空间选择性催化剂架构。精确尺寸的钴团簇被限制在超微孔碳主体内。该设计确保了硫与催化剂的紧密接触以实现快速转化，同时在物理上隔离了催化表面与主体SSE，从而抑制了其催化分解。因此，连续Li⁺传输网络得以保持。所得到的ASSLSB实现了前所未有的室温倍率性能，在25.0 mA cm⁻²（15 C）的超高电流密度下稳定循环超过15000次。该研究为在高功率固态电池中协调催化作用与界面稳定性提供了一种通用设计原则。 【研究内容】 本研究揭示了催化驱动的电解质分解是导致ASSLSBs性能衰减的因素之一。为解决这一矛盾，研究人员设计了一种具有精确尺寸控制的钴（Co）团簇催化剂模型，该模型在维持催化活性的同时抑制了SSEs的分解。研究发现，催化剂尺寸决定了电解质降解的程度，即随着催化剂尺寸的减小，大量暴露的活性位点不仅加速了固态硫转化，同时也会催化硫化物SSEs的寄生分解，从而破坏了Li⁺传输的整体稳定性，并导致高电流循环性能的显著恶化。具体而言，通过直接碳化沸石咪唑酯骨架（ZIFs）合成了一种具有精确可调尺寸的Co纳米团簇的超微孔主体（孔径<0.5 nm），其中团簇尺寸通过精确控制母体骨架中金属节点的Co/Zn摩尔比来连续调控。这种架构显著增大了硫\\-催化剂接触面积，并进一步避免了催化剂颗粒与孔外电解质的过度接触。因此，中等尺寸的Co团簇（~0.6 nm）有效降低了硫转化的能垒，同时最大限度地减少了引发Li₆PS₅Cl（LPSC）分解的催化副反应，从而稳定了Li⁺传输路径。最终，组装的ASSLSBs实现了目前最先进的室温性能和卓越的高倍率循环稳定性，首次在30 °C下以15 C（25.0 mA cm⁻²）的超高倍率实现了15000次循环后520 mAh g⁻¹的可逆比容量，显著超越了先前报道的结果。在4 mg cm⁻²的高硫载量下，经过300次循环后仍保持了超过5.4 mAh cm⁻²的可逆面容量。即使在45 wt%的高硫含量和6 mg cm⁻²的载量下，该电池在30 °C下经过70次循环后仍能实现超过3.51 mAh cm⁻²的面容量。 图1 | 电解质的寄生催化分解以及空间选择性催化架构稳定Li⁺传输路径的示意图 图2 | 不同催化剂尺寸诱发的寄生分解。(a) 不同Co含量正极在首圈循环中的LSV曲线。(b) 循环后的电流\\-电位曲线及通过直流极化测量的Li⁺电导率。(c) Co-M的HAADF-STEM图像。(d) Co free、Co-S、Co-M和Co-L正极在第二圈循环中扫速为0.1 mV s⁻¹的CV曲线。(e) Co free、Co-S、Co-M和Co-L正极XPS谱图中P 2p峰在两个化学环境下的面积比。(f) Co-S、Co-M和Co-L在Co K边的WT-EXAFS等高线图。(g) Co-S、Co-M和Co-L正极中LPSC和碳的二维拉曼分布图 图3 | LPSC的尺寸主导的电化学稳定性。(a) 循环后Co-S、Co-M和Co-L正极中Li₂PS₄的ToF-SIMS谱图及二维分布（Li₂PS₄碎片强度归一化至总离子信号）。(b) COMSOL模拟的催化界面示意图。(c) 具有不同催化剂尺寸的正极的模拟过电位。(d) 循环后具有不同催化剂尺寸的正极的过电位分布。(e) 由Co-S/S、Co-M/S和Co-L/S正极的EIS测量转化得到的DRT结果 图4 | SRR和寄生反应中的尺寸主导动力学。(a) Co-S/S、Co-M/S和Co-L/S正极在第二圈循环中扫速为0.1 mV s⁻¹的CV曲线。(b) 固态转化过程中SRR和寄生分解的活化能。(c) Co-S/S和(d) Co-M/S正极在循环过程中的S 2p XPS谱图。(e) 具有Co free/S、Co-S/S、Co-M/S和Co-L/S正极（硫载量为1 mg cm⁻²）的ASSLSBs的倍率性能。(f) 具有Co free/S、Co-S/S和Co-M/S正极（硫载量为1 mg cm⁻²）在5 C下的循环性能 图5 | ASSLSBs的电化学性能。(a) Co-S...",
+          "hb": 1
+        },
+        {
+          "t": "从60吉瓦到440吉瓦：国家实验室完成3000次脉冲验证，Pacific Fusion脉冲功率聚变技术加速扩展",
+          "d": "2026-07-20",
+          "a": "机工文献",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国聚变能源初创企业Pacific Fusion宣布，由劳伦斯利弗莫尔国家实验室（LLNL）设计制造的阻抗匹配马克斯发生器（IMG）脉冲电源原型机Sirius，已完成3000次脉冲放电测试。该设备采用并联充电和精确时序放电架构，能在约100纳秒内产生高功率电脉冲，减少了传统系统的多级脉冲压缩环节。测试重点验证了高频重复运行下的设备寿命、可靠性和能量传输效率，标志着其脉冲功率技术向可重复运行和规模化工程应用迈进。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/_ftZW7e1-CVUWSJubgjE0Q",
+          "tp": "脉冲功率聚变",
+          "aip": 1,
+          "kp": [
+            "脉冲放电测试次数[脉冲电源原型机Sirius]: 3000次",
+            "技术特征[阻抗匹配马克斯发生器(IMG)]: 产生持续时间极短、峰值功率极高的电脉冲",
+            "工程进展[核心脉冲功率技术]: 由单次性能验证迈向可重复运行和规模化工程应用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "从60吉瓦到440吉瓦：国家实验室完成3000次脉冲验证，Pacific Fusion脉冲功率聚变技术加速扩展 机工文献 **引 言** 近日，美国聚变能源初创企业Pacific Fusion宣布，由劳伦斯利弗莫尔国家实验室（LLNL）设计制造的脉冲电源原型机Sirius，已完成3000次脉冲放电测试。 此次测试在Pacific Fusion与LLNL签订的合作研发协议框架下开展，重点考察设备在高频重复运行条件下的组件寿命、可靠性及能量传输效率。Pacific Fusion认为，这一成果标志着其核心脉冲功率技术正在由单次性能验证，进一步迈向可重复运行和规模化工程应用。 **新型脉冲功率架构完成可靠性验证** Sirius是一套阻抗匹配马克斯发生器（Impedance-Matched Marx Generator，IMG）。该技术由Pacific Fusion联合创始人兼首席技术官Keith LeChien与LLNL研究人员Bill Stygar共同提出，主要用于产生持续时间极短、峰值功率极高的电脉冲。 脉冲功率系统的基本工作方式，是首先从电网获取电能并储存在电容器中，再在极短时间内集中释放。Sirius产生的脉冲持续时间约为100纳秒，其瞬时释放过程类似于人工制造的强烈“闪电”。 在聚变装置中，这类高功率电脉冲可用于产生极强的电流和磁场，对聚变燃料实施快速压缩，使燃料在短时间内达到高温、高密度状态，从而触发聚变反应。 与传统马克斯发生器主要通过串联电容器逐级叠加电压不同，IMG采用并联充电方式，并通过同一传输线路中的多个级段进行精确时序放电，使脉冲波形在传播过程中完成叠加，随后直接输送至目标负载。 这一架构减少了传统脉冲功率系统中常见的多级脉冲压缩环节，有望降低系统复杂度、设备维护需求及相关安全风险。 在此次测试中，四级Sirius原型机能够在约100纳秒内，向电阻负载输送约60吉瓦的峰值功率，能量传输效率达到95%。 相比单次峰值功率，连续完成3000次脉冲放电更能反映设备的工程价值。测试获得的实验数据，可用于分析开关、电容器、绝缘结构及传输线路等关键组件在重复放电过程中的性能衰减和失效规律，为后续装置设计与寿命预测提供依据。 **从60吉瓦向440吉瓦快速扩展** Pacific Fusion正在将Sirius验证过的IMG架构应用于更大规模的脉冲功率系统。 2026年6月，该公司宣布完成一套放大约11倍的脉冲功率原型机。该装置能够在约80纳秒内实现约440吉瓦的峰值输出功率，峰值电压约为1.1兆伏，被公司称为目前已公开展示的最高功率单级脉冲功率驱动系统之一。 在此基础上，Pacific Fusion还在建设一套规模约为Sirius四十倍的新系统。 这种模块化扩展路径，是其技术路线的重要特征。与直接建造一套体量庞大、结构高度集成的实验装置相比，Pacific Fusion希望首先通过较小规模模块验证单元性能和可靠性，再利用多个标准化脉冲器模块组合形成更高功率系统。 这一思路有助于降低早期研发风险，也能够通过并行生产和模块复制加快装置建设速度。不过，随着系统规模扩大，多模块之间的同步精度、电磁干扰控制、绝缘可靠性及脉冲传输一致性，也将成为新的工程挑战。 **聚变能源之外，脉冲功率技术仍具有多种用途** Pacific Fusion开发的脉冲器不仅面向聚变能源，也可用于高能量密度科学研究。 当巨大的能量在纳秒级时间内释放时，可以形成极端温度、压力和电磁环境，从而在实验室中创造特殊物质状态。这类平台可用于材料在极端条件下的性能测试、放射性同位素生产、辐射效应研究以及国家安全相关实验。 因此，脉冲功率系统的应用价值并不完全取决于聚变发电能否短期实现。即使聚变能源商业化仍需要较长时间，高功率脉冲器本身也可能作为高能量密度物理实验基础设施获得应用。 对于Pacific Fusion而言，这种“一套核心技术、多类应用场景”的布局，也有助于其在聚变电站实现之前，提前建立工程能力和潜在商业市场。 **目标2030年前实现净设施增益** Pacific Fusion成立于2023年，目前已获得超过10亿美元私人资本支持。公司的核心目标，是在2030年前实现所谓“净设施增益”。 聚变实验中的“增益”存在不同口径。部分实验所说的靶增益，只比较聚变反应释放能量与直接作用于燃料靶的能量；设施级增益则需要将范围扩大到整个驱动系统，比较聚变输出能量与装置中为驱动反应所储存或消耗的总能量。 相比单纯实现燃料层面的能量增益，设施级净增益对驱动效率、能量耦合效率、系统损耗及装置重复运行能力提出了更高要求。 Pacific Fusion计划于2026年夏末在美国新墨西哥州阿尔伯克基启动示范设施建设。按照公司公布的方案，该系统将用于产生超过100兆焦耳的聚变能量爆...",
+          "hb": 1
+        }
+      ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "芬兰阿尔托大学团队研制出全球首个超导量子热机，体积小于沙粒"
+        "腾讯混元开源HiLS-Attention算法实现上下文512倍免训外推",
+        "月之暗面发布开源3万亿参数Kimi K3模型",
+        "Claude Fable 5大模型提出雅可比猜想的数学反例"
       ],
       "entries": [
         {
-          "t": "World’s First Superconducting Quantum Heat Engine Could Transform Quantum Computing",
+          "t": "在数学上把稀疏注意力做对！腾讯Hy开源HiLS-Attention: 计算更少效果更好, 外推512倍",
           "d": "2026-07-20",
-          "a": "",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "芬兰阿尔托大学Mikko Möttönen团队研制出全球首个超导量子热机，该器件体积小于一粒沙，能在接近绝对零度环境下将热能转化为有效功。研究发表于《Nature》，器件以量子比特为工作物质，循环执行加热、冷却和能量转换过程。这是首次在超导电路中实现循环式量子热机，为开发更强大量子计算机开辟了新路径，也为量子热力学基础研究提供了实验平台。",
-          "sc": 7.5,
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "腾讯混元团队开源HiLS-Attention（分层地标稀疏注意力），创新提出分块稀疏注意力范式。该方法在数学层面解决了传统稀疏注意力在重要性估计和选择过程中的技术难题。在345M至7B参数模型验证中，该方法不仅保持了全注意力的语言建模困惑度，更实现了从8K上下文向4M上下文的512倍免训外推。在512K上下文下，prefill与单步decode分别加速13.5倍和15.7倍，成功打破长文本处理中效率与效果的困境。",
+          "sc": 8.7,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://scitechdaily.com/worlds-first-superconducting-quantum-heat-engine-could-transform-quantum-computing/",
-          "tp": "量子热引擎",
+          "u": "https://mp.weixin.qq.com/s/5DvG15ZZMMm522x8G4Gr1g",
+          "tp": "稀疏注意力开源",
           "aip": 1,
           "kp": [
-            "运行温度[量子热机]: 接近绝对零度"
+            "免训外推倍数[HiLS-Attention在8K训练下]: 4M上下文（512倍）",
+            "Prefill加速比[HiLS-Attention在512K上下文]: 13.5倍",
+            "Decode加速比[HiLS-Attention在512K上下文]: 15.7倍",
+            "模型规模验证[HiLS-Attention]: 345M至7B参数",
+            "技术范式[HiLS-Attention]: 分层地标稀疏注意力"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A machine smaller than a grain of sand has turned heat into useful work near\nabsolute zero\n, opening a new path to far more powerful quantum computers.\nResearchers at\nAalto University\nhave built the first cyclic quantum heat engine inside a superconducting circuit. The device uses a qubit, the basic unit of quantum information, as its working substance and repeatedly drives it through heating, cooling, and energy conversion.\nThe study, led by Academy Professor Mikko Möttönen, was published in\nNature Communications\nThe result brings a familiar technology into an unfamiliar world. Conventional heat engines power vehicles and electricity plants by moving energy between hot and cold environments. The Aalto device follows the same basic principle, but it operates on a microscopic scale where quantum mechanics determines how energy behaves.\nAt the center of the engine is a flux-tunable transmon qubit connected to a resonator and a quantum circuit refrigerator. Transmons are widely used in superconducting quantum computers because they can store and process quantum information while being controlled with microwave signals.\nThe refrigerator played two opposing roles. Instead of requiring separate hot and cold reservoirs, the researchers adjusted a single device to either heat or cool the qubit. They then changed the qubit’s energy level at carefully chosen moments, completing the four stages of a quantum Otto cycle.\nThe Otto cycle is best known as the thermodynamic process behind many gasoline engines. In this experiment, however, its working substance was not compressed gas inside a cylinder. It was a qubit exchanging extremely small amounts of energy inside a cryogenic circuit.\n“In our experiment, we built a nanofabricated heat engine using superconducting circuits and operated it in a cryostat near absolute zero. At its heart is a transmon qubit, one of the basic building blocks of modern quantum technologies,” says Tuomas Uusnäkki, the study’s first author.\nThe team began with the qubit in a thermal state and ran the engine for as many as three consecutive cycles. Single-shot measurements allowed the researchers to track changes in the qubit’s state and calculate how much heat it absorbed, how much work it produced, and how efficiently it operated.\n“Our quantum-circuit refrigerator can be tuned to both heat and cool the qubit on demand. Using carefully timed control pulses, we drove the engine in an Otto cycle and monitored the qubit state as the engine ran,” explains Uusnäkki.\nThe measurements showed that the engine produced positive work rather than merely shifting heat around the circuit. Its observed power and efficiency also agreed with the researchers’ simulations, providing evidence that the device behaved as a genuine cyclic heat engine.\n“This is the first experimental demonstration of a cyclic quantum heat engine in superconducting circuits. Using a single controllable quantum refrigerator as both the hot and cold environment of the engine makes it simpler and more versatile,” says Uusnäkki.\nQuantum heat engines have previously been demonstrated with systems including trapped ions, atomic gases, nuclear spins, and defects in diamonds. Superconducting circuits are especially important because they are already among the leading platforms for\nquantum computing\n, communication, and sensing. Until now, however, no experiment had completed a cyclic quantum heat engine using this technology.\nThe immediate significance is not the amount of work generated, which is extraordinarily small. Instead, the experiment shows that heat can be deliberately controlled and converted inside the same type of circuitry used to build quantum processors.\nThat capability may become valuable as quantum computers grow. Today’s superconducting machines depend on large numbers of microwave cables running between room-temperature electronics and processors kept at temperatures only a fraction of a degree above absolute zero. Each cable adds cost, occupies space, and can carry unwanted heat or noise into the system.\nThe researchers are now working toward a fully autonomous version of the engine. One possible application would be reading the state of a qubit without sending a microwave signal from the cold processor to room temperature. Placing more control functions directly inside the cryogenic circuit could reduce the amount of external wiring required.\n“Finland’s Quantum Technology Strategy envisions a quantum computer with one thousand logical qubits by 2035, which probably means hundreds of thousands of physical qubits. Doing that with current technology requires millions of microwave cables costing thousands of euros each. The cables also introduce noise into the system. Using autonomous devices instead would mostly eliminate the need for those cables,” Möttönen says.\nReference: “Initial demonstration of a quantum heat engine based on dissipation-engineered superconducting circuits” by Tuomas Uusnäkki, Timm Mörstedt, Wallace Teixeira, Miika Rasola and Mikko Möttönen, 5 May 2026,\nNature Communications\nDOI: 10.1038/s41467-026-72651-x\nThe researchers used the facilities of\n, Finland’s national research infrastructure for nano-, micro-, and quantum technology in their pioneering study. The work was funded by the Research Council of Finland and the Finnish Cultural Foundation.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAalto University\nQuantum Computing\nQuantum Technology\nSuperconduction\nPhysicists Break Quantum Barrier With Record-Breaking Qubit Coherence\nNew Simple Device Uses Sound Waves to Store Quantum Information\nEngineers Develop a Radical New Architecture for Quantum Computing\nYale Researchers Cross the “Break Even” Point in Preserving a Bit of Quantum Information\nResearchers Develop A Universal Quantum Gate\nResearchers Develop a New Quantum Error Correcting Code\nPhysicists Track Quantum Errors in Real Time\nPhysicists Create and Control a Large Quantum Mechanical System Built on Photons\nQuantum Bits Store Data for Nearly Two Seconds Using Laboratory Grown Diamonds",
+          "b": "在数学上把稀疏注意力做对！腾讯Hy开源HiLS-Attention: 计算更少效果更好, 外推512倍 机器之心 让大模型 \"读得更长\" 一直是 Agent、深度推理和海量资料整合等场景的刚需，但标准全注意力机制的计算量随序列长度呈平方级增长，始终是横亘在长上下文建模面前的三座大山。 本周，腾讯混元团队正式开源 HiLS-Attention（分层地标稀疏注意力），提出了一种全新的分块稀疏注意力范式，首次在数学层面上同时解决了 chunk 重要性估计的 \"表达力不足\" 和选择过程的 \"端到端不可导\" 两大根本难题，真正将稀疏注意力做到了 \"Done Right\"。 在 345M 至 7B 参数规模上的系统验证显示：HiLS-Attention 在短文本场景下语言建模困惑度（PPL）与全注意力几乎重合，在 8K 训练条件下可实现 4M 上下文（512 倍）免训外推，512K 上下文下的 prefill 与单步 decode 分别加速 13.5 倍和 15.7 倍。 更重要的是，该方法在部分长上下文检索任务上反超了全注意力本身 —— 效率与效果的 \"二选一\" 困境被首次同时打破。相关论文与代码已在 GitHub 上公开。 * 论文标题：Hierarchical Sparse Attention Done Right: Toward Infinite Context Modeling * 代码链接：https://github.com/Tencent-Hunyuan/HiLS-Attention 一、长上下文的老大难： 全注意力扛不动，稀疏注意力又 \"不准\" 让大模型读得更长，几乎是今天所有 Agent、深度推理、海量资料整合任务的刚需。 但 \"读得长\" 对标准的全注意力（Full Attention）来说，一直是三座大山： * 计算量是平方级的：序列翻倍，算力翻四倍； * 长度外推差：训练 8K，测试 32K 就开始崩； * KV Cache 随长度线性膨胀，显存很快吃不消。 于是大家把目光投向分块稀疏注意力（Chunk-wise Sparse Attention）：把上下文切成一个个 chunk，每个 query 只挑最相关的 Top-K 个 chunk 去算注意力，多余的 kv cache 卸载到 cpu memory, 计算和显存开销都被控制在常数，看起来思路非常美好。 但现实是：迄今为止，没有任何一种分块稀疏注意力能真正追平全注意力。 图：最直接的证据 —— 即便让 345M 模型在 RULER 任务上训练，现有分块稀疏注意力依然打不满全注意力。 问题的根子在哪？——chunk 选不准。 二、现有方法为什么会 \"选错 chunk\"？ mean /max logits 的先天缺陷 要选对 chunk，前提是能准确估计每个 chunk 的 \"重要性\"。 图：从最朴素的 block sparse attention 出发 —— 一个 chunk 的重要性，就是它内部所有 token 注意力质量的总和 基于上图，形式上有: 按 Zc 从大到小取 Top-K，选出来的就是和全注意力完全一致的精确排序。问题在于：想精确算出 Zc，就得把 query 和 chunk 里每一个 token 都点积一遍 —— 这等于又把全注意力算了一遍，稀疏的意义荡然无存。 那能不能不遍历每个 token，只用一个\"浓缩\"的表示就估出重要性？这正是所有高效稀疏注意力的共同目标：给每个 chunk 造一个摘要 ，让 query 和它做一次点积，就能近似出这个 chunk 的对数重要性—— 现有方法是怎么造的？最主流的是均值池化（mean pooling）：直接把 chunk 内所有 key 求平均当摘要 key。稍作推导就会发现，它算出来的分数其实就是 token logit 的均值： NSA、InfLLM v2、MoBA 等都属此类；另一类方法（如 MiniMax 稀疏注意力）则改用 max logits 来近似。 但真正的目标 是一个 LogSumExp，它的行为完全取决于 chunk 内的 logit 分布，有两种极端形态： 也就是说： * mean logits 只在 \"chunk 内注意力均匀分布\" 时才准； * max logits 只在 \"单个 token 独占注意力\" 时才准。 可真实场景里，logit 分布随 query、随 head、随数据剧烈变化，根本不会乖乖落在某一种极端。结果就是：无论用 mean 还是 max，都是在用一个只在极端情况才成立的代理去硬凑 LogSumExp，从而系统性地错估 chunk 重要性，打乱 chunk 排序，让真正关键的 chunk 落选。 这一点在实验里看得很清楚：在最简单的单针大海捞针任务上，用均值池化...",
+          "hb": 1
+        },
+        {
+          "t": "腾讯研究院AI速递 20260720",
+          "d": "2026-07-20",
+          "a": "腾讯研究院",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "AI行业动态频出：Anthropic宣布Claude Fable 5永久保留并纳入高级订阅，因应对手低价策略；月之暗面发布全球首个开源3万亿参数级模型Kimi K3，原生支持视觉与100万token上下文，代码能力出众且API价格仅为Fable 5的三分之一；DeepSeek V4正式版进入灰度测试，引入“峰谷计费”机制，编码能力直追GPT-5.6 Sol，整体性能接近Opus 4.8级别，主打高性价比。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/qKSCW5J3L-2OzGqheMZE5g",
+          "tp": "大模型发布动态",
+          "aip": 1,
+          "kp": [
+            "模型参数量[Kimi K3]: 2.8万亿",
+            "上下文窗口[Kimi K3]: 100万token",
+            "综合得分[Vals AI测试]: 74.7",
+            "API价格比[Kimi K3对比Fable 5]: 三分之一",
+            "额度限制[Fable 5纳入Max和Team Premium订阅]: 50%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "腾讯研究院AI速递 20260720 李瑞龙、腾小研 李瑞龙、腾小研 腾讯研究院 生成式AI 一、Anthropic宣布Fable 5永久保留，纳入相关订阅 1.Anthropic官宣Claude Fable 5永久可用，7月20日起纳入Max和Team Premium订阅方案，虽然额度被限制在50%； 2.Pro和Team标准版用户可继续按额度访问，并获得100美元一次性额度补偿，此前官方曾计划将其下架或限流； 3.转变源于市场竞争压力，OpenAI推出低价GPT-5.6 Sol、月之暗面发布Kimi K3，迫使Anthropic放弃高溢价策略。 https://mp.weixin.qq.com/s/14RNUdvx1DrJnV6eZwJIiA 二、Kimi K3 发布，性能接近Fable 5价格仅三分之一 1.月之暗面发布全球首个开源3万亿参数级模型Kimi K3，参数量达2.8万亿，原生支持视觉理解，拥有100万token上下文窗口； 2.在前端代码竞技场超越Claude Fable 5位列第一，第三方Vals AI综合得分74.7排名第二，仅次于Fable 5； 3.API价格约为Fable 5的三分之一，完整模型权重将于7月27日前发布，但官方承认用户体验与顶级闭源模型仍有差距。 https://mp.weixin.qq.com/s/J-ql5I9GxfZdeEp0H8s-bg 三、DeepSeek V4正式版曝光，引入峰谷计费主打低价 1.DeepSeek V4正式版进入灰度测试，最快近日发布，包含Flash和Pro两个版本，整体性能接近Opus 4.8级别； 2.首次引入\"峰谷计费\"，V4 Pro百万输出tokens平时0.87美元、高峰1.74美元，价格仍显著低于Fable 5的50美元； 3.开发者实测编码能力直追GPT-5.6 Sol，但完成同一任务的迭代轮数多于Fable 5，旧模型deepseek-chat等7月24日下线。 https://mp.weixin.qq.com/s/GFNuj8qKN37QA2Kc1CjBrA 四、商汤发布SenseNova U1 Pro原生多模态智能体基座 1.商汤在WAIC发布面向长程任务的交付级原生多模态智能体基座日日新SenseNova U1 Pro，推动内容生成迈向系统级交付； 2.具备巅峰设计美感、原生8K超清输出、极致图文细节控制和长程Agentic闭环思维四大核心能力； 3.现场展示WAIC九周年水墨长卷等案例，可胜任信息图、海报、影视分镜等创作，U1用户人均日生图量已达107张。 https://mp.weixin.qq.com/s/hGo5TvUpxRodVtfnXDM7ew 五、面壁智能开源MiniCPM-Robot，攻破机器人记忆难题 1.面壁智能在WAIC开源首个具身智能系列MiniCPM-Robot，含通用VLA模型RobotManip和跟踪导航模型RobotTrack； 2.通过视觉Token极致压缩解决机器人上下文记忆短板，RMBench得分53.5远超pi0.5的10.4，单步决策仅需120ms； 3.RobotTrack仅0.9B参数，可在无网/弱网环境流畅跟随，原生适配宇树Go2机器狗，同步开源模型、推理框架与部署方案。 https://mp.weixin.qq.com/s/4DXFy0UFypA4WbCUN0KwFA 六、WAIC 2026国产AI超节点群雄逐鹿，或告别一枝独秀 1.WAIC 2026上华为、阿里平头哥、百度昆仑芯、沐曦、摩尔线程等厂商纷纷亮出超节点产品，形成竞争格局； 2.华为昇腾950超节点含1024张昇腾950DT芯片，预训练有效算力利用率较上代提升1.5至1.7倍，预计9月商用； 3.行业呈现垂直交叉互连、光互连等趋势，华泰证券预测2028年中国超节点市场规模有望达3414亿元。 https://mp.weixin.qq.com/s/MTv4GbFzMhyoI3XYKf19hA 前沿科技 七、腾讯发布Hy-Embodied一系列具身模型与智能体成果 1.腾讯Robotics X实验室联合混元发布Hy-Embodied系列三个基座模型，首次系统性打通\"感知—身体—行动\"闭环； 2.VLM模型负责理解场景、RxBrain统一推理与想象、VLA连接身体输出动作，同步发布Apexio和TairosAgent两个智能体； 3.模型已进入日化品工厂实测，作业成功率高于95%、节拍快于6秒每件，Tairos开放平台全面升级并保持开源开放。 https://mp.weixin.qq.com/s/clbqb0laiesrSn0rAK0DXg 八、星尘智能发布Lumo-2模型，公开20+家务真机演示 1.星尘智能发布第二代具身基座...",
+          "hb": 1
+        },
+        {
+          "t": "把张益唐坑苦的雅可比猜想，被Fable 5证伪了？",
+          "d": "2026-07-20",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "数学家Levent Alpoge发布推文称，大模型Claude Fable 5提出了著名的雅可比猜想的反例。该反例给出了一个从C³到C³的多项式映射，其雅可比行列式恒为-2，但将三个不同的点映射到了同一点，从而证伪了该猜想。这一发现引发了学术界的广泛关注。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/zCA9A7u6_tx_Kz8vvBIQGQ",
+          "tp": "AI证伪雅可比猜想",
+          "aip": 1,
+          "kp": [
+            "数学证明[Anthropic大模型Claude Fable 5]: 找到雅可比猜想的反例（证伪猜想）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "把张益唐坑苦的雅可比猜想，被Fable 5证伪了？ 原创 机器之心 机器之心 机器之心 编辑｜Panda 今天上午，一位在 Anthropic 工作的数学家 Levent Alpoge 发了一条推文。 推文开头是一句慵懒的「hello there」，接着他说：雅可比猜想是错的。然后他感谢了两个人：一个是「问起这件事的好朋友 akhil」，另一个是「在世界杯决赛期间还在干活的好朋友 fable」。 后面那位「fable」自然是 Anthropic 的大模型 Claude Fable 5。 推文正文剩下的部分是一串谁都能抄下来验证的多项式：一个从 C³ 到 C³ 的映射，雅可比行列式恒等于 -2，却把三个完全不同的点 (0, 0, -1/4)、(1, -3/2, 13/2) 和 (-1, 3/2, 13/2) 一起送到了同一个点 (-1/4, 0, 0) 上。 就这么几行字。一个自 1939 年提出、被写进斯蒂芬·斯梅尔「21 世纪数学问题」清单、困住整整一代代数几何学家、连两个变量的最简单情形都没人解决的猜想，被一条推文当成了随手一提的脚注。 简而言之，Fable 5 找到了雅可比猜想的一个反例： 这条推文引发广泛关注，浏览量已经超过 500 万，田渊栋等诸多大佬留言转发评论，宛如过年。 这是一条推文，也是一篇论文 学术圈的反应很快。斯坦福的数论学家 Jared Duker Lichtman 转发并逐步拆解了这个反例，还顺手挖出了一段几乎像电影桥段的历史巧合（后面细说）。他把这项工作的署名写作「Alpoge、Mathew 和 Claude Fable 5」——这里的 Mathew 指芝加哥大学的代数几何学家 Akhil Mathew，也就是推文里那位「问起这件事的 akhil」。 在 Hacker News 上，热度同样很高，评论区弥漫着一种混合了敬畏和荒诞的情绪。有人写下那句被反复引用的话：「他就……把它发了条推。」另一位补刀：「我给维基百科词条加 {{Cite tweet}} 的时候都有点不好意思。」还有人盯着那个非常规写法的「thanx」感慨：「这个『thanx』要载入史册了。」 也有人被那条推文的形式逗乐了：这个猜想撑了 85 年，而推翻它的公告发在一个七天后就会过期的格式里。 X 上的气氛更松弛，有人说这条推文本来可以让一个人获得博士学位： 还有人说「我太喜欢 AI 让突破性数学变得这么随意了」；有人贴出自己让 Fable 验证结果时模型的反应，按几位网友的描述，模型一边疯狂地用五种方法反复核对，一边不敢相信这是真的。还有一句流传甚广的调侃：「我让 Fable 帮我验证，它彻底炸了！我完全看不懂这些是什么意思，但我的 AI 觉得我是个传奇级数学家。」 事实上，也有人认为这条推文本身就是一篇论文，他们还举例了历史其它一些篇幅很小的数学论文，甚至比这条推文更短： 热闹之外，也有认真的怀疑。有人第一反应是：这个反例这么「小」，degree 这么低、系数也不大，85 年里难道没人做过一次小范围的穷举搜索吗？这个问题，我们放到后面回答。 雅可比猜想到底在问什么 先把这件事说清楚，它其实比听上去友好。 想象一个多项式映射：输入几个数，只用加法、乘法和整数次幂，输出另外几个数。Alpoge 给的这个例子就是把三维空间里的点 (x, y, z) 映射到三维空间里的另一个点。 对任何这样的映射，你都能写出一个叫「雅可比矩阵」的东西，里面装满了它的偏导数，本质上是一张表，描述每个输出对每个输入的微小扰动有多敏感。这张表的行列式是一个数，它告诉你：在某一点附近，这个映射是不是「局部可逆」的。 雅可比猜想问的是一个很具体的版本：如果这个行列式处处等于同一个非零常数，那能不能保证整个映射是全局可逆的。也就是说，你总能从任意一个输出倒推回那个唯一的输入，而且倒推的公式还是个多项式？ 微积分里的反函数定理已经告诉我们，非零的雅可比行列式是局部有光滑逆的必要条件。1939 年，德国数学家 Ott-Heinrich Keller 想知道的是：这个「局部」的条件，够不够强到撑起「全局」的结论。 听上去像是 1950 年之前就该被解决的问题。结果它成了现代数学里最著名的陷阱之一。 为什么它撑了 85 年 雅可比猜想在数学家中间的名声，是「看起来平易近人，实则专啃学术生涯」。它排在斯梅尔那份面向 21 世纪的问题清单的第 16 位，和黎曼猜想、Navier-Stokes 方程并列。即便是最简单的两变量情形，至今也没被解决。 几十年下来，研究它的人养成了一种近乎条件反射的谨慎：一个新的雅可比猜想「证明」出现时，默认是「有罪推定」，先假设它错了再说。 正是这种名声，让这次的公告显得格外不同。因为这一次不是又一个「证明」，而是相反的东西：一个写得明明白白、满足猜想...",
           "hb": 1
         }
       ]
@@ -51,8 +189,82 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "长征十号乙运载火箭完成首飞并实现全球首次海上网系回收",
+        "我国自主研制ITER钨铜连接部件通过万次热循环疲劳测试",
+        "研究解析光合放氧复合物中脂肪族侧链生成羧酸配体机制"
+      ],
+      "entries": [
+        {
+          "t": "中国可回收火箭开辟竞争新赛道",
+          "d": "2026-07-20",
+          "a": "新华网科技",
+          "c": "通用技术/通信和运输/航天",
+          "as": "7月10日长征十号乙运载火箭成功首飞，标志中国正式迈入可回收火箭时代，并实现全球首次运载火箭海上网系回收。该火箭采用“井”字形柔性网系在空中捕获火箭，取消着陆腿，容错率高。目前中国仅完成单次发射回收验证，仍面临从“能回收”向“能复用”以及向“能盈利”跨越的两大挑战，计划于今年年底前完成火箭一子级复用飞行。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260720/22b63a7cb5e24787a7b87f638fee2fb6/c.html",
+          "tp": "可回收火箭",
+          "aip": 1,
+          "kp": [
+            "核心技术特征[长征十号乙海上网系回收]: 采用“井”字形柔性网系在空中捕获，取消着陆腿",
+            "技术优势[火箭网系回收]: 结构简单、容错率高，对大规模箭体回收友好",
+            "技术目标[火箭一子级复用飞行]: 计划于2026年年底前完成"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7月10日，长征十号乙运载火箭在海南商业航天发射场成功首飞，标志着中国火箭正式迈入可回收时代。\n有意思的是，作为继美国之后全球第二个掌握轨道级可回收火箭技术的国家，中国并没有照抄SpaceX的作业，而是用长征十号乙实现了全球首次运载火箭海上网系回收。\n美国SpaceX公司的猎鹰9号走“着陆腿”路线，火箭返回时依靠发动机减速，展开四条腿稳稳站在平台上。这条技术路线最为成熟，经过了高频次发射的实践检验。\n长征十号乙另辟蹊径，取消沉重的着陆腿，改用“井”字形柔性网系在空中捕获火箭。网系回收结构简单、容错率高，对大规模箭体回收尤其友好。\n首飞回收惊艳世界，但一次成功不是终点，前路漫漫，仍有多重关隘等待跨越。\n第一大挑战，是从“能回收”到“能复用”的技术攻关。\n从首飞到回收到复用，中间隔着无数次试验迭代。SpaceX从2015年首次成功回收到真正实现稳定商业复用，也走了好几年，经历过多次回收失败。\n如今中国只完成“发射+回收”的单次验证，缺少同一箭体多次复飞、快速检修周转的完整考验。长征十号乙研制团队计划在今年年底前完成火箭一子级复用飞行。这个任务成功完成后，我们才能算掌握了完整的火箭可复用技术。\n第二大挑战，是从“能复用”到“能盈利”的产业大考。\n回收只是手段，降低成本才是目的。一子级占整枚火箭成本的约70%。但如果回收后检修成本高昂、翻修周期漫长，经济账就未必划算。可重复使用技术成熟后，商业发射才能由定制化任务走向标准化、规模化供给。猎鹰9号历经数百次复用试飞，形成流水线式检修流程，与我们的成熟度差距一目了然。\n目前，可复用火箭研制方面，中国有多家公司多型号多条技术路线探索并进。同时，国内发射产能、海上回收配套船队仍待扩容，上下游产业链规模化降本尚需时间。展望未来，率先掌握可复用、低成本、大运力发射能力的企业，将占据大部分商业发射份额。\n长十乙的成功已经释放了一个清晰信号：全球商业航天的版图正在被重绘。\n对中国而言，可回收火箭将有效缓解星多箭少、火箭运力不足的发展瓶颈。等技术成熟后，依托可复用火箭，我国低轨卫星组网进程将大幅提速，带动卫星制造、太空运维、空间应用全链条蓬勃生长，构筑起独立完整的本土商业航天产业集群。\n对全球而言，中国可回收火箭的入局意味着商业发射市场格局重塑。在此之前，低成本、高频次的太空发射几乎是SpaceX的专属能力，SpaceX借此手握定价话语权，近年来多次涨价。如今，中国拿到了入场券，终结了美国对火箭低成本再利用技术的垄断。技术不分国界，但发展道路自有选择。中国的海上网系回收技术，将让浩瀚太空迎来更多元、更公平的探索新秩序。\n航天产业的竞争，本质是技术路线与成本体系的较量。别人走过的路，我们可以参考；别人没走过的路，我们也可以自己走出来。长征十号乙用一张网“兜”住的不仅是一枚火箭，更是中国商业航天规模化发展的全新起点。（记者 佘惠敏）",
+          "hb": 1
+        },
+        {
+          "t": "我国第一壁技术再突破：在ITER计划中率先完成第一壁钨铜连接认证",
+          "d": "2026-07-20",
+          "a": "可控核聚变",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "我国在ITER增强热负荷型第一壁任务中率先完成钨铜连接核心工艺技术认证。全自主研制的钨第一壁手指部件在4.7MW/m2和5.9MW/m2热负荷下，分别连续成功通过15000次和3000次热循环疲劳测试，结果获ITER国际组织高度认可。第一壁是直面聚变等离子体的核心部件，最高需承受太阳近地热流强度3500倍的热流密度。此项技术突破为我国开展ITER第一壁的批量制造奠定了坚实基础。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/v-TwQQpH4aFDzZDD2c-ofA",
+          "tp": "核聚变壁材突破",
+          "aip": 1,
+          "kp": [
+            "热循环疲劳测试[ITER钨第一壁手指部件4.7MW/m²热负荷]: 连续成功通过15000次",
+            "热循环疲劳测试[ITER钨第一壁手指部件5.9MW/m²热负荷]: 连续成功通过3000次",
+            "最高承受热流密度[ITER装置第一壁]: 4.7MW/m2",
+            "面向等离子体材料[ITER第一壁]: 钨"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "我国第一壁技术再突破：在ITER计划中率先完成第一壁钨铜连接认证 ITER CHINA ITER CHINA 可控核聚变 每天与你一起 以下内容来源于： 日前，我国在ITER增强热负荷型第一壁任务中再次实现技术突破：全自主研制的钨第一壁手指部件在4.7MW/m2热负荷和5.9MW/m2热负荷下分别连续成功通过15000次和3000次热循环疲劳测试。测试结果获ITER国际组织高度认可，标志着我国在ITER计划中率先完成钨第一壁核心工艺技术认证，并为开展ITER第一壁批量制造奠定了技术基础。 第一壁是ITER装置直面聚变等离子体的核心部件，最高承受4.7MW/m2热流密度，是太阳近地热流强度的3500倍，是我国执行的18个ITER采购包任务之一，核工业西南物理研究院承担了该部件研制任务。2023年，我国率先用高纯度铍作为面向等离子体材料研制出ITER增强热复合型全尺寸原型件并获得ITER组织认可接受。2024年，钨取代铍成为ITER第一壁面向等离子体材料，我国同期开展了钨第一壁关键制造技术研发认证工作。 我国全自主研制的ITER增强热负荷型钨第一壁手指部件 * ITER中性束冷阀箱交付落定 聚变能源低温控制体系再添核心 * 世界最大低温泵实现关键突破：MITICA成功冷却至近绝对零度 * 中国交付ITER稳态磁体低温测试装置首批电源组件 * 首台国产连续低温弹丸注入系统成功研制",
+          "hb": 1
+        },
+        {
+          "t": "光合放氧复合物中脂肪族侧链翻译后生成羧酸配体",
+          "d": "2026-07-20",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/催化剂",
+          "as": "光合放氧复合物（OEC）的Mn4CaO5簇催化光合作用中的氧气释放。研究发现，当蓝细菌中结合该簇的Asp或Glu配体被突变替换后，能发生翻译后修饰重新生成原有的羧酸残基。研究进一步探讨了缺乏反应性侧链的脂肪族氨基酸是否也能经历类似的翻译后转化生成羧酸配体，以解析OEC在原始光系统中的起源与演化。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2610028123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "光合放氧催化",
+          "aip": 1,
+          "kp": [
+            "催化剂[光合放氧复合物OEC]: Mn4CaO5簇",
+            "[配体生成机制]: 脂肪族侧链翻译后生成羧酸配体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Photosynthetic oxygen evolution is catalyzed by the Mn\n                    4\n                    CaO\n                    5\n                    cluster within the oxygen-evolving complex (OEC) of photosystem II (PSII). Although oxygenic photosynthesis likely arose before the Great Oxidation Event (~2.4 billion years ago), how the OEC emerged in ancestral PSII remains unresolved. We previously showed that cyanobacterial mutants in which Asp or Glu ligands of the Mn\n                    4\n                    CaO\n                    5\n                    cluster were replaced with His or Asn/Gln underwent posttranslational conversion back to the original carboxylate residues. Here, we examined whether aliphatic amino acids lacking reactive side chains can also undergo similar conversion, thereby testing the generality of this phenomenon. Mutations of D1-Asp170 to Val/Leu/Ile and of D1-Glu189 to Leu/Ile resulted in posttranslational generation of Asp/Glu or their derivatives, partially restoring O\n                    2\n                    -evolving activity. Notably, nonstandard Asp/Glu derivatives also appear capable of functioning as carboxylate ligands for the Mn\n                    4\n                    CaO\n                    5\n                    cluster. This transformation of aliphatic residues represents a distinct type of posttranslational modification. Together, these findings demonstrate that posttranslational generation of carboxylate ligands from diverse amino acid residues, including aliphatic side chains, is a general feature of the OEC. Such intrinsic chemical plasticity of the OEC supports the hypothesis that posttranslational amino acid conversion played a critical role in the origin and evolution of the OEC, enabling photosynthetic oxygen production that transformed Earth’s environment and promoted the evolution of life.",
+          "hb": 1
+        }
+      ]
     }
   ]
 }

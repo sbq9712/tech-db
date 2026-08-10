@@ -6,38 +6,30 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院物理所研发柔性CZTSSe太阳电池，叠层组件认证效率达12.0%",
-      "研究人员调控相演化路径降低材料缺陷，锌黄锡矿电池认证效率达15.1%",
-      "新分子栅栏限域策略提升酸性CO2电还原法拉第效率与电流密度"
+      "中科院物理所研发柔性CZTSSe电池，组件认证效率达12.0%",
+      "Form Energy计划2029年在爱尔兰投运1GWh铁空气电池储能项目"
     ],
     "AI与智能科技": [
-      "科学家在超冷偶极分子气体中首次观测到偶极相互作用驱动的自结合液滴量子相",
-      "活体转基因动物中首次实现对自旋相关自由基对动力学的磁共振控制",
-      "拓扑绝缘体超晶格内观测到双稳态切换现象，为非易失性存储器提供物理基础"
+      "硅基底氮化镓纳米线二极管实现光传感与存储处理单器件集成"
     ],
-    "通用技术": [
-      "科研人员合成具有36元环孔道的稳定介孔沸石，突破传统沸石孔径限制",
-      "毅力号探测器获取35次探测数据，揭示火星古代大型三角洲沉积结构",
-      "研究人员开发免疫相容性可注射导电水凝胶，实现可持续生物电子接口"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院物理所研发柔性CZTSSe太阳电池，叠层组件认证效率达12.0%",
-        "研究人员调控相演化路径降低材料缺陷，锌黄锡矿电池认证效率达15.1%",
-        "新分子栅栏限域策略提升酸性CO2电还原法拉第效率与电流密度"
+        "中科院物理所研发柔性CZTSSe电池，组件认证效率达12.0%",
+        "Form Energy计划2029年在爱尔兰投运1GWh铁空气电池储能项目"
       ],
       "entries": [
         {
           "t": "物理所孟庆波报道一种柔性铜锌锡硫硒层调控方法使组件认证效率达12%",
           "d": "2026-03-20",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "中科院物理所孟庆波团队揭示碱金属在柔性CZTSSe薄膜晶体生长中的差异化作用机制：传统钠调控虽改善形貌但诱导SnSex相偏析限制电压提升。团队提出动力学竞争调控策略，引入锂元素调节铜相关相自由能演化路径，抑制SnSex无序生长，实现多相协同有序演化。制备的柔性太阳电池效率达14.5%（认证14.2%），叠瓦组件（>10cm²）效率12.7%（认证12.0%），超越日本Solar Frontier组件纪录及刚性器件。论文2026年3月20日发表。",
-          "sc": 8.3,
+          "sc": 8.4,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41560-026-02018-5",
@@ -51,49 +43,42 @@
           "hb": 1
         },
         {
-          "t": "通过平衡相演化抑制锌黄锡矿太阳能电池缺陷，实现15.1%认证效率纪录",
+          "t": "物理所孟庆波报道一种柔性铜锌锡硫硒层调控方法使组件认证效率达12%",
           "d": "2026-03-20",
-          "a": "Joule",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "锌黄锡矿(CZTSSe)太阳能电池采用地球丰富、无毒元素，但复杂缺陷严重制约效率提升。研究通过调控平衡相演化路径抑制有害缺陷形成，显著降低缺陷态密度，优化能带排列，使器件光电转换效率达到15.1%的认证效率纪录。该成果证明相演化工程是克服kesterite材料缺陷瓶颈的有效策略，为低成本薄膜光伏技术的规模化应用铺平道路。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00029-2?rss=yes",
-          "tp": "锌黄锡矿太阳能电池",
+          "as": "中科院物理所孟庆波团队揭示碱金属在柔性CZTSSe薄膜晶体生长中的差异化作用机制：传统钠调控虽改善形貌但诱导SnSex相偏析限制电压提升。团队提出动力学竞争调控策略，引入锂元素调节铜相关相自由能演化路径，抑制SnSex无序生长，实现多相协同有序演化。制备的柔性太阳电池效率达14.5%（认证14.2%），叠瓦组件（>10cm²）效率12.7%（认证12.0%），超越日本Solar Frontier组件纪录及刚性器件。论文2026年3月20日发表。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-02018-5",
+          "tp": "柔性CZTSSe光伏",
           "aip": 1,
-          "kp": [
-            "PCE[CZTSSe认证]: 15.1%",
-            "[缺陷抑制]: 反应Na-Sex物种平衡相演化"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Kesterite (CZTSSe) solar cells use earth-abundant, non-toxic elements but their efficiency is limited by complex defects. We show that an imbalance between intermediate phases during selenization triggers harmful Zn-related defects. Introducing reactive Na-Sex species accelerates Cu2SnSe3 formation and balances phase evolution into CZTSSe, suppressing defect formation. This kinetic control enables a certified 15.1% device performance, clearing a key commercialization benchmark for sustainable thin-film photovoltaics.",
+          "b": "铜锌锡硫硒（Cu2ZnSn(S,Se)4，CZTSSe）光伏器件具有低成本潜力与良好的机械柔性。但由于多元组分半导体体系中复杂的缺陷物理问题，使其难以实现结晶过程中实现多相体系的有序演化与缺陷协同调控，效率长期未实现突破。\n近日，中科院物理所孟庆波研究员团队系统揭示了碱金属元素在柔性CZTSSe薄膜晶体生长过程中的差异化作用机制。其发现传统钠（Na）调控虽可促进晶粒生长并改善薄膜形貌，但同时会诱导SnSex中间相的大尺度偏析，从而限制器件电压提升。其提出的动力学竞争调控策略，通过引入锂（Li）元素调节铜相关相的自由能演化路径，使其在晶化过程中优先消耗硒元素，从而有效抑制SnSex相的无序生长，实现多相体系的协同有序演化。\n由此制备出柔性CZTSSe吸收层，使柔性太阳电池光电转换效率达到14.5%（认证效率14.2%），是该类柔性CZTSSe电池效率纪录。同时，进一步构建的叠瓦式柔性CZTSSe光伏组件（>10cm2）的光电转换效率达12.7%（认证效率12.0%），超过了日本Solar Frontier公司保持的组件效率纪录，也超过了刚性CZTSSe器件。文章于2026年3月20日发表在Nature Energy。",
           "hb": 1
         },
         {
-          "t": "[ASAP]分子栅栏限域实现高效酸性CO2电还原为多碳产物",
+          "t": "Greenlit ESS：Form Energy 凭借 1 GWh 铁空气电池将于 2029 年上线，赢得爱尔兰胜利",
           "d": "2026-03-20",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "酸性CO2电还原（CO2ER）可提升碳利用率，但析氢副反应激烈竞争限制了效率与选择性。本研究提出分子栅栏限域策略，在催化剂表面构建纳米级分子屏障，有效约束反应中间体并抑制质子优先还原为氢气，从而显著提高酸性条件下CO2向目标产物（如CO、甲酸盐等）的转化法拉第效率与电流密度。该策略为克服酸性介质中碳利用与选择性之间的固有矛盾提供了新思路，有望推动CO2电还原技术的工程化应用。",
-          "sc": 7.0,
+          "a": "Latest news about ESS Projects & Applications | ESS News",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "",
+          "sc": 8.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c02917",
-          "tp": "酸性CO2电还原多碳",
+          "u": "https://www.ess-news.com/2026/03/20/greenlit-ess-form-energy-scores-irish-win-with-1-gwh-iron-air-battery-to-come-online-in-2029/",
+          "tp": "铁空气电池",
           "aip": 1,
-          "kp": [
-            "[策略]: 双修饰分子栅栏 confinement",
-            "[目标]: 酸性CO₂ER产C₂⁺",
-            "[问题]: 酸致*CO中间体失稳+析氢竞争"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Acidic CO2 electroreduction (CO2ER) enhances carbon utilization but faces significant challenges: intense hydrogen evolution reaction competition and poor multicarbon (C2+) product selectivity. We identify that this stems primarily from acid-induced destabilization of the critical *CO intermediate, exacerbated by adsorbed hydrogen. Here, we propose a dual-modification \"molecular-fence\" strategy to reconfigure the catalyst-electrolyte interface. We first engineer atomically dispersed Lewis acid Zr sites on Cu to electronically accelerate *CO formation. Subsequently, we anchor π-conjugated benzo-2,1,3-thiadiazole (BTD) molecules, which form a physical fence that spatially confines *CO intermediates and electrogenerated OH-. This synergy creates and sustains a localized, highly alkaline microenvironment in bulk acidic media, which concentrates *CO coverage and strengthens *CO binding to accelerate C-C coupling kinetics for acidic CO2ER. As a result, we achieve Faradaic efficiencies of 57.0% for ethylene (C2H4) and 74.9% for total C2+ products at 600 mA cm-2. Single-pass carbon efficiencies reach 64.2% for C2H4 and 79.9% for C2+. Remarkably, a high C2H4 selectivity (>52.0%) is sustained across a wide current density range of 400 to 700 mA cm-2. This work establishes the molecular-fence strategy as a broadly applicable paradigm for regulating interfacial microenvironments to enable efficient and selective CO2ER in challenging acidic media.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -101,69 +86,30 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "科学家在超冷偶极分子气体中首次观测到偶极相互作用驱动的自结合液滴量子相",
-        "活体转基因动物中首次实现对自旋相关自由基对动力学的磁共振控制",
-        "拓扑绝缘体超晶格内观测到双稳态切换现象，为非易失性存储器提供物理基础"
+        "硅基底氮化镓纳米线二极管实现光传感与存储处理单器件集成"
       ],
       "entries": [
         {
-          "t": "超冷偶极分子自结合液滴的观察",
+          "t": "用于神经形态图像传感器的具有集成光传感、存储器和处理功能的单个二极管",
           "d": "2026-03-20",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究首次在超冷偶极分子气体中观察到由偶极-偶极相互作用驱动的自结合液滴量子相。碰撞屏蔽技术的进步使分子免于非弹性损耗，此前已实现简并费米气体和玻色-爱因斯坦凝聚，但量子相的直接观测一直是难题，本成果填补了该空白。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10245-9",
-          "tp": "超冷分子量子液滴",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Ultracold gases of dipolar molecules have long been envisioned as a platform for the realization of novel quantum phases1,2,3,4,5,6,7,8. Recent advances in collisional shielding9,10,11,12, protecting molecules from inelastic losses, have enabled the creation of degenerate Fermi gases13,14,15 and, more recently, Bose–Einstein condensation of dipolar molecules16. However, the observation of quantum phases in ultracold molecular gases that are driven by dipole–dipole interactions has so far remained elusive. Here we report the formation of self-bound droplets and droplet arrays in an ultracold gas of strongly dipolar sodium–caesium molecules. Starting from a molecular Bose–Einstein condensate, microwave dressing fields are used to induce dipole–dipole interactions with controllable strength and anisotropy. By varying the speed at which interactions are induced, covering a dynamic range of four orders of magnitude, we prepare droplets under equilibrium and non-equilibrium conditions, observing a transition from robust one-dimensional arrays to fluctuating two-dimensional structures. The droplets show densities up to 100 times higher than the initial Bose–Einstein condensate, reaching the strongly interacting regime and suggesting the possibility of a quantum-liquid or crystalline state9,17. This work establishes ultracold molecules as a system for the exploration of strongly dipolar quantum matter and opens the door to the realization of self-organized crystal phases3,9,18 and dipolar spin liquids in optical lattices19.",
-          "hb": 1
-        },
-        {
-          "t": "体内自旋相关自由基对动力学的磁共振控制",
-          "d": "2026-03-20",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究在活体转基因动物中首次实现了对自旋相关自由基对(SCRP)动力学的磁共振控制。研究证明工程化的SCRP系统可赋予非天然生化过程磁敏感性，为磁场影响生物系统提供了分子层面的机理证据，对生物磁感受研究具有开创性意义。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10282-4",
-          "tp": "体内自由基磁控",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Magnetic fields can influence reactions involving spin-correlated radical pairs (SCRPs)1,2. This provides a mechanism by which both static and time-varying magnetic fields can affect living systems at the biomolecular level3. However, an engineered SCRP system conferring magnetic sensitivity to a non-native biochemical process in a multicellular organism has not yet been demonstrated. Here we demonstrate control of SCRP dynamics using magnetic resonance in a live transgenic animal. We show that the emission of various red fluorescent proteins (RFPs), in the presence of a flavin cofactor, can be modified by a combination of static and radiofrequency magnetic fields applied near the electron spin resonance frequency. This effect was measured at room temperature both in vitro and in the nematode Caenorhabditis elegans, genetically modified to express the RFP mScarlet4. These observations suggest that the magnetic field effects measured in RFP-flavin systems5 are due to quantum-correlated radical pairs with a coherence time larger than 4 ns. Our experiments demonstrate that radiofrequency magnetic fields can influence dynamics of reactions involving SCRPs in vivo, potentially enabling new methods for remotely controlling biomolecular processes, such as gene expression, and suggest broader potential for quantum tools in biology.",
-          "hb": 1
-        },
-        {
-          "t": "量子自旋霍尔绝缘体中的双稳态超晶格开关",
-          "d": "2026-03-20",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究在量子自旋霍尔绝缘体中观测到超晶格结构导致的双稳态切换现象。传统双稳态切换通常源于铁电或铁磁等铁性有序，而本研究通过在拓扑绝缘体中构建周期性超晶格，实现了由拓扑边界态驱动的非易失性开关效应。这一发现将拓扑量子材料的特性与信息存储功能结合，为低功耗拓扑电子器件和新型非易失性存储器提供了物理基础，在自旋电子学和量子计算硬件领域具有潜在应用价值。",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "通过能带结构工程方法，在硅基底上垂直生长p-GaN/n-AlGaN/n-GaN纳米线，成功制造出集光传感、存储和处理功能于一体的二极管器件。n型AlGaN段的较大带隙在p-n结中创建了电子库，通过内嵌的电子库配置实现了对电荷捕获的精确控制。",
           "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10309-w",
-          "tp": "量子自旋霍尔",
+          "u": "https://www.nature.com/articles/s41928-026-01588-2",
+          "tp": "神经形态传感",
           "aip": 1,
           "kp": [
-            "材料体系[量子自旋霍尔]: 单层TaIrTe4",
-            "[开关机制]: 双晶格构型间双稳态超晶格切换"
+            "多功能集成[p–n二极管]: 集成光传感、存储和处理功能",
+            "器件结构[光传感/存储/处理]: 双端p-n二极管",
+            "实现方法[多功能p-n二极管]: 能带结构工程"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Bistable switching typically arises from ferroic orders, such as ferroelectricity and ferromagnetism, in which the bistable states are encoded in charge or spin degrees of freedom1,2. Here we report the observation of bistable superlattice switching in monolayer TaIrTe4, a dual quantum spin Hall insulator3,4,5. Switching occurs between two lattice configurations with sharply contrasting periodicities. In particular, in a pristine monolayer, we observe the spontaneous emergence of a long-period superlattice that can be programmed on and off in a non-volatile manner by electrostatic tuning of low-energy electronic states. This switching toggles the system between two structural configurations with unit cell areas differing by two orders of magnitude. Mechanistically, our results reveal two independent and distinct instabilities, one in the lattice and the other in the quantum spin Hall electrons. These instabilities are coupled, leading to electrostatic control of lattice configurations with non-volatile memory. This finding is enabled by combining linear and nonlinear transport measurements6,7,8,9,10,11,12,13, Raman spectroscopy and scanning tunnelling microscopy, which probe complementary aspects of the underlying orders. Notably, this non-volatile memory stabilizes a spontaneous superlattice with a periodicity on the few-nanometre scale that remains robust across a wide doping range, persists over days and survives above 70 K. Our preliminary data also show the emergence of new insulating states at fractional superlattice fillings, which can be switched on and off together with the superlattice.",
+          "b": "Two-terminal p–n diodes are fundamental components in many electronic and optoelectronic systems. However, their defining characteristics limit them to single-function devices, and methods to achieve multiple functionalities—such as using devices with three or more terminals and introducing novel materials—can increase hardware and processing complexity. Here we show that a band-structure engineering approach can be used to create a p–n diode with integrated photosensing, memory and processing capabilities. The diode consists of vertically grown p-GaN/n-AlGaN/n-GaN nanowires on a silicon substrate, where the larger bandgap of the n-type AlGaN segment creates an electron reservoir in the GaN p–n junction. The embedded electron reservoir configuration enables precise control over charge trapping and release processes beyond the common p–n junction operation model, providing bias-tunable photosensing behaviour with a responsivity of 10.45 mA W−1, photosynaptic behaviour with a paired-pulse facilitation ratio up to 122% and photo-memory behaviour with eight linear states. We show that an array of such three-in-one diodes can be used to create a compact and energy-efficient image sensor with denoising and image-classification functions without additional circuits.",
           "hb": 1
         }
       ]
@@ -171,74 +117,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "科研人员合成具有36元环孔道的稳定介孔沸石，突破传统沸石孔径限制",
-        "毅力号探测器获取35次探测数据，揭示火星古代大型三角洲沉积结构",
-        "研究人员开发免疫相容性可注射导电水凝胶，实现可持续生物电子接口"
-      ],
-      "entries": [
-        {
-          "t": "具有超大36元环孔道的稳定介孔沸石",
-          "d": "2026-03-20",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究者成功合成了一种具有超大36元环孔道的稳定介孔沸石材料，突破了传统有机结构导向剂对沸石孔径的限制。沸石孔径从微孔扩展到介孔范畴一直是材料化学的重大挑战，该成果通过创新的合成策略实现了超大孔道结构的热稳定性，为催化裂化、重质原油加工及大分子择形催化开辟了新路径。这类超大孔沸石有望在石油化工和精细化学合成中显著提升反应效率与选择性。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01322",
-          "tp": "介孔沸石",
-          "aip": 1,
-          "kp": [
-            "孔径[36环通道]: 19.5×25.2 Å",
-            "孔环数[沸石JU-69]: 36环",
-            "骨架密度[纯硅沸石]: 9.53 T/1000 Å³"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Expanding zeolite pore sizes beyond the microporous regime has long been limited by conventional organic structure-directing agents (OSDAs). Here we report JU-69, a mesoporous pure-silica zeolite that features one-dimensional 36-ring channels, representing the largest apertures (19.5 Å × 25.2 Å) observed in any known TO4-based zeolite framework and an ultralow framework density of 9.53 T per 1000 Å3 (T: tetrahedral framework atom). A surfactant-like phosphonium OSDA with bulky head groups and a long alkyl chain directs columnar assemblies that template long-range-ordered mesoporous walls. Three-dimensional electron diffraction reveals a trigonal framework built from three composite building units (CBUs), including cas and two previously unknown CBUs that generate chiral clover arrangements and circular 36-ring pores. The structure is further validated by atomic-resolution real-space imaging using electron ptychography. JU-69 exhibits thermal stability up to 900 °C and periodically arranged silanol groups that enable efficient metal anchoring, demonstrated by active Pd/JU-69 catalysts for bulky molecule hydrogenation. This work establishes a pathway for designing crystalline mesoporous zeolites with unprecedented structural openness.",
-          "hb": 1
-        },
-        {
-          "t": "探地雷达对火星杰泽罗陨石坑古代大型三角洲结构的观测",
-          "d": "2026-03-20",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/通信和运输/航天",
-          "as": "利用火星2020毅力号探测器RIMFAX探地雷达在杰泽罗陨石坑边缘单元获取了超过35次探测数据，揭示了古代大型三角洲的沉积结构。结合碳酸盐沉积记录，该研究为火星古代存在液态水及更温暖气候提供了新的地质证据。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adz6095?af=R",
-          "tp": "火星雷达测",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The surface of Mars once hosted flowing liquid water and a warmer climate than today, with past water-rock interactions recorded by the carbonate deposits found on its surface. Here, we analyze the depositional setting of the Margin unit, a major magnesium-carbonate deposit near the fluvial inlet to Jezero crater using ground penetrating radar data collected by the Mars 2020 Perseverance rover Radar Imager for Mars Subsurface Experiment (RIMFAX) instrument. We report soundings from more than 35 m belowground, ~1.75 times deeper than other Jezero geologic units explored to date. We identify numerous subsurface features and submeter to hundred-meter scale layering across an ~6.1-km rover traverse. We infer that subsurface reflectors are consistent with buried fluvial features and deltaic foresets, which have experienced multiple erosional-depositional episodes. This work illuminates a well-preserved paleolandscape wherein a deltaic environment developed prior to the formation of the Jezero Western Delta, as early as the Noachian (~4.2 to 3.7 billion years ago).",
-          "hb": 1
-        },
-        {
-          "t": "通过阴离子-π联锁作为持续生物电子接口的可注射桥的免疫相容性导电水凝胶",
-          "d": "2026-03-20",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了SSPH——一种免疫相容性、可注射的导电水凝胶桥，通过阴离子-π互锁机制实现可持续的生物电子接口。植入式生物电子技术的进展虽改善了智能系统与生物组织的交互，但刚性电极与软组织之间的力学-免疫学失配限制了器件长期稳定性。SSPH形成柔顺的界面桥，降低机械应力，实现微创递送和稳定的组织整合，在长期植入式生物电子器件领域具有重要应用前景。",
-          "sc": 6.2,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72820?af=R",
-          "tp": "导电水凝胶",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Advances in implantable bioelectronics have improved the interaction between intelligent systems and biological tissues. Yet, the mechanical‐immunological mismatch between rigid electrodes and soft tissues continues to limit long‐term device stability. Here, we present SSPH, an immunocompatible, injectable, conductive hydrogel bridge that enables minimally invasive delivery and stable tissue integration. By forming a compliant interfacial bridge, SSPH reduces mechanical‐biological mismatch and immune stress on electrodes. It is formed by the spontaneous co‐assembly of PEDOT:PSS and the zwitterionic polymer poly(sulfobetaine methacrylate) (PSBMA), resulting in a 3D network stabilized by anion‐π interactions, electrostatic interactions, and PEDOT‐rich nanostructures. This self‐healable architecture allows SSPH to maintain its intrinsic conductive pathways after deformation. Experiments confirmed that SSPH exhibits stable electrochemical properties and favorable immunocompatibility. In an acute muscle injury model, SSPH restored signal transmission across the damaged region, demonstrating its potential to serve as a bridge across disrupted tissue. Furthermore, in both electromyography recording and spinal cord stimulation models, SSPH preserved electrode performance for up to four weeks, supporting reliable bidirectional signal conduction. These results highlight SSPH as a promising, durable, and immunocompatible bridging material for sustained bioelectronic interfaces.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

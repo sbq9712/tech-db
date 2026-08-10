@@ -6,19 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "星环聚能完成全球首个全尺寸高温超导环向场磁体测试",
-      "Xaar喷墨打印技术替代塑料薄膜用于锂电池电芯绝缘",
-      "赢创启动绿氢电解槽阴离子交换膜商业化规模量产"
+      "星环聚能全尺寸高温超导磁体通过测试，励磁电流达4.5 kA",
+      "Stellantis将Factorial固态电池集成至道奇研发车开展北美路测"
     ],
     "AI与智能科技": [
-      "OpenAI洽谈租赁俄亥俄州十吉瓦级超大规模数据中心",
-      "港中文团队研发光信号处理器实现1.6 Tb/s全光实时均衡",
-      "OpenAI计划于未来一年内发布新一代大语言模型"
+      "港中大团队研发光信号处理器，实现1.6 Tb/s全光无DSP均衡",
+      "剑桥与DIOSynVax联合研发的AI设计通用冠状病毒疫苗一期临床取得积极结果"
     ],
     "通用技术": [
-      "蓝箭航天朱雀二号成功发射并开展手机直连卫星试验",
-      "研究人员利用分子N型掺杂实现OLED低阈值纳秒激光发射",
-      "国网连云港供电公司完成电动船舶向电网反向送电验证"
+      "发改委与能源局印发688号文，绿电直连模式正式升级为多用户共享",
+      "ABF Freight正式采购特斯拉Semi电动卡车，实测效率为1.55千瓦时/英里",
+      "工信部批准小米生产增程式电动汽车，计划推出全尺寸SUV“昆仑N3”"
     ]
   },
   "sectors": [
@@ -26,9 +24,8 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "星环聚能完成全球首个全尺寸高温超导环向场磁体测试",
-        "Xaar喷墨打印技术替代塑料薄膜用于锂电池电芯绝缘",
-        "赢创启动绿氢电解槽阴离子交换膜商业化规模量产"
+        "星环聚能全尺寸高温超导磁体通过测试，励磁电流达4.5 kA",
+        "Stellantis将Factorial固态电池集成至道奇研发车开展北美路测"
       ],
       "entries": [
         {
@@ -42,33 +39,54 @@
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/ylbfoeuQtjNzH0cQqWqQ2w",
           "tp": "聚变磁体励磁",
-          "aip": 1
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月11日，星环聚能在其官方公众号发文称，其研发的全尺寸高温超导环向场磁体通过20K（-253.15℃）低温励磁测试，成功励磁至4.5 kA。该磁体高4米、宽2米，与聚变堆装置尺寸完全一致（非缩比模型），宣传是全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体；含线圈盒工程电流密度超过40 A/mm²，绕组电流密度达375 A/mm²，等效装置中心磁场达到3.06 T、等效装置最大磁场达到11.1 T，励磁电流4.5kA，通流比超过60%。此外，其还宣传实现了从带材验收、线圈绕制、关键零部件（接头/引线等）、10kA级馈线、制冷与冷屏系统、磁屏蔽系统、信号采集（EPIC测试仪）、失超检测准备（OFDR系统）以及到AI Native控制系统的全流程自主可控的能力。",
+          "hb": 1
         },
         {
-          "t": "EV电池绝缘数字化升级，替代塑料薄膜",
+          "t": "星环聚能全尺寸高温超导环向场磁体20K低温励磁电流达4.5 kA",
           "d": "2026-06-11",
-          "a": "Battery Tech Online",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "中国产线已使用Xaar精密喷墨打印技术为每日1.5万至2万颗电芯涂覆介电绝缘层，替代传统塑料薄膜工艺。数字化绝缘方案省去薄膜材料、简化产线、提升电池安全性与一致性，正在加速锂电池制造工艺革新。",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "星环聚能全尺寸高温超导环向场磁体通过20K低温励磁测试，成功励磁至4.5 kA。磁体高4米宽2米，与聚变堆装置同尺寸（非缩比），为全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体。绕组电流密度375 A/mm²，等效中心磁场3.06 T、最大磁场11.1 T，通流比超60%，实现从带材到控制系统全流程自主可控。",
           "sc": 8.6,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.batterytechonline.com/battery-manufacturing/ev-battery-insulation-goes-digital-as-plastic-film-fails-under-fast-charging-stress",
-          "tp": "电池绝缘涂层",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/ylbfoeuQtjNzH0cQqWqQ2w",
+          "tp": "聚变磁体励磁",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月11日，星环聚能在其官方公众号发文称，其研发的全尺寸高温超导环向场磁体通过20K（-253.15℃）低温励磁测试，成功励磁至4.5 kA。该磁体高4米、宽2米，与聚变堆装置尺寸完全一致（非缩比模型），宣传是全球首个面向球形托卡马克聚变堆的全尺寸高温超导环向场磁体；含线圈盒工程电流密度超过40 A/mm²，绕组电流密度达375 A/mm²，等效装置中心磁场达到3.06 T、等效装置最大磁场达到11.1 T，励磁电流4.5kA，通流比超过60%。此外，其还宣传实现了从带材验收、线圈绕制、关键零部件（接头/引线等）、10kA级馈线、制冷与冷屏系统、磁屏蔽系统、信号采集（EPIC测试仪）、失超检测准备（OFDR系统）以及到AI Native控制系统的全流程自主可控的能力。",
+          "hb": 1
         },
         {
-          "t": "赢创启动商业规模AEM膜量产",
+          "t": "随着北美道路测试的开始，固态电动汽车电池正在变得真实",
           "d": "2026-06-11",
-          "a": "Hydrogen Tech World",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "赢创(Evonik)启动阴离子交换膜(AEM)的商业化规模生产，用于绿氢电解槽。AEM膜兼具碱性电解槽低成本与质子交换膜电解槽高性能的优势，被视为降低绿氢制造成本的关键材料。",
-          "sc": 8.5,
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "固态电动汽车电池首次在北美进行实际道路测试。Stellantis与Factorial Energy将Factorial的FEST固态电池集成至一辆道奇Charger Daytona的研发车中展开实测。测试前双方已完成验证，确认其77Ah的FEST电芯能量密度高达375 Wh/kg，并实现了超过600次的循环寿命。此外，该固态电池技术还展现出超快充电能力。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://hydrogentechworld.com/evonik-starts-commercial-scale-aem-membrane-production",
-          "tp": "AEM电解膜",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/06/11/solid-state-ev-batteries-leave-lab-north-american-road-tests-begin/",
+          "tp": "固态电池路测",
+          "aip": 1,
+          "kp": [
+            "[固态电池技术状态]: Stellantis与Factorial Energy在北美首次进行固态电动汽车电池的道路测试",
+            "[FEST固态电池]: Factorial Electrolyte System Technology"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Peter Johnson\n| Jun 11 2026 - 7:39 am PT\nSolid-state EV batteries\nare now being tested on the road in North America for the first time, promising longer range, faster charging, and lower costs.\nJeep maker Stellantis and US-based Factorial Energy officially began testing the advanced new battery tech on the road, marking the first time solid-state batteries have been integrated into an EV in North America.\nFactorial’s FEST (\nFactorial Electrolyte System Technology\n) solid-state battery cells were used to power a Dodge Charger Daytona development vehicle.\nThe milestone comes after Stellantis and Factorial validated that 77Ah FEST cells\nachieved an energy density\nof 375 Wh/kg with over 600 cycles last April.\nFactorial’s advanced solid-state battery cells also proved ultra-fast charging from 15% to 90% in just 18 minutes, and maintained performance in extreme temperatures ranging from -22°F to 113°F (-30°C to 45°C). Plus, the cells deliver a discharge rate of up to 4C.\nMoving the new battery tech from the lab to the real world wasn’t easy. Stellantis said transitioning the cells into a development vehicle “demanded advanced engineering solutions” from both companies.\nFactorials FEST solid-state battery cells were integrated into Stellantis’ STLA Large platform, while engineers modified the control systems and pack design to optimize safety and performance.\nWith the battery pack now complete, Stellantis and Factorial have begun road testing for the first time in North America.\n“What we have built together, from cell chemistry to pack architecture to enable real-world road testing, is exactly the kind of deep, full-stack collaboration that solid-state has always required,” Factorial’s CEO, Siyu Huang, said.\nHe added that “This milestone doesn’t just validate FEST; it sets a new bar for what automotive-grade solid-state batteries can deliver and supports the development of future vehicles designed to meet the evolving needs of drivers.”\nFactorial is working with several major automakers, including Mercedes-Benz, Hyundai, Kia, and Stellantis, to commercialize solid-state EV batteries.\nLast September, Mercedes-Benz drove a modified EQS\nover 745 miles\n(1,200 km) using Factorial’s solid-state battery cells. Mercedes’ tech boss, Markus Schäfer, said Factorial’s battery tech could be a real “gamechanger” for EVs.\nBeyond the automotive industry, Factorial plans to expand the battery tech to other segments, such as robotics, aerospace, and defense.\nFactorial said its solid-state battery cells deliver a 50% improvement in driving range, offering over 600 miles on a single charge. Earlier this week, Factorial\nbegan trading on Nasdaq\nunder the ticker symbol “FAC” following a business merger with Cartesian Growth Corp III (a SPAC). The merger is worth about $1.3 billion, and Factorial will receive roughly $110 million as it works to commercialize the next generation of batteries.\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nPeter Johnson is covering the auto industry’s step-by-step transformation to electric vehicles. He is an experienced investor, financial writer, and EV enthusiast. His enthusiasm for electric vehicles, primarily Tesla, is a significant reason he pursued a career in investments. If he isn’t telling you about his latest 10K findings, you can find him enjoying the outdoors or exercising",
+          "hb": 1
         }
       ]
     },
@@ -76,28 +94,14 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "OpenAI洽谈租赁俄亥俄州十吉瓦级超大规模数据中心",
-        "港中文团队研发光信号处理器实现1.6 Tb/s全光实时均衡",
-        "OpenAI计划于未来一年内发布新一代大语言模型"
+        "港中大团队研发光信号处理器，实现1.6 Tb/s全光无DSP均衡",
+        "剑桥与DIOSynVax联合研发的AI设计通用冠状病毒疫苗一期临床取得积极结果"
       ],
       "entries": [
         {
-          "t": "OpenAI在英伟达支持下洽谈租赁俄亥俄州10吉瓦数据中心",
-          "d": "2026-06-11",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "OpenAI正洽谈租赁位于俄亥俄州、功率达10吉瓦的数据中心，并获英伟达支持。这一规模远超当前主流数据中心（通常百兆瓦级），若落实将成为全球最大AI算力基础设施之一，反映AI巨头对超大规模算力需求的急剧攀升，对电网供电和能源规划构成巨大挑战。",
-          "sc": 9.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/articles/openai-talks-lease-10-gigawatt-ohio-data-center-backing-nvidia",
-          "tp": "超大规模数据中心",
-          "aip": 1
-        },
-        {
           "t": "香港中文大学Chaoran Huang提出集成可编程光信号处理器实现全光实时均衡",
           "d": "2026-06-11",
-          "a": "",
+          "a": "Science",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "香港中文大学Chaoran Huang团队提出集成可编程光信号处理器（OSP），实现全光无DSP实时均衡。基于深层储备池和游标方案，采样分辨率约1皮秒。OSP同时均衡8个WDM信道，总吞吐量1.6 Tb/s，延迟<60皮秒，能耗仅数十飞焦耳/比特。在检测前运行，有效补偿色散、减轻带宽限制和光纤非线性，将WDM窗口扩大6.8倍。成果发表于Science。",
           "sc": 8.2,
@@ -105,20 +109,53 @@
           "tg": "技术突破",
           "u": "https://www.science.org/doi/10.1126/science.ady5344",
           "tp": "光信号处理",
-          "aip": 1
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "大规模人工智能训练需要针对海量图形处理器集群的超低延迟、高能效互连技术。在强度调制/直接检测链路中，数字信号处理（DSP）均衡受限于相位损失引起的非理想均衡以及严格的功耗和延迟预算。本研究提出了一种集成可编程光信号处理器（OSP），它可作为非线性通用均衡器，执行全光、无DSP的实时均衡。具有全光读出功能的深层储备池实现了一种游标方案，具备约1皮秒的采样分辨率和可调谐的记忆窗口。该OSP同时均衡八个波分复用（WDM）信道，提供1.6太比特/秒的总吞吐量，延迟小于60皮秒，能耗仅为数十飞焦耳/比特。它在检测之前运行，提供出色的色散补偿，减轻了收发器带宽限制和光纤非线性，并将可用的WDM窗口扩大了6.8倍。文章于2026年6月11日发表在Science。",
+          "hb": 1
         },
         {
-          "t": "独家：OpenAI准备推出新AI模型，预计'明年内'公开亮相",
+          "t": "香港中文大学Chaoran Huang提出集成可编程光信号处理器实现全光实时均衡",
           "d": "2026-06-11",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "据The Information报道，OpenAI正筹备发布新一代AI模型，预计将在未来一年内公开发布。具体模型架构和能力细节尚未披露，但此举延续OpenAI在大语言模型领域的快速迭代节奏。",
-          "sc": 8.9,
+          "a": "Science",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "香港中文大学Chaoran Huang团队提出集成可编程光信号处理器（OSP），实现全光无DSP实时均衡。基于深层储备池和游标方案，采样分辨率约1皮秒。OSP同时均衡8个WDM信道，总吞吐量1.6 Tb/s，延迟<60皮秒，能耗仅数十飞焦耳/比特。在检测前运行，有效补偿色散、减轻带宽限制和光纤非线性，将WDM窗口扩大6.8倍。成果发表于Science。",
+          "sc": 8.2,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/briefings/exclusive-openai-preps-new-ai-model-expects-go-public-within-next-year",
-          "tp": "大语言模型",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.ady5344",
+          "tp": "光信号处理",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "大规模人工智能训练需要针对海量图形处理器集群的超低延迟、高能效互连技术。在强度调制/直接检测链路中，数字信号处理（DSP）均衡受限于相位损失引起的非理想均衡以及严格的功耗和延迟预算。本研究提出了一种集成可编程光信号处理器（OSP），它可作为非线性通用均衡器，执行全光、无DSP的实时均衡。具有全光读出功能的深层储备池实现了一种游标方案，具备约1皮秒的采样分辨率和可调谐的记忆窗口。该OSP同时均衡八个波分复用（WDM）信道，提供1.6太比特/秒的总吞吐量，延迟小于60皮秒，能耗仅为数十飞焦耳/比特。它在检测之前运行，提供出色的色散补偿，减轻了收发器带宽限制和光纤非线性，并将可用的WDM窗口扩大了6.8倍。文章于2026年6月11日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "这种人工智能设计的“通用疫苗”可以在未来的流行病爆发之前阻止它们",
+          "d": "2026-06-11",
+          "a": "scitechdaily",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "由剑桥大学和DIOSynVax公司联合研发的AI设计“通用冠状病毒疫苗”在一期临床试验中取得积极结果。针对39名健康志愿者的测试显示该实验疫苗安全且无显著副作用。不同于传统疫苗，该疫苗旨在为更广泛的Sarbeco病毒家族提供交叉保护。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/this-ai-designed-universal-vaccine-could-stop-future-pandemics-before-they-start/",
+          "tp": "AI设计通用疫苗",
+          "aip": 1,
+          "kp": [
+            "安全性与副作用[AI设计通用冠状病毒疫苗人体试验]: 安全且无显著副作用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A groundbreaking AI-designed vaccine aims to protect against not only today’s coronaviruses, but tomorrow’s as well.\nA new type of universal coronavirus vaccine has passed its first test in humans, marking an important step toward broader protection against future viral threats.\nResearchers from the University of Cambridge and biotechnology company DIOSynVax (DVX) Ltd reported that the experimental vaccine was safe and caused no significant side effects in a clinical trial involving 39 healthy volunteers.\nUnlike traditional vaccines that target a specific\nstrain, this vaccine was designed to provide protection across the wider Sarbeco coronavirus family. This group includes\n, the virus responsible for\n, as well as SARS and related coronaviruses found in bats that could potentially spill over into humans in the future.\nThe findings were published in the\nJournal of Infection\nThe vaccine represents a new approach to vaccine development. Instead of focusing on a single known virus, researchers used\nartificial intelligence\nand computer modeling to create a “super-antigen” capable of triggering immunity against many related viruses at once.\nThe antigen is the active ingredient in a vaccine that trains the immune system to recognize and respond to infection. By identifying genetic features shared across the Sarbeco coronavirus family, scientists designed a synthetic antigen intended to provide broad protection, including against viruses that have not yet emerged.\nThis is the first time a vaccine whose active component was designed entirely through computer simulations has been tested in people.\nAccording to the research team, the technology could eventually be used to develop vaccines against other groups of viruses, including Ebola viruses and influenza viruses.\n“We’ve converted vaccine development from being reactive to being future-proof. Our vaccines will continue to provide protection against viruses even as they mutate into new strains,” said Professor Jonathan Heeney from the Lab of Viral Zoonotics, University of Cambridge’s Department of Veterinary Medicine, the scientific lead of the research.\nHe added: “We’ve overcome the problem of traditional vaccines, which have limited protection. It means we can escape the constant cycle of chasing the virus variants circulating in humans and updating the vaccines to try to catch up, like a dog chasing its tail.”\nVolunteers between the ages of 18 and 50 received the vaccine at National Institute for Health and Care Research (NIHR) Clinical Research Facilities in Southampton and Cambridge. The study was sponsored by University Hospital Southampton NHS Foundation Trust (UHSFT).\nResearchers found that the vaccine generated immune responses not only against SARS-CoV-2 and SARS but also against related bat coronaviruses that could pose future pandemic risks.\nThe vaccine was delivered as a\nvaccine using a microfluidic jet system. This needle-free method may offer an alternative for people who dislike injections and could simplify large-scale vaccination campaigns, particularly in settings where traditional needles are more difficult to use.\nThe vaccine’s design also addresses one of the biggest challenges facing current vaccines. Seasonal flu shots and existing COVID-19 vaccines are based on previously identified virus strains. Because viruses continue to evolve, vaccine protection can decline over time, requiring regular updates and reformulation.\nTo create a universal coronavirus vaccine, researchers analyzed genetic sequence data collected from Sarbeco coronaviruses worldwide. Machine learning was then used to identify features shared across the entire virus family and combine them into a single synthetic antigen.\nBefore entering human testing, the vaccine was evaluated in animal studies, where it produced strong immune responses against multiple coronaviruses.\nAdditional research will be required before the vaccine could become available to the public. The next step will be a larger Phase 2 clinical trial designed to evaluate immune responses in a broader and more diverse group of participants while confirming the vaccine’s ability to generate wide-ranging protection.\nResearchers believe the technology could eventually help transform how the world responds to emerging infectious diseases.\n“Viruses like Influenza, Coronaviruses and the Ebola group are evolving continuously, and by the time vaccines are rolled out, they may be poorly matched – the current “reactive” vaccine system struggles to keep pace,” said Professor Saul Faust from the University of Southampton, the trial’s chief investigator.\nHe added: “This new class of universal vaccines is future-proofed. They not only protect against many variants simultaneously, but potentially against related viruses that haven’t yet emerged and spilt over to humans.\n“If we can develop and clinically advance this new class of vaccines before a virus outbreak begins, millions of lives could be saved, lockdowns avoided and the economy preserved.”\nProfessor Marian Knight, Scientific Director for NIHR Infrastructure, described the trial as a significant milestone.\n“The remarkable success of this AI-designed ‘super-antigen’ trial marks a pivotal leap forward in our ability to deliver broad, lasting viral protection.”\nShe added: “This milestone was only made possible through partnerships between the life sciences sector and our world-class NIHR infrastructure in Cambridge and Southampton, whose Clinical Research Facilities provided the vital expertise and environment needed to safely fast-track this innovation, and bring it one big step closer to patients.”\nAlthough COVID-19 is no longer causing the global disruption seen during the height of the pandemic, coronaviruses remain a public health concern. Many related viruses continue to circulate in animal populations, and scientists cannot predict which one might eventually cross into humans.\nReference: “A phase I, needle free, dose escalation clinical trial of pEVAC-PS, a candidate pan-Sarbecovirus Vaccine” by Alasdair PS Munro, Matteo Ferrari, Rebecca Kinsley, Daniel Egan, Sneha Vishwanath, Thomas Bower, Andrew Chan, Matthew Davies, Joanne Marie M. Del Rosario, Ron Moss, Yvanne Enever, Benedict Asbach, Ralf Wagner, Rachel Bousfield, Krishna Chatterjee, Victoria Cornelius, Saul N. Faust and Jonathan L. Heeney, 18 May 2026,\nJournal of Infection\nDOI: 10.1016/j.jinf.2026.106759\nThe research was primarily funded by Innovate UK.\nDIOSynVax, which stands for Digitally Immune Optimised Synthetic Vaccines, was launched as a University of Cambridge spin out company in 2017 with support from Cambridge Enterprise, the university’s commercialization arm. In addition to coronavirus vaccines, the company is developing vaccine candidates targeting seasonal influenza, pandemic flu threats, and hemorrhagic fever viruses.\nProfessor Jonathan Heeney serves as Professor of Comparative Pathology at the University of Cambridge and is a Fellow of Darwin College.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nArtificial Intelligence\nPublic Health\nUniversity of Cambridge\nCOVID Delta Variant Spread Driven by Combination of Immune Escape and Increased Infectivity\nCommon Molecular Feature of Antibodies That Neutralize SARS-CoV-2 Discovered, Boosting COVID-19 Vaccine Prospects\nEvidence That a Common Childhood Vaccine Helps Prevent Severe Complications of COVID-19\nMMR Vaccine Could Protect Against the Worst COVID-19 Symptoms – “A Low-Risk-High-Reward Preventive Measure”\nNewly Developed Vaccines Protect Against COVID-19 in Macaques Study\nA Polio Vaccine That Hasn’t Been Used in the U.S. for Two Decades Might Protect Against Coronavirus [Video]\nA Review of the Most Promising Strategies for Defeating Coronavirus: Vaccines, Antivirals, Gene Therapies\nPromising MERS Vaccine Candidate Might Be Able to Block Coronavirus Infections\nPromise for COVID-19 Vaccine After Engineered Virus Protects Against MERS in Mice",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +163,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "蓝箭航天朱雀二号成功发射并开展手机直连卫星试验",
-        "研究人员利用分子N型掺杂实现OLED低阈值纳秒激光发射",
-        "国网连云港供电公司完成电动船舶向电网反向送电验证"
+        "发改委与能源局印发688号文，绿电直连模式正式升级为多用户共享",
+        "ABF Freight正式采购特斯拉Semi电动卡车，实测效率为1.55千瓦时/英里",
+        "工信部批准小米生产增程式电动汽车，计划推出全尺寸SUV“昆仑N3”"
       ],
       "entries": [
         {
-          "t": "新华社消息｜朱雀二号遥六发射成功 将开展手机直连卫星试验",
+          "t": "发改能源〔2026〕688号文深度解读：绿电直连\"一对多\"来了，分布式光伏消纳迎重大突破",
           "d": "2026-06-11",
-          "a": "新华网科技",
-          "c": "通用技术/通信和运输/航天",
-          "as": "蓝箭航天朱雀二号遥六运载火箭发射成功，此次任务将开展手机直连卫星技术试验。手机直连卫星是当前商业航天的核心竞争赛道，旨在让普通智能手机无需专用终端即可通过低轨卫星实现通信。朱雀二号此次搭载相关验证载荷，标志着中国民营火箭在通信卫星应用验证方面取得进展，与 SpaceX Starlink 直连手机服务形成竞逐态势。",
-          "sc": 7.8,
+          "a": "索比光伏",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "国家发改委与能源局印发688号文，正式将绿电直连模式从“一对一”升级为“一对多”，打通了工业园区、零碳园区多用户共享绿电专线的制度路径。文件明确支持分布式光伏集中汇流参与，为消纳提供新出路。但该政策未改变输配电费等经济规则，其实质是制度准入的突破，经济性改善有限。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://news.solarbe.com/202606/11/50024260.html",
+          "tp": "绿电直连政策",
+          "aip": 1,
+          "kp": [
+            "绿电直连模式[发改能源〔2026〕688号文]: 由“一对一”升级为“一对多”",
+            "总装机容量[全国绿电直连审批项目截至2026年4月]: 3405万千瓦",
+            "审批项目数量[全国绿电直连项目截至2026年4月]: 99个"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2026年5月20日，国家发展改革委、国家能源局联合印发《关于有序推动多用户绿电直连发展有关事项的通知》(发改能源〔2026〕688号)。\n光伏、储能、园区运营圈子里，这份文件等了将近一年。\n2025年5月，650号文第一次打开绿电直连的制度闸门，但规定只能\"一对一\"——一个电源只能对接一个用电法人。工业园区里十几家、几十家企业想共用一条绿电专线?整村汇流的\n想接入周边工厂?都没有路径。688号文，就是专门来补这个缺口的。\n一句话说清核心变化：绿电直连从\"一对一\"正式升级为\"一对多\"。\n截至2026年4月，全国已有 99个绿电直连项目完成审批，总装机3405万千瓦——但这还只是单用户模式下的规模。688号文打开的，是工业园区、零碳园区、算力集群整体参与的大门。国家能源局在答记者问中明确说：工业园区占我国总能耗的66%以上，这一次，这个庞大的用能主体第一次有了完整的制度路径。\n对光伏行业来说，688号文还写进了一条直接利好：明确支持\n通过集中汇流方式参与多用户绿电直连。这为大批受困于消纳的工商业和户用\n，提供了就近消纳的新出路。\n688号文没有改写费用规则，输配电费、系统运行费照付;反送电约束基本没动;大量关键细则被交给各省自行决定。解读5作者介子九维的判断说得最直接：\"688号文是'650号文的强补丁，1192号文的弱补丁'——制度准入的突破是实实在在的，经济性改善非常有限。\"\n它打开的是一扇因地制宜的\"窄门\"，不是全民狂欢的\"蓝海\"。\n哪些项目真正能走通?主责单位到底该谁来做?\n参与的真实边界在哪里?增量配电网是不是系统性机会?有哪些投资风险必须提前想清楚?\n索比光伏网对688号文进行了逐条解析，覆盖：\n* 688号文 vs 650号文完整对比(6大维度对照表)\n集中汇流的真实边界与操作路径\n* 五类光伏项目受益程度分级评估\n* 主责单位的能力要求与谁适合做、谁接不住\n* 政策局限与5条投资风险提示(含退出机制、国际绿电声明、地方差异)\n以下为报告摘要，完整版扫码获取",
+          "hb": 1
+        },
+        {
+          "t": "Fleet 购买特斯拉 Semi 电动卡车，效率达到惊人的 1.55 千瓦时/英里",
+          "d": "2026-06-11",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "物流巨头Arcbest旗下的ABF Freight在成功完成2025年试点项目后，正式购买了两辆特斯拉Semi电动卡车。该电动卡车在为期三周的测试中行驶了4494英里，往返于里诺和萨克拉门托等地，日均行驶里程达321英里。测试结果显示，其运行效率达到了惊人的1.55千瓦时/英里。此次采购标志着这家零担运输公司正式将其8级重型电动卡车的测试扩展到更广泛的实际运营车队中。",
+          "sc": 8.0,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://www.news.cn/tech/20260610/c04e30a70f474303a8a8ca3654373a74/c.html",
-          "tp": "运载火箭发射",
-          "aip": 1
+          "u": "https://electrek.co/2026/06/11/arcbest-buys-tesla-semis-abf-freight-pilot/",
+          "tp": "特斯拉电动卡",
+          "aip": 1,
+          "kp": [
+            "能效[Tesla Semi电动卡车测试]: 1.55 kWh/mile",
+            "行驶里程[2025年试点项目]: 4494 miles",
+            "采购数量[ABF Freight车队]: 2辆"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 11 2026 - 8:59 am PT\nArcBest (ARCB), the multibillion-dollar logistics company, is purchasing two Tesla Semi electric trucks for its ABF Freight fleet after a successful 2025 pilot program that averaged 1.55 kWh per mile over 4,494 miles.\nThe purchase marks a significant step beyond piloting and into actual fleet investment for the less-than-truckload (LTL) carrier, which is now expanding its electric Class 8 testing across a broader operating footprint.\ncovered ABF Freight’s Tesla Semi pilot last year\n, which demonstrated impressive efficiency results. Over three weeks, the electric truck logged 4,494 miles averaging 321 miles per day on routes between Reno, Nevada, and Sacramento, California, including regional Bay Area runs and rail shuttle operations.\nThe 1.55 kWh per mile result was a notable improvement over earlier Tesla Semi efficiency numbers. When Tesla unveiled its “production version” in 2022, Elon Musk claimed 1.7 kWh per mile. DHL got 1.72 kWh per mile in its own testing, and Saia got 1.73 kWh per mile. ArcBest’s 1.55 kWh per mile represents a roughly 9% improvement over those earlier figures.\nNow, ArcBest is putting money behind those results. The two new Tesla Semis will primarily support linehaul operations within California, with planned extension into Reno, Nevada, and potentially other locations — significantly expanding lane coverage compared to the pilot’s Reno-Sacramento corridor focus.\nMatt Godfrey, ABF Freight president, said:\n“Adding Tesla Semis to our lineup allows us to expand that across more lanes and operating conditions to evaluate whether heavy-duty electric vehicles meet the same standards for safety, reliability and performance across our existing fleet.”\nABF Freight plans to benchmark the electric trucks against its diesel fleet using the same metrics for total cost of ownership, operational efficiency, safety, and employee experience that guide all fleet investments.\nOne underreported aspect of the Tesla Semi’s commercial deployment is driver reception. ArcBest noted that operators during the 2025 pilot highlighted strong visibility, comfort, and overall performance — including reliable operation on the demanding 7,200-foot climb over Donner Pass.\nThat tracks with feedback from other fleet operators.\nCovenant Logistics recently tested a Tesla Semi on the Grapevine\n— the notoriously steep I-5 grade in Southern California — and came away “amazed” by the truck’s performance on the grade.\nInitial feedback from ABF drivers during orientation on the new units has also been encouraging, with drivers noting the combination of comfort and ease of operation.\nArcBest’s purchase comes as Tesla Semi momentum is accelerating across the freight industry. The\nfirst Tesla Semi rolled off the high-volume production line\nin late April at the new dedicated factory adjacent to Gigafactory Nevada, and orders have been piling up.\nWattEV placed a 370-truck order worth approximately $100 million\n— the largest single electric truck deployment in California. Two port drayage operators\nordered a combined 60 Tesla Semis\nthrough Forum Mobility. DHL, CEVA Logistics, and several other major carriers have been expanding their Tesla Semi testing as well.\nArcBest is no stranger to fleet electrification either. The company\ndeployed 14 electric terminal tractors\nlast year, signaling a broader commitment to evaluating electric equipment across its operations.\nThe competitive landscape reinforces why fleet operators are gravitating toward the Tesla Semi. The Freightliner eCascadia tops out at around 230 miles of range with a 550 kWh battery, while the Volvo VNR Electric maxes out at about 275 miles with 564 kWh. Neither can match the Tesla Semi’s combination of range and efficiency — the Semi’s 822 kWh battery pack delivers roughly 500+ miles of range at the efficiency levels ArcBest demonstrated.\nArcBest’s move from pilot to purchase is exactly the kind of signal the electric trucking industry needs. It’s one thing for a logistics company to test an electric truck in a controlled pilot — it’s another to actually buy the trucks and put them into regular operations with plans to expand.\nWhat’s particularly telling is that ABF Freight is applying the same total cost of ownership benchmarks it uses for its diesel fleet. That’s how you know the technology is maturing — when fleet operators stop treating electric trucks as science projects and start evaluating them like any other piece of equipment.\nWe’re now seeing a clear pattern: virtually every major fleet operator that has piloted a Tesla Semi is either expanding their testing or placing orders. The 1.55 kWh per mile efficiency is a big part of why. At current electricity rates, the Tesla Semi’s energy cost per mile is dramatically lower than diesel, and the gap widens every time fuel prices spike.\nThe real question now is whether Tesla can produce enough trucks to meet demand. The new production line is running, but ramping from a handful of trucks to thousands is a different challenge entirely. We haven’t heard much about the ramp-up since Tesla started production earlier this year.\nIf you’re running a fleet operation, the economics of going electric extend beyond just the trucks. Locking in low energy costs with on-site solar makes the math even better. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
         },
         {
-          "t": "分子N型掺杂实现微腔集成OLED低阈值纳秒激光发射，迈向电泵浦有机激光器",
+          "t": "小米获准生产增程电动汽车，计划推出全尺寸SUV与理想汽车竞争",
           "d": "2026-06-11",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究通过分子N型掺杂技术，在微腔集成的OLED中实现了低阈值纳秒级激光发射，向电泵浦有机激光器迈出关键一步。有机半导体激光器具有波长可调和柔性化优势，但电泵浦有机激光长期受限于高激射阈值和载流子诱导吸收损耗。N型掺杂有效提升了电子注入效率，降低了器件工作电压和激射阈值；微腔结构增强了光与增益介质的相互作用。纳秒级激射的实现对推进柔性光源和片上光互连技术具有重要价值。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.5388345?af=R",
-          "tp": "有机半导体激光掺杂",
-          "aip": 1
-        },
-        {
-          "t": "国王连云港供电公司等完成船舶向电网反向送电验证",
-          "d": "2026-06-11",
-          "a": "",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "国网连云港供电公司等完成新能源电动船舶与电网双向互动验证。电动拖轮云港电拖九号通过岸电电缆对接港口微电网，持续7小时向电网反向输电，放电功率80 kW、总放电量560kWh，在高湿高盐海洋环境下实现大功率充放电稳定控制。基于构网控制算法的协同装置支持负荷/供电双向切换，为船网互动V2G应用提供工程验证。",
-          "sc": 6.0,
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "中国工信部正式批准小米汽车生产增程式电动汽车（EREV），为小米产品线扩展扫清了障碍。小米计划推出代号为“昆仑N3”的首款增程车型，这是一款长度超过5.3米的全尺寸SUV，直接对标理想汽车L9车型。此前小米仅生产纯电车型（如SU7和YU7）。此次推出结合了电池组与小型内燃机发电机的增程动力系统，是小米汽车顺应市场庞大需求的一项战略转型。",
+          "sc": 7.7,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.stdaily.com/web/gdxw/2026-06/11/content_530770.html",
-          "tp": "船网互动",
-          "aip": 0
+          "tg": "政策监管",
+          "u": "https://electrek.co/2026/06/11/xiaomi-extended-range-suv-skynomad-erev-regulatory-approval/",
+          "tp": "小米获批产车",
+          "aip": 1,
+          "kp": [
+            "[增程电动汽车生产资质]: 小米获得工信部批准",
+            "车身长度[代号为“昆仑N3”的全尺寸SUV]: 超过5.3米"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 11 2026 - 6:17 am PT\nChina’s Ministry of Industry and Information Technology (MIIT) granted Xiaomi regulatory approval to produce extended-range electric vehicles (EREVs), clearing a key hurdle for the company’s expansion beyond battery-only EVs.\nThe approval paves the way for Xiaomi’s first range-extended model — a full-size SUV codenamed “Kunlun N3” that measures over 5.3 meters long and targets Li Auto’s dominant L9.\nUntil now, Xiaomi has sold only battery electric vehicles: the\nSU7 sedan, which outsold the Tesla Model 3 in China earlier this year\nYU7 SUV that undercuts the Tesla Model Y by $4,350\nAdding extended-range powertrains is a strategic pivot. EREVs, which pair a battery pack with a small internal combustion engine that acts as a generator, have become enormously popular in China, particularly for large family SUVs where range anxiety remains a barrier.\nThe MIIT filing was published Wednesday, with a public comment period running through June 17 before final approval.\nAccording to Chinese media outlet 21jingji, the first extended-range model carries the internal codename “Kunlun N3” and could launch under a new sub-brand called\n, targeting the family-oriented SUV segment that Xiaomi’s sporty SU7 and YU7 don’t address.\nHere are the key specs reported so far:\nXiaomi president Lu Weibing confirmed on the company’s Q1 earnings call that a new “mid to large-size model” built on a completely new platform will launch in H2 2026, with “multiple derivative versions.”\nThe target is clear: Li Auto and Huawei-backed Aito, which together dominated China’s extended-range SUV market in 2025, capturing seven of the top 10 best-selling EREV SUVs.\nLi Auto just launched its updated L9 flagship in May with a 72.7 kWh battery, 420 km of pure electric range, and a combined range of 1,650 km — priced from 459,800 yuan ($67,600). But the L9 has been struggling: deliveries plunged 74% year-over-year in the first four months of 2026, totaling just 4,131 units.\nHuawei-backed Aito’s M9, meanwhile, remains the top-selling luxury car in China above 500,000 yuan for two consecutive years, with cumulative deliveries exceeding 280,000 units. Its updated version secured 50,000 pre-orders before even launching in May.\nXiaomi’s Kunlun N3 appears positioned to slot below the M9 in price while competing directly with the L9 on size and capability. With a 70+ kWh battery offering 400–500 km of electric range, the specs are competitive with both.\nThe EREV push is part of a broader product blitz. Xiaomi plans to launch four new models in 2026: the\nrefreshed SU7 with 902 km range\n, an SU7 Executive Edition, and two extended-range SUVs (five-seat and seven-seat variants).\nThe company set a 2026 delivery target of 550,000 units, up 34% from the roughly 410,000 it delivered in 2025. But the pace so far suggests that target is ambitious: January through May deliveries totaled 150,317 units, up just 13.5% year-over-year. Xiaomi delivered 32,759 vehicles in May alone — a 17% year-over-year increase but a 10.7% decline from April.\nGetting two entirely new EREV models to market in the second half of the year would be an aggressive timeline, but it’s exactly the kind of volume boost Xiaomi needs to close the gap on its annual target.\nXiaomi moving into extended-range vehicles makes a lot of sense. The company has proven it can build compelling pure EVs — the\nnext-gen SU7 with 902 km of range\nis genuinely impressive, and the YU7 just\nset the Nürburgring SUV record\n. But there’s a massive segment of Chinese buyers who want large family SUVs with 1,000+ km of combined range, and pure BEVs still can’t fully serve that need.\nThe “Skynomad” sub-brand approach is interesting. It signals Xiaomi wants to separate the sporty, tech-forward identity of the SU7/YU7 lineup from the family-oriented positioning of the EREV models. Li Auto built its entire brand around the family SUV niche, and competing head-on under the same Xiaomi umbrella could dilute the brand’s identity.\nf you’re looking to cut your own energy costs, home solar remains one of the smartest investments you can make. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
         }
       ]
     }

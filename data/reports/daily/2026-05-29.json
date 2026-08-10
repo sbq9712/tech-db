@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "隆基绿能钙钛矿与硅叠层电池认证效率达35.2%创纪录",
-      "宁德时代投资30亿在厦门建全球最大储能实证测试平台",
-      "中科院团队运用新型钝化策略制备出33.33%效率叠层电池"
+      "隆基创造钙钛矿/硅叠层电池效率新纪录，认证参数达35.2%",
+      "Rivian R2 Performance综合能耗追平Model Y，续航达330英里",
+      "比亚迪二代刀片电池采用集成BMS与制冷剂冷却技术以降低成本"
     ],
     "AI与智能科技": [
-      "开源模型ESMFold2预测约10亿个蛋白质结构供全球研究",
-      "Anthropic获美光与三星参投，公司估值升至9000亿美元",
-      "Hugging Face开源LeRobot机器人项目以3D打印降低硬件成本"
+      "Anthropic发布最新旗舰大模型以提升核心算法与逻辑推理能力",
+      "研究显示大型语言模型在学术期刊论文中的影响占比增至57%",
+      "Anthropic完成650亿美元融资，美光与三星参投，估值达9000亿"
     ],
     "通用技术": [
-      "蓝色起源New Glenn火箭在发射台静态点火测试中发生爆炸",
-      "Rivian R2 Performance车型EPA能效测试结果追平特斯拉Model Y",
-      "蓝色起源New Glenn重型运载火箭测试失败并起火"
+      "研究发现2.8纳米金纳米簇可用于早期急性肾损伤的低剂量CT成像",
+      "研究证实甲磺酸主导海洋上对流层新粒子形成并提升成核速率",
+      "新型Cu4Pt2团簇电催化剂实现甲苯氧化法拉第效率超99%"
     ]
   },
   "sectors": [
@@ -26,9 +26,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "隆基绿能钙钛矿与硅叠层电池认证效率达35.2%创纪录",
-        "宁德时代投资30亿在厦门建全球最大储能实证测试平台",
-        "中科院团队运用新型钝化策略制备出33.33%效率叠层电池"
+        "隆基创造钙钛矿/硅叠层电池效率新纪录，认证参数达35.2%",
+        "Rivian R2 Performance综合能耗追平Model Y，续航达330英里",
+        "比亚迪二代刀片电池采用集成BMS与制冷剂冷却技术以降低成本"
       ],
       "entries": [
         {
@@ -36,39 +36,72 @@
           "d": "2026-05-29",
           "a": "索比光伏",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "NREL/NLR太阳电池效率记录表更新，隆基绿能创造的钙钛矿/硅叠层电池认证效率达到35.2%，刷新世界纪录。关键参数：开路电压VOC为1.998V，短路电流密度JSC为20.55mA/cm²，有效面积0.9994cm²。该效率已接近单结硅电池理论极限（约29.4%）的突破，标志着叠层技术在突破Shockley-Queisser极限方面取得重要进展，对推动高效低成本光伏商业化具有里程碑意义。",
-          "sc": 9.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://news.solarbe.com/202605/29/50023633.html",
-          "tp": "钙钛矿硅叠层电池",
-          "aip": 1
-        },
-        {
-          "t": "全球最大储能实证平台在厦门启动--中国能源新闻网",
-          "d": "2026-05-29",
-          "a": "中国电力新闻网-新能源",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "厦门市政府与宁德时代共建的厦门实证储能科技研究院正式启动，总投资约30亿元，占地150亩，是目前全球规模最大的储能实证平台。该平台将面向储能技术开展大规模实证测试与数据积累，支撑储能系统安全性、可靠性和经济性评估，推动储能产业化技术验证。",
-          "sc": 8.8,
+          "as": "NREL/NLR记录表近日更新，隆基创造了最新的钙钛矿/硅叠层电池认证效率纪录，达到35.2%。该电池的关键性能参数为：开路电压（VOC）为1.998 V，短路电流（JSC）为20.55 mA/cm²，有效测试面积为0.9994 cm²。",
+          "sc": 8.5,
           "i": "n",
-          "tg": "产业进展",
-          "u": "http://www.cpnn.com.cn/news/xny/202605/t20260529_1891474.html",
-          "tp": "储能实证平台",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202605/29/50023633.html",
+          "tp": "叠层电池效率",
+          "aip": 1,
+          "kp": [
+            "认证效率[NREL/NLR钙钛矿/硅叠层电池(隆基)]: 35.2%",
+            "VOC[钙钛矿/硅叠层电池]: 1.998 V",
+            "JSC[钙钛矿/硅叠层电池]: 20.55 mA cm-2",
+            "Area[钙钛矿/硅叠层电池]: 0.9994 cm2"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "近日，NREL/NLR记录表更新，最新钙钛矿/硅叠层电池认证效率达35.2%，由隆基创造。\nVOC: 1.998 V\nJSC: 20.55 mA cm-2\nArea：0.9994 cm2",
+          "hb": 1
         },
         {
-          "t": "中国研究人员通过新型钝化策略制备出效率33.33%的钙钛矿-硅叠层太阳能电池",
+          "t": "尽管车身更大、更重，Rivian R2 的效率仍可与 Tesla Model Y 相媲美",
           "d": "2026-05-29",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "中国科学院主导的研究团队在钙钛矿-硅叠层太阳能电池上实现33.33%的光电转换效率。核心突破在于提出一种峰选择性钝化策略，利用氧化铝纳米涂层对钙钛矿界面缺陷进行定向钝化，有效抑制非辐射复合损失，同时不阻碍载流子传输。这一方法提升了顶部钙钛矿电池的开路电压与填充因子，使叠层器件效率逼近单结理论极限的进一步突破。该成果对降低度电成本、推动光伏产业升级具有标志性意义，产业化稳定性仍需进一步验证。",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "Rivian R2 Performance的EPA评级数据已公布。尽管该车比特斯拉Model Y更重（重约800磅）且外形更方正，但其综合效率达到105 MPGe，每100英里能耗32千瓦时，与Model Y Performance完全相同。同时，Rivian R2在续航方面超越Model Y，配备21英寸车轮时总续航里程达到330英里。",
           "sc": 8.2,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.pv-magazine.com/2026/05/29/chinese-researchers-build-33-33-efficient-perovskite-silicon-tandem-solar-cell-via-new-passivation-strategy/",
-          "tp": "钙钛矿硅叠层电池",
-          "aip": 1
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/05/29/rivian-r2-epa-efficiency-matches-tesla-model-y/",
+          "tp": "电车能效对比",
+          "aip": 1,
+          "kp": [
+            "能效评级[Rivian R2 Performance EPA综合]: 105 MPGe",
+            "能耗水平[Rivian R2 Performance]: 32 kWh/100英里",
+            "续航里程[Rivian R2 Performance]: 330英里",
+            "续航里程[Tesla Model Y Performance]: 306英里",
+            "重量差[Rivian R2对比Model Y]: Rivian重近800磅"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| May 29 2026 - 3:22 am PT\nThe Rivian R2 Performance’s final EPA ratings are now published, and the numbers confirm something impressive: the R2 Performance matches the Tesla Model Y Performance on efficiency at 105 MPGe combined and 32 kWh per 100 miles — while actually beating it on range with 330 miles versus 306.\nWhat makes this particularly noteworthy is the R2’s form factor. The Rivian is a boxier, taller, more utilitarian SUV that weighs nearly 800 lbs more than the Model Y, yet it achieves identical efficiency.\nThe fueleconomy.gov data breaks down as follows for the R2 Performance with 21-inch wheels and all-season tires: 105 MPGe combined (114 city, 96 highway) with an energy consumption rate of 32 kWh per 100 miles and 330 miles of total range.\nWith the optional 20-inch all-terrain tires, efficiency drops to 99 MPGe combined (109 city, 89 highway) and 34 kWh per 100 miles, with range falling to 307 miles. That’s a meaningful penalty for the knobby tires, but still competitive.\nIt goes to show just how much of a difference tires have on efficiency.\nFor comparison, the 2026 Tesla Model Y Performance achieves 105 MPGe combined (111 city, 100 highway), 32 kWh per 100 miles, and 306 miles of range.\nSo on the standard 21-inch all-season setup, the R2 Performance and Model Y Performance are virtually identical on efficiency — and the R2 actually ekes out 24 more miles of range thanks to its slightly larger 86.8 kWh battery versus the Model Y’s 84 kWh pack.\nThe efficiency match becomes even more remarkable when you consider the physical differences between these two vehicles.\nThe R2 Performance tips the scales at approximately 5,250 lbs —\nnearly 800 lbs heavier than the Model Y\n. The Rivian is also noticeably taller with more ground clearance, has a boxier profile with a more upright windshield, and generally looks like the more traditional SUV of the pair. All of those characteristics typically kill aerodynamic efficiency.\nTesla has long been considered the benchmark for EV efficiency, and the Model Y’s sleek crossover shape is a big part of that. For Rivian to match it with a vehicle that prioritizes off-road capability and interior space is a significant engineering achievement.\nRivian’s new R2 platform benefits from\ndramatic cost and weight reductions\ncompared to the R1, including die casting, a new drive unit, and simplified suspension. The R2 is roughly 1,300 lbs lighter than the R1S, and clearly, Rivian put that weight savings to good use.\nThe R2 Performance\nstarts at $57,990\nwith the Launch Package, which bundles Autonomy+, the Tow Package, and a Launch key fob. The Tesla Model Y Performance starts at $57,490. Pricing is essentially a wash between the two performance trims.\nfirst R2 deliveries launching June 9\n, consumers will soon be cross-shopping these two vehicles in earnest. The R2 offers more interior space and a more rugged design, while the Model Y has Tesla’s Supercharger network advantage and a more established service infrastructure.\nAlthough the Supercharger advantage is only a cost basis right now since Rivian owners have access to the network.\nThe Rivian R2 matching the Tesla Model Y Performance on efficiency is one of the most impressive data points we’ve seen from a Tesla competitor. Efficiency has always been one of Tesla’s main advantages — the company’s vehicles consistently achieve better energy consumption than rivals, thanks to years of optimization on motors, inverters, heat management, and aerodynamics.\nThis is one of the main reasons Tesla has also been one of the few automakers capable of delivering EVs profitably at scale since it needs fewer battery cells per car to achieve range parity.\nFor Rivian to close that gap entirely with a vehicle that clearly prioritizes a more traditional SUV form factor is noteworthy. The R2 doesn’t look like a vehicle designed around a wind tunnel, it looks like a vehicle designed for adventure, with the efficiency to match the best in the business anyway.\nWe should note that real-world efficiency often differs from EPA ratings, and we’ll have to wait for independent testing to see how these numbers translate to actual driving.\nIt’s worth noting that the Model Y edges the R2 on highway driving, which is unsurprising since at higher speeds, drag becomes more important.\nBut on paper, the R2 Performance is positioning itself as the most compelling alternative to the Model Y Performance we’ve seen — matching it on efficiency and price while offering a more spacious, rugged package.\nThe bigger question is whether Rivian can\nramp production fast enough\nto capitalize. Analysts estimate around 22,000-23,000 R2 units this year, a fraction of Model Y volume. But if the product is this competitive on paper, demand won’t be a problem.\nIf you’re considering an electric vehicle like the R2 or Model Y, charging at home with solar is one of the smartest ways to lock in low energy costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "BYD Blade Battery Pack Teardown Shows Innovation",
+          "d": "2026-05-29",
+          "a": "Battery Tech Online",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "分析师拆解比亚迪第二代刀片电池组发现多项技术创新：比亚迪将动态制动单元（DBU）与电池管理系统（BMS）集成至单一模块以节约成本；采用制冷剂冷却技术取代循环水泵，提升了散热效率并降低成本；电池包大量使用环氧树脂灌封工艺，极大增加了拆卸难度，但为电池组件提供了极其坚固的物理保护。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.designnews.com/automotive-engineering/byds-second-gen-blade-battery-pack-features-integrated-controls-and-refrigerant-cooling",
+          "tp": "比亚迪电池拆解",
+          "aip": 1,
+          "kp": [
+            "模块集成[比亚迪电池包]: DBU与BMS集成为单一模块以节约成本",
+            "热管理方案[比亚迪电池包]: 采用制冷剂冷却，取消循环泵以降低成本并提高效率",
+            "结构防护[比亚迪电池包]: 采用环氧树脂灌封工艺，增加拆卸难度但提供坚固保护"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Analyst Cai Shendao's teardown reveals BYD integrated the DBU and BMS into one module, uses refrigerant cooling, and epoxy potting.\nMay 28, 2026\nBYD's EV platform, showing the battery pack in the floor.\nThe battery pack integrates dynamic braking and management systems into a single cost-saving module.\nRefrigerant-based cooling eliminates the circulation pump, reducing costs and improving efficiency.\nExtensive epoxy potting makes disassembly extremely difficult but provides robust protection.\nBattery analyst Cai Shendao hosts\nEV teardowns on Weibo.com\nmuch in the manner of\nMunro Live’s YouTube channel\n, and the Chinese team has had a look inside the battery pack of a BYD EV that uses the company’s second-generation blade battery cells.\nShendao’s team had disassembled more than 20 battery packs previously, so there was plenty of familiar technology inside the BYD pack, but also some new features that caught his eye.\nThe first thing that Shendao noticed was BYD’s slick integration of the dynamic braking unit (DBU) and the battery management system (BMS) into a single module in the battery. “I remember last year at an exhibition, I visited BYD's booth and saw their integrated DBU and BMS design - it was excellent,” he recalled. “Among all the vehicle models we've seen, this is the best design in this aspect.”\nBYD’s battery pack cooling plate design also showed innovation, according to Shendao. “This cooling plate actually works like an air conditioner - it uses refrigerant that cycles through gasification and liquefaction to remove heat. Refrigerant has a characteristic: its cooling effect is very good, as you can see with air conditioners.”\nHowever, that doesn’t automatically make refrigerant the best solution for battery cooling. “Refrigerant also has disadvantages - its specific heat capacity is small, and its density is lower than liquids, so its heat-carrying capacity is weaker,” Shendao pointed out. “With the same circulation cycle, after removing heat its temperature rise will be significant because of its low density.”\nBattery analyst Cai Shendao. CAI SHENDAO\nThe main advantage of refrigerant cooling of batteries is its efficiency, due to the system’s lack of a pump. “Liquid cooling requires air circulation to dissipate heat through a circulation pump,” he said. “Direct cooling uses an air conditioning compressor, so it eliminates this pump, reducing costs and increasing efficiency by eliminating one heat transfer step.”\nThis solution saves cost because, while there are higher design costs for a refrigerant-based system, manufacturing costs are lower, according to Shenbao. This might be unsuitable for high-performance applications, because the low specific heat capacity of refrigerant can permit development of heat accumulation in some areas of the battery pack, he warned. BYD has applied measures to reduce this concern. “BYD has cleverly addressed these deficiencies,” he observed. “Through the flow channel design, going back and forth, they've avoided some of these issues through the channel design.”\nBYD’s battery pack is divided into three sections by a pair of transverse beams. Shenbao reports that there are two battery modules in each section, with 29 cells in each module in the forward two sections, while the modules in the aft section contain 27 cells each. The total number of cells is 170 in the pack.\nThe modules are potted in epoxy adhesive, making removal very challenging for the team. “This adhesive is extremely hard,” he noted. “We chiseled a hole in it - we chiseled very deep, and there was still adhesive inside, very deep and very solid.” It encases the battery's positive and negative terminals, connection wires, connection plates, temperature sensors, copper plates, and some fuse wires completely.\nShendao gives a shout-out to Munro Live during battery pack disassembly. CAI SHENDAO\nThe pack’s extensive use of epoxy was new to Shenbao. “We've disassembled more than 20 various battery packs before, and this is the first time we've encountered such a fully adhesive-sealed battery pack,” he said. “This is also the second time we've had to saw through the frame to disassemble the battery. But this battery pack exceeded our expectations.”\nThe team froze the battery for 40 hours before disassembly in a bid to make the epoxy more brittle so that it could be chiseled off more easily. “Even so, we still encountered huge problems with disassembly, because our disassembly goal is ultimately to extract various components for everyone to study. But with this one, other components couldn't be preserved. In the end, we could only sacrifice other components and preserve only the cells.”\nThe BYD battery pack has a robust protective plate on its bottom side to prevent intrusion. While the team anticipated a three-layer sandwich structure with a steel layer between two fiber layers, that wasn’t what they found.\nThis BYD pack’s protective plate is a two-layer design combining a fiber layer with what Shenbao describes as a “transparent milky white material” that could be plexiglass. “This bottom protective plate has excellent toughness and rigidity,” he said. “We hit it with a hammer and found its stiffness and hardness to be very good. This is the strongest bottom protective plate we've seen among all battery packs.”\nThe team finished the job by putting the pack on a scale and found that it weighs 1,258 lbs. (572 kilograms), making it apparently lighter than most.\nSenior Editor, Design News\nDan’s coverage of the auto industry over three decades has taken him to the\n, automotive engineering centers,\nvehicle simulators\n, wind tunnels, and crash-test labs of the world.\nA member of the\nNorth American Car, Truck, and Utility of the Year jury\ncontributes car reviews to\nPopular Science\nmagazine, serves on the\nInternational Engine of the Year\njury, and has judged the collegiate\ncompetition.\nDan is a winner of the\nInternational Motor Press Association's Ken Purdy Award\nfor automotive writing, as well as the\nNational Motorsports Press Association\n's award for magazine writing and the\nWashington Automotive Press Association's Golden Quill award\nDan, testing the 2025 Aston Martin Vanquish. ANDY MORGAN/ASTON MARTIN\nHe has held a\nSports Car Club of America\nracing license since 1991, is an SCCA National race winner, two-time SCCA Runoffs competitor in\nOld Dominion Region\nDriver of the Year award winner. Co-drove a Ford Focus 1.0-liter EcoBoost to\n16 Federation Internationale de l’Automobile-accredited world speed records\nover distances from just under 1km to over 4,104km at the CERAM test circuit in Mortefontaine, France.\nHe was also a longtime contributor to the Society of Automotive Engineers'\nAutomotive Engineering International\nHe specializes in analyzing technical developments, particularly in the areas of motorsports, efficiency, and safety.\nHe has been published in\nThe New York Times\nPopular Mechanics\nThe Washington Post\nAutoTrader.com\nRaceCar Engineering\nVirginia Living\n, and others.\nDan has authored books on the\nsports cars and contributed automotive content to the consumer finance book,\nFight For Your Money\nHe is a member and past president of the\nWashington Automotive Press Association\nand is a member of the\nSociety of Automotive Engineers\nSee more from",
+          "hb": 1
         }
       ]
     },
@@ -76,49 +109,77 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "开源模型ESMFold2预测约10亿个蛋白质结构供全球研究",
-        "Anthropic获美光与三星参投，公司估值升至9000亿美元",
-        "Hugging Face开源LeRobot机器人项目以3D打印降低硬件成本"
+        "Anthropic发布最新旗舰大模型以提升核心算法与逻辑推理能力",
+        "研究显示大型语言模型在学术期刊论文中的影响占比增至57%",
+        "Anthropic完成650亿美元融资，美光与三星参投，估值达9000亿"
       ],
       "entries": [
         {
-          "t": "超越AlphaFold：开源模型预测10亿个蛋白质结构",
-          "d": "2026-05-29",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "开源AI工具ESMFold2生成了包含约10亿蛋白质结构的开源图谱,大幅扩展了人类已知的蛋白质宇宙。相比AlphaFold,该模型在可及性和开源特性上具有优势,为全球研究者提供了大规模蛋白质结构预测资源,有望加速药物发现和基础生物学研究。",
-          "sc": 8.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/d41586-026-01686-3",
-          "tp": "蛋白质结构预测",
-          "aip": 1
-        },
-        {
-          "t": "Anthropic以900亿美元估值融资650亿美元；美光、三星参投",
+          "t": "Anthropic发布新旗舰AI模型",
           "d": "2026-05-29",
           "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "AI初创公司Anthropic完成650亿美元融资，估值飙升至约9000亿美元。芯片巨头美光（Micron）和三星（Samsung）作为战略投资者参与本轮融资，凸显了AI公司与半导体产业链深度绑定的趋势。此交易反映出资本市场对顶级AI公司的狂热追捧，也预示着算力供应链将成为AI行业竞争的核心战场。",
-          "sc": 8.2,
-          "i": "news",
-          "tg": "资本运作",
-          "u": "https://www.theinformation.com/briefings/anthropic-raises-65-billion-900-billion-valuation-micron-samsung-invest",
-          "tp": "AI公司融资",
-          "aip": 1
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "人工智能初创公司Anthropic正式发布了其最新一代的旗舰人工智能模型。此次发布标志着Anthropic在AI大模型技术上的又一次重要迭代，旨在通过提升模型的核心算法能力与逻辑推理性能，进一步与行业头部企业展开竞争，巩固其在生成式人工智能领域的市场地位。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.theinformation.com/briefings/anthropic-releases-new-flagship-ai-model",
+          "tp": "发布旗舰模型",
+          "aip": 1,
+          "kp": [
+            "模型发布[Anthropic]: 发布新旗舰AI模型"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Anthropic Releases New Flagship AI Model — The Information\nRead this briefing for free",
+          "hb": 1
         },
         {
-          "t": "Hugging Face LeRobot人形机器人让3D打印机器人触手可及",
+          "t": "大型语言模型在已发表的学术文章中的传播",
           "d": "2026-05-29",
-          "a": "interesting engineering",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "Hugging Face推出LeRobot人形机器人开源项目，通过3D打印技术大幅降低人形机器人成本。传统人形机器人价格往往高于汽车，LeRobot旨在让更多人能够接触和构建机器人。项目提供开源硬件设计、训练框架和仿真环境，降低了机器人研发门槛，推动了具身智能研究的民主化进程。",
-          "sc": 8.0,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "通过分析四大出版商2020至2025年间发表的730万篇期刊论文全文，研究追踪了大型语言模型(LLM)在学术界的传播。通过建立包含228个词频在2022年后激增的焦点词汇库进行评分，结果发现受LLM影响的论文比例从2023年的12%飙升至2025年的57%。受影响文本呈现出从细微语言变化到显著生成特征的异质性。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2605754123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "LLM学术应用",
+          "aip": 1,
+          "kp": [
+            "分析样本量[2020-2025年学术文章]: 730万篇期刊文章全文",
+            "特征词数量[LLM关联语言轨迹]: 228个焦点词汇",
+            "高频增长时间节点[LLM特征词汇使用]: 2022年后"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Large language models (LLMs) are rapidly changing academic research, raising questions of who is adopting these tools and under what conditions. This article analyzes full texts of 7.3 million journal articles published from 2020–2025 by four major publishers (Elsevier, Frontiers, MDPI, and PLoS) to track the prevalence of LLM-associated language and identify social and institutional correlates of adoption. A corpus of 228 focal words exhibiting sharp post-2022 frequency increases consistent with LLM output was developed; articles were scored on their rate of focal word usage. By 2025, an estimated 57% of published articles exhibited evidence of LLM influence, up from 12% in 2023. Among articles exhibiting LLM-influenced text, there is substantial heterogeneity, ranging from subtle linguistic influence to articles mostly or entirely LLM-generated. Difference-in-differences models reveal that LLM-associated language varies markedly across regions, institutional ranks, publishers, disciplines, and journal tiers. Economic development and proximity to English as a primary language are key predictors of regional variation. Lower-ranked institutions exhibit higher rates than elite universities, young for-profit publishers show elevated rates vis-à-vis competitors, and academic fields differ widely in adoption. LLM adoption in academic writing is pervasive but socially stratified. As models grow more powerful and their use becomes further entrenched in academic research, understanding social dynamics of adoption will be essential for governing the evolving relationship between AI and academic knowledge production.",
+          "hb": 1
+        },
+        {
+          "t": "Anthropic 融资 650 亿美元，估值达 9000 亿美元；美光、三星投资",
+          "d": "2026-05-29",
+          "a": "the information",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic公司完成了一笔总额达650亿美元的融资，公司估值达到9000亿美元。此次融资获得了美光和三星的投资。",
+          "sc": 7.2,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/ai-robotics/us-hugging-face-3d-printed-lerobot",
-          "tp": "开源人形机器人",
-          "aip": 1
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/briefings/anthropic-raises-65-billion-900-billion-valuation-micron-samsung-invest",
+          "tp": "巨头巨额融资",
+          "aip": 1,
+          "kp": [
+            "融资金额[Anthropic]: 650亿美元",
+            "公司估值[Anthropic]: 9000亿美元",
+            "投资方[Anthropic]: 美光、三星"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Anthropic Raises $65 Billion at $900 Billion Valuation; Micron, Samsung Invest — The Information\nRead this briefing for free",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +187,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "蓝色起源New Glenn火箭在发射台静态点火测试中发生爆炸",
-        "Rivian R2 Performance车型EPA能效测试结果追平特斯拉Model Y",
-        "蓝色起源New Glenn重型运载火箭测试失败并起火"
+        "研究发现2.8纳米金纳米簇可用于早期急性肾损伤的低剂量CT成像",
+        "研究证实甲磺酸主导海洋上对流层新粒子形成并提升成核速率",
+        "新型Cu4Pt2团簇电催化剂实现甲苯氧化法拉第效率超99%"
       ],
       "entries": [
         {
-          "t": "贝索斯321英尺火箭在发射台测试中爆炸起火",
+          "t": "使用肾脏可清除的金纳米簇进行保留对比 CT 进行肾功能障碍的早期空间测绘",
           "d": "2026-05-29",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航天",
-          "as": "贝索斯旗下太空公司Blue Origin的重型运载火箭New Glenn在发射台静态点火测试中发生爆炸起火。这是New Glenn项目推进过程中的重大挫折，火箭在测试中化为火球，可能对后续发射计划造成显著延误。该事件凸显了大型可回收火箭开发的工程难度和安全风险，也对Blue Origin与SpaceX竞争商业发射市场的战略构成挑战。事故原因调查和修复进度将成为关注焦点。",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究提出一种节省造影剂的CT方法，利用肾可清除的谷胱甘肽包覆金纳米簇在肾脏区室水平映射功能障碍。这种纳米簇具有2.8纳米的超小流体力学尺寸和强X射线衰减能力，能快速被肾脏清除并提供强效的CT对比度。在三种具有不同机制的急性肾损伤小鼠模型中，低剂量的该纳米簇在临床生物标志物发生变化之前，就产生了特定机制的成像特征和不同的时间衰减行为。",
           "sc": 8.3,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://interestingengineering.com/space/blue-origins-new-glenn-rocket-explodes",
-          "tp": "火箭试车爆炸",
-          "aip": 1
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec0972?af=R",
+          "tp": "金纳米簇CT造影",
+          "aip": 1,
+          "kp": [
+            "流体动力学尺寸[可肾清除金纳米簇]: 2.8纳米",
+            "纳米簇材料[保留对比CT空间测绘]: 谷胱甘肽修饰的金纳米簇(GSH-Au NCs)",
+            "造影机制[肾功能障碍早期检测]: 节省造影剂的计算机断层扫描(CT)"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Early, noninvasive, and spatially resolved assessment of renal dysfunction is essential for theranostics of kidney diseases, yet clinical biomarkers are criticized for averaging whole-kidney function and missing focal or unilateral injury. Here, we present a contrast-sparing computed tomography (CT) approach that maps renal dysfunction at the compartment level using renal-clearable glutathione-gold nanoclusters (GSH-Au NCs). The merits of ultrasmall hydrodynamic size (2.8 nanometers) and high x-ray attenuation ability enable GSH-Au NCs with fast renal clearance and robust intrarenal CT contrast. In three mechanistically distinct mouse models of acute kidney injury, low-dose GSH-Au NCs produced mechanism-specific imaging signatures and distinct time-attenuation behaviors, even before biomarkers changed. Notably, at an ultralow dose (32.5 milligrams of Au per kilogram), early bilateral cisplatin injury can be easily detected with an obvious bright band at the outer medulla area on CT, consistent with tubular injury and a cast/debris-mediated mechanism. This work establishes a dose-efficient CT workflow for early, noninvasive, spatial mapping of renal dysfunction, supporting diagnosis, classification, and monitoring of kidney disease.",
+          "hb": 1
         },
         {
-          "t": "Rivian R2在更大更重的车身下实现与特斯拉Model Y相当的能效",
+          "t": "以甲磺酸为主的海洋对流层上层快速粒子形成",
           "d": "2026-05-29",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "Rivian R2 Performance的最终EPA能效评级正式公布,数据显示其能效表现已追平特斯拉Model Y,尽管R2车身尺寸更大、整备质量更重。这表明Rivian在三电系统效率、空气动力学优化和热管理方面取得显著进步,缩小了与特斯拉的工程差距。该结果对中型电动SUV市场竞争格局有重要意义,说明传统新势力通过平台架构优化同样能实现主流电动车水准的续航与能耗表现。",
-          "sc": 8.1,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/05/29/rivian-r2-epa-efficiency-matches-tesla-model-y/",
-          "tp": "电动汽车能效",
-          "aip": 1
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究指出，海洋对流层上层的新粒子形成(NPF)维持着全球最大的气溶胶库之一。长期被仅视为边界层前体的甲磺酸(MSA)，实际上在各大海洋的上对流层NPF过程中占据主导地位。量子化学和团簇动力学模拟表明，MSA能将硫酸-氨的成核速率提高1到3个数量级，对气候预测中的气溶胶机制认知具有重大意义。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2606521123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "海洋气溶胶形成",
+          "aip": 1,
+          "kp": [
+            "主导前体物质[海洋对流层上层快速粒子形成]: 甲磺酸(MSA)",
+            "关键作用[全球最大气溶胶储库]: 维持对流层下层云凝结核(CC)种子"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "New particle formation (NPF) in the marine upper troposphere sustains one of the largest global aerosol reservoirs that seeds cloud condensation nuclei in the lower troposphere, with far-reaching implications for Earth’s radiative balance and climate. However, the underlying NPF mechanisms remain elusive, constituting a major uncertainty in climate projections. Here, we show that methanesulfonic acid (MSA), long considered only as a key boundary-layer precursor, dominates upper-tropospheric NPF across major oceans. Quantum-chemical and cluster dynamics simulations reveal that MSA enhances sulfuric acid (H\n                    2\n                    SO\n                    4\n                    )–ammonia (NH\n                    3\n                    ) nucleation rates by 1 to 3 orders of magnitude, far surpassing the well-established nitric acid (HNO\n                    3\n                    )–H\n                    2\n                    SO\n                    4\n                    –NH\n                    3\n                    mechanism, owing to stronger intracluster hydrogen bonds and low temperatures that stabilize clusters and render nucleation nearly barrierless. Further global three-dimensional modeling constrained by field measurements confirms that the proposed H\n                    2\n                    SO\n                    4\n                    –MSA–NH\n                    3\n                    nucleation pathway dominates the upper-tropospheric NPF over the Pacific, Atlantic, and Indian Oceans. Notably, this pathway contributes ~40% of global nucleation-induced Aitken- and accumulation-mode aerosols at 0.5 to 4 km altitudes, where most cloud water resides, and yields a net top-of-atmosphere radiation forcing of −1.75 W m\n                    −2\n                    (~68% of the nucleation-induced response). This study offers a detailed mechanistic insight into marine upper-tropospheric NPF and improves representation of aerosol–cloud interactions, thereby reducing uncertainties in global climate projections.",
+          "hb": 1
         },
         {
-          "t": "蓝色起源New Glenn火箭在测试中爆炸",
+          "t": "原子级精确的 Cu4Pt2(CeqCCyOH)8 催化剂中具有三模块协同性的甲苯氧化",
           "d": "2026-05-29",
-          "a": "the information",
-          "c": "通用技术/通信和运输/航天",
-          "as": "蓝色起源公司的New Glenn重型运载火箭在一次测试中发生爆炸。New Glenn是贝索斯旗下蓝色_origin研发的大型轨道级火箭，旨在与SpaceX Falcon Heavy竞争，是蓝色起源进入轨道发射市场的关键产品。此次测试事故对新火箭的研制进度和商业发射计划构成挫折，具体爆炸原因及影响程度尚待官方调查。",
-          "sc": 7.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/briefings/blue-origin-new-glenn-rocket-explodes-test",
-          "tp": "运载火箭测试",
-          "aip": 1
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/催化剂",
+          "as": "碳氢化合物中C(sp3)-H键的断裂与重组是催化领域的重大挑战。研究开发了一种原子级精确的Cu4Pt2(C≡CCyOH)8团簇作为电催化剂，用于甲苯氧化。该催化剂对苯甲醛表现出绝对的选择性，法拉第效率超过99%。其卓越性能源于三个功能模块的协同作用：配体捕获并向Cu位点释放水，水在Cu位点被激活生成OH自由基；Pt位点负责提取甲苯的氢原子；随后OH自由基完成最终的氧化偶联反应。",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag328/8698055?rss=1",
+          "tp": "原子级催化剂",
+          "aip": 1,
+          "kp": [
+            "选择性[甲苯氧化电催化]: 专一生成苯甲醛",
+            "法拉第效率[原子级精确Cu4Pt2(C≡CCyOH)8簇催化剂]: >99%",
+            "功能机制[Cu4Pt2(C≡CCyOH)8簇]: 集成三个功能模块的系统性协同作用"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The dismantling and reassembly of C(sp3)-H bonds in hydrocarbons over both heterogeneous and homogeneous catalysts remain a fundamental challenge. Here we report the toluene oxidation using an atomically precise Cu4Pt2(C≡CCyOH)8 cluster (HC≡CCyOH = 1-ethynyl-1-cyclohexanol) as the electrocatalyst with an exclusive selectivity for benzaldehyde accompanied by >99% Faradaic efficiency. Results reveal the systematic cooperativity of three functional modules combined into one cluster catalyst for six temporally subsequent events: the hydroxyl ligand of this cluster can capture water and then release it to the Cu sites, and water is sequentially activated on the Cu sites to form OH radicals; Pt sites engage in the abstraction of a hydrogen atom from the methyl group of toluene; the OH radicals then flip over to the Pt sties and react with dehydro-toluene to produce benzaldehyde, which is finally disentangled from the active sites with the help of the ligand. Meanwhile, the cluster is also used to catalyze the hydrogen evolution reaction at the cathode and exhibits much higher activity for hydrogen production than a typical Pt/C catalyst. Our study presents a molecular approach for designing highly active and selective catalysts for efficient inert molecule-involved reactions.",
+          "hb": 1
         }
       ]
     }

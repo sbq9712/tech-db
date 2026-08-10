@@ -6,82 +6,28 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "锂掺杂技术使柔性铜锌锡硫硒薄膜电池认证效率突破14%",
-      "沉没式蛇形流场设计实现安培级电流密度下的CO2电解",
-      "平煤神马集团在平顶山建成投产150万标方盐穴储氢项目"
+      "平煤神马与中科院共建150万标方盐穴储氢项目投产",
+      "华能小湾水光互补项目投运，总装机达5430MW"
     ],
-    "AI与智能科技": [
-      "科研人员首次将丁型肝炎病毒基因组成功加载至量子计算机",
-      "大语言模型结合搜索算法实现化学合成路线规划与机理阐明",
-      "氧化物干法转移技术实现单晶二硫化钼的晶圆级柔性集成"
-    ],
-    "通用技术": [
-      "氧化铈纳米颗粒转化为原子级分散铈阳离子提升尾气催化活性",
-      "三周期极小曲面结构水凝胶实现高效太阳能驱动空气取水",
-      "手性硫六价平台统一实现复杂分子与烷烃的选择性碳氢胺化"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "锂掺杂技术使柔性铜锌锡硫硒薄膜电池认证效率突破14%",
-        "沉没式蛇形流场设计实现安培级电流密度下的CO2电解",
-        "平煤神马集团在平顶山建成投产150万标方盐穴储氢项目"
+        "平煤神马与中科院共建150万标方盐穴储氢项目投产",
+        "华能小湾水光互补项目投运，总装机达5430MW"
       ],
       "entries": [
         {
-          "t": "[ASAP] 锂掺杂实现效率超过14%的柔性CZTSSe薄膜太阳能电池认证效率",
-          "d": "2026-04-25",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "柔性铜锌锡硫硒（CZTSSe）薄膜太阳能电池兼具低成本、无毒元素与可弯曲特性，在便携式与建筑一体化光伏领域前景广阔。本文报道了柔性kesterite电池经第三方认证效率突破14%的成果，通过优化吸收层组分梯度、界面缺陷钝化及背电极接触等策略显著提升光电转换效率。该里程碑推进了柔性薄膜光伏的产业化进程，缩小了与刚性器件的效率差距。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00329",
-          "tp": "CZTSSe柔性电池",
-          "aip": 1,
-          "kp": [
-            "认证效率[柔性CZTSSe]: >14%",
-            "掺杂元素[CZTSSe吸收层]: 锂(Li)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Flexible kesterite solar cells show significant application potential, yet enhancing their power conversion efficiency remains a critical challenge. Herein, we achieved a breakthrough in certified efficiency, exceeding 14% for flexible Cu2ZnSn(S,Se)4 (CZTSSe) solar cells, by incorporating the light alkali metal lithium (Li) into the absorber layer, which substantially narrows the performance gap between flexible and rigid kesterite devices. The introduction of Li into the absorber layer reduces recombination centers in the film and facilitates carrier transport at the grain boundaries. Additionally, Li incorporation modulates the distribution of heavy alkali metal potassium in the CdS buffer layer, thereby enhancing the electrical properties of the CdS layer and optimizing the p–n junction band alignment. These synergistic effects significantly improve charge carrier transport and collection efficiency. This work bridges the efficiency gap between flexible and rigid CZTSSe solar cells, and provides additional insights into the influences and mechanisms of Li doping for high-performance kesterite photovoltaics.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 沉浸式蛇形流场设计通过局部CO₂富集与水管理实现安培级CO₂电解",
-          "d": "2026-04-25",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "电化学二氧化碳还原反应（CO2RR）在银催化剂上需要同时兼顾高电流密度、高产物选择性和长期稳定性，三者之间的权衡一直是工程化难题。该研究创新性地提出了一种沉没式蛇形流场（sunken-serpentine flow-field）设计方案，通过优化反应器内电解液和CO2气体的流动分布，大幅改善了气液固三相界面的传质效率。该流场设计使银催化剂在安培级电流密度下仍保持优异的CO2还原产物选择性和稳定性，有效突破了传统流场结构在高电流密度下的传质限制，为CO2电还原技术的工业化放大提供了关键工程解决方案。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00640",
-          "tp": "CO2电解还原",
-          "aip": 1,
-          "kp": [
-            "[流场设计]: 下沉蛇形流场",
-            "目标[CO2电解]: 安培级电流密度"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The electrochemical CO2 reduction reaction (CO2RR) on Ag catalysts requires a balance among a high current density, high CO selectivity, and stability. Maximizing catalytic site utilization requires uniform CO2 penetration across the gas diffusion electrode (GDE) while suppressing flooding. This work elucidates the interplay between mass transport and water management in zero-gap membrane electrode assembly (MEA) electrolyzers through flow plate engineering. We demonstrate that in-plane CO2 injection enhances catalyst utilization by improving gas accessibility and facilitating water removal. Using a sunken-serpentine flow plate, we achieved a stable operation exceeding 1 A cm–2 with minimal hydrogen evolution. CO partial current densities reached 861 and 947 mA cm–2 for Ag and Ni-NC catalysts, respectively─34.5% and 18.3% higher than conventional designs. These results are supported by transport modeling and X-ray computed tomography, revealing the CO2 concentration gradients and flooding dynamics. Our findings establish a broadly applicable design strategy to overcome mass-transport limitations.",
-          "hb": 1
-        },
-        {
           "t": "平煤神马集团150万标方盐穴储氢项目在平顶山建成投产",
           "d": "2026-04-25",
-          "a": "",
+          "a": "News",
           "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
           "as": "平煤神马集团联合中科院武汉岩土力学研究所杨春和院士团队，在河南平顶山建成百万方级盐穴储氢示范项目并投产。项目依托盐田资源，建有水溶体积超3万方盐穴腔体，可实现150万标方氢气储存，采用两台压缩机注氢，注气压力15MPa、速率2000标方/小时，各项指标达中试标准，为大规模地下储氢提供示范。",
-          "sc": 6.7,
+          "sc": 6.6,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.news.cn/20260425/846c14f1f6184636b3e4241c04edd788/c.html",
@@ -93,163 +39,58 @@
           "cm": "",
           "b": "据新华社4月25日报道，由平煤神马集团联合中科院武汉岩土力学研究所（杨春和院士团队）等在河南平顶山百万方级盐穴储氢示范项目投产运行。据报道，该项目依托平煤神马旗下平美储气盐化公司的盐田资源，建有水溶体积超3万方的盐穴腔体，可实现150万标方氢气储存；当前其采用两台压缩机注氢，注气压力15MPa，速率2000标方/小时，所有指标已达到中试标准。",
           "hb": 1
+        },
+        {
+          "t": "平煤神马集团150万标方盐穴储氢项目在平顶山建成投产",
+          "d": "2026-04-25",
+          "a": "News",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "平煤神马集团联合中科院武汉岩土力学研究所杨春和院士团队，在河南平顶山建成百万方级盐穴储氢示范项目并投产。项目依托盐田资源，建有水溶体积超3万方盐穴腔体，可实现150万标方氢气储存，采用两台压缩机注氢，注气压力15MPa、速率2000标方/小时，各项指标达中试标准，为大规模地下储氢提供示范。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.news.cn/20260425/846c14f1f6184636b3e4241c04edd788/c.html",
+          "tp": "盐穴储氢产",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据新华社4月25日报道，由平煤神马集团联合中科院武汉岩土力学研究所（杨春和院士团队）等在河南平顶山百万方级盐穴储氢示范项目投产运行。据报道，该项目依托平煤神马旗下平美储气盐化公司的盐田资源，建有水溶体积超3万方的盐穴腔体，可实现150万标方氢气储存；当前其采用两台压缩机注氢，注气压力15MPa，速率2000标方/小时，所有指标已达到中试标准。",
+          "hb": 1
+        },
+        {
+          "t": "华能集团小湾水光互补发电项目投入运营",
+          "d": "2026-04-25",
+          "a": "Chng",
+          "c": "零碳产业/能量循环/能源测/发电技术/水电",
+          "as": "华能集团云南大理小湾水光互补发电项目正式投运，总装机5430MW（水电4200MW、光伏超1230MW）。项目通过汇集站将16个光伏场站与小湾水电厂所发电能统一送出，利用水电厂150亿m³库容的秒级响应调节能力，缓解光伏并网波动性，实现水光协同稳定供电。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.chng.com.cn/detail_mtbd/-/article/SIgvLjX6a9gO/v/1310447.html",
+          "tp": "水光互补站",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据央视新闻、科技日报等4月25日报道称，其建设运营的云南大理小湾水光互补项目正式投运总装机容量达5430MW，其中水电装机4200MW，光伏项目装机规模超1230MW。文中称，该项目通过一个汇集站将区域内16个光伏场站、华能小湾水电厂所发电能一同送出；同时可借助水电厂大库容（150亿m3）储能能力和秒级响应调节能力，缓解光伏大规模并网带来的波动性问题，确保电力安全稳定供应。",
+          "hb": 1
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研人员首次将丁型肝炎病毒基因组成功加载至量子计算机",
-        "大语言模型结合搜索算法实现化学合成路线规划与机理阐明",
-        "氧化物干法转移技术实现单晶二硫化钼的晶圆级柔性集成"
-      ],
-      "entries": [
-        {
-          "t": "首个基因组加载到量子计算机上",
-          "d": "2026-04-25",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究人员首次将基因组（丁型肝炎病毒HDV）成功编码并加载到量子计算机上，标志着'量子基因组学'领域的早期里程碑。该实验利用量子比特表征基因组序列信息，验证了量子计算平台处理生物遗传数据的可行性。尽管当前仅编码了极小的病毒基因组，但这一突破为未来利用量子计算加速基因组比对、变异检测和药物靶点筛选等大规模生物信息学任务奠定了实验基础。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aei2484?af=R",
-          "tp": "量子计算基因组",
-          "aip": 1,
-          "kp": [
-            "[里程碑]: 首次将基因组(D型肝炎病毒)加载量子计算机"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Researchers encode the tiny hepatitis D virus in an early step toward “quantum genomics”",
-          "hb": 1
-        },
-        {
-          "t": "LLM中的化学推理解锁策略感知的合成规划与反应机理阐明",
-          "d": "2026-04-25",
-          "a": "Matter",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Bran等人的研究表明，大语言模型（LLM）结合传统搜索算法可作为化学推理引擎，实现策略感知的合成路线规划和反应机理阐明。LLM的化学推理能力使其能够理解反应选择性、官能团兼容性等关键化学逻辑，标志着AI在合成化学智能化决策方面的重大突破。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00175-X?rss=yes",
-          "tp": "LLM化学推理",
-          "aip": 1,
-          "kp": [
-            "准确率[合成规划]: 71%与专家一致",
-            "[框架]: Synthegy LLM化学推理"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Bran et al. show that large language models can serve as chemical reasoning engines when combined with traditional search algorithms. Their framework, Synthegy, enables chemists to specify synthesis strategy requirements in plain language, identifying feasible routes from large candidate pools with assessments that align with expert judgment 71% of the time. The same paradigm guides mechanism elucidation by evaluating elementary reaction steps, demonstrating that LLM reasoning and computational tools can be effectively integrated for chemical discovery.",
-          "hb": 1
-        },
-        {
-          "t": "利用氧化物干法转移实现单晶二硫化钼的晶圆级集成用于柔性电子学",
-          "d": "2026-04-25",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "本研究实现了在蓝宝石衬底上通过化学气相沉积（CVD）生长的原子级厚度、单晶二硫化钼（MoS₂）的晶圆级集成，并将其应用于柔性电子器件。单晶过渡金属硫族化合物（TMDs）因其优异的电学性能和机械柔韧性，被视为下一代柔性电子的核心材料。然而，以往在晶圆尺度上保持单晶质量是重大挑战。该工作突破了大面积单晶生长与转移的技术瓶颈，为高性能柔性晶体管、传感器及光电器件的规模化制造奠定了基础，标志着二维半导体材料从实验室走向产业化应用的关键一步。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01598-0",
-          "tp": "二硫化钼柔性电子",
-          "aip": 1,
-          "kp": [
-            "[转移工艺]: 氧化物干法转移"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Atomically thin, single-crystalline transition metal dichalcogenides grown by chemical vapour deposition on sapphire substrates combine excellent mechanical flexibility with high electronic performance, making them attractive semiconductors for flexible electronics. However, conventional wet-transfer processes used to integrate the materials onto flexible substrates often introduce surface contamination that degrades device performance. Here we report a wafer-scale dry-transfer strategy based on a high-κ dielectric aluminium oxide (Al2O3) interlayer, enabling the integration of 4-inch single-crystalline molybdenum disulfide (MoS2) films onto flexible substrates. The approach requires no contact with polymers or solvents, thus preserving the intrinsic electronic properties of the MoS2. Flexible field-effect transistor arrays fabricated using this method exhibit a maximum mobility of 117 cm2 V−1 s−1, subthreshold swing of 68.8 mV dec−1 and on/off ratio of 1012, comparable to values achieved on rigid substrates. We further demonstrate MoS2-based flexible inverters operating in the subthreshold regime with a gain of 218 and power consumption of 1.4 pW µm−1. Finally, we integrate an active-matrix tactile sensing system driven by flexible MoS2 transistor arrays onto a robotic gripper, providing real-time tactile mapping and object recognition.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "氧化铈纳米颗粒转化为原子级分散铈阳离子提升尾气催化活性",
-        "三周期极小曲面结构水凝胶实现高效太阳能驱动空气取水",
-        "手性硫六价平台统一实现复杂分子与烷烃的选择性碳氢胺化"
-      ],
-      "entries": [
-        {
-          "t": "CeO2纳米颗粒转化为原子级分散Ce阳离子提升汽车尾气催化活性",
-          "d": "2026-04-25",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究发现CeO2纳米颗粒在催化过程中可转化为原子级分散的Ce阳离子，这一结构演变显著提升了汽车尾气催化控制的反应活性。通过原位表征揭示了纳米颗粒-单原子间的动态转变机制，原子级分散的Ce活性位点提供了更优的氧存储与释放能力，为稀土基汽车催化剂的理性设计提供了新认识。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21779",
-          "tp": "铈基尾气催化",
-          "aip": 1,
-          "kp": [
-            "[转化条件]: 10% H2,800°C",
-            "[催化剂形态]: CeO2纳米颗粒→单原子分散Ce阳离子",
-            "[载体]: γ-Al2O3",
-            "[应用]: 汽车尾气催化"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Nanosized cerium oxide (CeO2) has been extensively used as the oxygen storage component in automotive emission control systems. However, the possible influence of atomically dispersed Ce in these catalysts has not been recognized. Here, we demonstrate the controllable transformation of ceria nanoparticles into isolated cerium cations on γ-Al2O3 via reductive atom trapping in 10% H2 at 800 °C, achieving over half-monolayer coverage. Dispersed Ce1 ions anchored by surface penta- and octa-coordinated Al sites exhibit outstanding thermal stability in air up to 500 °C, enabling further loading of active metals with well-defined catalyst structures. With this strategy, supported single-atom Rh1 surrounded by dispersed Ce1 is confirmed to exhibit much superior performance to Rh1 on bare Al2O3 or nanocrystalline CeO2 in catalyzing NO reduction by CO, exhibiting a striking one-order-of-magnitude increase in activity. Dispersed Ce1 exhibits greatly enhanced oxygen transfer capability compared to ceria nanoparticles and introduces a modified reaction mechanism that involves an adjacent Rh1-Ce1 motif, resulting in a greatly decreased activation barrier (from 192 to 96 kJ/mol). The reactivity enhancements are also seen with Ce1-promoted Pt nanoparticles for oxidation of CO and hydrocarbons.",
-          "hb": 1
-        },
-        {
-          "t": "仿生TPMS结构纠缠水凝胶用于高效太阳能驱动空气取水（Adv. Mater. 23/2026）",
-          "d": "2026-04-25",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究开发了一种基于三周期极小曲面（TPMS）仿生结构的互穿水凝胶材料，用于高效的太阳能驱动空气取水。研究借鉴自然界生物结构设计TPMS拓扑水凝胶，实现了高吸湿容量、快速吸脱附动力学和结构稳定性的协同优化。该材料可从干燥空气中高效捕获水分，利用太阳能驱动释放获取洁净液态水，为干旱和缺水地区提供了可持续的饮用水获取方案，具有重要的水资源应用价值。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73051?af=R",
-          "tp": "太阳能集水凝胶",
-          "aip": 1,
-          "kp": [
-            "[仿生结构]: 海星启发TPMS互穿水凝胶",
-            "[应用]: 太阳能驱动大气集水",
-            "[结构优势]: 高比表面积、低传质阻力"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Biomimetic TPMS Hydrogel for Efficient Atmospheric Water Harvesting Ronghui Qi, Jian Lu, and co-workers developed a starfish-inspired hierarchical porous hydrogel mesh for efficient atmospheric water harvesting. Its high specific surface area and low mass transfer resistance offer a promising route for decentralized water security. More details can be found in the Research Article (DOI: 10.1002/adma.202515166).",
-          "hb": 1
-        },
-        {
-          "t": "手性S(VI)平台统一复杂分子与烷烃原料的选择性C-H胺化",
-          "d": "2026-04-25",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "研究开发了手性硫（VI）平台，统一实现了复杂分子和简单烷烃原料的选择性碳-氢键（C-H）胺化反应。该催化剂体系突破了不同底物类型对胺化策略的差异化挑战，为药物分子合成和烷烃高值化利用提供了通用且高效的催化方法。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aee3321?af=R",
-          "tp": "C-H键胺化催化",
-          "aip": 1,
-          "kp": [
-            "[平台]: 手性S(VI)统一平台",
-            "[反应]: C-H胺化(复杂分子和烷烃)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Complex molecules and simple alkanes pose distinct challenges for catalyst-controlled carbon-hydrogen (C–H) functionalizations. Whereas densely functionalized scaffolds require precise targeting among multiple reactive sites while tolerating sensitive functionalities, unactivated substrates that lack directing groups require selective activation of exceptionally inert, nearly identical C–H bonds. In this work, we addressed both challenges by repurposing a classic chiral auxiliary into a unified, selective, and predictable C–H amination platform mediated by silver catalysis and chiral sulfur(VI) nitrene precursors. This system enables stereodivergent, late-stage aminations of activated C–H bonds with broad functional group tolerance and compatibility with aqueous conditions while also mediating mild, selective aminations of chemical feedstocks. The sulfur(VI) motif functions as a modular, stereodefined, and medicinally relevant synthetic linchpin for rapid library diversification, enabling both target- and diversity-oriented synthesis.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Helion获批建设全球首座聚变能发电站，推进商业化部署",
-      "晶科能源钙钛矿叠层电池效率达34.82%，刷新世界纪录",
-      "一汽与中科海钠完成钠离子电池重卡路试，验证低温与快充性能"
+      "一汽与中科海钠完成钠电重卡测试，搭载339kWh电池路试突破1.5万公里",
+      "该钠离子电池在-40°C保持90%电量，支持20分钟快充且循环寿命超8000次",
+      "南京大学团队研制出65平方厘米全钙钛矿叠层组件，光电转换效率达26.2%"
     ],
     "AI与智能科技": [
-      "Anthropic CEO首曝Mythos项目，正研发新一代AI系统",
-      "Anthropic发布Claude Design工具，整合UI设计与前端代码生成",
-      "新一代芯片液冷技术发布，热交换效率达此前纪录十倍"
+      "Quantinuum发布98量子比特全连通离子阱量子计算机，两比特门保真度达99.921%",
+      "Current Robotics发布人形机器人全身操作模型，基于2.1万小时真实行为数据训练",
+      "加州大学团队为患者植入256电极脑机接口，19个月内处理18.3万个句子"
     ],
     "通用技术": [
-      "能量奇点研制出26.7T无液氦高温超导绝缘磁体，创下两项世界纪录",
-      "科研人员开发超材料陶瓷，在超高温下实现可编程三维单向热流调控",
-      "科研团队首次演示激光等离子体加速器驱动的紧凑型自由电子激光器"
+      "能量奇点研制无液氦高温超导绝缘磁体，中心磁场最高达26.7T",
+      "该磁体绕组电流密度超570A/mm²，仅靠一台GM制冷机提供冷量摆脱液氦依赖",
+      "研究人员开发出锁定固有微孔的超薄聚合物膜，原油渗透率较现有膜提升10倍"
     ]
   },
   "sectors": [
@@ -26,47 +26,28 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Helion获批建设全球首座聚变能发电站，推进商业化部署",
-        "晶科能源钙钛矿叠层电池效率达34.82%，刷新世界纪录",
-        "一汽与中科海钠完成钠离子电池重卡路试，验证低温与快充性能"
+        "一汽与中科海钠完成钠电重卡测试，搭载339kWh电池路试突破1.5万公里",
+        "该钠离子电池在-40°C保持90%电量，支持20分钟快充且循环寿命超8000次",
+        "南京大学团队研制出65平方厘米全钙钛矿叠层组件，光电转换效率达26.2%"
       ],
       "entries": [
         {
-          "t": "全球首座聚变能工厂获美国监管批准",
+          "t": "一汽称其采用中科海钠339kWh钠离子电池的纯电牵引车完成15000km测试",
           "d": "2026-06-18",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "美国聚变能源公司Helion获得监管批准，将建设全球首座聚变能源发电站。这标志着聚变能源从实验室走向商业化部署的关键里程碑，监管层面的放行意味着聚变技术在安全性和工程可行性上已获得官方初步认可。若项目顺利推进，聚变能源有望成为终极清洁能源解决方案，彻底改变全球能源格局，但其工程化量产与经济性仍面临严峻挑战。",
-          "sc": 10.1,
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "一汽解放联合中科海钠完成钠离子电池重卡全工况系统性测试。解放J6P纯电牵引车搭载339kWh钠电，近7个月累计路试突破15000km。电池在-40°C环境下仍保持90%以上可用电量，支持约2C快充（20-25分钟充满），快充工况下循环寿命超8000次，验证了钠离子电池在重型商用车领域的低温和快充性能。",
+          "sc": 8.5,
           "i": "n",
-          "tg": "政策监管",
-          "u": "https://interestingengineering.com/energy/worlds-first-fusion-power-plant-washington",
-          "tp": "聚变能监管",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/gETCocMUsDU35N-16VGsAw",
+          "tp": "钠电牵引车",
           "aip": 1,
-          "kp": [
-            "[聚变电站]: 全球首个获监管许可(Helion)"
-          ],
-          "b": "US-based fusion energy company Helion has received the regulatory clearances to build the world’s first fusion energy power plant. The company has received a Radioactive Materials License (RML) and a Radioactive Air Emissions License (RAEL) from the Washington Department of Health (DOH), clearing the way to begin construction of the generator building at the power plant site.\nAs the world looks for newer ways to meet it energy demands without emitting carbon, fusion energy seems to be the most likely option. Using the chemical reaction that occurs on the Sun, fusion energy can potentially generate large amounts of energy from simpler atoms like hydrogen and its isotopes.\nUnlike its counterpart, nuclear fission, fusion energy does not produce large amounts of radioactive waste that need to be stored safely. Moreover, unlike renewables like wind and solar, fusion energy plants can work on demand, meeting energy requirements as they arise, without the investments required in energy storage too.\nFor all its benefits, nuclear fusion is still not a commercially available technology because the fusion reactors have not been able to generate more energy than they consume. Washington-state-based Helion Energy, though, is confident that it can achieve this fairly soon.\nWhile it has not yet published any peer-reviewed papers demonstrating how its fusion reactor works, the company is proceeding to build a fusion reactor that it will deploy commercially. It also has an agreement in place with Microsoft to supply 50 MW of power to a data center from its fusion reactor by 2028.\nThe facility dubbed\nis under construction in Malaga, Washington state and recently became the first such facility in the world to secure regulatory licenses to construct the nuclear plant. So far, the assembly and office building of the plant were completed but the recent grant of licenses from the DOH allows Helion to begin constructing the reactor as well.\nAs a nuclear energy company, Helion should ideally be seeking approval from the US Nuclear Regulatory Commission (NRC). However, the NRC regulates nuclear fusion under the byproduct material framework, putting it in the same category for approvals as particle accelerators and hospitals, instead of nuclear reactors.\nThis is not just a distinction made by the NRC but one also ratified by the US Congress in the ADVANCE Act of 2024, and it shows that nuclear fusion has a very different safety profile from fission and hence its path to deployment is also different.\nThe issuance of the RML and RAEL licenses by the Washington DOH is a major milestone for Helion as it confirms that it has facilities, personnel, and safety programs that meet the safety standards for a fusion facility at the Malaga site.\n“We are extremely proud to be granted these licenses from the Washington DOH, making us the first company in the world with the regulatory approvals in place for\nfusion power plant\noperations,” said David Kirtley, CEO of Helion Energy, in a press release shared with\nInteresting Engineering\n“We have a long history of working with the DOH to license our previous fusion activities. Today’s announcement represents the rigor of that work and opens the door for practical, commercial, safe fusion power.”\nIn addition to the approvals needed to build its reactor,\nhas also secured a transmission interconnection agreement with Chelan County Public Utility District that will enable energy generated from its fusion power plant to be supplied to the grid, a global first as well.\nThe question now is whether Helion will be able to meet its deadline to power Microsoft’s data center by 2028 from its fusion power plant.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAmeya is a science writer based in Hyderabad, India. A Molecular Biologist at heart, he traded the micropipette to write about science during the pandemic and does not want to go back. He likes to write about genetics, microbes, technology, and public policy.\nNew 600MW storage project could turn wasted wind power into clean electricity\nYasen-class vs Virginia-class: The nuclear submarines built for the next undersea war\nNew atom-level calculations show transistors could shrink below 4 nanometers\nJetZero secures North Carolina's largest $4.7B incentive deal for 50% fuel-cut Z4 jets\nNew RapidStriker system uses 360-degree vision and automated fire to neutralize drones\nMore from Energy\nNuclear waste could be turned into advanced reactor fuel with US firms’ new deal\nHadron patents integral pressurized-water reactor to fit Halo systems in one vessel\nUK’s new nuclear control room simulator mimics multiple reactor types safely\nUS student aims to build lithium battery alternative for extreme cold operations\nNew 600MW storage project could turn wasted wind power into clean electricity\nNuclear waste could be turned into advanced reactor fuel with US firms’ new deal\nHadron patents integral pressurized-water reactor to fit Halo systems in one vessel\nUK’s new nuclear control room simulator mimics multiple reactor types safely\nUS student aims to build lithium battery alternative for extreme cold operations\nNew 600MW storage project could turn wasted wind power into clean electricity",
-          "hb": 1
-        },
-        {
-          "t": "33刷世界纪录！晶科能源再创钙钛矿/TOPCon叠层电池效率达34.82%",
-          "d": "2026-06-18",
-          "a": "索比光伏-综合新闻",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "晶科能源宣布其自研的N型TOPCon钙钛矿叠层电池经中国科学院上海微系统与信息技术研究所认证，转换效率达到34.82%，刷新了此前由自身保持的34.76%同类叠层电池世界纪录。这是该公司第33次打破光伏电池效率和组件功率世界纪录。叠层电池被视为突破单结晶硅效率极限的关键路线，此次进展推动叠层电池向产业化迈进。",
-          "sc": 9.1,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://news.solarbe.com/202606/17/50024493.html",
-          "tp": "钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "转换效率[N型TOPCon钙钛矿叠层电池]: 34.82%",
-            "钝化结构[N型TOPCon]: 双层复合钝化接触",
-            "[产业化状态]: TOPCon大规模量产已实现"
-          ],
-          "b": "近日，全球领先的光伏企业晶科能源宣布，经中国科学院上海微系统与信息技术研究所权威认证，其自主研发的基于N型TOPCon钙钛矿叠层电池转换效率\n，刷新了此前由自身保持的\n34.76%同类叠层电池最高转换效率纪录\n打破电池效率和组件功率世界纪录。\n本次效率突破得益于晶科能源在N型TOPCon的电池双层复合钝化接触结构、多维界面钝化技术、梯度结晶动力学调控策略及光学耦合/光管理增强技术等多项核心技术创新，这一突破标志着其在下一代钙钛矿叠层技术产业化进程中迈出了关键一步。\n作为全球首家实现N型TOPCon技术大规模量产的光伏企业，晶科能源持续在TOPCon技术迭代与钙钛矿叠层前沿技术领域深耕，此次效率突破进一步验证了TOPCon与钙钛矿叠层技术的可行性与产业化前景。",
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月18日，一汽解放在官方公众号发文称，其联合中科海钠完成钠离子电池重卡全工况系统性测试。文中称，此次测试车型为解放J6P纯电牵引车，搭载339kWh钠电，测试周期近7个月，累计路试里程突破15000km。电池可在-40℃环境下仍保持90%以上可用电量；支持约2C快充（20-25分钟充满），且在快充工况下循环寿命超8000次。",
           "hb": 1
         },
         {
@@ -75,14 +56,41 @@
           "a": "",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "一汽解放联合中科海钠完成钠离子电池重卡全工况系统性测试。解放J6P纯电牵引车搭载339kWh钠电，近7个月累计路试突破15000km。电池在-40°C环境下仍保持90%以上可用电量，支持约2C快充（20-25分钟充满），快充工况下循环寿命超8000次，验证了钠离子电池在重型商用车领域的低温和快充性能。",
-          "sc": 8.1,
+          "sc": 8.5,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/gETCocMUsDU35N-16VGsAw",
           "tp": "钠电牵引车",
           "aip": 1,
           "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
           "b": "6月18日，一汽解放在官方公众号发文称，其联合中科海钠完成钠离子电池重卡全工况系统性测试。文中称，此次测试车型为解放J6P纯电牵引车，搭载339kWh钠电，测试周期近7个月，累计路试里程突破15000km。电池可在-40℃环境下仍保持90%以上可用电量；支持约2C快充（20-25分钟充满），且在快充工况下循环寿命超8000次。",
+          "hb": 1
+        },
+        {
+          "t": "我国研制出大面积全钙钛矿叠层光伏组件",
+          "d": "2026-06-18",
+          "a": "索比光伏",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "南京大学谭海仁团队成功研制出面积为65平方厘米的全钙钛矿叠层光伏组件，经JET认证光电转换效率高达26.2%，刷新世界纪录。该组件采用无空穴传输层的隧穿复合结结构，利用纳米晶功能层替代传统金属复合层。团队基于刮涂工艺开发出二元共溶剂体系，实现了大尺寸钙钛矿薄膜的均匀可控制备，为空间轻量化光伏系统奠定基础。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202606/18/50024585.html",
+          "tp": "全钙钛矿叠层组件",
+          "aip": 1,
+          "kp": [
+            "光电转换效率[全钙钛矿叠层光伏组件]: 26.2%",
+            "组件面积[全钙钛矿叠层光伏组件]: 65平方厘米",
+            "复合结结构[无空穴传输层光伏组件]: 采用纳米晶功能层替代传统超薄金属复合层，去除PEDOT:PSS空穴传输层",
+            "溶剂体系[刮涂工艺铅-锡窄带隙钙钛矿]: 由2-甲氧基乙醇和四氢呋喃组成的二元共溶剂体系"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "16日，从南京大学获悉，该校教授谭海仁团队联合仁烁光能(苏州)有限公司团队成功研制出大面积全钙钛矿叠层光伏组件，经日本电气安全环境研究所(JET)认证，该组件的光电转换效率高达26.2%，刷新了该面积等级全钙钛矿叠层光伏组件的世界纪录。相关研究成果15日以快速预览的形式在线发表于国际学术期刊《自然》。\n南京大学教授谭海仁团队联合仁烁光能(苏州)有限公司团队联合研发的65平方厘米全钙钛矿叠层光伏组件。研究团队供图\n论文通讯作者、南京大学现代工程与应用科学学院教授谭海仁介绍，全钙钛矿叠层太阳能电池的可利用的光谱更宽，且钙钛矿材料吸光系数高，仅需亚微米厚度即可实现高效光电转换，同时能够显著降低发射重量并简化太阳翼展开机构，这为空间轻量化光伏系统提供了理想方案。\n团队此次制备出一种65平方厘米的无空穴传输层的隧穿复合结结构的光伏组件，该结构采用纳米晶功能层替代传统超薄金属复合层，并去除PEDOT:PSS空穴传输层，实现了界面连接层的结构重构。\n同时，基于刮涂工艺，研究团队针对铅-锡窄带隙钙钛矿开发了一种由2-甲氧基乙醇和四氢呋喃组成的二元共溶剂体系。两者协同作用，实现了大尺寸钙钛矿薄膜的均匀可控制备，为叠层组件的规模化制造奠定了工艺基础。",
           "hb": 1
         }
       ]
@@ -91,59 +99,81 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Anthropic CEO首曝Mythos项目，正研发新一代AI系统",
-        "Anthropic发布Claude Design工具，整合UI设计与前端代码生成",
-        "新一代芯片液冷技术发布，热交换效率达此前纪录十倍"
+        "Quantinuum发布98量子比特全连通离子阱量子计算机，两比特门保真度达99.921%",
+        "Current Robotics发布人形机器人全身操作模型，基于2.1万小时真实行为数据训练",
+        "加州大学团队为患者植入256电极脑机接口，19个月内处理18.3万个句子"
       ],
       "entries": [
         {
-          "t": "Dario访谈首曝：Mythos被称为「超级武器」",
+          "t": "Nature重磅！全球首台98比特全连通离子阱量子计算机实现无损扩容",
           "d": "2026-06-18",
-          "a": "新智元",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Anthropic CEO Dario Amodei在访谈中首次透露名为Mythos的项目，并称其为「超级武器」。该信息暗示Anthropic正在研发具备突破性能力的新一代AI系统，引发业界对其技术路线与战略意图的广泛关注。",
-          "sc": 10.1,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/w0XipBF45wiav2mAUy4kBQ",
-          "tp": "大模型Mythos",
-          "aip": 1,
-          "kp": [],
-          "b": "Dario访谈首曝：Mythos被称为「超级武器」 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】在这场69分钟完整访谈里，Dario Amodei 说人类真正面对的不是某个突然降临的奇点，而是一条已经开始垂直起飞的指数曲线。** 一场长达69分钟的访谈，把AI圈最有权势的人之一，彻底摊到了台面上。 17号，Bloomberg《The Circuit》主持人Emily Chang，放出了与Anthropic CEO Dario Amodei的完整版对话，足足1小时10分钟。 没有公关话术，没有回避。 这一次，他全说了。 **Mythos** **那个太危险、不敢发布的神话** 访谈里最让人脊背发凉的部分，是一个名字：**Mythos**。 Emily Chang问Dario：你说Mythos太强了，不能向公众发布。它最让你震惊的是什么？ Dario的回答，每一个字都值得慢读—— 「最让我震惊的，是它发现漏洞、并且把漏洞变成实际可利用攻击的能力，出现了一个巨大的跃升。不是线性增长，是断崖式跃升。而且几乎不需要人类提示。」 请注意这句话的分量。 上一代模型只能「找到漏洞」，而Mythos能做的远不止于此——它能自主走完一整条网络攻击杀伤链（cyber kill chain）：扫描、发现、利用、武器化，一条龙，全自动。 这不是「辅助黑客」，这是「AI自己变成了黑客」。 更让人头皮发麻的细节来自那些拿到内测的公司。 Dario说，一些安全公司测完之后，直接打电话过来说：「这是超级武器。你应该要持枪证才能用这东西。求你了，别发布。」 Palo Alto Networks的首席产品官更直白：Mythos在不到三周内完成了相当于**一整年****渗透测试**的工作量。它不仅能找到漏洞，还能把中低危漏洞串成一条攻击链，直接打穿整个系统。 面对「这只是公关秀」的质疑时，Dario反击得很硬—— 「我们因为不发布Mythos，商业上已经遭受了巨大损失。它在Anthropic内部极大地加速了研究和下一代模型的生产。如果放出去，外部世界也会获得同样的加速。这怎么可能是营销？」 有人在Twitter上说，用开源模型也能复现Mythos的发现。 Dario反应很激动：「有人把Mythos找到的那行代码指给开源模型看，然后说『看，它也能找到同样的问题』。这叫什么？这叫我在大海里捞出了针，你拿着针说『你看，别人也能捡起来』。」 Dario在访谈中说，每天都有很多人打电话管他要Mythos。 有国家打电话要，也有美国政府和我的安全团队说：等一下，有风险。 **** **递归自改进：一条不断加速的曲线** AI圈有一个被反复追问的终极问题：AI什么时候开始自我改进？然后改进后的AI再改进自己？那个「奇点」到底多远？ Dario的回答出人意料—— **它不是一个时间点。它是一个连续的过程。我们已经在其中了。** 他给了一组数字：AI已经能为下一代AI建议架构了。一年前，AI带来的全要素生产率提升大约10%-15%。现在已经到20%-30%。还在翻倍。 「我们就在指数曲线上。」 没有某一天早上AI突然「觉醒」然后失控。 有的只是一条不断加速的曲线——**在这条曲线的每一个点上，你都要判断：是不是该踩刹车了？是不是该加更多防护了？** 这才是Dario最核心的框架：**平滑的指数（smooth exponential）**。 **** **不是奥本海默，是西拉德** Emily Chang问了一个很直接的问题：「你最爱的书是《原子弹的制造》。你觉得自己像奥本海默吗？」 Dario说，不。 **他最认同的人是利奥·西拉德（Leo Szilard）**——1933年，在伦敦街头过马路时，第一个在脑子里想出核链式反应可能性的人。 后来，正是西拉德起草了那封改变历史的信，让爱因斯坦签名后寄给了罗斯福总统，直接催生了曼哈顿计划。 但西拉德也是第一批站出来反对实际使用原子弹的人。 这个选择本身就意味深长。 奥本海默是站在聚光灯中心的人，是「原子弹之父」。而西拉德是最早看到连锁反应的人——**他看到了可能性，也最早看到了危险。** Dario的原话更狠：「我们不可能靠一个大人物来解决这件事。这里有太多强大的利益方。唯一能让所有人都安全的方式，是到处都有制衡和平衡。**在某种意义上，我把奥本海默看作一个失败案例——一个不应该发生的事情。**」 这句话的潜台词几乎呼之欲出：这个时代需要的不是「AI之父」式的英雄人物，而是能在失控之前拉住缰绳的制度设计。 **** **文明崩塌概率25%** 有了「核弹」的类比打底，接下来这个数字就显得格外沉重。 Dario曾在去年的Axios峰会上说过：**文明崩塌的概率，大约10%-25%。**",
-          "hb": 1
-        },
-        {
-          "t": "今天起，Claude Design要把设计师和程序员变成同一种人了",
-          "d": "2026-06-18",
-          "a": "新智元",
-          "c": "AI与智能科技/AI软件层/工程改进/工作流",
-          "as": "Claude Design发布，Anthropic推出面向设计开发协同的新工具，旨在打破设计师与程序员之间的工作壁垒，实现设计与代码的无缝衔接。该产品可能整合AI辅助UI设计与前端代码生成能力，加速产品迭代流程。",
-          "sc": 8.6,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/hEkuDdqLb97WQoRIV1wRmA",
-          "tp": "AI设计工具",
-          "aip": 1,
-          "kp": [],
-          "b": "今天起，Claude Design要把设计师和程序员变成同一种人了 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】猝不及防！Anthropic深夜甩出Claude Design大更新，设计系统一键导入，代码双向同步，9大平台一键导出。Anthropic设计师亲自下场录屏：AI跑了八轮自查，才敢把设计稿给你看。** 就在今天，Anthropic突然官宣Claude Design大版本更新，同时放出四个大招—— * 设计系统从GitHub一键导入，AI自动校验品牌合规，不达标自己改好再给你看。 * 两条新命令/design-sync和/design，打通了Claude Design和Claude Code的双向通道。 * 导出目的地一口气扩到9个：Adobe、Canva、Vercel、Replit、Miro、Gamma、Lovable、Wix、Base44。 * 画布编辑也重做了。拖拽、缩放、对齐，就在画面上动手，不用每改一个像素都烧一轮模型调用。 消息一出，X上瞬间热闹了。 有网友直接灵魂发问，设计师的时代真的要终结了吗？ 还有网友分析得更深一层：设计师和开发者，正在变成同一种人。 其他网友则纷纷玩梗：「我们不要新功能，我们要Claude Fable」，「这个功能不久后也会被禁吗」。 懂的都懂。 **Anthropic设计师亲自演示** 更新放出后，Anthropic设计师Nate Parrott在X上连发六条推文，并配上了三段实操。 新功能到底长什么样、用起来顺不顺，看完就有数了。 第一段，他做了个「国家公园」App的收藏夹页面。 画面上是一个完整的手机界面——搜索栏、国家公园的风景卡片、收藏数字，排版干净利落。看着就是一个成品App的截图。 然后他点了Edit按钮。 画面一切。左边弹出了完整的组件结构树，右边还是那个手机界面，但现在你可以点进任何一个元素。 他点了收藏数字，直接在画布上改了文案，回车，界面即时刷新。 显然，Claude Design生成出来的，并不是一堆改不动的效果图，而是活的组件。 你可以像用Figma一样拖它，也可以像写代码一样改它。 第二段更直观。同样是国家公园项目，做首页。 Claude先花几秒钟读取设计系统——聊天面板里滚过一串品牌色值和字体规范。 然后右边画布开始像打字机一样逐行生长。 先是标题，然后是说明文案，然后一个手机框架浮现——深绿色背景上，奶白色的标签卡一块一块搭好，色调温润，层级分明。 整个设计稿是实时生成的，而且每一块的配色、字体、间距，都严格跟着刚才读进去的品牌规范走。 第三段，是把一个浅色主题的邮件注册页面，变成深绿色的暗色版本。 Claude没有直接出图。它的反应是：读取设计规范两遍，精修输出六遍。八轮自查。 画面一切，暗绿色版本出来了。 同样的标题排版，同样的按钮样式，同样的左对齐布局——只是底色翻成了深松绿，文字翻成了浅色。对比度、层级、品牌感，和浅色版完全一致。 这就是自动化的设计规范校验——不是让AI「尽量接近」你的品牌规范，是跑八遍确认之后才敢给你看。 这三段视频背后，是两条新命令在撑着。 * /design-sync 在Claude Code里敲一下，代码仓库里的设计系统，比如颜色、字体、组件库、间距规则这些，全会被拉进Claude Design。 之后每次生成，Claude都拿你的真实组件去搭，搭完自己审，不合规范自己改。 * /design 这个则是反过来。在Claude Code终端里一行指令，就能创建设计项目、编辑已有设计、同步整个设计文件夹。不用开浏览器，不用切窗口。 正是这两条命令，直接干掉了整个行业最让人头疼的环节。 以前的设计转代码交接，说白了就是一次有损导出，再附赠几场扯皮会议。 设计师在一个工具里做完，工程师在另一个工具里重新搭。 第一版看着还行，等真实组件、边缘情况、响应式状态加进来，设计稿就被拆得七零八落。 现在这个过程没了。 设计在Claude Design里做，做完一个动作就能推进Claude Code写代码。 反过来也行，写到一半想看界面，/design一行命令拉出可视化项目。 **军备赛的新战场** 设计工具只是表面。底下是一场更大的仗。 2026年上半年，OpenAI、Google、Anthropic三家都在疯狂扩产品线。聊天、编程、图片、视频、设计——每一个品类都在抢。 Altman说AGI已经非常接近了。Amodei说大概率2027年到来。三家谁都不敢停。 而通往超级智能的竞赛，表面比的是模型能力，底下比的是谁圈住了更多用户、更多使用场景。 Claude Code锁住了开发者。Claude Design锁住了设计师和产品经理。两个加在一起，Anthropic拿下了从「想法」",
-          "hb": 1
-        },
-        {
-          "t": "最强芯片液冷技术来了！冷却性能达原纪录10倍",
-          "d": "2026-06-18",
-          "a": "环球零碳",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "报道新一代芯片液冷散热技术取得重大突破，冷却性能达到此前纪录的10倍。随着AI算力芯片功耗飙升，传统风冷已逼近散热极限，液冷成为必然路径。该技术通过新型微通道结构、相变换热材料或直接芯片级冷却方案，大幅提升热交换效率，可支撑更高密度GPU集群，对大型数据中心与AI基础设施意义重大。",
-          "sc": 8.4,
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "Quantinuum与桑迪亚国家实验室在《Nature》发布论文，推出全球首台基于¹³⁷Ba⁺（钡离子）、采用QCCD架构、具备全连通性的98量子比特商用量子计算机Helios。该系统证明了离子阱量子计算可在无损性能的前提下实现规模扩展。其物理性能指标表现为：单比特门平均保真度99.9975%，两量子比特门平均保真度99.921%，态制备和测量误差率3.3×10⁻⁴。此外，其中路测量串扰极低（1.3×10⁻⁵），成功克服了量子纠错的噪声难题，计算复杂度已显著超越经典模拟极限。",
+          "sc": 9.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/tuBAQYSpNeigpmBlxRZJyQ",
-          "tp": "芯片液冷散热",
+          "u": "https://mp.weixin.qq.com/s/dJCDLJ3Mt9kXMGZ3M50OIg",
+          "tp": "离子阱量子计算",
           "aip": 1,
           "kp": [
-            "冷却性能[芯片液冷]: 原纪录10倍"
+            "比特数[Helios全连通离子阱量子计算机]: 98",
+            "离子基底[量子计算机体系]: ¹³⁷Ba⁺（钡离子）",
+            "架构[量子计算机体系]: 四路X型结QCCD架构",
+            "单比特门平均保真度[Helios离子阱量子计算机]: 99.9975%（误差率2.5×10⁻⁵）",
+            "两量子比特门平均保真度[Helios离子阱量子计算机]: 99.921%（误差率7.9×10⁻⁴）"
           ],
-          "b": "最强芯片液冷技术来了！冷却性能达原纪录10倍 环球零碳研究所 环球零碳研究所 环球零碳 **零碳情报** **【 最强芯片液冷技术****！** **冷却性能达此前纪录10倍】** 首图来源：Getty Images 人工智能计算不仅消耗大量电力，而且运行过程中发热的半导体芯片也需要大量能源进行冷却。随着人工智能芯片性能的不断提升，其发热量也在迅速增加。 当下，全球半导体产业进入2nm制程竞争阶段，芯片功率密度与发热强度同步快速攀升。随着先进电子产品的芯片级热通量超过 1000 W/cm²，热管理已成为一项关键挑战。 传统的空气冷却和外部铜制散热器已接近其实际应用的极限。为了应对这一挑战，韩国科学技术院（KAIST）的研究团队开发了一种超高效的液冷技术，可以从内部冷却半导体芯片。 6月16日，韩国科学技术院（KAIST）宣布，由机械工程系金成镇教授和人工智能与计算学院李益镇教授领导的联合研究团队开发出一种高效的液冷技术，将室温水直接注入芯片内部的极细管道来降温，其冷却性能指数达此前纪录的10倍。 研究人员将比头发丝还细的液冷通道直接嵌入硅半导体芯片内部，从而实现了这一目标。即使在超过2000瓦/平方厘米（W/cm²）的极端发热条件下，该团队也成功地将芯片温度维持在100摄氏度以下。研究成果于6月15日发表在国际学术期刊《能源转换与管理》上。 来源：Energy Conversion and Management 研究人员重点研究了一种直接嵌入硅芯片内部的歧管微通道（以下简称MMC）结构。微通道冷却通过比头发丝还细的微观流体通道来散热。在传统设计中，冷却剂必须从芯片的一端流经众多微通道才能到达另一端。这种较长的流动路径会增加流动阻力，并需要更大的泵送功率来循环冷却剂。 研究团队开发的歧管结构通过多个入口通道分配冷却剂，并通过多个出口收集冷却剂。这类似于物流网络：与其将所有货物从单一产地运送到遥远的目的地，不如策略性地部署多个配送中心来缩短运输距离。由于冷却剂在每个通道内的流动距离很短，因此流动阻力显著降低，所需的泵送压力也大大降低。 以往的微型复合材料（MMC）设计常常存在冷却剂分布不均的问题，部分通道冷却剂过多，而另一些通道则冷却剂过少。研究团队通过优化结构克服了这一难题，使冷却剂能够均匀地流经所有微通道。 其关键在于将歧管（冷却水分配结构）和微通道（比头发丝还细的流道）相结合的设计，以确保冷却水均匀分配到所有通道。同时，冷却液在整块芯片上的供给更为均匀，有助于维持高度一致的温度分布。 通过大量的结构分析和先进的仿真，他们最终确定了一种优化的冷却架构，将快速探索的一维模型与精确的三维计算流体动力学（CFD）模拟相结合，从而同时优化冷却性能、压力损失和温度均匀性。该架构在提供高效冷却性能的同时，最大限度地减少了能量损失。 随后，将优化后的结构制造到实际的硅半导体芯片上，并通过实验验证了其有效性。在相同的温升条件下，该冷却系统的性能系数（COP）达到了106,000。这比2020年发表在《自然》杂志（van Erp等人）上的约10,000的先前世界领先结果高出约十倍。实际上，这意味着只需约十分之一的泵功率即可去除相同量的热量。 来源：KAUST 基于实验装置（5mm × 5mm 测试芯片）的性能测试结果，研究团队表示，当将该系统应用于大型AI半导体（最大 7.5cm × 7.5cm）和数据中心冷板时，冷却性能相比现有方法能提升 30% 以上。 更关键的是，该技术不仅大幅提升了制冷性能，其重要意义在于降本——整套方案无需相变制冷、纳米表面改性等复杂工艺，也不依赖金刚石等高价特种散热材料，仅以普通常温清水作为冷却介质，将大幅降低搭建与运维成本。 另外，该装置可采用与CMOS工艺兼容的制造工艺，与传统半导体制造流程完全兼容，意味着可在现有芯片代工厂直接落地，无需额外设备即可轻松应用于现有的半导体生产线。 这项技术有望帮助解决各种高热流电子系统中的热管理难题，包括人工智能加速器、高性能计算 (HPC) 系统、三维半导体封装、电力电子和国防电子。 尤其值得一提的是，数据中心不仅日益受到计算性能的限制，还受到冷却功耗和冷却基础设施需求的制约。因此，降低芯片级泵浦功耗的技术将在提高下一代数据中心的能源效率和缓解热瓶颈方面发挥重要作用。 金成镇教授表示：“随着人工智能半导体和先进电子封装的性能越来越受到散热的限制，我们预计这项技术将成为未来高性能计算系统的基础冷却解决方案。” **（来源：KAUST、eurekalert、科创板日报；整理：Penn）** 本文仅用本文为行业研究与个人观点，不构成投资建议、新闻报道或权威信息发布。",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nature重磅！全球首台98比特全连通离子阱量子计算机实现无损扩容 光子盒 量子计算机要求高保真门操作与大规模比特数才能超过现有经典计算能力，离子阱虽有最佳的门保真度，但扩容并维持性能是离子阱的核心挑战。 6月17日，Quantinuum联合桑迪亚国家实验室在《Nature》上发表题为“A 98-qubit trapped-ion quantum computer with all-to-all connectivity”（**具备全连通性的98量子比特离子阱量子计算机**）的论文，正式对外公布Helios 98量子比特离子阱量子计算机的全部性能指标。 Helios是世界上首台基于¹³⁷Ba⁺（钡离子）、采用四路X型结QCCD架构、具备全连通性的98量子比特商用量子计算机，打破了离子阱系统的规模纪录，且用一组经过第三方方严格认证、具有保真度的成果数据，证明了“规模扩展不以牺牲性能为代价”的可行性。 具体在物理性能数据上，单比特门平均保真度99.9975%（误差率2.5×10⁻⁵）、两量子比特门平均保真度99.921%（误差率7.9×10⁻⁴）、态制备和测量（SPAM）误差率3.3×10⁻⁴，这些指标都没有达到基本原理极限，还有待进一步提高。随机线路采样实验证明它的计算复杂度已经显著大于经典模拟，打开了高保真、大规模量子计算的新方向。 同时，在该项合作中，桑迪亚国家实验室开创性地开发了量子计算机调试与评估方法，同时还给出了面向中路测量（MCMR）的无损读出测量的全新基准测试。测试结果显示，该系统的中路测量串扰非常小（1.3×10⁻⁵），成功解决了纠错过程中的噪声难题。 这些成功使Helios成为公司如今拥有的最大、最可靠的一个量子计算机。Quantinuum的首席架构师Tony Ransford说：“Helios的运行超越了单靠传统仿真的能力，并为量子计算机树立了新的保真度和复杂度标杆。” **QPU架构与离子阱设计** Helios本质上是一台基于输运（transport-based）的量子电荷耦合器件（QCCD）。 它的基本逻辑很容易理解，就是把量子存储和量子逻辑操作物理上分开。整颗QPU集成在一块二维表面电极芯片上，通过精密的电场囚禁带电离子，每个¹³⁷Ba⁺离子就是一个量子比特，利用基态超精细能级编码信息。 图：Helios 98量子比特离子阱量子计算机示意图 这一设计把芯片空间分成了量子逻辑区和存储区。 量子逻辑区共有8个独立的操作区，每个操作区最多可以操作16个量子比特，负责执行态制备、冷却，单双比特门和测量，为降低工程复杂性，8个区共享同一组激光光束资源。 而存储区分环形存储区、支腿存储区以及缓存区。其中，“环形存储区”的结构非常重要，98个量子比特中有82个存放在这里，通过一种独特的四路X型结与操作区相联。 这个四路X型结也是本设计的重点。离子晶体流过结区时，就能被精确路由到任意支腿，这使得Helios在98比特的规模下，依然保持了全连通性。 **QCCD运行机制** Helios把量子程序的执行分为两种原子任务：离子输运和量子操作。离子在阱内的移动被分为进退、拆分/合并、结区输运和旋转四种基本动作。 在执行一个典型的量子线路层时，系统会启动一个精密流水线。先把所需要的量子比特从环形存储区取出，分批送进缓存区，然后送进逻辑区。这里最聪明的一点是“冷却和逻辑并行”。 我们知道，离子在输运过程中会被激发动能，要基态冷却才能实现高保真门操作，而冷却的时间常常比门操作要慢两个数量级。Helios的处理方案是，当当前一批量子比特正在逻辑区冷却或做运算时，下一批待处理的量子比特已经在缓存区完成了预排序。 这样的流水线模式可以掩去冷却造成的时间拖延，把系统的等效时钟频率推至一个全新的数量级。 图：QCCD芯片阱区设计与离子输运运行机制 实际测量中，执行一个包含随机配对单、双量子比特门的程序，Helios每层处理的平均时间约55毫秒。 此外，选用¹³⁷Ba⁺作为量子比特载体也是一个神来之笔。其逻辑跃迁在可见光波段，可以直接利用成熟的半导体激光器，相较于传统紫外光波段来说，便宜、稳定，也能够压制激光相位噪声，直接将双量子比特门保真度推高到了99.921%。 **实时动态编译与Helios Runtime软件栈** 长期以来，离子阱编程仍然处在“汇编语言”时代，用户需自己手动规划比较复杂的物理比特映射和输运路径。随着Helios出现的全新的软件层——Helios Runtime，彻底改变了这一切。 这是业界首个支持运行时实时动态编译的离子阱系统。它最大的特点就是，能够在程序运行期间、量子态依然存活的状态下，动态地把用户定义的虚拟量子比特映射到物理离子上。 这样的话，开发者即可像撰写经典高级语言那样撰写量子程序。他们可以直接用if-...",
+          "hb": 1
+        },
+        {
+          "t": "人形机器人不再「走走停停」：Current Robotics发布全身灵巧操作模型Curr-0",
+          "d": "2026-06-18",
+          "a": "机器之心",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "Current Robotics发布全身灵巧操作模型Curr-0，解决人形机器人移动与操作的物理耦合难题。该模型采用单一策略、共享权重，将移动控制、全身姿态协调和手部精细操作统一进行端到端训练，运行于70+自由度的人形机器人上。机器人可在移动中实时调整姿态并完成精细力控，如撕茶包、盖章等，训练数据包含21000小时真实人类行为数据。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/iuLea6sG7BgYij4C3tJclg",
+          "tp": "人形机器人全身操作",
+          "aip": 1,
+          "kp": [
+            "自由度[人形机器人本体]: 70+",
+            "技术架构[全身灵巧操作模型Curr-0]: Single Policy统一端到端训练策略",
+            "[全身灵巧操作模型Curr-0]: 实现移动控制、全身姿态协调和手部精细操作的单一模型共享权重与全程自主执行"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "人形机器人不再「走走停停」：Current Robotics发布全身灵巧操作模型Curr-0 机器之心 机器之心发布 让人形机器人在移动中完成精细操作，一直是具身智能领域没有被很好解决的问题。 过去的主流方案是把移动和操作拆成两个独立模块：机器人先走到目标位置，停下来，再执行手部操作。这套逻辑在工厂流水线上勉强够用，但放到真实世界里就会失效 —— 站姿决定抓取的可达范围，躯干姿态影响手臂的施力方式，脚和地面的接触条件决定全身平衡，而手部接触动态又会反过来影响身体接下来的运动。移动和操作在物理上是耦合的，不能简单拆成两步走。 Current Robotics 今天发布全身灵巧操作模型 Curr-0，通过 Single Policy 将移动控制、全身姿态协调和手部精细操作统一为一个端到端训练的策略，运行在 70 + 自由度的人形机器人本体上，单一模型、共享权重，全程自主执行。 Curr-0 展示的任务包括撕开茶包、点香、文件盖章、清理桌面垃圾，以及抱着玩具穿过门口蹲下放进篮子 —— 这些动作看起来简单，但每一个都要求机器人在移动过程中实时调整全身姿态，并在接触瞬间完成精细的力控。 Single Policy 背后的系统设计 Curr-0 的核心思路是把全身灵巧操作当作一个耦合的整体来训练，而不是先训练一个移动策略，再训练一个操作策略，最后拼在一起。 系统内部分为三层：上层负责理解任务和语言指令，中层负责协调全身运动和姿态稳定，下层负责手部和物体的精细交互。三层不是按顺序执行的流水线，而是在同一个闭环策略里实时协同运行，机器人可以在移动过程中同步调整全身姿态和手部动作。 数据怎么来：自研全身外骨骼采集系统 支撑 Curr-0 训练的是 21,000 小时真实人类行为数据，其中包含 2,800 小时全身示教数据，全部来自 Current Robotics 自研的 HumanEx 全身外骨骼数据采集系统。 HumanEx 是一套自研全身外骨骼数据采集系统，其特点是不需要操控机器人本体。人类只需穿戴设备即可在真实场景中完成数据采集，系统同步记录全身姿态、关节运动、手部动作、本体感知、肌电信号和环境交互等多维数据。由于不依赖机器人本体，这套系统可以直接部署在工厂、实验室、办公室等多种真实场景里采集数据。 通过 HumanEx 的 Data Scaling。 Current Robotics 认为，数据并不是训练模型的副产品，而是具身智能系统的核心基础设施。这意味着数据规模的增长不再受限于机器人的部署数量，而是可以随人类的真实任务行为持续扩大 —— 团队把这条路径称为从 \"机器人部署小时数\" 切换到 \"人类任务小时数\"。 用世界模型解决评测和部署的规模化难题 除了数据和模型，Current Robotics 还在解决另一个长期被忽视的瓶颈：物理世界本身没法规模化。 机器人每次真实测试都要消耗硬件、能源和人力，失败了没法回滚，场景没法随时重置。这直接限制了评测、后训练和部署能跑多快、跑多大规模。 为此，团队正在构建多物理模态交互世界模型，覆盖视觉、本体感知和力觉信号，作为物理世界的可扩展替代品，用来做策略评测、后训练和部署前的验证。在这个基础上，团队还提出了 Human-in-the-World-Model 框架：策略在世界模型里跑，遇到错误或不确定的情况，人可以直接在世界模型里介入修正，修正的数据马上用于后续训练，从而让评测、人工干预和后训练形成一个闭环。 全栈布局：数据、模型、评测、部署 把这几块拼起来看，Curr-0 不是一次孤立的模型发布，而是 Current Robotics 在具身智能基础设施上的一次阶段性展示。 从 HumanEx 采集真实人类数据，到 Curr-0 端到端训练出全身灵巧操作能力，再到世界模型支撑的评测和后训练 —— 数据、模型、评测、部署这四个环节被串成一套可以持续迭代的体系。 随着 VLA 模型和机器人本体能力持续进步，数据基础设施与迭代闭环也开始受到越来越多关注。除了模型本身，Current Robotics 也在同步构建数据采集、评测验证和部署迭代体系，靠这套体系的持续运转来推动模型能力的提升。 © THE END 转载请联系本公众号获得授权 投稿或寻求报道：liyazhou@jiqizhixin.com",
+          "hb": 1
+        },
+        {
+          "t": "用脑机接口上班是什么体验？一个渐冻症患者使用了两年后表示：其实很无聊",
+          "d": "2026-06-18",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "加州大学戴维斯分校团队为晚期渐冻症患者植入包含256个穿透式电极的脑机接口设备。在居家使用的19个月内，设备累计工作3801小时，处理18.3万个句子，证实了该技术的长期稳定性。系统可将脑信号实时转为文本，50词测试准确率达99.6%，12.5万词汇量下达90.2%。护理人员可独立启动该系统，患者实现日常交流。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/luVqRQHjFHzLtI472C-hCw",
+          "tp": "脑机接口临床",
+          "aip": 1,
+          "kp": [
+            "穿透式电极数量[微电极阵列]: 256个",
+            "累计工作时长[渐冻症患者居家使用BCI设备]: 3801小时",
+            "数据处理量[BCI设备运行19个月]: 18.3万个句子",
+            "临床价值[颅内脑机接口]: 具备长期稳定性和临床实用价值"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "用脑机接口上班是什么体验？一个渐冻症患者使用了两年后表示：其实很无聊 原创 杨梦 杨梦 DeepTech深科技 本文是专业学术论文解读，不做医疗建议。 少有临床试验的参与者会在研究社区发文袒露心路历程，凯西·哈雷尔（Casey Harrell）算是个例外。在最近一篇博文中，凯西表示，介绍自己每天使用脑机接口（BCI）的日常“有点枯燥”，毕竟，他已经如此生活了近三年。 2023 年，加州大学戴维斯分校（UC Davis）神经假体实验室的研究团队，为罹患晚期渐冻症（ALS）的凯西进行开颅手术，在他的大脑皮层上植入了包含 256 个穿透式电极的四组微电极阵列。 不到一年后，美国食品药品监督管理局（FDA）允许凯西的护理人员独立启动系统。6 月 15 日，团队在《自然-医学》（Nature Medicine）展示最新阶段性成果：凯西居家使用 BCI 设备的 19 个月中，装置累计工作时长达 3801 小时，共处理了 18.3 万个句子。 作为迄今为止规模最大的单神经元分辨率、个体大脑记录数据集，研究人员和凯西合作证实，颅内脑机接口具备日常辅助技术应有的长期稳定性和临床实用价值。 图 | 多模态皮层内脑机接口工作示意（来源：DOI: 10.1038/s41591-026-04414-6） 为摆脱专人操控，四台电脑接管了一切 自 2019 年确诊渐冻症以来，现年 48 岁的凯西已经丧失了基本的行动和语言表达能力。UC Davis 团队的装置可将他的大脑信号实时转化为文本，再借助播放系统，输出以其患病前声音“读”出的句子。 2024 年 8 月，研究人员在《新英格兰医学杂志》（NEJM）上首次发文，记录其完成植入手术的第一次开机过程。系统预热 30 分钟后，在 50 词测试中实现了 99.6% 的识别准确率；扩展到 12.5 万词汇量规模时，准确率仍有 90.2%。 2025 年 6 月，同一团队在《自然》（Nature）发文，介绍了一项实时脑控语音合成技术，该技术可绕过文字中转环节，直接把神经信号转成带有语调和节奏的声音。不过，在测试阶段，听者对合成语音的词级理解率仅为 60%，精度远低于文字中转方案，目前尚未正式用于凯西的脑机接口系统。 研究人员在实验中意外发现，植入其左侧腹侧中央前回（负责协调说话动作的运动皮层）的电极，除了识别语音意图，还能解码尝试移动手部时产生的运动信号，以此实现操纵电脑的功能。 数据显示，同一组电极同时驱动两种解码器，光标信号处理速率与专为手部运动设计的植入装置相当。 一开始，凯西每次启动脑机接口，都必须由研究团队现场操作设备完成。由于信号漂移问题，在正式使用前，还要花几十分钟校准仪器。 图 | 研究人员正在调试设备（来源：UC Davis） 长期植入过程中，电极采集的神经活动会发生动态变化，进而影响基于先前数据训练的解码模型表现。对此，研究人员在解码神经网络中加入了“日特异性嵌入层”，开机即自动适配当天信号特征，无需人工校准。 研究证实，在软件加持下，超过 90% 的植入电极在 19 个月后仍能可靠检测神经信号，与语音相关的神经表征也保持稳定。 除了每日校准，模型此前还要定期中断使用，进行正式校准训练。新系统采用了后台持续微调方案：在正常使用过程中，设备自动收集被用户打高分的句子，每积累 5~6 句就触发一轮训练，其中约三分之二进入训练集、三分之一进入验证集，验证集表现优于当前模型时就更新权重。这些适应性处理，让每天开机时的可选校准时间从 17 分钟降至约 9 分钟。 基于这些优化，植入后第 281 天，FDA 批准了一项设备豁免修改，允许护理人员在研究人员不在场时启动该系统。 软件接管了所有组件的初始化过程，四台各有分工的电脑组成本地局域网，分别负责信号采集、特征提取、神经网络推理和语言模型解码。它们通过团队自研的 BRAND（实时异步神经解码后端）框架实现同步通信，共同支撑脑机接口的运转。 这极大减轻了照护者的工作负担，凯西的妻子每天仅需抽出 20 分钟进行简单的准备工作。通电开机后，凯西将利用它实现语音输出、电脑光标移动和点击功能，设备最长可连续工作 19 个小时。 图 | 整套设备组成了一个巨大的可移动机柜。（来源：UC Davis） 推理架构也进行了对应迭代。早期版本使用循环神经网络，其逐帧推理能力在控制类任务上表现良好，但后续加入的语音解码功能需要更强的上下文整合能力。 植入后第 600 天起，团队将语音解码器替换为 Transformer 架构，对延迟更敏感的光标解码器仍保留 RNN 结构，两种模型并行运行。除了精度提升，这一升级有效缩减了解析延迟，实时对话体验大幅提升。 图 | 语音解码模块正在工作（来源：UC Davis） 团队表示，一系列“过度配置”的技术工程优化，使这套设备的复杂程度远超临...",
           "hb": 1
         }
       ]
@@ -152,9 +182,9 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "能量奇点研制出26.7T无液氦高温超导绝缘磁体，创下两项世界纪录",
-        "科研人员开发超材料陶瓷，在超高温下实现可编程三维单向热流调控",
-        "科研团队首次演示激光等离子体加速器驱动的紧凑型自由电子激光器"
+        "能量奇点研制无液氦高温超导绝缘磁体，中心磁场最高达26.7T",
+        "该磁体绕组电流密度超570A/mm²，仅靠一台GM制冷机提供冷量摆脱液氦依赖",
+        "研究人员开发出锁定固有微孔的超薄聚合物膜，原油渗透率较现有膜提升10倍"
       ],
       "entries": [
         {
@@ -170,42 +200,50 @@
           "tp": "超导强磁体",
           "aip": 1,
           "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
           "b": "6月18日，能量奇点在官方公众号发文称，其自主研制的无液氦高温超导绝缘磁体成功完成三轮通流实验，中心磁场分别达到20T、23.1T和26.7T。该磁体设计目标为中心磁场25T，在第三轮实验中实现25.5T稳定运行后进一步提升励磁电流，最终将中心磁场提升至26.7T，绕组工程电流密度超570A/mm²，绕组内最高磁场超27.5T。该磁体由14个单饼组成，外直径140mm，单饼绕制直径30mm，初始运行温度6K，此次成功刷新：磁场强度最高的无液氦高温超导磁体，以及磁场强度最高的高温超导绝缘磁体两项世界纪录。\n除磁场强度纪录外，该磁体还采用无液氦运行，全部冷量仅靠一台高压氦气往复压缩/膨胀GM制冷机通过纯导冷（纯固体接触被动冷却）方式提供，摆脱液氦依赖，简化辅助系统并节约运行成本；其在高磁场下优化导体绝缘结构，励磁至20T仅需16分钟。该磁体将首先应用于能量奇点自主研发的高温超导材料生产和性能测试平台，也可用于对磁场均匀性要求极高的场景，如核磁共振谱仪NMR、自动化物性综合测量平台PPMS等。",
           "hb": 1
         },
         {
-          "t": "超材料陶瓷实现超高温创纪录整流与可编程三维热控",
+          "t": "能量奇点称其研制26.7T无液氦高温超导绝缘磁体",
           "d": "2026-06-18",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/耐热材料",
-          "as": "研究开发出超材料陶瓷(metaceramic)，实现创纪录的热整流效率和可编程三维热控制。热整流技术允许热量沿特定方向优先流动，在极端环境下的热管理领域具有变革性潜力。该材料通过非对称热导率设计，在超高温条件下实现单向热流调控，可用于航空航天热防护、高效热逻辑器件及智能热管理系统的开发，突破了传统热二极管的温度限制。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aef4765?af=R",
-          "tp": "超高温热整流",
+          "a": "",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "能量奇点自主研制的无液氦高温超导绝缘磁体完成三轮通流实验，中心磁场最高达26.7T，绕组电流密度超570A/mm²，创下磁场强度最高的无液氦高温超导磁体和绝缘磁体两项世界纪录。磁体由14个单饼组成，冷量仅靠一台GM制冷机纯导冷提供，摆脱液氦依赖。将用于高温超导材料生产测试，及NMR、PPMS等高均匀磁场场景。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/y4sXwL_Qmuryq7XL_Hn_nw",
+          "tp": "超导强磁体",
           "aip": 1,
-          "kp": [
-            "工作温度[传统热整流器]: <900 K",
-            "[突破]: Meta-ceramic超高温热整流与可编程3D热控"
-          ],
-          "b": "Thermal rectification enables asymmetric heat flow and offers transformative potential for thermal management under extreme environments, yet its practical development has been constrained by a fundamental trade-off between high-temperature stability and nonlinear thermal response. Conventional rectifiers face intrinsic limitations, with operating temperatures below 900 kelvin and rectification ratios under 3.5. Here, we present a metaceramic, a monolithic metamaterial ceramic, architected with multiscale graded porosity that synergistically integrates four nonlinear heat transfer mechanisms: ion-tailored conduction, cavity-modulated radiation, chaotic advection–enhanced convection, and spontaneous convective dissipation. This metaceramic achieves a record thermal rectification ratio of 8.5 at 2473 kelvin, surpassing previous benchmarks by over 140%. In addition, the design’s continuum-like, functionally partitionable nature enables its extension into a triaxial ultrahigh-temperature rectifier, which provides programmable, volumetric thermal flow control along three independent axes, effectively elevating rectification from a scalar to a tensor-like property. By decoupling and recombining multimodal nonlinearities within a single material, we overcome the classical stability-nonlinearity conflict. Our work establishes a metamaterials platform for breaking thermal reciprocity under extreme conditions, with implications for heat management in hypersonic systems, spacecraft, and energy technologies.",
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月18日，能量奇点在官方公众号发文称，其自主研制的无液氦高温超导绝缘磁体成功完成三轮通流实验，中心磁场分别达到20T、23.1T和26.7T。该磁体设计目标为中心磁场25T，在第三轮实验中实现25.5T稳定运行后进一步提升励磁电流，最终将中心磁场提升至26.7T，绕组工程电流密度超570A/mm²，绕组内最高磁场超27.5T。该磁体由14个单饼组成，外直径140mm，单饼绕制直径30mm，初始运行温度6K，此次成功刷新：磁场强度最高的无液氦高温超导磁体，以及磁场强度最高的高温超导绝缘磁体两项世界纪录。\n除磁场强度纪录外，该磁体还采用无液氦运行，全部冷量仅靠一台高压氦气往复压缩/膨胀GM制冷机通过纯导冷（纯固体接触被动冷却）方式提供，摆脱液氦依赖，简化辅助系统并节约运行成本；其在高磁场下优化导体绝缘结构，励磁至20T仅需16分钟。该磁体将首先应用于能量奇点自主研发的高温超导材料生产和性能测试平台，也可用于对磁场均匀性要求极高的场景，如核磁共振谱仪NMR、自动化物性综合测量平台PPMS等。",
           "hb": 1
         },
         {
-          "t": "高增益状态下基于激光等离子体的种子自由电子激光器",
+          "t": "用于碳氢化合物分馏的具有锁定固有微孔的超薄聚合物膜",
           "d": "2026-06-18",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究者首次在高增益状态下成功演示了基于激光等离子体加速器驱动的自由电子激光器，在自放大自发辐射和种子注入两种模式下均实现激射。该突破克服了困扰该领域近二十年的电子束质量和稳定性难题，为构建紧凑型自由电子激光装置铺平了道路。",
-          "sc": 7.8,
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/材料工程/密封材料",
+          "as": "膜技术在碳氢化合物分馏中具有节能优势，但面临快速液体传输和高分子选择性之间的权衡。研究人员通过锁定聚合物的固有微孔率，开发出具有稳定互连通道的聚合物膜。该策略减少了聚合物溶胀并保留了在碳氢化合物液体中的亚纳米孔结构，使合成原油的渗透率比现有最先进的膜高出10倍。应用于超轻阿拉伯原油时，该膜成功去除了99.8%含15个以上碳原子的碳氢化合物和93%的含硫化合物。",
+          "sc": 8.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/ndsf-kyr4",
-          "tp": "等离子激光",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aed1111?af=R",
+          "tp": "聚合物分离膜技术",
           "aip": 1,
-          "kp": [],
-          "b": "Author(s): Marie Labat, Susanne Schöbel, Amin Ghaith, Franziska Marie Herrmann, Maxwell LaBerge, Eléonore Roussel, Ulrich Schramm, Patrick Ufer, Marie-Emmanuelle Couprie, and Arie IrmanThe realization of compact laser-plasma accelerator (LPA) driven free electron lasers (FELs) has been attempted for nearly two decades, yet, difficult to overcome electron beam quality and stability issues prevented FEL lasing until recently. LPA based FEL is now demonstrated in both the self-amplif…[Phys. Rev. Lett. 136, 245001] Published Tue Jun 16, 2026",
+          "kp": [
+            "分离性能[锁定固有微孔超薄聚合物膜]: 液体传输速率和分子选择性较常规提升10倍"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Membrane technologies offer an energy-efficient alternative to conventional distillation for hydrocarbon fractionation, but they suffer from a trade-off between fast liquid transport and high molecular selectivity. We report a scalable approach to fabricate polymer membranes with stable interconnected pathways by locking in their intrinsic microporosity. This locking strategy reduces polymer swelling and preserves the subnanometer pore structure in hydrocarbon liquids, resulting in 10-fold higher permeance for synthetic crude oil compared with current state-of-the-art membranes. When applied to Arabian Extra Light crude oil, these membranes achieved excellent size- and class-based separation, removing 99.8% of hydrocarbons containing &gt;15 carbon atoms and 93% of sulfur-containing components. These scalable membranes underpin processes providing rapid and selective hydrocarbon separation, enabling a more sustainable pathway toward crude oil refining.",
           "hb": 1
         }
       ]

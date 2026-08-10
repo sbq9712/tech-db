@@ -6,19 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "美国批准建设TerraPower 345MW钠冷快中子反应堆",
-      "中科院开发柔性聚合物热电薄膜，343K下zT值达1.64",
-      "青岛中科源本硫化物全固态电池能量密度提升至303Wh/kg"
+      "美核能管理委员会批准TerraPower建设345MW钠冷快中子反应堆",
+      "中科院化学所开发多孔热电聚合物薄膜，343K下zT值达1.64"
     ],
     "AI与智能科技": [
-      "宇树开源OmniXtreme架构，实现96.36%机器人后空翻成功率",
-      "Evo 2模型实现跨物种全基因组级DNA序列解析与设计",
-      "新控制系统结合力矩感知技术使机器人具备精细装配操作能力"
+      "宇树科技开源OmniXtreme架构，机器人后空翻成功率达96.36%"
     ],
     "通用技术": [
-      "研究证实通过高压高温实验成功制备超硬六方金刚石晶体",
-      "融合三蒽纳米颗粒平台实现持续活性氧释放以治疗深部肿瘤",
-      "两亲性可变形互连结构解决可拉伸热电器件刚性组件易断裂难题"
+      "新型热电共聚物功率因子达361 μW m−1 K−2，ZT值为0.46",
+      "氟辅助闪蒸焦耳热技术可在数秒内将废玻璃转化为碳化硅"
     ]
   },
   "sectors": [
@@ -26,18 +22,17 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "美国批准建设TerraPower 345MW钠冷快中子反应堆",
-        "中科院开发柔性聚合物热电薄膜，343K下zT值达1.64",
-        "青岛中科源本硫化物全固态电池能量密度提升至303Wh/kg"
+        "美核能管理委员会批准TerraPower建设345MW钠冷快中子反应堆",
+        "中科院化学所开发多孔热电聚合物薄膜，343K下zT值达1.64"
       ],
       "entries": [
         {
           "t": "美国核能管理委员会批准TerraPower在怀俄明州建设的钠冷快中子反应堆",
           "d": "2026-03-05",
-          "a": "",
+          "a": "Apnews",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
           "as": "美国核能管理委员会批准TerraPower在怀俄明州建设钠冷快中子反应堆（Natrium），这是美国8年来首次批准商业核反应堆、40多年来首次批准非轻水商业反应堆。该SMR反应堆额定功率345MW、峰值500MW，投资40亿美元，配备熔盐储能设施，预计2030年完工。",
-          "sc": 7.2,
+          "sc": 6.7,
           "i": "n",
           "tg": "政策监管",
           "u": "https://apnews.com/article/wyoming-nuclear-reactor-912a98d4fb1a05bd06e6bf06d71742e7",
@@ -53,10 +48,10 @@
         {
           "t": "中国科学院化学研究所狄重安提出不规则分级多孔聚合物热电材料提升性能",
           "d": "2026-03-05",
-          "a": "",
+          "a": "Science",
           "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
           "as": "中科院化学所狄重安团队开发不规则分级多孔热电聚合物薄膜，通过调控相分离构建5.9纳米至1.8微米多孔结构，实现热与电输运解耦：声子散射使晶格热导率降低超70%，纳米约束提高载流子迁移率25%以上，343K下zT达1.64创柔性聚合物热电材料新纪录。薄膜兼容喷涂大面积加工，可穿戴实验中稳定输出电能。论文发表于Science。",
-          "sc": 7.9,
+          "sc": 7.7,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.science.org/doi/10.1126/science.adx9237",
@@ -70,22 +65,22 @@
           "hb": 1
         },
         {
-          "t": "青岛中科源本称其20-60Ah硫化物全固态电池能量密度达303Wh/kg",
+          "t": "美国核能管理委员会批准TerraPower在怀俄明州建设的钠冷快中子反应堆",
           "d": "2026-03-05",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "青岛中科源本称其硫化物全固态电池中试线可连续制备20-60Ah电芯，采用高镍三元正极、硫化物电解质和硅碳负极体系，实测容量26.3Ah和55.1Ah。3月19日更新称其湿法成膜及转印技术可将电解质层减薄50%，使25cm×14cm软包电池能量密度从265Wh/kg提升至303Wh/kg。",
-          "sc": 7.1,
+          "a": "Apnews",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国核能管理委员会批准TerraPower在怀俄明州建设钠冷快中子反应堆（Natrium），这是美国8年来首次批准商业核反应堆、40多年来首次批准非轻水商业反应堆。该SMR反应堆额定功率345MW、峰值500MW，投资40亿美元，配备熔盐储能设施，预计2030年完工。",
+          "sc": 6.7,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/0EmqkvUvQW8WwUPKWLF54A",
-          "tp": "硫化物固态",
+          "tg": "政策监管",
+          "u": "https://apnews.com/article/wyoming-nuclear-reactor-912a98d4fb1a05bd06e6bf06d71742e7",
+          "tp": "钠冷快堆批",
           "aip": 1,
           "kp": [],
-          "lv": 1,
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "3月5日，青岛中科源本在其官方公众号发文称，其建设的硫化物全固态电池中试线可连续制备出20-60Ah的电芯，并完成了第三方送样检测。文中称，参与测试的电池体系为纳米级均质化包覆的高镍三元正极||硫化物全固态电解质||硅碳负极；电芯尺寸长25cm，宽14cm；电芯能量密度>265Wh/kg；实测电芯容量分别为26.3Ah和55.1Ah，其中26.3Ah电池在循环寿命测试中保持平稳。\n3月19日，中科源本再次发文更新，称其开发的硫化物电解质湿法成膜及转印技术可制得致密的电解质层，有助于改善硫化物电解质化学稳定性和界面相容性。使用该技术可将电解质层厚度减薄50%，基于电池活性提升和总体重量减轻，25cm×14cm规格软包电池能量密度由265Wh/kg（3月5日发布的新闻）提高到303Wh/kg。",
+          "cm": "自特朗普第二任期开始以来，美国重启了核电站建设计划。其中，投资多、规模大的传统大型反应堆以西屋AP1000为主，小型模块化反应堆由于更符合数据中心建设的需求，更受科技企业青睐。目前谷歌、亚马逊、微软都已通过各自支持的公司提出不同路径的SMR建筑计划，但多数仍待批准。政策法规上，该电站是美国近十年批准建设的首个核电站，也是首个SMR核电站。标志着美国对核能的扶持推动。技术上，该电站是美国数十年来第一个获批的非轻水反应堆，也是全球首个自配储核电站。反映出核电站从传统轻水堆向燃料利用效率更高的技术路径演变。TerraPower的Natrium反应堆从定义上属于小型模块化反应堆，但其规模稍大于常规的SMR最大的300MW上限。据TerraPower官网称，该电站配备的熔盐储能可以100MW-500MW的功率放电，最多可放电5.5小时，熔盐开始发/放电后，放电功率可以以每分钟10%的功率增加。同时，TerraPower称Natrium钠冷快中子反应堆的燃料利用效率是轻水堆的3倍。",
+          "b": "据AP News报道，3月5日，美国核能管理委员会批准了TerraPower在怀俄明州建设的钠冷快中子反应堆。这是8年以来美国首次批准商业核反应堆，也是40多年来美国首次批准非轻水商业反应堆。\n这一核反应堆将是由比尔·盖茨投资的TerraPower公司的Natrium小型模块化（SMR）核反应堆的首次使用。该反应堆额定功率345MW,峰值可达500MW，投资40亿美元，预计将在2030年完工。除了反应堆本身，该电站还将配备熔盐储能设施。",
           "hb": 1
         }
       ]
@@ -94,15 +89,13 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "宇树开源OmniXtreme架构，实现96.36%机器人后空翻成功率",
-        "Evo 2模型实现跨物种全基因组级DNA序列解析与设计",
-        "新控制系统结合力矩感知技术使机器人具备精细装配操作能力"
+        "宇树科技开源OmniXtreme架构，机器人后空翻成功率达96.36%"
       ],
       "entries": [
         {
           "t": "宇树开源OmniXtreme人形机器人架构和流匹配技术攻克高动态动作难题",
           "d": "2026-03-05",
-          "a": "",
+          "a": "Citnews",
           "c": "AI与智能科技/具身智能/模型和具身操作系统",
           "as": "宇树科技发布并开源人形机器人运动控制架构OmniXtreme，采用双阶段训练框架：流匹配预训练将多专家策略中的高动态技能蒸馏至统一模型，执行器感知后训练通过残差强化学习针对电机物理极限自我修正。在Unitree G1上实现96.36%后空翻成功率，端到端推理延迟仅10毫秒，标志着从单一技能复现向通用高保真运动能力的跨越。",
           "sc": 8.6,
@@ -119,48 +112,22 @@
           "hb": 1
         },
         {
-          "t": "Evo 2：跨越所有生命域的基因组建模与设计",
+          "t": "宇树开源OmniXtreme人形机器人架构和流匹配技术攻克高动态动作难题",
           "d": "2026-03-05",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Evo 2是一种覆盖生命所有域（细菌、古菌、真核生物）的基因组级AI建模与设计模型。它基于海量跨物种DNA数据训练，能在全基因组尺度上学习编码规律，支持基因组序列生成、功能预测和从头设计。Evo 2突破了此前模型局限于单一物种或短序列的瓶颈，为合成生物学、药物靶点发现和生命起源研究提供了强大工具。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10176-5",
-          "tp": "基因组大模型",
+          "a": "Citnews",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "宇树科技发布并开源人形机器人运动控制架构OmniXtreme，采用双阶段训练框架：流匹配预训练将多专家策略中的高动态技能蒸馏至统一模型，执行器感知后训练通过残差强化学习针对电机物理极限自我修正。在Unitree G1上实现96.36%后空翻成功率，端到端推理延迟仅10毫秒，标志着从单一技能复现向通用高保真运动能力的跨越。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://www.citnews.com.cn/news/214281",
+          "tp": "机器人控制",
           "aip": 1,
-          "kp": [
-            "[模型定位]: Evo 2跨全域生命基因组建模与设计"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "All of life encodes information with DNA. Although tools for genome sequencing, synthesis and editing have transformed biological research, we still lack sufficient understanding of the immense complexity encoded by genomes to predict the effects of many classes of genomic changes or to intelligently compose new biological systems. Artificial intelligence models that learn information from genomic sequences across diverse organisms have increasingly advanced prediction and design capabilities1,2. Here we introduce Evo 2, a biological foundation model trained on 9 trillion DNA base pairs from a highly curated genomic atlas spanning all domains of life to have a 1 million token context window with single-nucleotide resolution. Evo 2 learns to accurately predict the functional impacts of genetic variation—from noncoding pathogenic mutations to clinically significant BRCA1 variants—without task-specific fine-tuning. Mechanistic interpretability analyses reveal that Evo 2 learns representations associated with biological features, including exon–intron boundaries, transcription factor binding sites, protein structural elements and prophage genomic regions. The generative abilities of Evo 2 produce mitochondrial, prokaryotic and eukaryotic sequences at genome scale with greater naturalness and coherence than previous methods. Evo 2 also generates experimentally validated chromatin accessibility patterns when guided by predictive models3,4 and inference-time search. We have made Evo 2 fully open, including model parameters, training code5, inference code and the OpenGenome2 dataset, to accelerate the exploration and design of biological complexity.",
-          "hb": 1
-        },
-        {
-          "t": "扭矩触觉赋予机器人人手级灵巧操作能力",
-          "d": "2026-03-05",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究通过为机器人引入力矩感知（torque sensing）实现了类人级别的灵巧操作能力。传统机器人难以执行需要精确力控制的抓取与操控任务，核心瓶颈在于缺乏对环境接触力和力矩的高分辨率实时反馈。该工作开发了一种结合力/力矩感知的控制系统，使机器人能够完成力紧握、精细装配等复杂操作，逼近人类手部灵活度，在人形机器人、工业自动化等方向有重要应用前景。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec3263?af=R",
-          "tp": "机器人触觉灵巧",
-          "aip": 1,
-          "kp": [
-            "力矩灵敏度[TAP传感器]: ~0.4 N·mm",
-            "角度灵敏度[TAP传感器]: ~0.1°",
-            "线性度[TAP传感器]: R²=0.99",
-            "[传感机制]: 磁通密度梯度"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Achieving human-like forceful manipulation remains a major challenge in robotics because of the lack of critical environmental interaction cues such as collisions, balance, and resistance. We present a torque-angle-pressure (TAP) tactile sensor leveraging magnetic flux density gradients to achieve bidirectional, ultrasensitive (~0.1°, ~0.4 newton-millimeter), and high-linearity (\n                    R\n                    2\n                     = 0.99) sensing over a wide range (±241.6 newton-millimeter) through a single readout channel. The accurate torque sensing ability provides both force and distance information, bringing the environment into the interaction loop. A TAP-equipped robot can perform vision-free stable object placement and complete a balance beam stacking challenge in just 2.4 seconds with a success rate of 81.5%—both measured metrics surpassing human performance. It also supports adaptive daikon slicing with real-time posture and motion adjustments—capabilities rarely achievable in existing robotic systems. This work advances tactile sensing, enables forceful manipulation in unstructured environments, and represents a key step toward effective human-robot collaboration.",
+          "b": "3月5日，AIBase基底消息。宇树科技(Unitree)正式发布并开源了名为OmniXtreme的人形机器人运动控制架构，同步公开由创始人王兴兴署名的技术论文。该架构针对人形机器人在春晚等高动态场景下的极限动作表现，系统性地解决了海量动作库追踪时的保真度下降与物理落地难题。OmniXtreme采用双阶段训练框架:首阶段通过流匹配预训练(Scalable Flow-based Pretraining)，将分布在不同专家策略中的高动态技能(如后空翻、武术、街舞)蒸馏至统一模型，利用生成式建模学习速度场路径，有效规避了传统强化学习在多任务下的梯度干扰;第二阶段则引入执行器感知后训练(Actuation-Aware Post-Training)，通过残差强化学习与写实的力矩-转速包络线建模，使机器人能针对电机物理极限与再生功率进行自我修正。实验数据显示，该架构在Unitree G1硬件上实现了96.36%的后空翻成功率，端到端推理延迟压缩至10毫秒。OmniXtreme的开源不仅展示了流匹配技术在具身智能领域的卓越扩展性，更标志着人形机器人从单一技能复现向通用、高保真运动能力的跨越，为行业探索复杂物理环境下的稳健控制提供了关键技术范式。",
           "hb": 1
         }
       ]
@@ -169,22 +136,66 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究证实通过高压高温实验成功制备超硬六方金刚石晶体",
-        "融合三蒽纳米颗粒平台实现持续活性氧释放以治疗深部肿瘤",
-        "两亲性可变形互连结构解决可拉伸热电器件刚性组件易断裂难题"
+        "新型热电共聚物功率因子达361 μW m−1 K−2，ZT值为0.46",
+        "氟辅助闪蒸焦耳热技术可在数秒内将废玻璃转化为碳化硅"
       ],
       "entries": [
         {
-          "t": "制备难以捕获的'六方金刚石'的最新声称是目前最有力的证据",
+          "t": "用于调节二酮吡咯并吡咯基热电共聚物中载流子传输的规则主链和随机极性侧链",
           "d": "2026-03-05",
-          "a": "Nature",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "六方金刚石（蓝丝黛尔石）是自然界中极罕见的超硬碳同素异形体，此前多次合成声称均存争议。最新研究报道了迄今为止最令人信服的六方金刚石合成证据，通过高压高温或冲击压缩实验成功制备该材料，并利用电子衍射、拉曼光谱等手段确认其晶体结构。六方金刚石硬度预计高于普通立方金刚石，在超硬材料、耐磨涂层等领域具有潜在应用价值。",
-          "sc": 8.0,
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "一种由规则主链和随机侧链组成的二酮吡咯并吡咯基热电共聚物。通过改变极性侧链比例调节掺杂能级，规则的骨架序列确保了高迁移率。载流子浓度与迁移率的协同优化在不牺牲塞贝克系数的情况下提升了电导率，使材料功率因子达361 μW m−1 K−2，ZT值达0.46。",
+          "sc": 7.8,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00711-9",
-          "tp": "六方金刚石",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00064-0?rss=yes",
+          "tp": "热电共聚物调控",
+          "aip": 1,
+          "kp": [
+            "功率因子[二酮吡咯并吡咯基热电共聚物]: 361 μW m−1 K−2",
+            "[载流子协同优化]: 采用规则主链和随机极性侧链，在不牺牲塞贝克系数的情况下提高电导率"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The strong interrelation between carrier concentration (n) and mobility (μ) limits polymer TE performance. Herein, random copolymers (PDPPgx-Se) comprising a regular DPP-Se backbone and random polar/alkyl side chains are designed. Doping levels are tuned by varying polar side chain ratios, while the ordered backbone sequence ensures high mobility. Synergistic optimization of n and μ enhances electrical conductivity without sacrificing the Seebeck coefficient, yielding a power factor of 361 μW m−1 K−2 and ZT of 0.46 for PDPPg0.3-Se.",
+          "hb": 1
+        },
+        {
+          "t": "氟辅助闪蒸焦耳热合成形貌可控碳化物材料",
+          "d": "2026-03-05",
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "一种氟辅助闪蒸焦耳热技术，能够在数秒内将废玻璃等富硅废料快速转化为形貌可控的碳化硅。该工艺通过实现选择性纳米线生长，提供了优异的复合材料增强效果，同时显著降低能耗和环境影响。该方法具备通用性和可扩展性，可延伸至其他先进碳化物纳米材料的合成。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00027-5?rss=yes",
+          "tp": "碳化物材料合成",
+          "aip": 1,
+          "kp": [
+            "反应时间[碳化物合成]: 秒级",
+            "[形貌控制碳化物材料合成]: 采用氟辅助闪蒸策略，将废玻璃等富硅废弃物快速转化为形貌可控的碳化硅（可实现选择性纳米线生长）",
+            "[能耗与环境影响]: 降低能耗与环境足迹"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Silicon carbide is a critical material for electronics and structural composites, yet scalable routes with precise morphology control remain limited. This work introduces a fluorine-assisted flash strategy that rapidly converts waste glass and other silicon-rich wastes into morphology-controlled silicon carbide within seconds. By enabling selective nanowire growth, the process delivers superior composite reinforcement while reducing energy use and environmental impact. The approach is general, scalable, and extendable to other advanced carbide nanomaterials.",
+          "hb": 1
+        },
+        {
+          "t": "酸驱动蛋白质去溶剂化的直接证据",
+          "d": "2026-03-05",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2525949123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "蛋白质去溶剂",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -192,47 +203,6 @@
           "cm": "",
           "b": "",
           "hb": 0
-        },
-        {
-          "t": "[ASAP] 融合三蒽纳米颗粒与超亮超声诱导余辉发光实现长效分次声动力疗法",
-          "d": "2026-03-05",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "开发了一种长效分次声动力疗法平台，基于工程化融合三蒽纳米颗粒的超声充电有机储能系统，实现持续活性氧释放与深部组织成像引导，克服了传统声动力治疗ROS生成效率低且瞬时的瓶颈，适用于深部肿瘤治疗。",
-          "sc": 7.1,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21282",
-          "tp": "纳米声动力",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Sonodynamic therapy (SDT) enables noninvasive treatment of deep-seated tumors, yet its clinical translation is hindered by inefficient and transient reactive oxygen species (ROS) generation and the absence of real-time treatment feedback. Here, we report a long-acting, fractionated sonodynamic platform that integrates long-persistent ROS release with deep-tissue imaging guidance. The platform is enabled by an ultrasound-charged organic energy storage system based on engineered fused-trianthracene nanoparticles (FTA NPs). As a novel class of organic sonosensitizers, FTA NPs can store mechanical energy in the form of endoperoxides and subsequently release it as long-persistent ROS, enabling sustained \"OFF-state\" ROS production in the absence of ultrasound excitation. This system leverages an ultrasound-triggered electron transfer pathway to boost ROS output 3.0 times more ROS than typical afterglow nanoparticles poly[2-methoxy-5-(2-ethylhexyloxy)-1,4-phenylenevinylene] (MEHPPV). Ultrasound activation forms unstable endoperoxide intermediates that slowly sustain ROS production and ultrabright ultrasound-induced afterglow luminescence for over 15 min postsonication, achieving afterglow intensity 1971.6 times higher than MEHPPV NPs. This persistent activity enables a fractionated ultrasound regimen─five low-power pulses over a fixed total dose─that enhances cumulative ROS generation by 3.1× and cytotoxicity by 2.2× compared to continuous irradiation. Even when separated by 5 cm of chicken tissue, ultrasound could still induce afterglow luminescence from FTA NPs; this afterglow exhibited a quantitative correlation with ROS levels, allowing real-time optimization of irradiation intervals and pulse frequency in vivo. Applied to subcutaneous and orthotopic pancreatic tumors, this strategy delivers potent antitumor efficacy. Our results establish an ultrasound-driven energy storage, delayed ROS release, ultrasound-induced luminescence imaging guidance and long-acting SDT modality as a versatile and clinically promising approach for precision treatment of deep-seated malignancies.",
-          "hb": 1
-        },
-        {
-          "t": "用于可拉伸热电的两亲性可变形互连结构",
-          "d": "2026-03-05",
-          "a": "Matter",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队开发了一种兼具两亲性（既有疏水又有亲水部分）的可变形电极材料，可像\"液态焊锡\"一样，在刚性热电元件之间形成稳固且柔性的连接。该技术解决了可拉伸热电器件中刚性组件互连易断裂的难题，使可穿戴热电发电、柔性温度传感等应用具备工程可行性，为柔性电子器件的能量收集提供了新的互连方案。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00016-0?rss=yes",
-          "tp": "可拉伸热电器件",
-          "aip": 1,
-          "kp": [
-            "[互连材料]: 两亲性可变形互连(类液态焊料)",
-            "[功能]: 体热驱动计步器+主动皮肤冷却"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "We developed a deformable electrode that acts like a “liquid solder,” enabling robust and stable connections between rigid thermoelectric materials and soft substrates. Wearable devices fabricated with this technology combine excellent stretchability with high power generation efficiency, capable of driving a pedometer using only body heat and providing active skin cooling without heat sink.",
-          "hb": 1
         }
       ]
     }

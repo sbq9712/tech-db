@@ -6,19 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "钙钛矿硅叠层电池选择性钝化技术突破，光电转换效率达32.9%",
-      "研究评估太阳能驱动二氧化碳与生物质转化合成乙烯的光催化路线",
-      "固体氧化物电解池引入狭缝板架构精确控质，降低热应力延长制氢寿命"
+      "欧盟官方低估实际光伏发电量，实际数据或达官方统计两倍",
+      "研究揭示In2O3催化二氧化碳制备甲醇的反应机制",
+      "新型水凝胶热电电池在微小温差下实现高离子热电压"
     ],
     "AI与智能科技": [
-      "链迁移结晶技术突破柔性基底限制，实现弹性体亚10纳米压印光刻",
-      "Fe3GaTe2器件实现室温下斯格明子调控，推进低功耗神经形态计算硬件",
-      "研究阐明二维材料范德华间隙物理机制，界定后摩尔时代晶体管缩放极限"
+      "三一重工发布SY375E电动挖掘机，搭载宁德时代550度电池"
     ],
     "通用技术": [
-      "中船集团完成537天万米深海试验，获取多类材料实海腐蚀基础数据",
-      "Fe驱动重稀土晶界偏析策略提升2:17型钐钴磁体各向异性场与矫顽力",
-      "中科院理化所开发微波催化技术，将含卤素废塑料转化为碳纳米管与氢气"
+      "中船集团完成537天万米深海材料腐蚀试验，刷新全球时长纪录",
+      "中科院理化所开发新催化剂，将废塑料转化为碳纳米管与氢气"
     ]
   },
   "sectors": [
@@ -26,78 +23,71 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "钙钛矿硅叠层电池选择性钝化技术突破，光电转换效率达32.9%",
-        "研究评估太阳能驱动二氧化碳与生物质转化合成乙烯的光催化路线",
-        "固体氧化物电解池引入狭缝板架构精确控质，降低热应力延长制氢寿命"
+        "欧盟官方低估实际光伏发电量，实际数据或达官方统计两倍",
+        "研究揭示In2O3催化二氧化碳制备甲醇的反应机制",
+        "新型水凝胶热电电池在微小温差下实现高离子热电压"
       ],
       "entries": [
         {
-          "t": "金字塔尖端选择性钝化实现32.9%效率的钙钛矿/硅叠层太阳能电池",
+          "t": "欧盟低估屋顶光伏发电量",
           "d": "2026-05-23",
-          "a": "Matter",
+          "a": "pv magazine C&I PV",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿/硅叠层太阳能电池在金字塔织构化硅表面上面临钙钛矿覆盖不良和电学短路问题，严重限制效率提升。该研究通过选择性钝化金字塔尖峰区域，精确调控界面缺陷态和接触势垒，有效抑制了非辐射复合和漏电通道。在尖峰处引入定向钝化层后，叠层电池效率突破32.9%，刷新了该技术路线的纪录。该成果展示了界面工程对叠层电池性能的决定性作用，为钙钛矿/硅叠层电池走向商业化量产提供了关键工艺突破和可扩展的钝化策略。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00187-6?rss=yes",
-          "tp": "钙钛矿硅叠层电池",
+          "as": "欧洲光伏产业协会SolarPower Europe指出，欧盟官方统计严重低估了实际的光伏发电量。预计2025年的实际光伏发电量将达到410太瓦时（TWh），而官方统计数据仅为275太瓦时。这一数据差距主要源于屋顶光伏系统注册不完整、数据传输延迟以及自用太阳能电量测量存在困难。目前欧盟及各成员国的屋顶光伏发电量均被系统性地低估。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://www.pv-magazine.com/2026/05/23/eu-understimating-rooftop-pv-power-generation/",
+          "tp": "屋顶光伏发电量",
           "aip": 1,
           "kp": [
-            "转换效率[钙钛矿/硅叠层]: >32.9%",
-            "[钝化策略]: 金字塔尖峰选择性沉积Al2O3",
-            "[解决的问题]: 织构硅上钙钛盖覆差与漏电"
+            "实际光伏发电量预测[2025年欧盟屋顶光伏]: 410 TWh",
+            "官方统计光伏发电量[2025年欧盟]: 275 TWh",
+            "发电量低估原因[欧盟屋顶光伏]: 屋顶光伏注册不完整、数据传输延迟及自耗太阳能电量测量困难"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Perovskite/silicon tandem solar cells suffer from poor perovskite coverage and electrical shunting on pyramid-textured silicon. Here, peak-selective passivation is introduced by locally depositing Al2O3 on pyramid peaks, enabling pinhole-free perovskite films and suppressed leakage. This design delivers over 33% efficiency with enhanced stability, offering a practical pathway for tandem photovoltaics.",
+          "b": "EU understimating rooftop PV power generation\nSolarPower Europe estimates that EU solar generation is significantly underreported, with actual PV output projected at 410 TWh in 2025 versus 275 TWh in official statistics. The group attributes the gap to incomplete rooftop PV registration, data transfer delays, and the difficulty of measuring self-consumed solar electricity.\nMay 23, 2026\nSergio Matalucci\nCommercial & Industrial PV\nMarkets\nResidential PV\nEurope\nImage: SMA\nShare\nSolarPower Europe estimates that current rooftop PV generation is underestimated by UE authorities and member states.\n“According to our analysis published in SolarPower Europe’s Solar+ report, solar power generation alone is systematically underestimated in EU and member state statistics,” Raffaele Rossi, head of market intelligence at SolarPower Europe, told\npv magazine\n.\nBy the end of 2025, the EU’s total installed solar capacity is expected to reach 406 GW. Based on aggregated country-level data, SolarPower Europe estimates PV electricity generation at 410 TWh. However, official EU operator statistics report only 275 TWh, a gap of more than 135 TWh, or 33%.\n“There are several reasons that explain this phenomenon,” Rossi said. “Rooftop PV systems must be registered with local grid operators, but the registration process often fails to capture all installations. The transfer of data to national energy statistics is delayed and incomplete. In addition, the very large number of distributed PV systems, especially in the residential segment, requires the aggregation of data from millions of installations. This can create data management challenges for local grid operators, which often lack the capacity to handle such large volumes of information.”\nRossi added that self-consumed electricity is particularly difficult for grid operators to measure because it does not pass through their networks.\n“Conventional electricity statistics do not account for self-consumption, even though 80% of distributed generation is stored in batteries,” he said. “Although smart meters can partly overcome this issue and improve data availability, in most cases they provide only net consumption data, rather than total solar power generation.”\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
           "hb": 1
         },
         {
-          "t": "太阳能驱动绿色乙烯助力可持续石油化工制造",
+          "t": "In2O3 催化 CO2 氢化为甲醇：17O NMR 显示氧空位、表面羟基和反应活性的温度依赖性",
           "d": "2026-05-23",
-          "a": "Joule",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/石油化工",
-          "as": "研究探索了太阳能直接驱动催化路线生产绿色乙烯，为可持续石化制造提供温和低碳方案。传统乙烯生产依赖石脑油裂解，能耗高且碳排放大。该光催化路线利用太阳能驱动CO₂还原或生物质脱氢等反应，在温和条件下合成乙烯。研究重点评估了光催化剂设计、反应器构型和产物选择性调控等关键问题，为石化行业脱碳和可再生能源驱动的绿色化工提供了技术路径。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00165-0?rss=yes",
-          "tp": "太阳能制乙烯",
-          "aip": 1,
-          "kp": [
-            "[太阳能乙烯]: 直接太阳能驱动催化低碳生产绿色乙烯",
-            "[脱碳路线]: 太阳能光催化替代化石路线"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Direct solar-driven catalysis provides a mild and low-carbon route to green ethylene production, representing a significant opportunity to decarbonize one of the largest petrochemical value chains. This perspective evaluates the potential of different feedstocks for solar-driven ethylene production, examines the underlying mechanisms, advantages, energy demands, and practical challenges of direct solar-driven routes, and outlines strategies to accelerate their industrial implementation.",
-          "hb": 1
-        },
-        {
-          "t": "通过可控传质缓解电池退化以突破SOEC电堆的耐久性极限",
-          "d": "2026-05-23",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "固体氧化物电解池（SOEC）是实现高效高温电解制氢的关键技术，但电堆严重劣化是制约其工程化应用的核心瓶颈。该研究提出一种狭缝板（slit-sheet）架构设计，通过精确控制内部传质过程优化电极反应均匀性，显著降低局部浓度梯度和热应力。实验证明该架构有效抑制了电极脱层、界面分离等劣化模式，大幅延长电堆运行寿命，为SOEC从实验室走向大规模工业化制氢提供了重要的工程化解决方案。",
-          "sc": 7.2,
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00169-8?rss=yes",
-          "tp": "SOEC电解池耐久",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2883791?af=R",
+          "tp": "CO2催化制甲醇",
           "aip": 1,
-          "kp": [
-            "[工程策略]: 缝隙片结构控制内部传质",
-            "[目标]: 抑制SOEC入口降解条件",
-            "[结果]: 显著提升电堆耐久性"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Severe degradation is a major obstacle to practical SOEC stacks. A slit-sheet architecture controls internal mass transfer, suppresses degradation-prone inlet conditions, and stabilizes the reaction environment under harsh operating conditions. This simple but powerful approach markedly improves stack durability, thus highlighting internal transport control as an effective route toward robust high-temperature electrolysis systems.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过分级水凝胶中的串联集成微型热电电池在最小温度梯度下限制诱导巨离子热电压",
+          "d": "2026-05-23",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag296/8691444?rss=1",
+          "tp": "热电电池研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -105,77 +95,28 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "链迁移结晶技术突破柔性基底限制，实现弹性体亚10纳米压印光刻",
-        "Fe3GaTe2器件实现室温下斯格明子调控，推进低功耗神经形态计算硬件",
-        "研究阐明二维材料范德华间隙物理机制，界定后摩尔时代晶体管缩放极限"
+        "三一重工发布SY375E电动挖掘机，搭载宁德时代550度电池"
       ],
       "entries": [
         {
-          "t": "纳米通道中链迁移结晶实现弹性体亚10纳米压印光刻",
+          "t": "装备亮点：三一SY375E配备可更换550千瓦时电池",
           "d": "2026-05-23",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "本文报道通过链转移结晶化技术在弹性体上实现亚10纳米分辨率压印光刻。具有纳米结构表面的弹性体在增强界面粘附、摩擦、润湿等性能方面极具价值。该方法突破了传统纳米压印在柔性聚合物基底上的分辨率极限，可在弹性体表面精确构筑周期性纳米图案，为柔性电子、仿生传感器和微流控器件的界面工程提供可规模化制造方案。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec3829?af=R",
-          "tp": "弹性体纳米压印",
-          "aip": 1,
-          "kp": [
-            "分辨率[弹性体纳米压印]: <10nm",
-            "[链转位结晶化]: 动态弹性体网络在纳米通道中实现纳米压印"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Elastomers with nanostructured surfaces exhibit substantial importance in enhancing interfacial properties including mechanics and optical diffraction. However, the structure on elastomer surfaces by imprinting is limited to microscale features due to kinetically arrested reptation diffusion and inevitable entropic recovery. Herein, we design a dynamic elastomeric network to achieve nanoimprinting with ultrahigh resolution and aspect ratios by chain translocated crystallization in nanochannels. Specifically, dynamic covalent bonds trigger network reconstruction after thermal activation and enhance chain disentanglement, which promotes chain translocation in nanochannels. Meanwhile, the crystalline phase within nanochannels creates energetic barriers that effectively restrict entropy-driven recovery. This strategy enables imprinting of elastomer surfaces with sub–10-nm structures, across a 10\n                    7\n                    range in length scale and aspect ratios exceeding 100:1, far outperforming conventional elastomers. Moreover, the imprinted nanostructures provide elastomer surfaces with a marked modulus enhancement by ~5 times to reach 4.2 gigapascals while simultaneously improving optical transparency, which endows elastomers with highly integrated multifunctional protective capabilities.",
-          "hb": 1
-        },
-        {
-          "t": "二维铁磁体Fe3GaTe2中基于集体自旋织构变换的室温斯格明子突触器件",
-          "d": "2026-05-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究人员在二维铁磁材料Fe3GaTe2中实现了室温下基于磁斯格明子的仿生突触器件。磁斯格明子是一种拓扑保护的自旋结构，因其低功耗、高稳定性的特性，被认为是构建类脑神经形态计算硬件的理想信息载体。此前斯格明子突触多需极低温环境运行，限制了实用性。该工作通过碰撞动力学机制在室温下调控斯格明子，实现了突触权重的连续可调，为室温自旋电子学神经形态计算器件迈向实际应用迈出关键一步。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520288?af=R",
-          "tp": "斯格明子突触",
-          "aip": 1,
-          "kp": [
-            "工作温度[斯格明子突触]: 室温",
-            "材料[2D铁磁体]: Fe3GaTe2",
-            "[机制]: 集体自旋织构变换"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Magnetic skyrmions, as topologically protected spin textures, hold great potential for energy‐efficient neuromorphic systems. While artificial synapses have been demonstrated in magnetic multilayers by electrically controlling skyrmion populations, their probabilistic nucleation severely limits reliability. The recent emergence of 2D van der Waals magnets, with their inherent tunability and novel spintronic phenomena, offers a promising platform to overcome these challenges. Here, we demonstrate an artificial synaptic device in 2D ferromagnet Fe\n                    3\n                    GaTe\n                    2\n                    , operating on the fundamentally different principle of a deterministic and collective spin texture transformation from a skyrmion‐lattice to a stripe‐domain state. This transformation yields a linear, reproducible modulation of the anomalous Hall resistance. The slope of this linear response, defined as the synaptic weight, is effectively tuned by varying the pulse width, thereby enabling multi‐weight functionality and multiply‐accumulate operations. Projected scaling of the device reduces the single‐operation energy consumption to 0.66 pJ, a level comparable to state‐of‐the‐art memristor technologies (e.g., resistive random‐access memory and phase‐change memory). Furthermore, a hardware‐informed quantized neural network based on this synapse achieves a high recognition accuracy (∼96.1%) in handwritten‐digit recognition. Our findings establish a robust pathway for creating large‐scale and energy‐efficient neuromorphic systems based on the collective dynamics of Fe\n                    3\n                    GaTe\n                    2\n                    spin textures at room temperature.",
-          "hb": 1
-        },
-        {
-          "t": "二维材料中范德华间隙对器件缩放的约束效应",
-          "d": "2026-05-23",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究揭示了二维材料中范德华间隙对晶体管器件缩放的制约机制。随着晶体管尺寸不断缩小，需要通过超薄介电层控制栅极漏电流并最小化源漏沟道泄漏。该工作从基础物理层面分析了二维材料堆叠中固有的范德华间隙如何影响载流子输运与介电性能，为后摩尔时代二维半导体器件的工程化设计提供了关键约束条件和缩放极限的理论指导。",
+          "a": "Electrek",
+          "c": "AI与智能科技/具身智能/供能和换电生态",
+          "as": "中国装备制造商三一重工（SANY）推出了全新40吨级SY375E电动挖掘机。该设备的核心亮点是配备了一块容量高达550千瓦时的宁德时代（CATL）可更换电池。其搭载200千瓦永磁同步电机，可提供235千牛的铲斗挖掘力，性能足以媲美同级别的柴油动力挖掘机。",
           "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aeb2271?af=R",
-          "tp": "二维半导体器件",
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/05/23/e-quipment-highlight-sany-sy375e-packs-a-swappable-550-kwh-battery/",
+          "tp": "换电挖掘机",
           "aip": 1,
           "kp": [
-            "[约束因素]:范德华间隙限制2D器件缩放",
-            "[界面问题]:低介电常数隧穿势垒",
-            "[器件]:2D半导体晶体管缩放"
+            "[SY375E电动挖掘机电池]: 配备容量为550 kWh的可更换宁德时代(CATL)电池"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Transistor miniaturization requires controlling gate leakage through ultrathin dielectrics and minimizing source-drain contact resistance. Although two-dimensional semiconductors offer excellent electrostatic control, their interfaces with gate dielectrics and contact metals often form a van der Waals (vdW) gap that affects device performance and acts as a tunneling barrier with a low dielectric constant. While this reduces dielectric leakage, it increases metal-channel contact resistance and introduces a parasitic series capacitance to the gate. We quantified the trade-off between leakage suppression and electrostatic and contact-resistance scaling limits. As a result of this trade-off, many insulators fail to meet scaling targets, and metal-channel contacts fall short of required resistances. Zipper-like interfaces, where quasi-covalent bonding removes the vdW gap without creating dangling bonds, offer a path toward ultrascaled transistor designs.",
+          "b": "battery swap\nElectric Heavy Machinery\nSANY\nE-quipment highlight: SANY SY375E packs a SWAPPABLE 550 kWh battery\nJo Borrás\n| May 23 2026 - 5:47 am PT\n7 Comments\nChinese multinational equipment brand SANY says its new, SY375E electric excavator will redefine heavy-duty performance and job site sustainability with its impressive range of capabilities – but one item leaps off the spec sheet:\nthe massive, swappable 550 kWh CATL battery\n!\nThe 40-ton class SY375E electric excavator is one of the latest SANY machines to make its way into Western markets, and packs a 200 kW permanent magnet synchronous motor that, in concert with the machine’s hydraulic actuators, delivers 235 kN of bucket digging force. More than enough, says SANY, to match the power and productivity of its diesel-powered counterparts on just about every job site.\nSANY isn’t content with just matching the capabilities of diesel equipment with its big EVs, however. They offer contractors working in urban areas, emission- and noise-restricted zones,\nor on big civil projects with long lead times and lots of exposure to swings in fuel costs a serious competitive advantage\n.\n“The construction industry isn’t just building infrastructure – it’s building the future,” writes Wesley Q. Yang, General Manager of SANY International, Europe. “\nAnd that future is electric\n.”\nAdvertisement - scroll for more content\nI couldn’t agree more with Mr. Yang., but if you’re still on the fence, consider that the SANY SY375E’s compact swing radius (4.18 m, or just about 13.5 ft), low center of gravity, 35° gradability,\nand precise electronic and autonomous grade and leveling controls would make it ideally suited for rough or uneven terrain\n.\nThat big battery, tho\nSANY battery packs; photo by Wesley Yang.\nGiant battery packs like the 550 kWh unit in this machine don’t typically bode well for efficiency plays\n– especially on job sites, where long machine idle times that can stretch for days effectively strand those battery assets. SANY has a clever workaround for the big SY375E, though, because\nthis\nbig battery is swappable!\nA number of sources cite an 18 minute swap time for the SY375E, as well as a smaller, 550 kWh battery pack that can be used by a number of other SANY heavy machines for even more job site flexibility, BESS options, and other smart energy deployment schemes.\nNo word on pricing or local (US) availability, but if you reach out to SANY USA and promise the right guy an Adidas gym bag full of cash, I’m sure they’ll get you one.\nSOURCE | IMAGES\n: Wesley Yang,\nvia LinkedIn\n.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\nEnergySage\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\n.\nFTC: We use income earning auto affiliate links.\nMore.\nStay up to date with the latest content by\nsubscribing to Electrek on Google News\n.\r\n\r\nYou’re reading Electrek— experts who break news about\nTesla\n,\nelectric vehicles,\nand\ngreen energy\n, day after day. Be sure to check out our\nhomepage\nfor all the latest news, and follow Electrek on\nTwitter\n,\nFacebook\n, and\nLinkedIn\nto stay in the loop. Don’t know where to start? Check out our\nYouTube channel\nfor the latest reviews.\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\npodcast\n.\nComments\nExpand\nClose\ncomments\nExpand\nClose\ncomments\nGuides\nbattery swap\nElectric Heavy Machinery\nSANY\nAuthor\nJo Borrás\nvolvojo1\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nJo Borrás's favorite gear\nENERGYSAGE\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQMERIT\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
           "hb": 1
         }
       ]
@@ -184,18 +125,17 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中船集团完成537天万米深海试验，获取多类材料实海腐蚀基础数据",
-        "Fe驱动重稀土晶界偏析策略提升2:17型钐钴磁体各向异性场与矫顽力",
-        "中科院理化所开发微波催化技术，将含卤素废塑料转化为碳纳米管与氢气"
+        "中船集团完成537天万米深海材料腐蚀试验，刷新全球时长纪录",
+        "中科院理化所开发新催化剂，将废塑料转化为碳纳米管与氢气"
       ],
       "entries": [
         {
           "t": "中船集团牵头完成了537天万米深海材料腐蚀试验",
           "d": "2026-05-23",
-          "a": "",
+          "a": "News",
           "c": "通用技术/材料工程/耐腐蚀材料",
           "as": "中船集团725所牵头完成537天万米深海材料腐蚀试验，刷新全球持续时长纪录。试验涵盖黑色/有色金属、功能涂层、牺牲阳极和浮力材料等，提供无需推算的实海环境性能数据，优化腐蚀裕量设计，为深海油气、科学观测等长驻装备防护和寿命预测提供核心边界条件。",
-          "sc": 7.4,
+          "sc": 7.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://news.cctv.com/2026/05/23/ARTIxRynGH1Y92R79EWhceNS260523.shtml",
@@ -209,39 +149,36 @@
           "hb": 1
         },
         {
-          "t": "通过Fe驱动的HRE偏析实现创纪录高性能2:17型SmCo磁体",
+          "t": "中船集团牵头完成了537天万米深海材料腐蚀试验",
           "d": "2026-05-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "2:17型SmCo永磁材料因居里温度高、耐腐蚀性强而在高温、航空航天等极端环境应用中具有不可替代的地位，但其最大磁能积(BH)max长期受限于微观组织优化不足。该研究通过Fe元素驱动的重稀土元素（HRE）晶界偏析策略，在SmCo磁体中实现重稀土沿晶界的选择性富集，显著增强了各向异性场和矫顽力，同时避免了重稀土对主相磁化强度的过度稀释，从而获得创纪录水平的综合磁性能，为高性能稀土永磁材料的微观设计提供了新思路。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73467?af=R",
-          "tp": "钐钴永磁体",
+          "a": "News",
+          "c": "通用技术/材料工程/耐腐蚀材料",
+          "as": "中船集团725所牵头完成537天万米深海材料腐蚀试验，刷新全球持续时长纪录。试验涵盖黑色/有色金属、功能涂层、牺牲阳极和浮力材料等，提供无需推算的实海环境性能数据，优化腐蚀裕量设计，为深海油气、科学观测等长驻装备防护和寿命预测提供核心边界条件。",
+          "sc": 7.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.cctv.com/2026/05/23/ARTIxRynGH1Y92R79EWhceNS260523.shtml",
+          "tp": "深海腐蚀试验",
           "aip": 1,
-          "kp": [
-            "[策略]: Fe驱动重稀土偏析",
-            "[材料]: 2:17型SmCo磁体"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Development of high‐performance SmCo magnets, simultaneously possessing high magnetic energy product (\n                    BH\n                    )\n                    max\n                    and low remanence temperature coefficient |\n                    α\n                    |, is critical for applications of wide‐temperature precision instruments. Conventional heavy rare‐earth (HRE) substitution improves temperature stability via antiferromagnetic coupling but inevitably sacrifices (\n                    BH\n                    )\n                    max\n                    , resulting in a persistent trade‐off between (\n                    BH\n                    )\n                    max\n                    and |\n                    α\n                    |. Herein, we propose a Fe‐HRE synergistic compositional‐design strategy that integrates Fe enrichment and HRE segregation to break this bottleneck. First‐principles calculations reveal that increasing Fe concentration provides a thermodynamic driving force for HREs segregation from the 1:5H cell boundary into the 2:17R matrix. Furthermore, molecular field simulations quantitatively demonstrate that HRE enrichment in the 2:17R phase enhances its temperature compensation effect and effectively overcomes this trade‐off. Guided by these insights, a series of Sm\n                    0.4\n                    Gd\n                    0.6\n                    (Co\n                    bal\n                    Fe\n                    \n                      x\n                    \n                    Cu\n                    0.08\n                    Zr\n                    0.025\n                    )\n                    7.2\n                    (\n                    x\n                    = 0.20–0.24) magnets are prepared. Magnetic and microstructural characterizations confirm that moderate Fe enrichment (\n                    x\n                    = 0.22) not only improves (\n                    BH\n                    )\n                    max\n                    but also facilitates Gd segregation into 2:17R phase without microstructural degradations. These synergistic effects yield a record‐high (\n                    BH\n                    )\n                    max\n                    of 18.8 MGOe and\n                    α\n                    20°C–300°C\n                    = −0.012%/°C. This work establishes a unified design framework integrating magnetic moment engineering with thermodynamic element distribution regulation, paving a viable path for high‐temperature‐stable SmCo magnets for aerospace precision instruments.",
+          "b": "据央视网5月23日报道，由中船集团725所牵头完成了537天万米深海材料腐蚀试验，刷新全球同类型试验持续时长纪录，探究了相关材料、涂层在万米深海耐腐蚀的能力。\n另据中国能源报报道称，此次试验框架搭载试验样片、原位监测装置等，试验材料包括黑色金属、有色金属；各类功能涂层；牺牲阳极材料、非金属的浮力材料等。根据此次试验的数据，可为深海装备提供无需推算的实海环境材料性能演变依据；同时可以优化深海装备腐蚀裕量设计，减少浪费；还可以为水下科学观测、深海油气生产、深海资源开采等长驻型装备的防护工艺改进、全生命周期寿命预测提供核心边界条件。此外，725所还依托深海实际试验数据，对万米级深海模拟试验装置进行了迭代升级，可通过高压釜来实现万米的压力，同时通过控制系统来控制它的盐度、pH值等参数，实时模拟真实深海的海水状况。",
           "hb": 1
         },
         {
           "t": "中科院理化所马望京报道一种FeNi/Ni/C催化剂可以塑料为原料高效制备碳纳米管和氢气",
           "d": "2026-05-23",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/催化剂",
           "as": "中科院理化所马望京团队开发FeNi/Ni/C催化剂，以微波驱动将含氯/氟混合废塑料转化为碳纳米管和氢气。设计串联催化剂床结构减少副产物提升氢气效率，PVC分解产生的HCl与Ni、Fe反应生成氯化物中间体促进催化过程。该路线为碳纳米管提供非化石碳源并联产清洁氢气。",
-          "sc": 6.4,
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41467-026-73141-w",
           "tp": "废塑料制碳管",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",

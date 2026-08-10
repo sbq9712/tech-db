@@ -6,19 +6,14 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "新型凝胶电解质抑制枝晶生长，提升无负极锂电池循环寿命",
-      "二氧化碳矿化联产氢气技术制备低成本建筑胶凝材料",
-      "固体添加剂工程提升有机太阳能电池光电转换效率至21%"
+      "双离子受限区域通道设计提升全固态锂金属电池离子传输速率",
+      "英国二手电动汽车大规模评估显示电池平均健康度达95%"
     ],
-    "AI与智能科技": [
-      "Isomorphic Labs发布新一代AI模型加速靶点识别与小分子设计",
-      "研究提出通用框架干预大模型表征空间以抑制有害输出",
-      "STARLING框架结合物理力场与深度学习预测无序蛋白构象"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究人员制备12英寸晶圆级硼烯材料应用于光电计算器件",
-      "全切片边缘层析成像系统实现细胞病理学无人工干预诊断",
-      "研究合成高自旋过渡金属催化剂以提升酸性析氧反应稳定性"
+      "1T′/2H-MoTe2/ITO范德华集成交叉阵列实现可见光至近红外波段自供电成像",
+      "暗场电子断层扫描技术以亚纳米分辨率重建纳米金属三维晶界形态",
+      "原位浸渍3D打印技术制备仿生连续丝增强支架用于半月板修复"
     ]
   },
   "sectors": [
@@ -26,99 +21,21 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "新型凝胶电解质抑制枝晶生长，提升无负极锂电池循环寿命",
-        "二氧化碳矿化联产氢气技术制备低成本建筑胶凝材料",
-        "固体添加剂工程提升有机太阳能电池光电转换效率至21%"
+        "双离子受限区域通道设计提升全固态锂金属电池离子传输速率",
+        "英国二手电动汽车大规模评估显示电池平均健康度达95%"
       ],
       "entries": [
         {
-          "t": "具有疏盐网络的凝胶电解质实现长循环寿命与高能量密度无负极锂电池",
+          "t": "[ASAP] 双离子受限区域通道实现全固态锂金属电池的快速离子传输",
           "d": "2026-02-20",
-          "a": "Joule",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究设计了一种含\"寄生性斥盐网络\"的凝胶电解质，使无负极锂金属电池实现高循环稳定性。该网络结构可选择性排斥锂盐富集区域，优化锂离子在电极界面的沉积行为，抑制枝晶生长，从而提升无负极电池的安全性与寿命，为高能量密度锂电池的工程化提供新思路。",
-          "sc": 7.8,
+          "as": "",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00477-5?rss=yes",
-          "tp": "无负极锂电池",
-          "aip": 1,
-          "kp": [
-            "[无负极锂电池]: 凝胶电解质盐排斥网络",
-            "[电解质设计]: 促进阴离子富集环境"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Advancing safe and durable lithium batteries requires clearer insight into how electrolytes govern ion behavior. This work demonstrates that rational polymer design can reshape lithium-ion solvation, a largely overlooked lever in battery optimization. By engineering a gel electrolyte that promotes a stable anion-rich environment, the work enables improved cycling stability and thermal stability in anode-free cells. These findings highlight the importance of molecular-level solvation control and offer a practical strategy for next-generation high-energy batteries.",
-          "hb": 1
-        },
-        {
-          "t": "循环加速CO2矿化：实现低成本竞争力的胶凝材料与氢气联产",
-          "d": "2026-02-20",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "该研究提出一种循环加速CO₂矿化技术，用于生产成本可竞争的胶凝建筑材料，助力净负碳经济。通过将CO₂捕获与矿化过程耦合，将温室气体转化为具有结构强度的水泥替代材料，实现碳的永久封存。该方法兼顾高效碳捕集与低成本利用，有望为水泥和混凝土这一高排放行业提供脱碳路径，具有显著的减碳潜力和商业可行性。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07347B",
-          "tp": "CO2矿化水泥",
-          "aip": 1,
-          "kp": [
-            "关键工艺[CO2矿化]: Na2CO3循环加速",
-            "产物[CO2利用]: 碳酸盐胶凝材料+无定形硅"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Advancing a net-negative carbon economy requires efficient and cost-effective CO2 capture and utilization methods. Here, we introduce a novel sodium carbonate (Na2CO3) looping process that accelerates CO2 capture and mineralization by silicate feedstocks such as steel slags, producing a carbonate-rich product and amorphous silica as cementitious materials. Unlike conventional direct or acid-assisted mineralization, our chemical looping approach first carbonates the silicate using a Na2CO3 solution. The same solution then reactively captures CO2 and precipitates high-purity, (sub)micron-sized amorphous silica, while simultaneously regenerating the Na2CO3. Demonstrated on steel slags, the process achieved 59% and 35% capture for point-source and air CO2, respectively, mineralizing to up to 2.79 mmol-C g-1 slag. Compared to traditional slag-water CO2 mineralization, Na2CO3 looping captured and mineralized 4 to 9 times more CO2. Mechanistically, Na2CO3 looping accelerates mineralization by rapidly removing Ca via carbonate precipitation, thereby sustaining a strong thermodynamic driving force for continued Ca–silicate dissolution, which governs the overall carbonation rate. The process offers several key advantages and novelties: (1) no net chemical consumption due to complete Na2CO3 regeneration; (2) CO2 capture and mineralization occur at room temperature and 1 atm; (3) the CO2 source can be either point source or ambient air; (4) both the carbonation and reactive capture steps are exothermic, lowering system energy demand and eliminating external heat input; and (5) two cementitious products—carbonate-rich solids and amorphous silica—are generated separately, enabling flexible blending in downstream applications. Additionally, utilization of slag waste heat enables reaction with steam to produce up to 1.01 mmol-H2 g-1 slag. Without product revenues, levelized costs are only $252 and $50 per ton of CO2 for air and point-source capture, respectively; considering product revenues, the payback periods are only 1.9 and 0.8 for air and point-source CO2.",
-          "hb": 1
-        },
-        {
-          "t": "通过固体添加剂工程在二元有机太阳能电池中实现接近84%创纪录填充因子与21%效率",
-          "d": "2026-02-20",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "有机太阳能电池（OSC）中固体添加剂是调控活性层形貌的有效手段，但其作用机理尚未完全阐明。该研究通过优化固体添加剂策略，在二元OSC中实现了接近84%的填充因子与21%的光电转换效率，创下该体系新纪录。成果表明精确的形貌调控可显著降低非辐射复合损失，为低成本、高效率柔性光伏技术的规模化应用铺平道路。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519230?af=R",
-          "tp": "有机太阳能电池",
-          "aip": 1,
-          "kp": [
-            "填充因子[二元OSC]: ~84%",
-            "光电效率[二元OSC]: 21%"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Solid additives, as an efficient approach of morphology control in organic solar cells (OSCs), remain not fully understand in terms of the influence of their intermolecular interactions with photoactive molecules on morphological evolution and ultimate device performance. Herein, the intermolecular interactions between solid additives and photoactive molecules were precisely tuned through molecular isomerization engineering. Three isomers of iodine‐substituted 1,2,4‐trichlorobenzene were adopted as the solid additives. The four strongly electronegative halogen atoms readily produce intense interactions with the photoactive materials, thereby enhancing their\n                    J\n                    ‐type stacking and broadening the absorption spectrum. Crucially, the iodine substituent position on the solid additives was altered, which improved their miscibility and intermolecular interactions with photoactive materials, forming a bicontinuous interpenetrating network. Consequently, the binary OSCs achieved an impressive fill factor of approximately 84% with an efficiency of nearly 21% (certified as 20.42%), ranking among the top OSC performances to date. Furthermore, the device demonstrated excellent storage stability, with an extrapolated T\n                    80\n                    (maintaining 80% of its initial efficiency) exceeding 10 000 h.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [
-        "Isomorphic Labs发布新一代AI模型加速靶点识别与小分子设计",
-        "研究提出通用框架干预大模型表征空间以抑制有害输出",
-        "STARLING框架结合物理力场与深度学习预测无序蛋白构象"
-      ],
-      "entries": [
-        {
-          "t": "'AlphaFold 4'——科学家惊叹DeepMind药物衍生公司的独家新AI",
-          "d": "2026-02-20",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "DeepMind旗下药物研发子公司Isomorphic Labs发布了专有的新一代AI蛋白质结构预测与药物设计模型，被科学家称为AlphaFold 4级别的突破。新模型据称整合了AlphaFold系列能力，不仅能预测更复杂的蛋白质及其相互作用，还直接面向药物发现流程，加速靶点识别与小分子设计。其排他性引发了学术界对AI制药资源不平等的讨论。该工具有望大幅缩短药物研发周期，但商业化专有模式也引发了对可重复性与公共获取的担忧。",
-          "sc": 8.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/d41586-026-00365-7",
-          "tp": "药物发现大模型",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21322",
+          "tp": "固态锂电池",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -128,121 +45,110 @@
           "hb": 0
         },
         {
-          "t": "迈向AI模型的通用引导与监控",
+          "t": "英国最大的二手电动汽车电池研究显示，电池平均健康状况为 95%，旧车之间的差异扩大",
           "d": "2026-02-20",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "探讨了实现AI模型通用引导(steering)和监测(monitoring)的方法论。随着AI模型编码大量人类知识，理解和控制其内部知识表征变得至关重要。该研究提出了一个统一框架，通过对模型内部表征空间的探测和干预，实现对模型行为的通用引导——包括激活特定知识回路、抑制有害输出以及实时监测模型推理路径。该框架不依赖特定任务微调，而是从表征层面对模型进行透明化操作，为AI安全、可解释性和对齐研究提供了方法论基础。",
-          "sc": 6.7,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.3,
           "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aea6792?af=R",
-          "tp": "AI模型对齐调控",
-          "aip": 1,
-          "kp": [
-            "[方法]: 提取AI模型语义概念的线性表示",
-            "[应用]: 模型导引与监测"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Artificial intelligence (AI) models contain much of human knowledge. Understanding the representation of this knowledge will lead to improvements in model capabilities and safeguards. Building on advances in feature learning, we developed an approach for extracting linear representations of semantic notions or concepts in AI models. We showed how these representations enabled model steering, through which we exposed vulnerabilities and improved model capabilities. We demonstrated that concept representations were transferable across languages and enabled multiconcept steering. Across hundreds of concepts, we found that larger models were more steerable and that steering improved model capabilities beyond prompting. We showed that concept representations were more effective for monitoring misaligned content than for using judge models. Our results illustrate the power of internal representations for advancing AI safety and model capabilities.",
-          "hb": 1
-        },
-        {
-          "t": "使用 STARLING 准确预测无序蛋白质整体",
-          "d": "2026-02-20",
-          "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "本质无序蛋白和区域（IDR）在几乎所有真核细胞过程中发挥关键作用，以多种构象集合存在，结构可塑性赋予其多样的分子识别功能。本研究结合物理力场与多模态生成深度学习，开发了STARLING框架，可快速生成无序蛋白构象集合预测，为研究IDR结构-功能关系提供了高效新工具。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10141-2",
-          "tp": "蛋白质预测",
+          "tg": "观点评论",
+          "u": "https://batteriesnews.com/uks-largest-used-ev-battery-study-reveals-95-average-battery-health-as-variance-widens-between-older-vehicles/",
+          "tp": "旧电池健康度",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Intrinsically disordered proteins and regions (collectively IDRs) are found across all kingdoms of life and have critical roles in virtually every eukaryotic cellular process1. IDRs exist in a broad ensemble of structurally distinct conformations. This structural plasticity facilitates diverse molecular recognition and function2,3,4. Here we combine advances in physics-based force fields with the power of multi-modal generative deep learning to develop STARLING, a framework for rapid generation of accurate IDR ensembles and ensemble-aware representations from sequence. STARLING supports environmental conditioning across ionic strengths and demonstrates proof of concept for the interpolative ability of generative models beyond their training domain. Moreover, we enable ensemble refinement under experimental constraints using a Bayesian maximum-entropy reweighting scheme. Beyond ensemble characterization, STARLING sequence representations can be used in multiple ways. We showcase two examples: first, STARLING lets us perform ensemble-based search for ‘biophysical look-alikes’. Second, we demonstrate how these latent representations can be used to accelerate ensemble-first sequence design from weeks or hours per candidate to seconds, enabling library-scale designs. Together, STARLING dramatically lowers the barrier to the computational interrogation of IDR function through the lens of emergent biophysical properties, complementing bioinformatic protein sequence analysis. We evaluate the accuracy of STARLING against extant experimental data and offer a series of vignettes illustrating how STARLING can enable rapid hypothesis generation for IDR function and aid the interpretation of experimental data.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究人员制备12英寸晶圆级硼烯材料应用于光电计算器件",
-        "全切片边缘层析成像系统实现细胞病理学无人工干预诊断",
-        "研究合成高自旋过渡金属催化剂以提升酸性析氧反应稳定性"
+        "1T′/2H-MoTe2/ITO范德华集成交叉阵列实现可见光至近红外波段自供电成像",
+        "暗场电子断层扫描技术以亚纳米分辨率重建纳米金属三维晶界形态",
+        "原位浸渍3D打印技术制备仿生连续丝增强支架用于半月板修复"
       ],
       "entries": [
         {
-          "t": "12英寸电学各向异性硼烯用于光电计算",
+          "t": "具有可调节原子级通道的范德华集成交叉阵列，用于超低功率成像",
           "d": "2026-02-20",
-          "a": "Nature Nanotechnology",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究人员制备出12英寸晶圆级电学各向异性硼烯（boridene）材料，并将其应用于光电计算器件。该材料具备双极性光电响应特性，可在单一器件中实现正负光电流切换，从而简化光电计算架构，减少所需器件数量。大尺寸晶圆级制备的可行性使其在下一代高能效光电融合计算芯片中具有广阔应用前景。",
-          "sc": 8.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02122-3",
-          "tp": "硼烯光电计算",
-          "aip": 1,
-          "kp": [
-            "材料尺寸[硼烯]: 12英寸",
-            "[光电计算]: 电各向异性硼烯实现双极响应传感器内计算",
-            "[集成瓶颈]: 生长温度高与不均匀性"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Optoelectronic computing devices capable of bipolar responses offer a route to simplified architectures for processing complex tasks. However, advancing such systems towards large-scale, in-sensor computing has been constrained by the difficulty of monolithically integrating neuromorphic optoelectronic arrays with peripheral circuits, largely due to high material growth temperatures and the non-uniform performance of complex device stacks. Here we report Mo4/3B2Tz (Tz = O, OH, F) boridene as a low-thermal-budget platform for neuromorphic optoelectronics, enabling twelve-inch deposition below 150 °C with excellent wafer-scale uniformity. Ordered metal vacancies and interlayer registry variations generate an unusual electrical anisotropy in which through-plane conduction dominates over in-plane transport. This anisotropy enables a simplified three-terminal device architecture that exhibits intrinsic bipolar and highly linear programmable photoresponses. Correlative conductive atomic force microscopy and first-principles simulations reveal that vacancy-mediated interlayer charge transfer governs the observed behaviour. We further fabricate a 54 × 54-pixel2 optoelectronic computing array with a 99.48% yield and 16 fully separable states. Using a 3k-pixel system prototype, we demonstrate the diagnosis of ophthalmic disorders. Our work establishes Mo4/3B2Tz boridene as a scalable nanomaterial platform that brings neuromorphic optoelectronic computing closer to practical implementations.",
-          "hb": 1
-        },
-        {
-          "t": "基于全片边缘断层成像的临床级自主细胞病理学诊断",
-          "d": "2026-02-20",
-          "a": "Nature",
+          "a": "Matter",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究提出了一种基于全切片边缘层析成像技术的临床级自主细胞病理学诊断系统。细胞病理学（细胞学）在宫颈癌、肺癌等恶性肿瘤的早期筛查中至关重要，但传统人工镜检依赖病理医师经验，存在效率低、主观性强、医疗资源分布不均等问题。该系统通过全切片成像结合边缘层析重建算法，实现对细胞形态学特征的三维级深度提取，能够在无人工干预的情况下自动识别和分级异常细胞。研究在多中心临床数据上验证了该系统与资深病理医师诊断结果的高度一致性，表明其有望解决基层医疗机构细胞学筛查能力不足的瓶颈，推动精准早筛的普及化部署。",
-          "sc": 7.2,
+          "as": "研究构建了由垂直1T′/2H-MoTe2/ITO器件组成的范德华集成交叉阵列，用于可见光和近红外区域的超低功耗成像。不对称电极设计使该交叉阵列实现了自供电光电探测。阵列中的垂直器件不仅具备可调节的原子级通道，还拥有较大的光照面积，从而有效增强了光电响应，为二维材料光电探测器的性能优化与集成提供了新策略。",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-10094-y",
-          "tp": "自主细胞病理断层成像",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00661-7?rss=yes",
+          "tp": "低功耗成像器件",
           "aip": 1,
           "kp": [
-            "[诊断]: 全玻片边缘层析自主细胞病理"
+            "器件结构[交叉阵列垂直器件]: 1T′/2H-MoTe2/ITO",
+            "光电探测模式[不对称电极]: 自供电",
+            "通道特征[垂直器件]: 可调节原子级通道",
+            "响应增强机制[垂直器件]: 大面积光照"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Cytopathology, often abbreviated as cytology, has a central role in the early detection of cancer, such as cervical, lung and bladder cancers, owing to its speed, simplicity and minimally invasive nature1,2,3,4,5,6,7,8,9. However, its effectiveness is limited by variability in diagnostic accuracy stemming from subjective visual interpretation10,11,12,13,14,15,16,17,18,19,20,21. Although many artificial intelligence (AI)-powered systems have been proposed to improve consistency22,23,24,25,26, none have achieved fully autonomous, clinical-grade performance. Existing approaches serve as assistive tools and still rely on human oversight for interpretation and decision-making22,23,24,25,26. Here we present a clinical-grade autonomous cytopathology pipeline that combines high-resolution, real-time optical whole-slide tomography with edge computing to deliver end-to-end automation. The system achieves practical performance in imaging speed, quality and data volume, with localized data compression enabling streamlined storage and accelerated AI-driven analysis. In addition to supporting cell-level classification, the platform enables flow cytometry-like, population-wide morphological profiling for comprehensive interpretation of cellular distributions and patterns. A vision transformer achieved area under the receiver operating characteristic (ROC) curve (AUC) values exceeding 0.99 at the single-cell level for detecting low-grade squamous intraepithelial lesions (LSILs), high-grade squamous intraepithelial lesions (HSILs) and adenocarcinoma. In a multicentre evaluation of 1,124 cervical liquid-based cytology samples across four centres, the AI model achieved slide-level AUC values of 0.86–0.91 for LSIL+ and 0.89–0.97 for HSIL+, with LSIL counts correlating strongly with human papillomavirus positivity and HSIL counts scaling with diagnostic severity. The system enables autonomous triage cytology, offering a foundation for routine, scalable and objective diagnostics.",
+          "b": "van der Waals (vdWs)-integrated crossbar arrays consisting of vertical 1T′/2H-MoTe2/ITO devices have been constructed for ultralow-power imaging in visible and near-infrared regions. The asymmetric electrodes enable the device to achieve self-powered photodetection. The vertical device in this crossbar array exhibits both an adjustable atomic-scale channel and a large illumination area, effectively enhancing the photoresponse. This work provides alternative strategies for optimal performance and integration of 2D material-based photodetectors.",
           "hb": 1
         },
         {
-          "t": "高自旋过渡金属原子驱动酸性析氧反应",
+          "t": "以亚纳米分辨率揭示三维空间中纳米结构金属的晶界平面和曲率",
           "d": "2026-02-20",
-          "a": "Nature Communications",
-          "c": "通用技术/催化剂",
-          "as": "该研究致力于合成高自旋过渡金属原子催化剂，以替代IrO2、RuO2等贵金属催化剂，实现高效酸性析氧反应（OER）。酸性环境下的OER是质子交换膜电解水的关键半反应，但多数非贵金属催化剂在酸性介质中易溶解失活。研究通过调控过渡金属中心的自旋态，优化其与含氧中间体的吸附能，在提升催化活性的同时增强酸性条件下的稳定性。该方向对降低绿氢生产成本、推进大规模电解水制氢具有重要工程意义。",
-          "sc": 6.9,
+          "a": "Matter",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究引入了一种暗场电子断层扫描技术，能够以亚纳米级分辨率重建金属的三维晶粒形态和取向，实现了对晶界平面和曲率的定量分析。研究结果直观揭示了热驱动的晶界向Schwarz晶体演化的过程，为深入理解纳米晶金属的结构稳定性及其热力学演变机制提供了全新的分析视角和量化依据。",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-69682-9",
-          "tp": "高自旋析氧催化",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00662-9?rss=yes",
+          "tp": "纳米晶界表征",
           "aip": 1,
           "kp": [
-            "催化剂[酸性OER]: 石墨炔诱导高旋过渡金属",
-            "目标[OER]: 替代IrO2/RuO2"
+            "分辨率[暗场电子断层扫描]: 亚纳米级",
+            "表征维度[晶粒形态与取向]: 三维空间重构",
+            "分析能力[晶界]: 平面与曲率的定量分析",
+            "演化机制[纳米晶金属]: 热驱动的晶界向Schwarz晶体演化"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Synthesizing transition metal catalysts to replace precious metal ones such as IrO2 and RuO2, achieving efficient acidic oxygen evolution reaction while balancing intrinsic activity, stability, and cost-effectiveness always been a dream pursued by scientists and industrialists, but still remains a challenge. Here, we present an efficient catalytic system formed by graphdiyne-induced high-spin state cobalt-based oxide (HSS-CoOx/GDY) for enhancing the activity and stability of the acidic oxygen evolution reaction. Experimental and theoretical results demonstrate that the bonding of electron-rich sp-hybridized carbon and Co atoms initiates the Jahn-Teller effect of CoO6 octahedra, which regulates the occupied d-orbital of Co atoms and generates the high-spin Co3+. Such spin occupancy breaks the spin-forbidden effect and optimizes the adsorption/desorption ability of HSS-CoOx/GDY toward key reaction intermediates, thereby promoting the coupling of O-O bonds and the evolution of oxygen gas. The proton exchange membrane water electrolyzers constructed based on this catalyst achieve a current density of 1.0 A cm−2 at a low cell voltage of 1.80 V. This research indicates that graphdiyne has the ability to manipulate the electronic spin states of electrocatalysts.",
+          "b": "This study introduces a dark-field electron tomography method that reconstructs three-dimensional grain morphology and orientation with sub-nanometer resolution, enabling quantitative analysis of grain boundary planes and curvature. The results reveal thermally driven grain boundary evolution toward the Schwarz crystal, providing new insight into the structural stability of nanocrystalline metals.",
+          "hb": 1
+        },
+        {
+          "t": "具有仿生力学的 3D 打印连续丝增强支架用于半月板修复",
+          "d": "2026-02-20",
+          "a": "Matter",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "本研究开发了一种具有仿生力学的3D打印连续丝增强支架，用于解决半月板修复难题。通过原位浸渍3D打印技术将蚕丝整合到聚己内酯基长丝中，制备出具有类似半月板各向异性、粘弹性、抗疲劳和抗缝合性的支架。该支架能促进细胞增殖、分化及组织重塑，转录组学分析证实动态机械刺激激活了多条机械转导通路，为异质结构和复杂生物力学组织的修复提供了新方案。",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00673-3?rss=yes",
+          "tp": "半月板修复支架",
+          "aip": 1,
+          "kp": [
+            "支架制备[3D打印]: 连续丝增强与原位浸渍复合",
+            "力学仿生[支架性能]: 类半月板各向异性、粘弹性、抗疲劳和抗缝合",
+            "生物效应[组织重塑]: 增强细胞增殖/分化并激活机械转导"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This study developed a 3D-printed continuous-silk-reinforced scaffold with biomimetic mechanics to address meniscus repair challenges. The in situ impregnation and 3D printing integrates strands of silks into polycaprolactone-based filaments, generating a scaffold with meniscus-like anisotropy, viscoelasticity, fatigue, and suture resistance. Such a scaffold enhanced cellular proliferation/differentiation and tissue remodeling, with transcriptomics revealing multiple activated mechanotransduction pathways under dynamic mechanical stimulation. The findings provide a novel solution for the repair of tissues with heterogeneous structure and complex biomechanics.",
           "hb": 1
         }
       ]

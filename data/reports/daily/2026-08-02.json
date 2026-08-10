@@ -6,57 +6,97 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "WEST装置实验确立ICRH共振层偏移7厘米为最佳等离子体性能阈值",
-      "研究提出准等动力与分段全向磁场组合法以简化仿星器线圈设计"
+      "上海“星树计划”发布三颗互联卫星群，首次采用钙钛矿串联太阳能电池",
+      "库丹库拉姆核电四台新建机组延期至2030年，总造价上涨55%至144亿美元",
+      "台山核电上线“EPR全域信息检索系统”，整合千万级数据实现一键跨平台查询"
     ],
-    "AI与智能科技": [],
-    "通用技术": []
+    "AI与智能科技": [
+      "中微公司已推出54种高端半导体设备，刻蚀与薄膜加工精度达原子级",
+      "芝加哥光纤网络实现24.4公里量子纠缠传输，验证高流量通信环境可行性",
+      "科研人员证实非阿贝尔任意子具备通用量子计算所需完整操作集"
+    ],
+    "通用技术": [
+      "国际团队在《自然》发文，首次构建皮秒级动态改变光学特性的时间晶体",
+      "中国076型两栖攻击舰“四川舰”开展实弹测试及电磁弹射配重块验证",
+      "Betterial发布钙钛矿模块专用的无卤TPO封装膜，规避传统材料腐蚀风险"
+    ]
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "WEST装置实验确立ICRH共振层偏移7厘米为最佳等离子体性能阈值",
-        "研究提出准等动力与分段全向磁场组合法以简化仿星器线圈设计"
+        "上海“星树计划”发布三颗互联卫星群，首次采用钙钛矿串联太阳能电池",
+        "库丹库拉姆核电四台新建机组延期至2030年，总造价上涨55%至144亿美元",
+        "台山核电上线“EPR全域信息检索系统”，整合千万级数据实现一键跨平台查询"
       ],
       "entries": [
         {
-          "t": "ICRH 共振层位置对 WEST H 少数等离子体核心等离子体性能的影响",
+          "t": "上海“星树计划”首个空间计算卫星群采用钙钛矿串联太阳能电池",
           "d": "2026-08-02",
-          "a": "Nuclear Fusion - latest papers",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "为了优化功率沉积，在WEST装置的氘等离子体中进行了氢少数离子回旋共振加热(ICRH)的系统实验研究。在保持全局等离子体参数和天线耦合基本恒定的前提下，对共振层的径向位置和少数离子浓度进行了专门扫描。结果表明，当共振层向高场侧(HFS)偏移约7厘米且氢少数离子浓度在5%至8%之间时，可获得最佳等离子体性能。更大的向内偏移会导致性能显著退化，当共振位于低场侧时，性能几乎减半。未观察到湍流特征对共振位置的明显依赖。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8d37",
-          "tp": "核聚变等离子体加热",
+          "a": "perovskite-info",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "上海“星树计划”（星枢计划）是一个由复旦大学和星枢天算航天科技公司主导的空间计算项目，旨在构建为能源、海事和政府提供按需计算服务的分布式计算卫星网络。该项目在世界人工智能大会（WAIC）上发布了首个“星座”，即由三颗协同工作的互联卫星组成的卫星群。此外，该空间计算卫星群采用了钙钛矿串联太阳能电池技术，并采用“一主多辅”的结构运行。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.perovskite-info.com/shanghais-xingshu-plan-adopts-perovskite-tandem-solar-cells-its-first-space",
+          "tp": "空间计算卫星电源",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "太阳能电池技术[上海“星树/星枢计划”首颗空间计算卫星群]: 钙钛矿串联太阳能电池"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A systematic experimental study of hydrogen-minority ion cyclotron resonance heating (ICRH) has been performed in deuterium plasmas in WEST to optimize the power deposition. Dedicated scans of the radial position of the ion cyclotron resonant layer and of the minority concentration were carried out while keeping global plasma parameters and antenna coupling nearly constant. The maximum performance is obtained when the resonant layer is shifted towards the high-field side (HFS) by around 7 cm with a hydrogen minority concentration between 5% and 8%. A pronounced degradation occurs for larger inward displacements, whereas the performances are almost halved when the resonance is located in the low-field side. No clear dependence of turbulence characteristics on the resonance position is observed, indicating that the confinement variations are primarily governed by wave absorption and fast-ion confinement modifications. Infrared thermography and calorimetry measurements show that fast-ion ripple-induced losses are minimized for resonance positions beyond a certain value on the HFS, revealing a trade-off between optimal absorption and wall load mitigation. These results demonstrate that coordinated control of the resonant layer position and minority concentration allows simultaneous optimization of ICRH efficiency and fast-ion wall loads in a fully metallic reactor-relevant environment.",
+          "b": "Shanghai's 'Xingshu Plan' adopts perovskite tandem solar cells for its first space computing satellite cluster\nXingshu Plan (星枢计划) is a Shanghai-based space computing program led by Fudan University, which supplies the underlying space-based large-model technology, together with Xingshu Tiansuan Aerospace Technology, which leads the program's research, development and operations. The program aims to build a distributed network of computing satellites that provide on-demand computing services to sectors including energy, maritime and government.\nDuring the recent World Artificial Intelligence Conference (WAIC) in Shanghai, the program unveiled its first \"constellation\" - a group of three linked satellites, launched together to work as a single coordinated unit. The group uses a \"one main, two auxiliary\" architecture: a central computing satellite, a \"Fuxi\" weather satellite carrying a microwave radiometer for all-weather atmospheric sensing, and an ultra-low-orbit remote-sensing satellite with its own onboard edge-computing capability. The three satellites are linked by inter-satellite laser communication, and the group is designed so that data collection, AI inference and analysis are all completed in orbit, without needing to downlink raw data to the ground. It's the central computing satellite in this first group that uses perovskite tandem solar cells to provide its power.\nThe central computing satellite - envisioned as the constellation's \"space brain\" - carries a custom domestic aerospace-grade GPU chip rated at 32 POPS (peta-operations per second), aimed at closing a domestic gap in large-scale real-time on-orbit computing. To power it, the satellite uses perovskite tandem solar cells delivering 15 kW. According to Fudan University, the technology provides higher in-orbit conversion efficiency than conventional monocrystalline silicon panels while remaining significantly less expensive than gallium arsenide (GaAs) space cells - a combination suited to matching the GPU's continuous, high power draw. The satellite also carries a three-tier thermal management system (active micro-channel liquid cooling, multi-layer passive insulation and deployable radiators) built to manage the GPU's heat output over the long term, and is targeting inter-satellite and satellite-to-ground laser communication links of up to 400 Gbps.\nXingshu Tiansuan Aerospace Technology is indirectly controlled by Drinda, the parent company of solar cell manufacturer\n, through a subsidiary called Xuntian Qianhe that holds a 74% stake; Xuntian Qianhe's technical team reportedly originates from China's 8th Academy of Aerospace, a major satellite-integration institute.\nUnder the program's current roadmap, this first three-satellite group is meant as a proof-of-concept step: an engineering-verification phase will add two more computing satellites and 12 edge-computing satellites, a commercial deployment phase will add 50 computing satellites and 100 edge-computing satellites, and the program aims to reach roughly 1,000 satellites in orbit at full commercial operation.\nAug 02,2026 by\nRoni Peleg\nSimilar Entries\nBetterial introduces halogen-free TPO encapsulation film for perovskite modules\nNew POP-PV project to advance Power Roll's micro-groove perovskite solar film toward commercialization\nTandem PV installs perovskite-silicon panel for outdoor testing at UC Merced\nNew anchoring molecule fixes self-assembled monolayer aggregation, pushing perovskite/silicon tandems to 33.3% efficiency\nSelf-adaptive hole-transport interface pushes indoor perovskite solar cells past 40% efficiency\nResearchers develop indium-free titanium oxynitride recombination layer for 33.3%-efficient perovskite-silicon tandems\nResearchers boost vacuum-deposited PSCs to 25.53% efficiency using acetate-driven crystallization control\nNew strategy stabilizes the perovskite/C60 interface, delivering 27.43% efficiency",
           "hb": 1
         },
         {
-          "t": "准等动力磁场和分段全向磁场的组合",
+          "t": "印度库丹库拉姆核电站四台新建机组延期三年，造价上涨55%至144亿美元",
           "d": "2026-08-02",
-          "a": "Nuclear Fusion - latest papers",
+          "a": "中国核电信息网-国际",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "准等动力(QI)磁场因能同时优化径向和平行新经典输运，成为近年来大多数聚变反应堆候选方案的仿星器磁构型首选。然而，高度准等动力性通常伴随着强烈的通量面成形和复杂的线圈几何形状。该研究将准等动力性与分段全向性(pwO)概念结合形成QI-pwO场：在低场区保持准等动力性，在高场区显著偏离准等动力性而不牺牲QI场的新经典输运特性。这种偏离使得在保持输运性能的同时，更容易集成优化的线圈设计。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae8bbd",
-          "tp": "仿星器磁场优化",
+          "as": "由俄罗斯国家原子能公司在印度建设的库丹库拉姆核电站四台新建1吉瓦机组（3至6号机组）延期三年，总建设成本自2024年以来上涨55%至144亿美元。其中3、4号机组成本增长73%，5、6号机组增长40%。延误原因包括新冠疫情、设备和材料供应困难及承包商问题。首个机组预计将于2027年6月投入运营，全部四台机组的建设将推迟至2030年3月完成。成本的大幅增加将加重财政负担并可能导致电力价格上涨。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.cinie.net/article/57742.html",
+          "tp": "核电机组延宕涨价",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "延期时间[印度库丹库拉姆核电站四台新建机组]: 3年",
+            "总建设成本[库丹库拉姆核电站新建机组更新后]: 144亿美元(1.38万亿印度卢比)",
+            "成本上涨比例[库丹库拉姆核电站新建机组自2024年以来]: 55%",
+            "成本上涨比例[库丹库拉姆核电站3号和4号机组]: 73%",
+            "成本上涨比例[库丹库拉姆核电站5号和6号机组]: 40%"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Due to their simultaneous optimization for radial and parallel neoclassical transport, quasi-isodynamic (QI) fields have been the main choice of stellarator magnetic configuration for most fusion reactor candidates in recent years. However, achieving a high degree of quasi-isodynamicity often comes at the cost of a strong shaping of the flux surfaces of the stellarator and complex coil geometries. In this work, the concepts of quasi-isodynamicity and piecewise omnigenity (pwO) are combined to form QI-pwO fields. These fields are QI in the low-field region of the magnetic surface, whereas they significantly depart from quasi-isodynamicity in the high-field region without sacrificing the neoclassical transport properties of QI fields. This departure could make it easier to integrate the optimization of neoclassical transport with other physical and technological aspects of a stellarator reactor.",
+          "b": "印度库丹库拉姆核电站四台新建机组延期三年，造价上涨55%至144亿美元\n俄罗斯国家原子能公司(Rosatom)在印度建设的库丹库拉姆核电站四个新机组的建设成本因延误而自2024年以来增加了55%。每个机组容量为1吉瓦，更新后的总建设费用达到1.38万亿印度卢比(约合144亿美元)。其中，3号和4号机组的建设成本增长了73%，5号和6号机组的成本则上涨了40%。\n俄罗斯此前曾向印度提供42亿美元的国家信贷用于3号和4号机组的建设。印方官员表示，延误的原因包括新冠疫情的影响、特定材料和设备供应困难以及承包商面临的问题。尽管受到制裁的影响，Rosatom相关负责人表示已经将风险降低到98%。\n印度原子能事务国务部长吉滕德拉·辛格透露了更新后的时间表。预计首个机组将于2027年6月投入运营，所有四个反应堆的建设计划于2030年3月完成。此前，印方曾表示希望在2027年前完成所有新机组的建设。该核电站是根据1988年俄罗斯与印度签署的政府间协议，由Rosatom参与建设的。\n库丹库拉姆核电站最初的两个1吉瓦容量的机组已于2013年和2016年投入运营。俄罗斯持续向印度提供国家信贷以支持该项目的实施。此次建设成本的增加将加重新德里政府的财政负担，并可能导致所发电力的单位价格上涨。",
+          "hb": 1
+        },
+        {
+          "t": "台山核电自主开发“EPR全域信息检索系统”，实现一站式智能检索",
+          "d": "2026-08-02",
+          "a": "中国核电信息网-国内",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "台山核电自主研发的“EPR全域信息检索系统”正式上线。该系统基于TEDA平台和千万级数据，打破了以往功能位置等信息分散在数十个独立系统（如SDM、EOMM等）中的传统检索壁垒。系统以功能位置和设备编码为核心标签，构建了覆盖全维度信息的统一数据中台，将跨平台复杂查询变为一键检索。此外，系统实现了流程图检索与多维信息查询的整合，并引入个性化定制功能，解决了跨系统反复查询的效率问题。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.cinie.net/article/57794.html",
+          "tp": "核电数据智搜系统",
+          "aip": 1,
+          "kp": [
+            "[EPR全域信息检索系统]: 核心检索维度锚定为“功能位置”与“设备编码”，打通核电数十个独立信息系统壁垒",
+            "[TEDA平台]: 支撑千万级工程生产阶段数据的自主研发一站式智搜系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "台山核电自主开发“EPR全域信息检索系统”，实现一站式智能检索\n近日，由公司数转组、计划部、信息文档部组成的项目团队，依托TEDA平台(台山核电一站式全寿期数据应用系统)自主研发的ERP全域数据智搜系统正式上线。该系统基于工程生产阶段千万级数据，以“整合+升级+定制”三重优势，打破传统检索壁垒，为核电运维装上了智能“加速器”。\n台山核电在建设与商运期积淀了海量程序文件与核心数据，但这些关键信息长期分散在多个独立信息系统中。比如，功能位置相关信息分散在SDM(系统设计手册)、EOMM(设备运行维修手册)、运行程序、维修程序等数十个信息系统里，跨平台反复查询成为员工的“效率枷锁”。\n此前，赴芬兰OL3(奥尔基落托核电厂3号机组)项目支持机组启动联合调试的台山核电专家发现，他们现场使用了两款工具，可通过功能位置快速查询对应流程图、设备技术参数、SDM、EOMM、开口项等常用信息精准解决了信息查询的痛点。这也让项目团队萌生了创新研发的想法，锚定“全系统整合、全维度检索、全场景适配”的目标，开启了自主研发之路。\n在全面梳理TEDA平台关联的所有电子信息系统后，项目团队以功能位置、设备编码等为核心数据标签，构建起覆盖设备技术参数(ETP)系统、流程图库、经验反馈、技术与管理程序、报警卡等全维度信息的统一数据中台。通过打通系统间的“数据壁垒”，实现跨平台信息的深度融合与智能关联，将原本需要跨系统反复查询的复杂流程，变为“一键检索”的便捷操作。同时还实现了两大核心升级：\n一方面，突破单一功能局限，将流程图检索与多维度信息查询整融为一体，检索范围覆盖全量关联系统，检索精度与广度实现双重飞跃;\n另一方面，创新引入用户个性化定制功能，支持根据岗位需求自定义数据分类维度，让检索结果更贴合个人工作习惯，真正实现“千人千面”的智能服务。\n“以前查一个功能位置的相关信息，至少要切换4到5个系统，现在只需在一个平台输入编码，1秒就能获取所有关联数据，还能按我的需求分类展示，效率提升太明显了!”系统试用期间，一线员工纷纷点赞新系统带来的变化。\n该系统的上线，不仅改变了传统低效的信息检索模式，更标志着台山核电在信息、数据、知识管理领域迈出了关键一步，为核电行业数据整合与智能运维提供了可复制、可推广的实践样本。\n未来，台山核电将持续迭代EPR全域信息检索系统功能，进一步拓展数据整合维度、优化智能检索算法，以数字化、智能化技术更好地为核电运维赋能!",
           "hb": 1
         }
       ]
@@ -64,14 +104,160 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "中微公司已推出54种高端半导体设备，刻蚀与薄膜加工精度达原子级",
+        "芝加哥光纤网络实现24.4公里量子纠缠传输，验证高流量通信环境可行性",
+        "科研人员证实非阿贝尔任意子具备通用量子计算所需完整操作集"
+      ],
+      "entries": [
+        {
+          "t": "中微公司董事长尹志尧：已开发出 54 种高端半导体设备，刻蚀和薄膜设备的加工的精度已经达到了原子级水平",
+          "d": "2026-08-02",
+          "a": "IT之家",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "中微公司董事长尹志尧宣布，公司已开发出 54 种高端半导体设备，涵盖等离子体刻蚀机、薄膜设备等，加工精度达到原子级水平。截至 2026 年 6 月底，累计有超 8800 个反应台在国内外 220 余条生产线量产。公司连续 14 年保持年均 35% 以上的销售增长。2025 年研发投入约 37.4 亿元，占营收 30.2%，未来三至五年计划投入约 130 亿元研发上百种新设备。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/984/806.htm",
+          "tp": "中微半导体进展",
+          "aip": 1,
+          "kp": [
+            "加工精度[刻蚀和薄膜设备]: 原子级水平",
+            "累计部署量[中微公司各类反应台]: 超过8800个",
+            "覆盖产线[中微公司设备]: 国内外220余条生产线实现量产",
+            "人均年销售额[中微公司]: 450万元",
+            "人均成本[中微公司]: 不到国际公司的一半"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家 8 月 2 日消息，中微半导体设备（上海）股份有限公司（简称“中微公司”）昨日举行“中微大厦”落成暨 22 周年庆典。\nIT之家注：中微公司是一家微观加工高端设备公司，总部位于上海，开发的等离子体刻蚀设备和化学薄膜设备可加工微米级和纳米级的各种器件。\n今日官方公布了中微公司创始人、董事长兼总经理尹志尧的发言内容。尹志尧称中微公司已开发出 54 种高端半导体设备，包括 26 种高能和低能等离子体刻蚀机设备，24 种各类薄膜设备、化学机械抛光设备和量检测设备。刻蚀和薄膜设备的加工的精度已经达到了原子级水平。截至 2026 年 6 月底，公司累计已有超过 8800 个反应台在国内外 220 余条生产线实现量产。\n尹志尧表示，自 2012 年至今，中微公司已连续 14 年保持平均年销售 35% 以上的增长，人均年销售额达到了 450 万元，和国际领先的设备公司持平。但中微公司的人均成本不到国际公司的一半，公司的劳动生产率远高于国际领先的设备公司。\n据介绍，中微公司 2025 年研发投入约 37.4 亿元，占全年营业收入比重达 30.2%，大幅高于科创板上市公司平均水平。展望未来三至五年，公司计划累计投入约 130 亿元研发资金，开发上百种新的高端设备。\n广告声明：文内含有的对外跳转链接（包括不限于超链接、二维码、口令等形式），用于传递更多信息，节省甄选时间，结果仅供参考，IT之家所有文章均包含本声明。",
+          "hb": 1
+        },
+        {
+          "t": "量子光子在芝加哥繁忙的互联网中经历了 24 公里的旅程",
+          "d": "2026-08-02",
+          "a": "scitechdaily",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究人员首次在繁忙的电信光纤网络中实现了量子纠缠的现实世界演示。一个携带量子信息的光子在传输强力传统互联网数据流量的光缆中穿梭了24.4公里，从西北大学埃文斯顿校区成功抵达芝加哥市中心。实验证明，量子连接在充满噪声和高容量通信的环境下依然存活并保持了纠缠状态。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/quantum-photons-survive-a-24-kilometer-journey-through-chicagos-busy-internet/",
+          "tp": "量子光纤通信",
+          "aip": 1,
+          "kp": [
+            "量子纠缠存活距离[繁忙城域光纤网络(混杂高功率常规数据流量)]: >24公里"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology\nResearchers have shown that quantum entanglement can survive a journey through a busy metropolitan fiber network carrying powerful conventional data traffic. Credit: Shutterstock\nResearchers achieved the first real-world demonstration of quantum entanglement over a busy telecommunications fiber network.\nA single\ncarrying quantum information had to travel more than 24 kilometers through an optical fiber already crowded with powerful internet signals. Despite the noise, it reached downtown Chicago still entangled with its partner at\nNorthwestern University\nEvanston campus.\nResearchers successfully distributed entangled photons through 24.4 kilometers of installed fiber while the same cable carried high-capacity telecommunications traffic. The quantum connection retained more than 94% fidelity, showing that delicate quantum signals can survive alongside conventional data streams in existing infrastructure.\nThe result points toward a practical way to develop quantum networks without laying entirely separate fiber systems.\n“Quantum signals are very, very tiny compared to classical signals,” said Northwestern’s Prem Kumar, the study’s senior author. “It’s like an ant traveling through a path filled with elephants. Our results show that photons can survive the journey and remain entangled.”\nKumar is a professor of electrical and computer engineering at Northwestern’s McCormick School of Engineering and director of the Center for Photonic Communication and Computing. Gina Talcott, a graduate student in Kumar’s research group, is the study’s first author.\nQuantum signals face overwhelming noise\nToday’s internet represents information using bits with values of 0 or 1. Quantum networks instead use quantum states, including qubits in\nquantum computing\n, to process and exchange information.\nOne important resource is quantum entanglement, in which the states of two particles remain inseparably connected even when the particles are far apart. Entanglement can support quantum teleportation, a process that transfers quantum information over long distances without the original particle physically carrying that information to its destination.\nAlthough quantum communication can offer exceptional speed and security, it is highly vulnerable to interference. Even faint optical noise can overwhelm the individual photons used to encode quantum information.\n“In optical communications, all signals are converted to light,” Kumar said. “While conventional signals for communications typically comprise millions of particles of light, quantum information uses single photons.”\nA quieter wavelength protects photons\nKumar and his collaborators began addressing that imbalance in a\n2024 study\n. By closely examining how light scatters inside fiber-optic cables, they identified a less congested wavelength where quantum photons could avoid much of the noise generated by ordinary internet traffic.\nThe researchers also introduced specialized filters to suppress additional interference. In laboratory tests, they used the method to perform quantum teleportation across a 30-kilometer cable carrying high-speed internet data.\n“In that experiment, we showed the art of the possible,” Kumar said. “We achieved actual quantum teleportation over 30 kilometers, but it was in the lab. We wanted to add more realism and bring the experiment into the real world.”\nChicago fiber carries both networks\nFor the latest test, Kumar produced entangled photon pairs in his laboratory on Northwestern’s Evanston campus. One photon from each pair stayed in Evanston, while its partner entered installed fiber and traveled 24.4 kilometers to the StarLight International/National Communications Exchange Facility on Northwestern’s downtown Chicago campus.\nThe photons shared that fiber with two data channels, each operating at 800 gigabits per second. The researchers also added optical power representative of a commercial fiber link operating at full capacity.\n“The fiber carried enough power to potentially transmit 36 terabits-per-second of classical data,” Kumar said. “That’s roughly equivalent to 20 million YouTube videos streaming simultaneously through a single fiber.”\nTo shield the quantum signals from the far stronger conventional traffic, the researchers assigned them separate regions of the optical spectrum. The entangled photons traveled through the relatively quiet O-band, while the commercial communications remained in the C-band normally used by telecommunications systems.\nDistance created another challenge. The equipment in Evanston and downtown Chicago had to remain synchronized closely enough for researchers to determine which arriving photons belonged to the same entangled pair.\nUsing an\noptical timing system called White Rabbit\n, they synchronized the two sites with picosecond precision, equivalent to trillionths of a second. This timing\naccuracy\nallowed matching photon pairs to be identified in real time despite the intense surrounding traffic.\nMeasurements showed entanglement fidelity above 94%. That level confirmed that the quantum connection survived the trip and exceeded what a classical communications system could reproduce.\nTeleportation remains the next test\nThe experiment reflects a broader effort to integrate quantum technology with telecommunications equipment already in use.\nThe researchers now plan to attempt quantum teleportation between remote nodes through a real telecommunications network. Kumar has previously demonstrated teleportation in the laboratory, but the next objective is to repeat it across metropolitan fiber carrying commercial traffic.\n“We crossed a major bridge, showing we can do entanglement distribution,” Kumar said. “But there are two steps in teleportation. First, you need to distribute entanglement. Then, you need to transfer information. Each step is progressively more complicated and difficult, but we are showing that it’s possible.”\nReference: “Quantum entanglement distribution coexisting with high-rate, broadband classical optical communications over a real-world fiber connecting remote, synchronized nodes” by 24 August 2026,\nOptica Quantum\nDOI: 10.1364/OPTICAQ.592786\nSupported by the United States Department of Energy (DE-AC02-07CH11359) via Fermilab.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nGoogle News\nFiber Optics\nNorthwestern University\nPhotonics\nQuantum Entanglement\nTelecommunications\nArticles\n402 Terabits a Second: Researchers Break “World Record” for Data Transmission Speed\nRevolutionizing Photonics: Lithium Tantalate Powers Next-Gen Optical Circuits\nUsing Air to Amplify Light in Hollow-Core Optical Fibers\nLight, Fantastic: The Path Ahead for Faster, Nanoscale Photonic Computer Processors\nTemporal Supersymmetry Breakthrough Paves Way to Omnidirectional Invisible Materials\nBreaking Left-Right Symmetry in Optoelectronic Devices for More Energy Efficient Fiber Communications\nUC Engineers Break Distance Barriers for Fiber Optic Signals\nGraphene Photonics Breakthrough Has Potential for Ultrafast Telecommunications\nNew Fiber Optic Technology Could Boost Internet Bandwidth",
+          "hb": 1
+        },
+        {
+          "t": "量子计算的“黑马”刚刚扫清了一大障碍",
+          "d": "2026-08-02",
+          "a": "scitechdaily",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "来自芝加哥大学、哈佛大学、石溪大学和Quantinuum的研究人员证实，非阿贝尔任意子这种奇特的量子对象支持通用量子计算所需的完整操作集。研究人员演示了非阿贝尔任意子的编织和融合过程，证明了其能够执行量子计算机所需的全部操作。这一发现表明，非阿贝尔任意子能够提供通用量子计算所需的通用性，使量子计算机能够执行任意计算任务，而不再局限于特定的专业任务。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/quantum-computings-dark-horse-just-cleared-a-major-hurdle/",
+          "tp": "非阿贝尔任意子",
+          "aip": 1,
+          "kp": [
+            "[非阿贝尔任意子的编织与融合]: 能够支持通用量子计算所需的全套操作"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Researchers have shown that exotic quantum objects called non-Abelian anyons can support a complete set of operations for universal quantum computing. Credit: Shutterstock\nResearchers demonstrated that braiding and fusing particles known as non-Abelian anyons can perform every operation required by a quantum computer.\nA quantum computer becomes broadly useful only when it can perform any computation rather than a limited set of specialized tasks. Physicists have now demonstrated that unusual quantum objects called non-Abelian anyons can provide that versatility by supporting the full range of operations required for universal\nquantum computing\nResearchers from the\nUniversity of Chicago\nPritzker School of Molecular Engineering (UChicago PME), Harvard, Stony Brook University and Quantinuum constructed and tested a complete computational toolkit based on non-Abelian anyons. Their experiments offer the first demonstration that this approach can support universal quantum operations.\n“We demonstrated a so-called universal gate set—meaning that if you store information in these emergent versions of quarks, and you move them around, you can do any quantum computation you might want to do,” said Ruben Verresen, assistant professor of molecular engineering at UChicago PME and a co-author of the new study published in\nThe method could support both general-purpose quantum computing and more reliable machines. Quantum computers ordinarily protect information by distributing it across many physical qubits through error correction. However, those codes usually cannot perform every required operation directly on the protected information.\nEngineers often overcome that limitation with specially prepared resources called “magic states.” Producing them requires a demanding distillation process that can consume a substantial portion of a quantum computer’s available qubits. The findings indicate that non-Abelian anyons may provide a way around that expensive step.\n“Non-Abelian codes are a dark horse in the race to quantum error correction,” said Henrik Dreyer, managing director and scientific lead at Quantinuum’s Munich office and a co-author of the study. “In this work we show the first universal gate set in a non-Abelian code, which demonstrates that fault-tolerant computations can in principle be done without resorting to magic state distillation or cultivation, which are the most expensive operations in standard quantum error correction codes.”\nAnyons combine computation with protection\nA conventional qubit represents information as a zero, a one, or a quantum combination of both. Non-Abelian anyons work differently. They are not independent particles found in nature. Instead, researchers produce them with quantum circuits that bind many ordinary qubits into a shared entangled state that behaves like a new type of particle governed by its own rules.\n“The way I think about these codes is they’re creating little universes—alternative universes, but ones that reflect some of the properties of our own,” Verresen said.\nAsst. Prof. Ruben Verresen is co-author of a pioneering new study published in Nature, which shows a new way to give a quantum computer the flexibility of current computers, harnessing the capabilities of exotic quantum particles called non-Abelian anyons. Credit: Jason Smith\nEach non-Abelian anyon has an internal state that changes when it is moved, or braided, around another anyon. The sequence of those movements affects the result (that’s what non-Abelian means), allowing the anyons to represent and manipulate information in ways unavailable to ordinary particles.\nTheir information is also distributed across many entangled qubits instead of being stored at one vulnerable location. That makes the resulting state more resistant to the minor disturbances that often disrupt conventional qubits. The same braiding process that protects the information can also perform a computational gate.\nThe first anyons were not universal\nIn 2024, researchers including Verresen used a Quantinuum trapped-ion computer to create anyons based on a mathematical symmetry known as D4 — the rotations and reflections that leave a square unchanged — in the first hardware demonstration of this type of non-Abelian order. However, moving those anyons around one another could not produce every operation needed for universal computing.\n“In that work, we didn’t demonstrate that those emergent forces were enough to do quantum computation,” said Verresen. “That particular universe we created was not powerful enough.”\nBraiding and fusion complete the toolkit\nFor the latest work, the researchers selected a different symmetry known as S3—the rotations and mirror-image flips that leave an equilateral triangle unchanged—and created the corresponding anyons on Quantinuum’s H2 trapped-ion processor by entangling 54 qubits.\nS3 had the mathematical properties needed for universal computing, but braiding alone was still insufficient. The researchers also needed fusion, a process in which two anyons are brought together, and the result is read as a measurement.\nAn emergent quark moves around an obstacle and, through this braiding process, gradually changing its internal color label. Because there are three possible colors (R, B, and G) this degree of freedom forms a qutrit. Slightly altering the path does not change the result, which gives a sense of the stability of the braiding process. Credit: University of Chicago\nCarlos Mochon, then a student of John Preskill at Caltech, proposed this theoretical strategy in 2003. Translating the idea into a workable procedure on real quantum hardware required additional theoretical development and experimental testing.\nThe researchers paired the anyons to encode “topological qutrits,” units that store three possible levels of quantum information rather than the two available to ordinary qubits. They then combined braiding and fusion in different ways to demonstrate three essential operations: one entangling gate produced through braiding and two distinct measurements produced through fusion.\nTogether, those operations can in principle generate any quantum operation, including calculations that braiding by itself could not reach. Beyond their possible role in computing, the resulting quantum states may also help physicists investigate fundamental properties of matter.\n“It is gratifying to see ideas we have spent our PhD work thinking about realized in the lab, and it has been made possible by remarkable advances in quantum hardware over the past few years,” said Anasuya Lyons and Chiu Fan Bowen Lo, graduate students at Harvard University in the group of Ashvin Vishwanath who helped lead the work.\nThe researchers also prepared a magic state directly from the non-Abelian anyons using topological operations — sidestepping the costly distillation procedure commonly required in other quantum systems.\nError correction remains the next test\nThe researchers did not perform active error correction in these experiments. Instead, they evaluated the separate computational components, confirmed that they functioned as intended, and verified that the resulting magic state agreed with theoretical predictions.\n“So far, we’ve ignored the question of error correction. Here, it’s more like a proof of principle,” Verresen said.\nThe next challenge is to combine the method with active error correction. Doing so could eventually establish non-Abelian anyons as a practical basis for large-scale, fault-tolerant quantum computers. Verresen is already working with other UChicago PME researchers on techniques for stabilizing non-Abelian quantum memories.\nReference: “Universal gates from braiding and fusing anyons on quantum hardware” by Chiu Fan Bowen Lo, Anasuya Lyons, Dan Gresh, Michael Mills, Peter E. Siegfried, Maxwell D. Urmey, Nathanan Tantivasadakarn, Henrik Dreyer, Ashvin Vishwanath, Ruben Verresen and Mohsin Iqbal, 15 July 2026,\nDOI: 10.1038/s41586-026-10709-y\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nGoogle News\nQuantum Computing\nQuantum Information Science\nQuantum Mechanics\nQuantum Physics\nUniversity of Chicago\nArticles\nQuantum Mechanics May Not Need Imaginary Numbers After All\nPhysicists Discover a New Way To Connect Qubits Using Crystal Imperfections\nScientists Create Strange Quantum “Domain Walls” in Laboratory\nChicago Quantum Summit: Building a Quantum Economy\nPhysicists Create and Control a Large Quantum Mechanical System Built on Photons\nPhysicists Use a Switch to Manipulate Light on Superconducting Chips\nNew System Converts Laser Beam Into Controlled Stream of Single Photons\nQuantum Bits Store Data for Nearly Two Seconds Using Laboratory Grown Diamonds\nEvidence of Elusive Majorana Fermions Raises Possibilities for Quantum Computing\nComments",
+          "hb": 1
+        }
+      ]
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "国际团队在《自然》发文，首次构建皮秒级动态改变光学特性的时间晶体",
+        "中国076型两栖攻击舰“四川舰”开展实弹测试及电磁弹射配重块验证",
+        "Betterial发布钙钛矿模块专用的无卤TPO封装膜，规避传统材料腐蚀风险"
+      ],
+      "entries": [
+        {
+          "t": "科学网-全球首个光子时间晶体开启光控新时代",
+          "d": "2026-08-02",
+          "a": "科学网新闻",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "一个国际研究团队在《自然》发文，首次成功构建出全光学光子时间晶体。这是一种能在皮秒时间尺度上动态且重复改变自身光学行为的材料。传统光子晶体仅在空间上控制光子，而新晶体在时间维度引入了重复的光学图案，使反射率和共振频率等特性可快速改变。该技术突破了太赫兹频段光控制相对滞后的瓶颈，为光放大和激光发射开辟了新路径，将助力超快计算、自适应通信、先进成像及新型激光器的研发。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569225.shtm",
+          "tp": "光子时间晶体构建",
+          "aip": 1,
+          "kp": [
+            "[光子时间晶体材料特性]: 随时间推移快速且重复地改变自身光学行为",
+            "频率优势[太赫兹频段光子器件]: 比当前电子元件使用频率高约1000倍",
+            "[传统光子晶体结构]: 包含重复光学图案的纳米结构材料"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首个光子时间晶体开启光控新时代\n有望解锁超快计算机、自适应通信及全新类型激光器\n一个国际研究团队首次通过实验构建出全光学光子时间晶体——一种能随时间推移快速且重复地改变其光学行为的材料。这一突破有望为超快计算、新型智能通信系统、先进成像技术以及新一代高度可调谐激光器研究作出贡献。相关成果近日发表于《自然》。\n操控光在材料内部的传播行为，已催生出塑造现代生活的诸多技术，光纤承载着通信网络信息、激光器提供高精度光源、光学传感器广泛应用于化学和生物学领域……而法国巴黎综合理工学院的Yannis Laplace的辐照固体实验室团队，致力于研发能控制太赫兹频段光的光子器件。\n太赫兹频段处于电子技术与光子技术的交界处，其频率比当前电子元件使用频率高约1000倍，有望为观测和操控物质提供强有力的新途径。“无论对科学还是社会而言，这一频段都充满机遇，但与其电子学和光子学同类技术相比，它的开发相对滞后。而制造光子晶体有望补齐这一差距。”Laplace说。\n传统光子晶体是一种纳米结构材料，包含重复的光学图案，这决定了光子在其中的运动方式。通过排列不同形状和折射率的材料，科学家能够阻挡、引导或增强特定波长的光。从这个角度看，光子晶体控制光子的方式类似于半导体控制电子。\nLaplace团队的早期实验表明，温度和磁场可以改变光子晶体捕获光的能力。然而，一旦这些条件设定完毕，其光学行为便不会随时间改变。\n而Laplace团队此次构建的全光学光子时间晶体的光学特性，如反射率、共振频率，能在皮秒（万亿分之一秒）的时间尺度上被动态改变。这已接近光自身振荡的时间尺度。除了空间上光学图案的排列外，光子时间晶体还在时间维度上引入了重复的图案。\n“通过将光子晶体从空间拓展到时间，我们为光控制开辟了一个新的维度，也开启了一条通往光放大和激光发射的新路径。这可能彻底改变太赫兹频段及更广范围的光学技术。”论文第一作者、巴黎综合理工学院的博士生郭廷文（音）解释道。\n然而，要实现如此快速的操控，需要复杂的专用器件。在Thales集团Albert Fert实验室和巴黎综合理工学院物理界面实验室的支持下，研究人员构建了一种等离子体超材料的光子晶体。该材料包含微米尺度的金质城垛状结构，位于绝缘层和由铟锑混合物制成的半导体之上。这些金结构形成了微小空腔，能将光限制在金层和半导体层之间。当半导体表面被激发时，会产生“表面等离子体”，即能捕获光并维持其振荡的电子集体激发波。这种相互作用为研究人员提供了一种以极高速度操控被捕获光子的方法。\n研究团队将器件暴露于德国德累斯顿-罗森多夫亥姆霍兹中心（HZDR）TELBE超辐射太赫兹光源产生的激光脉冲下。由于TELBE能产生可调谐至不同频率的强太赫兹辐射，研究人员得以同时从强度和速度层面改变材料的光学性质，尤其是反射率。这种强度的改变，好比迫使一个物体发出完全不同颜色的光，且整个转变过程发生在皮秒尺度上。“TELBE能产生高场强、相位稳定的太赫兹脉冲，对实现这一点至关重要。”TELBE设施协调员Jan-Christoph Deinert说，“没有这一基础设施，是不可能实现光子时间晶体机制所需的那种相干、超快调制的。”\n法国法兰西公学院研究员Marco Schiró团队开发的一个理论模型，支持了Laplace团队的实验发现，并帮助解释了光子在器件内部的行为方式。模型计算还表明，让材料随时间改变，可将光子耗散减半。耗散指的是那部分未被反射、穿过了超材料表面的光子。“该理论不仅重现了实验，也为指导这一系统的未来发现打下了基础。”Schiró表示。\n研究人员希望进一步减少光子耗散，并增加晶体内容纳的光子数量。如果他们能产生足够强的放大效果，该器件或将成为高度可调谐激光器的研发基础。\n光子时间晶体最终可能改变光在技术中的应用方式，尤其是在太赫兹频段。它们在极短时间尺度上改变光的能力，有望支撑用于医学成像和通信的超快激光器。\n此外，这项技术有望使瞬时按需调节光的颜色或强度等特性成为可能。这种级别的控制能力，可能催生更快、更智能、适应性更强的光学系统。\n相关论文信息：https://doi.org/10.1038/s41586-026-10825-9",
+          "hb": 1
+        },
+        {
+          "t": "中国4万吨级舰艇实弹测试展现战斗力",
+          "d": "2026-08-02",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国4万吨级076型两栖攻击舰“四川舰”正在进行实弹测试，首次公开了实弹发射干扰措施及电磁弹射配重块测试。该舰配备新型推进系统和电磁弹射器，专为支持未来海上无人化作战而设计。配重测试验证了电磁发射系统的性能与可靠性，标志着中国海军航空能力向无人机作战模式转变。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/military/china-warship-battle-power-fire-tests",
+          "tp": "电磁弹射测试",
+          "aip": 1,
+          "kp": [
+            "舰艇吨级[中国076型两栖攻击舰四川舰]: 4万吨",
+            "舰艇动力系统[中国076型]: 新型动力系统",
+            "关键装备[中国076型]: 配备电磁弹射系统（支持未来海上无人作战）",
+            "实弹测试[中国076型]: 首次公开实弹发射对抗措施及电磁弹射静载荷测试"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "China’s Type 076 signals shift toward drone-focused naval operations\nChina has released new footage highlighting tests aboard its Type 076 amphibious assault ship Sichuan, including the vessel’s first publicly disclosed live-fire launch of countermeasures and an electromagnetic catapult test using a dead load.\nThe Sichuan features a new propulsion system and an electromagnetic catapult designed to support future unmanned operations at sea, marking a step toward expanding China’s naval aviation capabilities beyond traditional carrier-based platforms.\nMilitary observers noted that the dead load test represents an early-stage evaluation carried out before full\naircraft\nlaunch trials, helping validate the performance and reliability of the electromagnetic launch system.\nOperational readiness with electromagnetic catapult trial\nThe successful completion of the electromagnetic catapult test during the construction phase of the Type 076 amphibious assault ship suggests that the system has reached an operational and reliable stage, according to military observers.\nThe vessel has already completed multiple sea trials, fueling expectations that it could soon enter service. Observers also anticipate the future release of footage showing the ship conducting launches of actual carrier-based aircraft, which would provide further insight into its capabilities,\nGlobal Times\nreported\nChinese military affairs expert Song Zhongping said the Type 076 amphibious assault ship marks a significant technological advance, introducing new possibilities for naval operations. Speaking to the\nGlobal Times\non Saturday, he noted that the vessel addresses the challenge of deploying carrier-based aircraft from\namphibious\nassault ships while also driving innovation in future\nmaritime\noperational concepts.\nMore from Military\nInnovation\n$820 million boost expands U.S. drone industrial base, cuts foreign reliance\nMilitary\nTop US rival showcases new missile silos that can house long range weapons\nMilitary\nAutonomous hybrid ground vehicles that can transform modern war soon to be delivered to US Army\nMilitary\nUS launches 1 ton per day antimony pilot processing plant to aid weapons production\nMilitary\nUS ally plans to commission ‘world’s largest’ 14,000-ton destroyer to counter China\nThe Type 076 combines technologies developed for China’s Type 075 amphibious assault ship and Type 003 aircraft carrier, bringing together existing systems to create a more advanced naval platform. According to Song, the integration of these technologies improvaes the ship’s overall capabilities and demonstrates China’s progress in electromagnetic catapult systems and related technologies.\nEnabling longer-range drone missions with heavier payloads\nThe electromagnetic catapult system aboard the Type 076 is expected to expand the range of aircraft the ship can deploy, supporting both manned fighter jets and larger unmanned aircraft. According to Song, the technology could allow\nto operate with heavier payloads and greater endurance, enabling them to carry additional equipment or weapons for longer-range missions.\nLaunched in December 2024, the\nbegan its first sea trials in November 2025, according to Xinhua News Agency. The vessel has a full-load displacement of more than 40,000 tons and features a twin-island superstructure, a full-length flight deck, and newly integrated electromagnetic catapult and arrestor systems.\nThese technologies are designed to improve aircraft launch and recovery capabilities while expanding the operational flexibility of the ship. Furthermore, the vessel is designed as a multi-role naval platform capable of supporting a range of operations, including the deployment of fixed-wing aircraft, helicopters, and amphibious equipment.\nChinese media note that the ship has successfully completed multiple rounds of sea trials, allowing engineers and naval crews to evaluate its systems, performance, and operational readiness ahead of its expected commissioning.\nRecommended Articles\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nSodium-ion batteries explained: Are they really the next big thing for EVs?\n100 driverless oilfield trucks planned for Permian Basin as US firms scale fleet by 2027\nOver 99.99% of oil removed from seawater with higher evaporation rate using new membrane\n$820 million boost expands U.S. drone industrial base, cuts foreign reliance\n2000-MW US solar project achieves key milestone to meet high-tech power demands",
+          "hb": 1
+        },
+        {
+          "t": "Betterial推出用于钙钛矿模块的无卤TPO封装膜",
+          "d": "2026-08-02",
+          "a": "perovskite-info",
+          "c": "通用技术/材料工程/密封材料",
+          "as": "Betterial推出专为钙钛矿模块设计的无卤热塑性聚烯烃（TPO）封装膜。传统交联封装膜产生的卤化物残留会对钙钛矿层造成化学腐蚀，该无卤TPO配方有效避免了这一特定降解风险。该产品专为满足钙钛矿模块的低温层压需求而设计，同时保证了各模块层之间的强粘合力。此外，Betterial还提供B606L高透射率膜等两种钙钛矿模块变体，以及用于背接触（BC）和TOPCon模块的封装解决方案。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.perovskite-info.com/betterial-introduces-halogen-free-tpo-encapsulation-film-perovskite-modules",
+          "tp": "无卤TPO封装膜",
+          "aip": 1,
+          "kp": [
+            "封装膜材料[钙钛矿组件]: 无卤热塑性聚烯烃(TPO)",
+            "[TPO封装膜]: 满足钙钛矿组件低温层压工艺需求并规避卤化物残渣降解风险"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Betterial introduces halogen-free TPO encapsulation film for perovskite modules\nBetterial\nhas introduced a thermoplastic (TPO) encapsulation film designed for the low-temperature lamination needs of perovskite modules, alongside new encapsulation solutions for back-contact (BC) and TOPCon modules and a UV-conversion film for high-UV deployment environments.\nThe perovskite-targeted film addresses a specific degradation risk: conventional crosslinked encapsulation films can generate halide residues that chemically corrode the perovskite layer. Betterial's halogen-free TPO formulation is designed to avoid that risk while still enabling low-temperature lamination and strong adhesion between module layers. The company offers two variants for perovskite modules - the B606L high-transmittance film and the B606LP UV-cutoff film - both rated for light transmittance of at least 85% between 380 nm and 1,100 nm and adhesion to glass of at least 80 N/cm. The two differ in UV handling: B606L allows at least 75% UV transmittance, while B606LP caps UV transmittance at 10% or less, for applications where blocking UV exposure matters more than passing it through.\nFor BC modules, Betterial's encapsulation film uses an ultra-low-flow formulation intended to resist damp-heat aging, yellowing and potential-induced degradation (PID), while also supporting lower silver-paste consumption in the module. For TOPCon modules, the company offers a high-transmittance film aimed at improving light transmission and photon utilization, also designed to resist UV exposure and long-term aging.\nBetterial also offers a light-conversion film, HC806, aimed at modules deployed in deserts, plateaus and other high-UV environments. According to the company, the film converts UV light into visible light at more than 95% efficiency, contributing a module power gain of 1.2% to 3%. Betterial reports less than 3% degradation after UV60 accelerated aging testing, and says the film helps mitigate both ultraviolet-induced degradation (UVID) and PID-related performance losses.\nAug 02,2026 by\nRoni Peleg\nSimilar Entries\nShanghai's 'Xingshu Plan' adopts perovskite tandem solar cells for its first space computing satellite cluster\nNew POP-PV project to advance Power Roll's micro-groove perovskite solar film toward commercialization\nTandem PV installs perovskite-silicon panel for outdoor testing at UC Merced\nNew anchoring molecule fixes self-assembled monolayer aggregation, pushing perovskite/silicon tandems to 33.3% efficiency\nSelf-adaptive hole-transport interface pushes indoor perovskite solar cells past 40% efficiency\nResearchers develop indium-free titanium oxynitride recombination layer for 33.3%-efficient perovskite-silicon tandems\nResearchers boost vacuum-deposited PSCs to 25.53% efficiency using acetate-driven crystallization control\nNew strategy stabilizes the perovskite/C60 interface, delivering 27.43% efficiency",
+          "hb": 1
+        }
+      ]
     }
   ]
 }

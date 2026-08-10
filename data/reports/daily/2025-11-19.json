@@ -1,0 +1,146 @@
+{
+  "type": "daily",
+  "date_label": "2025年11月19日　星期三",
+  "date_range": "2025-11-19",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "硫化铅量子点固体光伏电池通过费米能级平衡驱动陷阱填充，实现创纪录电压生成",
+      "双金属磷化物异质结构利用空间约束效应显著提升钠离子电池存储材料稳定性"
+    ],
+    "AI与智能科技": [
+      "新型二维半导体晶体管实现超低接触电阻，物理尺寸与能效逼近量子极限"
+    ],
+    "通用技术": [
+      "表面合成技术利用分子间π自由基偶联制备出非苯环多环芳烃材料",
+      "超分子离子聚合技术合成纤维素基塑料，实现机械性能宽幅度可调"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "硫化铅量子点固体光伏电池通过费米能级平衡驱动陷阱填充，实现创纪录电压生成",
+        "双金属磷化物异质结构利用空间约束效应显著提升钠离子电池存储材料稳定性"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 多带隙 PbS 量子点固体中的费米能级平衡驱动陷阱填充可实现创纪录的电压生成并改善高性能太阳能电池中的载流子传输",
+          "d": "2025-11-19",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 8.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03000",
+          "tp": "量子点太阳能电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "双金属磷化物异质结构对稳定钠存储材料的空间约束",
+          "d": "2025-11-19",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504025?af=R",
+          "tp": "钠电磷化物",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "新型二维半导体晶体管实现超低接触电阻，物理尺寸与能效逼近量子极限"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 接近量子极限的二维半导体晶体管的超低接触电阻",
+          "d": "2025-11-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c14180",
+          "tp": "二维半导体",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "表面合成技术利用分子间π自由基偶联制备出非苯环多环芳烃材料",
+        "超分子离子聚合技术合成纤维素基塑料，实现机械性能宽幅度可调"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 利用分子间 π 自由基 C-C 偶联在表面合成非苯环 PAH",
+          "d": "2025-11-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c12864",
+          "tp": "表面合成材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] Supramolecular Ionic Polymerization: Cellulose-Based Supramolecular Plastics with Broadly Tunable Mechanical Properties",
+          "d": "2025-11-19",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16680",
+          "tp": "超分子塑料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

@@ -6,19 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "国电投曲靖建成国内首个MW级热泵储能工程验证系统，能量综合利用率达80%",
-      "布法罗分校研发纳米限域离子液体膜，实现二氧化碳单步富集至98%",
-      "新型无碳酸乙烯酯电解液体系研发取得进展，可改善高能量密度电池界面稳定性"
+      "国电投曲靖建成国内首个MW级空气热力循环储能试验系统",
+      "上海交大研发3.6V级无负极室温钠硫电池突破放电电压局限"
     ],
     "AI与智能科技": [
-      "研究人员提出单片式细胞-忆阻器架构，实现仿生化学传感器晶圆级集成",
-      "细胞与忆阻器直接耦合架构问世，可模拟生物神经振荡响应模式",
-      "联想联合英伟达建设吉瓦级AI云超级工厂，首发采用GB300 NVL72系统"
+      "实验实现氟化钙分子高密度磁光陷阱峰值数密度提升六百倍",
+      "联想与英伟达联合发布AI云超级工厂率先采用Blackwell架构",
+      "科研人员开发两阶段级联光电突触神经形态成像器"
     ],
     "通用技术": [
-      "科研团队开发出晶体-玻璃纳米双相合金，实现材料超高强度与大延展性协同",
-      "新型多模光纤探针结合深度学习技术，实现亚纳米级原位位移检测",
-      "中国空间站完成锂离子电池在轨原位观测，记录微重力下锂枝晶生长影像"
+      "水油电极界面自由基电沉淀技术实现化学发光延长一百零三倍",
+      "加州理工团队研发锗硅酸盐超低损耗光子集成电路平台"
     ]
   },
   "sectors": [
@@ -26,9 +24,8 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "国电投曲靖建成国内首个MW级热泵储能工程验证系统，能量综合利用率达80%",
-        "布法罗分校研发纳米限域离子液体膜，实现二氧化碳单步富集至98%",
-        "新型无碳酸乙烯酯电解液体系研发取得进展，可改善高能量密度电池界面稳定性"
+        "国电投曲靖建成国内首个MW级空气热力循环储能试验系统",
+        "上海交大研发3.6V级无负极室温钠硫电池突破放电电压局限"
       ],
       "entries": [
         {
@@ -51,44 +48,41 @@
           "hb": 1
         },
         {
-          "t": "纽约州立大学布法罗分校Miao Yu开发高性能纳米限域离子液体膜用于高效CO2捕集",
+          "t": "国电投曲靖MW级空气热力循环储能项目投入试验运行",
           "d": "2026-01-07",
           "a": "",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "纽约州立大学布法罗分校Miao Yu团队制备纳米限域离子液体膜，将氨基酸型离子液体[Emim][Gly]限域于单壁碳纳米管网络，CO2渗透率达1654 GPU、CO2/N2选择性1132，高温湿润条件下稳定运行超100小时，中空纤维放大实验实现CO2从4.2%单步富集至98%。1月7日发表于Science Advances。",
-          "sc": 6.5,
+          "c": "零碳产业/能量循环/能量存储/储热/压缩空气",
+          "as": "国电投MW级空气热力循环储能(CASE)项目在曲靖建成投入试验运行，是国内首个热泵储能工程化验证系统。投资9825万元，以空气为工质，功率1MW、储能4小时，可输出最高560℃热能和最低-30℃冷能，能量综合利用率80%。低谷电驱动压缩/膨胀装置储存热冷能，高峰期再发电。运行压力<2MPa，主要设备寿命达30年，可实现30-110%变负荷运行。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/yi5x2HhFDjPcFcvOv_wGIA",
+          "tp": "空气热力储能",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "电-储热-电体系，空气热力循环储能过程： CN118920525A，储电回路：电动机驱动高温压缩机压缩工质---升温（绝热压缩：电能-内能）高温工质依次通过储热模块分区储热（储热温度梯次降低500-200℃，不同模块可采用不同储热材料）---储热（等压放热）放热工质210℃经回热器换热---余热回收利用换热工质进入低温膨胀机膨胀---降温（绝热膨胀：内能-机械能）-65℃低温工质依次通过储冷模块分区储冷（储冷温度梯次升高-20到-60℃）---储冷（等压吸热）随后工质15℃进入回热器升温，再进入高温压缩机；发电回路：低温压缩机压缩经储冷模块释放后的工质，并通过回热器加热190℃---加压预升温（绝热压缩：低温减少消耗的功）工质进入储热模块逐级从低到高加热490℃---升温（等压吸热）高温高压工质进入高温膨胀机做功，驱动发电机发电---发电（绝热膨胀）做功后工质经过回热器+散热器散热后25℃进入储冷模块冷却工质-55℃---冷却（等压放热）冷却后工质进入低温压缩机再次循环；对比储电用电，储热长时更优优势。560℃高温，不用水蒸气工质膨胀发电、能量综合利用率80%。暂未进行评论，可找国内相关高校/公司考察调研",
+          "b": "据1月7日曲靖发布消息（曲靖市委宣传部官方账号），由国家电投集团中央研究院与云南国际电力投资有限公司联合研发的MW级空气热力循环储能（CASE）项目全面建成并投入试验运行。文中称，该项目投资9825万元、占地4789.06m2，是国内首个热泵储能工程化验证系统；可输出最高560℃的热能与最低-30℃的冷能，能量综合利用率80%。\n另据先前媒体报道所示，该技术以空气作为循环工质，功率1MW，储能时长4h；在用电低谷期，其利用新能源发电或谷电驱动压缩装置和膨胀装置将电能转换为热能和冷能，并分别储存于储热（熔盐）和储冷（防冻液）介质中；在用电高峰期，利用储存的热能和冷能驱动压缩装置和膨胀装置，实现系统对外供电。系统运行压力<2 MPa，可回收利用系统约110℃余热，并可实现30~110%变负荷高效运行（调峰调频）；预计系统主要设备机械部件运行时长可达30年。",
+          "hb": 1
+        },
+        {
+          "t": "上海交通大学孙浩使用二氰胺钠钠盐实现S/SCl4正极转换的高能量密度高压无负极室温钠硫电池",
+          "d": "2026-01-07",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "上海交大孙浩团队联合复旦彭慧胜报道3.6V级无负极室温钠硫电池，采用S/SCl4高价态正极化学体系（S8转化为SCl4的32电子反应），以二氰胺钠盐配制氯铝酸盐电解质（SOCl2溶剂），突破传统S0/S2-低价态路径放电电压低于1.6V的局限，兼具高能量密度与高安全性。",
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1126/sciadv.aea1329",
-          "tp": "纳米捕集膜",
+          "u": "https://doi.org/10.1038/s41586-025-09867-2",
+          "tp": "无负极钠硫",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "纽约州立大学布法罗分校Miao Yu教授团队设计并制备了一种可规模化的纳米限域离子液体（NCIL）膜，通过将高CO2亲和性的氨基酸型离子液体[Emim][Gly]限域于超薄、开放且均一的单壁碳纳米管网络中，实现了兼具超高渗透率与超高选择性的CO2分离性能；该膜在模拟天然气烟气条件下表现出最高1654气体渗透单位（GPU）的CO2渗透率和1132的CO2/N2选择性，并在高温、湿润条件下稳定运行超过100小时，同时在中空纤维放大实验中实现了CO2从4.2%到98%的单步富集，显示出良好的工业化潜力，研究成果1月7日发表于Science Advances。",
-          "hb": 1
-        },
-        {
-          "t": "无碳酸乙烯酯电解液助力高性能锂离子电池",
-          "d": "2026-01-07",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "锂离子电池电解液中碳酸乙烯酯（EC）长期是不可或缺但又问题缠身的组分，会导致 SEI 膜不稳定、高温副反应及库仑效率下降等缺陷。该研究提出无 EC 电解液新体系，通过替代溶剂与添加剂协同设计，在保持高离子电导率的同时显著改善界面稳定性与循环寿命，为下一代高能量密度电池提供新方向。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00455-6?rss=yes",
-          "tp": "无EC锂电池电解液",
-          "aip": 1,
-          "kp": [
-            "[电解质]: 无碳酸乙烯酯(EC-free)",
-            "[优势]: 更安全/高压/宽温域"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "For decades, ethylene carbonate (EC) has been an essential but problematic component in lithium-ion batteries, causing safety issues and performance limits. This review demonstrates that removing EC is not a loss but a breakthrough. By designing smarter electrolytes without EC, batteries can simultaneously become safer, support higher voltages, operate from arctic cold to desert heat, and charge extraordinarily fast, paving the way for more robust and powerful energy storage.",
+          "b": "室温钠硫电池具有高元素丰度和低成本优势，然而基于单质硫到硫化钠的低价态反应路径（S0/S2−）使电池的放电电压低于1.6 V；同时该低价态反应导致负极需要过量使用化学性质活泼的金属钠，限制了电池的能量密度且使电池制备及运行存在严重安全隐患。S8分子可以被还原为S2-，也可以被氧化为更高价态，例如S4+，高价态的S0/S4+氧化还原化学能提供高达约3.6 V的放电电压。但由于其较大的氧化能垒和不相匹配的阴离子配体，该反应在室温钠硫电池中一直难以实现。\n近日，上海交通大学孙浩副教授团队联合复旦大学彭慧胜教授报道了一种采用高价硫/四氯化硫（S/SCl4）正极化学体系及无负极构型的3.6 V级钠硫电池。该电池由S8正极、铝箔负极集流体、玻璃纤维隔膜和不可燃的氯铝酸盐电解质（SOCl2为溶剂，配制.5 M 二氰胺钠NaDCA+8 M AlCl3，6.33mS cm⁻¹或4.5 M NaCl+8 M AlCl3，8.28 mS cm⁻¹或8 M AlCl3，4.44 mS cm⁻¹溶液）组成。正极反应涉及S8与SCl4之间可能发生的32电子转化反应（S8+32Cl-−32e-=8SCl4），对应的理论容量分别为3350 mAh gsulfur-1和403 mAh g(SCl4+Na)-1，高于传统钠硫电池的理论容量（1675 mAh gsulfur-1和690 mAh gNa2S），且气相色谱-高分辨质谱、S K-edge X射线吸收光谱等分析证明了该反应可逆，充电产物为SCl4，并不涉及氯基物质的氧化还原反应。与使用NaCl电解质导致Cl₂产生而S难参与反应相比，正极侧DCA-能有效促进硫与碳基体间的电子转移，并通过形成DCA--SClx中间体，将硫氧化的吉布斯自由能降低约2 eV，促使发生S0/S4+高价氧化还原反应，使用高孔隙率碳材料还可有效固定SCl4抑制其溶解；负极侧NaDCA的电解质能诱导形成富含NaCN与Na3N的富氮固态电解质界面层，该SEI层钠离子电导率高，能有效抑制副反应并促进钠离子的均匀沉积。由此制备的无负极钠硫电池放电电压达3.6 V，可逆比容量为744 mAh g-1，基于电极总质量计算，其最大能量密度和功率密度分别达到1198 Wh kg-1和23773 W kg-1，并能在-40至80℃温度范围内工作，室温存储400天储存后容量保持率超过96%；引入铋配位共价有机框架催化剂，可进一步将放电容量提升至1206 mAh g-1，能量密度提高至2021 Wh kg-1。\n测试结果表明，108 mAh的软包电池（镍泡沫正极集流体，S:KB:PTFE=45:45:10 wt%，S负载量2mg cm-2，140cm2；电解液用量12 mL）可稳定循环100圈，并通过切割与针刺测试。1.06 Ah软包电池（S:KB:PTFE=67.5:22.5:10 wt%，S负载量2.4mg cm-2，770cm2；电解液用量36mL）0.5 A/g电流密度下循环30圈后容量几乎无衰减；其使用1.04 mg cm-2硫负载量的电池可实现平均放电电压约3.71 V，放电容量达676 mAh g-1。此外，其估算该电池成本约为5.03美元/kWh（基于材料成本进行计算，硫成本0.12 US$/kg、电解质0.44 US$/kg、导电剂8.9 US$/kg、粘结剂62.0 US$/kg、隔膜0.03 US$/m²、铝箔0.07 US$/m²、不锈钢网0.8 US$/m²，材料利用率或良率为95%）。文章于2026年1月7日发表在Nature。",
           "hb": 1
         }
       ]
@@ -97,73 +91,72 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究人员提出单片式细胞-忆阻器架构，实现仿生化学传感器晶圆级集成",
-        "细胞与忆阻器直接耦合架构问世，可模拟生物神经振荡响应模式",
-        "联想联合英伟达建设吉瓦级AI云超级工厂，首发采用GB300 NVL72系统"
+        "实验实现氟化钙分子高密度磁光陷阱峰值数密度提升六百倍",
+        "联想与英伟达联合发布AI云超级工厂率先采用Blackwell架构",
+        "科研人员开发两阶段级联光电突触神经形态成像器"
       ],
       "entries": [
         {
-          "t": "单片式细胞-忆阻器架构实现振荡化学受体的晶圆级集成，用于仿生味觉芯片",
+          "t": "CaF的传送带磁光陷阱",
           "d": "2026-01-07",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究提出单片式'细胞-忆阻器'（cell-on-memristor）架构，实现振荡型化学感受器的晶圆级集成，构建仿生味觉芯片。忆阻器模拟生物感受器的振荡响应模式，单一芯片可对多种味觉物质产生类生物电信号识别，突破了人工嗅觉/味觉传感器在阵列规模化与生物真实信号重现方面的瓶颈。",
-          "sc": 7.8,
+          "a": "Nature Communications",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "实验成功实现了氟化钙（CaF）分子的高密度传送带磁光陷阱。压缩后的分子云平均半径为64(5)μm，峰值数密度达3.6(5)×10^10 cm^-3，较传统红失谐磁光阱提升了600倍，创下分子磁光阱密度纪录。将其加载至光偶极阱中，可在14(2)μK温度下捕获多达2.6×10^4个分子，峰值相空间密度约为2.4×10^-6，为高密度分子应用开辟了新可能。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-025-02436-y",
-          "tp": "忆阻器仿生芯片",
+          "u": "https://www.nature.com/articles/s41467-025-67944-6",
+          "tp": "分子磁光陷阱",
           "aip": 1,
           "kp": [
-            "[架构]: 单片化电池-忆阻器架构",
-            "[集成规模]: 晶圆级振荡型化学感受器",
-            "[应用]: 生物仿生味觉芯片"
+            "平均半径[CaF传送带磁光陷阱高度压缩云团]: 64(5) μm",
+            "峰值数密度[CaF传送带磁光陷阱高度压缩云团]: 3.6(5) × 10^10 cm−3",
+            "密度提升倍数[CaF传送带磁光陷阱相较于传统红失谐MOT]: 600倍"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Array fabrication and the wafer-scale integration of artificial oscillatory chemoreceptors are crucial for enabling biomimetic chips with bio-realistic chemoreception in practical bioapplications. However, existing chemoreceptors based on conventional architectures require sophisticated or non-scalable fabrication techniques due to inherent material or structural defects. Here we introduce a monolithic cell-on-memristor (CoM) chemoreceptive architecture featuring a unique oscillation mechanism for self-powered biosensing and in situ spike encoding. Through rational material selection and complementary metal–oxide–semiconductor-compatible fabrication, we realize the demonstration of a wafer-scale 10 × 10 CoM array with a spatial resolution of 51 pixels per inch and a very small pixel size of 150 μm, with potential for further scaling down. Using its bio-plausible ion-modulated voltage oscillations with spatiotemporal probabilistic spiking information, we exploit the CoM-array-based gustatory chip to replicate gustation for accuracy salty taste classification. Our CoM architecture offers a general and scalable approach for implementing chemoreceptive oscillatory systems aimed at human–machine biointegration applications.",
-          "hb": 1
-        },
-        {
-          "t": "单片式细胞-忆阻器架构实现振荡化学受体的晶圆级集成以用于生物真实嗅觉",
-          "d": "2026-01-07",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "提出单片集成cell-on-memristor架构，实现了振荡式化学受体的晶圆级集成。该架构将生物传感单元与忆阻器直接耦合，构建出仿生嗅觉/化学传感系统，可模拟生物嗅觉神经的振荡响应模式。晶圆级阵列化加工是该技术走向实用化的关键，在智能传感、机器人嗅觉和生物电子接口等领域具有广阔应用前景。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-025-02436-y",
-          "tp": "忆阻器化学感受器",
-          "aip": 1,
-          "kp": [
-            "[架构]: 单片cell-on-memristor",
-            "[集成规模]: 晶圆级"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Array fabrication and the wafer-scale integration of artificial oscillatory chemoreceptors are crucial for enabling biomimetic chips with bio-realistic chemoreception in practical bioapplications. However, existing chemoreceptors based on conventional architectures require sophisticated or non-scalable fabrication techniques due to inherent material or structural defects. Here we introduce a monolithic cell-on-memristor (CoM) chemoreceptive architecture featuring a unique oscillation mechanism for self-powered biosensing and in situ spike encoding. Through rational material selection and complementary metal–oxide–semiconductor-compatible fabrication, we realize the demonstration of a wafer-scale 10 × 10 CoM array with a spatial resolution of 51 pixels per inch and a very small pixel size of 150 μm, with potential for further scaling down. Using its bio-plausible ion-modulated voltage oscillations with spatiotemporal probabilistic spiking information, we exploit the CoM-array-based gustatory chip to replicate gustation for accuracy salty taste classification. Our CoM architecture offers a general and scalable approach for implementing chemoreceptive oscillatory systems aimed at human–machine biointegration applications.",
+          "b": "Achieving high-density samples of laser-cooled molecules is a critical step toward advancing applications in precision measurements, ultracold chemistry and quantum science. We report the experimental realization of a high-density conveyor-belt magneto-optical trap for calcium monofluoride (CaF) molecules. The obtained highly-compressed cloud has a mean radius of 64(5) μm and a peak number density of 3.6(5) × 1010 cm−3, a 600-fold increase over the conventional red-detuned MOTs of CaF, and the densest molecular MOT observed to date. Subsequent loading of these molecules into an optical dipole trap yields up to 2.6 × 104 trapped molecules at a temperature of 14(2) μK with a peak phase-space density of ~ 2.4 × 10−6. This opens new possibilities for a range of applications utilizing high-density, optically trapped ultracold molecules.",
           "hb": 1
         },
         {
           "t": "联想与英伟达合作打造吉瓦级AI工厂",
           "d": "2026-01-07",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/计算集群",
           "as": "联想与英伟达在Tech World大会联合发布联想AI云超级工厂，打造吉瓦级AI工厂计划。通过即用型组件、工业化建设流程加速部署，使AI云服务商更快上线下一代工作负载。将率先采用英伟达Blackwell Ultra架构，包括GB300 NVL72系统(72块Blackwell Ultra GPU+36块Grace CPU，全液冷机架级架构)，并支持新发布的Vera平台。",
-          "sc": 6.0,
+          "sc": 5.9,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.ithome.com/0/911/065.htm",
           "tp": "联想英伟达AI工厂",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
           "b": "IT之家1月7日消息，在今日的联想第十一届Tech World大会及主题演讲中，联想与英伟达联合发布了联想AI云超级工厂（Lenovo AI Cloud Gigafactory）。联想董事长兼CEO杨元庆与英伟达创始人兼CEO黄仁勋共同揭幕了这一新的吉瓦（GW）级AI工厂计划，将其作为一项重大进展，使AI云服务提供商能够更快地让下一代AI工作负载和应用上线。\n该计划通过即用型组件、专家指导和工业化建设流程，加速吉瓦级AI工厂的部署，宣称能够让服务提供商以创纪录的速度和规模向企业交付定制化的AI解决方案。下一代AI云服务提供商可以利用联想Neptune液冷混合AI基础设施、英伟达加速计算平台、联想的全球制造以及联想混合AI工厂服务的全生命周期，快速从概念到构建、部署和商业化。\nIT之家从联想官方介绍获悉，在联想与英伟达合作的AI云超级工厂中，将率先使用英伟达Blackwell Ultra架构，包括联想的英伟达GB300 NVL72系统，该系统采用全液冷机架级架构，将72块Blackwell Ultra GPU和36块Grace CPU集成到一个平台上。该计划还将支持新发布的英伟达Vera Rubin NVL72旗舰系统，用于AI训练和推理——该系统将72块Rubin GPU、36块Vera CPU、ConnectX-9 SuperNIC、BlueField-4 DPUs以及Spectrum-X以太网集成到机架级AI超级计算机中，为下一代吉瓦AI工厂提供动力。",
+          "hb": 1
+        },
+        {
+          "t": "基于级联光电突触的神经形态成像仪",
+          "d": "2026-01-07",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "受人类视网膜高突触促进作用启发，报道了一种两阶段级联光电突触神经形态成像器。第一阶段利用硅光伏电池和双电层电容器将初始光信号转换为栅极电压，第二阶段由该电压控制海藻酸钠门控突触晶体管通道内的突触后电流。该人工突触器件兼具机械柔软性、曲面形态因子和优异的突触易化特性，适用于人工视觉系统。",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01540-w",
+          "tp": "光电突触成像",
+          "aip": 1,
+          "kp": [
+            "[级联光电突触]: 具备机械柔软性、曲线形态因子和优异的突触易化特性，可实现双级联信号预处理"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The human retina can provide inspiration for the development of optoelectronic devices for artificial vision systems. It has, in particular, a curved geometry for low optical aberration imaging and is capable of signal preprocessing, in part due to its high synaptic facilitation. However, it remains challenging to create artificial synaptic devices with mechanical softness, curvilinear form factors and superior synaptic facilitation. Here we report a cascaded two-stage optoelectronic synapse that uses silicon photovoltaic cells to modulate sodium-alginate-gated synaptic transistors. The photovoltaic cells and an electric double-layer capacitor convert the initial light signal into a gate voltage (stage one), which then controls the postsynaptic current in the channel of the synaptic transistor (stage two). This cascaded synaptic signal transmission mechanism results in high synaptic facilitation of the postsynaptic signal. The system exhibits stable and long-term linearly potentiated characteristics, enhancing the accuracy of pattern recognition. We use an array of the cascaded optoelectronic synapses to create a curvy, kirigami-structured neuromorphic imager, which mimics the curved geometry and neural signal transmission of the human retina and provides visual information sensing and preprocessing functions.",
           "hb": 1
         }
       ]
@@ -172,72 +165,65 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研团队开发出晶体-玻璃纳米双相合金，实现材料超高强度与大延展性协同",
-        "新型多模光纤探针结合深度学习技术，实现亚纳米级原位位移检测",
-        "中国空间站完成锂离子电池在轨原位观测，记录微重力下锂枝晶生长影像"
+        "水油电极界面自由基电沉淀技术实现化学发光延长一百零三倍",
+        "加州理工团队研发锗硅酸盐超低损耗光子集成电路平台"
       ],
       "entries": [
         {
-          "t": "晶体-玻璃纳米双相合金实现超高强度与大均匀塑性变形",
+          "t": "水|油|电极界面的自由基电沉淀将三(2,2'-联吡啶)钌(II)和过氧化苯甲酰体系的“电”化学发光延长103",
           "d": "2026-01-07",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "研究团队开发出晶体-玻璃纳米双相合金，在结构材料领域实现超高强度与大均匀延展性的协同突破。该材料通过纳米尺度的晶体相与非晶相复合，克服了传统高强度材料脆性大的瓶颈，为航空航天及工程结构应用提供新方向。",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
           "sc": 7.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517926?af=R",
-          "tp": "晶玻璃双相合金",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202521454?af=R",
+          "tp": "电化学发光延长",
           "aip": 1,
-          "kp": [
-            "[结构]: 晶体-玻璃纳米双相合金",
-            "[性能]: 超高强度+大均匀塑性变形"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Abstract\n                  Higher strength and larger ductility are always the pursuit of goal in the research of structural materials. Grain refinement and amorphization can enhance the strength of alloys, yet have their own limitations. The ductility of nanocrystalline alloys is usually low (&lt;5%), due to mechanical instability of the nanograin boundary. Shear band (SB) forms after yielding, inducing almost zero plasticity of metallic glasses (MGs). In this article, the recent development of the crystal‐glass nano‐dual‐phase (CG‐NDP) alloys, dramatically enhancing the strength and plasticity is reviewed. The grain boundary (GB) is replaced by a nanoscale amorphous phase. This structure configuration substantially increases the stress barrier against dislocation motion, enhancing the yield strength up to a near‐theoretical value. Furthermore, global plastic flow behavior of the nano‐sized amorphous phase can be activated, promoting emission of dislocations at the crystal‐glass interface. Some of these dislocations pass through the crystalline phase and are absorbed by the amorphous phase on the opposite interface, depicting a continuous emission‐motion‐annihilation process. These deformation mechanisms promote the large homogeneous plastic deformation under both compression and tension. A new mechanism of crystalline‐to‐amorphous phase transformation is further reviewed. Finally, their functional applications as electrolytic catalysis and wear‐resistant coatings is discussed.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "深度学习与超振荡散斑赋能的多模光纤探针用于原位纳米位移检测与微成像",
+          "t": "加州理工学院Hao-Jing Chen展示基于锗硅酸盐的超低损耗光子集成电路平台",
           "d": "2026-01-07",
-          "a": "Nature Communications",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究开发了一种结合深度学习与超振荡散斑技术的多模光纤探针，用于原位纳米级位移检测和微成像。该方案突破传统高精度位移传感器在灵敏度和紧凑性上的限制，利用多模光纤的散射散斑模式经深度学习解码实现亚纳米级分辨率，在半导体制造和生命科学精密计量领域具有应用前景。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-025-67942-8",
-          "tp": "光纤位移纳米检测",
-          "aip": 1,
-          "kp": [
-            "器件[纳米检测]: 多模态光纤探针",
-            "方法[检测]: 深度学习+超振荡散斑"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "High-precision metrology has laid the foundation for semiconductor fabrication and life sciences. However, existing displacement measurement approaches are incapable of performing flexible probing within complex equipment interiors. Here, we present a in situ, non-contact nano-displacement measurement approach. Leveraging a multimode fiber probe empowered by deep learning, fine feature information can be efficiently extracted from superoscillatory speckles, achieving single-ended detection with 10 nm resolution and 99.95% accuracy. A physical model is established to correlate the displacement with higher-order modes proportion in the fiber. Sub-millimeter-sized probe enables detecting targets with different structures in confined spaces. Robust recognition is achieved through joint learning, under varying fiber bending conditions and different metal materials. With extreme compression ratios of less than 0.1%, the system delivers high accuracy, low training costs, and high-speed processing. The imaging capability of the probe is also experimentally validated, proving potential as a powerful tool in applications such as lithography, weak force sensing, and super-resolution micro-endoscopy.",
-          "hb": 1
-        },
-        {
-          "t": "我国空间站开展了锂离子电池在轨观测实验",
-          "d": "2026-01-07",
-          "a": "",
-          "c": "通用技术/通信和运输/航天",
-          "as": "我国空间站开展锂离子电池在轨观测实验，利用微重力环境直接观测重力对电池内部关键过程的影响。通过原位光学观测记录锂枝晶生长动态影像，完成电化学实验精细调节、流程控制和状态监控。有助于突破重力场与电场耦合作用机理，为优化在轨电池系统、设计下一代高比能高安全太空电池提供依据。原型电池可能由大连化物所提供。",
-          "sc": 6.2,
+          "as": "加州理工Hao-Jing Chen团队提出基于锗硅酸盐的超低损耗光子集成电路平台，完全兼容CMOS工艺，谐振器品质因数超1.8亿，电信波段品质因数较现有平台高10dB，波导损耗降低约20dB，实现片上光纤级损耗，可应用于光学时钟、精密导航与量子传感。1月7日发表于Nature。",
+          "sc": 6.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://www.news.cn/tech/20260107/0b2ccc41830b4f189ba186a510d7fe36/c.html",
-          "tp": "太空电池在轨实验",
-          "aip": 1,
+          "u": "https://doi.org/10.1038/s41586-025-09889-w",
+          "tp": "低损光子芯",
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "据新华社、科技日报等1月7日报道，我国空间站开展了锂离子电池在轨实验，以直接观测与解析微重力环境对电池内部关键过程的影响机理。文中称，太空的微重力环境有助于探究重力对电池内部过程的影响，此次试验通过原位光学观测，记录了锂枝晶生长的动态影像，完成了电化学实验的精细调节、流程控制、状态监控以及对关键科学现象的识别与记录，有助于突破重力场与电场耦合作用，并有望为优化目前在轨电池系统、设计下一代高比能高安全太空电池提供依据。测试使用的锂离子原型电池可能由大连化物所提供，具体实验结果报道中并未公布。",
+          "b": "在过去几十年中，电信波段光子集成电路的损耗已取得显著降低，这推动了低噪声光学与微波合成、激光雷达以及光子人工智能引擎等片上应用的发展。然而，在较短波长下，材料吸收和散射损耗显著增加，这不仅大幅提高了功率需求，也限制了可见光及近可见光波段的性能。本研究提出了一种基于锗硅酸盐的超低损耗光子集成电路平台，该材料是光纤优异性能的基础，并通过完全兼容CMOS晶圆厂工艺实现。该平台的光子集成电路在从紫光到电信波段的谐振器中实现了超过1.8亿的品质因数，并在电信波段无需热处理即可实现比现有平台高10 dB的品质因数，为与有源器件的异质集成提供了更广阔的机会。该平台的其他特性包括可调控的波导色散、声学模式约束以及大模场面积带来的热稳定性，这些特性分别通过孤子微梳生成、受激布里渊激光及低频噪声自注入锁定得以展示。这些锗硅酸盐光子集成电路的成功，可实现片上光纤级损耗，使波导损耗相比现有最高性能光子平台进一步降低约20 dB。此外，本研究展示的性能能力将超低损耗光子集成电路技术与光学时钟、精密导航系统和量子传感器紧密连接。文章于2026年1月7日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "加州理工学院Hao-Jing Chen展示基于锗硅酸盐的超低损耗光子集成电路平台",
+          "d": "2026-01-07",
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "加州理工Hao-Jing Chen团队提出基于锗硅酸盐的超低损耗光子集成电路平台，完全兼容CMOS工艺，谐振器品质因数超1.8亿，电信波段品质因数较现有平台高10dB，波导损耗降低约20dB，实现片上光纤级损耗，可应用于光学时钟、精密导航与量子传感。1月7日发表于Nature。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-025-09889-w",
+          "tp": "低损光子芯",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "在过去几十年中，电信波段光子集成电路的损耗已取得显著降低，这推动了低噪声光学与微波合成、激光雷达以及光子人工智能引擎等片上应用的发展。然而，在较短波长下，材料吸收和散射损耗显著增加，这不仅大幅提高了功率需求，也限制了可见光及近可见光波段的性能。本研究提出了一种基于锗硅酸盐的超低损耗光子集成电路平台，该材料是光纤优异性能的基础，并通过完全兼容CMOS晶圆厂工艺实现。该平台的光子集成电路在从紫光到电信波段的谐振器中实现了超过1.8亿的品质因数，并在电信波段无需热处理即可实现比现有平台高10 dB的品质因数，为与有源器件的异质集成提供了更广阔的机会。该平台的其他特性包括可调控的波导色散、声学模式约束以及大模场面积带来的热稳定性，这些特性分别通过孤子微梳生成、受激布里渊激光及低频噪声自注入锁定得以展示。这些锗硅酸盐光子集成电路的成功，可实现片上光纤级损耗，使波导损耗相比现有最高性能光子平台进一步降低约20 dB。此外，本研究展示的性能能力将超低损耗光子集成电路技术与光学时钟、精密导航系统和量子传感器紧密连接。文章于2026年1月7日发表在Nature。",
           "hb": 1
         }
       ]

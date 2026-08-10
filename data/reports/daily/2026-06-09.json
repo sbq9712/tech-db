@@ -6,18 +6,18 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "正泰新能发布825W n型TOPCon太阳能组件，刷新行业功率纪录",
-      "多家厂商光伏组件量产效率突破25%，行业基准较23%实现跃迁",
-      "新型电极到电极再生技术面世，实现退役锂电池结构完整修复"
+      "海辰储能发布1300Ah量产电芯及6.9MW八小时集装箱储能系统",
+      "美国五角大楼拟将比亚迪及亿纬锂能等多家中企列入涉军黑名单"
     ],
     "AI与智能科技": [
-      "Anthropic就AI递归自我改进引发的能力失控风险发出警示",
-      "英伟达与SK海力士签署多年协议，合作研发下一代高带宽存储器",
-      "OpenAI星际之门超大规模数据中心项目面临持续攀升的建设成本"
+      "谷歌发布Gemini 3.5实时语音互译模型支持超70种语言",
+      "优必选超仿生人形机器人开启预售八日内小订量超3000台",
+      "DexAnyTwist框架提出混合动力系统策略解决灵巧操作优化冲突"
     ],
     "通用技术": [
-      "上海盘毂动力实现轴向磁通电机量产，产品体积与自重均缩减50%",
-      "研究采用进化优化算法系统探索钨材料多维参数，提升其抗高温氧化性能"
+      "浙江工商业分时电价新政执行峰谷套利价差降至0.4693元",
+      "五月国内乘用车销量前十六名均为新能源燃油车份额收缩",
+      "自进化3D砂型打印平台Ex3DSP将多目标优化实验量降低1148倍"
     ]
   },
   "sectors": [
@@ -25,49 +25,76 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "正泰新能发布825W n型TOPCon太阳能组件，刷新行业功率纪录",
-        "多家厂商光伏组件量产效率突破25%，行业基准较23%实现跃迁",
-        "新型电极到电极再生技术面世，实现退役锂电池结构完整修复"
+        "海辰储能发布1300Ah量产电芯及6.9MW八小时集装箱储能系统",
+        "美国五角大楼拟将比亚迪及亿纬锂能等多家中企列入涉军黑名单"
       ],
       "entries": [
         {
-          "t": "正泰新能推出825W TOPCon太阳能组件",
+          "t": "Hithium 的目标是使用 1300 Ah 电池和 6.9 MWh 系统实现 8 小时的存储 - 储能",
           "d": "2026-06-09",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "正泰新能在2026年SNEC展会上推出Astro N8 Pro系列n型TOPCon太阳能组件，功率达到825瓦，刷新行业功率纪录。该系列采用n型TOPCon电池技术，结合先进封装工艺和优化版图设计，实现更高的光电转换效率和更低的度电成本。825W超高功率组件可显著降低大型地面电站的安装成本和BOS开支，推动光伏平价上网进程。",
-          "sc": 8.4,
+          "a": "ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "海辰储能（Hithium）在SNEC 2026展会上推出了专注长时间储能的大容量电芯产品。公司展示了实现量产的1300 Ah LFP电芯，以及基于该电芯构建的6.9 MW/55.2 MWh八小时集装箱储能系统。此外，还展出了650 Ah电芯和10+ MWh系统。1300 Ah电芯专为八小时储能应用设计，基于20英尺集装箱的系统级要求进行开发。",
+          "sc": 9.5,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/06/08/astronergy-launches-825-w-topcon-solar-module/",
-          "tp": "TOPCon光伏组件",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://www.ess-news.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
+          "tp": "海辰长时储能",
+          "aip": 1,
+          "kp": [
+            "电芯容量[海辰储能LFP电芯]: 1300 Ah",
+            "电芯容量[海辰储能LFP电芯]: 650 Ah",
+            "系统容量[八小时集装箱储能系统]: 6.9 MW/55.2 MWh"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Hithium presented two large-format energy storage cells and associated containerized systems at SNEC 2026 in Shanghai, as it expands its focus on the long-duration energy storage segment.\nThe company introduced the mass-production version of its ∞Cell 1300 Ah LFP cell, first announced in December 2025, alongside the first mass-production-level display of its ∞Power 6.9 MW/55.2 MWh eight-hour containerized storage system based on the cell. It also presented its ∞Cell 650 Ah cell and an ∞Power 10+ MWh system. The products were shown under the exhibition theme “Long-Duration Powering, Green Energy Enduring.”\nHithium said the 1300 Ah cell is designed for eight-hour storage applications. The company stated that the cell was developed based on system-level requirements, including 20-foot container dimensions, international transport constraints, and 1,500 V DC system architectures commonly used in energy storage.\nAccording to the company, the ∞Cell 1300 Ah uses LFP chemistry, with a nominal capacity of 1300 Ah, gravimetric energy density of at least 190 Wh/kg, volumetric energy density of at least 406 Wh/L, and a design life exceeding 25 years. HiTHIUM said the cell incorporates materials and structural optimizations to reduce temperature rise.\nThe ∞Power 6.9 MWh system uses a 4 × 1P416S configuration, liquid cooling, and CAN, RS485, and Ethernet communications. The company lists system-level gravimetric energy density of at least 135 Wh/kg and volumetric energy density of at least 160 Wh/L. The system supports side-by-side and back-to-back deployment and features low-noise cooling, a low-GWP refrigerant, recyclable structural components, and multi-stage active fire detection and protection. It is designed to comply with NFPA 855.\nHithium said the newly introduced 650 Ah cell and ∞Power 10+ MWh system are intended to expand its large-format product portfolio. Public information on the 650 Ah cell remains limited. The company said the platform is designed to improve project economics through higher energy density and improved system integration efficiency. Delivery is expected to begin in 2027.\nThe launch builds on Hithium’s long-duration storage roadmap over the past year.\nIn December 2024, the company introduced 1175 Ah and 587 Ah cells and a 6.25 MWh system, which it later said entered mass production and global delivery. In December 2025, it launched the ∞Cell 1300 Ah cell and the ∞Power 6.9 MW/55.2 MWh eight-hour system concept, with mass delivery planned for the fourth quarter of 2026.\nHiTHIUM has also outlined manufacturing plans in Chongqing and Heze, Shandong province, with more than 70 GWh of planned long-duration storage capacity expected to support deliveries from 2027. The company said its portfolio now covers 1- to 8-hour applications, combining LFP and sodium-ion technologies for utility-scale, commercial and industrial, and residential use cases.",
+          "hb": 1
         },
         {
-          "t": "25%成为新的23%（钙钛矿-硅叠层太阳能电池效率里程碑）",
+          "t": "独家报道：比亚迪、蔚来、伊芙和其他中国公司因涉嫌军事联系而被列入美国“黑名单” – 国际电池公司",
           "d": "2026-06-09",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "2026年SNEC上海光伏展上，各类光伏组件制造商集体展示量产效率突破25%的产品，标志着行业基准从23%向25%跃迁。这一效率提升反映了TOPCon、HJT及钙钛矿叠层等电池技术的快速迭代，光伏组件功率密度持续攀升，度电成本进一步下降。",
-          "sc": 8.4,
+          "a": "Batteries International",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "美国五角大楼计划将比亚迪、蔚来、亿纬锂能、百度和阿里巴巴等多家中国科技与电池企业列入涉嫌与中国军方有联系的“黑名单”（Section 1260H名单）。名单将正式公布于《联邦公报》。针对此指控，被点名的多家企业已出面反驳，坚决否认相关指控，称其毫无事实依据。",
+          "sc": 7.8,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.pv-magazine.com/2026/06/08/25-is-the-new-23/",
-          "tp": "光伏组件效率",
-          "aip": 1
+          "tg": "政策监管",
+          "u": "https://www.batteriesinternational.com/news/byd-nio-eve-and-other-chinese-firms-added-to-us-blacklist-over-alleged-military-links/",
+          "tp": "企业黑名单",
+          "aip": 1,
+          "kp": [
+            "[出口管制与合规风险]: BYD、Nio、Eve Energy等因涉嫌军方联系被美国五角大楼列入黑名单"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Energy Storage\nEXCLUSIVE: BYD, Nio, Eve and other Chinese firms set for US ‘blacklist’ over alleged military links\n–  June 9, 2026 01:24 pm BST\nGlobal energy storage and EV battery majors including BYD are being added to a US ‘blacklist’ that alleges the firms and other tech partners have links to China’s military,\nBatteries International\nBYD, Nio and Eve Energy are among those named by the Pentagon in a list seen by\nBatteries International\nand which is due for publication in the US government’s official journal, the\nFederal Register\n, tomorrow (June 10).\nHowever, several of the companies named, including Chinese tech firm Baidu and the Alibaba Group, have already rejected claims about their operations as baseless and factually inaccurate.\nThe updated Section 1260H list ― the official list of companies the Department of Defense has designated as Chinese military companies operating in the US ― aims to highlight industry players at the heart of US-China technological competition.\nInclusion on the list does not automatically attract sanctions, but industry observers say it can lead to restrictions on future US government procurement and cause difficulties in terms of compliance in conducting business with US partners.\nFirms on the list also face increased scrutiny, potential restrictions on defence contracts and reputational damage ― although companies can petition to be removed from the list.\nSeveral of the companies included on the list have already issued statements refuting the US allegations, according to the Beijing-based daily\nGlobal Times.\nThe US claims BYD is directly and indirectly affiliated with the State-Owned Assets Supervision and Administration Commission of China’s State Council (SASAC) and is indirectly affiliated with the Ministry of Industry and Information Technology (MIIT). BYD is alleged to be a military-civil fusion contributor to the Chinese defence industrial base because it is affiliated with MIIT and because it resides in or is affiliated with a military-civil fusion enterprise zone.\nAccording to the US, EVE Energy is a military-civil fusion contributor to the Chinese defence industrial base because it knowingly received assistance from the government of China through science, technology, research, or industrial efforts initiated, granted, or created by, or provided under, or related to, the Chinese military industrial planning apparatus, or in furtherance of Chinese military industrial planning objectives.\nBaidu and Alibaba are military-civil fusion contributors to the Chinese defence industrial base because of their affiliations with MIIT, according to the US.\nBaidu said on June 9: “As the company is neither a Chinese military company nor a military-civil fusion contributor to the Chinese defence industrial base, (we) believe there is no justification for the company’s inclusion on such a list.”\nBaidu said US government procurement limitations tied to the list would not impact the business of the company.\nIn September 2024, EVE Energy held a ceremony in California to mark the opening of its US regional headquarters.\nIn November 2025, BYD quoted the California Independent System Operator as confirming a newly installed 100MW/400MWh ESS it provided had been ranked No.1 in the state in terms of reliability and availability among all stand-alone energy storage projects.\nImage credit: Shutterstock",
+          "hb": 1
         },
         {
-          "t": "通过电极-电解质界面溶解实现废旧电池电极直接再生",
+          "t": "Hithium 的目标是使用 1300 Ah 电池和 6.9 MWh 系统实现 8 小时存储 - pv magazine China",
           "d": "2026-06-09",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "该研究提出一种电极到电极的直接再生技术，用于回收退役锂电池。不同于传统工艺仅回收金属而破坏电极结构，该方法通过调控电极-电解质界面，实现电极结构的完整修复与功能重建，兼顾了金属回收效率与电极完整性，为锂电池闭环回收提供了高效路径。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01118G",
-          "tp": "废电池电极再生",
-          "aip": 1
+          "a": "pv magazine",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "海辰储能（Hithium）在SNEC 2026展会上推出了面向长时储能应用的大尺寸电芯和集装箱式系统。展出的核心产品包括量产版的1300Ah LFP大容量电芯，以及基于该电芯构建的6.9MW/55.2MWh八小时集装箱式储能系统。此外，公司还展出了650Ah电芯和10+ MWh储能系统产品。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.pv-magazine.com/2026/06/09/hithium-targets-8-hour-storage-with-1300-ah-cell-and-6-9-mwh-system/",
+          "tp": "海辰长时储能",
+          "aip": 1,
+          "kp": [
+            "电池容量[海辰储能大容量电芯]: 1300 Ah",
+            "系统容量[集装箱式储能系统]: 6.9 MWh",
+            "[长时储能应用]: 支持4至8小时储能时长"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Technology & Products\nThe Chinese battery manufacturer is targeting 4- to 8-hour energy storage applications with new large-format cells and containerized systems.\nVincent Shaw\nTechnology & Products\nEnergy Storage\nUtility-scale\nImage: pv magazine\nithium presented two large-format energy storage cells and associated containerized systems at SNEC 2026 in Shanghai, as it expands its focus on the long-duration energy storage segment.\nThe company introduced the mass-production version of its ∞Cell 1300 Ah LFP cell, first announced in December 2025, alongside the first mass-production-level display of its ∞Power 6.9 MW/55.2 MWh eight-hour containerized storage system based on the cell. It also presented its ∞Cell 650 Ah cell and an ∞Power 10+ MWh system. The products were shown under the exhibition theme “Long-Duration Powering, Green Energy Enduring.”\nHithium said the 1300 Ah cell is designed for eight-hour storage applications. The company stated that the cell was developed based on system-level requirements, including 20-foot container dimensions, international transport constraints, and 1,500 V DC system architectures commonly used in energy storage.\nAccording to the company, the ∞Cell 1300 Ah uses LFP chemistry, with a nominal capacity of 1300 Ah, gravimetric energy density of at least 190 Wh/kg, volumetric energy density of at least 406 Wh/L, and a design life exceeding 25 years. HiTHIUM said the cell incorporates materials and structural optimizations to reduce temperature rise.\nThe ∞Power 6.9 MWh system uses a 4 × 1P416S configuration, liquid cooling, and CAN, RS485, and Ethernet communications. The company lists system-level gravimetric energy density of at least 135 Wh/kg and volumetric energy density of at least 160 Wh/L. The system supports side-by-side and back-to-back deployment and features low-noise cooling, a low-GWP refrigerant, recyclable structural components, and multi-stage active fire detection and protection. It is designed to comply with NFPA 855.\nHithium said the newly introduced 650 Ah cell and ∞Power 10+ MWh system are intended to expand its large-format product portfolio. Public information on the 650 Ah cell remains limited. The company said the platform is designed to improve project economics through higher energy density and improved system integration efficiency. Delivery is expected to begin in 2027.\nThe launch builds on Hithium’s long-duration storage roadmap over the past year.\nIn December 2024, the company introduced 1175 Ah and 587 Ah cells and a 6.25 MWh system, which it later said entered mass production and global delivery. In December 2025, it launched the ∞Cell 1300 Ah cell and the ∞Power 6.9 MW/55.2 MWh eight-hour system concept, with mass delivery planned for the fourth quarter of 2026.\nHiTHIUM has also outlined manufacturing plans in Chongqing and Heze, Shandong province, with more than 70 GWh of planned long-duration storage capacity expected to support deliveries from 2027. The company said its portfolio now covers 1- to 8-hour applications, combining LFP and sodium-ion technologies for utility-scale, commercial and industrial, and residential use cases.\nVincent Shaw\nView author posts",
+          "hb": 1
         }
       ]
     },
@@ -75,49 +102,80 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Anthropic就AI递归自我改进引发的能力失控风险发出警示",
-        "英伟达与SK海力士签署多年协议，合作研发下一代高带宽存储器",
-        "OpenAI星际之门超大规模数据中心项目面临持续攀升的建设成本"
+        "谷歌发布Gemini 3.5实时语音互译模型支持超70种语言",
+        "优必选超仿生人形机器人开启预售八日内小订量超3000台",
+        "DexAnyTwist框架提出混合动力系统策略解决灵巧操作优化冲突"
       ],
       "entries": [
         {
-          "t": "Anthropic对递归自我改进发出警告",
+          "t": "谷歌发布实时语音互译模型 Gemini 3.5 Live Translate：可识别 70 余种语言，谷歌翻译 App 就能用",
           "d": "2026-06-09",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Anthropic就AI递归自我改进（recursive self-improvement）发出警示。递归自我改进指AI系统持续自主优化自身能力，可能引发能力快速跃升及失控风险。该文正文需付费解锁，具体论述细节不明，属于业界关于AI安全与对齐讨论的重要信号，值得关注其论据与政策建议。",
-          "sc": 8.4,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/newsletters/ai-agenda/anthropic-sounds-alarm-recursive-self-improvement",
-          "tp": "AI递归自我改进",
-          "aip": 1
-        },
-        {
-          "t": "英伟达与SK海力士签署下一代AI存储器多年合作协议",
-          "d": "2026-06-09",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "英伟达与SK海力士签署多年期协议，合作开发下一代AI存储芯片。该协议聚焦高带宽存储器（HBM）技术，旨在保障AI算力需求持续增长下的供应链稳定，巩固双方在AI硬件生态中的战略地位。",
-          "sc": 7.4,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/nvidia-sk-hynix-sign-multi-year-deal-next-gen-ai-memory",
-          "tp": "AI存储芯片供应",
-          "aip": 1
-        },
-        {
-          "t": "OpenAI星门数据中心开发商面临成本上升",
-          "d": "2026-06-09",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/数据中心",
-          "as": "OpenAI星际之门数据中心项目的开发商面临不断攀升的建设成本。该项目作为超大规模AI算力基础设施，成本压力反映了当前大型数据中心在土地、电力、芯片及运维等维度面临的规模化挑战，可能影响AI基础设施投资节奏与布局策略。",
-          "sc": 7.0,
+          "a": "IT之家",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "谷歌发布实时语音互译模型Gemini 3.5 Live Translate，支持自动识别70多种语言并生成流畅语音，保留原说话者的语调与语速。该模型能在流式语音中同步处理，无需等待句子结束即可连续翻译。现已陆续登陆Android与iOS版谷歌翻译App，并向开发者及企业客户开放预览。",
+          "sc": 8.1,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/newsletters/ai-infrastructure/developers-openais-stargate-data-center-face-higher-costs-energy-challenges",
-          "tp": "数据中心建设成本",
-          "aip": 1
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/962/143.htm",
+          "tp": "语音互译模型",
+          "aip": 1,
+          "kp": [
+            "语言支持数量[Gemini 3.5 Live Translate]: 70多种",
+            "语音翻译能力[Gemini 3.5 Live Translate]: 连续生成语音并保留说话者语调、语速和音高",
+            "翻译延迟[Gemini 3.5 Live Translate]: 仅比说话者慢几秒",
+            "多语言处理能力[Gemini 3.5 Live Translate]: 自动处理多语言输入"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 9 日消息，北京时间 9 日（今天）晚间，谷歌正式发布\n最新的实时语音互译音频模型\nGemini 3.5 Live Translate，迈出实时翻译的下一步。\nGemini 3.5 Live Translate\n可自动识别 70 多种语言，并生成流畅、自然的翻译语音，同时保留说话者的语调、语速和音高\n根据介绍，传统轮流式系统通常要等说话者说完后才开始翻译，Gemini 3.5 Live Translate 则会连续生成语音，在“等待更多上下文以提升翻译质量”和“即时翻译以跟上说话者节奏”之间取得平衡。整个会话过程中，翻译音频可以保持流畅，避免尴尬停顿，并始终只比说话者慢几秒。\nGemini 3.5 Live Translate 今起陆续登陆谷歌产品：\n开发者可通过 Gemini Live API 和 Google AI Studio 使用公开预览版\n企业客户可从本月起在 Google Meet 中使用私有预览版\n和 iOS 版谷歌翻译使用\nGemini 3.5 Live Translate 会在语音流式传输过程中同步处理内容，让跨语言交流更加顺畅。模型可以自动处理多语言输入，无需手动调整设置，抗噪能力也能帮助应用适应嘈杂、复杂和不可预测的环境。开发者可以把 Gemini 3.5 Live Translate 用于\n多语言通话、会议、课程、直播和广播\n等场景，提供实时口译体验。\n据IT之家了解，Gemini 3.5 Live Translate 将登陆\n全球 Android 和 iOS 版谷歌翻译应用\n。用户使用实时翻译功能时，只需连接任意耳机，就可以在 70 多种语言中获得更顺畅的翻译，并让译文语音更接近说话者的语气。\nAndroid 用户还将陆续获得基于 3.5 Live Translate 的全新“聆听模式”。用户可以\n像接电话一样把手机贴到耳边\n，直接通过手机听筒收听翻译音频。在没有耳机、又不希望旁人听见翻译内容时，这种模式会更方便。",
+          "hb": 1
+        },
+        {
+          "t": "DexAnyTwist：通过混合操纵系统识别学习一般灵巧扭转",
+          "d": "2026-06-09",
+          "a": "National Science Review Advance Access",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "开发通用灵巧操作技术，尤其是复杂的扭转任务，面临异质数据集混合动力空间导致的优化冲突挑战。DexAnyTwist框架将一般性扭转任务重新定义为混合动力系统内的识别与控制问题，采用迭代策略逐步将混合操作任务划分为动态一致的子系统，从而学习并合成跨越不同物理定律的统一控制策略。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag351/8704707?rss=1",
+          "tp": "灵巧操作学习",
+          "aip": 1,
+          "kp": [
+            "[异构数据学习策略]: 标准学习范式无法在异构数据集中跨不同物理定律合成统一控制策略，产生优化冲突"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Developing general-purpose dexterous manipulation, particularly for intricate twisting tasks, remains a long-standing challenge. Large-scale training on massive datasets encompassing a vast spectrum of geometric and physical properties is a promising path. Yet, the hybrid dynamical space inherent in heterogeneous datasets creates optimization conflicts, where standard learning paradigms fail to synthesize a cohesive control strategy across disparate physical laws. This paper presents DexAnyTwist, a framework that reformulates the general twisting task as a problem of identification and control within a hybrid dynamical system. DexAnyTwist employs an iterative strategy to progressively partition the hybrid manipulation task into dynamically consistent subsystems. This approach utilizes forward partitioning to isolate data modes based on expert performance and backward refinement to optimize specialized policies. A learned gating mechanism then dynamically composes these experts, effectively mitigating interference between distinct dynamic modes. Beyond achieving state-of-the-art performance on our large-scale dataset, our framework spontaneously evolves manipulation primitives consistent with human twisting, and demonstrates superior zero-shot generalization to novel real-world geometries. This study not only solves a complex class of twisting tasks but also establishes a scalable pathway for robots to acquire general-purpose contact-rich manipulation skills.",
+          "hb": 1
+        },
+        {
+          "t": "优必选全球首款全尺寸超仿生人形机器人小订突破 3000 台，仅限成年人购买使用",
+          "d": "2026-06-09",
+          "a": "IT之家",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "优必选全球首款全尺寸超仿生人形机器人开启预售8天内，小订数量突破3000台，预付定金3000元，占位价30万元。该产品专为成年人情感陪伴设计，不支持二次开发。男款与女款分别具备88个自由度，续航2至4小时，支持加密记忆存储与外观多维定制，将于6月30日正式发布。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/962/144.htm",
+          "tp": "仿生机器人预售",
+          "aip": 1,
+          "kp": [
+            "预售数量[优必选全尺寸超仿生人形机器人]: 突破3000台",
+            "占位价格[全尺寸超仿生人形机器人]: 300,000元",
+            "预售定金[全尺寸超仿生人形机器人]: 3000元",
+            "男款身高[全尺寸超仿生人形机器人]: 183cm",
+            "男款重量[全尺寸超仿生人形机器人]: 42kg"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 9 日消息，优必选消费级人形机器人品牌优世界已于本月初（6 月 2 日）宣布，\n全球首款全尺寸超仿生人形机器人开启预售\nIT之家注意到，优必选官方今日宣布，优世界全尺寸超仿生人形机器人京东预售开启 8 天，\n小订数量累计突破 3000 台\n目前京东暂未公布这款机器人的价格，但其他店铺显示的占位价为 300,000 元（即 30 万元）。优世界全尺寸超仿生人形机器人将于 6 月 30 日正式发布，\n预付 3000 元定金即可锁定首批名额\n商品详情页显示，优世界全尺寸超仿生人形机器人为情感陪伴而生，支持加密存储记忆、多维度外观定制等，\n男款身高 183cm，重量 42kg，拥有 88 个自由度，支持连接 Wi-Fi 和充电，续航 2-4 小时，不支持二次开发；\n女款身高 168cm，重量 35.2kg，拥有 88 个自由度，支持连接 Wi-Fi 和充电，续航 2-4 小时，不支持二次开发。",
+          "hb": 1
         }
       ]
     },
@@ -125,48 +183,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "上海盘毂动力实现轴向磁通电机量产，产品体积与自重均缩减50%",
-        "研究采用进化优化算法系统探索钨材料多维参数，提升其抗高温氧化性能"
+        "浙江工商业分时电价新政执行峰谷套利价差降至0.4693元",
+        "五月国内乘用车销量前十六名均为新能源燃油车份额收缩",
+        "自进化3D砂型打印平台Ex3DSP将多目标优化实验量降低1148倍"
       ],
       "entries": [
         {
-          "t": "轴向磁通电机首次批量生产--中国能源新闻网",
+          "t": "浙江工商业分时电价新政（浙发改价格〔2026〕112号）深度解读：储能套利空间收窄、光伏度电价值下移，应对策略全解析",
           "d": "2026-06-09",
-          "a": "中国电力新闻网-科技",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "上海盘毂动力在浙江金华发布系列高性能轴向磁通电机并实现首次批量生产，产品自重减轻50%、尺寸缩减50%、金属耗材节约50%。轴向磁通电机相比传统径向磁通电机具有功率密度更高、轴向更薄的优势，在电动汽车、机器人等对空间和重量敏感的场景具有显著应用前景，标志着该技术从实验室走向工程量产。",
-          "sc": 8.3,
+          "a": "索比光伏",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "浙江省发改委下发工商业分时电价新政，7月1日起执行。新政通过取消上午峰电、收窄计价基数和统一浮动比例，重写了储能收益逻辑。大工业10kV用户峰谷套利价差降至0.4693元/kWh，降幅41%；光伏出力时段加权电价降至0.5069元/kWh，降幅32%。典型光储充项目EIRR降至11.67%。全省所有工商业用户均在此政策覆盖范围内。",
+          "sc": 8.2,
           "i": "n",
-          "tg": "产业进展",
-          "u": "http://www.cpnn.com.cn/news/kj/202606/t20260608_1893542.html",
-          "tp": "轴向磁通电机",
-          "aip": 1
+          "tg": "政策监管",
+          "u": "https://news.solarbe.com/202606/09/50024168.html",
+          "tp": "浙江分时电价新政",
+          "aip": 1,
+          "kp": [
+            "可套利峰谷价差[大工业10kV用户]: 从0.7982元/kWh降至0.4693元/kWh，降幅41%",
+            "加权电价[大工业光伏出力时段]: 从0.7511元/kWh降至0.5069元/kWh，降幅32%",
+            "EIRR[典型光储充项目]: 从29.78%降至11.67%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2026年5月29日，浙江省发展改革委、省能源局正式下发《关于优化工商业分时电价政策有关事项的通知》(浙发改价格〔2026〕112号)，7月1日起执行，同时废止2024年21号文。\n这是浙江近三年来力度最大的工商业电价结构性调整。\n新政三板斧同时落下：取消上午峰电、计价基数收窄、浮动比例统一。对全省工商业储能和\n项目而言，这不是一次小幅修正，而是一次收益逻辑的整体重写。\n大工业10kV用户可套利峰谷价差：0.7982元/kWh → 0.4693元/kWh，降幅41%\n光伏出力时段加权电价(大工业)：0.7511元/kWh → 0.5069元/kWh，降幅32%\n典型光储充项目EIRR：29.78% → 11.67%\n更关键的是——浙江《电力零售市场实施细则3.1版》明确，无论是否已入市交易，全体工商业用户均在112号文覆盖范围内，没有例外。\n这份新政，到底改了什么?各类项目受影响几何?存量项目还有没有出路?新建项目的门槛在哪里?\n索比光伏网编辑部对浙发改价格〔2026〕112号进行了逐条拆解，综合浙江省发改委官方解读及多家行业机构测算数据，形成这份深度报告。\n以下为报告摘要，完整版(含时段对照表、价差测算数据、分场景应对策略)扫码获取",
+          "hb": 1
         },
         {
-          "t": "轴向磁通电机首次批量生产--中国能源新闻网",
+          "t": "中国内燃机汽车销量持续暴跌，前16名汽车现为电动",
           "d": "2026-06-09",
-          "a": "中国电力新闻网-科技",
+          "a": "Electrek",
           "c": "通用技术/通信和运输/陆路运输",
-          "as": "上海盘毂动力在浙江金华发布系列高性能轴向磁通电机并实现首次批量生产，产品自重减轻50%、尺寸缩减50%、金属耗材节约50%。轴向磁通电机相比传统径向磁通电机具有功率密度更高、轴向更薄的优势，在电动汽车、机器人等对空间和重量敏感的场景具有显著应用前景，标志着该技术从实验室走向工程量产。",
-          "sc": 7.5,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://cpnn.com.cn/news/kj/202606/t20260608_1893542.html",
-          "tp": "轴向磁通电机",
-          "aip": 1
+          "as": "根据中国乘联会数据，5月份中国汽车销量前16名全部为新能源汽车（NEV），燃油车销量持续暴跌。中国新能源汽车市场份额创下62.9%的历史新高。即使是此前国内最畅销的燃油车吉利缤越（Geely Coolray）也跌出了前十六名榜单，标志着燃油车市场份额正在被电动汽车加速取代。",
+          "sc": 7.9,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://electrek.co/2026/06/09/ice-car-sales-continue-to-plummet-in-china-the-top-16-cars-are-now-evs/",
+          "tp": "中国电车销",
+          "aip": 1,
+          "kp": [
+            "市场渗透率[中国新能源汽车5月销量份额]: 62.9%",
+            "[中国市场畅销车型Top 16]: 全部为电动汽车"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "| Jun 9 2026 - 5:00 am PT\nEvery one of the top sixteen cars sold in China was an EV in May according to China Passenger Car Association data, as gasoline-powered cars continue their structural decline in the world’s largest auto market.\nChina set a new milestone in May, reaching a new high of 62.9% NEV market share, up from 61.4%\njust last month\n. China counts both BEVs and PHEVs under the same “NEV” category.\nThis was enough to kick every single gas-powered vehicle out of the monthly top ten list. Last month, there was\none ICE-powered straggler left\n, the Geely Coolray, but this month, they’re all NEVs.\nThe top ten now reads:\nIn fact, it’s not just the top ten list that’s missing gas cars, but the top\ncars are NEVs.\nThe Geely Coolray, the best-selling ICE-only car in the country, fell from 8th place in April all the way to 17th place in May.\nThe prime culprit wasn’t so much a rise in EV sales as a collapse in\nEV sales. ICE-only car sales went down by a whopping 39% year over year, a slightly larger drop than last month’s 37%.\nThe sales drop carried over into basically anything that has an ICE engine: PHEV sales dropped 24% YoY, EREV sales dropped 28%, and hybrid sales dropped 24.4%. The ICE age is truly ending in the world’s largest auto market.\nDue to the drop in PHEV and EREV sales, NEV sales overall were down 7.5%, but the rest of the market dropped so much that market share still increased. Notably though, when splitting the “NEV” category into its constituent parts, BEV-only sales were actually up.\nBEVs were the only type of car that saw an increase in sales, up 3.9% from last May, at 637,000 cars. And that’s even after an incentive change at the beginning of this year which led to a slow start for BEV sales in the first 3 months of the year.\nWhile EV share has been rising in China (\nand the world, even as media continues to wrongly claim otherwise\n), the significant drop in gas-powered car sales seems tied to the\nglobal spike in oil prices\nbrought on by an idiotic US war against Iran.\nThe war and disruption to global oil supply associated with it has caused intelligent countries to rethink ways to move off of their oil addiction – and unintelligent ones to\ndouble down on it\nThose intelligent countries are buying more EVs and fewer ICE cars, and China is happy to supply them. While manufacturers from other countries are\nbacking off on their EV commitments\n, China once again showed a massive increase in NEV exports, up 112.6% year over year, with 424,000 units exported in May. More than half (54%) of China’s car exports were NEVs, another record.\nChina remains the largest car exporting country in the world, a position it\ntook in 2024\n, after five decades of dominance from Germany and Japan. (Something that automakers\nmight have been warned of\nif they read a certain\nsaid last month\n, this rapid change in the world’s largest auto market and auto exporter should give pause to any automakers outside of China. As Western automakers commit more to the falling part of the market, ICE cars, China is committing to the growing part of the market, and seeing great success.\nIt’s not a secret and it doesn’t require some sort of incredible strategy or foresight. It just requires seeing the very obvious public numbers over the last decade, showing declining ICE sales and increasing EV sales. Yes,\neven oilprice.com\nnow recognizes this trend that’s been happening\nfor a whole decade now\nSo – and this is directed at all non-Chinese manufacturers and the governments who are\nchanging rules to make it easier for them to pollute\n– rather than telling yourselves comforting little lies,\npretending EV sales are falling when they are not\n, maybe it would be a good idea to compete in the market that exists, instead of the\nridiculous fantasy bouncing around in Akio Toyoda’s headcase\nCharge your electric vehicle at home using rooftop solar panels. Find a reliable and competitively priced solar installer near you on\n, for free. They have pre-vetted installers competing for your business, ensuring high-quality solutions and 20-30% savings. It’s free, with no sales calls until you choose an installer. Compare personalized solar quotes online and receive guidance from unbiased Energy Advisers. Get started\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nJameson has been driving electric cars since 2009, and covering EVs, sustainability and policy for Electrek since 2016.\nUse our Aptera Referral Code for $30 off a reservation for the upcoming Aptera solar electric vehicle.\nFind a reliable home solar/battery installer and save 20-30% compared to going it alone.",
+          "hb": 1
         },
         {
-          "t": "聚变环境中钨氧化的多维参数空间进化优化",
+          "t": "自进化3D砂打印实验平台",
           "d": "2026-06-09",
-          "a": "Nuclear Fusion - latest papers",
-          "c": "通用技术/材料工程/耐热材料",
-          "as": "钨是聚变装置中等离子体面对部件的首选材料，但其极易氧化的特性严重制约了实际应用。研究采用进化优化算法对钨材料的多维参数空间进行系统性搜索，旨在平衡耐高温、抗等离子体辐照与抗氧化性能。通过自动迭代实验或模拟，在浩繁的参数组合中高效定位最优工艺窗口，有望加速面向聚变堆工况的钨基材料工程化进程。",
-          "sc": 7.5,
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "3D砂型打印在铸造模具制造中面临变量组合与目标冲突引起的非线性高维优化挑战。研究开发了结合机器人执行与AI认知的自进化实验平台Ex3DSP，建立边做边想的实验范式。在处理三目标三变量优化问题时，该平台实验工作量减少了1148倍，并发现了帕累托前沿，揭示了变量-目标相互作用及砂型断裂行为的潜在机制。",
+          "sc": 7.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae72a2",
-          "tp": "聚变钨氧化",
-          "aip": 1
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag352/8704708?rss=1",
+          "tp": "3D砂打印AI",
+          "aip": 1,
+          "kp": [
+            "[3D砂打印高维优化]: 解决了由变量组合和目标冲突引起的非线性高维优化挑战",
+            "优化维度[自进化3D砂打印平台]: 解决3目标3变量高维优化问题",
+            "[实验范式创新]: 结合机器人执行与人工智能认知建立‘边想边做’的自进化实验平台"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "3D sand printing revolutionizes casting mold fabrication while confronting nonlinear high-dimensional optimization challenges stemming from variable combinations and objective conflicts. Here, we develop Ex3DSP, a self-evolving experimental platform combining robotic ‘can-do’ capabilities with artificial intelligence ‘can-think’ cognition to establish a ‘do-while-thinking’ self-evolving experimentation paradigm. Addressing a 3-objective, 3-variable high-dimensional optimization problem, our Ex3DSP discovers the Pareto front with a 1148-fold reduction in experimental workload. The platform provides two solution types (objective-optimal and balanced) with interpretability and reveals underlying mechanisms (variable-objective interaction and sand mold fracture behavior). Moreover, these solutions are applied to guide real-world casting parameter selection, yielding castings with up to 385% improved physicochemical and mechanical performances. This work demonstrates a self-evolving experimentation paradigm for 3D sand printing, offering both an intelligent additive manufacturing roadmap and pre-industrial screening potential.",
+          "hb": 1
         }
       ]
     }

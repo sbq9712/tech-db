@@ -6,14 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "东方锅炉完成5MW级掺氨天然气燃烧试验，氮氧化物转化率低于1%",
-      "科研人员构建有机半导体水凝胶杂化系统，实现太阳能驱动二氧化碳转化",
-      "清华深研院联合成会明团队研发高粘附性聚合物电解质，抑制固态锂电池枝晶"
+      "东方锅炉完成5MW级掺氨天然气燃烧中试，氮氧化物转化率低于1%",
+      "清华联合中科院研发高粘附性聚合物电解质，抑制锂枝晶生长"
     ],
-    "AI与智能科技": [],
+    "AI与智能科技": [
+      "576 Kb忆阻器芯片实现原位光谱重建，单次能耗降至6.7纳焦",
+      "科研团队在硅量子处理器中实现通用逻辑运算"
+    ],
     "通用技术": [
-      "东风奕派007量产乘用车搭载哈理工联合开发的轮毂电机，已入选工信部公告",
-      "科研团队开发双靶点纳米调节剂，通过重塑微环境提升神经胶质瘤治疗效果"
+      "东风奕派007量产搭载哈理工研发轮毂电机，已入工信部公告",
+      "氮化镓界面二维空穴气研究实现4000迁移率并观察到量子振荡"
     ]
   },
   "sectors": [
@@ -21,9 +23,8 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "东方锅炉完成5MW级掺氨天然气燃烧试验，氮氧化物转化率低于1%",
-        "科研人员构建有机半导体水凝胶杂化系统，实现太阳能驱动二氧化碳转化",
-        "清华深研院联合成会明团队研发高粘附性聚合物电解质，抑制固态锂电池枝晶"
+        "东方锅炉完成5MW级掺氨天然气燃烧中试，氮氧化物转化率低于1%",
+        "清华联合中科院研发高粘附性聚合物电解质，抑制锂枝晶生长"
       ],
       "entries": [
         {
@@ -32,7 +33,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
           "as": "东方电气旗下东方锅炉参与的国家重点研发计划氢能技术专项——5MW级掺氨天然气清洁燃烧技术完成中试试验并通过第三方测试。两款燃烧器在0-100%掺氨热量比全工况下完成性能验证，炉膛出口氮氧化物转化率小于1%，存储时延控制在0.02ms以内，运行过程无振动风险。该成果对推进掺氨燃烧降碳工业化应用具有重要意义。",
-          "sc": 6.6,
+          "sc": 6.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/wdlYheXeBvsgYC-C8SPIpA",
@@ -46,34 +47,31 @@
           "hb": 1
         },
         {
-          "t": "集成微生物与酶的有机半导体水凝胶用于选择性太阳能CO2转化",
+          "t": "东方电气参与完成5MW级掺氨天然气燃烧中试试验",
           "d": "2026-03-23",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "该研究将有机半导体水凝胶与微生物和酶集成，构建了一种新型半人工光合系统。有机半导体负责光捕获与电荷生成，微生物和酶则催化CO2固定反应，实现太阳能到化学能的高效转化。该生物-无机杂化策略为人工光合作用和碳中和提供了创新思路。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00205",
-          "tp": "光催化CO2还原",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "东方电气旗下东方锅炉参与的国家重点研发计划氢能技术专项——5MW级掺氨天然气清洁燃烧技术完成中试试验并通过第三方测试。两款燃烧器在0-100%掺氨热量比全工况下完成性能验证，炉膛出口氮氧化物转化率小于1%，存储时延控制在0.02ms以内，运行过程无振动风险。该成果对推进掺氨燃烧降碳工业化应用具有重要意义。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/wdlYheXeBvsgYC-C8SPIpA",
+          "tp": "掺氨燃烧",
           "aip": 1,
-          "kp": [
-            "[催化体系]: 有机半导体水凝胶整合微生物和酶",
-            "[优势]: 生物相容+高酶负载+产物易分离"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Integrating synthetic light-harvesting materials with biological CO2-fixing catalysts offers a promising route to efficient and selective solar-to-chemical conversion under mild conditions. However, progress remains limited by the lack of photocatalytic materials that combine biocompatibility, strong electronic coupling with biocatalysts, high biocatalyst loading capacity, and facile product separation. Here we introduce an organic semiconducting hydrogel synthesized from a rationally designed conjugated polyelectrolyte featuring visible-light absorption, water-processability, and covalent cross-linkability. The resulting macroporous, positively charged hydrogel scaffold immobilizes both microbes and enzymes, promoting intimate abiotic–biotic interactions throughout the three-dimensional hydrogel matrix. This platform supports two distinct modes of sacrificial CO2 reduction: mediated electron transfer via photogenerated H2 to drive acetate synthesis in the microbe Clostridium ljungdahlii, and direct electron transfer from photoexcited polymer domains to the isolated enzyme formate dehydrogenase for formate synthesis. By coupling the molecular programmability of organic semiconductors with the selectivity of biocatalysts, this work establishes a versatile class of soft biohybrid materials for solar fuel production through semiartificial photosynthesis.",
+          "b": "3月23日，东方电气在官方公众号发文称，其旗下东方锅炉参与的国家重点研发计划“氢能技术”重点专项课题：5MW级掺氨天然气清洁燃烧技术及工业验证项目完成中试试验并通过第三方测试。文中称，此次中试试验完成了两款燃烧器在0-100%掺氨热量比全工况下的性能验证，实现炉膛出口氮氧化物转化率小于1%的任务指标。同时，基于燃烧优化系统反馈的存储时延测试中，时延控制在0.02ms以内；运行过程中两款燃烧器也均无振动风险。",
           "hb": 1
         },
         {
           "t": "清华大学周光敏报道一种高粘附性聚合物电解质以抑制锂沉积",
           "d": "2026-03-23",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "清华大学深圳国际研究生院周光敏团队联合中科院深圳先进院成会明院士，提出高粘附性聚合物电解质策略抑制锂枝晶。受雪花结晶控制启发，利用Bliznakov-Chernov模型和相场模拟，证明提高锂与聚合物电解质间表面能可增加锂生长能垒，使生长模式从枝晶转变为颗粒状。合成的PAMD聚合物对锂金属粘附力达315.6nN，远超常见聚合物，为无枝晶固态锂金属电池提供新路径。",
-          "sc": 6.1,
+          "sc": 6.6,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s44160-026-01010-x",
@@ -91,24 +89,69 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "576 Kb忆阻器芯片实现原位光谱重建，单次能耗降至6.7纳焦",
+        "科研团队在硅量子处理器中实现通用逻辑运算"
+      ],
+      "entries": [
+        {
+          "t": "基于忆阻器芯片的原位光谱重建，用于节能计算光谱测定",
+          "d": "2026-03-23",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "在全集成576 Kb忆阻器芯片上实现了原位计算光谱仪。通过开发忆阻器正则化和滤波器嵌入策略，克服了光谱重建的极度敏感性难题，达到与软件同等的精度。系统单次光谱重建仅需125.0纳秒，能耗低至6.7纳焦。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01571-x",
+          "tp": "忆阻器光谱重建",
+          "aip": 1,
+          "kp": [
+            "芯片容量[原位计算光谱仪]: 576 Kb",
+            "硬件架构[计算光谱测定]: 全集成忆阻器芯片"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Computational spectrometers, which rely on reconstruction algorithms to decode spectral information from raw sensor data, are of potential use in portable, in-field spectrometry. However, research on such systems primarily focuses on the front-end encoding devices, and back-end decoding hardware remains limited by severe overheads. Here we report an in situ computational spectrometer implemented on a fully integrated 576-Kb memristor chip. With systematic robustness analysis, we develop memristive regularization and filter embedding strategies to overcome the extreme sensitivity of ill-posed spectral reconstruction, achieving software-equivalent accuracy. System-level benchmarking shows that our hardware takes only 125.0 ns to reconstruct one spectrum consuming 6.7 nJ of energy, which is 26.5 times faster and 162.7 times more energy-efficient than state-of-the-art computational spectrometers. Our work illustrates the potential of memristor-chip-based computational spectrometry and provides approaches for efficiently implementing signal processing algorithms on memristor chips.",
+          "hb": 1
+        },
+        {
+          "t": "硅量子处理器中的通用逻辑运算",
+          "d": "2026-03-23",
+          "a": "Nature Nanotechnology",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41565-026-02140-1",
+          "tp": "硅量子处理器逻辑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "东风奕派007量产乘用车搭载哈理工联合开发的轮毂电机，已入选工信部公告",
-        "科研团队开发双靶点纳米调节剂，通过重塑微环境提升神经胶质瘤治疗效果"
+        "东风奕派007量产搭载哈理工研发轮毂电机，已入工信部公告",
+        "氮化镓界面二维空穴气研究实现4000迁移率并观察到量子振荡"
       ],
       "entries": [
         {
           "t": "东风汽车联合哈理工开发搭载轮毂电机的量产乘用车东风奕派007",
           "d": "2026-03-23",
-          "a": "",
+          "a": "Stdaily",
           "c": "通用技术/通信和运输/陆路运输",
           "as": "东风汽车联合哈尔滨理工大学谢颖团队开发的高性能轮毂电机已搭载量产乘用车东风奕派007，纳入工信部第401批公告。基于2023年国家重点研发计划项目，采用多物理场协同设计方法，研发12层梯形齿变绕距扁线绕组、齿轭分离定子结构、转子三段斜极技术等，提高转矩密度与效率并降低转矩脉动。轮毂电机集成于车轮内，可取消发动机和传动轴，解放底盘空间，有望容纳更多电池提升续航。",
-          "sc": 6.9,
+          "sc": 7.0,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.stdaily.com/web/gdxw/2026-03/22/content_490091.html",
@@ -122,22 +165,45 @@
           "hb": 1
         },
         {
-          "t": "神经胶质瘤相关骨髓细胞极化的双靶点纳米调节剂通过诱导细胞焦亡和调节色氨酸代谢重塑 IDH 突变神经胶质瘤的免疫抑制微环境",
+          "t": "东风汽车联合哈理工开发搭载轮毂电机的量产乘用车东风奕派007",
           "d": "2026-03-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "本情报介绍了一种针对IDH突变型神经胶质瘤的新型双靶点纳米调节剂。IDH突变产生的2-HG会构建强免疫抑制微环境，导致常规免疫疗法失效。研究人员开发了由胶质瘤-巨噬细胞杂交膜伪装的纳米调节剂，能够精准靶向肿瘤并诱导骨髓细胞发生极化。该机制通过引发肿瘤细胞焦亡，并有效调节色氨酸代谢，成功重塑了免疫抑制性微环境，将其转变为抗肿瘤免疫状态。这一创新策略显著提升了针对IDH突变胶质瘤的免疫治疗效果。",
-          "sc": 6.2,
-          "i": "literature",
-          "tg": "行业观察",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523021?af=R",
-          "tp": "纳米肿瘤免疫",
+          "a": "Stdaily",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "东风汽车联合哈尔滨理工大学谢颖团队开发的高性能轮毂电机已搭载量产乘用车东风奕派007，纳入工信部第401批公告。基于2023年国家重点研发计划项目，采用多物理场协同设计方法，研发12层梯形齿变绕距扁线绕组、齿轭分离定子结构、转子三段斜极技术等，提高转矩密度与效率并降低转矩脉动。轮毂电机集成于车轮内，可取消发动机和传动轴，解放底盘空间，有望容纳更多电池提升续航。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.stdaily.com/web/gdxw/2026-03/22/content_490091.html",
+          "tp": "轮毂电机",
           "aip": 1,
           "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据科技日报3月23日报道，由东风汽车、哈尔滨理工大学谢颖教授团队开发的高性能轮毂电机已正式搭载于量产乘用车--东风奕派007，并称目前该车已纳入工业和信息化部第401批《道路机动车辆生产企业及产品公告》。相关成果基于二者承担的2023年国家重点研发计划项目“新能源汽车”重点专项下，“乘用车用高性能轮毂电机系统关键技术及整车集成应用”项目，课题1“高密度轮毂电机多物理场协同设计（课题编号：2023YFB2504301）”。\n报道中称，轮毂电机即将位于汽车底盘的驱动电机集成至车轮里，该项目通过多场量强耦合与精确解耦的轮毂电机协同设计方法，能够更精确地模拟和预测电机在实际运行中的复杂状态，从而指导设计优化。由此设计的12层梯形齿变绕距扁线绕组结构可提高单位空间内的电磁性能；齿轭分离定子结构，则可同时提高转矩密度与效率；高散热、低流阻的冷却结构与新型导热灌封材料集成方案则实现了直驱轮毂电机的高效冷却；同时其采用转子三段“一字”斜极技术，降低了齿槽转矩脉动，有助于实现转矩平顺输出。此外，文中称轮毂电机可取消发动机、传动轴等传统部件，便于调节轮距和轴距、并解放底盘空间，有望容纳更多电池以提高续航。",
+          "hb": 1
+        },
+        {
+          "t": "氮化镓中的高迁移率空穴及其量子振荡",
+          "d": "2026-03-23",
+          "a": "Nature Electronics",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "在氮化镓/氮化铝界面处的极化诱导二维空穴气中观察到了高空穴迁移率。在2K温度下，轻空穴和重空穴能带的迁移率分别达到2000和400 cm2 V−1 s−1。研究利用Shubnikov–de Haas振荡提取了两种能带的载流子密度、量子散射时间和有效质量。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01590-8",
+          "tp": "氮化镓量子振荡",
+          "aip": 1,
+          "kp": [
+            "载流子特性[GaN/AlN界面]: 极化诱导二维空穴气",
+            "观测现象[p型氮化镓]: 观察到量子振荡",
+            "能带状态[高迁移率空穴]: 简并占据两个价带"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Since 2‐hydroxyglutarate (2‐HG) released from isocitrate dehydrogenase (IDH)‐mutant gliomas results in the strong immunosuppressive tumor microenvironment (TME), the immunotherapy effect is unsatisfactory. In this work, we develop a hybridized cell membrane of glioma‐macrophage cells (GMM) camouflaged bi‐target nanomodulator (LNO@CH/Ca\n                    3\n                    (PO\n                    4\n                    )\n                    2\n                    , LCC) comprised of LaNiO\n                    3\n                    (LNO) core and Ca\n                    3\n                    (PO\n                    4\n                    )\n                    2\n                    shell loaded with the aryl hydrocarbon receptor (AhR) antagonist (CH223191, CH), which can synergistically modulate glioma‐associated myeloid cells (GAM) polarization by inducing pyroptosis and regulating tryptophan metabolism to enhance the efficacy of IDH‐mutant gliomas immunotherapy. The hybrid cell membrane endows LCC@GMM with good blood brain barrier (BBB) penetration as well as dual homing ability to tumor cells and GAM. LCC@GMM not only induces pyroptosis in tumor cells by the production of cytotoxic reactive oxygen species (ROS) and the released La\n                    3\n                    +\n                    but also regulates tryptophan metabolism in GAM via the released CH, effectively overcoming the immunosuppressive effects of IDH‐mutant gliomas. The bi‐target synergistic regulation of GAM reshapes the immunosuppressive TME of IDH‐mutant gliomas and offers a novel idea for immunotherapy of IDH‐mutant gliomas.",
+          "b": "Gallium nitride (GaN) is used in solid-state lighting and in high-performance radio frequency and power electronics. However, due to inefficient hole doping and low hole mobility, quantum oscillations in p-type GaN have not been observed, which limits studies of valence bands and hole transport engineering. Here we report high hole mobilities in a polarization-induced two-dimensional hole gas at a gallium nitride/aluminium nitride interface. The holes degenerately occupy two valence bands of GaN—the light-hole and heavy-hole bands—and have mobilities of 2,000 cm2 V−1 s−1 and 400 cm2 V−1 s−1 at 2 K, respectively. We use Shubnikov–de Haas oscillations of holes from both valence bands to extract their respective sheet densities and quantum scattering times and the effective masses of light holes and heavy holes. The hole mobilities of our heterostructure highlight the possibility of developing cryogenic GaN complementary metal–oxide–semiconductor technology with potential applications in quantum computing control electronics.",
           "hb": 1
         }
       ]

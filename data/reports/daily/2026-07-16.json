@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "邓宏魁团队发布首创化学重编程干细胞全自动化制备平台",
-      "国内首个绿电绿氢耦合低碳乙烯工程在新疆正式投产",
-      "王春生团队提出全固态锂电池纳米尺度界面工程新方案"
+      "远景动力宜昌超级工厂投产，首批790Ah储能电芯发往德国",
+      "宁德时代与Alfen拟于2027年在欧洲部署5GWh钠离子储能系统",
+      "独山子石化塔里木120万吨/年二期乙烯绿色低碳示范工程投产"
     ],
     "AI与智能科技": [
-      "Thinking Machines Lab发布9750亿参数大模型并开放权重",
-      "DeepSeek披露80%毛利率并启动500亿元新一轮融资",
-      "OpenAI构建自动化对抗模型以开展大模型红队安全测试"
+      "Thinking Machines发布9750亿参数多模态大模型Inkling",
+      "荷兰QuiX Quantum发布首台面向数据中心的机架式光子量子计算机",
+      "国网上海组织16家数据中心开展算电协同实测，压减负荷9.78万千瓦"
     ],
     "通用技术": [
-      "全国最大2000吨级氢能货船顺利下水进入内河干线运输",
-      "智利多座核心港口全面停工冲击全球锂电等金属供应链",
-      "国家能源局发布构网型柔性直流输电系统稳态性能等标准"
+      "国网黑龙江完成全省首次构网型储能人工短路试验验证电压支撑能力",
+      "中国能建中南院参与柔性直流组网项目获国家科学技术进步奖一等奖",
+      "研究运用AI设计出具备高基因编辑活性的最小CRISPR-Cas12类似核酸酶"
     ]
   },
   "sectors": [
@@ -26,30 +26,58 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "邓宏魁团队发布首创化学重编程干细胞全自动化制备平台",
-        "国内首个绿电绿氢耦合低碳乙烯工程在新疆正式投产",
-        "王春生团队提出全固态锂电池纳米尺度界面工程新方案"
+        "远景动力宜昌超级工厂投产，首批790Ah储能电芯发往德国",
+        "宁德时代与Alfen拟于2027年在欧洲部署5GWh钠离子储能系统",
+        "独山子石化塔里木120万吨/年二期乙烯绿色低碳示范工程投产"
       ],
       "entries": [
         {
-          "t": "我国首创“化学重编程干细胞”制备技术实现全自动化",
+          "t": "全球首个百吉瓦时级储能基地投产--中国能源新闻网",
           "d": "2026-07-16",
-          "a": "",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "中国科学院院士邓宏魁团队在2026自主实验室大会上，发布了首创的“化学重编程干细胞”全自动化制备平台。该智能平台实现了“从血液到干细胞”的全流程自动化，大幅降低了临床应用成本。此前，该技术在治疗I型糖尿病等重大疾病上已取得显著且持久的临床疗效。此次自动化突破将极大加速干细胞技术在肿瘤、退行性疾病等广泛领域的临床推广，造福更多患者。",
-          "sc": 8.4,
+          "a": "中国电力新闻网-新能源",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "全球首个百吉瓦时级储能全产业链基地远景动力宜昌超级工厂正式投产，首批790Ah储能大电芯发往德国。该工厂全面达产后将形成覆盖电芯到系统的100吉瓦时产能。790Ah电芯体积能量密度突破440Wh/L，循环寿命超12000次，能量效率高达96%，已获权威认证。",
+          "sc": 9.3,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.news.cn/tech/20260715/3b5f58a2f395420cbc462517d0f0b507/c.html",
-          "tp": "干细胞自动化",
+          "tg": "产业进展",
+          "u": "https://cpnn.com.cn/news/xny/202607/t20260716_1902514.html",
+          "tp": "储能基地投产",
           "aip": 1,
           "kp": [
-            "持续时间[移植胰岛细胞疗效]: 近3年"
+            "容量[远景动力量产储能电芯]: 790 Ah",
+            "体积能量密度[远景动力790Ah储能电芯]: 突破440 Wh/L",
+            "循环寿命[远景动力790Ah储能电芯]: 超12000次",
+            "电芯能量效率(RTE)[远景动力790Ah储能电芯]: 高达96%",
+            "单机容量[远景AI储能系统]: 12.5兆瓦时"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "我国首创“化学重编程干细胞”制备技术实现全自动化-新华网\n我国首创“化学重编程干细胞”制备技术实现全自动化\n我国首创“化学重编程干细胞”制备技术实现全自动化\n7月14日，在中关村论坛系列活动“2026自主实验室大会”上，中国科学院院士、北京大学干细胞研究中心主任邓宏魁团队发布了其首创的“化学重编程干细胞”技术的自主实验室应用——智能细胞化学重编程和克隆筛选平台。这意味着我国首创的“化学重编程干细胞”这一重要技术实现了“从血液到干细胞”的全程自动化，可有效降低临床应用成本，造福更多患者。\n14日，中国科学院院士、北京大学干细胞研究中心主任邓宏魁团队联合北京戴纳实验科技团队研发的自主实验室应用——智能细胞化学重编程和克隆筛选平台在京发布。（北京市科委供图）\n据介绍，2024年至2026年，邓宏魁团队先后在《细胞》等国际学术期刊上发表利用化学重编程诱导多能干细胞制备胰岛细胞治疗Ⅰ型糖尿病等系列研究。研究显示，患者移植胰岛细胞后，恢复了血糖自主调控，疗效已稳定持续近3年。除糖尿病等慢病外，“化学重编程干细胞”技术被广泛认为还可应用于肿瘤、退行性疾病等重大疾病。\n“智能细胞化学重编程和克隆筛选平台是‘基础研究+AI+智能制造’交叉创新的产物。”邓宏魁介绍，作为自主实验室，平台从采集患者血液开始，实现了从物料补充、化学重编程、AI智能筛选到质量检验输出干细胞的全程自动化操作，并能实时监测实验数据反馈给科研人员。\n“标准化、闭环操作提升了实验精准度和效率。”邓宏魁表示，自主实验室不仅降低了科研成果临床应用的成本，也有助于技术在医疗机构、科研单位、药品生产企业的进一步推广，助力科学研究，造福更多患者。\n北京市科委、中关村管委会主任张继红在发布现场表示，下一步，北京将持续加大在自主实验室领域的布局，大力发展国产高端科学仪器，建设整合人工智能、具身机器人、高通量仪器等技术的高度智能化新型实验平台，推动自主实验室建设与科技服务业深度融合，打通基础研究到产业转化的完整链条。（记者熊琳、鲍赫）\n“十五五”开局之年推进算力网建设观察\n“AI+影视”赛道正热 如何走得更稳更远？\n新华社文化随笔丨长安一阕诗 丝路万里风\n互袭加封锁，美伊退回“谅解”前？\n经济热点问答丨美对霍尔木兹海峡通行收费有多离谱\n记者手记丨在约旦港口城市亚喀巴“遇见中国”\n美丽中国行·探访三江源丨黄河之源清如许\n我国首创“化学重编程干细胞”制备技术实现全自动化",
+          "b": "全球首个百吉瓦时级储能基地投产--中国能源新闻网\n中电传媒股份有限公司主办\n全球首个百吉瓦时级储能基地投产\n记者从远景动力获悉，7月15日，全球首个百吉瓦时（GWh）级储能全产业链基地——远景动力宜昌超级工厂（以下简称“宜昌超级工厂”）正式投产运营，首批790安时（Ah）储能大电芯发运德国。\n宜昌超级工厂由中建二局承建，分两期建设。一期40吉瓦时电芯产能于2025年10月开建，用时不足一年即投产；二期规划60吉瓦时电芯产能与60吉瓦时储能系统产能，于今年4月启动建设，全面达产后将形成覆盖电芯到系统的全链条高端供给能力。\n宜昌超级工厂此次量产的790安时（Ah）电芯，是当前全球最大方壳卷绕电芯。该款电芯体积能量密度突破440瓦时每升（Wh/L），循环寿命超12000次，电芯能量效率（RTE）高达96%。依托底层材料技术创新与全工序AI智能管控，工程团队有效破解大电芯安全与量产一致性难题，790安时（Ah）电芯已通过多项高风险测试，并获权威机构认证。\n以量产790安时（Ah）大电芯为支点，远景储能解决方案正在宜昌加速落地。今年4月，远景动力发布全球首款12.5兆瓦时AI储能系统，以790安时电芯为核心硬件，深度融入物理AI能力，为行业创造全链路价值增值。\n“十四五”能源高质量发展\n深能尉犁45万千瓦光储一体化项目投入商业运行\n风光氢基燃料一体化仿真计算平台通过评审\n4765米！中广核海拔最高的风电项目完成首台风机吊装\n全球最高！204米钢混风塔在华北平原“立起来”了\n包头威俊500千伏储能汇集站并网投运\n海南重卡“驶向”环岛换电自由\n新能源撑起海南电力“半壁江山”\n河北首个海上光伏项目并网",
+          "hb": 1
+        },
+        {
+          "t": "CATL 30年钠离子电池接管电网存储",
+          "d": "2026-07-16",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "宁德时代（CATL）与荷兰能源公司Alfen签署谅解备忘录，计划于2027年开始在欧洲部署5GWh的Tener钠离子储能系统。这是该地区最大的钠离子储能部署之一。该电池系统额定支持15000次充放电循环，设计使用寿命长达25至30年。其核心竞争力在于凭借超长使用寿命而非能量密度来赢取电网级储能市场。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/16/catl-sodium-ion-15000-cycle-grid-storage/",
+          "tp": "钠离子电池储能",
+          "aip": 1,
+          "kp": [
+            "规划部署规模[欧洲电网存储]: 5 GWh (Tener钠离子储能系统)",
+            "循环寿命[Tener钠离子电池]: 15,000次循环",
+            "使用寿命[Tener钠离子电池]: 25至30年",
+            "[钠离子电池电网存储优势]: 核心卖点在于长寿命特性而非能量密度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jul 16 2026 - 6:57 am PT\nCATL has signed a memorandum of understanding with Dutch energy company Alfen to deploy 5 GWh of its Tener Sodium energy storage systems across Europe, one of the largest sodium-ion commitments the region has seen.\nThe batteries are rated for 15,000 cycles and a 25-to-30-year service life — the pitch that sodium-ion’s longevity, not its energy density, is what wins grid storage.\nThe world’s largest battery maker announced the partnership on Wednesday. Deployments are scheduled to begin in 2027, using the Tener Sodium platform CATL launched in Munich on June 22.\nAlfen isn’t a new name in European storage. The company has been building battery energy storage systems since 2011 and has more than 1 GWh installed across the continent, including some of the Netherlands’ largest projects. It has bought lithium-ion cells from CATL since 2023.\nNow it’s adding sodium to the mix. “Sodium-ion is the next step in how we think about energy storage — more diversified, resilient, and built for where the market is heading,” said Alfen CEO Michael Colijn.\nThe commercial logic is about supply, not just chemistry. Sodium is roughly 1,000 times more abundant than lithium and far cheaper to source, and it insulates buyers from the lithium price swings that whipsawed the storage industry over the past three years. Alfen said the move is meant to “optimise cost structures” and improve “resilience against lithium price volatility.”\nCATL is selling Tener Sodium on lifespan and durability rather than raw capacity, and the spec sheet is built around that argument.\nThe system is rated for 15,000 cycles, which CATL translates to a 25-to-30-year service life at a 70% state-of-health threshold. For comparison, most lithium iron phosphate (LFP) storage systems are warrantied in the range of a few thousand to roughly 10,000 cycles.\nThe temperature performance is the other half of the case. Using what CATL calls dipole wide-temperature technology, Tener Sodium retains over 92% of its capacity at -20°C and supports more than 10,000 cycles at 45°C — without the added insulation or active cooling that lithium systems typically need in extreme climates. Stripping out that thermal management hardware is where a chunk of the cost savings come from.\nCATL also claims a bidirectional voltage-control power conversion system that holds output at 690V and improves round-trip efficiency by nearly 2%, plus a self-consumption rate cut to 1%, half the industry average. On safety, the company cites a 40% reduction in cell expansion force, 35% less gas generation, and a thermal runaway surface temperature around 200°C — far higher than conventional lithium cells.\nThe Alfen deal is the latest in a run of sodium-ion storage orders that has accelerated sharply in 2026.\nIn April, CATL signed a\n60 GWh sodium-ion supply agreement with integrator HyperStrong\n— the largest sodium order ever placed — and declared the chemistry “mainstream-ready.” In the US,\nPeak Energy shipped the country’s first grid-scale sodium-ion battery\nlast year, and\nGM has since backed Peak Energy’s sodium platform\nas it looks past lithium. ESS, Natron, and California utilities have all placed sodium bets of their own.\nThe through-line is that grid storage doesn’t need the energy density that makes lithium indispensable in cars. It needs cycle life, safety, wide-temperature tolerance, and low cost — exactly the boxes sodium is now checking.\n“With their superior safety performance and lifecycle sustainability advantages, sodium-ion batteries will deliver unique value to European customers,” said Tan Libin, CATL’s chief customer officer.\nFor years, sodium-ion was the “someday” chemistry — cheaper and safer in theory, but too low on energy density to matter. Now, it has improved enough that it is gradually making its way into EVs, but what changed is also the recognition that stationary storage was never the application that cared about energy density in the first place.\nThat’s why the 15,000-cycle number is the headline here, not the 5 GWh. A battery that can cycle daily for 25 to 30 years and hold 92% of its capacity at -20°C without a chiller changes the levelized-cost math for grid storage in a way that incremental lithium improvements don’t. Add in sodium’s abundance and immunity to lithium price spikes, and you have a genuinely better fit for the job than the LFP that currently dominates the sector.\nI can see sodium batteries taking over the energy storage industry within the next decade.\nGrid-scale storage is what keeps renewable power flowing after dark — and the same logic applies at home. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
           "hb": 1
         },
         {
@@ -57,38 +85,23 @@
           "d": "2026-07-16",
           "a": "工业节能环保技术",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/石油化工",
-          "as": "我国首个全链条绿色低碳乙烯工程项目在新疆正式投产。该项目整合可再生能源驱动的绿电、绿氢与乙烯生产全流程，实现了从原料到产品全链条的低碳化。作为国内首个此类示范工程，标志着石化行业在碳中和路径上的重要突破，对绿电-绿氢-绿色化工耦合模式的工程验证具有里程碑意义。",
-          "sc": 8.4,
+          "as": "中国石油独山子石化塔里木120万吨/年二期乙烯及配套绿色低碳示范工程投产，建成全球首个乙烯裂解碳排放循环利用示范基地。工程整体国产化率达99%，采用国内第一套自主技术的三机电驱乙烯装置及3套大型国产化挤压造粒机组。该基地使我国中西部首个300万吨级乙烯产业基地建成，提升了产业链供应链韧性。",
+          "sc": 8.8,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/oylhrZ183nPzeY-nRrBDLQ",
-          "tp": "绿色乙烯投产",
+          "tp": "低碳乙烯工程投产",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "产能规模[独山子石化塔里木二期乙烯]: 120万吨/年",
+            "乙烯产能[中西部产业基地]: 300万吨级",
+            "国产化率[二期乙烯及配套绿色低碳示范工程]: 99%"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "王春生教授Nature Nanotechnology：全固态锂电池设计",
-          "d": "2026-07-16",
-          "a": "中粉固态电池",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "王春生教授团队在Nature Nanotechnology发表全固态锂电池设计研究，从纳米尺度界面工程切入，针对固态电解质-电极界面阻抗、锂枝晶生长等关键瓶颈提出新方案，为高安全、高能量密度固态储能器件的工程化提供重要理论支撑。",
-          "sc": 8.3,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/AgnpajHMadrEUw6YHYmhvA",
-          "tp": "固态锂电池",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "我国首个全链条绿色低碳乙烯工程在新疆投产！ 节能环保技术咨询 节能环保技术咨询 工业节能环保技术 7月16日，中国石油独山子石化塔里木120万吨/年二期乙烯及配套绿色低碳示范工程一次投料开车成功，全面进入生产运行阶段。 该工程位于塔克拉玛干沙漠北缘的新疆巴音郭楞蒙古自治州库尔勒上库高新技术产业开发区石油石化产业园，是我国炼化行业首个全链条践行绿色低碳发展理念的开创性工程，建成了全球首个乙烯裂解碳排放循环利用示范基地，全力打造国内首个石化零碳工厂，助力首批国家级零碳园区建设，为炼化行业深度降碳、近零排放提供了可复制可推广的技术路径。工程整体国产化率达99%，11套主要生产装置中10套采用国内自主技术，9套为中国石油自主技术，3套大型挤压造粒机组实现国产化首次应用，建成全球第二套、我国第一套采用自主技术的三机电驱乙烯装置。 该工程的投产标志着我国中西部首个300万吨级的乙烯产业基地建成，将改变国内乙烯产能长期高度集中于东部、西部原料供给薄弱的产业格局，提升全国能源化工产业链供应链韧性。 相关推荐 文章来源｜中国石油报. 2026年7月16日.北京 相关阅读｜全国首套！乙烯电裂解炉侧线试验装置成功投用！ 中国石油首个乙烯装置炉前管廊模块建造成功并顺利就位！ 乙烯工业的重要挑战及变革之路！ 行业动态｜全球乙烯产量或减少2200万吨！ 我们的宗旨和价值观 ——我们致力于煤化工、电力/供热、钢铁/冶金、石油化工行业的节能环保新技术、新工艺、新产品的开发、技术咨询、应用推广、行业资讯分享！助力工业企业—节能降碳、提质增效！ ——我们不组织任何形式的收费活动、不链接任何非终端业主的间接需求！我们只聚焦终端用户需要的新技术、新工艺、新产品的开发和推广，传递您的新技术给用户！传递客户的真需求给您！ 传递信任 成就价值 我们能为您做什么 ——我们的终端客户资源（8000+）！涵盖了煤化工、钢铁/冶金、电力/供热、石油化工行业的绝大多数企业！ ——我们能够为您实现高效、精准、专业的终端用户链接，大幅降低您的客户开发成本！ ——我们深度洞悉客户的核心需求与技术痛点，我们不止提供资讯，更是您身边新技术/新产品工业应用推广的专业顾问！ 行业通讯录 ——欢迎加入我们！ 链接更多资源！ 交流/咨询/合作 ——15313700189",
+          "hb": 1
         }
       ]
     },
@@ -96,72 +109,81 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Thinking Machines Lab发布9750亿参数大模型并开放权重",
-        "DeepSeek披露80%毛利率并启动500亿元新一轮融资",
-        "OpenAI构建自动化对抗模型以开展大模型红队安全测试"
+        "Thinking Machines发布9750亿参数多模态大模型Inkling",
+        "荷兰QuiX Quantum发布首台面向数据中心的机架式光子量子计算机",
+        "国网上海组织16家数据中心开展算电协同实测，压减负荷9.78万千瓦"
       ],
       "entries": [
         {
           "t": "刚刚，Thinking Machines首发大模型：9750亿参数，完整开放权重",
           "d": "2026-07-16",
           "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "Thinking Machines Lab首发大模型，参数规模约9750亿，完整开放权重。标志着Mira Murati创立的新公司正式加入开源大模型竞争，开放权重策略有助于推动可复现研究与生态繁荣，但实际能力仍需第三方基准验证。",
-          "sc": 10.1,
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "Thinking Machines Lab首发大模型Inkling，总参数量9750亿，激活参数量410亿，支持100万token上下文窗口。该模型采用混合专家Transformer架构，使用45万亿token多模态数据完成预训练，能够处理文本、图像和音频并进行跨模态推理。作为开放权重模型，它允许外部直接下载修改，并可通过Tinker微调，重点在于多模态、高效推理与高灵活性的均衡结合。同期还发布了激活参数量为120亿的Inkling-Small预览版。",
+          "sc": 9.7,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/tepazYmbyKk5iwRKQT_rOw",
-          "tp": "开源千亿模",
+          "tp": "首发多模态大模型",
           "aip": 1,
           "kp": [
-            "模型参数[Thinking Machines首发大模型]: 9750+亿"
+            "总参数量[Inkling大模型]: 9750亿",
+            "激活参数量[Inkling大模型]: 410亿",
+            "上下文窗口[Inkling大模型]: 100万 token",
+            "预训练数据量[Inkling大模型]: 45万亿 token",
+            "激活参数量[Inkling-Small预览版]: 120亿"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "刚刚，Thinking Machines首发大模型：9750亿参数，完整开放权重 机器之心 机器之心编辑部 由 OpenAI 前首席技术官 Mira Murati 创立的 AI 初创公司 Thinking Machines Lab，刚刚发布了自研 AI 模型 Inkling。 与 OpenAI、Anthropic 或 Google 的旗舰模型不同，Inkling 是一款开放权重模型，外部开发者和企业可以直接下载，并根据自身需求进行修改。正如官方介绍的：Inkling 能够高效地对文本、图像和音频进行跨模态推理。与此同时，Inkling 完整模型权重也将开放。 Inkling 采用混合专家 Transformer 架构，总参数量为 9750 亿，激活参数量为 410 亿，支持最高 100 万 token 的上下文窗口。 Inkling 使用 45 万亿 token 的文本、图像、音频和视频数据完成预训练。它是一个不同规模模型家族中的首款产品。 与此同时，Thinking Machines Lab 还发布了 Inkling-Small 预览版。这是一款更轻量的模型，激活参数量为 120 亿，采用与 Inkling 相似的训练方法，能够以更低的成本和延迟实现出色性能。 Inkling 能够原生处理并推理文本、图像和音频，并通过高效、可控的推理强度，在成本与性能之间取得平衡。Inkling 在多个领域都有较强表现，同时具备足够的灵活性，能够适配不同需求。 官方表示，Inkling 并不是目前综合能力最强的模型，无论与开源模型还是闭源模型相比都是如此。它的价值在于多项特性的结合，使其成为适合定制的开放权重基础模型，包括多模态能力、高效推理，以及可以通过 Tinker 进行微调。显然，该公司追求的是均衡全面的性能。 Inkling 只是一个开始。它是 Thinking Machines Lab 发布的模型家族中的第一款产品，未来还会在此基础上持续迭代。 为了让模型定制覆盖更多应用场景，Thinking Machines Lab 已在 Tinker 平台开放 Inkling 的微调能力。 在该公司看来，选择适合微调的基础模型，既需要参考可量化的基准测试，也离不开开发者在实际使用中对模型风格与表现的判断。为此，Tinker 控制台新增了 Inkling Playground，开发者可以直接与模型交互，更直观地了解其能力特点。 为了进一步展示模型定制的实际效果，Thinking Machines Lab 还进行了一次颇具实验性的尝试，让 Inkling 参与自身的微调过程。Inkling 通过 Tinker 编写微调任务、运行训练流程，并对最终结果进行评估。 Inkling 能力 下面将展示 Inkling 能够完成哪些任务，以及它在可信度、安全性等重要维度上的表现。 通用模型 Inkling 的设计目标是覆盖广泛的任务类型。训练过程中，它同时面向智能体、推理、编程、指令遵循、事实准确性、视觉和音频等任务展开，而没有针对某一个领域进行狭窄优化。 这种能力广度对于模型定制和实际应用十分重要。不同用户需要模型适应差异很大的工作流程，而不只是擅长在基准测试中取得高分。 智能体编程与工具调用 一个适合微调的强大基础模型，需要能够灵活调用智能体工具，解决多种不同类型的任务。在大多数智能体基准测试中，Inkling 在开放权重模型中都取得了较好的成绩。 训练过程中，Inkling 被置于多种编程与智能体框架中运行。团队还随机调整了训练时使用的工具集和工具定义，以降低模型对某一种特定框架的依赖。 下面展示几个 Inkling 进行智能体编程和工具调用的案例，以及它在过程中生成的成果。 一次生成（One-shot）带有内嵌浏览器操作能力的 Web 应用 Inkling 通过一次生成就构建出一个可正常运行的 Web 应用。随后，它还为该应用提供了一个内嵌 AI 助手，用户可以通过自然语言指令，让助手直接操作 Web 应用界面。 Design Arena Inkling 参加了 Design Arena 的智能体 Web 开发排行榜评测。在该评测中，匿名的人类评审会对模型生成的 Web 应用进行两两对比。评测结果显示，Inkling 跻身能力最强的开放权重模型之列。 风格统一的多页面成果 Inkling 能够创建多页面的完整成果，准确遵循指令、呈现可靠的信息，并在不同页面之间保持统一连贯的视觉风格与设计。 多人游戏 在 GPT Codex 担任评审的情况下，Inkling 根据其反馈进行了 40 轮迭代，逐步完善了一款在线多人贪吃蛇游戏。 能够持续完成长周期的优化，并根据反馈不断改进，是产出高质量协作成果的关键能力。 可控的推理强度 推理时扩展能力和问题解决能力，...",
+          "hb": 1
         },
         {
-          "t": "突发！DeepSeek毛利率高达80%，梁文锋再融500亿冲IPO、旗下机构疯抢长鑫",
+          "t": "光子量子从实验室到机房的「最后一公里」，QuiX是怎么走通的？",
           "d": "2026-07-16",
-          "a": "智能纪元AGI",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "DeepSeek披露毛利率高达80%，创始人梁文锋启动新一轮500亿元融资冲击IPO，旗下机构大量采购长鑫存储芯片。反映国产大模型高盈利商业模式与算力-存储供应链深度绑定，AI产业链资本动向重大。",
-          "sc": 8.4,
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "荷兰QuiX Quantum发布了代号Carina的全球首台专为数据中心部署设计的通用光子量子计算机架构。该硬件基于单光子物理比特与measurement-based计算，核心组件已交付德国航空航天中心。其采用机架式设计，大部分组件可在室温运行，仅有探测器需约3K低温环境。该系统通过减少冷热接口数量解决了工程难题，率先打通了光子量子计算从实验室到机房商业部署的“最后一公里”。",
+          "sc": 9.2,
           "i": "n",
-          "tg": "资本运作",
-          "u": "https://mp.weixin.qq.com/s/Nnzb62JCAhVhyVanwRgOtA",
-          "tp": "DeepSeek融资",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/KT0xitY7FIx16zPAxUQpxw",
+          "tp": "光子量子",
           "aip": 1,
           "kp": [
-            "毛利率[DeepSeek]: 80+%",
-            "融资金额[DeepSeek]: 500+亿元"
+            "产品代号[荷兰QuiX Quantum通用光子量子架构]: Carina",
+            "核心特征[光子量子架构]: 通用、数据中心部署、已交付真实客户",
+            "A轮融资金额[QuiX Quantum]: 1500万欧元",
+            "累计融资金额[QuiX Quantum]: 约2400万欧元"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "光子量子从实验室到机房的「最后一公里」，QuiX是怎么走通的？ 原创 光子盒 光子盒 光子盒 2001年，Knill、Laflamme和Milburn在《Nature》上论证了线性光学量子计算是行得通的。此后25年，学界翻来覆去就是那句话“原则上没问题”，但工程路径始终被标记为“极其困难”。 直到2026年7月14日，荷兰QuiX Quantum发布了代号Carina的通用光子量子架构，核心硬件已经送到德国航空航天中心（DLR）的量子计算项目QCI手上。这是第一次有人把“通用”“数据中心部署”“已交付真实客户”这三件事同时凑齐。 当全行业都在焦虑“何时实现百万比特容错计算”时，QuiX Quantum选择了一条略显另类的反共识路线：不是一定要最先突破物理极限，而是先把“能不能卖出去、能不能在客户机房里跑起来”的工程与商业问题解决了。 QuiX Quantum2019年脱胎于荷兰特文特大学光子学研究，是欧洲光子量子赛道核心企业。公司先后获得欧洲量子旗舰计划、欧洲创新理事会项目的资金支持，2025年获得1500万欧元A轮投资，公司总融资约2400万欧元，融资规模在量子赛道中是相当低的。 一台光子机背后的欧洲算盘 Carina是全球第一台为客户数据中心部署而量身定做的通用光子量子计算机。技术路线是单光子物理比特+measurement-based计算——先纠缠簇态，后测量和实时前馈驱动运算，实现通用门集计算，不是boson sampler那样的专用机。硬件已运到DLR QCI乌尔姆创新中心，正在做系统集成和标定，之后通过QCI Connect对外开放。 部署上，Carina是机架式的，大部分组件可以在室温下运行，可以直接安装进现有的HPC或AI数据中心中。SNSPD探测器需要大约3K的低温环境，但QuiX跟Pixel Photonics合作的16通道行列复用方案把冷热接口数量大大地压缩了。 但它不是容错机。Carina只是一台物理比特演示器，8个量子比特，基于4-qubit图态。真正的容错要等到下一代Dedalo——逻辑比特加光子损耗码加模块化的硬件才可以做容错。它配套的白皮书中展开了一整套架构方案，包括FFCU（前馈控制单元）、PACU（光子组装控制单元），还有远程控制和自动校准。 这台机器之所以诞生在DLR的项目里，不是偶然。UPQC项目由德国联邦教研航天部出资，四年周期从2022到2026年，目标是从8-qubit物理比特做到64-qubit可纠错系统。QuiX是主承包商，交付对象是DLR QCI乌尔姆创新中心，标定完成后向欧洲研究机构和企业开放。 欧洲在量子硬件上一直缺一个“已交付”的标杆。美国有IBM和Google的超导、IonQ的离子阱、PsiQuantum的光子路线；中国有本源、国盾量子的超导路线，华翊量子的离子阱路线等。DLR选光子路线，一方面因为光子能跟现有光纤通信基础设施对接，另一方面也是欧洲想在光子学这个自己有积累的领域守住阵地。 25年的工程坎，QuiX 怎样走过来的？ 不过KLM方案有个天生的毛病，就是光子之间很难直接相互作用，概率性极强。要做成通用门集，就得靠multiplexing加快速度前馈来“驯服”概率。2006年维也纳Zeilinger团队做过演示，但那是分体光路搭出来的，没法集成。 过去20年学术界的共识是很明显的：理论上可行，工程上基本上没戏。 QuiX的做法是把整套东西集成到一起。光子源用SiN微环谐振器上的自发四波混频，可以直接上CMOS晶圆级量产。滤波靠片上级联CROW环形谐振器，泵浦光抑制做到超过110分贝。前馈控制有自研FFCU，能在纳秒级把单光子探测器信号转成控制指令。PACU提供标准化接口，光子芯片、探测器、控制电路都能像服务器配件一样插拔更换。 QuiX还是欧洲第一家在自己的光子机上做出“below threshold”错误缓解的公司，把物理比特错误率压到了跟可扩展容错兼容的水平。 工艺底子是TriPleX氮化硅平台，可以直接借用半导体代工厂产能。跟超导路线比，光子在“部署成本”这件事上有天然优势。KLM三作之一的Milburn给了句评价：“这条路不仅走得通，而且是可以导航的。” 全球光子竞速，三条路径的商业化分叉 光子量子赛道全球还能打的玩家就剩三家，而且三家做的根本不是同一门生意。 PsiQuantum走晶圆厂重资产路线，赌2029年之后的容错终局。 绑定了GlobalFoundries的300毫米硅光产线，2025年2月在《Nature》上发了Omega芯片组。澳大利亚摩顿湾量子计算中心今年6月刚破土，计划2027年装低温设备，目前没有客户订单。E轮筹了10亿美元，是BlackRock领投的，估值了70亿美元。问题是时间表完全取决于晶圆厂良率和纠错码，现在都没有收入，投资...",
+          "hb": 1
         },
         {
-          "t": "OpenAI训练了一个专门攻击AI的模型，只为让GPT更安全",
+          "t": "国内首次！\"全方式\"算电协同实测，上海16家数据中心2小时压减9.78万千瓦",
           "d": "2026-07-16",
-          "a": "麻省理工科技评论APP",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "OpenAI训练了一个专门用于攻击AI模型的对抗模型，目的是通过红队（red-team）方式发现GPT的安全漏洞、提升其鲁棒性。这是将对抗性训练系统化的做法，符合行业'攻防一体'的安全研究趋势。类似思路在Anthropic、Google DeepMind均有应用，表明前沿实验室已把自动化红队作为模型安全的标配环节。",
-          "sc": 8.0,
+          "a": "AIDC算电协同产业链",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "国网上海电力公司组织16家数据中心开展国内首次算电协同“全方式”实测，两小时内最大压减负荷9.78万千瓦。此次实测首次在同一时段统一调度柔性负荷调节、备电柴发切换、算力跨域转移三类路径。调用中包含13户次柔性负荷调整、3户次柴发切换和1户次算力跨域转移，完整跑通了“一调、一切、一转”全链路技术体系，创下国内城市单次算力负荷调节规模纪录。",
+          "sc": 9.2,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/dBkCLDkuHXTg3B5aXB4RAw",
-          "tp": "AI对抗安全模型",
+          "u": "https://mp.weixin.qq.com/s/dH31TFsAZOliBGL6SOMCcw",
+          "tp": "算电协同实测",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "压减负荷[上海16家数据中心算电协同实测]: 2小时内最大压减9.78万千瓦",
+            "调节路径[算电协同全链路技术体系]: 首次跑通柔性负荷调节、备电柴发切换、算力跨域转移三类路径"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "国内首次！\"全方式\"算电协同实测，上海16家数据中心2小时压减9.78万千瓦 Jean Jean AIDC算电协同产业链 国内首次 · 全方式实测 **国内首次！\"全方式\"算电协同实测，上海16家数据中心2小时压减9.78万千瓦** 📅 2026·07·16 ▲ 国网上海电力调度中心，电网监控大屏实时呈现全市算力负荷与电力调度全景 近日，正值上海夏季用电负荷攀升期，国网上海市电力公司组织上海电信、万国数据、上海仪电、阿里巴巴集团等企业的**16家数据中心**开展算电协同集中调用，**两小时内最大压减负荷9.78万千瓦**。这是迄今国内城市单次算力负荷调节规模最大的一次，也是**首次将柔性负荷调节、备电柴发切换、算力跨域转移三类路径置于同一时段统一调度的实测**。 **01** 全方式验证： **\"一调、一切、一转\"全链路技术体系首次跑通** 算电协同的难点，向来不在单点突破，而在系统协同。本次专项调用的最大价值，在于将数据中心参与电网调节的主要方式**集中于同一时段统一调度、协同响应**，首次完整跑通\"一调、一切、一转\"的全链路技术体系。 **🔧 \"一调\"——柔性负荷调节** 对数据中心内空调、蓄冷罐、储能、算力设施等常规柔性资源进行动态调控，灵活增减用电负荷实施快速柔性调整。本次共调用**13户次**，是三类手段的主力担当。 **⚡ \"一切\"——备电柴发切换** 利用柴油发电机组部分或全部替代市电供能，可采用孤网运行、并网运行两种切换模式，在保障算力任务正常执行的前提下缓解电网供电压力。本次共调用**3户次**。 **🌐 \"一转\"——算力跨域转移** 通过点对点、点对多、多对多、跨技术架构等算力转移策略，在不同空间维度实现算力任务迁移，确保算力调度与电网需求精准匹配。本次共调用**1户次**，验证了\"算力跟着电价走\"的可行性。 **「不同资源的响应速度、调节特性各不相同，好比一支乐队，弦乐、管乐、打击乐要同时配合才能奏出效果，把它们编排到同一个谱子里，考验的不只是技术，更是对调度策略、安全边界、多主体协同的系统性驾驭。」** —— 国网上海电力营销服务中心需求侧管理中心副主任 赵建立 储能响应快但容量有限，蓄冷罐可平移负荷但需提前预冷，柴发孤岛与并网切换要有序衔接，算力负荷的延时与异地转移更是传统电力调度从未面对过的新变量。全链路验证的完成，意味着**上海在算电协同技术路径上率先实现了体系化突破**。 ▲ 智慧能源管理大屏前，国网员工正在分析跨省算力调度数据 **02** 全场景覆盖： **\"经济态+保供态+应急态\"三态协同** \"全方式验证只是起点，能否落地可用、规模推广才是关键。\"国网上海电力营销部智能用电处处长吴丹表示，本次调用以\"经济态+保供态+应急态\"三态协同的全场景覆盖，验证了方案的实用化能力。 **💰** **经济态** 现货市场·降低用电成本 **🛡️** **保供态** 虚拟电厂·削峰填谷 **🚨** **应急态** 柴发+储能·应对突发 **经济运行方面**，现货市场分时、分地的价差信号，为算力跨区转移提供了基于市场机制的理论依据。**电力保供方面**，数据中心作为城市新增用电重要增长极，由刚性保供对象聚合转变为新型柔性调节资源——相当于在城市内部建设一座不占土地、不烧化石能源的虚拟电厂，平时可优化用电成本，用电高峰时可压减尖峰负荷。对上海这样夏季高温高负荷的超大城市而言，这意味着多了一支可观的\"隐形保供力量\"。**应急保障方面**，通过备电柴发切换、储能功率调节等快速调节能力储备，当电网发生故障或遭遇台风等极端天气时，数据中心算力基础设施的韧性运行为城市提供应急应对手段。 **03** 全国首例： **中国电信临港完成跨省\"一对多\"算力调度** 本次实测最亮眼的成果之一，是国网上海电力联合中国电信临港算力，共同完成了**全国首次以现货电价信号驱动的跨省\"一对多\"算力调度实测**。通过持续3日测试，让算力任务结合电力现货价格在**上海、安徽、新疆**等地互相转移—— **28万+** 3日累计 推理请求 **3300万+** Token数 **约-31%** 算力用电 成本下降 **「以前只有高温天能通过虚拟电厂参与电网需求响应赚取补贴，现在我们随时都可以参与电力现货市场通过电价差来进一步降低用电成本。而且我们发现，电价低的地方往往也是绿电资源更加丰富的地方，在享受低电价的同时还能促进绿电消纳，真是一举两得。」** —— 临港算力双碳事业部副经理 袁潇洋 31%的成本降幅，意味着AI推理任务开始真正\"跟着电价走\"——当上海电价走高时，推理请求被自动路由到西部低电价省份的算力节点，等同于把**电力市场的价格信号传导到了算力市场**。而\"电价低的地方绿电更丰富\"这一发现，更是为算力行业的\"双碳\"目标找到了一条...",
+          "hb": 1
         }
       ]
     },
@@ -169,69 +191,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "全国最大2000吨级氢能货船顺利下水进入内河干线运输",
-        "智利多座核心港口全面停工冲击全球锂电等金属供应链",
-        "国家能源局发布构网型柔性直流输电系统稳态性能等标准"
+        "国网黑龙江完成全省首次构网型储能人工短路试验验证电压支撑能力",
+        "中国能建中南院参与柔性直流组网项目获国家科学技术进步奖一等奖",
+        "研究运用AI设计出具备高基因编辑活性的最小CRISPR-Cas12类似核酸酶"
       ],
       "entries": [
         {
-          "t": "全国最大2000吨级氢能货船下水：氢能开始驶入内河干线",
+          "t": "黑龙江首次构网型储能人工短路试验圆满完成--中国能源新闻网",
           "d": "2026-07-16",
-          "a": "铂道",
-          "c": "通用技术/通信和运输/水路运输",
-          "as": "全国最大2000吨级氢能货船下水，标志氢能应用正式进入内河干线运输场景。相比公路，内河航运脱碳需求迫切，氢燃料电池船可替代柴油动力、降低航线碳排放。但氢能船舶仍面临储氢系统体积大、加氢码头稀缺、法规标准不完善等问题，商业化运营需配套港口氢基础设施同步建设。",
-          "sc": 8.4,
+          "a": "中国电力新闻网-新能源",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "国网黑龙江电科院在嫩江市紫铜风电场圆满完成全省首次构网型储能人工短路试验。测试对象为南瑞继保研制的30兆瓦/60兆瓦时构网型储能系统。实测波形与前期精细化全电磁仿真计算曲线基本吻合，验证了构网型储能在弱电网故障下的电压和惯量支撑能力及稳定性。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/kdf9Dw5o-PjmpP8Zw0zJdA",
-          "tp": "氢能货船下水",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/xny/202607/t20260716_1902665.html",
+          "tp": "构网型储能试验",
           "aip": 1,
           "kp": [
-            "载重规模[氢能货船]: 2000吨级"
+            "额定功率[南瑞继保构网型储能系统]: 30兆瓦",
+            "额定容量[南瑞继保构网型储能系统]: 60兆瓦时",
+            "人工短路试验[黑龙江弱电网及高比例新能源接入]: 首次圆满完成并验证多目标响应特性"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "黑龙江首次构网型储能人工短路试验圆满完成--中国能源新闻网\n中电传媒股份有限公司主办\n黑龙江首次构网型储能人工短路试验圆满完成\n近日，在嫩江市多宝山镇紫铜风电场，国网黑龙江电科院首次构网型储能人工短路试验验证圆满完成。\n据了解，多宝山项目是黑龙江首个“矿山开采+风光发电+冶炼负荷”产消一体化标杆工程，地处黑龙江北部偏远区域，属于典型弱电网+高比例新能源接入场景，站内的构网型储能系统肩负着新能源消纳平衡、提高地区短路比、为电网提供电压和惯量支撑、提高电网稳定性等多重使命。\n本次开展人工短路试验对象为南瑞继保研制的30兆瓦/60兆瓦时构网型储能系统，也是黑龙江省首个落地投运、配套新能源场站建设的构网型储能项目。\n试验前期，国网黑龙江电科院技术团队开展了多轮全电磁仿真计算。技术团队结合现场电网拓扑结构，完整搭建覆盖本次试验的构网型储能、风电机组、静止无功发生器，以及相邻风电场配置的静止同步调相机在内的全站、片区集群精细化电磁仿真模型。\n仿真过程中，国网黑龙江电科院技术团队充分考量各类设备故障工况下的无功响应特性、跨场站电气耦合影响，精准推演故障冲击电流、系统电压跌落过程及各电力电子装置的暂态响应特性。\n在现场试验中，国网黑龙江电科院技术团队在110千伏紫铜风电场布置7个测试点，全程同步采集电压、电流、功率等数据，完整记录人工短路全过程。完成后，技术人员依托现场实测数据，与前期仿真推演结果逐项比对校核。分析结果表明，现场实测波形与电磁仿真计算曲线基本吻合。\n本次构网型储能人工短路试验的圆满完成，进一步验证构网型储能在电网故障情况下的支撑能力，同时也为后续高比例新能源接入场景下，构网型储能规模化应用提供了重要的工程实践依据。\n“十四五”能源高质量发展\n全球首个百吉瓦时级储能基地投产\n深能尉犁45万千瓦光储一体化项目投入商业运行\n风光氢基燃料一体化仿真计算平台通过评审\n4765米！中广核海拔最高的风电项目完成首台风机吊装\n全球最高！204米钢混风塔在华北平原“立起来”了\n包头威俊500千伏储能汇集站并网投运\n海南重卡“驶向”环岛换电自由\n新能源撑起海南电力“半壁江山”",
+          "hb": 1
         },
         {
-          "t": "紧急停港！智利多座核心港口全面停工",
+          "t": "科技创新再登顶 中南电力攻克柔性直流世界级难题--中国能源新闻网",
           "d": "2026-07-16",
-          "a": "港航子午线",
-          "c": "通用技术/通信和运输/水路运输",
-          "as": "智利多座核心港口因故全面停工，紧急暂停船舶靠港。智利是全球铜矿、锂矿及大宗商品重要出口国，港口停摆将对全球新能源金属供应链(尤其锂电原料)和大宗商品价格产生直接冲击，属影响产业链的突发事件。",
-          "sc": 7.5,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/M0j1H8v1-5cgQWiKsEi_gA",
-          "tp": "智利港停摆",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "【行业标准】国家能源局发布《构网型柔性直流输电系统稳态性能要求》等重点行业标准",
-          "d": "2026-07-16",
-          "a": "储能科学与技术",
+          "a": "中国电力新闻网-科技",
           "c": "通用技术/通信和运输/电网技术/其它电网技术",
-          "as": "国家能源局发布《构网型柔性直流输电系统稳态性能要求》等多项重点行业标准。构网型柔性直流（grid-forming VSC-HVDC）是支撑高比例新能源并网、孤岛供电与海上风电送出的关键技术，其能够主动构建电网电压与频率、提供惯量支撑。此次稳态性能标准的出台，为构网型柔直工程的设计、设备制造与并网测试提供了统一技术依据，是新型电力系统建设的重要标准化进展。",
-          "sc": 7.5,
+          "as": "中国能建中南电力设计院参与攻关的“柔性直流组网关键技术、成套装备和工程应用”项目荣获国家科学技术进步奖一等奖。项目攻克了拓扑理论、成套装备研制、运行控制等关键技术，形成了完全自主知识产权的技术体系，解决了交流故障无过零难关断等行业共性难题，成功应用于张北柔直电网工程。",
+          "sc": 8.5,
           "i": "n",
-          "tg": "政策监管",
-          "u": "https://mp.weixin.qq.com/s/WpGc0jcPpG5VJxbT-wkUYQ",
-          "tp": "柔性直流标准",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260716_1902666.html",
+          "tp": "柔性直流组网",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "工程核心技术[柔性直流组网]: 攻克拓扑理论、成套装备、工程设计及运行控制等全链条技术难题",
+            "工程设计创新[柔性直流换流站]: 突破对称双极接线、背靠背、多端直流电网及设备选型布局优化"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "科技创新再登顶 中南电力攻克柔性直流世界级难题--中国能源新闻网\n中电传媒股份有限公司主办\n科技创新再登顶 中南电力攻克柔性直流世界级难题\n近日，2025年度国家科学技术奖励大会在北京召开。由中国能建旗下中南电力设计院有限公司参与攻关的“柔性直流组网关键技术、成套装备和工程应用”项目，荣获国家科学技术进步奖一等奖，标志着我国柔性直流组网整体技术全面迈入国际领先行列。\n此次获奖，是中南电力继斩获两项国家科学技术奖特等奖、一项国家科学技术进步奖一等奖后，再度收获的国家级重磅科技成果，充分彰显了企业在直流输电工程设计领域的核心技术优势与行业引领地位。\n该成果紧扣国家能源转型战略需求，瞄准柔性直流组网世界性技术难题，系统攻克拓扑理论创新、成套装备研制、工程设计方法、运行控制体系等全链条关键技术，成功构建起具有完全自主知识产权的柔性直流电网技术体系。\n作为工程设计龙头单位，中南电力在项目攻关中实现多项关键性突破。企业助力直流电网设计技术迭代升级，攻克对称双极接线柔性直流、背靠背、多端直流电网工程设计核心难题，形成系统化工程设计整体方案；创新搭建柔性直流换流站布置优化体系，突破设备选型、场站布局优化关键技术，优化阀厅、直流场空气净距设计标准，有效节约占地面积，显著提升工程建设经济性与土地利用效能。\n同时，企业协同成套设计与建设单位，持续迭代接线布局、设备配置及保护方案，有效治理柔性直流系统交流故障无过零难关断、谐振风险、励磁涌流危害等行业共性难题，大幅提升电网输电安全与运行可靠性。\n张北柔性直流电网工程北京换流站鸟瞰图\n依托系列自主核心技术，中南电力高质量完成多项世界级标杆工程设计，实现技术成果规模化落地应用。其中，张北柔性直流电网试验示范工程是全球首个柔性直流电网工程、北京冬奥会核心能源保障项目。项目建成四端环形柔性直流网架，实现张北区域大规模风电、光伏新能源平稳送出与高效消纳，保障北京冬奥会全部场馆实现100%绿电供应，为我国高比例新能源并网利用提供了可复制、可推广的示范范式。\n此外，渝鄂背靠背柔性直流工程为全球最高电压等级同类型工程。项目实现川渝电网与华中电网异步互联，有效破解跨区域大电网同步运行稳定性难题，大幅提升华中、西南区域电力互济调配能力，优化区域能源资源配置，筑牢跨区域电网安全稳定运行屏障。（曾维雯 刘超）\n“十四五”能源高质量发展\n多项首次！我国乙烯工业自主技术里程碑式跨越！\n我科研团队开发出用于全固态电池的超快充锂合金负极\n新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录\n“抢”回4.5亿度电能 国产“苇络AI”守护迎峰度夏电力线\n太阳能智能回收机落地明十三陵 助力文旅绿色低碳发展\n宁波大学团队在全钙钛矿叠层电池研究领域取得新突破\n新研究：集中供热余热可助力污水处理和城市减排\n中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最",
+          "hb": 1
+        },
+        {
+          "t": "最小RNA引导核酸酶的结构和进化引导设计",
+          "d": "2026-07-16",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "研究采用耦合结构引导的反向折叠模型与进化残基约束的蛋白质设计策略，成功生成了具有活性的最小CRISPR-Cas12类似核酸酶TnpB的变体（SynTnpBs）。高通量筛选表明，这些人工智能设计的变体在细菌、植物和人类细胞中均保留或超越了野生型的基因编辑活性。冷冻电镜结构解析揭示了变体在RNA-DNA界面间存在稳定接触，拓展了可编程基因组编辑的能力。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aed6123?af=R",
+          "tp": "基因编辑酶",
+          "aip": 1,
+          "kp": [
+            "设计策略[最小RNA引导核酸酶]: 耦合结构引导的逆折叠模型与演化约束的残基信息",
+            "[蛋白质工程结论]: 成功生成具有高催化活性的多样化TnpB变体，拓展了可编程基因组编辑能力"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The design of RNA-guided nucleases with properties not limited by evolution can expand programmable genome-editing capabilities. However, generating diverse multidomain proteins with robust enzymatic properties remains challenging. Here, we use a protein design strategy that couples a structure-guided inverse-folding model with evolution-informed residue constraints to generate active, divergent variants of TnpB, a minimal CRISPR-Cas12–like nuclease, termed SynTnpBs. High-throughput screening of artificial intelligence–generated variants yielded editors that retained or exceeded wild-type activity in bacterial, plant, and human cells. Cryo–electron microscopy–based structure determination of the most divergent variant revealed stabilizing contacts in the RNA–DNA interfaces across conformations, demonstrating the design potential of this approach. Together, these results establish a strategy for creating non-natural RNA-guided nucleases and conformationally active nucleic acid binders, enlarging the designable protein space.",
+          "hb": 1
         }
       ]
     }

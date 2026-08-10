@@ -6,224 +6,51 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "钙钛矿硅叠层电池埋底界面构建2D/3D异质结构提升器件效率",
-      "致密铂基金属间纳米粒子催化剂提升重型车辆燃料电池耐久性",
-      "阴离子交换膜电解槽结合铜钴氧化物实现甘油氧化与同步产氢"
+      "钠离子电池研究构建内置电场抑制锰基磷酸盐阴极电压迟滞现象"
     ],
-    "AI与智能科技": [
-      "研究者提出二维材料晶圆级全互连构建策略以突破芯片制造瓶颈",
-      "ChatGPT辅助物理学家完成粒子相互作用推导验证及数学证明"
-    ],
-    "通用技术": [
-      "NASA航天器于火星电离层首次探测到频率色散哨声波证实闪电活动",
-      "金属有机框架内限域多核钌位点结合仿生水网络降低水氧化能垒",
-      "双加氧酶催化紫杉烷骨架自由基重排拓展抗肿瘤药物合成途径"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "钙钛矿硅叠层电池埋底界面构建2D/3D异质结构提升器件效率",
-        "致密铂基金属间纳米粒子催化剂提升重型车辆燃料电池耐久性",
-        "阴离子交换膜电解槽结合铜钴氧化物实现甘油氧化与同步产氢"
+        "钠离子电池研究构建内置电场抑制锰基磷酸盐阴极电压迟滞现象"
       ],
       "entries": [
         {
-          "t": "埋底界面原位构筑梯度Ruddlesden-Popper 2D/3D异质结构实现电流匹配的钙钛矿/硅叠层电池",
+          "t": "钠离子电池锰基磷酸盐阴极中的内置电场调节相变并抑制电压迟滞",
           "d": "2026-02-28",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究提出在钙钛矿/硅叠层太阳能电池的埋底界面进行原位梯度工程化构建Ruddlesden-Popper型2D/3D异质结构，以改善宽带隙钙钛矿的界面钝化。该策略同时提升器件效率和稳定性，通过电流匹配优化实现叠层电池性能突破。原位界面钝化被证明是兼顾效率与稳定性的关键路径，为钙钛矿/硅叠层电池的产业化提供了重要技术方案。",
-          "sc": 8.1,
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 6.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c04127",
-          "tp": "钙钛矿叠层电池",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522507?af=R",
+          "tp": "钠电阴极研究",
           "aip": 1,
-          "kp": [
-            "[原位埋底界面钝化]: 一步构建梯度RP 2D/3D异质结构",
-            "器件[钙钛矿/硅叠层]: 电流匹配"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "In situ interface passivation serves as a crucial strategy for improving both the efficiency and stability of wide-band gap (WBG) perovskite solar cells and their associated tandem architectures. Here, we present a one-step in situ buried-interface passivation approach designed to reduce interface defects in three-dimensional (3D) WBG perovskite films. This is achieved by constructing self-assembly of a gradient Ruddlesden–Popper (RP) two-dimensional (2D) perovskite layer at the buried interface of the 3D WBG perovskite, leading to the formation of a gradient RP-2D/3D perovskite heterostructure. Such heterostructures facilitate the oriented growth of 3D perovskite crystals along the (100) plane, enhance charge carrier extraction, and effectively passivate trap states within the WBG perovskites. The in situ formation of RP-2D/3D perovskite heterostructures significantly enhances the light, thermal, and moisture stabilities of the WBG 3D perovskites. The resulting perovskite/silicon tandem solar cells exhibit improved current matching (mismatch 0.1% vs 5.5% for 3D), deliver improved efficiency of 32.73% (certified 32.46%), and demonstrate an operational lifetime T90 exceeding 1508 h.",
-          "hb": 1
-        },
-        {
-          "t": "限域于中空介孔碳中的致密铂基金属间纳米粒子用于耐久高功率重型燃料电池",
-          "d": "2026-02-28",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
-          "as": "重型车辆(HDV)燃料电池对氧还原反应(ORR)催化剂的活性和耐久性要求极高。该研究将致密铂基金属间化合物纳米颗粒限域于中空介孔碳载体中，构建高耐久高功率催化剂体系。金属间化合物的有序结构提升本征活性与稳定性，中空介孔碳的限域效应防止颗粒团聚和溶解，兼顾高质量传质能力，满足重型燃料电池长寿命、高功率密度的严苛工况需求。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19791",
-          "tp": "燃料电池催化剂",
-          "aip": 1,
-          "kp": [
-            "催化剂[重型车燃料电池ORR]: Pt基金属间化合物纳米粒子",
-            "载体[重型车ORR]: 中空介孔碳"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Heavy-duty vehicle (HDV) fuel cells require oxygen reduction reaction (ORR) catalysts with exceptional activity and durability under stringent operating conditions. However, conventional solid-solution Pt-based ORR catalysts often fail to simultaneously meet the requirements of high-power density and long-term stability, due to their inherent activity-stability trade-offs and mass-transport limitations at working conditions of fuel cells. Herein, we report a universal ligand-tuned co-reduction strategy to efficiently load Pt-based intermetallic compound (IMC) nanoparticles with high density (>50 wt% metal content and ∼3 nm particle size) and a high degree of ordering into hollow mesoporous carbon (HMC) by narrowing the reduction-potential gap between Pt and other transition metal precursors to achieve stable high-power HDV fuel cells. The dense and ordered IMCs ensure the efficient and stable ORR, while the mass-transport-favorable HMC promotes oxygen transport to the active sites. This design greatly enhances HDV fuel cell ORR activity, stability, and mass-transport efficiency. Under the HDV-relevant conditions (250 kPaabs and cathode loading of 0.15 mgPt cm–2), the optimized H-L10-PtCo/HMC catalyst achieves an exceptional current density of 1.73 A cm–2 at 0.7 V and retains 85% after 90,000 accelerated durability cycles, significantly exceeding the U.S. Department of Energy targets. The findings establish H-L10-PtCo/HMC as a next-generation cathode electrocatalyst for HDV applications.",
-          "hb": 1
-        },
-        {
-          "t": "高容量阴离子交换膜电解槽中利用表面修饰铜钴氧化物催化剂的甘油商业化增值转化",
-          "d": "2026-02-28",
-          "a": "Joule",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
-          "as": "在64 cm²规模阴离子交换膜电解槽（AEMWE）中实现了商业化规模的甘油 valorization，采用表面修饰铜钴氧化物催化剂。该催化体系在AEMWE环境中高效催化甘油选择性氧化，同步产氢，显著降低了电解能耗。研究验证了催化剂在高电流密度下的长期稳定性，证明了AEMWE耦合生物质衍生物氧化替代缓慢析氧反应以提升整体能效的技术可行性和经济潜力。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00484-2?rss=yes",
-          "tp": "甘油电化学转化",
-          "aip": 1,
-          "kp": [
-            "电解槽[AEM甘油valorization]: 64cm²规模",
-            "催化剂[甘油valorization]: 表面改性铜钴氧化物",
-            "[制备方法]: 共沉淀+表面处理可量产"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In this work, we demonstrate a 64 cm2 scale anion exchange membrane water electrolyzer (AEMWE) cell for commercial-scale glycerol valorization. For large-scale AEMWE cell applications, we developed a method to mass-produce catalysts through co-precipitation and surface treatment. In addition, the AEMWE system significantly enhances glycerol valorization compared with the H-type system. The developed large-scale AEMWE cell can simultaneously perform glycerol valorization and directly capture pure H2. This work presents a strategy that advances the commercialization of glycerol valorization.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "研究者提出二维材料晶圆级全互连构建策略以突破芯片制造瓶颈",
-        "ChatGPT辅助物理学家完成粒子相互作用推导验证及数学证明"
-      ],
-      "entries": [
-        {
-          "t": "面向晶圆代工的全互连二维微处理器构建策略",
-          "d": "2026-02-28",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究提出面向晶圆代工的二维（2D）材料大规模集成策略，旨在解决构建下一代电子芯片时2D材料的互连难题。核心挑战在于如何在晶圆级尺度上实现多个2D材料器件之间稳定的全互连结构，克服材料转移、界面缺陷及工艺兼容性等工程瓶颈。该策略为将石墨烯、过渡金属硫族化合物等2D材料从实验室器件推向工业级大规模集成电路提供了可行的代工路线，对超越硅摩尔定律极限的新型芯片制造具有重要意义。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01573-9",
-          "tp": "二维微处理器",
-          "aip": 1,
-          "kp": [
-            "[2D微处理器]: 代工厂导向转移策略构建大规模互连电路"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Two-dimensional (2D) materials can be used to build next-generation electronics. However, large-scale chips containing hundreds of transistors based on 2D materials suffer from problems related to low yield and laboratory fabrication. Here we report a towards-foundry strategy to create large-scale circuits based on transferred 2D materials. The approach uses testing and repeated iterative optimization of six aspects: circuit design, layout design, material growth, material transfer, device fabrication and chip probing. We fabricate around 130 batches of samples for testing to improve the yield at each scale, from single transistors to circuit modules to a complete microprocessor. We create single transistors with nearly 100% yield, on/off ratios greater than 107 and inverter gains of approximately 400 on average. The statistical yields for the arithmetic logic unit, control unit and D-latch circuit modules are found to be 96.5%, 79.5% and 61.5%, respectively. The resulting 2D microprocessor exhibits excellent signal integrity and stability, as well as low-energy-consumption characteristics that are superior to those of early Intel central processing units.",
-          "hb": 1
-        },
-        {
-          "t": "ChatGPT 首次助力理论物理学取得新突破",
-          "d": "2026-02-28",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "物理学家首次借助ChatGPT辅助数学推导，证明了一种此前受到质疑的粒子相互作用确实可行。研究团队结合人类物理直觉与AI辅助的符号计算，解决了长期悬而未决的理论难题，展示了大语言模型在理论物理中作为数学推理工具的潜力，为人机协作攻克复杂数学物理问题开辟了新范式。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aeg7163?af=R",
-          "tp": "AI辅助理论物理",
-          "aip": 1,
-          "kp": [
-            "[AI辅助]: ChatGPT辅助理论物理证明",
-            "[突破]: 验证存疑粒子相互作用可能性"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Physicists combined human acumen and AI-assisted math to show that a doubted particle interaction is possible after all",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "NASA航天器于火星电离层首次探测到频率色散哨声波证实闪电活动",
-        "金属有机框架内限域多核钌位点结合仿生水网络降低水氧化能垒",
-        "双加氧酶催化紫杉烷骨架自由基重排拓展抗肿瘤药物合成途径"
-      ],
-      "entries": [
-        {
-          "t": "在火星上检测到闪电产生的波",
-          "d": "2026-02-28",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/通信和运输/航天",
-          "as": "NASA的MAVEN航天器在火星电离层首次探测到频率色散哨声波（whistler），表明火星大气中存在闪电活动。此前闪电已在木星、土星和海王星上被确认，但火星和金星一直不明。研究团队验证了该波从大气传播至航天器的路径合理性，并证实观测到的色散与理论预期一致，为火星大气电学研究提供了关键证据。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb4898?af=R",
-          "tp": "火星闪电探测",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Although lightning activity has been confirmed on Jupiter, Saturn, and Neptune through the detection of lightning-generated electromagnetic waves, its occurrence on Venus and Mars remains unclear. Here, we report observations of such a frequency-dispersed whistler detected in the ionosphere of Mars by NASA’s MAVEN spacecraft. We demonstrate the plausibility of wave propagation from the atmosphere to the spacecraft, and we show that the observed dispersion corresponds to theoretical expectations using realistic crustal magnetic field and ionospheric models. Increased attenuation at higher frequencies explains why only the low-frequency part of the whistler is observed. Our observations provide direct evidence of electromagnetic waves from an impulsive source on Mars, suggesting that electric discharges may indeed occur in the Martian atmosphere.",
-          "hb": 1
-        },
-        {
-          "t": "限域于金属有机框架中的多核钌位点结合仿生水网络用于高效水氧化",
-          "d": "2026-02-28",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "受天然酶高效催化机制的启发，研究团队在金属有机框架（MOF）中限域了多核钌催化位点，并构建了仿生水分子网络以模拟天然产氧酶的微环境。这种精密的空间排列使底物分子在催化活性中心周围形成有序的氢键网络，显著降低了水氧化反应（OER）的能垒。多核钌位点的协同作用与仿生水通道的质子/电子传递能力相结合，实现了优异的电催化水氧化性能。该工作证明了将酶催化原理移植到多相电催化剂中的可行性，为设计高效能源转化材料提供了新思路。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22536",
-          "tp": "MOF多核钌催化",
-          "aip": 1,
-          "kp": [
-            "催化剂[水氧化]: Hf-Ru-cba多核钌confined in Hf-MOF",
-            "[仿生水网络]: MOF受限口袋中空间有序水网络"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Natural enzymes achieve exceptional catalytic efficiency by organizing substrates within precisely defined microenvironments, a level of control that remains challenging to replicate in synthetic systems. Here we report an enzyme-inspired strategy in which a mononuclear Ru-cba water-oxidation catalyst is assembled into a Hf-based MOF to form Hf-Ru-cba featuring confined catalytic pockets and spatially organized multinuclear Ru-cba sites (cba = 5,5′-bis(4-carboxyphenyl)-[2,2'-bipyridine]-6,6′-dicarboxylic acid). Within these nanocavities, an extended hydrogen-bond network preorganizes water molecules and stabilizes high-valent intermediates, thereby accelerating the water-nucleophilic-attack (WNA) pathway. This microenvironment-driven enhancement yields a turnover frequency of 20.6 s–1, which is nearly an order of magnitude higher than that of the discrete Ru-cba analogue. Furthermore, the MOF-integrated catalyst maintains its exceptional activity even at an ultralow catalyst concentration (3.6 μM) compared with the homogeneous system. Mechanistic evidence from kinetics, isotope labeling, and DFT calculations confirms that nanoconfinement directs the reaction toward a WNA mechanism and lowers the barrier for O–O bond formation. The heterogeneous Hf-Ru-cba catalyst also exhibits excellent operational stability, retaining performance over at least five cycles. These results establish MOFs as programmable scaffolds for integrating molecular catalysts and highlight water-network engineering as a powerful approach to modulate reaction dynamics.",
-          "hb": 1
-        },
-        {
-          "t": "多功能2-酮戊二酸依赖性双加氧酶催化自由基介导的紫杉烷骨架重构与氧化修饰",
-          "d": "2026-02-28",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究发现2-酮戊二酸依赖型双加氧酶可催化紫杉烷类二萜的自由基介导多官能团骨架重构与氧化修饰。紫杉烷具有6/8/6和5/7/6等多种骨架结构，5/7/6型尤为罕见。研究通过酶催化实现了骨架重排和区域选择性氧化，拓展了紫杉烷骨架多样性的生物合成途径。紫杉醇及其衍生物是重要的抗肿瘤药物，该工作对天然产物结构多样化与药物开发具有启示意义。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01169",
-          "tp": "双加氧酶催化",
-          "aip": 1,
-          "kp": [
-            "催化剂[紫杉烷骨架重建]: TcOGD1/TcOGD2双加氧酶"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Taxane diterpenoids exhibit high scaffold diversity, with 6/8/6 and 5/7/6 frameworks being the most common. 5/7/6 taxoids, exemplified by taxuspine J, display promising pharmacological activities, but their chemical diversity and biosynthesis remain largely unexplored. Here, we characterized two novel 2-oxoglutarate-dependent dioxygenases, TcOGD1 and TcOGD2, which exhibit remarkable catalytic versatility, including skeleton reconstructions from 6/8/6 taxanes to 5/7/6, <i>trinor</i>-5/7/6, and 6/12 frameworks, and oxidation modifications at C-5, C-6, C-16, or C-20 of various taxoids. Specifically, they catalyze the skeletal rearrangement of 2-deacetoxytaxinine J (a 6/8/6 taxoid) and subsequent oxidation modifications to produce taxuspine J and a panel of 15,16,17-<i>trinor</i>-5/7/6 taxoids, which were identified through scale-up enzymatic reactions and NMR spectroscopy. Mechanistic investigation reveals a substrate-specific oxidative degradation for constructing the <i>trinor</i>-5/7/6 scaffold via radical-mediated C-C bond cleavage, accompanied by acetone release. In addition, TcOGD1 catalyzes two distinct transformations of a new Δ<sup>5,6</sup> containing 6/8/6 taxoid isolated from <i>Taxus chinensis</i> var. <i>mairei</i>, including C-C bond cleavage coupled with aldehyde formation to form a unique highly unsaturated 6/12 taxoid, and C-16 aldehyde formation to yield a 6/8/6 taxoid. TcOGD1 also mediates the 5-OH oxidation of a 6/10/6 taxoid. Furthermore, five novel <i>trinor</i>-5/7/6 taxoids were isolated from the <i>Taxus</i> plant, and taxuspine J and <i>trinor</i>-5/7/6 taxoids showed effective tumor resistance reversal activity. Our findings offered new insights into the formation of taxane structural diversity, expanded the chemical space of taxane diterpenoids, and provided valuable biocatalytic tools for constructing unusual taxane architectures through enzyme engineering or synthetic biology.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

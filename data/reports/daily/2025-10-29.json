@@ -1,0 +1,146 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月29日　星期三",
+  "date_range": "2025-10-29",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究人员开发氟化物工程电解质，在2 A cm−2条件下实现碱性海水高效稳定电解。",
+      "二氧化碳捕获MOF材料研发引入人工智能设计与自动化实验室，替代传统高通量筛选。",
+      "新干电极技术结合PTTF功能化处理，使锂电池能量密度突破400 Wh kg−1。"
+    ],
+    "AI与智能科技": [
+      "厂商将垂直存储器与光电晶体管进行单片3D集成，实现近传感器加密及同态数据搜索。"
+    ],
+    "通用技术": [
+      "科研人员利用碳纳米环对称性破缺机制，研制出室温三元单分子开关。"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究人员开发氟化物工程电解质，在2 A cm−2条件下实现碱性海水高效稳定电解。",
+        "二氧化碳捕获MOF材料研发引入人工智能设计与自动化实验室，替代传统高通量筛选。",
+        "新干电极技术结合PTTF功能化处理，使锂电池能量密度突破400 Wh kg−1。"
+      ],
+      "entries": [
+        {
+          "t": "用于在 2 A cm−2 下高度稳定和高效地电解碱性海水的氟化物工程电解质",
+          "d": "2025-10-29",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202518106?af=R",
+          "tp": "海水电解质",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于 CO2 捕获的 MOF 发现的演变：从高通量筛选到人工智能设计和自动化实验室",
+          "d": "2025-10-29",
+          "a": "ScienceDirect Publication: Materials Today",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.sciencedirect.com/science/article/pii/S1369702125004377?dgcid=rss_sd_all",
+          "tp": "AI辅助MOF捕碳",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于高能量密度锂离子电池（>400 Wh kg−1）的原纤化 PTFE 电子束诱导功能化实现超面积容量干电极（22.6 mAh cm−2）",
+          "d": "2025-10-29",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202504841?af=R",
+          "tp": "高能锂电干电极",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "厂商将垂直存储器与光电晶体管进行单片3D集成，实现近传感器加密及同态数据搜索。"
+      ],
+      "entries": [
+        {
+          "t": "用于近传感器加密和同态数据搜索的垂直存储器与光电晶体管的单片 3D 集成",
+          "d": "2025-10-29",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202509367?af=R",
+          "tp": "3D集成存储器件",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "科研人员利用碳纳米环对称性破缺机制，研制出室温三元单分子开关。"
+      ],
+      "entries": [
+        {
+          "t": "碳纳米环的对称性破缺实现室温三元单分子开关",
+          "d": "2025-10-29",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202519695?af=R",
+          "tp": "单分子开关材料",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

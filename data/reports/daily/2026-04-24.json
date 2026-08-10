@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究提出沉蛇形流场设计，实现安培级电流密度CO2电还原电解",
-      "柔性铜锌锡硫硒薄膜太阳能电池获超14%认证效率，优化缺陷工程与界面调控",
-      "研究提出多功能分子填充策略，提升倒置钙钛矿太阳能电池效率与稳定性"
+      "新型NaTaOxCl6-2x氯氧化物网络结构显著提升钠离子传输效率",
+      "温度自适应溶剂化结合纳米受限通道实现140度温差下电池快充",
+      "宁德时代发布多化学体系电池及六大创新技术优化出行方案"
     ],
     "AI与智能科技": [
-      "华为昇腾芯片结合Mindspore支持DeepSeek V4部署，单卡Decode吞吐达4700TPS",
-      "研究人员首次将约1700个碱基的丁型肝炎病毒基因组编码至量子计算机",
-      "新开发自监督学习可穿戴拇指套，以少量传感器与数据实现手势任务识别"
+      "华为昇腾950结合量化算法支持DeepSeek V4部署实现4700TPS吞吐",
+      "华为昇腾950结合量化算法支持DeepSeek V4部署实现4700TPS吞吐",
+      "OpenAI发布GPT-5.5模型降低Token消耗并联合月之暗面更新Kimi模型"
     ],
     "通用技术": [
-      "新研究调控合金成分与非晶微观结构，制备兼具高屈服强度与韧性的块体金属玻璃",
-      "南科大团队开发干涉式电光显微镜，实现双层MoS2析氢反应纳米级高时空分辨率成像",
-      "研究人员基于电容耦合开发无芯片发光纤维，将触觉与视觉交互功能编织进织物"
+      "纯机械加工法成功制备出十二角准晶体及相关近似晶体材料",
+      "科研人员通过重氮硼烷氧化反应首次合成并分离出二氧杂硼烷",
+      "南科大利用干涉电光显微镜揭示双层MoS2纳米应变对析氢反应影响"
     ]
   },
   "sectors": [
@@ -26,77 +26,67 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究提出沉蛇形流场设计，实现安培级电流密度CO2电还原电解",
-        "柔性铜锌锡硫硒薄膜太阳能电池获超14%认证效率，优化缺陷工程与界面调控",
-        "研究提出多功能分子填充策略，提升倒置钙钛矿太阳能电池效率与稳定性"
+        "新型NaTaOxCl6-2x氯氧化物网络结构显著提升钠离子传输效率",
+        "温度自适应溶剂化结合纳米受限通道实现140度温差下电池快充",
+        "宁德时代发布多化学体系电池及六大创新技术优化出行方案"
       ],
       "entries": [
         {
-          "t": "[ASAP] 凹陷蛇形流场工程通过局部CO2富集与水管理实现安培级CO2电解",
+          "t": "无序驱动的快速 Na+ 传输：混合阴离子 NaTaOxCl6−2x 氯氧化物中从结晶到无定形网络",
           "d": "2026-04-24",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
-          "as": "该研究提出沉蛇形流场（sunken-serpentine flow-field）设计策略，通过局部CO₂富集与水管理优化，实现安培级电流密度的CO₂电还原电解。流场几何调控改善了CO₂传质和产物水排出，抑制副反应，显著提升电解性能与能量效率，推进CO₂电还原向工业级规模迈进。",
-          "sc": 7.9,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 8.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00640",
-          "tp": "CO2电解流场",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70977?af=R",
+          "tp": "钠离子传导",
           "aip": 1,
-          "kp": [
-            "电流密度[CO2电解]: 安培级",
-            "[流场设计]: 下沉蛇形流场",
-            "[增强机制]: 局部CO2富集与水管理"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The electrochemical CO2 reduction reaction (CO2RR) on Ag catalysts requires a balance among a high current density, high CO selectivity, and stability. Maximizing catalytic site utilization requires uniform CO2 penetration across the gas diffusion electrode (GDE) while suppressing flooding. This work elucidates the interplay between mass transport and water management in zero-gap membrane electrode assembly (MEA) electrolyzers through flow plate engineering. We demonstrate that in-plane CO2 injection enhances catalyst utilization by improving gas accessibility and facilitating water removal. Using a sunken-serpentine flow plate, we achieved a stable operation exceeding 1 A cm–2 with minimal hydrogen evolution. CO partial current densities reached 861 and 947 mA cm–2 for Ag and Ni-NC catalysts, respectively─34.5% and 18.3% higher than conventional designs. These results are supported by transport modeling and X-ray computed tomography, revealing the CO2 concentration gradients and flooding dynamics. Our findings establish a broadly applicable design strategy to overcome mass-transport limitations.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "锂掺杂赋能的柔性CZTSSe薄膜太阳能电池认证效率突破14%",
+          "t": "将温度自适应溶剂化与纳米受限通道耦合，可实现跨越 140°C 窗口的超快速充电电池",
           "d": "2026-04-24",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "铜锌锡硫硒（CZTSSe）薄膜太阳能电池因其组成元素在地壳中储量丰富、环境友好而被视为下一代光伏技术的有力候选。该工作报道了柔性CZTSSe薄膜太阳能电池获得超过14%的认证效率突破，标志着这一材料体系在器件性能优化（涉及缺陷工程、界面调控、带隙匹配等）方面取得实质性进展。柔性基底（如金属箔或聚合物）的应用进一步拓展了其在可穿戴、建筑集成等场景的潜力，对降低光伏系统重量与拓宽应用形态具有重要意义。",
-          "sc": 7.1,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00329",
-          "tp": "CZTSSe柔性光伏",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70987?af=R",
+          "tp": "快充电池技术",
           "aip": 1,
-          "kp": [
-            "认证效率[柔性CZTSSe薄膜电池]: >14%",
-            "[掺杂]: 锂掺杂"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Flexible kesterite solar cells show significant application potential, yet enhancing their power conversion efficiency remains a critical challenge. Herein, we achieved a breakthrough in certified efficiency, exceeding 14% for flexible Cu2ZnSn(S,Se)4 (CZTSSe) solar cells, by incorporating the light alkali metal lithium (Li) into the absorber layer, which substantially narrows the performance gap between flexible and rigid kesterite devices. The introduction of Li into the absorber layer reduces recombination centers in the film and facilitates carrier transport at the grain boundaries. Additionally, Li incorporation modulates the distribution of heavy alkali metal potassium in the CdS buffer layer, thereby enhancing the electrical properties of the CdS layer and optimizing the p–n junction band alignment. These synergistic effects significantly improve charge carrier transport and collection efficiency. This work bridges the efficiency gap between flexible and rigid CZTSSe solar cells, and provides additional insights into the influences and mechanisms of Li doping for high-performance kesterite photovoltaics.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "弥合缺陷：多功能分子填充实现高效稳定倒置钙钛矿太阳能电池",
+          "t": "CATL发布六大创新：多化学体系重新定义新能源出行体验",
           "d": "2026-04-24",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿太阳能电池的商业化瓶颈在于效率与长期稳定性的矛盾。该研究提出多功能分子填充策略，利用自组装单分子层（SAM）作为空穴传输层，在钙钛矿晶界和界面缺陷处进行分子级填充与钝化。这一方法有效抑制非辐射复合、减少离子迁移，同时提升电荷提取效率与器件耐候性。研究显示，该协同优化路径使倒置结构钙钛矿电池的效率与稳定性同步显著提升，为突破单结效率极限、推动钙钛矿光伏产业化提供了关键材料工程方案。",
-          "sc": 6.9,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01186A",
-          "tp": "钙钛矿太阳能电池",
+          "u": "https://batteriesnews.com/catl-unveils-six-major-innovations-multi-chemistry-systems-to-redefine-new-energy-mobility-experience/",
+          "tp": "宁德六大创新",
           "aip": 1,
-          "kp": [
-            "[填充剂]: 氯甲基三氯硅烷(CMS)",
-            "[策略]: 多功能分子填充SAM空位"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Self-assembled monolayers (SAMs) have shown exceptional promise as hole-transport layers (HTLs) in inverted perovskite solar cells (PSCs). Nevertheless, their typically incomplete surface coverage creates pathways for interfacial charge recombination, which compromises device performance. Herein, we introduce chloromethyltrichlorosilane (CMS) as a multifunctional molecular filler that simultaneously addresses two critical challenges of incomplete SAM coverage and interfacial ion migration. The highly reactive trichlorosilane groups readily chemisorb onto residual hydroxyl groups on the transparent conductive oxide (TCO) surface, effectively “closing the gaps” in the SAM layer, thereby suppressing interfacial charge recombination. Meanwhile, the chloromethyl terminal groups coordinate with the perovskite components, enhancing perovskite crystallization and passivating surface defects. As a result, CMS-modified devices achieved a power conversion efficiency (PCE) of 26.85% via the two-step fabrication—the highest reported to date for this method—and a similarly impressive 26.71% via the one-step approach, demonstrating the strategy’s broad universality. Beyond efficiency, the multifunctional modification anchors the HTL more robustly to the substrate and establishes a potent barrier against ion migration. Consequently, the unencapsulated devices exhibited exceptional long-term durability, retaining more than 98% of their initial efficiency after aging at 85 °C for 1200 hours and 96% after 1200 hours of maximum power point tracking. This work demonstrates that multifunctional molecular engineering at the buried interface offers a powerful strategy to simultaneously enhance efficiency and stability of inverted PSCs.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -104,15 +94,15 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "华为昇腾芯片结合Mindspore支持DeepSeek V4部署，单卡Decode吞吐达4700TPS",
-        "研究人员首次将约1700个碱基的丁型肝炎病毒基因组编码至量子计算机",
-        "新开发自监督学习可穿戴拇指套，以少量传感器与数据实现手势任务识别"
+        "华为昇腾950结合量化算法支持DeepSeek V4部署实现4700TPS吞吐",
+        "华为昇腾950结合量化算法支持DeepSeek V4部署实现4700TPS吞吐",
+        "OpenAI发布GPT-5.5模型降低Token消耗并联合月之暗面更新Kimi模型"
       ],
       "entries": [
         {
           "t": "华为昇腾+Mindspore计算软硬件生态支持DeepSeek V4部署",
           "d": "2026-04-24",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "DeepSeek-V4模型预览版上线开源后，华为宣布昇腾超节点全系列产品支持DeepSeek V4部署。昇腾950通过融合kernel和多流并行降低Attention计算与访存开销，结合量化算法实现高吞吐低时延推理。DeepSeek V4-Pro在8K输入场景下单卡Decode吞吐4700TPS，V4-Flash在64张昇腾A3卡上基于vLLM可达2000+TPS单卡吞吐。",
           "sc": 7.0,
@@ -129,46 +119,41 @@
           "hb": 1
         },
         {
-          "t": "首个基因组被加载到量子计算机上",
+          "t": "华为昇腾+Mindspore计算软硬件生态支持DeepSeek V4部署",
           "d": "2026-04-24",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究人员首次将基因组信息编码到量子计算机上，以丁型肝炎病毒（HDV）的微小基因组作为概念验证。这是\"量子基因组学\"方向的早期探索，旨在利用量子态的叠加和纠缠特性实现生物序列信息的高效编码、搜索和比对。HDV基因组仅约1700个碱基，适合作为初始测试案例。虽然距离实际基因组分析应用还很远，但该工作验证了量子计算处理生物信息的可行性，为未来大规模基因组数据的量子加速处理奠定了基础。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aei2484?af=R",
-          "tp": "量子计算基因组",
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "DeepSeek-V4模型预览版上线开源后，华为宣布昇腾超节点全系列产品支持DeepSeek V4部署。昇腾950通过融合kernel和多流并行降低Attention计算与访存开销，结合量化算法实现高吞吐低时延推理。DeepSeek V4-Pro在8K输入场景下单卡Decode吞吐4700TPS，V4-Flash在64张昇腾A3卡上基于vLLM可达2000+TPS单卡吞吐。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/943/029.htm",
+          "tp": "昇腾算力生",
           "aip": 1,
-          "kp": [
-            "[里程碑]: 首次将基因组(D型肝炎病毒)加载量子计算机"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Researchers encode the tiny hepatitis D virus in an early step toward “quantum genomics”",
+          "cm": "华为的昇腾+Mindspore是国内比较前沿的科学计算软硬件生态。昇腾系列芯片架构上适配并行计算，Mindspore是与之适配的机器学习算法平台。尽管起步较晚，技术和社区成熟度不如英伟达GPU+CUDA，但是在国内属于第一梯队的AI生态。此次搭载DeepSeek模型也初步证明了其在大模型训练和推理任务上的适配性。其性能、能效以及兼容性仍需要在后续的国产模型适配中进一步验证。模型发布当日，寒武纪也宣布完成了模型的适配。",
+          "b": "据IT之家4月24日报道，DeepSeek-V4模型预览版正式上线并同步开源。华为官方随后宣布，通过双方芯模技术紧密协同，实现昇腾超节点全系列产品支持DeepSeek V4系列模型。官方表示，昇腾950通过融合kernel和多流并行技术降低Attention计算和访存开销，大幅提升推理性能，结合多种量化算法，实现了高吞吐、低时延的DeepSeek V4模型推理部署。昇腾A3超节点系列产品也全面适配，同时为便于用户快速微调，提供了基于昇腾A3超节点的训练参考实现。\n基于DeepSeek V4-Pro模型，在8K输入场景，昇腾950超节点可实现TPOT约20ms时单卡Decode吞吐4700TPS。DeepSeek V4-Flash 模型，8K长序列输入场景下可实现TPOT约10ms时单卡Decode吞吐1600TPS（上述Benchmark数据均基于Offine推理模式采集，不包含Serving调度和框架负载均衡影响）。\n基于64张昇腾A3卡超节点结合大规模专家并行模式部署，DeepSeek V4-Flash模型，8K/1K输入输出场景，基于vLLM推理引擎可实现2000+TPS的单卡Decode吞吐，单卡吞吐持续提升。官方表示，针对DeepSeek V4-Pro模型，昇腾A3同步支持推理部署，性能持续优化中。",
           "hb": 1
         },
         {
-          "t": "基于自监督学习的可穿戴拇指套：少量拉伸传感器与少样本数据实现可切换手指任务",
+          "t": "OpenAI、月之暗面等分别更新其AI模型",
           "d": "2026-04-24",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了基于自监督学习的可穿戴拇指套设备，仅使用少量可拉伸传感器和少样本数据即可识别可切换的手指任务。该方法克服了传统手势识别需大量传感器和训练数据的局限，实现了自然的人机交互，在假肢控制和虚拟现实等领域具有应用前景。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea2020?af=R",
-          "tp": "可穿戴手势识别",
-          "aip": 1,
-          "kp": [
-            "[可穿戴]: 自监督学习拇指套",
-            "数据效率[few-shot]: 少传感器+少样本"
-          ],
-          "lv": 0,
+          "a": "Ithome",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI推出GPT-5.5模型，在Agentic Coding、计算机使用及科研领域表现优异，完成相同任务时Token消耗显著减少，基于GB200 NVL72系统百万Token成本降至前代35分之一，每兆瓦Token输出提升50倍。月之暗面同日发布开源Kimi K2.6，在代码编写、长程任务执行及Agent集群能力全面升级，多项基准测试表现持平或优于GPT-5.4。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/942/841.htm",
+          "tp": "AI模型更新",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Human fingers exhibiting remarkable dexterity are ideal for natural human-machine interaction. Traditional methods require at least one device per finger and extensive labeled data, often limiting models to a single user and task. Here, we propose a wearable thumb sleeve integrated with self-supervised learning, which exhibits user independence and data efficiency, enabling recognition of various finger-related tasks. The thumb sleeve is equipped with only two stretchable sensors at the thumb joints and learns latent features from unlabeled random thumb movement data. By using fine-tuning with five-shot labeled data, it can rapidly adapt to new users and tasks, including eight directional commands and 10 knuckle key inputs. It allows free switching between tasks without the need to reconstruct or retrain the model. The proposed approach demonstrates strong potential for real-world applications, serving as a substitute for a mouse and keyboard to enable tasks such as online shopping.",
+          "cm": "本月先后有GLM-5.1（智谱）、Claude Opus 4.7（Anthropic）、GPT-5.5（OpenAI）、Kimi-2.6（Moonshot月之暗面）、DeepSeek-V4（深度索求）发布新模型。其中Claude以及GPT模型刷新了各自的表现，在目前的模型中属于第一梯队。国产模型也在编程能力榜单中取得了靠前（Top3）的分数，尽管实际效果还需要后续验证，但是也说明国产开源模型距离第一梯队并不遥远。引用智谱CEO的意见，国产模型与第一梯队差距大约在半年到一年，这不算是很大的差距，表明中美模型在意差不多的速度进行高速迭代。\n目前LLM研发的重要趋势是，厂商越来越注重编程能力以及智能体适配性。编程任务得分以及数小时的智能体任务执行测试表现已经受到重点关注。",
+          "b": "IT之家4月24日消息，OpenAI公司宣布推出GPT-5.5模型，在Agentic Coding、计算机使用及科研领域表现优异，相比较GPT-5.4，在完成相同任务的情况下减少词元（Token）消耗。性能方面，GPT-5.5进一步平衡智能与速度。尽管模型更大、能力更强，但在实际服务中，其每个Token的延迟与GPT-5.4持平，且完成相同任务所需的Token显著减少。英伟达工程师通过Codex应用使用GPT-5.5已数周，基于GB200 NVL72系统，该模型实现了更优的经济效益：相比前代系统，百万Token成本降低至35分之一，每兆瓦Token输出量提升50倍。\n4月21日消息，月之暗面昨天发布并开源了其最新模型Kimi K2.6，该模型在代码编写、长程任务执行及Agent集群能力方面实现了全面升级。据官方披露，Kimi K2.6在博士级难度的完整版“终极人类考试”（Humanity's Last Exam）、评估真实软件工程能力的SWE-Bench Pro以及Agent深度检索基准DeepSearchQA等测试中，均取得了行业领先的成绩，表现持平或优于GPT-5.4、Claude Opus 4.6和Gemini 3.1 Pro等闭源模型。Kimi K2.6的长程编码能力显著提升。在测试中，该模型可以不间断编码长达13小时，编写或修改超过4000行代码，完成复杂系统的开发与优化。通过将代码与视觉能力深度融合，K2.6能够交付具有设计创意的专业级Web应用。在Kimi内部的严格代码评测基准Kimi Code Bench中，K2.6的成绩相比上一代K2.5提升了约20%。",
           "hb": 1
         }
       ]
@@ -177,73 +162,66 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新研究调控合金成分与非晶微观结构，制备兼具高屈服强度与韧性的块体金属玻璃",
-        "南科大团队开发干涉式电光显微镜，实现双层MoS2析氢反应纳米级高时空分辨率成像",
-        "研究人员基于电容耦合开发无芯片发光纤维，将触觉与视觉交互功能编织进织物"
+        "纯机械加工法成功制备出十二角准晶体及相关近似晶体材料",
+        "科研人员通过重氮硼烷氧化反应首次合成并分离出二氧杂硼烷",
+        "南科大利用干涉电光显微镜揭示双层MoS2纳米应变对析氢反应影响"
       ],
       "entries": [
         {
-          "t": "块体金属玻璃中兼具陶瓷级强度与金属级韧性",
+          "t": "使用纯机械方法快速、高质量地形成十二角准晶体及其近似晶体",
           "d": "2026-04-24",
-          "a": "Nature",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "金属与陶瓷各有优劣：金属强度低、高温稳定性差，陶瓷韧性不足易脆裂。本研究在块体金属玻璃（BMG）中实现了兼具陶瓷级高强度与金属级韧性的突破。通过精确调控合金成分与非晶态微观结构，材料在保持极高屈服强度的同时展现出优异的断裂韧性。该成果有望应用于航空航天、国防及极端工况结构件，是结构材料领域的重要进展。",
-          "sc": 7.4,
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10430-w",
-          "tp": "块体金属玻璃",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag244/8662151?rss=1",
+          "tp": "准晶合成",
           "aip": 1,
-          "kp": [
-            "[材料体系]: Re-Co-Ta-B块体金属玻璃",
-            "[性能]: 类陶瓷强度+类金属韧性兼备"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Metals and ceramics have contrasting limitations—metals exhibit lower strength and poor high-temperature stability, whereas ceramics are inherently brittle. Materials combining high strength, fracture toughness and thermal stability remain an important scientific objective. Here we report Re–Co–Ta–B bulk metallic glasses (BMGs) that overcome this fundamental limitation, achieving a remarkable fracture strength of about 6.43 GPa while maintaining around 30 MPa m1/2 fracture toughness. This strength value exceeds previously reported values for BMGs and crystalline metals and approaches the strength of advanced ceramics while far exceeding them in toughness. These alloys exhibit pronounced resistance to thermal softening and harsh environments, retaining a strength of 4.4 GPa at 900 K with negligible oxidation and corrosion. Synchrotron measurements and aberration-corrected microscopy reveal the origin of these properties: a unique amorphous structure that inherits a high degree of crystal-like short-range order from the Re7B3 intermetallic phase. First-principles calculations indicate that this atomic framework is strengthened by directional Re–B covalent bonds embedded in a metallic matrix, thereby bridging the ceramic and metallic bonding. This work suggests structural heredity as a guiding principle for engineering next-generation amorphous materials with previously unattainable property combinations.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "重氮硼烷与氧的反应能够合成和分离二氧杂硼烷",
+          "d": "2026-04-24",
+          "a": "Nature Chemistry",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41557-026-02120-x",
+          "tp": "二氧杂硼烷合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         },
         {
           "t": "南方科大郝瑞通过干涉电光显微镜揭示双层MoS2催化材料纳米应变条纹对氢析出反应的影响",
           "d": "2026-04-24",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/催化剂",
           "as": "南方科技大学郝瑞团队提出宽场超分辨电化学成像方法——干涉式电光显微镜（IEOm），基于电化学界面电光效应（双电层Pockels效应与空间电荷层等离子体色散效应），通过光学干涉检测反射光变化，实现对电催化反应中纳米级活性位点动态分布的高时空分辨率成像。该方法成功揭示了双层MoS₂中纳米应变条纹对析氢反应（HER）的影响机制。",
-          "sc": 6.3,
+          "sc": 6.4,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41560-026-02043-4",
           "tp": "电催化成像",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
           "b": "电催化析氢反应（HER）是实现绿色氢能的关键，但其在二维材料（如MoS₂）表面的活性位点往往具有高度异质性、动态演化和纳米尺度迁移等特征。现有电化学成像方法（如扫描电化学池显微镜）空间分辨率虽高，但时间分辨率不足，难以捕捉反应过程中活性位点随电位或时间变化的快速迁移与演化。因此，需探究如何在大视场、高时空分辨率下，原位、实时地观测电催化反应中纳米级活性位点的动态分布与定向迁移轨迹。\n近日，南方科技大学郝瑞副教授团队提出了一种宽场超分辨电化学成像方法：干涉式电光显微镜（Interferometric Electro-optical Microscopy, IEOm）。该方法基于电化学界面处的电光效应（包括双电层（EDL）的Pockels效应和空间电荷层（SCL）的等离子体色散效应），通过光学干涉检测反射光路径的变化，实现对电化学反应过程中相对电流密度分布的高时空分辨率成像。IEOm主要是将电化学信号转换为光学干涉信号。当工作电极（如ITO透明电极）上施加扫描电压时，电化学界面发生双电层（EDL）的充电/放电（非法拉第过程，改变界面电荷分布）和电化学反应（如HER）产生的电子转移（法拉第过程，进一步调制电荷分布）。而电荷变化会通过Pockels效应（发生在电解质侧的EDL，电场引起折射率线性变化）、等离子体色散效应（发生在ITO侧的空间电荷层SCL，载流子浓度变化导致折射率变化）这两种电光效应改变局部折射率，进而改变反射光的光程，当激光束从电解质/ITO界面和ITO/玻璃界面分别反射后，两束反射光发生干涉，干涉强度的变化（ΔR/R）被CMOS相机记录；由于电荷量与光学强度呈线性关系，对时间微分即可得到相对电流。由此其实现了非接触、宽视场、高帧率（20fps）的电流密度成像。\n验证实验结果表明，在ITO电极上，对比含有1mMFcMeOH（氧化还原分子）与不含的0.1MNa₂SO₄电解质。在有FcMeOH时，CV扫描中氧化还原峰（0.1V和-0.05V）对应的ΔR/R曲线明显偏离线性响应，证明IEOm能够区分法拉第电流与非法拉第电流。在单个Pt纳米颗粒、单晶Au平板和纳米加工Pt阵列上进行HER成像。结果表明IEOm能够清晰定位Pt颗粒上的活性位点，且与SECCM在Au平板上测得的电流分布高度一致，空间分辨率达到约50nm（超分辨后）。MoS₂裂纹处的成像实验表明，HER相对电流产生负光学差分信号，而纳米气泡产生正信号，两者响应相反，因此可以有效区分，避免了气泡对电流成像的干扰。而后其利用IEOm对双层MoS₂进行了原位CV扫描（0V至-0.78VvsRHE，扫描速率100mV/s），并重建了不同电位下的相对电流分布图。结果发现，在-0.47V附近，HER活性主要集中在小三角形MoS₂的边缘和尖端；当电位负移至-0.78V时，底层大MoS₂也开始出现活性，但强度仍远低于小三角形区域。小三角形区域起始电位可低至-0.2V至-0.4V，而其他区域一般在-0.5V以下；最大相对电流同样在小三角形区域高出数倍；两幅图的弱相关性提示活性位点可能随电位发生迁移。在连续CV扫描中，某些位点的HER电流会在特定电位突然出现，随后消失，呈现“随机爆发”特征。通过采用点扩散函数（PSF）高斯拟合法，将电流峰值定位精度提升至约50nm的测试结果发现，活性位点并非随机移动，而是严格沿着MoS₂晶体的锯齿（zigzag）方向或扶椅（armchair）方向；轨迹前沿（激活边界）的迁移速度在10–112nm/s之间变化，后沿（失活边界）速度也在18–106nm/s之间。在一次事件中，轨迹发生了60°偏转，但偏转前后仍均为锯齿方向，进一步印证了晶向约束；恒电位计时电流法实验同样观察到沿特定晶向的轨迹，排除了电位扫描速率的假象。球差校正扫描透射电镜（STEM）和计算结果表明，高活性小双层MoS₂薄片上存在明暗相间的条纹结构，条纹方向与边缘平行（即锯齿方向）；放大后可见V形分布的Mo原子，表明条纹来源于应变诱导的位错；其底层未应变，顶层沿扶椅方向拉伸，形成约3.6%的局部应变，条纹沿锯齿方向延伸，且沿着应变条纹，氢吸附呈现链式效应，即第一个氢原子吸附并发生HER，相邻位点的ΔG_H*会振荡下降（平均约1.86eV）。文章于2026年4月24日发表在Nature Energy。",
-          "hb": 1
-        },
-        {
-          "t": "基于电容耦合的无芯片发光纤维实现闭环触觉-视觉交互",
-          "d": "2026-04-24",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "智能纺织品长期面临功能性与可穿戴性之间的矛盾，刚性电子器件和复杂电路使织物笨重且不透气。该研究开发了一种无芯片发光纤维技术，实现触觉与视觉的闭环交互：纤维在受到触摸、拉伸等力学刺激时发光反馈，且无需集成传统硅基芯片。该方案以柔性发光材料与离子传导机制为核心，将传感、显示与交互功能一体化编织进织物，大幅降低系统复杂度。此成果为下一代可穿戴健康监测、人机交互界面及软体机器人提供全新范式，有望推动真正无缝集成的智能服装落地。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec5676?af=R",
-          "tp": "触觉发光纤维",
-          "aip": 1,
-          "kp": [
-            "[纤维]: TouchLumi发光纤维",
-            "[结构]: 导电芯+高介电PVDF",
-            "[机制]: 电场约束实现无芯片触觉-视觉交互"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Smart textiles face inherent compromises between functionality and wearability due to rigid electronics and complex circuitry. Here, we introduce a touch-luminescence (TouchLumi) fiber that overcomes this trade-off by enabling chip-free, real-time tactile-visual interaction via electric field confinement. The fiber integrates a conductive core, a high-permittivity poly(vinylidene fluoride) hexafluoropropylene/barium titanate dielectric layer, and a copper ion–doped zinc sulfide electroluminescent sheath. Upon touch or conductor-induced capacitive coupling, dielectric mismatch concentrates the electric field within the emissive layer, driving localized and simultaneous high-brightness emission at a portable 3-volt power without requiring any other external field or support. This synergistic design merges tactile signal detection and visual feedback into a unified closed-loop system. Crucially, TouchLumi fibers are continuously producible with robust washability and textile compatibility, supporting digital embroidery and large-area machine weaving. We demonstrated its applications, including selective pattern illumination via wet-fingertip activation, multipoint responsive interfaces, and optical messaging through a keyboard textile. TouchLumi fiber enables intuitive tactile-visual interaction that unlocks transformative applications in assistive and inclusive communications.",
           "hb": 1
         }
       ]

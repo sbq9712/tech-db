@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "温大团队基于33.4万样本证实低温暴露可延长锂离子电池循环寿命",
-      "锌单原子锚定钌催化剂在75瓦级碱性膜燃料电池电堆中完成验证",
-      "国内多家机构更新固态电池进展，因湃发布587Ah混合固液储能电芯"
+      "温州大学团队基于实地测试证实低温暴露可延长锂电池循环寿命",
+      "同一铁卟啉催化剂可实现质子和电子转移控制以选择性还原CO2",
+      "研究者揭示不同低温区间工况下锂电池老化的具体规律与参数"
     ],
     "AI与智能科技": [
-      "新自主智能体系统实现电子显微镜图像自动采集至性能推断全流程分析",
-      "谷歌Meta等科技巨头转向天然气发电，目前已规划逾8.6GW数据中心配套电厂",
-      "新型封装与互连技术正重构AI算力芯片微缩路线以应对算力需求激增"
+      "谷歌与微软等科技企业转向天然气发电以满足数据中心激增的电力需求",
+      "研究人员提出通过梯度下降算法训练热力学计算机的全新路径",
+      "实验实现样本高效且与设备无关的GHZ态量子认证方法"
     ],
     "通用技术": [
-      "NASA正式批准Artemis II任务，四名宇航员将实施绕月飞行测试",
-      "热成像技术首次在实空间直接观测交变磁体RuO₂的180度磁畴对比度",
-      "科研人员开发单细胞四组学测序法，实现同细胞内四维遗传特征并行分析"
+      "实验研究首次发现水凝胶材料具备内在磁性的物理特征",
+      "测试数据确认水凝胶内部存在自发磁场效应及量化参数",
+      "新材料学研究测定水凝胶在特定条件下的内在磁性表现"
     ]
   },
   "sectors": [
@@ -26,18 +26,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "温大团队基于33.4万样本证实低温暴露可延长锂离子电池循环寿命",
-        "锌单原子锚定钌催化剂在75瓦级碱性膜燃料电池电堆中完成验证",
-        "国内多家机构更新固态电池进展，因湃发布587Ah混合固液储能电芯"
+        "温州大学团队基于实地测试证实低温暴露可延长锂电池循环寿命",
+        "同一铁卟啉催化剂可实现质子和电子转移控制以选择性还原CO2",
+        "研究者揭示不同低温区间工况下锂电池老化的具体规律与参数"
       ],
       "entries": [
         {
           "t": "温州大学向家伟揭示低温环境对锂离子电池寿命的延长效应",
           "d": "2026-04-03",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "温州大学向家伟团队历时近2年、在中国北方开展大规模实地研究，将数百个NCM软包电池暴露于-7°C至40°C自然环境中。基于33.4万个充放电样本，开发数据处理方法分析不同工况下电池老化规律。研究颠覆了\"低温仅损害电池\"的传统认知，发现低温暴露可延长锂离子电池循环寿命，为电池热管理和存储策略提供了新的优化方向，对电网储能和电动汽车的冬季运维具有重要参考价值。",
-          "sc": 7.7,
+          "sc": 8.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1016/j.joule.2026.102352",
@@ -51,42 +51,42 @@
           "hb": 1
         },
         {
-          "t": "可规模化锌单原子锚定钌用于75瓦级碱性膜燃料电池堆",
+          "t": "温州大学向家伟揭示低温环境对锂离子电池寿命的延长效应",
+          "d": "2026-04-03",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "温州大学向家伟团队历时近2年、在中国北方开展大规模实地研究，将数百个NCM软包电池暴露于-7°C至40°C自然环境中。基于33.4万个充放电样本，开发数据处理方法分析不同工况下电池老化规律。研究颠覆了\"低温仅损害电池\"的传统认知，发现低温暴露可延长锂离子电池循环寿命，为电池热管理和存储策略提供了新的优化方向，对电网储能和电动汽车的冬季运维具有重要参考价值。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1016/j.joule.2026.102352",
+          "tp": "锂电池低温",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "根据传统电池管理共识，锂离子电池的最佳工作温度约为25°C，低温环境因其会导致可用容量和功率输出的显著下降，通常被视为负面工况。因此，行业普遍采用保温、预加热或主动温控等补偿策略，消耗大量能量和基础设施成本。然而，现有研究多基于实验室短期恒温测试，缺乏在真实自然气候条件下的长期实地证据，使得关于低温暴露对电池长期健康的影响的机理并不明晰。\n近日，温州大学向家伟教授团队针对上述问题开展了为期近2年的大规模实地研究。该研究于中国北方进行，将数百个NCM（镍钴锰）三元材料体系软包电池及电池包直接暴露于自然室外环境中，使其经历真实的温湿度变化。实验期间环境温度跨度为-7°C至40°C，主要数据分布区间为0°C至35°C。其采用了随机化循环工况以模拟真实世界复杂的使用习惯，根据334,000个充放电样本将工况细分为四类：满循环额定恒定工况（FC&RP）、满循环非额动态工况（FC&DP）、部分循环额定恒定工况（PC&RP）及部分循环非额动态工况（PC&DP）。由此产生的GB级海量数据使得传统基于循环次数的分析方法并不适用，其中基础的库仑计数即需耗时超过10小时。\n为处理此异构高维数据，研究团队开发了一套可扩展分析方法论。首先，引入LOP（功率寿命）概念，将衡量标准从传统的“循环次数”转换为“累积能量吞吐量”。传统循环寿命域会因工况切换（如从FC&RP突变为PC&DP）引发容量轨迹伪影与锯齿状波动；将数据对齐至LOP维度后，由操作协议可变性引起的噪声被显著均匀化，从而清晰揭示底层的物理退化趋势。其次，采用关键点包络线法提取退化特征。该方法排除来自PC&DP工况的噪声数据点（彩色散点），仅提取工况稳定、能反映真实健康状态的FC&RP循环数据作为关键点，连接这些关键点形成平滑包络线，有效过滤噪声并捕捉容量衰退的基本几何形状。最后，提出钻探训练对齐策略以消除不同电池轨迹间的缩放效应。该策略选取一条最具代表性的轨迹作为基准，将其他电池轨迹通过二维缩放系数(α, β)对齐至基准。其中，α控制容量维度的纵向缩放（α<1为容量收缩，α>1为扩张），β控制寿命维度的横向缩放（β<1为寿命压缩，β>1为延长）。通过求解非线性非凸优化问题获取最优（α,β）参数对，最终将数千个数据点的复杂退化路径压缩为统一可比的二维量化指标。\n基于上述方法论对操作变量的敏感性分析表明，温度是塑造电池退化形式的首要操作因素，显示出最强的相关性和最显著的统计学意义。其认为低温环境通过减缓电化学反应速率，能够延长电池使用寿命，长期累积能量吞吐的收益超过了短期因低温导致的容量下降损失。研究同时揭示了一种实用权衡：高温虽能提升短期瞬时性能，但会加速长期退化；低温虽延长总寿命，却以降低当前可用容量为代价。针对容量受限的应用场景，研究建议可通过设计适度的初始容量冗余来解决，虽然略微增加初期投资，但结合延长的寿命周期，整体系统经济性更优。文章于2026年4月3日发表在Joule。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 电化学 CO2 还原中选择性的质子和电子转移控制：同一铁卟啉催化 CO2 选择性还原为 CO、CH4 和 C2H6",
           "d": "2026-04-03",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
-          "as": "采用锌单原子锚定钌位点的策略，显著提升碱性阴离子交换膜燃料电池（AEMFCs）中Ru催化剂的活性与稳定性。该策略实现了75瓦级电堆规模的验证，证明了单原子修饰在降低铂族金属用量同时维持高性能的可行性，为下一代低成本氢能转化器件迈出工程化关键一步。",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
           "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22364",
-          "tp": "碱性膜燃料电池",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21473",
+          "tp": "CO2电还原",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Anion exchange membrane fuel cells (AEMFCs) have caught widespread attention as a next-generation low-cost hydrogen conversion technology. However, the AEMFC technology is still in its infancy, and there are rarely reports of cost-effective AEMFC stacks. Therefore, it is imperative yet significantly challenging to develop Pt-free, highly active, and durable hydrogen oxidation reaction (HOR) catalysts for AEMFC stack applications. Here, we present a scalable Zn single atom-gluing Ru nanoparticle on a Zn–N–C support (Ru@Zn–N–C) in which the incorporation of Zn single atoms substantially boosts H2 adsorption and stabilizes Ru nanoparticles. Consequently, the 10-g-scale Ru@Zn–N–C achieves an unprecedented peak power density (PPD) of 2.10 W cm–2 and a record-breaking anode specific power of 42 W mg–1 with an ultralow Ru loading of 0.05 mg cm–2 in a single AEMFC. Meanwhile, the rated power density of the Ru@Zn–N–C-based fuel cell (1.24 W cm–2@0.65 V in H2–air) fulfills the US Department of Energy (DOE) target for 2025 (1 W cm–2, ≤0.125 mgPGM cm–2 loading), and the fuel cell can be operated stably at 1 A cm–2 for over 200 h, significantly outperforming the state-of-the-art AEMFCs. Most importantly, we develop cost-effective three-cell AEMFC stacks that can achieve an exceptional rate power of approximately 75 W in H2–O2 with an ultralow Ru loading of 0.05 mg cm–2, which can project only 8 g Ru utilization for a 100 kW fuel cell vehicle, surpassing the ultimate US DOE target of 0.1 gPt kW–1 for urban transportation.",
-          "hb": 1
-        },
-        {
-          "t": "因湃、清华张强团队、屏安新能源、德赛及一汽等分别更新其半固态/固态产品进展",
-          "d": "2026-04-03",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "国内多家机构密集更新固态电池进展：因湃推出587Ah混合固液储能大电芯，通过10倍挤压、全切割、200°C热箱等极限测试；清华张强团队软包固态电池下线；屏安全固态电池中试线建成验收，能量密度超400Wh/kg、循环3000次；德赛电池发布423.8Wh/kg固液电池，循环1000次通过针刺；一汽红旗全固态电池也有新进展。固态电池产业化呈加速态势，多家瞄准动力汽车、消费电子及低空经济场景。",
-          "sc": 6.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/kcAK7l23SHWgsFH6FmsQZA",
-          "tp": "半固态电池",
-          "aip": 0,
-          "kp": [],
-          "lv": 1,
-          "wr": "",
-          "cm": "",
-          "b": "4月3日，广汽旗下因湃电池在官方公众号发文称，推出587Ah混合固液储能大电芯，宣传可通过10倍国标挤压、全切割、200℃热箱、1000℃火烧等极限测试。\n4月4日，清华大学张强教授团队组建的智能固态电池创新中心发文称，其开发的软包固态电池完成制备下线。但电池体系、性能并未公布。\n4月20日，广东屏安新能源在官方公众号发文称，其可量产全固态电池中试线正式建成并通过验收；研发的全固态电池也通过了性能与安全检验。据文中图片信息显示，其软包电芯的标称电压为3.5V，峰值电压4.4V，容量最高5400mAh。另据SMM固态电池网等媒体报道，屏安新能源电芯单体能量密度超400Wh/kg，循环寿命3000次，150℃热箱不产气；产能定位优先保障高端消费、小动力、轻型储能市场，逐步拓展至车载场景。\n据新浪财经等媒体4月27日报道称，德赛电池发布能量密度达423.8Wh/kg的固液电池，实测循环1000次，通过针刺、300℃热板加热等安全测试。文中宣传，德赛电池目前已可批量试制30Ah级软包电芯，目标应用动力汽车、消费电子、低空经济等场景。\n另据4月29日中国日报网报道称，其对一汽红旗全固态电池进行了拆解、安全测试。据公布的视频内容显示，其仅在手套箱中拆除软包电芯（100g）的铝塑膜，内部结构并未完全拆解。测试则进行了5kN+10min的挤压、200℃+3h的高温以及外短路等项目。据中国一汽3月在公众号发文透露，其全固态电池采用的硫化物+卤化物复合固态电解质离子电导可达14.2mS/cm。",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -94,39 +94,56 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "新自主智能体系统实现电子显微镜图像自动采集至性能推断全流程分析",
-        "谷歌Meta等科技巨头转向天然气发电，目前已规划逾8.6GW数据中心配套电厂",
-        "新型封装与互连技术正重构AI算力芯片微缩路线以应对算力需求激增"
+        "谷歌与微软等科技企业转向天然气发电以满足数据中心激增的电力需求",
+        "研究人员提出通过梯度下降算法训练热力学计算机的全新路径",
+        "实验实现样本高效且与设备无关的GHZ态量子认证方法"
       ],
       "entries": [
         {
-          "t": "连接电子显微镜与材料分析的自主智能体平台",
+          "t": "Experimental sample-efficient and device-independent GHZ state certification",
           "d": "2026-04-03",
           "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "该工作开发了一种自主智能体（agentic）系统，将电子显微镜（EM）与材料分析流程深度桥接。电子显微镜能揭示催化、储能和半导体可靠性背后的原子尺度结构，但传统图像分析依赖专家人工解读，效率低且主观性强。该系统利用AI agent自主完成从图像采集、特征识别到材料性能推断的全流程分析，大幅缩短从显微数据到材料洞见的转化周期。这一方向有望加速新材料研发，但通用性、对复杂体系的泛化能力仍待验证。",
-          "sc": 7.3,
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0583?af=R",
-          "tp": "电镜自主分析",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea4292?af=R",
+          "tp": "量子态认证",
           "aip": 1,
-          "kp": [
-            "[平台架构]: 自主智能体整合电镜分析全流程"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Electron microscopy (EM) reveals atomic-scale structures that underpin catalysis, energy storage, and semiconductor reliability, yet current workflows remain fragmented across segmentation, crystallographic reconstruction, property modeling, and literature review, often requiring weeks of expert effort. Although recent artificial intelligence models have assisted individual steps, the diversity of EM modalities and tasks means existing approaches remain siloed and perform poorly in complex multistage workflows. We present EMSeek, a modular, provenance-tracked multiagent platform that connects EM to materials insight through five key units: reference-guided one-for-all segmentation, mask-aware reconstruction of crystal structures from EM data, a gated mixture of experts property predictor with uncertainty calibration, literature retrieval with citation anchoring, and physical consistency checks with audit-ready reporting. These units are orchestrated by large language models (LLMs) that automatically plan, invoke, and execute tools, minimizing human intervention. On 20 material systems and five tasks, EMSeek delivers segmentation about twice as fast as Segment Anything with higher accuracy, achieves more than 90% structural similarity on STEM2Mat, and, with about 2% labeled calibration, matches or surpasses strong single experts on three out-of-distribution property benchmarks. A complete query runs in 2 to 5 minutes per image, roughly 50 times faster than expert workflows. Case studies on two-dimensional lattices and nanoparticles validate EMSeek’s ability to automate complex workflows, with integrated uncertainty calibration and audit signals that provide scientists with rigorous yet actionable guidance to accelerate materials discovery.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "Training thermodynamic computers by gradient descent",
+          "d": "2026-04-03",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2528413123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "热力学计算",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         },
         {
           "t": "谷歌、Meta和微软等被报道将采用天然气发电为数据中心供能",
           "d": "2026-04-03",
-          "a": "",
+          "a": "Theguardian",
           "c": "AI与智能科技/AI硬件层/数据中心",
           "as": "谷歌、Meta、微软等科技巨头正大规模转向天然气发电为数据中心供能。Crusoe Energy在德州为谷歌建设933MW离网天然气电厂，年排放450万吨CO₂；Entergy Louisiana为Meta建设七座联合循环电厂（5.2GW）；微软与雪佛龙达成2.5GW电力独供协议。部分项目配套CCS和氢气共烧能力。这反映AI算力需求激增正推高电力消耗，而清洁能源增速难以匹配，天然气成为现实选择，但碳排放问题突出。",
-          "sc": 6.0,
+          "sc": 5.4,
           "i": "n",
           "tg": "行业观察",
           "u": "https://www.theguardian.com/technology/2026/apr/02/google-ai-datacenter",
@@ -138,25 +155,6 @@
           "cm": "",
           "b": "据卫报（The Guardian）4月3日报道，谷歌（Google）计划与一家天然气发电厂合作，该电厂可能为其位于德克萨斯州阿姆斯特朗县（Armstrong county）的一个数据中心提供能源。报道中称，该项目由AI基础设施建设公司Crusoe Energy主导，其1月申请在数据中心附近建设该933MW的离网发电厂，预计每年将排放450万吨CO2，目前正在施工中。文中称，去年10月谷歌即与伊利诺伊州Broadwing Energy达成天然气发电+碳捕集存储（CCS）的数据中心供电合作协议；今年3月有报道称谷歌考虑在内布拉斯加州建设数据中心、天然气发电厂及配套的CCS设施。\n此外，能源供应商Entergy Louisiana也在今年3月称其将为Meta建设七座新的天然气燃料联合循环电厂（5.2GW，未来将具有CCS和氢气共发电能力）；微软（Microsoft）也被报道将在西弗吉尼亚州建设使用天然气供电的数据中心，并和雪佛龙（Chevron）达成电力独供协议，拟在德州建设2.5GW的天然气发电厂。",
           "hb": 1
-        },
-        {
-          "t": "芯片技术突破有望满足AI驱动的巨大需求",
-          "d": "2026-04-03",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该报道聚焦于一项旨在应对AI算力爆发式增长所驱动芯片需求激增的突破性芯片技术。随着大模型训练和推理对算力、内存带宽及能耗提出前所未有的要求，传统摩尔定律驱动的芯片微缩路线已难以跟上需求节奏。该技术或涉及先进封装、新材料互连、光子集成或新型晶体管架构等方向，以期在性能、功耗和制造良率间取得突破。具体技术细节需查阅原始来源确认，其实际量产时间表和商业化路径尚不明确。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-01050-5",
-          "tp": "AI芯片制造",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
         }
       ]
     },
@@ -164,22 +162,22 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "NASA正式批准Artemis II任务，四名宇航员将实施绕月飞行测试",
-        "热成像技术首次在实空间直接观测交变磁体RuO₂的180度磁畴对比度",
-        "科研人员开发单细胞四组学测序法，实现同细胞内四维遗传特征并行分析"
+        "实验研究首次发现水凝胶材料具备内在磁性的物理特征",
+        "测试数据确认水凝胶内部存在自发磁场效应及量化参数",
+        "新材料学研究测定水凝胶在特定条件下的内在磁性表现"
       ],
       "entries": [
         {
-          "t": "阿尔忒弥斯II号就绪：人类时隔半个世纪重返月球",
+          "t": "水凝胶发现其内在磁性",
           "d": "2026-04-03",
-          "a": "Nature",
-          "c": "通用技术/通信和运输/航天",
-          "as": "NASA Artemis II任务正式获批，将搭载四名宇航员绕月飞行，标志着人类时隔半个多世纪（自1972年阿波罗17号以来）首次重返月球。该任务是载人登月计划的关键验证步骤，为后续Artemis III实现月球南极载人着陆奠定基础，具有重要战略意义。",
-          "sc": 6.8,
+          "a": "Nature Materials",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.1,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-01060-3",
-          "tp": "阿尔忒弥斯登月",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41563-026-02572-z",
+          "tp": "磁性水凝胶",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -187,48 +185,6 @@
           "cm": "",
           "b": "",
           "hb": 0
-        },
-        {
-          "t": "交变磁体RuO2中180°畴对比度的热成像研究",
-          "d": "2026-04-03",
-          "a": "National Science Review Advance Access",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "交变磁性材料（Altermagnet）RuO₂中存在依赖Néel矢量的自旋劈裂能带结构，为非常规超导等量子现象提供了新平台。该研究利用热成像技术直接观测到RuO₂中180°畴的对比度，首次在实空间清晰揭示了交变磁畴的微观结构，对自旋电子学器件和基础凝聚态物理研究具有重要意义。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag203/8571577?rss=1",
-          "tp": "交变磁体畴成像",
-          "aip": 1,
-          "kp": [
-            "成像方法[交替磁体RuO2]: 锁相热成像",
-            "[畴分辨]: 0°与180°反奈尔矢量畴",
-            "材料[交替磁性]: RuO2"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Altermagnets host Néel-vector-dependent spin-splitting band structures, offering fertile ground for unconventional condensed-matter phenomena and spintronic applications. Experimental access to their properties, however, is challenging due to the obstacle for imaging 0o and 180o domains with opposite Néel vectors. Here, by exploiting the lock-in thermography to map the domain-dependent thermal contrast originating from the spin-dependent Peltier effect, we achieve real-space imaging of altermagnetic domain signatures of RuO2 in the scale of micrometer. Moreover, we find that magnetic field cooling can enable deterministic control of domain alignment and hence achieve the long-desired uniform 0o or 180o domain determined by the magnetic field direction. These switchable uniform domains restore the characteristic macroscopic magneto-responses of altermagnets, such as spin currents arising from the altermagnetic spin-dependent Seebeck effect. Our findings establish a robust thermal fingerprint of altermagnetism and extend the frontier of spin caloritronics into this emerging class of magnetic materials.",
-          "hb": 1
-        },
-        {
-          "t": "通过单细胞四组学测序剖析基因调控景观",
-          "d": "2026-04-03",
-          "a": "Nature",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "细胞多样性不仅由转录组决定，还受核小体占据、染色质状态和基因组构象等多层表观调控影响。研究者开发了单细胞四组学测序方法，可在同一细胞内并行分析基因组构象、组蛋白修饰、染色质可及性和基因表达，全面揭示多维度调控如何协同塑造细胞身份。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10322-z",
-          "tp": "单细胞测序",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Cellular diversity is governed not only by the transcriptome but also by multiple layers of epigenomic regulation, including nucleosome occupancy, chromatin states and genome architecture1,2,3. Here, to comprehensively understand how these regulatory modalities converge to shape cellular identity, we developed a single-cell four-omics sequencing method that enables parallel profiling of genome conformation, histone modifications, chromatin accessibility and gene expression within the same cell (CHARM). Applying CHARM to mouse embryonic stem cells and cortical tissues, we reconstructed integrated epigenome profiles, uncovering distinct cell-cycle dynamics of chromatin accessibility and histone modification, and spatial clustering of regulatory elements in three-dimensional nuclear space. Leveraging an interpretable machine learning model, we further identified thousands of enhancer–promoter linkages with high accuracy that modulate gene expression in a cell-type- and subtype-specific manner. Together, CHARM enables integrative dissection of the three-dimensional epigenome at single-cell resolution, providing a versatile platform for decoding the regulatory landscape across diverse cells in complex tissues.",
-          "hb": 1
         }
       ]
     }

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "晶科能源钙钛矿/TOPCon叠层电池效率达34.82%，累计第33次创纪录",
-      "天合光能突破叠层组件效率，旗下BIPV子公司完成天使+轮融资",
-      "国家能源集团投运全球最大光伏-制氢-储能一体化项目"
+      "中核集团建成全球首个超临界二氧化碳余热发电项目，总装机达30兆瓦",
+      "Twelve投产美国首家碳捕集航空燃料工厂，阿拉斯加航空参与执飞",
+      "Energy Dome启动美国19兆瓦二氧化碳长时储能项目，谷歌提供资金支持"
     ],
     "AI与智能科技": [
-      "工信部与国务院国资委启动2026年度人形机器人实景实训专项行动",
-      "韩国KAIST研发硅芯片内嵌微通道液冷器件，热流密度承载达1180W/cm²",
-      "Nvidia服务器交易市场初创公司完成1亿美元融资，估值达8亿美元"
+      "KAIST研发硅芯片内置微通道液冷器件，冷却性能系数超10.6万",
+      "DeepSeek完成逾70亿美元融资，采用非常规交易结构",
+      "KAIST研发硅芯片内置微通道液冷器件，冷却性能系数超10.6万"
     ],
     "通用技术": [
-      "科研人员提出自由基介导的双向C-C键断裂偶联策略实现酮的碳环编辑",
-      "MIT设计双模式太空推进器，单燃料箱兼顾高效轨控与高比冲",
-      "研究通过埋底界面稳定化策略提升蓝色钙钛矿LED效率与亮度"
+      "百度Apollo Go获瑞士L4级自动驾驶许可，联合PostBus推出服务",
+      "研究人员提出高熵掺杂策略，提升RuO2在酸性OER中运行稳定性",
+      "江门中微子实验室基于59天数据，将振荡参数测量不确定性降低1.6倍"
     ]
   },
   "sectors": [
@@ -26,63 +26,78 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "晶科能源钙钛矿/TOPCon叠层电池效率达34.82%，累计第33次创纪录",
-        "天合光能突破叠层组件效率，旗下BIPV子公司完成天使+轮融资",
-        "国家能源集团投运全球最大光伏-制氢-储能一体化项目"
+        "中核集团建成全球首个超临界二氧化碳余热发电项目，总装机达30兆瓦",
+        "Twelve投产美国首家碳捕集航空燃料工厂，阿拉斯加航空参与执飞",
+        "Energy Dome启动美国19兆瓦二氧化碳长时储能项目，谷歌提供资金支持"
       ],
       "entries": [
         {
-          "t": "双重利好落地！天合叠层组件刷新世界纪录，BIPV 子公司完成天使+轮融资",
+          "t": "全球首个超临界二氧化碳余热发电项目全面建成",
           "d": "2026-06-16",
-          "a": "焦耳时代",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "天合光能在钙钛矿/晶硅叠层电池组件效率上刷新世界纪录，将理论效率上限从单结晶硅的约29%推升至更高区间，为下一代光伏技术路线奠定基础。同时旗下BIPV（光伏建筑一体化）子公司完成天使+轮融资，资本端看好建筑光伏在零碳建筑政策驱动下的增量空间。技术突破与资本加持双轮驱动，加速叠层与BIPV商业化进程。",
-          "sc": 8.7,
+          "a": "先进能源科技战略情报研究中心",
+          "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
+          "as": "全球首个超临界二氧化碳余热发电项目“超碳一号”示范工程全面建成。项目由中核集团中国核动力研究设计院等多方联合打造，包含两台15兆瓦机组，总装机容量达30兆瓦。首台机组于2025年12月投运并稳定运行超5个月，第二台机组近日成功并网发电。该工程的建成验证了超临界二氧化碳余热发电技术的先进性、系统可靠性与运行灵活性，成为全球该领域规模最大、技术最先进的标杆项目。",
+          "sc": 9.3,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/Gp2R4zlfTHeuoiddzvWy7Q",
-          "tp": "钙钛矿叠层组件",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/dx43uqY48umu58dUd3NypA",
+          "tp": "超临界CO2发电",
           "aip": 1,
           "kp": [
-            "[叠层组件]: 刷新世界纪录"
+            "单机容量[超临界二氧化碳余热发电机组]: 2×15兆瓦",
+            "总装机容量[“超碳一号”余热发电项目]: 30兆瓦",
+            "运行状态[“超碳一号”首台机组]: 已稳定运行超5个月，各项指标达或优于设计标准"
           ],
-          "b": "双重利好落地！天合叠层组件刷新世界纪录，BIPV 子公司完成天使+轮融资 原创 Joule X Joule X 焦耳时代 2026年6月，光伏行业迎来多重重磅动态。一边是钙钛矿叠层技术再登顶峰，天合光能工业标准钙钛矿 / 晶硅叠层组件拿下907W峰值功率、29.2% 全面积效率，再度刷新全球世界纪录；另一边，旗下BIPV板块迎来资本加持，天合绿建顺利完成天使+轮融资。 在刚刚落幕的第十九届SNEC上海光伏展上，天合光能更进一步，将顶尖的钙钛矿叠层技术与BIPV产品深度融合，推出TEG彩色光电玻璃 Ultra，宣告品牌从传统BIPV全面升级为场景光伏一体化战略。从实验室技术突破，到工业化产品落地，再到全场景生态布局，天合光能以 “技术研发 + 场景落地 + 资本赋能” 的组合拳，勾勒出下一代光伏产业的发展新范式。 6月1日，天合光能正式发布重磅技术成果：其自主研发、3.1㎡工业标准尺寸钙钛矿 / 晶硅叠层组件，经由 TÜV SÜD 德国莱茵权威认证，峰值功率达到 907W，全面积转换效率高达 29.2%，成功刷新全球叠层组件功率世界纪录。 不同于多数停留在实验室小样品的技术成果，本次突破的核心价值在于完全面向工业化量产。该组件基于行业主流 210mm 大尺寸硅片打造，整体尺寸贴合现有产线、运输、安装标准，无需大规模改造设备，大幅缩短技术商业化周期。研发团队针对大面积钙钛矿制备的行业痛点，优化狭缝涂布、蒸汽辅助结晶工艺，提升钙钛矿薄膜全域均匀性；同时迭代界面钝化方案、精细调校叠层光谱匹配度，同步实现转换效率与长期稳定性的双重提升。 作为光伏行业的创新标杆，这也是天合光能第41次创造并刷新光伏世界纪录，持续印证其在高效电池、组件领域的顶尖研发能力。钙钛矿 / 晶硅叠层作为突破传统晶硅肖克利 - 奎伊瑟极限的核心路线，此次工业级产品的性能跃升，也标志着叠层技术正式从 “概念验证” 迈入规模化量产前夜。 资本加码：天合绿建完成天使 + 轮融资，深耕 BIPV 主赛道 技术突破的同时，天合光能旗下 BIPV 核心载体迎来资本助力。企查查信息显示，2026 年6月11日，天合绿建（上海）光伏科技有限公司顺利完成天使 + 轮融资，投资方为吴江创投，本轮融资金额暂未披露。 公开资料显示，天合绿建成立于2024年1月10日，注册资本6500万元，是天合光能全资控股子公司，也是集团聚焦光伏建筑一体化（BIPV）、交通光伏、储能融合等细分赛道的独立运营主体。依托母公司强大的技术积淀，公司已搭建起完善的差异化产品矩阵，核心产品涵盖 TEG 彩色光电玻璃、TEG 光伏声屏障、光伏瓦、光伏工业墙、光储一体化系统等。 其中，主力产品TEG 光伏声屏障已获得国检优选权威认证，集隔音、吸音、发电三大功能于一体，计权隔声量达35dB，降噪系数0.95，可广泛应用于高速公路、城市高架等交通基建场景，实现土地空间复合利用。成立以来，天合绿建深度绑定建筑、交通、新能源领域合作伙伴，落地多个近零碳建筑、交通光伏示范项目，是国内 BIPV 赛道的核心玩家。 本轮融资落地，意味着资本市场高度认可 BIPV 赛道的增长潜力，以及天合绿建的技术、产品与落地能力。未来资金将主要用于产品迭代、产线升级与市场拓展，助力其加速抢占场景光伏蓝海市场。 **_■■■■_** **_2025 年是钙钛矿光伏产业化攻坚关键一年，行业实现 GW 级产线落地、小批量量产突破，叠层电池效率持续攀升，柔性产品落地特色商用，核心材料设备国产化提速，产业链体系初步构建。但行业仍受良率、可靠性、成本、行业标准等问题制约，叠层融合、太空光伏、跨界场景应用等成为全新发展热点。_** **_伴随全球能源转型与国内“十五五” 新能源规划推进，钙钛矿光伏迈入技术与市场双向验证的新阶段，产学研协同、资本向量产及应用端集中已成趋势。为贯通政产学研用资全链条，攻克产业化痛点、加速技术转化与场景落地，焦耳时代（JouleTimes）将联合产业头部科研单位及企业在7月2-3日于浙江宁波举办“2026 钙钛矿技术创新与产业链生态峰会”，共商可持续发展之路。_** **__** **_资料来源：公开资料、科应 焦耳时代 JouleTimes｜研究驱动决策，传媒放大价值 焦耳探展｜2026 SNEC 各家钙钛矿电池展品盘点 柔性太阳翼封装材料之聚酰亚胺（PI） 我们正在把钙钛矿往天上送！ 除了那些老生常谈，钙钛矿太空光伏还有哪些实际的问题并没有考虑 “钙钛矿要上天？”一个砷化镓老兵的真心话 钙钛矿市场应用场景现状与趋势洞察 缺水地区的光伏，钙钛矿和叠层研发该换个思路了！ 钙钛矿量产关键技术——透明电极 电科蓝天的空间太阳电池阵技术发展思考 当前钙钛矿电池稳定性距离商业化要求有多远？ 钙钛矿电池稳定性如何解决？ 太空光伏的双向辩论 ——",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首个超临界二氧化碳余热发电项目全面建成 CASEnergy CASEnergy 先进能源科技战略情报研究中心 5月30日，全球首套2×15兆瓦超临界二氧化碳余热发电项目——“超碳一号”全球示范工程第二台机组成功并网发电，两台机组全部投运后，将形成30兆瓦稳定装机容量，成为全球规模最大、技术最先进、运行最成熟的超临界二氧化碳发电标杆项目。“超碳一号”全球示范工程由中核集团中国核动力研究设计院联合济钢国际、首钢水钢共同打造，首台机组于2025年12月20日正式投入商业运行，截至目前已稳定运行超5个月，各项性能指标均达或优于设计标准，核心设备可靠性、系统稳定性经受住了长时间多工况的实战检验。此次第二台机组经过调试，顺利并网发电，即将转入正式商业运行。该示范工程的全面建成，充分证明了超临界二氧化碳余热发电技术的技术先进性、系统可靠性和运行灵活性。 （汤匀） 来源：全球示范工程全面建成！“超碳一号”第二台机组成功并网发电. https://www.cnnc.com.cn/cnnc/xwzx65/zhyw0/2026060109295358340/index.html 感谢喜欢**先进能源科技战略情报研究中心**微信公众号的您能够持续保持关注，我们将继续和您一路同行。",
           "hb": 1
         },
         {
-          "t": "33次刷世界纪录！晶科能源再创钙钛矿/TOPCon叠层电池效率达34.82%",
+          "t": "美国首家！碳捕集SAF商业工厂投产",
           "d": "2026-06-16",
-          "a": "钙钛矿工厂",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "晶科能源宣布其钙钛矿/TOPCon叠层太阳能电池效率达到34.82%，累计第33次刷新光伏效率世界纪录。叠层电池通过将宽带隙钙钛矿顶电池与窄带隙TOPCon底电池串联，有效拓宽光谱吸收范围，突破单结电池Shockley-Queisser理论极限（约33.7%）。这一成果标志着中国光伏企业在下一代高效叠层电池技术路线上的工程化能力持续领先，对降低度电成本、推动大规模商业化具有里程碑意义。",
+          "a": "DT洞见可持续",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "美国首家利用捕集二氧化碳生产航空燃料的商业工厂AirPlant One在华盛顿州正式投产。该工厂由Twelve公司运营，阿拉斯加航空与微软参与合作。工厂利用CO2、水和可再生电力，通过电转液（PtL）工艺生产符合ASTM标准的E-Jet可持续航空燃料及可持续石脑油。该燃料无需改装飞机发动机或机场基础设施，阿拉斯加航空将使用该燃料执飞常规国内商业航班。",
           "sc": 9.2,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/3qtvmTfv2tz4lCZvSbaT7Q",
-          "tp": "钙钛矿叠层电池",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/ub50z8yDcE-QFJVzCV4fiw",
+          "tp": "碳捕集制航油",
           "aip": 1,
           "kp": [
-            "转换效率[钙钛矿/TOPCon叠层]: 34.82%"
+            "[E-Jet航空燃料生产工艺]: 电转液(PtL)工艺，以捕集CO₂、可再生电力和水为原料",
+            "[商业化历史地位]: 美国首个利用捕集CO₂生产航空燃料的商业工厂",
+            "[AirPlant™ One工厂选址]: 华盛顿州摩西湖(Moses Lake)"
           ],
-          "b": "33次刷世界纪录！晶科能源再创钙钛矿/TOPCon叠层电池效率达34.82% 钙钛矿工厂 [](https://mp.weixin.qq.com/s?__biz=MzkzOTU2ODEzMw==&mid=2247512232&idx=6&sn=55e3fab2f0bbd8b620bb367ce694389f&scene=21#wechat_redirect) 近日，全球领先的光伏企业晶科能源宣布，经中国科学院上海微系统与信息技术研究所权威认证，其自主研发的基于N型TOPCon钙钛矿叠层电池转换效率**突破34.82%**，刷新了此前由自身保持的**34.76%同类叠层电池最高转换效率纪录**，这也是晶科能源**第33次**打破电池效率和组件功率世界纪录。 **** 本次效率突破得益于晶科能源在N型TOPCon的电池双层复合钝化接触结构、多维界面钝化技术、梯度结晶动力学调控策略及光学耦合/光管理增强技术等多项核心技术创新，这一突破标志着其在下一代钙钛矿叠层技术产业化进程中迈出了关键一步。 **论坛组织** **论坛名称：**2026年国际太空光伏与钙钛矿论坛暨柔性太阳翼与商业航天论坛 **论坛时间：**2026年8月6-7日 **主办单位：钙钛矿工厂**（星澄咨询） **联合主办/协办单位：**征集中 **论坛地点：**江苏·无锡 **会议规模：**300~400人 **宣传媒体：**钙钛矿工厂、钙钛矿光链、钙钛矿基地... **参会群体：钙钛矿与**太空光伏产业界人士（异质结、叠层电池、柔性光伏电池、封装材料、设备等）、航天器及卫星制造商、商业航天运营商、航天科研院所、标准化机构、证券投资机构、产业链上下游企业技术及管理人员 **参会费用** 高校科研院所参会：1800元/人 企业单位参会：2500元/人 现场缴费：3000元/人 →团队报名（同单位人数≥3人）额外再享9折 2026年6月30日前报名享早鸟价1600元/人（不与其他优惠同享） 诚邀企业展位、演讲、晚宴、礼品、资料入袋等赞助合作、共襄钙钛矿与太空光伏盛举 参会/赞助/咨询联系： **Eric：18926074070** 码上登记参会信息 央视 ｜ 重磅！中国空间站将首次开展钙钛矿电池动态服役实验 太空光伏产品发布： PhenoExo™ 一体化解决方案获在轨验证订单！ 强强联手再度升级！BOE（京东方）与康宁签署合作备忘录，剑指钙钛矿光伏等新赛道 500万元！钙钛矿氛围自动化互联手套箱招标 又一上市公司布局钙钛矿！将根据钙钛矿研发进展推进中试研发线的设备考察、选址及建设工作 全球首家！京东方获得TÜV莱茵钙钛矿光伏TMP目击实验室资质 中国电信布局钙钛矿！ 实证一年，增益10%！纤纳光电钙钛矿叠层组件发电表现优于晶硅 炎和科技再获数亿元A2轮融资，加速推动钙钛矿光伏全场景落地与太空应用突破！ 京东方高效钙钛矿薄膜太阳电池中试线项目国际招标公告！ 钙钛矿基地——权威资讯抢先看，行业动态全掌握，同仁交流共成长，专业博士团队原创内容持续更新！ 参考来源：网络；所发表转载内容均会标明出处，其中部分素材来源于网络，转载内容只用于信息传播，仅供参考，不作为商业用途；转载内容的真实性、准确性和合法性由原作者负责；如有侵权，请联系删除",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "美国首家！碳捕集SAF商业工厂投产 点这里关注→ 点这里关注→ DT洞见可持续 **🔍**CCUS|Twelve，CCUS DT洞见可持续】获悉，6月10日，美国首家利用捕集CO₂生产航空燃料的商业工厂——**AirPlant™ One**在华盛顿州摩西湖（Moses Lake）正式投产。 工厂概况与运营方 **运营企业**：Twelve（一家致力于实现燃料和化学品生产电气化的下一代工业公司）。 **合作伙伴**：阿拉斯加航空（Alaska Airlines）和微软（Microsoft）参与了剪彩仪式并达成合作。 **历史地位**：这是美国首个以商业规模利用二氧化碳、可再生电力和水生产的工厂。 E-Jet®航空燃料的设施 E-Jet 燃料生产设施——E-Jet 燃料是一种通过“电转液”（PtL）工艺制成的、可直接替代现有燃料的可持续航空燃料（SAF），原料为 CO₂ 和可再生电力——同时该工厂还生产 E-Naphtha™（可持续石脑油），后者是数千种日常用品的基础化工原料。在华盛顿州Moses Lake工厂举行的剪彩仪式上，阿拉斯加航空与微软共同出席，标志着商业化规模生产的开启，并为美国利用“空气制造”的航空燃料驱动商业航班奠定了基础。 AirPlant One 的投产证明，美国制造业可以利用丰富的本土原料生产燃料和化学品——无需上游开采。其成本锚定于长期电力合同，而非大宗商品市场或 OPEC 的决策。 AirPlant One 已成功生产出符合 ASTM（美国材料与试验协会）国际认证标准的合格航空燃料，可用于商用飞机——无需对飞机、发动机或现有机场基础设施进行任何改装。符合规格的燃料正按计划交付并销售给商业航空领域。阿拉斯加航空将使用 AirPlant One 生产的 E-Jet SAF 执飞常规国内航班。 E-Jet **可持续航空燃料（SAF）的优势** **E-Jet 开启了一个全新行业**合成化学品的序幕。制造商首次可以从国内电力和捕集的 CO₂ 中获得其产品的原料成分。这直接转化为供应链的韧性、可预测的投入成本以及美国工业的领导地位。 **/DT-二氧化碳利用交流群/** 让专业的人聚在一起，CO2利用开发新能源与新材料上下游同行❤️↓ 平台声明：部分素材来自网络公开信息。分享仅为行业信息传递与交流，不代表本公众号立场和证实其真实性与否。欢迎行业投稿！如有需求，请联系我们：15356747796（微信同号）。 ↓↓↓",
           "hb": 1
         },
         {
-          "t": "全球最大光伏-制氢-储能一体化项目在中国投运 - 储能",
+          "t": "19MW/190MWh！Energy Dome与SRP启动10h二氧化碳储能项目",
           "d": "2026-06-16",
-          "a": "ESS News",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "国家能源集团（CHN Energy）完成了国华如东光伏-制氢-储能一体化项目的建设并正式投运。该项目是目前全球规模最大的光伏制氢储能综合项目，将太阳能发电、电解水制氢与储能系统深度耦合，探索可再生能源高效利用与绿氢规模化生产的新路径，对推动新能源消纳与氢能产业发展具有重要示范意义。",
-          "sc": 8.4,
-          "i": "news",
+          "a": "ESPLaza长时储能网",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "Energy Dome与盐河项目公司（SRP）达成合作，将在美国亚利桑那州建设19MW/190MWh的二氧化碳长时储能系统。该项目选址于Coronado发电站，采用20年容量租赁协议，由谷歌提供资金支持，Energy Dome负责投资建设与运营，旨在验证和推广非锂长时储能技术。",
+          "sc": 9.0,
+          "i": "n",
           "tg": "产业进展",
-          "u": "https://www.ess-news.com/2026/06/15/worlds-largest-solar-hydrogen-storage-project-goes-online-in-china/",
-          "tp": "光伏制氢储能",
+          "u": "https://mp.weixin.qq.com/s/9AVNyTtGsxhZgtH3aiK4SA",
+          "tp": "二氧化碳储能项目",
           "aip": 1,
           "kp": [
-            "[集成项目]: 光伏-制氢-储能一体化"
+            "功率[二氧化碳储能项目]: 19MW",
+            "储能容量[二氧化碳储能项目]: 190MWh",
+            "放电时长[二氧化碳储能项目]: 10h"
           ],
-          "b": "hina Energy Investment Corp\n. (CHN Energy) has finished building its Guohua Rudong solar-hydrogen-storage integrated project in Jiangsu province, marking another step in China’s efforts to combine large-scale solar generation with battery storage and green hydrogen production.\nThe project is located in the Yudong reclaimed tidal-flat area near Yangkou Port in Rudong county, Nantong. It is operated by the Jiangsu branch of Guohua Investment, a CHN Energy subsidiary. The company describes it as China’s largest integrated solar-hydrogen-storage project.\nThe facility includes a 400 MW coastal PV plant, a 60 MW/120 MWh battery energy storage system, a green hydrogen production facility with a capacity of 1,500 Nm³ per hour, and a 220 kV shore-based substation. It also features hydrogen refueling capacity of 500 kg per day.\nAccording to CHN Energy, the PV plant is expected to generate about 468 GWh of electricity annually, enough to meet the yearly power demand of nearly 200,000 households. The hydrogen facility is designed to produce 482 tons of high-purity green hydrogen per year.\nThe project reached its first grid-connection milestone in early 2025. Its 400 MW PV section achieved full-capacity grid connection on April 29, 2025. CHN Energy said the integrated project was completed on June 10, 2026, following system-wide joint commissioning, with performance indicators meeting design specifications.\nThe hydrogen production facility remains in the final stage of equipment commissioning and is expected to begin operations in August 2026, according to the company. Once operational, the project will establish an integrated system linking renewable power generation, energy storage, hydrogen production and downstream hydrogen use.\nA dedicated submarine cable connects the PV plant directly to the hydrogen production facility. During periods of high solar generation, surplus PV electricity can be supplied to the electrolyzer without first passing through the public grid. Local project operators said that, at full PV output, approximately one-fortieth of the plant’s hourly generation is sufficient to operate the hydrogen facility at full load.\nThe battery energy storage system is designed to smooth fluctuations in PV output and provide a stable power supply for hydrogen production. The configuration is intended to increase local consumption of renewable electricity while serving as a demonstration of renewable hydrogen production directly coupled with coastal PV generation.\nThe project is part of China’s third batch of large-scale wind and solar power bases. Its significance lies not only in its 400 MW PV capacity but also in its integrated operating model, combining coastal solar generation, battery storage, traceable green hydrogen production and local hydrogen consumption within a single commercial demonstration project.",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "19MW/190MWh！Energy Dome与SRP启动10h二氧化碳储能项目 原创 ESPLAZA ESPLAZA ESPlaza长时储能网 [](https://mp.weixin.qq.com/s?__biz=MzA4NzE3MDgxMw==&mid=2653323292&idx=1&sn=65e73db59f7ed3b3ca5bf33e5aefa750&scene=21#wechat_redirect) [](https://mp.weixin.qq.com/s?__biz=Mzk0MzYwNDQ0MA==&mid=2247487063&idx=1&sn=7fe6b3d9e60d48ab8b1c516655a24eca&scene=21#wechat_redirect) [](https://mp.weixin.qq.com/s?__biz=MzU0NjA4MTg2NA==&mid=2247513118&idx=1&sn=5505223d2ddaa745a2d23d17f5f59b64&scene=21#wechat_redirect) Energy Dome与美国盐河项目公司（Salt River Project，SRP）近日宣布达成合作协议，将在电网侧建设一套19MW/190MWh二氧化碳长时储能系统。该项目不仅是双方推动新型储能技术规模化应用的重要试点，也标志着谷歌、SRP与Energy Dome在非锂长时储能领域合作的进一步深化。 该项目计划选址于SRP位于美国亚利桑那州圣约翰斯的Coronado发电站（CGS），并采用为期20年的容量租赁协议模式推进。根据协议安排，Energy Dome将负责项目的投资建设与运营管理，SRP则负责系统调度与电网侧应用。 在资金结构方面，谷歌将通过与SRP的成本分摊机制参与项目支持，用于推动非锂长时储能技术的验证与推广。该项目也是谷歌与SRP在长时储能领域合作框架下的重要组成部分，旨在加速新一代储能技术的商业化进程，以支撑不断增长的电力需求，特别是AI与数据中心负荷带来的用电增长。 该项目采用Energy Dome自主研发的二氧化碳储能系统。Energy Dome方面表示，该系统具备可规模化部署能力，并正在加速推进美国本土供应链布局，以支持未来更大规模商业化应用。同时，该技术有望通过模块化设计降低建设周期，为电力系统提供可快速响应的长时调节能力。 项目采用典型的20年容量租赁商业模式。在该模式下，Energy Dome拥有并运营储能资产，SRP作为电力公司负责调度与调用储能能力，从而在不直接持有资产的情况下获取稳定容量资源。这一模式被认为有助于降低新技术在电力系统初期应用的商业风险，同时提升电网侧对新型储能技术的接受度。 根据规划，该储能项目预计将于2029年投入运行。项目建成后，SRP与Energy Dome还将联合电力研究院（EPRI）对系统运行数据进行长期监测与评估，以验证其在实际电网环境中的性能表现与商业可行性。 [](https://mp.weixin.qq.com/s?__biz=MzkyMTM5MzI4MQ==&mid=2247523528&idx=1&sn=a4c4d4f7922019065303109387b8d3d9&scene=21#wechat_redirect)",
           "hb": 1
         }
       ]
@@ -91,34 +106,15 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "工信部与国务院国资委启动2026年度人形机器人实景实训专项行动",
-        "韩国KAIST研发硅芯片内嵌微通道液冷器件，热流密度承载达1180W/cm²",
-        "Nvidia服务器交易市场初创公司完成1亿美元融资，估值达8亿美元"
+        "KAIST研发硅芯片内置微通道液冷器件，冷却性能系数超10.6万",
+        "DeepSeek完成逾70亿美元融资，采用非常规交易结构",
+        "KAIST研发硅芯片内置微通道液冷器件，冷却性能系数超10.6万"
       ],
       "entries": [
         {
-          "t": "人形机器人产业迈入“实习期”",
-          "d": "2026-06-16",
-          "a": "新华网科技",
-          "c": "AI与智能科技/具身智能/模型和具身操作系统",
-          "as": "工信部与国务院国资委联合启动2026年度人形机器人与具身智能实景实训专项行动，标志着人形机器人产业从实验室研发阶段迈入'实习期'。该行动旨在推动人形机器人在真实工业、商业场景中落地应用，加速技术迭代与产业链成熟，反映了国家层面对具身智能领域的重点布局，人形机器人有望逐步进入规模化商用前夜。",
-          "sc": 7.7,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.news.cn/tech/20260615/87486c96989544169557981d4a68a244/c.html",
-          "tp": "人形机器人实训",
-          "aip": 1,
-          "kp": [
-            "目标规模[2026底]: 万台级落地能力",
-            "应用场景[实景实训]: 百个以上"
-          ],
-          "b": "人形机器人产业迈入“实习期” -新华网\n人形机器人产业迈入“实习期”\n人形机器人产业迈入“实习期”\n工业和信息化部、国务院国资委近日联合印发通知，正式启动2026年度人形机器人与具身智能实景实训专项行动。这项行动设定了令人振奋的目标：到2026年底，人形机器人等重点产品在一批代表性场景中率先完成应用验证和常态部署，开启“作业模式”；凝练形成百个以上高价值应用场景，进一步丰富具身智能应用谱系，带动形成万台级规模落地能力。\n本次专项直指真实工厂、民生场景开展实景实训，标志着我国人形机器人正式踏入产业落地的“实习期”。人形机器人将从实验室的“功夫模式”，全面转向真实场景的“作业模式”。\n如今，不少人形机器人样机在实验室步态稳定、操作精准，可一旦走入有粉尘、温差大、地形多变的真实生产生活场景，就容易出现动作卡顿、感知失灵、适配性不足等问题。算法在仿真环境中表现优异，却在真实世界的不确定性中无所适从。真机数据积累不足、样机性能与实景需求脱节，是制约人形机器人大规模量产和商业化盈利的最大堵点。\n实景实训专项行动，直击行业长久以来的核心痛点，为产业成熟筑牢根基。此次行动聚焦工业、服务、特种三大领域，重点面向生产制造、检测分析、维修维护、仓储物流、餐饮零售、医疗康养、安全生产、应急救援、防灾减灾等9个场景，部署了打造实景实训空间、组建创新应用联合体、攻关实用化作业技能、加强实景应用验证与常态部署、强化关键要素保障、凝练成熟经验6项重点任务。\n通过集约化建设、标准化管理、资源共享的实训空间，我们可有效避免场景重复建设和资源浪费。专项行动将推动场景、数据、算力与技术成果高效复用，大幅降低企业试错成本，实现产品在真实环境中的快速迭代优化，推动人形机器人从“能用”向“好用”跨越。\n展望未来，人形机器人产业的发展将呈现三大趋势。\n工业场景率先突破。服务场景的复杂性和不确定性更高，而工厂环境的结构化、标准化程度高，且对降本增效的需求最为迫切，人形机器人在工业领域的落地将最快见到实效。\n技术路线加速收敛。通过大规模实景实训，行业将逐步明确哪些技术路径在真实环境中真正可靠，从而淘汰伪需求、伪创新，推动资源向优势企业和技术路线集中。\n生态体系日趋完善。创新应用联合体的组建，将促进整机厂商、零部件供应商、场景方、算法公司之间的深度协作，形成“主机厂+生态伙伴”的产业格局。\n从更宏观的视角看，人形机器人是人工智能与高端制造深度融合的集大成者，其产业化进程将带动减速器、伺服电机、传感器、芯片等整个产业链的升级，万亿级市场空间可期。中国拥有全球最完整的制造业体系、最丰富的应用场景和最庞大的工程师队伍，在人形机器人赛道上具备独特优势。专项行动的启动，正是要将这些优势转化为实实在在的产业竞争力。\n从实验室明星到生产力干将，人形机器人的实习期注定不会一帆风顺。真实世界的复杂性、多样性和不确定性，将是对这一产业最严苛的试炼。但只有经过真实场景的千锤百炼，人形机器人才能真正从实习生成长为正式工。\n人形机器人进入“实习期”，是一个新起点。它考验的不仅是机器的智能与灵巧，更是整个产业体系的耐心、定力与协同能力。当机器人在工厂里熟练地拧紧螺丝、在仓库中精准地分拣货物、在灾害现场科学地搜救生命、在康养中心耐心地照顾病人时，一个属于具身智能的新时代才算真正到来。中国有能力也有责任在这一历史进程中走在前列，让中国造的人形机器人成为新质生产力的生动注脚。（记者 佘惠敏）\n大熊猫国家公园的绿色答卷\n扎根榕城热土 台胞逐梦远航\n香港“惜食堂”惜食助困15载\n湖州：深耕“两山”沃土，织密城乡共富网\n欧盟移民公约背后的纠结与困境\n通讯丨高等教育展吸引印尼学子“去中国上大学”\n人形机器人产业迈入“实习期”",
-          "hb": 1
-        },
-        {
           "t": "韩国KAIST开发出一款冷却性能系数超10.6万的半导体内置微通道液冷器件",
           "d": "2026-06-16",
-          "a": "",
+          "a": "News",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "韩国KAIST开发出直接嵌入硅芯片内部的歧管微通道液冷器件，冷却性能系数（COP）超10.6万（热流密度1180W/cm²时），2000W/cm²极端热流密度下芯片温度维持100°C以下（COP>1万）。相同温升条件下泵送功耗降至2020年Nature纪录的十分之一，采用常温纯水冷却，无需相变或纳米改性。分散式歧管结构缩短流体流动距离降低流动阻力，在5mm×5mm芯片上验证，预计应用于大型AI芯片（7.5cm×7.5cm）和数据中心冷板时散热性能提升30%以上。",
           "sc": 7.5,
@@ -128,23 +124,51 @@
           "tp": "微通道液冷",
           "aip": 1,
           "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
           "b": "6月16日，韩国科学技术院（KAIST）在官网发文称，其开发出一款直接嵌入硅芯片内部的歧管微通道液冷器件（水冷），宣传冷却性能系数（COP）超10.6万（当热流密度为1180 W/cm²时），在2000 W/cm²极端热流密度下可将芯片温度维持在100℃以下（COP>1万）。文中称，该器件可在相同温升条件下将所需泵送功耗降至2020年Nature刊文（van Erp, et al）纪录的十分之一，在常温纯水冷却下实现高效散热；且在无相变冷却、纳米改性或金刚石等昂贵材料的条件下完成极端热流测试。并宣称采用优化的歧管结构（冷却水分配结构）与低于350℃的低温制造工艺；分散式设计可缩短流体的流动距离，降低流动阻力和泵送压力；冷却液在每个通道内只需流动极短的距离，流动阻力骤降，所需泵送压力随之大幅减小；同时，冷却液在整块芯片上的供给更为均匀，有助于维持高度一致的温度分布。\n其基于实验装置（5mm×5mm测试芯片）的性能测试结果认为，当将该系统应用于大型AI半导体（最大7.5cm×7.5cm）和数据中心冷板时，冷却性能相比现有方法能提升30%以上，并称该方法可推广应用于高性能计算（HPC）、3D堆叠半导体、功率半导体和国防电子设备等会产生大量热量的电子设备；且其兼容当前常规半导体代工厂生产工艺。\n该研究已发表在Energy Conversion and Management。据文中内容所述，其主要结构（如下图）是上层用于分配和收集流体的流体路由歧管（Manifold）；下层直接蚀刻在有源晶圆背面（芯片基板内部）的高密度微通道（Microchannels）；整体制备工艺采用双面深反应离子刻蚀（DRIE）技术，与现有半导体制备技术兼容，均为光刻刻蚀。上层的三维歧管结构将冷却液均匀、垂直地分配到下方数百个平行的微通道中，并在冷却液流过一段非常短的微通道后迅速将其收集排出；即将原本较长的流体通道分割成许多短的并联路径，以缩短冷却液在微通道内的行进距离，提升芯片表面的温度均匀性；还有助于降低水流阻力（压降），减少泵浦能耗。",
           "hb": 1
         },
         {
-          "t": "独家：Nvidia服务器交易平台初创公司融资1亿美元，估值8亿美元",
+          "t": "DeepSeek 以不寻常的交易结构完成了创纪录的 70 亿美元以上融资",
           "d": "2026-06-16",
           "a": "the information",
-          "c": "AI与智能科技/AI硬件层/计算集群",
-          "as": "一家专注于Nvidia服务器交易市场的初创公司完成1亿美元融资，估值达8亿美元。该轮融资反映出AI算力需求爆发带动服务器二级市场蓬勃发展，资本看好GPU算力资源交易平台的市场前景。",
-          "sc": 8.3,
-          "i": "news",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "人工智能公司DeepSeek完成了一笔超过70亿美元的创纪录融资。该交易采用了非常规的交易结构。",
+          "sc": 8.5,
+          "i": "n",
           "tg": "资本运作",
-          "u": "https://www.theinformation.com/briefings/exclusive-nvidia-server-marketplace-startup-raises-100-million-800-million-valuation",
-          "tp": "AI算力平台融资",
+          "u": "https://www.theinformation.com/briefings/deepseek-closes-record-7-billion-plus-funding-unusual-deal-structure",
+          "tp": "大模型融资",
+          "aip": 1,
+          "kp": [
+            "融资金额[DeepSeek]: 70亿美元以上",
+            "[融资交易结构]: 采用不寻常的交易结构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "DeepSeek Closes Record $7 Billion-Plus Funding with Unusual Deal Structure — The Information\nRead this briefing for free",
+          "hb": 1
+        },
+        {
+          "t": "韩国KAIST开发出一款冷却性能系数超10.6万的半导体内置微通道液冷器件",
+          "d": "2026-06-16",
+          "a": "News",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "韩国KAIST开发出直接嵌入硅芯片内部的歧管微通道液冷器件，冷却性能系数（COP）超10.6万（热流密度1180W/cm²时），2000W/cm²极端热流密度下芯片温度维持100°C以下（COP>1万）。相同温升条件下泵送功耗降至2020年Nature纪录的十分之一，采用常温纯水冷却，无需相变或纳米改性。分散式歧管结构缩短流体流动距离降低流动阻力，在5mm×5mm芯片上验证，预计应用于大型AI芯片（7.5cm×7.5cm）和数据中心冷板时散热性能提升30%以上。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.kaist.ac.kr/newsen/html/news/?mode=V&mng_no=63170&skey=category&sval=%72%65%73%65%61%72%63%68&list_s_date=&list_e_date=&GotoPage=1",
+          "tp": "微通道液冷",
           "aip": 1,
           "kp": [],
-          "b": "Exclusive: Nvidia Server Marketplace Startup Raises $100 Million at $800 Million Valuation — The Information\nRead this briefing for free",
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月16日，韩国科学技术院（KAIST）在官网发文称，其开发出一款直接嵌入硅芯片内部的歧管微通道液冷器件（水冷），宣传冷却性能系数（COP）超10.6万（当热流密度为1180 W/cm²时），在2000 W/cm²极端热流密度下可将芯片温度维持在100℃以下（COP>1万）。文中称，该器件可在相同温升条件下将所需泵送功耗降至2020年Nature刊文（van Erp, et al）纪录的十分之一，在常温纯水冷却下实现高效散热；且在无相变冷却、纳米改性或金刚石等昂贵材料的条件下完成极端热流测试。并宣称采用优化的歧管结构（冷却水分配结构）与低于350℃的低温制造工艺；分散式设计可缩短流体的流动距离，降低流动阻力和泵送压力；冷却液在每个通道内只需流动极短的距离，流动阻力骤降，所需泵送压力随之大幅减小；同时，冷却液在整块芯片上的供给更为均匀，有助于维持高度一致的温度分布。\n其基于实验装置（5mm×5mm测试芯片）的性能测试结果认为，当将该系统应用于大型AI半导体（最大7.5cm×7.5cm）和数据中心冷板时，冷却性能相比现有方法能提升30%以上，并称该方法可推广应用于高性能计算（HPC）、3D堆叠半导体、功率半导体和国防电子设备等会产生大量热量的电子设备；且其兼容当前常规半导体代工厂生产工艺。\n该研究已发表在Energy Conversion and Management。据文中内容所述，其主要结构（如下图）是上层用于分配和收集流体的流体路由歧管（Manifold）；下层直接蚀刻在有源晶圆背面（芯片基板内部）的高密度微通道（Microchannels）；整体制备工艺采用双面深反应离子刻蚀（DRIE）技术，与现有半导体制备技术兼容，均为光刻刻蚀。上层的三维歧管结构将冷却液均匀、垂直地分配到下方数百个平行的微通道中，并在冷却液流过一段非常短的微通道后迅速将其收集排出；即将原本较长的流体通道分割成许多短的并联路径，以缩短冷却液在微通道内的行进距离，提升芯片表面的温度均匀性；还有助于降低水流阻力（压降），减少泵浦能耗。",
           "hb": 1
         }
       ]
@@ -153,65 +177,76 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研人员提出自由基介导的双向C-C键断裂偶联策略实现酮的碳环编辑",
-        "MIT设计双模式太空推进器，单燃料箱兼顾高效轨控与高比冲",
-        "研究通过埋底界面稳定化策略提升蓝色钙钛矿LED效率与亮度"
+        "百度Apollo Go获瑞士L4级自动驾驶许可，联合PostBus推出服务",
+        "研究人员提出高熵掺杂策略，提升RuO2在酸性OER中运行稳定性",
+        "江门中微子实验室基于59天数据，将振荡参数测量不确定性降低1.6倍"
       ],
       "entries": [
         {
-          "t": "酮的碳环编辑通过自由基介导的双向C-C键断裂/偶联策略实现",
+          "t": "百度 Apollo Go 获得瑞士 4 级机器人出租车 AmiGo 批准",
           "d": "2026-06-16",
-          "a": "Physical sciences : Nature Communications subject feeds",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "百度Apollo Go在瑞士获得了由联邦道路局（FEDRO）颁发的L4级自动驾驶许可，与瑞士邮政旗下的PostBus合作推出名为AmiGo的机器人出租车服务。该许可覆盖瑞士东部三个州80平方公里的区域。该项目成为欧洲首个落地大型公共交通系统的自动驾驶服务，使百度在无人车欧洲部署上领先于Waymo和特斯拉。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/06/16/baidu-apollo-go-amigo-switzerland-level-4-approval/",
+          "tp": "自动驾驶获批",
+          "aip": 1,
+          "kp": [
+            "自动驾驶许可级别[百度Apollo Go瑞士AmiGo]: 4级",
+            "覆盖面积[FEDRO特殊许可服务区]: 80 km²"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Fred Lambert\n| Jun 16 2026 - 5:40 am PT\nBaidu’s Apollo Go has received a Level 4 autonomous driving permit in Switzerland for AmiGo, a robotaxi service it is running with Swiss Post’s PostBus, putting the Chinese tech giant ahead of Waymo and Tesla in deploying driverless vehicles into European public transport.\nThe Federal Roads Office (FEDRO) special permit covers an 80 km² service area across three eastern cantons, and Baidu says the project is on track to become the largest planned automated public transport operation of its kind in Europe.\nAmiGo is an on-demand autonomous mobility service jointly developed by Apollo Go and PostBus, the bus operator of Swiss Post. On June 12, Baidu (NASDAQ: BIDU) announced that FEDRO granted the service a special operating permit for Level 4 operations in Eastern Switzerland.\nOpen-road testing began on June 1, 2026, covering roughly 80 km² across the cantons of St. Gallen, Appenzell Ausserrhoden, and Appenzell Innerrhoden. For now, the vehicles still run with a safety operator on board.\nThe permit confirms that AmiGo’s vehicles and autonomous driving system meet Switzerland’s safety and quality requirements, but it stops short of authorizing fully driverless rides today. Baidu describes the approval as the framework for a step-by-step rollout rather than a green light for empty-seat operations.\n“The FEDRO permit provides the framework — with clear requirements, defined responsibilities, and the objective of learning from operations for the next steps,” said Jürg Röthlisberger, Director of FEDRO.\nThe next phase will be a closed-group user trial, followed by initial rides without safety operators “once all safety evidence is fully provided.” Regular operations bookable through the AmiGo app are targeted to start in 2027.\nAmiGo is being deployed using Apollo Go’s RT6, the same purpose-built robotaxi Baidu\nfirst unveiled in 2022 with a detachable steering wheel\n. Each RT6 is fully electric, carries up to three passengers, and is fitted with more than 30 sensors for environmental perception and onboard data processing.\nThe steering wheel is designed to be removed once the service transitions to fully autonomous operations — the same hardware story Baidu has been telling for years, now pointed at a European market.\nBaidu is leaning on Apollo Go’s China scale to make its case. The company says Apollo Go provided millions of fully driverless rides in the first quarter of 2026, with weekly rides peaking above 350,000 in March, a 120% year-over-year increase. As of April 2026, cumulative rides for the public topped 22 million, across 27 cities, with fleets having logged more than 330 million autonomous kilometers, including over 220 million fully driverless.\nBaidu is not moving into Europe alone, and that is the real context here. Alphabet’s Waymo is\nexpanding to London with public robotaxi rides\nand has named London and Tokyo as its first international markets. Waymo recently\nraised $16 billion at a $126 billion valuation\nto fund an expansion to more than 20 cities.\nThe difference is the route to market. Waymo is launching a commercial ride-hailing service. Baidu is embedding directly into a national public transport operator, positioning AmiGo as a complement to existing PostBus service “particularly in areas where conventional services reach their limits.”\n“With AmiGo, we are making automated mobility in public transport tangible,” said Stefan Regli, CEO of PostBus. Nan Yang, VP of Baidu and GM of its overseas intelligent driving unit, called the permit “a strong validation of our technology.”\nTesla, which has promised robotaxis in multiple markets for years, has no equivalent Level 4 regulatory clearance in Europe. It is currently rolling out FSD (Supervised), its level 2 driver-assist system, across the continent.\nAs we are often focused on Tesla and Waymo in the West, Baidy has managed to ramp up to 22 million public rides with Apollo Go in China. That operating record is exactly what lets Baidu walk into a Swiss regulator and walk out with a Level 4 permit, while companies still talking about “supervised” autonomy in their home market cannot.\nWhat’s clever here is the go-to-market. Rather than fighting for ride-hailing licenses city by city, Baidu plugged into PostBus, a national transit operator that brings regulatory trust, depot infrastructure, and a built-in service mandate. Riding the public-transport rails is a faster path to driverless deployment in Europe than competing head-on with local taxi rules, and it gives Baidu a reference customer for the rest of the continent.\nThe caveats are real. AmiGo still has a safety operator behind the wheel, the steering wheel hasn’t come out yet, and “regular operations from 2027” is the kind of timeline that tends to slip in autonomous driving. The closed-group trial and the “once all safety evidence is fully provided” language mean the hard part — removing the human — is still ahead.\nStill, the broader signal is hard to miss: the most aggressive robotaxi expansion into Europe right now is Chinese, and it’s happening through the front door of a public transit agency. If AmiGo hits its 2027 target, who else in Western Europe says no to the same deal?\nIf you drive an EV, powering it with home solar is one of the smartest ways to lock in low fuel costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "JACS：高熵掺杂调控 Ru-O 键异质性，提升酸性 OER 稳定性",
+          "d": "2026-06-16",
+          "a": "催化视界",
           "c": "通用技术/催化剂",
-          "as": "研究报道酮的碳环编辑新方法，通过自由基介导的双向C-C键断裂/偶联策略实现碳环骨架重构。该策略以1,n-双官能化烷基连接子为关键中间体，可用于有机合成、功能材料和药物分子的高效构建，为碳环体系的精准裁剪与重组提供了通用工具。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74317-0",
-          "tp": "酮类碳环编辑",
+          "as": "PEM水电解酸性OER过程中，RuO2活性高但易溶解。研究提出高熵掺杂（HED）策略，在原子水平引入Ti、Zr、Nb等元素，通过优化Ru-O键异质性和多轴晶格畸变，兼顾微观电子调控与宏观晶格稳定。在0.5M硫酸测试中，HED1/RuO2达到10mA/cm²仅需200mV过电位，在100mA/cm²下稳定运行超1200小时，稳定性指标S-number达到2.4×10^6，在PEMWE单电池层面同样展现出优异的耐久性。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/dzpLBr53XeX_HtkF2zlBwA",
+          "tp": "高熵掺杂RuO2",
           "aip": 1,
           "kp": [
-            "[碳环编辑]: 自由基介导双向C-C键断裂/偶联"
+            "过电位[HED1/RuO2在0.5M H2SO4达10 mA cm-2]: 200 mV",
+            "过电位[HED1/RuO2在0.5M H2SO4达100 mA cm-2]: 255 mV",
+            "掺杂元素[HED策略引入]: Ti、Zr、Nb、Hf、Ta、W等元素",
+            "催化特性[HED1/RuO2酸性OER]: 既活又稳（优化电子结构并抑制溶解）"
           ],
-          "b": "1,n-Difunctionalized alkyl linchpins are pivotal building blocks in organic synthesis, functional materials, and pharmaceuticals. However, their preparation currently relies predominantly on de novo synthesis, which is hampered by low step-economy and poor functional group compatibility. Herein, we report an efficient method based on a radical-mediated bidirectional C-C bond cleavage, which enables simple cyclic ketones to function as potential diradical linchpins via the formation of gem-diperoxides. It employs a stepwise and controllable tandem process involving alkoxy radical-induced β-scission and acyloxy radical-mediated decarboxylation, to achieve ring-opening, carbon shrinkage, and bidirectional functionalization of carbocycles. This carbocycle editing protocol features sustainable metal catalysis, a broad substrate scope, and excellent functional group compatibility. Notably, the cascade reaction enables facile and selective editing of various complex natural products and drug molecules. This bidirectional C-C bond cleavage/coupling strategy allows for rapid and modular synthesis of structurally diverse alkyl 1,n-dithiocyanides, 1,n-diazides, 1,n-dihalides, and unsymmetric 1,n-thiocyanate-azides (n ≥ 4).",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "JACS：高熵掺杂调控 Ru-O 键异质性，提升酸性 OER 稳定性 催化视界 PEM 水电解需要酸性 OER 阳极。Ir 基材料稳定但贵，RuO2 活性高、成本更低，却容易在酸性高电流下溶解。难点在于 OER 反应路径和 Ru 溶解路径共享部分中间体，越活泼的 Ru 位点往往越容易牺牲稳定性。 传统单元素掺杂可以在局部形成 Ru-O-M 相互作用，提高某些位点稳定性；高熵材料则能提供宏观结构鲁棒性，但活性位可能被稀释。本文提出高熵掺杂 HED 策略，在原子掺杂水平引入 Ti、Zr、Nb、Hf、Ta、W 等元素，同时追求微观电子调控和宏观晶格稳定，思路更完整。 作者想解决的是“既活又稳”的平衡：Ru-O 键异质性优化活性 Ru 位点电子结构，多轴晶格畸变增强结构完整性并抑制溶解。最终 HED1/RuO2 在酸性 OER 和 PEMWE 单电池中都展示出较强耐久性。 成果简介 HED1/RuO2 在 0.5 M H2SO4 三电极体系中仅需 200 mV 过电位达到 10 mA cm-2，100 mA cm-2 下为 255 mV，并具有更小 Tafel 斜率。稳定性测试中，它在 100 mA cm-2 下运行超过 1200 h，Ru 溶解明显低于对照。 作者用 S-number 衡量稳定性，即生成 O2 与溶解 Ru 的摩尔比。HED1/RuO2 在 200 h 后达到约 2.4 × 10^6，超过已报道多数 Ru 基酸性 OER 催化剂，并接近 IrO2 的 10^6-10^7 基准区间。 在 PEMWE 单电池中，HED1/RuO2 作为阳极、Pt/C 作为阴极、Nafion 212 为膜，在 80 °C 和 250、500、1000 mA cm-2 下进行耐久评估。图中显示的衰减率分别约为 -0.0157、0.151 和 0.290 mV h-1，说明其在器件层面也能承受高电流运行。 研究亮点 亮点一：高熵掺杂不是简单把 RuO2 做成高熵材料，而是在原子掺杂尺度构建多种 Ru-O-M 键环境。 亮点二：HED1/RuO2 同时获得高活性和高 S-number，说明键异质性可兼顾 OER 动力学与抗 Ru 溶解。 亮点三：单电池验证把材料从三电极酸性 OER 推进到工业相关 PEMWE 条件，增强了应用说服力。 配图精析 图1：从单元素掺杂到高熵掺杂的设计差别 图1把几种 RuO2 调控策略并排比较。单元素掺杂只能保护局部区域，高熵材料带来宏观畸变但可能稀释活性位；高熵掺杂则试图把两者结合，在微观上调 Ru-O-M 电子结构，在宏观上通过多轴晶格畸变增强稳定性。 这个概念图很适合作为全文入口，因为它直接指出传统路线的两难：微观调控不够全面，宏观高熵又可能牺牲活性。HED 的目标是把异质键环境放在 RuO2 晶格内部，而不是另做一层保护外壳。 图2：理论验证 Ru-O 键异质性如何影响活性和稳定性 理论图展示不同掺杂元素对轴向和赤道向 Ru-O 键的调节。键长分布、d 带中心、反应自由能和溶解相关路径共同说明，适度异质性可以把活性 Ru 位点推向更优电子结构，同时降低 Ru 走向溶解的倾向。 它还提醒我们，高熵不是元素越多越好，而是要让多元素产生合适的 Ru-O 键分布。如果掺杂过量，活性 Ru 位点会被稀释或偏离最优吸附区间，稳定性收益也未必能抵消动力学损失。 图3：HED/RuO2 的合成和多元素分散 作者利用 HKUST-1 引入多种金属元素，经 Ru 交换和煅烧得到 HED/RuO2。EDS、XRD、TEM 和晶格图像表明多种掺杂元素可以在 RuO2 中分散，而不是形成明显分相。这是实现“高熵掺杂”而非物理混合的关键证据。 合成路线也有可放大意义：先用框架前驱体均匀分布多金属，再转化为 RuO2 晶格，可减少后期掺杂不均和元素团聚。对于多元素氧化物，这比简单混盐煅烧更容易获得原子级均匀性。 图4：多轴晶格畸变和高熵效应被直接观察 Cs-TEM、Bragg-filtered 图像和应变映射显示 HED1/RuO2 存在局部晶格畸变。XAS 和氧化态分析进一步说明 Ru-O 环境被多元素掺杂改变。对酸性 OER 来说，这种畸变不是缺陷噪声，而是抑制溶解和调控反应中间体的结构基础。 这组表征把宏观稳定性和原子结构联系起来。RuO2 溶解往往从局部高能或过度氧化环境开始，若多轴畸变能分散应力并调节 Ru-O 共价性，就有机会降低长时运行中的结构塌陷。 图5：三电极酸性 OER 活性、TOF、质量活性和 S-number HED1/RuO2 在 LSV、Tafel、TOF 和 Ru 归一化质量活性中都表现突出。更重要的是，ICP-MS 跟踪 Ru 溶解后得到的 S-number 达到约 2.4 × 10^6，接近 IrO2...",
           "hb": 1
         },
         {
-          "t": "MIT造出“二合一”太空推进器：一个燃料箱驱动两种推进，小卫星有望奔赴火星",
+          "t": "JUNO 的首批结果让中微子质量之谜成为焦点",
           "d": "2026-06-16",
-          "a": "DeepTech深科技",
-          "c": "通用技术/通信和运输/航天",
-          "as": "MIT研发出'二合一'太空推进器，采用单个燃料箱同时驱动两种不同推进模式，大幅简化系统结构、减轻重量。该设计针对小卫星深空探测任务（如火星探测），通过双模式推进兼顾高效轨控与高比冲能力，有望拓展小卫星至火星轨道及更远深空的执行能力，为低成本行星际任务开辟新路径。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://mp.weixin.qq.com/s/L4Hi3i7ZTE4UnHJtcTDU0A",
-          "tp": "双模式空间推进",
+          "a": "scitechdaily",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "江门中微子实验室（JUNO）取得首个重大科学成果，基于59天的数据，对两个基本的中微子振荡参数进行了高精度测量。与过去数十年的实验综合结果相比，新分析将测量不确定性降低了1.6倍。这标志着精确中微子物理学时代的开启，使科学界距离解开中微子质量之谜更进一步。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/junos-first-results-bring-the-neutrino-mass-mystery-into-focus/",
+          "tp": "中微子探测",
           "aip": 1,
           "kp": [
-            "[推进模式]: 单燃料箱双模式推进",
-            "[应用目标]: 小卫星赴火星"
+            "高质量数据采集天数[JUNO中微子观测]: 59天"
           ],
-          "b": "MIT造出“二合一”太空推进器：一个燃料箱驱动两种推进，小卫星有望奔赴火星 刘雅坤 刘雅坤 DeepTech深科技 小卫星有望同时兼顾速度与续航了！ 近期，麻省理工学院（MIT）团队开发出一种双模式推进系统，小型卫星基于该系统可以用一个燃料箱同时为化学推进器和电推进器提供动力。 要知道，在传统方案中，这两种推进器都需要单独的、笨重的燃料源，因此往往只能在速度与续航方面“二选一”。 该系统采用了美国空军开发的环保型 ASCENT 推进剂，它既能像传统燃料那样快速机动，又能驱动指甲盖大小的电喷雾推力器实现高效长距离飞行。也就是说，它有可能让卫星既具备“短跑”的爆发力又拥有“长跑”的耐力。 图丨这四台推力器单元电喷雾推进器由麻省理工学院空间推进实验室交付给美国宇航局，用于即将开展的绿色推进双模（GPDM）任务（来源：MIT） 相关论文发表于 Journal of Propulsion and Power，论文题目为“Performance Characterization of Electrospray Thrusters with Energetic Ionic Liquid Monopropellant”\\[1\\]。 研究团队认为，这种推进剂在小型航天器领域具有广阔的应用潜力。根据美国航空航天局（NASA）“绿色推进双模”任务计划，将于今年 11 月发射一颗手提箱大小的立方体卫星进行首次在轨验证。 如果验证成功，小型卫星不仅有望以更低成本执行深空探测、火星及小行星带任务，还可以灵活部署用于气象监测等近地应用。 “我们可以将立方体卫星送往火星或小行星带，它们可以利用电喷雾推进器缓慢飞行，”该论文作者之一、麻省理工学院 Amelia Bruno 博士说。“然后，你可以使用化学推进器快速移动，观测感兴趣的地貌特征。这样一来，你就能拥有更大的灵活性，开展更多任务。” 电喷雾推进器（Electrospray Thruster）是一种微型推进装置，大小与硬币类似，它利用电场使液体推进剂中的粒子带电。这些带电粒子随后被喷射到太空中，从而产生推力。 这些推进器燃料效率极高，非常适合缓慢、精确的机动。它们可以逐步推动航天器跨越广阔的距离，因此适用于长期巡航、姿态控制、深空飞行等。 化学推进器是一种高推力推进系统，通常用于火箭发射以及在太空进行高难度、高速度的机动飞行。研究团队的想法是，或许可以找到一种推进剂能同时适用于两种推进系统，这样小型卫星将更加灵活。 研究团队设计的小型卫星，尺寸从午餐盒大小到小型手提箱大小不等，与传统卫星相比体积更小，并且发射成本也更低。但是，小型航天器需要的其他部件也更小，包括推进系统。 为此，该团队开发了仅指甲盖大小的推进器，每个推进器都安装在一个装有少量离子液体推进剂的小型储液罐上。当储液罐连接到电池时，电池会提供一定电压，让液体中相应数量的离子带电。然后，带电粒子从储液罐中喷出，通过推进器的喷嘴，以喷雾的形式喷射到太空中，最终产生推力。 在过去的十年时间中，研究人员使用各种类型的离子液体推进剂（一种本质上由可以保持液态的盐制成的燃料），在不同条件下进行了多种推进器设计的测试。 “离子液体非常稳定，甚至在太空中也能保持液态，这是很多材料做不到的，”Bruno 说，“它本质上是由大量自由离子组成的，而这项技术也是围绕它展开的，我们可以把这些离子提取出来形成电喷雾。” 图丨电喷雾推进器的图像（来源：Journal of Propulsion and Power） 该团队与美国空军合作，合成了一种新型离子液体推进剂 ASCENT（Advanced Spacecraft Energetic Non-Toxic Propellant）。ASCENT 的设计初衷是作为一种绿色、低毒的替代品，取代传统的化学推进燃料肼，后者是一种极其危险且难以处理的物质。 在这项研究中，研究人员测试了使用 ASCENT 燃料的电喷雾推进器的性能。他们使用的每个推进器都连接到一个小型立方体储液罐，尺寸类似于乐高积木。他们向每个储液罐中注入 1 克 ASCENT，这种液体的粘度与婴儿油相似。 然后，研究人员将推进器连接到立方体卫星的相对两侧，并将立方体卫星放置在磁悬浮支架上。磁悬浮支架是一种定制的测试平台，旨在利用磁力悬浮样品或设备。研究团队的磁悬浮装置安装在一个大型真空室内，研究人员通过调节真空室，来对太空环境进行模拟。 图丨“磁悬浮”推力支架，它的内部包含多个相互连接的金属支架，用于支撑大型圆柱形容器内的电线和电气设备（来源：MIT） 研究团队通过多次实验，远程施加不同电压来激活推进器，推进器产生的喷射离子流使立方体卫星在真空环境中缓缓自转。研究人员对每次试验产生的推力进行测试，并在推进器持续运行长达 100 小时的情况下，计算了 ASCENT 卫",
-          "hb": 1
-        },
-        {
-          "t": "埋底界面稳定化实现高效明亮蓝色钙钛矿LED",
-          "d": "2026-06-16",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究通过埋底界面稳定化策略提升蓝色钙钛矿LED的效率与亮度。金属卤化物钙钛矿在红绿光LED中表现优异，但蓝光器件因界面缺陷和非辐射复合损耗性能落后。该方法抑制界面降解与电荷损失，推动钙钛矿蓝光LED向全彩显示和照明应用迈进。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74583-y",
-          "tp": "钙钛矿蓝光LED",
-          "aip": 1,
-          "kp": [
-            "[界面工程]: 季戊四醇四丙烯酸酯3D交联网络稳定埋底界面",
-            "器件[蓝色钙钛矿LED]: 高效明亮蓝光PeLED"
-          ],
-          "b": "Metal halide perovskites are highly promising luminescent materials; however, the development of high-performance blue perovskite light-emitting diodes (PeLEDs) remains constrained by buried interface degradation. Here, we construct a three-dimensional cross-linked network of pentaerythritol tetraacrylate on the hole transport layer (HTL) to achieve efficient and bright blue PeLEDs. This dense cross-linked network serves as a physical barrier, shielding the HTL from polar solvent erosion and preserving its structural integrity. The abundant carbonyl groups in the network form strong coordination interactions with the perovskite lattice, effectively passivating interfacial defects and enhancing interfacial stability. Furthermore, an interfacial dipole formed at the HTL/network interface modulates the energy level alignment, facilitating efficient hole injection. The resulting PeLEDs across blue spectral regions deliver outstanding external quantum efficiencies of 28.0% at 488 nm, 21.3% at 476 nm, and 15.4% at 466 nm, with maximum luminance values of 26,240, 10,750, and 2444 cd m−2, respectively.",
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "JUNO’s first results have launched a new era of precision neutrino physics and brought scientists closer to solving the neutrino mass mystery.\nThe Jiangmen Underground Neutrino Observatory (JUNO) has achieved its first major scientific milestone. On June 10, its debut physics result was featured as a cover article in\nUsing 59 days of high-quality data collected between August 26 and November 2, 2025, the JUNO Collaboration, led by the Institute of High Energy Physics of the Chinese Academy of Sciences, performed highly precise measurements of two fundamental neutrino oscillation parameters. The analysis reduced the uncertainties in those measurements by a factor of 1.6 compared with the combined results of previous experiments conducted over the past several decades.\nare among the most mysterious particles in the universe. They carry no electric charge, have extremely small masses, and interact only weakly with matter. As a result, vast numbers of neutrinos pass through Earth, buildings, and even human bodies every second without leaving a trace.\nBecause they are so difficult to detect, neutrinos remain one of the least understood elementary particles despite their abundance throughout the cosmos.\nJUNO began collecting scientific data in August 2025. Its primary objective is to determine the ordering of neutrino masses, one of the most important unanswered questions in particle physics. The experiment is also designed to measure three of the six neutrino mixing parameters with better than 1% precision and to investigate neutrinos produced by supernovae, Earth’s interior, the Sun, the atmosphere, and other sources.\nThe study received strong praise during peer review.\n“These results not only validate the detector performance and analysis methodology but also establish JUNO as a key player in the emerging precision era of neutrino oscillation physics, with direct implications for tests of the three-flavor paradigm, global oscillation fits, and future determinations of the neutrino mass ordering.”\nNature also highlighted the significance of the work in a News & Views article, stating:\n“Understanding the behavior of neutrinos is paramount to developing a complete description of matter and forces at the smallest scale. This first analysis builds confidence that the detector will be able to determine the mass ordering. This first result from JUNO marks the dawn of the next era of precise neutrino oscillation measurements, and will provide insights into the properties of these mysterious fundamental particles.”\nEarlier this year,\nChinese Physics C\nfeatured JUNO’s detector performance on its cover. Prof. Arthur McDonald, who received the 2015 Nobel Prize in Physics for the discovery of solar neutrino oscillation, commented on the publication:\n“JUNO has met its design objectives, achieving exceptional radiopurity, energy resolution, and detector stability. The experiment is fully operational and ready to pursue its ambitious physics goals, including determining the neutrino mass ordering (NMO), studying neutrino oscillation parameters, detecting neutrinos from various sources, and exploring physics beyond the\nStandard Model for Elementary Particles\nAt the center of the observatory, located 700 meters underground, is a liquid scintillator detector with an unprecedented effective mass of 20,000 tons. The detector sits within a water pool that is 44 meters deep.\nA stainless steel structure measuring 41.1 meters in diameter supports a 35.4 meter acrylic sphere along with the liquid scintillator, 20,000 20-inch photomultiplier tubes (PMTs), 25,600 3-inch PMTs, front-end electronics, cabling, anti-magnetic compensation coils, and optical panels.\nWhen neutrinos interact inside the detector, they produce tiny flashes of light. The PMTs work together to capture this scintillation light and convert it into electrical signals. By analyzing those signals, scientists can precisely determine the energy of the neutrinos and extract key oscillation parameters.\nJUNO has now operated successfully for nine months. As additional data are collected, researchers expect a steady stream of new scientific results beginning this summer.\nThose future measurements could help answer some of the biggest remaining questions about neutrinos and further reveal the properties of these elusive particles.\n“Measurement of reactor neutrino oscillation with the first JUNO data” by The JUNO Collaboration, 10 June 2026,\nDOI: 10.1038/s41586-026-10538-z\n“JUNO experiment ushers in next generation of neutrino experiments” by Patricia Vahle, and Zoya Vallari, 10 June 2026,\nDOI: 10.1038/d41586-026-01585-7\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nChinese Academy of Sciences\nParticle Physics\nMatter Without Antimatter? Closing In on Elusive Particles.\nPhysicists at MIT Shave Estimate of Mass of Neutrino “Ghost Particle” in Half\nNew Tabletop Detector Identifies Single Electrons\nGERDA Experiment Phase I Results – No New Evidence That Neutrinos Are Their Own Antiparticles\nFermilab Narrows the Gap Between the Masses of Neutrinos and Antineutrinos\nMAJORANA, the Underground Experiment that Could Rewrite the Standard Model\nICARUS Experiment Claims Neutrinos Aren’t Faster Than Light\nNew Type of Neutrino Oscillation Discovered at Daya Bay\nPossible Mistakes Found in Faster Than Light Neutrino Measurement",
           "hb": 1
         }
       ]

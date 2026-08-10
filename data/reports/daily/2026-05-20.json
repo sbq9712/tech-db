@@ -6,38 +6,34 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "国家发改委与能源局允许多用户绿电直连并探索小时级发用电量匹配机制",
-      "研究揭示大陆尺度天然氢储层分布特征为脱碳能源勘探提供地质证据",
-      "新型聚合物膜实现复杂盐湖卤水体系高选择性锂离子提取"
+      "发改委与能源局发文允许多用户绿电直连并要求整体参与电力市场",
+      "多用户绿电直连项目将遵循以荷定源原则及探索小时级发用电匹配",
+      "电化学CO2还原新技术实现安培级一氧化碳合成"
     ],
     "AI与智能科技": [
-      "国防科大团队利用三阶奇点提升芯片级陀螺仪信噪比253倍",
-      "大语言模型在标准三方图灵测试中达到与人类难以区分的水平",
-      "新型片上大规模全光互连架构降低深度神经网络推理延迟"
+      "国防科大利用奇点增强效应将硅芯片陀螺仪精度提升297倍",
+      "三阶奇点技术使芯片级科里奥利振动陀螺仪信噪比改善253倍",
+      "氧掺杂技术实现单层二硒化钨晶体管45纳米沟道高导通电流"
     ],
-    "通用技术": [
-      "钯掺杂催化剂在安培级电流密度下实现硝酸盐高效电合成氨",
-      "新型MR-TADF发射体实现外量子效率35.6%的纯绿色超荧光OLED",
-      "研究揭示钙钛矿忆阻器双极性阻变行为机制与离子迁移规律"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "国家发改委与能源局允许多用户绿电直连并探索小时级发用电量匹配机制",
-        "研究揭示大陆尺度天然氢储层分布特征为脱碳能源勘探提供地质证据",
-        "新型聚合物膜实现复杂盐湖卤水体系高选择性锂离子提取"
+        "发改委与能源局发文允许多用户绿电直连并要求整体参与电力市场",
+        "多用户绿电直连项目将遵循以荷定源原则及探索小时级发用电匹配",
+        "电化学CO2还原新技术实现安培级一氧化碳合成"
       ],
       "entries": [
         {
           "t": "国家发改委、能源局印发《关于有序推动多用户绿电直连发展有关事项的通知》 ，允许多用户绿电直连",
           "d": "2026-05-20",
           "a": "手动导入",
-          "c": "零碳产业",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "国家发改委与能源局印发通知，正式允许多用户绿电直连发展。该模式允许新能源通过专用线路直接向多个法人供电，分为并网型和离网型。项目需遵循“以荷定源”原则并整体参与电力市场，同时探索建立小时级绿电发用电量匹配机制，进一步促进绿电消纳与新能源直连供给。",
-          "sc": 9.0,
+          "sc": 8.3,
           "i": "n",
           "tg": "政策监管",
           "u": "http://www.nea.gov.cn/20260520/9e1c4277ce324c8ab82a84da98da7980/c.html",
@@ -51,48 +47,42 @@
           "hb": 1
         },
         {
-          "t": "大陆氢气储库十年记录揭示地下微生物生命与天然氢气勘探潜力",
+          "t": "国家发改委、能源局印发《关于有序推动多用户绿电直连发展有关事项的通知》 ，允许多用户绿电直连",
           "d": "2026-05-20",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "基于大陆尺度氢气储层的十年观测记录，揭示了地下天然氢（白氢）资源的分布特征及其与深部微生物生命的潜在关联。研究发现，多个地质构造中存在持续的H₂渗漏信号，表明地壳内部通过蛇纹石化等水岩反应不断生成氢气。这些天然氢储层同时可能支撑深部化能自养微生物生态系统。该研究为天然氢作为脱碳能源的勘探开发提供了地质证据基础，也拓展了地下生物圈的认知边界。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2603895123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "天然氢勘探",
+          "a": "手动导入",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "国家发改委与能源局印发通知，正式允许多用户绿电直连发展。该模式允许新能源通过专用线路直接向多个法人供电，分为并网型和离网型。项目需遵循“以荷定源”原则并整体参与电力市场，同时探索建立小时级绿电发用电量匹配机制，进一步促进绿电消纳与新能源直连供给。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "http://www.nea.gov.cn/20260520/9e1c4277ce324c8ab82a84da98da7980/c.html",
+          "tp": "绿电直连政策",
           "aip": 1,
-          "kp": [
-            "[天然氢储层]: 大陆十年实证生产数据",
-            "研究意义[天然氢]: 微生物生命与勘探潜力",
-            "[数据突破]: 实证数据替代理论模型"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Interest in the economic potential for hydrogen for decarbonization and the green energy transition is a recent phenomenon. Major questions remain concerning the concentrations, volumes, and sustainability of potential reservoirs, as projections to date are largely theoretical models rather than empirical data. This study integrates previously unpublished long-term data for natural hydrogen production from serpentinization and radiolysis, with research carried out during investigations of the deep subsurface biosphere. The results provide constraints on the volume of natural hydrogen available in the crust and the rates of potential discharge. Discharge rates of &gt;140 tonnes of hydrogen per year from a site in Canada suggest ~4.7 million kwH of energy from hydrogen per year could be available from a single mine location. These data indicate that large discharges of hydrogen may be sustainable in the long-term based on monitoring to date from 1 to &gt;10 y. Calculations from this study site show that the amount of locally generated energy has economic value for both industries and communities located on hydrogen-producing rock. Given that &gt;70% of the continental crust has the potential for hydrogen generation, such local/regional use of this energy source is an unexplored opportunity, in addition expanding our understanding of the habitability of Earth and beyond. We present an alternative vision for the hydrogen economy that can address some of the current challenges arising from the focus to date, that has been largely based on transportation of hydrogen over long distances from source location to markets.",
+          "kp": [],
+          "lv": 3,
+          "wr": "指导性政策出台||绿电直连应用场景扩展许可\n\n绿电直连是除了园区内自发自用外，目前零碳园区/工厂最主要的电力来源形式。多用户绿电直连的放开为零碳园区提供了更实际的能源供给方式，同时，也为绿电消纳提供了需求场景。",
+          "cm": "25年5月30日，国家发改委和能源局出台650号文，放开了绿电直连这一可不接入公共电网，直接由电源向用电单位点对点送电的形式，但只允许电源向单一用户供电。此次的688号文则允许单个电源向多个用户供电。进一步拓宽了绿电直连应用场景和就地消纳的潜力。\n潜在风险/价值点：多用户直连比单对单直连更有现实应用场景。帮助零碳业务解决电源问题，也为电源降低风险，扩大盈利模式，从而激活零碳业务市场。\n小时级匹配探索。\n论据支持：绿电电源将可以以园区为单位直连，而不是单个企业。大规模的电站（500MW+）此前很难对单个企业绿电直连，但现在多个可以负荷组合可以消纳这些更大的装机容量。能\n文本中提到“实现小时级新能源发用电量匹配”，可视为有关部门在探索这一机制。但短期内应该不会推动落地。",
+          "b": "5月20日，国家发改委、国家能源局印发《关于有序推动多用户绿电直连发展有关事项的通知》，在单用户绿电直连基础上，正式允许多用户绿电直连。该模式允许风电、光伏等新能源不直接接入公共电网，通过专用线路和变电设施向多个不同法人供给绿电。\n通知明确",
           "hb": 1
         },
         {
-          "t": "聚合物膜中氢键锚定的通道微环境工程用于高效提锂",
+          "t": "[ASAP] 通过界面水重组对 CO2 活化途径进行热调节，实现安培级、接近单位的 CO 电合成",
           "d": "2026-05-20",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
-          "as": "通过在聚合物膜中构建氢键锚定的通道微环境，仿生模拟生物离子通道的高选择性和高通量，实现了高效锂离子提取。该膜材料在复杂盐湖卤水体系中展现出优异的Li+选择性，为盐湖提锂的膜分离技术提供了新思路。",
-          "sc": 7.3,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9662420?af=R",
-          "tp": "聚合物膜提锂",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02677",
+          "tp": "CO2电合成",
           "aip": 1,
-          "kp": [
-            "[膜工程]: 氢键锚定亚纳米孔道微环境调控"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    The creation of synthetic membranes that mimic the high selectivity and flux of biological ion channels remains a major challenge in separation science. Precise control over chemical microenvironment within sub‐nanometer pores is critical but notoriously difficult to achieve in scalable materials like amorphous polymers. Here we report a strategy for engineering the microenvironments of confined channels in a polymer of intrinsic microporosity (PIM) by using hydrogen bonding to uniformly anchor oligoether chains onto the pore walls. The enhanced confinement effect resulting from this anchoring increases steric limitation for larger ions (e.g., Mg\n                    2+\n                    ) and strengthens their ion‐channel interactions. Concurrently, the uniformly distributed oligoether chains establish a synergistic transport pathway for small ions (e.g., Li\n                    +\n                    ). The resulting membrane exhibits exceptionally high selectivity for monovalent ions over divalent ions (Li\n                    +\n                    /Mg\n                    2+\n                    selectivity of &gt;270) while maintaining a high Li\n                    +\n                    flux (&gt;0.6 mol m\n                    −2\n                    h\n                    −1\n                    )—an order of magnitude improvement compared to state‐of‐the‐art polymeric membranes. When deployed for direct lithium extraction from salt‐lake brine, the membrane achieves a lithium recovery rate of 268 g m\n                    −2\n                    day\n                    −1\n                    and low energy consumption (7.26 Wh g\n                    Li\n                    −1\n                    ).",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,18 +90,18 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "国防科大团队利用三阶奇点提升芯片级陀螺仪信噪比253倍",
-        "大语言模型在标准三方图灵测试中达到与人类难以区分的水平",
-        "新型片上大规模全光互连架构降低深度神经网络推理延迟"
+        "国防科大利用奇点增强效应将硅芯片陀螺仪精度提升297倍",
+        "三阶奇点技术使芯片级科里奥利振动陀螺仪信噪比改善253倍",
+        "氧掺杂技术实现单层二硒化钨晶体管45纳米沟道高导通电流"
       ],
       "entries": [
         {
           "t": "国防科技大学周鑫报道奇点增强科里奥利效应提升芯片级陀螺仪性能",
           "d": "2026-05-20",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "国防科技大学周鑫团队提出利用三阶奇点增强芯片级科里奥利振动陀螺仪性能，使科里奥利因子提升三个数量级，信噪比改善253倍，精度提高297倍，创造硅芯片陀螺仪性能纪录，实现此前不可得的亚线性相位调制超灵敏测量。成果2026年5月发表于Nature。",
-          "sc": 8.5,
+          "sc": 8.4,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10565-w",
@@ -125,45 +115,44 @@
           "hb": 1
         },
         {
-          "t": "大语言模型通过标准三方图灵测试",
+          "t": "国防科技大学周鑫报道奇点增强科里奥利效应提升芯片级陀螺仪性能",
           "d": "2026-05-20",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "研究表明大语言模型已能通过标准三方图灵测试。在该测试中，人类评判者通过与两个被试（一人一机或两机）对话来辨别真伪，LLM的表现达到与真人难以区分的水平。该结果对机器智能的评估标准和社会影响提出了新的讨论维度。",
-          "sc": 8.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2524472123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "大模型图灵测试",
+          "a": "Doi",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "国防科技大学周鑫团队提出利用三阶奇点增强芯片级科里奥利振动陀螺仪性能，使科里奥利因子提升三个数量级，信噪比改善253倍，精度提高297倍，创造硅芯片陀螺仪性能纪录，实现此前不可得的亚线性相位调制超灵敏测量。成果2026年5月发表于Nature。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10565-w",
+          "tp": "奇点陀螺仪",
           "aip": 1,
-          "kp": [
-            "[测试模型]: GPT-4.5/GPT-4o/LLaMa-3.1-405B/ELIZA"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The Turing test has been widely discussed as a test of machine intelligence, but it also provides a measure of how humans distinguish other humans from machines. We evaluated 4 systems (ELIZA, GPT-4o, LLaMa-3.1-405B, and GPT-4.5) in two randomized, controlled, and preregistered Turing tests on independent populations. Participants had 5 min conversations simultaneously with another human participant and one of these systems before judging which conversational partner they thought was human. When prompted to adopt a humanlike persona, GPT-4.5 was judged to be the human 73% of the time: significantly more often than interrogators selected the real human participant. LLaMa-3.1, with the same prompt, was judged to be the human 56% of the time—not significantly more or less often than the humans it was being compared to. Without these prompts, however, the same models performed significantly worse (38% and 36%), and did not consistently outperform baseline models, ELIZA and GPT-4o (23% and 21%, respectively). A third study replicated these results in 15-min games: two PERSONA-prompted models achieved pass rates of 56% and 59%. The results constitute empirical evidence that artificial systems can pass a standard three-party Turing test. Interrogators’ reasoning focused more on stylistic and socio-emotional aspects of human behavior rather than more traditional notions of intelligence. The results have implications for debates about what kind of intelligence is exhibited by large language models, the social impacts these systems are likely to have, and the aspects of human behavior that people continue to see as unique.",
+          "b": "陀螺仪作为基础惯性传感器，对消费电子、汽车及航空航天等领域的旋转测量至关重要，其中应用最广泛的类型依赖于科里奥利效应。芯片级科里奥利振动陀螺仪（CVG）虽在尺寸、重量和成本上均有所降低，但其性能却远不及传统的宏观尺度CVG，这是因为较弱的内禀科里奥利因子对缩小灵敏度设定了根本限制，且与宏观尺度相比，微芯片内固有的布朗噪声更为显著。为克服这一物理极限，研究提出并实验验证了在片上CVG的相位追踪振荡中，利用位于尖点突变内的三阶奇点，来促进科里奥利效应诱导的频率调制实现立方根标度。利用该效应，研究实现了科里奥利因子三个数量级的提升，使得信噪比改善了253倍，精度提高了297倍。此外，尖点奇点还实现了此前无法实现的超灵敏相位调制亚线性测量，创造了硅芯片陀螺仪信噪比性能的记录。这些发现不仅在观察和控制奇点增强的科里奥利效应方面填补了空白，为陀螺仪技术带来了革命性进步，而且也为其他超灵敏传感应用提供了新的启示。文章于2026年5月20日发表在Nature。",
           "hb": 1
         },
         {
-          "t": "面向超低延迟深度神经网络推理的片上大规模全光互连",
+          "t": "高性能p型单层二硒化钨晶体管",
           "d": "2026-05-20",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究提出了一种片上大规模全光互连架构，用于构建超低延迟的深度神经网络（DNN）硬件。随着AI模型规模急剧扩张，传统电互连面临带宽瓶颈和功耗挑战，光互连凭借超高速率和低能耗优势成为突破口。该方案在芯片层面集成光子互连网络，显著降低DNN推理延迟和能耗，对可持续AI计算基础设施和高性能光子芯片发展具有重要推动作用。",
-          "sc": 7.5,
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "报道了高性能p型单层二硒化钨晶体管。采用工业兼容且可调的氧掺杂技术修复缺陷态，器件在室温下的空穴迁移率达137平方厘米每伏特秒，接触电阻约560欧姆微米。沟道长度缩小至45纳米的器件实现了1245微安每微米的导通电流，开关比约为10的9次方，显著缩小了与n型器件的性能差距。",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag282/8687745?rss=1",
-          "tp": "片上光互连",
+          "u": "https://www.nature.com/articles/s41928-026-01637-w",
+          "tp": "二维半导体管",
           "aip": 1,
           "kp": [
-            "[互连架构]: 片上全光互连实现超低延迟DNN推理"
+            "空穴迁移率[p型单层二硒化钨晶体管]: 137 cm2 V−1 s−1",
+            "接触电阻[p型单层二硒化钨晶体管]: 约560 Ω µm"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "As artificial intelligence (AI) models continue to expand rapidly and evolve at an accelerating pace, the sustainability of scaling law faces challenges as computational resources cannot expand indefinitely. A more promising strategy is to use high-performance interconnections to compose multiple modest-capacity computing chips into a high-efficiency system, enabling comparable capability to that of much larger resource-intensive systems. However, an effective on-chip communication and network that provides high bandwidth, low latency, and large-scale parallelism to accelerate distributed computation is still lacking. Here, we address this challenge by proposing an on-chip, all-optical-interconnect-based hybrid optoelectronic distributed computing system, achieving two orders of magnitude lower inference latency than a single graphics processing unit (GPU) while using only one-ninth of its computational resources. The 400-gigabits per second (Gbps) silicon photonic transceiver chips can provide high-speed and error-free optical input/output (I/O) for processing chips, and an ultra-low-loss (≤ 5 dB at 1300 nm), non-blocking 16×16 optical switch chip can further scale out the all-optical network for massive and flexible interconnection. As a validation, we configure the system to realize optical pipeline parallelism (OPP) and execute a five-layer convolutional neural network (CNN) denoising model, which processes a total of 1,000 images of 32,768 bits each in only 105.16 µs. These results convincingly illustrate a transformative pathway toward future high-efficiency computing architectures.",
+          "b": "Two-dimensional semiconductors are potential channel materials for future scaled complementary transistor technologies due to their high carrier mobility and strong immunity to the short-channel effect. However, the electrical performance of p-type transistors is still far below that of their n-type counterparts. Here we report high-performance p-type monolayer tungsten diselenide transistors with a hole mobility of 137 cm2 V−1 s−1 and a contact resistance of approximately 560 Ω µm at room temperature. Our approach uses an industry-compatible and tunable oxygen-incorporated technique to heal the defect states. A scaled p-type monolayer tungsten diselenide transistor with a channel length of 45 nm exhibits an on-state current of 1,245 μA μm−1 and an on/off ratio of ~109.",
           "hb": 1
         }
       ]
@@ -171,79 +160,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "钯掺杂催化剂在安培级电流密度下实现硝酸盐高效电合成氨",
-        "新型MR-TADF发射体实现外量子效率35.6%的纯绿色超荧光OLED",
-        "研究揭示钙钛矿忆阻器双极性阻变行为机制与离子迁移规律"
-      ],
-      "entries": [
-        {
-          "t": "钯掺杂界面协同实现安培级硝酸盐电合成氨",
-          "d": "2026-05-20",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "电催化硝酸盐还原制氨（NO3RR）是绿色合成氨的有前景路径，但在工业级大电流密度下的活性和选择性远未达标。该研究通过钯（Pd）掺杂调控催化剂界面电子结构，实现界面协同效应，在安培级电流密度下实现超高氨产率和法拉第效率。Pd掺杂优化了反应中间体吸附能，促进硝酸根到氨的多电子转移过程，显著降低过电位。该工作为工业规模电化学合成氨的催化剂设计提供了掺杂工程新策略，有望推动可持续氮循环技术落地。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2794664?af=R",
-          "tp": "电催化硝酸盐制氨",
-          "aip": 1,
-          "kp": [
-            "法拉第效率[硝酸盐还原产氨]: >98.0%",
-            "分电流密度[产氨]: -1.43A/cm²",
-            "稳定性[产氨]: >170h",
-            "[催化剂]: Pd掺杂Co电化学重构"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The practical electrocatalytic nitrate‐to‐ammonia conversion suffers from insufficient performance at industrial current densities. Here, we report an electrochemically reconstructed Pd‐doped Co catalyst that achieves &gt; 98.0% ammonia Faradaic efficiency at an ultrahigh partial current density of ‒1.43 A cm\n                    −2\n                    and operates stably for over 170 h. Integrated in situ spectroscopy and theoretical simulations reveal a dual‐enhancement mechanism, in which Pd doping lowers the energy barrier of the rate‐determining *NO hydrogenation step and reconstructs the interfacial microenvironment. This restructuring promotes cation enrichment and establishes a dynamic hydrogen‐down‐oriented water network, facilitating proton transfer and intermediate stabilization under high‐flux conditions. Unlike its role in Cu‐based systems, Pd in the Co matrix distinctly optimizes the kinetics of surface intermediates, enhances the local interfacial electric field, and increases the flexibility of the hydrogen‐bond network. This work demonstrates the critical synergy between atomic‐site engineering and microenvironment control for achieving high‐rate electrocatalysis beyond conventional electronic modulation.",
-          "hb": 1
-        },
-        {
-          "t": "稳定的纯绿色超荧光有机发光二极管，在高亮度下具有终极效率，符合 Rec 2020 标准（Adv. Mater. 28/2026）",
-          "d": "2026-05-20",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "设计了新型MR-TADF发射体DBF-v-DABNA，实现了纯绿色超荧光OLED。该器件外量子效率高达35.6%，CIE y值达0.73-0.79，在5000 cd/m²亮度下使用寿命超过600小时。其刚性骨架和空间位阻屏蔽策略兼顾了超高效率、优异色纯度和长期稳定性，符合Rec 2020标准，为高效纯色显示技术提供了分子设计范式。",
-          "sc": 7.4,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73279?af=R",
-          "tp": "绿色OLED",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Stable Pure-Green Hyperfluorescent Organic Light-Emitting Diodes A newly designed MR-TADF emitter, DBF-v-DABNA, enables pure-green hyperfluorescent OLEDs with ultrahigh efficiency, outstanding color purity, and long operational stability. Its rigid framework and steric shielding enable hyperfluorescent OLEDs with EQEs up to 35.6%, CIE y of 0.73–0.79, and device lifetimes exceeding 600 h at 5000 cd m−2. This work highlights an effective molecular design strategy for realizing highly efficient and color-pure green emission in next-generation UHD displays. More details can be found in the Research Article by Byoung Ki Choi, Yun-Hi Kim, and co-workers (DOI: 10.1002/adma.202518330).",
-          "hb": 1
-        },
-        {
-          "t": "高性能钙钛矿忆阻器中超宽动态范围的成型与开关机制",
-          "d": "2026-05-20",
-          "a": "Joule",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "钙钛矿忆阻器因低功耗、高开关比与多级阻态特性，被视为下一代类脑计算与存储器件的有力候选。本研究系统揭示了高性能钙钛矿忆阻器的阻变层形成过程与开关机制，发现通过界面离子迁移、缺陷态调控及自限制效应可实现稳定的双极性阻变行为。该成果为钙钛矿忆阻器的工程化设计与大规模集成应用奠定了机制层面的理论基础。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00157-1?rss=yes",
-          "tp": "钙钛矿忆阻器",
-          "aip": 1,
-          "kp": [
-            "动态范围[钙钛矿忆阻器]: 超宽",
-            "[开关机制]: 结构变化形成开关位点",
-            "[图案化策略]: 光学图案化精确控制开关位点"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The developed perovskite memristors achieve outstanding performance, making them suitable for electrical switches with lowest losses. The key is that the switching occurs at sites formed by structural changes during initial operation. A newly developed optical patterning strategy allows precise control of these sites.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

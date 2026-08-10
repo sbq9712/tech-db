@@ -6,17 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "赣锋锂业500Wh/kg固态电池实现小批量量产，国轩高科硫化物电导率达8ms/cm",
-      "东京大学团队在二维反铁磁材料中观测到无需PN结的本征光生伏特效应",
-      "西安电子科大微波无线传能系统实现百米距离1180W功率输出"
+      "赣锋锂业500Wh/kg级固态电池实现小批量量产，国轩高科固态电解质电导率超8ms/cm",
+      "西安电子科大团队微波无线传能系统实现百米距离1180W功率输出，传输效率达20.8%",
+      "西班牙Basquevolt推出402Wh/kg锂金属负极电池，75%零部件实现欧洲本土化采购"
     ],
     "AI与智能科技": [
-      "科研团队研发三维织物架构，集成传感器与计算单元构建触觉具身智能",
-      "新型磁性微型软体机器人研发成功，可借外部磁场重编程执行靶向药物递送"
+      "新技术ECgo利用全光诱导技术实现脑内单个内皮细胞精准损伤与毛细血管闭塞"
     ],
     "通用技术": [
-      "铒基卤化物短波红外电致发光二极管外量子效率达到3.06%创纪录水平",
-      "研究证实弱极性光学声子散射可解耦层状材料电子与声子输运并提升热电优值"
+      "研究通过人类心肌细胞筛选，鉴定出可用于体内心脏基因编辑的优化脂质纳米粒子",
+      "新方法使用光驱动组合条形码技术，实现组织分子的空间可调谐多组学测序",
+      "研究负载IrOx催化剂引入非晶中间层，通过非晶格氧触发去质子化以提升酸性析氧效率"
     ]
   },
   "sectors": [
@@ -24,9 +24,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "赣锋锂业500Wh/kg固态电池实现小批量量产，国轩高科硫化物电导率达8ms/cm",
-        "东京大学团队在二维反铁磁材料中观测到无需PN结的本征光生伏特效应",
-        "西安电子科大微波无线传能系统实现百米距离1180W功率输出"
+        "赣锋锂业500Wh/kg级固态电池实现小批量量产，国轩高科固态电解质电导率超8ms/cm",
+        "西安电子科大团队微波无线传能系统实现百米距离1180W功率输出，传输效率达20.8%",
+        "西班牙Basquevolt推出402Wh/kg锂金属负极电池，75%零部件实现欧洲本土化采购"
       ],
       "entries": [
         {
@@ -35,7 +35,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "多家电池企业更新固态/半固态电池进展。国轩高科微晶硫化物固态电解质电导率≥8ms/cm，金石固态电池能量密度400Wh/kg；钠晨钠离子电池高能版261Wh/kg。赣锋锂业400Wh/kg固态电池循环寿命突破1100次并完成工程验证，500Wh/kg级10Ah产品实现小批量量产。西班牙Basquevolt推出锂金属负极电池BQV400L，能量密度402Wh/kg，75%零件来自欧洲。融捷集团等亦有相关进展。行业整体进入产业化加速期。",
-          "sc": 6.8,
+          "sc": 7.2,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/JsL1yYQnoDJm82XLy6gPpg",
@@ -49,31 +49,31 @@
           "hb": 1
         },
         {
-          "t": "东京大学Toshiya Ideue对二维磁性材料CrSBr的本征光生伏特效应进行观测",
+          "t": "赣锋锂电、国轩高科、Basquevolt、融捷集团等分别更新其固态/半电池开发进展",
           "d": "2026-05-18",
           "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "东京大学Toshiya Ideue团队在具有PT对称性的A型二维反铁磁双层CrSBr中实验观测到量子度规驱动的本征光伏效应（IPVE）。该效应发生在均匀材料中，无需p-n结，有望提升太阳能转换效率。理论预测磁性材料的体光伏效应与量子度规密切相关，归为磁注入光电流机制，但长期缺乏实验验证。CrSBr呈层内铁磁、层间反铁磁耦合，具有面内磁各向异性，为验证该理论提供了理想平台。该成果填补了磁性材料体光伏效应的实验空白。",
-          "sc": 6.8,
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "多家电池企业更新固态/半固态电池进展。国轩高科微晶硫化物固态电解质电导率≥8ms/cm，金石固态电池能量密度400Wh/kg；钠晨钠离子电池高能版261Wh/kg。赣锋锂业400Wh/kg固态电池循环寿命突破1100次并完成工程验证，500Wh/kg级10Ah产品实现小批量量产。西班牙Basquevolt推出锂金属负极电池BQV400L，能量密度402Wh/kg，75%零件来自欧洲。融捷集团等亦有相关进展。行业整体进入产业化加速期。",
+          "sc": 7.2,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41563-026-02593-8",
-          "tp": "反铁磁光伏",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/JsL1yYQnoDJm82XLy6gPpg",
+          "tp": "固态电池进展",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "二维磁性材料中，空间时间反演（PT）对称反铁磁体具备独特量子几何物理特性。在PT对称性约束下，贝里曲率抵消消失，量子度规主导光学与输运行为。反铁磁有序打破晶体反演对称性，理论可产生量子度规驱动的本征光伏效应（IPVE）。IPVE发生在均匀材料中，不需要传统光伏效应中的p-n结，有望提高太阳能转换效率。目前，人们对体光伏效应的研究主要集中在非中心对称的非磁性材料和异质结系统中，对磁性材料中的体光伏效应研究相对匮乏。理论指出，受限于磁性材料体系的对称性条件，体光伏效应与量子度规（Quantum metric）密切相关，可以归结为磁注入光电流机制（Magnetic injection current），然而该理论机制一直缺乏明确的实验验证。\n近日，东京大学Toshiya Ideue团队在具有PT对称性的A型二维反铁磁双层（2L）CrSBr中，实验观测到了IPVE。其选取具有PT对称性的双层反铁磁材料CrSBr作为研究体光伏效应的平台，发现双层CrSBr呈现层内铁磁耦合、层间反铁磁耦合，并存在两个等价的反铁磁态，可以通过空间反演或者时间反演操作相互转换。同时，CrSBr具有面内磁各向异性，其易磁化轴沿晶体b轴。CrSBr的空间群为Pmmn，在反铁磁态下对应的磁点群为mmm’。在顺磁态时，双层CrSBr具有中心对称性，因此不会产生体光伏效应；而当温度低于反铁磁转变温度（TN=140 K）时，反铁磁序同时破坏了时间反演和空间反演对称性，从而满足体光伏效应产生所需的对称性条件。在低温条件下，对双层CrSBr样品照射激光，并测量沿着镜面方向（a轴）的电流-电压（I-V）特性曲线。实验结果显示，与两种反铁磁态相对应，出现了符号相反的光电流信号。\nIPVE验证结果发现，在镜面对称方向上，器件通道内的光电流响应分布均匀且稳定，并且电流方向会随着反铁磁态的转变而发生反转；而在垂直镜面的方向上，光电流信号非常微弱，可以忽略不计，与体光伏效应的特征完全一致。同时，随着温度升高光电流逐渐减弱，并在温度高于反铁磁转变温度（140 K）时完全消失，证明该光电流确实来源于双层CrSBr中的反铁磁结构。此外，双层CrSBr光电流对线偏振光极化方向以及对激发光子能量的依赖性也均符合体光伏效应的理论预期，进一步验证了所观测到信号的本征性。其进一步制备了顶电极接触器件发现，在相同磁场方向下，顶电极器件中的光电流方向与底电极器件中的光电流方向正好相反。对比器件结构表明，在反铁磁相中，上下两层产生的光电流大小相等方向相同；而在磁场诱导铁磁相中，上下两层的光电流大小相等但方向相反，因此相互抵消，从而满足体光伏效应的对称性要求。通过紧束缚模型计算，其进一步揭示了CrSBr中的层局域电子态和量子几何性质，并证明双层CrSBr中的体光伏效应源于磁注入光电流机制。文章于2026年5月18日发表在Nature Materials。",
+          "b": "5月18日，国轩高科在其官方公众号发文称，其微晶硫化物固态电解质的电导率≥8ms/cm，D50=1-5μm；纳晶硫化物固态电解质电导率4-6ms/cm，D50=0.1-0.55μm；金石固态电池能量密度400Wh/kg，失重率达0.01%（<国标0.5%）。另据人民日报下属证券时报报道称，其钠晨钠离子电池的高能版本能量密度达261Wh/kg，动力版支持-50℃超低温放电；储能版循环寿命超20000次，-40℃放电保持率高于88%；且相关产品支持量产。\n5月20日，江西赣锋锂业发布投资者关系活动记录表，透露其400Wh/kg固态电池的循环寿命已突破1100次，并完成工程验证，具备规模化应用潜力；500Wh/kg级的10Ah产品已实现小批量量产。硅基负极路线320Wh/kg电芯循环寿命突破1000次，480Wh/kg产品也在研发。\n5月22日，西班牙电池公司Basquevolt发文推出采用锂金属负极、NMC正极、聚合物固液电解质的锂离子电池BQV400L，宣传能量密度402Wh/kg，容量27Ah，可实现8.9C脉冲功率。文中称，该电池为西班牙制造，75%的零件来自欧洲。\n5月25日，广东融捷集团在其官方公众号发文称，其开发的高倍率型5C放电固态电池在近1000次2C充电、5C放电循环后，容量保持率仍达88%；能量密度较先前产品增加80%（原产品能量密度并未公布）。宣传可用于储能、快充叉车、电动汽车、eVTOL等领域。",
           "hb": 1
         },
         {
           "t": "西安电子科大段宝岩团队一对多移动目标微波无线验证系统实现百米级距离1180W功率输出",
           "d": "2026-05-18",
-          "a": "",
+          "a": "News",
           "c": "零碳产业/能量循环/能源测/发电技术/其他发电技术",
           "as": "西安电子科技大学段宝岩院士团队自主研制一对多动目标微波无线传能空间太阳能电站地面验证系统，在百米级距离实现1180W功率输出，直流-直流传输效率20.8%，波束收集效率88.0%。团队提出分布式欧米伽空间太阳能电站方案，可一套发射系统为多个移动目标供电。无人机微波传能在30km/h、30m条件下实现143W稳定接收。较2024年发表的系统（55米、736W输出）有显著提升，未来有望为太空飞行器和地面设备同时供电。",
-          "sc": 6.7,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.news.cn/20260518/1f95b92df12e42448c0b7a2c78ff2219/c.html",
@@ -92,54 +92,27 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "科研团队研发三维织物架构，集成传感器与计算单元构建触觉具身智能",
-        "新型磁性微型软体机器人研发成功，可借外部磁场重编程执行靶向药物递送"
+        "新技术ECgo利用全光诱导技术实现脑内单个内皮细胞精准损伤与毛细血管闭塞"
       ],
       "entries": [
         {
-          "t": "面向触觉具身智能的三维织物架构",
+          "t": "ECgo：全光诱导脑内单个内皮细胞损伤和毛细血管闭塞",
           "d": "2026-05-18",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究提出了一种用于触觉具身智能的三维织物架构。基于感觉-神经形态计算技术，将传感器与计算单元集成于柔性织物中，赋予可穿戴设备环境感知与主动响应能力，推动了智能纺织品和可穿戴神经形态电子的发展。",
-          "sc": 7.2,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "",
+          "sc": 6.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73410?af=R",
-          "tp": "触觉具身智能织物",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2513515123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "光诱导脑损伤",
           "aip": 1,
-          "kp": [
-            "[架构]: 三维服装结构纺织电子",
-            "[功能]: 感知-神经形态触觉具身智能"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Sensory‐neuromorphic computing endows wearable devices with capabilities of environmental perception and active service, acting as a pivotal driver for the revolution in human–computer interaction. However, its implementation in textile electronics is hampered by incompatibility between conventional electronic device structures and the fabric‐woven manufacturing methodology. Here, we demonstrate a tactile‐neuromorphic interface integrating a textile‐type resistive random‐access memory (RRAM) array for constructing human–machine sensing‐computing interactive systems. The 3D stacked TiO\n                    2\n                    /Ti\n                    3\n                    C\n                    2\n                    T\n                    x\n                    textile RRAM exhibits an order‐of‐magnitude reduction in switching voltage (85 mV) compared to prevailing counterparts, ultra‐stable resistive switching over 10\n                    3\n                    operation cycles with ultralow 1.15% LRS coefficient of variation, ideal for actualizing weavable neuromorphic computing. An all‐textile integrated near‐sensor computing system, featuring monolithically co‐integrated pressure sensor and RRAM arrays, demonstrates quasi‐linear conductance modulation under pressure stimuli, allowing for the embedded computation‐memory nodes knitted into garment textiles to achieve in situ tactile processing for contactless vehicular maneuvering. This work demonstrates the potential to integrate an embedded sensing‐logic‐memory electronic device into smart textiles, propelling a transformative paradigm shift in human–machine interaction.",
-          "hb": 1
-        },
-        {
-          "t": "具有磁性可重编程手术功能的微型软体机器人",
-          "d": "2026-05-18",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了一种具有磁可重编程外科功能的微型软体机器人。磁性微型机器人作为无系绳驱动器，可通过外部磁场实时重编程其功能行为，有望革新微创外科手术，实现靶向药物递送和精准操作等多种医疗任务。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523056?af=R",
-          "tp": "磁控微型手术机器人",
-          "aip": 1,
-          "kp": [
-            "[器件]: 磁性微型软体机器人",
-            "[功能]: 磁场可重编程多种手术功能",
-            "[性能]: 突破双功能限制五自由度"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Magnetic miniature robots are untethered actuators, which can prospectively make existing minimally invasive surgery considerably safer and painless, and enable unprecedented treatments because they are much smaller and dexterous than existing surgical robots. However, such actuators are restricted to possessing at most two on‐board functionalities, having limited five degrees‐of‐freedom (DOF) locomotion, or are only operational under specialized environments where actuation from strong external magnets must be at very close proximity (&lt;4 cm away). Here we present smart magnetic composites with deliberately engineered symmetry and heterogeneous material properties. Leveraging these composites, we construct a millimeter‐scale soft robot whose magnetization profile can be reprogrammed to dispense drugs, cut through biological tissues, grip and store biological samples, and heat remotely. By possessing full six‐DOF motions, including the sixth‐DOF rotation about its net magnetic moment, our soft robot can also roll and two‐anchor crawl across challenging unstructured environments, which are impassable by its five‐DOF counterparts. Because the applied magnetic fields are relatively uniform and weak (10–30 mT, 0.21–0.31 T/m for actuation; 60–65 mT for reprogramming), they can theoretically penetrate human tissues safely and enable actuation beyond 5 cm.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -147,74 +120,67 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "铒基卤化物短波红外电致发光二极管外量子效率达到3.06%创纪录水平",
-        "研究证实弱极性光学声子散射可解耦层状材料电子与声子输运并提升热电优值"
+        "研究通过人类心肌细胞筛选，鉴定出可用于体内心脏基因编辑的优化脂质纳米粒子",
+        "新方法使用光驱动组合条形码技术，实现组织分子的空间可调谐多组学测序",
+        "研究负载IrOx催化剂引入非晶中间层，通过非晶格氧触发去质子化以提升酸性析氧效率"
       ],
       "entries": [
         {
-          "t": "铒基卤化物 LED 的圆偏振 1540 nm 短波红外电致发光，效率达到创纪录的 3.06%",
+          "t": "人类心肌细胞筛选鉴定出用于体内心脏基因编辑的优化脂质纳米粒子",
           "d": "2026-05-18",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在铒基卤化物钙钛矿LED中实现了1540nm短波红外圆偏振电致发光，外量子效率达创纪录的3.06%。该波段对应光通信C波段，在非干线通信、生物成像和传感领域具有重要价值。研究克服了高发光效率与定制圆偏振发光（CPL）难以集成的瓶颈，为短波红外偏振光源的开发开辟了新路径。",
-          "sc": 7.4,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73399?af=R",
-          "tp": "铒基近红外",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2528477123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "纳米基因编辑",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Er\n                    3+\n                    ‐doped 1540 nm light‐emitting diodes (LEDs) are critical components in optical communications C‐band, non‐trunk communication, bioimaging, and sensing. However, integrating high luminous efficiency with tailored circularly polarized luminescence (CPL) in such LEDs remains a critical challenge. Here, we demonstrate efficient 1540 nm short‐wave infrared (SWIR) electroluminescence with distinct CPL in Cs\n                    3\n                    ErCl\n                    6\n                    nanocrystals (NCs)‐based LEDs via a synergistic strategy of Sb\n                    3+\n                    /Y\n                    3+\n                    co‐doping and camphor ligand modification. Y\n                    3+\n                    doping modulates lattice symmetry, inducing Stark splitting of the Er\n                    3+\n                    energy level and enhancing luminescence intensity. Sb\n                    3+\n                    introduction triggers efficient self‐trapped excitons emission at 530 nm, whose energy levels match Er\n                    3+\n                    states to boost energy transfer efficiency. Subsequently, camphor ligand exchange passivates Er\n                    3+\n                    ‐related defects, increasing the 1540 nm photoluminescence quantum yield to 35.7% and endowing NCs with CPL (asymmetry factor: −3.67 × 10\n                    −2\n                    ) via camphor's chiral structure. SWIR LEDs based on camphor‐modified Cs\n                    3\n                    Er\n                    0.7\n                    Y\n                    0.3\n                    Cl\n                    6\n                    : Sb\n                    3+\n                    NCs exhibit a record‐high external quantum efficiency of 3.06% at 1540 nm, and first, demonstrate electrically‐driven circularly polarized 1540 nm emission with asymmetry factor of −3.08 × 10\n                    −2\n                    . This work presents a synergistic doping‐ligand strategy for Er‐based halide optoelectronics, offering a versatile platform to develop high‐performance long‐wavelength devices with integrated efficient emission and tailored polarization, crucial for advancing next‐generation optical communication and bioimaging.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "弱极性光学声子散射解耦层状热电材料中的电子与声子输运",
+          "t": "使用组织中分子的光驱动组合条形码进行空间可调谐多组学测序",
           "d": "2026-05-18",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "高性能热电材料对废热回收和固态制冷技术至关重要。该研究发现弱极性光学声子散射能够有效解耦电子输运与声子输运，即在降低晶格热导率的同时维持高电子迁移率，从而大幅提升热电优值ZT。这一机制为设计新型高效热电材料提供了重要的电子-声子相互作用调控策略。",
-          "sc": 7.3,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00402",
-          "tp": "热电材料",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527896123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "多组学测序",
           "aip": 1,
-          "kp": [
-            "[电子-声子解耦]: 弱极性光学声子散射实现",
-            "材料体系[热电]: 层状化合物",
-            "[热导率]: 层状结构抑制跨面晶格热导率"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "High-performance thermoelectric (TE) materials are crucial for efficient waste-heat recovery and solid-state cooling technologies. A persistent challenge in TE materials design arises from the strong interdependence among the electrical conductivity (σ), Seebeck coefficient (S), and lattice thermal conductivity (κL). Layered compounds can effectively suppress κL along the cross-plane direction owing to weak interlayer interactions; however, they often suffer from low carrier mobility (μ) caused by limited band dispersion and strong polar optical phonon (POP) scattering. Here, we perform high-throughput density functional theory calculations to screen 236 layered semiconductors and identify candidates with low effective mass (m*) and weak POP scattering. We identify 23 compounds with high cross-plane μ, among which 14 exhibit large power factors (S2σ). Notably, GaGe2Te stands out with exceptionally high cross-plane σ and power factor, enabled by a favorable combination of small m* and a small ionic dielectric constant. Simultaneously, GaGe2Te exhibits an ultralow cross-plane κL of 0.57 W m–1 K–1 at 300 K, originating from weak interlayer bonding and pronounced phonon anharmonicity. These results demonstrate an effective strategy to decouple electron and phonon transport in layered materials by mitigating POP scattering, thereby providing a promising pathway toward high-performance thermoelectric materials.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "基于铒卤化物LED的圆偏振1540nm短波红外电致发光：3.06%创纪录效率",
+          "t": "通过负载 IrOx 上的不连续非晶中间层非晶格氧触发去质子化，用于酸性析氧",
           "d": "2026-05-18",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "Er³⁺掺杂1540nm短波红外电致发光二极管（LED）实现圆偏振发射。该波长对应光通信C波段核心窗口，圆偏振特性在自旋光电子学和量子通信中具有应用价值。研究通过手性钙钛矿或自旋极化注入实现Er³⁺离子的选择性跃迁，突破了传统稀土LED仅能产生非偏振光发射的限制，为集成化、低功耗的C波段光源及片上光通信互连提供了新材料方案。",
-          "sc": 6.8,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73399?af=R",
-          "tp": "铒基卤化物LED",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71085?af=R",
+          "tp": "酸性析氧催化",
           "aip": 1,
-          "kp": [
-            "发光效率[Er卤化物LED]: 3.06%",
-            "发光波长[SWIR]: 1540 nm",
-            "[特性]: 圆偏振发光CPL"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Er\n                    3+\n                    ‐doped 1540 nm light‐emitting diodes (LEDs) are critical components in optical communications C‐band, non‐trunk communication, bioimaging, and sensing. However, integrating high luminous efficiency with tailored circularly polarized luminescence (CPL) in such LEDs remains a critical challenge. Here, we demonstrate efficient 1540 nm short‐wave infrared (SWIR) electroluminescence with distinct CPL in Cs\n                    3\n                    ErCl\n                    6\n                    nanocrystals (NCs)‐based LEDs via a synergistic strategy of Sb\n                    3+\n                    /Y\n                    3+\n                    co‐doping and camphor ligand modification. Y\n                    3+\n                    doping modulates lattice symmetry, inducing Stark splitting of the Er\n                    3+\n                    energy level and enhancing luminescence intensity. Sb\n                    3+\n                    introduction triggers efficient self‐trapped excitons emission at 530 nm, whose energy levels match Er\n                    3+\n                    states to boost energy transfer efficiency. Subsequently, camphor ligand exchange passivates Er\n                    3+\n                    ‐related defects, increasing the 1540 nm photoluminescence quantum yield to 35.7% and endowing NCs with CPL (asymmetry factor: −3.67 × 10\n                    −2\n                    ) via camphor's chiral structure. SWIR LEDs based on camphor‐modified Cs\n                    3\n                    Er\n                    0.7\n                    Y\n                    0.3\n                    Cl\n                    6\n                    : Sb\n                    3+\n                    NCs exhibit a record‐high external quantum efficiency of 3.06% at 1540 nm, and first, demonstrate electrically‐driven circularly polarized 1540 nm emission with asymmetry factor of −3.08 × 10\n                    −2\n                    . This work presents a synergistic doping‐ligand strategy for Er‐based halide optoelectronics, offering a versatile platform to develop high‐performance long‐wavelength devices with integrated efficient emission and tailored polarization, crucial for advancing next‐generation optical communication and bioimaging.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

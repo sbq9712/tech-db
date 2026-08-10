@@ -6,15 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "天合光能210R混合式钝化背接触电池ISFH认证效率达28%",
-      "追觅科技发布450Wh/kg硫化物固态电池包车型及L2/L3智驾平台",
-      "研究提出双抑制枝晶与阳离子无序策略提升NCM-Li固态电池寿命"
+      "天合光能大面积混合式钝化背接触电池经ISFH认证效率达28%",
+      "天合光能THBC器件兼容TOPCon产线并支持110至130微米薄硅片量产",
+      "追觅科技展出搭载450Wh/kg硫化物固态电池包的电动车型"
     ],
-    "AI与智能科技": [],
+    "AI与智能科技": [
+      "科研人员提出基于二硫化钼的神经形态存内计算信号折叠方案"
+    ],
     "通用技术": [
-      "新加坡国立大学开发50nm分辨率光学纳米镜实现锌金属剥离成像",
-      "研究证实1,4-二锗杂环戊二烯中重元素4π电子体系的芳香族稳定性",
-      "研究基于蒽醌电子库泵策略开发缺氧环境肿瘤光动力治疗光敏剂"
+      "新加坡国立大学开发50纳米分辨率离子定位光学纳米镜技术"
     ]
   },
   "sectors": [
@@ -22,9 +22,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "天合光能210R混合式钝化背接触电池ISFH认证效率达28%",
-        "追觅科技发布450Wh/kg硫化物固态电池包车型及L2/L3智驾平台",
-        "研究提出双抑制枝晶与阳离子无序策略提升NCM-Li固态电池寿命"
+        "天合光能大面积混合式钝化背接触电池经ISFH认证效率达28%",
+        "天合光能THBC器件兼容TOPCon产线并支持110至130微米薄硅片量产",
+        "追觅科技展出搭载450Wh/kg硫化物固态电池包的电动车型"
       ],
       "entries": [
         {
@@ -47,12 +47,31 @@
           "hb": 1
         },
         {
-          "t": "追觅科技推出搭载其450Wh/kg硫化物基固态电解质电池包的车型",
+          "t": "天合光能称其混合式钝化背接触晶硅电池认证效率达28%",
           "d": "2026-04-27",
           "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "天合光能称其210R大面积（382.2cm²）混合式钝化背接触电池（THBC）经德国ISFH认证最高转换效率达28.00%。该器件融合TOPCon、HJT及背接触电极结构，与TOPCon中试线兼容，可用于110-130微米薄硅片量产，预计标准版型组件功率可超700W。晶硅电池效率天花板进一步抬升。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/JcTIegwXPruvmhrCgB9GfA",
+          "tp": "背接触光伏",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "4月27日，天合光能在其官方公众号发文称，其开发的210R大面积（硅片尺寸210mm×182mm，382.2cm²）混合式钝化背接触电池（TOPCon-compatible Hybrid Back-contact Cell，THBC），经德国哈梅林太阳能研究所（ISFH）认证的最高转换效率达28.00%。文中宣传，其THBC器件融合了隧穿氧化层钝化（TOPCon）和异质结（HJT）技术，以及背触式（BC）电极结构设计，预计行业标准中版型组件（2382mm×1134mm，27,012cm²)功率可超700W。且该类器件与其TOPCon中试线兼容，能用于薄硅片（110-130微米）的量产制造。",
+          "hb": 1
+        },
+        {
+          "t": "追觅科技推出搭载其450Wh/kg硫化物基固态电解质电池包的车型",
+          "d": "2026-04-27",
+          "a": "Prnewswire",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "追觅科技在旧金山DREAME NEXT发布会展示火箭动力电动车Nebula NEXT 01 JET，采用双固体燃料火箭助推器、0-100km/h加速0.9s。该车搭载硫化物固态电解质电池包，能量密度450Wh/kg、容量60Ah、支持1C-2C快充、续航超550km，仍在量产准备阶段。同步发布基于VLA模型的L2/L3智驾平台。",
-          "sc": 6.7,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.prnewswire.com/news-releases/dreame-launches-nebula-next-01-jet-edition-at-dreame-next-dual-e-engine-and-rocket-powered-intelligent-vehicle-with-0-9-second-0-100-kmh-sprint-302754932.html",
@@ -64,59 +83,59 @@
           "cm": "",
           "b": "据PR Newswire在4月27日报道，追觅科技在旧金山举办的DREAME NEXT发布会上，展示了其开发的火箭动力电动车Nebula NEXT 01 JET。据宣传，该车型采用双固体燃料火箭助推器系统，响应时间为150ms，峰值推力为100kN，0至100km/h加速时间为0.9s。\n另据yahoo auto、集邦咨询等报道称，该火箭车还采用了硫化物固态电解质的电池包（仍在为量产做准备），能量密度450Wh/kg，容量60Ah、支持1C–2C快充；在中国轻型汽车行驶工况（China Light-Duty Vehicle Test Cycle）测试下续航超过550km。从能量密度/容量上来看，该电池与追觅在今年3月中国家电及消费电子博览会（AWE2026）上发布了的“星空晶核”动力电池相吻合，此次报道进一步公布了其电解质类型。\n同时发布的还有追觅L2和L3级智驾平台（基于VLA视觉-语言-动作模型和世界模型）、新一代CTP电池集成技术（去掉了传统横梁、纵梁）、扫地机器人、洗地机及智能穿戴等产品。",
           "hb": 1
-        },
-        {
-          "t": "通过双抑制阳极枝晶与阴极阳离子无序增强NCM-Li全固态电池内部磁场以实现长循环",
-          "d": "2026-04-27",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究提出利用增强内部磁场实现NCM-Li全固态电池长循环稳定性的策略，通过双重抑制机制——同时抑制负极锂枝晶生长和正极阳离子无序——显著提升电池循环寿命。体系采用Li金属负极搭配高电压富镍层状氧化物正极，是高能量密度固态电池的关键技术路线，对推动电动化出行具有重要意义。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73186?af=R",
-          "tp": "全固态锂电池",
-          "aip": 1,
-          "kp": [
-            "[正极[全固态电池]]: Ni富NCM(x≥0.8)",
-            "[策略]: 内磁场双抑制枝晶+阳离子无序",
-            "[应用]: NCM-Li全固态长循环电池"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Solid‐state batteries, which incorporate a Li metal anode and a high‐voltage Ni‐rich layered oxide (LiNi\n                    x\n                    Co\n                    y\n                    Mn\n                    1–x–y\n                    O\n                    2\n                    ,\n                    x\n                    ≥ 0.8) (NCM) cathode, offer the promise of high energy density for next‐generation batteries. Although solid‐state electrolytes are anticipated to enhance safety and performance over conventional liquid‐state electrolytes, they still fail to prevent non‐uniform lithium deposition on the anode surface. Moreover, while solid‐state electrolytes can partially suppress parasitic reactions at the cathode‐electrolyte interface, mitigating structural degradation caused by Li/Ni antisite disorder remains challenging. Herein, we demonstrate a two‐orders‐of‐magnitude enhancement in the internal magnetic field during battery cycling by incorporating Fe\n                    3\n                    O\n                    4\n                    nanorods within the solid electrolyte. The strengthened magnetic field alters the deposition behavior of lithium ions on the anode via the magnetohydrodynamic effect and, concurrently, suppresses the structural degradation of the cathode by regulating the spin state of Ni\n                    3\n                    +\n                    . The enhanced internal magnetic field applies throughout the entire life of the NCM||Li all‐solid‐state battery, improving its cycling stability. Unlike external magnetic fields, this internal approach requires no complex equipment and avoids integration challenges.",
-          "hb": 1
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "科研人员提出基于二硫化钼的神经形态存内计算信号折叠方案"
+      ],
+      "entries": [
+        {
+          "t": "用于节能计算的基于信号折叠的神经形态硬件",
+          "d": "2026-04-27",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "报道了一种基于二维材料二硫化钼（MoS2）的神经形态存内计算硬件，旨在解决硬件扩展中权重精度与能效之间的权衡问题。研究提出了一种硬件内的信号折叠方案，避免了使用升高工作电压或复杂的校准补偿方案，从而在不增加高能耗的前提下，同时提供了高权重精度和高能量效率，增强了该硬件在边缘人工智能平台中的应用潜力。",
+          "sc": 7.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01626-z",
+          "tp": "神经形态硬件",
+          "aip": 1,
+          "kp": [
+            "材料体系[神经形态存内计算硬件]: 二硫化钼（MoS2）等二维材料",
+            "核心瓶颈[神经形态硬件扩展]: 存在权重精度与能效之间的权衡"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Devices based on two-dimensional materials, such as molybdenum disulfide (MoS2), could be used to build neuromorphic compute-in-memory hardware due to their high electrostatic controllability. Scaling up such hardware is key to enhancing its application in edge artificial intelligence platforms. However, development has been limited due to a trade-off between weight precision and energy efficiency: methods to increase weight precision (such as using elevated operating voltages to encode other conductance states or using calibration and compensation schemes to mitigate device-to-device variations) are effective at improving performance but are energy intensive. Here we report on an in-hardware signal-folding scheme that can provide both high weight precision and high energy efficiency. The approach uses two folding schemes—input signal folding and weight conductance folding—to predefine signals applied for vector–matrix multiplication, and we implement the schemes using a vertical one-transistor–one-resistor MoS2 crossbar array. In both schemes, the signals are encoded into two combinatorial folded signals. The input signal folding decreases the operating voltage, whereas the weight conductance folding circumvents device-to-device variations to expand weight precision. Compared with computing with the unfolded signal, our method can reduce the power consumption of vector–matrix multiplication by up to 90%, while achieving similar accuracy and without calibration or compensation schemes.",
+          "hb": 1
+        }
+      ]
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新加坡国立大学开发50nm分辨率光学纳米镜实现锌金属剥离成像",
-        "研究证实1,4-二锗杂环戊二烯中重元素4π电子体系的芳香族稳定性",
-        "研究基于蒽醌电子库泵策略开发缺氧环境肿瘤光动力治疗光敏剂"
+        "新加坡国立大学开发50纳米分辨率离子定位光学纳米镜技术"
       ],
       "entries": [
         {
           "t": "新加坡国立大学毛献文报道一种离子定位光学纳米镜技术对锌金属剥离机制进行分析",
           "d": "2026-04-27",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
           "as": "新加坡国立大学毛献文团队开发离子定位光学纳米镜（ION）技术，以50nm空间分辨率和20毫秒时间分辨率对锌金属剥离进行单离子水平定量成像。基于宽场单分子定位显微镜，通过锌离子与探针配位生成高荧光络合物实现无损实时观测。发现剥离主要发生在团聚体晶界处，无序晶界加剧剥离非均匀性并降低循环性能。",
-          "sc": 6.1,
+          "sc": 6.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41563-026-02567-w",
           "tp": "离子纳米镜",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -125,41 +144,22 @@
           "hb": 1
         },
         {
-          "t": "1,4-Digermacyclopenta-1,3-diene：连续循环 σ*-π 离域使重元素 4π 体系中芳香族稳定",
+          "t": "新加坡国立大学毛献文报道一种离子定位光学纳米镜技术对锌金属剥离机制进行分析",
           "d": "2026-04-27",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "重元素芳香性可源于轻元素框架无法实现的非常规环状电子离域模式。本研究报道的1,4-二锗杂环戊二烯中，形式4π电子体系通过连续环状σ*-π协同离域实现稳定。X射线晶体学证实近平面[Ge2C3]骨架，为重元素芳香化学提供新范例。",
-          "sc": 6.5,
-          "i": "literature",
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "新加坡国立大学毛献文团队开发离子定位光学纳米镜（ION）技术，以50nm空间分辨率和20毫秒时间分辨率对锌金属剥离进行单离子水平定量成像。基于宽场单分子定位显微镜，通过锌离子与探针配位生成高荧光络合物实现无损实时观测。发现剥离主要发生在团聚体晶界处，无序晶界加剧剥离非均匀性并降低循环性能。",
+          "sc": 6.2,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.7558823?af=R",
-          "tp": "重元素芳香",
-          "aip": 1,
+          "u": "https://doi.org/10.1038/s41563-026-02567-w",
+          "tp": "离子纳米镜",
+          "aip": 0,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Aromaticity in heavy‐element systems can arise from unconventional modes of cyclic electron delocalization that are not accessible in lighter‐element frameworks. Herein, we report 1,4‐digermacyclopenta‐1,3‐diene as an unusual aromatic system in which a formally 4π electron framework is stabilized through cooperative σ*–π interactions. X‐ray crystallography reveals a nearly planar [Ge\n                    2\n                    C\n                    3\n                    ] ring, while magnetic and electronic analyses (NICS, GIMIC, ACID, and EDDB) consistently indicate significant aromatic stabilization. In particular, GIMIC calculations show a pronounced diatropic ring current with an average strength of +8.38 nA T\n                    −1\n                    . Natural bond orbital analysis reveals that this stabilization originates from σ*–π delocalization involving the Ge–Ge bond and adjacent π orbitals. Despite a low‐lying open‐shell contribution (y ≈ 0.11), the system remains predominantly closed‐shell. Notably, this system represents a rare case in which σ*–π interactions form a continuous cyclic delocalization pathway, resulting in a distinct form of aromatic stabilization.",
-          "hb": 1
-        },
-        {
-          "t": "基于蒽醌的电子库泵光敏剂产生自由基离子对用于代谢靶向光动力治疗",
-          "d": "2026-04-27",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "I型光动力治疗克服了传统II型PDT的氧气依赖性，但缺氧条件下高效电子转移型光敏剂的开发仍是难题。本研究提出基于蒽醌的\"电子库-泵\"单组分策略，将AQ支架作为内在电子储存器，显著增强光敏剂电子转移能力并生成自由基离子对，实现肿瘤代谢靶向光动力治疗。",
-          "sc": 6.1,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9985126?af=R",
-          "tp": "光动力疗法",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Type I photodynamic therapy (PDT) overcomes oxygen (O\n                    2\n                    ) dependence of type II PDT, but developing hypoxia‐efficient electron‐transfer photosensitizers remains challenging. Herein, we proposed an anthraquinone (AQ)‐based single‐component “electron reservoir‐pump” strategy to enhance the electron transfer ability of type I photosensitizers. In this molecular design, the AQ scaffold functioned as an intrinsic electron reservoir, while the electron‐rich tetraphenylethylene (TPE) served as an electron pump that actively donated electrons. The synergistic reservoir‐pump interaction enabled the photosensitizer AQTPE to undergo photo‐disproportionation and generate radical ion pairs: the anionic radical efficiently reduced O\n                    2\n                    to form superoxide (O\n                    2\n                    −•\n                    ), while the cationic radical oxidized key metabolic cofactor flavin adenine dinucleotide (FADH\n                    2\n                    ) to disrupt redox homeostasis and suppress fatty acid synthase (FASN)‐mediated metabolism. In contrast, control photosensitizers AQCN and AQNI bearing electron‐withdrawing substituents maintained singlet oxygen (\n                    1\n                    O\n                    2\n                    ) generation. Theoretical calculations revealed that AQTPE possessed a markedly reduced singlet‐triplet energy gap (Δ\n                    E\n                    ST\n                    = 0.01 eV) and enhanced spin‐orbit coupling (7.538 cm\n                    −1\n                    ), facilitating intersystem crossing. Notably, AQTPE nanoparticles exhibited potent type I photodynamic activity and robust tumor suppression even under hypoxic conditions. This study establishes a molecular electronegativity‐modulation framework for integrating electron reservoir‐pump systems within single‐component photosensitizers, offering a general design principle for next‐generation metabolism‐targeted and hypoxia‐tolerant photosensitizers.",
+          "b": "电子显微镜和同步辐射X射线显微镜等表征方式能够实现对单个粒子的实时观测，但这些方法通常需要昂贵且专业的设备，并且可能对样品造成束流损伤。光学显微镜与之相比成本较低，但难以实现直接原位可视化离子生成过程。\n近日，新加坡国立大学毛献文助教团队开发了一种离子定位光学纳米镜（ion-localization optical nanoscopy，ION）技术，能够以单离子、亚颗粒分辨率定量成像离子生成过程，区分微观静态和动态无序的界面反应活性，提供无损、实时、非平衡态的洞察。该技术基于宽场单分子定位显微镜，以透明ITO上的电沉积锌为工作电极，剥离出的锌离子与非荧光离子探针发生配位反应，生成高荧光强度的络合物，能够以50nm的空间分辨率和20毫秒的时间分辨率，对剥离动力学进行单离子水平的定量分析，模拟金属电池的放电条件。其利用该技术观察了具有随机晶体取向的锌团聚体的剥离模式，发现剥离主要发生在单个团聚体的晶界处，类似于在具有表面缺陷的金属阳极上观察到的点蚀；结构不对称和无序的晶界导致了电场分布和界面传质的异质性，加剧了剥离的非均匀性，并降低了循环性能。而后其使用该技术对002结构的六方锌进行了分析，发现六方单晶显示出高度非均匀的点状剥离（半径小于1微米的紧凑区域，不遵循颗粒的几何边缘）和线状剥离（遵循颗粒的边缘和角落等几何特征）行为，与先前研究六方锌片会在整个基面诱导均匀剥离不同，且会随时间从高度局域化的起始逐渐演变为沿颗粒周边的线状分布。此外，该研究发现锌片内部的反应团簇之间存在明显的团簇间反应传递，且这种传递强度与电流密度分布强烈相关，表明电子耦合是驱动团簇间反应传递的驱动力，当颗粒尺寸为约3000nm时，可使电子传输干扰最小化。其发现团簇内协同性源于表面锌原子的自扩散，且协同传递强度随传递距离指数衰减。基于此，该研究使用脉冲电流调制来增强电子耦合，以及使用红外加热来促进表面原子迁移率以增加扩散耦合，实现了对剥离均匀性的原位调控。分析表明，脉冲电流调制和红外加热分别选择性地增强了团簇间和团簇内的协同传递强度，从而显著提高了剥离均匀性。采用混合红外加热-脉冲电流调制策略后，锌阳极在80%放电深度下的库仑效率从原始的90.59%显著提升至99.49%。文章于2026年4月27日发表在Nature Materials。",
           "hb": 1
         }
       ]

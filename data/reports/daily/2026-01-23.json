@@ -6,19 +6,14 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科大研发MTP新型电解液突破锂金属电池超快充技术瓶颈",
-      "研究人员开发热响应溶剂萃取技术实现盐湖混合卤水高效提锂",
-      "原子级铕介导策略实现AEM电解槽安培级乙胺电合成稳定运行"
+      "中科大联合SES.AI研发MTP新型醚类电解液，提升锂金属电池高倍率快充性能",
+      "原位TEM观测硬碳储钠过程，首次发现金属钠与碳化物共存界面相"
     ],
-    "AI与智能科技": [
-      "科研团队研发集成片上闭环控制系统的微型机器人",
-      "多智能体系统协调19个LLM实现材料研究全流程自动化",
-      "科研人员提出超构透镜阵列方案以实现厘米级三维光刻"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究人员利用地震台站音爆数据实现大气层太空碎片轨迹追踪",
-      "科研团队制备单相混合导电金属有机框架提升电化学系统性能",
-      "研究人员开发压电水凝胶微球以电信号调节退行性组织修复"
+      "新型厚膜钙钛矿X射线阵列探测器研制成功，空间分辨率达20 lp/mm",
+      "NiRu双金属受阻路易斯对催化剂被证实可强化级联制氢催化循环",
+      "实验证实二维MoS2材料因六角形至菱面体相变具备高热开关比性能"
     ]
   },
   "sectors": [
@@ -26,18 +21,17 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科大研发MTP新型电解液突破锂金属电池超快充技术瓶颈",
-        "研究人员开发热响应溶剂萃取技术实现盐湖混合卤水高效提锂",
-        "原子级铕介导策略实现AEM电解槽安培级乙胺电合成稳定运行"
+        "中科大联合SES.AI研发MTP新型醚类电解液，提升锂金属电池高倍率快充性能",
+        "原位TEM观测硬碳储钠过程，首次发现金属钠与碳化物共存界面相"
       ],
       "entries": [
         {
           "t": "中科大任晓迪通过溶剂分子孤对电子轨道共平面对齐结构实现锂金属电池超快充电突破",
           "d": "2026-01-23",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "中科大任晓迪联合SES.AI许康提出基于溶剂化结构空间电子分布的电解液设计新策略，发现新型醚类溶剂MTP的孤对电子轨道与锂离子配位时呈共平面对齐结构，促进界面电子高效转移，实现离子传导与界面动力学协同提升。该MTP电解液在高电流密度下实现锂金属均匀沉积，抑制枝晶生长，突破超快充瓶颈。",
-          "sc": 7.2,
+          "sc": 7.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41560-025-01961-z",
@@ -51,201 +45,118 @@
           "hb": 1
         },
         {
-          "t": "使用热可切换溶剂从卤水混合物碱金属阳离子中直接提锂的新方法",
+          "t": "中科大任晓迪通过溶剂分子孤对电子轨道共平面对齐结构实现锂金属电池超快充电突破",
           "d": "2026-01-23",
-          "a": "Joule",
-          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
-          "as": "该研究开发了一种新型可切换溶剂选择性萃取（S3E）技术，利用热响应胺类溶剂从卤水混合物中碱金属阳离子之间实现锂的高选择性直接提取。该技术通过温度调控溶剂溶解度开关特性，实现锂的选择性分离与回收，为盐湖提锂提供了一种高效、低能耗的新路径，具有广阔的产业化前景。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00446-5?rss=yes",
-          "tp": "卤水提锂",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中科大任晓迪联合SES.AI许康提出基于溶剂化结构空间电子分布的电解液设计新策略，发现新型醚类溶剂MTP的孤对电子轨道与锂离子配位时呈共平面对齐结构，促进界面电子高效转移，实现离子传导与界面动力学协同提升。该MTP电解液在高电流密度下实现锂金属均匀沉积，抑制枝晶生长，突破超快充瓶颈。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-025-01961-z",
+          "tp": "锂金属快充",
           "aip": 1,
-          "kp": [
-            "[技术]: S3E热响应胺溶剂选择性提锂",
-            "[选择性]: 1000倍过量Na/K下优先提锂",
-            "[驱动]: 温度切换调控溶剂亲水性"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "A novel switchable solvent selective extraction (S3E) technology utilizes thermo-responsive amines for highly selective lithium recovery from complex brines. A modest temperature swing toggles solvent hydrophilicity, enabling preferential lithium extraction even with 1,000× more sodium or potassium. S3E maintains solvent stability and selectivity over repeated cycles for scalable lithium recovery.",
+          "b": "锂金属具是下一代高能量密度电池体系的理想负极。然而，在快充条件下，锂枝晶生长造成的电池内短路问题严重制约了其实际应用。目前，现有电解液工程通过优化锂负极固体电解质界相或提升锂离子传导的方法，均难以解决严苛工况条件下超快充电的技术瓶颈。\n中国科学技术大学任晓迪教授联合SES.AI许康教授，深入剖析了超快充条件下锂金属沉积机制，打破了界面反应由离子脱溶剂化和固态电解质界相主导的传统认识，提出了基于溶剂化结构空间电子分布的电解液设计新策略。团队通过理论计算设计和筛选了不同的溶剂分子结构，发现新型醚类溶剂分子1-甲氧基-3-(3-甲氧基丙氧基)丙烷（MTP）的孤对电子轨道与锂离子配位时呈现共平面对齐的独特结构，这与传统溶剂形成的空间错位电子结构存在显著差异，该特性进一步得到单晶衍射分析及多谱学表征结果的证实。研究表明，这种共平面对齐的溶剂化空间电子构型有利于与锂离子的空轨道形成强电子耦合，促进了电极界面反应中电子向锂离子的高效转移，从而实现了电解液离子传导速度与界面电子转移动力学的协同提升。因此，在高电流密度下，MTP电解液实现了锂金属的均匀沉积，抑制不可控的锂枝晶生长，显著延长了超快充锂金属电池的循环寿命。\n在超低电解液用量的严苛工况下（0.80 g Ah⁻¹），使用MTP电解液的工业级2AhLi||NMC811软包电池实现了4C（<15分钟充电100%）的超快充电，而未发生电池短路现象。此外，400 Wh kg⁻¹级的锂金属软包电池在4C超快充放电条件下，仍能展现出>80%的可逆容量和>100次循环周期，充电功率密度高达1747.6 W kg-1，远超现有文献报道。文章于2026年1月23日发表在Nature Energy。",
           "hb": 1
         },
         {
-          "t": "原子级Eu介导乙腈吸附构型切换驱动AEM电解槽中安培级长效乙胺电合成",
+          "t": "原位 TEM 揭示硬碳钠存储机制并发现碳化钠",
           "d": "2026-01-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
-          "as": "该研究在AEM电解槽中实现了乙腈电催化加氢合成乙胺的安培级长期稳定运行。通过原子级铕（Eu）介导乙腈吸附构型切换，优化了电催化反应路径，有效提升选择性和活性。电催化加氢为乙胺合成提供了可持续的绿色路径，该策略突破了传统催化剂在工业级电流密度下稳定性不足的瓶颈。",
-          "sc": 7.6,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 8.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521105?af=R",
-          "tp": "乙腈电合成乙胺",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202505191?af=R",
+          "tp": "硬碳钠存储机制",
           "aip": 1,
-          "kp": [
-            "[机制]: Eu介导乙腈吸附构型翻转调控质子可用性",
-            "[器件]: AEM电解槽",
-            "[电流密度]: 安培级",
-            "[产物]: 乙胺"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Electrocatalytic hydrogenation of acetonitrile (AN‐ECH) offers a sustainable pathway for ethylamine (EA) synthesis. However, achieving high selectivity in AN‐ECH necessitates carefully balancing proton availability to suppress the hydrogen evolution reaction (HER), which often conflicts with the proton supply requirements under industrial‐grade current densities. Herein, we design and develop a novel and effective AN‐ECH catalyst consisting of rare‐earth Eu atoms modified on Cu\n                    2\n                    O nanoneedles to drive efficient and durable AN‐ECH at ampere‐level currents. The optimized Eu‐Cu\n                    2\n                    O catalyst achieves a high EA Faradaic efficiency of 98.1 % and an exceptional production rate of 2253.2 µmol h\n                    −1\n                    cm\n                    −2\n                    compared with pure Cu\n                    2\n                    O. Notably, the Eu‐Cu\n                    2\n                    O can continuously operate 420 h at 2 A in an anion‐exchange membrane electrolyzer for AN‐ECH, representing the longest reported stability under the industrial‐current conditions to date. Operando characterization and theoretical calculations elucidate that the Eu incorporation tailors the electronic structure of Cu sites, thus switching the adsorption configuration of AN from the flat‐lying multi‐site π‐adsorption to vertical N‐end adsorption. This reconfiguration of the adsorption site lowers the energy barrier for the imine hydrogenation step, dictating the ideal proton addition pathway while enhancing the proton addition kinetics to suppress the HER. This work provides fundamental insights into rare‐earth tuning of AN hydrogenation mechanisms and represents a critical advancement toward ampere‐scale electrosynthesis of EA.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研团队研发集成片上闭环控制系统的微型机器人",
-        "多智能体系统协调19个LLM实现材料研究全流程自动化",
-        "科研人员提出超构透镜阵列方案以实现厘米级三维光刻"
-      ],
-      "entries": [
-        {
-          "t": "具备板载闭环控制的微型机器人",
-          "d": "2026-01-23",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究报道了一种搭载片上闭环控制系统的微型机器人。传统微纳机器人多依赖外部磁场或光驱动，缺乏自主感知与反馈决策能力。该微型机器人集成了板载传感器、致动器与控制电路，能够在微尺度环境下实现自主闭环运动控制——感知环境信号、实时调整运动轨迹并完成指定任务。这一突破将微机器人从被动操控推向自主智能，在精准药物递送、微创手术、微纳制造及生物医学检测等领域具有变革性应用潜力。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01564-w",
-          "tp": "微型闭环控制机器人",
-          "aip": 1,
-          "kp": [
-            "[机器人]: 微型机器人搭载板载闭环控制"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "通过多智能体与机器人系统协作实现知识驱动的自主材料研究",
-          "d": "2026-01-23",
-          "a": "Matter",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "MARS（多智能体机器人系统）是一种分层知识驱动框架，协调19个LLM智能体与实验机器人协同工作，实现材料研究的自主化。该系统将材料科学知识嵌入多智能体协作流程，能够自主完成文献调研、实验设计、材料合成、表征分析等全流程研究任务。该框架代表了AI驱动科研范式的重大进展，通过知识驱动而非试错法，大幅提升新材料发现效率，为材料科学的智能化、自动化研究提供了可复用的通用架构。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00620-4?rss=yes",
-          "tp": "多Agent材料研发",
-          "aip": 1,
-          "kp": [
-            "[系统规模]: 19个LLM智能体+16个领域工具",
-            "[加速]: 材料研发周期缩短60倍",
-            "[能力]: 设计-合成-优化全周期自主"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The collaborative multi-agent and robot system (MARS), a hierarchical knowledge-driven framework coordinating 19 LLM agents with 16 domain-specific tools, is developed to accelerate materials research. By coordinating specialized agents with domain-specific tools, MARS autonomously executes full-cycle materials development, from design to synthesis and optimization. The system demonstrated a 60-fold acceleration in developing a water-stable perovskite nanocomposite through cross-domain knowledge integration. This paradigm shift enables researchers to focus on creative problem-solving while AI handles repetitive tasks, fundamentally changing materials innovation approaches.",
-          "hb": 1
-        },
-        {
-          "t": "用于厘米级三维光刻的超构透镜阵列",
-          "d": "2026-01-23",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究团队提出一种超构透镜阵列，用于厘米尺度的三维光刻技术。超构透镜由亚波长纳米结构组成，可精确调控光场相位分布，实现高通量平行制造。该方案突破了传统光刻受限于投影光学系统尺寸与景深的瓶颈，在单个厘米级芯片上集成多个超构透镜以并行生成三维微纳结构，有望大幅提升复杂三维微纳器件（如光子芯片、微流控器件）的加工效率与尺度上限。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01566-8",
-          "tp": "超构透镜三维光刻",
-          "aip": 1,
-          "kp": [
-            "[光刻尺度]: 厘米级三维光刻",
-            "[器件]: 超构透镜阵列"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究人员利用地震台站音爆数据实现大气层太空碎片轨迹追踪",
-        "科研团队制备单相混合导电金属有机框架提升电化学系统性能",
-        "研究人员开发压电水凝胶微球以电信号调节退行性组织修复"
+        "新型厚膜钙钛矿X射线阵列探测器研制成功，空间分辨率达20 lp/mm",
+        "NiRu双金属受阻路易斯对催化剂被证实可强化级联制氢催化循环",
+        "实验证实二维MoS2材料因六角形至菱面体相变具备高热开关比性能"
       ],
       "entries": [
         {
-          "t": "通过音爆追踪空间碎片",
+          "t": "高空间分辨率熔铸钙钛矿 X 射线成像仪",
           "d": "2026-01-23",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "通用技术/通信和运输/航天",
-          "as": "研究人员开发出利用声爆（音爆）信号从地震台站数据中追踪太空碎片在大气层中轨迹和破碎过程的新方法。当太空碎片高速再入大气时产生的声爆可被地面地震传感器捕获，通过分析这些地震数据可反推碎片的飞行路径、速度和解体位置，为太空碎片监测和风险评估提供了一种低成本、被动的补充手段。",
-          "sc": 7.3,
+          "a": "Matter",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "将厚钙钛矿CsPbBr3薄膜直接集成到图案化玻璃转接器中，制备出X射线阵列探测器原型。该探测器在远低于现有医学成像标准的极低X射线剂量下展现出卓越的探测效率，其空间分辨率高达20 lp/mm，性能位居最先进设备的前列。",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aee0657?af=R",
-          "tp": "空间碎片声爆追踪",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00643-5?rss=yes",
+          "tp": "钙钛矿成像仪",
           "aip": 1,
           "kp": [
-            "方法[空间碎片追踪]: 地震数据反演",
-            "[信号源]: 音爆"
+            "空间分辨率[熔铸钙钛矿CsPbBr3 X射线成像仪]: 20 lp mm−1"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Seismic data reveal the trajectory and break-up of space debris in Earth's atmosphere.",
+          "b": "Direct integration of a thick perovskite CsPbBr3 film to a patterned glass interposer to create X-ray array detector prototypes was performed. Detectors show a remarkable detection efficiency under low X-ray doses, significantly lower than existing standards in medical imaging. Detectors' spatial resolution is among top-performing state-of-the-art devices, exhibiting 20 lp mm−1.",
           "hb": 1
         },
         {
-          "t": "单相混合离子-电子导电金属有机框架",
+          "t": "正反馈驱动的 NiRu 受阻路易斯对催化剂可实现级联耦合制氢的自我强化催化循环",
           "d": "2026-01-23",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "混合离子-电子导体（MIEC）因能同时传导离子和电子，在燃料电池、电催化、固态电池等电化学系统中至关重要。该研究报道了一种单相混合离子-电子导电的金属有机框架（MOF）材料，解决了传统MIEC多为无机陶瓷难以精确调控孔道与活性位点的局限。MOF的高度可设计性为构建兼具高导电性与结构可调性的下一代电化学材料提供了全新平台。",
-          "sc": 6.8,
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c18105",
-          "tp": "混合导电MOF材料",
-          "aip": 1,
-          "kp": [
-            "设计策略[MOF]: 富阳离子设计实现单相混合Li⁺-电子导电"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Mixed ionic-electronic conductors (MIECs) are highly sought after for electrochemical systems because they support concurrent charge and mass transport. Yet, structurally well-defined single-phase MIECs remain scarce, as most systems rely on physical mixtures of ionic and electronic conductors. Here, we introduce a cation-rich design strategy to realize solid-state mixed Li+-electronic conduction in a two-dimensional copper-catecholate metal-organic framework, Cu3(HOTAT)2, built from the 3-fold symmetric new ligand 2,3,7,8,12,13-hexahydroxytriazatruxene (HHTAT). Owing to the combined redox activity of Cu2+/Cu+ and the HOTAT ligand, controlled fractional reduction generates a family of LixCu3(HOTAT)2 (0 ≤ x ≤ 7.50) phases with tunable transport properties, in good agreement with electronic-structure calculations. The Li-rich phase Li7.50Cu3(HOTAT)2 exhibits intrinsic mixed conduction at room temperature, with an electronic conductivity of 2.8 × 10-3 S cm-1, and solid-state Li+ conductivity of 1.1 × 10-3 S cm-1. As a proof of concept, Li7.50Cu3(HOTAT)2 operates as a homogeneous cathode in all-solid-state Li batteries, delivering 100 mAh g-1 after 100 cycles with ∼99.8% Coulombic efficiency, indicative of highly reversible electrochemical behavior. These results establish cation-rich reduction of redox-active 2D MOFs as an efficient route to engineer solid-state mixed Li+-electronic conductors, opening a pathway toward dual-conducting porous materials for solid-state electrochemical technologies.",
-          "hb": 1
-        },
-        {
-          "t": "内摩擦网络压电水凝胶微球实现生理电适应调节退行性组织中的线粒体自噬",
-          "d": "2026-01-23",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究者通过超分子工程和微流控策略构建了内摩擦网络压电水凝胶微球系统。该系统利用压电材料将机械刺激转化为生理电信号，可调节退行性组织中失衡的线粒体自噬，恢复细胞能量传递阈值，为退行性疾病的组织修复提供了新型电生理干预策略。",
-          "sc": 6.2,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519152?af=R",
-          "tp": "压电水凝胶微球",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202523215?af=R",
+          "tp": "耦合制氢",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Mitochondrial autophagy imbalance critically drives apoptosis and tissue degeneration, requiring physiological electrical adaptation to meet cellular thresholds. However, degenerative tissues exhibit deficient endogenous electrical signals, disrupting cellular energy transfer. Using supramolecular engineering and microfluidic strategies, we constructed an internal‐friction network hydrogel microsphere system through synergistic assembly of piezoelectric bismuth ferrite nanoparticles (BF) and sliding‐ring‐functionalized methacrylated hyaluronic acid (HAMA), achieving physiological electrical adaptation in degenerative tissues. BF convert mechanical stimuli into electrical signals, while the stress‐dependent internal‐friction network regulates energy dissipation. Under low stress, sliding‐ring movement produces low friction with mechanoelectrical conversion loss of 61.5 kJ/m\n                    3\n                    , enhancing electrical generation. Under high stress, main chain straightening increases friction to 78.3 kJ/m\n                    3\n                    , suppressing excessive signals and restoring physiological electrical adaptation. The microspheres generate stable electric fields (95–110 mV/mm) under dynamic loading, promoting mitochondrial autophagy via PINK1/Parkin pathway activation, maintaining stable mitochondrial membrane potential (compared with OS group, the JC‐1 ratio increases by 49.2%), and reducing nucleus pulposus apoptosis by 75%. In vivo experiments demonstrated that microsphere implantation restored the physiological electrical environment, enhanced mitochondrial autophagy, inhibited apoptosis, and delayed intervertebral disc degeneration progression, providing new insights for treating degenerative tissues through electrical adaptation restoration.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "由于六角形到菱面体的相变和偏振开关，二维 MoS2 具有出色的热开关性能",
+          "d": "2026-01-23",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72234?af=R",
+          "tp": "二维MoS2热开关",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

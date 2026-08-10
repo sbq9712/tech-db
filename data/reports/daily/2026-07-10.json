@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "隆基绿能启动21GW铜电极背接触太阳能电池产线",
-      "美国建成首座年产能4GWh电网级钠离子储能电池工厂",
-      "Peak Energy拟在加州萨克拉门托投建4GWh钠离子电池工厂"
+      "中科院大连化物所新一代全钒液流电池全球总装机超4吉瓦时。",
+      "松辽盆地科学钻探工程历时16年完成八千米岩心提取并获国家科技进步一等奖。",
+      "中石化库车绿氢项目实现满负荷运行，绿氢完全生产成本降至18元/公斤。"
     ],
     "AI与智能科技": [
-      "AMD定于7月发布Zen 6架构处理器",
-      "加州科研团队用宇树G1机器人完成全球首例活体外科手术",
-      "特斯拉第三代Optimus定型并设定周产数千台目标"
+      "OpenAI发布GPT-5.6系列模型，桌面端整合Codex与智能体入口。",
+      "GPT-5.6旗舰模型Sol通过美国政府安全审查，网络攻击评测得分96.7%。",
+      "OpenAI推出GPT-Live语音模型，实现前后台任务解耦的实时语音交互。"
     ],
     "通用技术": [
-      "XRISM探测器观测到黑洞喷流抑制星系恒星形成",
-      "科研团队实现单层石墨烯纯谷塞曼自旋轨道耦合调控",
-      "研究人员开发出具备学习与记忆功能的液晶聚合物电子器件"
+      "长征十号乙运载火箭完成一子级海上可控垂直回收。",
+      "阳江三山岛海上风电柔直输电工程启运全球容量最大海上换流站。",
+      "深创超导量产第二代高温超导带材，77K自场临界电流达597A。"
     ]
   },
   "sectors": [
@@ -26,75 +26,82 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "隆基绿能启动21GW铜电极背接触太阳能电池产线",
-        "美国建成首座年产能4GWh电网级钠离子储能电池工厂",
-        "Peak Energy拟在加州萨克拉门托投建4GWh钠离子电池工厂"
+        "中科院大连化物所新一代全钒液流电池全球总装机超4吉瓦时。",
+        "松辽盆地科学钻探工程历时16年完成八千米岩心提取并获国家科技进步一等奖。",
+        "中石化库车绿氢项目实现满负荷运行，绿氢完全生产成本降至18元/公斤。"
       ],
       "entries": [
         {
-          "t": "隆基启动21GW铜金属化背接触太阳能电池量产",
+          "t": "中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最--中国能源新闻网",
           "d": "2026-07-10",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "隆基绿能在国内启动21GW铜金属化背接触（BC）太阳能电池产线生产。背接触技术将电极全部移至电池背面，消除正面遮光损失，显著提升转换效率。采用铜金属化替代银浆可大幅降低材料成本，突破贵金属银对光伏产业规模化的制约。21GW产能标志着BC电池技术从实验室向大规模商业化制造迈进，对光伏行业降本增效具有重要推动作用。",
-          "sc": 8.8,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/07/09/longi-switches-on-21-gw-production-line-for-copper-metallized-back-contact-solar-cells/",
-          "tp": "背接触太阳电池",
+          "a": "中国电力新闻网-科技",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "中科院大连化物所李先锋团队开发的新一代大规模全钒液流电池技术，已在国内外实施30余项商业化示范项目，总装机超4吉瓦时，占据全球液流电池储能市场60%份额。项目包括全球最大的200兆瓦/1吉瓦时光伏储能一体化项目。该技术凭借长寿命和高安全性，荣获2025年度国家技术发明奖二等奖。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260710_1901087.html",
+          "tp": "全钒液流电池",
           "aip": 1,
           "kp": [
-            "产能[隆基背接触电池]: 21 GW",
-            "金属化技术[背接触电池]: 无银铜基ACM"
+            "装机规模[全钒液流电池储能调峰电站]: 100 MW/400 MWh",
+            "装机规模[新疆吉木萨尔光伏储能一体化]: 200 MW/1 GWh",
+            "累计装机[全钒城市充电宝商业化示范]: 超过 4 GWh",
+            "市场份额[中国全钒液流电池全球市场]: 60%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Technology & Products\nThe Chinese manufacturer has started production at a 21 GW back-contact cell facility in China, marking the first large-scale deployment of its silver-free Alloy Contact Matrix (ACM) metallization technology.\nThe copper-based process aims to reduce costs, improve BC cell competitiveness, and support wider industrial adoption of back-contact modules.\nVincent Shaw\nTechnology & Products\nImage: Longi\nChinese PV manufacturer\nhas started production at a 21 GW back-contact (BC) cell manufacturing line at its Xixian production base in Shaanxi province, China. The project represents the first gigawatt-scale production deployment of Longi’s Alloy Contact Matrix (ACM) metallization technology.\nThe company describes the ACM metallization approach as a way to replace conventional silver paste with a copper-based alloy contact system. The company says the technology can enable the complete removal of silver from BC cells through the use of a nanoscale barrier layer, a copper-based alloy material and a matrix-style point-contact structure.\nThe barrier layer is designed to prevent copper diffusion into the silicon wafer, addressing a key reliability challenge associated with copper metallization. The alloy formulation is intended to improve oxidation resistance and enable integration into standard screen-printing and firing processes, avoiding the need for separate copper electroplating equipment, the manufacturer said.\nLongi also explained that the matrix contact structure reduces the metal-silicon contact area, which is intended to lower recombination losses while reducing metal consumption. The technology is claimed to be particularly suited to BC cell architectures, where all electrical contacts are located on the rear side of the cell. This design provides greater flexibility for alternative metallization approaches compared with conventional front-contact cells, where narrow front gridlines require high conductivity and minimal optical shading, the company stated.\nAccording to Longi, ACM cells have achieved a conversion efficiency of 27.6%, as certified by Germany’s Institute for Solar Energy Research Hamelin. Modules based on the technology have reached a power output of 672 W in certification tests conducted by TÜV Rheinland.\nLongi said the introduction of ACM into mass production has increased cell conversion efficiency by 0.2 to 0.3 percentage points compared with its previous-generation process, while increasing module output by 3 W to 5 W.\nThe main commercial driver for ACM is expected to be cost reduction rather than efficiency gains, as silver paste remains one of the largest non-silicon cost components in high-efficiency BC cells. By replacing silver with a copper-based alloy, Longi aims to reduce exposure to\nsilver price fluctuations\nand improve the competitiveness of BC modules against mainstream n-type products used in utility-scale applications.\nThe manufacturing process is also designed for industrial compatibility, according to the company. Unlike copper electroplating, ACM relies on printing and firing processes, which could lower equipment adaptation costs for existing BC production lines.\nLongi has not disclosed production yield data, detailed reliability results or long-term outdoor performance results for the new 21 GW facility. It said, however, that these factors will be closely monitored as copper-based metallization technologies move toward large-scale commercial deployment, particularly regarding long-term resistance to oxidation, diffusion and electromigration over a typical 25- to 30-year module lifetime.\nThe company announced\nplans to shift to copper-metallized solar cells\nVincent Shaw\nView author posts",
+          "b": "中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最--中国能源新闻网\n中电传媒股份有限公司主办\n中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最\n被形象称为“城市充电宝”的大规模储能技术研发和应用，对城市调节用电的“削峰填谷”具有重要作用，因而在业界和全社会都广受关注。\n记者7月9日从中国科学院大连化学物理研究所(大连化物所)获悉，该所李先锋研究员团队基于新一代大规模全钒液流电池关键技术，近5年已在国内外实施30余项商业化示范项目，包括全球首套100兆瓦/400兆瓦时国家级液流电池储能调峰电站，以及目前全球最大的200兆瓦/1吉瓦时新疆吉木萨尔光伏储能一体化项目等。\n李先锋研究员在实验室。中国科学院大连化物所供图\n在最新公布的2025年度国家科技奖中，李先锋团队完成的“新一代大规模全钒液流电池关键技术及应用”成果，荣获国家技术发明奖二等奖。截至目前，基于该技术的全钒“城市充电宝”总装机超过4吉瓦时，规模相当于40座百兆瓦时级电站，可供百万人口城市一天生活用电，并占据全球液流电池储能市场60%份额。\n大连化物所介绍，储能是构建以新能源为主体的新型电力系统、实现“双碳”(碳达峰、碳中和)目标的关键支撑技术。全钒液流电池储能技术因其使用寿命长、安全性高、效率高等优势，已成为全球储能领域的重点发展方向，同时也是中国大规模储能的首选技术之一。\n全钒液流电池储能系统结构复杂，涵盖多学科交叉领域，系统内各类材料与功能部件之间需高效协同，系统集成与工程实施难度高。\n李先锋团队成员在实验室交流研讨。中国科学院大连化物所供图\n李先锋团队深耕液流电池储能技术20余年，继2012年完成兆瓦级系统示范验证后，逐步攻克全钒液流电池大规模产业化过程中面临的成本较高、可靠性较低、部分关键材料亟待突破等系列难题，通过持续技术创新，成功开发出新一代大规模全钒液流电池关键技术。\n该团队原创提出“离子筛分传导”新概念，基于此实现膜材料自主研发与规模化生产，并完成新型电解液开发、电堆及系统设计集成。依托这一系列原理和关键技术突破，中国已构建起全钒液流电池从基础研究到工程产业化的完整自主技术链条。\n李先锋表示，“新一代大规模全钒液流电池关键技术及应用”成果已形成完善的自主知识产权体系，目前共授权发明专利200余件(含国际专利12件)，并已向多家中外企业实施技术许可专利15件，实现向欧洲发达国家的技术输出。同时，研究团队主导制定并发布首项液流电池国际标准和20余项国家与行业标准，确立了中国在该领域的规则主导权。\n本项研究成果展示海报。中国科学院大连化物所供图\n据悉，“新一代大规模全钒液流电池关键技术及应用”成果由中国科学院大连化物所联合大连融科储能技术发展有限公司、大连融科储能集团股份有限公司等共同完成，带动上下游产业链形成良好的集群效应，为中国储能行业技术进步、新能源产业发展及能源结构调整和转型提供了关键支撑。(\n“十四五”能源高质量发展\n新工艺打造出更轻且旋转更快的风力涡轮机叶片\n我国高校开发新型电解液让锂金属电池“增能延寿”\n我国首台超临界CO₂车载空调在扬研发成功\n我国实现生物炭高效规模化制备\n太阳能电池光电转换率获突破\n全新自主品牌碳-14核电池发布\n智慧矿山系统不仅“装得上”更要“用得好”\n串联太阳能电池光电转换效率创新高",
           "hb": 1
         },
         {
-          "t": "美国首座钠离子电网储能工厂将为400万户家庭供电",
+          "t": "这项工程，为何能获国家科学技术进步奖一等奖？",
           "d": "2026-07-10",
-          "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "美国首座钠离子电网储能电池工厂建成，年产能达4GWh，足以为400万户家庭供电。钠离子电池以丰富廉价的钠替代锂，原料成本大幅低于锂离子电池，且低温性能和安全性优异，被视为电网级储能的理想方案。该工厂的投产标志着钠离子电池从实验室走向规模化商用，有望重塑全球储能产业链格局，减少对锂资源的依赖。这对降低储能成本、加速可再生能源并网具有里程碑意义。",
-          "sc": 8.5,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/energy/us-sodium-plant-to-power-million-homes",
-          "tp": "钠电池工厂",
+          "a": "矿业界",
+          "c": "零碳产业/物质循环/资源处理/勘探技术",
+          "as": "“松辽盆地国际大陆科学钻探工程”荣获国家科学技术进步奖一等奖。该项目历时16年，实现“三井四孔、万米进尺”，提取了完整的八千米白垩纪地层岩心，创下多项钻探世界纪录。工程深度解码白垩纪气候变化规律，支撑大庆油田油气勘探，产出发明专利51项及800余篇论文，推动全球白垩纪基础地质研究迈向新高度。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/v3NkD9S-m84GgHPpHP07Gw",
+          "tp": "大陆科学钻探工程",
           "aip": 1,
           "kp": [
-            "产能[钠离子储能工厂]: 4 GWh/年",
-            "技术路线[电网储能]: 钠离子电池",
-            "设施面积[加州工厂]: 183,000平方英尺"
+            "钻探总进尺[松辽盆地大陆科学钻探工程]: 万米",
+            "岩心获取[完整白垩纪地层]: 8000米",
+            "科研成果[发明专利]: 51项",
+            "科研成果[相关论文]: 800余篇"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "An industrial manufacturing plant capable of producing 4 gigawatt-hours of battery systems annually—enough capacity to supply electricity to nearly four million households—will be built in Northern California.\nThe upcoming 183,000-square-foot facility establishes the first production site in the United States dedicated entirely to manufacturing sodium-ion energy storage systems for electrical grids.\nThe developer, Peak Energy, selected a site within Sacramento’s Metro Air Park for the assembly lines. By focusing on a high-capacity output right from the start, the plant is designed to provide large-scale equipment to utility companies experiencing heightened electrical demands.\n“Peak’s passively cooled sodium-ion battery energy storage systems, which reduce the cost of energy storage by 20% and have a 99% guaranteed uptime, are expected to enter production and begin shipments in Q1 2027,” noted a press release.\nConstructing and equipping the facility involves an initial capital expenditure of $71 million. Over the next 18 months, the establishment of the factory is expected to generate 239 local jobs focused on assembly,\n, and technical operations. Beyond direct employment at the plant, regional analysts expect secondary economic benefits for parts suppliers, freight handlers, and local service businesses.\nMore from Energy\nNuclear plant given life extension to power 2,500,000 homes for 20 more years\nAdvanced US nuclear battery deal targets 3000 MW power with $22.5 billion pipeline\nNew triple-junction perovskite solar cell achieves 27.3% efficiency with 770-hour life\nIron-to-rust cycle tapped by scientists for safe renewable energy transport\nChina unveils mega semi-submersible crane vessel that lifts 2,425 tons for offshore work\n“This facility is proof that America can lead not only in inventing the technology, but in building it at scale,” said Landon Mossburg, CEO and Co-Founder of Peak Energy. “With our manufacturing facility in Sacramento, we’re enabling American energy innovation to lower electric bills while creating high quality jobs.”\nA nationwide site evaluation process preceded the final selection of the Sacramento location. Management balanced multiple factors before choosing the site, prioritizing the regional availability of industrial laborers, logistical links to western power grids, and local economic development programs.\n“Peak’s growth in California is supported by a $10.5 million CalCompetes tax credit, which was awarded in May 2026,” added the press release.\nUnprecedented consumption patterns from\ndata storage centers\nand artificial intelligence computing infrastructure have placed new strains on municipal electricity grids. To address these capacity issues, the manufacturer enters the market with 6 gigawatt-hours of advance product orders already under contract from industrial buyers.\nThe stationary storage systems rely on a chemical structure using sodium ions, presenting an alternative to standard lithium-ion utility installations. To manage operational heat, the hardware uses a thermal strategy that entirely removes mechanical components like fans or liquid pumps. Eliminating these high-wear moving parts reduces long-term operating costs.\nThe construction of the Sacramento factory marks a shift from low-volume technology demonstrations to standardized, automated mass production. In August 2025, the firm completed its initial operational test by connecting a sodium-ion platform directly to the domestic energy grid.\nThat early pilot unit used a sodium-iron phosphate pyrophosphate molecular composition, making it the largest operational deployment of its specific chemical classification at that time.\n“Together, these milestones underscore growing confidence in Peak’s sodium-ion technology as a scalable solution for grid storage,” concluded the company in the\npress release\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nUS Air Force picks Longshot to test hypersonic tech with ground-based launcher\nWorld's first surgery using teleoperated humanoid robots conducted by US team\nGerman researchers' new plant removes ammonia from wastewater, advances circular water management\nNew in-memory computing chip promises faster processing with lower energy use\nRoyal Navy achieves world's first airborne launch of an uncrewed boat for sea missions",
+          "b": "这项工程，为何能获国家科学技术进步奖一等奖？ 周飞飞 周飞飞 矿业界 7月8日，2025年度国家科学技术奖励大会在北京人民大会堂隆重举行。“松辽盆地国际大陆科学钻探工程：创新与发现”荣获国家科学技术进步奖一等奖。 松辽盆地国际大陆科学钻探工程代表在人民大会堂前合影 （左起：吴怀春、吕庆田、王成善、朱永宜、王璞珺） 这是一项兼具基础研究和深部能源资源探索双重使命的深地工程： 完成入地壮举——三井四孔，万米进尺，八千米完整的白垩纪地层岩心，多项钻探世界纪录。 成果世界瞩目——相关论文800余篇，发明专利51项，4人当选两院院士；解码恐龙时代气候，助力大庆找气找油，推动全球白垩纪基础地质研究迈向新高度…… 16年，40余家单位，上千名地质工作者，他们在松辽盆地创新了什么？又发现了什么？ 2006年8月，松科一井（南孔）开钻仪式现场 2018年5月26日，项目首席科学家王成善院士手捧来自松科二井7018米深处的岩心 **在松辽盆地，中国科学家开启“白垩纪之旅”** 在地质人的世界里，山有性格，石有记忆，地层有时间的纹路。读懂它们，是追问历史，更是把握未来。 时光回溯。 2005年，在全球变暖引发人类危机的触动下，著名沉积学家、中国地质大学（北京）教授王成善，将目光从自己熟悉且已有诸多建树的青藏高原，转向位于中国东北的巨大陆相沉积盆地——松辽盆地。那里，保存着全球最完整的白垩纪“地球日志”，或许也隐藏着破解气候危局的答案。 进入21世纪，冰川融化、海平面上升、极端天气多发趋势日显。人类工业革命以来大量排放的二氧化碳，已将地球气候推离原有演化轨迹，加速驶向两极无冰的温室气候状态。 在46亿年的深远时空中，地球曾在温室和冰室两种气候状态中几度回旋。王成善敏锐地意识到，未来的走向，映射在地球历史中，而最具研究价值的，无疑就是离人类最近的温室时代——白垩纪。 科学钻探！这是人类获取地球深部物质和了解地球内部信息最直接、最有效、最可靠的方法，同时也是真正触摸地球深远历史的最佳途径。 他向国际大陆科学钻探计划（ICDP）提出动议：在松辽盆地实施科学钻探工程，获取完整的白垩纪高分辨率古环境记录，探索晚中生代温室地球气候—环境演变规律。 2006年8月18日，松科一井开钻。以王成善为核心的中国科学家团队恢宏的“白垩纪之旅”正式拉开帷幕。 在国际大陆科学钻探计划、中国“973”计划项目、国家自然科学基金委重大项目、中国地质调查局地质调查计划项目、中国石油天然气集团有限公司科技攻关项目的联合资助下，松辽盆地国际大陆科学钻探工程分为三个阶段推进，分别针对白垩纪不同阶段地层选取最佳位置取心： 2006年-2007年，松科一井，包括南北两孔，钻探2485.89米，获取上白垩统岩心，锁定白垩纪—古近纪生物大灭绝界线。 2014年-2018年，松科二井，创下7018米亚洲科学钻探深度纪录，获取4235米下白垩统岩心，识别白垩纪最显著的碳循环扰动事件之一——白垩纪大洋缺氧事件。 2020年-2021年，松科三井，钻探3600米，补齐“白垩纪拼图”，重点揭示白垩纪中期有机质分布规律。 16年，三井联动。在96%以上超高取心率的支持下，工程获得了8186.96米的连续岩心，构建起全球首个陆相白垩纪地层“金柱子”，并通过高精度物理测量与年代标定的全流程方法技术体系，将时间分辨率从地史常用的“百万年”，革命性地提高到“万年”甚至“千年”“百年”，为开展白垩纪陆地古环境与古气候研究提供了高精度的国际标准。 一系列有关白垩纪温室气候—环境演变的“时光秘史”也破土而出。 ——白垩纪温度比现在高5～10℃，赤道海水温度达36～40℃，海平面比现在高100～200米，原因是大气中二氧化碳浓度是今天的2~5倍。 ——大约6600万年前，晚白垩世与早古新世相交界的时期，德干火山大规模喷发打破了白垩纪7000多万年的繁荣。更具毁灭性的是接踵而来的希克苏鲁伯小行星撞击地球。火山爆发与陨石撞击的双重打击，造成了白垩纪末包括非鸟类恐龙在内的陆地生物大灭绝。 ——在白垩纪温室环境中，地球气候比人们想象的更加动荡，每隔四五千年，就会在湿润和干燥之间翻转，而这一稳定的节奏，来自天文轨道的周期性影响。…… 许多应对全球变暖的灵感由此生发：借鉴松辽古湖的碳埋藏机制优化湿地保护，参考颗石藻固碳原理改进人工碳汇技术…… “在过去十年里，松辽盆地大陆科学钻探一直激励着ICDP开展白垩纪气候和环境变化研究，为研究过去极端气候和预测未来气候开启前所未有的机遇。”2021年，ICDP主席波恩霍夫教授如此评价。 松科一井岩心蕴藏白垩纪气候“密码” **向深部进军，我国“入地”能力实现飞跃** 在坚硬岩石圈的阻隔下，“入地”难于“上天”。与松辽盆地深部的勇猛钻进相对应的，是充满创新创造的科学登峰。 2018年5月26日，松...",
           "hb": 1
         },
         {
-          "t": "Peak将在萨克拉门托建设4吉瓦时钠离子电池工厂",
+          "t": "库车氢能项目再报惊人新闻！",
           "d": "2026-07-10",
-          "a": "Renewables Now",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "Peak Energy宣布将在加州萨克拉门托建设一座4 GWh产能的钠离子电池超级工厂。该工厂将专注于电网级储能系统（BESS），利用钠离子技术替代传统锂离子方案，降低对关键矿产的依赖。钠离子电池具备成本优势和资源丰富性，被视为大规模储能领域的重要新兴技术路线。此举标志着钠离子电池从实验室走向规模化量产的关键一步。",
-          "sc": 7.2,
-          "i": "news",
+          "a": "氢能云互联",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "中国石化新疆库车万吨级绿氢示范项目实现52台碱性电解槽100%满负荷运行，达到设计产能。项目光伏装机300兆瓦，产氢规模达2万吨/年。核心电极优化后，平均直流能耗降至4.2千瓦时/标方氢气。设备国产化率达100%，单位设备造价降至7000元/kW。结合0.15元/度的光伏度电成本，绿氢完全生产成本约18元/公斤，每年可减少二氧化碳排放约48.5万吨。",
+          "sc": 9.0,
+          "i": "n",
           "tg": "产业进展",
-          "u": "https://renewablesnow.com/news/peak-to-build-4-gwh-sodium-ion-battery-factory-in-sacramento-1297821/",
-          "tp": "钠电池工厂",
+          "u": "https://mp.weixin.qq.com/s/ogTuk0m4CyURSV3b0ZShsg",
+          "tp": "绿氢示范",
           "aip": 1,
           "kp": [
-            "产能[钠离子电池工厂]: 4 GWh"
+            "运行状态[库车绿氢项目52台碱性电解槽]: 100%满负荷连续运行，达到设计产能",
+            "光伏装机容量[库车绿氢项目]: 300兆瓦",
+            "平均直流能耗[优化电极配方和极板流场结构后]: 4.2千瓦时/标方氢气",
+            "综合能耗[含气液分离与纯化系统]: 控制在4.8千瓦时/标方以内",
+            "产氢规模[库车绿氢项目]: 2万吨/年"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Peak to build 4-GWh sodium-ion battery factory in Sacramento | Energy Storage News | Renewables Now\nAdvanced search\nPolicy & Tenders\nPolicy & Tenders\nPolicy & Tenders\nLatest top stories\nBrookfield cleared as GoldenPeaks Poland stalking horse bidder\nabout 7 hours ago\nBYD to supply 11 GWh of battery storage for Abu Dhabi RTC project\nabout 10 hours ago\nEU inverter restriction expected to affect 28 GW of demand to 2030\nabout 13 hours ago\nBritish govt says yes to 740-MW One Earth solar project\nCEE investors call for rethink of EU inverter funding guidance\nPeak to build 4-GWh sodium-ion battery factory in Sacramento\nJul 9, 2026, 6:17:03 PM\nSladjana Djunisic\nEnergy Storage\nRegion/Country:\nLatest top stories\nBrookfield cleared as GoldenPeaks Poland stalking horse bidder\nabout 7 hours ago\nBYD to supply 11 GWh of battery storage for Abu Dhabi RTC project\nabout 10 hours ago\nEU inverter restriction expected to affect 28 GW of demand to 2030\nabout 13 hours ago\nBritish govt says yes to 740-MW One Earth solar project\nCEE investors call for rethink of EU inverter funding guidance\nLatest in Capacity\nMetlen, Tsakos formalise JV for 252-MW solar, storage project in Greece\nXCF starts renewable diesel production at flagship Reno biofuel plant\nAxpo starts operations at Italian biomethane plant\nLatest in Energy storage\nOtovo raises USD 7.25m in private placement to fund Green Panel deal\nQualitas Energy launches Chile power tender for up to 517 GWh/year\nPoland's Hanplast to build, invest in solar, battery complex in Ukraine\nLatest in USA\nNordex's Q2 order intake surpasses 3 GW with stable pricing\nPanel installation begins at Avangrid’s Oregon Trail solar park\nUtility SRP seals 600-MW offtake for SunZia Wind in New Mexico\nLatest in USA & CANADA\nQuebec aims for up to 25 GW of wind, 5 GW of solar by 2050\nPeak Power starts up 3.6-MW/7.2-MWh BESS at Vuteq Canada factory\nLRE powers up 278 MW of Oklahoma solar farm for Google\nLatest in Capacity\nMetlen, Tsakos formalise JV for 252-MW solar, storage project in Greece\nLatest in Energy storage\nOtovo raises USD 7.25m in private placement to fund Green Panel deal\nLatest in USA\nNordex's Q2 order intake surpasses 3 GW with stable pricing\nLatest in USA & CANADA\nQuebec aims for up to 25 GW of wind, 5 GW of solar by 2050\nMost read stories\nNew York tops 8 GW of distributed solar, moves ahead of 2030 target\nEnergy Storage\nEU awards EUR 2.5bn for clean energy across 11 member states\nUK freezes CfD AR8 strike prices at AR7 level\nOnshore Wind\nNova Scotia’s largest wind project of 1.26 GW gets enviro nod\nToday in Hydrogen (daily)\nDaily Newsletter\nCorporate PPAs (weekly)\nUpcoming events\nMESIA Business Breakfast on Smart Cities & Distributed Solar Integration\nSep 17, 2026\nEnergy Storage Central Eastern Europe\nToday in Hydrogen (daily)\nDaily Newsletter\nCorporate PPAs (weekly)\nUpcoming events\nMESIA Business Breakfast on Smart Cities & Distributed Solar Integration\nSep 17, 2026\nEnergy Storage Central Eastern Europe\nAlert section not found",
+          "b": "库车氢能项目再报惊人新闻！ 原创 氢能云互联 氢能云互联 氢能云互联 **库车氢能项目又亮了** 援引网络消息：“7月8日，中国石化宣布，新疆库车万吨级绿氢示范项目全部52台碱性电解槽实现**100%满负荷连续运行**，达到设计产能。该项目是目前全球规模最大的光伏制绿氢项目，光伏装机容量达300兆瓦。 技术测试表明，随着核心电极配方和极板流场结构的优化，**52台电解槽的平均直流能耗降至4.2千瓦时/标方氢气**，优于设计值4.5千瓦时/标方，系统整体综合能耗（含气液分离与纯化）控制在4.8千瓦时/标方以内。项目产氢规模达到2万吨/年，氢气纯度达到99.999%，直接通过长输管道输送至10公里外的中石化塔河炼化厂，替代该厂现有的天然气制氢装置。 在应用效益方面，每年可减少二氧化碳排放约48.5万吨，炼化端制氢成本降低了20%。在设备国产化方面，项目所用的大型圆形碱性电解槽全部由隆基氢能和考克利尔竞立提供，单槽产氢量达到2000标方/小时，国产化率达到100%，使得电解槽单位设备造价从两年前的15000元/kW降至目前的7000元/kW。**结合库车当地优异的光照条件，项目光伏侧度电成本已降至0.15元/度，折算绿氢完全生产成本约18元/公斤**，已初步具备与化石能源制氢竞争的经济性。” **事件梳理：** 2021年11月30日，开工建设； 2021年11月下旬，新疆库车地区发生了罕见**沙尘暴**，中石化新疆库车绿氢项目一期300MW光伏制氢项目遭遇袭击。该次事故直接导致中石化光伏电站损失约200MW，相当于该电站2/3的发电装机容量被摧毁，暴露防风设计和施工漏洞。 2023年6月30日，制氢调试（全碱槽）顺利产氢；总装机容量 **5.2万标方，功率260MW**。 2023年8月30日，全容量并网调试，**光伏总装机300MW**，全面建成投产； 2023年9月2日，氢能媒体发文质疑中石化绿氢项目在运营前12个月“仅生产了7000多吨绿氢，与承诺的2万吨相差甚远”。年累计产氢超过**7000吨**这一数据，也得到“中国石化报”9月2日刊登的《“氢”舞飞扬 减排增绿》一文的确认。 2023年12月21日，媒体表示，由于系统设计中缺少一些安全功能和效率不达标等原因，新疆库车的260 MW绿色制氢设施，一直以不到其装机容量三分之一的负荷运行。 2023年12月22日，隆基绿能创始人、总裁李振国在2023清华大学“碳中和经济”论坛上公开表示，BNEF的上述分析是“不负责任的”。李振国表示，首先要确保安全可靠和平稳运行。其次，从项目运行效率和经济性出发，可以通过启停控制策略降低设备运行台数，使其平均负载维持在最佳效率比例。他举例称，以光伏制氢在阴天为例，假设1000台电解槽制氢项目需要30%的负荷，**我们可灵活选择关停700台设备，剩下300台满负荷工作就能确保项目高效运行**。实际情况中是不存在电解槽30%临界点的工作状态。设计总装机容量的30%的工作状态，实际中会让30%的电解槽满负荷运作，不会是全部电解槽以30%的负荷运作。 2024年12月，储能（跟网型）并网调试，**总装机12.5MW/50MWh**。 2025年，系统可能达到了 > **5000吨/年**的产能水平。项目生产的绿氢全部就近供应中国石化塔河炼化，通过产能逐步提升已经有较大变化。 2026年6月4日，计划新建2套电解设备；其中建设1个使用晶闸管电源，可供**3000Nm³/h或2000Nm³/h新型电解槽测试**的台位；1个使用IGBT电源，可供2000Nm³/h方形电解槽和500Nm³/hPEM制氢设备耦合测试的台位。以及配套的公用工程连接管道、自控系统、电气设备、气收集管道等。 2026年6月10日，中国中化旗下蓝星（北京）化工机械有限公司（简称北化机）正式发布自主研发的**3000标准立方米/小时常压碱性水电解制氢装置**。将应用于中石化新星公司新型电解槽工业化应用示范项目开展测试。 **一些思考** 1、系统整体综合能耗（含气液分离与纯化）由设计时的5千瓦时/标方降低为4.8千瓦时/标方。 2、产能由7000t提高至2万t。 3、由30%运行提高至100%满负荷连续运行。 4、成本降至18元/公斤。 问题来了： **1、能耗因何而降？一般情况是负荷降低能耗降低，负荷提高了为什么能耗反而降低？** **2、根据计算52000m3/h\\*4400h=2万t，满负荷连续运行，年产2万吨氢气，仅需4400h，全年8760h，剩余的另外一半时间停产吗？** **3、光伏300MW，制氢250MW，仅有12.5MW储能，如何保证制氢100%满负荷连续运行？特别是晚上？** **4、光伏侧度电成本已降至0.15元/度，假设每天光伏满负荷6h，剩余18h的电网电代...",
           "hb": 1
         }
       ]
@@ -103,75 +110,75 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "AMD定于7月发布Zen 6架构处理器",
-        "加州科研团队用宇树G1机器人完成全球首例活体外科手术",
-        "特斯拉第三代Optimus定型并设定周产数千台目标"
+        "OpenAI发布GPT-5.6系列模型，桌面端整合Codex与智能体入口。",
+        "GPT-5.6旗舰模型Sol通过美国政府安全审查，网络攻击评测得分96.7%。",
+        "OpenAI推出GPT-Live语音模型，实现前后台任务解耦的实时语音交互。"
       ],
       "entries": [
         {
-          "t": "AMD确认7月22-23日Advancing AI 2026大会发布'Zen 6'处理器",
+          "t": "ChatGPT-5.6正式发布，Codex和GPT合二为一；化学诺奖得主奥马尔·亚吉全职加盟清华大学 | 环球科学要闻",
           "d": "2026-07-10",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "AMD执行副总裁兼首席技术官Mark Papermaster在巴黎AI峰会确认，公司将于7月22-23日的Advancing AI 2026活动上正式推出下一代'Zen 6'架构处理器。Zen 6是AMD继Zen 5之后的全新CPU微架构，预计将在服务器和AI推理等高密度计算场景中提供更高性能和能效。此发布时间点的确认表明AMD正加速在AI基础设施市场的产品迭代节奏，与Intel等竞争对手争夺数据中心和AI算力市场。",
-          "sc": 9.2,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/974/769.htm",
-          "tp": "处理器架构",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "7 月 9 日消息，AMD 执行副总裁及首席技术官 Mark Papermaster 近日在 2026 巴黎人工智能峰会 | RAISE 峰会上接受外媒 theCUBE 采访时确认，\nAMD 将在 7 月 22~23 日的 AMD Advancing AI 2026 上推出基于 \"Zen 6\" 微架构的新一代处理器\n作为 AMD 年度开发者、客户及合作伙伴大会，AMD Advancing AI 2026 将在美国旧金山莫斯康展览中心西馆举行。\nMark Papermaster 表示：\n就我个人而言，我现在参与的每一次企业级对话中，都会提到这一点。因为企业们，你知道的，已经运行 x86 架构几十年了。他们不会放弃现有的安装基数。\n而我们 AMD 自 2017 年推出新一代 Zen 处理器以来，如今我们已迈入第六代。\n在 7 月 22 日和 23 日举行的 Advancing AI 活动中\n我们将推出这一新一代产品\n。它不仅延续了 x86 CPU 的领先地位，其设计理念也与我刚才所描述的情况相契合。它针对独立的传统 x86 工作负载进行了优化。",
-          "hb": 1
-        },
-        {
-          "t": "全球首例：美国研究团队远程操控宇树 G1 人形机器人完成活体动物外科手术",
-          "d": "2026-07-10",
-          "a": "IT之家",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "加州大学圣迭戈分校工程团队与外科医生合作，利用两台宇树G1人形机器人远程操控完成两例大型非灵长类哺乳动物活体胆囊切除手术，为全球首例人形机器人活体动物外科手术。该突破展示人形机器人在医疗外科手术场景中的应用潜力，推动远程手术技术发展。",
-          "sc": 8.8,
-          "i": "news",
+          "a": "环球科学",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI正式发布GPT-5.6系列模型，包含旗舰模型Sol、均衡模型Terra及成本效益模型Luna。该系列以更少token和成本实现更高智能。旗舰模型Sol在Agents' Last Exam测试及编码测试中表现优异。ChatGPT桌面端与Codex合体，并内嵌跨App自主工作的智能体ChatGPT Work。此外，化学诺奖得主奥马尔·亚吉全职加盟清华大学。",
+          "sc": 10.4,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://www.ithome.com/0/974/777.htm",
-          "tp": "机器人远程手术",
+          "u": "https://mp.weixin.qq.com/s/bI6zy-ttzz5cY9eayM2YAg",
+          "tp": "GPT模型更新发布",
           "aip": 1,
           "kp": [
-            "机器人型号[远程手术]: 宇树G1",
-            "手术类型[活体动物]: 胆囊切除术",
-            "传统系统重量[专用手术机器人]: ~816.5kg",
-            "成果发表: Nature"
+            "大模型架构[GPT-5.6系列]: Codex和GPT合二为一，兼顾智能与效率，以更少的token及成本完成困难工作",
+            "智能体模型[GPT-5.6系列]: 包含旗舰模型Sol、均衡模型Terra及成本效益模型Luna，新增ChatGPT Work智能体"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 9 日消息，美国加利福尼亚大学圣迭戈分校（University of California San Diego）宣布，该校工程师团队和外科医生团队合作，利用两台宇树 G1 人形机器人，成功完成了两例\n大型非灵长类哺乳动物的活体胆囊切除手术\n两台机器人均由外科医生通过控制台进行远程操控实施手术。两例手术中，一例由单台机器人与外科医生协作完成，另一例则完全由外科医生远程操控两台机器人完成。相关研究成果已于当地时间 7 月 8 日发表在《Nature》。\n研究团队指出，专用的手术系统通常配备三到四个机械臂、专用工具以及专有软件。这些系统重约 1800 磅（IT之家注：约 816.5 千克），需要庞大的团队进行安装调试，并且会占用手术室极大的空间，往往还需要对手术室进行专门改造才能将其容纳。相比之下，人形机器人不仅体积小巧，还可以移动，在偏远且医疗资源匮乏的地区尤为实用。\n不过，远程操控人形机器人完成手术目前仍有许多问题需要解决。在手术过程中，机器人需要进行多次重新校准。因此，与使用现成的专用外科手术系统相比，本次手术操作耗费的时间要长得多。此外，远程操控带来的控制延迟等问题也需要进一步优化。\nhttps://www.nature.com/articles/s41586-026-10796-x",
+          "b": "ChatGPT-5.6正式发布，Codex和GPT合二为一；化学诺奖得主奥马尔·亚吉全职加盟清华大学 | 环球科学要闻 原创 环球科学 环球科学 环球科学 周一至周五 第一时间掌握 最新鲜的全球科技资讯 **·** ******人工智能**** **·**** ChatGPT-5.6正式发布，Codex和GPT合二为一，新增ChatGPT Work智能体 北京时间7月10日凌晨1点，Open AI正式发布了GPT-5.6系列模型，其中包括面向前沿能力的旗舰模型Sol，适合日常工作的均衡模型Terra，以及根据成本效益的模型Luna。GPT-5.6系列的特点是兼顾智能与效率，即以更少的token以及成本完成相似难度或更困难的工作。 据OpenAI官方消息，在评估智能体专业工作流程的Agents' Last Exam测试，以及衡量智能（包括智能体工作、编码、科学推理和通用能力）的人工智能分析智能指数 (AII) 测试中，GGPT-5.6 Sol分别取得了Claude Fable 5更高以及水平相当的得分，但成本显著降低。在人工智能分析编码代理指数 (ACI) 上，GPT-5.6 Sol也表现为OpenAI迄今为止最好的编码模型。此外，GPT-5.6还新增了两档智能模式，推理时间更长的max档以及一次调用至少4个智能体并行工作的ultra档，以完成更复杂的工作。 与此同时，ChatGPT桌面端与原来的Codex应用合体，其中还内嵌了智能体ChatGPT Work，它可以跨App和文件自主干活，对标Anthropic的Claude Cowork。（OpenAI） **·** ******奖项**** **·**** 2025年度国家科学技术奖揭晓，陈立泉院士和贲德院士获国家最高科学技术奖 陈立泉院士（左）和 贲德院士（右） 近期，2025年度国家科学技术奖揭晓，共评选出258个项目和11名科技专家，中国科学院物理研究所陈立泉院士和中国电子科技集团有限公司贲德院士获国家最高科学技术奖；国家自然科学奖51项，其中一等奖3项、二等奖48项；国家技术发明奖58项，其中一等奖3项、二等奖55项；国家科学技术进步奖149项，其中特等奖3项、一等奖13项、二等奖133项；授予9人中华人民共和国国际科学技术合作奖。 陈立泉院士是我国锂电池领域的奠基人、开拓者和引领者。他开创了我国固态离子学研究先河，研制出我国首块锂电池，建立首条中试线，开启了我国锂电池产业化进程；突破了磷酸铁锂、钴酸锂等关键材料知识产权壁垒，坚定捍卫了我国锂电池发展权益，为我国锂电池产业全球领先作出了卓越贡献；他提出并实现了“原位固态化”电池技术路线，推动钠电池从原始创新走向规模化应用，奠定了我国在新一代电池技术领域的战略主动地位。 贲德院士是我国机载脉冲多普勒雷达技术的奠基者、相控阵雷达技术的主要开创者、天基监视雷达技术的先行者。他成功研制出我国首部机载脉冲多普勒火控雷达、首部大型远程相控阵预警雷达，突破的脉冲多普勒和相控阵两项现代雷达根技术，引领我国雷达陆海空天预警探测体系发展，已装备数千部骨干雷达，铸就了我国制信息权的“火眼金睛”，为国防安全作出了卓越贡献。（中国科学技术协会） **· 科学家** **·** 诺贝尔化学奖得主奥马尔·亚吉全职加盟清华大学 奥马尔·亚吉致辞。图片来源：清华大学 奥马尔·M.亚吉（Omar M. Yaghi）是世界著名化学材料学家，他开创了金属有机框架材料、共价有机框架材料、分子编织等新型材料，首次定义“网状化学”这一全新研究领域，开辟了材料科学全新的研究范式。其研究方向覆盖无机与有机化合物的合成、结构与性质，以及新型晶体材料的设计与构建。他提出的“构建模块方法”推动了新材料增长，催生了化学多样性。据新华网消息，2025年诺贝尔化学奖得主、全球顶尖化学材料学家奥马尔·亚吉全职加盟清华。 奥马尔·亚吉表示，自己十岁时便与分子结缘，对科学的纯粹热爱激励他跨越地域与文化边界，在材料科学领域不断深耕。如今，他正聚焦水资源、碳中和与可持续发展等全球性议题，着力破解制约人类发展的共性难题。据悉，奥马尔·M·亚吉将主导在清华大学设立校级AI材料化学研究中心。该中心将以化学系、化学工程系为基础并联动多院系，开发具有前瞻性的AI赋能材料设计与合成技术，着力实现新材料研发周期数量级压缩，通过构建“理论-计算-研发-生产”全链条智能研发体系，破解传统试错研发模式的效能瓶颈，建立覆盖智能材料全生命周期的自主技术标准体系。（新华网、清华大学） **·** ******动物学**** **·**** 征服6700米海拔的哺乳动物：科学家揭示了它克服稀薄空气、有毒食物和零度气温的秘诀 一只安第斯叶耳鼠，栖息在人的手上。图片来源：Marcial Quiroga-Carmona 安...",
           "hb": 1
         },
         {
-          "t": "消息称特斯拉三代擎天柱人形机器人初步定型，马斯克放话达不成产能目标就开掉整个采购团队",
+          "t": "结束12天受限预览，GPT-5.6正式发布，Codex与ChatGPT合二为一",
           "d": "2026-07-10",
-          "a": "IT之家",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "据晚点LatePost报道，特斯拉第三代Optimus人形机器人已初步定型，并向供应链下发具体零件采购指引。产能目标为：9月达到1000台/周，年底提升至2000-2500台/周，最终规划年产百万台级别。马斯克以强硬态度要求供应商按期交付，称达不到产能目标将更换整个采购团队。这表明Optimus正从原型阶段加速迈向规模化量产，但周产数千台的目标对人形机器人供应链的成熟度和成本控制仍是巨大挑战。",
-          "sc": 8.7,
-          "i": "news",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI正式向全球发布GPT-5.6系列模型，包含旗舰版Sol、均衡版Terra和快速版Luna。经过美国政府安全审查，旗舰模型Sol在内部网络攻击评测中得分96.7%，在ExploitBench基准成绩提升至73.5%。同时，OpenAI将独立Codex应用并入桌面端，与新推出的ChatGPT Work智能体整合，构成集对话、编码及长程任务执行于一体的统一入口。",
+          "sc": 9.7,
+          "i": "n",
           "tg": "产业进展",
-          "u": "https://www.ithome.com/0/974/782.htm",
-          "tp": "人形机器人量产",
+          "u": "https://mp.weixin.qq.com/s/W9FmzmOwFEqRtRU_V0O7JQ",
+          "tp": "大模型发布",
           "aip": 1,
           "kp": [
-            "周产能目标[Optimus Gen3]: 9月1000台→年底2500台",
-            "年供应能力[供应链]: 10万台/年",
-            "[研发状态]: Gen3定型即将走出实验室"
+            "[OpenAI GPT-5.6]: 模型包含Sol、Terra、Luna三款版本",
+            "[ChatGPT产品架构]: Codex并入ChatGPT桌面端，与ChatGPT Work智能体统一产品入口"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 9 日消息，据晚点 LatePost 今日报道，多位特斯拉供应链人士透露，特斯拉近期终于下发具体的 Optimus 零件采购指引，要求供应商在今年 9 月将产能提到 1000 台 / 周，\n随后在年底提升到 2000-2500 台 / 周\n两位接近供应商的人士说，特斯拉会提前 2 个月左右下订单，现在他们已经看到 8 月数百台的具体订单。\n以此估算，特斯拉的供应商们将在年底具备每年向特斯拉供应\n10 万台 Optimus 零部件\n报道还称，给供应链下单前，在六月底的一次高管会上，马斯克评审通过了 Optimus 的最新版本，这意味着 Optimus Gen 3 在研发三年多后，终于将走出实验室，\n两位供应链人士都说，在这次会议上，马斯克要求团队在年底前实现产能目标，\n否则他会开掉整个 Optimus 采购团队\n—— 这比任何订单和预期指引都更能给供应链、资本市场甚至整个机器人产业信心。\nIT之家注意到，马斯克 7 月 1 日发布了一张大合照，并配文称，在弗里蒙特工厂参观 Optimus 擎天柱机器人生产线。\n有网友猜测，特斯拉近期减少 Optimus 公开演示，可能是因为量产进度已超出市场预期。对此，马斯克回应称：“不，\nOptimus 的生产一开始会极其缓慢\n，因为一切都是全新的。这不像制造汽车。”\n特斯拉弗里蒙特工厂曾用于生产 Model S 和 Model X 两款车型，如今已改造为人形机器人生产线。今年 5 月，\n最后一辆 Model S 和最后一辆 Model X 已在弗里蒙特工厂下线\n马斯克在今年 3 月谈到 Optimus 3 机器人时\n，将其描述为“迄今为止全球最先进的机器人”，并表示：“我还没见过任何能媲美 Optimus 3 的机器人演示。”在产能规划上，马斯克表示，低产量生产可在夏季启动，高产量生产则会在 2027 年展开。\n而在今年 4 月的 2026 年第一季度财报电话会上\n，马斯克确认 Optimus 机器人将于 7 月下旬或 8 月在弗里蒙特投产。不过，马斯克同时泼了冷水，直言 Optimus 初期产量会“相当缓慢”。原因在于，Optimus 对应的是一条全新生产线，还涉及 10000 个独特零部件，今年到底能爬到什么产量，“根本不可能预测”。",
+          "b": "结束12天受限预览，GPT-5.6正式发布，Codex与ChatGPT合二为一 原创 张锦怡 张锦怡 DeepTech深科技 这两天，AI 行业迎来了一轮密集的产品发布。先是 xAI 发布 Grok 4.5，继续强化其在编码和 Agent 场景上的竞争力；后有 Meta 姗姗来迟，推出 Muse Spark 1.1，并首次向开发者开放 Model API，开始正面争夺企业和开发者市场。 但就在这一轮竞争进入白热化之际，OpenAI 正式发布 GPT-5.6 系列模型，并同步完成 ChatGPT 产品架构的一次重要调整，再次将行业关注点拉回自己身上。经过 12 天的政府审查与受限预览，OpenAI 于当地时间 7 月 9 日正式向全球用户开放 GPT-5.6 系列模型——Sol、Terra、Luna 三款同时上线。 （来源：X） 与此同时，独立运行近一年的 Codex 应用正式并入 ChatGPT 桌面端，与新推出的 ChatGPT Work 智能体共同构成统一产品入口，整合了对话、编码以及长程任务执行等能力。这也是 OpenAI 自今年 4 月发布 GPT-5.5 以来规模最大的一次产品更新，模型能力、产品架构和商业策略三条线同步调整。 政府审查结束，GPT-5.6 正式全面开放 6 月 26 日，GPT-5.6 首次以受限预览形式上线，仅向约 20 家通过美国政府审查的合作机构开放。据多家媒体报道，白宫国家网络安全总监办公室（ONCD）和科技政策办公室（OSTP）认为，旗舰模型 Sol 已具备较强的网络安全能力，因此要求 OpenAI 在正式发布前完成额外安全评估。 官方数据显示，Sol 在内部网络攻击评测中的得分达到 96.7%，在 ExploitBench 漏洞利用基准上的成绩也从 GPT-5.5 的 47.9% 提升至 73.5%。美国商务部下属 AI 标准与创新中心（CAISI）参与了技术评审，OpenAI 工程师也前往华盛顿与政府部门进行了技术交流。 虽然整个流程仍属于企业自愿参与，但从外界来看，美国政府已经开始形成针对前沿 AI 模型\"发布前评估\"的治理框架。对于未来能力更强的基础模型而言，这种安全审查机制很可能逐渐成为行业常态。 不再卷\"最强\"，而是卷\"最划算\" 此次 GPT-5.6 家族采用了全新的命名体系。 Sol 定位旗舰模型，Terra 主打性能与成本平衡，Luna 则面向更高性价比场景，名称分别来自拉丁语中的太阳、大地和月亮。数字代表模型代际，Sol、Terra、Luna 则成为长期保留的能力层级，未来可以分别独立迭代。 价格体系也体现了这一思路。Sol 每百万 Token 输入价格为 5 美元、输出 30 美元；Terra 分别降至 2.5 美元和 15 美元；Luna 则进一步降低至 1 美元和 6 美元。OpenAI 同时调整了 Prompt Cache 的计费方式，缓存写入按标准输入价格的 1.25 倍收费，读取价格享受折扣，并支持开发者手动设置缓存断点，使长期运行的 Agent 成本更加可预测。 从官方公布的数据来看，GPT-5.6 的核心卖点并不是绝对性能，而是性能、速度和成本之间的综合平衡。 在 Artificial Analysis 编程智能体指数上，Sol 获得 80 分，超过 Claude Fable 5，同时输出 Token 数量不到后者的一半，运行时间缩短约一半，整体成本约低三分之一；Terminal-Bench 2.1 和 DeepSWE 等编码任务也取得当前最佳成绩。Terra 和 Luna 分别超过 Claude Fable 5 与 Claude Opus 4.8，在速度和成本方面同样具有明显优势。 不过，在综合推理能力上，Anthropic 依然保持领先。在 Artificial Analysis 综合智能指数中，GPT-5.6 Sol 得分 59，仍低于 Claude Fable 5；SWE-Bench Pro 软件工程评测中，Sol 为 64.6%，而 Claude Fable 5 和 Mythos 5 均超过 80%；FrontierMath Tier 4 数学测试中，Sol 的成绩甚至低于 GPT-5.5。这也反映出 OpenAI 此次产品策略的变化。相比追求每一项基准测试都保持第一，GPT-5.6 更强调开发者最常使用的编程、Agent 和企业应用场景，在保证能力的同时进一步压低推理成本和响应时间。 围绕这一目标，GPT-5.6 还加入了几项新的能力。 Ultra 模式允许多个智能体并行工作，默认启动 4 个 Agent，最多可扩展至 16 个，以更多计算资源换取更好的结果；Max 模式则给予模型更长思考时间，提高复杂推理任务的稳定性。 API 层面推出的 P...",
+          "hb": 1
+        },
+        {
+          "t": "我想跟AI说话了！奥特曼被GPT-Live圈粉，网友吵翻",
+          "d": "2026-07-10",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "OpenAI发布新一代语音模型GPT-Live，替换原有级联式语音模式。该模型将“说”与“想”解耦，GPT-Live负责前台实时语音交互，复杂任务交由后台GPT-5.5处理。新架构打破传统“语音转文字-大模型-文字转语音”流程的延迟和信息损耗，实现更自然流畅的实时对话。模型分GPT-Live-1和mini版本，向全球多端推送。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/tDu-eP4qNRD1GkonWs-JlA",
+          "tp": "OpenAI实时语音",
+          "aip": 1,
+          "kp": [
+            "活跃用户数[ChatGPT语音和听写功能]: 每周1.5亿人",
+            "技术架构拆解[GPT-Live语音模式]: 前台实时对话由GPT-Live负责，复杂任务(搜索/推理)交由后台GPT-5.5处理后再自然接回"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "我想跟AI说话了！奥特曼被GPT-Live圈粉，网友吵翻 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**OpenAI刚推出的GPT-Live，让ChatGPT第一次能边听边说。连一向嫌弃跟AI讲话的奥特曼都改口，说想开口聊了。可它到底是更好的陪伴，还是一个更爱抢话的AI？ 7月8日，OpenAI发布了新一代语音模型GPT-Live，直接替换掉ChatGPT里用了一年多的语音模式。 一向不爱用语音的奥特曼直呼既真实又神奇，当场改口： 我一直更喜欢打字，而不是跟AI说话，现在我觉得这事要变了。 GPT-Live就像是GPT的一张「嘴」，只干一件事：让对话像真人一样流动起来。 真要动脑子的活，搜索、推理、办一件复杂事，它转手就甩给后台的GPT-5.5，等那颗「大脑」想完，再自然地接回对话里。 GPT-Live管嘴，GPT-5.5管脑。 GPT-Live负责前台实时对话，复杂任务甩给后台GPT-5.5，算完再接回来。 OpenAI这回拆开的不只是模型，是「说」和「想」这两件事。 每周有1.5亿人在用ChatGPT的语音和听写。 这次GPT-Live分两档推送：付费的Go、Plus、Pro用上GPT-Live-1，免费用户默认GPT-Live-1 mini，iOS、Android、网页端全球同步开。 **AI不再等你把话说完** GPT-Live到底改变了什么？ 过去的语音AI，走的是一条「三段式」流水线，业内叫级联式（Cascaded）架构： 先把你的话转成文字（STT），再交给大模型（LLM）想出回答，最后合成成声音（TTS）念给你听。 三个模型串成一串，每过一道，信息就掉一点，回答既容易延迟又生硬。 级联式语音系统：STT转文字→GPT-5.5想答案→TTS合成声音，一来一回，慢就慢在这串接力上。 后来的Advanced Voice Mode，把三步压进一个模型，快了、顺了，可骨子里还是「回合制」：你说完，它才能说。 Advanced Voice Mode下，用户和AI一轮接一轮交互，中间的停顿全靠静音判断，一犹豫就容易被打断。 这套机制的死穴，是它靠「静音」判断你说完了。 你中途喘口气、犹豫一下，或者旁边有点杂音，它就以为你讲完了，一头扎进来打断你。 那种感觉，更像在跟一台电话客服系统对话，而不是跟人聊天。 这正是所有人用语音AI最烦的一个地方。 GPT-Live通过全双工（Full Duplex）架构，改变了这种回合制的交互方式。 全双工这个通信术语意思是，电话两头能同时讲、同时听。 过去的语音AI像对讲机，你说完喊一声「完毕」，松开手，它才开口。全双工则像正常打电话，两头同时讲、同时听，谁想插话可以随时插话。 全双工下，User和GPT-Live两条声轨同时起伏，AI不再等你说完才开口。 落到AI身上，就是它一边听你说，一边能出声，两件事同时干。 它每秒要做好几次判断：现在该开口，还是继续听？该停，还是该接话？要不要顺手调个工具？ 于是它学会了几件过去做不到的事： 你思考时它安静等着，你说话时它用「嗯」「对」「明白」轻轻应一声，你想打断随时能打断，甚至能一边听你说、一边把话同步翻译出来。 **边听边说** **更自然，还是更烦人？** 发布会上有一个实测很能说明问题：用户让ChatGPT一边核对某个会议的日期，一边帮他查路上的天气和路况。 ChatGPT一路「嗯」「好」地应着，用户中途还在不断追加新要求，它照单全收，全程没把话头跟丢。 放在过去的回合制模式里，这种一句话套一句话的连环追问，多半会把AI绕晕。 实时翻译也跟着变了。 以前得等你说完一整句才翻，现在能边说边译，一场跨语言对话不用再频频停顿。聊到天气、股价、比分、路线，它还能直接甩出一张可视化卡片让你看。 OpenAI顺手把ChatGPT里的九种声音全部重做了一遍，个性更鲜明。 OpenAI官方表示，在5到10分钟的真实对话测试里，无论是打断、轮流接话还是整体的自然度，用户都明显更偏爱GPT-Live，而不是上一代的Advanced Voice Mode。 左图和AVM两两对比二选一，GPT-Live-1拿下75.7%、mini拿下69.2%，均甩开50%打平线；右图7分制打分，流畅度、愉悦度两项，GPT-Live-1(4.96/5.19)和mini(4.33/4.47)都压过AVM(3.80/3.82)。 在专家级科学推理、以及需要联网深挖的智能体搜索任务上，它也甩开了前代。 但「边听边说」，是更自然，还是更烦人？ OpenAI给这次发布配了一支很温情的短片： 一位银发老太太一边织毛线，一边和ChatGPT语音闲聊，后来朋友也加进来，两人对着手机你一言我一语。短片突出的，是「像真人一样的陪伴」。 结果视频...",
           "hb": 1
         }
       ]
@@ -180,72 +187,79 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "XRISM探测器观测到黑洞喷流抑制星系恒星形成",
-        "科研团队实现单层石墨烯纯谷塞曼自旋轨道耦合调控",
-        "研究人员开发出具备学习与记忆功能的液晶聚合物电子器件"
+        "长征十号乙运载火箭完成一子级海上可控垂直回收。",
+        "阳江三山岛海上风电柔直输电工程启运全球容量最大海上换流站。",
+        "深创超导量产第二代高温超导带材，77K自场临界电流达597A。"
       ],
       "entries": [
         {
-          "t": "XRISM 揭示了从超大质量黑洞喷发的塑造星系的风",
+          "t": "现场视频：长征十号乙运载火箭实现一子级可控回收",
           "d": "2026-07-10",
-          "a": "scitechdaily",
+          "a": "新华网科技",
           "c": "通用技术/通信和运输/航天",
-          "as": "密歇根大学研究人员利用X射线成像与光谱任务（XRISM）发现证据，超大质量黑洞驱动的强劲风可能解释为何宇宙中最大星系所含恒星比科学家预期更少。现有理论预测大型星系应持续形成大量恒星，但观测显示恒星数量偏少。研究认为黑洞喷发的强大风可吹散星系内气体、抑制恒星形成，为这一长期宇宙学谜题提供新见解，揭示黑洞活动与星系演化的关联。",
-          "sc": 7.2,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/xrism-reveals-galaxy-shaping-winds-erupting-from-a-supermassive-black-hole/",
-          "tp": "黑洞星系风",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Powerful winds from supermassive black holes may explain why some of the universe’s largest galaxies stopped making as many stars as expected.\nAstronomers are gaining new insight into one of the universe’s biggest puzzles thanks to the X-Ray Imaging and Spectroscopy Mission (XRISM). Researchers at the University of Michigan have uncovered evidence that powerful winds driven by supermassive black holes may explain why the largest galaxies contain fewer stars than scientists expect.\nCurrent theories predict these giant\nshould hold much more stellar mass than they actually do. The new findings suggest that black holes can suppress star formation by blasting away the gas galaxies need to create new stars.\nare best known for their intense gravity, which prevents even light from escaping once it crosses the event horizon. Outside that boundary, however, they can also produce an accretion disk, a swirling ring of gas and dust that shines intensely across the electromagnetic spectrum, including in X-rays.\nConditions inside the accretion disk are extraordinarily energetic. As material spirals inward, friction and gravity heat it into an extremely hot\nUsing observations from\n, a mission led by the\nJapan Aerospace Exploration Agency\nin collaboration with\nEuropean Space Agency\n, University of Michigan doctoral student Xin “Cindy” Xiang found evidence supporting this scenario.\n“Previously, without XRISM, we could only see broad features of the outflows,” Xiang said. “But you need to be able to resolve fine features to answer important questions. What is their structure and geometry? How are the winds launched and when are they launched?”\nLaunched in 2023, XRISM began scientific observations in fall 2024. Its X-ray energy resolution is about 10 times better than that of its predecessor, allowing astronomers to study\nenvironments with far greater precision.\nXiang and her colleagues focused on NGC 4151, a bright galaxy located a little more than 50 million\n), where a supermassive black hole is actively consuming surrounding material. That process creates a bright accretion disk, making the galaxy an ideal laboratory for studying high-speed outflows.\n“With XRISM, we have the greatest resolution observing the brightest AGN, and we’re getting the richest information on outflows that we have observed so far for an accretion disk,” Xiang said.\nWorking alongside University of Michigan astronomy professor Jon Miller, Xiang previously demonstrated that the winds produced within NGC 4151’s accretion disk can reach speeds capable of blasting material away from the galaxy. Her research also points to magnetocentrifugal driving as the\nmechanism launching the winds\n, a process that resembles the forces responsible for triggering solar flares.\nAt the 248th meeting of the American Astronomical Society in Pasadena, California, Xiang presented a new technique for determining exactly when NGC 4151’s galaxy-shaping winds become active.\nBeing able to identify these periods could help astronomers know when to observe other active galaxies, improving the chances of catching similar outflows and deepening our understanding of how supermassive black holes influence galaxy evolution.\nBecause AGN winds can change dramatically over time, Xiang analyzed hundreds of days of XRISM observations of NGC 4151. She searched for peaks in the galaxy’s X-ray brightness, known as flares, and tracked how the signal evolved during the hours that followed.\nBeyond brightness alone, she also measured whether the detected X-rays were harder or softer, a property comparable to color in visible light. She combined these measurements into a new metric called the color intensity index, which Miller suggested shortening to “cindicity.”\n“Partly because my name is Cindy,” Xiang said. “But the idea is that, in the future, you could tell me the cindicity of your source at this moment and I can tell you the probability that you’re seeing a fast outflow.”\nIn NGC 4151, Xiang found that the strongest fast winds occurred when the X-rays were hard but relatively faint. Surprisingly, the fastest outflows did not appear during the X-ray flares themselves. Instead, they typically emerged about 10,000 seconds, or just under three hours, after a flare.\nThat delay represents the first direct timing connection between changes in X-ray emission and the powerful outflows that can reshape galaxies by limiting the formation of new stars.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nUniversity of Michigan\nScientists Watch Black Hole Create Near Light Speed Winds in Hours\nFaster Than Light? How X-Rays Unravel Mysteries of Black Hole Jets\nTwisted Black Hole Accretion Disks Revealed by XRISM’s Cutting-Edge X-Ray Vision\nXRISM’s X-Ray Insights Uncover the Hidden Structures of Black Holes and Supernovas\nGigantic Bubbles at Center of Milky Way Caused by Powerful Jet of Energy From Supermassive Black Hole\nAstronomers Identify the Smallest Supermassive Black Hole to Date\nIntermediate-Mass Black Hole Candidates Discovered at the Center of the Milky Way\nStudy Challenges Prevailing Ideas About How Supermassive Black Holes Grow\nScientists Convene to Take a Picture of the Supermassive Black Hole at the Center of the Milky Way",
-          "hb": 1
-        },
-        {
-          "t": "WSe2包覆单层石墨烯中纯谷-塞曼自旋轨道耦合的调控",
-          "d": "2026-07-10",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在WSe₂（二硒化钨）封装的单层石墨烯中实现了纯谷-塞曼自旋轨道耦合的精准调控。实验团队通过过渡金属硫族化物封装策略，在石墨烯中诱导出显著的自旋轨道耦合效应，并成功分离出纯谷-塞曼分量。该工作为石墨烯基自旋电子学和拓扑量子器件的开发奠定了基础，对量子计算和低功耗电子学具有潜在应用价值。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/46n3-pryp",
-          "tp": "石墨烯自旋轨道耦合",
+          "as": "2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空。火箭一子级实现垂直返回，并在海上回收平台成功完成可控回收。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260710/9f070975534d49739b9b010019bf6e28/c.html",
+          "tp": "火箭可控回收",
           "aip": 1,
           "kp": [
-            "[谷-Zeeman SOC]: WSe₂封装石墨烯实现纯谷轨道耦合",
-            "[朗道能级]: 对称强制重排由谷-Zeeman竞争驱动"
+            "发射时间[长征十号乙运载火箭]: 2026年7月10日",
+            "[长征十号乙运载火箭一子级]: 成功实现垂直返回并在海上回收平台可控回收"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Author(s): Yaqing Han, Siqi Jiang, Jingkuan Xiao, Jiawei Jiang, Yulu Liu, Jiabei Huang, Yu Du, Di Zhang, Fuzhuo Lian, Wanting Xu, Siqin Wang, Kenji Watanabe, Takashi Taniguchi, Xiaoxiang Xi, Alexander S. Mayorov, Renjun Du, Kai Chang, Hongxin Yang, Lei Wang, and Geliang YuClearly resolved Landau levels reveal a symmetry-enforced Landau-level reordering driven by competition between fixed valley–Zeeman splitting and magnetic-field-dependent cyclotron energy.[Phys. Rev. Lett. 137, 027001] Published Wed Jul 08, 2026",
+          "b": "现场视频：长征十号乙运载火箭实现一子级可控回收-新华网\n现场视频：长征十号乙运载火箭实现一子级可控回收\n现场视频：长征十号乙运载火箭实现一子级可控回收\n2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，一子级垂直返回，在海上回收平台成功回收。\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n现场视频：长征十号乙运载火箭实现一子级可控回收",
           "hb": 1
         },
         {
-          "t": "液晶聚合物中具有记忆功能的可训练柔性电子器件",
+          "t": "全国首个由电网企业统一规划和建设的海风送出工程取得关键里程碑",
           "d": "2026-07-10",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了具有液晶聚合物记忆功能的可训练软电子器件。现有软材料可作为传感器和执行器，但缺乏从外部信息中学习的能力。该研究通过引入液晶聚合物的记忆机制，使软电子器件能够通过训练适应外部刺激，实现学习功能。这一突破将记忆与学习能力引入柔性电子领域，为智能软材料、自适应传感器和仿生执行器的开发开辟了新方向。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee8616?af=R",
-          "tp": "液晶聚合物软电子",
+          "a": "深远海风电",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "阳江三山岛海上风电柔直输电工程取得关键进展。作为全国首个电网企业统一规划建设的海风送出工程，总投资约103亿元，终期规划容量600万千瓦。其核心设备±500千伏、输送容量200万千瓦的海上换流站（重约2.5万吨）已正式启运。该换流站具备抵御17级台风和8级地震能力，是全球电压等级最高、容量最大的海上柔直换流站。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/G_Ed155Ec_tA_1kxQCOLrA",
+          "tp": "海上风电柔直输电",
           "aip": 1,
           "kp": [
-            "[可训练软电子]: 液晶低聚物网络具备学习记忆行为",
-            "材料[软电子]: 液晶聚合物"
+            "工程投资规模[阳江三山岛海上风电柔直输电工程]: 约103亿元",
+            "终期规划总容量[阳江三山岛海上风电柔直输电工程]: 600万千瓦",
+            "海上换流站电压等级[阳江三山岛海上风电柔直输电工程]: ±500千伏",
+            "直流海底电缆长度[阳江三山岛海上风电柔直输电工程]: 约115公里",
+            "直流架空线路长度[阳江三山岛海上风电柔直输电工程]: 约180公里"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "State-of-the-art soft materials can be engineered as sensors and actuators, yet, methods for learning from external information remain a subject of current research. Inspired by the use of large datasets to train artificial intelligence, tuning physical responsiveness to relayed data would introduce learning behavior in soft materials. In this work, we develop a trainable liquid crystal oligomer network (LCON) that stores digital information directly into its molecular configuration. By functionalizing the anisotropic LCON with photo-switchable azobenzene, we simultaneously integrate basic logic and memory in a material through a binary-state system; we coin this design the trainable self-propelled gate (T-SPG). We can tune the memory of our T-SPG with photonic stimuli, allowing the system to be trained by a conventional digital controller. We demonstrate the trainability of the T-SPG through two hierarchical tasks: a lower-level binary classification task where the decision boundary is stored as material memory, and a higher-level motion task that uses the stored memory to trigger actuation.",
+          "b": "全国首个由电网企业统一规划和建设的海风送出工程取得关键里程碑 原创 龙吸水 龙吸水 深远海风电 阳江三山岛海上风电柔直输电工程是全国首个海上风电海陆一体柔性直流输电工程，也是全国首个由电网企业统一规划和建设的海上风电配套送出工程。工程总投资约103亿元，终期规划总容量达600万千瓦。 工程分为海陆两大板块，其中海上部分包括一座±500千伏海上换流站、辅助平台，以及长约115公里的500千伏直流海底电缆；而陆上部分包括阳江海岸的海缆转架空终端站、江门古劳换流站，以及途经阳江、江门、佛山三地、全长约180公里的直流架空线路。本工程旨在将阳江三山岛海上风电场一至四项目（总装机200万千瓦）所发绿电，通过这条全长约300公里的“电力高速路”直送粤港澳大湾区负荷中心。 最新进展海上换流站正式启运 2026年7月7日傍晚，三山岛工程的海上换流站从江苏南通振华码头正式起锚开航。这座换流站是一座七层钢结构平台，长约85.5米、宽约82.5米、高43米（约15层楼高），单层面积接近一个标准足球场，总重约2.5万吨。此次发运标志着陆地建造阶段的结构施工、设备安装、系统调试已全部完成，工程正式转入海上运输与安装的关键阶段。换流站将航行约1000海里（预计5至7天），抵达阳江以外约100公里的深远海域进行安装就位。本换流站电压等级±500千伏、输送容量200万千瓦，是目前世界电压等级最高、输送容量最大的海上柔性直流换流站。针对海上高盐、高湿、多台风的气候条件，换流站采用防腐和抗台风一体化设计，可抵御17级台风，具备抵御8级地震的能力。 在海上换流站发运之前，项目已陆续完成多个关键节点。 2026年6月15日，陆上工程江门古劳换流站500kV交流部分顺利投运。 2026年5月12日，海缆登陆隧道成功贯通，全长408.92米，打通了海底电缆登陆的“最后一公里”，攻克了“海陆连通”瓶颈。 2026年5月中旬，直流海底电缆正式启动敷设，全长约112.8公里，采用±500千伏直流光电复合海底电缆，输送容量达2000兆瓦。首段敷设的是靠近海上换流站侧的海缆，长度达61.7公里，是目前国内离岸距离最远的直流海缆工程。 2026年1月31日，海上换流站上部组块完成封顶。 2026年1月，整体建设进度已过半，陆上江门古劳换流站主控楼已封顶，阀厅网架提升工作已完成。 三山岛工程在技术和模式上实现了重大突破。首先是工程首创“海陆一体”柔性直流输电技术。风电从海上风机发出后，经海底电缆上岸，不换成交流电，直接通过180公里直流架空线路直送大湾区。这打破了以往国内工程“不敢让直流电翻山越岭走远路”的技术禁区。工程首次采用国内首台±500千伏柔性直流变压器和±500千伏直流海缆，系统具备快速“自我调节”能力。其次是工程首创“共享走廊”输送模式，将3家发电集团4个海上风电场的电能统一汇集，共用一条陆上送出通道，实现了工程投资优化和送出通道的集约化利用。 阳江三山岛海上风电柔直输电工程自2025年4月全面开工以来，仅用15个月左右的时间就完成了从全面开工到海上换流站发运的全部陆地建造工作，整体节奏紧凑高效。工程计划于2026年10月建成投产。投产后，每年可向粤港澳大湾区输送清洁电能约60亿千瓦时，能满足约200万户大湾区家庭的全年用电需求，相当于节约标煤约174万吨、减排二氧化碳约463万吨。 阳江三山岛海上风电柔直输电工程是我国深远海风电大规模开发送出的一次系统性突破。三山岛工程通过“海陆一体”柔直技术方案，首次将南方电网主网架的触角伸向了深远海，为未来我国千万千瓦级海上风电基地的开发探索了一条可复制的技术路径。同时这条全长约300公里的“电力高速路”预计将带动超千亿级海上风电产业链。工程由电网企业统一规划和建设、多家发电集团“拼车”送出的模式，也为后续海上风电的集约化开发提供了重要的制度创新样本。 ### 深远海风电公众号简评： 阳江三山岛柔直输电工程无论在工程规模、技术水平还是建设速度上，都堪称我国海上风电送出领域的标杆项目。目前距离10月投产目标已不足三个月，海上换流站运输安装、海缆敷设收尾、系统联调等后续工作仍面临不小的挑战，小编将拭目以待。 特别声明：以上信息均来自网络公开信息整理，出于传递更多信息而非盈利之目的，同时并不代表本平台的观点，内容仅供参考。若有侵权，请联系我们删除。",
+          "hb": 1
+        },
+        {
+          "t": "77K自场临界电流接近600A，深创超导高温超导带材产品量产发布",
+          "d": "2026-07-10",
+          "a": "可控核聚变",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "深创超导发布量产的第二代高温超导带材产品SCS900高性能版。经合肥国际应用超导中心检测，该12mm宽带材在77K自场条件下的直流临界电流值达到597A。公司已实现百米级长带稳定量产，并具备优异的电流均匀性。产品线覆盖常规输电、高场磁体及可控核聚变等尖端场景，依托自主IBAD+MOCVD工艺突破了超导产业链关键材料瓶颈。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/TFYT0GOMq2wfln4sgvvBRw",
+          "tp": "高温超导量产",
+          "aip": 1,
+          "kp": [
+            "临界电流[77K自场条件下的12mm宽第二代高温超导带材]: 597A",
+            "制备工艺[第二代高温超导带材]: IBAD+MOCVD全流程自主可控工艺",
+            "应用场景[高温超导带材]: 聚焦可控核聚变等高场场景"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "77K自场临界电流接近600A，深创超导高温超导带材产品量产发布 可控核聚变 每天与你一起 近日，深创超导（深圳）科技有限公司（以下简称“深创超导”）S**CS900****高性能版**12mm宽第二代高温超导带材，经合肥国际应用超导中心检测结果显示：送检的该带材样品在77K自场条件下直流临界电流值达到597A。 合肥国际应用超导中心检测结果 超导领域资深专家发起，系华南区域首家高温超导带材公**司** 深创超导成立于2022年9月，落户于深圳市光明区新材料中试化产业基地，是华南区域首家第二代高温超导带材（2G-HTS）研发与产业化企业。 公司由超导领域资深教授发起，核心团队由行业顶尖产业专家与资深工程技术人才组成。企业自建专用研发实验室与产业化中试平台，依托自主核心技术与全流程工艺体系。公司聚焦可控核聚变等高场场景专用第二代高温超导带材的研发与规模化制备，依托自主研发的IBAD+MOCVD全流程自主可控的制备工艺，专注打造低成本、高稳定、高载流的超导核心材料，配套提供一站式技术解决方案，全力突破我国超导产业链关键材料瓶颈，助力区域超导未来产业集聚。 **全系列产品精准覆盖，满足多样化场景需求** 深创超导利用自建专用研发实验室与产业化中试平台，已经实现SCS系列多款高温超导带材百米级长带稳定量产，并梯度匹配不同应用场景： * SCS800基础款：77K自场临界电流≥450A，高性价比，适配常规超导输电、通用工业超导装备。 * SCS900高性能款：77K自场临界电流达到500A—700A，均衡载流性能与稳定性，适配高场磁体、新能源电力核心设备。 * SCS990旗舰款：公司高阶版本，极致性能优化，适配可控核聚变、高端医疗磁体、大科学装置等尖端场景。 深创超导送样带材 **本次送检样品取自量产级百米级连续长带，经测试，SCS系列百米级长带产品具备优异的电流均匀性，无明显性能衰减，各项指标均满足规模化工程应用要求。** 深创超导团队自测结果 下一步，深创超导将持续迭代产品工艺，深挖性能，以分级化、量产化的国产高温超导带材，为我国超导电力、聚变能源、高端装备产业发展注入核心材料动力！ * 甚磁科技助力上海交大顶刊发文，揭秘高温超导薄膜“超高速生长”路径！ * 再创新高！甚磁科技新产品取得突破，助推“人造太阳” 商业化进程 * 甚磁科技在强场高载流能力YBCO长带制备取得关键技术突破 * 多项性能指标实现重大突破，东部超导最新REBCO超导带材产品正式推出！",
           "hb": 1
         }
       ]

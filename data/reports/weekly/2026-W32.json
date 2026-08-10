@@ -1,0 +1,343 @@
+{
+  "type": "weekly",
+  "date_label": "2026-08-03 ~ 2026-08-09",
+  "date_range": "2026-08-03 ~ 2026-08-09",
+  "main_theme": "宁德时代钠离子电池达吉瓦时级量产，英伟达30亿美元投资锁定数吉瓦AI算力电力基础设施",
+  "overview": "宁德时代Naxtra钠离子电池达到吉瓦时级量产规模并与海博思创签订60 GWh供应协议。特斯拉得州超级工厂投产设计年产能50 GWh的Megapack 3，单位面积能量密度提升28%。英伟达宣布向Lancium投资最高30亿美元，为德州AI园区锁定数吉瓦电力供应。SpaceX第二季度因AI数据中心扩张消耗160亿美元现金。荷兰TNO展示工业规模双面钙钛矿/硅串联光伏组件，将电力输出提高15%至30%。Niron Magnetics获1.5亿美元贷款，拟于2027年实现年产1500吨无稀土磁体。",
+  "headlines": {
+    "零碳产业": [
+      "宁德时代Naxtra钠离子电池达吉瓦时级量产并签60GWh订单",
+      "特斯拉投产年产能50 GWh的Megapack 3储能系统",
+      "新型催化聚合固态电解质实现450 Wh/kg能量密度",
+      "荷兰TNO展示双面钙钛矿硅串联光伏组件提升发电量"
+    ],
+    "AI与智能科技": [
+      "SpaceX第二季度因AI基础设施扩张消耗160亿美元现金",
+      "英伟达斥资最高30亿美元投资Lancium锁定数吉瓦电力",
+      "本源量子实现30纳秒门长超导量子比特高保真控制",
+      "D-Wave实现500纳秒双轨擦除量子比特纠缠门操作"
+    ],
+    "通用技术": [
+      "我国规划至2030年建成超4000万个充电基础设施终端",
+      "飞依诺实现10微米级血管超声超分辨临床成像技术",
+      "美国Niron Magnetics获贷款建立年产1500吨无稀土磁体厂",
+      "强流重离子加速器成功探测并鉴别稀有原子核铪-153"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "宁德时代Naxtra钠离子电池完全不含钴和锂并采用铝集流体，已达到吉瓦时级量产规模，签订60 GWh订单。特斯拉Megapack 3在得州投产，设计年产能50 GWh，同等占地面积下能量容量增加28%。荷兰TNO工业规模双面钙钛矿/硅串联光伏组件在实际运行中将电力输出提高15%至30%。",
+      "headlines": [
+        "宁德时代Naxtra钠离子电池达吉瓦时级量产并签60GWh订单",
+        "特斯拉投产年产能50 GWh的Megapack 3储能系统",
+        "新型催化聚合固态电解质实现450 Wh/kg能量密度",
+        "荷兰TNO展示双面钙钛矿硅串联光伏组件提升发电量"
+      ],
+      "entries": [
+        {
+          "t": "CATL实现钠离子电池量产",
+          "d": "2026-08-06",
+          "a": "Battery Tech Online",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "宁德时代（CATL）的Naxtra钠离子电池已达到吉瓦时级别的量产规模，并于2026年全面投产。该电池完全不含钴和锂，正负极均采用铝集流体以降低成本。同时，宁德时代与海博思创签订了60 GWh的钠离子电池供应协议，创下该领域迄今最大订单纪录。",
+          "sc": 10.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.batterytechonline.com/design-manufacturing/how-catl-moved-sodium-ion-batteries-from-lab-chemistry-to-gwh-scale-reality",
+          "tp": "宁德钠电量产",
+          "aip": 1,
+          "kp": [
+            "产能状态[Naxtra钠离子电池]: 实现GWh级量产",
+            "供应协议规模[宁德时代与海博思创钠离子电池]: 60 GWh",
+            "商业地位[上述钠离子电池协议]: 迄今为止最大的钠离子电池交易"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Design & Manufacturing\nBattery Applications\nCATL's Naxtra sodium-ion battery reaches GWh-scale mass production while a 60 GWh supply agreement with HyperStrong marks the largest sodium-ion deal recorded to date.\nAugust 5, 2026\n4 Min Read\nCATL's Chief Scientist Dr. Wu Kai at the company's Technology Day event in Beijing on April 21, 2026.\nAt a Glance\nCATL signed a 60 GWh sodium-ion supply agreement with energy storage integrator HyperStrong in China\nThe Naxtra sodium-ion battery achieved GWh-scale industrialization with full production starting in 2026\nSodium-ion cells use no cobalt or lithium and employ aluminum collectors on both electrodes for cost cuts\nFor years, sodium-ion batteries were considered a chemistry with compelling structural advantages, but that couldnt reach commercial relevance.\nBenefiting from sodium’s abundance, an architecture that omits lithium and cobalt, and lower cell expansion stress, the chemistry has many promising features that exceed lithium-ion batteries. However, manufacturing reality tells a different story. Hard carbon anode production is difficult to control at volume, moisture sensitivity introduces yield problems, and the industry lacks the supply chain depth to support GWh-scale deployment with any consistency.\nNow, that picture is starting to change.\nIn this article, we'll take a look at CATL's recent sodium-ion milestones, including a\nlandmark 60 GWh supply agreement\nwith energy storage integrator HyperStrong and the\nformal announcement\nof GWh-scale industrialization of the Naxtra Sodium-ion Battery.\nSodium-ion vs. lithium-ion batteries\nSodium-ion cells follow the same intercalation principle as lithium-ion, with ions moving between the cathode and anode during charge and discharge. However, sodium-ion’s design makes it significantly cheaper than lithium-ion.\nRelated:\nHow Battery Validation is Shaping the Future Grid\nFirst, sodium is far more abundant than lithium, and sodium-ion cells use no cobalt. In addition, sodium-ion cells can use aluminum current collectors on both electrodes, eliminating the copper required on lithium-ion anodes. With these material characteristics combined, sodium-ion batteries carry a low cost that suits large-scale, long-duration stationary storage, where raw material cost influences project budgets.\nMeanwhile, sodium-ion batteries offer a slew of performance and reliability benefits as well. According to the\nAmerican Physical Society\n, sodium-ion cells tolerate wider temperature ranges than conventional lithium-ion chemistries, maintain cycle stability at high ambient temperatures, and generate less heat during operation, reducing the burden on thermal management systems.\nWhere sodium-ion falls short is energy density and ease of manufacturing. Sodium-ion cells store less energy per kilogram than LFP (lithium iron phosphate), and their hard carbon anodes are more difficult to produce consistently as compared to graphite anodes used in lithium-ion designs. Controlling gas generation in hard carbon production, managing moisture exposure, achieving reliable adhesion of the aluminum current collector, and tuning anode formation protocols are only some of the engineering obstacles that have kept sodium-ion batteries from volume production.\nRelated:\nStartups Pitch Investors to Transform the Battery Industry\nCATL and HyperStrong’s 60-GWh sodium-ion agreement\nIn April of this year, CATL and energy storage integrator HyperStrong\nsigned a strategic cooperation agreement\nin Ningde, China, covering a three-year, 60 GWh sodium-ion battery supply commitment. CATL describes the agreement as the largest sodium-ion battery supply deal in the world to date, and HyperStrong as the company's first strategic partner for sodium-ion energy storage. Their collaboration covers technology research and development, product applications, and project deployment.\nCATL and HyperStrong representatives at the signing ceremony. Credit: CATL\nCATL and HyperStrong representatives at the signing ceremony. Credit:\nThe agreement rests on manufacturing capabilities that CATL claims to have developed across the full sodium-ion production process. For example, the company claims notable energy density gains compared to previous commercial sodium-ion attempts, owing to a combination of morphology control and surface modification. On the production side, CATL says it resolved key process challenges by applying angstrom-level pore size regulation, surface molecular water-locking, and adaptive dynamic formation, each aimed at ensuring output consistency at high volumes.\nCATL also notes that its sodium-ion cells share a platform-based design with the same form factor as its lithium-ion products. According to the company, that design choice reduces integration costs for operators and shortens the time from product qualification to power station deployment.\nRelated:\nBreaking Down the Limits of Solid-State Battery Performance\nCATL’s Naxtra Battery Reaches GWh-Scale Production\nMeanwhile, at CATL's Super Technology Day in Beijing this year, the company\nannounced\nthat its Naxtra sodium-ion battery has achieved GWh-level industrialization. CATL describes the Naxtra as the result of systematically resolving hundreds of engineering challenges, with particular focus on four bottlenecks it identified as blocking sodium-ion mass production:\nExtreme water control\nGas generation in hard carbon production lines\nAluminum foil adhesion\nSelf-forming anode systems\nCATL says full-scale mass production will begin by the end of 2026.\nThe Naxtra sodium-ion battery marks CATL’s transition from the lab to gigawatt-hour scale manufacturing of sodium-ion technology. Credit: CATL\nThe Naxtra sodium-ion battery marks CATL’s transition from the lab to gigawatt-hour scale manufacturing of sodium-ion technology. Credit:\nTaken together, the HyperStrong agreement and the Naxtra industrialization announcement show CATL’s involvement in two sides of the push for sodium-ion adoption. One demonstrates the chemistry’s commercial demand at scale, while the other shows that they can deliver the manufacturing capacity to meet it.\nThe open question now is whether hard carbon anode supply chains can develop at the pace that matches CATL’s commitments and timelines. The answer to that question will dictate the scale to which CATL and other battery manufacturers can produce sodium-ion cells.\nAbout the Author\nJake Hertz\nJake Hertz is an Electrical Engineer, Technical Writer, and Public Relations specialist for the electronics and semiconductor industries. He holds an M.S. and B.S. in EE and has designed electronics for top brands, including MakerBot, UltiMaker, Hyundai, and AT&T. He is also an analyst for the TechInsights Microprocessor Report and an alumnus of the Goldman Sachs 10KSB program.\nJake's communication business,\nNanoHertz Solutions\n, works with industry leaders, including NXP Semiconductors, Renesas, Synopsys, Analog Devices, Infineon, and Texas Instruments. Writing services include whitepapers, application notes, blogs, and thought-leadership pieces. PR services include campaign development and securing high-visibility media placements for clients. To work with Jake,\ncontact him on LinkedIn\n. You can see more of his work and services\nSee more from\nJake Hertz",
+          "hb": 1
+        },
+        {
+          "t": "Tesla 开始生产 Megapack 3，每单位能量增加 28%",
+          "d": "2026-08-06",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "特斯拉已开始在位于得克萨斯州布鲁克希尔的新超级工厂生产新一代Megapack 3电网级储能电池。该工厂从破土动工到投产仅耗时16个月，设计年产能达50 GWh。与上一代产品相比，Megapack 3在同等占地面积下可多容纳约28%的能量。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/08/06/tesla-megapack-3-production-starts-texas/",
+          "tp": "特斯拉推新储能",
+          "aip": 1,
+          "kp": [
+            "能量提升[Megapack 3相比上一代]: 增加28%",
+            "设计年产能[Megapack 3德州超级工厂]: 50 GWh",
+            "建设周期[Megapack 3德州超级工厂]: 从破土动工到投产耗时16个月"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tesla Megapack\nFred Lambert\n| Aug 6 2026 - 5:52 am PT\nTesla has started building its next-generation Megapack 3 grid battery, with the first units rolling off the line at the company’s new Megafactory in Brookshire, Texas.\nThe plant went from groundbreaking to production in 16 months and is designed to build 50 GWh of Megapack 3 a year. That’s the version Tesla says packs roughly 28% more energy into the same footprint as the Megapack it replaces.\nTesla confirmed the production start on Wednesday through its Megapack account, noting the Brookshire facility has “a designed capacity of 50 GWh/year dedicated to Megapack 3.” It’s the physical follow-through on the\nMegapack 3 and Megablock reveal\nMegapack 3 is officially rolling off the line at our newest Megafactory in Brookshire, Texas!\nThe factory went from groundbreaking to operation in just 16 months & has a designed capacity of 50 GWh/year dedicated to Megapack 3\nSo here’s what actually changed between Megapack 3 and the versions before it.\nWhat’s different about Megapack 3\nA single Megapack 3 holds about 5 MWh, up from 3.9 MWh on the Megapack 2 XL. That’s roughly 28% more storage in a box that takes up the same ground.\nTesla gets there mainly by using bigger cells. Megapack 3 moves to a larger 2.8-liter cell format, which lets Tesla cram more capacity into each cabinet without growing the enclosure.\nThe other big change is plumbing. Tesla says Megapack 3 cuts thermal-system connection points by 78% versus the previous generation. Fewer connections means fewer places for a liquid-cooled battery to leak or fail, and less labor to assemble and service. Not glamorous. But at grid scale, reliability and install time are the whole game.\nFor context, the Megapack has been climbing this curve for years. It launched in 2019 at around 3 MWh, then Tesla\nsqueezed it up to 3.9 MWh\nwith the 2 XL in 2022. Megapack 3 is the biggest single jump yet.\nThe real shift is the Megablock\nA Megablock bundles up to four Megapack 3 units (about 20 MWh) with the transformer and switchgear already integrated at the factory. On older Megapacks, a lot of that medium-voltage wiring happened in the field, one of the slowest and most expensive parts of building a battery farm.\nTesla just signed a\n$5 billion, 25 GWh Megapack deal with NatPower\nin Europe, and data-center operators are buying storage as fast as Tesla can build it. A denser unit that goes up faster is exactly what those customers are asking for.\nWhy the new factory matters\nBrookshire is Tesla’s answer to a supply problem. The company’s Lathrop, California Megafactory and its Shanghai plant have been running flat out, and Tesla\nannounced this third Megafactory\nspecifically to add capacity as competition from CATL, Fluence, and BYD heats up.\nAt 50 GWh a year dedicated to Megapack 3, Brookshire could quickly become Tesla’s largest energy storage manufacturing facility, beating Lathrop’s full output on its own. And building it in 16 months is fast for a facility this size.\nElectrek’s Take\nIt’s impressive how quickly Tesla can get a new factory to production.\nHowever, the spec that matters most with Megapack 3 isn’t the 5 MWh. It’s the Megablock. Grid batteries don’t fail to get built because the cells aren’t good enough — they stall on interconnection, permitting, and the slow, expensive work of wiring gear in a field. Moving that into the factory is the kind of unglamorous manufacturing win that actually moves deployment numbers, and it’s the same playbook Tesla ran on the Supercharger and that turned out more than alright.\nThe open question is cells. Tesla needs a lot of large-format cells to fill a 50 GWh factory, and a chunk of that still depends on suppliers and on how the current US tariff picture shakes out for imported LFP.\nTesla has already started reporting lower gross margins on its energy business due to high tariffs on LFP cells, and its own production isn’t coming close to 50 GWh.\nIf you’re adding a home battery or solar to lock in your own energy costs, the same math that makes grid storage attractive works on your roof. With electricity rates up almost 10% last year and expected to keep climbing, going solar is one of the best ways to protect yourself against rising costs. And with lease and PPA options, you can do it with zero upfront cost and start saving immediately. If you want to find the best deal, check out\nEnergySage\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nFeatured\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nComments\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nFred Lambert's favorite gear\nCombat Edge\nGet an edge on MMA with the best stats\nEnergySage\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "催化聚合固体电解质使 450 Wh kg−1 锂金属电池具有热机械滥用耐受性",
+          "d": "2026-08-08",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "报告了一种与卷对卷工艺兼容、厚9.6微米的固态聚合物电解质膜。该膜以聚乙烯为基质，通过路易斯酸性Li1.3Al0.3Ti1.7(PO4)3催化1,3-二氧戊环原位聚合制备，转化率达99.1%，25℃下机械强度达191.7 MPa，离子电导率达418.7 mS。结合双添加剂策略解决多尺度界面不相容问题：三(4-氟苯基)膦构建富氟界面提升正极耐压至4.8V，Mg(TFSI)2形成Li-Mg合金使负极Li⁺扩散势垒降至0.127 eV，助力锂金属电池实现450 Wh kg−1的能量密度及热机械滥用耐受性。",
+          "sc": 9.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-76381-y",
+          "tp": "固态锂电池",
+          "aip": 1,
+          "kp": [
+            "固体聚合物电解质膜厚度[卷对卷兼容/聚乙烯基质]: 9.6μm",
+            "单体转化率[路易斯酸Li1.3Al0.3Ti1.7(PO4)3催化原岩聚合]: 99.1%",
+            "机械强度[固体聚合物电解质膜]: 191.7 MPa",
+            "离子电导[25°C]: 418.7 mS",
+            "能量密度[锂金属电池]: 450 Wh/kg"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Practical implementation of solid polymer electrolytes is constrained by interfacial instability and manufacturing scalability. Here, we report a roll-to-roll compatible, 9.6-μm-thick solid polymer electrolyte membrane synthesized via in situ 1,3-dioxolane polymerization catalyzed by Lewis-acidic Li1.3Al0.3Ti1.7(PO4)3 on a polyethylene matrix, achieving a 99.1% conversion rate. The resulting membrane demonstrates 191.7 MPa mechanical strength and 418.7 mS ionic conductance at 25 °C. To resolve multiscale interfacial incompatibilities, a dual-additive strategy is employed: tris(4-fluorophenyl) phosphine constructs a fluorine-rich interphase extending positive electrode tolerance to 4.8 V, while Mg(TFSI)2 forms a Li–Mg alloy lowering the negative electrode Li⁺ diffusion barrier to 0.127 eV. Validated in 1.2 Ah pouch cells, this system attains specific energy and energy density of 456.7 Wh kg⁻1 and 911.1 Wh L⁻1 (based on the total mass and volume of the pouch cell, respectively), stable wide-temperature cycling (−20 to 55 °C), and prevents thermal propagation under abuse conditions.",
+          "hb": 1
+        },
+        {
+          "t": "TNO与合作伙伴展示工业规模双面钙钛矿/硅串联组件，功率输出提高15-30%",
+          "d": "2026-08-04",
+          "a": "perovskite-info",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "荷兰TNO及其合作伙伴成功展示了工业规模的双面钙钛矿/硅串联太阳能组件。该组件采用单晶堆叠结构，不仅效率高于传统纯硅组件，其双面设计还能同时吸收面板正面和背面的光线。测试表明，在相同面积的实际运行条件下，该双面串联技术能使电力输出显著提高15%至30%。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.perovskite-info.com/tno-and-partners-demonstrate-industrial-scale-bifacial-perovskitesilicon-tandem",
+          "tp": "钙钛矿组件量产",
+          "aip": 1,
+          "kp": [
+            "功率输出提升[工业规模双面钙钛矿/硅串联组件]: 15-30%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "TNO and partners demonstrate industrial-scale bifacial perovskite/silicon tandem module, with 15-30% higher power output\nTNO, together with Dutch industrial partners Levitech, Tempress, Yparex and SMIT Thermal Solutions and the German R&D center of\nHanwha Q Cells\n, has demonstrated for the first time that bifacial tandem solar technology can be manufactured at industrial scale, delivering measurably higher electricity output from the same surface area under real operating conditions.\nThe module architecture stacks monolithic perovskite/silicon solar cells to reach higher efficiencies than current silicon-only modules, while its bifacial design captures light from both the front and rear of the panel for additional yield. The work was carried out under the\nFit4Market project, a Dutch-German collaboration TNO has coordinated since 2023\n, which set out to combine bifacial light capture with tandem cell architecture using processes compatible with existing photovoltaic production lines - prioritizing scalability and real-world validation over maximizing laboratory efficiency.\nTesting shows the bifacial tandem approach delivers 15-30% higher power output than a conventional bifacial silicon module used as reference. The first energy yield measurements from an actual rooftop installation confirm an approximately 16% increase in annual electricity generation. A physical demonstrator is currently undergoing outdoor validation, and a second generation of prototypes is now on the roof gathering further data under real operating conditions - evidence, the team says, that the technology's advantages hold up outside the lab.\nValerio Zardett, Senior Scientist at TNO, said: \"By focusing on industrial processes and bifacial design optimization, we show that higher power density is achievable in practice. This is a key step towards making bifacial tandem solar technology relevant for large-scale deployment.\"\nThe technology is aimed at two deployment scenarios: generating more electricity within a fixed footprint, or generating the same amount of electricity within a smaller footprint than conventional technology requires - making it relevant both for space-constrained urban and industrial rooftops and for utility-scale projects looking to reduce a solar farm's total land footprint. TNO recommends the technology for installations with an albedo of 10-20%, and notes the bifacial design can be further customized to match local site conditions and reflectivity.\nThe next phase of the project will focus on further scaling, longer-term outdoor validation, and continued collaboration with industry partners to prepare the technology for broader deployment. Fit4Market is supported through the Dutch Topsector Energy program.\nAug 04,2026 by\nRoni Peleg\nSimilar Entries\nPerovskite/silicon tandem hits certified 27.49% efficiency in space conditions, survives radiation and a real high-altitude balloon flight\nTandem PV acquires nexTC Corporation\nEngineered radiative cooling film boosts perovskite solar cell efficiency\nTNO develops ultra-thin perovskite solar film for caravans and RVs\nBetterial introduces halogen-free TPO encapsulation film for perovskite modules\nShanghai's 'Xingshu Plan' adopts perovskite tandem solar cells for its first space computing satellite cluster\nNew POP-PV project to advance Power Roll's micro-groove perovskite solar film toward commercialization\nTandem PV installs perovskite-silicon panel for outdoor testing at UC Merced",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "英伟达向Lancium投资首期20亿美元获约20%股份，为AI芯片锁定数吉瓦电力供应。SpaceX第二季度因AI数据中心扩张资本支出达180亿美元，现金消耗160亿美元。本源量子与中国科大联合提出PSE-CZ方案，在30至40纳秒门长条件下保持超导量子计算的稳定性能。",
+      "headlines": [
+        "SpaceX第二季度因AI基础设施扩张消耗160亿美元现金",
+        "英伟达斥资最高30亿美元投资Lancium锁定数吉瓦电力",
+        "本源量子实现30纳秒门长超导量子比特高保真控制",
+        "D-Wave实现500纳秒双轨擦除量子比特纠缠门操作"
+      ],
+      "entries": [
+        {
+          "t": "SpaceX 报告大量亏损并做出重大承诺",
+          "d": "2026-08-05",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "SpaceX作为上市公司的首份财报显示严重亏损：第二季度消耗了160亿美元现金，而收入仅为78亿美元。巨额亏损主要源于180亿美元的资本支出，特别是AI数据中心扩张。首席执行官埃隆·马斯克在电话会议上重申大举扩张承诺，预计公司到2030年甚至最早2029年将实现1万亿美元的收入目标。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/newsletters/the-briefing/spacex-reports-lots-red-ink-makes-big-promises",
+          "tp": "SpaceX大举扩张AI算力",
+          "aip": 1,
+          "kp": [
+            "资金消耗[SpaceX第二季度]: 160亿美元",
+            "营业收入[SpaceX第二季度]: 78亿美元",
+            "资本支出[SpaceX第二季度]: 184亿美元（主要用于AI数据中心扩张）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Question: How is the 24-year-old SpaceX like a young startup? It’s burning twice as much cash as it brings in as revenue! That’s one takeaway from SpaceX’s first earnings report as a public company, in which the company revealed it burned $16 billion in the second quarter, on $7.8 billion in revenue. That’s thanks to a whopping $18.4 billion in capital expenditures, mostly due to SpaceX’s AI data center expansion. And like a young startup, SpaceX has big ambitions. On the company’s earnings call with analysts, CEO Elon Musk claimed it was now expecting to hit $1 trillion in revenue by 2030, a year earlier than it had projected before its IPO, and there was a chance it could hit that threshold by 2029. That’s a big claim, considering that first-half revenue was only $12.5 billion. True, finance chief Bret Johnsen said SpaceX’s annualized revenue rate would hit $100 billion by the end of this year. But ARR is one month’s revenue multiplied by 12. It’s not a real metric (and Musk emphasized that the $1 trillion projection was revenue, not ARR). Musk also claimed that SpaceX’s Starlink could deliver most of the internet connectivity in the world in “less than 10 years,” while his No. 2, Gwynne Shotwell, claimed that SpaceX’s Starlink mobile service—to launch at the end of 2027—would “acquire quite a few” of the customers of the major cellphone providers in the U.S. Whoa! So not only does SpaceX have enormous ambitions to dominate broadband internet, it aims to compete directly with major cellular providers. And that’s all in addition to its huge AI ambitions and its desire to launch data centers in space and travel to far-off planets. Investors seem underwhelmed (or perhaps overwhelmed?) by all these big claims: SpaceX stock fell 6.5% in after-hours trading. The investor reaction makes sense. Investors have come to hate big tech companies’ massive outlays on capex for AI, even though those companies are funding that capex from massive profits on other businesses. And SpaceX is spending more on capex, relative to what its businesses generate in cash, than any big tech firm. SpaceX’s only real profit center is its Starlink internet business, but that makes nowhere near enough to fund all the company’s ambitions (Starlink made just $1.65 billion in second-quarter operating income, for instance). SpaceX will undoubtedly get a lift from the various deals it has done to rent out its computing capacity and from its pending acquisition of AI firm Cursor. But becoming a major competitor in mobile and building more AI capacity won’t come cheap. The returns are questionable, both in AI and telecom. Remember that the big telecom providers have to spend a fortune on spectrum and equipment, and they’re all fighting over a market with little growth. Musk has sky-high ambitions. Watching him try to fulfill them promises to be a lot of fun. Bandwidth Constraints AI has created massive demand for electricity and chips, driving up the prices of both, which has in turn lifted the costs of smartphones and computers. Elon Musk on Tuesday pointed out that the demand for bandwidth to transmit data will also soar as a result of AI. “With the advent of AI and humanoid robotics and vehicle robotics and just a massive number of robots, the appetite of bandwidth will be much greater than it has been in the past,” he told analysts. In other words, all those robots and self-driving cars and AI-enabled devices will be communicating constantly, straining the capacity of broadband providers, which are now mostly cable companies and cell firms. Musk says Starlink will save the day, providing the bandwidth to meet all those demands. In Other News • Italian conglomerate Bending Spoons agreed to buy once high-flying productivity startup Airtable for $1.285 billion, a steep haircut to its last valuation of $11 billion in 2021 ( more here ). • Spotify reported 14% higher revenue, driven by 9% growth in the number of paying subscribers, while the music streaming service’s ad business continued to lag. • The Trump administration is planning to ban U.S. imports of data center components from China, Reuters reported . • Major personal computer makers including HP, Asus and Acer have started using small numbers of chips from Chinese memory maker ChangXin Memory Technologies, Nikkei Asia reported . • Polymarket is in early talks to raise about $1 billion at a more than $20 billion valuation, Bloomberg reported . • OpenAI gave a full-throated response to Apple’s lawsuit filed last month alleging theft of trade secrets. In a blog post on Tuesday, OpenAI called the lawsuit “careless, aggressive and oddly personal.” • AMD reported 50% higher revenue of $11.536 billion for the second quarter, driven by stronger demand from data centers for its chips. But the company projected slightly slower growth of 41% for the third quarter. AMD shares fell 8.6% in after-hours trading. Today on The Information’s TITV Check out today’s episode of TITV in which we discuss the details of Bending Spoons’ acquisition of Airtable and the future of enterprise software. Recommended Newsletter Start your day with Applied AI , the newsletter from The Information that uncovers how leading businesses are leveraging AI to automate tasks across the board. Subscribe now for free to get it delivered straight to your inbox twice a week. New From Our Reporters True Value Why a SpaceX-Tesla Merger Could Benefit Shareholders in Both Companies By Anita Ramaswamy Dealmaker Inside the Airtable-Bending Spoons Sale By Valida Pau, Stephanie Palazzolo and Julia Hornstein Applied AI How Firms Like Coinbase Are Building Coding Agents to Complement Anthropic's Claude Code By Laura Bratton Upcoming Events Wednesday, September 23 — AI Agenda Live SF 2026 Join us to explore the real-world shifts, new architectures, and enterprise strategies defining the next era of AI. Secure your spot today to hear directly from top minds at Google DeepMind, OpenAI, Atlassian, and more. More details Tuesday, October 27 — The Information’s 2026 WTF Summit Tickets on sale now: The Information returns to Napa Valley October 27–28 to convene senior women across tech, media, and finance. Join us for two days of intimate, candid conversations with the leaders navigating today’s global shifts. More details What We’re Reading White House Whipsaws Silicon Valley Over AI Rules Huawei’s Top Scientist Warns of Chip Limits Nvidia Will Soon Face Uber’s Strategy for Fighting Sexual Assault Suits Searching for God in Silicon Valley",
+          "hb": 1
+        },
+        {
+          "t": "Nvidia 将向 Blackstone 支持的 Stargate 电力公司投资高达 30 亿美元",
+          "d": "2026-08-08",
+          "a": "the information",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "英伟达同意向德州AI园区的电力基础设施开发商Lancium投资最高30亿美元。其中首期20亿美元将获得约20%的股份，另外10亿美元将在满足特定电力接入指标后注入，持股比例可能增至30%。这笔企业估值约100亿美元的交易旨在为英伟达的AI芯片锁定数吉瓦的电力供应。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://www.theinformation.com/articles/nvidia-invest-3-billion-blackstone-backed-power-firm-behind-stargate",
+          "tp": "英伟达投数据中心",
+          "aip": 1,
+          "kp": [
+            "初始投资额[Lancium电力基础设施公司]: 20亿美元",
+            "后续承诺投资[获得额外计划电力后]: 10亿美元",
+            "企业总估值[Lancium及资产组合]: 约100亿美元",
+            "股权占比[基于20亿美元初始投资]: 约20%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Nvidia has agreed to invest $2 billion into Lancium, the power infrastructure developer behind the OpenAI and Oracle AI campus in Texas, and has agreed to commit another $1 billion as the developer secures additional planned power, three people familiar with the transaction said. The deal values Lancium and its portfolio of land and power connections at around $10 billion in enterprise value, which includes the investment and its debt. The $2 billion would give Nvidia a roughly 20% stake in the Blackstone-backed power developer. Nvidia’s stake could grow to around 30% with the additional $1 billion once more of Lancium’s campuses hit certain thresholds, including grid hookups, the people said. The deal is intended to help Nvidia secure multiple gigawatts of pending power rights for its chip customers’ data projects at a time when energy for AI data centers is becoming harder to come by. Lancium is among a group of companies such as Cloverleaf Infrastructure and Crusoe that find land parcels for AI data centers near substations and transmission lines with available capacity. Such powered land developers are attracting interest from private equity firms and big tech companies. The Information earlier reported that Lancium was in talks with major tech companies including Nvidia for a minority stake sale that could fetch an enterprise value from $7 to $10 billion. Lancium has already secured and is developing 4 gigawatts of power on the Texas grid that it has contracted to other customers. Additionally, it has powered land under development in Texas that could draw as much as 15 gigawatts of electricity that it is waiting to receive the right to connect. A wrinkle came Monday, when Texas Gov. Greg Abbott ordered a pause in new data center grid connections until projects can go through further reviews. It’s unclear how these new reviews impact the timing of Lancium’s next campuses, but its 15 gigawatts are considered well-positioned for approval because the utility American Electric Power has already completed required studies to energize lines to its campuses. The 4 gigawatts of power that Lancium has already contracted includes the 1.2 gigawatts for the Oracle and Open AI campus at Abilene that’s part of OpenAI’s Stargate computing rollout. It also includes 900 megawatts for a new data center that Lancium partner Crusoe is building for Microsoft in Abilene, a gigawatt that QTS Data Centers recently contracted for in Turkey, Tex. and another gigawatt that Crusoe is building in Childress, Tex. Lancium is laying the groundwork to develop even more powered land by 2035 that could benefit from yet another proposed high-voltage transmission network in Texas, The Information has previously reported . The capital should help it expand the business as it eyes a potential initial public offering in 2027, two of the people said. If it decides to go forward with a public listing, it would follow a string of data center and infrastructure developers such as Switch and CyrusOne to consider an IPO. The Nvidia investment in Lancium is only an equity stake and does not include credit guarantees for data center construction and leases, according to the people. However, Nvidia has been considering credit guarantees for other projects— including a massive proposed 10 gigawatt project in Ohio that involves OpenAI and SoftBank. In recent months, Nvidia has been ramping up the pace and scale of its investing. In the quarter ending in April, it poured $18.6 billion into private companies and infrastructure funds, more than it invested in the entire year prior. This year alone, Nvidia has written separate $2 billion checks into cloud providers CoreWeave and Nebius, networking firms Lumentum and Coherent, and semiconductor company Marvell.",
+          "hb": 1
+        },
+        {
+          "t": "科学网-科研团队破解超导量子计算“速度与保真度”矛盾",
+          "d": "2026-08-07",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "本源量子与中国科学技术大学联合研究团队提出“参数空间扩展受控相位门（PSE-CZ）”方案，成功解决超导量子计算中速度与保真度的矛盾。该方案在不延长脉冲时间的前提下，通过拆分失谐量为系统增加调节旋钮，同步纠正泄漏和相位误差。相关实验在自主超导量子计算机“本源悟空”上完成。测试表明，在30至40纳秒极短门长条件下，PSE-CZ仍保持优于传统CZ门的稳定性能。该成果发表于《物理评论快报》，可推广至多种量子计算平台。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569504.shtm",
+          "tp": "超导量子计算门",
+          "aip": 1,
+          "kp": [
+            "门控方案[超导量子计算]: 参数空间扩展受控相位门(PSE-CZ)",
+            "[核心突破]: 在不延长脉冲时间的前提下保持高速并大幅提升两比特量子门精度",
+            "验证平台[超导量子计算]: 本源悟空自主超导量子计算机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "科研团队破解超导量子计算“速度与保真度”矛盾\n近日，记者跟随“活力中国调研行”来到合肥。在调研中记者获悉，量子计算科创企业“本源量子”与中国科学技术大学联合研究团队创新性提出的“参数空间扩展受控相位门（PSE-CZ）”方案，成功破解了超导量子计算领域长期存在的速度与保真度相互制约难题，让两比特量子门在保持高速的同时大幅提升精度。\n其中，实验验证工作已在我国自主超导量子计算机 “本源悟空”上完成，相关成果已于近日发表于国际期刊《物理评论快报》。\n“本源悟空”超导量子计算机。本源量子供图\n据介绍，量子计算机要完成复杂计算，离不开“量子门”的基本操作。稳定可靠的量子计算，要求量子门同时具备超快操作速度与超高运算保真度。但长期以来，这两点一直存在难以调和的矛盾：量子门操作速度越快，硬件波形失真、时序偏差等问题就越明显，会导致精准度大幅下降；如果为了保证准确率放慢速度，又会拖累量子计算机的整体运行效率，这也是制约量子计算机发展的关键瓶颈。\n针对这一问题，研究团队创新提出“参数空间扩展受控相位门（PSE-CZ）”方案。本源量子测控科学家杨小燕博士向《中国科学报》介绍说，该方案在不延长脉冲时间的前提下，通过将脉冲中间区域的失谐量拆分为两个独立可调的参数，为系统增加了一枚“调节旋钮”。依靠这一创新机制，系统可同步纠正泄漏和相位两类误差，实现速度与高保真度的兼顾。\n依托“本源悟空”超导量子计算机，团队选取了20对两比特量子门开展测试。结果显示，PSE-CZ方案能够有效降低短时畸变引起的相干误差，使量子门性能更加接近退相干极限。即使在30~40纳秒的极短门长条件下，PSE-CZ仍保持优于传统CZ门的稳定性能。\n据悉，该方案不仅适配超导量子计算体系，还可推广至离子阱、固态自旋等多种量子计算平台，有望为实现更快、更高保真的量子逻辑操作提供新方法。\n本源量子是中国第一家量子计算公司，聚焦全栈式量子计算机研发，已初步构建量子芯片系统、量子计算测控系统、环境支撑系统、量子操作系统与软件、量子计算云平台、量子计算应用软件为核心的“三硬三软”量子计算技术体系。其自主研发的“本源悟空”系列超导量子计算机已面向全球192个国家和地区提供稳定量子计算服务，累计远程访问量超5200万人次，完成运算任务超100万个。\nhttps://link.aps.org/doi/10.1103/xd7q-2kf9",
+          "hb": 1
+        },
+        {
+          "t": "科学网-《自然》（20260806出版）一周论文导读",
+          "d": "2026-08-08",
+          "a": "科学网新闻",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "D-Wave Quantum Inc.在《自然》发表研究，设计并实现了一种用于双轨擦除量子比特（编码在一对超导微波腔中）的两量子比特纠缠门。实验证明操作中错误层级结构得以保持。该门持续时间约500纳秒，擦除率约0.5%，剩余泡利错误低于0.1%，比特翻转错误在10^-6水平。此结果为实现快速、可扩展的纠错系统提供了路径。",
+          "sc": 8.4,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://news.sciencenet.cn/htmlnews/2026/8/569530.shtm",
+          "tp": "量子比特纠缠门",
+          "aip": 1,
+          "kp": [
+            "门速度[双轨擦除量子比特纠缠门]: 持续约500纳秒",
+            "擦除率[双轨擦除量子比特纠缠门]: 每门约0.5%",
+            "剩余泡利错误[双轨擦除量子比特纠缠门]: 低于0.1%",
+            "比特翻转错误[双轨擦除量子比特纠缠门]: 处于10^-6水平"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "《自然》（20260806出版）一周论文导读\nNature, 6 August 2026, Volume 656 Issue 8126\n《自然》2026年8月6日，第656卷，8126期\n物理学Physics\nAn entangling gate for dual-rail erasure qubits\n双轨擦除量子比特的纠缠门\n▲ 作者：D-Wave Quantum Inc.\n▲ 链接：https://www.nature.com/articles/s41586-026-10822-y\n在此，研究者设计并实现了一种用于双轨量子比特（一种编码在一对超导微波腔中的擦除量子比特）的两量子比特纠缠门。实验证明，在操作过程中，错误层级结构基本得以保持。该门速度快（持续约500纳秒），擦除率低（每门约0.5%），剩余泡利错误低于0.1%，且具有强偏置的去相位错误特征，其中比特翻转错误实际上不存在，处于10-6水平。\n这些结果为实现快速抑制错误、可扩展的纠错系统提供了更快捷的路径，研究者通过详细的表面码模拟支持了这一论断。\n▲ Abstract：\nHere we design and realize a two-qubit entangling gate for dual-rail cavity qubits, a type of erasure qubit encoded in a pair of superconducting microwave cavities. Our experimental demonstration confirms that the error hierarchy is largely preserved during the gate. The gate is fast (about 500 ns duration) and shows low erasure rates of approximately 0.5% per gate, remaining Pauli errors below 0.1%, and a strong bias towards dephasing errors, in which bit-flips are practically non-existent at the 10-6 level. These results enable a faster path to error-corrected systems that rapidly suppress errors as they scale; a claim we support with our detailed surface code simulations.\n材料科学Material Sciences\nNon-epitaxial perovskite polariton laser diode operating under direct current\n非外延钙钛矿极化激元激光二极管实现直流驱动\n▲ 作者：Anatoly P. Pushkarev, Daria Khmelevskaia et al.\nhttps://www.nature.com/articles/s41586-026-10824-w\n研究者开发了一种实现钙钛矿激光器电泵浦的新策略。研究者将溶液中生长的CsPbBr3微晶片与化学惰性的单壁碳纳米管电极集成，并将其嵌入光学微腔中。\n通过将微器件在恒定电流下降温至8K，形成了钙钛矿p-i-n二极管，从而在高电流密度下实现平衡的载流子注入。该钙钛矿微腔二极管工作在强耦合区间，在65μA直流电流下表现出极化激元激光。\n▲ Abstract：\nCHere we develop a new strategy for achieving direct electrical pumping of a perovskite laser. We integrate a solution-grown CsPbBr3 microplate with chemically inert single-walled carbon nanotube (SWCNT) electrodes and embed them into an optical microcavity. By cooling the microdevice down to 8 K at a constant current, a perovskite p–i–n diode is formed that facilitates a balanced carrier injection at high current densities. The perovskite microcavity diode operates in the strong coupling regime, exhibiting polariton lasing under a direct current of 65μA.\n人工智能Artificial Intelligence\nLarge language models can predict the results of social science experiments\n大语言模型能够预测社会科学实验的结果\n▲ 作者：Ashwini Ashokkumar, Luke Hewitt, Isaias Ghezae & Robb Willer\nhttps://www.nature.com/articles/s41586-026-10742-x\n研究者构建了一个包含70项预注册、具有全国代表性的美国调查实验的档案库，涵盖469个实验效应和119330名参与者。研究者提示一个大语言模型模拟具有代表性的美国个体样本对实验刺激的反应，然后通过比较不同条件下的模拟响应来推断处理效应。由GPT-4（其训练数据截止日期早于档案中许多研究的发表日期）得出的预测与实际处理效应高度相关，其准确性与聚合的人类预测相当。\n对于模型训练数据截止日期之前尚未发表或公开的研究，以及来自主流开源权重模型的预测，相关性仍然较高。尽管相关性较高，但预测系统性地高估了效应量。在一个包含606个效应的15项大型研究的次级档案库中，相关性较低，但与聚合专家预测者的水平相当。\n为评估对科学实践的影响，研究者调查了460位社会科学家关于可能用途和感知风险的意见，并利用档案库评估了若干应用（试点测试、干预选择、识别需要复现的效应）和风险（偏差、滥用）。综合来看，这些结果表明，大语言模型可以增强科学和实践中的实验方法，同时也引发了关于负责任使用的重要考量。\n▲ Abstract：\nHere we built an archive of 70 preregistered, nationally representative survey experiments in the USA involving 469 experimental effects and 119,330 participants. We prompted an LLM to simulate how representative samples from American individuals would respond to experimental stimuli, and then we inferred treatment effects by comparing simulated responses across conditions. Predictions derived from GPT-4, whose training-data cutoff predated the publication of many studies in our archive, were strongly correlated with actual treatment effects, achieving accuracy similar to pooled human forecasts. Correlations remained high for studies not published or publicly posted by the model’s training-data cutoff date and for predictions from prominent open-weight models. Despite high correlations, predictions systematically overestimated effect sizes. In a secondary archive of 15 megastudies featuring 606 effects, correlations were lower but comparable to those of pooled expert forecasters. To assess implications for scientific practice, we surveyed 460 social scientists about probable uses and perceived risks and used our archives to assess several applications (pilot testing, intervention selection, identifying effects needing replication) and risks (bias, misuse). Together, these results indicate that LLMs can augment experimental methods in science and practice while raising important considerations for responsible use.\n古生物学Palaeontology\nHigh-fidelity modular skeletons authenticate a Cambrian origin for Bryozoa\n高保真模块化骨架证实苔藓虫起源于寒武纪\n▲ 作者：Baopeng Song (宋宝鹏), Zhifei Zhang (张志飞) et al.\nhttps://www.nature.com/articles/s41586-026-10590-9\n研究者报告了来自中国寒武纪早期仙女洞组的P. gatehousei以及一个新分类单元Dayingomelission hexaclitia（新属新种）的精美化石。这些标本在模块化骨架中原位保存了磷酸盐化软组织，揭示了关键解剖结构，包括针状体、环肌、膜囊和环形隔膜。这一系列特征为这些分类单元属于苔藓动物门提供了确凿证据。\n纳入这些新特征的系统发育分析将其鉴定为窄唇纲冠群。这些结果确认了苔藓动物门在寒武纪的起源，并揭示了其群体构型中出乎意料的高度早期分异，表明苔藓动物多样化是寒武纪辐射的组成部分。此外，已分化的窄唇纲冠群的早期出现，暗示苔藓动物干群的起源比最初显现的更为古老。\n▲ Abstract：\nHere we report exquisite fossils of P. gatehousei and a new taxon, Dayingomelission hexaclitia gen. et sp. nov., from the early Cambrian Xiannüdong Formation of China. These specimens preserve in situ phosphatized soft tissues in modular skeletons, revealing critical anatomical structures, including styles, annular muscles, membranous sacs and ring septa. This suite of traits provides definitive evidence that these taxa belong to the Bryozoa. Phylogenetic analysis incorporating these new features identifies them as crown group stenolaemates. These results confirm a Cambrian origin for the phylum and reveal an unexpected early disparity in colonial architecture, demonstrating that bryozoan diversification was an integral component of the Cambrian radiation. Moreover, the early appearance of a differentiated stenolaemate crown group indicates a still deeper origin for the bryozoan stem lineage than was first apparent.\n医学Medicine\nDisparate privacy risks from medical AI\n医疗人工智能带来的差异化隐私风险\n▲ 作者：Moritz A. Knolle, Martin J. Menten et al.\nhttps://www.nature.com/articles/s41586-026-10688-0\n研究者呈现了医疗诊断应用中AI模型首批针对患者层面的隐私审计之一。他们聚焦于旨在确定特定个体的数据是否被用于训练模型的成员推断攻击。在一系列多样化的医疗数据集上，研究者表明成员推断攻击可对单个患者达到近乎完美的成功率，即使聚合性能并未显著偏离随机猜测。\n进一步发现，攻击成功率高的患者数量随模型容量增加而大幅上升，而代表性不足的群体——按疾病状态、自报种族、保险类型、性别或成像方案分层——面临不成比例的高攻击成功率。综合来看，研究结果表明，聚合隐私指标可能严重低估个体隐私风险。\n研究者所观察到的差异化风险概况是否延伸到成员推断攻击之外，仍是一个有待解答的问题，这促使我们进一步开发适用于所有数据贡献患者的风险评估与缓解技术。\n▲ Abstract：\nHere we present one of the first patient-level privacy audits of AI models for medical diagnostic applications. We focus on membership inference attacks (MIAs), which seek to determine whether the data of a given individual were used to train a model. Across a diverse range of medical datasets, we show that MIAs can achieve near-perfect success rates for individual patients, even when the aggregate performance does not substantially deviate from random guessing. We further find that the number of patients with high attack success increases substantially with model capacity, and that underrepresented groups—stratified by disease status, self-reported race, insurance, sex or imaging protocol—face disproportionately high attack success. Together, our findings show that aggregate privacy metrics can severely underestimate individual privacy risk. Whether the disparate risk profiles we observe extend to attacks beyond MIAs remains an open question, motivating the further development of risk assessment and mitigation techniques that cater to all data-contributing patients.\nTargeting cancer-specific mutations with RNA-triggered chromatin shredding\n利用RNA触发染色质碎屑靶向癌症特异性突变\n▲ 作者：Jingkun Zeng, Zhiyuan Cheng et al.\nhttps://www.nature.com/articles/s41586-026-10738-7\n研究者利用Cas12a2（一种具有反式核酸酶切割活性的RNA引导CRISPR核酸酶）进行编程，通过靶向癌症特异性转录本选择性地杀死癌细胞。该方法通过诱导染色质反式碎屑并触发DNA损伤反应和细胞死亡，从而限制细胞生长。\n与现有方法不同，RNA引导的Cas12a2能够感知细胞RNA特征，实现对不可成药的突变进行精准靶向。转录本激活的染色质碎屑为针对不可成药靶点的精准疾病治疗提供了一种创新方法。\n▲ Abstract：\nHere we program Cas12a2, an RNA-guided CRISPR nuclease with trans-nucleolytic cleavage activity, to kill cancer cells selectively by targeting cancer-specific transcripts. This approach limited cell growth by inducing trans shredding of chromatin and triggering DNA-damage responses and cell death. In contrast to existing methods, RNA-guided Cas12a2 senses cellular RNA signatures, enabling precise targeting of undruggable mutations. Transcript-activated chromatin shredding provides an innovative approach to precision disease treatments for undruggable targets.\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "Niron Magnetics获美国战略资本办公室1.5亿美元贷款，计划于2027年在明尼苏达州建成年产1500吨氮化铁永磁体的工厂。飞依诺在高算力GPU平台上实现10微米级微细血管超声超分辨临床观测。强流重离子加速器装置（HIAF）近日成功探测并鉴别出稀有原子核铪-153。",
+      "headlines": [
+        "我国规划至2030年建成超4000万个充电基础设施终端",
+        "飞依诺实现10微米级血管超声超分辨临床成像技术",
+        "美国Niron Magnetics获贷款建立年产1500吨无稀土磁体厂",
+        "强流重离子加速器成功探测并鉴别稀有原子核铪-153"
+      ],
+      "entries": [
+        {
+          "t": "我国将建成可支撑超1.1亿辆电动汽车出行的充电基础设施网络",
+          "d": "2026-08-04",
+          "a": "我爱电车网",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "根据《新型电力系统建设“十五五”规划》，到2030年我国非化石能源发电量占比将达50%。届时将初步建成新型电网，实现28亿千瓦以上新能源高水平消纳。充电基础设施总量超4000万个，可支撑超1.1亿辆电动汽车出行。新型储能规模达3亿千瓦，抽水蓄能达1.6亿千瓦，电能占终端能源消费比重达35%。",
+          "sc": 9.4,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "http://www.xevcar.com/hangye/0P415G042026.html",
+          "tp": "电力系统规划",
+          "aip": 1,
+          "kp": [
+            "装机目标[常规水电(2030年)]: 4.1亿千瓦左右",
+            "装机目标[核电(2030年)]: 约1.1亿千瓦",
+            "装机目标[生物质、光热、地热能、海洋能等发电(2030年)]: 6500万千瓦左右",
+            "输电规模[西电东送(2030年)]: 超过4.2亿千瓦",
+            "总量目标[充电基础设施(2030年)]: 超过4000万个"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "<br><br>近日，国家发展改革委、国家能源局印发《新型电力系统建设“十五五”规划》，明确到2030年，绿色低碳的电力供给格局基本形成，非化石能源发电量占比达50%。<br>规划明确，到2030年，新型电力系统初步建成，电力供应能力持续增强，电力系统互补互济和安全韧性水平大幅提升，电力供应充裕度保持合理水平，有效满足经济社会发展和人民群众美好生活的用电需要；初步建成安全可靠、绿色低碳、坚强韧性、智能灵活的新型电网，资源配置平台作用和服务功能充分发挥，实现28亿千瓦以上新能源高水平消纳，建成可支撑超1.1亿辆电动汽车出行的充电基础设施网络。<br><br>具体来看，到2030年：常规水电装机达到4.1亿千瓦左右；核电装机约1.1亿千瓦；生物质、光热、地热能、海洋能等发电装机达到6500万千瓦左右；西电东送规模超过4.2亿千瓦。开展“沙戈荒”等100%新能源外送输电工程试点；充电基础设施总量超过4000万个，大功率充电设施约30万个，形成支撑超过1.1亿辆电动汽车的充电服务能力；全国需求侧削峰能力超过1亿千瓦；虚拟电厂最大调节能力超过5000万千瓦；电能占终端能源消费比重达到35%；全国抽水蓄能电站装机规模达到1.6亿千瓦左右；全国新型储能规模达到3亿千瓦；智能有序充电和双向充放电实现规模化应用，车网互动聚合可调充电规模力争达到5000万千瓦；全国非化石电源电力支撑水平达到40%左右；可承担顶峰保供作用的电网侧独立新型储能达到1.4亿千瓦；60万千瓦等级及以上清洁高效煤电机组占比提高10个百分点以上。<br>附件：新型电力系统建设“十五五”规划.pdf<br><br>",
+          "hb": 1
+        },
+        {
+          "t": "科学网-科学家攻坚显微技术 首次临床观测到10微米血管",
+          "d": "2026-08-05",
+          "a": "科学网新闻",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "飞依诺科技股份有限公司研究员郭威团队在全球率先实现超声超分辨成像技术的产业化。基于自主研发的高算力GPU平台，该技术使超声设备首次在临床上清晰观测到10微米级的微细血管。基于该技术的糖尿病周围神经微循环精准评估研究成果已作为封面文章发表于《放射学》期刊，标志着中国超高端超声技术突破算力瓶颈，达到国际先进水平。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569393.shtm",
+          "tp": "超声超分辨显微成像",
+          "aip": 1,
+          "kp": [
+            "血管观测精度[临床超声超分辨成像技术]: 10微米级"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "科学家攻坚显微技术 首次临床观测到10微米血管\n中新网苏州8月5日电(常慕城)精准医学向微观世界每推进一步，都可能为疾病诊疗打开一扇新的大门。\n眼下，中国人民解放军总医院、上海瑞金医院、北京大学第三医院等知名三甲医院，正在开展十余项超分辨显微成像多中心临床应用研究，未来有望惠及更多患者。\n苏州青年科学家、飞依诺科技股份有限公司研究员郭威在研究超声超分辨成像技术。受访者供图\n由苏州青年科学家、飞依诺科技股份有限公司(下称“飞依诺”)研究员郭威领衔的团队，基于自研高算力平台，在全球率先实现超声超分辨成像技术的产业化。该技术使超声设备首次在临床上清晰观测到10微米级的微细血管，有助于更精准地判断病灶、观察疾病演变。\n“90后”郭威毕业于复旦大学生物医学工程专业，本博连读期间一直从事医学超声成像技术研发。加入飞依诺后，他带领并协同30人团队开展攻关，推出国内首台以GPU为运算核心的高端超声平台，实时成像帧率等指标达到国际领先水平。\n今年年初，国际期刊《放射学》(Radiology)以封面文章形式，首次披露了基于超分辨超声技术(Ultra Resolution Microscopy, URM)的糖尿病周围神经微循环精准评估研究成果。这标志着中国超高端超声技术达到国际先进水平，郭威为论文共同作者。\n苏州市科技局科技人才科工作人员介绍，郭威团队自主研发的高算力平台，让国产超声设备首次实现“从0到1”的技术突破，补齐了国内高端超声算力平台短板，也把我国超分辨显微成像技术推向国际先进水平，成为苏州医工融合青年创新的代表性成果。\n超声医学的迭代升级，根植于影像技术的突破，也落地于临床实践的创新。上海瑞金医院教授周建桥认为，超分辨显微成像技术为医工交叉和临床创新提供了有力工具。\n“看到自己研发的技术真正服务于临床实践，是最令人欣慰的事。”郭威回忆说，童年时在母亲工作的医院第一次见到B超机，便产生了浓厚兴趣。母亲当时说：“总有一天，医院也会用上国产超声设备。”没想到这句话成了他的人生方向。(完)\n原标题《苏州青年科学家攻坚超分辨显微成像技术 首次临床观测到10微米级血管》\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
+          "hb": 1
+        },
+        {
+          "t": "从 2027 年开始，美国每年将生产 1,500 吨无稀土磁体",
+          "d": "2026-08-08",
+          "a": "interesting engineering",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "Niron Magnetics获得了美国战略资本办公室高达1.5亿美元的有条件贷款承诺。这笔为期20年的资金将用于在明尼苏达州建造一座占地28.7万平方英尺的商业规模制造厂。该工厂计划于2027年投入运营，每年生产多达1500吨无稀土的氮化铁永磁体。该项目将创造175个就业岗位，并为美国防系统、数据中心和电动汽车等提供国产磁体来源。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://interestingengineering.com/innovation/1500-tons-of-rare-earth-free-magnets-set-for-annual-us-production-starting-2027",
+          "tp": "无稀土磁体",
+          "aip": 1,
+          "kp": [
+            "年产能[无稀土磁体商业化工厂]: 最高1500吨氮化铁永磁体",
+            "投产时间[无稀土磁体商业化工厂]: 2027年",
+            "贷款额度[美国战略资本办公室]: 最高1.5亿美元",
+            "贷款期限[美国战略资本办公室]: 20年"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Niron Magnetics has secured a conditional commitment for a loan of up to $150 million from the US Department of War’s Office of Strategic Capital (OSC). Announced on August 7 by President Donald Trump in Washington, DC, the 20-year financing would fund construction and equipment at the company’s commercial-scale manufacturing plant in Sartell, Minnesota. The 287,000-square-foot facility is scheduled to begin operating in 2027 and produce up to 1,500 tons of rare-earth-free Iron Nitride permanent magnets annually. Niron says the project will create 175 jobs while giving US manufacturers a domestic magnet source for defense systems, data centers, robots, aircraft, electric motors and industrial equipment. Iron Nitride offers a different supply-chain strategy Conventional high-performance magnets often rely on rare earth elements processed overseas. That dependence exposes manufacturers to export restrictions, volatile prices and disruptions as demand rises across electrification, automation, artificial intelligence and military platforms. Niron’s technology instead uses domestically available iron and nitrogen. Developed at the University of Minnesota and scaled over 13 years, the process removes the need for rare earth mining, offshore separation and heavy rare earth inputs. “Permanent magnets are foundational to the technologies driving America’s economic competitiveness and national security,” said Jonathan Rowntree, CEO of Niron Magnetics. “This conditional commitment recognizes the importance of Niron’s rare-earth -free approach and the urgency of building domestic manufacturing capacity for a technology the world increasingly depends on,” he added. “We are accelerating commercialization of an American-developed magnet technology that offers manufacturers a domestic path to high-performance permanent magnets built without rare earth materials,” Rowntree continued. Magnets underpin AI, robotics and advanced motors Permanent magnets convert electrical energy into motion in motors and help generate electricity in energy systems. Their performance influences the size, efficiency and power density of equipment ranging from robotic actuators and factory machinery to aerospace systems and electric drivetrains. Data centers and AI infrastructure require magnets across cooling systems, power-management equipment and storage hardware. Domestic production could support multiple technology supply chains, while providing defense contractors with components less exposed to foreign controls. “Niron Magnetics is helping Minnesota lead the way in manufacturing to support our national security,” said Congressman Tom Emmer. “This conditional commitment from the Office of Strategic Capital will help Niron create approximately 175 high-quality jobs in Sartell, helping Minnesota’s economy grow and thrive. It’s great to see companies in our own backyard powering our economy and supporting our military,” he continued. A modular platform targets greater capacity The Sartell plant will combine material-to-magnet production under one roof and serve as the first stage of Niron’s modular manufacturing platform. The company is selecting a site for another US plant designed to produce 10,000 tons annually, with groundbreaking expected in 2028. Niron is scaling as global demand for permanent magnets is projected to rise from about 280,000 tons today to more than 600,000 tons by 2035. However, the loan is not final. It remains dependent on OSC completing due diligence, Niron securing a minimum equity investment, and the parties satisfying conditions before financing documents are signed.",
+          "hb": 1
+        },
+        {
+          "t": "大科学装置强流重离子加速器首个实验结果发表",
+          "d": "2026-08-06",
+          "a": "新华网科技",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "国家重大科技基础设施强流重离子加速器装置（HIAF）于7月21日通过工艺验收进入调试阶段后，近日成功产生并鉴别了稀有原子核铪-153，相关成果发表于《科学通报》英文版。实验依托高强度重离子束流、高性能放射性束流线和高精度环形谱仪等核心技术，成功探测到位于缺中子重核区域的铪-153，为研究原子核结构和稳定极限提供了关键支撑。未来装置探测能力预计将提升约两个数量级。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260806/9bf48605b3a848fb915b34cc166bc319/c.html",
+          "tp": "重离子加速器",
+          "aip": 1,
+          "kp": [
+            "稀有原子核鉴别[强流重离子加速器装置HIAF]: 铪-153",
+            "分离与鉴别支撑技术[稀有原子核]: 高强度重离子束流、高性能放射性束流线、高精度环形谱仪等时性质谱技术"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新华社兰州8月5日电（记者任延昕）记者5日从中国科学院近代物理研究所获悉，国家重大科技基础设施建设项目——强流重离子加速器装置（HIAF）近日成功产生并鉴别了稀有原子核铪-153。这是该装置7月21日完成验收并进入调试阶段后产出的首个物理成果，相关成果以短通讯形式发表于《科学通报》英文版。\n图为位于广东省惠州市的强流重离子加速器装置（无人机照片）。新华社发\n原子核由质子和中子组成，质子和中子不同数量的组合形成了丰富多彩的核素世界。探索未知核素、研究原子核存在的边界是核物理领域的重要前沿。铪-153位于缺中子重核区域，是研究原子核结构演化和稳定极限的重要对象。\n中国科学院近代物理研究所研究员王猛介绍，此次实验能够成功探测到产生概率极低的铪-153，得益于HIAF多项关键技术的协同发展。高强度重离子束流提升了稀有核素的产生能力，高性能的放射性束流线实现了目标核素的高效分离，高精度环形谱仪等时性质谱技术为鉴别稀有原子核提供了重要支撑。\n“随着HIAF性能持续提升，未来实验的探测能力预计还将提高约两个数量级。”王猛说，HIAF将在探索未知核区、发现新核素和研究极端条件下原子核性质等方面发挥更加重要的作用。\n强流重离子加速器装置是《国家重大科技基础设施建设中长期规划（2012－2030年）》确定的重点建设内容之一，由中国科学院近代物理研究所负责建设。装置于2018年12月正式开工，于2025年10月成功出束。2026年7月21日，该装置通过了由中国科学院组织的工艺验收，进入调试阶段。",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院青海盐湖研究所开发新型提锂萃取剂并建成万吨级碳酸锂产线",
-      "科研人员利用木质素基粘结剂提升锂硫软包电池能量密度与稳定性",
-      "新型电解液配方突破溶剂浓度极化瓶颈实现零下60度锂电池稳定运行"
+      "中科院青海盐湖所研发新型锂萃取剂并建成万吨级电池级碳酸锂产线",
+      "新型提锂技术突破沉锂母液分离瓶颈 萃取产线锂回收率达98%以上",
+      "Rubisco-null平台完成高性能祖先酶验证以探索植物碳同化途径"
     ],
     "AI与智能科技": [
-      "科研人员受神经元结构启发开发出适配多种机械臂的软体机器人控制器",
-      "实验观测到偶分母分数量子霍尔态干涉效应验证拓扑量子计算物理基础",
-      "硅基大功率毫米波开关技术显著提升5G与6G射频前端器件功率处理能力"
+      "科研人员研发忆阻器异质集成系统实现运行时实时校准频谱生成",
+      "基于氧化钒阵列的傅里叶变换系统克服传统硬件非均匀变换局限",
+      "可吸收神经接口系统实现局部周围神经损伤的无线多模式治疗"
     ],
     "通用技术": [
-      "弗吉尼亚大学团队开发YuelBond模型实现分子三维结构化学键精准重建",
-      "科研综述阐明自决策生物电子系统智能响应材料与闭环控制设计原则",
-      "研究团队利用小球藻细胞外囊泡构建抑制cGAS通路的靶向纳米凝胶"
+      "弗吉尼亚大学开发YuelBond工具实现生成分子三维结构化学键重建",
+      "基于图神经网络的化学键标注方法在扭曲分子处理成功率达92.7%",
+      "研究人员实现可重构超表面结构中的可编程极化子管道化控制"
     ]
   },
   "sectors": [
@@ -26,18 +26,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院青海盐湖研究所开发新型提锂萃取剂并建成万吨级碳酸锂产线",
-        "科研人员利用木质素基粘结剂提升锂硫软包电池能量密度与稳定性",
-        "新型电解液配方突破溶剂浓度极化瓶颈实现零下60度锂电池稳定运行"
+        "中科院青海盐湖所研发新型锂萃取剂并建成万吨级电池级碳酸锂产线",
+        "新型提锂技术突破沉锂母液分离瓶颈 萃取产线锂回收率达98%以上",
+        "Rubisco-null平台完成高性能祖先酶验证以探索植物碳同化途径"
       ],
       "entries": [
         {
           "t": "青海盐湖研究所开发新型盐湖提锂萃取剂并建成万吨级碳酸锂生产示范线",
           "d": "2026-01-09",
-          "a": "",
+          "a": "Isl",
           "c": "零碳产业/物质循环/资源处理/资源回收",
           "as": "中科院青海盐湖研究所自主设计合成新型锂特效萃取剂，突破传统萃取体系在环保性、安全性和成本上的瓶颈，可实现沉锂母液中锂、钠、钾离子高效分离。基于该技术建成万吨级电池级碳酸锂产业化示范线，萃取产线锂回收率达98%以上。",
-          "sc": 7.0,
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.isl.cas.cn/xwdt/mtsm/202601/t20260112_8101604.html",
@@ -51,48 +51,42 @@
           "hb": 1
         },
         {
-          "t": "通过富氧配位位点的木质素基离子导电粘结剂实现高能量密度锂硫软包电池",
+          "t": "青海盐湖研究所开发新型盐湖提锂萃取剂并建成万吨级碳酸锂生产示范线",
           "d": "2026-01-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究利用木质素基离子导电粘结剂构建高能量密度锂硫软包电池。该生物基粘结剂富含氧配位位点，可有效锚定多硫化物并抑制穿梭效应，同时提供离子导电通道以维持电极结构稳定性。木质素作为可再生生物质资源，兼具环境友好性和低成本优势，该策略为实现锂硫电池实用化提供了绿色材料方案。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522467?af=R",
-          "tp": "锂硫电池粘结剂",
+          "a": "Isl",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "中科院青海盐湖研究所自主设计合成新型锂特效萃取剂，突破传统萃取体系在环保性、安全性和成本上的瓶颈，可实现沉锂母液中锂、钠、钾离子高效分离。基于该技术建成万吨级电池级碳酸锂产业化示范线，萃取产线锂回收率达98%以上。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.isl.cas.cn/xwdt/mtsm/202601/t20260112_8101604.html",
+          "tp": "盐湖提锂",
           "aip": 1,
-          "kp": [
-            "粘结剂[锂硫软包电池]: 木质素基离子导电DAL-AA",
-            "[锂硫挑战]: 穿梭效应+粘结剂绝缘"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Abstract Bio‐based binders exhibit outstanding advantages in maintaining electrode stability and suppressing the shuttle...",
+          "cm": "传统中性磷类有机萃取剂、浓酸反萃剂会造成设备腐蚀、环境污染；离子液体单级萃取效率高，无需使用酸进行反萃，但成本高、萃取容量小，具有一定潜在的环境危害影响；醇、酮类萃取剂价格较高、并具有一定的水溶性和挥发性；且当前萃取/反萃体系单级锂回收率多<80%，均需进行多级操作。此前青海柴达木兴华锂盐、青海锦泰锂业、中科院过程工程所等均称其有千吨-万吨级盐湖萃取提锂项目进行示范验证。\n经初步检索，青海盐湖所布局专利中的提锂萃取剂包括：烷基取代邻羟基苯甲酰胺类化合物（宣传可降低反萃酸浓度，0.2M盐酸）、邻酚羟基苯甲酮类化合物（水除钠+CO2气体通入沉淀/6M酸反萃）、芳基磷酸二酯类化合物等，对象均为碱性盐湖卤水，但均未脱出上述盐湖萃取提锂体系。25年11月有报道称，盐湖所联合青海清源锂业、青海中信国安建成沉锂母液萃取提锂6000吨/年电池级碳酸锂产业化示范线，锂回收率达98%以上，富锂溶液中Li+浓度大于37g/L、Na+浓度小于1.0g/L，萃余液中有机物含量小于10mg/L；此次报道的成果有可能是基于该产线进行规模放大，但是否有新型绿色萃取/反萃材料、实际提锂效率及真实降本效果均有待考察验证。",
+          "b": "据央视新闻、新华社等媒体（青海盐湖所转载）1月9日报道，中科院青海盐湖研究所自主设计合成新型锂特效萃取剂，解决传统萃取体系在环保性、安全性及成本控制上的瓶颈，可实现沉锂母液中锂、钠、钾离子的高效分离；并基于该技术建成盐湖沉锂母液萃取提锂万吨级电池级碳酸锂产业化示范线，萃取产线锂回收率达98%以上。",
           "hb": 1
         },
         {
-          "t": "克服溶剂浓度极化实现−60°C超快高稳定锂电池",
+          "t": "逆转植物进化：Rubisco-null 平台验证高性能祖先酶",
           "d": "2026-01-09",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "研究针对极端低温条件下锂离子电池的性能瓶颈，提出抑制溶剂浓度极化的新策略。在低温环境中，有机电解液中的溶剂浓度极化会导致离子传输受阻、界面阻抗激增，严重影响电池速率性能和循环寿命。该工作通过电解液工程优化，实现了超快充放与高稳定性的低温运行，为极寒场景下的可靠储能奠定了基础。",
-          "sc": 6.3,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06738C",
-          "tp": "低温锂电池",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2523360123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "祖先酶工程",
           "aip": 1,
-          "kp": [
-            "工作温度[锂电池]: -60°C",
-            "[机制]: 抑制溶剂浓度极化"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The imperative for reliable lithium batteries under extreme low-temperature (LT) conditions has revived interest in orga",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,76 +94,50 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "科研人员受神经元结构启发开发出适配多种机械臂的软体机器人控制器",
-        "实验观测到偶分母分数量子霍尔态干涉效应验证拓扑量子计算物理基础",
-        "硅基大功率毫米波开关技术显著提升5G与6G射频前端器件功率处理能力"
+        "科研人员研发忆阻器异质集成系统实现运行时实时校准频谱生成",
+        "基于氧化钒阵列的傅里叶变换系统克服传统硬件非均匀变换局限",
+        "可吸收神经接口系统实现局部周围神经损伤的无线多模式治疗"
       ],
       "entries": [
         {
-          "t": "受神经元结构与可塑性突触启发的通用软体机器人控制器：可适应多种机械臂、任务与扰动",
-          "d": "2026-01-09",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/具身智能/模型和具身操作系统",
-          "as": "该研究受神经元结构和可塑性突触启发，开发了一种通用型软体机器人控制器，可适配不同机械臂结构、任务类型和外部扰动。该控制器模仿神经元的结构化连接和突触可塑性机制，实现了形态适应性和实时学习能力，在多种软体臂构型和动态任务环境中表现出鲁棒的控制性能，为软体机器人通用控制提供了仿生新范式。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea3712?af=R",
-          "tp": "软体机器人控制",
-          "aip": 1,
-          "kp": [
-            "[控制框架]: 神经元启发离线-在线分解耦合控制"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Human intelligence arises from the interplay between a compliant morphology and a cognitive system that is capable of ad...",
-          "hb": 1
-        },
-        {
-          "t": "偶分母分数量子霍尔态中的阿哈罗诺夫-玻姆干涉",
-          "d": "2026-01-09",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究在偶数分母分数量子霍尔态中观测到Aharonov-Bohm干涉效应。非阿贝尔任意子的位置交换以拓扑保护方式改变系统量子态，该实验通过干涉测量验证了任意子交换统计特性，为拓扑量子计算提供了关键实验证据，对构建容错量子比特具有重要意义。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09891-2",
-          "tp": "分数量子霍尔",
-          "aip": 1,
-          "kp": [
-            "[观测]: 偶分母FQH态AB干涉",
-            "[体系]: 非阿贝尔任意子拓扑保护"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Position exchange of non-Abelian anyons affects the quantum state of their system in a topologically protected way1. The",
-          "hb": 1
-        },
-        {
-          "t": "基于位移场与隧穿电流的硅基大功率毫米波开关",
+          "t": "基于忆阻器的第一性原理异质集成傅里叶变换系统",
           "d": "2026-01-09",
           "a": "Nature Electronics",
           "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "基于硅CMOS平台的高功率毫米波开关技术，利用位移场（displacement fields）与隧穿效应实现开关状态的调控。传统硅基半导体器件在毫米波频段面临功率容量不足、插入损耗高的瓶颈，该研究通过新型场控机制显著提升了开关的功率处理能力与隔离度。毫米波开关是5G/6G通信、雷达探测、成像传感等系统的核心射频前端器件，突破硅基高功率限制有助于推动通信与感知技术的一体化集成。关键挑战在于在硅工艺兼容的前提下同时实现高线性度、低损耗与高耐功率。",
-          "sc": 6.5,
+          "as": "报道了一种基于易失性和非易失性忆阻器的第一性原理异质集成傅里叶变换系统。均匀的氧化钒易失性忆阻器阵列为任意基数提供振荡波，结合紧凑的整形和相位对齐电路，可生成实时校准的频谱，并记录了最大运行性能。该系统克服了传统硬件难以支持运行时任意基数和非均匀离散傅里叶变换的局限。",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-025-01504-0",
-          "tp": "硅基毫米波开关",
+          "u": "https://www.nature.com/articles/s41928-025-01534-8",
+          "tp": "忆阻傅里叶变",
           "aip": 1,
           "kp": [
-            "[器件]: 硅基毫米波开关",
-            "[机制]: 位移场+隧穿电流",
-            "[工艺]: 零变更SOI"
+            "[第一性原理异质集成傅里叶变换系统]: 克服了传统Cooley-Tukey算法硬件难以支持运行时任意基数和非均匀离散傅里叶变换的局限"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Modern communication and sensing technologies rely on complementary metal–oxide–semiconductor devices based on silicon.",
+          "b": "The Fourier transform is a powerful tool to analyse the frequency characteristics of signals. Discrete Fourier transform hardware typically implements Cooley–Tukey-based algorithms for reduced operational complexity. However, such schemes bring a sequential window schedule and separate real and imaginary computations, and their hardware implementations struggle to support runtime arbitrary radix and non-uniform discrete Fourier transform. Here we report a first-principles hetero-integrated Fourier transform system based on volatile and non-volatile memristors. Uniform vanadium oxide volatile memristor arrays provide oscillatory waves for arbitrary radix, and together with compact shaping and phase alignment circuits, runtime-calibratable frequency spectra can be generated, recording a maximum frequency of up to 1.74 MHz and a resolution down to 50 Hz. Non-volatile multilevel tantalum oxide/hafnium oxide memristor arrays are incorporated with bipolar differential conductance mapping for parallel signed discrete Fourier transform in-memory computing. Our hetero-integrated Fourier transform system can support arbitrary radix values up to 2,048, uniform or non-uniform 1D/2D discrete Fourier transform with cross-window parallelism, as well as unified real and imaginary computations, with a discrete Fourier transform accuracy up to 99.2% and O(N) operational complexity. The system can reach a throughput of 504.3 GS s−1, outperforming existing hardware by up to 96.98 times and reduce memory cost.",
           "hb": 1
+        },
+        {
+          "t": "用于局部周围神经损伤无线多模式治疗的自包裹、生物可吸收神经接口",
+          "d": "2026-01-09",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "",
+          "sc": 6.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2521817123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "神经接口",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -177,23 +145,23 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "弗吉尼亚大学团队开发YuelBond模型实现分子三维结构化学键精准重建",
-        "科研综述阐明自决策生物电子系统智能响应材料与闭环控制设计原则",
-        "研究团队利用小球藻细胞外囊泡构建抑制cGAS通路的靶向纳米凝胶"
+        "弗吉尼亚大学开发YuelBond工具实现生成分子三维结构化学键重建",
+        "基于图神经网络的化学键标注方法在扭曲分子处理成功率达92.7%",
+        "研究人员实现可重构超表面结构中的可编程极化子管道化控制"
       ],
       "entries": [
         {
           "t": "弗吉尼亚大学Nikolay V. Dokholyan提出模型生成分子的化学键重建方法",
           "d": "2026-01-09",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/其它先进材料",
           "as": "弗吉尼亚大学Nikolay V. Dokholyan团队开发YuelBond工具，解决分子生成式模型三维结构不含化学键信息且偏离平衡位置的难题。将化学键标注抽象为键级分类任务，借助图神经网络信息传递机制判断键级。标准数据集F1达98.4%，扭曲分子保持92.7%成功率，远超RDKit经典方法。为分子生成-药物设计自动化管线提供可靠工具，发表于JCIM。",
-          "sc": 6.3,
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1021/acs.jcim.5c03052",
           "tp": "分子键重建",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -202,44 +170,42 @@
           "hb": 1
         },
         {
-          "t": "自决策生物电子系统的材料与系统设计",
+          "t": "弗吉尼亚大学Nikolay V. Dokholyan提出模型生成分子的化学键重建方法",
           "d": "2026-01-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "Doi",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "自决策生物电子系统代表了从传统感知-治疗分离模式向自主感知-决策-治疗一体化范式的重大跨越。该综述系统论述了驱动该类系统的关键材料与系统设计原则，包括智能响应生物界面材料、闭环传感-执行反馈逻辑和自供能模块，为下一代智能植入器件和自主治疗平台提供了设计框架。",
-          "sc": 5.9,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521164?af=R",
-          "tp": "自主生物电子材料",
-          "aip": 1,
-          "kp": [
-            "[系统范式]: 自决策闭环生物电子"
-          ],
-          "lv": 0,
+          "as": "弗吉尼亚大学Nikolay V. Dokholyan团队开发YuelBond工具，解决分子生成式模型三维结构不含化学键信息且偏离平衡位置的难题。将化学键标注抽象为键级分类任务，借助图神经网络信息传递机制判断键级。标准数据集F1达98.4%，扭曲分子保持92.7%成功率，远超RDKit经典方法。为分子生成-药物设计自动化管线提供可靠工具，发表于JCIM。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jcim.5c03052",
+          "tp": "分子键重建",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "ABSTRACT Self‐decision bioelectronic systems mark a transformative leap from conventional ‘sense‐then‐treat’ paradigms t",
+          "cm": "由于该方法不单纯根据键长判据来确定化学键类型，因此在结构较扭曲的分子中获得了较好的表现。计算机药物设计往往包含分子生成和性质判断步骤，其中有些性质是统计力学性质，因此可以将分子拓扑图作为输入，而该工具可以较好地将生成的结构转变为拓扑图，则可以提升整个药物设计管线的自动化程度。技术层面而言，该方法采取的是序列判别键级的策略，也即设计一个先后顺序，并在判断键级时会将已经确定的键级纳入考量。该方法有助于符合化学规则的键级生成，但是如果能够引入一些硬性判别规则，如碳原子需要成四个化学键，或许能够进一步提升准确率。",
+          "b": "基于坐标的分子生成式模型可以重建得到分子的三维结构。但是该三维结构不包含化学键信息，且可能偏离平衡位置，导致很难通过判断键长等经典算法重建化学键。Nikolay V. Dokholyan团队开发了YuelBond工具，可以实现针对模型生成分子的化学键重建以及基于二维分子图的化学键检查与重分配。在标准三维分子结构数据集上，该模型的F1分数达到了98.4%；在扭曲过的模型生成分子数据集上，该模型仍保持92.7%的成功率，而基于经典化学键判别方法的RDKit软件包几乎无法为此类分子完成化学键判定。YuelBond为分子生成-药物设计自动化管线提供了可靠的工具，使得生成模型的结果可以更可靠地转变为基于分子图的下游工具的输入。\n该工作将分子间化学键标注抽象为键级的分类任务。得到分子的三维或二维结构后，本工作借助图神经网络中的信息传递机制得到节点和边的特征向量，随后将特征向量用于下游的键级判断任务。相较于基于键长的判断方法，该方法针对扭曲程度大的分子有更高的成功率。文章于2026年01月09日发表在Journal of Chemical Information and Modeling。",
           "hb": 1
         },
         {
-          "t": "小球藻衍生的细胞外囊泡纳米凝胶抑制 cGAS-STING 用于治疗辐射引起的肺损伤",
+          "t": "可重构超表面中的可编程极化子管道化",
           "d": "2026-01-09",
-          "a": "Nature Communications",
+          "a": "AAAS: Science Advances: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究开发了一种基于小球藻来源细胞外囊泡的多功能纳米凝胶平台，用于治疗辐射引起的肺损伤（RILI）。研究团队从小球藻中提取富含抗氧化酶和抗炎成分的细胞外囊泡，结合cGAS抑制剂RU.521制备纳米颗粒。该平台通过抑制cGAS-STING信号通路，有效减轻辐射导致的肺部炎症和氧化应激损伤，为RILI的靶向治疗提供了创新策略。",
-          "sc": 5.6,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://www.nature.com/articles/s41467-025-68140-2",
-          "tp": "纳米凝胶药",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea0072?af=R",
+          "tp": "可重构超表面",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Radiation-induced lung injury (RILI) represents a critical complication associated with radiation exposure, requiring targeted treatment strategies in clinical practice. Here, we pioneered the extraction of extracellular vesicles (EVs) from Chlorella and innovatively developed a multifunctional nanogel platform (RU.521-EVs NPs) by combining them with the cGAS inhibitor RU.521. The Chlorella-derived EVs possess a naturally high abundance of antioxidant enzymes (e.g., SOD2, CAT) and anti-inflammatory lipids (e.g., linolenic acid). RU.521-EVs NPs could synergistically inhibit excessive activation of the cGAS-STING pathway, and significantly reduce the secretion of pro-inflammatory factors. In the RILI mouse model, the nanogel demonstrated significant anti-inflammatory and anti-fibrosis activity, with no observed systemic toxicity. Their biological safety, cost-effectiveness, and multifaceted anti-radiation mechanisms of nanogels make them particularly beneficial in contexts such as medical radiation exposure, providing a strategy for the clinical translation of RILI that emphasizes both safety and long-term efficacy.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

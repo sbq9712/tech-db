@@ -1,0 +1,98 @@
+{
+  "type": "daily",
+  "date_label": "2025年11月11日　星期二",
+  "date_range": "2025-11-11",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新技术通过阴极钝化抑制在百安培电流下实现碱性水电解超稳定运行",
+      "酶流电解槽实现二氧化碳与废物转化甲酸盐并应用于光催化加氢羧化",
+      "质子飞行器迁移调节技术提升界面稳定性实现持久Ah级锌离子电池"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新技术通过阴极钝化抑制在百安培电流下实现碱性水电解超稳定运行",
+        "酶流电解槽实现二氧化碳与废物转化甲酸盐并应用于光催化加氢羧化",
+        "质子飞行器迁移调节技术提升界面稳定性实现持久Ah级锌离子电池"
+      ],
+      "entries": [
+        {
+          "t": "阴极钝化抑制可在百安培电流下实现行业领先的超稳定碱性水电解",
+          "d": "2025-11-11",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2025/EE/D5EE04506A",
+          "tp": "碱性水电解技术",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "CO2 和废物歧化成甲酸盐的酶流电解槽及其在光催化烯烃加氢羧化中的应用",
+          "d": "2025-11-11",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202515810?af=R",
+          "tp": "CO2酶电还原",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "质子飞行器迁移调节以实现协同界面稳定性，实现持久的 Ah 级锌离子电池",
+          "d": "2025-11-11",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516427?af=R",
+          "tp": "锌离子电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

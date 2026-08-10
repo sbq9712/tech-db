@@ -6,19 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "新型去质子化自组装单分子层提升钙钛矿光伏器件光电转换效率",
-      "连续流电合成共轭聚合物正极提升水系铝离子电池低温比容量",
-      "晶灵科技柔性全无机钙钛矿模组效率达18.2%"
+      "新型冠醚功能化界面层提升钙钛矿电池稳定性，光电转换效率达26.06%",
+      "QuantumScape正式启用Eagle固态电池试生产线",
+      "研究揭示减小多硫化物流体动力学半径可实现低温锂硫电池运行"
     ],
-    "AI与智能科技": [
-      "单原子器件无关量子密钥分发实现超100公里光纤安全通信",
-      "原子点阵阵列实现可编程量子系统复杂多体物理模拟",
-      "解析MoS2化学气相沉积非晶核结构修正二维材料生长理论"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "拓扑狄拉克半金属材料实现超低功耗巨型自旋轨道转矩",
-      "嫦娥六号月背样本首次提供28亿年放射年代学数据",
-      "水基n型导电高分子墨水导电率突破1000 S/cm"
+      "科研团队在六方氮化硼中研发出具备光学可寻址自旋态的量子发射器",
+      "研究人员合成具有镧系元素键及磁各向异性的三角形团簇",
+      "实验证实手性标签可通过非共价相互作用在四乙基铅中诱导手性"
     ]
   },
   "sectors": [
@@ -26,227 +22,145 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "新型去质子化自组装单分子层提升钙钛矿光伏器件光电转换效率",
-        "连续流电合成共轭聚合物正极提升水系铝离子电池低温比容量",
-        "晶灵科技柔性全无机钙钛矿模组效率达18.2%"
+        "新型冠醚功能化界面层提升钙钛矿电池稳定性，光电转换效率达26.06%",
+        "QuantumScape正式启用Eagle固态电池试生产线",
+        "研究揭示减小多硫化物流体动力学半径可实现低温锂硫电池运行"
       ],
       "entries": [
         {
-          "t": "去质子化自组装分子作为钙钛矿/有机叠层太阳能电池和光电阴极的稳健空穴选择层",
+          "t": "减少多硫化物流体动力学半径以实现低温锂硫电池",
           "d": "2026-02-06",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究开发了去质子化自组装单分子层（SAM）作为钙钛矿/有机叠层太阳能电池和光电阴极的空穴选择性层（HSL）。SAM基HSL兼具缺陷钝化与能级调控优势，显著提升了器件的光电转换效率和稳定性。该策略为高效叠层光伏器件的界面工程提供了新路径，解决了传统空穴传输层在稳定性和成本方面的瓶颈。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE07006F",
-          "tp": "钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "[空穴选择层[钙钛矿/有机叠层]]: 去质子化自组装分子",
-            "[界面问题]: SAM对TCO锚定弱、沉积时脱附",
-            "[耐久性]: 极化条件下界面稳定性差"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Self-assembled monolayer (SAM)-based hole-selective layers (HSLs) offer a promising route to defect-passivated and energy-aligned interfaces in perovskite organic tandem solar cells (POTSCs). However, their practical implementation remains hindered by weak anchoring to transparent conductive oxides (TCOs), leading to desorption during perovskite deposition and poor interfacial durability under polar solvent exposure. Here, we present a chemical interfacial stabilization strategy in which potassium carbonate (K2CO3) mediates the controlled deprotonation of [2-(9H-carbazol-9-yl)ethyl]phosphonic acid (2PACz), forming mixed mono- and di-deprotonated species (2PACz-K) that bind strongly to indium tin oxide (ITO). The resulting SAM exhibits superior solvent resistance, improved energy-level alignment, and enhanced buried interface quality. POTSCs incorporating 2PACz-K achieve 25.10% power conversion efficiency (PCE) with a high open-circuit voltage (VOC) of 2.230 V, while retaining 80% of their initial PCE after 220 h of maximum power point (MPP) tracking under simulated 1-sun illumination. Beyond photovoltaics, the robust 2PACz-K interface is further integrated into a perovskite/organic tandem photocathode (POT-PEC), representing the first transparent, metal-free tandem PEC architecture capable of stable operation in aqueous electrolyte, delivering a photovoltage (Vph) of 2.16 V and achieving solar-to-hydrogen (STH) conversion efficiency of 7.7%. This work establishes a versatile interfacial design paradigm that bridges photovoltaic and photoelectrochemical energy conversion.",
-          "hb": 1
-        },
-        {
-          "t": "连续流有机电合成共轭双极性聚合物正极用于高性能低温水系铝离子电池",
-          "d": "2026-02-06",
-          "a": "RSC - Energy Environ. Sci. latest articles",
+          "a": "Chem",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究采用连续流有机电合成方法制备共轭双极聚合物正极材料，用于高性能低温水系铝离子电池。该聚合物正极利用双极性电荷存储机制，在低温环境下展现出优异的比容量和循环稳定性。水系铝离子电池凭借高容量、低成本和安全性优势，结合连续流合成的可扩展性，为大规模储能应用提供了新思路。",
-          "sc": 6.9,
+          "as": "",
+          "sc": 7.8,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06706E",
-          "tp": "水系铝离子电池聚合物正极",
+          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00472-3?rss=yes",
+          "tp": "锂硫电池改进",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于稳定钙钛矿光伏电池的均匀界面离子螯合",
+          "d": "2026-02-06",
+          "a": "Matter",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "研究提出了一种冠醚功能化的Spiro衍生物作为多功能界面层。分子设计优化了钙钛矿表面的能级排列，通过π-π堆积增强分子堆积，并实现双Li+/Pb2+螯合以抑制离子迁移和缺陷复合。该协同方法使电池实现了26.06%的光电转换效率及出色的运行稳定性。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00624-1?rss=yes",
+          "tp": "钙钛矿光伏",
           "aip": 1,
           "kp": [
-            "[正极材料]: 共轭双极性聚合物PDDNQ",
-            "[工作温度]: 零下低温",
-            "[合成方法]: 连续流电合成",
-            "[电池体系]: 水系铝离子电池"
+            "光电转换效率[冠醚功能化Spiro衍生物界面修饰钙钛矿电池]: 26.06%",
+            "界面层材料[钙钛矿表面p型修饰]: 冠醚功能化的Spiro衍生物",
+            "缺陷抑制机理[协同钝化]: 双重Li+/Pb2+螯合抑制离子迁移和缺陷复合"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Aqueous aluminum-ion batteries represent a promising energy storage technology, leveraging their exceptional capacity, low cost, and inherent safety. However, practical implementation has been hampered by severe performance degradation at subzero temperatures and a scarcity of cathode materials with high capacity. Here, we present a conjugated bipolar polymer poly(2,3-diaminonaphthalene-1,4-dione) (PDND) synthesized via continuous-flow organic electrosynthesis. This molecular design incorporates a quinone-amine redox system that unifies n-type (quinone) and p-type (amine) moieties, thereby enhancing charge storage capacity. The extended quinone-amine backbone enhances p-π conjugation, enabling efficient π-electron delocalization and continuous charge transport pathways along the polymer chain, resulting in high electronic conductivity. Furthermore, planar π-conjugated quinone units and arylamine linkages construct synergistic dualinteraction networks between polymer chains including dense hydrogen-bonding and strong π-π interaction, ensuring structural stability. Consequently, the Al//PDND battery delivers a high capacity of 302 mAh g⁻¹, outstanding cycling stability (≥1000 cycles), and remarkable rate capability (up to 2 A g⁻¹). Notably, it operates effectively at -25 o C using a standard aqueous electrolyte without antifreeze additives, underscoring the superior low-temperature performance endowed by PDND. Through in situ/ex situ spectroscopic studies, we elucidate a multi-ion co-storage mechanism involving the reversible insertion of Al³⁺, H⁺, and ClO₄⁻ ions.",
+          "b": "This study introduces a crown-ether-functionalized Spiro derivative (Spiro-AC) as a multifunctional interfacial layer. Rational molecular design enables perovskite surface p-type modification for optimized energy-level alignment, enhanced molecular packing via π-π stacking, and dual Li+/Pb2+ chelation suppressing ion migration and defect recombination. This synergistic approach yields champion devices achieving 26.06% efficiency with exceptional operational stability.",
           "hb": 1
         },
         {
-          "t": "晶灵科技、韩华集团分别更新其柔性全无机钙钛矿模组及钙钛矿-铜铟镓硒叠层研发生产进展",
+          "t": "QuantumScape 启用 Eagle 固态电池试生产线",
           "d": "2026-02-06",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "晶灵科技与浙大宁波理工合作的柔性全无机钙钛矿5×5cm²模组经国家光伏计量中心认证效率达18.2%。韩国韩华Flexell Space完成钙钛矿-CIGS叠层光伏试点工厂建设，日产20块20×20cm电池，配备AM0光照及-150~150℃太空环境测试，目标太空光伏应用，2027下半年扩产至500万片/年。",
-          "sc": 5.7,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/1rlyYFpS8q-zdvpvBkcLlA",
-          "tp": "柔性钙钛矿",
-          "aip": 0,
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://batteriesnews.com/quantumscape-inaugurates-eagle-line-for-solid-state-battery-pilot-production/",
+          "tp": "固态电池产线",
+          "aip": 1,
           "kp": [],
-          "lv": 1,
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "2月6日，晶灵科技在官方公众号发文称，与浙大宁波理工学院合作开发的柔性全无机钙钛矿5x5cm²模组经国家光伏产业计量测试中心认证，效率达18.2%（实测面积12.235 cm²；Isc=47.15/47.18mA；Voc=6.331/6.370V；FF=74.27/74.93%）。\n据2月11日韩国科技媒体DongA Science报道，韩国韩华集团下属的光伏公司Flexell Space完成了钙钛矿-铜铟镓硒（CIGS）叠层光伏器件试点工厂的建设，目前该工厂每天可生产20块20cm×20cm光伏电池，预计2027年下半年将其年产能扩建为500万片。报道中称，相关产品目标应用于太空光伏，工厂中还配备有模拟太空中的光照（AM0）和温度（-150~150℃）环境用于测试。",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "单原子器件无关量子密钥分发实现超100公里光纤安全通信",
-        "原子点阵阵列实现可编程量子系统复杂多体物理模拟",
-        "解析MoS2化学气相沉积非晶核结构修正二维材料生长理论"
-      ],
-      "entries": [
-        {
-          "t": "基于单原子的器件无关量子密钥分发实现100公里传输",
-          "d": "2026-02-06",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究实现了基于单原子的器件无关量子密钥分发（DI-QKD），通信距离突破100公里。DI-QKD是量子互联网的关键应用，其优势在于安全性不依赖对测量设备的信任，可防御侧信道攻击。利用囚禁单个原子作为量子比特，研究在超长距离光纤上完成了基于贝尔不等式违反的安全密钥生成，为构建高安全性、可扩展的城际量子保密通信网络奠定了实验基础。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aec6243?af=R",
-          "tp": "量子密钥分发",
-          "aip": 1,
-          "kp": [
-            "传输距离[DI-QKD]: 100 km",
-            "[纠缠 heralding]: 单光子干涉",
-            "[频率转换]: 降低光纤损耗"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Device-independent quantum key distribution (DI-QKD) is a key application of the quantum internet. We report the realization of DI-QKD between two single-atom nodes linked by 100-kilometer (km) fibers. To improve the entangling rate, single-photon interference is leveraged for entanglement heralding, and quantum frequency conversion is used to reduce fiber loss. A tailored Rydberg-based emission scheme suppresses the photon recoil effect on the atom without introducing noise. We achieved high-fidelity atom-atom entanglement and positive asymptotic key rates for fiber lengths up to 100 km. At 11 km, 1.2 million heralded Bell pairs were prepared over 624 hours, yielding an estimated extractable finite-size secure key rate of 0.112 bits per event against general attacks. Our results close the gap between proof-of-principle quantum network experiments and real-world applications.",
-          "hb": 1
-        },
-        {
-          "t": "利用原子点阵列实现大规模模拟量子模拟",
-          "d": "2026-02-06",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究团队利用原子点阵阵列（atom dot arrays）实现了大规模模拟量子模拟。该方案通过精确排列中性原子构建可编程的量子系统，可模拟传统计算机难以处理的复杂量子多体物理过程，为探索实用化量子优势提供了重要的实验平台，在凝聚态物理、材料科学等领域具有广泛应用潜力。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-10053-7",
-          "tp": "量子模拟原子点阵",
-          "aip": 1,
-          "kp": [
-            "[量子模拟平台]: 原子点阵列大规模模拟量子材料"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In pursuit of a practical quantum advantage1, analogue quantum systems provide an invaluable way to simulate the physics of quantum materials2,3,4, quantum systems out of equilibrium5,6 or interaction-induced localization7. Notable recent progress to realize such systems has been achieved in ultracold atoms8,9,10,11,12, superconducting circuits13,14,15 and twisted van der Waals materials16,17,18,19. However, so far, these platforms have struggled to simulate large-scale strongly interacting fermionic systems at low temperatures, at which electronic correlations dominate materials properties and numerical simulations remain restricted in accuracy and scope20,21. Here we demonstrate the realization of a new platform consisting of large-scale 2D arrays of sub-nanometre precision-engineered atom-based quantum dots (15,000 sites) to simulate strongly interacting, low-temperature physics. By observing a metal–insulator (MI) transition on a 2D square lattice of atom-based quantum dots, we demonstrate independent and precise control of the on-site interaction U and tunnelling t. Magneto-transport measurements further indicate the formation of an insulating state driven by Mott–Hubbard/Anderson physics and promising signatures of correlated electron physics. These precision-engineered analogue quantum simulators provide a unique platform to simulate quantum materials on arbitrary 2D lattices and to explore many unanswered questions in the formation of quantum magnetism, interacting topological quantum matter and unconventional superconductivity.",
-          "hb": 1
-        },
-        {
-          "t": "MoS2化学气相沉积过程中形成的原子级分辨二维非晶核",
-          "d": "2026-02-06",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究在原子尺度上解析了MoS2化学气相沉积过程中形成的二维非晶核结构。对二维材料成核与生长过程的精确控制是实现规模化制造的关键。研究利用先进表征技术直接观察到CVD生长初期的非晶态晶核，揭示了从非晶到晶态转变的原子级机制。这一发现修正了对二维材料生长路径的传统认知，为提高晶体质量和可控合成提供了关键理论依据。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adz8243?af=R",
-          "tp": "MoS2气相沉积成核",
-          "aip": 1,
-          "kp": [
-            "[观测方法[MoS2 CVD成核]]: 环境透射电镜原位原子尺度",
-            "[发现]: 二维非晶核形成",
-            "[模拟方法]: 耦合分子动力学"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Control over the nucleation and growth of two-dimensional (2D) materials is essential for their scalable manufacturing. We report in situ atomic-scale observations of molybdenum disulfide (MoS2) nucleation and growth through chemical vapor deposition (CVD) using environmental transmission electron microscopy. Coupled with molecular dynamics simulations, our observations reveal the formation of a 2D amorphous structure at the initial nucleation stage, which undergoes an in-plane structural ordering transition into a crystalline nucleus once a critical size is reached. We further captured nuclei merging and oriented attachment processes in the early growth stage, which likely contributed to 2D single-crystal fabrication. These findings unveil the atomistic structural evolution in MoS2 nucleation and growth under CVD condition, providing mechanistic insight for the controlled synthesis of high-quality 2D crystals and informing broader strategies for covalently bonded material systems.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "拓扑狄拉克半金属材料实现超低功耗巨型自旋轨道转矩",
-        "嫦娥六号月背样本首次提供28亿年放射年代学数据",
-        "水基n型导电高分子墨水导电率突破1000 S/cm"
+        "科研团队在六方氮化硼中研发出具备光学可寻址自旋态的量子发射器",
+        "研究人员合成具有镧系元素键及磁各向异性的三角形团簇",
+        "实验证实手性标签可通过非共价相互作用在四乙基铅中诱导手性"
       ],
       "entries": [
         {
-          "t": "对称性强制拓扑狄拉克半金属：实现超低功耗的巨大自旋轨道转矩",
+          "t": "六方氮化硼中产生的具有光学可寻址自旋态的窄带量子发射器",
           "d": "2026-02-06",
-          "a": "National Science Review Advance Access",
+          "a": "Nature Materials",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究利用对称性约束的拓扑狄拉克半金属材料，实现了巨型自旋轨道矩（SOT），且具有超高效率。电流驱动的 SOT 是实现电控磁化翻转的核心物理机制，被广泛认为是下一代自旋电子存储与逻辑器件的关键技术。传统 SOT 材料效率受限于自旋霍尔角大小，该研究通过拓扑能带结构的对称性保护获得极大的 SOT 响应，突破了常规重金属材料的性能极限，有望推动超低功耗、高密度自旋存储器件的实用化进程。",
-          "sc": 7.3,
+          "as": "",
+          "sc": 7.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag077/8460551?rss=1",
-          "tp": "拓扑半金属自旋力矩",
-          "aip": 1,
-          "kp": [
-            "[材料体系]: 对称性强制拓扑狄拉克半金属",
-            "[功耗特性]: 超低功耗自旋轨道转矩"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Current-driven spin–orbit torque (SOT) enables electrical control of magnetization for next-generation memory and logic, but reducing switching current and power consumption is still a major challenge. Topological semimetals provide an attractive platform because they combine metallic conductivity with topological states that can efficiently generate spin currents. However, while most studied systems rely on accidental band inversions, the SOT response of symmetry-enforced Dirac semimetals remains largely unexplored. Here, we demonstrate that the nonsymmorphic symmetry-enforced Dirac semimetal hexagonal SrIrO3 exhibits record-high SOT efficiency. In-situ",
-          "hb": 1
-        },
-        {
-          "t": "嫦娥六号背面样本的月球年代学模型及其对早期撞击历史的影响",
-          "d": "2026-02-06",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/通信和运输/航天",
-          "as": "嫦娥六号于2024年6月从月球背面返回1.935公斤样品，首次提供了月球的放射年代学数据。样品包含年龄为28.07亿年的本地玄武岩和42.47亿年的苏长岩。此前月球撞击年代学模型仅基于月球正面、年龄小于40亿年的样品。背面样品填补了关键空白，对理解月球早期撞击历史和行星演化具有重要意义。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady9265?af=R",
-          "tp": "月球年代学",
+          "u": "https://www.nature.com/articles/s41563-025-02474-6",
+          "tp": "六方氮化硼",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The radiometric ages of the returned samples are the cornerstone of lunar cratering chronology models. However, all the previous samples were from the lunar nearside and the radiometric ages of those samples that can be associated with particular surfaces are <4.0 billion years. On 25 June 2024, Chang'e-6 successfully returned 1.935-kilogram samples from the lunar farside. The samples included local basalts with an age of 2807 ± 3 million years and the norites with an age of 4247 ± 5 million years likely corresponding to the age of the South Pole-Aitken basin. With these radiometric ages, we refined the lunar chronology function (CF) and verified that it is still consistent with a combination of an exponential decrease and a linear rate. We further derived the impacting rate and found it supports a smooth decay instead of abrupt changes of the impactor flux at early times. The refined lunar CF can be used to obtain more reliable ages for unsampled lunar areas and provide critical constraint for the lunar early impact history.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "导电率超1000 S cm⁻¹的水可加工n型聚合物墨水",
+          "t": "[ASAP] 具有镧系元素相关键、价离域和磁各向异性的三角形 (C5iPr5)3Ln3H3I2 (Ln = Tb、Dy、Ho、Er、Tm) 团簇",
           "d": "2026-02-06",
-          "a": "Matter",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究者通过简单透析工艺开发出一种稳定的水基n型导电高分子墨水PBFDO，导电率突破1000 S/cm。引入两性离子表面活性剂显著提升了墨水的水相分散稳定性与成膜质量。该墨水可用水溶液加工，避免了有毒有机溶剂，为柔性电子、有机热电器件和可穿戴设备的低成本、环保制造开辟了新路径，是有机电子材料领域的重大进展。",
-          "sc": 7.0,
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00642-3?rss=yes",
-          "tp": "水溶性导电聚合物墨水",
+          "u": "http://dx.doi.org/10.1021/jacs.5c19340",
+          "tp": "镧系团簇磁性",
           "aip": 1,
-          "kp": [
-            "电导率[水系n型聚合物]: ~1400 S/cm"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A stable, water-based PBFDO ink was developed through a simple dialysis process. Incorporating zwitterionic surfactants effectively stabilizes n-type PBFDO, enabling long-term ink stability. The resulting films exhibit a high electrical conductivity of ∼1,400 S cm−1, exceeding all previously reported values for water-processable n-type conducting polymers.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 通过与手性标签的非共价相互作用在四乙基铅中诱导手性",
+          "d": "2026-02-06",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c21116",
+          "tp": "手性诱导机制研究",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

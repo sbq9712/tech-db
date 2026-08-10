@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "美国实验室与企业合作探索从铝废料提取半导体级镓材料",
-      "中国科研团队以浸涂法制备单分子层获27.23%钙钛矿电池效率",
-      "研究确认驱动紫杉醇生物合成最小转录因子网络"
+      "湖北大学科研团队调控相变取向，FAPbI3钙钛矿太阳能电池效率达25.61%",
+      "浙江大学团队开发无铅铟基低维钙钛矿表面配位剂，电池组件效率达24%",
+      "ST40球形托卡马克实验证实磁重联对等离子体中离子和电子的加热机制"
     ],
     "AI与智能科技": [
-      "特锐德算力中心预制舱变电站在青岛启用，缩短七成施工周期",
-      "美国陆军演示可定位无线电信号的三维射频量子传感器",
-      "科研团队实现基态费米原子镊子阵列可编程确定性组装"
+      "青岛特锐德算力中心预制舱供电站启用，转换效率达98.5%",
+      "算力中心高压交直流预制舱相较传统方案缩短近70%施工周期",
+      "算电协同预制舱供电系统下半年将应用于国家级数据中心集群"
     ],
     "通用技术": [
-      "韦伯望远镜首次捕获星际彗星3I/ATLAS中红外化学指纹",
-      "庞巴迪Global 8000公务机创下跨大西洋飞行速度纪录",
-      "Harbinger联合莱茵金属推军用自动驾驶电动卡车项目"
+      "深度学习模型筛选氢键工程聚合物电介质，实现250℃高温电容储能",
+      "研究调节层间化学键异质性释放CuCrTi2Se6材料高热电性能",
+      "科学家首次报道具有截角十二面体拓扑结构的钚酰笼状簇合物"
     ]
   },
   "sectors": [
@@ -26,49 +26,82 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "美国实验室与企业合作探索从铝废料提取半导体级镓材料",
-        "中国科研团队以浸涂法制备单分子层获27.23%钙钛矿电池效率",
-        "研究确认驱动紫杉醇生物合成最小转录因子网络"
+        "湖北大学科研团队调控相变取向，FAPbI3钙钛矿太阳能电池效率达25.61%",
+        "浙江大学团队开发无铅铟基低维钙钛矿表面配位剂，电池组件效率达24%",
+        "ST40球形托卡马克实验证实磁重联对等离子体中离子和电子的加热机制"
       ],
       "entries": [
         {
-          "t": "美国新协议旨在从铝废料中提取半导体材料",
-          "d": "2026-06-07",
-          "a": "interesting engineering",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "美国艾姆斯国家实验室与铟公司（Indium Corporation）宣布合作，旨在从铝冶炼废料中提取半导体级关键材料。该研发项目聚焦从铝工业副产品中回收镓等战略级半导体原材料，以减少美国对进口关键矿产的依赖。镓是氮化镓功率器件和高频芯片的核心原料，此回收路线若实现规模化，有望为半导体供应链本土化提供替代性资源路径，增强材料安全。",
-          "sc": 7.5,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/innovation/us-to-extract-critical-semiconductor-materials",
-          "tp": "铝废料提镓",
-          "aip": 1
-        },
-        {
-          "t": "Alex K.-Y. Jen&许宗祥等人Nat. Synth.全面解读：浸涂法制备自组装单层实现27.23%认证效率的钙钛矿太阳能电池_手机网易网",
+          "t": "刘治科&章天金&王多发Nat. Commun.详细解读：调控δ相取向阻断相变路径，实现FAPbI₃钙钛矿高效稳定_手机网易网",
           "d": "2026-06-07",
           "a": "网易知光谷",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "南方科技大学、香港城市大学等单位研究团队在Nat. Synth.发表研究,通过浸涂法制备自组装单层(SAM),成功实现认证光电转换效率达27.23%的钙钛矿太阳能电池。该工作由潘旭、高峰、Ying Qiao、Alex K.-Y. Jen及许宗祥等通讯作者主导。浸涂法是一种简单、可规模化的界面修饰工艺,通过在钙钛矿活性层与电极间构建有序分子排列的SAM,优化能级对齐与缺陷钝化,显著降低非辐射复合损失。27.23%的认证效率已逼近单结钙钛矿电池理论极限,标志着SAM界面工程在推动钙钛矿光伏商业化方面的关键突破。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.163.com/dy/article/KUNOT2DS0552LHQK.html",
-          "tp": "钙钛矿太阳能电池",
-          "aip": 1
+          "as": "湖北大学等机构研究人员通过引入二苯并-18-冠-6（DB18C6）衍生的二维类钙钛矿，阻断了FAPbI₃钙钛矿中导致降解的δ相[001]择优取向，从而抑制了非光活性相的产生。基于此策略的FACs基钙钛矿太阳能电池效率达到25.61%，未封装器件在70%相对湿度下老化1000小时后，依然保持90%的初始效率。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.163.com/dy/article/KUQA30U60552LHQK.html",
+          "tp": "钙钛矿电池稳定性",
+          "aip": 1,
+          "kp": [
+            "电池效率[DB18C2调控的FACs基钙钛矿太阳能电池]: 25.61%",
+            "界面失配率[2D类钙钛矿(002)面与δ相(110)面]: 4.24%",
+            "稳定性[未封装器件70%相对湿度老化1000小时]: 保持90%初始效率",
+            "相变机制[α相降解活性位点]: 界面处晶格失配产生拉伸应变",
+            "调控策略[抑制α/δ相变界面形成]: 破坏δ相[001]择优取向"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "第一作者：Chuwu Xing, Yongzhe Li, Qinhui Bao\n通讯作者：刘治科、章天金、王多发\n通讯单位： 湖北大学、陕西师范大学\n1.首次通过XRD精修和HRTEM直接观察到FAPbI₃钙钛矿中α→δ相变的共格界面，发现δ相(110)面与α相(011)面形成的面内\n界面处的晶格失配产生拉伸应变，是α相降解的活性位点。\n2.揭示了δ相[001]择优取向是形成大量α(011)/δ(110)相变界面的根本原因，并提出通过破坏δ相取向来阻断相变路径的新策略。\n3.引入二苯并-18-冠-6（DB18C6）衍生的二维类钙\n（2D perovskitoid），其(002)面与δ相(110)面形成4.24%\n失配的2D/δ界面，产生足够的外延应力，打乱δ相[001]择优取向，从而抑制α/δ相变界面形成。\n4.基于该策略的FACs基钙钛矿太阳能电池效率达25.61%，未封装器件在70%相对湿度下老化1000小时后仍保持90%初始效率，且该策略普适适用于其他钙钛矿体系。\n一、本研究针对的问题与挑战\n甲脒基钙钛矿（FAPbI₃）因具有更窄的带隙和更优的热稳定性，已成为高效率钙钛矿\n的主流材料。然而，其立方α相在热力学上为亚稳态，易自发转变为非光活性的黄相δ相，导致器件快速失效。尽管通过Cs⁺、MA⁺等阳离子部分取代FA⁺可调节容忍因子、抑制相变，但这些策略未能从相变机理出发解决根本问题。以往研究大多关注宏观应变或缺陷对相变的影响，而α与δ两相之间的微观界面结构及其在相变中的驱动作用长期未被阐明。\n通过XRD精修和HRTEM，首次直接观察到了FAPbI₃中α→δ相变的共格界面，发现δ相在[001]方向的强择优取向导致大量α(011)/δ(110)面内共格界面的形成。该界面处α相受到拉伸应变，成为相变启动的活性位点。随着δ相含量增加，界面数量几何级放大，α相应变持续累积，相变呈自催化加速。针对这一机理，作者引入了二苯并-18-冠-6衍生的二维类钙钛矿材料。该二维相与δ相(110)面形成共格界面，其(002)面与δ相(110)面之间的晶格失配高达4.24%，产生足以破坏δ相[001]取向的外延应力，使δ相转向其他非[001]取向生长，从而抑制了α/δ相变界面的形成，将α相在\n上反转为稳定相。基于该策略的FACs钙钛矿太阳能电池效率达25.61%，未封装器件在70%湿度下1000小时后保留90%初始效率，且该策略在CsFAMA体系中同样有效，展示了普适性。\nα→δ相变界面的观测与应变演化\n通过XRD追踪FA₀.₉Cs₀.₁PbI₃（FACs）薄膜在70% RH老化过程中的相变。δ相（100）衍射峰（约11.8°）在100小时后出现并随时间指数增长，表明δ相一旦形成便加速α相降解。XRD精修显示，α相微应变随老化逐渐增加（拉伸应变），而δ相微应变逐渐减小（压缩应变释放）。两种应变在α与δ含量相近时达到总体应变峰值。HRTEM直接观察到α与δ之间的两种共格界面：面外界面（垂直于衬底）由α(011)面（d=4.4 Å）与δ(110)面（d=4.3 Å）匹配，晶格失配约2.95–3.12%，影响较小；面内界面（平行于衬底）由α相五重八面体间距（15.6 Å）与δ相四重八面体间距（15.2 Å）匹配，失配随老化从约1.8%增至2.14%，导致α相拉伸应变显著增加。这一面内界面是相变的主要活性位点，其产生源于δ相沿[001]方向的强择优取向（由XRD和GIWAXS证实）。\n二维类钙钛矿调控δ相取向\n为破坏δ相[001]取向，引入了一系列冠醚衍生物。发现二苯并冠醚（DB15C5、DB18C6、DB21C7、DB24C8）能形成稳定的二维类钙钛矿（2D perovskitoid），其中DB18C6效果最优。在未退火（δ相主导）的薄膜中，XRD显示对照样品δ相呈强(100)择优取向（对应[001]），而引入2D相后，(100)峰减弱，(101)、(002)、(102)、(201)等非[001]取向峰增强。GIWAXS进一步证实，2D相使δ相(100)和(110)衍射环变为均匀各向同性，表明择优取向被破坏。同时，α相的(112)面外取向（该取向与δ相(110)面配位形成相变界面）也被抑制，α相(001)衍射环均匀化。\n2D/δ界面结构与应变机制\nHRTEM显示，2D相（DB18C6衍生物）的(002)面（d=8.1 Å）与δ相(110)面（d=4.3 Å）形成两种共格界面：面内界面呈1:1周期匹配，面外界面呈2:1匹配。晶格失配计算表明，2D相的面内八面体间距（16.5 Å）比δ相（15.83 Å）大4.24%，在δ相上施加显著拉伸应变。随着2D相含量增加，δ相的d₆₂从15.81 Å增至15.90 Å，2D相的d₂D从16.50 Å降至16.44 Å，两者接近，界面应变驱动δ相晶格膨胀，从而抑制其[001]取向生长。晶格能量计算表明，对照样品中α相晶格能（3427 kJ/mol）低于δ相（3444 kJ/mol），α相亚稳；加入2D相后，δ相晶格能降至3351 kJ/mol，反转为低于α相，使α相成为热力学稳定相。\n稳定性、缺陷钝化与光伏性能\n在70% RH下老化1000小时后，对照样品几乎完全转变为δ相（98%），而1% 2D相掺入样品δ相含量仅约7%，更高掺入量甚至完全抑制δ相形成。Williamson-Hall分析显示，2D相掺入使α相微应变从0.125%降至0.024%（降低80%）。通过XPS发现2D相中DB18C6的负电性空腔可锚定未配位Pb²⁺，增加Pb电子云密度，降低缺陷态。PL和TRPL表明，0.5–1.0% 2D相掺入显著增强PL强度并延长载流子寿命，而过量（≥1.5%）则因绝缘相积累反而劣化。\n器件结构：FTO/SnO₂/钙钛矿（FACs+2D）/Spiro-OMeTAD/Au。最佳1.0% 2D相器件效率25.61%（反向扫描），认证25.49%，迟滞指数0.0375（对照0.0461）。EQE积分Jsc从25.05提升至25.32 mA/cm²，稳态输出从23.44%提升至25.48%。统计20个器件平均PCE从23.26%升至25.12%。未封装器件在70% RH下老化1000小时后，1.0% 2D相器件保持90%初始PCE（对照200小时降至50%）。封装器件在MPP追踪1000小时后保持89.8%初始效率。该策略在CsFAMA（Cs₀.₀₅FA₀.₈MA₀.₁₅PbI₂.₈₈Br₀.₁₂）反式器件中同样有效，效率从22.57%提升至23.47%，且老化后δ相被完全抑制。\n本研究从原子尺度揭示了FAPbI₃基钙钛矿α→δ相变的根本驱动力：δ相沿[001]方向的强择优取向导致大量α(011)/δ(110)面内共格界面的形成，该界面处的晶格失配产生拉伸应变，成为相变活性位点，且相变具有自催化加速特征。基于此机理，引入DB18C6衍生的二维类钙钛矿，其(002)面与δ相(110)面形成大失配（4.24%）的2D/δ界面，施加的外延应力破坏了δ相的[001]择优取向，使其转向其他晶面生长，从而阻断了α/δ相变界面的形成，并将α相从热力学亚稳态反转为稳定态。该策略使FACs钙钛矿太阳能电池效率达25.61%，并在70%湿度下1000小时后保持90%效率。这项工作提供了α→δ相变的微观界面机理，并提出了一种通过调控δ相取向来稳定α相的普适性策略。\nXing, C., Li, Y., Bao, Q. et al. Mechanistic insight into α-to-δ phase transition and stabilizing α-phase FAPbI₃ via regulating δ-phase orientation. Nat. Commun. (2026).\nhttps://doi.org/10.1038/s41467-026-73739-0\n知光谷光伏器件学术QQ群：641345719\n钙钛矿产教融合交流@知光谷（微信群）：需添加编辑微信\n为加强科研合作，我们为海内外科研人员专门开通了\n，备注：姓名-单位-研究方向（无备注请恕不通过），由编辑审核后邀请入群。",
+          "hb": 1
         },
         {
-          "t": "最小转录因子网络足以驱动紫杉醇生物合成",
+          "t": "浙江大学王勇Nat. Commun. 全面解读：铟基八面体“锁定”Pb-I末端实现27.29%效率钙钛矿电池_手机网易网",
           "d": "2026-06-07",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "研究鉴定了一个最小转录因子网络，足以驱动抗癌药物紫杉醇（paclitaxel）的生物合成。紫杉醇供应受限于天然丰度低和化学结构复杂，传统提取和化学合成均面临瓶颈。该研究通过解析紫杉醇生物合成途径中的转录调控机制，发现仅需少数关键转录因子即可激活完整的生物合成基因簇表达。这一成果为通过合成生物学和代谢工程在异源宿主中规模化生产紫杉醇提供了关键遗传元件。",
-          "sc": 7.0,
+          "a": "网易知光谷",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "浙江大学王勇团队设计了无铅铟基低维钙钛矿(PMA)₄NaInCl₈（PNIC），作为表面配位剂与3D钙钛矿的Pb-I末端形成共格界面。这种八面体级耦合有效锁定了甲脒阳离子，抑制了结构自由度和离子迁移。修饰后的电池获得27.29%的冠军效率，组件效率达24%，并在持续运行3000小时后保持98%的效率。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.163.com/dy/article/KUQA2IFD0552LHQK.html",
+          "tp": "钙钛矿电池效率",
+          "aip": 1,
+          "kp": [
+            "冠军效率[PNIC修饰的钙钛矿太阳能电池]: 27.29%",
+            "认证效率[PNIC修饰的钙钛矿太阳能电池]: 26.84%",
+            "组件效率[16.1平方厘米低维/三维异质结模块]: 24%",
+            "稳定性[最大功率点追踪3000小时]: 保持98%初始效率",
+            "稳定性[湿热老化1500小时]: 保持95%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "第一作者： Yehui Wen, Yueqi Shen, Xingtao Wang\n1.设计了两种无铅低维钙钛矿——(PMA)₄InCl₇（PIC，零维孤立[InCl₆]八面体）和(PMA)₄NaInCl₈（PNIC，二维有序角共享In(Na)-Cl\n框架），作为表面/界面配位剂，与三维钙钛矿的Pb-I末端实现八面体级耦合。\n2.PNIC的连续无机框架与三维钙钛矿形成共格界面，通过In(Na)-Cl与Pb-I的八面体耦合，有效锁定表面/界面的甲脒阳离子和Pb-I八面体，抑制结构自由度，同时松弛残余晶格应变并优化能带排列。\n3.PNIC修饰的钙钛矿太阳能电池获得27.29%的冠军效率（认证26.84%），16.1 cm²组件效率达24%（认证23.54%），均为基于低维/三维异质结的最高报道值之一。\n4.器件在最大功率点追踪3000小时后仍保持98%初始效率，湿热老化1500小时后保持95%，得益于PNIC的刚性和有序八面体框架对界面缺陷生成和离子迁移的显著抑制。\n一、本研究针对的问题与挑战\n钙钛矿太阳能电池的效率已取得长足进步，但其长期运行稳定性严重受限于表面/界面处软\n的结构退化。传统的铅基低维钙钛矿覆盖层虽能暂时钝化表面，但有机铵组分结构刚性不足，易脱附或扩散进入体相，且残留的PbI₂在光热应力下会进一步分解为金属Pb⁰等深能级缺陷，反而加剧不稳定性。\n提出了一种基于无铅铟基八面体单元的界面配位策略，设计合成了两种低维钙钛矿：(PMA)₄InCl₇（PIC，零维孤立[InCl₆]八面体，被有机\n包裹）和(PMA)₄NaInCl₈（PNIC，二维角共享In(Na)-Cl八面体连续框架）。通过旋涂将二者沉积在三维FAPbI₃基钙钛矿表面，发现PNIC的连续无机框架能与三维钙钛矿的Pb-I末端形成共格八面体级耦合（In(Na)-Cl与Pb-I单元直接配位），而PIC因孤立八面体被有机配体屏蔽，仅能实现不连续覆盖。PNIC的刚性耦合不仅锚定了表面/晶界处的FA⁺阳离子和Pb-I八面体，抑制了离子迁移和结构塌陷，还松弛了残余晶格应变，并优化了能带排列（导带底上移，形成无势垒电子提取）。最终，PNIC修饰的器件获得27.29%的冠军效率（认证26.84%），16.1 cm²组件效率24%（认证23.54%），并在3000小时最大功率点追踪后效率保持98%以上，展现了极高的运行稳定性。这一工作确立了八面体级界面配位作为稳定钙钛矿的普适性设计原则。\nSAM分子设计——抑制聚集与优化能级\n单晶X射线衍射显示，PIC为零维结构，孤立的[InCl₆]八面体被PMA⁺阳离子完全分隔；PNIC为二维结构，[NaCl₆]和[InCl₆]八面体通过角共享形成连续无机层，PMA⁺位于层间。粉末X射线衍射证实两者相纯，且在室温空气中存放一年后无降解。热重分析显示分解温度>200°C，¹H NMR表明在85°C+1个太阳光照80小时后PMA⁺信号无明显衰减，证明其优异的化学与光热稳定性。SEM显示，PIC在三维钙钛矿表面形成稀疏、不连续的纳米晶覆盖，而PNIC优先富集于晶界处，形成连续覆盖层。\n溶剂工程——乙醇+1.5 vol%水的协同效应\nHAADF-STEM证实，PNIC与三维钙钛矿之间形成清晰共格界面，晶格条纹分别对应于PNIC的(010)面（7.4 Å）和钙钛矿的(200)面（3.2 Å）。而PIC覆盖层虽可见晶格条纹（7.3 Å），但覆盖不均匀。¹H NMR显示，PNIC修饰后，FA⁺的-NH信号发生显著高场位移，表明FA⁺被锁定在In(Na)-Cl无机框架的空隙中；同时PMA⁺的-NH也发生高场位移，证明N-H···I氢键增强。XPS中，PNIC修饰后Cl 2p和In 3d向低结合能移动（因Cl⁻填补卤素空位并参与配位），而Pb 4f和I 3d向高结合能移动（因电子被Cl⁻吸引），证实了In(Na)-Cl与Pb-I的直接配位。GIXRD应变分析显示，原始钙钛薄膜存在显著残余拉伸应变（正斜率），PIC部分缓解，PNIC几乎完全消除。老化后，对照样品应变急剧增加，PNIC样品基本不变。XRD显示，光热老化后对照样品出现强PbI₂峰，PIC抑制但未消除，PNIC几乎完全抑制，且优于传统铅基低维覆盖层（仍明显降解）。这表明PNIC的连续无机框架通过刚性八面体耦合，有效稳定了FA⁺和Pb-I骨架。\n浸涂工艺的快速性、均匀性与可持续性\n稳态PL显示，PNIC修饰后发光强度最高，TRPL拟合寿命从对照的400 ns延长至1120 ns（PIC为880 ns）。PL面扫描显示PNIC样品发光均匀且最强，而PIC呈局部增强。导纳谱（tDOS）表明，PNIC和PIC均显著降低0.2–0.3 eV深能级缺陷密度，PNIC效果更优。DLCP测得的界面缺陷密度：对照3.60×10¹⁶ cm⁻³，PIC 2.19×10¹⁶ cm⁻³，PNIC仅1.40×10¹⁶ cm⁻³。SCLC陷阱填充极限电压从0.13 V降至0.09 V（PNIC）。C-AFM显示，PNIC修饰后暗态电流最低（导电通道被有效阻断），对照样品电流最高（表面缺陷泄漏）。KPFM表面电势：PNIC > PIC > 对照，对应功函数依次增加。UPS表明PNIC使导带底从-4.49 eV上移至-4.29 eV，费米能级从-4.77 eV上移至-4.56 eV，与C₆₀电子传输层的LUMO（-4.30 eV）实现无势垒匹配，有利于电子提取。能带示意图表明PNIC在界面处形成有利的能带弯曲，抑制电子-空穴复合。\n器件结构：ITO/4PADCB/钙钛矿/C₆₀/SnO₂/Au。对照PCE 24.67%，PIC器件26.02%，PNIC冠军器件PCE 27.29%（反向扫描），认证26.84%。EQE积分电流与J-V吻合，稳态功率输出27.03%。统计分布显示PNIC器件的Voc和FF提升显著，迟滞极小。光强依赖Voc显示PNIC理想因子低至1.3 kT/q，暗态J-V反向饱和电流最小，EIS复合电阻最大，证明非辐射复合被有效抑制。16.1 cm²组件（6节串联）效率24%，认证23.54%（Voc 7.21 V，Isc 65.5 mA，FF 82%），展示了良好的放大一致性。\n在55°C、1个太阳MPP追踪下，PNIC器件3000小时后保持98%初始效率，PIC器件2200小时后保持90%，对照800小时后仅剩80%。湿热测试（85°C/85% RH，ISOS D-3）1500小时后，PNIC保持95%，PIC保持85%，对照800小时后降至60%。老化后DLCP测量表明，PNIC样品的缺陷密度从初始1.40×10¹⁶ cm⁻³仅微增至1.42×10¹⁶ cm⁻³，而对照从3.60×10¹⁶ cm⁻³飙升至4.53×10¹⁶ cm⁻³，PIC也增至2.74×10¹⁶ cm⁻³。这表明PNIC的连续八面体耦合层有效抑制了长期应力下缺陷的生成与积累。\n本文针对传统铅基低维钙钛矿覆盖层刚性不足、易脱附且残留PbI₂分解等问题，设计了两种无铅铟基八面体配位剂。其中，具有角共享连续无机框架的PNIC能够与三维钙钛矿的Pb-I末端形成共格八面体级耦合，而0D的PIC仅能提供孤立、不连续的配位。PNIC的刚性耦合不仅通过In(Na)-Cl与Pb-I的配位锁定表面FA⁺和Pb-I八面体，抑制离子迁移和结构塌陷，还显著松弛了残余晶格应变，并优化了能带排列以促进电子提取。得益于此，PNIC修饰的器件实现了27.29%的冠军效率（认证26.84%）和16.1 cm²组件24%效率（认证23.54%），并在3000小时MPP追踪后保持98%初始效率，湿热老化1500小时后保持95%，远优于对照和PIC修饰器件。这项工作展示了八面体级界面配位作为稳定钙钛矿的通用策略，为设计高效、耐久的无铅界面层提供了新方向。\nWen, Y., Shen, Y., Wang, X. et al. Indium-based octahedra coordinating Pb-I termini for stable perovskites. Nat. Commun. (2026).\nhttps://doi.org/10.1038/s41467-026-74107-8\n知光谷光伏器件学术QQ群：641345719\n钙钛矿产教融合交流@知光谷（微信群）：需添加编辑微信\n为加强科研合作，我们为海内外科研人员专门开通了\n，备注：姓名-单位-研究方向（无备注请恕不通过），由编辑审核后邀请入群。",
+          "hb": 1
+        },
+        {
+          "t": "ST40 中合并/压缩等离子体启动期间通过磁重联加热离子和电子",
+          "d": "2026-06-07",
+          "a": "Nuclear Fusion - latest papers",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "ST40球形托卡马克在合并/压缩（M/C）等离子体启动实验中，利用96通道二维离子多普勒断层扫描和30通道汤姆逊散射诊断，揭示了磁重联对离子的加热过程。研究发现，离子在重联下游被加热并发生约束/传输，电子在磁轴附近被加热且密度增加，形成尖峰状温度分布。实验还证实了M/C启动等离子体电流和离子温度的准稳态维持与约束。",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aee6211?af=R",
-          "tp": "紫杉醇生物合成",
-          "aip": 1
+          "u": "https://iopscience.iop.org/article/10.1088/1741-4326/ae6f2e",
+          "tp": "磁重联加热",
+          "aip": 1,
+          "kp": [
+            "[离子加热诊断手段]: 96通道二维离子多普勒断层扫描",
+            "[电子加热诊断手段]: 30通道汤姆逊散射"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Here, we report the latest results on the high-field application of a merging/compression (M/C) plasma startup in the ST40 spherical tokamak, using 96-channel 2D ion Doppler tomography and 30-channel Thomson scattering diagnostics installed over the past three years. The new findings and achievements are summarised as follows: (i) the new 96-channel 2D ion Doppler tomography clearly revealed ion heating in the downstream of the reconnection JET and its confinement/transport process. (ii) Electron density also increases in the same region, while electrons are heated around the -point (or magnetic axis) and the electron temperature profile forms a peaked profile. (iii) Quasi-steady sustainment/confinement of M/C startup plasma current and ion temperature has been demonstrated. (iv) Based on a series of M/C experiments, scaling was increased to kA. (v) Full pressure profile measurements lead to the evaluation of the energy conversion ratio of the dissipated magnetic energy to the reconnecting field and it was found that of released magnetic energy was converted to ion thermal energy. (vi) The previously demonstrated scaling has been successfully upgraded to for the first time and which was 10 times higher than the previous record in MAST was explored.",
+          "hb": 1
         }
       ]
     },
@@ -76,15 +109,15 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "特锐德算力中心预制舱变电站在青岛启用，缩短七成施工周期",
-        "美国陆军演示可定位无线电信号的三维射频量子传感器",
-        "科研团队实现基态费米原子镊子阵列可编程确定性组装"
+        "青岛特锐德算力中心预制舱供电站启用，转换效率达98.5%",
+        "算力中心高压交直流预制舱相较传统方案缩短近70%施工周期",
+        "算电协同预制舱供电系统下半年将应用于国家级数据中心集群"
       ],
       "entries": [
         {
           "t": "青岛特锐德开发的算力中心预制舱供电站在山东青岛正式启用",
           "d": "2026-06-07",
-          "a": "",
+          "a": "Airliquide",
           "c": "AI与智能科技/AI硬件层/数据中心",
           "as": "青岛特锐德开发的算力中心高压交直流预制舱供电站在山东青岛正式启用，充电转换效率98.5%，相较传统算力中心施工周期缩短近70%、占地面积减少30%、整体成本下降20%，结合算电协同体系实现绿电、储能、算力精准适配。预计下半年将应用于国家级数据中心集群及多个地方级算力中心，具体成本核算细节未公布。",
           "sc": 5.6,
@@ -92,33 +125,32 @@
           "tg": "产业进展",
           "u": "https://www.airliquide.com/group/press-releases-news/2026-06-10/air-liquide-starting-co2-capture-pilot-unit-dedicated-decarbonization-cement-industry#about-cryocap-tm-78471",
           "tp": "算力供电站",
-          "aip": 1
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "数据中心的用电类型：\n主板12V或者更高---芯片处理器的1.xV；\n单机功率增加，低压供电损耗散热大\n传统供电从电网到使用的中间环节是啥： 10kV、110kV或220kV高压电网（HV）→ 变电站/变压器（降压） → 低压配电柜（LV，电能分配、计量、保护和分路输出） → UPS（整流逆变为净化直流） →机柜配电进行分配；\n高压交直流预制供电舱：集成，高压电网通过固态变压器或高压直流变换为800V高压直流，直接向机房或机柜供电.模块化的变电站应用",
+          "b": "据央视新闻在6月7日发文称，由青岛特锐德电气等开发建设的预制算力中心底座在山东青岛正式启用，可为算力中心提供持续稳定的电力，相较于传统算力中心节约施工周期近70%（最快5个月就可以完成施工），占地面积减少了30%（约2200m2），整体成本下降了20%；并称结合算电协同智能体系，可实现绿电、储能、算力精准适配。该预制算力中心底座已经正式接入企业自建数据中心，预计今年下半年将应用于国家级数据中心集群以及多个地方级算力中心。\n据青岛特锐德6月6日在官方公众号发文称，其产品为算力中心高压交直流预制舱供电站，充电转换效率98.5%、token用电成本也降低30%，具体核算细节并未公布。",
+          "hb": 1
         },
         {
-          "t": "美军突破性传感器精准定位战场无线电信号",
+          "t": "青岛特锐德开发的算力中心预制舱供电站在山东青岛正式启用",
           "d": "2026-06-07",
-          "a": "interesting engineering",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "美国陆军科学家演示了一种新型量子传感器，能够测量射频电磁场的完整三维方向。该传感器可在战场环境中精确定位无线电信号源，显著提升电子战中的态势感知与信号侦察能力。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://interestingengineering.com/military/us-develops-breakthrough-sensor-for-battlefield",
-          "tp": "量子射频传感器",
-          "aip": 1
-        },
-        {
-          "t": "基态费米原子镊子阵列的可编程组装",
-          "d": "2026-06-07",
-          "a": "Recent Articles in Phys. Rev. Lett.",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "研究团队展示了利用光镊技术确定性制备任意构型的费米子原子阵列并冷却至基态。该工作基于中性原子量子模拟平台，通过可编程方式精确排列费米子（如锂-6或镱-173原子），为量子多体物理模拟和量子计算提供了高度可控的实验体系。基态制备是实现高保真度量子门操作的前提，标志着中性原子量子计算在工程化方向的重要进展。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://link.aps.org/doi/10.1103/fsmh-dz71",
-          "tp": "费米原子光镊阵列",
-          "aip": 1
+          "a": "Airliquide",
+          "c": "AI与智能科技/AI硬件层/数据中心",
+          "as": "青岛特锐德开发的算力中心高压交直流预制舱供电站在山东青岛正式启用，充电转换效率98.5%，相较传统算力中心施工周期缩短近70%、占地面积减少30%、整体成本下降20%，结合算电协同体系实现绿电、储能、算力精准适配。预计下半年将应用于国家级数据中心集群及多个地方级算力中心，具体成本核算细节未公布。",
+          "sc": 5.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.airliquide.com/group/press-releases-news/2026-06-10/air-liquide-starting-co2-capture-pilot-unit-dedicated-decarbonization-cement-industry#about-cryocap-tm-78471",
+          "tp": "算力供电站",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "数据中心的用电类型：\n主板12V或者更高---芯片处理器的1.xV；\n单机功率增加，低压供电损耗散热大\n传统供电从电网到使用的中间环节是啥： 10kV、110kV或220kV高压电网（HV）→ 变电站/变压器（降压） → 低压配电柜（LV，电能分配、计量、保护和分路输出） → UPS（整流逆变为净化直流） →机柜配电进行分配；\n高压交直流预制供电舱：集成，高压电网通过固态变压器或高压直流变换为800V高压直流，直接向机房或机柜供电.模块化的变电站应用",
+          "b": "据央视新闻在6月7日发文称，由青岛特锐德电气等开发建设的预制算力中心底座在山东青岛正式启用，可为算力中心提供持续稳定的电力，相较于传统算力中心节约施工周期近70%（最快5个月就可以完成施工），占地面积减少了30%（约2200m2），整体成本下降了20%；并称结合算电协同智能体系，可实现绿电、储能、算力精准适配。该预制算力中心底座已经正式接入企业自建数据中心，预计今年下半年将应用于国家级数据中心集群以及多个地方级算力中心。\n据青岛特锐德6月6日在官方公众号发文称，其产品为算力中心高压交直流预制舱供电站，充电转换效率98.5%、token用电成本也降低30%，具体核算细节并未公布。",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +158,79 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "韦伯望远镜首次捕获星际彗星3I/ATLAS中红外化学指纹",
-        "庞巴迪Global 8000公务机创下跨大西洋飞行速度纪录",
-        "Harbinger联合莱茵金属推军用自动驾驶电动卡车项目"
+        "深度学习模型筛选氢键工程聚合物电介质，实现250℃高温电容储能",
+        "研究调节层间化学键异质性释放CuCrTi2Se6材料高热电性能",
+        "科学家首次报道具有截角十二面体拓扑结构的钚酰笼状簇合物"
       ],
       "entries": [
         {
-          "t": "星际彗星 3I/ATLAS 揭示了太阳系之外的奇怪化学现象",
+          "t": "通过基于深度学习的虚拟筛选实现 250°C 操作的氢键工程聚合物电介质",
           "d": "2026-06-07",
-          "a": "scitechdaily",
-          "c": "通用技术/通信和运输/航天",
-          "as": "詹姆斯·韦伯太空望远镜首次捕获了星际天体的中红外化学指纹，观测目标为来自太阳系外的彗星3I/ATLAS。研究团队使用韦伯的中红外仪器（MIRI）对这颗罕见的星际访客进行了两次观测，发现了隐藏的甲烷和其他化学线索，揭示了来自另一个恒星系统的奇异化学特征。该成果发表于《天体物理期刊通讯》，为了解太阳系外行星系统的化学组成提供了前所未有的数据。",
-          "sc": 7.8,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/interstellar-comet-3i-atlas-reveals-strange-chemistry-beyond-our-solar-system/",
-          "tp": "彗星化学",
-          "aip": 1
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "为解决聚合物电介质在140℃以上环境中介电常数、绝缘性和热稳定性之间的矛盾，研究部署深度学习框架，对聚酰亚胺（PI）复合材料中的氢键分子特征进行虚拟筛选。模型评估了1200种候选物的氢键参数和电子带隙，筛选出O-PU并与PI共混。引入的氢键引导特定结构的形成，实现了在250℃高温下操作的高性能电容器能量存储方案。",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D6EE01214K",
+          "tp": "耐热电介质",
+          "aip": 1,
+          "kp": [
+            "[聚合物电介质高温极限]: 在140°C以上存在介电常数、绝缘性和热稳定性之间的固有权衡限制",
+            "操作温度[氢键工程聚酰亚胺复合物]: 250°C",
+            "[高通量虚拟筛选规模]: 解码并预测了1200个候选物的静电势、供体/受体分布及氢键数量"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Polymer dielectrics face inherent trade-offs among permittivity, insulation, and thermal stability above 140 °C, severely limiting high-temperature capacitive energy storage. To overcome this challenge, we deployed a deep learning framework that screens hydrogen-bonding molecular fingerprints within polyimide (PI) composites. Our model deciphers electrostatic potentials and donor/acceptor distributions across 1,200 candidates, predicting number of hydrogen bonds per unit cell, the hydrogen bond probability, the hydrogen bond energy, per monomer unit, and the electronic bandgap. Guided by these predictions, the top-performing candidate, (4-(3-amino-4methoxyphenoxy)phenyl)(p-tolyl)methanone (O-PU), was synthesized and blended with PI.Critically, the introduced hydrogen bonds direct the formation of low-entropy nanocrystalline networks, which simultaneously enhance mechanical strength (Young's modulus: 6.06 GPa), suppress conduction current at 300 MV/m (1.67 × 10 -7 A/cm 2 ),widen optical bandgaps (from 2.92 eV to 4.62 eV), and improve thermal conductivity. Consequently, the optimal composite achieves record-high performance at 250 °C: a Weibull breakdown strength of 587.1 MV/m and an energy density of 5.99 J/cm3 with > 90% efficiency under 400 MV/m. This work demonstrates a fundamentally new strategy for extreme-condition dielectric design using deep-learning-optimized hydrogen bonds.",
+          "hb": 1
         },
         {
-          "t": "全球最快公务机创下跨大西洋飞行速度纪录",
+          "t": "调节层间化学键异质性以实现电子声子解耦：释放层状 CuCrTi2Se6 的高热电性能",
           "d": "2026-06-07",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航空",
-          "as": "庞巴迪Global 8000公务机在从加拿大蒙特利尔飞往法国尼斯的跨大西洋任务中创下首个速度里程碑，再次确认其作为全球最快公务机的地位。该机型在超远程公务机市场的速度与性能表现刷新行业纪录。",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "层状过渡金属硫族化物CuCrTi₂Se₆具有本征低晶格热导率，但因层间电子耦合较弱导致载流子迁移率受限。研究通过“一个铬替换三个铜”的电荷平衡策略调节层间化学键异质性，合成了(Cu₁₋₃ₓCrₓ)CrTiTi₂Se₆。该策略实现了电子-声子解耦，在保持低热导率的同时有效改善了载流子传输，从而释放了该材料的高热电性能。",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71173?af=R",
+          "tp": "热电性能优化",
+          "aip": 1,
+          "kp": [
+            "材料特性[CuCrTi2Se6材料]: 本征晶格热导率低但载流子迁移率受限",
+            "改性策略[层状CuCrTi2Se6材料]: 采用电荷平衡的“一个Cr替代三个Cu”策略调节层间化学键异质性",
+            "物理机制[层状CuCrTi2Se6材料]: 实现电子-声子解耦以释放高热电性能"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Layered CuCrTi\n                    2\n                    Se\n                    6\n                    , a structurally tailored transition‐metal dichalcogenide (TMD) derivative, exhibits intrinsically low lattice thermal conductivity but is limited by inferior carrier mobility arising from weak interlayer electronic coupling. Here, we modulate interlayer bonding heterogeneity via a charge‐balanced “one Cr replaces three Cu” strategy to form (Cu\n                    1‐3\n                    \n                      x\n                    \n                    Cr\n                    \n                      x\n                    \n                    )CrTi\n                    2\n                    Se\n                    6\n                    , achieving electron–phonon decoupling. Structural characterizations and density functional theory calculations confirm Cr incorporation into interlayer octahedral sites, inducing two synergistic effects: (i) Replacing ionic interlayer Cu─Se bonds with more covalent Cr─Se bonds facilitates rapid interlayer charge transfer and enhances carrier mobility by ∼60% without altering the electronic band structure; (ii) The reduced interlayer atomic density induced by non‐equiatomic Cr/Cu substitution weakens interlayer mechanical coupling, as evidenced by a suppressed shear modulus and transverse sound velocity. When combined with phonon scattering from Cr/Cu point defects, this synergistic effect reduces the room‐temperature lattice thermal conductivity by 22%. The optimized (Cu\n                    0.79\n                    Cr\n                    0.07\n                    )CrTi\n                    2\n                    Se\n                    6\n                    achieves a peak thermoelectric figure of merit\n                    ZT\n                    ≈ 1.0 at 673 K (a record for TiSe\n                    2\n                    ‐based TMDs), and its single‐leg device reaches ∼6.1% efficiency at Δ\n                    T\n                    = 500 K. This work establishes interlayer chemical bonding modulation as a paradigm for high‐performance layered thermoelectric materials via electron‐phonon decoupling.",
+          "hb": 1
+        },
+        {
+          "t": "钚被关在笼子里",
+          "d": "2026-06-07",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "Fellhauer等人首次报道了钚酰笼状簇合物{Pu60}，这是钚化学领域的重大突破。该簇合物具有独特的扭曲截角十二面体拓扑结构，极大扩展了已知水溶液锕系元素物种库，并为通过可调笼状结构、反荷阳离子和配体取代实现钚的纳米级控制指明了方向。",
           "sc": 7.0,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/innovation/world-fastest-business-jet-transatlantic-mission",
-          "tp": "超音速公务机",
-          "aip": 1
-        },
-        {
-          "t": "Harbinger推出军用自动驾驶卡车项目备战",
-          "d": "2026-06-07",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "商用卡车初创公司Harbinger与美国莱茵金属公司的机器人专家合作，推出自主军用卡车项目。该项目将商用电动卡车平台与自动驾驶技术结合，旨在为军事后勤提供无人化运输解决方案，标志着商用车技术向国防领域的延伸。",
-          "sc": 6.8,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/06/harbinger-gears-up-for-war-with-autonomous-military-truck-program/",
-          "tp": "无人军用卡车",
-          "aip": 1
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6747202?af=R",
+          "tp": "钚笼状团簇",
+          "aip": 1,
+          "kp": [
+            "[首例钚酰笼状团簇]: {Pu60}",
+            "[笼状拓扑结构]: 扭曲截角十二面体",
+            "[纳米尺度控制手段]: 可调笼状结构、反荷阳离子及配体取代"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "ABSTRACT\n                  \n                    Fellhauer et al. report the first plutonyl cage cluster, {Pu60}, marking a major advance in plutonium chemistry (DOI:\n                    10.1002/anov.70018\n                    ). Its unique distorted truncated dodecahedral topology expands the known library of aqueous actinide species and points toward nanoscale control of plutonium through tunable cage structures, counter‐cations, and ligand substitutions.",
+          "hb": 1
         }
       ]
     }

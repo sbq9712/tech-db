@@ -6,19 +6,17 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "赣锋锂业启动500Wh/kg全固态电池中试生产",
-      "曜能科技G12H钙钛矿叠层电池效率达30.53%获认证",
-      "晶澳与金石能源全背接触硅电池效率达28.2%"
+      "曜能科技G12H钙钛矿叠层电池效率达30.53%并启动航天应用探索",
+      "麻省理工学院蒋业明团队开发出100°C以下低温闭环锂辉石提锂工艺"
     ],
     "AI与智能科技": [
-      "比亚迪发布首款自研4nm智能驾驶芯片",
-      "快手可灵AI视频产品年化收入突破5亿美元",
-      "路透社指特斯拉FSD系统安全统计数据存在选择性报告"
+      "比亚迪发布国内首款4nm智驾芯片璇玑A3，三芯组合算力超2100 TOPS",
+      "苏黎世联邦理工学院利用双超导量子芯片生成经认证的量子随机数",
+      "擎朗智能发布高136厘米的42自由度仿人机器人XMAN-L1"
     ],
     "通用技术": [
-      "中国完成可重复使用火箭发动机1000秒长程试车",
-      "德国联邦网络局裁定允许运营商拒绝储能项目并网",
-      "首尔大学实现铂簇催化剂原子数精确调控以提升制氢性能"
+      "首尔大学科研团队实现铂簇催化剂原子数精确调控以提升制氢性能",
+      "广东4月实时电价逼近1元/度，企业可通过月度合同与配储锁定成本"
     ]
   },
   "sectors": [
@@ -26,9 +24,8 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "赣锋锂业启动500Wh/kg全固态电池中试生产",
-        "曜能科技G12H钙钛矿叠层电池效率达30.53%获认证",
-        "晶澳与金石能源全背接触硅电池效率达28.2%"
+        "曜能科技G12H钙钛矿叠层电池效率达30.53%并启动航天应用探索",
+        "麻省理工学院蒋业明团队开发出100°C以下低温闭环锂辉石提锂工艺"
       ],
       "entries": [
         {
@@ -36,18 +33,19 @@
           "d": "2026-05-28",
           "a": "索比光伏",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "曜能科技自主研发的G12H（210mm×105mm）钙钛矿/p型异质结（p-HJT）叠层电池通过中国计量科学研究院（NIM）认证，全尺寸光电转换效率达30.53%。该成果基于n型叠层电池核心工艺路线，标志着国产钙钛矿叠层技术在大面积组件效率上的重大突破。同时，公司宣布正式探索太空光伏应用领域，利用钙钛矿材料高比功率和抗辐射特性，为航天器供电提供新方案，推动叠层电池从地面走向空间应用。",
-          "sc": 10.0,
+          "as": "曜能科技自主研发的G12H钙钛矿/p-HJT叠层电池通过中国计量科学研究院认证，全尺寸光电转换效率达30.53%。该电池利用两端叠层结构实现全光谱高效分段利用，效率对标航天级三结砷化镓。通过减薄工艺，电池具备可弯折和高比功率特性，满足航天器轻质柔性需求。该产品兼容现有系统设计，兼具高性能与低量产成本，正式迈出探索太空光伏领域第一步。",
+          "sc": 9.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://news.solarbe.com/202605/28/50023601.html",
           "tp": "钙钛矿叠层电池",
           "aip": 1,
           "kp": [
-            "转换效率[G12H叠层电池]: 30.53%",
-            "尺寸[G12H叠层电池]: 210mm×105mm",
-            "结构[G12H叠层]: 两端钙钛矿/p-HJT叠层",
-            "对标基准[G12H]: 航天级三结砷化镓30%"
+            "光电转化效率[G12H p-HJT钙钛矿叠层电池]: 30.53%",
+            "[尺寸规格[G12H p-HJT钙钛矿叠层电池]: 210mm*105mm",
+            "[叠层结构[p-HJT叠层电池]: 两端(2-Terminal)叠层结构",
+            "[核心优势[p-HJT电池]: 具备较高辐射耐受性和极低成本，适配现有perc及下一代系统设计",
+            "[物理特性[p-HJT叠层电池]: 通过减薄工艺具备可弯折特性及高比功率"
           ],
           "lv": 0,
           "wr": "",
@@ -56,47 +54,41 @@
           "hb": 1
         },
         {
-          "t": "赣锋启动500Wh/kg固态电池中试生产",
+          "t": "麻省理工学院蒋业明提出一种低温近零废料的锂辉石转化工艺",
           "d": "2026-05-28",
-          "a": "electrive",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "中国电池材料龙头赣锋锂业宣布启动能量密度达500 Wh/kg的全固态电池试产。这一指标远超当前主流锂离子电池（约250-300 Wh/kg），标志着固态电池从实验室走向工程化量产的关键一步。全固态电池以固态电解质替代液态电解液，兼具更高能量密度与更好安全性，被视为下一代电池技术的终极方向。赣锋率先进入试产阶段，意味着中国在固态电池商业化竞赛中占据先发优势，但量产良率与成本控制仍是规模化落地的核心挑战。",
-          "sc": 9.7,
+          "a": "Science",
+          "c": "零碳产业/物质循环/资源处理/开采技术",
+          "as": "MIT蒋业明团队开发基于水溶液氟化铵（NH₄F）的低温闭环工艺，可在低于100°C条件下直接处理α-锂辉石精矿，实现锂、铝、硅的完全资源化，无需传统1000°C以上高温焙烧和浓酸浸出。工艺通过化学循环再生试剂接近零废物排放，大幅降低能耗和环境影响，为硬岩锂提炼的高成本高能耗问题提供革新方案。",
+          "sc": 6.9,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.electrive.com/2026/05/21/ganfeng-starts-pilot-production-of-500-wh-kg-solid-state-batteries/",
-          "tp": "固态电池",
+          "tg": "技术突破",
+          "u": "https://www.science.org/doi/10.1126/science.aec4652",
+          "tp": "锂矿提锂",
           "aip": 1,
-          "kp": [
-            "能量密度[锂金属电池小批量]: 500 Wh/kg",
-            "能量密度[固态电池平台]: 400 Wh/kg"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "Battery\nGanfeng starts pilot production of 500 Wh/kg solid-state batteries\nChinese battery materials specialist Ganfeng Lithium has reported progress in the development of solid-state batteries for electric mobility applications, including the start of small-batch production of a lithium-metal cell with an energy density of 500 Wh/kg and a cycle life milestone for its 400 Wh/kg battery platform.\nImage: Ganfeng Lithium\nBy Carla Westerheide\n21.05.2026 - 11:52\nGanfeng Lithium\nSolid-state\nBatteries\nAccording to an investor relations update, reported on by Chinese media, Ganfeng Lithium’s 10 Ah lithium-metal battery with an energy density of 500 Wh/kg has entered small-batch production. “The battery is the world’s first 10 ampere-hour (Ah) solid-state product to achieve the 500 Wh/kg energy density mark, setting an industry benchmark for the future commercialisation of lithium-metal batteries,”\nCN EV Post\nstates.\nMoreover, the company’s 400 Wh/kg solid-state battery has exceeded 1,100 charge cycles and completed engineering validation.\nThis comes only three months after the Chinese company announced that it had begun\nproduction of a semi-solid-state battery\nwith an energy density of 650 Wh/kg. The start of the pilot production phase of all-solid-state battery packs was also announced at the time.\nThe company is pursuing two parallel solid-state battery technology routes based on silicon-carbon and lithium-metal anodes. Ganfeng sees lithium-metal technology as a key route to higher energy density and faster commercialisation of next-generation batteries for electric vehicles and aviation applications. At the same time, the company is expanding its silicon-based battery portfolio with products offering energy densities ranging from 320 to 480 Wh/kg. According to Ganfeng, its 320 Wh/kg battery has already exceeded 1,000 charging cycles, while development of the 480 Wh/kg version is still ongoing.\nThe different battery configurations are intended to address varying requirements for energy density, durability and application scenarios. Ganfeng identified premium electric vehicles, drones, eVTOL aircraft, robotics and consumer electronics as target markets.\nGanfeng has long been one of the world’s largest lithium processors and supplies companies, such as\nHyundai\nand Changan. It also works with Dongfeng. The latter has begun extreme-cold testing of vehicles equipped with 350 Wh/kg solid-state batteries, while Changan plans to start trial installations of 400 Wh/kg solid-state batteries during 2026.\ncarnewschina.com\n,\ncnevpost.com\nTags\nGanfeng Lithium\nSolid-state\nBatteries\nBattery production\nsuppliers\nChina\n0 Comments\nabout „Ganfeng starts pilot production of 500 Wh/kg solid-state batteries“\nLeave a Reply\nCancel reply\nAlso read\nAutomobile\nQ1 results: Nio doubles sales and revenue\npublished 5 hours ago\nAutomobile\nVW launches the ID. Unyx 07 in China\npublished 5 hours ago\nBattery\nBasquevolt launches lithium-metal battery cell\n22.05.2026",
+          "cm": "(A) 传统硬岩精炼工艺采用高温焙烧 + 酸浸路线：需要将 α-锂辉石在 800–1100°C 高温焙烧转变为 β-相；再用浓硫酸在 200–300°C 浸出；产生稀释的硫酸锂溶液，同时生成大量铝硅酸盐固体废渣；后续需额外试剂中和，产生 Na₂SO₄ 或 CaSO₄ 等化学废物。特点：能耗高、排放高、废物多、成本高。(B) 本文提出的新型 NH₄F 水相工艺在 <100°C 的温和条件下，直接用水相氟化铵（NH₄HF₂） 处理 α-锂辉石；无需高温焙烧；同时溶解 Li、Al、Si，并将它们全部转化为高价值产品（锂盐、氧化铝、无定形二氧化硅）；形成闭环化学循环，NH₄F 试剂可再生并循环使用，几乎实现近零废物。当前，锂离子电池需求激增，预计2030年全球碳酸锂当量需求将从2023年的约100万吨增至300万吨。传统锂提取主要依赖南美盐湖卤水，但面临水资源和生态压力；而占全球锂产量一半以上的硬岩矿（如锂辉石）提炼则存在能耗高、废物多、成本高等问题。传统工艺需将α-锂辉石在1000℃以上高温焙烧后用硫酸浸出，不仅能耗巨大，还产生大量固废和化学废物，导致提炼成本是卤水的2-3倍。在低于100℃条件下，直接处理α-锂辉石，实现锂、铝、硅的完全资源化，无需传统高温焙烧和浓酸浸出。生产成本约为5160美元/吨碳酸锂当量，比传统硫酸焙烧工艺降低超过40%实验室规模验证主要基于高品位精矿（6.8% Li₂O），商业低品位原料中杂质（如Mg、Ca）可能增加试剂消耗和纯化复杂性；传统法核心步骤总时间通常1–4小时左右，而本文NH₄F工艺单批反应时间长，完整流程需要98小时，耗时主要来自温和条件下的固体溶解动力学。",
+          "b": "当前，锂离子电池需求激增，预计2030年全球碳酸锂当量需求将从2023年的约100万吨增至300万吨。传统锂提取主要依赖南美盐湖卤水，但面临水资源和生态压力；而占全球锂产量一半以上的硬岩矿（如锂辉石）提炼则存在能耗高、废物多、成本高等问题。传统工艺需将α-锂辉石在1000℃以上高温焙烧后用硫酸浸出，不仅能耗巨大，还产生大量固废和化学废物，导致提炼成本是卤水的2-3倍。\n麻省理工学院蒋业明教授团队开发出一种基于水溶液氟化铵（NH₄F）的低温闭环工艺，可在低于100℃的温和条件下，直接处理α-锂辉石精矿，实现锂、铝、硅的完全资源化，无需传统高温焙烧和浓酸浸出。该工艺通过化学循环再生试剂，接近零废物排放，显著降低了能耗和环境影响。\n工艺核心在于利用水溶液NH₄F体系溶解锂辉石的铝硅酸盐结构。首先，加热NH₄F溶液生成NH₄HF₂和NH₃气体，随后与α-锂辉石在60-80℃反应，生成(NH₄)₃AlF₆固体、(NH₄)₂SiF₆和LiF溶液。通过调节pH值，依次分离出(NH₄)₃AlF₆和无定形SiO₂，再经蒸发浓缩和氨化沉淀得到LiF。LiF可进一步通过硝酸介导的脱氟路径转化为电池级Li₂CO₃或LiOH，而(NH₄)₃AlF₆经高温水解生成冶金级Al₂O₃，同时释放的HF和NH₃立即重新结合为NH₄F，实现试剂闭环再生。\n实验使用澳大利亚工业级锂辉石精矿（6.8% Li₂O），锂提取率达100%，SiO₂和Al₂O₃收率分别接近100%和97%。所得Li₂CO₃纯度达99%以上，符合电池级标准；Al₂O₃纯度98.6%，可作为冶炼级氧化铝；无定形SiO₂表现出极高的火山灰活性，水泥砂浆抗压强度远超行业标准，可作为高性能混凝土的辅助胶凝材料。\n技术经济分析显示，该工艺生产成本约为5160美元/吨碳酸锂当量，比传统硫酸焙烧工艺降低超过40%，可与高品位卤水生产成本相当。若充分考虑Al₂O₃和SiO₂副产品销售价值，净成本可进一步降至3900美元/吨，实现比卤水更低的生产成本。同时，该工艺能耗较传统方法大幅降低57 GJ/吨LCE，且避免了氢氟酸气体释放和大量尾矿产生。文章于2026年5月28日发表在Science。",
           "hb": 1
         },
         {
-          "t": "晶澳能源与金石能源宣称28.2%效率背接触器件创造硅太阳能电池世界最高效率",
+          "t": "麻省理工学院蒋业明提出一种低温近零废料的锂辉石转化工艺",
           "d": "2026-05-28",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "晶澳太阳能与金石能源联合宣布，其背接触硅太阳能电池效率达到28.2%，声称创下硅基太阳能电池世界最高效率纪录。该成果基于全背接触（BC）技术路线，有望推动光伏产业向更高转换效率迈进，对降低度电成本和加速太阳能商业化部署具有里程碑意义。",
-          "sc": 9.6,
-          "i": "news",
+          "a": "Science",
+          "c": "零碳产业/物质循环/资源处理/开采技术",
+          "as": "MIT蒋业明团队开发基于水溶液氟化铵（NH₄F）的低温闭环工艺，可在低于100°C条件下直接处理α-锂辉石精矿，实现锂、铝、硅的完全资源化，无需传统1000°C以上高温焙烧和浓酸浸出。工艺通过化学循环再生试剂接近零废物排放，大幅降低能耗和环境影响，为硬岩锂提炼的高成本高能耗问题提供革新方案。",
+          "sc": 6.9,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://www.pv-magazine.com/2026/05/25/ja-solar-gold-stone-energy-claim-worlds-highest-efficiency-for-silicon-solar-cells-with-28-2-efficient-back-contact-device/",
-          "tp": "硅太阳能电池效率",
+          "u": "https://www.science.org/doi/10.1126/science.aec4652",
+          "tp": "锂矿提锂",
           "aip": 1,
-          "kp": [
-            "效率[单结硅太阳能电池]: 28.2%",
-            "[背接触器件]: TÜV认证硅电池世界最高效"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "JA Solar, Gold Stone Energy claim world’s highest efficiency for silicon solar cells with 28.2%-efficient back contact device\nThe result was certified by TÜV Rheinland and represents the highest efficiency ever recorded for a single-junction silicon solar cells.\nMay 25, 2026\nVincent Shaw\nModules & Upstream Manufacturing\nTechnology and R&D\nChina\nA production line of Golden Stone Energy\nImage: Golden Stone Energy\nShare\nChinese PV manufacturer JA Solar and China-based PV equipment supplier Gold Stone Energy have reported a 28.2% conversion efficiency for a hybrid back-contact (HBC) solar cell developed under their HBC industrialization project.\nThe result was certified by Germany’s TÜV Rheinland and, according to the companies, sets a new world record for back-contact (BC) solar cell efficiency. The previous record for the BC architecture was held by Longi, which reported\n28.13% efficiency for its hybrid interdigitated back-contact (HIBC) cell\n.\nHBC technology combines a back-contact electrode structure with passivation technologies used in mainstream high-efficiency crystalline silicon cell architectures. The cell front side has no metal gridlines, reducing optical shading losses, while the rear-contact design improves current collection. The technology is also intended to provide an upgrade path for existing TOPCon manufacturing assets.\nGold Stone Energy and JA Solar were previously linked through a 4 GW HBC upgrade and retrofit project. In a Hong Kong Stock Exchange filing, Golden Solar said its subsidiary Golden Solar New Energy Technology would license HBC patent technology to a joint venture established by JA Solar's unit Yiwu JA Solar and Gold Stone Energy. The project aims to produce HBC cells by retrofitting existing production capacity.\nThe announcement follows several recent back-contact efficiency gains by Chinese PV manufacturers. In late April, Trina Solar said its TOPCon-compatible hybrid back-contact (THBC) cell achieved\n28.0% efficiency\n, certified by Germany’s Institute for Solar Energy Research Hamelin (ISFH). The company said the result was achieved using a large-area 210R cell and added that it is accelerating THBC module industrialization.\nThe series of announcements highlights growing competition around back-contact architectures, as leading Chinese manufacturers pursue higher conversion efficiencies and improved module power density following the rapid commercialization of TOPCon technology.\nThis content is protected by copyright and may not be reused. If you want to cooperate with us and would like to reuse some of our content, please contact:\neditors@pv-magazine.com\n.\nPopular content\nCuba raises renewable electricity export tariff 30-fold\n25 May 2026\nCuba has introduced a new tariff of CUP 90 ($3.75)/kWh for surplus renewable electricity exported to the national grid, replacing a lower differentiat...",
+          "cm": "(A) 传统硬岩精炼工艺采用高温焙烧 + 酸浸路线：需要将 α-锂辉石在 800–1100°C 高温焙烧转变为 β-相；再用浓硫酸在 200–300°C 浸出；产生稀释的硫酸锂溶液，同时生成大量铝硅酸盐固体废渣；后续需额外试剂中和，产生 Na₂SO₄ 或 CaSO₄ 等化学废物。特点：能耗高、排放高、废物多、成本高。(B) 本文提出的新型 NH₄F 水相工艺在 <100°C 的温和条件下，直接用水相氟化铵（NH₄HF₂） 处理 α-锂辉石；无需高温焙烧；同时溶解 Li、Al、Si，并将它们全部转化为高价值产品（锂盐、氧化铝、无定形二氧化硅）；形成闭环化学循环，NH₄F 试剂可再生并循环使用，几乎实现近零废物。当前，锂离子电池需求激增，预计2030年全球碳酸锂当量需求将从2023年的约100万吨增至300万吨。传统锂提取主要依赖南美盐湖卤水，但面临水资源和生态压力；而占全球锂产量一半以上的硬岩矿（如锂辉石）提炼则存在能耗高、废物多、成本高等问题。传统工艺需将α-锂辉石在1000℃以上高温焙烧后用硫酸浸出，不仅能耗巨大，还产生大量固废和化学废物，导致提炼成本是卤水的2-3倍。在低于100℃条件下，直接处理α-锂辉石，实现锂、铝、硅的完全资源化，无需传统高温焙烧和浓酸浸出。生产成本约为5160美元/吨碳酸锂当量，比传统硫酸焙烧工艺降低超过40%实验室规模验证主要基于高品位精矿（6.8% Li₂O），商业低品位原料中杂质（如Mg、Ca）可能增加试剂消耗和纯化复杂性；传统法核心步骤总时间通常1–4小时左右，而本文NH₄F工艺单批反应时间长，完整流程需要98小时，耗时主要来自温和条件下的固体溶解动力学。",
+          "b": "当前，锂离子电池需求激增，预计2030年全球碳酸锂当量需求将从2023年的约100万吨增至300万吨。传统锂提取主要依赖南美盐湖卤水，但面临水资源和生态压力；而占全球锂产量一半以上的硬岩矿（如锂辉石）提炼则存在能耗高、废物多、成本高等问题。传统工艺需将α-锂辉石在1000℃以上高温焙烧后用硫酸浸出，不仅能耗巨大，还产生大量固废和化学废物，导致提炼成本是卤水的2-3倍。\n麻省理工学院蒋业明教授团队开发出一种基于水溶液氟化铵（NH₄F）的低温闭环工艺，可在低于100℃的温和条件下，直接处理α-锂辉石精矿，实现锂、铝、硅的完全资源化，无需传统高温焙烧和浓酸浸出。该工艺通过化学循环再生试剂，接近零废物排放，显著降低了能耗和环境影响。\n工艺核心在于利用水溶液NH₄F体系溶解锂辉石的铝硅酸盐结构。首先，加热NH₄F溶液生成NH₄HF₂和NH₃气体，随后与α-锂辉石在60-80℃反应，生成(NH₄)₃AlF₆固体、(NH₄)₂SiF₆和LiF溶液。通过调节pH值，依次分离出(NH₄)₃AlF₆和无定形SiO₂，再经蒸发浓缩和氨化沉淀得到LiF。LiF可进一步通过硝酸介导的脱氟路径转化为电池级Li₂CO₃或LiOH，而(NH₄)₃AlF₆经高温水解生成冶金级Al₂O₃，同时释放的HF和NH₃立即重新结合为NH₄F，实现试剂闭环再生。\n实验使用澳大利亚工业级锂辉石精矿（6.8% Li₂O），锂提取率达100%，SiO₂和Al₂O₃收率分别接近100%和97%。所得Li₂CO₃纯度达99%以上，符合电池级标准；Al₂O₃纯度98.6%，可作为冶炼级氧化铝；无定形SiO₂表现出极高的火山灰活性，水泥砂浆抗压强度远超行业标准，可作为高性能混凝土的辅助胶凝材料。\n技术经济分析显示，该工艺生产成本约为5160美元/吨碳酸锂当量，比传统硫酸焙烧工艺降低超过40%，可与高品位卤水生产成本相当。若充分考虑Al₂O₃和SiO₂副产品销售价值，净成本可进一步降至3900美元/吨，实现比卤水更低的生产成本。同时，该工艺能耗较传统方法大幅降低57 GJ/吨LCE，且避免了氢氟酸气体释放和大量尾矿产生。文章于2026年5月28日发表在Science。",
           "hb": 1
         }
       ]
@@ -105,26 +97,27 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "比亚迪发布首款自研4nm智能驾驶芯片",
-        "快手可灵AI视频产品年化收入突破5亿美元",
-        "路透社指特斯拉FSD系统安全统计数据存在选择性报告"
+        "比亚迪发布国内首款4nm智驾芯片璇玑A3，三芯组合算力超2100 TOPS",
+        "苏黎世联邦理工学院利用双超导量子芯片生成经认证的量子随机数",
+        "擎朗智能发布高136厘米的42自由度仿人机器人XMAN-L1"
       ],
       "entries": [
         {
-          "t": "比亚迪发布中国首款自研4nm智驾芯片，算力惊人",
+          "t": "比亚迪发布国内首款4nm海量算力智能驾驶芯片",
           "d": "2026-05-28",
           "a": "Electrek",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "比亚迪发布中国首款自研4nm智能驾驶芯片，算力大幅提升，可支持\"最高级别\"智能驾驶。此前高端智驾芯片长期由英伟达、地平线等主导，比亚迪成为首家实现4nm制程智驾SoC自主设计的车企，对供应链自主可控具有里程碑意义。",
+          "as": "比亚迪发布了国内首款自主研发的 4nm 智能驾驶辅助芯片“璇玑 A3”。该芯片专为支持 L3 和 L4 级自动驾驶设计，结合其自研算法和架构，使算力利用率翻倍。由三枚芯片组合的系统总算力超过 2100 TOPS，代表了目前中国最高水平的智能驾驶芯片算力。",
           "sc": 8.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://electrek.co/2026/05/28/byd-reveals-chinas-first-in-house-4nm-smart-driving-chip/",
-          "tp": "智驾芯片",
+          "tp": "比亚迪智驾芯",
           "aip": 1,
           "kp": [
-            "制程工艺[玄玑A3芯片]: 4nm(中国首款自研)",
-            "自动驾驶能力[玄玑A3]: L3/L4"
+            "制程工艺[比亚迪自研智驾芯片“璇玑A3”]: 4nm",
+            "技术地位[国内自研辅助驾驶芯片]: 国内首款",
+            "智驾能力支持[比亚迪4nm芯片]: 支持L3和L4自动驾驶"
           ],
           "lv": 0,
           "wr": "",
@@ -133,41 +126,47 @@
           "hb": 1
         },
         {
-          "t": "路透社发现：特斯拉自家AI训练员也不信任'完全自动驾驶'及其安全数据",
+          "t": "科学家利用量子纠缠创建完美的随机数",
           "d": "2026-05-28",
-          "a": "Electrek",
-          "c": "AI与智能科技/具身智能/模型和具身操作系统",
-          "as": "路透社调查显示，特斯拉负责训练FSD（完全自动驾驶）系统的AI标注员和工程师群体本身对该系统及其安全数据持怀疑态度。内部人员透露，FSD的安全统计口径存在选择性报告问题，部分事故未被纳入统计。多位现任和前任员工表示不会完全信任FSD在城市道路上的自动驾驶能力。这一调查动摇了特斯拉关于FSD安全性的核心宣传基础，引发监管机构和消费者对自动驾驶安全数据透明度的质疑。",
-          "sc": 8.6,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://electrek.co/2026/05/28/tesla-fsd-safety-stats-misleading-reuters-investigation/",
-          "tp": "自动驾驶安全",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "苏黎世联邦理工学院的研究人员利用量子纠缠技术，首次生成了经认证的“完美”随机数。该系统由两块超导量子芯片组成，通过一根30米长的冷却管连接。这一量子物理突破有望加强现有的加密系统和数字安全工具。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/science/eth-zurich-perfect-quantum-randomness",
+          "tp": "量子纠缠生成随机数",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "量子芯片互联距离[随机数生成]: 30米冷却管道",
+            "随机性认证[量子芯片生成]: 生成完美的随机数"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Fred Lambert\n| May 28 2026 - 6:33 am PT\nA major Reuters investigation published today reveals that Tesla’s widely touted “Full Self-Driving” safety statistics are built on deeply flawed methodology — and that the company’s own data labelers, the workers who train the AI system, don’t trust the technology to drive them.\nThe report, based on interviews with nine former Tesla data labelers, a former self-driving engineer, and 11 traffic-safety researchers, paints a damning picture of the gap between Tesla’s safety marketing and the reality of its autonomous driving program.\ncalling out Tesla’s misleading FSD safety claims\nfor a while now, and the Reuters investigation confirms the core problem with hard data.\nTesla CEO Elon Musk and other executives have repeatedly claimed that “Full Self-Driving” is up to 10 times safer than human drivers. Tesla CFO Vaibhav Taneja first made this claim last July, and Tesla Board Chair Robyn Denholm repeated it at a November shareholder meeting. Musk himself displayed a chart at that meeting claiming “85% less crashes.”\nReuters found\nthat a central comparison error inflated Tesla’s claimed safety level by a factor of three. Tesla counted crashes where airbags deployed in its own vehicles, then compared that number to federal data that includes all crashes requiring a tow truck — a far less severe threshold. Tow-truck crashes often don’t involve airbag deployments at all.\nThe critical point: the federal data Tesla used already included airbag-deployment crashes as a separate category. Tesla could have made a valid apples-to-apples comparison but chose not to.\nWhen University of Michigan researcher Marco Benedetti performed the correct comparison — airbag crashes for Teslas versus airbag crashes for all vehicles — the result dropped from “10 times safer” to roughly three times farther between crashes. And even that figure is unreliable because of additional methodological problems, including the massive age gap between Tesla’s fleet (4.1 years average) and the overall U.S. fleet (12.8 years).\nAs Carnegie Mellon professor Phil Koopman put it: “It’s like saying: ‘My jet airplane is faster than your World War II bomber.’ Yeah, so, what’s your point?”\nTen of the 11 traffic-safety researchers who reviewed Tesla’s methodology for Reuters said the statistics amounted to misleading marketing rather than a serious safety investigation.\nBeyond the statistics, the Reuters report reveals what Tesla employees actually think about the technology they help build.\nSeven of the nine former data labelers told Reuters they wouldn’t trust FSD to drive them. One said he wouldn’t ride in a Tesla robotaxi “if you fucking paid me.” A veteran self-driving engineer who reviewed Tesla crash data for years called the company’s safety claims “bullshit” and said: “Definitely, don’t trust Elon on this.”\nThe data labelers, based primarily in a Utah office, review video footage from the eight exterior cameras on Tesla vehicles using FSD. They described regularly seeing FSD fail at basic tasks: pulling over for emergency vehicles, giving motorcyclists enough space, braking on freeway off-ramps, and avoiding construction zones. In one incident, a Tesla drove into a construction zone and nearly struck workers.\nA specialized team in Palo Alto, known internally as the “trauma team,” focused specifically on near-misses with pedestrians. Former employees described seeing clips of FSD-piloted Teslas nearly hitting children and failing to recognize pedestrians in crosswalks.\nThe report also details FSD regularly exceeding speed limits by 20 to 30 mph after Tesla introduced a “Mad Max” mode for more aggressive driving, with one labeler reporting an FSD vehicle traveling 60 mph in a 25-mph zone.\nOne of the most significant findings in the Reuters investigation is how Tesla extensively mapped its robotaxi operating zones before public launches — directly contradicting Musk’s central claim that Tesla’s approach doesn’t require the “laborious local mapping” used by rivals like Waymo.\nFor weeks before the October 2024 Cybercab unveiling at the Warner Bros. studio lot, staff tested prototypes every night from 6 p.m. until dawn, collecting video of the exact routes the cars would follow. Data labelers spent hundreds of hours annotating curbs and road markings to prevent embarrassing incidents.\nThe same thing happened before the Austin robotaxi launch in June 2025. Tesla extensively filmed features in the limited robotaxi zone to map stop lights, road signs, and other features. The Utah data-labeling staff doubled to about 300 workers in the six months before launch, working primarily on making the Austin test go smoothly.\npreviously reported\non how Tesla’s robotaxi expansion looked more like a stock pump than a genuine scaling effort, and\nmore recently\nthat the fleet is actually shrinking rather than growing. The Reuters report now explains why scaling is so difficult: the labor-intensive safeguards Tesla deploys for each launch zone are extremely difficult to replicate broadly.\nNearly a year after the Austin launch, Tesla still operates only about 20 unsupervised robotaxis there, traversing a limited and carefully mapped zone. Some still have human safety monitors in the front seat.\nAs one former employee told Reuters about the Austin zone: “You can’t get creative outside of that.”\nThe Reuters report arrives at a time when Tesla faces\nmounting regulatory scrutiny over FSD\n. NHTSA currently has four active investigations into FSD and Autopilot, including a probe into dozens of cases where FSD ran red lights or turned into oncoming traffic, and an investigation into whether Tesla’s 2023 Autopilot recall was sufficient.\nTesla was also\nhit with a $243 million verdict\nafter an Autopilot crash in Florida killed a 22-year-old woman, and the company\nhas struggled to turn over FSD traffic violation data\nto NHTSA investigators.\nMusk told shareholders in November that Tesla would soon let drivers text while using FSD. Six months later, the company hasn’t done so, and its own FSD website continues to warn: “Currently enabled features require active driver supervision and do not make the vehicle autonomous.”\nNone of this is surprising to anyone who has been paying close attention. We’ve been\ndocumenting FSD’s pattern of repeated safety claims\nthat don’t hold up, version after version, year after year. What the Reuters investigation adds is the internal perspective — and it’s devastating.\nThe fact that Tesla’s own data labelers, the people who see FSD’s performance every single day, overwhelmingly don’t trust the system to drive them should tell you everything you need to know about the gap between Musk’s promises and reality.\nThe statistical methodology issue is particularly damning because it’s not a subtle error. Tesla had access to the correct comparison data and chose to use a metric that inflated its safety claims by 3x. That’s not a choice you make by accident. And when 10 out of 11 independent traffic-safety researchers call your safety report “misleading marketing,” you have a credibility problem that no software update can fix.\nA growing issue is that while this is happening, FSD is undoubtedly getting better — at least for vehicles equipped with HW4. It’s getting so good that more people are becoming complacent with it, which is where it becomes increasingly dangerous.\nWhile it makes significantly fewer mistakes than it did a year ago, if the drivers are feeling so confident that they are not paying attention when those few mistakes arise, it becomes more dangerous.\nI don’t think Tesla is doing enough to address this complacency problem.\nIf you’re a Tesla owner concerned about rising electricity costs, powering your EV with home solar is one of the smartest ways to lock in savings. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nYou can send tips on Twitter (DMs open) or via email: fred@9to5mac.com\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "b": "Science\nScientists create perfectly random numbers using entangled quantum chips for first time\nETH Zurich researchers used entangled quantum chips to generate certified perfect randomness.\nBy\nNeetika Walter\nScience\nMay 27, 2026 02:01 PM EST\nBy\nNeetika Walter\nMay 27, 2026 02:01 PM EST\nTwo quantum chips linked through a 30-meter cooled tube enabled scientists to create certified perfectly random numbers.\nETH Zurich\nResearchers at ETH Zurich have developed a method to generate what they describe as “perfect” random numbers using quantum physics, a breakthrough that could strengthen encryption systems and digital security tools.\nThe team created the system using two superconducting quantum chips connected by a 30-meter-long cooled tube. The setup allowed the researchers to generate certified random numbers by exploiting quantum entanglement, where measurements on one quantum bit influence another instantly across distance.\nRandom numbers are critical for technologies such as encryption, digital identities, lotteries, blockchain systems, and secure communications. However, even modern random number generators can contain tiny biases, where some numbers appear slightly more often than others.\nFor most applications, those imperfections are negligible. But in cryptography, even the smallest deviation can create vulnerabilities that attackers may exploit.\nChasing perfect randomness\n“It may seem strange, but it is almost impossible to create a perfect coin or a perfect die”, said Renato Renner, professor in the Department of Physics at ETH Zurich.\n“No matter how symmetric and smooth a die is made, after a roll one of its six faces will always point upwards slightly more often.”\nThe researchers said even quantum random number generators based on photons and beam splitters are not fully free from systematic errors or bias. To address this, the ETH Zurich team developed a process called “randomness amplification,” which transforms imperfect randomness into certified perfect randomness.\nThe experiment relied on a Bell test, a well-known method in quantum physics used to verify entanglement between particles. Researchers used two qubits cooled close to absolute zero and linked through microwave photons traveling between the chips.\n“This was made possible by an improved so-called Bell-Test with simultaneously high quality and high data rate”, said Andreas Wallraff, another lead researcher on the project.\nThe 30-meter separation between the qubits played a critical role. According to the researchers, the distance ensured that no information could travel between the\nchips\nduring measurements, even at the speed of light, preventing interference with the randomness.\nQuantum chips seal deal\nThe team intentionally selected measurement settings using an imperfect random number generator. They then applied a specialized algorithm to amplify the randomness of the resulting measurements.\n“The resulting sequence of zeros and ones is now really perfectly random, and we can even certify that”, said Renner.\nHe compared the achievement to crossing a major technological threshold. “The technical improvements allowed us, for the first time, to create random numbers that will remain perfectly random for all eternity – no matter what analytical methods are used to assess their randomness.”\nResearchers believe the technology could eventually serve as a trusted source of randomness for secure digital systems, much like\natomic clocks\nprovide certified timekeeping standards today.\nThe work may also support future quantum-secure communication networks, where strong encryption depends heavily on high-quality random numbers.\nThe study was published in the journal\nNature\n.\nRecommended Articles\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBy subscribing, you agree to our\nTerms of Use\nand\nPolicies\nYou may unsubscribe at any time.\n0\nCOMMENT\nBy\nNeetika Walter\nWith over a decade-long career in journalism, Neetika Walter has worked with The Economic Times, ANI, and Hindustan Times, covering politics, business, technology, and the clean energy sector. Passionate about contemporary culture, books, poetry, and storytelling, she brings depth and insight to her writing. When she isn’t chasing stories, she’s likely lost in a book or enjoying the company of her dogs.\nTRENDING\nLATEST\n1\nNew sunlight-based desalination device makes fresh water and recovers lithium\n2\nUS ally plans to build first nuclear-powered submarine domestically by 2030s\n3\nSeed-sized magnetic robot switches between five surgical tools in under one second\n4\nUS Army fields 25% lighter Javelin missile launcher with doubled target detection\n5\nMultiple dead, several injured after chemical tank implodes at paper mill in Washington\nMore from Science\nSee All\nScience\nNew sunlight-based desalination device makes fresh water and recovers lithium\nScience\nLithium recovery set to skyrocket 50x as Europe maps its ‘urban mine’ for raw materials\nScience\nNew method makes simulations at world’s most powerful X-ray laser 50x faster\nScience\nResearchers discover prism-like light-scattering crystals in deep-sea predator\nScience\nScientists successfully create long-predicted 3D magnetic structures ‘Hopfions’\nScience\nNew sunlight-based desalination device makes fresh water and recovers lithium\nScience\nLithium recovery set to skyrocket 50x as Europe maps its ‘urban mine’ for raw materials\nScience\nNew method makes simulations at world’s most powerful X-ray laser 50x faster\nScience\nResearchers discover prism-like light-scattering crystals in deep-sea predator\nScience\nScientists successfully create long-predicted 3D magnetic structures ‘Hopfions’",
           "hb": 1
         },
         {
-          "t": "快手可灵AI视频业务年化收入突破5亿美元",
+          "t": "我国42自由度仿人机器人XMAN-L1亮相",
           "d": "2026-05-28",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "快手旗下AI视频生成产品'可灵'（Kling）年化收入达到5亿美元里程碑。可灵利用自研视频生成模型，支持文本/图像到视频的AI创作，在国内外市场均获得显著用户增长。该营收水平表明AI视频生成正从技术验证进入商业化兑现期，可灵已成为全球AI视频赛道收入领先者之一，与OpenAI的Sora、Runway等形成竞争。5亿美元年化收入也验证了中国AI视频产品的变现能力。",
-          "sc": 8.6,
+          "a": "interesting engineering",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "擎朗智能正式发布XMAN-L1仿人机器人，专为交互式服务应用设计。该机器人高136厘米，采用轻量化结构，具备先进移动能力和AI驱动的通信功能。产品主要面向客户互动、引导及轻娱乐场景，突显了服务型人形机器人在现实服务款待行业中的应用趋势。",
+          "sc": 7.5,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.theinformation.com/briefings/kuaishous-kling-ai-video-unit-reaches-500-million-annualized-revenue",
-          "tp": "AI视频生成",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/ai-robotics/china-service-humanoid-robot-keenon",
+          "tp": "仿人机器人",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "自由度[仿人机器人XMAN-L1]: 42",
+            "身高[仿人机器人XMAN-L1]: 136 cm"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Kuaishou’s Kling AI Video Unit Reaches $500 Million in Annualized Revenue — The Information\nSign in\nSubscribe\nRead this briefing for free\nBriefing\nKuaishou’s Kling AI Video Unit Reaches $500 Million in Annualized Revenue\nBy\nJuro Osawa\nContinued reading\nChina’s Kuaishou Plans to Spin Off Kling AI Video Unit at $20 Billion Valuation",
+          "b": "KEENON Robotics has officially unveiled the XMAN-L1, a compact humanoid robot designed for interactive service applications.\nStanding 4.4 feet (136 cm) tall, the robot combines lightweight construction with advanced mobility and AI-powered communication capabilities.\nThe company says the humanoid is aimed at customer engagement, guidance, and light entertainment scenarios as part of its broader robotics lineup.\nThe launch highlights the growing push toward practical humanoid robots for real-world service and hospitality environments.\nRecently, the Shanghai-based firm\nthe KEENOW K1 robotic mower, eliminating perimeter wires and RTK stations to deliver instant, hassle-free lawn mowing for homeowners.\nXMAN-L1 is a compact humanoid\ndeveloped for interactive commercial and service applications. Standing 136 cm tall, the robot combines lightweight construction with advanced motion capabilities, making it suitable for environments that require close human interaction and flexible deployment, reports\nThe XMAN-L1 is equipped with 42 biomimetic degrees of freedom, enabling it to perform fluid, natural movements. Its peak knee joint torque reaches 132 Nm, while each leg delivers more than 2,000 W of power to support stable and dynamic mobility. The robot also features edge-side computing performance of up to 100 TOPS, enabling real-time processing and responsive operation in complex environments.\nTo enhance communication and user interaction, the humanoid integrates large language models from Doubao and Tencent, enabling natural-language dialogue and intelligent conversational capabilities. Keenon positions the robot within its “general-purpose + specialized” product ecosystem, where it serves as a lightweight interactive platform for customer engagement and service tasks.\nAccording to sources, the XMAN-L1 is designed for applications such as visitor reception, guidance services, interactive entertainment, and public-facing activities. The robot is commercially ready and available for immediate deployment following its official release.\nKEENON offers a broad portfolio of services and intelligent robots designed for hospitality, healthcare, retail, industrial, and commercial environments. The company is widely known for its autonomous delivery robots, which are used in restaurants, hotels, hospitals, and office buildings to transport food, medical supplies, and other items efficiently.\nIts delivery robot lineup includes the DINERBOT series for restaurant food service, the BUTLERBOT series for hotel room delivery, and the T series robots developed for industrial logistics and factory material handling. These robots are equipped with autonomous navigation, obstacle avoidance, and multi-floor delivery capabilities through elevator integration.\nKEENON also develops cleaning robots under the KLEENBOT range. These machines handle sweeping, scrubbing, vacuuming, and dust control in malls, airports, offices, and public facilities. The company’s robotic solutions are designed to reduce repetitive labor while improving operational efficiency.\nKeenon also develops a range of service-focused humanoid platforms under its XMAN series, including the\nand XMAN-F1, to which the XMAN-L1 is the latest addition.\nXMAN-R1 is positioned as a flexible research and interaction-oriented humanoid designed for adaptive mobility, perception, and human-robot collaboration in varied environments. XMAN-F1 focuses on service and commercial deployment tasks such as reception, guidance, and routine operational assistance in public and enterprise spaces.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nJijo is an automotive and business journalist based in India. Armed with a BA in History (Honors) from St. Stephen's College, Delhi University, and a PG diploma in Journalism from the Indian Institute of Mass Communication, Delhi, he has worked for news agencies, national newspapers, and automotive magazines. In his spare time, he likes to go off-roading, engage in political discourse, travel, and teach languages.\nWorld’s largest manufacturer of tunnel boring machines challenges US in innovation\nUS' hypersonic missile-carrying stealth destroyers to get range upgrade for long deployments\nFerrari vs Tesla: $640K Luce EV loses key speed and range battles to Model S Plaid\nLow-cost additive helps sodium battery survive 2,000 hours without failure\nNew 20-legged Argus robot redefines robotics with directionless movement design\nMore from AI and Robotics\nAI and Robotics\n‘World-first’ robot theme park with humanoid K-pop dancers for wooing audience\nAI and Robotics\nSK hynix builds innovative cooling solution inside a 3D stacked memory chip\nAI and Robotics\nNew 20-legged Argus robot redefines robotics with directionless movement design\nAI and Robotics\nExcelsior! Legend Stan Lee resurrected digitally for audiobooks and Marvel cameos\nAI and Robotics\nVideo: Atlas humanoid robot learns soccer skills from World Cup game footage\nAI and Robotics\n‘World-first’ robot theme park with humanoid K-pop dancers for wooing audience\nAI and Robotics\nSK hynix builds innovative cooling solution inside a 3D stacked memory chip\nAI and Robotics\nNew 20-legged Argus robot redefines robotics with directionless movement design\nAI and Robotics\nExcelsior! Legend Stan Lee resurrected digitally for audiobooks and Marvel cameos\nAI and Robotics\nVideo: Atlas humanoid robot learns soccer skills from World Cup game footage",
           "hb": 1
         }
       ]
@@ -176,42 +175,22 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国完成可重复使用火箭发动机1000秒长程试车",
-        "德国联邦网络局裁定允许运营商拒绝储能项目并网",
-        "首尔大学实现铂簇催化剂原子数精确调控以提升制氢性能"
+        "首尔大学科研团队实现铂簇催化剂原子数精确调控以提升制氢性能",
+        "广东4月实时电价逼近1元/度，企业可通过月度合同与配储锁定成本"
       ],
       "entries": [
         {
-          "t": "德国联邦网络局出人意料地否决储能项目并网申请",
-          "d": "2026-05-28",
-          "a": "ESS News",
-          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
-          "as": "德国联邦网络局（Bundesnetzagentur）在特别滥用程序中裁定，允许电网运营商拒绝为储能电池项目提供并网接入。该决定对欧洲储能行业商业模式冲击重大，引发关于储能系统并网权利与电网管理规则的广泛争议。",
-          "sc": 8.5,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.ess-news.com/2026/05/27/federal-network-agency-approves-refusal-of-grid-connection-for-battery-storage/",
-          "tp": "储能并网审批",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Last week, the German Federal Network Agency (Bundesnetzagentur) published its decision in a “special abuse proceeding by BESS Germany 1 GmbH against Edis Netz GmbH pursuant to Section 31 of the German Energy Industry Act (EnWG) regarding the rejection of a grid connection application for a battery storage system.”\nThe\n6th Decision Chamber of the Federal Network Agency\nrejected the application from the storage investor, BESS Germany 1 GmbH.\nThe storage investor had requested a review of the conduct of the distribution network operator Eon Edis in the case of a grid connection request for a large battery electricity storage system (BESS). The Eon subsidiary had rejected this request, even with a reduced capacity. The Federal Network Agency considered the rejection of the storage system, citing the risk of supply shortages, to be sufficient and plausible.\nShock\nLawyers have reacted with widespread incomprehension to the Federal Network Agency’s publication. Christian Ertel, a lawyer at Taylor Wissing, described the decision as “hardly comprehensible.”\n“Where will we end up if legislators can decide how the law was previously to be interpreted with regard to its scope of application by simply adding a small clause to the preamble?” he wrote on LinkedIn. This refers to the fact that the Federal Network Agency claims the German Grid Connection Ordinance (KraftNAV) was not applicable to large battery storage systems even before the amendment at the end of 2025. The first grid connection request for the project was submitted at the end of 2024.\nFurthermore, the decision chamber also found no violation of the regulations in Section 17 of the German Energy Industry Act (EnWG). The refusal of grid connection was therefore deemed sufficiently justified. The grid operator argued that there was a risk of supply bottlenecks in the grid area. Even with future grid expansion, the operator maintained that grid connection for the planned BESS was not feasible. The Federal Network Agency also considered it acceptable that the grid operator had not offered a flexible grid connection agreement in this case. It referred to the law, which states that such flexible grid connection agreements may be offered, but are not mandatory.\n“The views on the required level of justification are also appalling and ultimately grant network operators carte blanche to reject connection requests with platitudes and unverifiable claims,” Ertel wrote on LinkedIn regarding this aspect.\nAttorney Heiko Lange of Aecoute Rechtsanwälte, who represents the plant operator in the case and shared the decision on LinkedIn, added that the operator could now pursue their case with an appeal to the Higher Regional Court of Düsseldorf. He did not specify whether or not this will happen.\nFrom\npv magazine Germany\n.",
-          "hb": 1
-        },
-        {
           "t": "首尔大学Jungwon Park通过原子数可控的铂团簇实现强锚定高催化活性并提高制氢性能",
           "d": "2026-05-28",
-          "a": "",
+          "a": "Science",
           "c": "通用技术/催化剂",
           "as": "首尔大学Jungwon Park团队通过甲醇还原法在氧化铝表面制备强锚定铂簇催化剂，实现对簇中原子数的精确调控（负载量不同原子数差异可达三倍）。铂原子选择性迁移至氧化铝五配位Al³⁺强相互作用位点，1nm尺度兼具高活性和高稳定性，可放大至20克级合成，为氢能载体脱氢反应提供了贵金属高效利用方案。",
-          "sc": 6.5,
+          "sc": 6.6,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.science.org/doi/10.1126/science.aeb3087",
           "tp": "铂簇催化",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 2,
           "wr": "",
@@ -220,24 +199,47 @@
           "hb": 1
         },
         {
-          "t": "中国成功点火可重复使用火箭发动机，对标SpaceX",
+          "t": "首尔大学Jungwon Park通过原子数可控的铂团簇实现强锚定高催化活性并提高制氢性能",
           "d": "2026-05-28",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航天",
-          "as": "中国某企业成功完成了可重复使用火箭发动机的1000秒长程热试车，以挑战SpaceX为目标。长程点火试车是验证发动机可靠性与耐久性的关键里程碑，标志着中国可重复使用火箭动力系统研发取得实质性进展，推动商业航天与运载能力升级。",
-          "sc": 8.2,
+          "a": "Science",
+          "c": "通用技术/催化剂",
+          "as": "首尔大学Jungwon Park团队通过甲醇还原法在氧化铝表面制备强锚定铂簇催化剂，实现对簇中原子数的精确调控（负载量不同原子数差异可达三倍）。铂原子选择性迁移至氧化铝五配位Al³⁺强相互作用位点，1nm尺度兼具高活性和高稳定性，可放大至20克级合成，为氢能载体脱氢反应提供了贵金属高效利用方案。",
+          "sc": 6.6,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://interestingengineering.com/innovation/china-successfully-fires-reusable-engine-spacex",
-          "tp": "可复用火箭发动机",
+          "u": "https://www.science.org/doi/10.1126/science.aeb3087",
+          "tp": "铂簇催化",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "在传统负载型金属催化剂中，纳米颗粒虽稳定性较好，但大量内部原子无法参与表面反应，导致贵金属利用率低；而单原子催化剂虽活性高，却易在反应条件下团聚失活。本文通过团簇与Al₂O₃载体形成更强相互作用以降低失活速率，同时通过原子数的精确调控来平衡耐久性和活性\n显著提升贵金属利用效率.没有显著降低反应温度，主要在300°C进行，没有显著提高体积、质量储氢密度",
+          "b": "在传统负载型金属催化剂中，纳米颗粒虽稳定性较好，但大量内部原子无法参与表面反应，导致贵金属利用率低；而单原子催化剂虽活性高，却易在反应条件下团聚失活。如何在1nm尺度实现既高活性又高稳定性的催化剂，一直是催化领域的重要挑战。\n首尔大学Jungwon Park等人通过创新方法制备出强锚定于氧化铝载体的铂簇，实现了对簇中原子数的精确调控，揭示了原子数对簇-载体相互作用、催化活性和稳定性的关键影响，为氢能载体脱氢反应提供了解决方案。\n研究团队采用甲醇还原PtCl₄²⁻前驱体，在氧化铝表面原位生成无配体铂原子，并通过空气煅烧和氢气还原，使铂原子选择性迁移至氧化铝边缘强相互作用位点（主要是(100)面Al³⁺五配位位点），形成均匀的铂簇催化剂。该方法可放大至20克级一锅合成，有效避免了传统方法中配体残留导致的颗粒尺寸不均问题。\n通过球差校正扫描透射电子显微镜和原子级表征，团队发现这些看似直径均为1纳米的铂簇，实际原子数差异显著。在0.1 wt%、0.25 wt%和0.5 wt% Pt负载量下，最常见原子数分别为约13、25和31，差异可达三倍。尽管平面尺寸相似，但原子数少的簇更接近双层结构，原子数多的则趋向三层结构。这种结构差异直接影响簇与载体的相互作用强度：X射线吸收谱（XAFS）显示，原子数越多，Pt-Al五配位相互作用越强，电子态更接近金属态，但仍保持无定形非晶结构。\n在甲基环己烷（MCH）脱氢制氢反应中，这些铂簇展现出优异性能。相比传统纳米颗粒催化剂，簇催化剂氢气产率显著提升，其中0.1 wt% Pt样品初始比活性最高，得益于更高的表面原子暴露比例和结构柔性；0.5 wt% Pt样品则表现出最佳耐久性和选择性（>99.9%），因强载体相互作用抑制了甲苯强吸附导致的积碳。原位DRIFTS和Raman光谱证实，簇催化剂上形成的积碳更软、更无序，不会快速堵塞活性位点。\nDFT计算进一步验证了实验发现：MCH在Pt₁₃簇上的结合能更强，有利于活化，而Pt₃₁簇对甲苯的吸附较弱，有利于产物脱附和抗积碳。该催化剂在300°C下氢气产率达3000–12000 mmol H₂/gPt/min，远超此前报道的最高值；在340°C、较高空速下仍能维持高转化率，展现出显著的贵金属利用效率优势。\n研究强调，簇催化剂的性能不仅取决于尺寸，更关键在于原子数的精细调控及由此带来的簇-载体界面相互作用。这一发现为设计新一代亚纳米催化剂提供了重要指导，有望推动氢能存储与运输领域的实际应用。文章于2026年5月28日发表在Science。",
+          "hb": 1
+        },
+        {
+          "t": "广东电价暴涨到1元/度后，这3类企业还来得及锁定电价吗？月度合同、余电锁价、配储能，操作方案全说清楚",
+          "d": "2026-05-28",
+          "a": "索比光伏",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "受现货市场实时出清新规及全球LNG价格飙升影响，广东4月实时电价一度逼近1元/度。针对电价上涨，不同用电主体的境况差异显著：签订年度长协的企业受益；纯现货结算工厂电费激增30%~40%；光伏业主自发自用收益翻倍。报告为用电企业提供了月度合同、余电锁价及配置储能等操作方案，以应对电价结构变化并锁定用电成本。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://news.solarbe.com/202605/28/50023620.html",
+          "tp": "广东电价波动",
           "aip": 1,
           "kp": [
-            "点火时长[Chi可复用发动机]: 1000秒"
+            "日前现货均价[广东4月电价]: 最高678元/MWh(0.678元/度)",
+            "实时均价[广东4月电价]: 触及978元/MWh(0.978元/度)",
+            "日前均价涨幅[广东4月较3月]: 38%",
+            "[电价结算机制[2026年3月新规]: 直接入市用户电价跟随现货市场15分钟实时出清",
+            "装机占比[广东燃气机组]: 21.9% (57GW)"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Innovation\nChinese firm conducts 1,000-second hot fire test of its reusable engine to challenge SpaceX\nMega Engine’s Chi engine has already completed a long-duration hot fire. The startup was founded as recently as 2024.\nBy\nChris Young\nInnovation\nMay 27, 2026 12:41 PM EST\nBy\nChris Young\nMay 27, 2026 12:41 PM EST\nA screen capture from footage of the Chi engine hot fire test.\nMega Engine Technology\nA new Chinese rocket startup based in Xi’an has successfully completed a long-duration hot fire test of its Chi closed-cycle kerosene-liquid oxygen rocket engine.\nThe company, Mega Engine Technology, announced on May 25 that a single “Chi” engine accumulated 1,000 seconds of successful operation during the test campaign. With the latest test, the program’s total accumulated test time has now reached 2,000 seconds.\nMega Engine’s Chi test\nAccording to Mega Engine, Chi, its high-pressure oxygen-rich staged combustion engine demonstrated rapid startup and stable combustion during the test. Following an inspection, the hardware was fully intact, the company noted in a\nsocial media post\n.\nChi—which translates as “blazing” in English—is designed for throttleable thrust ranging from 35 to 75 tons at sea level. The engine has a vacuum thrust of 87 tons. It delivers a sea-level specific impulse of 302 seconds and 350 seconds in vacuum.\nThe engine supports variable thrust, multiple restarts, and reuse, making it ideal for high-altitude propulsion on medium and large rockets or as first-stage power for smaller vehicles.\nFounded as recently as 2024, Mega Engine has moved extremely quickly. By April 2025, the company had completed development and initial testing of its first staged-combustion engine. Now, it has reached the latest impressive testing milestone early in its existence.\nThe core team consists of specialists in advanced liquid rocket engines. Co-founder Zhang Chenxing, for example, holds a PhD from MIT, according to\na report\nfrom Spacenews. The firm’s rapid progress in oxygen-rich staged combustion technology also suggests it has experienced personnel from China’s state-owned propulsion programs.\nChina’s growing launch sector\nWith the new test, Mega Engine has introduced itself as a new domestic supplier of high-performance engines for commercial launch providers, particularly for second and upper stages.\nChina’s state-owned Academy of Aerospace Propulsion Technology has led the development of similar engines, such as the YF-100 series. The Chi engine’s closed-cycle design is expected to provide a specific impulse advantage over open-cycle alternatives like the YF-102 already in commercial use.\nMega Engine has also announced plans for an even larger engine. The company aims to unveil the 200-ton-class Yan closed-cycle kerolox engine later this year. The company describes high-pressure closed-cycle engines as the “deep water zone” of commercial liquid propulsion. Most private firms have opted for simpler methane or open-cycle systems.\nTogether, the Chi and Yan engines are intended to create a reusable LOX/kerosene family serving a wide range of vehicle sizes.\nThe new Chi test highlights the role of new commercial operators in China’s growing launch sector. In recent years, the country has been expanding its launch capacity to compete with the US and SpaceX. The country is in the process of launching major satellite megaconstellations, including\nGuowang\nand Qianfan. It is also gearing up for future crewed moon missions by\ntraining astronauts\naboard its Tiangong space station.\nRecommended Articles\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBy subscribing, you agree to our\nTerms of Use\nand\nPolicies\nYou may unsubscribe at any time.\n0\nCOMMENT\nBy\nChris Young\nChris Young is a journalist, copywriter, blogger and tech geek at heart who’s reported on the likes of the Mobile World Congress, written for Lifehack, The Culture Trip, Flydoscope and some of the world’s biggest tech companies, including NEC and Thales, about robots, satellites and other world-changing innovations.\nTRENDING\nLATEST\n1\nNew sunlight-based desalination device makes fresh water and recovers lithium\n2\nUS ally plans to build first nuclear-powered submarine domestically by 2030s\n3\nSeed-sized magnetic robot switches between five surgical tools in under one second\n4\nUS Army fields 25% lighter Javelin missile launcher with doubled target detection\n5\nMultiple dead, several injured after chemical tank implodes at paper mill in Washington\nMore from Innovation\nSee All\nInnovation\nResearchers develop armadillo-inspired protective shell module for soft robotics\nInnovation\nChina’s DD6 single-crystal superalloy rivals US jet engine blade materials\nInnovation\nWood and cellulose are stepping out of the forest and into high tech\nInnovation\nCalifornia’s first carbon vault starts trapping CO2 more than one mile underground\nInnovation\nNew AI-guided alloy discovery method could speed up extreme heat metal design\nInnovation\nResearchers develop armadillo-inspired protective shell module for soft robotics\nInnovation\nChina’s DD6 single-crystal superalloy rivals US jet engine blade materials\nInnovation\nWood and cellulose are stepping out of the forest and into high tech\nInnovation\nCalifornia’s first carbon vault starts trapping CO2 more than one mile underground\nInnovation\nNew AI-guided alloy discovery method could speed up extreme heat metal design",
+          "b": "广东4月电价的数字让很多工厂老板看愣了：日前现货均价最高678元/MWh(0.678元/度)，实时均价一度触及978元/MWh(0.978元/度)，多次逼近1元/度关口。4月1日至23日，广东现货日前均价达533元/MWh，较3月上涨38%。\n这不是短期异动，而是两件事叠加的结果：一是2026年3月1日新规落地，直接入市用户的电价由政府定价改为跟随现货市场15分钟实时出清——电价的「缓冲垫」消失了;二是霍尔木兹海峡航运近乎停滞，全球LNG价格飙升，广东燃气机组(占总装机21.9%，57GW)成为高峰时段的边际定价机组，燃料成本暴涨直接推高了整个现货市场的出清价。\n电价结构已经变了，「等政策调回来」的想法是危险的。东方证券在4月研报中明确判断：「预计广东现货及长协电价将率先走出长期下行周期」。5月月度中长期电价已较4月初继续走高约30%，夏季6~9月用电高峰还没到来。\n在这个背景下，3类用电主体的处境差别极大：\n年初签了年度长协(均价0.372元/度)的企业，4月实际是受益方——合同价低于现货，这批用户是「运气好的那批人」;而走纯现货结算的工厂，4月电费账单可能直接比去年同期多出30%~40%;光伏业主的自发自用收益悄悄翻倍了(替代电价从0.38元涨到了0.6~0.9元)，但余电上网的价格要不要锁定、储能该不该配，这两个决策现在就是分水岭;代理合同快到期的企业，若不主动续签而被动转目录电价，每度电可能多花0.05~0.15元，月用电100万度的工厂意味着每月额外支出5~15万元。\n索比光伏网对这3类用电主体逐一分析了现状、算了具体的钱、给出了月度合同/余电锁价/配储套利三个工具的操作说明，以及按紧迫程度排序的行动路径。\n以下为报告节选，完整版扫码获取",
           "hb": 1
         }
       ]

@@ -6,18 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "澳CSIRO发布量子电池原型，基于多层有机异质结实现无线激光充电",
-      "苏黎世应用科技大学提出集成忆阻器的钙钛矿电池，自适应旁路通道降低反向偏压损伤",
-      "研究采用添加剂辅助钙钛矿结晶策略，提升工业级TOPCon硅片叠层电池光电转换效率"
+      "澳大利亚科研机构发布量子电池原型，实现无线激光充电与纳秒级储能",
+      "不可还原固体电解质诱导动态界面，硅阳极初始库仑效率接近100%"
     ],
     "AI与智能科技": [
-      "贝尔实验室展示单光子芯片端到端训练深度神经网络，非线性分类任务精度超90%",
-      "DeepMind升级AlphaFold数据库，新增覆盖超2亿结构的蛋白质相互作用预测功能"
+      "贝尔实验室研发单光子芯片，实现片上梯度下降反向传播训练",
+      "科研团队实现量子自旋霍尔绝缘体中的双稳态超晶格切换"
     ],
     "通用技术": [
-      "研究集成单晶钙钛矿与激子极化子纳米光栅，首次实现室温条件下的超固态相",
-      "Schrodinger团队开发机器学习力场，有机小分子溶解自由能计算误差低于1 kcal/mol",
-      "混合镧系金属有机框架实现近红外一区成像与近红外三区四光子上转换发光"
+      "Schrodinger团队发布机器学习力场，有机小分子水合能计算误差低于1 kcal/mol",
+      "研究制备金量子棒，发射1000至2200纳米短波红外光实现高亮度"
     ]
   },
   "sectors": [
@@ -25,18 +23,17 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "澳CSIRO发布量子电池原型，基于多层有机异质结实现无线激光充电",
-        "苏黎世应用科技大学提出集成忆阻器的钙钛矿电池，自适应旁路通道降低反向偏压损伤",
-        "研究采用添加剂辅助钙钛矿结晶策略，提升工业级TOPCon硅片叠层电池光电转换效率"
+        "澳大利亚科研机构发布量子电池原型，实现无线激光充电与纳秒级储能",
+        "不可还原固体电解质诱导动态界面，硅阳极初始库仑效率接近100%"
       ],
       "entries": [
         {
           "t": "澳大利亚CSIRO开发出可完成完整电池循环的量子电池原型装置",
           "d": "2026-03-18",
-          "a": "",
+          "a": "Csiro",
           "c": "零碳产业/能量循环/能量存储/其它储能技术",
           "as": "3月18日，澳大利亚CSIRO联合墨尔本大学、皇家墨尔本理工大学发布量子电池原型装置，可实现无线激光充电、纳秒级储能及电能输出。器件基于法布里-珀罗光学微腔构建，采用多层有机异质结设计，以酞菁铜（CuPc）分子为光吸收与量子储能单元，与富勒烯C60形成混合层。充电时利用与下极化激元分支共振的激光脉冲照射微腔，在光与物质强耦合下CuPc分子通过超吸收效应发生集体激发，迅速生成激子完成充电并输出电能，实现完整电池循环。",
-          "sc": 7.1,
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.csiro.au/en/news/All/News/2026/March/Quantum-battery-full-cycle",
@@ -50,46 +47,42 @@
           "hb": 1
         },
         {
-          "t": "苏黎世应用科技大学Wolfgang Tress报道一种集成忆阻器的钙钛矿太阳能电池实现对反向偏压的自适应保护",
+          "t": "澳大利亚CSIRO开发出可完成完整电池循环的量子电池原型装置",
           "d": "2026-03-18",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "钙钛矿太阳能电池在局部遮挡或串联电流不匹配时易处反向偏压，导致热点、钙钛矿分解及电极腐蚀。苏黎世应用科技大学Wolfgang Tress团队提出集成忆阻器的钙钛矿电池（Memsol）概念，在电池内部沉积Ag/PL177/SiO金属-绝缘体堆叠构成双稳态开关。低反向电压下忆阻器迅速转为低阻态导通，形成旁路通道避免高电压损伤钙钛矿层；正向电压或光照下恢复高阻态断开，不影响正常光电性能，实现对反向偏压的自适应保护。",
-          "sc": 6.4,
+          "a": "Csiro",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "3月18日，澳大利亚CSIRO联合墨尔本大学、皇家墨尔本理工大学发布量子电池原型装置，可实现无线激光充电、纳秒级储能及电能输出。器件基于法布里-珀罗光学微腔构建，采用多层有机异质结设计，以酞菁铜（CuPc）分子为光吸收与量子储能单元，与富勒烯C60形成混合层。充电时利用与下极化激元分支共振的激光脉冲照射微腔，在光与物质强耦合下CuPc分子通过超吸收效应发生集体激发，迅速生成激子完成充电并输出电能，实现完整电池循环。",
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-026-10275-3",
-          "tp": "钙钛矿电池保护",
+          "u": "https://www.csiro.au/en/news/All/News/2026/March/Quantum-battery-full-cycle",
+          "tp": "量子电池原型",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "钙钛矿太阳能电池（PSC）在实际应用中，由于局部遮挡（如灰尘、阴影）或串联结构中电流不匹配，会导致部分电池处于反向偏压状态，使得PSC容易发生局部热点、钙钛矿分解、电极腐蚀等问题，进而导致器件失效。目前已有研究尝试通过优化载流子传输层或电极结构来提高击穿电压，但仍难以从根本上解决这一问题。\n近日，苏黎世应用科技大学Wolfgang Tress教授团队提出一种集成忆阻器（memristor）的钙钛矿太阳能电池（Memsol）新概念，通过在电池内部引入忆阻器结构（沉积金属-绝缘体堆叠：Ag/PL177/SiO），实现对反向偏压的自适应保护，从根本上解决PSC在实际运行中的反偏稳定性问题。忆阻器作为一种电阻状态依赖于先前电压状态的非线性器件，在该研究中被设计为双稳态开关，在低反向电压下迅速转变为低电阻状态实现导通，正向电压或光照条件下恢复为高电阻状态实现断开；即在电池受到反向偏压时自动导通，相当于内置旁路通道，从而避免高电压对钙钛矿层的损伤；而在正常光照工作时，忆阻器又自动关闭，不影响电池的光电性能。其基于玻璃/ITO/NiOx/Me-4PACz/(FA0.95MA0.05)0.95Cs0.05 Pb(I0.95Br0.05)3/哌嗪二氢碘酸盐/C60/浴铜灵/Au电极的倒置器件（效率23.2%、Isc=24.0mAcm−2，FF=81%，Voc=1.193V）进行集成，在薄膜组件中，互连间隙或其他光伏非活性区等特定区域可作为合适的\"无效区域\"用于放置忆阻元件。对于大面积单电池而言，直接集成于活性区域内的方案可能更具优势。在薄膜组件中，其将互连间隙或其他光伏非活性区等特定区域用于放置忆阻元件；对于大面积单电池而言，其将忆阻器直接集成于活性区域内。测试结果表明，集成忆阻器的器件在光照条件下，其光电转换效率达到23.4%，与参考器件基本一致（Voc=1.20 V，Jsc=23.8 mA/cm²，FF=82%），说明忆阻器的引入不会引入额外复合或寄生损耗；在反向偏压条件下，忆阻器在约−0.1~−0.18 V即触发导通，将电池电压限制在低水平（约−0.05 V），从而避免传统PSC在−3至−4V发生击穿的问题。此外，该忆阻器具有极快的响应速度（<50 ns），远快于传统硅旁路二极管（约30 µs），能够快速应对动态遮挡工况。热成像结果进一步表明，反向偏压下的热效应局限于忆阻器区域，而不会扩散至整个电池，有效避免热点损伤。器件通过400次暗-光循环测试表现出良好的可逆性和可靠性，忆阻器在反偏条件下自动导通，在重新照射后迅速恢复至高阻态，使电池恢复正常工作电压（约1.2 V）；相比之下，未保护的参考器件在反偏后发生不可逆损伤。由9个太阳能电池串联组成的小型组件最大功率点（MPP）跟踪测试结果发现，在单个电池被遮挡时，Memsol系统功率损失仅约0.01 W，传统旁路二极管方案损失约0.04 W，且会使多个电池同时失效。此外，其还发现随着电流增加，忆阻器的复位电压升高，可能限制其在大面积器件中的应用；为此该研究提出通过集成多个忆阻器并联的方式，实现更高电流承载能力，并已在实验中验证其可行性。文章于2026年3月18日发表在Nature。",
+          "b": "3月18日，澳大利亚联邦科学与工业研究组织（CSIRO）在官网发文称，其联合墨尔本大学和皇家墨尔本理工大学开发能够完成完整电池循环的量子电池原型装置，可以通过激光进行无线充电、储存能量（纳秒级）、输出电能。其基于法布里-珀罗（Fabry-Perot）光学微腔构建，采用多层有机异质结设计，底部为ITO玻璃基底（阳极）+75 nm银（Ag）反射镜，顶部为25 nm Ag反射镜（阴极），腔长调谐至CuPc分子的吸收频段；中间采用酞菁铜（CuPc）分子作为光吸收与量子储能单元，与富勒烯（C60）形成混合层，通过改变CuPc浓度与层厚，调节参与耦合的分子数𝑁；同时辅以空穴注入层（HAT-CN）、电子传输/阻挡层（BPhen、LiF）等，在腔内构建能级梯度，促进激子分离并定向传输载流子，同时阻挡电荷反向复合\n充电时利用与下极化激元（LP）分支共振的激光脉冲照射微腔。在光与物质强耦合作用下，CuPc分子通过超吸收（Superabsorption）效应发生集体激发，迅速生成光激发的单重态激子（或极化激元）。在微腔（microcavity）结构中，光子和有机分子激子（exciton）强烈耦合，形成混合的准粒子，多个分子协同作用，这种集体行为源于量子纠缠和相干性，导致充电功率随分子数N呈超扩展（superextensive）增长，理论上充电时间可随N增加而缩短为1/√N，而功率随N²增长。储能过程中为了防止吸收的能量过快辐射散失，系统利用了分子内的弛豫机制；由于Cu2+中心金属离子的自旋轨道耦合作用，它翻转了激发态电子的自旋。由于泡利不相容原理的限制，自旋禁阻效应阻止了三重态激子直接跃迁回单重态基态，从而实现了能量的亚稳态固化，充电产生的单重态激子在极短时间内（约200fs）通过系间窜越（Intersystem Crossing, ISC）迅速转变为亚稳态的三重态激子，容量达寿命达到了10到50 ns。放能时，亚稳态的三重态激子向CuPc:C60界面扩散形成界面电荷转移态，随后分离为自由的电子和空穴；在电子/空穴阻挡层的定向引导下，电荷被顶部银阴极和底部ITO阳极收集，从而输出外电流对外做功，实现了0.3到0.7 W/cm² 的合理峰值放电功率密度。有报道称，负责该研究的James Quach也表示此次原型容量只有几十亿电子伏特，后续也将持续提高储能时长以实现商业应用可行性。相关研究也在3月13日发表在Light: Science & Applications。",
           "hb": 1
         },
         {
-          "t": "添加剂辅助钙钛矿在工业级TOPCon硅上的结晶：面向高效叠层太阳能电池",
+          "t": "通过不可还原的固体电解质诱导的动态界面，使硅阳极的初始库仑效率接近 100%",
           "d": "2026-03-18",
-          "a": "Nature Energy",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "本研究在工业级TOPCon硅片上采用添加剂辅助钙钛矿结晶策略，制备叠层太阳能电池。薄硅片因其热质量小、热稳定性高的优势适用于叠层结构，但钙钛矿薄膜质量是效率提升的关键。通过引入功能添加剂优化钙钛矿结晶过程，减少了缺陷、提升了薄膜质量，从而提高了叠层电池的整体光电转换效率。",
-          "sc": 7.2,
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-026-02010-z",
-          "tp": "钙钛矿叠层电池",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00006-1?rss=yes",
+          "tp": "硅阳极库仑效率",
           "aip": 1,
-          "kp": [
-            "添加剂[TOPCon叠层]: 2-巯基苯并噻唑",
-            "[问题]: 薄硅片快传热致钙钛矿结晶过快",
-            "硅片类型[叠层电池]: 工业TOPCon薄硅片"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Thin silicon wafers used in tunnel oxide passivated contact tandem solar cells have reduced thermal mass and higher thermal conductivity, which accelerate heat transfer during perovskite subcell deposition. This rapid heat transfer induces fast crystallization of the perovskite layer, compromising film quality and tandem performance. Here we introduce 2-mercaptobenzothiazole, which exhibits dual-mode binding with perovskite organic cations, to modulate crystallization dynamics. This approach improves morphological uniformity, eliminates voids and suppresses halide segregation, while reducing non-radiative recombination and lowering the trap-assisted recombination rate from 3.2 × 105 to 4.3 × 104 cm s−1. The two-terminal monolithic perovskite/tunnel oxide passivated contact tandem cell achieves a certified stabilized power conversion efficiency of 32.76% and retains 91% of its initial efficiency after 1,700 h of continuous operation. This work uncovers a previously overlooked perovskite crystallization issue on industrial silicon wafers, providing critical insights for integrating perovskite solar cells into mainstream silicon technology.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -97,17 +90,17 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "贝尔实验室展示单光子芯片端到端训练深度神经网络，非线性分类任务精度超90%",
-        "DeepMind升级AlphaFold数据库，新增覆盖超2亿结构的蛋白质相互作用预测功能"
+        "贝尔实验室研发单光子芯片，实现片上梯度下降反向传播训练",
+        "科研团队实现量子自旋霍尔绝缘体中的双稳态超晶格切换"
       ],
       "entries": [
         {
           "t": "贝尔实验室Farshid Ashtiani展示一种端到端片上梯度下降反向传播训练的集成光子深度神经网络",
           "d": "2026-03-18",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "贝尔实验室Farshid Ashtiani团队展示一种可在单光子芯片上端到端通过梯度下降反向传播训练的集成光子深度神经网络。所有线性和非线性计算均在芯片上完成，克服了制造诱导的器件差异，实现可扩展稳健训练。在两项非线性数据分类任务中，无需数字计算机即可实现超过90%的精度和鲁棒性，与参考数字模型相匹配。该工作将反向传播训练优势与光子神经网络结合，为未来可扩展光子计算系统的推广奠定基础。论文2026年3月18日发表于Nature。",
-          "sc": 7.6,
+          "sc": 7.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10262-8",
@@ -121,23 +114,42 @@
           "hb": 1
         },
         {
-          "t": "AlphaFold 迈入'下一阶段'：AI蛋白质数据库现已支持蛋白质配对预测",
+          "t": "贝尔实验室Farshid Ashtiani展示一种端到端片上梯度下降反向传播训练的集成光子深度神经网络",
+          "d": "2026-03-18",
+          "a": "Doi",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "贝尔实验室Farshid Ashtiani团队展示一种可在单光子芯片上端到端通过梯度下降反向传播训练的集成光子深度神经网络。所有线性和非线性计算均在芯片上完成，克服了制造诱导的器件差异，实现可扩展稳健训练。在两项非线性数据分类任务中，无需数字计算机即可实现超过90%的精度和鲁棒性，与参考数字模型相匹配。该工作将反向传播训练优势与光子神经网络结合，为未来可扩展光子计算系统的推广奠定基础。论文2026年3月18日发表于Nature。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10262-8",
+          "tp": "光子神经网络芯片",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "可扩展集成光子神经网络稳健且可重复的性能在很大程度上取决于其训练质量。基于梯度的反向传播算法凭借其可扩展性、通用性和实现效率，已成为训练数字神经网络的主流算法，因此，在光子平台上以全光方式实现该算法备受关注。目前，由于缺乏可扩展的片上激活梯度，光子神经网络的训练要么依赖数字计算机运行反向传播，但这在面对不可避免的器件间差异和环境变化时性能会下降；要么依赖无法充分发挥反向传播训练通用性优势的无梯度算法。在此，研究报道了一种集成光子深度神经网络的演示，该网络通过片上梯度下降反向传播实现了端到端训练。所有的线性和非线性计算均在单个光子芯片上完成，尽管存在显著但典型的制造诱导器件差异，仍实现了可扩展且稳健的训练。在两项非线性数据分类任务中，在不使用数字计算机的情况下，芯片在精度（超过90%）和鲁棒性方面均与参考数字模型相匹配。将反向传播训练的优势与光子神经网络相结合，为未来可扩展且可靠的光子计算系统向各种光子神经网络架构的推广铺平了道路。文章于2026年3月18日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "量子自旋霍尔绝缘体中的双稳态超晶格切换",
           "d": "2026-03-18",
           "a": "Nature",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "DeepMind的AlphaFold蛋白质结构数据库迎来重大升级，新增蛋白质-蛋白质相互作用（pairing）预测功能。这一进展使研究人员能够以前所未有的规模探究蛋白质复合物的组装方式和相互作用界面，对药物靶点发现、信号通路解析和合成生物学设计具有深远意义。该数据库已覆盖超过2亿个蛋白质结构，是结构生物学领域的核心基础设施。",
-          "sc": 8.3,
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00787-3",
-          "tp": "AlphaFold蛋白互作",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10309-w",
+          "tp": "超晶格切换",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The database of 200 million protein-structure predictions now includes homodimers, adding new biological relevance. The database of 200 million protein-structure predictions now includes homodimers, adding new biological relevance.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -145,42 +157,22 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究集成单晶钙钛矿与激子极化子纳米光栅，首次实现室温条件下的超固态相",
-        "Schrodinger团队开发机器学习力场，有机小分子溶解自由能计算误差低于1 kcal/mol",
-        "混合镧系金属有机框架实现近红外一区成像与近红外三区四光子上转换发光"
+        "Schrodinger团队发布机器学习力场，有机小分子水合能计算误差低于1 kcal/mol",
+        "研究制备金量子棒，发射1000至2200纳米短波红外光实现高亮度"
       ],
       "entries": [
         {
-          "t": "混合钙钛矿-纳米光栅光子结构可实现室温下的超固态",
-          "d": "2026-03-18",
-          "a": "Nature Nanotechnology",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "通过将单晶卤化物钙钛矿与激子-极化子纳米光栅集成，首次实现了室温下的超固态相。超固态需同时打破相位对称性和平移对称性，实验条件极为苛刻。该光子结构平台突破了传统极低温限制，为室温量子物态研究开辟新途径。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02141-0",
-          "tp": "室温超固态",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The supersolid phase is a self-organized state of matter that simultaneously exhibits the crystalline order of a solid and the frictionless flow of a superfluid. Its formation requires the simultaneous breaking of phase and translational symmetries—a stringent condition that makes experimental observation challenging. Here we show that it is possible to achieve a room-temperature supersolid phase by integrating single-crystal halide perovskites with an exciton–polariton nanograting. This architecture supports a hybrid polaritonic bound-state-in-continuum state with a large bandgap (18.2 meV) and two side modes. As the pumping intensity increases, optical parametric oscillation drives the system from a bound-state-in-continuum polariton condensate into the two side modes, forming a self-organized supersolid phase characterized by a striped one-dimensional lattice spanning the condensate. Crucially, single-shot real-space imaging shows stochastic phase selection of the stripe pattern, evidenced by strong suppression of the density modulation on multishot averaging. The observation of supersolidity is further supported by long-range spatiotemporal coherence measured interferometrically and by a non-rigid supersolid lattice. The realization of supersolidity at room temperature in a polaritonic nanograting platform can be useful to control exotic quantum orders and for exploring spontaneous symmetry breaking, quantum coherence and collective excitations in driven quantum materials.",
-          "hb": 1
-        },
-        {
           "t": "Schrodinger公司Leif D. Jacobson发表用于精确计算有机物小分子水合能的机器学习力场",
           "d": "2026-03-18",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
           "as": "Schrodinger公司Leif D. Jacobson团队针对机器学习力场在自由能微扰（FEP）计算中缺乏系统工具流程及完整基准测试的问题，建立了一套不依赖具体力场工作方式的通用工作流，与Organic-MPNICE力场结合计算有机小分子溶解自由能变，实现低于1 kcal/mol的精度误差。在59个测试小分子上表现优于经典力场和第一性原理隐式溶剂模型，提升了机器学习力场在体系热力学性质模拟中的表现。论文2026年3月18日发表于Journal of Chemical Theory and Computation。",
-          "sc": 6.3,
+          "sc": 6.5,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1021/acs.jctc.5c02019",
           "tp": "机器学习力场",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -189,27 +181,42 @@
           "hb": 1
         },
         {
-          "t": "[ASAP]混合镧系金属有机框架用于近红外一区生物成像与近红外三区四光子上转换",
+          "t": "Schrodinger公司Leif D. Jacobson发表用于精确计算有机物小分子水合能的机器学习力场",
+          "d": "2026-03-18",
+          "a": "Doi",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "Schrodinger公司Leif D. Jacobson团队针对机器学习力场在自由能微扰（FEP）计算中缺乏系统工具流程及完整基准测试的问题，建立了一套不依赖具体力场工作方式的通用工作流，与Organic-MPNICE力场结合计算有机小分子溶解自由能变，实现低于1 kcal/mol的精度误差。在59个测试小分子上表现优于经典力场和第一性原理隐式溶剂模型，提升了机器学习力场在体系热力学性质模拟中的表现。论文2026年3月18日发表于Journal of Chemical Theory and Computation。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1021/acs.jctc.5c02019",
+          "tp": "机器学习力场",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "蛋白质与小分子的非共价结合是药物发挥作用的重要机制，该过程由分子间相互作用主导。分子间的相互作用在经典力场中一般被建模为静电和范德华两部分，提升静电相互作用的描述精度是提升整体精度的重要手段。对于小分子的溶解自由能而言，准确计算意味着需要有精确的力场和高效的增强采样方法。该工作为该类计算提供了操作流程和工具包，且说明良好训练的机器学习力场在描述该类热力学性质时拥有化学精度。该工作为推动机器学习力场能够获得更大的应用场景提供了助力。\nSchrodinger自身也是计算机辅助药物设计领域拥有良好技术的初创公司。",
+          "b": "基于传统力场的自由微扰(FEP)计算被广泛应用于大规模的计算机药物设计，其精度低于第一性原理方法。Leif D. Jacobson团队尝试解决机器学习力场在FEP计算中缺乏系统性的工具流程以及完整的基准测试的问题，并使用机器学习力场，针对有机小分子-水分子结合体系进行了第一性原理精度的理论化学模拟。该工作建立了一套不依赖于机器学习力场具体工作方式的工作流，其较为通用且稳定。该工作将其与Organic-MPNICE力场相结合，计算了溶解过程的自由能变，实现了低于1 kcal/mol的精度误差。在参与测试的59个小分子上，该方法的表现优于经典力场和第一性原理的隐式溶剂模型，从而提升了机器学习力场在体系热力学性质的模拟任务上的表现。文章于2026年3月18日发表在Journal of Chemical Theory and Conputation。",
+          "hb": 1
+        },
+        {
+          "t": "[ASAP] 金量子棒发射短波红外光 (1000–2200 nm)，具有 104–5 M–1 cm–1 超亮度",
           "d": "2026-03-18",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "报道了混合镧系金属有机框架在近红外-I生物成像和近红外-III四光子上转换发光方面的应用。通过在MOF骨架中精确引入多种镧系离子（如Yb、Er、Tm等），利用MOF的规则孔道结构控制镧系离子间能量传递的间距和路径，实现了高效的上转换发光。近红外窗口成像具有更深的组织穿透深度和更低的自发荧光背景，四光子上转换进一步将激发光子利用效率推向新高度，在深层组织生物医学成像方面前景广阔。",
-          "sc": 6.8,
+          "as": "",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00409",
-          "tp": "镧系MOF上转换",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02971",
+          "tp": "金量子棒发光",
           "aip": 1,
-          "kp": [
-            "镧系组成[MOF上转换]: Yb³⁺、Tb³⁺、Eu³⁺",
-            "[上转换类型]: NIR-III窗口四光子上转换",
-            "[成像窗口]: NIR-I生物成像"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Lanthanide-based metal-organic frameworks (Ln-MOFs) provide a structurally precise platform for upconversion luminescence engineering, yet practical applications are limited by insufficient structural stability, restricted color tunability, and the lack of excitation in the NIR-III window. Here, we report a MOF incorporating mixed-lanthanide Yb3+, Tb3+, and Eu3+ ions that addresses these challenges. The optically transparent and periodic framework enforces a uniform spatial distribution of lanthanide centers and establishes stepwise interionic energy transfer pathways, while ether-containing organic linkers enhance photo and thermal stability. Under NIR-I (980 nm) excitation, the Ln-MOFs exhibit tunable multicolor upconversion emission with high hydrolytic stability and biocompatibility, enabling reliable in vivo imaging in zebrafish models. Remarkably, under NIR-III (1960 nm) excitation, a four-photon upconversion process is observed for the first time in Ln-MOFs. Together, these results expand the excitation landscape of Ln-MOFs from NIR-I to NIR-III and confirm the potential of structurally programmable Ln-MOFs for bioimaging and nonlinear photonic applications.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

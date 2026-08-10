@@ -6,17 +6,13 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "兆钠新能源25Ah软包钠离子电芯能量密度达348.5Wh/kg并获中汽研认证",
-      "研究人员提出解耦吸附能策略以抑制多碘化物穿梭延长锌碘电池循环寿命",
-      "科学家首次在重构系统中实现大肠杆菌三十种翻译机器蛋白的自主同步生物合成"
+      "兆钠新能源25Ah软包钠离子电芯能量密度达348.5Wh/kg并获中汽研认证。",
+      "兆钠新能源新型钠离子电芯支持4C快充且零下20度容量保持率超90%。",
+      "厦门大学课题组构建通用神经网络力场以加速锂电池电解质体系筛选。"
     ],
-    "AI与智能科技": [
-      "新型MOF功能化磁控微纳机器人具备超声追踪能力可清除脑脊液颅内毒素"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究人员利用低成本聚合物制备光子晶体实现大气窗口波段高效被动辐射制冷",
-      "实验验证高温超导线圈增强磁等离子体动力推进系统比冲与推进效率",
-      "研究证实有机微液滴界面强电场可在常温常压下驱动无催化剂自由基反应"
+      "英国企业计划将配备1000摄氏度熔炉的制造设施部署至近地轨道。"
     ]
   },
   "sectors": [
@@ -24,18 +20,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "兆钠新能源25Ah软包钠离子电芯能量密度达348.5Wh/kg并获中汽研认证",
-        "研究人员提出解耦吸附能策略以抑制多碘化物穿梭延长锌碘电池循环寿命",
-        "科学家首次在重构系统中实现大肠杆菌三十种翻译机器蛋白的自主同步生物合成"
+        "兆钠新能源25Ah软包钠离子电芯能量密度达348.5Wh/kg并获中汽研认证。",
+        "兆钠新能源新型钠离子电芯支持4C快充且零下20度容量保持率超90%。",
+        "厦门大学课题组构建通用神经网络力场以加速锂电池电解质体系筛选。"
       ],
       "entries": [
         {
           "t": "兆钠新能源25Ah软包钠电能量密度达348.5Wh/kg",
           "d": "2025-12-31",
           "a": "手动导入",
-          "c": "零碳产业",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "兆钠新能源宣布其25Ah软包钠离子电芯能量密度达到348.5Wh/kg，并获中汽研认证。该电芯采用高比能正极材料及无钠金属负极技术，具备超2000次循环寿命。此外，电芯在-20℃下容量保持率超90%，并支持4C快充，展现了优异的低温性能与快充能力。",
-          "sc": 9.1,
+          "sc": 9.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/qyuyuyAalszhw9qtjPbZqw",
@@ -51,44 +47,43 @@
           "hb": 1
         },
         {
-          "t": "通过解耦吸附能重定向碘还原路径实现长寿命锌碘电池",
+          "t": "兆钠新能源25Ah软包钠电能量密度达348.5Wh/kg",
           "d": "2025-12-31",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "针对锌碘电池中多碘化物穿梭导致容量快速衰减的问题，研究提出通过解耦吸附能策略重定向碘还原路径。该方法调节电极表面对碘物种的吸附行为，抑制多碘化物的生成与迁移，从而显著延长电池循环寿命。该工作为大规模储能用锌碘电池的实用化提供了新思路，有助于推动电网级长寿命水系电池的开发。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE06963G",
-          "tp": "锌碘电池",
+          "a": "手动导入",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "兆钠新能源宣布其25Ah软包钠离子电芯能量密度达到348.5Wh/kg，并获中汽研认证。该电芯采用高比能正极材料及无钠金属负极技术，具备超2000次循环寿命。此外，电芯在-20℃下容量保持率超90%，并支持4C快充，展现了优异的低温性能与快充能力。",
+          "sc": 9.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/qyuyuyAalszhw9qtjPbZqw",
+          "tp": "钠离子电池",
           "aip": 1,
           "kp": [
-            "电池[储能]: Zn-I2电池",
-            "策略[锌碘电池]: 解耦吸附能重定向碘还原路径"
+            "能量密度348.5Wh/kg"
           ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Zinc–iodine (Zn–I2) batteries are promising for grid-scale energy storage, yet rapid capacity fade from polyiodide shuttling remains a fundamental challenge. This shuttling arises from the coupled, stepwise iodine reduction pathway (*I2 ⇌ *I5 ⇌ *I3 ⇌ *I), wherein conventional single-site catalysts that accelerate the rate-limiting *I3 reduction inevitably stabilize long-chain *I5, exacerbating capacity fading. Herein, we introduce atom-cluster catalysts (ACCs) with tailored atomic geometries that decouple the adsorption energetics of key intermediates. The ACCs destabilize *I5 chain formation while optimizing *I3 reduction kinetics, thereby redirecting the reaction toward a low-barrier *I2 ⇌ *I3 ⇌ *I pathway and suppressing soluble I5− at its source. As a result, Zn1Co ACCs/I2 cathode delivers a high specific capacity of 230.5 mAh g−1 at 6.5 mg cm−2 over 15,000 cycles (2 A g−1). This atomic-scale pathway-engineering strategy resolves the intrinsic trade-off imposed by linear scaling in stepwise conversion reactions and provides a general approach to enabling long-life operation in Zn–I2 batteries and other multi-intermediate electrochemical systems.",
+          "lv": 3,
+          "wr": "技术性能突破||突破钠离子电芯能量密度指标边界\n\n能量密度348.5Wh/kg、25Ah、循环寿命>2000圈、4C、-20℃下容量>90%（1.5-约4.2V，2V截至能量密度也>340）；能量密度突破、容量较大、宣传倍率/循环性能较好；且可能采用固态电解质",
+          "cm": "原先钠离子电池产品能量密度为2025年10月隐功科技的无负极半固态钠电310Wh/kg\n（1.9Ah、2-4.2V、-40℃-60℃的宽温域、具体正极、电解质材料及倍率、循环性能等未注明）兆钠新能源成立于2023年6月，注册资本1231万元（实缴202万元），获得来自江阴市政府、上海劲邦等企业投资，与日本STL JAPAN株式会社可能有技术关联；其在23年10月完成10Ah固态钠电样品试制，宣传在江阴建有千吨级新型正极材料线及全固态钠离子电池中试线（0.5GWh）。\n据兆钠新能源所申专利信息显示，其布局正极技术有锰基（NaxM(Li/Mg/Zn/Ca/Al)aFebMncO2材料、Na5+u/2Y1-u/2PuSi4-uO12包覆等）、硫酸铁钠基（氧化锡、碳包覆等）；负极技术包括磷碳负极、Mxene（Ti4N3）涂层或钛钨复合涂层的无钠金属负极（铝箔等为集流体）；电解质则有共沉淀法合成的Na3-a-bWaMobSb1-a-bS4（离子电导可达12 mS/cm）硫化物固态电解质等。\n潜在风险/价值点：所谓的体相梯度掺杂+快离子导体包覆高压正极体系：NaxM(Li/Mg/Zn/Ca/Al)aFebMncO2材料、Na5+u/2Y1-u/2PuSi4-uO12包覆\nMxene（Ti4N3）涂层或钛钨复合涂层的铝箔\n共沉淀法合成的Na3-a-bWaMobSb1-a-bS4（离子电导可达12 mS/cm）硫化物固态电解质。\n论据支持：该能量密度结果经中汽研认证（也可能为特挑品）\n其宣传有千吨级新型正极材料线及全固态钠离子电池0.5GWh中试线\n实际材料性能暂无，后续需对相应材料论文研究情况进行检索验证",
+          "b": "12月31日，兆钠新能源在其官方公众号发文称，其>25Ah软包钠离子电芯能量密度达到348.5Wh/kg（图中显示测试电芯质量245.9g），并通过中汽研汽车检验中心（天津）认证。文中宣传，其采用体相梯度掺杂+快离子导体包覆的高比能正极材料",
           "hb": 1
         },
         {
-          "t": "大肠杆菌翻译机器的所有三十种蛋白质的自主生物合成",
+          "t": "厦门大学程俊发表可实现快速探索电池电解质化学空间的机器学习力场",
           "d": "2025-12-31",
-          "a": "Nature Communications",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "首次在重构的转录-翻译系统中实现了大肠杆菌全部三十种翻译机器蛋白的自主同步生物合成。研究确定了每种蛋白自身合成所需的阈值浓度，并验证了核糖体蛋白的自再生能力。这一突破为构建自再生合成细胞奠定了基础，是合成生物学和无细胞体系领域的里程碑进展。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-025-67772-8",
-          "tp": "翻译机器合成",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "厦门大学程俊课题组基于DeepMD训练电解质溶液通用神经网络力场uMLP，能量预测精度5.77 meV/atom，满足模拟要求。利用该模型研究LiFSI/FAN等四个体系，发现锂离子与溶剂结合较弱、配体交换时间短时迁移更快，表明弱锂离子-溶剂相互作用有助于快速迁移、改善电池性能。2025年12月发表于Nature Communications。",
+          "sc": 6.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-025-67982-0",
+          "tp": "电解质力场",
           "aip": 1,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The cell-free biogenesis of the protein translation machinery is essential for the creation of a self-regenerating synthetic cell. Here, we demonstrate the autonomous and simultaneous biogenesis of all thirty proteins of the translation machinery of E. coli in a reconstituted transcription-translation system. We first establish self-regeneration of every translation protein by determining the threshold concentration required for its own synthesis from a synthetic gene coding for the protein, thereby demonstrating the functionality of all nascent proteins, separately. Simultaneous biogenesis of multiple translation proteins at their threshold results in delayed synthesis below detection levels. To achieve self-regeneration of multiple translation proteins, we induce boundary-free compartmentalization of the reaction by immobilizing the genes on a surface at high density. The co-localization of genes, molecular machinery, messenger RNA and nascent proteins at the surface create sufficient conditions to catalyze the simultaneous self-regeneration of sub-groups up to all thirty translation proteins, as measured by total internal reflection fluorescence on the surface. Our approach provides mechanistic insight and presents a general methodology for the biogenesis of cellular machines toward autonomous synthetic systems.",
+          "b": "电解质溶液的组成影响了粘度、密度、微观溶剂化结构以及离子迁移率。该类体系理论研究的最大障碍是成分过于复杂，且难以用经典力场描述。程俊课题组基于DeepMD的网络结构，训练了适用于电解质溶液的通用神经网络力场uMLP。训练数据通过电解质生成-MD平衡模拟-DFT计算工作流生成，并使用该力场进行多轮MD模拟迭代优化数据集的多样性。uMLP能量、原子受力以及维里的预测精度分别为5.77 meV/atom, 174 meV/Å, 5.31 meV/atom, 满足模拟要求。借助该模型，本工作研究了LiFSI/FAN、LiTFSI/FAN、LiPF6/EC-EMC、LiTFSI/DOL-DME四个体系中锂离子的溶剂化情况。模拟表明，当锂离子与溶剂配体结合较弱，配体平均交换时间较短时，锂离子的迁移速率较快。这表明弱的锂离子-溶剂相互作用有助于锂离子的快速迁移，从而能够改善电池性能。文章于2025年12月31日发表在Nature Communications。",
           "hb": 1
         }
       ]
@@ -96,110 +91,34 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "新型MOF功能化磁控微纳机器人具备超声追踪能力可清除脑脊液颅内毒素"
-      ],
-      "entries": [
-        {
-          "t": "MOF功能化超声可追踪磁性微型机器人用于颅内毒素清除",
-          "d": "2025-12-31",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了MOF功能化的超声可追踪磁控微纳机器人，用于清除颅内微环境（如脑脊液）中的毒素积累。微纳机器人由磁性材料驱动、MOF涂层提供高比表面积毒素吸附能力，同时具备超声成像可追踪特性，实现实时定位和精准递送。脑脊液等特殊微环境中毒素积累与神经退行性疾病密切相关，该平台兼具靶向输送、高效清除和实时监测功能，为神经毒素相关疾病的精准治疗提供了创新工具。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202516357?af=R",
-          "tp": "磁性微型机器人",
-          "aip": 1,
-          "kp": [
-            "[微机器人]: MOF功能化磁性微机器人",
-            "[追踪方式]: 超声可追踪",
-            "[应用靶标]: 颅内脑脊液胆红素清除"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Toxin accumulation within specialized microenvironments, such as cerebrospinal fluid (CSF), poses significant clinical challenges. In particular, bilirubin in CSF can cause severe damage to the brain and neural tissues. Current therapeutic strategies for intracranial bilirubin clearance suffer from poor targeting, inadequate detoxification capacity, and reliance on invasive procedures. Here, we demonstrate multifunctional microrobots designed for toxin removal in specialized anatomical compartments. The proposed ultrasound‐trackable microbubbles@PCN‐333 microrobots (UMPCs) feature a hollow hydrogel microbubble core for enhanced ultrasound imaging contrast, an outer metal–organic framework (MOF) layer for proactive and high‐capacity toxin adsorption, and embedded ferroferric oxide (Fe\n                    3\n                    O\n                    4\n                    ) nanoparticles to enablec. Magnetic actuation enhances the UMPC's bilirubin capture efficiency through improved mass transfer. By integrating an ultrafast ultrasound imaging system with magnetic actuation, we achieve real‐time tracking and precise control of UMPCs within the CSF. This strategy offers a minimally invasive and actively guided approach for efficient intracranial bilirubin clearance, opening new avenues for targeted toxin‐removal in anatomically confined environments.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究人员利用低成本聚合物制备光子晶体实现大气窗口波段高效被动辐射制冷",
-        "实验验证高温超导线圈增强磁等离子体动力推进系统比冲与推进效率",
-        "研究证实有机微液滴界面强电场可在常温常压下驱动无催化剂自由基反应"
+        "英国企业计划将配备1000摄氏度熔炉的制造设施部署至近地轨道。"
       ],
       "entries": [
         {
-          "t": "可规模制备的全聚合物光子晶体用于日间辐射制冷",
+          "t": "英国公司将拥有 1000 摄氏度熔炉的工厂送入太空",
           "d": "2025-12-31",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "光子晶体在被动日间辐射制冷（PDRC）领域潜力巨大，但面临可扩展性瓶颈。该研究提出全聚合物光子晶体方案，利用低成本聚合物材料构建周期性微纳结构，在大气窗口波段（8-13μm）实现高效热辐射，同时反射太阳光，无需额外能耗即可实现低于环境温度的冷却效果。该方案解决了传统无机光子晶体加工复杂、难以大面积制备的问题，为建筑节能、电子器件热管理等大规模应用提供了可工程化的技术路径。",
+          "a": "BBC News",
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
           "sc": 7.3,
           "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518322?af=R",
-          "tp": "聚合物光子晶体制冷",
+          "tg": "观点评论",
+          "u": "https://www.bbc.com/news/articles/c62vx0pgyrgo?at_medium=RSS&at_campaign=rss",
+          "tp": "太空高温熔炉",
           "aip": 1,
-          "kp": [
-            "材料[日间辐射制冷]: 全聚合物光子晶体",
-            "瓶颈[光子晶体]: 折射率对比Δn<0.2"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Photonic crystals hold significant promise for passive daytime radiative cooling (PDRC) yet face inherent scalability–durability–performance trade‐offs. Although all‐polymer photonic crystals (APPCs) offer solutions, their development is constrained by limited refractive index contrasts (\n                    Δn\n                    &lt; 0.2), sub‐100‐nm layer fabrication challenges, interfacial delamination, and insufficient mechanical robustness. Here, we fabricated a scalable, high‐performance all‐polymer photonic crystal film via the self‐assembled gradient nanolayer coextrusion of poly(methyl methacrylate) and poly(ethylene naphthalate), followed by biaxial stretching. The resulting 1500‐layer hierarchical architecture, featuring gradient layer thicknesses ranging from 50 to 400 nm, achieved a solar reflectance of 95.4% and mid‐infrared emissivity of 93.4%, enabling sub‐ambient cooling of 11°C under 980 W/m\n                    2\n                    solar irradiance. The dense nanolayer structure also imparted exceptional mechanical properties, including a tensile strength of ∼103.8 \n                    m\n                    Pa, toughness of ∼54.9 \n                    m\n                    J/m\n                    3\n                    , and Young's modulus of ∼2.9 GPa, substantially exceeding those of existing polymer‐based radiative coolers. This solvent‐free, continuous fabrication process bridged nanophotonic design with industrial‐scale manufacturing, offering a practical fabrication route for durable, high‐performance polymeric cooling films.",
-          "hb": 1
-        },
-        {
-          "t": "高温超导MPD推进器的高性能表现：解析MHD建模与实验验证",
-          "d": "2025-12-31",
-          "a": "National Science Review Advance Access",
-          "c": "通用技术/通信和运输/航天",
-          "as": "将高温超导(HTS)技术集成到磁等离子体动力(MPD)推进系统中，通过解析MHD建模和实验验证实现高性能电推进。高温超导线圈可产生更强磁场，显著提升MPD推力器的比冲和推进效率。研究建立了HTS-MPD推力器的理论分析模型，并通过实验演示验证了超导增强对推进性能的改善。该技术对深空探测和大型航天器的高效电推进系统具有战略意义。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf589/8407247?rss=1",
-          "tp": "超导等离子推进",
-          "aip": 1,
-          "kp": [
-            "[技术]: 高温超导MPD推力器",
-            "[应用]: 小卫星/CubeSat推进"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The integration of high-temperature superconductors (HTS) into electric propulsion systems, particularly Magneto-Plasma-Dynamic Thrusters (MPDTs), has recently garnered significant attention. However, research on low-power HTS-based MPDTs, which are crucial for small satellites and CubeSats, remains limited. The increasing demand for compact, high-efficiency propulsion in Low Earth orbit underscores the need for scalable HTS-AF-MPDT systems operating below 15 kW. Despite this, challenges such as the lack of detailed theoretical models, limited plasma diagnostics, and excessive Joule heating in conventional copper magnets persist. In this work, using a downscaled version of a 25 kW high-temperature superconducting (HTS) based applied-field magneto-plasma-dynamic thruster, we address these limitations by developing and experimentally validating a theoretical MHD-based plasma acceleration model for an AF-MPDT equipped with a conduction-cooled HTS magnet.The system achieves a specific impulse of 3265s at an input power of 12 kW, more than eight times higher than traditional chemical propulsion, alongside a thrust of 320mN and an efficiency of 25% at sub 12kW. The HTS magnet reduces magnetic power consumption from 285 kW to under 1 kW and lowers magnet mass from 220 kg to 60 kg, enabling substantial improvements in system miniaturization and efficiency. These results represent the first reported demonstration of a 12kW high-temperature superconducting AF-MPDT, bridging theoretical predictions with experimental outcomes and laying the groundwork for in-orbit demonstration of high-performance propulsion for small satellites.",
-          "hb": 1
-        },
-        {
-          "t": "常温常压下有机微液滴中界面电场驱动的无催化自由基反应",
-          "d": "2025-12-31",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "受静电场驱动化学反应的启发，该研究证明有机微液滴界面固有的内禀电场可在无需催化剂的常温常压条件下驱动自由基反应。微液滴界面产生的强电场（约10⁷V/m量级）足以断裂化学键并激发自由基生成，为无催化剂绿色合成和新型反应路径开辟了方向，揭示了微界面效应的独特催化潜力。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19505",
-          "tp": "微滴界面自由基反应",
-          "aip": 1,
-          "kp": [
-            "[发现]: 有机微液滴界面内禀电场驱动自由基反应",
-            "模型体系[微液滴]: 吡啶-DMSO",
-            "[条件]: 无催化剂无外加电位"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Inspired by the demonstrated ability of static electric fields to drive chemical reactions, we demonstrate that intrinsic interfacial electric fields at organic microdroplet interfaces can drive radical reactions without external catalysts or applied potentials. Using pyridine-dimethyl sulfoxide (DMSO) microdroplets as a model system, we directly confirm the presence of strong interfacial electric fields through induced charge accumulation measurements and Raman spectroscopy. These fields efficiently drive the catalyst-free methylation of pyridine to 2-methylpyridine (21.1 μM/h) under ambient conditions. Mechanistic investigations reveal that the reaction is initiated by the electric-field-induced generation of hydrogen radicals from pyridine, which then triggers an oxygen-mediated cascade to produce methyl radicals from DMSO for the subsequent methylation. This pathway is unequivocally supported by a combination of isotopic labeling, spin-trapping experiments, and density functional theory (DFT) calculations. The successful application of this strategy to other substrates underscores the broad potential of harnessing interfacial electric fields in organic microdroplets for catalyst-free radical-mediated organic reactions.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

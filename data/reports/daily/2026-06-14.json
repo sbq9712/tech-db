@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "欧洲企业SOLiTHOR研制出465 Wh/kg固态电池并通过极端安全测试",
-      "MKS Spectra-Physics推出锂离子电池电极激光加工技术以优化微观结构",
-      "西澳Bellevue金矿实现连续155小时完全依靠风光储系统维持生产运行"
+      "瓦锡兰在西班牙完成全球首台大型纯氢燃料发动机并网测试",
+      "欧洲承诺向电动汽车生态投资近2000亿欧元以完善本土供应链",
+      "深圳违规拆解厂将废旧动力电池改装后违规流入两轮车市场"
     ],
     "AI与智能科技": [
-      "天津尼卡光学投产全球首条百万片级体全息光波导自动化生产线",
-      "美国政府以安全风险为由要求Anthropic暂停境外顶级模型访问权限",
-      "中国研究团队建成三车道光纤传输系统将数据传输速率提升五倍"
+      "德国Helsing公司展出重达4吨的CA-1EA电子战无人机",
+      "美国科研团队在清醒小鼠脑区触发特定模式实现神经修复",
+      "比亚迪研发基于图像比对的人工智能技术用于识别车底生物"
     ],
     "通用技术": [
-      "科研人员利用原子核能级跃迁成功构建世界首台实用核钟",
-      "研究发现锂离子在氮化硼纳米管水溶液中呈现超快传输及高选择性",
-      "加州大学圣地亚哥分校开发出可连续监测血流与胎儿状况的超声贴片"
+      "跨国科研团队发现氯氧化钼晶体具备超常光线弯曲特性",
+      "科研人员确立在动态膨胀宇宙中测量引力波的新探测方法",
+      "麻省理工学院测试共用燃料的双模式化学与电推进系统"
     ]
   },
   "sectors": [
@@ -26,49 +26,77 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "欧洲企业SOLiTHOR研制出465 Wh/kg固态电池并通过极端安全测试",
-        "MKS Spectra-Physics推出锂离子电池电极激光加工技术以优化微观结构",
-        "西澳Bellevue金矿实现连续155小时完全依靠风光储系统维持生产运行"
+        "瓦锡兰在西班牙完成全球首台大型纯氢燃料发动机并网测试",
+        "欧洲承诺向电动汽车生态投资近2000亿欧元以完善本土供应链",
+        "深圳违规拆解厂将废旧动力电池改装后违规流入两轮车市场"
       ],
       "entries": [
         {
-          "t": "固态电池实现465 Wh/kg能量密度，通过极端安全测试",
+          "t": "世界首台大型100%氢发动机为西班牙电网提供动力",
           "d": "2026-06-14",
           "a": "interesting engineering",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "欧洲固态电池初创企业SOLiTHOR成功研制出首款10 Ah级示范电芯，能量密度达465 Wh/kg，并通过了极端安全测试。这一指标显著超越当前主流液态锂离子电池的能量密度上限（约250-300 Wh/kg），标志着硫化物或氧化物固态电解质路线在电芯工程化层面取得实质性进展。高能量密度与通过针刺、热滥用等极端安全测试的结合，验证了固态电池在解决液态电解质易燃易泄漏痛点方面的潜力。该进展对电动汽车续航提升及eVTOL等高能量密度需求场景具有关键意义，但量产工艺成熟度与成本仍是产业化主要挑战。",
-          "sc": 9.4,
+          "c": "零碳产业/能量循环/能源测/发电技术/火电",
+          "as": "技术集团瓦锡兰在西班牙贝尔梅奥成功进行了全球首台大型100%纯氢燃料发动机并网供电测试。测试采用Wärtsilä 31H2型号发动机，这也是目前全球现存最大的纯氢发动机。此次真实电网环境下的测试证实，并网发电机可在完全没有化石燃料输入的情况下运行，突破了以往发动机需混合天然气运作的技术局限。",
+          "sc": 9.3,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://interestingengineering.com/energy/solid-state-battery-cell-aerospace-defense",
-          "tp": "固态锂电池",
-          "aip": 1
+          "u": "https://interestingengineering.com/energy/large-scale-hydrogen-engine-spanish-grid",
+          "tp": "纯氢发动机发电",
+          "aip": 1,
+          "kp": [
+            "燃料纯度[大型内燃机并网测试]: 100%纯氢",
+            "[大型氢内燃机发电]: 世界首次在实际电网条件下完全依靠纯氢运行"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A large-scale power engine has successfully supplied electricity to Spain’s national grid using 100% pure hydrogen fuel. The trial, conducted by technology group Wärtsilä in the northern town of Bermeo, is the first time an engine of this scale has operated entirely on pure hydrogen under real-world grid conditions.\n“This is the world’s first demonstration of a large-scale hydrogen engine running on 100% pure hydrogen,” said the company in a press release.\nThe operation utilized the Wärtsilä 31H2 model, which currently stands as the largest pure hydrogen engine in existence. While previous power plant designs relied on engines that mixed hydrogen with standard natural gas, this test confirms that grid-connected generators can function without any fossil fuel inputs.\n“The Wärtsilä 31H2 engine, part of the Wärtsilä 31 platform, one of the world’s most efficient multi-fuel 4-stroke engines, shows that hydrogen can move beyond theory into real-world energy infrastructure,” added the company.\nAccording to the company, Spain was selected for the project because the country has established a high percentage of\nrenewable energy sources\nand is actively trying to decrease its dependence on unpredictable global fuel markets.\nThis development addresses a major structural problem facing modern electrical grids. International projections indicate that global solar and wind installations will expand by approximately 4,600 gigawatts by 2030.\nBecause wind and solar electricity production fluctuates based on weather conditions and the time of day, grid operators require highly flexible backup power systems that can start quickly during periods of low generation or high consumer demand.\n“Green hydrogen produces no carbon emissions, enabling clean power generation while supporting the decarbonisation of renewable-heavy grids,” highlighted the\npress release\n. When wind or solar farms produce more electricity than consumers need, that excess power can run electrolyzers to split water into oxygen and hydrogen gas.\nThis hydrogen is stored and subsequently burned in engines like the 31H2 to generate emissions-free electricity when weather-dependent sources are offline, ensuring a continuous power supply.\nBeyond traditional grid stabilization, the engine platform is engineered to supply electricity to remote regions that lack connection to main power lines. The manufacturer also expects the technology to support industries that require constant, high-volume electricity.\nThis includes industrial manufacturing operations and artificial intelligence data centers, which face pressure to reduce their\ncarbon footprints\nwhile maintaining uninterrupted operational uptime.\nFollowing the verification of the engine’s mechanical performance, company officials stated that widespread adoption now depends on external economic factors rather than engineering capabilities.\n“Our Wärtsilä 31H2 hydrogen engine is operating on 100% hydrogen and supplying power to Spain’s national grid, demonstrating that large-scale hydrogen engines can provide the flexible, dispatchable sustainable power needed to support future renewable energy systems,” remarked Rasmus Teir, Director of Technology Strategy & Decarbonisation at Wärtsilä.\nHe concluded that commercial expansion will require governments to establish clear regulatory frameworks, secure investment pathways, and build the physical pipelines and storage facilities necessary to transport sustainable fuels to power generation sites.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nArchaeologists identified oldest structure at UNESCO site Hadrian's Villa\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nWorld's first 'three-lane' optical fiber network in China boosts data transfer by 5x\nMore from Energy\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nChina’s Xiaomi unveils robotic arm that enables remote, hands-free home EV charging\nTest facility for full-scale fusion power-plant blankets set to be developed in US\nIron-based catalyst helps zinc-air batteries power devices without precious metals\nHalo nuclear microreactor utilizes high-fidelity simulation to speed first power",
+          "hb": 1
         },
         {
-          "t": "锂离子电池电极结构化创新",
+          "t": "欧洲 2000 亿欧元投资电动汽车供应链的内幕",
           "d": "2026-06-14",
-          "a": "Battery Tech Online",
+          "a": "Supply Chain Digital",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "介绍MKS Spectra-Physics的脉冲模式激光加工技术在锂离子电池电极结构化中的应用。该技术通过提升加工精度、效率和可扩展性，优化电极微观结构以改善电池性能，对推进电池制造的工业化和降本增效具有重要意义。",
-          "sc": 7.2,
+          "as": "欧洲经济区国家和瑞士已承诺向电动汽车生态系统投资近2000亿欧元（约2327亿美元）。其中1090亿欧元重点投向电池供应链，600亿欧元用于汽车制造，460亿欧元分配给公共充电网络建设。目前全球电动汽车电池供应链仍由中国制造商主导，中国企业生产了全球近70%的电动汽车电池，并为80%以上的电动汽车供应电池。",
+          "sc": 6.8,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.batterytechonline.com/battery-manufacturing/innovations-in-li-ion-battery-electrode-structuring",
-          "tp": "锂电池电极激光加工",
-          "aip": 1
+          "tg": "产业进展",
+          "u": "https://supplychaindigital.com/news/inside-europes-200bn-investment-into-ev-supply-chains",
+          "tp": "欧洲投资电动化",
+          "aip": 1,
+          "kp": [
+            "总投资额[欧洲经济区及瑞士电动汽车生态系统]: 近2000亿欧元",
+            "投资额[电池供应链]: 1090亿欧元",
+            "投资额[公共领域分配]: 高达460亿欧元"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Inside Europe's €200bn Investment into EV Supply Chains\nPrioritise Us\nAccording to New Automotive, Switzerland and countries in the European Economic Area are committing to EV manufacturing with major investments\nCountries in the European Economic Area and Switzerland have committed almost €200bn (US$232.7bn) to EV ecosystems. According to New Automotive, €109bn (US$127bn) of this targets the\nbattery supply\nchain. The research group states that up to €46bn (US$53.5bn) has been allocated to public charging networks and €60bn (US$70bn) to manufacturing.\nThe battery supply chain remains\ndominated by Chinese manufacturers\n. According to the International Energy Agency (IEA), Chinese companies manufacture nearly 70% of the world's EV batteries and supply battery cells for more than 80% of EVs worldwide. China also controls a majority of the refining capacity for materials like lithium, with manufacturers including CATL and BYD leading production.\nEurope now produces batteries for roughly one in three EVs sold domestically, New Automotive says. The research group notes that announced capacity could meet future demand if fully utilised.\nBatteries represent the largest share of capital in the research. This covers mining, refining, materials, gigafactories and recycling. According to New Automotive's report, announced capacity could meet future demand if fully utilised.\nEurope has strengths in cell manufacturing and downstream integration. However, gaps exist in cathodes, precursors and parts of the mid-stream value chain. The report notes that battery investments remain capital-intensive and subject to international competition, giving them the highest sensitivity to delays, downsizing or cancellation.\nAsian battery manufacturers like CATL and LG Energy Solution have already established operations in the region. European-owned businesses like Volkswagen's PowerCo are beginning to design, develop and produce cells within the continent. \"We are the first European carmaker to establish our own battery cell development and production,\" says Oliver Blume, CEO of Volkswagen Group.\n\"This step strengthens our position and independence in the global competition.\"\nManufacturing of EVs\nin Europe centres on converting legacy automotive plants alongside selective new EV-only facilities, according to the report. Battery production is being co-located to reduce costs and manage supply risk. This is happening in established automotive regions like Germany and Spain, carried out by both European OEMs and international manufacturers.\nTesla operates a €5.8bn (US$6.7bn) Gigafactory in Grünheide, Germany with an annual capacity of 375,000 EVs. Stellantis has confirmed plans to manufacture the Opel C-SUV BEV with Chinese carmaker Leapmotor at a plant in Spain, \"leveraging the Chinese New Energy Vehicle ecosystem\".\nAccording to the German Automotive Association, Germany manufactures half of all EVs made in Europe. Germany accounted for almost a quarter of the region's investment, New Automotive's research found. France made up 18% and Spain and Portugal together are responsible for 12%.\nNordic countries dominate Europe's EV adoption, according to the European Environment Agency. Norway leads the world in percentage of EV sales, with Denmark, Sweden and Finland also leading the market. However, Norway accounts for 1.6% of the total investment, Sweden for 3.8%, Finland for 3.6% and Denmark for just 0.8%.\nEurope has established a position in manufacturing\nhigh-power charging infrastructure\n, New Automotive's report states. More than €3.5bn is being invested across the continent in this manufacturing. Companies across Italy, Germany and the Nordics supply ultra-fast systems.\nPublic rollout of charging infrastructure has commitments estimated between €23bn (US$27bn) and €46bn (US$53.5bn). More than a million public charge points have been deployed across the region.\nIn December, the European Commission launched a plan to cut back its ban on ICE cars from 2035. The plan opts for 90% of new cars sold from that date to be zero-emission.\nChina is the world's largest EV market. According to the IEA, 11.3 million EV sales occurred in the country in 2024, making up 48% of its total vehicle sales.\nThe country invested at least US$230bn in the\nresearch and development\nof EVs between 2009 and 2023, according to the Center for Strategic and International Studies. This funding covers government support including exemption from 10% sales tax, funding for infrastructure, R&D programmes for manufacturers and government procurement of EVs.\nChina has made regulatory changes such as the \"dual-credit system\". These push automakers to grow electrification and make EVs easier for consumers to obtain.",
+          "hb": 1
         },
         {
-          "t": "了不起：矿山连续155小时使用100%可再生能源运行",
+          "t": "央视曝光违规电池地下工厂，部分新能源汽车废旧电池被违规改装流入市场",
           "d": "2026-06-14",
-          "a": "Electrek",
-          "c": "零碳产业/物质循环/资源处理/开采技术",
-          "as": "西澳Bellevue Gold金矿实现连续155小时100%可再生能源运行,创矿业行业先例。该矿通过风光储一体化配置,在脱离化石燃料的条件下维持不间断生产,证明了矿业深度脱碳的技术可行性,为高耗能重工业能源转型树立了里程碑。",
-          "sc": 7.1,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/13/dig-it-mine-goes-155-consecutive-hours-on-100-renewable-energy/",
-          "tp": "矿山绿电运行",
-          "aip": 1
+          "a": "IT之家",
+          "c": "零碳产业/物质循环/资源处理/资源回收",
+          "as": "全品类电动自行车火灾中约33%由非法改装电池引发，其中约80%的电芯来源于新能源汽车废旧动力电池。深圳众投新能源有限公司被曝光在隐蔽山坳设立地下拆解厂，将废旧动力电池剥离打包后，作为违规超标锂电池原材料流入两轮、三轮电动车市场。我国相关管理办法明确规定，任何组织或个人不得将废旧动力电池直接或加工后用于电动自行车等禁止使用领域。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.ithome.com/0/964/174.htm",
+          "tp": "违规电池拆解",
+          "aip": 1,
+          "kp": [
+            "起火原因占比[电动自行车火灾]: 约33%由非法改装电池引发",
+            "电芯来源占比[起火改装电池]: 约80%来自新能源车废旧动力电池"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "6 月 14 日消息，据央视财经报道，数据显示，全品类电动自行车火灾中，约 33% 的车辆起火由非法改装电池引发；起火改装电池中，\n约 80% 电芯来自新能源车废旧动力电池\n据财经调查节目曝光，深圳众投新能源有限公司从电动汽车上拆解电芯进行销售，负责人张经理告诉记者，自家拆机电芯可以用在两轮、三轮电动车上。\n张经理坦言，做这种生意，逃避监管是重中之重，因此，他们公司的仓库和拆解厂都不在一个地方，甚至不同的电芯产品都是从不同的仓库发货。记者在张经理的带领下，绕城镇、走山路，开车 20 余公里后，才到达了建在山坳里的拆解厂。\n为了躲避监管，这家公司的拆解厂外围还故意用帐篷遮挡，里面完全是另一番景象，地面上整齐码放着大量新能源汽车废旧动力电池，工人们在忙碌着对电池进行层层拆解，厂区里充斥着电锯的切割声和铣床的运转声。\n新能源汽车的废旧动力电池，经过拆解、剥离、去胶、打包等一系列工序后，最终成为电动自行车违规超标锂电池的原材料，流入市场。\nIT之家注：我国《新能源汽车废旧动力电池回收和综合利用管理暂行办法》第二十二条明确规定，任何组织或者个人不得将废旧动力电池直接或者加工后用于电动自行车以及法律、行政法规和强制性标准禁止使用的其他领域。",
+          "hb": 1
         }
       ]
     },
@@ -76,49 +104,76 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "天津尼卡光学投产全球首条百万片级体全息光波导自动化生产线",
-        "美国政府以安全风险为由要求Anthropic暂停境外顶级模型访问权限",
-        "中国研究团队建成三车道光纤传输系统将数据传输速率提升五倍"
+        "德国Helsing公司展出重达4吨的CA-1EA电子战无人机",
+        "美国科研团队在清醒小鼠脑区触发特定模式实现神经修复",
+        "比亚迪研发基于图像比对的人工智能技术用于识别车底生物"
       ],
       "entries": [
         {
-          "t": "全球首条百万片级体全息光波导自动化产线在天津投产，消费级 AR 核心显示技术重大量产突破",
-          "d": "2026-06-14",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "天津尼卡光学设计建设的全球首条百万片级体全息光波导自动化产线在滨海高新区正式投产,年产能达100万片。体全息光波导是消费级AR眼镜的核心显示光学元件,决定成像质量与轻薄化程度。该产线的落地标志着我国在AR底层光学技术上从实验室小批量向工业化量产的关键跨越,有望打破国外厂商在AR光波导量产环节的垄断,加速消费级AR终端的规模化落地。",
-          "sc": 10.0,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/963/988.htm",
-          "tp": "体全息光波导",
-          "aip": 1
-        },
-        {
-          "t": "美国以安全风险为由，Anthropic限制顶级模型",
+          "t": "德国公司推出CA-1无人机的电子战变型",
           "d": "2026-06-14",
           "a": "interesting engineering",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "AI巨头Anthropic被迫暂停向美国以外用户开放其最先进AI模型的访问权限，原因是美国政府以安全风险为由提出要求。此举直接影响全球开发者和企业获取前沿模型的能力，可能加剧不同地区在AI技术获取上的不平等，反映出先进AI技术正成为地缘政治管控的重点对象，出口管制趋势日益明显。",
-          "sc": 8.1,
-          "i": "news",
-          "tg": "政策监管",
-          "u": "https://interestingengineering.com/ai-robotics/anthropic-blocks-international-users",
-          "tp": "AI模型出口管制",
-          "aip": 1
-        },
-        {
-          "t": "世界首条'三车道'光纤线路使数据传输速率提升5倍",
-          "d": "2026-06-14",
-          "a": "interesting engineering",
-          "c": "AI与智能科技/AI硬件层/计算集群",
-          "as": "中国研究人员开发出新型'三车道'光纤传输系统，通过多芯或多模光纤实现数据传输速率提升5倍。该技术突破传统单模光纤容量瓶颈，有望大幅提升数据中心和长距离通信带宽，为6G和超高速互联网基础设施提供关键支撑。",
-          "sc": 8.4,
-          "i": "news",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "德国防务技术公司Helsing在柏林国际航空航天展上展出了CA-1自主无人机的电子战变型机型CA-1EA。该机基于CA-1 Europa架构，采用低可探测性设计，全长11米，翼展10米，重4吨级，单引擎，搭载Centaur AI飞行员系统。原有的动能攻击版本被命名为CA-1KA，新型号CA-1EA则专为提供非动能电子攻击效果而设计。",
+          "sc": 7.0,
+          "i": "n",
           "tg": "技术突破",
-          "u": "https://interestingengineering.com/innovation/worlds-first-three-lane-optical-fiber-network",
-          "tp": "多芯光纤通信",
-          "aip": 1
+          "u": "https://interestingengineering.com/military/german-firm-launches-ca-1ea-unmanned-electronic-warfare-aircraft-ioc-in-2031",
+          "tp": "无人机电子战",
+          "aip": 1,
+          "kp": [
+            "级别[CA-1无人机]: 4吨级单发隐身战机",
+            "机身长度[CA-1无人机]: 11米",
+            "翼展[CA-1无人机]: 10米",
+            "核心架构[电子战变型CA-1EA]: 基于CA-1 Europa设计并搭载Centaur AI飞行员系统"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The German defense technology company Helsing has presented an electronic attack variant of the CA-1 autonomous unmanned aircraft at the International Aerospace Exhibition in Berlin. The platform named CA-1EA builds on the company`s existing CA-1 Europa architecture.\nCA-1 Europa is 4 ton class, single engine\ncombat aircraft employing a low observable design. It has a length of 11 meters and a wingspan of 10 meters. Its autonomy is centered around the Helsing’s Centaur AI pilot stack and advanced mission systems.\nThe original combat variant, which the company is already producing, will now carry the designation CA-1KA (Kinetic Attack), distinguishing it from the new electronic warfare model. According to the company, the electronic attack variant is intended to provide non-kinetic effects on the battlefield by disrupting and degrading enemy sensors and reconnaissance networks.\nHelsing argues that modern air forces increasingly need a combination of kinetic and electronic attack capabilities to penetrate advanced air defence systems and counter sophisticated surveillance assets, making autonomous electronic warfare platforms a key component of future military operations.\nModern military operations depend heavily on suppressing enemy\nand surveillance networks before strike aircraft enter contested airspace. Helsing says the CA-1 EA is designed to fill that role by using airborne electronic warfare capabilities to disrupt and jam hostile ground-based radar systems. By interfering with an adversary’s ability to detect and track targets, the autonomous aircraft can help create safer flight paths for other assets operating behind it.\nthat the CA-1EA is designed to work alongside autonomous systems such as the CA-1 Europa as well as conventional crewed fighters, including the Eurofighter, extending electronic protection across mixed air fleets.\nBoth the CA-1KA and the CA-1EA electronic warfare variant are built on a common architecture, using the same airframe, propulsion system, autonomy software stack, and ground control infrastructure. The distinction between the two platforms is primarily defined by their payload configurations, which determine whether the aircraft is optimised for kinetic or electronic effects on the battlefield.\nAs the company further explains, this modular approach enables the CA-1 platform to evolve further, giving it the flexibility to be adapted to the operational needs of European air forces. By maintaining a scalable and shared architecture, the system can be configured for different mission profiles without requiring a complete redesign.\nThis design philosophy is intended to support rapid capability expansion while aligning with the varied requirements of modern European defense users.\n“Modern air forces cannot do without electronic warfare. Helsing has been working to develop this capability for years. The CA-1EA is the result: an\nsystem that operates alongside the CA-1KA at tactical range, but can also be deployed flexibly as a standalone platform for electronic warfare,” said Stephanie Lingemann, vice president for air domain at Helsing.\nThe CA-1 platform is still under development, with the first flight of the CA-1 Europa attack variant planned for early 2027. It is being developed and produced in southern Germany by Helsing’s subsidiary Grob Aircraft, positioning the system as a fully European solution for German and allied air forces. The first operational capability is expected in 2029 for the CA-1KA variant, followed by 2031 for the CA-1EA electronic warfare version.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nArchaeologists identified oldest structure at UNESCO site Hadrian's Villa\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nWorld's first 'three-lane' optical fiber network in China boosts data transfer by 5x\nMore from Military\nUS refueling fleet falls below Air Force readiness standards, new watchdog report finds\nTurkey’s AKYA heavyweight torpedo destroys target ship in major naval exercise\nNew unmanned aircraft with 40-hour endurance, 2,866-lb payload capacity completes assembly\nChinese military study outlines strategy to target US warships from 1,800 miles away\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet\nUS refueling fleet falls below Air Force readiness standards, new watchdog report finds\nTurkey’s AKYA heavyweight torpedo destroys target ship in major naval exercise\nNew unmanned aircraft with 40-hour endurance, 2,866-lb payload capacity completes assembly\nChinese military study outlines strategy to target US warships from 1,800 miles away\nUS Navy’s nuclear-powered fast-attack submarine returns to fleet",
+          "hb": 1
+        },
+        {
+          "t": "新研究发现大脑可能不需要充分睡眠就能恢复",
+          "d": "2026-06-14",
+          "a": "scitechdaily",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "一项由美国国立卫生研究院资助的新研究表明，在清醒状态下诱发特定的类睡眠大脑模式，有助于保留记忆和学习能力。研究人员在清醒小鼠的特定脑区触发了关键的睡眠相关神经过程，成功逆转了睡眠剥夺带来的部分认知负面影响，并在局部目标区域内实现了神经修复功能。这一发现打破了大脑必须进入完全睡眠状态才能进行神经维护的传统观念。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/the-brain-may-not-need-full-sleep-to-recover-new-research-finds/",
+          "tp": "脑状态恢复",
+          "aip": 1,
+          "kp": [
+            "[大脑睡眠恢复机制]: 在清醒动物的特定大脑区域触发关键的睡眠相关过程，以逆转睡眠剥夺带来的认知影响"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A new study suggests that reproducing a crucial sleep-like brain pattern in awake animals may help preserve memory and learning abilities.\nWhat if part of the brain could get some of the benefits of sleep without the rest of the brain ever going offline? A new NIH-funded study suggests that may be possible. Researchers found a way to trigger a key sleep-related process in specific brain regions of awake mice, helping reverse some of the cognitive effects of sleep deprivation and shedding light on why sleep is so important for learning and memory.\nThe findings challenge the traditional view that the brain must enter a fully sleeping state to perform certain forms of neural maintenance. Instead, the research suggests that some restorative functions can occur locally, within targeted areas of the brain, even while the animal remains awake and responsive.\n“What we’re essentially doing is forcing sleep in a local region of the brain. While that part is solidifying memories and restoring learning capacity, other parts stay aware/vigilant and connected to environment,” said corresponding author Chiara Cirelli, M.D., Ph.D., a professor of psychiatry at the University of Wisconsin-Madison. “Dolphins do something similar, sleeping with only one brain hemisphere at a time.”\nNon-rapid eye movement (NREM) sleep accounts for roughly 80% of adult sleep and plays a major role in maintaining the neural connections involved in memory. During this stage, the brain strengthens and preserves important connections, removes less useful ones, and creates room for new learning.\nEarlier research by Cirelli and her team found that sleep-deprived\ncan briefly experience localized slow-wave brain activity, a defining feature of NREM sleep, even while awake. These short episodes were likely too limited to provide significant benefits, but they suggested that inducing longer periods of similar activity might have meaningful effects.\nIn the new study, researchers used light-activated implants along with genetic modifications to create rhythmic cycles of activity and inactivity in one side of the brains of sleep-deprived mice. The stimulation sessions lasted 30 minutes and were designed to replicate activity patterns seen during NREM sleep.\nAfterward, the stimulated brain regions showed lower levels of slow-wave activity during sleep, suggesting those areas had a reduced need for recovery. Additional experiments indicated that the benefit was not driven by an overall decrease in neuronal activity, as some theories have proposed. Instead, it appeared to depend on the specific alternating pattern of activity.\nThe team also examined whether the approach could improve behavior. In a tactile memory test that depends on sleep, sleep-deprived mice that received stimulation in motor and sensory regions on both sides of the brain performed about as well as well-rested mice. In contrast, sleep-deprived mice that did not receive stimulation performed significantly worse.\nCirelli and her colleagues plan to investigate whether similar results can be achieved in people using less invasive transcranial stimulation methods.\n“This research further decodes why we sleep and how we learn, which brings us a step closer to understanding how to better prevent and treat cognitive decline,” said Amy Bany Adams, Ph.D., acting director of the NIH’s National Institute of Neurological Disorders and Stroke (NINDS), which funded the research.\nReference: “Induction of cortical on/off periods in awake mice fulfills sleep functions” by Kort Driessen, Fabio Squarcio, Giulio Tononi and Chiara Cirelli, 8 June 2026,\nNature Neuroscience\nDOI: 10.1038/s41593-026-02318-9\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nCognitive Science\nNational Institutes of Health\nNeuroscience\nSleep Science\nNew Study Challenges What We Know About Consciousness and the Brain\nResearchers Reveal What Happens to Your Brain When You Don’t Get Enough Sleep\nAccording to Researchers, Your Breathing Patterns Could Hold the Key to Better Memory\nMRI Uncovers Brain’s Hidden Waste-Removal System, Paving the Way for Alzheimer’s Prevention\nRecovering “Hidden Knowledge” – How an Asthma Medication Could Restore Memories\nScientists Discover a New Daily Rhythm Providing Insight Into How Brain Activity Is Fine-Tuned\nNeuroscientists Create Model to Study Burst Suppression and Brain States\nSynchronized Brain Oscillations Crucial for Short-Term Memory\nMother’s Nurturing Results in Larger Hippocampus in Children",
+          "hb": 1
+        },
+        {
+          "t": "比亚迪全新人工智能系统可识别车底生物",
+          "d": "2026-06-14",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "比亚迪开发出一种能够识别车底生物的新型人工智能专利技术。该技术基于基准成像方法，在车辆静止熄火时捕获并存储车底视觉参考图像。车辆启动前进行安全检查时，系统拍摄实时图像并与参考图比对，仅隔离并分析发生变化的区域并发送详查。该机制有效降低了计算需求，可快速识别车辆底部的异常生物。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/transportation/china-byd-ai-system-underneath-cars",
+          "tp": "车底生物识别",
+          "aip": 1,
+          "kp": [
+            "[车底生物识别系统]: 建立车辆熄火静止状态下的底盘基准图像，并在启动前与实时图像进行比对"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "At the heart of the patented technology is a baseline imaging approach that creates a visual reference of the vehicle’s underside. When the car is switched off and in a stable state, the system captures and stores an image of the underbody, establishing a snapshot of what the area should normally look like.\nLater, when the vehicle is preparing to move or performing a safety check, new real-time images are taken and compared with the stored reference. Rather than processing the entire underbody scene every time, the software focuses only on areas where it detects a change from the baseline image.\nThese altered sections are isolated as target images and sent for more detailed analysis, allowing the system to reduce computing demands while quickly identifying anything unusual\nthe vehicle.\nRather than repeatedly processing every component beneath the car, the patented system is designed to ignore elements that remain unchanged from one scan to the next. Fixed structures such as the\npack housing, suspension components, aerodynamic covers, and other underbody hardware are treated as part of the reference environment, allowing the software to concentrate on anything that appears or moves after the baseline image has been recorded.\nOnce a new or altered area has been identified, the technology performs a more detailed examination of that specific section. It extracts visual features from the target image, analyses them using its detection algorithms, and determines whether the object is a living organism. The system can then assess the detected subject’s condition or status before deciding whether further action or a safety warning is required,\nCarNewsChina\nUnlike in-cabin monitoring technologies, identifying living organisms beneath a vehicle presents a far more complex computer-vision challenge. The space underneath a parked car is highly unpredictable, with constantly changing environmental conditions that can interfere with accurate detection.\nShifting shadows, uneven lighting, road debris, accumulated dirt, and different ground textures all create visual noise that makes reliable recognition difficult. Conventional motion-detection systems can also generate false positives, often failing to distinguish between ordinary environmental changes and the presence or movement of a person or\nbeneath the vehicle.\nInstead of depending exclusively on object-recognition software, BYD’s patented technology first builds a unique visual reference of the area beneath each parked vehicle. By comparing new images against this stored baseline, the system can quickly identify anything that has changed in the underbody environment before carrying out a more advanced analysis.\nOnly after these differences have been isolated does the\napply its recognition algorithms to determine whether the detected object is a person, an animal, or another living organism. This layered, two-step process is designed to improve the accuracy of the detection system while cutting down on false alarms triggered by fixed structures or other non-threatening objects that remain stationary beneath the vehicle.\nThe patent also aligns with BYD’s broader push into advanced vehicle safety systems. The company recently unveiled another invention designed to detect forgotten occupants inside a car using radar-based sensing and signal analysis.\nTogether, the two technologies monitor opposite sides of the vehicle – one focusing on the cabin and the other on the space underneath. The approach suggests\nis building a wider sensing ecosystem that combines computer vision, radar, and intelligent monitoring to improve overall vehicle awareness.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nArchaeologists identified oldest structure at UNESCO site Hadrian's Villa\nFirst-ever: Four-legged robot dog successfully walks across treacherous Arctic ice floes\nSolid-state battery cell hits 465 Wh/kg density, targets aerospace and defense applications\nWorld's first 'three-lane' optical fiber network in China boosts data transfer by 5x\nMore from Transportation\nTransportation\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nTransportation\nNuclear shipping: Large vehicle carrier with molten salt reactor gets design approval\nTransportation\nNew plane prototype conducts maiden piloted flight, can transform hybrid-electric aircraft future\nTransportation\nKLM operates first passenger flight to Germany with synthetic kerosene-blended fuel\nTransportation\nWorld’s first electric TaxiBot tows Airbus A320 jets at 26 mph in the Netherlands\nTransportation\nNew turbo-electric passenger aircraft concept projected to deliver 17% more range efficiency\nTransportation\nNuclear shipping: Large vehicle carrier with molten salt reactor gets design approval\nTransportation\nNew plane prototype conducts maiden piloted flight, can transform hybrid-electric aircraft future\nTransportation\nKLM operates first passenger flight to Germany with synthetic kerosene-blended fuel\nTransportation\nWorld’s first electric TaxiBot tows Airbus A320 jets at 26 mph in the Netherlands",
+          "hb": 1
         }
       ]
     },
@@ -126,49 +181,73 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研人员利用原子核能级跃迁成功构建世界首台实用核钟",
-        "研究发现锂离子在氮化硼纳米管水溶液中呈现超快传输及高选择性",
-        "加州大学圣地亚哥分校开发出可连续监测血流与胎儿状况的超声贴片"
+        "跨国科研团队发现氯氧化钼晶体具备超常光线弯曲特性",
+        "科研人员确立在动态膨胀宇宙中测量引力波的新探测方法",
+        "麻省理工学院测试共用燃料的双模式化学与电推进系统"
       ],
       "entries": [
         {
-          "t": "历经数十年努力，世界首台实用核钟建成",
+          "t": "这种奇怪的水晶可以像自然界中其他任何东西一样弯曲光线",
           "d": "2026-06-14",
-          "a": "interesting engineering",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "经过数十年努力，世界首台可工作的核钟成功建成。核钟利用原子核能级跃迁而非电子跃迁来计时，理论精度远超现有原子钟，可作为更精确的时间与频率基准。这一突破标志着核光谱学从理论设想迈向工程实现，对基础物理常数测量、GPS导航、暗物质探测等领域具有深远意义。",
-          "sc": 8.1,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/innovation/first-nuclear-clock-thorium-229",
-          "tp": "核钟",
-          "aip": 1
-        },
-        {
-          "t": "氮化硼纳米管膜中的反常超快锂离子输运",
-          "d": "2026-06-14",
-          "a": "Nature Nanotechnology",
+          "a": "scitechdaily",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队系统考察了不同碱金属离子在带电氮化硼纳米管（BNNTs）中的水溶液传输行为，并与碳纳米管进行了对比。结果显示锂离子在BNNT中呈现异常超快的传输特性，且选择性极高。该发现对开发高效锂电池电解质、海水淡化膜及离子分离技术具有重要意义，揭示了氮化硼纳米通道独特的离子输运物理机制。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02182-5",
-          "tp": "氮化硼纳米管膜",
-          "aip": 1
+          "as": "由XPANCEO联合新加坡国立大学及布拉格化工大学的科研团队发现，层状晶体氯氧化钼具有前所未有的极强光线弯曲能力。这种破纪录的晶体能够在类似镜面与类似玻璃的状态之间转换。在原子尺度上操控光线的材料特性，为制造微型光学芯片、智能隐形眼镜和超薄增强现实（AR）眼镜等下一代可穿戴技术铺平了道路。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/this-strange-crystal-bends-light-like-nothing-else-in-nature/",
+          "tp": "超构光学晶体",
+          "aip": 1,
+          "kp": [
+            "[新型光电晶体材料]: 具有打破纪录的光线弯曲能力，可在镜面与玻璃状态间转换并实现原子尺度光操纵"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "This record-breaking crystal can transform from mirror-like to glass-like, opening the door to tiny optical chips, AR displays, and smart contact lenses.\nCreating truly “invisible” wearable technology such as smart contact lenses and ultrathin augmented reality glasses will require a radical rethink of how optical devices are built. Instead of relying on conventional bulky components, researchers are looking for materials that can manipulate light at the atomic scale.\nA team from XPANCEO, working with scientists from the National University of Singapore and the University of Chemistry and Technology, Prague, has now identified remarkable properties in a layered crystal called molybdenum oxychloride (MoOCl\n). Their findings, published in Nano Letters, could help pave the way for dramatically smaller optical technologies.\nThe researchers produced the first complete experimental map of MoOCl\n‘s optical properties and found that it exhibits the strongest light-bending effect ever measured in a natural material.\nWhat makes the crystal especially unusual is that its behavior changes depending on how it is oriented. In one direction, it reflects light like a metal. Rotate it by 90 degrees, and it becomes transparent like glass.\nScientists describe this behavior as extreme optical anisotropy. The crystal’s response to light varies dramatically depending on direction. With an in-plane birefringence value of about 2.2, MoOCl\ncan split and redirect light with exceptional efficiency.\nFor developers working on wearable displays, this capability is particularly attractive. It suggests that optical functions currently performed by larger components could someday be achieved using materials thousands of times thinner than a human hair.\nThe team also discovered a rare epsilon-near-zero point at 512 nm (green light).\nAt this specific wavelength, part of the material’s optical response falls close to zero. As a result, light effectively slows down inside the crystal while the internal electric field becomes much stronger.\nThis effect can significantly boost interactions between light and matter, an advantage for integrated photonic chips that process information using light rather than electricity. Stronger interactions can enable faster data processing while consuming less power.\nResearchers have been studying MoOCl\nfor several years because of its unusual electronic structure.\nThe material is classified as a “bad metal” and contains one-dimensional chains of molybdenum atoms. These chains allow electrons to move more easily in one direction than another. As a result, the crystal behaves like a metal along one axis and like a dielectric material along the perpendicular axis.\nThis unusual combination gives MoOCl\nits exceptionally strong anisotropy.\nPrevious studies published in\nNature Communications\nhad already revealed that the crystal could support tightly confined light waves called hyperbolic plasmon polaritons. Those experiments showed that light could travel through the material in highly directional and unexpected ways.\nHowever, one important piece of the puzzle was still missing. Scientists could observe these effects, but they had not directly measured the fundamental optical constants responsible for them. Without those measurements, designing practical devices remained difficult.\nThe new study fills that gap.\nThe measurements confirmed that near 512 nanometers in the green portion of the visible spectrum, one component of the material’s optical response approaches zero. This visible-light epsilon-near-zero, or ENZ, point allows electromagnetic energy to become highly concentrated inside the crystal, increasing light–matter interactions.\nMany materials reach ENZ conditions only in the deep ultraviolet or mid-infrared regions. MoOCl2 is unusual because it does so in the visible spectrum, where many existing lasers, microscopes, cameras, and sensing technologies already operate.\n“Observing a phenomenon is the first step, but engineering requires precise numbers,” said Dr. Valentyn Volkov, founder and CTO of XPANCEO and corresponding author of the study. “By rigorously measuring the complete dielectric tensor of MoOCl\n, our work provides the experimental foundation needed to understand why this material behaves the way it does and to design around it with greater confidence. That makes it a valuable scientific result for the field, with possible relevance across compact polarization optics, nonlinear devices, and, in the longer term, highly miniaturized integrated systems including smart contact lenses.”\nThe detailed optical map also highlights how MoOCl\ncould help reduce the size of future optical systems.\nBecause of its extreme structural anisotropy, the crystal naturally functions as a hyperbolic medium. In practical terms, this allows light to travel through the material as highly directional\nrays without diffracting (or scattering), an essential feature for building smaller optical circuits.\nIts ability to operate in the visible range further increases its appeal for integrated photonic chips, where light must be guided, filtered, and concentrated within extremely small spaces.\nThe researchers point to several potential applications. These include ultrathin broadband polarizers that control the direction of light in compact optical devices, as well as sub-diffractional waveguides capable of directing light through spaces smaller than conventional optics allow.\nThe material could also advance nonlinear nanophotonics, a field that uses intense light–matter interactions to generate new colors of light and process optical signals more efficiently.\nTaken together, the findings provide a new foundation for designing ultracompact optical technologies and bring futuristic devices such as smart contact lenses and next-generation AR displays a step closer to reality.\nReference: “Giant Optical Anisotropy and Visible-Frequency Epsilon-near-Zero in Hyperbolic van der Waals MoOCl2” by Georgy Ermolaev, Adilet Toksumakov, Aleksandr Slavich, Anton Minnekhanov, Gleb Tselikov, Arslan Mazitov, Ivan Kruglov, Gleb Tikhonowski, Mikhail Mironov, Ilya P. Radko, Dmitriy Grudinin, Ilia Fradkin, Andrey Vyshnevyy, Zdeněk Sofer, Aleksey Arsenin, Kostya S. Novoselov and Valentyn Volkov, 16 March 2026,\nNano Letters\nDOI: 10.1021/acs.nanolett.5c06153\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAugmented Reality\nNanophotonics\nNanotechnology\nNanoantennas Illuminate New Science: The Revolution in Radiative Decay Imaging\nChilling Breakthrough: The Science Behind a Real-Life “Freeze Ray” Technology for the Air Force\nEnabling Technologies of Tomorrow: Nanoparticles Control Flow of Light Like Road Signs Direct Traffic\nEngineers Develop New System to Harness the Full Spectrum of Available Solar Radiation\n‘Digital Metamaterials’ Bring Invisibility Cloaks Closer to Reality\n“Nanocamera” Takes Pictures at Distances Smaller Than the Wavelength of Light\nNew Nanoengineering Approach Boosts Carrier Multiplication in Quantum Dots\nNanodevice Can Focus Light into a Point Just a Few Billionths of a Meter Across\nThe First All-optical Nanowire Switch",
+          "hb": 1
         },
         {
-          "t": "突破性超声波贴片可实时追踪血流和胎儿健康状况",
+          "t": "科学家开发出一种测量膨胀宇宙中引力波的新方法",
           "d": "2026-06-14",
           "a": "scitechdaily",
           "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "加州大学圣地亚哥分校工程师开发了一种柔性可穿戴超声贴片，可连续数小时实时监测胎儿健康状况，在胎儿和脐带移动过程中仍保持稳定性能。临床测试表明该设备能帮助医生更早发现高危妊娠并发症，为产前监测提供了免持式、长期追踪的创新方案。",
-          "sc": 7.6,
+          "as": "科学家开发出一种全新的基于探测器的测量方法，用于在膨胀演化的宇宙中准确测量引力波。自2015年首次直接探测到引力波以来，科学家已熟练解析穿越相对平静空域的波纹信号，例如黑洞合并。然而，在宇宙本身形状正在发生演化改变的背景下测量这些时空微小扭曲极具挑战性，新方法有效澄清了在动态膨胀宇宙中测量引力波的技术路径。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://scitechdaily.com/scientists-develop-a-new-way-to-measure-gravitational-waves-in-the-expanding-universe/",
+          "tp": "引力波测量新法",
+          "aip": 1,
+          "kp": [
+            "[引力波探测]: 开发基于探测器的全新方法，以明确如何在膨胀演化的宇宙中测量引力波"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A new detector-based method clarifies how\ngravitational waves\nshould be measured in an evolving universe.\nImagine trying to measure a ripple on the surface of a pond while the pond itself is slowly changing shape. That is the challenge scientists face when they study gravitational waves not as isolated signals from colliding black holes, but as part of the evolving universe itself.\nGravitational waves are tiny distortions in spacetime. Their first direct detection in 2015 opened a new era in astronomy, giving scientists a way to observe cosmic events that do not rely on light. Since then, researchers have become highly skilled at interpreting waves that travel through mostly empty, relatively calm regions of space. The signals from merging black holes are a clear example.\nIn those familiar cases, the setup is comparatively clean. The wave can be treated as a small disturbance passing through a stable background, and detectors measure the resulting stretch and squeeze in spacetime. The “wave” and the “background” can be separated in a meaningful way.\nCosmology changes the picture. Instead of studying a wave moving through an otherwise quiet patch of space, researchers must consider the universe as a whole. That includes spacetime itself, along with everything inside it, such as stars, galaxies, black holes, and the large-scale structure of the cosmos.\nIn this setting, the background is not still. The universe expands, matter is unevenly distributed, and small variations in density and motion constantly influence spacetime. These effects make it much harder to say exactly where the background ends and a gravitational wave begins.\nThat leads to a deceptively simple question: What does a gravitational wave detector actually measure when the entire universe is in motion?\nDr. Guillem Domènech and colleagues at the Institute of Theoretical Physics at Leibniz University Hannover (LUH) have developed a detector-based framework designed to solve this problem.\nRather than starting with abstract mathematical components of a gravitational field, the team focused on what a real experiment would record. Their model uses two freely falling test masses, or atomic clocks, connected by a beam of light. When a gravitational wave passes through, it can slightly change the time the light takes to travel between them. That change appears as a measurable shift in timing or frequency.\nThe researchers derived this observable quantity in a coordinate-independent way, including effects up to second order in cosmic fluctuations. In other words, they worked out how to describe the detector’s signal without confusing a real physical effect with an artifact of the mathematical language used to describe the universe.\n“Gravitational wave detectors measure differences in the frequencies and arrival times of light beams,” says lead author Guillem Domènech. “We calculate these quantities exactly within an expanding spacetime and distinctly isolate what is genuinely measurable from effects that rely on the mathematical description. This ensures that theoretical predictions for future experiments are rigorous and reliable.”\nThe new approach gives theorists and experimentalists a common way to talk about gravitational wave measurements. In the simple limit of quiet spacetime, it reproduces the familiar signals measured by ground-based interferometers. In the more complex setting of cosmology, it keeps the prediction tied to what an actual detector would see.\nThat makes the framework especially useful for searches for primordial gravitational waves and other subtle signals spread across the universe. It is also relevant to current and future efforts that use\ntiming arrays and the space-based observatory LISA.\nReference: “Observable Gravitational Wave Strain at Second Order” by Guillem Domènech, Shi Pi and Ao Wang, 3 June 2026,\nPhysical Review Letters\nDOI: 10.1103/pwbs-xwrh\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAstrophysics\nLeibniz University\nWas the James Webb Telescope Broken? The Real Culprit Was a Monster Black Hole\nAstronomers Solve the Mystery of How Black Holes Got Big So Fast\nGravitational Waves Expose Hidden Dark Matter Around Black Holes\n“Cannibal Stars” and Black Holes May Have Formed in the Universe’s First Second\nWebb Telescope Spots Oldest Black Hole, Shattering Cosmic Records\nInvisible Storm Lights Up Galaxy Cluster With Record-Breaking Radio Glow\nNASA Detects 11-Billion-Year-Old Black Hole Jet Lit by the Big Bang\nAre We Wrong About Black Holes? A Radical Theory Challenges Einstein\nChaotic Triple Drama: Black Hole Billiards in the Centers of Galaxies",
+          "hb": 1
+        },
+        {
+          "t": "麻省理工学院的新型双模式火箭系统可以将微型卫星发送到火星",
+          "d": "2026-06-14",
+          "a": "scitechdaily",
+          "c": "通用技术/通信和运输/航天",
+          "as": "麻省理工学院研究人员正在测试一种新型双模式空间推进技术，可使微型卫星具备深空探索能力。该系统将化学推进和电推进两种截然不同的形式整合在一个封装内，利用同一种推进剂同时驱动化学和电动推力器。这免除了传统航天器需配备独立燃料源带来的复杂性，使得航天器既能进行快速机动操作，又能实现高效远距离飞行。",
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://scitechdaily.com/breakthrough-ultrasound-patch-tracks-blood-flow-and-fetal-health-in-real-time/",
-          "tp": "超声贴片",
-          "aip": 1
+          "u": "https://scitechdaily.com/mits-new-dual-mode-rocket-system-could-send-tiny-satellites-to-mars/",
+          "tp": "双模式火箭系统",
+          "aip": 1,
+          "kp": [
+            "[双模式火箭系统]: 单一推进剂同时驱动化学推进和电推进，兼具快速机动与高效远程飞行能力"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "’s new two-in-one space engine could turn tiny satellites into surprisingly capable deep-space explorers.\nResearchers at MIT are testing a new propulsion technology that could give small satellites a major boost in capability. The system combines two very different forms of spacecraft propulsion in a single package, allowing satellites to perform both rapid maneuvers and highly efficient long-distance travel.\nAt the heart of the design is a single propellant that can power both chemical and electric thrusters. Traditionally, these systems require separate fuel sources, adding complexity and taking up valuable space on a spacecraft.\n“If you can have chemical and electrical propulsion in one small package, it’s the best of both worlds,” says Amelia Bruno, a former postdoctoral researcher in MIT’s Department of Aeronautics and Astronautics (AeroAstro). “This opens the door for small satellites to do even more science, more observations, and more interesting missions, all on a smaller and cheaper platform.”\nBruno is the lead author of a study published in the Journal of Propulsion and Power. The research demonstrates that a type of environmentally friendlier monopropellant originally developed by the U.S. Air Force for chemical propulsion can also be used to operate miniature electric thrusters known as electrospray thrusters.\nElectrospray thrusters are tiny propulsion devices, roughly the size of a dime, that use electric fields to charge particles in a liquid propellant. Those charged particles are then expelled into space, producing thrust.\nThese thrusters are exceptionally fuel-efficient and are well suited for slow, precise maneuvers. They can gradually propel spacecraft across vast distances, making them attractive for long-duration missions.\nChemical thrusters serve a different purpose. They generate much higher levels of thrust for short periods, making them useful when spacecraft need to accelerate quickly, change direction rapidly, or perform other demanding maneuvers.\nThe mission will mark the first in-space test of this type of dual-mode propulsion system on a small satellite. According to Bruno, success could help pave the way for future deep-space exploration by compact spacecraft.\n“We could send CubeSats to\n, or the asteroid belt, where they could make the journey slowly, using electrospray thrusters,” says study co-author Paulo Lozano, the Miguel Alemán Velasco Professor of Aeronautics and Astronautics at MIT. “You could then use your chemical thrusters to quickly move to look at interesting features. You could have a lot more flexibility to do a lot more things.”\nThe study was also co-authored by Matthew Corrado, a former MIT graduate student in AeroAstro.\nLozano’s laboratory designs and tests electrospray propulsion systems for satellites ranging in size from a lunchbox to a small carry-on suitcase. These miniature spacecraft are significantly less expensive to launch than traditional satellites.\nBecause every component must be compact, propulsion systems for small satellites face strict size limitations. Electrospray technology addresses that challenge.\nThe thrusters developed by Lozano’s group are about the size of a thumbnail. Each sits above a small reservoir filled with ionic liquid propellant. When connected to a power source, electrical voltage charges ions within the liquid. Those charged particles are then directed through tiny emitters and expelled into space, generating thrust.\nOver the last decade, the research team has evaluated numerous designs and propellant formulations. Much of their work has focused on ionic liquids, which are salt-based materials that remain liquid under conditions where many other substances would not.\n“Ionic liquids are very stable and can even remain a liquid in space, which not a lot of materials can do,” Bruno says. “And it’s basically a sea of ions, which is why we base our technology around it, so we can pull those ions out into an electrospray.”\nBruno and Lozano have also worked with the U.S. Air Force, which developed a new ionic liquid propellant called Advanced SpaceCraft Energetic Non-Toxic propellant (ASCENT). The fuel was originally intended for use in chemical propulsion systems.\nASCENT was designed as a safer alternative to hydrazine, a commonly used spacecraft fuel that poses significant handling risks because of its toxicity.\n“ASCENT happens to be an ionic liquid mixture,” Bruno says. “And we said, hey, that’s the stuff we typically use. Theoretically, this should work. Let’s go figure out how.”\nTo test that idea, the researchers fueled electrospray thrusters with ASCENT and measured their performance. Each thruster was attached to a cube-shaped reservoir roughly the size of a LEGO brick and filled with one gram of propellant. The liquid has a viscosity similar to baby oil.\nThe thrusters were mounted on opposite sides of a CubeSat placed on a custom MagLev test platform. Located inside a vacuum chamber, the setup allows researchers to simulate conditions found in space by magnetically levitating the spacecraft.\nDuring a series of experiments, the team applied different voltage levels to the thrusters. The resulting sprays generated enough force to spin the CubeSat, much like a floating top. Researchers measured the thrust produced and monitored fuel efficiency during continuous operation lasting as long as 100 hours.\nThe results showed that ASCENT successfully powered the electrospray thrusters. Performance was comparable to that achieved with conventional ionic liquid propellants already used in electric propulsion systems.\n“Compared to our normal electrospray propellants, ASCENT can provide similar performance in terms of thrust,” Bruno says. “Now that we know our thrusters work with ASCENT, we can start thinking of all the ways we can make them even better.”\nBecause ASCENT can support both chemical and electric propulsion, future spacecraft could rely on a single fuel tank to power both systems. That approach would simplify spacecraft design while preserving the advantages of each propulsion method.\nThe concept will receive its first real-world demonstration through NASA’s Green Propulsion Dual Mode mission, currently scheduled for launch in November.\n“This will be the first time that a satellite will have a shared propellant tank,” says Lozano.\nHe believes the technology could prove useful not only for interplanetary exploration but also for missions closer to Earth, including weather monitoring and climate research.\n“Say there’s a storm coming, and you’d want to deploy your constellation of small satellites to observe over one location,” he says. “You could choose to send them quickly or slowly depending on the nature of the observation. And the only way to do that is if you have two propulsion systems, which is now possible.”\nReference: “Performance Characterization of Electrospray Thrusters with Energetic Ionic Liquid Monopropellant” by Amelia R. Bruno, Matthew N. Corrado and Paulo C. Lozano, 31 May 2026,\nJournal of Propulsion and Power\nDOI: 10.2514/1.B40175\nThe research was supported in part by NASA.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nAerospace Engineering\nBotched Pressure Test of Russian Soyuz Capsule Delays Launch by a Month\nJuno Spacecraft Completes First Trajectory Correction Maneuver\nNASA’s THEMIS Satellite Records Effect of Geomagnetic Storms on Radiation Belts\nNASA’s Cassini Spacecraft Shows Dune Patterns of Titan\nNASA’s Voyager 1 Spacecraft Operating at Coldest Temperature Ever\nOrion Mockup Takes Final Splash Test\nNASA Plans Trajectory Maneuver for Mars Science Laboratory Spacecraft\nNASA Probe Takes Close-Up Photos of Giant Vesta Asteroid\nNASA’s Voyager 1 in “Cosmic Purgatory”",
+          "hb": 1
         }
       ]
     }

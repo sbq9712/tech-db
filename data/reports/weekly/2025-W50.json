@@ -1,0 +1,255 @@
+{
+  "type": "weekly",
+  "date_label": "2025-12-08 ~ 2025-12-14",
+  "date_range": "2025-12-08 ~ 2025-12-14",
+  "main_theme": "锂电池组价格降至每千瓦时108美元，DeepSeek发布金融大模型，首例个性化CRISPR疗法成功应用于临床",
+  "overview": "彭博新能源财经数据显示2025年锂离子电池组价格下降8%至每千瓦时108美元，磷酸铁锂渗透率提升抵消了金属成本上涨。DeepSeek发布针对金融领域的文本大模型。工业级隧道氧化物钝化接触太阳能电池通过钢网印刷和局部多晶硅接触技术将效率提升至26.09%。科研团队开发出连续流反应器，将甲烷直接转化为碳纳米管和氢气。医学界首次将个性化CRISPR疗法应用于临床，成功挽救婴儿生命。",
+  "headlines": {
+    "零碳产业": [
+      "锂电池组价格降8%至每千瓦时108美元创历史新低",
+      "工业级TOPCon太阳能电池效率提升至26.09%",
+      "连续流反应器实现甲烷向碳纳米管和氢气转化",
+      "液晶弹性体设计提升固态锂金属电池离子迁移率"
+    ],
+    "AI与智能科技": [
+      "DeepSeek发布中国金融垂类文本大模型",
+      "湿度门控忆阻器实现风向与抗噪语音识别计算",
+      "光电活性范德华突触应用于板级尖峰神经网络",
+      "抗疲劳变色水凝胶用于视觉触觉机器人开发"
+    ],
+    "通用技术": [
+      "全球首例个性化CRISPR疗法成功挽救婴儿生命",
+      "不对称还原合成仲烷基硼酸酯实现区域选择性控制"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": "BloombergNEF报告指出2025年锂电池组均价降至108美元/千瓦时，电芯产能过剩与磷酸铁锂转型是主要驱动因素。光伏制造端通过钢网印刷结合局部多晶硅接触，将工业级TOPCon电池效率推升至26.09%。天然气化工领域验证了连续流反应器中甲烷向碳纳米管与氢气的转化工艺。",
+      "headlines": [
+        "锂电池组价格降8%至每千瓦时108美元创历史新低",
+        "工业级TOPCon太阳能电池效率提升至26.09%",
+        "连续流反应器实现甲烷向碳纳米管和氢气转化",
+        "液晶弹性体设计提升固态锂金属电池离子迁移率"
+      ],
+      "entries": [
+        {
+          "t": "尽管金属价格上涨，锂离子电池组价格仍跌至每千瓦时 108 美元：BloombergNEF |彭博新能源财经",
+          "d": "2025-12-09",
+          "a": "BloombergNEF Press",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "彭博新能源财经的《2025年锂离子电池价格调查》显示，尽管电池金属价格上涨，但2025年锂离子电池组价格仍较2024年下降8%，跌至每千瓦时108美元的历史新低。电池金属价格上涨的部分原因是中国部分锂资产的供应风险及刚果民主共和国新的钴出口配额。然而，电芯制造业持续的产能过剩、激烈的市场竞争以及向成本更低的磷酸铁锂电池的持续转型，推动了电池组价格的下降。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices-bloombergnef/",
+          "tp": "锂电池降价",
+          "aip": 1,
+          "kp": [
+            "锂离子电池组价格[2025年全球均价]: 108美元/千瓦时",
+            "锂离子电池组价格降幅[较2024年]: 下降8%",
+            "降本驱动因素[锂离子电池产业]: 电芯产能持续过剩、竞争加剧以及向更低成本的磷酸铁锂(LFP)电池转移"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "PRESS RELEASE\nLithium-Ion Battery Pack Prices Fall to $108 Per Kilowatt-Hour, Despite Rising Metal Prices: BloombergNEF\nClean Energy\nClean Transport\nDecember 9, 2025\nNew York, December 9, 2025\n–\nl\nithium-ion battery pack prices have dropped 8% since 2024 to a record low of $108 per kilowatt-hour, according to latest analysis by research provider BloombergNEF (BNEF). Continued cell manufacturing overcapacity, intense competition and the ongoing shift to lower-cost lithium iron phosphate (LFP) batteries helped drive down pack prices despite an increase in battery metal costs according to BNEF’s\n2025 Lithium-Ion Battery Price Survey.\nBattery metal prices increased in 2025, in part due to supply risks at certain Chinese lithium assets and new cobalt export quotas in the Democratic Republic of Congo. However, metal price increases did not translate to higher annual prices for cells or packs.\nThe industry ultimately absorbed these shocks through greater LFP adoption, long-term contracts, and broader hedging strategies.\nChina has consistently produced more cells than are needed for domestic electric vehicle and stationary storage demand, creating intense competition among manufacturers. The effect has been most pronounced in the stationary storage sector, where many suppliers can serve the same projects. China’s dominance in LFP production has allowed its producers to meet nearly all global demand.\nBNEF’s industry-leading battery price survey covers multiple battery end-uses, including different types of electric vehicles and stationary storage projects. Each sector typically requires different cells and packs to meet distinct performance metrics, leading to varied pricing dynamics across these use cases. Battery pack prices for stationary storage dropped to $70/kWh in 2025, 45% lower than in 2024. This is the sharpest drop across all segments, making stationary storage the lowest-priced segment for the first time. Battery electric vehicles (BEVs) packs were the cheapest in the transport segment at $99/kWh – the second year that they were below the $100/kWh threshold.\nAverage LFP battery pack prices across all segments came in at $81/kWh while nickel manganese cobalt (NMC) packs were at $128/kWh. BNEF clients can find the full breakdown by chemistry, application and country\nhere.\nEvelina Stoikou, the head of BNEF’s battery technology team and lead author of the report, said: “Cut-throat competition is making batteries cheaper every year. This is an important moment for the industry, as record-low battery prices create an opportunity to lower EV costs and accelerate the deployment of grid-scale storage to support renewables integration around the world. ”\nThe report also covers regional differences in pricing. Average battery pack prices were lowest in China, at $84/kWh. Pack prices in the North America and Europe were 44% and 56% higher, reflecting higher local production costs and greater dependence on imported batteries, which typically have a premium compared to prices in China.  The largest drop in pack prices was in China, down 13% in real terms from 2024, while North America and Europe saw declines of 4% and 8%, respectively. The drop in prices was higher in Europe than in North America due to the changing policy and tariff environment in the US. Many Chinese companies redirected their exports to European markets, where they adopted more aggressive pricing strategies to maintain global sales volumes and meet annual targets. This shift intensified price competition in Europe.\nBNEF expects pack prices to decrease again in 2026, based on its near-term outlook, as raw material prices face upward pressure but adoption of low-cost LFP continues to spread. Over the longer term, ongoing investment in R&D, manufacturing efficiency and supply chain expansion is expected to support further technology improvements and cost reductions. Emerging technologies, including silicon and lithium metal anodes, solid-state electrolytes, new cathode materials and new cell manufacturing processes, are also set to play a key role in driving the next wave of price declines.\nThe full report provides insights on:\nBattery prices across chemistries, regions and segments\nRaw material and battery component price dynamics\nBNEF’s view of global prices in 2026 and beyond\nKey drivers behind price trends this decade\nPublic statements and roadmaps from leading industry players\nImpact of tariffs and transport costs on battery prices\nBloombergNEF clients can access the\nfull report here.\nMedia\nContact(s)\nFor further information, please contact our media team.\nOktavia Catsaros\nBloombergNEF\nocatsaros@bloomberg.net\nAbout Bloomberg\nBloomberg is a global leader in business and financial information, delivering trusted data, news, and insights that bring transparency, efficiency, and fairness to markets. The company helps connect influential communities across the global financial ecosystem via reliable technology solutions that enable our customers to make more informed decisions and foster better collaboration. For more information, visit\nBloomberg.com/company\nor request a demo.\nAbout BloombergNEF\nBloombergNEF (BNEF) is a strategic research provider covering global commodity markets and the disruptive technologies driving the transition to a low-carbon economy. Our expert coverage assesses pathways for the power, transport, industry, buildings and agriculture sectors to adapt to the energy transition. We help commodity trading, corporate strategy, finance and policy professionals navigate change and generate opportunities.\nRelated Content\nExplore more\nReport\nNew Energy Outlook 2026\nClean Energy\nPress release\nBloombergNEF’s New Energy Outlook 2026: Transition to Newer Technologies, Expanded Electrification to Strengthen Nations’ Energy Security\nClean Energy\nReport\nEnergy Transition Bank Financing Struggles to Pull Ahead of Fossil Fuels in Asia\nFinance\nArticle\nEnergy Storage Enters the 100-Gigawatt Era: Three Things to Know\nClean Energy\nArticle\nAI Data Centers, Energy and Finance: Dispatch from the BNEF Summit New York 2026\nClean Energy\nPodcast\nNuclear Fusion Powers Up for Commercial Breakthrough\nClean Energy\nThe latest from BloombergNEF delivered to your inbox\nSign up for BNEF’s free newsletter.",
+          "hb": 1
+        },
+        {
+          "t": "钢网印刷和局部多晶硅接触使工业级隧道氧化物钝化接触太阳能电池的效率达到 26.09%",
+          "d": "2025-12-12",
+          "a": "Joule",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00412-X?rss=yes",
+          "tp": "光伏电池效率",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "在连续流反应器中将甲烷转化为碳纳米管和氢气",
+          "d": "2025-12-08",
+          "a": "Nature Energy",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/热化学过程/天然气化工",
+          "as": "",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-025-01926-2",
+          "tp": "甲烷转化制氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "空间协调的氧基序可解耦高性能固态锂金属电池液晶弹性体中的离子解离/迁移",
+          "d": "2025-12-11",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202522322?af=R",
+          "tp": "固态锂电",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": "DeepSeek推出面向中国金融市场的垂直领域大语言模型。硬件研发方面，基于湿度门控忆阻动力学的器件实现了近传感器尖峰计算，完成风向与抗噪语音识别。此外，科研人员利用光电活性范德华突触构建了时序相关尖峰神经网络硬件，并开发出抗疲劳变色水凝胶以应用于视觉触觉机器人。",
+      "headlines": [
+        "DeepSeek发布中国金融垂类文本大模型",
+        "湿度门控忆阻器实现风向与抗噪语音识别计算",
+        "光电活性范德华突触应用于板级尖峰神经网络",
+        "抗疲劳变色水凝胶用于视觉触觉机器人开发"
+      ],
+      "entries": [
+        {
+          "t": "中国金融奇才DeepSeek AI模型震惊世界",
+          "d": "2025-12-08",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "观点评论",
+          "u": "https://www.nature.com/articles/d41586-025-03845-4",
+          "tp": "DeepSeek模型",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "湿度门控忆阻动力学支持近传感器尖峰计算，用于风向和抗噪语音识别",
+          "d": "2025-12-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518105?af=R",
+          "tp": "传感器尖峰计算",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "时序相关的尖峰神经网络：利用光电活性范德华突触实现板级硬件",
+          "d": "2025-12-08",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517613?af=R",
+          "tp": "光电神经突触",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "用于基于视觉的触觉机器人的抗疲劳机械响应变色水凝胶（Adv. Mater. 49/2025）",
+          "d": "2025-12-10",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.71336?af=R",
+          "tp": "视觉触觉机器人",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": "临床医学首次批准使用个性化CRISPR疗法，成功治愈一名患有罕见疾病的婴儿。材料合成方面，研究人员利用1,3-二烯基硼酸酯的不对称区域选择性还原反应，完成仲烷基硼酸酯的对映选择性合成。",
+      "headlines": [
+        "全球首例个性化CRISPR疗法成功挽救婴儿生命",
+        "不对称还原合成仲烷基硼酸酯实现区域选择性控制"
+      ],
+      "entries": [
+        {
+          "t": "首次个性化 CRISPR 疗法挽救了婴儿的生命",
+          "d": "2025-12-08",
+          "a": "Nature",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/d41586-025-03847-2",
+          "tp": "个性化基因编辑",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过 1,3-二烯基硼酸酯的不对称区域选择性还原对映选择性合成仲烷基硼酸酯",
+          "d": "2025-12-11",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202517863?af=R",
+          "tp": "催化剂合成",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

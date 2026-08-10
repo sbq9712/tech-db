@@ -6,18 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "西北大学团队开发一氧化碳加氢合成乙烯新路径，规避高能耗与碱腐蚀",
-      "Turboden在芬兰投运全球最大12MWth工业废热回收蒸汽热泵系统",
-      "南洋理工等机构研发三腔双极膜装置，同步实现海水淡化与氢气制备"
+      "西北大学利用合成气与氢氧化反应路径实现乙烯电化学合成",
+      "三菱重工Turboden投运全球最大12MWth工业蒸汽热泵系统"
     ],
     "AI与智能科技": [
-      "宇树科技实现人形机器人全自主集群武术表演与4m/s快速跑位",
-      "研究提出三维Ag2Se热电网络材料，实现多物理信号同步感知与融合"
+      "宇树科技实现全自主人形机器人集群协同与高动态运动控制",
+      "科研团队在固态发射器系统中实现多体纠缠技术突破"
     ],
     "通用技术": [
-      "科研团队突破钙钛矿量子点室温连续化制备，实现百倍规模放大",
-      "研究首次在室温无金属条件下实现键能1049 kJ/mol的NO+三键断裂",
-      "多肽纳米机器人TriCAN经三重条件触发相变，定向释放骨再生肽"
+      "研究揭示水溶液中光激发羟基自由基化学机制及软X射线探测方法"
     ]
   },
   "sectors": [
@@ -25,15 +22,33 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "西北大学团队开发一氧化碳加氢合成乙烯新路径，规避高能耗与碱腐蚀",
-        "Turboden在芬兰投运全球最大12MWth工业废热回收蒸汽热泵系统",
-        "南洋理工等机构研发三腔双极膜装置，同步实现海水淡化与氢气制备"
+        "西北大学利用合成气与氢氧化反应路径实现乙烯电化学合成",
+        "三菱重工Turboden投运全球最大12MWth工业蒸汽热泵系统"
       ],
       "entries": [
         {
           "t": "西北大学Edward Sargent报道一种以CO+H2合成气为原料的基于氢氧化反应的乙烯合成路径",
           "d": "2026-02-17",
-          "a": "",
+          "a": "Doi",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "西北大学Edward Sargent团队采用热气体化产生的合成气（CO+H₂）为原料进行乙烯合成，替代依赖化石原料的蒸汽裂解工艺。阴极以碳纸为气体扩散电极、铜纳米颗粒催化CO和加湿CO还原生成乙烯；阳极PtRu/C催化氢氧化反应；阴离子交换膜侧聚丙烯酸钠负载碳黑提供Na⁺维持局部高pH，在无液态碱环境下稳定反应中间体、抑制析氢副反应。该路径避免传统CO还原+析氧系统的高能耗和碱性电解液腐蚀催化剂问题，适用于间歇性可再生电力。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41560-026-01990-2",
+          "tp": "电催化合成乙烯",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "乙烯（C2H4）作为塑料、树脂、合成纤维的基础原料，主要通过乙烷或石脑油的蒸汽裂解生产，这两种工艺均依赖化石原料，且从原料开采到产品出厂的全过程每生产1吨乙烯约排放1吨二氧化碳。通过电力将CO2/CO还原为乙烯则有助于降低乙烯生产的碳排放，但当前CO还原+析氧反应（OER）系统能耗高，且依赖腐蚀性的液态碱性电解液（如NaOH），导致催化剂在间歇性供电（如利用太阳能、风能时）下迅速腐蚀失效，且产物会被稀释。",
+          "b": "乙烯（C2H4）作为塑料、树脂、合成纤维的基础原料，主要通过乙烷或石脑油的蒸汽裂解生产，这两种工艺均依赖化石原料，且从原料开采到产品出厂的全过程每生产1吨乙烯约排放1吨二氧化碳。通过电力将CO2/CO还原为乙烯则有助于降低乙烯生产的碳排放，但当前CO还原+析氧反应（OER）系统能耗高，且依赖腐蚀性的液态碱性电解液（如NaOH），导致催化剂在间歇性供电（如利用太阳能、风能时）下迅速腐蚀失效，且产物会被稀释。\n近日，西北大学Edward Sargent教授团队采用热气体化产生的合成气（CO+H2）作为原料进行乙烯合成。整个电解池装置的阴极采用碳纸作为气体扩散电极（GDE），商业化铜纳米颗粒作为催化剂，催化CO和水（加湿CO）还原生成乙烯和氢氧根离子；阳极则以钛毡或碳纸作为支撑基体，PtRu/C为催化剂进行氢氧化反应（HOR）使H2和氢氧根离子变为水；膜则采用阴离子交换膜（AEM），并使用聚丙烯酸钠负载在碳黑上，喷涂在AEM膜靠近阴极的一侧，可在无液态碱环境下，该层提供CO还原所需的Na⁺离子，维持局部高pH环境，稳定反应中间体，抑制析氢副反应，并防止阳离子流失。进一步分析表明，OER（析氧）反应需克服很高的热力学能垒，耗电量已超过每吨乙烯130 GJ电能；而该总反应为放热反应，全电池电压仅为1.2 V（在100 mA cm⁻²电流密度下），生产每吨乙烯的电耗约为49 GJ，乙烯法拉第效率（FE）达到50%，且副产的高价值液态醇类浓度高（约 1.8 M）；连续运行80小时后，乙烯法拉第效率保持初始值的90%，30次开/关循环及长达12小时的间歇性停机后，性能无明显下降。文章于2026年2月17日发表在Nature Energy。",
+          "hb": 1
+        },
+        {
+          "t": "西北大学Edward Sargent报道一种以CO+H2合成气为原料的基于氢氧化反应的乙烯合成路径",
+          "d": "2026-02-17",
+          "a": "Doi",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
           "as": "西北大学Edward Sargent团队采用热气体化产生的合成气（CO+H₂）为原料进行乙烯合成，替代依赖化石原料的蒸汽裂解工艺。阴极以碳纸为气体扩散电极、铜纳米颗粒催化CO和加湿CO还原生成乙烯；阳极PtRu/C催化氢氧化反应；阴离子交换膜侧聚丙烯酸钠负载碳黑提供Na⁺维持局部高pH，在无液态碱环境下稳定反应中间体、抑制析氢副反应。该路径避免传统CO还原+析氧系统的高能耗和碱性电解液腐蚀催化剂问题，适用于间歇性可再生电力。",
           "sc": 6.9,
@@ -52,7 +67,7 @@
         {
           "t": "三菱重工旗下Turboden公司建设的12MWth蒸汽热泵完成投运",
           "d": "2026-02-17",
-          "a": "",
+          "a": "Turboden",
           "c": "零碳产业/能量循环/能源测/供热技术/热泵",
           "as": "三菱重工旗下有机朗肯循环和工业热泵技术公司Turboden宣布，其在芬兰为纸制造商Delfort建设的蒸汽热泵系统正式投运。系统包括大型热泵与机械蒸汽再压缩装置，通过回收工业过程低品位废热，产生12MW、3.4Bar、150-180°C的蒸汽，替代传统蒸汽锅炉。Turboden称该系统为当前全球最大的蒸汽热泵，为工业过程脱碳提供大规模废热回收解决方案。",
           "sc": 7.3,
@@ -67,25 +82,6 @@
           "cm": "",
           "b": "2月17日，三菱重工旗下的有机朗肯循环和工业热泵技术公司Turboden在官网发文称，其为芬兰纸制造商Delfort建设的蒸汽热泵系统启动运行，包括一台大型热泵与机械蒸汽再压缩装置，可通过回收工业过程中的低品位废热，产生12MW、3.4Bar、150-180℃的蒸汽，以替代传统蒸汽锅炉。文中称，该蒸汽热泵为当前全球最大的蒸汽热泵。",
           "hb": 1
-        },
-        {
-          "t": "南洋理工徐梽川报道一种引入多孔固体电解质的三腔双极膜海水制氢装置实现淡水氢气联合制备",
-          "d": "2026-02-17",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "南洋理工大学徐梽川团队联合莱斯大学汪淏田提出兼具海水淡化功能的多孔固体电解质+三腔双极膜制氢装置，可同步完成酸性析氢、碱性析氧与电渗析脱盐。在双极膜CEM与AEM间引入填充多孔固体电解质的中间腔室，海水流经其中，盐离子跨膜迁移成为主要载流方式，避免传统双极膜高能耗的水分解步骤，初步估算碳排放可从22.14降至14.46 kg CO₂。该装置可同时解决沿海地区制氢成本高和淡水匮乏问题。",
-          "sc": 7.1,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41893-026-01772-4",
-          "tp": "海水制氢装置",
-          "aip": 1,
-          "kp": [],
-          "lv": 1,
-          "wr": "",
-          "cm": "",
-          "b": "直接电解海水面临氯离子腐蚀、析氯副反应、沉淀堵塞、制氢成本高等技术难题；而电解水制氢需要大量淡水资源，与许多具有优质可再生能源的沿海地区淡水匮乏状况相矛盾，需要有技术能同时解决该类地区制氢成本高和淡水匮乏的问题。\n近日，南洋理工大学徐梽川教授团队联合莱斯大学汪淏田教授提出一种兼具海水淡化功能的多孔固体电解质+三腔双极膜制氢装置，可同步完成酸性析氢、碱性析氧与电渗析脱盐。其在双极膜（bipolar membranes，BPM）水电解装置的阳离子交换膜（CEM）与阴离子交换膜（AEM）之间，引入一个填充多孔固体电解质（PSE）的中间腔室。运行时酸性电解液循环于阴极侧，碱性电解液循环于阳极侧，而海水则在中间腔体流动，在电场驱动下，Na⁺、Cl⁻等盐离子跨膜迁移，使盐迁移成为维持电流的主要载流方式以建立电荷平衡，从而避免了传统双极膜中高能耗的水分解步骤，初步估算可使碳排放从22.14 kg CO₂降至14.46 kg CO₂。进一步分析表明，若阴极为KOH或K₂SO₄体系，K⁺在CEM处易发生浓差极化，导致离子传输受限；而在酸性环境下，H⁺的快速参与维持了电荷平衡，显著缓解离子堆积，从而提高电流密度。在没有多孔固态电解质的电渗析过程中，膜表面易出现浓差极化，导致电流震荡；孔固态电解质则可在吸附阳离子后，充当“离子缓冲库”，缓解膜界面浓度梯度，从而维持稳定的电化学平衡，提升电流密度。\n测试结果证明，整个系统在1升模拟海水条件下，100小时内可将盐度降至938 ppm，满足饮用水标准。真实测试环境中，采用新加坡近海采集的海水（原始TDS 24.1 g L⁻¹），在1.8 V下连续运行三轮，每轮120小时，结果证明该系统每生产1公斤氢气，可获得约2.1吨饮用水级淡水，且每次启动的电流几乎无衰减；每轮运行结束后，1升真实海水盐度均降至1000 ppm以下；小体积测试甚至可降至约100 ppm，系统脱盐速率达到约5 mg min⁻¹ cm⁻² V⁻¹。此外，其阴阳极腔室的电解液可采用工业废酸废碱，有助于实现资源循环利用。文章于2026年2月17日发表在Nature Sustainability。",
-          "hb": 1
         }
       ]
     },
@@ -93,17 +89,17 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "宇树科技实现人形机器人全自主集群武术表演与4m/s快速跑位",
-        "研究提出三维Ag2Se热电网络材料，实现多物理信号同步感知与融合"
+        "宇树科技实现全自主人形机器人集群协同与高动态运动控制",
+        "科研团队在固态发射器系统中实现多体纠缠技术突破"
       ],
       "entries": [
         {
           "t": "宇树机器人2026总台春晚《武BOT》节目中展示高动态、高协同集群控制技术",
           "d": "2026-02-17",
-          "a": "",
+          "a": "Sohu",
           "c": "AI与智能科技/具身智能/模型和具身操作系统",
           "as": "宇树科技在2026春晚《武BOT》节目中实现全球首次全自主人形机器人集群武术表演。G1与H2机器人展示多项全球首次突破：连续花式翻桌跑酷、弹射空翻（超3米）、单脚连续空翻、Airflare大回旋七周半等。集群层面实现首次快速跑位（速度达4m/s），搭载全新自研灵巧手。采用高并发集群控制系统实现几十台机器人实时协同，AI融合定位算法每秒处理上百次环境信息，保障剧烈运动后精准定位，克服传统算法丢失跑飞问题。",
-          "sc": 8.4,
+          "sc": 8.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.sohu.com/a/988103121_489960",
@@ -117,27 +113,42 @@
           "hb": 1
         },
         {
-          "t": "三维Ag2Se热电网络推进多模态智能感知",
+          "t": "宇树机器人2026总台春晚《武BOT》节目中展示高动态、高协同集群控制技术",
           "d": "2026-02-17",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "研究提出一种三维Ag₂Se热电网络材料，通过构建多模态传感架构推动具身人工智能（Embodied AI）的发展。该热电网络能够同步感知温度梯度、机械压力等多种物理信号，实现跨模态信息融合。Ag₂Se作为窄带隙半导体，具有优异的热电转换效率和室温可加工性，三维网络结构进一步增大有效接触面积，显著提升了传感灵敏度与响应速度，为机器人触觉感知、可穿戴健康监测等场景提供了新型硬件基础。",
-          "sc": 6.5,
+          "a": "Sohu",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "宇树科技在2026春晚《武BOT》节目中实现全球首次全自主人形机器人集群武术表演。G1与H2机器人展示多项全球首次突破：连续花式翻桌跑酷、弹射空翻（超3米）、单脚连续空翻、Airflare大回旋七周半等。集群层面实现首次快速跑位（速度达4m/s），搭载全新自研灵巧手。采用高并发集群控制系统实现几十台机器人实时协同，AI融合定位算法每秒处理上百次环境信息，保障剧烈运动后精准定位，克服传统算法丢失跑飞问题。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.sohu.com/a/988103121_489960",
+          "tp": "机器人集群控制",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "目前根据宇树机器人官方发布的信息，本次机器人的协同表演主要依赖于AI-激光雷达结合的定位算法以及长序列动作中误差消除技术。宇树科技目前没有给出相关技术的详细说明或白皮书。要完成协同表演，需要处理长序列动作输入、动作-平衡控制、机器人之间的同步等关键问题。机器人之间的同步和动作输入可以借助传统的建模与通讯算法完成，AI在其中可能起到辅助作用。松延动力则相对注重机器人头部仿生方面的研发，其hobbs 3/W1产品头部具有32个主动自由度和8个被动自由度；面部皮肤采用铂金硅胶，宣传可精准模拟生气、微笑、伤心、赞同等多种人类情绪，并通过理解语意与语境，实时生成对应口型，确保口型与语音保持同步匹配。\n目前比较值得关注的是AI在动作-平衡控制算法中起到了何种作用。机器人想要做出动作，本质上需要通过控制电机力矩/速度参数实现，在动作进行中还要同时加入平衡控制。这些算法的成熟度直接影响了人形机器人在生产或生活环境中的可用程度。目前还需要进一步关注这些机器人厂商是否已经有了低成本、高智能水平的运动和平衡控制算法，有可能春晚节目是经过大量特制和微调，尚不能快速拓展到其他场景。",
+          "b": "搜狐2月17日消息，宇树科技作为春晚机器人合作伙伴第三次登台亮相，携G1与H2人形机器人献上全球首次全自主人形机器人集群武术表演（带集群快速跑位）。本次节目中，宇树的人形机器人展现出前所未有的运动性能，实现了多项全球首次技术突破：实现全球第一次连续花式翻桌跑酷，全球第一次弹射空翻、空翻最大高度超3米；全球第一次单脚连续空翻、两步蹬墙后空翻，以及全球第一次Airflare大回旋七周半等高难度动作。\n在集群协同层面，本次展示实现全球第一次集群快速跑位（最快任意跑位速度可达4m/s）；并且搭载全新自研灵巧手，支持武术道具的快速更换与稳定抓持，为高难度武术演绎提供了可靠支撑。演出使用全新升级的高并发集群控制系统进行协同控制，实现了几十台机器人实时协同动作，严格控制动作同步误差。在定位方面，采用AI融合定位算法——通过AI处理本体感知数据，并与3D激光雷达数据深度融合，每秒处理上百次环境信息，这套算法能够保障机器人在剧烈运动后仍能精准定位。防止在空翻等剧烈动作下，传统定位算法丢失跑飞的问题。\n运动控制上，团队通过对通用预训练控制模型的微调，使机器人在武术运动同时具备位置调整能力，配合AI融合定位算法，攻克了长序列表演中运动误差累计难题，确保表演动作整齐划一。定位算法与控制算法的双剑合璧，让机器人能够快速准确地完成复杂队形穿插，最终促成了全球首次全自主人形机器人集群武术表演。\n除宇树科技外，魔法原子（MagicBot Z1/Gen1）、松延动力（N2、E1、Bumi）、银河通用等厂商的人形机器人也纷纷在本次春晚语言、歌舞类节目中亮相。也分别展示了其在多机协作、头部仿生、多场景自主决策等能力。",
+          "hb": 1
+        },
+        {
+          "t": "固态发射器中的多体纠缠",
+          "d": "2026-02-17",
+          "a": "Nature Reviews Materials",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
+          "sc": 6.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202506640?af=R",
-          "tp": "热电感知网络",
+          "u": "https://www.nature.com/articles/s41578-026-00893-8",
+          "tp": "多体纠缠态",
           "aip": 1,
-          "kp": [
-            "材料体系[热电网络]: 三维Ag2Se",
-            "[器件特点]: 单片集成多模态感知",
-            "应用[具身AI]: 多模态感知与物理交互"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Embodied artificial intelligence (Embodied AI) depends on the integration of multimodal sensing and physical interaction to achieve autonomous perception and adaptive control in complex environments. However, conventional multimodal sensing systems often rely on separate sensors for each physical stimulus, leading to integration challenges and signal interference. Here, we report a monolithic bimodal sensor based on a 3D Ag\n                    2\n                    Se thermoelectric network that enables simultaneous and decoupled detection of temperature and pressure within a single device. The sensor demonstrates a high temperature sensitivity of −122.7 µV K\n                    −1\n                    with a fast response time of ∼0.14 s, and a high pressure sensitivity of −2.94% kPa\n                    −1\n                    with a fast response time of about 0.08 s, indicating excellent signal isolation between the two sensing channels. When combined with deep learning, the sensor enables a real‐time intelligent sorting system that achieves 96% recognition accuracy across nine materials, outperforming single‐mode sensing approaches. This work provides an integrated multimodal sensing solution that advances the deployment of embodied AI in complex environments.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -145,71 +156,27 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研团队突破钙钛矿量子点室温连续化制备，实现百倍规模放大",
-        "研究首次在室温无金属条件下实现键能1049 kJ/mol的NO+三键断裂",
-        "多肽纳米机器人TriCAN经三重条件触发相变，定向释放骨再生肽"
+        "研究揭示水溶液中光激发羟基自由基化学机制及软X射线探测方法"
       ],
       "entries": [
         {
-          "t": "百倍放大、克级直接空气合成钙钛矿量子点及高批次一致性",
+          "t": "[ASAP] 光激发引发水溶液中羟基自由基化学机制并用软X射线探测",
           "d": "2026-02-17",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "钙钛矿量子点（PQDs）在光电领域前景广阔，但商业化受限于难以规模化合成。本研究报道了一种可实现100倍规模放大、克级产量的直接环境条件合成方法，突破了传统小批量、惰性气氛合成的工程瓶颈。该方法在保持高量子产率和光学性能的同时，实现了室温空气条件下的连续化制备，为钙钛矿量子点从实验室走向工业化应用（显示、照明、光伏等）提供了可量产的关键路径。",
-          "sc": 7.8,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72580?af=R",
-          "tp": "钙钛矿量子点",
-          "aip": 1,
-          "kp": [
-            "[合成规模]: 100倍放大克级环境条件合成",
-            "[条件]: 室温空气气氛合成（非惰性）",
-            "[一致性]: 高批次一致性"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Perovskite quantum dots (PQDs) show promising potential in the optoelectronic field, but their commercial application is limited by the scalability in laboratory scale and complicated synthesis in an inert atmosphere, especially in I‐based red‐emission PQDs. The PQDs are disturbed by the performance decrease in the scalable synthesis caused by the trap states from weakly‐bonded ligand loss and uneven nucleation/growth from the complicated injection process. Here, a 100‐fold scalable (800 mL) and gram‐level (2.19 g) synthesis of CsPbI\n                    3\n                    pure‐red PQDs is achieved in ambient air. This is realized by a strongly‐coordinated dual‐ligand strategy with phosphorus‐oxygen groups to interact strongly with Pb\n                    2+\n                    and protect PQDs from moisture/oxygen, ensuring the ambient air scalable synthesis. The 100‐fold scaled‐up PQDs show no significant emission shift or broadening (ΔPL = 0.7 nm, ΔFWHM = 0.8 nm) and remain over 80% PLQY. Also, pure‐red light‐emitting diode (LED) based on the scalable PQDs reserves 86.3% EQE of LEDs based on small‐scale PQDs, showing the excellent batch consistency and commercial potential of PQDs.",
-          "hb": 1
-        },
-        {
-          "t": "NO+ 三键的无金属断裂",
-          "d": "2026-02-17",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "本研究成功在室温下实现了无金属参与的NO+三键单分子断裂，打破了键能高达1049 kJ/mol的化学键。研究团队通过特定的化学反应途径完成了这一突破。该发现为强化学键活化提供了新思路。",
-          "sc": 6.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524527?af=R",
-          "tp": "氮氧三键断裂",
+          "u": "http://dx.doi.org/10.1021/jacs.5c20053",
+          "tp": "羟基自由基探测",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    We report the facile and direct room temperature unimolecular scission of the N≡O\n                    +\n                    triple bond, one of the strongest known chemical bonds with a bond dissociation energy of 1049 kJ mol\n                    −1\n                    . The reaction of NO[Al(OR\n                    F\n                    )\n                    4\n                    ] (R\n                    F\n                     = C(CF\n                    3\n                    )\n                    3\n                    ) and PNP\n                    \n                      t\n                    \n                    Bu\n                    (2,6‐bis(di‐\n                    tert\n                    ‐butylphosphinomethyl)pyridine) in CH\n                    2\n                    Cl\n                    2\n                    yields the 1,2,3‐diazaphospholo[1,5‐\n                    a\n                    ]pyridinium derivative [DAPP\n                    \n                      t\n                    \n                    Bu\n                    ]\n                    +\n                    [Al(OR\n                    F\n                    )\n                    4\n                    ]\n                    –\n                    (\n                    1\n                    ), featuring the complete cleavage of the N≡O\n                    +\n                    bond. At −30°C, the reaction intermediate [PNOP\n                    \n                      t\n                    \n                    Bu\n                    ]\n                    +\n                    [Al(OR\n                    F\n                    )\n                    4\n                    ]\n                    –\n                    (\n                    2\n                    ), which contains the novel bridging P═N−O−P\n                    +\n                    motif, can be isolated. Mechanistic insights were gained through quantum chemical calculations, which elucidated the formation pathways of\n                    1\n                    and\n                    2\n                    , while NMR spectroscopic kinetic studies quantified the conversion rate from\n                    2\n                    to\n                    1\n                    .",
-          "hb": 1
-        },
-        {
-          "t": "TriCAN：相变分子机器人，实现炎症触发骨再生的闭环感知-计算-驱动控制",
-          "d": "2026-02-17",
-          "a": "Chem",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究者构建了一种多肽纳米机器人TriCAN（三相反相细胞适应性纳米机器人），需同时满足三个条件才释放骨再生肽：接触成骨干细胞、酸性pH环境、过量氧化剂。三重条件齐备时触发凝胶-液滴-溶液相变，释放药物修复炎症性牙周骨缺损，同时保护健康组织，实现了炎症触发的闭环感知-计算-驱动控制骨再生策略。",
-          "sc": 5.8,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00497-8?rss=yes",
-          "tp": "分子机器人",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Most drug carriers fire as soon as they see one signal, even if the tissue is not truly diseased. This work builds a peptide “nanorobot,” TriCAN (tri-phasic cell-adaptive nanorobot), that waits for three conditions: contact with a bone-forming stem cell, acidic pH, and excess oxidants. Only then does a gel-to-droplet-to-solution phase transition uncage a bone-regenerating peptide, repairing inflamed periodontal bone while sparing healthy sites.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

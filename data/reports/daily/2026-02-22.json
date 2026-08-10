@@ -6,235 +6,93 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究人员构建压电激活无金属体系实现氢气与过氧化氢协同生成",
-      "锂金属电池界面原位催化生成富Li3N层抑制枝晶生长",
-      "多模态成像技术实现金属有机框架内CO2分子吸附位点原子级观测"
+      "局部氢亲和工程技术实现工业级规模醛类电化学合成",
+      "捕获超氧中间体有效提升锂氧气电池高面积容量与反应效率",
+      "空位介导技术使再生磷酸铁锂材料实现快速离子传输"
     ],
-    "AI与智能科技": [
-      "新研究揭示液态金属液滴外部可控形变机制以构建柔性驱动单元",
-      "钙钛矿量子点电致发光架构投入多任务学习能效优化"
-    ],
-    "通用技术": [
-      "科研团队证实分子铝络合物具备促进氧化还原催化反应能力",
-      "暗场电子断层扫描法实现纳米结构金属三维晶界曲率表征",
-      "非热等离子体技术以氮气和甲烷为原料完成芳香环直接氰化"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究人员构建压电激活无金属体系实现氢气与过氧化氢协同生成",
-        "锂金属电池界面原位催化生成富Li3N层抑制枝晶生长",
-        "多模态成像技术实现金属有机框架内CO2分子吸附位点原子级观测"
+        "局部氢亲和工程技术实现工业级规模醛类电化学合成",
+        "捕获超氧中间体有效提升锂氧气电池高面积容量与反应效率",
+        "空位介导技术使再生磷酸铁锂材料实现快速离子传输"
       ],
       "entries": [
         {
-          "t": "压电激活的无金属供体-受体光催化全解水体系：高效同步产氢与过氧化氢",
+          "t": "通过局部氢亲和工程实现工业规模的醛电气化",
           "d": "2026-02-22",
           "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "本文构建压电激活的无金属给体-受体光催化全分解水体系，实现高效同步产氢（H2）和过氧化氢（H2O2）。大多数光催化剂存在能带结构与水分解氧化还原电位不匹配的问题，限制了全分解水效率。研究引入压电效应调控能带排列，促进光生载流子分离与传输，实现 H2 与 H2O2 的协同高效生成。",
-          "sc": 7.0,
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
+          "as": "",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520573?af=R",
-          "tp": "光催化全分解水",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202515456?af=R",
+          "tp": "醛电气化合成",
           "aip": 1,
-          "kp": [
-            "[光催化剂]: HFPTP-Bpy-Hz给体-受体聚合物",
-            "[活化方式]: 压电活化弥补能带不匹配",
-            "[产物]: 同时产H2和H2O2（全解水）"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    The potential mismatch of band structures to water redox potentials for most of photocatalysts restricts the development of photocatalytic overall water splitting (OWS). Herein, a well‐defined donor‐acceptor polymer model photocatalyst (HFPTP‐Bpy‐Hz), featuring an unsuitable band structure for OWS, was designed. It was demonstrated that the OWS ability of HFPTP‐Bpy‐Hz for H\n                    2\n                    and H\n                    2\n                    O\n                    2\n                    generation was activated by the bending of its unmatched conduction band in the piezo‐induced built‐in electric field, as well as the thermodynamically favorable two‐electron pathway for H\n                    2\n                    O\n                    2\n                    ‐evolved water oxidation on bipyridine structure. HFPTP‐Bpy‐Hz showed excellent metal‐free photo/piezo‐catalytic OWS performance for H\n                    2\n                    and H\n                    2\n                    O\n                    2\n                    generation (1795 and 1571 µmol·g\n                    −1\n                    ·h\n                    −1\n                    , respectively) better than the performances in literatures. Effective separation of photo‐generated carriers achieved by piezo‐induced built‐in electric field and hydrazone bond‐based electron transfer channel, and low energy barriers of water splitting in the presence of hydrazone bond linkage, collectively contributed to the outstanding photo/piezo‐catalytic OWS performance of HFPTP‐Bpy‐Hz. Furthermore, the hydrazone bond‐based positive correlation between the polarity of the polymer backbone and piezo/photocatalytic activity at the molecular level was clearly demonstrated through targeted regulation of connecting bonds and building blocks. This work offers valuable insights for constructing the promising solar light‐driven OWS systems using photocatalysts with unsuitable band structures.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "界面催化衍生的富Li3N固体电解质界面相助力高性能锂金属电池",
+          "t": "捕获O2·−中间体以促进高面积容量Li-O2电池的氧还原反应途径",
           "d": "2026-02-22",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究针对锂金属电池商业化面临的核心难题——锂枝晶生长导致的安全隐患和循环衰减，提出通过界面催化构建富含Li3N的固体电解质界面膜（SEI）策略。Li3N具有高锂离子电导率和优异的机械性能，能有效均匀化锂离子通量、抑制枝晶刺穿隔膜。研究利用特定催化剂在锂负极与电解液界面处原位生成富Li3N保护层，显著提升了电池的库伦效率、循环寿命和倍率性能。该工作为高能量密度锂金属电池的界面工程提供了新思路，对推动下一代储能器件实用化具有指导意义。",
-          "sc": 7.0,
+          "as": "",
+          "sc": 6.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72588?af=R",
-          "tp": "锂金属电池SEI",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202520110?af=R",
+          "tp": "锂氧电池催化",
           "aip": 1,
-          "kp": [
-            "电解质界面[锂金属电池]: Li3N富集SEI",
-            "[界面催化]: 克服LiNO3转化为Li3N的动力学势垒",
-            "[SEI功能]: 高离子电导率+高机械强度抑制枝晶"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    The commercialization of lithium metal batteries (LMBs) is fundamentally challenged by Li dendrite growth, which originates from an unstable solid electrolyte interphase (SEI). Engineering a Li\n                    3\n                    N‐enriched SEI is highly desirable for achieving high conductivity and mechanical strength, but the kinetic barrier of the LiNO\n                    3\n                    ‐to‐Li\n                    3\n                    N conversion remains a major obstacle. Here, we report a catalytic approach to engineer Li\n                    3\n                    N‐enriched SEI layers by accelerating LiNO\n                    3\n                    reduction using transition metal single‐atom catalysts supported on nitrogen‐doped carbon (M/NC, M = Cr, Mn, Fe, Co, Ni, Zn). Among them, Co/NC exhibits the highest catalytic activity, leading to an SEI with significantly enhanced mechanical robustness and ionic transport. Theoretical calculations reveal that the superior performance of Co/NC stems from the minimal energy difference between its frontier molecular orbitals and those of the key LiNO intermediate, facilitating the electron transfer process. Consequently, the symmetric battery using Co/NC catalyst achieves exceptional cyclability for over 2500 h (1 mA cm\n                    −2\n                    , 1 mAh cm\n                    −2\n                    ). When applied in full cells, the Co/NC‐modified current collector also yields a dramatically prolonged cycle life. This work underscores the profound role of interfacial catalysis in designing high‐performance SEI for practical LMBs.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "金属有机框架局域结构与CO2吸附的多模态纳米尺度映射",
+          "t": "通过空位介导的升级循环在再生 LiFePO4 中实现稳定快速的离子传输",
           "d": "2026-02-22",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "该研究采用多模态纳米尺度成像技术，对金属有机框架材料Mg2(dobpdc)的二胺功能化结构进行原子级表征，首次直接观测到CO2分子在孔道内的吸附位点与局域结构变化。通过将扫描探针显微与光谱技术联用，揭示了二胺基团与CO2反应时的链式吸附机制及金属位点配位重构过程。该工作为碳捕集材料的理性设计提供了前所未有的结构-功能关联证据，有望加速高效CO2吸附剂的工程化开发。",
-          "sc": 6.7,
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19737",
-          "tp": "MOF碳捕集",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524847?af=R",
+          "tp": "磷酸铁锂回收",
           "aip": 1,
-          "kp": [
-            "[材料]: Mg2(dobpdc)二胺功能化MOF",
-            "[应用]: 烟道气/空气CO2捕集",
-            "[表征]: 纳尺度映射局部结构与CO2吸附"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Diamine functionalization of the metal-organic framework Mg2(dobpdc) (dobpdc4- = 4,4'-dioxidobiphenyl-3,3'-dicarboxylate) significantly enhances its selectivity for CO2 capture from flue gases and air. The structure and CO2 capacity of such materials are typically assessed using bulk techniques that rely on averaging signal over large ensembles of unit cells, obscuring local heterogeneities, such as variations in CO2 occupancy across individual nanocrystals. To resolve this limitation, we demonstrate a multimodal, nanoscale characterization of Mg2(dobpdc) appended with 1,3-diaminopropane. By employing recently developed characterization techniques at progressively smaller length scales, we uncover insights from correspondingly smaller populations of unit cells. First, we use parallel-beam 3D electron diffraction (3D ED) to identify a prominent expansion in lattice parameters upon desorption of CO2, as observed at the level of single nanocrystals. Second, we use convergent-probe 4D scanning transmission electron microscopy (4D-STEM) to quantify associated differences in lattice strain as a function of gas loading and diamine appending. These measurements sample small subvolumes within individual nanocrystals. Finally, we apply infrared scattering scanning near-field optical microscopy (IR s-SNOM) to confirm variable CO2 chemisorption across adsorption sites at the surface of single nanocrystals. This multimodal, multiscale approach allows us to map heterogeneity within individual nanocrystals. Collectively, these findings emphasize the importance of local, nanoscale characterization of metal-organic frameworks in revealing previously unresolvable features that impact their performance.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "新研究揭示液态金属液滴外部可控形变机制以构建柔性驱动单元",
-        "钙钛矿量子点电致发光架构投入多任务学习能效优化"
-      ],
-      "entries": [
-        {
-          "t": "用于软体流体机器人的变形液态金属液滴（Adv. Mater. 11/2026）",
-          "d": "2026-02-22",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究展示了液态金属液滴在软体流体机械中的形变能力。液态金属液滴在外部刺激下可发生类似爆炸性的剧烈形变，展现出可控的形态切换特性。这种可塑性使其成为构建柔性软体机器的理想驱动单元，能够实现自适应的形态变化与运动功能。该成果有望推动柔性机器人、可重构流体器件和仿生软体机械的发展，为下一代可编程物质和形变智能系统提供材料基础。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.72359?af=R",
-          "tp": "液态金属软体机器人",
-          "aip": 1,
-          "kp": [
-            "[驱动机制]: 洛伦兹力对抗高表面张力",
-            "[电压条件]: 极低电压驱动",
-            "[效应]: 自振荡电-流体功率转换"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Shapeshifting Liquid Metal Droplets This cover illustrates the explosive-like deformation of a liquid metal droplet as Lorentz forces oppose its high surface tension. By harnessing these field-induced instabilities under extremely low voltages, we demonstrate liquid metal shapeshifting — an autonomous, self-oscillating, self-organizing effect that enables electrical-to-fluidic power transduction in a soft pump. This approach provides a compact material platform for soft robotics, microfluidics and lab-on-a-chip systems. More details can be found in the Research Article by Jonathan Rossiter and co-workers (DOI: 10.1002/adma.202420265).",
-          "hb": 1
-        },
-        {
-          "t": "基于钙钛矿量子点的电致发光神经网络用于节能高效的多任务学习加速",
-          "d": "2026-02-22",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究提出基于电致发光钙钛矿量子点构建神经形态AI系统的架构，实现多任务（MT）学习的能效提升与加速。钙钛矿量子点的光电特性使突触器件具备高并行处理能力，在多任务场景下可显著降低能耗并提升学习速度。该方案为类脑智能硬件的能效优化提供了新的材料与器件路径。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady8518?af=R",
-          "tp": "钙钛矿类脑计算",
-          "aip": 1,
-          "kp": [
-            "[材料]: Cs1-xFAxPbBr3量子点",
-            "[架构]: 双输出电致发光突触器件阵列",
-            "[应用]: 多任务学习能效提升"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The ability of multitasking (MT) learning in neuro-inspired artificial intelligence (AI) systems offers promise for energy-efficient deployment in robotics, health care, and autonomous vehicles. Here, an MT learning framework is established using a dual-output electroluminescent synaptic device array based on a mixed-dimensional stacked configuration with Cs\n                    \n                      1−\n                      x\n                    \n                    FA\n                    \n                      x\n                    \n                    PbBr\n                    3\n                    (0.00 ≤ \n                    x\n                     ≤ 0.15) quantum dots. The device concurrently processes postsynaptic current (PSC) and postsynaptic electroluminescence (PSEL) signals, demonstrating stable and adjustable long-term plasticity with ~1000 individual states, along with spike rate-dependent plasticity and paired-pulse facilitation. By synthesizing the update behavior of both PSC and PSEL pathways, the MT framework simultaneously executes classification-regression and classification-image reconstruction tasks. This approach achieves computational speed improvements of up to 47.09 and 29.17% while reducing energy consumption by up to 8.2- and 32.4-fold compared to a combined single-tasking framework and graphics processing unit–based hardware accelerators, respectively. This innovative method emphasizes the potential of dual-output electroluminescent artificial synapse for MT learning applications.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "科研团队证实分子铝络合物具备促进氧化还原催化反应能力",
-        "暗场电子断层扫描法实现纳米结构金属三维晶界曲率表征",
-        "非热等离子体技术以氮气和甲烷为原料完成芳香环直接氰化"
-      ],
-      "entries": [
-        {
-          "t": "铝氧化还原催化成环反应",
-          "d": "2026-02-22",
-          "a": "Chem",
-          "c": "通用技术/催化剂",
-          "as": "Nature报道了一项开创性研究，首次记录了分子铝络合物促进的氧化还原催化反应。Zhang和Li团队证明铝基配合物可作为氧化还原催化剂，打破了铝元素此前未在该领域有文献记载的空白。该发现拓展了主族金属在催化化学中的应用边界，为低成本、地壳储量丰富的铝基催化体系设计提供了全新思路，具有潜在的工业催化应用价值。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00500-5?rss=yes",
-          "tp": "铝氧化还原催化",
-          "aip": 1,
-          "kp": [
-            "[催化剂]: 铝(I)氧化还原催化剂(首次报道)",
-            "[反应]: 端炔区域选择性组装1,2,4-取代苯"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Redox catalysis promoted by molecular aluminum complexes has not been previously documented. Now in Nature, Zhang and Liu report the use of an aluminum(I) redox catalyst for the regioselective assembly of 1,2,4-substituted benzenes from terminal alkynes. This work provides a foundational blueprint for designing redox-active aluminum complexes for future homogeneous catalysis.",
-          "hb": 1
-        },
-        {
-          "t": "亚纳米分辨率下三维空间揭示纳米结构金属晶界面与曲率",
-          "d": "2026-02-22",
-          "a": "Matter",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究提出了一种暗场电子断层扫描方法，以亚纳米分辨率重建纳米结构金属的三维晶粒形态和取向。该方法实现了对晶界平面和曲率的三维空间表征，突破了传统二维晶界分析的局限。该技术为深入理解纳米金属材料的晶界网络结构与宏观性能关系提供了前所未有的三维可视化能力，对纳米材料设计和性能调控具有重要意义。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00662-9?rss=yes",
-          "tp": "纳米金属晶界表征",
-          "aip": 1,
-          "kp": [
-            "[方法]: 暗场电子断层扫描三维重建",
-            "分辨率[晶界分析]: 亚纳米",
-            "[发现]: 晶界向Schwarz晶体演化"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "This study introduces a dark-field electron tomography method that reconstructs three-dimensional grain morphology and orientation with sub-nanometer resolution, enabling quantitative analysis of grain boundary planes and curvature. The results reveal thermally driven grain boundary evolution toward the Schwarz crystal, providing new insight into the structural stability of nanocrystalline metals.",
-          "hb": 1
-        },
-        {
-          "t": "非热等离子体促进的利用氮气和甲烷对芳香环直接氰化",
-          "d": "2026-02-22",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "该研究利用非热等离子体（nonthermal plasma）促进技术，实现以氮气（N₂）和甲烷为原料直接对芳环进行氰化反应，将惰性氮气直接转化为高附加值含氮化合物。这一方法突破了传统氰化反应依赖有毒氰化物的瓶颈，在温和条件下实现N₂的活化和C-N键构建，为绿色合成含氮精细化学品提供了全新路径，具有重要的催化化学和工业应用潜力。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady3414?af=R",
-          "tp": "等离子体芳烃氰化",
-          "aip": 1,
-          "kp": [
-            "[反应类型]: N₂和CH₄直接芳环氰化",
-            "[反应条件]: 常压介电势垒放电(DBD)非热等离子体",
-            "[底物]: 苯及广谱芳烃"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Directly converting dinitrogen (N\n                    2\n                    ) into valuable nitrogen-containing compounds remains an enduring challenge in chemical synthesis. Here, we report the direct cyanation of aromatic substrates using N\n                    2\n                    and methane (CH\n                    4\n                    ) at atmospheric pressure facilitated by a custom-built, air-free dielectric barrier discharge (DBD) plasma system. A broad range of aromatic compounds, including benzene, were successfully transformed into their corresponding aromatic nitriles. Both experimental and computational evidence suggested that the reaction proceeds primarily via the in situ generation of •CN radicals from N\n                    2\n                    and CH\n                    4\n                    within the plasma zone. Subsequent radical addition to aromatic rings allowed the one-pot formation of aryl nitriles. This approach represents a major advancement in dinitrogen-based organic methodologies, providing an efficient alternative to conventional cyanation methods that heavily rely on lengthy synthetic routes and hazardous cyanide reagents.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

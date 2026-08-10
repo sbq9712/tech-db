@@ -6,17 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "圣保罗大学开发出3V可充电铌电池，技术成熟度达TRL4",
-      "武汉理工提出异步双离子电池构型，正负极分别脱嵌钠离子与氢离子",
-      "新压力感知原位X射线表征方法精准定位固态电池界面失效机制"
+      "圣保罗大学开发出3V可充电铌电池，技术成熟度达TRL4。",
+      "武汉理工大学提出异步双离子电池构型，兼具高电压与低成本优势。",
+      "武汉理工团队基于Mg-Y合金与MnO2构建水系碱性电解液电池体系。"
     ],
     "AI与智能科技": [
-      "研究实现晶圆级单层介质在二维半导体上的大面积均匀集成",
-      "桑迪亚实验室发布算法使神经形态硬件能高效求解偏微分方程",
-      "韩国芯片企业Rebellions向xAI交付REBEL系列芯片样品"
+      "桑迪亚国家实验室发布Neurofem算法，实现神经形态硬件求解偏微分方程。",
+      "类脑计算证实可胜任流体动力学计算，大幅降低传统超算能耗成本。",
+      "韩国芯片企业Rebellions向马斯克旗下xAI交付NPU样品。"
     ],
     "通用技术": [
-      "新型硒集成光敏剂实现830nm激发的上转换，量子产率提升50倍"
+      "科研人员利用超导量子干涉装置阵列实现铌酸锂微波声转换。",
+      "新型微波声转换技术在5.7GHz频率下实现62%最大转换效率。",
+      "该技术克服了传统压电换能器在带宽和固定频率运行方面的物理限制。"
     ]
   },
   "sectors": [
@@ -24,22 +26,41 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "圣保罗大学开发出3V可充电铌电池，技术成熟度达TRL4",
-        "武汉理工提出异步双离子电池构型，正负极分别脱嵌钠离子与氢离子",
-        "新压力感知原位X射线表征方法精准定位固态电池界面失效机制"
+        "圣保罗大学开发出3V可充电铌电池，技术成熟度达TRL4。",
+        "武汉理工大学提出异步双离子电池构型，兼具高电压与低成本优势。",
+        "武汉理工团队基于Mg-Y合金与MnO2构建水系碱性电解液电池体系。"
       ],
       "entries": [
         {
           "t": "圣保罗大学称其研究团队开发出电压达3V的可充电铌电池",
           "d": "2026-01-13",
-          "a": "",
+          "a": "Www2",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
           "as": "巴西圣保罗大学Frank Crespilho团队开发出电压达3V的可充电铌电池，已完成扣电和软包测试，技术成熟度达TRL 4。团队发现铌氧化还原活性介质可作为铌金属智能保护层，使铌在不同电子态间反复切换而不降解，克服了铌在水氧条件下副反应问题。相关技术已提交专利申请。",
-          "sc": 6.3,
+          "sc": 6.7,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www2.ifsc.usp.br/portal-ifsc/usp-deposita-patente-da-primeira-bateria-de-niobio-alcancando-uma-nova-fronteira-estrategica-para-o-brasil/",
-          "tp": "铌电池突破",
+          "tp": "铌电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "铌基材料可用作锂离子电池负极（Nb₂O₅、TiNb₂O₇、钨铌氧化物；嵌锂电位均在1.5V左右），多用于快充产品（例如东芝2kW放电）；此外也有研究做正极/电解质添加剂、超级电容器阳极，若非锂离子电池，可能是一种新的电池体系。暂未检索到铌全电池方面的研究；基于铌各价态（Nb5+-Nb0）间的反应电势，全铌电池较难达到3V；且如新闻所述，Nb4+/3+/2+等易氧化和水解；Frank Crespilho团队研究的“铌电池”可能仍是基于铌基负极，结合高压正极的锂离子电池以达到3V电压；但其新闻采访中提到铌反复在不同电子态之间切换（铌基负极脱嵌锂也有，但可能不易被氧化？）、水氧气条件下副反应，实际电池体系有待需进一步公布和关注。",
+          "b": "1月13日，巴西圣保罗大学在其官网发文称，该校Frank Crespilho教授团队（博士生Luana Italiano）开发出一款电压达3V的可充电铌电池，并称该电池原型已完成开发，通过了扣电、软包等形式电池测试；相关技术提交专利申请，目前技术成熟度（TRL）可达4。\n文章还称，该团队通过发现铌氧化还原活性介质（Nb-RAM）可作为铌金属的“智能保护层”，使铌能够反复在不同电子态之间切换，且不会发生降解，克服了铌在水、氧条件下发生副反应问题。",
+          "hb": 1
+        },
+        {
+          "t": "圣保罗大学称其研究团队开发出电压达3V的可充电铌电池",
+          "d": "2026-01-13",
+          "a": "Www2",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "巴西圣保罗大学Frank Crespilho团队开发出电压达3V的可充电铌电池，已完成扣电和软包测试，技术成熟度达TRL 4。团队发现铌氧化还原活性介质可作为铌金属智能保护层，使铌在不同电子态间反复切换而不降解，克服了铌在水氧条件下副反应问题。相关技术已提交专利申请。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www2.ifsc.usp.br/portal-ifsc/usp-deposita-patente-da-primeira-bateria-de-niobio-alcancando-uma-nova-fronteira-estrategica-para-o-brasil/",
+          "tp": "铌电池",
           "aip": 1,
           "kp": [],
           "lv": 2,
@@ -51,14 +72,14 @@
         {
           "t": "武汉理工大学傅凯报道一种正极MnO2脱嵌Na⁺||负极Mg–Y合金存储H-的异步双离子电池",
           "d": "2026-01-13",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
           "as": "武汉理工大学傅凯团队提出异步反向双离子（H⁻/Na⁺）电池构型，正极γ-MnO₂脱嵌Na⁺，负极Pd包覆Mg-Y合金存储H⁻。通过模板丝网印刷制备叉指状碳基集流体，采用3 M NaCl+4.5 M TMAOH水系碱性电解液。该设计规避了传统双离子电池高浓电解液成本高、负极容量低等问题，兼具高电压与低成本优势。",
-          "sc": 6.5,
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1039/D5EE06051F",
-          "tp": "双离子电池",
+          "tp": "异步双离子电池",
           "aip": 1,
           "kp": [],
           "lv": 1,
@@ -66,27 +87,6 @@
           "cm": "",
           "b": "双离子电池（DIBs）和反向双离子电池（RDIBs）引入了阴离子存储机制，将阴离子和阳离子分别存储在不同电极中，具有高电压（4.5 V）等优势，但多受限于“盐包水”高浓电解液成本高、电导率低，且负极容量也相对较低（<100 mAh g⁻¹），阻碍了其实际应用。\n近日，武汉理工大学傅凯副研究员团队提出了一种异步反向双离子（H-/Na+）电池（asynchronously reverse dual-ion battery，ARDIB）的构型。其首先通过模板丝网印刷方法，在指状交叉模板上制备聚氨酯树脂+石墨烯/石墨/乙炔黑的碳基集流体。而后分别在对应指状集流体上印刷γ-MnO2正极（活性材料占比40%，厚度约100 µm，宽度400 µm）和磁控溅射Pd包覆的Mg–Y合金负极（Mg₂₄Y₅和Mg₂Y相，分层制备厚度约500 nm的Mg–Y薄膜与20 nm的Pd中间层）。电解质则采用3 M NaCl + 4.5 M TMAOH（四甲基氢氧化铵）稀释水系碱性电解质，以提供H⁻（来自H₂O/OH⁻）和Na⁺（来自NaCl）来源（pH约13，电解质用量为35 μL cm⁻²，电化学稳定窗口约1.23 V）；同时阳离子（TMA+）因体积较大，在循环中会不可逆地嵌入MnO2层间，诱导其从微米球剥离、重构为超薄纳米片。文中并未提及隔膜的使用。充电时，正极处NaₓMnO₂发生氧Mn⁴⁺/Mn³⁺氧化还原并伴随Na⁺脱出，释放电子；负极处水分子在Pd表面吸附并解离，H⁺被电子还原为H⁻，插入Mg–Y晶格形成金属氢化物，同时释放OH⁻到电解质；整体电子从正极流向负极，Na⁺和OH⁻扩散维持电中性，形成闭合离子回路。放电时，正极Na⁺从电解质中插入MnO2晶格；负极H⁻则从晶格释放，与OH⁻反应再生H₂O；整体电子从阳极流向阴极，Na⁺和OH⁻消耗维持离子平衡。\n由此制备得到4对正负极的微型电池（有效面积约0.1cm2）放电平台约1V，1mA cm-2电流密度下面容量可达0.43 mAh cm-2；负极容量密度1185 mAh g⁻¹，正极118 mAh g⁻¹；最大功率密度30.8 mW cm-2；循环5700圈后（10 mA cm⁻²），容量保持76.3%。此外，该研究还利用丝网印刷技术轻松地将电池放大并设计成“太极”图案（直径8cm的圆），将其集成在太阳能伞上，构建了一套“光伏-储能-照明”一体化系统，实现了白天充电、夜晚为LED灯供电。文章于2026年1月13日发表在Energy & Environmental Science。",
           "hb": 1
-        },
-        {
-          "t": "[ASAP]压力感知原位X射线方法揭示固态电池的真实机理路径",
-          "d": "2026-01-13",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究开发压力感知的原位X射线表征方法，用于揭示固态电池中真实的反应机理路径。传统表征手段难以捕捉电极/电解质界面在充放电过程中的动态变化，该方法通过实时监测应力演化与结构相变，精确定位锂枝晶生长、界面降解等关键失效机制。为固态电池界面工程优化和长循环稳定性提升提供了机理层面的直接证据。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03296",
-          "tp": "固态电池机理表征",
-          "aip": 1,
-          "kp": [
-            "[表征方法]: 压力敏感operando X射线"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
         }
       ]
     },
@@ -94,39 +94,34 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究实现晶圆级单层介质在二维半导体上的大面积均匀集成",
-        "桑迪亚实验室发布算法使神经形态硬件能高效求解偏微分方程",
-        "韩国芯片企业Rebellions向xAI交付REBEL系列芯片样品"
+        "桑迪亚国家实验室发布Neurofem算法，实现神经形态硬件求解偏微分方程。",
+        "类脑计算证实可胜任流体动力学计算，大幅降低传统超算能耗成本。",
+        "韩国芯片企业Rebellions向马斯克旗下xAI交付NPU样品。"
       ],
       "entries": [
         {
-          "t": "原子薄层半导体上的晶圆级单层介质集成",
+          "t": "《自然-机器智能》最新成果展示了一种能让神经形态硬件解决偏微分方程的新型算法Neurofem",
           "d": "2026-01-13",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "随着MOS场效应晶体管尺寸逼近物理极限，二维半导体上的超薄栅介质集成成为关键挑战。该研究实现了晶圆级单层介质在原子级薄层半导体上的大面积均匀集成，解决了二维材料表面无悬挂键导致介质沉积困难的核心问题。高质量单层介质具有优异的击穿强度和低漏电流，为亚纳米等效氧化层厚度的器件制造提供了可行路径，对后摩尔时代高性能低功耗电子器件的规模化制造具有重要意义。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-025-02445-x",
-          "tp": "单层介电集成",
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "美国桑迪亚国家实验室在《自然-机器智能》发表Neurofem算法，首次让神经形态硬件高效求解偏微分方程。传统超算求解PDE耗能巨大，而类脑计算利用大脑式低能耗并行机制大幅降低科学计算成本。研究证明神经形态计算机不仅能做图像识别，还能胜任流体动力学、电磁场等严谨科学计算，随英特尔Hala Point等系统发展前景广阔。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/912/668.htm",
+          "tp": "类脑算法",
           "aip": 1,
-          "kp": [
-            "介电层[二维半导体]: 单层MoO3",
-            "等效厚度[介电集成]: <1 nm CET",
-            "制备规模[介电集成]: 晶圆级",
-            "[制备路径]: 由MoS2转化而来"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "A promising strategy for further miniaturizing metal–oxide–semiconductor field-effect transistors is the use of ultrathin two-dimensional channel materials. However, achieving robust dielectric integration with a sub-1-nm capacitance equivalent thickness (CET) remains challenging. Here we present a wafer-scale monolayer MoO3, transformed from MoS2, which can be seamlessly integrated with atomically thin semiconductors. Its atomically flat surface and the strong electronegativity of Mo6+ further enable the uniform deposition of high-κ dielectrics. Utilizing the 0.96-nm-CET MoO3/HfO2 as the dielectric, the top-gated p-type (n-type) two-dimensional transistors show a high ON/OFF ratio of 6.5 × 106 (3.2 × 108) and a steep subthreshold swing of 60.8 (63.1) mV dec−1. Statistical analysis of a 1,024-device array achieves a high yield of 92.2%. Furthermore, when monolayer MoO3 is used as the top-gated dielectric with an ultimately scaled CET of 0.64 nm, the gate leakage current meets the low-power limit standard (1.5 × 10−2 A cm−2) over the entire bias range. Our study provides a scalable approach for the integration of ultralow-CET dielectrics on two-dimensional materials, marking a critical step towards their future industrial deployment.",
+          "b": "IT之家1月13日消息，科技媒体phys于1月7日发布博文，报道称美国桑迪亚国家实验室（Sandia National Laboratories）在《自然-机器智能》发表最新成果，展示了一种能让神经形态硬件解决偏微分方程（PDEs）的新型算法Neurofem。偏微分方程是模拟流体动力学、电磁场和结构力学等物理现象的数学基石。长期以来，业界普遍认为类脑计算仅适用于图像识别或加速人工神经网络，无法胜任严谨的科学计算。然而，这项研究证明，模仿人脑架构的计算机不仅能处理这些复杂方程，而且效率惊人。传统超级计算机在求解偏微分方程时需要消耗巨大的计算资源与电力，而神经形态计算机提供了一条截然不同的路径。\n研究员Aimone指出，人脑无时无刻不在进行复杂的“后台计算”。他举例称：“像击打网球或挥棒击球这样的动作控制，本质上是极其复杂的计算。这些在传统计算机看来属于‘百亿亿次级（Exascale）’的高难度任务，大脑却能以极低的能耗轻松完成。”该研究正是利用了这一原理，通过类脑机制大幅降低了科学计算的能源成本。此外，随着英特尔推出包含更多神经元的Hala Point系统，以及像Spinncloud这样的初创公司开发千片级SNN系统，神经拟态计算在物理模拟领域的规模化应用有望进一步加速。",
           "hb": 1
         },
         {
           "t": "《自然-机器智能》最新成果展示了一种能让神经形态硬件解决偏微分方程的新型算法Neurofem",
           "d": "2026-01-13",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "美国桑迪亚国家实验室在《自然-机器智能》发表Neurofem算法，首次让神经形态硬件高效求解偏微分方程。传统超算求解PDE耗能巨大，而类脑计算利用大脑式低能耗并行机制大幅降低科学计算成本。研究证明神经形态计算机不仅能做图像识别，还能胜任流体动力学、电磁场等严谨科学计算，随英特尔Hala Point等系统发展前景广阔。",
           "sc": 6.8,
@@ -145,10 +140,10 @@
         {
           "t": "韩国AI芯片企业Rebellions向马斯克xAI交付样品",
           "d": "2026-01-13",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "韩国AI芯片企业Rebellions已向马斯克旗下xAI交付芯片样品。此前公司已向KT Cloud和SKT供应ATOM系列芯片，并完成对Meta出样。其最新产品为REBEL-Quad NPU，2025年9月以14亿美元估值完成C轮融资，计划2026年下半年进行IPO。",
-          "sc": 5.8,
+          "sc": 5.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.ithome.com/0/912/773.htm",
@@ -167,26 +162,30 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新型硒集成光敏剂实现830nm激发的上转换，量子产率提升50倍"
+        "科研人员利用超导量子干涉装置阵列实现铌酸锂微波声转换。",
+        "新型微波声转换技术在5.7GHz频率下实现62%最大转换效率。",
+        "该技术克服了传统压电换能器在带宽和固定频率运行方面的物理限制。"
       ],
       "entries": [
         {
-          "t": "[ASAP] 硒集成七次甲基花青敏化剂实现 830 nm 可激发三重态-三重态湮灭上转换",
+          "t": "使用超导量子干涉装置阵列实现铌酸锂上的最佳微波声转换",
           "d": "2026-01-13",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究团队报道了一种硒集成七次甲基花青（Cy2）近红外光敏剂，与红荧烯组合实现了830nm激发、557nm发射的三重态-三重态湮灭上转换（TTA-UC），上转换量子产率最高达1.0%。与此前报道的IR806/红荧烯体系相比，量子产率提升了50倍。光物理表征表明硒的整合显著改善了系间窜越效率。",
-          "sc": 7.7,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "http://dx.doi.org/10.1021/jacs.5c15902",
-          "tp": "光子上转换",
+          "a": "Nature Electronics",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "利用超导量子干涉装置（SQUID）阵列，在铌酸锂上实现了接近最大效率-带宽乘积的微波声转换。通过SQUID阵列将宽带叉指换能器的大复阻抗转换为50欧姆，在5.7 GHz频率下实现了62%的最大转换效率，效率-带宽乘积达到约440 MHz。该技术克服了传统压电换能器在效率、带宽和固定频率运行方面的限制。",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-025-01548-2",
+          "tp": "微波声转换器",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "转换效率[微波声转换]: 接近最大效率"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "We demonstrated that the selenium-integrated heptamethine cyanine acts as a near-infrared photosensitizer when combined with rubrene (annihilator), achieving triplet-triplet annihilation upconversion (TTA-UC) with 830 nm excitation and 557 nm emission and an upconversion quantum yield of up to 1.0% (out of 50%). Compared to the previously reported TTA-UC pair (IR806/rubrene), the upconversion quantum yield of Cy2/rubrene improves 50-fold. Photophysical characterization indicates that the integration of selenium into the cyanine skeleton in Cy2 increases the intersystem crossing rate and triplet excited state quantum yield to 3.22 × 108 s-1 and 23%, respectively, which is significantly enhanced 3.5-fold and 2.6-fold compared to iodine-substituted heptamethine cyanine (Cy1). The superior triplet excited state properties of Cy2 are crucial factors underlying the exceptional upconversion performance. Eventually, via spin coating the mixture of Cy2/rubrene solution, we fabricated the 830 nm responsive single-layer TTA-UC film, which exhibited excellent transmittance and bright upconversion luminescence. These findings are for the longest wavelength light-excitable metal-free small-molecule-based TTA-UC system, significantly promoting photon upconversion applications in solar energy harvesting and biophotonics.",
+          "b": "Electronic devices that use acoustic vibrations are of use in classical and quantum technologies. Such devices rely on transducers to exchange signals between electrical and acoustic networks. The transducers are typically based on piezoelectricity. However, conventional piezoelectric transducers are limited to either small efficiencies or narrow bandwidths, and usually operate at a fixed frequency. Here we report piezoelectric microwave–acoustic transduction operating close to the maximal efficiency–bandwidth product of lithium niobate. We use superconducting quantum interference device arrays to transform the large complex impedance of wideband interdigital transducers into 50 Ω. We demonstrate an efficiency–bandwidth product of around 440 MHz, with a maximum efficiency of 62% at 5.7 GHz. We use the flux dependence of superconducting quantum interference devices to create transducers with in situ tunability across nearly an octave at around 5.5 GHz. Our transducers can be connected to other superconducting quantum devices and could be of use in applications such as microwave-to-optics conversion, quantum-limited phonon detection, acoustic spectroscopy and fast acoustic coherent control in the 4–8-GHz band.",
           "hb": 1
         }
       ]

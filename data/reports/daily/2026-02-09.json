@@ -6,15 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究构建CXCR4工程巨噬细胞递送系统，可转移线粒体治疗骨质疏松。",
-      "研究证实TiS2驱动转化与插层协同机制，提升锂硫电池比容量与循环稳定性。",
-      "原位可视化观测揭示TiS2双重机制协同增强锂硫电池储能容量的微观机理。"
+      "宁德时代发布Naxtra技术并称首次实现电动汽车钠离子电池应用",
+      "Parallel Carbon利用DAC与氢能技术为苏黎世保险集团提供碳移除服务",
+      "深圳能源综合可再生氨设施正式并网投入运营"
     ],
     "AI与智能科技": [],
     "通用技术": [
-      "柏林自由大学团队提出图神经网络RANGE架构，通过虚拟中继节点提升分子动力学模拟精度。",
-      "研究利用自由淹没超表面实现压力无关水下声涡流通信，突破信息容量限制。",
-      "马斯克称SpaceX将优先在月球建立自给自足城市，调整星际探索任务优先级。"
+      "研究利用原子层沉积构建地下电子泵以提升燃料电池铂催化剂耐久性",
+      "科研人员通过非化学计量比策略调控NaNbO3基陶瓷的钠氧混合离子传导",
+      "柏林自由大学团队提出增强图网络长程感知的RANGE架构以优化分子动力学模拟"
     ]
   },
   "sectors": [
@@ -22,74 +22,67 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究构建CXCR4工程巨噬细胞递送系统，可转移线粒体治疗骨质疏松。",
-        "研究证实TiS2驱动转化与插层协同机制，提升锂硫电池比容量与循环稳定性。",
-        "原位可视化观测揭示TiS2双重机制协同增强锂硫电池储能容量的微观机理。"
+        "宁德时代发布Naxtra技术并称首次实现电动汽车钠离子电池应用",
+        "Parallel Carbon利用DAC与氢能技术为苏黎世保险集团提供碳移除服务",
+        "深圳能源综合可再生氨设施正式并网投入运营"
       ],
       "entries": [
         {
-          "t": "通过 CXCR4 工程巨噬细胞的细胞间通讯驱动的线粒体转移重新编程骨髓代谢以治疗骨质疏松症",
+          "t": "CATL声称电动汽车采用Naxtra电池技术的钠离子“第一”",
           "d": "2026-02-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "骨质疏松症的特征是骨形成受损和骨髓稳态破坏，主要由骨髓间充质干细胞线粒体功能障碍引起。本研究构建了由CXCR4工程化巨噬细胞负载纳米酶功能化线粒体的活性递送系统(CM-MTBM)，整合了骨靶向迁移、活性氧清除和细胞间通讯介导的线粒体转移功能，通过重编程骨髓代谢实现骨质疏松治疗。",
-          "sc": 6.9,
-          "i": "literature",
-          "tg": "行业观察",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521645?af=R",
-          "tp": "线粒体递送治疗",
+          "a": "News Feed – Batteries International",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.batteriesinternational.com/2026/02/09/catl-claims-ev-first-for-sodium-ion-with-naxtra-battery-tech/",
+          "tp": "宁德钠离子电池",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  Osteoporosis is characterized by impaired bone formation and disrupted bone marrow homeostasis, largely driven by mitochondrial dysfunction in bone marrow mesenchymal stem cells (BMSCs). To address this, a live mitochondrial delivery system composed of CXCR4‐engineered macrophages loaded with nanozyme‐functionalized mitochondria (CM‐MTBM). This system integrates bone‐targeted migration, reactive oxygen species scavenging, and communication‐mediated mitochondrial transfer. CM‐MTBM restores mitochondrial respiration, enhances osteogenic differentiation, and alleviates oxidative apoptosis in BMSCs, thereby promoting metabolic recovery and redox balance. In osteoporotic mice, CM‐MTBM treatment markedly improved the trabecular bone microarchitecture and promoted osteogenic repair. Single‐cell transcriptomic analysis further revealed the enrichment of osteogenic BMSC subpopulations and functional reprogramming of the bone marrow immune–metabolic microenvironment. Mechanistically, CM‐MTBM activated mitochondrial oxidative metabolism while suppressing inflammation and senescence‐associated signaling, achieving coordinated metabolic and osteogenic activation. Collectively, this work established a communication‐driven mitochondrial transfer paradigm that reframes mitochondrial therapy from passive structural supplementation to communication‐driven metabolic reprogramming, establishing a conceptual and technological framework for precision treatment of metabolic bone disorders.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "突破单反应限制：锂硫电池中TiS2驱动转化-插层协同的原位可视化",
+          "t": "Parallel Carbon 通过新型 DAC+H2 技术为苏黎世保险集团提供 CDR",
           "d": "2026-02-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "该研究利用原位可视化技术揭示TiS₂驱动的转化-嵌入协同机制，突破了传统锂硫电池正极依赖单一储能机制的限制。通过将转化反应与嵌入反应协同耦合，实现了高于单一机制的比容量和循环稳定性，为下一代高能量密度锂电池正极设计提供了新范式。",
-          "sc": 6.8,
+          "a": "Carbon Herald",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 6.9,
           "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522007?af=R",
-          "tp": "锂硫电池",
+          "tg": "观点评论",
+          "u": "https://carbonherald.com/parallel-carbon-to-deliver-cdr-for-zurich-insurance-group-via-novel-dach2-technology/?utm_source=rss&utm_medium=rss&utm_campaign=parallel-carbon-to-deliver-cdr-for-zurich-insurance-group-via-novel-dach2-technology",
+          "tp": "DAC制氢碳去除",
           "aip": 1,
-          "kp": [
-            "正极机制[锂硫电池]: TiS2转化-嵌入协同",
-            "表征[纳米尺度]: 原位可视化界面协同"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Conventional cathodes of lithium battery relying on single storage mechanisms—whether intercalation or conversion—face intrinsic limitations in energy density and sluggish electrode kinetics. Hybrid systems combining both mechanisms offer promising pathways to transcend these constraints; yet, their dynamic interfacial synergies remain poorly deciphered at the nanoscale. This study employs multimodal in situ characterization (Electrochemical atomic force microscopy/Raman/Electrochemical impedance spectroscopy) to elucidate the dynamic synergy in TiS\n                    2\n                    ‐S hybrid cathodes, revealing the concurrent interfacial evolution during cycling: nanoscale steps formation via Li‐ion intercalation in the TiS\n                    2\n                    ‐LiTiS\n                    2\n                    host and the phase transformation of S‐Li\n                    2\n                    S/Li\n                    2\n                    S\n                    2\n                    . Crucially, the TiS\n                    2\n                    /LiTiS\n                    2\n                    serves as a bifunctional interface that not only contributes capacity but also mediates sulfide adsorption and catalyzes preferential edge‐directed sulfide deposition. The partially delithiated Li\n                    x\n                    TiS\n                    2\n                    enhances electronic conductivity, creating rapid electron transport that facilitates subsequent interfacial sulfide conversion reaction. The hybrid storage mechanism retains features characteristic of both S and TiS\n                    2\n                    storage mechanisms, yet manifests synergistic interfacial reconstruction rather than simple superposition, achieving enhanced reversibility, exceptional cycling stability, and superior rate capability.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "突破单一反应限制：锂硫电池中TiS2驱动转化-嵌入协同效应的原位可视化研究",
+          "t": "深圳能源：中国综合可再生氨设施并网",
           "d": "2026-02-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究利用原位可视化技术揭示了TiS2驱动的转化-插层协同机制在锂硫电池中的作用，突破了传统单一反应储能机制的局限。研究通过实时观测充放电过程中TiS2层间硫的转化和离子插层行为，阐明了双重机制协同增强容量和循环稳定性的微观机理，为高能量密度锂硫电池正极设计提供了理论指导。",
-          "sc": 6.6,
+          "a": "Articles – Ammonia Energy Association",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 6.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522007?af=R",
-          "tp": "锂硫电池",
+          "u": "https://ammoniaenergy.org/articles/shenzhen-energy-grid-connection-for-integrated-renewable-ammonia-facility-in-china/",
+          "tp": "可再生氨并网",
           "aip": 1,
-          "kp": [
-            "[正极材料]: TiS₂",
-            "[机制]: 转化-嵌入协同",
-            "[表征方法]: 原位可视化纳米界面协同"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Conventional cathodes of lithium battery relying on single storage mechanisms—whether intercalation or conversion—face intrinsic limitations in energy density and sluggish electrode kinetics. Hybrid systems combining both mechanisms offer promising pathways to transcend these constraints; yet, their dynamic interfacial synergies remain poorly deciphered at the nanoscale. This study employs multimodal in situ characterization (Electrochemical atomic force microscopy/Raman/Electrochemical impedance spectroscopy) to elucidate the dynamic synergy in TiS\n                    2\n                    ‐S hybrid cathodes, revealing the concurrent interfacial evolution during cycling: nanoscale steps formation via Li‐ion intercalation in the TiS\n                    2\n                    ‐LiTiS\n                    2\n                    host and the phase transformation of S‐Li\n                    2\n                    S/Li\n                    2\n                    S\n                    2\n                    . Crucially, the TiS\n                    2\n                    /LiTiS\n                    2\n                    serves as a bifunctional interface that not only contributes capacity but also mediates sulfide adsorption and catalyzes preferential edge‐directed sulfide deposition. The partially delithiated Li\n                    x\n                    TiS\n                    2\n                    enhances electronic conductivity, creating rapid electron transport that facilitates subsequent interfacial sulfide conversion reaction. The hybrid storage mechanism retains features characteristic of both S and TiS\n                    2\n                    storage mechanisms, yet manifests synergistic interfacial reconstruction rather than simple superposition, achieving enhanced reversibility, exceptional cycling stability, and superior rate capability.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -103,15 +96,59 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "柏林自由大学团队提出图神经网络RANGE架构，通过虚拟中继节点提升分子动力学模拟精度。",
-        "研究利用自由淹没超表面实现压力无关水下声涡流通信，突破信息容量限制。",
-        "马斯克称SpaceX将优先在月球建立自给自足城市，调整星际探索任务优先级。"
+        "研究利用原子层沉积构建地下电子泵以提升燃料电池铂催化剂耐久性",
+        "科研人员通过非化学计量比策略调控NaNbO3基陶瓷的钠氧混合离子传导",
+        "柏林自由大学团队提出增强图网络长程感知的RANGE架构以优化分子动力学模拟"
       ],
       "entries": [
         {
+          "t": "精确构建的地下电子泵可稳定 Pt 催化剂，防止燃料电池中氧诱导的降解",
+          "d": "2026-02-09",
+          "a": "Matter",
+          "c": "通用技术/催化剂",
+          "as": "原子层沉积技术将硼单原子精确掺杂到铂纳米颗粒的次表面，引发不对称应变和电子泵效应。该效应在不牺牲电化学活性表面积的前提下，由内而外有效抑制了不饱和铂位点的电化学腐蚀，赋予了铂基电催化剂长期的燃料电池耐久性。",
+          "sc": 8.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(25)00649-6?rss=yes",
+          "tp": "Pt催化剂抗降解",
+          "aip": 1,
+          "kp": [
+            "掺杂工艺[铂基催化剂抗降解]: 原子层沉积实现硼单原子次表面间隙精准掺杂",
+            "稳定化机理[抑制铂电化学腐蚀]: 产生不对称应变和电子泵效应以抑制由内而外的腐蚀"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Atomic layer deposition enables the precise interstitial doping of boron single atoms into the subsurface of Pt nanoparticles, inducing asymmetric strain and electron pump effect that effectively suppress the electrochemical corrosion of unsaturated Pt sites from the inside-out without sacrificing the electrochemical active surface area, thereby endowing the Pt-based electrocatalyst with long-term fuel cell durability.",
+          "hb": 1
+        },
+        {
+          "t": "A 位非化学计量 NaNbO3 基陶瓷中钠氧混合离子传导的调控",
+          "d": "2026-02-09",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究通过非化学计量比策略，实现了Na0.96xCa0.04Nb0.96Zr0.04O3-δ导体中Na+和O2-离子传导的协同调控。所有样品均具有Pbma正交结构。随着Na含量增加，缺陷特征由空位转变为间隙，NbO6八面体由压缩变为正常再变为倾斜扁平，导致Na-O-Na和Na-O-Nb网络中间隙扩大，从而改变了传导特性。",
+          "sc": 7.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-69428-7",
+          "tp": "固态电解质调控",
+          "aip": 1,
+          "kp": [
+            "晶体结构[Na0.96xCa0.04Nb0.96Zr0.04O3-δ导体]: Pbma正交结构",
+            "传导调控机制[固态电解质双离子传导]: 非化学计量比策略协同调控Na+和O2-离子传导"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tailoring the electronic or ionic conduction properties of solid-state electrolytes with precision is essential to fulfilling the functional demands of electrochemical energy storage and conversion technologies. Here, the synergistic regulation of Na+ and O2− ions conduction in the Na0.96xCa0.04Nb0.96Zr0.04O3-δ conductor is achieved by the non-stoichiometric ratio strategy. Crystal structure and electrical property analyses reveal that all samples feature a Pbma orthorhombic structure. With rising Na content, the defect characteristics shift from vacancies to interstitials, the NbO6 octahedra experience a change from being compressed to normal and then to being obliquely flattened, which leads to an expansion of the corresponding interstitials in the Na-O-Na and Na-O-Nb networks. By changing the structures of these three types of polyhedron and networks, the conduction channels of Na+ and O2− ions as well as electrons can be effectively regulated. The O2− ions are the main charge carriers for Na-deficient samples, stoichiometric samples feature the mixed O2− ions and intrinsic electrons, while Na⁺ ions become the dominant carriers for Na-excess samples. This work highlights the important role of lattice defects and oxygen octahedral distortions/twisting on the conductivity, offering insights into the design of and Na+/O2− ions migration pathways in solid-state ion conductors.",
+          "hb": 1
+        },
+        {
           "t": "柏林自由大学Frank Noé & Cecilia Clementi提出增强图网络远程感知的框架RANGE",
           "d": "2026-02-09",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
           "as": "柏林自由大学Noé与Clementi团队提出增强图神经网络长程感知的全局信息传递架构RANGE，通过引入与所有节点连接的虚拟中继节点实现全局特征直接感知，降低多轮传递导致的过度平滑与过度挤压问题，在外推任务中精确重现色散和静电相互作用驱动体系行为，计算量更小精度更高，可支持稳定分子动力学模拟。",
           "sc": 6.4,
@@ -119,50 +156,12 @@
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41467-026-69715-3",
           "tp": "分子图网络",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "机制上而言，RANGE十分简单，直接使用平均场来将远程的相互作用传递到真实的原子节点。这一思想类似于ResNet中的残差机制，从而减少过渡平滑和过度挤压这种GNN领域的“退化”问题。同时也可以和已有的网络架构很容易的结合起来。\nRANGE实测起来也会比较稳定地提升网络的训练精度，因此或许可以迁移到已有的工作中来。目前RANGE可能存在的问题是训练过程的稳定性，因为过长的相互作用长度可能带来一些收敛性的问题。但是这应该是个值得关注的工作。",
           "b": "图神经网络被广泛用于刻画化学、社会科学以及经济学中的多体相互作用。其主要问题是图节点之间的信息传递机制存在局域性，计算量会随着传递半径平方速度增加，同时过多的传递迭代轮次会带来节点特征过度平滑和过度挤压的问题。Frank Noé & Cecilia Clementi团队为了解决分子模拟体系中的色散和静电相互作用的长程性，提出了适用于多种图神经网络的全局信息传递架构RANGE(Relaying Attention Nodes for Global Encoding)。该架构能够显著降低图神经网络中长程特征传导过程中的信息损失(过度挤压)，从而实现了对长程相互作用的更高精度描述。在测试体系中，使用了RANGE的网络成功在外推任务中重现了色散和静电相互作用驱动的体系行为。相较于其他方法，RANGE计算量更小，精度更高，可以支持稳定的分子动力学模拟。\n技术上而言，RANGE架构会在GNN中添加一组额外的虚拟节点，这些虚拟节点与图上所有节点均连接，用于感知整图的全局特征，并将这种平均特征传递给相关的真实节点。通过这种方式，真实节点可以直接感知到全局的特征，而不需要经过多轮的信息传递。同时这种改进机制针对不同的图结构有很强的普适性。在带电体系中，RANGE框架可以普遍降低MACE/SchNet/PaiNN/SO3krates的预测误差25%以上，同时推理时间仅有10%以下的上升。该工作借助RANGE+PaiNN力场实现了2 ns的超分子组装体系的稳定分子模拟。文章于2026年2月9日发表在Nature Communications。",
-          "hb": 1
-        },
-        {
-          "t": "通过自由淹没超表面实现具有增强容量和加密信息的压力无关声涡流通信",
-          "d": "2026-02-09",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/通信和运输/水路运输",
-          "as": "结构化涡旋光束在光学和电磁学多路复用通信中取得显著进展，但强振动声学耦合和高静水压力阻碍了水下声学通信信息容量提升。本研究通过自由淹没超表面实验实现了压力无关的声涡流通信，可同时传输和加密信息，突破了水下声学通信的容量瓶颈，为水下信息安全传输提供了新途径。",
-          "sc": 6.3,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521718?af=R",
-          "tp": "声涡流水下通信",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Structured vortex beams have driven significant advances in multiplexing communication technologies and have been demonstrated experimentally in optics, electromagnetics, and airborne acoustics. However, the strong vibroacoustic coupling and high hydrostatic pressure hamper the experimental enhancement of acoustic information capacity in underwater communication via passively modulating coaxial beams. Here, we report the experimental realization of simultaneous information capacity enhancement and hybrid physical‐computational camouflage in underwater free‐space pressure‐independent acoustic‐vortex communication. Two inverse‐designed free‐flooded metasurfaces, with hydrostatically resilient stability and customized wave scattering characteristics, synthesize and demodulate experimentally coaxial vortex beams of different topological charges, enabling physically encrypted, port‐to‐port information transfer. A computational‐mask encryption scheme further digitally conceals a plaintext image within two ciphertext bitstreams. Transmission of these ciphertexts through the synthesized hetero‐order vortex beams experimentally confirms physical‐computational anti‐eavesdropping capabilities of the system. Our research charts an unprecedented path toward high‐capacity, highly secure underwater acoustic communication technologies in the deep ocean.",
-          "hb": 1
-        },
-        {
-          "t": "SpaceX称将优先建设月球上的自给自足城市",
-          "d": "2026-02-09",
-          "a": "",
-          "c": "通用技术/通信和运输/航天",
-          "as": "马斯克表示SpaceX将优先在月球建立自给自足的城市而非直接殖民火星，称先去月球更快保障文明未来，但仍保持5-7年内在火星建城为最长远目标。此立场较2025年1月称月球任务为干扰发生明显转向。",
-          "sc": 3.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://finance.yahoo.com/news/musk-says-spacex-prioritise-building-234344484.html",
-          "tp": "太空殖民路",
-          "aip": 0,
-          "kp": [],
-          "lv": 1,
-          "wr": "",
-          "cm": "在达成许多科技成就的同时，马斯克所展望的一些项目也经历了延期或最终没有实现，如高速公路、铁路计划Hyperloop延宕多年无法铺开；其在2016年称自动驾驶出租车Robotaxi2020年就可达到百万辆级别，但2025年依然在试点；2020年，他称Neuralink脑机一年内即可植入，但目前依然处在试验阶段；2011年，他称将在最晚20年内达成载人登陆火星，但以目前进度，该目标也很难如期实现。\n2025年11月，蓝色起源的NG-2火箭完成了第二次发射并成功回收助推器，NG-2火箭载荷介于SpaceX的猎鹰9和猎鹰重型之间。此次发射-回收成功象征着在商业可回收火箭市场，SpaceX不再一家独大。因此，在用于火星任务的星舰火箭尚未完全成熟的情况下，SpaceX需要其他任务以应对潜在的竞争。此外，在美国NASA原用于登月Artemis计划的SLS系列火箭成本超支且整个计划延期的情况下，SpaceX、蓝色起源等商业航天公司也有望更深入参与Artemis项目，获取NASA订单。",
-          "b": "2月9日，马斯克称SpaceX会将重点从直接在火星建立殖民地转向首先在月球建立“自给自足的城市”。在X上，马斯克称在5到7年内在火星建立城市依然是SpaceX最长远的目标，“但最首要的任务是保障文明的未来，而先去月球（实现这一点）会更快。”2025年1月，马斯克曾将月球任务称为“干扰”，并宣称会直接进行火星任务。",
           "hb": 1
         }
       ]

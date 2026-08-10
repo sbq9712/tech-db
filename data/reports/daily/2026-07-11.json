@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "比亚迪储能获阿联酋11.275GWh电池订单创全球采购纪录",
-      "TCL中环投资26亿元将20GW TOPCon产线技改为BC电池",
-      "中国储能企业连续斩获中东电网级项目拓展全球市场份额"
+      "印度理工学院研发Na₃O₁₅Si₆Y玻璃电解质，固态钠硫电池室温电导率达1.6 mS·cm⁻¹",
+      "英国STEP聚变项目公开模块化反应堆专利以实现独立组装与分段维护",
+      "新奥聚变完成Pre-A轮融资，投后估值106亿元用于建设氢硼聚变装置"
     ],
     "AI与智能科技": [
-      "加速进化发布Booster T2平台搭载英伟达Thor芯片",
-      "300毫米晶圆产线成功制造并运行八量子比特器件",
-      "SK海力士赴美IPO募资265亿美元加码HBM存储扩产"
+      "OpenAI发布GPT-5.6接入微软365，DeepSWE基准解决率达73%",
+      "Bun运行时因Zig语言内存安全问题与社区规则冲突，启动Rust语言底层重写",
+      "港中文与快手可灵发布ShotStream多镜头长视频生成框架，单卡H200推理速度达16 FPS"
     ],
     "通用技术": [
-      "长征十号乙运载火箭首飞成功实现一子级垂直回收",
-      "美国周发电量首次突破10万吉瓦时应对高负荷压力",
-      "海南商业航天发射场完成长征十号乙火箭发射任务"
+      "研究构建Pt5(Ce)Co@Pt多层纳米颗粒，燃料电池循环180,000次后质量活性达2.6 A mgPt⁻¹",
+      "国家发改委发布2026至2029年省级电网输配电价方案并单列线损费用核算",
+      "研究实现Ru负载离子COF纳米流体光催化，粒径96纳米解决固定床催化剂堵塞问题"
     ]
   },
   "sectors": [
@@ -26,78 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "比亚迪储能获阿联酋11.275GWh电池订单创全球采购纪录",
-        "TCL中环投资26亿元将20GW TOPCon产线技改为BC电池",
-        "中国储能企业连续斩获中东电网级项目拓展全球市场份额"
+        "印度理工学院研发Na₃O₁₅Si₆Y玻璃电解质，固态钠硫电池室温电导率达1.6 mS·cm⁻¹",
+        "英国STEP聚变项目公开模块化反应堆专利以实现独立组装与分段维护",
+        "新奥聚变完成Pre-A轮融资，投后估值106亿元用于建设氢硼聚变装置"
       ],
       "entries": [
         {
-          "t": "比亚迪斩获全球最大光储项目11.3GWh电池订单",
+          "t": "直接“长”在钠金属上：Na₃O₁₅Si₆Y玻璃电解质实现低界面电阻固态钠硫电池",
           "d": "2026-07-11",
-          "a": "Electrek",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "比亚迪储能获得全球最大光储一体化项目的11.275 GWh电池储能供应合同。该巨型项目将储能规模推至新高度，凸显中国储能在全球市场中的成本与技术竞争力。11.3 GWh的规模相当于数十万家庭用电需求，标志着长时储能正从辅助角色向电网核心基础设施转变。",
-          "sc": 7.8,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/07/10/byd-masdar-11-gwh-rtc-storage-abu-dhabi/",
-          "tp": "储能电池订单",
+          "a": "能源学人",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "印度理工学院Vipin Kumar团队提出固-气相生长策略，在钠金属负极表面直接生长Na3O15Si6Y固态玻璃电解质。该电解质室温Na+电导率达1.6 mS·cm⁻¹，界面电阻仅6.2 Ω·cm²。基于该电解质的固态钠硫全电池稳定循环超140圈，并成功扩展至软包电池。AIMD模拟显示Na+在玻璃基体笼状位点间跳跃，迁移活化能垒为0.25 eV。相关成果发表于《Angewandte Chemie》。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/PDSmLqWn37k3TANihsXL8g",
+          "tp": "固态钠电池电解质",
           "aip": 1,
           "kp": [
-            "储能供货[BYD-Masdar RTC]: 11.275 GWh",
-            "光伏装机[Abu Dhabi RTC]: 5.2 GW",
-            "总储能系统[RTC项目]: 19 GWh"
+            "室温Na+电导率[Na3O15Si6Y固态玻璃电解质]: ~1.6 mS·cm^-1",
+            "界面电阻[Na3O15Si6Y固态玻璃电解质]: ~6.2 Ω·cm2",
+            "剥离/沉积过电位[Na对称电池]: ~180 mV",
+            "迁移活化能垒[Na3O15Si6Y玻璃电解质]: ~0.25 eV",
+            "制备工艺[Na3O15Si6Y固态玻璃电解质]: 固-气相生长策略（直接在钠金属负极表面生长）"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Fred Lambert\n| Jul 10 2026 - 6:25 am PT\nBYD Energy Storage has landed a contract to supply 11.275 GWh of battery storage for Masdar’s Round the Clock (RTC) project in Abu Dhabi — one of the single largest energy storage procurements ever signed.\nThe RTC project pairs a 5.2 GW solar array with a 19 GWh battery system, making it the world’s largest combined solar-plus-storage plant. BYD’s award covers the majority of that storage.\nMasdar and the Emirates Water and Electricity Company (EWEC) are building the RTC plant to do something solar has never reliably done at gigawatt scale: deliver clean power 24 hours a day.\nfirst covered the project in January 2025\n, when Masdar announced plans for a 5.2 GW solar PV plant coupled with a 19 GWh battery energy storage system (BESS) capable of dispatching 1 GW of continuous baseload. Masdar chairman Dr. Sultan Al Jaber framed it as solving renewable energy’s oldest problem — intermittency.\nAccording to BYD, its share of the project is a single battery station rated at 1,644 MW / 11,275 MWh, using the company’s Haohan storage system. That one station holds more energy than most countries’ entire grid-storage fleets.\nHere’s the detail worth noting. When Masdar unveiled the RTC project in early 2025, it named CATL as its preferred battery supplier.\nThe actual contracts tell a different story. BYD secured 11.275 GWh, and Sungrow\nsigned for the remaining 7.5 GWh\nin an earlier phase. Combined, the two Chinese firms have locked up the full 19 GWh — leaving no room for Western battery makers on the world’s flagship storage project.\nIt’s a clean illustration of how thoroughly Chinese manufacturers dominate grid-scale storage. The same LFP cell scale that made BYD and CATL the world’s largest EV battery producers is now being turned directly on the utility market.\nThe Haohan system leans on BYD’s 2,710 Ah Blade Battery — a cell with more than 300% higher capacity than legacy grid-storage cells, according to the company.\nThe logic is straightforward: fewer, bigger cells mean fewer connections. BYD says that cuts battery management system complexity by 70% to 80% and packs 10 MWh into a standard 20-foot container. The system is rated IP66 for dust and sand and built to run from -30°C to 55°C — necessary in the Abu Dhabi desert.\nBYD says the accompanying GC Master energy management system can manage up to 15 GWh in a single station.\nThe Masdar deal isn’t a one-off. BYD recently landed a 12.5 GWh grid-storage contract in Saudi Arabia, and Chinese suppliers have been sweeping up Gulf storage projects as prices collapse.\nThe economics are moving fast. BYD is pushing sodium-ion storage toward costs as low as $0.04 per watt-hour, while CATL has pushed its Tener platform toward multi-decade durability. The competition is now over who can build the cheapest, longest-lived cells at the largest scale.\nThe numbers are just insane here. BYD and CATL have a massive advantage over the energy storage competition, such as Tesla, because they produce all their battery cells and therefore own the full production process, from battery cells to packs to deployment.\nIt’s unsurprising to see them land the biggest contracts, even though the size of the contracts is surprising.\nIf you’re powering your home in a sunny climate, the RTC project is a reminder that solar-plus-storage is now the cheapest way to deliver round-the-clock clean power — at any scale. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "b": "直接“长”在钠金属上：Na₃O₁₅Si₆Y玻璃电解质实现低界面电阻固态钠硫电池 Energist Energist 能源学人 【研究背景】 固态电池凭借高安全性和高能量密度被视为下一代储能技术，但固体电解质的低室温离子电导率及高界面电阻仍严重制约其性能。界面接触不良、界面不稳定、体积变化、热力学不相容以及空气中气体和水分吸附均会加剧界面阻抗。对于尚处发展初期的钠基固态电池，锂体系经验又难以直接照搬；氧化物电解质厚且脆，硫化物虽可减薄却通常依赖数百兆帕高压。因此，开发兼具高离子电导率、化学/机械/热稳定性并可在低堆叠压力下工作的固体电解质至关重要。 【内容简介】 近日，印度理工学院德里分校的Vipin Kumar团队提出一种固–气相生长策略，可在钠金属负极表面直接生长Na+导电Na3O15Si6Y固态玻璃电解质，从源头改善电极/电解质接触并降低界面电阻。该电解质室温Na+电导率约为1.6 mS·cm\\-1，界面电阻仅约6.2 Ω·cm2；Na对称电池的剥离/沉积过电位约180 mV。AIMD模拟进一步揭示Na+通过玻璃基体中的笼状位点跳跃扩散，迁移活化能垒约0.25 eV。基于该电解质的Na||Na3O15Si6Y||SPAN全电池稳定循环超过140圈，并成功拓展至3 × 3 cm2软包电池，验证了该方法的稳定性与可扩展性。 相关研究成果以“Direct Growth of Na-Ion Conducting Na3O15Si6Y Solid Glass Electrolyte With Reduced Interfacial Resistance for Safer Room-Temperature Sodium–Sulfur Pouch Cells”为题发表在《Angewandte Chemie International Edition》。 【结果与讨论】 固体电解质采用逐步反应直接生长于钠金属表面，过程示意见图1a，各步骤实物照片见图1b。首先，SiCl4蒸气与Na自发反应形成约2 μm厚的Na–Si沉积层；随后经水蒸气处理形成Na2O/SiO2及NaOH中间相，沉积层增厚至约50 μm；最后与约20 μL三氟乙酸钇/二甘醇二甲醚溶液反应，得到Na+导电Na3O15Si6Y固态玻璃电解质。图1c显示其表面均匀致密，厚度约100 ± 10 μm，且Na、Si和Y分布均匀。由于电解质直接由蒸气与金属Na反应生成，因此相比预先制备后再压合的固体电解质，可获得更好的界面黏附。 图1. （a）制备过程示意图；（b）逐步制备过程的数码照片；（c）所开发Na3O15Si6Y固态电解质的FE-SEM表面、截面及关键元素EDX图像。 XRD结果（图2a）证实形成Na3O15Si6Y，其可写作(Na2O)1.5(SiO2)6(Y2O3)0.5；由于室温生长，材料结晶度较低。DFT优化结构（图2b）表明，该正交晶体由SiO4四面体和YO6八面体构成三维框架，Na+位于多面体隧道中；沿c轴形成大尺寸连续通道，为快速离子迁移提供结构基础。拉曼光谱（图2c）分别识别出Na–O–Si非桥氧、Y–O和Si–O–Si桥氧振动。高分辨XPS进一步显示Na以氧化态存在（图2d），O 1s中同时存在桥氧和非桥氧贡献（图2e），Si 2p证实SiO2及Si–O–Na环境（图2f），Y 3d则对应Y–O键（图2g）。O K边（图2h）、Na L边（图2i）和Y K边XAFS（图2j）进一步确认Na处于以O配位的离子环境、Y主要为+3价，证明形成了含Y的钠修饰硅酸盐框架。 图2. （a）原位生长固体电解质的X射线衍射图谱；（b）DFT优化后的Na3Si6YO15晶胞；（c）固体电解质的拉曼光谱以及固体电解质的高分辨X射线光电子能谱；（d）Na 1s；（e）O 1s；（f）Si 2p；（g）Y 3d；Na3O15Si6Y电解质的XAS/XAFS光谱：（h）O K边；（i）Na L边；（j）Y K边。 LSV结果（图3a）表明，该电解质相对于Na/Na+可稳定至约4.5 V。测试构型见图3b，电池仅需约11 MPa堆叠压力，明显低于传统固态电池常需的15–500 MPa。不同温度下的阻抗谱（图3c）显示，30 ℃时Na+电导率约1.6 mS·cm\\-1，电极/电解质界面电阻仅约6.2 Ω·cm2，处于已报道固体电解质中的较低水平（图3d）。在0.2 mA·cm\\-2下，Na对称电池可稳定沉积/剥离，过电位仅约180 mV（图3e），亦低于多数已报道钠基固态体系（图3f），且100 h内无明显增长。计时电流测试显示电流约120 min后趋于稳定，说明Na+传输高效、寄生反应有限；不同极化电位下的成核研究则表明Na沉积同时受表面活化和离子扩散控制。 图3. （a）Na||N...",
           "hb": 1
         },
         {
-          "t": "比亚迪储能斩获全球最大单一储能采购合同，为阿联酋 11.275GWh 光储项目提供解决方案",
+          "t": "英国STEP项目揭秘：从“整体焊接”转向“模块堆叠”，破解聚变堆维护难题",
           "d": "2026-07-11",
-          "a": "IT之家",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "比亚迪储能与阿联酋能源巨头Masdar签署合作协议，为阿布扎比\"全天候\"（RTC）光储项目提供11.275GWh储能解决方案，创全球最大单一储能采购合同记录。此前比亚迪刚拿下12.5GWh沙特电网侧储能项目。连续斩获中东大型储能订单，标志着中国储能企业在全球能源转型中的竞争力显著提升。",
-          "sc": 7.5,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/975/351.htm",
-          "tp": "光储项目签约",
+          "a": "可控核聚变",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "英国STEP聚变项目通过最新专利公开了模块化反应堆硬件布局。设计放弃传统整体焊接壳体，改用垂直堆叠的独立环形部件替代单一焊接单元。通过将托卡马克分解为模块化分段，集成真空室与内部系统，实现了分段独立组装、拆卸与维护，从根本上改变了聚变反应堆的管理与维修方式。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/-bKe_DJQmH4rpi9HWSVTHg",
+          "tp": "聚变堆模块化",
           "aip": 1,
           "kp": [
-            "储能采购规模[阿联酋RTC光储]: 11.275GWh",
-            "光伏装机[RTC项目]: 5.2GW",
-            "总储能规划[RTC项目]: 19GWh"
+            "建造工艺[STEP项目真空室最新设计]: 垂直堆叠的独立环形部件（模块堆叠）",
+            "维护特性[STEP项目模块化分段]: 各分段能够独立完成组装、拆卸与维护，解决整体焊接运维瓶颈"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 10 日消息，继拿下 12.5GWh 沙特全球最大电网侧储能项目后，比亚迪储能昨日宣布与阿联酋能源巨头 Masdar 签署合作协议，将为阿布扎比的“全天候”（Round the Clock，RTC）光储项目提供 11.275GWh 的储能解决方案。这一数字使其成为有史以来全球最大的单一储能采购合同之一。\n此次签约的 RTC 项目位于阿布扎比，是全球首个 GW 级全天候可再生能源项目，由 Masdar 与阿联酋水电公司（EWEC）联合开发，是全球规模最大、技术最先进的光储项目。\n该项目旨在通过“光伏 + 储能”的深度融合，攻克可再生能源间歇性难题，实现 24 小时不间断的清洁电力供应。\n项目于 2025 年 1 月首次披露，同年 10 月在阿布扎比沙漠中举行了奠基仪式，占地面积达 90 平方公里。整个项目将建设一座 5.2GW 的光伏电站，并配套一个高达 19GWh 的电池储能系统（BESS）。其目标是实现可再生能源领域的重大突破 —— 提供 1GW 的连续稳定基载电力，从而解决太阳能发电的间歇性问题。项目预计在 2027 年投运。\n根据 Masdar 在 2025 年初公布的计划，宁德时代曾被列为电池储能系统的首选供应商。然而，随着合同的最终落地，情况发生了变化。比亚迪拿下了其中 11.275GWh 的大单；而在更早的 2026 年 5 月，另一家中国公司阳光电源也已与 Masdar 达成协议，为该项目提供剩余的 7.5GWh 储能系统以及 2.6GW 的光伏逆变器。至此，两家中国公司共同瓜分了这 19GWh 的全部储能份额。\n比亚迪将采用其“Haohan”（浩瀚）储能系统来完成这一订单。该系统搭载了比亚迪全球最大的 2710Ah 储能专用刀片电池，单体容量相比传统储能电池提升了 300% 以上。通过使用更少、更大的电芯，该系统显著减少了连接线束，使得电池管理系统的复杂度降低了 70% 至 80%。\n据介绍，BYD Haohan 具备超级集成与超大容量优势，最小单元容量达 14.5MWh，问鼎全球之最。在等效 20 尺集装箱内，BYD Haohan 实现 10MWh 超大容量，大幅提升储能电站集成度。\n考虑到阿布扎比的沙漠环境，该系统具备 IP66 级防尘防水能力，可在-30°C 至 55°C 的极端温度下稳定运行。\n此外，比亚迪储能还为项目提供自研的 GC Master EMS 能源管理系统，可接入千万级点位，能力较行业顶尖水平提升 25%，算力提升 400% 以上，单场站管理能力突破 15GWh。",
+          "b": "英国STEP项目揭秘：从“整体焊接”转向“模块堆叠”，破解聚变堆维护难题 原创 刘智宇 刘智宇 可控核聚变 每天与你一起 英国球形托卡马克能源生产（STEP）项目近日通过两份欧洲专利文件，首次向外界公开其反应堆硬件布局。这标志着该项目工程策略的一次重要转向——从专注于“造得出”转向确保“修得好”。专利编号EP4742271A1和EP4742272A1详细描述了真空室的建造与修复方法。真空室是约束聚变等离子体的核心容器，其设计直接决定聚变反应堆的寿命与经济性。 从“整体焊接”到“模块堆叠”：一场设计哲学的转向 聚变行业长期依赖大型整体式焊接壳体来承受运行期间的极端热载荷与电磁载荷。然而，这种“一次成型”的设计带来了严重的运维瓶颈：一旦内部部件因中子辐照而失效，技术人员必须切开厚重的屏蔽层进行修复，整个反应堆因此长时间停运。 STEP的最新设计彻底颠覆了这一逻辑。方案提出采用垂直堆叠的独立环形部件替代单一焊接单元，将托卡马克分解为相互叠放的模块化分段。每个模块将真空室与相关的内部系统整合为一体，各分段能够独立完成组装、拆卸与维护。如果某个部件因辐照而退化，操作人员只需将特定环形分段从堆叠中吊出，备用模块可相对便捷地进行替换，反应堆其余部分完全不受影响。 模块化设计从根本上改变了电厂在整个运营期间的管理方式 图片来源：STEP 核心部件与技术：模块化真空室与自适应流体密封 将聚变堆芯分割为独立部件，核心在于两项技术突破。 其一是模块化真空室。传统真空室是一个整体焊接的巨大钢制容器，而STEP将堆芯分解为若干环形分段，每段均为独立的真空容器单元，集成对应区域的内部系统（如第一壁、诊断接口等）。这一设计实现了“分段制造、独立维护”，从根本上改变了反应堆的维修方式。 其二是解决了运行状态下，接缝处的真空泄露难题。模块化设计面临一个根本性工程风险——接缝处的真空泄漏。聚变反应需要接近绝对真空的条件，而大型钢结构在强热和强磁力作用下必然发生翘曲和膨胀，传统刚性密封无法在可拆卸的模块之间维持真空。 第二份专利文件通过一种安装在金属模块环之间的自适应流体密封装置解决了这一难题。该系统使模块化分段在运行期间能够自由膨胀和收缩，同时阻止空气泄漏到堆芯内部。两项专利共同构成了完整的工程方案——模块化解决“可拆”，流体密封解决“不漏”。 商业聚变电厂的难题：聚变反应堆的“可维护性” 英国聚变能源有限公司（UKFE，UK Fusion Energy Ltd）的知识产权部门负责人Claire Goodier确认，这些专利申请代表了STEP的最新创新成果。工程经理Roel Verhoeven进一步指出，**商用聚变的主要障碍在于确保电厂在其整个运行寿命内确实能够得到维护。**“而这些专利中描述的模块化真空室架构及相关概念，正是为了应对这些挑战，并为未来聚变发电厂的部署提供支撑。” STEP是英国国家级旗舰聚变项目，由英国政府能源安全与净零排放部主导，选址在诺丁汉郡西伯顿的前煤电厂旧址，目标在2040年前后建成全球首座原型聚变电厂，向电网输送100MW以上净电力，以验证聚变技术的商业可行性，UKFE也会在这一过程中发挥着“协调人”的功能。模块化真空室新架构的公布，正是这一宏大目标下不可或缺的一块基石。 STEP项目示意图 图片来源：UKAEA 政策背景：英国2026聚变战略为STEP铺路 2026年3月16日，英国政府正式发布《新能源革命：英国聚变能源交付计划》。该战略以政府五年内超过25亿英镑的创纪录聚变投资为基础，其中13亿英镑通过UK Fusion Energy拨付，用于STEP项目下一阶段的工业交付。战略同日宣布ILIOS财团获价值2亿英镑的STEP施工合作伙伴合同（持续至2029年）。在时间节点布局上，UK Fusion Energy将于2029年3月前提交STEP开发许可令，为主体工程建设铺平道路；大型工程建设则预计在2030年末启动，目标2040年实现并网发电。在未来，STEP项目还将广泛参与到英国的聚变战略布局之中，为推动聚变技术发展而作出贡献。 参考链接： * https://interestingengineering.com/energy/step-fusion-reactor-modular-core-design * https://www.world-nuclear-news.org/Articles/Key-contracts-awarded-in-UK-fusion-programme * https://hansard.parliament.uk/Commons/2026-03-16/debates/26031658000012/FusionStrategy * https://www.gov.uk/government/pub...",
           "hb": 1
         },
         {
-          "t": "TCL中环将20 GW TOPCon电池产能转换为背接触 - pv magazine Global",
+          "t": "投后估值106亿！新奥聚变完成Pre-A轮融资，加速球形环氢硼聚变商业化",
           "d": "2026-07-11",
-          "a": "pv magazine",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "TCL中环批准一项26亿元人民币（约3.82亿美元）的技改项目，将20 GW TOPCon电池产能转换为背接触（BC）电池技术。此举反映了光伏行业从主流TOPCon向效率更高的背接触技术路线的转型趋势。BC电池通过将正面电极转移至背面实现更高的光电转换效率，是N型技术的下一代升级方向。",
-          "sc": 8.0,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.pv-magazine.com/2026/07/10/tcl-zhonghuan-converts-20-gw-of-topcon-cell-capacity-to-back-contact/",
-          "tp": "背接触光伏电池",
+          "a": "可控核聚变",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "新奥聚变完成Pre-A轮融资，投后估值达106亿元，成为国内聚变领域估值最高的民营企业。本轮融资由龙芯创投等领投，资金将用于建设第三代球形环氢硼聚变装置“和龙-2”。该装置旨在攻克氢硼聚变能量增益及工程难题，目标于2027年底建成，2030年实现商业化点亮。该技术路线具有燃料丰富、成本低廉、安全无辐射等优势。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://mp.weixin.qq.com/s/tL7uTs0xbiQtqHuNS1moaQ",
+          "tp": "聚变融资",
           "aip": 1,
           "kp": [
-            "产能改造[TCL中环]: 20GW TOPCon电池+25GW组件转BC产线",
-            "改造投资[TCL中环]: 26亿元人民币",
-            "达产时间[BC产线]: 2027年Q1全面量产"
+            "投后估值[新奥聚变Pre-A轮融资]: 106亿元",
+            "商业化目标[新奥氢硼聚变第一盏灯]: 2030年点亮",
+            "建成时间[第三代球形环装置和龙-2]: 2027年年底"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Markets & Policy\nTCL Zhonghuan approved a CNY 2.6 billion ($382 million) upgrade project to convert 20 GW of TOPCon cell and 25 GW of TOPCon module capacity into BC production lines, with ramp-up expected from Q3 2026 and full production by Q1 2027.\nVincent Shaw\nMarkets & Policy\nImage: TCL Zhonghuan\nChinese solar manufacturer\nTCL Zhonghuan\nsaid its board has approved a CNY 2.6 billion ($382 million) capacity upgrade project to expand its back-contact (BC) solar cell and module production capabilities. The upgrade work is scheduled to begin in July 2026, with the revamped facilities expected to reach full production by the end of the first quarter of 2027. The company plans to invest CNY 1.4 billion to convert 20 GW of existing TOPCon cell capacity into BC cell production lines. The conversion will cover 6 GW of capacity at its Quzhou facility and 14 GW at its Xinzhou facility. The upgraded cell lines are expected to begin production ramp-up by the end of the third quarter of 2026. In addition, TCL Zhonghuan will invest CNY 1.2 billion to upgrade 25 GW of existing TOPCon module capacity into BC module production lines. The module upgrades will involve 3 GW in Quzhou, 4 GW in Yixing, 8 GW in Jingshan, 9 GW in Tianjin, and 1 GW in Zhangzhou. These upgraded module lines are also expected to start production ramp-up by the end of the third quarter of 2026.\nDatang Group\nhas released the shortlisted suppliers for its 2026–2027 framework procurement of PV modules and inverters. The module tender covers a total of 11 GW, including 6 GW of n-type TOPCon modules, 1 GW of heterojunction (HJT) modules, and 4 GW of BC modules. Fifteen leading Chinese module manufacturers, including JinkoSolar, Trina Solar, and Longi, were shortlisted. The shortlisted bid prices ranged from CNY 0.705 ($0.091)/W to CNY 0.800/W ($0.104/W to $0.118/W) for TOPCon modules, CNY 0.741/W to CNY 0.772/W ($0.109/W to $0.114/W) for HJT modules, and CNY 0.790/W to CNY 0.812/W ($0.116/W to $0.119/W) for BC modules. The inverter tender totals 9.5 GW, comprising 8 GW of string inverters and 1.5 GW of central inverters. Zhuzhou Converter Technology National Engineering Research Center Co. Ltd., TBEA Xinjiang New Energy Co. Ltd., and Sineng Electric were shortlisted for string inverters. The first two companies were also shortlisted for central inverter supply.\nVincent Shaw\nView author posts",
+          "b": "投后估值106亿！新奥聚变完成Pre-A轮融资，加速球形环氢硼聚变商业化 点这里关注 → 点这里关注 → 可控核聚变 每天与你一起 近日，聚焦氢硼聚变的北京新奥聚变能源科技有限公司（以下简称“新奥聚变”）完成首轮（Pre-A）融资，投后估值106亿元，成为国内聚变领域估值最高的民营企业。 融资详情 本轮融资是新奥聚变首次对外融资，由龙芯创投领投，中科创星、经纬创投联合领投，鼎晖投资、凯辉基金、上汽恒旭资本、联想之星、招商致远、亦庄产投等跟投。这显示一线投资机构对新奥极具商业前景的聚变技术路线、全球领先的参数指标和大规模高水平研发团队的深度认可，意味着新奥聚变代表的氢硼聚变将迎来商业化应用加速时期。 本轮融资资金，将用于新奥聚变第三代球形环氢硼聚变装置“和龙-2”的建设与调试、迭代核心技术以及扩充高端人才团队，加速实现球形环氢硼聚变技术的商业化。此次融资建设的“和龙-2”，是新奥球形环聚变路线最核心的装置，旨在攻克氢硼聚变能量增益及系统性技术工程关键难题，夯实氢硼聚变商业化的技术根基与工程基础，目标是2027年年底建成，2030年点亮氢硼聚变第一盏灯。 新奥聚变 北京新奥聚变能源科技有限公司，是新奥集团旗下独立的氢硼聚变商业化公司，全面承接新奥集团聚变研发和聚变能源商业化应用。 新奥集团长期致力于前瞻性清洁能源技术创新，2017年基于从低碳技术向无碳技术的研发升级，开启“无中子、低成本、商用化”的聚变研发，多年来面向海内外吸引汇聚了一批高层次聚变研发人才，分别来自斯坦福、剑桥、北大、清华、浙大、中科大等顶尖院校及国际领先的聚变科研院所，建成了一支以全球聚变顶级专家领衔的老中青结合、国际化的300人高水平聚变研发团队。 新奥开创的球形环氢硼聚变技术路线，具有燃料储量丰富易得、成本低廉、安全环保无辐射及能源转换效率更高等独特优势，高度契合可控核聚变商业化的内在要求，是极具商业化前景的稀缺技术路线。 新奥聚变是国内投入最大、技术参数最领先的民营企业。新奥累计投资超过40亿元用于聚变能源研发，建成两代球形环实验装置“玄龙-50”和“玄龙-50U”。 2025年以来，“玄龙-50U”取得多项重大突破，综合参数达到全球最高水平，全面超越欧美等国家平台，填补国内该路线空白；同时也是全球聚变唯一实现装置工程设计指标全面达标、实际参数超越设计参数的装置，充分体现了新奥的核心竞争力，让行业见证了新奥引领聚变商业化突破的决心和实力。 * 2025年4月，“玄龙-50U”实现电子温度四千万度的兆安级氢硼等离子体放电，达到国际球形环最高水平。 * 2025年5月，“玄龙-50U”环向场线圈实现150kA稳定电流，达到秒量级1.2特斯拉中心强磁场。 * 2025年12月，“玄龙-50U”实现国际首次氢硼等离子体高约束模放电，也获得离子温度四千万度高参数放电。 * 2026年1月，“玄龙-50U”电子温度突破1亿度，加热、控制等能力跃升至国际先进水平。 按照规划，新奥聚变商业化采取“三步走”策略： 第一步，2026年实现氢硼聚变反应； 第二步，2030年，实现氢硼热核反应验证，点亮氢硼聚变第一盏灯；第三步， 2035年，进入商业化示范阶段，实现低成本发电。 **新奥集团表示：**“基于在清洁能源领域多年的商业经验和技术洞见，新奥精准预判核聚变作为终极能源的颠覆性发展价值，并基于未来能源商业化目标及对各种技术路线的调研论证，最终锚定球形环氢硼聚变商业化技术路线。通过两代实验装置的快速迭代，已经取得了球形环和氢硼方向多项国际领先的突破。新奥正在快速推进球形环氢硼聚变商业化技术路线的核心装置和龙-2的建设，预计2027年底建成，2030年点亮氢硼聚变第一盏灯。新奥将持续发挥在能源领域全产业链优势，生态聚合全球智力和资源，加速推进聚变商业化落地进程。” 资方观点 **龙芯创投****表示：**“新奥是国内最早、投入最坚决的民营聚变力量，沉淀出近300人规模、覆盖聚变全专业的研发团队，并验证了从物理设计到工程建造、实验迭代的全链条能力，且在玄龙-50U上实现了全球领先的参数指标。新奥‘球形环氢硼聚变’技术路线，具备燃料易得、无中子辐射且成本低廉的终极能源优势，天花板极高。我们深耕硬科技领域的早期投资机会，自三年前布局核聚变以来，就一直非常关注新奥的投资机会，在额度极其稀缺的首轮融资中，我们非常荣幸能成为领投方，期待新奥早日点亮商业聚变第一盏灯。” **中科创星****表示：**“我们对新奥的投资，源于三个核心判断：第一，路线选择的前瞻性。新奥是全球极少数在球形环装置上系统推进氢硼聚变路线的团队；第二，技术积累的深厚度。新奥玄龙-50U已实现全球领先的参数突破，综合参数居国际球形环装置最高水平。第三，团队的国际级战斗力。新奥聚合四大洲11个国家的70余家科研机构，开展多...",
           "hb": 1
         }
       ]
@@ -106,75 +107,76 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "加速进化发布Booster T2平台搭载英伟达Thor芯片",
-        "300毫米晶圆产线成功制造并运行八量子比特器件",
-        "SK海力士赴美IPO募资265亿美元加码HBM存储扩产"
+        "OpenAI发布GPT-5.6接入微软365，DeepSWE基准解决率达73%",
+        "Bun运行时因Zig语言内存安全问题与社区规则冲突，启动Rust语言底层重写",
+        "港中文与快手可灵发布ShotStream多镜头长视频生成框架，单卡H200推理速度达16 FPS"
       ],
       "entries": [
         {
-          "t": "加速进化发布 Booster T2 具身开发旗舰平台：搭载英伟达 Thor 芯片，2070TFLOPS 算力",
+          "t": "全球办公AI王座易主！GPT-5.6接管微软全家桶，数亿打工人集体换脑",
           "d": "2026-07-11",
-          "a": "IT之家",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "加速进化发布具身智能开发旗舰平台Booster T2专业版并已开售。该平台搭载英伟达Thor芯片，算力达2070TFLOPS，配备14核CPU，定位面向具身智能算法研发与机器人开发。Thor芯片是英伟达专为机器人与自动驾驶设计的高性能计算平台，2070TFLOPS算力为当前具身开发平台中的顶尖水平。该产品的发布标志着国产具身智能硬件基础设施向高端化迈进，为开发者提供高性能本地算力支持。",
-          "sc": 7.3,
-          "i": "news",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI发布GPT-5.6并全面接入微软365 Copilot全家桶。GPT-5.6凭借更高的Token性价比提升办公效率。在编码代理基准DeepSWE中，GPT-5.6以73%的解决率和约8.4美元的成本，超越了成本约21.6美元的Claude Fable 5。此外，OpenAI将ChatGPT与Codex合体，把Agent引入手机端。",
+          "sc": 9.3,
+          "i": "n",
           "tg": "产业进展",
-          "u": "https://www.ithome.com/0/975/340.htm",
-          "tp": "人形机器人平台",
+          "u": "https://mp.weixin.qq.com/s/ofbOFE2QiJAuIb3361NBBQ",
+          "tp": "GPT模型升级",
           "aip": 1,
           "kp": [
-            "算力[Thor芯片]: 2070TFLOPS",
-            "推理延迟[端侧多模态]: ≤100ms",
-            "自由度[人形机器人]: 最高75",
-            "最大扭矩[自研关节]: 140Nm",
-            "双臂负载[静态]: 10kg"
+            "[GPT-5.6 Sol编码代理跑分]: 解决率73%",
+            "单任务成本[GPT-5.6 Sol]: 约8.4美元",
+            "单任务成本[Claude Fable 5]: 约21.6美元",
+            "解决率[Claude Fable 5]: 最高约70%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 10 日消息，加速进化今日发布了具身开发旗舰平台 Booster T2，专业版现已开售，具体价格暂未公开（需在官网填写采购信息）。\n加速进化 Booster T2 专业版标配\n，算力达 2070TFLOPS，搭配 14 核 CPU（最高 2.6GHz）和 128GB 256bit LPDDR5X 内存，端侧多模态推理延迟低至 100ms。\n据介绍，加速进化 Booster T2\n全身最高 75 个自由度\n，身高 1.4 米；采用自研高爆发关节，最大扭矩可达 140Nm；双臂最大静态负载 10kg。\n加速进化 Booster T2 支持磁吸直冲设计，原生支持边用边充；标配大容量电池包，持续行走续航超 2 小时；采用工业级高强度机身架构，高层与底层 API 全面开放。\nIT之家附官方介绍如下：",
+          "b": "全球办公AI王座易主！GPT-5.6接管微软全家桶，数亿打工人集体换脑 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】GPT-5.6接管微软全家桶、编码屠榜成本仅Claude四成、Agent塞进手机，OpenAI一夜三城坐上办公AI王座。** 办公AI，换王了。 就在刚刚，OpenAI一口气甩出三张牌，张张打在要害。 第一张：GPT-5.6成为微软365 Copilot的「首选模型」，全面进驻Word、Excel、PowerPoint、Copilot Chat和Cowork。 数亿打工人每天打开的那几个窗口，集体换脑。 第二张：编码代理基准DeepSWE跑分出炉——GPT-5.6 Sol解决率73%，单任务成本约8.4美元；Claude Fable 5最高约70%，成本却要21.6美元。 分更高，钱只要四成。 第三张：OpenAI总裁Greg Brockman亲自官宣——ChatGPT Work把Agent装进了手机，ChatGPT和Codex合体，Agent从工程师的终端，变成了每个人口袋里的同事。 三件事串起来，是同一条主线——这一轮，OpenAI拼的不是谁更聪明，是谁更便宜地聪明。 **办公全家桶，集体换脑** 这次接管的口号只有一句：**每个Token更值钱。** 翻译成人话：同样一块钱，GPT-5.6干的活更多。 Word里少提示几轮就出稿；Excel从数据到洞察更快一步；PPT把草稿变成能直接上台的演示。 Cowork更狠——端到端交付成品，连人工协调都省了，你描述结果，它规划、推理、跨工具执行，最后递给你的是成品。 微软Copilot & Agents Core总裁Nitin Agrawal说，「迫不及待想让客户看到GPT-5.6能做什么」——不管是起草文档、分析数据、做演示，还是跨团队协作，产出都会更精致。 除了原生接入模型，微软还会直接通过OpenAI API调用GPT-5.6，服务Microsoft 365客户。双通道，齐上阵。 但这份公告的真正看点，不在技术，**在时机。** 就在两天前的7月7日，彭博社刚爆了一颗炸弹：微软正在用自研的MAI模型替换Excel和Outlook里的部分OpenAI和Anthropic模型，每周已有数万条AI提示词由MAI处理，理由就两个字——省钱。 OpenAI这份「首选」声明，来得不早不晚，更像一次公开辟谣。 **** **8.4美元，修完一个真仓库的Bug** DeepSWE直接把91个真实开源仓库、5种编程语言丢给模型： 自己看懂代码库结构，诊断Bug在哪，动手修改文件，调用工具执行，跑通测试确认修复，处理多步修复的连锁反应——最后交出的补丁，还要通过程序化验证器这一关才算数。 113个任务解决了多少，就是分数。简单说，是考你能不能像一个真实的软件工程师那样独立干活。 在这张考卷上，GPT-5.6 Sol拿下73%（±3%），平均每个任务只花8.39美元——大约两杯咖啡的钱，修完一个真实仓库的工程任务。 平均输出Token 6万，步骤61步，干脆利落。 而Claude Fable 5最高约70%（±4%），单任务却要烧掉21.63美元，输出Token 11.9万，步骤88步。 分更低，路更绕，钱花了两倍多。 更狠的是，GPT-5.6 Terra——注意，这只是中间档，也拿到了70%的解决率，成本仅4.95美元。 换句话说，OpenAI的二队就已经追平了Anthropic的头牌，而且只花了它四分之一的钱。 对想把Agent批量塞进生产线的企业来说，这道算术题几乎不用算。 Artificial Analysis的编码代理综合指数给出了更完整的画面：GPT-5.6 Sol以80分领跑，比Fable 5高 3 分，输出Token用量不到对手一半，耗时不到一半，成本低约三分之一。 这是全方位碾压。 当模型能力过了可用线，竞争焦点就变了：从「谁更强」，变成「谁用最少的钱干最多的活」。 这一轮，OpenAI把性价比打成了武器。 **** **Agent，进了口袋** 第三张牌来自ChatGPT Work，一个把ChatGPT和Codex合二为一的新物种。 ChatGPT Work由GPT-5.6驱动，内置Codex技术，能跨应用、跨文件、跨数据源执行任务——你给它一个目标，它自己拆解步骤、调度工具、生成成品。 OpenAI说它能在一个复杂项目上持续工作数小时。 用Brockman自己的话说，这是可用性和可及性的双升级：不用电脑，手机上直接跑完个人和工作的全套流程。 你在手机上启动一个任务，地铁上审草稿，到公司打开电脑继续——设备之间无缝衔接。它还会从你的修改中学习，越用越懂你的偏好。 Agent从工程师的终端，变成了每个人口袋...",
           "hb": 1
         },
         {
-          "t": "300mm硅基MOS代工制造器件的八量子比特运行",
+          "t": "仅11天，Claude重写百万行代码，AI史诗级工程却引来愤怒",
           "d": "2026-07-11",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究在300毫米晶圆代工厂制造的硅MOS（SiMOS）量子比特器件上实现了八量子比特协同运行。硅自旋量子比特因高相干性、可控性及与CMOS工艺兼容性被视为量子计算的有力平台。此次在工业级300mm产线上实现八比特操控，标志着硅基量子芯片从实验室向大规模制造迈出关键一步，验证了代工厂工艺在多比特集成中的可行性，为未来百比特级硅量子处理器奠定了工程基础。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74597-6",
-          "tp": "硅基量子比特",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/工程改进/工作流",
+          "as": "Anthropic收购的基础设施项目Bun，被其创始人Jarred Sumner用Rust语言从原有的Zig语言重写。Bun作为高性能JavaScript运行时，在作为AI编程工具Claude Code底层时，暴露出大量Zig难以根除的内存安全Bug（如use-after-free）。此外，Zig上游社区对大模型生成代码的零容忍政策也促使重度依赖AI开发的Bun团队进行底层语言迁移，此举引发了Zig创始人的不满。",
+          "sc": 8.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/OR2TTDdfsv250JS8A2BtLA",
+          "tp": "Bun运行时重构",
           "aip": 1,
           "kp": [
-            "量子比特数[硅自旋]: 8比特线性阵列",
-            "制造工艺[硅量子比特]: 300mm CMOS兼容代工工艺"
+            "[JavaScript/TypeScript运行时Bun重构]: 使用Rust语言重写",
+            "[Claude重写代码]: 11天百万行"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Silicon spin qubits are a promising platform for quantum computing due to their high coherence, controllability, and CMOS manufacturability, yet scalable implementations have so far been limited to a few qubits. Here, to take a step towards larger qubit systems, we tune and coherently control an eight-dot linear array of silicon spin qubits fabricated in a 300 mm CMOS-compatible foundry process, establishing operational scalability beyond the two-qubit regime. All eight qubits are successfully tuned and characterized as four double-dot pairs, exhibiting Ramsey dephasing times T2&#x2217;\" role=\"presentation\">T2∗{T}_{2}^{*} up to 41(2) μs and Hahn-echo coherence times T2Hahn\" role=\"presentation\">T2Hahn{T}_{2}^{{{{\\rm{Hahn}}}}} up to 1.31(4) ms. Readout of the central four qubits is achieved via a cascaded charge-sensing protocol, enabling high-fidelity measurements of the entire multi-qubit array in a two step process. Additionally, we demonstrate a two-qubit gate operation between adjacent qubits with low phase noise. We show that silicon spin qubit arrays can be scaled to medium-sized arrays of 8 qubits while maintaining system coherence.",
+          "b": "仅11天，Claude重写百万行代码，AI史诗级工程却引来愤怒 机器之心编辑部 这几天，科技圈都在吃瓜：编程语言 Zig 的创始人 Andrew Kelley 怒了。 原因在于原来全面押注 Zig 语言的 Bun，被其创始人 Jarred Sumner 用 Rust 语言重写了。 Andrew Kelley 毫无遮拦地展示了自己的怒火，他没有在这个现象级技术事件中说客套话，直接将矛头对准了 Jarred Sumner 的个人工程习惯、管理能力，以及这起事件背后的商业逻辑。 Bun 是一个高性能 JavaScript/TypeScript 运行时，旨在成为 Node.js 的更快速、现代的直接替代品，近年来已经成为了前端世界挑战 Node.js 霸权的重量级选手。 Bun 的核心卖点是极速：无论是启动速度、依赖安装还是测试运行，都远超竞品，其部分原因在于它是用 Zig 语言编写的。 去年 12 月，Anthropic 宣布收购了 Bun，将其作为基础设施来驱动其 AI 编程工具 Claude Code 和 Claude Agent SDK。Jarred Sumner 和 Bun 团队的其他成员目前都在 Anthropic 工作。 在大规模应用，尤其是作为 Claude Code 的底层后，Bun 团队认为遇到了难以根除的稳定性问题。 具体来说，Zig 版本的 Bun 存在大量内存安全 bug——use-after-free、double-free、错误路径中忘记释放内存等。这些问题在 Zig 中只能靠编码规范约束，而在 Rust 中通过借用检查器和 Drop 机制会直接变成编译错误。 另一方面，Zig 上游社区对大语言模型（LLM）生成代码采取零容忍政策，即使是与 AI 无关的优化改动也无法合入上游。Bun 团队重度依赖 AI 辅助开发，继续使用 Zig 意味着必须长期维护自己的编译器分支，成本很高。 于是在今年 5 月，我们见证了科技圈的一场大工程：Bun 的创始人 Jarred Sumner 宣布，将 Bun 的百万行代码在 11 天内推倒重来用 Rust 重写了，他们使用的是 Anthropic 当时尚未公开发布的 Claude Fable 5（Mythos 级模型）和 Claude Code 的动态工作流能力。 这是一次史诗级的智能体工作流（Agentic Workflow）大测试，后来也被 Anthropic 作为 Dynamic Workflows 的标杆案例进行宣传，但也因为「背叛信仰」引来了争议。 Zig 创始人 Andrew Kelley 在最近的博客文章中指出，Bun 在改写前之所以 Bug 频出，根本原因是 Jarred Sumner 糟糕的工程习惯。 首先是 AI 还没有兴起的时候，Jarred 就一直在写垃圾代码。Kelley 表示，Zig 团队经常会检查用户的代码库，而他们对 Bun 的代码库感到「极其恐惧」。里面充满了黑客式的补丁摞补丁（hacks on top of hacks）、滥用断言，并且为了快速上线新功能，几乎从不花时间消除 Bug 和技术债。 然后就是用 Claude 生成的百万行代码了。Kelley 反问道：「Bun 官方声称 100 万行未经过人工审查的 Rust（AI 写的）代码因为有测试用例所以是安全的；那如果测试用例真的这么完备，为什么原来用 Zig 写的时候没能抓出那些烦人的 Bug？」 现在，Kelley 对 Jarred 从一个有新手冲劲（beginner energy）的开源开发者变成一个糟糕的经理（stinky manager）感到极度失望。 Kelley 直言当得知 Bun 决定弃用 Zig 时，他不仅没有被背叛的愤怒，反而松了一口气。他害怕打着 Zig 招牌的 Bun 会让外界产生误解，更怕它引来一群只会复制粘贴 AI 代码的用户。他甚至讽刺地表示，自己正捧着一杯茶，庆幸「这终于不关我的事了」。 这么直白的开火，科技圈的其他人也纷纷加入战局，发表了看法。 首先是算了一笔账：都说 Claude 的 token 太贵，但根据 Jarred Sumner 和 Bun 官方公布的数据，Rust 语言重写的 Bun 项目预计消耗了 16.5 万美元的 API 费用。在科技圈和工程界看来，这个价格和时间便宜得令人恐惧。 仅仅从账面上看，AI 将开发成本压缩到了原本的十分之一左右，时间也从大约一年减到了不到两个星期。 其次是对开源社区文化与 AI 时代碰撞的态度。有人在看完 Zig 创始人 Andrew 的博文之后感到极度不适，认为他公开攻击曾经的重要用户和赞助者（Bun 曾长期资助 Zig），显得缺乏职业素养，甚至有人激进地表示「从未如此主动希望一种编程语言失败」。 但也有老...",
           "hb": 1
         },
         {
-          "t": "募资 265 亿美元超阿里创外企赴美 IPO 纪录：SK 海力士 ADR 预示开盘价 180 美元，首日涨超 20%",
+          "t": "ECCV 2026 | 实时导演多镜头长视频! 港中文&快手可灵发布ShotStream",
           "d": "2026-07-11",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "韩国存储芯片巨头SK海力士正式登陆纳斯达克，发行1.779亿份ADR，每份定价149美元，对应十分之一股韩国普通股，募资约265亿美元，超越阿里巴巴创下外企赴美IPO最高纪录。ADR预示开盘价180美元，首日涨幅超20%。此举反映出全球资本市场对AI算力驱动下HBM存储需求的强烈预期，SK海力士作为英伟达核心HBM供应商，其上市表现成为半导体行业景气度的重要风向标。",
-          "sc": 7.1,
-          "i": "news",
-          "tg": "资本运作",
-          "u": "https://www.ithome.com/0/975/362.htm",
-          "tp": "存储芯片上市",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "香港中文大学与快手可灵团队联合发布了首个实时流式多镜头长视频生成框架ShotStream，该工作已被ECCV 2026接收并开源。ShotStream将多镜头合成定义为基于历史上下文的下一镜头生成任务，允许用户通过动态流式提示词在运行时指导叙事走向。该模型在单张H200 GPU上实现了16 FPS的推理速度，生成效率较传统双向模型提升25倍以上，打破了多镜头长视频生成高延迟、零交互的困境。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/ntOrOJqZ8N1kK-5po9zYXg",
+          "tp": "流式长视频生成",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "推理速度[ShotStream多镜头长视频生成模型单张H200 GPU]: 16 FPS"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 10 日消息，韩国存储芯片巨头 SK 海力士今日正式在纳斯达克挂牌交易其美国存托凭证（ADR）。\n此次发行定价为每份 149 美元，共计发行 1.779 亿份 ADR，每份 ADR 对应十分之一股 SK 海力士韩国普通股。\nSK 海力士 ADR 于 7 月 10 日以“when-issued”（预发行）方式开始交易（预计 7 月 13 日转为常规模式），临时代码为 SKHYV（正式交易后股票代码变更为 SKHY）。\n截至纽约时间 7 月 10 日上午，做市商盘前报价显示 SK 海力士 ADR 价格约为每份 180 美元（IT之家注：现汇率约合 1224 元人民币），较发行价高出约 21%。\nSK 海力士此次募资规模约 265 亿美元（现汇率约合 1802.06 亿元人民币）。这一数字超过了阿里巴巴 2014 年创下的 250 亿美元赴美 IPO 融资纪录，成为外国企业在美国规模最大的首次公开募股。在全球证券史上，此次上市也仅次于 SpaceX（约 857 亿美元）和沙特阿美（2019 年），位列第三大 IPO。\n市场分析指出，ADR 溢价主要源于两个方面：一是韩国上市普通股转换为 ADR 存在一定限制，套利空间受限；二是投资者希望通过直接投资方式参与这家在 AI 高带宽存储器（HBM）领域占据领先地位的企业。瑞银此前在研报中建议投资者买入 SK 海力士 ADR、卖出其韩国上市股票，预计新发行证券可能以溢价模式交易。\n从认购情况来看，SK 海力士此次 ADR 发行获得了超过 7 倍的超额认购。超过 500 家投资机构参与认购，包括全球长线基金、科技主题专项基金、主权财富基金及大型跨国资产管理机构。Baillie Gifford、Coatue Management 和 Situational Awareness Partners 等机构合计表达了最高约 70 亿美元（现汇率约合 476.02 亿元人民币）的认购意向。由于需求强劲，部分重点投资者的获配规模被压缩。\nSK 海力士 CEO 郭鲁正出席了在纽约时代广场纳斯达克 MarketSite 举行的开市敲钟仪式。SK 集团会长崔泰源、SK Square 执行副会长崔再源等集团高层也共同出席。\n郭鲁正在仪式上表示：“今天是 SK 海力士非常值得骄傲的一天，也是具有历史意义的一天。如今，高带宽存储器已处于人工智能革命的核心。”\n根据计算，SK 海力士韩国上市股票今年已有 50 多个交易日涨跌幅达到 5% 以上，而去年全年约为 37 个交易日，再往前三年合计约 44 个交易日。该股周五收跌 0.3%。",
+          "b": "ECCV 2026 | 实时导演多镜头长视频! 港中文&快手可灵发布ShotStream 机器之心 本文第一作者罗亚文，香港中文大学 MMLab 博士一年级在读，研究方向为视频生成，导师为薛天帆教授。 个人主页：https://luo0207.github.io/yawenluo/ 作为 AI 视频创作者，你是否曾梦想拥有属于自己的监视器，真正体验一把实时导演的爽感？ 现在，生成几秒的单镜头已经不是难事。但是，一旦涉及到生成多镜头长视频，往往就像是在开盲盒：用户写好几百字的剧本，把所有分镜的提示词一次性喂给大模型，然后苦等半小时。哪怕中间只崩了一个镜头，也只能硬着头皮全部推倒重来，缺乏交互性且延迟极高。 为了打破多镜头长视频面临的高延迟、零交互困境，香港中文大学与快手可灵团队联合提出了首个实时流式多镜头长视频生成框架 ——ShotStream。该研究打破了传统双向架构的限制，将多镜头合成定义为基于历史上下文的下一镜头生成任务，用户可以通过动态流式提示词在运行时动态指导叙事走向！更令人振奋的是，ShotStream 模型在单张 H200 GPU 上实现了 16 FPS 的推理速度，相较于双向模型，将生成效率提升了 25 倍以上，为实时的互动故事创作铺平了道路。该工作已被计算机视觉顶级会议 ECCV 2026 接收，其训练、测试代码和模型均已开源。 * 论文标题：ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling * 项目主页：https://luo0207.github.io/ShotStream/ * 代码：https://github.com/KlingAIResearch/ShotStream ShotStream 能力展示 更多例子请参阅原论文与项目主页。 ShotStream 创新点 要在低延迟下实现流式生成，并且保证长视频的多镜头之间的连贯性，ShotStream 的主要创新点是: * 提出了首个实时流式多镜头长视频生成架构：用户可以在生成过程中通过流式提示词动态调整正在发展的故事情节，突破了传统双向架构的限制，实现了真正的交互式叙事。 * 设计了一个高效的双缓存记忆框架：为了保证多镜头间的一致性，该工作提出了双缓存记忆机制。其中，全局缓存 (Global Cache) 保证跨镜头间一致性，局部缓存 (Local Cache) 维持单镜头流畅。然而，直接使用双缓存会导致自回归生成中的时序错乱歧义，模型在流式生成的时候会混淆信息，为了解决这个问题，该工作提出了 RoPE 旋转位置编码残差对双缓存进行区分，在无需引入额外复杂模块的情况下，消除了歧义，保证了蒸馏过程的稳定性。 * 提出了一种两阶段自强制（Self-Forcing）蒸馏策略： 为了解决模型在流式生成长视频中的误差累计问题，该工作提出了两阶段自强制（Self-Forcing）蒸馏策略，实现了训推一致，让模型学会在不完美中自我纠偏，有效克服了多镜头长视频生成的误差累积。 ShotStream 算法解读 阶段一：双向下一个镜头预测模型训练 如上图所示，首先将双向文生视频模型微调为一个双向的 “下一镜头” 教师模型，使其具有根据历史帧生成下一个镜头的能力。此外，为了避免数百帧的历史镜头导致显存爆炸，作者设计了动态采样策略，提取出稀疏的历史上下文帧。随后，通过 Token 拼接机制，将上下文特征与目标噪声送入 DiT 模型。 阶段二：因果模型蒸馏 紧接着，利用分布匹配蒸馏（DMD）技术，缓慢的双向教师模型被蒸馏为一个仅需 4 步去噪的流式因果学生模型，从而实现了 25 倍以上的推理加速和 16FPS 的实时生成。 双缓存机制与不连续 RoPE 在多镜头自回归生成中，模型很容易混淆历史画面和当前正在生成的画面。为此，作者巧妙设计了双缓存记忆机制：全局缓存负责存储稀疏条件帧以维持跨镜头一致性，局部缓存负责存储当前镜头刚生成的帧以维持单镜头内的一致。 考虑到同时查询两个缓存会带来时间维度上的歧义，作者对模型原有的旋转位置编码进行了改进，提出了不连续 RoPE。即在每次镜头切换的边界处，对时间维度的 RoPE 施加一个离散的相位偏移。这显式地解耦了全局与局部上下文，让模型能够无需引入任何额外的复杂网络模块，精准区别不同缓存，确保了蒸馏过程的稳定性。 两阶段自强制蒸馏（Self-Forcing) 自回归生成长视频最大的痛点在于误差累积。为了缓解该问题，作者设计了两阶段自强制蒸馏训练：第一阶段，在单镜头内利用真实的 Ground-Truth 历史画面进行训练，让模型具有基础的下一个镜头生成能力；第二阶段，跨镜头利用模型自己生成的历史画面作为条件进行训练。两阶段训练策略解决了训...",
           "hb": 1
         }
       ]
@@ -183,70 +185,79 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "长征十号乙运载火箭首飞成功实现一子级垂直回收",
-        "美国周发电量首次突破10万吉瓦时应对高负荷压力",
-        "海南商业航天发射场完成长征十号乙火箭发射任务"
+        "研究构建Pt5(Ce)Co@Pt多层纳米颗粒，燃料电池循环180,000次后质量活性达2.6 A mgPt⁻¹",
+        "国家发改委发布2026至2029年省级电网输配电价方案并单列线损费用核算",
+        "研究实现Ru负载离子COF纳米流体光催化，粒径96纳米解决固定床催化剂堵塞问题"
       ],
       "entries": [
         {
-          "t": "现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "t": "AM：稀土模板精准细调Pt三元合金ORR应变",
           "d": "2026-07-11",
-          "a": "新华网科技",
-          "c": "通用技术/通信和运输/航天",
-          "as": "2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，成功实现一子级垂直返回可控回收。这是中国运载火箭可重复使用技术的关键验证，标志着在火箭回收复用领域取得实质性突破，对降低航天发射成本、推动商业航天发展意义重大。",
-          "sc": 10.0,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://www.news.cn/tech/20260710/9f070975534d49739b9b010019bf6e28/c.html",
-          "tp": "火箭可控回收",
+          "a": "催化视界",
+          "c": "通用技术/催化剂",
+          "as": "研究利用DFT锁定-1.0%至-1.4%最佳压缩应变窗口，通过引入稀土Ce模板构建Pt5(Ce)Co@Pt多层纳米颗粒，实现高ORR活性与耐久性。在0.9V下质量活性达2.6 A mgPt-1。燃料电池MEA测试中，其0.8V电流密度为0.59 A cm-2，经180,000次循环后0.7V电流密度仍保持1.17 A cm-2，超过DOE 2025目标。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/aEaJn2w5af5LT1opSLWAYw",
+          "tp": "Pt合金ORR应变",
           "aip": 1,
           "kp": [
-            "[一子级回收]: 海上平台垂直着陆可控回收"
+            "压缩应变[Pt5Co-like亚层向Pt(111)壳层施加]: 约-1.24%",
+            "*OH结合能移动[相对Pt]: 约0.11 eV",
+            "质量活性[Pt5(Ce)Co@Pt在0.9 V vs. RHE下RDE测试]: 2.6 A mgPt-1",
+            "半波电位[Pt5(Ce)Co@Pt]: 0.93 V",
+            "电流密度[燃料电池MEA LDV条件下0.8 V]: 0.59 A cm-2"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "现场视频：长征十号乙运载火箭实现一子级可控回收-新华网\n现场视频：长征十号乙运载火箭实现一子级可控回收\n现场视频：长征十号乙运载火箭实现一子级可控回收\n2026年7月10日，长征十号乙运载火箭在海南商业航天发射场发射升空，一子级垂直返回，在海上回收平台成功回收。\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n现场视频：长征十号乙运载火箭实现一子级可控回收",
+          "b": "AM：稀土模板精准细调Pt三元合金ORR应变 催化视界 PEMFC阴极ORR长期受Pt催化剂动力学慢、成本高和耐久性不足限制。Pt-M合金可通过压缩应变削弱Pt表面对\\*OH等中间体的过强吸附，但压缩过度又会使吸附过弱，偏离活性火山图顶点。 这篇Advanced Materials用DFT先确定最佳应变窗口：Pt5Co-like亚层能向Pt(111)壳层施加约-1.24%的温和压缩应变，使\\*OH结合能相对Pt移动约0.11 eV，接近ORR活性火山图峰值。 由于体相Pt5Co并不热力学稳定，作者引入稀土Ce模板，先形成Pt5Ce框架，再通过Co扩散和酸洗得到Pt5(Ce)Co@Pt多层纳米颗粒：Ce富集核心、Pt5Co-like亚层和Pt富壳层共同实现高活性与高耐久。 成果简介 RDE测试中，Pt5(Ce)Co@Pt在0.9 V vs. RHE下质量活性达到2.6 A mgPt-1，并表现出0.93 V半波电位，优于Pt3Co@Pt、PtCo@Pt和商业Pt/C。 燃料电池MEA中，LDV条件下其0.8 V电流密度为0.59 A cm-2，0.9 V iR校正质量活性为1.58 A mgPt-1；HDV条件下0.7 V电流密度达到1.88 A cm-2，0.9 V质量活性为0.78 A mgPt-1。 耐久性方面，HDV AST 30,000圈后0.7 V电流密度从1.88降至1.59 A cm-2；延长至180,000圈后仍保持约1.17 A cm-2，超过DOE HDV 2025目标。 研究亮点 1\\. 不是经验筛材料，而是先用DFT锁定-1.0%到-1.4%的最佳压缩应变窗口。 2\\. 稀土Ce模板让难以稳定的Pt5Co-like亚层以多层结构形式存在，兼顾活性应变与结构稳定。 3\\. 从RDE走到LDV/HDV MEA和长循环AST，证明原子尺度应变调控可以转化为燃料电池器件性能。 配图精析 图1 DFT预测Pt5Co-like亚层提供最佳Pt壳层应变。 DFT比较Pt、Pt5Co、Pt3Co、PtCo和Pt5Ce相关模型，建立Pt-Pt键应变与\\*OH结合能变化之间的关系。Pt5Co@Pt对应约-1.24%压缩应变和0.11 eV的\\*OH弱化，恰好落在ORR火山图高活性区域。 这张图给出了全文设计逻辑：不是Co越多越好，而是要把Pt壳层推到刚刚好的压缩程度。 图2 Pt5(Ce)Co@Pt多层纳米颗粒的结构证据。 XRD、HAADF-STEM、EDS mapping和线扫显示，酸洗后颗粒形成Ce富集内核、Co富集亚层和Pt富壳层。结构示意图进一步说明Co扩散进入Pt5Ce模板后生成Pt5Co-like亚层。 这个多层结构是全文的材料基础：Ce负责稳定框架，Co负责诱导壳层压缩应变，Pt富表面则维持ORR所需的贵金属活性界面。 图3 RDE中验证应变-活性关系和初始耐久性。 Pt5(Ce)Co@Pt的XRD/XPS位移与更温和的压缩应变一致，ORR极化曲线、质量活性、比活性和Tafel结果均优于对照催化剂。30,000圈AST后，其ECSA只损失约8%，活性保持较好。 这些电化学结果与DFT预测排序一致，说明\\*OH吸附能细调确实反映到ORR动力学中。 图4 LDV/HDV MEA测试证明高活性可转化为器件输出。 在LDV和HDV燃料电池测试协议下，Pt5(Ce)Co@Pt均给出领先的极化曲线和功率密度。HDV BOL条件下0.7 V电流密度达到1.88 A cm-2，30,000圈后仍有1.59 A cm-2。 长程AST中电流衰减呈两阶段：初期小颗粒损失较快，随后进入更稳定阶段；180,000圈后仍保持高于DOE目标的输出。 图5 长循环后颗粒尺寸和元素分布的结构保持。 从BOL到30,000、90,000以及210,000圈AST后的STEM和EDS统计显示，颗粒经历一定长大和小颗粒溶解，但仍能观察到多层结构特征和Pt/Co/Ce分布。 结构后表征解释了为什么性能衰减后趋稳：一部分不稳定小颗粒先被消耗，剩余颗粒中的Ce稳定核心与Pt5Co-like亚层继续支撑ORR活性。 总结展望 这项工作把Pt合金ORR设计从“合金元素筛选”推进到“应变数值目标+模板合成实现”。它展示了理论计算、稀土模板、原子级结构表征和MEA耐久测试之间可以形成强闭环。 未来仍需平衡Ce含量、颗粒尺寸、Pt壳层厚度和Co溶出风险，并进一步评估大面积电极、低Pt载量和真实动态工况中的稳定性。若这些问题解决，稀土模板可能成为构筑亚稳Pt合金活性亚层的重要路线。 文献信息 文献：Qi Zhang, Hong Zhang, Sungho Jeon et al. Theory Guided Fine-Tune of Strain Effects...",
           "hb": 1
         },
         {
-          "t": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "t": "输配电价方案落地！利好储能和新能源",
           "d": "2026-07-11",
-          "a": "新华网科技",
-          "c": "通用技术/通信和运输/航天",
-          "as": "长征十号乙运载火箭首次飞行取得成功，标志着我国运载火箭首次实现可控回收。这是可重复使用火箭技术的重大突破，意味着中国已掌握火箭一级垂直回收技术，将大幅降低航天发射成本，对提升我国航天运输能力和商业航天竞争力具有里程碑意义。",
-          "sc": 9.8,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://www.news.cn/tech/20260710/7e71131b03d7440098c07c17f9762bc0/c.html",
-          "tp": "火箭可控回收",
+          "a": "国际能源研究中心",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "国家发改委发布第四监管周期（2026—2029年）省级电网输配电价方案，自2026年8月起执行。方案延续“准许成本加合理收益”框架，收紧非必要成本认定，并细化资产与基础数据报送要求。工商业电价结构调整为单一制与两部制并存，且将上网环节线损费用单列核算。此举压缩了电网非必要成本空间，推动其精细化运营，对储能和新能源产业发展形成利好。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://mp.weixin.qq.com/s/jT0KybKQuXTIGhxzXoj2Sw",
+          "tp": "输配电价方案落地",
           "aip": 1,
           "kp": [
-            "[一子级回收]: 海上平台垂直着陆可控回收"
+            "执行时间[第四监管周期省级电网输配电价]: 2026年8月1日起",
+            "监管周期[省级电网输配电价]: 2026—2029年"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收-新华网\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收\n勇攀高峰，向着科技强国目标坚定迈进\n专访丨开放合作的中国为世界经济注入正能量\n从三大维度看新兴产业新动能加速奔涌\n温网这场半决赛，关乎年龄、对抗与传奇\n安卡拉峰会凸显北约“面不和心更不和”\n聚焦大湾区丨深港澳青年暑期共话大湾区绿色能源发展未来\n极限制造：揭秘电机“心脏”里的“蝉翼黑科技”\n新华社消息｜长征十号乙首飞成功 我国运载火箭首次实现可控回收",
+          "b": "输配电价方案落地！利好储能和新能源 国际能源研究中心 以下文章来源于强言光伏 ，作者强哥智库 **强言光伏** . 在信息泛滥的行业，深度观点是稀缺品。 交流合作V: Andyreb 7月10日，国家发改委发布《关于第四监管周期省级电网输配电价、区域电网输电价格及有关事项的通知》（发改价格〔2026〕1077号）。文件核定第四监管周期（2026—2029年）省级电网输配电价及区域电网输电价格，自2026年8月1日起执行。作为继2025年11月《输配电定价成本监审办法》《省级电网输配电价定价办法》《区域电网输电价格定价办法》《跨省跨区专项工程输电价格定价办法》四大办法修订后的首次核价落地，标志着我国输配电价监管体系进入更加成熟定型的新阶段。 一、政策框架 准许成本加合理收益，监管颗粒度显著细化 文件延续“准许成本加合理收益”的成熟监管框架，核定各省省内输配电环节收费标准及跨省跨区通道输电费用。通知要求电网企业对各电压等级的资产、费用、收入、输配售电量、负荷、用户报装容量、线损率、投资计划完成进度等与输配电价相关的基础数据进行统计归集，每年5月底前报送国家发展改革委（价格司）和省级价格主管部门。这一制度化、标准化的数据报送要求，显著提升了监管的颗粒度与透明度。 在成本监审层面，第四监管周期进一步收紧了准许成本的认定标准。修订后的《输配电定价成本监审办法》从成本监审、省级定价、区域定价到跨省区专项工程定价等多个层面入手，细化输配电价核算规则，厘清“合理成本”与“非必要支出”的边界。将有效压缩电网非必要成本空间，倒逼电网企业从粗放式扩张转向精细化运营。 二、价格结构 两部制全面深化，线损单列核算 文件最显著的结构性调整体现在工商业用电价格体系的优化上。根据各省输配电价格表，工商业用电的电量电价明确划分为单一制与两部制，并同步公示各省的容（需）量电价。 值得关注的是，上网环节线损费用在输配电价外单列。各省线损率同步公示，例如北京为3.15%，天津为2.54%。线损成本从输配电价中剥离单独核算，避免了线损成本无序转嫁至终端用户，提升了成本传导的透明度与可追溯性。 同时，通知明确居民生活、农业生产用电继续执行现行目录销售电价政策，交叉补贴机制保留，不受本轮输配电价周期调整影响。这一制度安排有效保障了民生用电的成本稳定。 三、区域电网 电量电价与容量电价双轨并行 区域电网输电价格延续“电量电价+容量电价”双模式。区域输配电费以两部制形式呈现：电量电费随省间交易电量发生，容量电费通过各省省内工商业用户用电量进行收取。归属于同一电网经营区（东北、华北等区域）的省份需分摊区域电网输变电资产的容量价格。 这一机制的设计逻辑在于：容量电价反映电网固定资产的“可用性”成本，电量电价反映输配电服务的“使用量”成本，二者分离使价格信号更加精准，也为跨省跨区电力交易提供了更清晰的成本依据。 四、对储能行业 容量电价制度化打开盈利空间 文件对储能行业的利好，根植于输配电价结构中容量电价的全面制度化。 2026年1月，国家发改委、国家能源局已联合发布《关于完善发电侧容量电价机制的通知》（发改价格〔2026〕114号），首次在国家层面建立电网侧独立新型储能容量电价机制。容量电价水平以当地煤电容量电价标准（165-330元/千瓦·年）为基础，根据顶峰能力按一定比例折算。输配电价方案的落地，使这一机制在输配电价体系中得以全面嵌入和制度化执行。 对独立储能而言，容量电价提供了稳定的容量服务收益来源，商业模式从单纯依赖峰谷价差套利拓展为“容量租赁/容量服务+电能量市场套利”的双轮驱动。据测算，参考甘肃标准，4小时配储对应的补贴标准约为193元/千瓦，对应内部收益率可达8%-9%。对工商业储能而言，两部制电价结构下基本电费（容量电费）的优化空间，进一步提升了用户侧储能的配置经济性。此外，电网成本精细化管控将倒逼电网提升系统灵活性，储能与虚拟电厂作为灵活调节资源的战略地位将进一步提升。 五、对新能源发电与跨区消纳 外送通道成本分摊机制优化 新能源外送特高压通道的成本实行送端与受端电网共同分摊，有效缓解了新能源基地外送通道的建设压力。跨省跨区交易电价规则的透明化，有助于提升大型风光基地电力外送的经济可行性，利好西北、华北新能源大基地的开发。在新型电力系统加速构建的背景下，电网需加大新能源并网配套投资以解决风光消纳瓶颈。 六、监管趋势 从“管价格”到“管成本+管服务” 文件的深层意义在于监管逻辑的演进。第四监管周期核价工作对价格主管部门、行业主管部门、电网企业等各方提出了更高要求。电网企业的盈利模式正从传统的输配电服务费，向电网灵活性服务、新能源并网服务等方向延伸。与此同时，管制业务与市场化业务的严格分账管理，将有效防止交叉补贴与成本混同。 总体来看，文件作为2026—2029年电...",
           "hb": 1
         },
         {
-          "t": "美国周发电量首次突破创纪录的10万吉瓦时",
+          "t": "Nat. Catal.：纳米流体加速催化",
           "d": "2026-07-11",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/电网技术/其它电网技术",
-          "as": "美国电网周发电量首次突破100,000 GWh的历史纪录，标志着电网在极端高温和用电高峰压力下的韧性经受住了严峻考验。该里程碑反映了AI数据中心扩张、极端气候驱动的制冷需求增长以及电气化趋势对电力系统的巨大推动。电网在历史最高负荷下保持稳定运行，表明美国电力基础设施的调度能力和可靠性达到新水平，但也凸显了未来持续扩容与储能部署的紧迫性。",
-          "sc": 6.8,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://interestingengineering.com/energy/us-weekly-electricity-output-100000-gwh",
-          "tp": "电网负荷纪录",
+          "a": "催化视界",
+          "c": "通用技术/催化剂",
+          "as": "《Nature Catalysis》发表研究，将Ru负载离子COF制成稳定纳米流体用于连续流光催化。该材料形成平均粒径约96纳米的分散态，无需表面活性剂即可保持稳定，解决了固定床催化剂易堵塞问题。在青蒿素光氧化微反应器中，纳米流体改善了传质与光穿透，展现出高转化率、低堵塞和可放大的优势。",
+          "sc": 7.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/as9RCwL-m7uH7x-6g3Fsrg",
+          "tp": "纳米流体催化",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "纳米流体平均粒径[剪切混合后的COF-TAPPY]: 约96 nm",
+            "胶体稳定性[COF-TAPPY纳米流体]: 超过7天无需表面活性剂保持稳定",
+            "[Ru负载离子COF纳米流体]: 解决微反应器连续流光催化的传质和局部堵塞问题"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The American power grid just survived its ultimate stress test. For the first time in history, weekly US electricity output crossed the 100,000 gigawatt-hour (GWh) threshold.\nIt was triggered by a punishing summer heat dome that smothered more than 200 million people.\nDuring the week of June 28 to July 4, 2026, the grid pumped out a record-shattering 100,996 GWh of energy, according to data released by the Edison Electric Institute (EEI). To put that into perspective: America’s utility companies delivered twice the amount of electricity New York City consumes in an entire year — all in just seven days.\nThe surge shattered a four-year-old record of 99,445 GWh set back in July 2022. It also pushed weekly power generation a massive 22 percent above the US baseline.\nThe immediate culprit was the weather. A\noccurs when a high-pressure system acts like a lid, trapping hot air over a region and baking it under prolonged, extreme temperatures.\nAs families tried to celebrate the Fourth of July, a sprawling heat dome pinned triple-digit temperatures and heat indices as high as 115°F across the central and eastern regions of the country. Air conditioners worked at maximum capacity.\nBut while the weather provided the spark, industry experts say the real story is the invisible infrastructure that didn’t fail.\n“Hitting 100,000 gigawatt-hours in a single week for the first time in history is a milestone — and a preview of what the grid of the future must be built to handle,”\nDrew Maloney, EEI President and CEO.\nMore from Energy\nWorld’s largest hybrid solar plant stores energy in molten salt to supply power at night\nGermany drills 1640 feet underground, finds geothermal heat potential beneath coal region\nUS firm launches modular sodium-ion battery to power data centers and utilities\nSoftware runs quadrillions of simulations to uncover 300 GW on the US power grid\nNuclear plant given life extension to power 2,500,000 homes for 20 more years\n“Meeting surging demand and ensuring the grid can withstand severe weather will require continued investment in America’s\ninfrastructure,” Maloney added.\nMajor utilities like Dominion Energy, Duke Energy, and FirstEnergy reported working around the clock to balance the soaring demand while managing localized, storm-induced outages. The fact that the lights stayed on is being hailed by industry group Concentric Energy Advisors as direct validation of recent, heavy capital spending.\ngeneration hit 4,346,875 GWh over the last 12 months, climbing 2.3 percent from the year before.\nKeeping up with this new reality will not be cheap.\nPower companies are already on track to invest $239 billion into the grid this year alone. Between now and 2030, total projected investments in high-capacity transmission lines, modernized distribution systems, and advanced grid-enhancing tech are expected to\nreach $1.4 trillion.\nHowever, funding that future remains a point of intense friction. A concurrent analysis by the Alliance for Innovation and Infrastructure warns that regulatory attempts to place blunt caps on a utility’s return on equity (ROE) could dry up the private capital needed to bankroll these massive infrastructure upgrades.\nThe heatwave collided with a massive, AI-driven surge in\n, as the US races to build new data centers to support artificial intelligence. This rapid construction is currently outstripping the expansion of the country’s electricity and water infrastructure, fueling warnings from utilities, regulators, and policymakers.\nAccording to the U.S. Department of Energy, data center power consumption is projected to more than double, jumping from four percent of total U.S. demand to nine\npercent by 2030\n. Research from Goldman Sachs and Gartner indicates that total data center draw is on track to\nwith AI-optimized servers accounting for roughly one-third of that load.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nMrigakshi is a science journalist who enjoys writing about space exploration, biology, and technological innovations. Her work has been featured in well-known publications including Nature India, Supercluster, The Weather Channel and Astronomy magazine. If you have pitches in mind, please do not hesitate to email her.\nUS firm launches modular sodium-ion battery to power data centers and utilities\nUS boosts defense radar output with $40M factory producing 30,000 systems annually\nSoftware runs quadrillions of simulations to uncover 300 GW on the US power grid\nHigh-energy lasers: Pentagon pushes 500-kW systems for cruise missile defense\nUS' aircraft carriers to get modernization support to counter new threats, remain battle-ready",
+          "b": "Nat. Catal.：纳米流体加速催化 催化视界 连续流光催化想要兼顾传质、光利用和规模化，常在均相催化剂难回收、固定床异相催化剂易堵塞之间摇摆。这篇 Nature Catalysis 把 Ru 负载离子 COF 做成稳定纳米流体，让催化剂随流体进入微反应器，以孔结构和胶体稳定性同时解决活性和堵塞问题。 成果简介 作者设计了两种 imine-linked ionic COFs：COF-PDA 和 COF-TAPPY，利用 Ru2+ 配位节点和带电骨架形成多孔晶体。低剂量冷冻电镜和 PXRD/Pawley refinement 显示，两者具有三股螺旋/互穿网络等明确晶体结构，孔道可容纳底物和 Cl\\- 反离子。 剪切混合后，COF-TAPPY 可形成平均粒径约 96 nm 的纳米流体，超过 7 天无需表面活性剂也保持胶体稳定。这样的分散态改善了光穿透、热耗散和微反应器内的传质，同时避免传统填充床颗粒固定带来的高压降与局部堵塞。 在 DHAA 光氧化制 artemisinin 的双毛细管微反应器中，COF-TAPPY nanofluids 以 1O2 为关键活性物种，实现快速连续光氧化。与批量反应、填充床和固定化催化剂相比，纳米流体兼具高转化、可回收、低堵塞和可放大的优势。 这类体系最值得注意的地方，是材料结构和反应器过程没有被割裂。COF 的孔道决定底物靠近 Ru 光敏中心的几率，纳米粒径决定悬浮稳定性和微通道压降，流动状态又决定光照、传热和 O2 供应。只有三者同时成立，纳米流体才不是“把粉末搅进溶液”，而是一个真正的流动催化相。 研究亮点 把 COF 从固定固体催化剂变成可流动纳米催化相，直接面向连续流过程中的光、热、质传递限制。 Ru2+ 配位 COF 的晶体结构、带电孔道和胶体排斥共同保证纳米流体稳定，避免依赖表面活性剂引入额外污染。 以 artemisinin 前体光氧化为应用场景，证明多孔纳米流体不仅能提高反应效率，还能减轻微反应器堵塞这一工程痛点。 配图精析 图1 纳米流体光催化的设计优势 图1先比较三种连续流光催化策略：均相体系活性高但回收难，固定异相体系可分离但易堵塞，纳米流体则试图把两者优点合并。下方结构示意展示 Ru(PDA)2Cl2 与 TAPPY 等构筑单元如何形成带电 COF 网络，说明材料设计从一开始就服务于可分散、可流动和可传质。 图2 低剂量电镜解析 Ru-COF 晶体结构 图2证明这些 COF 不是无定形胶体。cryo-LDEM、FFT、PXRD 和结构模型相互印证：COF-PDA 呈三重互穿 acs 网络，COF-TAPPY 则呈互锁 stp 拓扑；Ru 节点把螺旋链锚定在一起，形成一维孔道。结构确定性对于催化发现很重要，因为它让孔径、电子结构和流体稳定性可以被同时优化。 图3 光电性质支持高效 1O2 生成 图3比较 COF-PDA 与 COF-TAPPY 的吸收、带隙、CV、Mott-Schottky、瞬态光电流、EIS 和瞬态吸收。COF-TAPPY 具有更好的载流子分离、更长激发态寿命和更强 1O2 生成能力，这解释了为什么后续流程反应选择它作为纳米流体催化剂。 图4 COF-TAPPY 纳米流体保持分散与晶体稳定 图4关注工程可用性。SEM 与粒径分布显示剪切后颗粒进入亚百纳米尺度，PXRD、N2 吸附和 UV-vis 说明结构与孔性没有明显损失；照片和管路图展示了长时间分散和循环后的稳定性。对于微通道反应器，稳定悬浮比单点活性更关键，因为沉降和团聚会直接导致堵塞。 图5 双毛细管微反应器实现快速连续光氧化 图5把材料放入真实流动场景。气-液双毛细管系统把 O2、底物和纳米流体催化剂持续混合，EPR 验证光照下生成 1O2，产率对比显示纳米流体优于批量和固定床模式。右侧传热/光场模拟说明，流动纳米颗粒不仅提供活性位点，也改善了反应器内的光热分布。 对连续制造来说，图5的价值在于把“催化效率”和“运行稳定”放在同一张图里。若催化剂沉降、堵塞或造成局部过热，即便本征活性再高也难放大；纳米流体通过循环分散和均匀受光，把这些工程风险前移到材料设计阶段解决。 总结展望 这项工作把 COF 催化从“材料粉末性能”推向“过程强化”。对光催化、选择氧化和精细化工连续制造来说，可流动多孔催化剂能够同时参与反应、传质和热管理，可能成为固定床和均相体系之间的第三条路线。 未来挑战在于更高固含量下的黏度控制、长周期金属淋失、产物分离和纳米催化剂回收成本。若能把粒径、表面电荷、孔道尺寸和光吸收做成可设计参数，COF 纳米流体有望扩展到 CO2 光还原、选择性 C-H 氧化和药物中间体连续合成。 这也给多孔晶态材料研究一个新评价维度：除了 BET、PXRD 和单批反应收率，还应报告流动稳定性、循环压降、光程...",
           "hb": 1
         }
       ]

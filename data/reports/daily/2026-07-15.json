@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院团队研发钙钛矿有机叠层电池，光电转换效率达28.04%创新高",
-      "锂电池度电成本下降，电池储能在峰值供电领域成本竞争力超越天然气",
-      "河北辛集完成204米钢混塔架风电机组吊装，总装机量达100兆瓦"
+      "西北师大等联合发布碳-14核电池，体积功率密度提升15.5倍",
+      "MIT等揭示固态电池锂枝晶生长机制，临界电流密度提升超300%",
+      "中科院化学所研发钙钛矿-有机叠层电池，转换效率达28.04%"
     ],
     "AI与智能科技": [
-      "GPT-5.6尝试在一小时内解决存在50年的图论难题，相关成果待验证",
-      "国行版苹果AI通过监管备案，确认接入阿里千问大模型",
-      "ACL论文揭示强化学习会导致大模型输出熵下降及探索能力减弱"
+      "OpenAI的GPT-5.6耗时不足一小时完成图论循环双覆盖猜想证明",
+      "腾讯混元Hy3开源极致量化模型，295B参数支持单卡96GB显存部署",
+      "Anthropic研究指出Claude模型回复风格随交互语言类型产生显著差异"
     ],
     "通用技术": [
-      "新型铂基催化剂实现分钟级制备，催化活性较原水平提升16倍",
-      "科研团队开发双腔室生化监测平台，实现人肝灌注指标在线检测",
-      "学者将相位对比法引入冷冻电镜，通过激光相位板提升蛋白质成像对比度"
+      "研究人员提出超辐射参数穆斯堡尔辐射源以实现高强度窄谱X射线输出",
+      "科研人员成功合成首例受锑与硫醇盐保护的仿生全金属螺旋烯Pd11",
+      "天津大学实现铂催化剂分钟级制备，质量活性达商业铂碳16倍"
     ]
   },
   "sectors": [
@@ -26,74 +26,79 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院团队研发钙钛矿有机叠层电池，光电转换效率达28.04%创新高",
-        "锂电池度电成本下降，电池储能在峰值供电领域成本竞争力超越天然气",
-        "河北辛集完成204米钢混塔架风电机组吊装，总装机量达100兆瓦"
+        "西北师大等联合发布碳-14核电池，体积功率密度提升15.5倍",
+        "MIT等揭示固态电池锂枝晶生长机制，临界电流密度提升超300%",
+        "中科院化学所研发钙钛矿-有机叠层电池，转换效率达28.04%"
       ],
       "entries": [
         {
-          "t": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网",
+          "t": "【数字速记】“千纪源”碳-14核电池发布：体积缩至17%、功率密度提升15.5倍",
           "d": "2026-07-15",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "中科院化学所李永舫院士、孟磊研究员团队在《自然》发表研究，提出\"全阶段调控\"策略，引入可光转换添加剂分子解决钙钛矿-有机叠层电池中碘溴离子相分离难题。经第三方认证，新型电池稳态光电转换效率达28.04%，刷新该类电池世界纪录。叠层结构上层钙钛矿吸收可见光、下层有机物吸收近红外光，可溶液加工、柔性大面积制造。",
+          "a": "国际能源小数据",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/一次电池",
+          "as": "西北师范大学与甘肃烛龙科技联合发布“千纪源天枢”碳-14核电池及碳化硅换能器，实现全链条自主可控。相比前代样机，新产品放射源比活度提升1.5倍，用量降至22%；短路电流提升2.5倍，最大输出功率达2.6倍；有效体积缩减至17%，体积功率密度提升15.5倍。该核电池主要面向空天探测、极地科考等长寿命微电源场景，实现了低成本国产化量产。",
           "sc": 8.9,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://cpnn.com.cn/news/kj/202607/t20260714_1901983.html",
-          "tp": "钙钛矿光伏",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/ahqSWPmNHuN3D6j2Wy5aSQ",
+          "tp": "碳-14核电池发布",
           "aip": 1,
           "kp": [
-            "光电转换效率[新型钙钛矿-有机叠层太阳能电池]: 28.04%"
+            "体积缩至[“千纪源”碳-14核电池相较前代]: 17%",
+            "体积功率密度提升[“千纪源”碳-14核电池相较前代]: 15.5倍",
+            "放射源比活度提升[碳-14核电池迭代]: 1.5倍",
+            "放射源用量[碳-14核电池迭代]: 前代的22%",
+            "短路电流提升[碳-14核电池迭代]: 2.5倍"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录--中国能源新闻网\n中电传媒股份有限公司主办\n新型钙钛矿-有机叠层太阳能电池光电转换效率刷新世界纪录\n易受到光照影响的电池材料，如何更稳定地利用光能？《自然》杂志13日发表的一项研究给出了答案：中国科学院化学研究所李永舫院士、孟磊研究员团队，提出“全阶段调控”策略，通过引入一种可光转换的添加剂分子，成功制备出新型钙钛矿-有机叠层太阳能电池。经第三方机构认证，该电池的稳态光电转换效率达到28.04%，刷新这类电池的世界纪录。\n近年来，以钙钛矿太阳能电池和有机太阳能电池为代表的新一代光伏技术发展迅速。这类电池的制造方式很特别，能像印报纸一样，通过溶液加工、卷对卷印刷等技术，实现柔性、大面积制造，成品又轻又薄，还能弯曲。将它们像三明治一样叠在一起的钙钛矿-有机叠层太阳能电池，能把太阳光谱“吃干榨尽”：上层钙钛矿吸收可见光，下层有机物吸收近红外光，理论发电效率远超单一材料电池。\n然而，这种叠层电池的上层有个难缠的问题。为了吸收足够的太阳光，薄膜中需要同时添加碘和溴两种元素。麻烦的是，在制备过程中或持续光照下，碘离子和溴离子容易“闹分家”，各自聚集成群。“这种相分离现象一旦发生，电池电压就会不断下降，性能持续衰退，成为阻碍其走向应用的致命短板。”孟磊说。\n图为钙钛矿-有机叠层太阳能电池器件。中国科学院化学研究所供图\n为了平息这场微观世界的纷争，研究团队向材料中加入一种名为TDB的添加剂分子。在电池薄膜成型之初，TDB像一位耐心的协调员，拖住溴离子快速聚集的脚步，确保碘和溴从一开始就均匀混合。而当电池见光工作时，TDB被光激活，转化成新结构的TAB分子。“新分子能够锚定在材料晶界上，抑制卤素离子迁移和相分离，完成了从‘惧光’到‘驭光’的蜕变。”孟磊解释。\n凭借这一贯穿制备与运行全过程的调控策略，团队制成的宽带隙钙钛矿太阳能电池的开路电压创下同类型电池最高纪录，将其与底层有机太阳能电池精准叠加后，整个叠层器件的实验室最高光电转换效率达28.80%，认证稳态效率锁定在28.04%。在持续光照625小时后，叠层太阳能电池仍保持初始效率的90%，展现出优异的稳定性。\n李永舫表示，这种钙钛矿有机叠层太阳能电池兼具轻薄与柔性优势，不仅有望用于建筑、交通、可穿戴设备等领域，更因其突出的柔性重量比，未来有潜力登上卫星和空间站，为人类提供更轻便高效的太空能源。\n“十四五”能源高质量发展\n“抢”回4.5亿度电能 国产“苇络AI”守护迎峰度夏电力线\n太阳能智能回收机落地明十三陵 助力文旅绿色低碳发展\n宁波大学团队在全钙钛矿叠层电池研究领域取得新突破\n新研究：集中供热余热可助力污水处理和城市减排\n中国全钒“城市充电宝”已商业化示范30余项 创多项全球之最\n新工艺打造出更轻且旋转更快的风力涡轮机叶片\n我国高校开发新型电解液让锂金属电池“增能延寿”\n我国首台超临界CO₂车载空调在扬研发成功",
+          "b": "【数字速记】“千纪源”碳-14核电池发布：体积缩至17%、功率密度提升15.5倍 E Small Data E Small Data 国际能源小数据 2026年7月6日央广网报道，在兰州举行的自主可控碳-14核电池全链条技术成果发布会上，西北师范大学与甘肃烛龙科技联合发布了“千纪源天枢”碳-14核电池与“千纪源能枢”碳化硅换能器，实现了从放射源适配、换能、封装到电源管理的全链条自主化突破。技术性能上，相较2025年的“烛龙一号”工程样机，新产品完成五大技术迭代：放射源比活度提升1.5倍，放射源用量仅为前代的22%；短路电流提升至2.5倍，填充因子由0.73提升至0.77，最大输出功率达到前代的2.6倍；在保持开路电压与输出稳定性不变前提下，有效体积缩减至前代的17%，体积功率密度提升15.5倍。 该核电池主要面向空天探测、极地科考、特种装备及无人值守传感器等长寿命微电源场景，解决了传统核电池输出功率小、集成度低、成本高的痛点。效益上，碳化硅换能器显著降低了能量转换损耗，三维叠层封装与智能电源管理系统大幅延长了服役周期，为我国在战略微能源领域摆脱进口依赖、实现低成本国产化量产提供了核心数据支撑。 **往期推荐** [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651727922&idx=1&sn=a96b451c4db44dad220e2ee066cfc15a&scene=21#wechat_redirect) 【动向】法国电力（EDF）战略调整：拟出售可再生能源业务，聚焦本土核电项目 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722980&idx=1&sn=23400ca4ec43d9c5cf047cab3b068ca4&scene=21#wechat_redirect) 【图说】各国碳排放占全球总排放比例：中国26%、美国12% [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722799&idx=1&sn=0e0a35da4f89ea35082df9a90b8345c3&scene=21#wechat_redirect) 【存照】特朗普发布重振美国“美丽清洁煤炭行业”行政命令，确保数据中心用电 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722735&idx=1&sn=98a1c7a1023f8b41e569b23db2d9d0c3&scene=21#wechat_redirect) 【图说】比一比，中国美国AI模型哪家强？ [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722809&idx=1&sn=7765bc9a8fde96a14615da3b48244959&scene=21#wechat_redirect) 【图说】极端热浪正在成为全球各地新常态 国际能源小数据",
           "hb": 1
         },
         {
-          "t": "数据中心推高燃气轮机成本，电池储能首次在峰值供电领域击败天然气",
+          "t": "【创新】固态电池重大突破：MIT与慕尼黑工大团队破解锂枝晶致陶瓷破裂机制",
           "d": "2026-07-15",
-          "a": "机工文献",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "AI数据中心激增的电力需求推高了燃气轮机采购成本，与此同时电池储能系统首次在峰值供电领域成本上击败天然气发电。这一里程碑表明锂电池度电成本已降至足以与天然气调峰竞争的水平，数据中心供电格局正从化石燃料向储能加速转变，对电网调峰模式与碳减排路径影响深远。",
-          "sc": 9.7,
+          "a": "国际能源小数据",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "MIT与慕尼黑工业大学团队在《Nature Nanotechnology》发表论文，揭示了固态电池中锂枝晶刺穿坚硬陶瓷电解质的机制。研究发现，锂镧锆氧（LLZO）晶界核心携带局部电荷，阻碍锂离子传输并促使电子聚集，将锂离子还原为金属锂引发枝晶生长。通过优化加工条件减少晶界负电荷积累，电解质的临界电流密度提升了300%以上，显著降低了内部短路风险。",
+          "sc": 8.4,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/LvH9qLEz9x45nNUStSQ--w",
-          "tp": "储能替代气电",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "全球最高！204米钢混风塔在华北平原“立起来”了--中国能源新闻网",
-          "d": "2026-07-15",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/风电",
-          "as": "7月10日，中国电建承建的河北辛集风电项目三期成功吊装204米超高钢混塔架风电机组，刷新全球陆上钢混风电塔架高度纪录。项目总装机100兆瓦，共16台6.25兆瓦机组，核心设备100%国产化。204米塔采用\"下混上钢\"结构，基础浇筑引入全流程无线测温系统实现零裂缝，为低风速区域风电开发提供可复制方案。",
-          "sc": 9.2,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://cpnn.com.cn/news/xny/202607/t20260714_1901998.html",
-          "tp": "超高风电塔",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/zN_FXrZ_9ebn1Anibd9Dew",
+          "tp": "固态电池破解枝晶",
           "aip": 1,
           "kp": [
-            "塔架高度[风电项目三期机组]: 204米",
-            "总装机容量[风电项目三期]: 100兆瓦",
-            "风力发电机组数量[风电项目三期]: 16台",
-            "单机容量[风力发电机组]: 6.25兆瓦",
-            "轮毂高度[常规风力发电机组]: 160米"
+            "失效机制[固态电池陶瓷固态电解质]: 电子沿陶瓷晶界泄漏促使锂核在晶界处形成并连通，导致破裂",
+            "技术潜力[固态电池商用]: 电动汽车行驶里程达现有车型的三倍"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "全球最高！204米钢混风塔在华北平原“立起来”了--中国能源新闻网\n中电传媒股份有限公司主办\n全球最高！204米钢混风塔在华北平原“立起来”了\n7月10日，中国电建承建的河北辛集风电项目三期204米超高机组成功安装，刷新了全球陆上钢混风电塔架高度纪录，也为低风速区域风电开发贡献了可复制的“电建方案”。\n河北华电辛集500兆瓦风电项目三期工程坐落于河北辛集市，总装机容量100兆瓦。中国电建所属水电十六局承建。\n项目共布置16台6.25兆瓦风力发电机组，其中15台轮毂高度160米。本次完成吊装的204米超高钢混塔架风电机组，是该项目的核心组成部分，机组核心主机、叶片、塔筒等关键设备全部国产化，自主化率100%。\n204米的高度，首先考验的是“脚下功夫”。70根有效桩长19至22.3米的预制管桩，需要浇筑大体量混凝土，浇筑过程中，全流程无线测温系统，让风机基础一次性浇筑成型，没有出现一条温度裂缝。\n吊装环节，204米高空吊百吨级机舱，对起重设备和操作精度都有极高要求。项目部配备的大吨位动臂式起重机搭载自动纠偏系统，起升、变幅、回转全程自动调整，确保重物在高空不晃不偏。\n超高塔体采用“下混上钢”复合结构，下部混凝土段抗风性能好，上部钢塔段自重轻、吊装效率高。关键部位使用的UHPC超高强混凝土，强度为普通混凝土3到4倍；预应力钢绞线强度达2200兆帕，为国内风电领域最高等级。\n华北平原地处低风速区域，离地面越高风资源越丰富，发电效益也越高。与同风电场160米塔架机组相比，204米机组年等效满负荷发电小时数提升220余小时，年发电量可提升6%以上。此方案还将低风速风电开发门槛下探至5米/秒以内，为原本因风资源不足而被判定不具备开发价值的区域打开了投资可行性。\n项目建成后，16台风机通过4回35千伏集电线路汇集，接入项目一期220千伏升压站。项目全容量投产后，预计年发电量约2亿千瓦时，可节约标准煤6万余吨，减排二氧化碳约16万吨。（\n“十四五”能源高质量发展\n包头威俊500千伏储能汇集站并网投运\n海南重卡“驶向”环岛换电自由\n新能源撑起海南电力“半壁江山”\n河北首个海上光伏项目并网\n车船税征收政策明年调整 新能源汽车发展重心转移\n储能市场需求旺盛 产业链上市公司中报预喜\n华电海晶1000兆瓦工程完成全周期后评价\n动力电池产业从“价格竞争”走向“安全竞争”",
+          "b": "【创新】固态电池重大突破：MIT与慕尼黑工大团队破解锂枝晶致陶瓷破裂机制 E Small Data E Small Data 国际能源小数据 固态电池被认为是下一代储能技术的希望之星。与当前主流的锂离子电池使用液态电解质不同，固态电池用固体电解质替代液体，理论上能实现更高的能量密度、更好的安全性和更长的循环寿命。如果固态电池能够成功商用，智能手机有望实现数天续航，电动汽车的行驶里程可能达到现有车型的三倍。然而，一个顽固的问题长期阻碍着这项技术走向市场：充电过程中，锂金属阳极会长出细小的树状结构——锂枝晶，它们会刺穿固态电解质，造成内部短路，导致电池失效甚至起火。 令研究者困惑多年的问题是：锂金属非常柔软，质地类似软糖，而固态电解质的陶瓷材料非常坚硬。为什么柔软的锂枝晶能穿透坚硬的陶瓷？关于这个谜题，学界一直存在两种假说：一种认为枝晶内部积累了内应力，以机械方式压裂了陶瓷；另一种认为电子沿着陶瓷晶界泄漏，促使锂核在晶界处形成并连通。 MIT（麻省理工学院）与德国慕尼黑工业大学（TUM）的联合研究团队在Nature Nanotechnology上发表论文，从晶界层面给出了答案。研究团队以常用固态电解质材料锂镧锆氧（LLZO）为对象，利用电子显微镜、机器学习建模和电化学阻抗谱等技术，发现晶界核心携带局部电荷，产生局部电场。这些电场一方面阻碍了锂离子的传输，另一方面导致电子在晶界区域聚集，将锂离子还原为金属锂，从而引发枝晶生长。 团队并没有止步于揭示机制。他们进一步调整了LLZO电解质的加工条件，最大限度减少晶界处的负电荷积累。经过优化的电解质材料，其临界电流密度比基线样品提高了300%以上。临界电流密度是衡量电池能承受多大充放电速率而不形成枝晶的关键指标——这意味着电池可以充电更快、使用更久，短路的风险也相应延后。 论文第一作者、MIT博士Hyunwon Chu解释了研究的完整逻辑链条：从提出枝晶形成的理论模型，到用材料表征实验验证这一理论，再到应用工程手段改善电池性能。这条\"理论-表征-工程\"的路径，为整个固态电池领域提供了一套可操作的研发路线图。 几乎在同一时间，德国马克斯·普朗克可持续材料研究所的另一支团队也在Nature上发表了互补性成果。他们通过超高真空和低温条件下的精密表征，直接证实了枝晶破裂陶瓷电解质的机制是纯机械性的——类似于连续水刀切割岩石。锂枝晶内部积累的静水压力最终导致陶瓷发生脆性断裂。这一发现排除了\"电子泄漏导致锂沉积连通\"的假说，为工程防护方案指明了方向：增强陶瓷韧性、引入微孔结构转向裂纹路径、或在锂电极表面添加保护涂层。 两项研究从不同角度——MIT/TUM侧重晶界电化学行为，马普所侧重力学断裂机理——共同为固态电池的工程化扫清了认知障碍。对产业界而言，这意味着固态电池从实验室走向量产的最大科学障碍正在被系统性地攻克。 **往期推荐** [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728854&idx=1&sn=8d9387d85cf8481fc3d99dbd2be6c205&scene=21#wechat_redirect) 【IEA报告】数据中心的“胃口”有多大？IEA报告：2025年用电激增17%，但AI正从“能源消耗者”转向“能源创造者” [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728564&idx=1&sn=b7fc905f30505872760afb4c04c82e6d&scene=21#wechat_redirect) 【报告】15种关键低碳技术：4种已经可以与化石能源竞争 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728364&idx=1&sn=e5ee76accbbb8d41ee71e1660f8046b6&scene=21#wechat_redirect) 【图说】2025 全球石油贸易的8个“海上咽喉”要道：最忙的是马六甲海峡，霍尔木兹排第二 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722735&idx=1&sn=98a1c7a1023f8b41e569b23db2d9d0c3&scene=21#wechat_redirect) 【图说】比一比，中国美国AI模型哪家强？ [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722809&idx=1&sn=7765bc9a8fde96a14615da3...",
+          "hb": 1
+        },
+        {
+          "t": "Nature！钙钛矿-有机叠层电池效率28.04%刷新世界纪录！",
+          "d": "2026-07-15",
+          "a": "索比光伏",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "中国科学院化学研究所李永舫院士与孟磊研究员团队提出“全阶段调控”策略，通过引入可光转换的添加剂分子TDB，成功制备出新型钙钛矿-有机叠层太阳能电池。TDB分子在结晶成膜阶段稳定卤素混合相，在光照运行阶段转化为锚定钝化分子，彻底解决了高溴含量宽带隙钙钛矿的卤素相分离难题。经第三方认证，该电池稳态光电转换效率高达28.04%，刷新世界纪录。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202607/15/50025953.html",
+          "tp": "钙钛矿光伏突破",
+          "aip": 1,
+          "kp": [
+            "稳态光电转换效率[新型钙钛矿-有机叠层太阳能电池]: 28.04%",
+            "制备策略[提升钙钛矿-有机叠层电池效率]: 全阶段调控 (引入可光转换的添加剂分子)",
+            "技术互补优势[宽带隙钙钛矿前电池与窄带隙有机后电池组合]: 在光谱吸收和器件稳定性上形成互补，具1+1>2协同效应"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7月13号，中国科学院化学研究所李永舫院士、孟磊研究员团队，提出“全阶段调控”策略，通过引入一种可光转换的添加剂分子，成功制备出新型钙钛矿-有机叠层太阳能电池，并在《Nature》杂志上发布相关工作。经第三方机构认证，该电池的稳态光电转换效率达到28.04%，刷新这类电池的世界纪录。\n近年来，钙钛矿太阳能电池等新一代光伏技术发展迅速，这类太阳能电池可大面积柔性制造，更适用于轻量化要求较高的应用场景。\n为进一步提升太阳能电池的光电转换效率，叠层太阳能电池技术应运而生。该技术通过中间连接层将多个具有不同带隙的子电池垂直堆叠，像“光谱筛”一样分工协作，充分利用太阳光谱。\n其中，基于宽带隙钙钛矿前电池与窄带隙有机后电池构建的钙钛矿-有机叠层太阳能电池展现出独特优势。它可以在光谱吸收和器件稳定性上形成互补，展现出“1+1>2”的协同效应，被认为是兼具高效率、高稳定和广泛应用前景的重要下一代光伏技术方向。\n钙钛矿-有机叠层太阳能电池器件\n钙钛矿-有机叠层太阳能电池效率的进一步提升，长期受制于宽带隙钙钛矿前电池电压损失大、稳定性不足等问题。\n在2024年，团队通过揭示宽带隙钙钛矿上表面有效钝化机制，实现了26.4%的叠层器件纪录效率(经第三方认证为25.7%)。在此基础上，此次团队取得了进一步突破，解决了高溴含量碘溴混合宽带隙钙钛矿的卤素相分离问题。\n卤素相分离，是指原本相对均匀混合在钙钛矿薄膜中的碘离子和溴离子在光照等应力下重新分布，逐渐形成富碘和富溴区域，从而降低器件的电压输出和长期稳定性。\n为了让高溴含量宽带隙钙钛矿从“惧光”变成“驭光”，研究团队设计了一种可光转换的添加剂分子TDB(4-[3-(三氟甲基)-3H-双吖丙啶-3-基]苄铵盐酸盐)。TDB可以实现关键转变——结晶成膜阶段稳定混合卤素相，光照运行阶段转化为更强锚定钝化分子，从源头到使用全过程抑制相分离。\n凭借这一贯穿制备与运行全过程的调控策略，团队制成的宽带隙钙钛矿太阳能电池的开路电压创下同类型电池最高纪录，将其与底层有机太阳能电池精准叠加后，整个叠层器件的实验室最高光电转换效率达28.80%，认证稳态效率锁定在28.04%。在持续光照625小时后，叠层太阳能电池仍保持初始效率的90%，展现出优异的稳定性。\n该研究将为能源结构进一步转型和可持续发展提供新的科学技术路径，或可广泛应用于建筑、交通、可穿戴电子等地面场景，也有望在卫星、空间站和深空探测等航天领域发挥积极作用。",
           "hb": 1
         }
       ]
@@ -102,73 +107,79 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "GPT-5.6尝试在一小时内解决存在50年的图论难题，相关成果待验证",
-        "国行版苹果AI通过监管备案，确认接入阿里千问大模型",
-        "ACL论文揭示强化学习会导致大模型输出熵下降及探索能力减弱"
+        "OpenAI的GPT-5.6耗时不足一小时完成图论循环双覆盖猜想证明",
+        "腾讯混元Hy3开源极致量化模型，295B参数支持单卡96GB显存部署",
+        "Anthropic研究指出Claude模型回复风格随交互语言类型产生显著差异"
       ],
       "entries": [
         {
           "t": "GPT-5.6仅用1小时攻破50年数学难题！64个AI摘下图论皇冠",
           "d": "2026-07-15",
           "a": "新智元",
-          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
-          "as": "报道称GPT-5.6在约1小时内解决了困扰数学界约50年的图论难题，64个AI智能体协同工作摘得图论领域重要成果。若属实，这标志着大语言模型在复杂数学推理能力上的显著跨越，从工具辅助推理迈向自主攻克开放性数学问题的阶段，对AI数学研究范式具有深远影响。但具体成果需经数学界同行验证。",
-          "sc": 8.3,
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI宣布GPT-5.6 Sol Ultra成功证明了图论领域的50年难题“循环双覆盖猜想”，整个证明过程耗时不到一小时。“循环双覆盖猜想”核心内容为：每一个无桥的有限无向图，都存在一个由环组成的集合，使得图中的每一条边都恰好被包含在两个环中。此前该猜想仅在附加限制条件下被部分证明，此次AI完成了完整的肯定证明。",
+          "sc": 9.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/0D5mCwjmPNresZsIV0b-ag",
-          "tp": "AI攻破难题",
+          "tp": "AI证明数学难题",
           "aip": 1,
           "kp": [
-            "耗时[GPT-5.6攻破数学难题]: 1小时",
-            "历史难度[被攻破的数学难题]: 50年",
-            "数量[摘下图论皇冠的AI]: 64个"
+            "耗时[GPT-5.6证明循环双覆盖猜想]: 不到1小时",
+            "解决的问题[GPT-5.6]: 成功证明图论领域的「循环双覆盖猜想」"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "GPT-5.6仅用1小时攻破50年数学难题！64个AI摘下图论皇冠 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**仅用1小时，GPT-5.6就攻破了困扰数学界整整 50 年的世纪难题「循环双覆盖猜想」！全球数学家沉默了 7月11日凌晨，OpenAI官方宣布：GPT-5.6 Sol Ultra成功证明困扰数学界长达50年的「循环双覆盖猜想」！ 更惊人的是，它在不到一小时内，就产出了一份完整证明。 曾经，循环双覆盖猜想由几位传奇数学家提出后，就像一座大山横亘在图论领域，让全球顶尖数学家望而却步。 现在，这座大山被AI在不到一个小时内踏平了。 OpenAI研究员Noam Brown所感叹：「这与之前解决Erdős单位距离问题不同，这次创造奇迹的模型，是今天对所有人公开可用的！」 网友惊呼：证明令人叹为观止，AI改变数学！ **幽灵般盘旋了50年的数学魔咒** 循环双覆盖猜想，是图论里的「皇冠级」难题之一，由Tutte、Itai与Rodeh、Szekeres、Seymour等多位数学家在上世纪各自独立提出。 简单来说，这个猜想是这样的：「每一个无桥的有限无向图，都存在一个由环组成的集合，使得图中的每一条边，都恰好被包含在两个环中。」 用大白话说，在一个错综复杂的城市道路网中，在这个路网中，没有任何一条道路是唯一通道。 猜想认为：你一定能找到若干条「环状循环公交线路」，使得这个城市里的每一条道路，都恰好有两趟公交车经过。 不多不少，正好两次。 半个世纪以来，数学家们为了证明这个猜想，可谓绞尽脑汁。 Jaeger证明了平面图是成立的； Szekeres证明了可以进行3边着色的立方图是成立的； Alspach、Goddyn和Zhang证明了没有Petersen子图的无桥图是成立的。 然而，这些都是附加条件，最完整的「完全肯定证明」，却始终无人能够完成，直到GPT-5.6 Sol Ultra的出现。 **OpenAI的解法：** **不是一个AI在思考，是64个AI在开会** OpenAI是如何让GPT-5.6去攻克这个难题的？ 在他们分享出的任务提示词和证明全文两份PDF中，我们找到了答案。 在这个系统中，AI被分裂成了64个并发的独立智能体，组成一支科研特攻队。 提示词中，OpenAI设定了极其严苛的规则，把人类科研踩过的坑，全都让AI避开了。 首先，系统拒绝「千篇一律」，禁止采用「分配N个智能体用X策略」这种死板方法。 在第一轮，必须探索截然不同的路径——从代数视角、结构归纳法、流场表述、嵌入法到极端参数法。 第二点，系统绝对禁止告诉大部分AI目前哪个方案最被看好。 这在人类科研中非常致命——一旦某个大牛提出了一个看起来很美的方向，所有人都会一窝蜂涌过去。 最让人赞叹的一点，是「纠察队」机制。 64个智能体中，有一部分专门扮演「杠精」。每一个被提出的候选证明，都要被拿来疯狂攻击。 「边真的只被覆盖了两次吗？算错没有？」 「你是不是把重复的死胡同当成循环了？」 「你这个归纳法是不是偷偷引入了桥？」 只有被严格纠错还能活下来的证明，才有资格进入下一轮。 另外，还要严禁AI画大饼。 系统严厉警告AI：拒绝「这一步显然成立」的敷衍。 必须给出具体的引理、构造、方程式或反例。 遇到死胡同就立刻标记为「堵死」，除非提出新机制，否则不许再浪费算力。 Prompt的最后，AI被命令道：「在这上面至少花上8个小时，然后再去考虑放弃或返回结果。不要只给我一个局部结果，只有当找到完全肯定的证明并通过审核时，才能停止。」 然而，令人震撼的是，这群AI特攻队只用了不到1小时，就带着完美无瑕的数学论文凯旋而归。 **** **一小时奇迹——AI如何抽丝剥茧** 这64个智能体一小时里，究竟经历了怎样的头脑风暴？ 打开第二份PDF——《循环双覆盖猜想的证明》，我们可以清晰地看到AI令人拍案叫绝的推理路径。 全文由GPT-5.6 Sol Ultra生成，最后在Codex的辅助下完成了排版。 AI的证明策略，堪称一场精妙的「降维手术」。 **第一步：化繁为简，锁定立方图** AI特攻队首先确认前人Jaeger的结论：只要证明了「无环立方图」成立，就等于证明了所有图成立。 因为所有的图都可以通过拓扑变换缩小到立方图的范畴。 **第二步：引入神奇的「8-流」定理** 这是全篇最惊艳的一笔。 AI翻出了图论大师Tutte的「群流定理」（Group-flow theorem）。 利用前人证明的无桥图存在「处处非零的8-流」，AI将图上的每一条边，赋予了有限域 （一个由8个元素组成的三维空间向量）中的非零元素标签。 这个标签的神奇之处在于：在图的任意一个路口（顶点），流出和流入的向量之和必定为零。 **第三步：构建「双元...",
+          "hb": 1
         },
         {
-          "t": "等了两年，国行苹果AI终于通过备案，接入千问！",
+          "t": "腾讯研究院AI速递 20260715",
+          "d": "2026-07-15",
+          "a": "腾讯研究院",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "腾讯研究院AI速递涵盖三方面：1. SpaceXAI的Grok Build被曝无视“本地优先”承诺，将用户代码及主目录打包自动上传至谷歌云。马斯克确认此事，承诺彻底删除数据并上线命令支持追溯删除。2. 腾讯混元Hy3开源极致量化模型，将295B参数模型量化为1bit与4bit。其中1bit版压缩至85.5GiB，支持单卡96GB显存部署；4bit版体积169.9GiB，两卡部署。团队为llama.cpp补齐MTP投机解码支持，解码显著提速。3. LibTV上线视频Agent与Skill Hub，整合脚本、人物、分镜等短剧制作全流程。创作者设定参数后由Agent推进制作。Skill Hub首批收录100多个专业视频Skill，覆盖短剧、广告、影视等。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/kyxE8hSzUXbxK2xLAo7Hkg",
+          "tp": "混元模型极限量化",
+          "aip": 1,
+          "kp": [
+            "参数量[混元Hy3模型]: 295B",
+            "体积压缩率[1bit量化版]: 缩小6.7倍",
+            "体积[1bit量化版]: 85.5GiB",
+            "显存需求[1bit量化版]: 单卡96GB即可部署",
+            "体积[4bit量化版]: 169.9GiB"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "腾讯研究院AI速递 20260715 李瑞龙、腾小研 李瑞龙、腾小研 腾讯研究院 生成式AI 一、SpaceXAI被曝偷传代码，马斯克认账删除全部数据 1.安全研究员用钓鱼仓库实测，发现Grok Build虽宣称“本地优先”，却把整个仓库连同修改历史打包上传至谷歌云，偷传量远超正常对话； 2.关闭“改进模型”开关也无法阻止上传，有日志显示339次自动上传，一次甚至涵盖整个电脑主目录，引发开发者集体更换密钥； 3.舆论发酵48小时后，马斯克公开承认属实，承诺彻底删除全部已上传用户数据，并上线／privacy命令支持追溯删除。 https://mp.weixin.qq.com/s/UIzHrOnFxctjQ2-kmJ4XNA 二、腾讯混元Hy3极致量化开源，295B旗舰单卡可部署 1.腾讯混元把295B参数的Hy3量化为1bit与4bit并打包成GGUF，1bit版从598GB压至85.5GiB、缩小6.7倍，一张96GB显卡即可部署； 2.4bit版体积169.9GiB、两卡承载，输出分布与Top-K概率贴近BF16，Agent、多语言代码、工具调用和长文理解成绩接近满血； 3.团队为llama.cpp补齐MTP投机解码支持，接受率稳定约60%，1bit解码提速约50%、4bit近60%，另提供可直连vLLM的GPTQ Int4版。 https://mp.weixin.qq.com/s/Kq30ftirASryPrUtjK2xSw 三、LibTV上线视频Agent与Skill Hub，整合短剧全流程 1.LibTV Agent把脚本、人物、分镜、配音、剪辑收进同一项目，创作者选好Skill并确认题材、风格、时长后，由Agent推进制作，仅需在关键节点选择调整； 2.同步上线的Skill Hub首批收录100多个专业视频Skill，由200多位创作者打造，覆盖短剧、广告、影视、漫剧和MV，也支持用户上传Markdown自建Skill； 3.LibTV此前孵化发行的AI短剧累计播放已超100亿，并启动1000万元Skill超创激励计划，面向导演、广告创意及短剧团队征集优质Skill。 https://mp.weixin.qq.com/s/-B8AAF5ATo8Lb3dBt6NXKg 四、快手发布KAT-Coder-Pro V2.5，工程能力逼近Opus 1.快手旗舰级Agentic Coding模型KAT-Coder-Pro V2.5实测可34分钟手搓点球游戏、约1400行代码复刻《我的世界》，并在1分20秒内闭环定位真实开源库Bug； 2.榜单上其PinchBench得94.2分超过Opus 4.8，SWE-Bench Pro得65.2分仅次于Opus 4.8，显著领先其他国产模型； 3.团队以AutoBuilder把仓库环境构建成功率从16.5%提升至57.2%，沉淀超10万个可验证环境，并借多框架强化学习与MOPD蒸馏融合五类专家能力。 https://mp.weixin.qq.com/s/79XLhfEe7rdGhqR1M2Xqkg 五、强化学习之父Sutton创业成立Oak Lab，另辟LLM路线 1.68岁“强化学习之父”、图灵奖得主Richard Sutton与Khurram Javed离开Keen Technologies，在加拿大创立Oak Lab，主打能从自身经验持续学习、实时进化的智能体； 2.他认为大语言模型学的是人类文本而非经验，部署后即停止学习，并未真正践行《苦涩的教训》，主张智能须靠试错产生新发现； 3.公司核心是源自“阿尔伯塔计划”的OaK架构，但Sutton坦言灾难性遗忘与可塑性丧失尚未解决，其学生David Silver也已另起炉灶押注强化学习。 https://mp.weixin.qq.com/s/cUog1qtUw6\\_3TNKZwnzmSw 前沿科技 六、Biomni整合百余工具，让AI贯穿生命科学研究全程 1.斯坦福团队在《Science》推出通用生物医学智能体Biomni，整合105个生信软件与59个数据库，可自主完成基因分析、药物研究、疾病诊断、蛋白优化与实验设计； 2.在含443题的评测中Biomni平均准确率57%，明显高于Claude Sonnet 4.5的30%、Claude Code的43%，多项任务达到资深专家水平且大幅缩短耗时； 3.罕见病诊断准确率60%、耗时从110分钟压至3分钟，还可对接PyLabRobot把自然语言实验需求转为机器人可执行代码，打通干湿实验壁垒。 https://mp.weixin.qq.com/s/k3\\_BcqZqFdPMqbDjhdfz3w 报告观点 七、前OpenAI研究员：大厂正等AI自我迭代引爆失业潮 1.前OpenAI研究员Kokot...",
+          "hb": 1
+        },
+        {
+          "t": "中文Claude最不哄人，日韩泰全被宠上天！Anthropic亲手撕碎AI人设",
           "d": "2026-07-15",
           "a": "新智元",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "国行版苹果AI（Apple Intelligence）在等待约两年后通过监管备案，将接入阿里千问大模型。标志着苹果AI功能正式进入中国市场，也体现跨国科技公司在华数据合规与本地化合作的监管要求。千问获苹果背书对其市场竞争地位有积极影响。",
-          "sc": 7.8,
+          "as": "Anthropic公布的研究显示，AI模型Claude在交互中表现出基于语言的价值观差异。使用印地语等语言时，Claude更顺从和温暖；使用英语等语言时则更严谨和具挑战性。这表明AI的回复风格受语言类型的显著影响。",
+          "sc": 8.0,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/OZsFeZg_iTx7HaZfWMt8-A",
-          "tp": "苹果AI入华",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/aa2coHEZC0DC0gbjBC7T6Q",
+          "tp": "大模型多语言表现",
           "aip": 1,
           "kp": [
-            "等待时间[国行苹果AI]: 两年"
+            "模型人设差异[印地语/阿拉伯语交互]: 表现为礼貌、开玩笑、肯定用户，其“温暖”度高出全局平均近半个标准差",
+            "模型人设差异[英语/俄语交互]: 表现为挑战用户假设、纠正细节并要求提供证据"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "大模型RL训练为何会「越训越窄」？ACL Outstanding Paper从token-level熵变揭示RLVR训练机制",
-          "d": "2026-07-15",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "ACL 2025杰出论文从token级别熵变角度揭示RLVR（基于可验证奖励的强化学习）训练机制，解释大模型RL训练\"越训越窄\"现象。研究发现强化学习会降低输出token分布熵，使模型趋向高置信但低多样性的回答，导致探索能力下降、输出模式坍缩。该工作为理解并缓解RL训练退化提供理论框架。",
-          "sc": 7.7,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/om7MiAw9BepvTlTrpEz5Ew",
-          "tp": "RL训练机制",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "中文Claude最不哄人，日韩泰全被宠上天！Anthropic亲手撕碎AI人设 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** 你半夜失眠问Claude该不该辞职，它体贴得像个认识了十年的老朋友。 你写了段破绽百出的代码让Claude看，它不但没嘲笑，还先夸了句结构清晰。 你一直以为，这就是Claude天生的好脾气。 但先别急着感动！ 就在刚刚，Anthropic发了一篇论文，把自家309,815段真实对话摊在聚光灯下，一行行数了一遍，然后发现—— 那根本不是它的性格，那只是你碰巧说对了语言。 **两个人，一份计划书** **走出对话时命运不一样** 在论文里，Anthropic举了这样一个例子。 两个人手里攥着同一份商业计划书，跑去问Claude这事到底靠不靠谱。一个人用了印地语，另一个人用了俄语。 在印地语和阿拉伯语里，Claude会用礼貌措辞、开玩笑、肯定你的想法和你的作品；在英语和俄语里，Claude会挑战你的假设、纠正你的细节、要你拿证据。 这个差距有多大？ 用印地语说话时，Claude的「温暖」比全局平均高出接近半个标准差，是整项研究里最强的一次单项偏移。 这里简单解释一下。 如果我们把30万段对话按「Claude有多温暖」从冷到热排成一队，全局平均站在正中间。 偏移半个标准差，就意味着原本站正中间的那段对话，一下子挪到了队伍的前30%。 **三个模型三副脾气** **网友骂了半年的全被实锤** Anthropic把从对话里挖出来的3307个价值观一路压缩，最后压成了四条轴。每条轴就是一道二选一： * 顺从vs审慎：顺着你的意思来，还是提防你把自己弄伤。 * 温暖vs严谨：让你感觉好，还是让你答案对。 * 深度vs简洁：把来龙去脉讲透，还是你问什么答什么。 * 坦率vs执行：先告诉你「我不确定」，还是先把活漂亮地干完。 三个模型往这四条轴上一摆，三张脸就出来了。 * Sonnet 4.6，是那个哄人的。温暖0.17σ，顺从0.14σ，简洁0.14σ。 * Opus 4.6，是那个干活的。严谨0.10σ，顺从0.09σ。直奔主题，你让它干什么它干什么，一步不多走。 * Opus 4.7，是那个挑刺的。审慎0.24σ，深度0.23σ，是模型层面所有数字里最大的两个。 过去半年，Reddit上骂Opus 4.7「老是模棱两可、什么都要打个补丁」的帖子一抓一大把。 现在，这个抱怨终于「实锤」了。 更有意思的，是把两组数字放在一起看。 模型之间最大的差距：0.24σ。大概就是「你隐约觉得这版有点不对劲，但说不清哪不对」。 语言之间最大的差距：接近0.49σ。这种感觉则像「换了个人在跟我说话」。 万万没想到，换一种语言跟它说话，比换一个模型跟它说话，影响更大！ 你咬着牙从Sonnet升级到最贵的Opus，脾气上那点变化，还不如你顺手把提问语言切一下来得猛。 为什么会这样？ 对此，Anthropic的回答是：我们不知道。 原因之一，可能是数据量的不平等。 英语的量大到别的语言够不着，而「把价值观训一致」这件事，在数据充裕的语言里更容易做到。 原因之二，可能是数据成分不一样。 某些语言在专业写作、学术文本里超额代表，而那种文本天生就爱纠错、爱设限、爱说「但需要注意」。于是，模型学到的，就是那副腔调。 **中文的Claude，是不哄人的那一台** ### 看到这，你肯定要问：那中文呢？ 正文里一次没提，但图里有。 把中文那张卡的数字抠出来是这样的（基于15,365段中文对话）： * **审慎 +0.03σ** * **严谨 +0.05σ** * **深度 +0.02σ** * **坦率vs执行：正好压在平均线上** 论文给中文列的三条标志性行为，凑在一起有点意思： * 指出你没考虑到的对立面 * 驳斥你的错误前提 * 不带评判地安慰你 前两条是Opus 4.7的招牌，第三条是Sonnet 4.6的招牌。 **中文的Claude是个混合体：一边挑你的毛病，一边安慰你别难过。** 而把东亚这几家摆在一起，区别就十分明显了。 日语 —— 温暖+0.07σ，标志性行为是「先承接你的情绪，再说事」。 韩语 —— 温暖+0.04σ，「不带评判地安慰你」「模仿你的语气」。 泰语 —— 温暖+0.11σ，「给你温暖和鼓励」。 中文 —— **严谨+0.05σ**，标志性行为第二条是「**驳斥你的错误前提**」。 隔壁三家都在哄人，但跟你用中文说话的那个Claude，却和俄语（严谨+0.15σ）、英语（+0.13σ）、波兰语（+0.11σ）一起坐在了挑刺这桌。 **哪一个才是真的Claude？** 一个模型因为你说的语言而区别对待你。 那么，哪一个才是真的Claude？ Anthropic在论文里承认，这些差异是「以我们并未刻...",
+          "hb": 1
         }
       ]
     },
@@ -176,69 +187,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "新型铂基催化剂实现分钟级制备，催化活性较原水平提升16倍",
-        "科研团队开发双腔室生化监测平台，实现人肝灌注指标在线检测",
-        "学者将相位对比法引入冷冻电镜，通过激光相位板提升蛋白质成像对比度"
+        "研究人员提出超辐射参数穆斯堡尔辐射源以实现高强度窄谱X射线输出",
+        "科研人员成功合成首例受锑与硫醇盐保护的仿生全金属螺旋烯Pd11",
+        "天津大学实现铂催化剂分钟级制备，质量活性达商业铂碳16倍"
       ],
       "entries": [
+        {
+          "t": "超辐射参数穆斯堡尔辐射源",
+          "d": "2026-07-15",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "研究提出了一种超辐射参数穆斯堡尔辐射源（SPMR），以满足未来穆斯堡尔核中极窄X射线共振应用对极高峰值和平均光谱通量的需求。该辐射源通过利用空间微结构电子的散射机制来实现高强度的窄谱X射线输出。",
+          "sc": 7.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/ydpq-zy7k",
+          "tp": "穆斯堡尔辐射",
+          "aip": 1,
+          "kp": [
+            "辐射源[超辐射参数穆斯堡尔辐射(SPMR)]: 利用空间微结构电子散射产生极高峰值和平均光谱通量",
+            "[X射线共振应用]: 需要具有极高光谱通量的X射线源"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Ze-an Peng, Christoph H. Keitel, and Jörg EversFuture applications of the spectrally narrow x-ray resonances in Mössbauer nuclei require x-ray sources with exceptionally high peak and average spectral flux. Here, we introduce a superradiant parametric Mössbauer radiation (SPMR) source, which utilizes the scattering of spatially microstructured e…[Phys. Rev. Lett. 137, 035001] Published Wed Jul 15, 2026",
+          "hb": 1
+        },
+        {
+          "t": "仿生全金属Pd11螺旋烯",
+          "d": "2026-07-15",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "尽管杂原子螺烯已有广泛研究，但由纯金属元素构成骨架的全金属螺烯一直是合成的重大挑战。研究成功合成并报道了一种受锑/硫醇盐保护的仿生全金属螺烯Pd11(PhSb)2。该结构通过精妙的设计克服了同时控制金属配位几何构型、螺旋传播和构型稳定性的难题，成功构建了具有刚性手性螺旋骨架的金属纳米团簇。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aef7488?af=R",
+          "tp": "全金属螺旋烯",
+          "aip": 1,
+          "kp": [
+            "[全金属Pd11螺旋烯]: 螺旋骨架完全由金属元素构成",
+            "[仿生全金属螺旋烯]: 具有刚性、螺旋手性骨架及显著光电特性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Since their discovery in the early 20th century, helicenes have emerged as a distinctive class of polycyclic aromatic compounds with rigid, screw-shaped chiral frameworks and substantial photoelectrical properties. Over the past century, this family has expanded to include diverse heterohelicenes and functional derivatives. In sharp contrast, the rational construction of all-metal helicenes, in which the helical backbone is entirely composed of metal elements, remains a formidable synthetic challenge because of the difficulty of simultaneously controlling metal coordination geometry, helical propagation, and configurational stability. Herein, we report a stibine/thiolate–protected metallic helicene, Pd\n                    11\n                    (PhSb)\n                    2\n                    (AdmS)\n                    10\n                    , denoted as an antimony (Sb)–centered [3]Pd-helicene cluster. The Pd\n                    11\n                    framework features a Pd\n                    3\n                    triangle ortho-fused with two μ\n                    6\n                    -Sb–centered Pd\n                    6\n                    rings, giving rise to an unprecedented slightly open-mouthed, scallop-like all-metal helicene architecture. Two 7-center-2-electron (7c-2e) σ bonds are localized on the Sb-centered Pd\n                    6\n                    rings, stabilizing the helical all-metal skeleton. This metallic helicene can undergo structural “unfolding” through complete opening of the fused Pd\n                    6\n                    rings, affording a chiral homolog, Pd\n                    11\n                    SCl(PhSb)\n                    2\n                    (AdmS)\n                    11\n                    . Notably, the Sb-centered [3]Pd-helicene cluster exhibits an exceptional electrocatalytic activity for two-electron oxygen reduction reaction, the reason for which was disclosed by operando infrared spectroscopy analysis and density functional theory calculations. This work represents an important advance in pursuit of all-metal helicene and opens avenues for their rational synthesis and functional exploitation.",
+          "hb": 1
+        },
         {
           "t": "绿氢新突破：铂催化剂实现分钟级制备，活性提升16倍",
           "d": "2026-07-15",
           "a": "环球零碳",
           "c": "通用技术/催化剂",
-          "as": "绿氢制备取得新突破：铂基催化剂实现分钟级快速制备，催化活性提升16倍。绿氢（电解水制氢）成本瓶颈之一是贵金属催化剂用量和效率。该突破有望降低电解槽关键材料成本、大幅提升产氢效率，对绿氢规模化降本具有重要推动作用。",
-          "sc": 7.6,
+          "as": "天津大学胡文彬教授团队在《科学》杂志发表最新研究成果，成功实现铂催化剂的分钟级快速制备。该新型催化剂将传统数小时的合成流程缩短至数分钟，单位质量合成能耗降低90%。同时，催化剂性能实现大幅提升，其质量活性达到商业铂碳催化剂的16倍，预估寿命超5.6万小时，远超美国能源部设定的5000小时目标。该技术突破了氢燃料电池铂族金属催化剂成本高、依赖进口的产业瓶颈。",
+          "sc": 7.7,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/ysOK2GaVUQO6z11cbcR1CA",
-          "tp": "铂催化剂制氢",
+          "tp": "铂催化剂突破",
           "aip": 1,
           "kp": [
-            "制备耗时[铂催化剂]: 分钟级",
-            "活性提升倍数[铂催化剂]: 16倍"
+            "质量活性[新型铂催化剂对比商业铂碳催化剂]: 提升16倍",
+            "预估寿命[新型铂催化剂]: 超过5.6万小时",
+            "合成能耗[单位质量催化剂新型制备工艺]: 较传统制备降低90%",
+            "制备耗时[新型铂催化剂制备流程]: 较传统数小时缩短至分钟级"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "临床部署的人体肝脏灌注双室生化监测平台",
-          "d": "2026-07-15",
-          "a": "Biological sciences : Nature Communications subject feeds",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "针对全球供体肝脏短缺、边缘供体依赖常温机械灌注评估的需求，该研究开发了双腔室生化监测平台，用于人肝灌注过程的实时连续监测。该平台突破了传统间歇性取样与低时间分辨率的限制，实现灌注液中代谢物、酶类等关键生化指标的在线检测，有望提升供肝质量评估精度与移植成功率。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74799-y",
-          "tp": "肝灌注生化监测",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The global shortage of transplantable donor livers increases reliance on marginal grafts, creating an urgent need for workflow-compatible assessment during normothermic machine perfusion. However, current biochemical evaluation remains constrained by intermittent perfusate sampling, low temporal resolution and limited cholangiobiliary context. Here we report a clinically deployed dual-compartment biochemical monitoring (DCBM) platform for human liver perfusion. The system integrates dual-channel microfluidics, multiplexed electrochemical sensing, bile-compatible antifouling interfaces and wireless data transmission to enable automated in-line measurement of pH, lactate and glucose in both perfusate and bile. In seven human donor livers, the DCBM platform shows strong agreement with standard laboratory assays while resolving transient biochemical excursions not captured by scheduled hourly sampling, including bile lactate elevations associated with subsequent adverse perfusion trends in selected cases. Continuous dual-compartment measurements further enable an exploratory outcome-anchored framework linked to post-transplant clinical course. This platform establishes a clinically deployed architecture for dual-compartment biochemical monitoring and provides an initial translational bridge from continuous sensing to viability-associated graft assessment during ex situ liver perfusion.",
-          "hb": 1
-        },
-        {
-          "t": "显微镜的突破可以揭示曾经被认为太小而看不见的蛋白质",
-          "d": "2026-07-15",
-          "a": "",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "物理学家将近百年历史的相位对比法应用于冷冻电镜（cryo-EM），开发出激光相位板技术，通过改变电子相位提升成像对比度。该突破有望让电子显微镜清晰解析此前因过小而无法观察的人类蛋白质结构，为结构生物学和药物开发开辟新窗口。",
-          "sc": 7.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/microscope-breakthrough-could-reveal-proteins-once-thought-too-small-to-see/",
-          "tp": "蛋白质显微成像",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A laser-based innovation could allow electron microscopes to reveal biological structures that have long remained beyond their reach.\nMost human proteins remain too small for today’s most powerful biological microscopes to resolve clearly. A laser system developed by\nphysicists could help bring many of them into view.\nThe researchers adapted phase contrast, a nearly century-old imaging method, for cryoelectron microscopy (cryo-EM). Their laser phase plate improves contrast by changing the phase of an electron beam without significantly reducing its intensity.\nThe advance could also strengthen cryoelectron tomography (cryo-ET), which combines images taken from different angles to reconstruct molecules inside cells.\n“Cryo-EM has become the new, fastest-growing method for resolving the structure of biological macromolecules, and cryo-ET is expected to show how these molecules work together in their natural, cellular context,” said Holger Müller, a UC Berkeley professor of physics and faculty scientist at Lawrence Berkeley National Laboratory who led the development effort. “But because of signal-to-noise limitations, the majority of human and animal proteins are too small to be analyzed by these methods. The increase in signal-to-noise ratio provided by this laser phase plate is expected to overcome these important limitations.”\nThe system uses an exceptionally intense focused continuous-wave laser to alter the electron beam. This change makes small molecules such as hemoglobin easier to distinguish and could improve views of crowded structures inside cells.\n“With cryo-ET, we’re looking at small, very complicated cellular material that’s incredibly crowded inside the cell,” said Bridget Carragher, founding technical director of imaging at Biohub in Redwood City, California. “It’s like a forest of trees, and you’re trying to find one leaf on one tree in there. Cryo-ET needs a dramatic step forward in contrast, so we can start to see what’s going on inside the cell. That’s what the laser phase plate promises to give us.”\nBiohub funded a customized Thermo Fisher Krios microscope that Müller equipped with the laser phase plate. He named the instrument Theia after the ancient Greek Titaness associated with light.\nBiohub is developing a second microscope that uses two perpendicular lasers at lower power. The design is intended to reduce optical distortions and protect components from damage.\n“Theia is the Formula 1 microscope,” Müller said. “It has extra electron optics that give it better resolution than the standard cryo-EM, even without the laser. With the addition of the laser phase plate, we hope that it really becomes the world’s best instrument overall.”\nPhase contrast was developed by Dutch physicist Frits Zernike in 1930. He discovered that light passing through biological material changes not only in brightness but also in phase.\nScientists soon tried to apply the same principle to electron microscopes, but early phase plates weakened the beam, reduced resolution, or produced unstable images.\nIn 2010, Müller and cryo-EM pioneer Robert Glaeser\nproposed using an intense laser instead\nMüller spent 15 years turning the concept into a working instrument. His team trapped a laser inside a spherical mirrored cavity, where the light reflects more than 10,000 times and becomes concentrated into a tiny area.\n“It’s 75 kilowatts focused to a few microns,” Müller said. “That’s more powerful than what you use for welding. It’s more power than a military laser. It builds up the brightest continuous laser focus ever.”\nTests involving six biological samples showed that the laser produced the greatest improvements for small or difficult specimens.\n“For the most challenging cases — small particles, bad specimens — the laser produces a very considerable advantage,” Müller said.\nThe researchers tested the system on aldolase, a muscle protein that cryo-EM can already image relatively well, and hemoglobin, a smaller protein near the lower limit of current instruments. Both images improved, but hemoglobin benefited more.\nCryo-EM can barely resolve proteins smaller than about 70 kilodaltons, even though proteins below that size account for roughly 90 percent of the human proteome.\nWith the laser phase plate, researchers can now image proteins as small as 50 kilodaltons, although doing so remains difficult. Müller hopes future improvements will lower the limit to 17 kilodaltons (the size of the protein myoglobin).\nA focused electron beam could provide an additional twofold improvement in contrast and signal-to-noise ratio.\n“This technology is a step function change for biology,” said Stephani Otte, Biohub’s Vice President of Imaging Science. “We are going to be able to see how molecular machines operate inside the living cell, in context, for the first time. What was once invisible will become visible — and that changes everything about how we understand disease.”\nReference: “Laser phase plate improves structure determination of small proteins by cryo-EM” by Petar N. Petrov, Jessie T. Zhang, Jonathan Remis, Jeremy J. Axelrod, Hang Cheng, Eric S. Cooper, Ian K. Hicklin, Shahar Sandhaus, Cooper Schnurr, Robert M. Glaeser and Holger Müller, 11 June 2026,\nDOI: 10.1126/science.aeh0665\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nMolecular Biology\nScientists Witness Living Plant Cells Build Their Own Cell Walls for the First Time\nWorld’s First “Molecular Movie”: Witness DNA Becoming Life’s Blueprint in Real-Time\nUnlocking the Nano Universe: A Quantum Leap in Magnetic Imaging\nScientists Unveil the Deadly Secret of Black Widow Venom\nRedefining the Rules of Matter: How Scientists Are Creating “Perfectly Imperfect” Materials at the Atomic Level\nWorld’s Fastest Microscope Freezes Time To Capture Moving Electrons\nResearchers Capture Never-Before-Seen View of Gene Transcription\nBeyond Gravity: UC Berkeley’s Quantum Leap in Dark Energy Research\nMystery Solved: Scientists Uncover Origins of Enigmatic Swirling Movements in Some of Nature’s Largest Cells",
+          "b": "绿氢新突破：铂催化剂实现分钟级制备，活性提升16倍 原创 环球零碳研究中心 环球零碳研究中心 环球零碳 **环球零碳** **碳中和领域的《新青年》** 首图来源：CCE Magazine **撰文** **| Bell** **编辑 | 小澜** ****→********这是《环球零碳》的2062篇原创**** 氢燃料电池汽车一直被视为交通“零排放”转型的重要方向。而它的“心脏”，就是能将氢气和空气中的氧气转化为电能、只排放水的燃料电池。 然而，这颗“心脏”的“起搏器”却贵比黄金。氢燃料电池依赖的核心材料——铂族金属催化剂，一直是制约氢能产业大规模发展的瓶颈。 近日，天津大学胡文彬教授团队与合作者在《科学》杂志上共同发表的一项突破性成果，为这个“卡脖子”难题提供了一套全新的解题思路。 **研究团队不仅将需要花费数小时才能完成的传统制备流程缩短至数分钟，还将单位质量催化剂合成所需能耗降低了90%。** **而且，该研究团队开发出的新型催化剂性能大幅提升，质量活性达到商业铂碳催化剂的16倍，预估寿命更是超过5.6万小时，远超美国能源部提出的5000小时目标。** 图说：天津大学材料科学与工程学院教授胡文彬（右）与学生在天津大学实验室做实验 来源：新华社 要理解这项突破的意义，首先要明白铂族催化剂在氢燃料电池中的角色。 在燃料电池内部，氢气在阳极失去电子，氧气则在阴极得到电子，从而产生电流。这个得到电子的过程，被称为氧还原反应（ORR），直接和电池效率挂钩。 为了让这个反应又快又好地发生，就需要催化剂的帮助。 目前，性能最好的催化剂就是铂（Pt）。但铂是稀有贵金属，资源匮乏，我国每年85%以上的铂族金属需求依赖进口，这一瓶颈导致该类战略金属价格成本居高不下。 来源：MarketBeat **于是，科学界的共同目标是：如何用最少的铂，激发最大的催化活性？** 一种主流思路是构建“核壳结构”——用廉价的过渡金属（如铁、钴）做内核，外面仅包裹几个原子层厚的铂作为“外壳”。 这样一来，绝大多数昂贵的铂都“好钢用在刀刃上”，充当催化反应的“门面”。 然而，这种方法也存在一定缺陷——这种核壳结构催化剂的合成需要赖长时间的高温退火，让原子在热力学驱动下慢慢“爬”到正确的位置，过程繁琐、能耗极高。 更关键的是，这种方式的精度控制很差，铂壳的厚度往往厚薄不均。这就导致太厚容易浪费铂，太薄了则内核元素会渗透出来“毒化”表皮，降低活性。 这道长期存在的技术难关，正是制约催化剂效能与应用的“卡口”。 来源：新华社 **天津大学胡文彬教授团队与合作者提出的“瞬态组装”（Transient Assembly, TA）策略，从根本上改变了这一合成范式。** 该策略的核心是一套自主研发的毫秒级周期热脉冲技术——以高达每秒数千摄氏度的升温速率施加短暂的热脉冲，在数秒内完成催化剂的合成，而非传统方法所需的数小时。 以铂-铁（Pt-Fe）体系为例，研究团队将Pt与Fe原子比为1:1.5的前驱体置于碳基底上，施加以1400°C/s升温速率、峰值温度900°C、每次持续约0.15秒的周期性热脉冲，累计20次。整个过程中，纳米晶在峰值温度下的累计停留时间仅约3秒。 这一过程的关键物理机制在于“过热效应”（superheating effect）。在高能状态下，原子扩散的能垒被有效降低，原子重新排列的驱动力显著增强。 通过控制第一道热脉冲的加热速率，研究人员可以可以精确控制铁的损失量，从而连续、精准地调控最终铂皮的厚度，甚至能精确到1到6个原子层。 图说：新型催化剂的微观结构 来源：DOI：10.1126/science.aeg2036 **经过优化，他们发现三层原子厚的铂皮（Pt₃L@PtFe-i）综合性能最佳。这种新型催化剂在多个关键性能指标上，都实现了重要突破。** 首先是催化效率产生了质的飞跃。新型催化剂氧还原反应的质量活性是普通商业铂碳催化剂的16倍，活性飙升。 同时，这种新型催化剂还极其耐用。在半电池测试中，经过10万次加速耐久性循环后，其性能衰减几乎可以忽略不计。 在实际的燃料电池中，经过3万次循环，峰值功率损失仅为3.2%。研究团队基于电压衰减速率估算的催化剂寿命约为56,000小时，超过美国能源部5,000小时目标的十倍以上。 图说：(H) 3万次循环后新型催化剂与商业铂碳催化剂峰值功率对比；(I) 新型催化剂综合性能对比美国能源部（DOE）目标 来源：DOI：10.1126/science.aeg2036 **“瞬态组装”策略的成功，其意义远不止于“更快”和“更省”。** 首先，它打通了“降本增效”的关卡。它将传统数小时的制备流程缩短至数分钟，单位质量催化剂的能耗降低了90%。这直接让高性能铂族催化剂的规模化、低成本生产成为可能。 其次，它验证了一种全新...",
           "hb": 1
         }
       ]

@@ -6,35 +6,53 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中海油16兆瓦张力腿浮式风电平台完成集成赴粤东油田供电",
-      "中国商业化钠离子电池关键性能指标已达特斯拉锂电同等水平"
+      "中海油16兆瓦张力腿浮式风电平台完成集成赴南海作业",
+      "海油安澜号年均发电5400万千瓦时并直供陆丰油田群",
+      "全球单机容量最大张力腿风电平台出港，设计寿命25年"
     ],
     "AI与智能科技": [
-      "北大与智源提出大模型机理数据归因方法获ICML 2026口头报告",
-      "OpenAI向美国政府批准客户交付GPT-5.6模型拓展政企服务"
+      "Anthropic报告显示AI工作日多用于编程，周末情绪支持需求增加",
+      "清华大学发布OpenHLM系统，仅需20条数据训练人形机器人",
+      "行业预测前沿AI实验室于2028年前实现递归自我改进技术"
     ],
-    "通用技术": [
-      "欧洲首台超导转变边沿传感器光谱仪投用，最高提升千倍灵敏度",
-      "梅赛德斯重型电动卡车完成36吨负载德国冬季实测能效验证",
-      "研究揭示铪锆氧化物巨准压电效应物理机制拓展无铅材料应用"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中海油16兆瓦张力腿浮式风电平台完成集成赴粤东油田供电",
-        "中国商业化钠离子电池关键性能指标已达特斯拉锂电同等水平"
+        "中海油16兆瓦张力腿浮式风电平台完成集成赴南海作业",
+        "海油安澜号年均发电5400万千瓦时并直供陆丰油田群",
+        "全球单机容量最大张力腿风电平台出港，设计寿命25年"
       ],
       "entries": [
         {
           "t": "中海油16MW张力腿浮式风电平台“海油安澜号”完成生产集成",
           "d": "2026-06-28",
-          "a": "",
+          "a": "Ysxw",
           "c": "零碳产业/能量循环/能源测/发电技术/风电",
           "as": "中国海油自主研发的全球首座单机容量最大16MW张力腿浮式风电平台海油安澜号在珠海完成集成出港，赴粤东陆丰油田群海域。平台总高307米、重近8000吨，采用张力腿技术经9根钢缆锚定深海，设计寿命25年，年均发电5400万千瓦时，年减碳约3.5万吨，绿电经海底电缆直供油田群。",
-          "sc": 8.1,
+          "sc": 7.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://ysxw.cctv.cn/article.html?toc_style_id=feeds_default&item_id=6941403166585141747&channelId=1119",
+          "tp": "浮式风电集成",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "6月28日，据央视报道，由中国海油自主研发的全球首座单机容量最大的16MW张力腿浮式风电平台“海油安澜号”，在珠海高栏港完成一体化集成后顺利出港，正式向粤东陆丰油田群海域进发。文中称，该平台总高307米、总重近8000吨，采用张力腿（TLP）技术通过9根钢缆向下锚定深海，设计寿命为连续运行25年；投运后年均发电量可达5400万千瓦时，每年减少二氧化碳排放约3.5万吨，节约燃料油约1.5万立方米。该平台所发绿电将通过海底电缆直接接入油田群电。",
+          "hb": 1
+        },
+        {
+          "t": "中海油16MW张力腿浮式风电平台“海油安澜号”完成生产集成",
+          "d": "2026-06-28",
+          "a": "Ysxw",
+          "c": "零碳产业/能量循环/能源测/发电技术/风电",
+          "as": "中国海油自主研发的全球首座单机容量最大16MW张力腿浮式风电平台海油安澜号在珠海完成集成出港，赴粤东陆丰油田群海域。平台总高307米、重近8000吨，采用张力腿技术经9根钢缆锚定深海，设计寿命25年，年均发电5400万千瓦时，年减碳约3.5万吨，绿电经海底电缆直供油田群。",
+          "sc": 7.9,
           "i": "n",
           "tg": "产业进展",
           "u": "https://ysxw.cctv.cn/article.html?toc_style_id=feeds_default&item_id=6941403166585141747&channelId=1119",
@@ -52,43 +70,22 @@
           "d": "2026-06-28",
           "a": "深远海风电",
           "c": "零碳产业/能量循环/能源测/发电技术/风电",
-          "as": "中海油全球首座单机容量最大的TLP(张力腿)浮式风电平台取得重大技术突破。TLP浮式基础是深远海风电开发的关键技术方案，相比半潜式和单柱式具有更好的深水适应性和运动稳定性。该项目采用超大单机容量风电机组，代表了浮式风电向大功率、深远海发展的技术趋势。突破涉及平台结构设计、系泊系统和动态电缆等核心技术，对推动中国深远海风电规模化开发和海洋工程装备升级具有重要意义。",
-          "sc": 8.1,
+          "as": "全球单机容量最大的张力腿浮式风电平台“海油安澜号”完成一体化集成并出港。该平台总高超307米，总重近8000吨，通过9根钢缆锚定深海。投运后年均发电量达5400万千瓦时，将直接为粤东陆丰油田群提供绿色电力。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "技术突破",
+          "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/A2GeKPR6FPSzfXQnQXyd2g",
-          "tp": "浮式风电平台",
+          "tp": "深远海浮式风电",
           "aip": 1,
           "kp": [
-            "平台类型[浮式风电]: TLP张力腿平台",
-            "地位[TLP浮式风电]: 全球单机容量最大"
+            "技术类型[深远海风电示范工程]: 张力腿（TLP）技术",
+            "平台总重[TLP浮式风电平台]: 近8000吨",
+            "平台总高[TLP浮式风电平台]: 逾307米"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
           "b": "中海油全球首座单机容量最大的TLP浮式风电平台迎来重大突破 原创 龙吸水 龙吸水 深远海风电 2026年6月28日据央视报道，全球首座单机容量最大的张力腿（TLP）浮式风电平台“海油安澜号”已于2026年6月27日完成一体化集成，并于28日从珠海高栏港顺利出港，正式向粤东陆丰油田群海域进发。这是该平台建设历程中的关键里程碑，标志着项目从陆地建造阶段正式转入海上安装与投运阶段。 “海油安澜号”由中国海油旗下海洋石油工程股份有限公司自主研发，是我国首个应用张力腿（TLP）技术的深远海风电示范工程。该平台自2025年起进入加速建造阶段。2026年2月，据国资委官网报道显示，平台浮体部分已完成分段预制，进入总装集成的冲刺阶段。2026年3月，中国海油海油工程青岛建造场地正在加紧打造平台底座，该底座将通过9根钢缆向下锚定深海，向上托举超过200米的风机。2026年6月27日，“海油安澜号”在珠海高栏港完成一体化集成。 根据央视新闻及多家媒体报道，2026年6月27日，“海油安澜号”在珠海高栏港完成一体化集成后，由珠海海事部门护送，顺利出港。这座总高逾307米、总重近8000吨的“海上大风车”正式向粤东陆丰油田群海域进发。此次出港标志着我国深远海浮式风电技术正从示范应用加速向商业化迈进。平台后续将进行海上安装和并网运行，并为深远海油气开发提供绿色电力，实现深远海油气绿色低碳开发。 该“海上大风车”平台总高逾307米、总重近8000吨，张力腿（TLP）浮式风电平台通过9根钢缆向下锚定深海，风机平台设计寿命为连续运行25年。平台投运后，年均发电量可达5400万千瓦时，每年可减少二氧化碳排放约3.5万吨，每年节约燃料油约1.5万立方米。所发绿电将通过海底电缆直接接入油田群电网，与油气生产实现深度耦合，开创了“深远海风电+油田开发”协同减碳的全新路径。这一模式不仅直接减少了海上油田作业的碳排放，更有力推动我国深远海浮式风电技术从跟随到引领的突破。 深远海风电技术的重要突破。“海油安澜号”是全球首座单机容量最大的张力腿浮式风电平台，其成功出港标志着我国在张力腿浮式风电技术领域实现了从跟跑到领跑的跨越。张力腿技术作为深远海风电的核心技术路线之一，能够有效应对高盐、高湿、浪涌及年均十余次台风的极端考验。 “深远海风电+油田开发”协同减碳的创新模式。平台所发绿电将通过海底电缆直接接入油田群电网，与油气生产实现深度耦合。这一模式开创了海上风电与海洋油气融合发展的新路径，在全球范围内率先实现了海上风电与海洋油气的协同发展。值得注意的是，此前我国首座深远海浮式风电平台“海油观澜号”已成功验证了这一模式的可行性。截至2025年11月，“海油观澜号”年度累计发电量突破2200万千瓦时，风机年可利用率高达99.94%。 拉动海上浮式风电产业链集聚升级。“海油安澜号”的建造与出港有力拉动了海上浮式风电产业链在珠三角的集聚与升级，为培育海洋新质生产力、构建清洁低碳安全高效的能源体系贡献了“海油方案”。 ### 深远海风电公众号简评： “海油安澜号”顺利出港是我国深远海浮式风电发展进程中具有标志性意义的事件。首先它实现了张力腿浮式风电技术从理论研究到工程实践的关键跨越；其次，再次在我国粤东海域验证了“风电+油气”协同减碳模式的商业化可行性；此外为我国深远海风电的大规模开发提供了重要的技术储备和工程经验。 “海油安澜号”接下来的海上安装、调试和并网运行将是检验其技术成熟度和商业可行性的关键环节。本项目在张力腿技术应用、深远海环境适应性、油气田电网接入（海上微电网）等方面的实践经验，具有重要的参考价值和借鉴意义。小编将持续关注其海上安装进展及后续运行数据，为粉丝们及时提供最新最全面的的一手资讯。 特别声明：以上信息均来自网络公开信息整理，出于传递更多信息而非盈利之目的，同时并不代表本平台的观点，内容仅供参考。若有侵权，请联系我们删除。 修改于",
-          "hb": 1
-        },
-        {
-          "t": "中国钠电池在正面PK测试中匹敌特斯拉",
-          "d": "2026-06-28",
-          "a": "scitechdaily",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "一项研究表明，来自中国的商业化钠离子电池在制造质量与性能上已可与特斯拉的锂电池相媲美。在对比测试中，该钠电池在能量密度、循环寿命和一致性等方面表现优异，成本与安全性优势突出，显示钠离子电池技术正快速追赶锂电，有望在储能和低成本电动车领域形成有竞争力的替代方案。",
-          "sc": 8.0,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://scitechdaily.com/this-sodium-battery-from-china-matched-tesla-in-a-surprising-head-to-head-test/",
-          "tp": "钠离子电池",
-          "aip": 1,
-          "kp": [
-            "电池体系[对比测试]: 商业钠离子电池",
-            "对标[性能]: 匹配Tesla制造质量"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A new study found that a commercial sodium-ion battery from China rivals Tesla’s batteries in manufacturing quality and several key performance benchmarks.\nWith improvements to cold-weather charging and energy density, sodium-ion batteries could become a more affordable alternative for electric vehicles and grid-scale energy storage.\nA commercially available sodium-ion battery already being used in cars and large-scale energy storage systems in China has achieved manufacturing quality and performance levels comparable to Tesla’s lithium-ion batteries, according to research published in the Cell Press journal\nCell Reports\nPhysical Science\nThe findings suggest sodium-ion technology is advancing faster than many expected. Although the battery still needs improvements in cold-weather charging and energy density, researchers believe it could become a lower-cost alternative for future electric vehicles by replacing lithium with sodium, an abundant and widely available material.\n“The combination of good uniformity, high power capability, and strong low‑temperature performance makes these cells attractive for stationary storage, grid services, and shorter‑range or commercial vehicles where potential lower cost and resource availability matter more than maximum driving range,” says Moritz Schütte, a battery researcher at RWTH Aachen University in Germany.\nTo evaluate how Hina’s sodium-ion batteries stack up against Tesla’s more advanced lithium-ion cells, Schütte and his colleagues analyzed 120 battery cells using a non-destructive method known as impedance spectroscopy to measure manufacturing consistency.\nThe team also tested each battery under realistic operating conditions, measuring power and energy performance across a range of charging currents and temperatures from −20 °C to 45 °C. X-ray imaging allowed the researchers to examine the batteries’ internal structures before they disassembled the cells to study electrode dimensions, material composition, and microscopic features.\nTheir analysis revealed a sophisticated design that includes a tabless, double-aluminum current collector. This layout lowers electrical resistance, promotes more even temperature distribution, and closely resembles the architecture used in current Tesla batteries.\n“We were positively surprised by how uniform the cells are,” says Schütte.\nDespite its impressive performance, the sodium-ion battery still falls short of the best lithium-ion batteries in several important areas. The researchers found that while the battery delivers better high-power performance than expected for an early commercial sodium-ion product, charging at low temperatures remains a significant challenge.\n“The high-power performance was better than one might expect from an early commercial sodium-ion product,” says Schütte. “However, for applications that require frequent charging at low ambient temperatures, appropriate thermal management or operating strategies will be important because low-temperature charging remains a clear weakness.”\nThe team also detected unexpectedly high and uneven concentrations of copper in parts of the battery’s cathode.\nAccording to Schütte, this “raises interesting questions about its role in performance and aging,” adding, “It will be exciting to see future sodium-ion technologies that are free of nickel and copper, as well, while achieving competitive energy density.”\nSodium offers several potential advantages over lithium because it is far more abundant and easier to source worldwide. That could lower raw material costs for battery manufacturers while reducing long-term supply chain concerns.\nThe study also found that sodium-ion batteries maintain strong performance under heavy loads in cold conditions, making them promising candidates for stationary energy storage as well as vehicles operating in colder climates.\n“However, today’s commercial sodium-ion cells generally have lower energy density than the best lithium-ion cells, and the technology is less mature overall,” said Schütte.\nThe researchers now plan to improve how sodium-ion batteries charge at temperatures below 0°C, with the goal of making charging both safer and more efficient in freezing conditions.\nFuture work will also focus on refining the materials used inside the batteries.\n“Advances in hard-carbon anodes and electrolyte formulations may be especially promising,” he said.\nReference: “Cell teardown and characterization of a Hina commercial sodium-ion battery” by Christian Siebert, Moritz Schütte, Jonas Rinner, Gereon Stahl, Jan Lin, Katharina Quade, Heinrich Ditler, Christiane Rahe and Dirk Uwe Sauer, 28 May 2026,\nCell Reports Physical Science\nDOI: 10.1016/j.xcrp.2026.103323\nThe research was supported by the Federal Ministry of Research, Technology, and Space and the Federal Ministry for Economic Affairs and Energy.\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nBattery Technology\nFlexible Electrolyte Sheet Breakthrough for Advanced Lithium Metal Batteries\nNew Li-Ion Superconductor Enables Safe, High-Performance All-Solid-State Batteries\nUltrasound Device Improves Lithium Battery Capacity and Charge Time\nBetter Lithium-Ion Batteries Possible With Nanoscale Molecular View of Self-Assembling Structure\nWorld’s Most Efficient Lithium-Sulfur Battery Developed – Powers Smartphone for 5 Days\nUsing Light to Recharge Lithium-Ion Batteries Twice As Fast\nBreakthrough Flexible, Cuttable Lithium-Ion Battery Won’t Catch Fire – Unbreakable & Incombustible\nCause of Harmful Dendrites and Whiskers in Lithium Batteries Uncovered [Video]\nHalf Price Lithium-ion Batteries With Improved Performance and Recyclability",
           "hb": 1
         }
       ]
@@ -97,72 +94,75 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "北大与智源提出大模型机理数据归因方法获ICML 2026口头报告",
-        "OpenAI向美国政府批准客户交付GPT-5.6模型拓展政企服务"
+        "Anthropic报告显示AI工作日多用于编程，周末情绪支持需求增加",
+        "清华大学发布OpenHLM系统，仅需20条数据训练人形机器人",
+        "行业预测前沿AI实验室于2028年前实现递归自我改进技术"
       ],
       "entries": [
         {
-          "t": "ICML 2026 Oral｜大模型的能力从哪些训练数据来？北大&智源提出「机理数据归因」",
-          "d": "2026-06-28",
-          "a": "机器之心",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "北京大学与智源研究院(BAAI)提出「机理数据归因」方法,获ICML 2026 Oral报告。该方法旨在追溯大语言模型(LLM)的特定能力究竟来源于哪些训练数据,而非仅依赖整体数据规模的经验性判断。通过机理分析手段,研究者建立了从模型行为到训练样本的可解释映射,为大模型训练数据的精准筛选、质量优化及能力归因提供了理论工具。该工作对理解大模型能力形成机制、构建高效数据配方具有重要意义。",
-          "sc": 8.6,
-          "i": "news",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/b_D6k-kKboV9UqptbAdMmw",
-          "tp": "训练数据归因",
-          "aip": 1,
-          "kp": [
-            "[方法]: 机理数据归因",
-            "[机构]: 北大&智源",
-            "[会议]: ICML 2026 Oral"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "GPT5.6惨遭切脑！Fable 5回归要变弱鸡版?",
+          "t": "Anthropic最新报告摸透全球打工人：凌晨5点求睡眠，晚6点问菜谱",
           "d": "2026-06-28",
           "a": "新智元",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "科技圈热议GPT5.6模型疑似遭遇能力削减（俗称'切脑'），引发关于其推理与创作能力下降的广泛讨论。同时，竞争对手Fable 5的回归版本据称也出现能力弱化迹象。该消息反映出大模型行业在算力成本、安全对齐与能力上限之间的博弈加剧，用户对模型'阉割'现象的担忧持续升温。",
-          "sc": 8.6,
+          "as": "Anthropic发布的最新经济指数报告揭示了全球用户使用AI的作息规律。数据显示，工作日多用于编写商务邮件和工作代码，周末个人用途占比飙升至近50%，多涉及情绪支持与创业咨询。在24小时分布中，早上7点关注新闻，下午6点查询菜谱，凌晨5点失眠求助达到高峰。",
+          "sc": 7.5,
           "i": "n",
           "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/NEEB53rVSBgvKrw_crcpxg",
-          "tp": "GPT模型性能",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "GPT5.6惨遭切脑！Fable 5回归要变弱鸡版? ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**GPT-5.6 Sol被拆分、被按住，Fable 5被全球禁用72小时后才戴着镣铐回归。Anthropic和OpenAI最强模型，双双被「切脑」。 昨日，OpenAI最强系列GPT-5.6突然上线。 但GPT-5.6被拆分为三种形态： GPT-5.6 Sol：下一代前沿模型， GPT-5.6 Terra：适用于日常高效工作的均衡模型， GPT-5.6 Luna：面向高吞吐量任务的快速经济型模型。 但最强的GPT-5.6 Sol的发布权，已不在OpenAI的奥特曼手中，而在「获批名单」里。 在OpenAI低头之前，Anthropic刚刚经历了「封禁危机」：除部分合作机构外，Fable 5全球禁用。 **算法配给制时代，GPT5.6惨遭切脑** 以前是产品出问题了召回，这回是产品还没出门，先被拦在门口。 据该消息人士称，OpenAI被要求限制GPT-5.6的发布范围。 理由是在全美的AI安全框架落地之前，先把最强的几款摁住。 据透漏，这次介入是因为GPT-5.6具有「类似Mythos」的能力，而非突然采取更强硬的干预手段。 OpenAI三思后，决定限制了最新AI的访问权限，只有有限的用户得以预览GPT-5.6。 绝大数ChatGPT用户，仍需要几周等待GPT-5.6逐步解禁。 **Mythos 5让人害怕！Fable 5回归要变弱鸡版?** 在OpenAI低头之前，另一位巨头Anthropic刚刚经历了危机。 两周前，Anthropic发布了被神话级AI模型的**Fable 5**。 然而，这款模型在货架上仅仅存活了72小时，便遭到了暴力下架。 因为恐惧。Fable 5的网络进攻能力让人恐惧。 美国众议院议员Andrew Garbarino，如此表示。 在一次闭门演示中，Anthropic Mythos展示了惊人的软件安全界的威胁，例如它甚至可以清空私人银行账户。 Andrew Garbarino说： Anthropic指示该模型找到银行系统中的漏洞并清空账户，然后它就去执行了。 随后，Mythos「还能找到这一漏洞并修复」。 **这是一场人类史上前所未有的「拔插头」行动。** 直到最近，**Mythos 5**才在「戴着镣铐」的情况下被允许向极少数「信任伙伴」开放。 据最新报道：Mythos 5「阉割版」Fable 5预计将于下周回归并上线。 不过，Fable 5可能被严重阉割，确保安全护栏更加牢固。 Fable 5刚发布时，就有用户发现，只要说「癌症」（caner）这个单词，就被Claude拉黑了。 而如果护栏进一步加强，用户体验可能是一场噩梦。 Shopify CTO Mikhail Parakhin深度测试过Fable 5和GPT-5.6Max。 他认为，Anthropic绝对优势不在，GPT-5.6已经追了上来Claude Mythos。 GPT 5.6在各方面都明显优于 Opus 4.8（速度也稍快，不过取决于负载）。 与Fable 5相比，它在编码方面明显逊色，但在智能体工作负载上表现更佳。 这是罕见的Fable 5和GPT-5.6真实对比，但足以看出Anthropic还不能高枕无忧。 如果Fable 5回归只有阉割版，无疑留给了更多对手追赶的机会。 **你买到的是天才，还是傀儡？** 最令开发者焦虑的，不仅是「买不到」，而是「货不对板」 。 在AI圈子里，一个词正在像病毒一样蔓延：**「脑叶切除」（Lobotomized）。** 为了通过那些繁复的安全审查，AI巨头们不得不给模型装上层层加固的「护栏」。 但智能这种东西，往往产生于混沌与自由。 当你强行阉割掉一个模型在底层代码、加密算法甚至深层逻辑上的探索能力时，你得到的可能不再是一个无所不知的「Sol」，而是一个被剪掉利爪、唯唯诺诺的平庸的「Luna」。 **你想要的是「普罗米修斯的火种」，但美国只允许你拥有出口「打火机」。** 开发者普遍害怕，模型会被大幅加固护栏、甚至被「**脑叶切除**」（lobotomized），能力被阉割，严重降智。 更糟的是，它可能**仅限美国使用**，或者需要**严格的身份验证**，而不是当初承诺的「**广泛、付费即可用**」。 还有钱的问题。 Anthropic最初是在多个付费版Claude订阅里，**免费**提供Fable 5，开放到6月22日，给用户一个短暂的窗口去体验它的威力——然后，访问就消失了。 现在没人说得清：订阅用户还能不能拿回当初承诺的「免费畅用」？还是说，它回来时，已经被锁在了**额外收费**或**身份核验**的门后？ 也许不久后，我们会怀念2023年的那个",
-          "hb": 1
-        },
-        {
-          "t": "OpenAI向美国政府批准的客户发布GPT-5.6",
-          "d": "2026-06-28",
-          "a": "the information",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "OpenAI向美国政府批准的客户发布了GPT-5.6模型。此举标志着OpenAI在面向政府及受监管行业提供高端AI能力方面持续推进，GPT-5.6的受控交付体现了对AI安全与合规的审慎策略。该动向也反映了大语言模型在政府服务、国防等高敏感领域应用落地的趋势。",
-          "sc": 8.4,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/briefings/openai-releases-gpt-5-6-u-s-government-approved-customers",
-          "tp": "GPT-5.6模型",
+          "u": "https://mp.weixin.qq.com/s/5ZYRSxzHUCtCZIiKphNtKw",
+          "tp": "AI应用趋势",
           "aip": 1,
           "kp": [
-            "[产品]: GPT-5.6",
-            "[发布对象]: 美国政府批准客户"
+            "个人用途占比[Claude对话(工作日)]: 约35%",
+            "个人用途占比[Claude对话(周末)]: 近50%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "OpenAI Releases GPT-5.6 to U.S. Government-Approved Customers — The Information Read this briefing for free",
+          "b": "Anthropic最新报告摸透全球打工人：凌晨5点求睡眠，晚6点问菜谱 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】白天，Claude是高薪打工人的生产力引擎；深夜，它成了唯一知道你还醒着的那个。一份报告，意外照出了几百万人藏起来的24小时。** 你知道吗？ 凌晨5点，人们问AI最多的，是怎么才能睡着。 早上7点，是世界又出了什么大事。 下午6点，是今晚做什么吃。 就在昨晚，Anthropic扔出了经济指数系列的第六份报告——第一次把几百万次Claude对话的采样精度从每周拉到逐小时！ 你几点焦虑、几点嘴馋、几点睡不着，全在数据里。 AI比你的伴侣还懂你的作息。 **几点焦虑几点馋，AI比你对象还清楚** 首先，是工作日和周末。 * 周一到周五：商务邮件、PPT、营销文案。 * 周六周日：情绪支持、医疗问题、投资建议。 Claude对话里，个人用途的占比工作日稳定在35%左右。到了周末，直接跳到近50%。 Claude Code的用法也跟着在变。后端架构、API调试、数据存储在周末全线下降，取而代之的是AI Agent设计、量化交易和游戏开发。 同一批人，五天打工，两天当自己。 不过这个「当自己」，也不全是躺平。 周末创业相关对话在所有国家都是一周最高，但求职活动反而跟其他工作任务一起跌了。 周末是做老板梦的日子，不是投简历的日子。 然后，是一天24小时。 Anthropic按小时画了一张不同类别对话的频率图，堪称一张人类生活节奏的心电图—— 早上7点，新闻。上午10-11点，写邮件小高峰。下午6点，查菜谱，全天最大的单类别涨幅。晚上，追剧推荐集中涌入。凌晨5点前后，失眠的人来了。 相比之下，园艺话题从日出到日落几乎纹丝不动。 Anthropic在报告里忍不住埋了个梗，管园艺叫「perennial topic of interest」——既是「常年热门」，也是「多年生植物」。 下班后和周末的数据里，还藏着一层信息：Claude处理的工作任务明显向高薪职业倾斜。 文秘、电话销售这些低薪岗位下班后对话占比下降，但营销经理、程序员这些高薪岗位的占比反而上升。 高薪打工人没有下班时间。这不是什么新结论，但现在有了逐小时的数据做实锤。 当然，最戏剧性的还是报税日。 4月14日，税务相关对话是5月日均的**8倍**。4月15日依然高企。4月16日，断崖式下跌。 美国人民在截止日前一天集体涌向AI问报税，过了那个点，比谁跑得都快。 **白天写PPT，晚上写同人** 在这次的报告里，Anthropic还引入了一个新的分析维度：artifact。 你跟Claude聊完带走的那个东西，一份文档、一段代码、一个解释、一封邮件，都算。 93%的对话产生了artifact。只有7%是纯聊天，什么都没留下。 其中，前三名为：解释类（17%）、文档和报告（15%）、指导建议（11%）。 整体来看，对话型产出和书面交付物各占大约三分之一，代码和技术工作占六分之一。 分完类，Anthropic又追了一个问题：这些产出，是在工作还是在生活？ 答案因品类而异。 博客和文章，81%是工作用。 创意写作正好反过来，超80%是个人用，主力是同人小说、世界观构建和诗歌；剩下的工作场景里，13%是短视频脚本和演讲稿。 翻译最「中性」，其中42%是工作，44%是个人。做计划也差不多，44%工作（创业策略、内容策略），49%个人（旅行行程、健身计划）。 白天，是生产力引擎。晚上，是生活助手。 **工资越高的活，AI干得越卖力** 更有意思的是token消耗量和工资的关系。 Anthropic把每次对话匹配到最对应的职业，再对比该职业的中位工资。 于是，一条规律浮现了出来：高薪职业的对话消耗更多token。 营销经理（时薪80美元）对应的对话token量是编辑（时薪37美元）的约2.5倍。 建一个网站的对话，token量超过中位数的3倍。一段解释，只用了中位数的五分之一。 而且高薪用户不是单纯地「扔给AI」。 他们每轮输出更多（1.34倍），交互轮次更多（1.53倍），开深度思考的频率也更高（34% vs 31%）。 Claude没少干，人也没闲着。 当然，Claude除了干得多，还干得更「高」。 它的回答阅读水平普遍高于用户的提问，平均高出约1年教育年限。 差距最大的是图像和图形（+2.6年）、游戏（+1.9年）、网站/应用（+1.7年）。 但在面向受众的写作上，差距几乎消失——博客-0.1年，学术论文+0.0年，邮件+0.3年。 原因在于，这类任务的prompt本身就带着和最终产出同一级别的文字素材。你让它帮你写邮件，你自己先写了一版草稿，阅读水平当然差不多。 **一本你没打算写的日记** 所谓「节奏」，就是你只是每天...",
+          "hb": 1
+        },
+        {
+          "t": "不再只是「会走路的双臂平台」：OpenHLM解放人形机器人的全身移动操作能力",
+          "d": "2026-06-28",
+          "a": "机器之心",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "清华大学推出面向人形机器人全身移动操作的开源VLA系统OpenHLM。该系统打破传统“双臂+移动平台”模式，能协调手、腰、腿、脚完成下蹲捡物、脚踩踏板等全身复合动作。仅需20条低成本室外场景示范数据，即可实现由单一模型通过视觉与语言指令驱动的非遥操作复杂任务。",
+          "sc": 7.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/h0YtL9K-E6ONf_FN5DLhZg",
+          "tp": "机器人全身操作",
+          "aip": 1,
+          "kp": [
+            "示范数据量[室外场景下VLA策略驱动训练]: 20条",
+            "[人形机器人全身移动操作(OpenHLM)]: 采用视觉-语言-动作（VLA）模型协调手、腰、腿、脚共同完成任务"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "不再只是「会走路的双臂平台」：OpenHLM解放人形机器人的全身移动操作能力 机器之心 策略驱动（非遥操）：走到平台前，下蹲捡起瓶子，走到垃圾桶并踩住踏板，把瓶子扔进垃圾桶并返回。训练仅使用了 20 条同一室外场景下的示范数据。 人类在日常生活中协调全身来完成移动操作任务：打开垃圾桶时会踩下踏板，从低处拿东西时需要下蹲，推车时需要同步协调手臂抓握和腿部移动。对试图复刻人类能力的人形机器人来说，身体不应只是「手臂 + 移动平台」，而应是一个能协调手、腰、腿、脚共同完成任务的运动整体。 那么在 VLA （Vision-Language-Action Model） 能力突飞猛进的当下，如何构建一个高效的视觉 - 语言 - 动作学习系统，让人形机器人在语言和视觉输入下，像人类一样协调全身完成移动操作任务（ Loco-Manipulation Tasks）？ 清华大学交叉信息研究院的最新成果 OpenHLM 就这一问题提出了一套面向人形机器人全身移动操作的开源 VLA 配方。 * 论文标题：OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation * 项目主页：https://openhlm-project.github.io/ 一套真正适用于广泛移动操作任务的人形机器人系统，应该满足哪些基本条件？作者提出了三点： * 系统应该真正面向全身。 人形机器人的 VLA 策略不该把下半身只当成移动底座，而要能把手臂、腰、膝盖、脚都调动起来 —— 下蹲捡起低处的东西、用脚踩踏板这类动作，都应进入机器人支持的能力范围。 * 能被语言驱动。 用户换一条指令，机器人应该就能用同一个模型完成不同任务，而不需要为每个任务单独训练模型并且在使用时频繁切换。 * 能用低成本数据扩展。 全身遥操作数据质量高，但采集贵、重置耗时，也难覆盖所有新物体和新场景。一个可扩展的系统，应该能利用更便宜的数据来源 —— 比如原地站定遥操作，或无需真实机器人参与的 HuMI（人形机器人版本的 UMI），让能力扩展不必处处依赖昂贵的全流程全身遥操作。 围绕这三点要求，OpenHLM 通过三个阶段的系统性实验，一步步敲定全身 VLA 的关键设计。 OpenHLM 将系统拆成三阶段：全身控制与遥操作、VLA 设计、异构数据协同训练。 第一组实验，研究全身控制器与遥操作接口。 遥操作不只是采数据的工具，它决定了哪些自由度会被暴露给模型，进而影响模型最终学到什么行为。实验表明：相比只暴露部分自由度的上下身解耦控制（decoupled control）和三关键点遥操作（VR 3-point）接口，以及维度更高、更冗余的人体 SMPL 动作表示，直接面向机器人关节空间的 （joint-based） 全身遥操作，最适合作为后续 VLA 的数据采集方式。 第二组实验，研究如何把已有 VLA 迁移到人形机器人的全身动作空间。 许多 VLA 是在固定机械臂或轮式双臂平台上预训练的，而人形机器人的动作空间维度更高。实验显示：（1）来自非人形机器人数据的预训练仍然能提供有价值的操作先验；（2）相比之下，动作格式、本体感知输入这些接口层面的适配选择，对最终表现影响并不大，没有哪一项单独构成瓶颈；（3）VLA 通过多步 flow 生成动作的方案明显优于单步方案。最终 OpenHLM 采用的配方是：保留非人形机器人预训练、保留本体感知输入、输出绝对关节值，并用多步 flow 生成动作。 VLA 设计消融实验：动作接口、预训练、动作生成方式等设计共同影响全身策略表现。 第三组实验，研究如何在完整全身遥操作之外继续低成本扩展。 完整全身遥操作能为学习全身移动操作任务提供全程的高质量监督信号，但其采集成本也限制了它向更多任务和物体推广。为此，OpenHLM 引入了两类更便宜的数据源：站定遥操作数据，以及 humanoid-free 的手持终端演示数据（HuMI），并将它们与全身遥操作数据协同训练。结果显示，这些 \"实惠\" 的数据同样能帮 VLA 扩展到新任务。尤其是成本最低的 HuMI，尽管和真实机器人存在明显的视觉与动作方面的域差异（domain gap），仍能以少量数据带来对新物体和新指令的泛化能力；但对于需要新运动模式的任务，在当前条件下效果仍较有限，有待后续研究。 低成本数据帮助策略扩展到未覆盖任务 这些实验都以 HLM-12 任务集合作为主要评测平台。HLM-12 包含 12 个任务，覆盖四类全身移动操作能力：从基础的行走与抓放的组合，到借助躯干扩展操作范围（如下蹲取物），再到用手之外的部位完成操作（如用脚踩住垃圾桶踏板再投放），最后到环境约束下的操作（如双手握把推车）。 这 12 个任务覆盖了若干具有代表性的日常移动操...",
+          "hb": 1
+        },
+        {
+          "t": "2028，RSI降临！",
+          "d": "2026-06-28",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic联合创始人Jack Clark预测，2028年底前AI实现递归自我改进（RSI）的概率达60%，届时AI将自主构建比自身更强的下一代，全程无需人类参与。谷歌DeepMind掌门人Demis Hassabis证实，目前全球前沿AI实验室均在全力推进RSI技术。理论上的AI奇点正转化为具体的日程表。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/wuESwhvTHT9aYH4-92OftA",
+          "tp": "递归自我改进",
+          "aip": 1,
+          "kp": [
+            "递归自我改进(RSI)实现概率[2028年底前]: 60%",
+            "[递归自我改进]: AI将自主发明并亲手构建出无需人类参与的自进化下一代（如Claude 10自造Claude 11）"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "2028，RSI降临！ ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】AI已经不再只是被训练的工具，而是开始亲手改写自己的进化速度。2028年，RSI引爆ASI的倒计时正在加速逼近。** AI自己造AI的倒计时，真的开始了。 这一次，给出时间表的是Anthropic联合创始人Jack Clark。 在Aspen Institute的活动上，他抛出一句让全场安静的话—— **2028年底之前，递归自我改进（RSI）很可能成真：****AI****将自主发明、并亲手构建出比自己更强的下一代，甚至无需任何一个人类研究员参与。** 他还给了一个具体到吓人的画面：Claude 10，自己造出Claude 11。 这不是脑补。 Jack Clark翻了数百份公开的AI发展数据，在个人博客Import AI和接受Axios专访时反复推演后，给出的概率信号是——60%。 几乎同一时间，大洋彼岸的另一个声音，把这件事彻底坐实了。 谷歌DeepMind掌门人哈萨比斯（Demis Hassabis）在接受Axios最新专访时确认：所有前沿AI实验室，都已经在全力推进递归自我改进。 他的原话是——「所有领先实验室，都在高度聚焦这件事。」 不是某一家在偷偷试，是全行业，集体上车。 更扎心的是他后半句。 在达沃斯论坛上被问到「你会不会像奥本海默一样后悔」时，哈萨比斯回答：「我无时无刻不在担心这类情景，这就是我睡不好觉的原因。」 两个站在世界AI最顶端的人，说了同一件事：那个理论上的奇点，正在变成日程表上的一个日期。 本文为新智元ASI产业图谱5月号文章，我们继续聚焦ASI的最新进展，一起探寻ASI的最深入洞察。 **2028，AI造AI** 先说Jack Clark的判断为什么重要。 过去我们聊递归自我改进，总觉得是科幻片里的桥段——遥远、模糊、没有时间线。 但Jack Clark这次，把模糊的「未来」钉到了「2028年底」。 他在Import AI的长文里描述了一个清晰的闭环：AI系统强大到一定程度，就能自己设计实验、自己写训练代码、自己跑、自己评估结果，然后造出一个更聪明的自己。 人类，从设计者退到旁观者。 到那时，AI进步的速度不再由人类的灵感决定，只由算力决定。 这就是所谓的「智能爆炸」——飞轮一旦脱手，就会越转越快，直到甩开所有人。 **为什么是2028，而不是更远？** 因为加速本身，也在加速。 2024年3月，Claude只能搞定人类4分钟的活；一年后是1.5小时，再一年就是12小时。 而METR在今年5月对Claude Mythos Preview的评估结果，直接把测试框架推到了极限——50%成功率的任务时长达到「至少16小时」，这已经是METR现有228项测试任务所能衡量的上限。 METR自己承认：「16小时以上的测量值，在现有任务套件中是不可靠的。」 翻译成人话：不是AI不行了，是人类出的考题不够难了。 照这条曲线推下去，2028年，绝不是一个拍脑袋的数字。 **** **AI独立编程19天不眠不休** 就在整个行业还在为「16小时上限」争论不休的时候，一份来自第三方的冷血数据，直接把争论钉死在了墙上。 Epoch AI和METR联合发布的MirrorCode基准测试，问了一个简单到残忍的问题：**把源代码锁起来，只给AI一个可执行的黑盒程序和文档——你能从零重建整个软件吗？** 不是修Bug，不是写功能模块，是从架构设计到边界处理，完整重建一个人类工程师需要数周乃至数月才能完成的软件工程。 结果令人窒息。 **Claude Opus 4.7重新实现了gotree——一个拥有16000行Go代码、40多个命令的生物信息学工具包，通过了99.95%的测试用例。** **人类工程师完成同样的工作需要2到17周。****AI****花了14个小时，花费251美元。** 更炸裂的是极限测试：MirrorCode中最大规模的一项任务，AI连续不间断地编程了19天，耗资2600美元——全程零人类干预。 19天。不吃不喝不睡。一个人类团队需要几个月的活，它独自埋头干完了。 一年前的顶级模型在MirrorCode上只能得30%左右，还仅限于搞定简单的日历工具。 今天，Claude Opus 4.7的得分率已经达到56%，而这个数字还在快速攀升。 这不再是「AI能不能写代码」的问题。这是「人类工程师还能在什么尺度上保持优势」的问题。 而答案正在以月为单位缩小。 **** **所有实验室，都在干同一件事** 如果说Jack Clark给的是时间，那哈萨比斯给的，是范围。 他在Axios专访中把话说穿：递归自我改进已经不是理论风险，而是现实中正在跑的活跃项目。 「我们看到的是一种『软自我改进』——这些...",
           "hb": 1
         }
       ]
@@ -170,82 +170,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "欧洲首台超导转变边沿传感器光谱仪投用，最高提升千倍灵敏度",
-        "梅赛德斯重型电动卡车完成36吨负载德国冬季实测能效验证",
-        "研究揭示铪锆氧化物巨准压电效应物理机制拓展无铅材料应用"
-      ],
-      "entries": [
-        {
-          "t": "欧洲首台TES谱仪使此前不可能的X射线实验成为可能",
-          "d": "2026-06-28",
-          "a": "scitechdaily",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "欧洲首台TES(超导转变边沿传感器)光谱仪投入运行，灵敏度较传统设备提升最高1000倍，使此前无法实现的X射线实验成为可能。该仪器在材料科学、量子计算等前沿领域的精密能谱测量中具有突破性意义。",
-          "sc": 8.4,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://scitechdaily.com/europes-first-tes-spectrometer-makes-previously-impossible-x-ray-experiments-possible/",
-          "tp": "X射线TES谱仪",
-          "aip": 1,
-          "kp": [
-            "[器件]: TES跃迁边缘传感光谱仪",
-            "[灵敏度]: 1000倍提升",
-            "[地点]: BESSY II同步辐射"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Europe’s first TES spectrometer is transforming X-ray research with up to 1,000 times greater sensitivity, making once impossible experiments finally possible.\nEurope’s first and only TES spectrometer at a synchrotron light source is now operating at BESSY II, marking a major advance for X-ray research. Developed through a collaboration between HZB, the MPI-CEC (Mühlheim-an-der-Ruhr, Germany), and NIST (Boulder CO, USA), the new instrument can detect X-ray photons with an efficiency that is 100 to 1,000 times greater than conventional wavelength dispersive X-ray emission spectrometers.\nIts exceptional sensitivity will allow researchers to investigate the electronic properties of atomically thin materials, nanostructures, and extremely dilute atomic and molecular samples. The team is now inviting scientists to submit research proposals that take advantage of the new capability.\nSynchrotron facilities such as BESSY II generate exceptionally bright X-ray beams that scientists use to study the structure and properties of many different materials. Some of the most powerful techniques, including X-ray emission spectroscopy (XES) and Resonant Inelastic X-ray Scattering (RIXS), analyze the X-ray photons emitted by a sample after it is exposed to the beam.\nThese methods provide valuable information about a material’s electronic structure, but they require large numbers of emitted photons to produce meaningful data. As a result, XES and RIXS have traditionally been limited to bulk materials and samples with relatively high concentrations.\n“The superconducting Transition Edge Sensor (TES) array\ndetector that we have now put into operation at BESSY II is around 100 to 1000 times more efficient to detect photons than conventional XES and RIXS spectrometers,” says Régis Decker, HZB, responsible scientist of the new instrument.\nThat dramatic improvement makes it possible to examine samples that were previously too small or too dilute for these techniques.\nAccording to Decker, the new spectrometer will enable studies across a wide range of scientific fields.\n“This can provide new insights into molecular chemistry or molecular biology, but also into the quantum properties of systems in reduced dimensions such as atomic monolayers, nanostructures, and impurities. The TES spectrometer complements methods such as ARPES, which scans the electronic band structures of such systems,” says Régis Decker.\nThe increased sensitivity also speeds up many experiments. Measurements that once required hours can now, in some cases, be completed within minutes.\nThe instrument contains an array of 248 superconducting sensors that operate at an extremely low temperature of just 25 milli-Kelvin. Those conditions are achieved using a He4-He3 dilution refrigerator, a cooling technology similar to the systems used in quantum computers.\nWhen X-rays strike a sample, the material emits photons of its own. Each emitted photon is captured by one of the superconducting sensors, briefly raising its temperature enough to disrupt its superconducting state. That tiny change increases the sensor’s electrical resistance, which is measured using a circuit based on Superconducting Quantum Interference Devices (SQUIDs). This process allows the energy of each photon to be measured with remarkable precision.\nThe spectrometer is connected to a custom ultra-high vacuum sample chamber that allows researchers to transfer, prepare, and analyze samples while precisely controlling temperatures from 10 K to room temperature.\nThe complete system is installed at the BESSY II UE52-SGM beamline, which provides full polarisation control. Future enhancements will expand sample preparation capabilities and enable experiments in magnetic fields for X-ray Magnetic Circular Dichroism in absorption (XMCD) and emission (RIXS-MCD).\nTES spectrometers were originally created for astrophysics, where they were designed to detect extremely weak photon signals from distant objects.\nBefore the installation at BESSY II, only five TES spectrometers were operating at X-ray facilities worldwide, with four located in the United States and one in Japan. BESSY II now hosts the only synchrotron TES spectrometer in Europe.\n“We are looking forward to receiving exciting research proposals from our user community,” says Decker.\nReference: “A superconducting transition edge sensor array for synchrotron soft x-ray emission spectroscopies of low-dimensional and impurity-level concentration systems” by Régis Decker, Kelsey M. Morgan, Sergey Peredkov, Charles J. Titus, Galen C. O’Neil, Alexander Dillmann, Dmitry Tikhonov, Utkarsh Prakash, Axel Knop-Gericke, Joseph W. Fowler, Jonathan W. Dean, Nathan Nakamura, Raoul Blume, Detre Techner, Minmin Chen, Zechao Jin, Christian Weniger, Thomas Blume, Torsten Kachel, Nathan J. Ortiz, Douglas A. Bennett, John A. B. Mates, Daniel R. Schmidt, Jozsef Imrek, Joel C. Weber, Johnathon D. Gard, Leila Vale, Abigail L. Wessels, Bastian Klemke, Sebastian Gerischer, Mattis Fondell, Sebastian Eckert, Joel N. Ullom, Daniel S. Swetz, Serena DeBeer and Alexander Föhlisch, 10 June 2026,\nReview of Scientific Instruments\nDOI: 10.1063/5.0332443\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nHelmholtz-Zentrum Berlin\nSpectrometer\nSpectroscopy\nMass Spectrometry Breakthrough Detects Billions of Molecules at Once\nScientists Shrink a Lab Spectrometer to the Size of a Grain of Sand\nThis Tiny Device Could Turn Your Phone Into a Lab-Grade Spectrometer\nRevolutionizing OLEDs: New Spectroscopy Technique Extends Device Lifespan\nTiny Diamonds, Big Spark: A Laser-Free Leap in Quantum Spin Detection\nHarvard Builds Laser the Size of a Chip, Bright Enough to Map Invisible Worlds\nNew Silicon Discovery Could Supercharge Quantum Computers\nDetect Dangerous Gases in Seconds With New Technology\nBeyond Graphene: A New World of 2D Materials Is Opening Up",
-          "hb": 1
-        },
-        {
-          "t": "梅赛德斯发布媲美特斯拉的能效：36吨卡车穿越德国冬季",
-          "d": "2026-06-28",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "梅赛德斯重型电动卡车在德国冬季条件下实现接近特斯拉的能效表现，拖载36吨货物完成实测。该结果打破了业界关于重型电动商用车在低温环境下能耗高、续航差的固有偏见，验证了重型电动卡车在实际运营场景中的工程成熟度。",
-          "sc": 7.9,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://electrek.co/2026/06/27/mercedes-posts-tesla-like-efficiency-hauling-36-tons-through-a-german-winter/",
-          "tp": "电动重卡",
-          "aip": 1,
-          "kp": [
-            "[车型]: 梅赛德斯电动重卡",
-            "[载重]: 36吨",
-            "[车队规模]: 80辆实测",
-            "[测试环境]: 德国冬季实路"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "| Jun 27 2026 - 5:48 am PT\nDespite the rapidly growing number of heavy-duty EVs on western roads, a number of myths still persist about range, charging infrastructure, and economic viability. To combat those myths, Mercedes-Benz is sharing real-world data from 80 of its deployed electric semi trucks. Here’s what they found.\nThe data released by Mercedes-Benz covers 80 battery-electric heavy trucks deployed in the company’s own logistics fleet over thousands of trips, thousands of charging cycles,\nand millions of miles\n. Their conclusion:\nelectric long‑haul transport is viable today\nA real‑world example from the Ulm‑based logistics company Seifert illustrates a route between Wörth am Rhein and Bielefeld. An eActros 600 with an average gross combination weight of 36 metric tons achieves a daily mileage of around 600 km, with approximately half of the charging events taking place at public charging points. On this route, the electric truck also achieves toll savings of more than €4,000/mo. Annually, this route saves 90 metric tons of CO2e. Average energy consumption between November and February is 100 kWh per 100 km, which is equivalent to approximately 11 liters of diesel.\nThe data demonstrate that demanding long‑distance routes can already be operated reliably and predictably on this route using today’s public charging infrastructure and economically as well, when TCO is considered.\nMERCEDES-BENZ\nThose results mirror previous studies from groups like\nTransport Canada\n, which followed Class 8 electric trucks across a year of North American operations, and further support the idea that battery powered logistics are ready for prime time,\nsaving commercial vehicle fleets both time\n… under the right circumstances.\nThe report repeatedly shows that success depended less on vehicle capability than on operational alignment. Routes with predictable distances, centralized terminals and controlled return schedules allowed electric trucks to operate efficiently and reliably, while variability and scheduling pressure quickly exposed operational flaws.\nInterestingly, too, Mercedes-Benz’ operational data shows its cabover-style eActros trucks achieving an impressive 1.61 kWh / mile efficiency while rolling out at an\nof 36 metric tons (~79,400 lbs.) combined vehicle weight.\nThat number compares\nfavorably to the Tesla Semi team’s claimed 1.55 kWh / mile efficiency\n. It should also be noted that ArcBest,\nthe logistics company operating the Tesla Semi prototypes that recorded those numbers\n, is traditionally an LTL, or “\nless-than-truckload\n” freight carrier, and did not reveal the average combined vehicle weight of the loads it was running when its trucks recorded that 1.55 kWh / mile number.\nMercedes’ number, for what its worth, was achieved under heavy loads and in cold weather (between Novemeber and February), while the ArcBest numbers were recorded on routes between Reno, Nevada, and Sacramento, California – which get cold enough, but are hardly comparable to a German winter.\nAll of which is to say that, regardless of which electric semi truck your fleet eventually chooses to deploy, it might be a lot more efficient –\nand save you a lot more money\n– than you might think.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
-          "hb": 1
-        },
-        {
-          "t": "电致伸缩驱动的相不稳定性使Hf0.5Zr0.5O2实现巨大赝压电效应",
-          "d": "2026-06-28",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "铪锆氧化物（HZO）的铁电及电机械性能长期未被充分探索。本研究发现电致伸缩驱动的相变不稳定性可产生巨准压电效应，为无铅压电材料和新型铁电器件设计提供了全新物理机制，在存储器、传感器与执行器领域具有应用前景。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea0750?af=R",
-          "tp": "HZO薄膜铁电压电",
-          "aip": 1,
-          "kp": [
-            "临界电场[HZO外延薄膜]: 24 kV/cm",
-            "[赝压电]: 电致伸缩驱动相不稳定性产生巨响应"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The electromechanical properties of hafnium zirconium oxide fluorite (Hf\n                    0.5\n                    Zr\n                    0.5\n                    O\n                    2\n                    , HZO) remain largely unexplored despite its widespread use as a ferroelectric in CMOS-compatible devices. Here, we demonstrate that electrostriction-driven phase instability enables a giant pseudo-piezoelectric response in epitaxial HZO thin films. Above a critical field of 24 kilovolts per centimeter, field-induced transitions between nonpolar and polar phases activate an extrinsic piezoelectric response of ~1000 picometers per volt and bias-stabilized pseudo-piezoelectric strains exceeding 10,000 picometers per volt. This behavior arises from a combination of large electrostriction (\n                    M\n                     = 1 × 10\n                    −14\n                     square meters per square volt), ferroelastic softness, and structural reconfiguration, rather than intrinsic polarization switching. Multimodal characterization combining interferometry, diffraction methods, scanning probe microscopy, and first-principles modeling confirms the coupling between strain and metastable phase dynamics. These findings reveal a previously unrecognized mechanism for functional strain generation in fluorite oxides, positioning HZO as a versatile platform for strain-engineered actuators, adaptive metasurfaces, and reconfigurable nanoelectromechanical systems.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

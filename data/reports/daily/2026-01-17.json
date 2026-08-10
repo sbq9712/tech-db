@@ -6,33 +6,44 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "橡树岭国家实验室开发光驱动常温直接空气捕集技术，实现二氧化碳暗态自发释放",
-      "新加坡国立大学研发无膜二氧化碳氢化电解体系，单程碳利用率达77%",
-      "研究人员通过同步结晶策略消除热不稳定组分，提升全钙钛矿叠层太阳能电池稳定性"
+      "橡树岭团队开发光驱动常温捕碳技术，单循环容量达0.26 mol",
+      "新加坡国大团队研发无膜电解槽，实现90%以上甲酸法拉第效率"
     ],
-    "AI与智能科技": [
-      "新型忆阻硬件系统结合单脉冲编码，大幅降低人机接口计算功耗与延迟"
-    ],
-    "通用技术": [
-      "科研人员改造黄素依赖性卤化酶，实现对映选择性半频哪醇重排反应",
-      "含氨基醌共价有机框架利用动态质子化机制，实现中性条件电合成过氧化氢",
-      "新研究揭示胺类在二氧化碳光还原中的复杂反应行为，否定其仅作牺牲剂的旧有认知"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "橡树岭国家实验室开发光驱动常温直接空气捕集技术，实现二氧化碳暗态自发释放",
-        "新加坡国立大学研发无膜二氧化碳氢化电解体系，单程碳利用率达77%",
-        "研究人员通过同步结晶策略消除热不稳定组分，提升全钙钛矿叠层太阳能电池稳定性"
+        "橡树岭团队开发光驱动常温捕碳技术，单循环容量达0.26 mol",
+        "新加坡国大团队研发无膜电解槽，实现90%以上甲酸法拉第效率"
       ],
       "entries": [
         {
           "t": "橡树岭国家实验室Radu Custelcean实现光驱动常温直接空气捕集二氧化碳",
           "d": "2026-01-17",
-          "a": "",
+          "a": "Doi",
+          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
+          "as": "橡树岭国家实验室Radu Custelcean团队提出光驱动直接空气捕集CO₂新路径，利用吡啶取代二亚胺胍光碱与寡肽GlyGly组成水相体系，紫外光照下触发pKa约2.8单位的可逆跃迁，常温下完成CO₂吸收与暗态自发释放，避免高温再生，单循环容量约0.21-0.26 mol CO₂/mol，经溶剂工程提升至毫摩尔级。成果发表于JACS。",
+          "sc": 7.4,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-026-68600-3",
+          "tp": "光驱动碳捕",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "酸性条件下的 CO₂ 电化学还原被认为具备高反应动力学与高电流密度潜力，但在长期运行中普遍面临离子交换膜限制质子传输、阴极局部 pH 升高及碳酸盐盐析等工程瓶颈，严重制约稳定性与放大应用。在此背景下，新加坡国立大学 Lei Fan 与 Wei Chen 团队从体系结构而非材料本身入手，重新审视酸性 CO₂ 电还原失稳的根因。瓶颈重定位：明确指出酸性 CO₂ 电还原长期失稳的系统性根因在于膜限制下的质子传输效率不足，而非单纯催化剂或操作条件问题。体系重构思路：通过无膜设计 + 氢氧化反应（HOR）替代 OER，在结构层面实现阴极 pH 稳定，根本性抑制盐析。性能指标亮眼：在 100 mA·cm⁻²、约 1.7 V 下实现 >90% 甲酸法拉第效率、77% 单程碳利用率，并稳定运行 208 h，显著提升工程可行性。工程启示：用反应耦合替代复杂材料堆叠，降低槽电压与系统失效风险。该工作在工程层面厘清了酸性 CO₂ 电还原“盐析—失稳”问题的真实来源，并展示了通过反应体系重构而非材料补丁实现性能跃迁的有效路径，对电化学 CO₂ 转化走向连续稳定运行具有重要启发意义。后续可执行跟踪：重点评估其对外部氢源依赖的系统能效与成本影响、HOR 与 CO₂ 还原的耦合放大可行性，以及在连续流与规模化堆栈中的集成复杂度，以判断其商业化潜力边界。",
+          "b": "橡树岭国家实验室Radu Custelcean团队提出并验证了一种光驱动直接空气捕集新路径，通过设计吡啶取代二亚胺胍光碱（PyDIG）与寡肽GlyGly组成的水相体系，在紫外光照下触发光致异构化并实现约2.8个单位pKa的可逆跃迁，从而在常温条件下完成溶液pH摆动、空气中CO2的吸收与暗态自发释放；该体系在环境条件下可稳定运行多轮循环，单循环容量约为0.21–0.26mol CO2 per mol GlyGly/PyDIG，并通过溶剂工程将容量提升至毫摩尔级，展示了避免高温再生、降低能耗的直接空气捕集潜力，通讯作者为Radu Custelcean，研究成果1月6日发表于Journal of American Chemical Society。",
+          "hb": 1
+        },
+        {
+          "t": "橡树岭国家实验室Radu Custelcean实现光驱动常温直接空气捕集二氧化碳",
+          "d": "2026-01-17",
+          "a": "Doi",
           "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
           "as": "橡树岭国家实验室Radu Custelcean团队提出光驱动直接空气捕集CO₂新路径，利用吡啶取代二亚胺胍光碱与寡肽GlyGly组成水相体系，紫外光照下触发pKa约2.8单位的可逆跃迁，常温下完成CO₂吸收与暗态自发释放，避免高温再生，单循环容量约0.21-0.26 mol CO₂/mol，经溶剂工程提升至毫摩尔级。成果发表于JACS。",
           "sc": 7.4,
@@ -51,10 +62,10 @@
         {
           "t": "新加坡国立大学Lei Fan开发无膜CO₂氢化电解体系解决酸性电还原盐析难题",
           "d": "2026-01-17",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
           "as": "新加坡国立大学Lei Fan团队针对酸性CO₂电还原中的碳酸盐沉积问题，提出无膜CO₂氢化电解槽设计，以氢氧化反应替代析氧反应，实现阴极pH长期稳定并抑制盐析。结合Bi-Ag催化剂，100 mA cm⁻²下仅约1.7V即达90%以上甲酸法拉第效率，单程碳利用率77%，稳定运行208小时。成果发表于Nature Communications。",
-          "sc": 7.7,
+          "sc": 7.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41467-026-68600-3",
@@ -66,140 +77,20 @@
           "cm": "",
           "b": "新加坡国立大学化学系Lei Fan与Wei Chen教授团队针对酸性电解液中CO₂电化学还原长期运行易出现的质子跨膜传输受限、阴极pH升高及碳酸盐沉积问题，系统揭示了质子传输效率对体系稳定性的决定性作用，并提出一种将CO₂还原与氢氧化反应耦合的无膜CO₂氢化电解槽设计，通过消除离子交换膜、以氢气氧化反应（HOR）取代传统析氧反应，实现阴极pH长期稳定、抑制盐析并降低槽电压；结合高导电Bi–Ag催化剂体系，该装置100 mA cm⁻²下仅需约1.7V即可实现超过90%的甲酸法拉第效率，单程碳利用率高达77%，并稳定运行208小时，展示了酸性CO₂电还原在效率、稳定性与工程可行性上的提升，研究成果1月17日发表于Nature Communications。",
           "hb": 1
-        },
-        {
-          "t": "结晶同步化实现热稳定全FA铅锡钙钛矿用于可印刷无MA全钙钛矿叠层太阳能电池",
-          "d": "2026-01-17",
-          "a": "RSC - Energy Environ. Sci. latest articles",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "通过同步结晶策略实现热稳定全FA（甲脒）铅锡钙钛矿，用于可印刷的无MA（甲胺）全钙钛矿叠层太阳能电池。混合阳离子铅锡钙钛矿的热稳定性差是制约叠层器件的关键问题，该研究精确调控结晶动力学，消除热不稳定的MA组分，显著提升器件效率和操作稳定性，推动钙钛矿叠层电池的产业化。",
-          "sc": 8.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2026/EE/D5EE04529K",
-          "tp": "全钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "[钙钛矿组分[叠层电池]: 全FA无MA的Pb-Sn体系",
-            "[稳定化策略]: 同步结晶提升热稳定性",
-            "[应用]: 可印刷无MA全钙钛矿叠层电池"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Monolithic all-perovskite tandem solar cells based on mixed cation lead-tin (Pb-Sn) have advanced rapidly in recent years. However, the presence of a considerable amount of volatile methylammonium (MA) adversely constrains stability of the solar devices. Here, we first quantitatively evaluated the thermal stability of Pb-Sn perovskite films containing different types of A-site cations. In comparison to the all-MA and MA-FA binary counterparts, all-formamidinium (FA) Pb-Sn films exhibit the highest decomposition activation energy of 149.13 kJ mol-1. On this basis, high-quality all-FA Pb-Sn perovskite films are prepared by blade coating with addition of a small amount of hydrazinium dichloride (HDC) to the perovskite precursor. The selectively strong coordination of HDC with Sn2+ ions not only suppresses the oxidation of Sn2+ but, more importantly, balances the nucleation of the Sn- and Pb-based species, resulting in perovskite films with markedly improved homogeneity of Pb-Sn alloyed phase. The prepared single-junction all-FA Pb-Sn PSCs and MA-free tandem devices yield champion efficiencies of 21.81% and 27.40%, respectively. Moreover, the unencapsulated all-FA Pb-Sn devices maintain >80% of their initial efficiencies following 190 h of thermal stress at 85 °C.",
-          "hb": 1
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "新型忆阻硬件系统结合单脉冲编码，大幅降低人机接口计算功耗与延迟"
-      ],
-      "entries": [
-        {
-          "t": "基于单脉冲编码的忆阻硬件系统用于人机接口",
-          "d": "2026-01-17",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究构建了一套基于忆阻器硬件和单脉冲编码的端到端类脑系统，用于人机交互。忆阻器件模拟生物突触特性，单脉冲编码大幅降低功耗与延迟，系统在感知与识别任务中实现高能效计算。该方案为下一代低功耗智能人机接口和神经形态计算硬件提供了新路径，有望突破冯·诺依曼架构瓶颈。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-025-01544-6",
-          "tp": "忆阻器类脑硬件",
-          "aip": 1,
-          "kp": [
-            "[器件]: 忆阻硬件单脉冲编码",
-            "[优势]: 比rate coding更快更节能"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Neuromorphic systems are crucial for the development of intelligent human–machine interfaces. Memristive hardware can emulate the neuron dynamics of biological systems, but typically uses rate coding, whereas single-spike coding (in which information is expressed by the firing time of a sole spike per neuron and the relative firing times between neurons) is faster and more energy efficient. Here we report a robust memristive hardware system that uses single-spike coding. For input encoding and neural processing, we use uniform vanadium oxide memristors to create a single-spiking circuit with under 1% coding variability. For synaptic computations, we develop a conductance consolidation strategy and mapping scheme to limit conductance drift due to relaxation in a hafnium oxide/tantalum oxide memristor chip, achieving relaxed conductance states with standard deviations within 1.2 μS. We also develop an incremental step and width pulse programming strategy to prevent resource wastage. The combined end-to-end hardware single-spike-coded system exhibits an accuracy degradation under 1.5% relative to a software baseline. We show that this approach can be used for real-time vehicle control from surface electromyography. Simulations show that our system consumes around 38 times lower energy with around 6.4 times lower latency than a conventional rate coding system.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "科研人员改造黄素依赖性卤化酶，实现对映选择性半频哪醇重排反应",
-        "含氨基醌共价有机框架利用动态质子化机制，实现中性条件电合成过氧化氢",
-        "新研究揭示胺类在二氧化碳光还原中的复杂反应行为，否定其仅作牺牲剂的旧有认知"
-      ],
-      "entries": [
-        {
-          "t": "工程化黄素依赖性卤化酶通过对映选择性半频哪醇重排催化C–C键形成",
-          "d": "2026-01-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "通过工程化改造黄素依赖性卤化酶，实现经由对映选择性半频哪醇重排的C-C键形成反应。半频哪醇重排是构建复杂有机分子的重要转化，但酶催化版本极为罕见。该工作拓展了生物催化的反应类型边界，为手性含氧化合物的绿色合成提供了新酶工具。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c20091",
-          "tp": "工程化卤化酶催化",
-          "aip": 1,
-          "kp": [
-            "催化剂[半频哪醇重排]: 工程化黄素依赖卤化酶",
-            "[反应特性]: 对映选择性C-C键形成",
-            "[突破]: 新自然半频哪醇酶非酸催化"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The semipinacol rearrangement comprises a valuable class of synthetic organic transformations that provide access to useful molecular scaffolds via C-C bond cleavage and formation. Naturally occurring semipinacolases have thus far been limited to examples in alkaloid or polyketide biosynthesis, and the only new-to-nature semipinacolase was reported based on Brønsted acid catalysis with limited substrate scope. Herein, we report that flavin-dependent halogenases (FDHs) can catalyze enantioselective halogenative semipinacol rearrangement of prochiral allylic alcohols. This biocatalytic platform exhibits a broad substrate scope, affording chiral ketones bearing quaternary stereocenters with a high enantioselectivity. The reaction system displays a kcat value of 16.86 ± 0.97 min-1, representing the highest reported to date for FDH catalysis, and the T52G mutation was found to play a key role in reshaping the enzyme active site to enable this non-native transformation. This first example of asymmetric C-C bond construction using an FDH highlights the catalytic flexibility of these enzymes and provides access to a diverse range of enantioenriched carbocycles and heterocycles.",
-          "hb": 1
-        },
-        {
-          "t": "含氨基醌-共价有机框架上的动态质子化实现中性条件下高效电合成H2O2",
-          "d": "2026-01-17",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "研究报道了一种含氨基的醌类共价有机框架(COF)材料，通过动态质子化机制实现中性条件下高效电合成过氧化氢(H2O2)。该催化剂在中性介质中表现出优异的选择性和活性，为可持续H2O2生产提供了新路径。动态质子化策略调节了氧还原反应路径，避免了传统强酸强碱环境的局限，具有实际应用潜力。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524876?af=R",
-          "tp": "醌COF电催化",
-          "aip": 1,
-          "kp": [
-            "催化剂[中性H2O2电合成]: 醌基共价有机框架TfpBQ",
-            "[质子策略]: 芳香氨基动态质子化增强供质子"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    The electrosynthesis of hydrogen peroxide (H\n                    2\n                    O\n                    2\n                    ) in neutral media is highly desirable for sustainable applications but is fundamentally limited by insufficient proton supply. Herein, we report a quinone‐based covalent organic framework (Q‐COFs) engineered with aromatic amino groups (TfpBQ) enables efficient neutral electrosynthesis of H\n                    2\n                    O\n                    2\n                    , achieved by the synergism between Q and amino groups. The amino groups serve as dynamic proton relays, boosting the interfacial proton‐coupled electron transfer (I‐PCET) kinetics of the Q redox couples, as evidenced by a high apparent rate constant (\n                    k\n                    app\n                    ) of 1.97×10\n                    4\n                    s\n                    −1\n                    , which is 43% and 92% higher than that of the imine‐ and amide‐containing Q‐COFs, respectively. Consequently, TfpBQ achieves a remarkable H\n                    2\n                    O\n                    2\n                    yield of 19.3 mol g\n                    −1\n                    h\n                    −1\n                    with a Faradaic efficiency (FE) of 95.6% at 120 mA cm\n                    −2\n                    in a neutral electrolyte, while demonstrating exceptional stability during 60‐h of continuous operation. Combined experimental and theoretical analyses demonstrate that the dynamic protonation of aromatic amino groups reconstructs the interfacial hydrogen‐bond network, enabling a sustained proton supply to the adjacent Q/H\n                    2\n                    Q redox cycle, which in turn optimizes the overall 2e\n                    –\n                    ORR pathway. This work underscores the importance of managing dynamic protonation in electrocatalysts design for reactions occurring in proton‐deficient microenvironment.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 挑战传统认知：胺类在CO2光还原中的真实反应活性",
-          "d": "2026-01-17",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究对CO2光还原反应中胺类化合物的真实反应活性提出质疑，挑战了该领域长期以来的普遍认知。传统观点认为胺类在光催化CO2还原中主要作为电子供体或牺牲剂发挥作用，但本文通过实验数据揭示了胺类在该体系中的复杂反应行为，可能改变对光催化CO2还原机理的理解，对催化剂设计与反应条件优化具有重要指导意义。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c04255",
-          "tp": "CO2光还原",
-          "aip": 1,
-          "kp": [
-            "[主题]: 胺在CO2光还原中的真实反应性",
-            "[定位]: 挑战传统认知"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

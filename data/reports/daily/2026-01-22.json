@@ -6,19 +6,14 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Noon Energy可逆固体氧化物燃料电池储能系统成功运行，容量超100小时",
-      "研究提出水溶液合成LGPS硫化物固态电解质工艺以降低制造成本",
-      "尚柔与众能光储柔性钙钛矿电池分别取得19.66%与23.3%认证效率"
+      "Noon Energy可逆固体氧化物燃料电池示范系统运行超100小时",
+      "富锂氧化物阴极晶格畸变驱动原位形成相干结构带"
     ],
-    "AI与智能科技": [
-      "实验将约7000个原子置于量子叠加态，刷新宏观量子态尺度纪录",
-      "科研人员实现AlInP/GaInP外延层硅基单片三维集成红光Micro-LED",
-      "研究制备晶圆级高κHfO₂介电薄膜，等效氧化层厚度突破5埃以下"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究将光驱动分子马达嵌入三维共价有机框架构建双重功能材料",
-      "新材料在溶解过程中展现极端压热效应，提供零温室效应制冷方案",
-      "科研人员在二维光波导阵列实验实现宇称时间对称双形态拓扑绝缘体"
+      "研究提出共价配体发现的群体竞争策略",
+      "实验追踪电子转移介导衰变的复杂动力学",
+      "Kagome晶格费米表面重建实现太赫兹光响应"
     ]
   },
   "sectors": [
@@ -26,23 +21,22 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Noon Energy可逆固体氧化物燃料电池储能系统成功运行，容量超100小时",
-        "研究提出水溶液合成LGPS硫化物固态电解质工艺以降低制造成本",
-        "尚柔与众能光储柔性钙钛矿电池分别取得19.66%与23.3%认证效率"
+        "Noon Energy可逆固体氧化物燃料电池示范系统运行超100小时",
+        "富锂氧化物阴极晶格畸变驱动原位形成相干结构带"
       ],
       "entries": [
         {
           "t": "Noon Energy称其可逆固体氧化物燃料电池的示范储能系统已成功运行且储能时长可>100h",
           "d": "2026-01-22",
-          "a": "",
+          "a": "Linkedin",
           "c": "零碳产业/能量循环/能量存储/其它储能技术",
           "as": "美国Noon Energy宣布其可逆固体氧化物燃料电池示范系统成功运行数千小时，储能容量超100小时（宣称可达200h）。技术核心为可充电碳基电池，通过CO₂与燃料相互转化实现储能，占地面积比液流电池小20-200倍、比锂电池小2-3倍，在系统成本和本土原材料供给上具优势。",
-          "sc": 6.2,
+          "sc": 6.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.linkedin.com/posts/noon-energy-inc_noon-energy-announces-successful-100-hour-activity-7419851670655901696-avWQ/",
           "tp": "超长时储能",
-          "aip": 0,
+          "aip": 1,
           "kp": [],
           "lv": 2,
           "wr": "",
@@ -51,72 +45,73 @@
           "hb": 1
         },
         {
-          "t": "使用水溶液合成Li10GeP2S12电解质",
+          "t": "Noon Energy称其可逆固体氧化物燃料电池的示范储能系统已成功运行且储能时长可>100h",
           "d": "2026-01-22",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "硫化物电解质是全固态锂电池的核心组件，Li10GeP2S12（LGPS）因其室温离子电导率接近10^-2 S/cm，被视为最有前途的固态电解质之一。本文报道了一种基于水溶液体系的LGPS合成工艺，旨在突破传统固相法能耗高、工艺复杂、难以规模化生产的瓶颈。水溶液路线有望显著降低制造成本并简化流程，对推动全固态电池从实验室走向产业化具有重要意义，但水相处理硫化物的稳定性与产物纯度仍是关键挑战。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c16397",
-          "tp": "硫化物固态电解质",
+          "a": "Linkedin",
+          "c": "零碳产业/能量循环/能量存储/其它储能技术",
+          "as": "美国Noon Energy宣布其可逆固体氧化物燃料电池示范系统成功运行数千小时，储能容量超100小时（宣称可达200h）。技术核心为可充电碳基电池，通过CO₂与燃料相互转化实现储能，占地面积比液流电池小20-200倍、比锂电池小2-3倍，在系统成本和本土原材料供给上具优势。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.linkedin.com/posts/noon-energy-inc_noon-energy-announces-successful-100-hour-activity-7419851670655901696-avWQ/",
+          "tp": "超长时储能",
           "aip": 1,
-          "kp": [
-            "[合成方法]: 水溶液法合成LGPS硫化物电解质",
-            "[规模化]: 液相法面向全固态电池量产"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "The development of a mass production process for sulfide electrolytes is crucial for the advancement of all-solid-state batteries. In this context, liquid-phase synthesis has gained attention as a practical and scalable approach for the synthesis of these materials. However, conventional liquid-phase synthesis typically employs organic solvents, which pose both environmental and safety concerns. In this study, a novel liquid-phase synthetic strategy is presented for the preparation of sulfide electrolytes using an aqueous solution, which eliminates the requirement for organic solvents. Consequently, a Li10GeP2S12 electrolyte was successfully synthesized, and was demonstrated to exhibit an ionic conductivity of 1.6 × 10-3 S cm-1 at 25 °C in a powder compact. Additionally, an all-solid-state Li-In/LiNi1/3Co1/3Mn1/3O2 cell incorporating the developed electrolyte demonstrated stable and reversible cycle performances over 500 cycles. Overall, this work demonstrates the feasibility of using water as an environmentally friendly solvent for synthesizing high-performance sulfide electrolytes.",
+          "cm": "创始人Chris Graves，从事二氧化碳回收和碳氢燃料转换研究；承担过NASA的火星制备氧气项目。CO2转CH4、CO等此前宁波材料所等已有研究。CO2转C、一套设备、宣传已运行数千小时、可实现>100h储能时长，成本低。Noon Energy的储能技术主要为通过可逆固体氧化物（相关文章中提及有钇稳定的氧化锆YSZ、(La0.9Sr0.1)0.98Ga0.8Mg0.2O3−δ等）燃料电池，正极使用钆掺杂氧化铈（如10 mol% Gd-doped CeO₂）、镍基催化剂逐步将CO2转换为CO和C进行存储；负极则将氧离子氧化生成O₂。整个装置则可通过将部分气体产物转化为固体/液体低蒸气压产物（或分子数显著减少的气体产物），在封闭系统中制造持续的压力+浓度差实现无需泵/压缩机的自动气体传输，减少能耗。相关项目要求，其系统级往返效率（RTE）需至少50%，能量密度为锂离子电池的2-3倍，要求可安装在40英尺集装箱内，并目标平准化储能成本LCOS<$0.05/kWh（CAPEX< $20/kWh）具体技术路线和转换路径需进一步追踪。",
+          "b": "1月22日，美国储能技术公司Noon Energy在其官方linked in账号发文称，其开发的超长时储能示范系统（可逆固体氧化物燃料电池）成功运行数千小时，能提供>100h的储能容量（宣传可达200h）。\n据electrek、EINpresswire等媒体报道称，Noon Energy的技术核心为可充电碳基电池，工作原理是将二氧化碳转化为燃料实现能量储存，放电时再将燃料转化回电能，以此将间歇性的可再生能源转化为全天候稳定的电力供应；占地面积比液流电池和抽水蓄能小20-200倍，比锂离子电池系统小2-3倍；并称该装置在系统成本和美国本土原材料供给上具有优势。",
           "hb": 1
         },
         {
-          "t": "尚柔新能源、众能光储及Singfilm Solar分别公布其柔性钙钛矿器件效率及应用进展",
+          "t": "[ASAP] 晶格畸变驱动原位形成相干结构带富锂氧化物作为锂离子电池阴极",
           "d": "2026-01-22",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "尚柔新能源35×35cm柔性钙钛矿组件通过TÜV南德认证，30×30cm电池效率19.66%，弯折半径5cm。众能光储1.6μm厚度柔性航天钙钛矿电池TÜV北德认证效率23.3%，功率质量比55W/g。新加坡Singfilm Solar的Zenith系列柔性钙钛矿组件将随SpaceX首次发射升空，展现柔性钙钛矿在消费电子与航天领域的应用潜力。",
-          "sc": 6.4,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://mp.weixin.qq.com/s/di-5ag_NR4L5vCtEl9JUXA",
-          "tp": "柔性钙钛矿",
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03989",
+          "tp": "富锂氧化阴极",
           "aip": 1,
           "kp": [],
-          "lv": 1,
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "1月22日，尚柔新能源在官方公众号发文称，其研发的35cm×35cm商用柔性钙钛矿光伏组件通过TÜV南德测试认证，尺寸30cm×30cm的电池实测最高效率19.66%（正扫19.41%，反扫19.90%，Isc=0.532A，Voc=46.242V，FF=71.91%），柔性弯折半径5cm，并通过消费电子要求湿热、湿冻、热循环、紫外、光照等序列测试。\n1月28日，众能光储在公众号发文称，其厚度1.6 μm的柔性航天特种钙钛矿太阳能电池TÜV北德认证效率达23.3%，功率质量比达55 W/g。\n另据索比光伏、搜狐等媒体报道，新加坡Singfilm Solar公司的交付其研发制造的Zenith系列柔性超薄钙钛矿光伏组件，该组件将随SpaceX首次发射升空。",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
       "headlines": [
-        "实验将约7000个原子置于量子叠加态，刷新宏观量子态尺度纪录",
-        "科研人员实现AlInP/GaInP外延层硅基单片三维集成红光Micro-LED",
-        "研究制备晶圆级高κHfO₂介电薄膜，等效氧化层厚度突破5埃以下"
+        "研究提出共价配体发现的群体竞争策略",
+        "实验追踪电子转移介导衰变的复杂动力学",
+        "Kagome晶格费米表面重建实现太赫兹光响应"
       ],
       "entries": [
         {
-          "t": "7千个原子实现叠加态：迄今最大\"薛定谔的猫",
+          "t": "[ASAP] 共价配体发现的群体竞争策略",
           "d": "2026-01-22",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "物理学家成功将约7000个原子置于量子叠加态，创造了迄今最大的\"薛定谔猫\"态实验记录。该实验利用光晶格中的超冷原子气体，通过精密的量子操控使全部原子同时处于两种宏观可区分的量子态。这一尺度远超此前的纪录，将量子力学与经典物理之间的边界推向了前所未有的宏观领域。实验结果对量子测量理论、退相干机制以及宏观尺度的量子-经典过渡研究具有里程碑意义，也为开发基于宏观量子态的精密传感器和量子计算方案提供了新平台。",
-          "sc": 7.2,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00227-2",
-          "tp": "宏观量子叠加态",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c18150",
+          "tp": "共价配体发现",
           "aip": 1,
-          "kp": [
-            "[规模]: 7000原子宏观叠加态薛定谔猫"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
@@ -124,126 +119,42 @@
           "hb": 0
         },
         {
-          "t": "采用AlInP/GaInP外延层在硅上集成的单片三维红光Micro-LED显示器",
-          "d": "2026-01-22",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究实现了基于AlInP/GaInP外延层的硅基单片三维集成红色Micro-LED显示技术。该方案消除了驱动电路与LED阵列之间机械对准的需求，通过晶圆级三维集成将驱动IC与发光层垂直堆叠，显著提升像素密度和显示均匀性，为AR/VR微显示和可穿戴设备提供高分辨率方案。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-025-01546-4",
-          "tp": "硅基Micro-LED",
-          "aip": 1,
-          "kp": [
-            "[集成]: 单片3D集成红光micro-LED",
-            "外延层[红光micro-LED]: AlInP/GaInP",
-            "[挑战]: 像素缩小致量子效率低"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Monolithic three-dimensional integration technology can eliminate the need for mechanical alignment between driving circuits and light-emitting diode (LED) pixels, leading to ultrahigh-resolution displays. However, this is challenging for red micro-LEDs, which are typically based on AlGaInP/GaInP, because of their low quantum efficiency and performance degradation when the pixel size is reduced. Here we report a high-pixel-density (1,700 pixels per inch) red active-matrix display consisting of micro-LEDs based on an epitaxial AlInP/GaInP double-quantum-well structure and silicon complementary metal–oxide–semiconductor integrated circuits. The epitaxial layer exhibits high internal quantum efficiency at low current densities (less than 10 A cm−2) due to a hole-dominant quantum well that reduces the non-radiative Shockley–Read–Hall recombination caused by electron lateral diffusion. We also use thickness fluctuation scattering in the quantum well to minimize the size-dependent quantum efficiency shift to higher current densities when reducing the size of the red micro-LEDs.",
-          "hb": 1
-        },
-        {
-          "t": "面向二维MoS2晶体管的晶圆级高κHfO2介电薄膜（等效氧化层厚度低于5埃）",
-          "d": "2026-01-22",
-          "a": "Nature Communications",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究实现了晶圆级高质量高介电常数HfO₂介质薄膜的制备，等效氧化层厚度（EOT）突破至5埃以下。高k栅介质是现代晶体管技术的核心，对高效电容耦合和漏电流抑制至关重要。该工作通过精确的原子层沉积工艺和界面工程，在保持超低漏电流的同时实现了亚5埃EOT，为延续摩尔定律和开发下一代高性能低功耗逻辑器件（包括先进FinFET及环绕栅极晶体管架构）提供了关键的介质材料解决方案。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-68584-0",
-          "tp": "MoS2晶体管介质",
-          "aip": 1,
-          "kp": [
-            "EOT[HfO2栅介质]: <5Å",
-            "膜厚[HfO2]: 1.3nm",
-            "规模: 晶圆级",
-            "应用: 2D MoS2晶体管"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "High-κ gate dielectrics are indispensable in modern transistor technology and play a pivotal role in efficient capacitive gating and suppression of leakage currents. However, the realization of industry-compatible high-κ gate dielectrics at a sub-5-Å equivalent oxide thickness (EOT) remains challenging. Here we report the realization of 1.3-nm thick hafnium oxide (HfO2) dielectrics via an industry-compatible multiple oxidation atomic layer deposition process at 200 °C. A low EOT down to 2.5 Å is demonstrated for 1.3-nm thick HfO2 dielectrics on metal gates with a low leakage current of 10−6 A/cm2 and a robust breakdown electric field of ~22.3 MV/cm. Remarkably, such low EOT high-κ/metal gates can be directly implanted into emerging two-dimensional (2D) transistors and low-power logic circuits on 8-inch wafer scale to showcase their potentials. The as-fabricated molybdenum disulfide (MoS2) transistors exhibit a large on-state current density of 260 µA/µm at source-drain bias of 0.5 V, a high on/off ratio of 108, an average subthreshold slope (SS) of 75 mV/dec, and small capacitance equivalent thickness (CET) values of 0.34 nm for gate-first transistors and 0.50 nm for gate-last transistors. Our ultra-scaled dielectrics hold significant promise for advanced semiconductor fabrication processes towards the angstrom era.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "通用技术",
-      "review": null,
-      "headlines": [
-        "研究将光驱动分子马达嵌入三维共价有机框架构建双重功能材料",
-        "新材料在溶解过程中展现极端压热效应，提供零温室效应制冷方案",
-        "科研人员在二维光波导阵列实验实现宇称时间对称双形态拓扑绝缘体"
-      ],
-      "entries": [
-        {
-          "t": "集成马达的三维共价有机框架双模式功能材料",
+          "t": "[尽快] 追踪真实时空中电子转移介导的衰变的复杂动力学",
           "d": "2026-01-22",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究报道了一种将分子马达集成到三维共价有机框架（COF）中的新型材料。生物系统通过在精确组织的骨架内运作的分子机器实现宏观功能，该研究受此启发，在三维COF骨架中嵌入光驱动分子马达，实现了双重功能（结构支撑与分子级机械运动）。这一成果为设计具有宏观可编程运动响应的智能材料开辟了新路径，在纳米致动器、分子传感和智能催化等领域具有应用潜力。",
-          "sc": 6.9,
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.4,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c19507",
-          "tp": "分子马达COF",
-          "aip": 1,
-          "kp": [
-            "[策略]: 拓扑网状策略嵌入旋转分子马达",
-            "[马达]: 过度拥挤烯烃旋转马达",
-            "[载体]: 3D共价有机框架"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Biological systems achieve macroscopic functionality through molecular machines operating within precisely organized scaffolds. Replicating this coordinated motion synthetically requires integrating high-performance molecular motors into structurally ordered, yet dynamically active, frameworks. We present a reticular design strategy for incorporating overcrowded alkene rotary motors into 3D covalent organic frameworks (COFs), creating JUC-666 as a prototype. This crystalline material maintains a unidirectional motor rotation in both solution and solid states, as confirmed by spectroscopic and kinetic analyses. The embedded motors enable dual-mode functionality: reversible CO2 uptake modulation (>83% capacity variation at 273 K) under light-dark cycling, and precisely controlled drug release with light-dosage-proportional kinetics, showing a ∼50-fold increase in cumulative release. These results demonstrate how COFs can bridge molecular-scale motion to macroscopic responses, establishing a platform for designing adaptive functional materials.",
-          "hb": 1
-        },
-        {
-          "t": "溶解过程中的极端压卡效应",
-          "d": "2026-01-22",
-          "a": "Nature",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究报道了一种在溶解过程中表现出极端压热效应的新材料，为替代传统蒸气压缩制冷提供了突破口。传统制冷系统依赖对环境有害的制冷剂，而压热制冷利用材料在压力变化下的吸放热实现制冷，具有零温室效应潜力。该发现中溶解过程触发的极端压热效应可能大幅提升制冷效率，对绿色制冷技术和应对气候变化具有重要价值。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-10013-1",
-          "tp": "压卡制冷效应",
-          "aip": 1,
-          "kp": [
-            "[效应]: 溶解过程极端压卡效应",
-            "[应用]: 固态卡体制冷替代蒸汽压缩"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Refrigeration is indispensable to modern society1, yet the dominant vapour-compression systems rely on environmentally harmful fluorocarbon refrigerants with high global warming potential2,3,4. Solid-state caloric refrigeration offers a low-carbon alternative5,6,7, but its practical deployment has been hindered by limited cooling capacity and the inefficient indirect heat transfer that requires secondary fluids. Here we report an extreme barocaloric effect in NH4SCN aqueous solutions enabled by pressure-tuned dissolution and precipitation. This mechanism delivers an exceptionally large cooling capacity and markedly enhanced cooling efficiency. We obtain an in situ temperature drop of 26.8 K in the solution at room temperature, surpassing all known caloric materials. A Carnot-like cycle is designed to deliver 67 J g−1 cooling capacity per cycle with a second-law efficiency of 77%, benefiting from the extremely large temperature drops and direct heat transfer due to the self-circulating aqueous solution. Beyond the phase-transition scenario, this dissolution-based approach that combines the merits of current leading technologies emerges as a promising sustainable refrigeration solution.",
-          "hb": 1
-        },
-        {
-          "t": "宇称时间对称双压电晶片拓扑绝缘体",
-          "d": "2026-01-22",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究者在二维光波导阵列中实验实现了宇称-时间（PT）对称的双形态拓扑绝缘体，首次展示了第一阶和第二阶拓扑相共存。平台采用异常Floquet模型，通过四步驱动协议和时空工程化损耗维持PT对称性，证明耗散存在下仍可保持纯实准能谱，为拓扑光子学器件设计提供了新平台。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519324?af=R",
-          "tp": "拓扑绝缘体",
+          "u": "http://dx.doi.org/10.1021/jacs.5c15510",
+          "tp": "电子转移动力学",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  We propose and experimentally realize a parity‐time ()‐symmetric bimorphic topological insulator, characterized by the coexistence of first‐ and second‐order topological phases. Our platform utilizes an anomalous Floquet model implemented in a 2D optical waveguide array, where  symmetry is maintained via a four‐step driving protocol with spatiotemporally engineered loss. Despite the presence of dissipation, we demonstrate that the  symmetry ensures a purely real quasienergy spectrum across the topological regime, effectively stabilizing boundary modes against the dynamical instabilities and mode competition typical of non‐Hermitian systems. Experimentally, we provide unambiguous evidence of this non‐Hermitian bimorphic phase by observing unidirectional, clockwise edge transport in the zero gap and robust corner localization in the  gap. Our findings pave the way for further exploration of  ‐symmetric and non‐Hermitian topological phases in nonlinear and many‐body regimes and provide novel insights into the realization of topological insulators in open quantum systems.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过 Kagome 晶格中的费米表面重建，利用范霍夫奇点实现太赫兹光响应",
+          "d": "2026-01-22",
+          "a": "Nature Communications",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-66749-x",
+          "tp": "Kagome晶格光响应",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

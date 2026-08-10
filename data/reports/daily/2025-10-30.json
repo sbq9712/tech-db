@@ -1,0 +1,122 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月30日　星期四",
+  "date_range": "2025-10-30",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "研究证实电子积累效应可提升纹理硅串联太阳能电池光电性能",
+      "新型电子调节分子嵌入剂有效改善二氧化锰阴极离子传输效率",
+      "倒置钙钛矿电池引入56π-电子富勒烯加合物提升界面稳定性"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "电活性有机笼材料实现对微量碘的高效吸附与超灵敏传感检测"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "研究证实电子积累效应可提升纹理硅串联太阳能电池光电性能",
+        "新型电子调节分子嵌入剂有效改善二氧化锰阴极离子传输效率",
+        "倒置钙钛矿电池引入56π-电子富勒烯加合物提升界面稳定性"
+      ],
+      "entries": [
+        {
+          "t": "钙钛矿层上的电子积累增强了具有纹理硅的串联太阳能电池",
+          "d": "2025-10-30",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.adx1745?af=R",
+          "tp": "钙钛矿太阳能",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 通过电子调节分子嵌入剂促进二氧化锰阴极中的离子传输",
+          "d": "2025-10-30",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c08301",
+          "tp": "锰基电池阴极",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "带有大体积官能团的反二聚化56π-电子富勒烯加合物用于倒置钙钛矿太阳能电池，具有增强的界面稳定性",
+          "d": "2025-10-30",
+          "a": "National Science Review Advance Access",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf466/8306883?rss=1",
+          "tp": "钙钛矿电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "电活性有机笼材料实现对微量碘的高效吸附与超灵敏传感检测"
+      ],
+      "entries": [
+        {
+          "t": "电活性有机笼作为微量碘的高效吸附剂和超灵敏晶体管传感器",
+          "d": "2025-10-30",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202513678?af=R",
+          "tp": "有机笼碘吸附",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

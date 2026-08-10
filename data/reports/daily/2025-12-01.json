@@ -1,0 +1,77 @@
+{
+  "type": "daily",
+  "date_label": "2025年12月1日　星期一",
+  "date_range": "2025-12-01",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研机构提出卤化物混合制动策略，1.95eV宽带隙钙钛矿提升三结串联电池效率",
+      "研究者通过原位化学构建超薄锌离子传导界面层，实现锌金属电池无枝晶循环"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研机构提出卤化物混合制动策略，1.95eV宽带隙钙钛矿提升三结串联电池效率",
+        "研究者通过原位化学构建超薄锌离子传导界面层，实现锌金属电池无枝晶循环"
+      ],
+      "entries": [
+        {
+          "t": "1.95 eV 宽带隙钙钛矿的卤化物混合制动策略可实现高效三结串联",
+          "d": "2025-12-01",
+          "a": "RSC - Energy Environ. Sci. latest articles",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://pubs.rsc.org/en/Content/ArticleLanding/2025/EE/D5EE05574A",
+          "tp": "钙钛矿串联电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "In Situ Chemical Construction of Ultrathin Zn2+‐Conductive Interphase for Dendrite‐Free Zinc Metal Batteries",
+          "d": "2025-12-01",
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202514671?af=R",
+          "tp": "锌电池界面",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

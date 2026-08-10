@@ -1,0 +1,263 @@
+{
+  "type": "daily",
+  "date_label": "2026年8月6日　星期四",
+  "date_range": "2026-08-06",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "宁德时代钠离子电池达吉瓦时级量产并与海博思创签60GWh订单",
+      "特斯拉得州工厂投产Megapack 3储能系统同等占地能量密度增28%",
+      "全球首批配676kWh钠离子电池的矿用自卸车在中国投入使用"
+    ],
+    "AI与智能科技": [
+      "WeatherNext热带气旋AI预报模型较主流业务提前一天生成预测",
+      "科研人员成功实现并观测一维莫尔超晶格突现电子绝缘态",
+      "研究利用基因组语言模型生成16种具备特定宿主向性的活性噬菌体"
+    ],
+    "通用技术": [
+      "强流重离子加速器装置成功探测并鉴别稀有原子核铪-153",
+      "Tiberius与美国陆军研发射程150公里的155毫米冲压炮弹",
+      "研究揭示量子磁体MnBi2Te4缺陷导致拓扑表面态发生位移"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "宁德时代钠离子电池达吉瓦时级量产并与海博思创签60GWh订单",
+        "特斯拉得州工厂投产Megapack 3储能系统同等占地能量密度增28%",
+        "全球首批配676kWh钠离子电池的矿用自卸车在中国投入使用"
+      ],
+      "entries": [
+        {
+          "t": "CATL实现钠离子电池量产",
+          "d": "2026-08-06",
+          "a": "Battery Tech Online",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "宁德时代（CATL）的Naxtra钠离子电池已达到吉瓦时级别的量产规模，并于2026年全面投产。该电池完全不含钴和锂，正负极均采用铝集流体以降低成本。同时，宁德时代与海博思创签订了60 GWh的钠离子电池供应协议，创下该领域迄今最大订单纪录。",
+          "sc": 10.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.batterytechonline.com/design-manufacturing/how-catl-moved-sodium-ion-batteries-from-lab-chemistry-to-gwh-scale-reality",
+          "tp": "宁德钠电量产",
+          "aip": 1,
+          "kp": [
+            "产能状态[Naxtra钠离子电池]: 实现GWh级量产",
+            "供应协议规模[宁德时代与海博思创钠离子电池]: 60 GWh",
+            "商业地位[上述钠离子电池协议]: 迄今为止最大的钠离子电池交易"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Design & Manufacturing\nBattery Applications\nCATL's Naxtra sodium-ion battery reaches GWh-scale mass production while a 60 GWh supply agreement with HyperStrong marks the largest sodium-ion deal recorded to date.\nAugust 5, 2026\n4 Min Read\nCATL's Chief Scientist Dr. Wu Kai at the company's Technology Day event in Beijing on April 21, 2026.\nAt a Glance\nCATL signed a 60 GWh sodium-ion supply agreement with energy storage integrator HyperStrong in China\nThe Naxtra sodium-ion battery achieved GWh-scale industrialization with full production starting in 2026\nSodium-ion cells use no cobalt or lithium and employ aluminum collectors on both electrodes for cost cuts\nFor years, sodium-ion batteries were considered a chemistry with compelling structural advantages, but that couldnt reach commercial relevance.\nBenefiting from sodium’s abundance, an architecture that omits lithium and cobalt, and lower cell expansion stress, the chemistry has many promising features that exceed lithium-ion batteries. However, manufacturing reality tells a different story. Hard carbon anode production is difficult to control at volume, moisture sensitivity introduces yield problems, and the industry lacks the supply chain depth to support GWh-scale deployment with any consistency.\nNow, that picture is starting to change.\nIn this article, we'll take a look at CATL's recent sodium-ion milestones, including a\nlandmark 60 GWh supply agreement\nwith energy storage integrator HyperStrong and the\nformal announcement\nof GWh-scale industrialization of the Naxtra Sodium-ion Battery.\nSodium-ion vs. lithium-ion batteries\nSodium-ion cells follow the same intercalation principle as lithium-ion, with ions moving between the cathode and anode during charge and discharge. However, sodium-ion’s design makes it significantly cheaper than lithium-ion.\nRelated:\nHow Battery Validation is Shaping the Future Grid\nFirst, sodium is far more abundant than lithium, and sodium-ion cells use no cobalt. In addition, sodium-ion cells can use aluminum current collectors on both electrodes, eliminating the copper required on lithium-ion anodes. With these material characteristics combined, sodium-ion batteries carry a low cost that suits large-scale, long-duration stationary storage, where raw material cost influences project budgets.\nMeanwhile, sodium-ion batteries offer a slew of performance and reliability benefits as well. According to the\nAmerican Physical Society\n, sodium-ion cells tolerate wider temperature ranges than conventional lithium-ion chemistries, maintain cycle stability at high ambient temperatures, and generate less heat during operation, reducing the burden on thermal management systems.\nWhere sodium-ion falls short is energy density and ease of manufacturing. Sodium-ion cells store less energy per kilogram than LFP (lithium iron phosphate), and their hard carbon anodes are more difficult to produce consistently as compared to graphite anodes used in lithium-ion designs. Controlling gas generation in hard carbon production, managing moisture exposure, achieving reliable adhesion of the aluminum current collector, and tuning anode formation protocols are only some of the engineering obstacles that have kept sodium-ion batteries from volume production.\nRelated:\nStartups Pitch Investors to Transform the Battery Industry\nCATL and HyperStrong’s 60-GWh sodium-ion agreement\nIn April of this year, CATL and energy storage integrator HyperStrong\nsigned a strategic cooperation agreement\nin Ningde, China, covering a three-year, 60 GWh sodium-ion battery supply commitment. CATL describes the agreement as the largest sodium-ion battery supply deal in the world to date, and HyperStrong as the company's first strategic partner for sodium-ion energy storage. Their collaboration covers technology research and development, product applications, and project deployment.\nCATL and HyperStrong representatives at the signing ceremony. Credit: CATL\nCATL and HyperStrong representatives at the signing ceremony. Credit:\nThe agreement rests on manufacturing capabilities that CATL claims to have developed across the full sodium-ion production process. For example, the company claims notable energy density gains compared to previous commercial sodium-ion attempts, owing to a combination of morphology control and surface modification. On the production side, CATL says it resolved key process challenges by applying angstrom-level pore size regulation, surface molecular water-locking, and adaptive dynamic formation, each aimed at ensuring output consistency at high volumes.\nCATL also notes that its sodium-ion cells share a platform-based design with the same form factor as its lithium-ion products. According to the company, that design choice reduces integration costs for operators and shortens the time from product qualification to power station deployment.\nRelated:\nBreaking Down the Limits of Solid-State Battery Performance\nCATL’s Naxtra Battery Reaches GWh-Scale Production\nMeanwhile, at CATL's Super Technology Day in Beijing this year, the company\nannounced\nthat its Naxtra sodium-ion battery has achieved GWh-level industrialization. CATL describes the Naxtra as the result of systematically resolving hundreds of engineering challenges, with particular focus on four bottlenecks it identified as blocking sodium-ion mass production:\nExtreme water control\nGas generation in hard carbon production lines\nAluminum foil adhesion\nSelf-forming anode systems\nCATL says full-scale mass production will begin by the end of 2026.\nThe Naxtra sodium-ion battery marks CATL’s transition from the lab to gigawatt-hour scale manufacturing of sodium-ion technology. Credit: CATL\nThe Naxtra sodium-ion battery marks CATL’s transition from the lab to gigawatt-hour scale manufacturing of sodium-ion technology. Credit:\nTaken together, the HyperStrong agreement and the Naxtra industrialization announcement show CATL’s involvement in two sides of the push for sodium-ion adoption. One demonstrates the chemistry’s commercial demand at scale, while the other shows that they can deliver the manufacturing capacity to meet it.\nThe open question now is whether hard carbon anode supply chains can develop at the pace that matches CATL’s commitments and timelines. The answer to that question will dictate the scale to which CATL and other battery manufacturers can produce sodium-ion cells.\nAbout the Author\nJake Hertz\nJake Hertz is an Electrical Engineer, Technical Writer, and Public Relations specialist for the electronics and semiconductor industries. He holds an M.S. and B.S. in EE and has designed electronics for top brands, including MakerBot, UltiMaker, Hyundai, and AT&T. He is also an analyst for the TechInsights Microprocessor Report and an alumnus of the Goldman Sachs 10KSB program.\nJake's communication business,\nNanoHertz Solutions\n, works with industry leaders, including NXP Semiconductors, Renesas, Synopsys, Analog Devices, Infineon, and Texas Instruments. Writing services include whitepapers, application notes, blogs, and thought-leadership pieces. PR services include campaign development and securing high-visibility media placements for clients. To work with Jake,\ncontact him on LinkedIn\n. You can see more of his work and services\nSee more from\nJake Hertz",
+          "hb": 1
+        },
+        {
+          "t": "Tesla 开始生产 Megapack 3，每单位能量增加 28%",
+          "d": "2026-08-06",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "特斯拉已开始在位于得克萨斯州布鲁克希尔的新超级工厂生产新一代Megapack 3电网级储能电池。该工厂从破土动工到投产仅耗时16个月，设计年产能达50 GWh。与上一代产品相比，Megapack 3在同等占地面积下可多容纳约28%的能量。",
+          "sc": 9.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://electrek.co/2026/08/06/tesla-megapack-3-production-starts-texas/",
+          "tp": "特斯拉推新储能",
+          "aip": 1,
+          "kp": [
+            "能量提升[Megapack 3相比上一代]: 增加28%",
+            "设计年产能[Megapack 3德州超级工厂]: 50 GWh",
+            "建设周期[Megapack 3德州超级工厂]: 从破土动工到投产耗时16个月"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tesla Megapack\nFred Lambert\n| Aug 6 2026 - 5:52 am PT\nTesla has started building its next-generation Megapack 3 grid battery, with the first units rolling off the line at the company’s new Megafactory in Brookshire, Texas.\nThe plant went from groundbreaking to production in 16 months and is designed to build 50 GWh of Megapack 3 a year. That’s the version Tesla says packs roughly 28% more energy into the same footprint as the Megapack it replaces.\nTesla confirmed the production start on Wednesday through its Megapack account, noting the Brookshire facility has “a designed capacity of 50 GWh/year dedicated to Megapack 3.” It’s the physical follow-through on the\nMegapack 3 and Megablock reveal\nMegapack 3 is officially rolling off the line at our newest Megafactory in Brookshire, Texas!\nThe factory went from groundbreaking to operation in just 16 months & has a designed capacity of 50 GWh/year dedicated to Megapack 3\nSo here’s what actually changed between Megapack 3 and the versions before it.\nWhat’s different about Megapack 3\nA single Megapack 3 holds about 5 MWh, up from 3.9 MWh on the Megapack 2 XL. That’s roughly 28% more storage in a box that takes up the same ground.\nTesla gets there mainly by using bigger cells. Megapack 3 moves to a larger 2.8-liter cell format, which lets Tesla cram more capacity into each cabinet without growing the enclosure.\nThe other big change is plumbing. Tesla says Megapack 3 cuts thermal-system connection points by 78% versus the previous generation. Fewer connections means fewer places for a liquid-cooled battery to leak or fail, and less labor to assemble and service. Not glamorous. But at grid scale, reliability and install time are the whole game.\nFor context, the Megapack has been climbing this curve for years. It launched in 2019 at around 3 MWh, then Tesla\nsqueezed it up to 3.9 MWh\nwith the 2 XL in 2022. Megapack 3 is the biggest single jump yet.\nThe real shift is the Megablock\nA Megablock bundles up to four Megapack 3 units (about 20 MWh) with the transformer and switchgear already integrated at the factory. On older Megapacks, a lot of that medium-voltage wiring happened in the field, one of the slowest and most expensive parts of building a battery farm.\nTesla just signed a\n$5 billion, 25 GWh Megapack deal with NatPower\nin Europe, and data-center operators are buying storage as fast as Tesla can build it. A denser unit that goes up faster is exactly what those customers are asking for.\nWhy the new factory matters\nBrookshire is Tesla’s answer to a supply problem. The company’s Lathrop, California Megafactory and its Shanghai plant have been running flat out, and Tesla\nannounced this third Megafactory\nspecifically to add capacity as competition from CATL, Fluence, and BYD heats up.\nAt 50 GWh a year dedicated to Megapack 3, Brookshire could quickly become Tesla’s largest energy storage manufacturing facility, beating Lathrop’s full output on its own. And building it in 16 months is fast for a facility this size.\nElectrek’s Take\nIt’s impressive how quickly Tesla can get a new factory to production.\nHowever, the spec that matters most with Megapack 3 isn’t the 5 MWh. It’s the Megablock. Grid batteries don’t fail to get built because the cells aren’t good enough — they stall on interconnection, permitting, and the slow, expensive work of wiring gear in a field. Moving that into the factory is the kind of unglamorous manufacturing win that actually moves deployment numbers, and it’s the same playbook Tesla ran on the Supercharger and that turned out more than alright.\nThe open question is cells. Tesla needs a lot of large-format cells to fill a 50 GWh factory, and a chunk of that still depends on suppliers and on how the current US tariff picture shakes out for imported LFP.\nTesla has already started reporting lower gross margins on its energy business due to high tariffs on LFP cells, and its own production isn’t coming close to 50 GWh.\nIf you’re adding a home battery or solar to lock in your own energy costs, the same math that makes grid storage attractive works on your roof. With electricity rates up almost 10% last year and expected to keep climbing, going solar is one of the best ways to protect yourself against rising costs. And with lease and PPA options, you can do it with zero upfront cost and start saving immediately. If you want to find the best deal, check out\nEnergySage\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nFeatured\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nComments\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nFred Lambert's favorite gear\nCombat Edge\nGet an edge on MMA with the best stats\nEnergySage\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "hb": 1
+        },
+        {
+          "t": "全球首辆钠离子电动运输车在中国投入使用",
+          "d": "2026-08-06",
+          "a": "Electrek",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "全球首批钠离子电动运输卡车已在中国投入使用。该K120E矿用自卸车由同力重工与华钠新材合作研发，配备了容量为676 kWh的“海星”系列钠离子电池。电池支持极速快充，且在8000次循环的极长使用寿命内完全不依赖锂资源。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/08/06/worlds-first-sodium-ion-electric-haul-truck-gets-to-work-in-china/",
+          "tp": "钠电重卡投运",
+          "aip": 1,
+          "kp": [
+            "应用里程碑[钠离子电池电动运输车]: 全球首次投入运营",
+            "电池容量[海星系列钠离子电池原型]: 676 kWh",
+            "应用场景[K120E电动运输车]: 重型矿石运输",
+            "开发主体[钠离子电动运输车]: 同力重工与中科海钠联合开发"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Electric Heavy Machinery\nSodium-ion Battery\nJo Borrás\n| Aug 6 2026 - 5:01 am PT\nWhile Americans fret over whether or not electric vehicles are up to the challenge of hauling them back and forth to the Piggly Wiggly\n, Tonly is putting a fleet of advanced sodium battery electric haul trucks to work mining heavy ore.\nCo-developed by Chinese equipment brand Tonly Heavy Industry and the chemistry experts at Hina Battery, the prototype 676 kWh “Haixing” series batteries fitted in this Tonly K120E electric haul truck deployed at the Tangshan Sanyou limestone mines are a world’s-first, offering super fast 0% to 100% charging times in under minutes over a usable lifespan of a positively massive 8,000 cycles (!) without the geopolitical headaches of lithium.\nThe Haixing batteries also offer respectable energy density specs at 165 Wh/kg, improved thermal stability (read: fire safety) compared to lithium, and –\nthe killer app for ultra class haul trucks\n– superior cold-weather performance.\nCold blooded\nTonly haul truck at Peruvian mine; via Tonly.\nThese trucks are earmarked to work in the coldest regions of northern China,\nwhere nighttime temperatures can frequently plummet to -20°C in areas like Harbin and Shenyang\n. Those extreme temperatures don’t just wreak havoc on conventional lithium-ion battery range, they make it almost impossible for the big diesel engines that these big BEVs are replacing to even\nlet alone run efficiently\nThat’s why just about everyone who tests EVs in extreme cold comes out impressed with their performance compared to diesel. That includes semi trucks, light-duty BEVs, and (of course)\nelectric school buses\n“Most of the winter it’s 30 to 35 below (zero),” offered West Grand County School District Director of Transportation, Bethany Aurinwhen, in a 2024 interview. “When it’s up to 20 below that’s good day, and (the electric school bus)\nhas performed extremely well\nPutting people first\nAutonomous Tonly haul trucks.\nThe sort of extreme temperatures that cripple diesels don’t just slow down a mine’s operations, they put the people behind the wheel of these massive machines at serious safety risk from cold-related injuries like frostbite and hypothermia.\nThat’s why stories like last month’s announcement that Tonly will deliver 800 autonomous TLE135 mining trucks to Xinjiang Hanxiang matter so much\nLower emissions, less pollution, reduced hearing loss from diesel drone, superior safety, and autonomous, all-weather performance. That’s a value proposition that’s going to be tough to beat – which explains just about every single political lobbying dollar being spent by the oil companies right now.\nGas and oil knows they’re beat.\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\nEnergySage\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nFeatured\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nComments\nI’ve been involved in the electric vehicle transition in one way or another since 1997, and have covered the industry as a journalist since 2008. You can catch more of my work on Quick Charge and The Heavy Equipment Podcast with Mike Switzer.\nNOTE: any opinions expressed here are solely my own and do not necessarily reflect those of the Federal government, the State of Illinois, Electrek, or anyone else. Nothing here should be interpreted as a statement of official policy, legal guidance, or an endorsement unless expressly labeled as such.\nJo Borrás's favorite gear\nENERGYSAGE\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "WeatherNext热带气旋AI预报模型较主流业务提前一天生成预测",
+        "科研人员成功实现并观测一维莫尔超晶格突现电子绝缘态",
+        "研究利用基因组语言模型生成16种具备特定宿主向性的活性噬菌体"
+      ],
+      "entries": [
+        {
+          "t": "利用人工智能进行热带气旋业务预报",
+          "d": "2026-08-06",
+          "a": "Nature",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "WeatherNext Cyclones (WN-C) 是一款用于热带气旋业务预报的人工智能天气模型。该模型结合全球分析数据和历史热带气旋数据库进行训练，能提前15天生成全球天气和气旋的大规模集合预报。针对2023至2025年热带气旋的评估表明，WN-C在路径、强度和风圈半径的预测上，相比主流业务模型平均能提供一天或更多的提前预报时间。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41586-026-10953-2",
+          "tp": "AI预测气旋",
+          "aip": 1,
+          "kp": [
+            "[WeatherNext Cyclones模型功能]: 生成全球热带气旋路径、强度和大小的一流集合预报",
+            "[模型训练数据]: 全球分析数据与历史热带气旋数据库结合",
+            "[应用领域]: 热带气旋业务预报"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tropical cyclones are among the most dangerous and costly weather phenomena, yet forecasting them remains a profound scientific challenge. Here, we introduce WeatherNext Cyclones (WN-C), an AI operational weather model producing state-of-the-art ensemble forecasts for track, intensity, and size of tropical cyclones worldwide. Trained on a combination of global analysis data1 and a global database of historical tropical cyclones2,3, WN-C generates large ensembles of possible global weather and cyclone scenarios extending 15 days into the future. Evaluated on tropical cyclones from 2023–2025, the track, intensity and wind radii predictions from WN-C offer an average of a day or more of lead time advantage over leading operational models, an improvement in accuracy comparable to the progress seen over the last decade of operational development. We achieved these results using inputs orders of magnitude coarser than regional models, suggesting that high resolution is not a strict prerequisite for state-of-the-art intensity forecasting and that this coarser atmospheric data contains more intensity signal than previously recognised. Including predictions from WN-C in a weighted-average consensus ensemble substantially improves its skill. The scalability of WN-C enables up to 1,000-member ensembles which better capture rare events over conventional 50-member ensembles. By providing state-of-the-art operational ensemble guidance to human forecasters, this work represents a step-change towards more reliable and timely forecasts and warnings that can help protect lives and mitigate the devastating impacts of tropical cyclones.",
+          "hb": 1
+        },
+        {
+          "t": "一维莫尔超晶格中的突现电子绝缘态",
+          "d": "2026-08-06",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "二维范德华莫尔超晶格是设计量子态的有效手段，但扩展至一维系统仍具挑战。研究成功在一维范德华系统中实现了莫尔工程，创造并观察到了一维莫尔超晶格中的突现电子绝缘态，拓展了莫尔工程在低维量子材料物性调控中的应用边界。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/h1q6-rc95",
+          "tp": "莫尔超晶格绝缘态",
+          "aip": 1,
+          "kp": [
+            "[一维范德华摩尔超晶格]: 成功将摩尔工程扩展至一维体系并观测到新兴电子绝缘态"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Jianfeng Bi, Masaki Minamikawa, Ruige Dong, DongJun Kang, Zihan Weng, Shaoqi Sun, Shuo Jing, Kenji Watanabe, Takashi Taniguchi, Ryosuke Okumura, Huizhen Wu, Naoto Nakatsuji, SeokJae Yoo, Mikito Koshino, and Sihan ZhaoTwo-dimensional van der Waals (vdW) moiré superlattices have provided a powerful knob to engineer a plethora of new quantum states. However, extending such moiré engineering to one-dimensional (1D) vdW systems has remained challenging. Here, we report the creation of moiré-engineered electronic insu…[Phys. Rev. Lett. 137, 066201] Published Thu Aug 06, 2026",
+          "hb": 1
+        },
+        {
+          "t": "使用基因组语言模型的噬菌体生成设计",
+          "d": "2026-08-06",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "研究首次利用基因组语言模型成功实现了完整噬菌体基因组的生成式设计。以噬菌体ΦX174为模板，生成了具有特定宿主向性的活性噬菌体。实验测试获得了16种适合度特征不同的噬菌体，冷冻电镜证实其中一种生成噬菌体的衣壳使用了远缘DNA包装蛋白。混合使用这些生成噬菌体能快速克服对ΦX174产生抗性的大肠杆菌菌株。",
+          "sc": 8.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aec2657?af=R",
+          "tp": "噬菌体生成设计",
+          "aip": 1,
+          "kp": [
+            "[噬菌体完整基因组]: 使用基因组语言模型进行生成式设计(以ΦX174为模板)",
+            "生成结果[实验室条件]: 产出16种具有目标宿主趋向性和多样化适应度的存活噬菌体"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Many important biological functions arise not from single genes but from complex interactions encoded by entire genomes. We report the first generative design of complete bacteriophage genomes using genome language models. We generated viable bacteriophages with target host tropism, using the phage ΦX174 as our design template. Experimental testing yielded 16 phages with diverse fitness profiles in laboratory conditions. Cryo–electron microscopy confirmed that a generated phage utilizes an evolutionarily distant DNA packaging protein in its capsid. A cocktail of generated phages rapidly overcomes ΦX174-resistant\n                    Escherichia coli\n                    strains, demonstrating a path toward artificial intelligence–generated phage therapies against rapidly evolving bacterial pathogens. This work provides a blueprint for the design of diverse synthetic bacteriophages and useful biological systems at the genome scale.",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "强流重离子加速器装置成功探测并鉴别稀有原子核铪-153",
+        "Tiberius与美国陆军研发射程150公里的155毫米冲压炮弹",
+        "研究揭示量子磁体MnBi2Te4缺陷导致拓扑表面态发生位移"
+      ],
+      "entries": [
+        {
+          "t": "大科学装置强流重离子加速器首个实验结果发表",
+          "d": "2026-08-06",
+          "a": "新华网科技",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "国家重大科技基础设施强流重离子加速器装置（HIAF）于7月21日通过工艺验收进入调试阶段后，近日成功产生并鉴别了稀有原子核铪-153，相关成果发表于《科学通报》英文版。实验依托高强度重离子束流、高性能放射性束流线和高精度环形谱仪等核心技术，成功探测到位于缺中子重核区域的铪-153，为研究原子核结构和稳定极限提供了关键支撑。未来装置探测能力预计将提升约两个数量级。",
+          "sc": 8.7,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.news.cn/tech/20260806/9bf48605b3a848fb915b34cc166bc319/c.html",
+          "tp": "重离子加速器",
+          "aip": 1,
+          "kp": [
+            "稀有原子核鉴别[强流重离子加速器装置HIAF]: 铪-153",
+            "分离与鉴别支撑技术[稀有原子核]: 高强度重离子束流、高性能放射性束流线、高精度环形谱仪等时性质谱技术"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "新华社兰州8月5日电（记者任延昕）记者5日从中国科学院近代物理研究所获悉，国家重大科技基础设施建设项目——强流重离子加速器装置（HIAF）近日成功产生并鉴别了稀有原子核铪-153。这是该装置7月21日完成验收并进入调试阶段后产出的首个物理成果，相关成果以短通讯形式发表于《科学通报》英文版。\n图为位于广东省惠州市的强流重离子加速器装置（无人机照片）。新华社发\n原子核由质子和中子组成，质子和中子不同数量的组合形成了丰富多彩的核素世界。探索未知核素、研究原子核存在的边界是核物理领域的重要前沿。铪-153位于缺中子重核区域，是研究原子核结构演化和稳定极限的重要对象。\n中国科学院近代物理研究所研究员王猛介绍，此次实验能够成功探测到产生概率极低的铪-153，得益于HIAF多项关键技术的协同发展。高强度重离子束流提升了稀有核素的产生能力，高性能的放射性束流线实现了目标核素的高效分离，高精度环形谱仪等时性质谱技术为鉴别稀有原子核提供了重要支撑。\n“随着HIAF性能持续提升，未来实验的探测能力预计还将提高约两个数量级。”王猛说，HIAF将在探索未知核区、发现新核素和研究极端条件下原子核性质等方面发挥更加重要的作用。\n强流重离子加速器装置是《国家重大科技基础设施建设中长期规划（2012－2030年）》确定的重点建设内容之一，由中国科学院近代物理研究所负责建设。装置于2018年12月正式开工，于2025年10月成功出束。2026年7月21日，该装置通过了由中国科学院组织的工艺验收，进入调试阶段。",
+          "hb": 1
+        },
+        {
+          "t": "美国陆军支援炮弹飞行 65,000 英尺，击中 93 英里外的目标",
+          "d": "2026-08-06",
+          "a": "interesting engineering",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "Tiberius Aerospace与美国陆军签署了合作研发协议，共同推进其代号“Sceptre”的155毫米精确制导冲压炮弹。该型炮弹专为现有管式火炮发射设计，无需购买新发射器。其性能参数包括：飞行速度超过3马赫，飞行高度超过65,000英尺（约1.98万米），最大射程达93英里（150公里），并具备在GPS信号不可用环境下的打击能力。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/military/us-army-advances-mach-3-ramjet-shell",
+          "tp": "冲压动力炮弹",
+          "aip": 1,
+          "kp": [
+            "口径[冲压动力精确制导炮弹]: 155毫米（约6.1英寸）",
+            "最大打击距离[Sceptre精确制导炮弹]: 93英里",
+            "最大飞行高度[Sceptre精确制导炮弹]: 65,000英尺",
+            "动力形式[155mm炮弹]: 冲压发动机"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Tiberius Aerospace has signed a Cooperative Research and Development Agreement with the U.S. Army to advance Sceptre, its precision-guided, ramjet-powered 155mm (about 6.1 inches) artillery munition.Announced on Thursday, the partnership brings the defense company together with the U.S. Army Combat Capabilities Development Command Armaments Center to mature the weapon.The program seeks to extend the reach and precision of existing tube artillery without requiring militaries to purchase new launchers. Sceptre is designed to travel beyond Mach 3, climb above 65,000 feet, and strike targets up to 93 miles (150 kilometers) away, including in environments where GPS signals are unavailable or disrupted.Collaboration targets technical maturationThe agreement creates a framework through which Tiberius Aerospace and DEVCOM Armaments Center can conduct mutually approved research and technical work. Such agreements allow U.S. government laboratories and private companies to share expertise, facilities, and resources while developing technologies of common interest.For Tiberius, the arrangement represents another step in Sceptre’s development and expands its work with the U.S. Department of Defense. The effort will focus on validating and refining the technologies needed to turn the experimental round into a mature artillery capability.Sceptre differs from conventional rocket-assisted projectiles because its liquid-fueled ramjet delivers propulsion throughout its flight. This sustained thrust is intended to help the shell achieve greater speed, altitude, and range after being fired from a NATO-standard 155mm howitzer.The munition is designed to land within five meters of its target, according to the company. Its ability to operate without GPS could prove valuable in contested battlefields where satellite navigation faces jamming, spoofing, or other electronic interference.Existing howitzers gain longer reachA central feature of Sceptre is its compatibility with artillery systems already used by NATO forces. The round does not need a dedicated launcher or bespoke firing platform, potentially allowing militaries to expand their long-range firepower while retaining current howitzers.Its propulsion system can also use several readily available military fuels, including diesel, JP-4, and JP-8. By drawing on established battlefield fuel networks, the design is intended to reduce the storage, transportation, and sustainment burden associated with introducing a new type of munition.Tiberius reached a major development milestone in April 2026 when it launched a liquid-fueled ramjet from a NATO-standard 155mm howitzer. The company described it as a world-first demonstration.Software-defined shell evolves with threatsPrevious testing has examined whether the round can withstand launch forces of approximately 16,000 g. Tiberius has also demonstrated fin deployment and stable aerodynamic flight as part of a test campaign that evaluates Sceptre’s underlying systems separately before integrating them.The shell uses a modular, open software architecture intended to support upgrades during its operational life. Tiberius plans to connect it with GRAIL, an AI-powered platform developed to accelerate weapon-system improvements.Through GRAIL, engineers could introduce updated targeting functions, guidance algorithms, mission software, and autonomous capabilities as requirements change. The platform also links operational needs with engineering, testing, and distributed manufacturing, allowing the munition to respond more quickly to battlefield threats without replacing its fundamental hardware.",
+          "hb": 1
+        },
+        {
+          "t": "量子磁体中缺陷引起的拓扑表面态位移 ${\\mathrm{MnBi}}_{2}{\\mathrm{Te}}_{4}$",
+          "d": "2026-08-06",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "研究发现，量子磁体MnBi2Te4（MBT）的缺陷会导致其拓扑表面态发生位移。MBT具有拓扑间隙表面态，是实现量子反常霍尔态和轴子绝缘体态的理想平台。然而，实验观测到的表面态间隙与理论预测不符，该研究揭示了缺陷在其中产生的影响。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/pt1j-996m",
+          "tp": "拓扑磁体表面态",
+          "aip": 1,
+          "kp": [
+            "[拓扑磁体MnBi2Te4]: 实验观察到的表面态能隙未达到理论预测值",
+            "[拓扑磁体MnBi2Te4]: 缺陷引起拓扑表面态位移"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): Felix Lüpke, Marek Kolmer, Hengxin Tan, Hao Chang, Adam Kaminski, Binghai Yan, Jiaqiang Yan, Wonhee Ko, and An-Ping LiThe topological magnet ${\\text{MnBi}}_{2}{\\text{Te}}_{4}$ (MBT), with gapped topological surface state, is an attractive platform for realizing quantum anomalous Hall and axion insulator states. However, the experimentally observed surface state gaps fail to meet theoretical predictions, although th…[Phys. Rev. Lett. 137, 066603] Published Thu Aug 06, 2026",
+          "hb": 1
+        }
+      ]
+    }
+  ]
+}

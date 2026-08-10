@@ -6,96 +6,55 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究人员提出钠离子交联支架策略以提升钙钛矿电池稳定性",
-      "电化学表面矿化技术实现常温常压下低能耗直接空气碳捕集",
-      "冠醚基共价有机框架纳米通道抑制锂枝晶生长并提升电导率"
+      "Integrals Power新型磷酸锰铁锂正极材料1C循环1500圈容量保持率近80%"
     ],
-    "AI与智能科技": [
-      "纳米栅极铁电晶体管实现0.6V超低工作电压与极低功耗",
-      "金属相氮化钽单晶材料测得高热导率以缓解芯片散热瓶颈",
-      "硅纳米线自组织生长锗量子点应用于50K单空穴晶体管"
-    ],
-    "通用技术": [
-      "掺杂剂化学气相沉积工艺突破非晶硅全可见光波段光学损耗极限",
-      "二维DNA折纸结构实现分子信号定向且长距离传输",
-      "室温可扩展核酸存储系统支持条形码样品组合检索与数据库查询"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究人员提出钠离子交联支架策略以提升钙钛矿电池稳定性",
-        "电化学表面矿化技术实现常温常压下低能耗直接空气碳捕集",
-        "冠醚基共价有机框架纳米通道抑制锂枝晶生长并提升电导率"
+        "Integrals Power新型磷酸锰铁锂正极材料1C循环1500圈容量保持率近80%"
       ],
       "entries": [
         {
-          "t": "钠集成可交联支架协同分子锁定实现耐久钙钛矿太阳能电池",
+          "t": "Integrals Power称其80%锰含量的磷酸锰铁锂正极可1C循环1500圈",
           "d": "2026-02-15",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "针对钙钛矿太阳能电池商业化中非辐射复合损失导致的效率与稳定性瓶颈，研究者提出钠离子集成交联型支架分子的协同锁定策略。该分子通过多位点锚定稳定钙钛矿晶格结构，有效抑制缺陷态形成与离子迁移，显著提升器件的光电转换效率和长期运行耐久性，为钙钛矿电池走向产业化提供了材料工程层面的可行路径。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202525815?af=R",
-          "tp": "钙钛矿太阳能电池",
-          "aip": 1,
-          "kp": [
-            "[稳定化策略]:原位聚合协同钠间隙掺杂",
-            "[应用]:钙钛矿太阳能电池及组件"
-          ],
-          "lv": 0,
+          "a": "Integralspower",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "英国锂电正极材料公司Integrals Power宣布其开发的锰含量80%磷酸锰铁锂（LMFP）正极材料，经克兰菲尔德大学和QinetiQ检测（软包电池），1C循环1500圈后容量保持率接近80%；低温性能方面-25°C保留容量85%、-30°C保持68%。公司未说明锰含量是否为质量占比，也未公开负极和电解液材料。该结果展示了LMFP正极在循环寿命和低温性能方面的商业化潜力。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://integralspower.co.uk/durability-and-performance-of-integrals-power-lmfp-cells-proven-in-cycle-testing-by-qinetiq/",
+          "tp": "磷酸锰铁锂",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    The primary challenge in commercializing perovskite solar cells (PSCs) mainly stems from undesired non‐radiative recombination loss and defect‐mediated migration of halide perovskite materials. Herein, we propose a synergistic stabilization strategy integrating in situ polymerization with sodium interstitial doping to concurrently regulate crystallization kinetics and suppress ion migration. The cross‐linked scaffold formed by sodium thioctate (TANA) templates high‐quality perovskite growth through retarded crystallization and suppressed nucleation, while Na\n                    +\n                    dopants occupying interstitial sites effectively reduce electron–phonon coupling and alleviate the lattice microstrain. Additional coordination and hydrogen bonding between TANA and the perovskite facilitate the suppression of iodide and lead vacancy defects, reinforcing the driving forces for carrier extraction and transfer. As a result, the optimized device yields a champion power conversion efficiency (PCE) of 26.90% (certified 26.75%), along with excellent long‐term stability, retaining 92.3% of its initial efficiency after 1000 h under continuous operation (ISOS‐L‐2I). Remarkably, a minimodule with an aperture area of 10.24 cm\n                    2\n                    also achieves a remarkable PCE of 23.0%, underscoring the industrial potential of this multifunctional stabilization approach.",
+          "cm": "Integrals Power成立于2020年，其创始人Behnam Hormozi硕士毕业于西英格兰大学嵌入式系统与无线网络专业，曾在Cummins公司任电池制造工程师（称参加过迈凯伦的混动电池项目）。据Integrals Power当前公开专利（EP4573045A1）所示，其将Li2CO3（或LiOH等）、FeSO4·7H2O（或FeC2O4）、MnSO4、H3PO4（或NH4H2PO4）等原料与乙二醇溶剂混合（溶质溶剂比1:1），通过水热/溶剂热反应器中加热反应（200-700℃+180-550bar），离心、洗涤、球磨、干燥、煅烧（600-1200℃）制得LiFe0.5Mn0.5PO4材料。制备出一次LMFP颗粒为片状（厚度明显小于宽度5-100nm、长度，D50=20-150nm），由此团聚形成的球形二次颗粒D50=1-10μm、孔隙5-30%；粘结剂和导电剂在正极材料质量占比分别为1-30%；整体硫酸盐含量<100ppm，氢含量<1000ppm。",
+          "b": "2月15日，英国锂电正极材料公司Integrals Power在其官网发文称，其开发/试产的锰含量80%的磷酸锰铁锂（LMFP，未说明是否为质量占比）正极材料经过英国克兰菲尔德大学、国防工程技术测试公司QinetiQ的检测（软包电池、负极/电解液材料未说明），1C循环1500圈后容量保持率接近80%；-25℃下保留容量达85%，在-30℃时保持容量达68%。",
           "hb": 1
         },
         {
-          "t": "CO2电化学可逆表面矿化用于直接空气捕集",
+          "t": "Integrals Power称其80%锰含量的磷酸锰铁锂正极可1C循环1500圈",
           "d": "2026-02-15",
-          "a": "Nature Energy",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "直接空气捕集(DAC)是实现负碳排放的关键技术，但现有液体碳酸盐体系面临能耗高、腐蚀和效率瓶颈。本文提出一种电化学可逆的表面矿化CO₂捕集方法，通过电驱动在电极表面实现CO₂的可逆捕获与释放。该方法利用电势调制控制CO₂的矿化与溶解，避免了传统热再生过程的高能耗，同时避免了液体吸收剂的挥发和降解问题。电化学表面矿化在常温常压下运行，具有快速动力学和可逆循环特性，显著降低了捕集能耗和系统复杂度。该策略为高效、低能耗的直接空气CO₂捕集与释放提供了新路径，对规模化碳管理技术具有重要启示意义，有望推动电化学碳捕集从概念走向实际工程应用。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-026-01989-9",
-          "tp": "CO2表面矿化捕获",
-          "aip": 1,
-          "kp": [
-            "能耗[液态碳酸盐DAC]: 6-10 GJ/t CO₂",
-            "吸附剂[电化学矿化]: MnO₂",
-            "[机制]: 电化学还原活化Mn(II)"
-          ],
-          "lv": 0,
+          "a": "Integralspower",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "英国锂电正极材料公司Integrals Power宣布其开发的锰含量80%磷酸锰铁锂（LMFP）正极材料，经克兰菲尔德大学和QinetiQ检测（软包电池），1C循环1500圈后容量保持率接近80%；低温性能方面-25°C保留容量85%、-30°C保持68%。公司未说明锰含量是否为质量占比，也未公开负极和电解液材料。该结果展示了LMFP正极在循环寿命和低温性能方面的商业化潜力。",
+          "sc": 6.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://integralspower.co.uk/durability-and-performance-of-integrals-power-lmfp-cells-proven-in-cycle-testing-by-qinetiq/",
+          "tp": "磷酸锰铁锂",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
-          "cm": "",
-          "b": "Electrified CO2 capture and release from air offers net-negative emissions, but today’s liquid-carbonate-based systems have a high energy cost (6–10 GJ per ton of CO2), and organic sorbents are oxygen sensitive. Here we report electrified CO2 surface mineralization/demineralization capture/release, wherein an inorganic capture sorbent, MnO2, is electrochemically reduced/activated to generate Mn(III), which mineralizes CO2 to form MnOOCO2H (operando Raman); the process is reversed under oxidative potential. This approach is built upon Mn redox reaction that resides within the water-stable bracket, offering tunable driving force (kinetics/productivity) with applied potential (energy). After optimizing the electrochemical protocol, we capture from air (0.04% CO2 and 21% O2) at 4.1 GJ per ton of CO2, with capacity and kinetics comparable to prior sorbents, low sensitivity to oxygen/humidity, 80% single-pass CO2 capture ratio and release under a pure CO2 carrier gas stream and pressure drop 1,000 h with >90% capacity retention and scales to 20 cm2 without loss; remaining challenges include material utilization, electrolyte, gas flow/pressure drop and CO2-purity management.",
-          "hb": 1
-        },
-        {
-          "t": "冠醚编程的共价有机框架纳米通道实现固态锂金属电池准单离子传导",
-          "d": "2026-02-15",
-          "a": "National Science Review Advance Access",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究设计了冠醚 programmed共价有机框架（COF）纳米通道，在固态锂金属电池中实现准单离子传导。固态锂电池面临锂离子传输缓慢和阴离子驱动的界面不稳定两大瓶颈。该工作在COF孔道中引入冠醚基团，通过主客体识别选择性配位锂离子并排斥阴离子迁移，构建准单离子传导路径。该策略同时提升了离子电导率和锂离子迁移数，有效抑制锂枝晶生长和界面副反应，为高安全、高能量密度固态电池的电解质设计提供了分子工程方案。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag098/8482764?rss=1",
-          "tp": "固态锂电池电解质",
-          "aip": 1,
-          "kp": [
-            "电解质[固态锂金属电池]: 冠醚COF/含氟聚合物",
-            "[传导机制]: 亚胺键+极性含氟域准单离子传导"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Solid-state lithium (Li) metal batteries are hindered by sluggish Li+ transport and anion-driven interfacial instabilities in polymer electrolytes. Herein, we develop a quasi-single-ion-conducting polymer electrolyte by embedding a crown ether-functionalized covalent organic framework (COF) into a fluorinated polymer matrix. Imine (C = N) linkages in the COF and polar fluorinated polymer domains cooperatively immobilize TFSI− via electrostatic adsorption and pore-defined confinement, while the imine sites and crown-ether oxygens dynamically decouple Li+ from its counter-anion and provide exchangeable coordination nodes for rapid interlayer migration along ordered COF channels. As a result, the electrolyte delivers a high ionic conductivity of 1.15 × 10−3 S cm−1 with a high Li+ transference number of 0.91, establishing a continuous Li+-preferential transport network that homogenizes ion flux, promotes the formation of thin and compact interphases, and stabilizes Li anodes and high-voltage cathodes. This crown ether-COF design establishes a broadly applicable design paradigm for decoupling ion transport and interfacial chemistry, paving the way toward next-generation long-lifetime Li metal batteries.",
+          "cm": "Integrals Power成立于2020年，其创始人Behnam Hormozi硕士毕业于西英格兰大学嵌入式系统与无线网络专业，曾在Cummins公司任电池制造工程师（称参加过迈凯伦的混动电池项目）。据Integrals Power当前公开专利（EP4573045A1）所示，其将Li2CO3（或LiOH等）、FeSO4·7H2O（或FeC2O4）、MnSO4、H3PO4（或NH4H2PO4）等原料与乙二醇溶剂混合（溶质溶剂比1:1），通过水热/溶剂热反应器中加热反应（200-700℃+180-550bar），离心、洗涤、球磨、干燥、煅烧（600-1200℃）制得LiFe0.5Mn0.5PO4材料。制备出一次LMFP颗粒为片状（厚度明显小于宽度5-100nm、长度，D50=20-150nm），由此团聚形成的球形二次颗粒D50=1-10μm、孔隙5-30%；粘结剂和导电剂在正极材料质量占比分别为1-30%；整体硫酸盐含量<100ppm，氢含量<1000ppm。",
+          "b": "2月15日，英国锂电正极材料公司Integrals Power在其官网发文称，其开发/试产的锰含量80%的磷酸锰铁锂（LMFP，未说明是否为质量占比）正极材料经过英国克兰菲尔德大学、国防工程技术测试公司QinetiQ的检测（软包电池、负极/电解液材料未说明），1C循环1500圈后容量保持率接近80%；-25℃下保留容量达85%，在-30℃时保持容量达68%。",
           "hb": 1
         }
       ]
@@ -103,158 +62,14 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "纳米栅极铁电晶体管实现0.6V超低工作电压与极低功耗",
-        "金属相氮化钽单晶材料测得高热导率以缓解芯片散热瓶颈",
-        "硅纳米线自组织生长锗量子点应用于50K单空穴晶体管"
-      ],
-      "entries": [
-        {
-          "t": "工作电压低至0.6V的纳米门铁电晶体管",
-          "d": "2026-02-15",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究提出纳米栅极铁电晶体管（Nanogate FeFET），实现了0.6V的超低工作电压。铁电场效应晶体管作为电场驱动的非易失性存储器，具有极低功耗优势。该工作通过纳米栅极结构大幅降低驱动电压，突破了铁电存储器件低功耗化的关键瓶颈，对下一代超低功耗存储与边缘计算应用具有重要推动作用。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea5020?af=R",
-          "tp": "纳米铁电晶体管",
-          "aip": 1,
-          "kp": [
-            "[工作电压]:0.6 V",
-            "[器件]:纳米门铁电晶体管",
-            "[沟道]:金属型单壁碳纳米管"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Ferroelectric field-effect transistors (FeFETs), as an electric field–driven nonvolatile memory, offer extremely low power consumption and high speed. Despite efforts, FeFETs have not been successfully scaled down to sub–5-nanometer-node technology, with their operational voltage exceeding 1.5 V, making them unable to match monolithic logic cores. Our study used metallic single-walled carbon nanotubes as gate electrodes to shrink the gate length of molybdenum disulfide FeFET to 1 nanometer. This nanogate approach leads to an electric field concentration and enhanced ferroelectric–to–metal-oxide semiconductor capacitance coupling, resulting in a reduced operating voltage of 0.6 V, below the conventional ferroelectric coercive voltage. The nanogate molybdenum disulfide FeFETs exhibit superior memory performance, with a substantial current on/off ratio of 2 × 10\n                    6\n                    and a rapid programming speed of 1.6 nanoseconds. This study demonstrates the immunity of nanogate FeFETs to short-channel effects, highlighting the notable potential of ferroelectric electronics for enabling superior scaling, performance, and energy efficiency in sub–1-nanometer-node chips.",
-          "hb": 1
-        },
-        {
-          "t": "金属相θ-TaN单晶体中的高热导率",
-          "d": "2026-02-15",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究了金属相θ-TaN（氮化钽）单晶材料的高热导率特性。金属薄膜在集成电路中同时承担供电与散热双重关键功能，但常规金属材料的热导率普遍受限，成为芯片热管理的瓶颈。实验测量表明，θ-TaN单晶在室温下展现出显著高于传统金属导热材料的热导率，兼具高电导率与优异力学性能。该发现为下一代高功率集成电路和高性能电子器件的热管理提供了新材料方案，有望缓解先进制程芯片的散热瓶颈，对微电子封装与器件可靠性具有重要价值。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag106/8483893?rss=1",
-          "tp": "氮化钽高导热",
-          "aip": 1,
-          "kp": [
-            "热导率[θ-TaN单晶]: 突破400 W/m·K金属上限",
-            "[合成方法]: 高压合成六方θ-TaN",
-            "[材料类型]: 金属性六方氮化钽单晶"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Metallic materials are critical in integrated circuits as they not only deliver power but also dissipate heat. However, their performance is constrained as metals’ thermal conductivity is capped with a value of about 400 W m-1 K-1. Here, we shatter this long-standing ceiling by high-pressure synthesis of the metallic hexagonal tantalum mononitride (θ",
-          "hb": 1
-        },
-        {
-          "t": "无光刻、位置可控的硅纳米线锗量子点用于最高50K下单空穴晶体管",
-          "d": "2026-02-15",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究在硅纳米线中实现了无光刻、位点可控的锗量子点，并将其应用于可在50K温度下运行的单空穴晶体管。量子点位置和尺寸的精确控制是量子电子学的核心挑战，但通常依赖复杂光刻工艺。该工作利用自组织生长方法直接在硅纳米线的指定位置形成锗量子点，大幅简化了制造流程。器件在50K温度下实现单空穴隧穿输运，展示了量子限制效应，为可扩展的硅基量子器件阵列制备提供了低成本路径。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aed0335?af=R",
-          "tp": "锗量子点晶体管",
-          "aip": 1,
-          "kp": [
-            "工作温度[单空穴晶体管]: 高至50K",
-            "[制备方法]: 台阶约束异前驱体供应免光刻",
-            "量子点[硅纳米线]: 锗QD位控生长于台阶边缘"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Precise control over quantum dot (QD) position and size is critical for quantum electronics but typically requires complex nanofabrication. Here, we report a step-confined heteroprecursor supply (sc-HPS) strategy for growth of crystalline germanium (c-Ge) QDs at predefined step edges within planar ultrathin silicon nanowire (SiNW) channels, eliminating the need for high-resolution lithography. Unlike conventional in-plane solid-liquid-solid growth using a uniform amorphous silicon precursor, sc-HPS uses a spatially confined amorphous germanium (a-Ge) layer defined by oblique patterning of a SiO\n                    2\n                    /a-Ge stack. This restricts Ge supply to a narrow strip along the step edge, enabling nucleation and tunable QD diameters of ~25 to 150 nm, sandwiched between two epitaxially connected SiNWs. The SiNW/Ge-QD/SiNW heterostructure forms a Si/Ge interface that provides three-dimensional hole confinement. Single-hole transistors fabricated from these structures exhibit clear Coulomb oscillations and well-defined Coulomb diamonds up to 50 K, demonstrating single-hole charging behavior. This scalable and lithography-free approach enables previously unexplored opportunities in hole-based quantum devices and nanoelectronic architectures.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "掺杂剂化学气相沉积工艺突破非晶硅全可见光波段光学损耗极限",
-        "二维DNA折纸结构实现分子信号定向且长距离传输",
-        "室温可扩展核酸存储系统支持条形码样品组合检索与数据库查询"
-      ],
-      "entries": [
-        {
-          "t": "通过掺杂剂可控化学气相沉积突破非晶硅全可见光谱光学损耗极限",
-          "d": "2026-02-15",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "非晶硅在可见光全光谱范围内的光学损耗一直是限制纳米光子器件性能的核心障碍。该研究通过调控非晶硅的折射率与光学色散特性，在全可见光波段实现了突破性的低损耗光传播，为高效率纳米光子结构、集成光子芯片和超表面器件开辟了新路径，有望推动片上光互联与光计算技术的实用化进程。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady0344?af=R",
-          "tp": "非晶硅光学损耗",
-          "aip": 1,
-          "kp": [
-            "材料[超表面介电]: 可见透明氢化非晶硅",
-            "[工艺]: 掺杂控制CVD",
-            "[特性]: 全可见光谱低光学损耗"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The propagation of light in nanophotonic structures is governed by the refractive index and optical dispersion of constituent materials. However, the choice of dielectrics is often restricted within the transparency window. We introduce object-driven engineering of the process of silicon-based dielectric materials for metasurfaces: visibly transparent hydrogenated amorphous silicon (a-Si:H) with a high refractive index of 3.48 and oxygen-doped a-Si:H (a-SiO\n                    x\n                    :H) exhibiting strong dispersion (Abbe number &lt; 10). Both films are fabricated via chemical vapor deposition with precise control over atomic bonding and dopants, revealing the link between optical properties and the amorphous silicon network. We demonstrate the effectiveness of a-Si:H in metalenses with conversion efficiencies of 66.3, 92.0, and 97.0% at 450, 532, and 635 nanometers, respectively. In addition, a wavelength-decoupled a-SiO\n                    x\n                    :H beam-splitter achieves a 3.67-fold steering intensity contrast between 450 and 635 nanometers. These materials broaden the dielectric design space and enhance the performance of nanophotonic devices across the visible spectrum.",
-          "hb": 1
-        },
-        {
-          "t": "二维DNA折纸组装体上的定向长距离信号传输",
-          "d": "2026-02-15",
-          "a": "Chem",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究团队在二维DNA折纸上实现了定向、长距离的分子信号传输，这是高级DNA计算的关键基础。通过设计桥联构象结构，研究者在DNA纳米结构上构建了信号传导路径，使分子级信息能够沿特定方向、跨越较长距离传递。该成果突破了传统分子信号随机扩散的局限，为构建复杂DNA计算电路和分子级信息处理系统提供了新范式，有望推动DNA纳米机器和生物计算的工程化发展。",
-          "sc": 6.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(25)00480-2?rss=yes",
-          "tp": "DNA折页信号传输",
-          "aip": 1,
-          "kp": [
-            "信号传输距离[DNA折纸]: 超500nm",
-            "[桥联策略]: 双层方形折纸无缝组装",
-            "[应用]: 跨折纸DNA逻辑电路"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Directional and long-distance molecular signal transmission is essential to enable advanced DNA computing. A bridged connection strategy is developed to enable scalable and seamless assembly of double-layer square DNA origami units, allowing directional molecular signal transmission over 500 nm and the implementation of DNA logic circuits across two origamis.",
-          "hb": 1
-        },
-        {
-          "t": "通过从室温档案中进行多功能、可扩展的生化选择，实现全球规模的核酸存储库",
-          "d": "2026-02-15",
-          "a": "Nature Communications",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "研究提出了一种可扩展的室温核酸存储系统，以极小的物理占地面积封装条形码化的核酸样品，并支持类似数据库的查询功能，包括数值范围、分类过滤及组合检索。该技术摆脱了传统冷链基础设施和机器人操作的限制，为全球基因组生物样本库的大规模建设提供了新方案。",
-          "sc": 5.8,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://www.nature.com/articles/s41467-026-69402-3",
-          "tp": "核酸存储库",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Conventional storage and retrieval of nucleic acid specimens, particularly unstable RNA, rely on costly cold-chain infrastructure and inefficient robotic handling, inhibiting large-scale nucleic acid archives needed for global genomic biobanking. We introduce a scalable room-temperature storage system with minimal physical footprint that enables database-like queries on encapsulated, barcoded, and pooled nucleic acid samples. Queries incorporate numerical ranges, categorical filters, and combinations thereof, advancing beyond previous demonstrations of single-sample retrieval or Boolean classifiers. We evaluate this system on ninety-six mock SARS-CoV-2 genomic samples barcoded with theoretical patient data including age, location, and diagnostic state, demonstrating rapid, scalable retrieval. We further demonstrate storage and sequencing of human patient-derived nucleic acid samples, illustrating applicability to clinical genomic analysis. By avoiding freezer-based storage and retrieval, this approach scales to millions of samples without loss of fidelity or throughput, enabling large-scale pathogen and genomic repositories in under-resourced or isolated regions of the US and worldwide.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

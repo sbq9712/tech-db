@@ -7,18 +7,18 @@
   "headlines": {
     "零碳产业": [
       "中科院等离子体所制备出全球最大聚变堆超导磁体，最高磁场达14.5特斯拉",
-      "宁德时代预计今年向市场投放最高2万辆搭载钠离子电池的电动汽车",
-      "大众PowerCo选用OCSiAl单壁碳纳米管作为其统一电池正极导电添加剂"
+      "CRAFT环向场超导磁体重达582吨下线，攻克低阻接头等十余项关键技术",
+      "CRAFT高温超导中心螺管线圈完成满工况测试，材料与核心制备工艺均实现国产化"
     ],
     "AI与智能科技": [
-      "OpenAI发布GPT-5.6模型，在推理与多模态理解性能上超越前代产品",
-      "中国LineShine超算峰值算力超2 Exaflops，登顶全球超算排行榜",
-      "我国发布首台盾构机智能换刀机器人，可在不停机条件下自主完成刀具拆装"
+      "中铁十四局发布首台重载智能盾构换刀机器人，具备500公斤负载替代人工带压作业",
+      "OpenAI发布GPT-5.6系列模型，新增多Agent协同功能并限制受信伙伴调用",
+      "美国商务部确立前沿AI模型发布控制权，Anthropic向百余家白名单实体开放Claude Mythos 5"
     ],
     "通用技术": [
-      "法拉利在国内首发首款纯电车型Luce，四电机系统起售价定为398.8万元",
-      "大众汽车正筹备重组计划，拟全球裁员10万人并关闭4家德国工厂",
-      "科学家研发新型光学材料，可将可见光波段的太阳辐射转换为紫外光"
+      "欧洲首台TES光谱仪投用，检测X射线光子效率较传统仪器提升100至1000倍",
+      "发改委与能源局印发新型能源体系规划，要求2030年风光发电装机比重超50%",
+      "Sunrun与Tesla等企业整合电源设备，为全美最大数据中心市场提供16.8GW灵活电网容量"
     ]
   },
   "sectors": [
@@ -27,8 +27,8 @@
       "review": null,
       "headlines": [
         "中科院等离子体所制备出全球最大聚变堆超导磁体，最高磁场达14.5特斯拉",
-        "宁德时代预计今年向市场投放最高2万辆搭载钠离子电池的电动汽车",
-        "大众PowerCo选用OCSiAl单壁碳纳米管作为其统一电池正极导电添加剂"
+        "CRAFT环向场超导磁体重达582吨下线，攻克低阻接头等十余项关键技术",
+        "CRAFT高温超导中心螺管线圈完成满工况测试，材料与核心制备工艺均实现国产化"
       ],
       "entries": [
         {
@@ -37,7 +37,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
           "as": "中科院合肥等离子体所宣布聚变堆主机关键系统CRAFT最大的部件——环向场（TF）超导磁体完成制备并下线验收。该磁体体积为ITER TF磁体的1.3倍、储能3倍，为全球最大聚变堆超导磁体，尺寸21×12×3.3米，重582.4吨，运行电流98千安，最高磁场14.5特斯拉，储能120吉焦，攻克0.04纳欧低阻超导接头等十余项关键技术。",
-          "sc": 9.0,
+          "sc": 8.9,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/JHqU5O5yKYSUoyzG6yYXfw",
@@ -51,47 +51,46 @@
           "hb": 1
         },
         {
-          "t": "宁德时代计划为多达2万辆车搭载钠离子电池",
+          "t": "我国CRAFT聚变堆最高磁场14.5特斯拉的超导磁体生产下线",
           "d": "2026-06-27",
-          "a": "electrive",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "宁德时代（CATL）预计今年将有10,000至20,000辆搭载其新型钠离子电池的电动汽车投放市场。钠离子电池以钠盐为正极材料，成本低、低温性能优、安全性高，被视为锂离子电池的重要补充路线。CATL的钠离子电池产品已在部分车型上实现量产装车，标志着该技术从实验室走向规模化商业应用的里程碑，对降低电动车成本和缓解锂资源依赖具有重要意义。",
-          "sc": 8.7,
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "中科院合肥等离子体所宣布聚变堆主机关键系统CRAFT最大的部件——环向场（TF）超导磁体完成制备并下线验收。该磁体体积为ITER TF磁体的1.3倍、储能3倍，为全球最大聚变堆超导磁体，尺寸21×12×3.3米，重582.4吨，运行电流98千安，最高磁场14.5特斯拉，储能120吉焦，攻克0.04纳欧低阻超导接头等十余项关键技术。",
+          "sc": 8.9,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.electrive.com/2026/06/26/catl-targets-up-to-20000-vehicles-with-sodium-ion-batteries/",
-          "tp": "钠离子电池装车",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/JHqU5O5yKYSUoyzG6yYXfw",
+          "tp": "聚变磁体下线",
           "aip": 1,
-          "kp": [
-            "规模[钠离子电池装车]: 1–2万辆/年"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "CATL expects that up to 10,000 to 20,000 electric vehicles with its novel sodium-ion batteries will enter the market this year. Additionally, the Chinese battery market leader has now unveiled its first stationary battery storage system with sodium-ion cells.\nCATL has been developing sodium-ion batteries for several years. The company took a major step forward in April 2026, when it unveiled its Naxtra sodium-ion battery at its Super Technology Day. CATL says the battery\noffers an energy density of up to 175 Wh/kg\nscheduled to enter mass production\nlater this year. The Naxtra battery is also expected to power the\nChangan Nevo A06\n, a battery-electric model developed for the Chinese market.\nDuring the World Economic Forum’s Annual Meeting of the New Champions in the Chinese city of Dalian, CATL’s management provided further details on the role of sodium-ion technology in the company’s strategy. Ni Jun, CATL’s Head of Production, said the company expects to equip between 10,000 and 20,000 electric vehicles with sodium-ion batteries this year.\nAdditionally, CATL’s founder and CEO, Robin Zeng, stated during a panel discussion that the company is capable of producing sodium-ion batteries with an annual capacity of 100 GWh within the next three to five years. Zeng said: “We can produce a large-scale sodium battery for energy storage, so we get rid of the lithium dependence.”\nZeng highlighted two key aspects: first, the high dependence on lithium, whose price in China has risen by 190% since last summer, according to\nCarNewsChina\n. Second, he emphasised the attractiveness of sodium-ion cell chemistry for applications beyond electric vehicles, particularly in stationary battery energy storage systems (BESS), such as those used in AI data centres.\nCoinciding with the event in Dalian, CATL introduced its first BESS featuring sodium-ion cells at another event in Munich. Named the Tener Sodium Energy Storage System, it is reportedly the world’s first field-tested sodium-ion energy storage solution. William Wu, Director of CATL’s Energy Storage Technology Centre, stated during the product launch: “We believe that sodium and lithium together will form the twin foundations of the future energy storage system.”\nEquipped with CATL’s latest sodium-ion technology, the battery energy storage system offers a capacity of more than 30 MWh based on a fully modular architecture. The system can be expanded with additional modules, with 34 units required to achieve a total capacity of 1 GWh.\nSodium-ion batteries are considered a promising alternative to lithium-ion technology because they offer strong performance at low temperatures, are regarded as particularly safe and can be produced using more readily available resources. Unlike lithium, cobalt and nickel, which are often extracted with significant environmental impacts and are concentrated in relatively few regions, sodium is one of the most abundant elements on Earth. It can be sourced cost-effectively from widely available materials such as table salt or seawater.\n(Robin Zeng),\n(Battery storage)\nabout „CATL targets up to 20,000 vehicles with sodium-ion batteries“\nInfrastructure",
+          "b": "6月27日，中科院合肥等离子体所在官方公众号发文称，聚变堆主机关键系统综合研究设施（CRAFT）最大的部件——环向场（TF）磁体完成最后制备工艺，成功下线并通过专业组内部测试验收。文中称，该超导磁体体积是国际热核聚变堆ITER TF磁体的1.3倍，储能为3倍，是目前世界上最大的聚变堆超导磁体；单个磁体尺寸为21米×12米×3.3米，重达582.4吨，运行电流98千安，总储能120吉焦，最高磁场14.5特斯拉；该项目采用混合绕组创新设计，攻克了内部接头电阻0.04纳欧的低阻超导接头、低温绝缘等十余项关键技术难题。",
           "hb": 1
         },
         {
-          "t": "PowerCo选用OCSiAl碳纳米管作为电池添加剂",
+          "t": "央视新闻：聚变堆主机关键系统综合研究设施“CRAFT”环向场（TF）磁体顺利完工",
           "d": "2026-06-27",
-          "a": "electrive",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "大众汽车集团旗下电池子公司 PowerCo 选定纳米技术企业 OCSiAl 作为其统一电池(Unified Cell)的单壁碳纳米管(TUBALL)供应商。单壁碳纳米管作为电池正极导电添加剂，可显著提升锂离子电池的能量密度、循环寿命和快充性能。此举是 PowerCo 推进统一电池平台战略、降低电池成本并追赶亚洲电池厂商的关键一步。OCSiAl 是目前全球唯一实现单壁碳纳米管吨级量产的企业，此次合作标志着碳纳米管在动力电池大规模商用化方面取得实质性突破。",
-          "sc": 8.4,
+          "a": "可控核聚变",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "聚变堆主机关键系统综合研究设施（CRAFT）核心超导部件顺利完工。环向场磁体长21米、宽12米、高3.3米，总重582吨，是目前全球尺寸最大的聚变堆超导磁体，负责构建环向磁场约束等离子体，其全链条关键环节均实现国产自主可控。同时，高温超导中心螺管线圈磁体完成满工况参数测试，核心作用为感应驱动等离子体电流并调节约束形态，从材料到制备工艺均实现完全国产化，核心性能达国际领先水准。",
+          "sc": 9.6,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.electrive.com/2026/06/26/powerco-selects-ocsial-nanotubes-for-battery-additives/",
-          "tp": "电池纳米管添加剂",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/BF2Tzsw7kk6ce4sVpccuLg",
+          "tp": "聚变磁体完工",
           "aip": 1,
           "kp": [
-            "[添加剂]: 单壁碳纳米管（石墨负极）",
-            "[生产地]: 塞尔维亚",
-            "[应用平台]: PowerCo统一电芯"
+            "尺寸规格[环向场超导磁体]: 长21米、宽12米、高3.3米",
+            "总重量[环向场超导磁体]: 582吨",
+            "[环向场磁体国际地位]: 国际上体积最大的聚变堆超导磁体，全链条关键环节均实现国产自主可控",
+            "[高温超导中心螺管线圈磁体]: 完成满工况参数测试，核心性能达国际领先水准"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Volkswagen Group's battery subsidiary PowerCo has selected nanotechnology company OCSiAl as a supplier for its Unified Cell battery platform. The Luxembourg-based company will supply nanotube additives for the graphite anodes used in PowerCo's standardised battery cell. OCSiAl will manufacture the additives at its production facility in Serbia.\nImage: OCSiAl\nOCSiAl has announced that it has secured PowerCo, Volkswagen Group’s battery subsidiary, as a major customer for its nanotubes. The company’s TUBALL nanotubes are an additive that forms a conductive, reinforcing three-dimensional network and can stabilise cathode and anode systems in lithium-ion batteries, among other applications. OCSiAl specialises in single-wall carbon nanotubes and manufactures them\nat its new production facility in Serbia.\nPowerCo plans to use the additive in the graphite anode of its unified cell. According to an accompanying statement, the nanotubes are expected to ‘help improve safety, charging performance, and battery service life.’ Gregory Gurevich, Senior Vice President at OCSiAl, added: “Single wall carbon nanotubes significantly enhance the electrical conductivity of graphite anodes and improve heat dissipation, enabling battery cells to operate at higher charging and discharging currents without overheating.”\nOCSiAl says it now supplies the majority of electric vehicle battery manufacturers in Europe with its TUBALL nanotubes. With demand expected to increase further as next-generation battery platforms enter the market, the company is evaluating the expansion of additional production capacity in Europe.\nPlans are already underway for OCSiAl to build a flagship facility for graphene nanotubes in Luxembourg, with an investment of 300 million US dollars. Gregory Gurevich commented: “Today, batteries containing OCSiAl nanotubes power around one million electric vehicles worldwide. In the PowerCo project, we supply nanotube solutions for graphite anodes. […]These advanced conductive additives are essential for high-performance battery platforms produced at industrial scale.”\nPowerCo has been manufacturing its so-called unified cell at its Salzgitter plant since December. The concept dates back to the tenure of former Volkswagen Group CEO Herbert Diess.\nThe unified cell is a prismatic battery cell with a standardised format measuring 256 x 24.8 x 106 millimetres. Its standardised architecture is designed to enable use across Volkswagen Group brands and global markets, while delivering economies of scale, lower costs and greater technological flexibility. To meet the requirements of different vehicle segments—from small electric cars to large luxury SUVs and Porsche sports cars—the standardised cell format can accommodate various cell chemistries, including future solid-state cells.\nThis concept is being implemented directly in the first series application of the unified cell: the Electric Urban Car Family\ncentred around the VW ID. Polo\nwill be offered with both LFP and NMC cells.\nabout „PowerCo selects OCSiAl nanotubes for battery additives“\nInfrastructure",
+          "b": "央视新闻：聚变堆主机关键系统综合研究设施“CRAFT”环向场（TF）磁体顺利完工 点这里关注 → 点这里关注 → 可控核聚变 每天与你一起 6月27日，国家重大科技基础设施“聚变堆主机关键系统综合研究设施”最大的超导部件——**环向场磁体**完成最后制备工艺，并通过专家验收。同时，**高温超导中心螺管线圈磁体**也完成满工况参数测试，核心性能达到国际领先水准。 环向场磁体 **环向场磁体**是目前国际上体积最大的聚变堆超导磁体。该磁体长21米、宽12米、高3.3米，总重量达582吨，是当前全球尺寸最大的聚变堆超导磁体。环向场磁体是大科学装置“聚变堆主机关键系统综合研究设施”最重要的部件之一。在核聚变装置运行过程中，超导磁体产生强磁场束缚上亿摄氏度高温等离子体，其中环向场磁体负责构建环向磁场来约束等离子体，减少高能粒子对真空室器壁的冲击损耗。目前，整套磁体全链条关键环节均实现国产自主可控，各项性能指标领跑国际同类产品。 高温超导中心螺管线圈磁体 今天完成满工况参数测试的高温超导中心螺管线圈磁体是紧凑型聚变能实验装置的核心部件之一。该装置的核心作用是感应、驱动等离子体电流，并动态调节等离子体约束形态。目前，该磁体从超导材料、结构设计到成套制备工艺均也已实现完全国产化。 这两项核心技术突破为我国建设核聚变堆筑牢了坚实的超导工程基础，将大幅提升我国相关领域的自主研发与工程建造能力。 （总台央视记者 帅俊全 褚尔嘉） * * * 以上内容来源于央视新闻 * 成功研制！CRAFT偏滤器原型部件验收通过 * 全球最大！CRAFT环向场（TF）线圈盒成功交付 * 又一子系统通过验收！CRAFT遥操作系统测试平台成功研制 * 新华社：国产离子回旋加热系统研制成功 * 新华社：CRAFT低杂波电流驱动系统完成测试并通过验收 * 2025年全面建成，CRAFT关键系统已进入密集验收阶段 * “追日”再进一步，夸父关键子系统顺利通过验收 * 大科学装置科技利器+1，国际参数水平最高的超导直线等离子体装置建成投入运行 * 中科院等离子体所建成国际最大的超导磁体动态测试设施，我国聚变能应用进程再提速",
           "hb": 1
         }
       ]
@@ -100,69 +99,77 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "OpenAI发布GPT-5.6模型，在推理与多模态理解性能上超越前代产品",
-        "中国LineShine超算峰值算力超2 Exaflops，登顶全球超算排行榜",
-        "我国发布首台盾构机智能换刀机器人，可在不停机条件下自主完成刀具拆装"
+        "中铁十四局发布首台重载智能盾构换刀机器人，具备500公斤负载替代人工带压作业",
+        "OpenAI发布GPT-5.6系列模型，新增多Agent协同功能并限制受信伙伴调用",
+        "美国商务部确立前沿AI模型发布控制权，Anthropic向百余家白名单实体开放Claude Mythos 5"
       ],
       "entries": [
-        {
-          "t": "刚刚，OpenAI最强GPT-5.6发布！「太阳系」爆发冲破神话",
-          "d": "2026-06-27",
-          "a": "新智元",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "OpenAI发布GPT-5.6模型，据称是其迄今为止最强的大语言模型。该模型在推理、编程、多模态理解等方面实现显著突破，性能表现超越此前各代GPT产品。这标志着大模型能力边界的再次扩展，可能对AI行业竞争格局产生深远影响。",
-          "sc": 8.6,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/FZ_MijBUlmN-8FMTDJgbaQ",
-          "tp": "GPT大模型",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "刚刚，OpenAI最强GPT-5.6发布！「太阳系」爆发冲破神话 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】OpenAI首次启用太阳、大地、月亮命名，全新GPT-5.6正式登场。旗舰Sol编程屠榜，只当了17天第一的Claude Mythos 5，被一夜拉下王座。** OpenAI今夜「三连发」！ 就在刚刚，GPT-5.6 Sol、Terra、Luna同时登场。 太阳、大地、月亮。GPT系列第一次用天文学给模型命名。 * 超大杯旗舰Sol，直接刷爆了AI编程能力的天花板； * 大杯Terra，上一代旗舰的水平，但价格只要一半； * 中杯Luna，每百万token输入只要一刀，量大管饱。 OpenAI用来掀翻Mythos的旗舰，第一次交到了——极少数人手上。 是的，GPT-5.6暂时只向约20家受信合作伙伴开放API和Codex访问，普通用户短期内无缘。 官方的说法是，模型将会在「未来几周」逐步放开。 **OpenAI太阳系，登场** 此前，Anthropic用Mythos（神话）和Fable（寓言）命名，指向的是AI与人类叙事传统的关系。而OpenAI则选了天体。 Sol是拉丁语中的「太阳」，也是罗马神话里驾驭金色战车、每日横跨天穹的太阳神。 它对标最复杂的推理和研究场景，适合长链条、多步骤的硬任务。 输入5美元/百万token，输出30美元/百万token。 Terra是拉丁语的「大地」，也常被作为Earth的拉丁名和文学化称呼。 它瞄准日常开发和知识工作，用更低的成本拿到上一代旗舰级的能力。 输入2.5美元/百万token，输出15美元/百万token。 Luna是拉丁语的「月亮」，夜空中最近、最亮、最容易触及的天体。 它为高吞吐场景而生，分类、摘要、批量处理，追求的是量大管饱。 输入1美元/百万token，输出6美元/百万token。 根据OpenAI官方的解释：「命名的原则是数字标识代际，Sol/Terra/Luna标识持久的能力层级，可以按各自节奏独立迭代。」 也就是说，以后升级到了GPT-6，旗舰可能依然叫Sol，Luna还是对应最小的那个。 你不用猜，就知道自己在用的是什么水平的模型。 **Sol交卷，Mythos让座** OpenAI这次重点秀的能力有三个：编程、生物、网络安全。 编程方面，他们刷的是目前最能衡量AI编程能力的基准之一——Terminal-Bench 2.1。 它考的是代码规划、工具调用、多轮迭代纠错这样完整的命令行工作流，是一个模型能不能像真正的工程师那样端到端地完成复杂项目。 结果显示，Sol在ultra模式下跑出了91.9%，拿下了所有已公开模型的最高分。 作为对比，Anthropic两周前刚发布的Claude Mythos 5在同一基准上是88.0%，Fable 5是84.3%。 Sol关掉ultra只用max模式也有88.8%，单凭这一个数字就已经超过了Anthropic两个最新旗舰。 网络安全，则是OpenAI在博客里着墨最多的方向。 GPT-5.6 Sol在ExploitBench上的表现，几乎打平了Anthropic之前强到不敢发的Mythos Preview，但只消耗了约三分之一的输出token。 在UC Berkeley与OpenAI等实验室联合开发的ExploitGym基准上，Sol、Terra、Luna三个模型都展示了随推理能力增加而持续提升的安全能力曲线。 而在CTF（夺旗赛）评估中，Sol的命中率更是高达96.7%，几乎触顶。 生物学方向，OpenAI跑的是一个专门评估长链条基因组学和定量生物学分析能力的基准——GeneBench v1。 在这里，Sol只需很少的token，就能完爆上一代的GPT-5.5。 医疗领域的涨幅同样很猛。 在HealthBench Professional上，Sol拿到60.5分，比GPT-5.5高出8.7分。 值得一提的是，Terra和Luna是OpenAI历史上首批在网络安全和生物两个领域，同时拿到High能力评级的非旗舰模型。 以前这个级别只属于最强的那一个，这次三个都是。 **ultra：一个模型拆出一组智能体** 除了模型本身之外，OpenAI这次还重磅推出了两种新的推理模式。 第一种叫max。 也就是大家最为熟知的那种形式——给Sol更多时间思考，让推理链更深更长。 第二种叫ultra。 在这个模式下，Sol不再是单一模型在独立思考。它会自动拆分复杂任务，启动一组子智能体（subagents）并行处理，再汇总结果。 如果max是「让一个人想更久」，ultra就是「让这个人召集一支团队」。 这跟Anthropic在Opus 4.6上推的Agent Teams思路不一样。.",
-          "hb": 1
-        },
-        {
-          "t": "中国LineShine登顶全球超算排行榜：你需要了解的要点",
-          "d": "2026-06-27",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/计算集群",
-          "as": "中国LineShine超算登顶全球超算排行榜。该系统采用创新芯片架构设计，峰值算力超过每秒两百亿亿次（2 exaflops）浮点运算，标志着中国在E级超算领域取得重大突破。创新芯片设计可能是突破传统CPU集群算力瓶颈的关键，在气象预报、药物研发、核模拟等大规模科学计算场景具有深远影响。该成果对全球超算竞争格局和HPC芯片自主化路线具有重要战略意义。",
-          "sc": 9.0,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-02047-w",
-          "tp": "超算算力排名",
-          "aip": 1,
-          "kp": [
-            "计算性能[超级计算机]: 超20亿亿次/秒",
-            "[芯片设计]: 创新架构支撑超高算力"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The supercomputer has an innovative chip design that allows it to carry out more than two quintillion calculations per second. The supercomputer has an innovative chip design that allows it to carry out more than two quintillion calculations per second.",
-          "hb": 1
-        },
         {
           "t": "盾构机“换牙”不用人了！我国首台智能换刀机器人发布，这个百亿级市场要变天",
           "d": "2026-06-27",
           "a": "世界先进制造技术论坛",
           "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "我国首台盾构机智能换刀机器人正式发布，标志着隧道掘进装备运维迈向无人化。盾构机刀盘在高硬度地质条件下磨损极快，传统换刀作业需人工进入高气压、高粉尘的刀盘前舱，不仅耗时长达数小时至数十小时，且存在塌方、中毒等致命安全风险。智能换刀机器人集成了机械臂精准抓取、视觉识别定位、力觉反馈控制与远程遥操作技术，可在不停机条件下自主完成旧刀拆卸、新刀安装的全流程作业，将换刀效率提升数倍并消除人员伤亡风险。国内盾构刀具市场已达百亿规模，该技术有望重塑行业运维模式，推动地下工程安全与效率双升。",
-          "sc": 8.7,
+          "as": "我国首台重载智能盾构换刀机器人正式发布并投入实战应用。该机器人由中铁十四局研发，具备11个独立可控活动关节与500公斤负载能力，能抓取超200公斤的滚刀，适用于10至16米级大直径盾构机。该设备已在厦门厦金大桥项目中替代传统的人工带压进舱作业，消除了工人面临的高压与有害气体风险，将中国大直径盾构隧道施工推进至无人化换刀新阶段。",
+          "sc": 9.0,
           "i": "n",
-          "tg": "产业进展",
+          "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/62d5zPwqa7ERNwew5qSQVg",
-          "tp": "盾构机换刀机器人",
+          "tp": "智能盾构换刀机器人",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "作业人数[传统盾构机换刀作业]: 3名作业人员",
+            "作业耗时[传统盾构机带压进舱换刀]: 4小时以上",
+            "设备载荷[首台智能盾构换刀机器人]: 重载",
+            "适配规模[智能换刀机器人应用盾构机]: 16米级"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "盾构机“换牙”不用人了！我国首台智能换刀机器人发布，这个百亿级市场要变天 原创 小艾 小艾 世界先进制造技术论坛 6月25日，厦门，厦金大桥（厦门段）环岛路隧道施工现场。 我国首台重载智能盾构换刀机器人正式发布。 这不是实验室里的样机。它已经在16米级的“厦金号”盾构机上完成上机调试，各项动作参数全部通过验收。6月27日，“厦金号”盾构机将始发掘进左线，这台机器人同步投入实战。 **这是我国盾构换刀机器人首次在大盾构工程项目上应用**。 **一句话：中国大直径盾构隧道施工，正式迈入无人换刀新阶段**。 **** **一、换刀到底有多难？以前是拿命在换** 先搞清楚一个问题：盾构机为什么要频繁换刀？ 盾构机是穿江越海的“大国重器”。掘进时，刀盘上的滚刀就像“牙齿”，持续切削岩石泥土。磨损极快，必须频繁更换。 传统怎么换？ **3名作业人员，带压进舱，耗时4小时以上**。 换刀舱里什么环境？空间狭小、光线昏暗、闷热潮湿、空气浑浊。工人带压作业，行动困难，还面临掌子面失稳、有害气体、减压病等风险。 说白了，**每一次换刀都是一次高风险的地下作业**。 而且随着盾构直径越来越大、掘进深度越来越深、地质条件越来越复杂，人工换刀的难度和风险还在持续上升。 厦金大桥厦门段环岛路隧道就是个典型例子。盾构段开挖直径16.15米，是福建省内最大直径盾构隧道。隧道下穿繁华片区，长距离上软下硬复合地层，覆土最浅仅8.1米。刀具磨损风险突出，对换刀的安全和效率要求极高。 **这个痛点，卡了行业很多年**。 **二、这台机器人什么水平？硬指标摆在这** 这台机器人由中铁十四局研发，历经原理样机、工程样机多轮迭代。中国铁建历时6年攻关。 来看几个关键数字： **11个独立可控活动关节**。具备极强避障能力和精细操作能力。 **500公斤负载能力**。可轻松抓取重达200多公斤的滚刀。 **覆盖10米至18米级超大直径盾构机的整个刀盘**。 **3D红外机器视觉定位，精度控制在1毫米以内**。 **数字孪生智慧管控系统**，自动规划最优换刀顺序和机械臂运动路径。 **更换单把滚刀缩短至25至40分钟，效率提升50%以上**。 **全过程舱内无需人员进入，真正实现少人化、无人化作业**。 **整机软硬件100%国产化，完全自主知识产权**。目前已申请发明专利38件，登记软件著作权7项。 在中国公路学会组织的成果评价会上，以钱七虎院士为首的专家组一致认定：**该研究成果代表我国在该领域的最高技术水平，总体达到国际领先水平**。 **三、院士们怎么看？** 中国工程院院士钱七虎在现场表示，智能换刀机器人的研发，**在安全、效率、成本等方面取得成效**，为我国交通工程装备**自主化、无人化、智能化**发展探索了新路径，也为产业化应用奠定了基础。 中国工程院院士肖明清表示，智能换刀机器人技术一直是国内外工程研究的热点。其成功投用实现了盾构换刀从 **“有人作业”到“无人作业”的跨越**。 两位院士的观点很明确：**这不是一次简单的技术升级，而是一次作业模式的根本性变革**。 **四、放在大背景下看，这件事意义不一般** 孤立看一台机器人，可能会低估它的分量。放在整个中国盾构产业的大背景下，这件事的意义就清晰了。 **先说产业地位。** 中国盾构机**全球市场份额超70%，产销量连续多年世界第一**。国内盾构机**国产化率高达95%**。中国盾构机市场规模预计2025年达到450亿元。 从1997年花近7亿元进口两台二手德国盾构机，到2008年首台自主知识产权盾构机下线打破垄断，再到今天全球每10台盾构机就有7台来自中国——**中国盾构走了近30年从追赶到领跑的路**。 **但领跑不等于没有短板。** 换刀环节长期依赖人工，就是一块明显的短板。盾构机本身已经做到全球领先，但配套的智能化施工装备还存在缺口。 **智能换刀机器人的出现，补上了这个缺口**。 **再看行业趋势。** 盾构施工正在从“人工主导”向“数据驱动”转变。智能建造已经成为行业共识。中国铁建已建成以大盾构隧道智能建造管理平台为中枢的智能建造体系，集成智能辅助选型、智能诊断、智能辅助驾驶等八大功能模块。 **换刀机器人的投用，是这套智能建造体系的关键一环**。 **五、产业影响已经开始显现** 资本市场已经给出了反应。国产智能盾构换刀机器人正式投用的消息一出，机器人ETF等相关板块受到关注。 从产业逻辑来看，影响主要在三个层面： **第一，市场空间。** 中国盾构机市场规模数百亿级。盾构机的保有量、年出厂台数、施工里程均居世界首位。每台盾构机在施工过程中都需要频繁换刀。**换刀机器人的潜在市场，直接跟盾构机的存量和增量挂钩**。 随着智能换刀机器人从厦金大桥项目起步，逐步向其他大盾构工程推广，**这个细分市",
+          "b": "盾构机“换牙”不用人了！我国首台智能换刀机器人发布，这个百亿级市场要变天 原创 小艾 小艾 世界先进制造技术论坛 6月25日，厦门，厦金大桥（厦门段）环岛路隧道施工现场。 我国首台重载智能盾构换刀机器人正式发布。 这不是实验室里的样机。它已经在16米级的“厦金号”盾构机上完成上机调试，各项动作参数全部通过验收。6月27日，“厦金号”盾构机将始发掘进左线，这台机器人同步投入实战。 **这是我国盾构换刀机器人首次在大盾构工程项目上应用**。 **一句话：中国大直径盾构隧道施工，正式迈入无人换刀新阶段**。 **** **一、换刀到底有多难？以前是拿命在换** 先搞清楚一个问题：盾构机为什么要频繁换刀？ 盾构机是穿江越海的“大国重器”。掘进时，刀盘上的滚刀就像“牙齿”，持续切削岩石泥土。磨损极快，必须频繁更换。 传统怎么换？ **3名作业人员，带压进舱，耗时4小时以上**。 换刀舱里什么环境？空间狭小、光线昏暗、闷热潮湿、空气浑浊。工人带压作业，行动困难，还面临掌子面失稳、有害气体、减压病等风险。 说白了，**每一次换刀都是一次高风险的地下作业**。 而且随着盾构直径越来越大、掘进深度越来越深、地质条件越来越复杂，人工换刀的难度和风险还在持续上升。 厦金大桥厦门段环岛路隧道就是个典型例子。盾构段开挖直径16.15米，是福建省内最大直径盾构隧道。隧道下穿繁华片区，长距离上软下硬复合地层，覆土最浅仅8.1米。刀具磨损风险突出，对换刀的安全和效率要求极高。 **这个痛点，卡了行业很多年**。 **二、这台机器人什么水平？硬指标摆在这** 这台机器人由中铁十四局研发，历经原理样机、工程样机多轮迭代。中国铁建历时6年攻关。 来看几个关键数字： **11个独立可控活动关节**。具备极强避障能力和精细操作能力。 **500公斤负载能力**。可轻松抓取重达200多公斤的滚刀。 **覆盖10米至18米级超大直径盾构机的整个刀盘**。 **3D红外机器视觉定位，精度控制在1毫米以内**。 **数字孪生智慧管控系统**，自动规划最优换刀顺序和机械臂运动路径。 **更换单把滚刀缩短至25至40分钟，效率提升50%以上**。 **全过程舱内无需人员进入，真正实现少人化、无人化作业**。 **整机软硬件100%国产化，完全自主知识产权**。目前已申请发明专利38件，登记软件著作权7项。 在中国公路学会组织的成果评价会上，以钱七虎院士为首的专家组一致认定：**该研究成果代表我国在该领域的最高技术水平，总体达到国际领先水平**。 **三、院士们怎么看？** 中国工程院院士钱七虎在现场表示，智能换刀机器人的研发，**在安全、效率、成本等方面取得成效**，为我国交通工程装备**自主化、无人化、智能化**发展探索了新路径，也为产业化应用奠定了基础。 中国工程院院士肖明清表示，智能换刀机器人技术一直是国内外工程研究的热点。其成功投用实现了盾构换刀从 **“有人作业”到“无人作业”的跨越**。 两位院士的观点很明确：**这不是一次简单的技术升级，而是一次作业模式的根本性变革**。 **四、放在大背景下看，这件事意义不一般** 孤立看一台机器人，可能会低估它的分量。放在整个中国盾构产业的大背景下，这件事的意义就清晰了。 **先说产业地位。** 中国盾构机**全球市场份额超70%，产销量连续多年世界第一**。国内盾构机**国产化率高达95%**。中国盾构机市场规模预计2025年达到450亿元。 从1997年花近7亿元进口两台二手德国盾构机，到2008年首台自主知识产权盾构机下线打破垄断，再到今天全球每10台盾构机就有7台来自中国——**中国盾构走了近30年从追赶到领跑的路**。 **但领跑不等于没有短板。** 换刀环节长期依赖人工，就是一块明显的短板。盾构机本身已经做到全球领先，但配套的智能化施工装备还存在缺口。 **智能换刀机器人的出现，补上了这个缺口**。 **再看行业趋势。** 盾构施工正在从“人工主导”向“数据驱动”转变。智能建造已经成为行业共识。中国铁建已建成以大盾构隧道智能建造管理平台为中枢的智能建造体系，集成智能辅助选型、智能诊断、智能辅助驾驶等八大功能模块。 **换刀机器人的投用，是这套智能建造体系的关键一环**。 **五、产业影响已经开始显现** 资本市场已经给出了反应。国产智能盾构换刀机器人正式投用的消息一出，机器人ETF等相关板块受到关注。 从产业逻辑来看，影响主要在三个层面： **第一，市场空间。** 中国盾构机市场规模数百亿级。盾构机的保有量、年出厂台数、施工里程均居世界首位。每台盾构机在施工过程中都需要频繁换刀。**换刀机器人的潜在市场，直接跟盾构机的存量和增量挂钩**。 随着智能换刀机器人从厦金大桥项目起步，逐步向其他大盾构工程推广，**这个细分市...",
+          "hb": 1
+        },
+        {
+          "t": "GPT-5.6突然上线：比Mythos强，普通用户彻底无缘",
+          "d": "2026-06-27",
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "OpenAI发布了GPT-5.6系列限量预览版，包含旗舰级Sol、高频日常版Terra和性价比版Luna三款模型。该系列在编程、网络安全和生物学领域表现突出。Sol具备深度推理能力，新增了多Agent协同的ultra模式。Terra性能与上代旗舰相当但价格减半，Luna主打轻量高速。Sol定价为输入5美元、输出30美元/百万token。该系列目前仅向受信合作伙伴开放API和访问。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/zHA3FpSLLVksg9ze9Ybg_g",
+          "tp": "GPT-5.6模型上线",
+          "aip": 1,
+          "kp": [
+            "[GPT-5.6 Sol模型]: 旗舰级，具备最深度的推理能力，新增调度多子Agent协同的ultra模式",
+            "[GPT-5.6 Terra模型]: 综合性能与上一代GPT-5.5相当，价格降低一半",
+            "[GPT-5.6 Luna模型]: 定位于轻量高速场景"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "GPT-5.6突然上线：比Mythos强，普通用户彻底无缘 机器之心编辑部 GPT-5.6，猝不及防地来了。 周五，OpenAI 发布了这一新系列的限量预览版，涵盖三款定位各异的模型：旗舰级的 Sol、面向高频日常工作的 Terra，以及主打性价比的 Luna。 OpenAI 表示，该系列在编程、网络安全和生物学领域表现尤为突出，同时在需要持续专注的长链式智能体任务中也展现出更强的稳定性。 此次发布恰在美国政府介入 AI 监管话题引发广泛关注后不到 24 小时，背景之复杂，使这次产品发布远不止于一次常规的技术迭代。 这三档产品，覆盖不同需求层次。 在能力定位上，Sol 是三款中综合实力最强的，具备最深度的推理能力，并新增了两种增强模式： * 面向复杂任务的「max」模式可让模型投入更多时间进行深度推理。 * 「ultra」模式则通过调度多个子 Agent 协同工作，以应对超出单一 Agent 处理上限的复杂任务。 Terra 的综合性能与上一代 GPT-5.5 相当，但价格降低了一半；Luna 则定位于轻量高速场景，成本进一步压缩。 定价方面，Sol 按每百万 token 计费，输入 5 美元、输出 30 美元，约为 Anthropic Claude Fable 5 对应价格的一半。Terra 的输入输出分别为 2.5 美元和 15 美元，Luna 则低至 1 美元输入、6 美元输出。 OpenAI 还对 GPT-5.6 引入了更灵活的提示缓存机制，支持自定义缓存断点，最低缓存有效期为 30 分钟，缓存写入按未缓存输入价格的 1.25 倍计费，缓存读取维持九折优惠。 有网友对比了 GPT-5.6 Sol 和 Anthropic 的 Mythos 级模型。 他认为互有胜负，在当前基准上大约一半左右打平或小胜，但整体还没达到 Fable 的全面水平。 此外，OpenAI 宣布将于 7 月在 Cerebras 硬件上部署 Sol，推理速度可达每秒 750 个 token，初期面向特定客户开放。 能力表现 GPT-5.6 Sol 是 OpenAI 迄今最强的模型。为了展示模型性能，OpenAI 公布了一组评测结果，重点体现其在编程、生物学和网络安全等方向上更强的 Agent 能力。 在 GPT-5.6 中，OpenAI 引入了新的最高推理强度，让 Sol 能够获得更多时间进行深度推理。此外，他们还推出了新的 ultra mode，它通过调用子 Agent 来加速复杂任务，能力超出了单个 Agent 的边界。 在编程工作流方面，GPT-5.6 Sol 在 Terminal-Bench 2.1 上取得新的 SOTA。GPT-5.6 Sol UItra 达到 91.95%，GPT-5.6 Sol 则达到 88.8%，超过了 Anthropic Mythos 5 和 Claude Fable 5。该基准主要测试命令行工作流，要求模型具备规划、迭代和工具协调能力。 GPT-5.6 Sol 在生物学工作流上也有全面提升。在 GeneBench v1 上，它取得了强于 GPT-5.5 的结果，同时消耗的 token 更少。GeneBench v1 主要评估长周期基因组学和定量生物学分析能力。 相比 GPT-5.5，GPT-5.6 Sol 在 HealthBench Professional 和 HealthBench Hard 上表现有所提升，而在 HealthBench 和 HealthBench Consensus 上基本持平。 GPT-5.6 Sol 也是迄今在网络安全方向能力最强的模型。它推动了长周期安全任务的性能与效率边界，包括漏洞研究和漏洞利用。 在 ExploitBench 上，GPT-5.6 Sol 只使用约三分之一的输出 token，就能达到与 Mythos Preview 相当的表现。 在 ExploitGym 上，GPT-5.6 Sol、Terra 和 Luna 随着推理强度提升，都展现出明显增强的网络安全能力。ExploitGym 是由加州大学伯克利分校研究人员与 OpenAI 及其他前沿实验室共同创建的基准。 强化安全体系 在技术能力层面，GPT-5.6 Sol 在终端操作基准 Terminal-Bench 2.1 和生物信息学基准 GeneBench v1 上均优于前代，在网络安全领域的长链任务处理上也展现出显著进步。尽管如此，OpenAI 明确指出 Sol 在受控测试条件下虽能识别 Chromium 和 Firefox 中的漏洞及利用原语，但尚未能自主生成完整的漏洞利用链，因此未触及其「网络安全关键」评估阈值。 正是这种能力边界的模糊性，促使 OpenAI 在此次发布中将安全体系的构建置于显著位置。 整套防护框架采用多...",
+          "hb": 1
+        },
+        {
+          "t": "刚刚，Claude 5局部解禁！",
+          "d": "2026-06-27",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "美国商务部正式批准Anthropic向超过100家“可信赖合作伙伴”发布最强AI模型Claude Mythos 5。此次解禁附带严格条件，仅限白名单上的实体及外籍员工使用，全球绝大多数用户被排除在外。同日，OpenAI也向政府批准的名单发布了GPT-5.6。这标志着美国确立了全新的前沿AI模型发布控制权制度，监管权正式转移至美国政府手中。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://mp.weixin.qq.com/s/aiiK8suHM1VOb80R6ocOqw",
+          "tp": "大模型解禁",
+          "aip": 1,
+          "kp": [
+            "授权企业数量[Claude Mythos 5白名单解禁]: 超100家"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "刚刚，Claude 5局部解禁！ ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**封杀两周后，美国突然解禁Anthropic最强AI模型，却只限白名单上的百家巨头！全球用户被拒之门外，GPT-5.6也紧随其后搞「美国专属」。我们还能用到Claude 5吗？ 地表最强AI Mythos 5，终于解禁了！ 据路透社和Semafor等多家权威媒体报道，美国商务部已于周五（6月26日）正式向Anthropic发函，批准其向超过100家「可信赖合作伙伴」发布最强模型Claude Mythos 5。 可惜的是，Mythos 5虽然解禁了，但普通人依然用不上。 解禁名单中，涵盖了诸多财富500强企业和政府机构，却将全球绝大多数用户、甚至包括美国的传统盟友，无情地挡在了门外。 而且就在同一天，OpenAI也极为默契地向政府批准的名单发布了GPT-5.6。 **100家「天选之子」：** **揭秘神秘的附件A白名单** 从Claude 5被全面封禁开始，经过14天高强度的博弈与密室谈判，双方终于在今天达成妥协。 美国商务部长Howard Lutnick在致Anthropic首席计算官Tom Brown的信中写道：双方的努力取得了「重大进展」，Anthropic已承诺在协议、标准和模型发布上与美国政府紧密合作。 根据Lutnick的信件，这次Mythos 5的解禁附带了一个极其严苛的条件：出口许可证豁免仅适用于信件附件A中列出的实体。 也就是说，美国已正式确立一套全新的AI监管制度——前沿AI模型发布控制权，已经从硅谷极客的手中，彻底转移到了华盛顿的办公桌上。 根据新规，Mythos 5可以被出口、再出口或在国内转让给附件A中列出的实体及其外籍员工，以及Anthropic的外籍员工。 这份神秘的白名单，包括了超过100家美国本土机构、众多《财富》500强企业以及关键的政府机构。 这些白名单企业的外籍员工，以及Anthropic自身的外籍员工，将被允许接触该模型（免除「视同出口」限制）。 那些未能进入名单的公司，哪怕你身处硅谷，哪怕你是Anthropic的付费大客户，禁令依旧有效。 目前，还没具体的白名单完整公开列表。 据悉，白名单基于 Anthropic 已有的 Project Glasswing 合作伙伴框架扩展而来。 目前已知的早期Project Glasswing 核心伙伴包括：AWS、Apple、Broadcom、Cisco、CrowdStrike、Google、JPMorgan Chase、Linux Foundation、Microsoft、NVIDIA、Palo Alto Networks 等科技与安全巨头。 商务部发言人Benno Kass对此显得颇为自豪：「短短两周内，我们夜以继日地工作，既确保了美国在AI领域的全球领导地位，又捍卫了我们的国家安全。」 **** **悬而未决的Fable 5** 在这份引发科技圈震动的解禁信中，有一个名字被刻意忽略了——Fable 5。 作为Mythos的「表亲」，Fable 5的参数规模虽然稍弱，但它在被封禁前，曾是全球普通消费者能接触到的最强大的AI模型。 它的下架，曾让无数开发者和C端用户痛心疾首。 目前，商务部的信件对Fable 5只字未提。 尽管有接近谈判的知情人士透露，政府正朝着解禁Fable的方向努力，但具体的时间表依然是个谜。 这种「先保B端巨头和政府机构，后管C端大众」的策略，再次印证了在安全战略面前，普通消费者的需求只能被无限延后。 **OpenAI的「惊人巧合」：GPT-5.6也来了** 巧的是，就在今天同一时间，Anthropic最大的死敌——OpenAI也行动了。 他们向政府批准的一小部分受信任合作伙伴，发布了最新一代的 GPT-5.6！ 科技分析师 Andrew Curran 在社交媒体上的惊呼，道出了许多业内人士担忧： 这太不祥了。 如果GPT-5.6的广泛发布最终变成仅限美国，那将是地震级别的事件。这也几乎保证了Fable 5将面临同样的命运。 我预料到了这一天迟早会来，但绝不是在2026年的夏天。不是这么快。一切都在加速。 如果说以前大家只是猜测，那么今天同时落地的两只靴子，彻底证实了那个令人不安的传言：美国正在将最顶级的前沿AI模型完全私有化、武器化。 这一通操作下，像 Mythos 5 和 GPT-5.6 这样的神级AI，已经不再是简单的商业产品，而是美国手中最具杀伤力的外交武器。 **全球AI生态分裂** 如今，欧洲官员已经表达了强烈不满，他们无法接受欧洲的企业和科研机构，以后要看华盛顿的脸色，才能使用最前沿的AI工具。 这种不满和焦虑，正在催生一种不可逆转的趋势：全球AI生态大分裂。 一方面，非美...",
           "hb": 1
         }
       ]
@@ -171,69 +178,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "法拉利在国内首发首款纯电车型Luce，四电机系统起售价定为398.8万元",
-        "大众汽车正筹备重组计划，拟全球裁员10万人并关闭4家德国工厂",
-        "科学家研发新型光学材料，可将可见光波段的太阳辐射转换为紫外光"
+        "欧洲首台TES光谱仪投用，检测X射线光子效率较传统仪器提升100至1000倍",
+        "发改委与能源局印发新型能源体系规划，要求2030年风光发电装机比重超50%",
+        "Sunrun与Tesla等企业整合电源设备，为全美最大数据中心市场提供16.8GW灵活电网容量"
       ],
       "entries": [
         {
-          "t": "法拉利首款纯电车型 Luce 国内发布，售价 398.8 万元起",
-          "d": "2026-06-27",
-          "a": "IT之家",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "法拉利首款纯电车型 Luce 在国内首发，售价 398.8 万元起。该车搭载四电机系统，0-100km/h 加速 2.5 秒，0-200km/h 加速 6.8 秒，极速达 310km/h，标志着法拉利正式进军纯电超跑领域，以极致性能对标传统燃油旗舰。",
-          "sc": 7.5,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/969/252.htm",
-          "tp": "纯电超跑",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "6 月 26 日消息，法拉利首款纯电车型 Luce 今日在国内首发亮相，\n新车售价 398.8 万元起\n法拉利 Luce 搭载四电机，0-100km/h 加速时间 2.5 秒，0-200km/h 加速时间为 6.8 秒，极速 310km/h；配备 122 千瓦时电池组，续航里程超过 530 公里。\n法拉利 Luce 的设计由 Jony Ive（乔纳森 · 伊夫）与 Marc Newson（马克 · 纽森）联合创立的 LoveFrom 团队操刀，本次没有由法拉利设计中心来主导设计，其中内饰部分由 Ive 主导设计，强调物理控制，驾驶舱以玻璃、铝和 Ive 独特的极简主义风格为核心。\nIT之家注意到，法拉利 Luce 首次采用了四门五座布局，这是法拉利推出的第二款四门车型，也是首款配备五个座位的车型。\n法拉利 Luce 配备了法拉利量产公路车型迄今为止最大尺寸的轮毂，且前后轮毂规格不同，前轮直径为 23 英寸，后轮则为 24 英寸。车身尺寸方面，新车长宽高为 5026/1999/1544mm，轴距 2961mm。\n新车前后灯组均采用了透明面板，圆形尾灯则意在致敬法拉利 360 Modena 与法拉利 458 Italia 的美学设计。",
-          "hb": 1
-        },
-        {
-          "t": "大众汽车可能会裁员 10 万人并关闭 4 家工厂",
-          "d": "2026-06-27",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "据德国《经理人杂志》报道，大众汽车CEO奥利弗·布鲁姆正筹备公司史上最激进重组计划，可能全球裁员多达10万人，并最终关闭德国4家工厂。路透社等多家国际媒体证实该消息，重组规模远超此前已公布的成本削减措施，标志着大众汽车史上最大规模的组织架构调整。",
-          "sc": 7.4,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/26/vw-could-cut-100000-jobs-and-close-4-factories-in-a-radical-shake-up/",
-          "tp": "大众大裁员",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Michelle Lewis\n| Jun 26 2026 - 5:46 am PT\nCEO Oliver Blume is reportedly preparing the most dramatic overhaul in the automaker’s history, with plans that could eliminate up to 100,000 jobs worldwide and eventually close four factories in Germany.\nThe report, first published by Germany’s\nManager Magazin\n, says the proposed restructuring goes well beyond the cost-cutting measures Volkswagen has already announced. Reuters and several other international outlets have since backed up the report’s broad outline, although Volkswagen has not officially confirmed the plans.\nAccording to the report, production would eventually end at Volkswagen’s plants in Hanover, Zwickau, and Emden, as well as at Audi’s factory in Neckarsulm, Baden-Württemberg, after the current vehicle programs are phased out.\nThe reported plan would impact some of Volkswagen’s most important EV operations. Zwickau is the company’s flagship EV plant, and Emden builds the ID.4 and ID.7. While the report doesn’t suggest Volkswagen is scaling back its EV ambitions, it does point to a potential consolidation of EV production as the automaker looks to cut costs and boost profits.\nThe proposal would also reportedly cut Volkswagen’s planned five-year investment by around 15%, bringing it to just over €130 billion ($148 billion).\nManager Magazin\nalso said the company is considering separating the core Volkswagen passenger car brand and its parts business into standalone entities.\nVolkswagen is under growing pressure to improve profitability while navigating a rapidly changing automotive market. The company’s shares have lost almost\n60% of their value\nsince Blume became CEO nearly four years ago. VW is also facing intense competition from Chinese automakers, higher costs tied to the shift to EVs, and the impact of tariffs in key markets.\nA Volkswagen spokesperson told\nManager Magazin\n, “The relevant facts of the matter will be discussed and approved by the relevant bodies. We will not pre-empt this process. The Group Executive Board has repeatedly emphasized that our current business model no longer works for all brands in its present form.”\nIf VW follows through, the reported plan would far exceed the roughly 50,000 job reductions Volkswagen had already agreed to through 2030. It would also likely face fierce opposition from German labor unions, which reached an agreement with the company in late 2024 to prevent plant closures in Germany this decade.\nFor now, the proposals remain just that. Volkswagen’s supervisory board is expected to discuss the plans in the coming weeks, and any major restructuring would still require approval through the company’s governance process.\nIf you’ve ever considered going solar, make it easy by finding a trusted, reliable solar installer near you that offers competitive pricing by checking out\n. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online, and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nLight, durable, quick: I'll never go back.\nBecause I don't want to wait for the best of British TV.",
-          "hb": 1
-        },
-        {
-          "t": "科学家实现重大能源突破：将普通太阳光转化为紫外光",
+          "t": "欧洲第一台 TES 光谱仪使以前不可能的 X 射线实验成为可能",
           "d": "2026-06-27",
           "a": "scitechdaily",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "科学家开发出一种可将普通阳光转化为紫外光的新型材料,被视为能源领域的重大突破。该材料通过上转换或非线性光学机制,将可见光波段的太阳辐射转换为更高能量的紫外光。这一技术有望为紫外光驱动的水处理、杀菌消毒及光化学合成提供无需外部供电的光源,拓展了太阳能利用的波段范围,在绿色化学与公共卫生领域具有应用前景。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://scitechdaily.com/scientists-turn-ordinary-sunlight-into-uv-light-in-major-energy-breakthrough/",
-          "tp": "上转换发光材料",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "欧洲首台 TES（过渡边缘传感器）光谱仪已在 BESSY II 同步辐射光源设施投入运行。该仪器由 HZB、MPI-CEC 和 NIST 联合开发，能够以比传统波长色散 X 射线发射光谱仪高 100 至 1000 倍的效率检测 X 射线光子。凭借极高的灵敏度，该设备使研究人员能够深入探究原子级薄材料、纳米结构以及极稀薄原子和分子样品的电子特性，突破了以往 X 射线实验的极限。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/europes-first-tes-spectrometer-makes-previously-impossible-x-ray-experiments-possible/",
+          "tp": "X射线光谱仪",
           "aip": 1,
           "kp": [
-            "[上转换]: 太阳光→紫外光",
-            "[机制]: 双低能光子量子合并"
+            "探测灵敏度[欧洲首台TES光谱仪]: 提升1000倍",
+            "探测效率[X射线光子检测]: 100%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Sunlight just got an upgrade: Scientists have developed a material that converts ordinary sunshine into UV light, opening new possibilities for solar-powered technologies.\nImagine pouring two cups of warm water together and expecting to get one cup of boiling water. That is impossible in everyday life, but something similar can happen in the quantum world. There, two low-energy particles of light, known as photons, can combine their energy to create a single\nwith much higher energy.\nResearchers at Kyushu University have now developed a solid-state molecular material that can convert ordinary visible sunlight into ultraviolet (UV) light. The material achieved a conversion efficiency of 1.9% under natural outdoor sunlight. Their findings were published in\nNature Communications\nAlthough most people try to avoid UV exposure during the summer, ultraviolet light plays an essential role in many technologies. It is used for air purification, curing resins in 3D printing, and hardening gels in dental fillings and nail products. Even so, UV light makes up only about 6% of the sunlight that reaches Earth’s surface, and only part of that small amount is useful for practical applications.\n“What we do here is ‘add together’ the energy from two visible light photons to make one ultraviolet photon. It’s a fascinating process called photo upconversion,” explains Yoichi Sasaki, Associate Professor at Kyushu University’s Faculty of Engineering and the study’s corresponding author.\nOne way to achieve photo upconversion is through a process called triplet-triplet annihilation (TTA). In this process, a “donor” molecule absorbs visible light and moves its electrons into a high-energy triplet state. That energy is then transferred to a nearby “acceptor” molecule. When two triplet states come together, they combine their energy and release it as a single UV photon.\nThis approach works well in liquids because molecules can move freely, allowing the triplet states to meet more easily. However, liquid systems often require toxic solvents and can evaporate, making them less practical for real-world applications. For years, researchers have searched for an effective solid-state alternative.\n“In solids, molecules are packed tightly, and the π electron clouds—regions of high electron density hovering above and below each molecular plane—can overlap,” says Sasaki. “When that happens, triplets easily fizzle out before they ever meet. Molecules must be close enough for energy to transfer but separated enough to prevent quenching of excitons.”\nTo overcome this problem, the researchers turned to an organic semiconductor called dihydroindenoindenedene (DHI). They attached alkyl chains to DHI’s sp\ncarbon atoms, which have four bonds pointing in fixed 3D directions. This design created carefully controlled spacing between neighboring molecules, keeping them close enough to transfer energy while preventing the strong electronic interactions that reduce efficiency.\nThe resulting material produced bright light emission, maintained long-lived excited states, and transferred energy efficiently. It also achieved a solid-state fluorescence quantum yield of more than 60%. When paired with a donor molecule, it reached a photo upconversion efficiency of 1.9%.\n“This means roughly two UV photons are produced for every hundred visible-light photons absorbed,” Sasaki adds. “It may sound low, but it runs on natural sunlight alone. Most solid-state materials cannot realize this even at much higher light intensity.”\nThe team has filed a patent application for the new material. In addition to its performance, the material is relatively simple to produce and relies on inexpensive starting materials. The researchers believe it could eventually be used for solar-driven photocatalysis, indoor air purification, and low-intensity 3D printing.\nFor the researchers, the project represents more than a scientific achievement.\nIn 2012, Nobuo Kimizuka, now Professor Emeritus at Kyushu University’s Research Center for Negative Emissions Technologies, began pioneering work on photon upconversion through triplet energy migration in self-assemblies. His goal was to develop molecular systems in which self-assembly performs useful functions. Over the years, his team made significant progress using solutions and gels, but creating an efficient solid-state system remained an unsolved challenge.\nThat changed in May 2024, less than a year before Kimizuka retired.\nGraduate students Naoyuki Harada, Hayato Shoyama, and Nutnicha Boonmong, together with then Assistant Professor Kiichi Mizukami of Kyushu University’s Faculty of Engineering, joined Sasaki in an intensive effort to bring years of research together.\n“We handed the draft to Professor Kimizuka just 11 days before he left the lab, which for us felt like a heartfelt retirement gift,” Sasaki notes.\n“This discovery is the culmination of over 14 years of our research and marks a major milestone in photon-upconversion and molecular self-assembly research,” concludes Kimizuka.\nReference: “Sterically protected π-electron systems for efficient solid-state photon upconversion” by Naoyuki Harada, Hayato Shoyama, Nutnicha Boonmong, Kiichi Mizukami, Yuya Watanabe, Pei Zhao, Masahiro Ehara, Yoichi Sasaki and Nobuo Kimizuka, 23 June 2026,\nNature Communications\nDOI: 10.1038/s41467-026-73898-0\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nKyushu University\nMaterials Science\nSemiconductors\nSolar Energy\nScientists Just Broke the Solar Power Limit Everyone Thought Was Absolute\nHarnessing the Sun: Innovative Thermal Trap Reaches Over 1000 °C Using Sunlight\nMIT Engineers Develop a New Way to Store Thermal Energy\nNew Material Can Store Solar Energy During the Day and Release it Later as Heat\nNew Fabrication Method Improves Efficiency of Perovskite Solar Cells\nOrganic Semiconductor Breakthrough Could Literally Reshape Solar Cells\nTransparent Luminescent Solar Concentrator Creates Solar Energy Without Blocking the View\nResearchers Pinpoint the Source of a Mysterious Magnetism\nGraphite Foam Could Harness Energy from Temperature Gradient in Oceans",
+          "b": "Europe’s first TES spectrometer is transforming X-ray research with up to 1,000 times greater sensitivity, making once impossible experiments finally possible.\nEurope’s first and only TES spectrometer at a synchrotron light source is now operating at BESSY II, marking a major advance for X-ray research. Developed through a collaboration between HZB, the MPI-CEC (Mühlheim-an-der-Ruhr, Germany), and NIST (Boulder CO, USA), the new instrument can detect X-ray photons with an efficiency that is 100 to 1,000 times greater than conventional wavelength dispersive X-ray emission spectrometers.\nIts exceptional sensitivity will allow researchers to investigate the electronic properties of atomically thin materials, nanostructures, and extremely dilute atomic and molecular samples. The team is now inviting scientists to submit research proposals that take advantage of the new capability.\nSynchrotron facilities such as BESSY II generate exceptionally bright X-ray beams that scientists use to study the structure and properties of many different materials. Some of the most powerful techniques, including X-ray emission spectroscopy (XES) and Resonant Inelastic X-ray Scattering (RIXS), analyze the X-ray photons emitted by a sample after it is exposed to the beam.\nThese methods provide valuable information about a material’s electronic structure, but they require large numbers of emitted photons to produce meaningful data. As a result, XES and RIXS have traditionally been limited to bulk materials and samples with relatively high concentrations.\n“The superconducting Transition Edge Sensor (TES) array\ndetector that we have now put into operation at BESSY II is around 100 to 1000 times more efficient to detect photons than conventional XES and RIXS spectrometers,” says Régis Decker, HZB, responsible scientist of the new instrument.\nThat dramatic improvement makes it possible to examine samples that were previously too small or too dilute for these techniques.\nAccording to Decker, the new spectrometer will enable studies across a wide range of scientific fields.\n“This can provide new insights into molecular chemistry or molecular biology, but also into the quantum properties of systems in reduced dimensions such as atomic monolayers, nanostructures, and impurities. The TES spectrometer complements methods such as ARPES, which scans the electronic band structures of such systems,” says Régis Decker.\nThe increased sensitivity also speeds up many experiments. Measurements that once required hours can now, in some cases, be completed within minutes.\nThe instrument contains an array of 248 superconducting sensors that operate at an extremely low temperature of just 25 milli-Kelvin. Those conditions are achieved using a He4-He3 dilution refrigerator, a cooling technology similar to the systems used in quantum computers.\nWhen X-rays strike a sample, the material emits photons of its own. Each emitted photon is captured by one of the superconducting sensors, briefly raising its temperature enough to disrupt its superconducting state. That tiny change increases the sensor’s electrical resistance, which is measured using a circuit based on Superconducting Quantum Interference Devices (SQUIDs). This process allows the energy of each photon to be measured with remarkable precision.\nThe spectrometer is connected to a custom ultra-high vacuum sample chamber that allows researchers to transfer, prepare, and analyze samples while precisely controlling temperatures from 10 K to room temperature.\nThe complete system is installed at the BESSY II UE52-SGM beamline, which provides full polarisation control. Future enhancements will expand sample preparation capabilities and enable experiments in magnetic fields for X-ray Magnetic Circular Dichroism in absorption (XMCD) and emission (RIXS-MCD).\nTES spectrometers were originally created for astrophysics, where they were designed to detect extremely weak photon signals from distant objects.\nBefore the installation at BESSY II, only five TES spectrometers were operating at X-ray facilities worldwide, with four located in the United States and one in Japan. BESSY II now hosts the only synchrotron TES spectrometer in Europe.\n“We are looking forward to receiving exciting research proposals from our user community,” says Decker.\nReference: “A superconducting transition edge sensor array for synchrotron soft x-ray emission spectroscopies of low-dimensional and impurity-level concentration systems” by Régis Decker, Kelsey M. Morgan, Sergey Peredkov, Charles J. Titus, Galen C. O’Neil, Alexander Dillmann, Dmitry Tikhonov, Utkarsh Prakash, Axel Knop-Gericke, Joseph W. Fowler, Jonathan W. Dean, Nathan Nakamura, Raoul Blume, Detre Techner, Minmin Chen, Zechao Jin, Christian Weniger, Thomas Blume, Torsten Kachel, Nathan J. Ortiz, Douglas A. Bennett, John A. B. Mates, Daniel R. Schmidt, Jozsef Imrek, Joel C. Weber, Johnathon D. Gard, Leila Vale, Abigail L. Wessels, Bastian Klemke, Sebastian Gerischer, Mattis Fondell, Sebastian Eckert, Joel N. Ullom, Daniel S. Swetz, Serena DeBeer and Alexander Föhlisch, 10 June 2026,\nReview of Scientific Instruments\nDOI: 10.1063/5.0332443\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nHelmholtz-Zentrum Berlin\nSpectrometer\nSpectroscopy\nMass Spectrometry Breakthrough Detects Billions of Molecules at Once\nScientists Shrink a Lab Spectrometer to the Size of a Grain of Sand\nThis Tiny Device Could Turn Your Phone Into a Lab-Grade Spectrometer\nRevolutionizing OLEDs: New Spectroscopy Technique Extends Device Lifespan\nTiny Diamonds, Big Spark: A Laser-Free Leap in Quantum Spin Detection\nHarvard Builds Laser the Size of a Chip, Bright Enough to Map Invisible Worlds\nNew Silicon Discovery Could Supercharge Quantum Computers\nDetect Dangerous Gases in Seconds With New Technology\nBeyond Graphene: A New World of 2D Materials Is Opening Up",
+          "hb": 1
+        },
+        {
+          "t": "国家发改委、国家能源局发布《新型能源体系建设“十五五”规划》（附下载）",
+          "d": "2026-06-27",
+          "a": "化工碳达峰碳中和",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "国家发改委与国家能源局印发《新型能源体系建设“十五五”规划》。主要目标提出：到2030年能源综合生产能力达58亿吨标准煤，非化石能源消费比重达25%，风电与太阳能发电装机比重超50%，非化石能源发电量比重达50%。规划要求加快石化化工等传统产业转型，推广电锅炉与电加热设备；规模化发展陆上油气田与新能源融合，推动海洋油气与海上风电协同，稳步提升石化行业绿电绿氢使用比例，推进核电与石化耦合。",
+          "sc": 8.0,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://mp.weixin.qq.com/s/mtRHhTn_mv2kPaLlodvTPg",
+          "tp": "新型能源规划",
+          "aip": 1,
+          "kp": [
+            "目标完成年份[新型能源体系建设]: 2030年",
+            "能源综合生产能力[新型能源体系规划]: 58亿吨标准煤",
+            "消费比重[非化石能源]: 25%",
+            "装机比重[风电和太阳能发电]: 超过50%",
+            "发电量比重[非化石能源]: 50%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "国家发改委、国家能源局发布《新型能源体系建设“十五五”规划》（附下载） 化工碳达峰碳中和 点击上方**蓝字**关注我们 了解更多化工双碳资讯 近日，国家发改委、国家能源局印发《新型能源体系建设“十五五”规划》（以下简称《规划》）。其中提到，主要目标是：2030年初步建成清洁低碳安全高效的新型能源体系。能源综合生产能力达到58亿吨标准煤，电力系统互补互济和安全韧性水平全面提升，能源进口多元可控；煤炭和石油消费达峰，非化石能源消费比重达到25%，风电和太阳能发电装机比重超过50%、成为电力装机主体，非化石能源发电量比重达到 50%、成为电量主体；坚强韧性、绿色低碳、集成融合、智能高效的新型能源基础设施体系加快建设，新型电力系统初步建成；能源产业链关键技术装备实现总体自主可控，迈入世界能源科技创新国家前列；适应新型能源体系的市场和价格机制加快健全，全国统一电力市场体系基本建成。 《规划》中有关石油化工主要内容摘录如下： 清洁能源替代。加快钢铁、有色、石化、化工、建材等传统产业转型，推广电锅炉、电加热、电辅热炉窑等。完善重点区域、城市群、交通干线绿色燃料储运加注网络，推动在主要货运通道沿线建设重卡补能设施，加快长江等内河航运绿色动力转型。优化拓展天然气利用方向，推进天然气掺氢利用。 推动油气田和炼化产业转型。规模化开展陆上油气田与新能源融合发展，探索海洋油气田和海上风电协同开发，推动CCUS区域产业集群建设，提高油气田生产电气化率，打造低碳零碳油气田。坚持“减量置换”原则，严格控制炼油产能规模，引导大型企业、重点区域炼油能力优化重组。加快炼油行业节能降碳改造，稳步提升石化行业绿电绿氢使用比例，推进核电与石化行业耦合发展试点。提高化工用油、特种油品、高端新材料等收率。 加大油气增储上产力度。大力推进油气勘探开发，加大投入强度，加强传统大型油气田和页岩油气等新型资源勘探开发。围绕深地、深海、非常规、老油气田四大领域，促进“稳油增气”，推动海域、非常规领域成为原油稳产主力。实现原油年产量稳定在2亿吨水平，天然气产量稳步增长。 加快氢能与绿色燃料产业发展。统筹氢能制储输用全链条发展。因地制宜发展绿电直连制氢、可再生能源离网制氢等模式，2030年可再生能源制氢规模达到 200 万吨。加强工业副产氢的提纯与高效利用。合理布局绿色氢氨醇生产基地和基础设施，加强输氢管网布局引导，探索负荷率不足的存量油气管网规模化输送绿色甲醇。推动氢氨醇在发电、交通运输、化工冶金、规模储能等领域应用。 通知原文如下 国家发展改革委 国家能源局关于印发 《新型能源体系建设“十五五”规划》的通知 发改能源〔2026〕884号 各省、自治区、直辖市人民政府，国务院有关部委、直属机构，有关中央企业： 《新型能源体系建设“十五五”规划》已经国务院同意，现印发给你们，请认真贯彻实施。 国家发展改革委 国 家 能 源 局 2026年6月13日 新型能源体系建设“十五五”规划.pdf **END** “永久化学品”PFAS被限制后可能形成商业机会的替代品族群（含详细清单） 生态环境部发布《产品碳足迹管理体系建设进展报告（2026）》（附下载） 国家发展改革委等部门印发《关于开展重点行业节能降碳改造攻坚三年行动的通知》（附下载） 专家解读 | 大力实施石化化工行业节能降碳改造 推动节能降碳攻坚取得实效 上海发布全国首个地方 “碳排放双控”考核（附下载） \\----------------------------------------------------------------------------------- 来源：国家发展改革委 本公众号部分发布的图片、文字、音视频等内容来源于互联网公开渠道或读者投稿，其版权归原作者或原发布者所有。我们致力于保护原作者版权，在使用时会尽可能标注来源或作者，但部分内容可能因来源不可考、转载链条较长等原因未能及时核实或注明。如涉及作品内容、版权或其他知识产权问题，请相关权利人通过留言或后台联系方式与我们联系，并提供相关权属证明，我们将在核实后第一时间予以删除、替换或作出相应处理。 本公众号内容仅为信息分享与交流之用，不构成任何商业用途或盈利目的。对于因使用第三方内容所可能引发的知识产权纠纷，本公众号不承担任何直接或间接责任，相应法律责任由内容提供者或上传者承担。 感谢您的理解与支持。 中国化工经济技术发展中心（CNCET）成立于1993年，隶属于国资委，现由中国石油和化学工业联合会代管，是中国领先的石油和化工行业咨询机构之一，是中国石油和化学工业联合会的决策支撑机构，多年来中心为各级政府、化工园区、国有和民营企业、外商独资与合资企业、金融机构等提供了大量咨询服务。 联系方式：010-84885985 E-mail：cncet\\_consulti...",
+          "hb": 1
+        },
+        {
+          "t": "Sunrun、Tesla 和 Renew Home 支持超大规模电力需求",
+          "d": "2026-06-27",
+          "a": "Battery Tech Online",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "Sunrun、Tesla 和 Renew Home 三家公司达成合作，整合太阳能电池板、电池和恒温器，以满足超大规模数据中心的电力需求并提升 PJM 电网的可靠性。这些企业在全美最大的数据中心市场提供高达 16.8 GW 的灵活电网容量。超大规模数据中心的扩张正在重塑能源格局，推动了空前的电力需求，凸显了对创新能源存储解决方案的迫切需求。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.batterytechonline.com/charging/sunrun-tesla-and-renew-home-support-hyperscaler-power-demands",
+          "tp": "数据中心电力需求",
+          "aip": 1,
+          "kp": [
+            "灵活容量[超大规模电力需求支持系统]: 16.8 GW",
+            "[光储温控协同]: 结合太阳能板、电池和恒温器满足超大规模数据中心电力需求并支持电网可靠性"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "The three companies collaborate to leverage solar panels, batteries, and thermostats to meet hyperscaler energy demands and support PJM grid reliability.\nJune 26, 2026\nThe companies offer 16.8 GW of flexible capacity across the nation's largest data center markets.\nCourtesy of GlobeNewswire.\nHyperscalers are\nreshaping the energy landscape\n, driving unprecedented demand for electricity as they expand their vast networks of data centers. This surge has highlighted the urgent need for innovative energy storage solutions to ensure grid reliability and meet the growing power requirements of these data centers.\nTo address these challenges,\nPJM Interconnection\n, the largest regional transmission organization (RTO) in North America, is undergoing significant changes to its energy management. Spanning all or parts of 13 states (e.g., Delaware, Maryland, New Jersey, Ohio, Pennsylvania, Virginia, West Virginia, and Washington D.C), PJM coordinates the movement of wholesale electricity for over 67M people. Acting as the \"air traffic controller\" for the electric grid, PJM balances supply and demand in real time to prevent blackouts and ensure reliability.\nHowever, the organization is now facing unprecedented challenges as it navigates the rapid retirement of fossil-fuel generators, surging electricity demand, and the rise of hyperscalers driven by the global artificial intelligence (AI) data center boom.\nWhy GM Believes V2G Is Key to Grid Resilience\nHyperscalers, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and Meta, are reshaping the energy landscape. These companies operate vast networks of data centers that power cloud computing, artificial intelligence (AI), and internet services. A single hyperscaler data center campus can consume as much as 1,000 megawatts (1 GW) of power, which is equivalent to the output of a nuclear power plant or enough electricity to supply 750,000 homes.\nOne of PJM's territories, the Northern Virginia \"Data Center Alley,\" is the epicenter of this transformation. As the world's largest data center market, the territory is experiencing unprecedented load growth, with hyperscalers driving electricity demand to levels never seen before. This surge has forced PJM to adapt its grid management strategies, introducing measures like the Reliability Backstop Process to address the rapid pace of demand growth. Additionally, hyperscalers are challenging traditional utility models by co-locating data centers near power plants, sparking debates over who should bear the cost of grid infrastructure upgrades.\nA Cybertruck using Powerwall technology to charge. Tesla.\nIn this context, an\nannouncement\nChargePoint Express Charger Tackles Reliability With Modular Design and Air Cooling System\nThe partnership aims to aggregate millions of existing home energy devices—such as batteries, smart thermostats, and vehicle-to-grid (V2G) systems—into a distributed power plant capable of injecting net new electrons onto the grid. This \"capacity-as-a-solution\" framework is designed to free up transmission capacity, ease congestion, and extend the depth of available energy resources, all while lowering household energy costs and reducing the need for expensive new infrastructure.\nThe collaboration between Sunrun, Renew Home, and Tesla addresses the unique challenges posed by hyperscalers. By tapping into the latent capacity of residential energy systems, the partnership offers a faster, more cost-effective alternative to traditional grid expansion. According to the announcement, the key benefits include:\nHere Are 7 of the Fastest-Charging EV Batteries in 2026\nBetter grid utilization:\nImmediate deployment:\nWith 300 megawatts of capacity already available in Virginia and plans to scale to 500 megawatts by 2030, the initiative provides a near-term solution to the hyperscaler-driven energy crunch.\nNational coverage:\nThe partnership's extensive footprint across major electricity markets ensures that hyperscalers can access the energy they need, wherever they operate.\nCustomer rewards:\nHouseholds participating in the program can earn rewards and reduce their energy bills, creating a win-win scenario for consumers and utilities alike.\nA Sunrun customer powered his home with his solar-plus-storage system during a neighborhood outage in Houston. Courtesy of Sunrun.\nWhile the potential of this partnership is immense, its success hinges on the ability to bring electric utilities and state regulators on board. These stakeholders play a critical role in enabling the large-scale deployment of distributed energy resources. Persuading them to embrace this innovative framework will require demonstrating its benefits not only for hyperscalers but also for the broader energy ecosystem.\nElectric utilities must recognize the value of distributed energy in reducing peak demand and deferring costly infrastructure investments. State regulators, meanwhile, must create policies that incentivize the adoption of distributed energy solutions while protecting ratepayers from unnecessary costs. By aligning the interests of hyperscalers, utilities, and regulators, this initiative can accelerate the transition to a more resilient, cost-effective, and sustainable energy future.\nAs hyperscalers race to bring AI compute online and electrification accelerates, the stakes for America's energy grid have never been higher. The partnership between Sunrun, Renew Home, and Tesla demonstrates the potential of distributed energy resources to meet these challenges head-on.\nMaria Guerra\nSenior Editor-Battery Technology, Informa Markets\nMaria L. Guerra is a Senior Editor at\nBattery Technology\n, blending her engineering background with a passion for technology journalism. She holds a Bachelor of Science in Electrical Engineering from Universidad Metropolitana in Caracas, Venezuela, and a Master of Science in Electrical Engineering from NYU Tandon School of Engineering.\nGuerra's career spans power systems engineering, oil & gas consulting, and technical writing and editing. She worked for several years at Kellogg, Brown & Root Ltd. (KBR) in the UK, conducting power system studies and providing technical support for offshore and onshore projects. During her internship at Pequiven S.A. in Venezuela, she trained neural networks using MATLAB (Kohonen Map) to estimate electrical circuit variables for oil wells (e.g., voltage, current, and power).\nIn addition to her engineering roles, Guerra worked as a freelance technical editor, refining complex technical content for clarity and accuracy. She later became a Power/Analog Editor at\nElectronic Design\n, covering advancements in the semiconductor market, focusing on power/analog electronics systems.\nBattery Technology\n, Guerra now delivers in-depth coverage of battery manufacturing, EV advancements, energy storage systems, and the evolving landscape of critical minerals and second-life batteries. She is passionate about uncovering the stories that shape the future of electrification, from cutting-edge battery innovations to policy shifts driving sustainable energy.\nGuerra is also a member of\nThe Battery Show North America Advisory Board\n, where she contributes her expertise to advising on industry trends and speaker selection for The Battery Show North America, while helping to shape discussions on battery technology and electrification. She was part of the award-winning Battery Technology team recognized with a\nNeal Award for Best Coverage of the 2024 Election\nNeal Award for Best Explanatory Content\nin 2026 for her coverage of battery breakthroughs.\nMaria Guerra is based in Brooklyn, NY, and can be reached at\n[email protected]\nSee more from\nMaria Guerra",
           "hb": 1
         }
       ]

@@ -6,18 +6,14 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "新型铁基双原子催化剂突破耐久性瓶颈，提升质子交换膜燃料电池稳定性",
-      "嘧啶酮衍生物质展现高储能密度，为分子级太阳能热存储提供新路径",
-      "新型固-固相变材料兼具高焓值储热与高拉伸强度，可在特定溶剂下解聚回收"
+      "新型闪蒸提取工艺实现钙钛矿保形生长，全溶液叠层电池效率近30%"
     ],
     "AI与智能科技": [
-      "量子模拟预测结果首次与真实物理实验数据实现定量吻合",
-      "多模态基础模型基于振动光谱实现半导体点缺陷类型与浓度的无损定量识别"
+      "350度晶圆级二硫化钨薄膜制备取得进展，降低铜互连电阻率超六个数量级"
     ],
     "通用技术": [
-      "深势科技推出Hyper-FIB系统，实现聚焦离子束电镜超8小时全自动运行",
-      "兵器工业集团7吨级长鹰-8货运无人机完成首飞，最大载货达3.5吨",
-      "润湿驱动无热冷冻打印技术实现超柔性硅胶薄膜高精度低成本成型"
+      "深势科技等推出智能双束电镜系统，实现超8小时全自动运行",
+      "新型有机共晶材料制备取得进展，X射线检测灵敏度达3.02×10^6"
     ]
   },
   "sectors": [
@@ -25,99 +21,42 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "新型铁基双原子催化剂突破耐久性瓶颈，提升质子交换膜燃料电池稳定性",
-        "嘧啶酮衍生物质展现高储能密度，为分子级太阳能热存储提供新路径",
-        "新型固-固相变材料兼具高焓值储热与高拉伸强度，可在特定溶剂下解聚回收"
+        "新型闪蒸提取工艺实现钙钛矿保形生长，全溶液叠层电池效率近30%"
       ],
       "entries": [
         {
-          "t": "筛选、设计与阐明抗溶双原子位点用于高耐久质子交换膜燃料电池",
+          "t": "闪蒸提取使钙钛矿能够在工业织构硅上保形生长",
           "d": "2026-03-31",
-          "a": "Chem",
-          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
-          "as": "该研究针对质子交换膜燃料电池中铂族催化剂的替代需求，通过筛选和设计抗溶出双原子位点催化剂提升铁基单原子催化剂的耐久性。铁单原子催化剂虽活性高但在酸性环境中易降解，研究通过构建Fe-M双原子配位结构（如Fe-Zn或Fe-Co），降低Fe中心的溶解热力学驱动力，在加速老化测试中表现出优异的电化学稳定性，为非铂燃料电池催化剂的工程化提供了路径。",
-          "sc": 7.0,
+          "a": "Matter",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "在绒面硅上通过溶液法沉积钙钛矿以制造高效叠层太阳能电池常面临薄膜不均的挑战。本研究开发了一种“闪蒸提取”策略，能够快速去除溶剂，使钙钛矿在粗糙的纹理表面上形成均匀高质量的保形层。这种全溶液工艺实现了近30%的光电转换效率，为下一代太阳能电池板的制造提供了低成本路径。",
+          "sc": 8.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00073-2?rss=yes",
-          "tp": "PEMFC双原子催化剂",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00126-8?rss=yes",
+          "tp": "钙钛矿硅电池",
           "aip": 1,
           "kp": [
-            "催化剂[PEMFC]: Cr-Fe双金属位氮掺杂碳",
-            "[设计工具]: 结构描述符φ"
+            "转换效率[全溶液处理钙钛矿/纹理硅叠层电池]: 约30%",
+            "[闪蒸提取策略]: 快速去除溶剂，使钙钛矿在粗糙纹理硅表面实现保形均匀生长"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Iron-based single-atom catalysts hold great potential to replace the platinum group catalysts in proton exchange membrane fuel cells, but their instability in acid environments is the main challenge for practical applications. By introducing a novel structural descriptor φ, we design and prepare a Cr/Fe-NC catalyst that is composed of Cr-Fe bimetallic sites embedded in nitrogen-doped carbon matrix, which demonstrated substantially improved activity and stability. This descriptor-driven strategy establishes a general principle for rationally designing anti-dissolving sites, paving the way for a new generation of durable and non-precious catalysts in fuel cells.",
+          "b": "Making high-efficiency tandem solar cells by depositing perovskite via solution processing onto textured silicon has been challenging, as the rough surface often leads to uneven film formation. We developed a “flash-extraction” strategy that rapidly removes the solvent, enabling the perovskite to form a uniform, high-quality layer over the textured surface. This all-solution process achieves near 30% efficiency, offering a simple, cost-effective path for manufacturing next-generation solar panels.",
           "hb": 1
         },
         {
-          "t": "革命性储能密度：受自然启发的Dewar嘧啶酮",
+          "t": "共同祖先的血统限制了对蛋白质序列空间的探索",
           "d": "2026-03-31",
-          "a": "Chem",
-          "c": "零碳产业/能量循环/能量存储/储热/其他储热技术",
-          "as": "Han等人在Science发表论文，提出嘧啶酮衍生物及其Dewar光异构体作为新型光控分子储能材料。受自然界启发，该类化合物在紫外光照射下发生Dewar型光异构化，将太阳能转化为化学能储存，热触发后可逆向释放。相比传统偶氮苯等光开关体系，该材料展现出突破性的储能密度与长循环寿命，为分子级太阳能热存储（MOST）开辟全新化学路径，有望应用于零碳光控储能器件。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.cell.com/chem/fulltext/S2451-9294(26)00097-5?rss=yes",
-          "tp": "分子光热储能",
-          "aip": 1,
-          "kp": [
-            "能量密度[MOST分子太阳能热存储]: 1.65 MJ/kg",
-            "[释热性能]: 1秒内煮沸水",
-            "[材料]: Dewar嘧啶酮光开关"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In Science, Han and co-workers establish pyrimidone derivatives and their Dewar photoisomers as a new class of photoswitches for molecular solar thermal energy storage (MOST). The photoswitches exhibit record-high energy densities up to 1.65 MJ/kg and release sufficient heat to boil water within 1 s, moving MOST toward concrete applications.",
-          "hb": 1
-        },
-        {
-          "t": "先进热能系统相变材料同时实现高能量密度、强力学性能和闭环可回收性",
-          "d": "2026-03-31",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/储热/其他储热技术",
-          "as": "该研究开发了一种同时实现高能量密度、机械韧性和闭环可回收性的固-固相变材料（SSPCM），用于先进热能管理系统。传统SSPCM在储热密度和力学性能之间难以兼顾，研究通过化学交联网络设计将相变功能基团锚定在聚合物骨架上，实现高焓值潜热存储和高拉伸强度，且在特定溶剂下可解聚回收原料单体，满足可持续热管理应用需求。",
-          "sc": 6.8,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70874?af=R",
-          "tp": "固固相变储热材料",
-          "aip": 1,
-          "kp": [
-            "[目标]: 同时实现高能量密度、机械鲁棒性与闭环可回收",
-            "[材料体系]: 固-固相变材料"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Solid‐solid phase change materials (SSPCMs) hold great promise for thermal management, yet their development has long been hindered by the “impossible triangle”: simultaneously achieving high energy density, robust mechanical properties, and full recyclability. This study presents a strategy to address this trilemma by constructing a reversible physically crosslinked network based on stereocomplex poly(lactic acid) (sc‐PLA) crystallites. In this system, polyethylene glycol (PEG) segments provide thermal energy storage, while sc‐PLA crystallites stabilized by dense hydrogen bonding serve as physical crosslinkers to impart mechanical integrity. The resulting material exhibits ultrahigh stretchability (1427.7%), remarkable tensile strength (30.1 MPa), high latent heat (122.4 J g\n                    −\n                    1\n                    ), and outstanding shape stability. Importantly, the reversible network enables closed‐loop recyclability via hot pressing or solvent processing without compromising performance. Moreover, the physically crosslinked network enables SSPCMs to completely disintegrate in soil within 60 days. By integrating carbon nanotubes (CNT), the potential of our SSPCMs for solar‐thermal‐electric energy conversion is also demonstrated. This work provides a scalable and sustainable pathway to overcome the performance bottlenecks of SSPCMs, paving the way for advanced thermal management materials that integrate mechanical robustness, energy efficiency, and green circularity.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [
-        "量子模拟预测结果首次与真实物理实验数据实现定量吻合",
-        "多模态基础模型基于振动光谱实现半导体点缺陷类型与浓度的无损定量识别"
-      ],
-      "entries": [
-        {
-          "t": "量子模拟首次得到实验验证",
-          "d": "2026-03-31",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "科学家首次通过实验验证了量子模拟的结果，标志着量子计算从理论推演迈向实验可检验的重要里程碑。此前量子模拟多依赖计算精度和理论模型的可信度，缺乏独立实验对照，此次突破意味着模拟预测与真实物理实验数据实现了定量吻合。这一成果为量子计算在凝聚态物理、材料科学和化学反应模拟中的可靠性提供了关键背书，有望加速量子算法在复杂多体问题中的应用落地。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/d41586-026-00959-1",
-          "tp": "量子模拟验证",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2532018123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "蛋白质序列探索",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -127,24 +66,54 @@
           "hb": 0
         },
         {
-          "t": "基于振动光谱的无损缺陷识别基础模型",
+          "t": "螺环β-内酯次级代谢产物调节剪接体功能",
           "d": "2026-03-31",
-          "a": "Matter",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "该研究构建了一种基础模型，用于从振动光谱数据中无损识别半导体和量子材料中的点缺陷。点缺陷主导材料性能，但传统无损定量检测极为困难。该模型通过大规模预训练学习振动光谱与缺陷结构的映射关系，能够高效、准确地识别缺陷类型和浓度，为材料质量控制和量子器件研发提供了突破性工具。",
-          "sc": 6.6,
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "",
+          "sc": 6.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00091-3?rss=yes",
-          "tp": "缺陷识别基础模型",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2518221123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "次级代谢产物",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "350度晶圆级二硫化钨薄膜制备取得进展，降低铜互连电阻率超六个数量级"
+      ],
+      "entries": [
+        {
+          "t": "用于双功能互连阻挡层和衬垫的超薄二硫化钨的低温晶圆级生长",
+          "d": "2026-03-31",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "针对集成电路后端工艺（BEOL）互连层的微型化需求，本研究在兼容的350°C低温下，采用无等离子热原子层沉积技术在晶圆级生长出二硫化钨（WS2）薄膜。该薄膜兼具阻挡层和衬垫功能。单层WS2能防止铜向二氧化硅扩散，且由于改善了铜的润湿性，将10纳米厚铜膜的电阻率降低了六个数量级以上。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01592-6",
+          "tp": "二硫化钨薄膜",
           "aip": 1,
           "kp": [
-            "[识别模型]: DefectNet从声子态密度识别点缺陷"
+            "厚度[二硫化钨层]: 2 nm",
+            "生长温度[无等离子体热原子层沉积]: 350 °C",
+            "核心功能[后端工艺(BEOL)互连阻挡层和衬垫]: 防止铜扩散并确保金属对介电层的粘附"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Point defects govern the performance of semiconductors and quantum materials, yet their non-destructive quantification remains elusive. DefectNet leverages vibrational spectra and a physics-informed machine learning framework to identify defect species and concentrations directly from phonon density-of-states. Validated on both simulated and neutron-scattering data, the model resolves multiple coexisting dopants and bridges the gap between simulation and experiment, advancing vibrational spectroscopy toward automated defect detection.",
+          "b": "In the future, the miniaturization of integrated circuits will require copper wires to be scaled down in the back-end-of-line (BEOL) process. This will, in turn, require a scaling down of the barrier and liner coatings that prevent copper diffusion and ensure metal adhesion to the dielectric. Here we show that thin (2) layers can be grown on the wafer-scale using thermal atomic layer deposition without plasma at BEOL-compatible temperatures (350 °C) and can function as both barriers and liners for interconnects. We show that the WS2 can reduce the resistivity of 10-nm-thick copper films by more than six orders of magnitude compared with a reference system (without the WS2 layer) due to the improved wettability of copper. Monolayer WS2 can prevent copper diffusion into silicon dioxide (SiO2) under thermal stress, and it is projected to improve wire lifetimes under electrical stress. Density functional theory calculations also highlight the potential of multilayer WS2 films as diffusion barriers due to misaligned grain boundaries.",
           "hb": 1
         }
       ]
@@ -153,9 +122,8 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "深势科技推出Hyper-FIB系统，实现聚焦离子束电镜超8小时全自动运行",
-        "兵器工业集团7吨级长鹰-8货运无人机完成首飞，最大载货达3.5吨",
-        "润湿驱动无热冷冻打印技术实现超柔性硅胶薄膜高精度低成本成型"
+        "深势科技等推出智能双束电镜系统，实现超8小时全自动运行",
+        "新型有机共晶材料制备取得进展，X射线检测灵敏度达3.02×10^6"
       ],
       "entries": [
         {
@@ -178,44 +146,44 @@
           "hb": 1
         },
         {
-          "t": "兵器工业集团7吨级长鹰-8大型货运无人机完成首飞",
+          "t": "深势科技报道一款国产智能双束电镜系统可实现聚焦离子束双束电镜全自动运行",
           "d": "2026-03-31",
           "a": "",
-          "c": "通用技术/通信和运输/航空",
-          "as": "兵器工业集团北方公司长鹰无人机公司研制的7吨级大型货运无人机长鹰-8（CY-8）完成首飞，号称当前全球完成飞行的最大货运无人机。该机最大载货3.5吨，起降距离小于500米，最大航程超3000公里，配备18立方米全封闭货舱、前后双舱门布局，兼容标准航空集装箱及冷链单元，支持15分钟快速过站，可在简易土跑道、高原、海岛等复杂地形全域部署，适用于支线物流、应急投送等场景。",
-          "sc": 6.8,
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "深势科技联合北京科学智能研究院和北京大学推出国产智能双束电镜系统Hyper-FIB，实现聚焦离子束双束电镜（FIB-SEM）全自动运行。系统基于深度学习语义分割自动识别样品区域特征并校准位置与追踪，构建离子溅射物理模型精确模拟能量-角度-溅射率等过程，在数字孪生空间优化工艺参数。测试显示可实现超8小时全自动运行，制样成功率超90%，制样时间缩短一半以上。未来将拓展至更多电镜及科学仪器，推动Uni-Lab-OS智慧实验室建设。",
+          "sc": 7.1,
           "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.stdaily.com/web/gdxw/2026-03/31/content_495439.html",
-          "tp": "货运无人机",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/prQl-CDX7MQoPQGJvarQSw",
+          "tp": "电镜自动化",
           "aip": 1,
           "kp": [],
           "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "据科技日报3月31日报道，兵器工业集团北方公司长鹰无人机公司研制的7吨级长鹰-8大型货运无人机（CY-8）完成首飞，并宣传是当前全球完成飞行的最大货运无人机。报道中称，该无人机最大载货重量达3.5吨，起降距离小于500米，可在简易土跑道、高原、海岛等复杂地形全域部署；最大航程超3000公里；配备18立方米全封闭货舱，前后双舱门布局，兼容标准航空集装箱及冷链单元，支持双向快速装卸，最快可实现15分钟完成过站。可适用于支线物流、应急物资投送、快件运输等场景。",
+          "b": "3月31日，深势科技在官网发文称，其联合北京科学智能研究院、北京大学推出国产智能双束电镜系统Hyper-FIB，使得原先依赖专家经验和手工操作的聚焦离子束双束电镜（FIB-SEM）技术实现全自动运行。文中称，其基于深度学习的语义分割技术，使系统能自动识别样品区域特征，自动校准位置与追踪；同时构建了离子溅射物理模型，精确模拟能量-角度-溅射率、散射轨迹等核心物理过程；并在数字孪生空间进行虚拟优化，并与现实实验结果对齐，实现工艺参数的持续迭代。经测试，该系统可实现>8小时全自动运行，制样成功率>90%，制样时间缩短一半以上。后续其将推动系统进入科研平台和半导体产线；并拓展至更多电镜及科学仪器；最终期望围绕Hyper-API统一接口、Hyper-Data数据中枢与智能开放生态持续布局，通过Uni-Lab-OS促进不同仪器之间的互联互通，推动智慧实验室建设加速落地。",
           "hb": 1
         },
         {
-          "t": "润湿驱动无热冷冻打印方法制备超软硅胶薄膜",
+          "t": "用于灵敏 X 射线检测的大型 π 共轭有机共晶中的直接 π 耦合双极输运",
           "d": "2026-03-31",
           "a": "Matter",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究提出一种润湿驱动的热冷冻打印方法，用于制造超软硅胶薄膜。与传统软材料打印试图让材料'停止流动'的思路不同，该方法反向利用润湿行为控制液态硅胶的铺展与固化，无需传统热处理即可实现超柔性薄膜的高精度成型，有望推动柔性电子、可穿戴设备等领域超软材料的低成本制造。",
-          "sc": 7.1,
+          "as": "本研究提出了一种π轨道耦合策略，突破了传统电荷转移诱导的双极输运限制，制备出高性能双极性有机共晶。具有面对面π-π堆叠的Cu-PcC共晶实现了高效双极输运，基于此的X射线探测器展现出3.02 × 10^6 μC Gy⁻¹ cm⁻²的超高灵敏度，并具有明显的偏压对称响应。",
+          "sc": 8.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00086-X?rss=yes",
-          "tp": "超软硅橡胶薄膜",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00124-4?rss=yes",
+          "tp": "X射线检测共晶",
           "aip": 1,
           "kp": [
-            "[打印方法]: 润湿驱动热冻结印刷法",
-            "[材料]: 超软硅胶薄膜"
+            "X射线探测器灵敏度[π-轨道耦合Cu-PcC有机共晶]: 3.02 × 10^6 μC Gy−1 cm−2",
+            "电荷载流子输运[面到面π-π堆叠]: 打破传统电荷转移限制，实现高效双极输运"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Traditional soft-material printing usually attempts to make materials “stop flowing.” Here, we take the opposite approach by precisely designing how ultra-soft silicone flows, spreads, and freezes over time. By transforming collapse—once seen as a failure—into a controllable shaping mechanism, this work enables patterned flat films and multilayer structures from ultra-soft materials, opening a new manufacturing pathway for flexible and soft devices.",
+          "b": "Li et al. present a π-orbital coupling strategy for high-performance ambipolar organic cocrystals, breaking the charge-transfer-induced ambipolar transport limitation of conventional systems. Their Cu-PcC cocrystals with face-to-face π–π stacking enable efficient ambipolar transport, and the resultant X-ray detector exhibits an ultrahigh sensitivity of 3.02 × 106 μC Gy−1 cm−2 with distinct bias-symmetric response. This work redefines organic cocrystal design and advances next-generation multifunctional optoelectronics.",
           "hb": 1
         }
       ]

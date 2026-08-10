@@ -6,12 +6,10 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "武大团队开发聚硫酸酯表面改性技术，全固态电池电解质耐湿性与氧化稳定性获提升",
-      "新型钙钛矿有机叠层太阳能电池研发成功，可见光透明器件光利用率超6%"
+      "武大团队构筑10nm聚硫酸酯保护层以提升硫化物电解质耐湿性",
+      "新型阴离子交换膜技术通过双途径氯抑制实现稳定工业化海水电解"
     ],
-    "AI与智能科技": [
-      "科研人员研发氟化InP量子点柔性光子突触器件，实现多波段神经形态计算"
-    ],
+    "AI与智能科技": [],
     "通用技术": []
   },
   "sectors": [
@@ -19,22 +17,22 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "武大团队开发聚硫酸酯表面改性技术，全固态电池电解质耐湿性与氧化稳定性获提升",
-        "新型钙钛矿有机叠层太阳能电池研发成功，可见光透明器件光利用率超6%"
+        "武大团队构筑10nm聚硫酸酯保护层以提升硫化物电解质耐湿性",
+        "新型阴离子交换膜技术通过双途径氯抑制实现稳定工业化海水电解"
       ],
       "entries": [
         {
           "t": "武汉大学艾新平通过原位聚硫酸酯改性显著提升硫化物固体电解质的氧化稳定性和耐湿性",
           "d": "2025-12-29",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "武汉大学艾新平团队利用硫化物电解质Li₆PS₅Cl表面S²⁻阴离子作引发剂，原位引发DTD单体开环聚合，在颗粒表面构筑约10nm无定形聚硫酸酯保护层。该非破坏性策略保持本体结构与离子电导率（4.3 mS/cm），从物理隔绝与化学性质两方面显著提升硫化物电解质的氧化稳定性与耐湿性，推动全固态电池实用化。",
-          "sc": 5.7,
+          "sc": 6.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1002/anie.202520531",
           "tp": "固态电解质",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -43,59 +41,50 @@
           "hb": 1
         },
         {
-          "t": "可见光透明单片钙钛矿/有机叠层太阳能电池实现超6%光利用率",
+          "t": "武汉大学艾新平通过原位聚硫酸酯改性显著提升硫化物固体电解质的氧化稳定性和耐湿性",
           "d": "2025-12-29",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "开发可见光透明型全叠层钙钛矿/有机串联太阳能电池，兼顾窗户应用所需的人眼可见清晰度与发电功率。器件通过宽带隙顶电池与窄带隙底电池的光谱分工，最大化全光谱利用效率，实现超过6%的光利用率，在建筑光伏一体化透明窗户场景中具有应用前景。",
-          "sc": 6.5,
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "武汉大学艾新平团队利用硫化物电解质Li₆PS₅Cl表面S²⁻阴离子作引发剂，原位引发DTD单体开环聚合，在颗粒表面构筑约10nm无定形聚硫酸酯保护层。该非破坏性策略保持本体结构与离子电导率（4.3 mS/cm），从物理隔绝与化学性质两方面显著提升硫化物电解质的氧化稳定性与耐湿性，推动全固态电池实用化。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1002/anie.202520531",
+          "tp": "固态电解质",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "硫化物固体电解质因其高离子导电率和优异的界面适形性，被认为是全固态电池（ASSBs）的理想候选材料。然而，其固有的氧化不稳定性和高水分敏感性严重阻碍了实际应用。武汉大学艾新平研究员等人提出了一种温和、非破坏性的表面改性策略，利用硫化物电解质Li₆PS₅Cl（LPSC）表面的亲核性S²⁻阴离子作为引发剂，原位引发1,3,2-二氧硫杂环戊烷-2,2-二氧化物（DTD）的单体发生开环聚合，从而在LPSC颗粒表面构筑了一层均匀、致密的聚硫酸酯（PS）保护层。\n该策略的核心优势在于非破坏性：LPSC表面的S²⁻仅作为聚合反应的引发位点，而非直接参与构成修饰层的反应物，因此对电解质体相晶体结构和离子电导率影响极小。研究者通过优化反应条件（0.1 M DTD，反应12小时），获得了改性后的PS-LPSC电解质。表征结果显示，PS层厚度约为10纳米，且为无定形态，而LPSC内部的晶格条纹清晰可见，XRD谱图无显著变化，证实了本体结构得以完好保持。改性后电解质的离子电导率仍高达4.3 mS cm⁻¹，与原始LPSC（4.64 mS cm⁻¹）相当。\n该PS修饰层从物理隔绝和化学性质两方面显著提升了LPSC的稳定性。线性扫描伏安测试表明，PS-LPSC在4.6 V（vs. Li⁺/Li）以下的氧化电流远低于原始LPSC。直流极化测试显示，PS层的电子电导率极低，有效抑制了界面电子转移，从而提升了抗氧化能力。在耐湿性方面，将电解质暴露于13%相对湿度的空气中进行测试，原始LPSC的电导率在0.5小时内即骤降85%，而PS-LPSC在暴露4小时后仍能保持1.51 mS cm⁻¹的高电导率。密度泛函理论计算表明，水分子在PS聚合物表面的吸附能远低于在原始LPSC表面，证实了PS层的疏水特性是其耐湿性增强的关键机理。\n将改性电解质应用于全固态电池（ASSB），其卓越性能得到充分验证。采用LiIn负极与高镍NCM955正极组装电池。PS-LPSC ASSB在0.2C和10C倍率下，分别释放出231.6和138.3 mA h g⁻¹的高放电比容量。在室温10C倍率下循环36000次后，容量保持k率高达70.0%；即使在60°C高温、50C超高倍率的苛刻条件下循环20000次，容量保持率仍达到62.4%。文章于2025年12月29日发表在Angewandte Chemie International Edition。",
+          "hb": 1
+        },
+        {
+          "t": "双途径氯抑制实现稳定的工业规模阴离子交换膜海水电解",
+          "d": "2025-12-29",
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520278?af=R",
-          "tp": "透明钙钛矿叠层电池",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202505239?af=R",
+          "tp": "海水电解制氢",
           "aip": 1,
-          "kp": [
-            "光利用率[透明钙钛矿/有机叠层电池]: >6%"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Transparent photovoltaics for solar‐window applications must balance human‐visible clarity with meaningful power output. Here, we report a selectively absorbing, monolithic perovskite/organic tandem that decouples visible transmittance from photocurrent generation and minimizes voltage loss delivering record light‐utilization efficiency (LUE) for visibly transparent (VT) tandem devices. An ultra‐wide‐bandgap, DMA‐alloyed perovskite top sub‐cell harvests primarily &lt;∼530 nm, achieving, as a single junction, AVT 65.68% and power conversion efficiency (PCE) 8.23% (LUE 5.46%). Complemented by a ternary PCE10‐2Cl:Y6:Y12 bottom stack that minimizes visible absorption while harvesting in the NIR, the tandem reaches PCE 10.91% at AVT 55.39%, yielding LUE 6.04%. To the best of our knowledge, this is the first VT monolithic perovskite/organic tandem to surpass 6% LUE at AVT ≥ 50%, while delivering a record‐high open circuit voltage (\n                    V\n                    OC\n                    ) of 2.38 V. These results establish optical–electrical co‐design guidelines for high‐clarity, power‐generating glazing, which explicitly connect materials and interface choices in both sub‐cells to energetic disorder, built‐in potential, and recombination.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "科研人员研发氟化InP量子点柔性光子突触器件，实现多波段神经形态计算"
-      ],
-      "entries": [
-        {
-          "t": "基于氟化InP量子点的柔性多波段光子突触用于伤害性感知与类脑计算",
-          "d": "2025-12-29",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究开发了基于氟化InP量子点的柔性多波段光子突触器件，用于痛觉感知模拟与神经形态计算。有机光子突触晶体管（OPSTs）在光刺激下可模拟生物突触行为，氟化量子点的引入拓展了多波段光响应范围。器件成功实现了痛觉感知功能及神经形态计算任务，为柔性光电子神经形态系统和仿生感知平台开辟了新路径。",
-          "sc": 6.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518057?af=R",
-          "tp": "光子突触器件",
-          "aip": 1,
-          "kp": [
-            "材料[光子突触]: 氟化InP量子点",
-            "功能[柔性器件]: 多波段光子突触+痛觉感知",
-            "器件类型[神经形态]: 有机光子突触晶体管(OPST)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Organic photonic synaptic transistors (OPSTs), emulating biological synaptic behaviors under optical stimulation, serve as essential hardware components for neuromorphic visual systems. To satisfy various demands, state‐of‐the‐art OPSTs typically require multispectral responsiveness that is often pursued by leveraging the excellent optoelectronic properties and solution‐processability of quantum dots (QDs). However, this strategy suffers from complex fabrication procedures, limited mechanical flexibility and toxic cadmium/lead compositions in QDs, which raise serious environmental and biosafety concerns. In this work, we demonstrate a fully solution‐processed and self‐supporting flexible OPST based on environmentally benign indium phosphide (InP) QDs. Through ligand exchange with fluorinated thiols, the QDs demonstrate improved photostability and enhanced energy level alignment with organic semiconductors. Furthermore, the interfacial dipole induced by fluorinated ligands enables long‐term charge retention. The resulting QD‐OPST devices exhibit broadband excitatory postsynaptic current (EPSC) responses, tunable synaptic plasticity, remarkable mechanical durability and ultralow energy consumption of 0.016 fJ, effectively mimicking cornea‐like nociceptor behaviors. In addition, the QD‐OPSTs display pronounced color selectivity, enabling blue‐feature recognition while suppressing red‐green background noise. This study provides a feasible strategy for developing high‐performance, eco‐friendly, and flexible photonic synapse devices, highlighting great potential for applications in visual perception and brain‐inspired computing.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",

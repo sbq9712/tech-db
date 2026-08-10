@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "水相提锂工艺验证成功，较传统高温硫酸法显著削减碳排放",
-      "钙钛矿量子点掺杂技术将有机太阳能电池能量转化效率提升至20.5%",
-      "合源锂创首期5GWh固态电池产线投产，首批1GWh电芯已实现交付"
+      "ITER团队将330吨环形场线圈冷却至4开尔文以开展全电流测试",
+      "层叠冲压法实现微型电池高通量生产，制造效率达每小时1800个",
+      "高压二氧化碳界面工程提升硫化物全固态锂电池倍率性能"
     ],
     "AI与智能科技": [
-      "Ω栅单晶In₂O₃场效应晶体管攻克漏电瓶颈，突破2T0C DRAM性能极限",
-      "研究利用纳米级磁体首次实现金刚石氮空位中心自旋的相干量子控制",
-      "科研团队构建情感脑机接口系统，驱动机器人集群完成多智能体协同博弈"
+      "中国邮政广东物流中心部署人形机器人，单小时分拣包裹1200件",
+      "日本研发赛博格昆虫控制系统，通过监测心跳与神经活动实现干预",
+      "中国团队发布HG-STR算法，实现通信干扰条件下的无人机群目标搜寻"
     ],
     "通用技术": [
-      "科研团队引入螺双芴取代策略，改变COF空间维度以提升光催化还原效率",
-      "研究发现豆娘翅膀色素与光子结构协同机制，突破光子玻璃颜色饱和极限",
-      "学者开发块体调幅分解多主元合金，在宽温域内实现高韧性与高能量吸收"
+      "单晶超离子导体RbAg4I5室温导热系数低至130 mW m−1 K−1",
+      "国际研究团队首次利用核磁共振波谱探测极端压力下的超氢化镧",
+      "Pursuit公司投运载客52人的首台电动冰川探索器，底盘重量减轻一半"
     ]
   },
   "sectors": [
@@ -26,71 +26,76 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "水相提锂工艺验证成功，较传统高温硫酸法显著削减碳排放",
-        "钙钛矿量子点掺杂技术将有机太阳能电池能量转化效率提升至20.5%",
-        "合源锂创首期5GWh固态电池产线投产，首批1GWh电芯已实现交付"
+        "ITER团队将330吨环形场线圈冷却至4开尔文以开展全电流测试",
+        "层叠冲压法实现微型电池高通量生产，制造效率达每小时1800个",
+        "高压二氧化碳界面工程提升硫化物全固态锂电池倍率性能"
       ],
       "entries": [
         {
-          "t": "实现锂精炼闭环",
+          "t": "世界上最大的托卡马克装置将 330 吨重的磁铁冷却至接近绝对零",
           "d": "2026-05-30",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/物质循环/无机物/有色金属/其它有色金属产业",
-          "as": "该研究提出一种水相提锂工艺用于硬岩锂精炼，相比传统高温硫酸焙烧法具有更高的经济性和更低的环境负荷。该工艺简化了提锂流程并减少了碳排放，为锂电池供应链的绿色化和低成本化提供了切实可行的工程路径。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aei1181?af=R",
-          "tp": "锂矿精炼",
+          "a": "interesting engineering",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "ITER团队成功将一个330吨重的环形场线圈冷却至4开尔文（零下269摄氏度）的运行温度，并启用了磁体冷测试设施。在接下来的四到六个月内，团队将对部件进行全电流测试，其中环形场线圈电流达68千安培，极向场线圈达48千安培，以在装入主反应堆前验证磁体性能。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/energy/world-largest-tokamak-magnet-fusion-plasma",
+          "tp": "托卡马克磁铁冷却",
           "aip": 1,
           "kp": [
-            "[提纯工艺]: 水相硬岩锂提纯"
+            "重量[托卡马克环向场线圈]: 330吨",
+            "冷却温度[环形场线圈]: 4 K (-269℃)",
+            "冷却时长[磁铁冷却测试]: 12天"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "An aqueous process for lithium hardrock refining is economically and environmentally attractive",
+          "b": "Engineers are preparing for high-current trials at ITER’s newly activated Magnet Cold Test Facility, following a 12-day cooling process that lowered a 330-ton toroidal field coil to its functioning temperature of 4 Kelvin (minus 269 degrees Celsius). This operational milestone was celebrated yesterday during a site visit by the ITER Council’s Management Advisory Committee.\nThis program verifies magnet performance before the parts are locked into the main reactor. Over the course of four to six months per coil, the team will subject components to full operational electrical currents, which reach 68 kiloamperes (kA) for the toroidal field units and 48 kA for the poloidal field units.\n“Eighteen D-shaped toroidal field coils, six ring-shaped poloidal field coils, and the six independent modules of the central solenoid-with a combined stored magnetic energy of 51 Gigajoules (GJ)-will produce the magnetic fields that initiate, confine, shape and control the ITER plasma,” said ITER in a press release.\nConstructed from niobium-tin (Nb3Sn) and niobium-titanium (Nb-Ti), these alloys require liquid helium immersion to lose their electrical resistance.\nSuperconducting systems are essential for industrial-scale fusion because they generate\nintense magnetic fields\nwith minimal electricity compared to copper variants. However, this state relies on keeping temperatures, current levels, and magnetic forces below strict physical limits.\nIf these thresholds fail, the material undergoes a “quench,” reverting to a standard resistive state that releases sudden heat. Consequently, a major goal of these cold runs is verifying that the automatic safety sensors detect these thermal changes instantly.\nRunning these benches alongside existing plant networks provides early data on how the central control systems, power feeds, vacuums, and cooling setups interact. This parallel testing reveals vulnerabilities prior to final plant commissioning.\nThough the setup cannot mimic the exact environment of an active fusion reaction, it measures how the magnets handle stress, monitors insulation behavior, and checks the integrity of internal superconducting joints.\nManaging components that weigh hundreds of tonnes demands significant logistics, including a 20-meter-long cryostat chamber, heavy electrical links, and direct lines to the facility’s primary helium cryoplant.\nbuilt this testing area inside an assembly hall formerly used by Fusion for Energy for shaping large exterior coils, capitalizing on the building’s existing heavy cranes and its layout.\nITER Director-General Pietro Barabaschi noted that adapting this existing footprint allowed the organization to lower project risks logically before starting full system integration. He added that the facility will eventually serve the broader commercial fusion market by sharing technical insights.\nOnce ITER finishes its own scheduled runs on the initial niobium-tin (Nb3Sn) coil and subsequent manufacturer deliveries, private fusion ventures will gain access to the testing area.\n“This is important for ITER as well as an example of how ITER can support the wider fusion ecosystem by creating knowledge, infrastructure, and operational experience that others can use,”\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nAn active and versatile journalist and news editor. He has covered regular and breaking news for several leading publications and news media, including The Hindu, Economic Times, Tomorrow Makers, and many more. Aman holds expertise in politics, travel, and tech news, especially in AI, advanced algorithms, and blockchain, with a strong curiosity about all things that fall under science and tech.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from Energy\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nWorld’s largest offshore wind converter with 6 billion kWh annual capacity heads to sea\nChina: CATL opens world’s largest energy storage testbed with 100 MVA grid simulator\nRussia builds first RITM-200 reactor unit for floating nuclear power plant fleet\nUS firm to advance nuclear metal powder development with new contract\nUS’ new uranium enrichment facility could boost nuclear fuel supply after review\nWorld’s largest offshore wind converter with 6 billion kWh annual capacity heads to sea\nChina: CATL opens world’s largest energy storage testbed with 100 MVA grid simulator\nRussia builds first RITM-200 reactor unit for floating nuclear power plant fleet",
           "hb": 1
         },
         {
-          "t": "钙钛矿量子点调控给体/受体掺杂实现有机非富勒烯太阳能电池效率超20.5%",
+          "t": "High-throughput production of microbatteries by a stack-punching method",
           "d": "2026-05-30",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "有机非富勒烯太阳能电池（ONSCs）虽效率大幅提升，但器件性能仍受限于给体/受体界面电荷传输与复合损耗。本研究利用钙钛矿量子点对给体/受体进行可控掺杂调控，优化能级排列与载流子迁移率，使器件效率突破20.5%。该掺杂策略为有机光伏器件性能提升提供了新思路，推动其实用化进程。",
-          "sc": 7.5,
+          "a": "Nature Communications",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "报道了一种自上而下的层叠冲压方法，用于高通量生产微型电池。通过结合无负极初始设计与互穿的正极|电解质融合层，构建出能承受高速冲压机械应力的坚固界面。该方法生产效率高达每小时1800个，制造出的微型电池具有极高的均匀性。",
+          "sc": 8.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73530?af=R",
-          "tp": "非富勒烯有机光伏",
+          "u": "https://www.nature.com/articles/s41467-026-73912-5",
+          "tp": "微型电池制造",
           "aip": 1,
           "kp": [
-            "[转换效率]: >20.5%",
-            "[掺杂策略]: 钙钛矿量子点调控给受体"
+            "制备工艺[微电池高通量生产]: 自上而下的叠层冲压方法",
+            "器件设计[提升电化学性能与均匀性]: 无负极初始设计集成"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Organic nonfullerene solar cells (ONSCs) have achieved remarkable progress, with power conversion efficiency (PCE) now surpassing 20%. To further improve the device performance, herein, we demonstrate a facile doping strategy using emerging perovskite quantum dots (QDs), which is anticipated to address critical issues like high exciton binding energy and limited charge transport. In a typical sequentially deposited planar heterojunction (PHJ) ONSCs, FAPbI\n                    3\n                    QDs were introduced into the donor polymer (D18) and acceptor molecule (L8BO) layers separately, which enables precise manipulation of the vertical doping and decouples the influence of QDs on donor/acceptor. Comprehensive characterizations reveal that the FAPbI\n                    3\n                    QD doping reduces energy disorder, enhances crystallinity, and promotes cascade energy alignment, thereby facilitating exciton dissociation and charge transport. Moreover, FAPbI\n                    3\n                    QDs act as energy mediators, prolonging carrier lifetime and suppressing non‐radiative recombination. The optimal D18/L8BO device with simultaneous doping of donor/acceptor achieves a best PCE of 20.55% with a high fill factor exceeding 82%. We also demonstrate the application of QD doping strategy in varying representative donor/acceptor systems, paving a new avenue for minimizing energy loss and advancing the efficiency of ONSCs.",
+          "b": "Microbatteries are critical power sources for integrated circuits, wearable electronics, implantable medical devices, and microrobots. However, their practical applications have been limited by conventional bottom-up assembly methods, which suffer from low production efficiency, poor uniformity, and inferior electrochemical performance. Here we report a top-down stack-punching approach for high-throughput production of microbatteries. Through the integration of an initially anode-free design with an interpenetrating positive electrode|electrolyte fusion layer, we construct robust electrode|electrolyte interfaces to withstand the mechanical stress induced by the high-speed punching process, with a high production rate of 1800 units per hour. The resulting microbatteries are highly uniform in both physical dimensions and electrochemical performance, achieving a maximum volumetric energy density of 1306 mWh cm−3, highly competitive among state-of-the-art microbattery technologies. As a proof-of-concept, these microbatteries are integrated with miniature sensors for continuous health monitoring and mounted onto ants and bees to potentially develop biohybrid microsystems for ecological and geological data collection. Overall, our stack-punching approach offers a promising tool for the large-scale manufacture of high-performance microbatteries, facilitating their translation into next-generation electronic devices and systems.",
           "hb": 1
         },
         {
-          "t": "合源锂创20GWh固态电池工厂一期项目（5GWh）投产",
+          "t": "利用高压二氧化碳进行硫化物基全固态锂金属电池的分子尺度界面工程",
           "d": "2026-05-30",
-          "a": "",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "合源锂创位于仙桃的20GWh固态电池工厂一期项目（规划5GWh）正式投产，首批1GWh已交付。产线采用氧化物技术路线，产品能量密度覆盖250-400Wh/kg，应用于人形机器人、无人车、无人机等领域。六合系列产品能量密度达280-360Wh/kg，可100%通过5毫米针刺测试。",
-          "sc": 6.2,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://epaper.hubeidaily.net/pc/content/202605/30/content_349301.html",
-          "tp": "固态电池厂",
+          "as": "针对硫化物全固态锂电池界面不稳定和临界电流密度低的问题，提出了一种利用高压二氧化碳在Li6PS5Cl（LPSC）表面进行原位分子级界面工程的策略。通过浓缩二氧化碳的精确调控，成功构建了稳定的界面，从而显著提升了电池的倍率性能，满足低空经济对先进储能的需求。",
+          "sc": 7.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73554?af=R",
+          "tp": "固态电池界面",
           "aip": 1,
-          "kp": [],
-          "lv": 1,
+          "kp": [
+            "关键性能[硫化物电解质]: 高室温离子导电性和可加工性",
+            "改性方法[提升高倍率性能]: 高压二氧化碳驱动的分子尺度界面工程"
+          ],
+          "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "据湖北日报5月30日报道称，合源锂创位于仙桃的20GWh固态电池工厂一期项目（规划5GWh）正式投入生产，首批1GWh已交付使用，单个软包电芯质量213g。文中称，该产线采用氧化物技术路线，主要生产适用于人形机器人、无人车、无人机、e-Bike及消费电子等领域产品，能量密度覆盖250-400Wh/kg。此外，文中宣传合源锂创六合系列固态电池产品能量密度已达280-360Wh/kg，可100%通过5毫米针刺测试。",
+          "b": "ABSTRACT\n                  \n                    The rapid expansion of the low‐altitude economy has intensified the demand for energy storage with exceptional rate capability. Sulfide electrolytes, with high room‐temperature ionic conductivity and processability, are pivotal for next‐generation all‐solid‐state batteries (ASSBs), but their interfacial instability and the resulting low critical current density severely hinder high‐rate performance. Here, we propose a molecular‐level interfacial construction strategy using high‐pressure CO\n                    2\n                    to in situ engineer the Li\n                    6\n                    PS\n                    5\n                    Cl (LPSC) surface. Through precise regulation with concentrated CO\n                    2\n                    molecules, a nanoscale Li\n                    2\n                    CO\n                    3\n                    ‐rich layer with high Young's modulus and superior oxidant‑resistance is constructed. This designed interphase effectively suppresses parasitic reactions, enhances mechanical integrity, and homogenizes Li‐ion flux. Consequently, the modified LPSC exhibits exceptional dendrite‐suppression capability, achieving a critical current density of 7.76 mA cm\n                    −2\n                    , and enables stable Li plating and stripping over 920 h at 5 mA cm\n                    −2\n                    in symmetric cells. Furthermore, full cells paired with a high‐voltage LiNi\n                    0.8\n                    Co\n                    0.1\n                    Mn\n                    0.1\n                    O\n                    2\n                    cathode demonstrated outstanding rate capability at 5C with a power density of 3160 W kg\n                    −1\n                    and maintained stable cycling over 500 cycles at 0.5C. This work proposes a simple and effective molecular‐scale interface engineering method to overcome the power limitation problem of sulfide‐based ASSBs.",
           "hb": 1
         }
       ]
@@ -99,74 +104,74 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Ω栅单晶In₂O₃场效应晶体管攻克漏电瓶颈，突破2T0C DRAM性能极限",
-        "研究利用纳米级磁体首次实现金刚石氮空位中心自旋的相干量子控制",
-        "科研团队构建情感脑机接口系统，驱动机器人集群完成多智能体协同博弈"
+        "中国邮政广东物流中心部署人形机器人，单小时分拣包裹1200件",
+        "日本研发赛博格昆虫控制系统，通过监测心跳与神经活动实现干预",
+        "中国团队发布HG-STR算法，实现通信干扰条件下的无人机群目标搜寻"
       ],
       "entries": [
         {
-          "t": "基于Ω栅单晶In₂O₃场效应晶体管解锁2T0C DRAM的性能极限",
+          "t": "中国邮政部署人形机器人每小时分拣1200个包裹",
           "d": "2026-05-30",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "本研究展示了Ω型栅控单晶In₂O₃场效应晶体管（Ω-SC In₂O₃ FET）在2T0C DRAM架构中的高性能应用潜力。通过采用Ω形全环绕栅极结构和单晶沟道材料，器件实现了超高开态电流、极陡亚阈值摆幅和优异的均匀性，有效克服了传统背沟道晶体管的漏电和迁移率瓶颈。该成果为后摩尔时代高密度、低功耗DRAM存储器的架构革新提供了关键器件方案。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec3934?af=R",
-          "tp": "氧化物薄膜晶体管",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "中国邮政集团在广东省南部的物流中心部署了人形机器人进行包裹分拣。该机器人与机械臂、无人叉车协同工作，每小时可处理多达1200个包裹。该设施日均处理邮件量达650万件，峰值超1000万件，正通过引入自主系统推进物流自动化以应对庞大业务量。",
+          "sc": 7.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/ai-robotics/china-deploys-humanoid-robots-in-postal-hub",
+          "tp": "邮政部署机器人",
           "aip": 1,
           "kp": [
-            "[器件结构]: Ω栅单晶In₂O₃ FET无电容2T0C DRAM"
+            "分拣效率[人形机器人分拣系统]: 1200个包裹/小时"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "This study demonstrates high performance Ω-shaped-gated single-crystal In\n                    2\n                    O\n                    3\n                    field-effect transistors (Ω-SC In\n                    2\n                    O\n                    3\n                    FETs), which push the performance boundaries of oxide-based electronics. To showcase these capabilities in a demanding application, a capacitorless two-transistor (2T0C) dynamic random-access memory (DRAM) cell is fabricated based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs. Specifically, a high average field-effect mobility of 321.7 cm\n                    2\n                    /V·s with an on-off ratio above 10\n                    9\n                    and a steep subthreshold swing (SS) of 64.6 mV/dec are obtained for Ω-SC In\n                    2\n                    O\n                    3\n                    FETs due to the single-crystal In\n                    2\n                    O\n                    3\n                    channel as well as effectively enhanced electrostatic control of the Ω-shaped gate structure. The robust gate bias temperature stress stabilities, including positive and negative bias-temperature stresses, are achieved with a threshold voltage (\n                    V\n                    TH\n                    ) shift value of −121 and 41 mV for 10\n                    4\n                     s, respectively, which is attributed to low defect density. Moreover, the high-performance capacitorless 2T0C DRAM cell based on Ω-SC In\n                    2\n                    O\n                    3\n                    FETs is constructed, which presents long data retention of 10\n                    5\n                     s, ultrafast access speed of 5 ns, endurance of 10\n                    12\n                     cycles, and storage of 3 bits.",
+          "b": "China has reportedly deployed humanoid robots into one of the world’s busiest postal networks as the country accelerates efforts to automate logistics at a massive scale.\nImages released this week from the\nlogistics site under the\npostal center show humanoid robotic sorters handling parcels alongside robotic arms and unmanned forklifts in a highly automated warehouse environment.\nAccording to\n, the robots are capable of processing up to 1,200 parcels per hour as part of a broader modernization push by China Post Group.\nThe facility, located in\nin southern Guangdong Province, can allegedly handle an average of 6.5 million pieces of mail every day, with peak volumes exceeding 10 million.\nTo be able to deal with those numbers, operators have increasingly turned toward autonomous systems capable of working continuously with minimal human intervention.\nWhile robotic arms and automated conveyor systems are already common in large fulfillment hubs worldwide, the use of humanoid robots represents a notable shift in strategy. Unlike traditional industrial robots, humanoid systems are designed to operate in environments originally built for people.\nThat means they can theoretically move through existing warehouses, identify parcels, interact with shelves or cages, and adapt to changing tasks without requiring an entirely new facility layout.\nFootage released by\nshows humanoid robots gripping parcels from containers and placing them onto sorting lines, while autonomous forklifts transport loads through the warehouse floor. The machines appear to work in coordination with conventional automation systems already installed at the site.\nLooking at the bigger picture, China has rapidly emerged as one of the leading markets for humanoid robotics development. In response, companies across the country are racing to commercialize systems for manufacturing, logistics, elderly care, and public service applications.\nBacked by heavy government investment and a strong domestic robotics supply chain, Chinese firms are increasingly positioning humanoid robots not as experimental showcase machines, but as practical industrial tools.\nLogistics, in particular, has become an attractive sector for deployment. Warehouses and postal centers operate around the clock, labor shortages remain a challenge in many regions, and parcel volumes continue to surge due to e-commerce growth.\nTo this end, robots that can autonomously sort, transport, and identify packages offer the potential to reduce operational costs while improving throughput during peak demand periods.\npostal center’s latest deployment also highlights how modern logistics automation is evolving beyond single-purpose machinery.\nInstead of relying solely on fixed robotic systems, operators are beginning to integrate multiple autonomous technologies into a connected ecosystem that includes mobile robots, machine vision, AI-driven identification systems, and unmanned vehicles.\nHowever, questions remain over long-term reliability, maintenance costs, and whether humanoid systems can consistently outperform simpler robotic alternatives in real-world logistics environments. Humanoid robots are generally more mechanically complex and expensive than fixed industrial automation.\nThat said, China’s willingness to deploy the technology at scale suggests the country sees humanoid robotics as more than a futuristic experiment. In facilities processing millions of parcels each day, even small gains in efficiency can translate into significant operational and economic advantages.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from AI and Robotics\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system",
           "hb": 1
         },
         {
-          "t": "纳米尺度磁体下氮空位自旋的相干量子控制",
+          "t": "生物混合系统“聆听”机器人昆虫的自适应控制",
           "d": "2026-05-30",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究利用纳米级磁体实现了金刚石中氮空位（NV）中心自旋的相干量子控制。相比传统微波场驱动方法，纳米磁体提供了高度局域化的磁场操控手段，有望推动纳米尺度量子传感、量子计算及单自旋操控的发展。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-73087-z",
-          "tp": "量子自旋控制",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "日本研究人员开发出一种自适应的赛博格昆虫控制新方法。该系统通过监测昆虫的心跳、神经活动和身体运动来确定其内部状态，再决定是否施加刺激。研究团队为马达加斯加发声蟑螂配备了轻量级背包采集数据，利用紫外线和振动进行引导，并通过五种场景下的数据训练机器学习算法。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "行业观察",
+          "u": "https://interestingengineering.com/ai-robotics/hybrid-system-for-cyborg-insects",
+          "tp": "控制机器昆虫",
           "aip": 1,
           "kp": [
-            "[量子控制]: 纳米磁体微波场驱动单NV中心",
-            "[优势]: 替代天线解决可扩展性与热噪声"
+            "自适应控制机制[生物混合系统]: 监测心跳、神经活动和身体运动以评估内部状态",
+            "传感器载荷[半机械昆虫]: 轻量级可穿戴背包"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Coherent control of the nitrogen-vacancy (NV) center in diamond is commonly achieved by microwave fields from conventional antennas, which suffer from scalability and thermal noise. Their spatially extended field profiles also limit their specificity in driving one NV spin without affecting other NV spins. Here, we investigate quantum control of a single NV center with microwave fields generated from a nanoscale magnet that is proximal to the NV center. Our results show nanoscale coherent control with high contrast Rabi oscillations using nearfield microwaves from shape anisotropic nanomagnets of lateral dimensions down to 200 nm\" role=\"presentation\">nm{{{\\rm{nm}}}}, driven by surface acoustic wave (SAW) excitation. Furthermore, we show that varying the acoustic power driving such nanomagnets can achieve control over Rabi frequency. We also report spin-spin relaxation time (T2\" role=\"presentation\">T2{T}_{2}) of the NV center, measured up to 3.48&#x00B1;\" role=\"presentation\">±\\pm0.01 μs using microwave pulses generated by such nanomagnets. The use of the nanoscale magnets to implement highly localized coherent quantum control can replace thermally noisy microwave circuits and demonstrate a path to scalable quantum computing and sensing with NV-defects in diamond and other spin qubits.",
+          "b": "Japanese researchers have developed a new approach to controlling cyborg insects that focuses on understanding the animal’s condition before attempting to influence its movement. Rather than relying solely on external commands, the system monitors the insect’s heartbeat, neural activity, and body motion to determine its internal state and decide whether stimulation should be applied.\nTo test the concept, the team equipped Madagascar hissing\nwith a lightweight wearable backpack capable of collecting physiological and behavioral data. The device guides the insects using ultraviolet light and vibration cues. Machine-learning algorithms trained on data gathered across five scenarios – normal activity, ultraviolet light exposure, chemical exposure, heat, and the presence of food – were able to identify the insect’s environmental state with 93 percent accuracy.\nThe system only intervenes when conditions are favorable. Therefore, if the insect appears relaxed or motivated by food, gentle stimulation is used to direct movement. When signs of stress or avoidance are detected, the stimulation is automatically suspended.\nThe researchers call the new platform the Insect Synergy Circuit (ISC), a system designed to respond to an insect’s physiological state instead of merely issuing movement commands. By integrating biological signals into the decision-making process, the technology enables a more adaptive form of interaction between machine and organism.\nThe team says the approach marks a significant departure from conventional cyborg insect systems, creating a bio-hybrid framework that works alongside the insect’s natural responses rather than overriding them.\nAccording to Keisuke Morishima, the study highlights the need for bio-hybrid systems that can adapt to the changing conditions of living organisms rather than simply directing their behavior through external commands. “An insect is a living being, and its responses change from one individual to another, and from moment to moment,”\nMorishima, who led the research at the Osaka University School of Engineering.\nHe noted that conventional bio-hybrid\nhas typically followed a one-way approach in which animals receive commands from external systems. The new method instead incorporates physiological feedback from the insect, enabling the technology to respond to its state in real time.\nThe platform also represents an early step toward bio-hybrid control systems that emphasize interaction and adaptation, shifting the focus from controlling living organisms to listening to them.\nIn a series of experiments, the researchers tested the system using a multi-chamber maze designed to evaluate the insects’ ability to move through complex environments. While untreated cockroaches tended to stay in sections containing food, cyborg cockroaches equipped with the ISC platform were able to continue navigating through the entire maze, demonstrating the system’s ability to guide movement without overriding the insects’ natural\nThe team says the approach minimizes unnecessary stimulation by taking the insect’s physiological condition into account before issuing commands. Rather than viewing the animal as a passive platform, the system is designed to interact with it as a dynamic living organism.\nLooking ahead, the researchers believe the technology could pave the way for closer collaboration between biological systems and AI, enabling advanced cyborg applications and new environmental monitoring capabilities.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nBojan Stojkovski is a freelance journalist based in Skopje, North Macedonia, covering foreign policy and technology for more than a decade. His work has appeared in Foreign Policy, ZDNet, and Nature.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from AI and Robotics\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nChina’s autonomous drone swarm system claims to hunt targets despite network jamming, chaos\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system",
           "hb": 1
         },
         {
-          "t": "基于情感脑机接口的赛博群体协作与博弈",
+          "t": "中国新型无人机群系统声称可以在受到干扰的情况下搜寻目标",
           "d": "2026-05-30",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "研究团队提出基于情感脑机接口的半机器人群协同博弈框架，将生物有机体与机器人系统融合形成混合赛博平台。该系统利用脑机接口捕获情感信号，驱动半机器人集群实现自主分工与协作，在多智能体博弈场景中展现出超越纯机械系统的适应性与灵活性，为生物-机器混合智能提供了新范式。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag313/8697610?rss=1",
-          "tp": "情感脑机接口",
+          "a": "interesting engineering",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "中国研究团队声称开发出名为HG-STR（异构图时空推理）的人工智能新算法。该算法使无人机群在通信受到干扰和能见度极低的情况下，依然能自主搜寻和消除目标。研究人员称这是已知首个能在跟上现代战斗节奏的同时实现“100%杀伤率”的系统。",
+          "sc": 6.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://interestingengineering.com/ai-robotics/china-autonomous-drone-swarm-system",
+          "tp": "无人机群搜敌",
           "aip": 1,
           "kp": [
-            "[系统]: 闭环半机械人群协系统",
-            "[接口]: 情感脑机接口"
+            "算法名称[通信干扰下无人机群自主搜寻目标]: 异构图时空推理 (HG-STR)",
+            "自主能力[通信干扰及低能见度环境]: 自主搜寻并消除目标"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The integration of biological organisms with robotic systems has enabled hybrid cyborg platforms that combine biological sensory agility with electromechanical precision. However, existing cyborg systems predominantly rely on unidirectional stimulus-driven control, treating animals as bio-actuators while neglecting their intrinsic cognitive states. To bridge this gap, we present a closed-loop Cyborg-Swarm architecture that utilizes the animal’s internal affective state (fear) as a high-level trigger to modulate robotic swarm strategies. Specifically, we developed a lightweight, real-time wireless brain-machine interface (BMI) to record Local Field Potentials (LFPs) from the mouse basolateral amygdala (BLA). To ensure robust decoding in freely moving subjects, we implemented a dual-threshold detection algorithm that identifies fear states based on elevated β-band power (15–30 Hz) and suppressed high-frequency noise, effectively rejecting motion artifacts. This decoded intent drives a dual-mode control framework: under baseline conditions, the system operates in a PID-based Exploration Mode; upon detection of fear, it autonomously switches to an Interaction Mode governed by Multi-Agent Deep Deterministic Policy Gradient (MADDPG). In this mode, a heterogeneous robotic swarm (comprising a MouseBot and an ally MAV) executes coordinated adversarial defense strategies against an enemy MAV. Experimental results in a search-interference game demonstrate that biological affective signals can successfully trigger millisecond-level control authority switching, enabling the emergence of complex bio-machine cooperative behaviors. This work marks a paradigm shift from physical-level interaction to cognitive-level bio-hybrid cooperation, validating a scalable framework for emotion-modulated cyborg swarms.",
+          "b": "A Chinese research team claims to have developed a new artificial intelligence (AI) algorithm capable of allowing drone swarms to autonomously hunt and eliminate targets even when communications are jammed and visibility is severely degraded.\nThe algorithm, called\nHeterogeneous Graph Spatio-Temporal Reasoning\n(HG-STR), was detailed in a paper published in China’s leading aviation journal,\nActa Aeronautica et Astronautica Sinica\n, earlier this month.\nAccording to the researchers\n, it is the first known system capable of achieving a “100 percent kill rate” while operating quickly enough to keep pace with modern combat conditions. However, a word of caution.\nAs with many military AI claims, the headline figure should be treated carefully. Especially since a perfect kill rate in simulation is very different from real battlefield performance.\nModern warfare introduces weather, deception, civilian presence, damaged sensors, electronic warfare, and countless unpredictable variables that can rapidly degrade even highly advanced systems.\nThat said, the underlying technology is worth paying attention to because it reflects a broader and very real shift in how militaries are approaching autonomous warfare. After all, most existing drone systems still rely heavily on human operators.\nEven advanced swarms often depend on stable communications and relatively simple coordination logic. Lose the radio link or block the drones’ sensors, and effectiveness can collapse quickly. HG-STR is reportedly designed specifically to address that problem.\nTraditional battlefield AI systems often treat all incoming information similarly. A drone, a tank, a building, or a hill may simply become another object inside a dataset.\nThe Chinese researchers argue that this approach struggles to capture the true complexity of combat environments. Their system instead builds a dynamic “graph” of the battlefield, where different entities are treated differently and linked together through relationships.\nSeen in this light, a radar installation is not merely an object. It is a threat node connected to terrain, airspace, jamming sources, and defensive positions.\nFurther, a forest becomes concealment, a hill a line-of-sight blocker. Other things, like friendly drones, become information-sharing assets rather than isolated units.\nThe result is a swarm\ncapable of making higher-level tactical inferences rather than simply reacting to what it directly sees.\nIn practical terms, this could allow drones to continue pursuing targets even when communications are severed or direct visual confirmation is lost. A swarm may infer likely enemy positions from terrain, movement patterns, or previous observations and continue adapting independently.\nThat capability matters because modern warfare is increasingly dominated by electronic warfare. The conflict in Ukraine has demonstrated how rapidly drones can become blind, jammed, spoofed, or disconnected.\nFuture autonomous systems will need to function inside exactly those kinds of degraded environments. The most striking part is the suggestion that swarms could eventually be sent into contested battlespaces with only a final human instruction before operating independently.\nSo, instead of humans directly controlling drones, future operators may increasingly define objectives while AI systems determine execution in real time. And China is far from alone in pursuing these technologies.\nThe United States, NATO countries, and Russia are all investing heavily in autonomous swarm warfare, collaborative combat aircraft, and AI-assisted battlefield coordination.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nChristopher graduated from Cardiff University in 2004 with a Masters Degree in Geology. Since then, he has worked exclusively within the Built Environment, Occupational Health and Safety and Environmental Consultancy industries. He is a qualified and accredited Energy Consultant, Green Deal Assessor and Practitioner member of IEMA. Chris’s main interests range from Science and Engineering, Military and Ancient History to Politics and Philosophy.\nWorld's largest tokamak cools 330-ton superconducting magnet for fusion plasma\nChinese astronauts return from record 210-day mission to former nuclear missile site\nUnderground acoustic signals expose hidden tunnels beneath US roads and railways\nTokyo summit wows audience with humanoids and robotic hands that can thread a needle\n'Loyal wingman' test: F-35 fighter jet and MQ-20 drone display manned-unmanned teaming\nMore from AI and Robotics\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system\nAI and Robotics\nHyundai showcases Atlas humanoid robot’s football skills in new World Cup-themed series\nAI and Robotics\nChina deploys humanoid robots to sort 1,200 parcels per hour in massive postal hub\nAI and Robotics\nBio-hybrid robotics system ‘listens’ to cyborg insects for collaborative control\nAI and Robotics\nHumanoid robots join human models in rampwalk at futuristic Seoul fashion show\nAI and Robotics\nRobots learn to recover from dangerous stair falls using smart stabilising system",
           "hb": 1
         }
       ]
@@ -175,75 +180,74 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研团队引入螺双芴取代策略，改变COF空间维度以提升光催化还原效率",
-        "研究发现豆娘翅膀色素与光子结构协同机制，突破光子玻璃颜色饱和极限",
-        "学者开发块体调幅分解多主元合金，在宽温域内实现高韧性与高能量吸收"
+        "单晶超离子导体RbAg4I5室温导热系数低至130 mW m−1 K−1",
+        "国际研究团队首次利用核磁共振波谱探测极端压力下的超氢化镧",
+        "Pursuit公司投运载客52人的首台电动冰川探索器，底盘重量减轻一半"
       ],
       "entries": [
         {
-          "t": "螺双芴取代实现的COF维度异构促进光催化CO2还原增强",
+          "t": "RbAg4I5 具有非凡的隔热性能",
           "d": "2026-05-30",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "该研究提出\"维度异构\"概念，通过螺二芴取代策略构建由相同分子前驱体组装但空间维度不同的共价有机框架(COFs)。螺二芴的独特刚性三维结构使COF在拓扑连接方式上产生异构体，从而调控材料的孔道结构与比表面积。这一维度异构机制为COF材料的结构设计与功能优化提供了新思路，在气体吸附、催化和储能等领域具有潜在应用价值。",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/材料工程/耐热材料",
+          "as": "超离子导体具有高移动性的带电离子，其晶体结构特征是实现高性能隔热的关键。研究证实单晶超导体RbAg4I5在室温下具有极低的导热系数（κ），仅为130 mW m−1 K−1。此外，孔隙率为3.6%的多孔RbAg4I5展现出更低的导热系数，为高性能隔热材料提供了新范式。",
           "sc": 7.7,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.1182476?af=R",
-          "tp": "光催化CO₂还原",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag318/8698482?rss=1",
+          "tp": "超离子导体隔热",
           "aip": 1,
           "kp": [
-            "[维度异构]: 螺双芴C2/C7与C3/C6取代构建不同维度COF",
-            "[光催化]: CO₂还原"
+            "材料特性[超离子导体隔热]: 具有高迁移率的松弛结合和部分占据的晶体结构特征"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    The concept of dimensional isomerism—covalent organic frameworks (COFs) constructed from identical molecular precursors but forming structures of different dimensions—remains largely unexplored. Here, we report a pair of isomeric COFs derived from the same spirobifluorene core, wherein substitution at either the C2/C7 or C3/C6 positions leads to the formation of a planar two‐dimensional (2D) or a nonplanar three‐dimensional (3D) framework, respectively. This substitution‐controlled strategy enables precise modulation of π‐conjugation and framework dimensionality without altering the molecular identity of the building block. Comparative photocatalytic experiments reveal that the 2D C2/C7‐substituted COF exhibits significantly superior CO\n                    2\n                    reduction activity under visible light, attributed to its extended conjugation and efficient charge transport. These findings underscore the critical role of molecular connectivity in determining the structure–function relationships of COFs and propose a generalizable approach for designing high‐performance photocatalytic materials through topological isomerism.",
+          "b": "Superionic conductors are characterized by highly mobile charged ions, reflecting the presence of loosely bonded and partially occupied species within their crystal structures. These structural features are also essential for achieving high-performance thermal insulation. However, conventional skeleton materials used for thermal insulation, such as SiO2, lack such crystallographic attributes. As a result, room-temperature thermal conductivity (κ) values for fully dense and 3%-dense SiO2 remain around 1400 and 15 mW m−1 K−1, respectively. This work demonstrates the use of superionic conductors as a new paradigm for thermal insulation. Single-crystalline RbAg4I5 is shown to exhibit an exceptionally low κ of 130 mW m−1 K−1 at room temperature. Furthermore, a 3.6%-dense porous form of RbAg4I5 achieves a record-low κ of only 6 mW m−1 K−1 substantially outperforming existing porous thermal insulators. When applied as filler in a conventional Bi2Te3 thermoelectric device, this porous insulator suppresses gas-mediated heat transfer, leading to a 10% improvement in device performance. In addition, this material effectively isolates heat from a CPU to enable a temperature drop of 5.3 K for the adjacent flash memory thus a 16% improvement in its startup speed. The design strategy introduced here is expected to open new pathways for advancing thermal management technologies.",
           "hb": 1
         },
         {
-          "t": "豆娘通过色素负载和折射率调控克服光子玻璃的颜色饱和障碍",
+          "t": "突破性技术揭示了破纪录的超导体的原子秘密",
           "d": "2026-05-30",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "a": "scitechdaily",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究揭示了豆娘（色蟌）通过结合色素与光子玻璃结构，突破了光子晶体材料固有的颜色饱和度限制。传统光子玻璃由于结构散射特性，可产生的颜色范围有限。豆娘翅膀中纳米级光子结构与色素协同作用，显著扩展了色彩表现空间。这一生物策略为可持续结构色材料的设计提供了全新灵感，在防伪、显示技术和智能光学器件领域具有应用潜力。",
+          "as": "由德国德累斯顿罗森多夫赫尔姆霍兹中心参与的国际研究团队，首次在极端压力条件下利用核磁共振（NMR）波谱技术对超氢化镧进行了探测。这种富含氢的材料在巨大压力下能展现出远超传统超导体的转变温度，该突破为深入理解高温超导机制奠定了基础。",
           "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2527433123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "仿生光子玻璃",
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://scitechdaily.com/breakthrough-technique-reveals-atomic-secrets-of-record-breaking-superconductors/",
+          "tp": "超导材料原子机制",
           "aip": 1,
           "kp": [
-            "[策略]: 色素负载+折射率调制",
-            "[材料]: 光子玻璃非彩虹结构色"
+            "超导转变温度[镧超氢化物]: 较传统超导体更高的温度",
+            "揭示原子秘密的技术[超氢化物]: 首次实现原子级别的超导行为观测"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Biological strategies for manipulating light have revealed new concepts in light scattering, inspiring the design of sustainable photonic materials. While iridescent optical systems have been extensively studied, many applications require noniridescent structural colors which are much more difficult to achieve. Photonic glasses, comprising randomly arranged dielectric spheres, offer a promising solution toward such structural colors. However, their intrinsic disorder and particle size polydispersity typically lead to poor color saturation. Here, we identify two strategies employed by certain damselflies to generate unexpectedly vivid, tunable angle-independent colors from a photonic glass. First, doping of transparent pteridine nanospheres with yellow pigments strengthens blue–green reflectance resonances by simultaneously absorbing off-resonant wavelengths and enhancing the refractive-index near the reflectance band. Second, the refractive index of the nanospheres is modulated, via changes in crystallinity, to be almost exactly inversely correlated with nanosphere size. Thus, variations in nanosphere size, that ordinarily broaden reflectance resonances, resulting in poor color saturation, are compensated for by a correlated change in their refractive index. This ensures that even in a polydisperse ensemble, a consistent Mie scattering size parameter is maintained, strengthening short-range correlations and Mie scattering resonances. Finally, we show how damselflies tune these structural colors during maturation by precisely modulating the average size of the nanospheres, which arises naturally during the development of the pigment cells due to the densification and crystallization of the nanospheres. These findings reveal design strategies for overcoming limitations in the saturation of disordered photonic systems.",
+          "b": "Scientists have achieved a first in studying lanthanum superhydrides, a class of materials that could help unlock superconductivity at much higher temperatures.\nThe dream of transmitting electricity without energy loss has driven decades of superconductivity research. Some of the most promising candidates yet are superhydrides, hydrogen-rich materials that, under immense pressures, have exhibited superconducting behavior at temperatures far higher than conventional superconductors.\nNow, an international team including scientists from the\nHelmholtz-Zentrum Dresden-Rossendorf\nhas achieved a key breakthrough in studying these materials, using nuclear magnetic resonance (NMR) spectroscopy to probe lanthanum superhydrides under extreme pressure for the first time.\nSuperconductors are materials that lose all electrical resistance below a critical temperature specific to each material. This allows electricity to move through them without energy loss. In most known superconductors, that transition happens below about 140 Kelvin (minus 133 degrees\n), meaning practical use requires demanding cooling systems. Because of this, scientists are searching for materials that can become superconducting at much higher temperatures.\nSuperhydrides are hydrogen-rich compounds in which a metal, such as lanthanum, sits inside a tightly packed hydrogen lattice. Under enormous pressure, similar to conditions found inside planets, these materials can develop unusual electronic properties and may show superconductivity close to room temperature. They currently hold the world record for the highest critical transition temperature at which signs of superconductivity have been observed.\nTo reach those conditions, researchers compress the samples in diamond anvil cells, squeezing them between two diamonds at pressures greater than one million atmospheres. The difficulty is that the samples are extremely small, so studying them demands exceptional experimental precision.\nThe new work addresses that challenge with so-called Lenz lenses, tiny conductive ring structures that focus the high-frequency fields needed for nuclear magnetic resonance (NMR) spectroscopy directly into the sample volume. By concentrating and amplifying those fields, the lenses make NMR measurements possible under the extreme conditions inside a diamond anvil cell.\n“We had to focus the high-frequency fields precisely where the sample is located between the diamond anvils, over an area of just a few tens of micrometers, which is smaller than the diameter of a human hair,” explains Dr. Florian Bärtl from the Dresden High Magnetic Field Laboratory (HLD) at HZDR. “With the use of Lenz lenses, we were able to amplify the high-frequency signal to such an extent that, for the first time, meaningful NMR data became accessible for superhydrides.” The measurements offer direct information about the materials at the atomic scale and help researchers understand them more clearly.\nThe team had previously studied the same materials with pulsed high-field magnets at the HLD by measuring their electrical resistance. These magnetic fields act as a stress test for superconductors because they show the maximum field strengths at which the superconducting state can remain stable.\nA full picture of this class of materials emerges only when both methods are used together: NMR studies under high pressure and resistance measurements in the strongest magnetic fields.\nThe research was carried out in close collaboration with high-pressure specialists from the Center for High Pressure Science & Technology Advanced Research (HPSTAR) in Beijing. “The collaboration with the HLD was crucial to our project,” says Dr. Dmitrii Semenok. “The high-field facilities available there and the expertise in high-frequency instrumentation provide ideal conditions for these experiments.”\nIn the long term, the researchers want to better understand the physical mechanisms behind superconductivity in hydrogen-rich materials. That knowledge could help guide the development of new materials for more energy-efficient technologies.\n“Transmission of Radio-Frequency Waves and Nuclear Magnetic Resonance in Lanthanum Superhydrides” by Dmitrii V. Semenok, Florian Bärtl, Di Zhou, Toni Helm, Sven Luther, Joachim Wosnitza, Ivan A. Troyan, Viktor V. Struzhkin and Hannes Kühne, 8 February 2026,\nAdvanced Science\nDOI: 10.1002/advs.202520701\n“Ternary Superhydrides Under Pressure of Anderson’s Theorem: Near-Record Superconductivity in (La, Sc)H12” by Dmitrii Vladimirovich Semenok, Ivan Alexandrovich Troyan, Di Zhou, Andrei Vladimirovich Sadakov, Kirill Sergeevich Pervakov, Oleg Alexandrovich Sobolevskiy, Anna Gennadievna Ivanova, Michele Galasso, Frederico Gil Alabarse, Wuhao Chen, Chuanying Xi, Toni Helm, Sven Luther, Vladimir Moiseevich Pudalov and Viktor Viktorovich Struzhkin, 31 July 2025,\nAdvanced Functional Materials\nDOI: 10.1002/adfm.202504748\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nHelmholtz-Zentrum Dresden-Rossendorf\nMagnetic Fields\nQuantum Physics\nSpectroscopy\nSuperconductivity\nSuperconductor\nScientists Discover Mysterious “Quantum Echo” in Superconductors\nUTe2 Unleashes New Superconductivity Secrets\nDefying Current Theories of Superconductivity – “Sudden Death” of Quantum Fluctuations Stuns Scientists\nNew Mathematical Relationship for Superconductors\nPhysicists Identify the Origin of Superconductivity in High-Temperature Superconductors\nNew Magnetic Phase in Iron-Based Superconductors Discovered\nSLAC Scientists View Ultrafast Snapshots of Light-Driven Superconductivity\nNew Insights Into How Superconducting Materials Interact With Magnetic Ones\nIron-Based Crystal Superconductor Breaks High-Temperature Record",
           "hb": 1
         },
         {
-          "t": "块体调幅分解构筑的多主元合金：宽温域内增强的能量吸收特性",
+          "t": "游客可以在这个有史以来第一台电动冰探索器中体验阿萨巴斯卡冰川[视频]",
           "d": "2026-05-30",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "通用技术/材料工程/强度材料",
-          "as": "该研究开发了一种块体调幅分解构筑的多组元复杂合金，通过纳米级成分梯度结构在宽温度范围内实现显著增强的能量吸收能力。该材料兼具高强度与高韧性，为航空航天及防护工程等领域的抗冲击能量耗散提供了新策略。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-73884-6",
-          "tp": "多组分合金吸能",
+          "a": "Electrek",
+          "c": "通用技术/通信和运输/陆路运输",
+          "as": "专为体验阿萨巴斯卡冰川打造的史上首台电动冰探索器投入使用。该车载客量达52人，由Pursuit公司与重型卡车专家Noble Northern合作研发。车辆采用专为任务定制的轻量化底盘，重量仅为传统卡车车架的一半。减轻的底盘重量使其能够搭载更多电池组，从而避免因车身过重而压碎或破坏脆弱的冰川生态环境。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/05/30/tourists-can-experience-athabasca-glacier-in-this-first-ever-electric-ice-explorer-video/",
+          "tp": "电动冰探索器",
           "aip": 1,
           "kp": [
-            "[合金设计]: 调幅分解构筑块体复杂成分合金",
-            "[吸能特性]: 宽温域增强吸能"
+            "载客能力[电动冰雪探索车]: 最多52名乘客",
+            "车辆特性[电动冰雪探索车]: 与Noble Northern合作开发，超越传统四驱柴油公交车的纯电升级版"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Bulk mechanical energy-absorbing materials are critically needed for various engineering applications. However, existing state-of-the-art materials face significant limitations: architected systems such as 3D-printed nano- and micro-lattices suffer from scalability constraints, while conventional foams often exhibit a strength-ductility trade-off that limits energy absorption. Here, we overcome these challenges by fabricating bulk architected alloys via electrochemical dealloying of a machine learning-identified compositionally complex spinodal alloy. These materials display a hierarchical structural architecture spanning seven orders of magnitude – from atomic-scale lattice distortion, nanoscale precipitates and amorphous oxide layers, microscale ligaments, to macroscale network dimensions. This multi-scale integration enables synergistic deformation mechanisms, yielding energy absorption capacities of ~106 MJ/m3 in bulk and ~ 305 MJ/m3 in micro-samples. Crucially, this enhanced performance is retained from room temperature to 873 K. Our approach provides an effective strategy for designing scalable, high-performance architected materials for demanding condition energy absorption.",
+          "b": "| May 30 2026 - 5:28 am PT\nBuilt to allow up to 52 guests to explore the frozen wilderness of Alberta’s Jasper National Park in serene, environmentally responsible silence, the new Electric Ice Explorer joining Pursuit Banff’s Columbia Icefield Adventure fleet is a machine that’s packed with firsts.\nDeveloped in partnership with the heavy duty truck experts at Noble Northern, Pursuit’s new tourist EV is a lot more than an electrified version of a 4WD diesel bus. The Electric Ice Explorer’s frame is purpose-built for the task at hand, with a bespoke chassis that’s just half the weight of a conventional truck frame.\nThat reduced weight allows the truck to carry more batteries without becoming so heavy that it would crack or damage the environment that its eco-tourists are there to to experience.\nHelping make sure those tourists can get way out onto the glacier and still make it back, the vehicle is equipped with\nbifacial solar panels\nregenerative braking\nand geofencing technology\nthat manages speed and braking in designated glacier areas for both maximum range and environmental sensitivity.\n“The Columbia Icefield is one of the most significant places where we operate, and how we show up here matters,” explains Stuart Back, Chief Operating Officer of Pursuit Banff Jasper Collection. “Starting with one vehicle is intentional. It allows us to learn in real-world conditions and apply those lessons over time.”\nPursuit calls this first-of-its-kind vehicle, “an early test of what low‑emission access could look like in one of the most sensitive environments in tourism … with the potential to reduce 200 to 300 kg of CO2 every day it operates.”\nYou can watch Pursuit Collection’s officially produced launch video for its new Electric Ice Explorer, below, then let us know what you think in the comments (no word on battery capacity, hp, or price).\nIf you’re considering going solar, it’s always a good idea to get quotes from a few installers. To make sure you find a trusted, reliable solar installer near you that offers competitive pricing, check out\n, a free service that makes it easy for you to go solar. It has hundreds of pre-vetted solar installers competing for your business, ensuring you get high-quality solutions and save 20-30% compared to going it alone. Plus, it’s free to use, and you won’t get sales calls until you select an installer and share your phone number with them.\nYour personalized solar quotes are easy to compare online and you’ll get access to unbiased Energy Advisors to help you every step of the way.\nGet started here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nI’ve been in and around the auto industry for over thirty years, and have written for a number of well-known outlets like CleanTechnica, Popular Mechanics, the Truth About Cars, and more. You can catch me at Electrek Daily’s Quick Charge, The Heavy Equipment Podcast, or chasing my kids around Oak Park, IL\nFind a reliable home solar and battery installer and save 20-30% compared to going it alone.\nQmerit makes electrification easy — connecting you with trusted pros who get it done right.",
           "hb": 1
         }
       ]

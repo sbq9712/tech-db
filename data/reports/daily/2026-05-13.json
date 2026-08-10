@@ -6,18 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "大连化物所研制宽温域气固氢负离子电池，能量密度超2300 Wh/kg",
-      "科研团队突破晶体硅柔性化限制，拓展其在透明光伏器件中的应用"
+      "大连化物所研制出宽温域气-固氢负离子电池，能量密度超2300 Wh/kg"
     ],
     "AI与智能科技": [
-      "中科大研制可编程光量子处理器九章四号，生成样本含3050个光子",
-      "代尔夫特理工大学发布微型机器人Bee-Nav导航策略并实现百米返巢",
-      "英国科研团队利用超快激光实现无磁场条件下的金刚石色心电子态调控"
+      "中科大潘建伟团队研制出光量子处理器九章四号，生成样本含3050个光子",
+      "代尔夫特理工大学发布微型机器人仿生导航策略，百米飞行返航率达100%"
     ],
     "通用技术": [
-      "科研人员证实中性σ0π2卡宾可通过σ面路径实现氢气活化",
-      "新型集成深度学习内窥显微镜系统实现癌变组织实时活体成像",
-      "研究人员开发出工作频率超100 GHz的柔性碳纳米管射频晶体管"
+      "科研人员利用仿生离子泵稳定动态电位，解决传感信号漂移问题",
+      "碘化铜簇实现千克级沉淀制备，应用于溶液加工发光二极管"
     ]
   },
   "sectors": [
@@ -25,19 +22,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "大连化物所研制宽温域气固氢负离子电池，能量密度超2300 Wh/kg",
-        "科研团队突破晶体硅柔性化限制，拓展其在透明光伏器件中的应用"
+        "大连化物所研制出宽温域气-固氢负离子电池，能量密度超2300 Wh/kg"
       ],
       "entries": [
         {
           "t": "大连化物所陈萍报道一种气-固氢负离子电池",
           "d": "2026-05-13",
           "a": "手动导入",
-          "c": "零碳产业",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
           "as": "中科院大连化物所陈萍团队研发出首例宽温域（-20至90℃）气-固氢负离子电池。该电池以MgH₂为负极、氢气为正极、3CeH₃@BaH₂为电解质，理论比容量和能量密度极高，且有效避免了传统锂电池的枝晶问题。充放电过程通过氢负离子在气固两极间的转化与迁移实现，具备优异的电化学性能。",
-          "sc": 7.1,
+          "sc": 7.4,
           "i": "n",
-          "tg": "",
+          "tg": "行业观察",
           "u": "https://doi.org/10.1016/j.joule.2026.102475",
           "tp": "氢负离子电池",
           "aip": 1,
@@ -53,12 +49,33 @@
         {
           "t": "大连化物所陈萍报道一种气-固氢负离子电池",
           "d": "2026-05-13",
-          "a": "",
+          "a": "手动导入",
           "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "中科院大连化物所陈萍团队组装出首例可在-20至90°C宽温域工作的气-固氢负离子电池，以MgH₂复合电极为负极、氢气预活化LaNi₅为正极、核壳3CeH₃@BaH₂为电解质。该电池理论比容量超4900 mAh/g、能量密度超2300 Wh/kg，充电时MgH₂分解释放H⁻，放电时逆向反应，可避免锂电枝晶问题，过电位约0.04V，为氢负离子电池实用化提供新路径。",
+          "as": "中科院大连化物所陈萍团队研发出首例宽温域（-20至90℃）气-固氢负离子电池。该电池以MgH₂为负极、氢气为正极、3CeH₃@BaH₂为电解质，理论比容量和能量密度极高，且有效避免了传统锂电池的枝晶问题。充放电过程通过氢负离子在气固两极间的转化与迁移实现，具备优异的电化学性能。",
           "sc": 7.4,
           "i": "n",
-          "tg": "技术突破",
+          "tg": "行业观察",
+          "u": "https://doi.org/10.1016/j.joule.2026.102475",
+          "tp": "氢负离子电池",
+          "aip": 1,
+          "kp": [
+            "输出电压2.4 V，放电容量1100 mAh/g"
+          ],
+          "lv": 3,
+          "wr": "新研究领域||新型电池体系\n\n其基于先前的氢负离子电池，提出了气-固型产品，10个单电池串联堆叠输出电压可达2.4 V，放电容量1100 mAh/g。",
+          "cm": "该气固型氢负离子电池可与储氢装置结合，形成常温常压运行的氢-电共储系统，便于实现氢气存储/提取过程能耗可逆转换利用，有助于提高整体能效。",
+          "b": "大连化物所陈萍报道一种气-固氢负离子电池\n与传统的阳离子（如锂离子）相比，氢负离子（H⁻）具有高能量、高反应活性和高极化率的物理化学特性；且采用轻质金属的气-固二次氢负离子电池（g-HIB）理论比容量（>4900 mAh/g，LiBH4）和",
+          "hb": 1
+        },
+        {
+          "t": "大连化物所陈萍报道一种气-固氢负离子电池",
+          "d": "2026-05-13",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
+          "as": "中科院大连化物所陈萍团队组装出首例可在-20至90°C宽温域工作的气-固氢负离子电池，以MgH₂复合电极为负极、氢气预活化LaNi₅为正极、核壳3CeH₃@BaH₂为电解质。该电池理论比容量超4900 mAh/g、能量密度超2300 Wh/kg，充电时MgH₂分解释放H⁻，放电时逆向反应，可避免锂电枝晶问题，过电位约0.04V，为氢负离子电池实用化提供新路径。",
+          "sc": 7.5,
+          "i": "n",
+          "tg": "行业观察",
           "u": "https://doi.org/10.1016/j.joule.2026.102475",
           "tp": "气固氢电池",
           "aip": 1,
@@ -68,27 +85,6 @@
           "cm": "与传统的阳离子（如锂离子）相比，氢负离子（H⁻）具有高能量、高反应活性和高极化率的物理化学特性；且采用轻质金属的气-固二次氢负离子电池（g-HIB）理论比容量（>4900 mAh/g，LiBH4）和能量密度（>2300 Wh/kg，LiH）高，并可避免锂电中存在的枝晶等问题。",
           "b": "与传统的阳离子（如锂离子）相比，氢负离子（H⁻）具有高能量、高反应活性和高极化率的物理化学特性；且采用轻质金属的气-固二次氢负离子电池（g-HIB）理论比容量（>4900 mAh/g，LiBH4）和能量密度（>2300 Wh/kg，LiH）高，并可避免锂电中存在的枝晶等问题。\n近日，中科院大连化物所陈萍研究员团队基于其先前氢负离子相关研究成果（氢负离子导体、全固态氢负离子电池等），利用MgH₂作为负极（MgH₂+CeH₃和碳纳米管复合电极，比例在1:8.9:0.1到5:4.5:0.5之间）、氢气作为正极（氢气预活化的LaNi₅+电解质复合电极）、核壳结构的3CeH₃@BaH₂为电解质、不锈钢为集流体，外加储气罐等装置，组装出首例可在宽温域（-20至90℃）工作的气-固氢负离子电池（测试电池面积0.785 cm2）。充电时，负极MgH₂分解释放H⁻和并生成金属Mg，正极H⁻被氧化为H₂气体释放；放电时，负极金属Mg被氧化，与H⁻结合生成MgH₂，正极H₂被还原为H⁻。在1 bar氢气压力下，该电池充电（0.15mA）平台约0.22 V、放电（0.1mA）平台0.14 V，过电位约0.04 V；首圈放电比容量1526 mAh/g（理论容量的74%），库仑效率90%；氢气可逆存储率约93%（40%wt MgH2含量理论氢气含量7.66%wt，0.4mA、0.8V室温1h释放约6%wt的氢气，其中5.6%wt能被可逆存储）；在2倍和3倍放电倍率下（初始为0.05C，0.127mA/cm2），容量保持率分别为88%和75%；在室温下循环60次后，能够维持初始容量的70%左右，容量衰减原因主要是循环过程中从Mg到MgH₂之间相互转换的体积变化（约30%体积差）导致电极粉化、产生裂纹和空隙，使部分活性物质失去与电解质的接触而失活；其在-20℃仍能提供1276 mAh/g的放电容量；在90℃时仍能保持室温容量的60%，过电位可从90mV降至35mV；10个单电池串联堆叠，输出电压可达2.4 V以上，放电容量超1100 mAh/g，可点亮LED灯泡。\n此外，该研究还将该电池体系与储氢相结合，缓解传统金属储氢放热/释氢吸热管理的问题。其认为通过构建氢-电共储系统可在加氢时向外放电，为其他锂/钠二次电池充电；释氢时可利用外接二次电池为其充电，驱动装置脱氢至燃料电池等用氢设备。当前气固氢负离子能量效率约56%、钠电效率均为90%，共储系统的整体氢能效率可达93.9%（氢气能提供的最大电能/（氢气能提供的最大电能+储氢/放氢过程中的能量损耗）），比传统热驱动储氢技术提升了约34%。搭载0.3 kg H₂的氢无人机（HUAV）预计使用氢-电共储系统内部电能循环利用，能耗极低；理论氢能效率>97%；可常温常压运行；体积储氢密度高；各项指标均优于热驱动MGH₂储氢和35 MPA高压气罐。文章于2026年5月13日发表在Joule。",
           "hb": 1
-        },
-        {
-          "t": "重新定义结晶硅：开启透明柔性光伏新视野",
-          "d": "2026-05-13",
-          "a": "Wiley: Advanced Energy Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "重新定义晶体硅在透明柔性光伏器件中的应用潜力，突破传统刚性硅基太阳能板的局限，为可穿戴和建筑集成光伏开辟新方向。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71067?af=R",
-          "tp": "柔性晶硅光伏",
-          "aip": 1,
-          "kp": [
-            "[方向]: 晶硅向透明柔性光伏转型"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Crystalline silicon (\n                    c\n                    ‐Si) underpins the global photovoltaic industry owing to its high efficiency, material abundance, and proven field reliability. This maturity, however, reinforces the view that silicon is intrinsically tied to rigid, opaque module formats. This review revisits that assumption and surveys how advances in optical and mechanical design transform\n                    c\n                    ‐Si into a transparent and mechanically compliant photovoltaic platform. First, the design principles of selective light‐transmission architectures are elucidated, in which geometrically defined micro‐apertures and module‐level optical management decouple visible transparency from photovoltaic absorption, enabling neutral‐color appearances suitable for architectural integration. Subsequently, stress‐redistribution strategies—including ultrathin wafer engineering, neutral‐axis and hierarchical structuring, and microstructured interconnects—are examined, which address the intrinsic brittleness of the silicon lattice and permit substantial flexibility while maintaining high electronic quality. Beyond structural concepts, emerging routes such as singlet‐fission–based spectral conversion and tandem integration are discussed, which, at least at the theoretical level, offer pathways to surpass the conventional single‐junction efficiency limit in transparent or flexible silicon‐based devices. Together, these developments recast\n                    c\n                    ‐Si from a mature but static technology into an evolving, versatile semiconductor platform for transparent and flexible photovoltaics, with the potential to integrate power generation directly into the built environment and other form‐factor‐constrained systems.",
-          "hb": 1
         }
       ]
     },
@@ -96,18 +92,36 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "中科大研制可编程光量子处理器九章四号，生成样本含3050个光子",
-        "代尔夫特理工大学发布微型机器人Bee-Nav导航策略并实现百米返巢",
-        "英国科研团队利用超快激光实现无磁场条件下的金刚石色心电子态调控"
+        "中科大潘建伟团队研制出光量子处理器九章四号，生成样本含3050个光子",
+        "代尔夫特理工大学发布微型机器人仿生导航策略，百米飞行返航率达100%"
       ],
       "entries": [
         {
           "t": "中科大潘建伟研制出可编程光量子处理器九章四号",
           "d": "2026-05-13",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/其它智能科技/量子信息",
           "as": "中科大潘建伟团队研制出可编程光量子处理器九章4.0，将1024个高效压缩态整合至8176模式电路中，实现92%源效率与51%系统效率，生成含3050个光子的检测样本，规模较此前提升一个数量级。该架构实现立方级连接性扩展（163=4096），可在约102461维希尔伯特空间采样，经矩阵乘积态等经典算法严格验证，将实验前沿推至远超经典计算可处理性区域，为容错光量子硬件开辟道路。论文发表于Nature。",
-          "sc": 8.9,
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41586-026-10523-6",
+          "tp": "光量子计算",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "开发大规模、高保真量子处理器是一项根本性的科学挑战，这对于探索经典计算的边界以及向容错系统迈进至关重要。高斯玻色采样不仅是展示量子计算优势的重要模型，还能为容错量子计算生成玻色子纠错码。然而，随着编码电路日益庞大与复杂，其中严重的光子损耗阻碍了该技术的可扩展性。本研究展示了一款名为九章4.0的可编程光量子处理器，该处理器将1,024个高效压缩态整合至混合时空编码的8,176模式电路中。通过实现92%的源效率与51%的整体系统效率，该处理器生成了检测事件高达3,050个光子的样本，其规模较先前成果实现了一个数量级的提升。该架构实现了连接性的立方级扩展（163=4,096），从而能够在约102,461维的希尔伯特空间内进行采样。实验结果经所有现有的经典模拟方法得到了严格验证，尤其是针对近期专门利用光子损耗特性而设计的矩阵乘积态算法。在可编程低损耗量子处理器中控制数千个光子的能力，将实验前沿推向了远超经典计算可处理性的区域，并为通向万亿量子模式三维簇态及容错光量子硬件开辟了道路。文章于2026年5月13日发表在Nature。",
+          "hb": 1
+        },
+        {
+          "t": "中科大潘建伟研制出可编程光量子处理器九章四号",
+          "d": "2026-05-13",
+          "a": "Doi",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "中科大潘建伟团队研制出可编程光量子处理器九章4.0，将1024个高效压缩态整合至8176模式电路中，实现92%源效率与51%系统效率，生成含3050个光子的检测样本，规模较此前提升一个数量级。该架构实现立方级连接性扩展（163=4096），可在约102461维希尔伯特空间采样，经矩阵乘积态等经典算法严格验证，将实验前沿推至远超经典计算可处理性区域，为容错光量子硬件开辟道路。论文发表于Nature。",
+          "sc": 8.6,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-026-10523-6",
@@ -123,7 +137,7 @@
         {
           "t": "代尔夫特理工大学Guido de Croon提出的微型机器人仿生导航策略",
           "d": "2026-05-13",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/具身智能/模型和具身操作系统",
           "as": "代尔夫特理工大学Guido de Croon团队提出受蜜蜂视觉学习飞行启发的Bee-Nav导航策略，训练微型神经网络将全向图像映射到归一化归巢向量。仿真显示仅需在总飞行区域0.25-10%范围训练，实测中小型无人机在30-110米飞行中100%成功返巢，200-600米飞行中70%成功，神经网络仅3.4-42KB，为资源受限微型机器人长距离导航提供高效方案。论文发表于Nature。",
           "sc": 7.8,
@@ -138,28 +152,6 @@
           "cm": "",
           "b": "导航是动物和机器人的一项关键能力。尽管微小的飞行昆虫能够稳健地进行长距离导航，但最先进的机器人导航方法计算成本高昂，因此仅限于大型机器人。本研究提出了一种名为Bee-Nav的高效导航策略，该策略的灵感来源于蜜蜂的视觉学习飞行。在等效的机器人学习飞行中，研究训练了一个微型神经网络，基于路径积分将全向图像映射到归巢向量。学习完成后，机器人能够飞离巢穴很远，利用路径积分直线返航，并利用视觉归巢网络消除积分漂移。仿真表明，在现实的路径积分精度下，该神经网络仅需在总飞行区域约0.25–10.00%的范围内进行训练。在真实的室内和室外实验中，小型无人机在有大风的情况下，分别使用3.4-kB和42-kB的神经网络，在30至110米的飞行中有100%成功返回距巢穴0.5米范围内，在200至600米的飞行中有70%成功返回。所提出的导航策略对于在往返巢穴过程中执行任务的资源受限机器人至关重要。此外，该研究还为昆虫导航的神经行为学提供了新视角，涉及视觉学习如何塑造归巢轨迹以及认知地图的本质。文章于2026年5月13日发表在Nature。",
           "hb": 1
-        },
-        {
-          "t": "超快激光诱导金刚石色心的宏观对称性破缺",
-          "d": "2026-05-13",
-          "a": "Nature Communications",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "英国超快激光实验首次实现了对金刚石氮空位色中心（NV⁻）宏观对称性破缺的操控。研究团队利用超快激光脉冲打破了金刚石晶格的对称性，从而在不依赖外加磁场的情况下调控NV色心的电子态与自旋特性。该突破为量子计算与量子传感提供了全新的全光学调控途径，有望简化量子比特操作并提升器件集成度。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-72813-x",
-          "tp": "金刚石色心超快",
-          "aip": 1,
-          "kp": [
-            "[平台]: 金刚石氮空位色心",
-            "[方法]: 实时含时密度泛函理论"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The negatively charged nitrogen-vacancy center is a leading quantum platform due to its excellent spin coherence and stable interactions. Understanding its ultrafast dynamics is crucial for quantum applications but presents significant challenges for both experimental characterization and atomic-scale modeling. Here, we employ real-time time-dependent density functional theory to investigate the coupled electron-phonon-spin dynamics in negatively charged nitrogen-vacancy centers. Laser excitation promotes minority-spin electrons within 100 fs, establishing a C3v-symmetry breaking charge ordering. Subsequently, ionic motion on the potential energy surface of the excited electrons generates both symmetric oscillations of carbon-nitrogen bonds and dynamic Jahn-Teller distortions with a C3v-symmetry breaking. These distortions subsequently induce nonlocal coherent phonons in the diamond lattice, which propagate with the C3v-symmetry breaking at the sound velocity ( ~ 2 Å/fs). Our simulations provide direct time-resolved visualization of these processes, offering novel insights into the microscopic interplay of electrons, phonons, and spins in nitrogen-vacancy centers.",
-          "hb": 1
         }
       ]
     },
@@ -167,77 +159,47 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "科研人员证实中性σ0π2卡宾可通过σ面路径实现氢气活化",
-        "新型集成深度学习内窥显微镜系统实现癌变组织实时活体成像",
-        "研究人员开发出工作频率超100 GHz的柔性碳纳米管射频晶体管"
+        "科研人员利用仿生离子泵稳定动态电位，解决传感信号漂移问题",
+        "碘化铜簇实现千克级沉淀制备，应用于溶液加工发光二极管"
       ],
       "entries": [
         {
-          "t": "中性σ0π2卡宾通过σ面路径实现氢活化",
+          "t": "通过仿生离子泵实现高效动态电位稳定，防止传感信号漂移",
           "d": "2026-05-13",
-          "a": "Nature Chemistry",
-          "c": "通用技术/催化剂",
-          "as": "该研究报道了一类基态σ0π2卡宾——低价碳中最少被探索的物种之一。这种中性卡宾能够通过σ面路径实现氢气（H₂）的活化，打破了传统卡宾依赖π面进行反应的固有认知。σ0π2电子构型使其具备独特的反应性和催化潜力，为新型卡宾化学及小分子活化催化剂设计提供了全新的理论框架与实验范例。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41557-026-02147-0",
-          "tp": "卡宾氢活化",
-          "aip": 1,
-          "kp": [
-            "[卡宾类型]: 中性σ0π2卡宾(铑二膦基亚甲基)",
-            "[活化路径]: σ面途径活化氢"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Ground-state σ0π2 carbenes are among the least explored and least understood classes of low-valent carbon. Known examples of isolable σ0π2 carbenes remain largely limited to cationic compounds. Here we report the synthesis of a neutral σ0π2 carbene, namely a rhodadiphosphinocarbene featuring a planar RhP2C ring. In sharp contrast to small-molecule activation by conventional σ2π0 carbenes, which typically proceeds via nucleophilicity-driven, π-face, non-least-motion trajectories mandated by orbital-symmetry constraints, this neutral σ0π2 carbene cleaves H2 under ambient conditions via a σ-face pathway. Computations reveal an electrophilicity-driven early transition state characterized by minimal reorganization of the carbene framework and a concerted yet asynchronous H–H scission to form two C–H bonds. These findings show that a stable carbene can enable small-molecule activation through a σ-face pathway and deepen our understanding of electronic structure–reactivity correlations in low-valent carbon chemistry.The alternative text for this image may have been generated using AI.",
-          "hb": 1
-        },
-        {
-          "t": "大视场大景深远端显微内窥镜深度学习实现上皮癌标志物实时活体成像",
-          "d": "2026-05-13",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "开发了一种集成深度学习的内窥显微镜系统，具有大视场和大景深，可实时进行上皮癌标志物的活体成像。传统活体显微成像受限于小视场和浅景深，该系统通过深度学习算法实现图像的超分辨率重建和实时癌变组织分类，在一次内镜检查中即可捕获大范围组织的高质量图像并即时识别癌前病变，有望显著提升上皮癌早期检出率，推动内镜精准诊断的临床转化。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2602705123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "深度学习内窥镜",
-          "aip": 1,
-          "kp": [
-            "视场[内窥显微镜]: 20mm²",
-            "景深[内窥显微镜]: 500μm",
-            "分辨率[内窥显微镜]: 4μm"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In vivo microscopy (IVM) has shown great promise to improve early detection of epithelial precancer, but it suffers from fundamental trade-offs that limit the resolution, field-of-view (FOV) and depth-of-field (DOF). Here, we present PrecisionView, a compact, deep learning-enabled endomicroscope that breaks these constraints and achieves 20 mm\n                    2\n                    FOV and 500 µm DOF with 4 µm resolution, representing approximately 5× increase in FOV and 8× larger DOF compared to conventional IVM with similar resolution. PrecisionView integrates a deep learning-optimized phase mask and real-time reconstruction, enabling rapid in vivo assessment of two key hallmarks of cancer: epithelial cell nuclear morphology and subsurface microvasculature through fluorescence and reflectance imaging. By imaging the oral cavity of healthy volunteers and cervical specimens with precancerous lesions, PrecisionView generates large-scale (1 to 3 cm\n                    2\n                    ) coregistered maps of cellular and vascular structures, revealing distinct microscopic patterns associated with anatomic structures and precancerous lesions. Our results suggest the potential of this computational endomicroscope to address the unmet need for early cancer detection at the point of care.",
-          "hb": 1
-        },
-        {
-          "t": "碳纳米管柔性射频晶体管实现100 GHz以上频率工作",
-          "d": "2026-05-13",
-          "a": "Nature Electronics",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了工作频率超过100 GHz的柔性碳纳米管射频晶体管，满足第六代无线通信对柔性高频终端器件的需求。碳纳米管的高载流子迁移率和优异机械柔韧性使器件在弯折状态下仍保持稳定的射频性能，为可穿戴电子、柔性雷达和物联网高频通信模块开辟了新方向。",
-          "sc": 6.9,
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01632-1",
-          "tp": "碳纳米管射频晶体管",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522373?af=R",
+          "tp": "仿生离子泵",
           "aip": 1,
-          "kp": [
-            "工作频率[柔性CNT晶体管]: >100GHz",
-            "器件[射频]: 柔性碳纳米管薄膜晶体管"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The development of the sixth generation of wireless communications technology requires terminals that can operate at frequencies above 100 GHz. For human-centric applications, these terminals should also be flexible and have low power. However, current flexible radio-frequency transistors typically have lower maximum frequencies, in part due to the poor thermal conductivity of flexible substrates. Here we report radio-frequency transistors that are based on aligned carbon nanotube arrays on flexible substrates, having current-gain cut-off frequencies (fT) and power-gain cut-off frequencies (fmax) above 100 GHz. This is achieved by using electrothermal co-design to improve the heat dissipation and radio-frequency performance of the devices. The transistors exhibit an on-state current of 0.947 mA µm−1, a transconductance of 0.728 mS µm−1, a peak extrinsic fT of 152 GHz, a peak extrinsic fmax of 102 GHz and a power consumption under 200 mW mm−1. We also show that the devices can be used to create flexible radio-frequency amplifiers with an output power of 64 mW mm−1 and an 11-dB power gain in the K band.",
-          "hb": 1
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "热力学引导碘化铜簇的千克级沉淀，用于高效溶液加工发光二极管",
+          "d": "2026-05-13",
+          "a": "AAAS: Science Advances: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aef2453?af=R",
+          "tp": "碘化铜簇发光二极管",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
         }
       ]
     }

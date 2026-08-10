@@ -6,19 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "上交大李军团队研发常温常压电合成氨体系，电流密度突破100 mA/cm²",
-      "锇原子团簇催化剂实现碱性水电解高效反应，大幅降低贵金属用量",
-      "哥伦比亚大学杨远团队联合三星开发疏盐凝胶电解质，提升无负极锂电池界面稳定性"
+      "亿纬锂能628Ah大容量储能电池系统实现规模化电网并网运行",
+      "上海交大团队研发锂介导电合成氨体系在100 mA/cm²电流密度下运行",
+      "常温常压高能效电化学合成氨技术突破每平方厘米8毫安电流密度限制"
     ],
     "AI与智能科技": [
-      "研究实现连续波窄线宽真空紫外激光源，为构建钍-229核钟提供工具",
-      "富勒烯笼内封装稀土二聚体实现取向分辨的电子自旋相干时间测量",
-      "磁性拓扑绝缘体中观测到铰链至表面的手性边缘态跨维度输运行为"
+      "平面锗基底自旋量子位交叉阵列架构完成40个瓦片毫开尔文环境测试",
+      "半导体量子位可扩展交叉阵列架构具备容纳1058个单空穴自旋量子位潜力"
     ],
     "通用技术": [
-      "研究在CoZr2H3.49弱巡游铁磁体中观测到单轴负热膨胀现象",
-      "纳米铝催化剂活性获验证，展现出驱动氧化还原等反应的潜力",
-      "特定波长光选择性激发半导体缺陷态，将复合陷阱转化为热电子源"
+      "研究提出基于表面电荷预测电催化过程中阳离子效应的分析方法"
     ]
   },
   "sectors": [
@@ -26,18 +23,56 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "上交大李军团队研发常温常压电合成氨体系，电流密度突破100 mA/cm²",
-        "锇原子团簇催化剂实现碱性水电解高效反应，大幅降低贵金属用量",
-        "哥伦比亚大学杨远团队联合三星开发疏盐凝胶电解质，提升无负极锂电池界面稳定性"
+        "亿纬锂能628Ah大容量储能电池系统实现规模化电网并网运行",
+        "上海交大团队研发锂介导电合成氨体系在100 mA/cm²电流密度下运行",
+        "常温常压高能效电化学合成氨技术突破每平方厘米8毫安电流密度限制"
       ],
       "entries": [
         {
+          "t": "全球首个628Ah电网规模电池投入运行",
+          "d": "2026-02-12",
+          "a": "Latest news about ESS Projects & Applications | ESS News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 9.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.ess-news.com/2026/02/12/worlds-first-628ah-grid-scale-battery-enters-operation/",
+          "tp": "大容量储能电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "全球首个628Ah超大电池储能电站并网，亿纬锂能再获10GWh大订单",
+          "d": "2026-02-12",
+          "a": "Batteries News",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 9.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://batteriesnews.com/worlds-first-628ah-ultra-large-battery-energy-storage-station-connected-to-grid-eve-energy-secures-another-major-10gwh-order/",
+          "tp": "大容量储能并网",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
           "t": "上交大李军报道一种可在常温常压及100 mA cm-2电流密度下运行的高能效电合成氨体系",
           "d": "2026-02-12",
-          "a": "",
+          "a": "Science",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
           "as": "上海交通大学李军团队在锂介导氮气电化学还原合成氨方面取得突破。团队在四氢呋喃中引入二氟草酸硼酸锂（LiDFOB），其分解产物构建出去溶剂化-扩散层状架构（DDLA）的SEI层，由LiF外层、Li₂CO₃离子传导通道中间层和Li₃N内界面层精确构成。该设计解决传统SEI离子传导率低、去溶剂化能垒高导致高电流密度下析氢副反应加剧问题，使体系可在常温常压及100 mA/cm²电流密度下高效运行，突破此前氨分电流密度8 mA/cm²限制。",
-          "sc": 6.5,
+          "sc": 6.8,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.science.org/doi/10.1126/science.adw5462",
@@ -49,47 +84,6 @@
           "cm": "电化学合成氨共有三种方法——基于高温固态电解质、锂介导（Li-mediated NRR）、水溶液电催化（eNRR），其中eNRR最为主流，eNRR使阴极的氮气在催化剂表面获得电子和H+并生成氨，而本文使用的Li-mediated NRR先让Li+在阴极还原生成Li，然后Li与N2反应生成Li3N，Li3N再与H+反应生成NH3且再生Li+，eNRR在阴极侧和阳极侧都需要催化剂，而Li-mediated NRR无需阴极侧催化剂，本文的重点在于优化SEI结构以让Li+更好地进入阴极。全球氨用途比较集中，农业化肥占80%。根据此前对有机农业的调研，我认为农业化肥的用量难以大幅度减少。尽管氢气可以来自绿氢、氮气直接取自空气，但传统哈伯-博施法工艺本身的能耗和灵活性较差，电化学合成氨若有所突破还是具备相当价值。将锂离子电池中通过电解液添加剂调控SEI的方法迁移到Li-mediated NRR中，实现性能提升。性能指标：尽管性能有所突破，但其当前仍不及美国能源部提出的电化学合成氨目标值：在300 mA cm⁻²的电流密度下，法拉第效率90%、NH3产率10-6 mol s-1 cm-2，能量效率＞60%，催化效率衰减率1000 h不超过0.3%。溶剂方面：由于氮气还原反应的标准电极电位与水的析氢反应十分接近，故电催化合成氨一般采用非水溶剂。本文所用的，同时也是锂介导电化学合成氨常用的溶剂——四氢呋喃有易挥发、易开环聚合的问题，此前丹麦技术大学于2024年3月在《Nature》发表文章建议使用二乙二醇二甲醚等链醚溶剂，其具有抗聚合、高沸点（162°C）的特性，能在气体扩散电极表面形成致密的固态电解质界面层，从而促进氨在气相中的释放并保持电解液稳定性，在环境气压下连续运行300 h，法拉第效率达64%。质子穿梭剂方面：乙醇作为质子穿梭剂，容易被氧化，Science perspective文章建议考虑稳定性更高的苯酚、鏻盐。金属资源方面：锂资源稀缺性同样是规模化不可回避的挑战，钠、镁、钙等廉价金属的固氮潜力亟待挖掘。",
           "b": "传统哈伯-博施工艺合成氨依赖高温高压（400-500°C、10-30 MPa）和化石燃料，占据了全球约1%的CO2排放。在“双碳”目标背景下，锂介导氮气电化学还原合成氨技术为高效制氨提供了新路径，该过程依赖电极表面固体电解质界面（SEI）层调控锂离子传输，但现有SEI层存在离子传导率低、去溶剂化能垒高等缺陷，导致高电流密度下反应界面收缩与析氢副反应加剧。尽管通过优化电极设计和电解质配方取得进展，氨分电流密度仍被限制在8 mA cm-2。高压间歇式电解虽能改善离子迁移，但系统能耗剧增且能效仅3%，难以实现连续生产。SEI层锂离子传导能力与动态平衡机制的缺失，已成为制约连续流锂介导合成氨技术发展的关键瓶颈。\n上海交通大学李军教授团队在四氢呋喃（THF，tetrahydrofuran）中引入锂电池常用添加剂——二氟草酸硼酸锂（LiDFOB），其分解产物构建出了去溶剂化-扩散层状架构（DDLA）的SEI，研究团队通过冷冻透射电镜结合同步辐射表征技术，解析出该DDLA由三层精确排布的无机相构成：最外层为LiF层、中间层为Li2CO3离子传导通道以及最内层为与阴极接触的Li3N界面层（晶面间距分别为2.00 Å、2.85 Å和3.13 Å）。此外添加少量乙醇（0.25 vol % ethanol）作为质子穿梭剂\n结构深度分析发现，DDLA中LiF表层通过低结合能特性加速锂离子去溶剂化，而Li2CO3中间层则形成三维离子渗透网络。同步辐射X射线光谱证实，这种层次化结构在10-20纳米尺度上建立了连续的离子传输梯度。特别值得注意的是，DDLA内部发现的对称分布的Li3N晶畴与电解液界面形成分子级接触，为氮气还原提供了特异性活性位点。该结构特征解释了DDLA电极在高电流密度下实现高效锂介导氮还原合成氨的原理——Li2CO3通道将锂离子通量提升至常规均质SEI体系的100倍，同时LiF/Li3N异质界面显著抑制了析氢副反应。这些发现不仅揭示了电极-电解质界面离子传输的级联调控机制，其分级离子传输机制也为设计下一代高效合成氨电极提供了明确的界面工程原则。\n此外，理论计算揭示DDLA在离子传输动力学上展现出独特优势：其表面LiF层通过0.67 eV的低去溶剂化能促进锂离子释放，而Li2CO3中间层仅需克服0.60 eV的迁移能垒，相较常规均质SEI体系（去溶剂化能垒0.73 eV，迁移能垒1.07 eV）具有显著动力学优势。这一发现不仅解释了DDLA电极实现高离子电导率的本质原因，更确立了\"去溶剂化-传输-催化\"三级联机制在高效合成氨反应中的核心作用，这种协同稳定效应为设计高稳定性电解界面提供了新范式。\n研究通过流动电解池系统验证了理论预测，首次在常温常压100 mA cm-2电流密度下实现98%法拉第效率与21%能量效率，并具备50小时连续运行的稳定性。文章于2026年2月12日发表在Science。",
           "hb": 1
-        },
-        {
-          "t": "[ASAP] 亲氧NbOx纳米岛限域的锇原子团簇用于实用碱性水电解",
-          "d": "2026-02-12",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "碱性电催化中开发低成本、高质量活性且耐久性优异的原子簇催化剂是长期挑战。该研究通过将锇（Os）原子簇限制在亲氧性的NbOx（铌氧化物）纳米岛表面，利用金属-载体强相互作用稳定单原子级分散的Os活性位点。NbOx不仅防止Os团聚，还通过电子调制效应增强其本征催化活性，从而在碱性析氢/析氧反应中实现接近或优于商业Pt/C催化剂的性能，同时大幅降低贵金属用量。该策略为碱性水电解的大规模应用提供了实用化催化方案。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21251",
-          "tp": "碱性析氢催化剂",
-          "aip": 1,
-          "kp": [
-            "催化剂[碱性HER]: NbOx纳米岛限域Os原子簇",
-            "[设计]: 亲氧纳米岛防止原子簇团聚"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Rational design of cost-effective atomic cluster (AC) catalysts with high mass activity and robust durability remains a huge challenge for the practical alkaline hydrogen evolution reaction (HER), primarily due to sluggish water dissociation kinetics at the electrolyte/electrode interface and inherent tendency of ACs to agglomerate. Herein, we report a design concept by employing NbOx nanoislands anchored on fullerene-derived carbon (FDC) to spatially confine and stabilize Os ACs and enhance interfacial water dissociation ability for efficient alkaline HER catalysis in an anion exchange membrane water electrolysis (AEMWE). We find that the NbOx nanoislands create a structurally confined environment that induces strong interfacial metal-support interactions for stabilizing the Os ACs against aggregation and enhancing the operational stability. Moreover, oxophilic NbOx domains optimize interfacial water organization with enriched \"free\" hydrogen-bonded water at the reaction interface and strengthen the adsorption of hydroxyl species to accelerate water dissociation for a sufficient proton supplement. The resulting NbOx-Os@FDC catalyst achieves an ultralow overpotential of 14 mV at 10 mA cm-2 and an exceptional mass activity of 2.42 A mgOs-1 at -0.1 V vs RHE. Particularly, NbOx-Os@FDC-based AEMWE with an ultralow Os loading realizes an industrial-level current density of 1 A cm-2 at 1.74 V with high durability.",
-          "hb": 1
-        },
-        {
-          "t": "哥伦比亚大学杨远报道一种低氟化非溶剂含量的疏盐凝胶电解质提高无负极锂金属电池界面稳定性",
-          "d": "2026-02-12",
-          "a": "",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "哥伦比亚大学杨远团队联合Samsung SDI报道新型凝胶聚合物电解质，以TMPTMA为骨架，引入疏盐特性的全氟十二烷基丙烯酸酯（HFDA）单体，在0.7 MPa、55°C下聚合形成。长氟碳链HFDA通过自组装形成二级疏盐寄生网络，将电解液分割成纳米级畴区（<5nm），使盐在电解液相中聚集优化锂离子溶剂化结构，提高无负极锂金属电池界面稳定性，解决SEI不稳定致容量衰减及高镍正极热失控风险。",
-          "sc": 6.6,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1016/j.joule.2025.102296",
-          "tp": "凝胶电解质",
-          "aip": 1,
-          "kp": [],
-          "lv": 1,
-          "wr": "",
-          "cm": "",
-          "b": "无负极锂金属电池有助于提高电池的能量密度，但尚存在不稳定的固态电解质界面（SEI）易引起的容量快速衰减、运行所需较大的外部压力（>1.0 MPa）、液态电解质高成本，以及与高镍正极配合使用存在的热失控风险等问题。凝胶聚合物电解质具有高离子导电性、良好的热稳定性和与锂金属的化学兼容性，但当前其对锂离子溶剂化结构的影响机制仍不明晰。\n近日，哥伦比亚大学杨远教授联合Samsung SDI报道一种新型凝胶聚合物电解质，其以三羟甲基丙烷三甲基丙烯酸酯（TMPTMA）为聚合物骨架（2.5wt%），引入亲溶剂、疏盐特性的全氟十二烷基丙烯酸酯（HFDA）单体（2.5wt%），连同引发剂偶氮二异丁腈（AIBN，0.15 wt%）溶解在95wt%的（1.0 M LiDFOB0.4 M LiBF4+DEC/FEC）液态电解质中形成前驱体溶液，注入电池后在0.7 MPa、55℃条件下加热12h完成聚合。其中，长氟碳链HFDA通过丙烯酸酯头部共价接枝于基体，其氟碳尾链通过链间相互作用自组装形成二级疏盐寄生网络，将电解液分割成纳米级畴区（<5 nm），该区域对溶剂有高亲和力但排斥锂盐，使盐在网络外的电解液相中聚集；疏盐寄生网络对溶剂具有高亲和性、对锂盐具有强排斥性，导致锂盐富集于远离聚合物网络的区域，溶剂分子对Li⁺的配位作用被削弱，阴离子（DFOB⁻、BF₄⁻）成为Li⁺溶剂化鞘层的主要组分，形成富阴离子的溶剂化结构，进而生成阴离子衍生SEI膜。相较于液态电解质和不添加HFDA单体的半固态凝胶电解质，该电解质可形成薄（8 nm）且富含LiF的SEI膜，能有效抑制溶剂分解与锂的副反应；均匀的离子通量有助于增大锂沉积域尺寸，减少了副反应面积，使沉积形成的锂晶粒更大（38.8 μm2）、更致密（0.50 g/cm3），避免锂枝晶生长与死锂产生，大幅提升锂沉积/剥离的可逆性；此外，加热产生的氟自由基（F-）能捕捉溶剂燃烧产生的H-自由基，起到化学阻燃作用；且该电解质离子电导率达2.2 mS/cm与液态电解质（3.5 mS/cm）接近，氟化非溶剂含量也低于局部高浓度电解液，有助于降低电解质成本与密度（1.27 g/cm³），提升电池级能量密度。\n测试结果表明，由此制备的4.8 mAh/cm²高负载Cu/NCA电池在3.0-4.3 V电压区间、2.8 g/Ah低电解质用量下，70圈容量保持率81.2%；窄电压区间3.6-4.3 V下200圈容量保持率达87.2%，库伦效率最高达99.0%，电荷转移电阻低至1.19 Ω，性能优于液态电解质与其他短氟碳链凝胶电解质。该电解质经丁烷火炬灼烧不燃；240 mAh软包电池在满电状态下通过严苛的钻孔测试，中心温度升至60℃，无热失控，电压可恢复，液态电解质电池钻孔后则发生爆炸，温度超146℃。文章于2026年2月12日发表在Joule。",
-          "hb": 1
         }
       ]
     },
@@ -97,76 +91,30 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究实现连续波窄线宽真空紫外激光源，为构建钍-229核钟提供工具",
-        "富勒烯笼内封装稀土二聚体实现取向分辨的电子自旋相干时间测量",
-        "磁性拓扑绝缘体中观测到铰链至表面的手性边缘态跨维度输运行为"
+        "平面锗基底自旋量子位交叉阵列架构完成40个瓦片毫开尔文环境测试",
+        "半导体量子位可扩展交叉阵列架构具备容纳1058个单空穴自旋量子位潜力"
       ],
       "entries": [
         {
-          "t": "连续波窄线宽真空紫外激光光源",
+          "t": "用于对半导体自旋量子位进行基准测试的交叉芯片",
           "d": "2026-02-12",
-          "a": "Nature",
+          "a": "Nature Electronics",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "229Th（钍-229）原子核在约148.4nm波长处存在独特的低能同核异能跃迁，是构建核钟的理想候选。该研究报道了一种连续波窄线宽真空紫外（VUV）激光源的实现方案，为精确探测和驱动229Th核跃迁提供了关键工具。窄线宽特性使其能够实现超高精度的光谱测量，对未来核钟的开发和基本物理常数检验具有重要意义，有望超越现有光学原子钟的精度极限。",
-          "sc": 7.7,
+          "as": "研究提出了一种用于表征半导体自旋量子位的可扩展交叉阵列架构。该量子点交叉阵列平台采用紧密间距的自旋量子位瓦片，在平面锗中实现，具备容纳高达1058个单空穴自旋量子位的潜力。在毫开尔文温度下，研究人员测量了其中40个瓦片，并验证了包括瓦片可寻址性在内的关键器件功能，解决了量子组件大规模表征的难题。",
+          "sc": 6.9,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10107-4",
-          "tp": "核时钟激光源",
+          "u": "https://www.nature.com/articles/s41928-026-01569-5",
+          "tp": "自旋量子位测",
           "aip": 1,
           "kp": [
-            "[核跃迁]: 229Th同质异能跃迁约148.4nm",
-            "[应用]: 核钟",
-            "[进展]: Th核透明晶体+连续波VUV激光"
+            "测试温度条件[半导体自旋量子位基准测试]: 毫开尔文级(mK)",
+            "阵列架构[量子组件大规模表征]: 量子点交叉阵列"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "The exceptionally low-energy isomeric transition in 229Th at around 148.4 nm (refs. 1,2,3,4,5,6) offers a unique opportunity for coherent nuclear control and the realization of a nuclear clock7,8. Recent advances, most notably the incorporation of large ensembles of 229Th nuclei in transparent crystals6,9,10,11 and the development of pulsed vacuum ultraviolet (VUV) lasers12,13,14, have enabled initial laser spectroscopy of this transition15,16,17. However, the lack of an intense, narrow-linewidth VUV laser has precluded coherent nuclear manipulation8,18. Here we introduce and report a continuous-wave (CW) laser at 148.4 nm, generated by means of four-wave mixing (FWM)19 in cadmium vapour. The source delivers more than 100 nW of power with a projected linewidth well below 100 Hz and supports broad wavelength tunability. This represents a five-orders-of-magnitude improvement in linewidth over all previous single-frequency lasers below 190 nm (refs. 12,13,14,20). We develop a spatially resolved homodyne technique that places a stringent upper bound on FWM-induced phase noise, thereby supporting the feasibility of sub-hertz VUV linewidths. Our work addresses the central challenge towards a 229Th-based nuclear clock and establishes a widely tunable, ultranarrow-linewidth laser platform for potential applications across quantum information science21,22,23,24, condensed-matter physics25 and high-resolution VUV spectroscopy26.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 富勒烯封装稀土二聚体中取向分辨的电子自旋弛豫与相干性",
-          "d": "2026-02-12",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "稀土二聚体具有单电子金属-金属键，其金属核之间产生超强的超精细与交换相互作用，是研究分子尺度量子自旋行为的理想平台。该研究在富勒烯笼内封装稀土二聚体，利用笼状结构对自旋态的隔离与取向约束，首次实现了取向分辨的电子自旋弛豫与相干时间测量。结果表明笼内金属-金属键的取向显著影响自旋退相干速率，为构建基于分子自旋的量子比特、量子信息处理与分子自旋电子学器件提供了关键的实验依据与设计思路。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22495",
-          "tp": "稀土二聚体量子比特",
-          "aip": 1,
-          "kp": [
-            "[量子材料]: 富勒烯包封稀土二聚体单电子金属-金属键",
-            "[表征]: EPR自旋弛豫与相干"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Rare-earth dimers with single-electron metal-metal bonds feature strong hyperfine and exchange interactions between metal atoms and an unpaired valence electron. Their stabilization inside carbon cages opens the possibility for applications in quantum information processing and sensing but requires investigation of their unusual spin states and dynamics. Herein, we present a systematic EPR study of dimetallofullerenes M2@C80(CH2Ph) with M25+ dimers, whose composition varied from Y2 (S = 1/2) through YGd (S = 4) to Gd2 (S = 15/2). High-field W-band EPR spectroscopy facilitated the analysis of different molecular orientations and T1 anisotropy and allowed resolution of individual |mS⟩ → |mS + 1⟩ transitions in high-spin Gd dimetallofullerenes. For Y2@C80(CH2Ph), we demonstrated that fullerene isomerism strongly influences the molecular and spin dynamics of metal dimers. The pronounced difference in spin-lattice relaxation times T1 was found for the Ih and D5h cage isomers and rationalized by Raman spectroscopic study and calculations of spin-phonon couplings. Lateral metal modes, which play the main role in the spin-lattice relaxation of endohedral metallofullerenes, were found at higher frequencies in the D5h isomer, in line with its longer T1. The orientational dependence of spin decoherence was ascribed to the rotational motion of the Y2@C80(CH2Ph) molecules in glassy toluene. Substitution of Y with Gd accelerated spin-lattice relaxation and decoherence. A similar T1 and phase-memory relaxation time (Tm) of YGd@C80(CH2Ph) and Gd2@C80(CH2Ph) proved that the effect does not scale with the number of Gd atoms. While the Rabi frequency is constant across the whole spectrum in Y2@C80(CH2Ph), YGd@C80(CH2Ph) and Gd2@C80(CH2Ph) exhibit variations in the Rabi frequencies for their |mS⟩ → |mS + 1⟩ transitions.",
-          "hb": 1
-        },
-        {
-          "t": "三维磁光拓扑材料中跨维度手性铰链-表面输运",
-          "d": "2026-02-12",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "三维磁性拓扑材料中手性铰链-表面输运的最新研究。手性边界态及完美导电通道是磁性拓扑材料的核心特征，该工作探索了维度间（铰链到表面）的手性输运行为，通过磁光手段观测三维拓扑绝缘体中手性边缘态的跨维度演化，对理解高阶拓扑相及低能耗自旋电子器件具有重要意义。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb4171?af=R",
-          "tp": "拓扑材料输运",
-          "aip": 1,
-          "kp": [
-            "[拓扑材料]: 手性边界态完美导电通道",
-            "[发现]: 3D磁光拓扑体中铰链-表面跨维手性输运"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Chiral boundary states with perfect conducting channels are essential characteristics of magnetic topological materials. Prominent examples include the one-dimensional (1D) chiral edge and 2D chiral surface states found in 2D and 3D quantum Hall materials under magnetic fields, respectively. However, these boundary states are restricted to specific fixed dimensions, so they hardly facilitate cross-dimensional energy and information transport. Here, we fabricate a unique 3D photonic antiferromagnetic topological insulator with net zero magnetization that can simultaneously support different-dimensional hinge states and unpaired surface Dirac cones on neighboring facets. Owing to the chiral anomaly present in a finite-size sample, the gapless surface Dirac cone, neighbored by facets with surface Dirac masses of opposite signs, is further converted, exhibiting 2D planar one-way propagation. In conjunction with 1D hinge states, we experimentally observe a closed chiral loop for nonreciprocal hinge–surface transport across dimensions in topological photonics, similar to that theoretically proposed in 3D quantum anomalous Hall materials. Our findings enrich the chiral boundary features of 3D magnetic topological insulators and offer a topological strategy for exploring ideal cross-dimensional devices.",
+          "b": "The large-scale integration of semiconductor spin qubits into quantum processors will require the characterization of quantum components at scale. However, such characterization is challenging and typically requires radio-frequency measurements at millikelvin temperatures and the presence of magnetic fields. Here we report a scalable architecture for characterizing spin qubits using a quantum dot crossbar array. The approach, which we term as the qubit-array research platform for engineering and testing, uses a crossbar array comprising tightly pitched spin-qubit tiles and is implemented in planar germanium, with the potential to host 1,058 single-hole spin qubits. We measure a subset of 40 tiles and demonstrate key device functionality at millikelvin temperatures, including tile addressability, threshold voltage and charge noise statistics, as well as the characterization of hole spin qubits and their coherence times in a single tile.",
           "hb": 1
         }
       ]
@@ -175,45 +123,20 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究在CoZr2H3.49弱巡游铁磁体中观测到单轴负热膨胀现象",
-        "纳米铝催化剂活性获验证，展现出驱动氧化还原等反应的潜力",
-        "特定波长光选择性激发半导体缺陷态，将复合陷阱转化为热电子源"
+        "研究提出基于表面电荷预测电催化过程中阳离子效应的分析方法"
       ],
       "entries": [
         {
-          "t": "[ASAP] CoZr2H3.49弱巡游铁磁相中的单轴负热膨胀",
+          "t": "[ASAP] 表面电荷预测电催化中阳离子效应的存在",
           "d": "2026-02-12",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在弱巡游铁磁相中观测到单轴负热膨胀（NTE）现象，即材料沿某一晶轴方向在升温时收缩而非膨胀。该效应此前多见于反铁磁或顺磁体系，而此次在弱巡游铁磁体中出现，表明磁-晶格耦合机制与传统局域磁矩框架不同，可能涉及巡游电子驱动的磁弹效应。这一发现拓展了负热膨胀材料的物理机制认知，为设计可精确调控热膨胀系数的磁性功能材料提供了新路径。",
-          "sc": 7.5,
+          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22412",
-          "tp": "单轴负热膨胀",
-          "aip": 1,
-          "kp": [
-            "材料[负热膨胀]: 氢化CoZr2H3.49弱巡游铁磁相",
-            "居里温度[CoZr2H3.49]: 139 K",
-            "[各向异性]: c轴负热膨胀,a轴正热膨胀"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "We report an observation of uniaxial negative thermal expansion (NTE) that emerges exclusively in the weak-itinerant-ferromagnetic phase of hydrogenated CoZr2H3.49. Powder synchrotron X-ray diffraction revealed that the c-axis contracts upon heating below the Curie temperature (TC = 139 K), whereas the a-axis shows a positive thermal expansion. Magnetization measurements combined with Arrott plot analyses yielded a Rhodes-Wohlfarth ratio of 3.49, establishing the itinerant nature of the ferromagnetism. The observed uniaxial NTE in CoZr2H3.49 clearly contrasts with the phonon-driven type anomalous thermal expansion in CoZr2 superconductors, which demonstrates that hydrogen insertion switches both the electronic structure and the mechanisms of the uniaxial NTE. The uniaxial NTE is likely associated with an enhanced sharpening of the antibonding Co3dz2 density of states, which favors the expansion of the one-dimensional Co-Co chain along the c-axis as the temperature decreases in the ferromagnetic state. These results establish the CoZr2Hx system as a platform for investigating the interplay among superconductivity, itinerant ferromagnetism, and NTE.",
-          "hb": 1
-        },
-        {
-          "t": "铝的未开发催化能力被解锁",
-          "d": "2026-02-12",
-          "a": "Nature",
-          "c": "通用技术/催化剂",
-          "as": "铝是地壳中含量最丰富的金属元素，但其在催化领域的潜力长期被低估。近期研究发现铝在多种催化反应中展现出此前未被充分认识的催化活性，包括氧化还原反应、C-C偶联等关键化学转化过程。通过精确调控铝的配位环境和纳米结构，研究者成功解锁了其深层催化能力。这一突破有望拓展廉价金属催化剂的应用范围，减少对贵金属催化剂的依赖，在化工合成、能源转化等领域具有广阔的应用前景。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00174-y",
-          "tp": "铝催化解锁",
+          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00040",
+          "tp": "表面电荷预测",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -221,27 +144,6 @@
           "cm": "",
           "b": "",
           "hb": 0
-        },
-        {
-          "t": "[ASAP] 缺陷的位点选择性激发促进半导体界面超快热电子转移",
-          "d": "2026-02-12",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "研究通过缺陷位点选择性激发策略，促进半导体界面的超快热电子转移。缺陷工程是调控光催化材料光吸收和电荷捕获的有效手段，但缺陷常成为复合中心。该工作利用特定波长光选择性激发缺陷态，将缺陷从复合陷阱转化为热电子源，实现超快界面电荷注入，为提升光催化和光电转化效率提供了新机制。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c18179",
-          "tp": "缺陷热电子转移",
-          "aip": 1,
-          "kp": [
-            "[缺陷工程]: 位点选择性激发缺陷促超快热电子转移"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Defect engineering is an effective strategy to manipulate light absorption and charge trapping in photocatalytic materials and improve their solar energy conversion efficiency. However, little is known about the mechanism of photoinduced charge transfer from these defects to surface-adsorbed species, a key step linking light absorption and surface chemical reactions. Thus far, hot-charge transfer from semiconductor photocatalysts to adsorbed molecules has not yet been directly detected. Combining time-resolved photoelectron spectroscopy and first-principles calculations, we demonstrate the ultrafast hot-electron transfer (∼15 fs) from rutile TiO2 to acetone through the site-selective excitation (d-d transition) of Ti3+ defects where acetone is adsorbed. The high-lying 3d excited states of the Ti3+ ions (2.5-2.8 eV above the Fermi level) and their hybridization with adsorbate orbitals provide suitable interfacial level alignment and strong electronic coupling, thus promoting hot-electron transfer. Such a defect-mediated process may be a general phenomenon in adsorbate/semiconductor systems for light harvesting.",
-          "hb": 1
         }
       ]
     }

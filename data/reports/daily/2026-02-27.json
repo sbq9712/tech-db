@@ -6,18 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "研究确立单结钙钛矿太阳能电池突破27%效率的工程化设计规则",
-      "AEM电解槽耦合改性铜钴氧化物催化剂实现工业级电流密度下甘油转化",
-      "新型亲锂骨架抑制枝晶生长，实现能量密度1200 Wh/L锂金属软包电池"
+      "钠金属电池LiF晶体学面工程实现零下40度至60度超稳定快充",
+      "塔塔钢铁投运20MWh工业废渣储热系统年减二氧化碳2.2万吨"
     ],
     "AI与智能科技": [
-      "研究团队确立面向晶圆代工厂的二维材料微处理器全互连构建策略",
-      "2T1D钙钛矿像素架构利用光电压直接驱动，免除光学传感额外读出电路"
+      "抗热噪声微波量子网络首次在4K温度下实现稳定运行"
     ],
     "通用技术": [
-      "阿德莱德大学团队利用飞秒光谱揭示商用IrO₂电极水氧化过程的溶解机制",
-      "双电路纳米移液管实现活体单细胞线粒体与细胞质通讯的定量实时监测",
-      "研究人员合成由金属键连接的二维导电金属有机框架以提升载流子迁移率"
+      "阿德莱德大学揭示铱基催化剂溶解机制提供PEMWE设计依据",
+      "酶催化技术首次实现腈分子内碳碳偶联转化"
     ]
   },
   "sectors": [
@@ -25,98 +22,21 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "研究确立单结钙钛矿太阳能电池突破27%效率的工程化设计规则",
-        "AEM电解槽耦合改性铜钴氧化物催化剂实现工业级电流密度下甘油转化",
-        "新型亲锂骨架抑制枝晶生长，实现能量密度1200 Wh/L锂金属软包电池"
+        "钠金属电池LiF晶体学面工程实现零下40度至60度超稳定快充",
+        "塔塔钢铁投运20MWh工业废渣储热系统年减二氧化碳2.2万吨"
       ],
       "entries": [
         {
-          "t": "迈入27%效率时代：单结钙钛矿太阳能电池的实用设计准则",
+          "t": "用于在 –40°C 至 60°C 范围内对钠金属电池进行超稳定和超快速充电的 LiF 晶体学面工程",
           "d": "2026-02-27",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该综述/研究聚焦钙钛矿单结太阳能电池效率突破27%的关键里程碑，系统总结达到该效率的实用化设计规则。涵盖组分工程、界面钝化、缺陷管理、能带对齐等核心策略，为钙钛矿光伏从实验室效率纪录向产业化推进提供了清晰的工程指导框架。",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
           "sc": 8.0,
           "i": "l",
-          "tg": "观点评论",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00205",
-          "tp": "钙钛矿电池设计",
-          "aip": 1,
-          "kp": [
-            "[光电效率]: 27%(单结钙钛矿电池)"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "表面改性铜钴氧化物催化剂在高容量阴离子交换膜电解槽中的商业级甘油增值利用",
-          "d": "2026-02-27",
-          "a": "Joule",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
-          "as": "展示64 cm²规模的阴离子交换膜水电解槽（AEMWE），利用表面修饰的铜钴氧化物催化剂实现商业级甘油增值化。将甘油电氧化与析氢耦合，以甘油替代传统水氧化反应降低能耗。表面修饰的CuCo氧化物催化剂在工业级电流密度下表现出高甘油转化率和产物选择性，为AEM电解槽耦合生物质升级提供示范。",
-          "sc": 7.7,
-          "i": "l",
           "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00484-2?rss=yes",
-          "tp": "甘油电化学转化",
-          "aip": 1,
-          "kp": [
-            "电解槽[AEM甘油valorization]: 64cm²规模",
-            "催化剂[甘油valorization]: 表面改性铜钴氧化物",
-            "[制备方法]: 共沉淀+表面处理可量产"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "In this work, we demonstrate a 64 cm2 scale anion exchange membrane water electrolyzer (AEMWE) cell for commercial-scale glycerol valorization. For large-scale AEMWE cell applications, we developed a method to mass-produce catalysts through co-precipitation and surface treatment. In addition, the AEMWE system significantly enhances glycerol valorization compared with the H-type system. The developed large-scale AEMWE cell can simultaneously perform glycerol valorization and directly capture pure H2. This work presents a strategy that advances the commercialization of glycerol valorization.",
-          "hb": 1
-        },
-        {
-          "t": "时空耦合的亲锂骨架实现高可逆长寿命1200 Wh/L锂金属软包电池",
-          "d": "2026-02-27",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "研究提出时空耦合锂离子生长框架(lithiotropic framework)，通过同时构建静态外延锂离子层和动态锂离子通道，实现锂金属负极均匀沉积/剥离。该设计有效抑制锂枝晶生长，显著提升界面稳定性。最终实现能量密度达1,200 Wh/L的锂金属软包电池，兼具高可逆性和长循环寿命。该成果直击锂金属电池工程化核心瓶颈——枝晶与界面退化，在固态/液态电解质体系中均具推广潜力，对高比能电池商业化具有里程碑意义。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00483-0?rss=yes",
-          "tp": "锂金属亲锂骨架",
-          "aip": 1,
-          "kp": [
-            "能量密度[锂金属软包]: 1200 Wh/L",
-            "[框架设计]: 时空耦合亲锂框架"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Spatiotemporally coupled lithiotropic frameworks are proposed by simultaneously constructing a static epitaxial lithiotropic interface, dynamic lithiotropic embedded seeds, and SEIs. This optimizes Li adsorption, migration, and diffusion at plated substrate, bulk phase, and SEI, controlling multi-scale dense Li nucleation and growth tropism and optimizing the reversibility of ultrathin anodes. Such structures effectively improve the rate performance and cycle life of Li-metal batteries, enabling the practical application of >1,200 Wh L−1 miniature high-energy pouch cells in micro-UAVs.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "AI与智能科技",
-      "review": null,
-      "headlines": [
-        "研究团队确立面向晶圆代工厂的二维材料微处理器全互连构建策略",
-        "2T1D钙钛矿像素架构利用光电压直接驱动，免除光学传感额外读出电路"
-      ],
-      "entries": [
-        {
-          "t": "基于晶圆厂启发的策略构建二维微处理器",
-          "d": "2026-02-27",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "报道采用晶圆厂启发策略构建二维微处理器的研究。研究借鉴传统半导体晶圆制造工艺流程，设计并实现了基于二维材料（如过渡金属硫族化合物）的微处理器芯片。该策略解决了二维材料器件集成中的关键工程挑战，包括大规模均匀性、互连和电路架构设计，为超越硅基极限的下一代电子器件开辟了可量产化路径。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01567-7",
-          "tp": "二维微处理器",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202521479?af=R",
+          "tp": "钠电池快充",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -126,47 +46,70 @@
           "hb": 0
         },
         {
-          "t": "面向晶圆代工的完全互连二维微处理器构建策略",
+          "t": "塔塔钢铁印度一钢厂20MWh钢炉渣和铜矿废料储热系统投运",
           "d": "2026-02-27",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究提出了一种面向晶圆级制造的策略，用于构建完全互连的二维（2D）材料微电子器件。二维材料被视为下一代电子学的核心基础，但大规模芯片中如何实现二维材料晶体管之间的高质量、高密度互连一直是工程瓶颈。研究团队开发的方法兼顾材料生长、器件集成与互连工艺的兼容性，使其具备在标准半导体晶圆厂中规模化生产的可行性，为二维材料从实验室走向产业化铺平了道路。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01573-9",
-          "tp": "二维微处理器",
-          "aip": 1,
-          "kp": [
-            "[2D微处理器]: 代工厂导向转移策略构建大规模互连电路"
-          ],
-          "lv": 0,
+          "a": "Canarymedia",
+          "c": "零碳产业/能量循环/能量存储/储热/其他储热技术",
+          "as": "塔塔钢铁在印度Jamshedpur钢厂投运一套由德国Kraftblock开发的20MWh储热系统（储热1.5MW/放热1.8MW），储热材料由钢炉渣和铜矿废料等工业副产品开发而成。系统存储矿石烧结环节约500℃余热，按需为烧结工序供热，预计每年减少2.2万吨CO₂排放，是工业废渣余热回收利用的示范性案例。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.canarymedia.com/articles/green-steel/global-giant-tata-steel-using-heat-battery",
+          "tp": "钢渣余热储",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Two-dimensional (2D) materials can be used to build next-generation electronics. However, large-scale chips containing hundreds of transistors based on 2D materials suffer from problems related to low yield and laboratory fabrication. Here we report a towards-foundry strategy to create large-scale circuits based on transferred 2D materials. The approach uses testing and repeated iterative optimization of six aspects: circuit design, layout design, material growth, material transfer, device fabrication and chip probing. We fabricate around 130 batches of samples for testing to improve the yield at each scale, from single transistors to circuit modules to a complete microprocessor. We create single transistors with nearly 100% yield, on/off ratios greater than 107 and inverter gains of approximately 400 on average. The statistical yields for the arithmetic logic unit, control unit and D-latch circuit modules are found to be 96.5%, 79.5% and 61.5%, respectively. The resulting 2D microprocessor exhibits excellent signal integrity and stability, as well as low-energy-consumption characteristics that are superior to those of early Intel central processing units.",
+          "b": "据新能源媒体Canary Media在2月27日发文称，塔塔钢铁（Tata Steel）在其位于印度东部Jamshedpur钢铁厂区投运一套由德国储热企业Kraftblock开发的20MWh储热系统（储热功率1.5MW、放热功率1.8MW），并从钢炉渣和铜矿废料等副产品中开发出一种储热材料。文中称，该储热系统将矿石烧结环节的余热进行存储，温度可达500℃；后续再根据需求为烧结工序供热以减少化石燃料燃烧排放，预计每年可帮助Jamshedpur厂区减少2.2万吨二氧化碳排放。塔塔钢铁官网也对此进行了报道，但相关网页目前暂无法打开。",
           "hb": 1
         },
         {
-          "t": "光电压驱动的二晶体管-二极管钙钛矿像素用于内嵌式光学传感显示器",
+          "t": "塔塔钢铁印度一钢厂20MWh钢炉渣和铜矿废料储热系统投运",
           "d": "2026-02-27",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究开发了光电压驱动的二晶体管-二极管(2T1D)钙钛矿像素架构，用于内嵌式光学传感显示。下一代交互式电子设备需要显示面板同时具备发光和光学传感功能，传统架构复杂度高、占空比大。钙钛矿材料兼具光电探测和发光特性，该2T1D架构利用光电压信号直接驱动像素，无需额外读出电路，大幅简化面板结构并提升孔径比。该方案为屏下指纹识别、环境光感知和手势交互等应用提供了紧凑的集成方案。",
+          "a": "Canarymedia",
+          "c": "零碳产业/能量循环/能量存储/储热/其他储热技术",
+          "as": "塔塔钢铁在印度Jamshedpur钢厂投运一套由德国Kraftblock开发的20MWh储热系统（储热1.5MW/放热1.8MW），储热材料由钢炉渣和铜矿废料等工业副产品开发而成。系统存储矿石烧结环节约500℃余热，按需为烧结工序供热，预计每年减少2.2万吨CO₂排放，是工业废渣余热回收利用的示范性案例。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.canarymedia.com/articles/green-steel/global-giant-tata-steel-using-heat-battery",
+          "tp": "钢渣余热储",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "据新能源媒体Canary Media在2月27日发文称，塔塔钢铁（Tata Steel）在其位于印度东部Jamshedpur钢铁厂区投运一套由德国储热企业Kraftblock开发的20MWh储热系统（储热功率1.5MW、放热功率1.8MW），并从钢炉渣和铜矿废料等副产品中开发出一种储热材料。文中称，该储热系统将矿石烧结环节的余热进行存储，温度可达500℃；后续再根据需求为烧结工序供热以减少化石燃料燃烧排放，预计每年可帮助Jamshedpur厂区减少2.2万吨二氧化碳排放。塔塔钢铁官网也对此进行了报道，但相关网页目前暂无法打开。",
+          "hb": 1
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [
+        "抗热噪声微波量子网络首次在4K温度下实现稳定运行"
+      ],
+      "entries": [
+        {
+          "t": "高达 4 K 的抗热噪声微波量子网络",
+          "d": "2026-02-27",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "",
           "sc": 6.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202522776?af=R",
-          "tp": "钙钛矿显示像素",
+          "u": "https://www.nature.com/articles/s41928-026-01581-9",
+          "tp": "微波量子网络",
           "aip": 1,
-          "kp": [
-            "[屏内光学传感]: 光压驱动2T1D钙钛矿像素集成发光与探测",
-            "架构[像素]: 双晶体-二极管(2T1D)"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "In-cell optical sensing displays are essential for next-generation interactive electronics, yet conventional architectures rely on separate light-emitting diodes (LEDs) and photodetectors (PDs), limiting pixel density and efficiency. Achieving both functions within a single diode is intrinsically difficult because electroluminescence requires strong excitonic recombination, whereas photodetection benefits from efficient carrier separation. Here, we realize stable dual-mode operation by stabilizing intermediate-n quasi-2D phases and suppressing non-radiative losses with a fluorinated acid passivator, and by engineering high-mobility transport layers with a dissociative (type-II) perovskite/electron transport layer heterojunction to assist exciton dissociation under photovoltaic operation. The resulting bifunctional diode enables an opto-dynamic random-access memory (opto-DRAM) pixel, a two-transistor-one-diode (2T1D) architecture conceptually analogous to a two-transistor-one-capacitor (2T1C) DRAM gain-cell, where photovoltage-driven rather than photocurrent-driven detection enables self-amplified sensing when coupled to thin-film transistors. The sky-blue PeLED achieves an external quantum efficiency of 20.4% at 100 cd m-2 and a record power efficiency of 41.8 lm W-1, while as the coupled sensing pixel it exhibits a maximum responsivity of 4.17 × 104 A W-1 and a specific detectivity of 6.46 × 1013 Jones. Monolithic integration yields an active-matrix display capable of switchable emission and imaging functions offering a scalable platform for compact, energy-efficient, and multifunctional optoelectronics.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -174,15 +117,14 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "阿德莱德大学团队利用飞秒光谱揭示商用IrO₂电极水氧化过程的溶解机制",
-        "双电路纳米移液管实现活体单细胞线粒体与细胞质通讯的定量实时监测",
-        "研究人员合成由金属键连接的二维导电金属有机框架以提升载流子迁移率"
+        "阿德莱德大学揭示铱基催化剂溶解机制提供PEMWE设计依据",
+        "酶催化技术首次实现腈分子内碳碳偶联转化"
       ],
       "entries": [
         {
           "t": "阿德莱德大学乔世璋通过飞秒级时间分辨光谱技术揭示铱基催化剂溶解机制",
           "d": "2026-02-27",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/催化剂",
           "as": "阿德莱德大学乔世璋联合兰州大学席聘贤团队利用飞秒级时间分辨光谱技术追踪商用IrO₂电极水氧化过程，发现在1.9V下Ir⁶⁺物种与氢键网络质子在100fs内同步出现，质子与电子同时存在使铱阳离子空位形成能从7.75eV降至5.26eV，从而促进铱溶解。该工作首次在飞秒尺度揭示低铱催化剂腐蚀的初始瞬态机制，为设计高稳定性PEMWE催化剂提供关键依据。",
           "sc": 6.8,
@@ -199,48 +141,42 @@
           "hb": 1
         },
         {
-          "t": "用于定量表征单个活细胞线粒体-细胞质通讯的双电路纳米移液管",
+          "t": "阿德莱德大学乔世璋通过飞秒级时间分辨光谱技术揭示铱基催化剂溶解机制",
           "d": "2026-02-27",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "开发双电路纳米移液管技术，实现活体单细胞中线粒体-细胞质间通讯的定量表征。亚细胞区室间的物质交换和信息传递分析一直是重大技术挑战。该双电路纳米器件可同时监测线粒体膜电位变化和胞质离子通量，以纳米级空间分辨率实时量化两个区室间的分子通讯，为细胞代谢研究提供新工具。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.4039681?af=R",
-          "tp": "纳米吸管单细胞检测",
+          "a": "Doi",
+          "c": "通用技术/催化剂",
+          "as": "阿德莱德大学乔世璋联合兰州大学席聘贤团队利用飞秒级时间分辨光谱技术追踪商用IrO₂电极水氧化过程，发现在1.9V下Ir⁶⁺物种与氢键网络质子在100fs内同步出现，质子与电子同时存在使铱阳离子空位形成能从7.75eV降至5.26eV，从而促进铱溶解。该工作首次在飞秒尺度揭示低铱催化剂腐蚀的初始瞬态机制，为设计高稳定性PEMWE催化剂提供关键依据。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41565-026-02136-x",
+          "tp": "铱催化机理",
           "aip": 1,
-          "kp": [
-            "[纳米探针]: 双电路纳米移液管高时空分辨",
-            "[检测目标]: 线粒体与胞质ROS动态共追踪"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "The quantitative analysis of intricate communications linking subcellular compartments in living cells poses a significant challenge in chemistry and biology. Here, we present a dual-circuit nanopipette platform with high spatiotemporal resolution allowing for the co-tracking of reactive oxygen species (ROS) dynamics from a mitochondrion and its adjacent cytosol within the same living cell. Our findings uncover that transient ROS levels in individual mitochondrion exhibit significant fluctuations, either exceeding or falling below those measured in its surrounding cytosol. Such variations, typically obscured by averaged measurements, underscore the dynamic interplay between subcellular compartments, while simultaneously retaining functional autonomy. Importantly, our quantitative analysis indicates that ROS generated by mitochondria initiates a positive feedback mechanism that amplifies cytosolic ROS levels. Additionally, the average duration for cytosolic ROS levels to return to baseline in cyclosporin A (CsA) pretreated cells was comparable to that observed in untreated cells. This extended time is attributed to a negative feedback loop triggered by mitochondrial ROS, which enhances overall ROS clearance efficiency. Collectively, this nanopipette offers a robust platform for dissecting the complex sspatiotemporal dynamics of ROS at the single-organelle level, thereby acquiring simultaneous insights into the communication mechanisms between organelles and their immediate cytosolic surroundings.",
+          "b": "质子交换膜水电解（PEMWE）的阳极催化剂在低铱载量下（<0.5 mg cm⁻²），极易在在强酸、强氧化性环境下发生严重的腐蚀与溶解；高铱（Ir）负载则会导致较高成本。但传统稳态表征技术（毫秒至微秒级）的时间分辨率与PCET的化学键断裂/形成（皮秒至飞秒级）存在至少6个数量级的差距，导致无法捕捉引发腐蚀的初始瞬态过程，使当前低铱催化剂溶解机理尚不明确。\n近日，阿德莱德大学乔世璋教授团队联合兰州大学席聘贤等利用飞秒级（10⁻¹⁵s）时间分辨光谱技术，对商用IrO₂电极水氧化过程中的质子耦合电子转移（PCET）过程进行表征，该技术可在外部电压的驱动下，利用泵浦光子作为内部标准精确定义反应的零点，实现在飞秒到皮秒的时间尺度上实时追踪化学键重组过程中的瞬态光学特征。结果发现，随着外加电压升高至1.9 V，Ir⁶⁺物种（830 nm）和氢键网络中的质子（963 nm）吸收峰在100 fs内同时出现，表明在亚皮秒尺度上，质子吸附与电子积累是高度同步的。计算结果则证明，当质子与电子同时存在于Ir位点时，阳离子空位的形成能从仅有电子时的7.75 eV降至5.26 eV，从而促进了Ir的溶解。由此，其通过引入路易斯酸性氧化物（如CeO₂，具有较弱的路易斯酸性和低晶格氧溶解度）加速质子传输，降低了质子转移的活化能垒，加速了H⁺/D⁺离子的跨界面迁移；CeO₂ 表面丰富的亲氧羟基基团在电子转移后为质子提供了低能阶的逃逸路径，使CeO₂–IrO₂的Ir⁶⁺信号在100 fs内快速消失（被还原为Ir⁴⁺），而质子信号则延迟至100–300 fs产生，使其与电子转移在时间上分离，从而稳定了活性中间体并抑制了非催化性质的电荷流失和腐蚀副反应。实验结果表明，10% CeO2掺杂的催化剂表现出最佳的OER活性，其Ir6+活性电荷密度比普通IrO₂高出一个数量级；且CeO₂–IrO₂的电荷转移速率（4.3 mC cm⁻² s⁻¹）是商业IrO₂的28倍。在仅有0.5 mg cm⁻²的低铱载量下，CeO₂–IrO₂在3 A cm⁻²的高电流密度下偏压1.93 V，且能在1 A cm⁻²下稳定运行1400小时无性能衰减。而针对可再生能源电力波动的特性，该催化剂可承受超过3.7万次的开关机循环，并在模拟光伏波动运行14天后保持稳定。文章于2026年2月27日发表在Nature Nanotechnology。",
           "hb": 1
         },
         {
-          "t": "通过金属氮杂环卡宾配合物连接的导电二维金属有机框架",
+          "t": "[ASAP] 酶催化的腈分子内 C-C 偶联转化",
           "d": "2026-02-27",
           "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究聚焦通过金属-金属键连接的二维导电金属有机框架（2D cMOFs）。2D cMOFs因其面内高电导率和可调电子结构在电化学储能、传感和催化领域广受关注。金属-金属键的引入增强了层内电子离域和载流子迁移率，有望突破传统配位键连接cMOF导电性能的上限，为新型二维导电材料的分子设计提供了新思路。",
-          "sc": 7.1,
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21368",
-          "tp": "二维导电MOF",
+          "u": "http://dx.doi.org/10.1021/jacs.6c02210",
+          "tp": "酶催化偶联",
           "aip": 1,
-          "kp": [
-            "连接基[2D导电MOF]: 金属N-杂环卡宾配合物",
-            "金属[2D cMOF]: Ag, Cu"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Two-dimensional conductive metal-organic frameworks (2D cMOFs) have attracted widespread attention owing to their distinct conjugation and stacked layered structures. However, the linkages of these 2D cMOFs are limited to diamine, diphenol, or dithiophenol metal complexes. In this work, we employed silver and copper <i>N</i>-heterocyclic carbene (NHC) complexes as linkages for the construction of 2D cMOFs. The obtained materials exhibit high crystallinity, uniform one-dimensional channels, and excellent stability. Significantly, these cMOFs show electronic conductivity and ionic conductivity values as high as 10<sup>-3</sup> and 10<sup>-4</sup> S cm<sup>-1</sup>, respectively. The cMOFs can serve as an artificial solid electrolyte interphase on a sodium metal anode, effectively guiding the uniform nucleation of sodium ions and inhibiting the growth of sodium dendrites. Moreover, full cells incorporating the MOFs interlayer demonstrated remarkable cycling stability, retaining 92% capacity after 830 cycles at 2 C. This work not only expands the structural diversity of 2D cMOFs but also provides a new design strategy for functional 2D crystalline organic polymers.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

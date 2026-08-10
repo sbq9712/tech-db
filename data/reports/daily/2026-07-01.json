@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "工信部公示六项钙钛矿行业标准立项，由隆基及协鑫等牵头制定",
-      "荷兰企业Paebbl发布首款负碳建材Rebond 300，实现二氧化碳墙体封存",
-      "紧凑型聚变能实验装置完成首段主机吊装，进入核心部件组装阶段"
+      "道克特斯天津GWh级全固态电池产线投产，初代产品能量密度达350Wh/kg",
+      "我国7月1日实施动力电池新国标，强制要求热失控后不起火不爆炸",
+      "华能玉环电厂投运全球首台650℃燃煤机组，供电煤耗低于254g/kWh"
     ],
     "AI与智能科技": [
-      "谷歌发布Nano Banana 2 Lite模型，图像生成单张成本降至约0.2元",
-      "OpenAI底层系统优化覆盖算子融合等环节，模型推理成本降低50%",
-      "中昊芯英发布TPU芯片须臾，单芯片混合精度浮点算力达896 TFLOPS"
+      "Anthropic发布Claude Sonnet 5模型，SWE-bench Pro代码测试得分达63.2%",
+      "南洋理工大学研发受控电子机械蟑螂，集成红外设备用于水下废墟搜救",
+      "国盾量子ez-Q F1500稀释制冷机下线，单核心100mK温度下达1700μW制冷量"
     ],
     "通用技术": [
-      "韦伯望远镜观测到系外粉色行星大气层，确认存在盐云成分",
-      "特斯拉奥斯汀工厂启动量产版Cybercab工程测试，车型无方向盘与踏板",
-      "科研人员开发出消色差中子透镜，解决不同能量中子聚焦色差问题"
+      "美国Star Catcher启动全球首个太空光能传输电网，计划年内开展在轨演示",
+      "我国首套水下焊接原位中子衍射装置投入使用，可实时监测材料微观结构",
+      "Gridmatic报告指加州17.4吉瓦电池储能系统中各项目收益差距显著扩大"
     ]
   },
   "sectors": [
@@ -26,72 +26,80 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "工信部公示六项钙钛矿行业标准立项，由隆基及协鑫等牵头制定",
-        "荷兰企业Paebbl发布首款负碳建材Rebond 300，实现二氧化碳墙体封存",
-        "紧凑型聚变能实验装置完成首段主机吊装，进入核心部件组装阶段"
+        "道克特斯天津GWh级全固态电池产线投产，初代产品能量密度达350Wh/kg",
+        "我国7月1日实施动力电池新国标，强制要求热失控后不起火不爆炸",
+        "华能玉环电厂投运全球首台650℃燃煤机组，供电煤耗低于254g/kWh"
       ],
       "entries": [
         {
-          "t": "隆基、协鑫、华能、众能牵头定标，6项钙钛矿标准申请意见公示！",
+          "t": "道克特斯官宣：天津全固态电池GWh产线正式投产",
           "d": "2026-07-01",
-          "a": "索比光伏-综合新闻",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "工信部公示242项行业标准立项计划，其中8项为光伏行业标准，除1项支架标准和1项智能光伏系统外，其余6项全部为钙钛矿电池相关标准。该批标准由隆基、协鑫、华能、众能等头部企业牵头制定，标志着钙钛矿光伏技术正从实验室走向产业化标准化阶段，有助于规范产品测试、稳定性评价及并网要求，加速其量产落地进程。",
+          "a": "集邦固态电池",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "道克特斯宣布其位于天津的全固态电池GWh级产线正式投产，标志其全固态电池进入产业化阶段，产品符合国家固态电池相关分类标准。目前公司已布局三代产品：第一代量产产品能量密度为350Wh/kg；第二代处于中试阶段，能量密度达500Wh/kg，计划2028年量产；第三代为能量密度800Wh/kg的锂空电池，正在开展研发产线验证，计划2030年前推进产业化。相关技术和专利均为自主研发。",
           "sc": 8.9,
           "i": "n",
-          "tg": "政策监管",
-          "u": "https://news.solarbe.com/202606/30/50025073.html",
-          "tp": "钙钛矿标准",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/JL1USgJQw2Hj5qwiEbKOSQ",
+          "tp": "固态电池投产",
           "aip": 1,
           "kp": [
-            "标准数量[钙钛矿]: 6项",
-            "测试对象[叠层组件]: 温度循环衰减测试方法"
+            "能量密度[全固态电池量产阶段]: 350Wh/kg",
+            "能量密度[全固态电池中试阶段]: 500Wh/kg",
+            "能量密度[锂空电池研发阶段]: 800Wh/kg",
+            "分类判定指标[全固态电池国家标准]: 120℃真空烘烤6小时后的失重率"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "近日，工信部发布的“关于公开征求《石化行业智能工厂操作报警系统技术要求》等242项行业标准计划项目意见的公示”通知，现已公示8项光伏行业标准立项计划。在本次立项的光伏行业项目中，除了1项支架标准，1项智能光伏系统，其余6项全部为钙钛矿标准项目，公示时间为2026年6月6日—2026年7月5日。\n钙钛矿-晶体硅两端叠层光伏电池/组件温度循环衰减测试方法现有的光伏组件可靠性测试标准如IEC 61215-2的热循环试验（MQT11），其失效判据主要基于晶硅电池的焊带疲劳和电池片隐裂，未能涵盖钙钛矿材料在温度交变下特有的可逆相变、离子迁移再分布及界面接触电阻动态演变机制。现有的热循环测试规范无法准确评估两端叠层组件的长期耐久性。本标准的制定，可有效规范特定温变速率、极限温度及循环次数的测试方法，可科学规范钙钛矿-晶体硅两端叠层光伏电池及组件的耐温度冲击能力评价，为产品的可靠性优化提供统一标尺。钙钛矿-晶体硅两端叠层光伏电池/组件湿热致衰减测试方法现有的光伏组件湿热可靠性测试标准如IEC 61215-2（MQT 13）主要基于晶硅技术设计，难以全面反映钙钛矿材料在湿度、温度、光照和组件电气状态多重应力耦合作用下的退化机制，例如在相对湿度超过85%、温度维持在85℃的严苛湿热条件下，钙钛矿晶体结构易发生相分离或分解，有机空穴传输层吸湿老化导致载流子迁移率下降，电极金属扩散引发短路等问题频发。钙钛矿光伏电池用活性层材料钙钛矿活性层材料作为电池光电转换的核心，其纯度、结晶质量、缺陷密度及环境稳定性直接决定电池效率与寿命，而当前产业中活性层材料存在性能参差不齐、制备工艺不统一等问题，这成为其规模化量产与商业化应用的最大障碍。活性层材料的性能一致性与可靠性是保障电池批量生产合格率、提升长期运行稳定性的关键，必须通过标准规范材料技术要求与检验方法。钙钛矿活性层材料多为有机-无机杂化体系，对制备过程中的温度、湿度、前驱体配比极为敏感，且易出现晶粒尺寸不均、界面缺陷过多等问题，因此钙钛矿光伏电池用活性层材料必须建立专属标准来规范其性能指标。本标准通过规范活性层材料的纯度标准、结晶工艺参数与缺陷检验方法，减少材料内部缺陷与性能波动，提高电池光电转换效率与长期运行可靠性。同时规范活性层材料的性能指标，有助于缩短材料研发与工艺验证周期，降低企业研发与生产成本，解决当前不同企业采用不同制备工艺、材料性能差异显著导致的量产良率偏低问题。钙钛矿光伏组件热斑测试方法在实际运行环境中，光伏组件不可避免地会遭遇局部遮挡问题，如灰尘覆盖、鸟类粪便堆积、树枝阴影遮挡、积雪堆积等，同时组件内部可能存在的电池片性能失配、连接点接触不良等隐性缺陷，均可能诱发“热斑效应”。热斑效应是指光伏组件中部分电池片因遮挡或性能异常而无法正常发电，反而成为整个电路中的负载，在强光照射下被其他正常电池片产生的电流加热，导致局部区域温度急剧升高的现象。当前IEC61215-2 MQT 09.2薄膜组件热斑测试方法不适配钙钛矿光伏组件，在此标准方法下，钙钛矿组件失效率极大，但实际钙钛矿组件因自身电流较小的缘故，户外热斑失效的案例极少，沿用IEC标准测试方法与户外实际情况不对应，可能造成对组件热斑性能的误判，导致组件认证通过率低，无法反映真实钙钛矿抗热斑性能等普遍产业共性问题。钙钛矿光伏组件用原子层沉积（ALD）镀膜设备技术要求钙钛矿太阳能电池产业化进程加速，原子层沉积（ALD）技术因其在低温（≤200℃）下优异的薄膜致密性和亚单层级厚度可控性，已成为制备电子传输层（如SnO₂）、水氧阻隔层（如Al₂O₃）的核心工艺设备。钙钛矿ALD设备与现有TopCon用ALD设备存在本质差异，无法共用同一标准。本标准于钙钛矿光伏组件生产线中，用于制备电子传输层（ETL）、水氧阻隔层（如Al₂O₃）及封装缓冲层的原子层沉积镀膜设备。主要技术内容包括：1) 范围：适用范围界定2) 规范性引用文件：GB/T 6576、GB 5226.1等3) 术语和定义：前驱体、脉冲时间、吹扫时间、生长速率(GPC)、绕镀等4) 设备组成与分类：按结构（单片/批量/空间ALD）和等离子体辅助（热/PEALD）分类5) 工作条件：环境温度、湿度、洁净度及公用工程要求6) 技术要求：真空性能（极限真空度<1Pa、漏率<5E-6 Pa·L/S）温度控制（范围20℃~200℃、均匀性±3%、精度±1℃）前驱体输送系统（耐腐蚀管路EP/316L+VCR、多前驱体配置）镀膜性能（膜厚不均匀度≤3%、绕镀≤5mm、折射率SnO₂ n≥1.80）产能指标（节拍时间、MTBF）安全要求（泄漏检测、尾气处理）智能化要求（MES/CIM对接、远程诊断）7) 试验方法：真空/温度性能测试、均匀性取样与计算方法8) 检验规则：出厂检验、安装调试验收、型式检验9）标志、包装、运输和贮存：包装、运输、贮存环境要求钙钛矿光伏组件用太阳模拟器性能要求本标准在现有的《适用于钙钛矿光伏器件的太阳模拟器性能要求》团体标准的基础上，进一步提供了适用于大面积钙钛矿光伏组件的太阳模拟器的参数术语和定义、参数计算方法、设备分级要求等，该标准的制定能够为模拟器制造企业、组件生产厂家、钙钛矿检测认证等各单位提供一个可以遵循的标准文件。该标准配合现有的《光伏器件 第12部分 钙钛矿光伏电池及组件的电流-电压（I-V）特性测量方法》国家标准，为钙钛矿光伏器件从小面积电池到大面积组件的效率、稳定性的精确测量认证提供了完善的检测设备要求，填补了钙钛矿测试设备方面的标准空白。据悉，6月5日，公告附件1《石化行业智能工厂 操作报警系统技术要求》等242项行业标准制修订计划中已列举七项太阳能光伏产业标准项目计划。",
+          "b": "道克特斯官宣：天津全固态电池GWh产线正式投产 集邦固态电池 7月1日，道克特斯宣布，其全固态电池GWh产线正式投产，并表示公司全固态电池已进入产业化阶段。 道克特斯表示，其全固态电池产品符合即将实施的《电动汽车用固态电池 第1部分：术语和分类》国家标准中关于全固态电池的相关要求。该标准通过电池在120℃真空烘烤6小时后的失重率，对全固态电池、混合固液电池及传统液态电池进行分类。 据介绍，道克特斯自2015年开始布局固态电池研发，2020年公开电池内部二次聚合技术相关发明专利，用于改善固态电池固-固界面接触问题。目前，公司已完成从研发、中试到GWh级产线的建设。 图片来源：道克特斯 根据规划，道克特斯已布局三代固态电池产品： 量产阶段：天津GWh产线生产的全固态电池，能量密度为350Wh/kg。 中试阶段：能量密度500Wh/kg的全固态电池已完成研发产线工艺验证，计划启动中试产线认证，并预计于2028年完成GWh产线验证及量产。 研发阶段：能量密度800Wh/kg的锂空电池已完成设计方案，正在开展研发产线验证，计划于2030年前推进产业化。 此外，道克特斯表示，其全固态电池产线相关技术和专利均为自主研发，并已建立相应的知识产权体系。（集邦固态电池整理） **【固态电池产业微信群】** #固态电池",
           "hb": 1
         },
         {
-          "t": "全球首款负碳建筑材料可将CO₂封存于墙体中",
+          "t": "中国生效更严格的电动汽车和电池标准 - electrive.com",
           "d": "2026-07-01",
-          "a": "interesting engineering",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "荷兰材料公司Paebbl推出全球首款负碳建筑材料Rebond 300，该材料能在墙体中捕获并锁定CO2。与传统建材释放碳排不同，Rebond 300通过将二氧化碳永久封存在墙体内实现净碳负效应，有望为建筑行业脱碳提供全新路径，对占全球碳排放大头的建筑业具有颠覆性意义。",
-          "sc": 8.5,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/innovation/worlds-first-carbon-negative-construction-material",
-          "tp": "碳负性建材",
-          "aip": 1,
-          "kp": [
-            "材料类型[Rebond 300]: 补充胶凝材料(SCM)",
-            "[碳负性]: 墙体封存CO2兼作碳移除工具"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Netherlands-based materials company Paebbl has launched Rebond 300, which is said to be the world’s first carbon-negative construction material.\nThe new material introduces a unique dual-value proposition to the market: it functions simultaneously as a construction material and a verified carbon-removal instrument.\nRebond 300 is not a standalone cement but rather a Supplementary Cementitious Material (SCM). The material has been designed as a partial replacement and can be mixed into standard concrete recipes to replace up to 30% of Portland cement.\nIt has been verified with an Environmental Product Declaration (EPD) footprint of -149 kg of CO2 per tonne (-328 lb of CO₂ per US ton).\nThe development is a step forward in achieving sustainability goals. In fact, the material represents a tenfold improvement in carbon performance compared to the company’s first-generation formulation.\nThe science relies on a process known as accelerated mineralization. Simply, Paebbl is mimicking nature. Over thousands of years, natural\ngeological processes\nturn CO2 into stone by reacting it with minerals. Paebbl’s proprietary technology does the exact same thing, but accelerates the timeline inside a controlled manufacturing environment.\nThe result is a fine, light-grey mineral powder. Mixed into standard concrete, it locks away carbon for geological timescales.\n“Where conventional construction materials are optimized to reduce their carbon footprint, we’ve manufactured Rebond 300 to remove carbon from the atmosphere and lock it permanently into the built environment,” the company stated.\nMore from Innovation\nUS company achieves 99.9 percent rare earth oxide recovery from secondary feedstock\nChina launches $210M diamond semiconductor project to power next-generation chips\nCase Studies\nManufacturing’s next giant leap isn’t another robot; it’s the factory itself\nScientists discover two superconductors with method that could find thousands more\nUS backs next-gen chips to speed geothermal drilling and boost energy security\nThe industry adoption strategy is simple. Paebbl created Rebond 300 to replace up to 30 percent of usual cement in standard mixes without requiring contractors or ready-mix plants to buy a single piece of new equipment. It slots directly into existing precast and ready-mix workflows. At standard replacement ratios, the material slashes a concrete structure’s total embodied carbon by up to 40 percent.\n“Every building, every foundation that incorporates Rebond 300 becomes a permanent carbon sink, contributing to Scope 3 targets through the physical chemistry of the material itself,” the company\nUsually, sustainable\nalternatives have had an appearance problem. Many fly ash or slag substitutes turn concrete a dark, muddy grey. This limits the use to structural basements and hidden foundations where looks don’t matter. Architects hate it.\nPaebbl took note. Rebond 300 has a “near-white finish”. Hence, the light, fine-grained character can be left exposed on facades, public realm infrastructure, and high-end architectural elements.\nThe potential is vast, but the road ahead is steep. The\nconstruction\nsector is famously conservative. Engineers rely heavily on century-old, heavily regulated standards for a simple reason: buildings cannot fall down.\nTo overcome this hesitation, Paebbl is building real-world case studies. The company has already partnered with European construction giants such as\nand Heijmans to test the material in the field.\nEarlier this year, they successfully poured a 420-square-meter industrial floor slab for a global retail logistics center in Germany, meeting full-strength specifications without delay.\nIf Paebbl can successfully scale its production facilities, it could shift the entire narrative of urban expansion.\nIn today’s time, cleaning up the energy grid isn’t enough to reach Net Zero. Cement releases unavoidable process\nduring its chemical manufacturing, regardless of the power source. Materials like Rebond 300 could help overcome this issue entirely by lowering process temperatures and turning CO2 into a physical, structural building block rather than an airborne waste product.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nMrigakshi is a science journalist who enjoys writing about space exploration, biology, and technological innovations. Her work has been featured in well-known publications including Nature India, Supercluster, The Weather Channel and Astronomy magazine. If you have pitches in mind, please do not hesitate to email her.\nRussia's 28,000-ton nuclear battlecruiser that can outrun all NATO ships nears return\nNew supercharged solar desalination promises fresh water cheaper than bottled product\nScientists discover two superconductors with method that could find thousands more\nSweden's Saab wins $4.9B contract to build three A26 stealth submarines for Poland\nUS backs next-gen chips to speed geothermal drilling and boost energy security",
-          "hb": 1
-        },
-        {
-          "t": "紧凑型聚变能实验装置（BEST）第一段主机组件完成吊装",
-          "d": "2026-07-01",
-          "a": "可控核聚变",
-          "c": "零碳产业/能量循环/能源测/发电技术/核电",
-          "as": "紧凑型聚变能实验装置（BEST）第一段主机组件于6月30日顺利完成精准吊装，由聚变新能（安徽）有限公司负责。BEST是中国聚变能研发的关键实验平台，主机组件吊装标志着装置进入核心组装阶段。该进展对推进磁约束核聚变工程化验证具有重要意义，是聚变能走向商业化的重要技术节点。",
-          "sc": 8.5,
+          "a": "electrive",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中国于7月1日正式实施两项针对电动汽车和动力电池的强制性安全标准：《电动汽车用动力蓄电池安全要求》（GB 38031-2025）和《电动汽车安全要求》（GB 18384-2025）。新规大幅提高了安全要求，核心规定之一是电池系统在发生热失控的情况下，也绝不能起火或爆炸。这两项标准分别针对车辆电池系统级别和整车级别设立了严格的安全规范。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/OTWmNzS0GCOwMmveV4ZkNw",
-          "tp": "聚变装置建设",
+          "tg": "政策监管",
+          "u": "https://www.electrive.com/2026/07/01/stricter-ev-and-battery-standards-take-effect-in-china/",
+          "tp": "电池安全标准",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[动力电池安全要求-GB 38031-2025]: 电池系统必须不再呈现起火或爆炸风险",
+            "生效时间[两项强制安全标准(GB 38031-2025和GB 18384-2025)]: 2026年7月1日"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "紧凑型聚变能实验装置（BEST）第一段主机组件完成吊装 可控核聚变 每天与你一起 以下内容转载自聚变新能（安徽）有限公司： 7月1日，聚变新能（安徽）有限公司在其官微发布消息：6月30日，BEST装置第一段主机组件顺利完成精准吊装。 **B",
+          "b": "As of 1 July 2026, two new mandatory safety standards have entered into force in China, significantly raising safety requirements for traction batteries and electric vehicles. One of the key provisions is that battery systems must no longer present a risk of fire or explosion.\nTwo standards have entered into force simultaneously:\nSafety Requirements for Traction Batteries of Electric Vehicles\n(GB 38031-2025) and\nSafety Requirements for Electric Vehicles\n(GB 18384-2025). While the former sets out safety requirements for vehicle battery systems, the latter establishes safety requirements at the vehicle level.\nThe most significant new requirement for battery manufacturers is,\nas reported,\nthat battery systems must not catch fire or explode, even in the event of thermal runaway. To demonstrate compliance, manufacturers must pass a new thermal propagation test designed to verify that a thermal runaway event does not lead to fire or an explosion.\nThe new regulations also introduce a range of additional test requirements. These include an underbody impact test designed to assess the battery system’s protective functions in the event of a collision, reflecting the growing adoption of cell-to-body battery integration, where the battery forms part of the vehicle structure.\nIn addition, battery systems must now pass a new safety assessment that combines durability and abuse testing. Under the procedure, batteries are required to withstand 300 fast-charging cycles before being subjected to a short-circuit test.\nSafety Requirements for Electric Vehicles\nstandard, which entered into force at the same time, also requires electric vehicles to feature a manual ‘one-touch’ mechanism for disconnecting the entire high-voltage system. A single action must be sufficient to isolate the high-voltage circuit.\nUntil now, high-voltage shutdown has generally relied on software commands issued by the vehicle’s control unit. According to the Chinese publication\n, the problem is that “In the event of a severe collision that damages the main control system, the cut-off function could fail.” The new requirement therefore introduces a physical disconnection mechanism capable of isolating the high-voltage system independently of software controls.\nIndustry experts expect the stricter requirements to improve consumer safety in China significantly, but they also warn that the new rules could accelerate consolidation in the battery industry. Major manufacturers such as CATL say they already have the necessary technologies in place. CATL, for example, markets its ‘No Thermal Propagation (NP) Technology’. Smaller battery makers, however, may struggle to absorb the additional research and development costs required to meet the new standards.\nThe regulations are also expected to increase battery costs. According to China Auto News, citing estimates from a market research company, compliance with the new requirements could raise battery system costs by 15 to 20 per cent.\nIndustry observers further suggest that the standards may strengthen the competitive position of LFP batteries relative to ternary chemistries. Because LFP cells offer inherently higher thermal stability, the additional costs associated with meeting the new safety requirements are expected to be lower, potentially widening their existing cost advantage.\nabout „Stricter EV and battery standards take effect in China“\n01.07.2026 um 13:13\nI would suggest to the likes of POLESTAR in order to balance the new safety requirements with the additional costs, please stop putting unnecessarily large batteries in cars like the POLESTAR 4 and POLESTAR 3. No more 100kWh and + battery packs. Make 88kWh the new maximum and focus instead of both design efficiency and charging speed.\nInfrastructure",
+          "hb": 1
+        },
+        {
+          "t": "我国全面掌握 650℃ 高参数煤电核心高温材料成套生产技术，相关产业链关键环节实现自主可控",
+          "d": "2026-07-01",
+          "a": "IT之家",
+          "c": "零碳产业/能量循环/能源测/发电技术/火电",
+          "as": "我国华能玉环电厂四期项目作为世界首台650℃高效超超临界燃煤发电机组，主蒸汽温度达650℃、压力达35兆帕，为全球燃煤机组最高参数。项目采用具有自主知识产权的高温合金新材料，供电煤耗低于254g/kWh，全厂热效率达50.1%，每年可减少二氧化碳排放约45万吨。随着项目首件高压内缸等关键部件铸造及首批高温合金无缝管下线，我国已全面掌握650℃高参数煤电核心高温材料成套生产技术，产业链关键环节实现自主可控。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/971/374.htm",
+          "tp": "煤电高温材料突破",
+          "aip": 1,
+          "kp": [
+            "蒸汽温度[华能650℃高效超超临界燃煤发电机组]: 主蒸汽和再热蒸汽均达650℃",
+            "主蒸汽压力[华能650℃高效超超临界燃煤发电机组]: 35兆帕",
+            "全厂热效率[华能650℃燃煤发电示范项目]: 50.1%",
+            "供电煤耗[华能650℃燃煤发电示范项目]: 低于254g/kWh",
+            "碳减排量[华能650℃燃煤发电示范项目对比现有机组]: 每年减少约45万吨"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "7 月 1 日消息，综合华能浙江分公司和科技日报报道，华能 650℃ 燃煤发电示范项目技术方案评审会昨日在雄安新区召开。与会院士、专家一致认为华能 650℃ 燃煤发电示范项目锅炉、汽轮机和项目整体设计方案总体合理可行。\n据介绍，世界首台 650℃ 高效超超临界燃煤发电机组 —— 华能玉环电厂四期项目于 2025 年 11 月 8 日开工建设，目前已进入关键攻坚阶段。该项目主蒸汽和再热蒸汽温度均达到 650℃，设计主蒸汽压力达到 35 兆帕，是目前全球范围内燃煤机组最高参数。\n该项目采用中国华能研发的我国具有自主知识产权的高温合金新材料\n，实现了关键高温材料技术的完全自主可控。650℃ 燃煤发电示范项目可大幅提高发电效率，与现有机组相比提升约 5%，供电煤耗低于 254g/kWh（一次再热煤电全球最低），全厂热效率达到 50.1%（全球煤电最高），\n每年可减少二氧化碳排放量约 45 万吨\nIT之家了解到，评审会当天，该项目还迎来重大突破，项目首件汽轮机高压内杠、中压调门顺利完成铸造，首批高温合金无缝管顺利完成全流程生产与检验验收。\n这标志着我国已全面掌握 650℃ 高参数煤电核心高温材料成套生产技术\n，相关产业链关键环节实现自主可控，填补了全球高端煤电特种材料领域空白。",
           "hb": 1
         }
       ]
@@ -100,75 +108,82 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "谷歌发布Nano Banana 2 Lite模型，图像生成单张成本降至约0.2元",
-        "OpenAI底层系统优化覆盖算子融合等环节，模型推理成本降低50%",
-        "中昊芯英发布TPU芯片须臾，单芯片混合精度浮点算力达896 TFLOPS"
+        "Anthropic发布Claude Sonnet 5模型，SWE-bench Pro代码测试得分达63.2%",
+        "南洋理工大学研发受控电子机械蟑螂，集成红外设备用于水下废墟搜救",
+        "国盾量子ez-Q F1500稀释制冷机下线，单核心100mK温度下达1700μW制冷量"
       ],
       "entries": [
         {
-          "t": "谷歌深夜双发！最便宜Nano Banana来了",
+          "t": "突发，打工版Claude 5来了！人人都能用",
           "d": "2026-07-01",
           "a": "新智元",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "谷歌发布新模型Nano Banana 2 Lite，主打极速图像生成，可在约4秒内完成出图，单张成本仅约两毛人民币。该模型在保持高质量图像输出的前提下大幅降低使用门槛和价格，被视为谷歌在中低端AI图像生成市场的性价比布局，进一步压缩与开源模型及竞争对手的成本差距。",
-          "sc": 9.5,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/3you9tZFwyaaX8d7lmO-pw",
-          "tp": "图生新突破",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "谷歌深夜双发！最便宜Nano Banana来了 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**谷歌深夜狂甩王炸：4秒极速出图，成本仅需两毛！新模型Nano Banana 2 Lit",
-          "hb": 1
-        },
-        {
-          "t": "消息称 OpenAI 通过系统底层优化，将 AI 模型推理成本减半",
-          "d": "2026-07-01",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/计算集群",
-          "as": "据The Information报道，OpenAI通过一系列系统底层优化将AI模型推理成本降低50%以上。优化涵盖推理引擎调度、KV缓存管理、算子融合和硬件利用率提升等方面。推理成本下降对AI商业化落地意义重大，有望降低API调用价格并扩展模型部署规模。",
-          "sc": 8.4,
-          "i": "news",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/970/771.htm",
-          "tp": "推理成本优化",
-          "aip": 1,
-          "kp": [
-            "推理成本降幅[OpenAI]: >50%",
-            "[优化路径]: 提升现有服务器资源利用率"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "6 月 30 日消息，据 The Information 报道，OpenAI 工程师在内部透露，公司已通过一系列全新的系统底层优化，成功将 AI 模型的推理（运行）成本降低了 50% 以上。\n据IT之家了解，推理成本指的是模型在实际运行并响应用户请求时所消耗的计算资源。\n此次优化主要得益于现有服务器资源利用率的提升，而非依赖新增计算芯片的投入。这使得运行其 AI 系统所需的英伟达芯片更少，这些节省的成本可用于降低 API 定价或提高用户使用限额。",
-          "hb": 1
-        },
-        {
-          "t": "单芯片混合精度浮点算力达 896TFLOPS，中昊芯英新一代 TPU 芯片「须臾」发布",
-          "d": "2026-07-01",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "中昊芯英发布新一代全自研高性能TPU芯片「须臾」，单芯片混合精度浮点算力达896 TFLOPS，为上一代「刹那」的3倍。同期推出软硬件一体化智算底座「泰则2.0」，构建完整的国产AI专用算力体系。该芯片面向大模型训练与推理场景，标志着国产TPU在算力密度上的代际跃升。",
-          "sc": 9.0,
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "Anthropic发布Agent能力最强的Claude Sonnet 5（代号Fennec），即日起成为免费版和Pro版用户的默认模型。其性能逼近旗舰Opus 4.8，在SWE-bench Pro代码测试中得分63.2%，超越GPT-5.5。在“人类最后的考试”中得分57.4%，与Opus 4.8仅差0.5%。模型具备自主规划和调用浏览器等工具的能力，标准定价每百万Token输入3美元/输出15美元，仅为Opus 4.8的六成，面向全球用户开放。",
+          "sc": 9.3,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://www.ithome.com/0/970/774.htm",
-          "tp": "TPU芯片",
+          "u": "https://mp.weixin.qq.com/s/K3cv_nENjmYkXa6koPBf9A",
+          "tp": "Claude5发布",
           "aip": 1,
           "kp": [
-            "算力[单芯片混合精度]: 896TFLOPS",
-            "推理算力[8-bit]: 1792TOPS",
-            "性能提升[vs上代刹那]: 3倍",
-            "单卡功耗[须臾]: 600W",
-            "功耗降低[vs传统]: 50%"
+            "SWE-bench Pro得分[Claude Sonnet 5]: 63.2%",
+            "SWE-bench Pro得分[GPT-5.5]: 58.6%",
+            "SWE-bench Pro得分[Opus 4.8]: 69.2%",
+            "[模型核心定位]: 具备最强Agent能力的Sonnet模型（代号Fennec），性能直逼旗舰Opus 4.8"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "6 月 30 日消息，中昊芯英今天宣布推出新一代全自研高性能 TPU AI 专用芯片「须臾」，软硬件一体化智算底座「泰则 2.0」也在今天同步亮相。\n须臾的单芯片混合精度浮点算力可达 896 TFLOPS\n，性能是上一代芯片「刹那」的 3 倍；8-bit 推理算力可达 1792TOPS，适配海量词元高并发推理场景。须臾的显存、芯片内部互联速率均有大幅提升，支持超长上下文。单卡额定功耗 600W，相比传统算力芯片功耗降低 50%，助力低碳数据中心建设。\n同时，须臾的芯片 IP 核、专属指令集、底层算子加速库、整机系统软件均是完整自主研发，无海外核心技术依赖。满足政务、金融、电网等行业的安全合规要求。\n而「泰则 2.0」则是高性能智算平台中标准的最小计算单元，它搭载两路高性能 CPU 处理器与 8 片高性能 TPU 处理单元，从物理形态上形成 1 台通用的 CPU 服务器外接 1 台高性能 TPU 算力加速设备，算力达 7.168P（IT之家注：混合精度），同等任务下整机能耗仅为传统 GPU 服务器的 80%。\n此外，该平台从软件层面实现了全主流 AI 框架兼容，\n原生支持 PyTorch、vLLM、SGLang 等开发工具\n，训练场景适配 DeepSpeed、Megatron-LM 分布式套件；已完成 Qwen 全系列、DeepSeek、GLM、MiniMAX 等数十款大语言、多模态模型深度适配，开发者可快速完成模型迁移。",
+          "b": "突发，打工版Claude 5来了！人人都能用 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】凌晨2点，Anthropic甩出最能干的Claude Sonnet 5，性能直逼旗舰Opus 4.8，编程直接干翻GPT-5.5！** 就在刚刚，Claude Sonnet 5来了！ 代号Fennec，耳廓狐，撒哈拉沙漠里体型最小的狐狸。 这是Anthropic迄今为止，Agent能力最强的Sonnet模型，并且性能直逼旗舰Opus 4.8。 即日起，Sonnet 5成为所有Free和Pro用户的默认模型。 它能自主规划、调用浏览器和终端工具。 就在几个月前，这还需要花大价钱调用超大模型才能做到，现在，Sonnet轻松拿下。 相较于上一代Sonnet 4.6，Sonnet 5在推理、工具使用、编程和知识工作任务中，性能显著提升。 划重点： * SWE-bench Pro得分63.2%，反超GPT-5.5的58.6%，略输Opus 4.8的69.2% * 「人类最后的考试」得分57.4%，和Opus 4.8只差0.5个百分点 * 标准价每百万token输入$3/输出$15，只有Opus 4.8的六成 * 浏览器注入防御0.93%，反杀Mythos 5和Opus 4.8 有趣的是，Fable 5也在同一天被曝出即将回归。但代价是强制实名验证，并且极大概率仅限美国用户。 而Sonnet 5则主打一个毫无保留，全球用户今天就能敞开用。 **全线逼平Opus 4.8** **最强打工AI突袭** 这一次，Sonnet 5的突然上线，也算是填补了人们用不上Fable 5的失落。 对于很多开发者来说，Agent时代的元年，就是从Sonnet开始的。 Claude Sonnet 3.5、3.6、3.7，是最早一批在写代码、用工具上展现出惊人能力的模型。 换句话说，「让AI自己干活」这件事，最早跑通的就是Sonnet「中杯」系列。 但这一年多，最猛的能力跃升，全集中在Opus这条「大杯」线上。Sonnet，直接被旗舰甩在后面。 Sonnet5要做的，就是把这道差距补回来！ Anthropic一句话定调——Claude Sonnet 5是史上最能「干活」的Sonnet。 从实战的成绩来看，最能说明这一点。 在传统强项编程领域，Sonnet 5在SWE-bench Pro上豪取63.2%。而前代Sonnet 4.6只有58.1%，Opus 4.8则凭借69.2%暂时领先。 相比之下，老对手OpenAI的旗舰GPT-5.5在同一个榜上只拿到了58.6%，谷歌的Gemini 3.5 Flash也只有55.1%。 Terminal-Bench 2.1更加凶悍，Sonnet 5直接飙到80.4%，把只有67.0%的Sonnet 4.6狠狠甩在身后，暴涨13个百分点。距离Opus 4.8的82.7%，只差不到2个点。 在号称「人类最后的考试」的跨学科推理基准Humanity's Last Exam上，Sonnet 5带工具斩获57.4%，Opus 4.8是57.9%，只差0.5个百分点。GPT-5.5同一测试只有52.2%，Gemini 3.1 Pro是51.4%。 电脑操控能力方面，Sonnet 5在OSWorld-Verified上的得分是81.2%，同样超过GPT-5.5的78.7%，直追Opus 4.8的83.4%。 更让人意外的是知识工作，Sonnet 5更是在GDPval-AA v2上拿到了1618分，直接反超Opus 4.8的1615。 在智能体搜索、工具使用表现中，Sonnet 5能以最低成本，提供了Opus 4.8级的能力。 可以说，几乎每项benchmark，Sonnet 5都落在Opus 4.8的90%到100%区间。 堪称是花Sonnet的钱，买Opus九成的脑子。 **2美元限时促销** **但埋了个大坑** 价格，才是这次的「必杀技」。 API定价方面，Anthropic给出了限时大促：输入2美元/百万tokens，输出10美元/百万tokens。 8月31日之后，恢复输入3美元和输出15美元的原价。 相比之下，Opus 4.8是5美元和25美元，GPT-5.5标准版是5美元和30美元。 促销期内，输入和输出价格都只有Opus 4.8的四成。恢复标准价后也只到六成。 不过，Anthropic虽然表面诚意满满，细节里却藏着小心思。 原因在于Sonnet 5换了全新的tokenizer，同样一段输入的token数量可能会膨胀1.0到1.35倍。 等促销期一过，$3/$15的原价再叠加tokenizer膨胀效应，真金白银的花销肯定要比用Sonnet 4.6肉痛一截。 但即便如此，跟Opus比...",
+          "hb": 1
+        },
+        {
+          "t": "穿潜水服的蟑螂见过没？能搜救、巡管道，下一步还要奔外星",
+          "d": "2026-07-01",
+          "a": "DeepTech深科技",
+          "c": "AI与智能科技/具身智能/硬件和控制",
+          "as": "新加坡南洋理工大学团队研发出穿戴微型电子背包的赛博格蟑螂，集成红外摄像头与传感器，已首次部署于地震废墟搜救。团队通过电脉冲刺激蟑螂神经实现运动控制，并研发了新型可穿戴“潜水服”，使其能在水下作业2至3小时。该技术可在积水废墟等复杂混合灾难现场中精准探测生命迹象并回传数据。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/NYMzzkYvRpcl0uJ2VjdsPw",
+          "tp": "改造昆虫搜救技术",
+          "aip": 1,
+          "kp": [
+            "改造对象[废墟搜救任务]: 10只马达加斯加发声蟑螂",
+            "体长[搜救蟑螂]: 约6厘米",
+            "集成组件[蟑螂微型电子背包]: 红外摄像头、传感器、微控制器和通信模块",
+            "生命迹象判别[机器学习算法]: 采集热信号、二氧化碳浓度和微弱运动等信息进行初步判别",
+            "水下持续作业时间[穿戴潜水服的蟑螂]: 2~3小时"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "穿潜水服的蟑螂见过没？能搜救、巡管道，下一步还要奔外星 原创 杨梦 杨梦 DeepTech深科技 2025 年 3 月 28 日，缅甸中部发生 7.7 级地震，造成数千人遇难。震后，新加坡民防部队（SCDF）派出“狮心行动”救援队抵达重灾区。队伍里除了搜救人员和搜救犬，还有一组不寻常的“编外力量”：10 只经过特殊改造的马达加斯加发声蟑螂。 这是人工改造昆虫首次被部署至真实任务场景。技术来自新加坡南洋理工大学（NTU）佐藤裕孝（Hirotaka Sato）教授团队，他们让体长约 6 厘米的蟑螂驮着一枚微型电子背包，内部集成了红外摄像头、传感器、微控制器和通信模块。 “蟑螂小队”将进入人类和常规救援机器人都无法触及的狭窄废墟缝隙，采集热信号、二氧化碳浓度和微弱运动等信息，由机器学习算法初步判别生命迹象，再将数据无线回传至地面。 最近，团队在《自然-通讯》（Nature Communications）发文，介绍了一种可穿戴“潜水服”，蟑螂穿上它可在水下持续作业 2~3 小时。一只被先进装备加持、上天入地无所不能的“小强”，有望在瓦砾与积水并存的混合灾难现场中发挥独特作用。 （来源：Hirotaka Sato Group） 赛博格蟑螂得活着，还得干活 赛博格昆虫（cyborg insect）是指结合了活体昆虫与微电子技术的混合机器人系统。要控制赛博格蟑螂按人类意愿运动，原理并不复杂。佐藤裕孝团队在其触角末端和腹部第三节分别植入镀特氟龙银线电极，以此向神经系统发送微弱电脉冲，传递“身体某侧受到威胁”的假信号，蟑螂的中枢神经接收信号后，就会本能地向反方向移动。 研究人员采用一块 10 毫米见方的定制电路板作为无线刺激模块，仅 3~4 伏、持续 0.6 秒的电压脉冲就足以控制蟑螂前进和转向，内置的锂电池充一次电能用数小时。这套系统中，人类只用发送方向指令，无需直接驱动肌肉、关节和感知系统，蟑螂在生物学上仍是完整活体。 陆生昆虫没有肺，呼吸通常由位于胸部的气门（spiracle）完成，空气从气门直接进入体内的气管网络，氧气以扩散方式抵达组织细胞。一旦气门浸没水中，蟑螂在两分钟内就会窒息，这严重限制了赛博格昆虫参与水下任务。 为解决这一问题，研究团队为蟑螂设计了一套可穿戴的自产氧潜水服。 其中最重要的是化学产氧模块。潜水服的反应舱借助高中化学课本里的经典反应：二氧化锰（MnO₂）在中性条件下自发催化分解过氧化氢（H₂O₂），不需要任何电子元件或外部能源，产物只有无害的水和氧气。 为控制反应速率，避免产生剧烈气泡、干扰蟑螂运动，研究人员把二氧化锰粉末塞进一块亲水纤维素海绵，反应被限制在固-液微界面上分散进行，进而使将产氧速率降至适宜水平。 团队还在反应舱顶盖嵌入了一层疏水聚四氟乙烯（PTFE）微孔膜，仅允许气体通过，避免液体渗漏和二氧化锰粉末的逸出。红外热成像显示，反应过程中，舱体温度始终稳定在 23.6~24.0℃之间，未产生局部热积聚。团队还对 5 只穿戴潜水服的蟑螂进行了 3 天观察，全部存活、行为正常。 研究人员使用弹性树脂作为 3D 打印材料，造出厚约 1 毫米的包裹性防水外壳，兼作氧气储运舱。团队最初尝试把产氧模块装在背部，但由于重心改变加之水下阻力过大，蟑螂频繁翻倒。最终方案是把产氧舱定位在腹部末端，用锥形壳体连至腹部。壳体前端与蟑螂第一腹节之间用弹性丁腈橡胶膜密封，既能防水，也能容纳个体尺寸差异和运动中的身体形变。 蟑螂的两对胸气门结构并不相同：前胸气门可见凹槽形的气门瓣；中胸气门只有一个小孔。为同时给两对气门输氧，团队设计了两种不同规格的 3D 打印硅胶连接器：前胸气门连接器是一个完全包住气门瓣的匙形罩盖；中胸气门连接器则是一根内径 0.3 毫米、外径 0.4 毫米的细管，直接插入小孔。四根硅胶导管连通产氧舱与两对气门，形成密闭的输氧通路。 图 | 蟑螂潜水服的输氧系统（来源：Nature Communications） 蟑螂穿戴潜水服后，内部氧浓度峰值可达 50% 左右，3 小时后仍维持在约 14.8% 的水平，远高于昆虫维持正常生理功能所需的 5% 氧浓度下限。 运动灵活性方面，穿戴潜水服的蟑螂在陆地的平均前进速度为 87.5 毫米/秒，水下仅微降至 78.4 毫米/秒，不过转向速度受水下阻力影响较大。若按体长计算，这类潜水服蟑螂的陆地和水下运动速度均优于当前多数两栖机器人。 整套潜水服重量不到 6 克，加上防水处理后仅重 0.7 克的电子背包，整套负载仍远低于其可承受的最大负载。 为验证这套系统在真实极端场景中的可用性，团队搭建了一条模拟灾难现场的 1.7 米两栖障碍隧道，前段充满高浓度二氧化碳、后段浸水。作为对照，普通蟑螂进入二氧化碳段仅数秒后便失去响应；另一只被引导进入水段后，45 秒内就因窒息完全停止运动。而穿戴潜...",
+          "hb": 1
+        },
+        {
+          "t": "国产稀释制冷机下线，单核心制冷量国际领先！",
+          "d": "2026-07-01",
+          "a": "光子盒",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "由国盾量子研发的国产稀释制冷机ez-Q F1500正式下线。该设备仅需单核心即可在100mK温度下提供1700μW制冷量，极限低温降至约5.42mK，单核心制冷量达到国际领先水平。该成果打破了国际技术垄断，满足了超导量子计算机对接近绝对零度环境的严苛需求，避免了多核心并联带来的系统复杂性。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/5aMrjAmieufIbqD0G_u0Ww",
+          "tp": "稀释制冷机",
+          "aip": 1,
+          "kp": [
+            "制冷量[100mK温度下]: 1700μW",
+            "制冷量[20mK温度下]: 48μW",
+            "极限低温[ez-Q F1500稀释制冷机]: 约5.42mK",
+            "工作环境要求[超导量子芯片]: 10mK到20mK量级接近绝对零度"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "国产稀释制冷机下线，单核心制冷量国际领先！ 光子盒 6月24日，在中国科学院量子信息与量子科技创新研究院授权指导下，科大国盾量子技术股份有限公司（以下简称“国盾量子”）完成工程化开发的国产稀释制冷机ez-Q F1500，首台正式下线。 ez-Q F1500仅依靠单核心就能在100mK温度下制冷量达1700μW，20mK温度下制冷量达48μW，低温极限可降至约5.42mK，单核心制冷量达国际领先水平。 这台机器的出现，既打破了国际巨头的垄断，也让我国超导量子计算机发展少走了一条弯路。 **超导量子芯片的“终极恒温舱”** 稀释制冷机是构建超导量子计算机的关键核心设备。 超导量子芯片通常需要工作在接近绝对零度的环境中，典型温度在10mK到20mK量级。之所以要这么冷，是因为超导量子比特对热噪声、电磁噪声和机械振动都非常敏感。温度稍微升高，系统里的热激发就会增加，量子态更容易退相干，计算结果也会变得不可靠。 稀释制冷机就是给量子芯片造一个“终极恒温舱”，不仅能够提供接近绝对零度的极低温环境，还可配合屏蔽系统有效抑制电磁干扰和振动。 随着芯片比特数从几十迈向数百、数千个，稀释制冷机需要实现更大制冷量，同时容纳更多低温线缆及放大器——制冷能力跟不上，超导量子计算机的一切性能都无从谈起。 目前商用单核心稀释制冷机的制冷量普遍卡在400到800微瓦之间，难以满足千比特超导量子计算机需求。 而面向千比特级别的制冷需求，国际通用做法是将至少两个核心单元并联，这一路径能够解决冷量不足的问题，但也会增加管路、控制、调试的复杂性和长期运行的稳定性。对于量子计算机来说，系统越复杂，稳定运行需要考虑的因素也越多。 对此，国盾量子选择从底层结构去破局，在换热效率、冷量分布和内部空间上逐项突破。 图：国盾量子研发生产的稀释制冷机ez-Q F1500 而其刚下线ez-Q F1500，仅依靠单核心就能在100mK温度下制冷量达1700μW，20mK温度下制冷量达48μW，低温极限可降至约5.42mK，单核心制冷量达国际领先水平。 图：ez-Q F1500制冷功率达1700μW@100mK 其中，最低温度5.42 mK，比当前超导量子计算10\\-20 mK的工作温区更低，相当于给未来的大规模系统留出了充足的“低温储备”。 按照计划，ez-Q F1500将于今年下半年启动交付。 **三个痛点，两年攻坚** 这款设备的技术突破并非一蹴而就，研发链路分为两大阶段：2025年中科院量子创新院完成单核心大功率原型机，实现20mK下40μW制冷量的基础突破。在此基础上，国盾量子进一步联合攻关。 研究团队历时两年，逐一攻克三大痛点： 一是“冷量太少”。极低温换热器是稀释制冷机的核心部件，制冷循环的效率很大程度上取决于换热器的性能。团队通过优化极低温换热器，提高换热面积和换热效率； 二是“分布不均”。千比特量子计算系统里，不同温度层对冷量的需求是不一样的，不能一刀切。团队通过大量实验和有限元仿真，确定千比特量子计算各级温度层的冷量需求，针对性地进行系统设计； 三是“空间不足”。团队通过与低温传输系统匹配设计，在有限内部空间内容纳了3600路低温测控线和超100个低温放大器。 除核心性能大幅提升外，ez-Q F1500还采用了自主可控的软硬件架构，脉冲管制冷机、控温仪、极低温温度计等关键核心器件均实现国产化。 图：ez-Q F1500关键参数与国外主流产品对比 国盾量子从2015年开始布局量子计算，到参与国家标准的制定，如《超导量子计算专用极低温极低噪声系统》《无液氦稀释制冷机》等，一步一步完成我国超导量子底层供应链体系布局。 ez-Q F1500**来得正是时候** 早在2022年，美国为了遏制中国的量子计算发展，便联合欧洲国家对中国实施禁运政策。除了量子计算机本身，还逐渐将禁运范围扩大到整个上游核心设备与组件。稀释制冷机作为一种能够为量子芯片提供极低温工作环境的核心设备，自然逃不掉欧美国家的技术封锁。 2025年3月25日，美国商务部以“以获取或试图获取美国原产物品，支持提高中国的量子技术能力，鉴于量子技术的军事应用，对美国国家安全产生了严重影响”为由，将7家实体列入出口管制实体清单，其中包括2家稀释制冷机公司。 于是国产替代被迫加速。2024年中国稀释制冷机市场中，国盾量子、中电科16所等本土厂商迅速崛起，实现了性能与产能的双重突破。 显然，国产稀释制冷机的意义，首先是供应链安全。尤其是在当前国际科技竞争背景下，量子计算属于高度敏感的前沿技术，核心装备自主可控非常关键。 但更深一层的价值，是软硬件协同迭代。 量子计算机不是买来几台通用设备简单拼装就能做好的。芯片设计、封装结构、低温布线、测控系统、制冷平台之间，需要不断协同。国产制冷机如果能和国内量子芯片、低温测控、量子软件团...",
           "hb": 1
         }
       ]
@@ -177,71 +192,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "韦伯望远镜观测到系外粉色行星大气层，确认存在盐云成分",
-        "特斯拉奥斯汀工厂启动量产版Cybercab工程测试，车型无方向盘与踏板",
-        "科研人员开发出消色差中子透镜，解决不同能量中子聚焦色差问题"
+        "美国Star Catcher启动全球首个太空光能传输电网，计划年内开展在轨演示",
+        "我国首套水下焊接原位中子衍射装置投入使用，可实时监测材料微观结构",
+        "Gridmatic报告指加州17.4吉瓦电池储能系统中各项目收益差距显著扩大"
       ],
       "entries": [
         {
-          "t": "美国宇航局的詹姆斯·韦伯在粉红色星球上发现了奇异的盐云",
+          "t": "美国启动全球首个在轨光能无线传输电网建设",
           "d": "2026-07-01",
-          "a": "scitechdaily",
+          "a": "先进能源科技战略情报研究中心",
           "c": "通用技术/通信和运输/航天",
-          "as": "詹姆斯·韦伯望远镜在已知最冷的系外行星质量天体之一——'粉色星球'周围发现了充满盐云的大气层，解开了困扰科学家十余年的谜团。该发现对理解寒冷行星形成和大气化学具有重要科学意义。",
-          "sc": 7.6,
+          "as": "美国Star Catcher Industries公司正构建全球首个基于光学功率波束的太空光能无线传输电网。该系统通过太空节点捕获太阳能并转换为定向光束，实现千瓦至兆瓦级能量的非接触式精确传输，可为卫星提供10倍于现有的供电量。目前公司已完成在轨子系统验证及地面大功率波束传输纪录，计划年内启动演示任务。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/HSCjiPRi700BHTjKsdGYQA",
+          "tp": "在轨光能传输",
+          "aip": 1,
+          "kp": [
+            "传输功率[在轨光能无线传输系统]: 千瓦至兆瓦级",
+            "供电能力[在轨电网向卫星供电]: 10倍于现有水平",
+            "接收端要求[客户航天器]: 无需硬件改装或定制接收装置"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "美国启动全球首个在轨光能无线传输电网建设 CASEnergy CASEnergy 先进能源科技战略情报研究中心 5月12日，美国太空基础设施企业Star Catcher Industries公司在成立不到两年，已创下光能无线传输功率世界纪录，完成关键在轨子系统验证，并确立了端到端系统架构。Star Catcher计划年内启动全球首个太空光能无线传输演示任务，逐步构建可向卫星提供10倍于现有水平的在轨按需供电网络，且无需客户航天器改装或定制接收装置。Star Catcher Industries公司开发的在轨光能无线传输电网是基于光学功率波束的太空能源基础设施，本质上是将地面电网的集中发电\\-远距离传输\\-按需分配模式复刻至轨道空间。该系统通过太空发电节点捕获太阳能，转换为定向光束传输至目标卫星，实现千瓦至兆瓦级能量的非接触式精确传输。相较于传统卫星依赖自身太阳能电池阵的孤立供电模式，该架构可突破航天器表面积限制，为高通量通信、在轨计算、遥感及机动变轨等高能耗任务解除功率天花板。当前已完成的关键里程碑事件包括：地面大功率波束传输纪录、在轨子系统环境适应性测试，以及无需客户航天器硬件适配的通用接收兼容性验证。 （汤匀） 来源： Star Catcher raises $65 million to build the first power grid in space. https://www.star-catcher.com/news/star-catcher-raises-65-million-to-build-the-first-power-grid-in-space 原创声明：本文为中国科学院武汉文献情报中心先进能源科技战略情报研究团队原创，未经原作者允许不得转载本文内容，否则将视为侵权。转载或者引用本文内容请注明来源，其中论文引用请标明文章作者和单位（中国科学院武汉文献情报中心）。对于不遵守此声明或者其他违法使用本文内容者，本团队依法保留追究权等。 感谢喜欢**先进能源科技战略情报研究中心**微信公众号的您能够持续保持关注，我们将继续和您一路同行。",
+          "hb": 1
+        },
+        {
+          "t": "世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用--中国能源新闻网",
+          "d": "2026-07-01",
+          "a": "中国电力新闻网-科技",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "我国自主研发的世界首套水下焊接原位中子衍射研究装置在中国散裂中子源工程材料谱仪上投入使用。该装置由华南理工大学等团队研发，采用重水模拟海洋环境，通过强穿透能力对水下焊接过程进行原位观测，实时监测材料微观结构变化。该装置攻克了极端工况水下焊接制造等技术难题，为大型水下结构物的制造与运维提供了科学支撑。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://cpnn.com.cn/news/kj/202607/t20260701_1899004.html",
+          "tp": "中子衍射装置",
+          "aip": 1,
+          "kp": [
+            "技术地位[水下焊接原位中子衍射研究装置]: 世界首套并正式投入使用",
+            "功能特征[该自主研发装置]: 实现水下焊接过程微观结构实时观测与核心机理揭示"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用--中国能源新闻网\n中电传媒股份有限公司主办\n世界首套！我国自研的水下焊接原位中子衍射研究装置投入使用\n7月1日，我国自主研发的、世界首套水下焊接原位中子衍射研究装置在中国散裂中子源工程材料谱仪上投入使用，并顺利完成首次水下焊接过程原位观测实验。这标志着我国在水下焊接过程中的微观结构实时观测与核心焊接机理揭示方面取得重大突破，可为大型水下结构物水下焊接技术的自主可控及焊接质量提升提供科学支撑。\n该装置由华南理工大学王振民教授团队联合中国散裂中子源科学中心李小虎、杜文婷团队共同研发，振海智能科技（珠海）有限公司负责制造。\n水下焊接原位中子衍射研究装置。科技日报记者叶青摄\n水下焊接是核电、海上风电、船舶、油气管线等大型水下结构物水下原位制造和运维的关键核心技术之一，是实现水下结构物应急以及永久修复的主要手段。随着我国海洋开发的不断深入，重大海洋基础设施水下维修的重要性日益凸显。\n过去，水下焊接主要依赖“焊后取样”方式，即在水下完成焊接后截取样本返回实验室检测。“该方式由于缺乏过程数据，难以明确影响焊接质量的具体环境变量，导致业界对水下焊缝组织演化、裂纹萌生、形变失效等‘黑箱’问题的认知，长期依赖焊后离位推测。”团队核心成员廖海鹏说。\n针对此，团队创新性提出研发水下焊接原位中子衍射研究装置。该装置旨在实验室环境中构建一个具备强穿透能力的“超级水下放大镜”，通过模拟真实的海洋水下环境，对水下焊接过程进行原位观测。“原位观测，即在焊接过程中可实时监测材料微观结构的动态变化。并在此之上，建立起从焊缝性能需求倒推工艺参数的闭环体系。”杜文婷介绍。\n研究团队。科技日报记者叶青摄\n经过3年多的攻关，团队先后攻克极端工况水下焊接制造、原位焊接装置与大型谱仪协同联动等核心技术难题。团队创新性地采用重水（D₂O）替代清水（H₂O）模拟水下环境，同时设计了一种中子束入射通道，让中子束得以在无水体干扰的路径中实现传输；开发出一种创新的原位观测策略，可获得不同位置、多个方向的微观结构演化规律；成功将自研水下焊接装备与工程材料谱仪精准适配，构建起国际首套水下焊接原位研究装置。\n王振民表示，该装置聚焦水下焊接过程中微观组织与残余应力场的动态演化，首次揭示了多重复杂热循环下水下焊接应力-相变的实时耦合机制，可为水下焊接工艺优化与焊缝结构安全评估提供直接的实验证据。\n值得一提的是，研发过程中，团队充分发挥中子衍射高穿透、高分辨的独特优势，实现了水下焊接熔池微观结构演变的动态原位观测，彻底打破了传统焊后离位分析的局限，使得动态建立水下焊接“工艺-组织-性能”精准映射模型成为可能。该研究成果不仅为大尺寸、高性能水下结构件的精准焊接制造与修复提供了核心技术支撑，更推动了我国水下焊接从依赖经验的“技艺”向数据驱动的“科学”转型。（\n“十四五”能源高质量发展\n水下机器人为海底电缆盖上“沙被”\n我国成功研制出大面积全钙钛矿叠层光伏组件\n太空建电站？中国有新突破\n绿色科技支撑“低碳向未来”\n我科研团队助力破解钙钛矿光伏产业化难题\n新能源用高性能芳纶绝缘纸关键技术获突破\n“科创中国新质生产力调研行”走进海博思创\n电力负荷多层级协同智算技术取得重要突破",
+          "hb": 1
+        },
+        {
+          "t": "Gridmatic 研究显示加州电网规模电池性能存在巨大差距 - 储能",
+          "d": "2026-07-01",
+          "a": "ESS News",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "Gridmatic发布2024-2025年CAISO储能报告，通过公共市场数据和专有引擎重建了加州30个电池储能系统（2.3吉瓦）的性能。加州电池储能容量已达17.4吉瓦，但受市场数据匿名影响，单体资产财务追踪困难。研究表明，地理位置和市场定价仅为部分驱动因素，运营执行和竞价策略导致了各储能项目间巨大的性能差距。",
+          "sc": 8.0,
           "i": "n",
           "tg": "行业观察",
-          "u": "https://scitechdaily.com/nasas-james-webb-discovers-bizarre-salt-clouds-on-the-pink-planet/",
-          "tp": "韦伯望远镜",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "James Webb uncovered exotic salt clouds surrounding the famous “Pink Planet,” solving a long-standing mystery about one of the coldest known alien worlds.\nAstronomers led by\nNorthwestern University\nhave uncovered an extraordinary feature surrounding the universe’s famous “Pink Planet”: skies filled with salt clouds.\nFor more than a decade, this ancient world, known for its rosy appearance, puzzled scientists. As one of the coldest planetary-mass companions ever directly imaged, it is so faint that ground-based telescopes have struggled to analyze the light reflected from its atmosphere. New observations from the\nJames Webb Space Telescope\n), however, have finally provided a much clearer view, revealing an atmosphere packed with unusual chemistry and previously unseen salty clouds.\nThe findings provide some of the first direct evidence that salt clouds exist in the atmosphere of a cold planetary object, confirming an idea scientists first proposed more than 15 years ago. The discovery also demonstrates how JWST is making it possible to study extremely cold, dim worlds that have remained beyond the reach of Earth-based observatories.\nThe study was published on June 18 in the\nAstronomical Journal\n“The Pink Planet is the coldest companion ever discovered using ground-based instruments,” said Northwestern’s Aneesh Baburaj, who led the study. “Many teams all around the world performed follow-up observations to study its light, but it was too faint for ground-based instruments. That made it a perfect target for JWST. When we finally obtained its spectrum, it immediately looked interesting. But once we started digging deeper into the data, we realized it was not like anything we have analyzed before.”\nBaburaj is an\nresearcher and postdoctoral associate at Northwestern’s Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA). He collaborated with scientists at the\nSpace Telescope Science Institute\n(STScI), including Marshall Perrin, who designed the observing program for GJ504b. Perrin also serves on the JWST Telescope Scientist Team, which helped develop the telescope and oversees its ongoing scientific operations.\nFirst discovered in 2013, the Pink Planet, formally known as GJ504b, circles a sun-like star located 57 light-years from Earth. Despite its nickname, astronomers are still uncertain whether it should be classified as a true planet. With a mass roughly 25 times greater than\n, GJ504b lies near the boundary between giant planets and brown dwarfs. Because of that uncertainty, researchers describe it as a “planetary-mass companion,” meaning a planet-sized object orbiting a star.\nIts faintness has made the object especially difficult to study. While most directly imaged exoplanets have temperatures between about 1,000 and 2,000 degrees\n, GJ504b is only about 550 degrees Fahrenheit (290 degrees\n), comparable to the temperature inside a bread-baking oven.\nAccording to Baburaj, the object’s relatively cool temperature reflects its age. Giant planets begin their lives extremely hot but gradually cool over billions of years. The team’s analysis suggests GJ504b is between 2.5 billion and 4 billion years old.\nTo examine the object, the researchers used JWST to capture its faint light while applying advanced data processing techniques to remove the overwhelming glare from its much brighter parent star. That allowed them to isolate the companion’s spectrum, which separates light into different wavelengths. Because specific elements and molecules leave unique fingerprints in a spectrum, scientists can determine the composition of an atmosphere by studying those patterns.\n“In the past, other astronomers observed the companion for an entire night with some of the biggest telescopes in the world to obtain a spectrum,” Baburaj said. “And they could not see the object. With JWST, our entire observation took around two hours, and we were successful.”\nThe spectrum revealed an atmosphere containing water vapor, methane, carbon dioxide, ammonia, and several other molecules. When the researchers compared those observations with atmospheric models, they encountered an unexpected problem. The models only matched the data by including unrealistic atmospheric conditions.\nThe mystery disappeared after the team introduced clouds into their simulations. Among several cloud types they tested, salt clouds produced by far the best agreement with the observations. Those clouds likely block the view of deeper atmospheric layers, changing the light that eventually reaches JWST.\n“We ran simulations with clouds, and the results aligned with what we know about cold planets,” Baburaj said. “We tried three different types of clouds, and salt clouds fit best. When we accounted for salt clouds, it subdued the signature of molecules hidden deeper in the companion’s atmosphere. Then, the results became physically possible.”\nThe observations also indicate that GJ 504 b contains an unusually large amount of heavy elements, known to astronomers as metals. Even so, its origin remains uncertain. Based on the available evidence, it may have formed like a giant planet or more like a small star.\nBaburaj believes the methods demonstrated in this study will help scientists investigate many other faint, cold worlds. Jupiter, for example, is covered by clouds of ammonia ice. Although current instruments cannot yet study those cloud layers in comparable detail, the successful detection of salt clouds around GJ504b suggests that astronomers are steadily expanding what they can observe.\n“This is the first time we’ve found that salt clouds are critical to explaining the spectrum of an object,” Baburaj said. “It’s a good reminder to account for clouds in our models.”\nReference: “JWST-TST High Contrast: First Direct Spectroscopy of GJ 504 b Reveals Clouds and Possible Metal Enrichment” by Aneesh Baburaj, Jean-Baptiste Ruffio, Marshall Perrin, Jerry W. Xuan, William O. Balmer, Yayaati Chachan, Quinn M. Konopacky, Travis S. Barman, Mathilde Mâlin, Kielan K. W. Hoch, Emily Rickman, Kimberly Ward-Duong, Laurent Pueyo, Julien H. Girard, Isabel Rebollido, Alexis Bidot, Christine Chen, Kadin Worthen, Cicero Lu, Jens Kammerer, Roeland P. van der Marel, Nikole K. Lewis, Jeff Valenti, Sara Seager, Chris Stark, Rémi Soummer, Jay Anderson, Charles-Philippe Lajoie, Mark Clampin and C. Matt Mountain, 18 June 2026,\nThe Astronomical Journal\nDOI: 10.3847/1538-3881/ae6919\nThe study was supported by\n(award number 80NSSC20K0586).\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nJames Webb Space Telescope\nNorthwestern University\nPlanetary Science\nWebb Space Telescope Reveals Rare Planet Pair That Shouldn’t Exist\nWebb Space Telescope To Provide Details of Two Intriguing “Super-Earths” in the Milky Way\nWebb Space Telescope Will Study Formation, Composition, Clouds of Distant Worlds\nExploring Alien Worlds With NASA’s Webb Space Telescope: Searching for Biosignatures\nExploring Alien Worlds With NASA’s Webb Space Telescope: TRAPPIST-1 System\nNASA’s Webb Space Telescope Primed To Reveal Secrets of Galaxy’s Most Mysterious Planets\nJames Webb Space Telescope Will Provide a Closer Look at the TRAPPIST-1 System\n“Super-Earths” May be More Earth-Like than Previously Thought\nCloud Modeling Doubles Estimate of Habitable Planets Orbiting Red Dwarfs in the Milky Way",
-          "hb": 1
-        },
-        {
-          "t": "特斯拉在奥斯汀启动首批量产Cybercab的\"工程测试\"",
-          "d": "2026-07-01",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "特斯拉宣布已在奥斯汀开始首批量产Cybercab的工程测试。Cybercab是特斯拉专为完全自动驾驶设计的无人驾驶出租车，无方向盘和踏板。此次工程测试标志着该车型从原型走向量产的关键一步，但距离大规模商业化运营仍需进一步验证其安全性和技术成熟度。",
-          "sc": 7.5,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/06/30/tesla-cybercab-engineering-tests-austin/",
-          "tp": "自动驾驶出租车",
+          "u": "https://www.ess-news.com/2026/07/01/gridmatic-study-shows-big-gap-in-grid-scale-battery-performance-in-california/",
+          "tp": "储能资产追踪",
           "aip": 1,
           "kp": [
-            "[测试节点]: Cybercab首台量产车工程测试"
+            "电池储能容量[加州电网过去六年]: 17.4 GW",
+            "[CAISO数据特性]: 匿名化公开市场数据，掩盖资源身份并遮蔽资产级活动",
+            "[市场追踪技术手段]: 基于公共市场输入、监管文件及专有影子清算引擎"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Fred Lambert\n| Jun 30 2026 - 7:56 am PT\nTesla says it has started engineering tests of its first production Cybercab on public roads in Austin, marking the first time a customer-spec unit of the purpose-built robotaxi has been validated outside the factory.\nBut a video shared by the company shows the two-seater driving with a supervisor sitting in the front passenger seat — a reminder that the car still isn’t operating on its own in Tesla’s paid service.\nIn a post on X early Monday, Tesla announced that “engineering tests of the first production Cybercab have begun in Austin.” The clip shows the vehicle navigating city streets with no one in the driver’s position — which is unavoidable, since the Cybercab is built without a steering wheel or pedals — while a person rides in the passenger seat.\nEngineering tests of the first production Cybercab have begun in Austin\nThat framing matters. These are “engineering tests,” not driverless customer rides, and a human is still aboard the vehicle during the runs. Tesla describes the person in the front seat as a “safety monitor.”\nIt’s a meaningful step nonetheless. Tesla\nrolled its first steering-wheel-less Cybercab off the line at Gigafactory Texas on February 17\nconfirmed the start of production during its Q1 earnings call in April\n. Putting a production-line unit through public-road validation is the next box to check before the car can carry paying passengers.\nHere’s the catch: Tesla’s actual Robotaxi service in Austin has never used the Cybercab. Since launching the public service, Tesla has been running the rides on Model Y SUVs retrofitted with its Full Self-Driving software.\nTesla began the Austin service in June 2025 with an employee in the passenger seat, moved those safety monitors to the driver’s seat in September, and\nstarted removing in-car monitors for a portion of rides in January\n. Even then, reports showed Tesla’s “unsupervised” vehicles being trailed by chase cars with safety monitors inside — the monitor moved to a different vehicle rather than being eliminated.\nToday, Tesla only has a handful of vehicles operating without supervisors in Texas.\nThe Cybercab entering engineering tests is the beginning of a separate, longer process: validating the dedicated hardware platform, not flipping a switch on an existing fleet.\nThe car itself is no longer a mystery. Tesla’s\nEPA filing revealed the Cybercab weighs 3,113 lbs with 219 HP and a 48 kWh battery\n, and at 165 Wh/mi it ranks as the most efficient EV Tesla has ever built. Musk has pitched a sub-$30,000 price, though he has narrowed that to roughly $25,000 on earnings calls.\nWhile Tesla tests a production Cybercab with a passenger riding shotgun, Waymo is already operating a fully driverless commercial service at scale.\nWaymo is now delivering roughly 500,000 paid driverless rides per week across the US — double its volume from less than a year ago — and is targeting one million weekly rides by the end of 2026. Those vehicles operate with no one in the car at all, backed by remote assistance rather than in-car or trailing human supervisors.\nThat’s the gap Tesla is trying to close, and the Cybercab is its long-term answer: a vehicle designed from the ground up with no manual controls and a target cost low enough to undercut ride-hailing economics.\nThis is real progress, and it’s worth saying so plainly: getting a production-intent, controls-free vehicle onto public roads for validation is hard, and Tesla is doing it.\nBut we should be precise about what this is and isn’t. “Engineering tests” with a human in the passenger seat is not a driverless robotaxi,. The path from “first production unit on public roads” to “fare-collecting driverless Cybercab” runs through a lot of validation miles, regulatory sign-off, and a software stack that still relies on remote and trailing human support today.\nThe strategic logic is sound — a $25,000–$30,000 vehicle with no steering wheel changes the unit economics of autonomy if Tesla can actually deliver unsupervised driving. The open question is the same one it’s been for two years: not whether Tesla can build the car, but whether the FSD software is ready to run it without a person inside at scale. Considering the Cybercab uses the same system in the Model Ys operating in the Robotaxi network in Texas, there’s nothing particularly exciting about the progress there.\nIf you’re a Tesla owner or thinking about going electric, powering your EV with home solar is one of the smartest ways to lock in low fuel costs for the long haul. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
-          "hb": 1
-        },
-        {
-          "t": "消色差中子透镜",
-          "d": "2026-07-01",
-          "a": "Physical sciences : Nature Communications subject feeds",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "该研究开发了一种消色差中子透镜。中子因其对轻元素、同位素组成和磁性的敏感性，在材料表征方面具有独特优势。消色差透镜的设计解决了不同能量中子聚焦的色差问题，有望提升中子散射实验的分辨率和效率。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-74925-w",
-          "tp": "消色差中子透镜",
-          "aip": 1,
-          "kp": [
-            "[器件]: 消色差中子透镜",
-            "[功能]: 中子聚焦成像"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Neutrons provide exceptional insight into materials, owing to their sensitivity to light elements, isotopic composition, magnetic moments, and high-penetration. However, neutron sources are polychromatic and of low brightness. Neutron optics provides a route to address these limitations by focusing, and to date, various types of neutron optics have been developed based on reflection, refraction, diffraction, and magnetism. Notably, compound refractive lenses and Fresnel zone plates have been demonstrated for imaging, yet their severe chromatic aberration under polychromatic beams has prevented their widespread use and limits progress towards true high-resolution neutron microscopy. Here, we demonstrate an achromatic neutron lens for full-field neutron microscopy. This development overcomes the intrinsic sample-detector distance constraint in pinhole-based radiography. The lens magnification enables the use of efficient detection systems without loss of spatial resolution and establishes a pathway towards high-resolution neutron microscopy. We anticipate the neutron achromat will advance a broad range of neutron methods.",
+          "b": "California’s battery storage capacity has expanded to 17.4 GW over the past six years, yet tracking the financial performance of individual assets remains difficult. Unlike ERCOT, CAISO anonymizes public market data, masking resource identities and obscuring asset-level activity. To close this visibility gap, power optimization firm Gridmatic published its\nCAISO Storage Report 2024-2025\nin June 2026.\nThe study uses public market inputs, regulatory filings, and a proprietary shadow-clearing engine to unmask and reconstruct the performance of 30 battery energy storage systems (BESS) representing 2.3 GW of capacity.\nThe findings show that location and market pricing are only partial drivers of battery revenue. Instead, operational execution and bidding strategies create a wide performance gap between top- and bottom-performing assets.\nNet revenue from energy and ancillary services (E&AS), which excludes Resource Adequacy (RA) capacity payments, varied significantly across the 30 studied batteries.\nTo normalize financial tracking across assets of different sizes, the industry measures performance in dollars per kilowatt-month ($ per kW-month), representing the merchant revenue generated relative to a battery’s total instantaneous discharge capacity. To calculate this metric, an asset’s total monthly merchant earnings are divided by its nameplate power capacity in kilowatts. For example, a 100 MW (100,000 kW) battery that brings in $300,000 in monthly market revenue equates to $3 per kW-month, allowing developers to directly evaluate operational efficiency regardless of project size.\nRevenues across the studied sample ranged from less than $1 per kW-month to over $6 per kW-month, against a fleetwide median of $2.67 per kW-month.\nAccording to the report, 19 of the 30 studied batteries earned less than $4 per kW-month, and 16 earned less than $3 per kW-month. This revenue dispersion persists even among batteries operating within the same pricing zone and facing identical market exposures.\nTo evaluate operational efficiency, Gridmatic benchmarked asset performance against “TBx,” a standard lossless model that assumes a battery buys the lowest-priced hours and sells the highest-priced hours in the Day-Ahead Market based on its duration. Only five of the 30 studied assets exceeded their corresponding TBx benchmark, while the median capture rate sat at 82.3%.\nWhy the spread?\nThe report attributes this widespread underperformance to rigid bidding strategies. In CAISO, market participants frequently rely on static bid curves submitted once per day.\nThe analysis found that 20 out of 30 assets used a static Regulation Down bid curve in 75% or more of active months, and 12 of those assets maintained a completely static curve 100% of the time. Additionally, 13 out of 30 assets used static energy bid curves for at least half of the study period. These static curves prevent batteries from adjusting to real-time price volatility and shifting conditions across CAISO’s Day-Ahead, Fifteen-Minute, and Real-Time Dispatch markets.\nPhysical asset availability remains a challenge for revenue generation. The fleetwide average availability across the sample was 79.7%. Prolonged downtime was heavily driven by hardware failures and safety incidents.\nFor example, the Millikan Avenue asset experienced roughly 56% total downtime during the study period. Fire events significantly sidelined multiple assets, including the Gateway project, which was offline for 24% of the period, and Vistar’s units at Moss Landing, which have remained offline since a fire incident in January 2025. Outside of lost merchant revenue, these low availability levels expose asset owners to strict financial penalties under CAISO’s Resource Adequacy Availability Incentive Mechanism (RAIIM).\nThe gap between passive bidding and active optimization represents a material loss in project returns and grid utilization. The top-performing asset in the dataset was the 100 MW / 400 MWh Caballero battery in Nipomo, California. Owned by Alpha Omega Power and optimized by Gridmatic, the asset achieved a 141% TBx capture rate and earned 2.45x the median asset’s revenue per kW-month. The project utilized automated machine learning forecasts to adjust optimization parameters continuously across market horizons.\nGridmatic calculated that if all 30 batteries in the study sample had matched Caballero’s 141% capture rate, the fleet would have generated an additional $98 million in collective E&AS revenue over the two-year period.\nAs the CAISO grid scales, narrowing this execution gap will be critical to both the economics of storage investments and the reliability of the California grid.",
           "hb": 1
         }
       ]

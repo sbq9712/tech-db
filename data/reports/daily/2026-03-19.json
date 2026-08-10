@@ -6,19 +6,15 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "北汽与隐功科技分别发布能量密度超170Wh/kg及5C快充钠离子电芯",
-      "研究提出不可还原固态电解质策略以实现硅负极近100%初始库仑效率",
-      "科研人员研发单原子光催化剂以实现海洋塑料废弃物向燃料转化"
+      "北汽研究总院首发方壳钠电池包，能量密度超170Wh/kg并支持4C快充",
+      "隐功科技推出18650钠离子电芯，支持全SOC下5C循环快充及70C瞬时放电",
+      "NaxV2(PO4)3阴极采用化学预钠化技术实现四钠存储，提升无阳极钠电池寿命"
     ],
-    "AI与智能科技": [
-      "中国药监局批准全球首个脑机接口医疗器械注册证",
-      "研究实现集成光子神经网络片上反向传播训练",
-      "研究探讨二维材料在埃米级集成电路节点中的应用及晶圆级制造挑战"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "研究开发非平衡表面活性剂分配机制实现纳米载体高通量生产",
-      "研究设计轴向氧桥双原子结构以提升燃料电池氧还原催化剂耐久性",
-      "电子科大团队揭示高浓度NaCl微液滴加速碳钢点蚀微观机制"
+      "1D/3D异质结构建反向电场，钙钛矿X射线探测器检测限降至9.5 nGyairs-1",
+      "六方氮化硼莫尔量子阱实现高效深紫外发光",
+      "电子科大邓旭团队探明NaCl微液滴加速碳钢腐蚀微观机制，点蚀率提高逾12倍"
     ]
   },
   "sectors": [
@@ -26,9 +22,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "北汽与隐功科技分别发布能量密度超170Wh/kg及5C快充钠离子电芯",
-        "研究提出不可还原固态电解质策略以实现硅负极近100%初始库仑效率",
-        "科研人员研发单原子光催化剂以实现海洋塑料废弃物向燃料转化"
+        "北汽研究总院首发方壳钠电池包，能量密度超170Wh/kg并支持4C快充",
+        "隐功科技推出18650钠离子电芯，支持全SOC下5C循环快充及70C瞬时放电",
+        "NaxV2(PO4)3阴极采用化学预钠化技术实现四钠存储，提升无阳极钠电池寿命"
       ],
       "entries": [
         {
@@ -37,7 +33,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "3月19日，北汽研究总院公布首套钠电池包，采用方壳电芯，能量密度突破170Wh/kg，支持4C快充，-40至60℃稳定工作，-20℃能量保持率>92%，过充至200% SOC及加热至200℃均不起火不爆炸，已打通量产工艺并采用参比电极实现智能充电。同日隐功科技推出18650-900mAh快充钠离子电芯，支持全SOC下5C循环快充（最高10C以上）、35C持续放电及70C瞬时放电，适用于摩托车启动场景。",
-          "sc": 6.3,
+          "sc": 6.7,
           "i": "n",
           "tg": "产业进展",
           "u": "https://mp.weixin.qq.com/s/a6ltTEWgNUWr5qD0rnCivA",
@@ -51,72 +47,94 @@
           "hb": 1
         },
         {
-          "t": "通过不可还原固态电解质诱导的动态界面层实现硅负极近100%初始库仑效率",
+          "t": "北汽、隐功科技分别推出支持快充的方壳、圆柱钠电电芯",
           "d": "2026-03-19",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究通过不可还原固态电解质诱导的动态界面层，使硅负极全固态电池的初始库仑效率接近100%。硅负极具有高理论比容量，是全固态电池的有力候选，但严重的锂损失导致初始库仑效率低下，严重限制了实际能量密度。该不可还原固态电解质在硅界面原位形成稳定的动态界面相（SEI），有效抑制锂的不可逆消耗，同时维持离子传导。该策略从根本上解决了硅负极首效偏低的问题，对推进高能量密度全固态硅基电池的实用化具有重要意义。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00006-1?rss=yes",
-          "tp": "固态电池硅负极",
+          "a": "",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "3月19日，北汽研究总院公布首套钠电池包，采用方壳电芯，能量密度突破170Wh/kg，支持4C快充，-40至60℃稳定工作，-20℃能量保持率>92%，过充至200% SOC及加热至200℃均不起火不爆炸，已打通量产工艺并采用参比电极实现智能充电。同日隐功科技推出18650-900mAh快充钠离子电芯，支持全SOC下5C循环快充（最高10C以上）、35C持续放电及70C瞬时放电，适用于摩托车启动场景。",
+          "sc": 6.7,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/a6ltTEWgNUWr5qD0rnCivA",
+          "tp": "钠电池快充电芯",
           "aip": 1,
-          "kp": [
-            "电解质[硅负极ASSB]: Li2.45S0.55N0.45",
-            "界面工程[硅负极]: 不可还原固态电解质诱导动态界面相"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Silicon anodes promise high energy density for all-solid-state batteries (ASSBs) but are limited by severe lithium loss during the first cycle. This work reveals how controlled interfacial reactions enabled by an irreducible solid electrolyte Li2.45S0.55N0.45 can replenish lithium, enhance initial Coulombic efficiency, and maintain fast ion transport. By uncovering the underlying interfacial reaction mechanism, the study demonstrates how rational interface design can simultaneously improve efficiency and electrochemical performance, offering a practical pathway toward safer, high-energy ASSBs.",
+          "b": "3月19日，北京汽车研究总院有限公司在公众号上发文称，其首套钠电池包采用方壳电芯，电芯能量密度突破170Wh/kg，可实现4C快充，并在-40至60℃温度范围内稳定工作，-20℃能量保持率>92%；同时可承受电、机械和热滥用等测试，例如过充至200% SOC不起火/不爆炸、加热至200℃不起火/不爆炸、。文中称，其目前已实现钠离子电池样品开发定型，打通了方壳产品量产工艺；并采用新型参比电极技术，可精准监测负极电位变化实现智能充电。\n3月19日，隐功科技也在官方公众号推出其18650-900mAh快充版钠离子电芯，宣传支持全SOC下5C循环快充（最高支持10C以上快充），并支持35C持续放电、70C瞬时放电，适用于摩托车启动场景。",
           "hb": 1
         },
         {
-          "t": "单原子光催化剂作为可漂浮人工叶片，实现海洋塑料废弃物升级回收",
+          "t": "通过精确化学预钠化在 NaxV2(PO4)3 (1≤x≤5) 阴极中存储四钠，以实现高能量和长寿命的无阳极钠电池",
           "d": "2026-03-19",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/物质循环/资源处理/资源回收",
-          "as": "单原子光催化剂制成可漂浮的'人造叶片'，用于海洋塑料废弃物的高值化升级回收(upcycling)。该体系利用太阳光驱动光催化，将PET等塑料转化为燃料或化学品前体。单原子位点提供高催化活性和选择性，漂浮设计适配海洋环境，为解决全球80亿吨塑料污染提供可行路径。",
-          "sc": 7.0,
+          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "",
+          "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519931?af=R",
-          "tp": "光催化塑料回收",
+          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.2554297?af=R",
+          "tp": "无阳极钠电池",
           "aip": 1,
-          "kp": [
-            "催化剂[人工叶]: ZnIn2S4/Ru单原子可漂浮",
-            "应用[升级回收]: 聚丙烯PP直接转化",
-            "背景[PP]: 全球回收率<1%"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "ABSTRACT\n                  \n                    Over ∼8 billion tons of plastic have been produced to date, with ∼80% of them ended up in landfills/oceans. Among them, polypropylene (PP) possesses the lowest global recycling rate (&lt; 1%). To resolve this, Ru single atoms (SAs) loaded photocatalysts (ZnIn\n                    2\n                    S\n                    4\n                    /Ru SAs) in the forms of powder/floatable artificial leaf (AL) were prepared for direct conversion of raw PP plastic into valuable chemicals. The optimized photocatalyst exhibits exceptional performance with a total formic/acetic acid production of 1022.5 µmol g\n                    −1\n                    . In situ X‐ray photoelectron spectroscopy, in situ atomic force microscopy‐kelvin probe force microscopy, and in situ electron paramagnetic resonance (EPR) reveal efficient electron extraction from ZnIn\n                    2\n                    S\n                    4\n                    nanosheets to Ru SAs, with subsequent electron capture by O\n                    2\n                    molecules in air. Additionally, in situ transient‐state photoluminescence spectroscopy, transient photovoltage measurement, and in situ EPR unveil the electrolyte‐assisted polarization (induced by cations/anions in seawater) significantly enhancing charge separation/transfer. Finally, in situ EPR, in situ infrared (IR) spectroscopy, and quenching experiments corroborate the pivotal roles of reactive oxygen species (·O\n                    2\n                    −\n                    /·OH) for upcycling PP into valuable chemicals. These results highlight the transformative potential of floatable AL concept for converting plastic waste into high‐value chemicals, offering a sustainable solution to plastic contamination.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
       "headlines": [
-        "中国药监局批准全球首个脑机接口医疗器械注册证",
-        "研究实现集成光子神经网络片上反向传播训练",
-        "研究探讨二维材料在埃米级集成电路节点中的应用及晶圆级制造挑战"
+        "1D/3D异质结构建反向电场，钙钛矿X射线探测器检测限降至9.5 nGyairs-1",
+        "六方氮化硼莫尔量子阱实现高效深紫外发光",
+        "电子科大邓旭团队探明NaCl微液滴加速碳钢腐蚀微观机制，点蚀率提高逾12倍"
       ],
       "entries": [
         {
-          "t": "每日简报：中国批准全球首个脑机接口器械",
+          "t": "通过埋入界面异质结工程构建反向电场可实现高性能钙钛矿X射线探测器",
           "d": "2026-03-19",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "中国国家药监局批准了全球首款脑机接口医疗器械注册证，标志着侵入式/半侵入式BCI技术从实验室正式迈向临床应用阶段。脑机接口领域此前长期停留在动物实验与小规模人体试验，本次获批意味着中国在神经接口监管路径上抢占了先发位置，可能加速瘫痪患者辅助通信、运动恢复等场景的商业化落地，同时推动全球BCI监管框架的竞争与完善。",
-          "sc": 9.1,
+          "a": "Matter",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "通过在埋入界面构建1D/3D钙钛矿异质结并建立反向电场，有效抑制了离子迁移并实现了高效的载流子提取。所制备的X射线探测器检测限低至9.5 nGyairs-1，并在超过100 Gyair的辐射剂量下保持稳定运行，性能优于传统的MAPbI3厚膜探测器。",
+          "sc": 7.0,
           "i": "l",
-          "tg": "观点评论",
-          "u": "https://www.nature.com/articles/d41586-026-00888-z",
-          "tp": "脑机接口器械",
+          "tg": "研究论文",
+          "u": "https://www.cell.com/matter/fulltext/S2590-2385(26)00040-8?rss=yes",
+          "tp": "钙钛矿探测器",
+          "aip": 1,
+          "kp": [
+            "[钙钛矿X射线探测器埋入界面]: 构建1D/3D钙钛矿异质结产生反向电场，抑制离子迁移并提供高效载流子提取",
+            "探测下限[钙钛矿X射线探测器]: 9.5 nGyair s-1",
+            "稳定运行辐射剂量[钙钛矿X射线探测器]: 大于100 Gyair"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "A 1D/3D perovskite heterojunction engineered at the buried interface enables effective suppression of ion migration while providing efficient carrier extraction. The resulting X-ray detector achieves a low detection limit of 9.5 nGyairs-1 and stable operation under radiation doses over 100 Gyair, outperforming most reported MAPbI3 thick film X-ray detectors fabricated by slurry blade-coating method.",
+          "hb": 1
+        },
+        {
+          "t": "六方氮化硼莫尔量子阱中的高效深紫外发光",
+          "d": "2026-03-19",
+          "a": "AAAS: Science: Table of Contents",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "",
+          "sc": 6.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.science.org/doi/abs/10.1126/science.aeb2095?af=R",
+          "tp": "深紫外发光材料",
           "aip": 1,
           "kp": [],
           "lv": 0,
@@ -126,113 +144,17 @@
           "hb": 0
         },
         {
-          "t": "集成光子神经网络实现片上反向传播训练",
-          "d": "2026-03-19",
-          "a": "Nature",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究实现了集成光子神经网络（PNN）的片上反向传播训练。PNN利用光信号进行计算，具有超高带宽和低功耗优势，但训练一直依赖离片电子回路。该工作在芯片内构建了完整的光学反向传播通路，使网络可端到端在光学域完成梯度计算与权重更新，解决了可扩展光子神经网络训练的核心瓶颈，为高速低能耗光计算系统迈向实用化奠定基础。",
-          "sc": 8.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-026-10262-8",
-          "tp": "光子神经网络",
-          "aip": 1,
-          "kp": [
-            "[架构]: 集成光子神经网络",
-            "[训练]: 片上反向传播"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The robust and repeatable performance of scalable integrated photonic neural networks (PNNs)1,2,3 strongly depends on the quality of their training. Gradient-based backpropagation is the mainstream algorithm for training digital neural networks thanks to its scalability, versatility and implementation efficiency4. Consequently, there is an interest in implementing it within a photonic platform in an all-optical manner. At present, owing to the lack of a scalable on-chip activation gradient5, training PNNs has relied on digital computers to run backpropagation, whose performance is reduced in the presence of inevitable device-to-device and environmental variations, or on gradient-free algorithms that do not fully benefit from the versatility of backpropagation training. Here we report the demonstration of an integrated photonic deep neural network, trained end-to-end with on-chip gradient-descent backpropagation. All linear and nonlinear computations are performed on a single photonic chip, leading to scalable and robust training, despite the considerable yet typical fabrication-induced device variations. In two nonlinear data classification tasks, chip performance matches that of the reference digital model in accuracy (over 90%) and robustness without using a digital computer. Integrating the advantages of backpropagation training with PNNs allows for generalization to various PNN architectures for future scalable and reliable photonic computing systems.",
-          "hb": 1
-        },
-        {
-          "t": "面向埃米节点的后摩尔时代二维集成电子学",
-          "d": "2026-03-19",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "该研究针对后摩尔时代集成电路逼近埃（angstrom）级节点的挑战，提出以二维集成电子学作为延续微缩路线的新路径。随着硅基器件逼近物理极限，二维材料凭借原子级厚度、优异载流子迁移率和可堆叠异质集成等优势，被视为突破传统硅基缩放瓶颈的关键方向。论文系统分析了二维材料在晶体管沟道、互连及异构集成中的应用前景，以及从实验室器件向晶圆级制造过渡所面临的材料生长、接触电阻、介电集成和可靠性等工程化障碍，为后摩尔时代器件架构提供了路线图。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag166/8527596?rss=1",
-          "tp": "二维集成电路",
-          "aip": 1,
-          "kp": [
-            "节点[后摩尔]: 埃米级节点集成",
-            "材料[二维]: 原子级厚度异质集成"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "As integrated circuits approach the angstrom-nanometer nodes in recent years, the continued downscaling of silicon‑based electronics faces fundamental physical limits and escalating manufacturing costs. Two-dimensional (2D) materials—characterized by their atomically thickness, exceptional electrostatic gate control, and inherent suitability for heterogeneous integration—have arisen as promising alternatives to extend device scaling beyond the limits of silicon technology. This review provides a systematic overview of advances in integrated electronics based on 2D materials. The discussion begins with recent developments in wafer-scale synthesis and transfer techniques for 2D semiconductors. Subsequently with progress in high-performance 2D transistors, focusing on gate dielectric integration, contact optimization, and scaling strategies for high-density and advanced-node configurations. Circuit- and system-level implementations are also surveyed, including logic, memory, and three-dimensional (3D) monolithic integration. Further, key challenges and prospective directions are highlighted for realizing scalable, manufacturable, and low-power 2D electronic systems at the angstrom-nodes.",
-          "hb": 1
-        }
-      ]
-    },
-    {
-      "name": "通用技术",
-      "review": null,
-      "headlines": [
-        "研究开发非平衡表面活性剂分配机制实现纳米载体高通量生产",
-        "研究设计轴向氧桥双原子结构以提升燃料电池氧还原催化剂耐久性",
-        "电子科大团队揭示高浓度NaCl微液滴加速碳钢点蚀微观机制"
-      ],
-      "entries": [
-        {
-          "t": "非平衡表面活性剂分配驱动自纳米乳化以实现可扩展的纳米载体生产",
-          "d": "2026-03-19",
-          "a": "Nature Chemical Engineering",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "纳米载体在药物递送、疫苗和诊断中不可或缺，但单分散纳米载体的可持续、低成本、高通量生产仍是长期挑战。本研究报道了一种由非平衡表面活性剂分配在水油界面触发的自驱动纳米乳化机制，实现了可扩展的纳米载体生产，无需复杂微流控设备。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s44286-026-00367-2",
-          "tp": "纳米乳化法",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Nanocarriers are indispensable in biomedicine, enabling breakthroughs in drug delivery, vaccines and diagnostics. Despite notable successes facilitated by microfluidic technologies, sustainable, low-cost and high-throughput production of monodisperse nanocarriers remains a longstanding challenge. Here we report surfactant-flux-induced interfacial instability, a self-driven nanoemulsification mechanism triggered by non-equilibrium surfactant partitioning at a water–oil interface. This strategy produces 5 l of highly uniform nanoemulsion (0.2 l of disperse phase) in 1 min, producing droplets with diameters as small as 34 nm and polydispersity indices below 0.10. This self-driven nanoemulsification is robust across a broad range of pH values (~3–11) and temperatures (~4–85 °C), demonstrating compatibility with over ten oil–water–surfactant systems and enabling the synthesis of diverse nanocarriers including nanodroplets, micelles, vesicles, polymeric nanoparticles and metal–organic framework nanocrystals. We further demonstrate that surfactant flux underpins the observed interfacial instability, offering a mechanism for nanoemulsification under far-from-equilibrium conditions. This work addresses a bottleneck in nanomanufacturing and provides insights into dynamic surfactant behavior at immiscible interfaces.",
-          "hb": 1
-        },
-        {
-          "t": "轴向氧桥双原子位点打破氧还原电催化中活性-稳定性的权衡",
-          "d": "2026-03-19",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "针对铁氮碳（Fe-N-C）催化剂在氧还原反应（ORR）中长期存在的活性-稳定性权衡难题，研究设计了轴向氧桥连双原子位点结构。该构型通过氧桥配位调控金属中心电子结构，在保持高催化活性的同时显著增强催化剂耐久性，打破了传统单原子Fe-N-C催化剂在高电位下易降解的瓶颈，对燃料电池和金属-空气电池阴极催化具有重要应用价值。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c00197",
-          "tp": "氧还原双原子催化",
-          "aip": 1,
-          "kp": [
-            "构型[双原子]: 轴向Fe-O-Co桥联",
-            "突破[ORR]: 打破活性-稳定性权衡"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "A pivotal challenge in advancing iron-nitrogen-carbon (Fe-N-C) catalysts for the oxygen reduction reaction (ORR) is their inherent activity-stability trade-off, which originates from the conflicting requirements of strong Fe-N bonding and optimal intermediate adsorption on the Fe active sites. Guided by first-principles screening, we herein report that constructing an axial Fe-O-Co bridge within a bilayer M-N-C architecture concurrently addresses the optimization of intermediate adsorption energetics and dynamic Fe-N bond stability. The competitive adsorption from axial oxygen alleviates the issue of overstrong intermediate adsorption on the Fe site toward accelerated *OH desorption and boosted ORR kinetics. Simultaneously, the axial CoN4-O ligand serves as an electronic buffer to dynamically compensate for adsorption-induced electronic polarization, thereby stabilizing Fe-N bonds and suppressing iron leaching during electrocatalysis. As a proof of concept, the FeCo dual-atom catalyst featuring an FeN4-O-CoN4 configuration achieves a half-wave potential of 0.93 V in alkaline media, with only 8 mV decay after 140 000 cycles, far outperforming the Fe-N-C counterpart (53 mV decay). It maintains remarkable performance even in the highly challenging acidic electrolyte, delivering a peak power density of 1.12 W cm-2 and nearly 80% power density retention after 30 000 cycles. This study opens up a new avenue to break the activity-stability dilemma for M-N-C catalysts, advancing their practical deployment in fuel cells.",
-          "hb": 1
-        },
-        {
           "t": "电子科大邓旭揭示NaCl微液滴对碳钢材料的腐蚀机制",
           "d": "2026-03-19",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/材料工程/耐腐蚀材料",
           "as": "电子科技大学邓旭团队以碳钢Q235为对象，研究不同NaCl浓度、氧浓度及接触形态下的腐蚀机制。发现600mM NaCl微液滴（0-45μm）环境腐蚀率达5.5mg/h，约为体相浸入的5倍；12小时内局部点蚀率比浸入腐蚀高1245%。氧含量增加可提高腐蚀率，但加氧后浸入腐蚀率仍低于微液滴。电子顺磁共振及飞行时间二次离子质谱分析表明微滴中可检测到活性氧物种（·OH、H₂O₂），揭示飞溅区微液滴通过ROS生成加速碳钢腐蚀的微观机制。",
-          "sc": 5.5,
+          "sc": 5.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1021/jacs.5c20003",
           "tp": "碳钢腐蚀机制",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",

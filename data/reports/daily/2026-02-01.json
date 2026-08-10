@@ -6,35 +6,26 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "碳生万物在临港启用研发中心并发布DAC-eSAF共电解工艺线",
-      "南大团队研发氯诱导氮桥联双原子铁催化剂提升电催化效率",
-      "研究提出以水为氧化剂的等离子体辅助电化学烯烃环氧化策略"
+      "碳生万物启用临港研发中心，发布投资3亿元的DAC合成航空燃油工艺线"
     ],
     "AI与智能科技": [
-      "南京大学团队提出通信感知型内存无线神经网络技术",
-      "研究人员利用人工电荷畴壁构建场效应晶体管以提升开关比",
-      "研究利用生成扩散模型大幅提升千米尺度对流模型仿真速度"
+      "南大团队发布模拟存内计算无线神经网络原型机，推理准确率达93.71%",
+      "研究揭示人类颞叶视觉对象编码的计算单神经元机制"
     ],
-    "通用技术": [
-      "科研人员在准二维卤化物钙钛矿中实现室温极化子凝聚",
-      "研究在氧化物铁电材料中发现多态极性手性浮置畴拓扑结构",
-      "科研团队利用超快太赫兹发射光谱实现手性费米子高通量识别"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "碳生万物在临港启用研发中心并发布DAC-eSAF共电解工艺线",
-        "南大团队研发氯诱导氮桥联双原子铁催化剂提升电催化效率",
-        "研究提出以水为氧化剂的等离子体辅助电化学烯烃环氧化策略"
+        "碳生万物启用临港研发中心，发布投资3亿元的DAC合成航空燃油工艺线"
       ],
       "entries": [
         {
           "t": "碳生万物发布DAC-eSAF共电解合成气工艺线",
           "d": "2026-02-01",
-          "a": "",
+          "a": "M",
           "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
           "as": "上海碳生万物科技有限公司在临港新片区启用研发创新中心，发布首条以直接空气碳捕集（DAC）为碳源的可持续航空燃油（SAF）工艺线，总投资约3亿元。技术路线为电-化-热耦合：DAC捕集CO₂、CO₂与水共电解制合成气、费托合成制SAF。规划2026年宁夏建千吨级中试基地，2027年推进国内首个5万吨级SAF商业化项目。",
           "sc": 6.4,
@@ -51,47 +42,22 @@
           "hb": 1
         },
         {
-          "t": "氯诱导的氮桥联双原子铁催化剂实现高效氧还原反应",
+          "t": "碳生万物发布DAC-eSAF共电解合成气工艺线",
           "d": "2026-02-01",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/燃料电池",
-          "as": "氯诱导的悬空氮桥双原子铁电催化剂，面向高效电催化应用。双原子催化剂（DAC）因活性位点丰富、电子结构可调而被视为有前景的电催化剂。本研究通过氯原子诱导策略，在氮桥联框架上构筑悬空配位的双铁活性中心，优化了对关键电催化反应（如氧还原/析出）的吸附能垒与中间体活化效率。该设计理念为精准调控双原子催化剂的配位环境与催化性能提供了新思路。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17034",
-          "tp": "双原子铁氧还原催化剂",
+          "a": "M",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "上海碳生万物科技有限公司在临港新片区启用研发创新中心，发布首条以直接空气碳捕集（DAC）为碳源的可持续航空燃油（SAF）工艺线，总投资约3亿元。技术路线为电-化-热耦合：DAC捕集CO₂、CO₂与水共电解制合成气、费托合成制SAF。规划2026年宁夏建千吨级中试基地，2027年推进国内首个5万吨级SAF商业化项目。",
+          "sc": 6.4,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://m.thepaper.cn/newsDetail_forward_32458760",
+          "tp": "碳制航空油",
           "aip": 1,
-          "kp": [
-            "催化剂[氧还原]: Cl诱导N桥连双原子Fe",
-            "[双原子结构]: Fe2NC-Cl面外悬空构型"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Dual-atom catalysts (DACs) are regarded as promising electrocatalysts owing to their abundant active sites and tunable electronic structures, whereas precisely controlling diatomic-site configurations for optimal performance remains challenging. Herein, we precisely engineer a Cl-induced dangling N-bridged dual-atom Fe catalyst (Fe2NC-Cl), where the Cl introduction results in an out-of-plane dangling N-bridge to the di-Fe sites, mitigating the steric hindrance for reactants, and a strategic modulation of the d-band center of Fe sites, optimizing the adsorption-desorption equilibrium of oxygen-containing intermediates, thereby leading to a lower overpotential. The Fe2NC-Cl catalyst achieves an exceptional oxygen reduction reaction (ORR) activity, exhibiting a half-wave potential of 0.924 V with minimal potential decay (0.067 μV per cycle). When integrated into quasi-solid-state zinc-air battery, it delivers a remarkable power density of 231 mW cm-2 at 25 °C and maintains 82 mW cm-2 at -40 °C, alongside stable operation for 2400 h (14400 cycles). This work underscores the critical role of synergistic geometric-electronic engineering in breaking the activity-stability trade-off, providing a universal design paradigm for high-performance electrocatalysts.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP]以水为氧化剂的等离子体辅助电化学环氧化",
-          "d": "2026-02-01",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/有机电合成",
-          "as": "该工作提出一种等离激元辅助的电化学环氧化策略，以水作为绿色氧化剂替代传统危险化学品。烯烃环氧化是工业上合成环氧物的关键反应，但常规工艺依赖过氧酸等有害氧化剂，产生大量废液。研究利用局域表面等离激元共振激发产生的热载流子，在温和电化学条件下活化水分子实现选择性环氧化，兼具高原子经济性与环境友好性，为可持续化学合成提供了新范式。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c18709",
-          "tp": "等离激元电化学环氧化",
-          "aip": 1,
-          "kp": [
-            "氧化剂[烯烃环氧化]: 水等离激元辅助电化学",
-            "催化剂[环氧化]: 氧化锰-金纳米杂化"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Olefin epoxidation, an important industrial reaction, often uses hazardous oxidants, causing challenges in waste disposal. Here, we demonstrate the use of water as an oxidant by a plasmon-assisted electrochemical strategy. The electrocatalyst is comprised of a hybrid of a water oxidation catalyst, manganese oxide, and plasmonic gold nanoparticles. Visible-light irradiation of the electrocatalyst enhanced the epoxidation of 4-styrenesulfonate 5-fold as compared to dark conditions at the same temperature. From electrochemical analyses conducted under plasmon excitation conditions, complemented by real-time time-dependent density functional tight binding simulations, it is found that the plasmonic boost of the electrochemical styrene epoxidation is due to energetic holes generated by the excitation of localized surface plasmon resonances of gold nanoparticles. These photogenerated holes activate adsorbed water for oxidation and enhance the binding of 4-styrenesulfonate at interfacial sites. This work demonstrates a proof of concept and establishes the mechanistic basis for plasmon-assisted activation of water as an O atom source for electrochemical epoxidations.",
+          "b": "据澎拜新闻和新浪财经于2月1日报道，上海碳生万物科技有限公司近日在上海临港新片区启用研发创新中心，并对外发布首条以直接空气碳捕集（DAC）为碳源的可持续航空燃油（SAF）工艺线。该中心总投资约3亿元，标志着其核心技术从实验室阶段迈入工程化与产业化验证阶段。\n从技术路径上看，碳生万物采用的是一条完整的电-化-热耦合合成燃料路线，核心流程包括：\n直接空气碳捕集（DAC），从空气中捕集低浓度CO₂，作为合成燃料的唯一碳源，避免继续依赖地下化石碳。\nCO₂+H₂O共电解制合成气，通过电化学过程，将CO₂与水直接共电解生成H₂/CO混合气，获得费托合成所需的合成气。\n费托合成（FT）制可持续航空燃油（SAF），利用成熟的FT工艺将合成气转化为液态碳氢燃料，再经后处理得到符合航空燃油规范的SAF产品。\n公司规划显示，2026年在宁夏建设千吨级中试基地，2027年推进国内首个5万吨级SAF商业化项目，逐步实现从示范到规模化放大的跨越。",
           "hb": 1
         }
       ]
@@ -100,15 +66,14 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "南京大学团队提出通信感知型内存无线神经网络技术",
-        "研究人员利用人工电荷畴壁构建场效应晶体管以提升开关比",
-        "研究利用生成扩散模型大幅提升千米尺度对流模型仿真速度"
+        "南大团队发布模拟存内计算无线神经网络原型机，推理准确率达93.71%",
+        "研究揭示人类颞叶视觉对象编码的计算单神经元机制"
       ],
       "entries": [
         {
           "t": "南京大学梁世军提出通信感知型内存无线神经网络",
           "d": "2026-02-01",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "南大梁世军与缪峰团队提出通信感知型内存无线神经网络技术，采用模拟存内计算同时实现边缘计算和无线通讯，将无线通讯作为神经网络可学习模块。原型机用两块AIMC芯片，设备端做存内卷积并编码为载波信号，无线传输至服务器端解码后交GPU运算，还设计信号翻转网络降低传输误差。测试数据集推理准确率93.71%，低分辨率ADC通讯下保持准确率。论文2026年2月25日发表于Nature Electronics。",
           "sc": 6.9,
@@ -125,124 +90,50 @@
           "hb": 1
         },
         {
-          "t": "基于堆叠范德华铁电α-In2Se3中人工带电畴壁的场效应晶体管",
+          "t": "南京大学梁世军提出通信感知型内存无线神经网络",
           "d": "2026-02-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
+          "a": "Doi",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该工作利用堆叠二维材料中的人工电荷畴壁（CDWs）构建场效应晶体管（FET）。铁电畴壁作为功能元件展现出新奇的电子态，其电导率可被畴壁电荷密度精确调控。研究通过人工设计畴壁结构实现了载流子的局域化输运，器件开关比和迁移率均表现出优异性能。该成果开辟了基于畴壁电子学的非易失性存储和逻辑器件新路线，有望突破传统硅基晶体管的微型化极限。",
-          "sc": 6.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523096?af=R",
-          "tp": "铁电畴壁晶体管",
+          "as": "南大梁世军与缪峰团队提出通信感知型内存无线神经网络技术，采用模拟存内计算同时实现边缘计算和无线通讯，将无线通讯作为神经网络可学习模块。原型机用两块AIMC芯片，设备端做存内卷积并编码为载波信号，无线传输至服务器端解码后交GPU运算，还设计信号翻转网络降低传输误差。测试数据集推理准确率93.71%，低分辨率ADC通讯下保持准确率。论文2026年2月25日发表于Nature Electronics。",
+          "sc": 6.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41928-026-01577-5",
+          "tp": "内存无线网",
           "aip": 1,
-          "kp": [
-            "材料[铁电畴壁器件]: α-In2Se3范德华铁电体",
-            "器件[畴壁]: 荷电畴壁构建场效应晶体管"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Ferroelectric charged domain walls (CDWs) offer emergent electronic states that can serve as functional elements in high‐density nonvolatile memory and neuromorphic computing. Yet, poor conductivity, structural instability, and lack of deterministic control limit their practical use. Moreover, the CDWs are typically out‐of‐plane and buried interfaces, which prohibits electrical access and prevents gate control of their carrier density. This work demonstrates the fabrication of artificial in‐plane CDWs by stacking oppositely polarized flakes of van der Waals (vdW) ferroelectric ‐In\n                    2\n                    Se\n                    3\n                    . Edge contact is utilized to electrically access the CDWs and integrate them into CDW‐based field‐effect transistors (CDW‐FETs). CDW‐FETs exhibit room‐temperature conductance up to four orders of magnitude higher than single domains, exceeding previously reported CDWs by 2–9 orders of magnitude. Electron microscopy imaging reveals atomic reconstruction and interfacial heterogeneity in CDWs. Temperature and gate‐dependent electrical and magneto‐transport measurements confirm that interfacial band bending governs transport. Two transport mechanisms are identified in these CDW‐FETs: variable‐range hopping and thermally activated traps, showing a transition temperature of 80 K. These results establish artificial CDWs as on‐demand, designable conductive channels in vdW ferroelectrics, advancing the understanding of CDW conduction mechanisms and bridging the gap toward device integration.",
+          "cm": "目前主流的计算机实现方式是数字计算，也即先将数据转化为0/1再进行计算。模拟计算是直接用电学量编码数据，用测量电路数据代替计算。后者精度更低，但是速度更快。该工作使用存内计算的方式，同时实现了边缘计算和无线通讯。目前边缘计算是组建具身智能的一种重要计算方式，而存内计算相比于目前的通用计算架构，天然延迟、功耗更低。与边缘计算相匹配。边缘计算系统目前常采用云-边-端协同的架构，端侧包括传感设备、边侧包括边缘计算设备、云侧包括计算节点和控制节点。云边协同中，边侧可以进行数据加密、对原始数据预处理或者推理等任务，云侧进行重负载的计算任务以及模型训练等。本工作设计了模拟存内运算+可学习无线传输的架构，原型机在数值识别任务上进行了云边协同计算。使用通讯感知型训练后，在1-2模拟转数字信号比特(ADC)时，比特错误率从15%降低到1%以下，从而使得传输成本大大降低不过由于涉及了云侧运算，因此数据传输耗时会远大于边缘侧内部的数据传输耗时，因此存内运算的意义仍需要进一步研究。",
+          "b": "为了实现低延迟、低功耗计算，无人机和机器人等通常会搭载边缘计算设备。这些设备算力有限，过于复杂的任务需要与云端服务器借助无线通讯协同完成。目前的无线协同系统存在能效和延迟问题，主要原因在于存算分离、信号处理和收发分离、神经网络和无线通讯分离。缪峰、梁世军团队提出一种通信感知型内存无线神经网络的技术。该技术路线使用了模拟存内计算的方式，同时实现边缘计算和无线通讯，并将无线通讯作为神经网络的一个可学习模块。该团队制作了一个包括边缘推理单元和无线通讯系统的原型机，其在测试数据集上实现了93.71%的推理准确率，并在使用低分辨率模数转换器进行无线通讯时保持准确率。\n技术上而言，该原型装置使用了两块模拟存内计算芯片(AIMC)，设备端的芯片用于将输入图像进行简单的存内卷积运算，并将结果编码为载波信号。载波信号被无线传输到服务器端的AIMC进行解码后传输给GPU执行下一步运算。该工作同时学习了一个信号翻转网络，用于识别高错误率信号位置，降低信号传输带来的精度误差。文章于2026年2月25日发表在Nature Electronics。",
           "hb": 1
         },
         {
-          "t": "利用生成扩散模型实现公里尺度对流可分辨模型模拟",
+          "t": "人类颞叶视觉对象编码的计算单神经元机制",
           "d": "2026-02-01",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "该研究利用生成式扩散模型（Diffusion Model）对千米尺度对流可分辨模型（CAM）进行快速仿真模拟。传统CAM能显式解析大气对流动力学，用于强风暴、龙卷风等极端天气的短临预报，但计算成本极高。研究训练扩散模型学习CAM输出的风暴尺度物理场分布，在保持对流核心结构精度的前提下将仿真速度提升数个量级。该方法有望应用于集合预报、气候极端事件概率评估和区域灾害风险分析，为高分辨率数值天气预报提供AI加速路径。",
-          "sc": 6.7,
+          "a": "Nature Communications",
+          "c": "AI与智能科技/其它智能科技/脑机接口",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adv0423?af=R",
-          "tp": "扩散模型气象模拟",
+          "u": "https://www.nature.com/articles/s41467-026-68954-8",
+          "tp": "视觉对象编码机制",
           "aip": 1,
-          "kp": [
-            "[对流允许模型]: 生成扩散模型实现公里级仿真",
-            "分辨率[大气模拟]: 公里级"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Storm-scale convection-allowing models (CAMs) explicitly resolve convective dynamics within the atmosphere to predict the evolution of thunderstorms and mesoscale convective systems that result in damaging extreme weather. Deep learning models have, thus far, not proven skillful in this regime of kilometer-scale atmospheric simulation, despite being competitive at coarser resolutions with state-of-the-art global, medium-range weather forecasting. We present a generative diffusion model called StormCast, which emulates the High-Resolution Rapid Refresh (HRRR)—National Oceanic and Atmospheric Administration’s state-of-the-art 3-kilometer operational CAM. StormCast autoregressively predicts 99 state variables at the kilometer scale using a 1-hour time step, with dense vertical resolution in the atmospheric boundary layer, conditioned on 26 synoptic variables. We show successfully learned kilometer-scale dynamics including competitive 1- to 6-hour forecast skill for composite radar reflectivity alongside physically realistic convective cluster evolution, moist updrafts, and cold pool morphology. These results present opportunities for improving kilometer-scale regional ML weather prediction and future climate hazard dynamical downscaling.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "科研人员在准二维卤化物钙钛矿中实现室温极化子凝聚",
-        "研究在氧化物铁电材料中发现多态极性手性浮置畴拓扑结构",
-        "科研团队利用超快太赫兹发射光谱实现手性费米子高通量识别"
-      ],
-      "entries": [
-        {
-          "t": "准二维杂化钙钛矿中的室温极化子凝聚态",
-          "d": "2026-02-01",
-          "a": "Nature Communications",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究在准二维卤化物钙钛矿中实现了室温腔激子-极化子凝聚。准二维钙钛矿具有巨大激子振子强度和极大的激子束缚能，是室温极化子学的理想平台，但此前在环境条件下一直未能实现玻色凝聚和极化子激射。该突破验证了准二维钙钛矿在室温极化子器件中的潜力，为低能耗相干光源开辟了新路径。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41467-026-68723-7",
-          "tp": "钙钛矿极化子",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Quasi-2D halide perovskites are chemically synthesized realizations of quantum well stacks with giant exciton oscillator strengths, tunable emission spectra, and very large exciton binding energies. While these features render quasi-2D halide perovskites a promising platform for room-temperature polaritonics, bosonic condensation and polariton lasing in quasi-2D perovskites have so far remained elusive at ambient conditions. Here, we demonstrate room-temperature cavity exciton-polariton condensation in mechanically exfoliated crystals of the quasi-2D Ruddlesden-Popper iodide perovskite (BA)2(MA)2Pb3I10 in an open optical microcavity. We observe a polariton condensation threshold of 0.41 µJ cm−2 per pulse and detect a strong non-linear response. Interferometric measurements confirm the spontaneous emergence of spatial coherence across the condensate with an associated first-order autocorrelation reaching 0.6 with 1 ps coherence time and an effective de Broglie wavelength of 13 µm. Our results lay the foundation for a new class of room-temperature polariton lasers based on quasi-2D halide perovskites with great potential for hetero-integration with other van-der-Waals materials and combination with photonic crystals or waveguides.",
-          "hb": 1
-        },
-        {
-          "t": "氧化物铁电体中的多态极性手性浮置畴",
-          "d": "2026-02-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "铁电氧化物中的极性拓扑结构在高密度存储等未来电子器件中具有应用潜力。该研究在氧化物铁电材料中发现多态极性手征气泡（polar chiral bobbers）拓扑结构，拓展了铁电材料拓扑态的研究维度。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202510518?af=R",
-          "tp": "铁电极化拓扑",
-          "aip": 1,
-          "kp": [
-            "[铁电氧化物]: 极性手性bobber实现多态存储",
-            "薄膜取向[铁电器件]: (111)取向超薄薄膜"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Polar topologies in ferroelectric oxides have potential applications in future electronic devices, such as high‐density non‐volatile memory and logic devices. However, their application in multistate storage remains largely unexplored, because the number of accessible topological states is limited. Here, we report a family of polar chiral bobbers in ultrathin (111)‐oriented ferroelectric PbTiO\n                    3\n                    films by combining phase‐field simulations with aberration‐corrected transmission electron microscopy. We find that a chiral bobber can exhibit eight distinct states, which can be applied to multistate storage exceeding the traditional binary (0/1) encoding. The polar chiral bobber can be easily manipulated with low energy to enable transitions between different states. These results suggest that polar chiral bobbers represent one of the promising candidates for applications in next‐generation topological electronics, advanced memory, and quantum computing.",
-          "hb": 1
-        },
-        {
-          "t": "利用超快太赫兹发射光谱高通量鉴定手性费米子对映体的手性",
-          "d": "2026-02-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "拓扑手性半金属具有由大陈数主导的非简并手性费米子。本研究利用超快太赫兹发射光谱技术实现手性费米子对映体的高通量识别，为拓扑材料手性表征提供快速、非破坏性检测方法，加速新型拓扑量子材料的发现与应用。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202505100?af=R",
-          "tp": "手性费米子太赫兹表征",
-          "aip": 1,
-          "kp": [
-            "表征方法[手性费米子]: 超快太赫兹发射光谱",
-            "材料[拓扑手性半金属]: 大陈数非简并手性费米子"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Topological chiral semimetals possess nondegenerate chiral fermions dominated by large Chern numbers, making them an ideal material platform for quantum control of chirality degree of freedom. However, high‐throughput chirality identification of a chiral enantiomer, which is the first and foremost basic characterization, is still lacking. In this work, we demonstrate that terahertz (THz) emission from ultrafast excited circular photogalvanic effects can be used to effectively identify the chirality of topological chiral semimetal. As demonstrated for the topological chiral semimetal RhSn, the emitted THz electric fields excited by certain circularly polarized ultrafast light pulses are reversed for the opposite enantiomer. By comparing the single‐crystal X‐ray diffraction results, we show that THz emission serves as a high‐throughput, contactless, and nondestructive method for identifying the chirality of topological chiral semimetals. Our findings will facilitate and thus promote the study of topological chiral semimetals and further advance the quantum manipulation of the chirality degree of freedom in topological materials.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

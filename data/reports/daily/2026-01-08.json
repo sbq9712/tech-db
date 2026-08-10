@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "市场监管总局约谈通威及协鑫等六家光伏企业严禁价格与产量协同",
-      "研究采用原位聚合电解质实现固态锂金属电池超500 Wh/kg能量密度",
-      "中科大马骋团队研发氯氧化锆基固态电解质体积成本降至43.7美元/升"
+      "中科大马骋团队研发氯氧化锆基固态电解质，室温电导率达2.55 mS/cm",
+      "市场监管总局约谈通威及光伏行业协会，明令禁止约定产能与价格",
+      "新型非晶态固态电解质LZACO体积成本降至43.70美元/升"
     ],
     "AI与智能科技": [
-      "研究人员构建单片式细胞忆阻器架构实现晶圆级仿生味觉芯片集成",
-      "阿里通义发布Qwen3多模态模型在MMEB基准测试中超越同类开源模型",
-      "新光子集成技术将紫光至近红外波段传输损耗降至接近光纤水平"
+      "阿里开源Qwen3-VL多模态检索模型，8B版本在MMEB-V2测试集超越闭源服务",
+      "阿里通义发布Qwen3-VL-Embedding与Reranker，8B版本综合任务表现最优",
+      "银基忆阻器集成光脉冲发射功能，消除传统神经元对外围电路依赖"
     ],
     "通用技术": [
-      "纽约大学团队结合机器学习与红外光谱实现蛋白质二级结构误差小于7%",
-      "研究构建不对称铋氧位点提升二氧化碳光催化还原为乙酸的选择性",
-      "日本3DC在CES展示单原子壁厚三维石墨烯导电材料以提升电池倍率性能"
+      "日本3DC在CES 2026展示原子级壁厚三维海绵状石墨烯导电材料",
+      "纽约大学结合二维红外光谱与机器学习，实现蛋白质二级结构误差小于7%",
+      "三维石墨烯多孔网络降低充放电循环应力，已向电池企业送样测试"
     ]
   },
   "sectors": [
@@ -26,59 +26,18 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "市场监管总局约谈通威及协鑫等六家光伏企业严禁价格与产量协同",
-        "研究采用原位聚合电解质实现固态锂金属电池超500 Wh/kg能量密度",
-        "中科大马骋团队研发氯氧化锆基固态电解质体积成本降至43.7美元/升"
+        "中科大马骋团队研发氯氧化锆基固态电解质，室温电导率达2.55 mS/cm",
+        "市场监管总局约谈通威及光伏行业协会，明令禁止约定产能与价格",
+        "新型非晶态固态电解质LZACO体积成本降至43.70美元/升"
       ],
       "entries": [
         {
-          "t": "市场监管总局约谈6家光伏龙头企业及行业协会，不得约定产能及销售价格等",
-          "d": "2026-01-08",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "1月8日，市场监管总局约谈中国光伏行业协会及通威、协鑫、大全能源、新特能源、亚洲硅业、东方希望等龙头企业，要求不得约定产能、产销量及销售价格；不得以任何形式进行市场划分、产量分配、利润分配；不得就价格、成本、产销量等信息开展沟通协调。此举表明光伏行业此前存在涉嫌垄断的协同行为。",
-          "sc": 6.5,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.cnenergynews.cn/article/4PsQE1R9UTI",
-          "tp": "光伏反垄断约谈",
-          "aip": 1,
-          "kp": [],
-          "lv": 2,
-          "wr": "",
-          "cm": "约定产能、价格等举措，客观上的确都是垄断行为。光伏协会之前成立的多晶硅产能整合收购平台本质上就是龙头企业协商收购多余的产能，联合形成卡特尔。但相关举措的确可以在短期缓解内卷式竞争。在“十五五”明确提出用好市场退出、兼并重组来整治内卷式竞争的前提下，市场监管总局表达的这一态度与“十五五”的态度有一定不符。值得进一步探究。作为新能源产品中目前“内卷式”竞争的代表产业，光伏产业此次被约谈也表明了在“反内卷”的政策态度上，至少市场监管总局依然持较保守的态度。依照该报道内容，此次约谈的内容主要是阻止相关行业通过自行协商，约定产能、价格等形成寡头，从而影响市场秩序。然而，这与工信部此前对电池企业的座谈会传达的，通过限产能、制止价格战来制止“内卷式”竞争的政策动向有所矛盾。_x000B_针对这一问题，已与CPA进行探讨，并将相关观点结合到内卷式竞争报告中。",
-          "b": "据中国能源网报道，1月8日，中国证券报·中证金牛座记者从业内人士处核实，市场监管总局约谈了中国光伏行业协会、通威集团、协鑫科技、大全能源、新特能源、亚洲硅业（红狮）、东方希望。市场监管总局要求中国光伏行业协会及被约谈企业不得约定产能、产能利用率、产销量及销售价格；不得通过出资比例，以任何形式进行市场划分、产量分配、利润分配；不得当前、今后就价格、成本、产销量等信息开展沟通协调。",
-          "hb": 1
-        },
-        {
-          "t": "采用原位聚合电解质实现循环寿命超过500 Wh/kg的固态锂金属电池",
-          "d": "2026-01-08",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "该研究利用原位聚合电解质实现了能量密度超过500 Wh/kg的固态锂金属电池，并具有长循环稳定性。锂金属电池因高理论比容量被称为下一代储能系统的'圣杯'，但锂枝晶生长和界面不稳定性制约其发展。原位聚合策略在电池组装后形成聚合物电解质，改善电极/电解质界面接触，抑制枝晶，兼顾高能量密度和安全稳定性。该成果对高能量密度固态电池的实用化具有里程碑意义。",
-          "sc": 7.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c17294",
-          "tp": "固态锂金属电池",
-          "aip": 1,
-          "kp": [
-            "能量密度[固态锂电池]: >500 Wh/kg",
-            "电解质[固态锂电池]: POSS基原位聚合凝胶聚合物"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Lithium metal batteries (LMBs) are regarded as the \"holy grail\" of next-generation energy storage systems due to their p...",
-          "hb": 1
-        },
-        {
           "t": "中国科学技术大学马骋设计高柔性低成本氯氧化锆基固态电解质",
           "d": "2026-01-08",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
           "as": "中国科学技术大学马骋团队设计新型氯氧化锆基非晶态固态电解质LZACO，通过引入氧阴离子和Zr⁴⁺/Al³⁺阳离子结合高非晶化降低刚性。室温锂离子电导率达2.55 mS/cm，硬度仅0.22 GPa、杨氏模量1.41 GPa，远低于常规无机固态电解质。以Li₂CO₃替代Li₂O并缩短球磨时间，体积成本仅43.70美元/升，兼具高柔性与低成本。",
-          "sc": 6.8,
+          "sc": 7.1,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41467-025-68210-5",
@@ -90,6 +49,44 @@
           "cm": "",
           "b": "尽管锂离子电导率在数十年的固态电解质研究中一直是主要焦点，但机械性能同样至关重要。目前大多数固态电解质的机械性能表现为硬度高于1 GPa、杨氏模量高于15 GPa。\n中国科学技术大学马骋教授报道了一种新型氯氧化锆基非晶态固态电解质——1.4Li₂O-0.75ZrCl₄-0.25AlCl₃（LZACO）。该材料通过同时引入氧阴离子和Zr⁴⁺/Al³⁺阳离子，结合高非晶化程度，显著降低了材料的刚性，同时保持了优异锂离子传输能力。\n实验结果显示，LZACO在室温（25 °C）下的锂离子电导率达到2.55 mS cm⁻¹，活化能为0.276 eV；其硬度仅为0.22 GPa，杨氏模量为1.41 GPa，远低于绝大多数已报道的无机固态电解质（硬度通常>1 GPa，杨氏模量>15 GPa）。\n此外，研究团队通过将昂贵的Li₂O原料替换为廉价的Li₂CO₃，并大幅缩短球磨合成时间（从30 h降至4 h），显著降低了生产成本。LZACO的体积成本估算仅为43.70美元/升，远低于同类锆基氯化物Li₂ZrCl₆的140.01美元/升。\n以高镍单晶LiNi₀.₉₂Co₀.₀₆Mn₀.₀₂O₂（scNCM92）和LiCoO₂为正极，在活性物质面载量超过20 mg cm⁻²的条件下，电池在0.1 C倍率、25 °C下循环100次后，面容量分别保持3.92 mAh cm⁻²（容量保持率90.11%）和3.62 mAh cm⁻²（容量保持率85.78%），达到当前文献中同类高面容量电池的先进水平。在低堆叠压力（5 MPa）条件下，该材料也能支持较稳定的循环。文章于2026年1月8日发表在Nature Communications。",
           "hb": 1
+        },
+        {
+          "t": "中国科学技术大学马骋设计高柔性低成本氯氧化锆基固态电解质",
+          "d": "2026-01-08",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "中国科学技术大学马骋团队设计新型氯氧化锆基非晶态固态电解质LZACO，通过引入氧阴离子和Zr⁴⁺/Al³⁺阳离子结合高非晶化降低刚性。室温锂离子电导率达2.55 mS/cm，硬度仅0.22 GPa、杨氏模量1.41 GPa，远低于常规无机固态电解质。以Li₂CO₃替代Li₂O并缩短球磨时间，体积成本仅43.70美元/升，兼具高柔性与低成本。",
+          "sc": 7.1,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41467-025-68210-5",
+          "tp": "柔性固态电解质",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "尽管锂离子电导率在数十年的固态电解质研究中一直是主要焦点，但机械性能同样至关重要。目前大多数固态电解质的机械性能表现为硬度高于1 GPa、杨氏模量高于15 GPa。\n中国科学技术大学马骋教授报道了一种新型氯氧化锆基非晶态固态电解质——1.4Li₂O-0.75ZrCl₄-0.25AlCl₃（LZACO）。该材料通过同时引入氧阴离子和Zr⁴⁺/Al³⁺阳离子，结合高非晶化程度，显著降低了材料的刚性，同时保持了优异锂离子传输能力。\n实验结果显示，LZACO在室温（25 °C）下的锂离子电导率达到2.55 mS cm⁻¹，活化能为0.276 eV；其硬度仅为0.22 GPa，杨氏模量为1.41 GPa，远低于绝大多数已报道的无机固态电解质（硬度通常>1 GPa，杨氏模量>15 GPa）。\n此外，研究团队通过将昂贵的Li₂O原料替换为廉价的Li₂CO₃，并大幅缩短球磨合成时间（从30 h降至4 h），显著降低了生产成本。LZACO的体积成本估算仅为43.70美元/升，远低于同类锆基氯化物Li₂ZrCl₆的140.01美元/升。\n以高镍单晶LiNi₀.₉₂Co₀.₀₆Mn₀.₀₂O₂（scNCM92）和LiCoO₂为正极，在活性物质面载量超过20 mg cm⁻²的条件下，电池在0.1 C倍率、25 °C下循环100次后，面容量分别保持3.92 mAh cm⁻²（容量保持率90.11%）和3.62 mAh cm⁻²（容量保持率85.78%），达到当前文献中同类高面容量电池的先进水平。在低堆叠压力（5 MPa）条件下，该材料也能支持较稳定的循环。文章于2026年1月8日发表在Nature Communications。",
+          "hb": 1
+        },
+        {
+          "t": "市场监管总局约谈6家光伏龙头企业及行业协会，不得约定产能及销售价格等",
+          "d": "2026-01-08",
+          "a": "Cnenergynews",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "1月8日，市场监管总局约谈中国光伏行业协会及通威、协鑫、大全能源、新特能源、亚洲硅业、东方希望等龙头企业，要求不得约定产能、产销量及销售价格；不得以任何形式进行市场划分、产量分配、利润分配；不得就价格、成本、产销量等信息开展沟通协调。此举表明光伏行业此前存在涉嫌垄断的协同行为。",
+          "sc": 5.8,
+          "i": "n",
+          "tg": "政策监管",
+          "u": "https://www.cnenergynews.cn/article/4PsQE1R9UTI",
+          "tp": "光伏反垄断约谈",
+          "aip": 0,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "约定产能、价格等举措，客观上的确都是垄断行为。光伏协会之前成立的多晶硅产能整合收购平台本质上就是龙头企业协商收购多余的产能，联合形成卡特尔。但相关举措的确可以在短期缓解内卷式竞争。在“十五五”明确提出用好市场退出、兼并重组来整治内卷式竞争的前提下，市场监管总局表达的这一态度与“十五五”的态度有一定不符。值得进一步探究。作为新能源产品中目前“内卷式”竞争的代表产业，光伏产业此次被约谈也表明了在“反内卷”的政策态度上，至少市场监管总局依然持较保守的态度。依照该报道内容，此次约谈的内容主要是阻止相关行业通过自行协商，约定产能、价格等形成寡头，从而影响市场秩序。然而，这与工信部此前对电池企业的座谈会传达的，通过限产能、制止价格战来制止“内卷式”竞争的政策动向有所矛盾。_x000B_针对这一问题，已与CPA进行探讨，并将相关观点结合到内卷式竞争报告中。",
+          "b": "据中国能源网报道，1月8日，中国证券报·中证金牛座记者从业内人士处核实，市场监管总局约谈了中国光伏行业协会、通威集团、协鑫科技、大全能源、新特能源、亚洲硅业（红狮）、东方希望。市场监管总局要求中国光伏行业协会及被约谈企业不得约定产能、产能利用率、产销量及销售价格；不得通过出资比例，以任何形式进行市场划分、产量分配、利润分配；不得当前、今后就价格、成本、产销量等信息开展沟通协调。",
+          "hb": 1
         }
       ]
     },
@@ -97,41 +94,18 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究人员构建单片式细胞忆阻器架构实现晶圆级仿生味觉芯片集成",
-        "阿里通义发布Qwen3多模态模型在MMEB基准测试中超越同类开源模型",
-        "新光子集成技术将紫光至近红外波段传输损耗降至接近光纤水平"
+        "阿里开源Qwen3-VL多模态检索模型，8B版本在MMEB-V2测试集超越闭源服务",
+        "阿里通义发布Qwen3-VL-Embedding与Reranker，8B版本综合任务表现最优",
+        "银基忆阻器集成光脉冲发射功能，消除传统神经元对外围电路依赖"
       ],
       "entries": [
         {
-          "t": "单片式细胞-忆阻器架构实现振荡化学受体在晶圆级集成，用于生物逼真味觉芯片",
-          "d": "2026-01-08",
-          "a": "Nature Materials",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究提出单片式细胞-忆阻器（cell-on-memristor）架构，实现了振荡型化学受体在晶圆级集成，构建了仿生味觉芯片。仿生味觉传感的核心挑战在于将生物受体的高灵敏选择性与半导体工艺的可扩展性融合。该架构将生物振荡型化学受体直接集成在忆阻器阵列上，利用忆阻器的阻变特性模拟生物味觉神经元的频率编码机制。晶圆级集成保证了传感器阵列的大规模一致性和可寻址性，该芯片在复杂液体环境中展示了多通道并行检测和模式识别能力。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41563-025-02436-y",
-          "tp": "忆阻器仿生芯片",
-          "aip": 1,
-          "kp": [
-            "[架构]: 单片化电池-忆阻器架构",
-            "[集成规模]: 晶圆级振荡型化学感受器",
-            "[应用]: 生物仿生味觉芯片"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Array fabrication and the wafer-scale integration of artificial oscillatory chemoreceptors are crucial for enabling biomimetic chips with bio-realistic chemoreception in practical bioapplications. However, existing chemoreceptors based on conventional architectures require sophisticated or non-scalable fabrication techniques due to inherent material or structural defects. Here we introduce a monolithic cell-on-memristor (CoM) chemoreceptive architecture featuring a unique oscillation mechanism for self-powered biosensing and in situ spike encoding. Through rational material selection and complementary metal–oxide–semiconductor-compatible fabrication, we realize the demonstration of a wafer-scale 10 × 10 CoM array with a spatial resolution of 51 pixels per inch and a very small pixel size of 150 μm, with potential for further scaling down. Using its bio-plausible ion-modulated voltage oscillations with spatiotemporal probabilistic spiking information, we exploit the CoM-array-based gustatory chip to replicate gustation for accuracy salty taste classification. Our CoM architecture offers a general and scalable approach for implementing chemoreceptive oscillatory systems aimed at human–machine biointegration applications.",
-          "hb": 1
-        },
-        {
           "t": "阿里通义发布并开源Qwen3-VL-Embedding&Reranker模型",
           "d": "2026-01-08",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
           "as": "阿里通义发布并开源Qwen3-VL-Embedding和Qwen3-VL-Reranker模型系列，基于Qwen3-VL构建，专为多模态信息检索与跨模态理解设计。Qwen3-VL-Embedding-8B在MMEB-V2上取得业界领先，超越所有先前开源模型和闭源商业服务。所有Reranker模型性能持续优于基础Embedding和基线Reranker，8B版本在多数任务中表现最佳。",
-          "sc": 6.9,
+          "sc": 7.0,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.ithome.com/0/911/694.htm",
@@ -145,25 +119,43 @@
           "hb": 1
         },
         {
-          "t": "面向紫光至近红外光子集成的光纤级低损耗技术",
+          "t": "阿里通义发布并开源Qwen3-VL-Embedding&Reranker模型",
           "d": "2026-01-08",
-          "a": "Nature",
+          "a": "Ithome",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "阿里通义发布并开源Qwen3-VL-Embedding和Qwen3-VL-Reranker模型系列，基于Qwen3-VL构建，专为多模态信息检索与跨模态理解设计。Qwen3-VL-Embedding-8B在MMEB-V2上取得业界领先，超越所有先前开源模型和闭源商业服务。所有Reranker模型性能持续优于基础Embedding和基线Reranker，8B版本在多数任务中表现最佳。",
+          "sc": 7.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/911/694.htm",
+          "tp": "通义多模态检索",
+          "aip": 1,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "",
+          "b": "IT之家1月8日消息，据通义大模型消息，今日正式发布并开源Qwen3-VL-Embedding和Qwen3-VL-Reranker模型系列，这两个模型基于Qwen3-VL构建，专为多模态信息检索与跨模态理解设计，为图文、视频等混合内容的理解与检索提供统一、高效的解决方案。Qwen3-VL-Embedding-8B模型在MMEB-V2上取得了业界领先的结果，超越了所有先前的开源模型和闭源商业服务。\n在纯文本多语言MMTEB基准测试上，Qwen3-VL-Embedding模型与同等规模的纯文本Qwen3-Embedding模型相比虽然有少许的性能差距。但与评测排行榜上其他同等规模的模型相比，它仍然展现出极具竞争力的性能表现。同时，所有Qwen3-VL-Reranker模型的性能均持续优于基础Embedding模型和基线Reranker模型，其中8B版本在大多数任务中达到了最佳性能。",
+          "hb": 1
+        },
+        {
+          "t": "基于忆阻闪烁神经元的光子连接三维神经网络",
+          "d": "2026-01-08",
+          "a": "Nature Electronics",
           "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "该研究致力于在紫光到近红外全波段范围内实现接近光纤级别的超低光损耗光子集成回路(PIC)。过去数十年，氮化硅和硅基光子集成电路的传输损耗已显著降低，但与石英光纤(~0.2 dB/km)相比仍存在数量级差距。研究通过优化波导材料纯度、侧壁粗糙度和模式限制设计，在宽波段内将传播损耗压缩至接近光纤水平。该突破对片上光互连、量子光子学和宽带光通信具有重要意义，有望消除光子芯片与光纤之间的耦合损耗瓶颈，实现真正的全光集成系统。",
-          "sc": 7.8,
+          "as": "提出利用忆阻闪烁神经元构建可扩展的光子连接三维神经网络。该人工神经元基于银/聚甲基丙烯酸甲酯/银金属-绝缘体-金属忆阻平面结，其电阻切换依赖于原子级灯丝动力学。当整合达到临界数量的输入电脉冲时，器件会发射光脉冲，消除了对庞大外围电路的需求，解决了传统CMOS人工神经元尺寸大和电布线限制的扩展问题。",
+          "sc": 7.6,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09889-w",
-          "tp": "低损耗光子集成芯片",
+          "u": "https://www.nature.com/articles/s41928-025-01529-5",
+          "tp": "光子神经网络",
           "aip": 1,
           "kp": [
-            "波长范围[光子集成电路]: 紫光到近红外",
-            "核心挑战[短波段PIC]: 材料吸收和散射损耗显著增加"
+            "[基于忆阻闪烁神经元的光子连接三维神经网络]: 采用银/聚甲基丙烯酸甲酯结构有效克服了传统人工神经元的面积限制与电学布线约束，实现了高度可扩展的三光子连接"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Over the past decades, remarkable progress has been made in reducing the loss of photonic integrated circuits (PICs) wit",
+          "b": "The continuing development of artificial intelligence requires more powerful computing architectures. However, the large footprint of complementary-metal–oxide–semiconductor-based neurons and constraints on electric routing hinder the scaling of conventional artificial neurons and their synaptic connectivity. Here we show that memristive blinking neurons can be used to build scalable photonically linked three-dimensional neural networks. Our artificial neuron is based on a silver/poly(methyl methacrylate)/silver metal–insulator–metal memristive switching in-plane junction. Its resistive switching relies on atomic-scale filamentary dynamics and the device emits photon pulses on integrating a critical number of incoming electrical spikes, which eliminates the need for bulky peripheral circuit read-out and electrical wiring for transmitting signals. We use the memristive blinking neuron, which has a footprint of 170 nm × 240 nm, to build a photonically linked three-dimensional spiking neural network. We show that the network can perform a four-class classification task within the Google Speech dataset with an accuracy of 91.51%. We also create a high-density artificial neuron array with a pitch of 1 μm and show that it can perform an MNIST classification task with an accuracy of 92.27%.",
           "hb": 1
         }
       ]
@@ -172,15 +164,34 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "纽约大学团队结合机器学习与红外光谱实现蛋白质二级结构误差小于7%",
-        "研究构建不对称铋氧位点提升二氧化碳光催化还原为乙酸的选择性",
-        "日本3DC在CES展示单原子壁厚三维石墨烯导电材料以提升电池倍率性能"
+        "日本3DC在CES 2026展示原子级壁厚三维海绵状石墨烯导电材料",
+        "纽约大学结合二维红外光谱与机器学习，实现蛋白质二级结构误差小于7%",
+        "三维石墨烯多孔网络降低充放电循环应力，已向电池企业送样测试"
       ],
       "entries": [
         {
+          "t": "日本3DC公司展示其可用于提高电池倍率性能的三维石墨烯导电材料",
+          "d": "2026-01-08",
+          "a": "Interesting Engineering",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "日本石墨烯初创公司3DC在CES 2026展示Graphene MesoSponge®(GMS)三维石墨烯导电材料。区别于传统片状石墨烯，呈海绵状空心三维结构，壁厚仅一个原子，可控制孔径、层数和形状。公司称其多孔网络可促进电子传输、提升电极电导率，并降低充放电循环应力变化，有助于提升电池倍率性能，已向多家电池企业送样测试。",
+          "sc": 6.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://interestingengineering.com/ces-2026/3d-graphene-fast-charging-battery-electrodes",
+          "tp": "石墨烯导电",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
+          "wr": "",
+          "cm": "3DC成立于2022年，其相关技术基于公司CSO兼联合创始人、日本东北大学西原洋知（Hirotomo Nishihara）教授团队。\n据3DC官网展示及所申专利信息显示，该GMS三维石墨烯材料以甲烷气体等为碳原料，由金属氧化物构成的纳米颗粒（例如氧化镁、氧化铝，平均粒径根据具体需求而定）为模板（单个颗粒模板的大小可设置为300nm-20μm，形状为长方体不易团聚），通过气体通入、加热裂解沉积的过程，在颗粒表面上形成1-3层石墨烯层（900℃-2h）；而后通过氢氟酸等溶液浸润溶解去除氧化铝，并再次进行升温加热（1800℃-2h，去除残留杂质，增大多孔碳材料中的石墨烯网面尺寸，减少边缘位点的量）得到具有细孔结构的三维石墨烯材料（即其GMS产品），该细孔孔径为1nm～65nm，比表面积为400～2600m2/g，边缘位点量<500μmol/g（官能团含量少、减少副反应）。可用作电极导电剂、硅基负极复合材料（化学气相沉积的方法在GMS上生长硅活性材料，硅占比约70%，宣传可减少膨胀和收缩，负极电池初始容量>2300mAh/g，10次循环后效率>95%）、锂-氧电池正极/电容器电极等，以提高循环寿命和倍率性能。",
+          "b": "据Interesting Engineering等媒体1月8日报道，日本石墨烯技术初创公司3DC在国际消费电子展（CES）2026上展示了其Graphene MesoSponge®（GMS）产品，称该材料有助于提升电池的倍率性能，并已向多家电池企业送样测试。报道中称，该材料不同于传统片状石墨烯，而是海绵状、空心的三维结构，壁厚仅一个原子，在制造过程中可控制孔径、层数和整体形状。其宣传该3D石墨烯材料通过多孔结构网络可促进电子传输，提升电极内部的电导率，还可降低电池材料在充放电循环过程中应力变化。",
+          "hb": 1
+        },
+        {
           "t": "纽约大学Neil T. Hunt提出结合二维红外光谱库和机器学习方法的动态蛋白质结构解析方法",
           "d": "2026-01-08",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/检测和表征/先进科学仪器",
           "as": "纽约大学Neil T. Hunt团队开发结合二维红外光谱库与机器学习的动态蛋白质结构解析方法。利用35种蛋白质6732个谱图训练支撑向量机模型，能将不同蛋白谱图聚类，预测α-螺旋和β-折叠数量均方根误差小于7%。可识别二级结构形态及平行/反平行β-折叠比例，证明AI可有效提取二维图谱信息辅助蛋白质结构研究。发表于Chemical Science。",
           "sc": 6.1,
@@ -188,7 +199,7 @@
           "tg": "技术突破",
           "u": "https://doi.org/10.1039/d5sc09973k",
           "tp": "红外光谱解析蛋白",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -197,35 +208,12 @@
           "hb": 1
         },
         {
-          "t": "外延活性界面构建晶格内键合的不对称Bi₁─O─Bi₂位点用于CO₂光催化还原为乙酸",
-          "d": "2026-01-08",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/催化剂",
-          "as": "研究通过外延活性界面策略构建了晶格键合的不对称Bi1-O-Bi2催化位点，实现了CO2光催化高选择性还原为乙酸（C2产物）。CO2还原为C2+化学品面临C-C偶联能垒高、选择性低的挑战。该研究利用外延界面诱导的局域不对称电子结构，降低了CO2到CO中间体的活化能，并促进了相邻CO物种的C-C偶联。不对称Bi-O-Bi位点同时调控了质子和电子传输路径，使乙酸选择性显著提升，为太阳能驱动CO2定向转化为高附加值C2化学品提供了原子级催化剂设计范式。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202524970?af=R",
-          "tp": "CO2光还原铋催化剂",
-          "aip": 1,
-          "kp": [
-            "[活性位点]: Bi₁-O-Bi₂不对称晶格键合位点",
-            "[外延生长]: Bi₃NbO₇/Bi₃O₄Br界面",
-            "产物[CO₂光还原]: 乙酸"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    Solar‐driven selective synthesis of C\n                    2\n                    chemicals from CO\n                    2\n                    is a crucial pathway for carbon cycling, but it is limited by the high kinetic barrier of C─C coupling. This study proposes an epitaxial growth strategy for lattice‐bonded asymmetric sites. By constructing a Bi\n                    1\n                    ─O─Bi\n                    2\n                    site at the Bi\n                    3\n                    NbO\n                    7\n                    nano‐dots/Bi\n                    3\n                    O\n                    4\n                    Br nanosheet (BNO/BOB) interface to promote C─C coupling for acetic acid production, the photocatalytic conversion rate of CO\n                    2\n                    to acetic acid can reach 192.3 µmol·g\n                    −1\n                    ·h\n                    −1\n                    , with 91.4% selectivity. The apparent quantum efficiency at 380 and 400 nm reach 9.49% and 6.57%, respectively. The key mechanism originates from a cascade electron effect triggered by the interfacial Bi\n                    1\n                    ─O─Bi\n                    2\n                    sites: the interfacial charge redistribution induces a strong built‐in electric field, where high‐energy electrons selectively occupy the 2π antibonding orbitals of CO\n                    *\n                    intermediates, significantly weakening the C─O bond in CO\n                    *\n                    intermediate. Furthermore, the asymmetric charge redistribution effectively neutralizes the electrostatic repulsion between adjacent CO\n                    *\n                    intermediates, synergistically stabilizing the OCCO\n                    *\n                    transition state through d‐π electron feedback from Bi sites. The dual effects synergistically lower the energy barriers for both the C─C coupling and hydrogenation steps, ultimately steering the reaction pathway towards long‐lasting acetic acid formation.",
-          "hb": 1
-        },
-        {
           "t": "日本3DC公司展示其可用于提高电池倍率性能的三维石墨烯导电材料",
           "d": "2026-01-08",
-          "a": "",
+          "a": "Interesting Engineering",
           "c": "通用技术/材料工程/其它先进材料",
           "as": "日本石墨烯初创公司3DC在CES 2026展示Graphene MesoSponge®(GMS)三维石墨烯导电材料。区别于传统片状石墨烯，呈海绵状空心三维结构，壁厚仅一个原子，可控制孔径、层数和形状。公司称其多孔网络可促进电子传输、提升电极电导率，并降低充放电循环应力变化，有助于提升电池倍率性能，已向多家电池企业送样测试。",
-          "sc": 6.0,
+          "sc": 6.1,
           "i": "n",
           "tg": "产业进展",
           "u": "https://interestingengineering.com/ces-2026/3d-graphene-fast-charging-battery-electrodes",

@@ -6,18 +6,16 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "浙大与华能研发1200平方厘米钙钛矿组件，户外运行半年功率无衰减",
-      "新研究提出亲锂框架策略，实现能量密度1200 Wh/L锂金属软包电池",
-      "新分子级协同策略优化界面传质，推进工业级AEM电解水制氢"
+      "浙大与华能研发钙钛矿组件，引入氮化硅纳米颗粒实现户外运行半年功率几乎无衰减。",
+      "研究人员提出界面吸附物竞争调节策略，以提升酸性条件下二氧化碳电还原的稳定性。"
     ],
     "AI与智能科技": [
-      "英伟达展示液冷AI系统Vera Rubin，每瓦性能较前代提升十倍",
-      "FragNet图神经网络引入分子片段信息，提升药物发现虚拟筛选精度"
+      "科研人员验证二维材料代工制造策略，试产单晶体管良率近100%并实现微处理器规模化制备。",
+      "英伟达发布Vera Rubin系统，集成72颗GPU与36颗CPU，每瓦性能较前代提升十倍且全面采用液冷散热。"
     ],
     "通用技术": [
-      "帝国理工研究证实亲电氧物种驱动IrO2催化剂水氧化过程",
-      "研究利用阳离子孤对电子效应实现铁电半导体巨大自旋劈裂",
-      "极性杂化钙钛矿材料提升内建极化场，实现自驱动X射线探测"
+      "帝国理工学院科研团队证实亲电氧物种O⁻¹是驱动IrO₂催化剂水氧化过程的真正活性物种。",
+      "研究人员开发超极化分子探针技术，通过多重分析氨基肽酶活性应用于肿瘤体内诊断。"
     ]
   },
   "sectors": [
@@ -25,9 +23,8 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "浙大与华能研发1200平方厘米钙钛矿组件，户外运行半年功率无衰减",
-        "新研究提出亲锂框架策略，实现能量密度1200 Wh/L锂金属软包电池",
-        "新分子级协同策略优化界面传质，推进工业级AEM电解水制氢"
+        "浙大与华能研发钙钛矿组件，引入氮化硅纳米颗粒实现户外运行半年功率几乎无衰减。",
+        "研究人员提出界面吸附物竞争调节策略，以提升酸性条件下二氧化碳电还原的稳定性。"
       ],
       "entries": [
         {
@@ -36,7 +33,7 @@
           "a": "",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
           "as": "浙大杭州科创中心联合华能清能院报道其1200cm²钙钛矿组件户外运行6个月功率几乎无衰减。寿命提升基于引入钙钛矿埋底界面的非晶壳-晶态核复合氮化硅纳米颗粒（载流子纳米缓存器），晶态α-Si₃N₄内核持续捕获电子调控界面电荷堆积，抑制光照老化缺陷生成。相关研究已发表于Nature Photonics，但大组件实际效率与功率数据未公布。",
-          "sc": 6.1,
+          "sc": 6.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://mp.weixin.qq.com/s/BL4r0gTfq1ERUnJXAJUF_w",
@@ -50,49 +47,42 @@
           "hb": 1
         },
         {
-          "t": "时空耦合亲锂骨架实现高可逆、长寿命1,200 Wh/L锂金属软包电池",
+          "t": "浙大杭州科创中心联合华能清能院报道其1200cm2钙钛矿组件户外运行6个月功率几乎无衰减",
           "d": "2026-02-26",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "提出时空耦合的亲锂框架策略，通过同时构建静态外延亲锂层与动态调控框架，实现锂金属均匀沉积与剥离。基于该策略组装的锂金属软包电池能量密度达1200 Wh/L，兼具高可逆性与长循环寿命，为高比能锂金属电池实用化提供了重要进展。",
-          "sc": 7.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(25)00483-0?rss=yes",
-          "tp": "锂金属亲锂骨架",
+          "a": "",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "浙大杭州科创中心联合华能清能院报道其1200cm²钙钛矿组件户外运行6个月功率几乎无衰减。寿命提升基于引入钙钛矿埋底界面的非晶壳-晶态核复合氮化硅纳米颗粒（载流子纳米缓存器），晶态α-Si₃N₄内核持续捕获电子调控界面电荷堆积，抑制光照老化缺陷生成。相关研究已发表于Nature Photonics，但大组件实际效率与功率数据未公布。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/BL4r0gTfq1ERUnJXAJUF_w",
+          "tp": "钙钛矿光伏",
           "aip": 1,
-          "kp": [
-            "能量密度[锂金属软包]: 1200 Wh/L",
-            "[框架设计]: 时空耦合亲锂框架"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "Spatiotemporally coupled lithiotropic frameworks are proposed by simultaneously constructing a static epitaxial lithiotropic interface, dynamic lithiotropic embedded seeds, and SEIs. This optimizes Li adsorption, migration, and diffusion at plated substrate, bulk phase, and SEI, controlling multi-scale dense Li nucleation and growth tropism and optimizing the reversibility of ultrathin anodes. Such structures effectively improve the rate performance and cycle life of Li-metal batteries, enabling the practical application of >1,200 Wh L−1 miniature high-energy pouch cells in micro-UAVs.",
+          "cm": "根据文中补充图展示的单日发电信息（取平均0.15kWh/天，最高0.24kWh/天，当日等效峰值照射6h），以及假设北京单日总太阳辐射量4kWh/m2，每天可发电6h情境下，该组件功率约为40W左右，单位面积功率还要高于仁烁光能7200cm2钙钛矿组件158.4W（22%）、京东方28800cm2钙钛矿组件579W（20.11%）；按每日水平辐照4kWh/m²/天估算，该组件的效率也可>20%。",
+          "b": "文中称，此次寿命提升基于其开发的一种“载流子纳米缓存器”的结构，其将由晶态α-Si₃N₄内核外面包裹着约1.5 nm的非晶外壳组成的非晶壳-晶态核复合氮化硅纳米颗粒（30-50 nm）引入钙钛矿埋底界面（该研究中为钙钛矿/空穴传输层界面），晶态内核能持续捕获电子，引起平带电压漂移，进行电荷的主动调控，减少界面堆积；同时可抑制光照老化中生成新缺陷及后续扩散过程，减少缺陷诱导的非辐射复合。\n该新闻的相关研究结果也在2026年1月6日发表于Nature Photonics期刊，但1200cm2（文中为1252cm2）大组件的实际运行效率及功率新闻稿和文献中并未公布。",
           "hb": 1
         },
         {
-          "t": "通过功能配体实现配位与界面调控的分子级协同：面向工业级 AEM 水电解",
+          "t": "[ASAP] 界面吸附物竞争调节酸性 CO2 电还原的中间稳定性和起始电位",
           "d": "2026-02-26",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "研究提出通过功能配体同时实现配位调控和界面调控的分子级协同策略，用于工业级阴离子交换膜（AEM）电解水制氢。配位工程可调催化活性位点的电子结构，但实际电解条件下催化剂界面传质和稳定性同样关键。功能配体同时优化了活性中心的本征催化活性（降低水分解能垒）和催化剂-电解质界面性质（促进气泡脱附、增强耐久性）。该策略在工业级电流密度下实现了高效的AEM电解水性能，为绿氢大规模生产提供了催化剂设计新思路。",
-          "sc": 7.6,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aea8247?af=R",
-          "tp": "AEM电解水制氢",
+          "u": "http://dx.doi.org/10.1021/jacs.5c22970",
+          "tp": "酸性CO2电还原",
           "aip": 1,
-          "kp": [
-            "[应用]: 工业级AEM水电解",
-            "[策略]: 功能配体协同配位与界面调控",
-            "[反应]: 析氧反应OER"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Coordination engineering is often used to tune the electronic structures of active sites, while their catalytic performances are determined not only by electronic structures but also by microenvironments. Herein, we introduce interfacial functional ligands that not only optimize the electronic structures of active sites but also regulate the interfacial microenvironment for oxygen evolution reaction (OER). Specifically, the pore edge–hosted FeF\n                    3\n                    O\n                    2\n                    sites enable a favorable electronic structure to generate\n                    *\n                    OOH intermediates and simultaneously promote the interfacial transport of hydroxide for enhanced OER kinetics. The F ligands in FeF\n                    3\n                    O\n                    2\n                    sites interact with interfacial water strongly via H-bonding to promote H-bond network connectivity, thus encouraging the temporally concerted proton transfer during hydroxide diffusion. Consequently, FeF\n                    3\n                    O\n                    2\n                    sites realize the 331.5-fold enhancement in turnover frequency for alkaline OER over the NiOOH and efficient water electrolyzers (1.663 voltage at 1.0 amperes per square centimeter at 60°C, durably operating at 1.0 amperes per square centimeter &gt; 1200 hours).",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
@@ -100,22 +90,43 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "英伟达展示液冷AI系统Vera Rubin，每瓦性能较前代提升十倍",
-        "FragNet图神经网络引入分子片段信息，提升药物发现虚拟筛选精度"
+        "科研人员验证二维材料代工制造策略，试产单晶体管良率近100%并实现微处理器规模化制备。",
+        "英伟达发布Vera Rubin系统，集成72颗GPU与36颗CPU，每瓦性能较前代提升十倍且全面采用液冷散热。"
       ],
       "entries": [
         {
+          "t": "用于创建完全互连的二维微处理器的代工策略",
+          "d": "2026-02-26",
+          "a": "Nature Electronics",
+          "c": "AI与智能科技/AI硬件层/半导体",
+          "as": "一种旨在代工制造的二维材料大规模集成电路策略。该策略通过测试与迭代优化电路设计、材料生长与转移、器件制造及芯片探针测试等六个方面提升良率。实验制造约130批样品，实现了单晶体管近100%的良率，开关比大于10的7次方，并具备高逆变器增益，成功推动了从单晶体管到完整微处理器的规模化制造。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41928-026-01573-9",
+          "tp": "二维微处理器制造",
+          "aip": 1,
+          "kp": [
+            "[基于二维材料的大规模电路代工策略]: 通过测试和六个方面（电路设计、布局设计、材料生长、材料转移、器件制造等）的迭代优化解决低产率和实验室制造的难题"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Two-dimensional (2D) materials can be used to build next-generation electronics. However, large-scale chips containing hundreds of transistors based on 2D materials suffer from problems related to low yield and laboratory fabrication. Here we report a towards-foundry strategy to create large-scale circuits based on transferred 2D materials. The approach uses testing and repeated iterative optimization of six aspects: circuit design, layout design, material growth, material transfer, device fabrication and chip probing. We fabricate around 130 batches of samples for testing to improve the yield at each scale, from single transistors to circuit modules to a complete microprocessor. We create single transistors with nearly 100% yield, on/off ratios greater than 107 and inverter gains of approximately 400 on average. The statistical yields for the arithmetic logic unit, control unit and D-latch circuit modules are found to be 96.5%, 79.5% and 61.5%, respectively. The resulting 2D microprocessor exhibits excellent signal integrity and stability, as well as low-energy-consumption characteristics that are superior to those of early Intel central processing units.",
+          "hb": 1
+        },
+        {
           "t": "英伟达展示下一代AI芯片系统Vera Rubin",
           "d": "2026-02-26",
-          "a": "",
+          "a": "Ithome",
           "c": "AI与智能科技/AI硬件层/芯片",
           "as": "英伟达展示下一代AI系统Vera Rubin完整机架，由130万个零部件组成，包含72颗Rubin GPU和36颗Vera CPU（台积电生产），零部件来自20余国80多家供应商。核心亮点为每瓦性能较Grace Blackwell提升10倍，虽功耗约为前代两倍但整体能效跃升。该系统是英伟达首个100%液冷散热产品，公司建议未来AI工厂全面采用液冷架构。",
-          "sc": 6.1,
+          "sc": 6.3,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.ithome.com/0/923/706.htm",
           "tp": "AI芯片系统",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -124,24 +135,22 @@
           "hb": 1
         },
         {
-          "t": "[ASAP] FragNet：一种具有四级可解释性的分子性质预测图神经网络",
+          "t": "英伟达展示下一代AI芯片系统Vera Rubin",
           "d": "2026-02-26",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "FragNet是一种专为分子性质预测设计的图神经网络（GNN）模型，创新性地引入分子片段（fragment）信息作为结构先验。传统GNN以原子为节点直接建模分子图，FragNet在此基础上将可药物化片段或官能团作为高阶语义单元嵌入消息传递过程，使模型同时捕捉局部子结构与全局拓扑特征。该方法在多个标准分子性质基准数据集上验证了有效性，对药物发现和材料设计中的虚拟筛选流程具有实用价值，兼顾了预测精度与化学可解释性。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c22620",
-          "tp": "图神经网络分子预测",
-          "aip": 1,
-          "kp": [
-            "[模型特性]: 四级可解释性图神经网络预测分子性质"
-          ],
-          "lv": 0,
+          "a": "Ithome",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "英伟达展示下一代AI系统Vera Rubin完整机架，由130万个零部件组成，包含72颗Rubin GPU和36颗Vera CPU（台积电生产），零部件来自20余国80多家供应商。核心亮点为每瓦性能较Grace Blackwell提升10倍，虽功耗约为前代两倍但整体能效跃升。该系统是英伟达首个100%液冷散热产品，公司建议未来AI工厂全面采用液冷架构。",
+          "sc": 6.3,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.ithome.com/0/923/706.htm",
+          "tp": "AI芯片系统",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Molecular property prediction is essential in a variety of contemporary scientific fields, such as drug development and the design of energy storage materials. Although there are many machine learning models available for this purpose, those that achieve high accuracy while also offering the interpretability of predictions are uncommon. We present a graph neural network that not only matches the prediction accuracies of leading models but also provides insights into four levels of molecular substructures. This model helps identify which atoms, bonds, molecular fragments, and connections among fragments are significant for predicting a specific molecular property. Understanding the importance of connections between fragments is particularly valuable for molecules with substructures that do not connect through standard bonds. The model additionally can quantify the impact of specific fragments on the prediction, allowing for the identification of fragments that may improve or degrade a property value. These interpretable features are essential for deriving scientific insights from the model's learned relationships between molecular structures and properties.",
+          "b": "IT之家2月26日消息，英伟达下一代AI系统Vera Rubin计划于今年晚些时候推出，在最新媒体采访中，英伟达AI基础设施负责人Dion Harris在加州总部展示了完整Vera Rubin机架的内部构成和供应商细节。英伟达称，Vera Rubin 由130万个零部件组成，其每瓦性能将是上一代产品Grace Blackwell的10倍。在能耗成为人工智能基础设施建设最关键问题之一的背景下，这是一项重大突破。\n英伟达表示，这款全新AI系统是一个由全球各地零部件组成的复杂体系。其核心芯片包括72颗Rubin图形处理器（GPU）和36颗Vera中央处理器（CPU），主要由台积电生产。从液冷组件、供电系统到计算托盘等其他零部件，则来自至少20个国家、80多家供应商，其中包括中国、越南、泰国、墨西哥、以色列和美国。英伟达透露，新系统的功耗约为前代的两倍，但由于每瓦性能较 Blackwell 的提升达到10倍，整体算力的能效比将实现跃升。\n由于功耗上升，Vera Rubin也是英伟达首个100%液冷散热的系统。Harris介绍称，英伟达已经建议客户，未来的人工智能工厂将绝大部分采用液冷架构。由于液冷闭环的特性，新设计还能节约水资源。IT之家注意到，Harris 还展示了数据传输速度翻倍至每秒260TB的NVLink芯片和机架主干。在单个机架中，就需要5000根铜缆将整套设备连接在一起，总长度约为两英里。",
           "hb": 1
         }
       ]
@@ -150,15 +159,14 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "帝国理工研究证实亲电氧物种驱动IrO2催化剂水氧化过程",
-        "研究利用阳离子孤对电子效应实现铁电半导体巨大自旋劈裂",
-        "极性杂化钙钛矿材料提升内建极化场，实现自驱动X射线探测"
+        "帝国理工学院科研团队证实亲电氧物种O⁻¹是驱动IrO₂催化剂水氧化过程的真正活性物种。",
+        "研究人员开发超极化分子探针技术，通过多重分析氨基肽酶活性应用于肿瘤体内诊断。"
       ],
       "entries": [
         {
           "t": "帝国理工James Durrant探明电子贫化的亲电氧物种O-1驱动了IrO2催化剂水氧化过程",
           "d": "2026-02-26",
-          "a": "",
+          "a": "Doi",
           "c": "通用技术/催化剂",
           "as": "帝国理工学院James Durrant团队结合时间分辨可见光吸收光谱、同步辐射硬/软X射线吸收谱及原位电化学质谱，追踪IrO₂催化剂工作电位下的氧化态演变，证实真正驱动水氧化的活性物种是电子贫化的亲电氧物种O⁻¹而非高价Ir⁵⁺。DFT计算表明Ir中心氧化与氧配体氧化在电位上顺序发生，揭示了水氧化机理中氧配体活化的关键角色。",
           "sc": 6.8,
@@ -175,48 +183,42 @@
           "hb": 1
         },
         {
-          "t": "阳离子立体化学活性孤对电子效应触发铁电半导体中的巨型 Rashba–Dresselhaus 自旋劈裂用于圆偏振光探测",
+          "t": "帝国理工James Durrant探明电子贫化的亲电氧物种O-1驱动了IrO2催化剂水氧化过程",
           "d": "2026-02-26",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究发现铁电半导体中阳离子的立体化学活性孤对效应可触发巨大的Rashba-Dresselhaus自旋劈裂，并将其应用于圆偏振光探测。RD自旋劈裂源于空间反演不对称半导体中的自旋-轨道耦合，是实现自旋光电功能的关键物理机制。研究通过调控含孤对电子阳离子的局部结构畸变，增强了自旋-轨道耦合与反演对称性破缺的协同作用，实现了前所未有的自旋劈裂幅度。该发现为自旋光电探测器、自旋晶体管等自旋电子器件的设计提供了新材料平台和物理基础。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202519568?af=R",
-          "tp": "铁电半导体自旋分裂",
+          "a": "Doi",
+          "c": "通用技术/催化剂",
+          "as": "帝国理工学院James Durrant团队结合时间分辨可见光吸收光谱、同步辐射硬/软X射线吸收谱及原位电化学质谱，追踪IrO₂催化剂工作电位下的氧化态演变，证实真正驱动水氧化的活性物种是电子贫化的亲电氧物种O⁻¹而非高价Ir⁵⁺。DFT计算表明Ir中心氧化与氧配体氧化在电位上顺序发生，揭示了水氧化机理中氧配体活化的关键角色。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s41563-026-02514-9",
+          "tp": "铱催化氧化",
           "aip": 1,
-          "kp": [
-            "[效应]: 孤对电子效应触发巨R-D自旋分裂",
-            "[材料]: 含立体活性孤对电子无机亚硒酸盐"
-          ],
-          "lv": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Rashba-Dresselhaus (RD) spin splitting arising from spin-orbit coupling in spatial inversion asymmetric semiconductors is critical for realizing numerous advanced spintronic applications. However, modulating the RD spin splitting coefficient (αRD) is challenging due to the unclear structural-property relationship. Herein, inspired by highly distorted inorganic selenites containing stereochemically active lone pair (SCALP) electrons, we selected 4-aminomorpholine cation (4AM) containing SCALP electrons to synthesize a new two-dimensional (2D) ferroelectric semiconductor (4AM)2PbBr4, exhibiting a giant αRD of 2.377 eV Å with ΔERD = 126 meV and Δk0 = 0.106 Å-1 that differentiates circularly polarized light-excited carriers in the momentum space via spin-dependent optical transition selection rules with an asymmetric factor of 0.65. A geometric structure-property relationship study reveals that incorporating SCALP into the organic cations enhances their net polarity and induces substantial distortions within the inorganic sublattices that enhance the αRD. This work reveals the regulatory mechanism of organic cations on distortion of inorganic octahedron and provides a new approach for efficient synthesis and rapid screening of 2D ferroelectric semiconductors with large αRD.",
+          "b": "二氧化铱是当前质子交换膜电解槽（PEMWE）主要的析氧催化剂，其在酸性环境中兼具高活性和高稳定性，是研究水氧化机理的常用模型体系。但由于金属氧化物固–液界面下电荷分布高度复杂，并且反应过程中表面物种快速演变难以直接指定，尚未有研究探明水氧化过程中驱动关键步骤产生氧气的活性位点或者活性物质是什么。\n近日，英国帝国理工学院James Durrant教授团队结合时间分辨可见光吸收光谱、同步辐射硬与软X射线吸收谱以及原位电化学质谱，高时间分辨地追踪了氧化铱在工作电位下的氧化态演变，证实了真正驱动水氧化的是电子贫化的亲电氧物种O-1，而高价态Ir5+虽然稳定存在，却不参与速率决定步骤。通过DFT计算构建表面Pourbaix图，并分析Bader电荷变化发现，在较低电位下，氧化主要发生在Ir 5d轨道上，而在更高电位下，随着Ir–O共价性增强，O 2p能级上移并接近费米能级，电子开始从氧配体中被抽取，形成电子贫化的氧物种，表明Ir中心氧化与氧配体氧化在电位上是顺序发生的，而非同步进行。其还结合原位紫外–可见光谱与同步辐射硬 X 射线（Ir L边）和软X射线（O K边）吸收谱，分别追踪铱与氧的价态变化。结果显示，在低电位区间Ir持续被氧化，但当电位高于约1.4 V时，白线峰位置趋于稳定，表明Ir的氧化接近极限；在OER电位区间内，O K边在约529 eV处出现明显增强的特征信号，且仅在第三个氧化阶段同步增强，表明在Ir不再进一步氧化的情况下，电子的抽取转移到了氧配体上，排除了其来源于更高价Ir或结构水的可能性，支持其对应电子贫化的氧物种O-1。时间分辨电位阶跃实验结果表明，在OER核心电位区间内，代表Ir5+的硬X射线信号对电位变化响应缓慢；而代表O-1的光学与软X射线信号则能够快速跟随电位起落，即真正随电压迅速响应并参与反应循环的可能是电子贫化的O-1。在开路电位（OCP）衰减实验中，Ir5+在停止外加电压后基本保持稳定，而O-1则迅速衰减，其衰减时间常数与氧气析出的时间尺度相一致；而每生成一个O2分子，大约对应四个O-1的消耗，且氧气释放量与O-1的累积量呈近线性关系，在实验上证实了O-1累积、O–O键形成与O2释放之间的定量关联。文章于2026年2月26日发表在Nature Sustainability。",
           "hb": 1
         },
         {
-          "t": "孤对电子诱导的极性杂化钙钛矿实现高效稳定的自驱动X射线探测",
+          "t": "[ASAP] 通过超极化分子探针对氨基肽酶活性进行体内多重分析，用于肿瘤诊断应用",
           "d": "2026-02-26",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究通过孤对电子诱导策略设计出极性杂化钙钛矿材料，实现高效稳定的自驱动X射线探测。极性杂化钙钛矿可通过体光伏效应（BPVE）实现稳态自驱动X射线探测，无需外加偏压。引入含孤对电子的阳离子增强了材料内建极化场和载流子分离效率，显著提升了X射线响应灵敏度与探测限。该方案为低剂量医学成像和工业无损检测用直接X射线探测器提供了材料设计新思路。",
-          "sc": 7.0,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "",
+          "sc": 7.5,
           "i": "l",
           "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.5c03797",
-          "tp": "钙钛矿X射线探测",
+          "u": "http://dx.doi.org/10.1021/jacs.5c16910",
+          "tp": "肿瘤诊断分子探针",
           "aip": 1,
-          "kp": [
-            "[设计策略]: 孤对电子诱导构建极性杂化钙钛矿",
-            "[检测机制]: 体光伏效应实现自驱动X射线探测"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Polar hybrid perovskites (HPs) can achieve steady-state self-powered X-ray detection via the bulk photovoltaic effect (BPVE), but effective strategies to induce BPVE remain scarce. Herein, using one-dimensional nonpolar HP (4-MeP)4Pb3Br10 (1, 4-MeP = 4-methylaniline) as a template, we successfully synthesized an unprecedented two-dimensional (2D) polar HP (4-SP)4Pb3Br10·2H2O (2, 4-SP = 4-aminothiophenol) by replacing the C atom in the 4-MeP ligand with an S atom possessing lone pair electrons. Specifically, lone pair electrons on S cause structural distortion and ultimately induce BPVE in 2. Therefore, 2 achieves efficient self-powered X-ray detection with a high sensitivity of 271.8 μC Gy–1 cm–2 under 22 keV average X-ray energy. Meanwhile, it also exhibits a record-breaking sensitivity of 1.1 × 104 μC Gy–1 cm–2 under 31.8 V mm–1 in all 2D single-layer HPs. Importantly, 2 possesses strong ion-migration inhibition, high radiation resistance, and excellent storage stability. Our work provides a strategy for the development and application of HPs with BPVE.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

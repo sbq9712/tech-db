@@ -1,0 +1,101 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月20日　星期一",
+  "date_range": "2025-10-20",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队研发氟氧共配位氟化聚合物，提升宽温准固态电池性能",
+      "学者利用范德华材料实现盐固体离解，构建通用超离子传导机制"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "嫦娥六号月球样品分析确认类CI球粒陨石撞击遗迹"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队研发氟氧共配位氟化聚合物，提升宽温准固态电池性能",
+        "学者利用范德华材料实现盐固体离解，构建通用超离子传导机制"
+      ],
+      "entries": [
+        {
+          "t": "用于宽温准固态电池的氟化聚合物中锂的氟氧共配位",
+          "d": "2025-10-20",
+          "a": "Nature Communications",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-025-64356-4",
+          "tp": "宽温固态电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过范德华材料中盐的固体离解实现通用超离子传导",
+          "d": "2025-10-20",
+          "a": "Nature Energy",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 6.4,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41560-025-01853-2",
+          "tp": "超离子传导",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "嫦娥六号月球样品分析确认类CI球粒陨石撞击遗迹"
+      ],
+      "entries": [
+        {
+          "t": "嫦娥六号月球样品中类 CI 球粒陨石的撞击遗迹",
+          "d": "2025-10-20",
+          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
+          "c": "通用技术/通信和运输/航天",
+          "as": "",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2501614122?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
+          "tp": "月球样品分析",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

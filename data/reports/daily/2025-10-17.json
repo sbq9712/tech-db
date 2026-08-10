@@ -1,0 +1,122 @@
+{
+  "type": "daily",
+  "date_label": "2025年10月17日　星期五",
+  "date_range": "2025-10-17",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "新型原位矿化电解质使水系锌电池阴极能量密度达1000 Wh/Kg",
+      "水基有机太阳能电池引入表面活性剂实现超20%光电转换效率",
+      "优化场均匀化设计成功制备容量达安时级的大型纤维状锂电池"
+    ],
+    "AI与智能科技": [],
+    "通用技术": [
+      "新型双电荷转移COF催化剂实现水和空气中高效光合过氧化氢"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "新型原位矿化电解质使水系锌电池阴极能量密度达1000 Wh/Kg",
+        "水基有机太阳能电池引入表面活性剂实现超20%光电转换效率",
+        "优化场均匀化设计成功制备容量达安时级的大型纤维状锂电池"
+      ],
+      "entries": [
+        {
+          "t": "用于高能水系锌电池的具有电子势阱的原位矿化电解质促进的 1000 Wh Kg−1 阴极",
+          "d": "2025-10-17",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "",
+          "sc": 7.2,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202505342?af=R",
+          "tp": "高能水系锌电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过表面活性剂促进静电相互作用实现效率超过 20% 且具有高厚度公差的水基逐层有机太阳能电池",
+          "d": "2025-10-17",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "",
+          "sc": 6.8,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202508783?af=R",
+          "tp": "水基有机太阳能",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "通过有效场均匀化实现 Ah 级大型纤维状锂离子电池",
+          "d": "2025-10-17",
+          "a": "Wiley: Advanced Materials: Table of Contents",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 6.6,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202506218?af=R",
+          "tp": "纤维状锂电池",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [
+        "新型双电荷转移COF催化剂实现水和空气中高效光合过氧化氢"
+      ],
+      "entries": [
+        {
+          "t": "在高度电荷限制的COF内构建双电荷转移隧道，以实现水和空气中过氧化氢的高效光合作用",
+          "d": "2025-10-17",
+          "a": "National Science Review Advance Access",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf444/8292658?rss=1",
+          "tp": "光催化制过氧化氢",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    }
+  ]
+}

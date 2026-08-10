@@ -6,17 +6,11 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "卡尔斯鲁厄理工学院提出海水电池方案实现储能与淡化集成",
-      "新型分子工程自组装单层技术提升钙钛矿太阳能电池光电效率"
+      "卡尔斯鲁厄理工学院提出海水电池方案，电压达3.48V并集成脱碳功能"
     ],
-    "AI与智能科技": [
-      "研究团队在硅基量子处理器中实现容错通用逻辑门操作",
-      "非晶硒化锗纳米颗粒开关器件实现超低漏电流与高密度存储"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "中国民航二所等完成地沟油制备可持续航空燃料全链条飞行验证",
-      "研究首次在氮化镓铝氮界面观测到高迁移率空穴量子振荡",
-      "研究发现海洋热通风调节南极海冰范围近期极端波动"
+      "民航二所联合中国航油完成地沟油转化航空燃料全链条飞行验证"
     ]
   },
   "sectors": [
@@ -24,22 +18,21 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "卡尔斯鲁厄理工学院提出海水电池方案实现储能与淡化集成",
-        "新型分子工程自组装单层技术提升钙钛矿太阳能电池光电效率"
+        "卡尔斯鲁厄理工学院提出海水电池方案，电压达3.48V并集成脱碳功能"
       ],
       "entries": [
         {
           "t": "卡尔斯鲁厄理工学院Stefano Passerini探讨海水电池的多功能集成潜力",
           "d": "2026-03-24",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
           "as": "卡尔斯鲁厄理工学院Stefano Passerini等提出海水电池（SWBs）一体化解决方案，利用海水中丰富钠离子实现能源存储、海水淡化、碳封存及资源回收多功能集成。SWBs采用开放式正极直接接触海水，核心为NASICON型固体电解质选择性传导Na⁺，理论放电电压约3.48V。NASICON经成分优化后离子电导率达8.6×10⁻⁴S/cm，在海水中长期稳定，钠迁移数近乎100%。该技术有望同时应对能源存储、淡水短缺和碳捕获挑战。",
-          "sc": 5.8,
+          "sc": 6.2,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s44359-026-00158-1",
           "tp": "海水电池",
-          "aip": 1,
+          "aip": 0,
           "kp": [],
           "lv": 1,
           "wr": "",
@@ -48,47 +41,41 @@
           "hb": 1
         },
         {
-          "t": "分子工程化电子选择性自组装单分子层增强倒置钙钛矿太阳能电池准费米能级劈裂",
+          "t": "[ASAP] Confinement-Induced Enrichment in Hollow Multishelled Structure for High-Efficiency Ammonia Electrosynthesis",
           "d": "2026-03-24",
-          "a": "Nature Energy",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究针对钙钛矿太阳能电池中开路电压偏低的核心瓶颈，提出了一种分子工程化的电子选择性自组装单层（SAM）界面修饰策略。在钙钛矿电池中，最大化准费米能级分裂是实现高光电压的关键。传统界面修饰材料难以同时满足能级匹配、缺陷钝化和电荷选择性传输的要求。研究团队通过精确设计SAM分子的锚固基团、共轭骨架和末端官能团，优化了钙钛矿/电子传输层界面的能级排列，有效抑制非辐射复合损失，从而显著提升光电压和光电转换效率。该方案为钙钛矿电池产业化进程中的界面工程提供了通用且可扩展的新范式。",
-          "sc": 6.6,
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 7.2,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-026-02025-6",
-          "tp": "钙钛矿自组装单层",
+          "u": "http://dx.doi.org/10.1021/jacs.6c01046",
+          "tp": "电合成氨技术",
           "aip": 1,
-          "kp": [
-            "[界面材料]: 电子选择性自组装单分子层",
-            "[机制]: 减缓界面提取速率增强准费米能级分裂"
-          ],
+          "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Maximizing quasi-Fermi level splitting is essential for achieving high photovoltage in perovskite solar cells. Conventional strategies that prioritize rapid charge extraction at the perovskite/fullerene interface, can deplete interfacial carrier populations, limiting quasi-Fermi level splitting and photovoltage. Here we demonstrate that rational interface design benefits for slowed extraction rate, preserving interfacial carriers while minimizing non-radiative recombination. We introduce 3PDPA, a molecularly engineered electron-selective self-assembled monolayer at the perovskite/C60 interface. 3PDPA slows electron extraction, anchors undercoordinated Pb2+ ions and forms stable six-membered hydrogen-bonded rings with FA+ cations, delivering robust passivation and excellent chemical stability. 3PDPA further enables π–π interactions with C60, improving interfacial contact and reducing potential fluctuations. Inverted cells incorporating 3PDPA achieve efficiencies of 26.82% for 1.53 eV bandgap cells and 21.2% for 1.77 eV bandgap cells, alongside a T90 lifetime of ~1,000 h under International Summit on Organic Photovoltaic Stability (ISOS-L-3) stress conditions.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         },
         {
-          "t": "分子工程化电子选择性自组装单分子层增强倒置钙钛矿太阳能电池准费米能级分裂",
+          "t": "卡尔斯鲁厄理工学院Stefano Passerini探讨海水电池的多功能集成潜力",
           "d": "2026-03-24",
-          "a": "Nature Energy",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "该研究通过分子工程设计了一种电子选择性自组装单分子层（SAM），用于反式钙钛矿太阳能电池，显著提升了准费米能级劈裂（quasi-Fermi level splitting），从而实现更高的光电压。准费米能级劈裂是决定钙钛矿电池开路电压的核心物理量，传统界面修饰材料难以同时满足能级匹配和缺陷钝化的需求。该分子工程化SAM通过精准调控分子偶极矩和界面能级排列，有效减少了界面非辐射复合损失，提升了器件的光电转换效率。该成果为反式钙钛矿太阳能电池的界面工程提供了新策略，对推动高效稳定钙钛矿光伏商业化具有重要意义。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41560-026-02025-6",
-          "tp": "钙钛矿电池界面",
-          "aip": 1,
-          "kp": [
-            "[界面策略]: 自组装单分子层减缓界面电荷提取",
-            "[物理机制]: 提升准费米能级分裂增大光电压"
-          ],
-          "lv": 0,
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
+          "as": "卡尔斯鲁厄理工学院Stefano Passerini等提出海水电池（SWBs）一体化解决方案，利用海水中丰富钠离子实现能源存储、海水淡化、碳封存及资源回收多功能集成。SWBs采用开放式正极直接接触海水，核心为NASICON型固体电解质选择性传导Na⁺，理论放电电压约3.48V。NASICON经成分优化后离子电导率达8.6×10⁻⁴S/cm，在海水中长期稳定，钠迁移数近乎100%。该技术有望同时应对能源存储、淡水短缺和碳捕获挑战。",
+          "sc": 6.2,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s44359-026-00158-1",
+          "tp": "海水电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Maximizing quasi-Fermi level splitting is essential for achieving high photovoltage in perovskite solar cells. Conventional strategies that prioritize rapid charge extraction at the perovskite/fullerene interface, can deplete interfacial carrier populations, limiting quasi-Fermi level splitting and photovoltage. Here we demonstrate that rational interface design benefits for slowed extraction rate, preserving interfacial carriers while minimizing non-radiative recombination. We introduce 3PDPA, a molecularly engineered electron-selective self-assembled monolayer at the perovskite/C60 interface. 3PDPA slows electron extraction, anchors undercoordinated Pb2+ ions and forms stable six-membered hydrogen-bonded rings with FA+ cations, delivering robust passivation and excellent chemical stability. 3PDPA further enables π–π interactions with C60, improving interfacial contact and reducing potential fluctuations. Inverted cells incorporating 3PDPA achieve efficiencies of 26.82% for 1.53 eV bandgap cells and 21.2% for 1.77 eV bandgap cells, alongside a T90 lifetime of ~1,000 h under International Summit on Organic Photovoltaic Stability (ISOS-L-3) stress conditions.",
+          "b": "随着全球能源转型加速、淡水资源短缺加剧以及大气二氧化碳浓度持续攀升，开发高效、安全、低材料依赖的技术已成为迫切需求。传统锂离子电池受关键矿产限制，且存在安全隐患；常规海水淡化和碳捕获技术则能耗高昂、相互独立运行。卡尔斯鲁厄理工学院Stefano Passerini等人提出海水电池（SWBs）有望成为一体化解决方案：直接利用海水中丰富的钠离子，实现能源存储、海水淡化、碳封存及资源回收的多功能集成。\nSWBs采用开放式正极架构，直接与天然海水接触，核心组件为NASICON型钠超离子导体固体电解质。该电解质选择性传导Na⁺，将海水正极与封闭负极有机电解液隔开。充电时，Na⁺从海水跨膜迁移至负极还原为钠金属或存储于活性材料，同时正极发生析氧反应（OER）；放电时，钠氧化返回海水，正极发生氧还原反应（ORR），生成NaOH。理论放电电压约3.48 V，整个过程通过钠循环与氧气氧化还原实现可逆储能。\n材料创新显著提升性能。NASICON经成分优化（如Na₃.₁Zr₁.₅₅Si₂.₃P₀.₇O₁₁），离子电导率提升至8.6×10⁻⁴ S cm⁻¹，在海水中长期稳定，近乎100%钠迁移数，有效阻挡Mg²⁺、Ca²⁺等多价离子。正极采用N掺杂生物质碳或无定形MnO₂等非贵金属双功能催化剂，结合TiC改性钛集流体，显著降低过电位、抑制氯析出并提高功率密度。负极则通过钠-联苯（Na-BP）氧化还原介质、硬碳半液态电极及垂直排列电极结构（VAES），实现无枝晶沉积，面积容量达70-75 mAh cm⁻²，循环寿命超过5000小时。系统从纽扣电池扩展至棱柱电池和5S4P模块，能量密度提升至242 Wh L⁻¹，已可驱动海上浮标灯。\n在淡化模式下，SWBs结合阴离子交换膜（AEM），充电时Na⁺与Cl⁻同步分离，提取约22.2 kg盐/m³海水，产出低盐水并通过放电回收44.16 kWh/m³能量。比传统反渗透（3.7-5.3 kWh m⁻³）能耗更低，且可结晶回收高纯工业盐。\n放电过程中生成的NaOH使正极区pH升至8.7-13，与海水中Mg²⁺、Ca²⁺及大气/烟气CO₂反应，生成稳定碳酸盐（如方解石、菱镁矿），实现被动矿化封存。每kWh电能可捕获约37.3 g CO₂。\n通过充电（储能+淡化+氯气生成）与放电（能量回收+碳捕获）模式切换，SWBs理论上可形成闭环：150 m³/天处理规模下，日产2600 kg氯气、捕获640-1280 kg CO₂，净能耗仅为传统独立工艺的1/3.5。氯气水解问题可通过酸化与AEM分离解决，残余盐度则辅以低压反渗透抛光。\n尽管实验室原型已验证各功能，但全面集成仍面临多反应动力学缓慢、NASICON长期耐久性（生物污损、结垢）、界面稳定及规模化制造挑战。未来需开发级联催化剂、表面改性膜、数字孪生优化及试点验证，并开展严格的技术经济与生命周期评估，以推动SWBs从实验室走向海洋与工业应用。文章于2026年3月24日发表在Nature Reviews Clean Technology。",
           "hb": 1
         }
       ]
@@ -96,74 +83,23 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "研究团队在硅基量子处理器中实现容错通用逻辑门操作",
-        "非晶硒化锗纳米颗粒开关器件实现超低漏电流与高密度存储"
-      ],
-      "entries": [
-        {
-          "t": "硅量子处理器中的普适逻辑操作",
-          "d": "2026-03-24",
-          "a": "Nature Nanotechnology",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "硅基量子处理器在容错量子计算领域取得重要突破。研究团队展示了在硅量子比特平台上实现通用逻辑门操作的能力，通过量子纠错码对环境噪声引起的错误进行主动校正，使逻辑量子比特的可靠性显著提升。该成果验证了硅基平台在可扩展量子计算中的工程可行性，为未来大规模容错量子计算机的构建提供了关键的技术基础，有望加速量子计算从实验室向实际应用的转化进程。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41565-026-02140-1",
-          "tp": "硅量子逻辑运算",
-          "aip": 1,
-          "kp": [
-            "[硅量子计算]: 逻辑比特实现通用逻辑操作",
-            "[容错计算]: 硅平台逻辑比特编码纠错"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Quantum errors induced by environmental noise are unavoidable and preclude the direct implementation of practical quantum computation. Fault-tolerant quantum computation offers one of the viable paths, necessitating the encoding and processing of information within logical qubits to curb such errors. Although substantial progress has been achieved recently in building silicon quantum computers, logical operations still haven’t been realized in silicon. Here we demonstrate a logical quantum processor using a phosphorus donor cluster in silicon. By implementing the [[4, 2, 2]] code, we realize the essential components for logical operations, which include fault-tolerant preparation of logical states and the characterization of a universal gate set comprising logical single-qubit and two-qubit gates. In particular, the logical T gate is achieved using the gate-by-measurement method, and magic states based on this gate are prepared. Furthermore, we execute the variational quantum eigensolver algorithm using two logical qubits and simulate the ground state of the electronic structure of the water molecule H2O. This work represents a key step towards scalable, fault-tolerant quantum computation in silicon spin qubits.",
-          "hb": 1
-        },
-        {
-          "t": "超低泄漏电流丝状导电非晶硒化锗纳米颗粒双稳态阈值开关选择器",
-          "d": "2026-03-24",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究开发非晶硒化锗（GeSe）纳米颗粒基双向阈值开关（OTS）选择器，实现超低漏电流和细丝传导特性。随着存储容量增大和高并行计算需求提升，存储器件集成密度亟需突破。OTS选择器可串联在存储单元前端抑制 sneak current（偷漏电流），从而允许可堆叠交叉阵列架构。非晶GeSe纳米颗粒均匀性优于薄膜沉积，漏电流显著降低，开关比与均匀性满足高密度存储选通要求。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523102?af=R",
-          "tp": "选通管存储器件",
-          "aip": 1,
-          "kp": [
-            "材料体系[OTS选通管]: 非晶GeSe纳米颗粒",
-            "[架构]: 3D堆叠交叉点存储",
-            "目标指标[OTS选通管]: 超低关断电流与低阈值电压"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    Both large‐capacity storage and high‐parallel computing demand a significant boost in integration density of memory chips at advanced technological nodes. This necessitates selector components in 3D stackable cross‐point architectures to achieve an ultralow leakage current (\n                    I\n                    off\n                    ) and a relatively low threshold voltage (\n                    V\n                    th\n                    ). However, conventional ovonic threshold switching (OTS) selectors cannot optimize these two properties simultaneously due to their conflicting physical attributes. To overcome this challenge, we put forward an innovative material design of a thermally‐robust amorphous Ge\n                    2\n                    Se\n                    3\n                    nanoparticle (NP)‐assembled nanolayer, by which the resulting selectors have achieved an unprecedentedly low\n                    I\n                    off\n                    of ∼pA, an impressively high selectivity of ∼10\n                    8\n                    , a low\n                    V\n                    th\n                    of ∼2.4 V, and commendable\n                    V\n                    th\n                    reliability, outperforming existing OTS selectors. Through in situ off‐axis electron holography characterizations, we have presented evidence of nanoscale filamentary conduction within the individual NPs, revealing subthreshold‐conduction and switch‐on behaviors that have hitherto not been directly observed. Our work will inspire further exploration of novel amorphous chalcogenide NPs and deeper research on filamentary conduction physics, advancing the pursuit of superior access performances in OTS selectors.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "中国民航二所等完成地沟油制备可持续航空燃料全链条飞行验证",
-        "研究首次在氮化镓铝氮界面观测到高迁移率空穴量子振荡",
-        "研究发现海洋热通风调节南极海冰范围近期极端波动"
+        "民航二所联合中国航油完成地沟油转化航空燃料全链条飞行验证"
       ],
       "entries": [
         {
           "t": "中航油和民航等企业联合参与的可持续航空燃料全链条项目实现航班加注飞行",
           "d": "2026-03-24",
-          "a": "",
+          "a": "Caacsri",
           "c": "通用技术/通信和运输/航空",
           "as": "中国民航二所联合中国航油、南航等企业的星火项目实现多架加注可持续航空燃料（SAF）的航班飞行。项目完成从餐厨废弃油脂（地沟油）回收、怡斯莱张家港工厂燃料生产、成都双流机场SAF掺混加注到航司飞行的全链条验证，依托自主航空燃料可持续性认证体系和全流程溯源管理。核算显示每吨SAF可实现3.3吨CO₂减排。SAF溢价由华融化学、希音等企业承担，用于抵消员工差旅和货物运输碳排放。",
-          "sc": 6.9,
+          "sc": 6.8,
           "i": "n",
           "tg": "产业进展",
           "u": "https://www.caacsri.com/support/detail/2168.html",
@@ -177,42 +113,42 @@
           "hb": 1
         },
         {
-          "t": "氮化镓中的高迁移率空穴及其量子振荡",
+          "t": "中航油和民航等企业联合参与的可持续航空燃料全链条项目实现航班加注飞行",
           "d": "2026-03-24",
-          "a": "Nature Electronics",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "氮化镓（GaN）广泛应用于固态照明和高性能射频及功率电子器件，但因空穴掺杂效率低、迁移率差，p型GaN的量子振荡从未被观测到。本研究在GaN/AlN界面通过极化诱导产生高迁移率二维空穴气，空穴简并占据两个价带，首次实现了GaN中空穴的量子振荡观测，为价带和空穴输运工程研究开辟了新途径。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01590-8",
-          "tp": "氮化镓空穴",
+          "a": "Caacsri",
+          "c": "通用技术/通信和运输/航空",
+          "as": "中国民航二所联合中国航油、南航等企业的星火项目实现多架加注可持续航空燃料（SAF）的航班飞行。项目完成从餐厨废弃油脂（地沟油）回收、怡斯莱张家港工厂燃料生产、成都双流机场SAF掺混加注到航司飞行的全链条验证，依托自主航空燃料可持续性认证体系和全流程溯源管理。核算显示每吨SAF可实现3.3吨CO₂减排。SAF溢价由华融化学、希音等企业承担，用于抵消员工差旅和货物运输碳排放。",
+          "sc": 6.8,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://www.caacsri.com/support/detail/2168.html",
+          "tp": "可持续航空油",
           "aip": 1,
           "kp": [],
-          "lv": 0,
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Gallium nitride (GaN) is used in solid-state lighting and in high-performance radio frequency and power electronics. However, due to inefficient hole doping and low hole mobility, quantum oscillations in p-type GaN have not been observed, which limits studies of valence bands and hole transport engineering. Here we report high hole mobilities in a polarization-induced two-dimensional hole gas at a gallium nitride/aluminium nitride interface. The holes degenerately occupy two valence bands of GaN—the light-hole and heavy-hole bands—and have mobilities of 2,000 cm2 V−1 s−1 and 400 cm2 V−1 s−1 at 2 K, respectively. We use Shubnikov–de Haas oscillations of holes from both valence bands to extract their respective sheet densities and quantum scattering times and the effective masses of light holes and heavy holes. The hole mobilities of our heterostructure highlight the possibility of developing cryogenic GaN complementary metal–oxide–semiconductor technology with potential applications in quantum computing control electronics.",
+          "b": "3月24日，中国民航第二研究所在官网发文称，其联合中国航油、南航等企业参与的星火项目实现多架加注可持续航空燃料（SAF）的航班起飞。文中称，该项目可实现SAF从原料收集、生产、储运、加注，到燃烧使用、减排量核算、环境权益传递与声明的全链条实践验证。其从餐厨厂的废弃食用油脂（UCO，俗称地沟油）原料回收，到怡斯莱张家港SAF工厂的燃料生产，到中国航油西南公司在成都双流机场的SAF掺混和加注，再到航司的SAF飞行应用，整体依托自主航空燃料可持续性认证体系、全流程溯源管理。核算结果显示，每吨SAF可实现3.3吨的CO2减碳效果。项目大部分SAF溢价则有华融化学、希音公司和民航二所SAF中心承担，用于抵消其企业员工差旅、货物运输的相关碳排放。",
           "hb": 1
         },
         {
-          "t": "海洋热通风调节南极海冰范围的近期极端情况",
+          "t": "Ab Initio 数据驱动机器学习模拟 MoS2 上 Mn 团簇的重建机制和 NH3-SCR 动力学",
           "d": "2026-03-24",
-          "a": "Proceedings of the National Academy of Sciences: Keyword search for query",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "南极海冰范围近几十年经历了前所未有的剧烈波动：2015年前持续扩张，此后骤然转为持续下降。研究利用二十余年冰下Argo浮标观测数据，发现海洋热通风在年际尺度上调节了海冰极端变化。2007至2015年间，威德尔海和东南极近岸的海洋温跃层变暖变浅，威德尔海贡献尤为显著。",
-          "sc": 6.8,
+          "a": "Wiley: Advanced Energy Materials: Table of Contents",
+          "c": "通用技术/催化剂",
+          "as": "",
+          "sc": 7.3,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.pnas.org/doi/abs/10.1073/pnas.2530832123?mi=eymic2&af=R&access=on&content=articlesChapters&publication=pnas&sortBy=Earliest&target=default",
-          "tp": "海冰热通风",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.70851?af=R",
+          "tp": "SCR动力学模拟",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Antarctic sea ice extent (SIE) has experienced unprecedented variability in recent decades, with record expansion through 2015, followed by an abrupt transition to sustained decline. Using over two decades of under-ice Argo float observations, we show that changes in ocean heat ventilation have modulated these extreme sea ice variations on interannual timescales. Between 2007 and 2015, the ocean thermocline warmed and shoaled within the Weddell Sea and off East Antarctica, with the former accounting for most of the interannual variability in Antarctic SIE. After 2016, as Antarctic SIE declined, surface salinity increased, enhancing exchange between the sharpened thermocline and surface waters. Idealized modeling of the Weddell Sea indicates that these upper ocean trends were due to concurrent variations in wind-driven Ekman upwelling and precipitation. During the sea ice expansion phase, increased precipitation enhanced ocean stratification, suppressing the upward flux of subsurface heat while promoting sea ice growth. However, between 2014 and 2016, a nearly three-fold increase in upwelling rates weakened the upper ocean stratification, releasing the accumulated subsurface heat. Though a similar sequence of events occurred along the East Antarctic margin, distinct upper-ocean trends and surface forcing in the Pacific sector of the Southern Ocean imply alternative drivers of recent sea ice loss in that region. Nevertheless, these results suggest that future multiyear Antarctic SIE variability will depend on the competing influences of wind-driven upwelling and surface freshwater fluxes.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }

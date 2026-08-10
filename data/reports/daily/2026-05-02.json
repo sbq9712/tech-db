@@ -6,97 +6,55 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "三足自组装单层诱导界面优化实现钙钛矿硅叠层电池效率超31%",
-      "刚性柔性柱撑共掺杂策略提升钠离子正极材料5C倍率循环稳定性",
-      "钙钛矿顶电池界面缺陷钝化降低非辐射复合损失逼近理论极限效率"
+      "Titan Batteries荷兰蒂尔堡无人机电池工厂投运，电芯疑外采Amprius"
     ],
-    "AI与智能科技": [
-      "压电神经调控技术利用超声驱动实现脑深部核团无创电刺激治疗",
-      "生成式AI验证19种氨基酸构建功能性蛋白结构及简化遗传密码可行性",
-      "对称性可重构光电二极管在传感器层直接进行光电流计算降低延迟"
-    ],
-    "通用技术": [
-      "内镜递送聚合物水凝胶在胃酸环境触发分子演化实现溃疡创面密封",
-      "时间分辨共振非弹性X射线散射揭示光驱动C-H活化轨道对称性机制",
-      "胆汁盐衍生物与阳离子表面活性剂形成偏离等电点的非常规阴离子纳米管"
-    ]
+    "AI与智能科技": [],
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "三足自组装单层诱导界面优化实现钙钛矿硅叠层电池效率超31%",
-        "刚性柔性柱撑共掺杂策略提升钠离子正极材料5C倍率循环稳定性",
-        "钙钛矿顶电池界面缺陷钝化降低非辐射复合损失逼近理论极限效率"
+        "Titan Batteries荷兰蒂尔堡无人机电池工厂投运，电芯疑外采Amprius"
       ],
       "entries": [
         {
-          "t": "通过三足SAM诱导界面优化实现钙钛矿/硅叠层太阳能电池效率突破31%",
+          "t": "美国Titan Batteries公司在荷兰的无人机电池包工厂投运",
           "d": "2026-05-02",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "本文报道了钙钛矿/硅叠层太阳能电池效率突破31%的最新成果。通过优化钙钛矿顶电池的界面工程和钙钛矿吸光层的组分调控，同时改进隧穿复合结的载流子传输性能，显著降低了非辐射复合损失和光学损耗。该研究在叠层电池的光学匹配和电学耦合方面取得了关键突破，进一步逼近理论极限效率，为钙钛矿/硅叠层光伏技术的商业化量产和取代传统单结晶硅电池迈出了重要一步。",
-          "sc": 7.8,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00313",
-          "tp": "钙钛矿硅叠层电池",
-          "aip": 1,
-          "kp": [
-            "转换效率[钙钛矿/硅叠层]: >31%",
-            "[界面优化]: 三足型SAM自组装单层"
-          ],
-          "lv": 0,
+          "a": "Titanbatteries",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "美国Titan Batteries宣布其位于荷兰Tilburg的无人机电池工厂投入运行，宣称可为欧洲无人机企业生产硅基负极大容量电池包。但据DroneXL.co报道，该工厂可能仅为电池包组装厂，电芯采用Amprius Technologies的11.1-44.2Ah产品外采供应，实际自产能力存疑。",
+          "sc": 5.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://titanbatteries.eu/blogs/titan-europe-news-blog/titan-batteries-sets-a-new-global-standard-with-eu-production-launch-at-the-energy-conversion-campus-at-bosch-premises-in-tilburg-the-netherlands",
+          "tp": "无人机电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
+          "b": "5月2日，美国锂电公司Titan Batteries（气枪、无人机用电池）在官网发文称，其位于荷兰Tilburg的无人机（UAV）电池工厂投入运行；宣传可为欧洲本地无人机企业生产采用硅基负极的大容量电池包。据Titan Batteries公布信息显示，其无人机电芯采用Amprius Technologies公司的11.1-44.2Ah产品。\n美国媒体DroneXL.co也指出，该工厂可能只是电池包组装厂，电芯可能仍是外采供应。",
+          "hb": 1
         },
         {
-          "t": "[ASAP] 通过三脚架型自组装单层诱导界面优化实现钙钛矿/硅叠层太阳能电池超31%效率",
+          "t": "美国Titan Batteries公司在荷兰的无人机电池包工厂投运",
           "d": "2026-05-02",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "研究通过三足构型自组装单分子层（SAM）诱导界面优化，在钙钛矿/硅叠层太阳能电池中实现超过31%的光电转换效率。三足锚定分子提供了更强的界面结合和缺陷钝化能力，改善了钙钛矿顶电池与硅底电池之间的界面电荷传输。该界面工程策略突破了叠层器件的效率瓶颈，向商业化叠层光伏技术迈进重要一步。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00313",
-          "tp": "钙钛矿叠层电池",
-          "aip": 1,
-          "kp": [
-            "转换效率[钙钛矿/硅叠层电池]: >31%",
-            "界面优化[叠层电池]: 三足构型SAM诱导"
-          ],
-          "lv": 0,
+          "a": "Titanbatteries",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "美国Titan Batteries宣布其位于荷兰Tilburg的无人机电池工厂投入运行，宣称可为欧洲无人机企业生产硅基负极大容量电池包。但据DroneXL.co报道，该工厂可能仅为电池包组装厂，电芯采用Amprius Technologies的11.1-44.2Ah产品外采供应，实际自产能力存疑。",
+          "sc": 5.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://titanbatteries.eu/blogs/titan-europe-news-blog/titan-batteries-sets-a-new-global-standard-with-eu-production-launch-at-the-energy-conversion-campus-at-bosch-premises-in-tilburg-the-netherlands",
+          "tp": "无人机电池",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "",
-          "hb": 0
-        },
-        {
-          "t": "协同共掺杂的刚性-柔性柱撑稳定高容量钠层状氧化物正极",
-          "d": "2026-05-02",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/钠电池",
-          "as": "该研究提出一种刚性-柔性柱撑协同共掺杂策略，用于稳定高容量钠离子电池正极材料。该正极在4.2V下稳定运行，5C高倍率下循环500次后容量保持率达80%，且已实现公斤级批量可扩展制备。该策略通过晶格结构刚性支撑与柔性缓冲的协同效应抑制循环过程中的结构退化，为钠离子电池正极的工程化量产提供了切实可行的路径。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73078?af=R",
-          "tp": "钠离子电池正极",
-          "aip": 1,
-          "kp": [
-            "容量保持率[5C/500圈]: 80%",
-            "电压[O3型钠正极]: 4.2V",
-            "[策略]: 协同共掺杂刚柔柱撑",
-            "[规模化]: 千克级+Ah级软包电池"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "at 4.2 V, retains 80% after 500 cycles at 5C. Furthermore, the cathode is scalable to kilogram batches. With excellent coin and Ah-scale pouch-cell performance, it shows guidance of design and commercial promise for high-voltage O3-type cathodes.",
+          "b": "5月2日，美国锂电公司Titan Batteries（气枪、无人机用电池）在官网发文称，其位于荷兰Tilburg的无人机（UAV）电池工厂投入运行；宣传可为欧洲本地无人机企业生产采用硅基负极的大容量电池包。据Titan Batteries公布信息显示，其无人机电芯采用Amprius Technologies公司的11.1-44.2Ah产品。\n美国媒体DroneXL.co也指出，该工厂可能只是电池包组装厂，电芯可能仍是外采供应。",
           "hb": 1
         }
       ]
@@ -104,154 +62,14 @@
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "压电神经调控技术利用超声驱动实现脑深部核团无创电刺激治疗",
-        "生成式AI验证19种氨基酸构建功能性蛋白结构及简化遗传密码可行性",
-        "对称性可重构光电二极管在传感器层直接进行光电流计算降低延迟"
-      ],
-      "entries": [
-        {
-          "t": "压电神经调控丘脑底核改善帕金森病运动与非运动症状",
-          "d": "2026-05-02",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "传统深脑刺激(DBS)通过植入电极有效治疗帕金森等神经系统疾病，但手术侵入性强、感染风险高。本研究提出压电神经调控丘脑底核的新策略，利用压电材料在外部超声驱动下产生局部电信号，实现对脑深部核团的无创或微创电刺激。该方法可避免传统电极植入手术的诸多并发症，同时精准调控丘脑底核神经活动，显著改善运动障碍症状。这一技术路线为神经退行性疾病的长期治疗提供了更安全的替代方案，具有临床转化潜力。",
-          "sc": 7.4,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aec6955?af=R",
-          "tp": "压电神经调控",
-          "aip": 1,
-          "kp": [
-            "调控方式[帕金森STN]: 超声响应压电纳米颗粒微创无线神经调控",
-            "动物模型[PD]: 6-OHDA诱导帕金森病小鼠模型"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Traditional deep-brain stimulation via implanted electrodes can effectively treat neurological disorders, but surgical injury limits its clinical application. Here, we developed ultrasound-responsive piezoelectric nanoparticles for minimal-invasive and wireless neuromodulation. In the 6-OHDA-induced Parkinson's disease (PD) mouse model, these nanoparticles are injected into the subthalamic nucleus (STN) of the mouse brain. After ultrasound stimulation for several days, the motor behavior, particularly gait abnormalities and nonmotor symptoms such as pain and anxiety, in PD mice is alleviated without detectable toxicity. The piezoelectric nanoparticles can activate the STN area of the mouse after ultrasound stimulation. Our results demonstrate that piezoelectric-mediated neuromodulation of the STN reverses motor deficits in PD by modulating neural signals, thereby protecting dopaminergic neurons and enhancing levels of the neurotransmitter dopamine. This process can rescue and mitigate mitochondrial dysfunction and neuroinflammation in the nigrostriatal pathway. Our approach enables STN neuronal activation with minimal invasiveness, offering a promising strategy for treating neurodegenerative diseases.",
-          "hb": 1
-        },
-        {
-          "t": "通过生成式AI设计迈向19种氨基酸字母表的生命",
-          "d": "2026-05-02",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "借助生成式人工智能，研究探索仅用19种氨基酸字母构建生命的可行性。已知所有生物至少依赖20种标准氨基酸，该工作从理论上论证了精简氨基酸字母表的化学可能性，并通过AI设计出功能性蛋白结构。这一方向不仅挑战了生命化学的最小必需组成，也为合成生物学中构建简化遗传密码体系奠定基础，对理解生命起源和设计工业用微型蛋白具有深远意义。",
-          "sc": 7.2,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.aeb5171?af=R",
-          "tp": "AI简化氨基酸设计",
-          "aip": 1,
-          "kp": [
-            "[合成生物学]: 19氨基酸字母表构建生命"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Because all known living organisms are made from at least 20 canonical amino acids, the feasibility of life using a more simplified alphabet remains unclear. In this work, we leveraged computational design and synthetic biology to explore building a cell from a 19-amino acid alphabet. Initial analyses suggested that isoleucine (Ile) may be dispensable, which we confirmed by directly replacing Ile residues in essential proteins in Escherichia coli. Critically, protein language models and structure-based models were necessary to redesign functional Ile-less proteins in most cases. We systematically replaced all 382 Ile residues from the ribosome and combined 21 redesigned subunits at a native genomic locus to produce a viable, evolutionarily stable cell. This work provides a roadmap to create the first 19-amino acid organism since early evolution.",
-          "hb": 1
-        },
-        {
-          "t": "一种用于传感与计算的结构可重构光电二极管",
-          "d": "2026-05-02",
-          "a": "Nature Electronics",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究人员提出一种对称性可重构光电二极管，可在传感器层面直接进行光电流计算，突破传统冯·诺依曼架构中数据在传感器与处理器间反复搬运的功耗瓶颈。该器件利用光电二极管的对称性可切换特性，将感光与计算功能融合，实现原域计算（in-sensor computing），大幅降低智能边缘设备的能耗与延迟。这对物联网、可穿戴设备和自动驾驶等对功耗极度敏感的场景具有重要意义。当前挑战在于器件的工艺一致性、规模化集成以及与现有CMOS工艺的兼容性。该方向属于传感计算融合的前沿探索，距离大规模商用预计需3-5年。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41928-026-01617-0",
-          "tp": "可重构光电二极管",
-          "aip": 1,
-          "kp": [
-            "[器件]: 对称性可重构光电二极管",
-            "[计算模式]: 传感器级光电流直接计算"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Direct photocurrent computation at the sensor level could be used to address the stringent power constraints of smart edge applications such as microrobots and wearable electronics. However, the lack of viable device models and scalable integration methodologies restricts the implementation of such direct photocurrent computation. Here we report a symmetry-reconfigurable photodiode for sensing and computing. This device is based on silver bismuth sulfide, which is patterned between two high-work-function electrodes to form symmetrical back-to-back Schottky junctions; voltage programming can be used to induce a reversible symmetry-to-asymmetry transition via a localized electrochemical reduction of silver ions, lowering the Schottky barrier on one side of the device. As a result, the device can generate non-volatile, bipolar weights for in-sensor direct photocurrent computation. It is also fully compatible with thin-film transistor read-out circuits. We show that the approach can be used for infrared transmissive imaging as well as eye image recognition and actuator control.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "内镜递送聚合物水凝胶在胃酸环境触发分子演化实现溃疡创面密封",
-        "时间分辨共振非弹性X射线散射揭示光驱动C-H活化轨道对称性机制",
-        "胆汁盐衍生物与阳离子表面活性剂形成偏离等电点的非常规阴离子纳米管"
-      ],
-      "entries": [
-        {
-          "t": "[ASAP] 可内窥镜递送的聚合物粘合剂：pH触发多重分子演化用于胃溃疡修复",
-          "d": "2026-05-02",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "研究开发了可通过内镜递送的聚合物粘附水凝胶，具有pH触发多重分子演化功能，用于胃溃疡修复。该材料解决了内镜递送、湿态粘附和胃酸环境稳定性三大挑战。进入胃部后，在酸性pH触发下发生多重分子结构演化，实现与溃疡创面的强韧粘附和组织密封，为微创消化道溃疡治疗提供了新型生物医用粘合剂。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04947",
-          "tp": "pH响应水凝胶",
-          "aip": 1,
-          "kp": [
-            "材料组成[胃溃疡粘附剂]: β-羧酸酰胺功能化N-丙烯酰苯丙氨酸+羟乙基丙烯酰胺共聚物",
-            "响应机制[PNMH]: 酸诱导质子化→β-羧酸酰胺水解的顺序pH响应",
-            "递送方式[胃溃疡修复]: 内镜可递送的湿粘附水凝胶"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Hydrogel adhesives show promise for gastric ulcer treatment, while facing challenges in endoscopic delivery, wet adhesion, and long-term gastric retention. Here, we engineered a sequential pH-responsive adhesive (PNMH) by polymerizing β-carboxylic-amide-functionalized N-acryloyl phenylalanine and hydroxyethyl acrylamide. Acid-induced protonation followed by hydrolysis of the β-carboxylic amide drives a pH-triggered quadruple evolution of intermolecular interactions from electrostatic repulsion to hydrophobicity-assisted hydrogen bonding, then to hydrophobicity-assisted electrostatic interaction, and finally to cation-π interaction. This unique mechanism enables facile endoscopic administration of PNMH and ultrafast gelation within ∼4 s upon exposure to gastric acid, forming a robust network and simultaneously displacing interfacial water to achieve immediate tissue adhesion (∼24.1 kPa). Furthermore, the interfacial adhesion strength with wet gastric tissue progressively intensifies to 34.3 kPa in the early stage of hydrolysis while maintaining long-term interfacial integration over 30 days under simulated gastric conditions. Moreover, PNMH exhibits a prolonged in vivo residence time of more than 4 days through in situ injection into the rat stomach. Rat and pig experiments demonstrate that PNMH, as a durable shield, protects ulcers from gastric acid/pepsin erosion and orchestrates healing through attenuating immune activation, suppressing matrix metalloproteinase-9 overexpression and promoting cytoskeleton-driven restoration of the mucosal barrier. Our work presents an advanced molecular design strategy for gastric-resistant polymer adhesives and provides a promising candidate for clinical gastric ulcer treatment.",
-          "hb": 1
-        },
-        {
-          "t": "时间分辨共振非弹性X射线散射揭示轨道对称性匹配如何实现C–H活化",
-          "d": "2026-05-02",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究利用时间分辨共振非弹性X射线散射（trRIXS）技术，揭示了过渡金属配合物介导的光驱动C-H活化反应中轨道对称性的关键作用。C-H活化通常经由σ-络合物中间体进行，RIXS能够实时探测金属中心的轨道占据与对称性演化，为理解光化学反应机理提供了前所未有的原子轨道层面实验证据。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c05747",
-          "tp": "C-H键活化催化机理",
-          "aip": 1,
-          "kp": [
-            "[表征方法]: 时间分辨共振非弹性X射线散射",
-            "[机理]: 轨道对称匹配实现C-H活化",
-            "[中间体]: 金属-烷烃σ络合物"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Photochemical C-H activation reactions mediated by transition metal complexes often proceed via the formation of σ-complexes. In these intermediates, the metal center coordinates to a C-H σ-bond, and metal-ligand donation and back-donation interactions ultimately lead to C-H bond cleavage. Because metal-alkane σ-complexes are weakly bond and short-lived, current experimental methods provide limited access to the transient electronic-structure effects that control their reactivity. Here, we photochemically prepared three different types of Rh-alkane σ-complexes in solution and demonstrate how optical pump and X-ray probe spectroscopy gives access to their decisive valence-electron interactions. With femtosecond-resolution and Rh specific X-ray absorption spectroscopy (XAS) and resonant inelastic X-ray scattering (RIXS) at the Rh L3-edge we access the orbital interactions between the Rh centers, the ancillary ligands and the alkane C-H σ-bonds of the Rh-alkane σ-complexes. Supported by theoretical calculations, we identify spectral fingerprints of Rh-alkane donation and back-donation interactions and find trends for the reactivity of the σ-complexes toward C-H activation. We uncover the particular importance of specific occupied molecular orbitals with specific symmetry in modulating reactivity by providing, channeling and directing electron density via the metal to and from the C-H bond. Elucidating the electronic factors that facilitate C-H bond activation provides a basis for future ligand substitutions aimed at enhancing the reactivity of metal-alkane σ-complexes with enhanced efficiency of the activation step.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 精确化学计量的远中性阴离子纳米管：带相反电荷的表面活性剂的非常规自组装",
-          "d": "2026-05-02",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "静电能驱动相反电荷离子自组装并形成电荷精确平衡的聚集体，这是经典原则。然而本研究打破了这一认知：在水相缓冲液中，将阴离子型胆汁盐衍生物与阳离子型十六烷基三甲基溴化铵混合时，并未遵循严格的化学计量电荷中和，而是自组装形成了远中性（偏离等电点）的阴离子纳米管。这种由相反电荷表面活性剂构成的非常规组装体，其结构稳定性不依赖于正负电荷1:1配对，而是由分子几何形状和胆汁盐刚性骨架主导。该发现为理解非化学计量自组装机制提供了新视角，在药物递送、纳米反应器设计及生物膜模拟等领域具有潜在应用价值。",
-          "sc": 5.6,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21811",
-          "tp": "纳米管组装",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Electrostatic energy plays a pivotal role in the minimization of the free energy of self-assembling oppositely charged ions. This is a fundamental principle that guides the formation of aggregates and the separation of phases characterized by a stoichiometric balance between the opposite charges. However, this study unveils the self-assembly of catanionic nanotubes from a mixture of oppositely charged surfactants in aqueous buffer, comprising an anionic bile salt derivative and the cationic cetyltrimethylammonium bromide (CTAB) at an exact strongly unbalanced charge ratio of 9 anions to 1 cation. This anomalous aggregation leads to the formation of highly stable and ordered supramolecular nanotubes with a uniform cross-section of about 20 nm. The key to this behavior lies in the unique, rigid, and facial amphiphilic structure of the bile salt derivative, allocating hydrogen bond donors/acceptors and an aromatic residue, which promotes geometrically constrained derivative-derivative interactions. This facilitates the assembly of the anionic derivative into parallel, helically wrapped, negatively charged ribbons with interspersed CTAB cations, acting to promote their adhesion. Supramolecular nanotubes are highly valued in nanotechnology for applications such as catalysis and tissue engineering due to their rigidity, intrinsic directionality, and capability for dual compartmentalization (inner cavity and outer surface). The catanionic structures reported here are ordered architectures that allow for a high charge and a minimal interference from free monomers, which are essential for optimizing functions such as material loading. A loading ability was demonstrated here by the nanotube interaction with positively charged carbon dots and gold nanorods.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

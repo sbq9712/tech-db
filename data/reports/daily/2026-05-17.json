@@ -5,251 +5,72 @@
   "main_theme": null,
   "overview": null,
   "headlines": {
-    "零碳产业": [
-      "新技术利用原位钙基材料捕获二氧化碳实现甲醇低温高压产氢",
-      "苯乙基胍盐钝化层提升钙钛矿太阳能电池开路电压与长期稳定性",
-      "电解水阳极反应耦合氧化锌纳米颗粒合成规避析氧反应瓶颈"
-    ],
-    "AI与智能科技": [
-      "光子型概率比特器件实现亚毫伏级概率态精确调谐",
-      "阳离子化策略稳定非筑垒双自由基体系用于磁场传感",
-      "磁场调控微型软体机器人实现切割与缝合等手术功能程序化切换"
-    ],
+    "零碳产业": [],
+    "AI与智能科技": [],
     "通用技术": [
-      "立方相氢化物在超高压条件下观测到两百开尔文以上超导转变",
-      "拓扑衍生生长策略实现单晶二维共价有机框架原子级结构表征",
-      "光谱技术解析金属纳米结构等离激元驱动电子转移共振特异性机制"
+      "西安近代化学研究所建成单颗粒含能材料悬浮燃烧实验装置",
+      "该实验装置通过国家重大科研仪器研制项目验收",
+      "系统采用双激光技术实现含能材料无损悬浮与原位观测"
     ]
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
-      "headlines": [
-        "新技术利用原位钙基材料捕获二氧化碳实现甲醇低温高压产氢",
-        "苯乙基胍盐钝化层提升钙钛矿太阳能电池开路电压与长期稳定性",
-        "电解水阳极反应耦合氧化锌纳米颗粒合成规避析氧反应瓶颈"
-      ],
-      "entries": [
-        {
-          "t": "[ASAP] 甲醇重整结合原位碳捕获的高压制氢",
-          "d": "2026-05-17",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "甲醇作为液态氢载体在低碳氢经济中具有巨大潜力，但传统甲醇重整产氢通常在高温高压下进行，能耗高且安全隐患大。本研究开发了一种基于原位钙基材料捕获CO₂的甲醇重整新技术，可在较低温度下实现高压氢气的连续生成。通过原位CO₂捕获推动反应平衡正向移动，既提高了氢气产率和纯度，又将系统压力有效提升以满足实际应用需求。该策略兼具高能量效率与碳减排优势，为分布式、安全的高纯氢气供应提供了创新工程方案。",
-          "sc": 7.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00747",
-          "tp": "甲醇重整捕碳制氢",
-          "aip": 1,
-          "kp": [
-            "[工艺]: 碱性甲醇重整原位碳捕集联产高压H₂"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Methanol is a promising liquid hydrogen carrier supporting a low-emission practical hydrogen economy. State-of-the-art methanol reformers operate near ambient pressures and produce impure H2 contaminated with CO2 and CO, necessitating further purification and compression for storage, transport, and end-use. Herein, we present the first example of a high-pressure H2 generator, wherein an alkaline methanol solution rapidly generates high-purity H2, free of CO/CO2, using highly active molecular catalysts. At mild temperatures (100–160 °C), pressures up to 456 bar were achieved. Additionally, clean H2 produced from an ambient pressure reformer was directly fed, without purification, into a proton exchange membrane fuel cell at ∼85 °C with stable performance, realizing an integrated reformed methanol fuel cell. A total of 140 L of H2 was generated with catalytic efficiencies peaking at a cumulative TON > 1.12 × 105 and a maximum TOF > 5200 h–1. Overall, this simple, efficient, and versatile H2 generator provides promising system-level advances toward practical energy storage applications.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 抗迁移苯乙基胍盐稳定钙钛矿太阳能电池",
-          "d": "2026-05-17",
-          "a": "ACS Energy Letters: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "针对钙钛矿太阳能电池中陷阱辅助复合导致的效率损失，本研究开发苯乙基胍盐作为新型钝化层。相较于传统苯乙基铵卤化物，胍基阳离子具有更强的氢键网络与迁移抗性，能有效锚定晶界与界面缺陷，抑制离子迁移引发的性能衰减。该策略在提升器件开路电压与长期稳定性方面展现出显著潜力，为高效率钙钛矿电池的工程化封装提供了新路径。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/acsenergylett.6c00737",
-          "tp": "抗迁移胍盐钙钛矿",
-          "aip": 1,
-          "kp": [
-            "钝化层[钙钛矿电池]: 苯乙基胍盐PEGA⁺抗迁移热稳定"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Phenylethylammonium hydrohalide-based passivation layers mitigate trap-assisted recombination in perovskite solar cells by neutralizing defect states and optimizing band bending. However, these layers suffer from thermal instability due to ammonium salt decomposition and bulk migration. To address this, a thermally stable phenylethyl-grafted guanidinium (PEGA+) interfacial layer is introduced. Its delocalized charge distribution, low adsorption energy, and hydrogen-bonding network prevent bulk migration, enhancing stability at elevated temperatures. PEGA+-modified perovskite solar cells (1.55 eV) achieved a power conversion efficiency (PCE) exceeding 26.2%, retaining over 96% of their maximum power after 1100 h and maintaining 89% of their initial performance for 800 h at 85 °C. This strategy is applicable across various device architectures, offering a new molecular design paradigm for long-term interfacial stability in perovskite solar cells.",
-          "hb": 1
-        },
-        {
-          "t": "通过与ZnO纳米颗粒合成直接耦合实现无氧电解水",
-          "d": "2026-05-17",
-          "a": "Joule",
-          "c": "零碳产业/能量循环/能量存储/化学能/氢基能源",
-          "as": "传统电解水受限于缓慢的析氧反应（OER）。该研究提出一种无氧电解水新策略，将阳极反应直接耦合氧化锌（ZnO）纳米颗粒合成，绕过OER瓶颈，同时联产高附加值ZnO纳米材料。该方案既降低能耗又实现资源增值，为绿色制氢和纳米材料制备开辟了协同路径。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.cell.com/joule/fulltext/S2542-4351(26)00161-3?rss=yes",
-          "tp": "无氧电解水制氢",
-          "aip": 1,
-          "kp": [
-            "[策略]: 锌氧化替代析氧反应",
-            "[副产物]: 联产ZnO纳米粒子",
-            "[优势]: 低能耗产氢"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Conventional water electrolysis is limited by the sluggish oxygen evolution reaction. This study shows that zinc oxidation can replace the oxygen evolution reaction, enabling lower-energy hydrogen production while simultaneously generating valuable zinc oxide nanoparticles.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "光子型概率比特器件实现亚毫伏级概率态精确调谐",
-        "阳离子化策略稳定非筑垒双自由基体系用于磁场传感",
-        "磁场调控微型软体机器人实现切割与缝合等手术功能程序化切换"
-      ],
-      "entries": [
-        {
-          "t": "亚毫伏可调光子p比特用于概率计算",
-          "d": "2026-05-17",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "亚毫伏可调谐光子p比特用于概率计算。随机性曾被视为有害噪声，如今正成为智能计算的基础。概率计算利用概率比特（p-bit）进行采样与组合优化求解。该研究提出光子型p比特器件，可在亚毫伏级别实现概率态的精确调谐，具备低功耗、高并行度优势。光子平台可构建大规模概率网络，为求解组合优化与机器学习推断提供硬件加速新路径，有望突破经典冯诺依曼计算架构的瓶颈。",
-          "sc": 7.1,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.aeb9277?af=R",
-          "tp": "光子概率比特",
-          "aip": 1,
-          "kp": [
-            "[器件]: 光诱导偏置可调概率比特",
-            "[调谐电压]: 亚毫伏级",
-            "[应用]: 概率计算"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Randomness, once dismissed as unwanted noise, is now emerging as a foundation for intelligent computation. Probabilistic bits (p-bits), which fluctuate between 0 and 1 with tunable probability, offer a route to solve complex problems through stochastic logic and energy-based optimization. Here, we present light-induced bias-tunable probabilistic-bit (LBP-bit) devices that generate entropy through light-induced charge polarity switching in a back-to-back junction. The probability of each device’s stochastic bitstream can be precisely tuned with submillivolt bias without disturbing the underlying distribution. This unique separation of randomness generation (by light) and probability control (by bias) enables stable control of output probability, essential for scalable probabilistic computing (p-computing). The proposed p-computing framework demonstrates integer factorization as a representative example of probabilistic search on computationally intensive problems. Max-Cut problems, representative combinatorial optimization tasks, are evaluated, demonstrating that light in this device functions as the stochastic source enabling probabilistic computation.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 源自非Aufbau自由基的阳离子双自由基及其在磁致发光与量子比特中的应用",
-          "d": "2026-05-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "该研究报道了一类由非Aufbau自由基衍生而来的阳离子双自由基体系，旨在实现对自由基及双自由基自旋态和电子结构的精确调控。非Aufbau自由基的反常电子排布为构建具有强磁光耦合性质的双自由基提供了新策略。研究通过阳离子化策略稳定开壳层物种，使其兼具磁响应性和发光性能，面向磁致发光（magnetoluminescence）材料的设计。这类材料在量子信息处理、自旋电子学和磁场传感等领域具有潜在应用价值，代表了自由基化学向功能性分子材料拓展的前沿方向。",
-          "sc": 6.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04678",
-          "tp": "阳离子双自由基",
-          "aip": 1,
-          "kp": [
-            "[前驱体]: 非Aufbau型自由基",
-            "[产物]: 阳离子双自由基",
-            "[应用]: 磁致发光与量子比特"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Control over the spin and electronic structures of radicals and diradicals is essential for advancing magnetically responsive optoelectronics and quantum information technologies. Here, we elucidate an electronic structural distinction between cations derived from Aufbau- and non-Aufbau-type radicals through quantum chemical calculations. It shows that the oxidation of Aufbau-type radicals yields closed-shell singlet cations, whereas non-Aufbau-type radicals generate cationic diradicals with nearly degenerate singlet and triplet ground states (S0 and T0). Guided by molecular-orbital energetics, we establish a design principle for creating such cationic diradicals via oxidation of radicals consisting of strongly electron-donating donors and electron-withdrawing radical acceptors. We introduce the BM parameter to quantify the magnetic field required for S0-T0 resonance (magnetoluminescence suitability) and the η parameter to assess spin selectivity for qubit applications. These descriptors provide valuable guidance for future high-throughput screening of materials for magnetoluminescence and qubit applications.",
-          "hb": 1
-        },
-        {
-          "t": "具有磁可重编程手术功能的微型软体机器人",
-          "d": "2026-05-17",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/具身智能/硬件和控制",
-          "as": "该研究开发了一种具备磁控可重编程外科功能的微型软体机器人。这类磁性微型机器人作为无线驱动执行器，有望革新现有微创手术范式。通过外部磁场调控，机器人可实现多种手术功能（如夹持、切割、缝合）的程序化切换，无需物理系绳连接。磁重编程特性使其能够根据手术需求动态调整形态与动作，在靶向药物递送、微创操作和体内诊断等领域具有广阔应用前景，是柔性机器人与精准医学交叉的重要进展。",
-          "sc": 6.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202523056?af=R",
-          "tp": "磁控微型手术机器人",
-          "aip": 1,
-          "kp": [
-            "[器件]: 磁性微型软体机器人",
-            "[功能]: 磁场可重编程多种手术功能",
-            "[性能]: 突破双功能限制五自由度"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Magnetic miniature robots are untethered actuators, which can prospectively make existing minimally invasive surgery considerably safer and painless, and enable unprecedented treatments because they are much smaller and dexterous than existing surgical robots. However, such actuators are restricted to possessing at most two on‐board functionalities, having limited five degrees‐of‐freedom (DOF) locomotion, or are only operational under specialized environments where actuation from strong external magnets must be at very close proximity (&lt;4 cm away). Here we present smart magnetic composites with deliberately engineered symmetry and heterogeneous material properties. Leveraging these composites, we construct a millimeter‐scale soft robot whose magnetization profile can be reprogrammed to dispense drugs, cut through biological tissues, grip and store biological samples, and heat remotely. By possessing full six‐DOF motions, including the sixth‐DOF rotation about its net magnetic moment, our soft robot can also roll and two‐anchor crawl across challenging unstructured environments, which are impassable by its five‐DOF counterparts. Because the applied magnetic fields are relatively uniform and weak (10–30 mT, 0.21–0.31 T/m for actuation; 60–65 mT for reprogramming), they can theoretically penetrate human tissues safely and enable actuation beyond 5 cm.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "立方相氢化物在超高压条件下观测到两百开尔文以上超导转变",
-        "拓扑衍生生长策略实现单晶二维共价有机框架原子级结构表征",
-        "光谱技术解析金属纳米结构等离激元驱动电子转移共振特异性机制"
+        "西安近代化学研究所建成单颗粒含能材料悬浮燃烧实验装置",
+        "该实验装置通过国家重大科研仪器研制项目验收",
+        "系统采用双激光技术实现含能材料无损悬浮与原位观测"
       ],
       "entries": [
         {
-          "t": "[ASAP] 压力稳定立方相(Y,Ce)H10中200 K以上超导的观测",
+          "t": "西安近代化学研究所建成单颗粒含能材料悬浮燃烧实验装置",
           "d": "2026-05-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "在高压稳定的立方相笼型氢化物中观测到200K以上的超导转变温度。笼型氢化物作为高温超导候选材料，在超高压条件下展现出接近常温的超导特性，为探索室温超导机理和新型超导材料提供了重要实验依据。",
-          "sc": 8.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01144",
-          "tp": "钇铈氢化物超导",
-          "aip": 1,
-          "kp": [
-            "Tc[(Y,Ce)H₁₀]: >200K",
-            "结构[(Y,Ce)H₁₀]: 高压稳定面心立方氢化物"
-          ],
-          "lv": 0,
+          "a": "Stdaily",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "西安近代化学研究所牵头研制的单颗粒含能材料悬浮燃烧实验装置建成，通过国家重大科研仪器研制项目验收。该装置使用激光悬浮含能材料颗粒（AlH₃、Al粉等）并用另一束激光点燃，实现无损稳定悬浮、可靠点火及多参量原位高分辨观测，可消除颗粒间干扰，观测燃烧景象、温度变化和反应产物。装置为火箭推进、弹丸发射等含能材料基础研究提供了高精度实验平台。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.stdaily.com/web/gdxw/2026-05/17/content_517803.html",
+          "tp": "单颗粒燃烧",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Clathrate hydrides have attracted considerable attention for their high-temperature superconductivity under high pressure, motivating the enhancement of their superconducting temperature (Tc) through metal doping as a compelling pursuit. Here, we introduce relatively lighter Y into the Ce-H system to tailor its superconductivity, yielding a substituted face-centered cubic (Y,Ce)H10 phase that incorporates a crucial YH10 structural motif unattainable in the binary Y-H system. Remarkably, the resulting (Y,Ce)H10 exhibits superconductivity with a maximum Tc of 206 K, an ∼80% enhancement relative to CeH10, placing it among the very few hydride superconductors that surpass the 200 K regime. Our results demonstrate that the metal element exerts a crucial influence on the superconductivity of clathrate hydrides, with the presence of YH10 units clearly enhancing superconductivity and underscoring elemental substitution as a feasible strategy to further promote superconductivity.",
+          "b": "据科技日报5月17日报道，西安近代化学研究所牵头研制的单颗粒含能材料悬浮燃烧实验装置建成，并通过国家重大科研仪器研制项目结题验收。文中称，含能材料（AlH₃、Al粉等）即是指在外部刺激下，在极短时间内迅速释放大量能量并对外做功的物质，可用于火箭推进、枪炮弹丸发射、焰火表演等场景。单颗粒燃烧研究可以消除颗粒—颗粒间相互干扰，此次建成的实验装置实现了无损稳定悬浮、可靠点火及多参量原位高分辨观测，其使用激光将含能材料颗粒悬浮，并用另一束激光点燃，进而观测其燃烧的直观景象、温度变化和反应产物等。",
           "hb": 1
         },
         {
-          "t": "[ASAP] 基于拓扑衍生策略合成单晶二维双节点共价有机框架",
+          "t": "西安近代化学研究所建成单颗粒含能材料悬浮燃烧实验装置",
           "d": "2026-05-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "该研究实现了单晶二维双节点共价有机框架（2D COFs）的生长，以实现精确的原子级结构解析。传统2D COF多为多晶粉末，难以通过单晶X射线衍射确定精确结构，制约了对构效关系的深入理解。研究团队开发了新型生长策略，成功获得高质量单晶2D COF，实现了双节点连接拓扑的原子级表征。这一突破为理性设计具有定制孔径和功能的COF材料（如气体分离、催化、储能）提供了结构学基础。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c04922",
-          "tp": "单晶二维COF",
-          "aip": 1,
-          "kp": [
-            "[合成策略]: 拓扑衍生sql→衍生网络",
-            "[产物]: 单晶二维双节点[4+4]COF"
-          ],
-          "lv": 0,
+          "a": "Stdaily",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "西安近代化学研究所牵头研制的单颗粒含能材料悬浮燃烧实验装置建成，通过国家重大科研仪器研制项目验收。该装置使用激光悬浮含能材料颗粒（AlH₃、Al粉等）并用另一束激光点燃，实现无损稳定悬浮、可靠点火及多参量原位高分辨观测，可消除颗粒间干扰，观测燃烧景象、温度变化和反应产物。装置为火箭推进、弹丸发射等含能材料基础研究提供了高精度实验平台。",
+          "sc": 5.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.stdaily.com/web/gdxw/2026-05/17/content_517803.html",
+          "tp": "单颗粒燃烧",
+          "aip": 0,
+          "kp": [],
+          "lv": 1,
           "wr": "",
           "cm": "",
-          "b": "Growing single-crystal two-dimensional covalent organic frameworks (2D COFs) for precise atomic-level structural determination presents a formidable yet crucial challenge. Here, we develop a topology derivation strategy to design and synthesize five single-crystal 2D binodal [4 + 4] COFs, transforming the parent edge-transitive sql topology network into two distinct derivative networks with pseudo-bex and pseudo-hcb topologies by strategically varying the symmetry of the organic building blocks. Their precise structures are unambiguously resolved by three-dimensional electron diffraction with a resolution of up to 0.90 Å, and all non-hydrogen atoms are directly located. A systematic structure analysis reveals that the imine bond orientation dictates intralayer arrangements, yielding both planar and unconventional wavy layers. We also observe that all COFs prefer an inclined, staggered AB stacking pattern, with layers inclined along three distinct directions, breaking the diagram that [4 + 4] COFs exhibit AA stacking. Furthermore, we demonstrate that, compared with traditional low-crystallinity powdery phases, single-crystal COFs significantly boost C2H2/CO2 separation performance, underscoring the critical importance of constructing advanced materials with highly ordered structures. Atomically precise structure determination provides a definitive foundation for linking structural order to emergent properties in 2D COFs, pushing the boundaries of reticular chemistry.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 单分子中等离激元驱动的非共振与共振电子转移的观测",
-          "d": "2026-05-17",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "通用技术/催化剂",
-          "as": "该研究深入解析了等离激元驱动电子转移的非共振与共振态特异性机制。利用金属纳米结构的局域表面等离激元（LSPR）效应驱动选择性化学转化是光催化和太阳能转换的核心议题。研究团队通过态分辨的光谱技术，区分了共振通道（等离激元衰减产生热电子直接注入）和非共振通道（近场增强驱动）两种电子转移路径，并阐明了各自的选择性规律。该工作为精准调控等离激元光催化反应路径、提升太阳能到化学能转化效率提供了机制层面的指导。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c21031",
-          "tp": "等离激元电子转移",
-          "aip": 1,
-          "kp": [
-            "[机理]: 区分共振与非共振等离激元驱动单分子电子转移"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Harnessing plasmonic energy to drive selective chemical transformations is central to photocatalysis, solar energy conversion, and molecular optoelectronics. Plasmon-driven chemistry proceeds through nonresonant plasmonic hot electron transfer or more efficient resonant charge transfer, yet cleanly disentangling these channels has remained a long-standing challenge, especially in synthetic nanoparticle systems with heterogeneous molecular environments. Here, using the nanocavity plasmon generated between an Ag tip and individual pentacene molecules on Ag(110) in a scanning tunneling microscopy (STM) junction, we directly unveil both channels with submolecular resolution. Combining chopper-modulated laser excitation with lock-in detection enables plasmon-induced current mapping at 0.3 nm resolution, allowing real-space correlation with frontier molecular orbitals. By tuning photon energy and bias voltage, we identify nonresonant hot-electron transfer via the lowest unoccupied molecular orbital (LUMO) and resonant charge transfer via LUMO + 1, where the resonant pathway markedly accelerates C-H bond breaking.",
+          "b": "据科技日报5月17日报道，西安近代化学研究所牵头研制的单颗粒含能材料悬浮燃烧实验装置建成，并通过国家重大科研仪器研制项目结题验收。文中称，含能材料（AlH₃、Al粉等）即是指在外部刺激下，在极短时间内迅速释放大量能量并对外做功的物质，可用于火箭推进、枪炮弹丸发射、焰火表演等场景。单颗粒燃烧研究可以消除颗粒—颗粒间相互干扰，此次建成的实验装置实现了无损稳定悬浮、可靠点火及多参量原位高分辨观测，其使用激光将含能材料颗粒悬浮，并用另一束激光点燃，进而观测其燃烧的直观景象、温度变化和反应产物等。",
           "hb": 1
         }
       ]

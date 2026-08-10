@@ -1,0 +1,77 @@
+{
+  "type": "daily",
+  "date_label": "2025年11月2日　星期日",
+  "date_range": "2025-11-02",
+  "main_theme": null,
+  "overview": null,
+  "headlines": {
+    "零碳产业": [
+      "科研团队鉴定出新型脱氮嘌呤酰胺键合成酶，拓宽肽基天然产物生物合成路径。",
+      "研究人员开发分子工程共酞菁共价有机框架，提升一氧化氮电还原制氨效率。"
+    ],
+    "AI与智能科技": [],
+    "通用技术": []
+  },
+  "sectors": [
+    {
+      "name": "零碳产业",
+      "review": null,
+      "headlines": [
+        "科研团队鉴定出新型脱氮嘌呤酰胺键合成酶，拓宽肽基天然产物生物合成路径。",
+        "研究人员开发分子工程共酞菁共价有机框架，提升一氧化氮电还原制氨效率。"
+      ],
+      "entries": [
+        {
+          "t": "[ASAP] 脱氮嘌呤酰胺键合成酶：酰胺键形成酶的新家族推动肽基脱氮嘌呤天然产物的多样性",
+          "d": "2025-11-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
+          "as": "",
+          "sc": 7.5,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c13285",
+          "tp": "酰胺键合成酶",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        },
+        {
+          "t": "[ASAP] 分子工程共酞菁共价有机框架，用于高效一氧化氮到氨的电还原",
+          "d": "2025-11-02",
+          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/电化学过程/CO2RR",
+          "as": "",
+          "sc": 7.0,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://dx.doi.org/10.1021/jacs.5c10404",
+          "tp": "一氧化氮电还原",
+          "aip": 1,
+          "kp": [],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "",
+          "hb": 0
+        }
+      ]
+    },
+    {
+      "name": "AI与智能科技",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    },
+    {
+      "name": "通用技术",
+      "review": null,
+      "headlines": [],
+      "entries": []
+    }
+  ]
+}

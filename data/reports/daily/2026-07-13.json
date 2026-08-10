@@ -5,39 +5,118 @@
   "main_theme": null,
   "overview": null,
   "headlines": {
-    "零碳产业": [],
+    "零碳产业": [
+      "中科源本发布342Wh/kg硫化物全固态电池样品并完成实测",
+      "美国能源部宣告三座先进小型模块化核反应堆达到临界状态",
+      "General Fusion完成SPAC合并成纳斯达克首家聚变上市企业"
+    ],
     "AI与智能科技": [
-      "东方算芯发布3D芯片DF1000，14nm工艺实现520TFLOPS算力",
-      "研究实现p型PbS量子点墨水直接合成，简化晶圆级红外成像制备流程",
-      "研究者提出FRID无监督聚类方法，用于识别功能相似的神经元群体"
+      "东方算芯采用14纳米工艺发布520TFLOPS算力3D芯片DF1000",
+      "三星泰勒工厂拟采用2纳米工艺量产特斯拉AI5自动驾驶芯片"
     ],
     "通用技术": [
-      "研究发现微生物还原型黄素在有氧条件下可破坏钛表面钝化膜"
+      "长征十号乙运载火箭一级箭体完成海上网系回收测试",
+      "多主元合金构建分层纳米排序架构实现2.0GPa极低温屈服强度",
+      "攻击-11飞翼布局隐身无人攻击机服役并参与有人机编队协同"
     ]
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
-      "headlines": [],
-      "entries": []
+      "headlines": [
+        "中科源本发布342Wh/kg硫化物全固态电池样品并完成实测",
+        "美国能源部宣告三座先进小型模块化核反应堆达到临界状态",
+        "General Fusion完成SPAC合并成纳斯达克首家聚变上市企业"
+      ],
+      "entries": [
+        {
+          "t": "国内首次！中科源本硫化物全固态电池完成真实场景示范",
+          "d": "2026-07-13",
+          "a": "集邦固态电池",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
+          "as": "青岛中科源本发布车载硫化物全固态电池第一代样品并完成真实场景示范。该电池实测能量密度达342Wh/kg，电芯容量覆盖20Ah至60Ah，最大实测容量78Ah。演示中将电池搭载于智能配送机器人运行并进行破坏测试，未发生起火爆炸，标志着国内硫化物全固态电池首次实现真实场景应用验证。",
+          "sc": 9.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/xskaGMOl-LfNIEwcHsJ2iA",
+          "tp": "固态电池新突破",
+          "aip": 1,
+          "kp": [
+            "能量密度[第一代车载硫化物全固态电池实测]: 342Wh/kg",
+            "电芯容量[车载硫化物全固态电池]: 覆盖20Ah至60Ah车规级范围，最高实测容量达到78Ah",
+            "应用进展[车载全固态电池]: 从样品研发向真实应用场景验证阶段推进"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "国内首次！中科源本硫化物全固态电池完成真实场景示范 集邦固态电池 7月10日，青岛中科源本新能源有限公司在青岛崂山区举办车载硫化物全固态电池第一代样品发布会，发布其研发的车载硫化物全固态电池样品。 图片来源：山东新闻联播 硫化物全固态电池被认为是下一代动力电池的重要技术路线之一，目前国内外企业均在加快相关技术研发和产业化探索。中科源本长期布局硫化物全固态电池领域，本次发布会上公布了第一代车载硫化物全固态电池样品的相关性能数据。 在此次发布会上，中科源本公布了第一代车载硫化物全固态电池样品的相关性能数据。据介绍，该样品实测能量密度达到342Wh/kg，电芯容量覆盖20Ah至60Ah车规级范围，最高实测容量达到78Ah。其中，20Ah级电池完成循环稳定性测试。公司表示，相关性能指标已接近车载应用需求。 据中科源本介绍，本次发布会上，公司完成了车载硫化物全固态电池真实场景应用示范，将相关电池装载于智能配送机器人，并进行运行演示。公司称，这是国内行业首次实现全固态电池在真实应用场景中的公开展示，标志着相关技术从样品研发向应用验证阶段推进。 此外，发布会现场还进行了电池安全性演示。技术人员对运行中的硫化物全固态电池进行破坏测试，电池未出现起火、爆炸现象，并保持运行状态。该测试展示了硫化物全固态电池在安全性方面的技术特点。 中科源本表示，公司后续将继续推进硫化物全固态电池产业化进程，并计划探索在智能无人配送车等场景中的应用。 据了解，中科源本成立于2023年底，总部位于山东青岛崂山区，主要聚焦硫化物全固态电池研发与产业化。公司创始人为中国科学院青岛生物能源与过程研究所研究员武建飞，其团队自2016年起开展硫化物全固态电池相关研究。 在产业化方面，中科源本于2024年12月建成1600平方米小中试线，并于2025年开展中试线运行。目前，公司正推进全固态电池中试量产线建设。公司此前已完成天使轮融资，并获得相关产业支持。（集邦固态电池整理） **【固态电池产业微信群】** #固态电池",
+          "hb": 1
+        },
+        {
+          "t": "【动向】美国能源部宣布小型核反应堆建设达到临界状态",
+          "d": "2026-07-13",
+          "a": "国际能源小数据",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "美国能源部宣布，三座由美国企业建造的先进小型模块化核反应堆已提前达到临界状态，实现2026年7月4日前推进建设的行政令目标。这三座反应堆分别是Antares Nuclear的Mark-0、Valar Atomics的Ward 250以及Deployable Energy的Unity。此外，Aalo Atomics研发的第四座反应堆也在期限前完成临界测试。临界状态标志着核裂变链式反应达到自我维持，是反应堆从建设迈向实际运行的关键节点。",
+          "sc": 9.0,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/5YzAtHOoVcMfB_YFKRPQ_Q",
+          "tp": "小堆临界状态",
+          "aip": 1,
+          "kp": [
+            "[临界状态试点项目要求反应堆数量]: 至少三座",
+            "[临界状态目标达成时限]: 2026年7月4日前",
+            "临界状态[先进核反应堆]: 核裂变链式反应达到自我维持"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "【动向】美国能源部宣布小型核反应堆建设达到临界状态 E Small Data E Small Data 国际能源小数据 美国能源部在7月1日宣布了一项被视为其核能政策标志性成果的进展：三座由美国企业建造的先进核反应堆已相继达到关键运营里程碑——临界状态，从而实现了此前设定的、要在美国独立日前推进小型模块化核反应堆建设的目标。 这一目标的起点要追溯到2025年5月。当时特朗普签署行政令，指示能源部启动一项试点项目，要求至少三座先进核反应堆在2026年7月4日之前达到临界。所谓\"临界\"，是指反应堆内部的核裂变链式反应达到自我维持的状态，是反应堆从建设走向实际运行的关键节点，也是衡量新一代核能技术能否真正落地的重要标尺。 从进展来看，率先完成这一目标的是初创企业Antares Nuclear，其Mark-0反应堆在6月初率先实现初始临界。紧随其后的是Valar Atomics的Ward 250反应堆，同样在6月内完成临界。而将整个目标真正\"提前完成\"的，是7月1日宣布的第三座反应堆——Deployable Energy公司研制的示范反应堆Unity。能源部在当天的公告中确认，Unity反应堆成功实现临界，标志着特朗普行政令设定的目标已经全部达成，比原定的7月4日期限提前了三天。 值得一提的是，进度并未止步于此。美国能源部在爱达荷国家实验室支持的另一座先进反应堆——由Aalo Atomics研发——也在7月4日期限前完成了临界测试，成为达成这一目标的第四座反应堆，进一步超出了最初的预期。 美国能源部在其\"核能复兴\"相关的政策说明中将这一系列进展定位为美国核电扩张战略的一部分。按照特朗普政府的设想，美国核电装机容量要从2024年的约100吉瓦提升到2050年的400吉瓦。为实现这一目标，能源部近年来陆续推出了一系列配套措施,包括为高丰度低浓缩铀（HALEU）供应链提供资金支持、向多家企业发放先进反应堆试点项目资助、通过能源主导融资计划（EDF）为核电项目提供贷款支持等。此次三座（乃至四座）反应堆先后实现临界，被官方视为这些政策组合拳初见成效的证明。 不过，正如美国媒体在报道中提到的，实现临界只是核反应堆走向商业化运行的第一步。从技术验证走向规模化部署、实现经济性和可持续的供应链保障，仍是这些初创企业和美国核电产业接下来需要面对的更艰巨的挑战。换句话说，\"达成7月4日独立日的目标\"更像是一个开端，而不是终点。 **往期推荐** [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728854&idx=1&sn=8d9387d85cf8481fc3d99dbd2be6c205&scene=21#wechat_redirect) 【IEA报告】数据中心的“胃口”有多大？IEA报告：2025年用电激增17%，但AI正从“能源消耗者”转向“能源创造者” [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728564&idx=1&sn=b7fc905f30505872760afb4c04c82e6d&scene=21#wechat_redirect) 【报告】15种关键低碳技术：4种已经可以与化石能源竞争 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651728364&idx=1&sn=e5ee76accbbb8d41ee71e1660f8046b6&scene=21#wechat_redirect) 【图说】2025 全球石油贸易的8个“海上咽喉”要道：最忙的是马六甲海峡，霍尔木兹排第二 [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722735&idx=1&sn=98a1c7a1023f8b41e569b23db2d9d0c3&scene=21#wechat_redirect) 【图说】比一比，中国美国AI模型哪家强？ [](https://mp.weixin.qq.com/s?__biz=MzA5MDc0MzA0OA==&mid=2651722809&idx=1&sn=7765bc9a8fde96a14615da3b48244959&scene=21#wechat_redirect) 【图说】极端热浪正在成为全球各地新常态 国际能源小数据",
+          "hb": 1
+        },
+        {
+          "t": "全球首家聚变上市公司诞生：General Fusion完成SPAC合并，磁化靶聚变路线跨过纳斯达克门槛",
+          "d": "2026-07-13",
+          "a": "可控核聚变",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "General Fusion通过与SPAC公司合并，于2026年7月正式在纳斯达克交易，成为全球首家上市的聚变公司。公司手持约1.5亿美元资金，将用于推进磁化靶聚变（MTF）技术的商业化演示。其核心装置LM26是全球首台商用级规模的聚变演示装置，以液态锂压缩等离子体，目标是在2028年前依次实现等离子体加热至1keV、10keV，并最终达到Lawson判据。",
+          "sc": 8.8,
+          "i": "n",
+          "tg": "资本运作",
+          "u": "https://mp.weixin.qq.com/s/CNw3RIqychfLHsHp0HjipQ",
+          "tp": "聚变公司上市",
+          "aip": 1,
+          "kp": [
+            "[General Fusion商业模式]: 全球首家通过SPAC合并公开上市的聚变公司",
+            "持有现金总额[合并完成后]: 约1.5亿美元",
+            "[核心技术路线]: 磁化靶聚变（MTF）技术",
+            "[商业化演示与降险目标节点]: 2028年前"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "全球首家聚变上市公司诞生：General Fusion完成SPAC合并，磁化靶聚变路线跨过纳斯达克门槛 原创 点这里关注 → 点这里关注 → 可控核聚变 每天与你一起 7月10日，General Fusion Group Ltd.（以下简称General Fusion）与特殊目的收购公司Spring Valley Acquisition Corp. III（纳斯达克代码SVAC）正式宣布业务合并完成。 合并完成后，General Fusion集团股票及认股权证于2026年7月13日在纳斯达克开始交易，股票代码\"GFUZ\"，认股权证代码\"GFUZW\"——这家公司由此成为全球首家公开上市的聚变公司。 合并完成的同时，General Fusion手握约1.5亿美元现金，这笔资金来自私募净收益与SPAC信托资金的合计。公司表态：这笔钱将用于支撑Lawson计划跑完 2028年前的几个关键技术里程碑，目标是让自家的磁化靶聚变（MTF）技术，在商业级相关尺度上完成演示与降险。1.5亿美元不是终点，而是 \"下一阶段开跑\" 的起跑线。 Spring Valley是一家专注于电力基础设施和脱碳领域的SPAC，过去5年通过4次IPO累计募集9.2亿美元，这一次的赛道，选在了聚变。 LM26与0.72keV突破 技术承重墙是Lawson Machine26——LM26。 LM26是General Fusion采用磁化靶聚变（Magnetized Target Fusion，MTF）技术路线建造的全球首台商用规模级聚变演示装置，以液态锂金属衬层机械压缩等离子体，装置直径约为商业级反应堆设计的50%。LM26计划冲击的三大里程碑是： * 第一步，等离子体加热至1keV（约1000万摄氏度）； * 第二步，加热至10keV（约1亿摄氏度）； * 最终目标为达到Lawson判据——即等离子体温度、密度与约束时间的组合临界条件，使聚变输出能量超过驱动能量，实现真正意义上的净能量增益。 **Lawson Machine 26** 时间回到2026年6月24日—— 彭博社报道了General Fusion正式公布一组在LM26上获得的关键实验数据。电子温度约0.72 keV（±0.08），相当于840万摄氏度，这是机械压缩期间电子温度 \"超过3倍提升\" 的结果，主要驱动机制是等离子体的压缩加热。在MTF路线中，等离子体形成后仅靠机械压缩升温，这被认为是General Fusion独特路径的一项独有特征。 同期数据还有：等离子体密度与极向磁场在压缩过程中均提升10倍；压缩进入深阶段前等离子体保持稳定；稳定压缩相内未观测到锂衬里对等离子体的显著污染；压缩过程中中子产额上升。诊断手段方面，公司动用了Thomson散射与AXUV（绝对极紫外）系统，多套独立诊断交叉验证——这一数据已公开提交同行评审。 磁化靶聚变技术路线 理解General Fusion，要从它的\"反主流\"设计哲学入手——想象一下：把一颗高密度 \"子弹\" 射向一团被磁场 \"捏\" 住的等离子体靶丸 —— 子弹撞上靶丸的瞬间，靶丸被瞬间压缩到原体积的几十分之一，密度、温度同步飙升。这就是**磁化靶聚变（MTF, Magnetized Target Fusion）。** MTF是聚变的三条主要路径之一。托卡马克走 \"稳态强磁场约束\"—— 装置较大、磁场高；惯性约束（ICF）走 \"激光短脉冲打靶\"—— 装置较小、脉冲短、重复频率受限。MTF刚好夹在中间：先在弱磁场中 \"预加热\" 一团等离子体（温度到keV量级），再用机械方式（金属衬里）做 \"宏观压缩\"，短脉冲、快节奏，装置规模适中。 MTF路线有三大设计哲学：**不依赖超导磁体（避开托卡马克的高磁场难题）**、**不依赖高功率激光（避开 ICF 的驱动器难题）**、**采用现有材料制造耐用设备**。全球MTF路线的代表企业，是2002年在加拿大温哥华成立的**General Fusion**。 **General Fusion用一句话定调：\"在电力需求激增、各国竞速商业化聚变电源的当下，MTF正是为解决商业化关键障碍而生。\"** **LM26不是一个孤立项目，背后是一张跨国协作网。CEO Greg Twinney在公告中致谢的协作方包括：英国原子能管理局（UKAEA）、普林斯顿等离子体物理实验室（PPPL）、通用原子公司（General Atomics）——三家分别代表英国国家聚变计划、美国学界顶尖实验室和美国聚变产业主力。** **General Fusion科学与技术顾问委员会（STAC）主席、前EUROfusion首席执行官**Tony Donné在6月24日表态： \"LM26实验为General Fusion的磁化靶聚变路径提供了重要验证。压缩过程中磁场...",
+          "hb": 1
+        }
+      ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "东方算芯发布3D芯片DF1000，14nm工艺实现520TFLOPS算力",
-        "研究实现p型PbS量子点墨水直接合成，简化晶圆级红外成像制备流程",
-        "研究者提出FRID无监督聚类方法，用于识别功能相似的神经元群体"
+        "东方算芯采用14纳米工艺发布520TFLOPS算力3D芯片DF1000",
+        "三星泰勒工厂拟采用2纳米工艺量产特斯拉AI5自动驾驶芯片"
       ],
       "entries": [
         {
           "t": "软件定义近存计算3D芯片东方算芯DF1000在上海发布",
           "d": "2026-07-13",
           "a": "手动导入",
-          "c": "AI与智能科技",
+          "c": "AI与智能科技/AI硬件层/芯片",
           "as": "东方算芯在上海发布全球首颗软件定义近存计算3D芯片DF1000。该芯片采用14nm工艺，通过“软件定义+3D堆叠近存计算”架构，在14nm节点下实现了520TFLOPS@BF16的算力。此技术突破了算力芯片瓶颈，实现软硬件解耦与动态重构，并基于全国产供应链打造自主可控的算力生态。",
-          "sc": 8.7,
+          "sc": 8.6,
           "i": "n",
           "tg": "技术突破",
           "u": "https://www.ithome.com/0/976/025.htm",
@@ -53,46 +132,46 @@
           "hb": 1
         },
         {
-          "t": "面向晶圆级短波红外成像的p型PbS量子点墨水直接合成",
+          "t": "软件定义近存计算3D芯片东方算芯DF1000在上海发布",
           "d": "2026-07-13",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "研究实现p型PbS量子点墨水的直接合成，面向晶圆级短波红外(SWIR)成像应用。PbS量子点因其可调带隙、溶液可加工性被视为可规模化SWIR光电器件的理想材料。传统方法多依赖配体交换等后处理步骤获得p型特性，该工作通过直接合成路线简化制备流程，提升量子点墨水的均匀性与器件一致性。成果推动了低成本、大面积SWIR成像传感器的商业化进程。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag421/8732561?rss=1",
-          "tp": "硫化铅量子点",
+          "a": "手动导入",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "东方算芯在上海发布全球首颗软件定义近存计算3D芯片DF1000。该芯片采用14nm工艺，通过“软件定义+3D堆叠近存计算”架构，在14nm节点下实现了520TFLOPS@BF16的算力。此技术突破了算力芯片瓶颈，实现软硬件解耦与动态重构，并基于全国产供应链打造自主可控的算力生态。",
+          "sc": 8.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://www.ithome.com/0/976/025.htm",
+          "tp": "3D计算芯片",
           "aip": 1,
           "kp": [
-            "材料[SWIR成像]: PbS量子点",
-            "[合成方法]: 直接合成p型量子点墨水",
-            "[规模]: 晶圆级",
-            "[瓶颈]: p型QD依赖固态工艺"
+            "520TFLOPS算力"
+          ],
+          "lv": 3,
+          "wr": "技术性能突破||突破国产GPU运算速度指标边界\n\n其通过软件定义芯片技术实现软硬件解耦与动态重构，在14nm工艺节点下实现520TFLOPS@BF16的算力；接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)等在4/5nm工艺节点的制造水平",
+          "cm": "从性能而言，DF1000芯片的BF16算力(520TFLOPS)已经达到了接近GoogleTPUv6(912TFLOPS)以及英伟达B200(1100TFLOPS)水平，不过后两者是基于台积电4/5nm工艺节点制造的。对比国内的计算显卡，摩尔线程的MTTS4000使用12nm工艺节点，INT8算力(往往高于BF16)只有200TFLOPS；华为昇腾910C的FP16算力为320TFLOPS。从数据看，东方算芯的芯片算力已经接近经过数次成熟迭代的GPU以及TPU产品，且接近或超越了国产的计算芯片。\nDF1000芯片的核心技术包括软件定义硬件、近存计算以及3D堆叠三部分。不同于现场可编程门阵列FPGA，软件定义硬件技术一般可以在程序执行过程中动态地改变电路的逻辑拓扑关系，从而加速特定的运算。近存计算技术将存储单元和计算单元集成到一张硅片上，大大增加了数据传输带宽。配合软件定义硬件技术，可以根据计算任务动态的改变电路逻辑结构，从而均衡计算耗时与内存读写耗时，增强硬件在真实任务上的性能。3D堆叠是用于提升计算密度的技术，由于14nm制程下，晶体管的2维密度相较于4nm制程要低数倍，因此可以通过将硅片打通后三位堆叠的方式提升单位体积内的运算速度。\n刚成立两年的公司可以克服众多技术困难实现国内领先水平的芯片设计，该工作以及相关的技术路线可以后续持续关注。",
+          "b": "全球首颗软件定义近存计算3D芯片：东方算芯DF1000在上海发布，14nm工艺\nIT之家7月13日消息，据第一财经报道，东方算芯今日在上海发布了东方算芯首颗旗舰芯片——DF1000。报道称，作为全球首颗软件定义近存计算3D芯片，DF1000",
+          "hb": 1
+        },
+        {
+          "t": "三星德克萨斯工厂投入 2 纳米生产特斯拉 AI5 芯片",
+          "d": "2026-07-13",
+          "a": "Electrek",
+          "c": "AI与智能科技/AI硬件层/芯片",
+          "as": "三星代工厂已完成特斯拉AI5自动驾驶芯片的设计，并准备在美国德克萨斯州泰勒工厂采用最新的2纳米工艺进行量产。此前业界预计2纳米节点将用于下一代AI6芯片。三星代工厂首席工程师James Kim证实，特斯拉与三星合作的AI5芯片已流片，将使用2纳米工艺制造，并将很快整合到特斯拉最新产品中。",
+          "sc": 9.1,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://electrek.co/2026/07/13/samsung-taylor-fab-tesla-ai5-chip-2nm/",
+          "tp": "三星产AI芯片",
+          "aip": 1,
+          "kp": [
+            "制造工艺[特斯拉AI5芯片]: 三星2纳米工艺节点",
+            "投产状态[三星泰勒工厂]: 准备开始生产制造"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "PbS quantum dots (QDs) are highly promising for scalable short-wave infrared (SWIR) optoelectronics due to their tunable bandgap and solution-processability. While efficient devices require well-defined p-n homojunctions, the fabrication of p-type QD layers remains a critical bottleneck compared with the well-established n-type QD inks. Current fabrication of p-type QD layers relies on solid-state ligand exchange (SSLE). However, SSLE suffers from incomplete ligand replacement and non-uniform oxidation, causing film inhomogeneity that prevents wafer-scale manufacturing. Here, we report a direct synthesis of p-type PbS QD inks with tunable QD size, optical absorption, and p-type electronic characteristics. This ink yields conductive p-type films on 6-inch Si substrates with highly uniform thickness. Using this strategy, we realize SWIR photodetectors with fully ink-processed PbS QD p–n junctions, together with a prototype imaging module. When integrated with a recognition algorithm, the imager provides SWIR images that facilitate vehicle recognition under foggy conditions. This work establishes a scalable route toward future high-performance, wafer-level SWIR optoelectronic platforms.",
-          "hb": 1
-        },
-        {
-          "t": "通过神经动力学子空间聚类构建介观功能组学",
-          "d": "2026-07-13",
-          "a": "National Science Review Advance Access",
-          "c": "AI与智能科技/其它智能科技/脑机接口",
-          "as": "研究者提出FRID（基于内禀动力学稀疏表示的功能子空间聚类）无监督方法，用于识别功能相似的神经元群体。单神经元层面复杂的非线性交互导致异步异质放电模式，挑战传统基于相关放电的聚类方法。该方法助力构建精细脑功能图谱，推动介观功能组学发展。",
-          "sc": 6.0,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag420/8732559?rss=1",
-          "tp": "脑功能组学",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Building a fine-grained functional atlas of the brain is crucial for deciphering bio-intelligence. However, the intricate and non-linear interactions at single-neuron level lead to asynchronous and heterogeneous firing patterns among closely interacting neural populations, thereby challenging correlated-firing-based clustering methods. Here, we present Functional subspace clustering based on sparse Representation of Intrinsic Dynamics (FRID), an unsupervised approach for identifying neurons with shared microcircuit connectivity and information encoding properties (referred to as Functionomics) from mesoscale neural recordings. FRID significantly outperforms correlated-firing-based methods in both simulated complex networks and empirical calcium recordings. The accuracy and utility of FRID are validated across sensory integration and decision-making tasks to produce functionomic clusters with improved resolution and coding specificity than those defined by anatomical functional areas. As representative findings, we demonstrate single-cell level functional remapping during recovery from ischemic stroke and the learning-induced reorganization of functional modularization. Together with large-scale neural recordings, FRID could serve as a general data-driven paradigm to accelerate the understanding of mesoscale brain functions.",
+          "b": "Fred Lambert\n| Jul 13 2026 - 6:09 am PT\nSamsung has completed its own version of Tesla’s AI5 self-driving chip and is preparing to start production at its foundry in Taylor, Texas, on the company’s latest 2-nanometer process, according to industry officials.\nThe move confirms Samsung is building AI5 on 2nm — a node that had been expected to debut with Tesla’s next-generation AI6 chip, not this one.\nThe disclosure came from James Kim, a principal engineer at Samsung Foundry, who wrote on LinkedIn that “the Tesla-Samsung AI5 chip has reached tape-out” and is “scheduled to be manufactured at the Taylor fab using our latest 2nm process and will soon be integrated into Tesla’s newest products.” Kim deleted the post after it was picked up by Korean news reports.\nTape-out marks the point at which a chip’s design is locked and handed over for manufacturing. From there, the design goes through prevalidation, photomask production, and wafer fabrication to create engineering samples, which must pass qualification with the customer before entering mass production.\nreported in April\nthat Musk said Tesla had taped out AI5 to both Samsung and TSMC, with each foundry producing “slightly different versions” of the chip because, in his words, “they translate designs to physical form differently.” Kim’s post indicates Samsung has now fit that design to its own process and is ready to produce actual silicon.\nMusk has already shown off a Samsung-made prototype. The AI5 chip he posted on X carried the marking “KR 2613,” indicating it was made in Korea in the 13th week of 2026 — evidence that Samsung’s engineering samples were already coming out of its Korean lines before the Texas fab took over.\nThe detail that stands out here is the process node.\nThe working assumption across the industry — and our own prior reporting — was that Samsung’s 2nm line was tied to the follow-on AI6 chip, while AI5 would be built on more mature nodes at TSMC. Kim’s post says AI5 itself is going on 2nm at Taylor.\nThat matters because Samsung’s 2nm yields have been the gating problem. We reported earlier this year that\nAI6 had already slipped roughly six months on Samsung 2nm yield issues\n, pushing its mass production to Q4 2027 at the earliest. Putting AI5 on the same node supports market assumptions that Samsung’s 2nm yield has now crossed 60% — the rough threshold where the process becomes viable for a high-volume customer like Tesla.\nSamsung held an equipment installation ceremony at the Taylor fab in April and has said it expects volume production of Tesla’s AI chips there in the second half of 2027.\nFor Samsung, landing Tesla’s AI5 on 2nm is a proof point it badly needs. The company has trailed TSMC on advanced-node yield for years, and Taylor was a multibillion-dollar bet that has been searching for anchor customers.\nThere are signs it’s starting to pay off. Recent reports suggest Anthropic could manufacture its own AI chips through Samsung Foundry, and improving yields are exactly what would let Samsung pull in more customers of that caliber. Samsung declined to comment on anything related to its customers.\nIf Samsung is confident enough to run AI5 on 2nm at Taylor, its yield story is improving, and that’s good for anyone who wants a real second source to TSMC at the leading edge.\nFor Tesla, though, the same caveat applies as in April: tape-out and early production are milestones, not the finish line. Musk himself has said Tesla needs “several hundred thousand completed AI5 boards line side” before it can switch vehicle production over, and that volume isn’t expected until mid-2027. Engineering samples coming off a Texas line in 2026 don’t change that.\nBut from Tesla’s point of view, it doesn’t need AI5 to achieve unsupervised autonomy at scale. Of course, we heard that about HW3 before, and now AI4 and the company have yet to achieve unsupervised autonomy at scale.\nAnd the bigger pattern still stands. AI5 is arriving nearly two years after Musk first said it would be in vehicles, the Cybercab is launching on old AI4 hardware, and the\nAI4.5 stopgap computer quietly added to new Model Ys\nexists precisely because AI5 kept slipping.\nIf you’re a Tesla owner, powering your EV with home solar is one of the smartest ways to lock in low fuel costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
           "hb": 1
         }
       ]
@@ -101,30 +180,81 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "研究发现微生物还原型黄素在有氧条件下可破坏钛表面钝化膜"
+        "长征十号乙运载火箭一级箭体完成海上网系回收测试",
+        "多主元合金构建分层纳米排序架构实现2.0GPa极低温屈服强度",
+        "攻击-11飞翼布局隐身无人攻击机服役并参与有人机编队协同"
       ],
       "entries": [
         {
-          "t": "微生物还原型黄素在大量有氧条件下破坏钛的TiO2钝化膜",
+          "t": "全球首次！中国用“网”接住火箭，外网彻底炸了",
           "d": "2026-07-13",
-          "a": "National Science Review Advance Access",
-          "c": "通用技术/材料工程/耐腐蚀材料",
-          "as": "研究发现微生物还原型黄素在有氧体相条件下可破坏钛表面的TiO2钝化膜，揭示微生物代谢物对钝化金属腐蚀防护的新机制。该发现对钛合金在生物环境中的长期耐蚀性评估具有重要意义。",
-          "sc": 6.5,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwag426/8732568?rss=1",
-          "tp": "钛氧化膜腐蚀",
+          "a": "世界先进制造技术论坛",
+          "c": "通用技术/通信和运输/航天",
+          "as": "2026年7月10日，长征十号乙运载火箭在海南发射升空，其一级箭体在分离后成功实施海上网系回收，中国成为全球第二个实现轨道级火箭回收的国家。回收采用“索系空中捕获”技术，火箭在反推减速下飞至回收架中间，箭体挂钩主动抓挂阻拦索，阻尼器吸收剩余动能。此系统具备高落点容错率，相比重型火箭着陆腿方案，大幅降低了箭体局部加强和展开缓冲机构的工程成本。",
+          "sc": 9.9,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/G8d3UIzeJj2eN93rHiK52g",
+          "tp": "火箭网系回收",
           "aip": 1,
           "kp": [
-            "[腐蚀机制]: 微生物还原黄素破坏TiO₂钝化膜",
-            "钝化膜[钛]: 电子绝缘性TiO₂",
-            "[测试条件]: 体相有氧环境"
+            "一子级箭体长度[长征十号乙运载火箭]: 40米",
+            "回收时间节点[海上网系回收]: 发射后第8分钟",
+            "回收方式[运载火箭轨道级回收]: 索系空中捕获(主动挂载阻拦索)",
+            "挂钩数量[火箭箭体侧面]: 4个"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Passive metals protected by surface oxide films dominate modern structural materials. Thus, understanding the mechanisms governing passive film breakdown is essential. The electronically insulating TiO2 passive film on titanium separates the underlying Ti° from environmental oxidants, but microbial biofilms have been reported to catalyze titanium corrosion. Here we demonstrate that the common marine microbe Shewanella algae growing on titanium reduces TiO2 to destabilize the passive film. The biofilm consumes oxygen, generating anaerobic conditions near the metal interface even when the bulk environment remains aerobic. High-resolution characterizations reveal thinning of the passive layer and accumulation of lower-valence titanium oxides. Electrochemical analyses show a six-fold increase in corrosion current from Ti0 accompanied by enhanced pitting. Mutant studies and other approaches indicate that extracellular flavins function as an intermediary electron carrier for S. algae TiO2 reduction. These results demonstrate how microbes create localized microenvironments that accelerate corrosion of otherwise highly corrosion-resistant metals.",
+          "b": "全球首次！中国用“网”接住火箭，外网彻底炸了 原创 小艾 小艾 世界先进制造技术论坛 2026年7月10日中午12点15分，海南商业航天发射场。 长征十号乙运载火箭点火升空，卫星顺利送入预定轨道。但真正让所有人屏住呼吸的，是发射后第8分钟发生的事情。 一二级分离之后，40米长的一子级箭体从高空调头，扎回大气层，最终在南海“领航者”号回收船的上空，被稳稳“挂”住了。 **这是全球首次运载火箭海上网系回收**。中国成为继美国之后，**人类历史上第二个真正实现轨道级火箭回收的国家**。 * * * 不是“网兜”，是“索系空中捕获” 很多人一听“网系回收”，第一反应是：拉张网接住就行了？ 完全不是这么回事。 简单说，回收船上架着承力回收架和阻拦索。火箭在发动机反推和栅格舵控制下，以接近垂直的姿态飞到架子中间。箭体上弹出4个挂钩，挂住4根阻拦索，另一头的阻尼器把火箭剩余的动能全部吃掉。 **这不是被动等火箭掉进网里，是火箭自己主动“挂”上去的**。 这个思路，跟航空母舰的阻拦系统非常像。只不过战斗机是水平冲过甲板用尾钩挂索，长十乙是垂直下降用箭体侧面的挂钩去抓阻拦索。 更厉害的是，这套系统对落点偏差有很高的容忍度。论文显示，不管火箭往一个方向偏、往两个方向偏，甚至旋转着下来，都能成功回收。**火箭不需要降落在“点”上，只需要落在“网”里**。 * * * 为什么不用马斯克的“着陆腿”？ 看到这里，很多人会问：为啥不学SpaceX用着陆腿？ 先看数据。猎鹰9芯级直径3.66米，长十乙直径5米、起飞重量760吨。箭体越大越重，着陆腿的强度要求就越高——腿要更粗，箭体连接处要局部加强，再配上展开、锁定、缓冲一整套机构，成本划不来。 **这不是谁比谁先进，是工程思路的差异**。 猎鹰9走的是“动力主动着陆”——发动机反推减速，临近甲板那一刻把速度刹到接近零，靠腿站稳。业内管这叫“suicide burn”（自杀式点火），技术难度极高。 长十乙走的是 **“简化箭上，箭地协同”** 。**火箭不装笨重着陆腿，只装4个轻型挂钩**；复杂的事交给地面——回收船上的网系系统来完成捕获和缓冲。 说白了，**把难度从天上转移到地上**。 * * * “领航者”号：2.5万吨的海上移动靶 要在海上接住一枚火箭，船本身必须足够稳。 “领航者”号长144米，宽50米，满载排水量2.5万吨。这吨位已经比不少轻型航母都大。配备DP2级动力定位系统，**能在4米浪高条件下把定位精度控制在0.5米以内**。 船在动，火箭也在动。两个拥有各自六自由度运动的物体，要在海浪扰动下完成高动态“对接”。 怎么做到的？回收架每一角都装了激光雷达，实时监测火箭位置和姿态。网系本身也是可动的，塔架上的激光雷达驱动牵引索，把火箭的动能和势能全部吸收掉，让火箭相对静止地悬在网中央。 **全程自动化**。 * * * 一次发射，点了多少科技树？ 官方通报里有一段信息密度极高的话：验证了组合构型总体优化设计、大推力箱底传力、基于隔板贮箱的推进剂管理、甲烷自生增压…… 翻译成人话： **一次试验同时验证了液氧煤油和液氧甲烷两种发动机**。一次7台大推力发动机集群，在高空极端环境下多次点火。全新燃料箱结构成功运行，失去燃料后不用外挂气瓶补充内压——这个问题猎鹰9到现在都没解决。 而且别忘了，**长十乙这次还顺便发射了组网卫星**。回收的光芒太耀眼，大家都没注意它的**重复使用状态下近地轨道运载能力16吨**。 * * * 落地是物理学，复用才是经济学 火箭回收，真正的价值不在“收回来”，在“再飞一次”。 **一子级占整枚火箭成本的约70%**。能回收复用，发射成本就能大幅下降。 目前我国长征系列单次使用火箭，单公斤发射成本约2.82万元。SpaceX猎鹰9复用30次后，单公斤成本已压低至0.87万元。 国信证券测算：**若国内可回收火箭规模化复用，低轨卫星发射成本有望下降60%至80%**。 这是个什么概念？国内主要卫星互联网星座规划数量都超过万颗。成本降下来，组网速度才能提上去。 **可回收复用，是当前全球商业航天竞争的核心技术**。 * * * 更大的棋局：年底就要复飞 猎鹰9从首次回收到首次复飞，用了15个月。 长十乙团队的计划是：**2026年年底前完成一子级火箭复用飞行**。 从7月到12月，只有5个多月。**这个节奏，比SpaceX当年快得多**。 而且长十乙不是孤军奋战。今年2月，长征十号甲已经完成了低空演示验证和海上溅落回收。8月要发的朱雀三号、后面的长征十二号甲，走的都是着陆腿路线。 **国家队和商业航天两条腿走路，不同技术路线并行推进**。 长十乙首飞成功，更大的意义在于：它为整个长征十号家族积累回收、检修、复飞的数据。它大哥负责2030年载人登月，它二哥给空间站送物资。 **...",
+          "hb": 1
+        },
+        {
+          "t": "分层纳米排序使中熵合金具有非凡的低温强度-延展性协同作用",
+          "d": "2026-07-13",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/强度材料",
+          "as": "为克服低温合金的强度-延展性权衡限制，研究在超细晶NiCoCr基多主元合金中设计了分层纳米排序(HNO)架构。该架构由无关联σ相弥散体(~70nm)、双峰共格L12析出相(~5和26nm)及局部化学有序区(~0.7nm)组成。该多尺度微观结构成功使合金在极低温下同时实现2.0GPa以上的超高屈服强度与优异的均匀延伸率。",
+          "sc": 8.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75563-y",
+          "tp": "高强韧合金",
+          "aip": 1,
+          "kp": [
+            "屈服强度[低温合金]: ≥2.0 GPa",
+            "[低温合金材料]: 超细晶NiCoCr基多主元合金",
+            "[微观结构设计]: 结合增材制造与定制后处理，基于Eshelby夹杂理论构建分层纳米有序(HNO)架构"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Cryogenic alloys simultaneously achieving ultrahigh yield strength (YS ≥ 2.0 GPa) alongside substantial uniform elongation (UE) are critically needed, yet fundamentally constrained by the strength-ductility trade-off. Guided by Eshelby’s inclusion theory, we reconcile this challenge by designing a novel hierarchical nano-ordering (HNO) architecture within an ultrafine-grained NiCoCr-based multi-principal element alloy, fabricated via combining additive-manufacturing and tailored post-processing. The HNOs—featuring a controlled size distribution and interfacial properties—comprise dispersed incoherent σ-dispersoids (~70 nm), a high density of bimodal coherent L12 precipitates (~5 and 26 nm) and widespread, highly-distorted local-chemical-orderings (~0.7 nm). This configuration introduces a stepwise increase in elastic strain energy, which in turn triggers the sequential activation of potent dislocation sources. The resulting mobile dislocations engage in extensive and varied interactions with the nano-orderings during deformation, thereby activating cooperative strain-hardening mechanisms. These nano-architectures thus function simultaneously as dislocation generators, strain-hardening enablers, and strengthening agents. Consequently, this HNO-mediated self-hardening and self-ductilizing mechanisms yield an exceptional cryogenic (77 K) property set: YS of ~1.96 GPa, ultimate tensile strength of ~2.35 GPa, and UE of ~22%, surpassing both the cast counterpart and all previously reported advanced alloys. This strategy establishes a transformative paradigm for designing ultrastrong-yet-ductile materials through integrated manufacturing approaches.",
+          "hb": 1
+        },
+        {
+          "t": "科普 | 全球首款！攻击-11“玄龙”正式服役，它凭什么改写未来空战规则？",
+          "d": "2026-07-13",
+          "a": "世界先进制造技术论坛",
+          "c": "通用技术/通信和运输/航空",
+          "as": "攻击-11“玄龙”是全球首款正式服役的飞翼布局隐身无人攻击机，机长约10-12米，翼展14米，最大起飞重量超10吨，载弹量约2吨。其隐身性能体现在无尾飞翼气动布局、S形背部进气道和扁平锯齿状尾喷口设计，并使用了复合材料与宽频纳米吸波涂层，有效降低了雷达反射与红外特征。该机已在公开画面中实现与歼-20等有人机的混合编队协同作战。",
+          "sc": 8.9,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/-hJc5YegDB1aGFchBf8NfA",
+          "tp": "隐身无人攻击机",
+          "aip": 1,
+          "kp": [
+            "机长[攻击-11无人攻击机]: 约10到12米",
+            "翼展[攻击-11无人攻击机]: 约14米",
+            "最大起飞重量[攻击-11无人攻击机]: 10吨以上",
+            "载弹量[攻击-11无人攻击机]: 约2吨",
+            "[隐身与气动设计]: 无尾飞翼布局（机身机翼融为一体），无外部挂点，武器全部内埋于两个内置弹舱"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "科普 | 全球首款！攻击-11“玄龙”正式服役，它凭什么改写未来空战规则？ 小艾 小艾 世界先进制造技术论坛 2025年11月11日，人民空军成立76周年纪念日。一部名为《梦远》的主题微电影里，一架代号“玄龙08”的神秘飞行器从机库缓缓滑出。它和歼-20隐身战斗机、歼-16D电子战飞机编队升空。这是中国军方**首次公开有人机和无人机混合编队协同作战**的画面。 这架“玄龙”，就是**攻击-11隐身无人攻击机**。 从2013年“利剑”验证机首飞，到2019年国庆阅兵首次公开亮相，再到2025年正式官宣列装。十几年磨一剑，**全球首款正式服役的飞翼布局隐身无人攻击机**终于来了。 ### 一、它到底长什么样？ 攻击-11采用**无尾飞翼布局**——没有垂尾、没有平尾，机身和机翼融为一体。整机像一块黑色的三角飞镖，线条干净利落。 公开数据显示，攻击-11机长约10到12米，翼展14米左右，最大起飞重量10吨以上。体型和歼-10C战斗机差不多大。机腹设置**两个内置弹舱**，载弹量约2吨。 所有武器全部内埋挂载，外部没有任何外挂点。这是隐身的基本要求——**任何挂在外面的东西，都会成为雷达的反射源**。 ### 二、隐身到底有多强？ 隐身是攻击-11的核心竞争力。设计师从三个层面把它做到了极致： **第一，气动外形。** 没有垂尾和平尾，就砍掉了两个最大的雷达反射源。机身和机翼平滑融合，所有边缘都遵循平行设计准则。雷达波打上来，被散射到不同方向，而不是原路反射回去。 **第二，进气道和喷口。** 进气道在机背上，呈S形弯曲。从正面看，雷达波照进去会被挡住，**发动机叶片——那个巨大的雷达反射源——被彻底藏了起来**。尾喷口做成扁平锯齿状，冷却气流和高温燃气提前混合，既降低雷达信号，也**大幅削弱红外特征**。 **第三，材料和涂料。** 机身大量使用复合材料和宽频纳米吸波涂层。 经过这一整套设计，攻击-11的**雷达反射截面积（RCS）被压缩到0.001平方米级别**。什么概念？**相当于一只飞鸟在雷达上的信号强度**。换句话说，敌方雷达看它，和看一只鸟差不多。 ### 三、飞得远吗？能打什么？ 攻击-11**不追求速度**。最大飞行速度0.8到0.9马赫，纯亚音速。但它追求的是**隐身突防和长航时**。 最大航程约4000公里，作战半径1500到2000公里。续航时间超过6小时。从沿海起飞，**可以覆盖第一岛链所有目标**。 武器方面，两个内置弹舱可以灵活搭配： * **8枚FT-9小直径炸弹**（100公斤级）——打击地面点目标 * **2枚鹰击-91反辐射导弹**——打雷达、打防空阵地 * **空地导弹、反舰导弹**——对地、对海都能打 * **霹雳-15、霹雳-10空空导弹**——自卫或辅助空战 值得一提的是，攻击-11**具备较强的自主作战能力**。从起飞、巡航、进入战区、执行任务到返航降落，全程可以自主完成。只有在投弹的关键时刻需要人工干预——这不是技术做不到，而是**不能让人工智能独立决定“开火”**。 **** ### 四、它在战场上干什么？ 攻击-11在作战体系中的定位非常清晰——**它不是单打独斗的孤狼，而是体系作战的关键节点**。 **第一，“踹门”先锋。** 战争打响第一波，有人战机不能轻易冒险深入敌方防空网。攻击-11凭借极致隐身，**前出摧毁敌方雷达、导弹阵地、指挥所**，为后续机群开辟安全走廊。 **第二，忠诚僚机。** 和歼-20S双座隐身战机编组。歼-20S的后座飞行员可以**直接指挥攻击-11执行任务**。攻击-11冲在前面侦察、打击、甚至充当诱饵。即使被击落，也没有人员伤亡。 更厉害的是，**连单座歼-20也能直接协同攻击-11作战**。这说明中国的有人/无人协同技术已经突破了“必须双座机才能指挥”的限制。 **第三，分布式打击。** 多架攻击-11可以组成“狼群”，从不同方向同时发起隐蔽攻击。敌方防空系统可能还没反应过来，已经被多点同时击穿。 2025年空军宣传片中，地面指挥员对歼-20飞行员喊话：“威龙01，玄龙08已到达6点位置。”歼-20飞行员回应：“威龙01收到，与玄龙协同。”**这段不到十秒的对话，宣告了一个新时代的到来**。 **** ### 五、不止于天空——它还要上舰 攻击-11的舰载型号**攻击-21**也已亮相。 攻击-21**机翼可折叠**，整机宽度从14米缩到8米左右，能适配076型两栖攻击舰的机库。076型配备了和福建舰同款的**电磁弹射系统**。攻击-21通过电磁弹射满油满弹起飞。这意味着**它可以在远海以完整的载荷和航程执行任务**，不用像垂直起降飞机那样牺牲载弹量和燃油。 076型两栖攻击舰排水量4万余吨。配上攻击-21，**它就是全球第一艘电磁弹射“无人机航母...",
           "hb": 1
         }
       ]

@@ -6,34 +6,46 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中科院等离子体所证实托卡马克存在密度自由区并突破格林沃尔德极限",
-      "香港科大研制压缩式再生弹性热致冷装置将热源温度降至零下12度",
-      "中科院金属所开发液态压卡制冷策略在345K环境下获得54K温降"
+      "中科院等离子体所验证PWSO模型，证实托卡马克可突破格林沃尔德密度极限。",
+      "香港科大团队采用高镍NiTi合金，研制出可将热源温度降至-12℃的弹性热致冷装置。"
     ],
     "AI与智能科技": [
-      "研究利用量子几何特性实现手性费米子实空间分离",
-      "多伦多大学发布GPU加速机器人模拟框架构建化学实验室数字孪生"
+      "多伦多大学团队发布GPU加速模拟框架MATTERIX，用于构建化学实验室数字孪生。"
     ],
-    "通用技术": [
-      "高温超导体集成磁等离子体动力推进器提升深空探测推力密度",
-      "研究团队开发LUZ51光敏剂通过光动力疗法治疗转移性实体瘤",
-      "栅源集成二维铁电光电晶体管实现极性切换与光电跃迁"
-    ]
+    "通用技术": []
   },
   "sectors": [
     {
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中科院等离子体所证实托卡马克存在密度自由区并突破格林沃尔德极限",
-        "香港科大研制压缩式再生弹性热致冷装置将热源温度降至零下12度",
-        "中科院金属所开发液态压卡制冷策略在345K环境下获得54K温降"
+        "中科院等离子体所验证PWSO模型，证实托卡马克可突破格林沃尔德密度极限。",
+        "香港科大团队采用高镍NiTi合金，研制出可将热源温度降至-12℃的弹性热致冷装置。"
       ],
       "entries": [
         {
           "t": "合肥等离子体所基于EAST装置证实了托卡马克密度自由区的存在并突破传统理论密度极限",
           "d": "2026-01-01",
-          "a": "",
+          "a": "Doi",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "中科院合肥物质科学研究院等离子体所在EAST全超导托卡马克装置上，引入并验证了边界等离子体与壁相互作用自组织（PWSO）理论模型，通过增加预充气压力和电子回旋共振加热等手段，证实了托卡马克中密度自由区的存在，突破了传统经验性的格林沃尔德密度极限。该发现表明等离子体密度可超越极限值而不引发约束恶化或大破裂，为实现燃烧等离子体、提高聚变功率密度提供了关键实验依据和理论支撑。",
+          "sc": 7.6,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1126/sciadv.adz3040",
+          "tp": "聚变密度限",
+          "aip": 1,
+          "kp": [],
+          "lv": 2,
+          "wr": "",
+          "cm": "根据衡量核聚变能否发生点火及实现能量净增益的“劳森判据”（Lawson Criterion），聚变反应的发生条件取决于等离子体密度、温度以及能量约束时间的乘积。由于聚变输出功率密度与等离子体密度的平方成正比，提高等离子体密度对于实现燃烧等离子体（Burning Plasma）显得尤为关键。但对于磁约束聚变所需的托卡马克装置，等离子体密度存在格林沃尔德密度极限（Greenwald density limit，与等离子体电流成正比，与等离子体小半径的平方成反比），传统的实验观测中，一旦等离子体的线平均密度试图超过这一计算出的临界值，装置内的等离子体约束性能便会急剧恶化，进而引发剧烈的磁流体不稳定性，最终导致等离子体大破裂（Disruption），终止放电并造成内壁等装置损伤。由此使得当前多数装置的只能运行在这一极限值的0.8到1.0倍以下，但该极限本质只是一个经验公式，缺乏明确的物理机理支撑。",
+          "b": "根据衡量核聚变能否发生点火及实现能量净增益的“劳森判据”（Lawson Criterion），聚变反应的发生条件取决于等离子体密度、温度以及能量约束时间的乘积。由于聚变输出功率密度与等离子体密度的平方成正比，提高等离子体密度对于实现燃烧等离子体（Burning Plasma）显得尤为关键。但对于磁约束聚变所需的托卡马克装置，等离子体密度存在格林沃尔德密度极限（Greenwald density limit，与等离子体电流成正比，与等离子体小半径的平方成反比），传统的实验观测中，一旦等离子体的线平均密度试图超过这一计算出的临界值，装置内的等离子体约束性能便会急剧恶化，进而引发剧烈的磁流体不稳定性，最终导致等离子体大破裂（Disruption），终止放电并造成内壁等装置损伤。由此使得当前多数装置的只能运行在这一极限值的0.8到1.0倍以下，但该极限本质只是一个经验公式，缺乏明确的物理机理支撑。\n近日，中国科学院合肥物质科学研究院等离子体物理研究所在我国全超导托卡马克核聚变实验装置（EAST）上，引入验证了边界等离子体与壁相互作用自组织（PWSO）理论模型，并通过增加预充气压力+电子回旋共振加热（ECRH）功率，将线平均电子密度提升至1.3-1.65倍格林沃尔德密度极限，显著高于常规的0.8-1.0倍。\n在PWSO模型中，密度极限的本质不再被简单地归结为磁流体不稳定性，而是源于等离子体与壁相互作用过程中产生的一种热-辐射反馈机制的失稳，其通过反馈循环下一时刻的辐射功率R+=α（P-R）来描述了这一反馈回路的演化过程（P输入到等离子体的总功率，R是当前的辐射功率，α量化了由流向壁的剩余功率引发的杂质产生及其后续的辐射能力。当这个系数大于1时，意味着辐射的增长速度超过了输入功率的补充速度，系统就会失去平衡，最终引发辐射塌缩）。由此推导出了物理上的临界密度极限（）包含了等离子体输运参数和壁相互作用物理量，表明临界密度与垂直扩散系数成正比，与杂质比例及辐射冷却率成反比，并展示了密度极限与偏滤器靶板温度以及由该温度决定的溅射产额积分函数I(Tt)之间存在高度非线性的依赖关系。并指出，托卡马克装置的运行状态空间中存在密度受限区（对应于较高的偏滤器靶板温度）和密度自由区（对应于较低的靶板温度，关键在于精准调控偏滤器靶板附近的等离子体温度以及利用第一壁材料的物理特性）。EAST采用的全钨金属壁主要受物理溅射机制支配，钨原子的物理溅射存在一个明确的能量阈值，只有当入射粒子的能量超过该阈值时，溅射才会发生\n该研究在等离子体启动阶段，利用电子回旋共振加热（ECRH）辅助欧姆加热，并协同施加了超常规水平的预填充中性气体压力，并采用两组实验方案：固定ECRH功率（约600kW）改变预充气压力；固定预充气压力改变ECRH功率（0-600kW）。实验在等离子体电流250kA、环向磁场2.5T的条件下进行，采用钨偏滤器靶板；诊断系统包括干涉仪测量密度、三探针系统测量靶板温度、辐射计测量总辐射功率等。结果表明，增加预充气压力或ECRH功率均可降低偏滤器靶板附近等离子体温度（从约40eV降至20eV以下）、减少杂质辐射、提高等离子体洁净度（有效电荷数Zeff从2.5降至1.5左右），实现更高密度极限，线平均电子密度可长时间稳定维持在极限值的1.3倍至1.65倍之间，且整个过程未出现高密度运行常伴随的磁流体大破裂，验证了该方案在工程上的鲁棒性。实验观测也发现，在特定的高气压辅助下，随着电子回旋加热功率的增加和预充气压力的提升，偏滤器靶板附近的等离子体温度反而呈现出显著的下降趋势，使得靶板温度成功低于了钨材料的物理溅射阈值，从而切断了杂质来源；而一旦温度跨越临界值，杂质产生的反馈机制即被物理阻断，标志着装置成功跃迁至了密度自由区。文章于2026年1月1日发表在Science Advances。",
+          "hb": 1
+        },
+        {
+          "t": "合肥等离子体所基于EAST装置证实了托卡马克密度自由区的存在并突破传统理论密度极限",
+          "d": "2026-01-01",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/发电技术/核电",
           "as": "中科院合肥物质科学研究院等离子体所在EAST全超导托卡马克装置上，引入并验证了边界等离子体与壁相互作用自组织（PWSO）理论模型，通过增加预充气压力和电子回旋共振加热等手段，证实了托卡马克中密度自由区的存在，突破了传统经验性的格林沃尔德密度极限。该发现表明等离子体密度可超越极限值而不引发约束恶化或大破裂，为实现燃烧等离子体、提高聚变功率密度提供了关键实验依据和理论支撑。",
           "sc": 7.6,
@@ -52,10 +64,10 @@
         {
           "t": "香港科技大学孙庆平研制出能够将热源温度降至-12℃的压缩式再生弹性热致冷装置",
           "d": "2026-01-01",
-          "a": "",
+          "a": "Doi",
           "c": "零碳产业/能量循环/能源测/供热技术/热泵",
           "as": "香港科技大学孙庆平团队研制出首台可实现零下温度的压缩式再生弹性热致冷装置。选用高镍（51.2 at%）NiTi合金，将奥氏体结束温度降至-20.8℃，获得-18.5℃至30℃宽达48.5℃的超弹性窗口，在0℃、900 MPa应力下绝热温变达16.3℃。采用30 wt% CaCl₂水溶液作传热流体解决低温冻结问题，成功将热源温度降至-12℃，突破了弹热制冷无法实现零下温度的限制，拓展了固态制冷应用场景。",
-          "sc": 7.0,
+          "sc": 7.3,
           "i": "n",
           "tg": "技术突破",
           "u": "https://doi.org/10.1038/s41586-025-09946-4",
@@ -67,25 +79,6 @@
           "cm": "传统蒸汽压缩制冷技术依赖高全球变暖潜势（GWP）的气体制冷剂，人们一直在试图寻找新的制冷方式。弹卡效应指的是材料在单向应力作用下发生马氏体相变（晶体结构可逆变化），导致吸热或放热.压卡效应指的是材料在均匀压力下发生相变（如分子取向有序化），导致熵变和热效应。分别提高了两种制冷方式的制冷能力上限。两篇文章虽然有指标上的进步，但都难以实际应用，前者600 MPa的工作压力在实际应用中仍难以实现，且文章也仅进行了9次循环，循环寿命或十分有限，后者易发生材料疲劳且机械驱动较复杂，同时所用NiTi合金材料成本较高。目前初步判断，这些仍处于研发和原型阶段，技术成熟度均较低。除上述两种制冷方式之外，“磁热效应制冷”是ESI数据库中的一个研究前沿，后续可能进一步调研。",
           "b": "在全球气候变暖日益严峻的背景下，传统蒸汽压缩制冷技术依赖高全球变暖潜势（GWP）的气体制冷剂，占全球电力消耗的20%，并加剧温室气体排放。根据2023年夏季创纪录的高温记录，这种技术已成为环境负担。2012年提出的弹热制冷技术，利用形状记忆合金（SMA）的相变效应，提供无温室气体排放的绿色替代方案。然而，现有弹热制冷系统尚未实现零下温度，这限制了其在多种冷冻场景中的应用。\n香港科技大学孙庆平教授等人选用高镍含量（51.2 at%）的二元NiTi合金作为制冷材料，通过精确调控成分使其奥氏体结束温度（Af，指的是合金在加热过程中，低温相（马氏体）向高温相（奥氏体）完全转变结束时的温度，奥氏体是高温稳定相，体心立方或有序的B2结构，硬而刚性，马氏体是低温相，单斜晶系或正交晶系，软而韧性）降低至-20.8℃，实现了从-18.5℃到30℃宽达48.5℃的超弹性温度窗口。在0℃环境温度下，该合金在900 MPa压缩应力作用下可产生16.3℃的绝热温变，展现出优异的低温超弹性和显著的熵变特性。\n为解决低温工况下常规传热介质易冻结的问题，团队采用30 wt%氯化钙（CaCl₂）水溶液作为传热流体。该溶液冰点远低于-20℃，同时与NiTi合金表面具有良好的润湿性（接触角约75°–76°），并通过3个月和12个月的浸泡试验验证了合金优异的耐腐蚀性能（表面粗糙度增长符合ASTM/ISO标准）。\n装置采用8级串联的管状NiTi单元构成再生器，总质量82 g，单根薄壁管状结构比表面积高达8.68 mm⁻¹，有效强化了固-液换热。在1 Hz工作频率、900 MPa应力驱动下，装置实现了从室温热沉（约24℃）到-12℃冷源的36 K温差提升。在零负荷条件下，特定冷却功率达到1.43 W/g；在最大温差工况（V*=0.5）下稳定运行，成功将15升保温箱内空气温度降至-4℃，并在2小时内将20 ml蒸馏水完全冻结成冰。装置在零温差工况下基于完全功回收假设的COP值达到3.4。研究团队指出，若将现有高GWP制冷剂的冷冻应用全部替换为该类弹性热致冷技术，全球每年有望减排约3.3亿吨CO₂当量温室气体。文章于2026年1月14日发表在Nature。\nComment：传统制冷利用制冷剂+压缩机，通过制冷剂的潜热或显热交换实现降温。弹热制冷则是通过固体合金被拉伸/压缩时晶体结构变化吸/放热，具有能量密度高、零温室气体排放的优点，但其易发生材料疲劳且机械驱动较复杂，同时所用NiTi合金材料成本较高，整体制冷成本则可能高于传统压缩机制冷方式。",
           "hb": 1
-        },
-        {
-          "t": "中国科学院金属研究所李昺在NH₄SCN水溶液中实现极端压卡效应",
-          "d": "2026-01-01",
-          "a": "",
-          "c": "零碳产业/能量循环/能源测/供热技术/热泵",
-          "as": "中科院金属所李昺团队在研究NH₄SCN固体庞压卡效应时，发现其溶于水产生强烈吸热现象，由此开发出液态压卡制冷新策略。60 wt%溶液溶解20秒内产生近30K温降，345K环境下达54K；600 MPa压力循环获得26.8K温降，显著超越已知固态相变材料。液态工质兼具传质传热能力，从根本上解决固体制冷界面热阻难题，为低碳大冷量制冷开辟新方向。",
-          "sc": 6.8,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://doi.org/10.1038/s41586-025-10013-1",
-          "tp": "压卡制冷",
-          "aip": 1,
-          "kp": [],
-          "lv": 2,
-          "wr": "",
-          "cm": "传统蒸汽压缩制冷技术依赖高全球变暖潜势（GWP）的气体制冷剂，人们一直在试图寻找新的制冷方式。弹卡效应指的是材料在单向应力作用下发生马氏体相变（晶体结构可逆变化），导致吸热或放热.压卡效应指的是材料在均匀压力下发生相变（如分子取向有序化），导致熵变和热效应。分别提高了两种制冷方式的制冷能力上限。两篇文章虽然有指标上的进步，但都难以实际应用，前者600 MPa的工作压力在实际应用中仍难以实现，且文章也仅进行了9次循环，循环寿命或十分有限，后者易发生材料疲劳且机械驱动较复杂，同时所用NiTi合金材料成本较高。目前初步判断，这些仍处于研发和原型阶段，技术成熟度均较低。除上述两种制冷方式之外，“磁热效应制冷”是ESI数据库中的一个研究前沿，后续可能进一步调研。",
-          "b": "制冷是现代社会不可或缺的技术，然而目前占主导地位的蒸气压缩系统依赖于具有高全球变暖潜势的对环境有害的氟碳制冷剂。近年来，基于固体相变的制冷技术因无气体排放而受到广泛关注。2019年，塑晶庞压卡效应的发现，为低碳大冷量固态制冷技术提供全新的解决方案。然而固态相变制冷技术仍然存在一个突出的内禀难题：与气体压缩制冷技术中气体工质的传质传热不同，固体只能通过热传导传热，固体制冷工质与换热器之间必须采用流体来间接换热，界面热阻的存在使得系统制冷效率与大功率应用受限。\n中国科学院金属研究所李昺研究员等人在研究NH4SCN固体的反常庞压卡效应时，偶然间意识到该盐溶解于水会产生强烈的吸热效应。在这一现象的启发下，研究团队开展了系统的研究工作。室温下，溶解温降随着浓度变大显著增加；对于接近饱和的60 wt% 溶液其溶解过程可在20秒内完成，产生近30 K的温降；该温降随着环境温度的升高快速升高，在环境温度为345 K时达到了54 K。利用自研的高压温变测量装置测试了压力循环过程中的原位温变，在600 MPa压力下获得了26.8 K的温降。这一温降数值显著超越了当前已知的固态相变制冷材料。运用原位同步辐射X射线衍射、拉曼散射和显微观察，揭示了该效应的物理根源是压力降低了溶解度；同时，发现压力调控的溶解/析出过程，具有可逆、响应迅速等优点。基于溶解压卡效应冷量大与流体换热特性，设计了类卡诺制冷循环。该循环包括四个阶段：对溶液绝热加压，溶质析出，溶液温度升高；保持压力，利用循环泵使溶液在系统流动，在热端换热器将热量等温耗散至环境；关闭循环泵，绝热卸载压力，溶质开始快速再溶解，溶液温度降低；将低温溶液泵送至冷端换热器，从热源等温吸热，达到制冷目的。计算表明单个制冷循环的冷量和效率分别达到了67 J·g-1和77%。文章于2026年1月21日发表在Nature。\nComment：该工作最大亮点在于跳出传统固-固或固-液相变框架，提出利用压力诱导溶解的机制，同时避免了固态卡效应材料普遍存在的二次换热流体带来的界面热阻问题。但600 MPa的工作压力在实际应用中仍难以实现，且文章也仅进行了9次循环，循环寿命或十分有限。",
-          "hb": 1
         }
       ]
     },
@@ -93,33 +86,32 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "研究利用量子几何特性实现手性费米子实空间分离",
-        "多伦多大学发布GPU加速机器人模拟框架构建化学实验室数字孪生"
+        "多伦多大学团队发布GPU加速模拟框架MATTERIX，用于构建化学实验室数字孪生。"
       ],
       "entries": [
         {
-          "t": "量子几何驱动的手性费米子阀",
+          "t": "多伦多大学Kourosh Darvish发布机器人辅助的自动化化学实验室的数字孪生",
           "d": "2026-01-01",
-          "a": "Nature",
-          "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "多重拓扑半金属在能带交叉处承载相反手性费米子，传统手性输运依赖强磁场或磁性掺杂。本研究利用拓扑能带的量子几何特性，将不同手性费米子过滤至不同Chern数极化态，实现实空间手性分离，为拓扑量子器件提供了全新工作原理。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.nature.com/articles/s41586-025-09864-5",
-          "tp": "量子拓扑",
-          "aip": 1,
+          "a": "Doi",
+          "c": "AI与智能科技/具身智能/模型和具身操作系统",
+          "as": "多伦多大学Kourosh Darvish团队开发GPU加速多尺度机器人模拟框架MATTERIX，用于构建化学实验室数字孪生。该框架可同步模拟机器人操作、固液动力学、仪器功能、热传导及化学动力学过程，支持多层级任务定义与模块化技能库搭建虚拟实验室。意义在于通过虚拟设计减少机器人辅助化学实验室的试错成本。2025年12月发表于Nature Computational Science。",
+          "sc": 5.0,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://doi.org/10.1038/s43588-025-00924-4",
+          "tp": "机器人模拟",
+          "aip": 0,
           "kp": [],
-          "lv": 0,
+          "lv": 2,
           "wr": "",
-          "cm": "",
-          "b": "Multifold topological semimetals host fermions with opposite chiralities at topological band crossings1,2,3. Chiral fermionic transport in topological systems often relies on high magnetic fields or magnetic dopants to suppress trivial transport and create an imbalance in occupancy of opposite Chern-number states4,5. Here we use the quantum geometry6,7 of topological bands to filter fermions by chirality into distinct Chern-number-polarized states. This allows for the real-space separation of currents with opposite fermionic chiralities, which we have demonstrated by observing their quantum interference in the absence of any magnetic field. Devices fabricated from single-crystal PdGa in a three-arm geometry exhibit quantum-geometry-induced anomalous velocities8,9 of chiral fermions, thereby exhibiting a nonlinear Hall effect. The resultant transverse chiral currents with opposite anomalous velocities are thereby spatially separated into the outer arms of the device. These chiral currents in opposing Chern number states also carry orbital magnetizations with opposite signs. The mesoscopic phase coherence of these chiral currents facilitated their quantum interference10 in a Mach–Zehnder interferometer. Our findings establish a chiral fermionic valve that exhibits three key properties: spatially separates chiral fermions into Chern-number polarized states by using their quantum geometry, enables tuneable current-induced magnetization and provides a platform for controllable quantum interference of chiral quasiparticles using an electric current and magnetic field.",
+          "cm": "数字孪生是物理系统在计算机内部的虚拟映射。其通过物联网采集数据，在虚拟空间构建模拟模型，并进一步实施状态推演或决策优化。工业软件可以大大加速工程化设计。该工作提出了一个机器人+实验室的模拟框架，可能成为该类工业软件的基石。化学实验视试验阶段，实验操作、物料使用的自由度也有很大不同。在实验流程建立的初期，物料、操作流程都不完全确定，这个阶段对实验机器人的智能程度要求最高，因为这个阶段的指令最复杂。当实验流程基本确定，需要进行大量平行实验的阶段，实验机器人所需要的智能水平相对更低。因此个人认为，目前的研究首先进行实验操作的分阶段拆解，逐步使用机器人替代各个环节，而非直接进行全流程实验机器人的开发。在此过程中，逐步建立机器人+实验室的模拟引擎也是十分重要的。",
+          "b": "数字孪生是物理系统在计算机内部的虚拟映射。其通过物联网采集数据，在虚拟空间构建模拟模型，并进一步实施状态推演或决策优化。Kourosh Darvish课题组开发了GPU加速的多尺度机器人模拟框架MATTERIX，用于建立化学实验室的数字孪生。通过这种方式，可以为机器人辅助的化学实验室设计提供加速。MATTERIX可以模拟机器人操作、固体和液体的动力学、仪器功能、热传导以及基础的化学动力学过程。通过这种方式，其实现了对化学实验室多种尺度过程的同时模拟。借助多层级的任务定义以及模块化的技能库，MATTERIX可以完成虚拟实验室的搭建过程。本工作的意义在于可以实现机器人辅助化学实验室的虚拟设计，从而减少试错成本。文章于2025年12月2日发表在Nature Computational Science。",
           "hb": 1
         },
         {
           "t": "多伦多大学Kourosh Darvish发布机器人辅助的自动化化学实验室的数字孪生",
           "d": "2026-01-01",
-          "a": "",
+          "a": "Doi",
           "c": "AI与智能科技/具身智能/模型和具身操作系统",
           "as": "多伦多大学Kourosh Darvish团队开发GPU加速多尺度机器人模拟框架MATTERIX，用于构建化学实验室数字孪生。该框架可同步模拟机器人操作、固液动力学、仪器功能、热传导及化学动力学过程，支持多层级任务定义与模块化技能库搭建虚拟实验室。意义在于通过虚拟设计减少机器人辅助化学实验室的试错成本。2025年12月发表于Nature Computational Science。",
           "sc": 5.0,
@@ -140,77 +132,8 @@
     {
       "name": "通用技术",
       "review": null,
-      "headlines": [
-        "高温超导体集成磁等离子体动力推进器提升深空探测推力密度",
-        "研究团队开发LUZ51光敏剂通过光动力疗法治疗转移性实体瘤",
-        "栅源集成二维铁电光电晶体管实现极性切换与光电跃迁"
-      ],
-      "entries": [
-        {
-          "t": "高温超导磁等离子体动力学推进器的高性能：解析磁流体力学建模与实验验证",
-          "d": "2026-01-01",
-          "a": "National Science Review Advance Access",
-          "c": "通用技术/通信和运输/航天",
-          "as": "研究将高温超导体（HTS）集成至磁等离子体动力（MPD）推进器中，通过解析MHD建模与实验验证，实现了高性能电推进系统。HTS线圈产生超强磁场，显著提升了MPD推进器的推力密度和比冲，同时降低了系统质量。分析模型与实验数据吻合良好，证明HTS-MPD推进器在深空探测任务中具有远超传统化学推进的性能潜力。",
-          "sc": 7.6,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://academic.oup.com/nsr/advance-article/doi/10.1093/nsr/nwaf589/8407247?rss=1",
-          "tp": "超导等离子推进器",
-          "aip": 1,
-          "kp": [
-            "[推进系统]: 高温超导磁等离子体动力推进器",
-            "[应用]: 低轨小卫星与CubeSat推进",
-            "[优势]: 紧凑、高效率电推进"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "The integration of high-temperature superconductors (HTS) into electric propulsion systems, particularly Magneto-Plasma-Dynamic Thrusters (MPDTs), has recently garnered significant attention. However, research on low-power HTS-based MPDTs, which are crucial for small satellites and CubeSats, remains limited. The increasing demand for compact, high-efficiency propulsion in Low Earth orbit underscores the need for scalable HTS-AF-MPDT systems operating below 15 kW. Despite this, challenges such as the lack of detailed theoretical models, limited plasma diagnostics, and excessive Joule heating in conventional copper magnets persist. In this work, using a downscaled version of a 25 kW high-temperature superconducting (HTS) based applied-field magneto-plasma-dynamic thruster, we address these limitations by developing and experimentally validating a theoretical MHD-based plasma acceleration model for an AF-MPDT equipped with a conduction-cooled HTS magnet.The system achieves a specific impulse of 3265s at an input power of 12 kW, more than eight times higher than traditional chemical propulsion, alongside a thrust of 320mN and an efficiency of 25% at sub 12kW. The HTS magnet reduces magnetic power consumption from 285 kW to under 1 kW and lowers magnet mass from 220 kg to 60 kg, enabling substantial improvements in system miniaturization and efficiency. These results represent the first reported demonstration of a 12kW high-temperature superconducting AF-MPDT, bridging theoretical predictions with experimental outcomes and laying the groundwork for in-orbit demonstration of high-performance propulsion for small satellites.",
-          "hb": 1
-        },
-        {
-          "t": "利用小型光敏剂无缝克服生物障碍，通过光动力疗法治疗转移性肿瘤",
-          "d": "2026-01-01",
-          "a": "Wiley: Angewandte Chemie International Edition: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "光动力疗法治疗实体瘤面临光敏剂渗透差和免疫激活不足的瓶颈。研究团队开发LUZ51小型细菌二氢卟吩光敏剂，具强近红外吸收和高光稳定性，可深入致密肿瘤高效产生活性氧并激活免疫系统，为原发肿瘤消融和转移消退提供一体化方案。",
-          "sc": 7.0,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://onlinelibrary.wiley.com/doi/10.1002/anie.202509121?af=R",
-          "tp": "光敏剂",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Abstract\n                  \n                    A breakthrough in the treatment of solid tumors requires primary tumor ablation and remission of metastasis. Photodynamic therapy (PDT) may meet these requirements, but current photosensitizers poorly infiltrate dense tumors and insufficiently stimulate the immune system. We introduce LUZ51, a small bacteriochlorin that features strong near‐infrared absorption, high photostability, moderate lipophilicity, amphiphilicity, and appropriate singlet oxygen quantum yield. LUZ51 has a fast cellular uptake via passive diffusion and EC50s of 5–15 nM range for a light dose of 1 J/cm\n                    2\n                    . It seamlessly crosses biological barriers and accumulates in tumors. Mice with CT26 tumors cured in one treatment (0.15 mg/kg and 20 J/cm\n                    2\n                    ) resisted tumor rechallenge. Treatment of mice with 5 mm orthotopic 4T1 tumors enabled cures, with the associated inhibition of metastasis. The blood half‐life is 82 min and no skin photosensitivity was detected. Small‐size LUZ51 enables tissue‐agnostic PDT, with strong local and systemic effects.",
-          "hb": 1
-        },
-        {
-          "t": "栅源集成二维铁电光电晶体管中的可调极性切换与光电跃迁",
-          "d": "2026-01-01",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "报道栅-源集成的二维铁电光电晶体管，实现可调控极性翻转和光电特性转变。2D铁电材料具有原子级薄层和非易失性极化，通过栅极电压翻转铁电极化方向可在n型与p型光电导模式间切换。该器件将铁电存储与光电探测集成于单一晶体管，为多功能光电器件、神经形态视觉传感提供新的架构思路。",
-          "sc": 6.9,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202512334?af=R",
-          "tp": "铁电光电晶体管",
-          "aip": 1,
-          "kp": [
-            "器件结构[2D铁电光电晶体管]: Au/WSe2/CuCrP2S6/graphene",
-            "[功能]: 极化切换与光电特性可调"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  \n                    2D ferroelectric phototransistors are innovative devices capable of regulating the optoelectronic characteristics of channel materials through ferroelectric polarization, demonstrating immense potential in photodetection, optical storage, and optical communication. Herein, we present a novel 2D ferroelectric phototransistor structure—Au/WSe\n                    2\n                    /CuCrP\n                    2\n                    S\n                    6\n                    /graphene—featuring an integrated gate–source electrode. By applying only the channel voltage, the major carrier type can be switched, and the optoelectronic performance is significantly enriched. Specifically, the structure enables positive/negative photoconduction switching at a low channel voltage of only 0.75 V, around which an optoelectronic transition occurs because of the ion migration. The optoelectronic transition manifests as a variation up to three orders of magnitude in the photocurrent decay time driven by the capture and release of photogenerated holes by Cu‐ion vacancies, as well as positive and negative photoconduction switching triggered by different laser pulse intervals. This novel architecture offers an integrated platform that harnesses the distinctive characteristics of 2D ferroelectrics to dynamically and precisely tune the optoelectronic properties of 2D semiconductors.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     }
   ]
 }

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "中国科研团队研发全钙钛矿叠层光伏组件，转换效率刷新世界纪录。",
-      "复洁科技沼气制绿色甲醇技术通过国家级科技成果评价，打通产业化路径。",
-      "比亚迪累计建成超7000座闪充站，规划2026年底前将规模扩充至2万座。"
+      "南京大学联合仁烁光能研制出光电转换效率达26.2%的大面积全钙钛矿叠层组件",
+      "脉络能源研发出转换效率21.79%及功率质量比26 W/g的超轻柔太空光伏组件",
+      "Realta Fusion在磁镜聚变装置中实现90%效率的等离子体直接发电演示"
     ],
     "AI与智能科技": [
-      "Anthropic招募OpenAI前芯片工程师组建自研团队，拟与三星洽谈2纳米制程代工。",
-      "谷歌量子AI团队在《Science》发文，首次实验观测到无空间无序下的多体局域化现象。",
-      "AI大模型厂商正加速自研芯片，以降低对英伟达GPU算力供应链的单一依赖。"
+      "生数科技发布实时交互视频模型Vidu S1，支持消费级显卡25FPS视频生成",
+      "谷歌量子AI团队利用超导处理器首次实验观测到无无序局域化现象",
+      "浪潮信息推出多模融合API，混合智能体基准测试得分高出单一模型11%"
     ],
     "通用技术": [
-      "美国航空航天企业投运全球首个高超声速材料商业化气候测试平台。",
-      "星河动力苍穹-50可复用火箭发动机试车突破2万秒，推进25次重复使用目标。",
-      "特斯拉2026年第二季度汽车交付量达48.01万辆，同比增长25%。"
+      "研究人员提出多环芳烃自由基阴离子介导策略，实现1秒内高质量石墨烯剥离",
+      "研究表明LiH分步激发可将合成氨浓度提升至0.25%，超过热平衡值两倍",
+      "基于澳门科学卫星一号数据，研究揭示南大西洋异常区高能电子通量瞬态扭曲现象"
     ]
   },
   "sectors": [
@@ -26,9 +26,9 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "中国科研团队研发全钙钛矿叠层光伏组件，转换效率刷新世界纪录。",
-        "复洁科技沼气制绿色甲醇技术通过国家级科技成果评价，打通产业化路径。",
-        "比亚迪累计建成超7000座闪充站，规划2026年底前将规模扩充至2万座。"
+        "南京大学联合仁烁光能研制出光电转换效率达26.2%的大面积全钙钛矿叠层组件",
+        "脉络能源研发出转换效率21.79%及功率质量比26 W/g的超轻柔太空光伏组件",
+        "Realta Fusion在磁镜聚变装置中实现90%效率的等离子体直接发电演示"
       ],
       "entries": [
         {
@@ -36,62 +36,68 @@
           "d": "2026-07-03",
           "a": "双碳情报",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "中国科研团队在大面积全钙钛矿叠层光伏组件效率上刷新世界纪录。全钙钛矿叠层结构通过宽带隙与窄带隙钙钛矿子电池串联，理论效率极限超40%，远超单结电池。此前大面积组件受限于窄带隙Sn-Pb钙钛矿薄膜缺陷与界面复合问题，此次突破对推动钙钛矿叠层技术从实验室小面积向产业化量产组件跨越具有关键意义。",
-          "sc": 9.3,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/7VZQpKh2YR43fsfJWcHI2w",
-          "tp": "钙钛矿光伏",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "中国大面积全钙钛矿叠层光伏组件效率刷新世界纪录 双碳情报 由中国科学院文献情报系统双碳战略研究团队运营的“**双碳情报**”公众号正式上线！重点跟踪报道主要国家和重要组织双碳相关战略规划、政策法规、发展路线图、重大计划、重点项目等动态讯息，",
-          "hb": 1
-        },
-        {
-          "t": "全球首次！沼气制绿色甲醇技术达国际领先，通过国家级成果评价",
-          "d": "2026-07-03",
-          "a": "DT洞见可持续",
-          "c": "零碳产业/能量循环/能量存储/化学能/可再生燃料",
-          "as": "全球首次沼气制绿色甲醇技术通过中国石油和化学工业联合会组织的国家级科技成果评价，达到国际领先水平。由复洁科技等企业研发，将沼气（甲烷）转化为绿色甲醇，实现废弃物资源化利用和碳减排双重目标。绿色甲醇作为清洁燃料和化工原料市场需求旺盛，该技术打通了生物质制甲醇的产业化路径。",
-          "sc": 8.1,
+          "as": "南京大学联合仁烁光能研制出大面积全钙钛矿叠层光伏组件，经日本电气安全环境研究所（JET）认证，有效面积65平方厘米的组件光电转换效率高达26.2%，刷新该面积等级世界纪录。研究团队采用界面调控与结晶调控协同优化策略，提升了互联层的载流子复合与抽取能力及大面积薄膜均匀性。器件开路电压达2.182伏，填充因子77.4%。",
+          "sc": 9.1,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/WH4LZxarKjwBXriuwSrASw",
-          "tp": "沼气制甲醇",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "全球首次！沼气制绿色甲醇技术达国际领先，通过国家级成果评价 点这里关注→ 点这里关注→ DT洞见可持续 **🔍**CCUS|复洁科技，CCUS 【DT洞见可持续】获悉，近日，由中国石油和化学工业联合会组织的科技成果评价会在上海圆满举行。由上",
-          "hb": 1
-        },
-        {
-          "t": "比亚迪累计建成超 7000 座闪充站：遍布 325 个城市，目标年底建成 2 万座",
-          "d": "2026-07-03",
-          "a": "IT之家",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "比亚迪在海豹08上市发布会上宣布，已累计建成超7000座闪充站，覆盖全国325个城市，并设定2026年底建成2万座的目标。此前3月比亚迪发布二代刀片电池及闪充技术，大幅提升充电功率与补能效率。闪充网络的大规模扩张是比亚迪构建电动出行生态、缓解用户里程焦虑的核心战略举措，充电基础设施建设速度显著领先行业。",
-          "sc": 8.0,
-          "i": "news",
-          "tg": "产业进展",
-          "u": "https://www.ithome.com/0/971/953.htm",
-          "tp": "闪充技术",
+          "u": "https://mp.weixin.qq.com/s/7VZQpKh2YR43fsfJWcHI2w",
+          "tp": "钙钛矿光伏效率",
           "aip": 1,
           "kp": [
-            "单枪功率[闪充桩]: 1500KW",
-            "充电速度[二代刀片]: 5分钟10%→70%",
-            "低温性能[-30℃]: 20%→97%约12分钟",
-            "建站规模[比亚迪]: 7000+座/325城",
-            "目标[2026底]: 2万座"
+            "光电转换效率[大面积全钙钛矿叠层光伏组件]: 26.2%",
+            "有效面积[全钙钛矿叠层光伏组件]: 65平方厘米",
+            "开路电压[全钙钛矿叠层光伏器件]: 2.182伏",
+            "填充因子[全钙钛矿叠层光伏器件]: 77.4%",
+            "短路电流密度[全钙钛矿叠层光伏器件]: 15.6毫安/平方厘米"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "7 月 2 日消息，在比亚迪今晚的海豹 08 上市发布会上，比亚迪官方宣布，\n已累计建成超 7000 座闪充站\n，遍布 325 个城市，目标 2026 年底建成 2 万座。\n在今年 3 月举行的比亚迪二代刀片电池暨闪充技术发布会上，比亚迪发布了全球量产单枪最大功率充电桩 —— 比亚迪闪充桩，\n单枪充电功率可达 1500KW\n在使用第二代刀片电池的情况下，比亚迪汽车可以实现 5 分钟电量从 10% 充至 70%，9 分钟充至 97%，刷新充电速度新纪录。IT之家注意到，在零下 30℃ 环境中，比亚迪充电时间仅比常温多 3 分钟（20% 充至 97% 约 12 分钟），打破行业难题。\n比亚迪还推出了闪充中国战略，预计到今年年底建成 2 万座闪充站，其中 18000 座闪充站中站、2000 座闪充高速站。",
+          "b": "中国大面积全钙钛矿叠层光伏组件效率刷新世界纪录 双碳情报 由中国科学院文献情报系统双碳战略研究团队运营的“**双碳情报**”公众号正式上线！重点跟踪报道主要国家和重要组织双碳相关战略规划、政策法规、发展路线图、重大计划、重点项目等动态讯息，监测分析双碳领域国际前沿科技热点和发展态势。 **中国大面积全钙钛矿叠层光伏组件效率刷新世界纪录** 6月15日，南京大学联合仁烁光能等在全钙钛矿叠层光伏技术方面取得重要突破，研制出的大面积全钙钛矿叠层光伏组件光电转换效率高达26.2%，刷新了该面积等级全钙钛矿叠层光伏组件的世界纪录。 研究团队通过界面调控与结晶调控协同优化策略，同步提升了全钙钛矿叠层器件互联层的载流子复合效率、载流子抽取能力，并改善大面积薄膜均匀性。 经日本电气安全环境研究所（JET）认证，有效面积65平方厘米的全钙钛矿叠层光伏组件的光电转换效率达26.2%；基于子单元平均性能测算，器件开路电压2.182伏，填充因子77.4%，短路电流密度15.6毫安/平方厘米。该研究成果为钙钛矿叠层光伏组件的规模化量产迈出重要一步。 ****来源：****Nature. Nanocrystal-Tailored Recombination for All-Perovskite Tandem Solar Modules¹. \\[1\\] https://www.nature.com/articles/s41586-026-10768-1 **推****荐阅读** 深度分析 | 微藻固碳技术研究与应用进展分析 深度分析 | 采矿与冶金行业减排研究进展与未来展望 深度分析 | 人工智能与核能协同发展国际实践与前景展望 深度分析 | 未来能源发展重点方向、面临风险挑战及对策建议 深度分析 | 主要国家和地区核聚变战略布局对比分析 深度分析 | 人工林碳汇研究进展与展望 深度分析 | 我国碳排放双控制度现状、面临挑战及对策建议 深度分析 | 微生物能源技术发展态势分析与展望 **原创声明** 本文为**中国科学院文献情报系统双碳行动战略研究团队**原创，转载或者引用本文内容请**注明****来****源**（文章作者以及中国科学院文献情报中心“双碳情报”公众号）。对于不遵守此声明或者其他违法使用本文内容者，本公众号依法保留追究权等。 联系我们：北京市北四环西路33号中国科学院文献情报中心 转载、订购、咨询请后台留言",
+          "hb": 1
+        },
+        {
+          "t": "【钙钛矿】21.79%！脉络能源超轻柔钙钛矿太空光伏组件新突破",
+          "d": "2026-07-03",
+          "a": "索比光伏",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "广东脉络能源科技研发的30×30 cm²超轻柔钙钛矿太空光伏组件经TÜV北德认证，光电转换效率达21.79%，为同级别世界最高效率之一。其功率质量比高达26 W/g，处于国际领先水平。该组件具备高转换效率、极轻、可弯曲折叠等特性，满足航天领域对低成本、轻量化空间电源的迫切需求。未来仍需通过严苛的系统级航天环境测试验证。",
+          "sc": 8.5,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://news.solarbe.com/202607/03/50025329.html",
+          "tp": "钙钛矿太空光伏",
+          "aip": 1,
+          "kp": [
+            "光电转换效率[30×30 cm²超轻柔钙钛矿太空光伏组件]: 21.79%",
+            "功率质量比[超轻柔钙钛矿太空光伏组件]: 26 W/g"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "广东脉络能源科技有限公司自主研发的30×30 cm²超轻柔钙钛矿太空光伏组件，经第三方权威机构TÜV北德认证，光电转换效率达到21.79%，为同面积级别超轻柔钙钛矿光伏组件的世界最高效率之一\n。更关键的是，该组件在保持优异光电性能的同时，功率质量比高达26 W/g——这一指标显著超越多数薄膜光伏技术，处于国际领先水平。\n在航天领域，重量即成本。每增加一克发射载荷，都意味着更高的运载费用，同时挤占宝贵的有效载荷空间。因此，空间光伏的第一性原理极为明确：越轻越有价值。由于在轨补给昂贵、维修几乎不可能，“功率质量比”便成为衡量空间电源性能的终极标尺——同样质量送入轨道，能输出更多电力，就意味着卫星可承载更强载荷、延长工作寿命、降低发射成本。脉络能源此项成果，正是对这一指标的强力回应。\n商业航天的节奏正在加快。低轨通信星座、遥感监测网、物联网卫星，甚至未来可能出现的太空数据中心，都在成倍拉高对空间电力的需求。传统刚性光伏组件技术虽然成熟，但单位重量成本高、展开机构复杂、难以快速批量制造，很难匹配“低成本、高频次、大规模组网”的卫星部署节奏。行业迫切需要一种能同时满足高效率、轻量化、可折叠收纳、适合规模化生产的新型空间电源方案。\n柔性钙钛矿光伏组件的潜力，恰好踩在了这些需求的交汇点上。它具备高转换效率、极轻的材质、可弯曲折叠的特性，并且制造工艺有潜力实现卷对卷连续生产，成本控制空间可观。这意味着，空间光伏有望从过去“高成本、小批量、刚性结构”的固有模式，逐步转向“轻量化、柔性化、规模化制造”的新路径。对于我国商业航天和深空探测来说，这项技术的价值不仅停留在电池效率的提升层面，更关乎未来大规模天基设施能否实现能源自主供给。\n当然，空间应用对可靠性的要求极为苛刻。材料级别的实验室数据不能等同于航天级产品，地面环境测试通过也远非规模化上天的充分条件。柔性钙钛矿光伏组件仍需经历完整的系统级验证、辐照测试和长期在轨考核，才能真正走向工程应用。\n脉络能源的此次技术突破，正在逼近一个关键问题的答案：当卫星数量激增、功率需求攀升、发射成本日益敏感时，柔性钙钛矿光伏组件能否凭借更轻的材料，为更大的太空基础设施提供可靠能源？ 从当前进展看，这一答案正一步步接近现实。脉络能源也将持续深耕柔性钙钛矿光伏组件，从地面应用到太空探索，从技术攻关到场景拓展，不断拓展这一革命性技术的未来边界。\n索比光伏网 https://news.solarbe.com/202607/03/50025329.html",
+          "hb": 1
+        },
+        {
+          "t": "磁镜聚变新里程碑：Realta演示90%能量转换效率等离子体直发电",
+          "d": "2026-07-03",
+          "a": "可控核聚变",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "Realta Fusion公司在威斯康星州的高温超导轴对称磁镜装置（WHAM）上，成功完成等离子体直接能量转换（DEC）演示。DEC技术跳过了传统的热循环过程，通过自主研发的原型电转换器，直接将聚变反应中带电α粒子的动能转化为电能。在演示中，该系统在约100伏电压下抽取了数安培的电流，实现了高达90%的能量转换效率。这一里程碑验证了磁镜聚变直接发电技术路线的工程可行性。",
+          "sc": 8.3,
+          "i": "n",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/YDuN4A4CAVwESOP9NzRBvg",
+          "tp": "聚变直发电",
+          "aip": 1,
+          "kp": [
+            "能量转换效率[Realta磁镜聚变WHAM装置等离子体直发电]: 90%",
+            "技术路线创新[可控核聚变发电]: 跳过传统热-蒸汽-机械-电转化模式，利用直接能量转换器直接从等离子体动能中回收电能"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "磁镜聚变新里程碑：Realta演示90%能量转换效率等离子体直发电 原创 刘智宇 刘智宇 可控核聚变 每天与你一起 自从2022年美国国家点火设施（NIF）实现聚变净能量增益以来，业界一直在寻找合适的技术路径，实现从“火能点着”到“以火生电”的技术跨越。四年后的今天，总部位于威斯康星州的Realta Fusion公司，给出了一份属于他们自己的答案：跳过传统“热→蒸汽→机械→电”的转化模式，直接从等离子体动能中回收电能。 “我们可以从等离子体中直接获取电力，”Realta Fusion联合创始人兼首席执行官Kieran Furlong说，“这一里程碑事件展示了’可能性’。” WHAM装置是威斯康星大学麦迪逊分校与Realta Fusion公司公私合作的一部分，该装置实现了聚变能源研究中产生等离子体的里程碑式突破图片来源：Bryce Richter /威斯康星大学麦迪逊分校 WHAM装置与直接能量转换器 2026年6月19日，Realta在其示范聚变装置 Wisconsin HTS Axisymmetric Mirror（威斯康星州的高温超导轴对称磁镜装置，WHAM）上完成了一次直接能量转换演示。WHAM由Realta与威斯康星大学麦迪逊分校合作运行，2024年7月首次产生并成功约束等离子体，目前仍处于实验阶段。 DEC（Direct Energy Conversion，直接能量转换）是一种绕过传统热循环、将等离子体中带电粒子的动能直接转化为电能的工程技术。Realta在WHAM装置末端安装了自主研发的原型电转换器，用于验证DEC技术路线的可行性。在氘氚聚变反应中，约20%的能量以带电α粒子（氦核）的形式释放。DEC的物理机制正是直接收集这些带电粒子的动能——粒子在电极上减速，动能转化为电势能，从而输出电流。演示中，该系统在约100伏电压下抽取了数安培电流——足以点亮多只灯泡。 需要强调的是，这仍是一次概念验证——WHAM目前尚未进行氘氚聚变，DEC所提取的能量来自外部输入，而非真实聚变产生的α粒子。 90%效率改写经济账 传统聚变发电依赖热循环，每一步都有损耗。当今裂变核电站蒸汽轮机的热电转换效率约为33%。而DEC环节本身的能量转换效率可达约90%。 但需注意，90%仅指DEC环节的效率。按照Realta的商业方案，约80%的能量仍将通过传统热循环转化，仅约20%走DEC路径。 DEC回收的电能可直接用于加热和维持等离子体，这一过程本身消耗巨大——从而实现电力的“再循环”。Furlong估计，这种循环利用可使商业规模发电厂的总输出提升20%至30%，每千瓦时成本降低10%至20%。 Realta Fusion的WHAM装置是为实验磁镜聚变技术而建造的 图片来源：Realta Fusion 行业坐标与融资进展 Realta并非唯一押注DEC的聚变公司。由山姆·奥特曼支持的Helion公司同样将直接能量转换作为其技术路线的核心，但尚未公开演示。 直接能量转换的概念最早由劳伦斯利弗莫尔国家实验室的R.F. Post于1969年提出。此后在TMX串联磁镜实验和GAMMA10串联磁镜等装置上均有验证。Realta的突破在于，**它是首家在商业化聚变装置上公开展示这一过程的私营公司**。 融资方面，Realta于2025年完成由Future Ventures领投的3600万美元A轮融资，目前正在进行新一轮融资。公司计划于2030年代中期启动第一代聚变电站的建设。 参考链接： * https://techcrunch.com/2026/06/30/realta-fusion-generates-electricity-directly-from-a-fusion-reaction-an-apparent-first/ * https://www.physics.wisc.edu/tag/cfs/#main * https://interestingengineering.com/energy/us-nuclear-fusion-makes-history * Realta Fusion完成3600万美元A轮融资，推进磁镜技术走向商业化 * Realta Fusion获得TitieTown Tech投资，串列磁镜技术或将迎来突破",
           "hb": 1
         }
       ]
@@ -100,47 +106,30 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "Anthropic招募OpenAI前芯片工程师组建自研团队，拟与三星洽谈2纳米制程代工。",
-        "谷歌量子AI团队在《Science》发文，首次实验观测到无空间无序下的多体局域化现象。",
-        "AI大模型厂商正加速自研芯片，以降低对英伟达GPU算力供应链的单一依赖。"
+        "生数科技发布实时交互视频模型Vidu S1，支持消费级显卡25FPS视频生成",
+        "谷歌量子AI团队利用超导处理器首次实验观测到无无序局域化现象",
+        "浪潮信息推出多模融合API，混合智能体基准测试得分高出单一模型11%"
       ],
       "entries": [
         {
-          "t": "Anthropic被曝造芯！挖OpenAI老兵，密谈三星2nm",
+          "t": "刚刚，Vidu S1 重磅来袭，视频生成迈入实时交互时代！",
           "d": "2026-07-03",
-          "a": "新智元",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "Anthropic正进军AI芯片自研领域。一个月内先后挖角OpenAI芯片老兵组建自研团队，并与三星密谈2nm制程代工合作。继Google(TPU)、Meta(MTIA)、Amazon(Trainium)之后，Anthropic成为又一家加入自研AI芯片行列的前沿模型公司，旨在降低对英伟达GPU的依赖并掌控算力供应链。",
-          "sc": 9.3,
+          "a": "机器之心",
+          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
+          "as": "生数科技在2026全球数字经济大会上发布全新实时交互视频模型Vidu S1。该模型支持语音实时控制视频生成、无限长实时生成，可在消费级显卡上实现540P（960×540）分辨率及25FPS（最高42FPS）的实时交互。Vidu S1采用纯生成式路线，无需离线建模，用户仅需上传一张首帧图即可快速创建数字人。该技术将视频大模型从离线成片推向可对话、可持续在线的实时交互时代。",
+          "sc": 8.7,
           "i": "n",
-          "tg": "行业观察",
-          "u": "https://mp.weixin.qq.com/s/OxZHBPfGVTO4qdwmbq1U4Q",
-          "tp": "AI自研造芯",
+          "tg": "技术突破",
+          "u": "https://mp.weixin.qq.com/s/eIuLWSG6_9RknAIVjO3mQA",
+          "tp": "视频实时交互",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "核心能力[Vidu S1实时交互视频模型]: 随时听得懂、马上有反应、长时间不掉线"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Anthropic被曝造芯！挖OpenAI老兵，密谈三星2nm ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】**英伟达的牌桌上，最后一个玩家摸牌了。一月之内，Anthropic先挖O",
-          "hb": 1
-        },
-        {
-          "t": "Anthropic与三星洽谈定制AI芯片制造",
-          "d": "2026-07-03",
-          "a": "the information",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "据报道，Anthropic正与三星洽谈合作制造定制AI芯片。此举旨在降低对现有GPU供应商（如英伟达）的依赖，为Claude等大模型的训练与推理提供专用硬件支持。该合作若达成，将对AI芯片竞争格局产生重要影响。",
-          "sc": 8.1,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://www.theinformation.com/articles/anthropic-talks-samsung-manufacture-custom-ai-chip",
-          "tp": "定制AI芯片",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Subscribe to unlock",
+          "b": "刚刚，Vidu S1 重磅来袭，视频生成迈入实时交互时代！ 机器之心编辑部 视频生成大模型的竞争，正在从谁生成得更好看，转向谁能实时互动。 过去一年多，主流视频大模型的迭代方向大体相似：提升分辨率、拉长生成时长、优化运动一致性、增强指令可控性。用户输入提示词，模型完成推理后输出一段长度相对固定的视频，这几乎已经成为行业默认流程。 但实时交互场景正在提出新的要求。 视频通话、实时陪伴、虚拟偶像、互动直播，都无法只依赖离线生成一段成片。用户会不断提问、打断、引导角色做出新的反应；角色也需要在对话过程中持续理解语音、调整动作、维持形象，并把新的反馈实时呈现在画面里。 换句话说，视频模型不再只需要生成得好，还要随时听得懂、马上有反应、长时间不掉线。 正是在这个节点上，生数科技把 Vidu S1 带到了实时交互这条新路线上。 在今天举行的 2026 全球数字经济大会上，生数科技创始人朱军正式对外发布全新实时交互模型 Vidu S1。该模型由朱军教授的 00 后博士生张金涛担任负责人，带领团队完成 Vidu S1 全链路研发。Vidu S1是生数科技通用世界模型整体布局在实时交互式生成方面的一个重要体现。 Vidu S1 面向的是一类全新的使用场景：让视频模型从离线成片，走向可对话、可响应、可持续在线的实时交互。它的核心能力包括语音实时控制视频生成内容、无限长实时生成、540P (960×540) + 25FPS (最高可支持 42FPS) 实时交互，以及自定义初始图像与音色。难得的是，这套实时交互能力在消费级显卡上就能跑起来。 这种革新改写了数字人的创建流程。 过去，数字人的制作更像一个小型项目：需要准备素材、完成建模或训练，再做口型、动作和形象适配。制作周期从几分钟到一天不等。 Vidu S1 采用更纯粹的生成式路线，省去了离线建模和角色训练环节。用户只需上传一张首帧图，模型就能快速理解角色的身份、外观和风格，并在交互过程中实时生成该角色的表情、口型、动作与姿态；再结合自定义音色，数字人也能保持形象与音色的统一。 从「上传素材等待训练」到「上传首帧直接交互」，个性化数字人的使用门槛大幅降低。 我们也提前体验了 Vidu S1 的实际效果。比如，我们上传了一张最近爆火的负鼠表情包，只需简单设置，一个会说天津话的负鼠角色就出现在了屏幕里。它不只能接话、顺着话题往下聊，还能听懂动作指令：你让它比赞、摸鼻子、眨眼睛，它都能在画面里实时做出对应动作。 这正是 Vidu S1 最值得关注的地方。它并不是对已有视频生成能力的常规升级，而是为实时交互式视频模型确立了新的技术基准。 AI 视频的下一阶段已经浮现：生成质量仍然重要，但已只是起点。能否实时交互，正在成为新的分水岭。 从离线生成到实时交互，Vidu S1 定义视频生成模型新基准 从离线播放到双向互动：交互范式的根本转变 过去视频生成模式可以概括为三步：用户输入提示，模型进行一系列推理计算，完成后一次性输出一段音视频内容。这套逻辑本质上是一次性内容交付，用户在生成过程中没有任何介入和修改的空间。 Vidu S1 改变的正是这一交互范式。 它支持通过语音甚至摄像头画面与角色进行实时对话，用户说一句话，模型立刻理解语义并同步生成对应的视觉反馈，这个过程不是先生成完整视频再播放，而是像视频通话一样边理解、边生成、边输出。用户可以在互动过程中随时改变指令，模型也会随之调整下一步的画面内容，不需要重新发起一次生成请求。 值得一提的是，Vidu S1 还具备一定程度的场景理解能力：当用户开启摄像头，模型能识别画面中的人物数量、动作状态等信息，并据此给出实时反馈，而不只是被动响应语音指令。这让交互不再局限于对话本身，也延伸到了对物理环境的感知。 语音指令实时跟随，不只是驱动嘴型，而是驱动行为 数字人技术发展到今天，多数产品仍停留在音频驱动口型阶段。这种方式的局限很明显，动作数量有限、组合痕迹明显，用户很容易感觉到这是被安排好的表演，而不是真实的即时反应。 Vidu S1 采用实时视频生成技术架构，让模型不仅能听清语音内容，更能听懂对话中的语义和情绪，并实时生成与之匹配的表情、手势乃至完整的肢体动作，而不是从固定动作库里调用现成片段。 语音指令 实时跟随。从「语音驱动口型」迈向「语音驱动行为」，让角色听得懂、动得准、反馈更自然 实时生成 无限时长。全球领先的无限时长，实时互动视频大模型 支撑这套能力的，是自回归扩散模型 (AR + Diffusion) 路线：模型并非一次性产出完整片段，而是基于已经生成的历史画面，结合用户当前的语音、指令等上下文信息，实时预测并生成下一帧内容。这种逐帧生成的方式，天然具备可被实时打断和改写的特性，用户随时发出的新指令，都能被模型实时理解并体现在后续画面中，不必等待一整段视频生...",
           "hb": 1
         },
         {
@@ -148,18 +137,41 @@
           "d": "2026-07-03",
           "a": "光子盒",
           "c": "AI与智能科技/其它智能科技/量子信息",
-          "as": "谷歌量子AI团队在Science发表论文，首次实验观测到无序环境下的量子多体局域化现象。传统认知认为安德森局域化等效应需依赖空间无序才能实现，而该研究打破了这一铁律，证明在特定条件下即使无空间无序也能实现激发态局域化。此发现丰富了量子多体物理理论体系，对量子信息存储与调控有重要启示。",
-          "sc": 9.0,
+          "as": "谷歌量子AI团队在《Science》发表论文，利用超导量子处理器在（1+1）维和（2+1）维格点规范场论模型中，首次实验观测到“无无序局域化”现象。传统理论认为系统需要引入空间无序才能使激发停留在局部，但该研究表明，对于某些特定初始态，即使不引入无序，激发依然能保持局域化而不发生扩散热平衡。这一发现打破了多体系统热化的遍历假说，为处理量子多体模拟中的无序采样问题提供了全新思路。",
+          "sc": 8.3,
           "i": "n",
-          "tg": "技术突破",
+          "tg": "行业观察",
           "u": "https://mp.weixin.qq.com/s/jntNcWsYwwm18yzX4oSzOg",
-          "tp": "无无序局域化观测",
+          "tp": "观测无序局域化",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "多体激发状态[(2+1)维格点规范场论模型]: 观测到无无序局域化"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Science重磅！谷歌量子AI团队首次观测到“无无序局域化” 光子盒 在量子多体物理的世界中，有一条近乎铁律般认识：要想量子多体系统中的激发停留在局部、不发生扩散，通常需要引入空间无序。 例如，我们都熟知的安德森局域化（Anderson",
+          "b": "Science重磅！谷歌量子AI团队首次观测到“无无序局域化” 光子盒 在量子多体物理的世界中，有一条近乎铁律般认识：要想量子多体系统中的激发停留在局部、不发生扩散，通常需要引入空间无序。 例如，我们都熟知的安德森局域化（Anderson localization）或多体局域化（MBL），基本思想都是借助杂质、缺陷或无序势场打破系统的遍历性，从而让热量和电荷无法自由传导。 如果完全移除无序，系统一定会走向热平衡吗？ 7月2日，谷歌量子AI团队及其合作者在《Science》期刊上发表了论文“Observation of disorder-free localization using a(2+1)D lattice gauge theory on a quantum processor”（在量子处理器上使用（2+1）维格点规范场论观测无无序局域化），给出了一个反直觉的答案：不会。 研究人员利用超导量子处理器，在（1+1）维和（2+1）维格点规范场论（Lattice Gauge Theory，LGT）模型中，首次实现了“**无无序局域化**”（Disorder-Free Localization，DFL）现象的实验观察。对于某些初始态来说，即便没有引入无序，激发依然保持局域化。 这个研究工作不仅解决了一个理论界想弄清楚的基础物理问题，还为处理量子多体模拟中所谓的“无序采样”问题提供了非常有潜力的新思路。 **当遍历性被打破** 在现代的固态器件中，电子的输运性质决定芯片性能。如果电子能到处乱跑，那就是导体；如果被束缚住了，那就是绝缘体。 传统的理论认为：如果是干净的、有序的系统演化足够长的时间，都会达到热平衡，这就是“**遍历假说**”。 但是现实中，我们并不总是想让系统达到平衡。例如，量子计算中我们需要保护量子比特的相干性，防止信息流失到环境中；又或者我们想制备某些新奇的量子物质相时，需要系统能停留在非平衡态。此时，打破遍历性是非常需要的。 打破遍历性最直接的办法就是在局域势中引入空间无序，这会导致激发态的空间局域化。 对于相互作用系统，人们曾经认为无序不能阻止系统热化。但最近二十年的理论研究发现，在强无序条件下，系统可能进入多体局域化相，激发在很长的时间尺度上保持局域，系统失去导热导电的能力。 不过多体局域化的研究长期面临一个棘手的问题，对无序构型的采样。对于由稀有事件主导的系统，所需采样的无序构型数量随系统尺寸指数增长，给经典数值模拟造成很大的困难。 于是，能不能不加无序也能实现激发的局域化，成为学术界亟需解决的问题。 **量子叠加态特性** 谷歌量子AI团队另辟蹊径，利用**量子叠加态**并行处理所有无序可能性。 通常研究无序体系，需要一遍一遍跑模型，每次换一组随机数（即一个无序构型）。研究团队采取的方法是一次性把所有的可能性“打包”进初始态里来。 具体而言，研究人员在原有的动力学量子比特之外引入了辅助量子比特，把原先作用在动力学量子比特上的无序耦合换成作用在辅助量子比特上的算符。 具体模型方面，主要匹配的是是Z₂格点规范场。在这个模型里，位于格点顶点的是“物质”比特，位于键上的是“规范”比特。 通过引入辅助比特并进行特定的基变换，即施加一个两层的CNOT门操作，研究人员可以将原来看似有序的哈密顿量变换为一个在有效无序背景场下演化的系统。 图：实验原理与叠加采样方案示意图 最关键的一点是，虽然初态本身有无数种“无序”的叠加，但整个演化过程却是完全确定的、没有任何随机性的。 **一维与二维中的局域化** 实验首先在包含38个量子比特的一维环上进行。研究人员制备了两种初态进行对比： 第一种是“**单扇区态**”，相当于只选择了某一种特定的无序构型。此初态下，若在中心位置施加一个局域扰动，产生的涟漪会迅速向两边扩散，出现明显的“波纹”结构，呈现热化特征。 第二种就是“**叠相态**”，即将所有无序构型叠加。结果发现，若在中心位置施加一个局域扰动，几乎没有发生扩散，并始终局限在中心附近。 这个现象表明，不需要实际的无序，仅仅依靠初态的特殊叠加，就能实现动力学局域化。 图：一维环格点装置与局域扰动时空演化图 研究团队还在二维网格上验证了这个现象。二维系统包括32个物质量子比特和49个规范量子比特。一般来说维度高了，粒子连接的通道就越多，局域化就越难维持。 但在这一次的二维实验中，单扇区初始态下，最初的几个周期中，初始扰动很快就扩散开了，叠加初始态的扰动在大约30个演化周期内保持局域，证明无无序局域不局限一维体系，(2+1)维规范系统同样稳定存在。 图：二维网格装置与二维局域扰动时空演化图 为了更好地理解这种局域化和多体局域化的区别，研究人员还测量了二阶Rényi熵，这是一种衡量纠缠和复杂度的指标。 实验结果是，叠加态的熵增长显著高于...",
+          "hb": 1
+        },
+        {
+          "t": "降维打击！群体智能半价打平Fable 5，同款API已上线",
+          "d": "2026-07-03",
+          "a": "新智元",
+          "c": "AI与智能科技/AI软件层/工程改进/AGENT",
+          "as": "由于顶级单体模型受限于出口管制下线，行业转向利用多模型编排的“群体智能”技术。浪潮信息推出元脑企智EPAI的多模融合API，通过组织多个现成模型协同工作，以半价实现媲美单体大模型的效果。在智能体基准测试中，基于Opus 4.8与GPT 5.5的混合智能体架构得分比单一模型高出8%至11%。该方案证明了AI组织力已成为提升企业级应用竞争力的关键路径。",
+          "sc": 8.2,
+          "i": "n",
+          "tg": "产业进展",
+          "u": "https://mp.weixin.qq.com/s/pXmjnB3LD7RDpkH9W4blgw",
+          "tp": "群体智能降本",
+          "aip": 1,
+          "kp": [
+            "智能体基准测试[Hermes MoA]: 得分比Opus高出8%，比GPT高出11%"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "降维打击！群体智能半价打平Fable 5，同款API已上线 ASI启示录 ASI启示录 新智元 ### ### **新智元报道** ##### **【新智元导读】当Fable、Mythos因禁令下线，当OpenRouter Fusion、Fugu、Hermes MoA集体登场，行业共识已成：未来竞争力不在于单一模型有多强，而在于AI组织力。浪潮信息元脑企智EPAI的多模融合API，正带着这份群体智能的降维打击，走向更广阔的企业战场。** 今年6月12日，全球最强的Fable 5与Mythos 5，因一纸禁令对所有人下线。 6月13日，OpenRouter放出Fusion，自称「市场上最智能的复合模型」，半价对标Fable。 6月22日，Sakana AI放出Fugu，官方说法是Ultra版比肩Fable 5与Mythos Preview。 紧接着，**Hermes**官方也上线了Mixture of Agents功能（MoA）。 在智能体基准测试HermesBench上，基于Opus 4.8 + GPT 5.5的MoA得分比 Opus 高出 8%，比GPT高出11%。 他们补位的方式出奇地一致：不是再造一个更大的单一模型，而是把一群现成的模型组织起来，用「群体智能」击败更大参数的单体模型。 Sakana说得最直白：「超越更大模型：编排模型是下一个前沿领域」。 但这件事上，还漏了一家。 在OpenRouter推出Fusion API之前，国内已有企业有类似的想法，最近也推出了相关服务。 不过，他们为什么不卷单模参数，却不约而同选择了这一条路？ **AI的下一站** **真正的问题是什么？** 要理解多模融合的价值，得先承认一件事：「选出最强模型」是个伪命题。 因为真实业务里的复杂任务，都不是单点能力的博弈。 举个例子，一份「竞品技术方案分析」，里面同时藏着 * 事实检索：对方用了什么技术； * 逻辑推理：这套架构的瓶颈在哪； * 专业判断：值不值得跟进； * 内容表达：写成一份能给老板看的报告。 这四种能力，几乎不可能由同一个模型在每一个环节都保持最佳状态。 AI的能力边界并不是一条平滑的曲线，而是一道布满深渊的断崖。 这一残酷真相叫做：「锯齿状前沿」（Jagged Frontier）。 OpenAI奥特曼曾低估了AI会有多参差不齐，直言：「在有些事上AI做得极其出色，但在那种长期的复杂任务监督方面却完全不行。」 在哈佛商学院与BCG的一项实地实验中，研究者发现：一旦任务跨出模型能力前沿，使用AI的人类顾问反而更容易给出错误答案。 **最危险的地方在于：****AI****会把错误包装得更像正确答案。** 传送门：https://www.hbs.edu/ris/Publication%20Files/dell-acqua-et-al-2026-navigating-the-jagged-technological-frontier\\_5c589c8c-fbb5-458f-b285-c944746cd717.pdf 也就是说，单一AI不是「越难越强、越简单越稳」。 这似乎也是通往真正AGI（通用人工智能）智能的最后几个前沿问题之一。 更糟糕的是，企业级应用依赖单一API，本质上是在刀尖上行走。 如果企业陷入「测试—调整—再测试」的单模型选型死循环，那其实用农业「挑种子」思维，应对数字时代的「工业化协作」。 所以行业的重心，正在悄然变化：从「接入更多模型」，转向「如何根据任务，组织和使用多个模型」。 AI的下一战开始了。 **元脑企智EPAI的降维打击** **群体智能** **浪潮信息元脑企智EPAI的逻辑非常犀利：企业级****AI****的下半场，比的是谁能让不同模型的长处，在同一个任务里自动「补位」。** 最近，元脑企智EPAI上线了多模融合API。 目前，该多模融合API已在积算科技Token服务平台正式上线，并面向开发者和企业用户开放内测申请。 试用申请链接：https://www.icompify.com/api\\_request/index.html 他们坚信：群体智能超越单模上限。 很多人认为多模融合就是简单的「1+1」，但元脑企智EPAI告诉我们，这是一场关于「AI组织力」的革命。 它的多模融合API，本质上是给企业配了一个**「****AI****首席执行官****」** 。 它的玩法分为三步： * **众模并行（候选生成）：** 把同一个任务丢给一池子模型，让它们各显神通。 * **智能评审（评审分析）：** 请一个高阶模型坐在首席，识别不同答案里的共识、分歧和遗漏。 * **深度融合（最终输出）：** 挑出最优解，拼出一张最完整的拼图。 关键在于，这一整套流程，开发者**只需要一次****API****调用...",
           "hb": 1
         }
       ]
@@ -168,71 +180,77 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "美国航空航天企业投运全球首个高超声速材料商业化气候测试平台。",
-        "星河动力苍穹-50可复用火箭发动机试车突破2万秒，推进25次重复使用目标。",
-        "特斯拉2026年第二季度汽车交付量达48.01万辆，同比增长25%。"
+        "研究人员提出多环芳烃自由基阴离子介导策略，实现1秒内高质量石墨烯剥离",
+        "研究表明LiH分步激发可将合成氨浓度提升至0.25%，超过热平衡值两倍",
+        "基于澳门科学卫星一号数据，研究揭示南大西洋异常区高能电子通量瞬态扭曲现象"
       ],
       "entries": [
         {
-          "t": "全球首个高超声速材料气候测试平台在美启用",
+          "t": "多环芳烃自由基阴离子介导的有机碱插层实现高质量二维晶体的秒级剥离",
           "d": "2026-07-03",
-          "a": "interesting engineering",
-          "c": "通用技术/通信和运输/航天",
-          "as": "美国一家航空航天公司推出了据称是全球首个面向高超声速材料耐候性测试的商业化平台。该平台能够模拟高超声速飞行极端热环境，对材料在高温高速气流下的性能进行地面测试验证。高超声速飞行器对热防护材料要求极高，此前相关测试主要依赖政府实验室，该商业平台的开放有望降低研发门槛，加速高超声速材料工程化验证进程。",
-          "sc": 8.2,
-          "i": "n",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/military/worlds-first-mach-2-5-weather-testing-platform",
-          "tp": "高超声速材料测试",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/材料工程/其它先进材料",
+          "as": "针对高质量二维纳米片量产面临的收率与质量权衡难题，研究提出基于多环芳烃自由基阴离子介导的有机碱插层策略，实现秒级高效剥离。该方法具有可调还原电位和电子转移能力，可超快实现层状材料的碱金属离子插层。在处理石墨时，仅需约1秒即可形成一阶插层化合物，随后经11秒水解剥离得到石墨烯。该方法石墨烯产率超88%，单层比例超50%，且缺陷密度无明显增加。",
+          "sc": 8.9,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75142-1",
+          "tp": "二维晶体秒级剥离",
           "aip": 1,
           "kp": [
-            "[测试能力]: 全球首个真实天气下高超音速材料测试平台"
+            "二维晶体剥离[多环芳烃自由基阴离子(PAH•-)介导插层]: 高质量、秒级(~12 s)生产",
+            "插层驱动力[PAH•-特性]: 可调的还原电位和电子转移能力"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A U.S. aerospace company has unveiled what it says is the world’s first commercial platform that’s capable of testing how hypersonic vehicle materials withstand real weather conditions before ever taking flight.\nCalifornia-based Auriga Space announced the new capability on Wednesday, July 1, alongside its first client, Axiom Materials, a composite materials manufacturer. The system uses the firm’s Prometheus electromagnetic accelerator that propels test materials through simulated weather.\nAxiom Materials will test how advanced materials perform against rain, hail, and airborne particles. The testing is set to close a long-standing gap in hypersonic development. Until now, engineers have depended on limited ground testing or expensive flight tests to evaluate material performance.\nWinnie Lai, the founder and CEO of Auriga Space, emphasized the significance of the system. “The hypersonic testing community has badly needed ground truth on material performance for a long time,” she explained.\nHypersonic vehicles travel at speeds of more than\n, or five times the speed of sound. This is equal to roughly 3,800 to 15,000 miles per hour (mph). They also experience intense aerodynamic heating and pressure as they travel through the atmosphere.\nEven small water droplets or airborne debris can damage the\nprotective coatings\n, radomes, windows, and other critical parts. Auriga’s new chamber is designed to evaluate how materials intended for hypersonic vehicles respond to simulated weather conditions during development.\nMore from Military\nUS firm starts building Navy’s next destroyer that can conduct anti-submarine ops\nUS Navy tests 3D-printed composite patches to speed up F/A-18 fighter jet repairs\nUS’ 250th anniversary: MQ-25 Stingray boards aircraft carrier for July 4 celebrations\nIron Dome integrated with 100kW Iron Dome laser weapon for improved air defense\nUkraine’s new missile can be launched from balloon, hit target even in jammed environment: Report\nInstead of sending a full vehicle into the air, the system tests material samples. It propels them through water droplets and other particles at representative flight speeds and pressures. Following the impact, the samples are recovered.\nEngineers can then inspect them for damage and measure how they performed. The process enables repeatable testing under realistic weather conditions early in the development cycle. It also reduces uncertainty before full-scale flight tests.\nThe platform relies on Auriga’s\nelectromagnetic launch technology\n, which uses a magnetically levitated linear electric motor instead of conventional propulsion to accelerate test articles under software-controlled conditions.\nAs part of the agreement, Axiom Materials will conduct dozens of weather-effects tests within a single week using the Prometheus accelerator. The platform can run more tests than traditional methods under consistent conditions.\nMeanwhile, Auriga expects demand for weather testing to grow as investment in hypersonic tech grows. “Making it possible is one big step; making it available at scale is another,” Lai pointed out in a\npress statement\n. “Auriga’s platform can do both, and that’s exactly what this capability is about.”\nAt the same time, the Prometheus is already supporting active contracts with the US Air Force and the Missile Defense Agency. According to Auriga, those projects provide a proven foundation for the newly announced commercial capability.\n“Allowing our partners at Axiom Materials to accurately\ntest materials\nagainst realistic conditions will enable the next generation of high-speed systems to be built far faster and flown with confidence,” Lai concluded.\nBeyond weather simulation, the reusable, electrically powered electromagnetic launch technology could also support responsive space launch, missile defense, as well as future lunar mass-driver systems.\nCorrection: An earlier version of this article misstated Auriga Space’s current testing speed. The platform currently operates at Mach 2.5 for materials designed for hypersonic flight, not Mach 5+. The article has been updated accordingly.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nBased in Skopje, North Macedonia. Her work has appeared in Daily Mail, Mirror, Daily Star, Yahoo, NationalWorld, Newsweek, Press Gazette and others. She covers stories on batteries, wind energy, sustainable shipping and new discoveries. When she's not chasing the next big science story, she's traveling, exploring new cultures, or enjoying good food with even better wine.\nUBTech's humanoid robots deployed to control crowds at China's busy international border\nNASA's new supercomputer with 262,000 CPU cores can solve problems with increased efficiency\nUkraine's new missile can be launched from balloon, hit target even in jammed environment: Report\nNew air-powered battery includes built-in self-destruct for sensitive devices\nLiDAR expands counter-drone capabilities against fiber-optic-controlled aerial threats",
+          "b": "Scalable production of high-quality 2D nanosheets remains challenging because existing top-down and bottom-up methods typically face a trade-off between material quality, yield, and cost. Here, we report the seconds-scale (~12 s) production of high-quality 2D crystals via polycyclic aromatic hydrocarbon radical anion (PAH•-)-mediated organoalkali intercalation. The tunable reduction potential and electron-transfer capability of PAH•- enable ultrafast alkali-ion intercalation within seconds in the stable potential of layered hosts. For graphite, sodium naphthalenide (Na-Naph) forms a stage-1 graphite intercalation compound in only 1 s, and subsequent hydrolysis-driven exfoliation in 11 s yields graphene with >88% yield and >50% single-layer ratio, with a negligible increase in defect density (ID/IG ratio from ~0.10 to ~0.11). This strategy is further extended to the exfoliation of few-layer (3-5 layers) transition-metal sulfides, selenides, and tellurides while preserving their intrinsic crystal phases. This work establishes a practical, high-yield route for rapid intercalation-driven exfoliation, offering a scalable platform for manufacturing high-quality 2D crystals.",
           "hb": 1
         },
         {
-          "t": "刚刚，中国可回收火箭离“重复用25次”又近了一步！",
+          "t": "JACS：分步激发打破合成氨平衡限制",
           "d": "2026-07-03",
-          "a": "世界先进制造技术论坛",
-          "c": "通用技术/通信和运输/航天",
-          "as": "星河动力苍穹-50可重复使用火箭发动机累计试车时间突破20088秒（约合5.6小时持续点火），标志着中国商业航天在可回收火箭领域取得重要进展。该发动机目标实现25次重复使用，长时试车数据验证了发动机热防护和耐久性可靠性，正逐步缩小与SpaceX Merlin发动机的工程化差距。",
-          "sc": 7.6,
+          "a": "催化视界",
+          "c": "通用技术/催化剂",
+          "as": "发表于《JACS》的研究提出利用LiH作为无过渡金属催化平台，通过分步激发打破合成氨平衡限制。研究利用反应中间态对不同波长光的响应差异，用UV光驱动N2固定，用UV和可见光共同促进H2解离和氢化。在约573K和UV-vis光照下，NH3生成速率达1246 μmol g⁻¹ h⁻¹。出口NH3浓度达0.25%，超过热平衡值的两倍。光照将表观活化能大幅降至8.6-24.2 kJ mol⁻¹。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://mp.weixin.qq.com/s/Zc8Fgj8o28j49SUcMdgirg",
-          "tp": "可回收火箭",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "刚刚，中国可回收火箭离“重复用25次”又近了一步！ 原创 小艾 小艾 世界先进制造技术论坛 7月3日，星河动力扔出一颗重磅炸弹：**自家造的苍穹-50可重复使用发动机，累计试车时间正式突破20088秒**。 这个数字什么概念？相当于这台发动",
-          "hb": 1
-        },
-        {
-          "t": "特斯拉2026年第二季度交付量增长25%至480,126辆，超出预期",
-          "d": "2026-07-03",
-          "a": "Electrek",
-          "c": "通用技术/通信和运输/陆路运输",
-          "as": "特斯拉2026年第二季度交付量达480,126辆，同比增长25%，超出市场预期。这一强劲表现标志着此前疲软期的反转，Model 3/Y和Cybertruck需求复苏推动了整体销量增长，股价应声上涨。",
-          "sc": 6.5,
-          "i": "n",
-          "tg": "产业进展",
-          "u": "https://electrek.co/2026/07/02/tesla-q2-2026-deliveries-480126/",
-          "tp": "电动车交付",
+          "tg": "行业观察",
+          "u": "https://mp.weixin.qq.com/s/Xo2vCUWFh3V457S0dYDEdg",
+          "tp": "光催化合成氨",
           "aip": 1,
           "kp": [
-            "交付量[Tesla Q2 2026]: 48.0万辆",
-            "同比增长[Tesla交付]: 25%"
+            "反应温度[LiH分步光激发合成氨]: 约573 K",
+            "NH3生成速率[UV-vis光照下LiH]: 1246 μmol g-1 h-1",
+            "NH3生成速率[UV单独照射下LiH]: 约390.6 μmol g-1 h-1",
+            "NH3生成速率[可见光单独照射下LiH]: 约55.4 μmol g-1 h-1",
+            "出口NH3浓度[优化空速后]: 约0.25%"
           ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Fred Lambert\n| Jul 2 2026 - 6:52 am PT\nTesla delivered 480,126 vehicles in the second quarter of 2026, up 25% from the same quarter a year ago and roughly 74,000 vehicles above Wall Street’s consensus estimate.\nIt’s Tesla’s strongest second quarter ever and its first year-over-year delivery growth after two straight years of decline.\nAccording to Tesla’s\nofficial production and delivery report\n, the company produced 451,758 vehicles and delivered 480,126 in Q2 2026.\nThe bulk came from the high-volume Model 3 and Model Y, which accounted for 442,936 units produced and 467,762 delivered. “Other Models” — Model S, Model X, Cybertruck, and Semi — contributed 8,822 produced and 12,364 delivered.\nHere is the full breakdown:\nUnlike recent quarters, Tesla delivered more vehicles than it produced, working down about 28,000 units of inventory rather than building it up. That’s a reversal from Q1, when the company\nbuilt roughly 50,000 excess vehicles it couldn’t sell\nThe result marks a clear inflection. Tesla delivered 384,122 vehicles in Q2 2025, so this quarter represents a 25% year-over-year increase — the first quarterly growth the company has posted since its sales peaked in 2023.\nIt’s also a 34% jump from the 358,023 vehicles Tesla delivered in Q1 2026.\nThe number blew past expectations. Analysts had\nset the consensus at 406,024 deliveries\n, with the most bullish estimates from Goldman Sachs and Barclays topping out around 418,000 to 420,000. Tesla beat even the highest forecasts by more than 60,000 units.\nAt 480,126, the quarter ranks as Tesla’s best-ever Q2, surpassing the 466,140 vehicles it delivered in Q2 2023. It still trails the company’s all-time record of 497,099 deliveries, set in Q3 2025 when US buyers rushed to claim the $7,500 federal EV tax credit before it expired on September 30, 2025.\nTesla also deployed 13.5 GWh of energy storage products in the quarter, up more than 40% from the 9.6 GWh it deployed in Q2 2025.\nThe energy business has been one of Tesla’s most consistent growth stories, though the Q2 figure came in slightly below the roughly 13.8 GWh analysts had expected.\nThe delivery surge narrows, but does not close, Tesla’s gap with its biggest rival. BYD\ndelivered 557,090 fully electric vehicles in Q2 2026\n, keeping the Chinese automaker ahead of Tesla in global battery-electric sales.\nBut the trajectories are moving in opposite directions: BYD’s BEV deliveries fell about 8% year-over-year while Tesla’s jumped 25%. Tesla now sits roughly 77,000 units behind BYD, down from a gap of more than 220,000 units a year ago.\nThis is a genuinely strong quarter for Tesla, and the data doesn’t leave much room to argue otherwise. A 25% year-over-year jump, an 18% beat over consensus, more deliveries than production, and the best Q2 in company history — after two years of shrinking sales, that’s a real inflection, not a rounding error.\nThe obvious question is what’s driving it. The gas prices are the obvious answer.\nThe war in Iran has created a significant surge in gas prices, which has now stopped, but it resulted a massive increase in demand for EVs while Tesla was sitting on 50,000 extra vehicles from last quarter.\nIf you’re a Tesla owner, powering your EV with home solar is one of the smartest ways to lock in low fuel costs. With electricity rates climbing nearly 10% last year, home solar protects you against future rate increases. And with lease and PPA options, you can go solar with zero upfront cost and start saving immediately. If you want to find the best deal, check out\n. It’s a free service with hundreds of pre-vetted installers competing for your business, so you save 20 to 30% compared to going it alone. No sales calls until you pick an installer.\nGet your free quotes here\nSubscribe to Electrek on YouTube for exclusive videos\nand subscribe to the\nFred is the Editor in Chief and Main Writer at Electrek.\nThrough Zalkon.com, you can check out Fred’s portfolio and get monthly green stock investment ideas.\nGet an edge on MMA with the best stats\nEnergySage helps you get the best price possible on a home solar installation for free and without hassel.",
+          "b": "JACS：分步激发打破合成氨平衡限制 催化视界 传统合成氨受N2活化、H2解离和逐步氢化的耦合限制。热催化中这些步骤往往互相牵制，想同时降低所有能垒并不容易。 这篇JACS把LiH作为无过渡金属催化平台，利用LiH、LiH1-x、Li2NH和LiNH2等中间态对不同波长光的响应差异，把N2固定和后续氢化拆成可分别激发的步骤。 简单说，UV负责激发LiH并推动N2固定，UV和可见光再共同激发LiNHx中间体，促进H2解离和逐步氢化释放NH3。 成果简介 在外加加热保持局部约573 K时，UV-vis光照下LiH的NH3生成速率达到1246 μmol g-1 h-1，是UV单独照射的3.2倍、可见光单独照射的22.5倍；IR下未检测到NH3。 优化空速后，出口NH3浓度达到约0.25%，接近相同温压下热平衡值0.13%的两倍；高空速180 L g-1 h-1下，速率进一步达到3564 μmol g-1 h-1。 稳定性方面，间歇照明下LiH保持36 h累计光照稳定产氨。实验与DFT显示，光照把LiNH2氢化的表观活化能降至8.6-24.2 kJ mol-1，显著低于热过程的61.4 kJ mol-1。 研究亮点 1\\. 不是把LiH当普通光热材料，而是利用不同反应中间态的波长响应来分步调控反应能垒。 2\\. UV驱动LiH形成LiH1-x、Li2NH和LiNH2，可见光也能参与后续LiNHx氢化，从而出现UV-vis协同效应。 3\\. NH3出口浓度超过对应热力学平衡值，说明光子不仅提供热量，也改变了具体步骤的有效反应势能面。 配图精析 图1 LiH光驱动合成氨性能与热催化对比。 NH3速率随光强近线性增加，说明主导因素是光化学效应。UV-vis照射明显强于UV或可见光单独照射；暗态热催化需要升至773 K才有可测速率，证明宽谱光协同不是简单热效应叠加。 图2 UV光驱动LiH进行N2固定。 反应后XRD和FTIR观察到Li2NH、LiNH2及NHx信号，表明LiH、Li2NH和LiNH2之间形成稳态循环。H2质谱与预照射实验说明，只有UV能有效驱动LiH表面脱氢、N2活化和N-H键形成。 图3 LiNH2光驱动氢化释放NH3。 Li2NH和LiNH2带隙更窄，可被较低能光子激发。LiNH2在UV、可见和UV-vis照射下均比暗态更易生成NH3；DFT显示光激发后的H2解离能垒从热路径0.66 eV降至0.30 eV，UV多光子路径甚至接近无能垒。 图4 不同波长光对LiH合成氨各步骤的能量调控。 示意能图把整条反应拆开：UV激发LiH完成N2固定，形成Li2NH/LiNH2；随后UV和可见光激发LiNHx中间体，降低H2解离和氢化放氨能垒。不同波长分工，是突破热催化尺度关系的关键。 总结展望 这项工作真正有意思的是“光子-步骤耦合”：不同中间体吸收不同波长，反应不再必须沿着同一套热力学约束前进。 后续挑战会落在光利用效率、LiH长期结构稳定、氧/水敏感性以及放大反应器设计上。若能把这种分步激发思想迁移到更多氮转化或氢化反应，意义会超过单个LiH体系。 文献信息 文献：Yeqin Guan, Zhaoji Huang, Kai Ma et al. Wavelength-Dependent Nitrogen Fixation and Hydrogenation to Ammonia over Lithium Hydride Catalyst. Journal of the American Chemical Society, 2026. 原文链接：https://doi.org/10.1021/jacs.6c04222 声明：更多内容请参考原文，如有侵权，后台联系编辑删除。",
+          "hb": 1
+        },
+        {
+          "t": "电场驱动的南大西洋异常辐射环境的瞬态扭曲",
+          "d": "2026-07-03",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "通用技术/通信和运输/航天",
+          "as": "地球内辐射带的高能电子对航天器构成严重威胁，其中低地球轨道的最强辐射通常局限于南大西洋异常区。基于澳门科学卫星一号的观测数据，研究发现了SAA辐射环境的瞬态扭曲现象，其特征是在传统SAA辐射区域外出现高能电子通量增强。这种扭曲现象由大尺度电场扰动引起，电场扰动会绝热改变电子的镜像高度。",
+          "sc": 8.1,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-74984-z",
+          "tp": "大西洋辐射环境畸变",
+          "aip": 1,
+          "kp": [
+            "辐射环境[南大西洋异常区(低轨最强辐射)]: 呈现显著瞬态扭曲与高能电子通量增强"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Energetic electrons in Earth’s inner radiation belt pose significant hazards to spacecraft systems, with the strongest radiation in low-Earth orbit (LEO) mostly confined to the South Atlantic Anomaly (SAA) region. Once considered stable, the inner belt is now understood to exhibit significant variability. Using data from the low-Earth-orbit Macau Science Satellite-1 mission, we report transient distortions of the SAA radiation environments, observationally characterized by enhanced fluxes of energetic electrons outside the traditional SAA radiation region, appearing either attached to or detached from its boundary. We show that these distortions can be explained by large-scale electric-field perturbations that adiabatically alter the electron mirror heights, which can be further modulated by ultra-low-frequency waves. Test-particle simulations successfully reproduce the observational features and provide crucial constraints on properties of the associated electric fields. These findings reveal a distinct manifestation of inner-belt variability, extending the electron radiation risks beyond the expected boundaries of the SAA radiation environments.",
           "hb": 1
         }
       ]

@@ -6,19 +6,19 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "Pexapark报告指欧洲天然气涨价推高电池储能系统短期收益",
-      "EDP在西班牙启动36兆瓦风充储一体化项目测试",
-      "中国国家市监总局召开光伏价格合规会议叫停低于成本竞争"
+      "TNO展示工业级双面钙钛矿/硅串联组件，电力输出提升15%至30%",
+      "协鑫光电完成超亿元D1轮融资，2.78平方米量产组件效率达26.8%",
+      "Double Chooz合作组首次测量乏核燃料反中微子排放"
     ],
     "AI与智能科技": [
-      "铠侠与闪迪发布第十代332层闪存，接口速率达4.8Gb/s",
-      "中药重点实验室发布融汇两千部古籍的民族药大模型",
-      "我国建成超12万个高质量数据集，总体量突破1565拍字节"
+      "我国建成超12万个高质量数据集，140万PFLOPS算力接入全国网络",
+      "民族药大模型“华族本草”发布，构建百万级古籍知识图谱",
+      "实验演示微波-光学量子转换器，无腔条件下存储效率达约90%"
     ],
     "通用技术": [
-      "FAST换装国产化馈源舱索驱动系统，脉冲星发现数达1300颗",
-      "Green Science Alliance首发具驱避农作物害虫特性的碳量子点",
-      "国际研究团队在《自然》发表首个能在极短时间改变光学特性的全光子时间晶体"
+      "“十五五”规划：2030年建成超4000万个充电桩支撑1.1亿辆电车出行",
+      "发改委与能源局印发新型电力系统建设规划，设定新能源利用率三档目标",
+      "复旦大学发布ULTRA三维病理平台，30分钟内生成胶质瘤毫米级图像"
     ]
   },
   "sectors": [
@@ -26,66 +26,77 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "Pexapark报告指欧洲天然气涨价推高电池储能系统短期收益",
-        "EDP在西班牙启动36兆瓦风充储一体化项目测试",
-        "中国国家市监总局召开光伏价格合规会议叫停低于成本竞争"
+        "TNO展示工业级双面钙钛矿/硅串联组件，电力输出提升15%至30%",
+        "协鑫光电完成超亿元D1轮融资，2.78平方米量产组件效率达26.8%",
+        "Double Chooz合作组首次测量乏核燃料反中微子排放"
       ],
       "entries": [
         {
-          "t": "在动荡的欧洲电力市场中，电池存储的表现优于可再生电力购电协议 - 能源存储",
+          "t": "TNO与合作伙伴展示工业规模双面钙钛矿/硅串联组件，功率输出提高15-30%",
           "d": "2026-08-04",
-          "a": "ESS News",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
-          "as": "瑞士咨询公司 Pexapark 报告指出，随着中东地缘政治紧张局势推高约10%的天然气价格，欧洲电力市场波动加剧，使得电池储能系统（BESS）的前景在7月得到显著加强。然而，长期可再生能源购电协议（PPA）受批发电价波动影响较小。在德国，一年期太阳能PPA公允价值上涨15.4%至50欧元/兆瓦时，而十年期协议仅微涨3.6%。",
-          "sc": 7.0,
-          "i": "n",
-          "tg": "行业观察",
-          "u": "https://www.ess-news.com/2026/08/04/battery-storage-outperforms-renewable-ppas-in-volatile-european-power-markets/",
-          "tp": "电池储能表现",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Rising gas prices and power market volatility strengthened the outlook for battery energy storage systems (BESS) in July, while long-term renewable PPAs remained relatively insulated from wholesale electricity price movements, according to Swiss consultancy Pexapark.\nPexapark said geopolitical tensions in the Middle East pushed average gas prices about 10% higher than in the second quarter, lifting European power prices. Unlike during the 2022 energy crisis, however, the increase had a much smaller effect on long-term renewable PPAs.\nIn Germany, the fair value of a one-year pay-as-produced (PAP) solar PPA rose 15.4% in July to €50/MWh, while 10-year contracts increased just 3.6% to €36.6/MWh. Pexapark said the effect was even more limited in less gas-dependent markets such as Spain and France, where growing solar penetration is reducing long-term capture price expectations.\nBattery storage was the main beneficiary of the changing market conditions. Greater hourly price volatility and wider price spreads increased arbitrage opportunities and improved revenue expectations for merchant BESS projects.\nIn Germany, the benchmark price for a seven-year battery tolling agreement starting operations in 2028 exceeded €102 ($117.46)/MW/year at the end of July, up 5.2% from before the latest escalation in the Middle East conflict. TB2 contracts also rose as expectations for daily arbitrage revenues improved.\nPexapark said the market shows that while long-term renewable PPAs are becoming increasingly decoupled from wholesale electricity price fluctuations, battery storage is emerging as one of the technologies best positioned to benefit from volatile power markets.\nOf the 14 PPAs tracked by Pexapark in July, 10 were signed in Spain, with an average contract duration of 12 years. Most related to an agreement between Bimbo and Repsol.\nThe consultancy also recorded three battery storage PPAs, each with a four-year term, in Italy, Denmark and the United States. They included a standalone battery agreement between Zelestra and Axpo, a co-located solar-plus-storage agreement between European Energy and Danske Commodities, and a co-located solar-plus-storage agreement between ContourGlobal and Tesla.",
-          "hb": 1
-        },
-        {
-          "t": "EDP​​ 开始在风光互补储能基地测试 36 MW/72 MWh 电池 - Energy Storage",
-          "d": "2026-08-04",
-          "a": "ESS News",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "EDP已在西班牙昆卡省的Las Lomillas可再生能源基地开始测试容量为36 MW/72 MWh的电池储能系统。该项目融合了49.5兆瓦风电场、36兆瓦光伏电站及上述储能系统，总装机容量达122兆瓦。这是伊比利亚半岛首个在同一并网点结合风能、太阳能和电池储能的项目，目前已进入商业运营前的最后测试阶段，并通过智能能源管理系统优化三种技术的协调运行。",
-          "sc": 6.9,
+          "a": "perovskite-info",
+          "c": "零碳产业/能量循环/能源测/发电技术/光伏",
+          "as": "荷兰TNO及其合作伙伴成功展示了工业规模的双面钙钛矿/硅串联太阳能组件。该组件采用单晶堆叠结构，不仅效率高于传统纯硅组件，其双面设计还能同时吸收面板正面和背面的光线。测试表明，在相同面积的实际运行条件下，该双面串联技术能使电力输出显著提高15%至30%。",
+          "sc": 9.0,
           "i": "n",
           "tg": "产业进展",
-          "u": "https://www.ess-news.com/2026/08/04/edp-starts-testing-36-mw-72-mwh-battery-at-hybrid-wind-solar-storage-site/",
-          "tp": "风光储基地",
+          "u": "https://www.perovskite-info.com/tno-and-partners-demonstrate-industrial-scale-bifacial-perovskitesilicon-tandem",
+          "tp": "钙钛矿组件量产",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "功率输出提升[工业规模双面钙钛矿/硅串联组件]: 15-30%"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "EDP has started testing the 36 MW/72 MWh battery energy storage system at its Las Lomillas renewable energy complex in Cuenca, Spain.\nThe project combines a 49.5 MW wind farm, a 36 MW solar plant and the battery system, for a total installed capacity of 122 MW. All three technologies share a grid connection with approximately 50 MW of export capacity.\nWith battery testing underway, the project has entered the final phase before commercial operation, completing a hybridization process that began with the commissioning of the site’s wind farm in 2005. EDP said it is the first project on the Iberian Peninsula to combine wind, solar and battery storage at a single grid connection point.\nThe company said an energy management system coordinates the operation of the three technologies using optimization algorithms and real-time instructions from its energy management teams and control center.\nDepending on market and grid conditions, the system can export wind and solar generation directly to the grid, store renewable electricity in the batteries for later dispatch, or charge the batteries from the grid before discharging when market conditions are more favorable.\nEDP said integrating battery storage increases the utilization of the existing grid connection while improving operational flexibility and supporting greater renewable energy integration.\nThe battery system forms part of a Spanish government program supporting innovative storage projects hybridized with renewable generation through the Institute for Energy Diversification and Saving (IDAE). The project has been awarded up to €6.2 million in funding through the EU’s NextGenerationEU recovery program.\nEDP now operates more than 260 MW of hybrid renewable capacity in Spain across projects in Ávila, Segovia, Cuenca and Zaragoza. In Portugal, the company operates almost 700 MW of hybrid capacity combining technologies including hydropower, floating solar, wind and battery storage.",
+          "b": "TNO and partners demonstrate industrial-scale bifacial perovskite/silicon tandem module, with 15-30% higher power output\nTNO, together with Dutch industrial partners Levitech, Tempress, Yparex and SMIT Thermal Solutions and the German R&D center of\nHanwha Q Cells\n, has demonstrated for the first time that bifacial tandem solar technology can be manufactured at industrial scale, delivering measurably higher electricity output from the same surface area under real operating conditions.\nThe module architecture stacks monolithic perovskite/silicon solar cells to reach higher efficiencies than current silicon-only modules, while its bifacial design captures light from both the front and rear of the panel for additional yield. The work was carried out under the\nFit4Market project, a Dutch-German collaboration TNO has coordinated since 2023\n, which set out to combine bifacial light capture with tandem cell architecture using processes compatible with existing photovoltaic production lines - prioritizing scalability and real-world validation over maximizing laboratory efficiency.\nTesting shows the bifacial tandem approach delivers 15-30% higher power output than a conventional bifacial silicon module used as reference. The first energy yield measurements from an actual rooftop installation confirm an approximately 16% increase in annual electricity generation. A physical demonstrator is currently undergoing outdoor validation, and a second generation of prototypes is now on the roof gathering further data under real operating conditions - evidence, the team says, that the technology's advantages hold up outside the lab.\nValerio Zardett, Senior Scientist at TNO, said: \"By focusing on industrial processes and bifacial design optimization, we show that higher power density is achievable in practice. This is a key step towards making bifacial tandem solar technology relevant for large-scale deployment.\"\nThe technology is aimed at two deployment scenarios: generating more electricity within a fixed footprint, or generating the same amount of electricity within a smaller footprint than conventional technology requires - making it relevant both for space-constrained urban and industrial rooftops and for utility-scale projects looking to reduce a solar farm's total land footprint. TNO recommends the technology for installations with an albedo of 10-20%, and notes the bifacial design can be further customized to match local site conditions and reflectivity.\nThe next phase of the project will focus on further scaling, longer-term outdoor validation, and continued collaboration with industry partners to prepare the technology for broader deployment. Fit4Market is supported through the Dutch Topsector Energy program.\nAug 04,2026 by\nRoni Peleg\nSimilar Entries\nPerovskite/silicon tandem hits certified 27.49% efficiency in space conditions, survives radiation and a real high-altitude balloon flight\nTandem PV acquires nexTC Corporation\nEngineered radiative cooling film boosts perovskite solar cell efficiency\nTNO develops ultra-thin perovskite solar film for caravans and RVs\nBetterial introduces halogen-free TPO encapsulation film for perovskite modules\nShanghai's 'Xingshu Plan' adopts perovskite tandem solar cells for its first space computing satellite cluster\nNew POP-PV project to advance Power Roll's micro-groove perovskite solar film toward commercialization\nTandem PV installs perovskite-silicon panel for outdoor testing at UC Merced",
           "hb": 1
         },
         {
-          "t": "中国在太阳能价格战中划清界限 - pv magazine China",
+          "t": "协鑫光电D1轮融资落地，钙钛矿商业化提速",
           "d": "2026-08-04",
-          "a": "pv magazine",
+          "a": "EnergyTrend储能",
           "c": "零碳产业/能量循环/能源测/发电技术/光伏",
-          "as": "中国国家市场监督管理总局（SAMR）加强了对光伏定价的审查，呼吁国内制造商停止破坏性的低于成本竞争，将重点从价格转移到产品质量上。7月31日，监管机构在江苏盐城召开了太阳能行业价格合规会议，这是中央政府打击“内卷式”竞争行动的一部分。会议指示企业加强成本核算，但目前尚未实施正式的价格下限。",
-          "sc": 6.8,
+          "as": "协鑫光电完成D1轮超亿元融资，用于地面光伏电站钙钛矿组件商业化交付及太空光伏验证。公司已推进GW级产线量产，其2.78平方米量产组件效率达26.8%。技术方面，其2042平方厘米钙钛矿-晶硅叠层组件效率达30.23%。公司同步推进低轨飞行平台钙钛矿电池在轨测试，验证太空环境下的发电性能。",
+          "sc": 8.7,
           "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.pv-magazine.com/2026/08/04/china-draws-a-line-under-the-solar-price-war/",
-          "tp": "光伏价格战监管",
+          "tg": "资本运作",
+          "u": "https://www.energytrend.cn/news/20260804-148286.html",
+          "tp": "钙钛矿融资",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "融资金额[协鑫光电D1轮]: 超亿元",
+            "研发线规模[钙钛矿]: 百MW级",
+            "产线状态[钙钛矿]: 推进GW级产线量产爬坡",
+            "认证效率[2平方米钙钛矿叠层组件]: 27%",
+            "认证效率[2.78平方米量产组件]: 26.8%"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Markets & Policy\nRegulators in China are calling on domestic manufacturers to end destructive below-cost competition but are yet to impose a formal price floor.\nVincent Shaw\nMarkets & Policy\nManufacturing\nHeadquarters of China’s State Administration for Market Regulation | Image: Wikimedia Commons/N509FZ\nChina’s State Administration for Market Regulation (SAMR) has stepped up scrutiny of photovoltaic pricing, calling on manufacturers to end destructive below-cost competition and shift their focus from price to product quality.\nThe regulator held a solar industry price-compliance meeting on July 31 in Yancheng, Jiangsu province, as part of the central government’s campaign against what it calls “involution-style” competition.\nCompanies were instructed to strengthen cost accounting, establish internal price-compliance systems and conduct reviews of their own pricing practices. Leading manufacturers were asked to set an example by regulating both their prices and competitive conduct.\nThe China Photovoltaic Industry Association (CPIA) was tasked with promoting a newly released industry standard, the\nGeneral Rules for the Cost Accounting Model of the Photovoltaic Industry\n, and guiding companies away from low-price dumping and other potential price violations.\nReleased on July 27 under the guidance of the SAMR and the Ministry of Industry and Information Technology (MIIT), the voluntary group standard establishes a common cost-accounting framework for polysilicon, wafers, cells and modules. It unifies calculation boundaries, coefficients and models across the manufacturing chain.\nThe framework is intended to address a long-standing enforcement problem: companies have used different accounting methods when determining whether prices cover costs. A more consistent model could provide regulators with a clearer basis for cost investigations and price inspections.\nHowever, neither the meeting nor the standard established a numerical minimum selling price. The regulator said it would connect corporate cost accounting with price enforcement and use measures including compliance reminders, regulatory interviews and administrative guidance.\nCompanies that seriously disrupt market order and refuse to correct their conduct after warnings may face formal enforcement action.\nThe announcement triggered an immediate market response. Several polysilicon producers reportedly suspended quotations over the weekend following the meeting and temporarily withdrew lower-priced material from the market.\nOn August 3, the most-traded polysilicon futures contract on the Guangzhou Futures Exchange reached its daily limit and closed 8.99% higher at CNY 35,890 ($5,290) per ton. Shares in several Chinese solar manufacturers also rose sharply, with Tongwei and Flat Glass closing at their daily limits in Shanghai.\nThe rally largely reflected expectations that regulatory intervention could support prices and accelerate the closure of high-cost capacity. It did not resolve the sector’s underlying imbalance. Polysilicon supply is still increasing; inventories remain high and demand from wafer producers and downstream projects remains weak.\nMarket speculation has also emerged that authorities could introduce minimum prices for solar products or price floors in state-owned procurement. No such measure has been announced or confirmed by the market regulators, including SAMR, MIIT or another central government body.\nHigher solar product prices could help restore healthier competition across the industry. At the same time, however, Chinese buyers – particularly large state-owned power companies – would face higher project costs and lower expected returns, potentially weakening their appetite for further solar investment.",
+          "b": "集邦光储观察获悉，近日，昆山协鑫光电材料有限公司（以下简称“协鑫光电”）完成D1轮超亿元融资。\n本轮融资由金信资本领投，红杉中国、翔安创投、苏州资管等机构跟投，资金将主要用于推动地面光伏电站钙钛矿组件商业化交付及太空光伏应用验证。\n此前，协鑫光电于2025年7月完成C2轮近2亿元融资。自2020年完成首轮天使融资以来，公司累计获得宁德时代、TCL集团、腾讯、淡马锡、红杉中国等企业及机构投资，融资规模超过十亿元。\n协鑫光电成立于2013年，是国内较早布局钙钛矿光伏产业化的企业之一。目前，公司已建成百MW级钙钛矿研发线，并推进GW级产线量产爬坡，2平方米钙钛矿叠层组件认证效率达27%，2.78平方米量产组件认证效率达26.8%，相关产品已进入地面电站、工商业分布式等场景验证阶段。同时，公司持续突破钙钛矿技术效率纪录，2042平方厘米钙钛矿-晶硅叠层组件效率达到30.23%，柔性单结及叠层组件效率分别达到21.79%和27.11%。\n除地面光伏应用外，协鑫光电同步推进钙钛矿在太空光伏领域的探索。目前，公司已与北京紫微宇通科技有限公司、现象创新（深圳）科技有限公司等开展合作，利用低轨飞行平台开展钙钛矿电池片在轨测试，验证其在太空环境下的发电性能、衰减特性及环境适应能力，为后续航天应用提供数据支持。",
+          "hb": 1
+        },
+        {
+          "t": "通过双选择实验首次测量乏核燃料中微子排放",
+          "d": "2026-08-04",
+          "a": "Recent Articles in Phys. Rev. Lett.",
+          "c": "零碳产业/能量循环/能源测/发电技术/核电",
+          "as": "Double Chooz 合作组通过双选择实验，首次测量了乏核燃料释放的微子排放。乏燃料和停堆的核反应堆会释放反中微子，这一特征可被核监管机构用于对核电站进行实时监测。",
+          "sc": 8.3,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "http://link.aps.org/doi/10.1103/dr26-j19g",
+          "tp": "乏燃料中微子监测",
+          "aip": 1,
+          "kp": [
+            "监测对象[乏核燃料及停堆核反应堆]: 反中微子排放",
+            "[乏核燃料中微子测量]: 通过双选择实验首次测量，可用于核设施的实时监测"
+          ],
+          "lv": 0,
+          "wr": "",
+          "cm": "",
+          "b": "Author(s): T. Abrahão et al. (Double Chooz Collaboration)Spent nuclear fuel and shutdown nuclear reactors emit antineutrinos, which nuclear watchdogs could use for real-time monitoring of plants.[Phys. Rev. Lett. 137, 061803] Published Tue Aug 04, 2026",
           "hb": 1
         }
       ]
@@ -94,28 +105,34 @@
       "name": "AI与智能科技",
       "review": null,
       "headlines": [
-        "铠侠与闪迪发布第十代332层闪存，接口速率达4.8Gb/s",
-        "中药重点实验室发布融汇两千部古籍的民族药大模型",
-        "我国建成超12万个高质量数据集，总体量突破1565拍字节"
+        "我国建成超12万个高质量数据集，140万PFLOPS算力接入全国网络",
+        "民族药大模型“华族本草”发布，构建百万级古籍知识图谱",
+        "实验演示微波-光学量子转换器，无腔条件下存储效率达约90%"
       ],
       "entries": [
         {
-          "t": "铠侠与闪迪发布第十代 332 层 QLC NAND 闪存，接口速率达 4.8Gb/s",
+          "t": "我国已建成高质量数据集超12万个",
           "d": "2026-08-04",
-          "a": "IT之家",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "铠侠与闪迪共同推出第十代 332 层 QLC 3D NAND 闪存技术。该产品采用自主研发的 CMOS 直接键合阵列（CBA）技术，通过高精度晶圆键合制造。相比第八代技术，新产品的位密度提升最高达 60%（超 37Gb/mm²）。此外，该闪存通过 Toggle DDR6.0 及独立命令地址协议（SCA）进一步提升了读写带宽，成为业界首款接口速率达到 4.8Gb/s 的 QLC 3D NAND 闪存。",
-          "sc": 8.0,
+          "a": "新华网科技",
+          "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
+          "as": "我国已建成高质量数据集超12万个，总体量超1565拍字节。国家初步构建数据质量检测体系，已对超4563万条数据完成检测。数据流通生态有序构建，系统认证供需主体578家。全国智算总规模达240万PFLOPS，已有140万PFLOPS接入全国一体化算力网。国家大力探索词元交易等新模式，推动数据要素与工业、医疗等领域深度融合，加速人工智能规模化落地。",
+          "sc": 8.3,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/985/707.htm",
-          "tp": "QLC闪存技术",
+          "tg": "政策监管",
+          "u": "https://www.news.cn/tech/20260804/c934a840a4364f09a7d9cd587393a95c/c.html",
+          "tp": "高质量数据集建设",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "高质量数据集总体量[我国已建成]: 超1565拍字节(PB)",
+            "高质量数据集数量[我国已建成]: 超12万个",
+            "数据检测规模[质量检测方法与工具应用]: 已对12个数据集、超4563万条数据完成检测",
+            "主体认证数[截至6月底数据流通生态]: 系统已认证各类供需主体578家",
+            "数据产品接入规模[数据基础设施]: 共接入4万余个主体，上架6万余个产品"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "8 月 4 日消息，铠侠株式会社今天宣布与闪迪公司共同推出下一代四层单元（QLC）3D 闪存技术。新产品相比双方第八代技术，实现最高 60% 位密度提升（超 37Gb / mm²）。\n据介绍，第十代 QLC NAND 闪存采用了双方自主研发的 CMOS 直接键合阵列（CBA）技术，可在不同的晶圆上制造 CMOS 逻辑电路、存储阵列，\n随后通过高精度晶圆对晶圆（IT之家注：Wafer-to-Wafer）技术进行键合\n相比第八代 3D 闪存，新一代产品进一步提升了读写带宽，\n成为业界首款接口速率达到 4.8Gb/s 的 QLC 3D NAND 闪存技术\n此外，铠侠和闪迪的第十代 QLC 3D 闪存采用 332 层 NAND 堆叠技术，并通过 Toggle DDR6.0、独立命令地址协议（SCA）提升 60% 位密度。",
+          "b": "记者日前从国家数据局获悉，我国已建成高质量数据集超12万个，总体量超过1565拍字节，高质量数据集成为人工智能快速发展的关键“燃料”。\n据悉，目前在全社会已形成“人工智能+”到哪里，高质量数据集建设和应用就到哪里的良好氛围。高质量数据集管理规范体系日益健全，初步构建起“数据质量检测+基准模型验证”相结合的高质量数据集质量检测方法和工具，已对12个数据集、超4563万条数据完成检测，为数据集的可信可用提供了保障。高质量数据集流通利用生态有序构建，截至6月底，系统已认证各类供需主体578家，上架数据集1433个，促进数据集供需主体有序对接，数据集流通利用生态加速形成。\n国家数据局鼓励基于词元应用的商业模式创新。探索词元交易等新型交易模式，培育“为优质数据付费”的市场共识。推动词元应用与工业、医疗、金融等领域深度融合，助力人工智能应用规模化落地，推动形成以模型应用牵引数据供给、以数据赋能模型迭代的良性供需互动，形成“数据飞轮”效应。\n数据要素市场化配置改革加快推进。截至目前，数据基础设施共接入4万余个主体，上架6万余个产品，较2025年底分别增长10倍和4倍，已有百余个节点接入国家数据基础设施底座，实现互联互通。全国智算总规模为240万PFLOPS，八大国家算力枢纽已建成智算总规模占全国比重超80％。目前，已有140万PFLOPS智能算力接入全国一体化算力网试验验证平台。\n数据要素乘数效应加速释放，出台数据流通服务机构培育政策，推动数据交易所、流通平台、数据商协同发展，互认互通倡议推进组扩容至130余家单位。从数据产业发展看，组织50个试点地区开展数据产业集聚区建设试点，积极发展数据标注众包等专业化服务新业态。加快数据标准制定，发布130项数据领域标准需求，推动25项国家标准和21项国家指导性技术文件立项，推进1项隐私保护国际标准发布。加快推动数字人才培养，出台“人工智能+教育”行动计划，推动组建全国数据职业教育教学指导委员会，建强全国数字经济教学指导委员会。\n数据要素赋能人工智能创新发展成效显著。截至2026年6月，140家先行先试单位建成高质量数据集超106PB。72家行业链主单位建成高质量数据集超45PB，覆盖高价值场景超759个。（苏晓）",
           "hb": 1
         },
         {
@@ -123,37 +140,44 @@
           "d": "2026-08-04",
           "a": "新华网科技",
           "c": "AI与智能科技/AI软件层/底座大模型/文本模型",
-          "as": "中药功效成分发掘与利用全国重点实验室牵头研发了全国首个民族药AI大模型“华族本草”。该平台融汇苗、藏、蒙等2000余部民族医药古籍，构建了百万级知识图谱，贯通研发、质控、临床等八大核心场景。它不仅能辅助人才教学，还能在研发端开展功效成分筛选与靶点解析，产业端助力制剂工艺升级，有效推动了民族医药从传统经验传承向数智化驱动发展。",
+          "as": "全国首个民族药AI大模型“华族本草”正式发布。该平台融汇2000余部民族医药古籍，构建百万级知识图谱，以“数智岐黄”与千问为技术底座，贯通研发、质控、临床、产业、教学五大维度。研发端支持功效成分筛选与机制解析，产业端助力工艺升级。平台将分散经验转化为数字资源，推动民族药向数智化驱动转型，并成立五大协同创新基地。",
           "sc": 7.7,
           "i": "n",
-          "tg": "产业进展",
+          "tg": "技术突破",
           "u": "https://www.news.cn/tech/20260804/f973d6fa9de640328fec0194c63335a3/c.html",
-          "tp": "中医药AI大模型",
+          "tp": "民族药AI大模型",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "技术底座[“华族本草”大模型]: “数智岐黄”中医药大模型与千问双技术底座",
+            "知识图谱规模[民族药及天然产物]: 百万级",
+            "古籍数据源[民族医药]: 融汇苗、藏、蒙、维、傣等2000余部医药古籍"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "首个民族药AI大模型“华族本草”发布-新华网\n首个民族药AI大模型“华族本草”发布\n首个民族药AI大模型“华族本草”发布\n近日，在2026中国—东盟教育交流周期间，由中药功效成分发掘与利用全国重点实验室牵头研发的民族药AI大模型“华族本草”正式发布，这是全国首个民族药创制全域智能平台。该实验室还同步成立了云南、内蒙古、新疆、西藏、贵州五大协同创新基地。\n“华族本草”依托中药功效成分发掘与利用全国重点实验室建成的喀斯特药材功效成分库，融汇苗、藏、蒙、维、傣等2000余部民族医药古籍，构建百万级民族药及天然产物知识图谱。同时，“华族本草”以“数智岐黄”中医药大模型与千问双技术底座为支撑，贯通研发、质控、临床、产业、教学五大维度，覆盖八大核心场景。除了可应用于民族医药人才教学外，“华族本草”研发端可开展功效成分筛选、机制靶点解析、组方配伍优化等，产业端则可助力制剂工艺升级与质量标准提升。\n针对民族医药数据零散、标准不一的问题，同时要兼顾传统医药理论完整性、AI技术落地适配性，研发团队经过技术攻关，首创全链条民族药创制智能平台，把分散的民族药经验知识转化为可计算、可调用的数字资源，推动民族药从传统经验传承转向数智化驱动，以数智科技引领民族药迈入新质生产力时代。\n中国科学院院士、中药功效成分发掘与利用全国重点实验室主任陈凯先表示，面对天然药物研究的复杂性，希望各基地充分利用民族药AI大模型，加强数据资源共享、科研平台共享和学术交流，为中医药传承创新发展和健康中国建设作出新的更大贡献。贵州医科大学党委书记、中药功效成分发掘与利用全国重点实验室执行主任汤磊表示，作为牵头建设单位，贵州医科大学将全力做好服务保障，联动黔、滇、蒙、藏、疆等全国民族医药资源富集地区高校的优质科研力量，切实把多方协同优势转化为创新动能，高效推动民族药资源优势向产业优势、发展优势转化。（记者何星辉）\n各地各部队扎实做好双拥工作成效显著\n更大力度扩内需 下半年宏观政策重点划定\n湖北黄石：红旅融合 “热”力全开\n休达危机折射欧盟移民政策困境\n经济热点问答丨美国缘何出手“救”日元\n通讯丨吉尔吉斯斯坦工程师眼中的首都“焕新”之路\n新闻分析丨美国经济“不可能三角”矛盾交织冲击世界\n文旅新探丨到锡林郭勒草原“追星”\n首个民族药AI大模型“华族本草”发布",
+          "b": "近日，在2026中国—东盟教育交流周期间，由中药功效成分发掘与利用全国重点实验室牵头研发的民族药AI大模型“华族本草”正式发布，这是全国首个民族药创制全域智能平台。该实验室还同步成立了云南、内蒙古、新疆、西藏、贵州五大协同创新基地。\n“华族本草”依托中药功效成分发掘与利用全国重点实验室建成的喀斯特药材功效成分库，融汇苗、藏、蒙、维、傣等2000余部民族医药古籍，构建百万级民族药及天然产物知识图谱。同时，“华族本草”以“数智岐黄”中医药大模型与千问双技术底座为支撑，贯通研发、质控、临床、产业、教学五大维度，覆盖八大核心场景。除了可应用于民族医药人才教学外，“华族本草”研发端可开展功效成分筛选、机制靶点解析、组方配伍优化等，产业端则可助力制剂工艺升级与质量标准提升。\n针对民族医药数据零散、标准不一的问题，同时要兼顾传统医药理论完整性、AI技术落地适配性，研发团队经过技术攻关，首创全链条民族药创制智能平台，把分散的民族药经验知识转化为可计算、可调用的数字资源，推动民族药从传统经验传承转向数智化驱动，以数智科技引领民族药迈入新质生产力时代。\n中国科学院院士、中药功效成分发掘与利用全国重点实验室主任陈凯先表示，面对天然药物研究的复杂性，希望各基地充分利用民族药AI大模型，加强数据资源共享、科研平台共享和学术交流，为中医药传承创新发展和健康中国建设作出新的更大贡献。贵州医科大学党委书记、中药功效成分发掘与利用全国重点实验室执行主任汤磊表示，作为牵头建设单位，贵州医科大学将全力做好服务保障，联动黔、滇、蒙、藏、疆等全国民族医药资源富集地区高校的优质科研力量，切实把多方协同优势转化为创新动能，高效推动民族药资源优势向产业优势、发展优势转化。（记者何星辉）\n【纠错】 【责任编辑:周靖杰】",
           "hb": 1
         },
         {
-          "t": "我国已建成高质量数据集超12万个",
+          "t": "量子记忆辅助按需微波光转换",
           "d": "2026-08-04",
-          "a": "新华网科技",
-          "c": "AI与智能科技/AI软件层/底座大模型/多模态模型",
-          "as": "我国已建成超12万个高质量数据集，总体量突破1565拍字节，为人工智能发展提供核心数据支撑。国家已初步建立数据质量检测体系，完成超4563万条数据检测，并认证578家供需主体以促进流通。同时，数据要素市场化改革提速，全国智算总规模达240万PFLOPS，八大国家算力枢纽节点互联互通，正积极推动词元交易等新型商业模式与工业、医疗等领域的深度融合。",
-          "sc": 7.5,
-          "i": "n",
-          "tg": "政策监管",
-          "u": "https://www.news.cn/tech/20260804/c934a840a4364f09a7d9cd587393a95c/c.html",
-          "tp": "高质量数据集建设",
+          "a": "Physical sciences : Nature Communications subject feeds",
+          "c": "AI与智能科技/其它智能科技/量子信息",
+          "as": "研究基于里德堡系综提出并实验演示了一种按需微波-光学量子转换器。利用级联电磁诱导透明技术，将微波光子存储于高激发态并在读取时转化为光学光子。在无腔条件下，该转换器实现了约90%的面积归一化存储效率、2.3 MHz带宽以及26 K的噪声等效温度。",
+          "sc": 7.7,
+          "i": "l",
+          "tg": "研究论文",
+          "u": "https://www.nature.com/articles/s41467-026-75752-9",
+          "tp": "微波光转换",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "微波光子转换[里德堡原子系综]: 按需转化为光学光子",
+            "量子换能器实现机制[级联电磁诱导透明]: 将微波光子存储于高激发集体态中"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "我国已建成高质量数据集超12万个-新华网\n我国已建成高质量数据集超12万个\n我国已建成高质量数据集超12万个\n记者日前从国家数据局获悉，我国已建成高质量数据集超12万个，总体量超过1565拍字节，高质量数据集成为人工智能快速发展的关键“燃料”。\n据悉，目前在全社会已形成“人工智能+”到哪里，高质量数据集建设和应用就到哪里的良好氛围。高质量数据集管理规范体系日益健全，初步构建起“数据质量检测+基准模型验证”相结合的高质量数据集质量检测方法和工具，已对12个数据集、超4563万条数据完成检测，为数据集的可信可用提供了保障。高质量数据集流通利用生态有序构建，截至6月底，系统已认证各类供需主体578家，上架数据集1433个，促进数据集供需主体有序对接，数据集流通利用生态加速形成。\n国家数据局鼓励基于词元应用的商业模式创新。探索词元交易等新型交易模式，培育“为优质数据付费”的市场共识。推动词元应用与工业、医疗、金融等领域深度融合，助力人工智能应用规模化落地，推动形成以模型应用牵引数据供给、以数据赋能模型迭代的良性供需互动，形成“数据飞轮”效应。\n数据要素市场化配置改革加快推进。截至目前，数据基础设施共接入4万余个主体，上架6万余个产品，较2025年底分别增长10倍和4倍，已有百余个节点接入国家数据基础设施底座，实现互联互通。全国智算总规模为240万PFLOPS，八大国家算力枢纽已建成智算总规模占全国比重超80％。目前，已有140万PFLOPS智能算力接入全国一体化算力网试验验证平台。\n数据要素乘数效应加速释放，出台数据流通服务机构培育政策，推动数据交易所、流通平台、数据商协同发展，互认互通倡议推进组扩容至130余家单位。从数据产业发展看，组织50个试点地区开展数据产业集聚区建设试点，积极发展数据标注众包等专业化服务新业态。加快数据标准制定，发布130项数据领域标准需求，推动25项国家标准和21项国家指导性技术文件立项，推进1项隐私保护国际标准发布。加快推动数字人才培养，出台“人工智能+教育”行动计划，推动组建全国数据职业教育教学指导委员会，建强全国数字经济教学指导委员会。\n数据要素赋能人工智能创新发展成效显著。截至2026年6月，140家先行先试单位建成高质量数据集超106PB。72家行业链主单位建成高质量数据集超45PB，覆盖高价值场景超759个。（苏晓）\n各地各部队扎实做好双拥工作成效显著\n更大力度扩内需 下半年宏观政策重点划定\n湖北黄石：红旅融合 “热”力全开\n休达危机折射欧盟移民政策困境\n经济热点问答丨美国缘何出手“救”日元\n通讯丨吉尔吉斯斯坦工程师眼中的首都“焕新”之路\n新闻分析丨美国经济“不可能三角”矛盾交织冲击世界\n文旅新探丨到锡林郭勒草原“追星”\n我国已建成高质量数据集超12万个",
+          "b": "Microwave-optical transducers and quantum memories are essential for quantum repeaters enabling a quantum internet. Despite advances in both technologies, integrating these functionalities remains challenging. Here, we theoretically propose and experimentally demonstrate an on-demand microwave-optical quantum transducer based on a Rydberg ensemble. Using cascaded electromagnetically induced transparency, we store microwave photons in a highly excited collective state and convert them into optical photons during retrieval. Leveraging an optical depth of millions for microwave photons and minimal single-photon-level dephasing, our transducer achieves around 90% area-normalized storage efficiency, 2.3 MHz bandwidth, and noise-equivalent temperature of 26 K under cavity-free conditions. Furthermore, our system is cryogenically compatible and extendable for high single-photon conversion efficiency without requiring optical cavity coupling. These findings advance practical on-demand quantum interfaces with broad applications across atomic and solid-state platforms.",
           "hb": 1
         }
       ]
@@ -162,66 +186,78 @@
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "FAST换装国产化馈源舱索驱动系统，脉冲星发现数达1300颗",
-        "Green Science Alliance首发具驱避农作物害虫特性的碳量子点",
-        "国际研究团队在《自然》发表首个能在极短时间改变光学特性的全光子时间晶体"
+        "“十五五”规划：2030年建成超4000万个充电桩支撑1.1亿辆电车出行",
+        "发改委与能源局印发新型电力系统建设规划，设定新能源利用率三档目标",
+        "复旦大学发布ULTRA三维病理平台，30分钟内生成胶质瘤毫米级图像"
       ],
       "entries": [
         {
-          "t": "中国天眼 FAST 换上国产“眼部肌肉”重装上阵，发现近 1300 颗脉冲星远超同期国际其他望远镜总和",
+          "t": "我国将建成可支撑超1.1亿辆电动汽车出行的充电基础设施网络",
           "d": "2026-08-04",
-          "a": "IT之家",
-          "c": "通用技术/通信和运输/航天",
-          "as": "中国天眼FAST完成硬核升级，全面换装国产化的馈源舱牵引钢丝绳（眼部肌肉）。换装的6根钢丝绳是索驱动系统核心，保障30吨重馈源舱实现超高精度定位。目前FAST已发现近1300颗脉冲星，数量远超同期国际其他望远镜的总和，持续保持世界领先探测能力。",
-          "sc": 7.9,
+          "a": "我爱电车网",
+          "c": "通用技术/通信和运输/电网技术/配电和电力交易",
+          "as": "根据《新型电力系统建设“十五五”规划》，到2030年我国非化石能源发电量占比将达50%。届时将初步建成新型电网，实现28亿千瓦以上新能源高水平消纳。充电基础设施总量超4000万个，可支撑超1.1亿辆电动汽车出行。新型储能规模达3亿千瓦，抽水蓄能达1.6亿千瓦，电能占终端能源消费比重达35%。",
+          "sc": 9.4,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://www.ithome.com/0/985/722.htm",
-          "tp": "天眼FAST升级",
+          "tg": "政策监管",
+          "u": "http://www.xevcar.com/hangye/0P415G042026.html",
+          "tp": "电力系统规划",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "装机目标[常规水电(2030年)]: 4.1亿千瓦左右",
+            "装机目标[核电(2030年)]: 约1.1亿千瓦",
+            "装机目标[生物质、光热、地热能、海洋能等发电(2030年)]: 6500万千瓦左右",
+            "输电规模[西电东送(2030年)]: 超过4.2亿千瓦",
+            "总量目标[充电基础设施(2030年)]: 超过4000万个"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "8 月 4 日消息，据央视新闻今日报道，中国天眼 FAST 近期迎来硬核升级。\n曾受制进口的馈源舱牵引钢丝绳现已实现全面国产化\n，而牵引馈源舱更换的钢丝绳就相当于天眼的“眼部肌肉”。\n据介绍，此次更换的 6 根钢丝绳是 FAST 索驱动系统的核心部件。馈源舱作为“中国天眼”接收宇宙电磁波信号的核心构件，重达 30 吨，如同“观天巨眼”的“眼球”。这 6 根钢丝绳则负责牵引馈源舱，使其能在 140 米高空、直径 206 米的范围内完成实时超高精度定位。\n据介绍，中国天眼如今重装上阵开启新一轮深空观测。目前，\nFAST 已发现近 1300 颗脉冲星，远超同期国际上其他望远镜总和\nIT之家注：中国天眼 500 米口径球面射电望远镜 FAST 利用贵州喀斯特地区的洼坑作为望远镜台址建造，由我国天文学家南仁东于 1994 年提出构想，历时 22 年建成，于 2016 年 9 月 25 日落成启用，是目前世界上口径最大、灵敏度最高的单口径射电望远镜，拥有 30 个标准足球场大的接收面积。",
+          "b": "<br><br>近日，国家发展改革委、国家能源局印发《新型电力系统建设“十五五”规划》，明确到2030年，绿色低碳的电力供给格局基本形成，非化石能源发电量占比达50%。<br>规划明确，到2030年，新型电力系统初步建成，电力供应能力持续增强，电力系统互补互济和安全韧性水平大幅提升，电力供应充裕度保持合理水平，有效满足经济社会发展和人民群众美好生活的用电需要；初步建成安全可靠、绿色低碳、坚强韧性、智能灵活的新型电网，资源配置平台作用和服务功能充分发挥，实现28亿千瓦以上新能源高水平消纳，建成可支撑超1.1亿辆电动汽车出行的充电基础设施网络。<br><br>具体来看，到2030年：常规水电装机达到4.1亿千瓦左右；核电装机约1.1亿千瓦；生物质、光热、地热能、海洋能等发电装机达到6500万千瓦左右；西电东送规模超过4.2亿千瓦。开展“沙戈荒”等100%新能源外送输电工程试点；充电基础设施总量超过4000万个，大功率充电设施约30万个，形成支撑超过1.1亿辆电动汽车的充电服务能力；全国需求侧削峰能力超过1亿千瓦；虚拟电厂最大调节能力超过5000万千瓦；电能占终端能源消费比重达到35%；全国抽水蓄能电站装机规模达到1.6亿千瓦左右；全国新型储能规模达到3亿千瓦；智能有序充电和双向充放电实现规模化应用，车网互动聚合可调充电规模力争达到5000万千瓦；全国非化石电源电力支撑水平达到40%左右；可承担顶峰保供作用的电网侧独立新型储能达到1.4亿千瓦；60万千瓦等级及以上清洁高效煤电机组占比提高10个百分点以上。<br>附件：新型电力系统建设“十五五”规划.pdf<br><br>",
           "hb": 1
         },
         {
-          "t": "“世界首创”：新型废物衍生量子点可以阻止农作物害虫",
+          "t": "新能源利用率分三档！新型电力系统建设“十五五”规划发布-索比光伏网",
           "d": "2026-08-04",
-          "a": "interesting engineering",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "日本绿色科技初创公司Green Science Alliance宣布，成功利用木材和食物等有机生物质废物合成了“碳量子点”。测试发现，这种直径1至9纳米的人造半导体粒子对甘薯粉虱成虫表现出有效的驱避特性。据悉，这是世界上首次发现碳量子点具有驱虫效果。",
-          "sc": 7.7,
+          "a": "索比光伏-综合新闻",
+          "c": "通用技术/通信和运输/电网技术/其它电网技术",
+          "as": "国家发展改革委与国家能源局联合印发了《新型电力系统建设“十五五”规划》。该规划明确将新能源利用率分为三个档位，并要求各省市自治区能源相关部门及电力企业遵照执行。",
+          "sc": 8.6,
           "i": "n",
-          "tg": "技术突破",
-          "u": "https://interestingengineering.com/science/carbon-quantum-dots-repel-whiteflies",
-          "tp": "量子点驱虫技术",
+          "tg": "政策监管",
+          "u": "https://news.solarbe.com/202608/04/50027000.html",
+          "tp": "电力系统规划",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "[新型电力系统建设“十五五”规划]: 国家发改委与国家能源局印发，要求各省及有关企业遵照执行"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "It turns out the rotten food and discarded wood sitting in municipal landfills could be transformed into high-tech shields against agricultural pests.\nJapanese green technology startup Green Science Alliance announced that it has synthesized “carbon quantum dots” from organic biomass waste like wood and food. Interestingly, the quantum dot functioned as an effective pest repellent against adult sweet potato whiteflies (\nBemisia tabaci\nThis is believed to be the world’s first instance of carbon quantum dots demonstrating insect-repellent properties.\n“It could be the first time in the world to find repellent effect of carbon quantum dot according to their survey,” the team noted.\nQuantum dots\nare minuscule, man-made semiconductor particles measuring between 1 and 9 nanometers in diameter. Often dubbed “artificial atoms,” these nanoscale structures exhibit unique electronic and optical properties due to a phenomenon called quantum confinement.\nTypically, these dots are used in advanced solar cells, bio-imaging, and ultra-high-definition displays. Using them to scare off farm\npushes nanotechnology into completely uncharted territory.\nThroughout history, humans and livestock have suffered from a wide variety of destructive\ninsect pests\nthat threaten public health, food supplies, and property. Biting insects like mosquitoes and blackflies transmit disease, while cockroaches, weevils, and mites contaminate food stores.\nMore from Science\nUS firms team up to launch first next-gen quantum communications research lab\nHumpback whale songs are choreographed to match deep dives, study finds\nChina expands quantum technology to protect power grid with smarter fault detection\nNew wastewater system removes 85% salt and 92% heavy metals in just 4 hours\nA two-nanometer crystal stretch uncovers magnetism long hidden in ruthenium dioxide\nMeanwhile, pests like moths, beetles, and termites inflict severe physical damage on textiles, furniture, and\nbuildings, forcing humanity to continuously develop targeted prevention and extermination measures.\nCrop-destroying pests are usually handled using chemical insecticides like\norganophosphates\nand pyrethroids that kill insects outright but inflict high environmental and health costs.\nApart from polluting ecosystems and leaving toxic residues on human food sources, these aggressive chemicals drive pests to develop genetic resistance, rendering treatments ineffective over time. Even milder synthetic alternatives like DEET are increasingly restricted worldwide due to health risks, creating an urgent need for safer, more sustainable pest management solutions.\nAlternative ingredients like terpenes, cinnamaldehyde, and p-menthane-3,8-diol offer viable options. But the precise relationship between chemical structure and repellent performance remains poorly understood, underscoring the need for continued research.\nThis new biomass-derived repellent offers a cleaner alternative.\nCuriously, the exact mechanism behind why these eco-friendly quantum dots scare off insects remains a mystery, even to their creator. Dr. Ryohei Mori has proposed\nthree primary theories\nThe microscopic particles are small enough to pass through insect cell membranes and nuclear walls, damaging DNA and triggering an avoidance response.\nThen there could be optical disruption in which the quantum dots emit specific wavelengths of light under ambient conditions that\ninstinctively dislike. And lastly, when exposed to natural sunlight, the particles generate free electrons via photocatalysis, producing localized energy disruptions that irritate pests.\nUsing free waste materials alongside commercially scalable production processes makes this cutting-edge nanotechnology much cheaper to manufacture than conventional repellents.\nIn addition, as a naturally derived and eco-friendly alternative, these innovative quantum dots offer a potentially much safer option than petroleum-derived synthetic chemicals. However, formal safety testing remains an ongoing priority.\nAt present, the research is just a stepping stone, and rigorous safety and environmental testing remain necessary before commercial release. Green Science Alliance plans to expand production using various biomass waste feeds and evaluate efficacy against a broader array of agricultural pests.\nGet the latest in engineering, tech, space & science - delivered daily to your inbox.\nSubscribe to\nAccess to exclusive content, expert insights and a deeper dive into engineering and tech. No ads, no limits.\nExplore Now!\nMrigakshi is a science journalist who enjoys writing about space exploration, biology, and technological innovations. Her work has been featured in well-known publications including Nature India, Supercluster, The Weather Channel and Astronomy magazine. If you have pitches in mind, please do not hesitate to email her.\nNew 6,000-ton warship with 64 missile launch cells aims to counter hypersonic threats\nUS Navy upgrades 19 nuclear-powered submarines into powerful guided missile warships\n7-foot centaur robot with chainsaw arms built for dangerous rescue missions\nMemory chips cut computing power 59-fold, may trim satellite weight by 2,000 pounds\n78.4 kWh battery supports homes and wider power grid, installs in under an hour",
+          "b": "国家发展改革委 国家能源局关于印发\n《新型电力系统建设“十五五”规划》的通知\n各省、自治区、直辖市、新疆生产建设兵团发展改革委、能源局，北京市城市管理委员会，有关企业，电力规划设计总院、水电水利规划设计总院、中国电力企业联合会：\n为深入贯彻党的二十大和二十届历次全会精神，认真落实四中全会部署，践行“四个革命、一个合作”能源安全新战略，根据《中华人民共和国国民经济和社会发展第十五个五年规划纲要》和《新型能源体系建设“十五五”规划》有关要求，我们组织编制了《新型电力系统建设“十五五”规划》。现印发给你们，请遵照执行。\n国 家 能 源 局\n索比光伏网 https://news.solarbe.com/202608/04/50027000.html",
           "hb": 1
         },
         {
-          "t": "世界上第一个光子时间晶体可以在万亿分之一秒内重塑光",
+          "t": "科学网-新研究可快速生成胶质瘤毫米级三维病理图像",
           "d": "2026-08-04",
-          "a": "scitechdaily",
-          "c": "通用技术/材料工程/其它先进材料",
-          "as": "一个国际研究团队在实验中成功创造了世界首个全光子时间晶体（PTC）。这是一种能在极短时间跨度内强烈且反复改变光学特性的材料。这项研究发表在《自然》杂志上，为超快光学计算、先进电信技术以及新型太赫兹激光器的开发奠定了技术基础。",
-          "sc": 7.5,
+          "a": "科学网新闻",
+          "c": "通用技术/检测和表征/先进科学仪器",
+          "as": "复旦大学联合团队在《细胞》发表全新超快速三维病理技术平台ULTRA。该技术融合无标记受激拉曼散射成像、快速组织透明化与无监督学习算法，解决传统三维病理成像耗时长难题。ULTRA可在30分钟内生成毫米级三维病理图像，实现胶质瘤术中病理特征解析与浸润边界精准测绘，满足术中30分钟快速诊断刚需。",
+          "sc": 8.0,
           "i": "n",
           "tg": "技术突破",
-          "u": "https://scitechdaily.com/worlds-first-photonic-time-crystal-can-reshape-light-in-trillionths-of-a-second/",
-          "tp": "光子时间晶体",
+          "u": "http://news.sciencenet.cn/htmlnews/2026/8/569326.shtm",
+          "tp": "三维病理成像",
           "aip": 1,
-          "kp": [],
+          "kp": [
+            "三维成像产出时间[ULTRA技术平台]: 30分钟内",
+            "技术核心原理[超快速三维病理]: 无标记受激拉曼散射(SRS)成像融合快速组织透明化与无监督学习算法",
+            "图像分辨率特征[ULTRA三维病理图像]: 毫米级"
+          ],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "A world-first photonic time crystal can reshape light almost instantly, opening a path toward ultrafast optical technology.\nAn international research team has created the first experimentally demonstrated all-optical photonic time crystal (PTC), a material whose optical behavior can be altered strongly and repeatedly over extremely short periods of time.\nThe work, carried out by scientists from École Polytechnique, Collège de France, and\nHelmholtz-Zentrum Dresden-Rossendorf\n(HZDR), was published in Nature. The researchers used HZDR’s TELBE superradiant\nThe achievement could eventually support ultrafast optical computing, advanced telecommunications, and new types of terahertz lasers.\nMany modern technologies depend on controlling how light behaves when it passes through or interacts with a material. Optical fibers guide information across communication networks, lasers provide precise light sources, and optical sensors are widely used in chemistry and biology.\nResearchers at École Polytechnique are now working to extend that control into the terahertz (THz) frequency range. Yannis Laplace, assistant professor at École Polytechnique, and his team at the Laboratory of Irradiated Solids (LSI) are developing photonic devices that can manipulate light at these frequencies.\nThe terahertz range operates at frequencies around 1,000 times faster than those commonly used by electronic components. Interest in this region is growing because it could offer new ways to observe, analyze, and manipulate matter.\n“The THz range represents the frontier between electronic and photonic technologies,” explains Laplace. ”It is a range full of opportunities both for science and for society, yet is still under-developed technologically compared to its electrical and photonic counterparts. Creating photonic crystals could lead the way to the closing of this gap.”\nConventional photonic crystals are nanostructured materials arranged in a repeating optical pattern (like a lattice) that influences how photons move. By controlling the refractive index and geometry of the materials, scientists can block, redirect, or strengthen particular wavelengths of light. In this way, photonic crystals perform a role for photons that is similar to the way\nsemiconductors\ncontrol electrons.\nEarlier experiments by the same research team showed that changing temperature or applying magnetic fields could modify how photonic crystals trapped light. However, those changes remained fixed once they were applied.\nThe new experiment moves beyond that limitation by introducing a photonic time crystal. In this system, the material’s optical properties (e.g., reflectivity, resonance frequency) change dynamically over picosecond timescales, which are comparable to the oscillation period of the light itself.\n“By extending photonic crystals from space to time, we open a new dimension for light control—and a novel path toward amplification and lasing. That could be a game-changer for optical technologies at terahertz frequencies and beyond,” explains Tingwen Guo, PhD student at École Polytechnique and lead author on the publication.\nProducing such rapid changes in\nbehavior required the researchers to design a highly specialized device. With assistance from Thales’ Laboratoire Albert Fert and Polytechnique’s Physics of Interfaces (PICM) laboratory, the team built a type of photonic crystal known as a “plasmonic metamaterial.”\nThe structure contains micrometer-scale, crenelated gold patterns positioned above an insulating layer and a semiconductor made from a mixture of indium and antimony. The gold structures form small cavities that confine photons between the metal and semiconductor layers.\nWhen the surface of the semiconductor is excited, it produces “surface plasmons,” in which electrons move together as a collective wave. This coordinated motion allows the structure to capture light and maintain its oscillations.\nThe researchers then directed terahertz laser pulses at the device using TELBE, an intense and frequency-tunable terahertz source located at HZDR’s ELBE accelerator.\nThe experiment showed that the material’s optical properties, especially its reflectivity, could be changed very strongly within an extremely short period. Achieving both a large effect (like forcing an object to emit a whole different color) and a very rapid response (on the picosecond scale—one billionth of a billionth of a second) had previously been exceptionally difficult.\n“TELBE’s unique ability to generate high-field, phase-stable terahertz pulses was critical,” confirmed Jan-Christoph Deinert, the coordinator of the TELBE facility. “Without this infrastructure, achieving the coherent, ultrafast modulation needed for the PTC regime would have been impossible.”\nThe experimental findings were supported by a theoretical model developed by Marco Schiró, Research Scientist at Collège de France, and his team. The model reproduced the observed results and helped explain how photons behaved inside the device.\nThe researchers also found that the time-based modulation reduced photon dissipation within the metamaterial by half. In other words, a smaller proportion of photons passed through the material without being reflected.\n“The theory not only reproduces the experiment but also provides the basis for guiding future discoveries in this system,” rejoiced Schiró.\nThe next challenge is to reduce photon losses even further and increase the number of photons that remain trapped inside the crystal. If the researchers can achieve sufficiently strong amplification, the system could serve as the basis for new lasers with exceptionally flexible and adjustable properties.\nPhotonic time crystals could ultimately change how light is used in technology, especially in the terahertz range. Their ability to modify light over extraordinarily short timescales could lead to ultrafast lasers for medical imaging and communications.\nThe same approach could also make it possible to tune the properties of light on demand, such as changing its “color” or intensity almost instantly. This capability may lead to smarter, faster, and more adaptable optical systems.\nReference: “Plasmonic metamaterial time crystal” by Tingwen Guo, Jules Sueiro, Gian Marcello Andolina, Artem Levchuk, Stefano Ponzoni, Romain Grasset, Donald Monthe, Ian Aupiais, Dmitri Daineka, Javier Briatico, Thales VAG de Oliveira, Alexey Ponomaryov, Atiqa Arshad, Arjun Karimbana-Kandy, Gulloo Lal Prajapati, Igor Ilyakov, Jan-Christoph Deinert, Sebastian F. Maehrlein, Luca Perfetti, Marco Schirò and Yannis Laplace, 29 July 2026,\nDOI: 10.1038/s41586-026-10825-9\nNever miss a breakthrough:\nJoin the SciTechDaily newsletter.\nFollow us on\nMaterials Science\nSpectroscopy\nScientists Uncover Hidden Property of Light That Twists Matter Sideways\nScientists Trap Light in a Layer 1,000x Thinner Than a Hair\nNext-Gen Spectroscopy: New Tunable Laser Method Achieves Unprecedented Precision\nNewly Proven Physics: Smuggling Light Through Opaque Materials\nCrystals Efficiently Convert Light to More Useful Wavelengths – Paving Way for Better Solar Cells\nPhysicists Test the Response Time of Electrons\nResearchers Combine Excited States of Two Materials into a New Quantum Mechanical State\nMetamaterials Amplify the Photonic Spin Hall Effect\nCathodoluminescence Used to Probe Metamaterials",
+          "b": "新研究可快速生成胶质瘤毫米级三维病理图像\n肿瘤是立体三维生长的复杂病灶，而长期以来，病理医生只能依靠薄薄的二维切片研判病情，尤其对于弥散性浸润的胶质瘤，肿瘤细胞沿组织间隙立体蔓延、分布隐匿，单一平面切片极易遗漏关键病变区域，直接影响肿瘤分级判定与手术边界精准界定，成为外科手术的核心痛点。\n北京时间2026年8月3日晚，复旦大学生物医学研究院施立雪团队联合物理学系季敏标团队，在国际学术期刊《细胞》（Cell）发表研究论文，推出全新超快速三维病理技术平台ULTRA。\n发表的论文。本文图片均为研究团队供图\n该技术依托无标记受激拉曼散射（SRS）成像原理，创新性融合快速组织透明化技术与无监督学习图像生成算法，解决了三维病理成像周期漫长的核心技术难题，可在30分钟内产出媲美石蜡病理金标准级别的毫米级三维病理图像，实现胶质瘤术中三维病理特征解析与肿瘤浸润边界精准测绘，为神经外科精准手术提供全新技术支撑。\n研究团队指出，传统临床病理诊断，本质是标准化的二维薄片观测。临床术中冰冻病理流程中，医护人员需将手术切除的组织，制作成微米级薄切片，且仅能选取少量平面进行显微观察。对于外科手术而言，术中30分钟病理诊断窗口是临床刚需。\n“医生需要依托术中快速病理结果，实时判断病灶性质、界定肿瘤浸润边界，即时调整手术切除范围与手术方案，最大程度实现肿瘤完整切除、保留正常神经功能。这一严格的时效要求，往往让传统术中病理不得不牺牲观测维度与切片数量，进一步放大了漏诊风险。”施立雪表示，近年来，全球学界已证实三维病理可捕捉二维切片无法获取的组织空间结构信息，从而提升肿瘤诊断精准度。但现有三维病理技术流程繁琐、耗时长，完整检测周期长达数小时甚至数天，无法适配术中即时诊断的临床需求，长期停滞于实验室研究阶段，难以落地手术临床场景。\nULTRA三维病理流程\n“传统三维病理技术主要遵循组织透明化、化学染色、三维成像的技术路线，其中化学染色、多通道图像采集是最耗时的核心环节，也是难以突破术中时效的关键瓶颈。”施立雪表示，研究团队为此重新设计了术中三维病理技术流程，摒弃传统耗时技术，利用自主开发的快速组织透明化技术，实现毫米级组织在几分钟内完全透明；随后利用无需组织染色的受激拉曼散射（SRS）显微镜，直接获取组织三维信息，通过激光识别组织内脂质、蛋白等分子的特征振动信号，精准区分正常组织与肿瘤组织，规避传统染色技术对组织的损伤与耗时弊端。再结合人工智能算法，将原始光学信号转化为病理医生熟悉的标准病理图像，兼顾成像效率与临床可读性。\n研究团队透露，此次推出的ULTRA平台实现两大颠覆性技术突破，分别解决了传统三维病理“成像慢、难落地”和“图像临床难用”两大核心难题，实现三维病理技术的临床术中适配。\n“一方面，我们研发了ULTRA-clearing快速透明化技术，该技术可在5-10分钟内完成1毫米厚脑组织的透明处理，同时精准保留拉曼成像所需的脂质、蛋白核心信号，无背景干扰，为术中三维成像筑牢速度与精度双重基础；另一方面，还研发了ULTRA-staining人工智能数字染色系统，摆脱传统化学染色依赖，该技术无需额外图像采集、无需化学染色，仅靠单通道数据即可快速输出标准化、高精准三维病理图像，让无标记光学成像结果适配临床诊断习惯，实现了新型成像技术‘看得清、看得懂、用得上’的关键突破。”施立雪还指出，相较传统二维病理的平面判断，ULTRA技术还可以完整呈现胶质瘤疏密不均、随深度动态变化的立体浸润边界，还原病灶真实空间分布形态。这一技术突破有效弥补了影像导航与传统病理的双重短板，为术中实时界定肿瘤切除边界、实现肿瘤超全切除、最大程度保留正常神经功能，提供客观依据。\n本研究由复旦大学生物医学研究院、徐汇区中心医院双聘教授施立雪，物理学系、中山医院双聘教授季敏标团队合作完成。博士后刘至杰、博士生李盈盈及华山医院助理研究员陈灵朝为论文共同第一作者。研究获国家重点研发计划、国家自然科学基金、上海市教育委员会基金、北京医学奖励基金、中国医学科学院医学与健康科技创新工程、复旦大学—曹娥江基础研究计划等项目经费支持。\n特别声明：本文转载仅仅是出于传播信息的需要，并不意味着代表本网站观点或证实其内容的真实性；如其他媒体、网站或个人从本网站转载使用，须保留本网站注明的“来源”，并自负版权等法律责任；作者如果不希望被转载或者联系转载稿费等事宜，请与我们接洽。",
           "hb": 1
         }
       ]

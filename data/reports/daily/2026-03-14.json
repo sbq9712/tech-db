@@ -6,18 +6,11 @@
   "overview": null,
   "headlines": {
     "零碳产业": [
-      "桥重组酶正交体ISCro4实现人类基因组兆碱基级重排",
-      "磺酸基锚定MOF腔内铂簇实现低温选择性CO2加氢制甲醇",
-      "催化锂盐定向分解构建固态电池低阻抗SEI层以抑制枝晶"
+      "Lyten完成对Northvolt旗下特定电池生产装置及资产的收购协议"
     ],
-    "AI与智能科技": [
-      "研究提出光电化学纳米流体忆阻器以模拟复杂神经突触行为",
-      "二维半导体电荷中和零维量子阱实现室温激子高辐射发射"
-    ],
+    "AI与智能科技": [],
     "通用技术": [
-      "嫦娥六号光谱仪首次在月球表面直接探测到氢负离子",
-      "黄铜矿材料引入双反位缺陷使热电性能ZT值突破2.0",
-      "哈佛团队发布weMERFISH平台绘制斑马鱼全胚胎空间转录组图谱"
+      "研究实现12纳米聚合物晶体超高导热率，明确边界散射限制机理"
     ]
   },
   "sectors": [
@@ -25,192 +18,61 @@
       "name": "零碳产业",
       "review": null,
       "headlines": [
-        "桥重组酶正交体ISCro4实现人类基因组兆碱基级重排",
-        "磺酸基锚定MOF腔内铂簇实现低温选择性CO2加氢制甲醇",
-        "催化锂盐定向分解构建固态电池低阻抗SEI层以抑制枝晶"
+        "Lyten完成对Northvolt旗下特定电池生产装置及资产的收购协议"
       ],
       "entries": [
         {
-          "t": "使用可编程桥重组酶进行兆碱基级人类基因组重排",
+          "t": "Lyten 收购了另一个 Northvolt 装置",
           "d": "2026-03-14",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "零碳产业/物质循环/有机物（碳循环）/有机工业/生物过程/合成生物学",
-          "as": "该研究报道了桥重组酶正交体ISCro4的发现和工程化改造，实现了人类基因组的兆碱基级通用重排。桥重组酶是天然RNA引导的DNA重组酶，研究者定义了桥系统的最优应用策略，利用机制洞察提升靶向效率，展示了基因-sized DNA片段的插入、切除和倒位能力，为大规模基因组工程提供了变革性工具。",
-          "sc": 7.2,
+          "a": "Battery – electrive.com",
+          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/锂电池",
+          "as": "",
+          "sc": 7.0,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adz0276?af=R",
-          "tp": "基因组重排",
+          "u": "https://www.electrive.com/2026/03/14/lyten-acquires-another-northvolt-unit/",
+          "tp": "电池产业并购",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Bridge recombinases are naturally occurring RNA-guided DNA recombinases that we previously demonstrated can programmably insert, excise, and invert DNA in vitro and in\n                    Escherichia coli\n                    . In this study, we report the discovery and engineering of the bridge recombinase ortholog ISCro4 for universal rearrangements of the human genome. We defined strategies for the optimal application of bridge systems, leveraging mechanistic insights to improve their targeting specificity. Through rational engineering of the ISCro4 bridge RNA and deep mutational scanning of its recombinase, we achieved up to 20% insertion efficiency into the human genome and genome-wide specificity as high as 82%. We further demonstrated intrachromosomal inversion and excision, mobilizing up to 0.93 megabases of DNA. Lastly, we provided proof of concept for plasmid-based excision of disease-relevant gene regulatory regions or repeat expansions.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 磺酸基对接合成MOFs腔内铂簇实现低温稳定CO2选择性加氢制甲醇",
-          "d": "2026-03-14",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/物质循环/有机物（碳循环）/CCUS",
-          "as": "该研究提出在MOF空腔内通过磺酸基团锚定合成铂簇的策略，实现低温稳定选择性CO2加氢制甲醇。传统Pt纳米颗粒倾向于将CO2加氢为CO（逆水气变换），难以高选择性生成甲醇。利用MOF骨架中磺酸基团的配位作用精确控制Pt簇尺寸和微环境，调控反应路径选择性，在低温条件下实现CO2高效转化为甲醇，对碳中和技术具有重要意义。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.6c01959",
-          "tp": "CO2加氢制甲醇",
-          "aip": 1,
-          "kp": [
-            "催化剂[CO2加氢制甲醇]: Pt团簇限域于UiO-66",
-            "合成策略: 磺酸基对接法克级合成",
-            "[低温稳定性]: 选择性CO2加氢制甲醇"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Platinum (Pt) nanoparticles favor the hydrogenation of CO<sub>2</sub> to CO, presenting a significant challenge for value-added methanol synthesis. Herein we report a sulfonic acid group docking strategy for the gram-scale synthesis of monodispersed Pt clusters within the cavities of double sulfonated zirconium terephthalate UiO-66. The resulting catalyst enables the efficient hydrogenation of CO<sub>2</sub> to methanol, achieving nearly 100% methanol selectivity at 60 °C and sustaining stable performance for 500 h of continuous operation. Computational and experimental investigations reveal that sulfonic acid groups facilitate the modulation of the electronic structures of adjacent Pt clusters and defective zirconium sites, thereby promoting the adsorption and activation of H<sub>2</sub> and CO<sub>2</sub>. Consequently, the interfaces between Pt edges and defective zirconium sites efficiently promote the hydrogenation of CO<sub>2</sub> to methanol at low temperatures. Our developed sulfonic acid group docking strategy can be extended to synthesize a wide range of highly active and stable metal clusters in porous supports, opening new possibilities for important catalytic applications.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 催化锂盐解离与分解构建固态锂金属电池中均匀低阻抗固体电解质界面",
-          "d": "2026-03-14",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
-          "c": "零碳产业/能量循环/能量存储/电化学储能/二次电池/其它电池体系",
-          "as": "针对固态锂金属电池中PVDF基聚合物电解质界面阻抗过大问题，该研究提出催化锂盐解离与分解的策略，以构建均匀致密且低阻抗的固体电解质界面膜（SEI）。通过引入特定催化剂促进锂盐在界面处定向分解，形成与锂金属良好接触的富无机物SEI层，有效抑制锂枝晶生长并提升界面离子传导，显著改善固态电池的循环稳定性与倍率性能。",
-          "sc": 7.0,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "http://dx.doi.org/10.1021/jacs.5c16750",
-          "tp": "固态锂电池界面",
-          "aip": 1,
-          "kp": [
-            "[界面工程]: Hemin分子催化锂盐解离",
-            "效果[固态锂金属电池]: 低阻抗均匀SEI"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Solid-state lithium metal batteries (SSLMBs) employing poly(vinylidene difluoride) (PVDF)-based polymer electrolytes face challenges of limited salt dissociation and unstable interfacial chemistry, while conventional filler strategies cannot uniformly resolve these issues due to restricted contact with Li salts. Here, we introduce a molecular catalysis approach using Hemin, a small molecule capable of directly interacting with Li salts within the PVDF matrix at the molecular level, to address these challenges. The pentacoordinated iron sites in Hemin adsorb with FSI– anions, significantly enhancing salt dissociation and raising the free Li+ concentration from 22% to 44%. This improvement increases ionic conductivity from 2.26 × 10–4 S cm–1 to 1.13 × 10–3 S cm–1. Simultaneously, Hemin catalyzes uniform FSI– decomposition at the Li anode surface, forming a conformal, LiF-rich solid electrolyte interphase (SEI) that stabilizes lithium deposition and suppresses dendrite growth. These combined effects enable Li||Li symmetric cells to operate stably for over 6000 h. Note that even under a high rate, the Li||LiFePO4 full cells exhibit remarkable durability over 2000 cycles at 5 C, and Li||LiNi0.8Co0.1Mn0.1O2 cells maintain stable cycling over 1000 cycles at 2 C. This work highlights the molecular catalysis in bulk ion regulation and interfacial stabilization for high-performance SSLMBs.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     },
     {
       "name": "AI与智能科技",
       "review": null,
-      "headlines": [
-        "研究提出光电化学纳米流体忆阻器以模拟复杂神经突触行为",
-        "二维半导体电荷中和零维量子阱实现室温激子高辐射发射"
-      ],
-      "entries": [
-        {
-          "t": "光电化学纳米流体忆阻器：一类新型类脑构建单元",
-          "d": "2026-03-14",
-          "a": "Wiley: Advanced Materials: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/芯片",
-          "as": "研究者提出光电化学纳米流体忆阻器这一新型神经形态器件家族。该器件利用纳米流体通道中的光电化学反应模拟生物神经系统的异质结构与功能，为构建类脑计算硬件提供了全新的基础单元。与传统固态忆阻器相比，其兼具光响应与离子输运特性，在模拟复杂神经突触行为方面展现出独特优势，有望推动低功耗、高仿生度的神经形态计算架构发展。",
-          "sc": 7.3,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202517362?af=R",
-          "tp": "光电化学纳米流体忆阻器",
-          "aip": 1,
-          "kp": [
-            "[器件概念]: 光电化学纳米流体忆阻器模拟视觉突触"
-          ],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "ABSTRACT\n                  Due to the heterogeneous structures and functions of the human nervous system, innovation of neuromorphic building blocks has long been the goal of neuromorphic engineering. Here, we report on a new concept of photoelectrochemical nanofluidic memristor (PNM) with analogous synaptic transmission to that in human vision. By matching miniaturized n‐type or p‐type semiconducting electrodes with negatively‐ or positively‐charged nanochannels, four combinations of PNMs are produced with rich hysteresis characteristics and bio‐realistic retinomorphic functions. Heterologous regulation and algorithmic‐nanofluidic applications are further implemented in this device. As a proof of concept, the PNM will serve as a general technique to catalyze a new family of neuromorphic building blocks for advancing aqueous neuromorphic exploration.",
-          "hb": 1
-        },
-        {
-          "t": "二维半导体中电荷中和的 0D 量子阱实现室温局域激子的高辐射发射",
-          "d": "2026-03-14",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "AI与智能科技/AI硬件层/半导体",
-          "as": "在二维半导体中设计了电荷中和的零维量子阱结构，实现了室温下局域激子的高辐射发射。该结构有效克服了室温热能阻碍局域激子形成以及多余电荷导致非辐射衰变降低量子产率的难题，在光伏和发光器件领域具有重要应用前景。",
-          "sc": 5.5,
-          "i": "literature",
-          "tg": "技术突破",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.ady2186?af=R",
-          "tp": "半导体激子",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Nondiffusing localized excitons (X\n                    L\n                    ) in two-dimensional semiconductors present a robust platform for mediating light-matter interactions, with potential applications in both photovoltaics and light-emitting devices. However, at room temperature, high thermal energy hinders X\n                    L\n                    formation, while excess charges diminish the quantum yield (QY) through nonradiative decay. Here, we present high-QY X\n                    L\n                    emission in ambient conditions by removing excess charges and inducing efficient exciton funneling into a Au nanohole. Specifically, by evaporating an H\n                    2\n                    O barrier between the n-type MoS\n                    2\n                    and the Au substrate, we induce a grounding effect on electrons. Dominantly populating excitons are then funneled and bound to the nanohole through the strain-induced zero-dimensional quantum well effect. We confirm the exciton confinement efficiency of ~98% using a drift-diffusion model, enabling bright X\n                    L\n                    emission at the nanoscale. Using tip-induced gigapascal-scale pressure, we control X\n                    L\n                    dynamics and QY in a reversible manner. Our approach provides an innovative strategy for X\n                    L\n                    -based nanophotonic devices.",
-          "hb": 1
-        }
-      ]
+      "headlines": [],
+      "entries": []
     },
     {
       "name": "通用技术",
       "review": null,
       "headlines": [
-        "嫦娥六号光谱仪首次在月球表面直接探测到氢负离子",
-        "黄铜矿材料引入双反位缺陷使热电性能ZT值突破2.0",
-        "哈佛团队发布weMERFISH平台绘制斑马鱼全胚胎空间转录组图谱"
+        "研究实现12纳米聚合物晶体超高导热率，明确边界散射限制机理"
       ],
       "entries": [
         {
-          "t": "嫦娥六号揭示月球上依赖太阳风的氢离子",
+          "t": "受边界散射和表面非晶化限制的 12 nm 聚合物晶体中的超高导热率",
           "d": "2026-03-14",
-          "a": "AAAS: Science Advances: Table of Contents",
-          "c": "通用技术/通信和运输/航天",
-          "as": "嫦娥六号探测器搭载的负离子光谱仪（NILS）首次在月球表面成功探测到氢负离子（H⁻）光谱，这是地外天体负离子的首次直接探测。研究分析了月球表面H⁻离子的来源和分布特征，发现其与太阳风注入密切相关。该发现为理解太阳风与月球表面的相互作用机制、月球外逸层化学过程提供了前所未有的观测数据。",
-          "sc": 8.7,
-          "i": "l",
-          "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/sciadv.adw1162?af=R",
-          "tp": "月球负离子",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Apart from positive ions and electrons, negative ions are expected in various astrophysical environments. However, they have never been detected on the Moon until the Chang’E-6 mission. The NILS instrument onboard Chang’E-6 lander is the first dedicated instrument for detecting negative ions beyond Earth and has successfully obtained H\n                    −\n                    spectra on the lunar surface, providing an unprecedented opportunity to investigate their origin and distribution. Here, we present a positive correlation between the H\n                    −\n                    spectra and solar wind parameters, which provides direct evidence for the generation of negative ions from solar wind–surface interaction. Combined with Monte Carlo simulations, we predict a thin dayside H\n                    −\n                    layer and a long nightside H\n                    −\n                    tail, which can contribute to the lunar plasma environment, especially during an extreme solar wind density event. These findings greatly improve our understanding of the generation and distribution of negative ions on the Moon and other airless bodies.",
-          "hb": 1
-        },
-        {
-          "t": "[ASAP] 双反位缺陷和域结构协同提高黄铜矿 Cu0.7Ag0.3Ga1–xInxTe2(x = 0–0.5) 中 ZT > 2.0 的历史新高",
-          "d": "2026-03-14",
-          "a": "Journal of the American Chemical Society: Latest Articles (ACS Publications)",
+          "a": "Wiley: Advanced Materials: Table of Contents",
           "c": "通用技术/材料工程/其它先进材料",
-          "as": "提出双反位缺陷策略，在黄铜矿Cu0.7Ag0.3Ga1-xInxTe2中引入供体-受体缺陷对形成电中性构型，有效抑制载流子散射。该策略打破了热电参数间的强耦合限制，使材料ZT值突破2.0的历史新高，为高性能热电材料设计提供了新范式。",
-          "sc": 7.4,
-          "i": "literature",
-          "tg": "行业观察",
-          "u": "http://dx.doi.org/10.1021/jacs.6c02266",
-          "tp": "突破性热电",
-          "aip": 1,
-          "kp": [],
-          "lv": 0,
-          "wr": "",
-          "cm": "",
-          "b": "Antisite defects, as intrinsic point defects in crystals, have demonstrated significant potential in optimizing the thermoelectric performance of materials, particularly by modulating the carrier concentration. However, they typically degrade carrier mobility due to the strong coupling among thermoelectric parameters. To address this limitation, we propose a dual-antisite defects strategy: by introducing donor-acceptor defect pairs to form electrically neutral configurations, carrier scattering can be significantly reduced due to charge compensation. Meanwhile, the presence of these point defects still maintains strong phonon scattering. This approach minimizes the loss of electrical mobility while effectively suppressing lattice thermal conductivity (κL). Using chalcopyrite CuGaTe2 as a matrix, we incorporated charge-balanced dual-antisite defects (AgGa″ and InCu··) via alloying. This type of electrically neutral dual-antisite defects can maintain carrier mobility while increasing carrier concentration and significantly suppresses κL by enhancing phonon scattering through the interaction between alloy disorder scattering induced by In alloying and nanodomains. Remarkably, in Cu0.7Ag0.3Ga0.6In0.4Te2, a record-high ZT value of 2.03 at 873 K was achieved. This dual-antisite defects strategy provides a new paradigm for defect engineering in thermoelectric materials, enabling the simultaneous optimization of electrical and thermal transport properties and offering a valid pathway toward high-performance thermoelectrics.",
-          "hb": 1
-        },
-        {
-          "t": "从原肠胚形成到器官发生的亚细胞分辨率全胚胎空间转录组学",
-          "d": "2026-03-14",
-          "a": "AAAS: Science: Table of Contents",
-          "c": "通用技术/检测和表征/先进科学仪器",
-          "as": "哈佛团队开发全胚胎空间转录组成像平台weMERFISH，基于多重容错荧光原位杂交技术，在斑马鱼胚胎中以亚细胞分辨率定量分析了495个基因的表达，并构建了涵盖25872个基因表达和近30万个染色质开放区域的在线图谱。该平台揭示了从原肠胚形成到器官发生过程中基因表达的空间动态规律，为发育生物学提供了前所未有的系统性资源。",
+          "as": "",
           "sc": 7.1,
           "i": "l",
           "tg": "研究论文",
-          "u": "https://www.science.org/doi/abs/10.1126/science.adt3439?af=R",
-          "tp": "胚胎转录组",
+          "u": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202520085?af=R",
+          "tp": "聚合物超高导热",
           "aip": 1,
           "kp": [],
           "lv": 0,
           "wr": "",
           "cm": "",
-          "b": "Gene expression patterns underlie development, but their systematic detection in whole embryos has remained elusive. We introduce a whole-embryo imaging platform using multiplexed error-robust fluorescent in situ hybridization (weMERFISH). We quantified the expression of 495 genes in zebrafish embryos at subcellular resolution and generated an online atlas detailing the expression of 25,872 genes and accessibility of 294,954 chromatin regions during embryogenesis. Expression patterns often corresponded to composites of tissue-specific accessible elements, and expression changes aligned with cellular maturation and morphogenesis. Integration with live imaging revealed how similar expression patterns can emerge through different dynamics and showed that sharp boundaries develop through changes in gene expression rather than through cell sorting. These results establish multiplexed whole-embryo spatial transcriptomics and reveal the regulation and dynamics of embryonic gene expression patterns.",
-          "hb": 1
+          "b": "",
+          "hb": 0
         }
       ]
     }
