@@ -87,6 +87,9 @@ async def main():
             ],
         },
     )
+    # Set extended timeouts for slow local embedding model
+    rag.addon_params["max_execution_timeout"] = 600
+    rag.addon_params["llm_timeout"] = 180
     await rag.initialize_storages()
     print(f"  LightRAG initialized", flush=True)
 

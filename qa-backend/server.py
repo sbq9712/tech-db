@@ -46,6 +46,12 @@ from guardrails import (
     admin_bypass,
     client_identifier,
 )
+from epistemic import (
+    classify_claims,
+    verify_answer,
+    build_epistemic_system_prompt,
+    extract_relevant_excerpt,
+)
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -561,7 +567,7 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     return results, is_relevant, status
 
 
-def build_context(search_results: list) -> tuple:
+def build_context(search_results: list, query: str = "") -> tuple:
     """Build context string and citations from search results."""
     records = load_records()
     citations = []
@@ -595,7 +601,12 @@ def build_context(search_results: list) -> tuple:
             f"相似度: {score:.2f}"
         )
 
-        # Add citation
+        # Build citation with query-relevant excerpt
+        if query:
+            snippet = extract_relevant_excerpt(body, query, ai_summary, max_length=200)
+        else:
+            snippet = body[:200] if body else (ai_summary[:200] if ai_summary else "")
+
         citations.append({
             "id": i + 1,
             "record_id": orig_idx,
@@ -606,7 +617,7 @@ def build_context(search_results: list) -> tuple:
             "tag": tags[0] if tags else "",
             "category": cat,
             "url": url,
-            "body_snippet": (body[:200] if body else (ai_summary[:200] if ai_summary else "")),
+            "body_snippet": snippet,
             "similarity": round(score, 3),
         })
 
@@ -809,7 +820,14 @@ async def chat_stream(req: ChatRequest, request: Request):
                 return
 
             # Build context and citations
-            context, citations = build_context(search_results)
+            context, citations = build_context(search_results, query)
+
+            # ── Epistemic Claim Classification ──
+            claim_metadata = []
+            try:
+                claim_metadata = await classify_claims(query, search_results, top_k=5)
+            except Exception as e:
+                print(f"[epistemic-classify] {e}", flush=True)
 
             # Yield citations
             if citations:
@@ -843,7 +861,7 @@ async def chat_stream(req: ChatRequest, request: Request):
             )
 
             # Build system prompt
-            system_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
+            base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
 
 要求：
 1. 只基于提供的资料回答，不要编造信息
@@ -858,6 +876,9 @@ async def chat_stream(req: ChatRequest, request: Request):
 
 来源列表：
 {source_list}"""
+
+            # Enhance with epistemic protection rules
+            system_prompt = build_epistemic_system_prompt(base_prompt, claim_metadata)
 
             # Build conversation history for LLM
             llm_history = []
@@ -900,6 +921,19 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             # Parse [N] citations from the generated answer
             cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+
+            # ── Epistemic Answer Verification ──
+            # Verify draft answer against classified evidence
+            if claim_metadata and full_answer.strip():
+                try:
+                    verification = await verify_answer(query, full_answer, claim_metadata)
+                    if not verification.get("passed"):
+                        rewritten = verification.get("rewritten_answer", "").strip()
+                        if rewritten and len(rewritten) > 20:
+                            full_answer = rewritten
+                            cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+                except Exception as e:
+                    print(f"[epistemic-verify] {e}", flush=True)
 
             yield {"event": "done", "data": json.dumps({
                 "answer": full_answer,
@@ -984,7 +1018,7 @@ async def search(q: str, top_k: int = 10):
         return {"results": [], "query": q}
 
     results, _is_relevant, _status = await hybrid_search(q.strip())
-    context, citations = build_context(results)
+    context, citations = build_context(results, q.strip())
     return {
         "query": q,
         "results": citations,
