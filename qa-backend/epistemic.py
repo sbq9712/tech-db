@@ -68,13 +68,24 @@ CLASSIFY_PROMPT = """你是认识论信息分类专家。分析以下技术情�
 4. confidence低时使用UNCERTAIN
 
 只输出JSON数组：
-[{"chunk_id":"1","claims":[{"claim":"声明内容","type":"OPINION","speaker":"XX证券","must_attribute":true,"confidence":0.92,"evidence_span":"原文片段"}]}]
+[{{"chunk_id":"1","claims":[{{"claim":"声明内容","type":"OPINION","speaker":"XX证券","must_attribute":true,"confidence":0.92,"evidence_span":"原文片段"}}]}}]
 
 用户问题：{query}
 
 待分析片段：
 {chunks}
 """
+
+
+
+def _get_chunk_text(search_result: dict, records: list) -> str:
+    """Extract text from a search result by looking up the full record."""
+    meta = search_result.get("meta", {})
+    orig_idx = meta.get("idx", -1)
+    record = records[orig_idx] if 0 <= orig_idx < len(records) else None
+    if record:
+        return record.get("as", "") or record.get("b", "") or ""
+    return ""
 
 
 async def classify_claims(query: str, search_results: list, top_k: int = 5) -> list:
@@ -88,13 +99,16 @@ async def classify_claims(query: str, search_results: list, top_k: int = 5) -> l
     # Only classify top-k chunks (cost control)
     to_classify = search_results[:top_k]
 
+    # Access meta dict with abbreviated keys (search_results from rrf_fuse)
+    from server import load_records
+    _records = load_records()
     chunks_json = json.dumps([
         {
             "chunk_id": str(i + 1),
-            "title": r.get("title", ""),
-            "source": r.get("source", ""),
-            "date": r.get("date", ""),
-            "text": (r.get("summary", "") or r.get("body", ""))[:500],
+            "title": r.get("meta", {}).get("t", ""),
+            "source": r.get("meta", {}).get("s", ""),
+            "date": r.get("meta", {}).get("d", ""),
+            "text": _get_chunk_text(r, _records)[:500],
         }
         for i, r in enumerate(to_classify)
     ], ensure_ascii=False)
@@ -133,7 +147,7 @@ VERIFY_PROMPT = """你是事实核查专家。审查以下AI生成的回答草�
    - TEMPORAL_ERROR: 时间错位
    - CONFLICT_IGNORED: 忽略了来源间的事实矛盾
 
-如果不存在 high severity 问题，返回 {"passed": true}。
+如果不存在 high severity 问题，返回 {{"passed": true}}。
 如果存在 high severity 问题，返回：
 {{"passed": false, "issues": [{{"sentence": "有问题的句子", "issue_type": "OPINION_AS_FACT", "severity": "high", "evidence_chunk_ids": ["1"], "suggested_rewrite": "修正后的句子"}}], "rewritten_answer": "完整的修正后回答"}}
 
@@ -282,27 +296,31 @@ def extract_relevant_excerpt(
     if not positions:
         return body[:max_length]
 
-    # Find the best cluster of matches (densest region)
+    # Find the best cluster of matches (densest region) — O(n log n) with bisect
+    import bisect
     positions.sort()
     best_start = positions[0]
     best_density = 0
-    for i, pos in enumerate(positions):
-        # Count matches within window of this position
-        nearby = sum(1 for p in positions if abs(p - pos) <= window)
+    for pos in positions:
+        # Count matches within window using binary search
+        lo = bisect.bisect_left(positions, pos - window)
+        hi = bisect.bisect_right(positions, pos + window)
+        nearby = hi - lo
         if nearby > best_density:
             best_density = nearby
             best_start = pos
 
-    # Extract window around best cluster
+    # Extract window around best cluster — account for ellipsis length
+    prefix = "..." if best_start > 20 else ""
+    suffix_len = 3 if best_start + max_length < len(body) else 0
+    effective_max = max_length - len(prefix) - suffix_len
     excerpt_start = max(0, best_start - 20)
-    excerpt_end = min(len(body), excerpt_start + max_length)
+    excerpt_end = min(len(body), excerpt_start + max(1, effective_max))
 
     excerpt = body[excerpt_start:excerpt_end]
-
-    # Add ellipsis if truncated
-    if excerpt_start > 0:
-        excerpt = "..." + excerpt
-    if excerpt_end < len(body):
+    if prefix:
+        excerpt = prefix + excerpt
+    if suffix_len > 0:
         excerpt = excerpt + "..."
 
     return excerpt

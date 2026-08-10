@@ -444,6 +444,13 @@ function handleSSEData(data, assistantMsg) {
     assistantMsg.citations = data.citations;
   }
 
+  // Handle replace event (epistemic verifier rewrote the answer)
+  if (data.answer !== undefined && data.verified) {
+    assistantMsg.content = data.answer;
+    removeStatusIndicator();
+    updateStreamingMessage(assistantMsg);
+  }
+
   // Handle done event (may contain both answer and citations)
   if (data.answer !== undefined) {
     if (data.answer && !assistantMsg.content) {

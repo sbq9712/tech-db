@@ -823,9 +823,12 @@ async def chat_stream(req: ChatRequest, request: Request):
             context, citations = build_context(search_results, query)
 
             # ── Epistemic Claim Classification ──
+            # (skip if budget exhausted — epistemic is enhancement, not critical path)
             claim_metadata = []
             try:
-                claim_metadata = await classify_claims(query, search_results, top_k=5)
+                classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                if classify_budget_ok:
+                    claim_metadata = await classify_claims(query, search_results, top_k=5)
             except Exception as e:
                 print(f"[epistemic-classify] {e}", flush=True)
 
@@ -924,14 +927,24 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             # ── Epistemic Answer Verification ──
             # Verify draft answer against classified evidence
+            # (skip if budget exhausted — epistemic is enhancement, not critical path)
             if claim_metadata and full_answer.strip():
                 try:
-                    verification = await verify_answer(query, full_answer, claim_metadata)
-                    if not verification.get("passed"):
-                        rewritten = verification.get("rewritten_answer", "").strip()
-                        if rewritten and len(rewritten) > 20:
-                            full_answer = rewritten
-                            cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+                    verify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                    if verify_budget_ok:
+                        verification = await verify_answer(query, full_answer, claim_metadata)
+                        if not verification.get("passed"):
+                            rewritten = verification.get("rewritten_answer", "").strip()
+                            if rewritten and len(rewritten) > 20:
+                                full_answer = rewritten
+                                cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+                                # Signal frontend to replace streamed content
+                                # Use "verified" flag so frontend's handleSSEData
+                                # can distinguish from the normal done event
+                                yield {"event": "replace", "data": json.dumps({
+                                    "answer": full_answer,
+                                    "verified": True
+                                })}
                 except Exception as e:
                     print(f"[epistemic-verify] {e}", flush=True)
 
