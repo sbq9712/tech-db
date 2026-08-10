@@ -78,3 +78,9 @@ data/lightrag/index_texts.json
 data/processed/all-records-lite.json.bak
 data/processed/curated_snapshot.json
 .scratch/
+
+# Log files
+.backfill_kp.log
+.lightrag_ingest.log
+.pipeline_cron.log
+.qa_server.log
