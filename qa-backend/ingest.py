@@ -33,7 +33,7 @@ async def main():
     from lightrag.base import QueryParam
 
     # Parse args
-    batch_size = 50
+    batch_size = 20
     max_records = None
     resume = False
     for i, arg in enumerate(sys.argv):

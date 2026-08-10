@@ -798,24 +798,26 @@ def gen_summaries(records):
 待处理情报：
 """
 
-    # Policy: NO summary for empty-body records.
-    # Short summary (30-80 chars) for short-body records (<50 chars).
-    # Full summary (100-200 chars) for records with body >=50 chars.
+    SUMMARY_PROMPT_TITLE_ONLY = """这些情报没有正文，只有标题。请根据标题生成简短中文摘要（20-50字）。
+根据标题推断研究主题和技术方向，简要描述该情报可能涉及的内容。
+不要编造具体数据。只输出JSON数组：[{"id":0,"summary":"..."}]
+待处理情报：
+"""
+
+    # Policy: Full summary for body>=50 chars, short for shorter body or title-only.
+    # Records with empty body but valid title still get short summaries.
     eligible_full = [i for i, r in enumerate(records)
                      if r.get("c", "") in VALID_CATEGORY_LEAVES
                      and len(r.get("b", "").strip()) >= 50]
     eligible_short = [i for i, r in enumerate(records)
                       if r.get("c", "") in VALID_CATEGORY_LEAVES
-                      and 0 < len(r.get("b", "").strip()) < 50]
-
-    # Clear any existing summary for empty-body records
-    cleared = 0
-    for i, r in enumerate(records):
-        if not r.get("b", "").strip() and r.get("as", "").strip():
-            r["as"] = ""
-            cleared += 1
-    if cleared:
-        log(f"  清空 {cleared} 条无正文记录的AI摘要")
+                      and 0 < len(r.get("b", "").strip()) < 50
+                      and not r.get("as", "").strip()]
+    # Title-only records: generate short summary from title alone
+    eligible_title_only = [i for i, r in enumerate(records)
+                           if r.get("c", "") in VALID_CATEGORY_LEAVES
+                           and not r.get("b", "").strip()
+                           and not r.get("as", "").strip()]
 
     log(f"  摘要生成中... ({len(eligible_full)} 条正文 + {len(eligible_short)} 条短正文)")
 
@@ -853,6 +855,23 @@ def gen_summaries(records):
                 if summary:
                     records[idx]["as"] = summary
 
+    # Process title-only records (no body) — generate short summary from title
+    for round_no in range(3):
+        pending = [i for i in eligible_title_only if not records[i].get("as", "").strip()]
+        if not pending:
+            break
+        if round_no == 0:
+            log(f"  无正文记录: {len(pending)} 条，从标题生成简短摘要")
+        items = [{"id": i, "title": records[i]["t"][:200]}
+                 for i in pending]
+        results = call_glm_batch(SUMMARY_PROMPT_TITLE_ONLY, items, batch_size=50)
+        for r in results:
+            idx = r.get("id")
+            if idx is not None and idx < len(records):
+                summary = r.get("summary", "").strip()
+                if summary:
+                    records[idx]["as"] = summary
+
     has_summary = sum(1 for r in records if r.get("as","").strip())
     has_body = sum(1 for r in records if r.get("b","").strip())
     log(f"  摘要完成: {has_summary}/{len(records)} (有正文记录: {has_body})")
@@ -862,16 +881,16 @@ def gen_summaries(records):
 # ── 关键参数提取 ──
 def extract_key_params(records):
     """Extract key technical parameters for each relevant record.
-    Only processes records with valid category (not 不相关/未分类/empty)
-    AND sufficient body text (mirrors gen_summaries body guard).
-    Uses GLM to extract structured key_params from title + body.
+    Processes records with valid category AND (body>=10 chars OR AI summary).
+    For records without body, uses title + AI summary for extraction.
+    Uses GLM to extract structured key_params from title + body/summary.
     """
     todo_ids = [i for i, r in enumerate(records)
                 if r.get("c", "") in VALID_CATEGORY_LEAVES
                 and r.get("c", "") not in ("不相关", "未分类", "")
-                and len(r.get("b", "").strip()) >= 10]
+                and (len(r.get("b", "").strip()) >= 10 or len(r.get("as", "").strip()) >= 10)]
 
-    # Clear stale kp on records that are NOT eligible (changed category or no body)
+    # Clear stale kp on records that are NOT eligible (changed category or no body/summary)
     todo_set = set(todo_ids)
     for i, r in enumerate(records):
         if i not in todo_set:
@@ -902,7 +921,7 @@ def extract_key_params(records):
 
     todo = [{"id": local_id,
              "title": records[gi].get("t", "")[:200],
-             "body": records[gi].get("b", "")[:500],
+             "body": (records[gi].get("b", "") or records[gi].get("as", ""))[:500],
              "category": records[gi].get("c", "")}
             for local_id, gi in enumerate(todo_ids)]
 

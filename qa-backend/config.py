@@ -186,4 +186,5 @@ embedding_func = EmbeddingFunc(
     max_token_size=EMBEDDING_MAX_TOKEN,
     func=_embedding_func_impl,
     model_name="bge-m3",
+    max_execution_timeout=600,
 )
