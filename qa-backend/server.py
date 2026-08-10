@@ -828,7 +828,9 @@ async def chat_stream(req: ChatRequest, request: Request):
             try:
                 classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                 if classify_budget_ok:
+                    print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
                     claim_metadata = await classify_claims(query, search_results, top_k=5)
+                    print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
             except Exception as e:
                 print(f"[epistemic-classify] {e}", flush=True)
 
@@ -932,8 +934,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                 try:
                     verify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                     if verify_budget_ok:
+                        print(f"[epistemic] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
                         verification = await verify_answer(query, full_answer, claim_metadata)
-                        if not verification.get("passed"):
+                        if verification.get("passed"):
+                            print(f"[epistemic] Answer passed verification", flush=True)
+                        else:
+                            issues = verification.get("issues", [])
+                            print(f"[epistemic] Answer failed verification: {len(issues)} issues", flush=True)
                             rewritten = verification.get("rewritten_answer", "").strip()
                             if rewritten and len(rewritten) > 20:
                                 full_answer = rewritten
