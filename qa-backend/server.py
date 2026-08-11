@@ -60,6 +60,7 @@ from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, V
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
 from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
 from content_safety import scan_search_results, augment_system_prompt
+from budget_guard import check_budget, BudgetDecision, is_correctness_critical
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -983,8 +984,11 @@ async def chat_stream(req: ChatRequest, request: Request):
             verification_issues = []
             if claim_metadata and full_answer.strip():
                 try:
-                    verify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    if verify_budget_ok:
+                    # Use budget_guard to ensure correctness-critical handling
+                    budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                    decision, should_call, status_override = check_budget("verifier", budget_ok)
+
+                    if should_call:
                         print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
                         vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
                         verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
@@ -1004,14 +1008,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                                     "answer": full_answer,
                                     "verified": True
                                 })}
-                    else:
-                        # Budget exhausted for verification — correctness-critical
-                        # Must NOT silently pass. Mark as UNVERIFIED.
-                        verification_status = VERIFY_UNVERIFIED
-                        print(f"[verify] SKIPPED due to budget — marking UNVERIFIED", flush=True)
+                    elif status_override:
+                        # Budget exhausted for correctness-critical verification
+                        # MUST NOT silently pass. Mark as UNVERIFIED.
+                        verification_status = status_override  # "UNVERIFIED"
+                        print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
                         trace.add_stage("verification", {
                             "status": "SKIPPED_BUDGET",
-                            "note": "Verification skipped due to budget; answer marked UNVERIFIED",
+                            "note": f"Verification skipped due to budget; answer marked {verification_status}",
+                            "budget_guard": decision.value,
                         })
                 except Exception as e:
                     # Any exception → UNVERIFIED, never PASS
