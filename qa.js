@@ -237,6 +237,18 @@ function renderAssistantMessage(msg, idx) {
         <div class="qa-message-bubble">${renderedContent}${typingCursor}</div>
   `;
 
+  // T033: Answer status badge (only when not streaming and status is present)
+  if (!isStreaming && msg.answer_status) {
+    const statusConfig = getAnswerStatusConfig(msg.answer_status);
+    html += `
+      <div class="qa-answer-status" style="display:flex;align-items:center;gap:6px;margin-top:4px;padding:4px 10px;border-radius:8px;background:${statusConfig.bg};font-size:12px;">
+        <span style="font-size:14px;">${statusConfig.icon}</span>
+        <span style="color:${statusConfig.color};font-weight:600;">${statusConfig.label}</span>
+        ${msg.evidence_summary ? `<span style="color:var(--text-quaternary);margin-left:4px;">· ${escHtml(msg.evidence_summary)}</span>` : ''}
+      </div>
+    `;
+  }
+
   // Citations
   if (citations.length > 0 && !isStreaming) {
     html += `
@@ -462,6 +474,11 @@ function handleSSEData(data, assistantMsg) {
     // Store backend-authoritative cited/searched record ids for exclusion in follow-ups
     assistantMsg.cited_record_ids = data.cited_record_ids || [];
     assistantMsg.searched_record_ids = data.searched_record_ids || [];
+    // T033: Store answer status and evidence metadata for reference card UI
+    assistantMsg.answer_status = data.answer_status || null;
+    assistantMsg.stop_reason = data.stop_reason || null;
+    assistantMsg.evidence_summary = data.evidence_summary || null;
+    assistantMsg.trace_id = data.trace_id || null;
   }
 
   // Handle error
@@ -626,6 +643,37 @@ function escHtml(text) {
   const div = document.createElement('div');
   div.textContent = String(text);
   return div.innerHTML;
+}
+
+// T033: Answer status configuration for four-state display
+function getAnswerStatusConfig(status) {
+  const configs = {
+    'SUPPORTED': {
+      icon: '✅',
+      label: '证据充分支持',
+      color: '#16a34a',
+      bg: 'rgba(22,163,74,0.08)',
+    },
+    'PARTIALLY_SUPPORTED': {
+      icon: '⚠️',
+      label: '部分支持',
+      color: '#d97706',
+      bg: 'rgba(217,119,6,0.08)',
+    },
+    'UNSUPPORTED': {
+      icon: '❌',
+      label: '证据不支持',
+      color: '#dc2626',
+      bg: 'rgba(220,38,38,0.08)',
+    },
+    'UNVERIFIED': {
+      icon: '🔍',
+      label: '未能验证',
+      color: '#6b7280',
+      bg: 'rgba(107,114,128,0.08)',
+    },
+  };
+  return configs[status] || configs['UNVERIFIED'];
 }
 
 // ── Knowledge Graph Visualization ──

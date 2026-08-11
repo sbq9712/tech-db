@@ -224,6 +224,10 @@ class EntityRegistry:
 
         return sorted(best.items(), key=lambda x: -x[1])[:5]
 
+    def all_entities(self) -> list:
+        """Return all entities in the registry."""
+        return list(self._registry.get("entities", {}).values())
+
     def stats(self) -> dict:
         """Return registry statistics."""
         return {

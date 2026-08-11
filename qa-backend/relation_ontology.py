@@ -271,6 +271,55 @@ class GraphStatement:
             "graph_version": self.graph_version,
         }
 
+    @classmethod
+    def from_dict(cls, data: dict) -> "GraphStatement":
+        """Reconstruct a GraphStatement from a dictionary."""
+        # Handle both old format (subject/object) and new format (subject_id/object_id)
+        subject_id = data.get("subject_id", data.get("subject", ""))
+        object_id = data.get("object_id", data.get("object", ""))
+
+        # Parse enum values
+        polarity = data.get("polarity", Polarity.POSITIVE)
+        if isinstance(polarity, str):
+            try:
+                polarity = Polarity(polarity)
+            except ValueError:
+                polarity = Polarity.POSITIVE
+
+        modality = data.get("modality", Modality.DECLARATIVE)
+        if isinstance(modality, str):
+            try:
+                modality = Modality(modality)
+            except ValueError:
+                modality = Modality.DECLARATIVE
+
+        assertion_status = data.get("assertion_status", AssertionStatus.ASSERTED)
+        if isinstance(assertion_status, str):
+            try:
+                assertion_status = AssertionStatus(assertion_status)
+            except ValueError:
+                assertion_status = AssertionStatus.ASSERTED
+
+        return cls(
+            subject_id=subject_id,
+            predicate=data.get("predicate", "RELATED_CO_OCCURRENCE"),
+            object_id=object_id,
+            object_value=data.get("object_value", ""),
+            polarity=polarity,
+            modality=modality,
+            assertion_status=assertion_status,
+            qualifiers=data.get("qualifiers", {}),
+            conditions=data.get("conditions", ""),
+            valid_from=data.get("valid_from", ""),
+            valid_to=data.get("valid_to", ""),
+            reported_by=data.get("reported_by", ""),
+            source_role=data.get("source_role", "unknown"),
+            evidence_refs=data.get("evidence_refs", []),
+            extraction_confidence=data.get("extraction_confidence", 0.0),
+            grounding_status=data.get("grounding_status", "UNVERIFIED"),
+            graph_version=data.get("graph_version", ONTOLOGY_VERSION),
+        )
+
 
 def validate_predicate(predicate: str) -> bool:
     """Check if a predicate is in the registered ontology."""
