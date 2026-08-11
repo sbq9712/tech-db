@@ -1,0 +1,339 @@
+{
+  "version": "0.1.0",
+  "entities": {
+    "org:nvidia": {
+      "id": "org:nvidia",
+      "type": "organization",
+      "canonical_name": "NVIDIA",
+      "aliases": [
+        "Nvidia",
+        "英伟达",
+        "NVIDIA Corporation",
+        "NVDA"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:tsmc": {
+      "id": "org:tsmc",
+      "type": "organization",
+      "canonical_name": "TSMC",
+      "aliases": [
+        "台积电",
+        "Taiwan Semiconductor",
+        "台湾积体电路"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:amd": {
+      "id": "org:amd",
+      "type": "organization",
+      "canonical_name": "AMD",
+      "aliases": [
+        "Advanced Micro Devices",
+        "超威半导体"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:intel": {
+      "id": "org:intel",
+      "type": "organization",
+      "canonical_name": "Intel",
+      "aliases": [
+        "英特尔"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:catl": {
+      "id": "org:catl",
+      "type": "organization",
+      "canonical_name": "CATL",
+      "aliases": [
+        "宁德时代",
+        "Contemporary Amperex"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:byd": {
+      "id": "org:byd",
+      "type": "organization",
+      "canonical_name": "BYD",
+      "aliases": [
+        "比亚迪"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:google": {
+      "id": "org:google",
+      "type": "organization",
+      "canonical_name": "Google",
+      "aliases": [
+        "谷歌",
+        "Alphabet"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:microsoft": {
+      "id": "org:microsoft",
+      "type": "organization",
+      "canonical_name": "Microsoft",
+      "aliases": [
+        "微软"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:openai": {
+      "id": "org:openai",
+      "type": "organization",
+      "canonical_name": "OpenAI",
+      "aliases": [],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:meta": {
+      "id": "org:meta",
+      "type": "organization",
+      "canonical_name": "Meta",
+      "aliases": [
+        "Facebook",
+        "脸书"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:apple": {
+      "id": "org:apple",
+      "type": "organization",
+      "canonical_name": "Apple",
+      "aliases": [
+        "苹果",
+        "苹果公司"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:samsung": {
+      "id": "org:samsung",
+      "type": "organization",
+      "canonical_name": "Samsung",
+      "aliases": [
+        "三星",
+        "三星电子"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:toyota": {
+      "id": "org:toyota",
+      "type": "organization",
+      "canonical_name": "Toyota",
+      "aliases": [
+        "丰田",
+        "丰田汽车"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:huawei": {
+      "id": "org:huawei",
+      "type": "organization",
+      "canonical_name": "Huawei",
+      "aliases": [
+        "华为"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "org:claude": {
+      "id": "org:claude",
+      "type": "organization",
+      "canonical_name": "Anthropic",
+      "aliases": [
+        "Anthropic",
+        "Claude"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "tech:solid_state_battery": {
+      "id": "tech:solid_state_battery",
+      "type": "technology",
+      "canonical_name": "固态电池",
+      "aliases": [
+        "solid-state battery",
+        "全固态电池"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "tech:perovskite_solar": {
+      "id": "tech:perovskite_solar",
+      "type": "technology",
+      "canonical_name": "钙钛矿太阳能电池",
+      "aliases": [
+        "perovskite solar cell",
+        "PSC"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "tech:lidar": {
+      "id": "tech:lidar",
+      "type": "technology",
+      "canonical_name": "LiDAR",
+      "aliases": [
+        "激光雷达",
+        "lidar"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "tech:quantum_computing": {
+      "id": "tech:quantum_computing",
+      "type": "technology",
+      "canonical_name": "量子计算",
+      "aliases": [
+        "quantum computing",
+        "量子计算机"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "tech:brain_computer_interface": {
+      "id": "tech:brain_computer_interface",
+      "type": "technology",
+      "canonical_name": "脑机接口",
+      "aliases": [
+        "BCI",
+        "brain-computer interface"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "mat:sulfide_electrolyte": {
+      "id": "mat:sulfide_electrolyte",
+      "type": "material",
+      "canonical_name": "硫化物电解质",
+      "aliases": [
+        "sulfide electrolyte"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "mat:perovskite": {
+      "id": "mat:perovskite",
+      "type": "material",
+      "canonical_name": "钙钛矿",
+      "aliases": [
+        "perovskite"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    },
+    "mat:lithium_metal": {
+      "id": "mat:lithium_metal",
+      "type": "material",
+      "canonical_name": "锂金属",
+      "aliases": [
+        "lithium metal anode",
+        "锂负极"
+      ],
+      "confidence": 1.0,
+      "provenance": "seed",
+      "manual_override": false
+    }
+  },
+  "alias_index": {
+    "nvidia": "org:nvidia",
+    "英伟达": "org:nvidia",
+    "nvidiacorporation": "org:nvidia",
+    "nvda": "org:nvidia",
+    "tsmc": "org:tsmc",
+    "台积电": "org:tsmc",
+    "taiwansemiconductor": "org:tsmc",
+    "台湾积体电路": "org:tsmc",
+    "amd": "org:amd",
+    "advancedmicrodevices": "org:amd",
+    "超威半导体": "org:amd",
+    "intel": "org:intel",
+    "英特尔": "org:intel",
+    "catl": "org:catl",
+    "宁德时代": "org:catl",
+    "contemporaryamperex": "org:catl",
+    "byd": "org:byd",
+    "比亚迪": "org:byd",
+    "google": "org:google",
+    "谷歌": "org:google",
+    "alphabet": "org:google",
+    "microsoft": "org:microsoft",
+    "微软": "org:microsoft",
+    "openai": "org:openai",
+    "meta": "org:meta",
+    "facebook": "org:meta",
+    "脸书": "org:meta",
+    "apple": "org:apple",
+    "苹果": "org:apple",
+    "苹果公司": "org:apple",
+    "samsung": "org:samsung",
+    "三星": "org:samsung",
+    "三星电子": "org:samsung",
+    "toyota": "org:toyota",
+    "丰田": "org:toyota",
+    "丰田汽车": "org:toyota",
+    "huawei": "org:huawei",
+    "华为": "org:huawei",
+    "anthropic": "org:claude",
+    "claude": "org:claude",
+    "固态电池": "tech:solid_state_battery",
+    "solid-statebattery": "tech:solid_state_battery",
+    "全固态电池": "tech:solid_state_battery",
+    "钙钛矿太阳能电池": "tech:perovskite_solar",
+    "perovskitesolarcell": "tech:perovskite_solar",
+    "psc": "tech:perovskite_solar",
+    "lidar": "tech:lidar",
+    "激光雷达": "tech:lidar",
+    "量子计算": "tech:quantum_computing",
+    "quantumcomputing": "tech:quantum_computing",
+    "量子计算机": "tech:quantum_computing",
+    "脑机接口": "tech:brain_computer_interface",
+    "bci": "tech:brain_computer_interface",
+    "brain-computerinterface": "tech:brain_computer_interface",
+    "硫化物电解质": "mat:sulfide_electrolyte",
+    "sulfideelectrolyte": "mat:sulfide_electrolyte",
+    "钙钛矿": "mat:perovskite",
+    "perovskite": "mat:perovskite",
+    "锂金属": "mat:lithium_metal",
+    "lithiummetalanode": "mat:lithium_metal",
+    "锂负极": "mat:lithium_metal"
+  },
+  "ambiguous_aliases": []
+}

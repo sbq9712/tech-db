@@ -53,6 +53,13 @@ from epistemic import (
     extract_relevant_excerpt,
     build_source_metadata,
 )
+from trace import TraceContext
+from feature_flags import Flags
+from citation_grounding import ground_citation_evidence, get_original_text
+from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
+from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
+from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
+from content_safety import scan_search_results, augment_system_prompt
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -698,9 +705,11 @@ async def health():
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
         "vector_index_ready": _vector_index is not None,
         "bm25_ready": _bm25_index is not None,
+        "graph_ready": _graph_data is not None,
         "indexed_records": len(_index_meta) if _index_meta else 0,
         "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
         "total_records": len(_records) if _records else 0,
+        "feature_flags": Flags.status(),
         "limits": {
             "per_minute": GUARDRAILS.per_minute,
             "per_client_day": GUARDRAILS.per_client_day,
@@ -743,6 +752,7 @@ async def chat_stream(req: ChatRequest, request: Request):
         )
 
     async def event_generator():
+        trace = TraceContext.create(query, req.history[-1].get("content", "")[:100] if req.history else "")
         try:
             # Step 1: Retrieval
             yield {"event": "status", "data": json.dumps({
@@ -758,6 +768,12 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             # Rewrite follow-up query + detect novelty intent (single LLM call)
             search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
+            trace.add_stage("rewrite", {
+                "original_query": query[:200],
+                "rewritten_query": search_query[:200],
+                "seeking_novelty": seeking_novelty,
+                "reason": _reason[:100] if _reason else "",
+            })
 
             # Check if previous round had no results (avoid "infinite no results" loop)
             prev_assistant = next((m for m in reversed(req.history)
@@ -790,34 +806,60 @@ async def chat_stream(req: ChatRequest, request: Request):
                           f"(global accumulated)", flush=True)
 
             # Hybrid search (vector + BM25 + graph → RRF)
-            search_results, is_relevant, status = await hybrid_search(
+            search_results, is_relevant, search_status = await hybrid_search(
                 search_query, exclude_ids=exclude_ids if exclude_ids else None
             )
+            trace.add_stage("retrieval_hybrid", {
+                "query": search_query[:200],
+                "result_count": len(search_results),
+                "is_relevant": is_relevant,
+                "status": search_status,
+                "top_results": [
+                    {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
+                     "title": r["meta"].get("t", "")[:80]}
+                    for r in search_results[:10]
+                ],
+            })
 
             # Searched record ids for done event (backend-authoritative)
             searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
 
             if not search_results or not is_relevant:
-                if status == "exhausted":
+                if search_status == "exhausted":
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
+                    trace.flush()
                     yield {"event": "done", "data": json.dumps({
                         "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
                         "citations": [],
                         "cited_record_ids": [],
-                        "searched_record_ids": []
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "topic_exhausted",
+                        "trace_id": trace.trace_id,
                     })}
                 elif not prev_has_results and seeking_novelty:
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
+                    trace.flush()
                     yield {"event": "done", "data": json.dumps({
                         "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
                         "citations": [],
                         "cited_record_ids": [],
-                        "searched_record_ids": []
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "weak_query",
+                        "trace_id": trace.trace_id,
                     })}
                 else:
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
+                    trace.flush()
                     yield {"event": "done", "data": json.dumps({
                         "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
                         "citations": [],
                         "cited_record_ids": [],
-                        "searched_record_ids": []
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "weak_query",
+                        "trace_id": trace.trace_id,
                     })}
                 return
 
@@ -851,8 +893,13 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Step 3: Generation
             budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
             if not budget_ok:
+                trace.set_result(answer_status="UNVERIFIED", stop_reason="budget_exceeded")
+                trace.flush()
                 yield {"event": "error", "data": json.dumps({
-                    "message": "今日问答费用预算已达到上限，服务已自动暂停。"
+                    "message": "今日问答费用预算已达到上限，服务已自动暂停。",
+                    "answer_status": "UNVERIFIED",
+                    "stop_reason": "budget_exceeded",
+                    "trace_id": trace.trace_id,
                 })}
                 return
 
@@ -929,44 +976,140 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Parse [N] citations from the generated answer
             cited_record_ids = _parse_citations_from_answer(full_answer, citations)
 
-            # ── Epistemic Answer Verification ──
-            # Verify draft answer against classified evidence
-            # (skip if budget exhausted — epistemic is enhancement, not critical path)
+            # ── T005: Fail-Safe Verification ──
+            # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
+            # Correctness-critical: BudgetFuse cannot silently skip this.
+            verification_status = "PASSED"
+            verification_issues = []
             if claim_metadata and full_answer.strip():
                 try:
                     verify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                     if verify_budget_ok:
-                        print(f"[epistemic] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                        verification = await verify_answer(query, full_answer, claim_metadata)
-                        if verification.get("passed"):
-                            print(f"[epistemic] Answer passed verification", flush=True)
-                        else:
-                            issues = verification.get("issues", [])
-                            print(f"[epistemic] Answer failed verification: {len(issues)} issues", flush=True)
-                            rewritten = verification.get("rewritten_answer", "").strip()
+                        print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
+                        vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
+                        verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
+                        trace.add_stage("verification", {
+                            "status": vr.status,
+                            "issues": vr.issues[:5],
+                            "failure_reason": vr.failure_reason,
+                        })
+                        print(f"[verify] Result: {vr.status}", flush=True)
+                        if vr.status == VERIFY_FAILED:
+                            verification_issues = vr.issues
+                            rewritten = vr.rewritten_answer.strip()
                             if rewritten and len(rewritten) > 20:
                                 full_answer = rewritten
                                 cited_record_ids = _parse_citations_from_answer(full_answer, citations)
-                                # Signal frontend to replace streamed content
-                                # Use "verified" flag so frontend's handleSSEData
-                                # can distinguish from the normal done event
                                 yield {"event": "replace", "data": json.dumps({
                                     "answer": full_answer,
                                     "verified": True
                                 })}
+                    else:
+                        # Budget exhausted for verification — correctness-critical
+                        # Must NOT silently pass. Mark as UNVERIFIED.
+                        verification_status = VERIFY_UNVERIFIED
+                        print(f"[verify] SKIPPED due to budget — marking UNVERIFIED", flush=True)
+                        trace.add_stage("verification", {
+                            "status": "SKIPPED_BUDGET",
+                            "note": "Verification skipped due to budget; answer marked UNVERIFIED",
+                        })
                 except Exception as e:
-                    print(f"[epistemic-verify] {e}", flush=True)
+                    # Any exception → UNVERIFIED, never PASS
+                    verification_status = VERIFY_UNVERIFIED
+                    print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
+                    trace.add_stage("verification", {
+                        "status": "EXCEPTION",
+                        "error": str(e),
+                    })
+
+            # ── T004: Claim Mapping ──
+            claim_map = {"claims": []}
+            if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
+                try:
+                    claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                    if claim_budget_ok:
+                        claim_map = await map_claims_to_citations(query, full_answer, citations)
+                        trace.add_stage("claim_mapping", {
+                            "total_claims": len(claim_map.get("claims", [])),
+                            "unsupported_major": len(get_unsupported_major_claims(claim_map)),
+                        })
+                except Exception as e:
+                    print(f"[claim_mapping] Error: {e}", flush=True)
+
+            # ── T003: Citation Evidence Grounding ──
+            # Ground each citation to exact original text span
+            if Flags.CITATION_GROUNDING_ENABLED and citations:
+                for c in citations:
+                    try:
+                        rid = c.get("record_id", -1)
+                        if rid >= 0 and rid < len(_records):
+                            rec = _records[rid]
+                            grounding = ground_citation_evidence(
+                                rec,
+                                proposed_span=c.get("excerpt", ""),
+                                claim_text="",
+                                query=query,
+                            )
+                            if grounding["grounding_status"] != "GROUNDING_FAIL":
+                                c["evidence_span"] = grounding["evidence_span"]
+                                c["evidence_start"] = grounding["start_offset"]
+                                c["evidence_end"] = grounding["end_offset"]
+                                c["grounding_status"] = grounding["grounding_status"]
+                            else:
+                                c["evidence_span"] = c.get("excerpt", "")
+                                c["grounding_status"] = "GROUNDING_FAIL"
+                    except Exception:
+                        pass
+                trace.add_stage("citation_grounding", {
+                    "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
+                    "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
+                })
+
+            # ── T006: Four-State Answer Status ──
+            answer_status_str = "SUPPORTED"
+            stop_reason = "evidence_sufficient"
+            if Flags.ANSWER_STATUS_ENABLED:
+                status_enum, stop_reason = determine_answer_status(
+                    has_results=bool(search_results),
+                    is_relevant=is_relevant,
+                    verification_status=verification_status,
+                    claim_mapping=claim_map,
+                )
+                answer_status_str = status_enum.value
+
+            evidence_summary = build_evidence_summary(
+                claim_mapping=claim_map,
+                independent_sources=len(set(c.get("source", "") for c in citations)),
+                iterations=1,
+            )
+
+            trace.set_result(
+                answer=full_answer[:500],
+                answer_status=answer_status_str,
+                stop_reason=stop_reason,
+                citations=citations,
+                cited_record_ids=cited_record_ids,
+                verification_status=verification_status,
+            )
 
             yield {"event": "done", "data": json.dumps({
                 "answer": full_answer,
                 "citations": citations,
                 "cited_record_ids": cited_record_ids,
-                "searched_record_ids": searched_record_ids
+                "searched_record_ids": searched_record_ids,
+                "answer_status": answer_status_str,
+                "stop_reason": stop_reason,
+                "evidence_summary": evidence_summary,
+                "trace_id": trace.trace_id,
             })}
+
+            trace.flush()
 
         except Exception as e:
             import traceback
             traceback.print_exc()
+            trace.set_result(answer_status="UNVERIFIED", stop_reason="error", error=str(e)[:200])
+            trace.flush()
             yield {"event": "error", "data": json.dumps({"message": str(e)})}
         finally:
             CHAT_SEMAPHORE.release()

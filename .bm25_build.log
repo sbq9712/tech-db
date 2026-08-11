@@ -1,0 +1,34 @@
+============================================================
+  BM25 Index Builder (jieba + rank_bm25)
+============================================================
+
+[1/4] Loading records...
+  Canonical set: 37495 records
+
+[2/4] Building custom jieba dictionary...
+  Custom dict saved: 24922 terms → jieba_custom_dict.txt
+Building prefix dict from the default dictionary ...
+Dumping model to file cache /tmp/jieba.cache
+Loading model cost 1.413 seconds.
+Prefix dict has been built successfully.
+  Loaded 24922 custom terms into jieba
+
+[3/4] Tokenizing 37495 documents...
+  [5000/37495] 31s elapsed
+  [10000/37495] 35s elapsed
+  [15000/37495] 36s elapsed
+  [20000/37495] 38s elapsed
+  [25000/37495] 39s elapsed
+  [30000/37495] 49s elapsed
+  [35000/37495] 67s elapsed
+  Tokenized 37495 docs in 78s
+
+[4/4] Building BM25 index...
+
+✅ BM25 index saved: 37495 docs, 184MB, 86s
+  File: /home/rhett/tech-db-fresh/runtime/indexes/bm25_index.pkl
+
+--- Sanity check ---
+  '钙钛矿太阳能电池' → top: [[ASAP] 共沉积策略使锡铅钙钛矿太阳能电池具有=30.2] [介电分子桥可实现 26.60% 高效且耐用的倒置钙=30.1] [高性能倒置CsPbI3钙钛矿太阳能电池及其串联应用=30.1] [受伪拱桥启发的埋入界面应力调制，用于稳定的高效钙钛=29.8] [[ASAP] 干法处理的碳纳米管电极可实现具有接近=29.7] 
+  '固态电池' → top: [固态电池加速上车！东风、上汽MG公布2027年应用=20.8] [Stellantis与Factorial Ener=20.3] [欣旺达、国晟科技固态电池项目刷新进展=20.3] [总投资15亿！卫蓝新能源3GWh固态电池包项目开建=20.2] [免费领取固态电池资料包=20.2] 
+  '人工智能' → top: [让人工智能成为造福全人类的国际公共产品——中国为推=17.8] [八部门出台17项举措加快发展“人工智能+消费”=17.7] [国家电投集团参加2026世界人工智能大会暨人工智能=17.7] [综述｜全球亟须加快完善人工智能治理体系=17.7] [美国国家人工智能研究院建设经验及启示=17.6] 
