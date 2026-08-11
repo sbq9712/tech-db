@@ -23,7 +23,8 @@ PROMPT_INJECTION_PATTERNS = [
     r"(?i)ignore\s+(all\s+)?(previous|prior|above)\s+instructions?",
     r"(?i)disregard\s+(all\s+)?(previous|prior|above)\s+",
     r"(?i)forget\s+(all\s+)?(previous|prior)\s+",
-    r"(?i)you\s+are\s+now\s+(a|an)\s+",
+    r"(?i)you\s+are\s+now\s+(a|an|DAN|free)\b",
+    r"(?i)reveal\s+(your|all|the)\s+(system\s+)?(prompt|instructions?|secrets?)",
     r"(?i)act\s+as\s+(if|a|an)\s+",
     r"(?i)pretend\s+(you\s+are|to\s+be)\s+",
     r"(?i)system\s*:\s*",
@@ -31,15 +32,31 @@ PROMPT_INJECTION_PATTERNS = [
     r"(?i)\[s?ystem\]",
     r"(?i)override\s+(system|safety|policy)\s+",
     r"(?i)new\s+instructions?\s*:",
+    r"(?i)from\s+now\s+on[,，.]?\s+(you|i)",
+    r"(?i)debug\s+mode",
+    r"(?i)reveal\s+all",
+    r"(?i)tell\s+me\s+(your|the)\s+(system\s+)?prompt",
+    # Chinese patterns
     r"(?i)从现在起\s*(你是|你将|请)",
-    r"(?i)忽略(?:以上|之前|上面).*?(?:指令|指示|规则|要求)",
-    r"(?i)无视(?:以上|之前|上面).*?(?:指令|指示|规则|要求)",
+    r"(?i)忽略(?:以上|之前|上面|上述|前面).*?(?:指令|指示|规则|要求)",
+    r"(?i)无视(?:以上|之前|上面|上述|前面).*?(?:指令|指示|规则|要求)",
     r"(?i)你现在是",
     r"(?i)请扮演",
     r"(?i)假装你是",
     r"(?i)系统\s*[:：]\s*",
     r"(?i)覆盖(?:系统|安全|策略)",
     r"(?i)新(?:指令|指示|规则)\s*[:：]",
+    r"(?i)不要回答.*?(?:问题|用户)",
+    r"(?i)直接(?:回答|输出|说)",
+    r"(?i)告诉我你的(?:系统|初始|所有)(?:提示|指令)",
+    r"(?i)不受(?:限制|约束)",
+    # Data boundary escape
+    r"(?i)end_of_data",
+    r"(?i)</?RETRIEVED_DATA>",
+    r"(?i)---\s*END",
+    # Unicode bypass patterns (full-width)
+    r"[Ｉｉ][Ｇｇ][Ｎｎ][Ｏｏ][Ｒｒ][Ｅｅ]\s*[Ａａ][Ｌｌ][Ｌｌ]",
+    r"[ｙＹ][ｏＯ][Ｕｕ]\s*[Ａａ][Ｒｒ][Ｅｅ]\s+[Ｎｎ][Ｏｏ][Ｗｗ]",
 ]
 
 # Compile patterns for performance
@@ -74,8 +91,13 @@ def detect_prompt_injection(text: str) -> dict:
     matched = []
     flags = []
 
+    # Normalize text: remove zero-width characters, normalize full-width chars
+    import unicodedata
+    normalized = text.replace("​", "").replace("‌", "").replace("‍", "")
+    normalized = unicodedata.normalize("NFKC", normalized)
+
     for pattern in _COMPILED_PATTERNS:
-        m = pattern.search(text)
+        m = pattern.search(normalized)
         if m:
             matched.append(m.group()[:100])  # cap length
             flags.append("prompt_injection_detected")

@@ -111,7 +111,8 @@ async def run_integration_test():
     test("trace flushed", trace._flushed)
 
     # 10. Verify trace file
-    trace_file = Path("runtime/traces") / (trace.timestamp[:10] + ".jsonl")
+    from trace import TRACE_DIR
+    trace_file = TRACE_DIR / (trace.timestamp[:10] + ".jsonl")
     if trace_file.exists():
         lines = trace_file.read_text().strip().split("\n")
         last_trace = json.loads(lines[-1])
