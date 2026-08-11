@@ -806,21 +806,64 @@ async def chat_stream(req: ChatRequest, request: Request):
                     print(f"[search] Novelty query, excluding {len(exclude_ids)} records "
                           f"(global accumulated)", flush=True)
 
-            # Hybrid search (vector + BM25 + graph → RRF)
-            search_results, is_relevant, search_status = await hybrid_search(
-                search_query, exclude_ids=exclude_ids if exclude_ids else None
-            )
-            trace.add_stage("retrieval_hybrid", {
-                "query": search_query[:200],
-                "result_count": len(search_results),
-                "is_relevant": is_relevant,
-                "status": search_status,
-                "top_results": [
-                    {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
-                     "title": r["meta"].get("t", "")[:80]}
-                    for r in search_results[:10]
-                ],
-            })
+            # ── Agentic RAG Path ──
+            # When QA_AGENTIC_ENABLED is true, use the full agentic loop
+            # (Router → Decompose → Plan → Iterative Retrieval → Grade → Gap → ...)
+            # instead of the simple single-pass RAG path below.
+            _agentic_succeeded = False
+            if Flags.AGENTIC_ENABLED:
+                from orchestrator import run_agentic_loop
+
+                # Wrap hybrid_search for the orchestrator's search_fn interface
+                async def _orchestrator_search_fn(q, exclude=None):
+                    return await hybrid_search(q, exclude_ids=exclude)
+
+                try:
+                    agentic_state = await run_agentic_loop(
+                        query=query,
+                        rewritten_query=search_query,
+                        history=req.history,
+                        search_fn=_orchestrator_search_fn,
+                        trace=trace,
+                        bypass_budget=getattr(req, 'bypass_budget', False),
+                    )
+
+                    # Use agentic results for the rest of the pipeline
+                    search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
+                    is_relevant = len(search_results) > 0
+                    search_status = agentic_state.stop_reason or "agentic_complete"
+                    _agentic_succeeded = True
+
+                    trace.add_stage("agentic_complete", {
+                        "iterations": agentic_state.iteration,
+                        "mode": agentic_state.router_result.get("mode", ""),
+                        "stop_reason": agentic_state.stop_reason,
+                        "total_results": len(agentic_state.all_results),
+                        "answer_status": agentic_state.answer_status,
+                    })
+                except Exception as e:
+                    print(f"[agentic] Orchestrator error, falling back: {e}", flush=True)
+                    import traceback
+                    traceback.print_exc()
+                    # Fall through to standard path
+
+            # Standard RAG path (only if agentic didn't run or failed)
+            if not _agentic_succeeded:
+                # Hybrid search (vector + BM25 + graph → RRF)
+                search_results, is_relevant, search_status = await hybrid_search(
+                    search_query, exclude_ids=exclude_ids if exclude_ids else None
+                )
+                trace.add_stage("retrieval_hybrid", {
+                    "query": search_query[:200],
+                    "result_count": len(search_results),
+                    "is_relevant": is_relevant,
+                    "status": search_status,
+                    "top_results": [
+                        {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
+                         "title": r["meta"].get("t", "")[:80]}
+                        for r in search_results[:10]
+                    ],
+                })
 
             # Searched record ids for done event (backend-authoritative)
             searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
