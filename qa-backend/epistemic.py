@@ -33,6 +33,32 @@ ATTRIBUTION_REQUIRED = {"REPORTED_CLAIM", "OPINION", "PREDICTION", "MARKETING_HY
 # Types that need hedging language
 NEEDS_HEDGING = {"ESTIMATE", "PREDICTION", "ANALYSIS", "OPINION", "MARKETING_HYPE"}
 
+# ── Source type taxonomy ──
+
+SOURCE_TYPES = {
+    "government":            "政府/监管机构发布",
+    "academic_paper":        "学术论文/期刊",
+    "company_announcement":  "公司公告/新闻稿",
+    "company_financial_report": "公司财报",
+    "broker_report":         "券商研报",
+    "industry_report":       "行业报告/白皮书",
+    "mainstream_media":      "主流媒体报道",
+    "expert_interview":      "专家访谈/观点",
+    "social_media":          "社交媒体/自媒体",
+    "unknown":               "来源类型未知",
+}
+
+# ── Watchdog words: these default to OPINION/ANALYSIS unless source provides
+#    a clear verifiable definition ──
+
+WATCHDOG_WORDS = [
+    "元年", "爆发期", "拐点", "成熟期", "全面商业化",
+    "领先", "颠覆", "革命性", "新时代", "行业共识",
+    "即将爆发", "蓝海", "风口", "里程碑", "突破性",
+    "全球首个", "世界首创", "国内首个", "行业第一",
+    "独一无二", "史无前例", "跨时代", "重塑",
+]
+
 # ── Issue types for the verifier ──
 
 ISSUE_TYPES = {
@@ -231,6 +257,19 @@ EPISTEMIC_SYSTEM_ADDENDUM = """
 - 禁止将某主体的声称当作独立验证的事实
 - 禁止丢失来源归属
 - 禁止从个例推广到普遍结论
+- 一个来源的观点不能升级为"行业普遍认为"
+- 不同来源冲突时需要显式呈现冲突
+- 证据不足时降低确定性，不允许为了完整回答而补足不存在的事实
+- 如果结论是模型基于多条材料综合推导的，使用"综合现有信息来看""基于上述信息判断"等措辞
+
+【高警惕词 — 除非来源提供明确可验证定义，否则默认视为评价/分析性语言】
+"元年""爆发期""拐点""成熟期""全面商业化""领先""颠覆""革命性"
+"新时代""行业共识""即将爆发""蓝海""风口""里程碑""突破性"
+"全球首个""世界首创""国内首个""行业第一""独一无二""史无前例""跨时代""重塑"
+遇到这些词时，必须：
+1. 追溯到具体来源（谁说的）
+2. 使用归属性措辞（"XX机构将当前阶段描述为..."）
+3. 不得直接陈述为客观事实
 """
 
 
@@ -247,6 +286,64 @@ def build_epistemic_system_prompt(base_prompt: str, claim_metadata: list) -> str
         enhanced += f"\n\n【检索证据的认识论分类】\n{meta_str}\n"
 
     return enhanced
+
+
+# ── 5. Source type inference ──
+
+def infer_source_type(record: dict) -> str:
+    """Infer source_type from record fields (tag, source, category, etc.).
+
+    Mapping:
+      研究论文/Doi/Science/Nature → academic_paper
+      产业进展/公司名 → company_announcement
+      观点评论/行业观察 → industry_report
+      政策监管 → government
+      资本运作 → broker_report
+    """
+    tag = (record.get("tg") or "").strip()
+    source = (record.get("a") or record.get("s") or "").strip()
+    category = (record.get("c") or "").strip()
+
+    # Academic papers
+    if tag == "研究论文":
+        return "academic_paper"
+    source_lower = source.lower()
+    if any(k in source_lower for k in ["doi", "science", "nature", "wiley", "cell", "arxiv", "springer", "elsevier"]):
+        return "academic_paper"
+
+    # Government / policy
+    if tag == "政策监管" or "政府" in source or "ministry" in source_lower or "政策" in category:
+        return "government"
+
+    # Capital / financial
+    if tag == "资本运作":
+        return "broker_report"
+
+    # Company announcements (industry progress from companies)
+    if tag == "产业进展" or tag == "技术突破":
+        return "company_announcement"
+
+    # Industry reports (observations, analysis)
+    if tag in ("观点评论", "行业观察"):
+        return "industry_report"
+
+    # Mainstream media
+    if any(k in source_lower for k in ["bbc", "reuters", "bloomberg", "新华", "央视", "人民", "ithome", "澎湃"]):
+        return "mainstream_media"
+
+    return "unknown"
+
+
+def build_source_metadata(record: dict) -> dict:
+    """Build source metadata for a record (for citation enrichment)."""
+    return {
+        "title": record.get("t", ""),
+        "source": record.get("a", record.get("s", "")),
+        "source_type": infer_source_type(record),
+        "author": "",
+        "published_at": record.get("d", ""),
+        "url": record.get("u", ""),
+    }
 
 
 # ── 4. Citation excerpt optimization ──

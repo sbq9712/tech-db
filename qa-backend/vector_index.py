@@ -20,7 +20,7 @@ LITE = REPO / "data" / "processed" / "all-records-lite.json"
 INDEX_DIR = WORKING_DIR
 INDEX_FILE = INDEX_DIR / "vector_index_v2.pkl"
 
-BATCH_SIZE = 64  # Reduced from 128 to avoid memory pressure
+BATCH_SIZE = 64  # Balanced for CPU embedding
 
 # Categories excluded from the canonical set
 IRRELEVANT_CATS = {"不相关", "未分类", "手动导入", ""}

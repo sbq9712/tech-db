@@ -51,6 +51,7 @@ from epistemic import (
     verify_answer,
     build_epistemic_system_prompt,
     extract_relevant_excerpt,
+    build_source_metadata,
 )
 
 REPO = Path(__file__).resolve().parent.parent
@@ -619,6 +620,7 @@ def build_context(search_results: list, query: str = "") -> tuple:
             "url": url,
             "body_snippet": snippet,
             "similarity": round(score, 3),
+            "source_type": build_source_metadata(record).get("source_type", "unknown") if record else "unknown",
         })
 
     context = "\n\n---\n\n".join(context_parts)

@@ -36,6 +36,7 @@ async def main():
     batch_size = 20
     max_records = None
     resume = False
+    curated_only = False
     for i, arg in enumerate(sys.argv):
         if arg == "--batch" and i + 1 < len(sys.argv):
             batch_size = int(sys.argv[i + 1])
@@ -43,20 +44,31 @@ async def main():
             max_records = int(sys.argv[i + 1])
         elif arg == "--resume":
             resume = True
+        elif arg == "--curated-only":
+            curated_only = True
 
     # Load data
     print(f"[1/4] Loading data from {LITE_PATH.name}...", flush=True)
     data = json.loads(LITE_PATH.read_text("utf-8"))
     print(f"  Total records: {len(data)}", flush=True)
 
-    # Filter: skip 不相关 and 未分类
-    records = []
-    for idx, r in enumerate(data):
-        c = r.get("c", "")
-        if not c or c in ("不相关", "未分类"):
-            continue
-        records.append((idx, r))
-    print(f"  Relevant records (non-不相关/未分类): {len(records)}", flush=True)
+    if curated_only:
+        # AI精选 (aip=true) ∪ 精选情报 (lv>=1) 的并集
+        curated_set = set()
+        for idx, r in enumerate(data):
+            if r.get("aip") or r.get("lv", 0) >= 1:
+                curated_set.add(idx)
+        records = [(idx, data[idx]) for idx in sorted(curated_set)]
+        print(f"  Curated-only mode: AI精选∪精选情报 = {len(records)} records", flush=True)
+    else:
+        # Filter: skip 不相关 and 未分类
+        records = []
+        for idx, r in enumerate(data):
+            c = r.get("c", "")
+            if not c or c in ("不相关", "未分类"):
+                continue
+            records.append((idx, r))
+        print(f"  Relevant records (non-不相关/未分类): {len(records)}", flush=True)
 
     if max_records:
         records = records[:max_records]
@@ -80,6 +92,8 @@ async def main():
         entity_extract_max_gleaning=1,
         default_embedding_timeout=600,
         default_llm_timeout=300,
+        llm_model_max_async=16,
+        embedding_func_max_async=8,
         addon_params={
             "language": "Simplified Chinese",
             "entity_types": [

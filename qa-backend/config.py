@@ -182,7 +182,7 @@ async def _embedding_func_impl(texts: list) -> list:
             texts_list = list(texts)
         embeddings = model.encode(
             texts_list,
-            batch_size=32,
+            batch_size=64,
             show_progress_bar=False,
             normalize_embeddings=True,
         )
