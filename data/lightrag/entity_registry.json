@@ -1,339 +1,884 @@
 {
-  "version": "0.1.0",
-  "entities": {
-    "org:nvidia": {
-      "id": "org:nvidia",
-      "type": "organization",
+  "schema_version": "2.0",
+  "saved_at": "2026-08-11T20:05:49.782060",
+  "entity_count": 46,
+  "entities": [
+    {
+      "entity_id": "organization:a2fe9051",
       "canonical_name": "NVIDIA",
+      "entity_type": "organization",
       "aliases": [
         "Nvidia",
         "英伟达",
         "NVIDIA Corporation",
         "NVDA"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:tsmc": {
-      "id": "org:tsmc",
-      "type": "organization",
+    {
+      "entity_id": "organization:15df739f",
       "canonical_name": "TSMC",
+      "entity_type": "organization",
       "aliases": [
         "台积电",
         "Taiwan Semiconductor",
         "台湾积体电路"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:amd": {
-      "id": "org:amd",
-      "type": "organization",
+    {
+      "entity_id": "organization:48af4341",
       "canonical_name": "AMD",
+      "entity_type": "organization",
       "aliases": [
         "Advanced Micro Devices",
         "超威半导体"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:intel": {
-      "id": "org:intel",
-      "type": "organization",
+    {
+      "entity_id": "organization:ff97a9fd",
       "canonical_name": "Intel",
+      "entity_type": "organization",
       "aliases": [
         "英特尔"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:catl": {
-      "id": "org:catl",
-      "type": "organization",
+    {
+      "entity_id": "organization:abb5567e",
       "canonical_name": "CATL",
+      "entity_type": "organization",
       "aliases": [
         "宁德时代",
         "Contemporary Amperex"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:byd": {
-      "id": "org:byd",
-      "type": "organization",
+    {
+      "entity_id": "organization:fa5cc085",
       "canonical_name": "BYD",
+      "entity_type": "organization",
       "aliases": [
         "比亚迪"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:google": {
-      "id": "org:google",
-      "type": "organization",
+    {
+      "entity_id": "organization:8b36e920",
       "canonical_name": "Google",
+      "entity_type": "organization",
       "aliases": [
         "谷歌",
         "Alphabet"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:microsoft": {
-      "id": "org:microsoft",
-      "type": "organization",
+    {
+      "entity_id": "organization:14086407",
       "canonical_name": "Microsoft",
+      "entity_type": "organization",
       "aliases": [
         "微软"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:openai": {
-      "id": "org:openai",
-      "type": "organization",
+    {
+      "entity_id": "organization:0523b132",
       "canonical_name": "OpenAI",
+      "entity_type": "organization",
       "aliases": [],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:meta": {
-      "id": "org:meta",
-      "type": "organization",
+    {
+      "entity_id": "organization:b6755d21",
       "canonical_name": "Meta",
+      "entity_type": "organization",
       "aliases": [
         "Facebook",
         "脸书"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:apple": {
-      "id": "org:apple",
-      "type": "organization",
+    {
+      "entity_id": "organization:9f6290f4",
       "canonical_name": "Apple",
+      "entity_type": "organization",
       "aliases": [
         "苹果",
         "苹果公司"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:samsung": {
-      "id": "org:samsung",
-      "type": "organization",
+    {
+      "entity_id": "organization:3910b1e0",
       "canonical_name": "Samsung",
+      "entity_type": "organization",
       "aliases": [
         "三星",
         "三星电子"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:toyota": {
-      "id": "org:toyota",
-      "type": "organization",
+    {
+      "entity_id": "organization:53092a17",
       "canonical_name": "Toyota",
+      "entity_type": "organization",
       "aliases": [
         "丰田",
         "丰田汽车"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:huawei": {
-      "id": "org:huawei",
-      "type": "organization",
+    {
+      "entity_id": "organization:eac07912",
       "canonical_name": "Huawei",
+      "entity_type": "organization",
       "aliases": [
         "华为"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "org:claude": {
-      "id": "org:claude",
-      "type": "organization",
+    {
+      "entity_id": "organization:f431db65",
       "canonical_name": "Anthropic",
+      "entity_type": "organization",
       "aliases": [
         "Anthropic",
         "Claude"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "tech:solid_state_battery": {
-      "id": "tech:solid_state_battery",
-      "type": "technology",
+    {
+      "entity_id": "technology:57091ae3",
       "canonical_name": "固态电池",
+      "entity_type": "technology",
       "aliases": [
         "solid-state battery",
         "全固态电池"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "tech:perovskite_solar": {
-      "id": "tech:perovskite_solar",
-      "type": "technology",
+    {
+      "entity_id": "technology:f58f263d",
       "canonical_name": "钙钛矿太阳能电池",
+      "entity_type": "technology",
       "aliases": [
         "perovskite solar cell",
         "PSC"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "tech:lidar": {
-      "id": "tech:lidar",
-      "type": "technology",
+    {
+      "entity_id": "technology:ca9b9562",
       "canonical_name": "LiDAR",
+      "entity_type": "technology",
       "aliases": [
         "激光雷达",
         "lidar"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "tech:quantum_computing": {
-      "id": "tech:quantum_computing",
-      "type": "technology",
+    {
+      "entity_id": "technology:d08582ab",
       "canonical_name": "量子计算",
+      "entity_type": "technology",
       "aliases": [
         "quantum computing",
         "量子计算机"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "tech:brain_computer_interface": {
-      "id": "tech:brain_computer_interface",
-      "type": "technology",
+    {
+      "entity_id": "technology:40872959",
       "canonical_name": "脑机接口",
+      "entity_type": "technology",
       "aliases": [
         "BCI",
         "brain-computer interface"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "mat:sulfide_electrolyte": {
-      "id": "mat:sulfide_electrolyte",
-      "type": "material",
+    {
+      "entity_id": "material:9f95d418",
       "canonical_name": "硫化物电解质",
+      "entity_type": "material",
       "aliases": [
         "sulfide electrolyte"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "mat:perovskite": {
-      "id": "mat:perovskite",
-      "type": "material",
+    {
+      "entity_id": "material:dc2046b0",
       "canonical_name": "钙钛矿",
+      "entity_type": "material",
       "aliases": [
         "perovskite"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     },
-    "mat:lithium_metal": {
-      "id": "mat:lithium_metal",
-      "type": "material",
+    {
+      "entity_id": "material:689ca470",
       "canonical_name": "锂金属",
+      "entity_type": "material",
       "aliases": [
         "lithium metal anode",
         "锂负极"
       ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
       "confidence": 1.0,
       "provenance": "seed",
-      "manual_override": false
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:a2fe9051",
+      "canonical_name": "NVIDIA",
+      "entity_type": "ORG",
+      "aliases": [
+        "英伟达",
+        "Nvidia Corporation"
+      ],
+      "abbreviations": [
+        "NVDA"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:48af4341",
+      "canonical_name": "AMD",
+      "entity_type": "ORG",
+      "aliases": [
+        "Advanced Micro Devices",
+        "超威半导体"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:ff97a9fd",
+      "canonical_name": "Intel",
+      "entity_type": "ORG",
+      "aliases": [
+        "英特尔",
+        "Intel Corporation"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:15df739f",
+      "canonical_name": "TSMC",
+      "entity_type": "ORG",
+      "aliases": [
+        "台积电",
+        "台湾积体电路制造"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:abb5567e",
+      "canonical_name": "CATL",
+      "entity_type": "ORG",
+      "aliases": [
+        "宁德时代",
+        "Contemporary Amperex Technology"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:fa5cc085",
+      "canonical_name": "BYD",
+      "entity_type": "ORG",
+      "aliases": [
+        "比亚迪",
+        "Build Your Dreams"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:a1d0557a",
+      "canonical_name": "LG Energy Solution",
+      "entity_type": "ORG",
+      "aliases": [
+        "LG新能源",
+        "LGES"
+      ],
+      "abbreviations": [
+        "LGES"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:4db2eb60",
+      "canonical_name": "Panasonic",
+      "entity_type": "ORG",
+      "aliases": [
+        "松下",
+        "Panasonic Holdings"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:85e5347e",
+      "canonical_name": "Samsung SDI",
+      "entity_type": "ORG",
+      "aliases": [
+        "三星SDI"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:87eaaaaf",
+      "canonical_name": "SK Innovation",
+      "entity_type": "ORG",
+      "aliases": [
+        "SK Innovation",
+        "SK E&C"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:53092a17",
+      "canonical_name": "Toyota",
+      "entity_type": "ORG",
+      "aliases": [
+        "丰田",
+        "Toyota Motor"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:8f318216",
+      "canonical_name": "Tesla",
+      "entity_type": "ORG",
+      "aliases": [
+        "特斯拉"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:c9b0cb53",
+      "canonical_name": "Qualcomm",
+      "entity_type": "ORG",
+      "aliases": [
+        "高通",
+        "Qualcomm Incorporated"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "org:eac07912",
+      "canonical_name": "Huawei",
+      "entity_type": "ORG",
+      "aliases": [
+        "华为",
+        "华为技术"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "tech:957681a1",
+      "canonical_name": "Solid-State Battery",
+      "entity_type": "TECH",
+      "aliases": [
+        "固态电池"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "tech:7d78651d",
+      "canonical_name": "Perovskite Solar Cell",
+      "entity_type": "TECH",
+      "aliases": [
+        "钙钛矿太阳能电池",
+        "PSC"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "tech:d9946da9",
+      "canonical_name": "Lithium-Ion Battery",
+      "entity_type": "TECH",
+      "aliases": [
+        "锂离子电池",
+        "锂电池",
+        "Li-ion"
+      ],
+      "abbreviations": [
+        "LIB"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "tech:fb2b6cc5",
+      "canonical_name": "CO2 Electrolysis",
+      "entity_type": "TECH",
+      "aliases": [
+        "CO2电解",
+        "二氧化碳电解还原"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "tech:1dd90ab6",
+      "canonical_name": "Brain-Computer Interface",
+      "entity_type": "TECH",
+      "aliases": [
+        "脑机接口",
+        "BCI"
+      ],
+      "abbreviations": [
+        "BCI"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "material:8675883e",
+      "canonical_name": "Perovskite",
+      "entity_type": "MATERIAL",
+      "aliases": [
+        "钙钛矿"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "material:ec47388b",
+      "canonical_name": "Silicon",
+      "entity_type": "MATERIAL",
+      "aliases": [
+        "硅",
+        "硅片"
+      ],
+      "abbreviations": [
+        "Si"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "material:a0a569e5",
+      "canonical_name": "Lithium",
+      "entity_type": "MATERIAL",
+      "aliases": [
+        "锂",
+        "锂金属"
+      ],
+      "abbreviations": [
+        "Li"
+      ],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
+    },
+    {
+      "entity_id": "product:bf1c3424",
+      "canonical_name": "Blackwell",
+      "entity_type": "PRODUCT",
+      "aliases": [
+        "Blackwell Architecture",
+        "Blackwell GPU"
+      ],
+      "abbreviations": [],
+      "description": "",
+      "wikipedia_url": "",
+      "confidence": 1.0,
+      "provenance": "seed",
+      "mention_count": 0,
+      "document_count": 0,
+      "first_seen": "",
+      "last_seen": "",
+      "ambiguous_with": []
     }
-  },
-  "alias_index": {
-    "nvidia": "org:nvidia",
-    "英伟达": "org:nvidia",
-    "nvidiacorporation": "org:nvidia",
-    "nvda": "org:nvidia",
-    "tsmc": "org:tsmc",
-    "台积电": "org:tsmc",
-    "taiwansemiconductor": "org:tsmc",
-    "台湾积体电路": "org:tsmc",
-    "amd": "org:amd",
-    "advancedmicrodevices": "org:amd",
-    "超威半导体": "org:amd",
-    "intel": "org:intel",
-    "英特尔": "org:intel",
-    "catl": "org:catl",
-    "宁德时代": "org:catl",
-    "contemporaryamperex": "org:catl",
-    "byd": "org:byd",
-    "比亚迪": "org:byd",
-    "google": "org:google",
-    "谷歌": "org:google",
-    "alphabet": "org:google",
-    "microsoft": "org:microsoft",
-    "微软": "org:microsoft",
-    "openai": "org:openai",
-    "meta": "org:meta",
-    "facebook": "org:meta",
-    "脸书": "org:meta",
-    "apple": "org:apple",
-    "苹果": "org:apple",
-    "苹果公司": "org:apple",
-    "samsung": "org:samsung",
-    "三星": "org:samsung",
-    "三星电子": "org:samsung",
-    "toyota": "org:toyota",
-    "丰田": "org:toyota",
-    "丰田汽车": "org:toyota",
-    "huawei": "org:huawei",
-    "华为": "org:huawei",
-    "anthropic": "org:claude",
-    "claude": "org:claude",
-    "固态电池": "tech:solid_state_battery",
-    "solid-statebattery": "tech:solid_state_battery",
-    "全固态电池": "tech:solid_state_battery",
-    "钙钛矿太阳能电池": "tech:perovskite_solar",
-    "perovskitesolarcell": "tech:perovskite_solar",
-    "psc": "tech:perovskite_solar",
-    "lidar": "tech:lidar",
-    "激光雷达": "tech:lidar",
-    "量子计算": "tech:quantum_computing",
-    "quantumcomputing": "tech:quantum_computing",
-    "量子计算机": "tech:quantum_computing",
-    "脑机接口": "tech:brain_computer_interface",
-    "bci": "tech:brain_computer_interface",
-    "brain-computerinterface": "tech:brain_computer_interface",
-    "硫化物电解质": "mat:sulfide_electrolyte",
-    "sulfideelectrolyte": "mat:sulfide_electrolyte",
-    "钙钛矿": "mat:perovskite",
-    "perovskite": "mat:perovskite",
-    "锂金属": "mat:lithium_metal",
-    "lithiummetalanode": "mat:lithium_metal",
-    "锂负极": "mat:lithium_metal"
-  },
-  "ambiguous_aliases": []
+  ]
 }

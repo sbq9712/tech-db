@@ -25,3 +25,32 @@
   [9024/21637] Batch 141/339 | 0.9/s ETA=241min
   💾 Saved index: 25600 records (9600 new + 16000 existing)
   [9664/21637] Batch 151/339 | 0.9/s ETA=233min
+  [10304/21637] Batch 161/339 | 0.8/s ETA=234min
+  [10944/21637] Batch 171/339 | 0.8/s ETA=226min
+  [11584/21637] Batch 181/339 | 0.8/s ETA=216min
+  [12224/21637] Batch 191/339 | 0.8/s ETA=207min
+  💾 Saved index: 28800 records (12800 new + 16000 existing)
+  [12864/21637] Batch 201/339 | 0.7/s ETA=196min
+  [13504/21637] Batch 211/339 | 0.7/s ETA=185min
+  [14144/21637] Batch 221/339 | 0.7/s ETA=172min
+  [14784/21637] Batch 231/339 | 0.7/s ETA=158min
+  [15424/21637] Batch 241/339 | 0.7/s ETA=145min
+  💾 Saved index: 32000 records (16000 new + 16000 existing)
+  [16064/21637] Batch 251/339 | 0.7/s ETA=132min
+  [16704/21637] Batch 261/339 | 0.7/s ETA=118min
+  [17344/21637] Batch 271/339 | 0.7/s ETA=104min
+  [17984/21637] Batch 281/339 | 0.7/s ETA=89min
+  [18624/21637] Batch 291/339 | 0.7/s ETA=74min
+  💾 Saved index: 35200 records (19200 new + 16000 existing)
+  [19264/21637] Batch 301/339 | 0.7/s ETA=59min
+  [19904/21637] Batch 311/339 | 0.7/s ETA=43min
+  [20544/21637] Batch 321/339 | 0.7/s ETA=28min
+  [21184/21637] Batch 331/339 | 0.7/s ETA=12min
+  [21637/21637] Batch 339/339 | 0.6/s ETA=0min
+  💾 Saved index: 37637 records (21637 new + 16000 existing)
+
+[3/3] Saving final index...
+  Saved 37637 embeddings (158MB) in 557.5min
+  Index file: /home/rhett/tech-db-fresh/runtime/indexes/vector_index_v2.pkl
+
+✅ Vector index build complete!
