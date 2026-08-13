@@ -92,8 +92,10 @@ async def main():
         entity_extract_max_gleaning=1,
         default_embedding_timeout=600,
         default_llm_timeout=300,
-        llm_model_max_async=16,
+        llm_model_max_async=20,
         embedding_func_max_async=8,
+        max_parallel_insert=6,
+        embedding_batch_num=32,
         addon_params={
             "language": "Simplified Chinese",
             "entity_types": [
@@ -194,7 +196,7 @@ async def main():
                     "utf-8",
                 )
                 # Export graph periodically (every 10 batches)
-                if done_count % (batch_size * 10) < batch_size:
+                if done_count % (batch_size * 50) < batch_size:
                     print(f"  Exporting graph snapshot at {done_count} records...", flush=True)
                     try:
                         await export_graph_data(rag)
@@ -239,80 +241,54 @@ async def main():
 
 
 async def export_graph_data(rag):
-    """Export knowledge graph nodes and edges for frontend visualization."""
+    """Export knowledge graph nodes and edges for frontend visualization.
+
+    Reads directly from the NetworkX graph to ensure correct node IDs,
+    edge endpoints, and degree values.
+    """
     graph = rag.chunk_entity_relation_graph
+    nx_graph = graph._graph  # underlying NetworkX graph
 
     nodes = []
     edges = []
 
-    # Get all nodes - handle both dict and list returns from LightRAG
-    all_nodes = await graph.get_all_nodes()
-    if all_nodes is None:
-        all_nodes = []
+    # Compute degree from edges
+    from collections import Counter
+    degree_counter = Counter()
 
-    # v1.5.4: get_all_nodes() returns a list of dicts
-    if isinstance(all_nodes, list):
-        for nd in all_nodes:
-            node_id = nd.get("entity_id", "") or nd.get("id", "")
-            if not node_id:
-                continue
-            entity_type = nd.get("entity_type", "") or nd.get("type", "未知")
-            description = nd.get("description", "")
-            degree = nd.get("degree", 0) or 0
-            nodes.append({
-                "id": node_id,
-                "label": node_id,
-                "type": entity_type,
-                "description": (description[:200] if description else ""),
-                "degree": degree,
-            })
-    elif isinstance(all_nodes, dict):
-        for node_id, node_data in all_nodes.items():
-            entity_type = node_data.get("type", "未知")
-            description = node_data.get("description", "")
-            degree = node_data.get("degree", 0)
-            nodes.append({
-                "id": node_id,
-                "label": node_id,
-                "type": entity_type,
-                "description": (description[:200] if description else ""),
-                "degree": degree,
-            })
+    # Extract edges from NetworkX graph
+    for u, v, data in nx_graph.edges(data=True):
+        src = str(u)
+        tgt = str(v)
+        # Skip chunk→entity edges (source starts with 'doc-')
+        if src.startswith("doc-") or tgt.startswith("doc-"):
+            continue
+        desc = data.get("description", "") or ""
+        weight = data.get("weight", 1) or 1
+        edges.append({
+            "source": src,
+            "target": tgt,
+            "label": desc[:50] if desc else "",
+            "weight": weight,
+        })
+        degree_counter[src] += 1
+        degree_counter[tgt] += 1
 
-    # Get all edges - handle both dict and list returns
-    all_edges = await graph.get_all_edges()
-    if all_edges is None:
-        all_edges = []
-
-    if isinstance(all_edges, list):
-        for ed in all_edges:
-            src = ed.get("source_id", "") or ed.get("source", "")
-            tgt = ed.get("target_id", "") or ed.get("target", "")
-            if isinstance(src, dict):
-                src = src.get("entity_id", "") or str(src)
-            if isinstance(tgt, dict):
-                tgt = tgt.get("entity_id", "") or str(tgt)
-            desc = ed.get("description", "") or ""
-            weight = ed.get("weight", 1) or 1
-            if src and tgt:
-                edges.append({
-                    "source": src,
-                    "target": tgt,
-                    "label": desc[:50] if desc else "",
-                    "weight": weight,
-                })
-    elif isinstance(all_edges, dict):
-        for edge_id, edge_data in all_edges.items():
-            src, tgt = edge_id if isinstance(edge_id, tuple) else (edge_data.get("source", ""), edge_data.get("target", ""))
-            desc = edge_data.get("description", "") or ""
-            weight = edge_data.get("weight", 1) or 1
-            if src and tgt:
-                edges.append({
-                    "source": src,
-                    "target": tgt,
-                    "label": desc[:50] if desc else "",
-                    "weight": weight,
-                })
+    # Extract nodes from NetworkX graph
+    for node_id, data in nx_graph.nodes(data=True):
+        nid = str(node_id)
+        # Skip chunk nodes
+        if nid.startswith("doc-"):
+            continue
+        entity_type = data.get("entity_type", "") or data.get("type", "未知")
+        description = data.get("description", "")
+        nodes.append({
+            "id": nid,
+            "label": nid,
+            "type": entity_type,
+            "description": (description[:200] if description else ""),
+            "degree": degree_counter.get(nid, 0),
+        })
 
     graph_json = {"nodes": nodes, "edges": edges}
     output_file = WORKING_DIR / "graph-export.json"
@@ -322,4 +298,18 @@ async def export_graph_data(rag):
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    if "--export-only" in sys.argv:
+        async def _export_only():
+            from lightrag import LightRAG
+            from config import WORKING_DIR, llm_model_func, embedding_func, MODEL_NAME
+            rag = LightRAG(
+                working_dir=str(WORKING_DIR),
+                llm_model_func=llm_model_func,
+                embedding_func=embedding_func,
+            )
+            await rag.initialize_storages()
+            print(f"Export-only mode: exporting graph data...", flush=True)
+            await export_graph_data(rag)
+        asyncio.run(_export_only())
+    else:
+        asyncio.run(main())
