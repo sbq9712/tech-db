@@ -60,6 +60,7 @@ from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, V
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
 from budget_guard import BudgetExceededError, QueryBudget
 from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
+from degraded_mode import build_user_warning, looks_like_api_failure
 from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
@@ -1175,6 +1176,7 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Correctness-critical: BudgetFuse cannot silently skip this.
             verification_status = "PASSED"
             verification_issues = []
+            verification_error = ""  # TK-10: last failure cause, for the user warning
             if claim_metadata and full_answer.strip():
                 try:
                     # Use budget_guard to ensure correctness-critical handling
@@ -1186,6 +1188,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                         _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
                         vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
                         verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
+                        if verification_status == VERIFY_UNVERIFIED:
+                            verification_error = vr.failure_reason or "verification returned UNVERIFIED"
                         trace.add_stage("verification", {
                             "status": vr.status,
                             "issues": vr.issues[:5],
@@ -1206,6 +1210,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         # Budget exhausted for correctness-critical verification
                         # MUST NOT silently pass. Mark as UNVERIFIED.
                         verification_status = status_override  # "UNVERIFIED"
+                        verification_error = "verification skipped due to budget"
                         print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
                         trace.add_stage("verification", {
                             "status": "SKIPPED_BUDGET",
@@ -1215,10 +1220,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                 except Exception as e:
                     # Any exception → UNVERIFIED, never PASS
                     verification_status = VERIFY_UNVERIFIED
+                    verification_error = str(e)
                     print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
                     trace.add_stage("verification", {
                         "status": "EXCEPTION",
                         "error": str(e),
+                        "api_failure": looks_like_api_failure(str(e)),  # TK-10
                     })
 
             # ── T004: Claim Mapping ──
@@ -1321,6 +1328,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                 except Exception as e:
                     print(f"[knowledge_boundary] Error: {e}", flush=True)
 
+            # ── TK-10 (Q11): GLM API failure → legacy result UNVERIFIED + user warning ──
+            user_warning = build_user_warning(
+                answer_status=answer_status_str,
+                verification_status=verification_status,
+                verification_error=verification_error,
+            )
+
             evidence_summary = build_evidence_summary(
                 claim_mapping=claim_map,
                 independent_sources=len(set(c.get("source", "") for c in citations)),
@@ -1344,6 +1358,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "answer_status": answer_status_str,
                 "stop_reason": stop_reason,
                 "boundary_message": boundary_message,
+                "user_warning": user_warning,
                 "evidence_summary": evidence_summary,
                 "trace_id": trace.trace_id,
             })}

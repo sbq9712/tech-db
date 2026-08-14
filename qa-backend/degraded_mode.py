@@ -186,3 +186,44 @@ def get_system_status(component_statuses: dict) -> dict:
         "can_serve": can_serve,
         "warnings": warnings,
     }
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# TK-10 — GLM API failure → legacy result UNVERIFIED + user warning (Q11)
+# ══════════════════════════════════════════════════════════════════════════
+# Contract (spec Q11): when the GLM API fails during any correctness-critical
+# stage (verification etc.), the answer is still returned from the legacy
+# pipeline but MUST be marked UNVERIFIED with a user-visible warning. It must
+# never silently return PASSED.
+
+GLM_FAILURE_SIGNATURES = (
+    "urlopen error", "timed out", "timeout", "connection refused",
+    "http error 4", "http error 5", "api key", "unauthorized", "rate limit",
+    "quota", "insufficient", "service unavailable", "remote end closed",
+)
+
+
+def looks_like_api_failure(error_text: str) -> bool:
+    """Heuristic: does an exception/error string look like a GLM API failure?"""
+    t = (error_text or "").lower()
+    return any(sig in t for sig in GLM_FAILURE_SIGNATURES)
+
+
+def build_user_warning(
+    answer_status: str,
+    verification_status: str = "",
+    verification_error: str = "",
+) -> str:
+    """Build the user-visible warning for the done event (TK-10).
+
+    Rules:
+      * UNVERIFIED answer (verification failed/skipped/API-failure) → the
+        verifier's degraded-mode warning, annotated when it was an API failure.
+      * Other statuses → no warning (empty string).
+    """
+    if answer_status != "UNVERIFIED":
+        return ""
+    base = get_user_warning("verifier") or "本次未能完成答案验证，请注意核查关键信息。"
+    if verification_status == "UNVERIFIED" and looks_like_api_failure(verification_error):
+        return "⚠️ " + base + "（模型服务暂时不可用，已按未验证结果返回）"
+    return "⚠️ " + base

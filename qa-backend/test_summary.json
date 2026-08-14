@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-14T20:14:29",
+  "generated_at": "2026-08-14T20:18:12",
   "all_passed": true,
-  "total_passed": 269,
+  "total_passed": 275,
   "total_failed": 0,
   "suites": [
     {
@@ -11,7 +11,7 @@
       "passed": 42,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.5,
+      "seconds": 0.4,
       "tail": "\n=== T001: Trace System ===\n  ✅ unique trace_id\n  ✅ stages recorded\n  ✅ stage names\n  ✅ secret scrubbed\n  ✅ data preserved\n[trace] WARNING: flush failed: [Errno 13] Permission denied: '/nonexistent'\n  ✅ trace write fail-safe\n  ✅ no ZAI_API_KEY in trace\n  ✅ no literal API key value\n\n=== T003: Citation Grounding ===\n  ✅ exact span match\n  ✅ non-existent span rejected\n  ✅ grounding VALID\n  ✅ grounding offsets\n  ✅ fb takes priority\n  ✅ empty text → grounding fail\n  ✅ semantic locate works\n  ✅ semantic locate finds relevant section\n\n=== T005: Verifier Fail-Safe ===\n  ✅ JSON clean parse\n  ✅ JSON code fence parse\n  ✅ JSON embedded parse\n  ✅ JSON malformed → None\n  ✅ PASSED.passed is True\n  ✅ FAILED.passed is False\n  ✅ UNVERIFIED.passed is False\n  ✅ UNVERIFIED has reason\n  ✅ empty answer trivially passes\n\n=== T004: Claim Mapping ===\n  ✅ claim validated\n  ✅ claim supported\n  ✅ unsupported major claim detected\n  ✅ unsupported major claims found\n  ✅ minor explanation ignored\n\n=== T006: Four-State Answer Status ===\n  ✅ no results → UNSUPPORTED\n  ✅ results + passed → SUPPORTED\n  ✅ verification unverified → UNVERIFIED\n  ✅ verification failed → PARTIALLY\n  ✅ all major unsupported → UNSUPPORTED\n  ✅ evidence summary structure\n\n=== T013: Content Safety ===\n  ✅ detect Chinese injection\n  ✅ detect English injection\n  ✅ no false positive\n  ✅ data boundary start\n  ✅ data boundary end\n  ✅ safety instructions added\n\n======================================================================\n  Results: 42 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -31,7 +31,7 @@
       "passed": 37,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.9,
+      "seconds": 0.8,
       "tail": "\n=== T028: Contextual Chunking ===\n  ✅ short record → no chunks\n  ✅ long record produces chunks\n  ✅ chunks have offsets\n  ✅ chunks have context_prefix\n  ✅ chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -51,7 +51,7 @@
       "passed": 33,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.1,
+      "seconds": 0.0,
       "tail": "\n=== T035: Trace Replay ===\n  ✅ replay case created\n  ✅ replay case has previous answer\n  ✅ empty report handled\n  ✅ report retention_rate\n  ✅ report status changes\n\n=== T036: Human Review Pipeline ===\n  ✅ detect retrieval failure\n  ✅ detect coverage failure\n  ✅ detect verification failure\n  ✅ case has case_id\n  ✅ case not confirmed by default\n  ✅ case has trace_id\n  ✅ problem stage: retrieval\n\n=== T037: Degraded Mode Matrix ===\n  ✅ vector fail → CONTINUE\n  ✅ vector fail can continue\n  ✅ verifier fail → ESCALATE\n  ✅ verifier requires unverified\n  ✅ verifier has user message\n  ✅ generator fail → FAIL\n  ✅ generator cannot continue\n  ✅ all ok → operational\n  ✅ graph degraded → degraded\n  ✅ generator failed → down\n  ✅ generator failed → cannot serve\n\n=== T037: Budget Guard ===\n  ✅ budget ok → PROCEED\n  ✅ budget ok → call\n  ✅ critical budget exhausted → ESCALATE\n  ✅ critical budget exhausted → don't call\n  ✅ critical budget exhausted → UNVERIFIED\n  ✅ non-critical budget exhausted → SKIP\n  ✅ non-critical skip → no status override\n  ✅ verifier is critical\n  ✅ reranker not critical\n  ✅ citation_grounding is critical\n\n======================================================================\n  Ops Phase Results: 33 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -91,8 +91,8 @@
       "passed": 4,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 12.9,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n============================================================\n  Parity Results: 4 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 12020.88it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.336 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 10.2,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n============================================================\n  Parity Results: 4 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 12515.25it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.313 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -133,6 +133,16 @@
       "exit_code": 0,
       "seconds": 3.0,
       "tail": "TK-09 — TTFB latency guard\n── budget = legacy baseline + Δ (file consumed)\n  ✅ budget = legacy baseline + Δ (file consumed)\n── missing baseline → default keeps guard armed\n  ✅ missing baseline → default keeps guard armed\n── simulated timeout → legacy degrade + trace\n  ✅ simulated timeout → legacy degrade + trace\n── fast loop unaffected\n  ✅ fast loop unaffected\n── Δ overridable via env\n  ✅ Δ overridable via env\n==============================================================\n  TK-09 Results: 5 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "degraded_tk10",
+      "file": "tests_degraded_tk10.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.4,
+      "tail": "TK-10 — GLM failure → legacy UNVERIFIED + user warning\n── API-failure signature detection\n  ✅ API-failure signature detection\n── verify: API exception → UNVERIFIED never PASSED\n[verifier] All 3 attempts failed: exception (ConnectionError: urlopen error connection refused) (attempt 3)\n  ✅ verify: API exception → UNVERIFIED never PASSED\n── verify: empty LLM output → UNVERIFIED\n[verifier] All 3 attempts failed: empty_response (attempt 3)\n  ✅ verify: empty LLM output → UNVERIFIED\n── user warning contract (api vs plain vs none)\n  ✅ user warning contract (api vs plain vs none)\n── status chain: UNVERIFIED propagates to answer_status\n  ✅ status chain: UNVERIFIED propagates to answer_status\n── verified path → no warning\n  ✅ verified path → no warning\n==============================================================\n  TK-10 Results: 6 passed, 0 failed\n==============================================================\n"
     }
   ],
   "missing_suites": [],
@@ -187,6 +197,10 @@
     },
     "ttfb_tk09": {
       "file": "tests_ttfb_tk09.py",
+      "tier": "push"
+    },
+    "degraded_tk10": {
+      "file": "tests_degraded_tk10.py",
       "tier": "push"
     },
     "final_acceptance": {
