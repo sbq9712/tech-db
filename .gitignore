@@ -61,6 +61,7 @@ node_modules/
 # LightRAG data: include small files + compressed indexes, exclude raw/large
 data/lightrag/*.pkl
 data/lightrag/*.log
+data/lightrag/entity_registry.json
 data/lightrag/concurrent_progress.json
 data/lightrag/ingest_progress.json
 data/lightrag/expand_graph.log

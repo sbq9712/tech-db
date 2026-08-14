@@ -70,29 +70,55 @@ class EntityRegistry:
         self._load()
 
     def _load(self):
-        """Load registry from file."""
-        if self.path.exists():
-            try:
-                data = json.loads(self.path.read_text("utf-8"))
-                self.version = data.get("version", "0.1.0")
-                self.entities = data.get("entities", {})
-                self.alias_index = data.get("alias_index", {})
-                self.ambiguous_aliases = set(data.get("ambiguous_aliases", []))
-            except (json.JSONDecodeError, OSError):
-                pass
+        """Load registry from file.
+
+        Persistence is delegated to registry_io (single writer, Q6/R12):
+        accepts both V1 (dict) and V2 (list) on-disk shapes; V2 files are
+        converted to the internal V1 representation.
+        """
+        import registry_io
+        data = registry_io.read_registry(self.path)
+        if data["source_version"] in ("empty", "corrupt") and not data["entities"]:
+            # keep an alias_index we may have salvaged from a corrupt file
+            self.alias_index = data.get("alias_index") or {}
+            self.ambiguous_aliases = set(data.get("ambiguous_aliases") or [])
+            return
+        self.entities = {
+            e["entity_id"]: registry_io.v2_to_v1_entity(e)
+            for e in data["entities"]
+        }
+        if data.get("alias_index") is not None:
+            self.alias_index = data["alias_index"]
+        else:
+            # V2 files don't persist the alias index — rebuild from entities
+            self._rebuild_alias_index()
+        self.ambiguous_aliases = set(data.get("ambiguous_aliases") or [])
+        self.version = "2.0-compatible"
+
+    def _rebuild_alias_index(self):
+        """Rebuild alias_index / ambiguous_aliases from loaded entities."""
+        self.alias_index = {}
+        self.ambiguous_aliases = set()
+        for ent in self.entities.values():
+            eid = ent["id"]
+            for surface in [ent.get("canonical_name", "")] + list(ent.get("aliases", []) or []):
+                norm = self._normalize(surface)
+                if not norm:
+                    continue
+                if norm in self.alias_index and self.alias_index[norm] != eid:
+                    self.ambiguous_aliases.add(norm)
+                else:
+                    self.alias_index[norm] = eid
 
     def save(self):
-        """Save registry to file."""
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        data = {
-            "version": self.version,
-            "entities": self.entities,
-            "alias_index": self.alias_index,
-            "ambiguous_aliases": list(self.ambiguous_aliases),
-        }
-        tmp = self.path.with_suffix(".tmp")
-        tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        os.replace(tmp, self.path)
+        """Save registry to file (canonical V2 shape via registry_io)."""
+        import registry_io
+        registry_io.write_registry(
+            self.path,
+            [registry_io.v1_to_v2_entity(e) for e in self.entities.values()],
+            self.alias_index,
+            self.ambiguous_aliases,
+        )
 
     def resolve(self, mention: str) -> dict:
         """Resolve an entity mention to canonical entity.
@@ -225,8 +251,12 @@ class EntityRegistry:
         return sorted(best.items(), key=lambda x: -x[1])[:5]
 
     def all_entities(self) -> list:
-        """Return all entities in the registry."""
-        return list(self._registry.get("entities", {}).values())
+        """Return all entities in the registry.
+
+        Fixed (Q29/R12): previously referenced a non-existent `self._registry`,
+        raising AttributeError when SEMANTIC_GRAPH calls this.
+        """
+        return list(self.entities.values())
 
     def stats(self) -> dict:
         """Return registry statistics."""

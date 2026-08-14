@@ -32,7 +32,12 @@ from enum import Enum
 logger = logging.getLogger(__name__)
 
 REPO = Path(__file__).resolve().parent.parent
-REGISTRY_PATH = REPO / "data" / "lightrag" / "entity_registry.json"
+# Q7: runtime/indexes is the single authoritative registry location.
+# (Previously data/lightrag — the split path was the root cause of the
+# V1/V2 format confusion. Delegates to registry_io for the env overrides.)
+import os as _os
+import registry_io as _rio
+REGISTRY_PATH = _rio.registry_path()
 
 
 class EntityType(str, Enum):
@@ -109,7 +114,7 @@ class EntityRegistryV2:
     SCHEMA_VERSION = "2.0"
 
     def __init__(self, registry_path: Path = None):
-        self.registry_path = registry_path or REGISTRY_PATH
+        self.registry_path = registry_path or _rio.registry_path()
         self.entities: Dict[str, CanonicalEntity] = {}
         self.alias_index: Dict[str, str] = {}  # normalized alias → entity_id
         self.ambiguous_aliases: Set[str] = set()
@@ -127,80 +132,39 @@ class EntityRegistryV2:
         return f"{type_prefix}:{name_hash}"
 
     def load(self):
-        """Load registry from disk."""
-        if not self.registry_path.exists():
+        """Load registry from disk (via registry_io — single reader, Q6/R12).
+
+        registry_io normalizes any historical shape (V1 dict / V2 list /
+        bare list) to the canonical entity shape and strips unknown fields,
+        so CanonicalEntity(**...) construction can't crash on legacy files.
+        V1-dict migrations keep their original IDs (stable across reloads,
+        avoids hash-ID collisions for same-name entities).
+        """
+        import registry_io
+        data = registry_io.read_registry(self.registry_path)
+        if data["source_version"] in ("empty", "corrupt"):
+            if data["source_version"] == "corrupt":
+                logger.warning("Entity registry corrupt/unreadable — starting empty")
             return
-
-        try:
-            with open(self.registry_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-
-            # Check schema version
-            version = data.get("schema_version", "1.0")
-            
-            if version.startswith("2."):
-                # V2 format
-                for ent_data in data.get("entities", []):
-                    ent = CanonicalEntity(**ent_data)
-                    self.entities[ent.entity_id] = ent
-                    self._index_entity(ent)
-            else:
-                # V1 format — migrate
-                entities = data.get("entities", {})
-                if isinstance(entities, dict):
-                    for eid, ent_data in entities.items():
-                        canonical = ent_data.get("canonical_name", eid)
-                        entity_type = ent_data.get("type", "ORG")
-                        # Generate new opaque ID
-                        new_id = self._generate_id(entity_type, canonical)
-                        ent = CanonicalEntity(
-                            entity_id=new_id,
-                            canonical_name=canonical,
-                            entity_type=entity_type,
-                            aliases=ent_data.get("aliases", []),
-                            confidence=ent_data.get("confidence", 1.0),
-                            provenance=ent_data.get("provenance", "manual"),
-                        )
-                        self.entities[new_id] = ent
-                        self._index_entity(ent)
-                elif isinstance(entities, list):
-                    for ent_data in entities:
-                        eid = ent_data.get("id", ent_data.get("entity_id", ""))
-                        canonical = ent_data.get("canonical_name", ent_data.get("name", eid))
-                        entity_type = ent_data.get("type", ent_data.get("entity_type", "ORG"))
-                        new_id = eid if ":" in eid else self._generate_id(entity_type, canonical)
-                        ent = CanonicalEntity(
-                            entity_id=new_id,
-                            canonical_name=canonical,
-                            entity_type=entity_type,
-                            aliases=ent_data.get("aliases", []),
-                            confidence=ent_data.get("confidence", 1.0),
-                            provenance=ent_data.get("provenance", "manual"),
-                        )
-                        self.entities[new_id] = ent
-                        self._index_entity(ent)
-
-            logger.info(f"Loaded {len(self.entities)} entities from {self.registry_path}")
-        except Exception as e:
-            logger.warning(f"Could not load entity registry: {e}")
+        for ent_data in data["entities"]:
+            try:
+                ent = CanonicalEntity(**ent_data)
+            except TypeError:
+                logger.warning(f"Skipping malformed entity entry: {ent_data!r:.120}")
+                continue
+            self.entities[ent.entity_id] = ent
+            self._index_entity(ent)
+        logger.info(f"Loaded {len(self.entities)} entities from {self.registry_path}")
 
     def save(self):
-        """Save registry to disk."""
-        self.registry_path.parent.mkdir(parents=True, exist_ok=True)
-
-        data = {
-            "schema_version": self.SCHEMA_VERSION,
-            "saved_at": __import__("datetime").datetime.now().isoformat(),
-            "entity_count": len(self.entities),
-            "entities": [asdict(e) for e in self.entities.values()],
-        }
-
-        # Atomic write
-        tmp_path = self.registry_path.with_suffix(".tmp")
-        with open(tmp_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        tmp_path.replace(self.registry_path)
-
+        """Save registry to disk (via registry_io — single writer, Q6/R12)."""
+        import registry_io
+        registry_io.write_registry(
+            self.registry_path,
+            [asdict(e) for e in self.entities.values()],
+            self.alias_index,
+            self.ambiguous_aliases,
+        )
         logger.info(f"Saved {len(self.entities)} entities to {self.registry_path}")
 
     def _normalize(self, text: str) -> str:
