@@ -1,6 +1,6 @@
 {
   "file": "holdout.json",
-  "sha256_entries": "ceee238b1e38e1eb6fdbd3109c3c761d6cf9a83c959e44cc1f3c83172d4329f6",
+  "sha256_entries": "b0f0905d4e44dc4d7c9bfa6968312757301b5c5a0c3d43ed37a0ff459eeb966d",
   "size": 100,
   "smoke_subset_ids": [
     "h001",
@@ -14,5 +14,5 @@
     "h081",
     "h091"
   ],
-  "unlocked_by": "dedicated commit editing this lock (Q17 explicit unlock)"
+  "unlocked_by": "TK-20 synthetic-isolation re-issue: 9 as-only title anchors unanchored per Q19 (dedicated commit editing this lock, Q17 explicit unlock)"
 }

@@ -30,6 +30,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "qa-backend"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 import os  # noqa: E402
 
@@ -50,6 +51,12 @@ async def replay(tag: str) -> dict:
     assert hashlib.sha256(payload).hexdigest() == lock["sha256_entries"], "holdout tampered"
     entries = doc["entries"]
     print(f"[replay] {len(entries)} queries (lock verified), real index")
+
+    # TK-20 (T049/Q19): eval ground truth must never be as-only synthesis.
+    from holdout_run import synthetic_isolation_check
+    iso = synthetic_isolation_check(entries)
+    assert not iso["violations"], \
+        f"TK-20 synthetic isolation violated: {iso['violations'][:3]}"
 
     records = json.loads((ROOT / "data/processed/all-records-lite.json")
                          .read_text(encoding="utf-8"))

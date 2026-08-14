@@ -142,12 +142,68 @@ def _pct(vals, p):
     return round(s[k], 1)
 
 
+def synthetic_isolation_check(entries, fail_on_violation: bool = True):
+    """TK-20 (T049, Q19): eval-side synthetic isolation.
+
+    The INDEX keeps ai-summary text (`as`) for retrieval value, but ground
+    truth (holdout anchors / golden answers) must never point at as-only
+    records — a record whose only content is synthetic summary has no
+    original-body evidence behind it.
+
+    Anchored entries (expected_idx in the RETRIEVAL index idx space) are
+    mapped back to full records via the indexed-title match against
+    all-records-lite.json. An anchor is a violation when its record has
+    `as` and no original body `b`.
+    """
+    records = json.loads((ROOT / "data" / "processed" / "all-records-lite.json")
+                         .read_text("utf-8"))
+    # retrieval idx space == canonical record order used at index build;
+    # meta carries 't' (title) + '_th' — match by title+date to be robust.
+    import pickle
+    with open(ROOT / "data" / "lightrag" / "vector_index_v2.pkl", "rb") as f:
+        meta = pickle.load(f)["meta"]
+    by_idx = {m["idx"]: m for m in meta}
+
+    violations, checked = [], 0
+    for e in entries:
+        if e.get("expected_idx") is None:
+            continue
+        checked += 1
+        m = by_idx.get(e["expected_idx"])
+        if m is None:
+            violations.append({"id": e["id"], "reason": "idx not in index"})
+            continue
+        # resolve record by title match (index meta has no body field)
+        cands = [r for r in records if r.get("t") == m.get("t")
+                 and (r.get("d") or "") == (m.get("d") or "")]
+        if not cands:
+            violations.append({"id": e["id"], "reason": "record not resolvable"})
+            continue
+        r = cands[0]
+        has_as = bool((r.get("as") or "").strip())
+        has_body = bool((r.get("b") or "").strip())
+        if has_as and not has_body:
+            violations.append({"id": e["id"], "expected_idx": e["expected_idx"],
+                               "reason": "as-only record (synthetic text as ground truth)"})
+    report = {"checked_anchors": checked, "violations": violations,
+              "policy": "ground truth must cite original body (b), not as-only synthesis (Q19)"}
+    print(f"synthetic isolation: {checked - len(violations)}/{checked} anchors clean")
+    if violations:
+        for v in violations[:10]:
+            print(f"  ❌ {v['id']}: {v['reason']}")
+        if fail_on_violation:
+            print("❌ TK-20 synthetic isolation FAILED")
+            sys.exit(1)
+    return report
+
+
 async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["smoke", "full"], default="smoke")
     ap.add_argument("--check-lock", action="store_true")
     ap.add_argument("--retrieval", action="store_true")
     ap.add_argument("--shadow", action="store_true")
+    ap.add_argument("--synthetic-isolation", action="store_true")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -156,6 +212,12 @@ async def main():
     entries = load(args.mode)
     print(f"mode={args.mode}: {len(entries)} queries")
 
+    if args.synthetic_isolation:
+        rep = synthetic_isolation_check(entries)
+        out = args.out or (ROOT / "qa-backend" / "test_fixtures" / "holdout" /
+                           "synthetic_isolation.json")
+        out.write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"synthetic isolation report → {out}")
     if args.shadow:
         out = args.out or (ROOT / "qa-backend" / "test_fixtures" / "holdout" /
                            f"shadow_diff_{args.mode}.json")
