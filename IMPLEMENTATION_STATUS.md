@@ -103,13 +103,23 @@ All tickets from the Master Spec have been implemented.
 | QA_ROUTER_ENABLED | false | Adaptive router |
 | QA_DECOMPOSITION_ENABLED | false | Query decomposition |
 | QA_ITERATIVE_RETRIEVAL_ENABLED | false | Gap-driven retrieval |
-| QA_RERANKER_ENABLED | false | GLM reranking |
-| QA_EVIDENCE_SELECTOR_ENABLED | false | Smart evidence selection |
+| QA_RERANK_ENABLED | false | GLM reranking |
+| QA_EVIDENCE_SELECTOR_ENABLED | true | Smart evidence selection |
+| QA_EVIDENCE_GRADER_ENABLED | false | Evidence sufficiency grading |
+| QA_CLAIM_MAPPING_ENABLED | false | Claim→citation mapping |
 | QA_TRACE_ENABLED | true | QA tracing |
 | QA_FAIL_SAFE_VERIFY_ENABLED | true | Fail-safe verification |
 | QA_CITATION_GROUNDING_ENABLED | true | Citation span grounding |
 | QA_ANSWER_STATUS_ENABLED | true | Four-state answer status |
 | QA_CONTENT_SAFETY_ENABLED | true | Prompt injection defense |
+| QA_PROVENANCE_ENABLED | true | Provenance metadata (TK-06 wave-1) |
+| QA_TEMPORAL_ENABLED | true | Temporal reasoning (TK-06 wave-1) |
+| QA_ENTITY_RESOLUTION_ENABLED | true | Entity resolution (TK-06 wave-1) |
+| QA_SEMANTIC_GRAPH_ENABLED | true | Semantic graph retrieval (TK-06 wave-1) |
+| QA_CONTEXTUAL_CHUNKS_ENABLED | true | Contextual chunks (TK-06 wave-1) |
+| QA_NUMERIC_FACTS_ENABLED | true | Numeric fact extraction (TK-06 wave-1) |
+| QA_CLAIM_GROUNDING_ENABLED | true | Claim-level grounding |
+| QA_KNOWLEDGE_BOUNDARY_ENABLED | true | Knowledge boundary message (TK-06/R9) |
 
 ## Background Tasks (Still Running)
 - **Vector index rebuild** (PID 963): Batch ~171/339, ETA ~226 min

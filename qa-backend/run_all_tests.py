@@ -49,6 +49,7 @@ SUITES = {
     "degraded_tk10":   ("tests_degraded_tk10.py", "push"),
     "citation_tk12":   ("tests_citation_schema_tk12.py", "push"),
     "frontend_tk13":   ("tests_frontend_tk13.py", "push"),
+    "validator_tk14":  ("tests_validator_tk14.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 
