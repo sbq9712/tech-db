@@ -31,12 +31,20 @@ def load_api_key():
     key = os.environ.get("ZAI_API_KEY", "").strip()
     if key:
         return key
-    if ENV_FILE.is_file():
-        with ENV_FILE.open(encoding="utf-8") as f:
-            for line in f:
+    # Same candidate locations as config.py (server loads its key from here)
+    for f in [ENV_FILE if ENV_FILE.is_file() else None,
+              Path.home() / ".config" / "anthropic-proxy.env"]:
+        if f is None or not f.is_file():
+            continue
+        try:
+            for line in f.read_text(encoding="utf-8").splitlines():
                 line = line.strip()
                 if line.startswith("ZAI_API_KEY="):
-                    return line.split("=", 1)[1].strip().strip('"').strip("'")
+                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                    if key:
+                        return key
+        except OSError:
+            continue
     raise RuntimeError("ZAI_API_KEY not found")
 
 API_KEY = load_api_key()
@@ -109,9 +117,23 @@ async def call_glm_api_direct(prompt: str, max_retries: int = 5) -> str:
                     content = "".join(
                         p.get("text", "") if isinstance(p, dict) else str(p) for p in content
                     )
+                if not content.strip() and msg.get("reasoning_content"):
+                    # GLM-5.2 reasoning model: when the token budget is spent
+                    # on reasoning, content comes back empty — surface the
+                    # reasoning tail (same fallback as config.llm_model_func).
+                    content = msg["reasoning_content"]
+                if not content.strip():
+                    # Empty response = retryable (reasoning ate the budget)
+                    return None
                 return content
 
-            return await loop.run_in_executor(None, _do)
+            content = await loop.run_in_executor(None, _do)
+            if content is None:
+                if attempt < max_retries - 1:
+                    print(f"    [EMPTY] attempt {attempt + 1}, retrying...", flush=True)
+                    continue
+                return ""
+            return content
         except urllib.error.HTTPError as e:
             if e.code == 429 and attempt < max_retries - 1:
                 wait_time = min(60, 10 * (2 ** attempt))
@@ -450,6 +472,8 @@ async def main():
     parser.add_argument("--concurrency", type=int, default=5, help="Max concurrent API calls")
     parser.add_argument("--max", type=int, default=0, help="Max records to process (0=all)")
     parser.add_argument("--rps", type=float, default=0, help="Max requests per second (0=unlimited)")
+    parser.add_argument("--curated", action="store_true",
+                        help="AI精选∪精选情报 only (aip==1 or lv>0, valid category, dp!=1)")
     args = parser.parse_args()
 
     print("=" * 60, flush=True)
@@ -457,10 +481,13 @@ async def main():
     print(f"  Concurrency: {args.concurrency} | RPS limit: {args.rps or 'none'}", flush=True)
     print("=" * 60, flush=True)
 
-    # Load records (ALL valid records for full graph coverage)
-    print("\n[1/3] Loading ALL valid records (24,091 target)...", flush=True)
-    records = load_records(filter_ai_curated=False, max_records=args.max)
-    print(f"  Found {len(records)} valid records (valid category AND dp!=1)", flush=True)
+    # Load records (curated = AI精选∪精选情报 when --curated; else ALL valid)
+    if args.curated:
+        print("\n[1/3] Loading curated records (AI精选 ∪ 精选情报)...", flush=True)
+    else:
+        print("\n[1/3] Loading ALL valid records (24,091 target)...", flush=True)
+    records = load_records(filter_ai_curated=args.curated, max_records=args.max)
+    print(f"  Found {len(records)} records (valid category AND dp!=1)", flush=True)
 
     # Load progress
     progress = load_progress()
@@ -532,11 +559,13 @@ async def main():
                     builder.add_entities(entities, record_idx=rec_idx)
                     builder.add_relations(relations, record_idx=rec_idx)
                     success_count += 1
+                    # Only successful extractions count as done — failed ones
+                    # stay out of done_titles so the next run retries them.
+                    done_titles.add(title)
                 else:
                     error_count += 1
 
                 processed_count += 1
-                done_titles.add(title)
 
                 if processed_count % 10 == 0:
                     elapsed = time.time() - start_time
