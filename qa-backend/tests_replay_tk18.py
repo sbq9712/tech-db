@@ -47,9 +47,19 @@ def t_no_regression():
     assert o["mean"] == 1.0 and o["below_0.8"] == 0
     assert r["top1_agreement"] == 1.0
     rd = r["relevance_distribution"]
-    assert rd["legacy_relevant"] == rd["new_relevant"]
     g = r["grounding_rate"]
-    assert g["legacy_mean"] == g["new_mean"]
+    if "legacy_relevant" in rd:
+        # day1.json schema (recorded while the legacy path still existed)
+        assert rd["legacy_relevant"] == rd["new_relevant"]
+        assert g["legacy_mean"] == g["new_mean"]
+    else:
+        # drift-watch schema (post TK-23 contract: legacy path deleted, the
+        # comparison leg is the frozen gate-3 reference) — parity is already
+        # asserted via retrieval_id_overlap above; require the new-leg values
+        # to be present and non-null
+        assert isinstance(rd["new_relevant"], int)
+        assert g["new_mean"] is not None
+        assert r.get("n_vs_reference", 0) > 0
 
 
 def t_cost_accounting():

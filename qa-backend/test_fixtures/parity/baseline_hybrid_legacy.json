@@ -8,103 +8,178 @@
    "rrf": [
     {
      "idx": 4,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.714025,
+     "bm25_score": 17.353004,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.032787
+     "score": 0.032787,
+     "vec_score": 0.616886,
+     "bm25_score": 14.529675,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.032258
+     "score": 0.032258,
+     "vec_score": 0.526875,
+     "bm25_score": 10.114073,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.031498
+     "score": 0.031498,
+     "vec_score": 0.51807,
+     "bm25_score": 6.98395,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.031498
+     "score": 0.031498,
+     "vec_score": 0.513084,
+     "bm25_score": 7.711847,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.029631
+     "score": 0.029631,
+     "vec_score": 0.49236,
+     "bm25_score": 1.970309,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.029437
+     "score": 0.029437,
+     "vec_score": 0.47477,
+     "bm25_score": 2.352028,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.029274
+     "score": 0.029274,
+     "vec_score": 0.46164,
+     "bm25_score": 6.696157,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.02904
+     "score": 0.02904,
+     "vec_score": 0.495332,
+     "bm25_score": 1.814439,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.02901
+     "score": 0.02901,
+     "vec_score": 0.47108,
+     "bm25_score": 1.992839,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.028898
+     "score": 0.028898,
+     "vec_score": 0.505206,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.028405
+     "score": 0.028405,
+     "vec_score": 0.486659,
+     "bm25_score": 1.772002,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.028191
+     "score": 0.028191,
+     "vec_score": 0.458517,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.027273
+     "score": 0.027273,
+     "vec_score": 0.434142,
+     "bm25_score": 1.892641,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.026905
+     "score": 0.026905,
+     "vec_score": 0.431092,
+     "bm25_score": 1.854292,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.02632
+     "score": 0.02632,
+     "vec_score": 0.442602,
+     "bm25_score": 1.261084,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.025816
+     "score": 0.025816,
+     "vec_score": 0.435554,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.025504
+     "score": 0.025504,
+     "vec_score": 0.416394,
+     "bm25_score": 1.642383,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.024585
+     "score": 0.024585,
+     "vec_score": 0.392397,
+     "bm25_score": 0.903612,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.022679
+     "score": 0.022679,
+     "vec_score": 0.297834,
+     "bm25_score": 1.728006,
+     "graph_score": 0.0
     },
     {
      "idx": 46,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.481788,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.448902,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.418732,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.417264,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.012195
+     "score": 0.012195,
+     "vec_score": 0.40808,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -115,103 +190,178 @@
    "rrf": [
     {
      "idx": 24,
-     "score": 0.03306
+     "score": 0.03306,
+     "vec_score": 0.67983,
+     "bm25_score": 6.878892,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.03306
+     "score": 0.03306,
+     "vec_score": 0.66986,
+     "bm25_score": 7.043932,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.032002
+     "score": 0.032002,
+     "vec_score": 0.614096,
+     "bm25_score": 6.495808,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.031754
+     "score": 0.031754,
+     "vec_score": 0.645172,
+     "bm25_score": 5.990525,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.031498
+     "score": 0.031498,
+     "vec_score": 0.596318,
+     "bm25_score": 6.178268,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.030536
+     "score": 0.030536,
+     "vec_score": 0.543602,
+     "bm25_score": 3.589754,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.03009
+     "score": 0.03009,
+     "vec_score": 0.580572,
+     "bm25_score": 1.892641,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.030077
+     "score": 0.030077,
+     "vec_score": 0.538315,
+     "bm25_score": 1.931495,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.029418
+     "score": 0.029418,
+     "vec_score": 0.530871,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.028595
+     "score": 0.028595,
+     "vec_score": 0.533484,
+     "bm25_score": 1.642383,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.027799
+     "score": 0.027799,
+     "vec_score": 0.530217,
+     "bm25_score": 1.299935,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.027598
+     "score": 0.027598,
+     "vec_score": 0.515908,
+     "bm25_score": 1.708788,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.026993
+     "score": 0.026993,
+     "vec_score": 0.481153,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.026876
+     "score": 0.026876,
+     "vec_score": 0.522767,
+     "bm25_score": 0.727616,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.026857
+     "score": 0.026857,
+     "vec_score": 0.522568,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.025894
+     "score": 0.025894,
+     "vec_score": 0.47486,
+     "bm25_score": 1.356947,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.025649
+     "score": 0.025649,
+     "vec_score": 0.450587,
+     "bm25_score": 1.728006,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.022949
+     "score": 0.022949,
+     "vec_score": 0.408644,
+     "bm25_score": 0.903612,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.524198,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.509363,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.492549,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.485471,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.485464,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 46,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.484914,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 31,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.480711,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -222,103 +372,178 @@
    "rrf": [
     {
      "idx": 51,
-     "score": 0.03306
+     "score": 0.03306,
+     "vec_score": 0.569439,
+     "bm25_score": 8.671661,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.032796
+     "score": 0.032796,
+     "vec_score": 0.510052,
+     "bm25_score": 11.770026,
+     "graph_score": 0.0
     },
     {
      "idx": 49,
-     "score": 0.031545
+     "score": 0.031545,
+     "vec_score": 0.516807,
+     "bm25_score": 2.479647,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.03101
+     "score": 0.03101,
+     "vec_score": 0.4749,
+     "bm25_score": 6.899268,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.030331
+     "score": 0.030331,
+     "vec_score": 0.484174,
+     "bm25_score": 1.626097,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.02837
+     "score": 0.02837,
+     "vec_score": 0.42983,
+     "bm25_score": 1.219604,
+     "graph_score": 0.0
     },
     {
      "idx": 47,
-     "score": 0.027584
+     "score": 0.027584,
+     "vec_score": 0.389553,
+     "bm25_score": 1.94698,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.027365
+     "score": 0.027365,
+     "vec_score": 0.369902,
+     "bm25_score": 7.567832,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.027313
+     "score": 0.027313,
+     "vec_score": 0.392847,
+     "bm25_score": 1.615579,
+     "graph_score": 0.0
     },
     {
      "idx": 31,
-     "score": 0.025911
+     "score": 0.025911,
+     "vec_score": 0.365301,
+     "bm25_score": 4.338891,
+     "graph_score": 0.0
     },
     {
      "idx": 29,
-     "score": 0.024595
+     "score": 0.024595,
+     "vec_score": 0.362276,
+     "bm25_score": 1.526302,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.023323
+     "score": 0.023323,
+     "vec_score": 0.342197,
+     "bm25_score": 1.127489,
+     "graph_score": 0.0
     },
     {
      "idx": 28,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.492585,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.0,
+     "bm25_score": 7.140618,
+     "graph_score": 0.0
     },
     {
      "idx": 45,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.473172,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.455301,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.454278,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.439508,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.429149,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 2,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.414212,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.409609,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.406346,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.406225,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.402603,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.401269,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -329,103 +554,178 @@
    "rrf": [
     {
      "idx": 59,
-     "score": 0.03306
+     "score": 0.03306,
+     "vec_score": 0.569341,
+     "bm25_score": 20.120946,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.031054
+     "score": 0.031054,
+     "vec_score": 0.545987,
+     "bm25_score": 8.696554,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.03031
+     "score": 0.03031,
+     "vec_score": 0.501898,
+     "bm25_score": 9.308425,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.029958
+     "score": 0.029958,
+     "vec_score": 0.491641,
+     "bm25_score": 11.186174,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.02967
+     "score": 0.02967,
+     "vec_score": 0.524172,
+     "bm25_score": 8.269156,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.029643
+     "score": 0.029643,
+     "vec_score": 0.481853,
+     "bm25_score": 12.450851,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.029514
+     "score": 0.029514,
+     "vec_score": 0.483787,
+     "bm25_score": 11.136762,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.029052
+     "score": 0.029052,
+     "vec_score": 0.464199,
+     "bm25_score": 14.68413,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.027783
+     "score": 0.027783,
+     "vec_score": 0.482101,
+     "bm25_score": 8.250848,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.026976
+     "score": 0.026976,
+     "vec_score": 0.579345,
+     "bm25_score": 6.026257,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.026779
+     "score": 0.026779,
+     "vec_score": 0.509551,
+     "bm25_score": 6.168238,
+     "graph_score": 0.0
     },
     {
      "idx": 38,
-     "score": 0.026515
+     "score": 0.026515,
+     "vec_score": 0.436528,
+     "bm25_score": 8.782165,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.0262
+     "score": 0.0262,
+     "vec_score": 0.437846,
+     "bm25_score": 8.544409,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.026077
+     "score": 0.026077,
+     "vec_score": 0.54432,
+     "bm25_score": 6.024271,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.025463
+     "score": 0.025463,
+     "vec_score": 0.440635,
+     "bm25_score": 7.875367,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.02524
+     "score": 0.02524,
+     "vec_score": 0.525502,
+     "bm25_score": 5.954221,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.024394
+     "score": 0.024394,
+     "vec_score": 0.383419,
+     "bm25_score": 8.502121,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.024056
+     "score": 0.024056,
+     "vec_score": 0.467596,
+     "bm25_score": 6.155727,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.024052
+     "score": 0.024052,
+     "vec_score": 0.498992,
+     "bm25_score": 5.905866,
+     "graph_score": 0.0
     },
     {
      "idx": 30,
-     "score": 0.023889
+     "score": 0.023889,
+     "vec_score": 0.394006,
+     "bm25_score": 8.116052,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.02381
+     "score": 0.02381,
+     "vec_score": 0.496861,
+     "bm25_score": 5.920281,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.023736
+     "score": 0.023736,
+     "vec_score": 0.435734,
+     "bm25_score": 6.228928,
+     "graph_score": 0.0
     },
     {
      "idx": 37,
-     "score": 0.023718
+     "score": 0.023718,
+     "vec_score": 0.40533,
+     "bm25_score": 7.85236,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.023667
+     "score": 0.023667,
+     "vec_score": 0.49808,
+     "bm25_score": 5.851039,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.023434
+     "score": 0.023434,
+     "vec_score": 0.477674,
+     "bm25_score": 6.00476,
+     "graph_score": 0.0
     }
    ]
   },
@@ -436,103 +736,178 @@
    "rrf": [
     {
      "idx": 47,
-     "score": 0.027419
+     "score": 0.027419,
+     "vec_score": 0.408312,
+     "bm25_score": 7.125008,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.016667
+     "score": 0.016667,
+     "vec_score": 0.508254,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.016393
+     "score": 0.016393,
+     "vec_score": 0.500973,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.016129
+     "score": 0.016129,
+     "vec_score": 0.491346,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.483436,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.015625
+     "score": 0.015625,
+     "vec_score": 0.482266,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.015385
+     "score": 0.015385,
+     "vec_score": 0.477839,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.47339,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.465828,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.465066,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.463115,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.459282,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.45918,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.456824,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.453951,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.449295,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.448235,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 29,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.448063,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 30,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.446302,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.443673,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.437672,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.436051,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 45,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.433987,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.012195
+     "score": 0.012195,
+     "vec_score": 0.433485,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.012048
+     "score": 0.012048,
+     "vec_score": 0.429871,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -543,103 +918,178 @@
    "rrf": [
     {
      "idx": 50,
-     "score": 0.032522
+     "score": 0.032522,
+     "vec_score": 0.429022,
+     "bm25_score": 6.042943,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.031592
+     "score": 0.031592,
+     "vec_score": 0.404693,
+     "bm25_score": 6.729688,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.03018
+     "score": 0.03018,
+     "vec_score": 0.44811,
+     "bm25_score": 2.076994,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.029644
+     "score": 0.029644,
+     "vec_score": 0.406864,
+     "bm25_score": 2.080163,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.029572
+     "score": 0.029572,
+     "vec_score": 0.371413,
+     "bm25_score": 2.081235,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.028694
+     "score": 0.028694,
+     "vec_score": 0.424821,
+     "bm25_score": 2.075072,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.027629
+     "score": 0.027629,
+     "vec_score": 0.429746,
+     "bm25_score": 2.051838,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.02739
+     "score": 0.02739,
+     "vec_score": 0.347863,
+     "bm25_score": 2.081219,
+     "graph_score": 0.0
     },
     {
      "idx": 45,
-     "score": 0.026879
+     "score": 0.026879,
+     "vec_score": 0.408817,
+     "bm25_score": 2.054576,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.026748
+     "score": 0.026748,
+     "vec_score": 0.344586,
+     "bm25_score": 2.08098,
+     "graph_score": 0.0
     },
     {
      "idx": 28,
-     "score": 0.026541
+     "score": 0.026541,
+     "vec_score": 0.395123,
+     "bm25_score": 2.064462,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.026387
+     "score": 0.026387,
+     "vec_score": 0.343906,
+     "bm25_score": 2.080695,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.025829
+     "score": 0.025829,
+     "vec_score": 0.421924,
+     "bm25_score": 2.00809,
+     "graph_score": 0.0
     },
     {
      "idx": 0,
-     "score": 0.025794
+     "score": 0.025794,
+     "vec_score": 0.350154,
+     "bm25_score": 2.077565,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.025397
+     "score": 0.025397,
+     "vec_score": 0.390612,
+     "bm25_score": 2.039284,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.025182
+     "score": 0.025182,
+     "vec_score": 0.353452,
+     "bm25_score": 2.076309,
+     "graph_score": 0.0
     },
     {
      "idx": 30,
-     "score": 0.025123
+     "score": 0.025123,
+     "vec_score": 0.331005,
+     "bm25_score": 2.080637,
+     "graph_score": 0.0
     },
     {
      "idx": 49,
-     "score": 0.025063
+     "score": 0.025063,
+     "vec_score": 0.36834,
+     "bm25_score": 2.061311,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.024961
+     "score": 0.024961,
+     "vec_score": 0.347546,
+     "bm25_score": 2.076567,
+     "graph_score": 0.0
     },
     {
      "idx": 47,
-     "score": 0.024615
+     "score": 0.024615,
+     "vec_score": 0.364213,
+     "bm25_score": 2.055672,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.024607
+     "score": 0.024607,
+     "vec_score": 0.398873,
+     "bm25_score": 1.992768,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.024449
+     "score": 0.024449,
+     "vec_score": 0.313314,
+     "bm25_score": 2.080667,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.024423
+     "score": 0.024423,
+     "vec_score": 0.357503,
+     "bm25_score": 2.056079,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.024086
+     "score": 0.024086,
+     "vec_score": 0.368987,
+     "bm25_score": 2.022698,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.023994
+     "score": 0.023994,
+     "vec_score": 0.315951,
+     "bm25_score": 2.080032,
+     "graph_score": 0.0
     }
    ]
   },
@@ -650,103 +1100,178 @@
    "rrf": [
     {
      "idx": 48,
-     "score": 0.032292
+     "score": 0.032292,
+     "vec_score": 0.49269,
+     "bm25_score": 10.029163,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.031054
+     "score": 0.031054,
+     "vec_score": 0.478124,
+     "bm25_score": 3.747006,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.03101
+     "score": 0.03101,
+     "vec_score": 0.490221,
+     "bm25_score": 2.800497,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.030886
+     "score": 0.030886,
+     "vec_score": 0.475173,
+     "bm25_score": 4.976489,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.029727
+     "score": 0.029727,
+     "vec_score": 0.511638,
+     "bm25_score": 1.044466,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.029644
+     "score": 0.029644,
+     "vec_score": 0.489401,
+     "bm25_score": 1.674441,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.028992
+     "score": 0.028992,
+     "vec_score": 0.468786,
+     "bm25_score": 1.839905,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.02885
+     "score": 0.02885,
+     "vec_score": 0.446788,
+     "bm25_score": 1.973932,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.028205
+     "score": 0.028205,
+     "vec_score": 0.432946,
+     "bm25_score": 2.083295,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.028083
+     "score": 0.028083,
+     "vec_score": 0.44171,
+     "bm25_score": 1.8513,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.027973
+     "score": 0.027973,
+     "vec_score": 0.458887,
+     "bm25_score": 1.541543,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.027588
+     "score": 0.027588,
+     "vec_score": 0.449808,
+     "bm25_score": 1.497324,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.027501
+     "score": 0.027501,
+     "vec_score": 0.409712,
+     "bm25_score": 3.531475,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.027273
+     "score": 0.027273,
+     "vec_score": 0.438675,
+     "bm25_score": 1.585949,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.025989
+     "score": 0.025989,
+     "vec_score": 0.416106,
+     "bm25_score": 1.57271,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.023796
+     "score": 0.023796,
+     "vec_score": 0.385099,
+     "bm25_score": 0.859387,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.023514
+     "score": 0.023514,
+     "vec_score": 0.374793,
+     "bm25_score": 1.371059,
+     "graph_score": 0.0
     },
     {
      "idx": 52,
-     "score": 0.022862
+     "score": 0.022862,
+     "vec_score": 0.377461,
+     "bm25_score": 0.457769,
+     "graph_score": 0.0
     },
     {
      "idx": 37,
-     "score": 0.016667
+     "score": 0.016667,
+     "vec_score": 0.513253,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.016129
+     "score": 0.016129,
+     "vec_score": 0.505247,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.497695,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 15,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.477923,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.443286,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.443252,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.0,
+     "bm25_score": 0.768789,
+     "graph_score": 0.0
     }
    ]
   },
@@ -757,103 +1282,178 @@
    "rrf": [
     {
      "idx": 17,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.572712,
+     "bm25_score": 12.223077,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.032522
+     "score": 0.032522,
+     "vec_score": 0.527633,
+     "bm25_score": 6.395906,
+     "graph_score": 0.0
     },
     {
      "idx": 43,
-     "score": 0.032522
+     "score": 0.032522,
+     "vec_score": 0.494212,
+     "bm25_score": 11.190636,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.031746
+     "score": 0.031746,
+     "vec_score": 0.488605,
+     "bm25_score": 4.755369,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.015625
+     "score": 0.015625,
+     "vec_score": 0.480323,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.015385
+     "score": 0.015385,
+     "vec_score": 0.475635,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.469627,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.467565,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.467226,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.460078,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.459967,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 0,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.455856,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.45009,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.449169,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 38,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.448208,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.447694,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.437887,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.436701,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.436079,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 37,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.435162,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 10,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.434505,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 40,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.431961,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.012195
+     "score": 0.012195,
+     "vec_score": 0.43179,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.012048
+     "score": 0.012048,
+     "vec_score": 0.431602,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.011905
+     "score": 0.011905,
+     "vec_score": 0.430649,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -864,103 +1464,178 @@
    "rrf": [
     {
      "idx": 26,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.592177,
+     "bm25_score": 17.109561,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.032787
+     "score": 0.032787,
+     "vec_score": 0.52645,
+     "bm25_score": 14.101564,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.032002
+     "score": 0.032002,
+     "vec_score": 0.513983,
+     "bm25_score": 12.365874,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.032002
+     "score": 0.032002,
+     "vec_score": 0.512429,
+     "bm25_score": 14.030315,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.03101
+     "score": 0.03101,
+     "vec_score": 0.503657,
+     "bm25_score": 8.611816,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.029877
+     "score": 0.029877,
+     "vec_score": 0.485688,
+     "bm25_score": 7.825708,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.029236
+     "score": 0.029236,
+     "vec_score": 0.479908,
+     "bm25_score": 3.88026,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.029211
+     "score": 0.029211,
+     "vec_score": 0.495843,
+     "bm25_score": 2.619267,
+     "graph_score": 0.0
     },
     {
      "idx": 29,
-     "score": 0.028814
+     "score": 0.028814,
+     "vec_score": 0.475428,
+     "bm25_score": 3.615394,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.028283
+     "score": 0.028283,
+     "vec_score": 0.508106,
+     "bm25_score": 0.594689,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.028039
+     "score": 0.028039,
+     "vec_score": 0.48951,
+     "bm25_score": 0.883334,
+     "graph_score": 0.0
     },
     {
      "idx": 0,
-     "score": 0.027598
+     "score": 0.027598,
+     "vec_score": 0.471331,
+     "bm25_score": 1.75854,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.027151
+     "score": 0.027151,
+     "vec_score": 0.439873,
+     "bm25_score": 3.449192,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.026154
+     "score": 0.026154,
+     "vec_score": 0.457253,
+     "bm25_score": 0.595644,
+     "graph_score": 0.0
     },
     {
      "idx": 52,
-     "score": 0.02607
+     "score": 0.02607,
+     "vec_score": 0.413505,
+     "bm25_score": 3.534838,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.025859
+     "score": 0.025859,
+     "vec_score": 0.435303,
+     "bm25_score": 0.938084,
+     "graph_score": 0.0
     },
     {
      "idx": 30,
-     "score": 0.025658
+     "score": 0.025658,
+     "vec_score": 0.455863,
+     "bm25_score": 0.560952,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.02481
+     "score": 0.02481,
+     "vec_score": 0.409428,
+     "bm25_score": 1.202666,
+     "graph_score": 0.0
     },
     {
      "idx": 43,
-     "score": 0.02425
+     "score": 0.02425,
+     "vec_score": 0.422015,
+     "bm25_score": 0.556741,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.024198
+     "score": 0.024198,
+     "vec_score": 0.393874,
+     "bm25_score": 1.239995,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.024027
+     "score": 0.024027,
+     "vec_score": 0.398438,
+     "bm25_score": 0.7335,
+     "graph_score": 0.0
     },
     {
      "idx": 23,
-     "score": 0.023823
+     "score": 0.023823,
+     "vec_score": 0.419156,
+     "bm25_score": 0.533703,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.023513
+     "score": 0.023513,
+     "vec_score": 0.396194,
+     "bm25_score": 0.716492,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.022465
+     "score": 0.022465,
+     "vec_score": 0.394596,
+     "bm25_score": 0.5009,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.021613
+     "score": 0.021613,
+     "vec_score": 0.374525,
+     "bm25_score": 0.387658,
+     "graph_score": 0.0
     }
    ]
   },
@@ -971,103 +1646,178 @@
    "rrf": [
     {
      "idx": 57,
-     "score": 0.032266
+     "score": 0.032266,
+     "vec_score": 0.452576,
+     "bm25_score": 9.867216,
+     "graph_score": 0.0
     },
     {
      "idx": 30,
-     "score": 0.031514
+     "score": 0.031514,
+     "vec_score": 0.437516,
+     "bm25_score": 9.248877,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.029167
+     "score": 0.029167,
+     "vec_score": 0.359924,
+     "bm25_score": 15.172646,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.028083
+     "score": 0.028083,
+     "vec_score": 0.366066,
+     "bm25_score": 5.281119,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.027367
+     "score": 0.027367,
+     "vec_score": 0.349595,
+     "bm25_score": 7.345123,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.027212
+     "score": 0.027212,
+     "vec_score": 0.377029,
+     "bm25_score": 4.158732,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.027047
+     "score": 0.027047,
+     "vec_score": 0.381761,
+     "bm25_score": 4.153134,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.026989
+     "score": 0.026989,
+     "vec_score": 0.349051,
+     "bm25_score": 7.17564,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.026901
+     "score": 0.026901,
+     "vec_score": 0.399103,
+     "bm25_score": 4.126484,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.026779
+     "score": 0.026779,
+     "vec_score": 0.350136,
+     "bm25_score": 6.154804,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.026768
+     "score": 0.026768,
+     "vec_score": 0.479648,
+     "bm25_score": 4.003174,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.026263
+     "score": 0.026263,
+     "vec_score": 0.439573,
+     "bm25_score": 4.031658,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.02603
+     "score": 0.02603,
+     "vec_score": 0.457181,
+     "bm25_score": 3.985536,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.025739
+     "score": 0.025739,
+     "vec_score": 0.462509,
+     "bm25_score": 3.937244,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.025603
+     "score": 0.025603,
+     "vec_score": 0.379107,
+     "bm25_score": 4.119959,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.025362
+     "score": 0.025362,
+     "vec_score": 0.338803,
+     "bm25_score": 4.161391,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.025123
+     "score": 0.025123,
+     "vec_score": 0.332932,
+     "bm25_score": 4.164689,
+     "graph_score": 0.0
     },
     {
      "idx": 38,
-     "score": 0.024908
+     "score": 0.024908,
+     "vec_score": 0.312258,
+     "bm25_score": 6.709432,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.024878
+     "score": 0.024878,
+     "vec_score": 0.340418,
+     "bm25_score": 4.160063,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.024675
+     "score": 0.024675,
+     "vec_score": 0.404081,
+     "bm25_score": 3.946854,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.024563
+     "score": 0.024563,
+     "vec_score": 0.356096,
+     "bm25_score": 4.14639,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.024187
+     "score": 0.024187,
+     "vec_score": 0.322136,
+     "bm25_score": 4.161334,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.023901
+     "score": 0.023901,
+     "vec_score": 0.388775,
+     "bm25_score": 3.969481,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.023888
+     "score": 0.023888,
+     "vec_score": 0.320276,
+     "bm25_score": 4.160326,
+     "graph_score": 0.0
     },
     {
      "idx": 43,
-     "score": 0.02369
+     "score": 0.02369,
+     "vec_score": 0.364646,
+     "bm25_score": 4.059525,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1078,103 +1828,178 @@
    "rrf": [
     {
      "idx": 3,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.696015,
+     "bm25_score": 7.020345,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.032002
+     "score": 0.032002,
+     "vec_score": 0.555954,
+     "bm25_score": 1.992839,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.030622
+     "score": 0.030622,
+     "vec_score": 0.565072,
+     "bm25_score": 1.772002,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.030579
+     "score": 0.030579,
+     "vec_score": 0.531435,
+     "bm25_score": 1.970309,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.029907
+     "score": 0.029907,
+     "vec_score": 0.570301,
+     "bm25_score": 1.299935,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.02971
+     "score": 0.02971,
+     "vec_score": 0.523517,
+     "bm25_score": 1.931495,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.02967
+     "score": 0.02967,
+     "vec_score": 0.525524,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.02904
+     "score": 0.02904,
+     "vec_score": 0.534087,
+     "bm25_score": 1.708788,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.02885
+     "score": 0.02885,
+     "vec_score": 0.503502,
+     "bm25_score": 1.892641,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.028718
+     "score": 0.028718,
+     "vec_score": 0.545678,
+     "bm25_score": 1.261084,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.028612
+     "score": 0.028612,
+     "vec_score": 0.550632,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.028595
+     "score": 0.028595,
+     "vec_score": 0.505494,
+     "bm25_score": 1.814439,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.028259
+     "score": 0.028259,
+     "vec_score": 0.50306,
+     "bm25_score": 1.854292,
+     "graph_score": 0.0
     },
     {
      "idx": 9,
-     "score": 0.027757
+     "score": 0.027757,
+     "vec_score": 0.44169,
+     "bm25_score": 4.915772,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.027746
+     "score": 0.027746,
+     "vec_score": 0.532166,
+     "bm25_score": 0.727616,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.027598
+     "score": 0.027598,
+     "vec_score": 0.50316,
+     "bm25_score": 1.728006,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.026786
+     "score": 0.026786,
+     "vec_score": 0.479687,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.02481
+     "score": 0.02481,
+     "vec_score": 0.438641,
+     "bm25_score": 1.356947,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.023467
+     "score": 0.023467,
+     "vec_score": 0.41834,
+     "bm25_score": 0.903612,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.531356,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 15,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.500129,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.496094,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.486383,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.481263,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.479417,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1185,103 +2010,178 @@
    "rrf": [
     {
      "idx": 18,
-     "score": 0.027305
+     "score": 0.027305,
+     "vec_score": 0.364307,
+     "bm25_score": 3.964966,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.016667
+     "score": 0.016667,
+     "vec_score": 0.465267,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.016393
+     "score": 0.016393,
+     "vec_score": 0.464839,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.016129
+     "score": 0.016129,
+     "vec_score": 0.449534,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.441948,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.015625
+     "score": 0.015625,
+     "vec_score": 0.430557,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.015385
+     "score": 0.015385,
+     "vec_score": 0.429972,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.426017,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.422813,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.41941,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.416732,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.41557,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.411499,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.410896,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.410805,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 15,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.408093,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.405076,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.395629,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.39279,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 10,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.392498,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.390595,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.389311,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.389276,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.012195
+     "score": 0.012195,
+     "vec_score": 0.386804,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 40,
-     "score": 0.012048
+     "score": 0.012048,
+     "vec_score": 0.382994,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1292,103 +2192,178 @@
    "rrf": [
     {
      "idx": 13,
-     "score": 0.031818
+     "score": 0.031818,
+     "vec_score": 0.489692,
+     "bm25_score": 1.674441,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.031281
+     "score": 0.031281,
+     "vec_score": 0.447292,
+     "bm25_score": 4.254603,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.031258
+     "score": 0.031258,
+     "vec_score": 0.450322,
+     "bm25_score": 2.083295,
+     "graph_score": 0.0
     },
     {
      "idx": 52,
-     "score": 0.031159
+     "score": 0.031159,
+     "vec_score": 0.432308,
+     "bm25_score": 6.295678,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.031054
+     "score": 0.031054,
+     "vec_score": 0.456358,
+     "bm25_score": 1.585949,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.030886
+     "score": 0.030886,
+     "vec_score": 0.478318,
+     "bm25_score": 1.541543,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.03031
+     "score": 0.03031,
+     "vec_score": 0.446619,
+     "bm25_score": 1.8513,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.028958
+     "score": 0.028958,
+     "vec_score": 0.45387,
+     "bm25_score": 0.743154,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.028589
+     "score": 0.028589,
+     "vec_score": 0.397575,
+     "bm25_score": 4.312682,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.028175
+     "score": 0.028175,
+     "vec_score": 0.424715,
+     "bm25_score": 1.497324,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.026861
+     "score": 0.026861,
+     "vec_score": 0.37338,
+     "bm25_score": 1.97176,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.026743
+     "score": 0.026743,
+     "vec_score": 0.407861,
+     "bm25_score": 1.371059,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.025817
+     "score": 0.025817,
+     "vec_score": 0.369122,
+     "bm25_score": 1.57271,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.024758
+     "score": 0.024758,
+     "vec_score": 0.361106,
+     "bm25_score": 1.044466,
+     "graph_score": 0.0
     },
     {
      "idx": 29,
-     "score": 0.023684
+     "score": 0.023684,
+     "vec_score": 0.357695,
+     "bm25_score": 0.601971,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.023407
+     "score": 0.023407,
+     "vec_score": 0.337247,
+     "bm25_score": 0.859387,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.45542,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.442001,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.426829,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.425455,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.421185,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.41704,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.0,
+     "bm25_score": 0.768789,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.414435,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.412023,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1399,103 +2374,178 @@
    "rrf": [
     {
      "idx": 29,
-     "score": 0.032522
+     "score": 0.032522,
+     "vec_score": 0.567609,
+     "bm25_score": 8.171356,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.031281
+     "score": 0.031281,
+     "vec_score": 0.564838,
+     "bm25_score": 1.970309,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.031099
+     "score": 0.031099,
+     "vec_score": 0.541901,
+     "bm25_score": 8.998063,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.03101
+     "score": 0.03101,
+     "vec_score": 0.556405,
+     "bm25_score": 1.992839,
+     "graph_score": 0.0
     },
     {
      "idx": 19,
-     "score": 0.030159
+     "score": 0.030159,
+     "vec_score": 0.536722,
+     "bm25_score": 6.695631,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.029762
+     "score": 0.029762,
+     "vec_score": 0.557576,
+     "bm25_score": 1.772002,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.028718
+     "score": 0.028718,
+     "vec_score": 0.554727,
+     "bm25_score": 1.642383,
+     "graph_score": 0.0
     },
     {
      "idx": 31,
-     "score": 0.028446
+     "score": 0.028446,
+     "vec_score": 0.491297,
+     "bm25_score": 2.244263,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.028405
+     "score": 0.028405,
+     "vec_score": 0.507306,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.02837
+     "score": 0.02837,
+     "vec_score": 0.536317,
+     "bm25_score": 1.854292,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.027778
+     "score": 0.027778,
+     "vec_score": 0.439838,
+     "bm25_score": 18.201515,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.027651
+     "score": 0.027651,
+     "vec_score": 0.500748,
+     "bm25_score": 1.892641,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.027584
+     "score": 0.027584,
+     "vec_score": 0.545381,
+     "bm25_score": 1.299935,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.027425
+     "score": 0.027425,
+     "vec_score": 0.480417,
+     "bm25_score": 1.931495,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.027347
+     "score": 0.027347,
+     "vec_score": 0.54894,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.026743
+     "score": 0.026743,
+     "vec_score": 0.488378,
+     "bm25_score": 1.814439,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.026501
+     "score": 0.026501,
+     "vec_score": 0.498863,
+     "bm25_score": 1.708788,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.026014
+     "score": 0.026014,
+     "vec_score": 0.503117,
+     "bm25_score": 1.261084,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.025937
+     "score": 0.025937,
+     "vec_score": 0.529183,
+     "bm25_score": 0.727616,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.025463
+     "score": 0.025463,
+     "vec_score": 0.454265,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.023911
+     "score": 0.023911,
+     "vec_score": 0.43238,
+     "bm25_score": 1.546205,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.022791
+     "score": 0.022791,
+     "vec_score": 0.39203,
+     "bm25_score": 1.467732,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.022722
+     "score": 0.022722,
+     "vec_score": 0.415573,
+     "bm25_score": 1.356947,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.016667
+     "score": 0.016667,
+     "vec_score": 0.617384,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.537806,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1506,103 +2556,178 @@
    "rrf": [
     {
      "idx": 20,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.533076,
+     "bm25_score": 8.412313,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.032522
+     "score": 0.032522,
+     "vec_score": 0.503467,
+     "bm25_score": 5.869083,
+     "graph_score": 0.0
     },
     {
      "idx": 40,
-     "score": 0.031778
+     "score": 0.031778,
+     "vec_score": 0.481302,
+     "bm25_score": 7.951005,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.031025
+     "score": 0.031025,
+     "vec_score": 0.455381,
+     "bm25_score": 4.435828,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.029116
+     "score": 0.029116,
+     "vec_score": 0.496392,
+     "bm25_score": 2.075072,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.02782
+     "score": 0.02782,
+     "vec_score": 0.484143,
+     "bm25_score": 2.063242,
+     "graph_score": 0.0
     },
     {
      "idx": 0,
-     "score": 0.027397
+     "score": 0.027397,
+     "vec_score": 0.429233,
+     "bm25_score": 2.077565,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.027273
+     "score": 0.027273,
+     "vec_score": 0.422059,
+     "bm25_score": 2.080163,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.026611
+     "score": 0.026611,
+     "vec_score": 0.449655,
+     "bm25_score": 2.059979,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.026491
+     "score": 0.026491,
+     "vec_score": 0.427697,
+     "bm25_score": 2.076309,
+     "graph_score": 0.0
     },
     {
      "idx": 45,
-     "score": 0.02642
+     "score": 0.02642,
+     "vec_score": 0.449836,
+     "bm25_score": 2.054576,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.025774
+     "score": 0.025774,
+     "vec_score": 0.485158,
+     "bm25_score": 1.992768,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.025729
+     "score": 0.025729,
+     "vec_score": 0.449508,
+     "bm25_score": 2.051838,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.025564
+     "score": 0.025564,
+     "vec_score": 0.370774,
+     "bm25_score": 2.08098,
+     "graph_score": 0.0
     },
     {
      "idx": 28,
-     "score": 0.025504
+     "score": 0.025504,
+     "vec_score": 0.425437,
+     "bm25_score": 2.064462,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.025334
+     "score": 0.025334,
+     "vec_score": 0.364065,
+     "bm25_score": 2.082344,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.025196
+     "score": 0.025196,
+     "vec_score": 0.4399,
+     "bm25_score": 2.039284,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.025074
+     "score": 0.025074,
+     "vec_score": 0.375081,
+     "bm25_score": 2.080032,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.024877
+     "score": 0.024877,
+     "vec_score": 0.393759,
+     "bm25_score": 2.076567,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.02449
+     "score": 0.02449,
+     "vec_score": 0.447467,
+     "bm25_score": 2.00809,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.024128
+     "score": 0.024128,
+     "vec_score": 0.406544,
+     "bm25_score": 2.073195,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.023965
+     "score": 0.023965,
+     "vec_score": 0.345006,
+     "bm25_score": 2.080695,
+     "graph_score": 0.0
     },
     {
      "idx": 49,
-     "score": 0.023953
+     "score": 0.023953,
+     "vec_score": 0.407494,
+     "bm25_score": 2.061311,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.023693
+     "score": 0.023693,
+     "vec_score": 0.437027,
+     "bm25_score": 1.992248,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.023573
+     "score": 0.023573,
+     "vec_score": 0.416602,
+     "bm25_score": 2.022698,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1613,103 +2738,178 @@
    "rrf": [
     {
      "idx": 44,
-     "score": 0.032292
+     "score": 0.032292,
+     "vec_score": 0.578339,
+     "bm25_score": 3.603406,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.031514
+     "score": 0.031514,
+     "vec_score": 0.487675,
+     "bm25_score": 7.07754,
+     "graph_score": 0.0
     },
     {
      "idx": 45,
-     "score": 0.03
+     "score": 0.03,
+     "vec_score": 0.449493,
+     "bm25_score": 7.92168,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.029857
+     "score": 0.029857,
+     "vec_score": 0.464337,
+     "bm25_score": 2.363224,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.028694
+     "score": 0.028694,
+     "vec_score": 0.443505,
+     "bm25_score": 5.432324,
+     "graph_score": 0.0
     },
     {
      "idx": 47,
-     "score": 0.026703
+     "score": 0.026703,
+     "vec_score": 0.405171,
+     "bm25_score": 7.125008,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.025801
+     "score": 0.025801,
+     "vec_score": 0.405402,
+     "bm25_score": 2.748821,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.016393
+     "score": 0.016393,
+     "vec_score": 0.567078,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.016129
+     "score": 0.016129,
+     "vec_score": 0.528086,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.520449,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.015625
+     "score": 0.015625,
+     "vec_score": 0.494108,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 1,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.466511,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.46501,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 29,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.0,
+     "bm25_score": 1.672692,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.463298,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.459039,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.458454,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.454012,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.451687,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.451191,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.444863,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 49,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.444797,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.442266,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.440457,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 37,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.43638,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1720,103 +2920,178 @@
    "rrf": [
     {
      "idx": 4,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.71156,
+     "bm25_score": 13.598723,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.032787
+     "score": 0.032787,
+     "vec_score": 0.700173,
+     "bm25_score": 12.984959,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.031754
+     "score": 0.031754,
+     "vec_score": 0.613076,
+     "bm25_score": 6.98395,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.031746
+     "score": 0.031746,
+     "vec_score": 0.603431,
+     "bm25_score": 7.711847,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.030835
+     "score": 0.030835,
+     "vec_score": 0.561786,
+     "bm25_score": 8.031572,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.030536
+     "score": 0.030536,
+     "vec_score": 0.57082,
+     "bm25_score": 6.696157,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.029418
+     "score": 0.029418,
+     "vec_score": 0.553125,
+     "bm25_score": 3.189913,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.028814
+     "score": 0.028814,
+     "vec_score": 0.567123,
+     "bm25_score": 1.992839,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.02879
+     "score": 0.02879,
+     "vec_score": 0.547272,
+     "bm25_score": 3.078335,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.028205
+     "score": 0.028205,
+     "vec_score": 0.588528,
+     "bm25_score": 1.772002,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.027347
+     "score": 0.027347,
+     "vec_score": 0.489313,
+     "bm25_score": 4.016419,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.027222
+     "score": 0.027222,
+     "vec_score": 0.527428,
+     "bm25_score": 1.892641,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.026944
+     "score": 0.026944,
+     "vec_score": 0.548168,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.026743
+     "score": 0.026743,
+     "vec_score": 0.496299,
+     "bm25_score": 2.352028,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.026334
+     "score": 0.026334,
+     "vec_score": 0.496612,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.026145
+     "score": 0.026145,
+     "vec_score": 0.510632,
+     "bm25_score": 1.814439,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.025679
+     "score": 0.025679,
+     "vec_score": 0.511042,
+     "bm25_score": 1.642383,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.025418
+     "score": 0.025418,
+     "vec_score": 0.515888,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 33,
-     "score": 0.025062
+     "score": 0.025062,
+     "vec_score": 0.460919,
+     "bm25_score": 1.925754,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.024812
+     "score": 0.024812,
+     "vec_score": 0.41764,
+     "bm25_score": 2.489379,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.024695
+     "score": 0.024695,
+     "vec_score": 0.490191,
+     "bm25_score": 1.377595,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.024394
+     "score": 0.024394,
+     "vec_score": 0.396232,
+     "bm25_score": 2.855495,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.024265
+     "score": 0.024265,
+     "vec_score": 0.471931,
+     "bm25_score": 1.755628,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.024096
+     "score": 0.024096,
+     "vec_score": 0.483858,
+     "bm25_score": 1.261084,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.023911
+     "score": 0.023911,
+     "vec_score": 0.423752,
+     "bm25_score": 1.842487,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1827,103 +3102,178 @@
    "rrf": [
     {
      "idx": 16,
-     "score": 0.033333
+     "score": 0.033333,
+     "vec_score": 0.621722,
+     "bm25_score": 13.053577,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.032787
+     "score": 0.032787,
+     "vec_score": 0.554152,
+     "bm25_score": 4.910164,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.031054
+     "score": 0.031054,
+     "vec_score": 0.49884,
+     "bm25_score": 4.554081,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.030835
+     "score": 0.030835,
+     "vec_score": 0.54757,
+     "bm25_score": 3.433057,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.03055
+     "score": 0.03055,
+     "vec_score": 0.521577,
+     "bm25_score": 3.493538,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.030536
+     "score": 0.030536,
+     "vec_score": 0.500547,
+     "bm25_score": 3.668497,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.030366
+     "score": 0.030366,
+     "vec_score": 0.492244,
+     "bm25_score": 4.022647,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.030331
+     "score": 0.030331,
+     "vec_score": 0.492399,
+     "bm25_score": 3.820378,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.02904
+     "score": 0.02904,
+     "vec_score": 0.463108,
+     "bm25_score": 3.598532,
+     "graph_score": 0.0
     },
     {
      "idx": 14,
-     "score": 0.027402
+     "score": 0.027402,
+     "vec_score": 0.457419,
+     "bm25_score": 1.897398,
+     "graph_score": 0.0
     },
     {
      "idx": 25,
-     "score": 0.027106
+     "score": 0.027106,
+     "vec_score": 0.475225,
+     "bm25_score": 1.299935,
+     "graph_score": 0.0
     },
     {
      "idx": 42,
-     "score": 0.026357
+     "score": 0.026357,
+     "vec_score": 0.460764,
+     "bm25_score": 0.89552,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.02632
+     "score": 0.02632,
+     "vec_score": 0.454501,
+     "bm25_score": 1.356947,
+     "graph_score": 0.0
     },
     {
      "idx": 57,
-     "score": 0.025833
+     "score": 0.025833,
+     "vec_score": 0.433596,
+     "bm25_score": 1.708788,
+     "graph_score": 0.0
     },
     {
      "idx": 6,
-     "score": 0.025747
+     "score": 0.025747,
+     "vec_score": 0.430703,
+     "bm25_score": 1.765128,
+     "graph_score": 0.0
     },
     {
      "idx": 32,
-     "score": 0.025487
+     "score": 0.025487,
+     "vec_score": 0.452596,
+     "bm25_score": 0.727616,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.024802
+     "score": 0.024802,
+     "vec_score": 0.377144,
+     "bm25_score": 2.664567,
+     "graph_score": 0.0
     },
     {
      "idx": 3,
-     "score": 0.024269
+     "score": 0.024269,
+     "vec_score": 0.402837,
+     "bm25_score": 1.642383,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.02343
+     "score": 0.02343,
+     "vec_score": 0.347354,
+     "bm25_score": 2.136309,
+     "graph_score": 0.0
     },
     {
      "idx": 53,
-     "score": 0.022688
+     "score": 0.022688,
+     "vec_score": 0.338838,
+     "bm25_score": 1.728006,
+     "graph_score": 0.0
     },
     {
      "idx": 54,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.522162,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 22,
-     "score": 0.015385
+     "score": 0.015385,
+     "vec_score": 0.503815,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 43,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.0,
+     "bm25_score": 2.524074,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.469702,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 35,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.453649,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -1934,103 +3284,178 @@
    "rrf": [
     {
      "idx": 1,
-     "score": 0.016667
+     "score": 0.016667,
+     "vec_score": 0.483106,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.016393
+     "score": 0.016393,
+     "vec_score": 0.482631,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.016129
+     "score": 0.016129,
+     "vec_score": 0.467614,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.015873
+     "score": 0.015873,
+     "vec_score": 0.457869,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.015625
+     "score": 0.015625,
+     "vec_score": 0.456906,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.015385
+     "score": 0.015385,
+     "vec_score": 0.454327,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.015152
+     "score": 0.015152,
+     "vec_score": 0.451233,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.014925
+     "score": 0.014925,
+     "vec_score": 0.450307,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.014706
+     "score": 0.014706,
+     "vec_score": 0.437046,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.014493
+     "score": 0.014493,
+     "vec_score": 0.435402,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.014286
+     "score": 0.014286,
+     "vec_score": 0.43084,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.014085
+     "score": 0.014085,
+     "vec_score": 0.430571,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.013889
+     "score": 0.013889,
+     "vec_score": 0.428744,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 56,
-     "score": 0.013699
+     "score": 0.013699,
+     "vec_score": 0.425319,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 0,
-     "score": 0.013514
+     "score": 0.013514,
+     "vec_score": 0.425147,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 27,
-     "score": 0.013333
+     "score": 0.013333,
+     "vec_score": 0.424982,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 5,
-     "score": 0.013158
+     "score": 0.013158,
+     "vec_score": 0.423041,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 11,
-     "score": 0.012987
+     "score": 0.012987,
+     "vec_score": 0.420965,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 59,
-     "score": 0.012821
+     "score": 0.012821,
+     "vec_score": 0.420921,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 34,
-     "score": 0.012658
+     "score": 0.012658,
+     "vec_score": 0.420847,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 15,
-     "score": 0.0125
+     "score": 0.0125,
+     "vec_score": 0.418556,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 2,
-     "score": 0.012346
+     "score": 0.012346,
+     "vec_score": 0.418136,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.012195
+     "score": 0.012195,
+     "vec_score": 0.417267,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.012048
+     "score": 0.012048,
+     "vec_score": 0.415897,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.011905
+     "score": 0.011905,
+     "vec_score": 0.415755,
+     "bm25_score": 0.0,
+     "graph_score": 0.0
     }
    ]
   },
@@ -2041,108 +3466,183 @@
    "rrf": [
     {
      "idx": 56,
-     "score": 0.031818
+     "score": 0.031818,
+     "vec_score": 0.434733,
+     "bm25_score": 16.202465,
+     "graph_score": 0.0
     },
     {
      "idx": 13,
-     "score": 0.030751
+     "score": 0.030751,
+     "vec_score": 0.527457,
+     "bm25_score": 7.159944,
+     "graph_score": 0.0
     },
     {
      "idx": 58,
-     "score": 0.030092
+     "score": 0.030092,
+     "vec_score": 0.472556,
+     "bm25_score": 6.749169,
+     "graph_score": 0.0
     },
     {
      "idx": 41,
-     "score": 0.030018
+     "score": 0.030018,
+     "vec_score": 0.470732,
+     "bm25_score": 7.130509,
+     "graph_score": 0.0
     },
     {
      "idx": 4,
-     "score": 0.02967
+     "score": 0.02967,
+     "vec_score": 0.441657,
+     "bm25_score": 7.291305,
+     "graph_score": 0.0
     },
     {
      "idx": 21,
-     "score": 0.029514
+     "score": 0.029514,
+     "vec_score": 0.426063,
+     "bm25_score": 8.462448,
+     "graph_score": 0.0
     },
     {
      "idx": 48,
-     "score": 0.029387
+     "score": 0.029387,
+     "vec_score": 0.450093,
+     "bm25_score": 6.519816,
+     "graph_score": 0.0
     },
     {
      "idx": 50,
-     "score": 0.029214
+     "score": 0.029214,
+     "vec_score": 0.41022,
+     "bm25_score": 10.533178,
+     "graph_score": 0.0
     },
     {
      "idx": 36,
-     "score": 0.029206
+     "score": 0.029206,
+     "vec_score": 0.419273,
+     "bm25_score": 8.722207,
+     "graph_score": 0.0
     },
     {
      "idx": 8,
-     "score": 0.027673
+     "score": 0.027673,
+     "vec_score": 0.447085,
+     "bm25_score": 5.789745,
+     "graph_score": 0.0
     },
     {
      "idx": 18,
-     "score": 0.0272
+     "score": 0.0272,
+     "vec_score": 0.394931,
+     "bm25_score": 7.880411,
+     "graph_score": 0.0
     },
     {
      "idx": 51,
-     "score": 0.02712
+     "score": 0.02712,
+     "vec_score": 0.400223,
+     "bm25_score": 7.859306,
+     "graph_score": 0.0
     },
     {
      "idx": 16,
-     "score": 0.026993
+     "score": 0.026993,
+     "vec_score": 0.404392,
+     "bm25_score": 7.300487,
+     "graph_score": 0.0
     },
     {
      "idx": 39,
-     "score": 0.026857
+     "score": 0.026857,
+     "vec_score": 0.424954,
+     "bm25_score": 6.28714,
+     "graph_score": 0.0
     },
     {
      "idx": 24,
-     "score": 0.026621
+     "score": 0.026621,
+     "vec_score": 0.380823,
+     "bm25_score": 8.245116,
+     "graph_score": 0.0
     },
     {
      "idx": 49,
-     "score": 0.02623
+     "score": 0.02623,
+     "vec_score": 0.361904,
+     "bm25_score": 9.700226,
+     "graph_score": 0.0
     },
     {
      "idx": 44,
-     "score": 0.026121
+     "score": 0.026121,
+     "vec_score": 0.432319,
+     "bm25_score": 5.471248,
+     "graph_score": 0.0
     },
     {
      "idx": 37,
-     "score": 0.025817
+     "score": 0.025817,
+     "vec_score": 0.433654,
+     "bm25_score": 4.886121,
+     "graph_score": 0.0
     },
     {
      "idx": 2,
-     "score": 0.025459
+     "score": 0.025459,
+     "vec_score": 0.373414,
+     "bm25_score": 7.423915,
+     "graph_score": 0.0
     },
     {
      "idx": 52,
-     "score": 0.024697
+     "score": 0.024697,
+     "vec_score": 0.385609,
+     "bm25_score": 6.300792,
+     "graph_score": 0.0
     },
     {
      "idx": 7,
-     "score": 0.024615
+     "score": 0.024615,
+     "vec_score": 0.386971,
+     "bm25_score": 6.248686,
+     "graph_score": 0.0
     },
     {
      "idx": 12,
-     "score": 0.024595
+     "score": 0.024595,
+     "vec_score": 0.428066,
+     "bm25_score": 4.166098,
+     "graph_score": 0.0
     },
     {
      "idx": 17,
-     "score": 0.024541
+     "score": 0.024541,
+     "vec_score": 0.402076,
+     "bm25_score": 5.882038,
+     "graph_score": 0.0
     },
     {
      "idx": 26,
-     "score": 0.024423
+     "score": 0.024423,
+     "vec_score": 0.38838,
+     "bm25_score": 6.158807,
+     "graph_score": 0.0
     },
     {
      "idx": 20,
-     "score": 0.024266
+     "score": 0.024266,
+     "vec_score": 0.421073,
+     "bm25_score": 4.653443,
+     "graph_score": 0.0
     }
    ]
   }
  ],
  "via": "hybrid",
- "generated_at": "2026-08-14T17:15:12",
+ "generated_at": "2026-08-15T03:33:13",
  "query_file": "/home/rhett/tech-db-fresh/qa-backend/test_fixtures/parity/queries.json"
 }

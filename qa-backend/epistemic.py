@@ -205,9 +205,10 @@ async def classify_claims(query: str, search_results: list, top_k: int = 5) -> l
             prompt,
             system_prompt="你是认识论信息分类专家。只输出JSON数组，不要输出其他内容。",
             max_tokens=8192,  # GLM-5.2 reasoning: low caps leave content empty
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
         # Parse JSON array from result (lenient — handles truncation)
-        parsed = _parse_llm_json(result)
+        parsed = _parse_llm_json(result, expect="array")
         if isinstance(parsed, list):
             return parsed
     except Exception as e:
@@ -286,9 +287,12 @@ async def verify_answer(
             prompt,
             system_prompt="你是事实核查专家。只输出JSON对象，不要输出其他内容。",
             max_tokens=8192,
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
-        # Parse JSON object from result (lenient)
-        parsed = _parse_llm_json(result)
+        # Parse JSON object from result (lenient) — object-first so a
+        # {"passed": false, "issues": [...]} reply isn't swallowed as the
+        # inner issues[] array (codex review P2)
+        parsed = _parse_llm_json(result, expect="object")
         if isinstance(parsed, dict):
             return parsed
     except Exception as e:

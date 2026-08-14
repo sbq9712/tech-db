@@ -14,7 +14,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-VENV=".venv/bin/python"
+VENV="$PWD/.venv/bin/python"   # absolute: the TK-22 gates cd into qa-backend/
 SKIP_TESTS="${1:-}"
 FAILED=0
 

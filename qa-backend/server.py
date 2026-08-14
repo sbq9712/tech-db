@@ -476,6 +476,7 @@ seeking_novelty 判断依据（语义意图，非关键词匹配）：
             prompt,
             temperature=0.0,
             max_tokens=1024,  # GLM-5.2 reasoning model: needs 150-300 reasoning_tokens + content
+            allow_reasoning_fallback=True,  # JSON caller (_parse_rewrite_json) downstream
         )
         if raw and raw.strip():
             rewritten, seeking_novelty, reason = _parse_rewrite_json(raw, query)
@@ -1043,9 +1044,16 @@ async def chat_stream(req: ChatRequest, request: Request):
             if Flags.AGENTIC_ENABLED:
                 from orchestrator import run_agentic_loop
 
-                # Wrap hybrid_search for the orchestrator's search_fn interface
+                # Wrap hybrid_search for the orchestrator's search_fn interface.
+                # Codex-review fix (P1): the novelty accumulator (all records
+                # cited in prior assistant turns) must apply to the agentic
+                # path too — a follow-up asking for NEW information must not
+                # re-serve previously cited records.
+                _novelty_exclude = set(exclude_ids or set())
+
                 async def _orchestrator_search_fn(q, exclude=None):
-                    return await hybrid_search(q, exclude_ids=exclude)
+                    merged = _novelty_exclude | (exclude or set())
+                    return await hybrid_search(q, exclude_ids=merged or None)
 
                 try:
                     # TK-09: TTFB guard — the agentic loop (router+retrieval+

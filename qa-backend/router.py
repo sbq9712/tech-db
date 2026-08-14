@@ -99,6 +99,7 @@ async def route_query(
             system_prompt="你是查询路由器。只输出JSON。",
             temperature=0.0,
             max_tokens=512,
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
 
         return _parse_router_result(result_text)

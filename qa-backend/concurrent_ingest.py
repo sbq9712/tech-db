@@ -412,11 +412,21 @@ def load_records(filter_ai_curated: bool = True, max_records: int = 0):
 
 
 def load_progress():
-    """Load processing progress."""
+    """Load processing progress.
+
+    Progress key is the canonical record index (done_ids). Titles are kept
+    read-only for one-time migration from the legacy title-keyed format
+    (codex review P3: titles are not unique — 3 collisions in the curated
+    corpus — so title-keyed progress permanently skipped namesakes).
+    """
     prog_file = WORKING_DIR / "concurrent_progress.json"
     if prog_file.exists():
-        return json.load(open(prog_file, encoding="utf-8"))
-    return {"done_titles": []}
+        prog = json.load(open(prog_file, encoding="utf-8"))
+    else:
+        prog = {}
+    prog.setdefault("done_ids", [])
+    prog.setdefault("done_titles", [])
+    return prog
 
 
 def save_progress(progress: dict):
@@ -489,11 +499,16 @@ async def main():
     records = load_records(filter_ai_curated=args.curated, max_records=args.max)
     print(f"  Found {len(records)} records (valid category AND dp!=1)", flush=True)
 
-    # Load progress
+    # Load progress — key on record ids (titles were the legacy key; kept
+    # read-only for migration). Records already done by EITHER key are skipped.
     progress = load_progress()
-    done_titles = set(progress["done_titles"])
-    records = [(idx, r) for idx, r in records if r.get("t", "") not in done_titles]
-    print(f"  Already processed: {len(done_titles)}", flush=True)
+    done_ids = set(progress["done_ids"])
+    legacy_done_titles = set(progress["done_titles"])
+    before = len(records)
+    records = [(idx, r) for idx, r in records
+               if idx not in done_ids and r.get("t", "") not in legacy_done_titles]
+    print(f"  Already processed: {before - len(records)} "
+          f"({len(done_ids)} by record id, legacy titles: {len(legacy_done_titles)})", flush=True)
     print(f"  Remaining: {len(records)}", flush=True)
 
     if not records:
@@ -560,8 +575,10 @@ async def main():
                     builder.add_relations(relations, record_idx=rec_idx)
                     success_count += 1
                     # Only successful extractions count as done — failed ones
-                    # stay out of done_titles so the next run retries them.
-                    done_titles.add(title)
+                    # stay out of done_ids so the next run retries them
+                    # (keyed by canonical record index, not title: titles
+                    # collide — codex review P3).
+                    done_ids.add(rec_idx)
                 else:
                     error_count += 1
 
@@ -580,7 +597,8 @@ async def main():
 
                 if processed_count - last_save_at >= save_interval_records:
                     save_graph(builder)
-                    progress["done_titles"] = list(done_titles)
+                    progress["done_ids"] = sorted(done_ids)
+                    progress["done_titles"] = []  # migrated away (P3); stop carrying it
                     save_progress(progress)
                     last_save_at = processed_count
                     print(f"  💾 Saved ({builder.node_count} nodes, {builder.edge_count} edges)", flush=True)
@@ -594,7 +612,8 @@ async def main():
     # Final save
     print(f"\n[3/3] Finalizing...", flush=True)
     save_graph(builder)
-    progress["done_titles"] = list(done_titles)
+    progress["done_ids"] = sorted(done_ids)
+    progress["done_titles"] = []  # migrated away (P3); stop carrying it
     save_progress(progress)
 
     elapsed = time.time() - start_time

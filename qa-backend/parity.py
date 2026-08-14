@@ -35,8 +35,16 @@ async def _collect(top_k: int, queries: list, with_graph: bool = False,
         if via == "hybrid":
             results, _, _ = await server.hybrid_search(q)
             def _flat(results):
+                # codex-review fix (P2): also freeze the per-record route
+                # scores (vec/bm25/graph) so the field-level parity test can
+                # compare them by idx — the fused score alone can't detect
+                # zeroed route fields (the TK-18 bug class).
                 return [{"idx": r["meta"].get("idx"),
-                         "score": round(float(r.get("score", 0)), 6)} for r in results]
+                         "score": round(float(r.get("score", 0)), 6),
+                         "vec_score": round(float(r.get("vec_score", 0.0)), 6),
+                         "bm25_score": round(float(r.get("bm25_score", 0.0)), 6),
+                         "graph_score": round(float(r.get("graph_score", 0.0)), 6)}
+                        for r in results]
             out.append({"query": q, "vector": [], "bm25": [],
                         "rrf": _flat(results)})
         else:

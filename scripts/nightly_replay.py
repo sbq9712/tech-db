@@ -122,6 +122,11 @@ async def replay(tag: str) -> dict:
         return round(s[k], 2)
 
     overlaps = [q["overlap"] for q in per if q["overlap"] is not None]
+    # Drift-watch guard: with no reference matches, mean()/min() would crash.
+    # Report None aggregates instead (the artifact still records per-query data).
+    ov_mean = round(statistics.mean(overlaps), 4) if overlaps else None
+    ov_min = round(min(overlaps), 4) if overlaps else None
+    ov_below = sum(1 for o in overlaps if o < 0.8)
     report = {
         "tag": tag,
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -129,9 +134,9 @@ async def replay(tag: str) -> dict:
         "holdout_sha256": lock["sha256_entries"],
         "n": len(per),
         "retrieval_id_overlap": {
-            "mean": round(statistics.mean(overlaps), 4),
-            "min": round(min(overlaps), 4),
-            "below_0.8": sum(1 for o in overlaps if o < 0.8),
+            "mean": ov_mean,
+            "min": ov_min,
+            "below_0.8": ov_below,
         },
         "n_vs_reference": len(overlaps),
         "top1_agreement": round(
@@ -145,7 +150,8 @@ async def replay(tag: str) -> dict:
         },
         "grounding_rate": {
             "new_mean": round(statistics.mean([q["grounding_new"] for q in per
-                                              if q["grounding_new"] is not None]), 4),
+                                              if q["grounding_new"] is not None]), 4)
+            if any(q["grounding_new"] is not None for q in per) else None,
         },
         "relevance_distribution": {
             "new_relevant": sum(q["new_relevant"] for q in per),

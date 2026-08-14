@@ -199,6 +199,7 @@ async def verify_with_fail_safe(
                 system_prompt="你是事实核查专家。只输出JSON对象，不要输出其他内容。",
                 temperature=0.0,
                 max_tokens=4096,
+                allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
 
             # Check for empty response

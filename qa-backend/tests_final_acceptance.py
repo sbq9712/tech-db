@@ -62,8 +62,20 @@ result = ground_citation_evidence(record, "特定的信息")
 test("T003: Citation grounding finds span", result.get("start_offset", -1) >= 0)
 
 # T004: Claim mapping
-from claim_mapping import map_claims_to_citations
+from claim_mapping import map_claims_to_citations, _anchor_fallback_claims
 test("T004: Claim mapping importable", map_claims_to_citations is not None)
+
+# T004b (codex review fix): anchor fallback must NOT upgrade unverified
+# answer content to SUPPORTED/DIRECT_SUPPORT — BACKGROUND + PARTIALLY only.
+_fb_cits = [{"id": 1, "title": "t", "date": "d", "source": "s", "body_snippet": "正文片段内容"}]
+_fb = _anchor_fallback_claims("根据来源[1]显示该技术已经实现了突破性进展。", _fb_cits)
+test("T004b: anchor fallback yields claims", len(_fb.get("claims", [])) >= 1)
+_fb_ok = all(
+    c["support_status"] == "PARTIALLY_SUPPORTED"
+    and all(r["relation"] == "BACKGROUND" for r in c["supported_by"])
+    for c in _fb["claims"]
+)
+test("T004b: anchor fallback honest (BACKGROUND/PARTIALLY, never DIRECT/SUPPORTED)", _fb_ok)
 
 # T005: Fail-safe verifier
 from verifier import verify_with_fail_safe, VerificationResult

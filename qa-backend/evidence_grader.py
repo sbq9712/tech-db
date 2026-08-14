@@ -115,6 +115,7 @@ async def grade_evidence(
                 system_prompt="你是证据质量评估专家。只输出JSON。",
                 temperature=0.0,
                 max_tokens=1024,
+                allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
 
             glm_result = _parse_grader_result(result_text)

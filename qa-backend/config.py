@@ -58,7 +58,17 @@ async def llm_model_func(
     history_messages: list = None,
     **kwargs
 ) -> str:
-    """Call GLM-5.2 via ZAI API (OpenAI-compatible)."""
+    """Call GLM-5.2 via ZAI API (OpenAI-compatible).
+
+    kwargs:
+        allow_reasoning_fallback (bool): GLM-5.2 is a reasoning model — when
+            the token budget is consumed by reasoning the final `content`
+            comes back EMPTY. Only JSON-parsing callers that can leniently
+            extract structured output (epistemic / claim_mapping / reranker /
+            grader style parsers) should set this: the reasoning tail is
+            prose, never a user-facing answer. Default False (return "").
+    """
+    allow_reasoning_fallback = bool(kwargs.get("allow_reasoning_fallback", False))
     messages = []
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
@@ -96,10 +106,10 @@ async def llm_model_func(
             content = "".join(
                 p.get("text", "") if isinstance(p, dict) else str(p) for p in content
             )
-        if not content.strip() and msg.get("reasoning_content"):
-            # GLM-5.2 reasoning model: when the token budget is spent on
-            # reasoning, the final content comes back empty — surface the
-            # reasoning tail so JSON-mode callers can still parse (TK-24).
+        if not content.strip() and allow_reasoning_fallback and msg.get("reasoning_content"):
+            # GLM-5.2 reasoning model: budget spent on reasoning → empty
+            # content. Opt-in only (codex review P2): the caller must be a
+            # lenient JSON extractor, never a user-facing answer path.
             content = msg["reasoning_content"]
         return content
 

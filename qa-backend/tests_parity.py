@@ -68,9 +68,10 @@ def test_hybrid_parity_new_vs_legacy_baseline():
 
 
 def t_field_level_score_parity():
-    """TK-18 regression (TK-23 contract form): route score fields must match
-    the frozen gate-1 legacy baseline field-for-field (the live legacy path
-    was deleted in TK-23; the baseline carries its numbers)."""
+    """TK-18 regression (codex-review P2 fix): route score fields must match
+    the frozen baseline FIELD-FOR-FIELD by record id — the baseline now
+    carries vec_score/bm25_score/graph_score per rrf entry, so a zeroed or
+    mis-mapped route field (the TK-18 bug class) trips this test."""
     import asyncio
     import server
     from pathlib import Path as _P
@@ -78,15 +79,25 @@ def t_field_level_score_parity():
     async def go():
         base = json.loads((_P(__file__).resolve().parent / "test_fixtures" /
                            "parity" / "baseline_hybrid_legacy.json").read_text("utf-8"))
-        # baseline format: {query, top: [{idx, score, ...}]} — reuse parity.diff
-        # for the id/score envelope, then field-check via a live new-path run
-        res_n, rel_n = await server._search_with_quality_new("solid state battery", None)
-        assert res_n, "no results on mini index"
-        for r in res_n:
-            # route score fields present and non-negative (the TK-18 bug
-            # zeroed vec_score when the seam mapped route_details keys wrong)
-            assert r.get("vec_score", 0) >= 0, f"vec_score missing on {r['meta']['idx']}"
-            assert r.get("bm25_score", 0) >= 0, f"bm25_score missing on {r['meta']['idx']}"
+        compared = 0
+        for entry in base["results"]:
+            results, _, _ = await server.hybrid_search(entry["query"])
+            live = {r["meta"]["idx"]: r for r in results}
+            for b in entry["rrf"]:
+                rec = live.get(b["idx"])
+                assert rec is not None, \
+                    f"baseline idx {b['idx']} missing from live results for '{entry['query']}'"
+                for field, bkey in (("vec_score", "vec_score"),
+                                    ("bm25_score", "bm25_score"),
+                                    ("graph_score", "graph_score")):
+                    live_v = round(float(rec.get(field, 0.0)), 6)
+                    assert live_v == b[bkey], (
+                        f"{field} drift on idx {b['idx']} for '{entry['query']}': "
+                        f"live={live_v} baseline={b[bkey]}")
+                assert round(float(rec.get("score", 0.0)), 6) == b["score"], \
+                    f"fused score drift on idx {b['idx']} for '{entry['query']}'"
+                compared += 1
+        assert compared > 0, "no baseline entries compared"
     asyncio.run(go())
 
 

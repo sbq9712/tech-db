@@ -116,6 +116,7 @@ async def rerank(
                 system_prompt="你是技术情报检索专家。只输出JSON数组。",
                 temperature=0.0,
                 max_tokens=2048,
+                allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
 
             scores = _parse_rerank_result(result_text, len(batch))

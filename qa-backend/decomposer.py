@@ -103,6 +103,7 @@ async def decompose_query(
             system_prompt="你是查询分解专家。只输出JSON。",
             temperature=0.0,
             max_tokens=2048,
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
 
         return _parse_decomposition(result_text, query)

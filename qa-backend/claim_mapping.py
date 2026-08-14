@@ -163,6 +163,7 @@ async def map_claims_to_citations(
                 system_prompt="你是技术情报分析专家。只输出JSON，不要输出其他内容。",
                 temperature=0.0,
                 max_tokens=8192,  # GLM-5.2 reasoning headroom
+                allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
             parsed = _extract_json_safe(result_text)
             if parsed and "claims" in parsed:

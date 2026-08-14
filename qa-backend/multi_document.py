@@ -120,6 +120,7 @@ async def process_document(
             system_prompt="你是技术情报分析专家。只输出JSON。",
             temperature=0.0,
             max_tokens=2048,
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
 
         packet = _parse_worker_result(result_text, record_id)

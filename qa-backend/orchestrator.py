@@ -118,19 +118,24 @@ async def run_agentic_loop(
     mode = state.router_result.get("mode", "FAST_RAG")
 
     # ── Step 2: Decompose (if needed) ──
+    # Codex-review fix (P1): decompose the REWRITTEN standalone query when the
+    # server provided one — a pronoun-bearing follow-up ("那它的成本呢？")
+    # must decompose the context-filled form, not the raw unresolved text.
+    # The final answer still renders against the original `query`.
+    decompose_input = rewritten_query.strip() or query
     if mode == "FAST_RAG" or not Flags.DECOMPOSITION_ENABLED:
-        state.decomposition = _fallback_decomposition(query)
+        state.decomposition = _fallback_decomposition(decompose_input)
     else:
         spend_or_raise(state.budget, "decompose")
         try:
             state.decomposition = await decompose_query(
-                query,
+                decompose_input,
                 state.router_result.get("question_type", "FACT_LOOKUP"),
                 context=str(history[-3:]) if history else "",
             )
         except Exception as e:
             print(f"[orchestrator] Decomposer error: {e}", flush=True)
-            state.decomposition = _fallback_decomposition(query)
+            state.decomposition = _fallback_decomposition(decompose_input)
 
     trace.add_stage("decomposition", {
         "requirements_count": len(state.decomposition.get("requirements", [])),

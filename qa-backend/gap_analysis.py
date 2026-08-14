@@ -100,6 +100,7 @@ async def analyze_gaps(
             system_prompt="你是研究分析专家。只输出JSON。",
             temperature=0.0,
             max_tokens=1024,
+            allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
         )
 
         return _parse_gap_result(result_text)
