@@ -1,115 +1,56 @@
 # Agentic RAG Implementation Status
 
+> TK-21 (Q20/R11) 纠偏版：本文件只描述**结构状态**与**证据入口**。
+> 一切数字（测试计数、nightly 指标、延迟分布）以 artifact 为准，
+> 本文不手写任何会漂移的数字；nightly 结论一律引用 artifact 路径。
+
 ## Overview
-Upgrading from "Hybrid RAG" to "Evidence-Centric Adaptive Agentic RAG"
-All tickets from the Master Spec have been implemented.
+Upgrading from "Hybrid RAG" to "Evidence-Centric Adaptive Agentic RAG".
+All 24 tickets (TK-01..TK-24) from the planning spec are implemented and
+closed; see "Ticket Closure & Evidence Chain" below.
 
-## Implementation Summary
+## Verified State (how to reproduce, don't trust prose)
+| What | Command | Evidence artifact |
+|------|---------|-------------------|
+| Full push-tier suite | `python run_all_tests.py --tier push` | `qa-backend/test_summary.json` |
+| Nightly tier (shadow + final acceptance) | `python run_all_tests.py --tier all` | `qa-backend/test_summary.json` |
+| Spec/manifest validator | `python verify_spec_manifest.py` | exit 0 = PASS (7 checks) |
+| Holdout lock + synthetic isolation | `python ../scripts/holdout_run.py --mode full --synthetic-isolation --retrieval` | `qa-backend/test_fixtures/holdout/synthetic_isolation.json`, `retrieval_full.json` |
+| Nightly replay (gate-3 primary evidence) | `python ../scripts/nightly_replay.py --tag dayN --commit` | `qa-backend/test_fixtures/holdout/replay/<tag>.json` |
+| Live smoke (SSE/search/graph/证据卡片/降级) | server on :8765 → `/api/health`, `/api/search`, `/api/graph`, POST `/api/chat/stream` | `runtime/traces/<date>.jsonl` (per-query stage trace) |
 
-### Phase A: Foundation (T001–T013) ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| trace.py | ✅ Complete | 8 tests | T001 |
-| eval/metrics.py | ✅ Complete | Framework ready | T002 |
-| citation_grounding.py | ✅ Complete | 8 tests | T003 |
-| claim_mapping.py | ✅ Complete | 5 tests | T004 |
-| verifier.py | ✅ Complete | 9 tests | T005 |
-| answer_status.py | ✅ Complete | 6 tests | T006 |
-| epistemic.py | ✅ Complete | Enrichment done | T007 |
-| provenance.py | ✅ Complete | 4 tests | T008 |
-| source_suitability.py | ✅ Complete | 3 tests | T009 |
-| temporal.py | ✅ Complete | 6 tests | T010 |
-| entity_resolver.py | ✅ Complete | 4 tests | T011 |
-| check_data_quality.py | ✅ Complete | Report generated | T012 |
-| content_safety.py | ✅ Complete | 7 tests | T013 |
+## CI (clickable evidence)
+- Workflow: [`.github/workflows/qa-tests.yml`](.github/workflows/qa-tests.yml)
+- Push tier runs: https://github.com/sbq9712/tech-db/actions/workflows/qa-tests.yml
+  (every push/PR: push suites + validator + holdout smoke, artifact `push-test-summary`)
+- Nightly runs: same workflow, `nightly` job (real GLM; artifacts
+  `nightly-test-summary`), 23:00 UTC cron + manual dispatch.
+- 注：CI 与本仓库远端同步受网络限制时，以本地 artifact 为准（见上表命令）。
 
-### Phase B: Evidence Infrastructure (T008–T031) ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| retrieval/ (vector, bm25, graph, fusion) | ✅ Complete | 8 tests | T014-T015 |
-| reranker.py | ✅ Complete | 3 tests | T016 |
-| evidence_selector.py | ✅ Complete | 3 tests | T017 |
-| router.py | ✅ Complete | 3 tests | T018 |
-| decomposer.py | ✅ Complete | 3 tests | T019 |
-| planner.py | ✅ Complete | 2 tests | T020 |
-| evidence_ledger.py | ✅ Complete | 5 tests | T021 |
-| evidence_grader.py | ✅ Complete | 3 tests | T022 |
-| gap_analysis.py | ✅ Complete | 3 tests | T023 |
-| orchestrator.py | ✅ Complete | 3 tests | T024 |
-| stopping.py | ✅ Complete | 2 tests | T025 |
-| knowledge_boundary.py | ✅ Complete | 3 tests | T026 |
-| chunking.py | ✅ Complete | 3 tests | T028 |
-| numeric_facts.py | ✅ Complete | 3 tests | T029 |
-| conflict_detector.py | ✅ Complete | 3 tests | T030 |
-| context_builder.py | ✅ Complete | 3 tests | T031 |
-
-### Phase C: Semantic Graph (T027, T039, T044–T045) ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| semantic_graph.py | ✅ Complete | Pipeline ready | T027 |
-| retrieval/graph_aware.py | ✅ Complete | Relation-aware | T039 |
-| relation_ontology.py | ✅ Complete | 15 predicates | T044 |
-| graph_intent.py | ✅ Complete | Multi-hop validation | T045 |
-
-### Phase D: Advanced Features ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| multi_document.py | ✅ Complete | 3 tests | T038 |
-| query_integrity.py | ✅ Complete | 5 tests | T042 |
-| answer_repair.py | ✅ Complete | 6 tests | T052 |
-| entailment.py | ✅ Complete | 4 tests | T046 |
-| req_fusion.py | ✅ Complete | 4 tests | T050 |
-| reranker_stability.py | ✅ Complete | 3 tests | T051 |
-| source_snapshot.py | ✅ Complete | 2 tests | T047 |
-| prompt_injection_eval.py | ✅ Complete | 19/19 adversarial | T053 |
-
-### Phase E: Operations ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| eval/replay.py | ✅ Complete | CLI ready | T035 |
-| eval/human_review.py | ✅ Complete | CLI ready | T036 |
-| degraded_mode.py + budget_guard.py | ✅ Complete | 33 tests | T037 |
-| release_manifest.py | ✅ Complete | 2 tests | T041 |
-| trace_retention.py | ✅ Complete | 3 tests | T056 |
-
-### Entity Resolution V2 (ER-001..ER-124) ✅ Complete
-| Module | Status | Tests | Ticket |
-|--------|--------|-------|--------|
-| entity_resolver_v2.py | ✅ Complete | 32 tests | ER-001..ER-124 |
-
-### Integration ✅ Complete
-| Feature | Status |
-|---------|--------|
-| Orchestrator → SSE pipeline | ✅ Wired (feature flag) |
-| Frontend answer status UI | ✅ T033 Complete |
-| Budget guard on verification | ✅ Active |
-| Feature flag progressive rollout | ✅ All flags defined |
+## Implementation Structure (all complete, per-module tests in test_summary.json)
+- **Phase A 证据链核心**: trace / citation_grounding / claim_mapping /
+  verifier(fail-safe) / answer_status(four-state) / epistemic / provenance /
+  source_suitability / temporal / entity_resolver / content_safety
+- **Phase B 检索与循环**: retrieval/(vector,bm25,graph,rrf_fusion) /
+  reranker / evidence_selector / router / decomposer / planner /
+  evidence_ledger / evidence_grader / gap_analysis / orchestrator /
+  stopping / knowledge_boundary / chunking / numeric_facts /
+  conflict_detector / context_builder
+- **Phase C 语义图**: semantic_graph / graph_aware / relation_ontology /
+  graph_intent
+- **Phase D 高级特性**: multi_document / query_integrity / answer_repair /
+  entailment / req_fusion / reranker_stability / source_snapshot /
+  prompt_injection_eval
+- **Phase E 运维**: eval/replay / eval/human_review / degraded_mode +
+  budget_guard / release_manifest / trace_retention
+- **ER V2**: entity_resolver_v2
+- **CI/评测基础设施**: run_all_tests (tier push/nightly/all) /
+  verify_spec_manifest / holdout (lock+isolation) / shadow diff /
+  nightly_replay / ttfb_guard / gate2+gate3 报告
 
 ## Test Summary
-- **Phase A tests**: 42 passed
-- **Phase B+C tests**: 45 passed
-- **Phase D tests**: 37 passed
-- **Phase Final tests**: 29 passed
-- **Phase Ops tests**: 33 passed
-- **Integration tests**: 15 passed
-- **ER V2 tests**: 32 passed
-- **Final Acceptance tests**: 72 passed
-- **Total**: 305 tests, all passing
-
-
-## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
-- 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored，见
-  check_project 的 FORBIDDEN_TRACKED_INDEXES）；CI replay 使用入库的 MINI
-  索引 fixture（qa-backend/test_fixtures/mini_index）。
-- 本地 nightly replay 入口：`.venv/bin/python scripts/nightly_replay.py
-  --tag dayN --commit`（一键跑完并产出 artifact commit，报告存
-  qa-backend/test_fixtures/holdout/replay/dayN.json）。
-- gate-3 时间要求（连续 7 天 nightly replay）按所有者裁决压缩：一次全量
-  确定性 replay 作为主证据（day1：id_overlap mean=1.0、top1=1.0、
-  relevance/grounding 完全一致、new TTFB ≤ legacy），检索 shadow
-  （QA_SHADOW_RETRIEVAL=1）在随后一周自然流量上继续累积补充证据。
-- shadow 期成本（R6/R14）：检索级 shadow 0 额外 LLM 调用；答案级 shadow
-  使每 query LLM 成本 ×2（报告 shadow_cost 字段记录）。
+以 `qa-backend/test_summary.json`（每次 run_all_tests 生成）为准。
+本文不重复具体计数 —— 校验器 V6 会核对 artifact 内部一致性。
 
 ## Feature Flags
 | Flag | Default | Description |
@@ -136,23 +77,54 @@ All tickets from the Master Spec have been implemented.
 | QA_CLAIM_GROUNDING_ENABLED | true | Claim-level grounding |
 | QA_KNOWLEDGE_BOUNDARY_ENABLED | true | Knowledge boundary message (TK-06/R9) |
 
-## Background Tasks (Still Running)
-- **Vector index rebuild** (PID 963): Batch ~171/339, ETA ~226 min
-- **LightRAG ingest** (PID 1061): Stage 18/20, nearly complete
+## Ticket Closure & Evidence Chain
+| Ticket | Scope | Evidence |
+|--------|-------|----------|
+| TK-01..05 | planning spec → trace/metrics → T003 grounding → T004 claim map → T005 fail-safe verify | `tests_grounding/claim/verify` entries in test_summary.json |
+| TK-06..07 | flags wave-1 + knowledge boundary; router heuristic-first | tests_flags_tk06, tests_router_tk07 |
+| TK-08 | loop-control hard cap (≤12) + round reservation | tests_budget_tk08; `test_fixtures/gate2_report.json` R1a/R1b/R3a |
+| TK-09 | TTFB guard (baseline+Δ, degrade on timeout) | tests_ttfb_tk09; `test_fixtures/ttfb/baseline_legacy.json` |
+| TK-10 | GLM failure → UNVERIFIED + user warning | tests_degraded_tk10; gate2 R3c/R3d |
+| TK-11 | Gate 2 verification report | `test_fixtures/gate2_report.json` (VERDICT: GATE2_PASS) |
+| TK-12 | citation schema (source_label/spans/supports_claim_ids) | tests_citation_tk12 |
+| TK-13 | frontend evidence card + warning banner | tests_frontend_tk13 (v=162) |
+| TK-14 | spec manifest validator (7 checks) | tests_validator_tk14; `verify_spec_manifest.py` |
+| TK-15 | CI tiers (push/nightly) + nightly_eval | tests_ci_tk15; `.github/workflows/qa-tests.yml` |
+| TK-16 | holdout set (lock, 100 entries) | tests_holdout_tk16; `test_fixtures/holdout/` |
+| TK-17 | shadow retrieval dual-path | tests_shadow_tk17 (nightly tier); `/api/shadow/report` |
+| TK-18 | nightly replay (gate-3 evidence) | `test_fixtures/holdout/replay/day1.json` |
+| TK-19 | gate 3 PASS → flags on + FAST_RAG fast-path contract | tests_gate3_tk19; `test_fixtures/gate3_report.json` |
+| TK-20 | eval-side synthetic isolation (Q19) | tests_synthetic_tk20; `test_fixtures/holdout/synthetic_isolation.json` |
+| TK-21 | this document (真实状态纠偏) | `verify_spec_manifest.py` exit 0 |
+| TK-22 | sync_local.sh 运维衔接 | `scripts/sync_local.sh` + tests_ci_tk15 |
+| TK-23 | legacy retrieval path deletion (post gate 3) | tests_parity (field-level) — new path is the only path |
+| TK-24 | final acceptance | `tests_final_acceptance.py` + 完成报告 (见 commit) |
+
+## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
+- 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored）；CI replay
+  使用入库的 MINI 索引 fixture（`qa-backend/test_fixtures/mini_index`）。
+- 本地 nightly replay 入口：`.venv/bin/python scripts/nightly_replay.py
+  --tag dayN --commit`（artifact: `qa-backend/test_fixtures/holdout/replay/dayN.json`，
+  数字一律以该 artifact 为准，本文不引用具体数值）。
+- gate-3 时间要求（连续 7 天 nightly replay）按所有者裁决压缩：一次全量
+  确定性 replay 作为主证据，检索 shadow（QA_SHADOW_RETRIEVAL=1）在随后
+  一周自然流量上继续累积补充证据（`/api/shadow/report`）。
+- shadow 期成本（R6/R14）：检索级 shadow 0 额外 LLM 调用；答案级 shadow
+  使每 query LLM 成本 ×2（replay artifact 的 `shadow_cost` 字段记录）。
 
 ## Gate 3 Decision (TK-19, 2026-08-14)
 - **决策：PASS** — 7 个 LLM 依赖 flag（AGENTIC/ROUTER/DECOMPOSITION/
-  ITERATIVE_RETRIEVAL/RERANKER/EVIDENCE_GRADER/CLAIM_MAPPING）已翻为
+  ITERATIVE_RETRIEVAL/RERANKER/EVIDENCE_GRADER/CLAIM_MAPPING）翻为
   default-on；每个 flag 保留环境变量 kill switch（QA_*_ENABLED=0）。
-- 证据链见 `qa-backend/test_fixtures/gate3_report.json`（主证据：day1
-  replay id_overlap mean=1.0 / top1=1.0 / relevance 与 grounding 完全一致）。
-- **FAST_RAG 快路径契约**（rulings Q3 / user story 2，翻 flag 时补齐）：
-  简单 query 在 agentic 开启时也必须零 LLM 循环控制成本 ——
-  `planner.create_plan` 对 FAST_RAG 路由固定 `max_iterations=1`，
-  orchestrator 在 FAST_RAG 模式下跳过 rerank 与 grader（SUFFICIENT 默认）。
-  实测：FAST_RAG 1 轮检索、loop_calls=0、TTFB 0.45–0.8s（满足 ≤ 基线+Δ 的
-  TTFB guard，不再触发 ttfb_degrade）。
-- **epistemic 解析加固**：GLM 返回截断 JSON 时（live 观察：
-  `Expecting ',' delimiter`），`_parse_llm_json` 在最后一个完整元素处截断
-  重闭合，避免 classify→verify 链路静默失效。
-- 回归：`tests_gate3_tk19.py` 6/6；push 全量 315/315（21 suites）。
+- 证据链：`qa-backend/test_fixtures/gate3_report.json`（主证据为 replay
+  artifact，本文不重复其数字）。
+- **FAST_RAG 快路径契约**（rulings Q3 / user story 2）：简单 query 在
+  agentic 开启时零 LLM 循环控制成本 —— `planner.create_plan` 对 FAST_RAG
+  路由固定 `max_iterations=1`，orchestrator 在 FAST_RAG 模式下跳过 rerank
+  与 grader（SUFFICIENT 默认）。契约由 tests_gate3_tk19 固化。
+- **epistemic 解析加固**：`_parse_llm_json` 对截断 JSON 在最后一个完整
+  元素处截断重闭合，避免 classify→verify 链路静默失效。
+
+## 后续 Ticket（spec 明确范围外）
+- LightRAG ingest 恢复（剩余 curated 候选，用户原话"Q5之后再说"）——
+  本次按裁决作为"AI精选+精选情报"图谱构建后续工作单执行（进行中）。
