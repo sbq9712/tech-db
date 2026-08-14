@@ -300,7 +300,8 @@ def infer_source_type(record: dict) -> str:
       政策监管 → government
       资本运作 → broker_report
     """
-    tag = (record.get("tg") or "").strip()
+    _tg = record.get("tg") or ""
+    tag = (_tg[0] if isinstance(_tg, list) and _tg else _tg).strip() if isinstance(_tg, (str, list)) else ""
     source = (record.get("a") or record.get("s") or "").strip()
     category = (record.get("c") or "").strip()
 

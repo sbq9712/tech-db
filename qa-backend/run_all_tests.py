@@ -47,6 +47,7 @@ SUITES = {
     "budget_tk08":     ("tests_budget_tk08.py", "push"),
     "ttfb_tk09":       ("tests_ttfb_tk09.py", "push"),
     "degraded_tk10":   ("tests_degraded_tk10.py", "push"),
+    "citation_tk12":   ("tests_citation_schema_tk12.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 

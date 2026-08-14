@@ -745,6 +745,17 @@ def build_context(search_results: list, query: str = "") -> tuple:
             "body_snippet": snippet,
             "similarity": round(score, 3),
             "source_type": build_source_metadata(record).get("source_type", "unknown") if record else "unknown",
+            # ── TK-12: full citation schema (Q12/R8) ──
+            # source_label: snippet provenance — records whose only text is the
+            # AI-generated summary (as, no b/fb body) are labeled AI_SUMMARY.
+            "source_label": ("AI_SUMMARY" if (ai_summary and not body) else "ORIGINAL"),
+            # evidence_spans: filled by T003 grounding; empty until grounded.
+            "evidence_spans": [],
+            # supports_claim_ids: filled by T004 claim mapping (agentic only —
+            # legacy keeps [] and the frontend hides the mapping section).
+            "supports_claim_ids": [],
+            # grounding_status: filled by T003 grounding.
+            "grounding_status": "UNGROUND",
         })
 
     context = "\n\n---\n\n".join(context_parts)
@@ -1242,6 +1253,19 @@ async def chat_stream(req: ChatRequest, request: Request):
                         })
                 except Exception as e:
                     print(f"[claim_mapping] Error: {e}", flush=True)
+            # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
+            # supported_by map (citation_id → [claim ids]). Filled whenever
+            # claim_mapping ran (agentic); stays [] otherwise and the UI hides
+            # the mapping section.
+            if claim_map.get("claims"):
+                _by_cit = {}
+                for cl in claim_map["claims"]:
+                    for sup in (cl.get("supported_by") or []):
+                        cid = sup.get("citation_id")
+                        if cid is not None:
+                            _by_cit.setdefault(cid, []).append(cl.get("id"))
+                for c in citations:
+                    c["supports_claim_ids"] = _by_cit.get(c.get("id"), [])
 
             # ── T003: Citation Evidence Grounding ──
             # Ground each citation to exact original text span
@@ -1253,7 +1277,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                             rec = _records[rid]
                             grounding = ground_citation_evidence(
                                 rec,
-                                proposed_span=c.get("excerpt", ""),
+                                proposed_span=c.get("excerpt") or c.get("body_snippet", ""),
                                 claim_text="",
                                 query=query,
                             )
@@ -1262,9 +1286,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 c["evidence_start"] = grounding["start_offset"]
                                 c["evidence_end"] = grounding["end_offset"]
                                 c["grounding_status"] = grounding["grounding_status"]
+                                # TK-12: list-form spans + highlight (str, spec Q12)
+                                c["evidence_spans"] = [{
+                                    "text": grounding["evidence_span"],
+                                    "start": grounding["start_offset"],
+                                    "end": grounding["end_offset"],
+                                }]
+                                c["highlight"] = grounding["evidence_span"]
+                                # TK-12: refine source_label when the grounded
+                                # span actually came from the AI summary field
+                                if grounding.get("source_field") == "as":
+                                    c["source_label"] = "AI_SUMMARY"
                             else:
-                                c["evidence_span"] = c.get("excerpt", "")
+                                c["evidence_span"] = c.get("excerpt") or c.get("body_snippet", "")
                                 c["grounding_status"] = "GROUNDING_FAIL"
+                                c["evidence_spans"] = []
                     except Exception:
                         pass
                 trace.add_stage("citation_grounding", {
