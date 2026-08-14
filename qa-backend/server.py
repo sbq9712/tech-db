@@ -507,7 +507,7 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
     return list(dict.fromkeys(result))  # dedupe, preserve order
 
 
-async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
+async def _search_with_quality_legacy(query: str, exclude_ids: set = None) -> tuple:
     """Run three-route retrieval + RRF fusion + exclusion + quality gate.
 
     Returns (results, is_relevant).
@@ -548,6 +548,119 @@ async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
         is_relevant = has_strong_vec or has_strong_graph
 
     return results, is_relevant
+
+
+# ── TK-05 (Q8/R5): unified retrieval layer wiring — expand phase ─────────────
+# hybrid_search now orchestrates the retrieval/ layer (T013/T014) through a
+# single seam. Output shape and RRF semantics are byte-compatible with the
+# legacy path (parity-guarded by tests_parity.py). The legacy implementation
+# stays reachable via QA_RETRIEVAL_LEGACY=1 until gate 3 passes; it is
+# removed in the contract phase (TK-23).
+_LEGACY_RETRIEVAL = os.environ.get("QA_RETRIEVAL_LEGACY", "").strip() == "1"
+_retrieval_pipeline = None
+
+
+def _bm25_tokenize(query: str) -> list:
+    """Tokenize a query the same way the BM25 corpus was tokenized."""
+    import jieba
+    return list(jieba.cut_for_search(query))
+
+
+def _get_retrieval_pipeline():
+    """Build the unified retrieval pipeline over the loaded indexes (lazy)."""
+    global _retrieval_pipeline
+    if _retrieval_pipeline is None:
+        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
+        load_vector_index()
+        load_bm25_index()
+
+        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta)
+        br = BM25Retriever(bm25_index=_bm25_index, meta=_bm25_meta,
+                           tokenize_fn=_bm25_tokenize)
+        gr = GraphRetriever(graph_search_fn=lambda q, k: [
+            (r["meta"]["idx"], r["score"]) for r in graph_search(q, k)
+        ])
+        fuse = RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K)
+        _retrieval_pipeline = (vr, br, gr, fuse)
+    return _retrieval_pipeline
+
+
+async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
+    """Unified retrieval layer path (TK-05). Same contract as legacy:
+    (results, is_relevant) with legacy result dict shape.
+
+    Parity invariants vs legacy (locked by tests_parity.py):
+      - RRF score = 1/(position0 + k), position over each route's own ranking
+      - route scores carried through as vec/bm25/graph_score
+      - BM25 drops score<=0 candidates
+      - meta taken from the record index (identical across routes)
+    """
+    if _LEGACY_RETRIEVAL:
+        return await _search_with_quality_legacy(query, exclude_ids)
+
+    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
+    vr, br, gr, fuse = _get_retrieval_pipeline()
+
+    async def _vector_route():
+        query_emb = await embedding_func([query])
+        qv = np.array(query_emb[0], dtype=np.float32)
+        qv = qv / max(np.linalg.norm(qv), 1e-8)
+        return vr.search(qv, top_k=fetch_k)
+
+    vec_res, bm25_res, graph_res = await asyncio.gather(
+        _vector_route(),
+        asyncio.to_thread(br.search, query, fetch_k),
+        asyncio.to_thread(gr.search, query, fetch_k),
+    )
+
+    # Parity invariant: legacy rrf_fuse scores 1/(position0 + k); the
+    # retrieval layer's RetrievalResult.rank is 1-based. Reset ranks to the
+    # 0-based list position so fused scores are bit-identical to legacy.
+    for route_results in (vec_res, bm25_res, graph_res):
+        for pos, rr_ in enumerate(route_results):
+            rr_.rank = pos
+
+    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
+    fused = fuse.fuse({"vector": vec_res, "bm25": bm25_res,
+                       "graph": graph_res}, top_k=fuse_top_k)
+
+    # Rebuild meta lookup lazily (graph-only records need full meta)
+    global _idx_to_meta
+    if _idx_to_meta is None:
+        _idx_to_meta = {m["idx"]: m for m in _index_meta}
+
+    results = []
+    for r in fused:
+        meta = _idx_to_meta.get(r.record_id, r.meta or {})
+        det = r.route_details or {}
+        results.append({
+            "meta": meta,
+            "score": r.raw_score,
+            "vec_score": det.get("vector", det.get("vec_score", 0.0)),
+            "bm25_score": det.get("bm25", det.get("bm25_score", 0.0)),
+            "graph_score": det.get("graph", det.get("graph_score", 0.0)),
+        })
+
+    if exclude_ids:
+        before = len(results)
+        results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
+        excluded_count = before - len(results)
+        results = results[:FINAL_TOP_K]
+        if excluded_count:
+            print(f"[search] Excluded {excluded_count} previously cited, "
+                  f"{len(results)} remaining", flush=True)
+    else:
+        results = results[:FINAL_TOP_K]
+
+    # Quality gate: require semantic signal (vec or graph), not BM25 alone
+    is_relevant = False
+    if results:
+        has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
+        has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
+        is_relevant = has_strong_vec or has_strong_graph
+
+    return results, is_relevant
+# ── end TK-05 wiring ─────────────────────────────────────────────────────────
 
 
 async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:

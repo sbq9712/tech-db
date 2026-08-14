@@ -49,9 +49,21 @@ def test_baseline_files_committed():
 
 def test_parity_vs_frozen_baseline():
     import parity
-    rep = parity.diff(Path(__file__).resolve().parent / "test_fixtures" / "parity" / "baseline_mini.json")
+    base = Path(__file__).resolve().parent / "test_fixtures" / "parity" / "baseline_mini.json"
+    rep = parity.diff(base)
     for q in rep["queries"]:
         assert q.get("pass", True), f"parity drift on {q['query']}: {q}"
+    assert rep["pass"] is True
+
+
+def test_hybrid_parity_new_vs_legacy_baseline():
+    """TK-05 gate 1: the wired hybrid_search (retrieval/ layer) must produce
+    identical fused output to the frozen legacy-path baseline."""
+    import parity
+    base = Path(__file__).resolve().parent / "test_fixtures" / "parity" / "baseline_hybrid_legacy.json"
+    rep = parity.diff(base)
+    for q in rep["queries"]:
+        assert q.get("pass", True), f"hybrid parity drift on {q['query']}: {q}"
     assert rep["pass"] is True
 
 
@@ -60,6 +72,7 @@ if __name__ == "__main__":
     check("mini fixture complete", test_fixture_complete)
     check("baseline files committed", test_baseline_files_committed)
     check("retrieval parity vs frozen baseline (0 drift)", test_parity_vs_frozen_baseline)
+    check("hybrid parity: new wiring vs legacy baseline (gate 1)", test_hybrid_parity_new_vs_legacy_baseline)
     print("=" * 60)
     print(f"  Parity Results: {PASS} passed, {FAIL} failed")
     print("=" * 60)

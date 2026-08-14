@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-14T16:59:42",
-  "all_passed": false,
-  "total_passed": 313,
+  "generated_at": "2026-08-14T17:22:23",
+  "all_passed": true,
+  "total_passed": 317,
   "total_failed": 0,
   "suites": [
     {
@@ -31,7 +31,7 @@
       "passed": 37,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.9,
+      "seconds": 1.0,
       "tail": "\n=== T028: Contextual Chunking ===\n  ✅ short record → no chunks\n  ✅ long record produces chunks\n  ✅ chunks have offsets\n  ✅ chunks have context_prefix\n  ✅ chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -85,19 +85,27 @@
       "tail": "Registry IO — TK-01 regression suite\n  ✅ V1 reader accepts V2 list (original T011 crash)\n  ✅ V1 reader accepts bare list\n  ✅ V2 reader accepts V1 dict\n  ✅ V2 reader strips unknown fields\n  ✅ roundtrip V1write→V2read→V1read\n  ✅ roundtrip V2write→V1read\n  ✅ corrupt file tolerated\n  ✅ single canonical path (Q7)\n============================================================\n  Registry IO Results: 8 passed, 0 failed\n============================================================\nEntity registry corrupt/unreadable — starting empty\n"
     },
     {
+      "tag": "parity",
+      "file": "tests_parity.py",
+      "status": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 11.3,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n============================================================\n  Parity Results: 4 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 10619.11it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.356 seconds.\nPrefix dict has been built successfully.\n"
+    },
+    {
       "tag": "final_acceptance",
       "file": "tests_final_acceptance.py",
       "status": "PASS",
       "passed": 72,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 9.0,
+      "seconds": 39.4,
       "tail": "23: Gap analysis available\n  ✅ T025: Stopping criteria available\n  ✅ T026: Knowledge boundary available\n\n--- Phase D: Advanced Features ---\n  ✅ T044: Relation ontology available\n  ✅ T044: 15 predicates defined\n  ✅ T045: Graph intent validation available\n  ✅ T027: Semantic graph pipeline available\n  ✅ T039: Relation-aware graph retriever available\n  ✅ T046: Entailment checking available\n  ✅ T050: Requirement-aware fusion available\n  ✅ T051: Reranker stability available\n  ✅ T052: Answer state machine available\n  ✅ T047: Source snapshot available\n\n--- Phase E: Operations ---\n  ✅ T037: Budget guard available\n  ✅ T037: Correctness-critical set includes verifier\n  ✅ T037: Correctness-critical set includes citation_grounding\n  ✅ T037: Degraded mode matrix available\n  ✅ T041: Release manifest available\n  ✅ T056: Trace retention available\n  ✅ T035: Replay eval available\n  ✅ T036: Human review available\n  ✅ T002: Eval metrics available\n\n--- Entity Resolution V2 ---\n  ✅ ER: Registry V2 available\n  ✅ ER: Linker V2 available\n  ✅ ER: Disambiguator available\n  ✅ ER: Pipeline available\n  ✅ ER: Opaque IDs (mention ≠ entity)\n\n--- Security & Safety ---\n  ✅ Security: Secrets scrubbed from traces\n  ✅ T053: Adversarial suite detection rate >= 90%\n  ✅ T053: Adversarial suite false positive rate <= 10%\n\n--- Feature Flags ---\n  ✅ Flags: AGENTIC_ENABLED defined\n  ✅ Flags: ROUTER_ENABLED defined\n  ✅ Flags: TRACE_ENABLED defined\n  ✅ Flags: FAIL_SAFE_VERIFY defined\n  ✅ Flags: CITATION_GROUNDING defined\n  ✅ Flags: ANSWER_STATUS defined\n  ✅ Flags: CONTENT_SAFETY defined\n\n--- End-to-End Integration ---\n  ✅ E2E: Full trace pipeline\n  ✅ E2E: Answer status in result\n\n======================================================================\n  FINAL ACCEPTANCE RESULTS\n======================================================================\n  Passed:   72\n  Failed:   0\n  Warnings: 0\n  Total:    72\n======================================================================\n  ✅ ACCEPTANCE PASSED — All criteria met\n"
     }
   ],
-  "missing_suites": [
-    "parity"
-  ],
+  "missing_suites": [],
   "suite_registry": {
     "a": {
       "file": "tests_phase_a.py",

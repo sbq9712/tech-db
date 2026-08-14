@@ -19,37 +19,45 @@ HERE = Path(__file__).resolve().parent
 QUERIES_FILE = HERE / "test_fixtures" / "parity" / "queries.json"
 
 
-async def _collect(top_k: int, queries: list, with_graph: bool = False) -> dict:
+async def _collect(top_k: int, queries: list, with_graph: bool = False,
+                   via: str = "routes") -> dict:
+    """via="routes": per-route outputs (vector/bm25 + a locally-refused rrf).
+    via="hybrid": the LIVE hybrid_search path (what users actually get)."""
     import server  # indexes load lazily via load_*(); WORKING_DIR from env
     server.load_vector_index()
     server.load_bm25_index()
-    if with_graph:
-        server.load_graph_index()
-        server._idx_to_meta = {m["idx"]: m for m in server._index_meta} if hasattr(server, "_index_meta") else {}
+    server.load_graph_index()
+    if getattr(server, "_idx_to_meta", None) is None and server._index_meta:
+        server._idx_to_meta = {m["idx"]: m for m in server._index_meta}
 
     out = []
     for q in queries:
-        vec = await server.vector_search(q, top_k=top_k)
-        bm = server.bm25_search(q, top_k=top_k)
-        rrf = server.rrf_fuse(vec, bm, top_k=top_k)
-        def _flat(results):
-            rows = []
-            for r in results:
-                idx = r.get("idx", r.get("meta", {}).get("idx"))
-                rows.append({"idx": idx, "score": round(float(r.get("score", 0)), 6)})
-            return rows
-        out.append({
-            "query": q,
-            "vector": _flat(vec),
-            "bm25": _flat(bm),
-            "rrf": _flat(rrf),
-        })
-    return {"top_k": top_k, "results": out}
+        if via == "hybrid":
+            results, _, _ = await server.hybrid_search(q)
+            def _flat(results):
+                return [{"idx": r["meta"].get("idx"),
+                         "score": round(float(r.get("score", 0)), 6)} for r in results]
+            out.append({"query": q, "vector": [], "bm25": [],
+                        "rrf": _flat(results)})
+        else:
+            vec = await server.vector_search(q, top_k=top_k)
+            bm = server.bm25_search(q, top_k=top_k)
+            rrf = server.rrf_fuse(vec, bm, top_k=top_k)
+            def _flat(results):
+                rows = []
+                for r in results:
+                    idx = r.get("idx", r.get("meta", {}).get("idx"))
+                    rows.append({"idx": idx, "score": round(float(r.get("score", 0)), 6)})
+                return rows
+            out.append({"query": q, "vector": _flat(vec), "bm25": _flat(bm),
+                        "rrf": _flat(rrf)})
+    return {"top_k": top_k, "results": out, "via": via}
 
 
-def generate_baseline(out_file: Path, with_graph: bool = False) -> dict:
+def generate_baseline(out_file: Path, with_graph: bool = False,
+                      via: str = "routes") -> dict:
     spec = json.loads(QUERIES_FILE.read_text("utf-8"))
-    data = asyncio.run(_collect(spec["top_k"], spec["queries"], with_graph))
+    data = asyncio.run(_collect(spec["top_k"], spec["queries"], with_graph, via))
     data["generated_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     data["query_file"] = str(QUERIES_FILE)
     Path(out_file).write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -66,7 +74,8 @@ def diff(baseline_file: Path, allow_reorder_pct: float = 0.0) -> dict:
     """
     base = json.loads(Path(baseline_file).read_text("utf-8"))
     cur = asyncio.run(_collect(base["top_k"],
-                               [r["query"] for r in base["results"]]))
+                               [r["query"] for r in base["results"]],
+                               via=base.get("via", "routes")))
 
     report = {"queries": [], "pass": True}
     for b, c in zip(base["results"], cur["results"]):
@@ -99,9 +108,10 @@ if __name__ == "__main__":
     ap.add_argument("mode", choices=["generate", "diff"])
     ap.add_argument("--baseline", required=True)
     ap.add_argument("--allow-reorder-pct", type=float, default=0.0)
+    ap.add_argument("--via", choices=["routes", "hybrid"], default="routes")
     args = ap.parse_args()
     if args.mode == "generate":
-        generate_baseline(args.baseline)
+        generate_baseline(args.baseline, via=args.via)
     else:
         rep = diff(args.baseline, args.allow_reorder_pct)
         for q in rep["queries"]:
