@@ -1389,6 +1389,9 @@ async def chat_stream(req: ChatRequest, request: Request):
             yield {"event": "done", "data": json.dumps({
                 "answer": full_answer,
                 "citations": citations,
+                "claims": [{"id": c.get("id"), "text": c.get("text", "")[:120],
+                            "status": c.get("support_status", "")}
+                           for c in claim_map.get("claims", [])[:12]],
                 "cited_record_ids": cited_record_ids,
                 "searched_record_ids": searched_record_ids,
                 "answer_status": answer_status_str,

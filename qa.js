@@ -249,6 +249,11 @@ function renderAssistantMessage(msg, idx) {
     `;
   }
 
+  // TK-10 (Q11): user-visible warning for UNVERIFIED answers (e.g. GLM API failure)
+  if (!isStreaming && msg.user_warning) {
+    html += `<div class="qa-user-warning">${escHtml(msg.user_warning)}</div>`;
+  }
+
   // Citations
   if (citations.length > 0 && !isStreaming) {
     html += `
@@ -259,6 +264,8 @@ function renderAssistantMessage(msg, idx) {
             <div class="qa-citation-header">
               <span class="qa-citation-number">[${c.id}]</span>
               <span class="qa-citation-title">${escHtml(c.title)}</span>
+              ${c.source_label === 'AI_SUMMARY' ? '<span class="qa-ai-summary-badge" title="该引用摘自AI生成的合成摘要，非原文">🤖 AI_SUMMARY</span>' : ''}
+              ${(c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') ? `<span class="qa-ground-badge qa-ground-${c.grounding_status.toLowerCase()}" title="证据已定位到原文">📍 ${c.grounding_status}</span>` : (c.grounding_status === 'GROUNDING_FAIL' ? '<span class="qa-ground-badge qa-ground-fail" title="未能定位到原文精确片段">⚠️ 未定位</span>' : '')}
             </div>
             <div class="qa-citation-meta">
               <span>📅 ${c.date || ''}</span>
@@ -267,9 +274,40 @@ function renderAssistantMessage(msg, idx) {
               ${c.tag ? `<span>🏷️ ${escHtml(c.tag)}</span>` : ''}
               <a class="qa-citation-link" href="${escHtml(c.url || '#')}" target="_blank" rel="noreferrer">🔗 原文</a>
             </div>
+            ${(Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length)
+              ? `<div class="qa-claim-badges">${c.supports_claim_ids.map(id =>
+                  `<span class="qa-claim-badge">支持 ${escHtml(String(id).replace('claim_', '主张'))}</span>`).join('')}</div>`
+              : ''}
+            ${c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : ''}
             ${c.body_snippet ? `<div class="qa-citation-snippet">${escHtml(c.body_snippet)}...</div>` : ''}
           </div>
         `).join('')}
+      </div>
+    `;
+  }
+
+  // TK-13 (Q13/R8): minimal evidence card — claim→citation mapping.
+  // Graceful degrade: hidden entirely when supports_claim_ids are empty
+  // (legacy path), never a "no data" placeholder.
+  const claims = msg.claims || [];
+  const mappedCitations = citations.filter(c => Array.isArray(c.supports_claim_ids) && c.supports_claim_ids.length > 0);
+  if (!isStreaming && claims.length > 0 && mappedCitations.length > 0) {
+    html += `
+      <div class="qa-evidence-card">
+        <div class="qa-evidence-card-title">🧩 证据卡片（主张 → 引用映射）</div>
+        ${claims.map(cl => {
+          const supCits = mappedCitations.filter(c => (c.supports_claim_ids || []).includes(cl.id));
+          if (!supCits.length) return '';
+          const statusCls = cl.status === 'SUPPORTED' ? 'qa-claim-supported' : (cl.status === 'UNSUPPORTED' ? 'qa-claim-unsupported' : '');
+          return `
+          <div class="qa-claim-row ${statusCls}">
+            <div class="qa-claim-text">${escHtml(cl.text)}</div>
+            <div class="qa-claim-cites">
+              ${supCits.map(c => `<span class="qa-claim-cite" data-citation-num="${c.id}">[${c.id}]</span>`).join('')}
+              ${cl.status === 'SUPPORTED' ? '<span class="qa-claim-status">✅ 已支持</span>' : (cl.status === 'UNSUPPORTED' ? '<span class="qa-claim-status">⚠️ 未支持</span>' : '')}
+            </div>
+          </div>`;
+        }).join('')}
       </div>
     `;
   }
@@ -479,6 +517,9 @@ function handleSSEData(data, assistantMsg) {
     assistantMsg.stop_reason = data.stop_reason || null;
     assistantMsg.evidence_summary = data.evidence_summary || null;
     assistantMsg.trace_id = data.trace_id || null;
+    // TK-13 (Q13): claims + user warning for the evidence card
+    assistantMsg.claims = data.claims || [];
+    assistantMsg.user_warning = data.user_warning || '';
   }
 
   // Handle error

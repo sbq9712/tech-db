@@ -2568,3 +2568,88 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   .qa-messages { padding: 16px 0; }
   .qa-message { padding: 0 12px; }
 }
+
+/* ═══════════ TK-13 (Q13/R8): evidence card + citation schema ═══════════ */
+.qa-user-warning {
+  max-width: 800px;
+  margin: 8px auto 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #d97706;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.qa-ai-summary-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  color: #fff;
+  vertical-align: 1px;
+}
+.qa-ground-badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.qa-ground-valid { background: rgba(16, 185, 129, 0.15); color: #059669; }
+.qa-ground-fuzzy { background: rgba(59, 130, 246, 0.15); color: #2563eb; }
+.qa-ground-fail { background: rgba(239, 68, 68, 0.12); color: #dc2626; }
+.qa-evidence-span {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-secondary, #555);
+  line-height: 1.6;
+}
+.qa-evidence-span mark {
+  background: linear-gradient(120deg, rgba(250, 204, 21, 0.35) 0%, rgba(250, 204, 21, 0.15) 100%);
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+.qa-claim-badges { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+.qa-claim-badge {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+}
+.qa-evidence-card {
+  max-width: 800px;
+  margin: 10px auto 24px;
+  padding: 0 24px;
+}
+.qa-evidence-card-title {
+  font-size: 12px;
+  color: var(--text-tertiary, #777);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.qa-claim-row {
+  background: var(--bg-secondary, #f7f7f8);
+  border: 1px solid var(--border-light, #e5e5e5);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+}
+.qa-claim-row.qa-claim-supported { border-left: 3px solid #10b981; }
+.qa-claim-row.qa-claim-unsupported { border-left: 3px solid #f59e0b; }
+.qa-claim-text { color: var(--text-primary, #222); line-height: 1.55; }
+.qa-claim-cites { margin-top: 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.qa-claim-cite {
+  cursor: pointer;
+  font-weight: 700;
+  color: #2563eb;
+  padding: 0 2px;
+}
+.qa-claim-cite:hover { text-decoration: underline; }
+.qa-claim-status { font-size: 11px; color: var(--text-tertiary, #777); }
