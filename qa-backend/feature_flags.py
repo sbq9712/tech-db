@@ -34,17 +34,17 @@ class Flags:
     ROUTER_ENABLED = _env_bool("QA_ROUTER_ENABLED")
     DECOMPOSITION_ENABLED = _env_bool("QA_DECOMPOSITION_ENABLED")
     RERANKER_ENABLED = _env_bool("QA_RERANK_ENABLED")
-    EVIDENCE_SELECTOR_ENABLED = _env_bool("QA_EVIDENCE_SELECTOR_ENABLED")
+    EVIDENCE_SELECTOR_ENABLED = _env_bool("QA_EVIDENCE_SELECTOR_ENABLED", default=True)
     EVIDENCE_GRADER_ENABLED = _env_bool("QA_EVIDENCE_GRADER_ENABLED")
     ITERATIVE_RETRIEVAL_ENABLED = _env_bool("QA_ITERATIVE_RETRIEVAL_ENABLED")
 
     # Evidence infrastructure
-    PROVENANCE_ENABLED = _env_bool("QA_PROVENANCE_ENABLED")
-    TEMPORAL_ENABLED = _env_bool("QA_TEMPORAL_ENABLED")
-    ENTITY_RESOLUTION_ENABLED = _env_bool("QA_ENTITY_RESOLUTION_ENABLED")
-    SEMANTIC_GRAPH_ENABLED = _env_bool("QA_SEMANTIC_GRAPH_ENABLED")
-    CONTEXTUAL_CHUNKS_ENABLED = _env_bool("QA_CONTEXTUAL_CHUNKS_ENABLED")
-    NUMERIC_FACTS_ENABLED = _env_bool("QA_NUMERIC_FACTS_ENABLED")
+    PROVENANCE_ENABLED = _env_bool("QA_PROVENANCE_ENABLED", default=True)  # TK-06: non-LLM evidence infra — default on (Q2 wave 1)
+    TEMPORAL_ENABLED = _env_bool("QA_TEMPORAL_ENABLED", default=True)
+    ENTITY_RESOLUTION_ENABLED = _env_bool("QA_ENTITY_RESOLUTION_ENABLED", default=True)
+    SEMANTIC_GRAPH_ENABLED = _env_bool("QA_SEMANTIC_GRAPH_ENABLED", default=True)
+    CONTEXTUAL_CHUNKS_ENABLED = _env_bool("QA_CONTEXTUAL_CHUNKS_ENABLED", default=True)
+    NUMERIC_FACTS_ENABLED = _env_bool("QA_NUMERIC_FACTS_ENABLED", default=True)
 
     # Citation & verification (enabled by default for correctness)
     CLAIM_GROUNDING_ENABLED = _env_bool("QA_CLAIM_GROUNDING_ENABLED", default=True)
@@ -59,6 +59,8 @@ class Flags:
 
     # Four-state answer status (T006) — enabled by default for correctness
     ANSWER_STATUS_ENABLED = _env_bool("QA_ANSWER_STATUS_ENABLED", default=True)
+    # TK-06 (R9): knowledge boundary / calibrated abstention — non-LLM
+    KNOWLEDGE_BOUNDARY_ENABLED = _env_bool("QA_KNOWLEDGE_BOUNDARY_ENABLED", default=True)
 
     @classmethod
     def status(cls) -> dict:
@@ -84,4 +86,5 @@ class Flags:
             "citation_grounding": cls.CITATION_GROUNDING_ENABLED,
             "claim_mapping": cls.CLAIM_MAPPING_ENABLED,
             "answer_status": cls.ANSWER_STATUS_ENABLED,
+            "knowledge_boundary": cls.KNOWLEDGE_BOUNDARY_ENABLED,
         }

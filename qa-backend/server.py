@@ -1238,6 +1238,49 @@ async def chat_stream(req: ChatRequest, request: Request):
                 )
                 answer_status_str = status_enum.value
 
+            # ── TK-06 (R9): Knowledge boundary / calibrated abstention ──
+            # Non-LLM: for UNSUPPORTED/PARTIALLY_SUPPORTED answers, attach a
+            # calibrated boundary message ("当前数据库缺少…" ≠ "现实中不存在")
+            # so the user understands the boundary is the DB's, not reality's.
+            boundary_message = ""
+            if Flags.KNOWLEDGE_BOUNDARY_ENABLED and answer_status_str in (
+                    "UNSUPPORTED", "PARTIALLY_SUPPORTED"):
+                try:
+                    from knowledge_boundary import (
+                        assess_coverage, format_boundary_message, AnswerStatus as KBStatus,
+                    )
+                    grounded = sum(1 for c in citations
+                                   if c.get("grounding_status") in ("VALID", "FUZZY"))
+                    independent = len({c.get("source", "") for c in citations})
+                    claim_rows = claim_map.get("claims", [])[:5]
+                    requirements = [{"status": c.get("status", "MISSING")}
+                                    for c in claim_rows] or \
+                                   [{"status": "MISSING", "text": query}]
+                    coverage = assess_coverage(
+                        requirements=requirements,
+                        evidence_count=grounded,
+                        independent_groups=independent,
+                    )
+                    kb_status = (KBStatus.UNSUPPORTED if answer_status_str == "UNSUPPORTED"
+                                 else KBStatus.PARTIALLY_SUPPORTED)
+                    supported_aspects = [c.get("claim", "") for c in claim_map.get("claims", [])
+                                         if c.get("status") == "SUPPORTED"][:5]
+                    unsupported_aspects = [c.get("claim", "") for c in claim_map.get("claims", [])
+                                           if c.get("status") != "SUPPORTED"][:5]
+                    boundary_message = format_boundary_message(
+                        answer_status=kb_status,
+                        supported_aspects=supported_aspects,
+                        unsupported_aspects=unsupported_aspects or [query],
+                        coverage_level=coverage,
+                    )
+                    trace.add_stage("knowledge_boundary", {
+                        "coverage_level": coverage,
+                        "independent_sources": independent,
+                        "grounded_citations": grounded,
+                    })
+                except Exception as e:
+                    print(f"[knowledge_boundary] Error: {e}", flush=True)
+
             evidence_summary = build_evidence_summary(
                 claim_mapping=claim_map,
                 independent_sources=len(set(c.get("source", "") for c in citations)),
@@ -1260,6 +1303,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "searched_record_ids": searched_record_ids,
                 "answer_status": answer_status_str,
                 "stop_reason": stop_reason,
+                "boundary_message": boundary_message,
                 "evidence_summary": evidence_summary,
                 "trace_id": trace.trace_id,
             })}
