@@ -1,0 +1,9 @@
+{
+  "n": 20,
+  "mean_ms": 1284.2,
+  "p50_ms": 219.9,
+  "p90_ms": 944.5,
+  "p99_ms": 18281.6,
+  "generated_at": "2026-08-14T20:11:54",
+  "note": "legacy TTFB baseline = rewrite + hybrid_search (pre-first-byte backend cost)"
+}

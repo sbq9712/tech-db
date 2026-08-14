@@ -59,6 +59,7 @@ from citation_grounding import ground_citation_evidence, get_original_text
 from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
 from budget_guard import BudgetExceededError, QueryBudget
+from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
 from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
@@ -933,13 +934,22 @@ async def chat_stream(req: ChatRequest, request: Request):
                     return await hybrid_search(q, exclude_ids=exclude)
 
                 try:
-                    agentic_state = await run_agentic_loop(
-                        query=query,
-                        rewritten_query=search_query,
-                        history=req.history,
-                        search_fn=_orchestrator_search_fn,
-                        trace=trace,
-                        bypass_budget=getattr(req, 'bypass_budget', False),
+                    # TK-09: TTFB guard — the agentic loop (router+retrieval+
+                    # control, all pre-first-byte backend work) must fit within
+                    # legacy-TTFB-baseline + Δ; on timeout the query degrades
+                    # to the legacy single-pass path (spec Q10/R2).
+                    _ttfb = ttfb_snapshot()
+                    trace.add_stage("ttfb_guard", _ttfb)
+                    agentic_state = await asyncio.wait_for(
+                        run_agentic_loop(
+                            query=query,
+                            rewritten_query=search_query,
+                            history=req.history,
+                            search_fn=_orchestrator_search_fn,
+                            trace=trace,
+                            bypass_budget=getattr(req, 'bypass_budget', False),
+                        ),
+                        timeout=guard_budget_s(),
                     )
 
                     # Use agentic results for the rest of the pipeline
@@ -955,6 +965,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "total_results": len(agentic_state.all_results),
                         "answer_status": agentic_state.answer_status,
                     })
+                except asyncio.TimeoutError:
+                    # TK-09: agentic loop exceeded legacy-TTFB-baseline + Δ →
+                    # degrade to legacy single-pass; answer still returns.
+                    print(f"[agentic] TTFB guard tripped "
+                          f"(>{guard_budget_s():.1f}s), degrading to legacy", flush=True)
+                    trace.add_stage("ttfb_degrade", {
+                        "budget_ms": ttfb_snapshot()["guard_ms"],
+                        "action": "degrade_to_legacy",
+                    })
+                    # Fall through to standard path
                 except BudgetExceededError as be:
                     # TK-08: loop-control hard cap tripped → degrade the whole
                     # query to the legacy single-pass path; answer still returns.

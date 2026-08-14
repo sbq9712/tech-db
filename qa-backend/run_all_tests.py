@@ -45,6 +45,7 @@ SUITES = {
     "flags_tk06":      ("tests_flags_tk06.py", "push"),
     "router_tk07":     ("tests_router_tk07.py", "push"),
     "budget_tk08":     ("tests_budget_tk08.py", "push"),
+    "ttfb_tk09":       ("tests_ttfb_tk09.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 
