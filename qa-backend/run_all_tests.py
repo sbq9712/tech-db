@@ -43,6 +43,7 @@ SUITES = {
     "registry_io":     ("tests_registry_io.py", "push"),
     "parity":          ("tests_parity.py", "push"),
     "flags_tk06":      ("tests_flags_tk06.py", "push"),
+    "router_tk07":     ("tests_router_tk07.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 

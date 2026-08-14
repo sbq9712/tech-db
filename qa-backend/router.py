@@ -79,24 +79,13 @@ async def route_query(
             "reason": str,
         }
     """
-    # Fast path: very short, specific queries → FAST_RAG
-    if len(original_query) < 10 and not any(
-        kw in original_query for kw in ["比较", "对比", "vs", "所有", "发展", "趋势", "历程"]
-    ):
-        return {
-            "question_type": "FACT_LOOKUP",
-            "complexity": "low",
-            "mode": "FAST_RAG",
-            "needs_decomposition": False,
-            "needs_temporal_reasoning": False,
-            "needs_graph": False,
-            "needs_graph_reasoning": False,
-            "needs_multi_source_evidence": False,
-            "needs_multi_document_reasoning": False,
-            "needs_conflict_check": False,
-            "graph_intent": None,
-            "reason": "short_specific_query",
-        }
+    # ── TK-07 (R4): heuristic-first routing ────────────────────────────────
+    # Heuristics cover the broad band of simple queries (zero LLM cost, zero
+    # latency); the LLM is only consulted when the heuristics are undecided.
+    # The LLM call (when it happens) counts against the loop-control budget.
+    heur = _heuristic_route(original_query)
+    if heur is not None:
+        return heur
 
     try:
         prompt = ROUTER_PROMPT.format(
@@ -204,3 +193,104 @@ def _fallback_route(query: str) -> dict:
         "graph_intent": None,
         "reason": "default_fast",
     }
+
+
+# ── TK-07 (R4): heuristic routing rule set ──────────────────────────────────
+# Design invariants:
+#   * heuristic NEVER sends a complex query to FAST_RAG (safe direction:
+#     undecided → None → LLM fallback)
+#   * heuristic ONLY returns FAST_RAG for confidently-simple queries:
+#     single-focus, no multi-concept/compare/trend/causal markers
+#   * deterministic: same query → same route, no model, no randomness
+
+_COMPLEX_MARKERS = [
+    # comparison / multi-entity
+    "比较", "对比", "区别", "差异", "vs", "VS", "Versus", "哪个更好", "和.*哪个",
+    # trend / temporal analysis
+    "趋势", "发展", "历程", "演进", "变化", "回顾", "展望", "未来", "最新进展",
+    # causal / multi-hop reasoning
+    "为什么", "原因", "导致", "影响", "通过什么", "如何关联", "之间.*关系",
+    # multi-subject enumeration
+    "所有", "全部", "有哪些", "列举", "分别", "各自", "各类", "多种",
+    # deep research markers
+    "分析", "综述", "总结", "梳理", "深入研究", "报告", "全景",
+]
+
+_EN_QUESTION_WORDS = ("what is", "who is", "when did", "define", "definition of")
+
+
+def _heuristic_route(query: str):
+    """Deterministic broad-coverage router. Returns a route dict or None.
+
+    None = undecided → caller falls back to the LLM router (counted against
+    the loop-control budget per R3/R4).
+    """
+    if not query or not query.strip():
+        return None
+    q = query.strip()
+    ql = q.lower()
+    n = len(q)
+    import re as _re
+    # 'vs' needs word boundaries (else 'perovskite' matches!)
+    n_complex_markers = sum(1 for kw in _COMPLEX_MARKERS
+                            if (_re.search(r"\bvs\b|\bversus\b", ql)
+                                if kw.lower() in ("vs", "versus")
+                                else (kw in q or (".*" in kw and _re.search(kw, q)))))
+
+    # ── confidently simple → FAST_RAG (never if any complex marker) ──
+    if n_complex_markers == 0:
+        # single question mark, short-to-medium, single focus
+        if n <= 10:
+            return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:short_specific")
+        # 10–24 chars: simple if it's a noun-phrase-ish lookup without
+        # conjunctions/semicolons (multi-clause ⇒ undecided)
+        if n <= 24 and q.count("？") <= 1 and q.count("?") <= 1 \
+                and not any(c in q for c in "；;，,和与及跟") \
+                and not ql.endswith(("呢", "吗？", "吧")):
+            return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:simple_lookup")
+        # English simple lookups ("what is X", "X energy density")
+        if any(ql.startswith(w) or f" {w}" in ql for w in _EN_QUESTION_WORDS) \
+                and n <= 60 and q.count(" and ") == 0:
+            return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:en_lookup")
+        # no markers but long / multi-clause → undecided (LLM decides)
+
+    # ── confidently complex markers → RESEARCH_RAG (keyword rules mirror
+    #    _fallback_route but reached BEFORE the LLM, saving a call) ──
+    if n_complex_markers >= 2:
+        return _mk("MULTI_ENTITY", "medium", "RESEARCH_RAG",
+                   "heuristic:multi_markers", needs_decomposition=True,
+                   needs_multi_source_evidence=True)
+    if any(kw in q for kw in ("比较", "对比", "vs", "VS", "哪个更好")):
+        return _mk("COMPARISON", "medium", "RESEARCH_RAG",
+                   "heuristic:comparison", needs_decomposition=True,
+                   needs_multi_source_evidence=True,
+                   needs_multi_document_reasoning=True)
+    if any(kw in q for kw in ("趋势", "发展", "历程", "演进", "变化", "最新进展")):
+        return _mk("TREND", "medium", "RESEARCH_RAG",
+                   "heuristic:trend", needs_decomposition=True,
+                   needs_temporal_reasoning=True,
+                   needs_multi_source_evidence=True)
+    if any(kw in q for kw in ("为什么", "原因", "导致", "影响")):
+        return _mk("CAUSAL_ANALYSIS", "medium", "RESEARCH_RAG",
+                   "heuristic:causal", needs_decomposition=True)
+
+    # single complex marker on a short query is still ambiguous → LLM
+    return None
+
+
+def _mk(question_type, complexity, mode, reason, **needs):
+    base = {
+        "question_type": question_type,
+        "complexity": complexity,
+        "mode": mode,
+        "needs_decomposition": needs.get("needs_decomposition", False),
+        "needs_temporal_reasoning": needs.get("needs_temporal_reasoning", False),
+        "needs_graph": needs.get("needs_graph", False),
+        "needs_graph_reasoning": needs.get("needs_graph_reasoning", False),
+        "needs_multi_source_evidence": needs.get("needs_multi_source_evidence", False),
+        "needs_multi_document_reasoning": needs.get("needs_multi_document_reasoning", False),
+        "needs_conflict_check": needs.get("needs_conflict_check", False),
+        "graph_intent": needs.get("graph_intent"),
+        "reason": reason,
+    }
+    return base
