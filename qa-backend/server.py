@@ -656,9 +656,12 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
         results.append({
             "meta": meta,
             "score": r.raw_score,
-            "vec_score": det.get("vector", det.get("vec_score", 0.0)),
-            "bm25_score": det.get("bm25", det.get("bm25_score", 0.0)),
-            "graph_score": det.get("graph", det.get("graph_score", 0.0)),
+            # RRFFusion route_details keys are {route}_score (retrieval/fusion.py):
+            # vector_score / bm25_score / graph_score. These feed the relevance
+            # quality gate (VEC_STRONG / GRAPH_STRONG) — must never default to 0.
+            "vec_score": det.get("vector_score", det.get("vector", 0.0)),
+            "bm25_score": det.get("bm25_score", det.get("bm25", 0.0)),
+            "graph_score": det.get("graph_score", det.get("graph", 0.0)),
         })
 
     if exclude_ids:

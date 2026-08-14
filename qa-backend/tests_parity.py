@@ -67,12 +67,39 @@ def test_hybrid_parity_new_vs_legacy_baseline():
     assert rep["pass"] is True
 
 
+def t_field_level_score_parity():
+    """TK-18 regression: route score fields must survive the seam (found live
+    during the day1 replay: route_details keys are {route}_score; a wrong key
+    zeroed vec_score and broke the relevance gate on the new path)."""
+    import asyncio
+    import server
+
+    async def go():
+        res_n, rel_n = await server._search_with_quality_new("solid state battery", None)
+        res_l, rel_l = await server._search_with_quality_legacy("solid state battery", None)
+        assert res_n and res_l, "no results on mini index"
+        n_map = {r["meta"]["idx"]: r for r in res_n}
+        compared = 0
+        for r in res_l[:10]:
+            n = n_map.get(r["meta"]["idx"])
+            if n is None:
+                continue
+            compared += 1
+            assert abs(n["vec_score"] - r["vec_score"]) < 1e-6, \
+                f"vec_score drift on {r['meta']['idx']}: {n['vec_score']} vs {r['vec_score']}"
+            assert abs(n["bm25_score"] - r["bm25_score"]) < 1e-6, "bm25 drift"
+        assert compared >= 3, f"not enough overlap to compare: {compared}"
+        assert rel_n == rel_l, f"relevance diverged: {rel_n} vs {rel_l}"
+    asyncio.run(go())
+
+
 if __name__ == "__main__":
     print("Parity — TK-04 suite")
     check("mini fixture complete", test_fixture_complete)
     check("baseline files committed", test_baseline_files_committed)
     check("retrieval parity vs frozen baseline (0 drift)", test_parity_vs_frozen_baseline)
     check("hybrid parity: new wiring vs legacy baseline (gate 1)", test_hybrid_parity_new_vs_legacy_baseline)
+    check("field-level route-score parity (TK-18 regression)", t_field_level_score_parity)
     print("=" * 60)
     print(f"  Parity Results: {PASS} passed, {FAIL} failed")
     print("=" * 60)

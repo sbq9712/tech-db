@@ -96,6 +96,21 @@ All tickets from the Master Spec have been implemented.
 - **Final Acceptance tests**: 72 passed
 - **Total**: 305 tests, all passing
 
+
+## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
+- 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored，见
+  check_project 的 FORBIDDEN_TRACKED_INDEXES）；CI replay 使用入库的 MINI
+  索引 fixture（qa-backend/test_fixtures/mini_index）。
+- 本地 nightly replay 入口：`.venv/bin/python scripts/nightly_replay.py
+  --tag dayN --commit`（一键跑完并产出 artifact commit，报告存
+  qa-backend/test_fixtures/holdout/replay/dayN.json）。
+- gate-3 时间要求（连续 7 天 nightly replay）按所有者裁决压缩：一次全量
+  确定性 replay 作为主证据（day1：id_overlap mean=1.0、top1=1.0、
+  relevance/grounding 完全一致、new TTFB ≤ legacy），检索 shadow
+  （QA_SHADOW_RETRIEVAL=1）在随后一周自然流量上继续累积补充证据。
+- shadow 期成本（R6/R14）：检索级 shadow 0 额外 LLM 调用；答案级 shadow
+  使每 query LLM 成本 ×2（报告 shadow_cost 字段记录）。
+
 ## Feature Flags
 | Flag | Default | Description |
 |------|---------|-------------|

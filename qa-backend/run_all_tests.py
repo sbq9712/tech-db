@@ -53,6 +53,7 @@ SUITES = {
     "holdout_tk16":    ("tests_holdout_tk16.py", "push"),
     "shadow_tk17":     ("tests_shadow_tk17.py", "nightly"),
     "ci_tk15":         ("tests_ci_tk15.py", "push"),
+    "replay_tk18":     ("tests_replay_tk18.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 
