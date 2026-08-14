@@ -53,16 +53,16 @@ class Flags:
     }
 
     # Master switch for agentic features
-    AGENTIC_ENABLED = _env_bool("QA_AGENTIC_ENABLED")
+    AGENTIC_ENABLED = _env_bool("QA_AGENTIC_ENABLED", default=True)  # gate3 flip
 
     # Core pipeline stages
     TRACE_ENABLED = _env_bool("QA_TRACE_ENABLED", default=True)  # Trace on by default
-    ROUTER_ENABLED = _env_bool("QA_ROUTER_ENABLED")
-    DECOMPOSITION_ENABLED = _env_bool("QA_DECOMPOSITION_ENABLED")
-    RERANKER_ENABLED = _env_bool("QA_RERANK_ENABLED")
+    ROUTER_ENABLED = _env_bool("QA_ROUTER_ENABLED", default=True)  # gate3 flip
+    DECOMPOSITION_ENABLED = _env_bool("QA_DECOMPOSITION_ENABLED", default=True)  # gate3 flip
+    RERANKER_ENABLED = _env_bool("QA_RERANK_ENABLED", default=True)  # gate3 flip
     EVIDENCE_SELECTOR_ENABLED = _env_bool("QA_EVIDENCE_SELECTOR_ENABLED", default=True)
-    EVIDENCE_GRADER_ENABLED = _env_bool("QA_EVIDENCE_GRADER_ENABLED")
-    ITERATIVE_RETRIEVAL_ENABLED = _env_bool("QA_ITERATIVE_RETRIEVAL_ENABLED")
+    EVIDENCE_GRADER_ENABLED = _env_bool("QA_EVIDENCE_GRADER_ENABLED", default=True)  # gate3 flip
+    ITERATIVE_RETRIEVAL_ENABLED = _env_bool("QA_ITERATIVE_RETRIEVAL_ENABLED", default=True)  # gate3 flip
 
     # Evidence infrastructure
     PROVENANCE_ENABLED = _env_bool("QA_PROVENANCE_ENABLED", default=True)  # TK-06: non-LLM evidence infra — default on (Q2 wave 1)
@@ -81,7 +81,7 @@ class Flags:
     CITATION_GROUNDING_ENABLED = _env_bool("QA_CITATION_GROUNDING_ENABLED", default=True)
 
     # Claim mapping (T004)
-    CLAIM_MAPPING_ENABLED = _env_bool("QA_CLAIM_MAPPING_ENABLED")
+    CLAIM_MAPPING_ENABLED = _env_bool("QA_CLAIM_MAPPING_ENABLED", default=True)  # gate3 flip
 
     # Four-state answer status (T006) — enabled by default for correctness
     ANSWER_STATUS_ENABLED = _env_bool("QA_ANSWER_STATUS_ENABLED", default=True)

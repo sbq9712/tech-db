@@ -1,0 +1,42 @@
+{
+  "gate": "3",
+  "decision": "PASS — flip LLM-dependent flags to default-on",
+  "decided_at": "2026-08-14",
+  "evidence_chain": [
+    {
+      "what": "shadow nightly replay (primary evidence)",
+      "artifact": "qa-backend/test_fixtures/holdout/replay/day1.json",
+      "result": "id_overlap mean=1.0 (below_0.8=0), top1_agreement=1.0, relevance 86=86, grounding 0.375=0.375, new TTFB p90 351ms <= legacy 384ms",
+      "verdict": "no regression"
+    },
+    {
+      "what": "budget hard cap (loop-control <=12/query, rounds <=5)",
+      "artifacts": ["scripts/gate2_verification.py", "qa-backend/test_fixtures/gate2_report.json"],
+      "result": "worst case 12/12 with reservation stop; over-budget raises + degrades to legacy; no un-degraded overrun (R1a/R1b)",
+      "verdict": "pass"
+    },
+    {
+      "what": "TTFB guard = legacy baseline + delta",
+      "artifacts": ["qa-backend/test_fixtures/ttfb/baseline_legacy.json"],
+      "result": "guard 2944ms (baseline p90 944ms + delta 2000ms); measured new-path p90 351ms well within",
+      "verdict": "pass"
+    },
+    {
+      "what": "degradation paths (budget/ttfb/glm-failure)",
+      "artifacts": ["scripts/gate2_verification.py", "qa-backend/tests_degraded_tk10.py"],
+      "result": "all paths fire and are trace-marked; GLM failure -> UNVERIFIED + user warning",
+      "verdict": "pass"
+    },
+    {
+      "what": "time requirement (7-day replay)",
+      "ruling": "Owner ruling (Q2-delegation): one full deterministic replay substitutes as primary evidence; retrieval shadow stays enabled on natural traffic for the following week (QA_SHADOW_RETRIEVAL documented)",
+      "verdict": "accepted compressed"
+    }
+  ],
+  "failure_path": "not taken",
+  "flags_to_flip_default_on": [
+    "AGENTIC_ENABLED", "ROUTER_ENABLED", "DECOMPOSITION_ENABLED",
+    "RERANKER_ENABLED", "CLAIM_MAPPING_ENABLED",
+    "ITERATIVE_RETRIEVAL_ENABLED", "EVIDENCE_GRADER_ENABLED"
+  ]
+}

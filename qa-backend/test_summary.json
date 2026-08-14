@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-14T21:47:21",
+  "generated_at": "2026-08-14T22:32:33",
   "all_passed": true,
-  "total_passed": 309,
+  "total_passed": 315,
   "total_failed": 0,
   "suites": [
     {
@@ -11,7 +11,7 @@
       "passed": 42,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.5,
+      "seconds": 0.4,
       "tail": "\n=== T001: Trace System ===\n  ✅ unique trace_id\n  ✅ stages recorded\n  ✅ stage names\n  ✅ secret scrubbed\n  ✅ data preserved\n[trace] WARNING: flush failed: [Errno 13] Permission denied: '/nonexistent'\n  ✅ trace write fail-safe\n  ✅ no ZAI_API_KEY in trace\n  ✅ no literal API key value\n\n=== T003: Citation Grounding ===\n  ✅ exact span match\n  ✅ non-existent span rejected\n  ✅ grounding VALID\n  ✅ grounding offsets\n  ✅ fb takes priority\n  ✅ empty text → grounding fail\n  ✅ semantic locate works\n  ✅ semantic locate finds relevant section\n\n=== T005: Verifier Fail-Safe ===\n  ✅ JSON clean parse\n  ✅ JSON code fence parse\n  ✅ JSON embedded parse\n  ✅ JSON malformed → None\n  ✅ PASSED.passed is True\n  ✅ FAILED.passed is False\n  ✅ UNVERIFIED.passed is False\n  ✅ UNVERIFIED has reason\n  ✅ empty answer trivially passes\n\n=== T004: Claim Mapping ===\n  ✅ claim validated\n  ✅ claim supported\n  ✅ unsupported major claim detected\n  ✅ unsupported major claims found\n  ✅ minor explanation ignored\n\n=== T006: Four-State Answer Status ===\n  ✅ no results → UNSUPPORTED\n  ✅ results + passed → SUPPORTED\n  ✅ verification unverified → UNVERIFIED\n  ✅ verification failed → PARTIALLY\n  ✅ all major unsupported → UNSUPPORTED\n  ✅ evidence summary structure\n\n=== T013: Content Safety ===\n  ✅ detect Chinese injection\n  ✅ detect English injection\n  ✅ no false positive\n  ✅ data boundary start\n  ✅ data boundary end\n  ✅ safety instructions added\n\n======================================================================\n  Results: 42 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -91,8 +91,8 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 12.7,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 11797.01it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.341 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 13.0,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 12337.21it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.337 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -102,7 +102,7 @@
       "failed": 0,
       "exit_code": 0,
       "seconds": 0.0,
-      "tail": "TK-06 — flags wave 1 + knowledge boundary\n  ✅ wave-1 flags default ON\n  ✅ LLM group stays OFF until gate 3\n  ✅ kill switch (QA_PROVENANCE_ENABLED=0)\n  ✅ health status includes knowledge_boundary\n  ✅ abstain boundary message\n  ✅ SEMANTIC_GRAPH build doesn't crash (Q29 regression)\n============================================================\n  TK-06 Results: 6 passed, 0 failed\n============================================================\n"
+      "tail": "TK-06 — flags wave 1 + knowledge boundary\n  ✅ wave-1 flags default ON\n  ✅ LLM group ON after gate 3 (TK-19 flip) + kill switch\n  ✅ kill switch (QA_PROVENANCE_ENABLED=0)\n  ✅ health status includes knowledge_boundary\n  ✅ abstain boundary message\n  ✅ SEMANTIC_GRAPH build doesn't crash (Q29 regression)\n============================================================\n  TK-06 Results: 6 passed, 0 failed\n============================================================\n"
     },
     {
       "tag": "router_tk07",
@@ -151,7 +151,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.6,
+      "seconds": 0.7,
       "tail": "TK-12 — citation schema + legacy fill contract\n── full schema shape on legacy path\n  ✅ full schema shape on legacy path\n── grounding fills evidence_spans + highlight (non-LLM)\n  ✅ grounding fills evidence_spans + highlight (non-LLM)\n── supports_claim_ids inverse mapping\n  ✅ supports_claim_ids inverse mapping\n── source_label: as vs b/fb\n  ✅ source_label: as vs b/fb\n── done event schema (user_warning etc.)\n  ✅ done event schema (user_warning etc.)\n==============================================================\n  TK-12 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -203,6 +203,16 @@
       "exit_code": 0,
       "seconds": 0.0,
       "tail": "TK-18 — nightly replay artifacts\n── artifact fields complete (gate-3 evidence shape)\n  ✅ artifact fields complete (gate-3 evidence shape)\n── no-regression signature (overlap=1.0, parity all equal)\n  ✅ no-regression signature (overlap=1.0, parity all equal)\n── shadow cost accounting (R6/R14)\n  ✅ shadow cost accounting (R6/R14)\n── budget fields\n  ✅ budget fields\n── artifact committed to repo (回传)\n  ✅ artifact committed to repo (回传)\n── exemption documented\n  ✅ exemption documented\n==============================================================\n  TK-18 Results: 6 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "gate3_tk19",
+      "file": "tests_gate3_tk19.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.4,
+      "tail": "TK-19 — gate 3 flip + FAST_RAG fast-path contract\n  ✅ gate3 report artifacts committed\n  ✅ LLM flags default ON after gate 3\n  ✅ FAST_RAG plans exactly 1 iteration\n[orchestrator] Router error: test_fast_rag_zero_loop_control_calls.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n  ✅ FAST_RAG: 0 loop-control calls, 1 round (rulings Q3)\n  ✅ lenient LLM JSON parser\n[orchestrator] Router error: test_research_rag_still_spends_loop_budget.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n[decomposer] Error: Single '}' encountered in format string\n  ✅ RESEARCH_RAG still spends loop budget\n============================================================\n  TK-19 Results: 6 passed, 0 failed\n============================================================\n"
     }
   ],
   "missing_suites": [],
@@ -289,6 +299,10 @@
     },
     "replay_tk18": {
       "file": "tests_replay_tk18.py",
+      "tier": "push"
+    },
+    "gate3_tk19": {
+      "file": "tests_gate3_tk19.py",
       "tier": "push"
     },
     "final_acceptance": {

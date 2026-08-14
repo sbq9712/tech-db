@@ -83,7 +83,10 @@ def create_plan(
         "expected_evidence_types": evidence_types,
         "source_independence_needs": source_needs,
         "dependencies": _build_dependencies(requirements),
-        "max_iterations": MAX_ITERATIONS,
+        # Spec (rulings Q3 / user story 2): simple queries ALWAYS take the
+        # legacy fast path even with agentic on — a FAST_RAG route must cost
+        # 0 loop-control LLM calls and exactly 1 retrieval round.
+        "max_iterations": 1 if router_result.get("mode") == "FAST_RAG" else MAX_ITERATIONS,
         "max_tool_calls": MAX_TOOL_CALLS,
     }
 

@@ -165,8 +165,8 @@ async def run_agentic_loop(
         # cap is never exceeded mid-round.
         _round_need = (
             (1 if (iteration > 1 and Flags.ITERATIVE_RETRIEVAL_ENABLED) else 0)  # gap
-            + (1 if Flags.EVIDENCE_GRADER_ENABLED else 0)
-            + (1 if Flags.RERANKER_ENABLED else 0)
+            + (1 if (Flags.EVIDENCE_GRADER_ENABLED and mode != "FAST_RAG") else 0)
+            + (1 if (Flags.RERANKER_ENABLED and mode != "FAST_RAG") else 0)
         )
         if not state.budget.can_afford(_round_need):
             state.stop_reason = "budget_exceeded"
@@ -237,7 +237,10 @@ async def run_agentic_loop(
         })
 
         # Rerank (if enabled)
-        if Flags.RERANKER_ENABLED and iteration_results:
+        # Spec (rulings Q3): simple queries never pay agentic loop-control
+        # LLM cost — FAST_RAG routes skip rerank + grader entirely (the
+        # router's whole job is keeping simple queries at legacy cost).
+        if Flags.RERANKER_ENABLED and iteration_results and mode != "FAST_RAG":
             spend_or_raise(state.budget, "reranker")
             try:
                 reranked = await rerank(query, iteration_results[:50], top_k=25)
@@ -268,7 +271,10 @@ async def run_agentic_loop(
             trace.add_stage(f"conflict_iter{iteration}", state.conflict_result)
 
         # Evidence Grader
-        if Flags.EVIDENCE_GRADER_ENABLED:
+        # FAST_RAG: skip the LLM grader too (spec — simple queries pay 0
+        # loop-control cost; grader defaults to SUFFICIENT like the
+        # flag-off branch).
+        if Flags.EVIDENCE_GRADER_ENABLED and mode != "FAST_RAG":
             spend_or_raise(state.budget, "evidence_grader")
             try:
                 state.grader_result = await grade_evidence(

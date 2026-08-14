@@ -114,14 +114,14 @@ All tickets from the Master Spec have been implemented.
 ## Feature Flags
 | Flag | Default | Description |
 |------|---------|-------------|
-| QA_AGENTIC_ENABLED | false | Full agentic loop |
-| QA_ROUTER_ENABLED | false | Adaptive router |
-| QA_DECOMPOSITION_ENABLED | false | Query decomposition |
-| QA_ITERATIVE_RETRIEVAL_ENABLED | false | Gap-driven retrieval |
-| QA_RERANK_ENABLED | false | GLM reranking |
+| QA_AGENTIC_ENABLED | true | Full agentic loop |
+| QA_ROUTER_ENABLED | true | Adaptive router |
+| QA_DECOMPOSITION_ENABLED | true | Query decomposition |
+| QA_ITERATIVE_RETRIEVAL_ENABLED | true | Gap-driven retrieval |
+| QA_RERANK_ENABLED | true | GLM reranking |
 | QA_EVIDENCE_SELECTOR_ENABLED | true | Smart evidence selection |
-| QA_EVIDENCE_GRADER_ENABLED | false | Evidence sufficiency grading |
-| QA_CLAIM_MAPPING_ENABLED | false | Claim→citation mapping |
+| QA_EVIDENCE_GRADER_ENABLED | true | Evidence sufficiency grading |
+| QA_CLAIM_MAPPING_ENABLED | true | Claim→citation mapping |
 | QA_TRACE_ENABLED | true | QA tracing |
 | QA_FAIL_SAFE_VERIFY_ENABLED | true | Fail-safe verification |
 | QA_CITATION_GROUNDING_ENABLED | true | Citation span grounding |
@@ -139,3 +139,20 @@ All tickets from the Master Spec have been implemented.
 ## Background Tasks (Still Running)
 - **Vector index rebuild** (PID 963): Batch ~171/339, ETA ~226 min
 - **LightRAG ingest** (PID 1061): Stage 18/20, nearly complete
+
+## Gate 3 Decision (TK-19, 2026-08-14)
+- **决策：PASS** — 7 个 LLM 依赖 flag（AGENTIC/ROUTER/DECOMPOSITION/
+  ITERATIVE_RETRIEVAL/RERANKER/EVIDENCE_GRADER/CLAIM_MAPPING）已翻为
+  default-on；每个 flag 保留环境变量 kill switch（QA_*_ENABLED=0）。
+- 证据链见 `qa-backend/test_fixtures/gate3_report.json`（主证据：day1
+  replay id_overlap mean=1.0 / top1=1.0 / relevance 与 grounding 完全一致）。
+- **FAST_RAG 快路径契约**（rulings Q3 / user story 2，翻 flag 时补齐）：
+  简单 query 在 agentic 开启时也必须零 LLM 循环控制成本 ——
+  `planner.create_plan` 对 FAST_RAG 路由固定 `max_iterations=1`，
+  orchestrator 在 FAST_RAG 模式下跳过 rerank 与 grader（SUFFICIENT 默认）。
+  实测：FAST_RAG 1 轮检索、loop_calls=0、TTFB 0.45–0.8s（满足 ≤ 基线+Δ 的
+  TTFB guard，不再触发 ttfb_degrade）。
+- **epistemic 解析加固**：GLM 返回截断 JSON 时（live 观察：
+  `Expecting ',' delimiter`），`_parse_llm_json` 在最后一个完整元素处截断
+  重闭合，避免 classify→verify 链路静默失效。
+- 回归：`tests_gate3_tk19.py` 6/6；push 全量 315/315（21 suites）。

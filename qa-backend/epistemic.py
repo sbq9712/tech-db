@@ -73,6 +73,64 @@ ISSUE_TYPES = {
 }
 
 
+def _parse_llm_json(text: str):
+    """Lenient JSON extraction for LLM output.
+
+    Handles the common GLM failure modes observed live:
+    - markdown fences / prose around the JSON
+    - truncated arrays (retry by closing at the last complete element)
+    - truncated objects (drop instead of crashing)
+    Returns parsed value or None.
+    """
+    s = text.find("[")
+    if s >= 0:
+        e = text.rfind("]")
+        frag = text[s:e + 1] if e > s else text[s:]
+        try:
+            parsed = json.loads(frag)
+            if isinstance(parsed, list):
+                return parsed
+        except Exception:
+            # truncated array: close at the last complete element
+            last_obj = frag.rfind("}")
+            if last_obj > 0:
+                try:
+                    repaired = json.loads(frag[:last_obj + 1] + "]")
+                    if isinstance(repaired, list):
+                        return repaired
+                except Exception:
+                    pass
+            # numeric/primitive arrays: close at the last comma
+            last_comma = frag.rfind(",")
+            if last_comma > 0:
+                try:
+                    repaired = json.loads(frag[:last_comma] + "]")
+                    if isinstance(repaired, list):
+                        return repaired
+                except Exception:
+                    pass
+    s = text.find("{")
+    if s >= 0:
+        e = text.rfind("}")
+        if e > s:
+            try:
+                parsed = json.loads(text[s:e + 1])
+                if isinstance(parsed, dict):
+                    return parsed
+            except Exception:
+                # truncated object: close at last complete "key": value
+                for closer in ('"}', ']', '}', 'null', 'true', 'false'):
+                    cut = text[s:].rfind(closer)
+                    if cut > 0:
+                        try:
+                            repaired = json.loads(text[s:s + cut + len(closer)] + "}")
+                            if isinstance(repaired, dict):
+                                return repaired
+                        except Exception:
+                            continue
+    return None
+
+
 # ── 1. Claim Classifier ──
 
 CLASSIFY_PROMPT = """你是认识论信息分类专家。分析以下技术情报片段中与用户问题相关的主要声明(claim)，为每个声明分配认识论类型。
@@ -146,10 +204,10 @@ async def classify_claims(query: str, search_results: list, top_k: int = 5) -> l
             prompt,
             system_prompt="你是认识论信息分类专家。只输出JSON数组，不要输出其他内容。",
         )
-        # Parse JSON array from result
-        s, e = result.find("["), result.rfind("]")
-        if s >= 0 and e > s:
-            return json.loads(result[s:e + 1])
+        # Parse JSON array from result (lenient — handles truncation)
+        parsed = _parse_llm_json(result)
+        if isinstance(parsed, list):
+            return parsed
     except Exception as e:
         print(f"[epistemic-classify] Error: {e}", flush=True)
 
@@ -226,10 +284,10 @@ async def verify_answer(
             prompt,
             system_prompt="你是事实核查专家。只输出JSON对象，不要输出其他内容。",
         )
-        # Parse JSON object from result
-        s, e = result.find("{"), result.rfind("}")
-        if s >= 0 and e > s:
-            return json.loads(result[s:e + 1])
+        # Parse JSON object from result (lenient)
+        parsed = _parse_llm_json(result)
+        if isinstance(parsed, dict):
+            return parsed
     except Exception as e:
         print(f"[epistemic-verify] Error: {e}", flush=True)
 

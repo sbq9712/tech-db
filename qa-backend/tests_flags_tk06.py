@@ -27,11 +27,24 @@ def test_wave1_defaults_on():
         assert getattr(Flags, f"{n}_ENABLED") is True, f"{n} should default on"
 
 
-def test_llm_group_still_off():
+def test_llm_group_on_after_gate3():
+    """TK-19 gate 3 flip: the LLM-call group now defaults ON (gate3_report.json
+    PASS + replay evidence day1.json). Per-flag kill switch must still work."""
     from feature_flags import Flags
     for n in ("AGENTIC", "ROUTER", "DECOMPOSITION", "RERANKER", "CLAIM_MAPPING",
               "ITERATIVE_RETRIEVAL", "EVIDENCE_GRADER"):
-        assert getattr(Flags, f"{n}_ENABLED") is False, f"{n} must stay off until gate 3"
+        assert getattr(Flags, f"{n}_ENABLED") is True, f"{n} must be on after gate 3"
+    # kill switch for the LLM group still honoured
+    os.environ["QA_AGENTIC_ENABLED"] = "0"
+    for mod in list(sys.modules):
+        if mod == "feature_flags":
+            del sys.modules[mod]
+    from feature_flags import Flags as F2
+    assert F2.AGENTIC_ENABLED is False, "QA_AGENTIC_ENABLED=0 must disable the group"
+    os.environ.pop("QA_AGENTIC_ENABLED")
+    for mod in list(sys.modules):
+        if mod == "feature_flags":
+            del sys.modules[mod]
 
 
 def test_kill_switch():
@@ -76,7 +89,7 @@ if __name__ == "__main__":
     import json
     print("TK-06 — flags wave 1 + knowledge boundary")
     check("wave-1 flags default ON", test_wave1_defaults_on)
-    check("LLM group stays OFF until gate 3", test_llm_group_still_off)
+    check("LLM group ON after gate 3 (TK-19 flip) + kill switch", test_llm_group_on_after_gate3)
     check("kill switch (QA_PROVENANCE_ENABLED=0)", test_kill_switch)
     check("health status includes knowledge_boundary", test_health_includes_knowledge_boundary)
     check("abstain boundary message", test_abstain_message)
