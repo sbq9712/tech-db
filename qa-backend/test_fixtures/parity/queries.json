@@ -1,0 +1,26 @@
+{
+  "comment": "TK-04 fixed parity query set (R7): deterministic retrieval-level parity only — no LLM. Queries cover Chinese/English, tech terms, entity names, multi-concept.",
+  "top_k": 20,
+  "queries": [
+    "钙钛矿太阳能电池",
+    "固态电池",
+    "人工智能",
+    "lithium battery energy density",
+    "华为芯片",
+    "NVIDIA GPU",
+    "碳纤维复合材料",
+    "可控核聚变",
+    "固态电解质产业化",
+    "perovskite efficiency record",
+    "电池回收",
+    "半导体光刻机",
+    "稀土永磁材料",
+    "氢燃料电池",
+    "quantum computing",
+    "深度学习训练芯片",
+    "太阳能电池效率",
+    "钠离子电池",
+    "superconductor",
+    "机器学习在材料发现中的应用"
+  ]
+}
