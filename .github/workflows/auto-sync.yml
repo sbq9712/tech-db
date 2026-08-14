@@ -16,6 +16,10 @@ env:
   ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   PIPELINE_MAX_DAYS: "7"
+  # Indexes (BM25/vector/graph) are local-only — they need the bge-m3 model
+  # and existing index state that CI can't persist. CI handles data pipeline
+  # only; local machine handles index building via scripts/sync_local.sh.
+  SKIP_INDEX_BUILD: "1"
 
 jobs:
   sync:
