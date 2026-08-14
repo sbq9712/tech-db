@@ -58,6 +58,7 @@ from feature_flags import Flags
 from citation_grounding import ground_citation_evidence, get_original_text
 from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
+from budget_guard import BudgetExceededError, QueryBudget
 from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
@@ -954,6 +955,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "total_results": len(agentic_state.all_results),
                         "answer_status": agentic_state.answer_status,
                     })
+                except BudgetExceededError as be:
+                    # TK-08: loop-control hard cap tripped → degrade the whole
+                    # query to the legacy single-pass path; answer still returns.
+                    print(f"[agentic] Budget exceeded ({be.component}), "
+                          f"degrading to legacy: {be}", flush=True)
+                    trace.add_stage("budget_degrade", {
+                        "component": be.component,
+                        "budget": be.budget.snapshot(),
+                        "action": "degrade_to_legacy",
+                    })
+                    # Fall through to standard path
                 except Exception as e:
                     print(f"[agentic] Orchestrator error, falling back: {e}", flush=True)
                     import traceback
@@ -1133,6 +1145,11 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Parse [N] citations from the generated answer
             cited_record_ids = _parse_citations_from_answer(full_answer, citations)
 
+            # TK-08: post-processing budget — counted separately from the
+            # loop-control class; these calls NEVER degrade the agentic path
+            # and also run on the legacy path (spec Q4/R3).
+            _pp_budget = QueryBudget()
+
             # ── T005: Fail-Safe Verification ──
             # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
             # Correctness-critical: BudgetFuse cannot silently skip this.
@@ -1146,6 +1163,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 
                     if should_call:
                         print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
+                        _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
                         vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
                         verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
                         trace.add_stage("verification", {
@@ -1189,6 +1207,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 try:
                     claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                     if claim_budget_ok:
+                        _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
                         claim_map = await map_claims_to_citations(query, full_answer, citations)
                         trace.add_stage("claim_mapping", {
                             "total_claims": len(claim_map.get("claims", [])),
@@ -1225,6 +1244,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
                     "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
                 })
+            trace.add_stage("post_budget", _pp_budget.snapshot())
 
             # ── T006: Four-State Answer Status ──
             answer_status_str = "SUPPORTED"

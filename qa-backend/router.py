@@ -121,6 +121,7 @@ def _parse_router_result(text: str) -> dict:
             data = json.loads(m.group(0))
             # Validate required fields
             return {
+                "router_engine": "llm",  # TK-08: 1 loop-control LLM call spent
                 "question_type": data.get("question_type", "FACT_LOOKUP"),
                 "complexity": data.get("complexity", "medium"),
                 "mode": data.get("mode", "FAST_RAG"),
@@ -279,8 +280,19 @@ def _heuristic_route(query: str):
     return None
 
 
+def heuristic_needed(query: str) -> bool:
+    """TK-08: whether route_query() would fall back to the LLM for this query.
+
+    The heuristic is deterministic, so this pre-check lets the orchestrator
+    reserve a loop-control budget slot BEFORE the call (hard-cap semantics:
+    the cap is never exceeded, not merely detected after the fact).
+    """
+    return _heuristic_route(query) is None
+
+
 def _mk(question_type, complexity, mode, reason, **needs):
     base = {
+        "router_engine": "heuristic",  # TK-08: 0 LLM calls spent
         "question_type": question_type,
         "complexity": complexity,
         "mode": mode,

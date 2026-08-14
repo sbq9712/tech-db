@@ -42,6 +42,13 @@ from evidence_selector import select_evidence
 from context_builder import build_evidence_package, build_generator_system_prompt
 from conflict_detector import detect_conflicts
 from answer_status import AnswerStatus
+from budget_guard import (
+    QueryBudget,
+    BudgetExceededError,
+    MAX_RETRIEVAL_ROUNDS,
+    spend_or_raise,
+)
+from router import heuristic_needed
 
 
 @dataclass
@@ -63,6 +70,7 @@ class ResearchState:
     conflict_result: dict = field(default_factory=dict)
     stop_reason: str = ""
     answer_status: str = "SUPPORTED"
+    budget: Optional[QueryBudget] = None  # TK-08 loop-control budget
 
 
 async def run_agentic_loop(
@@ -88,8 +96,15 @@ async def run_agentic_loop(
     """
     state = ResearchState(query=query, original_query=query, rewritten_query=rewritten_query)
 
+    # ── TK-08: per-query loop-control LLM budget (hard cap, spec Q4/R3) ──
+    state.budget = QueryBudget(bypassed=bypass_budget)
+
     # ── Step 1: Router ──
     if Flags.ROUTER_ENABLED:
+        # Reserve the router LLM fallback slot BEFORE calling (deterministic
+        # pre-check — heuristic-covered queries spend 0).
+        if heuristic_needed(query):
+            spend_or_raise(state.budget, "router_llm")
         try:
             state.router_result = await route_query(query, rewritten_query)
         except Exception as e:
@@ -106,6 +121,7 @@ async def run_agentic_loop(
     if mode == "FAST_RAG" or not Flags.DECOMPOSITION_ENABLED:
         state.decomposition = _fallback_decomposition(query)
     else:
+        spend_or_raise(state.budget, "decompose")
         try:
             state.decomposition = await decompose_query(
                 query,
@@ -131,10 +147,36 @@ async def run_agentic_loop(
     state.ledger = EvidenceLedger(query, state.decomposition.get("requirements", []))
 
     # ── Step 5: Iterative Retrieval Loop ──
-    max_iterations = min(state.plan.get("max_iterations", MAX_ITERATIONS), MAX_ITERATIONS)
+    # TK-08: retrieval rounds are hard-capped at MAX_RETRIEVAL_ROUNDS (spec
+    # Q4: <= 5 rounds), on top of the usual MAX_ITERATIONS clamp.
+    max_iterations = min(
+        state.plan.get("max_iterations", MAX_ITERATIONS),
+        MAX_ITERATIONS,
+        MAX_RETRIEVAL_ROUNDS,
+    )
 
     for iteration in range(1, max_iterations + 1):
         state.iteration = iteration
+
+        # ── TK-08 Layer 1: round reservation ────────────────────────────
+        # Reserve this round's worst-case loop-control calls up-front. If
+        # they don't fit the remaining budget, stop the loop here (partial
+        # evidence is still returned) and mark the trace — guarantees the
+        # cap is never exceeded mid-round.
+        _round_need = (
+            (1 if (iteration > 1 and Flags.ITERATIVE_RETRIEVAL_ENABLED) else 0)  # gap
+            + (1 if Flags.EVIDENCE_GRADER_ENABLED else 0)
+            + (1 if Flags.RERANKER_ENABLED else 0)
+        )
+        if not state.budget.can_afford(_round_need):
+            state.stop_reason = "budget_exceeded"
+            trace.add_stage("budget_stop", {
+                "at_iteration": iteration,
+                "round_need": _round_need,
+                "budget": state.budget.snapshot(),
+                "action": "stop_agentic_loop_early",
+            })
+            break
 
         # Determine queries for this iteration
         if iteration == 1:
@@ -144,6 +186,7 @@ async def run_agentic_loop(
             if not Flags.ITERATIVE_RETRIEVAL_ENABLED:
                 break
 
+            spend_or_raise(state.budget, "gap_analysis")
             try:
                 state.gap_result = await analyze_gaps(
                     query, state.ledger.get_status(),
@@ -195,6 +238,7 @@ async def run_agentic_loop(
 
         # Rerank (if enabled)
         if Flags.RERANKER_ENABLED and iteration_results:
+            spend_or_raise(state.budget, "reranker")
             try:
                 reranked = await rerank(query, iteration_results[:50], top_k=25)
                 trace.add_stage(f"rerank_iter{iteration}", {
@@ -225,6 +269,7 @@ async def run_agentic_loop(
 
         # Evidence Grader
         if Flags.EVIDENCE_GRADER_ENABLED:
+            spend_or_raise(state.budget, "evidence_grader")
             try:
                 state.grader_result = await grade_evidence(
                     query, state.ledger, state.selected_evidence,
@@ -273,6 +318,7 @@ async def run_agentic_loop(
         "coverage": coverage,
         "iterations": state.iteration,
         "total_evidence": len(state.all_results),
+        "budget": state.budget.snapshot() if state.budget else None,
     })
 
     return state
