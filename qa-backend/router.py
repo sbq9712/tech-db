@@ -260,7 +260,8 @@ def _heuristic_route(query: str):
         return _mk("MULTI_ENTITY", "medium", "RESEARCH_RAG",
                    "heuristic:multi_markers", needs_decomposition=True,
                    needs_multi_source_evidence=True)
-    if any(kw in q for kw in ("比较", "对比", "vs", "VS", "哪个更好")):
+    import re as _re2
+    if any(kw in q for kw in ("比较", "对比", "哪个更好")) or _re2.search(r"\bvs\b|\bversus\b", ql):
         return _mk("COMPARISON", "medium", "RESEARCH_RAG",
                    "heuristic:comparison", needs_decomposition=True,
                    needs_multi_source_evidence=True,

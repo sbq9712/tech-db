@@ -51,11 +51,15 @@ def test_complex_none_fast():
 
 def test_vs_word_boundary():
     from router import _heuristic_route
-    # 'perovskite' contains 'vs' — must NOT trigger comparison
-    r = _heuristic_route("perovskite solar cell efficiency")
-    assert r is not None and r["mode"] == "FAST_RAG"
+    # 'perovskite' contains 'vs' — must NOT trigger comparison.
+    # A 33-char multi-word query with no question word is legitimately
+    # ambiguous → None → LLM fallback (safe direction).
+    r = _heuristic_route("what is perovskite efficiency record")
+    assert r is not None and r["mode"] == "FAST_RAG", r
+    r1 = _heuristic_route("perovskite solar cell efficiency")
+    assert r1 is None or r1["mode"] != "RESEARCH_RAG" or "comparison" not in r1["reason"], r1
     r2 = _heuristic_route("CATL vs BYD battery")
-    assert r2 is not None and r2["mode"] == "RESEARCH_RAG"
+    assert r2 is not None and r2["mode"] == "RESEARCH_RAG", r2
 
 
 def test_route_query_zero_llm_for_simple_and_complex():
