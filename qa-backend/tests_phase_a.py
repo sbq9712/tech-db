@@ -9,6 +9,12 @@ import asyncio
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+# ── TK-03 test isolation (Q22): redirect registry/index dirs to temp dirs so
+# suites never pollute production runtime/indexes. setdefault: an explicit
+# env (e.g. parity baseline runs) still wins.
+import os as _os_t3, tempfile as _tf_t3
+_os_t3.environ.setdefault("TECH_DB_INDEX_DIR", _tf_t3.mkdtemp(prefix="techdb-test-idx-"))
+_os_t3.environ.setdefault("TECH_DB_RUNTIME_DIR", _tf_t3.mkdtemp(prefix="techdb-test-rt-"))
 
 passed = 0
 failed = 0
