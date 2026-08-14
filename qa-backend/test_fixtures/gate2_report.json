@@ -1,0 +1,83 @@
+{
+  "gate": "2",
+  "generated_at": "2026-08-14T20:19:31",
+  "checks": [
+    {
+      "check": "R1a worst case within cap (≤12)",
+      "pass": true,
+      "evidence": "loop_calls=12/12, stop=budget_exceeded"
+    },
+    {
+      "check": "R1b over-budget RAISES (never silently continues)",
+      "pass": true,
+      "evidence": "component=decompose, server degrade stage=True"
+    },
+    {
+      "check": "R3a reservation stop marked in trace",
+      "pass": true,
+      "evidence": "budget_stop stage present"
+    },
+    {
+      "check": "R1c simple+complex queries 0-LLM routed",
+      "pass": true,
+      "evidence": "simple=True, complex=True"
+    },
+    {
+      "check": "R3b TTFB timeout → legacy degrade",
+      "pass": true,
+      "evidence": "guard=2944ms"
+    },
+    {
+      "check": "R3c GLM failure → UNVERIFIED (never PASSED)",
+      "pass": true,
+      "evidence": "verify_with_fail_safe with dead LLM"
+    },
+    {
+      "check": "R3d GLM failure → user warning",
+      "pass": true,
+      "evidence": "⚠️ 本次未能完成答案验证，请注意核查关键信息。（模型服务暂时不可用，已按未验证…"
+    },
+    {
+      "check": "R2 TTFB budget = legacy baseline + Δ",
+      "pass": true,
+      "evidence": "baseline(p90)=944ms + Δ2000ms = guard 2944ms"
+    }
+  ],
+  "queries": {
+    "budget_matrix": {
+      "normal": {
+        "loop_calls": 12,
+        "limit": 12,
+        "stop_reason": "budget_exceeded",
+        "reservation_marked": true,
+        "within_cap": true
+      },
+      "over_budget": {
+        "raised": true,
+        "component": "decompose",
+        "loop_calls_at_raise": 1,
+        "server_degrade_stage": {
+          "stage": "budget_degrade",
+          "component": "decompose",
+          "action": "degrade_to_legacy"
+        }
+      }
+    },
+    "router_matrix": {
+      "simple_heuristic": true,
+      "complex_heuristic": true
+    },
+    "degradation_matrix": {
+      "ttfb_timeout_degrades": true,
+      "glm_failure_unverified": true,
+      "glm_failure_warning": "⚠️ 本次未能完成答案验证，请注意核查关键信息。（模型服务暂时不可用，已按未验证结果返回）",
+      "glm_api_signature": true
+    },
+    "ttfb": {
+      "baseline_p90_ms": 944,
+      "delta_ms": 2000,
+      "guard_ms": 2944
+    }
+  },
+  "verdict": "GATE2_PASS"
+}
