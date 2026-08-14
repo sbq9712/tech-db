@@ -74,26 +74,42 @@ async def replay(tag: str) -> dict:
             grounded += g["grounding_status"] in ("VALID", "FUZZY")
         return round(grounded / total, 4) if total else None
 
+    # TK-23 contract: the legacy path is deleted. The replay's "reference"
+    # leg is the frozen gate-3 shadow artifact (shadow_diff_full.json — ids
+    # recorded while legacy still existed); the live leg is the retrieval
+    # layer. Drift vs that reference is the ongoing regression watch.
+    ref_path = ROOT / "qa-backend" / "test_fixtures" / "holdout" / "shadow_diff_full.json"
+    ref = {}
+    try:
+        doc = json.loads(ref_path.read_text("utf-8"))
+        ref = {q["query"][:120]: q.get("legacy_top25") or []
+               for q in doc.get("per_query", [])}
+    except Exception:
+        pass
+
     per = []
     for i, e in enumerate(entries):
-        t0 = time.perf_counter()
-        legacy_res, legacy_rel = await server._search_with_quality_legacy(e["query"], None)
-        legacy_ms = (time.perf_counter() - t0) * 1000
         t1 = time.perf_counter()
         new_res, new_rel = await server._search_with_quality_new(e["query"], None)
         new_ms = (time.perf_counter() - t1) * 1000
 
-        li = [r["meta"]["idx"] for r in legacy_res[:25]]
         ni = [r["meta"]["idx"] for r in new_res[:25]]
-        inter, union = set(li) & set(ni), set(li) | set(ni)
+        li = ref.get(e["query"][:120])
+        has_ref = li is not None
+        if has_ref:
+            inter, union = set(li) & set(ni), set(li) | set(ni)
+            overlap = round(len(inter) / len(union), 4) if union else 1.0
+        else:
+            overlap = None
         per.append({
             "id": e["id"], "query": e["query"][:60],
-            "overlap": round(len(inter) / len(union), 4) if union else 1.0,
-            "top1_same": bool(li[:1] == ni[:1]),
-            "legacy_relevant": legacy_rel, "new_relevant": new_rel,
-            "legacy_ms": round(legacy_ms, 1), "new_ms": round(new_ms, 1),
-            "grounding_legacy": grounding_rate(legacy_res, e["query"]),
+            "overlap": overlap,
+            "top1_same": bool(li[:1] == ni[:1]) if has_ref else None,
+            "legacy_relevant": None, "new_relevant": new_rel,
+            "legacy_ms": None, "new_ms": round(new_ms, 1),
+            "grounding_legacy": None,
             "grounding_new": grounding_rate(new_res, e["query"]),
+            "reference": "frozen:shadow_diff_full.json" if has_ref else None,
         })
         if (i + 1) % 20 == 0:
             print(f"  {i+1}/100 done")
@@ -105,7 +121,7 @@ async def replay(tag: str) -> dict:
         k = max(0, min(len(s) - 1, round(p / 100 * (len(s) - 1))))
         return round(s[k], 2)
 
-    overlaps = [q["overlap"] for q in per]
+    overlaps = [q["overlap"] for q in per if q["overlap"] is not None]
     report = {
         "tag": tag,
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -117,7 +133,10 @@ async def replay(tag: str) -> dict:
             "min": round(min(overlaps), 4),
             "below_0.8": sum(1 for o in overlaps if o < 0.8),
         },
-        "top1_agreement": round(sum(q["top1_same"] for q in per) / len(per), 4),
+        "n_vs_reference": len(overlaps),
+        "top1_agreement": round(
+            sum(1 for q in per if q["top1_same"]) / max(1, len(overlaps)), 4)
+        if overlaps else None,
         "ttfb_ms": {
             "legacy": {"p50": pctl([q["legacy_ms"] for q in per], 50),
                        "p90": pctl([q["legacy_ms"] for q in per], 90)},
@@ -125,13 +144,10 @@ async def replay(tag: str) -> dict:
                     "p90": pctl([q["new_ms"] for q in per], 90)},
         },
         "grounding_rate": {
-            "legacy_mean": round(statistics.mean([q["grounding_legacy"] for q in per
-                                                 if q["grounding_legacy"] is not None]), 4),
             "new_mean": round(statistics.mean([q["grounding_new"] for q in per
                                               if q["grounding_new"] is not None]), 4),
         },
         "relevance_distribution": {
-            "legacy_relevant": sum(q["legacy_relevant"] for q in per),
             "new_relevant": sum(q["new_relevant"] for q in per),
         },
         "shadow_cost": {

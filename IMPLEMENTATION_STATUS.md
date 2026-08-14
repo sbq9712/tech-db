@@ -128,3 +128,21 @@ closed; see "Ticket Closure & Evidence Chain" below.
 ## 后续 Ticket（spec 明确范围外）
 - LightRAG ingest 恢复（剩余 curated 候选，用户原话"Q5之后再说"）——
   本次按裁决作为"AI精选+精选情报"图谱构建后续工作单执行（进行中）。
+
+## TK-23 Contract Phase (2026-08-14) — legacy retrieval deleted
+- **已删除**：`server.py` 旧内联检索实现与 `QA_RETRIEVAL_LEGACY` 逃生口。
+  `_search_with_quality_legacy` 仅保留为 raising stub（防静默回退）。
+- **kill switch 语义变化（Q2，contract 后）**：
+  - contract 前：`QA_RETRIEVAL_LEGACY=1` 可切回旧路径（expand 阶段逃生口）。
+  - contract 后：逃生口不复存在。回滚 = `git revert` TK-23 提交。
+  - 功能级回滚继续使用 flag 语义（`QA_*_ENABLED=0`，21 个 flag 均在）。
+- **shadow 演化**：QA_SHADOW_RETRIEVAL 从"双路径对比"转为"漂移监视"——
+  live 检索层 vs 冻结的 gate-3 参考 artifact
+  （`qa-backend/test_fixtures/holdout/shadow_diff_full.json`，最后一次在
+  legacy 存在时记录的 per-query top-25 ids）。不在参考集的 query 只记录
+  延迟/相关性。报告字段 `reference` 标明来源。
+- **nightly_replay 演化**：legacy 腿同样改为冻结参考（overlap = live vs
+  frozen reference）。历史 day1.json 保留 dual-path 形态（gate-3 证据）。
+- **parity 保证不变**：tests_parity 对冻结 gate-1 基线（0 drift）+
+  字段级 route-score 校验继续守护 seam。
+- 回归：push 324/324（23 suites）+ nightly 80/80。

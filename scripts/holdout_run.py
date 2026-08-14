@@ -81,10 +81,11 @@ async def retrieval_check(entries):
 
 
 async def shadow_run(entries, out_path):
-    """TK-17: dual-path execution — legacy vs new retrieval seam, diff report.
+    """TK-17 → TK-23 contract phase: drift-watch vs the FROZEN gate-3 reference.
 
-    Uses the same hybrid_search seam with QA_RETRIEVAL_LEGACY on/off (TK-05);
-    the shipped response always stays legacy (shadow is diagnostic only).
+    The legacy retrieval path was deleted (TK-23). Live results are compared
+    against test_fixtures/holdout/shadow_diff_full.json — the last dual-path
+    artifact recorded while the legacy path still existed.
     """
     import os
     os.environ["TECH_DB_INDEX_DIR"] = str(ROOT / "data" / "lightrag")
@@ -92,45 +93,56 @@ async def shadow_run(entries, out_path):
     server.load_vector_index()
     server.load_bm25_index()
 
-    async def run_path(query, legacy: bool):
-        results, rel = await (server._search_with_quality_legacy(query, None)
-                              if legacy else server._search_with_quality_new(query, None))
-        return {"ids": [r["meta"].get("idx") for r in results[:25]],
-                "relevant": rel}
+    ref_path = ROOT / "qa-backend" / "test_fixtures" / "holdout" / "shadow_diff_full.json"
+    ref = {}
+    try:
+        doc = json.loads(ref_path.read_text("utf-8"))
+        ref = {q["query"][:120]: q.get("legacy_top25") or []
+               for q in doc.get("per_query", [])}
+    except Exception:
+        pass
+
+    async def run_live(query):
+        results, rel = await server._search_with_quality_new(query, None)
+        return {"ids": [r["meta"].get("idx") for r in results[:25]], "relevant": rel}
 
     diffs = []
     for e in entries:
         t0 = time.perf_counter()
-        old = await run_path(e["query"], legacy=True)
+        new = await run_live(e["query"])
         t1 = time.perf_counter()
-        new = await run_path(e["query"], legacy=False)
-        t2 = time.perf_counter()
-        ov = float(len(set(old["ids"]) & set(new["ids"])) /
-                   max(1, len(set(old["ids"]) | set(new["ids"]))))
+        ref_ids = ref.get(e["query"][:120])
+        ov = None
+        if ref_ids is not None:
+            ov = round(float(len(set(ref_ids) & set(new["ids"])) /
+                             max(1, len(set(ref_ids) | set(new["ids"])))), 4)
         diffs.append({"id": e["id"], "query": e["query"][:60],
-                      "legacy_top25": old["ids"], "new_top25": new["ids"],
-                      "overlap": round(ov, 4),
-                      "legacy_ms": round((t1 - t0) * 1000, 1),
-                      "new_ms": round((t2 - t1) * 1000, 1)})
+                      "reference_top25": ref_ids, "new_top25": new["ids"],
+                      "overlap": ov,
+                      "new_ms": round((t1 - t0) * 1000, 1)})
     import statistics
-    overlaps = [d["overlap"] for d in diffs]
+    overlaps = [d["overlap"] for d in diffs if d["overlap"] is not None]
     report = {
-        "mode": "shadow", "n": len(diffs), "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        "id_overlap": {"mean": round(statistics.mean(overlaps), 4),
-                       "min": round(min(overlaps), 4),
-                       "below_08": sum(1 for o in overlaps if o < 0.8)},
-        "ttfb_ms": {"legacy_p50": _pct([d["legacy_ms"] for d in diffs], 50),
-                    "legacy_p90": _pct([d["legacy_ms"] for d in diffs], 90),
-                    "new_p50": _pct([d["new_ms"] for d in diffs], 50),
+        "mode": "shadow", "n": len(diffs),
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "reference": "frozen:shadow_diff_full.json (gate-3 artifact; legacy removed TK-23)",
+        "id_overlap": ({"mean": round(statistics.mean(overlaps), 4),
+                        "min": round(min(overlaps), 4),
+                        "below_08": sum(1 for o in overlaps if o < 0.8)}
+                       if overlaps else None),
+        "ttfb_ms": {"new_p50": _pct([d["new_ms"] for d in diffs], 50),
                     "new_p90": _pct([d["new_ms"] for d in diffs], 90)},
         "per_query": diffs,
-        "note": "shadow diagnostic only — shipped responses always legacy (Q18/R1)",
+        "note": "drift-watch vs frozen gate-3 reference (TK-23 contract phase)",
     }
     out_path.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"shadow diff report → {out_path}")
-    print(f"  id_overlap mean={report['id_overlap']['mean']} "
-          f"below_0.8={report['id_overlap']['below_08']} | "
-          f"ttfb legacy_p90={report['ttfb_ms']['legacy_p90']}ms new_p90={report['ttfb_ms']['new_p90']}ms")
+    if overlaps:
+        print(f"  id_overlap vs frozen reference: mean={report['id_overlap']['mean']} "
+              f"below_0.8={report['id_overlap']['below_08']} | "
+              f"new_p90={report['ttfb_ms']['new_p90']}ms")
+    else:
+        print("  no reference overlap (queries not in frozen set)")
     return report
 
 

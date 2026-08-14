@@ -511,59 +511,29 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
 
 
 async def _search_with_quality_legacy(query: str, exclude_ids: set = None) -> tuple:
-    """Run three-route retrieval + RRF fusion + exclusion + quality gate.
+    """REMOVED in TK-23 (R5 contract phase).
 
-    Returns (results, is_relevant).
+    The pre-TK-05 inline retrieval implementation and its QA_RETRIEVAL_LEGACY
+    escape hatch were deleted after gate 3 passed (test_fixtures/gate3_report.json).
+    Rollback semantics post-contract (Q2): the escape hatch is GONE — roll back
+    by reverting the TK-23 commit, not by an env var. Ongoing regression
+    watching: tests_parity (frozen gate-1 baselines) + QA_SHADOW_RETRIEVAL
+    (drift vs the frozen shadow_diff_full.json reference ids).
     """
-    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
-
-    vec_task = vector_search(query, top_k=fetch_k)
-    bm25_task = asyncio.to_thread(bm25_search, query, fetch_k)
-    graph_task = asyncio.to_thread(graph_search, query, fetch_k)
-
-    vec_results, bm25_results, graph_results = await asyncio.gather(
-        vec_task, bm25_task, graph_task
-    )
-
-    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
-    results = rrf_fuse(
-        vec_results, bm25_results,
-        graph_results if graph_results else None,
-        top_k=fuse_top_k,
-    )
-
-    if exclude_ids:
-        before = len(results)
-        results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
-        excluded_count = before - len(results)
-        results = results[:FINAL_TOP_K]
-        if excluded_count:
-            print(f"[search] Excluded {excluded_count} previously cited, "
-                  f"{len(results)} remaining", flush=True)
-    else:
-        results = results[:FINAL_TOP_K]
-
-    # Quality gate: require semantic signal (vec or graph), not BM25 alone
-    is_relevant = False
-    if results:
-        has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
-        has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
-        is_relevant = has_strong_vec or has_strong_graph
-
-    return results, is_relevant
+    raise NotImplementedError(
+        "legacy retrieval path removed (TK-23 contract phase); "
+        "rollback = git revert, not QA_RETRIEVAL_LEGACY")
 
 
-# ── TK-05 (Q8/R5): unified retrieval layer wiring — expand phase ─────────────
+# ── TK-05 (Q8/R5): unified retrieval layer wiring — contract phase ───────────
 # hybrid_search now orchestrates the retrieval/ layer (T013/T014) through a
 # single seam. Output shape and RRF semantics are byte-compatible with the
-# legacy path (parity-guarded by tests_parity.py). The legacy implementation
-# stays reachable via QA_RETRIEVAL_LEGACY=1 until gate 3 passes; it is
-# removed in the contract phase (TK-23).
-_LEGACY_RETRIEVAL = os.environ.get("QA_RETRIEVAL_LEGACY", "").strip() == "1"
-# TK-17 (Q18/R1): shadow diagnostics — dual-path execution, legacy always wins
+# pre-contract legacy path (parity-guarded by tests_parity.py against the
+# frozen gate-1 baselines). TK-23: the legacy implementation and the
+# QA_RETRIEVAL_LEGACY escape hatch are deleted; rollback is git-revert.
 _SHADOW_RETRIEVAL = os.environ.get("QA_SHADOW_RETRIEVAL", "").strip() == "1"
 _retrieval_pipeline = None
-_shadow_diffs = []          # per-query dual-path records (bounded)
+_shadow_diffs = []          # per-query drift records (bounded)
 
 
 def _bm25_tokenize(query: str) -> list:
@@ -592,18 +562,15 @@ def _get_retrieval_pipeline():
 
 
 async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
-    """Retrieval seam dispatcher (TK-05 + TK-17).
+    """Retrieval seam dispatcher (TK-05 + TK-17 + TK-23).
 
-    Order: shadow (dual-path, legacy result) → legacy escape hatch → new
-    retrieval-layer path. Contract is identical in all three: legacy dict
-    shape (results, is_relevant).
+    Order: shadow drift-watch (records overlap vs the frozen gate-3 reference)
+    → new retrieval-layer path. Contract: (results, is_relevant).
     """
     if _SHADOW_RETRIEVAL:
-        # QA_SHADOW_RETRIEVAL=1 → run BOTH paths, record a diff, return
-        # legacy. Shipped responses stay byte-identical to shadow-off.
+        # QA_SHADOW_RETRIEVAL=1 → run the live path, record drift vs the
+        # frozen reference ids (shadow_diff_full.json), return live result.
         return await _search_with_shadow(query, exclude_ids)
-    if _LEGACY_RETRIEVAL:
-        return await _search_with_quality_legacy(query, exclude_ids)
     return await _search_with_quality_new(query, exclude_ids)
 
 
@@ -687,44 +654,67 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
 
 
 async def _search_with_shadow(query: str, exclude_ids: set = None) -> tuple:
-    """TK-17 (Q18/R1): dual-path retrieval — legacy result always returned.
+    """TK-17 → TK-23 contract phase: retrieval drift-watch.
 
-    Both the legacy path and the new retrieval-layer path run; the diff
-    (id overlap, rank deltas, latency) is recorded to _shadow_diffs for the
-    shadow report endpoint/script. The returned value is byte-identical to
-    running with shadow off, so shadowing never changes user-visible output.
+    The legacy implementation was deleted (TK-23). Shadow mode now compares
+    the LIVE retrieval-layer path against the frozen gate-3 reference ids
+    (test_fixtures/holdout/shadow_diff_full.json — the last artifact recorded
+    against the legacy path). For queries not in the reference, the record
+    carries latency/relevance only (overlap=None). The returned value is the
+    live result — shadowing never changes user-visible output.
     """
     import time as _time
-    t0 = _time.perf_counter()
-    legacy_res, legacy_rel = await _search_with_quality_legacy(query, exclude_ids)
-    legacy_ms = (_time.perf_counter() - t0) * 1000.0
-
+    ref_ids = _shadow_reference_ids().get(query[:120])
     t1 = _time.perf_counter()
     try:
         new_res, new_rel = await _search_with_quality_new(query, exclude_ids)
         new_err = None
-    except Exception as e:  # new path failure must NOT affect the response
+    except Exception as e:  # path failure must NOT affect the response
         new_res, new_rel, new_err = [], False, str(e)[:200]
     new_ms = (_time.perf_counter() - t1) * 1000.0
 
-    legacy_ids = [r.get("meta", {}).get("idx") for r in legacy_res[:25]]
     new_ids = [r.get("meta", {}).get("idx") for r in (new_res or [])[:25]]
-    inter = set(legacy_ids) & set(new_ids)
-    union = set(legacy_ids) | set(new_ids)
+    if ref_ids is not None:
+        inter = set(ref_ids) & set(new_ids)
+        union = set(ref_ids) | set(new_ids)
+        overlap = round(len(inter) / len(union), 4) if union else 1.0
+    else:
+        overlap = None
     _shadow_diffs.append({
         "query": query[:120],
-        "legacy_top25": legacy_ids,
+        "reference_top25": ref_ids,
         "new_top25": new_ids,
-        "id_overlap": round(len(inter) / len(union), 4) if union else 1.0,
-        "legacy_relevant": legacy_rel,
+        "id_overlap": overlap,
+        "reference_source": "frozen:shadow_diff_full.json" if ref_ids is not None
+                            else "none (query not in reference set)",
         "new_relevant": new_rel,
         "new_error": new_err,
-        "legacy_ms": round(legacy_ms, 1),
+        "reference_ms": None,
         "new_ms": round(new_ms, 1),
         "ts": _time.strftime("%Y-%m-%dT%H:%M:%S"),
     })
     del _shadow_diffs[:-2000]  # bounded memory
-    return legacy_res, legacy_rel
+    return new_res, new_rel
+
+
+_shadow_ref_cache = None
+
+
+def _shadow_reference_ids() -> dict:
+    """Query → top-25 ids from the frozen gate-3 shadow reference artifact."""
+    global _shadow_ref_cache
+    if _shadow_ref_cache is None:
+        ref_path = Path(__file__).resolve().parent / "test_fixtures" / "holdout" / \
+            "shadow_diff_full.json"
+        cache = {}
+        try:
+            doc = json.loads(ref_path.read_text("utf-8"))
+            for q in doc.get("per_query", []):
+                cache[q.get("query", "")[:120]] = q.get("legacy_top25") or []
+        except Exception as e:
+            print(f"[shadow] reference artifact unreadable: {e}", flush=True)
+        _shadow_ref_cache = cache
+    return _shadow_ref_cache
 
 
 def shadow_diff_report() -> dict:
@@ -733,23 +723,27 @@ def shadow_diff_report() -> dict:
     import time as _time
     if not _shadow_diffs:
         return {"n": 0, "note": "no shadow queries recorded"}
-    ov = [d["id_overlap"] for d in _shadow_diffs]
-    return {
+    ov = [d["id_overlap"] for d in _shadow_diffs if d["id_overlap"] is not None]
+    n_ref = len(ov)
+    out = {
         "n": len(_shadow_diffs),
-        "id_overlap": {
-            "mean": round(_st.mean(ov), 4),
-            "min": round(min(ov), 4),
-            "below_0.8": sum(1 for o in ov if o < 0.8),
-        },
-        "ttfb_ms": {
-            "legacy_p50": _pctl([d["legacy_ms"] for d in _shadow_diffs], 50),
-            "legacy_p90": _pctl([d["legacy_ms"] for d in _shadow_diffs], 90),
-            "new_p50": _pctl([d["new_ms"] for d in _shadow_diffs], 50),
-            "new_p90": _pctl([d["new_ms"] for d in _shadow_diffs], 90),
-        },
+        "n_vs_reference": n_ref,
+        "reference": "frozen:shadow_diff_full.json (gate-3 artifact; legacy path "
+                     "removed in TK-23)",
         "new_path_errors": sum(1 for d in _shadow_diffs if d["new_error"]),
         "generated_at": _time.strftime("%Y-%m-%dT%H:%M:%S"),
     }
+    if n_ref:
+        out["id_overlap"] = {
+            "mean": round(_st.mean(ov), 4),
+            "min": round(min(ov), 4),
+            "below_0.8": sum(1 for o in ov if o < 0.8),
+        }
+    out["ttfb_ms"] = {
+        "new_p50": _pctl([d["new_ms"] for d in _shadow_diffs], 50),
+        "new_p90": _pctl([d["new_ms"] for d in _shadow_diffs], 90),
+    }
+    return out
 
 
 def _pctl(vals, p):
@@ -945,7 +939,7 @@ async def health():
         "total_records": len(_records) if _records else 0,
         "feature_flags": Flags.status(),
         "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
-        "retrieval_legacy": _LEGACY_RETRIEVAL,        # TK-05 escape hatch
+        "retrieval_legacy": None,  # TK-23 contract: legacy path removed (was escape hatch)
         "limits": {
             "per_minute": GUARDRAILS.per_minute,
             "per_client_day": GUARDRAILS.per_client_day,
