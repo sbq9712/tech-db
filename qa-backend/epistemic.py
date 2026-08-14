@@ -8,6 +8,7 @@ Pipeline insertion points:
 The Claim Classifier analyzes retrieved chunks and tags their claims with epistemic types.
 The Answer Verifier audits the draft answer against the classified evidence.
 """
+import asyncio
 import json
 import re
 from typing import Optional
@@ -203,6 +204,7 @@ async def classify_claims(query: str, search_results: list, top_k: int = 5) -> l
         result = await llm_model_func(
             prompt,
             system_prompt="你是认识论信息分类专家。只输出JSON数组，不要输出其他内容。",
+            max_tokens=8192,  # GLM-5.2 reasoning: low caps leave content empty
         )
         # Parse JSON array from result (lenient — handles truncation)
         parsed = _parse_llm_json(result)
@@ -283,6 +285,7 @@ async def verify_answer(
         result = await llm_model_func(
             prompt,
             system_prompt="你是事实核查专家。只输出JSON对象，不要输出其他内容。",
+            max_tokens=8192,
         )
         # Parse JSON object from result (lenient)
         parsed = _parse_llm_json(result)

@@ -70,7 +70,7 @@ async def llm_model_func(
         "model": MODEL_NAME,
         "messages": messages,
         "temperature": kwargs.get("temperature", 0.3),
-        "max_tokens": kwargs.get("max_tokens", 4096),
+        "max_tokens": kwargs.get("max_tokens", 8192),
     }
 
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
@@ -96,6 +96,11 @@ async def llm_model_func(
             content = "".join(
                 p.get("text", "") if isinstance(p, dict) else str(p) for p in content
             )
+        if not content.strip() and msg.get("reasoning_content"):
+            # GLM-5.2 reasoning model: when the token budget is spent on
+            # reasoning, the final content comes back empty — surface the
+            # reasoning tail so JSON-mode callers can still parse (TK-24).
+            content = msg["reasoning_content"]
         return content
 
     # Run in executor to make it async
@@ -129,7 +134,7 @@ async def llm_stream_func(
         model=MODEL_NAME,
         messages=messages,
         temperature=kwargs.get("temperature", 0.3),
-        max_tokens=kwargs.get("max_tokens", 4096),
+        max_tokens=kwargs.get("max_tokens", 8192),
         stream=True,
     )
 

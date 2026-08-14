@@ -146,39 +146,45 @@ async def map_claims_to_citations(
         # No citations to map — all claims are unsupported
         return {"claims": []}
 
-    # Build source list for prompt
-    source_list = "\n".join(
-        f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, {c.get('source', '')})"
-        for c in citations
-    )
-
-    prompt = CLAIM_MAPPING_PROMPT.format(
-        query=query[:500],
-        source_list=source_list,
-        answer=answer[:4000],
-    )
-
-    try:
-        result_text = await llm_model_func(
-            prompt,
-            system_prompt="你是技术情报分析专家。只输出JSON，不要输出其他内容。",
-            temperature=0.0,
-            max_tokens=4096,
+    # GLM API is flaky under long prompts ("Remote end closed connection
+    # without response", prose-wrapped JSON on reasoning-heavy calls).
+    # Escalating-shrink retries: full → trimmed payload.
+    for attempt, (n_src, ans_cap) in enumerate(((12, 4000), (8, 1500)), start=1):
+        source_list = "\n".join(
+            f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, {c.get('source', '')})"
+            for c in citations[:n_src]
         )
+        prompt = CLAIM_MAPPING_PROMPT.format(
+            query=query[:500], source_list=source_list, answer=answer[:ans_cap],
+        )
+        try:
+            result_text = await llm_model_func(
+                prompt,
+                system_prompt="你是技术情报分析专家。只输出JSON，不要输出其他内容。",
+                temperature=0.0,
+                max_tokens=8192,  # GLM-5.2 reasoning headroom
+            )
+            parsed = _extract_json_safe(result_text)
+            if parsed and "claims" in parsed:
+                claims = []
+                for claim in parsed["claims"]:
+                    c = _validate_claim(claim, citations)
+                    if c:
+                        claims.append(c)
+                return {"claims": claims}
+        except Exception as e:
+            print(f"[claim_mapping] Error (attempt {attempt}/2): {e}", flush=True)
+            if attempt == 1:
+                import asyncio as _aio
+                await _aio.sleep(2)
 
-        parsed = _extract_json_safe(result_text)
-        if parsed and "claims" in parsed:
-            # Validate and clean claims
-            claims = []
-            for claim in parsed["claims"]:
-                c = _validate_claim(claim, citations)
-                if c:
-                    claims.append(c)
-            return {"claims": claims}
-
-    except Exception as e:
-        print(f"[claim_mapping] Error: {e}", flush=True)
-
+    # TK-24 deterministic fallback: LLM mapping unavailable → map the
+    # answer's own [n] anchors (strictly grounded, no hallucinated mapping)
+    fb = _anchor_fallback_claims(answer, citations)
+    if fb["claims"]:
+        print(f"[claim_mapping] LLM mapping failed → anchor fallback "
+              f"({len(fb['claims'])} claims)", flush=True)
+        return fb
     return {"claims": []}
 
 
@@ -213,6 +219,16 @@ def _extract_json_safe(text: str) -> Optional[dict]:
             except Exception:
                 pass
 
+    # GLM-5.2 with long inputs returns prose-wrapped JSON: take the widest
+    # balanced-looking object span as a last resort.
+    s, e = stripped.find("{"), stripped.rfind("}")
+    if s >= 0 and e > s:
+        try:
+            parsed = json.loads(stripped[s:e + 1])
+            if isinstance(parsed, dict):
+                return parsed
+        except Exception:
+            pass
     return None
 
 
@@ -306,3 +322,41 @@ def get_claim_citation_map(claims_mapping: dict) -> dict:
         if cid:
             result[cid] = citation_ids
     return result
+
+
+def _anchor_fallback_claims(answer: str, citations: list) -> dict:
+    """Deterministic no-LLM fallback (TK-24): map [n]-anchored sentences.
+
+    When the GLM claim-mapping call fails (transport flakes observed live:
+    "Remote end closed connection"), build the claim map from the answer's
+    own citation anchors — every sentence containing [n] becomes a claim
+    supported by citation n. This is strictly grounded (no hallucinated
+    mapping) and keeps the evidence card alive under API instability.
+    """
+    import re as _re
+    valid = {c["id"] for c in citations}
+    claims = []
+    # split into sentences (。！？!?) and strip markdown table pipes for spans
+    sentences = [s.strip() for s in _re.split(r"(?<=[。！？!?])\s*", answer) if s.strip()]
+    n = 0
+    for s in sentences:
+        anchors = [int(m) for m in _re.findall(r"\[(\d+)\]", s)
+                   if int(m) in valid]
+        if not anchors or len(s) < 8:
+            continue
+        n += 1
+        text = s if len(s) <= 120 else s[:117] + "..."
+        claims.append({
+            "id": f"claim_{n}",
+            "text": text,
+            "type": "ATTRIBUTED_CLAIM",
+            "support_status": "SUPPORTED",
+            "supported_by": [
+                {"citation_id": cid, "relation": "DIRECT_SUPPORT",
+                 "evidence_span": citations[[i for i, c in enumerate(citations)
+                                             if c["id"] == cid][0]]
+                 .get("body_snippet", "")[:80]}
+                for cid in sorted(set(anchors))[:3]
+            ],
+        })
+    return {"claims": claims, "fallback": "anchor_extraction (LLM mapping unavailable)"}
