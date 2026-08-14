@@ -1,0 +1,57 @@
+{
+ "generated_at": "2026-08-14T21:21:17",
+ "mode": "nightly-mini-real-glm",
+ "n": 2,
+ "metrics": {
+  "ok_rate": 1.0,
+  "mean_retrieval_n": 25,
+  "mean_cited_n": 4.5,
+  "mean_retrieval_ms": 5469.7,
+  "mean_gen_ms": 9011.8
+ },
+ "per_query": [
+  {
+   "id": "h001",
+   "query": "钙钛矿太阳能电池",
+   "retrieval_n": 25,
+   "retrieval_relevant": false,
+   "gen_ms": 8156.4,
+   "answer_chars": 219,
+   "cited_n": 8,
+   "_cits": [
+    17374,
+    26627,
+    32106,
+    27686,
+    15762,
+    4592,
+    29078,
+    25294
+   ],
+   "retrieval_ms": 10137.0,
+   "status": "ok"
+  },
+  {
+   "id": "h011",
+   "query": "电池回收",
+   "retrieval_n": 25,
+   "retrieval_relevant": false,
+   "gen_ms": 9867.3,
+   "answer_chars": 45,
+   "cited_n": 1,
+   "_cits": [
+    13990,
+    27499,
+    44421,
+    19814,
+    22301,
+    20923,
+    10728,
+    13995
+   ],
+   "retrieval_ms": 802.4,
+   "status": "ok"
+  }
+ ],
+ "note": "mini index fixture + real GLM; structural eval for nightly R11 artifacts"
+}

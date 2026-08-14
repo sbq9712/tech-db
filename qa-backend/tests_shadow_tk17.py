@@ -104,6 +104,10 @@ def t_endpoint_shape():
 
 def t_holdout_shadow_script():
     """scripts/holdout_run.py --shadow emits a diff report JSON (rerunnable)."""
+    real_index = Path(__file__).resolve().parent.parent / "data" / "lightrag" / "vector_index_v2.pkl"
+    if not real_index.exists():
+        print("      ⏭ skipped: real index absent (CI) — shadow script needs it")
+        return
     out = Path(tempfile.mkdtemp(prefix="tk17-sh-")) / "shadow.json"
     p = subprocess.run(
         [sys.executable, str(Path(__file__).resolve().parent.parent / "scripts" /
