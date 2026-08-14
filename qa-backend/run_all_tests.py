@@ -51,6 +51,7 @@ SUITES = {
     "frontend_tk13":   ("tests_frontend_tk13.py", "push"),
     "validator_tk14":  ("tests_validator_tk14.py", "push"),
     "holdout_tk16":    ("tests_holdout_tk16.py", "push"),
+    "shadow_tk17":     ("tests_shadow_tk17.py", "nightly"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 

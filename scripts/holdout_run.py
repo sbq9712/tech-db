@@ -55,9 +55,13 @@ def load(mode: str):
 
 async def retrieval_check(entries):
     """Retrieval-level anchor check: expected_idx appears in hybrid top-k."""
-    os_env = __import__("os").environ
-    os_env.setdefault("TECH_DB_INDEX_DIR", str(ROOT / "data" / "lightrag"))
+    import os
+    # force the REAL index: the holdout replay is defined against it (inherited
+    # temp dirs from test harnesses must not leak in)
+    os.environ["TECH_DB_INDEX_DIR"] = str(ROOT / "data" / "lightrag")
     import server
+    server.load_vector_index()
+    server.load_bm25_index()
     hits, total = 0, 0
     per_query = []
     for e in entries:
@@ -83,28 +87,31 @@ async def shadow_run(entries, out_path):
     the shipped response always stays legacy (shadow is diagnostic only).
     """
     import os
+    os.environ["TECH_DB_INDEX_DIR"] = str(ROOT / "data" / "lightrag")
     import server
-    os.environ.setdefault("TECH_DB_INDEX_DIR", str(ROOT / "data" / "lightrag"))
+    server.load_vector_index()
+    server.load_bm25_index()
 
     async def run_path(query, legacy: bool):
-        os.environ["QA_RETRIEVAL_LEGACY"] = "1" if legacy else "0"
-        server._retrieval_pipeline = None  # reset seam cache
-        t0 = time.perf_counter()
-        results, rel, status = await server.hybrid_search(query)
-        ms = (time.perf_counter() - t0) * 1000
+        results, rel = await (server._search_with_quality_legacy(query, None)
+                              if legacy else server._search_with_quality_new(query, None))
         return {"ids": [r["meta"].get("idx") for r in results[:25]],
-                "status": status, "ms": round(ms, 1)}
+                "relevant": rel}
 
     diffs = []
     for e in entries:
+        t0 = time.perf_counter()
         old = await run_path(e["query"], legacy=True)
+        t1 = time.perf_counter()
         new = await run_path(e["query"], legacy=False)
+        t2 = time.perf_counter()
         ov = float(len(set(old["ids"]) & set(new["ids"])) /
                    max(1, len(set(old["ids"]) | set(new["ids"]))))
         diffs.append({"id": e["id"], "query": e["query"][:60],
                       "legacy_top25": old["ids"], "new_top25": new["ids"],
                       "overlap": round(ov, 4),
-                      "legacy_ms": old["ms"], "new_ms": new["ms"]})
+                      "legacy_ms": round((t1 - t0) * 1000, 1),
+                      "new_ms": round((t2 - t1) * 1000, 1)})
     import statistics
     overlaps = [d["overlap"] for d in diffs]
     report = {

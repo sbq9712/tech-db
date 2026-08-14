@@ -560,7 +560,10 @@ async def _search_with_quality_legacy(query: str, exclude_ids: set = None) -> tu
 # stays reachable via QA_RETRIEVAL_LEGACY=1 until gate 3 passes; it is
 # removed in the contract phase (TK-23).
 _LEGACY_RETRIEVAL = os.environ.get("QA_RETRIEVAL_LEGACY", "").strip() == "1"
+# TK-17 (Q18/R1): shadow diagnostics — dual-path execution, legacy always wins
+_SHADOW_RETRIEVAL = os.environ.get("QA_SHADOW_RETRIEVAL", "").strip() == "1"
 _retrieval_pipeline = None
+_shadow_diffs = []          # per-query dual-path records (bounded)
 
 
 def _bm25_tokenize(query: str) -> list:
@@ -589,6 +592,22 @@ def _get_retrieval_pipeline():
 
 
 async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
+    """Retrieval seam dispatcher (TK-05 + TK-17).
+
+    Order: shadow (dual-path, legacy result) → legacy escape hatch → new
+    retrieval-layer path. Contract is identical in all three: legacy dict
+    shape (results, is_relevant).
+    """
+    if _SHADOW_RETRIEVAL:
+        # QA_SHADOW_RETRIEVAL=1 → run BOTH paths, record a diff, return
+        # legacy. Shipped responses stay byte-identical to shadow-off.
+        return await _search_with_shadow(query, exclude_ids)
+    if _LEGACY_RETRIEVAL:
+        return await _search_with_quality_legacy(query, exclude_ids)
+    return await _search_with_quality_new(query, exclude_ids)
+
+
+async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple:
     """Unified retrieval layer path (TK-05). Same contract as legacy:
     (results, is_relevant) with legacy result dict shape.
 
@@ -598,8 +617,6 @@ async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
       - BM25 drops score<=0 candidates
       - meta taken from the record index (identical across routes)
     """
-    if _LEGACY_RETRIEVAL:
-        return await _search_with_quality_legacy(query, exclude_ids)
 
     fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
     vr, br, gr, fuse = _get_retrieval_pipeline()
@@ -664,6 +681,80 @@ async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
 
     return results, is_relevant
 # ── end TK-05 wiring ─────────────────────────────────────────────────────────
+
+
+async def _search_with_shadow(query: str, exclude_ids: set = None) -> tuple:
+    """TK-17 (Q18/R1): dual-path retrieval — legacy result always returned.
+
+    Both the legacy path and the new retrieval-layer path run; the diff
+    (id overlap, rank deltas, latency) is recorded to _shadow_diffs for the
+    shadow report endpoint/script. The returned value is byte-identical to
+    running with shadow off, so shadowing never changes user-visible output.
+    """
+    import time as _time
+    t0 = _time.perf_counter()
+    legacy_res, legacy_rel = await _search_with_quality_legacy(query, exclude_ids)
+    legacy_ms = (_time.perf_counter() - t0) * 1000.0
+
+    t1 = _time.perf_counter()
+    try:
+        new_res, new_rel = await _search_with_quality_new(query, exclude_ids)
+        new_err = None
+    except Exception as e:  # new path failure must NOT affect the response
+        new_res, new_rel, new_err = [], False, str(e)[:200]
+    new_ms = (_time.perf_counter() - t1) * 1000.0
+
+    legacy_ids = [r.get("meta", {}).get("idx") for r in legacy_res[:25]]
+    new_ids = [r.get("meta", {}).get("idx") for r in (new_res or [])[:25]]
+    inter = set(legacy_ids) & set(new_ids)
+    union = set(legacy_ids) | set(new_ids)
+    _shadow_diffs.append({
+        "query": query[:120],
+        "legacy_top25": legacy_ids,
+        "new_top25": new_ids,
+        "id_overlap": round(len(inter) / len(union), 4) if union else 1.0,
+        "legacy_relevant": legacy_rel,
+        "new_relevant": new_rel,
+        "new_error": new_err,
+        "legacy_ms": round(legacy_ms, 1),
+        "new_ms": round(new_ms, 1),
+        "ts": _time.strftime("%Y-%m-%dT%H:%M:%S"),
+    })
+    del _shadow_diffs[:-2000]  # bounded memory
+    return legacy_res, legacy_rel
+
+
+def shadow_diff_report() -> dict:
+    """Aggregate the recorded shadow diffs (consumed by /api/shadow/report)."""
+    import statistics as _st
+    import time as _time
+    if not _shadow_diffs:
+        return {"n": 0, "note": "no shadow queries recorded"}
+    ov = [d["id_overlap"] for d in _shadow_diffs]
+    return {
+        "n": len(_shadow_diffs),
+        "id_overlap": {
+            "mean": round(_st.mean(ov), 4),
+            "min": round(min(ov), 4),
+            "below_0.8": sum(1 for o in ov if o < 0.8),
+        },
+        "ttfb_ms": {
+            "legacy_p50": _pctl([d["legacy_ms"] for d in _shadow_diffs], 50),
+            "legacy_p90": _pctl([d["legacy_ms"] for d in _shadow_diffs], 90),
+            "new_p50": _pctl([d["new_ms"] for d in _shadow_diffs], 50),
+            "new_p90": _pctl([d["new_ms"] for d in _shadow_diffs], 90),
+        },
+        "new_path_errors": sum(1 for d in _shadow_diffs if d["new_error"]),
+        "generated_at": _time.strftime("%Y-%m-%dT%H:%M:%S"),
+    }
+
+
+def _pctl(vals, p):
+    s = sorted(vals)
+    if not s:
+        return None
+    k = max(0, min(len(s) - 1, round(p / 100 * (len(s) - 1))))
+    return round(s[k], 1)
 
 
 async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
@@ -825,6 +916,18 @@ app.add_middleware(
 
 # ── Endpoints ──
 
+@app.get("/api/shadow/report")
+async def shadow_report():
+    """TK-17 (Q18/R1): aggregate shadow diff report (id overlap / TTFB / errors).
+
+    Only meaningful when QA_SHADOW_RETRIEVAL=1; always safe to call.
+    """
+    return {
+        "shadow_enabled": _SHADOW_RETRIEVAL,
+        **shadow_diff_report(),
+    }
+
+
 @app.get("/api/health")
 async def health():
     return {
@@ -838,6 +941,8 @@ async def health():
         "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
         "total_records": len(_records) if _records else 0,
         "feature_flags": Flags.status(),
+        "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
+        "retrieval_legacy": _LEGACY_RETRIEVAL,        # TK-05 escape hatch
         "limits": {
             "per_minute": GUARDRAILS.per_minute,
             "per_client_day": GUARDRAILS.per_client_day,
