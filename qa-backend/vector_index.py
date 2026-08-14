@@ -163,6 +163,10 @@ async def build_index():
 
             # Separate keep vs need-embed from the canonical records list
             records_to_embed = [(i, r) for i, r in records if i in need_embed_ids]
+            # Sort by text length so batches pad less (short texts batch together,
+            # long texts batch together). Pure CPU-time optimization; embeddings
+            # are identical because meta carries the original record index.
+            records_to_embed.sort(key=lambda p: len(format_record_text(p[1])))
 
             parts = []
             if new_ids: parts.append(f"{len(new_ids)} new")

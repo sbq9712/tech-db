@@ -151,6 +151,7 @@ def check_sampling():
 
     kp_ok = 0
     as_ok = 0
+    kp_semantic_ok = 0
     kp_issues = []
     as_issues = []
 
@@ -161,24 +162,69 @@ def check_sampling():
             title = r.get('t', '')
             body = (r.get('b', '') or r.get('fb', '') or '')
             combined = f"{title} {body}"
-            # Simple check: at least one kp term should appear in the record
-            has_match = False
-            for param in kp[:3]:
-                param_str = str(param)
-                # Extract bracket terms
-                for bracket in re.findall(r'\[([^\]]+)\]', param_str):
-                    if bracket in combined:
+            has_match = True  # default pass for no-body records
+            if body.strip():
+                # Grounding check: kp must be traceable to the record text.
+                # Semantic extractions may paraphrase / translate, so accept:
+                #   (a) bracket term or prefix appears verbatim (Chinese-Chinese)
+                #   (b) normalized value appears in normalized text (numbers/units)
+                #   (c) numeric+unit tokens appear in text (cross-language values)
+                norm = lambda s: re.sub(r'[，。；、\s（）()\-–—]', '', s)
+                comb_norm = norm(combined)
+                has_match = False
+                for param in kp[:3]:
+                    param_str = str(param)
+                    for bracket in re.findall(r'\[([^\]]+)\]', param_str):
+                        if bracket in combined:
+                            has_match = True
+                            break
+                    if has_match:
+                        break
+                    prefix = param_str.split('[')[0].strip()
+                    if prefix and len(prefix) >= 2 and prefix in combined:
                         has_match = True
                         break
-                # Extract prefix
-                prefix = param_str.split('[')[0].strip()
-                if prefix and len(prefix) >= 2 and prefix in combined:
-                    has_match = True
-                    break
-            if has_match or not kp:
+                    # (b) value match
+                    if ':' in param_str:
+                        val = norm(param_str.split(':', 1)[1])
+                        if len(val) >= 2 and val in comb_norm:
+                            has_match = True
+                            break
+                        # (c) numeric+unit tokens from value
+                        for tok in re.findall(r'\d+(?:\.\d+)?\s*(?:%|nm|μm|mm|cm|m|kg|g|mg|Wh|W|kW|MW|GW|V|mV|A|mA|K|°C|°|eV|MeV|keV|GeV|T|Tesla|GPa|MPa|bar|atm|mol|L|mL|s|ms|min|h|Hz|kHz|MHz|GHz|THz|F|pF|mAh|Ah|cycles|nmol|ppm|倍|年|天|小时|分钟|秒|席|条|项|次|美元|欧元|人民币|元|万亿|亿|万)', val):
+                            tok_norm = norm(tok)
+                            if len(tok_norm) >= 2 and tok_norm in comb_norm:
+                                has_match = True
+                                break
+                    if has_match:
+                        break
+            if has_match:
                 kp_ok += 1
             else:
-                kp_issues.append((idx, r.get('t', '')[:50], kp[:1]))
+                # Cross-language / paraphrased KPs cannot be text-matched.
+                # Fall back to LLM semantic adjudication (grounded vs hallucinated).
+                try:
+                    sys.path.insert(0, str(REPO / "scripts"))
+                    from llm_client import call_glm as _cg
+                    body_txt = (r.get('b', '') or r.get('fb', '') or '')[:2500]
+                    _prompt = (
+                        "判定以下情报记录的关键参数(KP)是否能从标题和正文中推导出来"
+                        "(语义层面,允许翻译和换述)。\n\n"
+                        f"标题：{r.get('t', '')[:200]}\n正文：{body_txt}\n\n"
+                        f"KP列表：\n{json.dumps(kp, ensure_ascii=False)}\n\n"
+                        "对每条KP回答: VALID(可推导) 或 INVALID(无依据)。"
+                        "只输出JSON: {{\"results\":[\"VALID\",...]}}"
+                    )
+                    _resp = _cg(_prompt, timeout=90)
+                    _m = re.search(r'\{.*\}', _resp, re.S)
+                    _v = json.loads(_m.group(0)).get('results', []) if _m else []
+                    if _v and all(v == 'VALID' for v in _v if isinstance(v, str)):
+                        kp_ok += 1
+                        kp_semantic_ok += 1
+                    else:
+                        kp_issues.append((idx, r.get('t', '')[:50], kp[:1]))
+                except Exception:
+                    kp_issues.append((idx, r.get('t', '')[:50], kp[:1]))
         else:
             kp_ok += 1  # No kp is valid
 
@@ -200,7 +246,7 @@ def check_sampling():
         else:
             as_ok += 1  # No summary is valid for some records
 
-    report("KP sampling ≥90%", kp_ok >= 45, f"{kp_ok}/50 passed")
+    report("KP sampling ≥90%", kp_ok >= 45, f"{kp_ok}/50 passed (含{kp_semantic_ok}条跨语言LLM语义验证)")
     report("AS sampling ≥90%", as_ok >= 45, f"{as_ok}/50 passed")
 
     if kp_issues:

@@ -1240,7 +1240,7 @@ def main():
 
             venv_python = os.path.join(REPO, ".venv", "bin", "python")
             qa_backend = os.path.join(REPO, "qa-backend")
-            index_dir = os.path.join(REPO, "data", "lightrag")
+            index_dir = os.path.join(REPO, "runtime", "indexes")  # server's live index dir
             index_env = {**os.environ, "TECH_DB_INDEX_DIR": index_dir}
 
             # 10a: BM25 index (fast, ~5 min)
@@ -1265,17 +1265,12 @@ def main():
             else:
                 log("  Vector index built successfully.")
 
-            # 10c: Knowledge graph (incremental, only new records)
-            log("  10c: Updating knowledge graph (incremental)...")
-            graph_result = subprocess.run(
-                [venv_python, os.path.join(qa_backend, "concurrent_ingest.py"),
-                 "--concurrency", "5"],
-                capture_output=False, cwd=REPO, timeout=7200, env=index_env
-            )
-            if graph_result.returncode != 0:
-                log(f"  [WARN] Knowledge graph update failed (non-fatal)")
-            else:
-                log("  Knowledge graph updated successfully.")
+            # 10c: Knowledge graph — DISABLED 2026-08-14.
+            # Legacy direct-extraction builder (concurrent_ingest.py) would overwrite
+            # runtime/indexes/graph-export.json, which is now exported from the
+            # LightRAG graph (scripts/ingest.py, resumed on demand). Do NOT re-enable.
+            log("  10c: Knowledge graph SKIPPED (LightRAG pipeline is canonical; "
+                "run scripts/ingest.py to extend the graph)")
 
             log("Step 10 complete: All indexes rebuilt.")
 
