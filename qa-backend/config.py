@@ -139,7 +139,34 @@ async def llm_stream_func(
 
 
 # ── Embedding Function (bge-m3 via sentence-transformers, async) ──
-from lightrag.utils import EmbeddingFunc
+# TK-02 (Q28/R6): lightrag is a HEAVY optional runtime dependency (only the
+# live LightRAG ingest path needs it). Import it lazily/guarded so pure-logic
+# modules (and CI containers without lightrag) can import config freely.
+try:
+    from lightrag.utils import EmbeddingFunc as _LightRAGEmbeddingFunc
+except Exception:  # pragma: no cover — CI/pure-logic environments
+    _LightRAGEmbeddingFunc = None
+
+
+class _EmbeddingFuncShim:
+    """Drop-in stand-in for lightrag.utils.EmbeddingFunc.
+
+    Mirrors the attributes LightRAG reads (embedding_dim, max_token_size,
+    model_name) plus the callable interface, so config works identically
+    with or without lightrag installed.
+    """
+
+    def __init__(self, embedding_dim, max_token_size, func, model_name=""):
+        self.embedding_dim = embedding_dim
+        self.max_token_size = max_token_size
+        self.func = func
+        self.model_name = model_name
+
+    async def __call__(self, texts):
+        return await self.func(texts)
+
+
+EmbeddingFunc = _LightRAGEmbeddingFunc or _EmbeddingFuncShim
 
 _MODEL = None
 EMBEDDING_DIM = 1024
