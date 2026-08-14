@@ -1,0 +1,31 @@
+{
+ "anchor_total": 4,
+ "anchor_hits": 4,
+ "anchor_hit_rate": 1.0,
+ "per_query": [
+  {
+   "id": "h041",
+   "query": "AI芯片散热迎来新希望？科学家首次造出理论中的金属材料，导热率是铜的3倍",
+   "expected_idx": 49421,
+   "rank": 1
+  },
+  {
+   "id": "h051",
+   "query": "非质子和质子介质中铁卟啉对 CO2 活化和还原的定向第二球效应",
+   "expected_idx": 42127,
+   "rank": 1
+  },
+  {
+   "id": "h061",
+   "query": "通过网状化学对晶体框架中的局部限制进行编程",
+   "expected_idx": 39085,
+   "rank": 2
+  },
+  {
+   "id": "h071",
+   "query": "大语言模型驱动的急性肾损伤多中心预测和可解释的风险归因",
+   "expected_idx": 42453,
+   "rank": 1
+  }
+ ]
+}

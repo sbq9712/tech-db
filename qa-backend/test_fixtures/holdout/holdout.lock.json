@@ -1,0 +1,18 @@
+{
+  "file": "holdout.json",
+  "sha256_entries": "ceee238b1e38e1eb6fdbd3109c3c761d6cf9a83c959e44cc1f3c83172d4329f6",
+  "size": 100,
+  "smoke_subset_ids": [
+    "h001",
+    "h011",
+    "h021",
+    "h031",
+    "h041",
+    "h051",
+    "h061",
+    "h071",
+    "h081",
+    "h091"
+  ],
+  "unlocked_by": "dedicated commit editing this lock (Q17 explicit unlock)"
+}

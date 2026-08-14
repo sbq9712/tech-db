@@ -1,0 +1,708 @@
+{
+ "version": 2,
+ "locked_at": "2026-08-14",
+ "size": 100,
+ "comment": "TK-16 holdout set (Q16/Q17): parity seeds + entity-registry lookups + title-derived anchors (anchored to the RETRIEVAL INDEX idx space, vector_index_v2.pkl renumbered ids) + handwritten eval queries. expected_idx are retrieval anchors, not gold answers; correct-field annotation is a follow-up (correct:[] everywhere for now).",
+ "entries": [
+  {
+   "id": "h001",
+   "query": "钙钛矿太阳能电池",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h002",
+   "query": "固态电池",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h003",
+   "query": "人工智能",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h004",
+   "query": "lithium battery energy density",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h005",
+   "query": "华为芯片",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h006",
+   "query": "NVIDIA GPU",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h007",
+   "query": "碳纤维复合材料",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h008",
+   "query": "可控核聚变",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h009",
+   "query": "固态电解质产业化",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h010",
+   "query": "perovskite efficiency record",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h011",
+   "query": "电池回收",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h012",
+   "query": "半导体光刻机",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h013",
+   "query": "稀土永磁材料",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h014",
+   "query": "氢燃料电池",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h015",
+   "query": "quantum computing",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h016",
+   "query": "深度学习训练芯片",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h017",
+   "query": "太阳能电池效率",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h018",
+   "query": "钠离子电池",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h019",
+   "query": "superconductor",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h020",
+   "query": "机器学习在材料发现中的应用",
+   "origin": "parity_seed",
+   "expected_idx": null,
+   "note": "TK-04 parity query"
+  },
+  {
+   "id": "h021",
+   "query": "锂金属",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h022",
+   "query": "钙钛矿",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h023",
+   "query": "硫化物电解质",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h024",
+   "query": "Perovskite",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h025",
+   "query": "Lithium",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h026",
+   "query": "Silicon",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h027",
+   "query": "Panasonic",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h028",
+   "query": "Samsung SDI",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h029",
+   "query": "SK Innovation",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h030",
+   "query": "Tesla",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h031",
+   "query": "LG Energy Solution",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h032",
+   "query": "AMD",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h033",
+   "query": "Apple",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h034",
+   "query": "BYD",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h035",
+   "query": "Qualcomm",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h036",
+   "query": "CATL",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h037",
+   "query": "Anthropic",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h038",
+   "query": "Google",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h039",
+   "query": "Huawei",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h040",
+   "query": "Intel",
+   "origin": "entity_registry",
+   "expected_idx": null,
+   "note": "canonical entity lookup"
+  },
+  {
+   "id": "h041",
+   "query": "AI芯片散热迎来新希望？科学家首次造出理论中的金属材料，导热率是铜的3倍",
+   "origin": "record_title",
+   "expected_idx": 49421,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h042",
+   "query": "四川国资系基金布局液流储能，晟坤新能完成种子轮融资",
+   "origin": "record_title",
+   "expected_idx": 49827,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h043",
+   "query": "长安在第三季度前宣布首款汽车固态电池",
+   "origin": "record_title",
+   "expected_idx": 22843,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h044",
+   "query": "超461GW新能源大基地盘点",
+   "origin": "record_title",
+   "expected_idx": 50614,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h045",
+   "query": "通过互锁离子聚碳龙实现应力消除界面，实现高效稳定的倒置钙钛矿太阳能电池",
+   "origin": "record_title",
+   "expected_idx": 42214,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h046",
+   "query": "通威TNC3.0 G12 750W组件正式量产",
+   "origin": "record_title",
+   "expected_idx": 48657,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h047",
+   "query": "具有 Kagome 晶格的 ScIr2 手性晶体的非常规超导性",
+   "origin": "record_title",
+   "expected_idx": 44066,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h048",
+   "query": "沪发改能源140号解读",
+   "origin": "record_title",
+   "expected_idx": 6257,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h049",
+   "query": "山东省煤田地质局攻克特殊震源同步触发核心技术难题",
+   "origin": "record_title",
+   "expected_idx": 2080,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h050",
+   "query": "AND逻辑门控近红外荧光探针同时感应超氧阴离子和粘度，可实现早期动脉粥样硬化监测",
+   "origin": "record_title",
+   "expected_idx": 41538,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h051",
+   "query": "非质子和质子介质中铁卟啉对 CO2 活化和还原的定向第二球效应",
+   "origin": "record_title",
+   "expected_idx": 42127,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h052",
+   "query": "[ASAP] 通过 DNA 损伤衍生的组蛋白修饰实现蛋白质",
+   "origin": "record_title",
+   "expected_idx": 29215,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h053",
+   "query": "用于水下加密通信和亚波长距离测量的双功能声光传感器",
+   "origin": "record_title",
+   "expected_idx": 35324,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h054",
+   "query": "[ASAP] 振动相干性与光诱导超快化学反应的相互作用",
+   "origin": "record_title",
+   "expected_idx": 11952,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h055",
+   "query": "用于红外带隙波函数工程的核/壳 HgCdTe/HgCdSe 量子点",
+   "origin": "record_title",
+   "expected_idx": 44006,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h056",
+   "query": "上月刚实施！《氢气 第2部分",
+   "origin": "record_title",
+   "expected_idx": 44905,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h057",
+   "query": "[ASAP] 通过金属",
+   "origin": "record_title",
+   "expected_idx": 23030,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h058",
+   "query": "1.87~1.92元/W，中广核江苏212MW渔光互补EPC中标公示",
+   "origin": "record_title",
+   "expected_idx": 3666,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h059",
+   "query": "小扎深夜亮王牌！Meta烧出白菜价模型，掀翻Grok 4.5",
+   "origin": "record_title",
+   "expected_idx": 47607,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h060",
+   "query": "哈工大帅永利用电磁感应整体加热多孔金属催化剂实现废塑料高效转化为碳纳米管与氢气",
+   "origin": "record_title",
+   "expected_idx": 435,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h061",
+   "query": "通过网状化学对晶体框架中的局部限制进行编程",
+   "origin": "record_title",
+   "expected_idx": 39085,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h062",
+   "query": "类似甜甜圈的Eu30二氧化碳光还原催化剂销量突破千万",
+   "origin": "record_title",
+   "expected_idx": 16720,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h063",
+   "query": "互锁界面增强了热循环稳定钙钛矿太阳能电池的机械完整性，认证效率为 26.82%",
+   "origin": "record_title",
+   "expected_idx": 33318,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h064",
+   "query": "[ASAP] 有机 X 射线闪烁体中的快速三重态激子利用用于动态射线照相",
+   "origin": "record_title",
+   "expected_idx": 27605,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h065",
+   "query": "Nature Materials",
+   "origin": "record_title",
+   "expected_idx": 48595,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h066",
+   "query": "我国首部 L3/L4 自动驾驶强制性国标公示",
+   "origin": "record_title",
+   "expected_idx": 2516,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h067",
+   "query": "11 至 893 K 方钠石晶体各向同性零热膨胀",
+   "origin": "record_title",
+   "expected_idx": 37133,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h068",
+   "query": "一家价值 500 万美元的初创公司声称在无稀土电动机方面取得了突破",
+   "origin": "record_title",
+   "expected_idx": 4121,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h069",
+   "query": "多齿螯合调节钙钛矿太阳能电池中 PbI2 结晶和埋入界面的形成",
+   "origin": "record_title",
+   "expected_idx": 30696,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h070",
+   "query": "特斯拉在奥斯汀开始对首款量产 Cyber​​cab 进行工程测试",
+   "origin": "record_title",
+   "expected_idx": 3182,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h071",
+   "query": "大语言模型驱动的急性肾损伤多中心预测和可解释的风险归因",
+   "origin": "record_title",
+   "expected_idx": 42453,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h072",
+   "query": "世界上第一种负碳建筑材料将二氧化碳捕获在墙壁中",
+   "origin": "record_title",
+   "expected_idx": 3198,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h073",
+   "query": "北京大学周欢萍/严纯华等Nature",
+   "origin": "record_title",
+   "expected_idx": 2478,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h074",
+   "query": "[ASAP] 向具有金属有机框架的准固态氯离子电池的飞跃",
+   "origin": "record_title",
+   "expected_idx": 14858,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h075",
+   "query": "国家发改委",
+   "origin": "record_title",
+   "expected_idx": 48303,
+   "note": "title-derived retrieval anchor"
+  },
+  {
+   "id": "h076",
+   "query": "钙钛矿太阳能电池的效率记录是多少",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h077",
+   "query": "固态电池什么时候量产",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h078",
+   "query": "NVIDIA最新GPU的制程节点",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h079",
+   "query": "量子计算纠错目前的进展",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h080",
+   "query": "室温超导有没有被证实",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h081",
+   "query": "锂离子电池的能量密度极限",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h082",
+   "query": "半导体光刻机哪家最强",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h083",
+   "query": "碳化硅功率器件的市场格局",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h084",
+   "query": "氢燃料电池车的成本瓶颈",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h085",
+   "query": "AI芯片推理成本下降趋势",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h086",
+   "query": "核聚变点火的意义",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h087",
+   "query": "mRNA疫苗在癌症治疗中的应用",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h088",
+   "query": "脑机接口最新人体试验结果",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h089",
+   "query": "卫星互联网星座部署进度",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h090",
+   "query": "可控核聚变的Q值记录",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h091",
+   "query": "钠离子电池的能量密度水平",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h092",
+   "query": "氧化镓半导体的优势",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h093",
+   "query": "钙钛矿叠层电池稳定性挑战",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h094",
+   "query": "eVTOL适航认证进展",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h095",
+   "query": "火箭复用次数纪录",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h096",
+   "query": "中文大模型的推理能力评测",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h097",
+   "query": "智能驾驶激光雷达成本变化",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h098",
+   "query": "人形机器人自由度数量对比",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h099",
+   "query": "固态电解质硫化物路线问题",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  },
+  {
+   "id": "h100",
+   "query": "3D NAND堆叠层数最新纪录",
+   "origin": "handwritten",
+   "expected_idx": null,
+   "note": "manual evaluation query"
+  }
+ ]
+}
