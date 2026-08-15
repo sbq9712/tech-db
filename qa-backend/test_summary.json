@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T01:05:18",
+  "generated_at": "2026-08-16T06:54:16",
   "all_passed": true,
   "total_passed": 409,
   "total_failed": 0,
@@ -51,7 +51,7 @@
       "passed": 33,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "\n=== T035: Trace Replay ===\n  ✅ replay case created\n  ✅ replay case has previous answer\n  ✅ empty report handled\n  ✅ report retention_rate\n  ✅ report status changes\n\n=== T036: Human Review Pipeline ===\n  ✅ detect retrieval failure\n  ✅ detect coverage failure\n  ✅ detect verification failure\n  ✅ case has case_id\n  ✅ case not confirmed by default\n  ✅ case has trace_id\n  ✅ problem stage: retrieval\n\n=== T037: Degraded Mode Matrix ===\n  ✅ vector fail → CONTINUE\n  ✅ vector fail can continue\n  ✅ verifier fail → ESCALATE\n  ✅ verifier requires unverified\n  ✅ verifier has user message\n  ✅ generator fail → FAIL\n  ✅ generator cannot continue\n  ✅ all ok → operational\n  ✅ graph degraded → degraded\n  ✅ generator failed → down\n  ✅ generator failed → cannot serve\n\n=== T037: Budget Guard ===\n  ✅ budget ok → PROCEED\n  ✅ budget ok → call\n  ✅ critical budget exhausted → ESCALATE\n  ✅ critical budget exhausted → don't call\n  ✅ critical budget exhausted → UNVERIFIED\n  ✅ non-critical budget exhausted → SKIP\n  ✅ non-critical skip → no status override\n  ✅ verifier is critical\n  ✅ reranker not critical\n  ✅ citation_grounding is critical\n\n======================================================================\n  Ops Phase Results: 33 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -91,8 +91,8 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.1,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.328 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 1.3,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.340 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -151,7 +151,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.6,
+      "seconds": 0.7,
       "tail": "TK-12 — citation schema + legacy fill contract\n── full schema shape on legacy path\n  ✅ full schema shape on legacy path\n── grounding fills evidence_spans + highlight (non-LLM)\n  ✅ grounding fills evidence_spans + highlight (non-LLM)\n── supports_claim_ids inverse mapping\n  ✅ supports_claim_ids inverse mapping\n── source_label: as vs b/fb\n  ✅ source_label: as vs b/fb\n── done event schema (user_warning etc.)\n  ✅ done event schema (user_warning etc.)\n==============================================================\n  TK-12 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -171,7 +171,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.9,
+      "seconds": 2.0,
       "tail": "TK-14 — spec manifest validator\n── current state → PASS (exit 0)\n  ✅ current state → PASS (exit 0)\n── injected doc drift → FAIL (exit 1)\n  ✅ injected doc drift → FAIL (exit 1)\n── --selftest catches drift\n  ✅ --selftest catches drift\n── --json machine-readable\n  ✅ --json machine-readable\n── ENV_NAMES registry (RERANK env alias)\n  ✅ ENV_NAMES registry (RERANK env alias)\n==============================================================\n  TK-14 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -191,8 +191,8 @@
       "passed": 8,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 31.7,
-      "tail": "TK-17/TK-23 — shadow drift-watch (contract phase)\n  ✅ legacy path removed (TK-23 contract)\n  ✅ reference = frozen gate-3 artifact\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n  ✅ shadow records drift vs reference\n  ✅ unmatched query: overlap=None\n  ✅ aggregate report shape (contract)\n  ✅ endpoint shape (default off)\n  ✅ live-path failure isolated\n  ✅ holdout --shadow script (real index)\n============================================================\n  Shadow Results: 8 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.342 seconds.\nPrefix dict has been built successfully.\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 22459.84it/s]\n"
+      "seconds": 39.2,
+      "tail": "TK-17/TK-23 — shadow drift-watch (contract phase)\n  ✅ legacy path removed (TK-23 contract)\n  ✅ reference = frozen gate-3 artifact\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n  ✅ shadow records drift vs reference\n  ✅ unmatched query: overlap=None\n  ✅ aggregate report shape (contract)\n  ✅ endpoint shape (default off)\n  ✅ live-path failure isolated\n  ✅ holdout --shadow script (real index)\n============================================================\n  Shadow Results: 8 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.336 seconds.\nPrefix dict has been built successfully.\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 10395.37it/s]\n"
     },
     {
       "tag": "ci_tk15",
@@ -221,7 +221,7 @@
       "passed": 6,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.5,
+      "seconds": 0.4,
       "tail": "TK-19 — gate 3 flip + FAST_RAG fast-path contract\n  ✅ gate3 report artifacts committed\n  ✅ LLM flags default ON after gate 3\n  ✅ FAST_RAG plans exactly 1 iteration\n[orchestrator] Router error: test_fast_rag_zero_loop_control_calls.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n  ✅ FAST_RAG: 0 loop-control calls, 1 round (rulings Q3)\n  ✅ lenient LLM JSON parser\n[orchestrator] Router error: test_research_rag_still_spends_loop_budget.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n[decomposer] Error: Single '}' encountered in format string\n  ✅ RESEARCH_RAG still spends loop budget\n============================================================\n  TK-19 Results: 6 passed, 0 failed\n============================================================\n"
     },
     {
@@ -231,7 +231,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.7,
+      "seconds": 3.5,
       "tail": "TK-20 — eval-side synthetic isolation (T049/Q19)\n  ✅ holdout anchors contain no as-only records\n  ✅ unanchored entries carry TK-20 rationale\n  ✅ as-only citation labelled AI_SUMMARY (TK-12 linkage)\n  ✅ original-body citation labelled ORIGINAL\n  ✅ holdout lock re-issued (Q17 dedicated unlock)\n============================================================\n  TK-20 Results: 5 passed, 0 failed\n============================================================\n"
     },
     {
@@ -241,7 +241,7 @@
       "passed": 4,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.9,
+      "seconds": 0.8,
       "tail": "TK-22 — sync_local.sh gate (Q24: fail ⇒ no restart)\n  ✅ gate wired: validator + suite before restart\n  ✅ injected drift fails validator (gate trips)\n  ✅ gate calls route to fail() (non-zero exit)\n  ✅ validator PASS on current tree\n============================================================\n  TK-22 Results: 4 passed, 0 failed\n============================================================\n"
     },
     {
@@ -251,7 +251,7 @@
       "passed": 74,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 9.2,
+      "seconds": 6.2,
       "tail": "23: Gap analysis available\n  ✅ T025: Stopping criteria available\n  ✅ T026: Knowledge boundary available\n\n--- Phase D: Advanced Features ---\n  ✅ T044: Relation ontology available\n  ✅ T044: 15 predicates defined\n  ✅ T045: Graph intent validation available\n  ✅ T027: Semantic graph pipeline available\n  ✅ T039: Relation-aware graph retriever available\n  ✅ T046: Entailment checking available\n  ✅ T050: Requirement-aware fusion available\n  ✅ T051: Reranker stability available\n  ✅ T052: Answer state machine available\n  ✅ T047: Source snapshot available\n\n--- Phase E: Operations ---\n  ✅ T037: Budget guard available\n  ✅ T037: Correctness-critical set includes verifier\n  ✅ T037: Correctness-critical set includes citation_grounding\n  ✅ T037: Degraded mode matrix available\n  ✅ T041: Release manifest available\n  ✅ T056: Trace retention available\n  ✅ T035: Replay eval available\n  ✅ T036: Human review available\n  ✅ T002: Eval metrics available\n\n--- Entity Resolution V2 ---\n  ✅ ER: Registry V2 available\n  ✅ ER: Linker V2 available\n  ✅ ER: Disambiguator available\n  ✅ ER: Pipeline available\n  ✅ ER: Opaque IDs (mention ≠ entity)\n\n--- Security & Safety ---\n  ✅ Security: Secrets scrubbed from traces\n  ✅ T053: Adversarial suite detection rate >= 90%\n  ✅ T053: Adversarial suite false positive rate <= 10%\n\n--- Feature Flags ---\n  ✅ Flags: AGENTIC_ENABLED defined\n  ✅ Flags: ROUTER_ENABLED defined\n  ✅ Flags: TRACE_ENABLED defined\n  ✅ Flags: FAIL_SAFE_VERIFY defined\n  ✅ Flags: CITATION_GROUNDING defined\n  ✅ Flags: ANSWER_STATUS defined\n  ✅ Flags: CONTENT_SAFETY defined\n\n--- End-to-End Integration ---\n  ✅ E2E: Full trace pipeline\n  ✅ E2E: Answer status in result\n\n======================================================================\n  FINAL ACCEPTANCE RESULTS\n======================================================================\n  Passed:   74\n  Failed:   0\n  Warnings: 0\n  Total:    74\n======================================================================\n  ✅ ACCEPTANCE PASSED — All criteria met\n"
     }
   ],
