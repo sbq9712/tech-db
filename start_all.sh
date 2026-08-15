@@ -68,14 +68,35 @@ if [ -n "$TUNNEL_URL" ]; then
         echo ""
         echo "  正在自动更新..."
         sed -i "s|https://[a-z0-9-]*\.trycloudflare\.com|$TUNNEL_URL|" qa.js
-        # 版本号 +1
-        sed -i -E 's/qa\.js\?v=([0-9]+)/echo "qa.js?v=$(($(echo \1)+1))"/e' index.html 2>/dev/null || \
-          sed -i 's/qa\.js?v=161/qa.js?v=162/' index.html
+        # 版本号 +1 — codex-review C1 P1 fix: GNU sed /e executes the whole
+        # transformed HTML line as a shell command (redirection syntax error,
+        # silently discarded) and only the hardcoded 161→162 fallback ran, so
+        # a second tunnel change published a new URL with no cache-bust.
+        # Shell-side arithmetic instead:
+        _VER=$(grep -oP 'qa\.js\?v=\K[0-9]+' index.html | head -1)
+        if [ -n "$_VER" ] && [ "$_VER" -ge 1 ] 2>/dev/null; then
+            sed -i "s/qa\.js?v=${_VER}/qa.js?v=$(( _VER + 1 ))/" index.html
+            echo "  cache version: v=$_VER → v=$(( _VER + 1 ))"
+        else
+            echo "  ⚠️ 未在 index.html 找到 qa.js?v= 版本号，跳过 cache-bust"
+        fi
         export $(grep -v '^#' .gh_env | xargs)
-        git add qa.js index.html
-        git commit -m "fix: 更新隧道URL — $TUNNEL_URL" 2>/dev/null
-        git push "https://sbq9712:${GH_TOKEN}@github.com/sbq9712/tech-db.git" main 2>&1 | head -3
-        echo "  ✅ 已自动更新并推送，等 Pages 部署后公网问答即可用"
+        # codex-review C1 P2 fix: CLAUDE.md 第26条 — push 前必须验证数据契约
+        # 通过（fail closed：验证不过就不推）。
+        _CONTRACT_OK=1
+        if [ -f scripts/validate_data_contract.py ]; then
+            PY=$(command -v python3 || echo .venv/bin/python)
+            if ! "$PY" scripts/validate_data_contract.py >/dev/null 2>&1; then
+                _CONTRACT_OK=0
+                echo "  ❌ 数据契约验证失败 — 跳过自动推送（qa.js 已在本地更新，手动验证后自行推送）"
+            fi
+        fi
+        if [ "$_CONTRACT_OK" = "1" ]; then
+            git add qa.js index.html
+            git commit -m "fix: 更新隧道URL — $TUNNEL_URL" 2>/dev/null
+            git push "https://sbq9712:${GH_TOKEN}@github.com/sbq9712/tech-db.git" main 2>&1 | head -3
+            echo "  ✅ 已自动更新并推送，等 Pages 部署后公网问答即可用"
+        fi
     else
         echo "  ✅ 隧道地址未变: $TUNNEL_URL"
     fi

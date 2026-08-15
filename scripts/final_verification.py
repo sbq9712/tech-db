@@ -218,7 +218,11 @@ def check_sampling():
                     _resp = _cg(_prompt, timeout=90)
                     _m = re.search(r'\{.*\}', _resp, re.S)
                     _v = json.loads(_m.group(0)).get('results', []) if _m else []
-                    if _v and all(v == 'VALID' for v in _v if isinstance(v, str)):
+                    # Codex-review C1 P3 fix: require one verdict per KP — a
+                    # truncated ["VALID"] for a 3-KP record must NOT pass the
+                    # ≥90% sampled-KP grounding gate.
+                    if (isinstance(_v, list) and len(_v) == len(kp)
+                            and all(isinstance(v, str) and v == 'VALID' for v in _v)):
                         kp_ok += 1
                         kp_semantic_ok += 1
                     else:

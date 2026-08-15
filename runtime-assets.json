@@ -10,7 +10,8 @@
         "indexes/vector_index_v2.pkl",
         "indexes/bm25_index.pkl",
         "indexes/graph-export.json",
-        "indexes/jieba_custom_dict.txt"
+        "indexes/jieba_custom_dict.txt",
+        "indexes/entity_registry.json"
       ]
     },
     "model": {

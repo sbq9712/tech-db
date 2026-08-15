@@ -104,13 +104,29 @@ def main():
 
     env_sel = os.environ.get("TECH_DB_SUITES")
     if args.suite:
-        selected = [t for t in args.suite if t in SUITES]
+        # codex-review C1 P2 fix: silently dropping unknown tags turned a
+        # typo (or stale TECH_DB_SUITES) into an empty selection →
+        # "ALL PASS" exit 0 having tested nothing. Reject unknown tags.
+        unknown = [t for t in args.suite if t not in SUITES]
+        if unknown:
+            print(f"❌ unknown suite tag(s): {', '.join(unknown)}")
+            print(f"   registered: {', '.join(SUITES)}")
+            return 1
+        selected = list(args.suite)
     elif env_sel:
-        selected = [t for t in env_sel.split(",") if t in SUITES]
+        unknown = [t for t in env_sel.split(",") if t and t not in SUITES]
+        if unknown:
+            print(f"❌ TECH_DB_SUITES has unknown tag(s): {', '.join(unknown)}")
+            print(f"   registered: {', '.join(SUITES)}")
+            return 1
+        selected = [t for t in env_sel.split(",") if t]
     elif args.tier != "all":
         selected = [t for t, (_, tier) in SUITES.items() if tier == args.tier]
     else:
         selected = list(SUITES)
+    if not selected:
+        print("❌ empty suite selection — nothing to run")
+        return 1
 
     # suites whose file doesn't exist yet are reported as missing, not run
     results, missing = [], []
