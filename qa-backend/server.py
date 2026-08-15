@@ -1424,6 +1424,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                 _by_cit = {}
                 for cl in claim_map["claims"]:
                     for sup in (cl.get("supported_by") or []):
+                        # Codex-review B2 P2 fix: only genuinely SUPPORTIVE
+                        # relations belong in supports_claim_ids — including
+                        # CONTRADICTS/BACKGROUND made contradictions render
+                        # as claim support in the evidence card. Keep
+                        # BACKGROUND-context relations out of the card too:
+                        # the card's contract is "this citation supports this
+                        # claim" (TK-12), not "merely related".
+                        if sup.get("relation") not in ("DIRECT_SUPPORT",
+                                                       "PREMISE_SUPPORT",
+                                                       "ATTRIBUTION"):
+                            continue
                         cid = sup.get("citation_id")
                         if cid is not None:
                             _by_cit.setdefault(cid, []).append(cl.get("id"))

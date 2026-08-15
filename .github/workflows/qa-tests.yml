@@ -31,12 +31,22 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install deps
-        run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx
+        # codex-review B2 P1 fix: complete dependency set — server imports
+        # sse-starlette; the BM25 fixture unpickles rank_bm25; tests_ci_tk15
+        # parses YAML. The bge-m3 embedding model is NOT needed: tests_parity
+        # serves frozen query embeddings (test_fixtures/parity/
+        # query_embeddings.json), so no torch/sentence-transformers here.
+        run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - name: Push-tier suites (all-mock, no GLM)
         run: python run_all_tests.py --tier push
       - name: Spec validator (must pass in CI)
         run: python verify_spec_manifest.py
-      - name: Holdout smoke (10 queries, lock-verified)
+      - name: Holdout lock check (fixture immutability)
+        # codex-review B2 P2 fix: this step verifies the SHA256 lock + smoke
+        # subset integrity — it deliberately runs no retrieval (the anchors
+        # reference real-corpus record ids; the real indexes are gitignored).
+        # Retrieval evaluation runs in the nightly replay with the real
+        # indexes (scripts/nightly_replay.py --retrieval).
         run: python ../scripts/holdout_run.py --mode smoke --check-lock
       - name: Upload test summary
         if: always()
@@ -65,7 +75,16 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install deps
-        run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx
+        # nightly = real tier: embedding model + GLM. torch CPU wheel keeps
+        # the runner light (no CUDA deps).
+        run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml sentence-transformers torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      - name: Cache bge-m3 embedding model
+        uses: actions/cache@v4
+        with:
+          path: runtime/models/bge-m3
+          key: bge-m3-v1
+      - name: Install bge-m3 model (cache miss only)
+        run: python ../scripts/runtime_assets.py install --components model
       - name: Nightly final acceptance (real GLM)
         run: python tests_final_acceptance.py
       - name: Mini-index structural eval (real GLM)

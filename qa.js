@@ -210,6 +210,23 @@ function renderMessages() {
       }
     });
   });
+
+  // Evidence-card citation chips ([N] in the claim rows) use the same
+  // scroll-to-citation behavior (codex-review B2 P2: they rendered with
+  // pointer styling but no click handler did anything).
+  messagesEl.querySelectorAll('.qa-claim-cite').forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      const citationNum = parseInt(chip.dataset.citationNum);
+      const citationItem = messagesEl.querySelector(`.qa-citation-item[data-citation-num="${citationNum}"]`);
+      if (citationItem) {
+        citationItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        citationItem.style.transition = 'background 0.3s';
+        citationItem.style.background = 'var(--brand-bg)';
+        setTimeout(() => { citationItem.style.background = ''; }, 1500);
+      }
+    });
+  });
 }
 
 function renderAssistantMessage(msg, idx) {
@@ -1060,6 +1077,14 @@ function saveConversationsToStorage() {
           citations: m.citations || [],
           searched_record_ids: m.searched_record_ids || [],
           cited_record_ids: m.cited_record_ids || [],
+          // TK-13/TK-10 (codex-review B2 P2): evidence card + user warning
+          // must survive a page reload, not just the live session
+          claims: m.claims || [],
+          user_warning: m.user_warning || '',
+          answer_status: m.answer_status || null,
+          evidence_summary: m.evidence_summary || null,
+          stop_reason: m.stop_reason || null,
+          trace_id: m.trace_id || null,
         })),
       }));
     localStorage.setItem('qa_conversations', JSON.stringify(toSave));

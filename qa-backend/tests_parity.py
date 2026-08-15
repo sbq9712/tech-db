@@ -17,6 +17,45 @@ import os as _os_t3
 FIXTURE_IDX = Path(__file__).resolve().parent / "test_fixtures" / "mini_index" / "indexes"
 _os_t3.environ["TECH_DB_INDEX_DIR"] = str(FIXTURE_IDX)
 
+
+# ── CI-runnable without the bge-m3 model (codex-review B2 P1 fix) ─────────
+# Parity is a WIRING invariant, not an embedding-model invariant. The parity
+# queries' bge-m3 embeddings are frozen in test_fixtures/parity/
+# query_embeddings.json; serving them from the fixture removes the 2GB model
+# + torch/sentence-transformers dependency from the push tier while keeping
+# the compared numbers bit-identical (baseline was generated with the same
+# embeddings). Baseline GENERATION (parity.py --generate) still uses the
+# live model, so re-generating after a model upgrade refreshes both files.
+def _install_frozen_query_embeddings():
+    fixture = (Path(__file__).resolve().parent / "test_fixtures" / "parity"
+               / "query_embeddings.json")
+    if not fixture.exists():
+        return  # fixture absent (developer box) → live model, unchanged
+    import server
+    data = json.loads(fixture.read_text("utf-8"))
+    frozen = data["queries"]
+
+    class _FrozenEmbedding:
+        # Duck-types the EmbeddingFunc wrapper: server calls
+        # await embedding_func([query]) and reads .embedding_dim lazily.
+        embedding_dim = data["dim"]
+        max_token_size = 8192
+
+        async def __call__(self, texts):
+            out = []
+            for t in (texts if isinstance(texts, list) else [texts]):
+                if t not in frozen:
+                    raise RuntimeError(
+                        f"parity embedding fixture has no frozen embedding for {t!r} "
+                        "(regenerate: see tests_parity header)")
+                out.append(list(frozen[t]))
+            return out
+
+    server.embedding_func = _FrozenEmbedding()
+
+
+_install_frozen_query_embeddings()
+
 PASS, FAIL = 0, 0
 
 
@@ -90,8 +129,11 @@ def t_field_level_score_parity():
                 for field, bkey in (("vec_score", "vec_score"),
                                     ("bm25_score", "bm25_score"),
                                     ("graph_score", "graph_score")):
-                    live_v = round(float(rec.get(field, 0.0)), 6)
-                    assert live_v == b[bkey], (
+                    # Route float scores carry ~1e-7 embedding-model noise
+                    # (bge-m3 multi-thread encode is not bit-stable across
+                    # processes) — compare with tolerance, not exact rounds.
+                    live_v = float(rec.get(field, 0.0))
+                    assert abs(live_v - b[bkey]) <= 1e-6, (
                         f"{field} drift on idx {b['idx']} for '{entry['query']}': "
                         f"live={live_v} baseline={b[bkey]}")
                 assert round(float(rec.get("score", 0.0)), 6) == b["score"], \

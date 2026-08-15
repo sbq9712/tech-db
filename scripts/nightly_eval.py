@@ -33,8 +33,19 @@ async def main() -> int:
                     default=ROOT / "qa-backend" / "test_fixtures" / "nightly" / "eval_report.json")
     args = ap.parse_args()
 
-    # CI passes ZAI_API_KEY via secrets; locally it lives in .env (config
-    # resolves both). Import config first, then verify the key resolves.
+    # ── codex-review B2 P1 fix: environment BEFORE any qa-backend import ──
+    # config binds WORKING_DIR at import time; previously `from config
+    # import load_api_key` ran first, so the later TECH_DB_INDEX_DIR change
+    # never reached the server (the committed report evaluated the REAL
+    # corpus — record ids outside 0..59). Set env first, then import.
+    os.environ["TECH_DB_INDEX_DIR"] = str(MINI / "indexes")  # indexes subdir!
+    import server
+    # mini fixture records: the mini index covers idx 0..59 of THIS file,
+    # not the gitignored all-records-lite.json full corpus.
+    server._records = json.loads((MINI / "all-records-mini.json")
+                                 .read_text(encoding="utf-8"))
+
+    # CI passes ZAI_API_KEY via secrets; locally it lives in .env.
     from config import load_api_key
     try:
         load_api_key()
@@ -42,9 +53,6 @@ async def main() -> int:
         print(f"API key not configured ({e}) — nightly eval needs real GLM")
         return 2
 
-    # mini index (CI-safe): deterministic, committed
-    os.environ["TECH_DB_INDEX_DIR"] = str(MINI)
-    import server
     server.load_vector_index()
     server.load_bm25_index()
 
@@ -61,6 +69,7 @@ async def main() -> int:
     queries = [e for e in doc["entries"] if e["id"] in ids][:args.n]
 
     from config import llm_model_func
+    from citation_grounding import ground_citation_evidence
     results = []
     for e in queries:
         row = {"id": e["id"], "query": e["query"][:60]}
@@ -78,12 +87,31 @@ async def main() -> int:
             row["answer_chars"] = len(answer)
             cited = server._parse_citations_from_answer(answer, citations)
             row["cited_n"] = len(cited)
-            # grounding (non-LLM)
-            grounded = 0
-            records_stub = []
+            # grounding (non-LLM, contract promise): does the cited record's
+            # text actually contain the anchored span content?
+            grounded_flags = []
+            records = server.load_records()
             for c in citations:
-                g_ok = False
-                row.setdefault("_cits", []).append(c.get("record_id"))
+                try:
+                    rid = c.get("record_id")
+                    rec = records[rid] if isinstance(rid, int) and 0 <= rid < len(records) else None
+                    if rec is None:
+                        grounded_flags.append(False)
+                        continue
+                    g = ground_citation_evidence(
+                        record=rec, proposed_span=(c.get("body_snippet") or ""),
+                        claim_text=e["query"], query=e["query"])
+                    grounded_flags.append(
+                        str(g.get("grounding_status")) != "GROUNDING_FAIL")
+                except Exception:
+                    grounded_flags.append(False)
+            row["grounded_n"] = sum(grounded_flags)
+            row["grounding_rate"] = round(
+                sum(grounded_flags) / max(1, len(grounded_flags)), 4)
+            # answer status (non-LLM structural proxy)
+            row["answer_status"] = (
+                "PARTIALLY_SUPPORTED" if grounded_flags and all(grounded_flags)
+                else "UNSUPPORTED" if citations else "NO_CITATIONS")
             row["retrieval_ms"] = round((t1 - t0) * 1000, 1)
             row["status"] = "ok"
         except Exception as ex:
@@ -100,6 +128,12 @@ async def main() -> int:
             "ok_rate": round(len(ok) / max(1, len(results)), 4),
             "mean_retrieval_n": round(statistics.mean([r["retrieval_n"] for r in ok]), 1) if ok else None,
             "mean_cited_n": round(statistics.mean([r["cited_n"] for r in ok]), 2) if ok else None,
+            "mean_grounded_rate": round(statistics.mean(
+                [r["grounding_rate"] for r in ok]), 4) if ok else None,
+            "answer_status_dist": {
+                s: sum(1 for r in ok if r["answer_status"] == s)
+                for s in ("PARTIALLY_SUPPORTED", "UNSUPPORTED", "NO_CITATIONS")
+            } if ok else None,
             "mean_retrieval_ms": round(statistics.mean([r["retrieval_ms"] for r in ok]), 1) if ok else None,
             "mean_gen_ms": round(statistics.mean([r["gen_ms"] for r in ok]), 1) if ok else None,
         },
@@ -110,6 +144,15 @@ async def main() -> int:
     args.out.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(report["metrics"], ensure_ascii=False))
     print(f"report → {args.out}")
+    # codex-review B2 P2 fix: a nightly run where every query failed (or
+    # where nothing was evaluated) must fail CI — never commit an
+    # ok_rate:0 artifact with a green check.
+    if not results:
+        print("no queries evaluated — failing")
+        return 1
+    if not ok:
+        print("all queries failed — failing")
+        return 1
     return 0
 
 

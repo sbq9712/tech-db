@@ -40,7 +40,10 @@ def t_push_structure():
     names = [s.get("name") or str(s.get("uses")) for s in job["steps"]]
     joined = " | ".join(n for n in names if n)
     assert "Push-tier suites" in joined and "Spec validator" in joined
-    assert "Holdout smoke" in joined
+    # codex-review B2 P2: renamed smoke→lock check — the step verifies
+    # fixture immutability only (anchors reference real-corpus ids, not
+    # runnable in CI without the gitignored real indexes)
+    assert "Holdout lock check" in joined
     assert "run_all_tests.py --tier push" in WF.read_text()
 
 
