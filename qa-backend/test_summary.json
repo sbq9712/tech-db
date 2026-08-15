@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T03:39:16",
+  "generated_at": "2026-08-15T19:09:34",
   "all_passed": true,
   "total_passed": 324,
   "total_failed": 0,
@@ -11,7 +11,7 @@
       "passed": 42,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.5,
       "tail": "\n=== T001: Trace System ===\n  ✅ unique trace_id\n  ✅ stages recorded\n  ✅ stage names\n  ✅ secret scrubbed\n  ✅ data preserved\n[trace] WARNING: flush failed: [Errno 13] Permission denied: '/nonexistent'\n  ✅ trace write fail-safe\n  ✅ no ZAI_API_KEY in trace\n  ✅ no literal API key value\n\n=== T003: Citation Grounding ===\n  ✅ exact span match\n  ✅ non-existent span rejected\n  ✅ grounding VALID\n  ✅ grounding offsets\n  ✅ fb takes priority\n  ✅ empty text → grounding fail\n  ✅ semantic locate works\n  ✅ semantic locate finds relevant section\n\n=== T005: Verifier Fail-Safe ===\n  ✅ JSON clean parse\n  ✅ JSON code fence parse\n  ✅ JSON embedded parse\n  ✅ JSON malformed → None\n  ✅ PASSED.passed is True\n  ✅ FAILED.passed is False\n  ✅ UNVERIFIED.passed is False\n  ✅ UNVERIFIED has reason\n  ✅ empty answer trivially passes\n\n=== T004: Claim Mapping ===\n  ✅ claim validated\n  ✅ claim supported\n  ✅ unsupported major claim detected\n  ✅ unsupported major claims found\n  ✅ minor explanation ignored\n\n=== T006: Four-State Answer Status ===\n  ✅ no results → UNSUPPORTED\n  ✅ results + passed → SUPPORTED\n  ✅ verification unverified → UNVERIFIED\n  ✅ verification failed → PARTIALLY\n  ✅ all major unsupported → UNSUPPORTED\n  ✅ evidence summary structure\n\n=== T013: Content Safety ===\n  ✅ detect Chinese injection\n  ✅ detect English injection\n  ✅ no false positive\n  ✅ data boundary start\n  ✅ data boundary end\n  ✅ safety instructions added\n\n======================================================================\n  Results: 42 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -31,7 +31,7 @@
       "passed": 37,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.8,
+      "seconds": 1.0,
       "tail": "\n=== T028: Contextual Chunking ===\n  ✅ short record → no chunks\n  ✅ long record produces chunks\n  ✅ chunks have offsets\n  ✅ chunks have context_prefix\n  ✅ chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -91,8 +91,8 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 13.1,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 12453.47it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.343 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 20.3,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 11436.83it/s]\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.356 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -101,7 +101,7 @@
       "passed": 6,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "TK-06 — flags wave 1 + knowledge boundary\n  ✅ wave-1 flags default ON\n  ✅ LLM group ON after gate 3 (TK-19 flip) + kill switch\n  ✅ kill switch (QA_PROVENANCE_ENABLED=0)\n  ✅ health status includes knowledge_boundary\n  ✅ abstain boundary message\n  ✅ SEMANTIC_GRAPH build doesn't crash (Q29 regression)\n============================================================\n  TK-06 Results: 6 passed, 0 failed\n============================================================\n"
     },
     {
@@ -111,7 +111,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.6,
       "tail": "TK-07 — heuristic router\n  ✅ simple queries → FAST_RAG (heuristic)\n  ✅ complex queries → RESEARCH_RAG (heuristic)\n  ✅ 'vs' word boundary (perovskite regression)\n  ✅ route_query: 0 LLM calls for heuristic-covered set\n  ✅ ambiguous → exactly 1 LLM call\n============================================================\n  TK-07 Results: 5 passed, 0 failed\n============================================================\n"
     },
     {
@@ -121,7 +121,7 @@
       "passed": 8,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.6,
       "tail": "TK-08 — loop-control budget hard cap\n── spec arithmetic: worst case ≤ 12 by construction\n  ✅ spec arithmetic: worst case ≤ 12 by construction\n── QueryBudget unit: cap + separate post ledger\n  ✅ QueryBudget unit: cap + separate post ledger\n── post-processing never degrades loop budget\n  ✅ post-processing never degrades loop budget\n── spend_or_raise + admin bypass\n  ✅ spend_or_raise + admin bypass\n── full loop: reservation stops before cap\n  ✅ full loop: reservation stops before cap\n── over-cap raises BudgetExceededError + degrade trace\n  ✅ over-cap raises BudgetExceededError + degrade trace\n── retrieval rounds clamped to 5\n  ✅ retrieval rounds clamped to 5\n── bypass semantics\n  ✅ bypass semantics\n==============================================================\n  TK-08 Results: 8 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -131,7 +131,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.0,
+      "seconds": 3.1,
       "tail": "TK-09 — TTFB latency guard\n── budget = legacy baseline + Δ (file consumed)\n  ✅ budget = legacy baseline + Δ (file consumed)\n── missing baseline → default keeps guard armed\n  ✅ missing baseline → default keeps guard armed\n── simulated timeout → legacy degrade + trace\n  ✅ simulated timeout → legacy degrade + trace\n── fast loop unaffected\n  ✅ fast loop unaffected\n── Δ overridable via env\n  ✅ Δ overridable via env\n==============================================================\n  TK-09 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -151,7 +151,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.6,
+      "seconds": 0.7,
       "tail": "TK-12 — citation schema + legacy fill contract\n── full schema shape on legacy path\n  ✅ full schema shape on legacy path\n── grounding fills evidence_spans + highlight (non-LLM)\n  ✅ grounding fills evidence_spans + highlight (non-LLM)\n── supports_claim_ids inverse mapping\n  ✅ supports_claim_ids inverse mapping\n── source_label: as vs b/fb\n  ✅ source_label: as vs b/fb\n── done event schema (user_warning etc.)\n  ✅ done event schema (user_warning etc.)\n==============================================================\n  TK-12 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -171,7 +171,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 2.0,
+      "seconds": 2.1,
       "tail": "TK-14 — spec manifest validator\n── current state → PASS (exit 0)\n  ✅ current state → PASS (exit 0)\n── injected doc drift → FAIL (exit 1)\n  ✅ injected doc drift → FAIL (exit 1)\n── --selftest catches drift\n  ✅ --selftest catches drift\n── --json machine-readable\n  ✅ --json machine-readable\n── ENV_NAMES registry (RERANK env alias)\n  ✅ ENV_NAMES registry (RERANK env alias)\n==============================================================\n  TK-14 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -191,7 +191,7 @@
       "passed": 6,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.5,
+      "seconds": 0.6,
       "tail": "TK-15 — CI tiers\n── push job structure (suites+validator+smoke)\n  ✅ push job structure (suites+validator+smoke)\n── push job has no GLM key\n  ✅ push job has no GLM key\n── nightly structure (acceptance+eval+artifact回传)\n  ✅ nightly structure (acceptance+eval+artifact回传)\n── triggers (push + nightly cron)\n  ✅ triggers (push + nightly cron)\n── live push tier green without ZAI key\n  ✅ live push tier green without ZAI key\n── validator passes in CI mode\n  ✅ validator passes in CI mode\n==============================================================\n  TK-15 Results: 6 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -201,7 +201,7 @@
       "passed": 6,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "TK-18 — nightly replay artifacts\n── artifact fields complete (gate-3 evidence shape)\n  ✅ artifact fields complete (gate-3 evidence shape)\n── no-regression signature (overlap=1.0, parity all equal)\n  ✅ no-regression signature (overlap=1.0, parity all equal)\n── shadow cost accounting (R6/R14)\n  ✅ shadow cost accounting (R6/R14)\n── budget fields\n  ✅ budget fields\n── artifact committed to repo (回传)\n  ✅ artifact committed to repo (回传)\n── exemption documented\n  ✅ exemption documented\n==============================================================\n  TK-18 Results: 6 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -211,7 +211,7 @@
       "passed": 6,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.5,
       "tail": "TK-19 — gate 3 flip + FAST_RAG fast-path contract\n  ✅ gate3 report artifacts committed\n  ✅ LLM flags default ON after gate 3\n  ✅ FAST_RAG plans exactly 1 iteration\n[orchestrator] Router error: test_fast_rag_zero_loop_control_calls.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n  ✅ FAST_RAG: 0 loop-control calls, 1 round (rulings Q3)\n  ✅ lenient LLM JSON parser\n[orchestrator] Router error: test_research_rag_still_spends_loop_budget.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n[decomposer] Error: Single '}' encountered in format string\n  ✅ RESEARCH_RAG still spends loop budget\n============================================================\n  TK-19 Results: 6 passed, 0 failed\n============================================================\n"
     },
     {
@@ -221,7 +221,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.3,
+      "seconds": 3.7,
       "tail": "TK-20 — eval-side synthetic isolation (T049/Q19)\n  ✅ holdout anchors contain no as-only records\n  ✅ unanchored entries carry TK-20 rationale\n  ✅ as-only citation labelled AI_SUMMARY (TK-12 linkage)\n  ✅ original-body citation labelled ORIGINAL\n  ✅ holdout lock re-issued (Q17 dedicated unlock)\n============================================================\n  TK-20 Results: 5 passed, 0 failed\n============================================================\n"
     },
     {
@@ -231,7 +231,7 @@
       "passed": 4,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.8,
+      "seconds": 0.9,
       "tail": "TK-22 — sync_local.sh gate (Q24: fail ⇒ no restart)\n  ✅ gate wired: validator + suite before restart\n  ✅ injected drift fails validator (gate trips)\n  ✅ gate calls route to fail() (non-zero exit)\n  ✅ validator PASS on current tree\n============================================================\n  TK-22 Results: 4 passed, 0 failed\n============================================================\n"
     }
   ],

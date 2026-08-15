@@ -347,13 +347,17 @@ def _anchor_fallback_claims(answer: str, citations: list) -> dict:
             continue
         n += 1
         text = s if len(s) <= 120 else s[:117] + "..."
+        # Honesty contract (codex review P1): the [n] anchor was placed by
+        # the ANSWER GENERATOR, not verified against the citation body. Keep
+        # the citation association as BACKGROUND context + PARTIALLY_SUPPORTED
+        # — never upgrade unverified answer content to DIRECT/SUPPORTED.
         claims.append({
             "id": f"claim_{n}",
             "text": text,
             "type": "ATTRIBUTED_CLAIM",
-            "support_status": "SUPPORTED",
+            "support_status": "PARTIALLY_SUPPORTED",
             "supported_by": [
-                {"citation_id": cid, "relation": "DIRECT_SUPPORT",
+                {"citation_id": cid, "relation": "BACKGROUND",
                  "evidence_span": citations[[i for i, c in enumerate(citations)
                                              if c["id"] == cid][0]]
                  .get("body_snippet", "")[:80]}

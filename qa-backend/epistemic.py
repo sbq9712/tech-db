@@ -74,17 +74,25 @@ ISSUE_TYPES = {
 }
 
 
-def _parse_llm_json(text: str):
+def _parse_llm_json(text: str, expect: str = "any"):
     """Lenient JSON extraction for LLM output.
 
     Handles the common GLM failure modes observed live:
     - markdown fences / prose around the JSON
     - truncated arrays (retry by closing at the last complete element)
     - truncated objects (drop instead of crashing)
+
+    expect: "array" | "object" | "any" — the requested top-level shape.
+    Codex-review fix (P2): a verifier response like {"passed": false,
+    "issues": [...]} must parse as the OBJECT first; array-first extraction
+    silently returned the inner `issues` list and converted an explicit
+    verification FAILURE into the default pass.
     Returns parsed value or None.
     """
-    s = text.find("[")
-    if s >= 0:
+    def _try_array():
+        s = text.find("[")
+        if s < 0:
+            return None
         e = text.rfind("]")
         frag = text[s:e + 1] if e > s else text[s:]
         try:
@@ -110,8 +118,12 @@ def _parse_llm_json(text: str):
                         return repaired
                 except Exception:
                     pass
-    s = text.find("{")
-    if s >= 0:
+        return None
+
+    def _try_object():
+        s = text.find("{")
+        if s < 0:
+            return None
         e = text.rfind("}")
         if e > s:
             try:
@@ -129,7 +141,13 @@ def _parse_llm_json(text: str):
                                 return repaired
                         except Exception:
                             continue
-    return None
+        return None
+
+    if expect == "object":
+        obj = _try_object()
+        return obj if obj is not None else _try_array()
+    arr = _try_array()
+    return arr if arr is not None else _try_object()
 
 
 # ── 1. Claim Classifier ──
