@@ -103,6 +103,11 @@ closed; see "Ticket Closure & Evidence Chain" below.
 ## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
 - 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored）；CI replay
   使用入库的 MINI 索引 fixture（`qa-backend/test_fixtures/mini_index`）。
+- fixture 重建配方（codex-review C2）：`python scripts/build_mini_index.py
+  --from-records` — 只用已入库的 `all-records-mini.json`（manifest
+  `records_sha256_16` 摘要校验）重建 vector+BM25 索引，可复现（已验证
+  与入库索引字节一致）；默认模式（从 gitignored lite 重新抽样）已对齐
+  索引构建器的规范过滤（排除 不相关/未分类/手动导入 与 dp==1）。
 - 本地 nightly replay 入口：`.venv/bin/python scripts/nightly_replay.py
   --tag dayN --commit`（artifact: `qa-backend/test_fixtures/holdout/replay/dayN.json`，
   数字一律以该 artifact 为准，本文不引用具体数值）。
