@@ -52,6 +52,29 @@ def load_api_key():
 
 
 # ── LLM Function (OpenAI-compatible, async) ──
+# ── LLM HTTP executor (codex-review P2: bounded + accounted) ─────────────
+import concurrent.futures
+
+# Socket timeout for non-streaming LLM calls. Was 180s — far beyond any TTFB
+# guard budget; abandoned threads must not occupy the executor that long.
+_LLM_HTTP_TIMEOUT = float(os.environ.get("QA_LLM_HTTP_TIMEOUT", "60"))
+
+# Dedicated pool so abandoned GLM threads never starve the shared default
+# executor (which also runs index loads and other blocking work).
+_LLM_EXECUTOR = concurrent.futures.ThreadPoolExecutor(
+    max_workers=int(os.environ.get("QA_LLM_HTTP_THREADS", "8")),
+    thread_name_prefix="llm-http",
+)
+
+# Observability: how many LLM HTTP calls were abandoned by their awaiting
+# task (TTFB guard timeouts). Exposed via /api/stats.
+_LLM_ABANDONED = {"submitted": 0, "count": 0}
+
+
+def llm_abandoned_stats() -> dict:
+    return dict(_LLM_ABANDONED)
+
+
 async def llm_model_func(
     prompt: str,
     system_prompt: str = None,
@@ -94,7 +117,7 @@ async def llm_model_func(
     req.add_header("Accept", "application/json")
 
     def _do_request():
-        with urllib.request.urlopen(req, timeout=180) as resp:
+        with urllib.request.urlopen(req, timeout=_LLM_HTTP_TIMEOUT) as resp:
             raw = resp.read().decode("utf-8")
         result = json.loads(raw)
         choices = result.get("choices") or []
@@ -113,9 +136,19 @@ async def llm_model_func(
             content = msg["reasoning_content"]
         return content
 
-    # Run in executor to make it async
-    loop = asyncio.get_event_loop()
-    return await loop.run_in_executor(None, _do_request)
+    # Run in executor to make it async.
+    # Codex-review fix (P2): dedicated bounded executor + bounded socket
+    # timeout + abandonment accounting. When the TTFB guard cancels the
+    # awaiting task, asyncio cancellation also cancels queued-but-unstarted
+    # executor work; already-running threads are bounded by the socket
+    # timeout (was 180s) instead of occupying the shared default executor.
+    _LLM_ABANDONED["submitted"] += 1
+    try:
+        return await asyncio.futures.wrap_future(_LLM_EXECUTOR.submit(_do_request))
+    except asyncio.CancelledError:
+        # awaiting task (e.g. TTFB-guarded agentic loop) gave up on us
+        _LLM_ABANDONED["count"] += 1
+        raise
 
 
 # ── Streaming LLM Function ──

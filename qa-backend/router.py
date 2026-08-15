@@ -240,19 +240,30 @@ def _heuristic_route(query: str):
                                 else (kw in q or (".*" in kw and _re.search(kw, q)))))
 
     # ── confidently simple → FAST_RAG (never if any complex marker) ──
+    def _multi_subject(q_: str) -> bool:
+        # Multi-clause / multi-subject separator (Chinese + English).
+        # Codex-review fix (P2): the simple-lookup branch checked Chinese
+        # conjunctions but not English "and"/"or" — "CATL and BYD batteries"
+        # (22 chars, no complex marker) was heuristically sent to FAST_RAG,
+        # violating the invariant that multi-subject queries are never
+        # heuristically fast-routed.
+        if any(c in q_ for c in "；;，,和与及跟"):
+            return True
+        return bool(_re.search(r"\b(and|or)\b|&", q_.lower()))
+
     if n_complex_markers == 0:
         # single question mark, short-to-medium, single focus
-        if n <= 10:
+        if n <= 10 and not _multi_subject(q):
             return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:short_specific")
         # 10–24 chars: simple if it's a noun-phrase-ish lookup without
         # conjunctions/semicolons (multi-clause ⇒ undecided)
         if n <= 24 and q.count("？") <= 1 and q.count("?") <= 1 \
-                and not any(c in q for c in "；;，,和与及跟") \
+                and not _multi_subject(q) \
                 and not ql.endswith(("呢", "吗？", "吧")):
             return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:simple_lookup")
         # English simple lookups ("what is X", "X energy density")
         if any(ql.startswith(w) or f" {w}" in ql for w in _EN_QUESTION_WORDS) \
-                and n <= 60 and q.count(" and ") == 0:
+                and n <= 60 and q.count(" and ") == 0 and not _multi_subject(q):
             return _mk("FACT_LOOKUP", "low", "FAST_RAG", "heuristic:en_lookup")
         # no markers but long / multi-clause → undecided (LLM decides)
 

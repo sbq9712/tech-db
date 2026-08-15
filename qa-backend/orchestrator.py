@@ -37,7 +37,7 @@ from evidence_grader import grade_evidence
 from gap_analysis import analyze_gaps, deduplicate_queries
 from stopping import should_stop, MAX_ITERATIONS
 from knowledge_boundary import assess_coverage, determine_answer_boundary
-from reranker import rerank
+from reranker import rerank, llm_batch_count, MAX_BATCH_SIZE as RERANK_BATCH
 from evidence_selector import select_evidence
 from context_builder import build_evidence_package, build_generator_system_prompt
 from conflict_detector import detect_conflicts
@@ -246,11 +246,20 @@ async def run_agentic_loop(
         # LLM cost — FAST_RAG routes skip rerank + grader entirely (the
         # router's whole job is keeping simple queries at legacy cost).
         if Flags.RERANKER_ENABLED and iteration_results and mode != "FAST_RAG":
-            spend_or_raise(state.budget, "reranker")
+            # Codex-review fix (P1): budget must count the ACTUAL GLM batches
+            # rerank() issues (one call per MAX_BATCH_SIZE=20 candidates).
+            # Two-part fix: (1) the per-round rerank pool is capped at one
+            # batch so the documented worst-case arithmetic (Σ rerank=1/round
+            # within the ≤12 loop-control cap) stays true, and (2) the ledger
+            # spends llm_batch_count() so it can never under-count again if
+            # the pool is ever widened.
+            _rerank_cands = iteration_results[:RERANK_BATCH]
+            spend_or_raise(state.budget, "reranker", n=llm_batch_count(len(_rerank_cands)))
             try:
-                reranked = await rerank(query, iteration_results[:50], top_k=25)
+                reranked = await rerank(query, _rerank_cands, top_k=len(_rerank_cands))
                 trace.add_stage(f"rerank_iter{iteration}", {
                     "reranked_count": len(reranked),
+                    "llm_batches": llm_batch_count(len(_rerank_cands)),
                 })
             except Exception as e:
                 print(f"[orchestrator] Reranker error: {e}", flush=True)

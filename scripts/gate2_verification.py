@@ -42,8 +42,11 @@ REPORT = {
 
 
 def record(name, passed, evidence):
-    REPORT["checks"].append({"check": name, "pass": bool(passed), "evidence": evidence})
-    print(f"  {'✅' if passed else '❌'} {name}: {evidence}")
+    # passed may be None = SKIPPED (e.g. live TTFB measurement with no
+    # reachable server) — recorded honestly, excluded from the verdict.
+    REPORT["checks"].append({"check": name, "pass": passed, "evidence": evidence})
+    icon = "✅" if passed is True else ("⏭️" if passed is None else "❌")
+    print(f"  {icon} {name}: {evidence}")
 
 
 # ── R1+R3: budget & degradation matrix via the real orchestrator ───────────
@@ -192,19 +195,113 @@ async def degradation_matrix():
     return out
 
 
+def _parity_queries() -> list:
+    """TK-04 fixed parity query set — shared deterministic fixtures."""
+    try:
+        data = json.loads((ROOT / "qa-backend/test_fixtures/parity/queries.json")
+                          .read_text(encoding="utf-8"))
+        return [q for q in data.get("queries", []) if q]
+    except (OSError, ValueError):
+        return []
+
+
+_PARITY_QUERIES = _parity_queries()
+
+
+def _measure_live_ttfb(base_url: str, queries: list, per_query_timeout: float = 15.0,
+                       overall_budget_s: float = 60.0):
+    """Diagnostic live TTFB samples (ms) through a running server.
+
+    TTFB 口径 = time to the first streamed answer token (rewrite + retrieval
+    + control — generation itself excluded). The stream is aborted right
+    after the first token. Bounded: per-query socket timeout + a wall-clock
+    budget for the whole phase so the gate never stalls on slow queries.
+    Returns list of samples, or None when nothing was measurable.
+    """
+    import urllib.request
+    samples = []
+    t_start = time.perf_counter()
+    for q in queries:
+        if time.perf_counter() - t_start > overall_budget_s:
+            break
+        body = json.dumps({"query": q}).encode("utf-8")
+        req = urllib.request.Request(
+            base_url.rstrip("/") + "/api/chat/stream", data=body, method="POST",
+            headers={"Content-Type": "application/json"})
+        t0 = time.perf_counter()
+        try:
+            with urllib.request.urlopen(req, timeout=per_query_timeout) as resp:
+                for raw in resp:
+                    line = raw.decode("utf-8", "replace")
+                    if not line.startswith("data:"):
+                        continue
+                    try:
+                        payload = json.loads(line[5:].strip())
+                    except (ValueError, TypeError):
+                        continue
+                    if payload.get("text") is not None:
+                        samples.append((time.perf_counter() - t0) * 1000.0)
+                        break  # abort stream at first answer token
+        except Exception:
+            continue  # this query not measurable → try the next
+    return samples or None
+
+
+def _p90(samples: list) -> float:
+    s = sorted(samples)
+    k = max(0, min(len(s) - 1, int(round(0.9 * (len(s) - 1)))))
+    return s[k]
+
+
 def ttfb_distribution():
-    """Measured legacy samples vs guard budget (uses the parity query set)."""
+    """Legacy baseline + Δ guard, plus OPTIONAL bounded live diagnostics.
+
+    Codex-review fix (P2): `within` was hardcoded True ("guard = baseline + Δ
+    by construction"), making the R2 pass claim tautological. The tautological
+    pass claim is REMOVED — the checkable invariant is the arithmetic
+    consistency between the baseline fixture and what ttfb_guard actually
+    loads (catches stale/drifted fixtures). Live measurement (when a server
+    is reachable) is recorded as diagnostics only: the observed end-to-end
+    first-token latency includes the intentional post-degrade legacy fallback,
+    so it is not a fair pass/fail criterion against the pre-degrade guard.
+
+    Enforced TTFB behavior lives in tests_ttfb_tk09 (guard math + wiring)
+    and the TK-18 nightly replay (measured legacy drift vs baseline).
+    """
     data = json.loads((ROOT / "qa-backend/test_fixtures/ttfb/baseline_legacy.json")
                       .read_text(encoding="utf-8"))
     from ttfb_guard import snapshot
     snap = snapshot()
-    return {
+    # arithmetic consistency: the guard must equal fixture p90 + Δ, AND the
+    # fixture must actually be the file the guard loads (not the default)
+    fixture_p90 = int(data.get("p90_ms") or 0)
+    arithmetic_ok = (
+        fixture_p90 > 0
+        and snap["baseline_ms"] == fixture_p90
+        and snap["guard_ms"] == fixture_p90 + snap["delta_ms"]
+        and snap.get("baseline_source") == "file"
+    )
+    out = {
         "baseline_p90_ms": snap["baseline_ms"],
         "delta_ms": snap["delta_ms"],
         "guard_ms": snap["guard_ms"],
+        "fixture_p90_ms": fixture_p90,
         "baseline_file": data,
-        "within": True,  # guard = baseline + Δ by construction; measured p90 == baseline
+        "arithmetic_ok": arithmetic_ok,
+        # diagnostics only (never a pass/fail claim):
+        "live": None,
     }
+    base = os.environ.get("QA_GATE_BASE_URL", "http://127.0.0.1:8765")
+    samples = _measure_live_ttfb(base, [q for q in _PARITY_QUERIES[:5] if q])
+    if samples:
+        out["live"] = {
+            "base_url": base,
+            "n": len(samples),
+            "p90_ms": round(_p90(samples), 1),
+            "guard_ms": snap["guard_ms"],
+            "note": "diagnostic only: includes intentional post-degrade fallback",
+        }
+    return out
 
 
 async def main():
@@ -242,16 +339,30 @@ async def main():
 
     print("── R2: TTFB distribution")
     td = ttfb_distribution()
-    REPORT["queries"]["ttfb"] = {
-        "baseline_p90_ms": td["baseline_p90_ms"], "delta_ms": td["delta_ms"],
-        "guard_ms": td["guard_ms"]}
-    record("R2 TTFB budget = legacy baseline + Δ",
-           td["within"] and td["guard_ms"] == td["baseline_p90_ms"] + td["delta_ms"],
-           f"baseline(p90)={td['baseline_p90_ms']}ms + Δ{td['delta_ms']}ms "
+    REPORT["queries"]["ttfb"] = td
+    # Non-tautological, checkable invariant (codex-review P2): the guard the
+    # SERVER arms must equal the measured baseline fixture + Δ. A drifted or
+    # missing fixture (guard silently falling back to DEFAULT_BASELINE_MS)
+    # fails here. No "within" pass claim — end-to-end first-token latency
+    # includes the intentional post-degrade fallback, so the tautological
+    # hardcoded pass was removed instead (enforcement lives in TK-09 tests
+    # + TK-18 nightly replay).
+    record("R2 TTFB guard = measured baseline fixture + Δ (no silent default)",
+           td["arithmetic_ok"],
+           f"fixture p90={td['fixture_p90_ms']}ms + Δ{td['delta_ms']}ms "
            f"= guard {td['guard_ms']}ms")
+    if td.get("live"):
+        record("R2 live TTFB diagnostics recorded (informational)",
+               None,  # diagnostics, never a pass/fail claim
+               f"p90={td['live']['p90_ms']}ms n={td['live']['n']} vs "
+               f"guard {td['live']['guard_ms']}ms — includes post-degrade fallback")
 
-    passed = all(c["pass"] for c in REPORT["checks"])
+    # SKIPPED (None) checks are excluded from the verdict — they must never
+    # count as passes (codex-review P2: no tautological gate passes).
+    _skipped = sum(1 for c in REPORT["checks"] if c["pass"] is None)
+    passed = all(c["pass"] is not False for c in REPORT["checks"]) and _skipped < len(REPORT["checks"])
     REPORT["verdict"] = "GATE2_PASS" if passed else "GATE2_FAIL"
+    REPORT["skipped_checks"] = _skipped
     print("=" * 62)
     print(f"  VERDICT: {REPORT['verdict']}")
     print("=" * 62)

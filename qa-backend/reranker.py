@@ -30,6 +30,21 @@ MAX_BATCH_SIZE = int(os.environ.get("QA_RERANKER_BATCH_SIZE", "20"))
 MAX_RERANK_CANDIDATES = int(os.environ.get("QA_MAX_RERANK_CANDIDATES", "150"))
 
 
+def llm_batch_count(n_candidates: int) -> int:
+    """Number of GLM calls rerank() will issue for n candidates.
+
+    Codex-review fix (P1): rerank() batches candidates at MAX_BATCH_SIZE per
+    LLM call (one GLM request per batch). Loop-control budget accounting must
+    count the ACTUAL number of LLM calls, not one per logical rerank() — with
+    21–50 results a round silently spends 2–3 budget-worthy calls while the
+    budget ledger recorded only one, violating the ≤12 hard cap guarantee.
+    """
+    n = max(0, min(int(n_candidates), MAX_RERANK_CANDIDATES))
+    if n == 0:
+        return 0
+    return (n + MAX_BATCH_SIZE - 1) // MAX_BATCH_SIZE
+
+
 RERANK_PROMPT = """你是技术情报检索专家。判断以下候选文档对回答用户问题的相关性。
 
 用户问题：{query}

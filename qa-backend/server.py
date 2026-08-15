@@ -20,6 +20,7 @@ import json
 import pickle
 import asyncio
 import re
+import time as _time
 from pathlib import Path
 from datetime import datetime
 from contextlib import asynccontextmanager
@@ -37,7 +38,7 @@ from sse_starlette.sse import EventSourceResponse
 
 from config import (
     WORKING_DIR, RUNTIME_DIR, ENV_FILE, llm_model_func, embedding_func,
-    llm_stream_func, MODEL_NAME,
+    llm_stream_func, MODEL_NAME, llm_abandoned_stats,
 )
 from guardrails import (
     BudgetFuse,
@@ -948,6 +949,9 @@ async def health():
             "concurrency": GUARDRAILS.concurrency,
         },
         "budget": BUDGET_FUSE.status(),
+        # TK-09 (codex-review P2): LLM HTTP calls abandoned by TTFB-guard
+        # timeouts — bounded executor + socket timeout keeps the tail short
+        "llm_http_abandoned": llm_abandoned_stats(),
         "time": datetime.now().isoformat(),
     }
 
@@ -996,6 +1000,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "message": "向量索引尚未构建。请运行: python qa-backend/vector_index.py"
                 })}
                 return
+
+            # TK-09 (codex-review P1): TTFB 口径 = rewrite + retrieval + control
+            # (all pre-first-answer-byte backend work) — the guard clock starts
+            # BEFORE the follow-up rewrite so unbounded rewrite latency can't
+            # hide outside the budget on follow-up queries with history.
+            _t0_pre_answer = _time.perf_counter()
+            _ttfb_degraded = False
 
             # Rewrite follow-up query + detect novelty intent (single LLM call)
             search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
@@ -1060,33 +1071,57 @@ async def chat_stream(req: ChatRequest, request: Request):
                     # control, all pre-first-byte backend work) must fit within
                     # legacy-TTFB-baseline + Δ; on timeout the query degrades
                     # to the legacy single-pass path (spec Q10/R2).
+                    # Codex-review fix (P1): the clock started before the
+                    # follow-up rewrite, so the wait_for budget is the
+                    # REMAINING time — rewrite latency counts against it.
                     _ttfb = ttfb_snapshot()
-                    trace.add_stage("ttfb_guard", _ttfb)
-                    agentic_state = await asyncio.wait_for(
-                        run_agentic_loop(
-                            query=query,
-                            rewritten_query=search_query,
-                            history=req.history,
-                            search_fn=_orchestrator_search_fn,
-                            trace=trace,
-                            bypass_budget=getattr(req, 'bypass_budget', False),
-                        ),
-                        timeout=guard_budget_s(),
-                    )
-
-                    # Use agentic results for the rest of the pipeline
-                    search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
-                    is_relevant = len(search_results) > 0
-                    search_status = agentic_state.stop_reason or "agentic_complete"
-                    _agentic_succeeded = True
-
-                    trace.add_stage("agentic_complete", {
-                        "iterations": agentic_state.iteration,
-                        "mode": agentic_state.router_result.get("mode", ""),
-                        "stop_reason": agentic_state.stop_reason,
-                        "total_results": len(agentic_state.all_results),
-                        "answer_status": agentic_state.answer_status,
+                    _elapsed_s = _time.perf_counter() - _t0_pre_answer
+                    _remaining_s = guard_budget_s() - _elapsed_s
+                    trace.add_stage("ttfb_guard", {
+                        **_ttfb,
+                        "elapsed_before_agentic_ms": round(_elapsed_s * 1000, 1),
+                        "remaining_budget_ms": round(max(0.0, _remaining_s) * 1000, 1),
                     })
+                    if _remaining_s <= 0.05:
+                        # Rewrite (or earlier pre-answer work) already consumed
+                        # the whole guard budget → degrade without attempting
+                        # the agentic loop (attempting it can only overrun).
+                        print(f"[agentic] TTFB budget spent pre-loop "
+                              f"({ _elapsed_s:.1f}s), degrading to legacy", flush=True)
+                        trace.add_stage("ttfb_degrade", {
+                            "budget_ms": _ttfb["guard_ms"],
+                            "elapsed_ms": round(_elapsed_s * 1000, 1),
+                            "action": "degrade_to_legacy",
+                            "reason": "budget_spent_before_loop",
+                        })
+                        _ttfb_degraded = True
+                    else:
+                        agentic_state = await asyncio.wait_for(
+                            run_agentic_loop(
+                                query=query,
+                                rewritten_query=search_query,
+                                history=req.history,
+                                search_fn=_orchestrator_search_fn,
+                                trace=trace,
+                                bypass_budget=getattr(req, 'bypass_budget', False),
+                            ),
+                            timeout=_remaining_s,
+                        )
+
+                    if not _ttfb_degraded:
+                        # Use agentic results for the rest of the pipeline
+                        search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
+                        is_relevant = len(search_results) > 0
+                        search_status = agentic_state.stop_reason or "agentic_complete"
+                        _agentic_succeeded = True
+
+                        trace.add_stage("agentic_complete", {
+                            "iterations": agentic_state.iteration,
+                            "mode": agentic_state.router_result.get("mode", ""),
+                            "stop_reason": agentic_state.stop_reason,
+                            "total_results": len(agentic_state.all_results),
+                            "answer_status": agentic_state.answer_status,
+                        })
                 except asyncio.TimeoutError:
                     # TK-09: agentic loop exceeded legacy-TTFB-baseline + Δ →
                     # degrade to legacy single-pass; answer still returns.
@@ -1094,8 +1129,14 @@ async def chat_stream(req: ChatRequest, request: Request):
                           f"(>{guard_budget_s():.1f}s), degrading to legacy", flush=True)
                     trace.add_stage("ttfb_degrade", {
                         "budget_ms": ttfb_snapshot()["guard_ms"],
+                        "elapsed_ms": round((_time.perf_counter() - _t0_pre_answer) * 1000, 1),
                         "action": "degrade_to_legacy",
+                        # honest accounting: the legacy fallback re-runs
+                        # retrieval outside the guard; the true total is
+                        # measured at ttfb_total (generation start)
+                        "fallback_outside_budget": True,
                     })
+                    _ttfb_degraded = True
                     # Fall through to standard path
                 except BudgetExceededError as be:
                     # TK-08: loop-control hard cap tripped → degrade the whole
@@ -1218,6 +1259,18 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "step": "generating",
                 "message": "正在生成回答..."
             })}
+
+            # TK-09 (codex-review P1): total pre-first-answer-byte backend time
+            # (rewrite + retrieval + agentic control + epistemic classify).
+            # Measured at generation start so guard overruns — including the
+            # legacy fallback retrieval performed AFTER a ttfb_degrade — are
+            # visible rather than implicit.
+            trace.add_stage("ttfb_total", {
+                "pre_answer_ms": round((_time.perf_counter() - _t0_pre_answer) * 1000, 1),
+                "guard_ms": ttfb_snapshot()["guard_ms"],
+                "ttfb_degraded": _ttfb_degraded,
+                "agentic_succeeded": _agentic_succeeded,
+            })
 
             # Build source list for prompt
             source_list = "\n".join(
