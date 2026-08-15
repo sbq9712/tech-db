@@ -357,16 +357,30 @@ class GraphBuilder:
             self.entity_to_records[entity].update(recs)
 
     def export(self) -> dict:
-        """Export to graph-export.json format."""
+        """Export to graph-export.json format.
+
+        Dangling-edge filter: add_entities rejects names >50 chars / empty,
+        so edges referencing such names can never resolve to a node.
+        Cross-record edges whose endpoint appears LATER are still valid
+        here (all nodes exist by export time) — only truly unresolvable
+        edges are dropped (final_verification "Edge connectivity" check).
+        """
         nodes = list(self.nodes.values())
         edges = []
+        dropped = 0
         for edge in self.edges.values():
+            if edge["source"] not in self.nodes or edge["target"] not in self.nodes:
+                dropped += 1
+                continue
             e = {
                 "source": edge["source"],
                 "target": edge["target"],
                 "label": edge.get("label", "相关"),
             }
             edges.append(e)
+        if dropped:
+            print(f"  [graph] dropped {dropped} dangling edges "
+                  f"(endpoints rejected as nodes)", flush=True)
         # Convert entity_to_records sets to lists for JSON serialization
         e2r = {k: sorted(list(v)) for k, v in self.entity_to_records.items()}
         return {"nodes": nodes, "edges": edges, "entity_to_records": e2r}
