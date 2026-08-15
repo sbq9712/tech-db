@@ -521,6 +521,44 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
     return list(dict.fromkeys(result))  # dedupe, preserve order
 
 
+def _no_evidence_boundary(query: str, exhausted: bool) -> str:
+    """Codex-review C3 P2 fix: boundary message for early unsupported exits.
+
+    The weak-query / prior-weak-query / topic-exhausted branches return
+    answer_status=UNSUPPORTED before the main knowledge-boundary block
+    (which needs claim mapping + grounding) runs — with the TK-06 flag ON
+    they must still carry a non-LLM boundary message instead of none.
+    """
+    try:
+        from feature_flags import Flags
+        from knowledge_boundary import (
+            assess_coverage, determine_answer_boundary, format_boundary_message,
+            AnswerStatus as KBStatus,
+        )
+        if not Flags.KNOWLEDGE_BOUNDARY_ENABLED:
+            return ""
+        coverage = assess_coverage(
+            requirements=[{"status": "MISSING", "text": query}],
+            evidence_count=0,
+            independent_groups=0,
+        )
+        _status, _msg = determine_answer_boundary(
+            coverage_level=coverage,
+            critical_missing=[{"description": query[:40]}] if exhausted else [],
+            conflicts=[],
+            grader_overall="INSUFFICIENT",
+        )
+        return format_boundary_message(
+            answer_status=KBStatus.UNSUPPORTED,
+            supported_aspects=[],
+            unsupported_aspects=[query],
+            coverage_level=coverage,
+        )
+    except Exception as e:
+        print(f"[knowledge_boundary] early-exit error: {e}", flush=True)
+        return ""
+
+
 async def _search_with_quality_legacy(query: str, exclude_ids: set = None) -> tuple:
     """REMOVED in TK-23 (R5 contract phase).
 
@@ -1187,6 +1225,12 @@ async def chat_stream(req: ChatRequest, request: Request):
             searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
 
             if not search_results or not is_relevant:
+                # Codex-review C3 P2 fix: early unsupported exits (weak query /
+                # topic exhausted) previously returned WITHOUT the flag-gated
+                # knowledge-boundary message even with the TK-06 flag ON —
+                # the most common unsupported case missed the boundary.
+                _early_boundary = _no_evidence_boundary(
+                    query, search_status == "exhausted")
                 if search_status == "exhausted":
                     trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
                     trace.flush()
@@ -1197,6 +1241,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "searched_record_ids": [],
                         "answer_status": "UNSUPPORTED",
                         "stop_reason": "topic_exhausted",
+                        "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
                     })}
                 elif not prev_has_results and seeking_novelty:
@@ -1209,6 +1254,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "searched_record_ids": [],
                         "answer_status": "UNSUPPORTED",
                         "stop_reason": "weak_query",
+                        "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
                     })}
                 else:
@@ -1221,6 +1267,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "searched_record_ids": [],
                         "answer_status": "UNSUPPORTED",
                         "stop_reason": "weak_query",
+                        "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
                     })}
                 return
@@ -1520,7 +1567,20 @@ async def chat_stream(req: ChatRequest, request: Request):
                                    if c.get("grounding_status") in ("VALID", "FUZZY"))
                     independent = len({c.get("source", "") for c in citations})
                     claim_rows = claim_map.get("claims", [])[:5]
-                    requirements = [{"status": c.get("status", "MISSING")}
+                    # codex-review C3 P2 fix: claim schema is
+                    # {id, text, support_status} (claim_mapping.py) — the old
+                    # reads of .status/.claim were always-missing keys, so
+                    # requirements defaulted to all-MISSING and aspect lists
+                    # were always empty. Also map the claim vocabulary
+                    # (SUPPORTED/PARTIALLY_SUPPORTED/UNSUPPORTED) onto
+                    # assess_coverage's requirement vocabulary
+                    # (SUPPORTED/PARTIAL/MISSING).
+                    _req_status = {"SUPPORTED": "SUPPORTED",
+                                   "PARTIALLY_SUPPORTED": "PARTIAL",
+                                   "UNSUPPORTED": "MISSING"}
+                    requirements = [{"status": _req_status.get(
+                                        c.get("support_status", "UNSUPPORTED"), "MISSING"),
+                                     "text": c.get("text", "")}
                                     for c in claim_rows] or \
                                    [{"status": "MISSING", "text": query}]
                     coverage = assess_coverage(
@@ -1530,10 +1590,10 @@ async def chat_stream(req: ChatRequest, request: Request):
                     )
                     kb_status = (KBStatus.UNSUPPORTED if answer_status_str == "UNSUPPORTED"
                                  else KBStatus.PARTIALLY_SUPPORTED)
-                    supported_aspects = [c.get("claim", "") for c in claim_map.get("claims", [])
-                                         if c.get("status") == "SUPPORTED"][:5]
-                    unsupported_aspects = [c.get("claim", "") for c in claim_map.get("claims", [])
-                                           if c.get("status") != "SUPPORTED"][:5]
+                    supported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
+                                         if c.get("support_status") == "SUPPORTED"][:5]
+                    unsupported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
+                                           if c.get("support_status") != "SUPPORTED"][:5]
                     boundary_message = format_boundary_message(
                         answer_status=kb_status,
                         supported_aspects=supported_aspects,

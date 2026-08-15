@@ -51,6 +51,40 @@ from budget_guard import (
 from router import heuristic_needed
 
 
+def _normalize_for_selector(candidates: list) -> list:
+    """Codex-review C3 P2 fix: evidence-selector candidate normalization.
+
+    select_evidence() reads record_id/rerank_score (0..1 relevance scale,
+    MIN_RELEVANCE=0.15). When the RERANKER flag is OFF (or its LLM call
+    failed), the fallback candidates are legacy retrieval dicts
+    ({meta, score(rrf≈0.03..0.06), vec_score,...}) — reading rerank_score
+    from them yields 0.0 → EVERY candidate rejected as below_min_relevance
+    (empty evidence set). Map the fallback shape to the selector schema:
+
+      record_id ← meta.idx
+      rerank_score ← rank-derived 1/(pos+2) — same RRF-like scale the
+                     reranker's own error fallback uses (reranker.py),
+                     preserving relative order without inventing LLM
+                     relevance signal.
+
+    Already-normalized candidates (rerank output) pass through unchanged.
+    """
+    out = []
+    for pos, c in enumerate(candidates or []):
+        if not isinstance(c, dict):
+            continue
+        if c.get("rerank_score") is not None and c.get("record_id") is not None:
+            out.append(c)
+            continue
+        meta = c.get("meta", {}) or {}
+        out.append({
+            **c,
+            "record_id": c.get("record_id", meta.get("idx", -1)),
+            "rerank_score": c.get("rerank_score", round(1.0 / (pos + 2), 4)),
+        })
+    return out
+
+
 @dataclass
 class ResearchState:
     """Per-request research state for isolation."""
@@ -269,8 +303,13 @@ async def run_agentic_loop(
 
         # Evidence Selector (if enabled)
         if Flags.EVIDENCE_SELECTOR_ENABLED:
-            selected = select_evidence(reranked)
-            state.selected_evidence = selected.get("selected", reranked)
+            # codex-review C3 P2: reranker-off / reranker-error fallbacks hand
+            # legacy retrieval dicts to the selector — normalize to the
+            # record_id/rerank_score schema first or every candidate is
+            # rejected as below_min_relevance (empty evidence set).
+            _sel_cands = _normalize_for_selector(reranked)
+            selected = select_evidence(_sel_cands)
+            state.selected_evidence = selected.get("selected", _sel_cands)
         else:
             state.selected_evidence = reranked
 

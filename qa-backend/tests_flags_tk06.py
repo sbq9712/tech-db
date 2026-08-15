@@ -85,6 +85,64 @@ def test_semantic_graph_build_no_crash():
     os.environ.pop("QA_SEMANTIC_GRAPH_ENABLED")
 
 
+def test_early_unsupported_boundary():
+    """codex-review C3 P2: early unsupported exits (weak query / topic
+    exhausted) must carry a boundary_message when the flag is ON, and none
+    when OFF."""
+    import server
+    q = "超导量子比特纠错最新进展"
+    msg = server._no_evidence_boundary(q, exhausted=False)
+    assert isinstance(msg, str) and msg, "flag ON → early exit needs boundary message"
+    assert ("不足以" in msg) or ("缺少" in msg) or ("未找到" in msg)
+    msg2 = server._no_evidence_boundary(q, exhausted=True)
+    assert msg2, "topic-exhausted variant must also produce a message"
+    # flag OFF → empty (flag-gated, not unconditional)
+    os.environ["QA_KNOWLEDGE_BOUNDARY_ENABLED"] = "0"
+    try:
+        for mod in ("feature_flags", "server"):
+            sys.modules.pop(mod, None)
+        import importlib
+        import server as server2
+        importlib.reload(server2)
+        assert server2._no_evidence_boundary(q, exhausted=False) == ""
+    finally:
+        os.environ.pop("QA_KNOWLEDGE_BOUNDARY_ENABLED")
+        for mod in ("feature_flags", "server"):
+            sys.modules.pop(mod, None)
+
+
+def test_selector_normalization_reranker_off():
+    """codex-review C3 P2: with the reranker flag OFF, legacy retrieval dicts
+    ({meta, score}) fed to select_evidence must not be mass-rejected as
+    below_min_relevance — orchestrator._normalize_for_selector maps them to
+    record_id/rerank_score first."""
+    from orchestrator import _normalize_for_selector
+    legacy = [{"meta": {"idx": 7, "t": "a"}, "score": 0.031},
+              {"meta": {"idx": 9, "t": "b"}, "score": 0.027}]
+    norm = _normalize_for_selector(legacy)
+    assert [c["record_id"] for c in norm] == [7, 9]
+    assert all(c["rerank_score"] > 0.15 for c in norm[:1]), "top candidate above min relevance"
+    # already-normalized (rerank output) pass through unchanged
+    done = [{"record_id": 5, "rerank_score": 0.82, "meta": {}}]
+    assert _normalize_for_selector(done) == done
+    # end-to-end: selector no longer rejects everything on legacy input
+    from evidence_selector import select_evidence
+    out = select_evidence(_normalize_for_selector(legacy))
+    assert out["selected"], "selector must select from normalized legacy candidates"
+
+
+def test_boundary_reads_claim_schema():
+    """codex-review C3 P2: the main boundary block must read claim_mapping's
+    real schema ({id, text, support_status}), not status/claim (always
+    missing). Verified via source introspection of server.py."""
+    src = (Path(__file__).resolve().parent / "server.py").read_text("utf-8")
+    # the boundary block's aspect extraction
+    bad = 'c.get("status")' in src and 'c.get("claim", "")' in src
+    assert not bad, "boundary block still reads .status/.claim (wrong schema)"
+    assert 'c.get("support_status") == "SUPPORTED"' in src
+    assert '[c.get("text", "") for c in claim_map' in src
+
+
 if __name__ == "__main__":
     import json
     print("TK-06 — flags wave 1 + knowledge boundary")
@@ -94,6 +152,9 @@ if __name__ == "__main__":
     check("health status includes knowledge_boundary", test_health_includes_knowledge_boundary)
     check("abstain boundary message", test_abstain_message)
     check("SEMANTIC_GRAPH build doesn't crash (Q29 regression)", test_semantic_graph_build_no_crash)
+    check("early unsupported exits carry boundary message (C3)", test_early_unsupported_boundary)
+    check("selector normalization with reranker OFF (C3)", test_selector_normalization_reranker_off)
+    check("boundary block reads claim_mapping schema (C3)", test_boundary_reads_claim_schema)
     print("=" * 60)
     print(f"  TK-06 Results: {PASS} passed, {FAIL} failed")
     print("=" * 60)
