@@ -3,7 +3,7 @@
   "seed": 20260814,
   "n_records": 60,
   "source": "data/processed/all-records-lite.json",
-  "selection": "curated (aip or lv>=1, valid category), random.Random(seed).sample",
+  "selection": "curated (aip or lv>=1, valid category), random.Random(seed).sample — as originally generated; NOTE: the builder's default mode now applies the CANONICAL index eligibility filter (excludes 手动导入 and dp==1, mirroring vector_index.py/bm25_index.py), so a fresh default-mode run over a regenerated lite corpus may sample a DIFFERENT corpus; index regeneration for THIS corpus is --from-records (digest-verified)",
   "categories": [
     "AI与智能科技",
     "通用技术",
@@ -71,5 +71,8 @@
     370,
     39160
   ],
-  "note": "vector + BM25 indexes built over these records via TECH_DB_INDEX_DIR=<fixture>/indexes qa-backend/vector_index.py & bm25_index.py"
+  "note": "seed reproducibility requires the SAME lite corpus (see source_sha256_16; the gitignored lite is NOT re-derivable from the manifest record_indexes after data pipeline changes); rebuild-from-tracked-data is `python scripts/build_mini_index.py --from-records` (rebuilds indexes over the committed all-records-mini.json, digest-verified)",
+  "records_sha256_16": "9dffd614dfea5882",
+  "last_rebuilt": "2026-08-16T00:22:34.993755",
+  "rebuild_mode": "from-records (committed corpus)"
 }

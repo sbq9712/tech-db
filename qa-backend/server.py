@@ -136,7 +136,7 @@ def load_vector_index():
 
 
 def load_bm25_index():
-    """Load the pre-built BM25 index."""
+    """Load the pre-built BM25 index (and the query-side custom dict)."""
     global _bm25_index, _bm25_meta, _bm25_corpus
     if _bm25_index is not None:
         return
@@ -147,6 +147,15 @@ def load_bm25_index():
         _bm25_index = data["bm25"]
         _bm25_meta = data["meta"]
         _bm25_corpus = data.get("corpus_tokens")
+        # Codex-review C2 P1 fix: the custom jieba dict used at INDEX BUILD
+        # time must also be loaded for QUERY tokenization wherever the BM25
+        # index is loaded — parity.py calls this directly (bypassing the
+        # FastAPI lifespan that used to be the only loader), so baselines
+        # previously tokenized queries differently from the live path.
+        if JIEBA_DICT.exists():
+            import jieba
+            jieba.load_userdict(str(JIEBA_DICT))
+            print("[startup] Jieba custom dict loaded", flush=True)
         print(f"[startup] BM25 index loaded: {len(_bm25_meta)} documents", flush=True)
     else:
         print(f"[startup] BM25 index not found (hybrid search disabled)", flush=True)
@@ -880,11 +889,12 @@ async def lifespan(app: FastAPI):
             _idx_to_meta[m["idx"]] = m
     print(f"[startup] Index meta lookup: {len(_idx_to_meta)} records", flush=True)
 
-    # Load jieba custom dictionary for query tokenization
+    # Load jieba custom dictionary for query tokenization — moved into
+    # load_bm25_index() (codex-review C2 P1) so non-lifespan callers share
+    # the same tokenization; the lifespan block now only needs idempotence.
     if JIEBA_DICT.exists():
         import jieba
         jieba.load_userdict(str(JIEBA_DICT))
-        print("[startup] Jieba custom dict loaded", flush=True)
 
     load_records()
     print(f"[startup] Records loaded: {len(_records)}", flush=True)

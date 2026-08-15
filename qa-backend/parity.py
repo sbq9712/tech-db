@@ -50,7 +50,13 @@ async def _collect(top_k: int, queries: list, with_graph: bool = False,
         else:
             vec = await server.vector_search(q, top_k=top_k)
             bm = server.bm25_search(q, top_k=top_k)
-            rrf = server.rrf_fuse(vec, bm, top_k=top_k)
+            # Codex-review C2 P2 fix: with_graph used to be a no-op (the
+            # graph route was never collected) — generate_baseline(...,
+            # with_graph=True) silently produced a two-route baseline.
+            # Graph retrieval is deterministic (entity dictionary lookup),
+            # so it is parity-lockable like the other routes.
+            g = server.graph_search(q, top_k=top_k) if with_graph else None
+            rrf = server.rrf_fuse(vec, bm, graph_results=g, top_k=top_k)
             def _flat(results):
                 rows = []
                 for r in results:
@@ -58,8 +64,10 @@ async def _collect(top_k: int, queries: list, with_graph: bool = False,
                     rows.append({"idx": idx, "score": round(float(r.get("score", 0)), 6)})
                 return rows
             out.append({"query": q, "vector": _flat(vec), "bm25": _flat(bm),
+                        **({"graph": _flat(g)} if with_graph else {}),
                         "rrf": _flat(rrf)})
-    return {"top_k": top_k, "results": out, "via": via}
+    return {"top_k": top_k, "results": out, "via": via,
+            **({"with_graph": True} if with_graph else {})}
 
 
 def generate_baseline(out_file: Path, with_graph: bool = False,
@@ -86,13 +94,41 @@ def diff(baseline_file: Path, allow_reorder_pct: float = 0.0) -> dict:
                                via=base.get("via", "routes")))
 
     report = {"queries": [], "pass": True}
+    # Codex-review C2 P2 fix: exact top-N sequence contract — differing
+    # route lengths are drift, not a matching prefix.
+    if len(base["results"]) != len(cur["results"]):
+        report["pass"] = False
+        report["error"] = (f"result count drift: baseline={len(base['results'])} "
+                           f"current={len(cur['results'])}")
+        return report
     for b, c in zip(base["results"], cur["results"]):
         qrow = {"query": b["query"]}
-        for route in ("vector", "bm25", "rrf"):
+        routes = ("vector", "bm25", "graph", "rrf") if "graph" in b else ("vector", "bm25", "rrf")
+        for route in routes:
             b_ids = [e["idx"] for e in b[route]]
             c_ids = [e["idx"] for e in c[route]]
-            if b_ids == c_ids:
-                qrow[route] = "identical"
+            if b_ids == c_ids and len(b[route]) == len(c[route]):
+                # Codex-review C2 P1 fix: parity is ids AND scores — a
+                # regression preserving order but materially changing
+                # scores must trip the tripwire. Route floats carry ~1e-7
+                # embedding-model noise → tolerance, not exact equality.
+                b_sc = [e.get("score") for e in b[route]]
+                c_sc = [e.get("score") for e in c[route]]
+                score_drift = max(
+                    (abs(x - y) for x, y in zip(b_sc, c_sc)
+                     if x is not None and y is not None), default=0.0)
+                # tolerance above the observed cross-process embedding
+                # noise floor (~1e-6); wiring bugs move scores by orders of
+                # magnitude more
+                if score_drift <= 5e-6:
+                    qrow[route] = "identical"
+                    continue
+                qrow[route] = f"SCORE_DRIFT (max={score_drift:.2e})"
+                qrow["pass"] = False
+                continue
+            if len(b[route]) != len(c[route]):
+                qrow[route] = (f"DIFF (length {len(b[route])} → {len(c[route])})")
+                qrow["pass"] = False
                 continue
             b_set, c_set = set(b_ids), set(c_ids)
             overlap = len(b_set & c_set) / max(len(b_set | c_set), 1)
@@ -103,8 +139,8 @@ def diff(baseline_file: Path, allow_reorder_pct: float = 0.0) -> dict:
             else:
                 qrow[route] = f"DIFF (overlap={overlap:.2%}, moved={moved:.2%})"
                 qrow["pass"] = False
-        if not all(v.startswith(("identical", "reorder")) for v in
-                   [qrow[r] for r in ("vector", "bm25", "rrf")]):
+        if not all(str(v).startswith(("identical", "reorder")) for v in
+                   [qrow.get(r) for r in routes]):
             qrow["pass"] = False
             report["pass"] = False
         report["queries"].append(qrow)
