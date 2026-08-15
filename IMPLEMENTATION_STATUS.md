@@ -103,6 +103,9 @@ closed; see "Ticket Closure & Evidence Chain" below.
 ## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
 - 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored）；CI replay
   使用入库的 MINI 索引 fixture（`qa-backend/test_fixtures/mini_index`）。
+- Codex 审查闭环（fa02a5b..e70d0d1 全量分段 A/B1/B2/C1/C2/C3）：44 项发现
+  全部修复，rescue 回归（codex 对抗式复核）**44/44 VERIFIED**；全量测试
+  409 passed / 0 failed（25 套件）。
 - fixture 重建配方（codex-review C2）：`python scripts/build_mini_index.py
   --from-records` — 只用已入库的 `all-records-mini.json`（manifest
   `records_sha256_16` 摘要校验）重建 vector+BM25 索引，可复现（已验证
