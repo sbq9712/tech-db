@@ -135,7 +135,13 @@ closed; see "Ticket Closure & Evidence Chain" below.
 
 ## 后续 Ticket（spec 明确范围外）
 - LightRAG ingest 恢复（剩余 curated 候选，用户原话"Q5之后再说"）——
-  本次按裁决作为"AI精选+精选情报"图谱构建后续工作单执行（进行中）。
+  本次按裁决作为"AI精选+精选情报"图谱构建后续工作单执行。
+- **图谱构建完成（2026-08-16）**：8202/8202 条 AI精选∪精选情报 记录全部
+  入库（主跑 5342 + 两轮重试 185→19→4 + 4 条收尾）；最终图
+  **74987 nodes / 96702 edges / 74991 entity→record 映射**。
+  export 拓扑修复：`GraphBuilder.export()` 增加悬垂边过滤（节点名 >50 字符
+  被拒的实体，其边在导出时丢弃，272/96974=0.28%）——
+  final_verification **19/19 PASS**（含 Edge connectivity 0 broken）。
 
 ## TK-23 Contract Phase (2026-08-14) — legacy retrieval deleted
 - **已删除**：`server.py` 旧内联检索实现与 `QA_RETRIEVAL_LEGACY` 逃生口。
