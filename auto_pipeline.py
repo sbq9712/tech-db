@@ -1150,8 +1150,30 @@ def git_push():
     result = subprocess.run(["git", "push", GH_PUSH_URL, "main"],
                            capture_output=True, text=True, cwd=REPO, timeout=120)
     if result.returncode != 0:
-        log(f"  [ERROR] git push failed: {result.stderr[:200]}")
-        return False
+        # 2026-08-17 fix: a manual dispatch runs on an older SHA and by push time
+        # main may have moved (e.g. tunnel-URL or hotfix commits pushed from the
+        # local machine mid-run). A bare non-fast-forward rejection here threw
+        # away the entire run's LLM work. Retry once after fetch+rebase; if the
+        # rebase hits conflicts on generated shards, abort and fail loudly
+        # rather than force-pushing.
+        log("  Push rejected — retrying after fetch+rebase")
+        fetch = subprocess.run(["git", "fetch", "origin", "main"],
+                               capture_output=True, text=True, cwd=REPO, timeout=120)
+        if fetch.returncode != 0:
+            log(f"  [ERROR] git fetch failed: {fetch.stderr[:200]}")
+            return False
+        rebase = subprocess.run(["git", "rebase", "origin/main"],
+                                capture_output=True, text=True, cwd=REPO, timeout=120)
+        if rebase.returncode != 0:
+            subprocess.run(["git", "rebase", "--abort"], capture_output=True, cwd=REPO)
+            log(f"  [ERROR] rebase onto origin/main failed (conflicts on generated data?) — "
+                f"data commit kept locally, not pushed: {rebase.stderr[:200]}")
+            return False
+        result = subprocess.run(["git", "push", GH_PUSH_URL, "main"],
+                               capture_output=True, text=True, cwd=REPO, timeout=120)
+        if result.returncode != 0:
+            log(f"  [ERROR] git push failed after rebase: {result.stderr[:200]}")
+            return False
 
     log("  Pushed to GitHub")
     return True
