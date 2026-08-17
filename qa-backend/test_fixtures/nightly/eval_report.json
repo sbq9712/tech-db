@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-08-16T23:15:56",
+ "generated_at": "2026-08-17T23:18:34",
  "mode": "nightly-mini-real-glm",
  "n": 5,
  "metrics": {
   "ok_rate": 1.0,
   "mean_retrieval_n": 25,
-  "mean_cited_n": 5.2,
+  "mean_cited_n": 3.8,
   "mean_grounded_rate": 1.0,
   "answer_status_dist": {
    "PARTIALLY_SUPPORTED": 5,
    "UNSUPPORTED": 0,
    "NO_CITATIONS": 0
   },
-  "mean_retrieval_ms": 1647.8,
-  "mean_gen_ms": 5729.4
+  "mean_retrieval_ms": 1838.6,
+  "mean_gen_ms": 4830.9
  },
  "per_query": [
   {
@@ -21,13 +21,13 @@
    "query": "钙钛矿太阳能电池",
    "retrieval_n": 25,
    "retrieval_relevant": true,
-   "gen_ms": 6766.2,
-   "answer_chars": 202,
-   "cited_n": 2,
+   "gen_ms": 5507.6,
+   "answer_chars": 181,
+   "cited_n": 1,
    "grounded_n": 8,
    "grounding_rate": 1.0,
    "answer_status": "PARTIALLY_SUPPORTED",
-   "retrieval_ms": 7471.2,
+   "retrieval_ms": 8362.7,
    "status": "ok"
   },
   {
@@ -35,13 +35,13 @@
    "query": "电池回收",
    "retrieval_n": 25,
    "retrieval_relevant": true,
-   "gen_ms": 4634.0,
-   "answer_chars": 231,
-   "cited_n": 8,
+   "gen_ms": 3977.2,
+   "answer_chars": 251,
+   "cited_n": 1,
    "grounded_n": 8,
    "grounding_rate": 1.0,
    "answer_status": "PARTIALLY_SUPPORTED",
-   "retrieval_ms": 158.7,
+   "retrieval_ms": 166.6,
    "status": "ok"
   },
   {
@@ -49,13 +49,13 @@
    "query": "锂金属",
    "retrieval_n": 25,
    "retrieval_relevant": true,
-   "gen_ms": 5718.0,
-   "answer_chars": 228,
+   "gen_ms": 4166.5,
+   "answer_chars": 266,
    "cited_n": 4,
    "grounded_n": 8,
    "grounding_rate": 1.0,
    "answer_status": "PARTIALLY_SUPPORTED",
-   "retrieval_ms": 158.3,
+   "retrieval_ms": 165.9,
    "status": "ok"
   },
   {
@@ -63,13 +63,13 @@
    "query": "LG Energy Solution",
    "retrieval_n": 25,
    "retrieval_relevant": false,
-   "gen_ms": 4317.6,
-   "answer_chars": 250,
-   "cited_n": 4,
+   "gen_ms": 3342.4,
+   "answer_chars": 157,
+   "cited_n": 5,
    "grounded_n": 8,
    "grounding_rate": 1.0,
    "answer_status": "PARTIALLY_SUPPORTED",
-   "retrieval_ms": 158.8,
+   "retrieval_ms": 156.6,
    "status": "ok"
   },
   {
@@ -77,13 +77,13 @@
    "query": "AI芯片散热迎来新希望？科学家首次造出理论中的金属材料，导热率是铜的3倍",
    "retrieval_n": 25,
    "retrieval_relevant": true,
-   "gen_ms": 7211.3,
-   "answer_chars": 213,
+   "gen_ms": 7160.7,
+   "answer_chars": 298,
    "cited_n": 8,
    "grounded_n": 8,
    "grounding_rate": 1.0,
    "answer_status": "PARTIALLY_SUPPORTED",
-   "retrieval_ms": 292.2,
+   "retrieval_ms": 341.0,
    "status": "ok"
   }
  ],

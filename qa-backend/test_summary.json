@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-16T23:16:20",
-  "all_passed": true,
-  "total_passed": 409,
-  "total_failed": 0,
+  "generated_at": "2026-08-17T23:18:58",
+  "all_passed": false,
+  "total_passed": 408,
+  "total_failed": 1,
   "suites": [
     {
       "tag": "a",
@@ -31,7 +31,7 @@
       "passed": 37,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "\n=== T028: Contextual Chunking ===\n  ✅ short record → no chunks\n  ✅ long record produces chunks\n  ✅ chunks have offsets\n  ✅ chunks have context_prefix\n  ✅ chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -92,7 +92,7 @@
       "failed": 0,
       "exit_code": 0,
       "seconds": 1.4,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.761 seconds.\nPrefix dict has been built successfully.\n"
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.762 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -157,12 +157,12 @@
     {
       "tag": "frontend_tk13",
       "file": "tests_frontend_tk13.py",
-      "status": "PASS",
-      "passed": 7,
-      "failed": 0,
-      "exit_code": 0,
-      "seconds": 0.2,
-      "tail": "TK-13 — frontend evidence card\n  ✅ qa.js syntax (node --check)\n  ✅ cache-bust v=162\n  ✅ evidence card markup paths\n  ✅ graceful degrade, no placeholder\n  ✅ user warning UI + styles\n  ✅ claims in done event\n  ✅ render branch simulation\n==============================================================\n  TK-13 Results: 7 passed, 0 failed\n==============================================================\n"
+      "status": "FAIL",
+      "passed": 6,
+      "failed": 1,
+      "exit_code": 1,
+      "seconds": 0.3,
+      "tail": "TK-13 — frontend evidence card\n  ✅ qa.js syntax (node --check)\n  ❌ cache-bust v=162: cache-bust version v=162 missing\n  ✅ evidence card markup paths\n  ✅ graceful degrade, no placeholder\n  ✅ user warning UI + styles\n  ✅ claims in done event\n  ✅ render branch simulation\n==============================================================\n  TK-13 Results: 6 passed, 1 failed\n==============================================================\n"
     },
     {
       "tag": "validator_tk14",
@@ -191,8 +191,8 @@
       "passed": 8,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 9.5,
-      "tail": "TK-17/TK-23 — shadow drift-watch (contract phase)\n  ✅ legacy path removed (TK-23 contract)\n  ✅ reference = frozen gate-3 artifact\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n  ✅ shadow records drift vs reference\n  ✅ unmatched query: overlap=None\n  ✅ aggregate report shape (contract)\n  ✅ endpoint shape (default off)\n  ✅ live-path failure isolated\n      ⏭ skipped: real index absent (CI) — shadow script needs it\n  ✅ holdout --shadow script (real index)\n============================================================\n  Shadow Results: 8 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.764 seconds.\nPrefix dict has been built successfully.\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 14222.17it/s]\n"
+      "seconds": 10.1,
+      "tail": "TK-17/TK-23 — shadow drift-watch (contract phase)\n  ✅ legacy path removed (TK-23 contract)\n  ✅ reference = frozen gate-3 artifact\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n  ✅ shadow records drift vs reference\n  ✅ unmatched query: overlap=None\n  ✅ aggregate report shape (contract)\n  ✅ endpoint shape (default off)\n  ✅ live-path failure isolated\n      ⏭ skipped: real index absent (CI) — shadow script needs it\n  ✅ holdout --shadow script (real index)\n============================================================\n  Shadow Results: 8 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.749 seconds.\nPrefix dict has been built successfully.\n\nLoading weights:   0%|          | 0/391 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 391/391 [00:00<00:00, 15829.85it/s]\n"
     },
     {
       "tag": "ci_tk15",
@@ -241,7 +241,7 @@
       "passed": 4,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "tail": "TK-22 — sync_local.sh gate (Q24: fail ⇒ no restart)\n  ✅ gate wired: validator + suite before restart\n  ✅ injected drift fails validator (gate trips)\n  ✅ gate calls route to fail() (non-zero exit)\n  ✅ validator PASS on current tree\n============================================================\n  TK-22 Results: 4 passed, 0 failed\n============================================================\n"
     },
     {
@@ -251,7 +251,7 @@
       "passed": 74,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 5.8,
+      "seconds": 4.4,
       "tail": "T044: 15 predicates defined\n  ✅ T045: Graph intent validation available\n  ✅ T027: Semantic graph pipeline available\n  ✅ T039: Relation-aware graph retriever available\n  ✅ T046: Entailment checking available\n  ✅ T050: Requirement-aware fusion available\n  ✅ T051: Reranker stability available\n  ✅ T052: Answer state machine available\n  ✅ T047: Source snapshot available\n\n--- Phase E: Operations ---\n  ✅ T037: Budget guard available\n  ✅ T037: Correctness-critical set includes verifier\n  ✅ T037: Correctness-critical set includes citation_grounding\n  ✅ T037: Degraded mode matrix available\n  ✅ T041: Release manifest available\n  ✅ T056: Trace retention available\n  ✅ T035: Replay eval available\n  ✅ T036: Human review available\n  ✅ T002: Eval metrics available\n\n--- Entity Resolution V2 ---\n  ✅ ER: Registry V2 available\n  ✅ ER: Linker V2 available\n  ✅ ER: Disambiguator available\n  ✅ ER: Pipeline available\n  ✅ ER: Opaque IDs (mention ≠ entity)\n\n--- Security & Safety ---\n  ✅ Security: Secrets scrubbed from traces\n  ✅ T053: Adversarial suite detection rate >= 90%\n  ✅ T053: Adversarial suite false positive rate <= 10%\n\n--- Feature Flags ---\n  ✅ Flags: AGENTIC_ENABLED defined\n  ✅ Flags: ROUTER_ENABLED defined\n  ✅ Flags: TRACE_ENABLED defined\n  ✅ Flags: FAIL_SAFE_VERIFY defined\n  ✅ Flags: CITATION_GROUNDING defined\n  ✅ Flags: ANSWER_STATUS defined\n  ✅ Flags: CONTENT_SAFETY defined\n\n--- End-to-End Integration ---\n  ✅ E2E: Full trace pipeline\n  ✅ E2E: Answer status in result\n\n======================================================================\n  FINAL ACCEPTANCE RESULTS\n======================================================================\n  Passed:   74\n  Failed:   0\n  Warnings: 0\n  Total:    74\n======================================================================\n  ✅ ACCEPTANCE PASSED — All criteria met\n/home/runner/work/tech-db/tech-db/qa-backend/tests_final_acceptance.py:83: DeprecationWarning: There is no current event loop\n  result = asyncio.get_event_loop().run_until_complete(\n"
     }
   ],
