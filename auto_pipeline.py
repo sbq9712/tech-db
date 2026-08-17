@@ -1160,6 +1160,14 @@ def git_push():
         subprocess.run(["git", "add", "-f", "--", state_abs], capture_output=True, text=True, cwd=REPO, timeout=30)
 
     # git commit only when generated data differs from HEAD.
+    # 2026-08-17 fix: GitHub runners have no git identity — `git commit`
+    # fatals with "Author identity unknown". Seed a local identity if none
+    # is configured (local machines keep their existing one).
+    ident = subprocess.run(["git", "config", "user.email"], capture_output=True, text=True, cwd=REPO, timeout=15)
+    if ident.returncode != 0 or not ident.stdout.strip():
+        subprocess.run(["git", "config", "user.name", "tech-db-sync"], capture_output=True, cwd=REPO, timeout=15)
+        subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], capture_output=True, cwd=REPO, timeout=15)
+        log("  Seeded git identity (tech-db-sync bot)")
     staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO, timeout=30)
     if staged.returncode == 1:
         result = subprocess.run(["git", "commit", "-m", f"chore: auto-sync {ts}"],
