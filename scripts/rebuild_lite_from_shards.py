@@ -10,7 +10,15 @@ LITE_PATH = os.path.join(SHARD_DIR, "all-records-lite.json")
 
 def main():
     parts = []
-    for f in sorted(glob.glob(os.path.join(SHARD_DIR, "lite-part-*.js"))):
+    # Sort by NUMERIC shard suffix — string sort would order part-10 before
+    # part-2 once shard count exceeds 10, silently scrambling record order
+    # (breaks validate_data_contract's lite==shards check and every idx-keyed
+    # index built from the rebuilt lite).
+    def _shard_num(path):
+        name = os.path.basename(path)
+        return int(name.rsplit("-", 1)[1].split(".")[0])
+
+    for f in sorted(glob.glob(os.path.join(SHARD_DIR, "lite-part-*.js")), key=_shard_num):
         with open(f, encoding="utf-8") as fh:
             text = fh.read()
         # Extract the JSON array from: window.__LITE_PARTS__.push([...]);
