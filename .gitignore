@@ -5,7 +5,9 @@ sources/
 data/processed/all-records-lite.json
 
 # Pipeline runtime state
-.pipeline_state.json
+# (.pipeline_state.json is NOT ignored: it must ship with each data push so
+# the next CI run knows which source files are already processed — see
+# auto_pipeline.git_push generated_paths.)
 .pipeline.lock
 .gh_env
 .rebuild_checkpoint.json

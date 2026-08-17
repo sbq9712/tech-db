@@ -117,6 +117,16 @@ def load_state():
             pass
     return {"known_files": {}, "file_hashes": {}}
 
+
+def ensure_state_file():
+    """2026-08-17 fix: on a fresh CI checkout .pipeline_state.json does not
+    exist (it is only written after a first successful push). git_push()
+    stages it via a literal pathspec — `git add` fatals with 'pathspec did
+    not match any files', killing the push AFTER all LLM work is done.
+    Seed the default state so the pathspec always matches."""
+    if not os.path.exists(STATE_FILE):
+        save_state(load_state())
+
 def save_state(state):
     """Atomic write: write to temp then rename."""
     tmp = STATE_FILE + ".tmp"
@@ -1126,10 +1136,28 @@ def git_push():
     # cause of the Aug-15/16 timeout-cancel loop (45 min < reprocessing time).
     generated_paths = [".pipeline_state.json",
                        "data/processed/manifest-data.js", "data/processed/lite-part-*.js", "data/processed/meta-part-*.js", "data/processed/summary-part-*.js"]
-    result = subprocess.run(["git", "add", "-A", "--", *generated_paths], capture_output=True, text=True, cwd=REPO, timeout=30)
+    # 2026-08-17 fix: `git add` fatals when a literal pathspec matches nothing
+    # (fresh checkout before any state file exists). Expand globs ourselves
+    # and stage only paths that actually exist on disk.
+    stage_targets = []
+    for p in generated_paths:
+        if "*" in p:
+            stage_targets.extend(sorted(glob.glob(os.path.join(REPO, p))))
+        elif os.path.exists(os.path.join(REPO, p)):
+            stage_targets.append(os.path.join(REPO, p))
+    if not stage_targets:
+        log("  [ERROR] no generated artifacts found to stage")
+        return False
+    result = subprocess.run(["git", "add", "-A", "--", *stage_targets], capture_output=True, text=True, cwd=REPO, timeout=30)
     if result.returncode != 0:
         log(f"  [ERROR] git add failed: {result.stderr[:200]}")
         return False
+    # The state file MUST be in the commit (belt-and-braces -f: a future
+    # .gitignore regression would otherwise silently drop it and restart the
+    # re-process-everything loop).
+    state_abs = os.path.join(REPO, ".pipeline_state.json")
+    if os.path.exists(state_abs):
+        subprocess.run(["git", "add", "-f", "--", state_abs], capture_output=True, text=True, cwd=REPO, timeout=30)
 
     # git commit only when generated data differs from HEAD.
     staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO, timeout=30)
@@ -1185,6 +1213,10 @@ def main():
     log("=" * 50)
     log("tech-db auto-sync pipeline starting")
 
+    # Seed the state file if missing so git_push()'s literal pathspec
+    # can never fatal on a fresh checkout (2026-08-17).
+    ensure_state_file()
+
     # Step 1: Check for new files (does NOT save state)
     log("Step 1: Checking source repos...")
     has_new, new_per_source, current, n_failed = check_new_files()
@@ -1220,7 +1252,7 @@ def main():
             log("No new records to process. Ensuring pending commits are pushed before state commit.")
             if not git_push():
                 log("[FATAL] Push failed — state NOT committed.")
-                return
+                sys.exit(1)
             commit_state(current, successfully_downloaded)
             return
 
@@ -1235,7 +1267,7 @@ def main():
             log("All records are duplicates. Ensuring pending commits are pushed before state commit.")
             if not git_push():
                 log("[FATAL] Push failed — state NOT committed.")
-                return
+                sys.exit(1)
             commit_state(current, successfully_downloaded)
             return
 
@@ -1328,8 +1360,10 @@ def main():
         if os.environ.get("SKIP_PUSH"):
             log("  SKIPPED (SKIP_PUSH env var set — caller handles push)")
         elif not git_push():
+            # Exit non-zero: a green workflow run that pushed nothing hid this
+            # failure mode for a full cycle (2026-08-17).
             log("[FATAL] Push failed — state NOT committed. Files will be retried next run.")
-            return  # 不 commit_state，下次 cron 自动重试
+            sys.exit(1)  # 不 commit_state，下次 cron 自动重试
 
         # Step 9: Commit state ONLY after successful push
         log("Step 9: Commit state...")
