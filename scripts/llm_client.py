@@ -54,7 +54,7 @@ def call_glm(prompt, system_msg="直接输出结果，不要输出思考过程�
 
 def call_glm_batch(prompt, items, batch_size=10, timeout=120, max_workers=5,
                    checkpoint_fn=None, max_consecutive_failures=20,
-                   progress_every=50, backoff_delays=(0, 2, 4)):
+                   progress_every=50, backoff_delays=(0, 5, 15, 45, 90)):
     """
     Batch LLM calls for classification/scoring/summary.
     prompt: instruction prompt (JSON array will be appended)

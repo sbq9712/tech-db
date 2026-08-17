@@ -9,6 +9,15 @@ on:
     - cron: '0 */4 * * *'
   workflow_dispatch: # Allow manual trigger
 
+# 2026-08-16 fix: runs 146-155 were all cancelled — the 45-min timeout killed
+# the pipeline mid-summarization (LLM backlog since Aug 13), so nothing was
+# ever pushed and the site data froze at Aug 12. Raise to 120 min and never
+# let overlapping scheduled runs stack up (they would compete for the shared
+# ZAI quota and re-run the same backlog).
+concurrency:
+  group: auto-sync-pipeline
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -24,7 +33,7 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     steps:
       - name: Checkout
         uses: actions/checkout@v4

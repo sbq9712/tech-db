@@ -780,6 +780,58 @@ def classify_and_score(records):
     return records
 
 # ── AI 摘要 ──
+def backfill_unclassified(lite_path=LITE_PATH, max_records=400):
+    """2026-08-16 fix: self-heal 未分类 records left behind by failed
+    classification batches (API rate-limit storms). Runs on every pipeline
+    pass, processes at most `max_records` per run so it can never dominate
+    the run budget; preserves existing enrichment (aip/sc/as/kp).
+    Returns the number of records re-classified (caller re-publishes)."""
+    with open(lite_path) as f:
+        lite = json.load(f)
+    targets = [i for i, r in enumerate(lite) if r.get("c") == "未分类"]
+    if not targets:
+        return 0
+    targets = targets[:max_records]
+    log(f"  [self-heal] {len(targets)} 未分类 records → re-classifying")
+    sys.path.insert(0, os.path.join(REPO, "scripts"))
+    from llm_client import call_glm_batch as _batch
+    from backfill_categories import CLASSIFY_PROMPT as _CP  # same prompt/whitelist as classify_and_score
+    items = [{"id": k,
+              "type": "literature" if lite[i].get("i") == "l" else "news",
+              "title": lite[i].get("t", "")[:200],
+              "body": (lite[i].get("b") or "")[:500]}
+             for k, i in enumerate(targets)]
+    results = _batch(_CP.format(
+        leaves="\n".join(sorted(VALID_CATEGORY_LEAVES))), items, batch_size=10)
+    idmap = {r.get("id"): r for r in results if isinstance(r, dict)}
+    fixed = 0
+    for k, i in enumerate(targets):
+        r = idmap.get(k)
+        if not r:
+            continue
+        cat = str(r.get("category", "")).strip()
+        cat = re.sub(r"\s*/\s*", "/", cat)
+        if cat not in VALID_CLASSIFICATIONS:
+            continue
+        rec = lite[i]
+        rec["c"] = cat
+        is_lit = rec.get("i") == "l"
+        tag = str(r.get("tag", "")).strip()
+        valid_tags = VALID_LIT_TAGS if is_lit else VALID_NEWS_TAGS
+        rec["tg"] = tag if tag in valid_tags else ("研究论文" if is_lit else "行业观察")
+        if cat != "不相关":
+            rec["tp"] = str(r.get("topic", ""))[:10]
+        else:
+            for f2 in ("aip", "sc", "scd", "as", "kp", "tp", "cl", "cp", "cln"):
+                rec.pop(f2, None)
+        fixed += 1
+    if fixed:
+        with open(lite_path, "w") as f:
+            json.dump(lite, f, ensure_ascii=False)
+        log(f"  [self-heal] re-classified {fixed}/{len(targets)}")
+    return fixed
+
+
 def gen_summaries(records):
     SUMMARY_PROMPT_FULL = """你是技术情报摘要专家。为以下每条情报生成100-200字的中文AI摘要。
 重要规则：
@@ -1059,7 +1111,7 @@ def git_push():
     # GitHub Actions, and git_push() never stages or commits it,
     # so in-flight report files must not block a data-sync push.
     dirty = subprocess.run(
-        ["git", "status", "--porcelain", "--untracked-files=normal", "--", ":(exclude)data/processed/lite-part-*.js", ":(exclude)data/processed/meta-part-*.js", ":(exclude)data/processed/summary-part-*.js", ":(exclude)data/processed/manifest-data.js", ":(exclude)data/processed/conferences.json", ":(exclude)data/reports/"],
+        ["git", "status", "--porcelain", "--untracked-files=normal", "--", ":(exclude)data/processed/lite-part-*.js", ":(exclude)data/processed/meta-part-*.js", ":(exclude)data/processed/summary-part-*.js", ":(exclude)data/processed/manifest-data.js", ":(exclude)data/processed/conferences.json", ":(exclude)data/reports/", ":(exclude).pipeline_state.json", ":(exclude).rebuild_checkpoint.json"],
         capture_output=True, text=True, cwd=REPO, timeout=30,
     )
     if dirty.returncode != 0 or dirty.stdout.strip():
@@ -1067,7 +1119,13 @@ def git_push():
         return False
 
     ts = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
-    generated_paths = ["data/processed/manifest-data.js", "data/processed/lite-part-*.js", "data/processed/meta-part-*.js", "data/processed/summary-part-*.js"]
+    # 2026-08-16 fix: .pipeline_state.json MUST ship with the data push.
+    # Previously the state was saved only on the ephemeral runner (Step 9 runs
+    # AFTER git_push and was never committed/pushed), so every scheduled run
+    # re-downloaded and re-processed the full un-pushed backlog — the direct
+    # cause of the Aug-15/16 timeout-cancel loop (45 min < reprocessing time).
+    generated_paths = [".pipeline_state.json",
+                       "data/processed/manifest-data.js", "data/processed/lite-part-*.js", "data/processed/meta-part-*.js", "data/processed/summary-part-*.js"]
     result = subprocess.run(["git", "add", "-A", "--", *generated_paths], capture_output=True, text=True, cwd=REPO, timeout=30)
     if result.returncode != 0:
         log(f"  [ERROR] git add failed: {result.stderr[:200]}")
@@ -1115,6 +1173,15 @@ def main():
     if n_failed:
         log(f"  [WARN] {n_failed}/{len(SOURCES)} source(s) API failed — proceeding with partial data.")
     if not has_new:
+        # 2026-08-16 fix: no new source files ≠ nothing to do — a previous
+        # run may have left 未分类 records (failed classification batches).
+        # Self-heal them (bounded per run) and push before exiting.
+        healed = backfill_unclassified(max_records=400)
+        if healed:
+            shard_count = build_snapshot(json.load(open(LITE_PATH)))
+            log(f"  [self-heal] snapshot rebuilt ({shard_count} shards)")
+            if not git_push():
+                log("  [WARN] self-heal push failed — retried next run")
         log("No new files. Done.")
         return
 
@@ -1213,6 +1280,21 @@ def main():
             except Exception as ce:
                 log(f"  [WARN] 会议去重异常: {ce}")
 
+        # Step 6d: self-heal 未分类 backlog (incl. any from THIS run's
+        # failed classification batches — bounded to keep the run fast).
+        log("Step 6d: Self-heal 未分类...")
+        try:
+            healed = backfill_unclassified(max_records=400)
+            if healed:
+                # merge_and_rebuild already published its snapshot BEFORE
+                # this step — republish so shards include the healed
+                # categories (Step 7 validates lite ↔ shards consistency).
+                shard_count = build_snapshot(json.load(open(LITE_PATH)))
+                log(f"  [self-heal] snapshot republished ({shard_count} shards)")
+        except Exception as heal_err:
+            log(f"  [WARN] self-heal failed (non-fatal): {heal_err}")
+            healed = 0
+
         # Step 7: Validate all immutable data contracts, then push.
         log("Step 7: Validate data contracts...")
         validation = subprocess.run([sys.executable, os.path.join(REPO, "scripts", "validate_data_contract.py")],
@@ -1230,6 +1312,13 @@ def main():
         # Step 9: Commit state ONLY after successful push
         log("Step 9: Commit state...")
         commit_state(current, successfully_downloaded)
+        # 2026-08-16 fix: push the updated state so the NEXT scheduled run
+        # (which checks out the remote repo) knows which source files are
+        # already processed. Without this, every run re-downloaded and
+        # re-processed the same backlog — the timeout-cancel root cause.
+        push_state_only = git_push()
+        if not push_state_only:
+            log("  [WARN] state push failed — next run will re-process this batch (idempotent, only slower)")
 
         # Step 10: Rebuild search indexes (vector + BM25 + knowledge graph)
         # Skip if caller (e.g. full_rebuild.py) will handle index rebuilding
