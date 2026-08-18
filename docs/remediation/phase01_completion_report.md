@@ -5,8 +5,8 @@ Scope: RT-010 through RT-018 on top of accepted Phase-00 commit
 
 ## Behavioral evidence
 
-- `python qa-backend/tests_remediation_phase01.py`: 50 passed, 0 failed.
-- `python qa-backend/run_all_tests.py --tier push`: 410 passed, 0 failed across 28 suites.
+- `python qa-backend/tests_remediation_phase01.py`: 55 passed, 0 failed.
+- `python qa-backend/run_all_tests.py --tier push`: 415 passed, 0 failed across 28 suites.
 - `python scripts/check_project.py`: PASS.
 - canonical spec lint and negative-fixture self-test: PASS.
 - acceptance-matrix source/count validation: PASS (563 DoDs; 518 explicitly unmet/blocked).
@@ -33,3 +33,6 @@ the rebuilt source-grounded formulation.  The machine-readable result is
 - Graph-V2 remains `NOT_ACTIVATED_BY_GAIN_GATE` in the fixture profile.
 - RT-005 remains `BLOCKED_EXTERNAL_ACTION`; this phase does not claim that main
   branch protection or required status checks were enabled.
+- Current runtime-v1 deployment remains explicitly on `legacy_hybrid`.
+  Manifest mode is strict fail-closed and is not claimed production-active;
+  its future shadow/canary activation conditions are recorded in `MIGRATION.md`.

@@ -957,7 +957,12 @@ class ChatRequest(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global _runtime_snapshot_manager
-    runtime_mode = os.environ.get("TECH_DB_RUNTIME_MODE", "manifest").strip().lower()
+    runtime_mode = os.environ.get("TECH_DB_RUNTIME_MODE", "").strip().lower()
+    if not runtime_mode:
+        raise RuntimeError(
+            "TECH_DB_RUNTIME_MODE must be explicitly configured as "
+            "legacy_hybrid or manifest; implicit startup is forbidden"
+        )
     if runtime_mode == "manifest":
         from functools import partial
         from release_manifest import ReleaseCatalog
@@ -969,11 +974,15 @@ async def lifespan(app: FastAPI):
         manager.startup(allow_previous_fallback=os.environ.get("TECH_DB_ALLOW_PREVIOUS_FALLBACK") == "1")
         _runtime_snapshot_manager = manager
         print(f"[startup] Strict manifest runtime ready: {manager.current_manifest_id}", flush=True)
-        yield
+        try:
+            yield
+        finally:
+            _runtime_snapshot_manager = None
         return
-    if runtime_mode != "legacy_compat":
+    if runtime_mode != "legacy_hybrid":
         raise RuntimeError(f"unsupported TECH_DB_RUNTIME_MODE: {runtime_mode}")
-    print("[startup] Explicit legacy_idx compatibility runtime", flush=True)
+    _runtime_snapshot_manager = None
+    print("[startup] Explicit legacy_hybrid runtime-v1 profile", flush=True)
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
@@ -1070,12 +1079,16 @@ async def shadow_report():
 
 @app.get("/api/health")
 async def health():
+    snapshot = _request_runtime_snapshot.get()
+    resources = snapshot.resources if snapshot is not None else {}
     return {
         "status": "ok",
         "model": MODEL_NAME,
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
+        "runtime_mode": os.environ.get("TECH_DB_RUNTIME_MODE", "UNCONFIGURED"),
+        "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
+        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _vector_index is not None,
+        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _bm25_index is not None,
         "graph_ready": _graph_data is not None,
         "indexed_records": len(_index_meta) if _index_meta else 0,
         "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
@@ -1136,7 +1149,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "message": "正在检索相关知识..."
             })}
 
-            if _vector_index is None:
+            if (_request_runtime_snapshot.get() is None and _vector_index is None):
                 yield {"event": "error", "data": json.dumps({
                     "message": "向量索引尚未构建。请运行: python qa-backend/vector_index.py"
                 })}

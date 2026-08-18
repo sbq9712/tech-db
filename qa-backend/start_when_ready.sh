@@ -2,6 +2,8 @@
 # Wait for vector index to be ready, then start the server
 set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export TECH_DB_RUNTIME_MODE="${TECH_DB_RUNTIME_MODE:-legacy_hybrid}"
+export QA_PIPELINE_PROFILE="${QA_PIPELINE_PROFILE:-legacy_hybrid}"
 RUNTIME_DIR="${TECH_DB_RUNTIME_DIR:-$PROJECT_DIR/runtime}"
 INDEX_FILE="$RUNTIME_DIR/indexes/vector_index_v2.pkl"
 

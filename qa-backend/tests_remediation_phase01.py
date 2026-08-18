@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Named behavioral acceptance tests for RT-010 through RT-018."""
 from __future__ import annotations
-import asyncio, hashlib, importlib.util, json, os, sys, tempfile, threading, time
+import asyncio, hashlib, importlib.util, json, os, shutil, sys, tempfile, threading, time
 from functools import partial
 from pathlib import Path
 
@@ -246,6 +246,96 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
     test("RT017.server_strict_startup_invalid_current_fails_closed",asyncio.run(strict_server_startup_fails()))
     catalog.activate(ma["manifest_id"])
 
+    print("RT-017 — deployment migration compatibility")
+    async def unconfigured_mode_rejected():
+        import server
+        prior=os.environ.pop("TECH_DB_RUNTIME_MODE",None)
+        try:
+            try:
+                async with server.lifespan(server.app): pass
+            except RuntimeError as exc:
+                return "must be explicitly configured" in str(exc)
+            return False
+        finally:
+            if prior is not None: os.environ["TECH_DB_RUNTIME_MODE"]=prior
+    test("RT017.unconfigured_runtime_mode_is_rejected",asyncio.run(unconfigured_mode_rejected()))
+
+    async def legacy_hybrid_fresh_deployment_starts():
+        import server
+        fixture=HERE/"test_fixtures/mini_index"
+        fresh=root/"fresh-runtime-v1"; indexes=fresh/"indexes"; model=fresh/"models/bge-m3"
+        indexes.mkdir(parents=True); model.mkdir(parents=True)
+        for name in ("vector_index_v2.pkl","bm25_index.pkl","jieba_custom_dict.txt"):
+            shutil.copy2(fixture/"indexes"/name,indexes/name)
+        (indexes/"graph-export.json").write_text('{"nodes":[],"edges":[],"entity_to_records":{}}',"utf-8")
+        (indexes/"entity_registry.json").write_text('{"schema_version":"2.0","entities":[]}',"utf-8")
+        (model/"model.safetensors").write_bytes(b"runtime-v1-model-present")
+        saved_env={k:os.environ.get(k) for k in ("TECH_DB_RUNTIME_MODE","QA_PIPELINE_PROFILE")}
+        saved_paths=(server.WORKING_DIR,server.INDEX_FILE,server.BM25_FILE,server.JIEBA_DICT,server.LITE_PATH)
+        names=("_vector_index","_index_meta","_bm25_index","_bm25_meta","_bm25_corpus","_records",
+               "_graph_data","_entity_index","_graph_adj","_graph_nodes","_idx_to_meta","_retrieval_pipeline")
+        saved_globals={name:getattr(server,name) for name in names}
+        os.environ.update({"TECH_DB_RUNTIME_MODE":"legacy_hybrid","QA_PIPELINE_PROFILE":"legacy_hybrid"})
+        server.WORKING_DIR=indexes; server.INDEX_FILE=indexes/"vector_index_v2.pkl"
+        server.BM25_FILE=indexes/"bm25_index.pkl"; server.JIEBA_DICT=indexes/"jieba_custom_dict.txt"
+        server.LITE_PATH=fixture/"all-records-mini.json"
+        for name in names: setattr(server,name,None)
+        try:
+            async with server.lifespan(server.app):
+                return (len(server._index_meta)==60 and len(server._bm25_meta)==60
+                        and len(server._records)==60 and server._runtime_snapshot_manager is None)
+        finally:
+            (server.WORKING_DIR,server.INDEX_FILE,server.BM25_FILE,server.JIEBA_DICT,server.LITE_PATH)=saved_paths
+            for name,value in saved_globals.items(): setattr(server,name,value)
+            for key,value in saved_env.items():
+                if value is None: os.environ.pop(key,None)
+                else: os.environ[key]=value
+    test("RT017.fresh_runtime_v1_legacy_hybrid_starts",asyncio.run(legacy_hybrid_fresh_deployment_starts()))
+
+    async def manifest_fixture_strict_starts():
+        import server
+        catalog.activate(ma["manifest_id"])
+        prior={k:os.environ.get(k) for k in ("TECH_DB_RUNTIME_MODE","TECH_DB_RELEASE_ROOT","TECH_DB_RELEASE_CATALOG_DIR")}
+        os.environ.update({"TECH_DB_RUNTIME_MODE":"manifest","TECH_DB_RELEASE_ROOT":str(root),
+                           "TECH_DB_RELEASE_CATALOG_DIR":str(catalog.catalog_dir)})
+        try:
+            async with server.lifespan(server.app):
+                return (server._runtime_snapshot_manager is not None
+                        and server._runtime_snapshot_manager.current_manifest_id==ma["manifest_id"])
+        finally:
+            for key,value in prior.items():
+                if value is None: os.environ.pop(key,None)
+                else: os.environ[key]=value
+    test("RT017.complete_manifest_fixture_strict_starts",asyncio.run(manifest_fixture_strict_starts()))
+
+    async def corrupt_manifest_artifact_fails_closed():
+        import server
+        catalog.activate(ma["manifest_id"])
+        artifact=root/ma["artifacts"]["dataset"]["path"]
+        original=artifact.read_bytes(); artifact.write_bytes(b"corrupt")
+        prior={k:os.environ.get(k) for k in ("TECH_DB_RUNTIME_MODE","TECH_DB_RELEASE_ROOT","TECH_DB_RELEASE_CATALOG_DIR")}
+        os.environ.update({"TECH_DB_RUNTIME_MODE":"manifest","TECH_DB_RELEASE_ROOT":str(root),
+                           "TECH_DB_RELEASE_CATALOG_DIR":str(catalog.catalog_dir)})
+        try:
+            try:
+                async with server.lifespan(server.app): pass
+            except ValueError as exc:
+                return "hash mismatch" in str(exc)
+            return False
+        finally:
+            artifact.write_bytes(original)
+            for key,value in prior.items():
+                if value is None: os.environ.pop(key,None)
+                else: os.environ[key]=value
+    test("RT017.manifest_corrupt_artifact_fails_closed",asyncio.run(corrupt_manifest_artifact_fails_closed()))
+    launcher_files=(ROOT/"Dockerfile",ROOT/"docker-compose.yml",ROOT/"docker-entrypoint.sh",
+                    ROOT/"start.sh",ROOT/"start.ps1",ROOT/"qa-backend/start_server.sh",
+                    ROOT/"qa-backend/start_when_ready.sh",ROOT/"qa-backend/auto_restart.sh",
+                    ROOT/"qa-backend/watch_and_restart.sh",ROOT/"ops/systemd/techdb-server.service",
+                    ROOT/".env.example")
+    test("RT017.current_deployment_launchers_explicit_legacy_hybrid",
+         all("legacy_hybrid" in path.read_text("utf-8") for path in launcher_files))
+
     print("RT-018 — backup restore and GC")
     identity=root/"identity.sqlite"; identity.write_bytes((root/"registry2.sqlite").read_bytes())
     sourcecopy=root/"source.sqlite"; sourcecopy.write_bytes((root/"sources.sqlite").read_bytes())
@@ -309,6 +399,11 @@ def test_rt017_invalid_current_fails_strict_startup(): _assert_case("RT017.inval
 def test_rt017_explicit_rollback_switches_complete_manifest(): _assert_case("RT017.explicit_rollback_switches_complete_manifest")
 def test_rt017_server_request_pins_retrieval_records_context_generation(): _assert_case("RT017.server_request_pins_retrieval_records_context_generation")
 def test_rt017_server_strict_startup_invalid_current_fails_closed(): _assert_case("RT017.server_strict_startup_invalid_current_fails_closed")
+def test_rt017_unconfigured_runtime_mode_is_rejected(): _assert_case("RT017.unconfigured_runtime_mode_is_rejected")
+def test_rt017_fresh_runtime_v1_legacy_hybrid_starts(): _assert_case("RT017.fresh_runtime_v1_legacy_hybrid_starts")
+def test_rt017_complete_manifest_fixture_strict_starts(): _assert_case("RT017.complete_manifest_fixture_strict_starts")
+def test_rt017_manifest_corrupt_artifact_fails_closed(): _assert_case("RT017.manifest_corrupt_artifact_fails_closed")
+def test_rt017_current_deployment_launchers_explicit_legacy_hybrid(): _assert_case("RT017.current_deployment_launchers_explicit_legacy_hybrid")
 def test_rt018_restore_rehearsal_strict_starts_prior_runtime(): _assert_case("RT018.restore_rehearsal_strict_starts_prior_runtime")
 def test_rt018_corrupt_artifact_restore_fails(): _assert_case("RT018.corrupt_artifact_restore_fails")
 def test_rt018_referenced_manifest_artifacts_retained(): _assert_case("RT018.referenced_manifest_artifacts_retained")

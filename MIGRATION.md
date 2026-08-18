@@ -34,6 +34,46 @@ docker compose up --build
 
 容器第一次启动时自动下载并校验 Runtime；模型和索引保存在名为 `tech-db-runtime` 的持久化卷中，重启不会重复下载。
 
+## Runtime profile migration
+
+The published `runtime-v1` release contains the current pickle indexes and
+`bge-m3` model, but it does not contain the Phase-01 immutable manifest
+catalog/current pointer and complete versioned JSON artifact set. Therefore all
+current Docker, shell, Windows and systemd launchers explicitly configure:
+
+```text
+TECH_DB_RUNTIME_MODE=legacy_hybrid
+QA_PIPELINE_PROFILE=legacy_hybrid
+```
+
+This is a named deployment profile, not an exception fallback. The server
+rejects an unset/unknown mode. Selecting `manifest` enables strict validation;
+a missing current pointer, incompatible schema or damaged artifact fails cold
+startup and never silently falls back to `legacy_hybrid` or `previous`.
+
+### Activation gate: `legacy_hybrid` → `manifest`
+
+Do not switch production merely because Phase-01 unit/integration tests pass.
+Activation requires all of the following:
+
+1. publish a complete immutable manifest generation containing the dataset,
+   RecordIdMap, source/identity/metadata catalogs, primary indexes, prompts and
+   model/config declarations with accepted schemas and SHA-256 hashes;
+2. pass strict cold-start, request-generation pinning, rollback and restore
+   rehearsal against that exact generation;
+3. run shadow comparison against `legacy_hybrid`, document parity/approved
+   deltas, invalid-citation count and operational error/latency results;
+4. complete an explicitly approved production canary with monitoring and a
+   complete-manifest rollback target;
+5. record the activation decision and set `TECH_DB_RUNTIME_MODE=manifest`,
+   `TECH_DB_RELEASE_ROOT`, and `TECH_DB_RELEASE_CATALOG_DIR` in deployment
+   configuration before restart.
+
+No production shadow/canary is claimed by the current PR. Per decision Q015,
+retain `legacy_hybrid` through canary and at least two stable production
+releases after full manifest activation; removal requires a separate approved
+deprecation change.
+
 ## 完整离线迁移包
 
 Releases 同时提供分卷的 `tech-db-offline.tar.gz.part-*`。下载全部分卷和 `SHA256SUMS` 后，按 Release 中 `README-OFFLINE.txt` 的命令合并并解压。包内已包含代码、模型和现成索引，不需要访问模型网站；GLM 在线回答仍需要联网和使用者自己的 Key。
