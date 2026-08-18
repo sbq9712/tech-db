@@ -1477,8 +1477,10 @@ async def chat_stream(req: ChatRequest, request: Request):
                         try:
                             import sys as _sys, os as _os
                             _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
-                            if _root not in _sys.path:
-                                _sys.path.insert(0, _root)
+                            _scripts = _os.path.join(_root, "scripts")
+                            for _p in (_scripts,):
+                                if _p not in _sys.path:
+                                    _sys.path.insert(0, _p)
                             from enrich_evidence_metadata import infer_evidence_role
                             from claim_mapping import attach_span_lineage, claim_independence
                             _prov_map = {}
