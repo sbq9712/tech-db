@@ -133,6 +133,27 @@ closed; see "Ticket Closure & Evidence Chain" below.
 - **epistemic 解析加固**：`_parse_llm_json` 对截断 JSON 在最后一个完整
   元素处截断重闭合，避免 classify→verify 链路静默失效。
 
+
+## 运维架构（2026-08-18）：systemd 自愈栈
+
+此前进程以 nohup/setsid 从交互 shell 启动，活在 logind session scope 里；
+WSL 最后一个会话关闭时 systemd-logind 杀掉整个 scope（journal 证据：
+session c2 在每次进程团灭时刻被 Removed）—— 与 VM 是否存活无关。
+现全部改为 systemd **user units**（`ops/systemd/`，`loginctl enable-linger`）：
+
+| Unit | 作用 | 节奏 |
+|------|------|------|
+| techdb-data-sync | git pull + lite 重建 + BM25 | timer 30min |
+| techdb-vector | 向量索引增量 embedding（完成后自动重启 server 加载） | timer |
+| techdb-graph | 精选记录知识图谱增量入库（完成后自动重启 server） | timer 45min |
+| techdb-server | Q&A 后端 :8765 + 门户 :8097 | Restart=always |
+| techdb-tunnel | cloudflared 快速隧道 + qa.js URL 自动同步推送（含 rebase 重试） | Restart=always |
+
+CI 侧（auto-sync）与本地侧（data-sync/vector/graph）形成闭环：
+CI 每 4h 推数据 → 本地 30min 内自动跟进索引与图谱 → 隧道 URL 变更自动推送。
+验证：进程 cgroup 在 `user@1000.service/techdb-*.service`（非 session scope），
+linger 已启用（VM 启动即拉起全部服务）。
+
 ## 后续 Ticket（spec 明确范围外）
 - LightRAG ingest 恢复（剩余 curated 候选，用户原话"Q5之后再说"）——
   本次按裁决作为"AI精选+精选情报"图谱构建后续工作单执行。
