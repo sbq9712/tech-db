@@ -57,6 +57,9 @@ SUITES = {
     "gate3_tk19":      ("tests_gate3_tk19.py", "push"),
     "synthetic_tk20":  ("tests_synthetic_tk20.py", "push"),
     "sync_tk22":       ("tests_sync_tk22.py", "push"),
+    "spec_lint_tk25":  ("tests_spec_lint_tk25.py", "push"),
+    "sufficiency_tk26": ("tests_sufficiency_tk26.py", "push"),
+    "span_lineage_tk27": ("tests_span_lineage_tk27.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 

@@ -51,6 +51,45 @@ from budget_guard import (
 from router import heuristic_needed
 
 
+def _build_provenance_map(candidates: list, records_by_id: dict = None) -> dict:
+    """Derive a per-round provenance map for the selected candidates.
+
+    T048/T008 integration: the Evidence Selector (independent-group gain)
+    and Evidence Grader (independent-source scoring, sufficiency policies)
+    both consume provenance, but nothing populated the map in the live
+    loop. Clustering is deterministic (no LLM) and O(n²) over the ≤~40
+    per-round candidates, never the full corpus.
+    """
+    try:
+        from provenance import cluster_provenance
+        recs = []
+        rids = []
+        for c in candidates or []:
+            rid = c.get("record_id", c.get("meta", {}).get("idx"))
+            if rid is None:
+                continue
+            rec = (records_by_id or {}).get(rid) or {}
+            recs.append({
+                "idx": rid,
+                "t": rec.get("t") or c.get("t") or c.get("meta", {}).get("t") or "",
+                "u": rec.get("u") or c.get("u") or c.get("meta", {}).get("u") or "",
+                "d": rec.get("d") or c.get("date") or c.get("meta", {}).get("d") or "",
+                "b": rec.get("b") or "",
+                "source": rec.get("source") or rec.get("src") or "",
+            })
+            rids.append(rid)
+        if not recs:
+            return {}
+        # cluster_provenance keys results by list POSITION — remap to the
+        # stable record_id so selector/grader lookups agree.
+        by_pos = cluster_provenance(recs)
+        return {rids[pos]: entry for pos, entry in by_pos.items()
+                if 0 <= pos < len(rids)}
+    except Exception as e:  # fail-safe: provenance faults never break QA
+        print(f"[orchestrator] provenance map error: {e}", flush=True)
+        return {}
+
+
 def _normalize_for_selector(candidates: list) -> list:
     """Codex-review C3 P2 fix: evidence-selector candidate normalization.
 
@@ -105,6 +144,8 @@ class ResearchState:
     stop_reason: str = ""
     answer_status: str = "SUPPORTED"
     budget: Optional[QueryBudget] = None  # TK-08 loop-control budget
+    provenance_map: dict = field(default_factory=dict)  # T048: per-round provenance
+    records_by_id: Optional[dict] = None  # T048: lite records by record_id
 
 
 async def run_agentic_loop(
@@ -267,6 +308,15 @@ async def run_agentic_loop(
                        if r.get("meta", {}).get("idx", -1) not in seen_ids]
 
         state.all_results.extend(iteration_results)
+        # T048: index-lite record view for provenance/lineage (title/url/
+        # date/body of every candidate seen so far, keyed by record_id)
+        if state.records_by_id is None:
+            state.records_by_id = {}
+        for _r in iteration_results:
+            _m = _r.get("meta", {}) or {}
+            _rid = _m.get("idx")
+            if _rid is not None and _rid not in state.records_by_id:
+                state.records_by_id[_rid] = _m
         new_evidence_count = len(new_results)
 
         trace.add_stage(f"retrieval_iter{iteration}", {
@@ -308,7 +358,13 @@ async def run_agentic_loop(
             # record_id/rerank_score schema first or every candidate is
             # rejected as below_min_relevance (empty evidence set).
             _sel_cands = _normalize_for_selector(reranked)
-            selected = select_evidence(_sel_cands)
+            # T048: populate the provenance map so independent-group gain
+            # (T008/T017) and per-claim lineage have real data in the live
+            # loop — previously these features ran on an always-empty map.
+            state.provenance_map = _build_provenance_map(
+                _sel_cands, getattr(state, "records_by_id", None))
+            selected = select_evidence(_sel_cands,
+                                       provenance_map=state.provenance_map)
             state.selected_evidence = selected.get("selected", _sel_cands)
         else:
             state.selected_evidence = reranked
@@ -333,6 +389,7 @@ async def run_agentic_loop(
                 state.grader_result = await grade_evidence(
                     query, state.ledger, state.selected_evidence,
                     state.router_result,
+                    provenance_map=getattr(state, "provenance_map", None),
                 )
                 trace.add_stage(f"grader_iter{iteration}", state.grader_result)
             except Exception as e:

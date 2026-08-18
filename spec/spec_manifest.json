@@ -1,0 +1,1451 @@
+{
+  "spec_version": "1.0.0",
+  "spec_name": "TechDB Evidence-Centric Adaptive Agentic RAG — Execution Tickets (Adversarially Reviewed)",
+  "source_documents": [
+    "TechDB_Agentic_RAG_Execution_Tickets_ADVERSARIAL_REVIEWED.txt",
+    "TechDB_Agentic_RAG_Master_Tickets_VERIFIED.txt"
+  ],
+  "generated_at": "2026-08-18T00:00:00Z",
+  "phases": [
+    {
+      "id": 0,
+      "name": "00_spec_observability_evidence_foundation"
+    },
+    {
+      "id": 1,
+      "name": "01_entity_policy_locked_evaluation"
+    },
+    {
+      "id": 2,
+      "name": "02_entity_data_model_candidates_resolver"
+    },
+    {
+      "id": 3,
+      "name": "03_entity_lifecycle_relations_snapshot"
+    },
+    {
+      "id": 4,
+      "name": "04_legacy_migration_query_resolver_shadow"
+    },
+    {
+      "id": 5,
+      "name": "05_retrieval_chunking_reranking"
+    },
+    {
+      "id": 6,
+      "name": "06_graph_semantics_retrieval"
+    },
+    {
+      "id": 7,
+      "name": "07_query_integrity_agentic_control"
+    },
+    {
+      "id": 8,
+      "name": "08_numeric_conflict_multidoc_context_answer"
+    },
+    {
+      "id": 9,
+      "name": "09_operational_admin_reliability_benchmark"
+    },
+    {
+      "id": 10,
+      "name": "10_partial_activation_full_activation_docs"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "T001",
+      "title": "QA Trace System",
+      "phase": 0,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "T002",
+      "title": "Regression/Evaluation Baseline",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T001"
+      ]
+    },
+    {
+      "id": "T003",
+      "title": "Citation Evidence Grounding",
+      "phase": 0,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "T004",
+      "title": "Atomic Claim + Claim-level Citation Mapping",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T003"
+      ]
+    },
+    {
+      "id": "T005",
+      "title": "Verifier Fail-Safe",
+      "phase": 0,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "T006",
+      "title": "Four-state Answer Status",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T004",
+        "T005"
+      ]
+    },
+    {
+      "id": "T007",
+      "title": "Evidence Metadata Enrichment Pipeline",
+      "phase": 0,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "T012",
+      "title": "Data Quality Layer",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T007"
+      ]
+    },
+    {
+      "id": "T041",
+      "title": "Global Build Manifest / Atomic Snapshot Release",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T001",
+        "T007",
+        "T012"
+      ]
+    },
+    {
+      "id": "T056",
+      "title": "Trace Retention / Redaction / Audit Policy",
+      "phase": 0,
+      "priority": "P1",
+      "deps": [
+        "T001",
+        "T041"
+      ]
+    },
+    {
+      "id": "T047",
+      "title": "SourceSnapshot / EvidenceLocator / Offset Mapping",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T012",
+        "T041"
+      ]
+    },
+    {
+      "id": "T049",
+      "title": "Synthetic Retrieval Isolation",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T012",
+        "T041"
+      ]
+    },
+    {
+      "id": "T046",
+      "title": "Claim-Evidence Support Semantics / Entailment",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T003",
+        "T004",
+        "T047"
+      ]
+    },
+    {
+      "id": "T008",
+      "title": "Probabilistic Provenance Clustering",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T007"
+      ]
+    },
+    {
+      "id": "T009",
+      "title": "Claim-aware Source Suitability",
+      "phase": 0,
+      "priority": "P1",
+      "deps": [
+        "T007",
+        "T008"
+      ]
+    },
+    {
+      "id": "T010",
+      "title": "Temporal Metadata / Time & Version Awareness",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T007"
+      ]
+    },
+    {
+      "id": "T048",
+      "title": "Claim-level Provenance / Span-level Source Role",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T008",
+        "T009",
+        "T046",
+        "T047"
+      ]
+    },
+    {
+      "id": "T013",
+      "title": "Retrieved Content Safety / Prompt Injection",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "T007"
+      ]
+    },
+    {
+      "id": "T040",
+      "title": "Canonical Spec Manifest / Dependency & Schema Validator",
+      "phase": 0,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "T011",
+      "title": "Entity Identity / Resolution V2 (Umbrella Epic)",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "T007"
+      ]
+    },
+    {
+      "id": "T054",
+      "title": "Evaluation Integrity / Locked Holdout / Release Gates",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "T002",
+        "ER-050",
+        "ER-051"
+      ]
+    },
+    {
+      "id": "T044",
+      "title": "Relation Ontology / Qualified GraphStatement Model",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "ER-002",
+        "ER-003",
+        "T010",
+        "T047"
+      ]
+    },
+    {
+      "id": "T014",
+      "title": "Retrieval Layer Refactor",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "T001"
+      ]
+    },
+    {
+      "id": "T028",
+      "title": "Contextual Chunking + Parent/Child Retrieval",
+      "phase": 5,
+      "priority": "P0/P1",
+      "deps": [
+        "T012",
+        "T014"
+      ]
+    },
+    {
+      "id": "T015",
+      "title": "RRF Role: Fusion/Dedup not Final Judge",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "T014"
+      ]
+    },
+    {
+      "id": "T016",
+      "title": "Content-aware Reranker",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "T015"
+      ]
+    },
+    {
+      "id": "T051",
+      "title": "Reranker Stability / Batch Calibration",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "T002",
+        "T016",
+        "T028"
+      ]
+    },
+    {
+      "id": "T017",
+      "title": "Evidence Selector",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "T016",
+        "T008",
+        "T009",
+        "T010",
+        "T012"
+      ]
+    },
+    {
+      "id": "T027",
+      "title": "Evidence-grounded Semantic Knowledge Graph",
+      "phase": 6,
+      "priority": "P0/P1",
+      "deps": [
+        "T011",
+        "T003",
+        "T010",
+        "T012",
+        "T028",
+        "T044"
+      ]
+    },
+    {
+      "id": "T045",
+      "title": "Graph Intent & Multi-hop Composition Validator",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "T044",
+        "T027",
+        "ER-101"
+      ]
+    },
+    {
+      "id": "T039",
+      "title": "Relation-aware Graph Retriever",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "T014",
+        "T027",
+        "T045"
+      ]
+    },
+    {
+      "id": "T042",
+      "title": "Query Integrity / Verified Conversation Context",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T001",
+        "ER-101"
+      ]
+    },
+    {
+      "id": "T018",
+      "title": "Adaptive Router FAST/RESEARCH/DEEP",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T014"
+      ]
+    },
+    {
+      "id": "T019",
+      "title": "Query Decomposition",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T018"
+      ]
+    },
+    {
+      "id": "T020",
+      "title": "Research Planner",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T019"
+      ]
+    },
+    {
+      "id": "T021",
+      "title": "Evidence Ledger",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T020"
+      ]
+    },
+    {
+      "id": "T050",
+      "title": "Requirement-aware Fusion / Candidate Reserve Pool",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T015",
+        "T019",
+        "T021"
+      ]
+    },
+    {
+      "id": "T043",
+      "title": "Question/Claim-type Sufficiency Policy Registry",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T002",
+        "T009",
+        "T010"
+      ]
+    },
+    {
+      "id": "T022",
+      "title": "Evidence Grader: Rule Engine + GLM",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T021",
+        "T017"
+      ]
+    },
+    {
+      "id": "T023",
+      "title": "Gap Analysis + Targeted Query Generation",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T022"
+      ]
+    },
+    {
+      "id": "T024",
+      "title": "Iterative Retrieval Orchestrator",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T023"
+      ]
+    },
+    {
+      "id": "T025",
+      "title": "Stopping Criteria / Search Saturation",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T024"
+      ]
+    },
+    {
+      "id": "T026",
+      "title": "Knowledge Boundary + Calibrated Abstention",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "T022",
+        "T025",
+        "T006"
+      ]
+    },
+    {
+      "id": "T029",
+      "title": "Numeric Facts / Unit / Condition Structuring",
+      "phase": 8,
+      "priority": "P1",
+      "deps": [
+        "T010",
+        "T003"
+      ]
+    },
+    {
+      "id": "T030",
+      "title": "Active Conflict Detection",
+      "phase": 8,
+      "priority": "P0/P1",
+      "deps": [
+        "T021",
+        "T010",
+        "T029"
+      ]
+    },
+    {
+      "id": "T038",
+      "title": "Multi-Document Evidence Processing",
+      "phase": 8,
+      "priority": "P0/P1",
+      "deps": [
+        "T017",
+        "T021",
+        "T028",
+        "T030"
+      ]
+    },
+    {
+      "id": "T031",
+      "title": "Evidence-aware Context Assembly / Packing",
+      "phase": 8,
+      "priority": "P0",
+      "deps": [
+        "T017",
+        "T021",
+        "T030"
+      ]
+    },
+    {
+      "id": "T032",
+      "title": "Claim-aware Citation Snippet + Multi-span",
+      "phase": 8,
+      "priority": "P0",
+      "deps": [
+        "T003",
+        "T004"
+      ]
+    },
+    {
+      "id": "T052",
+      "title": "Answer State Machine / Bounded Repair Loop",
+      "phase": 8,
+      "priority": "P0",
+      "deps": [
+        "T005",
+        "T006",
+        "T022",
+        "T046",
+        "T032"
+      ]
+    },
+    {
+      "id": "T033",
+      "title": "Reference Card Frontend",
+      "phase": 8,
+      "priority": "P1",
+      "deps": [
+        "T032",
+        "T006",
+        "T009"
+      ]
+    },
+    {
+      "id": "T053",
+      "title": "Degraded-mode Runtime / Concurrency / Cancellation",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "T001",
+        "T024",
+        "T025",
+        "T052"
+      ]
+    },
+    {
+      "id": "T034",
+      "title": "Agentic / Evidence Benchmark Upgrade",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "T002",
+        "T026",
+        "T032",
+        "T039",
+        "T054"
+      ]
+    },
+    {
+      "id": "T035",
+      "title": "Trace Replay / Regression Replay",
+      "phase": 9,
+      "priority": "P1",
+      "deps": [
+        "T001",
+        "T034"
+      ]
+    },
+    {
+      "id": "T036",
+      "title": "Human Review -> Golden Case Pipeline",
+      "phase": 9,
+      "priority": "P1",
+      "deps": [
+        "T034"
+      ]
+    },
+    {
+      "id": "T037",
+      "title": "Production Integration Readiness / Dual-path Orchestrator",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "T018",
+        "T024",
+        "T026",
+        "T032",
+        "T038",
+        "T052",
+        "T053"
+      ]
+    },
+    {
+      "id": "T055",
+      "title": "Shadow / Canary Rollout / Quality Telemetry",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "T034",
+        "T037",
+        "T053",
+        "T054",
+        "ER-110",
+        "ER-111"
+      ]
+    },
+    {
+      "id": "ER-001",
+      "title": "Freeze Current Entity Graph Baseline",
+      "phase": 1,
+      "priority": "P0",
+      "deps": []
+    },
+    {
+      "id": "ER-002",
+      "title": "Entity Type Ontology",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "ER-001"
+      ]
+    },
+    {
+      "id": "ER-003",
+      "title": "Entity Granularity Policy",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "ER-002"
+      ]
+    },
+    {
+      "id": "ER-050",
+      "title": "Entity Resolution Gold Set",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "ER-003"
+      ]
+    },
+    {
+      "id": "ER-051",
+      "title": "Offline Entity Resolution Metrics",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "ER-050"
+      ]
+    },
+    {
+      "id": "ER-010",
+      "title": "EntityMention Schema",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-002",
+        "ER-003"
+      ]
+    },
+    {
+      "id": "ER-011",
+      "title": "Stable CanonicalEntity ID",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-010"
+      ]
+    },
+    {
+      "id": "ER-012",
+      "title": "EntityAlias Schema",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-011"
+      ]
+    },
+    {
+      "id": "ER-013",
+      "title": "ResolutionDecision / Audit Schema",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-010",
+        "ER-011"
+      ]
+    },
+    {
+      "id": "ER-014",
+      "title": "MergeEvent / SplitEvent Schema",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-011",
+        "ER-013"
+      ]
+    },
+    {
+      "id": "ER-020",
+      "title": "Non-destructive Entity Normalizer",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-010",
+        "ER-012"
+      ]
+    },
+    {
+      "id": "ER-021",
+      "title": "Bilingual/Acronym Alias Parser",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-020"
+      ]
+    },
+    {
+      "id": "ER-022",
+      "title": "Alias Inverted Index",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-012",
+        "ER-020",
+        "ER-021"
+      ]
+    },
+    {
+      "id": "ER-023",
+      "title": "Strong / External Identifiers",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-011"
+      ]
+    },
+    {
+      "id": "ER-030",
+      "title": "Exact/Normalized Candidate Generator",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-022",
+        "ER-023"
+      ]
+    },
+    {
+      "id": "ER-031",
+      "title": "Fuzzy / Trigram Candidate Generator",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-030"
+      ]
+    },
+    {
+      "id": "ER-032",
+      "title": "Transliteration/Acronym Candidate Generator",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-021",
+        "ER-030"
+      ]
+    },
+    {
+      "id": "ER-033",
+      "title": "Embedding Candidate Generator (optional)",
+      "phase": 2,
+      "priority": "P1",
+      "deps": [
+        "ER-030",
+        "ER-031",
+        "ER-032"
+      ]
+    },
+    {
+      "id": "ER-034",
+      "title": "Unified Candidate Pipeline + Blocking",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-030",
+        "ER-031",
+        "ER-032"
+      ]
+    },
+    {
+      "id": "ER-040",
+      "title": "Deterministic Resolver",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-034",
+        "ER-003"
+      ]
+    },
+    {
+      "id": "ER-041",
+      "title": "Context Feature Builder",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-040"
+      ]
+    },
+    {
+      "id": "ER-042",
+      "title": "Constrained LLM Adjudicator",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-041"
+      ]
+    },
+    {
+      "id": "ER-043",
+      "title": "Abstain / Provisional Policy",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-040",
+        "ER-042"
+      ]
+    },
+    {
+      "id": "ER-052",
+      "title": "Resolver Threshold Calibration",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-042",
+        "ER-043",
+        "ER-051"
+      ]
+    },
+    {
+      "id": "ER-053",
+      "title": "Prompt Injection / Adversarial Resolver Eval",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "ER-042",
+        "ER-050"
+      ]
+    },
+    {
+      "id": "ER-060",
+      "title": "Manual Override Store",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-013",
+        "ER-040"
+      ]
+    },
+    {
+      "id": "ER-061",
+      "title": "Merge Operation",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-014",
+        "ER-060"
+      ]
+    },
+    {
+      "id": "ER-062",
+      "title": "Split / Unmerge Operation",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-014",
+        "ER-061"
+      ]
+    },
+    {
+      "id": "ER-063",
+      "title": "Mutation Cache/Index Invalidation",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-022",
+        "ER-061",
+        "ER-062"
+      ]
+    },
+    {
+      "id": "ER-070",
+      "title": "RawRelationMention Schema",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-010"
+      ]
+    },
+    {
+      "id": "ER-071",
+      "title": "Extraction Pipeline: Mentions before Canonical",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-040",
+        "ER-042",
+        "ER-070"
+      ]
+    },
+    {
+      "id": "ER-072",
+      "title": "CanonicalRelation Materializer",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-071",
+        "ER-011"
+      ]
+    },
+    {
+      "id": "ER-073",
+      "title": "Merge/Split Relation Re-materialization",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-061",
+        "ER-062",
+        "ER-072"
+      ]
+    },
+    {
+      "id": "ER-080",
+      "title": "Versioned Incremental Resolution Key",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-010",
+        "ER-013"
+      ]
+    },
+    {
+      "id": "ER-081",
+      "title": "Replace done_titles Progress",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-080"
+      ]
+    },
+    {
+      "id": "ER-082",
+      "title": "Atomic Entity Create",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-011",
+        "ER-034"
+      ]
+    },
+    {
+      "id": "ER-083",
+      "title": "Identity Store Atomic Publish / Snapshot",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "ER-063",
+        "ER-082"
+      ]
+    },
+    {
+      "id": "ER-090",
+      "title": "Legacy Name-Node Stable ID Migration",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-011",
+        "ER-083"
+      ]
+    },
+    {
+      "id": "ER-091",
+      "title": "Initial Alias Seeds",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-090",
+        "ER-021"
+      ]
+    },
+    {
+      "id": "ER-092",
+      "title": "Legacy Duplicate Candidate Audit",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-091",
+        "ER-034"
+      ]
+    },
+    {
+      "id": "ER-093",
+      "title": "Legacy High-Impact Entity Review",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-092",
+        "ER-060"
+      ]
+    },
+    {
+      "id": "ER-094",
+      "title": "Rebuild V2 Mentions/Relations from Records",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-071",
+        "ER-093"
+      ]
+    },
+    {
+      "id": "ER-100",
+      "title": "Query Entity Mention Parser",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-020",
+        "ER-022"
+      ]
+    },
+    {
+      "id": "ER-101",
+      "title": "Query Entity Resolver",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-034",
+        "ER-100"
+      ]
+    },
+    {
+      "id": "ER-102",
+      "title": "Query Resolver Evaluation",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-050",
+        "ER-100",
+        "ER-101"
+      ]
+    },
+    {
+      "id": "ER-103",
+      "title": "Replace Server Full Substring Graph Matching",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-101"
+      ]
+    },
+    {
+      "id": "ER-104",
+      "title": "Graph Route Ambiguity / Fallback",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-103"
+      ]
+    },
+    {
+      "id": "ER-110",
+      "title": "Shadow Ingest Resolver",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-052",
+        "ER-053",
+        "ER-094"
+      ]
+    },
+    {
+      "id": "ER-111",
+      "title": "Shadow Query Resolver",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "ER-102",
+        "ER-103"
+      ]
+    },
+    {
+      "id": "ER-112",
+      "title": "Partial Graph-V2 Activation",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "ER-110",
+        "ER-111"
+      ]
+    },
+    {
+      "id": "ER-113",
+      "title": "Full Graph-V2 Activation",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "ER-112"
+      ]
+    },
+    {
+      "id": "ER-120",
+      "title": "Entity Admin CLI/API",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "ER-060",
+        "ER-061",
+        "ER-062"
+      ]
+    },
+    {
+      "id": "ER-121",
+      "title": "Entity Quality Monitoring",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "ER-110"
+      ]
+    },
+    {
+      "id": "ER-122",
+      "title": "Resolver Performance / Cost Benchmark",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "ER-042",
+        "ER-101"
+      ]
+    },
+    {
+      "id": "ER-123",
+      "title": "Sanitization / API Safety",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "ER-010",
+        "ER-120"
+      ]
+    },
+    {
+      "id": "ER-124",
+      "title": "Documentation & Migration/Rollback Guide",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "ER-113",
+        "ER-120"
+      ]
+    }
+  ],
+  "expected_ticket_ids": [
+    "ER-001",
+    "ER-002",
+    "ER-003",
+    "ER-010",
+    "ER-011",
+    "ER-012",
+    "ER-013",
+    "ER-014",
+    "ER-020",
+    "ER-021",
+    "ER-022",
+    "ER-023",
+    "ER-030",
+    "ER-031",
+    "ER-032",
+    "ER-033",
+    "ER-034",
+    "ER-040",
+    "ER-041",
+    "ER-042",
+    "ER-043",
+    "ER-050",
+    "ER-051",
+    "ER-052",
+    "ER-053",
+    "ER-060",
+    "ER-061",
+    "ER-062",
+    "ER-063",
+    "ER-070",
+    "ER-071",
+    "ER-072",
+    "ER-073",
+    "ER-080",
+    "ER-081",
+    "ER-082",
+    "ER-083",
+    "ER-090",
+    "ER-091",
+    "ER-092",
+    "ER-093",
+    "ER-094",
+    "ER-100",
+    "ER-101",
+    "ER-102",
+    "ER-103",
+    "ER-104",
+    "ER-110",
+    "ER-111",
+    "ER-112",
+    "ER-113",
+    "ER-120",
+    "ER-121",
+    "ER-122",
+    "ER-123",
+    "ER-124",
+    "T001",
+    "T002",
+    "T003",
+    "T004",
+    "T005",
+    "T006",
+    "T007",
+    "T008",
+    "T009",
+    "T010",
+    "T011",
+    "T012",
+    "T013",
+    "T014",
+    "T015",
+    "T016",
+    "T017",
+    "T018",
+    "T019",
+    "T020",
+    "T021",
+    "T022",
+    "T023",
+    "T024",
+    "T025",
+    "T026",
+    "T027",
+    "T028",
+    "T029",
+    "T030",
+    "T031",
+    "T032",
+    "T033",
+    "T034",
+    "T035",
+    "T036",
+    "T037",
+    "T038",
+    "T039",
+    "T040",
+    "T041",
+    "T042",
+    "T043",
+    "T044",
+    "T045",
+    "T046",
+    "T047",
+    "T048",
+    "T049",
+    "T050",
+    "T051",
+    "T052",
+    "T053",
+    "T054",
+    "T055",
+    "T056"
+  ],
+  "schema_names": [
+    "TraceRecord",
+    "EvalCase",
+    "EvidenceMetadata",
+    "DataQualityReport",
+    "ReleaseManifest",
+    "TraceRetentionPolicy",
+    "SourceSnapshot",
+    "EvidenceLocator",
+    "SupportRole",
+    "CitationSpan",
+    "ClaimRecord",
+    "VerificationResult",
+    "AnswerStatus",
+    "SafetyFlags",
+    "ProvenanceCluster",
+    "SourceSuitability",
+    "TemporalMetadata",
+    "EntityType",
+    "GranularityPolicy",
+    "GoldSet",
+    "EntityMention",
+    "CanonicalEntity",
+    "EntityAlias",
+    "ResolutionDecision",
+    "MergeEvent",
+    "SplitEvent",
+    "AliasIndexEntry",
+    "CandidateSet",
+    "RawRelationMention",
+    "GraphStatement",
+    "RelationOntology",
+    "GraphQueryIntent",
+    "RetrievalResult",
+    "CandidatePool",
+    "RerankResult",
+    "SelectedEvidence",
+    "RouterResult",
+    "RequirementPlan",
+    "ResearchPlan",
+    "LedgerSnapshot",
+    "GraderResult",
+    "GapReport",
+    "ResearchState",
+    "StopDecision",
+    "CoverageAssessment",
+    "NumericFact",
+    "ConflictAssessment",
+    "DocumentEvidencePacket",
+    "EvidencePackage",
+    "SufficiencyPolicy",
+    "SpanLineage",
+    "PipelineProfile"
+  ],
+  "pipeline_profiles": [
+    {
+      "name": "legacy_hybrid",
+      "description": "Pre-upgrade hybrid RAG baseline (all agentic flags off)",
+      "flags": {
+        "QA_AGENTIC_ENABLED": false,
+        "QA_TRACE_ENABLED": false,
+        "QA_ROUTER_ENABLED": false,
+        "QA_DECOMPOSITION_ENABLED": false,
+        "QA_RERANK_ENABLED": false,
+        "QA_EVIDENCE_SELECTOR_ENABLED": false,
+        "QA_EVIDENCE_GRADER_ENABLED": false,
+        "QA_ITERATIVE_RETRIEVAL_ENABLED": false,
+        "QA_PROVENANCE_ENABLED": false,
+        "QA_TEMPORAL_ENABLED": false,
+        "QA_ENTITY_RESOLUTION_ENABLED": false,
+        "QA_SEMANTIC_GRAPH_ENABLED": false,
+        "QA_CONTEXTUAL_CHUNKS_ENABLED": false,
+        "QA_NUMERIC_FACTS_ENABLED": false,
+        "QA_CLAIM_GROUNDING_ENABLED": false,
+        "QA_FAIL_SAFE_VERIFY_ENABLED": false,
+        "QA_CONTENT_SAFETY_ENABLED": false,
+        "QA_CITATION_GROUNDING_ENABLED": false,
+        "QA_CLAIM_MAPPING_ENABLED": false,
+        "QA_ANSWER_STATUS_ENABLED": false,
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": false
+      }
+    },
+    {
+      "name": "agentic_correctness_core",
+      "description": "Correctness-critical modules only (trace/verify/citation/claims/status)",
+      "flags": {
+        "QA_AGENTIC_ENABLED": false,
+        "QA_TRACE_ENABLED": true,
+        "QA_ROUTER_ENABLED": false,
+        "QA_DECOMPOSITION_ENABLED": false,
+        "QA_RERANK_ENABLED": false,
+        "QA_EVIDENCE_SELECTOR_ENABLED": false,
+        "QA_EVIDENCE_GRADER_ENABLED": false,
+        "QA_ITERATIVE_RETRIEVAL_ENABLED": false,
+        "QA_PROVENANCE_ENABLED": false,
+        "QA_TEMPORAL_ENABLED": false,
+        "QA_ENTITY_RESOLUTION_ENABLED": false,
+        "QA_SEMANTIC_GRAPH_ENABLED": false,
+        "QA_CONTEXTUAL_CHUNKS_ENABLED": false,
+        "QA_NUMERIC_FACTS_ENABLED": false,
+        "QA_CLAIM_GROUNDING_ENABLED": false,
+        "QA_FAIL_SAFE_VERIFY_ENABLED": true,
+        "QA_CONTENT_SAFETY_ENABLED": true,
+        "QA_CITATION_GROUNDING_ENABLED": true,
+        "QA_CLAIM_MAPPING_ENABLED": true,
+        "QA_ANSWER_STATUS_ENABLED": true,
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true
+      }
+    },
+    {
+      "name": "agentic_full",
+      "description": "Full evidence-centric adaptive agentic pipeline (post gate-3 production)",
+      "flags": {
+        "QA_AGENTIC_ENABLED": true,
+        "QA_TRACE_ENABLED": true,
+        "QA_ROUTER_ENABLED": true,
+        "QA_DECOMPOSITION_ENABLED": true,
+        "QA_RERANK_ENABLED": true,
+        "QA_EVIDENCE_SELECTOR_ENABLED": true,
+        "QA_EVIDENCE_GRADER_ENABLED": true,
+        "QA_ITERATIVE_RETRIEVAL_ENABLED": true,
+        "QA_PROVENANCE_ENABLED": true,
+        "QA_TEMPORAL_ENABLED": true,
+        "QA_ENTITY_RESOLUTION_ENABLED": true,
+        "QA_SEMANTIC_GRAPH_ENABLED": true,
+        "QA_CONTEXTUAL_CHUNKS_ENABLED": true,
+        "QA_NUMERIC_FACTS_ENABLED": true,
+        "QA_CLAIM_GROUNDING_ENABLED": true,
+        "QA_FAIL_SAFE_VERIFY_ENABLED": true,
+        "QA_CONTENT_SAFETY_ENABLED": true,
+        "QA_CITATION_GROUNDING_ENABLED": true,
+        "QA_CLAIM_MAPPING_ENABLED": true,
+        "QA_ANSWER_STATUS_ENABLED": true,
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true
+      }
+    }
+  ],
+  "incompatible_flag_combos": [
+    {
+      "flags": [
+        "QA_ITERATIVE_RETRIEVAL_ENABLED",
+        "QA_ROUTER_ENABLED"
+      ],
+      "rule": "iterative_retrieval_requires_router"
+    },
+    {
+      "flags": [
+        "QA_EVIDENCE_GRADER_ENABLED",
+        "QA_EVIDENCE_SELECTOR_ENABLED"
+      ],
+      "rule": "grader_requires_selector"
+    },
+    {
+      "flags": [
+        "QA_CLAIM_MAPPING_ENABLED",
+        "QA_CITATION_GROUNDING_ENABLED"
+      ],
+      "rule": "claim_mapping_requires_grounding"
+    }
+  ],
+  "spec_hash": "1dbf693972ba858106509a36f217bc9d7aaa2ef9ec67522757a96262214a7d15"
+}

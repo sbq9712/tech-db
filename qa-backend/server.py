@@ -1467,6 +1467,39 @@ async def chat_stream(req: ChatRequest, request: Request):
                     if claim_budget_ok:
                         _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
                         claim_map = await map_claims_to_citations(query, full_answer, citations)
+                        # T048: attach span-level source lineage so independence
+                        # is counted per claim/span (quotes of a primary source
+                        # never count as independent verification). Deterministic,
+                        # no LLM; failures degrade to lineage-less claims.
+                        # evidence_role uses the SAME canonical classifier as
+                        # T007's offline enrichment (scripts/enrich_evidence_
+                        # metadata.py), re-derived online for cited records.
+                        try:
+                            import sys as _sys, os as _os
+                            _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+                            if _root not in _sys.path:
+                                _sys.path.insert(0, _root)
+                            from enrich_evidence_metadata import infer_evidence_role
+                            from claim_mapping import attach_span_lineage, claim_independence
+                            _prov_map = {}
+                            for c in citations:
+                                rid = c.get("record_id")
+                                if rid is not None and 0 <= rid < len(_records):
+                                    _rec = _records[rid]
+                                    _prov_map[rid] = {
+                                        "evidence_role": infer_evidence_role(_rec),
+                                        "independent_group_id": f"record:{rid}",
+                                    }
+                            attach_span_lineage(claim_map, citations,
+                                                provenance_map=_prov_map)
+                            _indep = claim_independence(claim_map, _prov_map)
+                            trace.add_stage("claim_independence", {
+                                "claims_total": _indep["claims_total"],
+                                "claims_with_independent_support":
+                                    _indep["claims_with_independent_support"],
+                            })
+                        except Exception as e:
+                            print(f"[claim_lineage] Error: {e}", flush=True)
                         trace.add_stage("claim_mapping", {
                             "total_claims": len(claim_map.get("claims", [])),
                             "unsupported_major": len(get_unsupported_major_claims(claim_map)),
@@ -1736,4 +1769,11 @@ async def search(q: str, top_k: int = 10):
 
 if __name__ == "__main__":
     import uvicorn
+    # T040: production must run a named pipeline profile (no ad-hoc flag
+    # combos). TECH_DB_ENV=production without a valid QA_PIPELINE_PROFILE
+    # refuses to start — silent half-migrations are the failure mode.
+    from feature_flags import assert_production_profile
+    _profile = assert_production_profile()
+    if _profile:
+        print(f"[startup] pipeline profile: {_profile}", flush=True)
     uvicorn.run(app, host="0.0.0.0", port=8765)

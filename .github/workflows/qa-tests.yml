@@ -39,6 +39,8 @@ jobs:
         run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - name: Push-tier suites (all-mock, no GLM)
         run: python run_all_tests.py --tier push
+      - name: Canonical spec manifest lint (T040 — merge gate)
+        run: python ../scripts/lint_spec_manifest.py
       - name: Spec validator (must pass in CI)
         run: python verify_spec_manifest.py
       - name: Holdout lock check (fixture immutability)

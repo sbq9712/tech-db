@@ -365,3 +365,51 @@ def _anchor_fallback_claims(answer: str, citations: list) -> dict:
             ],
         })
     return {"claims": claims, "fallback": "anchor_extraction (LLM mapping unavailable)"}
+
+
+# ── T048: span-level source lineage attachment ────────────────────────────
+
+def attach_span_lineage(claims_mapping: dict,
+                        citations: list,
+                        provenance_map: Optional[dict] = None,
+                        records_by_id: Optional[dict] = None) -> dict:
+    """Attach T048 span lineage to every claim support entry (in place).
+
+    Deterministic (no LLM): each supported_by entry gains record_id (from
+    its citation) and span_lineage (from provenance.span_lineage). After
+    this, provenance.claim_independence_report() can count independence
+    per claim/span instead of per document.
+
+    Returns the same claims_mapping for chaining.
+    """
+    from provenance import span_lineage as _span_lineage
+    provenance_map = provenance_map or {}
+    records_by_id = records_by_id or {}
+    cid_to_record = {}
+    for c in citations or []:
+        cid_to_record[c.get("id")] = c.get("record_id")
+
+    for claim in claims_mapping.get("claims", []):
+        for ref in claim.get("supported_by", []) or []:
+            rid = ref.get("record_id") or cid_to_record.get(ref.get("citation_id"))
+            if rid is None:
+                continue
+            ref["record_id"] = rid
+            rec = records_by_id.get(rid, {})
+            pm = provenance_map.get(rid, {})
+            ref["span_lineage"] = _span_lineage(
+                rec, pm, ref.get("evidence_span", ""))
+    return claims_mapping
+
+
+def claim_independence(claims_mapping: dict,
+                       provenance_map: Optional[dict] = None,
+                       records_by_id: Optional[dict] = None) -> dict:
+    """Per-claim independence accounting (T048) — see
+    provenance.claim_independence_report."""
+    from provenance import claim_independence_report
+    return claim_independence_report(
+        claims_mapping.get("claims", []),
+        records_by_id=records_by_id,
+        provenance_map=provenance_map,
+    )

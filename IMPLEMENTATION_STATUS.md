@@ -99,13 +99,18 @@ closed; see "Ticket Closure & Evidence Chain" below.
 | TK-22 | sync_local.sh 运维衔接 | `scripts/sync_local.sh` + tests_ci_tk15 |
 | TK-23 | legacy retrieval path deletion (post gate 3) | tests_parity (field-level) — new path is the only path |
 | TK-24 | final acceptance | `tests_final_acceptance.py` + 完成报告 (见 commit) |
+| TK-25 | canonical spec manifest lint（T040 补票：112 票注册表、依赖环/缺票/未知依赖/Phase 冲突/重复 schema/profile 9 类故障检测、spec_hash 防篡改、生产仅允许命名 profile） | tests_spec_lint_tk25; `spec/spec_manifest.json` + `scripts/lint_spec_manifest.py`（CI merge gate） |
+| TK-26 | claim-type sufficiency policy registry（T043 补票：10 类 versioned policy，Grader 经 policy_id 判定；厂商自述永不满足 performance、negative claim 只能输出 KB 边界） | tests_sufficiency_tk26; `sufficiency_policies.py` → `evidence_grader.py` Rule 6 |
+| TK-27 | span-level source lineage（T048 补票：quote-of-press-release 不算独立验证；同一媒体的独立实测是独立角色；uncertainty 保留；orchestrator 在线建 provenance map） | tests_span_lineage_tk27; `provenance.span_lineage` + `claim_mapping.attach_span_lineage` |
 
 ## Nightly Replay 与索引体积豁免（TK-18 / gate-3 证据）
 - 真实索引（vector+bm25 约 1.2G）仅存在于本机（gitignored）；CI replay
   使用入库的 MINI 索引 fixture（`qa-backend/test_fixtures/mini_index`）。
 - Codex 审查闭环（fa02a5b..e70d0d1 全量分段 A/B1/B2/C1/C2/C3）：44 项发现
   全部修复，rescue 回归（codex 对抗式复核）**44/44 VERIFIED**；全量测试
-  409 passed / 0 failed（25 套件）。
+  409 passed / 0 failed（25 套件）；2026-08-18 T040/T043/T048 补票后 push 级
+  353 passed / 0 failed（26 套件，新增 spec_lint_tk25 / sufficiency_tk26 /
+  span_lineage_tk27）。
 - fixture 重建配方（codex-review C2）：`python scripts/build_mini_index.py
   --from-records` — 只用已入库的 `all-records-mini.json`（manifest
   `records_sha256_16` 摘要校验）重建 vector+BM25 索引，可复现（已验证

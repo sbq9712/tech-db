@@ -114,3 +114,134 @@ class Flags:
             "answer_status": cls.ANSWER_STATUS_ENABLED,
             "knowledge_boundary": cls.KNOWLEDGE_BOUNDARY_ENABLED,
         }
+
+
+# ── T040: named pipeline profiles ─────────────────────────────────────────
+# Production may only run a NAMED profile; ad-hoc flag combinations are a
+# dev/test convenience. The registry mirrors spec/spec_manifest.json
+# (pipeline_profiles) and is cross-checked by scripts/lint_spec_manifest.py
+# L8 and qa-backend/tests_spec_lint_tk25.py.
+PIPELINE_PROFILES = {
+    "legacy_hybrid": {
+        "description": "Pre-upgrade hybrid RAG baseline (all agentic flags off)",
+        "flags": {name: False for name in
+                  ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
+                   "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
+                   "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
+                   "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
+                   "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
+                   "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
+                   "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
+                   "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
+                   "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
+                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+    },
+    "agentic_correctness_core": {
+        "description": "Correctness-critical modules only "
+                       "(trace/verify/citation/claims/status/boundary/safety)",
+        "flags": {
+            **{name: False for name in
+               ("AGENTIC_ENABLED", "ROUTER_ENABLED", "DECOMPOSITION_ENABLED",
+                "RERANKER_ENABLED", "EVIDENCE_SELECTOR_ENABLED",
+                "EVIDENCE_GRADER_ENABLED", "ITERATIVE_RETRIEVAL_ENABLED",
+                "PROVENANCE_ENABLED", "TEMPORAL_ENABLED",
+                "ENTITY_RESOLUTION_ENABLED", "SEMANTIC_GRAPH_ENABLED",
+                "CONTEXTUAL_CHUNKS_ENABLED", "NUMERIC_FACTS_ENABLED",
+                "CLAIM_GROUNDING_ENABLED")},
+            "TRACE_ENABLED": True, "FAIL_SAFE_VERIFY_ENABLED": True,
+            "CONTENT_SAFETY_ENABLED": True, "CITATION_GROUNDING_ENABLED": True,
+            "CLAIM_MAPPING_ENABLED": True, "ANSWER_STATUS_ENABLED": True,
+            "KNOWLEDGE_BOUNDARY_ENABLED": True,
+        },
+    },
+    "agentic_full": {
+        "description": "Full evidence-centric adaptive agentic pipeline "
+                       "(post gate-3 production default)",
+        "flags": {name: True for name in
+                  ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
+                   "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
+                   "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
+                   "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
+                   "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
+                   "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
+                   "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
+                   "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
+                   "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
+                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+    },
+}
+
+DEFAULT_PROFILE = "agentic_full"
+
+
+def apply_profile(name: str, override: bool = False) -> None:
+    """Apply a named profile by setting the QA_* env vars it defines.
+
+    override=False (default) respects explicitly-set env vars, which keeps
+    tests/dev able to flip individual flags on top of a profile; production
+    uses assert_production_profile() to forbid that combination outright.
+    """
+    if name not in PIPELINE_PROFILES:
+        raise ValueError(
+            f"unknown pipeline profile {name!r}; "
+            f"registered: {sorted(PIPELINE_PROFILES)}")
+    for attr, on in PIPELINE_PROFILES[name]["flags"].items():
+        env = Flags.ENV_NAMES[attr]
+        if override or env not in os.environ:
+            os.environ[env] = "1" if on else "0"
+        # Flags are class attrs frozen at import; applying a profile at
+        # runtime must update them too or the guard below sees stale values.
+        setattr(Flags, attr, bool(on))
+
+
+def active_profile() -> str:
+    """Named profile currently selected (QA_PIPELINE_PROFILE env), if any."""
+    return os.environ.get("QA_PIPELINE_PROFILE", "").strip()
+
+
+def current_matches_profile() -> tuple:
+    """Compare live flag values against every profile.
+
+    Returns (profile_name_or_None, mismatches) where mismatches lists
+    (env_name, profile_value, live_value) tuples for the best candidate.
+    """
+    live = {Flags.ENV_NAMES[k]: v for k, v in _live_flags().items()}
+    for name, prof in PIPELINE_PROFILES.items():
+        want = {Flags.ENV_NAMES[k]: v for k, v in prof["flags"].items()}
+        mism = [(e, want[e], live[e]) for e in want if live.get(e) != want[e]]
+        if not mism:
+            return name, []
+    return None, []
+
+
+def _live_flags() -> dict:
+    return {attr: getattr(Flags, attr) for attr in Flags.ENV_NAMES}
+
+
+def assert_production_profile() -> str:
+    """T040 hard guard: in production the flag combination MUST be a named
+    profile (QA_PIPELINE_PROFILE). Any deviation is a startup error, not a
+    warning — ad-hoc combinations are how silent half-migrations ship.
+
+    Returns the validated profile name. Raises RuntimeError on violation.
+    Non-production (TECH_DB_ENV != production) is exempt: tests/dev may flip
+    individual flags.
+    """
+    if os.environ.get("TECH_DB_ENV", "").strip().lower() != "production":
+        return active_profile() or DEFAULT_PROFILE
+    name = active_profile()
+    if not name:
+        raise RuntimeError(
+            "production requires QA_PIPELINE_PROFILE to be set to a named "
+            f"profile (one of {sorted(PIPELINE_PROFILES)}); "
+            "ad-hoc flag combinations are not allowed")
+    if name not in PIPELINE_PROFILES:
+        raise RuntimeError(
+            f"QA_PIPELINE_PROFILE={name!r} is not a registered profile; "
+            f"registered: {sorted(PIPELINE_PROFILES)}")
+    matched, mism = current_matches_profile()
+    if matched != name:
+        raise RuntimeError(
+            f"production profile {name!r} is active but live flags deviate "
+            f"from it ({mism[:5]}); set flags exclusively via the profile")
+    return name

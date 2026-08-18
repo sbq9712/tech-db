@@ -235,3 +235,157 @@ def count_independent_sources(record_indices: list, provenance_map: dict) -> int
         else:
             groups.add(f"unique-{idx}")
     return len(groups)
+
+
+# ── T048: Claim-level / span-level source lineage ─────────────────────────
+# Document-level provenance says "this RECORD is a repost of X". Span-level
+# lineage says "THIS evidence span quotes an official statement" vs "this
+# span is the outlet's own reporting/testing" — the same article can contain
+# both. Uncertainty is preserved (provenance_confidence), never flattened to
+# a binary verdict.
+
+# Attribution markers: a span whose text explicitly attributes its content
+# to a primary source is quoted_primary, NOT the publisher's own reporting.
+_ATTRIBUTION_MARKERS = (
+    "新闻稿", "官方声明", "公告称", "在声明中表示", "根据官方", "公司表示",
+    "新闻中心", "press release", "according to", "in a statement",
+    "told reporters", "发布会上表示", "受访者表示",
+)
+# Own-reporting markers: outlet's own testing/interview/verification.
+_OWN_REPORTING_MARKERS = (
+    "本报记者", "本报测试", "实测", "我们的测试", "独立测试", "试驾", "评测",
+    "our testing", "we tested", "our benchmark", "exclusive interview",
+    "采访中透露", "独家采访",
+)
+
+
+def span_lineage(record: dict, provenance_entry: dict,
+                 span_text: str = "") -> dict:
+    """Compute span-level source role (T048).
+
+    record: the lite record (t/source/domain fields) or its metadata
+    provenance_entry: output of T008 clustering for this record
+    span_text: the exact evidence span (markers inside the span win over
+               document-level defaults)
+
+    Returns lineage dict — attached to each claim support entry by
+    claim_mapping so independence is counted per claim/span, and no
+    media-quoting-official span is ever miscounted as independent
+    verification.
+    """
+    span = span_text or ""
+    publisher = (record.get("source") or record.get("source_domain")
+                 or record.get("org") or "unknown")
+    original = (provenance_entry.get("original_source_org")
+                or provenance_entry.get("original_url")
+                or None)
+    doc_role = provenance_entry.get("evidence_role") or "unknown"
+
+    quoted_primary = False
+    own_reporting = False
+    marker = None
+    for m in _ATTRIBUTION_MARKERS:
+        if m in span:
+            quoted_primary, marker = True, m
+            break
+    if not quoted_primary:
+        for m in _OWN_REPORTING_MARKERS:
+            if m in span:
+                own_reporting, marker = True, m
+                break
+
+    if quoted_primary:
+        span_role = "quoted_primary_source"
+    elif own_reporting:
+        span_role = "independent_reporting"
+    elif doc_role == "self_reported":
+        span_role = "self_reported"
+    elif doc_role == "independent":
+        span_role = "independent_reporting"
+    elif doc_role == "primary":
+        span_role = "primary_statement"
+    else:
+        span_role = "unknown"
+
+    confidence = provenance_entry.get("provenance_confidence", "low")
+    if marker and confidence in ("high", "medium"):
+        # explicit in-span marker beats document-level inference
+        confidence = "high"
+
+    return {
+        "span_source_role": span_role,
+        "quoted_primary_source": quoted_primary,
+        "independent_reporting": own_reporting or span_role == "independent_reporting",
+        "document_publisher": publisher,
+        "document_role": doc_role,
+        "provenance_root_id": provenance_entry.get("provenance_root_id"),
+        "independent_group_id": provenance_entry.get("independent_group_id"),
+        "same_origin_probability": provenance_entry.get("same_origin_probability", 0.0),
+        "provenance_confidence": confidence,   # uncertainty preserved, not binary
+        "lineage_marker": marker,
+    }
+
+
+def claim_independence_report(claims: list,
+                              records_by_id: Optional[dict] = None,
+                              provenance_map: Optional[dict] = None) -> dict:
+    """T048: per-claim independence accounting for a claim mapping.
+
+    For each claim, group its supporting evidence by independent_group_id,
+    but quotes of a primary source do NOT add independence beyond the
+    primary's own group (5 outlets quoting one press release = 1
+    independent group, not 5). Returns a per-claim report plus a global
+    summary the grader/verifier can consume.
+    """
+    records_by_id = records_by_id or {}
+    provenance_map = provenance_map or {}
+    per_claim = []
+    for c in claims or []:
+        cid = c.get("claim_id") or c.get("id")
+        groups, roles = {}, []
+        # claim_mapping emits "supported_by"; spec examples use "support"
+        support = c.get("supported_by") or c.get("support") or []
+        for s in support:
+            rid = s.get("record_id")
+            rec = records_by_id.get(rid, {})
+            pm = provenance_map.get(rid, {})
+            lin = s.get("span_lineage") or span_lineage(rec, pm,
+                                                        s.get("evidence_span", ""))
+            gid = lin.get("independent_group_id") or f"record:{rid}"
+            entry = groups.setdefault(gid, {
+                "group": gid,
+                "roles": set(),
+                "quoted_primary": False,
+                "independent": False,
+                "records": [],
+            })
+            entry["records"].append(rid)
+            entry["roles"].add(lin.get("span_source_role", "unknown"))
+            if lin.get("quoted_primary_source"):
+                entry["quoted_primary"] = True
+            if lin.get("independent_reporting") or \
+                    lin.get("span_source_role") == "primary_statement":
+                entry["independent"] = True
+            roles.append(lin.get("span_source_role"))
+        # a group counts as independent validation only if it contains
+        # non-quoted, non-self-reported reporting (its own journalism/
+        # testing) or is itself the primary source
+        independent_groups = [g for g in groups.values() if g["independent"]]
+        per_claim.append({
+            "claim_id": cid,
+            "support_count": len(support),
+            "groups_total": len(groups),
+            "independent_groups": len(independent_groups),
+            "roles": roles,
+            "groups": [{"group": g["group"], "roles": sorted(g["roles"]),
+                        "quoted_primary": g["quoted_primary"],
+                        "independent": g["independent"],
+                        "records": g["records"]} for g in groups.values()],
+            "independence_sufficient": len(independent_groups) >= 1,
+        })
+    return {
+        "claims_total": len(per_claim),
+        "claims_with_independent_support": sum(
+            1 for p in per_claim if p["independence_sufficient"]),
+        "per_claim": per_claim,
+    }

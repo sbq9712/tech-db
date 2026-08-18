@@ -140,6 +140,9 @@ async def grade_evidence(
         "requirements": glm_result.get("requirements", []),
         "missing": glm_result.get("missing", []),
         "next_search_targets": glm_result.get("next_search_targets", []),
+        # T043: the governing sufficiency policy + its verdict, so every
+        # SUFFICIENT/INSUFFICIENT is reproducibly tied to a ruleset version
+        "sufficiency_policy": getattr(_run_rule_checks, "last_policy_verdict", None),
     }
 
 
@@ -200,6 +203,29 @@ def _run_rule_checks(
             "severity": "hard" if any(r["importance"] == "critical" for r in conflicted) else "soft",
             "detail": f"Conflicted requirements: {[r['id'] for r in conflicted]}",
         })
+
+    # Rule 6 (T043): claim-type sufficiency policy — the versioned policy
+    # registry replaces the old uniform "how many sources is enough"
+    # heuristic. Policy failures are tagged with policy_id so traces and
+    # release reports can cite the exact ruleset that produced the verdict.
+    try:
+        from sufficiency_policies import select_policy, evaluate_policy
+        _pol = select_policy({**router_result, "query": query})
+        _verdict = evaluate_policy(_pol, status, evidence_set, provenance_map,
+                                   temporal_intent=router_result.get("temporal_intent"))
+        for f in _verdict["failures"]:
+            failures.append({
+                "rule": f"sufficiency_policy:{f['rule']}",
+                "severity": f["severity"],
+                "detail": f["detail"],
+                "policy_id": _verdict["policy_id"],
+                "policy_version": _verdict["policy_version"],
+            })
+        _run_rule_checks.last_policy_verdict = _verdict
+    except Exception as e:  # fail-safe: policy engine faults degrade to
+        # the explicit rules above, never silently pass
+        print(f"[grader] sufficiency policy engine error: {e}", flush=True)
+        _run_rule_checks.last_policy_verdict = None
 
     return failures
 

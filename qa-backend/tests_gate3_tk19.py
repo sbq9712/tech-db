@@ -150,7 +150,9 @@ def test_research_rag_still_spends_loop_budget():
             calls["rerank"] += 1
             return results[:top_k]
 
-        async def fake_grade(q, ledger, sel, route):
+        async def fake_grade(q, ledger, sel, route, provenance_map=None):
+            # provenance_map kwarg matches real grade_evidence signature
+            # (T048: orchestrator now threads the per-round map through)
             calls["grade"] += 1
             return {"overall": "SUFFICIENT"}
 
