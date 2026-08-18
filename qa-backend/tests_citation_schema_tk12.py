@@ -53,13 +53,15 @@ def t_shape_legacy():
     try:
         ctx, cits = server.build_context(
             [_fake_result(0), _fake_result(1)], query="solid state electrolyte")
-        assert len(cits) == 2
+        # RT-015 supersedes the old AI_SUMMARY citation contract: the
+        # retrieval-only summary may be a hint, never factual context/citation.
+        assert len(cits) == 1
         for c in cits:
             for f in FULL_FIELDS:
                 assert f in c, f"{f} missing in {c.get('id')}"
         # defaults present pre-grounding
         assert cits[0]["source_label"] == "ORIGINAL"      # has body b
-        assert cits[1]["source_label"] == "AI_SUMMARY"    # as-only record
+        assert "AI生成的合成摘要" not in ctx
         assert cits[0]["supports_claim_ids"] == []
         assert cits[0]["grounding_status"] == "UNGROUND"
     finally:

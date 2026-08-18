@@ -64,6 +64,18 @@ jobs:
         with: {python-version: "3.12"}
       - run: cd qa-backend && python tests_synthetic_tk20.py
 
+  phase01-stable-evidence-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir numpy
+      - run: python qa-backend/tests_remediation_phase01.py
+      - run: python scripts/run_phase01_benchmark.py --output /tmp/phase01_retrieval_benchmark.json
+      - run: python scripts/build_mini_runtime.py --verify
+
   fast-regression:
     runs-on: ubuntu-latest
     steps:

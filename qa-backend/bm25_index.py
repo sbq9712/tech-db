@@ -15,6 +15,7 @@ from rank_bm25 import BM25Okapi
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import WORKING_DIR
+from primary_evidence import primary_bm25_text
 
 REPO = Path(__file__).resolve().parent.parent
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
@@ -74,37 +75,11 @@ def save_jieba_dict(terms: set, path: Path):
 
 
 def format_bm25_text(rec: dict) -> str:
-    """Full-text for BM25: title + summary + body + key params + tags + type.
+    """Source-grounded full text for the primary BM25 index.
 
     BM25 thrives on text volume — include everything available.
     """
-    parts = []
-
-    title = rec.get("t", "") or ""
-    if title:
-        parts.append(title)
-
-    as_text = rec.get("as", "") or ""
-    if as_text:
-        parts.append(as_text)
-
-    body = rec.get("b", "") or rec.get("fb", "") or ""
-    if body:
-        parts.append(body)
-
-    kp = rec.get("kp", []) or []
-    if isinstance(kp, list) and kp:
-        parts.append(" ".join(str(k) for k in kp))
-
-    tg = rec.get("tg", "") or ""
-    if tg:
-        parts.append(tg)
-
-    tp = rec.get("tp", "") or ""
-    if tp:
-        parts.append(tp)
-
-    return " ".join(parts)
+    return primary_bm25_text(rec)
 
 
 def tokenize(text: str) -> list:
@@ -120,6 +95,9 @@ def build_bm25_index():
     # 1. Load records
     print(f"\n[1/4] Loading records...", flush=True)
     data = json.loads(LITE.read_text("utf-8"))
+    missing_stable = [i for i, record in enumerate(data) if not record.get("record_id")]
+    if missing_stable:
+        raise RuntimeError(f"stable RecordIdMap migration required before BM25 rebuild ({len(missing_stable)} records missing record_id)")
 
     # Build canonical set (same as vector index)
     canonical = []
@@ -151,6 +129,7 @@ def build_bm25_index():
         corpus.append(tokens)
         meta.append({
             "idx": orig_idx,
+            "record_id": rec.get("record_id", ""),
             "t": rec.get("t", ""),
             "c": rec.get("c", ""),
             "d": rec.get("d", ""),

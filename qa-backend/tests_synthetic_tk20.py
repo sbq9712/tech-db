@@ -83,11 +83,8 @@ def test_unanchored_entries_are_documented():
                 f"{e['id']}: unanchored title entry without TK-20 rationale"
 
 
-def test_index_keeps_as_retrievable():
-    """Q19: the index keeps `as` — the isolation is eval-side only. Verify a
-    citation built from an as-only record (no body) gets source_label
-    AI_SUMMARY from the seam (TK-12), i.e. synthetic text stays labelled when
-    it does surface in answers."""
+def test_as_only_hint_is_not_citable():
+    """RT-015 supersedes Q19: as-only material cannot become evidence."""
     import server
     # find one as-only record and build its citation via build_context
     records = _records()
@@ -99,10 +96,8 @@ def test_index_keeps_as_retrievable():
     }]
     server._records = records  # inject so the seam resolves the record
     ctx, citations = server.build_context(fake_result, "测试")
-    assert citations, "no citations built"
-    c = citations[0]
-    assert c.get("source_label") == "AI_SUMMARY", \
-        f"as-only citation must be labelled AI_SUMMARY, got {c.get('source_label')}"
+    assert not citations, "as-only retrieval hint must not become a citation"
+    assert not ctx, "as-only retrieval hint must not enter factual context"
 
 
 def test_body_records_label_original():
@@ -136,12 +131,12 @@ def test_lock_covers_current_entries():
 
 
 if __name__ == "__main__":
-    print("TK-20 — eval-side synthetic isolation (T049/Q19)")
+    print("TK-20 / RT-015 — synthetic evidence isolation")
     check("holdout anchors contain no as-only records",
           _require_real("anchors", test_holdout_has_no_as_only_anchors))
     check("unanchored entries carry TK-20 rationale", test_unanchored_entries_are_documented)
-    check("as-only citation labelled AI_SUMMARY (TK-12 linkage)",
-          _require_real("as-label", test_index_keeps_as_retrievable))
+    check("as-only hint cannot enter factual context/citations",
+          _require_real("as-isolation", test_as_only_hint_is_not_citable))
     check("original-body citation labelled ORIGINAL",
           _require_real("orig-label", test_body_records_label_original))
     check("holdout lock re-issued (Q17 dedicated unlock)", test_lock_covers_current_entries)

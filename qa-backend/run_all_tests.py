@@ -61,6 +61,7 @@ SUITES = {
     "sufficiency_tk26": ("tests_sufficiency_tk26.py", "push"),
     "span_lineage_tk27": ("tests_span_lineage_tk27.py", "push"),
     "remediation_phase00": ("tests_remediation_phase00.py", "push"),
+    "remediation_phase01": ("tests_remediation_phase01.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),
 }
 

@@ -15,6 +15,7 @@ Run:
   .venv/bin/python qa-backend/server.py
 """
 import os
+from contextvars import ContextVar
 import sys
 import json
 import pickle
@@ -84,6 +85,16 @@ _entity_index = None  # entity_name -> set of record indices
 _graph_adj = None     # entity_name -> set of neighbor entity_names (adjacency from edges)
 _graph_nodes = None   # entity_name -> node info dict (type, degree, description)
 _idx_to_meta = None   # record_idx -> meta dict (fast lookup, avoids linear scan)
+_request_runtime_snapshot = ContextVar("techdb_runtime_snapshot", default=None)
+
+
+def _runtime_resource(name, legacy_value):
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is None:
+        return legacy_value
+    if name not in snapshot.resources:
+        raise RuntimeError(f"pinned runtime {snapshot.manifest_id} missing resource {name}")
+    return snapshot.resources[name]
 
 # ── RRF parameters ──
 RRF_K = 60          # RRF constant (1/(rank+k))
@@ -516,7 +527,7 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
     for n_str in nums:
         n = int(n_str)
         c = next((c for c in citations if c["id"] == n), None)
-        if c and c.get("record_id", -1) >= 0:
+        if c and c.get("record_id") not in (None, -1, ""):
             result.append(c["record_id"])
     return list(dict.fromkeys(result))  # dedupe, preserve order
 
@@ -594,6 +605,26 @@ def _bm25_tokenize(query: str) -> list:
 def _get_retrieval_pipeline():
     """Build the unified retrieval pipeline over the loaded indexes (lazy)."""
     global _retrieval_pipeline
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is not None:
+        resources = snapshot.resources
+        if "retrieval_pipeline" in resources:
+            return resources["retrieval_pipeline"]
+        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
+        required = ("vector_index", "index_meta", "bm25_index", "bm25_meta")
+        missing = [name for name in required if name not in resources]
+        if missing:
+            raise RuntimeError(f"pinned runtime {snapshot.manifest_id} incomplete: {missing}")
+        graph_fn = resources.get("graph_search", lambda q, k: [])
+        pipeline = (
+            VectorRetriever(embeddings=resources["vector_index"], meta=resources["index_meta"]),
+            BM25Retriever(bm25_index=resources["bm25_index"], meta=resources["bm25_meta"], tokenize_fn=_bm25_tokenize),
+            GraphRetriever(graph_search_fn=lambda q, k: [(r["meta"]["idx"], r["score"]) for r in graph_fn(q, k)]),
+            RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K),
+        )
+        resources["retrieval_pipeline"] = pipeline
+        resources["idx_to_meta"] = {m["idx"]: m for m in resources["index_meta"]}
+        return pipeline
     if _retrieval_pipeline is None:
         from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
         load_vector_index()
@@ -662,12 +693,17 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
 
     # Rebuild meta lookup lazily (graph-only records need full meta)
     global _idx_to_meta
-    if _idx_to_meta is None:
-        _idx_to_meta = {m["idx"]: m for m in _index_meta}
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is not None:
+        meta_lookup = snapshot.resources["idx_to_meta"]
+    else:
+        if _idx_to_meta is None:
+            _idx_to_meta = {m["idx"]: m for m in _index_meta}
+        meta_lookup = _idx_to_meta
 
     results = []
     for r in fused:
-        meta = _idx_to_meta.get(r.record_id, r.meta or {})
+        meta = meta_lookup.get(r.record_id, r.meta or {})
         det = r.route_details or {}
         results.append({
             "meta": meta,
@@ -831,7 +867,8 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
 
 def build_context(search_results: list, query: str = "") -> tuple:
     """Build context string and citations from search results."""
-    records = load_records()
+    records = (_runtime_resource("records", None)
+               if _request_runtime_snapshot.get() is not None else load_records())
     citations = []
     context_parts = []
 
@@ -846,8 +883,10 @@ def build_context(search_results: list, query: str = "") -> tuple:
         title = record.get("t", "") or ""
         date = record.get("d", "") or ""
         source = record.get("a", record.get("s", "")) or ""
-        body = record.get("b", "") or record.get("fb", "") or ""
-        ai_summary = record.get("as", "") or ""
+        from primary_evidence import source_evidence_text
+        body = source_evidence_text(record)
+        if not body or record.get("evidence_eligibility") in {"RETRIEVAL_ONLY", "QUARANTINED"}:
+            continue
         cat = record.get("c", "") or ""
         tags = record.get("tg", [])
         if isinstance(tags, str):
@@ -856,22 +895,24 @@ def build_context(search_results: list, query: str = "") -> tuple:
         sc = record.get("sc", 0)
 
         # Add to context
+        citation_number = len(citations) + 1
         context_parts.append(
-            f"[{i+1}] [{cat}] {title} ({date})\n"
+            f"[{citation_number}] [{cat}] {title} ({date})\n"
             f"来源: {source}\n"
-            f"摘要: {ai_summary[:300] if ai_summary else body[:300]}\n"
+            f"证据摘录: {body[:300]}\n"
             f"相似度: {score:.2f}"
         )
 
         # Build citation with query-relevant excerpt
         if query:
-            snippet = extract_relevant_excerpt(body, query, ai_summary, max_length=200)
+            snippet = extract_relevant_excerpt(body, query, "", max_length=200)
         else:
-            snippet = body[:200] if body else (ai_summary[:200] if ai_summary else "")
+            snippet = body[:200]
 
         citations.append({
-            "id": i + 1,
-            "record_id": orig_idx,
+            "id": citation_number,
+            "record_id": meta.get("record_id") or record.get("record_id") or orig_idx,
+            "legacy_idx": orig_idx,
             "title": title,
             "date": date,
             "source": source,
@@ -885,7 +926,7 @@ def build_context(search_results: list, query: str = "") -> tuple:
             # ── TK-12: full citation schema (Q12/R8) ──
             # source_label: snippet provenance — records whose only text is the
             # AI-generated summary (as, no b/fb body) are labeled AI_SUMMARY.
-            "source_label": ("AI_SUMMARY" if (ai_summary and not body) else "ORIGINAL"),
+            "source_label": "ORIGINAL",
             # evidence_spans: filled by T003 grounding; empty until grounded.
             "evidence_spans": [],
             # supports_claim_ids: filled by T004 claim mapping (agentic only —
@@ -944,838 +985,17 @@ async def lifespan(app: FastAPI):
 # ── FastAPI App ──
 app = FastAPI(title="Tech-DB Q&A API", lifespan=lifespan)
 
+# RT-017: deployments configure this with a validated RuntimeSnapshotManager.
+# The wrapper below holds the pin for the complete SSE iterator lifetime.
+_runtime_snapshot_manager = None
+
+
+def configure_runtime_snapshot_manager(manager):
+    global _runtime_snapshot_manager
+    _runtime_snapshot_manager = manager
+
 allowed_origins = [
     origin.strip()
     for origin in os.environ.get(
         "QA_CORS_ORIGINS",
-        "https://sbq9712.github.io,http://localhost:8000,http://localhost:8097",
-    ).split(",")
-    if origin.strip()
-]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=allowed_origins,
-    allow_credentials=False,
-    allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type", "X-Admin-Key"],
-)
-
-
-# ── Endpoints ──
-
-@app.get("/api/shadow/report")
-async def shadow_report():
-    """TK-17 (Q18/R1): aggregate shadow diff report (id overlap / TTFB / errors).
-
-    Only meaningful when QA_SHADOW_RETRIEVAL=1; always safe to call.
-    """
-    return {
-        "shadow_enabled": _SHADOW_RETRIEVAL,
-        **shadow_diff_report(),
-    }
-
-
-@app.get("/api/health")
-async def health():
-    return {
-        "status": "ok",
-        "model": MODEL_NAME,
-        "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
-        "graph_ready": _graph_data is not None,
-        "indexed_records": len(_index_meta) if _index_meta else 0,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
-        "total_records": len(_records) if _records else 0,
-        "feature_flags": Flags.status(),
-        "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
-        "retrieval_legacy": None,  # TK-23 contract: legacy path removed (was escape hatch)
-        "limits": {
-            "per_minute": GUARDRAILS.per_minute,
-            "per_client_day": GUARDRAILS.per_client_day,
-            "global_day": GUARDRAILS.global_day,
-            "concurrency": GUARDRAILS.concurrency,
-        },
-        "budget": BUDGET_FUSE.status(),
-        # TK-09 (codex-review P2): LLM HTTP calls abandoned by TTFB-guard
-        # timeouts — bounded executor + socket timeout keeps the tail short
-        "llm_http_abandoned": llm_abandoned_stats(),
-        "time": datetime.now().isoformat(),
-    }
-
-
-@app.post("/api/chat/stream")
-async def chat_stream(req: ChatRequest, request: Request):
-    """Streaming chat endpoint using SSE."""
-
-    query = req.query.strip()
-    if not query or len(query) > 2000:
-        return JSONResponse(
-            {"error": "问题不能为空，且长度不能超过 2000 个字符。"}, status_code=400
-        )
-
-    bypass = admin_bypass(GUARDRAILS.admin_key, request.headers.get("x-admin-key"))
-    socket_ip = request.client.host if request.client else "unknown"
-    client_id = client_identifier(request.headers, socket_ip)
-    allowed, reason, retry_after = RATE_LIMITER.check(client_id, bypass=bypass)
-    if not allowed:
-        return JSONResponse(
-            {"error": reason, "retry_after": retry_after},
-            status_code=429,
-            headers={"Retry-After": str(retry_after)},
-        )
-
-    try:
-        await asyncio.wait_for(CHAT_SEMAPHORE.acquire(), timeout=0.05)
-    except asyncio.TimeoutError:
-        return JSONResponse(
-            {"error": "当前问答请求较多，请稍后重试。", "retry_after": 5},
-            status_code=429,
-            headers={"Retry-After": "5"},
-        )
-
-    async def event_generator():
-        trace = TraceContext.create(query, req.history[-1].get("content", "")[:100] if req.history else "")
-        try:
-            # Step 1: Retrieval
-            yield {"event": "status", "data": json.dumps({
-                "step": "retrieving",
-                "message": "正在检索相关知识..."
-            })}
-
-            if _vector_index is None:
-                yield {"event": "error", "data": json.dumps({
-                    "message": "向量索引尚未构建。请运行: python qa-backend/vector_index.py"
-                })}
-                return
-
-            # TK-09 (codex-review P1): TTFB 口径 = rewrite + retrieval + control
-            # (all pre-first-answer-byte backend work) — the guard clock starts
-            # BEFORE the follow-up rewrite so unbounded rewrite latency can't
-            # hide outside the budget on follow-up queries with history.
-            _t0_pre_answer = _time.perf_counter()
-            _ttfb_degraded = False
-
-            # Rewrite follow-up query + detect novelty intent (single LLM call)
-            search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
-            trace.add_stage("rewrite", {
-                "original_query": query[:200],
-                "rewritten_query": search_query[:200],
-                "seeking_novelty": seeking_novelty,
-                "reason": _reason[:100] if _reason else "",
-            })
-
-            # Check if previous round had no results (avoid "infinite no results" loop)
-            prev_assistant = next((m for m in reversed(req.history)
-                                   if m.get("role") == "assistant"), None)
-            prev_has_results = bool(
-                prev_assistant and
-                (prev_assistant.get("searched_record_ids") or
-                 prev_assistant.get("cited_record_ids"))
-            )
-
-            # Build exclude_ids: global accumulation of all prior assistant turns'
-            # cited record_ids. Only triggered when seeking novelty AND previous
-            # round had results.
-            #
-            # CRITICAL: use `is not None` to distinguish "field absent" (old data →
-            # fall back to searched_record_ids) from "field present but empty"
-            # (new data, LLM cited nothing → exclude nothing from this turn).
-            exclude_ids = set()
-            if seeking_novelty and prev_has_results:
-                assistant_msgs = [m for m in req.history if m.get("role") == "assistant"]
-                for msg in assistant_msgs:
-                    cited = msg.get("cited_record_ids")
-                    if cited is not None:
-                        ids = cited
-                    else:
-                        ids = msg.get("searched_record_ids") or []
-                    exclude_ids.update(ids)
-                if exclude_ids:
-                    print(f"[search] Novelty query, excluding {len(exclude_ids)} records "
-                          f"(global accumulated)", flush=True)
-
-            # ── Agentic RAG Path ──
-            # When QA_AGENTIC_ENABLED is true, use the full agentic loop
-            # (Router → Decompose → Plan → Iterative Retrieval → Grade → Gap → ...)
-            # instead of the simple single-pass RAG path below.
-            _agentic_succeeded = False
-            if Flags.AGENTIC_ENABLED:
-                from orchestrator import run_agentic_loop
-
-                # Wrap hybrid_search for the orchestrator's search_fn interface.
-                # Codex-review fix (P1): the novelty accumulator (all records
-                # cited in prior assistant turns) must apply to the agentic
-                # path too — a follow-up asking for NEW information must not
-                # re-serve previously cited records.
-                _novelty_exclude = set(exclude_ids or set())
-
-                async def _orchestrator_search_fn(q, exclude=None):
-                    merged = _novelty_exclude | (exclude or set())
-                    return await hybrid_search(q, exclude_ids=merged or None)
-
-                try:
-                    # TK-09: TTFB guard — the agentic loop (router+retrieval+
-                    # control, all pre-first-byte backend work) must fit within
-                    # legacy-TTFB-baseline + Δ; on timeout the query degrades
-                    # to the legacy single-pass path (spec Q10/R2).
-                    # Codex-review fix (P1): the clock started before the
-                    # follow-up rewrite, so the wait_for budget is the
-                    # REMAINING time — rewrite latency counts against it.
-                    _ttfb = ttfb_snapshot()
-                    _elapsed_s = _time.perf_counter() - _t0_pre_answer
-                    _remaining_s = guard_budget_s() - _elapsed_s
-                    trace.add_stage("ttfb_guard", {
-                        **_ttfb,
-                        "elapsed_before_agentic_ms": round(_elapsed_s * 1000, 1),
-                        "remaining_budget_ms": round(max(0.0, _remaining_s) * 1000, 1),
-                    })
-                    if _remaining_s <= 0.05:
-                        # Rewrite (or earlier pre-answer work) already consumed
-                        # the whole guard budget → degrade without attempting
-                        # the agentic loop (attempting it can only overrun).
-                        print(f"[agentic] TTFB budget spent pre-loop "
-                              f"({ _elapsed_s:.1f}s), degrading to legacy", flush=True)
-                        trace.add_stage("ttfb_degrade", {
-                            "budget_ms": _ttfb["guard_ms"],
-                            "elapsed_ms": round(_elapsed_s * 1000, 1),
-                            "action": "degrade_to_legacy",
-                            "reason": "budget_spent_before_loop",
-                        })
-                        _ttfb_degraded = True
-                    else:
-                        agentic_state = await asyncio.wait_for(
-                            run_agentic_loop(
-                                query=query,
-                                rewritten_query=search_query,
-                                history=req.history,
-                                search_fn=_orchestrator_search_fn,
-                                trace=trace,
-                                bypass_budget=getattr(req, 'bypass_budget', False),
-                            ),
-                            timeout=_remaining_s,
-                        )
-
-                    if not _ttfb_degraded:
-                        # Use agentic results for the rest of the pipeline
-                        search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
-                        is_relevant = len(search_results) > 0
-                        search_status = agentic_state.stop_reason or "agentic_complete"
-                        _agentic_succeeded = True
-
-                        trace.add_stage("agentic_complete", {
-                            "iterations": agentic_state.iteration,
-                            "mode": agentic_state.router_result.get("mode", ""),
-                            "stop_reason": agentic_state.stop_reason,
-                            "total_results": len(agentic_state.all_results),
-                            "answer_status": agentic_state.answer_status,
-                        })
-                except asyncio.TimeoutError:
-                    # TK-09: agentic loop exceeded legacy-TTFB-baseline + Δ →
-                    # degrade to legacy single-pass; answer still returns.
-                    print(f"[agentic] TTFB guard tripped "
-                          f"(>{guard_budget_s():.1f}s), degrading to legacy", flush=True)
-                    trace.add_stage("ttfb_degrade", {
-                        "budget_ms": ttfb_snapshot()["guard_ms"],
-                        "elapsed_ms": round((_time.perf_counter() - _t0_pre_answer) * 1000, 1),
-                        "action": "degrade_to_legacy",
-                        # honest accounting: the legacy fallback re-runs
-                        # retrieval outside the guard; the true total is
-                        # measured at ttfb_total (generation start)
-                        "fallback_outside_budget": True,
-                    })
-                    _ttfb_degraded = True
-                    # Fall through to standard path
-                except BudgetExceededError as be:
-                    # TK-08: loop-control hard cap tripped → degrade the whole
-                    # query to the legacy single-pass path; answer still returns.
-                    print(f"[agentic] Budget exceeded ({be.component}), "
-                          f"degrading to legacy: {be}", flush=True)
-                    trace.add_stage("budget_degrade", {
-                        "component": be.component,
-                        "budget": be.budget.snapshot(),
-                        "action": "degrade_to_legacy",
-                    })
-                    # Fall through to standard path
-                except Exception as e:
-                    print(f"[agentic] Orchestrator error, falling back: {e}", flush=True)
-                    import traceback
-                    traceback.print_exc()
-                    # Fall through to standard path
-
-            # Standard RAG path (only if agentic didn't run or failed)
-            if not _agentic_succeeded:
-                # Hybrid search (vector + BM25 + graph → RRF)
-                search_results, is_relevant, search_status = await hybrid_search(
-                    search_query, exclude_ids=exclude_ids if exclude_ids else None
-                )
-                trace.add_stage("retrieval_hybrid", {
-                    "query": search_query[:200],
-                    "result_count": len(search_results),
-                    "is_relevant": is_relevant,
-                    "status": search_status,
-                    "top_results": [
-                        {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
-                         "title": r["meta"].get("t", "")[:80]}
-                        for r in search_results[:10]
-                    ],
-                })
-
-            # Searched record ids for done event (backend-authoritative)
-            searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
-
-            if not search_results or not is_relevant:
-                # Codex-review C3 P2 fix: early unsupported exits (weak query /
-                # topic exhausted) previously returned WITHOUT the flag-gated
-                # knowledge-boundary message even with the TK-06 flag ON —
-                # the most common unsupported case missed the boundary.
-                _early_boundary = _no_evidence_boundary(
-                    query, search_status == "exhausted")
-                if search_status == "exhausted":
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "topic_exhausted",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                elif not prev_has_results and seeking_novelty:
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "weak_query",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                else:
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "weak_query",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                return
-
-            # Build context and citations
-            context, citations = build_context(search_results, query)
-
-            # ── Epistemic Claim Classification ──
-            # (skip if budget exhausted — epistemic is enhancement, not critical path)
-            claim_metadata = []
-            try:
-                classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                if classify_budget_ok:
-                    print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
-                    claim_metadata = await classify_claims(query, search_results, top_k=5)
-                    print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
-            except Exception as e:
-                print(f"[epistemic-classify] {e}", flush=True)
-
-            # Yield citations
-            if citations:
-                yield {"event": "citations", "data": json.dumps({"citations": citations})}
-
-            # Step 2: Analysis
-            yield {"event": "status", "data": json.dumps({
-                "step": "analyzing",
-                "message": f"找到 {len(citations)} 条相关记录，正在分析..."
-            })}
-
-            await asyncio.sleep(0.1)  # Small delay for UX
-
-            # Step 3: Generation
-            budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-            if not budget_ok:
-                trace.set_result(answer_status="UNVERIFIED", stop_reason="budget_exceeded")
-                trace.flush()
-                yield {"event": "error", "data": json.dumps({
-                    "message": "今日问答费用预算已达到上限，服务已自动暂停。",
-                    "answer_status": "UNVERIFIED",
-                    "stop_reason": "budget_exceeded",
-                    "trace_id": trace.trace_id,
-                })}
-                return
-
-            yield {"event": "status", "data": json.dumps({
-                "step": "generating",
-                "message": "正在生成回答..."
-            })}
-
-            # TK-09 (codex-review P1): total pre-first-answer-byte backend time
-            # (rewrite + retrieval + agentic control + epistemic classify).
-            # Measured at generation start so guard overruns — including the
-            # legacy fallback retrieval performed AFTER a ttfb_degrade — are
-            # visible rather than implicit.
-            trace.add_stage("ttfb_total", {
-                "pre_answer_ms": round((_time.perf_counter() - _t0_pre_answer) * 1000, 1),
-                "guard_ms": ttfb_snapshot()["guard_ms"],
-                "ttfb_degraded": _ttfb_degraded,
-                "agentic_succeeded": _agentic_succeeded,
-            })
-
-            # Build source list for prompt
-            source_list = "\n".join(
-                f"[{i+1}] {c['title']} ({c['date']}, {c['source']})"
-                for i, c in enumerate(citations)
-            )
-
-            # Build system prompt
-            base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
-
-要求：
-1. 只基于提供的资料回答，不要编造信息
-2. 在回答中用 [1][2] 等标注引用来源（对应来源列表的序号）
-3. 如果资料中没有相关信息，诚实回答"数据库中没有相关信息"
-4. 简单问题简短回答，复杂问题详细分析
-5. 使用中文回答，使用markdown格式
-6. 如果用户在追问补充信息，优先展示上一轮回答中未讨论过的角度和数据
-
-检索到的资料：
-{context}
-
-来源列表：
-{source_list}"""
-
-            # Enhance with epistemic protection rules
-            system_prompt = build_epistemic_system_prompt(base_prompt, claim_metadata)
-
-            # Build conversation history for LLM
-            llm_history = []
-            for msg in req.history[-6:]:
-                llm_history.append({
-                    "role": msg.get("role", "user"),
-                    "content": msg.get("content", ""),
-                })
-
-            full_answer = ""
-            try:
-                # Stream directly from LLM
-                async for chunk in llm_stream_func(
-                    prompt=query,
-                    system_prompt=system_prompt,
-                    history_messages=llm_history,
-                ):
-                    if chunk:
-                        full_answer += chunk
-                        yield {"event": "token", "data": json.dumps({"text": chunk})}
-            except Exception as e:
-                # Fallback: non-streaming
-                print(f"[stream-fallback] {e}", flush=True)
-                try:
-                    answer = await llm_model_func(
-                        query,
-                        system_prompt=system_prompt,
-                        history_messages=llm_history,
-                    )
-                    if answer:
-                        full_answer = answer
-                        for i in range(0, len(answer), 3):
-                            yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
-                            await asyncio.sleep(0.015)
-                except Exception as e2:
-                    yield {"event": "error", "data": json.dumps({
-                        "message": f"生成失败: {e2}"
-                    })}
-                    return
-
-            # Parse [N] citations from the generated answer
-            cited_record_ids = _parse_citations_from_answer(full_answer, citations)
-
-            # TK-08: post-processing budget — counted separately from the
-            # loop-control class; these calls NEVER degrade the agentic path
-            # and also run on the legacy path (spec Q4/R3).
-            _pp_budget = QueryBudget()
-
-            # ── T005: Fail-Safe Verification ──
-            # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
-            # Correctness-critical: BudgetFuse cannot silently skip this.
-            verification_status = "PASSED"
-            verification_issues = []
-            verification_error = ""  # TK-10: last failure cause, for the user warning
-            if claim_metadata and full_answer.strip():
-                try:
-                    # Use budget_guard to ensure correctness-critical handling
-                    budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    decision, should_call, status_override = check_budget("verifier", budget_ok)
-
-                    if should_call:
-                        print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                        _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
-                        vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
-                        verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
-                        if verification_status == VERIFY_UNVERIFIED:
-                            verification_error = vr.failure_reason or "verification returned UNVERIFIED"
-                        trace.add_stage("verification", {
-                            "status": vr.status,
-                            "issues": vr.issues[:5],
-                            "failure_reason": vr.failure_reason,
-                        })
-                        print(f"[verify] Result: {vr.status}", flush=True)
-                        if vr.status == VERIFY_FAILED:
-                            verification_issues = vr.issues
-                            rewritten = vr.rewritten_answer.strip()
-                            if rewritten and len(rewritten) > 20:
-                                full_answer = rewritten
-                                cited_record_ids = _parse_citations_from_answer(full_answer, citations)
-                                yield {"event": "replace", "data": json.dumps({
-                                    "answer": full_answer,
-                                    "verified": True
-                                })}
-                    elif status_override:
-                        # Budget exhausted for correctness-critical verification
-                        # MUST NOT silently pass. Mark as UNVERIFIED.
-                        verification_status = status_override  # "UNVERIFIED"
-                        verification_error = "verification skipped due to budget"
-                        print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
-                        trace.add_stage("verification", {
-                            "status": "SKIPPED_BUDGET",
-                            "note": f"Verification skipped due to budget; answer marked {verification_status}",
-                            "budget_guard": decision.value,
-                        })
-                except Exception as e:
-                    # Any exception → UNVERIFIED, never PASS
-                    verification_status = VERIFY_UNVERIFIED
-                    verification_error = str(e)
-                    print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
-                    trace.add_stage("verification", {
-                        "status": "EXCEPTION",
-                        "error": str(e),
-                        "api_failure": looks_like_api_failure(str(e)),  # TK-10
-                    })
-
-            # ── T004: Claim Mapping ──
-            claim_map = {"claims": []}
-            if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
-                try:
-                    claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    if claim_budget_ok:
-                        _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
-                        claim_map = await map_claims_to_citations(query, full_answer, citations)
-                        # T048: attach span-level source lineage so independence
-                        # is counted per claim/span (quotes of a primary source
-                        # never count as independent verification). Deterministic,
-                        # no LLM; failures degrade to lineage-less claims.
-                        # evidence_role uses the SAME canonical classifier as
-                        # T007's offline enrichment (scripts/enrich_evidence_
-                        # metadata.py), re-derived online for cited records.
-                        try:
-                            import sys as _sys, os as _os
-                            _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
-                            _scripts = _os.path.join(_root, "scripts")
-                            for _p in (_scripts,):
-                                if _p not in _sys.path:
-                                    _sys.path.insert(0, _p)
-                            from enrich_evidence_metadata import infer_evidence_role
-                            from claim_mapping import attach_span_lineage, claim_independence
-                            _prov_map = {}
-                            for c in citations:
-                                rid = c.get("record_id")
-                                if rid is not None and 0 <= rid < len(_records):
-                                    _rec = _records[rid]
-                                    _prov_map[rid] = {
-                                        "evidence_role": infer_evidence_role(_rec),
-                                        "independent_group_id": f"record:{rid}",
-                                    }
-                            attach_span_lineage(claim_map, citations,
-                                                provenance_map=_prov_map)
-                            _indep = claim_independence(claim_map, _prov_map)
-                            trace.add_stage("claim_independence", {
-                                "claims_total": _indep["claims_total"],
-                                "claims_with_independent_support":
-                                    _indep["claims_with_independent_support"],
-                            })
-                        except Exception as e:
-                            print(f"[claim_lineage] Error: {e}", flush=True)
-                        trace.add_stage("claim_mapping", {
-                            "total_claims": len(claim_map.get("claims", [])),
-                            "unsupported_major": len(get_unsupported_major_claims(claim_map)),
-                        })
-                except Exception as e:
-                    print(f"[claim_mapping] Error: {e}", flush=True)
-            # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
-            # supported_by map (citation_id → [claim ids]). Filled whenever
-            # claim_mapping ran (agentic); stays [] otherwise and the UI hides
-            # the mapping section.
-            if claim_map.get("claims"):
-                _by_cit = {}
-                for cl in claim_map["claims"]:
-                    for sup in (cl.get("supported_by") or []):
-                        # Codex-review B2 P2 fix: only genuinely SUPPORTIVE
-                        # relations belong in supports_claim_ids — including
-                        # CONTRADICTS/BACKGROUND made contradictions render
-                        # as claim support in the evidence card. Keep
-                        # BACKGROUND-context relations out of the card too:
-                        # the card's contract is "this citation supports this
-                        # claim" (TK-12), not "merely related".
-                        if sup.get("relation") not in ("DIRECT_SUPPORT",
-                                                       "PREMISE_SUPPORT",
-                                                       "ATTRIBUTION"):
-                            continue
-                        cid = sup.get("citation_id")
-                        if cid is not None:
-                            _by_cit.setdefault(cid, []).append(cl.get("id"))
-                for c in citations:
-                    c["supports_claim_ids"] = _by_cit.get(c.get("id"), [])
-
-            # ── T003: Citation Evidence Grounding ──
-            # Ground each citation to exact original text span
-            if Flags.CITATION_GROUNDING_ENABLED and citations:
-                for c in citations:
-                    try:
-                        rid = c.get("record_id", -1)
-                        if rid >= 0 and rid < len(_records):
-                            rec = _records[rid]
-                            grounding = ground_citation_evidence(
-                                rec,
-                                proposed_span=c.get("excerpt") or c.get("body_snippet", ""),
-                                claim_text="",
-                                query=query,
-                            )
-                            if grounding["grounding_status"] != "GROUNDING_FAIL":
-                                c["evidence_span"] = grounding["evidence_span"]
-                                c["evidence_start"] = grounding["start_offset"]
-                                c["evidence_end"] = grounding["end_offset"]
-                                c["grounding_status"] = grounding["grounding_status"]
-                                # TK-12: list-form spans + highlight (str, spec Q12)
-                                c["evidence_spans"] = [{
-                                    "text": grounding["evidence_span"],
-                                    "start": grounding["start_offset"],
-                                    "end": grounding["end_offset"],
-                                }]
-                                c["highlight"] = grounding["evidence_span"]
-                                # TK-12: refine source_label when the grounded
-                                # span actually came from the AI summary field
-                                if grounding.get("source_field") == "as":
-                                    c["source_label"] = "AI_SUMMARY"
-                            else:
-                                c["evidence_span"] = c.get("excerpt") or c.get("body_snippet", "")
-                                c["grounding_status"] = "GROUNDING_FAIL"
-                                c["evidence_spans"] = []
-                    except Exception:
-                        pass
-                trace.add_stage("citation_grounding", {
-                    "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
-                    "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
-                })
-            trace.add_stage("post_budget", _pp_budget.snapshot())
-
-            # ── T006: Four-State Answer Status ──
-            answer_status_str = "SUPPORTED"
-            stop_reason = "evidence_sufficient"
-            if Flags.ANSWER_STATUS_ENABLED:
-                status_enum, stop_reason = determine_answer_status(
-                    has_results=bool(search_results),
-                    is_relevant=is_relevant,
-                    verification_status=verification_status,
-                    claim_mapping=claim_map,
-                )
-                answer_status_str = status_enum.value
-
-            # ── TK-06 (R9): Knowledge boundary / calibrated abstention ──
-            # Non-LLM: for UNSUPPORTED/PARTIALLY_SUPPORTED answers, attach a
-            # calibrated boundary message ("当前数据库缺少…" ≠ "现实中不存在")
-            # so the user understands the boundary is the DB's, not reality's.
-            boundary_message = ""
-            if Flags.KNOWLEDGE_BOUNDARY_ENABLED and answer_status_str in (
-                    "UNSUPPORTED", "PARTIALLY_SUPPORTED"):
-                try:
-                    from knowledge_boundary import (
-                        assess_coverage, format_boundary_message, AnswerStatus as KBStatus,
-                    )
-                    grounded = sum(1 for c in citations
-                                   if c.get("grounding_status") in ("VALID", "FUZZY"))
-                    independent = len({c.get("source", "") for c in citations})
-                    claim_rows = claim_map.get("claims", [])[:5]
-                    # codex-review C3 P2 fix: claim schema is
-                    # {id, text, support_status} (claim_mapping.py) — the old
-                    # reads of .status/.claim were always-missing keys, so
-                    # requirements defaulted to all-MISSING and aspect lists
-                    # were always empty. Also map the claim vocabulary
-                    # (SUPPORTED/PARTIALLY_SUPPORTED/UNSUPPORTED) onto
-                    # assess_coverage's requirement vocabulary
-                    # (SUPPORTED/PARTIAL/MISSING).
-                    _req_status = {"SUPPORTED": "SUPPORTED",
-                                   "PARTIALLY_SUPPORTED": "PARTIAL",
-                                   "UNSUPPORTED": "MISSING"}
-                    requirements = [{"status": _req_status.get(
-                                        c.get("support_status", "UNSUPPORTED"), "MISSING"),
-                                     "text": c.get("text", "")}
-                                    for c in claim_rows] or \
-                                   [{"status": "MISSING", "text": query}]
-                    coverage = assess_coverage(
-                        requirements=requirements,
-                        evidence_count=grounded,
-                        independent_groups=independent,
-                    )
-                    kb_status = (KBStatus.UNSUPPORTED if answer_status_str == "UNSUPPORTED"
-                                 else KBStatus.PARTIALLY_SUPPORTED)
-                    supported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
-                                         if c.get("support_status") == "SUPPORTED"][:5]
-                    unsupported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
-                                           if c.get("support_status") != "SUPPORTED"][:5]
-                    boundary_message = format_boundary_message(
-                        answer_status=kb_status,
-                        supported_aspects=supported_aspects,
-                        unsupported_aspects=unsupported_aspects or [query],
-                        coverage_level=coverage,
-                    )
-                    trace.add_stage("knowledge_boundary", {
-                        "coverage_level": coverage,
-                        "independent_sources": independent,
-                        "grounded_citations": grounded,
-                    })
-                except Exception as e:
-                    print(f"[knowledge_boundary] Error: {e}", flush=True)
-
-            # ── TK-10 (Q11): GLM API failure → legacy result UNVERIFIED + user warning ──
-            user_warning = build_user_warning(
-                answer_status=answer_status_str,
-                verification_status=verification_status,
-                verification_error=verification_error,
-            )
-
-            evidence_summary = build_evidence_summary(
-                claim_mapping=claim_map,
-                independent_sources=len(set(c.get("source", "") for c in citations)),
-                iterations=1,
-            )
-
-            trace.set_result(
-                answer=full_answer[:500],
-                answer_status=answer_status_str,
-                stop_reason=stop_reason,
-                citations=citations,
-                cited_record_ids=cited_record_ids,
-                verification_status=verification_status,
-            )
-
-            yield {"event": "done", "data": json.dumps({
-                "answer": full_answer,
-                "citations": citations,
-                "claims": [{"id": c.get("id"), "text": c.get("text", "")[:120],
-                            "status": c.get("support_status", "")}
-                           for c in claim_map.get("claims", [])[:12]],
-                "cited_record_ids": cited_record_ids,
-                "searched_record_ids": searched_record_ids,
-                "answer_status": answer_status_str,
-                "stop_reason": stop_reason,
-                "boundary_message": boundary_message,
-                "user_warning": user_warning,
-                "evidence_summary": evidence_summary,
-                "trace_id": trace.trace_id,
-            })}
-
-            trace.flush()
-
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
-            trace.set_result(answer_status="UNVERIFIED", stop_reason="error", error=str(e)[:200])
-            trace.flush()
-            yield {"event": "error", "data": json.dumps({"message": str(e)})}
-        finally:
-            CHAT_SEMAPHORE.release()
-
-    return EventSourceResponse(event_generator())
-
-
-@app.get("/api/graph")
-async def get_graph(limit: int = 300):
-    """Get knowledge graph data for visualization."""
-    graph_file = WORKING_DIR / "graph-export.json"
-    if graph_file.exists():
-        data = json.loads(graph_file.read_text("utf-8"))
-        nodes = sorted(data.get("nodes", []), key=lambda n: n.get("degree", 0), reverse=True)
-        if limit and len(nodes) > limit:
-            top_node_ids = {n["id"] for n in nodes[:limit]}
-            nodes = nodes[:limit]
-            edges = [e for e in data.get("edges", [])
-                     if e["source"] in top_node_ids and e["target"] in top_node_ids]
-        else:
-            edges = data.get("edges", [])
-        return {
-            "nodes": nodes,
-            "edges": edges,
-            "total_nodes": len(data.get("nodes", [])),
-            "total_edges": len(data.get("edges", [])),
-        }
-    return {
-        "nodes": [],
-        "edges": [],
-        "total_nodes": 0,
-        "total_edges": 0,
-        "message": "Graph not yet built."
-    }
-
-
-@app.get("/api/stats")
-async def stats():
-    """Get system statistics."""
-    total = len(_records) if _records else 0
-    indexed = len(_index_meta) if _index_meta else 0
-
-    graph_file = WORKING_DIR / "graph-export.json"
-    nodes = edges = 0
-    if graph_file.exists():
-        graph = json.loads(graph_file.read_text("utf-8"))
-        nodes = len(graph.get("nodes", []))
-        edges = len(graph.get("edges", []))
-
-    return {
-        "total_records": total,
-        "indexed_records": indexed,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
-        "graph_nodes": nodes,
-        "graph_edges": edges,
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
-        "model": MODEL_NAME,
-    }
-
-
-@app.get("/api/search")
-async def search(q: str, top_k: int = 10):
-    """Quick vector search without LLM generation. Returns matching records."""
-    if _vector_index is None:
-        return JSONResponse(
-            {"error": "Vector index not loaded", "results": []},
-            status_code=503,
-        )
-    if not q.strip():
-        return {"results": [], "query": q}
-
-    results, _is_relevant, _status = await hybrid_search(q.strip())
-    context, citations = build_context(results, q.strip())
-    return {
-        "query": q,
-        "results": citations,
-        "total": len(citations),
-    }
-
-
-if __name__ == "__main__":
-    import uvicorn
-    # T040: production must run a named pipeline profile (no ad-hoc flag
-    # combos). TECH_DB_ENV=production without a valid QA_PIPELINE_PROFILE
-    # refuses to start — silent half-migrations are the failure mode.
-    from feature_flags import assert_production_profile
-    _profile = assert_production_profile()
-    if _profile:
-        print(f"[startup] pipeline profile: {_profile}", flush=True)
-    uvicorn.run(app, host="0.0.0.0", port=8765)
+        "https://sbq9712.github.io,http://localho

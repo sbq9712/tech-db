@@ -451,7 +451,7 @@ def load_graph(input_path: Path = None) -> SemanticGraph:
     return graph
 
 
-def extract_facts_from_record(record: dict, record_id: int, entity_registry: EntityRegistry = None) -> List[GraphStatement]:
+def extract_facts_from_record(record: dict, record_id: str | int, entity_registry: EntityRegistry = None) -> List[GraphStatement]:
     """Extract structured facts (GraphStatements) from a single record.
     
     This is a supplementary extraction that doesn't require LightRAG.
@@ -462,7 +462,8 @@ def extract_facts_from_record(record: dict, record_id: int, entity_registry: Ent
 
     statements = []
     title = record.get("t", "")
-    body = record.get("fb", "") or record.get("b", "") or record.get("as", "")
+    from primary_evidence import source_evidence_text
+    body = source_evidence_text(record)
     source = record.get("s", "")
     date = record.get("d", "")
 

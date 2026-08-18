@@ -36,6 +36,7 @@ NORMATIVE = {
 
 SUITES = {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
+    "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
 }
 
 
@@ -113,6 +114,13 @@ def _case(name: str, level: str = "integration") -> dict:
         "level": level,
         "command": "python qa-backend/tests_remediation_phase00.py",
     }
+
+
+def _phase01_case(name: str, level: str = "integration") -> dict:
+    ref = {"suite": "remediation_phase01", "case": "test_" + name.replace(".", "_").lower(), "level": level,
+           "command": "python qa-backend/tests_remediation_phase01.py"}
+    if level == "benchmark": ref["benchmark_owner"] = "RT-015"
+    return ref
 
 
 BENCHMARK_MARKERS = (
@@ -271,6 +279,44 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             },
         ],
     })
+    phase01_dods = {
+        "RT-010": [("reingesting the same logical source reuses record_id", "RT010.reingest_reuses_record_id"),
+                   ("different source identities with same body do not collapse automatically", "RT010.same_body_different_source_not_collapsed"),
+                   ("IDs never depend on list ordering and concurrent allocation is single", "RT010.concurrent_allocation_is_single")],
+        "RT-011": [("all current records map exactly once", "RT011.all_current_records_map_once"),
+                   ("historical fixture idx values resolve to stable IDs", "RT011.historical_idx_replay"),
+                   ("new durable schemas no longer require idx identity", "RT011.durable_mapping_uses_record_id")],
+        "RT-012": [("changed source body yields new snapshot under same record", "RT012.content_drift_creates_snapshot"),
+                   ("metadata-only changes do not rewrite source snapshot", "RT012.metadata_change_reuses_snapshot"),
+                   ("retrieval-only material cannot be mistaken for citation-eligible", "RT012.retrieval_only_not_citation_eligible")],
+        "RT-013": [("normalized hits map to exact immutable evidence_text ranges", "RT013.nfkc_whitespace_newline_maps_raw_exact"),
+                   ("expansion/contraction Unicode cases map correctly", "RT013.full_width_expansion_has_exact_raw_span"),
+                   ("unmappable hits fail rather than approximate", "RT013.unmappable_offset_fails")],
+        "RT-014": [("unchanged records are skipped incrementally", "RT014.incremental_no_change_skipped"),
+                   ("indexable records all have required metadata", "RT014.incremental_add"),
+                   ("missing required metadata prevents new release publication", "RT014.missing_required_metadata_blocks_publish"),
+                   ("source role never claims independence without evidence", "RT014.independence_not_inferred_without_provenance")],
+        "RT-015": [("synthetic-only sentinel fact is absent from all primary evidence indexes", "RT015.synthetic_sentinel_absent_primary"),
+                   ("hint hit cannot support Ledger/citation without grounded source evidence", "RT015.hint_cannot_support_or_cite"),
+                   ("primary indexes are rebuilt", "RT015.synthetic_sentinel_absent_primary"),
+                   ("recall regression stays within the approved gate", "RT015.fixture_retrieval_benchmark")],
+        "RT-016": [("partial build cannot become current", "RT016.partial_manifest_rejected"),
+                   ("incompatible artifacts are rejected", "RT016.hash_mismatch_rejected"),
+                   ("manifest records full provenance/hashes", "RT016.complete_manifest_valid"),
+                   ("current pointer references immutable manifest only", "RT016.complete_manifest_valid")],
+        "RT-017": [("in-flight request never mixes generations", "RT017.inflight_keeps_manifest"),
+                   ("old resources remain alive until last pinned request ends", "RT017.old_resources_retained_while_pinned"),
+                   ("invalid current does not silently masquerade as previous", "RT017.invalid_current_fails_strict_startup"),
+                   ("rollback switches a complete profile+manifest", "RT017.explicit_rollback_switches_complete_manifest")],
+        "RT-018": [("disaster-recovery drill restores stable IDs and a valid prior runtime", "RT018.restore_rehearsal_preserves_registry"),
+                   ("referenced manifests are never GCed", "RT018.referenced_manifest_artifacts_retained"),
+                   ("incomplete unreferenced builds are safely cleaned", "RT018.incomplete_unreferenced_build_removed")],
+    }
+    for rt_id, specs in phase01_dods.items():
+        phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": [
+            {"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
+             "status": "SATISFIED", "test_cases": [_phase01_case(case, "benchmark" if "benchmark" in case else "integration")]}
+            for number, (description, case) in enumerate(specs, 1)]})
     return {
         "schema_version": "3.0.0",
         "registry_version": "remediation-2026-08-18",
@@ -288,7 +334,7 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
             "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
         },
-        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)],
+        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)],
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
         "remediation_entries": phase00,

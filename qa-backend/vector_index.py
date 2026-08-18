@@ -4,8 +4,8 @@ Vector index builder — v2 (canonical set + refined embedding text).
 Builds a numpy cosine-similarity index from the canonical record set:
   valid category AND dp != 1 (non-duplicate).
 
-Embedding text = leaf category + title + tags + type + key params + AI summary.
-No body text (BM25 handles full-text keyword matching). No truncation.
+Embedding text = source-grounded category/title/tags/type/key params/body.
+Generated summaries are excluded from primary factual retrieval.
 """
 import json, sys, time, asyncio, pickle, os, hashlib
 import numpy as np
@@ -15,6 +15,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config import embedding_func, EMBEDDING_DIM, WORKING_DIR
+from primary_evidence import source_evidence_text
 
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
 INDEX_DIR = WORKING_DIR
@@ -29,8 +30,7 @@ IRRELEVANT_CATS = {"不相关", "未分类", "手动导入", ""}
 def format_record_text(rec: dict) -> str:
     """Format a record into concise, high-signal text for dense embedding.
 
-    Composition (no truncation, no body):
-      [leaf_category] title [tags] [type] key_params ai_summary
+    Composition: [leaf_category] title [tags] [type] key_params evidence_text.
     """
     parts = []
 
@@ -56,9 +56,9 @@ def format_record_text(rec: dict) -> str:
     if isinstance(kp, list) and kp:
         parts.append("; ".join(str(k) for k in kp))
 
-    as_text = rec.get("as", "") or ""
-    if as_text:
-        parts.append(as_text)
+    evidence_text = source_evidence_text(rec)
+    if evidence_text:
+        parts.append(str(evidence_text))
 
     return " ".join(parts)
 
@@ -71,6 +71,9 @@ def _text_hash(text: str) -> str:
 async def build_index():
     print(f"[1/3] Loading records from {LITE.name}...", flush=True)
     data = json.loads(LITE.read_text("utf-8"))
+    missing_stable = [i for i, record in enumerate(data) if not record.get("record_id")]
+    if missing_stable:
+        raise RuntimeError(f"stable RecordIdMap migration required before vector rebuild ({len(missing_stable)} records missing record_id)")
     print(f"  Total records in file: {len(data)}", flush=True)
 
     # Build canonical set: valid category AND dp != 1 (non-duplicate)
@@ -203,6 +206,7 @@ async def build_index():
             for orig_idx, rec in batch:
                 all_meta.append({
                     "idx": orig_idx,
+                    "record_id": rec.get("record_id", ""),
                     "id": rec.get("id", ""),
                     "t": rec.get("t", ""),
                     "d": rec.get("d", ""),
@@ -218,7 +222,7 @@ async def build_index():
             # Add zero embeddings for failed batch
             all_embeddings.append(np.zeros((len(batch), EMBEDDING_DIM), dtype=np.float32))
             for orig_idx, rec in batch:
-                all_meta.append({"idx": orig_idx, "t": rec.get("t", ""), "c": rec.get("c", ""),
+                all_meta.append({"idx": orig_idx, "record_id": rec.get("record_id", ""), "t": rec.get("t", ""), "c": rec.get("c", ""),
                                  "_th": canonical_hashes[orig_idx]})
 
         done = end

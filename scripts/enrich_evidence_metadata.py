@@ -33,6 +33,7 @@ import json
 import sys
 import os
 import re
+import hashlib
 from pathlib import Path
 from datetime import datetime
 
@@ -42,7 +43,8 @@ sys.path.insert(0, str(REPO / "qa-backend"))
 LITE = REPO / "data" / "processed" / "all-records-lite.json"
 OUTPUT = REPO / "runtime" / "indexes" / "evidence_metadata.json"
 
-METADATA_VERSION = "0.1.0"
+METADATA_VERSION = "1.0.0"
+CLASSIFIER_VERSION = "rules-v2"
 
 
 def extract_domain(url: str) -> str:
@@ -89,10 +91,8 @@ def infer_evidence_role(record: dict) -> str:
     if tag in ("观点评论",):
         return "commentary"
 
-    # Independent: academic, media
-    if tag == "研究论文":
-        return "independent"
-    if any(k in source for k in ["doi", "nature", "science", "arxiv"]):
+    # Independence is a provenance claim, not a style/domain inference.
+    if record.get("independence_verified") is True and record.get("provenance_root_id"):
         return "independent"
 
     return "unknown"
@@ -161,17 +161,23 @@ def detect_data_quality_flags(record: dict) -> list:
     return flags
 
 
+def dirty_hash(record: dict) -> str:
+    fields = {k: record.get(k) for k in ("record_id", "t", "fb", "b", "u", "d", "a", "s", "tg", "tp", "kp", "evidence_eligibility", "provenance_root_id")}
+    return hashlib.sha256(json.dumps(fields, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
 def enrich_record(idx: int, record: dict) -> dict:
     """Enrich a single record with evidence metadata."""
     from epistemic import infer_source_type
     from temporal import determine_temporal_status
 
     url = record.get("u", "")
-    text = record.get("fb", "") or record.get("b", "") or record.get("as", "")
+    text = record.get("evidence_text") or record.get("fb", "") or record.get("b", "")
     source = record.get("a", "") or record.get("s", "")
 
     return {
-        "record_id": idx,
+        "record_id": str(record.get("record_id") or ""),
+        "legacy_idx": idx,
         "source_org_id": source,
         "source_domain": extract_domain(url),
         "source_type": infer_source_type(record),
@@ -179,19 +185,53 @@ def enrich_record(idx: int, record: dict) -> dict:
         "evidence_role": infer_evidence_role(record),
         "original_source_org": "",
         "original_url": "",
-        "provenance_root_id": f"prov-{idx}",  # Default: unique
-        "independent_group_id": f"prov-{idx}",
+        "provenance_root_id": record.get("provenance_root_id") or "",
+        "independent_group_id": record.get("independent_group_id") or "",
         "is_repost": False,
-        "same_origin_probability": 1.0,
+        "same_origin_probability": record.get("same_origin_probability"),
         "published_at": record.get("d", ""),
         "event_at": "",
         "temporal_status": determine_temporal_status(record).get("temporal_status", "unknown"),
         "epistemic_hints": detect_epistemic_hints(text),
         "content_risk_flags": detect_content_risk_flags(text),
         "data_quality_flags": detect_data_quality_flags(record),
+        "evidence_eligibility": record.get("evidence_eligibility", "CITATION_ELIGIBLE"),
+        "provenance_uncertainty": "verified" if record.get("provenance_verified") else "unknown",
+        "dirty_hash": dirty_hash(record),
+        "classifier_version": CLASSIFIER_VERSION,
         "metadata_version": METADATA_VERSION,
         "enriched_at": datetime.now().isoformat(),
     }
+
+
+def enrich_incremental(records: list[dict], previous: dict | None = None) -> tuple[dict, dict]:
+    """Return metadata and explicit add/change/skip counters."""
+    previous = previous or {}
+    output, stats = {}, {"added": 0, "changed": 0, "skipped": 0}
+    for idx, record in enumerate(records):
+        rid = str(record.get("record_id") or "")
+        if not rid:
+            raise ValueError(f"record {idx} missing stable record_id")
+        old = previous.get(rid)
+        digest = dirty_hash(record)
+        if old and old.get("dirty_hash") == digest and old.get("metadata_version") == METADATA_VERSION and old.get("classifier_version") == CLASSIFIER_VERSION:
+            output[rid] = old; stats["skipped"] += 1
+        else:
+            output[rid] = enrich_record(idx, record)
+            stats["changed" if old else "added"] += 1
+    return output, stats
+
+
+def validate_publishable(metadata: dict) -> list[str]:
+    required = {"record_id", "source_type", "source_level", "evidence_role", "evidence_eligibility", "dirty_hash", "metadata_version", "classifier_version", "provenance_uncertainty", "temporal_status", "data_quality_flags"}
+    issues = []
+    for key, item in metadata.items():
+        missing = sorted(field for field in required if item.get(field) in (None, ""))
+        if missing:
+            issues.append(f"{key}: missing {missing}")
+        if item.get("evidence_role") == "independent" and item.get("provenance_uncertainty") != "verified":
+            issues.append(f"{key}: unverified independence claim")
+    return issues
 
 
 def run_enrichment():

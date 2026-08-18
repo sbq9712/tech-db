@@ -1,173 +1,196 @@
-"""
-T047 — SourceSnapshot / EvidenceLocator
-=========================================
-Manages record content versioning and evidence location.
+"""Immutable citation source snapshots and reversible locators (RT-012/013)."""
+from __future__ import annotations
 
-SourceSnapshot:
-  - raw_text / content_hash / ingest_time
-  - normalized_text
-  - raw ↔ normalized offset mapping
-
-EvidenceLocator:
-  - TEXT_SPAN
-  - TABLE_CELL
-  - FIGURE_CAPTION
-  - STRUCTURED_FACT
-
-Supports exact span localization from citation claims.
-"""
 import hashlib
-from typing import Optional, Dict
-from dataclasses import dataclass
+import json
+import sqlite3
+import time
+import unicodedata
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Optional
+
+ELIGIBILITIES = {"CITATION_ELIGIBLE", "RETRIEVAL_ONLY", "QUARANTINED"}
 
 
-@dataclass
+def _sha(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+@dataclass(frozen=True)
+class NormalizedView:
+    text: str
+    offsets: tuple[tuple[int, int], ...]
+    version: str = "nfkc-ws-v1"
+
+    def raw_range(self, start: int, end: int) -> tuple[int, int] | None:
+        if start < 0 or end <= start or end > len(self.offsets):
+            return None
+        spans = self.offsets[start:end]
+        for left, right in zip(spans, spans[1:]):
+            if right[0] < left[0]:
+                return None
+        return spans[0][0], spans[-1][1]
+
+
+def normalize_with_map(text: str) -> NormalizedView:
+    out: list[str] = []
+    offsets: list[tuple[int, int]] = []
+    in_ws = False
+    for pos, char in enumerate(text):
+        normalized = unicodedata.normalize("NFKC", char)
+        if normalized.isspace():
+            if out and not in_ws:
+                out.append(" "); offsets.append((pos, pos + 1))
+            in_ws = True
+            continue
+        in_ws = False
+        for nchar in normalized:
+            out.append(nchar); offsets.append((pos, pos + 1))
+    if out and out[-1] == " ":
+        out.pop(); offsets.pop()
+    return NormalizedView("".join(out), tuple(offsets))
+
+
+def _normalize_text(text: str) -> str:
+    return normalize_with_map(text).text
+
+
+@dataclass(frozen=True)
 class SourceSnapshot:
-    """Versioned snapshot of a record's content."""
-    record_id: int
+    record_id: str
     content_hash: str
     raw_text: str
     normalized_text: str
     ingest_time: str
-    schema_version: str = "0.1.0"
+    source_snapshot_id: str = ""
+    extractor_version: str = "legacy-v1"
+    evidence_eligibility: str = "CITATION_ELIGIBLE"
+    access_scope: str = "public"
+    raw_object_ref: str | None = None
+    normalization_version: str = "nfkc-ws-v1"
+    offset_map: tuple[tuple[int, int], ...] = field(default_factory=tuple, repr=False)
+    schema_version: str = "1.0.0"
 
     @classmethod
-    def from_record(cls, record_id: int, record: dict) -> "SourceSnapshot":
-        """Create a snapshot from a record."""
-        from datetime import datetime
-        raw_text = record.get("fb", "") or record.get("b", "") or record.get("as", "")
-        normalized = _normalize_text(raw_text)
-        content_hash = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()[:16]
+    def from_record(cls, record_id: str | int, record: dict) -> "SourceSnapshot":
+        raw = str(record.get("evidence_text") or record.get("fb") or record.get("b") or "")
+        view = normalize_with_map(raw)
+        digest = _sha(raw)
+        eligibility = str(record.get("evidence_eligibility") or "CITATION_ELIGIBLE")
+        if eligibility not in ELIGIBILITIES:
+            raise ValueError(f"invalid evidence eligibility: {eligibility}")
+        extractor = str(record.get("extractor_version") or "legacy-v1")
+        snapshot_id = hashlib.sha256(
+            f"{record_id}\0{digest}\0{extractor}\0{eligibility}\0{record.get('access_scope') or 'public'}".encode()
+        ).hexdigest()
+        from datetime import datetime, timezone
+        return cls(str(record_id), digest, raw, view.text, datetime.now(timezone.utc).isoformat(),
+                   snapshot_id, extractor, eligibility, str(record.get("access_scope") or "public"),
+                   record.get("raw_object_ref"), view.version, view.offsets)
 
-        return cls(
-            record_id=record_id,
-            content_hash=content_hash,
-            raw_text=raw_text,
-            normalized_text=normalized,
-            ingest_time=datetime.now().isoformat(),
-        )
 
+class SourceSnapshotStore:
+    def __init__(self, path: Path | str):
+        self.path = Path(path); self.path.parent.mkdir(parents=True, exist_ok=True)
+        with sqlite3.connect(self.path) as db:
+            db.execute("""CREATE TABLE IF NOT EXISTS snapshots(
+              source_snapshot_id TEXT PRIMARY KEY, record_id TEXT NOT NULL,
+              content_hash TEXT NOT NULL, evidence_text TEXT NOT NULL,
+              normalized_text TEXT NOT NULL, offset_map TEXT NOT NULL,
+              extractor_version TEXT NOT NULL, eligibility TEXT NOT NULL,
+              access_scope TEXT NOT NULL, raw_object_ref TEXT, created_at REAL NOT NULL,
+              UNIQUE(record_id,content_hash,extractor_version,eligibility,access_scope))""")
 
-def _normalize_text(text: str) -> str:
-    """Normalize text while maintaining approximate offset mapping."""
-    import re
-    # Collapse whitespace
-    return re.sub(r"\s+", " ", text.strip())
+    def put(self, snapshot: SourceSnapshot) -> str:
+        if snapshot.evidence_eligibility not in ELIGIBILITIES:
+            raise ValueError("invalid evidence eligibility")
+        with sqlite3.connect(self.path) as db:
+            db.execute("INSERT OR IGNORE INTO snapshots VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+              (snapshot.source_snapshot_id, snapshot.record_id, snapshot.content_hash,
+               snapshot.raw_text, snapshot.normalized_text, json.dumps(snapshot.offset_map),
+               snapshot.extractor_version, snapshot.evidence_eligibility, snapshot.access_scope,
+               snapshot.raw_object_ref, time.time()))
+        return snapshot.source_snapshot_id
+
+    def ingest(self, record_id: str, record: dict) -> SourceSnapshot:
+        snapshot = SourceSnapshot.from_record(record_id, record)
+        self.put(snapshot)
+        return self.get(snapshot.source_snapshot_id)
+
+    def get(self, snapshot_id: str) -> SourceSnapshot:
+        with sqlite3.connect(self.path) as db:
+            row = db.execute("SELECT * FROM snapshots WHERE source_snapshot_id=?", (snapshot_id,)).fetchone()
+        if not row:
+            raise KeyError(snapshot_id)
+        from datetime import datetime, timezone
+        return SourceSnapshot(row[1], row[2], row[3], row[4], datetime.fromtimestamp(row[10], timezone.utc).isoformat(),
+                              row[0], row[6], row[7], row[8], row[9], "nfkc-ws-v1",
+                              tuple(tuple(x) for x in json.loads(row[5])))
+
+    def citation_eligible(self, snapshot_id: str) -> bool:
+        return self.get(snapshot_id).evidence_eligibility == "CITATION_ELIGIBLE"
 
 
 class EvidenceLocator:
-    """Locates evidence within a source text.
-
-    Supports:
-      - TEXT_SPAN: exact substring in body/full_body
-      - TABLE_CELL: cell in structured parameter data
-      - FIGURE_CAPTION: caption text
-      - STRUCTURED_FACT: key-value pair in params
-    """
-
     def __init__(self, snapshot: SourceSnapshot):
         self.snapshot = snapshot
 
-    def locate_text_span(self, span: str) -> Optional[dict]:
-        """Locate a text span in the source.
+    def _base(self, locator_type: str) -> dict:
+        return {"locator_type": locator_type, "source_snapshot_id": self.snapshot.source_snapshot_id,
+                "evidence_sha256": self.snapshot.content_hash,
+                "citation_eligible": self.snapshot.evidence_eligibility == "CITATION_ELIGIBLE"}
 
-        Returns:
-            {
-                "locator_type": "TEXT_SPAN",
-                "start_offset": int,
-                "end_offset": int,
-                "matched_text": str,
-                "match_type": "exact" | "fuzzy",
-            } or None if not found
-        """
+    def locate_text_span(self, span: str) -> Optional[dict]:
         if not span or not self.snapshot.raw_text:
             return None
-
-        # Exact match
         idx = self.snapshot.raw_text.find(span)
         if idx >= 0:
-            return {
-                "locator_type": "TEXT_SPAN",
-                "start_offset": idx,
-                "end_offset": idx + len(span),
-                "matched_text": self.snapshot.raw_text[idx:idx + len(span)],
-                "match_type": "exact",
-            }
-
-        # Normalized match
-        norm_span = _normalize_text(span)
-        norm_text = self.snapshot.normalized_text
-        idx = norm_text.find(norm_span)
-        if idx >= 0:
-            return {
-                "locator_type": "TEXT_SPAN",
-                "start_offset": idx,  # Approximate (normalized offsets)
-                "end_offset": idx + len(norm_span),
-                "matched_text": norm_text[idx:idx + len(norm_span)],
-                "match_type": "normalized",
-            }
-
-        return None
+            return {**self._base("TEXT_SPAN"), "start_offset": idx, "end_offset": idx + len(span),
+                    "matched_text": span, "match_type": "exact"}
+        needle = normalize_with_map(span).text
+        idx = self.snapshot.normalized_text.find(needle)
+        if idx < 0:
+            return None
+        mapping = NormalizedView(self.snapshot.normalized_text, self.snapshot.offset_map).raw_range(idx, idx + len(needle))
+        if mapping is None:
+            return None
+        start, end = mapping
+        return {**self._base("TEXT_SPAN"), "start_offset": start, "end_offset": end,
+                "normalized_start": idx, "normalized_end": idx + len(needle),
+                "matched_text": self.snapshot.raw_text[start:end], "match_type": "normalized_exact_map"}
 
     def locate_structured_fact(self, key: str, record: dict) -> Optional[dict]:
-        """Locate a structured fact in record parameters.
-
-        Looks in key_params (kp) field.
-        """
-        kp = record.get("kp", [])
-        if not isinstance(kp, list):
-            return None
-
-        for param in kp:
-            param_str = str(param)
-            if key.lower() in param_str.lower():
-                return {
-                    "locator_type": "STRUCTURED_FACT",
-                    "key": key,
-                    "value": param_str,
-                    "source_field": "kp",
-                    "match_type": "param_lookup",
-                }
-
+        facts = record.get("structured_facts", record.get("kp", []))
+        for pos, fact in enumerate(facts if isinstance(facts, list) else []):
+            if key.casefold() in str(fact).casefold():
+                return {**self._base("STRUCTURED_FACT"), "fact_index": pos, "key": key,
+                        "value": fact, "source_field": "structured_facts" if "structured_facts" in record else "kp"}
         return None
 
     def locate_table_cell(self, row: str, col: str, record: dict) -> Optional[dict]:
-        """Locate a table cell (from structured data).
+        tables = record.get("tables", [])
+        for table_no, table in enumerate(tables if isinstance(tables, list) else []):
+            rows = table.get("rows", {}) if isinstance(table, dict) else {}
+            if row in rows and isinstance(rows[row], dict) and col in rows[row]:
+                return {**self._base("TABLE_CELL"), "table_index": table_no, "row": row,
+                        "column": col, "value": rows[row][col]}
+        return None
 
-        Note: Current records don't have structured tables,
-        but this supports future table extraction.
-        """
-        kp = record.get("kp", [])
-        if not isinstance(kp, list):
-            return None
-
-        for param in kp:
-            param_str = str(param)
-            if row.lower() in param_str.lower() and col.lower() in param_str.lower():
-                return {
-                    "locator_type": "TABLE_CELL",
-                    "row": row,
-                    "column": col,
-                    "value": param_str,
-                    "match_type": "param_lookup",
-                }
-
+    def locate_figure_caption(self, figure_id: str, record: dict) -> Optional[dict]:
+        for fig in record.get("figures", []) if isinstance(record.get("figures", []), list) else []:
+            if str(fig.get("id")) == str(figure_id) and fig.get("caption"):
+                return {**self._base("FIGURE_CAPTION"), "figure_id": str(figure_id), "caption": fig["caption"]}
         return None
 
     def verify_locator(self, locator: dict) -> bool:
-        """Verify that a locator's evidence is still present in the source."""
-        if not locator:
+        if not locator or locator.get("source_snapshot_id") not in (None, self.snapshot.source_snapshot_id):
             return False
-
-        locator_type = locator.get("locator_type", "")
-        if locator_type == "TEXT_SPAN":
-            start = locator.get("start_offset", -1)
-            end = locator.get("end_offset", -1)
-            if start < 0 or end < 0:
-                return False
-            if end > len(self.snapshot.raw_text):
-                return False
-            return True
-
-        # Structured/table always verifiable if present
-        return locator_type in ("STRUCTURED_FACT", "TABLE_CELL", "FIGURE_CAPTION")
+        if locator.get("evidence_sha256") not in (None, self.snapshot.content_hash):
+            return False
+        if not locator.get("citation_eligible", self.snapshot.evidence_eligibility == "CITATION_ELIGIBLE"):
+            return False
+        if locator.get("locator_type") == "TEXT_SPAN":
+            start, end = locator.get("start_offset", -1), locator.get("end_offset", -1)
+            return 0 <= start < end <= len(self.snapshot.raw_text) and self.snapshot.raw_text[start:end] == locator.get("matched_text")
+        return locator.get("locator_type") in {"STRUCTURED_FACT", "TABLE_CELL", "FIGURE_CAPTION"}

@@ -137,6 +137,13 @@ def write_artifacts(out: Path) -> dict:
             "record_id": record_id,
             "source_snapshot_id": snapshot_id,
             "source_type": record.get("tp") or "UNKNOWN",
+            "source_level": "unknown",
+            "evidence_role": "unknown",
+            "evidence_eligibility": eligible,
+            "provenance_uncertainty": "unknown",
+            "dirty_hash": sha_bytes(stable_json({"record_id": record_id, "evidence_text_sha256": evidence_hash})),
+            "metadata_version": "1.0.0",
+            "classifier_version": "rules-v2",
             "synthetic_fields": ["as"] if record.get("as") else [],
             "synthetic_evidence_eligible": False,
         })
@@ -163,6 +170,8 @@ def write_artifacts(out: Path) -> dict:
                   for i, item in enumerate(logical)]
     payloads = {
         "records.json": logical,
+        "record_id_map.json": {"schema_version": "1.0.0", "dataset_snapshot_id": f"mini-dataset-{sha_bytes(stable_json(SYNTHETIC_RECORDS))[:16]}",
+                               "mappings": [{"legacy_idx": item["legacy_idx"], "record_id": item["record_id"], "tombstoned": False} for item in logical]},
         "source_snapshots.json": snapshots,
         "chunks.json": chunks,
         "evidence_metadata.json": metadata,
@@ -178,6 +187,10 @@ def write_artifacts(out: Path) -> dict:
             "nodes": graph_nodes,
             "edges": [],
         },
+        "numeric_index.json": {"schema_version": "1.0.0", "facts": [], "source_policy": "evidence_text_only"},
+        "synthetic_hint_index.json": {"schema_version": "1.0.0", "route": "synthetic_hint", "documents": [],
+                                      "evidence_eligibility": "RETRIEVAL_ONLY", "can_support": False, "can_cite": False},
+        "prompt_config.json": {"schema_version": "1.0.0", "profile": "agentic_full", "generator_input": "typed_evidence_package"},
     }
     for name, value in payloads.items():
         (out / name).write_bytes(stable_json(value))
