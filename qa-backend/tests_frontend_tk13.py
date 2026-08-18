@@ -29,7 +29,7 @@ def check(name, fn):
 
 def _qa_js() -> str:
     try:
-        return urllib.request.urlopen("http://localhost:8097/qa.js?v=162", timeout=5).read().decode()
+        return urllib.request.urlopen("http://localhost:8097/qa.js", timeout=5).read().decode()
     except Exception:
         return (ROOT / "qa.js").read_text(encoding="utf-8")
 
@@ -47,8 +47,14 @@ def t_syntax():
 
 
 def t_version_bump():
+    # Invariant: a cache-bust query string exists and never went backwards.
+    # (The exact number ratchets up with every tunnel-URL republish — hardcoding
+    # it broke CI on the first post-162 republish.)
+    import re as _re
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert 'qa.js?v=162' in html, "cache-bust version v=162 missing"
+    m = _re.search(r"qa\.js\?v=(\d+)", html)
+    assert m, "cache-bust version query missing from index.html"
+    assert int(m.group(1)) >= 162, f"cache-bust version went backwards: {m.group(1)}"
 
 
 def t_evidence_card_markup():

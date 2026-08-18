@@ -1,0 +1,15 @@
+[Unit]
+Description=tech-db: Q&A backend (8765) + static portal (8097)
+After=techdb-data-sync.service
+Requires=techdb-data-sync.service
+
+[Service]
+WorkingDirectory=/home/rhett/tech-db-fresh
+# Bracket-escape patterns so pkill never matches its own bash -c cmdline.
+ExecStartPre=/bin/bash -c 'pkill -f "qa-backend/server[.]py" 2>/dev/null; pkill -f "http[.]server 8097" 2>/dev/null; sleep 1; exit 0'
+ExecStart=/home/rhett/tech-db-fresh/start.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

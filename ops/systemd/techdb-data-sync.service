@@ -1,0 +1,10 @@
+[Unit]
+Description=tech-db: git pull + lite rebuild + BM25 index (fast, pre-server)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/rhett/tech-db-fresh
+ExecStart=/home/rhett/tech-db-fresh/.venv/bin/python /home/rhett/tech-db-fresh/scripts/boot_sync.py
+TimeoutStartSec=900

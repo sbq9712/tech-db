@@ -1,0 +1,10 @@
+[Unit]
+Description=tech-db: vector incremental rebuild cadence (after data sync)
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=20min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

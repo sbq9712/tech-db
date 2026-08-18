@@ -1,0 +1,14 @@
+[Unit]
+Description=tech-db: cloudflared quick tunnel + qa.js URL sync
+After=techdb-server.service network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/home/rhett/tech-db-fresh
+ExecStartPre=/bin/bash -c 'pkill -f "cloudflared [t]unnel" 2>/dev/null; sleep 1; exit 0'
+ExecStart=/home/rhett/tech-db-fresh/.venv/bin/python /home/rhett/tech-db-fresh/scripts/tunnel_keepalive.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
