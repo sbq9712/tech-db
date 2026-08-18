@@ -49,12 +49,27 @@ def build_manifest(
     data_file = data_file or (REPO / "data" / "processed" / "all-records-lite.json")
     index_dir = index_dir or INDEX_DIR
 
+    spec_manifest_path = REPO / "spec" / "spec_manifest.json"
+    spec_manifest = json.loads(spec_manifest_path.read_text("utf-8"))
+
     manifest = {
         "manifest_id": hashlib.sha256(
             f"{datetime.now().isoformat()}".encode()
         ).hexdigest()[:16],
         "created_at": datetime.now().isoformat(),
         "schema_version": "0.1.0",
+
+        # Normative authority binding.  A release without these exact values
+        # cannot prove which remediation decisions it implements.
+        "spec_binding": {
+            "spec_version": spec_manifest["spec_version"],
+            "spec_sha256": spec_manifest["spec_sha256"],
+            "decision_register_version": spec_manifest["decision_register_version"],
+            "decision_register_sha256": spec_manifest["decision_register_sha256"],
+            "ticket_registry_version": spec_manifest["ticket_registry_version"],
+            "profile_registry_version": spec_manifest["profile_registry_version"],
+            "canonical_manifest_sha256": compute_file_hash(spec_manifest_path),
+        },
 
         # Dataset
         "dataset": {

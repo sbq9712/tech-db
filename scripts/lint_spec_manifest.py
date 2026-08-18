@@ -16,6 +16,9 @@ Checks (each independent, failures accumulate):
       incompatible flag combination from the manifest's own registry)
   L9  spec_hash self-consistency (sha256 of canonical JSON minus the
       spec_hash field must match — detects silent hand-edits)
+  L10 normative document and generated-registry hashes
+  L11 remediation registry duplicates, unknown deps, cycles, and classes
+  L12 acceptance-matrix completeness and test-reference validity
 
 --selftest injects every fault class into an in-memory copy and expects
 each check to FAIL (exit 0 only if all injected faults are detected).
@@ -29,6 +32,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "spec" / "spec_manifest.json"
+VALID_CLASSES = {"CORE_REQUIRED", "PROFILE_REQUIRED", "BENCHMARK_GATED_OPTIONAL"}
 
 
 def load(path=MANIFEST):
@@ -162,9 +166,112 @@ def lint(m: dict) -> list:
     return errors
 
 
+def lint_remediation_registry(registry: dict) -> list:
+    errors = []
+    tickets = registry.get("tickets", [])
+    ids = [t.get("id") for t in tickets]
+    duplicates = sorted({i for i in ids if ids.count(i) > 1})
+    if duplicates:
+        errors.append(f"L11 duplicate remediation ticket id(s): {duplicates}")
+    by_id = {t.get("id"): t for t in tickets}
+    expected = {f"RT-{n:03d}" for n in range(1, 6)}
+    missing = sorted(expected - set(ids))
+    if missing:
+        errors.append(f"L11 active remediation tickets missing: {missing}")
+    for ticket in tickets:
+        if ticket.get("completion_class") not in VALID_CLASSES:
+            errors.append(f"L11 {ticket.get('id')} has invalid completion class")
+        for dep in ticket.get("deps", []):
+            if dep not in by_id:
+                errors.append(f"L11 {ticket.get('id')} depends on unknown {dep}")
+
+    WHITE, GRAY, BLACK = 0, 1, 2
+    colors = {i: WHITE for i in ids}
+    def visit(ticket_id):
+        colors[ticket_id] = GRAY
+        for dep in by_id[ticket_id].get("deps", []):
+            if dep not in by_id:
+                continue
+            if colors[dep] == GRAY:
+                errors.append(f"L11 remediation dependency cycle via {ticket_id} -> {dep}")
+            elif colors[dep] == WHITE:
+                visit(dep)
+        colors[ticket_id] = BLACK
+    for ticket_id in ids:
+        if colors[ticket_id] == WHITE:
+            visit(ticket_id)
+    return errors
+
+
+def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list:
+    errors = []
+    suites = matrix.get("suite_registry", {})
+    legacy = matrix.get("legacy_ticket_entries", [])
+    mapped_legacy = [e.get("ticket_id") for e in legacy]
+    expected_legacy = {t["id"] for t in manifest.get("tickets", [])}
+    missing = sorted(expected_legacy - set(mapped_legacy))
+    duplicates = sorted({i for i in mapped_legacy if mapped_legacy.count(i) > 1})
+    if missing or duplicates:
+        errors.append(f"L12 legacy acceptance mappings missing={missing} duplicate={duplicates}")
+
+    remediation = matrix.get("remediation_entries", [])
+    mapped_rt = {e.get("ticket_id") for e in remediation}
+    active = set(matrix.get("active_remediation_scope", []))
+    known_rt = {t["id"] for t in registry.get("tickets", [])}
+    if active - known_rt or active - mapped_rt:
+        errors.append(
+            f"L12 active remediation mapping invalid unknown={sorted(active-known_rt)} "
+            f"missing={sorted(active-mapped_rt)}")
+
+    for entry in legacy + remediation:
+        refs = entry.get("test_refs", [])
+        if not refs:
+            errors.append(f"L12 {entry.get('ticket_id')} has no behavioral test reference")
+        for ref in refs:
+            suite = ref.get("suite")
+            if suite not in suites:
+                errors.append(f"L12 {entry.get('ticket_id')} references unknown suite {suite}")
+            if ref.get("level") not in {"unit", "integration", "e2e", "benchmark"}:
+                errors.append(f"L12 {entry.get('ticket_id')} has invalid test level")
+            command = ref.get("command", "")
+            if not command.startswith("python ") or "tests_" not in command:
+                errors.append(f"L12 {entry.get('ticket_id')} has non-behavioral command {command!r}")
+    t037 = next((e for e in legacy if e.get("ticket_id") == "T037"), {})
+    if not any(r.get("level") == "e2e" and r.get("suite") == "integration"
+               for r in t037.get("test_refs", [])):
+        errors.append("L12 T037 must map to actual integration/E2E")
+    return errors
+
+
+def lint_external(m: dict, root: Path = ROOT) -> list:
+    errors = []
+    for relative, declared in m.get("normative_documents", {}).items():
+        path = root / relative
+        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
+        if actual != declared:
+            errors.append(f"L10 normative hash mismatch: {relative}")
+    for field, path_field in (("ticket_registry_sha256", "remediation_registry"),
+                              ("acceptance_matrix_sha256", "acceptance_matrix")):
+        path = root / m.get(path_field, "")
+        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
+        if actual != m.get(field):
+            errors.append(f"L10 {field} mismatch")
+    if set(m.get("completion_classes", [])) != VALID_CLASSES:
+        errors.append("L10 completion class registry is incomplete")
+
+    registry_path = root / m.get("remediation_registry", "")
+    matrix_path = root / m.get("acceptance_matrix", "")
+    if registry_path.exists() and matrix_path.exists():
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+        errors.extend(lint_remediation_registry(registry))
+        errors.extend(lint_acceptance_matrix(matrix, m, registry))
+    return errors
+
+
 def run(path=MANIFEST, quiet=False):
     m = load(path)
-    errors = lint(m)
+    errors = lint(m) + lint_external(m, Path(path).resolve().parents[1])
     if not quiet:
         print(f"lint_spec_manifest — {len(m.get('tickets', []))} tickets, "
               f"{len(m.get('phases', []))} phases, spec_version={m.get('spec_version')}")
@@ -230,6 +337,23 @@ def selftest():
         print(f"  {'✅' if hit else '❌'} {name}: {'detected' if hit else 'NOT detected'}")
         if not hit:
             undetected.append(name)
+
+    registry = json.loads((ROOT / base["remediation_registry"]).read_text("utf-8"))
+    bad_registry = copy.deepcopy(registry)
+    bad_registry["tickets"].append(copy.deepcopy(bad_registry["tickets"][0]))
+    hit = any(e.startswith("L11") for e in lint_remediation_registry(bad_registry))
+    print(f"  {'✅' if hit else '❌'} L11_remediation_duplicate: {'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L11_remediation_duplicate")
+
+    matrix = json.loads((ROOT / base["acceptance_matrix"]).read_text("utf-8"))
+    bad_matrix = copy.deepcopy(matrix)
+    bad_matrix["legacy_ticket_entries"] = bad_matrix["legacy_ticket_entries"][1:]
+    hit = any(e.startswith("L12") for e in lint_acceptance_matrix(
+        bad_matrix, base, registry))
+    print(f"  {'✅' if hit else '❌'} L12_missing_acceptance: {'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L12_missing_acceptance")
     ok = not undetected
     print(f"selftest: {'ALL fault classes detected ✅' if ok else f'UNDETECTED: {undetected} ❌'}")
     return 0 if ok else 1
