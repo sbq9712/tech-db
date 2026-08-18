@@ -1,0 +1,5841 @@
+请完整实施 TechDB_Agentic_RAG_Execution_Tickets_ADVERSARIAL_REVIEWED.txt 中的全部任务。
+
+TechDB_Agentic_RAG_Master_Tickets_VERIFIED.txt 是架构规范和最终设计依据。
+如 Execution Tickets 与 Master Spec 出现歧义，以 Master Spec 中更新、更严格的 correctness / evidence / fail-safe 要求为准。
+
+执行要求：
+1. 严格按照 Ticket 依赖顺序推进，不要跳过前置依赖。
+2. 每个 Ticket 必须完成其 Definition of Done 和测试后，才能标记完成。
+3. 不要因为工程量大而自行删减、合并或跳过任务。
+4. 不要一次性重写现有系统，按 spec 要求渐进迁移并保留 rollback。
+5. 每完成一个阶段，运行对应 regression / benchmark，确认没有不可解释的质量回退。
+6. correctness-critical 检查不得因为成本、延迟或 BudgetFuse 被静默跳过。
+7. 如果实现过程中发现当前仓库实际代码与 Ticket 假设不一致，先检查现有实现，再以 Ticket 的目标和 Master Spec 的架构约束适配实现，而不是机械创建重复模块。
+8. 最终只有全部 Ticket 的 DoD 和最终总验收标准都通过，才算项目完成。
+
+
+
+Tech-DB Evidence-Centric Adaptive Agentic RAG
+EXECUTION TICKETS — Adversarially Reviewed
+
+说明：
+- 当前会话没有可调用的 to-tickets skill，因此本文件用等价的 ticket 规范生成，未虚构工具调用。
+- 任务已经按跨工作流依赖重新排序；同一 Phase 内无依赖关系的 Ticket 可以并行，但不得越过它声明的前置依赖。
+- 每个 Ticket 的完整“做什么 / 怎么算完成 / 测试”直接继承 Master Spec 中的规范性内容。
+- Graph-V2 是 benchmark-gated：没有证明质量收益时可以保持生产关闭，不阻塞 Vector/BM25/Reranker/Agentic 主路径。
+- 任何 Ticket 只有 Definition of Done 全通过才算完成。
+
+全局执行规则：
+1. 修改前保存 baseline/manifest。
+2. 实现 + unit tests。
+3. 跑相关 regression subset。
+4. 检查 Trace/版本信息。
+5. 异常路径必须 fail-safe。
+6. 保存 before/after benchmark。
+7. feature/profile 关闭时旧路径仍可运行（适用时）。
+8. 未达到 release gate 不得宣布完成。
+
+==============================================================================
+00 Spec / observability / evidence storage foundation
+==============================================================================
+----------------------------------------------------------------------
+T040 - Canonical Spec Manifest / Dependency & Schema Validator
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+【做什么】
+建立单一 canonical spec manifest 与自动 lint：spec_version/spec_hash、Ticket registry、依赖图、Phase registry、feature/profile registry。CI 检查重复 Ticket ID/标题、缺失 Ticket、未知依赖、循环依赖、Phase 先后冲突、重复 schema name、不可兼容 flag 组合。
+【怎么算完成】
+- [ ] 一条命令 lint 当前 spec，返回 0 才能 merge。
+- [ ] 能检测本轮发现的“重复 T028”“缺失 T038/T039”“未知依赖”等故障。
+- [ ] canonical spec 文件和生成 tickets 文件都有 hash/version。
+- [ ] 生产只允许命名 pipeline profile，不允许任意 flag 组合。
+【测试】
+构造 duplicate ID、cycle、missing dependency、invalid profile，lint 必须失败。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T001 - 建立完整 QA Trace 系统
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+当前出现坏答案时无法完整判断是 Rewrite、Retrieval、RRF、Graph、Generation 还是 Verifier 出错。Agent loop 上线后，如果无 Trace，复杂链路基本不可调试。
+
+【目标】
+给每个请求创建 trace_id，并记录从原始问题到最终答案的完整决策链。
+
+【修改范围】
+新增：
+qa-backend/trace.py
+runtime/traces/
+
+修改：
+qa-backend/server.py
+后续 orchestrator.py
+
+【具体实现】
+至少记录：
+- trace_id / timestamp / conversation_id
+- original_query / rewritten_query
+- router_result / decomposition / planner_result
+- 每轮 subquery
+- Vector/BM25/Graph 原始结果、rank、raw_score
+- Graph query intent：seed entities / relation predicates / direction / target entity types / hop limit
+- Graph matched paths：nodes / predicates / direction / edge confidence / evidence refs / path score breakdown
+- RRF candidate pool
+- Rerank score
+- Evidence Selector 选择/淘汰原因
+- 每轮 Evidence Ledger snapshot
+- Grader rule result + LLM result
+- Gap Analysis
+- stop_reason
+- draft_answer / final_answer
+- atomic claims
+- claim-citation mapping
+- citation evidence spans
+- deterministic checks
+- GLM verifier result
+- final_status
+
+推荐：runtime/traces/YYYY-MM-DD.jsonl，每行一个请求。
+
+【禁止】
+- 保存 API key、认证 header、secret。
+- Trace 写失败导致 QA 主请求失败。
+
+【Definition of Done】
+- [ ] 每个 QA 请求有唯一 trace_id。
+- [ ] 根据 trace_id 能还原主要执行链。
+- [ ] 三路 retrieval 与 RRF 的分数都可见。
+- [ ] Agent 后续模块能通过统一 trace API 追加 stage。
+- [ ] Trace 写失败只告警，不破坏回答。
+- [ ] trace 中无 ZAI_API_KEY 等秘密。
+
+【测试】
+1. 发事实题、follow-up、novelty 各一条。
+2. 检查 JSONL 中 trace 完整。
+3. 让 trace 目录不可写，确认聊天仍能完成。
+4. grep secret 名称确认不泄漏。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T002 - 建立 Regression / Evaluation 基线
+优先级：P0
+依赖：T001
+----------------------------------------------------------------------
+
+【背景】
+现有评测主要是 30 个 golden case + Recall@25，无法评价 Evidence、Citation、Abstention、Agent Loop。
+
+【目标】
+建立统一的 Retrieval + End-to-End 评测框架，并记录改造前 baseline。
+
+【修改范围】
+新增建议：
+qa-backend/eval/
+  cases/
+  metrics.py
+  run_retrieval_eval.py
+  run_end_to_end_eval.py
+  report.py
+
+保留现有 eval_golden.py 内容并迁入/兼容。
+
+【Case Schema】
+至少：
+id
+question
+type
+expected_status
+required_entities
+required_claims
+required_records
+forbidden_claims
+should_abstain
+notes
+
+【必须覆盖题型】
+direct / colloquial / alias / typo / abbreviation /
+comparison / multi-entity / multi-hop / causal / trend /
+current / historical / superseded /
+conflicting sources / duplicate sources / self-reported only /
+relation query / directional relation / relation mismatch / hub-node noise /
+one-hop bridge / bounded multi-hop /
+partially answerable / completely unanswerable /
+follow-up / novelty
+
+【指标】
+Retrieval：Recall@K, MRR, nDCG@K
+Evidence：Requirement Coverage, Evidence Coverage, Independent Evidence Groups, Source Diversity
+Answer：Correctness, Completeness, Unsupported Claim Rate
+Citation：Citation Precision, Exact Span Validity, Claim Support Rate
+Abstention：Correct Abstention Rate, False Refusal Rate, Partial Answer Accuracy
+System：latency, GLM call count, retrieval iteration count
+
+【Definition of Done】
+- [ ] 原 30 个 golden case 全部可由新框架运行。
+- [ ] 新增复杂/冲突/弃答/部分回答 case。
+- [ ] 支持 retrieval-only 与 end-to-end 两种运行模式。
+- [ ] 输出 evaluation_report.json 和可读报告。
+- [ ] 保存当前生产逻辑 baseline。
+
+【测试】
+python qa-backend/eval/run_retrieval_eval.py
+python qa-backend/eval/run_end_to_end_eval.py
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T007 - Evidence Metadata Enrichment Pipeline
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+证据质量不能只在查询时临时猜。情报从 GitHub 子仓库进入 Tech-DB 时，就应该建立静态“证据身份证”；但入库阶段不能直接给出一个看似精确的最终可信度分数。
+
+【目标】
+从入库阶段建立 Source / Provenance / Temporal / Epistemic / Content Risk / Data Quality 元数据，为在线 Evidence Selector 与 Evidence Grader 提供依据。
+
+【修改范围】
+新增建议：
+scripts/enrich_evidence_metadata.py
+qa-backend/provenance.py
+runtime/indexes/evidence_metadata.json
+
+在现有数据 pipeline 中增加 Evidence Metadata Enrichment，并确保在索引构建前完成或补齐。
+
+【每条 record 至少生成】
+- record_id
+- source_org_id
+- source_domain
+- source_type
+- source_level: primary / secondary / unknown
+- evidence_role: self_reported / independent / commentary / unknown
+- original_source_org
+- original_url
+- provenance_root_id
+- independent_group_id
+- is_repost
+- same_origin_probability
+- published_at
+- event_at
+- temporal_status
+- epistemic hints
+- content_risk_flags
+- data_quality_flags
+- metadata_version
+- enriched_at
+
+【重要原则】
+离线阶段回答的是：
+“谁发布、从哪来、是什么性质、何时有效、是不是转载、有哪些风险？”
+而不是：
+“这条内容对所有问题都有 92% 可信度。”
+
+最终“它能证明什么”必须在在线 query/claim 上下文中判断。
+
+【实现要求】
+1. 不破坏现有 lite 短键格式；建议 sidecar metadata。
+2. record_id 必须稳定，不能用会因重新排序变化的临时数组位置作为唯一长期 ID；若当前只能用 idx，至少增加稳定 content_id/hash 并规划迁移。
+3. 支持增量 enrichment，仅处理新增/发生变化的记录。
+4. metadata schema 版本化。
+5. metadata 缺失时系统可 fallback，但 trace 必须标记。
+6. 所有后续索引 release 应记录使用的 metadata_version。
+
+【Definition of Done】
+- [ ] 所有可索引 record 都可查到 evidence metadata。
+- [ ] 新增记录可增量 enrichment。
+- [ ] metadata 有版本。
+- [ ] 现有页面数据加载不被破坏。
+- [ ] 缺 metadata 时系统不会崩溃，也不会假装已有来源画像。
+- [ ] 基本 backfill 脚本可对全库运行。
+
+【测试】
+随机抽取：
+- 公司官网新闻
+- 学术论文
+- 行业媒体
+- 微信转载
+- 数据字段缺失记录
+检查 metadata 是否合理、可重复生成。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T012 - Data Quality Layer
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+如果正文缺失、日期错误、摘要幻觉、索引与数据版本错位，再强 Agent 都无法获得高质量答案。
+
+【目标】
+在 RAG 前建立可测的数据质量防线。
+
+【修改范围】
+扩展：
+scripts/check_integrity.py
+或新增：
+scripts/check_data_quality.py
+
+【确定性检查至少】
+- missing/empty title
+- invalid URL
+- date parse failure
+- impossible future/past date anomalies
+- body/full_body absence
+- duplicate anomalies
+- cluster parent anomalies
+- record ID/index mismatch
+- metadata missing
+- malformed key params
+- index dataset version mismatch
+- content hash mismatch
+
+【LLM 抽样审计】
+- summary 是否忠于 source text
+- classification 是否明显错误
+- epistemic type 是否合理
+
+【关键新增：Synthetic Summary Contamination】
+当前流程允许正文为空时根据标题+领域知识生成 AI summary。
+这类 summary 必须明确：
+synthetic_summary = true
+source_grounded = false
+
+规则：
+- source_grounded=false 的 synthetic summary 不进入 primary Vector/BM25/Graph evidence indexes；
+- 如确有召回价值，只能进入 T049 定义的独立 auxiliary retrieval-hint index，并强标记/低权；
+- 可用于页面展示时必须标识 synthetic；
+- 不得作为 evidence span；
+- 不得作为 claim citation；
+- 不得生成 production entity relation / numeric fact；
+- 不得作为“数据库事实”的唯一依据。
+
+如果 summary 有正文来源，也应可记录：
+summary_grounded = true/false/unknown
+
+【Definition of Done】
+- [ ] 可对全库生成 data quality report。
+- [ ] synthetic/no-body summaries 有明确 flag。
+- [ ] synthetic summary 不会进入最终 evidence/citation。
+- [ ] 严重数据结构错误可阻止 index release 或产生 hard warning。
+- [ ] index 与 dataset snapshot version 可检查。
+- [ ] data quality flags 被 Evidence Selector 读取。
+
+【测试】
+构造：
+- 空正文 + AI summary
+- 错日期
+- 失效 URL
+- index version 与 data version 不匹配
+确认全部触发正确 flag。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T041 - Global Build Manifest / Atomic Snapshot Release Manager
+优先级：P0
+依赖：T001, T007, T012
+----------------------------------------------------------------------
+【做什么】
+新增 release_manifest，统一绑定 dataset snapshot、record content hashes、evidence metadata、entity snapshot、provenance、Vector/BM25/Chunk/Graph/Numeric indexes、prompt/schema/config/model metadata。所有 artifact 验证完成后原子切 current；保留 previous rollback。
+【怎么算完成】
+- [ ] serving 启动时拒绝混用不兼容版本。
+- [ ] partial build 永不成为 current。
+- [ ] 一次切换可原子激活整套 snapshot。
+- [ ] Trace/Replay 能记录 manifest_id。
+- [ ] previous manifest 可一键 rollback。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T056 - Trace Retention / Redaction / Audit Storage Policy
+优先级：P1
+依赖：T001, T041
+----------------------------------------------------------------------
+【做什么】
+定义 production trace 保存哪些字段、多久、谁可访问。默认用 record/snapshot/evidence IDs + hashes + 必要短 span；secret/敏感 query/redactable fields 脱敏。Full debug trace 需显式开关和短 retention。
+【怎么算完成】
+- [ ] retention/redaction policy 配置化。
+- [ ] API key/secret 永不进入 trace。
+- [ ] 可 replay 所需版本/ID 保留，而不必永久复制全文。
+- [ ] 过期 trace 有清理任务和审计记录。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T047 - SourceSnapshot / EvidenceLocator / Offset Mapping
+优先级：P0
+依赖：T012, T041
+----------------------------------------------------------------------
+【做什么】
+为 evidence 建立不可变 SourceSnapshot/ContentVersion 与 EvidenceLocator。保存 raw_text/content_hash/ingest_time、normalized_text、raw<->normalized offset map。Locator 类型支持 TEXT_SPAN、TABLE_CELL、FIGURE_CAPTION、STRUCTURED_FACT；后续 chunk/citation/relation/numeric 都引用 locator，而不是脆弱字符串位置。
+【怎么算完成】
+- [ ] 文本 normalization 后仍能映射回原始 source location。
+- [ ] Citation/Relation/Numeric evidence 都绑定 snapshot_id+locator。
+- [ ] URL 内容变化不会让旧 citation 指向新内容。
+- [ ] 表格/列表/图注至少有结构化 locator fallback。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T049 - Synthetic Retrieval Isolation
+优先级：P0
+依赖：T012, T041
+----------------------------------------------------------------------
+【做什么】
+把 source_grounded=false 的 synthetic summary 从 primary evidence indexes 隔离。若业务仍需要其 query-expansion 价值，建立独立 auxiliary hint index，结果必须标 synthetic、低权、不可产生 graph edge/entity assertion/numeric fact/evidence/citation。
+【怎么算完成】
+- [ ] primary Vector/BM25/Graph 不包含 synthetic-only factual text。
+- [ ] auxiliary hint 命中不能单独使 Ledger requirement SUPPORTED。
+- [ ] synthetic concept 无原文证据时不会进入 production Graph/Numeric index。
+- [ ] 有 hallucinated synthetic-summary adversarial test。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T003 - Citation Evidence Grounding
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+当前 snippet 是 query-aware，而不是 claim-aware；且现有 build_context 逻辑可能优先使用 b 而让 fb/full_body 不参与定位。
+
+【目标】
+最终展示的每个 citation 必须绑定真正支持最终回答 claim 的原文 exact span。
+
+【修改范围】
+新增：
+qa-backend/citation_grounding.py
+
+修改：
+server.py / epistemic.py / 后续 context_builder.py
+
+【具体实现】
+最终流程：
+Answer Claim -> Citation -> Record -> Full Original Text -> Exact Evidence Span
+
+证据文本优先级：
+1. fb/full_body
+2. b/body
+3. as/ai_summary 只能作为“摘要 fallback”，不能冒充 original evidence
+
+LLM 可提出 evidence_span，但代码必须验证：
+evidence_span in original_text
+
+失败时：
+1. retry locator
+2. deterministic sentence/fuzzy locate
+3. 仍失败 -> grounding_fail
+
+绝对禁止 grounding_fail -> 正文前 200 字。
+
+支持：
+- start_offset / end_offset
+- 中文句界
+- 英文句界
+- 前后 1~2 句语义扩展
+- 默认中文约 120~250 字；英文约 2~4 句
+
+【Definition of Done】
+- [ ] 每个有效 citation 都有 exact original span。
+- [ ] full_body 优先于 body。
+- [ ] span 在原始文本中可程序验证。
+- [ ] 找不到 span 时 citation 不通过。
+- [ ] 返回 start/end offset。
+- [ ] 可生成完整语义 snippet 而不是生硬定长截断。
+
+【测试】
+选一条关键信息只出现在 full_body 中后部的记录，确认引用能命中后部，不再展示开头。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T004 - Atomic Claim + Claim-level Citation Mapping
+优先级：P0
+依赖：T003
+----------------------------------------------------------------------
+
+【背景】
+答案里有 [1][2] 不等于来源真的支持对应句子。
+
+【目标】
+关键结论必须绑定 record_id + exact evidence span。
+
+【修改范围】
+新增：
+qa-backend/claim_mapping.py
+
+【Claim 分类】
+MAJOR_FACT
+NUMERIC_FACT
+COMPARISON
+CAUSAL
+ATTRIBUTED_CLAIM
+MINOR_EXPLANATION
+
+Major Claim 包含：事实、数字、比较、时间、因果、产品/技术关系、明确结论。
+Minor Explanation 不要求句句引用。
+
+【结构】
+claim_id
+text
+type
+support[
+  record_id
+  citation_id
+  evidence_span
+]
+status
+
+【规则】
+- Major Claim 至少一个支持证据。
+- 同一 claim 可有多来源。
+- 一条 citation 可支持多个 claim。
+- 无证据 major claim -> UNSUPPORTED，必须删除、弱化或重新检索，不能直接发布。
+
+【Definition of Done】
+- [ ] 所有 Major Claim 有 claim_id。
+- [ ] Major Claim 可映射 record_id + exact span。
+- [ ] citation 可反查 supports_claim_ids。
+- [ ] unsupported major claim 无法直接通过最终验证。
+
+【测试】
+对“产品 A 使用 X，带宽为 Y，因此比 B 更快”拆分并核验使用关系、数值、比较结论。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T046 - Claim-Evidence Support Semantics / Entailment Verification
+优先级：P0
+依赖：T003, T004, T047
+----------------------------------------------------------------------
+【做什么】
+扩展 claim mapping：每条 evidence 标 DIRECT_SUPPORT、PREMISE_SUPPORT、ATTRIBUTION、CONTRADICTS、BACKGROUND。exact span 验证后再做语义 entailment/polarity/scope 检查。分析/比较/趋势 claim 可由多条 premise evidence 支撑，但必须区分“原文直接说”与“系统综合推断”。
+【怎么算完成】
+- [ ] exact substring 但语义否定/条件不符时不能算 DIRECT_SUPPORT。
+- [ ] major factual claim 至少有 DIRECT_SUPPORT 或合法的多-premise derivation。
+- [ ] analytical claim 的 premises 全可追溯，不能伪装成原文直述。
+- [ ] Claim support type 进入 Verifier、Context Builder、Reference Card、Trace。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T005 - Verifier Fail-Safe
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+现有 verify_answer() 在异常/解析失败后可能返回 passed=True，属于 fail-open。
+
+【目标】
+任何验证技术故障都不能伪装成“已验证”。
+
+【修改范围】
+修改 epistemic.py，或逐步迁移到 qa-backend/verifier.py。
+
+【状态】
+PASSED
+FAILED
+UNVERIFIED
+
+【实现】
+MAX_VERIFY_RETRIES 默认 2（配置化）。
+JSON parse failure：先 deterministic extraction/repair，再 retry。
+timeout/API error：retry。
+仍失败：UNVERIFIED。
+trace 保存 failure reason。
+
+【Definition of Done】
+- [ ] verifier exception 永不 PASS。
+- [ ] malformed JSON 永不静默 PASS。
+- [ ] retry 存在。
+- [ ] UNVERIFIED 可进入最终 API。
+- [ ] 单测覆盖 exception / malformed / empty / timeout。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T006 - 四态 Answer Status
+优先级：P0
+依赖：T004, T005
+----------------------------------------------------------------------
+
+【目标】
+统一：
+SUPPORTED
+PARTIALLY_SUPPORTED
+UNSUPPORTED
+UNVERIFIED
+
+【语义】
+SUPPORTED：核心 requirements 与 major claims 有充分证据且验证通过。
+PARTIALLY_SUPPORTED：部分可确认，但至少一项重要 requirement 证据不足。
+UNSUPPORTED：经过检索/补搜后核心问题仍缺证据。
+UNVERIFIED：验证链技术失败，不能确认结果可靠。
+
+【API】
+done event 增加：
+answer_status
+stop_reason
+evidence_summary
+
+【UI】
+PARTIAL：明确“可以确认 / 当前无法确认”。
+UNSUPPORTED：明确“当前知识库不足以可靠回答”，而不是只说“没找到”。
+UNVERIFIED：提示未完成可靠验证，不能显示成普通可信答案。
+
+【Definition of Done】
+- [ ] Backend 返回四态。
+- [ ] Frontend 支持四态。
+- [ ] 未知/异常默认不能成为 SUPPORTED。
+- [ ] 四种状态各有端到端测试。
+
+----------------------------------------------------------------------
+T013 - Retrieved Content Safety / Prompt Injection 防护
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+新闻/公众号/网页正文可能包含类似 prompt 或“忽略之前指令”的文字。Retrieved text 必须永远被当 DATA。
+
+【目标】
+防止知识库文本控制 Agent 行为，同时保留文本本身作为分析对象。
+
+【修改范围】
+新增：
+qa-backend/content_safety.py
+
+metadata flags：
+prompt_like_text
+instruction_like_text
+suspicious_markup
+marketing_hype
+
+【实现要求】
+1. System prompt 明确 retrieved documents = untrusted evidence data。
+2. 文档中出现“调用工具”“忽略系统”等文字不能影响 Tool Controller。
+3. Context builder 用清晰边界包装证据块。
+4. 不需要因为 prompt-like text 自动删除整条证据；它可能是研究对象。
+5. Agent 只能从 orchestrator/system 定义的工具集合中调用工具。
+6. trace 保存 risk flags。
+7. 若未来 corpus 有 ACL/私有数据，权限过滤必须发生在候选进入 Agent 之前；当前公共 Tech-DB 可先保留接口。
+
+【Definition of Done】
+- [ ] prompt injection 测试文档不能改变 system behavior。
+- [ ] retrieved document 不能自行要求 Agent 调用工具。
+- [ ] 风险文本仍能作为普通内容引用/分析。
+- [ ] risk flags 进入 trace。
+- [ ] 有自动安全测试。
+
+----------------------------------------------------------------------
+T008 - Probabilistic Provenance Clustering / 同源证据识别
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+多家媒体转载同一个原始新闻时，文档数量不代表证据独立性。现实转载可能改标题、改顺序、加入少量评论，因此不能只用 exact duplicate，也不能声称 100% 确定来源血缘。
+
+【目标】
+建立概率式 provenance clustering，识别“可能同源”的内容，让在线系统统计 independent evidence groups，而不是 document count。
+
+【输入特征】
+- canonical URL
+- original URL
+- redirect/source link
+- domain
+- explicit citation links
+- title normalized similarity
+- body text similarity
+- embedding similarity
+- publish/event time difference
+- entity overlap
+- existing event cluster
+- source attribution phrase
+
+【输出】
+same_origin_probability
+provenance_root_id
+independent_group_id
+provenance_confidence
+provenance_reason/features
+
+【实现要求】
+1. 使用确定性特征 + 相似度模型组合。
+2. 阈值配置化：
+   - high confidence -> 合并 provenance group
+   - ambiguous band -> uncertain，不强制合并
+   - low -> independent candidate
+3. existing dedup / cluster 作为 feature，不直接等同 provenance。
+4. 后续 Evidence Grader 的独立证据数以 independent_group_id 为主。
+5. 一个二手文章即使基于原始报道，也可能包含独立采访/新增数据；后续允许 claim-level provenance 扩展，第一版至少不要整篇一刀切成绝对同源。
+6. trace 输出某候选被判重复来源的原因。
+
+【Definition of Done】
+- [ ] 明显全文转载能聚为同组。
+- [ ] 改标题但正文高度相似的转载能聚为同组。
+- [ ] 独立报道同一事件不会仅因为主题相同全部合并。
+- [ ] ambiguous case 保留 probability。
+- [ ] Evidence Selector/Grader 可读取 independent_group_id。
+- [ ] 5 篇同源转载不会在独立证据计数中记为 5。
+
+【测试】
+建立小样本：
+A. 5 篇同源转载
+B. 3 篇独立采访同一事件
+C. 1 篇转载但新增独立测试数据
+检查 group 与 uncertain 情况。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T009 - Claim-aware Source Suitability
+优先级：P1
+依赖：T007, T008
+----------------------------------------------------------------------
+
+【背景】
+“nvidia.com = 0.95”这类绝对来源分数会制造偏见与虚假精确度。同一个来源对不同 claim 的证明力不同。
+
+【目标】
+判断“这个来源对当前 claim 的证据角色和适配程度”，而不是判断“这个网站有多可信”。
+
+【Source Type 至少支持】
+standards_body
+regulator
+government
+academic_primary
+academic_secondary
+company_technical_doc
+company_press_release
+research_institution
+major_media
+industry_media
+secondary_repost
+social_media
+unknown
+
+【Claim Type 可逐步支持】
+product_spec
+company_action
+performance_claim
+scientific_result
+market_size
+policy
+prediction
+opinion
+historical_event
+comparison
+etc.
+
+【输出】
+source_suitability
+evidence_role
+attribution_required
+independence_penalty
+reason
+
+【例子】
+公司官方规格页：
+- “该公司官方公布型号 X 带宽 1.8TB/s” -> 高适配，一手。
+- “该产品实际比竞品快 3 倍” -> 只能支持“公司声称”，不算独立验证。
+
+【实现要求】
+1. Source prior 可配置，但不能直接决定 truth。
+2. claim + source type + evidence role 联合判断。
+3. 对 REPORTED_CLAIM / PREDICTION / OPINION 保留 attribution。
+4. 不显示给用户“可信度 93%”。
+5. Evidence Selector 使用 suitability 作为一个 feature，而非硬过滤。
+6. Source Suitability policy 必须有 policy_version、规则来源/说明、claim-type applicability 与 calibration report；人工 override 可审计。
+
+【Definition of Done】
+- [ ] 同一来源对不同 claim 可得到不同 evidence role/suitability。
+- [ ] 厂商性能自述不会自动升级为 independent fact。
+- [ ] 规则/权重配置化。
+- [ ] 有来源类型未知时安全 fallback。
+- [ ] 有单元测试覆盖官方规格 vs 官方营销性能声称。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T010 - Temporal Metadata / 时间与版本感知
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+发布时间、事件时间、预测目标时间、事实有效时间不是同一件事。旧路线图与新正式发布可能都在库里，如果用户问“现在”，不能不区分版本。
+
+【目标】
+建立足够支持 current / historical / trend / superseded reasoning 的 temporal metadata。
+
+【修改范围】
+新增建议：
+scripts/enrich_temporal_metadata.py
+qa-backend/temporal.py
+
+【字段】
+published_at
+event_time_start
+event_time_end
+target_future_time
+valid_from
+valid_to
+supersedes
+superseded_by
+temporal_status:
+  current
+  historical
+  superseded
+  future_prediction
+  unknown
+
+【实现要求】
+1. 明确区分 published_at 与 event_at。
+2. 对“预计 2028 年”记录 target_future_time，而不是把发布时间当成结果发生时间。
+3. Router 输出 temporal_intent：
+   current / latest / as_of / historical / trend / unspecified
+4. current/latest 查询中 superseded 证据降权或仅作为历史背景。
+5. historical/trend 问题保留旧证据。
+6. conflict detector 能把“旧计划 vs 新结果”识别为 VERSION_UPDATE。
+7. 时间无法确定时标 unknown，不让 LLM随意补日期。
+8. 非确定性 temporal extraction 必须保存 evidence locator / extraction_method / confidence；关键 current/as-of 判断不能只靠无证据的 LLM 日期推断。
+8. answer 可选显示“基于知识库更新到某日期/版本”，防止用户把数据库覆盖范围误当世界实时状态。
+
+【Definition of Done】
+- [ ] current 查询不会优先拿明显 superseded 的旧资料作现状答案。
+- [ ] historical 查询能正确使用旧资料。
+- [ ] future prediction 与已发生事实有类型区分。
+- [ ] temporal metadata 进入 Selector / Grader / Conflict Detector。
+- [ ] 有 as-of date 测试。
+
+【测试】
+准备：
+2024 roadmap：计划 2026 推出 A
+2026 release：实际推出 B
+测试：
+“2024 年当时计划什么？”
+“现在正式推出什么？”
+“这个规划后来实现了吗？”
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T048 - Claim-level Provenance / Span-level Source Role
+优先级：P0
+依赖：T008, T009, T046, T047
+----------------------------------------------------------------------
+【做什么】
+从 document-level provenance 升级到 evidence span/claim lineage：记录 quoted_primary_source、document_publisher、independent_reporting、provenance_root、independent_group、source_role。允许同一二手文章中不同 evidence span 拥有不同 lineage。
+【怎么算完成】
+- [ ] 引用官方声明的媒体段落不会被误算成独立验证。
+- [ ] 同一媒体自己的独立采访/测试可以作为不同 evidence role。
+- [ ] Evidence Grader 按 claim/span 统计 independence。
+- [ ] provenance uncertainty 可保留，不强行二元化。
+
+----------------------------------------------------------------------
+
+==============================================================================
+01 Entity policy + locked evaluation first
+==============================================================================
+----------------------------------------------------------------------
+T011 - Entity Identity / Resolution V2（Umbrella Epic）
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+实体对齐不能简化成“加一个 alias 字典”。字符串 name 不能继续作为长期 node identity；false merge 会制造虚假的跨实体关系并污染 Graph Retrieval。
+
+【目标】
+建立 EntityMention -> Candidate Generation -> ResolutionDecision -> CanonicalEntity(stable opaque entity_id) -> CanonicalRelation。
+
+核心要求：mention != entity；canonical_name 可变但 ID 稳定；alias 一对多；resolver 支持 LINK/NEW/AMBIGUOUS/BLOCKED；所有自动/人工 link、merge、split 可审计、可回滚；relation 先绑定 mention endpoint，再 materialize canonical relation；query-time 复用同一 resolver；生产通过 shadow -> partial -> full Graph-V2 渐进切换。
+
+【详细执行】
+本 Ticket 是 parent epic。必须执行后文 PART 2A - ENTITY IDENTITY / RESOLUTION V2 DETAILED WORKSTREAM 中 ER-001 ... ER-124。
+
+【Definition of Done】
+- [ ] mention != entity。
+- [ ] stable opaque entity_id；rename 后 ID 不变。
+- [ ] alias 一对多，ambiguous alias 不强制 merge。
+- [ ] ontology/granularity policy versioned。
+- [ ] deterministic fast path + Top-N + constrained LLM adjudication。
+- [ ] resolver 支持 NEW / AMBIGUOUS / BLOCKED。
+- [ ] false merge / missed merge / auto-link precision 有指标。
+- [ ] manual override、merge/split、audit、rollback 完整。
+- [ ] raw relation endpoint 使用 mention IDs；canonical edge 使用 stable entity IDs。
+- [ ] query resolver 不以全图 substring scan 为主路径。
+- [ ] identity snapshot atomic publish / rollback。
+- [ ] shadow/partial/full activation 完整。
+- [ ] ER-001 ... ER-124 全部满足各自 DoD。
+
+----------------------------------------------------------------------
+
+ER-001 冻结当前实体图谱基线
+依赖：无
+做什么：记录当前 node/edge/entity_to_records 数量；抽样重复实体、疑似错合并；记录当前 query entity matching；保存 baseline report。
+完成标准：仓库存在可复现 baseline；至少有重复/同名/缩写案例；可做 before/after。
+
+ER-002 定义 Entity Type Ontology
+依赖：ER-001
+做什么：固定 entity types、定义、边界、例子和反例。
+完成标准：有 versioned ontology 文件；extractor/resolver 引用同一 ontology；schema tests 通过。
+
+ER-003 定义 Entity Granularity Policy
+依赖：ER-002
+做什么：明确母子公司、品牌、工厂、技术族/子技术、产品族/型号、材料族/化合物、更名/并购。
+完成标准：有 versioned policy；至少 30 个 positive/negative identity examples；可直接用于 resolver tests。
+
+ER-050 建立 Entity Resolution Gold Set
+依赖：ER-003
+做什么：建立人工核验集，覆盖所有主类型、中文英文、缩写、同名、改名、母子公司、近似技术、产品版本、化学式、hard negatives。
+完成标准：数据 versioned；calibration/dev 与 locked holdout 分离；包含困难负例。
+
+ER-051 实现 Offline Entity Resolution Metrics
+依赖：ER-050
+做什么：输出 candidate recall@K、candidate miss rate、auto-link precision、false merge rate、missed merge rate、pairwise P/R/F1、slice metrics。
+完成标准：一条命令生成报告；false merge 和 candidate miss 单独醒目标注。
+
+----------------------------------------------------------------------
+T054 - Evaluation Integrity / Locked Holdout / Release Gates
+优先级：P0
+依赖：T002, ER-050, ER-051
+----------------------------------------------------------------------
+【做什么】
+建立不可随开发调参反复窥视的 locked holdout；case 绑定 dataset_snapshot/version。区分 deterministic metrics、human gold、辅助 LLM judge。定义每个重大 feature 的 predeclared release gate 和 no-regression threshold。
+【怎么算完成】
+- [ ] LLM judge 不是 correctness/abstention/citation 的唯一真值来源。
+- [ ] dev/calibration 与 locked holdout 分离。
+- [ ] corpus 更新时能识别“gold 变旧”并触发人工 revalidation，而不是静默改答案。
+- [ ] 每个 release report 记录 manifest/model/prompt/config 版本。
+- [ ] 未达 gate 的 feature 默认不上 production。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T044 - Relation Ontology / Qualified GraphStatement Model
+优先级：P0
+依赖：ER-002, ER-003, T010, T047
+----------------------------------------------------------------------
+【做什么】
+建立 versioned Relation Ontology：predicate、relation_group、domain/range、inverse、symmetric、transitive/composable policy、deprecated/migration mapping。把简单 binary edge 升级为 GraphStatement，可带 polarity、modality、assertion_status、qualifiers、conditions、time、reported_by、object_value、evidence_refs。
+【怎么算完成】
+- [ ] extractor/Router/Planner/Graph Retriever 使用同一 ontology version。
+- [ ] “使用/不使用/计划使用/可能使用”不会落成同一个无修饰 edge。
+- [ ] 投资金额、测试条件、per-device/system-total 等 qualifiers 可保留。
+- [ ] 未注册 predicate 不能进入 production semantic graph。
+- [ ] ontology migration 有测试。
+
+----------------------------------------------------------------------
+
+==============================================================================
+02 Entity identity data model / candidates / resolver
+==============================================================================
+ER-010 实现 EntityMention Schema
+依赖：ER-002, ER-003
+做什么：新增 mention 数据结构和序列化，保存 raw_text、rid、content_hash、context、type candidates、extractor version。
+完成标准：每个抽取实体先产生 mention_id；mention 与 canonical 解耦；schema tests 通过。
+
+ER-011 实现 Stable CanonicalEntity ID
+依赖：ER-010
+做什么：新增 opaque entity_id；canonical_name 不作为 key；增加 entity status/version。
+完成标准：canonical rename 后 entity_id 不变；ID 唯一性测试通过；不再以 name 作为长期 node identity。
+
+ER-012 实现 EntityAlias Schema
+依赖：ER-011
+做什么：实现 alias 多对多结构、provenance/language/type/validity/status、normalized keys。
+完成标准：同 alias 可对应多个 entity；alias provenance 可查询；无 alias 唯一映射假设。
+
+ER-013 实现 ResolutionDecision / Audit Schema
+依赖：ER-010, ER-011
+做什么：保存 candidate、decision、selected entity、resolver version、score、reason。
+完成标准：每个自动/人工 link 可追踪；支持 LINK/NEW/AMBIGUOUS/BLOCKED/manual states。
+
+ER-014 实现 MergeEvent / SplitEvent Schema
+依赖：ER-011, ER-013
+做什么：建立可逆 identity mutation audit。
+完成标准：merge/split 可重放；source entity 不被无痕删除；rollback metadata 完整。
+
+ER-020 实现 Non-destructive Entity Normalizer
+依赖：ER-010, ER-012
+做什么：Unicode、空格、括号、case、全半角等 normalized keys；保护型号/数字/化学式/版本。
+完成标准：raw_text 不变；GPT-4/GPT-4o 不会错误归一；化学式测试通过。
+
+ER-021 实现 Bilingual/Acronym Alias Parser
+依赖：ER-020
+做什么：解析中文（英文缩写）、英文（中文）、全称+acronym 等模式。
+完成标准：中英双向规则测试通过；ambiguous acronym 不直接 merge。
+
+ER-022 构建 Alias Inverted Index
+依赖：ER-012, ER-020, ER-021
+做什么：normalized key -> candidate entity IDs。
+完成标准：一个 alias 可返回多个候选；lookup 性能达标；merge/split 后可重建。
+
+ER-023 支持 Strong / External Identifiers
+依赖：ER-011
+做什么：支持官方 ID、DOI、CAS、标准号、型号标识等可用强身份字段。
+完成标准：strong ID uniqueness/conflict tests；不要求所有 entity 都有 external ID。
+
+ER-030 实现 Exact/Normalized Candidate Generator
+依赖：ER-022, ER-023
+做什么：strong ID -> unique exact alias -> normalized alias。
+完成标准：返回 candidate list + match reason；ambiguous exact alias 不强制 link。
+
+ER-031 实现 Fuzzy / Trigram Candidate Generator
+依赖：ER-030
+做什么：支持拼写差异、轻微 OCR/格式差异。
+完成标准：hard negative 不因名字相近自动 merge；有 Top-N cap 和性能测试。
+
+ER-032 实现 Transliteration/Acronym Candidate Generator
+依赖：ER-021, ER-030
+做什么：支持跨语言、缩写候选召回。
+完成标准：CATL/宁德时代等 gold case 可召回；短缩写 ambiguous 返回多候选。
+
+ER-033 可选 Embedding Candidate Generator
+依赖：ER-030, ER-031, ER-032
+做什么：仅作为召回兜底，对 mention 与 entity descriptions/aliases 做 embedding candidate retrieval。
+完成标准：embedding 不直接触发 merge；相关但不同的 hard negative 不自动 link。
+
+ER-034 Candidate Generator 统一接口和 Blocking
+依赖：ER-030, ER-031, ER-032
+做什么：统一 Top-N candidate pipeline、优先级和特征输出。
+完成标准：不做全图 O(N) 深度判定；输出可解释 features；latency benchmark 完成；candidate recall@K / candidate miss rate 在 gold set 上达到预先定义 gate。
+
+ER-040 实现 Deterministic Resolver
+依赖：ER-034, ER-003
+做什么：处理 manual override、strong ID、unique exact alias、block rules、明显 NEW。
+完成标准：deterministic cases 不调用 LLM；ambiguous exact alias 不强制决策。
+
+ER-041 实现 Context Feature Builder
+依赖：ER-040
+做什么：生成 type、同文档 entities、时间、组织、上下文关键词、alias provenance 等 features。
+完成标准：features 可写入 ResolutionDecision；不传不必要整篇原文。
+
+ER-042 实现受约束 LLM Adjudicator
+依赖：ER-041
+做什么：LLM 只能在 Top-N candidates 中 LINK/NEW/AMBIGUOUS/BLOCKED。
+完成标准：不接受 fabricated entity_id；source context 标为 untrusted；malformed response safe fallback。
+
+ER-043 实现 Abstain / Provisional Policy
+依赖：ER-040, ER-042
+做什么：定义 AMBIGUOUS、NEW provisional、BLOCKED 的触发规则。
+完成标准：resolver 不被迫 100% link；provisional entity 不自动参与高权 graph traversal。
+
+ER-052 Resolver Threshold Calibration
+依赖：ER-042, ER-043, ER-051
+做什么：基于 gold set 选择 auto-link/ambiguous thresholds，按类型/alias class 细分。
+完成标准：阈值有 calibration report；绑定 resolver/eval version；不使用 LLM 自报 confidence。
+
+ER-053 Prompt Injection / Adversarial Resolver Eval
+依赖：ER-042, ER-050
+做什么：构造恶意 source context、误导 alias、同名攻击案例。
+完成标准：resolver 不执行 evidence 指令；不会因为文本要求就 link 任意 entity。
+
+==============================================================================
+03 Entity lifecycle / relations / incremental snapshot
+==============================================================================
+ER-060 实现 Manual Override Store
+依赖：ER-013, ER-040
+做什么：支持 manual link/unlink、alias add/block、canonical rename；每条 override 保存 owner、reason、valid_from/to、review_due、status。
+完成标准：manual rule 优先自动 resolver且 rebuild 不覆盖；过期/stale/conflicting override 可告警和复核，不被永久无条件冻结。
+
+ER-061 实现 Merge Operation
+依赖：ER-014, ER-060
+做什么：安全 merge，保留 redirects/provenance。
+完成标准：source entity=merged；mentions/aliases 重归属；mutation 有 audit；可 rollback。
+
+ER-062 实现 Split / Unmerge Operation
+依赖：ER-014, ER-061
+做什么：按 mention/evidence 拆分误合并。
+完成标准：mentions/aliases 可重分；relation rebuild 有明确输入。
+
+ER-063 实现 Identity Mutation Cache/Index Invalidation
+依赖：ER-022, ER-061, ER-062
+做什么：merge/split 后重建/失效 alias index、query resolver cache、graph materialized view affected region。
+完成标准：mutation 后无陈旧 alias 命中；version/invalidation tests 通过。
+
+ER-070 实现 RawRelationMention Schema
+依赖：ER-010
+做什么：relation endpoint 使用 source_mention_id/target_mention_id，并保存 evidence。
+完成标准：raw relation 不依赖 canonical name。
+
+ER-071 修改 Extraction Pipeline：先 Mention 后 Canonical
+依赖：ER-040, ER-042, ER-070
+做什么：extract mentions/raw relations -> resolve mentions -> materialize canonical relations。
+完成标准：relation endpoint 不再直接以 name 作为最终身份。
+
+ER-072 实现 CanonicalRelation Materializer
+依赖：ER-071, ER-011
+做什么：把 resolved mention relations 聚合成 entity_id edges。
+完成标准：edge 有 evidence refs；self-loop 规则明确；dangling endpoint=0。
+
+ER-073 实现 Merge/Split Relation Re-materialization
+依赖：ER-061, ER-062, ER-072
+做什么：identity mutation 后基于 raw relations 重建受影响 edges。
+完成标准：不简单 union 旧 edge；split 后 relation 回到正确实体。
+
+ER-080 实现 Versioned Incremental Resolution Key
+依赖：ER-010, ER-013
+做什么：key = rid + content_hash + extractor_version + resolver_version。
+完成标准：unchanged record 不重复跑；version 变化显式触发重算。
+
+ER-081 替换 done_titles Progress
+依赖：ER-080
+做什么：改用 pending/success/retryable/permanent 状态机。
+完成标准：title rename 不影响 progress；failure 不标 success。
+
+ER-082 实现 Atomic Entity Create
+依赖：ER-011, ER-034
+做什么：防止并发 worker 为同一实体创建 duplicate canonical node。
+完成标准：concurrency stress test 无 duplicate create；有 transaction/unique constraint。
+
+ER-083 实现 Identity Store Atomic Publish / Snapshot
+依赖：ER-063, ER-082
+做什么：新 entity/alias/index 版本完整验证后再切 current。
+完成标准：partial build 不被 serving 读取；previous version 可 rollback；snapshot_id 可被 Trace/Replay 引用以还原历史 identity state。
+
+==============================================================================
+04 Legacy migration + query-time resolver + shadow readiness
+==============================================================================
+ER-090 Legacy Name-Node Stable ID Migration
+依赖：ER-011, ER-083
+做什么：给旧 graph nodes 分配 stable entity_id，并标 migration_origin。
+完成标准：所有旧 node 有 ID；不宣称旧 node 一定 canonical 正确。
+
+ER-091 生成 Initial Alias Seeds
+依赖：ER-090, ER-021
+做什么：从旧 node names/中英括号生成初始 aliases。
+完成标准：provenance=legacy migration；ambiguous alias 保留多候选。
+
+ER-092 Legacy Duplicate Candidate Audit
+依赖：ER-091, ER-034
+做什么：找 exact normalized/acronym/fuzzy/high-impact possible duplicates。
+完成标准：生成可审查报告；不自动 mass merge。
+
+ER-093 Legacy High-Impact Entity Review
+依赖：ER-092, ER-060
+做什么：优先审 top-degree、高频公司、核心技术、大量 record mappings 实体。
+完成标准：高影响 case 有 approved/manual decisions；结果进入 override store。
+
+ER-094 从原 Records 重建 V2 Mentions/Relations
+依赖：ER-071, ER-093
+做什么：优先重跑原始 records，构建 evidence-backed graph-v2，而不是直接转换 legacy edges。
+完成标准：v2 graph edge 可追溯到 rid/mention evidence；legacy graph 仅作 hint。
+
+ER-100 实现 Query Entity Mention Parser
+依赖：ER-020, ER-022
+做什么：从 query 提取 entity mentions/strong IDs。
+完成标准：型号/DOI/公司名/缩写测试通过。
+
+ER-101 实现 Query Entity Resolver
+依赖：ER-034, ER-100
+做什么：复用 alias/candidates，但不修改图；允许 top-k candidates+weights。
+完成标准：ambiguous query 不强行唯一；unknown entity 有 fallback。
+
+ER-102 实现 Query Resolver Evaluation
+依赖：ER-050, ER-100, ER-101
+做什么：评 exact alias、acronym、ambiguous alias、unknown entity、typo/mixed language。
+完成标准：有 top1/topk/abstain metrics；graph fallback cases 可测试。
+
+ER-103 替换 Server 全量 Substring Graph Matching
+依赖：ER-101
+做什么：Graph search 使用 query resolver 的 entity_ids；旧 substring scan 仅临时 fallback/最终移除。
+完成标准：query 不再遍历全部 entity_name 作为主路径；有 latency/accuracy before-after。
+
+ER-104 Graph Route Ambiguity / Fallback
+依赖：ER-103
+做什么：query entity 不确定时降低 graph 权重、多候选有限扩展或跳过；Vector/BM25 继续。
+完成标准：resolver failure 不导致 QA failure。
+
+ER-110 Shadow Ingest Resolver
+依赖：ER-052, ER-053, ER-094
+做什么：新 resolver 并行跑但不改变 production graph serving。
+完成标准：收集 auto-link/new/ambiguous/duplicate 报告；与 legacy 对比。
+
+ER-111 Shadow Query Resolver
+依赖：ER-102, ER-103
+做什么：线上 query 同时计算 legacy vs v2 resolution，只记录差异。
+完成标准：不影响用户结果；有 mismatch report。
+
+==============================================================================
+05 Retrieval / chunking / reranking
+==============================================================================
+----------------------------------------------------------------------
+T014 - Retrieval Layer 重构
+优先级：P0
+依赖：T001
+----------------------------------------------------------------------
+
+【背景】
+当前 server.py 承担太多检索和 HTTP/SSE 逻辑。未来加入多轮 Agentic loop 后，如果继续堆逻辑会难以测试、替换和追踪。
+
+【目标】
+把 Vector / BM25 / Graph / Fusion 拆成稳定、统一、可独立测试的 Retrieval Layer；server.py 最终只做 API glue。
+
+【修改范围】
+逐步新增：
+qa-backend/retrieval/
+  __init__.py
+  vector.py
+  bm25.py
+  graph.py
+  fusion.py
+
+后续：
+qa-backend/orchestrator.py
+
+【统一结果 Schema】
+至少：
+record_id
+route
+raw_score
+rank
+meta
+route_details
+query
+round_id
+
+【实现步骤】
+1. 先用 wrapper 包住现有 vector_search/bm25_search/graph_search/rrf_fuse，保证行为等价。
+2. 建单元测试和现有 retrieval baseline。
+3. 再逐步把实现从 server.py 移出。
+4. /api/search 与 /api/chat/stream 保持兼容。
+5. load index / shared resource 的生命周期集中管理，避免模块重复加载大索引。
+6. graph/search 在 index 不可用时返回明确 degraded state，而不是异常。
+7. Graph route 的 route_details 必须能携带 matched_entities、matched_relation_paths、edge evidence refs、relation_match、direction_match 和 graph score breakdown，不能只返回一个裸 graph_score。
+
+【禁止】
+- 一次性重写 server.py。
+- 为了模块化改变搜索算法后不做 baseline 对比。
+- 每个模块自己重复加载完整 record/index。
+
+【Definition of Done】
+- [ ] server.py 不再包含核心 Vector/BM25/Graph 算法实现。
+- [ ] 三路检索可独立调用和单测。
+- [ ] 新旧 baseline 的差异有解释。
+- [ ] /api/search 行为兼容。
+- [ ] Retrieval route 状态进入 trace。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T028 - Contextual Chunking + Parent/Child Retrieval
+优先级：P0/P1
+依赖：T012, T014
+----------------------------------------------------------------------
+
+【背景】
+长文章、长报告、论文的关键事实可能出现在正文中后部。整篇 record embedding 会稀释局部信号；固定截断又容易丢上下文。
+
+【目标】
+建立小粒度精准召回 + Parent Record 上下文恢复。
+
+【修改范围】
+新增建议：
+scripts/build_chunk_index.py
+qa-backend/chunking.py
+runtime/indexes/chunk_vector_index.*
+runtime/indexes/chunk_bm25_index.*
+
+【Chunk Schema】
+chunk_id
+record_id
+text
+context_prefix
+start_offset
+end_offset
+section
+chunk_version
+
+context_prefix 可包含：
+title
+source
+date
+category
+canonical entities
+section heading
+
+【切分原则】
+1. 优先段落 / semantic boundary / section boundary。
+2. 不简单每 N 字硬切。
+3. 必要时 overlap，但避免大量重复。
+4. chunk 保留精确 offset。
+5. chunk 不成为新的“真相文本”；最终 evidence/citation 仍回到 parent full_body 验证。
+6. 对表格/参数密集区域尽量保留行/字段结构。
+7. generated synthetic summary 不作为 source chunk。
+
+【检索流程】
+query -> chunk vector/BM25 hits -> parent record metadata -> reranker/selector -> exact evidence grounding
+
+【Definition of Done】
+- [ ] 长文后半部事实 Recall 有提升或至少不退化。
+- [ ] chunk hit 可稳定回到 parent record。
+- [ ] start/end offset 可用于 citation grounding。
+- [ ] chunk index 与 data snapshot/version 绑定。
+- [ ] 有长文 benchmark。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T015 - RRF 职责调整：融合 / 去重，而非最终相关性裁判
+优先级：P0
+依赖：T014
+----------------------------------------------------------------------
+
+【背景】
+当前 RRF 会直接截成最终 Top25。引入强 Reranker 后，过早截断会丢掉“只在某一路很强、但其他路没有”的候选。
+
+【目标】
+RRF 主要负责把不同 rank/score 空间融合成 Candidate Pool；最终 relevance 交给 Reranker。
+
+【新流程】
+Vector TopK
+BM25 TopK
+Graph TopK
+-> RRF / Union / Dedup
+-> High-recall Candidate Pool
+-> Reranker
+-> Evidence Selector
+
+【实现要求】
+1. 默认每路如 Top50，配置化。
+2. 候选去重按稳定 record_id。
+3. 保留：
+   rrf_score
+   vector_score
+   bm25_score
+   graph_score
+   graph_path_features
+   per_route_rank
+4. 若去重候选 <= MAX_RERANK_CANDIDATES，尽可能全部送 reranker。
+5. 超过安全阈值（例如 150~200，可配置）才允许按 RRF/route quota 做 coarse prune。
+6. benchmark 三种方案：
+   A. old RRF Top25
+   B. RRF large pool -> rerank
+   C. union/dedupe -> rerank
+7. 不预设 B 必然胜 C，用数据选生产方案。
+8. Graph route 进入 RRF 时仍主要贡献 rank；relation-aware graph_score/path features 保留给后续 Reranker/Trace 使用，不直接与 BM25/Vector 原始分数相加。
+
+【Definition of Done】
+- [ ] RRF 输出 Candidate Pool，而不是最终 evidence。
+- [ ] RRF score 作为 feature 保留。
+- [ ] 单路强相关 outlier 不会因过早 Top25 被轻易丢失。
+- [ ] 三种 fusion 策略有统一 benchmark。
+- [ ] 参数均配置化。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T016 - Content-aware Reranker
+优先级：P0
+依赖：T015
+----------------------------------------------------------------------
+
+【背景】
+RRF 只融合排名，不理解候选内容是否真正有助于回答问题。当前系统缺少真正 second-stage reranker。
+
+【目标】
+用 query + candidate content 做内容级精排，提高 relevance precision。
+
+【修改范围】
+新增：
+qa-backend/reranker.py
+
+统一接口：
+async def rerank(query, candidates, top_k=None, context=None) -> list
+
+输出至少：
+record_id
+rerank_score
+input_rank
+reason(optional)
+route_features
+
+【实现策略】
+第一版允许使用当前最强 GLM 做 batch/listwise reranking。
+禁止 N 篇候选 -> N 次逐篇 LLM 请求。
+
+如果可引入本地/专门 reranker：
+- Fast cross-encoder 先排 100~150
+- 高质量复杂题可让 GLM 再判断 Top20~40
+但实际模型选择必须用 benchmark 决定。
+
+【输入内容】
+优先给 reranker：
+- title
+- source/date minimal metadata
+- relevant body/chunk text
+- 若候选来自 Graph route，可附 matched relation path + exact edge evidence span 作为额外 feature
+而不是只给 AI summary。
+
+【职责边界】
+Reranker 只判断：
+“这条候选对当前 query / requirement 有多相关、有多有用？”
+
+不要同时把 source independence、coverage、final trust 全塞进去；这些交给 Evidence Selector/Grader。
+
+【Definition of Done】
+- [ ] 存在真实的 query-document 内容级 rerank stage。
+- [ ] 支持 batch/listwise。
+- [ ] Rerank 结果进入 trace。
+- [ ] 对旧 RRF Top25 有 relevance benchmark。
+- [ ] Reranker error 有 fallback，不会把所有候选清空。
+- [ ] 不把 generated synthetic summary 当唯一 rerank evidence。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T051 - Reranker Stability / Batch Calibration
+优先级：P0
+依赖：T002, T016, T028
+----------------------------------------------------------------------
+【做什么】
+解决 listwise batch score 不可比与 position bias。优先评估 dedicated/cross-encoder；若用 GLM batch/listwise，定义 anchors/cross-batch merge、稳定排序、order perturbation test、max context strategy；复杂题可二阶段 rerank。
+【怎么算完成】
+- [ ] 同一候选随机换顺序，TopK 稳定性达到预先定义阈值。
+- [ ] 不同 batch 的分数/排名有明确合并方法。
+- [ ] 150 candidates 不通过 150 次独立 GLM 调用。
+- [ ] relevance benchmark 优于或不劣于旧 RRF 基线。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T017 - Evidence Selector：从“相关文档”选出“最佳证据组合”
+优先级：P0
+依赖：T016, T008, T009, T010, T012
+----------------------------------------------------------------------
+
+【背景】
+即使 Reranker 很准，Top10 也可能全是同一个厂商、同一转载链、同一事件角度。最终上下文要优化的是 Evidence Set，而非单文档排序。
+
+【目标】
+构建 source-aware / provenance-aware / temporal-aware / coverage-aware 的 Evidence Selector。
+
+【输入】
+Reranked candidates
+Evidence metadata
+Current requirement / Evidence Ledger
+Temporal intent
+
+【选择特征】
+- rerank relevance
+- requirement coverage gain
+- source suitability
+- independent_group gain
+- temporal fit
+- entity balance
+- event diversity
+- data quality
+- redundancy penalty
+- novelty gain
+- graph path quality / relation-query fit（若来自 Graph route）
+
+可建立配置化 selection_score，但不要把公式视为真理。
+
+【重要规则】
+1. 同一 provenance group 默认限制重复占位。
+2. 比较 A/B/C 时，若 B 的高质量证据存在，不允许 A 因资料多把所有名额占满。
+3. Diversity 是软约束，不能为了“多样”选明显不相关来源。
+4. 对于需要官方规格的问题，一条高适配官方一手资料可以比多家二手转载重要。
+5. 每条选择/淘汰给出 machine-readable reason。
+
+【Definition of Done】
+- [ ] 最终 Evidence Set 不被同源转载占满。
+- [ ] comparison case 主要对象都有合理 coverage。
+- [ ] Selector 能读取 provenance/temporal/data-quality/suitability。
+- [ ] 输出 selected/rejected reasons 到 trace。
+- [ ] A/B benchmark 比较 reranker-only vs selector。
+
+----------------------------------------------------------------------
+
+==============================================================================
+06 Graph-V2 relation semantics and retrieval (benchmark-gated)
+==============================================================================
+----------------------------------------------------------------------
+T027 - Evidence-grounded Semantic Knowledge Graph / Graph Pipeline 统一
+优先级：P0/P1
+依赖：T011, T003, T010, T012, T028, T044
+----------------------------------------------------------------------
+
+【背景】
+当前 Graph 路最大的结构性问题不是“0.35 应该调成多少”，而是图里的边本身缺少足够严格的语义、方向和证据约束。
+Legacy / fast graph 可以把实体共现建成弱边用于关联发现，但“共同出现”不等于存在明确语义关系。若 LLM 在建图时凭预训练知识补出原文没有支持的关系，Graph Retriever 随后沿这条边检索，就会把模型常识污染成数据库证据。
+
+【目标】
+把 Graph 升级为 evidence-grounded、typed、directional、temporal 的 Semantic Graph；保留 RELATED_CO_OCCURRENCE 作为弱关系。
+
+【强语义关系示例】
+RELEASED / DEVELOPED / USES / USES_MATERIAL / SUPPORTS / PART_OF /
+COMPETES_WITH / ACHIEVES / IMPROVES / REPLACES / SUPERSEDES /
+PARTNERED_WITH / INVESTED_IN / MEASURED_AT
+
+【Edge Schema】
+edge_id
+subject_entity_id
+predicate
+object_entity_id / object_value
+directional
+record_id
+evidence_span
+evidence_start
+evidence_end
+extraction_confidence
+grounding_status
+source_role
+published_at
+valid_from
+valid_to
+extraction_method
+graph_version
+
+【建图输入】
+优先 original full_body / grounded chunks；title/section 只作上下文。
+synthetic_summary 不得作为唯一关系依据；模型领域常识不得形成无来源 production edge。
+
+【关系抽取流程】
+Original source -> Entity Resolution -> Relation Extraction -> Evidence Span Localization
+-> Deterministic Exact-span Validation -> Optional independent semantic verification -> Edge creation
+
+【硬规则】
+1. production semantic edge 必须有 record_id。
+2. 必须有 exact evidence span 或可验证的 coreference-grounded span。
+3. 没有原文证据的关系不得进入 high-confidence semantic graph。
+4. 关系方向必须保留；Company --USES--> Technology 不等于 Technology --USES--> Company。
+5. 只有明确 symmetric predicate 才可双向查询。
+6. LLM 自报 confidence 不能替代 deterministic grounding。
+7. co-occurrence edge 必须明确标为 weak。
+8. edge 可有多个 evidence refs / provenance groups。
+9. 版本变化用 valid_from/valid_to/supersedes 表达，不无痕覆盖旧关系。
+10. current fast graph 可保留为 legacy/fallback 直至 benchmark 决定迁移。
+
+【节点类型】
+organization / product / technology / material / standard / metric /
+project / institution / person / location
+不能所有节点统一成“概念”。
+
+【Graph Pipeline 统一】
+比较：
+- current fast co-occurrence graph
+- evidence-grounded semantic graph
+- LightRAG graph/mix benchmark candidate
+
+在线 Agent 仍通过可控 search_graph/search_hybrid interface 使用图谱，不绑死 rag.aquery()。
+
+【Definition of Done】
+- [ ] 每条 production semantic edge 有 record_id + exact evidence span。
+- [ ] 没有 exact evidence 的 LLM relation 不进入高置信 semantic graph。
+- [ ] predicate 与方向被保存。
+- [ ] semantic edge 不再无条件 A<->B 双向化。
+- [ ] co-occurrence 与 semantic relation 区分。
+- [ ] 节点实体类型被保留。
+- [ ] 同一 relation 可保留多 evidence refs。
+- [ ] temporal/version metadata 可关联 edge。
+- [ ] synthetic summary 无法独立生成 production semantic edge。
+- [ ] canonical graph build pipeline/version 明确。
+- [ ] current fast graph / semantic graph / LightRAG 有统一 benchmark。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T045 - Graph Intent & Multi-hop Composition Validator
+优先级：P0
+依赖：T044, T027, ER-101
+----------------------------------------------------------------------
+【做什么】
+GraphQueryIntent 只能选择 ontology 中的 predicate/group；unknown relation 安全 fallback。对 multi-hop path 检查每条 edge grounding、direction、modality、time、scope 以及 ontology 允许的 composition pattern。未授权组合只能作为 discovery/query expansion，不能直接形成 factual conclusion。
+【怎么算完成】
+- [ ] fabricated predicate 被拒绝。
+- [ ] A->B、B->C 不会默认推出 A->C。
+- [ ] negated/planned/possible relation 不会被当成 asserted fact。
+- [ ] path scoring config 用 held-out relation benchmark 校准并版本化。
+- [ ] Graph result 标出 inference_allowed / discovery_only。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T039 - Relation-aware Graph Retriever / 路径感知 Graph Ranking
+优先级：P0
+依赖：T014, T027, T045
+----------------------------------------------------------------------
+
+【背景】
+Legacy Graph Retriever 主要是：直接实体固定高权重、一跳邻居统一固定 hop 权重（例如 +0.35）、实体权重传给 entity_to_records 后累加。这能做补召回，但不同关系/方向被退化成“有边”。
+
+【目标】
+Graph Retrieval 根据“用户问什么关系 + 图里是什么关系 + 边是否有原文证据 + 方向/时间/路径是否匹配”来排序 records。
+
+【流程】
+Query -> Entity Resolution -> Graph Query Intent -> Seed Nodes
+-> Predicate/Direction-aware Traversal -> Evidence-grounded Path Scoring
+-> Path -> Record Aggregation -> Graph TopK + Explanation
+
+【Query Entity Resolution 前置规则】
+Graph route 优先使用 ER-100/101 输出的 stable entity_id candidates；ambiguous exact alias 不强制唯一；unknown/ambiguous 可有限扩展、降低 Graph 权重或跳过 Graph，Vector/BM25 继续。旧 full-graph substring scan 仅 migration fallback。
+
+【Graph Query Intent】
+seed_entities
+desired_relation_groups
+direction
+target_entity_types
+max_hops
+temporal_constraint
+
+例：“固态电池用什么材料？”
+USES_MATERIAL 路径应高于 COMPETES_WITH 路径。
+
+【Path Eligibility】
+检查：
+seed entity match
+grounding_status
+predicate compatibility
+direction compatibility
+target type
+temporal compatibility
+
+RELATED_CO_OCCURRENCE 仅作弱补召回。
+
+【Path Score Features】
+seed_entity_match
+query_entity_importance
+relation_match
+direction_match
+edge_grounding_quality
+edge_extraction_confidence
+target_type_match
+temporal_fit
+path_specificity
+hop_decay
+hub_penalty
+provenance/evidence_quality
+
+第一版可线性/乘法组合，但权重必须配置化、可 trace、用 benchmark 调优。
+禁止把 +0.8/+0.3/+0.1 等拍脑袋数字当长期真理。
+
+【0-hop / 1-hop / Multi-hop】
+Direct entity 与 semantic path 分项计分。
+1-hop 是否高分取决于 predicate/direction/grounding/specificity，不由“一跳”本身决定。
+默认优先 0~1 hop；只有 MULTI_HOP/关系链问题才 bounded 开 2-hop。
+
+【Hub】
+legacy degree threshold 可保留 safety cap，但最终使用 hub_penalty/specificity，防止“技术/中国/人工智能”等超级节点淹没具体关系。
+
+【Path -> Record Aggregation】
+通过 edge evidence refs 反查 record_id/evidence_span。
+多个独立高价值路径可增分，但重复路径使用 diminishing returns，同 provenance 重复不无限累加。
+
+【Graph Result】
+record_id
+graph_score
+direct_entity_score
+semantic_path_score
+matched_entities
+matched_paths[nodes,predicates,direction_match,relation_match,evidence_refs,path_score,score_breakdown]
+rank
+
+【与 RRF】
+Graph TopK 通过 T015 RRF/Union 融合。不要把 vector_score+bm25_score+graph_score 直接相加。
+Graph score/path features 可给 Reranker/Selector/Trace。
+
+【Legacy】
+QA_RELATION_AWARE_GRAPH_RETRIEVAL_ENABLED=false 时保留 fixed-hop legacy baseline/fallback。
+
+【Definition of Done】
+- [ ] Graph query 有结构化 GraphQueryIntent。
+- [ ] predicate 匹配会改变排序。
+- [ ] direction 参与 ranking。
+- [ ] ungrounded semantic edge 不参与 high-confidence path。
+- [ ] RELATED_CO_OCCURRENCE 只作弱关系。
+- [ ] 所有 1-hop 不再统一固定 +0.35。
+- [ ] score 有 feature-level breakdown。
+- [ ] Direct entity 与 semantic path 分项。
+- [ ] hub 有 penalty/cap。
+- [ ] 2-hop 仅明确需要时 bounded 开启。
+- [ ] record aggregation 防重复 path 无限叠分。
+- [ ] Graph TopK 可解释“为什么排第 N”。
+- [ ] legacy vs relation-aware 有 benchmark。
+- [ ] Graph TopK 仍通过 RRF/Union 与 Vector/BM25 融合。
+
+----------------------------------------------------------------------
+
+==============================================================================
+07 Query integrity + adaptive agentic control
+==============================================================================
+----------------------------------------------------------------------
+T042 - Query Integrity / Verified Conversation Context
+优先级：P0
+依赖：T001, ER-101
+----------------------------------------------------------------------
+【做什么】
+保留 original_query；rewrite 输出 rewritten_query + semantic_diff（实体、时间、否定、比较对象、范围变化）；Router/Planner/Entity Resolver 同时看 original+rewrite。Follow-up 只能把上一轮 VERIFIED/SUPPORTED claim+evidence 当 factual premise；raw assistant prose 不作为事实来源。Novelty 采用软惩罚而非盲目 hard-exclude 权威基线来源。
+【怎么算完成】
+- [ ] rewrite 改错实体/时间/否定会被 diff 检出并回退/升级。
+- [ ] previous unverified answer 不会进入下一轮 factual premise。
+- [ ] novelty 问题仍可保留必要权威来源，同时寻找新来源。
+- [ ] Trace 保存 original/rewrite/diff/context provenance。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T018 - Adaptive Router：FAST / RESEARCH / DEEP 三档模式
+优先级：P0
+依赖：T014
+----------------------------------------------------------------------
+
+【背景】
+对所有问题都跑 Planner + Decomposition + 多轮检索，会增加延迟并可能把简单精确事实题“想复杂了”。Agentic 不代表所有请求都多轮。
+
+【目标】
+根据问题复杂度和证据需求选择处理深度。Router 必须同时接收 original_query 与 rewritten_query/T042 semantic_diff，不能只相信 rewrite。
+
+【修改范围】
+新增：
+qa-backend/router.py
+
+【输出 Schema】
+question_type
+complexity
+mode
+needs_decomposition
+needs_temporal_reasoning
+needs_graph
+needs_graph_reasoning
+graph_intent
+needs_multi_source_evidence
+needs_multi_document_reasoning
+needs_conflict_check
+reason
+
+【模式】
+FAST_RAG：
+Rewrite -> Hybrid Retrieval -> Rerank -> Basic Evidence Check -> Generate -> Verify
+
+RESEARCH_RAG：
+Planner/Decompose -> Retrieval -> Ledger -> Grader -> Gap Search (bounded)
+
+DEEP_RESEARCH：
+复杂多实体 / 趋势 / 冲突 / 高覆盖要求 -> 完整 iterative loop
+当 needs_multi_document_reasoning=true 时，在 Evidence Selector 后启用 Multi-Document Evidence Processing。
+
+【Question Type 至少】
+FACT_LOOKUP
+ENTITY_OVERVIEW
+COMPARISON
+MULTI_ENTITY
+TREND
+TEMPORAL
+CAUSAL_ANALYSIS
+MULTI_HOP
+FOLLOWUP
+NOVELTY
+
+【Graph Retrieval Intent 建议】
+当 needs_graph=true 或 needs_graph_reasoning=true 时，Router 可输出高层 graph_intent：
+- seed_entities
+- desired_relation_types / relation_groups
+- direction：outgoing / incoming / either
+- target_entity_types
+- max_hops
+- relation_question：true/false
+
+例子：
+“固态电池用什么材料？”
+应表达为类似：
+seed_entity=固态电池
+desired_relation_group=USES_MATERIAL / COMPONENT_MATERIAL
+direction=outgoing
+target_entity_type=material
+
+Router 不需要决定最终 Graph Score；真正的关系匹配与路径评分由 T039 完成。
+
+【Multi-Document Trigger 建议】
+以下情况优先 needs_multi_document_reasoning=true：
+- 跨公司/跨产品/跨技术路线比较
+- 同一问题的证据分散在多篇长文档
+- 技术演进/时间序列分析
+- 厂商自述 vs 第三方验证
+- 多来源相互印证
+- 冲突核验
+- 需要整合多篇报告后才能覆盖全部 requirements
+
+简单事实查询、单文档摘要、单一精确参数通常不启用。
+
+【实现要求】
+1. Router 可用 GLM，但必须严格 JSON + parser tolerance。
+2. 明确规则 fallback，例如明显单实体精确参数查询可 FAST。
+3. Router failure 不能使整个请求失败。
+4. Router 不以省 token 为目标；它的目标是选正确策略和避免语义漂移。
+5. 如果 FAST 后 Basic Evidence Check 明显不足，可自动升级到 RESEARCH。
+6. 对明显的关系型问题（谁研发、使用什么材料、谁与谁合作、什么替代什么、A 与 B 通过什么关系连接等）应优先设置 needs_graph_reasoning=true；Graph route 不应仅作为普通实体共现补召回。
+
+【Definition of Done】
+- [ ] 简单事实题通常走 FAST。
+- [ ] comparison/trend/multi-hop 进入 Research 或 Deep。
+- [ ] FAST 证据不足可升级模式。
+- [ ] Router result 进入 trace。
+- [ ] 有 Router accuracy / unnecessary-decomposition benchmark。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T019 - Query Decomposition
+优先级：P0
+依赖：T018
+----------------------------------------------------------------------
+
+【背景】
+复杂问题一次搜索常只覆盖一部分。例如比较多个公司多个维度，需要明确知道“哪些维度必须有证据”。
+
+【目标】
+把复杂用户问题拆成可验证的 requirements 和可执行 subqueries。
+
+【修改范围】
+新增：
+qa-backend/decomposer.py
+或 planner.py 中保留独立接口。
+
+【输出】
+{
+  "requirements": [
+    {
+      "id": "r1",
+      "description": "NVIDIA interconnect evolution",
+      "importance": "critical",
+      "entities": ["org:nvidia"],
+      "dimensions": ["interconnect"],
+      "queries": [...]
+    }
+  ]
+}
+
+【实现要求】
+1. requirements 必须能映射回原始用户意图。
+2. comparison 类应显式考虑对象 x 维度 coverage。
+3. trend 类应显式考虑时间阶段。
+4. 不生成大量同义 query。
+5. MAX_SUBQUERIES 配置化，例如 8~12。
+6. 对依赖型问题可允许简单 DAG/dependency 字段，但第一版不必做通用工作流引擎。
+7. 用户问题有歧义时：
+   - 若可合理覆盖多个主要解释，可把解释作为 requirement。
+   - 若无法可靠回答，应在最终说明假设/范围，不要悄悄选一个解释。
+
+【Definition of Done】
+- [ ] comparison/multi-entity/trend 能生成完整 requirements。
+- [ ] requirement 可直接进入 Evidence Ledger。
+- [ ] 子查询数量受控且低重复。
+- [ ] decomposition quality 有独立 eval。
+- [ ] 简单题不会被强制 decomposition。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T020 - Research Planner
+优先级：P0
+依赖：T019
+----------------------------------------------------------------------
+
+【背景】
+Decomposition 负责“拆成什么”，Planner 负责“以什么顺序、用什么检索路线、需要什么证据类型”。
+
+【目标】
+生成结构化 Research Plan，供 orchestrator 执行。
+
+【修改范围】
+新增：
+qa-backend/planner.py
+
+【输出至少】
+requirements
+initial_subqueries
+route_preferences
+temporal_constraints
+expected_evidence_types
+source_independence_needs
+graph_query_plans(optional)
+dependencies(optional)
+
+【例子】
+对于“某公司宣称性能提升 3 倍，是真的吗？”
+Planner 应知道：
+- 官方资料可用于证明“公司声称”
+- 还需要 independent benchmark / academic / third-party evidence
+而不是检索 5 篇官方转载后结束。
+
+对于关系型 requirement，graph_query_plans 可包含：
+- requirement_id
+- seed_entities
+- desired_relation_types / relation_groups
+- direction
+- target_entity_types
+- max_hops
+- temporal constraint
+
+Planner 只表达“需要找什么关系”，不自行给图中的边打最终分。
+
+【角色隔离】
+Planner 使用独立 GLM 调用。
+不输入最终 Generator draft。
+Planner 只做研究策略，不做答案。
+
+【Parser】
+严格 JSON schema。
+parse failure：
+- tolerant parse
+- retry
+- deterministic fallback plan
+
+【Definition of Done】
+- [ ] Planner 输出可由 orchestrator 直接执行。
+- [ ] 对不同 question type 产生合理 route/source needs。
+- [ ] 失败有 fallback。
+- [ ] plan 进入 trace。
+
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T021 - Evidence Ledger：Agent 的核心控制状态
+优先级：P0
+依赖：T020
+----------------------------------------------------------------------
+
+【背景】
+Ledger 不能只是日志装饰。如果它不真正控制“是否继续搜、是否允许回答”，那就没有价值。
+
+【目标】
+把用户问题拆成可追踪 requirements，并持续维护每个 requirement 的支持、冲突、缺失和独立来源状态。
+
+【修改范围】
+新增：
+qa-backend/evidence_ledger.py
+
+【Schema】
+{
+  "question": "...",
+  "iteration": 2,
+  "requirements": [
+    {
+      "id": "r1",
+      "description": "...",
+      "importance": "critical",
+      "status": "SUPPORTED",
+      "supporting_evidence": [],
+      "conflicting_evidence": [],
+      "independent_groups": [],
+      "temporal_coverage": {},
+      "missing": []
+    }
+  ]
+}
+
+Requirement status：
+SUPPORTED
+PARTIAL
+MISSING
+CONFLICTED
+
+【实现要求】
+1. 每轮 Retrieval + Selector 后 update ledger。
+2. supporting_evidence 必须指向 record/evidence objects，不仅是自然语言。
+3. independent_groups 使用 provenance 信息。
+4. critical requirement 未支持时，不允许仅凭其他部分资料多就整体 SUPPORTED。
+5. stopping criteria 读取 Ledger。
+6. context builder 读取 Ledger。
+7. Generator 输入包含 Ledger-derived evidence package。
+8. Trace 保存每轮 immutable snapshot，方便回放。
+9. 新证据不能直接覆盖旧冲突证据，保留历史决策。
+10. 若 Graph path 被用于解释/支持一个 relation requirement，Ledger 必须保存 path 中每条 semantic edge 的 record_id + exact evidence span；只有“图上有边”但无 evidence ref 的路径不能成为已支持证据。
+
+【Definition of Done】
+- [ ] Ledger 真正参与是否继续搜索。
+- [ ] Ledger 真正参与是否允许生成完整答案。
+- [ ] critical MISSING 不会被“总文档数量多”掩盖。
+- [ ] 支持每轮快照与差异。
+- [ ] 有 unit tests 对 coverage/status transition。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T050 - Requirement-aware Fusion / Candidate Reserve Pool
+优先级：P0
+依赖：T015, T019, T021
+----------------------------------------------------------------------
+【做什么】
+多 subquery 场景下按 requirement 独立做 fusion/rerank，之后按 criticality/coverage quota 合并；保留 reserve candidates，让 Gap Analysis/Multi-Document mode 可重新打开被初筛淘汰但可能补足 coverage 的文档。
+【怎么算完成】
+- [ ] A/B/C 比较不会因 A 文档量大挤掉 B/C。
+- [ ] 每个 critical requirement 有最低候选预算。
+- [ ] reserve reopen 有 trace reason，不无限扩大候选池。
+- [ ] 与 global-RRF-only benchmark 对比 coverage 有改善或至少不退化。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T043 - Question/Claim-type Sufficiency Policy Registry
+优先级：P0
+依赖：T002, T009, T010
+----------------------------------------------------------------------
+【做什么】
+建立 versioned sufficiency policies，至少覆盖 exact fact、official spec、comparison、trend、current/as-of、causal、prediction、recommendation、negative/absence claim。定义每类 hard requirements、独立来源需求、temporal alignment、numeric comparability、允许的 evidence roles 与 abstention 规则。
+【怎么算完成】
+- [ ] T022 Grader 通过 policy_id 评估，不再使用统一“几篇来源就够”。
+- [ ] 官方规格可由一手权威来源满足，但“实际性能”不能只靠厂商自述。
+- [ ] causal 无因果证据时只能输出相关性/分析。
+- [ ] prediction/recommendation 保持 epistemic attribution/uncertainty。
+- [ ] negative claim 不把“KB 未发现”当“不存在”。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T022 - Evidence Grader：Rule Engine + GLM
+优先级：P0
+依赖：T021, T017
+----------------------------------------------------------------------
+
+【背景】
+纯 LLM 判断“证据够了吗？”容易自我确认。可确定的 coverage / independence / temporal / conflict 规则应由程序检查。
+
+【目标】
+建立可解释的 Evidence Sufficiency 判定。
+
+【修改范围】
+新增：
+qa-backend/evidence_grader.py
+
+【第一层：Rule Engine】
+至少检查：
+- critical requirement 是否全部覆盖
+- required entity 是否覆盖
+- independent provenance groups 数量
+- 是否只有 self-reported evidence
+- temporal mismatch
+- superseded-only evidence
+- high severity unresolved contradiction
+- required numeric metric 是否缺 unit/condition
+- evidence data-quality 是否过低
+- citation-capable original text 是否存在
+- Graph relation/path 若参与支持，semantic edge 是否全部 evidence-grounded
+- Graph path 的 predicate / direction 是否匹配当前 relation requirement
+
+【第二层：GLM Semantic Grader】
+判断：
+- 证据是否真正回答 requirement
+- 是否遗漏重要维度
+- 证据逻辑是否足以支持目标结论
+- 缺失什么语义证据
+
+【输出】
+{
+  "overall": "INSUFFICIENT",
+  "coverage_score": ...,
+  "independent_source_score": ...,
+  "rule_failures": [],
+  "requirements": [...],
+  "missing": [...],
+  "next_search_targets": []
+}
+
+【硬约束】
+- 用户要求比较 A/B/C，B 无 evidence -> 不能 SUPPORTED。
+- 用户问“实际是否如此”，只有厂商自述 -> 不应自动 SUPPORTED。
+- high-severity unresolved conflict -> 不应直接确定性 SUPPORTED。
+- hard rule failure 不能被 GLM一句“足够”覆盖。
+
+【Definition of Done】
+- [ ] Grader 不再是单 LLM yes/no。
+- [ ] Rule 与 GLM 结果均写 trace。
+- [ ] 输出明确 missing/gaps。
+- [ ] hard rule failure 有优先级。
+- [ ] duplicate/self-report/temporal/conflict 均有测试。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T023 - Gap Analysis + Targeted Query Generation
+优先级：P0
+依赖：T022
+----------------------------------------------------------------------
+
+【背景】
+“证据不足 -> 再搜原问题一次”通常只会重复结果。必须明确当前缺的是什么。
+
+【目标】
+从 Ledger + Grader 自动生成针对未满足 requirement 的下一轮查询。
+
+【修改范围】
+新增：
+qa-backend/gap_analysis.py
+
+【输入】
+original_question
+research_plan
+current_ledger
+grader_result
+previous_queries
+previous_results
+
+【输出】
+{
+  "gaps": [...],
+  "queries": [
+    {
+      "query": "...",
+      "requirement_id": "r2",
+      "purpose": "find_independent_validation",
+      "preferred_routes": ["vector", "bm25"],
+      "temporal_constraint": "...",
+      "source_need": "independent"
+    }
+  ]
+}
+
+【Gap 类型至少】
+MISSING_FACT
+MISSING_ENTITY_COVERAGE
+MISSING_TIME_PERIOD
+MISSING_INDEPENDENT_SOURCE
+CONFLICT_NEEDS_RESOLUTION
+MISSING_NUMERIC_CONDITION
+AMBIGUOUS_SCOPE
+
+【实现要求】
+1. 每个新 query 必须绑定 unresolved requirement/gap。
+2. query dedup，避免连续生成同义词。
+3. previous query/result 作为 anti-drift 上下文。
+4. 不允许为了“多搜”生成与用户目标无关的研究方向。
+5. 如果 gap 在当前数据库类型中理论上不可满足，也允许建议 stop，而不是无限改写 query。
+
+【Definition of Done】
+- [ ] 每个补搜 query 都能解释“为了填哪个 gap”。
+- [ ] 同一 query 不无限重复。
+- [ ] 独立来源缺失时能生成 source-aware search target。
+- [ ] 冲突时能生成 resolution query。
+- [ ] trace 可见 gap -> query 映射。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T024 - Iterative Retrieval Orchestrator
+优先级：P0
+依赖：T023
+----------------------------------------------------------------------
+
+【背景】
+真正 Agentic 的核心不是“用了 Agent 名字”，而是存在受控的 Retrieve -> Grade -> Gap -> Retrieve Again 闭环。
+
+【目标】
+实现 bounded iterative research loop。
+
+【修改范围】
+新增：
+qa-backend/orchestrator.py
+
+【核心流程】
+1. Rewrite
+2. Router
+3. 如果需要：Decompose + Plan
+4. 执行当前 subqueries
+5. Vector/BM25/Graph
+6. RRF/Union Candidate Pool
+7. Rerank
+8. Evidence Selector
+9. 如果 Router 判断 needs_multi_document_reasoning=true：
+   对选中的关键文档运行 Multi-Document Evidence Processing（T038）
+10. Update Ledger
+11. Conflict Detection
+12. Evidence Grader
+13. sufficient -> 进入 generation
+14. insufficient -> Gap Analysis
+15. 新 subqueries -> 下一轮
+16. Stop Criteria -> Partial/Unsupported
+
+【推荐配置】
+MAX_ITERATIONS = 4~6
+MAX_SUBQUERIES = 8~12
+MAX_TOOL_CALLS = 配置化
+MAX_RERANK_CANDIDATES = 150~200
+
+这些 bound 用于稳定性和防漂移，不是成本优先。
+
+【实现要求】
+1. FAST_RAG 不强制完整 loop。
+2. RESEARCH/DEEP 使用同一 typed ResearchState。
+3. 每轮只重点处理 unresolved requirements。
+4. Candidate/evidence 跨轮去重。
+5. 保留 novelty follow-up 能力，但从“排除过去引用记录”升级为“已覆盖 evidence/requirement aware”，避免为了新颖而排除仍需比较的关键来源。
+6. 每轮 state 可序列化进 trace。
+7. 异常模块要安全降级，不能无状态继续生成。
+
+【建议 ResearchState】
+original_query
+rewritten_query
+query_type
+mode
+plan
+subqueries
+retrieval_rounds
+candidate_records
+graph_query_intents
+graph_matched_paths
+selected_evidence
+document_evidence_packets
+evidence_ledger
+contradictions
+unresolved_gaps
+status
+stop_reason
+
+【Definition of Done】
+- [ ] 复杂问题能执行 >1 轮 targeted retrieval。
+- [ ] evidence 足够时提前停止。
+- [ ] evidence 无新增时不会死循环。
+- [ ] 每轮 state/queries/results 可 trace。
+- [ ] FAST 与 Research 流程都能正常工作。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T025 - Stopping Criteria / 搜索饱和检测
+优先级：P0
+依赖：T024
+----------------------------------------------------------------------
+
+【背景】
+只有 MAX_ITERATIONS 不够。需要知道“已经搜到饱和”“关键缺口连续没有改善”。
+
+【目标】
+建立可解释、可测试的停止策略。
+
+【修改范围】
+新增：
+qa-backend/stopping.py
+
+【停止原因至少】
+evidence_sufficient
+search_saturated_current_snapshot
+no_new_evidence
+retrieval_saturated
+critical_gap_unresolved
+conflict_unresolved
+max_iterations
+max_subqueries
+technical_failure
+
+【信号】
+- new unique record count
+- new selected evidence count
+- new independent provenance groups
+- requirement status improvement
+- average evidence gain
+- query/result overlap
+- unresolved critical gap age
+- conflict resolution progress
+
+【规则例子】
+连续两轮：
+- 无新 independent group
+- 无 requirement 从 MISSING/PARTIAL 改善
+- 新结果高度重复
+=> stop no_new_evidence
+
+针对冲突补搜若连续多轮没有新证据：
+=> conflict_unresolved
+
+【Definition of Done】
+- [ ] 能在 max iteration 前基于饱和主动停。
+- [ ] stop_reason 可解释且进入 API/trace。
+- [ ] “深搜后 KB 仍不足”是正常主路径，不是 exception。
+- [ ] 有 no-new-evidence / unresolved-gap / conflict 测试。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T026 - Knowledge Boundary + Calibrated Abstention
+优先级：P0
+依赖：T022, T025, T006
+----------------------------------------------------------------------
+
+【背景】
+“搜索有结果”不代表数据库覆盖足够。特别是开放性、趋势、未来问题，几篇相关资料不能支持宏观结论。
+
+【目标】
+判断 Tech-DB 对当前问题的可回答边界，并产生正确的 SUPPORTED / PARTIAL / UNSUPPORTED。
+
+【修改范围】
+新增：
+qa-backend/knowledge_boundary.py
+
+【Coverage 状态】
+HIGH
+MEDIUM
+LOW
+UNKNOWN
+
+【依据】
+- requirements coverage
+- critical gaps
+- evidence count
+- independent source groups
+- source suitability
+- data quality
+- temporal coverage
+- conflicts
+- corpus scope indicators
+
+【关键语义】
+“Tech-DB 中未找到”只能推出：
+“当前 Tech-DB 没有足够证据”
+不能推出：
+“现实世界不存在 X”。
+
+对 negative claim 尤其如此：
+“没有找到 X” != “X 不存在”。
+
+【用户输出】
+PARTIALLY_SUPPORTED：
+“可以确认：A、B。当前数据库缺少 C，因此无法可靠完成完整比较。”
+
+UNSUPPORTED：
+“已检索 X/Y/Z 方向，但当前数据库仍缺少关键证据，因此无法可靠回答。”
+
+可选显示：
+- 缺的具体证据
+- 已覆盖范围
+- KB snapshot/update date
+
+【Definition of Done】
+- [ ] related docs 很多但 critical coverage 不足时可 PARTIAL。
+- [ ] 无核心 evidence 时 UNSUPPORTED。
+- [ ] “not found” 不转成现实世界负事实。
+- [ ] coverage/boundary 进入 benchmark。
+- [ ] abstention precision/recall 可统计。
+
+==============================================================================
+08 Numeric / conflict / multi-document / context / answer correctness
+==============================================================================
+----------------------------------------------------------------------
+T029 - Numeric Facts / Unit / Condition Structuring
+优先级：P1
+依赖：T010, T003
+----------------------------------------------------------------------
+
+【背景】
+Tech-DB 技术回答大量包含带宽、容量、效率、温度、功率、倍率、密度、规模等参数。LLM 容易混淆 Gb/s 与 GB/s、单卡与整机、实验条件与商用条件。
+
+【目标】
+把关键参数抽成结构化、可确定性验证的数据，并限制错误比较。
+
+【修改范围】
+新增：
+scripts/extract_numeric_facts.py
+qa-backend/numeric_facts.py
+
+【Schema】
+metric
+value
+unit
+normalized_value
+normalized_unit
+condition
+entity_id
+event/published date
+record_id
+evidence_span
+ambiguous
+extraction_confidence
+
+【实现要求】
+1. 数字必须能回到 exact evidence span。
+2. 单位转换由确定性代码完成。
+3. 百分比、倍数、差值等基础数学由程序计算。
+4. 条件不一致时禁止无提示直接比较。
+5. 如“最高”“典型”“实验室”“单 GPU”“系统总量”等 qualifier 必须保留。
+6. 单位/条件无法确定 -> ambiguous=true，不猜。
+7. Numeric Claim verification 对比：
+   value
+   unit
+   condition
+   time
+8. 不把 key_params 中模型生成的结构字段当作比原文更高权威；它是索引，原文才是证据。
+
+【Definition of Done】
+- [ ] 常见技术单位可标准化/转换。
+- [ ] Gb/s vs GB/s 等维度错误可检测。
+- [ ] per-device vs system-total 不会直接比较。
+- [ ] numeric claim 可 deterministic verify。
+- [ ] 有不同单位/条件的 comparison 测试。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T030 - Active Conflict Detection
+优先级：P0/P1
+依赖：T021, T010, T029
+----------------------------------------------------------------------
+
+【背景】
+现有 epistemic verifier 可以在答案后检查 CONFLICT_IGNORED，但高质量系统应该在生成前就知道证据冲突。
+
+【目标】
+识别支持、真实冲突、不同 scope、版本更新，并在必要时触发 targeted retrieval。
+
+【修改范围】
+新增：
+qa-backend/conflict_detector.py
+
+【比较维度】
+subject
+predicate/metric
+graph_relation_direction
+time
+scope/condition
+value
+source role
+
+【分类】
+AGREE
+CONTRADICT
+DIFFERENT_SCOPE
+VERSION_UPDATE
+UNKNOWN
+
+【例子】
+2024 路线图 vs 2026 正式发布：
+VERSION_UPDATE
+
+单 GPU 1.8TB/s vs 8-GPU system aggregate：
+DIFFERENT_SCOPE
+
+两个同时间同条件来源给出不同值：
+CONTRADICT candidate
+
+【实现要求】
+1. 生成前扫描 Ledger 中可能指向同一 atomic fact 的 evidence。
+2. deterministic 数值/时间比较优先。
+3. GLM 只处理 scope/semantic ambiguity。
+4. high severity contradiction -> Gap Analysis 生成 resolution query。
+5. targeted search 后仍冲突 -> Ledger 保持 CONFLICTED。
+6. Generator 必须显式呈现 unresolved conflict，不得选一个值装成唯一事实。
+7. self-report vs independent measurement 的差异不能简单视为同等事实冲突，需要 evidence_role。
+8. Graph semantic relation 按 subject/predicate/object/direction/time 对齐后再判断冲突。
+
+【Definition of Done】
+- [ ] 可区分 VERSION_UPDATE 和 CONTRADICT。
+- [ ] 可区分 DIFFERENT_SCOPE。
+- [ ] unresolved conflict 会影响 overall status / wording。
+- [ ] conflict triggers 可产生 targeted retrieval。
+- [ ] 有 conflict benchmark。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T038 - Multi-Document Evidence Processing / Document Evidence Workers
+优先级：P0/P1
+依赖：T017, T021, T028, T030；并复用 T003 exact grounding
+----------------------------------------------------------------------
+
+【背景】
+复杂技术问题的答案经常分散在多篇文档里。即使 Reranker 已经选出最相关的文档，仍然存在：
+- 多篇文档分别覆盖不同 requirement；
+- 同一实体的不同规格/代际资料容易串线；
+- 标题高度相关，但正文实际没有可用证据；
+- 多篇文档之间可能互相印证、补充或冲突；
+- 直接把多篇整文塞进 Generator 会增加上下文混淆。
+
+Multi-Document Agent 的正确落地方式不是“给数据库每篇文档常驻一个 Agent”，也不是再建设一套与现有 Agentic RAG 平行的系统。
+
+本 Ticket 把它实现为现有 RESEARCH_RAG / DEEP_RESEARCH 内部的一个按需能力：
+Evidence Selector 先选出值得深读的少量关键文档，再由临时 Document Evidence Workers 并行对每篇文档做结构化证据提取，最后统一合并进 Evidence Ledger。
+
+【目标】
+建立：
+Selected Documents
+-> Parallel Document Evidence Workers
+-> Structured Evidence Packets
+-> Exact Span Validation
+-> Cross-Document Merge / Dedup / Conflict Detection
+-> Evidence Ledger
+
+Document Worker 的职责是：
+extract / locate / structure / classify
+
+Document Worker 的职责不是：
+直接回答用户问题 / 决定总体 SUPPORTED / 使用模型预训练知识补证据。
+
+【触发条件】
+由 T018 Router 输出：
+needs_multi_document_reasoning=true
+
+典型触发：
+- 跨公司 / 跨产品比较
+- 技术路线演进
+- 厂商自述 vs 第三方验证
+- 多来源相互印证
+- 多篇报告共同覆盖一个复杂 requirement
+- 来源冲突核验
+- 长文档中的证据分散在不同位置
+
+通常不触发：
+- 单一事实查询
+- 单篇文档摘要
+- 一个 record 已能充分支持的精确参数问题
+
+【修改范围】
+新增建议：
+qa-backend/multi_document.py
+或：
+qa-backend/document_worker.py
+qa-backend/multi_document_processor.py
+
+可新增 schema：
+DocumentEvidencePacket
+CrossDocumentEvidenceSet
+
+【Document Worker 输入】
+- original question
+- 当前 requirement / gap
+- canonical entities
+- temporal constraints
+- source/provenance metadata
+- 一篇 selected document
+- 可选 chunk hits / parent context
+
+不要给 Document Worker：
+- 其他文档的结论
+- Generator draft
+- 最终回答
+避免它被其他来源污染后“替某篇文档说话”。
+
+【Document Worker 输出 Schema 建议】
+{
+  "record_id": 123,
+  "requirement_id": "r2",
+  "relevant": true,
+  "evidence_found": true,
+  "claims": [
+    {
+      "local_claim": "...",
+      "epistemic_type": "VERIFIABLE_FACT",
+      "evidence_span": "...",
+      "start": 1200,
+      "end": 1340,
+      "grounding_status": "VALID"
+    }
+  ],
+  "numeric_facts": [],
+  "entities": [],
+  "temporal_scope": {},
+  "source_role": "self_reported",
+  "internal_conflicts": [],
+  "unanswered_aspects": []
+}
+
+【核心规则】
+1. Worker 必须按单篇文档隔离执行。
+2. 每个 local claim 必须绑定该文档的 exact evidence span。
+3. evidence_span 必须通过 T003 的程序级原文 substring/offset 验证。
+4. Worker 不允许输出“根据常识/模型知识”的事实。
+5. Worker 可以返回：
+   relevant=true, evidence_found=false
+   用来识别“标题/主题相关，但正文没有真正证据”的候选。
+6. Worker 不决定 overall answer status。
+7. Worker 不决定跨文档冲突最终如何解释。
+8. Worker 不把 synthetic summary 当 original evidence。
+9. Worker 输出必须结构化，可直接被 Ledger/Conflict Detector 消费。
+10. Document Workers 可并行，但必须 per-request 隔离状态。
+
+【Cross-Document Merge】
+对所有 DocumentEvidencePacket 统一处理：
+- 按 requirement 合并
+- 按 provenance_root/independent_group 去重
+- entity canonicalization
+- temporal alignment
+- numeric condition alignment
+- conflict detection
+- evidence coverage update
+
+禁止简单：
+“把 N 个 Worker 的自然语言总结再让另一个 LLM 总结一次”
+作为唯一合并逻辑。
+
+能够由程序完成的 merge / dedup / group / numeric / temporal 对齐优先用确定性逻辑。
+
+【与其他模块职责边界】
+
+T017 Evidence Selector：
+回答“哪些文档值得深读？”
+
+T038 Multi-Document Evidence Processing：
+回答“这些文档内部到底分别有哪些可验证证据？”
+
+T021 Evidence Ledger：
+回答“每个 requirement 当前有什么证据、还缺什么？”
+
+T030 Conflict Detector：
+回答“不同文档证据之间是 agree / conflict / different scope / version update？”
+
+T022 Evidence Grader：
+回答“整个证据集合是否已经足以回答用户问题？”
+
+T031 Context Builder：
+把经过处理的跨文档证据组织成最终 Generator Evidence Package。
+
+【性能与规模】
+不要为全库每篇文档创建常驻 Agent。
+
+建议：
+- Reranker / Evidence Selector 先缩到少量关键文档，例如 5~15 篇；
+- 只有这些文档进入 Document Workers；
+- worker 并发数配置化；
+- 同一 record/requirement 已处理过且文档版本未变化时，可在当前请求内复用 packet。
+
+这里的限制主要为了稳定性、避免上下文爆炸和重复推理，而不是为了省 API 成本。
+
+【Trace】
+必须记录：
+- 为什么启用 multi-document mode
+- selected document IDs
+- 每个 worker 的 requirement
+- worker evidence_found true/false
+- exact spans
+- provenance group
+- merge/dedup 结果
+- cross-document conflict
+- 最终对 Ledger 的增量
+
+【Definition of Done】
+- [ ] Router 能通过 needs_multi_document_reasoning 按需启用该模式。
+- [ ] 系统不会给 Tech-DB 全库创建常驻 document agents。
+- [ ] Selected Documents 可并行进入 Document Evidence Workers。
+- [ ] 每个 Worker 只基于自己的 document + requirement 提取证据。
+- [ ] Worker 输出结构化 DocumentEvidencePacket，而不是最终答案。
+- [ ] 每个有效 local claim 都有 exact evidence span。
+- [ ] evidence span 无法在原文验证时，该 local claim 不得进入 Ledger。
+- [ ] 能识别 relevant=true 但 evidence_found=false 的候选。
+- [ ] 多文档 packet 能按 provenance 去重。
+- [ ] 能把跨文档冲突交给 T030 处理。
+- [ ] merge 结果能更新 T021 Evidence Ledger。
+- [ ] T031 能消费 multi-document evidence packets 生成 Evidence Package。
+- [ ] 整个模式可 trace、可 feature flag、可关闭回退到原有 Research RAG。
+
+【测试】
+至少新增以下端到端 cases：
+
+Case A：跨公司比较
+问题要求 A/B/C 三家公司多个技术维度。
+验证：
+- 多文档模式触发；
+- 每家公司关键文档分别处理；
+- 不因 A 文档多而挤掉 B/C；
+- Ledger 覆盖对象 x 维度。
+
+Case B：标题相关但无正文证据
+某篇文档标题高度相关，但正文没有目标数字。
+验证：
+relevant=true, evidence_found=false；
+不得生成 citation。
+
+Case C：厂商自述 vs 第三方验证
+验证两类 source_role 被保留；
+不能把厂商 claim 自动升级为独立事实。
+
+Case D：版本冲突
+旧 roadmap 与新正式发布资料。
+验证 Cross-Document Merge 后交给 Conflict Detector，并得到 VERSION_UPDATE，而不是错误 CONTRADICT。
+
+Case E：真实冲突
+同时间同条件两个独立来源给出不同数值。
+验证：
+CONFLICTED；
+若补搜后仍无法解决，最终答案显式说明冲突。
+
+Case F：单一事实查询
+验证：
+needs_multi_document_reasoning=false；
+不启动 Document Workers。
+
+【Benchmark 指标】
+新增：
+- multi_document_trigger_accuracy
+- document_worker_evidence_precision
+- document_worker_span_validity
+- cross_document_requirement_coverage
+- cross_document_redundancy
+- provenance_dedup_accuracy
+- cross_document_conflict_accuracy
+- multi_document_answer_gain vs standard Research RAG
+
+
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T031 - Evidence-aware Context Assembly / Packing
+优先级：P0
+依赖：T017, T021, T030；Multi-Document Mode 下额外消费 T038 输出
+----------------------------------------------------------------------
+
+【背景】
+把 Reranker Top10/Top25 按分数直接拼 prompt，会造成重复、对象失衡、冲突证据消失、上下文 token 被无价值内容占用。
+
+【目标】
+把最终输入 Generator 的内容组织成“Evidence Package”，而不是“Search Results Dump”。
+
+【修改范围】
+新增：
+qa-backend/context_builder.py
+
+【组织格式】
+Question
+Research assumptions/scope
+Requirement R1
+  Supporting Evidence
+  Conflicting Evidence
+  Provenance/Source Role
+  Temporal metadata
+  Exact/Relevant Spans
+Requirement R2
+...
+
+【实现要求】
+1. 按 requirement 分组。
+2. 当 T038 Multi-Document Evidence Processing 已运行时，优先消费其经过 exact-span 验证的 Structured Evidence Packets，而不是重新把整篇文档塞进 Generator。
+3. 对同源重复证据压缩，只保留必要代表。
+4. conflict 必须保留，不能因为排名低而消失。
+5. source role 清晰，例如 self_reported / independent。
+6. 优先给 exact/relevant original span；必要时附 parent context。
+7. Token budget 按 evidence value/coverage 分配，不按纯检索排名。
+8. synthetic summary 不作为 evidence。
+9. untrusted retrieved text 以 data boundary 包装。
+10. Evidence Package 对每条 evidence 标出 T046 support_role：DIRECT_SUPPORT / PREMISE_SUPPORT / ATTRIBUTION / CONTRADICTS / BACKGROUND。
+11. 如果某 requirement MISSING，明确告诉 Generator “缺失”，不要让 Generator 用预训练知识补。
+
+【Definition of Done】
+- [ ] Generator context 能看出每个 requirement 的 support/gap/conflict。
+- [ ] 高度重复证据显著减少。
+- [ ] comparison 对象不会因 source 数量差异严重失衡。
+- [ ] conflict evidence 不被丢弃。
+- [ ] Evidence Package 可序列化/trace。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T032 - Claim-aware Citation Snippet + Multi-span + Highlight
+优先级：P0
+依赖：T003, T004
+----------------------------------------------------------------------
+
+【背景】
+用户要求参考来源下面显示与回答真正相关的那段正文，而不是正文从第一个字开始。更进一步，snippet 应说明“这条来源具体支持回答里的哪条结论”。
+
+【目标】
+把 citation UI 数据升级成真正的 Evidence Card 数据。
+
+【Citation Schema】
+{
+  "id": 3,
+  "record_id": 123,
+  "title": "...",
+  "source": "...",
+  "date": "...",
+  "url": "...",
+  "source_type": "company_technical_doc",
+  "source_label": "官方一手资料",
+  "supports_claim_ids": ["claim_001"],
+  "supports_claim_texts": ["单 GPU 双向带宽达到 ..."],
+  "evidence_spans": [
+    {
+      "text": "...",
+      "start": 1203,
+      "end": 1371,
+      "highlight": "1.8 TB/s 的双向带宽",
+      "grounding_status": "VALID"
+    }
+  ]
+}
+
+【Multi-span】
+同一来源若支持两个相隔很远的 claim：
+- 最多默认展示 1~2 个最佳 span。
+- 中间用“……”。
+- 不为了覆盖两个位置拉出 2000 字长块。
+
+【Highlight】
+只高亮最直接 support claim 的词组/句子，不整段全高亮。
+
+【语义支持规则】
+exact grounding 只证明“引用文字存在”；最终 citation 还必须通过 T046 claim-evidence entailment/support-role 判断。
+
+【Fallback 规则】
+如果 exact grounding 失败：
+- citation invalid
+- 重新找来源/重写 claim/再检索
+绝不回退“正文开头”。
+
+【Definition of Done】
+- [ ] 每个有效 reference 的 snippet 是 claim-aware，不是 query-only。
+- [ ] 支持 multi-span。
+- [ ] 支持 exact offsets。
+- [ ] highlight 对应 claim。
+- [ ] invalid span 永不展示成有效证据。
+- [ ] query-based excerpt 只可保留作为内部 retrieval/debug，不作为最终证据卡核心。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T052 - Answer State Machine / Bounded Repair Loop
+优先级：P0
+依赖：T005, T006, T022, T046, T032
+----------------------------------------------------------------------
+【做什么】
+定义 per-claim 状态和 answer aggregate transition table。处理 grounding fail、unsupported claim、unresolved conflict、verifier fail、partial coverage。实现 bounded repair：重新检索/重写/删除/弱化 claim，再验证；超过上限停止。
+【怎么算完成】
+- [ ] 状态转换有可测试表格，不由 Generator 自己决定。
+- [ ] 一个 critical unsupported claim 不会最终 SUPPORTED。
+- [ ] noncritical failure 可按 policy 进入 PARTIALLY_SUPPORTED。
+- [ ] verifier 技术失败 -> UNVERIFIED；默认不展示未经验证的完整 factual draft。
+- [ ] repair loop 有 max attempts 且可 trace。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T033 - Reference Card Frontend / 答案证据 UI
+优先级：P1
+依赖：T032, T006, T009
+----------------------------------------------------------------------
+
+【背景】
+用户看 citation 的目的不是确认“有链接”，而是快速审计“为什么这篇来源支持这个回答”。
+
+【目标】
+把答案下方参考来源升级为可审计 Evidence Card。
+
+【推荐 UI】
+[3] NVIDIA Blackwell Architecture
+NVIDIA · 官方一手资料/厂商自述 · 日期
+
+支持回答：
+• Claim A
+• Claim B
+
+相关原文：
+│ ...完整语义上下文，其中核心短语高亮...
+
+[展开上下文] [查看原文]
+
+【来源标签】
+可以：
+官方一手资料
+学术论文
+第三方报道
+厂商自述
+二手转载
+未知来源
+
+不要：
+“可信度 93 分”
+“真实度 95%”
+
+【状态 UI】
+SUPPORTED：常规显示。
+PARTIALLY_SUPPORTED：提示部分证据不足，并区分可确认/不可确认。
+UNSUPPORTED：重点是“当前知识库不足”，不要制造长篇似是而非分析。
+UNVERIFIED：说明本次未完成可靠验证。
+
+【实现要求】
+1. 支持多个 claim。
+2. 支持 multi-span。
+3. 可展开更大上下文，但默认卡片保持可扫读。
+4. 展开上下文仍来自 original source text。
+5. 跳转原 URL。
+6. 前端对旧 API citation schema 做兼容 fallback，便于渐进上线。
+
+【Definition of Done】
+- [ ] 用户无需打开原文即可理解“这条来源支持什么”。
+- [ ] 可展开上下文。
+- [ ] 可跳转原文。
+- [ ] source label 不制造虚假精确性。
+- [ ] PARTIAL/UNSUPPORTED/UNVERIFIED UI 正确。
+- [ ] 桌面与移动端不出现明显布局破坏。
+
+----------------------------------------------------------------------
+
+==============================================================================
+09 Operational admin / reliability / benchmark / integration readiness
+==============================================================================
+ER-120 Entity Admin CLI/API
+依赖：ER-060, ER-061, ER-062
+做什么：提供 search、inspect provenance、alias add/block、link/unlink、merge/split、rename。
+完成标准：mutation authenticated；全部写 audit log。
+
+ER-121 Entity Quality Monitoring
+依赖：ER-110
+做什么：监控 new/day、ambiguous rate、auto-link rate、merge/split、duplicate candidates、top degree anomalies、unresolved frequent aliases。
+完成标准：有定期 report；异常阈值可配置。
+
+ER-122 Resolver Performance / Cost Benchmark
+依赖：ER-042, ER-101
+做什么：测 candidate latency、LLM call rate、p50/p95、cost、cache hit。
+完成标准：有 performance budget；common exact aliases 不调用 LLM。
+
+ER-123 Sanitization / API Safety
+依赖：ER-010, ER-120
+做什么：sanitize display、控制字符、异常长度；raw evidence 保留但不直接渲染。
+完成标准：XSS/control-char tests；logs/API/UI 安全。
+
+----------------------------------------------------------------------
+T053 - Degraded-mode Runtime / Concurrency / Cancellation
+优先级：P0
+依赖：T001, T024, T025, T052
+----------------------------------------------------------------------
+【做什么】
+定义 capability failure matrix：Vector/BM25/Graph/Reranker/Worker/Grader/Verifier 等失败时 continue/degrade/escalate/UNVERIFIED 的规则。实现 timeout、retry、queue/backpressure、per-request ResearchState isolation、SSE client disconnect cancellation、resource cleanup。
+【怎么算完成】
+- [ ] 单一路由失败不会无条件拖垮 QA，但 relation-critical Graph failure 会影响 status。
+- [ ] Grader/Verifier/Citation critical failure 不会被静默跳过。
+- [ ] SSE 断开会取消后续无用任务并清理状态。
+- [ ] 并发压力测试无跨请求 state 污染。
+- [ ] timeout/backpressure 行为可配置并有集成测试。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T034 - Agentic / Evidence Benchmark 全面升级
+优先级：P0
+依赖：T002, T026, T032, T039, T054
+----------------------------------------------------------------------
+
+【背景】
+完成 Agentic 升级后，如果仍只看 Recall@25，会优化错目标。
+
+【目标】
+把每个核心模块和端到端行为都纳入评测。
+
+【Planning 指标】
+- Router accuracy
+- mode selection accuracy
+- decomposition requirement coverage
+- unnecessary decomposition rate
+- query duplication rate
+
+【Retrieval/Rerank】
+- route Recall@K
+- candidate union Recall
+- reranker nDCG / pairwise preference
+- relevant outlier retention
+
+【Graph Retrieval】
+- query entity resolution accuracy
+- graph relation-intent accuracy
+- semantic edge exact-grounding validity
+- relation predicate precision
+- relation direction accuracy
+- graph path precision@K
+- graph route Recall@K / MRR / nDCG
+- relation-matched record precision
+- hub-noise rate
+- useful multi-hop rate
+- graph explanation completeness
+- relation-aware Graph vs legacy fixed-hop Graph gain
+
+【Evidence】
+- requirement coverage
+- critical requirement miss rate
+- independent provenance coverage
+- source suitability correctness
+- source diversity
+- evidence redundancy
+- temporal fit accuracy
+
+【Agent Loop】
+- useful iteration rate
+- redundant iteration rate
+- evidence gain per iteration
+- correct stopping rate
+- runaway/loop rate
+
+【Multi-Document】
+- multi_document_trigger_accuracy
+- document_worker_evidence_precision
+- document_worker_span_validity
+- cross_document_requirement_coverage
+- cross_document_redundancy
+- provenance_dedup_accuracy
+- cross_document_conflict_accuracy
+- multi_document_answer_gain vs standard Research RAG
+
+【Conflict】
+- conflict detection accuracy
+- version-update distinction accuracy
+- different-scope distinction accuracy
+- unresolved-conflict surfacing accuracy
+
+【Answer】
+- correctness
+- completeness
+- unsupported claim rate
+- attribution correctness
+- temporal correctness
+- numeric/unit correctness
+
+【Citation】
+- exact span validity
+- claim-citation entailment/support rate
+- invalid citation count
+- source snippet relevance
+
+【Abstention】
+建立明确三类 gold：
+SHOULD_ANSWER
+SHOULD_PARTIALLY_ANSWER
+SHOULD_ABSTAIN
+
+测：
+abstention precision/recall
+false refusal
+false confidence
+
+【硬性目标】
+Citation exact-span validity = 100%
+Invalid citation displayed = 0
+Verifier error treated as PASS = 0
+
+对其他指标先记录 baseline + 改进目标，不随意写无法验证的绝对百分比。
+
+【Definition of Done】
+- [ ] 每个核心模块至少有对应 benchmark。
+- [ ] 报告可做 before/after 比较。
+- [ ] 每个 production feature flag 启用前有相关测试。
+- [ ] 失败案例能输出到 Human Review Pipeline。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T035 - Trace Replay / Regression Replay
+优先级：P1
+依赖：T001, T034
+----------------------------------------------------------------------
+
+【背景】
+模型、prompt、embedding、index、Reranker 修改后，历史坏案例必须可以重放，否则很容易修新问题又复发旧问题。
+
+【目标】
+基于 Trace 和 Golden Cases 建立可重复的 replay。
+
+【修改范围】
+新增：
+qa-backend/eval/replay.py
+
+【能力】
+- 根据 trace_id 重放
+- historical snapshot replay：尽可能使用原 dataset/identity/index/prompt/model config 版本
+- current snapshot comparison：在当前版本重跑并对比
+- 根据 case group 重放
+- 指定当前 index/model/prompt version
+- 输出 before/after diff
+
+【Diff 至少】
+rewritten query
+router mode
+subqueries
+retrieved record IDs
+selected evidence
+ledger statuses
+stop reason
+answer status
+claims
+citations
+verification
+
+【Definition of Done】
+- [ ] 可用一条命令重放一组历史 case。
+- [ ] 生成 before/after 机器可读 diff。
+- [ ] prompt/index/model 版本写入报告。
+- [ ] 可作为发布前 regression gate 的输入。
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T036 - Human Review -> Golden Case Pipeline
+优先级：P1
+依赖：T034
+----------------------------------------------------------------------
+
+【背景】
+真实坏答案是最有价值的长期资产。不能每次只修 prompt，修完就忘。
+
+【目标】
+把人工确认的真实错误沉淀为 regression cases / hard negatives / abstention cases。
+
+【Bad Case Schema】
+question
+conversation_context
+bad_answer
+expected_behavior
+expected_status
+relevant_records
+unsupported_claims
+problem_type
+notes
+trace_id
+
+【problem_type】
+retrieval_failure
+rerank_failure
+coverage_failure
+source_failure
+provenance_failure
+temporal_failure
+numeric_failure
+conflict_failure
+citation_failure
+abstention_failure
+generation_failure
+verification_failure
+
+【实现要求】
+1. 可从 trace 自动生成 case 草稿。
+2. 必须人工确认后才能进入 golden set。
+3. 人工可标 failure stage。
+4. 支持 hard negative：看似相关但不应作为证据的文档。
+5. case 稳定 version/id。
+
+【Definition of Done】
+- [ ] 一个坏答案能快速转成可编辑 case 草稿。
+- [ ] 未确认 feedback 不会自动变 ground truth。
+- [ ] 确认 case 自动进入 regression suite。
+- [ ] 可按 failure stage 统计系统问题。
+
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+T037 - Production Integration Readiness / Dual-path Orchestrator / API Protocol
+优先级：P0
+依赖：核心前置任务完成
+----------------------------------------------------------------------
+
+【背景】
+所有模块最终需要通过一个稳定 orchestrator 串起来，并保持现有 SSE/API 尽可能向后兼容。
+
+【做什么】
+实现 dual-path production-ready orchestrator 与 versioned API protocol，把已经通过各自 gate 的模块接入同一 ResearchState；支持 legacy/profile fallback，但本 Ticket 只完成“可集成、可双跑、可回退”的 readiness，不自行宣布 full production rollout。Full rollout 由 T055 canary/release gate 决定。
+
+【最终在线流程】
+User Query
+-> Preserve Original Query
+-> T042 Query Rewrite + Semantic Diff + Verified Conversation Context
+-> Query Entity Resolution（需要时）
+-> Router（同时看 original + rewritten）
+-> FAST / RESEARCH / DEEP
+-> Decomposition / Planner（按需）
+-> Vector / BM25 / Relation-aware Graph Retrieval
+-> RRF/Union Fusion
+-> Reranker
+-> Evidence Selector
+-> Multi-Document Evidence Processing（按需）
+-> Evidence Ledger
+-> Conflict Detection
+-> Evidence Grader
+-> sufficient?
+   YES -> Context Assembly
+   NO  -> Gap Analysis -> Iterative Retrieval -> Stopping
+-> Knowledge Boundary / Answer Status
+-> Answer Generation
+-> Atomic Claims
+-> Claim <-> Evidence Mapping
+-> Exact Citation Grounding
+-> Deterministic Verification
+-> Epistemic GLM Verification
+-> Final Answer
+-> Claim-aware Reference Cards
+
+【最终 ResearchState 建议】
+original_query
+rewritten_query
+query_type
+mode
+research_plan
+subqueries
+retrieval_rounds
+candidate_records
+graph_query_intents
+graph_matched_paths
+selected_evidence
+document_evidence_packets
+evidence_ledger
+contradictions
+unresolved_gaps
+answer_status
+stop_reason
+trace_id
+
+【API done event 建议】
+{
+  "answer": "...",
+  "answer_status": "SUPPORTED",
+  "citations": [],
+  "claims": [],
+  "evidence_summary": {
+    "requirements_total": 5,
+    "requirements_supported": 5,
+    "requirements_partial": 0,
+    "independent_source_groups": 4,
+    "iterations": 2
+  },
+  "searched_record_ids": [],
+  "stop_reason": "evidence_sufficient",
+  "trace_id": "..."
+}
+
+【Budget / Guardrail】
+可继续保留：
+- Rate Limit
+- Concurrency Guard
+- Budget Monitoring
+
+但 correctness-critical 环节：
+- Evidence Grader
+- Claim/Evidence Entailment
+- Claim Grounding
+- Citation Validation
+- Final Verifier
+不能因 BudgetFuse 触发就“静默跳过然后正常回答”。
+
+如果无法完成关键验证：
+- UNVERIFIED
+或明确服务当前无法完成高质量验证。
+
+【同一个 GLM 的角色隔离】
+Planner / Grader / Generator / Verifier 可用同一最强 GLM。
+必须：
+- 分开调用
+- 分开 prompt
+- 分开输入
+- Verifier 不接收 Generator 的隐式推理
+- Verifier 重点输入 question + atomic claims + exact evidence + metadata
+
+【生成器的知识边界】
+GLM 预训练知识可用于：
+- 理解问题
+- 生成搜索词
+- 规划研究方向
+
+但最终 factual claims：
+必须来自 Evidence Package。
+不得用“模型自己知道”补 Tech-DB 缺失事实。
+
+【Definition of Done】
+- [ ] FAST_RAG 正常处理简单题。
+- [ ] RESEARCH_RAG 可 targeted multi-round retrieval。
+- [ ] DEEP_RESEARCH 可处理多实体/冲突/趋势。
+- [ ] Multi-Document Mode 可在复杂跨文档问题中按需触发，并能输出结构化证据包。
+- [ ] 四态 status 正常。
+- [ ] citation exact grounding 正常。
+- [ ] prompt injection 防护存在。
+- [ ] Trace 全链路完整。
+- [ ] 现有 API 尽可能向后兼容。
+- [ ] 核心 benchmark 通过 release gate。
+
+======================================================================
+补充横切要求：数据版本、证据可复现、部署安全
+======================================================================
+
+这些要求跨多个 Ticket 实现，不单独拆新票，但不能遗漏：
+
+A. Evidence Immutability / Reproducibility
+- record 建议保存 content_hash。
+- index release 绑定 dataset snapshot/version。
+- evidence span 与 content_hash 关联。
+- URL 后续内容变化时，系统至少能知道当前引用针对哪个 ingest snapshot。
+- 如果法律/版权允许保存 source snapshot，则设计 snapshot reference；否则至少保存 hash + ingest time。
+
+B. Index / Dataset Consistency
+- Vector/BM25/Graph/Chunk/Metadata index 必须记录 dataset_version。
+- 启动时检查各 index 是否对应同一 snapshot。
+- mismatch 不得静默运行成“部分新、部分旧”的混合状态。
+
+C. Release / Rollback
+- 新 index/version 上线前跑 regression。
+- 支持保留上一稳定版本并回滚。
+- feature flags 允许逐模块关闭。
+
+D. Concurrency / State Isolation
+- ResearchState 必须 per-request/per-conversation 隔离。
+- 不能用可变全局对象共享 Ledger。
+- SSE 客户端中断时要正确清理任务/资源。
+
+E. ACL Interface
+- 当前公共 Tech-DB 可以不启用权限过滤。
+- 但 Retrieval API 设计不要让未来 ACL 无法插入。
+- 若以后进入内部受限数据，ACL filter 必须在候选进入 Agent context 前执行。
+
+==============================================================================
+10 Partial activation / system canary / full activation / docs
+==============================================================================
+ER-112 Partial Graph-V2 Activation
+依赖：ER-110, ER-111
+做什么：先对高置信实体/query 启用 v2 graph path。
+完成标准：feature flag 可回退；QA retrieval 无显著回退；resolution error 达标。
+
+----------------------------------------------------------------------
+T055 - Shadow / Canary Rollout / Quality Telemetry
+优先级：P0
+依赖：T034, T037, T053, T054, ER-110, ER-111
+----------------------------------------------------------------------
+【做什么】
+整个 Agentic pipeline 采用 sampled shadow dual-run -> canary -> staged rollout。记录 legacy/new 的 Router、retrieval、evidence coverage、answer status、citation、latency 差异。定义 rollback trigger。Graph-V2 partial/full activation 也纳入统一 rollout gate。
+【怎么算完成】
+- [ ] shadow 不影响用户结果但生成可分析 diff。
+- [ ] canary 可按 profile/traffic percentage 切换。
+- [ ] verifier_fail、grounding_fail、unsupported_claim、false_abstain、entity_ambiguous、graph_conflict 等有监控。
+- [ ] 自动/人工 rollback 条件预先定义。
+- [ ] 只有 benchmark+canary 均达标才 full activate。
+
+----------------------------------------------------------------------
+
+ER-113 Full Graph-V2 Activation
+依赖：ER-112
+做什么：切换 graph nodes/edges/query resolver 到 stable entity IDs。
+完成标准：legacy graph 可 rollback；current identity snapshot 固定；production health 正常。
+
+ER-124 文档与 Migration/Rollback Guide
+依赖：ER-113, ER-120
+做什么：更新 README、graph schema、resolver architecture、人工纠错 SOP、migration/rollback SOP。
+完成标准：新 Agent 只凭文档能理解身份模型；legacy compatibility/deprecation 明确。
+
+
+
+Tech-DB Evidence-Centric Adaptive Agentic RAG
+MASTER EXECUTION TICKET SPECIFICATION
+Version: Verified consolidated implementation plan
+
+======================================================================
+0. 给 Coding Agent 的总指令
+======================================================================
+
+你正在 sbq9712/tech-db 现有系统上做渐进式升级，不是在重写一个新项目。
+
+最终目标：把现有 Hybrid RAG 升级成 Evidence-Centric Adaptive Agentic RAG。
+
+系统必须做到：
+1. 保持并增强 Vector / BM25 / Graph 多路召回。
+2. RRF 主要负责融合和去重，Reranker 负责真正的内容相关性精排。
+3. Evidence Ledger + Evidence Grader 判断证据是否足够。
+4. 证据不足时进行 Query Decomposition / Gap Analysis / Iterative Retrieval。
+5. 深挖后仍不足时明确停止并输出 PARTIALLY_SUPPORTED 或 UNSUPPORTED。
+6. 每个关键结论可追溯到原始正文 exact evidence span。
+7. 同源转载不能被当成多个独立证据。
+8. “当前/最新”类问题不能直接用已过时资料回答。
+9. 厂商自述不能自动升级为独立验证事实。
+10. 来源冲突必须显式识别、补搜、必要时保留争议。
+11. Verifier 异常绝不能默认 PASS。
+12. 每次回答都有完整 Trace，可定位错误发生在哪一层。
+13. 所有重大修改必须用 Regression Benchmark 量化验证。
+
+现有能力必须保留：
+- Query Rewrite
+- Vector Search
+- BM25 Search
+- Graph Search
+- RRF
+- SSE 问答接口
+- GLM Answer Generation
+- Epistemic Claim Classification
+- Answer Verification
+- 当前数据导入、去重、分类、摘要、评分、聚类 pipeline
+
+模型原则：
+- Planner / Grader / Generator / Verifier 均可继续使用当前最强 GLM。
+- 不为了“模型独立性”故意引入更弱模型。
+- 这些角色必须采用独立 API 调用、独立 prompt、独立输入上下文。
+- 可以用确定性代码验证的事情，不交给 LLM。
+
+禁止：
+- 不允许一次性重写整个 server.py。
+- 不允许直接删除现有 Hybrid Retrieval。
+- 不允许所有问题强制进入复杂 Agent loop。
+- 不允许以接入 LangChain / LangGraph 本身作为“完成 Agentic RAG”的标准。
+- 不允许因为成本或 BudgetFuse 静默跳过 correctness-critical 的 Evidence Grader、Citation Grounding、Verifier。
+- 不允许 verifier exception -> passed=True。
+- 不允许 citation 找不到原文时退回正文前 200 字伪装成证据。
+- 不允许 retrieved text 控制 system prompt、工具选择或验证策略。
+- 不允许 generated summary 在没有原始正文支撑时被当成可引用证据。
+
+建议 Feature Flags：
+QA_TRACE_ENABLED
+QA_AGENTIC_ENABLED
+QA_ROUTER_ENABLED
+QA_DECOMPOSITION_ENABLED
+QA_RERANK_ENABLED
+QA_EVIDENCE_SELECTOR_ENABLED
+QA_EVIDENCE_GRADER_ENABLED
+QA_ITERATIVE_RETRIEVAL_ENABLED
+QA_PROVENANCE_ENABLED
+QA_TEMPORAL_ENABLED
+QA_ENTITY_RESOLUTION_ENABLED
+QA_SEMANTIC_GRAPH_ENABLED
+QA_CONTEXTUAL_CHUNKS_ENABLED
+QA_NUMERIC_FACTS_ENABLED
+QA_CLAIM_GROUNDING_ENABLED
+QA_FAIL_SAFE_VERIFY_ENABLED
+QA_CONTENT_SAFETY_ENABLED
+
+最终回答状态：
+SUPPORTED
+PARTIALLY_SUPPORTED
+UNSUPPORTED
+UNVERIFIED
+
+======================================================================
+依赖总览
+======================================================================
+
+Foundation:
+T001 -> T002
+T003 -> T004 -> T006
+T005 -> T006
+
+Data/Evidence:
+T007 -> T008 -> T009
+T007 -> T010
+T007 -> T011
+T007 -> T012
+T007 -> T013
+
+Retrieval:
+T014 -> T015 -> T016 -> T017
+
+Adaptive Agent:
+T018 -> T019 -> T020 -> T021 -> T022 -> T023 -> T024 -> T025 -> T026
+
+Advanced:
+T011 -> T027
+T016 -> T028
+T010 -> T029
+T021 + T010 -> T030
+T017 + T021 + T030 -> T031
+T003 + T004 -> T032
+T032 + T006 + T009 -> T033
+
+Quality:
+T002 + T026 + T032 -> T034
+T001 + T034 -> T035
+T034 -> T036
+核心前置任务 -> T037
+
+======================================================================
+PART 1 - FOUNDATION & CORRECTNESS
+======================================================================
+
+----------------------------------------------------------------------
+T001 - 建立完整 QA Trace 系统
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+当前出现坏答案时无法完整判断是 Rewrite、Retrieval、RRF、Graph、Generation 还是 Verifier 出错。Agent loop 上线后，如果无 Trace，复杂链路基本不可调试。
+
+【目标】
+给每个请求创建 trace_id，并记录从原始问题到最终答案的完整决策链。
+
+【修改范围】
+新增：
+qa-backend/trace.py
+runtime/traces/
+
+修改：
+qa-backend/server.py
+后续 orchestrator.py
+
+【具体实现】
+至少记录：
+- trace_id / timestamp / conversation_id
+- original_query / rewritten_query
+- router_result / decomposition / planner_result
+- 每轮 subquery
+- Vector/BM25/Graph 原始结果、rank、raw_score
+- RRF candidate pool
+- Rerank score
+- Evidence Selector 选择/淘汰原因
+- 每轮 Evidence Ledger snapshot
+- Grader rule result + LLM result
+- Gap Analysis
+- stop_reason
+- draft_answer / final_answer
+- atomic claims
+- claim-citation mapping
+- citation evidence spans
+- deterministic checks
+- GLM verifier result
+- final_status
+
+推荐：runtime/traces/YYYY-MM-DD.jsonl，每行一个请求。
+
+【禁止】
+- 保存 API key、认证 header、secret。
+- Trace 写失败导致 QA 主请求失败。
+
+【Definition of Done】
+- [ ] 每个 QA 请求有唯一 trace_id。
+- [ ] 根据 trace_id 能还原主要执行链。
+- [ ] 三路 retrieval 与 RRF 的分数都可见。
+- [ ] Agent 后续模块能通过统一 trace API 追加 stage。
+- [ ] Trace 写失败只告警，不破坏回答。
+- [ ] trace 中无 ZAI_API_KEY 等秘密。
+
+【测试】
+1. 发事实题、follow-up、novelty 各一条。
+2. 检查 JSONL 中 trace 完整。
+3. 让 trace 目录不可写，确认聊天仍能完成。
+4. grep secret 名称确认不泄漏。
+
+----------------------------------------------------------------------
+T002 - 建立 Regression / Evaluation 基线
+优先级：P0
+依赖：T001
+----------------------------------------------------------------------
+
+【背景】
+现有评测主要是 30 个 golden case + Recall@25，无法评价 Evidence、Citation、Abstention、Agent Loop。
+
+【目标】
+建立统一的 Retrieval + End-to-End 评测框架，并记录改造前 baseline。
+
+【修改范围】
+新增建议：
+qa-backend/eval/
+  cases/
+  metrics.py
+  run_retrieval_eval.py
+  run_end_to_end_eval.py
+  report.py
+
+保留现有 eval_golden.py 内容并迁入/兼容。
+
+【Case Schema】
+至少：
+id
+question
+type
+expected_status
+required_entities
+required_claims
+required_records
+forbidden_claims
+should_abstain
+notes
+
+【必须覆盖题型】
+direct / colloquial / alias / typo / abbreviation /
+comparison / multi-entity / multi-hop / causal / trend /
+current / historical / superseded /
+conflicting sources / duplicate sources / self-reported only /
+partially answerable / completely unanswerable /
+follow-up / novelty
+
+【指标】
+Retrieval：Recall@K, MRR, nDCG@K
+Evidence：Requirement Coverage, Evidence Coverage, Independent Evidence Groups, Source Diversity
+Answer：Correctness, Completeness, Unsupported Claim Rate
+Citation：Citation Precision, Exact Span Validity, Claim Support Rate
+Abstention：Correct Abstention Rate, False Refusal Rate, Partial Answer Accuracy
+System：latency, GLM call count, retrieval iteration count
+
+【Definition of Done】
+- [ ] 原 30 个 golden case 全部可由新框架运行。
+- [ ] 新增复杂/冲突/弃答/部分回答 case。
+- [ ] 支持 retrieval-only 与 end-to-end 两种运行模式。
+- [ ] 输出 evaluation_report.json 和可读报告。
+- [ ] 保存当前生产逻辑 baseline。
+
+【测试】
+python qa-backend/eval/run_retrieval_eval.py
+python qa-backend/eval/run_end_to_end_eval.py
+
+----------------------------------------------------------------------
+T003 - Citation Evidence Grounding
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+当前 snippet 是 query-aware，而不是 claim-aware；且现有 build_context 逻辑可能优先使用 b 而让 fb/full_body 不参与定位。
+
+【目标】
+最终展示的每个 citation 必须绑定真正支持最终回答 claim 的原文 exact span。
+
+【修改范围】
+新增：
+qa-backend/citation_grounding.py
+
+修改：
+server.py / epistemic.py / 后续 context_builder.py
+
+【具体实现】
+最终流程：
+Answer Claim -> Citation -> Record -> Full Original Text -> Exact Evidence Span
+
+证据文本优先级：
+1. fb/full_body
+2. b/body
+3. as/ai_summary 只能作为“摘要 fallback”，不能冒充 original evidence
+
+LLM 可提出 evidence_span，但代码必须验证：
+evidence_span in original_text
+
+失败时：
+1. retry locator
+2. deterministic sentence/fuzzy locate
+3. 仍失败 -> grounding_fail
+
+绝对禁止 grounding_fail -> 正文前 200 字。
+
+支持：
+- start_offset / end_offset
+- 中文句界
+- 英文句界
+- 前后 1~2 句语义扩展
+- 默认中文约 120~250 字；英文约 2~4 句
+
+【Definition of Done】
+- [ ] 每个有效 citation 都有 exact original span。
+- [ ] full_body 优先于 body。
+- [ ] span 在原始文本中可程序验证。
+- [ ] 找不到 span 时 citation 不通过。
+- [ ] 返回 start/end offset。
+- [ ] 可生成完整语义 snippet 而不是生硬定长截断。
+
+【测试】
+选一条关键信息只出现在 full_body 中后部的记录，确认引用能命中后部，不再展示开头。
+
+----------------------------------------------------------------------
+T004 - Atomic Claim + Claim-level Citation Mapping
+优先级：P0
+依赖：T003
+----------------------------------------------------------------------
+
+【背景】
+答案里有 [1][2] 不等于来源真的支持对应句子。
+
+【目标】
+关键结论必须绑定 record_id + exact evidence span。
+
+【修改范围】
+新增：
+qa-backend/claim_mapping.py
+
+【Claim 分类】
+MAJOR_FACT
+NUMERIC_FACT
+COMPARISON
+CAUSAL
+ATTRIBUTED_CLAIM
+MINOR_EXPLANATION
+
+Major Claim 包含：事实、数字、比较、时间、因果、产品/技术关系、明确结论。
+Minor Explanation 不要求句句引用。
+
+【结构】
+claim_id
+text
+type
+support[
+  record_id
+  citation_id
+  evidence_span
+]
+status
+
+【规则】
+- Major Claim 至少一个支持证据。
+- 同一 claim 可有多来源。
+- 一条 citation 可支持多个 claim。
+- 无证据 major claim -> UNSUPPORTED，必须删除、弱化或重新检索，不能直接发布。
+
+【Definition of Done】
+- [ ] 所有 Major Claim 有 claim_id。
+- [ ] Major Claim 可映射 record_id + exact span。
+- [ ] citation 可反查 supports_claim_ids。
+- [ ] unsupported major claim 无法直接通过最终验证。
+
+【测试】
+对“产品 A 使用 X，带宽为 Y，因此比 B 更快”拆分并核验使用关系、数值、比较结论。
+
+----------------------------------------------------------------------
+T005 - Verifier Fail-Safe
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+现有 verify_answer() 在异常/解析失败后可能返回 passed=True，属于 fail-open。
+
+【目标】
+任何验证技术故障都不能伪装成“已验证”。
+
+【修改范围】
+修改 epistemic.py，或逐步迁移到 qa-backend/verifier.py。
+
+【状态】
+PASSED
+FAILED
+UNVERIFIED
+
+【实现】
+MAX_VERIFY_RETRIES 默认 2（配置化）。
+JSON parse failure：先 deterministic extraction/repair，再 retry。
+timeout/API error：retry。
+仍失败：UNVERIFIED。
+trace 保存 failure reason。
+
+【Definition of Done】
+- [ ] verifier exception 永不 PASS。
+- [ ] malformed JSON 永不静默 PASS。
+- [ ] retry 存在。
+- [ ] UNVERIFIED 可进入最终 API。
+- [ ] 单测覆盖 exception / malformed / empty / timeout。
+
+----------------------------------------------------------------------
+T006 - 四态 Answer Status
+优先级：P0
+依赖：T004, T005
+----------------------------------------------------------------------
+
+【目标】
+统一：
+SUPPORTED
+PARTIALLY_SUPPORTED
+UNSUPPORTED
+UNVERIFIED
+
+【语义】
+SUPPORTED：核心 requirements 与 major claims 有充分证据且验证通过。
+PARTIALLY_SUPPORTED：部分可确认，但至少一项重要 requirement 证据不足。
+UNSUPPORTED：经过检索/补搜后核心问题仍缺证据。
+UNVERIFIED：验证链技术失败，不能确认结果可靠。
+
+【API】
+done event 增加：
+answer_status
+stop_reason
+evidence_summary
+
+【UI】
+PARTIAL：明确“可以确认 / 当前无法确认”。
+UNSUPPORTED：明确“当前知识库不足以可靠回答”，而不是只说“没找到”。
+UNVERIFIED：提示未完成可靠验证，不能显示成普通可信答案。
+
+【Definition of Done】
+- [ ] Backend 返回四态。
+- [ ] Frontend 支持四态。
+- [ ] 未知/异常默认不能成为 SUPPORTED。
+- [ ] 四种状态各有端到端测试。
+
+
+======================================================================
+PART 2 - KNOWLEDGE & EVIDENCE INFRASTRUCTURE
+======================================================================
+
+----------------------------------------------------------------------
+T007 - Evidence Metadata Enrichment Pipeline
+优先级：P0
+依赖：无
+----------------------------------------------------------------------
+
+【背景】
+证据质量不能只在查询时临时猜。情报从 GitHub 子仓库进入 Tech-DB 时，就应该建立静态“证据身份证”；但入库阶段不能直接给出一个看似精确的最终可信度分数。
+
+【目标】
+从入库阶段建立 Source / Provenance / Temporal / Epistemic / Content Risk / Data Quality 元数据，为在线 Evidence Selector 与 Evidence Grader 提供依据。
+
+【修改范围】
+新增建议：
+scripts/enrich_evidence_metadata.py
+qa-backend/provenance.py
+runtime/indexes/evidence_metadata.json
+
+在现有数据 pipeline 中增加 Evidence Metadata Enrichment，并确保在索引构建前完成或补齐。
+
+【每条 record 至少生成】
+- record_id
+- source_org_id
+- source_domain
+- source_type
+- source_level: primary / secondary / unknown
+- evidence_role: self_reported / independent / commentary / unknown
+- original_source_org
+- original_url
+- provenance_root_id
+- independent_group_id
+- is_repost
+- same_origin_probability
+- published_at
+- event_at
+- temporal_status
+- epistemic hints
+- content_risk_flags
+- data_quality_flags
+- metadata_version
+- enriched_at
+
+【重要原则】
+离线阶段回答的是：
+“谁发布、从哪来、是什么性质、何时有效、是不是转载、有哪些风险？”
+而不是：
+“这条内容对所有问题都有 92% 可信度。”
+
+最终“它能证明什么”必须在在线 query/claim 上下文中判断。
+
+【实现要求】
+1. 不破坏现有 lite 短键格式；建议 sidecar metadata。
+2. record_id 必须稳定，不能用会因重新排序变化的临时数组位置作为唯一长期 ID；若当前只能用 idx，至少增加稳定 content_id/hash 并规划迁移。
+3. 支持增量 enrichment，仅处理新增/发生变化的记录。
+4. metadata schema 版本化。
+5. metadata 缺失时系统可 fallback，但 trace 必须标记。
+6. 所有后续索引 release 应记录使用的 metadata_version。
+
+【Definition of Done】
+- [ ] 所有可索引 record 都可查到 evidence metadata。
+- [ ] 新增记录可增量 enrichment。
+- [ ] metadata 有版本。
+- [ ] 现有页面数据加载不被破坏。
+- [ ] 缺 metadata 时系统不会崩溃，也不会假装已有来源画像。
+- [ ] 基本 backfill 脚本可对全库运行。
+
+【测试】
+随机抽取：
+- 公司官网新闻
+- 学术论文
+- 行业媒体
+- 微信转载
+- 数据字段缺失记录
+检查 metadata 是否合理、可重复生成。
+
+----------------------------------------------------------------------
+T008 - Probabilistic Provenance Clustering / 同源证据识别
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+多家媒体转载同一个原始新闻时，文档数量不代表证据独立性。现实转载可能改标题、改顺序、加入少量评论，因此不能只用 exact duplicate，也不能声称 100% 确定来源血缘。
+
+【目标】
+建立概率式 provenance clustering，识别“可能同源”的内容，让在线系统统计 independent evidence groups，而不是 document count。
+
+【输入特征】
+- canonical URL
+- original URL
+- redirect/source link
+- domain
+- explicit citation links
+- title normalized similarity
+- body text similarity
+- embedding similarity
+- publish/event time difference
+- entity overlap
+- existing event cluster
+- source attribution phrase
+
+【输出】
+same_origin_probability
+provenance_root_id
+independent_group_id
+provenance_confidence
+provenance_reason/features
+
+【实现要求】
+1. 使用确定性特征 + 相似度模型组合。
+2. 阈值配置化：
+   - high confidence -> 合并 provenance group
+   - ambiguous band -> uncertain，不强制合并
+   - low -> independent candidate
+3. existing dedup / cluster 作为 feature，不直接等同 provenance。
+4. 后续 Evidence Grader 的独立证据数以 independent_group_id 为主。
+5. 一个二手文章即使基于原始报道，也可能包含独立采访/新增数据；后续允许 claim-level provenance 扩展，第一版至少不要整篇一刀切成绝对同源。
+6. trace 输出某候选被判重复来源的原因。
+
+【Definition of Done】
+- [ ] 明显全文转载能聚为同组。
+- [ ] 改标题但正文高度相似的转载能聚为同组。
+- [ ] 独立报道同一事件不会仅因为主题相同全部合并。
+- [ ] ambiguous case 保留 probability。
+- [ ] Evidence Selector/Grader 可读取 independent_group_id。
+- [ ] 5 篇同源转载不会在独立证据计数中记为 5。
+
+【测试】
+建立小样本：
+A. 5 篇同源转载
+B. 3 篇独立采访同一事件
+C. 1 篇转载但新增独立测试数据
+检查 group 与 uncertain 情况。
+
+----------------------------------------------------------------------
+T009 - Claim-aware Source Suitability
+优先级：P1
+依赖：T007, T008
+----------------------------------------------------------------------
+
+【背景】
+“nvidia.com = 0.95”这类绝对来源分数会制造偏见与虚假精确度。同一个来源对不同 claim 的证明力不同。
+
+【目标】
+判断“这个来源对当前 claim 的证据角色和适配程度”，而不是判断“这个网站有多可信”。
+
+【Source Type 至少支持】
+standards_body
+regulator
+government
+academic_primary
+academic_secondary
+company_technical_doc
+company_press_release
+research_institution
+major_media
+industry_media
+secondary_repost
+social_media
+unknown
+
+【Claim Type 可逐步支持】
+product_spec
+company_action
+performance_claim
+scientific_result
+market_size
+policy
+prediction
+opinion
+historical_event
+comparison
+etc.
+
+【输出】
+source_suitability
+evidence_role
+attribution_required
+independence_penalty
+reason
+
+【例子】
+公司官方规格页：
+- “该公司官方公布型号 X 带宽 1.8TB/s” -> 高适配，一手。
+- “该产品实际比竞品快 3 倍” -> 只能支持“公司声称”，不算独立验证。
+
+【实现要求】
+1. Source prior 可配置，但不能直接决定 truth。
+2. claim + source type + evidence role 联合判断。
+3. 对 REPORTED_CLAIM / PREDICTION / OPINION 保留 attribution。
+4. 不显示给用户“可信度 93%”。
+5. Evidence Selector 使用 suitability 作为一个 feature，而非硬过滤。
+
+【Definition of Done】
+- [ ] 同一来源对不同 claim 可得到不同 evidence role/suitability。
+- [ ] 厂商性能自述不会自动升级为 independent fact。
+- [ ] 规则/权重配置化。
+- [ ] 有来源类型未知时安全 fallback。
+- [ ] 有单元测试覆盖官方规格 vs 官方营销性能声称。
+
+----------------------------------------------------------------------
+T010 - Temporal Metadata / 时间与版本感知
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+发布时间、事件时间、预测目标时间、事实有效时间不是同一件事。旧路线图与新正式发布可能都在库里，如果用户问“现在”，不能不区分版本。
+
+【目标】
+建立足够支持 current / historical / trend / superseded reasoning 的 temporal metadata。
+
+【修改范围】
+新增建议：
+scripts/enrich_temporal_metadata.py
+qa-backend/temporal.py
+
+【字段】
+published_at
+event_time_start
+event_time_end
+target_future_time
+valid_from
+valid_to
+supersedes
+superseded_by
+temporal_status:
+  current
+  historical
+  superseded
+  future_prediction
+  unknown
+
+【实现要求】
+1. 明确区分 published_at 与 event_at。
+2. 对“预计 2028 年”记录 target_future_time，而不是把发布时间当成结果发生时间。
+3. Router 输出 temporal_intent：
+   current / latest / as_of / historical / trend / unspecified
+4. current/latest 查询中 superseded 证据降权或仅作为历史背景。
+5. historical/trend 问题保留旧证据。
+6. conflict detector 能把“旧计划 vs 新结果”识别为 VERSION_UPDATE。
+7. 时间无法确定时标 unknown，不让 LLM随意补日期。
+8. answer 可选显示“基于知识库更新到某日期/版本”，防止用户把数据库覆盖范围误当世界实时状态。
+
+【Definition of Done】
+- [ ] current 查询不会优先拿明显 superseded 的旧资料作现状答案。
+- [ ] historical 查询能正确使用旧资料。
+- [ ] future prediction 与已发生事实有类型区分。
+- [ ] temporal metadata 进入 Selector / Grader / Conflict Detector。
+- [ ] 有 as-of date 测试。
+
+【测试】
+准备：
+2024 roadmap：计划 2026 推出 A
+2026 release：实际推出 B
+测试：
+“2024 年当时计划什么？”
+“现在正式推出什么？”
+“这个规划后来实现了吗？”
+
+----------------------------------------------------------------------
+T011 - Entity Canonicalization / Alias / Ontology
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+NVIDIA / Nvidia / 英伟达、产品简称/全称等如果被当成不同实体，会破坏 Graph、Decomposition、Coverage 与实体平衡。
+
+【目标】
+建立 canonical entity registry，并在 Query 与 Graph 中逐步统一使用 entity_id。
+
+【修改范围】
+新增建议：
+scripts/build_entity_registry.py
+qa-backend/entity_resolver.py
+runtime/indexes/entity_registry.json
+
+【实体类型至少】
+organization
+product
+technology
+material
+standard
+metric
+project
+institution
+person
+location
+
+【Schema】
+{
+  "id": "org:nvidia",
+  "type": "organization",
+  "canonical_name": "NVIDIA",
+  "aliases": ["Nvidia", "英伟达"],
+  "confidence": 1.0
+}
+
+【实现要求】
+1. Query Retrieval 前实体解析。
+2. Entity resolution 输出 confidence。
+3. ambiguity 不允许强行合并，例如同名公司/技术缩写。
+4. 提供人工 alias override 机制，避免高价值实体只能靠 LLM。
+5. Graph 新版使用 canonical entity_id。
+6. 旧图兼容期间可保留 alias -> id map。
+7. Registry 支持增量更新与版本号。
+
+【Definition of Done】
+- [ ] 常见中英文 alias 归一。
+- [ ] 模糊实体返回 ambiguous，而不是错误合并。
+- [ ] Router/Planner/Graph 能读取 canonical id。
+- [ ] Registry 有版本和人工覆盖机制。
+- [ ] NVIDIA/Nvidia/英伟达问法核心 entity 一致。
+
+----------------------------------------------------------------------
+T012 - Data Quality Layer
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+如果正文缺失、日期错误、摘要幻觉、索引与数据版本错位，再强 Agent 都无法获得高质量答案。
+
+【目标】
+在 RAG 前建立可测的数据质量防线。
+
+【修改范围】
+扩展：
+scripts/check_integrity.py
+或新增：
+scripts/check_data_quality.py
+
+【确定性检查至少】
+- missing/empty title
+- invalid URL
+- date parse failure
+- impossible future/past date anomalies
+- body/full_body absence
+- duplicate anomalies
+- cluster parent anomalies
+- record ID/index mismatch
+- metadata missing
+- malformed key params
+- index dataset version mismatch
+- content hash mismatch
+
+【LLM 抽样审计】
+- summary 是否忠于 source text
+- classification 是否明显错误
+- epistemic type 是否合理
+
+【关键新增：Synthetic Summary Contamination】
+当前流程允许正文为空时根据标题+领域知识生成 AI summary。
+这类 summary 必须明确：
+synthetic_summary = true
+source_grounded = false
+
+规则：
+- 可用于检索辅助/页面展示（需标识）
+- 不得作为 evidence span
+- 不得作为 claim citation
+- 不得作为“数据库事实”的唯一依据
+
+如果 summary 有正文来源，也应可记录：
+summary_grounded = true/false/unknown
+
+【Definition of Done】
+- [ ] 可对全库生成 data quality report。
+- [ ] synthetic/no-body summaries 有明确 flag。
+- [ ] synthetic summary 不会进入最终 evidence/citation。
+- [ ] 严重数据结构错误可阻止 index release 或产生 hard warning。
+- [ ] index 与 dataset snapshot version 可检查。
+- [ ] data quality flags 被 Evidence Selector 读取。
+
+【测试】
+构造：
+- 空正文 + AI summary
+- 错日期
+- 失效 URL
+- index version 与 data version 不匹配
+确认全部触发正确 flag。
+
+----------------------------------------------------------------------
+T013 - Retrieved Content Safety / Prompt Injection 防护
+优先级：P0
+依赖：T007
+----------------------------------------------------------------------
+
+【背景】
+新闻/公众号/网页正文可能包含类似 prompt 或“忽略之前指令”的文字。Retrieved text 必须永远被当 DATA。
+
+【目标】
+防止知识库文本控制 Agent 行为，同时保留文本本身作为分析对象。
+
+【修改范围】
+新增：
+qa-backend/content_safety.py
+
+metadata flags：
+prompt_like_text
+instruction_like_text
+suspicious_markup
+marketing_hype
+
+【实现要求】
+1. System prompt 明确 retrieved documents = untrusted evidence data。
+2. 文档中出现“调用工具”“忽略系统”等文字不能影响 Tool Controller。
+3. Context builder 用清晰边界包装证据块。
+4. 不需要因为 prompt-like text 自动删除整条证据；它可能是研究对象。
+5. Agent 只能从 orchestrator/system 定义的工具集合中调用工具。
+6. trace 保存 risk flags。
+7. 若未来 corpus 有 ACL/私有数据，权限过滤必须发生在候选进入 Agent 之前；当前公共 Tech-DB 可先保留接口。
+
+【Definition of Done】
+- [ ] prompt injection 测试文档不能改变 system behavior。
+- [ ] retrieved document 不能自行要求 Agent 调用工具。
+- [ ] 风险文本仍能作为普通内容引用/分析。
+- [ ] risk flags 进入 trace。
+- [ ] 有自动安全测试。
+
+
+
+======================================================================
+PART 3 - RETRIEVAL + ADAPTIVE AGENTIC RAG CORE
+======================================================================
+
+----------------------------------------------------------------------
+T014 - Retrieval Layer 重构
+优先级：P0
+依赖：T001
+----------------------------------------------------------------------
+
+【背景】
+当前 server.py 承担太多检索和 HTTP/SSE 逻辑。未来加入多轮 Agentic loop 后，如果继续堆逻辑会难以测试、替换和追踪。
+
+【目标】
+把 Vector / BM25 / Graph / Fusion 拆成稳定、统一、可独立测试的 Retrieval Layer；server.py 最终只做 API glue。
+
+【修改范围】
+逐步新增：
+qa-backend/retrieval/
+  __init__.py
+  vector.py
+  bm25.py
+  graph.py
+  fusion.py
+
+后续：
+qa-backend/orchestrator.py
+
+【统一结果 Schema】
+至少：
+record_id
+route
+raw_score
+rank
+meta
+query
+round_id
+
+【实现步骤】
+1. 先用 wrapper 包住现有 vector_search/bm25_search/graph_search/rrf_fuse，保证行为等价。
+2. 建单元测试和现有 retrieval baseline。
+3. 再逐步把实现从 server.py 移出。
+4. /api/search 与 /api/chat/stream 保持兼容。
+5. load index / shared resource 的生命周期集中管理，避免模块重复加载大索引。
+6. graph/search 在 index 不可用时返回明确 degraded state，而不是异常。
+
+【禁止】
+- 一次性重写 server.py。
+- 为了模块化改变搜索算法后不做 baseline 对比。
+- 每个模块自己重复加载完整 record/index。
+
+【Definition of Done】
+- [ ] server.py 不再包含核心 Vector/BM25/Graph 算法实现。
+- [ ] 三路检索可独立调用和单测。
+- [ ] 新旧 baseline 的差异有解释。
+- [ ] /api/search 行为兼容。
+- [ ] Retrieval route 状态进入 trace。
+
+----------------------------------------------------------------------
+T015 - RRF 职责调整：融合 / 去重，而非最终相关性裁判
+优先级：P0
+依赖：T014
+----------------------------------------------------------------------
+
+【背景】
+当前 RRF 会直接截成最终 Top25。引入强 Reranker 后，过早截断会丢掉“只在某一路很强、但其他路没有”的候选。
+
+【目标】
+RRF 主要负责把不同 rank/score 空间融合成 Candidate Pool；最终 relevance 交给 Reranker。
+
+【新流程】
+Vector TopK
+BM25 TopK
+Graph TopK
+-> RRF / Union / Dedup
+-> High-recall Candidate Pool
+-> Reranker
+-> Evidence Selector
+
+【实现要求】
+1. 默认每路如 Top50，配置化。
+2. 候选去重按稳定 record_id。
+3. 保留：
+   rrf_score
+   vector_score
+   bm25_score
+   graph_score
+   per_route_rank
+4. 若去重候选 <= MAX_RERANK_CANDIDATES，尽可能全部送 reranker。
+5. 超过安全阈值（例如 150~200，可配置）才允许按 RRF/route quota 做 coarse prune。
+6. benchmark 三种方案：
+   A. old RRF Top25
+   B. RRF large pool -> rerank
+   C. union/dedupe -> rerank
+7. 不预设 B 必然胜 C，用数据选生产方案。
+
+【Definition of Done】
+- [ ] RRF 输出 Candidate Pool，而不是最终 evidence。
+- [ ] RRF score 作为 feature 保留。
+- [ ] 单路强相关 outlier 不会因过早 Top25 被轻易丢失。
+- [ ] 三种 fusion 策略有统一 benchmark。
+- [ ] 参数均配置化。
+
+----------------------------------------------------------------------
+T016 - Content-aware Reranker
+优先级：P0
+依赖：T015
+----------------------------------------------------------------------
+
+【背景】
+RRF 只融合排名，不理解候选内容是否真正有助于回答问题。当前系统缺少真正 second-stage reranker。
+
+【目标】
+用 query + candidate content 做内容级精排，提高 relevance precision。
+
+【修改范围】
+新增：
+qa-backend/reranker.py
+
+统一接口：
+async def rerank(query, candidates, top_k=None, context=None) -> list
+
+输出至少：
+record_id
+rerank_score
+input_rank
+reason(optional)
+route_features
+
+【实现策略】
+第一版允许使用当前最强 GLM 做 batch/listwise reranking。
+禁止 N 篇候选 -> N 次逐篇 LLM 请求。
+
+如果可引入本地/专门 reranker：
+- Fast cross-encoder 先排 100~150
+- 高质量复杂题可让 GLM 再判断 Top20~40
+但实际模型选择必须用 benchmark 决定。
+
+【输入内容】
+优先给 reranker：
+- title
+- source/date minimal metadata
+- relevant body/chunk text
+而不是只给 AI summary。
+
+【职责边界】
+Reranker 只判断：
+“这条候选对当前 query / requirement 有多相关、有多有用？”
+
+不要同时把 source independence、coverage、final trust 全塞进去；这些交给 Evidence Selector/Grader。
+
+【Definition of Done】
+- [ ] 存在真实的 query-document 内容级 rerank stage。
+- [ ] 支持 batch/listwise。
+- [ ] Rerank 结果进入 trace。
+- [ ] 对旧 RRF Top25 有 relevance benchmark。
+- [ ] Reranker error 有 fallback，不会把所有候选清空。
+- [ ] 不把 generated synthetic summary 当唯一 rerank evidence。
+
+----------------------------------------------------------------------
+T017 - Evidence Selector：从“相关文档”选出“最佳证据组合”
+优先级：P0
+依赖：T016, T008, T009, T010, T012
+----------------------------------------------------------------------
+
+【背景】
+即使 Reranker 很准，Top10 也可能全是同一个厂商、同一转载链、同一事件角度。最终上下文要优化的是 Evidence Set，而非单文档排序。
+
+【目标】
+构建 source-aware / provenance-aware / temporal-aware / coverage-aware 的 Evidence Selector。
+
+【输入】
+Reranked candidates
+Evidence metadata
+Current requirement / Evidence Ledger
+Temporal intent
+
+【选择特征】
+- rerank relevance
+- requirement coverage gain
+- source suitability
+- independent_group gain
+- temporal fit
+- entity balance
+- event diversity
+- data quality
+- redundancy penalty
+- novelty gain
+
+可建立配置化 selection_score，但不要把公式视为真理。
+
+【重要规则】
+1. 同一 provenance group 默认限制重复占位。
+2. 比较 A/B/C 时，若 B 的高质量证据存在，不允许 A 因资料多把所有名额占满。
+3. Diversity 是软约束，不能为了“多样”选明显不相关来源。
+4. 对于需要官方规格的问题，一条高适配官方一手资料可以比多家二手转载重要。
+5. 每条选择/淘汰给出 machine-readable reason。
+
+【Definition of Done】
+- [ ] 最终 Evidence Set 不被同源转载占满。
+- [ ] comparison case 主要对象都有合理 coverage。
+- [ ] Selector 能读取 provenance/temporal/data-quality/suitability。
+- [ ] 输出 selected/rejected reasons 到 trace。
+- [ ] A/B benchmark 比较 reranker-only vs selector。
+
+----------------------------------------------------------------------
+T018 - Adaptive Router：FAST / RESEARCH / DEEP 三档模式
+优先级：P0
+依赖：T014
+----------------------------------------------------------------------
+
+【背景】
+对所有问题都跑 Planner + Decomposition + 多轮检索，会增加延迟并可能把简单精确事实题“想复杂了”。Agentic 不代表所有请求都多轮。
+
+【目标】
+根据问题复杂度和证据需求选择处理深度。
+
+【修改范围】
+新增：
+qa-backend/router.py
+
+【输出 Schema】
+question_type
+complexity
+mode
+needs_decomposition
+needs_temporal_reasoning
+needs_graph
+needs_multi_source_evidence
+needs_conflict_check
+reason
+
+【模式】
+FAST_RAG：
+Rewrite -> Hybrid Retrieval -> Rerank -> Basic Evidence Check -> Generate -> Verify
+
+RESEARCH_RAG：
+Planner/Decompose -> Retrieval -> Ledger -> Grader -> Gap Search (bounded)
+
+DEEP_RESEARCH：
+复杂多实体 / 趋势 / 冲突 / 高覆盖要求 -> 完整 iterative loop
+
+【Question Type 至少】
+FACT_LOOKUP
+ENTITY_OVERVIEW
+COMPARISON
+MULTI_ENTITY
+TREND
+TEMPORAL
+CAUSAL_ANALYSIS
+MULTI_HOP
+FOLLOWUP
+NOVELTY
+
+【实现要求】
+1. Router 可用 GLM，但必须严格 JSON + parser tolerance。
+2. 明确规则 fallback，例如明显单实体精确参数查询可 FAST。
+3. Router failure 不能使整个请求失败。
+4. Router 不以省 token 为目标；它的目标是选正确策略和避免语义漂移。
+5. 如果 FAST 后 Basic Evidence Check 明显不足，可自动升级到 RESEARCH。
+
+【Definition of Done】
+- [ ] 简单事实题通常走 FAST。
+- [ ] comparison/trend/multi-hop 进入 Research 或 Deep。
+- [ ] FAST 证据不足可升级模式。
+- [ ] Router result 进入 trace。
+- [ ] 有 Router accuracy / unnecessary-decomposition benchmark。
+
+----------------------------------------------------------------------
+T019 - Query Decomposition
+优先级：P0
+依赖：T018
+----------------------------------------------------------------------
+
+【背景】
+复杂问题一次搜索常只覆盖一部分。例如比较多个公司多个维度，需要明确知道“哪些维度必须有证据”。
+
+【目标】
+把复杂用户问题拆成可验证的 requirements 和可执行 subqueries。
+
+【修改范围】
+新增：
+qa-backend/decomposer.py
+或 planner.py 中保留独立接口。
+
+【输出】
+{
+  "requirements": [
+    {
+      "id": "r1",
+      "description": "NVIDIA interconnect evolution",
+      "importance": "critical",
+      "entities": ["org:nvidia"],
+      "dimensions": ["interconnect"],
+      "queries": [...]
+    }
+  ]
+}
+
+【实现要求】
+1. requirements 必须能映射回原始用户意图。
+2. comparison 类应显式考虑对象 x 维度 coverage。
+3. trend 类应显式考虑时间阶段。
+4. 不生成大量同义 query。
+5. MAX_SUBQUERIES 配置化，例如 8~12。
+6. 对依赖型问题可允许简单 DAG/dependency 字段，但第一版不必做通用工作流引擎。
+7. 用户问题有歧义时：
+   - 若可合理覆盖多个主要解释，可把解释作为 requirement。
+   - 若无法可靠回答，应在最终说明假设/范围，不要悄悄选一个解释。
+
+【Definition of Done】
+- [ ] comparison/multi-entity/trend 能生成完整 requirements。
+- [ ] requirement 可直接进入 Evidence Ledger。
+- [ ] 子查询数量受控且低重复。
+- [ ] decomposition quality 有独立 eval。
+- [ ] 简单题不会被强制 decomposition。
+
+----------------------------------------------------------------------
+T020 - Research Planner
+优先级：P0
+依赖：T019
+----------------------------------------------------------------------
+
+【背景】
+Decomposition 负责“拆成什么”，Planner 负责“以什么顺序、用什么检索路线、需要什么证据类型”。
+
+【目标】
+生成结构化 Research Plan，供 orchestrator 执行。
+
+【修改范围】
+新增：
+qa-backend/planner.py
+
+【输出至少】
+requirements
+initial_subqueries
+route_preferences
+temporal_constraints
+expected_evidence_types
+source_independence_needs
+dependencies(optional)
+
+【例子】
+对于“某公司宣称性能提升 3 倍，是真的吗？”
+Planner 应知道：
+- 官方资料可用于证明“公司声称”
+- 还需要 independent benchmark / academic / third-party evidence
+而不是检索 5 篇官方转载后结束。
+
+【角色隔离】
+Planner 使用独立 GLM 调用。
+不输入最终 Generator draft。
+Planner 只做研究策略，不做答案。
+
+【Parser】
+严格 JSON schema。
+parse failure：
+- tolerant parse
+- retry
+- deterministic fallback plan
+
+【Definition of Done】
+- [ ] Planner 输出可由 orchestrator 直接执行。
+- [ ] 对不同 question type 产生合理 route/source needs。
+- [ ] 失败有 fallback。
+- [ ] plan 进入 trace。
+
+
+----------------------------------------------------------------------
+T021 - Evidence Ledger：Agent 的核心控制状态
+优先级：P0
+依赖：T020
+----------------------------------------------------------------------
+
+【背景】
+Ledger 不能只是日志装饰。如果它不真正控制“是否继续搜、是否允许回答”，那就没有价值。
+
+【目标】
+把用户问题拆成可追踪 requirements，并持续维护每个 requirement 的支持、冲突、缺失和独立来源状态。
+
+【修改范围】
+新增：
+qa-backend/evidence_ledger.py
+
+【Schema】
+{
+  "question": "...",
+  "iteration": 2,
+  "requirements": [
+    {
+      "id": "r1",
+      "description": "...",
+      "importance": "critical",
+      "status": "SUPPORTED",
+      "supporting_evidence": [],
+      "conflicting_evidence": [],
+      "independent_groups": [],
+      "temporal_coverage": {},
+      "missing": []
+    }
+  ]
+}
+
+Requirement status：
+SUPPORTED
+PARTIAL
+MISSING
+CONFLICTED
+
+【实现要求】
+1. 每轮 Retrieval + Selector 后 update ledger。
+2. supporting_evidence 必须指向 record/evidence objects，不仅是自然语言。
+3. independent_groups 使用 provenance 信息。
+4. critical requirement 未支持时，不允许仅凭其他部分资料多就整体 SUPPORTED。
+5. stopping criteria 读取 Ledger。
+6. context builder 读取 Ledger。
+7. Generator 输入包含 Ledger-derived evidence package。
+8. Trace 保存每轮 immutable snapshot，方便回放。
+9. 新证据不能直接覆盖旧冲突证据，保留历史决策。
+
+【Definition of Done】
+- [ ] Ledger 真正参与是否继续搜索。
+- [ ] Ledger 真正参与是否允许生成完整答案。
+- [ ] critical MISSING 不会被“总文档数量多”掩盖。
+- [ ] 支持每轮快照与差异。
+- [ ] 有 unit tests 对 coverage/status transition。
+
+----------------------------------------------------------------------
+T022 - Evidence Grader：Rule Engine + GLM
+优先级：P0
+依赖：T021, T017
+----------------------------------------------------------------------
+
+【背景】
+纯 LLM 判断“证据够了吗？”容易自我确认。可确定的 coverage / independence / temporal / conflict 规则应由程序检查。
+
+【目标】
+建立可解释的 Evidence Sufficiency 判定。
+
+【修改范围】
+新增：
+qa-backend/evidence_grader.py
+
+【第一层：Rule Engine】
+至少检查：
+- critical requirement 是否全部覆盖
+- required entity 是否覆盖
+- independent provenance groups 数量
+- 是否只有 self-reported evidence
+- temporal mismatch
+- superseded-only evidence
+- high severity unresolved contradiction
+- required numeric metric 是否缺 unit/condition
+- evidence data-quality 是否过低
+- citation-capable original text 是否存在
+
+【第二层：GLM Semantic Grader】
+判断：
+- 证据是否真正回答 requirement
+- 是否遗漏重要维度
+- 证据逻辑是否足以支持目标结论
+- 缺失什么语义证据
+
+【输出】
+{
+  "overall": "INSUFFICIENT",
+  "coverage_score": ...,
+  "independent_source_score": ...,
+  "rule_failures": [],
+  "requirements": [...],
+  "missing": [...],
+  "next_search_targets": []
+}
+
+【硬约束】
+- 用户要求比较 A/B/C，B 无 evidence -> 不能 SUPPORTED。
+- 用户问“实际是否如此”，只有厂商自述 -> 不应自动 SUPPORTED。
+- high-severity unresolved conflict -> 不应直接确定性 SUPPORTED。
+- hard rule failure 不能被 GLM一句“足够”覆盖。
+
+【Definition of Done】
+- [ ] Grader 不再是单 LLM yes/no。
+- [ ] Rule 与 GLM 结果均写 trace。
+- [ ] 输出明确 missing/gaps。
+- [ ] hard rule failure 有优先级。
+- [ ] duplicate/self-report/temporal/conflict 均有测试。
+
+----------------------------------------------------------------------
+T023 - Gap Analysis + Targeted Query Generation
+优先级：P0
+依赖：T022
+----------------------------------------------------------------------
+
+【背景】
+“证据不足 -> 再搜原问题一次”通常只会重复结果。必须明确当前缺的是什么。
+
+【目标】
+从 Ledger + Grader 自动生成针对未满足 requirement 的下一轮查询。
+
+【修改范围】
+新增：
+qa-backend/gap_analysis.py
+
+【输入】
+original_question
+research_plan
+current_ledger
+grader_result
+previous_queries
+previous_results
+
+【输出】
+{
+  "gaps": [...],
+  "queries": [
+    {
+      "query": "...",
+      "requirement_id": "r2",
+      "purpose": "find_independent_validation",
+      "preferred_routes": ["vector", "bm25"],
+      "temporal_constraint": "...",
+      "source_need": "independent"
+    }
+  ]
+}
+
+【Gap 类型至少】
+MISSING_FACT
+MISSING_ENTITY_COVERAGE
+MISSING_TIME_PERIOD
+MISSING_INDEPENDENT_SOURCE
+CONFLICT_NEEDS_RESOLUTION
+MISSING_NUMERIC_CONDITION
+AMBIGUOUS_SCOPE
+
+【实现要求】
+1. 每个新 query 必须绑定 unresolved requirement/gap。
+2. query dedup，避免连续生成同义词。
+3. previous query/result 作为 anti-drift 上下文。
+4. 不允许为了“多搜”生成与用户目标无关的研究方向。
+5. 如果 gap 在当前数据库类型中理论上不可满足，也允许建议 stop，而不是无限改写 query。
+
+【Definition of Done】
+- [ ] 每个补搜 query 都能解释“为了填哪个 gap”。
+- [ ] 同一 query 不无限重复。
+- [ ] 独立来源缺失时能生成 source-aware search target。
+- [ ] 冲突时能生成 resolution query。
+- [ ] trace 可见 gap -> query 映射。
+
+----------------------------------------------------------------------
+T024 - Iterative Retrieval Orchestrator
+优先级：P0
+依赖：T023
+----------------------------------------------------------------------
+
+【背景】
+真正 Agentic 的核心不是“用了 Agent 名字”，而是存在受控的 Retrieve -> Grade -> Gap -> Retrieve Again 闭环。
+
+【目标】
+实现 bounded iterative research loop。
+
+【修改范围】
+新增：
+qa-backend/orchestrator.py
+
+【核心流程】
+1. Rewrite
+2. Router
+3. 如果需要：Decompose + Plan
+4. 执行当前 subqueries
+5. Vector/BM25/Graph
+6. RRF/Union Candidate Pool
+7. Rerank
+8. Evidence Selector
+9. Update Ledger
+10. Conflict Detection
+11. Evidence Grader
+12. sufficient -> 进入 generation
+13. insufficient -> Gap Analysis
+14. 新 subqueries -> 下一轮
+15. Stop Criteria -> Partial/Unsupported
+
+【推荐配置】
+MAX_ITERATIONS = 4~6
+MAX_SUBQUERIES = 8~12
+MAX_TOOL_CALLS = 配置化
+MAX_RERANK_CANDIDATES = 150~200
+
+这些 bound 用于稳定性和防漂移，不是成本优先。
+
+【实现要求】
+1. FAST_RAG 不强制完整 loop。
+2. RESEARCH/DEEP 使用同一 typed ResearchState。
+3. 每轮只重点处理 unresolved requirements。
+4. Candidate/evidence 跨轮去重。
+5. 保留 novelty follow-up 能力，但从“排除过去引用记录”升级为“已覆盖 evidence/requirement aware”，避免为了新颖而排除仍需比较的关键来源。
+6. 每轮 state 可序列化进 trace。
+7. 异常模块要安全降级，不能无状态继续生成。
+
+【建议 ResearchState】
+original_query
+rewritten_query
+query_type
+mode
+plan
+subqueries
+retrieval_rounds
+candidate_records
+selected_evidence
+evidence_ledger
+contradictions
+unresolved_gaps
+status
+stop_reason
+
+【Definition of Done】
+- [ ] 复杂问题能执行 >1 轮 targeted retrieval。
+- [ ] evidence 足够时提前停止。
+- [ ] evidence 无新增时不会死循环。
+- [ ] 每轮 state/queries/results 可 trace。
+- [ ] FAST 与 Research 流程都能正常工作。
+
+----------------------------------------------------------------------
+T025 - Stopping Criteria / 搜索饱和检测
+优先级：P0
+依赖：T024
+----------------------------------------------------------------------
+
+【背景】
+只有 MAX_ITERATIONS 不够。需要知道“已经搜到饱和”“关键缺口连续没有改善”。
+
+【目标】
+建立可解释、可测试的停止策略。
+
+【修改范围】
+新增：
+qa-backend/stopping.py
+
+【停止原因至少】
+evidence_sufficient
+topic_exhausted
+no_new_evidence
+retrieval_saturated
+critical_gap_unresolved
+conflict_unresolved
+max_iterations
+max_subqueries
+technical_failure
+
+【信号】
+- new unique record count
+- new selected evidence count
+- new independent provenance groups
+- requirement status improvement
+- average evidence gain
+- query/result overlap
+- unresolved critical gap age
+- conflict resolution progress
+
+【规则例子】
+连续两轮：
+- 无新 independent group
+- 无 requirement 从 MISSING/PARTIAL 改善
+- 新结果高度重复
+=> stop no_new_evidence
+
+针对冲突补搜若连续多轮没有新证据：
+=> conflict_unresolved
+
+【Definition of Done】
+- [ ] 能在 max iteration 前基于饱和主动停。
+- [ ] stop_reason 可解释且进入 API/trace。
+- [ ] “深搜后 KB 仍不足”是正常主路径，不是 exception。
+- [ ] 有 no-new-evidence / unresolved-gap / conflict 测试。
+
+----------------------------------------------------------------------
+T026 - Knowledge Boundary + Calibrated Abstention
+优先级：P0
+依赖：T022, T025, T006
+----------------------------------------------------------------------
+
+【背景】
+“搜索有结果”不代表数据库覆盖足够。特别是开放性、趋势、未来问题，几篇相关资料不能支持宏观结论。
+
+【目标】
+判断 Tech-DB 对当前问题的可回答边界，并产生正确的 SUPPORTED / PARTIAL / UNSUPPORTED。
+
+【修改范围】
+新增：
+qa-backend/knowledge_boundary.py
+
+【Coverage 状态】
+HIGH
+MEDIUM
+LOW
+UNKNOWN
+
+【依据】
+- requirements coverage
+- critical gaps
+- evidence count
+- independent source groups
+- source suitability
+- data quality
+- temporal coverage
+- conflicts
+- corpus scope indicators
+
+【关键语义】
+“Tech-DB 中未找到”只能推出：
+“当前 Tech-DB 没有足够证据”
+不能推出：
+“现实世界不存在 X”。
+
+对 negative claim 尤其如此：
+“没有找到 X” != “X 不存在”。
+
+【用户输出】
+PARTIALLY_SUPPORTED：
+“可以确认：A、B。当前数据库缺少 C，因此无法可靠完成完整比较。”
+
+UNSUPPORTED：
+“已检索 X/Y/Z 方向，但当前数据库仍缺少关键证据，因此无法可靠回答。”
+
+可选显示：
+- 缺的具体证据
+- 已覆盖范围
+- KB snapshot/update date
+
+【Definition of Done】
+- [ ] related docs 很多但 critical coverage 不足时可 PARTIAL。
+- [ ] 无核心 evidence 时 UNSUPPORTED。
+- [ ] “not found” 不转成现实世界负事实。
+- [ ] coverage/boundary 进入 benchmark。
+- [ ] abstention precision/recall 可统计。
+
+======================================================================
+PART 4 - ADVANCED QUALITY OPTIMIZATION
+======================================================================
+
+----------------------------------------------------------------------
+T027 - Semantic Knowledge Graph 升级与 Graph Pipeline 统一
+优先级：P1
+依赖：T011
+----------------------------------------------------------------------
+
+【背景】
+当前 fast graph 主要从标题/摘要/正文片段/关键参数抽实体，边主要是同一记录中的共现，且节点最终类型过于粗化。这适合关联发现，但不足以支持可靠关系推理。同时项目历史上存在 LightRAG ingest、自定义 LLM extraction、fast rule graph 多条构建路径。
+
+【目标】
+在不阻塞核心 Agentic RAG 的前提下，把图谱逐步升级为 evidence-backed semantic graph，并最终明确一个 canonical production graph builder。
+
+【保留】
+RELATED_CO_OCCURRENCE 作为弱关系。
+
+【逐步新增 Predicate】
+RELEASED
+DEVELOPED
+USES
+SUPPORTS
+PART_OF
+COMPETES_WITH
+ACHIEVES
+IMPROVES
+REPLACES
+SUPERSEDES
+PARTNERED_WITH
+INVESTED_IN
+MEASURED_AT
+RELATED_TO
+
+【Edge Schema】
+subject canonical entity_id
+predicate
+object entity/value
+record_id
+evidence_span
+confidence
+valid_from
+valid_to
+extraction_method
+graph_version
+
+【实现要求】
+1. 每条强语义边必须有原始 record + exact evidence span。
+2. 未定位原文的 LLM inferred relation 不得进入 high-confidence production graph。
+3. canonical entity ID。
+4. relation 带时间。
+5. co-occurrence edge 与 semantic edge 区分权重与用途。
+6. 比较以下 graph path：
+   - current fast graph
+   - new semantic graph
+   - LightRAG graph/mix（作为 benchmark）
+7. 不允许因为 LightRAG 已存在就让在线 Agent 只能 rag.aquery()；Agent 仍应调用可控 search_graph/search_hybrid 工具。
+8. 最终统一 ingest path，淘汰重复/过时 builder 前先 benchmark 与迁移。
+
+【Definition of Done】
+- [ ] Semantic edge 可追溯到 evidence span。
+- [ ] 节点类型不再统一成“概念”。
+- [ ] Graph Search 能区分 relation type。
+- [ ] 三种 graph 方法有统一 benchmark。
+- [ ] canonical production graph pipeline 有明确文档/代码入口。
+- [ ] legacy path 若保留，明确为 benchmark/compatibility，而不是含糊共存。
+
+
+----------------------------------------------------------------------
+T028 - Contextual Chunking + Parent/Child Retrieval
+优先级：P1
+依赖：T016
+----------------------------------------------------------------------
+
+【背景】
+长文章、长报告、论文的关键事实可能出现在正文中后部。整篇 record embedding 会稀释局部信号；固定截断又容易丢上下文。
+
+【目标】
+建立小粒度精准召回 + Parent Record 上下文恢复。
+
+【修改范围】
+新增建议：
+scripts/build_chunk_index.py
+qa-backend/chunking.py
+runtime/indexes/chunk_vector_index.*
+runtime/indexes/chunk_bm25_index.*
+
+【Chunk Schema】
+chunk_id
+record_id
+text
+context_prefix
+start_offset
+end_offset
+section
+chunk_version
+
+context_prefix 可包含：
+title
+source
+date
+category
+canonical entities
+section heading
+
+【切分原则】
+1. 优先段落 / semantic boundary / section boundary。
+2. 不简单每 N 字硬切。
+3. 必要时 overlap，但避免大量重复。
+4. chunk 保留精确 offset。
+5. chunk 不成为新的“真相文本”；最终 evidence/citation 仍回到 parent full_body 验证。
+6. 对表格/参数密集区域尽量保留行/字段结构。
+7. generated synthetic summary 不作为 source chunk。
+
+【检索流程】
+query -> chunk vector/BM25 hits -> parent record metadata -> reranker/selector -> exact evidence grounding
+
+【Definition of Done】
+- [ ] 长文后半部事实 Recall 有提升或至少不退化。
+- [ ] chunk hit 可稳定回到 parent record。
+- [ ] start/end offset 可用于 citation grounding。
+- [ ] chunk index 与 data snapshot/version 绑定。
+- [ ] 有长文 benchmark。
+
+----------------------------------------------------------------------
+T029 - Numeric Facts / Unit / Condition Structuring
+优先级：P1
+依赖：T010, T003
+----------------------------------------------------------------------
+
+【背景】
+Tech-DB 技术回答大量包含带宽、容量、效率、温度、功率、倍率、密度、规模等参数。LLM 容易混淆 Gb/s 与 GB/s、单卡与整机、实验条件与商用条件。
+
+【目标】
+把关键参数抽成结构化、可确定性验证的数据，并限制错误比较。
+
+【修改范围】
+新增：
+scripts/extract_numeric_facts.py
+qa-backend/numeric_facts.py
+
+【Schema】
+metric
+value
+unit
+normalized_value
+normalized_unit
+condition
+entity_id
+event/published date
+record_id
+evidence_span
+ambiguous
+extraction_confidence
+
+【实现要求】
+1. 数字必须能回到 exact evidence span。
+2. 单位转换由确定性代码完成。
+3. 百分比、倍数、差值等基础数学由程序计算。
+4. 条件不一致时禁止无提示直接比较。
+5. 如“最高”“典型”“实验室”“单 GPU”“系统总量”等 qualifier 必须保留。
+6. 单位/条件无法确定 -> ambiguous=true，不猜。
+7. Numeric Claim verification 对比：
+   value
+   unit
+   condition
+   time
+8. 不把 key_params 中模型生成的结构字段当作比原文更高权威；它是索引，原文才是证据。
+
+【Definition of Done】
+- [ ] 常见技术单位可标准化/转换。
+- [ ] Gb/s vs GB/s 等维度错误可检测。
+- [ ] per-device vs system-total 不会直接比较。
+- [ ] numeric claim 可 deterministic verify。
+- [ ] 有不同单位/条件的 comparison 测试。
+
+----------------------------------------------------------------------
+T030 - Active Conflict Detection
+优先级：P0/P1
+依赖：T021, T010, T029
+----------------------------------------------------------------------
+
+【背景】
+现有 epistemic verifier 可以在答案后检查 CONFLICT_IGNORED，但高质量系统应该在生成前就知道证据冲突。
+
+【目标】
+识别支持、真实冲突、不同 scope、版本更新，并在必要时触发 targeted retrieval。
+
+【修改范围】
+新增：
+qa-backend/conflict_detector.py
+
+【比较维度】
+subject
+predicate/metric
+time
+scope/condition
+value
+source role
+
+【分类】
+AGREE
+CONTRADICT
+DIFFERENT_SCOPE
+VERSION_UPDATE
+UNKNOWN
+
+【例子】
+2024 路线图 vs 2026 正式发布：
+VERSION_UPDATE
+
+单 GPU 1.8TB/s vs 8-GPU system aggregate：
+DIFFERENT_SCOPE
+
+两个同时间同条件来源给出不同值：
+CONTRADICT candidate
+
+【实现要求】
+1. 生成前扫描 Ledger 中可能指向同一 atomic fact 的 evidence。
+2. deterministic 数值/时间比较优先。
+3. GLM 只处理 scope/semantic ambiguity。
+4. high severity contradiction -> Gap Analysis 生成 resolution query。
+5. targeted search 后仍冲突 -> Ledger 保持 CONFLICTED。
+6. Generator 必须显式呈现 unresolved conflict，不得选一个值装成唯一事实。
+7. self-report vs independent measurement 的差异不能简单视为同等事实冲突，需要 evidence_role。
+
+【Definition of Done】
+- [ ] 可区分 VERSION_UPDATE 和 CONTRADICT。
+- [ ] 可区分 DIFFERENT_SCOPE。
+- [ ] unresolved conflict 会影响 overall status / wording。
+- [ ] conflict triggers 可产生 targeted retrieval。
+- [ ] 有 conflict benchmark。
+
+----------------------------------------------------------------------
+T031 - Evidence-aware Context Assembly / Packing
+优先级：P0
+依赖：T017, T021, T030
+----------------------------------------------------------------------
+
+【背景】
+把 Reranker Top10/Top25 按分数直接拼 prompt，会造成重复、对象失衡、冲突证据消失、上下文 token 被无价值内容占用。
+
+【目标】
+把最终输入 Generator 的内容组织成“Evidence Package”，而不是“Search Results Dump”。
+
+【修改范围】
+新增：
+qa-backend/context_builder.py
+
+【组织格式】
+Question
+Research assumptions/scope
+Requirement R1
+  Supporting Evidence
+  Conflicting Evidence
+  Provenance/Source Role
+  Temporal metadata
+  Exact/Relevant Spans
+Requirement R2
+...
+
+【实现要求】
+1. 按 requirement 分组。
+2. 对同源重复证据压缩，只保留必要代表。
+3. conflict 必须保留，不能因为排名低而消失。
+4. source role 清晰，例如 self_reported / independent。
+5. 优先给 exact/relevant original span；必要时附 parent context。
+6. Token budget 按 evidence value/coverage 分配，不按纯检索排名。
+7. synthetic summary 不作为 evidence。
+8. untrusted retrieved text 以 data boundary 包装。
+9. 如果某 requirement MISSING，明确告诉 Generator “缺失”，不要让 Generator 用预训练知识补。
+
+【Definition of Done】
+- [ ] Generator context 能看出每个 requirement 的 support/gap/conflict。
+- [ ] 高度重复证据显著减少。
+- [ ] comparison 对象不会因 source 数量差异严重失衡。
+- [ ] conflict evidence 不被丢弃。
+- [ ] Evidence Package 可序列化/trace。
+
+----------------------------------------------------------------------
+T032 - Claim-aware Citation Snippet + Multi-span + Highlight
+优先级：P0
+依赖：T003, T004
+----------------------------------------------------------------------
+
+【背景】
+用户要求参考来源下面显示与回答真正相关的那段正文，而不是正文从第一个字开始。更进一步，snippet 应说明“这条来源具体支持回答里的哪条结论”。
+
+【目标】
+把 citation UI 数据升级成真正的 Evidence Card 数据。
+
+【Citation Schema】
+{
+  "id": 3,
+  "record_id": 123,
+  "title": "...",
+  "source": "...",
+  "date": "...",
+  "url": "...",
+  "source_type": "company_technical_doc",
+  "source_label": "官方一手资料",
+  "supports_claim_ids": ["claim_001"],
+  "supports_claim_texts": ["单 GPU 双向带宽达到 ..."],
+  "evidence_spans": [
+    {
+      "text": "...",
+      "start": 1203,
+      "end": 1371,
+      "highlight": "1.8 TB/s 的双向带宽",
+      "grounding_status": "VALID"
+    }
+  ]
+}
+
+【Multi-span】
+同一来源若支持两个相隔很远的 claim：
+- 最多默认展示 1~2 个最佳 span。
+- 中间用“……”。
+- 不为了覆盖两个位置拉出 2000 字长块。
+
+【Highlight】
+只高亮最直接 support claim 的词组/句子，不整段全高亮。
+
+【Fallback 规则】
+如果 exact grounding 失败：
+- citation invalid
+- 重新找来源/重写 claim/再检索
+绝不回退“正文开头”。
+
+【Definition of Done】
+- [ ] 每个有效 reference 的 snippet 是 claim-aware，不是 query-only。
+- [ ] 支持 multi-span。
+- [ ] 支持 exact offsets。
+- [ ] highlight 对应 claim。
+- [ ] invalid span 永不展示成有效证据。
+- [ ] query-based excerpt 只可保留作为内部 retrieval/debug，不作为最终证据卡核心。
+
+----------------------------------------------------------------------
+T033 - Reference Card Frontend / 答案证据 UI
+优先级：P1
+依赖：T032, T006, T009
+----------------------------------------------------------------------
+
+【背景】
+用户看 citation 的目的不是确认“有链接”，而是快速审计“为什么这篇来源支持这个回答”。
+
+【目标】
+把答案下方参考来源升级为可审计 Evidence Card。
+
+【推荐 UI】
+[3] NVIDIA Blackwell Architecture
+NVIDIA · 官方一手资料/厂商自述 · 日期
+
+支持回答：
+• Claim A
+• Claim B
+
+相关原文：
+│ ...完整语义上下文，其中核心短语高亮...
+
+[展开上下文] [查看原文]
+
+【来源标签】
+可以：
+官方一手资料
+学术论文
+第三方报道
+厂商自述
+二手转载
+未知来源
+
+不要：
+“可信度 93 分”
+“真实度 95%”
+
+【状态 UI】
+SUPPORTED：常规显示。
+PARTIALLY_SUPPORTED：提示部分证据不足，并区分可确认/不可确认。
+UNSUPPORTED：重点是“当前知识库不足”，不要制造长篇似是而非分析。
+UNVERIFIED：说明本次未完成可靠验证。
+
+【实现要求】
+1. 支持多个 claim。
+2. 支持 multi-span。
+3. 可展开更大上下文，但默认卡片保持可扫读。
+4. 展开上下文仍来自 original source text。
+5. 跳转原 URL。
+6. 前端对旧 API citation schema 做兼容 fallback，便于渐进上线。
+
+【Definition of Done】
+- [ ] 用户无需打开原文即可理解“这条来源支持什么”。
+- [ ] 可展开上下文。
+- [ ] 可跳转原文。
+- [ ] source label 不制造虚假精确性。
+- [ ] PARTIAL/UNSUPPORTED/UNVERIFIED UI 正确。
+- [ ] 桌面与移动端不出现明显布局破坏。
+
+----------------------------------------------------------------------
+T034 - Agentic / Evidence Benchmark 全面升级
+优先级：P0
+依赖：T002, T026, T032
+----------------------------------------------------------------------
+
+【背景】
+完成 Agentic 升级后，如果仍只看 Recall@25，会优化错目标。
+
+【目标】
+把每个核心模块和端到端行为都纳入评测。
+
+【Planning 指标】
+- Router accuracy
+- mode selection accuracy
+- decomposition requirement coverage
+- unnecessary decomposition rate
+- query duplication rate
+
+【Retrieval/Rerank】
+- route Recall@K
+- candidate union Recall
+- reranker nDCG / pairwise preference
+- relevant outlier retention
+
+【Evidence】
+- requirement coverage
+- critical requirement miss rate
+- independent provenance coverage
+- source suitability correctness
+- source diversity
+- evidence redundancy
+- temporal fit accuracy
+
+【Agent Loop】
+- useful iteration rate
+- redundant iteration rate
+- evidence gain per iteration
+- correct stopping rate
+- runaway/loop rate
+
+【Conflict】
+- conflict detection accuracy
+- version-update distinction accuracy
+- different-scope distinction accuracy
+- unresolved-conflict surfacing accuracy
+
+【Answer】
+- correctness
+- completeness
+- unsupported claim rate
+- attribution correctness
+- temporal correctness
+- numeric/unit correctness
+
+【Citation】
+- exact span validity
+- claim-citation entailment/support rate
+- invalid citation count
+- source snippet relevance
+
+【Abstention】
+建立明确三类 gold：
+SHOULD_ANSWER
+SHOULD_PARTIALLY_ANSWER
+SHOULD_ABSTAIN
+
+测：
+abstention precision/recall
+false refusal
+false confidence
+
+【硬性目标】
+Citation exact-span validity = 100%
+Invalid citation displayed = 0
+Verifier error treated as PASS = 0
+
+对其他指标先记录 baseline + 改进目标，不随意写无法验证的绝对百分比。
+
+【Definition of Done】
+- [ ] 每个核心模块至少有对应 benchmark。
+- [ ] 报告可做 before/after 比较。
+- [ ] 每个 production feature flag 启用前有相关测试。
+- [ ] 失败案例能输出到 Human Review Pipeline。
+
+----------------------------------------------------------------------
+T035 - Trace Replay / Regression Replay
+优先级：P1
+依赖：T001, T034
+----------------------------------------------------------------------
+
+【背景】
+模型、prompt、embedding、index、Reranker 修改后，历史坏案例必须可以重放，否则很容易修新问题又复发旧问题。
+
+【目标】
+基于 Trace 和 Golden Cases 建立可重复的 replay。
+
+【修改范围】
+新增：
+qa-backend/eval/replay.py
+
+【能力】
+- 根据 trace_id 重放
+- 根据 case group 重放
+- 指定当前 index/model/prompt version
+- 输出 before/after diff
+
+【Diff 至少】
+rewritten query
+router mode
+subqueries
+retrieved record IDs
+selected evidence
+ledger statuses
+stop reason
+answer status
+claims
+citations
+verification
+
+【Definition of Done】
+- [ ] 可用一条命令重放一组历史 case。
+- [ ] 生成 before/after 机器可读 diff。
+- [ ] prompt/index/model 版本写入报告。
+- [ ] 可作为发布前 regression gate 的输入。
+
+----------------------------------------------------------------------
+T036 - Human Review -> Golden Case Pipeline
+优先级：P1
+依赖：T034
+----------------------------------------------------------------------
+
+【背景】
+真实坏答案是最有价值的长期资产。不能每次只修 prompt，修完就忘。
+
+【目标】
+把人工确认的真实错误沉淀为 regression cases / hard negatives / abstention cases。
+
+【Bad Case Schema】
+question
+conversation_context
+bad_answer
+expected_behavior
+expected_status
+relevant_records
+unsupported_claims
+problem_type
+notes
+trace_id
+
+【problem_type】
+retrieval_failure
+rerank_failure
+coverage_failure
+source_failure
+provenance_failure
+temporal_failure
+numeric_failure
+conflict_failure
+citation_failure
+abstention_failure
+generation_failure
+verification_failure
+
+【实现要求】
+1. 可从 trace 自动生成 case 草稿。
+2. 必须人工确认后才能进入 golden set。
+3. 人工可标 failure stage。
+4. 支持 hard negative：看似相关但不应作为证据的文档。
+5. case 稳定 version/id。
+
+【Definition of Done】
+- [ ] 一个坏答案能快速转成可编辑 case 草稿。
+- [ ] 未确认 feedback 不会自动变 ground truth。
+- [ ] 确认 case 自动进入 regression suite。
+- [ ] 可按 failure stage 统计系统问题。
+
+----------------------------------------------------------------------
+T037 - Final Production Integration / Orchestrator / API Protocol
+优先级：P0
+依赖：核心前置任务完成
+----------------------------------------------------------------------
+
+【背景】
+所有模块最终需要通过一个稳定 orchestrator 串起来，并保持现有 SSE/API 尽可能向后兼容。
+
+【最终在线流程】
+User Query
+-> Query Rewrite
+-> Router
+-> FAST / RESEARCH / DEEP
+-> Decomposition / Planner（按需）
+-> Vector / BM25 / Graph
+-> RRF/Union Fusion
+-> Reranker
+-> Evidence Selector
+-> Evidence Ledger
+-> Conflict Detection
+-> Evidence Grader
+-> sufficient?
+   YES -> Context Assembly
+   NO  -> Gap Analysis -> Iterative Retrieval -> Stopping
+-> Knowledge Boundary / Answer Status
+-> Answer Generation
+-> Atomic Claims
+-> Claim <-> Evidence Mapping
+-> Exact Citation Grounding
+-> Deterministic Verification
+-> Epistemic GLM Verification
+-> Final Answer
+-> Claim-aware Reference Cards
+
+【最终 ResearchState 建议】
+original_query
+rewritten_query
+query_type
+mode
+research_plan
+subqueries
+retrieval_rounds
+candidate_records
+selected_evidence
+evidence_ledger
+contradictions
+unresolved_gaps
+answer_status
+stop_reason
+trace_id
+
+【API done event 建议】
+{
+  "answer": "...",
+  "answer_status": "SUPPORTED",
+  "citations": [],
+  "claims": [],
+  "evidence_summary": {
+    "requirements_total": 5,
+    "requirements_supported": 5,
+    "requirements_partial": 0,
+    "independent_source_groups": 4,
+    "iterations": 2
+  },
+  "searched_record_ids": [],
+  "stop_reason": "evidence_sufficient",
+  "trace_id": "..."
+}
+
+【Budget / Guardrail】
+可继续保留：
+- Rate Limit
+- Concurrency Guard
+- Budget Monitoring
+
+但 correctness-critical 环节：
+- Evidence Grader
+- Claim Grounding
+- Citation Validation
+- Final Verifier
+不能因 BudgetFuse 触发就“静默跳过然后正常回答”。
+
+如果无法完成关键验证：
+- UNVERIFIED
+或明确服务当前无法完成高质量验证。
+
+【同一个 GLM 的角色隔离】
+Planner / Grader / Generator / Verifier 可用同一最强 GLM。
+必须：
+- 分开调用
+- 分开 prompt
+- 分开输入
+- Verifier 不接收 Generator 的隐式推理
+- Verifier 重点输入 question + atomic claims + exact evidence + metadata
+
+【生成器的知识边界】
+GLM 预训练知识可用于：
+- 理解问题
+- 生成搜索词
+- 规划研究方向
+
+但最终 factual claims：
+必须来自 Evidence Package。
+不得用“模型自己知道”补 Tech-DB 缺失事实。
+
+【Definition of Done】
+- [ ] FAST_RAG 正常处理简单题。
+- [ ] RESEARCH_RAG 可 targeted multi-round retrieval。
+- [ ] DEEP_RESEARCH 可处理多实体/冲突/趋势。
+- [ ] 四态 status 正常。
+- [ ] citation exact grounding 正常。
+- [ ] prompt injection 防护存在。
+- [ ] Trace 全链路完整。
+- [ ] 现有 API 尽可能向后兼容。
+- [ ] 核心 benchmark 通过 release gate。
+
+======================================================================
+补充横切要求：数据版本、证据可复现、部署安全
+======================================================================
+
+这些要求跨多个 Ticket 实现，不单独拆新票，但不能遗漏：
+
+A. Evidence Immutability / Reproducibility
+- record 建议保存 content_hash。
+- index release 绑定 dataset snapshot/version。
+- evidence span 与 content_hash 关联。
+- URL 后续内容变化时，系统至少能知道当前引用针对哪个 ingest snapshot。
+- 如果法律/版权允许保存 source snapshot，则设计 snapshot reference；否则至少保存 hash + ingest time。
+
+B. Index / Dataset Consistency
+- Vector/BM25/Graph/Chunk/Metadata index 必须记录 dataset_version。
+- 启动时检查各 index 是否对应同一 snapshot。
+- mismatch 不得静默运行成“部分新、部分旧”的混合状态。
+
+C. Release / Rollback
+- 新 index/version 上线前跑 regression。
+- 支持保留上一稳定版本并回滚。
+- feature flags 允许逐模块关闭。
+
+D. Concurrency / State Isolation
+- ResearchState 必须 per-request/per-conversation 隔离。
+- 不能用可变全局对象共享 Ledger。
+- SSE 客户端中断时要正确清理任务/资源。
+
+E. ACL Interface
+- 当前公共 Tech-DB 可以不启用权限过滤。
+- 但 Retrieval API 设计不要让未来 ACL 无法插入。
+- 若以后进入内部受限数据，ACL filter 必须在候选进入 Agent context 前执行。
+
+======================================================================
+最终分阶段执行顺序
+======================================================================
+
+PHASE A - 可测、可追踪、不会假验证
+T001 Trace
+T002 Eval baseline
+T003 Citation Grounding
+T004 Claim Mapping
+T005 Verifier Fail-Safe
+T006 Answer Status
+
+完成门槛：
+- 现有功能仍能工作。
+- baseline 已记录。
+- verifier fail-open 已消失。
+- citation 可以 exact-ground。
+
+PHASE B - 证据基础设施
+T007 Evidence Metadata
+T008 Provenance
+T009 Source Suitability
+T010 Temporal
+T011 Entity Resolution
+T012 Data Quality
+T013 Content Safety
+
+完成门槛：
+- 全库 evidence metadata 基本 backfill。
+- synthetic summary 不可当证据。
+- provenance/temporal/entity 可被在线模块读取。
+
+PHASE C - Retrieval 精度升级
+T014 Retrieval Refactor
+T015 RRF Role
+T016 Reranker
+T017 Evidence Selector
+
+完成门槛：
+- Candidate Pool 高召回。
+- 有真实 Reranker。
+- Selector 能避免同源/对象失衡。
+- benchmark 不出现不可解释重大回退。
+
+PHASE D - Adaptive Agentic Core
+T018 Router
+T019 Decomposition
+T020 Planner
+T021 Ledger
+T022 Evidence Grader
+T023 Gap Analysis
+T024 Iterative Retrieval
+T025 Stopping
+T026 Knowledge Boundary / Abstention
+
+完成门槛：
+- 简单题不过度 Agent 化。
+- 复杂题能补搜。
+- 深搜无结果后能诚实停止。
+- Ledger/Grader/Stop 都不是装饰模块。
+
+PHASE E - 高级证据质量
+T027 Semantic Graph
+T028 Contextual Chunking
+T029 Numeric Facts
+T030 Conflict Detection
+T031 Context Assembly
+T032 Citation Snippet
+T033 Reference UI
+
+完成门槛：
+- graph relation 有 provenance。
+- 长文召回改善。
+- numeric/condition 可验证。
+- 冲突在生成前可见。
+- reference card 可快速审计回答。
+
+PHASE F - 持续评测与生产整合
+T034 Agent Benchmark
+T035 Trace Replay
+T036 Human Review Pipeline
+T037 Final Integration
+
+完成门槛：
+- release 前可自动/半自动 regression。
+- bad case 可沉淀。
+- production orchestrator 全链路打通。
+
+======================================================================
+最终总验收标准
+======================================================================
+
+以下任意核心项不满足，都不能宣称升级完成。
+
+1. Retrieval
+- [ ] Vector / BM25 / Graph 三路可独立工作。
+- [ ] RRF 主要作为融合/候选层。
+- [ ] 存在真正 content-aware Reranker。
+- [ ] 单路强相关 outlier 不因过早 Top25 截断轻易丢失。
+- [ ] Evidence Selector 在 Reranker 后工作。
+
+2. Data / Evidence
+- [ ] 核心 record 有 Evidence Metadata。
+- [ ] synthetic/no-body summary 被明确标记且不可作为最终证据。
+- [ ] 同源转载不会计成多个 independent evidence。
+- [ ] Source Suitability 是 claim-aware，不是网站绝对分。
+- [ ] Temporal 能区分 current/historical/superseded/future prediction。
+- [ ] Entity alias 可 canonicalize。
+- [ ] data/index version mismatch 可检测。
+- [ ] evidence 可通过 content_hash/version 追溯。
+
+3. Agentic Retrieval
+- [ ] 简单题走 FAST_RAG。
+- [ ] 复杂题可 decomposition。
+- [ ] Planner 与 Generator 角色分离。
+- [ ] Evidence Ledger 真正控制流程。
+- [ ] Grader = Rule Engine + GLM，而非纯 LLM yes/no。
+- [ ] Gap Analysis 生成 targeted query。
+- [ ] 多轮 Retrieval 可运行。
+- [ ] 每个新增 query 对应具体 unresolved gap。
+- [ ] 研究 loop 有 anti-drift 和 query dedup。
+
+4. Stopping / Abstention
+- [ ] evidence sufficient 可提前结束。
+- [ ] no-new-evidence 可主动停止。
+- [ ] critical gap 连续无改善可停止。
+- [ ] unresolved conflict 可停止并报告。
+- [ ] SUPPORTED / PARTIALLY_SUPPORTED / UNSUPPORTED / UNVERIFIED 四态有效。
+- [ ] “KB 没找到”不会被表述成“现实世界不存在”。
+- [ ] 系统可明确说明“深度检索后当前 KB 仍不足”。
+
+5. Conflict
+- [ ] AGREE / CONTRADICT / DIFFERENT_SCOPE / VERSION_UPDATE 能区分。
+- [ ] unresolved conflict 不会被偷偷合并成确定事实。
+- [ ] conflict 可触发 targeted retrieval。
+
+6. Generation
+- [ ] Generator 基于 Evidence Package。
+- [ ] self-reported claim 保留 attribution。
+- [ ] prediction/opinion/analysis 使用合适不确定语言。
+- [ ] Generator 不用预训练知识补最终 factual gap。
+- [ ] Major Claim 全部经过 evidence mapping。
+
+7. Citation
+- [ ] 每个最终有效 citation 有 exact original evidence span。
+- [ ] full_body 优先于 body。
+- [ ] 找不到 span 不允许退回正文开头。
+- [ ] Citation exact-span validity = 100%。
+- [ ] Invalid citation displayed = 0。
+- [ ] 支持 multi-span。
+- [ ] Reference Card 显示 supports_claims。
+- [ ] 核心 evidence phrase 可高亮。
+
+8. Verification
+- [ ] citation id / record id / span 存在性有 deterministic checks。
+- [ ] numeric/unit/time 关键错误可确定性检查。
+- [ ] GLM verifier 独立调用。
+- [ ] verifier exception -> UNVERIFIED。
+- [ ] Verifier error treated as PASS = 0。
+- [ ] verifier 覆盖最终使用的核心 evidence，不再只因 cost 控制固定 Top5。
+
+9. Safety
+- [ ] Retrieved text 被视为 untrusted DATA。
+- [ ] prompt injection 文档不能修改系统工具/策略。
+- [ ] 如果未来接 ACL，可在 retrieval result 进入 Agent 前过滤。
+
+10. Observability
+- [ ] 每个请求有 trace_id。
+- [ ] 可定位错误到 rewrite/router/retrieval/rerank/selector/ledger/grader/conflict/generation/citation/verifier。
+- [ ] 每轮 research state 可回看。
+- [ ] index/model/prompt/data version 可记录。
+
+11. Evaluation
+- [ ] 不再只看 Recall@25。
+- [ ] 有 Retrieval/Rerank/Evidence/Agent/Conflict/Citation/Abstention/Answer 指标。
+- [ ] SHOULD_ANSWER / SHOULD_PARTIAL / SHOULD_ABSTAIN 都有 gold cases。
+- [ ] 历史 bad cases 可 replay。
+- [ ] 重大改动必须跑 regression。
+
+12. Engineering
+- [ ] Feature flags 支持渐进启用和回滚。
+- [ ] 新模块失败有明确 safe fallback。
+- [ ] API 尽可能向后兼容。
+- [ ] 不一次性重写旧系统。
+- [ ] 每个 Ticket 至少有单元测试或集成测试。
+- [ ] ResearchState 并发隔离。
+- [ ] Index/Dataset/Metadata 版本一致性可检查。
+
+======================================================================
+给 Coding Agent 的逐票执行规则
+======================================================================
+
+每完成一个 Ticket，必须按以下流程收口，不允许只写代码就宣布完成：
+
+1. 运行该 Ticket 的单元测试。
+2. 运行相关 regression subset。
+3. 保存 benchmark before/after。
+4. 检查 trace 是否能解释新逻辑。
+5. 检查 feature flag 关闭时旧路径是否仍可工作（若该功能适用）。
+6. 检查异常路径是否 fail-safe。
+7. 更新相关 schema/version/documentation。
+8. 只有 Definition of Done 全部满足，才进入依赖它的下一个 Ticket。
+
+最终架构原则：
+
+“在 Tech-DB 固定知识库范围内，尽可能完整地找到高质量、相互独立、时间正确、可追溯的证据；只说证据真正能够支持的话；证据不足时继续有目的地寻找；搜索饱和后仍不足时，明确承认不足。”

@@ -1449,20 +1449,21 @@
       "rule": "claim_mapping_requires_grounding"
     }
   ],
-  "spec_hash": "d8a36e3108c95bd4c6591a057ab18f02a9d24d86db70a0464f7e7d6a8a63b503",
+  "spec_hash": "fd1c33d666c9b998510d64ecc78c006cb77fa6f42b017b2dfb0d792a7a929928",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
   "ticket_registry_version": "remediation-2026-08-18",
-  "ticket_registry_sha256": "bc5e5ea29254ef6f64911bcf47bef57e144fe8f5b603694f7e0f26abcf094009",
+  "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
   "profile_registry_version": "1.0.0",
-  "acceptance_matrix_version": "2.0.0",
-  "acceptance_matrix_sha256": "501b5088eeabbf730816f08183afcda4338c4558678d937e08551ebef329540a",
+  "acceptance_matrix_version": "3.0.0",
+  "acceptance_matrix_sha256": "6239091aee38df872710b023c1329b6fc22a60047e313071db9b70070e6e6a3c",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
     "docs/remediation/execution_tickets.md": "8e201a5e5298bd681171663af14f13fce5ee656bf5d36306c930003651dfaef6",
-    "docs/remediation/adversarial_review.md": "9565cd2bf493fc3ec11ee3c003c18701000795e1d4edb74643d735192f11fb62"
+    "docs/remediation/adversarial_review.md": "9565cd2bf493fc3ec11ee3c003c18701000795e1d4edb74643d735192f11fb62",
+    "docs/remediation/legacy_normative_input.txt": "341560040ea69e412270b347ff33ffc88c0d0be17de21fbbc6e78b88cf3cca3d"
   },
   "completion_classes": [
     "CORE_REQUIRED",

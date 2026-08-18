@@ -163,8 +163,8 @@
         "RT-004"
       ],
       "maps_to": [
-        "T049",
-        "T028"
+        "T028",
+        "T049"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -563,6 +563,11 @@
       ],
       "maps_to": [
         "T018",
+        "T019",
+        "T020",
+        "T021",
+        "T022",
+        "T023",
         "T024",
         "T037"
       ],
@@ -752,7 +757,13 @@
       ],
       "maps_to": [
         "ER-010",
-        "ER-020"
+        "ER-011",
+        "ER-012",
+        "ER-013",
+        "ER-014",
+        "ER-020",
+        "ER-021",
+        "ER-022"
       ],
       "completion_class": "BENCHMARK_GATED_OPTIONAL"
     },
@@ -779,7 +790,11 @@
         "RT-060"
       ],
       "maps_to": [
-        "ER-030"
+        "ER-030",
+        "ER-031",
+        "ER-032",
+        "ER-033",
+        "ER-034"
       ],
       "completion_class": "BENCHMARK_GATED_OPTIONAL"
     },
@@ -823,7 +838,10 @@
         "RT-064"
       ],
       "maps_to": [
-        "ER-050"
+        "ER-050",
+        "ER-051",
+        "ER-052",
+        "ER-053"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -908,7 +926,10 @@
         "RT-062"
       ],
       "maps_to": [
-        "ER-090"
+        "ER-090",
+        "ER-091",
+        "ER-092",
+        "ER-093"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -922,8 +943,11 @@
         "RT-013"
       ],
       "maps_to": [
-        "ER-094",
-        "ER-070"
+        "ER-070",
+        "ER-071",
+        "ER-072",
+        "ER-073",
+        "ER-094"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -938,7 +962,11 @@
         "RT-070"
       ],
       "maps_to": [
-        "ER-100"
+        "ER-100",
+        "ER-101",
+        "ER-102",
+        "ER-103",
+        "ER-104"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -985,8 +1013,8 @@
         "RT-072"
       ],
       "maps_to": [
-        "T044",
-        "T027"
+        "T027",
+        "T044"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -1044,8 +1072,8 @@
         "RT-083"
       ],
       "maps_to": [
-        "T043",
-        "T039"
+        "T039",
+        "T043"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -1059,8 +1087,8 @@
         "RT-084"
       ],
       "maps_to": [
-        "T034",
-        "ER-112"
+        "ER-112",
+        "T034"
       ],
       "completion_class": "CORE_REQUIRED"
     },
@@ -1222,6 +1250,9 @@
       ],
       "maps_to": [
         "ER-051",
+        "ER-052",
+        "ER-102",
+        "ER-122",
         "T034"
       ],
       "completion_class": "CORE_REQUIRED"

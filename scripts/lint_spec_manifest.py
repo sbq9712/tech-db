@@ -30,6 +30,13 @@ import re
 import sys
 from pathlib import Path
 
+from legacy_dod_source import (
+    SOURCE_RELATIVE as LEGACY_SOURCE,
+    SOURCE_SHA256 as LEGACY_SOURCE_SHA256,
+    parse_frozen_dods,
+    source_counts,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "spec" / "spec_manifest.json"
 VALID_CLASSES = {"CORE_REQUIRED", "PROFILE_REQUIRED", "BENCHMARK_GATED_OPTIONAL"}
@@ -214,6 +221,43 @@ def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list
     if missing or duplicates:
         errors.append(f"L12 legacy acceptance mappings missing={missing} duplicate={duplicates}")
 
+    try:
+        frozen = parse_frozen_dods()
+        frozen_counts = source_counts(frozen)
+    except (OSError, ValueError) as exc:
+        errors.append(f"L12 frozen source cannot be verified: {exc}")
+        frozen, frozen_counts = {}, {}
+    declared_source = matrix.get("frozen_legacy_source", {})
+    if declared_source.get("path") != LEGACY_SOURCE or \
+            declared_source.get("sha256") != LEGACY_SOURCE_SHA256:
+        errors.append("L12 frozen source path/hash metadata mismatch")
+    for key, value in frozen_counts.items():
+        if declared_source.get(key) != value:
+            errors.append(
+                f"L12 frozen source count mismatch {key}: "
+                f"matrix={declared_source.get(key)} source={value}")
+
+    legacy_by_id = {entry.get("ticket_id"): entry for entry in legacy}
+    for ticket_id, source_ticket in frozen.items():
+        entry = legacy_by_id.get(ticket_id, {})
+        matrix_dods = entry.get("dods", [])
+        source_dods = source_ticket["dods"]
+        if entry.get("source_dod_count") != len(source_dods) or len(matrix_dods) != len(source_dods):
+            errors.append(
+                f"L12 {ticket_id} DoD count mismatch matrix={len(matrix_dods)} "
+                f"declared={entry.get('source_dod_count')} source={len(source_dods)}")
+            continue
+        for number, (matrix_dod, source_dod) in enumerate(zip(matrix_dods, source_dods), 1):
+            expected_id = f"{ticket_id}.DOD-{number:02d}"
+            if matrix_dod.get("dod_id") != expected_id:
+                errors.append(
+                    f"L12 {ticket_id} unstable DoD id {matrix_dod.get('dod_id')!r}; "
+                    f"expected {expected_id}")
+            if matrix_dod.get("description") != source_dod["text"]:
+                errors.append(f"L12 {expected_id} text differs from frozen source")
+            if matrix_dod.get("source") != source_dod["source"]:
+                errors.append(f"L12 {expected_id} source reference differs from frozen source")
+
     remediation = matrix.get("remediation_entries", [])
     mapped_rt = {e.get("ticket_id") for e in remediation}
     active = set(matrix.get("active_remediation_scope", []))
@@ -253,6 +297,15 @@ def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list
                     errors.append(f"L12 {dod_id} has unnamed future test case")
                 if not item.get("future_rt"):
                     errors.append(f"L12 {dod_id} has no future RT owner")
+                if any(owner not in known_rt for owner in item.get("future_rt", [])):
+                    errors.append(f"L12 {dod_id} references unknown future RT owner")
+                required = dod.get("required_level")
+                if required and item.get("level") != required:
+                    errors.append(
+                        f"L12 {dod_id} planned level {item.get('level')} "
+                        f"does not satisfy required level {required}")
+                if required == "benchmark" and not item.get("benchmark_owner"):
+                    errors.append(f"L12 {dod_id} benchmark has no explicit benchmark owner")
             for ref in refs:
                 suite = ref.get("suite")
                 if suite not in suites:
@@ -279,6 +332,8 @@ def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list
         owners = {rt for p in dod.get("planned_test_cases", []) for rt in p.get("future_rt", [])}
         if "RT-104" not in owners:
             errors.append("L12 T037 real server/orchestrator E2E must be owned by RT-104")
+        if dod.get("required_level") not in {"e2e", "benchmark"}:
+            errors.append("L12 T037 frozen DoDs must remain E2E/benchmark level")
     high_risk_er = {"ER-060", "ER-061", "ER-062", "ER-063", "ER-082", "ER-083"}
     for entry in legacy:
         if entry.get("ticket_id") in high_risk_er:
@@ -398,6 +453,17 @@ def selftest():
     print(f"  {'✅' if hit else '❌'} L12_missing_acceptance: {'detected' if hit else 'NOT detected'}")
     if not hit:
         undetected.append("L12_missing_acceptance")
+
+    bad_matrix = copy.deepcopy(matrix)
+    t015 = next(entry for entry in bad_matrix["legacy_ticket_entries"]
+                if entry["ticket_id"] == "T015")
+    t015["dods"].pop()
+    hit = any("T015 DoD count mismatch" in error for error in
+              lint_acceptance_matrix(bad_matrix, base, registry))
+    print(f"  {'✅' if hit else '❌'} L12_missing_frozen_dod: "
+          f"{'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L12_missing_frozen_dod")
     ok = not undetected
     print(f"selftest: {'ALL fault classes detected ✅' if ok else f'UNDETECTED: {undetected} ❌'}")
     return 0 if ok else 1

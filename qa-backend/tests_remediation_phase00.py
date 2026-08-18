@@ -67,6 +67,7 @@ def t_acceptance_has_no_noop_assertions():
 
 def t_acceptance_dod_traceability_and_honesty():
     from tests_final_acceptance import validate_matrix
+    from legacy_dod_source import parse_frozen_dods, source_counts
     manifest = json.loads((ROOT / "spec/spec_manifest.json").read_text("utf-8"))
     registry = json.loads((ROOT / "spec/remediation_registry.json").read_text("utf-8"))
     matrix = json.loads((ROOT / "spec/acceptance_matrix.json").read_text("utf-8"))
@@ -76,6 +77,33 @@ def t_acceptance_dod_traceability_and_honesty():
     fake = copy.deepcopy(matrix)
     fake["remediation_entries"][0]["dods"][0]["test_cases"][0]["case"] = "test_not_real"
     assert validate_matrix(fake, manifest, registry)
+    frozen = parse_frozen_dods()
+    counts = source_counts(frozen)
+    assert counts == {
+        "t_ticket_count": 56, "er_ticket_count": 56,
+        "legacy_ticket_count": 112, "t_dod_count": 389,
+        "er_dod_count": 128, "legacy_dod_count": 517,
+    }
+    by_id = {entry["ticket_id"]: entry for entry in matrix["legacy_ticket_entries"]}
+    assert len(by_id["T007"]["dods"]) == 6
+    assert len(by_id["T015"]["dods"]) == 5
+    assert len(by_id["T037"]["dods"]) == 80
+    assert sum(len(entry["dods"]) for entry in by_id.values()) == 517
+    omitted = copy.deepcopy(matrix)
+    next(e for e in omitted["legacy_ticket_entries"]
+         if e["ticket_id"] == "T015")["dods"].pop()
+    assert any("T015 DoD count mismatch" in error
+               for error in validate_matrix(omitted, manifest, registry))
+    assert not any(".CORE-" in dod["dod_id"] for entry in by_id.values()
+                   for dod in entry["dods"])
+    for entry in by_id.values():
+        for dod in entry["dods"]:
+            assert dod["description"]
+            assert dod["source"]["sha256"] == matrix["frozen_legacy_source"]["sha256"]
+            assert dod["status"] == "NOT_SATISFIED"
+            assert dod["planned_test_cases"][0]["case"].startswith("test_")
+            if dod["required_level"] == "benchmark":
+                assert dod["planned_test_cases"][0]["benchmark_owner"]
     t037 = next(e for e in matrix["legacy_ticket_entries"] if e["ticket_id"] == "T037")
     assert all(d["status"] == "NOT_SATISFIED" for d in t037["dods"])
     assert "simulated" in t037["dods"][0]["evidence_note"]
