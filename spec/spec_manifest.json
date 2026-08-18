@@ -1449,15 +1449,15 @@
       "rule": "claim_mapping_requires_grounding"
     }
   ],
-  "spec_hash": "55cd1916cdb14247e25e817d234bea7ed4c778bde52e6776cd049e68295b3ffa",
+  "spec_hash": "d8a36e3108c95bd4c6591a057ab18f02a9d24d86db70a0464f7e7d6a8a63b503",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
   "ticket_registry_version": "remediation-2026-08-18",
   "ticket_registry_sha256": "bc5e5ea29254ef6f64911bcf47bef57e144fe8f5b603694f7e0f26abcf094009",
   "profile_registry_version": "1.0.0",
-  "acceptance_matrix_version": "1.0.0",
-  "acceptance_matrix_sha256": "ea76aa7f5ca47a932c5608f9227902a71cadff971337c5eb38516d96e2c90cf9",
+  "acceptance_matrix_version": "2.0.0",
+  "acceptance_matrix_sha256": "501b5088eeabbf730816f08183afcda4338c4558678d937e08551ebef329540a",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",

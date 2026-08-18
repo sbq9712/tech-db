@@ -65,7 +65,7 @@ def t_acceptance_has_no_noop_assertions():
     run("qa-backend/tests_final_acceptance.py", "--validate-only")
 
 
-def t_acceptance_mutations_fail():
+def t_acceptance_dod_traceability_and_honesty():
     from tests_final_acceptance import validate_matrix
     manifest = json.loads((ROOT / "spec/spec_manifest.json").read_text("utf-8"))
     registry = json.loads((ROOT / "spec/remediation_registry.json").read_text("utf-8"))
@@ -74,8 +74,14 @@ def t_acceptance_mutations_fail():
     missing["legacy_ticket_entries"] = missing["legacy_ticket_entries"][1:]
     assert validate_matrix(missing, manifest, registry)
     fake = copy.deepcopy(matrix)
-    fake["legacy_ticket_entries"][0]["test_refs"][0]["command"] = "python smoke.py"
+    fake["remediation_entries"][0]["dods"][0]["test_cases"][0]["case"] = "test_not_real"
     assert validate_matrix(fake, manifest, registry)
+    t037 = next(e for e in matrix["legacy_ticket_entries"] if e["ticket_id"] == "T037")
+    assert all(d["status"] == "NOT_SATISFIED" for d in t037["dods"])
+    assert "simulated" in t037["dods"][0]["evidence_note"]
+    for ticket_id in ("ER-060", "ER-061", "ER-062", "ER-063", "ER-082", "ER-083"):
+        entry = next(e for e in matrix["legacy_ticket_entries"] if e["ticket_id"] == ticket_id)
+        assert all(d["status"] == "NOT_SATISFIED" for d in entry["dods"])
 
 
 def t_mini_runtime_digest_and_health():
@@ -118,7 +124,7 @@ if __name__ == "__main__":
         ("normative hashes + release binding", t_normative_hashes_and_release_binding),
         ("spec lint + negative fixtures", t_spec_lint_and_negative_fixtures),
         ("acceptance contains no no-op assertions", t_acceptance_has_no_noop_assertions),
-        ("acceptance mutations fail", t_acceptance_mutations_fail),
+        ("acceptance DoD traceability + honesty", t_acceptance_dod_traceability_and_honesty),
         ("mini runtime digest + startup health", t_mini_runtime_digest_and_health),
         ("baseline schema + reproducibility", t_baseline_schema_and_reproducibility),
         ("data-sync policy + reviewed PR workflow", t_data_sync_policy_and_workflow),

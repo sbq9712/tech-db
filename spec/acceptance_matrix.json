@@ -1,6 +1,11 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "registry_version": "remediation-2026-08-18",
+  "semantics": {
+    "SATISFIED": "Named executable behavioral evidence exists.",
+    "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
+    "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change."
+  },
   "active_remediation_scope": [
     "RT-001",
     "RT-002",
@@ -9,1252 +14,2429 @@
     "RT-005"
   ],
   "suite_registry": {
-    "phase_a": "qa-backend/tests_phase_a.py",
-    "phase_bc": "qa-backend/tests_phase_bc.py",
-    "phase_d": "qa-backend/tests_phase_d.py",
-    "phase_final": "qa-backend/tests_phase_final.py",
-    "phase_ops": "qa-backend/tests_phase_ops.py",
-    "integration": "qa-backend/tests_integration.py",
-    "er_v2": "qa-backend/tests_er_v2.py",
-    "registry_io": "qa-backend/tests_registry_io.py",
-    "synthetic_isolation": "qa-backend/tests_synthetic_tk20.py",
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py"
   },
   "legacy_ticket_entries": [
     {
       "ticket_id": "T001",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T001.CORE-01",
+          "description": "QA Trace System",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t001_qa_trace_system",
+              "level": "integration",
+              "future_rt": [
+                "RT-055"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T002",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T002.CORE-01",
+          "description": "Regression/Evaluation Baseline",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t002_regression_evaluation_baseline",
+              "level": "integration",
+              "future_rt": [
+                "RT-002",
+                "RT-003",
+                "RT-004"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T003",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T003.CORE-01",
+          "description": "Citation Evidence Grounding",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t003_citation_evidence_grounding",
+              "level": "integration",
+              "future_rt": [
+                "RT-013",
+                "RT-020"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T004",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T004.CORE-01",
+          "description": "Atomic Claim + Claim-level Citation Mapping",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t004_atomic_claim_claim_level_citation_mapping",
+              "level": "integration",
+              "future_rt": [
+                "RT-021",
+                "RT-023"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T005",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T005.CORE-01",
+          "description": "Verifier Fail-Safe",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t005_verifier_fail_safe",
+              "level": "integration",
+              "future_rt": [
+                "RT-024",
+                "RT-025",
+                "RT-105"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T006",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T006.CORE-01",
+          "description": "Four-state Answer Status",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t006_four_state_answer_status",
+              "level": "integration",
+              "future_rt": [
+                "RT-024",
+                "RT-090"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T007",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T007.CORE-01",
+          "description": "Evidence Metadata Enrichment Pipeline",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t007_evidence_metadata_enrichment_pipeline",
+              "level": "integration",
+              "future_rt": [
+                "RT-010",
+                "RT-011",
+                "RT-014"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T012",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T012.CORE-01",
+          "description": "Data Quality Layer",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t012_data_quality_layer",
+              "level": "integration",
+              "future_rt": [
+                "RT-014"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T041",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "integration",
-          "level": "e2e",
-          "command": "python qa-backend/tests_integration.py"
+          "dod_id": "T041.CORE-01",
+          "description": "Global Build Manifest / Atomic Snapshot Release",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t041_global_build_manifest_atomic_snapshot_release",
+              "level": "integration",
+              "future_rt": [
+                "RT-010",
+                "RT-016",
+                "RT-017",
+                "RT-018",
+                "RT-070"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T056",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_final",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_final.py"
+          "dod_id": "T056.CORE-01",
+          "description": "Trace Retention / Redaction / Audit Policy",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t056_trace_retention_redaction_audit_policy",
+              "level": "integration",
+              "future_rt": [
+                "RT-018",
+                "RT-055",
+                "RT-094"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T047",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T047.CORE-01",
+          "description": "SourceSnapshot / EvidenceLocator / Offset Mapping",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t047_sourcesnapshot_evidencelocator_offset_mapping",
+              "level": "integration",
+              "future_rt": [
+                "RT-012",
+                "RT-013"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T049",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T049.CORE-01",
+          "description": "Synthetic Retrieval Isolation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t049_synthetic_retrieval_isolation",
+              "level": "integration",
+              "future_rt": [
+                "RT-015"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T046",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T046.CORE-01",
+          "description": "Claim-Evidence Support Semantics / Entailment",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t046_claim_evidence_support_semantics_entailment",
+              "level": "integration",
+              "future_rt": [
+                "RT-021",
+                "RT-022",
+                "RT-025",
+                "RT-081"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T008",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T008.CORE-01",
+          "description": "Probabilistic Provenance Clustering",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t008_probabilistic_provenance_clustering",
+              "level": "integration",
+              "future_rt": [
+                "RT-014"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T009",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T009.CORE-01",
+          "description": "Claim-aware Source Suitability",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t009_claim_aware_source_suitability",
+              "level": "integration",
+              "future_rt": [
+                "RT-014",
+                "RT-034"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T010",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T010.CORE-01",
+          "description": "Temporal Metadata / Time & Version Awareness",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t010_temporal_metadata_time_version_awareness",
+              "level": "integration",
+              "future_rt": [
+                "RT-014",
+                "RT-034"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T048",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T048.CORE-01",
+          "description": "Claim-level Provenance / Span-level Source Role",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t048_claim_level_provenance_span_level_source_role",
+              "level": "integration",
+              "future_rt": [
+                "RT-021"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T013",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T013.CORE-01",
+          "description": "Retrieved Content Safety / Prompt Injection",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t013_retrieved_content_safety_prompt_injection",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T040",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T040.CORE-01",
+          "description": "Canonical Spec Manifest / Dependency & Schema Validator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t040_canonical_spec_manifest_dependency_schema_validator",
+              "level": "integration",
+              "future_rt": [
+                "RT-001",
+                "RT-108"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T011",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_a",
-          "level": "unit",
-          "command": "python qa-backend/tests_phase_a.py"
+          "dod_id": "T011.CORE-01",
+          "description": "Entity Identity / Resolution V2 (Umbrella Epic)",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t011_entity_identity_resolution_v2_umbrella_epic",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T054",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "integration",
-          "level": "e2e",
-          "command": "python qa-backend/tests_integration.py"
+          "dod_id": "T054.CORE-01",
+          "description": "Evaluation Integrity / Locked Holdout / Release Gates",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t054_evaluation_integrity_locked_holdout_release_gates",
+              "level": "integration",
+              "future_rt": [
+                "RT-005",
+                "RT-093",
+                "RT-106",
+                "RT-107"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T044",
       "completion_class": "BENCHMARK_GATED_OPTIONAL",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T044.CORE-01",
+          "description": "Relation Ontology / Qualified GraphStatement Model",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t044_relation_ontology_qualified_graphstatement_model",
+              "level": "integration",
+              "future_rt": [
+                "RT-080"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T014",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T014.CORE-01",
+          "description": "Retrieval Layer Refactor",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t014_retrieval_layer_refactor",
+              "level": "integration",
+              "future_rt": [
+                "RT-030"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T028",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T028.CORE-01",
+          "description": "Contextual Chunking + Parent/Child Retrieval",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t028_contextual_chunking_parent_child_retrieval",
+              "level": "integration",
+              "future_rt": [
+                "RT-015",
+                "RT-036"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T015",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T015.CORE-01",
+          "description": "RRF Role: Fusion/Dedup not Final Judge",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t015_rrf_role_fusion_dedup_not_final_judge",
+              "level": "integration",
+              "future_rt": [
+                "RT-031"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T016",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T016.CORE-01",
+          "description": "Content-aware Reranker",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t016_content_aware_reranker",
+              "level": "integration",
+              "future_rt": [
+                "RT-032"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T051",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T051.CORE-01",
+          "description": "Reranker Stability / Batch Calibration",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t051_reranker_stability_batch_calibration",
+              "level": "integration",
+              "future_rt": [
+                "RT-032"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T017",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T017.CORE-01",
+          "description": "Evidence Selector",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t017_evidence_selector",
+              "level": "integration",
+              "future_rt": [
+                "RT-035"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T027",
       "completion_class": "BENCHMARK_GATED_OPTIONAL",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T027.CORE-01",
+          "description": "Evidence-grounded Semantic Knowledge Graph",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t027_evidence_grounded_semantic_knowledge_graph",
+              "level": "integration",
+              "future_rt": [
+                "RT-080",
+                "RT-081"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T045",
       "completion_class": "BENCHMARK_GATED_OPTIONAL",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T045.CORE-01",
+          "description": "Graph Intent & Multi-hop Composition Validator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t045_graph_intent_multi_hop_composition_validator",
+              "level": "integration",
+              "future_rt": [
+                "RT-082"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T039",
       "completion_class": "BENCHMARK_GATED_OPTIONAL",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T039.CORE-01",
+          "description": "Relation-aware Graph Retriever",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t039_relation_aware_graph_retriever",
+              "level": "integration",
+              "future_rt": [
+                "RT-083",
+                "RT-084"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T042",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T042.CORE-01",
+          "description": "Query Integrity / Verified Conversation Context",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t042_query_integrity_verified_conversation_context",
+              "level": "integration",
+              "future_rt": [
+                "RT-040",
+                "RT-041"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T018",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T018.CORE-01",
+          "description": "Adaptive Router FAST/RESEARCH/DEEP",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t018_adaptive_router_fast_research_deep",
+              "level": "integration",
+              "future_rt": [
+                "RT-042",
+                "RT-043"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T019",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T019.CORE-01",
+          "description": "Query Decomposition",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t019_query_decomposition",
+              "level": "integration",
+              "future_rt": [
+                "RT-044"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T020",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T020.CORE-01",
+          "description": "Research Planner",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t020_research_planner",
+              "level": "integration",
+              "future_rt": [
+                "RT-044"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T021",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T021.CORE-01",
+          "description": "Evidence Ledger",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t021_evidence_ledger",
+              "level": "integration",
+              "future_rt": [
+                "RT-047"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T050",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T050.CORE-01",
+          "description": "Requirement-aware Fusion / Candidate Reserve Pool",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t050_requirement_aware_fusion_candidate_reserve_pool",
+              "level": "integration",
+              "future_rt": [
+                "RT-033"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T043",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T043.CORE-01",
+          "description": "Question/Claim-type Sufficiency Policy Registry",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t043_question_claim_type_sufficiency_policy_registry",
+              "level": "integration",
+              "future_rt": [
+                "RT-034",
+                "RT-084"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T022",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T022.CORE-01",
+          "description": "Evidence Grader: Rule Engine + GLM",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t022_evidence_grader_rule_engine_glm",
+              "level": "integration",
+              "future_rt": [
+                "RT-034",
+                "RT-047"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T023",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T023.CORE-01",
+          "description": "Gap Analysis + Targeted Query Generation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t023_gap_analysis_targeted_query_generation",
+              "level": "integration",
+              "future_rt": [
+                "RT-048"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T024",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T024.CORE-01",
+          "description": "Iterative Retrieval Orchestrator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t024_iterative_retrieval_orchestrator",
+              "level": "integration",
+              "future_rt": [
+                "RT-043",
+                "RT-048"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T025",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T025.CORE-01",
+          "description": "Stopping Criteria / Search Saturation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t025_stopping_criteria_search_saturation",
+              "level": "integration",
+              "future_rt": [
+                "RT-049"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T026",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T026.CORE-01",
+          "description": "Knowledge Boundary + Calibrated Abstention",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t026_knowledge_boundary_calibrated_abstention",
+              "level": "integration",
+              "future_rt": [
+                "RT-049"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T029",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T029.CORE-01",
+          "description": "Numeric Facts / Unit / Condition Structuring",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t029_numeric_facts_unit_condition_structuring",
+              "level": "integration",
+              "future_rt": [
+                "RT-022"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T030",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T030.CORE-01",
+          "description": "Active Conflict Detection",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t030_active_conflict_detection",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T038",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T038.CORE-01",
+          "description": "Multi-Document Evidence Processing",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t038_multi_document_evidence_processing",
+              "level": "integration",
+              "future_rt": [
+                "RT-045",
+                "RT-046",
+                "RT-102"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T031",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_bc",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_bc.py"
+          "dod_id": "T031.CORE-01",
+          "description": "Evidence-aware Context Assembly / Packing",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t031_evidence_aware_context_assembly_packing",
+              "level": "integration",
+              "future_rt": [
+                "RT-037",
+                "RT-038"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T032",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T032.CORE-01",
+          "description": "Claim-aware Citation Snippet + Multi-span",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t032_claim_aware_citation_snippet_multi_span",
+              "level": "integration",
+              "future_rt": [
+                "RT-020",
+                "RT-028"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T052",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_d",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_d.py"
+          "dod_id": "T052.CORE-01",
+          "description": "Answer State Machine / Bounded Repair Loop",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t052_answer_state_machine_bounded_repair_loop",
+              "level": "integration",
+              "future_rt": [
+                "RT-023",
+                "RT-024",
+                "RT-025",
+                "RT-026",
+                "RT-027"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T033",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T033.CORE-01",
+          "description": "Reference Card Frontend",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t033_reference_card_frontend",
+              "level": "integration",
+              "future_rt": [
+                "RT-028",
+                "RT-029",
+                "RT-091"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T053",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_final",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_final.py"
+          "dod_id": "T053.CORE-01",
+          "description": "Degraded-mode Runtime / Concurrency / Cancellation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t053_degraded_mode_runtime_concurrency_cancellation",
+              "level": "integration",
+              "future_rt": [
+                "RT-017",
+                "RT-046",
+                "RT-050",
+                "RT-051",
+                "RT-052",
+                "RT-053",
+                "RT-054",
+                "RT-105",
+                "RT-114"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T034",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T034.CORE-01",
+          "description": "Agentic / Evidence Benchmark Upgrade",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t034_agentic_evidence_benchmark_upgrade",
+              "level": "integration",
+              "future_rt": [
+                "RT-002",
+                "RT-003",
+                "RT-004",
+                "RT-085",
+                "RT-100",
+                "RT-101",
+                "RT-102",
+                "RT-103",
+                "RT-106",
+                "RT-114"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T035",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T035.CORE-01",
+          "description": "Trace Replay / Regression Replay",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t035_trace_replay_regression_replay",
+              "level": "integration",
+              "future_rt": [
+                "RT-011",
+                "RT-092"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T036",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "phase_ops",
-          "level": "integration",
-          "command": "python qa-backend/tests_phase_ops.py"
+          "dod_id": "T036.CORE-01",
+          "description": "Human Review -> Golden Case Pipeline",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t036_human_review_golden_case_pipeline",
+              "level": "integration",
+              "future_rt": [
+                "RT-093",
+                "RT-113"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T037",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "integration",
-          "level": "e2e",
-          "command": "python qa-backend/tests_integration.py"
-        },
-        {
-          "suite": "integration",
-          "level": "e2e",
-          "command": "python qa-backend/tests_integration.py"
+          "dod_id": "T037.CORE-01",
+          "description": "Real server/orchestrator dual-path end-to-end behavior",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_integration.py uses simulated flow, fake results, and manually assembled Trace stages; it is not real E2E.",
+          "planned_test_cases": [
+            {
+              "case": "test_t037_real_server_orchestrator_dual_path_e2e",
+              "level": "e2e",
+              "future_rt": [
+                "RT-104"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "T055",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "integration",
-          "level": "e2e",
-          "command": "python qa-backend/tests_integration.py"
+          "dod_id": "T055.CORE-01",
+          "description": "Shadow / Canary Rollout / Quality Telemetry",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase-00 did not establish named behavioral evidence for this legacy core obligation; historical suites are not credited wholesale.",
+          "planned_test_cases": [
+            {
+              "case": "test_t055_shadow_canary_rollout_quality_telemetry",
+              "level": "integration",
+              "future_rt": [
+                "RT-005",
+                "RT-086",
+                "RT-107",
+                "RT-110",
+                "RT-111",
+                "RT-112",
+                "RT-113"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-001",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-001.CORE-01",
+          "description": "Freeze Current Entity Graph Baseline",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_001_freeze_current_entity_graph_baseline",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-002",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-002.CORE-01",
+          "description": "Entity Type Ontology",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_002_entity_type_ontology",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-003",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-003.CORE-01",
+          "description": "Entity Granularity Policy",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_003_entity_granularity_policy",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-050",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-050.CORE-01",
+          "description": "Entity Resolution Gold Set",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_050_entity_resolution_gold_set",
+              "level": "integration",
+              "future_rt": [
+                "RT-065"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-051",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-051.CORE-01",
+          "description": "Offline Entity Resolution Metrics",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_051_offline_entity_resolution_metrics",
+              "level": "integration",
+              "future_rt": [
+                "RT-103"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-010",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-010.CORE-01",
+          "description": "EntityMention Schema",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_010_entitymention_schema",
+              "level": "integration",
+              "future_rt": [
+                "RT-060"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-011",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-011.CORE-01",
+          "description": "Stable CanonicalEntity ID",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_011_stable_canonicalentity_id",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-012",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-012.CORE-01",
+          "description": "EntityAlias Schema",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_012_entityalias_schema",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-013",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-013.CORE-01",
+          "description": "ResolutionDecision / Audit Schema",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_013_resolutiondecision_audit_schema",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-014",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-014.CORE-01",
+          "description": "MergeEvent / SplitEvent Schema",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_014_mergeevent_splitevent_schema",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-020",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-020.CORE-01",
+          "description": "Non-destructive Entity Normalizer",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_020_non_destructive_entity_normalizer",
+              "level": "integration",
+              "future_rt": [
+                "RT-060"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-021",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-021.CORE-01",
+          "description": "Bilingual/Acronym Alias Parser",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_021_bilingual_acronym_alias_parser",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-022",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-022.CORE-01",
+          "description": "Alias Inverted Index",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_022_alias_inverted_index",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-023",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-023.CORE-01",
+          "description": "Strong / External Identifiers",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_023_strong_external_identifiers",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-030",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-030.CORE-01",
+          "description": "Exact/Normalized Candidate Generator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_030_exact_normalized_candidate_generator",
+              "level": "integration",
+              "future_rt": [
+                "RT-062"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-031",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-031.CORE-01",
+          "description": "Fuzzy / Trigram Candidate Generator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_031_fuzzy_trigram_candidate_generator",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-032",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-032.CORE-01",
+          "description": "Transliteration/Acronym Candidate Generator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_032_transliteration_acronym_candidate_generator",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-033",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-033.CORE-01",
+          "description": "Embedding Candidate Generator (optional)",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_033_embedding_candidate_generator_optional",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-034",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-034.CORE-01",
+          "description": "Unified Candidate Pipeline + Blocking",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_034_unified_candidate_pipeline_blocking",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-040",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-040.CORE-01",
+          "description": "Deterministic Resolver",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_040_deterministic_resolver",
+              "level": "integration",
+              "future_rt": [
+                "RT-063"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-041",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-041.CORE-01",
+          "description": "Context Feature Builder",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_041_context_feature_builder",
+              "level": "integration",
+              "future_rt": [
+                "RT-064"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-042",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-042.CORE-01",
+          "description": "Constrained LLM Adjudicator",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_042_constrained_llm_adjudicator",
+              "level": "integration",
+              "future_rt": [
+                "RT-064"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-043",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-043.CORE-01",
+          "description": "Abstain / Provisional Policy",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_043_abstain_provisional_policy",
+              "level": "integration",
+              "future_rt": [
+                "RT-063"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-052",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-052.CORE-01",
+          "description": "Resolver Threshold Calibration",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_052_resolver_threshold_calibration",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-053",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-053.CORE-01",
+          "description": "Prompt Injection / Adversarial Resolver Eval",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_053_prompt_injection_adversarial_resolver_eval",
+              "level": "integration",
+              "future_rt": [
+                "RT-064"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-060",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-060.CORE-01",
+          "description": "Manual Override Store",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_060_manual_override_store",
+              "level": "integration",
+              "future_rt": [
+                "RT-066"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-061",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-061.CORE-01",
+          "description": "Merge Operation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_061_merge_operation",
+              "level": "integration",
+              "future_rt": [
+                "RT-067"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-062",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-062.CORE-01",
+          "description": "Split / Unmerge Operation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_062_split_unmerge_operation",
+              "level": "integration",
+              "future_rt": [
+                "RT-068"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-063",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-063.CORE-01",
+          "description": "Mutation Cache/Index Invalidation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_063_mutation_cache_index_invalidation",
+              "level": "integration",
+              "future_rt": [
+                "RT-068"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-070",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-070.CORE-01",
+          "description": "RawRelationMention Schema",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_070_rawrelationmention_schema",
+              "level": "integration",
+              "future_rt": [
+                "RT-072"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-071",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-071.CORE-01",
+          "description": "Extraction Pipeline: Mentions before Canonical",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_071_extraction_pipeline_mentions_before_canonical",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-072",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-072.CORE-01",
+          "description": "CanonicalRelation Materializer",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_072_canonicalrelation_materializer",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-073",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-073.CORE-01",
+          "description": "Merge/Split Relation Re-materialization",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_073_merge_split_relation_re_materialization",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-080",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-080.CORE-01",
+          "description": "Versioned Incremental Resolution Key",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_080_versioned_incremental_resolution_key",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-081",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-081.CORE-01",
+          "description": "Replace done_titles Progress",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_081_replace_done_titles_progress",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-082",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-082.CORE-01",
+          "description": "Atomic Entity Create",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_082_atomic_entity_create",
+              "level": "integration",
+              "future_rt": [
+                "RT-061",
+                "RT-069"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-083",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-083.CORE-01",
+          "description": "Identity Store Atomic Publish / Snapshot",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_083_identity_store_atomic_publish_snapshot",
+              "level": "integration",
+              "future_rt": [
+                "RT-061",
+                "RT-070"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-090",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-090.CORE-01",
+          "description": "Legacy Name-Node Stable ID Migration",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_090_legacy_name_node_stable_id_migration",
+              "level": "integration",
+              "future_rt": [
+                "RT-071"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-091",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-091.CORE-01",
+          "description": "Initial Alias Seeds",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_091_initial_alias_seeds",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-092",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-092.CORE-01",
+          "description": "Legacy Duplicate Candidate Audit",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_092_legacy_duplicate_candidate_audit",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-093",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-093.CORE-01",
+          "description": "Legacy High-Impact Entity Review",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_093_legacy_high_impact_entity_review",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-094",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-094.CORE-01",
+          "description": "Rebuild V2 Mentions/Relations from Records",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_094_rebuild_v2_mentions_relations_from_records",
+              "level": "integration",
+              "future_rt": [
+                "RT-072"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-100",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-100.CORE-01",
+          "description": "Query Entity Mention Parser",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_100_query_entity_mention_parser",
+              "level": "integration",
+              "future_rt": [
+                "RT-073"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-101",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-101.CORE-01",
+          "description": "Query Entity Resolver",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_101_query_entity_resolver",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-102",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-102.CORE-01",
+          "description": "Query Resolver Evaluation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_102_query_resolver_evaluation",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-103",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-103.CORE-01",
+          "description": "Replace Server Full Substring Graph Matching",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_103_replace_server_full_substring_graph_matching",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-104",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-104.CORE-01",
+          "description": "Graph Route Ambiguity / Fallback",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_104_graph_route_ambiguity_fallback",
+              "level": "integration",
+              "future_rt": [
+                "RT-116"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-110",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-110.CORE-01",
+          "description": "Shadow Ingest Resolver",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_110_shadow_ingest_resolver",
+              "level": "integration",
+              "future_rt": [
+                "RT-075"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-111",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-111.CORE-01",
+          "description": "Shadow Query Resolver",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_111_shadow_query_resolver",
+              "level": "integration",
+              "future_rt": [
+                "RT-075"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-112",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-112.CORE-01",
+          "description": "Partial Graph-V2 Activation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_112_partial_graph_v2_activation",
+              "level": "integration",
+              "future_rt": [
+                "RT-085",
+                "RT-086"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-113",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-113.CORE-01",
+          "description": "Full Graph-V2 Activation",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_113_full_graph_v2_activation",
+              "level": "integration",
+              "future_rt": [
+                "RT-087"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-120",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-120.CORE-01",
+          "description": "Entity Admin CLI/API",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_120_entity_admin_cli_api",
+              "level": "integration",
+              "future_rt": [
+                "RT-074"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-121",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-121.CORE-01",
+          "description": "Entity Quality Monitoring",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_121_entity_quality_monitoring",
+              "level": "integration",
+              "future_rt": [
+                "RT-075"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-122",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-122.CORE-01",
+          "description": "Resolver Performance / Cost Benchmark",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_122_resolver_performance_cost_benchmark",
+              "level": "integration",
+              "future_rt": [
+                "RT-075"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-123",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-123.CORE-01",
+          "description": "Sanitization / API Safety",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_123_sanitization_api_safety",
+              "level": "integration",
+              "future_rt": [
+                "RT-074"
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "ER-124",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "er_v2",
-          "level": "integration",
-          "command": "python qa-backend/tests_er_v2.py"
+          "dod_id": "ER-124.CORE-01",
+          "description": "Documentation & Migration/Rollback Guide",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "NOT SATISFIED: tests_er_v2.py is basic component coverage and does not prove this ticket's full DoD.",
+          "planned_test_cases": [
+            {
+              "case": "test_er_124_documentation_migration_rollback_guide",
+              "level": "integration",
+              "future_rt": [
+                "RT-115"
+              ]
+            }
+          ]
         }
       ]
     }
@@ -1263,55 +2445,227 @@
     {
       "ticket_id": "RT-001",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "remediation_phase00",
-          "level": "integration",
-          "command": "python qa-backend/tests_remediation_phase00.py"
+          "dod_id": "RT-001.DOD-01",
+          "description": "One command validates normative registries and profiles",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_spec_lint_and_negative_fixtures",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-001.DOD-02",
+          "description": "Release tooling reads exact normative hashes",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_normative_hashes_and_release_binding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-001.DOD-03",
+          "description": "Corrupted fixtures fail lint",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_spec_lint_and_negative_fixtures",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "RT-002",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "remediation_phase00",
-          "level": "integration",
-          "command": "python qa-backend/tests_remediation_phase00.py"
+          "dod_id": "RT-002.DOD-01",
+          "description": "No no-op Final Acceptance assertions",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_acceptance_has_no_noop_assertions",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-002.DOD-02",
+          "description": "Every core obligation has a named case and honest status",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_acceptance_dod_traceability_and_honesty",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-002.DOD-03",
+          "description": "Cross-stage gaps are not credited to smoke or simulated flows",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_acceptance_dod_traceability_and_honesty",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "RT-003",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "remediation_phase00",
-          "level": "integration",
-          "command": "python qa-backend/tests_remediation_phase00.py"
+          "dod_id": "RT-003.DOD-01",
+          "description": "Fresh checkout can rebuild and use the synthetic fixture",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_mini_runtime_digest_and_health",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-003.DOD-02",
+          "description": "Fixture manifest pins all artifact hashes",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_mini_runtime_digest_and_health",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-003.DOD-03",
+          "description": "Fixture startup and search health are deterministic",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_mini_runtime_digest_and_health",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "RT-004",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "remediation_phase00",
-          "level": "integration",
-          "command": "python qa-backend/tests_remediation_phase00.py"
+          "dod_id": "RT-004.DOD-01",
+          "description": "Baseline binds git, config, model, and index versions",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_baseline_schema_and_reproducibility",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-004.DOD-02",
+          "description": "Baseline distinguishes RRF, Agentic, and legacy paths",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_baseline_schema_and_reproducibility",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-004.DOD-03",
+          "description": "Baseline is reproducible in a shallow checkout",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_baseline_schema_and_reproducibility",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
         }
       ]
     },
     {
       "ticket_id": "RT-005",
       "completion_class": "CORE_REQUIRED",
-      "test_refs": [
+      "dods": [
         {
-          "suite": "remediation_phase00",
-          "level": "integration",
-          "command": "python qa-backend/tests_remediation_phase00.py"
+          "dod_id": "RT-005.DOD-01",
+          "description": "Main required checks are enforced by repository rules",
+          "status": "BLOCKED_EXTERNAL_ACTION",
+          "external_blocker": "A repository administrator must enable and verify the ruleset.",
+          "planned_test_cases": [
+            {
+              "case": "test_main_required_ruleset_enforced",
+              "level": "integration",
+              "future_rt": [
+                "RT-005"
+              ]
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-005.DOD-02",
+          "description": "Automation code/spec changes run protected gates",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_data_sync_policy_and_workflow",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-005.DOD-03",
+          "description": "Emergency bypass is documented and auditable",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase00",
+              "case": "t_data_sync_policy_and_workflow",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase00.py"
+            }
+          ]
         }
       ]
     }

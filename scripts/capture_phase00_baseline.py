@@ -16,6 +16,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "qa-backend" / "test_fixtures" / "remediation" / "baseline_phase00.json"
 REPORT = ROOT / "docs" / "remediation" / "phase00_gap_report.md"
+LOCKED_SOURCE_METADATA = {
+    # The reviewed Phase-00 start commit may not exist in a pull-request
+    # checkout (actions/checkout checks out only the synthetic merge commit by
+    # default).  Its immutable commit timestamp is therefore part of the
+    # baseline input, rather than an implicit dependency on local git history.
+    "3439c27bcbd0087b9ee46d86aac4384fa9fcc74b": {
+        "committed_at": "2026-08-18T13:45:18+08:00",
+    },
+}
 
 
 def load(relative: str) -> dict:
@@ -23,7 +32,28 @@ def load(relative: str) -> dict:
 
 
 def git(*args: str) -> str:
-    return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
+    return subprocess.check_output(
+        ["git", *args], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+    ).strip()
+
+
+def source_commit_time(source_sha: str) -> str:
+    """Resolve a commit time without requiring the locked commit object.
+
+    Known baseline commits use checked-in immutable metadata.  Other SHAs may
+    still be captured from a full local clone, but never silently inherit the
+    current checkout's timestamp.
+    """
+    locked = LOCKED_SOURCE_METADATA.get(source_sha)
+    if locked:
+        return locked["committed_at"]
+    try:
+        return git("show", "-s", "--format=%cI", source_sha)
+    except subprocess.CalledProcessError as exc:
+        raise SystemExit(
+            f"source commit {source_sha} is unavailable; add reviewed immutable "
+            "metadata before capturing it from a shallow checkout"
+        ) from exc
 
 
 def digest(path: Path) -> str:
@@ -37,7 +67,7 @@ def build(source_sha: str) -> tuple[dict, str]:
     legacy = load("qa-backend/test_fixtures/parity/baseline_hybrid_legacy.json")
     agentic = load("qa-backend/test_fixtures/nightly/eval_report.json")
     latency = load("qa-backend/test_fixtures/ttfb/baseline_legacy.json")
-    commit_time = git("show", "-s", "--format=%cI", source_sha)
+    commit_time = source_commit_time(source_sha)
 
     def result_counts(doc: dict, field: str) -> dict:
         counts = [len(item.get(field, [])) for item in doc.get("results", [])]

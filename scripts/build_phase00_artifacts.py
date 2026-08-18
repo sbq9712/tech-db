@@ -27,15 +27,6 @@ NORMATIVE = {
 }
 
 SUITES = {
-    "phase_a": "qa-backend/tests_phase_a.py",
-    "phase_bc": "qa-backend/tests_phase_bc.py",
-    "phase_d": "qa-backend/tests_phase_d.py",
-    "phase_final": "qa-backend/tests_phase_final.py",
-    "phase_ops": "qa-backend/tests_phase_ops.py",
-    "integration": "qa-backend/tests_integration.py",
-    "er_v2": "qa-backend/tests_er_v2.py",
-    "registry_io": "qa-backend/tests_registry_io.py",
-    "synthetic_isolation": "qa-backend/tests_synthetic_tk20.py",
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
 }
 
@@ -93,50 +84,132 @@ def parse_remediation_tickets() -> list[dict]:
     return tickets
 
 
-def suite_for(ticket_id: str) -> tuple[str, str]:
-    if ticket_id.startswith("ER-"):
-        return "er_v2", "integration"
-    n = int(ticket_id[1:])
-    if n <= 13:
-        return "phase_a", "unit"
-    if n <= 31:
-        return "phase_bc", "integration"
-    if n in {37, 41, 54, 55}:
-        return "integration", "e2e"
-    if n <= 43:
-        return "phase_ops", "integration"
-    if n <= 52:
-        return "phase_d", "integration"
-    return "phase_final", "integration"
+def _case(name: str, level: str = "integration") -> dict:
+    return {
+        "suite": "remediation_phase00",
+        "case": name,
+        "level": level,
+        "command": "python qa-backend/tests_remediation_phase00.py",
+    }
 
 
-def build_acceptance_matrix(legacy_tickets: list[dict]) -> dict:
+def _planned_case(ticket: dict) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", ticket["title"].lower()).strip("_")
+    return f"test_{ticket['id'].lower().replace('-', '_')}_{slug}"
+
+
+def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: list[dict]) -> dict:
+    future_by_legacy: dict[str, list[str]] = {}
+    for rt in remediation_tickets:
+        for legacy_id in rt.get("maps_to", []):
+            future_by_legacy.setdefault(legacy_id, []).append(rt["id"])
+
     entries = []
     for ticket in legacy_tickets:
-        suite, level = suite_for(ticket["id"])
-        refs = [{"suite": suite, "level": level,
-                 "command": f"python {SUITES[suite]}"}]
-        if ticket["id"] == "T037":
-            refs.append({"suite": "integration", "level": "e2e",
-                         "command": f"python {SUITES['integration']}"})
+        ticket_id = ticket["id"]
+        future = sorted(set(future_by_legacy.get(ticket_id, []))) or ["RT-116"]
+        dod = {
+            "dod_id": f"{ticket_id}.CORE-01",
+            "description": ticket["title"],
+            "status": "NOT_SATISFIED",
+            "evidence_note": (
+                "Phase-00 did not establish named behavioral evidence for this legacy "
+                "core obligation; historical suites are not credited wholesale."
+            ),
+            "planned_test_cases": [{
+                "case": _planned_case(ticket),
+                "level": "e2e" if ticket_id == "T037" else "integration",
+                "future_rt": future,
+            }],
+        }
+        if ticket_id == "T037":
+            dod.update({
+                "description": "Real server/orchestrator dual-path end-to-end behavior",
+                "evidence_note": (
+                    "NOT SATISFIED: tests_integration.py uses simulated flow, fake "
+                    "results, and manually assembled Trace stages; it is not real E2E."
+                ),
+                "planned_test_cases": [{
+                    "case": "test_t037_real_server_orchestrator_dual_path_e2e",
+                    "level": "e2e",
+                    "future_rt": ["RT-104"],
+                }],
+            })
+        if ticket_id.startswith("ER-"):
+            dod["evidence_note"] = (
+                "NOT SATISFIED: tests_er_v2.py is basic component coverage and does "
+                "not prove this ticket's full DoD."
+            )
         entries.append({
-            "ticket_id": ticket["id"],
+            "ticket_id": ticket_id,
             "completion_class": (
                 "BENCHMARK_GATED_OPTIONAL"
-                if ticket["id"] in {"T027", "T039", "T044", "T045"}
+                if ticket_id in {"T027", "T039", "T044", "T045"}
                 else "CORE_REQUIRED"
             ),
-            "test_refs": refs,
+            "dods": [dod],
         })
-    phase00 = [
-        {"ticket_id": f"RT-{n:03d}", "completion_class": "CORE_REQUIRED",
-         "test_refs": [{"suite": "remediation_phase00", "level": "integration",
-                        "command": f"python {SUITES['remediation_phase00']}"}]}
-        for n in range(1, 6)
-    ]
+
+    phase00_dods = {
+        "RT-001": [
+            ("RT-001.DOD-01", "One command validates normative registries and profiles", "t_spec_lint_and_negative_fixtures"),
+            ("RT-001.DOD-02", "Release tooling reads exact normative hashes", "t_normative_hashes_and_release_binding"),
+            ("RT-001.DOD-03", "Corrupted fixtures fail lint", "t_spec_lint_and_negative_fixtures"),
+        ],
+        "RT-002": [
+            ("RT-002.DOD-01", "No no-op Final Acceptance assertions", "t_acceptance_has_no_noop_assertions"),
+            ("RT-002.DOD-02", "Every core obligation has a named case and honest status", "t_acceptance_dod_traceability_and_honesty"),
+            ("RT-002.DOD-03", "Cross-stage gaps are not credited to smoke or simulated flows", "t_acceptance_dod_traceability_and_honesty"),
+        ],
+        "RT-003": [
+            ("RT-003.DOD-01", "Fresh checkout can rebuild and use the synthetic fixture", "t_mini_runtime_digest_and_health"),
+            ("RT-003.DOD-02", "Fixture manifest pins all artifact hashes", "t_mini_runtime_digest_and_health"),
+            ("RT-003.DOD-03", "Fixture startup and search health are deterministic", "t_mini_runtime_digest_and_health"),
+        ],
+        "RT-004": [
+            ("RT-004.DOD-01", "Baseline binds git, config, model, and index versions", "t_baseline_schema_and_reproducibility"),
+            ("RT-004.DOD-02", "Baseline distinguishes RRF, Agentic, and legacy paths", "t_baseline_schema_and_reproducibility"),
+            ("RT-004.DOD-03", "Baseline is reproducible in a shallow checkout", "t_baseline_schema_and_reproducibility"),
+        ],
+    }
+    phase00 = []
+    for rt_id, specs in phase00_dods.items():
+        phase00.append({
+            "ticket_id": rt_id,
+            "completion_class": "CORE_REQUIRED",
+            "dods": [{
+                "dod_id": dod_id, "description": description,
+                "status": "SATISFIED", "test_cases": [_case(case)],
+            } for dod_id, description, case in specs],
+        })
+    phase00.append({
+        "ticket_id": "RT-005", "completion_class": "CORE_REQUIRED",
+        "dods": [
+            {
+                "dod_id": "RT-005.DOD-01",
+                "description": "Main required checks are enforced by repository rules",
+                "status": "BLOCKED_EXTERNAL_ACTION",
+                "external_blocker": "A repository administrator must enable and verify the ruleset.",
+                "planned_test_cases": [{"case": "test_main_required_ruleset_enforced", "level": "integration", "future_rt": ["RT-005"]}],
+            },
+            {
+                "dod_id": "RT-005.DOD-02", "description": "Automation code/spec changes run protected gates",
+                "status": "SATISFIED", "test_cases": [_case("t_data_sync_policy_and_workflow")],
+            },
+            {
+                "dod_id": "RT-005.DOD-03", "description": "Emergency bypass is documented and auditable",
+                "status": "SATISFIED", "test_cases": [_case("t_data_sync_policy_and_workflow")],
+            },
+        ],
+    })
     return {
-        "schema_version": "1.0.0",
+        "schema_version": "2.0.0",
         "registry_version": "remediation-2026-08-18",
+        "semantics": {
+            "SATISFIED": "Named executable behavioral evidence exists.",
+            "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
+            "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
+        },
         "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)],
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
@@ -171,7 +244,7 @@ def main() -> int:
     write_json(REGISTRY, remediation)
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    matrix = build_acceptance_matrix(manifest["tickets"])
+    matrix = build_acceptance_matrix(manifest["tickets"], remediation["tickets"])
     write_json(MATRIX, matrix)
 
     manifest.update({

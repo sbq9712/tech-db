@@ -37,8 +37,11 @@ def selected_commands(matrix: dict) -> list[tuple[str, str]]:
     for entry in entries:
         if entry["completion_class"] != "CORE_REQUIRED":
             continue
-        for ref in entry["test_refs"]:
-            selected[ref["suite"]] = ref["command"]
+        for dod in entry.get("dods", []):
+            if dod.get("status") != "SATISFIED":
+                continue
+            for ref in dod.get("test_cases", []):
+                selected[ref["suite"]] = ref["command"]
     selected.pop("remediation_phase00", None)  # avoids recursive self-execution
     return sorted(selected.items())
 
@@ -76,7 +79,12 @@ def main() -> int:
         return 1
     if args.validate_only:
         count = len(matrix["legacy_ticket_entries"]) + len(matrix["remediation_entries"])
-        print(f"acceptance matrix valid: {count} ticket mappings")
+        dod_count = sum(len(e.get("dods", [])) for e in
+                        matrix["legacy_ticket_entries"] + matrix["remediation_entries"])
+        unmet = sum(d.get("status") != "SATISFIED" for e in
+                    matrix["legacy_ticket_entries"] + matrix["remediation_entries"]
+                    for d in e.get("dods", []))
+        print(f"acceptance matrix valid: {count} tickets, {dod_count} DoDs, {unmet} explicitly unmet/blocked")
         print("Passed: 1\nFailed: 0")
         return 0
 
@@ -89,6 +97,12 @@ def main() -> int:
         print(f"  {result['status']} ({result['seconds']}s)")
         if result["status"] == "FAIL":
             print(result["tail"])
+    required_unmet = [
+        {"ticket_id": entry["ticket_id"], "dod_id": dod["dod_id"], "status": dod["status"]}
+        for entry in matrix["legacy_ticket_entries"] + matrix["remediation_entries"]
+        if entry["completion_class"] == "CORE_REQUIRED"
+        for dod in entry.get("dods", []) if dod.get("status") != "SATISFIED"
+    ]
     report = {
         "schema_version": "1.0.0",
         "spec_sha256": manifest["spec_sha256"],
@@ -99,12 +113,16 @@ def main() -> int:
         "fail_count": sum(r["status"] != "PASS" for r in results),
         "skip_count": 0,
         "xfail_count": 0,
+        "required_unmet": required_unmet,
+        "project_acceptance": "NOT_READY" if required_unmet else "PASS",
     }
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", "utf-8")
     print(f"Passed: {report['pass_count']}\nFailed: {report['fail_count']}")
-    return 1 if report["fail_count"] else 0
+    if required_unmet:
+        print(f"Project acceptance NOT READY: {len(required_unmet)} required DoDs unmet/blocked")
+    return 1 if report["fail_count"] or required_unmet else 0
 
 
 if __name__ == "__main__":

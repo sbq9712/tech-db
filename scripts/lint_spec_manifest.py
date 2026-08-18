@@ -223,23 +223,67 @@ def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list
             f"L12 active remediation mapping invalid unknown={sorted(active-known_rt)} "
             f"missing={sorted(active-mapped_rt)}")
 
+    valid_statuses = {"SATISFIED", "NOT_SATISFIED", "BLOCKED_EXTERNAL_ACTION"}
+    seen_dods = set()
     for entry in legacy + remediation:
-        refs = entry.get("test_refs", [])
-        if not refs:
-            errors.append(f"L12 {entry.get('ticket_id')} has no behavioral test reference")
-        for ref in refs:
-            suite = ref.get("suite")
-            if suite not in suites:
-                errors.append(f"L12 {entry.get('ticket_id')} references unknown suite {suite}")
-            if ref.get("level") not in {"unit", "integration", "e2e", "benchmark"}:
-                errors.append(f"L12 {entry.get('ticket_id')} has invalid test level")
-            command = ref.get("command", "")
-            if not command.startswith("python ") or "tests_" not in command:
-                errors.append(f"L12 {entry.get('ticket_id')} has non-behavioral command {command!r}")
+        dods = entry.get("dods", [])
+        if not dods:
+            errors.append(f"L12 {entry.get('ticket_id')} has no DoD records")
+        for dod in dods:
+            dod_id = dod.get("dod_id")
+            if not dod_id or dod_id in seen_dods:
+                errors.append(f"L12 invalid/duplicate DoD id {dod_id!r}")
+            seen_dods.add(dod_id)
+            status = dod.get("status")
+            if status not in valid_statuses:
+                errors.append(f"L12 {dod_id} has invalid status {status!r}")
+                continue
+            refs = dod.get("test_cases", [])
+            planned = dod.get("planned_test_cases", [])
+            if status == "SATISFIED" and not refs:
+                errors.append(f"L12 {dod_id} claims SATISFIED without a named test case")
+            if status != "SATISFIED" and refs:
+                errors.append(f"L12 {dod_id} gives completion credit while status={status}")
+            if status != "SATISFIED" and not planned:
+                errors.append(f"L12 {dod_id} lacks a named future behavioral case")
+            if status == "BLOCKED_EXTERNAL_ACTION" and not dod.get("external_blocker"):
+                errors.append(f"L12 {dod_id} lacks an external blocker description")
+            for item in planned:
+                if not item.get("case", "").startswith("test_"):
+                    errors.append(f"L12 {dod_id} has unnamed future test case")
+                if not item.get("future_rt"):
+                    errors.append(f"L12 {dod_id} has no future RT owner")
+            for ref in refs:
+                suite = ref.get("suite")
+                if suite not in suites:
+                    errors.append(f"L12 {dod_id} references unknown suite {suite}")
+                    continue
+                if ref.get("level") not in {"unit", "integration", "e2e", "benchmark"}:
+                    errors.append(f"L12 {dod_id} has invalid test level")
+                command = ref.get("command", "")
+                if not command.startswith("python ") or "tests_" not in command:
+                    errors.append(f"L12 {dod_id} has non-behavioral command {command!r}")
+                case = ref.get("case", "")
+                if not case or not re.match(r"^(?:test_|t_)[a-zA-Z0-9_]+$", case):
+                    errors.append(f"L12 {dod_id} lacks a concrete named test case")
+                path = ROOT / suites[suite]
+                source = path.read_text("utf-8") if path.is_file() else ""
+                if not re.search(rf"^def {re.escape(case)}\(", source, re.MULTILINE):
+                    errors.append(f"L12 {dod_id} test case {case} is absent from {suites[suite]}")
+
+    # Explicit honesty gates for known false-positive mappings.
     t037 = next((e for e in legacy if e.get("ticket_id") == "T037"), {})
-    if not any(r.get("level") == "e2e" and r.get("suite") == "integration"
-               for r in t037.get("test_refs", [])):
-        errors.append("L12 T037 must map to actual integration/E2E")
+    for dod in t037.get("dods", []):
+        if dod.get("status") == "SATISFIED":
+            errors.append("L12 T037 cannot be satisfied by the simulated integration flow")
+        owners = {rt for p in dod.get("planned_test_cases", []) for rt in p.get("future_rt", [])}
+        if "RT-104" not in owners:
+            errors.append("L12 T037 real server/orchestrator E2E must be owned by RT-104")
+    high_risk_er = {"ER-060", "ER-061", "ER-062", "ER-063", "ER-082", "ER-083"}
+    for entry in legacy:
+        if entry.get("ticket_id") in high_risk_er:
+            if any(d.get("status") == "SATISFIED" for d in entry.get("dods", [])):
+                errors.append(f"L12 {entry.get('ticket_id')} is not proven by tests_er_v2.py")
     return errors
 
 
