@@ -37,6 +37,7 @@ NORMATIVE = {
 SUITES = {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
+    "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
 }
 
 
@@ -121,6 +122,11 @@ def _phase01_case(name: str, level: str = "integration") -> dict:
            "command": "python qa-backend/tests_remediation_phase01.py"}
     if level == "benchmark": ref["benchmark_owner"] = "RT-015"
     return ref
+
+
+def _phase02_case(name: str, level: str = "integration") -> dict:
+    return {"suite": "remediation_phase02", "case": "test_" + name.replace(".", "_").lower(), "level": level,
+            "command": "python qa-backend/tests_remediation_phase02.py"}
 
 
 BENCHMARK_MARKERS = (
@@ -317,6 +323,132 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             {"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
              "status": "SATISFIED", "test_cases": [_phase01_case(case, "benchmark" if "benchmark" in case else "integration")]}
             for number, (description, case) in enumerate(specs, 1)]})
+
+    # ── Phase 02 (RT-020..RT-029) — citation/claim/state verifier chain ──────
+    # DoD descriptions mirror each ticket's frozen "Done when" bullets in
+    # docs/remediation/execution_tickets.md; every SATISFIED DoD cites named
+    # behavioral cases in qa-backend/tests_remediation_phase02.py.
+    phase02_dods = {
+        "RT-020": [
+            ("final grounding is EXACT or INVALID", ["RT020.exact_verbatim_span_located", "RT020.fuzzy_located_ends_exact_raw_locator", "RT020.unlocatable_span_invalidates_citation"]),
+            ("invalid citation cannot enter final response", ["RT020.pipeline_drops_invalid_citations", "RT020.invalid_citation_not_rendered_as_normal_evidence", "RT029.schema2_invalid_dropped"]),
+            ("multiple non-contiguous spans supported with exact offsets", ["RT020.multi_span_concatenates_exact", "RT020.span_offsets_code_point_exact", "RT020.nfkc_variant_maps_exact_raw_range"]),
+        ],
+        "RT-021": [
+            ("BACKGROUND/CONTRADICTS never counted as support", ["RT021.background_never_supports", "RT021.ungrounded_citation_cannot_support"]),
+            ("vendor statement supports attribution, not unqualified truth", ["RT021.vendor_role_caps_attribution"]),
+            ("relation failure cannot silently support claim", ["RT021.numeric_mismatch_becomes_contradicts", "RT021.pipeline_applies_relation_checks"]),
+        ],
+        "RT-022": [
+            ("Gb/s vs GB/s mismatch caught", ["RT022.unit_family_bits_vs_bytes"]),
+            ("per-device vs aggregate mismatch caught", ["RT022.scope_per_device_vs_aggregate"]),
+            ("converted value retains exact source provenance", ["RT022.facts_carry_evidence_ref", "RT022.transform_rule_version_pinned"]),
+        ],
+        "RT-023": [
+            ("unmapped factual sentence blocks SUPPORTED", ["RT023.unmapped_factual_blocks_supported", "RT023.pipeline_records_coverage_failure"]),
+            ("hedged unsupported claims cannot escape checks", ["RT023.hedged_sentence_claim_bearing", "RT023.attribution_sentence_claim_bearing"]),
+            ("claim coverage metric reported in trace", ["RT023.coverage_metric_reported", "RT023.full_coverage_passes", "RT023.meta_sentence_exempt"]),
+        ],
+        "RT-024": [
+            ("direct SUPPORTED assignments outside approved state module are absent", ["RT024.initial_state_not_run", "X.server_wires_phase02_pipeline"]),
+            ("critical missing/unsupported/conflict cannot yield SUPPORTED", ["RT024.all_core_unsupported_unsupported", "RT024.conflict_blocks_supported", "RT024.coverage_fail_blocks_supported"]),
+            ("no-evidence deterministic abstention is UNSUPPORTED without verifier", ["RT024.no_evidence_unsupported_without_verifier"]),
+            ("technical inability to validate presented claims yields UNVERIFIED", ["RT024.verifier_unverified_is_technical_failure", "RT024.not_run_finalizes_unverified"]),
+        ],
+        "RT-025": [
+            ("no technical failure can become PASSED", ["RT025.timeout_maps_unverified", "RT025.malformed_json_unverified", "RT025.http_5xx_maps_unverified", "RT025.invalid_verdict_unverified", "RT025.transient_error_retries_then_succeeds"]),
+            ("verifier input restricted; never sees generator hidden reasoning/unselected text", ["RT025.restricted_input_only"]),
+            ("verifier output is structured findings only", ["RT025.no_rewritten_answer_field", "RT025.semantic_findings_failed_with_findings"]),
+        ],
+        "RT-026": [
+            ("core unsupported claim cannot be deleted then declared complete", ["RT026.core_claim_never_deleted"]),
+            ("repair exhaustion has deterministic terminal state", ["RT026.deterministic_exhaustion_terminal", "RT026.max_cycles_is_two"]),
+            ("every repair transition is traced; loop never upgrades support itself", ["RT026.every_transition_traced", "RT026.repair_never_upgrades_to_supported_itself"]),
+        ],
+        "RT-027": [
+            ("user never receives an unverified full factual draft in normal new profile", ["RT027.no_tokens_before_first_citations_event", "RT027.no_citations_before_verification", "X.legacy_path_preserved_behind_flag"]),
+            ("final wording matches terminal status", ["RT027.supported_answer_unchanged", "RT027.partial_keeps_answer_with_marker", "RT027.unsupported_renders_boundary", "RT027.unverified_renders_supported_only"]),
+            ("time-to-first-status/time-to-final-answer measured", ["RT027.sse_timing_stage_traced"]),
+        ],
+        "RT-028": [
+            ("final response contains zero invalid citations", ["RT020.pipeline_drops_invalid_citations", "RT029.schema2_invalid_dropped"]),
+            ("old required fields remain compatible", ["RT028.legacy_fields_preserved"]),
+            ("new schema version documented (ids, locators, relations, degraded, diagnostics)", ["RT028.citation_schema_version_emitted", "RT028.locators_in_done_payload", "RT028.support_relations_in_done", "RT028.diagnostics_manifest_profile"]),
+        ],
+        "RT-029": [
+            ("invalid citation object cannot render even from stale client state", ["RT029.schema_invalidation_strips_stale_snippet", "RT029.schema2_invalid_dropped"]),
+            ("source roles categorical and non-misleading", ["RT029.support_rendered_distinct", "RT029.contradicts_rendered_distinct", "RT029.background_rendered_distinct"]),
+            ("mobile/desktop visual regression coverage", []),  # NOT_SATISFIED — no visual regression harness yet
+        ],
+    }
+    for rt_id, specs in phase02_dods.items():
+        dods = []
+        for number, (description, cases) in enumerate(specs, 1):
+            if cases:
+                dods.append({"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
+                             "status": "SATISFIED",
+                             "test_cases": [_phase02_case(case) for case in cases]})
+            else:
+                dods.append({"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
+                             "status": "NOT_SATISFIED",
+                             "evidence_note": "Phase 02 ships no visual-regression harness; no completion credit.",
+                             "planned_test_cases": [{"case": f"test_{rt_id.lower().replace('-', '_')}_dod_{number:02d}_visual_regression",
+                                                     "level": "e2e", "future_rt": ["RT-029"]}]})
+        phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": dods})
+
+    # Legacy frozen DoDs whose remediation owner completed in Phase 02 with
+    # directly corresponding behavioral evidence. Every entry cites named
+    # executable cases; T037 stays NOT_SATISFIED (simulated flow, L12 hard gate)
+    # and DoDs without phase-02 evidence keep their future plan.
+    PHASE02_LEGACY_SATISFIED = {
+        "T032.DOD-01": ["RT020.pipeline_spans_match_immutable_text", "RT021.citations_expose_supports_claim_ids"],
+        "T032.DOD-02": ["RT020.multi_span_concatenates_exact"],
+        "T032.DOD-03": ["RT020.span_offsets_code_point_exact", "RT020.nfkc_variant_maps_exact_raw_range"],
+        "T032.DOD-04": ["RT020.pipeline_spans_match_immutable_text", "RT021.citations_expose_supports_claim_ids"],
+        "T032.DOD-05": ["RT020.invalid_citation_not_rendered_as_normal_evidence", "RT020.pipeline_drops_invalid_citations", "RT029.schema2_invalid_dropped"],
+        "T032.DOD-06": ["RT020.summary_only_record_invalid", "RT020.unlocatable_span_invalidates_citation", "RT020.pipeline_drops_invalid_citations"],
+        "T004.DOD-01": ["RT021.all_claims_have_ids"],
+        "T004.DOD-02": ["RT022.facts_carry_evidence_ref", "RT020.pipeline_spans_match_immutable_text"],
+        "T004.DOD-03": ["RT021.citations_expose_supports_claim_ids"],
+        "T004.DOD-04": ["RT021.background_never_supports", "RT024.all_core_unsupported_unsupported"],
+        "T005.DOD-01": ["RT025.http_5xx_maps_unverified", "RT025.http_429_maps_unverified"],
+        "T005.DOD-02": ["RT025.malformed_json_unverified"],
+        "T005.DOD-03": ["RT025.transient_error_retries_then_succeeds"],
+        "T005.DOD-04": ["RT027.e2e_technical_failure_unverified"],
+        "T005.DOD-05": ["RT025.timeout_maps_unverified", "RT025.empty_claims_unverified", "RT025.missing_fields_unverified"],
+        "T006.DOD-01": ["RT024.initial_state_not_run", "RT024.not_run_finalizes_unverified"],
+        "T006.DOD-02": ["RT029.four_states_config_present", "RT029.unverified_banner_present"],
+        "T006.DOD-03": ["RT024.initial_state_not_run", "RT024.late_failure_invalidates_passed"],
+        "T006.DOD-04": ["RT027.done_only_verified_content", "RT027.e2e_partial_state_renders", "RT027.e2e_unsupported_state_renders", "RT027.e2e_technical_failure_unverified"],
+        "T029.DOD-01": ["RT022.value_match_detected", "RT022.transform_rule_version_pinned"],
+        "T029.DOD-02": ["RT022.unit_family_bits_vs_bytes"],
+        "T029.DOD-03": ["RT022.scope_per_device_vs_aggregate"],
+        "T029.DOD-04": ["RT022.pipeline_runs_numeric_checks", "RT022.value_mismatch_detected"],
+        "T029.DOD-05": ["RT022.value_mismatch_detected", "RT022.unit_family_bits_vs_bytes", "RT022.scope_per_device_vs_aggregate"],
+        "T033.DOD-01": ["RT028.support_relations_in_done", "RT029.support_rendered_distinct"],
+        "T033.DOD-04": ["RT021.vendor_role_caps_attribution"],
+        "T033.DOD-05": ["RT029.schema2_invalid_dropped", "RT029.unverified_banner_present", "RT027.e2e_partial_state_renders"],
+        "T046.DOD-01": ["RT021.numeric_mismatch_becomes_contradicts"],
+        "T046.DOD-02": ["RT021.pipeline_applies_relation_checks", "RT021.background_never_supports"],
+        "T048.DOD-01": ["RT021.vendor_role_caps_attribution"],
+        "T048.DOD-02": ["RT021.entailment_verified_keeps_support"],
+        "T052.DOD-01": ["RT024.illegal_transition_raises", "RT024.transition_log_recorded"],
+        "T052.DOD-02": ["RT024.all_core_unsupported_unsupported", "RT026.core_claim_never_deleted"],
+        "T052.DOD-03": ["RT027.partial_keeps_answer_with_marker", "RT027.e2e_partial_state_renders"],
+        "T052.DOD-04": ["RT025.pipeline_technical_failure_unverified", "RT027.e2e_technical_failure_unverified", "RT027.unverified_renders_supported_only"],
+        "T052.DOD-05": ["RT026.max_cycles_is_two", "RT026.every_transition_traced", "RT027.e2e_partial_state_renders"],
+    }
+    for entry in entries:
+        for dod in entry["dods"]:
+            upgrade = PHASE02_LEGACY_SATISFIED.get(dod["dod_id"])
+            if not upgrade:
+                continue
+            assert dod["dod_id"].split(".")[0] != "T037"
+            dod["status"] = "SATISFIED"
+            dod["test_cases"] = [_phase02_case(case) for case in upgrade]
+            dod["evidence_note"] = "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite)."
+            dod.pop("planned_test_cases", None)
+
     return {
         "schema_version": "3.0.0",
         "registry_version": "remediation-2026-08-18",
@@ -334,7 +466,7 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
             "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
         },
-        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)],
+        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)] + [f"RT-{n:03d}" for n in range(20, 30)],
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
         "remediation_entries": phase00,

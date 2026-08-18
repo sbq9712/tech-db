@@ -76,6 +76,8 @@ closed; see "Ticket Closure & Evidence Chain" below.
 | QA_NUMERIC_FACTS_ENABLED | true | Numeric fact extraction (TK-06 wave-1) |
 | QA_CLAIM_GROUNDING_ENABLED | true | Claim-level grounding |
 | QA_KNOWLEDGE_BOUNDARY_ENABLED | true | Knowledge boundary message (TK-06/R9) |
+| QA_EXACT_GROUNDING_ENABLED | true | Exact-span citation grounding on SourceSnapshot (RT-020) |
+| QA_TERMINAL_RENDERER_ENABLED | true | Buffered terminal rendering + post-verification citations (RT-027) |
 
 ## Ticket Closure & Evidence Chain
 | Ticket | Scope | Evidence |
@@ -186,3 +188,19 @@ linger 已启用（VM 启动即拉起全部服务）。
 - **parity 保证不变**：tests_parity 对冻结 gate-1 基线（0 drift）+
   字段级 route-score 校验继续守护 seam。
 - 回归：push 324/324（23 suites）+ nightly 80/80。
+
+## Phase 02 (2026-08-18) — citation/claim/state verifier chain (RT-020..RT-029)
+
+分支 `remediation/phase-02-citation-claim-state-verifier`，基线 cdc5896。
+完成证据见 `docs/remediation/phase02_completion_report.md`：
+- RT-020 精确 grounding（EXACT/INVALID 二值、多 span、NFKC/fuzzy 定位后回落精确 locator）
+- RT-021 类型化关系（DIRECT/PREMISE/ATTRIBUTION 支持类；BACKGROUND/CONTRADICTS 永不支持；vendor/self-report 上限 ATTRIBUTION）
+- RT-022 数值事实溯源（evidence_ref + transform_rule_version；Gb/s vs GB/s、per-device vs 整机不混淆）
+- RT-023 claim coverage gate（未映射事实句阻断 SUPPORTED；hedged/attributed 仍算 claim-bearing）
+- RT-024 AnswerStateMachine v2.0.0（唯一状态权威；NOT_RUN 初值；技术失败→UNVERIFIED）
+- RT-025 fail-safe verifier（timeout/429/5xx/malformed/exception→UNVERIFIED；结构化 findings，无 rewritten_answer）
+- RT-026 有界修复环（≤2 轮；core claim 永不删除；确定性终止）
+- RT-027 终端渲染器 + 后验证 SSE（事实草稿缓冲；citations 事件仅验证后；ttfs/ttfa 入 trace）
+- RT-028 引用 schema 2.0.0（snapshot_id/locators/support_relations/degraded/diagnostics；旧字段兼容）
+- RT-029 前端证据态渲染（schema 版本失效、关系 chip、UNVERIFIED 横幅、locator chip）
+验收矩阵：36 个 legacy DoD 依 Phase-02 证据升级 SATISFIED；6 个诚实保持 NOT_SATISFIED；T037 硬门禁未动。

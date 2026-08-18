@@ -1368,15 +1368,16 @@
         "QA_CITATION_GROUNDING_ENABLED": false,
         "QA_CLAIM_MAPPING_ENABLED": false,
         "QA_ANSWER_STATUS_ENABLED": false,
-        "QA_KNOWLEDGE_BOUNDARY_ENABLED": false
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": false,
+        "QA_EXACT_GROUNDING_ENABLED": false,
+        "QA_TERMINAL_RENDERER_ENABLED": false
       }
     },
     {
       "name": "agentic_correctness_core",
-      "description": "Correctness-critical modules only (trace/verify/citation/claims/status)",
+      "description": "Correctness-critical modules only (trace/verify/citation/claims/status/boundary/safety)",
       "flags": {
         "QA_AGENTIC_ENABLED": false,
-        "QA_TRACE_ENABLED": true,
         "QA_ROUTER_ENABLED": false,
         "QA_DECOMPOSITION_ENABLED": false,
         "QA_RERANK_ENABLED": false,
@@ -1390,17 +1391,20 @@
         "QA_CONTEXTUAL_CHUNKS_ENABLED": false,
         "QA_NUMERIC_FACTS_ENABLED": false,
         "QA_CLAIM_GROUNDING_ENABLED": false,
+        "QA_TRACE_ENABLED": true,
         "QA_FAIL_SAFE_VERIFY_ENABLED": true,
         "QA_CONTENT_SAFETY_ENABLED": true,
         "QA_CITATION_GROUNDING_ENABLED": true,
         "QA_CLAIM_MAPPING_ENABLED": true,
         "QA_ANSWER_STATUS_ENABLED": true,
-        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true,
+        "QA_EXACT_GROUNDING_ENABLED": true,
+        "QA_TERMINAL_RENDERER_ENABLED": true
       }
     },
     {
       "name": "agentic_full",
-      "description": "Full evidence-centric adaptive agentic pipeline (post gate-3 production)",
+      "description": "Full evidence-centric adaptive agentic pipeline (post gate-3 production default)",
       "flags": {
         "QA_AGENTIC_ENABLED": true,
         "QA_TRACE_ENABLED": true,
@@ -1422,7 +1426,9 @@
         "QA_CITATION_GROUNDING_ENABLED": true,
         "QA_CLAIM_MAPPING_ENABLED": true,
         "QA_ANSWER_STATUS_ENABLED": true,
-        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true
+        "QA_KNOWLEDGE_BOUNDARY_ENABLED": true,
+        "QA_EXACT_GROUNDING_ENABLED": true,
+        "QA_TERMINAL_RENDERER_ENABLED": true
       }
     }
   ],
@@ -1449,7 +1455,7 @@
       "rule": "claim_mapping_requires_grounding"
     }
   ],
-  "spec_hash": "2305a933ad6741bec0e3e2b5efda92c2bbf50d16990506899f73406757ed7d94",
+  "spec_hash": "7fb1934213cbc43231b6fbfe217c5375bc4046514e6fa344eba066e1c2a63865",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
@@ -1457,7 +1463,7 @@
   "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
   "profile_registry_version": "1.0.0",
   "acceptance_matrix_version": "3.0.0",
-  "acceptance_matrix_sha256": "d9e6728d0c591e50c62b6418f563b4c8ed32fa768cfe2774db61f00469e1bb71",
+  "acceptance_matrix_sha256": "1bddcb3ac76d27612cf72c5fad754644dcfce140f01db7b1169e00c6c4bdb0da",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",

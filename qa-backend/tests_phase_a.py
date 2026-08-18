@@ -160,12 +160,15 @@ test("FAILED.passed is False", vr_fail.passed is False)
 test("UNVERIFIED.passed is False", vr_unv.passed is False)
 test("UNVERIFIED has reason", vr_unv.failure_reason == "timeout")
 
-# Test 6: Verify with fail-safe - empty answer (trivially passes)
+# Test 6: Verify with fail-safe — empty answer
+# Phase-02 change (RT-025 / final spec Q096 "empty response ... never becomes
+# PASS"): the old expectation "empty answer trivially passes" encoded the
+# fail-open bug. Empty input is now a technical-failure class → UNVERIFIED.
 async def test_empty_verify():
     result = await verify_with_fail_safe("q", "", [])
-    return result.passed
+    return result.status == "UNVERIFIED"
 result = asyncio.run(test_empty_verify())
-test("empty answer trivially passes", result)
+test("empty answer is UNVERIFIED, never PASSED (RT-025)", result)
 
 # ── T004: Claim Mapping ──
 print("\n=== T004: Claim Mapping ===")

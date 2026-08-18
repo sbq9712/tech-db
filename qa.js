@@ -231,7 +231,8 @@ function renderMessages() {
 
 function renderAssistantMessage(msg, idx) {
   const content = msg.content || '';
-  const citations = msg.citations || [];
+  // RT-029: defensive verified-citation filtering (stale-cache safe)
+  const citations = defensivelyFilterCitations(msg);
   const isStreaming = msg.streaming || false;
 
   // Render content with citation refs [1] -> clickable
@@ -253,6 +254,22 @@ function renderAssistantMessage(msg, idx) {
       <div class="qa-message-content">
         <div class="qa-message-bubble">${renderedContent}${typingCursor}</div>
   `;
+
+  // RT-029 (RT-024/025): UNVERIFIED gets a distinct, explicit verification
+  // banner — the grey badge alone does not explain WHY content was withheld.
+  if (!isStreaming && msg.answer_status === 'UNVERIFIED') {
+    const caps = (msg.degraded_capabilities || []);
+    html += `
+      <div class="qa-unverified-banner">
+        <span class="qa-unverified-icon">🔍</span>
+        <div class="qa-unverified-body">
+          <div class="qa-unverified-title">本回答未通过独立验证（${escHtml(msg.verification_status || 'UNVERIFIED')}）</div>
+          <div class="qa-unverified-sub">仅保留可核对的内容；其余已按未验证处理，请谨慎采信。</div>
+          ${caps.length ? `<div class="qa-unverified-caps">${caps.map(c => `<span class="qa-degraded-chip">${escHtml(c)}</span>`).join('')}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }
 
   // T033: Answer status badge (only when not streaming and status is present)
   if (!isStreaming && msg.answer_status) {
@@ -295,8 +312,15 @@ function renderAssistantMessage(msg, idx) {
               ? `<div class="qa-claim-badges">${c.supports_claim_ids.map(id =>
                   `<span class="qa-claim-badge">支持 ${escHtml(String(id).replace('claim_', '主张'))}</span>`).join('')}</div>`
               : ''}
-            ${c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : ''}
-            ${c.body_snippet ? `<div class="qa-citation-snippet">${escHtml(c.body_snippet)}...</div>` : ''}
+            ${c.ungrouded_note ? `<div class="qa-citation-snippet qa-ungrounded-note">${escHtml(c.ungrouded_note)}</div>` : ''}
+            ${(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
+              ? `<div class="qa-evidence-span" title="精确原文定位（代码点区间）">🔖 <mark>${escHtml(c.evidence_spans[0].text || c.evidence_spans[0].highlight || '')}</mark></div>`
+              : (c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : '')}
+            ${c.body_snippet && !(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
+              ? `<div class="qa-citation-snippet">${escHtml(c.body_snippet)}...</div>` : ''}
+            ${(Array.isArray(c.locators) && c.locators.length)
+              ? `<div class="qa-locator-chip">📍 ${escHtml(c.locators[0].locator_type || 'TEXT_SPAN')} [${c.locators[0].start}–${c.locators[0].end}]${c.locators[0].normalized_start !== undefined ? ' · NFKC' : ''}</div>`
+              : ''}
           </div>
         `).join('')}
       </div>
@@ -314,13 +338,21 @@ function renderAssistantMessage(msg, idx) {
         <div class="qa-evidence-card-title">🧩 证据卡片（主张 → 引用映射）</div>
         ${claims.map(cl => {
           const supCits = mappedCitations.filter(c => (c.supports_claim_ids || []).includes(cl.id));
-          if (!supCits.length) return '';
+          // RT-029: typed relations per claim — CONTRADICTS/BACKGROUND get
+          // their own chips so conflicts are visible, not only support.
+          const rels = Array.isArray(cl.relations) ? cl.relations : [];
+          const relChips = rels.map(r => {
+            const rl = relationLabel(r.relation);
+            return `<span class="qa-rel-chip ${rl.cls}">${rl.icon} ${rl.label} [${r.citation_id}]</span>`;
+          }).join('');
+          if (!supCits.length && !relChips) return '';
           const statusCls = cl.status === 'SUPPORTED' ? 'qa-claim-supported' : (cl.status === 'UNSUPPORTED' ? 'qa-claim-unsupported' : '');
           return `
           <div class="qa-claim-row ${statusCls}">
             <div class="qa-claim-text">${escHtml(cl.text)}</div>
             <div class="qa-claim-cites">
               ${supCits.map(c => `<span class="qa-claim-cite" data-citation-num="${c.id}">[${c.id}]</span>`).join('')}
+              ${relChips}
               ${cl.status === 'SUPPORTED' ? '<span class="qa-claim-status">✅ 已支持</span>' : (cl.status === 'UNSUPPORTED' ? '<span class="qa-claim-status">⚠️ 未支持</span>' : '')}
             </div>
           </div>`;
@@ -497,6 +529,50 @@ async function sendQuestion() {
   }
 }
 
+
+// ── RT-029 (Phase 02): verified-citation rendering helpers ──────────────────
+// Old-schema messages (pre citation_schema_version 2.0.0) may carry
+// GROUNDING_FAIL citations whose highlight/body_snippet still LOOK like
+// normal evidence (the pre-RT-020 backend kept the snippet). Rendering an
+// invalid citation as evidence counts as invalid-citation-displayed, so we
+// defensively strip evidence-looking content for any message not explicitly
+// schema >= 2.
+function schemaAtLeast(msg, major, minor) {
+  const v = String(msg.citation_schema_version || '');
+  if (!v) return false;
+  const parts = v.split('.').map(x => parseInt(x, 10) || 0);
+  const cur = [parseInt(major, 10) || 0, parseInt(minor, 10) || 0];
+  return (parts[0] || 0) > cur[0] || ((parts[0] || 0) === cur[0] && (parts[1] || 0) >= cur[1]);
+}
+
+function defensivelyFilterCitations(msg) {
+  const citations = msg.citations || [];
+  if (schemaAtLeast(msg, 2, 0)) {
+    // Schema 2.0: backend already dropped INVALID citations before emitting;
+    // still hard-filter anything that slipped through with a non-VALID status.
+    return citations.filter(c => !c.grounding_status || c.grounding_status === 'VALID');
+  }
+  // Pre-2.0 / unknown schema: keep the card but strip evidence-looking
+  // content the old backend failed to ground — an ungrounded snippet must
+  // not render as normal evidence.
+  return citations.map(c => {
+    if (c.grounding_status === 'VALID' || c.grounding_status === 'FUZZY') return c;
+    const { highlight, body_snippet, ...rest } = c;
+    return { ...rest, ungrouded_note: '旧数据：该引用未能定位到原文，证据片段已隐藏' };
+  });
+}
+
+function relationLabel(relation) {
+  switch (relation) {
+    case 'DIRECT_SUPPORT': return { icon: '✅', label: '直接支持', cls: 'qa-rel-support' };
+    case 'PREMISE_SUPPORT': return { icon: '✅', label: '前提支持', cls: 'qa-rel-support' };
+    case 'ATTRIBUTION': return { icon: '📣', label: '归属（来源自述）', cls: 'qa-rel-attribution' };
+    case 'CONTRADICTS': return { icon: '⚔️', label: '与声明矛盾', cls: 'qa-rel-contradict' };
+    case 'BACKGROUND': return { icon: '📜', label: '仅背景', cls: 'qa-rel-background' };
+    default: return { icon: '•', label: relation || '未知', cls: 'qa-rel-background' };
+  }
+}
+
 function handleSSEData(data, assistantMsg) {
   if (data.step) {
     // Status update
@@ -537,6 +613,11 @@ function handleSSEData(data, assistantMsg) {
     // TK-13 (Q13): claims + user warning for the evidence card
     assistantMsg.claims = data.claims || [];
     assistantMsg.user_warning = data.user_warning || '';
+    // RT-029 (Phase 02): verified-citation schema version + verification state
+    assistantMsg.citation_schema_version = data.citation_schema_version || '';
+    assistantMsg.verification_status = data.verification_status || '';
+    assistantMsg.degraded_capabilities = data.degraded_capabilities || [];
+    assistantMsg.support_relations = data.support_relations || {};
   }
 
   // Handle error

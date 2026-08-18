@@ -31,11 +31,22 @@
     "RT-015",
     "RT-016",
     "RT-017",
-    "RT-018"
+    "RT-018",
+    "RT-020",
+    "RT-021",
+    "RT-022",
+    "RT-023",
+    "RT-024",
+    "RT-025",
+    "RT-026",
+    "RT-027",
+    "RT-028",
+    "RT-029"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
-    "remediation_phase01": "qa-backend/tests_remediation_phase01.py"
+    "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
+    "remediation_phase02": "qa-backend/tests_remediation_phase02.py"
   },
   "legacy_ticket_entries": [
     {
@@ -467,15 +478,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t004_dod_01_major_claim_claim_id",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_all_claims_have_ids",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -490,15 +500,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t004_dod_02_major_claim_record_id_exact",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_facts_carry_evidence_ref",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_spans_match_immutable_text",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -513,15 +528,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t004_dod_03_citation_supports_claim_ids",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_citations_expose_supports_claim_ids",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -536,15 +550,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t004_dod_04_unsupported_major_claim",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_background_never_supports",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_all_core_unsupported_unsupported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -566,15 +585,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t005_dod_01_verifier_exception_pass",
+              "suite": "remediation_phase02",
+              "case": "test_rt025_http_5xx_maps_unverified",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_http_429_maps_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -589,15 +613,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t005_dod_02_malformed_json_pass",
+              "suite": "remediation_phase02",
+              "case": "test_rt025_malformed_json_unverified",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -612,15 +635,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t005_dod_03_retry",
+              "suite": "remediation_phase02",
+              "case": "test_rt025_transient_error_retries_then_succeeds",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -635,15 +657,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "e2e",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t005_dod_04_unverified_api",
-              "level": "e2e",
-              "future_rt": [
-                "RT-024"
-              ]
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_technical_failure_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -658,15 +679,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t005_dod_05_exception_malformed_empty_timeout",
+              "suite": "remediation_phase02",
+              "case": "test_rt025_timeout_maps_unverified",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_empty_claims_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_missing_fields_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -688,15 +720,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t006_dod_01_backend",
+              "suite": "remediation_phase02",
+              "case": "test_rt024_initial_state_not_run",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_not_run_finalizes_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -711,15 +748,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "e2e",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t006_dod_02_frontend",
-              "level": "e2e",
-              "future_rt": [
-                "RT-024"
-              ]
+              "suite": "remediation_phase02",
+              "case": "test_rt029_four_states_config_present",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_unverified_banner_present",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -734,15 +776,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t006_dod_03_supported",
+              "suite": "remediation_phase02",
+              "case": "test_rt024_initial_state_not_run",
               "level": "integration",
-              "future_rt": [
-                "RT-024"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_late_failure_invalidates_passed",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -757,15 +804,32 @@
             "kind": "checklist_bullet"
           },
           "required_level": "e2e",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t006_dod_04_behavior",
-              "level": "e2e",
-              "future_rt": [
-                "RT-024"
-              ]
+              "suite": "remediation_phase02",
+              "case": "test_rt027_done_only_verified_content",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_partial_state_renders",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_unsupported_state_renders",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_technical_failure_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -1496,15 +1560,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t046_dod_01_exact_substring_direct_support",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_numeric_mismatch_becomes_contradicts",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -1519,15 +1582,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t046_dod_02_major_factual_claim_direct_support",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_pipeline_applies_relation_checks",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_background_never_supports",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -1984,15 +2052,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t048_dod_01_behavior",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_vendor_role_caps_attribution",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -2007,15 +2074,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t048_dod_02_evidence_role",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_entailment_verified_keeps_support",
               "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -5940,15 +6006,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t029_dod_01_behavior",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_value_match_detected",
               "level": "integration",
-              "future_rt": [
-                "RT-022"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_transform_rule_version_pinned",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -5963,15 +6034,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t029_dod_02_gb_s_vs_gb_s",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_unit_family_bits_vs_bytes",
               "level": "integration",
-              "future_rt": [
-                "RT-022"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -5986,15 +6056,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t029_dod_03_per_device_vs_system_total",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_scope_per_device_vs_aggregate",
               "level": "integration",
-              "future_rt": [
-                "RT-022"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6009,15 +6078,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t029_dod_04_numeric_claim_deterministic_verify",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_pipeline_runs_numeric_checks",
               "level": "integration",
-              "future_rt": [
-                "RT-022"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_value_mismatch_detected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6032,15 +6106,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t029_dod_05_comparison",
+              "suite": "remediation_phase02",
+              "case": "test_rt022_value_mismatch_detected",
               "level": "integration",
-              "future_rt": [
-                "RT-022"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_unit_family_bits_vs_bytes",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_scope_per_device_vs_aggregate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -6613,15 +6698,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_01_reference_snippet_claim_aware_query",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_spans_match_immutable_text",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_citations_expose_supports_claim_ids",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6636,15 +6726,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_02_multi_span",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_multi_span_concatenates_exact",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6659,15 +6748,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_03_exact_offsets",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_span_offsets_code_point_exact",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_nfkc_variant_maps_exact_raw_range",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6682,15 +6776,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_04_highlight_claim",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_spans_match_immutable_text",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_citations_expose_supports_claim_ids",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6705,15 +6804,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_05_invalid_span",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_invalid_citation_not_rendered_as_normal_evidence",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_drops_invalid_citations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema2_invalid_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6728,15 +6838,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t032_dod_06_query_based_excerpt_retrieval_debug",
+              "suite": "remediation_phase02",
+              "case": "test_rt020_summary_only_record_invalid",
               "level": "integration",
-              "future_rt": [
-                "RT-020"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_unlocatable_span_invalidates_citation",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_drops_invalid_citations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -6758,15 +6879,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t052_dod_01_generator",
+              "suite": "remediation_phase02",
+              "case": "test_rt024_illegal_transition_raises",
               "level": "integration",
-              "future_rt": [
-                "RT-023"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_transition_log_recorded",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6781,15 +6907,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t052_dod_02_critical_unsupported_claim_supported",
+              "suite": "remediation_phase02",
+              "case": "test_rt024_all_core_unsupported_unsupported",
               "level": "integration",
-              "future_rt": [
-                "RT-023"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_core_claim_never_deleted",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6804,15 +6935,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t052_dod_03_noncritical_failure_policy_partially_supported",
+              "suite": "remediation_phase02",
+              "case": "test_rt027_partial_keeps_answer_with_marker",
               "level": "integration",
-              "future_rt": [
-                "RT-023"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_partial_state_renders",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6827,15 +6963,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t052_dod_04_verifier_unverified_factual_draft",
+              "suite": "remediation_phase02",
+              "case": "test_rt025_pipeline_technical_failure_unverified",
               "level": "integration",
-              "future_rt": [
-                "RT-023"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_technical_failure_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_unverified_renders_supported_only",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6850,15 +6997,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "e2e",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t052_dod_05_repair_loop_max_attempts_trace",
-              "level": "e2e",
-              "future_rt": [
-                "RT-023"
-              ]
+              "suite": "remediation_phase02",
+              "case": "test_rt026_max_cycles_is_two",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_every_transition_traced",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_partial_state_renders",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         }
@@ -6880,15 +7038,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t033_dod_01_behavior",
+              "suite": "remediation_phase02",
+              "case": "test_rt028_support_relations_in_done",
               "level": "integration",
-              "future_rt": [
-                "RT-028"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_support_rendered_distinct",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6949,15 +7112,14 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t033_dod_04_source_label",
+              "suite": "remediation_phase02",
+              "case": "test_rt021_vendor_role_caps_attribution",
               "level": "integration",
-              "future_rt": [
-                "RT-028"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -6972,15 +7134,26 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite).",
+          "test_cases": [
             {
-              "case": "test_t033_dod_05_partial_unsupported_unverified_ui",
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema2_invalid_dropped",
               "level": "integration",
-              "future_rt": [
-                "RT-028"
-              ]
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_unverified_banner_present",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_e2e_partial_state_renders",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
         },
@@ -13690,6 +13863,687 @@
               "case": "test_rt018_incomplete_unreferenced_build_removed",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-020",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-020.DOD-01",
+          "description": "final grounding is EXACT or INVALID",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_exact_verbatim_span_located",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_fuzzy_located_ends_exact_raw_locator",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_unlocatable_span_invalidates_citation",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-020.DOD-02",
+          "description": "invalid citation cannot enter final response",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_drops_invalid_citations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_invalid_citation_not_rendered_as_normal_evidence",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema2_invalid_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-020.DOD-03",
+          "description": "multiple non-contiguous spans supported with exact offsets",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_multi_span_concatenates_exact",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_span_offsets_code_point_exact",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_nfkc_variant_maps_exact_raw_range",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-021",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-021.DOD-01",
+          "description": "BACKGROUND/CONTRADICTS never counted as support",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_background_never_supports",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_ungrounded_citation_cannot_support",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-021.DOD-02",
+          "description": "vendor statement supports attribution, not unqualified truth",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_vendor_role_caps_attribution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-021.DOD-03",
+          "description": "relation failure cannot silently support claim",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_numeric_mismatch_becomes_contradicts",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt021_pipeline_applies_relation_checks",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-022",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-022.DOD-01",
+          "description": "Gb/s vs GB/s mismatch caught",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_unit_family_bits_vs_bytes",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-022.DOD-02",
+          "description": "per-device vs aggregate mismatch caught",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_scope_per_device_vs_aggregate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-022.DOD-03",
+          "description": "converted value retains exact source provenance",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_facts_carry_evidence_ref",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_transform_rule_version_pinned",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-023",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-023.DOD-01",
+          "description": "unmapped factual sentence blocks SUPPORTED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_unmapped_factual_blocks_supported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_pipeline_records_coverage_failure",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-023.DOD-02",
+          "description": "hedged unsupported claims cannot escape checks",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_hedged_sentence_claim_bearing",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_attribution_sentence_claim_bearing",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-023.DOD-03",
+          "description": "claim coverage metric reported in trace",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_coverage_metric_reported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_full_coverage_passes",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt023_meta_sentence_exempt",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-024",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-024.DOD-01",
+          "description": "direct SUPPORTED assignments outside approved state module are absent",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_initial_state_not_run",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_server_wires_phase02_pipeline",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-024.DOD-02",
+          "description": "critical missing/unsupported/conflict cannot yield SUPPORTED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_all_core_unsupported_unsupported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_conflict_blocks_supported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_coverage_fail_blocks_supported",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-024.DOD-03",
+          "description": "no-evidence deterministic abstention is UNSUPPORTED without verifier",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_no_evidence_unsupported_without_verifier",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-024.DOD-04",
+          "description": "technical inability to validate presented claims yields UNVERIFIED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_verifier_unverified_is_technical_failure",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt024_not_run_finalizes_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-025",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-025.DOD-01",
+          "description": "no technical failure can become PASSED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_timeout_maps_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_malformed_json_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_http_5xx_maps_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_invalid_verdict_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_transient_error_retries_then_succeeds",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-025.DOD-02",
+          "description": "verifier input restricted; never sees generator hidden reasoning/unselected text",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_restricted_input_only",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-025.DOD-03",
+          "description": "verifier output is structured findings only",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_no_rewritten_answer_field",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_semantic_findings_failed_with_findings",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-026",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-026.DOD-01",
+          "description": "core unsupported claim cannot be deleted then declared complete",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_core_claim_never_deleted",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-026.DOD-02",
+          "description": "repair exhaustion has deterministic terminal state",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_deterministic_exhaustion_terminal",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_max_cycles_is_two",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-026.DOD-03",
+          "description": "every repair transition is traced; loop never upgrades support itself",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_every_transition_traced",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_repair_never_upgrades_to_supported_itself",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-027",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-027.DOD-01",
+          "description": "user never receives an unverified full factual draft in normal new profile",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_no_tokens_before_first_citations_event",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_no_citations_before_verification",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_legacy_path_preserved_behind_flag",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-027.DOD-02",
+          "description": "final wording matches terminal status",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_supported_answer_unchanged",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_partial_keeps_answer_with_marker",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_unsupported_renders_boundary",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_unverified_renders_supported_only",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-027.DOD-03",
+          "description": "time-to-first-status/time-to-final-answer measured",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt027_sse_timing_stage_traced",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-028",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-028.DOD-01",
+          "description": "final response contains zero invalid citations",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pipeline_drops_invalid_citations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema2_invalid_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-028.DOD-02",
+          "description": "old required fields remain compatible",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt028_legacy_fields_preserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-028.DOD-03",
+          "description": "new schema version documented (ids, locators, relations, degraded, diagnostics)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt028_citation_schema_version_emitted",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt028_locators_in_done_payload",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt028_support_relations_in_done",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt028_diagnostics_manifest_profile",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-029",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-029.DOD-01",
+          "description": "invalid citation object cannot render even from stale client state",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema_invalidation_strips_stale_snippet",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_schema2_invalid_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-029.DOD-02",
+          "description": "source roles categorical and non-misleading",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_support_rendered_distinct",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_contradicts_rendered_distinct",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt029_background_rendered_distinct",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-029.DOD-03",
+          "description": "mobile/desktop visual regression coverage",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Phase 02 ships no visual-regression harness; no completion credit.",
+          "planned_test_cases": [
+            {
+              "case": "test_rt_029_dod_03_visual_regression",
+              "level": "e2e",
+              "future_rt": [
+                "RT-029"
+              ]
             }
           ]
         }

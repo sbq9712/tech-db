@@ -96,14 +96,52 @@ def t_acceptance_dod_traceability_and_honesty():
                for error in validate_matrix(omitted, manifest, registry))
     assert not any(".CORE-" in dod["dod_id"] for entry in by_id.values()
                    for dod in entry["dods"])
+    # Phase-02 upgrade set: legacy frozen DoDs whose remediation owner
+    # (RT-020..RT-029, per docs/remediation/execution_tickets.md "Maps to")
+    # delivered directly corresponding behavioral evidence. Originally this
+    # check asserted no legacy DoD had earned credit (the Phase-00 gap
+    # snapshot). The frozen spec's remediation flow explicitly maps these
+    # DoDs to Phase-02 owners, so credit with named executable evidence is
+    # the spec-mandated end state; everything else stays NOT_SATISFIED and
+    # T037 stays hard-gated (never creditable from the simulated flow).
+    PHASE02_UPGRADED = {
+        "T032.DOD-01", "T032.DOD-02", "T032.DOD-03", "T032.DOD-04",
+        "T032.DOD-05", "T032.DOD-06",
+        "T004.DOD-01", "T004.DOD-02", "T004.DOD-03", "T004.DOD-04",
+        "T005.DOD-01", "T005.DOD-02", "T005.DOD-03", "T005.DOD-04",
+        "T005.DOD-05",
+        "T006.DOD-01", "T006.DOD-02", "T006.DOD-03", "T006.DOD-04",
+        "T029.DOD-01", "T029.DOD-02", "T029.DOD-03", "T029.DOD-04",
+        "T029.DOD-05",
+        "T033.DOD-01", "T033.DOD-04", "T033.DOD-05",
+        "T046.DOD-01", "T046.DOD-02",
+        "T048.DOD-01", "T048.DOD-02",
+        "T052.DOD-01", "T052.DOD-02", "T052.DOD-03", "T052.DOD-04",
+        "T052.DOD-05",
+    }
+    suite_src = (ROOT / "qa-backend" / "tests_remediation_phase02.py").read_text("utf-8")
+    upgraded_seen = set()
     for entry in by_id.values():
         for dod in entry["dods"]:
             assert dod["description"]
             assert dod["source"]["sha256"] == matrix["frozen_legacy_source"]["sha256"]
-            assert dod["status"] == "NOT_SATISFIED"
-            assert dod["planned_test_cases"][0]["case"].startswith("test_")
-            if dod["required_level"] == "benchmark":
-                assert dod["planned_test_cases"][0]["benchmark_owner"]
+            if dod["dod_id"] in PHASE02_UPGRADED:
+                upgraded_seen.add(dod["dod_id"])
+                assert dod["status"] == "SATISFIED", dod["dod_id"]
+                assert dod.get("test_cases"), dod["dod_id"]
+                assert "planned_test_cases" not in dod, dod["dod_id"]
+                for ref in dod["test_cases"]:
+                    assert ref["suite"] == "remediation_phase02"
+                    assert ref["case"].startswith("test_")
+                    # named case must really exist as a test function
+                    assert re.search(rf"^def {re.escape(ref['case'])}\(",
+                                     suite_src, re.MULTILINE), ref["case"]
+            else:
+                assert dod["status"] == "NOT_SATISFIED", dod["dod_id"]
+                assert dod["planned_test_cases"][0]["case"].startswith("test_")
+                if dod["required_level"] == "benchmark":
+                    assert dod["planned_test_cases"][0]["benchmark_owner"]
+    assert upgraded_seen == PHASE02_UPGRADED, sorted(PHASE02_UPGRADED - upgraded_seen)
     t037 = next(e for e in matrix["legacy_ticket_entries"] if e["ticket_id"] == "T037")
     assert all(d["status"] == "NOT_SATISFIED" for d in t037["dods"])
     assert "simulated" in t037["dods"][0]["evidence_note"]

@@ -50,6 +50,9 @@ class Flags:
         "CLAIM_MAPPING_ENABLED": "QA_CLAIM_MAPPING_ENABLED",
         "ANSWER_STATUS_ENABLED": "QA_ANSWER_STATUS_ENABLED",
         "KNOWLEDGE_BOUNDARY_ENABLED": "QA_KNOWLEDGE_BOUNDARY_ENABLED",
+        # Phase 02 (RT-020/RT-027): exact grounding + verified terminal SSE
+        "EXACT_GROUNDING_ENABLED": "QA_EXACT_GROUNDING_ENABLED",
+        "TERMINAL_RENDERER_ENABLED": "QA_TERMINAL_RENDERER_ENABLED",
     }
 
     # Master switch for agentic features
@@ -88,6 +91,15 @@ class Flags:
     # TK-06 (R9): knowledge boundary / calibrated abstention — non-LLM
     KNOWLEDGE_BOUNDARY_ENABLED = _env_bool("QA_KNOWLEDGE_BOUNDARY_ENABLED", default=True)
 
+    # Phase 02 — exact grounding on immutable SourceSnapshot (RT-020).
+    # Invalid citations cannot enter the final response; synthetic summaries
+    # are never evidence.
+    EXACT_GROUNDING_ENABLED = _env_bool("QA_EXACT_GROUNDING_ENABLED", default=True)
+    # Phase 02 — terminal renderer + post-verification SSE (RT-027): factual
+    # draft is buffered until the answer state machine finalizes; finalized
+    # content is streamed only after verification. Off in legacy_hybrid.
+    TERMINAL_RENDERER_ENABLED = _env_bool("QA_TERMINAL_RENDERER_ENABLED", default=True)
+
     @classmethod
     def status(cls) -> dict:
         """Return all flag states as a dict (for health endpoint)."""
@@ -113,6 +125,8 @@ class Flags:
             "claim_mapping": cls.CLAIM_MAPPING_ENABLED,
             "answer_status": cls.ANSWER_STATUS_ENABLED,
             "knowledge_boundary": cls.KNOWLEDGE_BOUNDARY_ENABLED,
+            "exact_grounding": cls.EXACT_GROUNDING_ENABLED,
+            "terminal_renderer": cls.TERMINAL_RENDERER_ENABLED,
         }
 
 
@@ -134,7 +148,8 @@ PIPELINE_PROFILES = {
                    "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
                    "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
                    "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
-                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED")},
     },
     "agentic_correctness_core": {
         "description": "Correctness-critical modules only "
@@ -152,6 +167,7 @@ PIPELINE_PROFILES = {
             "CONTENT_SAFETY_ENABLED": True, "CITATION_GROUNDING_ENABLED": True,
             "CLAIM_MAPPING_ENABLED": True, "ANSWER_STATUS_ENABLED": True,
             "KNOWLEDGE_BOUNDARY_ENABLED": True,
+            "EXACT_GROUNDING_ENABLED": True, "TERMINAL_RENDERER_ENABLED": True,
         },
     },
     "agentic_full": {
@@ -167,7 +183,8 @@ PIPELINE_PROFILES = {
                    "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
                    "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
                    "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
-                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED")},
     },
 }
 

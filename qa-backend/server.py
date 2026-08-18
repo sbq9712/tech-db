@@ -60,6 +60,7 @@ from feature_flags import Flags
 from citation_grounding import ground_citation_evidence, get_original_text
 from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
+from phase02_pipeline import run_phase02_verification, CITATION_SCHEMA_VERSION
 from budget_guard import BudgetExceededError, QueryBudget
 from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
 from degraded_mode import build_user_warning, looks_like_api_failure
@@ -953,6 +954,20 @@ class ChatRequest(BaseModel):
     history: list = []
 
 
+# ── Phase 02 (RT-020): persistent SourceSnapshot store ──────────────────────
+# Lazy singleton — snapshots are content-addressed and reused across requests
+# (RT-012 stability), written under WORKING_DIR like the other runtime data.
+_SOURCE_SNAPSHOT_STORE = None
+
+
+def _get_source_snapshot_store():
+    global _SOURCE_SNAPSHOT_STORE
+    if _SOURCE_SNAPSHOT_STORE is None:
+        from source_snapshot import SourceSnapshotStore
+        _SOURCE_SNAPSHOT_STORE = SourceSnapshotStore(WORKING_DIR / "source_snapshots")
+    return _SOURCE_SNAPSHOT_STORE
+
+
 # ── Lifespan ──
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -1394,8 +1409,10 @@ async def chat_stream(req: ChatRequest, request: Request):
             except Exception as e:
                 print(f"[epistemic-classify] {e}", flush=True)
 
-            # Yield citations
-            if citations:
+            # Yield citations — LEGACY PATH ONLY (RT-027: the Phase-02 path
+            # buffers citations until exact grounding + verification finalize,
+            # then emits only the verified ones)
+            if citations and not Flags.TERMINAL_RENDERER_ENABLED:
                 yield {"event": "citations", "data": json.dumps({"citations": citations})}
 
             # Step 2: Analysis
@@ -1480,7 +1497,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                 ):
                     if chunk:
                         full_answer += chunk
-                        yield {"event": "token", "data": json.dumps({"text": chunk})}
+                        if not Flags.TERMINAL_RENDERER_ENABLED:
+                            yield {"event": "token", "data": json.dumps({"text": chunk})}
             except Exception as e:
                 # Fallback: non-streaming
                 print(f"[stream-fallback] {e}", flush=True)
@@ -1493,7 +1511,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                     if answer:
                         full_answer = answer
                         for i in range(0, len(answer), 3):
-                            yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
+                            if not Flags.TERMINAL_RENDERER_ENABLED:
+                                yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
                             await asyncio.sleep(0.015)
                 except Exception as e2:
                     yield {"event": "error", "data": json.dumps({
@@ -1501,294 +1520,386 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })}
                     return
 
-            # Parse [N] citations from the generated answer
-            cited_record_ids = _parse_citations_from_answer(full_answer, citations)
-
-            # TK-08: post-processing budget — counted separately from the
-            # loop-control class; these calls NEVER degrade the agentic path
-            # and also run on the legacy path (spec Q4/R3).
-            _pp_budget = QueryBudget()
-
-            # ── T005: Fail-Safe Verification ──
-            # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
-            # Correctness-critical: BudgetFuse cannot silently skip this.
-            verification_status = "PASSED"
-            verification_issues = []
-            verification_error = ""  # TK-10: last failure cause, for the user warning
-            if claim_metadata and full_answer.strip():
+            # ══════════════════════════════════════════════════════════════
+            # Phase 02 — RT-020..028 verification pipeline (terminal renderer)
+            # ══════════════════════════════════════════════════════════════
+            # Draft was buffered (no factual tokens streamed yet). The full
+            # pipeline — claim mapping → coverage gate → exact grounding →
+            # relation checks → numeric checks → bounded repair → fail-safe
+            # verifier → AnswerStateMachine → terminal renderer — runs in
+            # phase02_pipeline.run_phase02_verification, then and only then
+            # is verified content streamed.
+            if Flags.TERMINAL_RENDERER_ENABLED:
+                yield {"event": "status", "data": json.dumps({
+                    "step": "verifying",
+                    "message": "回答已生成，正在核验引用证据与声明支持..."
+                })}
+                _p02_t0 = _time.perf_counter()
                 try:
-                    # Use budget_guard to ensure correctness-critical handling
-                    budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    decision, should_call, status_override = check_budget("verifier", budget_ok)
-
-                    if should_call:
-                        print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                        _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
-                        vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
-                        verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
-                        if verification_status == VERIFY_UNVERIFIED:
-                            verification_error = vr.failure_reason or "verification returned UNVERIFIED"
-                        trace.add_stage("verification", {
-                            "status": vr.status,
-                            "issues": vr.issues[:5],
-                            "failure_reason": vr.failure_reason,
-                        })
-                        print(f"[verify] Result: {vr.status}", flush=True)
-                        if vr.status == VERIFY_FAILED:
-                            verification_issues = vr.issues
-                            rewritten = vr.rewritten_answer.strip()
-                            if rewritten and len(rewritten) > 20:
-                                full_answer = rewritten
-                                cited_record_ids = _parse_citations_from_answer(full_answer, citations)
-                                yield {"event": "replace", "data": json.dumps({
-                                    "answer": full_answer,
-                                    "verified": True
-                                })}
-                    elif status_override:
-                        # Budget exhausted for correctness-critical verification
-                        # MUST NOT silently pass. Mark as UNVERIFIED.
-                        verification_status = status_override  # "UNVERIFIED"
-                        verification_error = "verification skipped due to budget"
-                        print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
-                        trace.add_stage("verification", {
-                            "status": "SKIPPED_BUDGET",
-                            "note": f"Verification skipped due to budget; answer marked {verification_status}",
-                            "budget_guard": decision.value,
-                        })
-                except Exception as e:
-                    # Any exception → UNVERIFIED, never PASS
-                    verification_status = VERIFY_UNVERIFIED
-                    verification_error = str(e)
-                    print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
-                    trace.add_stage("verification", {
-                        "status": "EXCEPTION",
-                        "error": str(e),
-                        "api_failure": looks_like_api_failure(str(e)),  # TK-10
-                    })
-
-            # ── T004: Claim Mapping ──
-            claim_map = {"claims": []}
-            if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
+                    from feature_flags import active_profile
+                    _p02_profile = active_profile() or ""
+                except Exception:
+                    _p02_profile = ""
+                _p02_snap = _request_runtime_snapshot.get()
+                _p02_store = None
                 try:
-                    claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    if claim_budget_ok:
-                        _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
-                        claim_map = await map_claims_to_citations(query, full_answer, citations)
-                        # T048: attach span-level source lineage so independence
-                        # is counted per claim/span (quotes of a primary source
-                        # never count as independent verification). Deterministic,
-                        # no LLM; failures degrade to lineage-less claims.
-                        # evidence_role uses the SAME canonical classifier as
-                        # T007's offline enrichment (scripts/enrich_evidence_
-                        # metadata.py), re-derived online for cited records.
-                        try:
-                            import sys as _sys, os as _os
-                            _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
-                            _scripts = _os.path.join(_root, "scripts")
-                            for _p in (_scripts,):
-                                if _p not in _sys.path:
-                                    _sys.path.insert(0, _p)
-                            from enrich_evidence_metadata import infer_evidence_role
-                            from claim_mapping import attach_span_lineage, claim_independence
-                            _prov_map = {}
-                            for c in citations:
-                                rid = c.get("record_id")
-                                if rid is not None and 0 <= rid < len(_records):
-                                    _rec = _records[rid]
-                                    _prov_map[rid] = {
-                                        "evidence_role": infer_evidence_role(_rec),
-                                        "independent_group_id": f"record:{rid}",
-                                    }
-                            attach_span_lineage(claim_map, citations,
-                                                provenance_map=_prov_map)
-                            _indep = claim_independence(claim_map, _prov_map)
-                            trace.add_stage("claim_independence", {
-                                "claims_total": _indep["claims_total"],
-                                "claims_with_independent_support":
-                                    _indep["claims_with_independent_support"],
-                            })
-                        except Exception as e:
-                            print(f"[claim_lineage] Error: {e}", flush=True)
-                        trace.add_stage("claim_mapping", {
-                            "total_claims": len(claim_map.get("claims", [])),
-                            "unsupported_major": len(get_unsupported_major_claims(claim_map)),
-                        })
-                except Exception as e:
-                    print(f"[claim_mapping] Error: {e}", flush=True)
-            # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
-            # supported_by map (citation_id → [claim ids]). Filled whenever
-            # claim_mapping ran (agentic); stays [] otherwise and the UI hides
-            # the mapping section.
-            if claim_map.get("claims"):
-                _by_cit = {}
-                for cl in claim_map["claims"]:
-                    for sup in (cl.get("supported_by") or []):
-                        # Codex-review B2 P2 fix: only genuinely SUPPORTIVE
-                        # relations belong in supports_claim_ids — including
-                        # CONTRADICTS/BACKGROUND made contradictions render
-                        # as claim support in the evidence card. Keep
-                        # BACKGROUND-context relations out of the card too:
-                        # the card's contract is "this citation supports this
-                        # claim" (TK-12), not "merely related".
-                        if sup.get("relation") not in ("DIRECT_SUPPORT",
-                                                       "PREMISE_SUPPORT",
-                                                       "ATTRIBUTION"):
-                            continue
-                        cid = sup.get("citation_id")
-                        if cid is not None:
-                            _by_cit.setdefault(cid, []).append(cl.get("id"))
-                for c in citations:
-                    c["supports_claim_ids"] = _by_cit.get(c.get("id"), [])
-
-            # ── T003: Citation Evidence Grounding ──
-            # Ground each citation to exact original text span
-            if Flags.CITATION_GROUNDING_ENABLED and citations:
-                for c in citations:
-                    try:
-                        rid = c.get("record_id", -1)
-                        if rid >= 0 and rid < len(_records):
-                            rec = _records[rid]
-                            grounding = ground_citation_evidence(
-                                rec,
-                                proposed_span=c.get("excerpt") or c.get("body_snippet", ""),
-                                claim_text="",
-                                query=query,
-                            )
-                            if grounding["grounding_status"] != "GROUNDING_FAIL":
-                                c["evidence_span"] = grounding["evidence_span"]
-                                c["evidence_start"] = grounding["start_offset"]
-                                c["evidence_end"] = grounding["end_offset"]
-                                c["grounding_status"] = grounding["grounding_status"]
-                                # TK-12: list-form spans + highlight (str, spec Q12)
-                                c["evidence_spans"] = [{
-                                    "text": grounding["evidence_span"],
-                                    "start": grounding["start_offset"],
-                                    "end": grounding["end_offset"],
-                                }]
-                                c["highlight"] = grounding["evidence_span"]
-                                # TK-12: refine source_label when the grounded
-                                # span actually came from the AI summary field
-                                if grounding.get("source_field") == "as":
-                                    c["source_label"] = "AI_SUMMARY"
-                            else:
-                                c["evidence_span"] = c.get("excerpt") or c.get("body_snippet", "")
-                                c["grounding_status"] = "GROUNDING_FAIL"
-                                c["evidence_spans"] = []
-                    except Exception:
-                        pass
-                trace.add_stage("citation_grounding", {
-                    "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
-                    "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
-                })
-            trace.add_stage("post_budget", _pp_budget.snapshot())
-
-            # ── T006: Four-State Answer Status ──
-            answer_status_str = "SUPPORTED"
-            stop_reason = "evidence_sufficient"
-            if Flags.ANSWER_STATUS_ENABLED:
-                status_enum, stop_reason = determine_answer_status(
-                    has_results=bool(search_results),
-                    is_relevant=is_relevant,
-                    verification_status=verification_status,
-                    claim_mapping=claim_map,
+                    _p02_store = _get_source_snapshot_store()
+                except Exception:
+                    _p02_store = None
+                p02 = await run_phase02_verification(
+                    query=query,
+                    draft_answer=full_answer,
+                    citations=citations,
+                    records=_records,
+                    trace=trace,
+                    budget_reserve=lambda: BUDGET_FUSE.reserve(bypass=bypass),
+                    active_profile=_p02_profile,
+                    runtime_manifest_id=_p02_snap.manifest_id if _p02_snap else "",
+                    source_snapshot_store=_p02_store,
                 )
-                answer_status_str = status_enum.value
+                final_answer = p02["answer"]
 
-            # ── TK-06 (R9): Knowledge boundary / calibrated abstention ──
-            # Non-LLM: for UNSUPPORTED/PARTIALLY_SUPPORTED answers, attach a
-            # calibrated boundary message ("当前数据库缺少…" ≠ "现实中不存在")
-            # so the user understands the boundary is the DB's, not reality's.
-            boundary_message = ""
-            if Flags.KNOWLEDGE_BOUNDARY_ENABLED and answer_status_str in (
-                    "UNSUPPORTED", "PARTIALLY_SUPPORTED"):
-                try:
-                    from knowledge_boundary import (
-                        assess_coverage, format_boundary_message, AnswerStatus as KBStatus,
-                    )
-                    grounded = sum(1 for c in citations
-                                   if c.get("grounding_status") in ("VALID", "FUZZY"))
-                    independent = len({c.get("source", "") for c in citations})
-                    claim_rows = claim_map.get("claims", [])[:5]
-                    # codex-review C3 P2 fix: claim schema is
-                    # {id, text, support_status} (claim_mapping.py) — the old
-                    # reads of .status/.claim were always-missing keys, so
-                    # requirements defaulted to all-MISSING and aspect lists
-                    # were always empty. Also map the claim vocabulary
-                    # (SUPPORTED/PARTIALLY_SUPPORTED/UNSUPPORTED) onto
-                    # assess_coverage's requirement vocabulary
-                    # (SUPPORTED/PARTIAL/MISSING).
-                    _req_status = {"SUPPORTED": "SUPPORTED",
-                                   "PARTIALLY_SUPPORTED": "PARTIAL",
-                                   "UNSUPPORTED": "MISSING"}
-                    requirements = [{"status": _req_status.get(
-                                        c.get("support_status", "UNSUPPORTED"), "MISSING"),
-                                     "text": c.get("text", "")}
-                                    for c in claim_rows] or \
-                                   [{"status": "MISSING", "text": query}]
-                    coverage = assess_coverage(
-                        requirements=requirements,
-                        evidence_count=grounded,
-                        independent_groups=independent,
-                    )
-                    kb_status = (KBStatus.UNSUPPORTED if answer_status_str == "UNSUPPORTED"
-                                 else KBStatus.PARTIALLY_SUPPORTED)
-                    supported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
-                                         if c.get("support_status") == "SUPPORTED"][:5]
-                    unsupported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
-                                           if c.get("support_status") != "SUPPORTED"][:5]
-                    boundary_message = format_boundary_message(
-                        answer_status=kb_status,
-                        supported_aspects=supported_aspects,
-                        unsupported_aspects=unsupported_aspects or [query],
-                        coverage_level=coverage,
-                    )
-                    trace.add_stage("knowledge_boundary", {
-                        "coverage_level": coverage,
-                        "independent_sources": independent,
-                        "grounded_citations": grounded,
+                # Verified citations only (RT-020/027): INVALID-grounded
+                # citations were dropped inside the pipeline and never
+                # reach the client.
+                if p02["citations"]:
+                    yield {"event": "citations", "data": json.dumps({
+                        "citations": p02["citations"],
+                        "citation_schema_version": CITATION_SCHEMA_VERSION,
+                    })}
+
+                # Stream the FINAL rendered answer — terminal content only,
+                # already filtered by the state machine + renderer.
+                _p02_ttfs = _time.perf_counter()
+                for i in range(0, max(len(final_answer), 1), 3):
+                    chunk = final_answer[i:i + 3]
+                    if chunk:
+                        yield {"event": "token", "data": json.dumps({"text": chunk})}
+                        await asyncio.sleep(0.015)
+                _p02_ttfa = _time.perf_counter()
+                trace.add_stage("sse_timing", {
+                    "buffered_generation": True,
+                    "ttfs_ms": round((_p02_ttfs - _p02_t0) * 1000, 1),
+                    "ttfa_ms": round((_p02_ttfa - _p02_t0) * 1000, 1),
+                    "verify_pipeline_ms": p02["diagnostics"]["pipeline_ms"],
+                    "renderer": "terminal_v2",
+                })
+                trace.set_result(
+                    answer=final_answer[:500],
+                    answer_status=p02["answer_status"],
+                    stop_reason=p02["stop_reason"],
+                    citations=p02["citations"],
+                    cited_record_ids=p02["cited_record_ids"],
+                    verification_status=p02["verification_status"],
+                )
+                yield {"event": "done", "data": json.dumps({
+                    "answer": final_answer,
+                    "citations": p02["citations"],
+                    "citation_schema_version": CITATION_SCHEMA_VERSION,
+                    "claims": p02["claims_payload"],
+                    "cited_record_ids": p02["cited_record_ids"],
+                    "searched_record_ids": searched_record_ids,
+                    "answer_status": p02["answer_status"],
+                    "stop_reason": p02["stop_reason"],
+                    "verification_status": p02["verification_status"],
+                    "boundary_message": p02["boundary_message"],
+                    "user_warning": p02["user_warning"],
+                    "evidence_summary": p02["evidence_summary"],
+                    "support_relations": {
+                        str(c.get("id")): c.get("supports_claim_ids", [])
+                        for c in p02["citations"]},
+                    "degraded_capabilities": p02["degraded_capabilities"],
+                    "diagnostics": p02["diagnostics"],
+                    "trace_id": trace.trace_id,
+                })}
+                trace.flush()
+            else:
+                # Parse [N] citations from the generated answer
+                cited_record_ids = _parse_citations_from_answer(full_answer, citations)
+
+                # TK-08: post-processing budget — counted separately from the
+                # loop-control class; these calls NEVER degrade the agentic path
+                # and also run on the legacy path (spec Q4/R3).
+                _pp_budget = QueryBudget()
+
+                # ── T005: Fail-Safe Verification ──
+                # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
+                # Correctness-critical: BudgetFuse cannot silently skip this.
+                verification_status = "PASSED"
+                verification_issues = []
+                verification_error = ""  # TK-10: last failure cause, for the user warning
+                if claim_metadata and full_answer.strip():
+                    try:
+                        # Use budget_guard to ensure correctness-critical handling
+                        budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                        decision, should_call, status_override = check_budget("verifier", budget_ok)
+
+                        if should_call:
+                            print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
+                            _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
+                            vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
+                            verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
+                            if verification_status == VERIFY_UNVERIFIED:
+                                verification_error = vr.failure_reason or "verification returned UNVERIFIED"
+                            trace.add_stage("verification", {
+                                "status": vr.status,
+                                "issues": vr.issues[:5],
+                                "failure_reason": vr.failure_reason,
+                            })
+                            print(f"[verify] Result: {vr.status}", flush=True)
+                            if vr.status == VERIFY_FAILED:
+                                # Phase 02 (RT-025, final spec §26): the verifier
+                                # returns structured findings ONLY — it never
+                                # authors/rewrites the final answer. The legacy
+                                # "replace" event is retired; answer surgery is
+                                # owned by the RT-026 bounded repair loop on the
+                                # Phase-02 path.
+                                verification_issues = vr.issues
+                        elif status_override:
+                            # Budget exhausted for correctness-critical verification
+                            # MUST NOT silently pass. Mark as UNVERIFIED.
+                            verification_status = status_override  # "UNVERIFIED"
+                            verification_error = "verification skipped due to budget"
+                            print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
+                            trace.add_stage("verification", {
+                                "status": "SKIPPED_BUDGET",
+                                "note": f"Verification skipped due to budget; answer marked {verification_status}",
+                                "budget_guard": decision.value,
+                            })
+                    except Exception as e:
+                        # Any exception → UNVERIFIED, never PASS
+                        verification_status = VERIFY_UNVERIFIED
+                        verification_error = str(e)
+                        print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
+                        trace.add_stage("verification", {
+                            "status": "EXCEPTION",
+                            "error": str(e),
+                            "api_failure": looks_like_api_failure(str(e)),  # TK-10
+                        })
+
+                # ── T004: Claim Mapping ──
+                claim_map = {"claims": []}
+                if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
+                    try:
+                        claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                        if claim_budget_ok:
+                            _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
+                            claim_map = await map_claims_to_citations(query, full_answer, citations)
+                            # T048: attach span-level source lineage so independence
+                            # is counted per claim/span (quotes of a primary source
+                            # never count as independent verification). Deterministic,
+                            # no LLM; failures degrade to lineage-less claims.
+                            # evidence_role uses the SAME canonical classifier as
+                            # T007's offline enrichment (scripts/enrich_evidence_
+                            # metadata.py), re-derived online for cited records.
+                            try:
+                                import sys as _sys, os as _os
+                                _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+                                _scripts = _os.path.join(_root, "scripts")
+                                for _p in (_scripts,):
+                                    if _p not in _sys.path:
+                                        _sys.path.insert(0, _p)
+                                from enrich_evidence_metadata import infer_evidence_role
+                                from claim_mapping import attach_span_lineage, claim_independence
+                                _prov_map = {}
+                                for c in citations:
+                                    rid = c.get("record_id")
+                                    if rid is not None and 0 <= rid < len(_records):
+                                        _rec = _records[rid]
+                                        _prov_map[rid] = {
+                                            "evidence_role": infer_evidence_role(_rec),
+                                            "independent_group_id": f"record:{rid}",
+                                        }
+                                attach_span_lineage(claim_map, citations,
+                                                    provenance_map=_prov_map)
+                                _indep = claim_independence(claim_map, _prov_map)
+                                trace.add_stage("claim_independence", {
+                                    "claims_total": _indep["claims_total"],
+                                    "claims_with_independent_support":
+                                        _indep["claims_with_independent_support"],
+                                })
+                            except Exception as e:
+                                print(f"[claim_lineage] Error: {e}", flush=True)
+                            trace.add_stage("claim_mapping", {
+                                "total_claims": len(claim_map.get("claims", [])),
+                                "unsupported_major": len(get_unsupported_major_claims(claim_map)),
+                            })
+                    except Exception as e:
+                        print(f"[claim_mapping] Error: {e}", flush=True)
+                # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
+                # supported_by map (citation_id → [claim ids]). Filled whenever
+                # claim_mapping ran (agentic); stays [] otherwise and the UI hides
+                # the mapping section.
+                if claim_map.get("claims"):
+                    _by_cit = {}
+                    for cl in claim_map["claims"]:
+                        for sup in (cl.get("supported_by") or []):
+                            # Codex-review B2 P2 fix: only genuinely SUPPORTIVE
+                            # relations belong in supports_claim_ids — including
+                            # CONTRADICTS/BACKGROUND made contradictions render
+                            # as claim support in the evidence card. Keep
+                            # BACKGROUND-context relations out of the card too:
+                            # the card's contract is "this citation supports this
+                            # claim" (TK-12), not "merely related".
+                            if sup.get("relation") not in ("DIRECT_SUPPORT",
+                                                           "PREMISE_SUPPORT",
+                                                           "ATTRIBUTION"):
+                                continue
+                            cid = sup.get("citation_id")
+                            if cid is not None:
+                                _by_cit.setdefault(cid, []).append(cl.get("id"))
+                    for c in citations:
+                        c["supports_claim_ids"] = _by_cit.get(c.get("id"), [])
+
+                # ── T003: Citation Evidence Grounding ──
+                # Ground each citation to exact original text span
+                if Flags.CITATION_GROUNDING_ENABLED and citations:
+                    for c in citations:
+                        try:
+                            rid = c.get("record_id", -1)
+                            if rid >= 0 and rid < len(_records):
+                                rec = _records[rid]
+                                grounding = ground_citation_evidence(
+                                    rec,
+                                    proposed_span=c.get("excerpt") or c.get("body_snippet", ""),
+                                    claim_text="",
+                                    query=query,
+                                )
+                                if grounding["grounding_status"] != "GROUNDING_FAIL":
+                                    c["evidence_span"] = grounding["evidence_span"]
+                                    c["evidence_start"] = grounding["start_offset"]
+                                    c["evidence_end"] = grounding["end_offset"]
+                                    c["grounding_status"] = grounding["grounding_status"]
+                                    # TK-12: list-form spans + highlight (str, spec Q12)
+                                    c["evidence_spans"] = [{
+                                        "text": grounding["evidence_span"],
+                                        "start": grounding["start_offset"],
+                                        "end": grounding["end_offset"],
+                                    }]
+                                    c["highlight"] = grounding["evidence_span"]
+                                    # TK-12: refine source_label when the grounded
+                                    # span actually came from the AI summary field
+                                    if grounding.get("source_field") == "as":
+                                        c["source_label"] = "AI_SUMMARY"
+                                else:
+                                    c["evidence_span"] = c.get("excerpt") or c.get("body_snippet", "")
+                                    c["grounding_status"] = "GROUNDING_FAIL"
+                                    c["evidence_spans"] = []
+                        except Exception:
+                            pass
+                    trace.add_stage("citation_grounding", {
+                        "grounded": sum(1 for c in citations if c.get("grounding_status") in ("VALID", "FUZZY")),
+                        "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
                     })
-                except Exception as e:
-                    print(f"[knowledge_boundary] Error: {e}", flush=True)
+                trace.add_stage("post_budget", _pp_budget.snapshot())
 
-            # ── TK-10 (Q11): GLM API failure → legacy result UNVERIFIED + user warning ──
-            user_warning = build_user_warning(
-                answer_status=answer_status_str,
-                verification_status=verification_status,
-                verification_error=verification_error,
-            )
+                # ── T006: Four-State Answer Status ──
+                answer_status_str = "SUPPORTED"
+                stop_reason = "evidence_sufficient"
+                if Flags.ANSWER_STATUS_ENABLED:
+                    status_enum, stop_reason = determine_answer_status(
+                        has_results=bool(search_results),
+                        is_relevant=is_relevant,
+                        verification_status=verification_status,
+                        claim_mapping=claim_map,
+                    )
+                    answer_status_str = status_enum.value
 
-            evidence_summary = build_evidence_summary(
-                claim_mapping=claim_map,
-                independent_sources=len(set(c.get("source", "") for c in citations)),
-                iterations=1,
-            )
+                # ── TK-06 (R9): Knowledge boundary / calibrated abstention ──
+                # Non-LLM: for UNSUPPORTED/PARTIALLY_SUPPORTED answers, attach a
+                # calibrated boundary message ("当前数据库缺少…" ≠ "现实中不存在")
+                # so the user understands the boundary is the DB's, not reality's.
+                boundary_message = ""
+                if Flags.KNOWLEDGE_BOUNDARY_ENABLED and answer_status_str in (
+                        "UNSUPPORTED", "PARTIALLY_SUPPORTED"):
+                    try:
+                        from knowledge_boundary import (
+                            assess_coverage, format_boundary_message, AnswerStatus as KBStatus,
+                        )
+                        grounded = sum(1 for c in citations
+                                       if c.get("grounding_status") in ("VALID", "FUZZY"))
+                        independent = len({c.get("source", "") for c in citations})
+                        claim_rows = claim_map.get("claims", [])[:5]
+                        # codex-review C3 P2 fix: claim schema is
+                        # {id, text, support_status} (claim_mapping.py) — the old
+                        # reads of .status/.claim were always-missing keys, so
+                        # requirements defaulted to all-MISSING and aspect lists
+                        # were always empty. Also map the claim vocabulary
+                        # (SUPPORTED/PARTIALLY_SUPPORTED/UNSUPPORTED) onto
+                        # assess_coverage's requirement vocabulary
+                        # (SUPPORTED/PARTIAL/MISSING).
+                        _req_status = {"SUPPORTED": "SUPPORTED",
+                                       "PARTIALLY_SUPPORTED": "PARTIAL",
+                                       "UNSUPPORTED": "MISSING"}
+                        requirements = [{"status": _req_status.get(
+                                            c.get("support_status", "UNSUPPORTED"), "MISSING"),
+                                         "text": c.get("text", "")}
+                                        for c in claim_rows] or \
+                                       [{"status": "MISSING", "text": query}]
+                        coverage = assess_coverage(
+                            requirements=requirements,
+                            evidence_count=grounded,
+                            independent_groups=independent,
+                        )
+                        kb_status = (KBStatus.UNSUPPORTED if answer_status_str == "UNSUPPORTED"
+                                     else KBStatus.PARTIALLY_SUPPORTED)
+                        supported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
+                                             if c.get("support_status") == "SUPPORTED"][:5]
+                        unsupported_aspects = [c.get("text", "") for c in claim_map.get("claims", [])
+                                               if c.get("support_status") != "SUPPORTED"][:5]
+                        boundary_message = format_boundary_message(
+                            answer_status=kb_status,
+                            supported_aspects=supported_aspects,
+                            unsupported_aspects=unsupported_aspects or [query],
+                            coverage_level=coverage,
+                        )
+                        trace.add_stage("knowledge_boundary", {
+                            "coverage_level": coverage,
+                            "independent_sources": independent,
+                            "grounded_citations": grounded,
+                        })
+                    except Exception as e:
+                        print(f"[knowledge_boundary] Error: {e}", flush=True)
 
-            trace.set_result(
-                answer=full_answer[:500],
-                answer_status=answer_status_str,
-                stop_reason=stop_reason,
-                citations=citations,
-                cited_record_ids=cited_record_ids,
-                verification_status=verification_status,
-            )
+                # ── TK-10 (Q11): GLM API failure → legacy result UNVERIFIED + user warning ──
+                user_warning = build_user_warning(
+                    answer_status=answer_status_str,
+                    verification_status=verification_status,
+                    verification_error=verification_error,
+                )
 
-            yield {"event": "done", "data": json.dumps({
-                "answer": full_answer,
-                "citations": citations,
-                "claims": [{"id": c.get("id"), "text": c.get("text", "")[:120],
-                            "status": c.get("support_status", "")}
-                           for c in claim_map.get("claims", [])[:12]],
-                "cited_record_ids": cited_record_ids,
-                "searched_record_ids": searched_record_ids,
-                "answer_status": answer_status_str,
-                "stop_reason": stop_reason,
-                "boundary_message": boundary_message,
-                "user_warning": user_warning,
-                "evidence_summary": evidence_summary,
-                "trace_id": trace.trace_id,
-            })}
+                evidence_summary = build_evidence_summary(
+                    claim_mapping=claim_map,
+                    independent_sources=len(set(c.get("source", "") for c in citations)),
+                    iterations=1,
+                )
 
-            trace.flush()
+                trace.set_result(
+                    answer=full_answer[:500],
+                    answer_status=answer_status_str,
+                    stop_reason=stop_reason,
+                    citations=citations,
+                    cited_record_ids=cited_record_ids,
+                    verification_status=verification_status,
+                )
+
+                yield {"event": "done", "data": json.dumps({
+                    "answer": full_answer,
+                    "citations": citations,
+                    "claims": [{"id": c.get("id"), "text": c.get("text", "")[:120],
+                                "status": c.get("support_status", "")}
+                               for c in claim_map.get("claims", [])[:12]],
+                    "cited_record_ids": cited_record_ids,
+                    "searched_record_ids": searched_record_ids,
+                    "answer_status": answer_status_str,
+                    "stop_reason": stop_reason,
+                    "boundary_message": boundary_message,
+                    "user_warning": user_warning,
+                    "evidence_summary": evidence_summary,
+                    "trace_id": trace.trace_id,
+                })}
+
+                trace.flush()
 
         except Exception as e:
             import traceback

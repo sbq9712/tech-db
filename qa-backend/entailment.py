@@ -99,36 +99,78 @@ def _extract_entities_simple(text: str) -> set:
     return entities
 
 
+def _numbers_with_family(text: str):
+    """Family-aware numeric extraction (RT-021/RT-022 shared rules).
+
+    Uses numeric_facts' unit-family machinery so 1.8TB/s and 1800GB/s compare
+    as the SAME metric while bits (Gb/s) and bytes (GB/s) never conflate.
+    Returns [(value, unit, family, normalized_value)].
+    """
+    try:
+        from numeric_facts import _iter_number_units, _unit_family, _normalize_to_family_base
+    except Exception:
+        return []
+    out = []
+    for value, unit, *_ in _iter_number_units(text):
+        fam, canon = _unit_family(unit)
+        norm = _normalize_to_family_base(value, unit)
+        out.append((value, canon, fam, norm[0] if norm else None))
+    return out
+
+
 def _deterministic_entailment(claim: str, evidence: str) -> Optional[EntailmentResult]:
     """Run deterministic entailment checks.
-    
-    Returns None if no hard rule fires (ambiguous case → needs LLM).
+
+    Rule order matters (RT-021): numeric agreement/mismatch is a STRONGER
+    signal than entity n-gram overlap, so the family-aware numeric rules run
+    BEFORE the entity-absence rule. Returns None if no hard rule fires
+    (ambiguous case → caller decides).
     """
     claim_numbers = _extract_numbers(claim)
     evidence_numbers = _extract_numbers(evidence)
-    
-    # Rule 1: Numeric mismatch
-    # If claim states a specific number and evidence has a different number for same unit
-    if claim_numbers:
-        for cn in claim_numbers:
-            matching_ev = [en for en in evidence_numbers 
-                          if en["unit"] == cn["unit"] and cn["unit"]]
-            if matching_ev:
-                # Check if any evidence number matches claim number
-                matched = any(abs(en["value"] - cn["value"]) < 0.01 * max(abs(cn["value"]), 1)
-                            for en in matching_ev)
-                if not matched:
-                    # All evidence numbers for this unit differ from claim
-                    # Check if it's truly a contradiction vs different metric
-                    if len(matching_ev) == 1:
-                        return EntailmentResult(
-                            label=EntailmentLabel.REFUTES,
-                            confidence=0.85,
-                            method="deterministic",
-                            reason=f"Number mismatch: claim says {cn['raw']}, evidence says {matching_ev[0]['raw']}",
-                            key_facts={"claim_number": cn["raw"], "evidence_number": matching_ev[0]["raw"]},
-                        )
-    
+
+    # Rule 1 (RT-021/022): family-aware numeric comparison.
+    claim_fam = [n for n in _numbers_with_family(claim) if n[2]]
+    evidence_fam = _numbers_with_family(evidence)
+    if claim_fam:
+        all_matched = True
+        any_candidate = False
+        mismatch_pair = None
+        for cv, cu, cfam, cnorm in claim_fam:
+            cands = [e for e in evidence_fam if e[2] == cfam]
+            if not cands:
+                continue  # evidence lacks this metric entirely → not a refute
+            any_candidate = True
+            def _eq(cn, en):
+                if cn is not None and en is not None:
+                    d = abs(cn - en) / max(abs(cn), abs(en), 1e-9)
+                    return d <= 0.05
+                return False
+            if not any(_eq(cnorm, e[3]) for e in cands):
+                all_matched = False
+                mismatch_pair = (cv, cu, cands[0][0], cands[0][1])
+                break
+        if any_candidate and not all_matched:
+            return EntailmentResult(
+                label=EntailmentLabel.REFUTES,
+                confidence=0.85,
+                method="deterministic",
+                reason=(f"Number mismatch: claim says {mismatch_pair[0]}{mismatch_pair[1]}, "
+                        f"evidence says {mismatch_pair[2]}{mismatch_pair[3]}"),
+                key_facts={"claim_number": f"{mismatch_pair[0]}{mismatch_pair[1]}",
+                           "evidence_number": f"{mismatch_pair[2]}{mismatch_pair[3]}"},
+            )
+        if any_candidate and all_matched:
+            # Numbers in the claim's metric families all match → the numeric
+            # core of the claim is supported (entities may phrase differently).
+            return EntailmentResult(
+                label=EntailmentLabel.ENTAILS,
+                confidence=0.75,
+                method="deterministic",
+                reason="All claim metrics match evidence (unit-family aware)",
+                key_facts={"matched_numbers": len(claim_fam)},
+            )
+
     # Rule 2: Negation flip
     claim_neg = _check_negation(claim)
     evidence_neg = _check_negation(evidence)
@@ -165,30 +207,8 @@ def _deterministic_entailment(claim: str, evidence: str) -> Optional[EntailmentR
                           "evidence_entities": list(evidence_entities)[:5]},
             )
 
-    # Rule 4: Numeric match with entity overlap → soft ENTAILS
-    # If all claim numbers match evidence numbers and entities overlap, it's likely supported
-    if claim_numbers and claim_entities:
-        evidence_entities_all = _extract_entities_simple(evidence)
-        entity_overlap = claim_entities & evidence_entities_all
-        if entity_overlap:
-            all_nums_matched = True
-            for cn in claim_numbers:
-                matching_ev = [en for en in evidence_numbers
-                              if en["unit"] == cn["unit"] and cn["unit"]]
-                if matching_ev:
-                    matched = any(abs(en["value"] - cn["value"]) < 0.01 * max(abs(cn["value"]), 1)
-                                for en in matching_ev)
-                    if not matched:
-                        all_nums_matched = False
-                        break
-            if all_nums_matched:
-                return EntailmentResult(
-                    label=EntailmentLabel.ENTAILS,
-                    confidence=0.75,
-                    method="deterministic",
-                    reason="All numeric facts match and entities overlap",
-                    key_facts={"matched_numbers": len(claim_numbers)},
-                )
+    # Rule 4 was superseded in Phase 02 (RT-021): the family-aware numeric
+    # rule above covers numeric agreement with stricter unit semantics.
 
     # No hard rule fired
     return None
