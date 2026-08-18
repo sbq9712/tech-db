@@ -13946,6 +13946,44 @@
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-020.DOD-04",
+          "description": "durable record identity is a stable string record_id — never a list position (legacy_idx stays compatibility display only)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_stable_record_id_survives_reorder",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_no_stable_record_id_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_record_id_map_resolves_stable_id",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-020.DOD-05",
+          "description": "manifest-mode requests verify against the request-pinned RuntimeSnapshot; a mid-request release switch cannot change the evidence",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_pipeline_uses_pinned_records_e2e",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
         }
       ]
     },
@@ -14050,6 +14088,19 @@
             {
               "suite": "remediation_phase02",
               "case": "test_rt022_transform_rule_version_pinned",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-022.DOD-04",
+          "description": "provenance keys on the stable record_id and survives list reordering",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt022_facts_provenance_stable_under_reorder",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
@@ -14280,6 +14331,62 @@
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-025.DOD-04",
+          "description": "verifier receives complete exact EvidenceRefs (stable record_id, snapshot binding, locators, exact_text, snapshot hash, eligibility, source role)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_refs_complete_and_stable",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_valid_ref_passes",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-025.DOD-05",
+          "description": "structurally invalid / ineligible / position-keyed refs fail closed to UNVERIFIED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_missing_snapshot_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_ineligible_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_bad_sha_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_int_record_id_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_empty_locators_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
         }
       ]
     },
@@ -14337,6 +14444,37 @@
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-026.DOD-04",
+          "description": "targeted re-retrieval (retrieve_fn) and regeneration (regenerate_fn) are wired end-to-end; a repaired draft re-runs the FULL check pass before verification",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_retrieve_fn_wired_adds_citation",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_recheck_regrounds_repaired_draft",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_regenerate_fn_honored",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_full_recheck_pass_runs",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
         }
       ]
     },
@@ -14371,6 +14509,43 @@
         },
         {
           "dod_id": "RT-027.DOD-02",
+          "description": "QA_PIPELINE_PROFILE actually applies before Flags are used; deviating explicit env fails closed; legacy_hybrid preserves the pre-Phase-02 activation state",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_profile_applies_at_import",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_profile_env_conflict_fails_closed",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_profile_env_agreement_applies",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_deployment_activation_state_preserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_unknown_profile_fails_closed",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-027.DOD-03",
           "description": "final wording matches terminal status",
           "status": "SATISFIED",
           "test_cases": [
@@ -14401,7 +14576,7 @@
           ]
         },
         {
-          "dod_id": "RT-027.DOD-03",
+          "dod_id": "RT-027.DOD-04",
           "description": "time-to-first-status/time-to-final-answer measured",
           "status": "SATISFIED",
           "test_cases": [

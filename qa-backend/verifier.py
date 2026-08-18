@@ -39,6 +39,58 @@ VERIFY_UNVERIFIED = "UNVERIFIED"
 
 VALID_CLAIM_VERDICTS = {"PASS", "FAIL", "UNKNOWN"}
 
+# ── RT-025 exact EvidenceRef contract ──────────────────────────────────────
+# The final verifier must receive COMPLETE exact refs — durable record
+# identity (stable record_id, never a list position), the immutable snapshot
+# binding, machine-checkable locators, the exact matched text, its snapshot
+# hash, citation eligibility, and the source role used to cap attribution
+# (RT-021). A ref missing or corrupting any of these is a technical failure:
+# UNVERIFIED, never PASSED, never silently coerced.
+REQUIRED_REF_FIELDS = (
+    "evidence_id", "record_id", "source_snapshot_id", "locators",
+    "exact_text", "evidence_text_sha256", "eligibility", "source_role",
+)
+_SHA256_HEX = set("0123456789abcdef")
+
+
+def validate_evidence_ref(ref: dict) -> str:
+    """Return '' when the ref satisfies the RT-025 EvidenceRef contract,
+    else a machine-readable failure reason (fail-closed)."""
+    if not isinstance(ref, dict):
+        return "invalid_ref:not_a_dict"
+    for field in REQUIRED_REF_FIELDS:
+        if field not in ref:
+            return f"missing_field:{field}"
+    rid = ref.get("record_id")
+    if not isinstance(rid, str) or not rid.strip():
+        return "invalid_record_id:not_a_stable_string"
+    if not isinstance(ref.get("source_snapshot_id"), str) or not ref["source_snapshot_id"].strip():
+        return "invalid_source_snapshot_id"
+    locators = ref.get("locators")
+    if not isinstance(locators, list) or not locators:
+        return "invalid_locators:empty"
+    for loc in locators:
+        if not isinstance(loc, dict):
+            return "invalid_locators:not_a_dict"
+        start, end = loc.get("start"), loc.get("end")
+        if not isinstance(start, int) or not isinstance(end, int):
+            return "invalid_locators:non_integer_offsets"
+        if start < 0 or end <= start:
+            return "invalid_locators:non_positive_span"
+        if not isinstance(loc.get("locator_type"), str) or not loc["locator_type"].strip():
+            return "invalid_locators:missing_type"
+    exact = ref.get("exact_text")
+    if not isinstance(exact, str) or not exact.strip():
+        return "invalid_exact_text:empty"
+    sha = ref.get("evidence_text_sha256")
+    if not isinstance(sha, str) or len(sha) != 64 or not set(sha.lower()) <= _SHA256_HEX:
+        return "invalid_evidence_text_sha256:not_sha256_hex"
+    if ref.get("eligibility") != "CITATION_ELIGIBLE":
+        return "ineligible_evidence:" + str(ref.get("eligibility"))
+    if not isinstance(ref.get("source_role"), str) or not ref["source_role"].strip():
+        return "invalid_source_role"
+    return ""
+
 
 class VerificationResult:
     """Structured verification result — findings only, no answer text."""
@@ -160,6 +212,9 @@ def build_verifier_input(query: str, atomic_claims: list,
     evidence_block = "\n".join(
         f"- [{r.get('evidence_id') or r.get('record_id')}] "
         f"({str(r.get('source_role') or 'unknown')}) "
+        f"<record {str(r.get('record_id') or '?')} "
+        f"snapshot {str(r.get('source_snapshot_id') or '?')} "
+        f"loc {str(r.get('locators') or '?')}> "
         f"{str(r.get('exact_text') or r.get('text') or '')[:400]}"
         for r in (evidence_refs or []))
     deterministic_block = json.dumps(
@@ -192,6 +247,19 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
         return VerificationResult(
             VERIFY_UNVERIFIED, failure_reason="empty_input:no_atomic_claims",
             failure_class="empty_response")
+
+    # RT-025 exact EvidenceRef contract: incomplete / non-eligible /
+    # structurally invalid refs are a technical failure — UNVERIFIED —
+    # never coerced into a well-formed verifier prompt.
+    for ref in (evidence_refs or []):
+        reason = validate_evidence_ref(ref)
+        if reason:
+            return VerificationResult(
+                VERIFY_UNVERIFIED,
+                failure_reason=(
+                    f"invalid_evidence_ref:{reason}:"
+                    f"{str(ref.get('evidence_id') or ref.get('record_id') or '?')[:64]}"),
+                failure_class="invalid_evidence_ref")
 
     prompt = build_verifier_input(query, atomic_claims, evidence_refs,
                                   deterministic_results)

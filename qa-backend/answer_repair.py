@@ -12,6 +12,7 @@ State transitions:
 
 Max repair iterations: configurable (default 2).
 """
+import inspect
 import os
 from typing import List, Dict
 from enum import Enum
@@ -239,6 +240,13 @@ class BoundedRepairLoop:
             "detail": detail[:200], "result": result,
         })
 
+    @staticmethod
+    async def _maybe_await(value):
+        """Await async injected closures; sync closures' values pass through."""
+        if inspect.iscoroutine(value) or inspect.isawaitable(value):
+            return await value
+        return value
+
     def _init_claims(self, claims_mapping: dict):
         for c in claims_mapping.get("claims", []):
             if c.get("type") in ("MAJOR_FACT", "NUMERIC_FACT", "COMPARISON",
@@ -345,10 +353,10 @@ class BoundedRepairLoop:
 
     # ── main loop ──
 
-    def run(self, answer: str, claims_mapping: dict,
-            evidence_index: dict = None,
-            grounding_fn=None, retrieve_fn=None, regenerate_fn=None,
-            core_claim_ids=None) -> RepairReport:
+    async def run(self, answer: str, claims_mapping: dict,
+                  evidence_index: dict = None,
+                  grounding_fn=None, retrieve_fn=None, regenerate_fn=None,
+                  core_claim_ids=None) -> RepairReport:
         """Run bounded repair. Returns a report; mutates claims_mapping
         (remap additions) but NEVER invents support — every remap is marked
         pending re-entailment and must survive the caller's re-check."""
@@ -383,7 +391,7 @@ class BoundedRepairLoop:
                     if cid in core_ids or claim.get("is_core"):
                         if retrieve_fn is not None:
                             try:
-                                retrieve_fn(claim)
+                                await self._maybe_await(retrieve_fn(claim))
                                 self._log(cid, "retrieve", "targeted retrieval fired",
                                           "retrieved")
                                 actionable = True
@@ -413,7 +421,7 @@ class BoundedRepairLoop:
                     if self.machine.claim_states.get(c.get("id")) in
                     (ClaimState.DELETED, ClaimState.WEAKENED)]
             try:
-                new_answer = regenerate_fn(answer, drop_ids=drop)
+                new_answer = await self._maybe_await(regenerate_fn(answer, drop_ids=drop))
                 if new_answer and new_answer.strip():
                     answer = new_answer
                     regenerated = True

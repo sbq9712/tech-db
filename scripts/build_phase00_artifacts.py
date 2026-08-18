@@ -333,6 +333,8 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             ("final grounding is EXACT or INVALID", ["RT020.exact_verbatim_span_located", "RT020.fuzzy_located_ends_exact_raw_locator", "RT020.unlocatable_span_invalidates_citation"]),
             ("invalid citation cannot enter final response", ["RT020.pipeline_drops_invalid_citations", "RT020.invalid_citation_not_rendered_as_normal_evidence", "RT029.schema2_invalid_dropped"]),
             ("multiple non-contiguous spans supported with exact offsets", ["RT020.multi_span_concatenates_exact", "RT020.span_offsets_code_point_exact", "RT020.nfkc_variant_maps_exact_raw_range"]),
+            ("durable record identity is a stable string record_id — never a list position (legacy_idx stays compatibility display only)", ["RT020.stable_record_id_survives_reorder", "RT020.no_stable_record_id_dropped", "RT020.record_id_map_resolves_stable_id"]),
+            ("manifest-mode requests verify against the request-pinned RuntimeSnapshot; a mid-request release switch cannot change the evidence", ["X.pipeline_uses_pinned_records_e2e"]),
         ],
         "RT-021": [
             ("BACKGROUND/CONTRADICTS never counted as support", ["RT021.background_never_supports", "RT021.ungrounded_citation_cannot_support"]),
@@ -343,6 +345,7 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             ("Gb/s vs GB/s mismatch caught", ["RT022.unit_family_bits_vs_bytes"]),
             ("per-device vs aggregate mismatch caught", ["RT022.scope_per_device_vs_aggregate"]),
             ("converted value retains exact source provenance", ["RT022.facts_carry_evidence_ref", "RT022.transform_rule_version_pinned"]),
+            ("provenance keys on the stable record_id and survives list reordering", ["RT022.facts_provenance_stable_under_reorder"]),
         ],
         "RT-023": [
             ("unmapped factual sentence blocks SUPPORTED", ["RT023.unmapped_factual_blocks_supported", "RT023.pipeline_records_coverage_failure"]),
@@ -359,14 +362,18 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             ("no technical failure can become PASSED", ["RT025.timeout_maps_unverified", "RT025.malformed_json_unverified", "RT025.http_5xx_maps_unverified", "RT025.invalid_verdict_unverified", "RT025.transient_error_retries_then_succeeds"]),
             ("verifier input restricted; never sees generator hidden reasoning/unselected text", ["RT025.restricted_input_only"]),
             ("verifier output is structured findings only", ["RT025.no_rewritten_answer_field", "RT025.semantic_findings_failed_with_findings"]),
+            ("verifier receives complete exact EvidenceRefs (stable record_id, snapshot binding, locators, exact_text, snapshot hash, eligibility, source role)", ["RT025.refs_complete_and_stable", "RT025.valid_ref_passes"]),
+            ("structurally invalid / ineligible / position-keyed refs fail closed to UNVERIFIED", ["RT025.ref_missing_snapshot_unverified", "RT025.ref_ineligible_unverified", "RT025.ref_bad_sha_unverified", "RT025.ref_int_record_id_unverified", "RT025.ref_empty_locators_unverified"]),
         ],
         "RT-026": [
             ("core unsupported claim cannot be deleted then declared complete", ["RT026.core_claim_never_deleted"]),
             ("repair exhaustion has deterministic terminal state", ["RT026.deterministic_exhaustion_terminal", "RT026.max_cycles_is_two"]),
             ("every repair transition is traced; loop never upgrades support itself", ["RT026.every_transition_traced", "RT026.repair_never_upgrades_to_supported_itself"]),
+            ("targeted re-retrieval (retrieve_fn) and regeneration (regenerate_fn) are wired end-to-end; a repaired draft re-runs the FULL check pass before verification", ["RT026.retrieve_fn_wired_adds_citation", "RT026.recheck_regrounds_repaired_draft", "RT026.regenerate_fn_honored", "RT026.full_recheck_pass_runs"]),
         ],
         "RT-027": [
             ("user never receives an unverified full factual draft in normal new profile", ["RT027.no_tokens_before_first_citations_event", "RT027.no_citations_before_verification", "X.legacy_path_preserved_behind_flag"]),
+            ("QA_PIPELINE_PROFILE actually applies before Flags are used; deviating explicit env fails closed; legacy_hybrid preserves the pre-Phase-02 activation state", ["X.profile_applies_at_import", "X.profile_env_conflict_fails_closed", "X.profile_env_agreement_applies", "X.deployment_activation_state_preserved", "X.unknown_profile_fails_closed"]),
             ("final wording matches terminal status", ["RT027.supported_answer_unchanged", "RT027.partial_keeps_answer_with_marker", "RT027.unsupported_renders_boundary", "RT027.unverified_renders_supported_only"]),
             ("time-to-first-status/time-to-final-answer measured", ["RT027.sse_timing_stage_traced"]),
         ],

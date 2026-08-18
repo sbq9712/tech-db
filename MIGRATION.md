@@ -51,6 +51,15 @@ rejects an unset/unknown mode. Selecting `manifest` enables strict validation;
 a missing current pointer, incompatible schema or damaged artifact fails cold
 startup and never silently falls back to `legacy_hybrid` or `previous`.
 
+`QA_PIPELINE_PROFILE` is applied at `feature_flags` import — before any flag
+consumer — and an explicitly-set `QA_*` env var that deviates from the
+declared profile is a fail-closed startup error. `legacy_hybrid` pins the
+pre-Phase-02 deployed activation state: shipped agentic/correctness flags
+keep their gate-3 defaults (on) and only the Phase-02 flags
+(`QA_EXACT_GROUNDING_ENABLED`, `QA_TERMINAL_RENDERER_ENABLED`) are off.
+Applying the profile therefore changes nothing the deployment already ran
+except disabling the two new Phase-02 capabilities.
+
 ### Activation gate: `legacy_hybrid` → `manifest`
 
 Do not switch production merely because Phase-01 unit/integration tests pass.

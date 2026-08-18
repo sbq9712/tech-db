@@ -1546,13 +1546,72 @@ async def chat_stream(req: ChatRequest, request: Request):
                     _p02_store = _get_source_snapshot_store()
                 except Exception:
                     _p02_store = None
+                # Request-pinned runtime resources (RT-017 / Phase-02 review):
+                # in manifest mode the pipeline MUST see the records pinned at
+                # request start — never the mutable server-global _records —
+                # so a mid-request release switch cannot change the evidence.
+                _p02_records = (_runtime_resource("records", _records)
+                                if _p02_snap is not None else _records)
+                _p02_by_id = (_runtime_resource("records_by_id", None)
+                              if _p02_snap is not None else None)
+                _p02_rid_map = (_runtime_resource("record_id_map", None)
+                                if _p02_snap is not None else None)
+
+                # RT-026 full wiring: server-injected closures.
+                async def _p02_retrieve(claim_text: str):
+                    """Targeted re-retrieval for an unsupported claim, run
+                    through the SAME request-pinned retrieval pipeline."""
+                    if not (claim_text or "").strip():
+                        return []
+                    try:
+                        results, _rel = await _search_with_quality(claim_text, None)
+                    except Exception:
+                        return []
+                    out = []
+                    for r in (results or [])[:5]:
+                        meta = r.get("meta") or {}
+                        rid = r.get("record_id") or meta.get("record_id")
+                        if not isinstance(rid, str) or not rid.strip():
+                            continue  # no stable id → never fabricate evidence
+                        rec = None
+                        if _p02_by_id is not None:
+                            rec = _p02_by_id.get(rid)
+                        excerpt = (r.get("excerpt") or meta.get("as")
+                                   or str(rec.get("fb") or rec.get("b") or "")
+                                   if rec else "") or ""
+                        out.append({
+                            "record_id": rid,
+                            "legacy_idx": r.get("legacy_idx", meta.get("legacy_idx")),
+                            "excerpt": str(excerpt)[:200],
+                            "source": str((rec or meta).get("a", "")),
+                            "title": str((rec or meta).get("t", "")),
+                        })
+                    return out
+
+                async def _p02_regenerate(current_answer: str, drop_ids=None):
+                    """Optional LLM regeneration honoring keep/drop (RT-026
+                    strategy 5). Failure → None (repair keeps its answer)."""
+                    try:
+                        return await llm_model_func(
+                            "根据以下可支持证据重写回答，只保留有证据支持的句子，"
+                            f"删除这些缺乏支持的要点：{list(drop_ids or [])}。"
+                            f"回答：{current_answer}",
+                            system_prompt="你是严谨的技术问答助手，只输出重写后的回答。",
+                        )
+                    except Exception:
+                        return None
+
                 p02 = await run_phase02_verification(
                     query=query,
                     draft_answer=full_answer,
                     citations=citations,
-                    records=_records,
+                    records=_p02_records,
+                    records_by_id=_p02_by_id,
+                    record_id_map=_p02_rid_map,
                     trace=trace,
                     budget_reserve=lambda: BUDGET_FUSE.reserve(bypass=bypass),
+                    retrieve_fn=_p02_retrieve,
+                    regenerate_fn=_p02_regenerate,
                     active_profile=_p02_profile,
                     runtime_manifest_id=_p02_snap.manifest_id if _p02_snap else "",
                     source_snapshot_store=_p02_store,

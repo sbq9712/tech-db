@@ -26,8 +26,15 @@ REPO = Path(__file__).resolve().parent.parent
 RUNTIME_DIR = Path(os.environ.get("TECH_DB_RUNTIME_DIR", REPO / "runtime")).resolve()
 TRACE_DIR = RUNTIME_DIR / "traces"
 
-# Feature flag: allow disabling trace entirely (e.g. for load testing)
-TRACE_ENABLED = os.environ.get("QA_TRACE_ENABLED", "true").lower() not in ("0", "false", "no")
+# Feature flag: allow disabling trace entirely (e.g. for load testing).
+# Deferred to feature_flags.Flags (single source of truth) so a named
+# pipeline profile applied at import applies here too — never a second,
+# divergent env read.
+try:
+    from feature_flags import Flags as _Flags
+    TRACE_ENABLED = bool(_Flags.TRACE_ENABLED)
+except Exception:  # pragma: no cover — standalone import without package
+    TRACE_ENABLED = os.environ.get("QA_TRACE_ENABLED", "true").lower() not in ("0", "false", "no")
 
 # Secret patterns to scrub — extend as needed
 _SECRET_PATTERNS = [

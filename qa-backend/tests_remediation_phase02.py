@@ -101,9 +101,12 @@ def make_verifier(status="PASSED", fail_claims=(), exc=None):
 
 def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
                  verifier="PASSED", fail_claims=(), budget=None,
-                 profile="agentic_correctness_core", verify_exc=None):
+                 profile="agentic_correctness_core", verify_exc=None,
+                 records_by_id=None, record_id_map=None,
+                 retrieve_fn=None, regenerate_fn=None, trace=None,
+                 _claims_fn=None):
     import phase02_pipeline as p2
-    if claims is None:
+    if claims is None and _claims_fn is None:
         claims = claims_fixture()
 
     async def _map(q, a, c):
@@ -112,8 +115,10 @@ def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
         query="NVLink带宽多少", draft_answer=draft,
         citations=citations if citations is not None else citations_fixture(),
         records=records if records is not None else RECORDS,
-        llm_claim_map=_map,
+        records_by_id=records_by_id, record_id_map=record_id_map,
+        llm_claim_map=_claims_fn or _map,
         llm_verify=make_verifier(verifier, fail_claims, verify_exc),
+        retrieve_fn=retrieve_fn, regenerate_fn=regenerate_fn, trace=trace,
         budget_reserve=budget, active_profile=profile)
 
 
@@ -614,9 +619,9 @@ def rt026_cases():
         {"id": "side", "text": "该电池已通过针刺测试", "type": "MAJOR_FACT",
          "support_status": "UNSUPPORTED", "supported_by": []},
     ]}
-    rep = BoundedRepairLoop().run(
+    rep = asyncio.run(BoundedRepairLoop().run(
         "固态电池能量密度达到500Wh/kg。该电池已通过针刺测试。", cm,
-        evidence_index={}, core_claim_ids={"core"})
+        evidence_index={}, core_claim_ids={"core"}))
     test("RT026.core_claim_never_deleted",
          "能量密度达到500Wh/kg" in rep["answer"]
          and rep["claim_states"]["core"] == "GROUNDING_FAIL")
@@ -634,8 +639,8 @@ def rt026_cases():
          "support_status": "UNSUPPORTED",
          "supported_by": [{"citation_id": 1, "relation": "BACKGROUND",
                            "evidence_span": "支持576GPU扩展"}]}]}
-    rep2 = BoundedRepairLoop().run("支持576GPU扩展。", cm2,
-                                   evidence_index={1: {"text": "支持576GPU扩展。"}})
+    rep2 = asyncio.run(BoundedRepairLoop().run("支持576GPU扩展。", cm2,
+                                   evidence_index={1: {"text": "支持576GPU扩展。"}}))
     test("RT026.remap_grounded_only",
          rep2["claim_states"]["c1"] == "GROUNDED"
          and any(r.get("relation_check") == "repair_remap_pending_entailment"
@@ -643,12 +648,12 @@ def rt026_cases():
 
     def gfn(claim):
         return {"grounding_status": "EXACT", "record_id": 1}
-    rep3 = BoundedRepairLoop().run(
+    rep3 = asyncio.run(BoundedRepairLoop().run(
         "带宽达到1.8TB/s。",
         {"claims": [{"id": "c1", "text": "带宽达到1.8TB/s", "type": "NUMERIC_FACT",
                      "support_status": "UNSUPPORTED",
                      "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT"}]}]},
-        grounding_fn=gfn)
+        grounding_fn=gfn))
     test("RT026.relocate_regrounds", rep3["claim_states"]["c1"] == "GROUNDED")
     test("RT026.repair_never_upgrades_to_supported_itself",
          "answer_status" not in rep3 and rep3["terminal_reason"] == "all_resolved")
@@ -980,6 +985,437 @@ rt029_cases()
 # ══════════════════════════════════════════════════════════════════════════
 print("\n── cross-cutting ──")
 
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# Acceptance-review fixes — stable record identity, request-pinned runtime,
+# complete verifier EvidenceRefs, wired repair, profile semantics
+# ══════════════════════════════════════════════════════════════════════════
+print("\n── acceptance review fixes: identity / pinning / refs / repair / profile ──")
+from verifier import REQUIRED_REF_FIELDS, validate_evidence_ref
+
+
+def acceptance_fix_cases():
+    import phase02_pipeline as p2
+
+    # ── Stable record identity (RT-020 / RT-022) ───────────────────────────
+    # 1a. stable string record_id survives into citations / facts / refs —
+    #     even when the records list is REORDERED so legacy_idx ≠ position.
+    reordered = list(reversed(RECORDS))  # positions changed, fields intact
+    p = asyncio.run(run_pipeline(records=reordered))
+    stable_ids = {c.get("record_id") for c in p["citations"]}
+    test("RT020.stable_record_id_survives_reorder",
+         p["citations"]
+         and all(isinstance(rid, str) and rid.startswith("rec-") for rid in stable_ids)
+         and all(c.get("record_id") != c.get("id") for c in p["citations"]))
+    test("RT020.cited_record_ids_are_stable_strings",
+         p["cited_record_ids"]
+         and all(isinstance(rid, str) for rid in p["cited_record_ids"])
+         and "rec-blackwell" in p["cited_record_ids"])
+
+    # 1b. records without record_id AND without a record_id_map: citation is
+    #     dropped fail-closed — never silently re-keyed by list position.
+    no_id_records = [{"legacy_idx": 0, "t": "x", "fb": DRAFT, "a": "s",
+                      "b": "", "c": "c", "evidence_eligibility": "CITATION_ELIGIBLE"}]
+    pos_cit = [{"id": 1, "legacy_idx": 0, "record_id": 0,
+                "excerpt": "NVLink双向带宽达到1.8TB/s"}]
+    p = asyncio.run(run_pipeline(records=no_id_records, citations=pos_cit))
+    test("RT020.no_stable_record_id_dropped",
+         not p["citations"] and p["invalid_citations"]
+         and p["invalid_citations"][0]["invalid_reason"] == "no_stable_record_id"
+         and p["answer_status"] != "SUPPORTED")
+
+    # 1c. record_id_map rescues legacy-idx datasets (manifest mode resource).
+    mapped_records = [{"legacy_idx": 0, "t": "x", "fb": RECORD_BLACKWELL["fb"],
+                       "a": "s", "b": "", "c": "c"}]
+    rid_map = {"mappings": [{"record_id": "rec-blackwell", "legacy_idx": 0}]}
+    p = asyncio.run(run_pipeline(records=mapped_records, citations=[
+        {"id": 1, "legacy_idx": 0, "excerpt": "NVLink双向带宽达到1.8TB/s"}],
+        record_id_map=rid_map))
+    test("RT020.record_id_map_resolves_stable_id",
+         p["citations"] and p["citations"][0]["record_id"] == "rec-blackwell"
+         and p["cited_record_ids"] == ["rec-blackwell"])
+
+    # 1d. RT-022 numeric facts carry the STABLE provenance under reorder.
+    p = asyncio.run(run_pipeline(records=reordered))
+    facts = p["numeric_facts"]
+    if facts:
+        test("RT022.facts_provenance_stable_under_reorder",
+             all(isinstance(f.get("record_id"), str) for f in facts)
+             and any(f["record_id"] == "rec-blackwell"
+                     and f.get("evidence_ref", {}).get("source_snapshot_id")
+                     for f in facts))
+    else:
+        test("RT022.facts_provenance_stable_under_reorder", False,
+             "no numeric facts extracted")
+
+    # ── Complete EvidenceRefs to the RT-025 verifier ───────────────────────
+    captured = {}
+
+    async def capturing_verify(query, atomic, refs, det=None):
+        captured["refs"] = refs
+        verifier_fn = make_verifier("PASSED")
+        return await verifier_fn(query, atomic, refs, det)
+
+    p = asyncio.run(_run_pipeline_with_verify(capturing_verify))
+    refs = captured.get("refs") or []
+    test("RT025.refs_complete_and_stable",
+         refs and all(set(REQUIRED_REF_FIELDS) <= set(r) for r in refs)
+         and all(isinstance(r["record_id"], str) for r in refs)
+         and all(r["source_snapshot_id"].startswith(("ss-", "snapshot-"))
+                 or len(r["source_snapshot_id"]) >= 8 for r in refs)
+         and all(r["locators"] and isinstance(r["locators"][0]["start"], int)
+                 for r in refs)
+         and all(r["eligibility"] == "CITATION_ELIGIBLE" for r in refs)
+         and all(isinstance(r["evidence_text_sha256"], str)
+                 and len(r["evidence_text_sha256"]) == 64 for r in refs))
+
+    # negative: each structural violation is a fail-closed UNVERIFIED
+    import verifier as _vf
+    good_ref = dict(refs[0]) if refs else {
+        "evidence_id": "e1", "record_id": "rec-1",
+        "source_snapshot_id": "ss-x", "locators": [{"locator_type": "TEXT_SPAN", "start": 0, "end": 5}],
+        "exact_text": "证据", "evidence_text_sha256": "a" * 64,
+        "eligibility": "CITATION_ELIGIBLE", "source_role": "literature"}
+    from verifier import VerificationResult as _VR
+
+    async def ok_llm(prompt, **kw):
+        return json.dumps({"claims": [{"claim_id": "c1", "verdict": "PASS"}],
+                           "overall_passed": True})
+
+    def _run_ref(ref):
+        async def _one():
+            old_fn = _vf.llm_model_func
+            _vf.llm_model_func = ok_llm
+            try:
+                return await _vf.verify_final(
+                    "q", [{"id": "c1", "text": "t"}], [ref], max_retries=0)
+            finally:
+                _vf.llm_model_func = old_fn
+        return asyncio.run(_one())
+
+    r = _run_ref(good_ref)
+    test("RT025.valid_ref_passes", r.status == "PASSED")
+
+    bad = dict(good_ref); bad.pop("source_snapshot_id")
+    r = _run_ref(bad)
+    test("RT025.ref_missing_snapshot_unverified",
+         r.status == "UNVERIFIED" and r.failure_class == "invalid_evidence_ref")
+
+    bad = dict(good_ref); bad["eligibility"] = "RETRIEVAL_ONLY"
+    r = _run_ref(bad)
+    test("RT025.ref_ineligible_unverified",
+         r.status == "UNVERIFIED" and "ineligible" in r.failure_reason)
+
+    bad = dict(good_ref); bad["evidence_text_sha256"] = "nothex"
+    r = _run_ref(bad)
+    test("RT025.ref_bad_sha_unverified",
+         r.status == "UNVERIFIED" and "sha256" in r.failure_reason)
+
+    bad = dict(good_ref); bad["record_id"] = 3  # list position, not stable id
+    r = _run_ref(bad)
+    test("RT025.ref_int_record_id_unverified",
+         r.status == "UNVERIFIED" and "record_id" in r.failure_reason)
+
+    bad = dict(good_ref); bad["locators"] = []
+    r = _run_ref(bad)
+    test("RT025.ref_empty_locators_unverified",
+         r.status == "UNVERIFIED" and "locators" in r.failure_reason)
+
+    # ── RT-026 full wiring: retrieve_fn adds citations, re-check re-grounds,
+    #    regenerate_fn honored; the loop never fakes verification itself.
+    repair_records = [
+        RECORD_BLACKWELL,
+        {"record_id": "rec-hbm", "legacy_idx": 3, "t": "HBM3e", "d": "2026-03-01",
+         "a": "MemNews", "c": "chip", "b": "",
+         "fb": "HBM3e内存带宽达到1.2TB/s，通过验证测试。",
+         "source": "行业报道", "evidence_eligibility": "CITATION_ELIGIBLE"}]
+    unsupported_core = {"claims": [
+        {"id": "c9", "text": "HBM3e内存带宽达到1.2TB/s", "type": "NUMERIC_FACT",
+         "support_status": "UNSUPPORTED", "is_core": True, "supported_by": []}]}
+
+    mapping_calls = {"n": 0}
+
+    async def stateful_map(query, answer, cits):
+        """A realistic mapper: on the re-check pass (new citations present)
+        it maps the claim onto the retrieved evidence."""
+        mapping_calls["n"] += 1
+        has_hbm = any(c.get("record_id") == "rec-hbm" for c in cits)
+        if has_hbm:
+            return {"claims": [dict(unsupported_core["claims"][0],
+                                    support_status="SUPPORTED",
+                                    supported_by=[{"citation_id":
+                                                   max(c.get("id") or 0 for c in cits),
+                                                   "relation": "DIRECT_SUPPORT",
+                                                   "evidence_span":
+                                                   "HBM3e内存带宽达到1.2TB/s"}])]}
+        return unsupported_core
+
+    async def retrieve_hbm(claim_text):
+        return [{"record_id": "rec-hbm", "legacy_idx": 3,
+                 "excerpt": "HBM3e内存带宽达到1.2TB/s"}]
+
+    async def regen(answer, drop_ids=None):
+        return "HBM3e内存带宽达到1.2TB/s。"
+
+    p = asyncio.run(run_pipeline(
+        records=repair_records,
+        citations=[{"id": 1, "record_id": "rec-blackwell", "legacy_idx": 0,
+                    "excerpt": "NVLink双向带宽达到1.8TB/s"}],
+        draft="HBM3e内存带宽达到1.2TB/s。",
+        claims=None, _claims_fn=stateful_map,
+        retrieve_fn=retrieve_hbm, regenerate_fn=regen))
+    added = [c for c in p["citations"] if c.get("retrieved_by_repair")]
+    test("RT026.retrieve_fn_wired_adds_citation",
+         bool(added) and added[0].get("record_id") == "rec-hbm"
+         and isinstance(added[0].get("record_id"), str))
+    test("RT026.recheck_regrounds_repaired_draft",
+         p["repair_report"] is not None
+         and p["claims_payload"]
+         and any(c["status"] == "SUPPORTED" for c in p["claims_payload"])
+         and p["cited_record_ids"] and "rec-hbm" in p["cited_record_ids"])
+    test("RT026.regenerate_fn_honored",
+         p["answer"].startswith("HBM3e内存带宽达到1.2TB/s"))
+
+    # verify trace shows TWO grounding passes (initial + post-repair re-check)
+    class _Cap:
+        def __init__(self): self.stages = []
+        def add_stage(self, name, data): self.stages.append((name, data))
+    cap = _Cap()
+    asyncio.run(run_pipeline(records=repair_records,
+        citations=[{"id": 1, "record_id": "rec-blackwell", "legacy_idx": 0,
+                    "excerpt": "NVLink双向带宽达到1.8TB/s"}],
+        draft="HBM3e内存带宽达到1.2TB/s。", claims=None, _claims_fn=stateful_map,
+        retrieve_fn=retrieve_hbm, regenerate_fn=regen, trace=cap))
+    grounding_passes = [d.get("pass") for n, d in cap.stages if n == "exact_grounding"]
+    test("RT026.full_recheck_pass_runs",
+         grounding_passes == [1, 2])
+
+
+def _run_pipeline_with_verify(verify):
+    """run_pipeline with a custom verifier closure."""
+    import phase02_pipeline as p2
+
+    async def _map(q, a, c):
+        return claims_fixture()
+
+    return p2.run_phase02_verification(
+        query="NVLink带宽多少", draft_answer=DRAFT,
+        citations=citations_fixture(), records=RECORDS,
+        llm_claim_map=_map, llm_verify=verify,
+        active_profile="agentic_correctness_core")
+
+
+def _profile_fresh_process_cases():
+    """QA_PIPELINE_PROFILE must actually apply before Flags are used
+    (fresh processes A-D); conflicting explicit env fails closed."""
+    import subprocess, sys as _sys
+
+    env_base = {k: str(v) for k, v in os.environ.items()
+                if not k.startswith("QA_")}
+    env_base["PYTHONPATH"] = str(HERE)
+
+    def _run(env):
+        return subprocess.run(
+            [_sys.executable, "-c",
+             "import json,feature_flags as ff;"
+             "print(json.dumps({a:getattr(ff.Flags,a) for a in ff.Flags.ENV_NAMES}))"],
+            env=env, capture_output=True, text=True, timeout=60)
+
+    # A: profile-only → profile activation state (21 shipped on, phase02 off)
+    proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid"})
+    flags = json.loads(proc.stdout) if proc.returncode == 0 else {}
+    phase02 = [flags.get("EXACT_GROUNDING_ENABLED"),
+               flags.get("TERMINAL_RENDERER_ENABLED")]
+    shipped = [flags.get("AGENTIC_ENABLED"), flags.get("TRACE_ENABLED"),
+               flags.get("FAIL_SAFE_VERIFY_ENABLED"), flags.get("CLAIM_MAPPING_ENABLED")]
+    test("X.profile_applies_at_import",
+         proc.returncode == 0 and phase02 == [False, False]
+         and all(shipped) and len(flags) == 23)
+
+    # B: deviating explicit env → fail closed at import
+    proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid",
+                 "QA_TRACE_ENABLED": "0"})
+    test("X.profile_env_conflict_fails_closed",
+         proc.returncode != 0 and "conflicts" in proc.stderr)
+
+    # C: agreeing explicit env → applies cleanly
+    proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid",
+                 "QA_TRACE_ENABLED": "1"})
+    test("X.profile_env_agreement_applies",
+         proc.returncode == 0
+         and json.loads(proc.stdout).get("TRACE_ENABLED") is True)
+
+    # D: deployment launcher semantics (start.sh/docker/systemd default):
+    # legacy_hybrid keeps the pre-Phase-02 activation state intact and only
+    # the two Phase-02 flags are off.
+    proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid",
+                 "TECH_DB_RUNTIME_MODE": "legacy_hybrid"})
+    flags = json.loads(proc.stdout) if proc.returncode == 0 else {}
+    test("X.deployment_activation_state_preserved",
+         proc.returncode == 0
+         and flags.get("AGENTIC_ENABLED") is True
+         and flags.get("ANSWER_STATUS_ENABLED") is True
+         and flags.get("EXACT_GROUNDING_ENABLED") is False
+         and flags.get("TERMINAL_RENDERER_ENABLED") is False)
+
+    # unknown profile name → fail closed
+    proc = _run({**env_base, "QA_PIPELINE_PROFILE": "not_a_profile"})
+    test("X.unknown_profile_fails_closed",
+         proc.returncode != 0 and "not a registered profile" in proc.stderr)
+
+
+acceptance_fix_cases()
+_profile_fresh_process_cases()
+
+
+
+def _pinned_snapshot_e2e_case():
+    """Phase-02 must run on the request-pinned RuntimeSnapshot: a release
+    switch mid-request (during claim mapping) must not change the evidence
+    records the verification pipeline sees (item: manifest-mode pinning)."""
+    import tempfile
+    import release_manifest as rm
+    from release_manifest import ReleaseCatalog, build_global_manifest
+    from runtime_snapshot import RuntimeSnapshotManager, load_release_resources
+    from functools import partial
+
+    with tempfile.TemporaryDirectory(prefix="p02-pin-") as td:
+        root = Path(td)
+
+        def fixture(label):
+            names = ["dataset", "record_id_map", "source_catalog",
+                     "evidence_metadata", "identity_snapshot", "vector_index",
+                     "bm25_index", "chunk_index", "graph_index",
+                     "numeric_index", "prompts"]
+            artifacts = {}
+            build = root / "builds" / f"build-{label}"
+            build.mkdir(parents=True)
+            rid = f"record-{label}-0001"
+            payloads = {
+                "dataset": {"records": [{"record_id": rid, "legacy_idx": 0,
+                                         "t": f"title-{label}",
+                                         "fb": f"body-{label} evidence text {label}",
+                                         "b": f"body-{label} evidence text {label}",
+                                         "c": "fixture", "a": f"src-{label}"}]},
+                "record_id_map": {"mappings": [{"record_id": rid, "legacy_idx": 0}]},
+                "source_catalog": {"snapshots": [{"record_id": rid,
+                                                  "source_snapshot_id": f"snapshot-{label}"}]},
+                "evidence_metadata": {"records": [{"record_id": rid,
+                                                   "evidence_eligibility": "CITATION_ELIGIBLE"}]},
+                "identity_snapshot": {"entries": [{"record_id": rid}]},
+                "vector_index": {"dimension": 2,
+                                 "documents": [{"record_id": rid, "vector": [1.0, 0.0]}]},
+                "bm25_index": {"documents": [{"record_id": rid, "tokens": ["probe", label]}]},
+                "chunk_index": {"chunks": [{"record_id": rid, "text": "grounded"}]},
+                "graph_index": {"results_by_query": {}},
+                "numeric_index": {"facts": []},
+                "prompts": {"generator_input": "typed_evidence_package"},
+            }
+            for name in names:
+                path = build / f"{name}.json"
+                path.write_text(json.dumps({"schema_version": "1.0.0",
+                                            **payloads[name]}), "utf-8")
+                artifacts[name] = path
+            return build_global_manifest(
+                release_root=root, artifacts=artifacts,
+                profile={"name": "agentic_full", "vector_dim": 2,
+                         "graph_v2": "NOT_ACTIVATED_BY_GAIN_GATE"},
+                models={"embedding": "fixture", "embedding_dim": 2},
+                created_at=f"2026-01-0{1 if label == 'a' else 2}T00:00:00+00:00")
+
+        catalog = ReleaseCatalog(root / "catalog", root)
+        ma = fixture("a")
+        catalog.store(ma)
+        mb = fixture("b")
+        catalog.store(mb)
+        catalog.activate(ma["manifest_id"])
+        live = RuntimeSnapshotManager(
+            catalog, partial(load_release_resources, release_root=root))
+        live.startup()
+
+        async def scenario():
+            import httpx, server
+            import phase02_pipeline as p2
+            from verifier import VerificationResult
+
+            switched = {"done": False}
+
+            async def fake_hybrid_search(query, exclude_ids=None):
+                # Retrieval ran while generation A was current: it returns
+                # A's record (stable id from the pinned resource set).
+                return ([{"record_id": "record-a-0001", "legacy_idx": 0,
+                          "score": 0.9,
+                          "meta": {"record_id": "record-a-0001", "legacy_idx": 0,
+                                   "t": "title-a", "a": "src-a"}}], True, "ok")
+
+            async def fake_llm_stream(prompt, system_prompt=None,
+                                      history_messages=None, **kw):
+                for i in range(0, len("body-a evidence text a[1]"), 4):
+                    yield "body-a evidence text a[1]".upper()[i:i + 4].lower()
+
+            async def fake_classify(query, results, top_k=5):
+                return []
+
+            async def fake_map(query, answer, cits):
+                # MID-REQUEST RELEASE SWITCH: generation B becomes current
+                # while this request stays pinned to A.
+                if not switched["done"]:
+                    catalog.activate(mb["manifest_id"])
+                    live.reload(mb["manifest_id"])
+                    switched["done"] = True
+                return {"claims": [
+                    {"id": "c1", "text": "body-a evidence text a",
+                     "type": "MAJOR_FACT", "support_status": "SUPPORTED",
+                     "supported_by": [{"citation_id": cits[0].get("id") if cits else 1,
+                                       "relation": "DIRECT_SUPPORT",
+                                       "evidence_span": "body-a evidence text a"}]}]}
+
+            async def fake_verify(query, atomic, refs, det=None):
+                return VerificationResult("PASSED", findings=[
+                    {"claim_id": c["id"], "verdict": "PASS"} for c in atomic])
+
+            server.configure_runtime_snapshot_manager(live)
+            server.hybrid_search = fake_hybrid_search
+            server.llm_stream_func = fake_llm_stream
+            server.classify_claims = fake_classify
+            server.WORKING_DIR = Path(tempfile.mkdtemp(prefix="p02-pin-e2e-"))
+            p2.map_claims_to_citations = fake_map
+            p2.verify_final = fake_verify
+            from guardrails import RateLimiter, GuardrailSettings
+            server.RATE_LIMITER = RateLimiter(GuardrailSettings(
+                per_minute=10 ** 6, per_client_day=10 ** 9, global_day=10 ** 9))
+            try:
+                transport = httpx.ASGITransport(app=server.app)
+                done_payload = None
+                async with httpx.AsyncClient(transport=transport,
+                                             base_url="http://t") as client:
+                    async with client.stream(
+                            "POST", "/api/chat/stream",
+                            json={"query": "probe", "conversation_id": "pin"}) as resp:
+                        assert resp.status_code == 200
+                        async for line in resp.aiter_lines():
+                            if line.startswith("data:"):
+                                payload = json.loads(line.split(":", 1)[1].strip())
+                                if (isinstance(payload, dict)
+                                        and "answer_status" in payload
+                                        and "answer" in payload):
+                                    done_payload = payload
+                return done_payload, switched["done"]
+            finally:
+                server.configure_runtime_snapshot_manager(None)
+
+        done, switched = asyncio.run(scenario())
+        test("X.pipeline_uses_pinned_records_e2e",
+             done is not None and switched
+             and done["diagnostics"]["manifest_id"] == ma["manifest_id"]
+             and done.get("cited_record_ids") == ["record-a-0001"]
+             and all(c.get("record_id") == "record-a-0001"
+                     for c in done.get("citations", []))
+             and live.current_manifest_id == mb["manifest_id"])
+
+
+_pinned_snapshot_e2e_case()
 
 def cross_cutting_cases():
     import server as srv
@@ -1427,6 +1863,93 @@ def test_x_server_wires_phase02_pipeline():
 
 def test_rt027_sse_timing_stage_traced():
     _assert_case("RT027.sse_timing_stage_traced")
+
+
+
+# acceptance-review fix wrappers (traceability, L12) ─────────────────────
+def test_rt020_stable_record_id_survives_reorder():
+    _assert_case("RT020.stable_record_id_survives_reorder")
+
+
+def test_rt020_no_stable_record_id_dropped():
+    _assert_case("RT020.no_stable_record_id_dropped")
+
+
+def test_rt020_record_id_map_resolves_stable_id():
+    _assert_case("RT020.record_id_map_resolves_stable_id")
+
+
+def test_x_pipeline_uses_pinned_records_e2e():
+    _assert_case("X.pipeline_uses_pinned_records_e2e")
+
+
+def test_rt022_facts_provenance_stable_under_reorder():
+    _assert_case("RT022.facts_provenance_stable_under_reorder")
+
+
+def test_rt025_refs_complete_and_stable():
+    _assert_case("RT025.refs_complete_and_stable")
+
+
+def test_rt025_valid_ref_passes():
+    _assert_case("RT025.valid_ref_passes")
+
+
+def test_rt025_ref_missing_snapshot_unverified():
+    _assert_case("RT025.ref_missing_snapshot_unverified")
+
+
+def test_rt025_ref_ineligible_unverified():
+    _assert_case("RT025.ref_ineligible_unverified")
+
+
+def test_rt025_ref_bad_sha_unverified():
+    _assert_case("RT025.ref_bad_sha_unverified")
+
+
+def test_rt025_ref_int_record_id_unverified():
+    _assert_case("RT025.ref_int_record_id_unverified")
+
+
+def test_rt025_ref_empty_locators_unverified():
+    _assert_case("RT025.ref_empty_locators_unverified")
+
+
+def test_rt026_retrieve_fn_wired_adds_citation():
+    _assert_case("RT026.retrieve_fn_wired_adds_citation")
+
+
+def test_rt026_recheck_regrounds_repaired_draft():
+    _assert_case("RT026.recheck_regrounds_repaired_draft")
+
+
+def test_rt026_regenerate_fn_honored():
+    _assert_case("RT026.regenerate_fn_honored")
+
+
+def test_rt026_full_recheck_pass_runs():
+    _assert_case("RT026.full_recheck_pass_runs")
+
+
+def test_x_profile_applies_at_import():
+    _assert_case("X.profile_applies_at_import")
+
+
+def test_x_profile_env_conflict_fails_closed():
+    _assert_case("X.profile_env_conflict_fails_closed")
+
+
+def test_x_profile_env_agreement_applies():
+    _assert_case("X.profile_env_agreement_applies")
+
+
+def test_x_deployment_activation_state_preserved():
+    _assert_case("X.deployment_activation_state_preserved")
+
+
+def test_x_unknown_profile_fails_closed():
+    _assert_case("X.unknown_profile_fails_closed")
+
 
 # ── summary ─────────────────────────────────────────────────────────────────
 passed = sum(1 for v in CASE_RESULTS.values() if v)
