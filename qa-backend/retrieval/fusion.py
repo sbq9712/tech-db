@@ -31,9 +31,10 @@ class RRFFusion:
         Returns:
             Fused list of RetrievalResult with RRF scores and per-route scores.
         """
-        rrf_scores: Dict[int, float] = {}
-        per_route_scores: Dict[int, Dict[str, float]] = {}
-        meta_cache: Dict[int, dict] = {}
+        rrf_scores: Dict[str, float] = {}
+        per_route_scores: Dict[str, Dict[str, float]] = {}
+        meta_cache: Dict[str, dict] = {}
+        legacy_cache: Dict[str, int | None] = {}
 
         for route_name, results in route_results.items():
             for result in results:
@@ -46,6 +47,7 @@ class RRFFusion:
 
                 if rid not in meta_cache:
                     meta_cache[rid] = result.meta
+                    legacy_cache[rid] = result.legacy_idx
 
         # Sort by RRF score
         sorted_ids = sorted(rrf_scores.items(), key=lambda x: -x[1])
@@ -59,6 +61,7 @@ class RRFFusion:
             route_details["rrf_score"] = rrf_score
             results.append(RetrievalResult(
                 record_id=rid,
+                legacy_idx=legacy_cache.get(rid),
                 route="rrf_fused",
                 raw_score=rrf_score,
                 rank=rank + 1,

@@ -16,6 +16,9 @@ Checks (each independent, failures accumulate):
       incompatible flag combination from the manifest's own registry)
   L9  spec_hash self-consistency (sha256 of canonical JSON minus the
       spec_hash field must match — detects silent hand-edits)
+  L10 normative document and generated-registry hashes
+  L11 remediation registry duplicates, unknown deps, cycles, and classes
+  L12 acceptance-matrix completeness and test-reference validity
 
 --selftest injects every fault class into an in-memory copy and expects
 each check to FAIL (exit 0 only if all injected faults are detected).
@@ -27,8 +30,16 @@ import re
 import sys
 from pathlib import Path
 
+from legacy_dod_source import (
+    SOURCE_RELATIVE as LEGACY_SOURCE,
+    SOURCE_SHA256 as LEGACY_SOURCE_SHA256,
+    parse_frozen_dods,
+    source_counts,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "spec" / "spec_manifest.json"
+VALID_CLASSES = {"CORE_REQUIRED", "PROFILE_REQUIRED", "BENCHMARK_GATED_OPTIONAL"}
 
 
 def load(path=MANIFEST):
@@ -162,9 +173,204 @@ def lint(m: dict) -> list:
     return errors
 
 
+def lint_remediation_registry(registry: dict) -> list:
+    errors = []
+    tickets = registry.get("tickets", [])
+    ids = [t.get("id") for t in tickets]
+    duplicates = sorted({i for i in ids if ids.count(i) > 1})
+    if duplicates:
+        errors.append(f"L11 duplicate remediation ticket id(s): {duplicates}")
+    by_id = {t.get("id"): t for t in tickets}
+    expected = {f"RT-{n:03d}" for n in range(1, 6)}
+    missing = sorted(expected - set(ids))
+    if missing:
+        errors.append(f"L11 active remediation tickets missing: {missing}")
+    for ticket in tickets:
+        if ticket.get("completion_class") not in VALID_CLASSES:
+            errors.append(f"L11 {ticket.get('id')} has invalid completion class")
+        for dep in ticket.get("deps", []):
+            if dep not in by_id:
+                errors.append(f"L11 {ticket.get('id')} depends on unknown {dep}")
+
+    WHITE, GRAY, BLACK = 0, 1, 2
+    colors = {i: WHITE for i in ids}
+    def visit(ticket_id):
+        colors[ticket_id] = GRAY
+        for dep in by_id[ticket_id].get("deps", []):
+            if dep not in by_id:
+                continue
+            if colors[dep] == GRAY:
+                errors.append(f"L11 remediation dependency cycle via {ticket_id} -> {dep}")
+            elif colors[dep] == WHITE:
+                visit(dep)
+        colors[ticket_id] = BLACK
+    for ticket_id in ids:
+        if colors[ticket_id] == WHITE:
+            visit(ticket_id)
+    return errors
+
+
+def lint_acceptance_matrix(matrix: dict, manifest: dict, registry: dict) -> list:
+    errors = []
+    suites = matrix.get("suite_registry", {})
+    legacy = matrix.get("legacy_ticket_entries", [])
+    mapped_legacy = [e.get("ticket_id") for e in legacy]
+    expected_legacy = {t["id"] for t in manifest.get("tickets", [])}
+    missing = sorted(expected_legacy - set(mapped_legacy))
+    duplicates = sorted({i for i in mapped_legacy if mapped_legacy.count(i) > 1})
+    if missing or duplicates:
+        errors.append(f"L12 legacy acceptance mappings missing={missing} duplicate={duplicates}")
+
+    try:
+        frozen = parse_frozen_dods()
+        frozen_counts = source_counts(frozen)
+    except (OSError, ValueError) as exc:
+        errors.append(f"L12 frozen source cannot be verified: {exc}")
+        frozen, frozen_counts = {}, {}
+    declared_source = matrix.get("frozen_legacy_source", {})
+    if declared_source.get("path") != LEGACY_SOURCE or \
+            declared_source.get("sha256") != LEGACY_SOURCE_SHA256:
+        errors.append("L12 frozen source path/hash metadata mismatch")
+    for key, value in frozen_counts.items():
+        if declared_source.get(key) != value:
+            errors.append(
+                f"L12 frozen source count mismatch {key}: "
+                f"matrix={declared_source.get(key)} source={value}")
+
+    legacy_by_id = {entry.get("ticket_id"): entry for entry in legacy}
+    for ticket_id, source_ticket in frozen.items():
+        entry = legacy_by_id.get(ticket_id, {})
+        matrix_dods = entry.get("dods", [])
+        source_dods = source_ticket["dods"]
+        if entry.get("source_dod_count") != len(source_dods) or len(matrix_dods) != len(source_dods):
+            errors.append(
+                f"L12 {ticket_id} DoD count mismatch matrix={len(matrix_dods)} "
+                f"declared={entry.get('source_dod_count')} source={len(source_dods)}")
+            continue
+        for number, (matrix_dod, source_dod) in enumerate(zip(matrix_dods, source_dods), 1):
+            expected_id = f"{ticket_id}.DOD-{number:02d}"
+            if matrix_dod.get("dod_id") != expected_id:
+                errors.append(
+                    f"L12 {ticket_id} unstable DoD id {matrix_dod.get('dod_id')!r}; "
+                    f"expected {expected_id}")
+            if matrix_dod.get("description") != source_dod["text"]:
+                errors.append(f"L12 {expected_id} text differs from frozen source")
+            if matrix_dod.get("source") != source_dod["source"]:
+                errors.append(f"L12 {expected_id} source reference differs from frozen source")
+
+    remediation = matrix.get("remediation_entries", [])
+    mapped_rt = {e.get("ticket_id") for e in remediation}
+    active = set(matrix.get("active_remediation_scope", []))
+    known_rt = {t["id"] for t in registry.get("tickets", [])}
+    if active - known_rt or active - mapped_rt:
+        errors.append(
+            f"L12 active remediation mapping invalid unknown={sorted(active-known_rt)} "
+            f"missing={sorted(active-mapped_rt)}")
+
+    valid_statuses = {"SATISFIED", "NOT_SATISFIED", "BLOCKED_EXTERNAL_ACTION"}
+    seen_dods = set()
+    for entry in legacy + remediation:
+        dods = entry.get("dods", [])
+        if not dods:
+            errors.append(f"L12 {entry.get('ticket_id')} has no DoD records")
+        for dod in dods:
+            dod_id = dod.get("dod_id")
+            if not dod_id or dod_id in seen_dods:
+                errors.append(f"L12 invalid/duplicate DoD id {dod_id!r}")
+            seen_dods.add(dod_id)
+            status = dod.get("status")
+            if status not in valid_statuses:
+                errors.append(f"L12 {dod_id} has invalid status {status!r}")
+                continue
+            refs = dod.get("test_cases", [])
+            planned = dod.get("planned_test_cases", [])
+            if status == "SATISFIED" and not refs:
+                errors.append(f"L12 {dod_id} claims SATISFIED without a named test case")
+            if status != "SATISFIED" and refs:
+                errors.append(f"L12 {dod_id} gives completion credit while status={status}")
+            if status != "SATISFIED" and not planned:
+                errors.append(f"L12 {dod_id} lacks a named future behavioral case")
+            if status == "BLOCKED_EXTERNAL_ACTION" and not dod.get("external_blocker"):
+                errors.append(f"L12 {dod_id} lacks an external blocker description")
+            for item in planned:
+                if not item.get("case", "").startswith("test_"):
+                    errors.append(f"L12 {dod_id} has unnamed future test case")
+                if not item.get("future_rt"):
+                    errors.append(f"L12 {dod_id} has no future RT owner")
+                if any(owner not in known_rt for owner in item.get("future_rt", [])):
+                    errors.append(f"L12 {dod_id} references unknown future RT owner")
+                required = dod.get("required_level")
+                if required and item.get("level") != required:
+                    errors.append(
+                        f"L12 {dod_id} planned level {item.get('level')} "
+                        f"does not satisfy required level {required}")
+                if required == "benchmark" and not item.get("benchmark_owner"):
+                    errors.append(f"L12 {dod_id} benchmark has no explicit benchmark owner")
+            for ref in refs:
+                suite = ref.get("suite")
+                if suite not in suites:
+                    errors.append(f"L12 {dod_id} references unknown suite {suite}")
+                    continue
+                if ref.get("level") not in {"unit", "integration", "e2e", "benchmark"}:
+                    errors.append(f"L12 {dod_id} has invalid test level")
+                command = ref.get("command", "")
+                if not command.startswith("python ") or "tests_" not in command:
+                    errors.append(f"L12 {dod_id} has non-behavioral command {command!r}")
+                case = ref.get("case", "")
+                if not case or not re.match(r"^(?:test_|t_)[a-zA-Z0-9_]+$", case):
+                    errors.append(f"L12 {dod_id} lacks a concrete named test case")
+                path = ROOT / suites[suite]
+                source = path.read_text("utf-8") if path.is_file() else ""
+                if not re.search(rf"^def {re.escape(case)}\(", source, re.MULTILINE):
+                    errors.append(f"L12 {dod_id} test case {case} is absent from {suites[suite]}")
+
+    # Explicit honesty gates for known false-positive mappings.
+    t037 = next((e for e in legacy if e.get("ticket_id") == "T037"), {})
+    for dod in t037.get("dods", []):
+        if dod.get("status") == "SATISFIED":
+            errors.append("L12 T037 cannot be satisfied by the simulated integration flow")
+        owners = {rt for p in dod.get("planned_test_cases", []) for rt in p.get("future_rt", [])}
+        if "RT-104" not in owners:
+            errors.append("L12 T037 real server/orchestrator E2E must be owned by RT-104")
+        if dod.get("required_level") not in {"e2e", "benchmark"}:
+            errors.append("L12 T037 frozen DoDs must remain E2E/benchmark level")
+    high_risk_er = {"ER-060", "ER-061", "ER-062", "ER-063", "ER-082", "ER-083"}
+    for entry in legacy:
+        if entry.get("ticket_id") in high_risk_er:
+            if any(d.get("status") == "SATISFIED" for d in entry.get("dods", [])):
+                errors.append(f"L12 {entry.get('ticket_id')} is not proven by tests_er_v2.py")
+    return errors
+
+
+def lint_external(m: dict, root: Path = ROOT) -> list:
+    errors = []
+    for relative, declared in m.get("normative_documents", {}).items():
+        path = root / relative
+        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
+        if actual != declared:
+            errors.append(f"L10 normative hash mismatch: {relative}")
+    for field, path_field in (("ticket_registry_sha256", "remediation_registry"),
+                              ("acceptance_matrix_sha256", "acceptance_matrix")):
+        path = root / m.get(path_field, "")
+        actual = hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else "missing"
+        if actual != m.get(field):
+            errors.append(f"L10 {field} mismatch")
+    if set(m.get("completion_classes", [])) != VALID_CLASSES:
+        errors.append("L10 completion class registry is incomplete")
+
+    registry_path = root / m.get("remediation_registry", "")
+    matrix_path = root / m.get("acceptance_matrix", "")
+    if registry_path.exists() and matrix_path.exists():
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+        errors.extend(lint_remediation_registry(registry))
+        errors.extend(lint_acceptance_matrix(matrix, m, registry))
+    return errors
+
+
 def run(path=MANIFEST, quiet=False):
     m = load(path)
-    errors = lint(m)
+    errors = lint(m) + lint_external(m, Path(path).resolve().parents[1])
     if not quiet:
         print(f"lint_spec_manifest — {len(m.get('tickets', []))} tickets, "
               f"{len(m.get('phases', []))} phases, spec_version={m.get('spec_version')}")
@@ -230,6 +436,34 @@ def selftest():
         print(f"  {'✅' if hit else '❌'} {name}: {'detected' if hit else 'NOT detected'}")
         if not hit:
             undetected.append(name)
+
+    registry = json.loads((ROOT / base["remediation_registry"]).read_text("utf-8"))
+    bad_registry = copy.deepcopy(registry)
+    bad_registry["tickets"].append(copy.deepcopy(bad_registry["tickets"][0]))
+    hit = any(e.startswith("L11") for e in lint_remediation_registry(bad_registry))
+    print(f"  {'✅' if hit else '❌'} L11_remediation_duplicate: {'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L11_remediation_duplicate")
+
+    matrix = json.loads((ROOT / base["acceptance_matrix"]).read_text("utf-8"))
+    bad_matrix = copy.deepcopy(matrix)
+    bad_matrix["legacy_ticket_entries"] = bad_matrix["legacy_ticket_entries"][1:]
+    hit = any(e.startswith("L12") for e in lint_acceptance_matrix(
+        bad_matrix, base, registry))
+    print(f"  {'✅' if hit else '❌'} L12_missing_acceptance: {'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L12_missing_acceptance")
+
+    bad_matrix = copy.deepcopy(matrix)
+    t015 = next(entry for entry in bad_matrix["legacy_ticket_entries"]
+                if entry["ticket_id"] == "T015")
+    t015["dods"].pop()
+    hit = any("T015 DoD count mismatch" in error for error in
+              lint_acceptance_matrix(bad_matrix, base, registry))
+    print(f"  {'✅' if hit else '❌'} L12_missing_frozen_dod: "
+          f"{'detected' if hit else 'NOT detected'}")
+    if not hit:
+        undetected.append("L12_missing_frozen_dod")
     ok = not undetected
     print(f"selftest: {'ALL fault classes detected ✅' if ok else f'UNDETECTED: {undetected} ❌'}")
     return 0 if ok else 1

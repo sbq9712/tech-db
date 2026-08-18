@@ -1,0 +1,1441 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "remediation-2026-08-18",
+  "source": "docs/remediation/execution_tickets.md",
+  "source_sha256": "8e201a5e5298bd681171663af14f13fce5ee656bf5d36306c930003651dfaef6",
+  "completion_classes": [
+    "CORE_REQUIRED",
+    "PROFILE_REQUIRED",
+    "BENCHMARK_GATED_OPTIONAL"
+  ],
+  "tickets": [
+    {
+      "id": "RT-001",
+      "title": "Freeze remediation spec and canonical manifest",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [],
+      "maps_to": [
+        "T040"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-002",
+      "title": "Replace fake Final Acceptance assertions",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "RT-001"
+      ],
+      "maps_to": [
+        "T002",
+        "T034",
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-003",
+      "title": "Reproducible mini-runtime fixture",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "RT-002"
+      ],
+      "maps_to": [
+        "T002",
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-004",
+      "title": "Current-production baseline and gap report",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "RT-003"
+      ],
+      "maps_to": [
+        "T002",
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-005",
+      "title": "Protect main and required merge checks",
+      "phase": 0,
+      "priority": "P0",
+      "deps": [
+        "RT-001",
+        "RT-002"
+      ],
+      "maps_to": [
+        "T054",
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-010",
+      "title": "Persistent Record Registry and stable `record_id`",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-001",
+        "RT-003"
+      ],
+      "maps_to": [
+        "T007",
+        "T041"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-011",
+      "title": "Legacy `idx` -> stable ID migration map",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-010"
+      ],
+      "maps_to": [
+        "T007",
+        "T035"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-012",
+      "title": "Immutable SourceSnapshot store",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-010"
+      ],
+      "maps_to": [
+        "T047"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-013",
+      "title": "Reversible normalization and EvidenceLocator",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-012"
+      ],
+      "maps_to": [
+        "T003",
+        "T047"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-014",
+      "title": "Incremental evidence metadata enrichment",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-010",
+        "RT-012"
+      ],
+      "maps_to": [
+        "T007",
+        "T008",
+        "T009",
+        "T010",
+        "T012"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-015",
+      "title": "Synthetic-summary isolation in primary indexes",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-012",
+        "RT-014",
+        "RT-004"
+      ],
+      "maps_to": [
+        "T028",
+        "T049"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-016",
+      "title": "Global immutable release manifest",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-011",
+        "RT-012",
+        "RT-014",
+        "RT-015"
+      ],
+      "maps_to": [
+        "T041"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-017",
+      "title": "Atomic activation, request pinning, and generation retention",
+      "phase": 1,
+      "priority": "P0",
+      "deps": [
+        "RT-016"
+      ],
+      "maps_to": [
+        "T041",
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-018",
+      "title": "Release backup/restore and GC",
+      "phase": 1,
+      "priority": "P1",
+      "deps": [
+        "RT-016",
+        "RT-017"
+      ],
+      "maps_to": [
+        "T041",
+        "T056"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-020",
+      "title": "Exact grounding rewrite on SourceSnapshot",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-013"
+      ],
+      "maps_to": [
+        "T003",
+        "T032"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-021",
+      "title": "Typed claim/evidence relation and entailment",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-020"
+      ],
+      "maps_to": [
+        "T004",
+        "T046",
+        "T048"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-022",
+      "title": "NumericFact provenance and deterministic verification",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-020"
+      ],
+      "maps_to": [
+        "T029",
+        "T046"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-023",
+      "title": "Claim coverage gate",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-021",
+        "RT-022"
+      ],
+      "maps_to": [
+        "T004",
+        "T052"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-024",
+      "title": "Canonical AnswerStateMachine",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-021",
+        "RT-023"
+      ],
+      "maps_to": [
+        "T005",
+        "T006",
+        "T052"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-025",
+      "title": "Fail-safe final verifier contract",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-021",
+        "RT-024"
+      ],
+      "maps_to": [
+        "T005",
+        "T046",
+        "T052"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-026",
+      "title": "Bounded repair loop",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-024",
+        "RT-025"
+      ],
+      "maps_to": [
+        "T052"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-027",
+      "title": "Terminal renderer and post-verification SSE",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-024",
+        "RT-026"
+      ],
+      "maps_to": [
+        "T037",
+        "T052"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-028",
+      "title": "Citation/API schema hardening",
+      "phase": 2,
+      "priority": "P0",
+      "deps": [
+        "RT-020",
+        "RT-024"
+      ],
+      "maps_to": [
+        "T032",
+        "T033",
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-029",
+      "title": "Frontend evidence-state rendering",
+      "phase": 2,
+      "priority": "P1",
+      "deps": [
+        "RT-028"
+      ],
+      "maps_to": [
+        "T033"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-030",
+      "title": "Finish retrieval extraction from `server.py`",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-004",
+        "RT-017"
+      ],
+      "maps_to": [
+        "T014"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-031",
+      "title": "High-recall fusion candidate pool",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-030",
+        "RT-011"
+      ],
+      "maps_to": [
+        "T015"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-032",
+      "title": "Real content-aware reranker for all modes",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-031",
+        "RT-015"
+      ],
+      "maps_to": [
+        "T016",
+        "T051"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-033",
+      "title": "Requirement/route reserve pool",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-031"
+      ],
+      "maps_to": [
+        "T050"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-034",
+      "title": "Mandatory EvidencePolicyEngine",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-014",
+        "RT-021",
+        "RT-022"
+      ],
+      "maps_to": [
+        "T009",
+        "T010",
+        "T022",
+        "T043"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-035",
+      "title": "Evidence Selector production integration",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-032",
+        "RT-033",
+        "RT-034"
+      ],
+      "maps_to": [
+        "T017"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-036",
+      "title": "Contextual chunk retrieval with exact parent locators",
+      "phase": 3,
+      "priority": "P0/P1",
+      "deps": [
+        "RT-013",
+        "RT-030",
+        "RT-015"
+      ],
+      "maps_to": [
+        "T028"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-037",
+      "title": "Canonical Evidence Package builder",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-035",
+        "RT-034",
+        "RT-020"
+      ],
+      "maps_to": [
+        "T031"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-038",
+      "title": "Context-capacity and source-grounded compression",
+      "phase": 3,
+      "priority": "P1",
+      "deps": [
+        "RT-037"
+      ],
+      "maps_to": [
+        "T031"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-039",
+      "title": "Generation input allowlist enforcement",
+      "phase": 3,
+      "priority": "P0",
+      "deps": [
+        "RT-037"
+      ],
+      "maps_to": [
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-040",
+      "title": "Structured verified conversation store",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-011",
+        "RT-020",
+        "RT-024"
+      ],
+      "maps_to": [
+        "T042"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-041",
+      "title": "Deterministic semantic-diff safeguards",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-040"
+      ],
+      "maps_to": [
+        "T042"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-042",
+      "title": "FAST mode correctness path",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-032",
+        "RT-034",
+        "RT-035",
+        "RT-037",
+        "RT-024"
+      ],
+      "maps_to": [
+        "T018"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-043",
+      "title": "Typed ResearchState and canonical orchestrator wiring",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-035",
+        "RT-040",
+        "RT-041"
+      ],
+      "maps_to": [
+        "T018",
+        "T019",
+        "T020",
+        "T021",
+        "T022",
+        "T023",
+        "T024",
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-044",
+      "title": "Requirement decomposition and Planner hardening",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-041",
+        "RT-043"
+      ],
+      "maps_to": [
+        "T019",
+        "T020"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-045",
+      "title": "Multi-document workers wired into orchestrator",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-036",
+        "RT-043",
+        "RT-044"
+      ],
+      "maps_to": [
+        "T038"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-046",
+      "title": "Cross-document packet cache scoping",
+      "phase": 4,
+      "priority": "P1",
+      "deps": [
+        "RT-045",
+        "RT-017"
+      ],
+      "maps_to": [
+        "T038",
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-047",
+      "title": "Ledger + semantic Grader integration",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-034",
+        "RT-043",
+        "RT-045"
+      ],
+      "maps_to": [
+        "T021",
+        "T022"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-048",
+      "title": "Gap analysis and targeted retrieval",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-047"
+      ],
+      "maps_to": [
+        "T023",
+        "T024"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-049",
+      "title": "Stopping and Knowledge Boundary",
+      "phase": 4,
+      "priority": "P0",
+      "deps": [
+        "RT-048",
+        "RT-024"
+      ],
+      "maps_to": [
+        "T025",
+        "T026"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-050",
+      "title": "Capability failure matrix",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "RT-024",
+        "RT-043"
+      ],
+      "maps_to": [
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-051",
+      "title": "Request task group and disconnect cancellation",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "RT-043",
+        "RT-050"
+      ],
+      "maps_to": [
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-052",
+      "title": "Deadlines, retries, and remaining-budget checks",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "RT-050",
+        "RT-051"
+      ],
+      "maps_to": [
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-053",
+      "title": "Queue/backpressure admission",
+      "phase": 5,
+      "priority": "P1",
+      "deps": [
+        "RT-051"
+      ],
+      "maps_to": [
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-054",
+      "title": "Request-state isolation stress",
+      "phase": 5,
+      "priority": "P0",
+      "deps": [
+        "RT-051",
+        "RT-053"
+      ],
+      "maps_to": [
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-055",
+      "title": "Trace retention/redaction hardening",
+      "phase": 5,
+      "priority": "P1",
+      "deps": [
+        "RT-017",
+        "RT-043"
+      ],
+      "maps_to": [
+        "T001",
+        "T056"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-060",
+      "title": "Entity schema + opaque IDs + alias many-to-many",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-017"
+      ],
+      "maps_to": [
+        "ER-010",
+        "ER-011",
+        "ER-012",
+        "ER-013",
+        "ER-014",
+        "ER-020",
+        "ER-021",
+        "ER-022"
+      ],
+      "completion_class": "BENCHMARK_GATED_OPTIONAL"
+    },
+    {
+      "id": "RT-061",
+      "title": "Transactional IdentityStore backend",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-060"
+      ],
+      "maps_to": [
+        "ER-082",
+        "ER-083"
+      ],
+      "completion_class": "BENCHMARK_GATED_OPTIONAL"
+    },
+    {
+      "id": "RT-062",
+      "title": "Candidate generators and blocking",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-060"
+      ],
+      "maps_to": [
+        "ER-030",
+        "ER-031",
+        "ER-032",
+        "ER-033",
+        "ER-034"
+      ],
+      "completion_class": "BENCHMARK_GATED_OPTIONAL"
+    },
+    {
+      "id": "RT-063",
+      "title": "Formal resolver states and deterministic resolver",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-061",
+        "RT-062"
+      ],
+      "maps_to": [
+        "ER-040",
+        "ER-043"
+      ],
+      "completion_class": "BENCHMARK_GATED_OPTIONAL"
+    },
+    {
+      "id": "RT-064",
+      "title": "Constrained LLM adjudicator",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-063"
+      ],
+      "maps_to": [
+        "ER-041",
+        "ER-042",
+        "ER-053"
+      ],
+      "completion_class": "BENCHMARK_GATED_OPTIONAL"
+    },
+    {
+      "id": "RT-065",
+      "title": "Locked ER gold set and calibration",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-062",
+        "RT-064"
+      ],
+      "maps_to": [
+        "ER-050",
+        "ER-051",
+        "ER-052",
+        "ER-053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-066",
+      "title": "Manual Override Store",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-061",
+        "RT-063"
+      ],
+      "maps_to": [
+        "ER-060"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-067",
+      "title": "Merge operation with dry-run and audit",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-066"
+      ],
+      "maps_to": [
+        "ER-061"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-068",
+      "title": "Split/unmerge and compensating mutations",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-067"
+      ],
+      "maps_to": [
+        "ER-062",
+        "ER-063"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-069",
+      "title": "Atomic Entity create concurrency",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-061",
+        "RT-063"
+      ],
+      "maps_to": [
+        "ER-082"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-070",
+      "title": "Identity snapshot publish and global-manifest binding",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-067",
+        "RT-068",
+        "RT-069"
+      ],
+      "maps_to": [
+        "ER-083",
+        "T041"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-071",
+      "title": "Legacy node/alias migration and duplicate audit",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-070",
+        "RT-062"
+      ],
+      "maps_to": [
+        "ER-090",
+        "ER-091",
+        "ER-092",
+        "ER-093"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-072",
+      "title": "Rebuild evidence-backed V2 mentions/relations",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-071",
+        "RT-013"
+      ],
+      "maps_to": [
+        "ER-070",
+        "ER-071",
+        "ER-072",
+        "ER-073",
+        "ER-094"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-073",
+      "title": "Query entity parser/resolver",
+      "phase": 6,
+      "priority": "P0",
+      "deps": [
+        "RT-062",
+        "RT-065",
+        "RT-070"
+      ],
+      "maps_to": [
+        "ER-100",
+        "ER-101",
+        "ER-102",
+        "ER-103",
+        "ER-104"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-074",
+      "title": "Entity Admin API/CLI and sanitization",
+      "phase": 6,
+      "priority": "P1",
+      "deps": [
+        "RT-066",
+        "RT-067",
+        "RT-068"
+      ],
+      "maps_to": [
+        "ER-120",
+        "ER-123"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-075",
+      "title": "Entity quality/performance monitoring and shadow",
+      "phase": 6,
+      "priority": "P0/P1",
+      "deps": [
+        "RT-065",
+        "RT-072",
+        "RT-073"
+      ],
+      "maps_to": [
+        "ER-110",
+        "ER-111",
+        "ER-121",
+        "ER-122"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-080",
+      "title": "Relation ontology/versioned GraphStatement",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-072"
+      ],
+      "maps_to": [
+        "T027",
+        "T044"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-081",
+      "title": "Semantic edge extraction + validation",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-080",
+        "RT-020"
+      ],
+      "maps_to": [
+        "T027",
+        "T046"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-082",
+      "title": "Graph Query Intent and composition validator",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-073",
+        "RT-080"
+      ],
+      "maps_to": [
+        "T045"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-083",
+      "title": "Relation-aware Graph Retriever",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-081",
+        "RT-082",
+        "RT-030"
+      ],
+      "maps_to": [
+        "T039"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-084",
+      "title": "Independent relation-critical policy gate",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-034",
+        "RT-083"
+      ],
+      "maps_to": [
+        "T039",
+        "T043"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-085",
+      "title": "Graph-V2 benchmark versus legacy",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-083",
+        "RT-084"
+      ],
+      "maps_to": [
+        "ER-112",
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-086",
+      "title": "Partial Graph-V2 activation profile",
+      "phase": 7,
+      "priority": "P0",
+      "deps": [
+        "RT-075",
+        "RT-085",
+        "RT-017"
+      ],
+      "maps_to": [
+        "ER-112",
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-087",
+      "title": "Full Graph-V2 activation gate",
+      "phase": 7,
+      "priority": "P1/conditional",
+      "deps": [
+        "RT-086",
+        "RT-112"
+      ],
+      "maps_to": [
+        "ER-113"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-090",
+      "title": "Unified done-event/state API",
+      "phase": 8,
+      "priority": "P0",
+      "deps": [
+        "RT-027",
+        "RT-028",
+        "RT-050"
+      ],
+      "maps_to": [
+        "T006",
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-091",
+      "title": "Claim-aware reference cards",
+      "phase": 8,
+      "priority": "P1",
+      "deps": [
+        "RT-029",
+        "RT-090"
+      ],
+      "maps_to": [
+        "T033"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-092",
+      "title": "Replay fidelity modes",
+      "phase": 8,
+      "priority": "P1",
+      "deps": [
+        "RT-055",
+        "RT-017"
+      ],
+      "maps_to": [
+        "T035"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-093",
+      "title": "Human Review separation from locked holdout",
+      "phase": 8,
+      "priority": "P1",
+      "deps": [
+        "RT-002",
+        "RT-092"
+      ],
+      "maps_to": [
+        "T036",
+        "T054"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-094",
+      "title": "Full audit/trace UI policy",
+      "phase": 8,
+      "priority": "P2",
+      "deps": [
+        "RT-055",
+        "RT-091"
+      ],
+      "maps_to": [
+        "T056"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-100",
+      "title": "Retrieval/reranker/evidence benchmark suite",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-032",
+        "RT-035",
+        "RT-037"
+      ],
+      "maps_to": [
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-101",
+      "title": "Answer/citation/abstention hard-gate suite",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-025",
+        "RT-027",
+        "RT-028"
+      ],
+      "maps_to": [
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-102",
+      "title": "Multi-document benchmark suite",
+      "phase": 9,
+      "priority": "P0/P1",
+      "deps": [
+        "RT-045"
+      ],
+      "maps_to": [
+        "T034",
+        "T038"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-103",
+      "title": "ER benchmark suite",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-065",
+        "RT-075"
+      ],
+      "maps_to": [
+        "ER-051",
+        "ER-052",
+        "ER-102",
+        "ER-122",
+        "T034"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-104",
+      "title": "Real server/orchestrator E2E suite",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-043",
+        "RT-049",
+        "RT-051",
+        "RT-090"
+      ],
+      "maps_to": [
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-105",
+      "title": "Critical failure-injection suite",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-050",
+        "RT-104"
+      ],
+      "maps_to": [
+        "T005",
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-106",
+      "title": "CI tiering and artifact provenance",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-002",
+        "RT-100",
+        "RT-104"
+      ],
+      "maps_to": [
+        "T034",
+        "T054"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-107",
+      "title": "Release eligibility evaluator",
+      "phase": 9,
+      "priority": "P0",
+      "deps": [
+        "RT-101",
+        "RT-102",
+        "RT-103",
+        "RT-105",
+        "RT-106"
+      ],
+      "maps_to": [
+        "T054",
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-108",
+      "title": "Ticket status from evidence",
+      "phase": 9,
+      "priority": "P1",
+      "deps": [
+        "RT-002",
+        "RT-107"
+      ],
+      "maps_to": [
+        "T040"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-110",
+      "title": "Full-pipeline shadow framework",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "RT-017",
+        "RT-104",
+        "RT-107"
+      ],
+      "maps_to": [
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-111",
+      "title": "Named-profile canary controller",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "RT-110"
+      ],
+      "maps_to": [
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-112",
+      "title": "Rollback triggers and attribution",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "RT-111",
+        "RT-107"
+      ],
+      "maps_to": [
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-113",
+      "title": "Post-activation drift and Human Review feed",
+      "phase": 10,
+      "priority": "P1",
+      "deps": [
+        "RT-111",
+        "RT-093"
+      ],
+      "maps_to": [
+        "T036",
+        "T055"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-114",
+      "title": "Production capacity/SLO benchmark",
+      "phase": 10,
+      "priority": "P1",
+      "deps": [
+        "RT-053",
+        "RT-104"
+      ],
+      "maps_to": [
+        "T034",
+        "T053"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-115",
+      "title": "Migration/rollback/operator documentation",
+      "phase": 10,
+      "priority": "P1",
+      "deps": [
+        "RT-112",
+        "RT-074"
+      ],
+      "maps_to": [
+        "ER-124",
+        "T037"
+      ],
+      "completion_class": "CORE_REQUIRED"
+    },
+    {
+      "id": "RT-116",
+      "title": "Final core acceptance and completion declaration",
+      "phase": 10,
+      "priority": "P0",
+      "deps": [
+        "RT-108",
+        "RT-112",
+        "RT-114",
+        "RT-115"
+      ],
+      "maps_to": [],
+      "completion_class": "CORE_REQUIRED"
+    }
+  ]
+}

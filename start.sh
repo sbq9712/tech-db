@@ -5,6 +5,11 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_DIR"
 
+# runtime-v1 is the currently published deployment asset.  This is an
+# explicit named migration profile, never an exception fallback.
+export TECH_DB_RUNTIME_MODE="${TECH_DB_RUNTIME_MODE:-legacy_hybrid}"
+export QA_PIPELINE_PROFILE="${QA_PIPELINE_PROFILE:-legacy_hybrid}"
+
 if [[ ! -x .venv/bin/python ]]; then
   echo "Environment is missing; running setup first..."
   ./setup.sh

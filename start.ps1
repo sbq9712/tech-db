@@ -2,6 +2,8 @@ $ErrorActionPreference = "Stop"
 $ProjectDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $ProjectDir
 $Python = ".venv\Scripts\python.exe"
+$env:TECH_DB_RUNTIME_MODE = if ($env:TECH_DB_RUNTIME_MODE) { $env:TECH_DB_RUNTIME_MODE } else { "legacy_hybrid" }
+$env:QA_PIPELINE_PROFILE = if ($env:QA_PIPELINE_PROFILE) { $env:QA_PIPELINE_PROFILE } else { "legacy_hybrid" }
 
 if (-not (Test-Path $Python)) { & "$ProjectDir\setup.ps1" }
 & $Python scripts\runtime_assets.py verify 2>$null

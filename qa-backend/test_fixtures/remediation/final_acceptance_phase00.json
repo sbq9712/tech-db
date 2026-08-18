@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
+  "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+  "matrix_sha256": "ea76aa7f5ca47a932c5608f9227902a71cadff971337c5eb38516d96e2c90cf9",
+  "results": [
+    {
+      "suite": "er_v2",
+      "command": "python qa-backend/tests_er_v2.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.231,
+      "tail": "s aliases\n  ✅ ID is deterministic\n  ✅ ID is opaque\n  ✅ add entity returns ID\n  ✅ get entity by ID\n  ✅ alias indexed\n\n=== ER Mention Extraction ===\n  ✅ extract Chinese entity\n  ✅ mention has offsets\n  ✅ extract English entity\n  ✅ no false positive on common text\n\n=== ER Entity Linking ===\n  ✅ exact match: 英伟达 → NVIDIA\n  ✅ exact match confidence\n  ✅ case-insensitive match\n  ✅ abbreviation match\n  ✅ alias match: 台积电 → TSMC\n  ✅ unknown entity → NEW\n\n=== ER Disambiguation ===\n  ✅ single candidate resolves\n  ✅ context disambiguation\n\n=== ER Pipeline ===\n  ✅ pipeline processes record\n  ✅ pipeline finds entities\n  ✅ linked entity has ID: NVIDIA\n  ✅ linked entity has confidence: NVIDIA\n  ✅ linked entity has ID: Blackwell\n  ✅ linked entity has confidence: Blackwell\n  ✅ linked entity has ID: TSMC\n  ✅ linked entity has confidence: TSMC\n  ✅ batch processes records\n  ✅ batch has stats\n\n=== ER Schema Versioning ===\n  ✅ registry has schema version\n  ✅ reload preserves entities\n  ✅ reload preserves version\n\n======================================================================\n  Entity Resolution V2 Results: 32 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "integration",
+      "command": "python qa-backend/tests_integration.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.356,
+      "tail": "\n=== Integration Test: Full QA Pipeline ===\n\n  ✅ trace created\n  ✅ trace records retrieval\n  ✅ evidence selector runs\n  ✅ ledger tracks requirements\n  ✅ conflict detection runs\n  ✅ context builder produces output\n  ✅ context has data boundary\n  ✅ answer status: SUPPORTED\n  ✅ citation grounded\n  ✅ citation has offsets\n  ✅ trace flushed\n  ✅ trace has trace_id\n  ✅ trace has stages\n  ✅ trace has result\n  ✅ no ZAI_API_KEY in trace\n\n======================================================================\n  Integration Test: 15 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "phase_a",
+      "command": "python qa-backend/tests_phase_a.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.34,
+      "tail": " ✅ grounding offsets\n  ✅ fb takes priority\n  ✅ empty text → grounding fail\n  ✅ semantic locate works\n  ✅ semantic locate finds relevant section\n\n=== T005: Verifier Fail-Safe ===\n  ✅ JSON clean parse\n  ✅ JSON code fence parse\n  ✅ JSON embedded parse\n  ✅ JSON malformed → None\n  ✅ PASSED.passed is True\n  ✅ FAILED.passed is False\n  ✅ UNVERIFIED.passed is False\n  ✅ UNVERIFIED has reason\n  ✅ empty answer trivially passes\n\n=== T004: Claim Mapping ===\n  ✅ claim validated\n  ✅ claim supported\n  ✅ unsupported major claim detected\n  ✅ unsupported major claims found\n  ✅ minor explanation ignored\n\n=== T006: Four-State Answer Status ===\n  ✅ no results → UNSUPPORTED\n  ✅ results + passed → SUPPORTED\n  ✅ verification unverified → UNVERIFIED\n  ✅ verification failed → PARTIALLY\n  ✅ all major unsupported → UNSUPPORTED\n  ✅ evidence summary structure\n\n=== T013: Content Safety ===\n  ✅ detect Chinese injection\n  ✅ detect English injection\n  ✅ no false positive\n  ✅ data boundary start\n  ✅ data boundary end\n  ✅ safety instructions added\n\n======================================================================\n  Results: 42 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "phase_bc",
+      "command": "python qa-backend/tests_phase_bc.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.566,
+      "tail": "ty Canonicalization ===\n  ✅ registry has entities\n  ✅ exact alias match\n  ✅ case insensitive match\n  ✅ unknown entity → NEW\n\n=== T014: Retrieval Layer ===\n  ✅ vector search returns results\n  ✅ vector top result correct\n  ✅ vector route name\n  ✅ vector rank starts at 1\n  ✅ RRF produces deduplicated results\n  ✅ RRF record 20 appears in both\n  ✅ RRF has per-route scores\n  ✅ RRF has rrf_score\n\n=== T017: Evidence Selector ===\n  ✅ selector returns selected\n  ✅ selector limits per group\n  ✅ selector has reasons\n\n=== T021: Evidence Ledger ===\n  ✅ ledger starts with all MISSING\n  ✅ ledger not sufficient\n  ✅ r1 now has evidence\n  ✅ r2 still missing\n  ✅ both requirements now have evidence\n  ✅ ledger sufficient\n  ✅ ledger has snapshots\n\n=== T025: Stopping Criteria ===\n  ✅ sufficient → stop\n  ✅ max iterations → stop\n\n=== T030: Conflict Detection ===\n  ✅ contradiction detected\n  ✅ no false conflict for agreement\n\n=== T031: Context Builder ===\n  ✅ context has question\n  ✅ context has evidence\n  ✅ context wraps data\n\n======================================================================\n  Phase B+C Results: 45 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "phase_d",
+      "command": "python qa-backend/tests_phase_d.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.171,
+      "tail": " chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "phase_final",
+      "command": "python qa-backend/tests_phase_final.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.352,
+      "tail": "\n=== T042: Query Integrity ===\n  ✅ no change → none risk\n  ✅ entity removed → high risk\n  ✅ should revert\n  ✅ negation changed → high risk\n  ✅ safe expansion → safe\n  ✅ should not revert\n  ✅ context has original\n  ✅ context has rewritten\n\n=== T045: Graph Intent ===\n  ✅ infer intent: INNOVATION\n  ✅ infer intent: relation question\n  ✅ infer intent: TECH_APPLICATION\n  ✅ single hop allowed\n  ✅ multi-hop is discovery\n  ✅ planned → not inference\n\n=== T052: Answer State Machine ===\n  ✅ claim starts as DRAFT\n  ✅ DRAFT → GROUNDED\n  ✅ GROUNDED → VERIFIED\n  ✅ VERIFIED → FINAL\n  ✅ DRAFT → GROUNDING_FAIL\n  ✅ GROUNDING_FAIL → GROUNDED\n  ✅ VERIFICATION_FAIL → UNSUPPORTED\n  ✅ UNSUPPORTED → DELETED\n  ✅ all verified → SUPPORTED\n  ✅ has deleted → PARTIAL\n\n=== T038: Multi-Document ===\n  ✅ empty merge → no claims\n  ✅ merge collects claims\n  ✅ merge coverage\n  ✅ merge grounded count\n  ✅ drop ungrounded claims\n\n======================================================================\n  Final Phase Results: 29 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "suite": "phase_ops",
+      "command": "python qa-backend/tests_phase_ops.py",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.223,
+      "tail": "ed\n  ✅ report retention_rate\n  ✅ report status changes\n\n=== T036: Human Review Pipeline ===\n  ✅ detect retrieval failure\n  ✅ detect coverage failure\n  ✅ detect verification failure\n  ✅ case has case_id\n  ✅ case not confirmed by default\n  ✅ case has trace_id\n  ✅ problem stage: retrieval\n\n=== T037: Degraded Mode Matrix ===\n  ✅ vector fail → CONTINUE\n  ✅ vector fail can continue\n  ✅ verifier fail → ESCALATE\n  ✅ verifier requires unverified\n  ✅ verifier has user message\n  ✅ generator fail → FAIL\n  ✅ generator cannot continue\n  ✅ all ok → operational\n  ✅ graph degraded → degraded\n  ✅ generator failed → down\n  ✅ generator failed → cannot serve\n\n=== T037: Budget Guard ===\n  ✅ budget ok → PROCEED\n  ✅ budget ok → call\n  ✅ critical budget exhausted → ESCALATE\n  ✅ critical budget exhausted → don't call\n  ✅ critical budget exhausted → UNVERIFIED\n  ✅ non-critical budget exhausted → SKIP\n  ✅ non-critical skip → no status override\n  ✅ verifier is critical\n  ✅ reranker not critical\n  ✅ citation_grounding is critical\n\n======================================================================\n  Ops Phase Results: 33 passed, 0 failed\n======================================================================\n"
+    }
+  ],
+  "pass_count": 7,
+  "fail_count": 0,
+  "skip_count": 0,
+  "xfail_count": 0
+}

@@ -24,6 +24,7 @@ NumericFact Schema:
 }
 """
 import re
+from primary_evidence import source_evidence_text
 from typing import List, Dict
 
 
@@ -72,11 +73,11 @@ def extract_numeric_facts(record: dict) -> List[dict]:
     Returns:
         List of numeric fact dicts
     """
-    text = record.get("fb", "") or record.get("b", "") or record.get("as", "")
+    text = source_evidence_text(record)
     if not text:
         return []
 
-    rid = record.get("_idx", -1)
+    rid = record.get("record_id") or record.get("_idx", -1)
     date = record.get("d", "")
     facts = []
 

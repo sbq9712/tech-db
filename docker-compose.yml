@@ -3,6 +3,11 @@ services:
     build: .
     env_file:
       - .env
+    environment:
+      # runtime-v1 contains legacy indexes/model, not a manifest catalog.
+      # Switch to manifest only after the documented shadow/canary gate.
+      TECH_DB_RUNTIME_MODE: legacy_hybrid
+      QA_PIPELINE_PROFILE: legacy_hybrid
     ports:
       - "8765:8765"
     volumes:

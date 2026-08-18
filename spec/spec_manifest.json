@@ -1,9 +1,11 @@
 {
-  "spec_version": "1.0.0",
+  "spec_version": "2.0.0-remediation.1",
   "spec_name": "TechDB Evidence-Centric Adaptive Agentic RAG — Execution Tickets (Adversarially Reviewed)",
   "source_documents": [
-    "TechDB_Agentic_RAG_Execution_Tickets_ADVERSARIAL_REVIEWED.txt",
-    "TechDB_Agentic_RAG_Master_Tickets_VERIFIED.txt"
+    "docs/remediation/decision_register.md",
+    "docs/remediation/final_spec.md",
+    "docs/remediation/execution_tickets.md",
+    "docs/remediation/adversarial_review.md"
   ],
   "generated_at": "2026-08-18T00:00:00Z",
   "phases": [
@@ -1447,5 +1449,38 @@
       "rule": "claim_mapping_requires_grounding"
     }
   ],
-  "spec_hash": "1dbf693972ba858106509a36f217bc9d7aaa2ef9ec67522757a96262214a7d15"
+  "spec_hash": "2305a933ad6741bec0e3e2b5efda92c2bbf50d16990506899f73406757ed7d94",
+  "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
+  "decision_register_version": "2026-08-18-final",
+  "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+  "ticket_registry_version": "remediation-2026-08-18",
+  "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
+  "profile_registry_version": "1.0.0",
+  "acceptance_matrix_version": "3.0.0",
+  "acceptance_matrix_sha256": "d9e6728d0c591e50c62b6418f563b4c8ed32fa768cfe2774db61f00469e1bb71",
+  "normative_documents": {
+    "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
+    "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+    "docs/remediation/execution_tickets.md": "8e201a5e5298bd681171663af14f13fce5ee656bf5d36306c930003651dfaef6",
+    "docs/remediation/adversarial_review.md": "9565cd2bf493fc3ec11ee3c003c18701000795e1d4edb74643d735192f11fb62",
+    "docs/remediation/legacy_normative_input.txt": "341560040ea69e412270b347ff33ffc88c0d0be17de21fbbc6e78b88cf3cca3d"
+  },
+  "completion_classes": [
+    "CORE_REQUIRED",
+    "PROFILE_REQUIRED",
+    "BENCHMARK_GATED_OPTIONAL"
+  ],
+  "remediation_registry": "spec/remediation_registry.json",
+  "acceptance_matrix": "spec/acceptance_matrix.json",
+  "baseline_artifacts": {
+    "pre_remediation": {
+      "path": "qa-backend/test_fixtures/remediation/baseline_phase00.json",
+      "sha256": "a9b723bf3241b1911c6a8ef8e83ffc33b48a5ec521559ccb212383adcc2efb38",
+      "consumers": [
+        "before_after_release_gates",
+        "RT-049",
+        "RT-108"
+      ]
+    }
+  }
 }

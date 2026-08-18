@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_id": "phase00-3439c27bcbd0",
+  "captured_at": "2026-08-18T13:45:18+08:00",
+  "git_sha": "3439c27bcbd0087b9ee46d86aac4384fa9fcc74b",
+  "environment": "committed-mini-runtime-plus-historical-locked-artifacts",
+  "fresh_production_traffic": false,
+  "spec_version": "2.0.0-remediation.1",
+  "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
+  "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+  "dataset_snapshot_id": "mini-dataset-a426446ae573355d",
+  "identity_snapshot_id": "mini-identity-v1",
+  "model_versions": {
+    "embedding": "bge-m3 (frozen query/index embeddings)",
+    "generator": "glm-5.2 (historical nightly artifact only)"
+  },
+  "config_versions": {
+    "profile_registry": "1.0.0",
+    "ticket_registry": "remediation-2026-08-18"
+  },
+  "paths": {
+    "old_rrf_top25": {
+      "query_count": 20,
+      "mean_returned": 25.0,
+      "min_returned": 25,
+      "max_returned": 25,
+      "artifact": "qa-backend/test_fixtures/parity/baseline_hybrid_legacy.json",
+      "note": "legacy RRF artifact; some queries contain 25 fused candidates"
+    },
+    "legacy_hybrid_profile": {
+      "query_count": 20,
+      "mean_returned": 25.0,
+      "min_returned": 25,
+      "max_returned": 25,
+      "profile": "legacy_hybrid",
+      "artifact": "qa-backend/test_fixtures/parity/baseline_hybrid_legacy.json"
+    },
+    "current_agentic_path": {
+      "profile": "agentic_full historical nightly mini run",
+      "query_count": 5,
+      "retrieval": {
+        "mean_returned": 25
+      },
+      "answer": {
+        "ok_rate": 1.0,
+        "status_distribution": {
+          "PARTIALLY_SUPPORTED": 5,
+          "UNSUPPORTED": 0,
+          "NO_CITATIONS": 0
+        }
+      },
+      "citation": {
+        "mean_cited": 3.8,
+        "mean_grounded_rate": 1.0
+      },
+      "latency_ms": {
+        "mean_retrieval": 1838.6,
+        "mean_generation": 4830.9
+      },
+      "error_rate": 0.0,
+      "artifact": "qa-backend/test_fixtures/nightly/eval_report.json"
+    }
+  },
+  "legacy_latency_ms": {
+    "n": 20,
+    "p50": 219.9,
+    "p90": 944.5,
+    "p99": 18281.6,
+    "artifact": "qa-backend/test_fixtures/ttfb/baseline_legacy.json"
+  },
+  "artifact_hashes": {
+    "raw_routes": "5721de9c043e9d766b4e8b5fc24c3edc4c3089bf5089b2441d63ea82c5d369a6",
+    "legacy": "f4c87a231ec6a104d7f0fca437e253ccf236c43ff7c5dd8299ec36c617c0d482",
+    "agentic": "030992a9e56be7a038b6b7ea3dd564a83c182205ec4c16d7c58f74afbfc0f60a",
+    "latency": "fc7759d38988c8b49a6acf21002de9f6d90bd3debf0ee531b755ea9b4ca1ef9f"
+  },
+  "limitations": [
+    "No fresh production request replay was available in this checkout.",
+    "Answer/citation/error metrics are historical nightly mini-runtime measurements.",
+    "This artifact is a locked pre-remediation reference, not evidence of production readiness."
+  ]
+}

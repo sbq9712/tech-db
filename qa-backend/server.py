@@ -15,6 +15,7 @@ Run:
   .venv/bin/python qa-backend/server.py
 """
 import os
+from contextvars import ContextVar
 import sys
 import json
 import pickle
@@ -84,6 +85,16 @@ _entity_index = None  # entity_name -> set of record indices
 _graph_adj = None     # entity_name -> set of neighbor entity_names (adjacency from edges)
 _graph_nodes = None   # entity_name -> node info dict (type, degree, description)
 _idx_to_meta = None   # record_idx -> meta dict (fast lookup, avoids linear scan)
+_request_runtime_snapshot = ContextVar("techdb_runtime_snapshot", default=None)
+
+
+def _runtime_resource(name, legacy_value):
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is None:
+        return legacy_value
+    if name not in snapshot.resources:
+        raise RuntimeError(f"pinned runtime {snapshot.manifest_id} missing resource {name}")
+    return snapshot.resources[name]
 
 # ── RRF parameters ──
 RRF_K = 60          # RRF constant (1/(rank+k))
@@ -516,7 +527,7 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
     for n_str in nums:
         n = int(n_str)
         c = next((c for c in citations if c["id"] == n), None)
-        if c and c.get("record_id", -1) >= 0:
+        if c and c.get("record_id") not in (None, -1, ""):
             result.append(c["record_id"])
     return list(dict.fromkeys(result))  # dedupe, preserve order
 
@@ -594,17 +605,37 @@ def _bm25_tokenize(query: str) -> list:
 def _get_retrieval_pipeline():
     """Build the unified retrieval pipeline over the loaded indexes (lazy)."""
     global _retrieval_pipeline
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is not None:
+        resources = snapshot.resources
+        if "retrieval_pipeline" in resources:
+            return resources["retrieval_pipeline"]
+        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
+        required = ("vector_index", "index_meta", "bm25_index", "bm25_meta")
+        missing = [name for name in required if name not in resources]
+        if missing:
+            raise RuntimeError(f"pinned runtime {snapshot.manifest_id} incomplete: {missing}")
+        graph_fn = resources.get("graph_search", lambda q, k: [])
+        pipeline = (
+            VectorRetriever(embeddings=resources["vector_index"], meta=resources["index_meta"]),
+            BM25Retriever(bm25_index=resources["bm25_index"], meta=resources["bm25_meta"], tokenize_fn=_bm25_tokenize),
+            GraphRetriever(graph_search_fn=graph_fn),
+            RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K),
+        )
+        resources["retrieval_pipeline"] = pipeline
+        resources["record_id_to_meta"] = {m["record_id"]: m for m in resources["index_meta"]}
+        return pipeline
     if _retrieval_pipeline is None:
         from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
         load_vector_index()
         load_bm25_index()
 
-        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta)
+        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta, allow_legacy_idx=True)
         br = BM25Retriever(bm25_index=_bm25_index, meta=_bm25_meta,
-                           tokenize_fn=_bm25_tokenize)
+                           tokenize_fn=_bm25_tokenize, allow_legacy_idx=True)
         gr = GraphRetriever(graph_search_fn=lambda q, k: [
             (r["meta"]["idx"], r["score"]) for r in graph_search(q, k)
-        ])
+        ], allow_legacy_idx=True)
         fuse = RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K)
         _retrieval_pipeline = (vr, br, gr, fuse)
     return _retrieval_pipeline
@@ -662,14 +693,21 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
 
     # Rebuild meta lookup lazily (graph-only records need full meta)
     global _idx_to_meta
-    if _idx_to_meta is None:
-        _idx_to_meta = {m["idx"]: m for m in _index_meta}
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is not None:
+        meta_lookup = snapshot.resources["record_id_to_meta"]
+    else:
+        if _idx_to_meta is None:
+            _idx_to_meta = {m["idx"]: m for m in _index_meta}
+        meta_lookup = _idx_to_meta
 
     results = []
     for r in fused:
-        meta = _idx_to_meta.get(r.record_id, r.meta or {})
+        meta = meta_lookup.get(r.record_id, r.meta or {})
         det = r.route_details or {}
         results.append({
+            "record_id": r.record_id,
+            "legacy_idx": r.legacy_idx,
             "meta": meta,
             "score": r.raw_score,
             # RRFFusion route_details keys are {route}_score (retrieval/fusion.py):
@@ -682,7 +720,8 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
 
     if exclude_ids:
         before = len(results)
-        results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
+        results = [r for r in results
+                   if r["record_id"] not in exclude_ids and r.get("legacy_idx") not in exclude_ids]
         excluded_count = before - len(results)
         results = results[:FINAL_TOP_K]
         if excluded_count:
@@ -722,7 +761,7 @@ async def _search_with_shadow(query: str, exclude_ids: set = None) -> tuple:
         new_res, new_rel, new_err = [], False, str(e)[:200]
     new_ms = (_time.perf_counter() - t1) * 1000.0
 
-    new_ids = [r.get("meta", {}).get("idx") for r in (new_res or [])[:25]]
+    new_ids = [r.get("record_id") for r in (new_res or [])[:25]]
     if ref_ids is not None:
         inter = set(ref_ids) & set(new_ids)
         union = set(ref_ids) | set(new_ids)
@@ -831,23 +870,29 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
 
 def build_context(search_results: list, query: str = "") -> tuple:
     """Build context string and citations from search results."""
-    records = load_records()
+    pinned = _request_runtime_snapshot.get() is not None
+    records = _runtime_resource("records", None) if pinned else load_records()
+    records_by_id = _runtime_resource("records_by_id", None) if pinned else None
     citations = []
     context_parts = []
 
     for i, result in enumerate(search_results):
         meta = result["meta"]
         score = result["score"]
-        orig_idx = meta.get("idx", -1)
-        record = records[orig_idx] if 0 <= orig_idx < len(records) else None
+        record_id = result.get("record_id") or meta.get("record_id")
+        orig_idx = result.get("legacy_idx", meta.get("legacy_idx", meta.get("idx", -1)))
+        record = records_by_id.get(record_id) if records_by_id is not None else (
+            records[orig_idx] if isinstance(orig_idx, int) and 0 <= orig_idx < len(records) else None)
         if not record:
             continue
 
         title = record.get("t", "") or ""
         date = record.get("d", "") or ""
         source = record.get("a", record.get("s", "")) or ""
-        body = record.get("b", "") or record.get("fb", "") or ""
-        ai_summary = record.get("as", "") or ""
+        from primary_evidence import source_evidence_text
+        body = source_evidence_text(record)
+        if not body or record.get("evidence_eligibility") in {"RETRIEVAL_ONLY", "QUARANTINED"}:
+            continue
         cat = record.get("c", "") or ""
         tags = record.get("tg", [])
         if isinstance(tags, str):
@@ -856,22 +901,24 @@ def build_context(search_results: list, query: str = "") -> tuple:
         sc = record.get("sc", 0)
 
         # Add to context
+        citation_number = len(citations) + 1
         context_parts.append(
-            f"[{i+1}] [{cat}] {title} ({date})\n"
+            f"[{citation_number}] [{cat}] {title} ({date})\n"
             f"来源: {source}\n"
-            f"摘要: {ai_summary[:300] if ai_summary else body[:300]}\n"
+            f"证据摘录: {body[:300]}\n"
             f"相似度: {score:.2f}"
         )
 
         # Build citation with query-relevant excerpt
         if query:
-            snippet = extract_relevant_excerpt(body, query, ai_summary, max_length=200)
+            snippet = extract_relevant_excerpt(body, query, "", max_length=200)
         else:
-            snippet = body[:200] if body else (ai_summary[:200] if ai_summary else "")
+            snippet = body[:200]
 
         citations.append({
-            "id": i + 1,
-            "record_id": orig_idx,
+            "id": citation_number,
+            "record_id": record_id or record.get("record_id") or f"legacy-idx:{orig_idx}",
+            "legacy_idx": orig_idx,
             "title": title,
             "date": date,
             "source": source,
@@ -885,7 +932,7 @@ def build_context(search_results: list, query: str = "") -> tuple:
             # ── TK-12: full citation schema (Q12/R8) ──
             # source_label: snippet provenance — records whose only text is the
             # AI-generated summary (as, no b/fb body) are labeled AI_SUMMARY.
-            "source_label": ("AI_SUMMARY" if (ai_summary and not body) else "ORIGINAL"),
+            "source_label": "ORIGINAL",
             # evidence_spans: filled by T003 grounding; empty until grounded.
             "evidence_spans": [],
             # supports_claim_ids: filled by T004 claim mapping (agentic only —
@@ -909,6 +956,33 @@ class ChatRequest(BaseModel):
 # ── Lifespan ──
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    global _runtime_snapshot_manager
+    runtime_mode = os.environ.get("TECH_DB_RUNTIME_MODE", "").strip().lower()
+    if not runtime_mode:
+        raise RuntimeError(
+            "TECH_DB_RUNTIME_MODE must be explicitly configured as "
+            "legacy_hybrid or manifest; implicit startup is forbidden"
+        )
+    if runtime_mode == "manifest":
+        from functools import partial
+        from release_manifest import ReleaseCatalog
+        from runtime_snapshot import RuntimeSnapshotManager, load_release_resources
+        release_root = Path(os.environ.get("TECH_DB_RELEASE_ROOT", RUNTIME_DIR)).resolve()
+        catalog_dir = Path(os.environ.get("TECH_DB_RELEASE_CATALOG_DIR", release_root / "manifests"))
+        catalog = ReleaseCatalog(catalog_dir, release_root)
+        manager = RuntimeSnapshotManager(catalog, partial(load_release_resources, release_root=release_root))
+        manager.startup(allow_previous_fallback=os.environ.get("TECH_DB_ALLOW_PREVIOUS_FALLBACK") == "1")
+        _runtime_snapshot_manager = manager
+        print(f"[startup] Strict manifest runtime ready: {manager.current_manifest_id}", flush=True)
+        try:
+            yield
+        finally:
+            _runtime_snapshot_manager = None
+        return
+    if runtime_mode != "legacy_hybrid":
+        raise RuntimeError(f"unsupported TECH_DB_RUNTIME_MODE: {runtime_mode}")
+    _runtime_snapshot_manager = None
+    print("[startup] Explicit legacy_hybrid runtime-v1 profile", flush=True)
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
@@ -944,6 +1018,33 @@ async def lifespan(app: FastAPI):
 # ── FastAPI App ──
 app = FastAPI(title="Tech-DB Q&A API", lifespan=lifespan)
 
+# RT-017: deployments configure this with a validated RuntimeSnapshotManager.
+# The wrapper below holds the pin for the complete SSE iterator lifetime.
+_runtime_snapshot_manager = None
+
+
+def configure_runtime_snapshot_manager(manager):
+    global _runtime_snapshot_manager
+    _runtime_snapshot_manager = manager
+
+
+class RuntimePinMiddleware:
+    """Pin one immutable generation for the complete HTTP/stream lifetime."""
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http" or _runtime_snapshot_manager is None:
+            await self.app(scope, receive, send)
+            return
+        with _runtime_snapshot_manager.pin() as runtime_snapshot:
+            scope.setdefault("state", {})["runtime_manifest_id"] = runtime_snapshot.manifest_id
+            token = _request_runtime_snapshot.set(runtime_snapshot)
+            try:
+                await self.app(scope, receive, send)
+            finally:
+                _request_runtime_snapshot.reset(token)
+
 allowed_origins = [
     origin.strip()
     for origin in os.environ.get(
@@ -959,6 +1060,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "X-Admin-Key"],
 )
+app.add_middleware(RuntimePinMiddleware)
 
 
 # ── Endpoints ──
@@ -977,12 +1079,16 @@ async def shadow_report():
 
 @app.get("/api/health")
 async def health():
+    snapshot = _request_runtime_snapshot.get()
+    resources = snapshot.resources if snapshot is not None else {}
     return {
         "status": "ok",
         "model": MODEL_NAME,
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
+        "runtime_mode": os.environ.get("TECH_DB_RUNTIME_MODE", "UNCONFIGURED"),
+        "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
+        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _vector_index is not None,
+        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _bm25_index is not None,
         "graph_ready": _graph_data is not None,
         "indexed_records": len(_index_meta) if _index_meta else 0,
         "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
@@ -1043,7 +1149,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "message": "正在检索相关知识..."
             })}
 
-            if _vector_index is None:
+            if (_request_runtime_snapshot.get() is None and _vector_index is None):
                 yield {"event": "error", "data": json.dumps({
                     "message": "向量索引尚未构建。请运行: python qa-backend/vector_index.py"
                 })}
@@ -1215,14 +1321,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "is_relevant": is_relevant,
                     "status": search_status,
                     "top_results": [
-                        {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
+                        {"record_id": r.get("record_id"), "legacy_idx": r.get("legacy_idx"),
+                         "score": round(r.get("score", 0), 4),
                          "title": r["meta"].get("t", "")[:80]}
                         for r in search_results[:10]
                     ],
                 })
 
             # Searched record ids for done event (backend-authoritative)
-            searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
+            searched_record_ids = [r["record_id"] for r in search_results] if search_results else []
 
             if not search_results or not is_relevant:
                 # Codex-review C3 P2 fix: early unsupported exits (weak query /
@@ -1752,7 +1859,8 @@ async def stats():
 @app.get("/api/search")
 async def search(q: str, top_k: int = 10):
     """Quick vector search without LLM generation. Returns matching records."""
-    if _vector_index is None:
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is None and _vector_index is None:
         return JSONResponse(
             {"error": "Vector index not loaded", "results": []},
             status_code=503,
@@ -1766,6 +1874,7 @@ async def search(q: str, top_k: int = 10):
         "query": q,
         "results": citations,
         "total": len(citations),
+        "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
     }
 
 

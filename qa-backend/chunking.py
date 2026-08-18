@@ -98,16 +98,18 @@ def chunk_record(record: dict, record_idx: int = -1) -> List[dict]:
         if len(chunk_text) < MIN_CHUNK_SIZE:
             continue
 
-        chunk_id = hashlib.md5(
-            f"{record_idx}_{start}_{end}_{chunk_text[:50]}".encode()
-        ).hexdigest()[:12]
+        stable_id = record["record_id"] if record.get("record_id") else record_idx
+        chunk_id = hashlib.sha256(
+            f"{stable_id}_{start}_{end}_{chunk_text[:50]}".encode()
+        ).hexdigest()[:20]
 
         # Detect section heading
         section = _detect_section(chunk_text)
 
         result.append({
             "chunk_id": chunk_id,
-            "record_id": record_idx,
+            "record_id": stable_id,
+            "legacy_idx": record_idx,
             "text": chunk_text,
             "context_prefix": context_prefix,
             "start_offset": start,

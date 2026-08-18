@@ -1,0 +1,100 @@
+name: Remediation Required Gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-spec-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/lint_spec_manifest.py
+      - run: python scripts/lint_spec_manifest.py --selftest
+
+  acceptance-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python qa-backend/tests_final_acceptance.py --validate-only
+
+  unit-and-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/setup-node@v4
+        with: {node-version: "22"}
+      - run: python scripts/check_project.py
+
+  mini-runtime-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir numpy rank-bm25
+      - run: python scripts/build_mini_runtime.py --verify
+      - run: python scripts/verify_mini_runtime.py
+      - run: python qa-backend/tests_remediation_phase00.py
+
+  critical-failure-injection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: cd qa-backend && python run_all_tests.py --suite budget_tk08 degraded_tk10 citation_tk12
+
+  synthetic-isolation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: cd qa-backend && python tests_synthetic_tk20.py
+
+  phase01-stable-evidence-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir numpy fastapi httpx sse-starlette pydantic rank-bm25 jieba pyyaml
+      - run: python qa-backend/tests_remediation_phase01.py
+      - run: python scripts/run_phase01_benchmark.py --output /tmp/phase01_retrieval_benchmark.json
+      - run: python scripts/build_mini_runtime.py --verify
+
+  fast-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: cd qa-backend && python tests_parity.py
+
+  data-sync-path-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Enforce data-only automation scope
+        if: startsWith(github.head_ref, 'automation/data-sync-')
+        run: python scripts/verify_data_sync_paths.py --base "origin/${{ github.base_ref }}"
+      - name: Non-automation PR
+        if: ${{ !startsWith(github.head_ref, 'automation/data-sync-') }}
+        run: echo "Standard PR; full remediation gates still apply."

@@ -117,13 +117,13 @@ def test_selector_normalization_reranker_off():
     below_min_relevance — orchestrator._normalize_for_selector maps them to
     record_id/rerank_score first."""
     from orchestrator import _normalize_for_selector
-    legacy = [{"meta": {"idx": 7, "t": "a"}, "score": 0.031},
-              {"meta": {"idx": 9, "t": "b"}, "score": 0.027}]
+    legacy = [{"record_id":"record-7","legacy_idx":7,"meta":{"record_id":"record-7","idx":7,"t":"a"},"score":0.031},
+              {"record_id":"record-9","legacy_idx":9,"meta":{"record_id":"record-9","idx":9,"t":"b"},"score":0.027}]
     norm = _normalize_for_selector(legacy)
-    assert [c["record_id"] for c in norm] == [7, 9]
+    assert [c["record_id"] for c in norm] == ["record-7", "record-9"]
     assert all(c["rerank_score"] > 0.15 for c in norm[:1]), "top candidate above min relevance"
     # already-normalized (rerank output) pass through unchanged
-    done = [{"record_id": 5, "rerank_score": 0.82, "meta": {}}]
+    done = [{"record_id": "record-5", "rerank_score": 0.82, "meta": {}}]
     assert _normalize_for_selector(done) == done
     # end-to-end: selector no longer rejects everything on legacy input
     from evidence_selector import select_evidence

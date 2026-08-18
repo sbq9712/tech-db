@@ -1,0 +1,11 @@
+{
+  "after_recall_at_1": 1.0,
+  "approved_gate": "after >= before and after >= 0.95",
+  "before_recall_at_1": 0.6666666666666666,
+  "benchmark": "deterministic-fixture-token-retrieval-v1",
+  "passed": true,
+  "production_claim": false,
+  "query_count": 3,
+  "synthetic_sentinel_in_after_primary": false,
+  "synthetic_sentinel_in_before_primary": true
+}

@@ -37,6 +37,7 @@ class RelationAwareGraphRetriever:
         semantic_graph=None,
         entity_registry=None,
         cooccurrence_search_fn=None,
+        allow_legacy_idx: bool = False,
     ):
         """
         Args:
@@ -48,6 +49,7 @@ class RelationAwareGraphRetriever:
         self._entity_registry = entity_registry
         self._cooccurrence_fn = cooccurrence_search_fn
         self._available = semantic_graph is not None or cooccurrence_search_fn is not None
+        self._allow_legacy_idx = allow_legacy_idx
 
     @property
     def available(self) -> bool:
@@ -116,7 +118,8 @@ class RelationAwareGraphRetriever:
                             seen_records.add(rid)
                             
                             results.append(RetrievalResult(
-                                record_id=rid,
+                                record_id=str(rid),
+                                legacy_idx=ref.get("legacy_idx"),
                                 route="graph_aware",
                                 raw_score=0.8,  # Base score for graph match
                                 rank=len(results) + 1,
@@ -149,19 +152,26 @@ class RelationAwareGraphRetriever:
                 
                 for rank, item in enumerate(raw_results):
                     if isinstance(item, tuple):
-                        idx, score = item[0], item[1]
+                        identity, score = item[0], item[1]
                         matched = item[2] if len(item) > 2 else []
+                        legacy_idx = item[3] if len(item) > 3 else None
                     else:
-                        idx = item.get("record_id", -1)
+                        identity = item.get("record_id")
+                        legacy_idx = item.get("legacy_idx", item.get("idx"))
                         score = item.get("score", 0)
                         matched = item.get("matched_entities", [])
+                    if identity in (None, "") or not isinstance(identity, str):
+                        if not self._allow_legacy_idx or legacy_idx is None:
+                            raise ValueError("co-occurrence result is missing stable record_id")
+                        identity = f"legacy-idx:{legacy_idx}"
                     
-                    if idx in seen_rids:
+                    if identity in seen_rids:
                         continue
-                    seen_rids.add(idx)
+                    seen_rids.add(identity)
                     
                     results.append(RetrievalResult(
-                        record_id=idx,
+                        record_id=str(identity),
+                        legacy_idx=legacy_idx,
                         route="graph",
                         raw_score=float(score),
                         rank=len(results) + 1,
