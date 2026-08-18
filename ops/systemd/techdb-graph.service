@@ -1,0 +1,11 @@
+[Unit]
+Description=tech-db: knowledge-graph incremental ingest (curated records)
+After=techdb-data-sync.service
+Wants=techdb-data-sync.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/rhett/tech-db-fresh
+ExecStart=/home/rhett/tech-db-fresh/.venv/bin/python -u /home/rhett/tech-db-fresh/qa-backend/concurrent_ingest.py --curated --concurrency 8
+ExecStartPost=/bin/bash -c '/usr/bin/curl -sf http://localhost:8765/api/health >/dev/null && systemctl --user try-restart techdb-server.service || true'
+TimeoutStartSec=6h

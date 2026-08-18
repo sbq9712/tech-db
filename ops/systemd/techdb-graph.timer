@@ -1,0 +1,10 @@
+[Unit]
+Description=tech-db: graph ingest cadence (after data sync + vector)
+
+[Timer]
+OnBootSec=10min
+OnUnitInactiveSec=45min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
