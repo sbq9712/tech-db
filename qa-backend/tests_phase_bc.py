@@ -143,12 +143,14 @@ import numpy as np
 
 # Test vector retriever with fake data
 embeddings = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]], dtype=np.float32)
-meta = [{"idx": 10, "t": "doc1"}, {"idx": 20, "t": "doc2"}, {"idx": 30, "t": "doc3"}]
+meta = [{"record_id": "record-10", "legacy_idx": 10, "idx": 10, "t": "doc1"},
+        {"record_id": "record-20", "legacy_idx": 20, "idx": 20, "t": "doc2"},
+        {"record_id": "record-30", "legacy_idx": 30, "idx": 30, "t": "doc3"}]
 vr = VectorRetriever(embeddings, meta)
 query_vec = np.array([1, 0, 0], dtype=np.float32)
 results = vr.search(query_vec, top_k=3)
 test("vector search returns results", len(results) == 3)
-test("vector top result correct", results[0].record_id == 10)
+test("vector top result correct", results[0].record_id == "record-10" and results[0].legacy_idx == 10)
 test("vector route name", results[0].route == "vector")
 test("vector rank starts at 1", results[0].rank == 1)
 
@@ -156,18 +158,18 @@ test("vector rank starts at 1", results[0].rank == 1)
 from retrieval.vector import RetrievalResult
 route_results = {
     "vector": [
-        RetrievalResult(10, "vector", 0.9, 1, {"t": "doc1"}, {}),
-        RetrievalResult(20, "vector", 0.7, 2, {"t": "doc2"}, {}),
+        RetrievalResult("record-10", "vector", 0.9, 1, {"t": "doc1"}, {}, 10),
+        RetrievalResult("record-20", "vector", 0.7, 2, {"t": "doc2"}, {}, 20),
     ],
     "bm25": [
-        RetrievalResult(20, "bm25", 5.0, 1, {"t": "doc2"}, {}),
-        RetrievalResult(30, "bm25", 3.0, 2, {"t": "doc3"}, {}),
+        RetrievalResult("record-20", "bm25", 5.0, 1, {"t": "doc2"}, {}, 20),
+        RetrievalResult("record-30", "bm25", 3.0, 2, {"t": "doc3"}, {}, 30),
     ],
 }
 fusion = RRFFusion()
 fused = fusion.fuse(route_results)
 test("RRF produces deduplicated results", len(fused) == 3)
-test("RRF record 20 appears in both", any(r.record_id == 20 for r in fused))
+test("RRF record 20 appears in both", any(r.record_id == "record-20" for r in fused))
 test("RRF has per-route scores", "vector_score" in fused[0].route_details)
 test("RRF has rrf_score", "rrf_score" in fused[0].route_details)
 

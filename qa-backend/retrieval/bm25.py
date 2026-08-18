@@ -7,11 +7,12 @@ from .vector import RetrievalResult
 class BM25Retriever:
     """BM25 (keyword) retrieval."""
 
-    def __init__(self, bm25_index=None, meta=None, tokenize_fn=None):
+    def __init__(self, bm25_index=None, meta=None, tokenize_fn=None, *, allow_legacy_idx: bool = False):
         self.bm25 = bm25_index
         self.meta = meta
         self.tokenize = tokenize_fn
         self._available = bm25_index is not None
+        self.allow_legacy_idx = allow_legacy_idx
 
     @property
     def available(self) -> bool:
@@ -34,8 +35,15 @@ class BM25Retriever:
             if scores[i] <= 0:
                 continue
             m = self.meta[i]
+            record_id = m.get("record_id")
+            legacy_idx = m.get("legacy_idx", m.get("idx"))
+            if record_id in (None, ""):
+                if not self.allow_legacy_idx or legacy_idx is None:
+                    raise ValueError("retrieval metadata is missing stable record_id")
+                record_id = f"legacy-idx:{legacy_idx}"
             results.append(RetrievalResult(
-                record_id=m["idx"],
+                record_id=str(record_id),
+                legacy_idx=legacy_idx,
                 route="bm25",
                 raw_score=float(scores[i]),
                 rank=rank + 1,

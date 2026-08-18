@@ -71,7 +71,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install --no-cache-dir numpy
+      - run: pip install --no-cache-dir numpy fastapi httpx sse-starlette pydantic rank-bm25 jieba pyyaml
       - run: python qa-backend/tests_remediation_phase01.py
       - run: python scripts/run_phase01_benchmark.py --output /tmp/phase01_retrieval_benchmark.json
       - run: python scripts/build_mini_runtime.py --verify

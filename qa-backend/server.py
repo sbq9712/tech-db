@@ -619,23 +619,23 @@ def _get_retrieval_pipeline():
         pipeline = (
             VectorRetriever(embeddings=resources["vector_index"], meta=resources["index_meta"]),
             BM25Retriever(bm25_index=resources["bm25_index"], meta=resources["bm25_meta"], tokenize_fn=_bm25_tokenize),
-            GraphRetriever(graph_search_fn=lambda q, k: [(r["meta"]["idx"], r["score"]) for r in graph_fn(q, k)]),
+            GraphRetriever(graph_search_fn=graph_fn),
             RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K),
         )
         resources["retrieval_pipeline"] = pipeline
-        resources["idx_to_meta"] = {m["idx"]: m for m in resources["index_meta"]}
+        resources["record_id_to_meta"] = {m["record_id"]: m for m in resources["index_meta"]}
         return pipeline
     if _retrieval_pipeline is None:
         from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
         load_vector_index()
         load_bm25_index()
 
-        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta)
+        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta, allow_legacy_idx=True)
         br = BM25Retriever(bm25_index=_bm25_index, meta=_bm25_meta,
-                           tokenize_fn=_bm25_tokenize)
+                           tokenize_fn=_bm25_tokenize, allow_legacy_idx=True)
         gr = GraphRetriever(graph_search_fn=lambda q, k: [
             (r["meta"]["idx"], r["score"]) for r in graph_search(q, k)
-        ])
+        ], allow_legacy_idx=True)
         fuse = RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K)
         _retrieval_pipeline = (vr, br, gr, fuse)
     return _retrieval_pipeline
@@ -695,7 +695,7 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
     global _idx_to_meta
     snapshot = _request_runtime_snapshot.get()
     if snapshot is not None:
-        meta_lookup = snapshot.resources["idx_to_meta"]
+        meta_lookup = snapshot.resources["record_id_to_meta"]
     else:
         if _idx_to_meta is None:
             _idx_to_meta = {m["idx"]: m for m in _index_meta}
@@ -706,6 +706,8 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
         meta = meta_lookup.get(r.record_id, r.meta or {})
         det = r.route_details or {}
         results.append({
+            "record_id": r.record_id,
+            "legacy_idx": r.legacy_idx,
             "meta": meta,
             "score": r.raw_score,
             # RRFFusion route_details keys are {route}_score (retrieval/fusion.py):
@@ -718,7 +720,8 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
 
     if exclude_ids:
         before = len(results)
-        results = [r for r in results if r["meta"].get("idx") not in exclude_ids]
+        results = [r for r in results
+                   if r["record_id"] not in exclude_ids and r.get("legacy_idx") not in exclude_ids]
         excluded_count = before - len(results)
         results = results[:FINAL_TOP_K]
         if excluded_count:
@@ -758,7 +761,7 @@ async def _search_with_shadow(query: str, exclude_ids: set = None) -> tuple:
         new_res, new_rel, new_err = [], False, str(e)[:200]
     new_ms = (_time.perf_counter() - t1) * 1000.0
 
-    new_ids = [r.get("meta", {}).get("idx") for r in (new_res or [])[:25]]
+    new_ids = [r.get("record_id") for r in (new_res or [])[:25]]
     if ref_ids is not None:
         inter = set(ref_ids) & set(new_ids)
         union = set(ref_ids) | set(new_ids)
@@ -867,16 +870,19 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
 
 def build_context(search_results: list, query: str = "") -> tuple:
     """Build context string and citations from search results."""
-    records = (_runtime_resource("records", None)
-               if _request_runtime_snapshot.get() is not None else load_records())
+    pinned = _request_runtime_snapshot.get() is not None
+    records = _runtime_resource("records", None) if pinned else load_records()
+    records_by_id = _runtime_resource("records_by_id", None) if pinned else None
     citations = []
     context_parts = []
 
     for i, result in enumerate(search_results):
         meta = result["meta"]
         score = result["score"]
-        orig_idx = meta.get("idx", -1)
-        record = records[orig_idx] if 0 <= orig_idx < len(records) else None
+        record_id = result.get("record_id") or meta.get("record_id")
+        orig_idx = result.get("legacy_idx", meta.get("legacy_idx", meta.get("idx", -1)))
+        record = records_by_id.get(record_id) if records_by_id is not None else (
+            records[orig_idx] if isinstance(orig_idx, int) and 0 <= orig_idx < len(records) else None)
         if not record:
             continue
 
@@ -911,7 +917,7 @@ def build_context(search_results: list, query: str = "") -> tuple:
 
         citations.append({
             "id": citation_number,
-            "record_id": meta.get("record_id") or record.get("record_id") or orig_idx,
+            "record_id": record_id or record.get("record_id") or f"legacy-idx:{orig_idx}",
             "legacy_idx": orig_idx,
             "title": title,
             "date": date,
@@ -950,6 +956,24 @@ class ChatRequest(BaseModel):
 # ── Lifespan ──
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    global _runtime_snapshot_manager
+    runtime_mode = os.environ.get("TECH_DB_RUNTIME_MODE", "manifest").strip().lower()
+    if runtime_mode == "manifest":
+        from functools import partial
+        from release_manifest import ReleaseCatalog
+        from runtime_snapshot import RuntimeSnapshotManager, load_release_resources
+        release_root = Path(os.environ.get("TECH_DB_RELEASE_ROOT", RUNTIME_DIR)).resolve()
+        catalog_dir = Path(os.environ.get("TECH_DB_RELEASE_CATALOG_DIR", release_root / "manifests"))
+        catalog = ReleaseCatalog(catalog_dir, release_root)
+        manager = RuntimeSnapshotManager(catalog, partial(load_release_resources, release_root=release_root))
+        manager.startup(allow_previous_fallback=os.environ.get("TECH_DB_ALLOW_PREVIOUS_FALLBACK") == "1")
+        _runtime_snapshot_manager = manager
+        print(f"[startup] Strict manifest runtime ready: {manager.current_manifest_id}", flush=True)
+        yield
+        return
+    if runtime_mode != "legacy_compat":
+        raise RuntimeError(f"unsupported TECH_DB_RUNTIME_MODE: {runtime_mode}")
+    print("[startup] Explicit legacy_idx compatibility runtime", flush=True)
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
@@ -994,6 +1018,24 @@ def configure_runtime_snapshot_manager(manager):
     global _runtime_snapshot_manager
     _runtime_snapshot_manager = manager
 
+
+class RuntimePinMiddleware:
+    """Pin one immutable generation for the complete HTTP/stream lifetime."""
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http" or _runtime_snapshot_manager is None:
+            await self.app(scope, receive, send)
+            return
+        with _runtime_snapshot_manager.pin() as runtime_snapshot:
+            scope.setdefault("state", {})["runtime_manifest_id"] = runtime_snapshot.manifest_id
+            token = _request_runtime_snapshot.set(runtime_snapshot)
+            try:
+                await self.app(scope, receive, send)
+            finally:
+                _request_runtime_snapshot.reset(token)
+
 allowed_origins = [
     origin.strip()
     for origin in os.environ.get(
@@ -1009,6 +1051,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type", "X-Admin-Key"],
 )
+app.add_middleware(RuntimePinMiddleware)
 
 
 # ── Endpoints ──
@@ -1265,14 +1308,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "is_relevant": is_relevant,
                     "status": search_status,
                     "top_results": [
-                        {"idx": r["meta"]["idx"], "score": round(r.get("score", 0), 4),
+                        {"record_id": r.get("record_id"), "legacy_idx": r.get("legacy_idx"),
+                         "score": round(r.get("score", 0), 4),
                          "title": r["meta"].get("t", "")[:80]}
                         for r in search_results[:10]
                     ],
                 })
 
             # Searched record ids for done event (backend-authoritative)
-            searched_record_ids = [r["meta"]["idx"] for r in search_results] if search_results else []
+            searched_record_ids = [r["record_id"] for r in search_results] if search_results else []
 
             if not search_results or not is_relevant:
                 # Codex-review C3 P2 fix: early unsupported exits (weak query /
@@ -1742,23 +1786,7 @@ async def chat_stream(req: ChatRequest, request: Request):
         finally:
             CHAT_SEMAPHORE.release()
 
-    async def pinned_event_generator():
-        if _runtime_snapshot_manager is None:
-            async for event in event_generator():
-                yield event
-            return
-        with _runtime_snapshot_manager.pin() as runtime_snapshot:
-            # All loaders/search routes used by this request must resolve from
-            # this immutable generation; the pin also prevents resource close.
-            request.state.runtime_manifest_id = runtime_snapshot.manifest_id
-            token = _request_runtime_snapshot.set(runtime_snapshot)
-            try:
-                async for event in event_generator():
-                    yield event
-            finally:
-                _request_runtime_snapshot.reset(token)
-
-    return EventSourceResponse(pinned_event_generator())
+    return EventSourceResponse(event_generator())
 
 
 @app.get("/api/graph")
@@ -1818,7 +1846,8 @@ async def stats():
 @app.get("/api/search")
 async def search(q: str, top_k: int = 10):
     """Quick vector search without LLM generation. Returns matching records."""
-    if _vector_index is None:
+    snapshot = _request_runtime_snapshot.get()
+    if snapshot is None and _vector_index is None:
         return JSONResponse(
             {"error": "Vector index not loaded", "results": []},
             status_code=503,
@@ -1832,6 +1861,7 @@ async def search(q: str, top_k: int = 10):
         "query": q,
         "results": citations,
         "total": len(citations),
+        "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
     }
 
 

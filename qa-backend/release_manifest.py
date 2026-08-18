@@ -13,6 +13,14 @@ RUNTIME_DIR = Path(os.environ.get("TECH_DB_RUNTIME_DIR", REPO / "runtime")).reso
 INDEX_DIR = Path(os.environ.get("TECH_DB_INDEX_DIR", RUNTIME_DIR / "indexes")).resolve()
 MANIFEST_DIR = RUNTIME_DIR / "manifests"
 SCHEMA_VERSION = "2.0.0"
+REQUIRED_ARTIFACTS = {
+    "dataset", "record_id_map", "source_catalog", "evidence_metadata",
+    "identity_snapshot", "vector_index", "bm25_index", "chunk_index",
+    "graph_index", "numeric_index", "prompts",
+}
+# Compatibility is policy, not whatever version an artifact self-declares.
+# Adding a version requires an explicit reviewed migration here.
+ARTIFACT_SCHEMA_REGISTRY = {name: frozenset({"1.0.0"}) for name in REQUIRED_ARTIFACTS}
 
 
 def compute_file_hash(filepath: Path) -> str:
@@ -29,7 +37,23 @@ def _canonical(value: dict) -> bytes:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
 
 
-def artifact_entry(path: Path, root: Path, **metadata) -> dict:
+def _artifact_schema(path: Path, name: str) -> str:
+    allowed = ARTIFACT_SCHEMA_REGISTRY.get(name)
+    if not allowed:
+        raise ValueError(f"unregistered artifact type: {name}")
+    if path.suffix != ".json":
+        raise ValueError(f"{name}: durable release artifact must be a versioned JSON envelope")
+    try:
+        payload = json.loads(path.read_text("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"{name}: invalid JSON artifact") from exc
+    schema = str(payload.get("schema_version", "")) if isinstance(payload, dict) else ""
+    if schema not in allowed:
+        raise ValueError(f"{name}: unsupported artifact schema {schema or '<missing>'}")
+    return schema
+
+
+def artifact_entry(path: Path, root: Path, *, name: str, **metadata) -> dict:
     path = path.resolve()
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -37,29 +61,21 @@ def artifact_entry(path: Path, root: Path, **metadata) -> dict:
         relative = str(path.relative_to(root.resolve()))
     except ValueError as exc:
         raise ValueError(f"artifact outside release root: {path}") from exc
-    entry = {"path": relative, "sha256": compute_file_hash(path), "bytes": path.stat().st_size, **metadata}
-    if path.suffix == ".json":
-        try:
-            payload = json.loads(path.read_text("utf-8"))
-            if isinstance(payload, dict) and payload.get("schema_version"):
-                entry["schema_version"] = str(payload["schema_version"])
-        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
-            pass
+    schema = _artifact_schema(path, name)
+    entry = {"path": relative, "sha256": compute_file_hash(path), "bytes": path.stat().st_size,
+             "schema_version": schema, **metadata}
     return entry
 
 
 def build_global_manifest(*, release_root: Path, artifacts: dict[str, Path], profile: dict,
                           models: dict, config: dict | None = None, created_at: str | None = None) -> dict:
     """Build, but never activate, one complete manifest."""
-    required = {"dataset", "record_id_map", "source_catalog", "evidence_metadata",
-                "identity_snapshot", "vector_index", "bm25_index", "chunk_index",
-                "graph_index", "numeric_index", "prompts"}
-    missing = sorted(required - artifacts.keys())
+    missing = sorted(REQUIRED_ARTIFACTS - artifacts.keys())
     if missing:
         raise ValueError(f"partial build: missing artifacts {missing}")
     spec_path = REPO / "spec" / "spec_manifest.json"
     spec = json.loads(spec_path.read_text("utf-8"))
-    entries = {name: artifact_entry(path, release_root) for name, path in sorted(artifacts.items())}
+    entries = {name: artifact_entry(path, release_root, name=name) for name, path in sorted(artifacts.items())}
     body = {
         "schema_version": SCHEMA_VERSION,
         "created_at": created_at or datetime.now(timezone.utc).isoformat(),
@@ -96,6 +112,12 @@ def validate_global_manifest(manifest: dict, release_root: Path) -> list[str]:
     if hashlib.sha256(_canonical(unsigned)).hexdigest() != expected_id:
         issues.append("manifest_id does not match canonical content")
     for name, entry in manifest.get("artifacts", {}).items():
+        allowed = ARTIFACT_SCHEMA_REGISTRY.get(name)
+        declared_schema = str(entry.get("schema_version", ""))
+        if allowed is None:
+            issues.append(f"{name}: unregistered artifact type")
+        elif declared_schema not in allowed:
+            issues.append(f"{name}: unsupported artifact schema {declared_schema or '<missing>'}")
         path = (release_root / entry.get("path", "")).resolve()
         try:
             path.relative_to(release_root.resolve())
@@ -105,20 +127,18 @@ def validate_global_manifest(manifest: dict, release_root: Path) -> list[str]:
             issues.append(f"{name}: missing artifact"); continue
         if compute_file_hash(path) != entry.get("sha256"):
             issues.append(f"{name}: hash mismatch")
-        if entry.get("schema_version") and path.suffix == ".json":
+        if path.suffix == ".json":
             try:
                 actual_schema = json.loads(path.read_text("utf-8")).get("schema_version")
             except (OSError, json.JSONDecodeError, AttributeError):
                 actual_schema = None
-            if str(actual_schema) != str(entry["schema_version"]):
+            if str(actual_schema) != declared_schema:
                 issues.append(f"{name}: schema mismatch")
     model_dim = manifest.get("models", {}).get("embedding_dim")
     vector_dim = manifest.get("profile", {}).get("vector_dim")
     if model_dim is not None and vector_dim is not None and int(model_dim) != int(vector_dim):
         issues.append("model/vector dimension mismatch")
-    required = {"dataset", "record_id_map", "source_catalog", "evidence_metadata", "identity_snapshot",
-                "vector_index", "bm25_index", "chunk_index", "graph_index", "numeric_index", "prompts"}
-    absent = sorted(required - set(manifest.get("artifacts", {})))
+    absent = sorted(REQUIRED_ARTIFACTS - set(manifest.get("artifacts", {})))
     if absent:
         issues.append(f"partial manifest missing {absent}")
     return issues

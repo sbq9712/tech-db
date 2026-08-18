@@ -7,16 +7,18 @@ from dataclasses import dataclass
 @dataclass
 class RetrievalResult:
     """Unified retrieval result schema."""
-    record_id: int
+    record_id: str
     route: str
     raw_score: float
     rank: int
     meta: Dict[str, Any]
     route_details: Dict[str, Any]
+    legacy_idx: Optional[int] = None
 
     def to_dict(self) -> dict:
         return {
             "record_id": self.record_id,
+            "legacy_idx": self.legacy_idx,
             "route": self.route,
             "raw_score": self.raw_score,
             "rank": self.rank,
@@ -28,10 +30,22 @@ class RetrievalResult:
 class VectorRetriever:
     """Vector retrieval using cosine similarity."""
 
-    def __init__(self, embeddings=None, meta=None):
+    def __init__(self, embeddings=None, meta=None, *, allow_legacy_idx: bool = False):
         self.embeddings = embeddings
         self.meta = meta
         self._available = embeddings is not None
+        self.allow_legacy_idx = allow_legacy_idx
+
+    def _identity(self, meta: dict) -> tuple[str, Optional[int]]:
+        record_id = meta.get("record_id")
+        legacy_idx = meta.get("legacy_idx", meta.get("idx"))
+        if record_id not in (None, ""):
+            return str(record_id), legacy_idx
+        if self.allow_legacy_idx and legacy_idx is not None:
+            # Explicitly non-durable compatibility namespace.  A raw integer
+            # is never allowed to masquerade as a stable record_id.
+            return f"legacy-idx:{legacy_idx}", legacy_idx
+        raise ValueError("retrieval metadata is missing stable record_id")
 
     @property
     def available(self) -> bool:
@@ -56,8 +70,10 @@ class VectorRetriever:
         results = []
         for rank, i in enumerate(top_indices):
             m = self.meta[i]
+            record_id, legacy_idx = self._identity(m)
             results.append(RetrievalResult(
-                record_id=m["idx"],
+                record_id=record_id,
+                legacy_idx=legacy_idx,
                 route="vector",
                 raw_score=float(scores[i]),
                 rank=rank + 1,

@@ -21,7 +21,7 @@ def _sha(text: str) -> str:
 class NormalizedView:
     text: str
     offsets: tuple[tuple[int, int], ...]
-    version: str = "nfkc-ws-v1"
+    version: str = "nfkc-ws-v2"
 
     def raw_range(self, start: int, end: int) -> tuple[int, int] | None:
         if start < 0 or end <= start or end > len(self.offsets):
@@ -34,22 +34,71 @@ class NormalizedView:
 
 
 def normalize_with_map(text: str) -> NormalizedView:
+    """Return NFKC+whitespace text with an exact map to raw code points.
+
+    Normalizing each code point independently is not reversible: for
+    example ``e`` followed by COMBINING ACUTE contracts to one ``é`` only
+    when NFKC sees both code points.  We align the canonical NFKD token
+    streams of the raw and normalized strings and union the contributing raw
+    spans.  A mismatch is an error; approximating an offset is forbidden.
+    """
+    def raw_decomposition() -> list[tuple[str, tuple[int, int]]]:
+        tokens: list[tuple[str, tuple[int, int]]] = []
+        for pos, char in enumerate(text):
+            tokens.extend((part, (pos, pos + 1)) for part in unicodedata.normalize("NFKD", char))
+        # Canonical ordering can cross code-point boundaries.  Reorder each
+        # starter segment while preserving stable order for equal CCC values.
+        ordered: list[tuple[str, tuple[int, int]]] = []
+        segment: list[tuple[str, tuple[int, int]]] = []
+        for token in tokens:
+            if unicodedata.combining(token[0]) == 0:
+                if segment:
+                    starter, marks = segment[0], segment[1:]
+                    ordered.append(starter)
+                    ordered.extend(sorted(marks, key=lambda item: unicodedata.combining(item[0])))
+                segment = [token]
+            else:
+                segment.append(token)
+        if segment:
+            if unicodedata.combining(segment[0][0]) == 0:
+                ordered.append(segment[0])
+                ordered.extend(sorted(segment[1:], key=lambda item: unicodedata.combining(item[0])))
+            else:
+                ordered.extend(sorted(segment, key=lambda item: unicodedata.combining(item[0])))
+        return ordered
+
+    normalized = unicodedata.normalize("NFKC", text)
+    raw_tokens = raw_decomposition()
+    cursor = 0
+    mapped: list[tuple[str, tuple[int, int]]] = []
+    for char in normalized:
+        parts = list(unicodedata.normalize("NFKD", char))
+        consumed = raw_tokens[cursor:cursor + len(parts)]
+        if [token for token, _ in consumed] != parts:
+            raise ValueError("NFKC normalization cannot be mapped exactly")
+        spans = [span for _, span in consumed]
+        if not spans:
+            raise ValueError("NFKC normalization emitted an unmappable code point")
+        mapped.append((char, (min(s[0] for s in spans), max(s[1] for s in spans))))
+        cursor += len(parts)
+    if cursor != len(raw_tokens):
+        raise ValueError("NFKC normalization left unmapped raw code points")
+
     out: list[str] = []
     offsets: list[tuple[int, int]] = []
-    in_ws = False
-    for pos, char in enumerate(text):
-        normalized = unicodedata.normalize("NFKC", char)
-        if normalized.isspace():
-            if out and not in_ws:
-                out.append(" "); offsets.append((pos, pos + 1))
-            in_ws = True
-            continue
-        in_ws = False
-        for nchar in normalized:
-            out.append(nchar); offsets.append((pos, pos + 1))
+    for char, span in mapped:
+        if char.isspace():
+            if not out:
+                continue
+            if out[-1] == " ":
+                offsets[-1] = (offsets[-1][0], max(offsets[-1][1], span[1]))
+            else:
+                out.append(" "); offsets.append(span)
+        else:
+            out.append(char); offsets.append(span)
     if out and out[-1] == " ":
         out.pop(); offsets.pop()
-    return NormalizedView("".join(out), tuple(offsets))
+    return NormalizedView("".join(out), tuple(offsets), version="nfkc-ws-v2")
 
 
 def _normalize_text(text: str) -> str:
@@ -68,7 +117,7 @@ class SourceSnapshot:
     evidence_eligibility: str = "CITATION_ELIGIBLE"
     access_scope: str = "public"
     raw_object_ref: str | None = None
-    normalization_version: str = "nfkc-ws-v1"
+    normalization_version: str = "nfkc-ws-v2"
     offset_map: tuple[tuple[int, int], ...] = field(default_factory=tuple, repr=False)
     schema_version: str = "1.0.0"
 
@@ -125,7 +174,7 @@ class SourceSnapshotStore:
             raise KeyError(snapshot_id)
         from datetime import datetime, timezone
         return SourceSnapshot(row[1], row[2], row[3], row[4], datetime.fromtimestamp(row[10], timezone.utc).isoformat(),
-                              row[0], row[6], row[7], row[8], row[9], "nfkc-ws-v1",
+                              row[0], row[6], row[7], row[8], row[9], "nfkc-ws-v2",
                               tuple(tuple(x) for x in json.loads(row[5])))
 
     def citation_eligible(self, snapshot_id: str) -> bool:

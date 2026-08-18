@@ -65,7 +65,7 @@ def _build_provenance_map(candidates: list, records_by_id: dict = None) -> dict:
         recs = []
         rids = []
         for c in candidates or []:
-            rid = c.get("record_id", c.get("meta", {}).get("idx"))
+            rid = c.get("record_id") or c.get("meta", {}).get("record_id")
             if rid is None:
                 continue
             rec = (records_by_id or {}).get(rid) or {}
@@ -100,7 +100,7 @@ def _normalize_for_selector(candidates: list) -> list:
     from them yields 0.0 → EVERY candidate rejected as below_min_relevance
     (empty evidence set). Map the fallback shape to the selector schema:
 
-      record_id ← meta.idx
+      record_id ← durable top-level/meta record_id
       rerank_score ← rank-derived 1/(pos+2) — same RRF-like scale the
                      reranker's own error fallback uses (reranker.py),
                      preserving relative order without inventing LLM
@@ -118,7 +118,7 @@ def _normalize_for_selector(candidates: list) -> list:
         meta = c.get("meta", {}) or {}
         out.append({
             **c,
-            "record_id": c.get("record_id", meta.get("idx", -1)),
+            "record_id": c.get("record_id") or meta.get("record_id"),
             "rerank_score": c.get("rerank_score", round(1.0 / (pos + 2), 4)),
         })
     return out
@@ -303,9 +303,9 @@ async def run_agentic_loop(
                 print(f"[orchestrator] Search error for '{q}': {e}", flush=True)
 
         # Deduplicate results
-        seen_ids = {r.get("meta", {}).get("idx", -1) for r in state.all_results}
+        seen_ids = {r.get("record_id") or r.get("meta", {}).get("record_id") for r in state.all_results}
         new_results = [r for r in iteration_results
-                       if r.get("meta", {}).get("idx", -1) not in seen_ids]
+                       if (r.get("record_id") or r.get("meta", {}).get("record_id")) not in seen_ids]
 
         state.all_results.extend(iteration_results)
         # T048: index-lite record view for provenance/lineage (title/url/
@@ -314,7 +314,7 @@ async def run_agentic_loop(
             state.records_by_id = {}
         for _r in iteration_results:
             _m = _r.get("meta", {}) or {}
-            _rid = _m.get("idx")
+            _rid = _r.get("record_id") or _m.get("record_id")
             if _rid is not None and _rid not in state.records_by_id:
                 state.records_by_id[_rid] = _m
         new_evidence_count = len(new_results)
@@ -370,7 +370,7 @@ async def run_agentic_loop(
             state.selected_evidence = reranked
 
         # Update Ledger
-        req_mapping = {req["id"]: [r.get("meta", {}).get("idx", -1) for r in state.selected_evidence]
+        req_mapping = {req["id"]: [r.get("record_id") or r.get("meta", {}).get("record_id") for r in state.selected_evidence]
                        for req in state.decomposition.get("requirements", [])}
         state.ledger.update(state.selected_evidence, requirement_mapping=req_mapping)
 
@@ -416,7 +416,7 @@ async def run_agentic_loop(
     coverage = assess_coverage(
         state.ledger.get_status().get("requirements", []),
         len(state.selected_evidence),
-        len(set(r.get("meta", {}).get("idx", -1) for r in state.all_results)),
+        len(set(r.get("record_id") or r.get("meta", {}).get("record_id") for r in state.all_results)),
     )
     status, boundary_msg = determine_answer_boundary(
         coverage,

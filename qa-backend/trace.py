@@ -113,7 +113,8 @@ class TraceContext:
         try:
             compact = [
                 {
-                    "idx": r.get("meta", {}).get("idx", -1),
+                    "record_id": r.get("record_id") or r.get("meta", {}).get("record_id"),
+                    "legacy_idx": r.get("legacy_idx", r.get("meta", {}).get("legacy_idx", r.get("meta", {}).get("idx"))),
                     "score": round(r.get("score", 0), 4),
                     "title": r.get("meta", {}).get("t", "")[:80],
                 }
@@ -134,7 +135,8 @@ class TraceContext:
         try:
             compact = [
                 {
-                    "idx": r.get("meta", {}).get("idx", -1),
+                    "record_id": r.get("record_id") or r.get("meta", {}).get("record_id"),
+                    "legacy_idx": r.get("legacy_idx", r.get("meta", {}).get("legacy_idx", r.get("meta", {}).get("idx"))),
                     "rrf_score": round(r.get("score", 0), 6),
                     "vec_score": round(r.get("vec_score", 0), 4),
                     "bm25_score": round(r.get("bm25_score", 0), 4),

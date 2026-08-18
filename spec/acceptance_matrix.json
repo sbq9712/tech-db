@@ -13319,7 +13319,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt011_durable_mapping_uses_record_id",
+              "case": "test_rt011_production_retrieval_routes_use_stable_record_id",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }
@@ -13396,7 +13396,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt013_full_width_expansion_has_exact_raw_span",
+              "case": "test_rt013_cross_codepoint_nfkc_contraction_maps_exact",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }
@@ -13558,7 +13558,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt016_hash_mismatch_rejected",
+              "case": "test_rt016_wrong_schema_rejected_at_store",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }
@@ -13603,7 +13603,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt017_inflight_keeps_manifest",
+              "case": "test_rt017_server_request_pins_retrieval_records_context_generation",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }
@@ -13629,7 +13629,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt017_invalid_current_fails_strict_startup",
+              "case": "test_rt017_server_strict_startup_invalid_current_fails_closed",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }
@@ -13661,7 +13661,7 @@
           "test_cases": [
             {
               "suite": "remediation_phase01",
-              "case": "test_rt018_restore_rehearsal_preserves_registry",
+              "case": "test_rt018_restore_rehearsal_strict_starts_prior_runtime",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase01.py"
             }

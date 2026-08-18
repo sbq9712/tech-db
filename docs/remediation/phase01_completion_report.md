@@ -5,12 +5,18 @@ Scope: RT-010 through RT-018 on top of accepted Phase-00 commit
 
 ## Behavioral evidence
 
-- `python qa-backend/tests_remediation_phase01.py`: 41 passed, 0 failed.
-- `python qa-backend/run_all_tests.py --tier push`: 401 passed, 0 failed across 28 suites.
+- `python qa-backend/tests_remediation_phase01.py`: 50 passed, 0 failed.
+- `python qa-backend/run_all_tests.py --tier push`: 410 passed, 0 failed across 28 suites.
 - `python scripts/check_project.py`: PASS.
 - canonical spec lint and negative-fixture self-test: PASS.
 - acceptance-matrix source/count validation: PASS (563 DoDs; 518 explicitly unmet/blocked).
 - deterministic mini runtime rebuild/health: PASS (8 fully synthetic records).
+
+The Phase-01 suite now includes production-path evidence for durable stable IDs
+across Vector/BM25/Graph/Fusion/Trace, cross-code-point NFKC contraction,
+pre-store artifact schema rejection, a real ASGI request pinned through a
+concurrent manifest reload, strict server startup failure, and a bootable DR
+restore with corruption rejection.
 
 ## Retrieval benchmark
 

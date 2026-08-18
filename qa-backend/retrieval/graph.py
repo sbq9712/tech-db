@@ -10,7 +10,7 @@ from .vector import RetrievalResult
 class GraphRetriever:
     """Graph (entity co-occurrence) retrieval."""
 
-    def __init__(self, graph_search_fn=None):
+    def __init__(self, graph_search_fn=None, *, allow_legacy_idx: bool = False):
         """Initialize with a reference to the graph search function.
 
         Args:
@@ -19,6 +19,7 @@ class GraphRetriever:
         """
         self._search_fn = graph_search_fn
         self._available = graph_search_fn is not None
+        self.allow_legacy_idx = allow_legacy_idx
 
     @property
     def available(self) -> bool:
@@ -37,15 +38,27 @@ class GraphRetriever:
         results = []
         for rank, item in enumerate(raw_results):
             if isinstance(item, tuple):
-                idx, score = item[0], item[1]
+                identity, score = item[0], item[1]
                 matched = item[2] if len(item) > 2 else []
+                legacy_idx = item[3] if len(item) > 3 else None
+                if not isinstance(identity, str):
+                    if not self.allow_legacy_idx:
+                        raise ValueError("graph result is missing stable record_id")
+                    legacy_idx = identity
+                    identity = f"legacy-idx:{identity}"
             else:
-                idx = item.get("record_id", -1)
+                identity = item.get("record_id")
+                legacy_idx = item.get("legacy_idx", item.get("idx"))
+                if identity in (None, ""):
+                    if not self.allow_legacy_idx or legacy_idx is None:
+                        raise ValueError("graph result is missing stable record_id")
+                    identity = f"legacy-idx:{legacy_idx}"
                 score = item.get("score", 0)
                 matched = item.get("matched_entities", [])
 
             results.append(RetrievalResult(
-                record_id=idx,
+                record_id=str(identity),
+                legacy_idx=legacy_idx,
                 route="graph",
                 raw_score=float(score),
                 rank=rank + 1,

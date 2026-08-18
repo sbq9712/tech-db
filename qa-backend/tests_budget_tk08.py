@@ -91,7 +91,10 @@ def t_spend_or_raise():
 # ── 5. run_agentic_loop end-to-end with mocked components ──────────────────
 def _mk_fake_search():
     async def search_fn(q, exclude=None):
-        rec = {"meta": {"idx": abs(hash(q)) % 100000, "t": "doc", "s": "src",
+        legacy_idx = abs(hash(q)) % 100000
+        record_id = f"record-{legacy_idx}"
+        rec = {"record_id": record_id, "legacy_idx": legacy_idx,
+               "meta": {"record_id": record_id, "idx": legacy_idx, "t": "doc", "s": "src",
                         "d": "2026-01-01", "u": "http://x", "o": "AI精选"},
                "text": "evidence text " * 8, "score": 0.9}
         return [rec], True, "ok"
