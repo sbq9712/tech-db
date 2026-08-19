@@ -1,7 +1,7 @@
 # Phase 00 current-state gap report
 
-Baseline: `qa-backend/test_fixtures/remediation/baseline_phase00.json`  
-Reviewed start SHA: `3439c27bcbd0087b9ee46d86aac4384fa9fcc74b`  
+Baseline: `qa-backend/test_fixtures/remediation/baseline_phase00.json`\
+Reviewed start SHA: `8e24ff26b95936f6a1b69edf19d3fd225e753586`\
 Environment: committed mini runtime plus locked historical artifacts; **no fresh production traffic was claimed**.
 
 ## Confirmed gaps at the reviewed HEAD
@@ -20,4 +20,4 @@ The audit starting points in the frozen prompt remain open until their later RT 
 
 ## Reproducibility
 
-Run `python scripts/capture_phase00_baseline.py --source-sha 3439c27bcbd0087b9ee46d86aac4384fa9fcc74b`. The JSON output is deterministic for the locked input artifacts and source SHA.
+Run `python scripts/capture_phase00_baseline.py --source-sha 8e24ff26b95936f6a1b69edf19d3fd225e753586`. The JSON output is deterministic for the locked input artifacts and source SHA.

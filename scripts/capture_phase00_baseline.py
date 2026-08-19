@@ -24,6 +24,15 @@ LOCKED_SOURCE_METADATA = {
     "3439c27bcbd0087b9ee46d86aac4384fa9fcc74b": {
         "committed_at": "2026-08-18T13:45:18+08:00",
     },
+    # Fourth review round: the baseline was re-anchored to the commit that
+    # actually committed the measured fixture bytes (mini-runtime
+    # dataset_snapshot_id a49a56f8…) — the phase-02 remediation commit
+    # 8e24ff2, parent of the fix that locked it here.  Same shallow-checkout
+    # constraint as above: the commit object is not fetchable in a
+    # pull-request checkout, so its immutable timestamp is checked in.
+    "8e24ff26b95936f6a1b69edf19d3fd225e753586": {
+        "committed_at": "2026-08-19T18:27:00+08:00",
+    },
 }
 
 
@@ -150,8 +159,8 @@ def build(source_sha: str) -> tuple[dict, str]:
     }
     report = f"""# Phase 00 current-state gap report
 
-Baseline: `qa-backend/test_fixtures/remediation/baseline_phase00.json`  
-Reviewed start SHA: `{source_sha}`  
+Baseline: `qa-backend/test_fixtures/remediation/baseline_phase00.json`\\
+Reviewed start SHA: `{source_sha}`\\
 Environment: committed mini runtime plus locked historical artifacts; **no fresh production traffic was claimed**.
 
 ## Confirmed gaps at the reviewed HEAD

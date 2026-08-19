@@ -1455,7 +1455,7 @@
       "rule": "claim_mapping_requires_grounding"
     }
   ],
-  "spec_hash": "b95e04690a7e9bb462eb8e6a8ad5d94e2e550ff239b7930590f96c2a198467bd",
+  "spec_hash": "bbed2b576c33eb66ec686d05f245ed5bdd08e753835455bec885216b2b9bca96",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
@@ -1481,7 +1481,7 @@
   "baseline_artifacts": {
     "pre_remediation": {
       "path": "qa-backend/test_fixtures/remediation/baseline_phase00.json",
-      "sha256": "d3232abbe2e1791f2bf6150555d8242c91158292af92db7bd2130eb1d460ebf6",
+      "sha256": "3330a41a4909f0a40c111a3605c435537fcbc245d80f32db7b8d192f4164661c",
       "consumers": [
         "before_after_release_gates",
         "RT-049",
