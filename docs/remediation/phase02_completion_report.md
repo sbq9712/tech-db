@@ -13,7 +13,7 @@ Per-ticket status (post third acceptance-review remediation 2026-08-18):
 | RT-026 bounded repair loop | DONE | retrieve_fn wired; regeneration runs on an allowlisted evidence-scoped package; full post-repair re-check pass |
 | RT-027 terminal renderer + post-verification SSE | DONE | incl. profile semantics (QA_PIPELINE_PROFILE applies at import) |
 | RT-028 done-event / citation schema hardening | DONE | |
-| RT-029 frontend evidence-state rendering | DONE | node-run behavioral checks + real-browser (Chromium) visual regression suite `tests_visual_rt029.py`: deterministic local fixtures (no live tunnel), desktop 1280×800 + mobile 390×844 viewports, committed golden screenshots with pixel diff, layout/geometry/computed-style assertions, and a mutation case proving the harness detects broken layouts. Registered as required CI gate `rt029-visual-regression` and in `run_all_tests.py` (suite `visual_rt029`). RT-029.DOD-03 SATISFIED with named executable evidence. |
+| RT-029 frontend evidence-state rendering | DONE | node-run behavioral checks + real-browser (Chromium) visual regression suite `tests_visual_rt029.py`: deterministic local fixtures (no live tunnel), desktop 1280×800 + mobile 390×844 viewports, committed golden screenshots with normalized structural diff, layout/geometry/computed-style assertions, and a mutation case proving the harness detects broken layouts. Registered as required CI gate `rt029-visual-regression` and in `run_all_tests.py` (suite `visual_rt029`). RT-029.DOD-03 SATISFIED with named executable evidence. |
 
 Phase verdict: **DONE** — all Phase-02 DoDs carry named executable evidence;
 no DoD is claimed SATISFIED without a runnable check (acceptance matrix stays
@@ -41,7 +41,7 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
   retrieval → validated → UPDATED Evidence-Package → regenerate ordering
   proof).
 - `python qa-backend/tests_visual_rt029.py`: 14 passed, 0 failed — real
-  Chromium, desktop + mobile, golden pixel diff + mutation detection
+  Chromium, desktop + mobile, golden structural diff + mutation detection
   (also wired into `run_all_tests.py --tier push` as suite `visual_rt029`
   and into CI as required gate `rt029-visual-regression`).
 - `python qa-backend/run_all_tests.py --tier push`: all suites green (final
@@ -132,7 +132,11 @@ disabling the two new Phase-02 flags (fresh-process tests A-D:
   live-tunnel dependency), desktop (1280×800) and mobile (390×844)
   viewports, committed golden screenshots
   (`qa-backend/test_fixtures/visual_goldens/rt029/`) compared with a
-  deterministic pixel diff, real layout/geometry/computed-style assertions
+  deterministic structural diff (both sides normalized — downscale h=100
+  LANCZOS, GaussianBlur, 12-color quantize — before ImageChops.difference;
+  glyph rendering differences between font stacks measure 0.00 while real
+  layout breaks measure ≥5.3%, thresholds 0.04), real
+  layout/geometry/computed-style assertions
   (distinct CONTRADICTS/BACKGROUND/support colors, PARTIALLY_SUPPORTED
   supported/unresolved sections, UNVERIFIED banner + degraded chips,
   TEXT_SPAN locator chips, stale/INVALID citations never rendered, long
@@ -140,7 +144,19 @@ disabling the two new Phase-02 flags (fresh-process tests A-D:
   that deliberately breaks the layout and MUST fail the diff. The suite is
   CI-repeatable (registered as required gate `rt029-visual-regression` in
   `.github/workflows/remediation-gates.yml`, suite `visual_rt029` in
-  `run_all_tests.py`) — therefore the phase verdict is DONE.
+  `run_all_tests.py`; gate green on CI at head `ac993bb`, 2026-08-19) —
+  therefore the phase verdict is DONE.
+- Environment incident during this round, disclosed: `start.sh` was tracked
+  as mode 100644 while the production techdb-server systemd unit requires
+  its (previously untracked) +x bit; a git operation on 2026-08-18 17:28
+  cleared it and the service crash-looped (203/EXEC, ~6062 restarts, each
+  restart re-running boot_sync and rewriting
+  `data/processed/all-records-lite.json` in place — the tunnel backend was
+  down and the rewrite caused torn reads that intermittently failed
+  `synthetic_tk20`). Fixed by committing mode 100755 (durable across
+  future checkouts) and re-verifying the service healthy; the full push
+  tier then passed 604/604 across 30 suites twice back-to-back with the
+  summary regenerated cleanly.
 - RT-005 remains BLOCKED_EXTERNAL_ACTION (repository administrator action).
 - `verify_final` retry exists and is covered (`RT025.transient_error_retries_
   then_succeeds`); a transient transport error retries once and passes, while
