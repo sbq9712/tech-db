@@ -46,7 +46,7 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
   fourth-round additions: catalog/dataset/build/store/strict-startup
   fail-closed eligibility cases (missing/empty/unknown), producer refuses
   to infer CITATION_ELIGIBLE from evidence-text presence.
-- `python qa-backend/tests_index_migration.py`: 36 passed, 0 failed —
+- `python qa-backend/tests_index_migration.py`: 37 passed, 0 failed —
   legacy dataset → stable-ID migration → vector/BM25 rebuild behavioral
   suite (fourth review round, blocker C): valid registry/map rebuild PASS
   with stable IDs in output meta (vector AND BM25), missing/corrupt/
@@ -55,8 +55,9 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
   identity-less records fail closed or quarantine explicitly, shared-URL
   ambiguity needs committed manual curation (same-URL-same-title dedups as
   audited duplicates), pre-migration index rebound to stable IDs without
-  re-embedding. Registered as suite `index_migration` and CI gate
-  `legacy-index-migration`.
+  re-embedding, embed-batch size env-overridable for memory-constrained
+  hosts (`VEC.batch_size_env_override_memory_safety`). Registered as suite
+  `index_migration` and CI gate `legacy-index-migration`.
 - `python qa-backend/tests_visual_rt029.py`: 20 passed, 0 failed — real
   Chromium, desktop + mobile, golden structural diff + mutation detection
   (also wired into `run_all_tests.py --tier push` as suite `visual_rt029`
@@ -202,15 +203,26 @@ disabling the two new Phase-02 flags (fresh-process tests A-D:
   real vector rebuild ran via the actual systemd path
   (`techdb-vector.service`): the pre-migration index was detected,
   kept entries rebound to stable IDs, and because the existing embeddings
-  predate the current embedding-text format the service is performing a
-  full re-embed (~2.7h CPU, background) — completion state recorded in
-  the run logs, not assumed. Shared-URL/different-title records required
+  predate the current embedding-text format a full re-embed is required.
+  **Disclosed incident:** the first re-embed attempt was OOM-killed at
+  3.8G RSS (2026-08-19 20:38 CST) — sentence-transformers pads a whole
+  mini-batch to its longest member and bge-m3 truncates at 8192 tokens,
+  so a length-sorted batch of 64 long evidence texts transiently
+  materializes ~2.1GB of fp32 hidden states on top of the ~2.3GB model
+  on an 8GB host co-resident with the server. Fixed in `16fe86a`: the
+  builder's embed batch defaults to 16 and honors
+  `TECH_DB_VECTOR_BATCH_SIZE` (batch size changes no vector value — rows
+  are encoded and normalized independently). The atomic tmp+rename
+  partial saves left the index untorn (22,427 stable-UUID metas, finite
+  embeddings) and the incremental resume kept the 22,427 and embeds only
+  the remaining 18,173 — completion state recorded in the run logs, not
+  assumed. Shared-URL/different-title records required
   committed manual curation (`data/processed/identity_disambiguation.json`,
   10 entries) rather than automatic merge or split. `boot_sync.py` now
   runs the migration step between lite rebuild and BM25 build;
   `MIGRATION.md` documents the real chain.
 - Reporting hygiene (fourth round): remote GitHub `push-tier` runs in a
   plain environment where `visual_rt029` legitimately reports 0/0 (the
-  separate required gate `rt029-visual-regression` runs the 14
+  separate required gate `rt029-visual-regression` runs the 20
   real-browser cases) — local full-environment totals are therefore
   labeled LOCAL and never reported as the remote push-tier count.
