@@ -481,6 +481,32 @@ def main() -> int:
              proc.returncode == 0
              and {r["legacy_idx"]: r["record_id"]
                   for r in cli_map["mappings"]} == ids1)
+
+        # Vector-builder embed batch size is env-overridable (memory safety on
+        # constrained hosts: sentence-transformers pads a whole mini-batch to
+        # its longest text, so 64 x 8192-token evidence texts transiently
+        # allocate ~2.1GB of fp32 hidden states — the observed OOM kill of the
+        # production rebuild). Batch size never changes any vector value
+        # (rows are encoded and normalized independently); only the transient
+        # peak moves.
+        import importlib
+        import vector_index as vi
+        try:
+            os.environ["TECH_DB_VECTOR_BATCH_SIZE"] = "8"
+            vi8 = importlib.reload(vi)
+            ok8 = vi8.BATCH_SIZE == 8
+            os.environ["TECH_DB_VECTOR_BATCH_SIZE"] = "3"
+            vi3 = importlib.reload(vi)
+            ok3 = vi3.BATCH_SIZE == 3
+        finally:
+            os.environ.pop("TECH_DB_VECTOR_BATCH_SIZE", None)
+            importlib.reload(vi)
+        test("VEC.batch_size_env_override_memory_safety",
+             ok8 and ok3 and vi.BATCH_SIZE == 16,
+             "builder batch size must follow TECH_DB_VECTOR_BATCH_SIZE "
+             "(default 16) so constrained hosts can bound the padded "
+             "activation peak")
+
     finally:
         shutil.rmtree(td, ignore_errors=True)
 
@@ -541,6 +567,7 @@ def test_mig_roundup_view_excludes_duplicate_keeps_curated(): _ensure_executed()
 def test_mig_curated_ids_idempotent(): _ensure_executed(); _assert_case("MIG.curated_ids_idempotent")
 def test_mig_curated_reorder_preserves_ids(): _ensure_executed(); _assert_case("MIG.curated_reorder_preserves_ids")
 def test_mig_cli_matches_library_ids(): _ensure_executed(); _assert_case("MIG.cli_matches_library_ids")
+def test_vec_batch_size_env_override_memory_safety(): _ensure_executed(); _assert_case("VEC.batch_size_env_override_memory_safety")
 
 
 if __name__ == "__main__":

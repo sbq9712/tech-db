@@ -24,7 +24,18 @@ LITE = Path(os.environ.get("TECH_DB_LITE_DATASET",
 INDEX_DIR = WORKING_DIR
 INDEX_FILE = INDEX_DIR / "vector_index_v2.pkl"
 
-BATCH_SIZE = 64  # Balanced for CPU embedding
+# Embedding batch size. bge-m3 accepts up to 8192 tokens and
+# sentence-transformers pads every mini-batch to its longest member, so a
+# batch of 64 long evidence texts materializes a ~64x8192x1024 fp32 hidden
+# state (~2.1GB) on top of the ~2.3GB model — the observed OOM kill of the
+# production rebuild on a memory-constrained host (8GB RAM with the server
+# co-resident). Records are processed length-sorted, so the tail batches are
+# precisely the longest texts. Per-row embeddings are independent and
+# normalized per text, so batch size does not change any vector value; only
+# the transient memory/speed tradeoff moves. 16 keeps the worst-case
+# activation ~5x smaller with negligible CPU overhead. Env-overridable for
+# constrained hosts.
+BATCH_SIZE = int(os.environ.get("TECH_DB_VECTOR_BATCH_SIZE", "16"))
 
 # Categories excluded from the canonical set
 IRRELEVANT_CATS = {"不相关", "未分类", "手动导入", ""}
