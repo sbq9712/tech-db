@@ -322,6 +322,22 @@ def rt020_cases():
              if e["record_id"] == "rec-blackwell" else e
              for e in _full_catalog()["snapshots"]]},
              "eligibility_mismatch:rec-blackwell"))
+    # ── Blocker A (fourth-review round): request-time eligibility fail-closed
+    # A pinned catalog entry with NO eligibility declaration must fail the
+    # request closed — an absent value may never silently pass as
+    # CITATION_ELIGIBLE, and an empty/blank value is equally fatal.
+    test("RT020.manifest_mode_missing_eligibility_fails_closed",
+         _manifest_mode_fail({"snapshots": [
+             {k: v for k, v in e.items() if k != "evidence_eligibility"}
+             if e["record_id"] == "rec-blackwell" else e
+             for e in _full_catalog()["snapshots"]]},
+             "missing_evidence_eligibility:rec-blackwell"))
+    test("RT020.manifest_mode_empty_eligibility_fails_closed",
+         _manifest_mode_fail({"snapshots": [
+             {**e, "evidence_eligibility": "   "}
+             if e["record_id"] == "rec-blackwell" else e
+             for e in _full_catalog()["snapshots"]]},
+             "missing_evidence_eligibility:rec-blackwell"))
 
     # legacy_hybrid compatibility: no catalog + manifest_mode=False still
     # runs end-to-end on content-addressed snapshots.
@@ -329,6 +345,78 @@ def rt020_cases():
                                       manifest_mode=False))
     test("RT020.legacy_hybrid_without_catalog_still_runs",
          legacy["answer_status"] == "SUPPORTED" and legacy["citations"])
+
+    # ── Blocker A cases E/F: explicit non-citable eligibility is enforced
+    # end-to-end at request time. RETRIEVAL_ONLY and QUARANTINED records can
+    # never surface as final citations nor support any claim — even when the
+    # draft cites them and their evidence text matches the claim verbatim.
+    _quar = dict(RECORD_BLACKWELL)
+    _quar = {**_quar, "record_id": "rec-quar", "legacy_idx": 3,
+             "t": "被隔离来源", "evidence_eligibility": "QUARANTINED"}
+    _e_records = list(RECORDS) + [_quar]
+    _e_catalog = {"snapshots": _full_catalog()["snapshots"] + [{
+        "record_id": "rec-quar",
+        "source_snapshot_id": "snapshot-gen-a-1:rec-quar",
+        "evidence_text_sha256": hashlib.sha256(
+            _SourceSnapshot.from_record("rec-quar", _quar).raw_text
+            .encode("utf-8")).hexdigest(),
+        "evidence_eligibility": "QUARANTINED",
+    }]}
+    _e_citations = [dict(c) for c in citations_fixture()
+                    if not c.get("retrieved_by_repair")]
+    _e_citations.append({
+        "id": "cit-quar", "record_id": "rec-quar", "title": _quar["t"],
+        "excerpt": "NVLink双向带宽达到1.8TB/s", "url": "",
+    })
+    pe = asyncio.run(run_pipeline(records=_e_records,
+                                  citations=_e_citations,
+                                  source_catalog=_e_catalog,
+                                  manifest_mode=True))
+    test("RT020.quarantined_never_final_citation",          # case F
+         all(c.get("record_id") != "rec-quar" for c in pe["citations"])
+         and any(i.get("record_id") == "rec-quar"
+                 and "QUARANTINED" in str(i.get("invalid_reason"))
+                 for i in pe.get("invalid_citations", [])))
+    test("RT020.quarantined_never_supports_claims",         # case F
+         all(f.get("record_id") != "rec-quar"
+             for f in pe.get("numeric_facts", []))
+         and all(r.get("record_id") != "rec-quar"
+                 for cl in pe.get("claims", []) for r in cl.get("evidence", [])
+                 if isinstance(r, dict)))
+    _ps = asyncio.run(run_pipeline(records=_e_records,
+                                   citations=[dict(c) for c in citations_fixture()
+                                              if not c.get("retrieved_by_repair")],
+                                   source_catalog=_e_catalog,
+                                   manifest_mode=True))
+    test("RT020.retrieval_only_stays_retrieval_only",       # case E
+         all(c.get("record_id") != "rec-sum" for c in _ps["citations"])
+         and all(e.get("evidence_eligibility") in
+                 ("CITATION_ELIGIBLE", "RETRIEVAL_ONLY", "QUARANTINED")
+                 for e in _e_catalog["snapshots"])
+         and next(e for e in _e_catalog["snapshots"]
+                  if e["record_id"] == "rec-sum")["evidence_eligibility"]
+         == "RETRIEVAL_ONLY")
+
+    # Defense-in-depth unit: even a catalog that somehow bypassed the
+    # request-time payload validation (e.g. non-manifest pinning path) is
+    # rejected by the snapshot authority when its entry lacks eligibility.
+    _no_elig_entry = {"record_id": "rec-blackwell",
+                      "source_snapshot_id": "snapshot-gen-a-1:rec-blackwell",
+                      "evidence_text_sha256": hashlib.sha256(
+                          _SourceSnapshot.from_record(
+                              "rec-blackwell", RECORD_BLACKWELL).raw_text
+                          .encode("utf-8")).hexdigest()}
+    _dep = asyncio.run(run_pipeline(
+        records=RECORDS,
+        citations=[dict(c) for c in citations_fixture()
+                   if not c.get("retrieved_by_repair")],
+        source_catalog={"snapshots": [
+            _no_elig_entry if e["record_id"] == "rec-blackwell" else e
+            for e in _full_catalog()["snapshots"]]},
+        manifest_mode=False))
+    test("RT020.snapshot_authority_eligibility_missing_fails_closed",
+         all(c.get("record_id") != "rec-blackwell"
+             for c in _dep.get("citations", [])))
 
 
 rt020_cases()
@@ -1766,7 +1854,8 @@ def _pinned_snapshot_e2e_case():
                                          "t": f"title-{label}",
                                          "fb": _fb,
                                          "b": _fb,
-                                         "c": "fixture", "a": f"src-{label}"}]},
+                                         "c": "fixture", "a": f"src-{label}",
+                                         "evidence_eligibility": "CITATION_ELIGIBLE"}]},
                 "record_id_map": {"mappings": [{"record_id": rid, "legacy_idx": 0}]},
                 "source_catalog": {"snapshots": [{"record_id": rid,
                                                   "source_snapshot_id": f"snapshot-{label}",
@@ -2445,6 +2534,18 @@ def test_rt020_manifest_mode_duplicate_record_id_fails_closed():
 
 def test_rt020_manifest_mode_eligibility_mismatch_fails_closed():
     _assert_case("RT020.manifest_mode_eligibility_mismatch_fails_closed")
+def test_rt020_manifest_mode_missing_eligibility_fails_closed():
+    _assert_case("RT020.manifest_mode_missing_eligibility_fails_closed")
+def test_rt020_manifest_mode_empty_eligibility_fails_closed():
+    _assert_case("RT020.manifest_mode_empty_eligibility_fails_closed")
+def test_rt020_quarantined_never_final_citation():
+    _assert_case("RT020.quarantined_never_final_citation")
+def test_rt020_quarantined_never_supports_claims():
+    _assert_case("RT020.quarantined_never_supports_claims")
+def test_rt020_retrieval_only_stays_retrieval_only():
+    _assert_case("RT020.retrieval_only_stays_retrieval_only")
+def test_rt020_snapshot_authority_eligibility_missing_fails_closed():
+    _assert_case("RT020.snapshot_authority_eligibility_missing_fails_closed")
 
 
 def test_rt020_legacy_hybrid_without_catalog_still_runs():

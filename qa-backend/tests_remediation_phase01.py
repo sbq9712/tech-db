@@ -41,7 +41,8 @@ def release_fixture(root: Path, label="a"):
     _body = f"body-{label}"
     _body_sha = hashlib.sha256(_body.encode("utf-8")).hexdigest()
     payloads = {
-      "dataset": {"records":[{"record_id":rid,"legacy_idx":0,"t":f"title-{label}","b":_body,"c":"fixture"}]},
+      "dataset": {"records":[{"record_id":rid,"legacy_idx":0,"t":f"title-{label}","b":_body,"c":"fixture",
+                              "evidence_eligibility":"CITATION_ELIGIBLE"}]},
       "record_id_map": {"mappings":[{"record_id":rid,"legacy_idx":0}]},
       "source_catalog": {"snapshots":[{"record_id":rid,"source_snapshot_id":f"snapshot-{label}",
                                         "evidence_text_sha256":_body_sha,
@@ -172,7 +173,8 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
     test("RT016.partial_manifest_rejected",bool(validate_global_manifest(partial_manifest,root)))
     bad=json.loads(json.dumps(ma)); p=root/bad["artifacts"]["dataset"]["path"]; p.write_text("tampered","utf-8")
     test("RT016.hash_mismatch_rejected",any("hash mismatch" in x for x in validate_global_manifest(bad,root)))
-    p.write_text(json.dumps({"schema_version":"1.0.0", **{"records":[{"record_id":"record-a-0001","legacy_idx":0,"t":"title-a","b":"body-a","c":"fixture"}]}}),"utf-8")
+    p.write_text(json.dumps({"schema_version":"1.0.0", **{"records":[{"record_id":"record-a-0001","legacy_idx":0,"t":"title-a","b":"body-a","c":"fixture",
+                                                                    "evidence_eligibility":"CITATION_ELIGIBLE"}]}}),"utf-8")
     wrong_dim=json.loads(json.dumps(ma)); wrong_dim["models"]["embedding_dim"]=17
     test("RT016.model_dimension_mismatch_rejected",any("dimension mismatch" in x for x in validate_global_manifest(wrong_dim,root)))
     wrong_schema_path=root/"builds/build-a/dataset.json"
@@ -186,7 +188,8 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
     forged["manifest_id"]=hashlib.sha256(json.dumps(forged,ensure_ascii=False,sort_keys=True,separators=(",",":")).encode()).hexdigest()
     test("RT016.wrong_schema_rejected_at_store",raises(ValueError,lambda:catalog.store(forged)))
     # restore the immutable fixture content for activation/startup.
-    wrong_schema_path.write_text(json.dumps({"schema_version":"1.0.0","records":[{"record_id":"record-a-0001","legacy_idx":0,"t":"title-a","b":"body-a","c":"fixture"}]}),"utf-8")
+    wrong_schema_path.write_text(json.dumps({"schema_version":"1.0.0","records":[{"record_id":"record-a-0001","legacy_idx":0,"t":"title-a","b":"body-a","c":"fixture",
+                                                                              "evidence_eligibility":"CITATION_ELIGIBLE"}]}),"utf-8")
     # ── source_catalog release gating (Phase-02 review blocker A) ──────────
     # The source_catalog artifact is REQUIRED in every manifest; its content
     # is validated at build/store time and again at runtime startup — a
@@ -200,7 +203,8 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
     def _issues(mutate):
         cat = json.loads(json.dumps(good_cat)); mutate(cat)
         return validate_source_catalog_payload(
-            cat, records=[{"record_id": rid_a, "b": "body-a"}])
+            cat, records=[{"record_id": rid_a, "b": "body-a",
+                           "evidence_eligibility": "CITATION_ELIGIBLE"}])
     no_cat_manifest = dict(ma)
     no_cat_manifest["artifacts"] = dict(ma["artifacts"])
     no_cat_manifest["artifacts"].pop("source_catalog")
@@ -232,6 +236,67 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
          any("evidence_text_hash_mismatch" in i for i in _issues(lambda c: c["snapshots"][0].update(evidence_text_sha256="1" * 64))))
     test("RT016.catalog_eligibility_mismatch_rejected",
          any("eligibility_mismatch" in i for i in _issues(lambda c: c["snapshots"][0].update(evidence_eligibility="RETRIEVAL_ONLY"))))
+    # ── Blocker A (third-review round): evidence_eligibility fails closed ──
+    # Missing/empty eligibility on a catalog entry is REJECTED (never
+    # defaulted); the pinned dataset's serving record must carry its own
+    # explicit eligibility; the production producer build_source_catalog
+    # refuses to infer CITATION_ELIGIBLE from evidence-text presence.
+    from release_manifest import build_source_catalog as _bsc
+    test("RT016.catalog_missing_eligibility_rejected",           # case A
+         any("missing_evidence_eligibility" in i
+             for i in _issues(lambda c: c["snapshots"][0].pop("evidence_eligibility"))))
+    test("RT016.catalog_empty_eligibility_rejected",             # case B
+         any("missing_evidence_eligibility" in i
+             for i in _issues(lambda c: c["snapshots"][0].update(evidence_eligibility="")))
+         and any("missing_evidence_eligibility" in i
+                 for i in _issues(lambda c: c["snapshots"][0].update(evidence_eligibility="   "))))
+    _orig_records_arg = [{"record_id": rid_a, "b": "body-a",
+                          "evidence_eligibility": "CITATION_ELIGIBLE"}]
+    def _issues_with_records(mutate_records):
+        cat = json.loads(json.dumps(good_cat))
+        records = mutate_records(json.loads(json.dumps(_orig_records_arg)))
+        return validate_source_catalog_payload(cat, records=records)
+    test("RT016.dataset_record_missing_eligibility_rejected",    # case C
+         any("dataset_record_missing_evidence_eligibility" in i
+             for i in _issues_with_records(
+                 lambda rs: [{k: v for k, v in r.items()
+                              if k != "evidence_eligibility"} for r in rs])))
+    _snap_payload = {"record_id": rid_a, "source_snapshot_id": "snapshot-a",
+                     "evidence_text": "body-a",
+                     "evidence_text_sha256": hashlib.sha256(b"body-a").hexdigest()}
+    test("RT016.build_missing_eligibility_rejected",             # case D
+         raises(ValueError, lambda: _bsc([_snap_payload])))
+    test("RT016.build_empty_eligibility_rejected",
+         raises(ValueError, lambda: _bsc([dict(_snap_payload,
+                                               evidence_eligibility="")])))
+    test("RT016.build_unknown_eligibility_rejected",
+         raises(ValueError, lambda: _bsc([dict(_snap_payload,
+                                               evidence_eligibility="MAYBE")])))
+    # case E: an explicit RETRIEVAL_ONLY declaration survives the producer
+    # and the validator verbatim — eligibility is carried, never rewritten.
+    _ro = _bsc([dict(_snap_payload, evidence_eligibility="RETRIEVAL_ONLY")])
+    test("RT016.build_retrieval_only_stays_retrieval_only",
+         _ro["snapshots"][0]["evidence_eligibility"] == "RETRIEVAL_ONLY"
+         and validate_source_catalog_payload(
+             _ro, records=[{"record_id": rid_a, "b": "body-a",
+                            "evidence_eligibility": "RETRIEVAL_ONLY"}]) == [])
+    # store-level: a manifest whose catalog entry lost its eligibility is
+    # rejected even with a consistent hash (validation, not hashing, is the
+    # gate).
+    _elig_cat = json.loads(json.dumps(good_cat))
+    _elig_cat["snapshots"][0].pop("evidence_eligibility")
+    cat_path.write_text(json.dumps({"schema_version": "1.0.0", **_elig_cat}), "utf-8")
+    _forged_e = json.loads(json.dumps(ma))
+    _fce_e = _forged_e["artifacts"]["source_catalog"]
+    _fce_e["sha256"] = compute_file_hash(cat_path); _fce_e["bytes"] = cat_path.stat().st_size
+    _forged_e.pop("manifest_id", None)
+    _forged_e["manifest_id"] = hashlib.sha256(json.dumps(_forged_e, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+    test("RT016.store_missing_eligibility_rejected",
+         raises(ValueError, lambda: catalog.store(_forged_e)))
+    # strict startup: same catalog under a valid manifest fails cold start.
+    test("RT017.startup_missing_eligibility_fails_closed",
+         raises(ValueError, lambda: load_release_resources(ma, release_root=root)))
+    cat_path.write_text(json.dumps({"schema_version": "1.0.0", **good_cat}), "utf-8")
     # store-level: a hash-consistent manifest whose source_catalog content
     # disagrees with the pinned dataset is still rejected at store time.
     cat_path.write_text(json.dumps({"schema_version": "1.0.0",
@@ -541,6 +606,15 @@ def test_rt016_catalog_wrong_sha_format_rejected(): _assert_case("RT016.catalog_
 def test_rt016_catalog_dataset_record_missing_rejected(): _assert_case("RT016.catalog_dataset_record_missing_rejected")
 def test_rt016_catalog_hash_mismatch_vs_dataset_rejected(): _assert_case("RT016.catalog_hash_mismatch_vs_dataset_rejected")
 def test_rt016_catalog_eligibility_mismatch_rejected(): _assert_case("RT016.catalog_eligibility_mismatch_rejected")
+def test_rt016_catalog_missing_eligibility_rejected(): _assert_case("RT016.catalog_missing_eligibility_rejected")
+def test_rt016_catalog_empty_eligibility_rejected(): _assert_case("RT016.catalog_empty_eligibility_rejected")
+def test_rt016_dataset_record_missing_eligibility_rejected(): _assert_case("RT016.dataset_record_missing_eligibility_rejected")
+def test_rt016_build_missing_eligibility_rejected(): _assert_case("RT016.build_missing_eligibility_rejected")
+def test_rt016_build_empty_eligibility_rejected(): _assert_case("RT016.build_empty_eligibility_rejected")
+def test_rt016_build_unknown_eligibility_rejected(): _assert_case("RT016.build_unknown_eligibility_rejected")
+def test_rt016_build_retrieval_only_stays_retrieval_only(): _assert_case("RT016.build_retrieval_only_stays_retrieval_only")
+def test_rt016_store_missing_eligibility_rejected(): _assert_case("RT016.store_missing_eligibility_rejected")
+def test_rt017_startup_missing_eligibility_fails_closed(): _assert_case("RT017.startup_missing_eligibility_fails_closed")
 def test_rt016_wrong_catalog_rejected_at_store(): _assert_case("RT016.wrong_catalog_rejected_at_store")
 def test_rt017_startup_bad_catalog_fails_closed(): _assert_case("RT017.startup_bad_catalog_fails_closed")
 def test_rt017_startup_good_catalog_loads(): _assert_case("RT017.startup_good_catalog_loads")

@@ -16,8 +16,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config import embedding_func, EMBEDDING_DIM, WORKING_DIR
 from primary_evidence import source_evidence_text
+from index_build_view import MigrationError, ensure_build_view
+import index_build_view as _ibv
 
-LITE = REPO / "data" / "processed" / "all-records-lite.json"
+LITE = Path(os.environ.get("TECH_DB_LITE_DATASET",
+                           str(_ibv.DEFAULT_DATASET)))
 INDEX_DIR = WORKING_DIR
 INDEX_FILE = INDEX_DIR / "vector_index_v2.pkl"
 
@@ -70,10 +73,23 @@ def _text_hash(text: str) -> str:
 
 async def build_index():
     print(f"[1/3] Loading records from {LITE.name}...", flush=True)
-    data = json.loads(LITE.read_text("utf-8"))
-    missing_stable = [i for i, record in enumerate(data) if not record.get("record_id")]
-    if missing_stable:
-        raise RuntimeError(f"stable RecordIdMap migration required before vector rebuild ({len(missing_stable)} records missing record_id)")
+    # Stable-ID migration adapter (Phase-02 review, legacy_hybrid
+    # compatibility): the legacy dataset may carry no inline record_id —
+    # resolve the stable-ID-decorated BUILD VIEW through the validated
+    # RecordIdMap path instead of hard-failing / never a legacy-idx pseudo-ID.
+    try:
+        data, view_info = ensure_build_view(LITE, _ibv.DEFAULT_MAP)
+    except MigrationError as exc:
+        raise RuntimeError(str(exc)) from exc
+    print(f"  Build view: {view_info['source']} — {view_info['records']} "
+          f"canonical inputs (dataset {view_info['dataset_snapshot_id'][:19]}…)",
+          flush=True)
+    if view_info.get("quarantined") or view_info.get("duplicates"):
+        print(f"  ⚠ build view exclusions: {view_info.get('quarantined', 0)} "
+              "quarantined (no auditable identity), "
+              f"{view_info.get('duplicates', 0)} logical duplicates — "
+              "both audited in the RecordIdMap, never indexed blind",
+              flush=True)
     print(f"  Total records in file: {len(data)}", flush=True)
 
     # Build canonical set: valid category AND dp != 1 (non-duplicate)
@@ -83,7 +99,9 @@ async def build_index():
         dp = rec.get("dp", 0)
         if cat in IRRELEVANT_CATS or dp == 1:
             continue
-        records.append((i, rec))
+        # legacy dataset idx (injected by the migration build view when the
+        # dataset has no inline idx field) — durable meta identity anchor
+        records.append((int(rec.get("idx", i)), rec))
 
     print(f"  Canonical set (valid & non-dup): {len(records)}", flush=True)
 
@@ -133,10 +151,35 @@ async def build_index():
                 existing_embeddings = saved["embeddings"][keep_positions]
                 existing_meta = [saved["meta"][p] for p in keep_positions]
 
+            # Stable-ID migration of a pre-migration index (Phase-02
+            # review): kept entries may carry an empty record_id because the
+            # index was built before the RecordIdMap existed. Their durable
+            # metadata must be REBOUND to the build view's stable IDs — the
+            # stored idx still identifies the canonical record; text-hash
+            # change detection above guards against misaligned positions
+            # (a shifted/reordered dataset flags the moved records as
+            # changed and re-embeds them rather than mislabeling).
+            view_rid_by_idx = {i: str(rec.get("record_id") or "")
+                               for i, rec in records}
+            needs_id_migration = any(
+                not str(m.get("record_id") or "").strip()
+                for m in (existing_meta or saved["meta"]))
+            if existing_meta and needs_id_migration:
+                rebound = sum(1 for m in existing_meta
+                              if not str(m.get("record_id") or "").strip())
+                for m in existing_meta:
+                    rid = view_rid_by_idx.get(m["idx"], "")
+                    if rid:
+                        m["record_id"] = rid
+                print(f"  Stable-ID migration: rebound {rebound} kept "
+                      "entries to build-view record_ids.", flush=True)
+
             if not need_embed_ids:
-                # Nothing to embed — either fully up-to-date, or only stale to prune
+                # Nothing to embed — either fully up-to-date, or only stale
+                # to prune / metadata to migrate
                 needs_th_migration = any("_th" not in m for m in (existing_meta or saved["meta"]))
-                if not stale_ids and not needs_th_migration:
+                if (not stale_ids and not needs_th_migration
+                        and not needs_id_migration):
                     print("  Index is complete and up-to-date!", flush=True)
                     return
 

@@ -16,9 +16,12 @@ from rank_bm25 import BM25Okapi
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import WORKING_DIR
 from primary_evidence import primary_bm25_text
+from index_build_view import MigrationError, ensure_build_view
+import index_build_view as _ibv
 
 REPO = Path(__file__).resolve().parent.parent
-LITE = REPO / "data" / "processed" / "all-records-lite.json"
+LITE = Path(os.environ.get("TECH_DB_LITE_DATASET",
+                           str(_ibv.DEFAULT_DATASET)))
 INDEX_DIR = WORKING_DIR
 BM25_FILE = INDEX_DIR / "bm25_index.pkl"
 DICT_FILE = INDEX_DIR / "jieba_custom_dict.txt"
@@ -92,20 +95,34 @@ def build_bm25_index():
     print("  BM25 Index Builder (jieba + rank_bm25)", flush=True)
     print("=" * 60, flush=True)
 
-    # 1. Load records
+    # 1. Load records — through the stable-ID migration adapter (Phase-02
+    # review, legacy_hybrid compatibility): a legacy dataset without inline
+    # record_id is decorated from a validated, dataset-pinned RecordIdMap
+    # build view; missing/invalid map fails closed with the migration
+    # command. Never a legacy-idx pseudo-ID, never a silent fallback.
     print(f"\n[1/4] Loading records...", flush=True)
-    data = json.loads(LITE.read_text("utf-8"))
-    missing_stable = [i for i, record in enumerate(data) if not record.get("record_id")]
-    if missing_stable:
-        raise RuntimeError(f"stable RecordIdMap migration required before BM25 rebuild ({len(missing_stable)} records missing record_id)")
+    try:
+        data, view_info = ensure_build_view(LITE, _ibv.DEFAULT_MAP)
+    except MigrationError as exc:
+        raise RuntimeError(str(exc)) from exc
+    print(f"  Build view: {view_info['source']} — {view_info['records']} "
+          f"canonical inputs (dataset {view_info['dataset_snapshot_id'][:19]}…)",
+          flush=True)
+    if view_info.get("quarantined") or view_info.get("duplicates"):
+        print(f"  ⚠ build view exclusions: {view_info.get('quarantined', 0)} "
+              "quarantined (no auditable identity), "
+              f"{view_info.get('duplicates', 0)} logical duplicates — "
+              "both audited in the RecordIdMap, never indexed blind",
+              flush=True)
 
-    # Build canonical set (same as vector index)
+    # Build canonical set (same as vector index); the migration build view
+    # injects each record's explicit legacy dataset idx
     canonical = []
     for i, rec in enumerate(data):
         cat = rec.get("c", "")
         dp = rec.get("dp", 0)
         if cat not in IRRELEVANT_CATS and dp != 1:
-            canonical.append((i, rec))
+            canonical.append((int(rec.get("idx", i)), rec))
     print(f"  Canonical set: {len(canonical)} records", flush=True)
 
     # 2. Build custom dictionary

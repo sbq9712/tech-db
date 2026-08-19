@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import hashlib
 import http.server
 import json
 import os
@@ -388,16 +389,45 @@ def run_case(browser, base_url, body_bytes, name, viewport_name, update,
     return ctx, page, intercepted
 
 
+class GoldenBaselineError(RuntimeError):
+    """A golden baseline is missing or unreadable in normal (non-update)
+    mode. Baselines never self-heal: only an explicit --update-goldens run
+    may create or replace one."""
+
+
+def compare_golden(target: Path, actual: Path) -> float:
+    """Normal-mode comparison. Missing or unreadable/corrupt baseline is a
+    GoldenBaselineError — the harness never creates or mutates baselines."""
+    if not target.exists():
+        raise GoldenBaselineError(
+            f"golden baseline missing: {target} — normal runs never create "
+            "baselines; regenerate explicitly with --update-goldens")
+    try:
+        return diff_ratio(target, actual)
+    except Exception as exc:  # unreadable/corrupt golden
+        raise GoldenBaselineError(
+            f"golden baseline unreadable/corrupt: {target} ({exc})") from exc
+
+
 def capture(page, shot_name, update):
+    """Screenshot #qaMain and compare against the committed golden.
+
+    Fail-closed baseline policy (Phase-02 review blocker B):
+      * --update-goldens  → create/replace the golden (explicit opt-in);
+      * normal run        → the golden is READ-ONLY: missing baseline,
+                            unreadable/corrupt file, or a diff above the
+                            threshold is a hard failure. The actual screenshot
+                            is kept for debugging but NEVER promoted.
+    """
     GOLDENS.mkdir(parents=True, exist_ok=True)
     target = GOLDENS / shot_name
     element = page.locator("#qaMain")
     element.screenshot(path=str(target.with_suffix(".actual.png")))
     actual = target.with_suffix(".actual.png")
-    if update or not target.exists():
+    if update:
         actual.replace(target)
         return target, 0.0
-    ratio = diff_ratio(target, actual)
+    ratio = compare_golden(target, actual)
     return target, ratio
 
 
@@ -631,6 +661,75 @@ def case_pre20(browser, base_url, viewport, update):
         ctx.close()
 
 
+def case_baseline_selftest(viewport):
+    """Blocker B behavioral selftest: the golden baseline can NEVER
+    self-heal. A temporarily-absent golden must make the normal-mode
+    comparison FAIL (not silently regenerate a new baseline), and the
+    committed golden must be restored byte-identically afterwards.
+
+    No browser needed: the comparison path under test is exercised with
+    the golden's own bytes as the "actual" (content-identical restore is
+    verified by hash). The committed golden content is never modified.
+    """
+    target = GOLDENS / f"supported_full_{viewport}.png"
+    if not target.exists():
+        test(f"RT029.visual_baseline_selftest_{viewport}", False,
+             "committed golden missing — run --update-goldens and commit")
+        return
+    before = hashlib.sha256(target.read_bytes()).hexdigest()
+    stash = target.with_suffix(".selftest-stash.png")
+    try:
+        target.rename(stash)                       # 1. golden moved away
+        missing_failed = False
+        try:
+            # 2. normal-mode comparison against the (now absent) baseline
+            fake_actual = target.with_suffix(".actual.png")
+            fake_actual.write_bytes(stash.read_bytes())
+            compare_golden(target, fake_actual)
+        except GoldenBaselineError:
+            missing_failed = True                  # 3. MUST fail
+        except Exception:
+            missing_failed = False
+        finally:
+            if fake_actual.exists():
+                fake_actual.unlink()
+        still_absent = not target.exists()         # must NOT self-heal
+        test(f"RT029.visual_baseline_selftest_{viewport}",
+              missing_failed and still_absent,
+              f"missing_failed={missing_failed} still_absent={still_absent}")
+    finally:
+        if stash.exists():
+            stash.rename(target)                   # 4. restore
+    restored = hashlib.sha256(target.read_bytes()).hexdigest()
+    test(f"RT029.visual_baseline_restored_{viewport}",
+          restored == before,
+          "golden bytes changed during selftest — restore failed")
+    # corrupt-baseline variant: an unreadable golden (not a valid PNG) must
+    # fail the normal-mode comparison — verified on a THROWAWAY copy, the
+    # committed golden stays untouched.
+    corrupt = GOLDENS / f"selftest_corrupt_{viewport}.png"
+    try:
+        corrupt.write_bytes(b"this is not a png at all")
+        actual_copy = target.with_suffix(".selftest-actual.png")
+        actual_copy.write_bytes(target.read_bytes())
+        corrupt_failed = False
+        try:
+            compare_golden(corrupt, actual_copy)
+        except GoldenBaselineError:
+            corrupt_failed = True
+        except Exception:
+            corrupt_failed = False
+        finally:
+            if actual_copy.exists():
+                actual_copy.unlink()
+        test(f"RT029.visual_corrupt_baseline_fails_{viewport}",
+              corrupt_failed,
+              f"corrupt golden accepted (corrupt_failed={corrupt_failed})")
+    finally:
+        if corrupt.exists():
+            corrupt.unlink()
+
+
 def case_mutation(browser, base_url, viewport, update):
     """Mutation/sanity: deliberately break a key layout rule (hide the
     evidence card + collapse locator chips) — the pixel diff MUST flag it.
@@ -721,6 +820,15 @@ def main():
         return _run_all(pw, args.update_goldens)
 
 
+def _safe_case(case_fn, browser, base_url, viewport, update, case_name):
+    """Run one visual case; a missing/corrupt golden baseline is a HARD
+    failure of that case (fail-closed, never self-healed)."""
+    try:
+        case_fn(browser, base_url, viewport, update)
+    except GoldenBaselineError as exc:
+        test(f"RT029.visual_{case_name}_{viewport}", False, str(exc)[:200])
+
+
 def _run_all(pw, update) -> int:
     print("── RT-029 visual regression (real Chromium) ──")
     server, base_url = start_static_server()
@@ -735,20 +843,20 @@ def _run_all(pw, update) -> int:
             args=["--no-sandbox", "--force-color-profile=srgb",
                   "--font-render-hinting=none"])
         try:
+            if not update:
+                # Blocker B selftests run before the browser cases: baselines
+                # must never self-heal and a corrupt golden must fail closed.
+                for viewport in ("desktop", "mobile"):
+                    case_baseline_selftest(viewport)
+            cases = (("supported", case_supported),
+                     ("partial", case_partial),
+                     ("unverified", case_unverified),
+                     ("stale_invalid", case_stale_invalid),
+                     ("pre20", case_pre20))
             for viewport in ("desktop", "mobile"):
                 print(f"  [{viewport}]")
-                if update:
-                    case_supported(browser, base_url, viewport, True)
-                    case_partial(browser, base_url, viewport, True)
-                    case_unverified(browser, base_url, viewport, True)
-                    case_stale_invalid(browser, base_url, viewport, True)
-                    case_pre20(browser, base_url, viewport, True)
-                else:
-                    case_supported(browser, base_url, viewport, False)
-                    case_partial(browser, base_url, viewport, False)
-                    case_unverified(browser, base_url, viewport, False)
-                    case_stale_invalid(browser, base_url, viewport, False)
-                    case_pre20(browser, base_url, viewport, False)
+                for name, fn in cases:
+                    _safe_case(fn, browser, base_url, viewport, update, name)
                 case_mutation(browser, base_url, viewport, update)
         finally:
             browser.close()
@@ -805,6 +913,12 @@ def test_rt029_visual_mutation_detected_desktop(): _ensure_executed(); _assert_c
 def test_rt029_visual_mutation_detected_mobile(): _ensure_executed(); _assert_case("RT029.visual_mutation_detected_mobile")
 def test_rt029_visual_mutation_layout_assert_desktop(): _ensure_executed(); _assert_case("RT029.visual_mutation_layout_assert_desktop")
 def test_rt029_visual_mutation_layout_assert_mobile(): _ensure_executed(); _assert_case("RT029.visual_mutation_layout_assert_mobile")
+def test_rt029_visual_baseline_selftest_desktop(): _ensure_executed(); _assert_case("RT029.visual_baseline_selftest_desktop")
+def test_rt029_visual_baseline_selftest_mobile(): _ensure_executed(); _assert_case("RT029.visual_baseline_selftest_mobile")
+def test_rt029_visual_baseline_restored_desktop(): _ensure_executed(); _assert_case("RT029.visual_baseline_restored_desktop")
+def test_rt029_visual_baseline_restored_mobile(): _ensure_executed(); _assert_case("RT029.visual_baseline_restored_mobile")
+def test_rt029_visual_corrupt_baseline_fails_desktop(): _ensure_executed(); _assert_case("RT029.visual_corrupt_baseline_fails_desktop")
+def test_rt029_visual_corrupt_baseline_fails_mobile(): _ensure_executed(); _assert_case("RT029.visual_corrupt_baseline_fails_mobile")
 
 
 if __name__ == "__main__":

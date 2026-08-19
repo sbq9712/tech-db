@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Manual identity disambiguation for legacy records that share one source URL but are DISTINCT logical entries (aggregator pages reporting several projects under one URL, or a DOI attached to two different papers). Each entry pins a curated unique legacy_source_key — an explicit human identity decision, recorded once; the stable-ID migration uses it verbatim (SourceIdentityKey 'legacy' namespace) instead of guessing or merging. Records that share identity AND canonical title are handled by the deterministic duplicate policy (first occurrence authoritative, later ones excluded as audited duplicates), not here.",
+  "entries": [
+    {
+      "identity_key": "[\"url\",\"https://www.ithome.com/0/948/819.htm\"]",
+      "title": "智谱开源 GLM-5.2 模型:1M 无损上下文,Code Arena 上全球可用模型第一",
+      "legacy_source_key": "techdb-curation:ithome-948819:glm52-context",
+      "reason": "同一 IT之家 页面聚合多条新闻；该条目与 AI 浪潮存储条目为不同逻辑记录"
+    },
+    {
+      "identity_key": "[\"url\",\"https://www.ithome.com/0/948/819.htm\"]",
+      "title": "AI浪潮致互联网档案馆/维基百科维护成本、存储硬件增长",
+      "legacy_source_key": "techdb-curation:ithome-948819:archive-cost",
+      "reason": "同一 IT之家 页面聚合多条新闻；与 GLM-5.2 条目为不同逻辑记录"
+    },
+    {
+      "identity_key": "[\"url\",\"https://www.airliquide.com/group/press-releases-news/2026-06-10/air-liquide-starting-co2-capture-pilot-unit-dedicated-decarbonization-cement-industry\"]",
+      "title": "Air Liquide用于水泥行业低温+吸附CO2捕集试点启动运行",
+      "legacy_source_key": "techdb-curation:airliquide-20260610:cement-co2",
+      "reason": "同页聚合多条新闻；与特锐德条目为不同逻辑记录"
+    },
+    {
+      "identity_key": "[\"url\",\"https://www.airliquide.com/group/press-releases-news/2026-06-10/air-liquide-starting-co2-capture-pilot-unit-dedicated-decarbonization-cement-industry\"]",
+      "title": "青岛特锐德开发的算力中心预制舱供电站在山东青岛正式启用",
+      "legacy_source_key": "techdb-curation:airliquide-20260610:terad-powerpod",
+      "reason": "同页聚合多条新闻（URL 被聚合页共用）；与 Air Liquide 条目为不同逻辑记录"
+    },
+    {
+      "identity_key": "[\"url\",\"https://doi.org/10.1038/s41586-026-10204-4\"]",
+      "title": "上海交通大学倪俊开发的新型太阳能-化学混合驱动生物合成策略及其应用",
+      "legacy_source_key": "techdb-curation:nature-s41586-026-10204-4:sjtu-biosynthesis",
+      "reason": "同一 DOI 下两条不同论文记录（数据侧 DOI 归属待核对）；显式区分，不合并"
+    },
+    {
+      "identity_key": "[\"url\",\"https://doi.org/10.1038/s41586-026-10204-4\"]",
+      "title": "中国科学院大连化学物理研究所孙剑研究员提出基于亲水促进策略实现温和条件下合成气高效转化为轻质烯烃",
+      "legacy_source_key": "techdb-curation:nature-s41586-026-10204-4:dicp-syngas-olefins",
+      "reason": "同一 DOI 下两条不同论文记录（数据侧 DOI 归属待核对）；显式区分，不合并"
+    },
+    {
+      "identity_key": "[\"url\",\"https://www.ceic.com/gjnyjtww/newCE0302/202604/da279ab52b354d06b69be920a9eeb057.shtml\"]",
+      "title": "国家能源集团40MW燃煤锅炉中试装置实现50%绿氢大比例掺烧以及100%纯氢燃烧",
+      "legacy_source_key": "techdb-curation:ceic-202604:40mw-h2-cofiring",
+      "reason": "同页两条不同容量项目报道；显式区分，不合并"
+    },
+    {
+      "identity_key": "[\"url\",\"https://www.ceic.com/gjnyjtww/newCE0302/202604/da279ab52b354d06b69be920a9eeb057.shtml\"]",
+      "title": "国家能源集团 660MW 燃煤锅炉掺氢燃烧中试",
+      "legacy_source_key": "techdb-curation:ceic-202604:660mw-h2-cofiring",
+      "reason": "同页两条不同容量项目报道；显式区分，不合并"
+    },
+    {
+      "identity_key": "[\"url\",\"https://doi.org/10.1038/s41467-026-68600-3\"]",
+      "title": "橡树岭国家实验室Radu Custelcean实现光驱动常温直接空气捕集二氧化碳",
+      "legacy_source_key": "techdb-curation:nc-s41467-026-68600-3:ornl-photo-dac",
+      "reason": "同一 DOI 下两条不同论文记录（数据侧 DOI 归属待核对）；显式区分，不合并"
+    },
+    {
+      "identity_key": "[\"url\",\"https://doi.org/10.1038/s41467-026-68600-3\"]",
+      "title": "新加坡国立大学Lei Fan开发无膜CO2氢化电解体系解决酸性电还原盐析难题",
+      "legacy_source_key": "techdb-curation:nc-s41467-026-68600-3:nus-membraneless-co2",
+      "reason": "同一 DOI 下两条不同论文记录（数据侧 DOI 归属待核对）；显式区分，不合并"
+    }
+  ]
+}

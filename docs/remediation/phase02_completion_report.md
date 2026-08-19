@@ -26,7 +26,7 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
 
 ## Behavioral evidence
 
-- `python qa-backend/tests_remediation_phase02.py`: 155 passed, 0 failed
+- `python qa-backend/tests_remediation_phase02.py`: 161 passed, 0 failed
   (unit/integration cases per ticket + real ASGI SSE E2E + node-run frontend
   checks over the shipped `qa.js`; includes acceptance-review fix cases:
   stable record identity, request-pinned runtime E2E, complete verifier
@@ -39,18 +39,43 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
   (`build_source_catalog` → mini-runtime `source_catalog.json` artifact →
   `scripts/build_mini_release.py` full validated release), and targeted
   retrieval → validated → UPDATED Evidence-Package → regenerate ordering
-  proof).
-- `python qa-backend/tests_visual_rt029.py`: 14 passed, 0 failed — real
+  proof; fourth review round: request-time eligibility fail-closed —
+  missing/empty catalog eligibility rejected, QUARANTINED never a final
+  citation nor claim support, RETRIEVAL_ONLY preserved end-to-end).
+- `python qa-backend/tests_remediation_phase01.py`: 84 passed, 0 failed —
+  fourth-round additions: catalog/dataset/build/store/strict-startup
+  fail-closed eligibility cases (missing/empty/unknown), producer refuses
+  to infer CITATION_ELIGIBLE from evidence-text presence.
+- `python qa-backend/tests_index_migration.py`: 36 passed, 0 failed —
+  legacy dataset → stable-ID migration → vector/BM25 rebuild behavioral
+  suite (fourth review round, blocker C): valid registry/map rebuild PASS
+  with stable IDs in output meta (vector AND BM25), missing/corrupt/
+  unpinned/incomplete/duplicate maps fail closed, idempotent re-runs,
+  reorder invariance, duplicate-content-different-source never merged,
+  identity-less records fail closed or quarantine explicitly, shared-URL
+  ambiguity needs committed manual curation (same-URL-same-title dedups as
+  audited duplicates), pre-migration index rebound to stable IDs without
+  re-embedding. Registered as suite `index_migration` and CI gate
+  `legacy-index-migration`.
+- `python qa-backend/tests_visual_rt029.py`: 20 passed, 0 failed — real
   Chromium, desktop + mobile, golden structural diff + mutation detection
   (also wired into `run_all_tests.py --tier push` as suite `visual_rt029`
-  and into CI as required gate `rt029-visual-regression`).
+  and into CI as required gate `rt029-visual-regression`); fourth review
+  round: baselines never self-heal — only explicit `--update-goldens`
+  creates/updates goldens, a temporarily-absent baseline FAILS normal mode
+  and is restored byte-identically (verified by hash), corrupt baselines
+  fail closed.
 - `python qa-backend/run_all_tests.py --tier push`: all suites green (final
-  count recorded in `qa-backend/test_summary.json`).
+  count recorded in `qa-backend/test_summary.json`; the LOCAL
+  full-environment count is reported separately — the remote GitHub
+  `push-tier` job runs in a plain environment where `visual_rt029` reports
+  0/0 skipped and the separate required gate `rt029-visual-regression`
+  runs the real-browser cases).
 - canonical spec lint + negative-fixture self-test: PASS.
 - acceptance-matrix validation: PASS (36 legacy frozen DoDs upgraded to
   SATISFIED with named Phase-02 evidence; T037 untouched per L12 hard gate).
-- CI: `phase02-citation-claim-verifier` job added to
-  `.github/workflows/remediation-gates.yml`.
+- CI: `phase02-citation-claim-verifier` and `legacy-index-migration` jobs
+  in `.github/workflows/remediation-gates.yml`.
 
 ## Production wiring (no parallel un-wired modules)
 
@@ -164,3 +189,28 @@ disabling the two new Phase-02 flags (fresh-process tests A-D:
   UNVERIFIED — never PASSED.
 - The verifier returns structured findings only; `rewritten_answer` no longer
   exists (RT-025). The legacy SSE replace-event path was removed accordingly.
+- Fourth review round — production legacy-index migration, actually
+  executed and verified on this deployment (not claimed from fixtures
+  alone): the persistent RecordRegistry at
+  `runtime/state/record_registry.sqlite` allocated 53,967 stable IDs for
+  the legacy dataset (`all-records-lite.json`, 53,969 records; 2
+  same-URL-same-title logical duplicates excluded as audited
+  `duplicate_of` rows; no record lacked an auditable identity). A re-run
+  reused every ID byte-identically (10s pure-lookup). The real BM25
+  rebuild through the build view completed (40,600 canonical documents,
+  every meta entry carrying a stable UUID record_id, zero empty). The
+  real vector rebuild ran via the actual systemd path
+  (`techdb-vector.service`): the pre-migration index was detected,
+  kept entries rebound to stable IDs, and because the existing embeddings
+  predate the current embedding-text format the service is performing a
+  full re-embed (~2.7h CPU, background) — completion state recorded in
+  the run logs, not assumed. Shared-URL/different-title records required
+  committed manual curation (`data/processed/identity_disambiguation.json`,
+  10 entries) rather than automatic merge or split. `boot_sync.py` now
+  runs the migration step between lite rebuild and BM25 build;
+  `MIGRATION.md` documents the real chain.
+- Reporting hygiene (fourth round): remote GitHub `push-tier` runs in a
+  plain environment where `visual_rt029` legitimately reports 0/0 (the
+  separate required gate `rt029-visual-regression` runs the 14
+  real-browser cases) — local full-environment totals are therefore
+  labeled LOCAL and never reported as the remote push-tier count.

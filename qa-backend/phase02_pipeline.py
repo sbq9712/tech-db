@@ -400,8 +400,13 @@ async def run_phase02_verification(
             if isinstance(declared_hash, str) and declared_hash.strip() \
                     and declared_hash.strip().lower() != snap.content_hash.lower():
                 return "pinned_snapshot_hash_mismatch"
-            declared_elig = str(entry.get("evidence_eligibility", "") or "")
-            if declared_elig and declared_elig != snap.evidence_eligibility:
+            # Fail-closed eligibility (blocker A): a pinned catalog entry
+            # without an explicit eligibility can never silently pass —
+            # empty is a hard request-time failure, not a skipped check.
+            declared_elig = entry.get("evidence_eligibility")
+            if not isinstance(declared_elig, str) or not declared_elig.strip():
+                return "pinned_eligibility_missing"
+            if declared_elig.strip() != snap.evidence_eligibility:
                 return "pinned_eligibility_mismatch"
             # Identity comes from the pinned catalog, not from content
             # addressing — this is what binds citation.source_snapshot_id,

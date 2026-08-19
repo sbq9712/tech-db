@@ -32,11 +32,22 @@ def main():
     # 2. rebuild lite (numeric shard order — d23e248)
     r = run([VENV, "scripts/rebuild_lite_from_shards.py"], check=True)
     log(r.stdout.strip())
-    # 3. BM25 rebuild (~1-6 min for 40k records)
+    # 3. stable-ID migration (Phase-02 review blocker C): the legacy lite
+    # dataset carries no inline record_id — allocate/reuse stable IDs through
+    # the persistent RecordRegistry and pin a dataset-scoped RecordIdMap
+    # BEFORE any index build. Identity is source-keyed (upstream id/URL/
+    # legacy_source_key), idempotent across re-runs and invariant to list
+    # order. Without a valid map the index builders fail closed.
+    t0 = time.time()
+    r = run([VENV, "qa-backend/index_build_view.py"], timeout=1800)
+    log(f"migration: rc={r.returncode} in {time.time()-t0:.0f}s " + (r.stdout.strip().splitlines()[-1][:120] if r.stdout.strip() else r.stderr.strip()[-160:]))
+    if r.returncode != 0:
+        log("migration failed — index rebuilds will fail closed until it succeeds")
+    # 4. BM25 rebuild (~1-6 min for 40k records)
     t0 = time.time()
     r = run([VENV, "qa-backend/bm25_index.py"], timeout=1800)
     log(f"bm25: rc={r.returncode} in {time.time()-t0:.0f}s " + (r.stdout.strip().splitlines()[-1][:100] if r.stdout.strip() else ""))
-    # 4. contract check (advisory)
+    # 5. contract check (advisory)
     r = run([VENV, "scripts/validate_data_contract.py"], timeout=300)
     log("contract: " + (r.stdout.strip() or r.stderr.strip()[:120]))
     log("done")

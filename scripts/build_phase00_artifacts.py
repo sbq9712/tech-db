@@ -38,6 +38,7 @@ SUITES = {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
+    "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
 }
 

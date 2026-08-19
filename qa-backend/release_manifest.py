@@ -199,8 +199,19 @@ def build_source_catalog(snapshots) -> dict:
             raise ValueError(
                 f"source snapshot declared hash diverges from its own "
                 f"evidence text: {rid}")
-        eligibility = str(snap.get("evidence_eligibility")
-                          or ("CITATION_ELIGIBLE" if text else "RETRIEVAL_ONLY"))
+        # Fail-closed eligibility (Phase-02 review blocker A): every source
+        # snapshot must carry an EXPLICIT eligibility. A missing/empty value
+        # is a build error — inferring CITATION_ELIGIBLE from the presence
+        # of evidence text is a silent promotion and is forbidden. A
+        # migration policy needing an "unknown" state must explicitly
+        # declare RETRIEVAL_ONLY / QUARANTINED.
+        eligibility = snap.get("evidence_eligibility")
+        if not isinstance(eligibility, str) or not eligibility.strip():
+            raise ValueError(
+                f"source snapshot missing explicit evidence_eligibility: "
+                f"{rid} — refusing to infer CITATION_ELIGIBLE from evidence "
+                "text presence")
+        eligibility = eligibility.strip()
         if eligibility not in _CATALOG_ELIGIBILITIES:
             raise ValueError(
                 f"source snapshot has invalid evidence_eligibility: {rid}")
@@ -273,8 +284,12 @@ def validate_source_catalog_payload(catalog, records=None) -> list[str]:
         sha = str(entry.get("evidence_text_sha256", "") or "")
         if len(sha) != 64 or not set(sha.lower()) <= _SHA256_HEX:
             issues.append(f"source_catalog[{i}]:invalid_evidence_text_sha256:{rid}")
-        elig = str(entry.get("evidence_eligibility", "") or "")
-        if elig and elig not in _CATALOG_ELIGIBILITIES:
+        # Fail-closed eligibility (blocker A): explicit, non-empty, known
+        # value — a missing or empty eligibility is rejected, never defaulted
+        elig = entry.get("evidence_eligibility")
+        if not isinstance(elig, str) or not elig.strip():
+            issues.append(f"source_catalog[{i}]:missing_evidence_eligibility:{rid}")
+        elif elig.strip() not in _CATALOG_ELIGIBILITIES:
             issues.append(f"source_catalog[{i}]:invalid_evidence_eligibility:{rid}")
         owner = sid_owner.get(sid)
         if owner is not None and owner != rid:
@@ -300,12 +315,21 @@ def validate_source_catalog_payload(catalog, records=None) -> list[str]:
             if declared and declared.lower() != expected:
                 issues.append(
                     f"source_catalog:evidence_text_hash_mismatch:{rid}")
-            rec_elig = str(record.get("evidence_eligibility", "")
-                           or "CITATION_ELIGIBLE")
-            cat_elig = str(entry.get("evidence_eligibility", "")
-                           or rec_elig)
-            if cat_elig != rec_elig:
-                issues.append(f"source_catalog:eligibility_mismatch:{rid}")
+            # Fail-closed eligibility (blocker A): the pinned dataset's
+            # serving record must carry its OWN explicit eligibility — a
+            # missing value is NEVER defaulted to CITATION_ELIGIBLE. The
+            # catalog entry's own value was validated explicit above; two
+            # explicit values that disagree are a release error.
+            rec_elig = record.get("evidence_eligibility")
+            if not isinstance(rec_elig, str) or not rec_elig.strip():
+                issues.append(
+                    "source_catalog:dataset_record_missing_evidence_eligibility:"
+                    + str(rid))
+            else:
+                cat_elig = entry.get("evidence_eligibility")
+                if isinstance(cat_elig, str) and cat_elig.strip() \
+                        and cat_elig.strip() != rec_elig.strip():
+                    issues.append(f"source_catalog:eligibility_mismatch:{rid}")
     return issues
 
 
