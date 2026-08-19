@@ -13,7 +13,7 @@ const QA_API_BASE = (() => {
   if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
     return 'http://localhost:8765';
   }
-  return 'https://databases-catalyst-lan-owen.trycloudflare.com';
+  return 'https://burst-absolutely-organisms-oxygen.trycloudflare.com';
 })();
 
 // ── State ──
