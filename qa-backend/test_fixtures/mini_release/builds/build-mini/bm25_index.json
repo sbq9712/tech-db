@@ -1,0 +1,183 @@
+{
+  "documents": [
+    {
+      "record_id": "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2",
+      "tokens": [
+        "synthetic",
+        "thermal",
+        "storage",
+        "alpha",
+        "the",
+        "synthetic",
+        "alpha",
+        "unit",
+        "stores",
+        "industrial",
+        "heat",
+        "at",
+        "600",
+        "degrees",
+        "and",
+        "returns",
+        "steam",
+        "on",
+        "demand"
+      ]
+    },
+    {
+      "record_id": "ab64b478-6437-5fa3-9d39-d7b1b57c889b",
+      "tokens": [
+        "synthetic",
+        "solid",
+        "battery",
+        "beta",
+        "the",
+        "synthetic",
+        "beta",
+        "cell",
+        "uses",
+        "a",
+        "solid",
+        "electrolyte",
+        "and",
+        "reports",
+        "an",
+        "energy",
+        "density",
+        "of",
+        "400",
+        "watt",
+        "hours",
+        "per",
+        "kilogram"
+      ]
+    },
+    {
+      "record_id": "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0",
+      "tokens": [
+        "synthetic",
+        "tandem",
+        "solar",
+        "gamma",
+        "the",
+        "synthetic",
+        "gamma",
+        "tandem",
+        "device",
+        "has",
+        "a",
+        "certified",
+        "conversion",
+        "efficiency",
+        "of",
+        "28",
+        "percent"
+      ]
+    },
+    {
+      "record_id": "9f05d19b-1226-511b-94f7-c39d7298041f",
+      "tokens": [
+        "synthetic",
+        "recycling",
+        "delta",
+        "the",
+        "synthetic",
+        "delta",
+        "plant",
+        "converts",
+        "retired",
+        "cells",
+        "into",
+        "black",
+        "mass",
+        "for",
+        "controlled",
+        "recycling",
+        "tests"
+      ]
+    },
+    {
+      "record_id": "09dc42c6-a032-55ad-8474-4aabd968a610",
+      "tokens": [
+        "synthetic",
+        "robot",
+        "epsilon",
+        "the",
+        "synthetic",
+        "epsilon",
+        "robot",
+        "learns",
+        "a",
+        "bounded",
+        "manipulation",
+        "sequence",
+        "from",
+        "recorded",
+        "demonstrations"
+      ]
+    },
+    {
+      "record_id": "ddaeed5f-0dad-562e-8604-497d4d370b26",
+      "tokens": [
+        "synthetic",
+        "hydrogen",
+        "zeta",
+        "the",
+        "synthetic",
+        "zeta",
+        "material",
+        "releases",
+        "hydrogen",
+        "under",
+        "controlled",
+        "illumination",
+        "in",
+        "the",
+        "fixture"
+      ]
+    },
+    {
+      "record_id": "05b06c4e-fa50-58da-b67d-0b83bc34aaf6",
+      "tokens": [
+        "synthetic",
+        "memory",
+        "eta",
+        "the",
+        "synthetic",
+        "eta",
+        "memory",
+        "retains",
+        "a",
+        "binary",
+        "state",
+        "during",
+        "a",
+        "high",
+        "temperature",
+        "fixture",
+        "test"
+      ]
+    },
+    {
+      "record_id": "38df1870-74eb-5f86-883b-5f25071cfaeb",
+      "tokens": [
+        "synthetic",
+        "control",
+        "theta",
+        "the",
+        "synthetic",
+        "theta",
+        "controller",
+        "coordinates",
+        "a",
+        "deterministic",
+        "mini",
+        "runtime",
+        "health",
+        "check"
+      ]
+    }
+  ],
+  "schema_version": "1.0.0",
+  "tokenizer": "fixture-ascii-v1"
+}

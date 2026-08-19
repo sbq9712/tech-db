@@ -111,7 +111,8 @@ def validate_global_manifest(manifest: dict, release_root: Path) -> list[str]:
     unsigned = dict(manifest); unsigned.pop("manifest_id", None)
     if hashlib.sha256(_canonical(unsigned)).hexdigest() != expected_id:
         issues.append("manifest_id does not match canonical content")
-    for name, entry in manifest.get("artifacts", {}).items():
+    artifacts = manifest.get("artifacts", {})
+    for name, entry in artifacts.items():
         allowed = ARTIFACT_SCHEMA_REGISTRY.get(name)
         declared_schema = str(entry.get("schema_version", ""))
         if allowed is None:
@@ -134,13 +135,177 @@ def validate_global_manifest(manifest: dict, release_root: Path) -> list[str]:
                 actual_schema = None
             if str(actual_schema) != declared_schema:
                 issues.append(f"{name}: schema mismatch")
+    # RT-016/RT-020 cross-artifact content validation: the source_catalog is
+    # the manifest-mode snapshot AUTHORITY — a structurally broken, empty,
+    # duplicated or dataset-divergent catalog must fail at build/store/load/
+    # activation time, never surface first at request time.
+    if "source_catalog" in artifacts:
+        try:
+            catalog = json.loads(
+                (release_root / artifacts["source_catalog"]["path"]).read_text("utf-8"))
+        except (OSError, json.JSONDecodeError, KeyError):
+            catalog = None
+        records = None
+        if isinstance(catalog, dict) and "dataset" in artifacts:
+            try:
+                dataset = json.loads(
+                    (release_root / artifacts["dataset"]["path"]).read_text("utf-8"))
+                records = dataset.get("records") if isinstance(dataset, dict) else None
+            except (OSError, json.JSONDecodeError, KeyError):
+                records = None
+        issues.extend(validate_source_catalog_payload(catalog, records=records))
     model_dim = manifest.get("models", {}).get("embedding_dim")
     vector_dim = manifest.get("profile", {}).get("vector_dim")
     if model_dim is not None and vector_dim is not None and int(model_dim) != int(vector_dim):
         issues.append("model/vector dimension mismatch")
-    absent = sorted(REQUIRED_ARTIFACTS - set(manifest.get("artifacts", {})))
+    absent = sorted(REQUIRED_ARTIFACTS - set(artifacts))
     if absent:
         issues.append(f"partial manifest missing {absent}")
+    return issues
+
+
+_CATALOG_ELIGIBILITIES = {"CITATION_ELIGIBLE", "RETRIEVAL_ONLY", "QUARANTINED"}
+_SHA256_HEX = set("0123456789abcdef")
+
+
+def build_source_catalog(snapshots) -> dict:
+    """Derive the release ``source_catalog`` artifact from real source
+    snapshots (the SourceSnapshot payload produced by the extraction
+    pipeline / mini-runtime builder).
+
+    This is the single production conversion point: record_id,
+    source_snapshot_id, evidence_text_sha256 (recomputed from the snapshot's
+    own evidence text — a diverging declared hash is a build error) and
+    evidence_eligibility come from real snapshot material, carrying the
+    extractor/access metadata of the SourceSnapshot schema. The result must
+    pass :func:`validate_source_catalog_payload` before it can be written.
+    """
+    if not isinstance(snapshots, list) or not snapshots:
+        raise ValueError("source snapshots payload must be a non-empty list")
+    entries = []
+    for snap in snapshots:
+        if not isinstance(snap, dict):
+            raise ValueError("source snapshot entry must be an object")
+        rid = snap.get("record_id")
+        sid = snap.get("source_snapshot_id")
+        if not isinstance(rid, str) or not rid.strip():
+            raise ValueError("source snapshot missing stable record_id")
+        if not isinstance(sid, str) or not sid.strip():
+            raise ValueError(f"source snapshot missing source_snapshot_id: {rid}")
+        text = str(snap.get("evidence_text") or "")
+        recomputed = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        declared = str(snap.get("evidence_text_sha256") or "")
+        if declared and declared.lower() != recomputed:
+            raise ValueError(
+                f"source snapshot declared hash diverges from its own "
+                f"evidence text: {rid}")
+        eligibility = str(snap.get("evidence_eligibility")
+                          or ("CITATION_ELIGIBLE" if text else "RETRIEVAL_ONLY"))
+        if eligibility not in _CATALOG_ELIGIBILITIES:
+            raise ValueError(
+                f"source snapshot has invalid evidence_eligibility: {rid}")
+        entry = {
+            "record_id": rid,
+            "source_snapshot_id": sid,
+            "evidence_text_sha256": recomputed,
+            "evidence_eligibility": eligibility,
+        }
+        for passthrough in ("extractor_version", "source_format",
+                            "access_scope", "source_url"):
+            value = snap.get(passthrough)
+            if value not in (None, ""):
+                entry[passthrough] = value
+        entries.append(entry)
+    catalog = {"schema_version": "1.0.0", "snapshots": entries}
+    issues = validate_source_catalog_payload(catalog)
+    if issues:
+        raise ValueError("invalid source_catalog build: " + "; ".join(issues))
+    return catalog
+
+
+def _catalog_evidence_text(record: dict) -> str:
+    """Evidence text priority identical to SourceSnapshot.from_record."""
+    return str(record.get("evidence_text") or record.get("fb") or record.get("b") or "")
+
+
+def validate_source_catalog_payload(catalog, records=None) -> list[str]:
+    """RT-020 manifest-mode snapshot authority contract.
+
+    In manifest mode the request-pinned source_catalog is the ONLY snapshot
+    authority, so an unusable catalog is a fail-closed release error — not a
+    request-time surprise. Structural rules:
+
+      * dict with a non-empty ``snapshots`` LIST
+      * every entry: non-empty stable record_id + source_snapshot_id
+        (strings), evidence_text_sha256 (64-hex lowercase), valid
+        evidence_eligibility
+      * record_id unique; one snapshot_id maps to exactly one record
+        (no cross-record id collisions)
+      * with ``records`` (the pinned dataset): every serving record resolves
+        to exactly one catalog entry, the entry's hash equals sha256 of the
+        record's evidence text, and eligibility agrees
+    """
+    issues: list[str] = []
+    if not isinstance(catalog, dict):
+        return ["source_catalog:not_a_dict"]
+    snapshots = catalog.get("snapshots")
+    if not isinstance(snapshots, list):
+        return ["source_catalog:snapshots_not_a_list"]
+    if not snapshots:
+        return ["source_catalog:snapshots_empty"]
+    by_record: dict[str, dict] = {}
+    sid_owner: dict[str, str] = {}
+    for i, entry in enumerate(snapshots):
+        if not isinstance(entry, dict):
+            issues.append(f"source_catalog[{i}]:not_a_dict")
+            continue
+        rid = entry.get("record_id")
+        if not isinstance(rid, str) or not rid.strip():
+            issues.append(f"source_catalog[{i}]:missing_record_id")
+            continue
+        sid = entry.get("source_snapshot_id")
+        if not isinstance(sid, str) or not sid.strip():
+            issues.append(f"source_catalog[{i}]:missing_source_snapshot_id")
+            continue
+        if rid in by_record:
+            issues.append(f"source_catalog[{i}]:duplicate_record_id:{rid}")
+            continue
+        sha = str(entry.get("evidence_text_sha256", "") or "")
+        if len(sha) != 64 or not set(sha.lower()) <= _SHA256_HEX:
+            issues.append(f"source_catalog[{i}]:invalid_evidence_text_sha256:{rid}")
+        elig = str(entry.get("evidence_eligibility", "") or "")
+        if elig and elig not in _CATALOG_ELIGIBILITIES:
+            issues.append(f"source_catalog[{i}]:invalid_evidence_eligibility:{rid}")
+        owner = sid_owner.get(sid)
+        if owner is not None and owner != rid:
+            issues.append(f"source_catalog[{i}]:snapshot_id_collision:{sid}")
+        else:
+            sid_owner[sid] = rid
+        by_record[rid] = entry
+    if isinstance(records, list):
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+            rid = record.get("record_id")
+            if not isinstance(rid, str) or not rid.strip():
+                issues.append("source_catalog:dataset_record_missing_record_id")
+                continue
+            entry = by_record.get(rid)
+            if entry is None:
+                issues.append(f"source_catalog:record_not_in_catalog:{rid}")
+                continue
+            expected = hashlib.sha256(
+                _catalog_evidence_text(record).encode("utf-8")).hexdigest()
+            declared = str(entry.get("evidence_text_sha256", "") or "")
+            if declared and declared.lower() != expected:
+                issues.append(
+                    f"source_catalog:evidence_text_hash_mismatch:{rid}")
+            rec_elig = str(record.get("evidence_eligibility", "")
+                           or "CITATION_ELIGIBLE")
+            cat_elig = str(entry.get("evidence_eligibility", "")
+                           or rec_elig)
+            if cat_elig != rec_elig:
+                issues.append(f"source_catalog:eligibility_mismatch:{rid}")
     return issues
 
 

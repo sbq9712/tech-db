@@ -105,7 +105,7 @@ def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
                  profile="agentic_correctness_core", verify_exc=None,
                  records_by_id=None, record_id_map=None,
                  retrieve_fn=None, regenerate_fn=None, trace=None,
-                 _claims_fn=None, source_catalog=None):
+                 _claims_fn=None, source_catalog=None, manifest_mode=None):
     import phase02_pipeline as p2
     if claims is None and _claims_fn is None:
         claims = claims_fixture()
@@ -121,7 +121,9 @@ def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
         llm_verify=make_verifier(verifier, fail_claims, verify_exc),
         retrieve_fn=retrieve_fn, regenerate_fn=regenerate_fn, trace=trace,
         budget_reserve=budget, active_profile=profile,
-        source_catalog=source_catalog)
+        source_catalog=source_catalog,
+        manifest_mode=(manifest_mode if manifest_mode is not None
+                       else source_catalog is not None))
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -204,18 +206,27 @@ def rt020_cases():
     # ── Pinned source_catalog binding (Phase-02 review blocker 1) ─────────
     # In manifest mode the request-pinned source_catalog is the ONLY
     # snapshot authority: snapshot ids, refs and numeric provenance bind to
-    # it; records absent from it (or diverging from its declared hash)
-    # fail closed.
-    from source_snapshot import SourceSnapshot
+    # it; a catalog that is missing, empty, malformed, incomplete (a serving
+    # record absent), hash-divergent or eligibility-divergent fails the
+    # WHOLE request closed — never degrades to ad-hoc snapshots.
 
-    _bw_raw = SourceSnapshot.from_record(
-        "rec-blackwell", RECORD_BLACKWELL).raw_text
-    _bw_sha = hashlib.sha256(_bw_raw.encode("utf-8")).hexdigest()
-    pinned_catalog = {"snapshots": [
-        {"record_id": "rec-blackwell", "source_snapshot_id": "snapshot-gen-a-1",
-         "evidence_text_sha256": _bw_sha,
-         "evidence_eligibility": "CITATION_ELIGIBLE"},
-    ]}
+    from source_snapshot import SourceSnapshot as _SourceSnapshot
+
+    def _full_catalog():
+        entries = []
+        for rec in RECORDS:
+            raw = _SourceSnapshot.from_record(rec["record_id"], rec).raw_text
+            entries.append({
+                "record_id": rec["record_id"],
+                "source_snapshot_id": f"snapshot-gen-a-1:{rec['record_id']}",
+                "evidence_text_sha256": hashlib.sha256(
+                    raw.encode("utf-8")).hexdigest(),
+                "evidence_eligibility": rec.get(
+                    "evidence_eligibility", "CITATION_ELIGIBLE"),
+            })
+        return {"snapshots": entries}
+
+    pinned_catalog = _full_catalog()
     _cat_cap = {"refs": None}
 
     async def _cat_verify(query, atomic, refs, det=None):
@@ -234,38 +245,90 @@ def rt020_cases():
         source_catalog=pinned_catalog))
     test("RT020.pinned_catalog_binds_snapshot_id",
          pc["citations"]
-         and all(c.get("source_snapshot_id") == "snapshot-gen-a-1"
+         and all(c.get("source_snapshot_id") == "snapshot-gen-a-1:rec-blackwell"
                  for c in pc["citations"]
                  if c.get("record_id") == "rec-blackwell")
-         and (_cat_cap["refs"] is None
-              or all(r.get("source_snapshot_id") == "snapshot-gen-a-1"
-                     for r in _cat_cap["refs"]
-                     if r.get("record_id") == "rec-blackwell"))
+         and (_cat_cap["refs"] is None or all(
+             r.get("source_snapshot_id") == "snapshot-gen-a-1:rec-blackwell"
+             for r in _cat_cap["refs"]
+             if r.get("record_id") == "rec-blackwell"))
          and all(f.get("evidence_ref", {}).get("source_snapshot_id")
-                 == "snapshot-gen-a-1"
+                 == "snapshot-gen-a-1:rec-blackwell"
                  for f in pc["numeric_facts"]
                  if f.get("record_id") == "rec-blackwell"))
 
+    # Incomplete catalog (serving record missing) → request fails closed.
     no_entry_catalog = {"snapshots": [
-        {"record_id": "rec-someone-else", "source_snapshot_id": "snapshot-x"}]}
+        e for e in _full_catalog()["snapshots"]
+        if e["record_id"] != "rec-blackwell"]}
     pnc = asyncio.run(run_pipeline(source_catalog=no_entry_catalog))
     test("RT020.record_missing_from_pinned_catalog_dropped",
          pnc["citations"] == []
-         and any(iv.get("invalid_reason") == "record_not_in_pinned_source_catalog"
-                 for iv in pnc["invalid_citations"])
+         and pnc.get("verification_status") == "NOT_RUN"
+         and "record_not_in_catalog:rec-blackwell"
+         in str(pnc.get("verification_error"))
          and pnc["answer_status"] != "SUPPORTED")
 
+    # Correct-format but wrong declared hash vs pinned dataset content →
+    # request fails closed (no per-citation downgrade path).
     bad_hash_catalog = {"snapshots": [
-        {"record_id": "rec-blackwell", "source_snapshot_id": "snapshot-gen-a-1",
-         "evidence_text_sha256": "0" * 64,  # declared hash ≠ record content
-         "evidence_eligibility": "CITATION_ELIGIBLE"},
-    ]}
+        {**e, "evidence_text_sha256": "0" * 64}
+        if e["record_id"] == "rec-blackwell" else e
+        for e in _full_catalog()["snapshots"]]}
     phm = asyncio.run(run_pipeline(source_catalog=bad_hash_catalog))
     test("RT020.pinned_snapshot_hash_mismatch_dropped",
          phm["citations"] == []
-         and any(iv.get("invalid_reason") == "pinned_snapshot_hash_mismatch"
-                 for iv in phm["invalid_citations"])
+         and phm.get("verification_status") == "NOT_RUN"
+         and "evidence_text_hash_mismatch:rec-blackwell"
+         in str(phm.get("verification_error"))
          and phm["answer_status"] != "SUPPORTED")
+
+    # ── manifest-mode fail-closed matrix (Phase-02 review blocker A) ───────
+    # Manifest mode makes the pinned source_catalog REQUIRED content: a
+    # missing / empty / malformed / incomplete catalog fails the request
+    # closed before any verification runs — never degrades to ad-hoc
+    # content-addressed snapshots or to the legacy path.
+    def _manifest_mode_fail(catalog, reason_fragment):
+        out = asyncio.run(run_pipeline(source_catalog=catalog,
+                                       manifest_mode=True))
+        return (out["citations"] == []
+                and out.get("verification_status") == "NOT_RUN"
+                and reason_fragment in str(out.get("verification_error"))
+                and out["answer_status"] != "SUPPORTED")
+
+    test("RT020.manifest_mode_missing_catalog_fails_closed",
+         _manifest_mode_fail(None, "missing_in_manifest_mode"))
+    test("RT020.manifest_mode_empty_catalog_fails_closed",
+         _manifest_mode_fail({}, "snapshots_not_a_list"))
+    test("RT020.manifest_mode_empty_snapshots_fails_closed",
+         _manifest_mode_fail({"snapshots": []}, "snapshots_empty"))
+    test("RT020.manifest_mode_malformed_snapshots_fails_closed",
+         _manifest_mode_fail({"snapshots": "nope"}, "snapshots_not_a_list"))
+    test("RT020.manifest_mode_missing_source_snapshot_id_fails_closed",
+         _manifest_mode_fail({"snapshots": [
+             {"record_id": "rec-blackwell",
+              "evidence_text_sha256": "0" * 64}]},
+             "missing_source_snapshot_id"))
+    test("RT020.manifest_mode_duplicate_record_id_fails_closed",
+         _manifest_mode_fail({"snapshots": [
+             {"record_id": "rec-blackwell", "source_snapshot_id": "s1",
+              "evidence_text_sha256": "0" * 64},
+             {"record_id": "rec-blackwell", "source_snapshot_id": "s2",
+              "evidence_text_sha256": "0" * 64}]},
+             "duplicate_record_id"))
+    test("RT020.manifest_mode_eligibility_mismatch_fails_closed",
+         _manifest_mode_fail({"snapshots": [
+             {**e, "evidence_eligibility": "RETRIEVAL_ONLY"}
+             if e["record_id"] == "rec-blackwell" else e
+             for e in _full_catalog()["snapshots"]]},
+             "eligibility_mismatch:rec-blackwell"))
+
+    # legacy_hybrid compatibility: no catalog + manifest_mode=False still
+    # runs end-to-end on content-addressed snapshots.
+    legacy = asyncio.run(run_pipeline(source_catalog=None,
+                                      manifest_mode=False))
+    test("RT020.legacy_hybrid_without_catalog_still_runs",
+         legacy["answer_status"] == "SUPPORTED" and legacy["citations"])
 
 
 rt020_cases()
@@ -1504,6 +1567,96 @@ test("RT026.retrieved_ungroundable_evidence_dropped",
      all(c.get("record_id") != "rec-hbm" for c in pr4["citations"])
      and pr4["answer_status"] != "SUPPORTED")
 
+# ── RT-026 targeted retrieval → UPDATED package → regenerate ordering ─────
+# (Phase-02 review blocker B) Final-Spec order is: targeted retrieval →
+# deterministic validation (record resolution / pinned catalog / eligibility
+# / exact grounding / numeric) → UPDATED Evidence Package → regeneration
+# FROM THAT UPDATED PACKAGE → full re-check. The cases below prove the
+# package the regeneration actually consumed already contained the newly
+# retrieved evidence (positive) or never contained ungroundable evidence
+# (negative).
+_HBM_BODY = "HBM3e内存带宽达到1.2TB/s，通过验证测试。"
+_HBM_SHA = hashlib.sha256(_HBM_BODY.encode("utf-8")).hexdigest()
+_ev_order = []
+_order_pkgs = []
+
+async def _order_map(query, answer, cits):
+    """Fresh mapper (no shared mutable claim fixtures): once retrieved HBM
+    evidence exists as a citation, the core claim is supported by an exact
+    span of it."""
+    if any(c.get("record_id") == "rec-hbm" for c in cits):
+        return {"claims": [{
+            "id": "c9", "text": "HBM3e内存带宽达到1.2TB/s", "type": "NUMERIC_FACT",
+            "support_status": "SUPPORTED", "is_core": True,
+            "supported_by": [{
+                "citation_id": max(c.get("id") or 0 for c in cits),
+                "relation": "DIRECT_SUPPORT",
+                "evidence_span": "HBM3e内存带宽达到1.2TB/s"}]}]}
+    return {"claims": [{
+        "id": "c9", "text": "HBM3e内存带宽达到1.2TB/s", "type": "NUMERIC_FACT",
+        "support_status": "UNSUPPORTED", "is_core": True, "supported_by": []}]}
+
+async def _order_retrieve(claim_text):
+    _ev_order.append("retrieve")
+    return [{"record_id": "rec-hbm", "legacy_idx": 3,
+             "excerpt": "HBM3e内存带宽达到1.2TB/s"}]
+
+async def _order_regen(answer, drop_ids=None, evidence_package=None):
+    _ev_order.append("regen")
+    _order_pkgs.append(evidence_package)
+    return "HBM3e内存带宽达到1.2TB/s。"
+
+_fresh_r26_cits = [dict(c) for c in _r26_cits
+                   if not c.get("retrieved_by_repair")]
+pr5 = asyncio.run(run_pipeline(
+    citations=_fresh_r26_cits, records=_repair_records2,
+    draft="HBM3e内存带宽达到1.2TB/s。",
+    _claims_fn=_order_map, retrieve_fn=_order_retrieve,
+    regenerate_fn=_order_regen))
+_hbm_refs = [r for p in _order_pkgs if p
+             for r in p.get("evidence_refs", [])
+             if r.get("record_id") == "rec-hbm"]
+test("RT026.targeted_retrieval_updates_regen_package",
+     bool(_order_pkgs)
+     and all(ev == "retrieve" or ev == "regen" for ev in _ev_order)
+     and _ev_order.index("retrieve") < len(_order_pkgs)
+     and _ev_order.index("retrieve") < _ev_order.index("regen")
+     and bool(_hbm_refs)
+     and _hbm_refs[0].get("source_snapshot_id") not in (None, "")
+     and isinstance(_hbm_refs[0].get("locators"), list)
+     and _hbm_refs[0]["locators"]
+     and _hbm_refs[0]["locators"][0].get("start", -1) >= 0
+     and _hbm_refs[0]["locators"][0].get("end", -1)
+         > _hbm_refs[0]["locators"][0].get("start", -1)
+     and _hbm_refs[0].get("exact_text") == "HBM3e内存带宽达到1.2TB/s"
+     and _hbm_refs[0].get("evidence_text_sha256") == _HBM_SHA
+     # the FIRST package the regenerator consumed already carried the
+     # newly retrieved evidence → regeneration ran on the UPDATED package
+     and any(r.get("record_id") == "rec-hbm"
+             for r in (_order_pkgs[0] or {}).get("evidence_refs", []))
+     and "HBM3e内存带宽达到1.2TB/s" in render_repair_evidence_input(_order_pkgs[0]))
+
+_nog_pkgs = []
+
+async def _nog_regen(answer, drop_ids=None, evidence_package=None):
+    _nog_pkgs.append(evidence_package)
+    return answer
+
+pr6 = asyncio.run(run_pipeline(
+    citations=[dict(c) for c in _fresh_r26_cits], records=_repair_records2,
+    draft="HBM3e内存带宽达到1.2TB/s。",
+    _claims_fn=_order_map, retrieve_fn=_retrieve_ungroundable,
+    regenerate_fn=_nog_regen))
+test("RT026.ungroundable_candidate_not_in_regen_package",
+     (not _nog_pkgs
+      or (all(r.get("record_id") != "rec-hbm"
+              for p in _nog_pkgs if p
+              for r in p.get("evidence_refs", []))
+          and all("完全不相关" not in render_repair_evidence_input(p)
+                  for p in _nog_pkgs if p)))
+     and all(c.get("record_id") != "rec-hbm"
+             for c in pr6["citations"]))
+
 
 def _run_pipeline_with_verify(verify):
     """run_pipeline with a custom verifier closure."""
@@ -2266,6 +2419,38 @@ def test_rt020_pinned_snapshot_hash_mismatch_dropped():
     _assert_case("RT020.pinned_snapshot_hash_mismatch_dropped")
 
 
+def test_rt020_manifest_mode_missing_catalog_fails_closed():
+    _assert_case("RT020.manifest_mode_missing_catalog_fails_closed")
+
+
+def test_rt020_manifest_mode_empty_catalog_fails_closed():
+    _assert_case("RT020.manifest_mode_empty_catalog_fails_closed")
+
+
+def test_rt020_manifest_mode_empty_snapshots_fails_closed():
+    _assert_case("RT020.manifest_mode_empty_snapshots_fails_closed")
+
+
+def test_rt020_manifest_mode_malformed_snapshots_fails_closed():
+    _assert_case("RT020.manifest_mode_malformed_snapshots_fails_closed")
+
+
+def test_rt020_manifest_mode_missing_source_snapshot_id_fails_closed():
+    _assert_case("RT020.manifest_mode_missing_source_snapshot_id_fails_closed")
+
+
+def test_rt020_manifest_mode_duplicate_record_id_fails_closed():
+    _assert_case("RT020.manifest_mode_duplicate_record_id_fails_closed")
+
+
+def test_rt020_manifest_mode_eligibility_mismatch_fails_closed():
+    _assert_case("RT020.manifest_mode_eligibility_mismatch_fails_closed")
+
+
+def test_rt020_legacy_hybrid_without_catalog_still_runs():
+    _assert_case("RT020.legacy_hybrid_without_catalog_still_runs")
+
+
 def test_rt025_ref_consistent_with_pinned_snapshot_passes():
     _assert_case("RT025.ref_consistent_with_pinned_snapshot_passes")
 
@@ -2312,6 +2497,14 @@ def test_rt026_regen_number_tamper_blocked():
 
 def test_rt026_retrieved_ungroundable_evidence_dropped():
     _assert_case("RT026.retrieved_ungroundable_evidence_dropped")
+
+
+def test_rt026_targeted_retrieval_updates_regen_package():
+    _assert_case("RT026.targeted_retrieval_updates_regen_package")
+
+
+def test_rt026_ungroundable_candidate_not_in_regen_package():
+    _assert_case("RT026.ungroundable_candidate_not_in_regen_package")
 
 
 def test_rt022_facts_provenance_stable_under_reorder():

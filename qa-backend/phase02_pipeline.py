@@ -288,6 +288,7 @@ async def run_phase02_verification(
     source_snapshot_store=None,   # SourceSnapshotStore or None (ad-hoc snapshots)
     source_catalog=None,          # request-pinned {"snapshots": [...]} —
                                   # THE snapshot authority in manifest mode
+    manifest_mode: bool = False,  # True ⇒ source_catalog is REQUIRED
 ) -> dict:
     """Run the Phase-02 post-generation pipeline. Returns a result dict:
 
@@ -325,8 +326,41 @@ async def run_phase02_verification(
     # it. A mid-request release switch cannot redirect evidence to a new
     # generation's snapshot — everything below is derived from objects
     # captured at (or for the duration of) THIS request.
+    #
+    # Fail-closed contract (review blocker A): `source_catalog is None`
+    # means legacy_hybrid (SourceSnapshotStore path). ANY non-None value is
+    # manifest mode and MUST be a valid catalog — missing/malformed/empty/
+    # incomplete/dataset-divergent catalogs are a request-level technical
+    # failure (UNVERIFIED), NEVER a silent downgrade to content-addressed
+    # ad-hoc snapshots.
+    from release_manifest import validate_source_catalog_payload
+
+    invalid_catalog_reasons = []
+    if manifest_mode and source_catalog is None:
+        invalid_catalog_reasons = ["source_catalog:missing_in_manifest_mode"]
+    elif source_catalog is not None:
+        invalid_catalog_reasons = validate_source_catalog_payload(
+            source_catalog, records=records)
+    if invalid_catalog_reasons:
+        _catalog_error = ("invalid_source_catalog:"
+                          + ";".join(invalid_catalog_reasons[:3]))
+        machine.record_technical_failure("citation_grounding", _catalog_error)
+        degraded.append("citation_grounding")
+        machine.finalize()
+        rendered = render_terminal_answer(answer, machine, claims=[],
+                                          boundary_message="")
+        return _finish(machine=machine, answer=rendered["answer"],
+                       withheld=rendered["withheld"], citations=[], claims=[],
+                       coverage=None, repair=None,
+                       verification_status="NOT_RUN",
+                       verification_error=_catalog_error,
+                       boundary_message="", trace=trace,
+                       degraded=degraded, t_start=t_start,
+                       active_profile=active_profile,
+                       runtime_manifest_id=runtime_manifest_id, query=query,
+                       cited_record_ids=[])
     pinned_catalog_entries = None
-    if isinstance(source_catalog, dict) and source_catalog.get("snapshots"):
+    if source_catalog is not None:
         pinned_catalog_entries = {}
         for _entry in source_catalog.get("snapshots") or []:
             _erid = str(_entry.get("record_id", "") or "")
@@ -702,10 +736,14 @@ async def run_phase02_verification(
             return None
 
         async def _retrieve_fn(claim):
-            """Targeted re-retrieval closure (RT-026 strategy 4): fetch new
-            candidate records via the server-injected retrieval closure and
-            append them as fresh citations so the NEXT check pass can ground
-            them honestly (no fabricated support here)."""
+            """Targeted re-retrieval closure (RT-026 strategy 4, review
+            blocker B): fetch new candidate records via the server-injected
+            retrieval closure, append them as fresh citations AND validate
+            them immediately (resolution → pinned catalog → eligibility →
+            exact grounding → numeric) so the repair loop's remap and the
+            regeneration Evidence Package both see UPDATED evidence in this
+            same request. No fabricated support: candidates that fail the
+            chain are dropped fail-closed here."""
             if retrieve_fn is None:
                 return False
             try:
@@ -739,20 +777,157 @@ async def run_phase02_verification(
                     "supports_claim_ids": [],
                 })
                 added += 1
+            if added:
+                _ground_new_candidates()
             return added > 0
 
+        def _ground_new_candidates():
+            """RT-026 review blocker B — UPDATED evidence package.
+
+            Targeted retrieval appends candidate citations; BEFORE any
+            regeneration runs, those candidates pass the SAME validation
+            chain as the main pass: stable record resolution → pinned
+            source_catalog snapshot resolution → eligibility → exact
+            grounding → evidence_index/EvidenceRef construction →
+            applicable numeric validation. Only refs surviving this chain
+            enter the regeneration Evidence Package. Ungroundable or
+            catalog-missing candidates are dropped fail-closed and never
+            reach the regeneration input. Returns the number of newly
+            grounded citations."""
+            grounded = 0
+            for c in citations:
+                if not c.get("retrieved_by_repair"):
+                    continue
+                if c.get("id") in evidence_index:
+                    continue  # already validated in a previous cycle
+                proposed = []
+                for cl in claim_map.get("claims", []):
+                    for ref in cl.get("supported_by", []) or []:
+                        if ref.get("citation_id") == c.get("id") \
+                                and ref.get("evidence_span"):
+                            proposed.append(ref["evidence_span"])
+                proposed.append(c.get("excerpt") or c.get("body_snippet", ""))
+                proposed = [p for p in proposed if p and p.strip()][:4]
+                try:
+                    record, rid, legacy_idx = _record_for_citation(
+                        c, records, records_by_id, record_id_map)
+                except Exception:
+                    record, rid, legacy_idx = None, "", None
+                if record is None or not rid:
+                    invalid_citations.append({
+                        "citation_id": c.get("id"),
+                        "record_id": c.get("record_id"),
+                        "invalid_reason": "record_unavailable"})
+                    continue
+                if str(record.get("evidence_eligibility", "")).strip() \
+                        in ("RETRIEVAL_ONLY", "QUARANTINED"):
+                    invalid_citations.append({
+                        "citation_id": c.get("id"),
+                        "record_id": rid,
+                        "invalid_reason": "evidence_ineligible:"
+                                          + str(record.get("evidence_eligibility"))})
+                    continue
+                snap = _snapshot_for_record(rid, record)
+                if isinstance(snap, str):
+                    invalid_citations.append({
+                        "citation_id": c.get("id"),
+                        "record_id": rid,
+                        "invalid_reason": snap})
+                    continue
+                grounding = ground_citation_exact(
+                    record, proposed, claim_text="", query="", snapshot=snap)
+                c["grounding_result"] = grounding
+                if not is_valid_grounding(grounding):
+                    invalid_citations.append({
+                        "citation_id": c.get("id"),
+                        "record_id": rid,
+                        "invalid_reason": "span_not_found"})
+                    continue
+                c.update({
+                    "record_id": rid,
+                    "legacy_idx": legacy_idx if isinstance(legacy_idx, int)
+                                  else c.get("legacy_idx"),
+                    "grounding_status": "VALID",
+                    "evidence_span": grounding["exact_text"][:200],
+                    "evidence_start": grounding["evidence_spans"][0]["start"],
+                    "evidence_end": grounding["evidence_spans"][0]["end"],
+                    "evidence_spans": [
+                        {"text": s["text"][:200], "start": s["start"],
+                         "end": s["end"]}
+                        for s in grounding["evidence_spans"]],
+                    "highlight": grounding["exact_text"][:200],
+                    "source_snapshot_id": grounding["source_snapshot_id"],
+                    "evidence_sha256": grounding["evidence_sha256"],
+                    "evidence_text_field": grounding["evidence_text_field"],
+                    "locators": [
+                        {"locator_type": s["locator_type"], "start": s["start"],
+                         "end": s["end"],
+                         **({"normalized_start": s["normalized_start"],
+                             "normalized_end": s["normalized_end"]}
+                            if "normalized_start" in s else {})}
+                        for s in grounding["evidence_spans"]],
+                    "match_type": grounding["match_type"],
+                    "citation_schema_version": CITATION_SCHEMA_VERSION,
+                })
+                evidence_index[c.get("id")] = {
+                    "text": grounding["exact_text"],
+                    "record_id": rid,
+                    "legacy_idx": legacy_idx,
+                    "record": record,
+                    "eligibility": (str(record.get("evidence_eligibility")
+                                        or "CITATION_ELIGIBLE").strip()
+                                    or "CITATION_ELIGIBLE"),
+                    "evidence_role": prov_map.get(rid, {}).get(
+                        "evidence_role", _evidence_role_for_record(record)),
+                    "published_date": str(record.get("d", "") or ""),
+                    "source_url": str(record.get("u", "")
+                                      or record.get("url", "") or ""),
+                    "grounding": grounding,
+                }
+                final_citations.append(c)
+                # Applicable deterministic numeric validation for claims the
+                # loop already remapped onto this candidate: a numeric
+                # MISMATCH never enters the package as support.
+                for cl in claim_map.get("claims", []):
+                    if cl.get("type") != "NUMERIC_FACT":
+                        continue
+                    for ref in cl.get("supported_by", []) or []:
+                        if ref.get("citation_id") != c.get("id"):
+                            continue
+                        ev = evidence_index.get(c.get("id"))
+                        result = verify_numeric_claim(
+                            cl.get("text", ""), ev.get("text", ""))
+                        if result["status"] != "MATCH":
+                            cl["numeric_check"] = result["status"]
+                grounded += 1
+            if grounded or any(iv.get("invalid_reason") == "span_not_found"
+                               for iv in invalid_citations):
+                _stage("repair_evidence_update", {
+                    "newly_grounded": grounded,
+                    "evidence_index_size": len(evidence_index),
+                })
+            return grounded
+
         def _evidence_scoped_regen(current_answer, drop_ids=None):
-            """RT-026 evidence-scoped regeneration adapter.
+            """RT-026 evidence-scoped regeneration adapter (review blocker B:
+            retrieval → validation → UPDATED package → regenerate).
 
             The regeneration input is an allowlisted Evidence-Package-
             compatible structure built ONLY from: the question/scope, the
-            still-VALID exact EvidenceRefs, their snapshot bindings and
-            verified support relations, applicable deterministic numeric
-            results, and explicit keep/drop/core-gap instructions. Raw
-            all_results, synthetic summaries, ungrounded retrieval text,
-            generator hidden reasoning and unrelated old-answer context are
-            structurally absent — they are not inputs to this builder.
+            still-VALID exact EvidenceRefs (INCLUDING refs grounded from
+            THIS repair cycle's targeted retrieval, validated immediately
+            before this call), their snapshot bindings and verified support
+            relations, applicable deterministic numeric results, and
+            explicit keep/drop/core-gap instructions. Raw all_results,
+            synthetic summaries, ungrounded retrieval text, generator hidden
+            reasoning and unrelated old-answer context are structurally
+            absent — they are not inputs to this builder.
             """
+            # Final Spec ordering: targeted retrieval candidates are
+            # validated (resolution/catalog/eligibility/exact grounding/
+            # numeric) BEFORE the Evidence Package is rebuilt, so
+            # regenerate_fn always sees the UPDATED package.
+            _ground_new_candidates()
             drop = [str(d) for d in (drop_ids or [])]
             core_gap = [str(cl.get("id")) for cl in claim_map.get("claims", [])
                         if cl.get("is_core")

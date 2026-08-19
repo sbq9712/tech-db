@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 import tempfile
 import unicodedata
 import uuid
@@ -15,6 +16,17 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "qa-backend" / "test_fixtures" / "mini_runtime"
+# The release source_catalog artifact has exactly ONE production producer:
+# release_manifest.build_source_catalog, applied to this builder's real
+# source snapshots (stable record_id / content-addressed snapshot id /
+# recomputed evidence_text_sha256 / eligibility + extractor & access
+# metadata per the SourceSnapshot schema).
+sys.path.insert(0, str(ROOT / "qa-backend"))
+from release_manifest import build_source_catalog as _build_source_catalog  # noqa: E402
+
+
+def build_release_source_catalog(snapshots_payload):
+    return _build_source_catalog(snapshots_payload)
 NAMESPACE = uuid.UUID("4df24ac8-83a7-5d59-bb4d-9b0c59e99c2a")
 SENSITIVE_QUERY_KEYS = {"poc_token", "access_token", "api_key", "token"}
 URL_RE = re.compile(r"https?://[^\s<>\"']+")
@@ -173,6 +185,7 @@ def write_artifacts(out: Path) -> dict:
         "record_id_map.json": {"schema_version": "1.0.0", "dataset_snapshot_id": f"mini-dataset-{sha_bytes(stable_json(SYNTHETIC_RECORDS))[:16]}",
                                "mappings": [{"legacy_idx": item["legacy_idx"], "record_id": item["record_id"], "tombstoned": False} for item in logical]},
         "source_snapshots.json": snapshots,
+        "source_catalog.json": build_release_source_catalog(snapshots),
         "chunks.json": chunks,
         "evidence_metadata.json": metadata,
         "vector_index.json": {"dimension": 16, "documents": vector_index},

@@ -1636,6 +1636,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     runtime_manifest_id=_p02_snap.manifest_id if _p02_snap else "",
                     source_snapshot_store=_p02_store,
                     source_catalog=_p02_catalog,
+                    manifest_mode=_p02_snap is not None,
                 )
                 final_answer = p02["answer"]
 

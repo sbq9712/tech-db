@@ -38,10 +38,14 @@ def release_fixture(root: Path, label="a"):
     artifacts = {}
     build = root / "builds" / f"build-{label}"; build.mkdir(parents=True)
     rid = f"record-{label}-0001"
+    _body = f"body-{label}"
+    _body_sha = hashlib.sha256(_body.encode("utf-8")).hexdigest()
     payloads = {
-      "dataset": {"records":[{"record_id":rid,"legacy_idx":0,"t":f"title-{label}","b":f"body-{label}","c":"fixture"}]},
+      "dataset": {"records":[{"record_id":rid,"legacy_idx":0,"t":f"title-{label}","b":_body,"c":"fixture"}]},
       "record_id_map": {"mappings":[{"record_id":rid,"legacy_idx":0}]},
-      "source_catalog": {"snapshots":[{"record_id":rid,"source_snapshot_id":f"snapshot-{label}"}]},
+      "source_catalog": {"snapshots":[{"record_id":rid,"source_snapshot_id":f"snapshot-{label}",
+                                        "evidence_text_sha256":_body_sha,
+                                        "evidence_eligibility":"CITATION_ELIGIBLE"}]},
       "evidence_metadata": {"records":[{"record_id":rid,"evidence_eligibility":"CITATION_ELIGIBLE"}]},
       "identity_snapshot": {"entries":[{"record_id":rid}]},
       "vector_index": {"dimension":2,"documents":[{"record_id":rid,"vector":[1.0,0.0]}]},
@@ -183,6 +187,121 @@ with tempfile.TemporaryDirectory(prefix="phase01-") as td:
     test("RT016.wrong_schema_rejected_at_store",raises(ValueError,lambda:catalog.store(forged)))
     # restore the immutable fixture content for activation/startup.
     wrong_schema_path.write_text(json.dumps({"schema_version":"1.0.0","records":[{"record_id":"record-a-0001","legacy_idx":0,"t":"title-a","b":"body-a","c":"fixture"}]}),"utf-8")
+    # ── source_catalog release gating (Phase-02 review blocker A) ──────────
+    # The source_catalog artifact is REQUIRED in every manifest; its content
+    # is validated at build/store time and again at runtime startup — a
+    # missing, empty, malformed, incomplete, hash-divergent or
+    # eligibility-divergent catalog is a fail-closed release error, never a
+    # runtime downgrade.
+    from release_manifest import validate_source_catalog_payload
+    cat_path = root / ma["artifacts"]["source_catalog"]["path"]
+    good_cat = json.loads(cat_path.read_text("utf-8"))
+    rid_a = "record-a-0001"
+    def _issues(mutate):
+        cat = json.loads(json.dumps(good_cat)); mutate(cat)
+        return validate_source_catalog_payload(
+            cat, records=[{"record_id": rid_a, "b": "body-a"}])
+    no_cat_manifest = dict(ma)
+    no_cat_manifest["artifacts"] = dict(ma["artifacts"])
+    no_cat_manifest["artifacts"].pop("source_catalog")
+    test("RT016.manifest_missing_source_catalog_rejected",
+         bool(validate_global_manifest(no_cat_manifest, root)))
+    test("RT016.catalog_validator_accepts_good", _issues(lambda c: None) == [])
+    test("RT016.catalog_not_a_dict_rejected",
+         validate_source_catalog_payload(None, records=[]) == ["source_catalog:not_a_dict"])
+    test("RT016.catalog_empty_dict_rejected",
+         bool(validate_source_catalog_payload({}, records=[])))
+    test("RT016.catalog_snapshots_not_a_list_rejected",
+         any("snapshots_not_a_list" in i for i in _issues(lambda c: c.update(snapshots="nope"))))
+    test("RT016.catalog_snapshots_empty_rejected",
+         any("snapshots_empty" in i for i in _issues(lambda c: c.update(snapshots=[]))))
+    test("RT016.catalog_missing_record_id_rejected",
+         any("missing_record_id" in i for i in _issues(lambda c: c["snapshots"][0].pop("record_id"))))
+    test("RT016.catalog_missing_source_snapshot_id_rejected",
+         any("missing_source_snapshot_id" in i for i in _issues(lambda c: c["snapshots"][0].pop("source_snapshot_id"))))
+    test("RT016.catalog_duplicate_record_id_rejected",
+         any("duplicate_record_id" in i for i in _issues(lambda c: c["snapshots"].append(dict(c["snapshots"][0])))))
+    test("RT016.catalog_snapshot_id_collision_rejected",
+         any("snapshot_id_collision" in i for i in _issues(lambda c: c["snapshots"].append({**c["snapshots"][0], "record_id": "record-a-0002"}))))
+    test("RT016.catalog_wrong_sha_format_rejected",
+         any("invalid_evidence_text_sha256" in i for i in _issues(lambda c: c["snapshots"][0].update(evidence_text_sha256="0" * 63))))
+    test("RT016.catalog_dataset_record_missing_rejected",
+         any("record_not_in_catalog" in i for i in
+             validate_source_catalog_payload(good_cat, records=[{"record_id": "record-ghost", "b": "x"}])))
+    test("RT016.catalog_hash_mismatch_vs_dataset_rejected",
+         any("evidence_text_hash_mismatch" in i for i in _issues(lambda c: c["snapshots"][0].update(evidence_text_sha256="1" * 64))))
+    test("RT016.catalog_eligibility_mismatch_rejected",
+         any("eligibility_mismatch" in i for i in _issues(lambda c: c["snapshots"][0].update(evidence_eligibility="RETRIEVAL_ONLY"))))
+    # store-level: a hash-consistent manifest whose source_catalog content
+    # disagrees with the pinned dataset is still rejected at store time.
+    cat_path.write_text(json.dumps({"schema_version": "1.0.0",
+                                    "snapshots": [dict(good_cat["snapshots"][0],
+                                                       evidence_text_sha256="2" * 64)]}), "utf-8")
+    forged_cat = json.loads(json.dumps(ma))
+    fce = forged_cat["artifacts"]["source_catalog"]
+    fce["sha256"] = compute_file_hash(cat_path); fce["bytes"] = cat_path.stat().st_size
+    forged_cat.pop("manifest_id", None)
+    forged_cat["manifest_id"] = hashlib.sha256(json.dumps(forged_cat, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    test("RT016.wrong_catalog_rejected_at_store",
+         raises(ValueError, lambda: catalog.store(forged_cat)))
+    # runtime startup: load_release_resources fails closed on a bad catalog.
+    test("RT017.startup_bad_catalog_fails_closed",
+         raises(ValueError, lambda: load_release_resources(ma, release_root=root)))
+    cat_path.write_text(json.dumps({"schema_version": "1.0.0", **good_cat}), "utf-8")
+    test("RT017.startup_good_catalog_loads",
+         "source_catalog" in load_release_resources(ma, release_root=root))
+
+    # ── mini release builder: real source_catalog from real snapshots ──────
+    # The production-shaped release builder (scripts/build_mini_release.py)
+    # derives the release source_catalog ONLY through the production
+    # producer build_source_catalog applied to real SourceSnapshot payloads,
+    # and the resulting release boots strictly through load_release_resources.
+    import subprocess, tempfile as _tf, uuid as _uuid
+    with _tf.TemporaryDirectory(prefix="mini-release-test-") as _mrt:
+        _rel = Path(_mrt) / "release"
+        _proc = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "build_mini_release.py"),
+             "--out", str(_rel)],
+            capture_output=True, text=True)
+        _cat_art = _rel / "builds" / "build-mini" / "source_catalog.json"
+        _rel_cat = json.loads(_cat_art.read_text("utf-8"))
+        _rel_ds = json.loads((_rel / "builds" / "build-mini" / "dataset.json").read_text("utf-8"))
+        _fb_sha = {r["record_id"]: hashlib.sha256(r["fb"].encode("utf-8")).hexdigest()
+                   for r in _rel_ds["records"]}
+        test("RT016.mini_release_emits_real_source_catalog",
+             _proc.returncode == 0
+             and len(_rel_cat["snapshots"]) == len(_rel_ds["records"]) == 8
+             and all(len(e["record_id"]) == 36
+                     and str(_uuid.UUID(e["record_id"])) == e["record_id"]
+                     and e["source_snapshot_id"].startswith("ss-")
+                     and len(e["evidence_text_sha256"]) == 64
+                     and e["evidence_eligibility"] in
+                     ("CITATION_ELIGIBLE", "RETRIEVAL_ONLY", "QUARANTINED")
+                     and e.get("extractor_version") == "mini-runtime-v1"
+                     and e.get("access_scope") == "test-fixture"
+                     and _fb_sha[e["record_id"]] == e["evidence_text_sha256"]
+                     for e in _rel_cat["snapshots"]))
+        _man_path = next((_rel / "catalog").glob("manifest-*.json"))
+        _man = json.loads(_man_path.read_text("utf-8"))
+        _resources = load_release_resources(_man, release_root=_rel)
+        test("RT017.mini_release_startup_loads_catalog",
+             len(_resources["records"]) == 8
+             and _resources["source_catalog"]["snapshots"]
+             == _rel_cat["snapshots"])
+        # store-level negative: hash-consistent manifest around a catalog
+        # whose declared hash disagrees with the dataset evidence text.
+        _tampered = json.loads(json.dumps(_rel_cat))
+        _tampered["snapshots"][0]["evidence_text_sha256"] = "3" * 64
+        _cat_art.write_text(json.dumps(_tampered), "utf-8")
+        _bad_paths = {name: _rel / entry["path"]
+                      for name, entry in _man["artifacts"].items()}
+        _forged = build_global_manifest(
+            release_root=_rel, artifacts=_bad_paths,
+            profile=_man["profile"], models=_man["models"],
+            created_at=_man["created_at"])
+        from release_manifest import ReleaseCatalog as _RC
+        test("RT016.mini_release_wrong_catalog_rejected_at_store",
+             raises(ValueError, lambda: _RC(_rel / "catalog", _rel).store(_forged)))
     catalog.activate(ma["manifest_id"])
     class Resource:
         def __init__(self): self.closed=False
@@ -408,6 +527,26 @@ def test_rt018_restore_rehearsal_strict_starts_prior_runtime(): _assert_case("RT
 def test_rt018_corrupt_artifact_restore_fails(): _assert_case("RT018.corrupt_artifact_restore_fails")
 def test_rt018_referenced_manifest_artifacts_retained(): _assert_case("RT018.referenced_manifest_artifacts_retained")
 def test_rt018_incomplete_unreferenced_build_removed(): _assert_case("RT018.incomplete_unreferenced_build_removed")
+def test_rt016_manifest_missing_source_catalog_rejected(): _assert_case("RT016.manifest_missing_source_catalog_rejected")
+def test_rt016_catalog_validator_accepts_good(): _assert_case("RT016.catalog_validator_accepts_good")
+def test_rt016_catalog_not_a_dict_rejected(): _assert_case("RT016.catalog_not_a_dict_rejected")
+def test_rt016_catalog_empty_dict_rejected(): _assert_case("RT016.catalog_empty_dict_rejected")
+def test_rt016_catalog_snapshots_not_a_list_rejected(): _assert_case("RT016.catalog_snapshots_not_a_list_rejected")
+def test_rt016_catalog_snapshots_empty_rejected(): _assert_case("RT016.catalog_snapshots_empty_rejected")
+def test_rt016_catalog_missing_record_id_rejected(): _assert_case("RT016.catalog_missing_record_id_rejected")
+def test_rt016_catalog_missing_source_snapshot_id_rejected(): _assert_case("RT016.catalog_missing_source_snapshot_id_rejected")
+def test_rt016_catalog_duplicate_record_id_rejected(): _assert_case("RT016.catalog_duplicate_record_id_rejected")
+def test_rt016_catalog_snapshot_id_collision_rejected(): _assert_case("RT016.catalog_snapshot_id_collision_rejected")
+def test_rt016_catalog_wrong_sha_format_rejected(): _assert_case("RT016.catalog_wrong_sha_format_rejected")
+def test_rt016_catalog_dataset_record_missing_rejected(): _assert_case("RT016.catalog_dataset_record_missing_rejected")
+def test_rt016_catalog_hash_mismatch_vs_dataset_rejected(): _assert_case("RT016.catalog_hash_mismatch_vs_dataset_rejected")
+def test_rt016_catalog_eligibility_mismatch_rejected(): _assert_case("RT016.catalog_eligibility_mismatch_rejected")
+def test_rt016_wrong_catalog_rejected_at_store(): _assert_case("RT016.wrong_catalog_rejected_at_store")
+def test_rt017_startup_bad_catalog_fails_closed(): _assert_case("RT017.startup_bad_catalog_fails_closed")
+def test_rt017_startup_good_catalog_loads(): _assert_case("RT017.startup_good_catalog_loads")
+def test_rt016_mini_release_emits_real_source_catalog(): _assert_case("RT016.mini_release_emits_real_source_catalog")
+def test_rt017_mini_release_startup_loads_catalog(): _assert_case("RT017.mini_release_startup_loads_catalog")
+def test_rt016_mini_release_wrong_catalog_rejected_at_store(): _assert_case("RT016.mini_release_wrong_catalog_rejected_at_store")
 
 for named_case in [value for key, value in list(globals().items()) if key.startswith("test_rt") and callable(value)]:
     named_case()

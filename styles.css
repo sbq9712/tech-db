@@ -2425,6 +2425,13 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
   font-weight: 500;
   color: var(--text-primary);
   flex: 1;
+  /* RT-029: long source titles stay on ONE line (no awkward mid-word wraps
+     in narrow viewports); overflow degrades to an ellipsis instead of
+     breaking card layout. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 .qa-citation-meta {
   font-size: 11px;

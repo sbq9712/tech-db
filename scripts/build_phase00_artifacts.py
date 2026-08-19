@@ -38,6 +38,7 @@ SUITES = {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
+    "visual_rt029": "qa-backend/tests_visual_rt029.py",
 }
 
 
@@ -127,6 +128,14 @@ def _phase01_case(name: str, level: str = "integration") -> dict:
 def _phase02_case(name: str, level: str = "integration") -> dict:
     return {"suite": "remediation_phase02", "case": "test_" + name.replace(".", "_").lower(), "level": level,
             "command": "python qa-backend/tests_remediation_phase02.py"}
+
+
+def _visual_case(name: str) -> dict:
+    """RT-029 real-browser visual regression case (visual_rt029 suite)."""
+    return {"suite": "visual_rt029",
+            "case": "test_" + name.replace(".", "_").lower(),
+            "level": "e2e",
+            "command": "python qa-backend/tests_visual_rt029.py"}
 
 
 BENCHMARK_MARKERS = (
@@ -388,16 +397,25 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
         "RT-029": [
             ("invalid citation object cannot render even from stale client state", ["RT029.schema_invalidation_strips_stale_snippet", "RT029.schema2_invalid_dropped"]),
             ("source roles categorical and non-misleading", ["RT029.support_rendered_distinct", "RT029.contradicts_rendered_distinct", "RT029.background_rendered_distinct"]),
-            ("mobile/desktop visual regression coverage", []),  # NOT_SATISFIED — no visual regression harness yet
+            ("real-browser (Chromium) desktop+mobile visual regression with golden pixel diff and mutation detection",
+             ["RT029.visual_supported_full_desktop", "RT029.visual_supported_full_mobile",
+              "RT029.visual_partial_desktop", "RT029.visual_partial_mobile",
+              "RT029.visual_unverified_desktop", "RT029.visual_unverified_mobile",
+              "RT029.visual_stale_invalid_desktop", "RT029.visual_stale_invalid_mobile",
+              "RT029.visual_pre20_stripped_desktop", "RT029.visual_pre20_stripped_mobile",
+              "RT029.visual_mutation_detected_desktop", "RT029.visual_mutation_detected_mobile",
+              "RT029.visual_mutation_layout_assert_desktop", "RT029.visual_mutation_layout_assert_mobile"]),
         ],
     }
     for rt_id, specs in phase02_dods.items():
         dods = []
         for number, (description, cases) in enumerate(specs, 1):
             if cases:
+                case_fn = _visual_case if str(cases[0]).startswith(
+                    "RT029.visual_") else _phase02_case
                 dods.append({"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
                              "status": "SATISFIED",
-                             "test_cases": [_phase02_case(case) for case in cases]})
+                             "test_cases": [case_fn(case) for case in cases]})
             else:
                 dods.append({"dod_id": f"{rt_id}.DOD-{number:02d}", "description": description,
                              "status": "NOT_SATISFIED",

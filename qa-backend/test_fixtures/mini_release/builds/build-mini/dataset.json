@@ -1,0 +1,77 @@
+{
+  "records": [
+    {
+      "b": "",
+      "c": "fixture/energy",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic alpha unit stores industrial heat at 600 degrees and returns steam on demand.",
+      "legacy_idx": 0,
+      "record_id": "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2",
+      "t": "Synthetic thermal storage alpha"
+    },
+    {
+      "b": "",
+      "c": "fixture/battery",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic beta cell uses a solid electrolyte and reports an energy density of 400 watt-hours per kilogram.",
+      "legacy_idx": 1,
+      "record_id": "ab64b478-6437-5fa3-9d39-d7b1b57c889b",
+      "t": "Synthetic solid battery beta"
+    },
+    {
+      "b": "",
+      "c": "fixture/solar",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic gamma tandem device has a certified conversion efficiency of 28 percent.",
+      "legacy_idx": 2,
+      "record_id": "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0",
+      "t": "Synthetic tandem solar gamma"
+    },
+    {
+      "b": "",
+      "c": "fixture/recycling",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic delta plant converts retired cells into black mass for controlled recycling tests.",
+      "legacy_idx": 3,
+      "record_id": "9f05d19b-1226-511b-94f7-c39d7298041f",
+      "t": "Synthetic recycling delta"
+    },
+    {
+      "b": "",
+      "c": "fixture/robotics",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic epsilon robot learns a bounded manipulation sequence from recorded demonstrations.",
+      "legacy_idx": 4,
+      "record_id": "09dc42c6-a032-55ad-8474-4aabd968a610",
+      "t": "Synthetic robot epsilon"
+    },
+    {
+      "b": "",
+      "c": "fixture/hydrogen",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic zeta material releases hydrogen under controlled illumination in the fixture.",
+      "legacy_idx": 5,
+      "record_id": "ddaeed5f-0dad-562e-8604-497d4d370b26",
+      "t": "Synthetic hydrogen zeta"
+    },
+    {
+      "b": "",
+      "c": "fixture/computing",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic eta memory retains a binary state during a high-temperature fixture test.",
+      "legacy_idx": 6,
+      "record_id": "05b06c4e-fa50-58da-b67d-0b83bc34aaf6",
+      "t": "Synthetic memory eta"
+    },
+    {
+      "b": "",
+      "c": "fixture/control",
+      "evidence_eligibility": "CITATION_ELIGIBLE",
+      "fb": "The synthetic theta controller coordinates a deterministic mini-runtime health check.",
+      "legacy_idx": 7,
+      "record_id": "38df1870-74eb-5f86-883b-5f25071cfaeb",
+      "t": "Synthetic control theta"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

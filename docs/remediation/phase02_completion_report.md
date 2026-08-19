@@ -1,6 +1,6 @@
-# Phase 02 completion evidence — RESULT: PARTIAL
+# Phase 02 completion evidence — RESULT: DONE
 
-Per-ticket status (post acceptance re-audit 2026-08-18):
+Per-ticket status (post third acceptance-review remediation 2026-08-18):
 
 | Ticket | Status | Note |
 |---|---|---|
@@ -13,11 +13,11 @@ Per-ticket status (post acceptance re-audit 2026-08-18):
 | RT-026 bounded repair loop | DONE | retrieve_fn wired; regeneration runs on an allowlisted evidence-scoped package; full post-repair re-check pass |
 | RT-027 terminal renderer + post-verification SSE | DONE | incl. profile semantics (QA_PIPELINE_PROFILE applies at import) |
 | RT-028 done-event / citation schema hardening | DONE | |
-| RT-029 frontend evidence-state rendering | **PARTIAL** | node-run behavioral checks delivered; visual-regression (desktop/mobile) DoD NOT_SATISFIED — no harness exists |
+| RT-029 frontend evidence-state rendering | DONE | node-run behavioral checks + real-browser (Chromium) visual regression suite `tests_visual_rt029.py`: deterministic local fixtures (no live tunnel), desktop 1280×800 + mobile 390×844 viewports, committed golden screenshots with pixel diff, layout/geometry/computed-style assertions, and a mutation case proving the harness detects broken layouts. Registered as required CI gate `rt029-visual-regression` and in `run_all_tests.py` (suite `visual_rt029`). RT-029.DOD-03 SATISFIED with named executable evidence. |
 
-Phase verdict: **PARTIAL** — RT-029's visual-regression DoD is unmet, so the
-phase cannot claim full completion. No other Phase-02 DoD is claimed without
-named executable evidence.
+Phase verdict: **DONE** — all Phase-02 DoDs carry named executable evidence;
+no DoD is claimed SATISFIED without a runnable check (acceptance matrix stays
+honest; RT-005 remains BLOCKED_EXTERNAL_ACTION outside Phase-02 scope).
 
 Scope: RT-020 through RT-029 (citation grounding, typed relations, numeric
 provenance, coverage gate, canonical state machine, fail-safe verifier, bounded
@@ -26,14 +26,24 @@ top of accepted Phase-01 baseline `cdc589646085d2aa770c9b6835c99b310a170ad2`.
 
 ## Behavioral evidence
 
-- `python qa-backend/tests_remediation_phase02.py`: 145 passed, 0 failed
+- `python qa-backend/tests_remediation_phase02.py`: 155 passed, 0 failed
   (unit/integration cases per ticket + real ASGI SSE E2E + node-run frontend
   checks over the shipped `qa.js`; includes acceptance-review fix cases:
   stable record identity, request-pinned runtime E2E, complete verifier
   EvidenceRefs with fail-closed negatives, wired repair with full re-check,
   and fresh-process QA_PIPELINE_PROFILE semantics A-D; plus the second review
   round: request-pinned source_catalog binding, deterministic EvidenceRef
-  consistency verification, and evidence-scoped regeneration).
+  consistency verification, and evidence-scoped regeneration; third review
+  round: manifest-mode fail-closed source_catalog matrix at
+  pipeline/build/store/startup levels with a real producer
+  (`build_source_catalog` → mini-runtime `source_catalog.json` artifact →
+  `scripts/build_mini_release.py` full validated release), and targeted
+  retrieval → validated → UPDATED Evidence-Package → regenerate ordering
+  proof).
+- `python qa-backend/tests_visual_rt029.py`: 14 passed, 0 failed — real
+  Chromium, desktop + mobile, golden pixel diff + mutation detection
+  (also wired into `run_all_tests.py --tier push` as suite `visual_rt029`
+  and into CI as required gate `rt029-visual-regression`).
 - `python qa-backend/run_all_tests.py --tier push`: all suites green (final
   count recorded in `qa-backend/test_summary.json`).
 - canonical spec lint + negative-fixture self-test: PASS.
@@ -113,11 +123,24 @@ disabling the two new Phase-02 flags (fresh-process tests A-D:
   directly corresponding behavioral evidence (T033 expandable-context,
   jump-to-original, visual layout; T046 premise-chain traceability; T048
   grader independence statistics and provenance-uncertainty retention).
-- RT-029 is PARTIAL, not DONE: the node-run behavioral checks (schema
-  invalidation, four-state config/banner, role-distinct rendering chips,
-  INVALID dropped from stale state) are real and delivered, but the frozen
-  DoD "mobile/desktop visual regression coverage" has no harness and stays
-  NOT_SATISFIED — therefore the phase verdict is PARTIAL.
+- RT-029 is DONE as of the third review round: the node-run behavioral
+  checks (schema invalidation, four-state config/banner, role-distinct
+  rendering chips, INVALID dropped from stale state) are real and delivered,
+  AND the frozen DoD "mobile/desktop visual regression coverage" is now
+  SATISFIED by `qa-backend/tests_visual_rt029.py` — a real-browser
+  (Playwright/Chromium) suite with deterministic local SSE fixtures (no
+  live-tunnel dependency), desktop (1280×800) and mobile (390×844)
+  viewports, committed golden screenshots
+  (`qa-backend/test_fixtures/visual_goldens/rt029/`) compared with a
+  deterministic pixel diff, real layout/geometry/computed-style assertions
+  (distinct CONTRADICTS/BACKGROUND/support colors, PARTIALLY_SUPPORTED
+  supported/unresolved sections, UNVERIFIED banner + degraded chips,
+  TEXT_SPAN locator chips, stale/INVALID citations never rendered, long
+  source titles single-line with ellipsis), plus a mutation/sanity case
+  that deliberately breaks the layout and MUST fail the diff. The suite is
+  CI-repeatable (registered as required gate `rt029-visual-regression` in
+  `.github/workflows/remediation-gates.yml`, suite `visual_rt029` in
+  `run_all_tests.py`) — therefore the phase verdict is DONE.
 - RT-005 remains BLOCKED_EXTERNAL_ACTION (repository administrator action).
 - `verify_final` retry exists and is covered (`RT025.transient_error_retries_
   then_succeeds`); a transient transport error retries once and passes, while

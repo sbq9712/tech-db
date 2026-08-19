@@ -46,7 +46,8 @@
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
-    "remediation_phase02": "qa-backend/tests_remediation_phase02.py"
+    "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
+    "visual_rt029": "qa-backend/tests_visual_rt029.py"
   },
   "legacy_ticket_entries": [
     {
@@ -14832,16 +14833,92 @@
         },
         {
           "dod_id": "RT-029.DOD-03",
-          "description": "mobile/desktop visual regression coverage",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase 02 ships no visual-regression harness; no completion credit.",
-          "planned_test_cases": [
+          "description": "real-browser (Chromium) desktop+mobile visual regression with golden pixel diff and mutation detection",
+          "status": "SATISFIED",
+          "test_cases": [
             {
-              "case": "test_rt_029_dod_03_visual_regression",
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_supported_full_desktop",
               "level": "e2e",
-              "future_rt": [
-                "RT-029"
-              ]
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_supported_full_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_partial_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_partial_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_unverified_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_unverified_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_stale_invalid_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_stale_invalid_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_pre20_stripped_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_pre20_stripped_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_mutation_detected_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_mutation_detected_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_mutation_layout_assert_desktop",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
+            },
+            {
+              "suite": "visual_rt029",
+              "case": "test_rt029_visual_mutation_layout_assert_mobile",
+              "level": "e2e",
+              "command": "python qa-backend/tests_visual_rt029.py"
             }
           ]
         }
