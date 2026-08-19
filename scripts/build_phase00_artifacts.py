@@ -335,6 +335,7 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             ("multiple non-contiguous spans supported with exact offsets", ["RT020.multi_span_concatenates_exact", "RT020.span_offsets_code_point_exact", "RT020.nfkc_variant_maps_exact_raw_range"]),
             ("durable record identity is a stable string record_id — never a list position (legacy_idx stays compatibility display only)", ["RT020.stable_record_id_survives_reorder", "RT020.no_stable_record_id_dropped", "RT020.record_id_map_resolves_stable_id"]),
             ("manifest-mode requests verify against the request-pinned RuntimeSnapshot; a mid-request release switch cannot change the evidence", ["X.pipeline_uses_pinned_records_e2e"]),
+            ("the request-pinned source_catalog is the ONLY snapshot authority: citation/EvidenceRef/numeric provenance bind to the pinned generation; records absent from it or diverging from its declared hash fail closed", ["X.pinned_source_catalog_binds_e2e", "X.new_request_binds_new_generation_e2e", "RT020.pinned_catalog_binds_snapshot_id", "RT020.record_missing_from_pinned_catalog_dropped", "RT020.pinned_snapshot_hash_mismatch_dropped"]),
         ],
         "RT-021": [
             ("BACKGROUND/CONTRADICTS never counted as support", ["RT021.background_never_supports", "RT021.ungrounded_citation_cannot_support"]),
@@ -364,12 +365,14 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             ("verifier output is structured findings only", ["RT025.no_rewritten_answer_field", "RT025.semantic_findings_failed_with_findings"]),
             ("verifier receives complete exact EvidenceRefs (stable record_id, snapshot binding, locators, exact_text, snapshot hash, eligibility, source role)", ["RT025.refs_complete_and_stable", "RT025.valid_ref_passes"]),
             ("structurally invalid / ineligible / position-keyed refs fail closed to UNVERIFIED", ["RT025.ref_missing_snapshot_unverified", "RT025.ref_ineligible_unverified", "RT025.ref_bad_sha_unverified", "RT025.ref_int_record_id_unverified", "RT025.ref_empty_locators_unverified"]),
+            ("refs are consistency-verified against the pinned immutable snapshot (deterministic, non-LLM): wrong hash value, locator pointing elsewhere, tampered exact_text, foreign-generation snapshot id, record_id mismatch all fail closed; non-empty claims with no refs can never be PASSED", ["RT025.ref_consistent_with_pinned_snapshot_passes", "RT025.ref_wrong_hash_value_unverified", "RT025.ref_locator_points_elsewhere_unverified", "RT025.ref_exact_text_tamper_unverified", "RT025.ref_foreign_generation_snapshot_unverified", "RT025.ref_record_id_mismatch_unverified", "RT025.claims_without_refs_cannot_pass"]),
         ],
         "RT-026": [
             ("core unsupported claim cannot be deleted then declared complete", ["RT026.core_claim_never_deleted"]),
             ("repair exhaustion has deterministic terminal state", ["RT026.deterministic_exhaustion_terminal", "RT026.max_cycles_is_two"]),
             ("every repair transition is traced; loop never upgrades support itself", ["RT026.every_transition_traced", "RT026.repair_never_upgrades_to_supported_itself"]),
             ("targeted re-retrieval (retrieve_fn) and regeneration (regenerate_fn) are wired end-to-end; a repaired draft re-runs the FULL check pass before verification", ["RT026.retrieve_fn_wired_adds_citation", "RT026.recheck_regrounds_repaired_draft", "RT026.regenerate_fn_honored", "RT026.full_recheck_pass_runs"]),
+            ("regeneration input is an allowlisted Evidence-Package-compatible package (question/scope, VALID exact EvidenceRefs, verified support relations, deterministic results, keep/drop/core-gap); synthetic summaries, ungrounded text and raw retrieval dumps are structurally absent; anything regenerate_fn reintroduces (new unsupported fact, tampered number) is blocked by the full re-check pass; only exact-grounded retrieved evidence becomes support", ["RT026.repair_input_carries_exact_evidence_refs", "RT026.synthetic_summary_never_enters_repair_input", "RT026.regen_unsupported_fact_blocked", "RT026.regen_number_tamper_blocked", "RT026.retrieved_ungroundable_evidence_dropped"]),
         ],
         "RT-027": [
             ("user never receives an unverified full factual draft in normal new profile", ["RT027.no_tokens_before_first_citations_event", "RT027.no_citations_before_verification", "X.legacy_path_preserved_behind_flag"]),

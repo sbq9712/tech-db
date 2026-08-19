@@ -1556,6 +1556,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                               if _p02_snap is not None else None)
                 _p02_rid_map = (_runtime_resource("record_id_map", None)
                                 if _p02_snap is not None else None)
+                # Request-pinned snapshot AUTHORITY (Phase-02 review): in
+                # manifest mode resources["source_catalog"] is the ONLY
+                # snapshot authority for grounding/refs/numeric provenance;
+                # the WORKING_DIR SourceSnapshotStore must NOT be consulted
+                # (it can reflect a newer generation than the pinned one).
+                if _p02_snap is not None:
+                    _p02_catalog = _runtime_resource("source_catalog", None)
+                    _p02_store = None
+                else:
+                    _p02_catalog = None
 
                 # RT-026 full wiring: server-injected closures.
                 async def _p02_retrieve(claim_text: str):
@@ -1588,14 +1598,24 @@ async def chat_stream(req: ChatRequest, request: Request):
                         })
                     return out
 
-                async def _p02_regenerate(current_answer: str, drop_ids=None):
-                    """Optional LLM regeneration honoring keep/drop (RT-026
-                    strategy 5). Failure → None (repair keeps its answer)."""
+                async def _p02_regenerate(current_answer: str, drop_ids=None,
+                                          evidence_package=None):
+                    """RT-026 evidence-scoped regeneration: the LLM sees ONLY
+                    the allowlisted Evidence-Package-compatible input built
+                    by the pipeline (question/scope, VALID exact EvidenceRefs
+                    with stable record_id + source_snapshot_id + locators +
+                    exact_text, verified support relations, deterministic
+                    numeric results, keep/drop/core-gap instructions). Raw
+                    retrieval dumps, synthetic summaries, ungrounded text
+                    and generator reasoning are structurally absent. Failure
+                    → None (repair keeps its deterministic answer)."""
                     try:
+                        from phase02_pipeline import render_repair_evidence_input
+                        rendered = render_repair_evidence_input(evidence_package)
                         return await llm_model_func(
-                            "根据以下可支持证据重写回答，只保留有证据支持的句子，"
-                            f"删除这些缺乏支持的要点：{list(drop_ids or [])}。"
-                            f"回答：{current_answer}",
+                            "根据以下可支持证据重写回答。只能使用证据包中的精确引用"
+                            "与确定性检查结果作为事实依据，不得引入证据之外的新事实，"
+                            "删除标记为缺乏支持的要点。\n\n" + rendered,
                             system_prompt="你是严谨的技术问答助手，只输出重写后的回答。",
                         )
                     except Exception:
@@ -1615,6 +1635,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     active_profile=_p02_profile,
                     runtime_manifest_id=_p02_snap.manifest_id if _p02_snap else "",
                     source_snapshot_store=_p02_store,
+                    source_catalog=_p02_catalog,
                 )
                 final_answer = p02["answer"]
 
@@ -1668,6 +1689,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         str(c.get("id")): c.get("supports_claim_ids", [])
                         for c in p02["citations"]},
                     "degraded_capabilities": p02["degraded_capabilities"],
+                    "numeric_facts": p02["numeric_facts"],
                     "diagnostics": p02["diagnostics"],
                     "trace_id": trace.trace_id,
                 })}

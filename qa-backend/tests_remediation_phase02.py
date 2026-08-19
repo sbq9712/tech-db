@@ -11,6 +11,7 @@ from __future__ import annotations
 import sys
 import os
 import json
+import hashlib
 import asyncio
 import tempfile
 from pathlib import Path
@@ -104,7 +105,7 @@ def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
                  profile="agentic_correctness_core", verify_exc=None,
                  records_by_id=None, record_id_map=None,
                  retrieve_fn=None, regenerate_fn=None, trace=None,
-                 _claims_fn=None):
+                 _claims_fn=None, source_catalog=None):
     import phase02_pipeline as p2
     if claims is None and _claims_fn is None:
         claims = claims_fixture()
@@ -119,7 +120,8 @@ def run_pipeline(citations=None, draft=DRAFT, records=None, claims=None,
         llm_claim_map=_claims_fn or _map,
         llm_verify=make_verifier(verifier, fail_claims, verify_exc),
         retrieve_fn=retrieve_fn, regenerate_fn=regenerate_fn, trace=trace,
-        budget_reserve=budget, active_profile=profile)
+        budget_reserve=budget, active_profile=profile,
+        source_catalog=source_catalog)
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -198,6 +200,72 @@ def rt020_cases():
     test("RT020.invalid_citation_not_rendered_as_normal_evidence",
          p2["citations"] == [] and p2["invalid_citations"]
          and p2["answer_status"] != "SUPPORTED")
+
+    # ── Pinned source_catalog binding (Phase-02 review blocker 1) ─────────
+    # In manifest mode the request-pinned source_catalog is the ONLY
+    # snapshot authority: snapshot ids, refs and numeric provenance bind to
+    # it; records absent from it (or diverging from its declared hash)
+    # fail closed.
+    from source_snapshot import SourceSnapshot
+
+    _bw_raw = SourceSnapshot.from_record(
+        "rec-blackwell", RECORD_BLACKWELL).raw_text
+    _bw_sha = hashlib.sha256(_bw_raw.encode("utf-8")).hexdigest()
+    pinned_catalog = {"snapshots": [
+        {"record_id": "rec-blackwell", "source_snapshot_id": "snapshot-gen-a-1",
+         "evidence_text_sha256": _bw_sha,
+         "evidence_eligibility": "CITATION_ELIGIBLE"},
+    ]}
+    _cat_cap = {"refs": None}
+
+    async def _cat_verify(query, atomic, refs, det=None):
+        _cat_cap["refs"] = refs
+        return await make_verifier("PASSED")(query, atomic, refs, det)
+
+    import phase02_pipeline as _p2m
+
+    async def _cat_map(q, a, c):
+        return claims_fixture()
+
+    pc = asyncio.run(_p2m.run_phase02_verification(
+        query="NVLink带宽多少", draft_answer=DRAFT,
+        citations=citations_fixture(), records=RECORDS,
+        llm_claim_map=_cat_map, llm_verify=_cat_verify,
+        source_catalog=pinned_catalog))
+    test("RT020.pinned_catalog_binds_snapshot_id",
+         pc["citations"]
+         and all(c.get("source_snapshot_id") == "snapshot-gen-a-1"
+                 for c in pc["citations"]
+                 if c.get("record_id") == "rec-blackwell")
+         and (_cat_cap["refs"] is None
+              or all(r.get("source_snapshot_id") == "snapshot-gen-a-1"
+                     for r in _cat_cap["refs"]
+                     if r.get("record_id") == "rec-blackwell"))
+         and all(f.get("evidence_ref", {}).get("source_snapshot_id")
+                 == "snapshot-gen-a-1"
+                 for f in pc["numeric_facts"]
+                 if f.get("record_id") == "rec-blackwell"))
+
+    no_entry_catalog = {"snapshots": [
+        {"record_id": "rec-someone-else", "source_snapshot_id": "snapshot-x"}]}
+    pnc = asyncio.run(run_pipeline(source_catalog=no_entry_catalog))
+    test("RT020.record_missing_from_pinned_catalog_dropped",
+         pnc["citations"] == []
+         and any(iv.get("invalid_reason") == "record_not_in_pinned_source_catalog"
+                 for iv in pnc["invalid_citations"])
+         and pnc["answer_status"] != "SUPPORTED")
+
+    bad_hash_catalog = {"snapshots": [
+        {"record_id": "rec-blackwell", "source_snapshot_id": "snapshot-gen-a-1",
+         "evidence_text_sha256": "0" * 64,  # declared hash ≠ record content
+         "evidence_eligibility": "CITATION_ELIGIBLE"},
+    ]}
+    phm = asyncio.run(run_pipeline(source_catalog=bad_hash_catalog))
+    test("RT020.pinned_snapshot_hash_mismatch_dropped",
+         phm["citations"] == []
+         and any(iv.get("invalid_reason") == "pinned_snapshot_hash_mismatch"
+                 for iv in phm["invalid_citations"])
+         and phm["answer_status"] != "SUPPORTED")
 
 
 rt020_cases()
@@ -516,41 +584,64 @@ def rt025_cases():
             "overall_passed": False})
 
     claims = [{"id": "c1", "text": "t1"}, {"id": "c2", "text": "t2"}]
+
+    # Valid EvidenceRef against a known pinned snapshot — transport/semantic
+    # tests must exercise the verifier WITH real evidence (Phase-02 review:
+    # non-empty claims with evidence_refs=[] can never be PASSED).
+    _pin_text = "NVIDIA Blackwell NVLink双向带宽达到1.8TB/s，支持576GPU扩展。"
+    _pin_sha = hashlib.sha256(_pin_text.encode("utf-8")).hexdigest()
+
+    def _pinned_snap(ref):
+        return {"record_id": "rec-1", "source_snapshot_id": "ss-pin-1",
+                "evidence_text": _pin_text, "evidence_text_sha256": _pin_sha,
+                "eligibility": "CITATION_ELIGIBLE"}
+
+    def _consistent_ref():
+        span = "NVLink双向带宽达到1.8TB/s"
+        i = _pin_text.find(span)
+        return {"evidence_id": "e1", "record_id": "rec-1",
+                "source_snapshot_id": "ss-pin-1",
+                "locators": [{"locator_type": "TEXT_SPAN",
+                              "start": i, "end": i + len(span)}],
+                "exact_text": span, "evidence_text_sha256": _pin_sha,
+                "eligibility": "CITATION_ELIGIBLE", "source_role": "primary"}
+
+    valid_refs = [_consistent_ref()]
     old = vf.llm_model_func
     old_timeout = vf.VERIFY_TIMEOUT
     try:
         vf.llm_model_func = llm_timeout
         vf.VERIFY_TIMEOUT = 1  # don't wait the default 60s in tests
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.timeout_maps_unverified",
              r.status == "UNVERIFIED" and r.failure_class == "timeout")
         vf.VERIFY_TIMEOUT = old_timeout
         vf.llm_model_func = llm_429
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.http_429_maps_unverified",
              r.status == "UNVERIFIED" and r.failure_class == "http_429")
         vf.llm_model_func = llm_5xx
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.http_5xx_maps_unverified",
              r.status == "UNVERIFIED" and r.failure_class == "http_5xx")
         vf.llm_model_func = llm_garbage
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.malformed_json_unverified",
              r.status == "UNVERIFIED" and r.failure_class == "json_parse_failed")
         vf.llm_model_func = llm_missing
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.missing_fields_unverified",
              r.status == "UNVERIFIED" and r.failure_class == "missing_fields")
         vf.llm_model_func = llm_bad_verdict
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.invalid_verdict_unverified",
              r.status == "UNVERIFIED")
         vf.llm_model_func = llm_partial
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.partial_claim_coverage_unverified",
              r.status == "UNVERIFIED")
         vf.llm_model_func = llm_fail
-        r = asyncio.run(verify_final("q", claims, [], max_retries=0))
+        r = asyncio.run(verify_final("q", claims, valid_refs, max_retries=0))
         test("RT025.semantic_findings_failed_with_findings",
              r.status == "FAILED"
              and any(f["verdict"] == "FAIL" for f in r.findings))
@@ -593,12 +684,71 @@ def rt025_cases():
     old_fn = vf_mod.llm_model_func
     try:
         vf_mod.llm_model_func = flaky_llm
-        r2 = asyncio.run(verify_final("q", [{"id": "c1", "text": "t1"}], [],
+        # Phase-02 review fix: transient-retry success requires REAL valid
+        # evidence refs — non-empty claims with refs=[] can never be PASSED.
+        r2 = asyncio.run(verify_final("q", [{"id": "c1", "text": "t1"}],
+                                      [_consistent_ref()],
                                       max_retries=1))
         test("RT025.transient_error_retries_then_succeeds",
              r2.status == "PASSED" and calls["n"] == 2)
     finally:
         vf_mod.llm_model_func = old_fn
+
+    # ── RT-025 consistency contract: ref VALUES must match the pinned
+    # immutable snapshot (deterministic, non-LLM pre-validation). Correct
+    # format + wrong value ⇒ fail closed, never PASSED.
+    async def _ok_llm(prompt, system_prompt=None, history_messages=None, **kw):
+        return json.dumps({"claims": [{"claim_id": "c1", "verdict": "PASS",
+                                       "reason": "ok"}],
+                           "overall_passed": True})
+
+    def _run_consistency(ref, lookup=_pinned_snap):
+        async def _one():
+            old_f = vf_mod.llm_model_func
+            vf_mod.llm_model_func = _ok_llm
+            try:
+                return await vf_mod.verify_final(
+                    "q", [{"id": "c1", "text": "t"}], [ref],
+                    max_retries=0, snapshot_lookup=lookup)
+            finally:
+                vf_mod.llm_model_func = old_f
+        return asyncio.run(_one())
+
+    r = _run_consistency(_consistent_ref())
+    test("RT025.ref_consistent_with_pinned_snapshot_passes",
+         r.status == "PASSED")
+    wrong_hash = _consistent_ref()
+    wrong_hash["evidence_text_sha256"] = "b" * 64  # well-formed, WRONG value
+    r = _run_consistency(wrong_hash)
+    test("RT025.ref_wrong_hash_value_unverified",
+         r.status == "UNVERIFIED" and r.failure_class == "invalid_evidence_ref"
+         and "evidence_text_sha256_mismatch" in r.failure_reason)
+    misplaced = _consistent_ref()
+    # Offsets valid but pointing at a DIFFERENT region of the snapshot.
+    misplaced["locators"] = [{"locator_type": "TEXT_SPAN", "start": 0, "end": 15}]
+    r = _run_consistency(misplaced)
+    test("RT025.ref_locator_points_elsewhere_unverified",
+         r.status == "UNVERIFIED" and "exact_text_mismatch" in r.failure_reason)
+    tampered = _consistent_ref()
+    tampered["exact_text"] = "带宽达到9.9TB/s"  # tampered quote
+    r = _run_consistency(tampered)
+    test("RT025.ref_exact_text_tamper_unverified",
+         r.status == "UNVERIFIED" and "exact_text_mismatch" in r.failure_reason)
+    foreign = _consistent_ref()
+    foreign["source_snapshot_id"] = "snapshot-generation-b"  # another gen
+    r = _run_consistency(foreign)
+    test("RT025.ref_foreign_generation_snapshot_unverified",
+         r.status == "UNVERIFIED" and "source_snapshot_id_mismatch"
+         in r.failure_reason)
+    rid_mismatch = _consistent_ref()
+    rid_mismatch["record_id"] = "rec-999"
+    r = _run_consistency(rid_mismatch)
+    test("RT025.ref_record_id_mismatch_unverified",
+         r.status == "UNVERIFIED" and "record_id_mismatch" in r.failure_reason)
+    r = asyncio.run(verify_final("q", [{"id": "c1", "text": "t1"}], [],
+                                 max_retries=0))
+    test("RT025.claims_without_refs_cannot_pass",
+         r.status == "UNVERIFIED" and r.failure_class == "invalid_evidence_ref")
 
 
 rt025_cases()
@@ -1192,6 +1342,169 @@ def acceptance_fix_cases():
          grounding_passes == [1, 2])
 
 
+# ── RT-026 evidence-scoped regeneration (Phase-02 review blocker 3) ───────
+# The regeneration input is an allowlisted Evidence-Package-compatible
+# structure; synthetic summaries / ungrounded text / raw retrieval dumps
+# are structurally absent, and anything regenerate_fn reintroduces is
+# re-checked by the full second pass (coverage / grounding / numeric).
+from phase02_pipeline import build_repair_evidence_package, render_repair_evidence_input
+
+_repair_records2 = [
+    RECORD_BLACKWELL,
+    {"record_id": "rec-hbm", "legacy_idx": 3, "t": "HBM3e", "d": "2026-03-01",
+     "a": "MemNews", "c": "chip", "b": "", "fb": "HBM3e内存带宽达到1.2TB/s，通过验证测试。",
+     "source": "行业报道", "evidence_eligibility": "CITATION_ELIGIBLE"},
+    RECORD_SUMMARY_ONLY,
+]
+_unsupported_core2 = {"claims": [
+    {"id": "c9", "text": "HBM3e内存带宽达到1.2TB/s", "type": "NUMERIC_FACT",
+     "support_status": "UNSUPPORTED", "is_core": True, "supported_by": []}]}
+
+_captured_pkgs = []
+
+
+async def _cap_regen(answer, drop_ids=None, evidence_package=None):
+    _captured_pkgs.append(evidence_package)
+    return "NVLink双向带宽达到1.8TB/s。HBM3e内存带宽达到1.2TB/s。"
+
+
+async def _cap_map(query, answer, cits):
+    """Realistic mapper: once the retrieved HBM evidence exists as a
+    citation, the core claim is supported by its exact span."""
+    if any(c.get("record_id") == "rec-hbm" for c in cits):
+        return {"claims": [dict(_unsupported_core2["claims"][0],
+                                support_status="SUPPORTED",
+                                supported_by=[{
+                                    "citation_id": max(c.get("id") or 0
+                                                       for c in cits),
+                                    "relation": "DIRECT_SUPPORT",
+                                    "evidence_span":
+                                        "HBM3e内存带宽达到1.2TB/s"}])]}
+    return _unsupported_core2
+
+
+async def _retrieve_hbm2(claim_text):
+    return [{"record_id": "rec-hbm", "legacy_idx": 3,
+             "excerpt": "HBM3e内存带宽达到1.2TB/s"}]
+
+
+_r26_cits = [{"id": 1, "record_id": "rec-blackwell", "legacy_idx": 0,
+              "title": "Blackwell B200", "date": "2026-01-15", "source": "TechNews",
+              "excerpt": "NVLink双向带宽达到1.8TB/s",
+              "body_snippet": "NVLink双向带宽达到1.8TB/s"},
+             # Synthetic-summary citation — RETRIEVAL_ONLY, must be dropped
+             # and must NEVER enter the repair evidence input.
+             {"id": 2, "record_id": "rec-sum", "legacy_idx": 2,
+              "title": "AI摘要", "date": "2026-01-01", "source": "合成",
+              "excerpt": "AI生成的摘要内容SYNTHETIC-CANARY",
+              "body_snippet": "AI生成的摘要内容SYNTHETIC-CANARY"}]
+
+pr = asyncio.run(run_pipeline(
+    citations=_r26_cits, records=_repair_records2,
+    draft="HBM3e内存带宽达到1.2TB/s。",
+    _claims_fn=_cap_map, retrieve_fn=_retrieve_hbm2,
+    regenerate_fn=_cap_regen))
+_pkg = _captured_pkgs[-1] if _captured_pkgs else None
+test("RT026.repair_input_carries_exact_evidence_refs",
+     _pkg is not None
+     and _pkg.get("evidence_refs")
+     and any(r.get("record_id") == "rec-blackwell"
+             and isinstance(r.get("source_snapshot_id"), str)
+             and r["source_snapshot_id"]
+             and isinstance(r.get("locators"), list)
+             and isinstance(r["locators"][0].get("start"), int)
+             and r.get("exact_text")
+             and isinstance(r.get("evidence_text_sha256"), str)
+             and len(r["evidence_text_sha256"]) == 64
+             for r in _pkg["evidence_refs"]))
+_rendered_pkg = render_repair_evidence_input(_pkg or {})
+test("RT026.synthetic_summary_never_enters_repair_input",
+     "SYNTHETIC-CANARY" not in _rendered_pkg
+     and "AI生成的摘要内容" not in _rendered_pkg
+     # unselected retrieval text (a record present in `records` but never a
+     # valid citation) is equally absent from the repair input
+     and "本公司固态电池能量密度达到500Wh/kg" not in _rendered_pkg
+     and "rec-sum" not in _rendered_pkg)
+
+# regenerate_fn adds an unsupported NEW fact → the re-check pass blocks SUPPORTED
+async def _regen_new_fact(answer, drop_ids=None, evidence_package=None):
+    return answer + "此外，该公司总部位于火星表面。"
+
+
+async def _map_supported(query, answer, cits):
+    """Realistic mapper: maps what the CURRENT answer asserts. The pass-1
+    answer carries an unsupported side claim (repairs run); the regenerated
+    answer carries an entirely new fact instead — which must be UNCOVERED."""
+    claims = [{"id": "c1", "text": "NVLink双向带宽达到1.8TB/s", "type": "NUMERIC_FACT",
+               "support_status": "SUPPORTED",
+               "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT",
+                                 "evidence_span": "NVLink双向带宽达到1.8TB/s"}]}]
+    if "火星" not in answer:
+        # unsupported side claim — drives the bounded repair on pass 1
+        claims.append({"id": "c2", "text": "该GPU已通过可靠性认证",
+                       "type": "MAJOR_FACT", "support_status": "UNSUPPORTED",
+                       "supported_by": []})
+    return {"claims": claims}
+
+
+pr2 = asyncio.run(run_pipeline(
+    citations=_r26_cits, records=_repair_records2,
+    draft="NVLink双向带宽达到1.8TB/s。该GPU已通过可靠性认证。",
+    _claims_fn=_map_supported,
+    regenerate_fn=_regen_new_fact))
+test("RT026.regen_unsupported_fact_blocked",
+     pr2["answer_status"] != "SUPPORTED"
+     and pr2.get("coverage", {}).get("gate") == "FAIL")
+
+# regenerate_fn tampers a number → numeric re-check blocks SUPPORTED
+async def _regen_tamper(answer, drop_ids=None, evidence_package=None):
+    return "NVLink双向带宽达到9.9TB/s。"
+
+
+async def _map_tampered(query, answer, cits):
+    """Mapper extracts the claim from the CURRENT (tampered) answer — a
+    realistic mapper maps answer sentences, not a frozen fixture."""
+    if "9.9TB/s" in answer:
+        return {"claims": [
+            {"id": "c1", "text": "NVLink双向带宽达到9.9TB/s", "type": "NUMERIC_FACT",
+             "support_status": "SUPPORTED", "is_core": True,
+             "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT",
+                               "evidence_span": "NVLink双向带宽达到1.8TB/s"}]}]}
+    return {"claims": [
+        {"id": "c1", "text": "NVLink双向带宽达到1.8TB/s", "type": "NUMERIC_FACT",
+         "support_status": "SUPPORTED",
+         "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT",
+                           "evidence_span": "NVLink双向带宽达到1.8TB/s"}]},
+        {"id": "c2", "text": "该GPU已通过可靠性认证", "type": "MAJOR_FACT",
+         "support_status": "UNSUPPORTED", "supported_by": []}]}
+
+
+pr3 = asyncio.run(run_pipeline(
+    citations=_r26_cits, records=_repair_records2,
+    draft="NVLink双向带宽达到1.8TB/s。该GPU已通过可靠性认证。",
+    _claims_fn=_map_tampered,
+    regenerate_fn=_regen_tamper))
+test("RT026.regen_number_tamper_blocked",
+     pr3["answer_status"] != "SUPPORTED"
+     and any(cl.get("status") == "UNSUPPORTED"
+             for cl in pr3.get("claims_payload", [])))
+
+# targeted retrieval returns an UNGROUNDABLE excerpt → the new citation is
+# added but never becomes support (only exact-grounded evidence counts)
+async def _retrieve_ungroundable(claim_text):
+    return [{"record_id": "rec-hbm", "legacy_idx": 3,
+             "excerpt": "完全不相关的检索结果XYZ"}]
+
+
+pr4 = asyncio.run(run_pipeline(
+    citations=_r26_cits, records=_repair_records2,
+    draft="HBM3e内存带宽达到1.2TB/s。",
+    _claims_fn=_cap_map, retrieve_fn=_retrieve_ungroundable))
+test("RT026.retrieved_ungroundable_evidence_dropped",
+     all(c.get("record_id") != "rec-hbm" for c in pr4["citations"])
+     and pr4["answer_status"] != "SUPPORTED")
+
+
 def _run_pipeline_with_verify(verify):
     """run_pipeline with a custom verifier closure."""
     import phase02_pipeline as p2
@@ -1292,15 +1605,21 @@ def _pinned_snapshot_e2e_case():
             build = root / "builds" / f"build-{label}"
             build.mkdir(parents=True)
             rid = f"record-{label}-0001"
+            _fb = (f"body-{label} evidence text {label} "
+                   f"带宽{42 if label == 'a' else 88}GB/s")
+            _fb_sha = hashlib.sha256(_fb.encode("utf-8")).hexdigest()
             payloads = {
                 "dataset": {"records": [{"record_id": rid, "legacy_idx": 0,
                                          "t": f"title-{label}",
-                                         "fb": f"body-{label} evidence text {label}",
-                                         "b": f"body-{label} evidence text {label}",
+                                         "fb": _fb,
+                                         "b": _fb,
                                          "c": "fixture", "a": f"src-{label}"}]},
                 "record_id_map": {"mappings": [{"record_id": rid, "legacy_idx": 0}]},
                 "source_catalog": {"snapshots": [{"record_id": rid,
-                                                  "source_snapshot_id": f"snapshot-{label}"}]},
+                                                  "source_snapshot_id": f"snapshot-{label}",
+                                                  "evidence_text_sha256": _fb_sha,
+                                                  "evidence_eligibility":
+                                                      "CITATION_ELIGIBLE"}]},
                 "evidence_metadata": {"records": [{"record_id": rid,
                                                    "evidence_eligibility": "CITATION_ELIGIBLE"}]},
                 "identity_snapshot": {"entries": [{"record_id": rid}]},
@@ -1340,38 +1659,50 @@ def _pinned_snapshot_e2e_case():
             from verifier import VerificationResult
 
             switched = {"done": False}
+            gen = {"cur": "a"}       # which generation retrieval served
+            captured_refs = []       # refs the pipeline handed the verifier
+
+            def _fb_text(g):
+                return (f"body-{g} evidence text {g} "
+                        f"带宽{42 if g == 'a' else 88}GB/s")
 
             async def fake_hybrid_search(query, exclude_ids=None):
-                # Retrieval ran while generation A was current: it returns
-                # A's record (stable id from the pinned resource set).
-                return ([{"record_id": "record-a-0001", "legacy_idx": 0,
+                # Retrieval ran while its generation was current: it returns
+                # that generation's record (stable id from the pinned
+                # resource set of the REQUEST being served).
+                g = gen["cur"]
+                return ([{"record_id": f"record-{g}-0001", "legacy_idx": 0,
                           "score": 0.9,
-                          "meta": {"record_id": "record-a-0001", "legacy_idx": 0,
-                                   "t": "title-a", "a": "src-a"}}], True, "ok")
+                          "meta": {"record_id": f"record-{g}-0001",
+                                   "legacy_idx": 0,
+                                   "t": f"title-{g}", "a": f"src-{g}"}}], True, "ok")
 
             async def fake_llm_stream(prompt, system_prompt=None,
                                       history_messages=None, **kw):
-                for i in range(0, len("body-a evidence text a[1]"), 4):
-                    yield "body-a evidence text a[1]".upper()[i:i + 4].lower()
+                text = _fb_text(gen["cur"]) + "[1]"
+                for i in range(0, len(text), 4):
+                    yield text.upper()[i:i + 4].lower()
 
             async def fake_classify(query, results, top_k=5):
                 return []
 
             async def fake_map(query, answer, cits):
                 # MID-REQUEST RELEASE SWITCH: generation B becomes current
-                # while this request stays pinned to A.
+                # while the FIRST request stays pinned to A.
                 if not switched["done"]:
                     catalog.activate(mb["manifest_id"])
                     live.reload(mb["manifest_id"])
                     switched["done"] = True
+                span = _fb_text(gen["cur"])
                 return {"claims": [
-                    {"id": "c1", "text": "body-a evidence text a",
+                    {"id": "c1", "text": span,
                      "type": "MAJOR_FACT", "support_status": "SUPPORTED",
                      "supported_by": [{"citation_id": cits[0].get("id") if cits else 1,
                                        "relation": "DIRECT_SUPPORT",
-                                       "evidence_span": "body-a evidence text a"}]}]}
+                                       "evidence_span": span}]}]}
 
             async def fake_verify(query, atomic, refs, det=None):
+                captured_refs.extend(refs or [])
                 return VerificationResult("PASSED", findings=[
                     {"claim_id": c["id"], "verdict": "PASS"} for c in atomic])
 
@@ -1385,27 +1716,37 @@ def _pinned_snapshot_e2e_case():
             from guardrails import RateLimiter, GuardrailSettings
             server.RATE_LIMITER = RateLimiter(GuardrailSettings(
                 per_minute=10 ** 6, per_client_day=10 ** 9, global_day=10 ** 9))
+
+            async def _one_request(client, conversation_id):
+                done_payload = None
+                async with client.stream(
+                        "POST", "/api/chat/stream",
+                        json={"query": "probe",
+                              "conversation_id": conversation_id}) as resp:
+                    assert resp.status_code == 200
+                    async for line in resp.aiter_lines():
+                        if line.startswith("data:"):
+                            payload = json.loads(line.split(":", 1)[1].strip())
+                            if (isinstance(payload, dict)
+                                    and "answer_status" in payload
+                                    and "answer" in payload):
+                                done_payload = payload
+                return done_payload
+
             try:
                 transport = httpx.ASGITransport(app=server.app)
-                done_payload = None
                 async with httpx.AsyncClient(transport=transport,
                                              base_url="http://t") as client:
-                    async with client.stream(
-                            "POST", "/api/chat/stream",
-                            json={"query": "probe", "conversation_id": "pin"}) as resp:
-                        assert resp.status_code == 200
-                        async for line in resp.aiter_lines():
-                            if line.startswith("data:"):
-                                payload = json.loads(line.split(":", 1)[1].strip())
-                                if (isinstance(payload, dict)
-                                        and "answer_status" in payload
-                                        and "answer" in payload):
-                                    done_payload = payload
-                return done_payload, switched["done"]
+                    done1 = await _one_request(client, "pin-1")
+                    refs_req1 = list(captured_refs)
+                    # A NEW request after the switch pins generation B.
+                    gen["cur"] = "b"
+                    done2 = await _one_request(client, "pin-2")
+                return done1, done2, switched["done"], refs_req1
             finally:
                 server.configure_runtime_snapshot_manager(None)
 
-        done, switched = asyncio.run(scenario())
+        done, done2, switched, refs_seen = asyncio.run(scenario())
         test("X.pipeline_uses_pinned_records_e2e",
              done is not None and switched
              and done["diagnostics"]["manifest_id"] == ma["manifest_id"]
@@ -1413,8 +1754,30 @@ def _pinned_snapshot_e2e_case():
              and all(c.get("record_id") == "record-a-0001"
                      for c in done.get("citations", []))
              and live.current_manifest_id == mb["manifest_id"])
-
-
+        # Request-pinned source_catalog binding: citation, EvidenceRef and
+        # numeric provenance all resolve to generation A's pinned snapshot
+        # even though B is current by the time verification runs.
+        test("X.pinned_source_catalog_binds_e2e",
+             done is not None
+             and all(c.get("source_snapshot_id") == "snapshot-a"
+                     for c in done.get("citations", []))
+             and refs_seen
+             and all(r.get("source_snapshot_id") == "snapshot-a"
+                     and r.get("record_id") == "record-a-0001"
+                     for r in refs_seen)
+             and any(f.get("evidence_ref", {}).get("source_snapshot_id")
+                     == "snapshot-a"
+                     and f.get("evidence_ref", {}).get("record_id")
+                     == "record-a-0001"
+                     for f in done.get("numeric_facts", [])))
+        # A NEW request (post-switch) legitimately binds to generation B.
+        test("X.new_request_binds_new_generation_e2e",
+             done2 is not None
+             and done2["diagnostics"]["manifest_id"] == mb["manifest_id"]
+             and done2.get("cited_record_ids") == ["record-b-0001"]
+             and all(c.get("record_id") == "record-b-0001"
+                     and c.get("source_snapshot_id") == "snapshot-b"
+                     for c in done2.get("citations", [])))
 _pinned_snapshot_e2e_case()
 
 def cross_cutting_cases():
@@ -1881,6 +2244,74 @@ def test_rt020_record_id_map_resolves_stable_id():
 
 def test_x_pipeline_uses_pinned_records_e2e():
     _assert_case("X.pipeline_uses_pinned_records_e2e")
+
+
+def test_x_pinned_source_catalog_binds_e2e():
+    _assert_case("X.pinned_source_catalog_binds_e2e")
+
+
+def test_x_new_request_binds_new_generation_e2e():
+    _assert_case("X.new_request_binds_new_generation_e2e")
+
+
+def test_rt020_pinned_catalog_binds_snapshot_id():
+    _assert_case("RT020.pinned_catalog_binds_snapshot_id")
+
+
+def test_rt020_record_missing_from_pinned_catalog_dropped():
+    _assert_case("RT020.record_missing_from_pinned_catalog_dropped")
+
+
+def test_rt020_pinned_snapshot_hash_mismatch_dropped():
+    _assert_case("RT020.pinned_snapshot_hash_mismatch_dropped")
+
+
+def test_rt025_ref_consistent_with_pinned_snapshot_passes():
+    _assert_case("RT025.ref_consistent_with_pinned_snapshot_passes")
+
+
+def test_rt025_ref_wrong_hash_value_unverified():
+    _assert_case("RT025.ref_wrong_hash_value_unverified")
+
+
+def test_rt025_ref_locator_points_elsewhere_unverified():
+    _assert_case("RT025.ref_locator_points_elsewhere_unverified")
+
+
+def test_rt025_ref_exact_text_tamper_unverified():
+    _assert_case("RT025.ref_exact_text_tamper_unverified")
+
+
+def test_rt025_ref_foreign_generation_snapshot_unverified():
+    _assert_case("RT025.ref_foreign_generation_snapshot_unverified")
+
+
+def test_rt025_ref_record_id_mismatch_unverified():
+    _assert_case("RT025.ref_record_id_mismatch_unverified")
+
+
+def test_rt025_claims_without_refs_cannot_pass():
+    _assert_case("RT025.claims_without_refs_cannot_pass")
+
+
+def test_rt026_repair_input_carries_exact_evidence_refs():
+    _assert_case("RT026.repair_input_carries_exact_evidence_refs")
+
+
+def test_rt026_synthetic_summary_never_enters_repair_input():
+    _assert_case("RT026.synthetic_summary_never_enters_repair_input")
+
+
+def test_rt026_regen_unsupported_fact_blocked():
+    _assert_case("RT026.regen_unsupported_fact_blocked")
+
+
+def test_rt026_regen_number_tamper_blocked():
+    _assert_case("RT026.regen_number_tamper_blocked")
+
+
+def test_rt026_retrieved_ungroundable_evidence_dropped():
+    _assert_case("RT026.retrieved_ungroundable_evidence_dropped")
 
 
 def test_rt022_facts_provenance_stable_under_reorder():

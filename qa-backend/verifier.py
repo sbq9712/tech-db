@@ -92,6 +92,61 @@ def validate_evidence_ref(ref: dict) -> str:
     return ""
 
 
+def verify_evidence_ref_consistency(ref: dict, snapshot: dict) -> str:
+    """RT-025 EvidenceRef ↔ pinned immutable snapshot consistency check.
+
+    Format validation (`validate_evidence_ref`) only proves the ref is
+    well-formed. This deterministic (non-LLM) check proves its VALUES match
+    the pinned snapshot authority:
+
+        * record_id / source_snapshot_id bind to the pinned snapshot
+        * evidence_text_sha256 equals the pinned snapshot's text hash
+        * every locator offset is in range of the pinned evidence text
+        * snapshot.evidence_text[start:end] equals the locator's exact text
+          (concatenated locators rebuild exact_text — tamper-proof)
+        * eligibility matches the pinned snapshot
+
+    `snapshot` is the pinned authority dict: {record_id, source_snapshot_id,
+    evidence_text (the raw text locators index into), evidence_text_sha256,
+    eligibility}. Returns '' when consistent, else a machine-readable
+    reason. Fail closed — never coerce a mismatch into PASS.
+    """
+    if not isinstance(snapshot, dict) or not snapshot:
+        return "snapshot_not_available"
+    if str(ref.get("record_id", "")) != str(snapshot.get("record_id", "")):
+        return "record_id_mismatch"
+    if str(ref.get("source_snapshot_id", "")) != str(snapshot.get("source_snapshot_id", "")):
+        return "source_snapshot_id_mismatch"
+    text = snapshot.get("evidence_text")
+    if not isinstance(text, str):
+        return "snapshot_evidence_text_missing"
+    sha = snapshot.get("evidence_text_sha256")
+    if isinstance(sha, str) and sha.strip():
+        if str(ref.get("evidence_text_sha256", "")).lower() != sha.strip().lower():
+            return "evidence_text_sha256_mismatch"
+    rebuilt = ""
+    for loc in ref.get("locators", []) or []:
+        start, end = loc.get("start"), loc.get("end")
+        if not isinstance(start, int) or not isinstance(end, int) \
+                or isinstance(start, bool) or isinstance(end, bool):
+            return "locator_offsets_not_integers"
+        if start < 0 or end <= start or end > len(text):
+            return "locator_out_of_range"
+        rebuilt += text[start:end]
+    if not rebuilt:
+        return "locator_out_of_range"
+    # Tamper check: locators and exact_text must describe the SAME slice of
+    # the pinned immutable text (multi-span refs concatenate, matching the
+    # grounding contract). A locator that points at different text, or a
+    # tampered exact_text, cannot reconstruct from the pinned snapshot.
+    if ref.get("exact_text") != rebuilt:
+        return "exact_text_mismatch"
+    elig = snapshot.get("eligibility") or "CITATION_ELIGIBLE"
+    if str(ref.get("eligibility", "")) != str(elig):
+        return "eligibility_mismatch"
+    return ""
+
+
 class VerificationResult:
     """Structured verification result — findings only, no answer text."""
 
@@ -229,7 +284,8 @@ def build_verifier_input(query: str, atomic_claims: list,
 
 async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
                        deterministic_results: dict = None,
-                       max_retries: int = None) -> VerificationResult:
+                       max_retries: int = None,
+                       snapshot_lookup=None) -> VerificationResult:
     """RT-025 fail-safe final verifier.
 
     PASSED requires a well-formed response whose every claim verdict is
@@ -237,6 +293,12 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
     invalid verdicts/429/5xx/exception) is UNVERIFIED — never PASSED.
     Semantic findings (FAIL/UNKNOWN verdicts) yield FAILED with structured
     findings; the AnswerStateMachine decides the terminal status.
+
+    `snapshot_lookup` (optional, deterministic — never an LLM) maps an
+    EvidenceRef to its pinned immutable snapshot authority dict. When
+    provided, refs are additionally checked for VALUE consistency with the
+    pinned snapshot (hash / offsets / exact text / eligibility); any
+    mismatch is a fail-closed UNVERIFIED, never PASSED.
     """
     if max_retries is None:
         max_retries = MAX_VERIFY_RETRIES
@@ -247,6 +309,14 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
         return VerificationResult(
             VERIFY_UNVERIFIED, failure_reason="empty_input:no_atomic_claims",
             failure_class="empty_response")
+
+    # RT-025: non-empty claims with NO evidence at all can never verify to
+    # PASSED — there is nothing to check the claims against. Fail closed.
+    if not (evidence_refs or []):
+        return VerificationResult(
+            VERIFY_UNVERIFIED,
+            failure_reason="invalid_evidence_ref:no_evidence_refs_for_nonempty_claims",
+            failure_class="invalid_evidence_ref")
 
     # RT-025 exact EvidenceRef contract: incomplete / non-eligible /
     # structurally invalid refs are a technical failure — UNVERIFIED —
@@ -260,6 +330,31 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
                     f"invalid_evidence_ref:{reason}:"
                     f"{str(ref.get('evidence_id') or ref.get('record_id') or '?')[:64]}"),
                 failure_class="invalid_evidence_ref")
+
+    # RT-025 consistency contract: when a pinned-snapshot authority is
+    # injected, a well-formed ref whose VALUES do not match the pinned
+    # immutable snapshot (wrong hash, locator pointing at different text,
+    # tampered exact_text, foreign-generation snapshot id, mismatched
+    # record_id/eligibility) is a fail-closed technical failure.
+    if snapshot_lookup is not None:
+        for ref in (evidence_refs or []):
+            snap = None
+            try:
+                snap = snapshot_lookup(ref)
+            except Exception:
+                snap = None
+            tag = str(ref.get('evidence_id') or ref.get('record_id') or '?')[:64]
+            if not isinstance(snap, dict) or not snap:
+                return VerificationResult(
+                    VERIFY_UNVERIFIED,
+                    failure_reason=f"invalid_evidence_ref:snapshot_not_in_pinned_catalog:{tag}",
+                    failure_class="invalid_evidence_ref")
+            reason = verify_evidence_ref_consistency(ref, snap)
+            if reason:
+                return VerificationResult(
+                    VERIFY_UNVERIFIED,
+                    failure_reason=f"invalid_evidence_ref:{reason}:{tag}",
+                    failure_class="invalid_evidence_ref")
 
     prompt = build_verifier_input(query, atomic_claims, evidence_refs,
                                   deterministic_results)

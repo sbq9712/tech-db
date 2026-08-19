@@ -18,6 +18,7 @@ technical failures are recorded on the AnswerStateMachine as
 VALIDATION_BLOCKING_COMPONENTS failures → terminal UNVERIFIED.
 """
 import asyncio
+import dataclasses
 import inspect
 import json
 import time
@@ -35,7 +36,7 @@ from citation_grounding import (
 )
 from numeric_facts import verify_numeric_claim, extract_numeric_facts_with_source
 from answer_repair import BoundedRepairLoop
-from verifier import verify_final
+from verifier import verify_final, verify_evidence_ref_consistency
 from degraded_mode import build_user_warning, looks_like_api_failure
 
 PHASE02_PIPELINE_VERSION = "1.0.0"
@@ -125,6 +126,149 @@ def _evidence_role_for_record(record: dict) -> str:
         return "unknown"
 
 
+def _accepts_kwarg(fn, name: str) -> bool:
+    """True when `fn` can be called with keyword `name` (RT-026 adapter)."""
+    try:
+        sig = inspect.signature(fn)
+    except (TypeError, ValueError):
+        return True  # non-introspectable — assume flexible
+    for param in sig.parameters.values():
+        if param.kind is inspect.Parameter.VAR_KEYWORD:
+            return True
+        if param.name == name and param.kind in (
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                inspect.Parameter.KEYWORD_ONLY):
+            return True
+    return False
+
+
+def build_evidence_refs(evidence_index: dict) -> list:
+    """Complete RT-025 EvidenceRefs from the stable-id-keyed evidence index.
+
+    Full exact_text (never truncated — the consistency verifier must be
+    able to rebuild it from the pinned snapshot's locators), the snapshot
+    binding, machine-checkable locators, the snapshot hash, eligibility and
+    source role. Single construction point for BOTH the final verifier
+    input and the RT-026 repair evidence package.
+    """
+    refs = []
+    for cid, ev in (evidence_index or {}).items():
+        g = ev.get("grounding", {}) or {}
+        refs.append({
+            "evidence_id": f"cit-{cid}",
+            "record_id": ev.get("record_id"),
+            "source_snapshot_id": g.get("source_snapshot_id", ""),
+            "locators": [
+                {"locator_type": s.get("locator_type", "TEXT_SPAN"),
+                 "start": s.get("start", -1),
+                 "end": s.get("end", -1)}
+                for s in g.get("evidence_spans", []) or []
+            ],
+            "exact_text": ev.get("text", ""),
+            "evidence_text_sha256": g.get("evidence_sha256", ""),
+            "eligibility": ev.get("eligibility", "CITATION_ELIGIBLE"),
+            "source_role": ev.get("evidence_role", "unknown"),
+            "published_date": ev.get("published_date", ""),
+            "source_url": ev.get("source_url", ""),
+        })
+    return refs
+
+
+def build_repair_evidence_package(*, query, claim_map, evidence_index,
+                                  deterministic_results,
+                                  drop_ids=None, core_gap_ids=None) -> dict:
+    """RT-026 allowlisted repair input (Evidence-Package-compatible).
+
+    Allowed contents ONLY:
+      * original question / current scope
+      * the exact EvidenceRefs still VALID after repair
+      * stable record_id + source_snapshot_id + exact locators/exact_text
+      * verified support relations (claim ↔ citation, typed)
+      * applicable numeric/time/scope deterministic results
+      * explicit keep / drop / core-gap instructions
+
+    FORBIDDEN by construction: raw all_results, synthetic summaries as
+    factual evidence, ungrounded retrieved text, generator hidden
+    reasoning, unrelated old-answer context. None of them are inputs here.
+    """
+    refs = build_evidence_refs(evidence_index)
+    relations = {}
+    for cl in (claim_map or {}).get("claims", []) or []:
+        for ref in cl.get("supported_by", []) or []:
+            cid = ref.get("citation_id")
+            if cid in (evidence_index or {}):
+                relations.setdefault(str(cid), []).append({
+                    "claim_id": str(cl.get("id", "")),
+                    "relation": ref.get("relation", ""),
+                    "relation_check": ref.get("relation_check", ""),
+                })
+    return {
+        "schema_version": "1.0.0",
+        "question": str(query or ""),
+        "scope": "phase02_bounded_repair",
+        "keep_claim_ids": [str(cl.get("id")) for cl in
+                           (claim_map or {}).get("claims", []) or []
+                           if cl.get("support_status") == "SUPPORTED"],
+        "drop_claim_ids": [str(d) for d in (drop_ids or [])],
+        "core_gap_claim_ids": [str(c) for c in (core_gap_ids or [])],
+        "evidence_refs": refs,
+        "support_relations": relations,
+        "deterministic_results": dict(deterministic_results or {}),
+    }
+
+
+def render_repair_evidence_input(package: dict) -> str:
+    """Deterministic rendering of the RT-026 repair evidence package.
+
+    Only allowlisted Evidence-Package fields can appear in the output —
+    the renderer has no parameter through which forbidden content (raw
+    retrieval dumps, synthetic summaries, generator reasoning, stale
+    answer prose) could enter.
+    """
+    if not isinstance(package, dict):
+        return ""
+    lines = [
+        "【问题/范围】",
+        str(package.get("question", ""))[:500],
+        "scope=" + str(package.get("scope", "")),
+        "【可用证据 EvidenceRefs（精确引用，来自不可变原文快照）】",
+    ]
+    for r in package.get("evidence_refs", []) or []:
+        lines.append(
+            "- evidence_id={eid} record_id={rid} source_snapshot_id={sid} "
+            "sha256={sha} eligibility={elig} source_role={role}".format(
+                eid=r.get("evidence_id"), rid=r.get("record_id"),
+                sid=r.get("source_snapshot_id"), sha=r.get("evidence_text_sha256"),
+                elig=r.get("eligibility"), role=r.get("source_role")))
+        lines.append(
+            "  locators=" + json.dumps(r.get("locators", []) or [],
+                                       ensure_ascii=False))
+        lines.append("  exact_text=" + str(r.get("exact_text", ""))[:800])
+    lines.append("【已核验的支持关系】")
+    relations = package.get("support_relations") or {}
+    if relations:
+        for cid, rels in relations.items():
+            for rel in rels or []:
+                lines.append("- claim {c} ← citation {k} ({rel}/{chk})".format(
+                    c=rel.get("claim_id"), k=cid,
+                    rel=rel.get("relation"), chk=rel.get("relation_check")))
+    else:
+        lines.append("（无）")
+    det = package.get("deterministic_results") or {}
+    if det:
+        lines.append("【确定性检查结果（数值/时间/范围）】")
+        lines.append(json.dumps(det, ensure_ascii=False, default=str)[:2000])
+    lines.append("【指令】")
+    lines.append("- 保留(keep): " + json.dumps(
+        package.get("keep_claim_ids", []), ensure_ascii=False))
+    lines.append("- 删除(drop): " + json.dumps(
+        package.get("drop_claim_ids", []), ensure_ascii=False))
+    lines.append("- 核心缺口(core_gap): " + json.dumps(
+        package.get("core_gap_claim_ids", []), ensure_ascii=False))
+    lines.append("只允许使用以上证据与确定性结果重写回答；不得引入证据之外的新事实。")
+    return "\n".join(lines)
+
+
 async def run_phase02_verification(
     *,
     query: str,
@@ -142,6 +286,8 @@ async def run_phase02_verification(
     active_profile: str = "",
     runtime_manifest_id: str = "",
     source_snapshot_store=None,   # SourceSnapshotStore or None (ad-hoc snapshots)
+    source_catalog=None,          # request-pinned {"snapshots": [...]} —
+                                  # THE snapshot authority in manifest mode
 ) -> dict:
     """Run the Phase-02 post-generation pipeline. Returns a result dict:
 
@@ -171,6 +317,91 @@ async def run_phase02_verification(
     def _stage(name, data):
         if trace is not None:
             trace.add_stage(name, data)
+
+    # ── Pinned snapshot authority (Phase-02 review: source_catalog binding)
+    # In manifest mode the request-pinned resources["source_catalog"] is the
+    # ONLY snapshot authority: citation source_snapshot_id must resolve to
+    # it, and record content hash / eligibility / exact locators must match
+    # it. A mid-request release switch cannot redirect evidence to a new
+    # generation's snapshot — everything below is derived from objects
+    # captured at (or for the duration of) THIS request.
+    pinned_catalog_entries = None
+    if isinstance(source_catalog, dict) and source_catalog.get("snapshots"):
+        pinned_catalog_entries = {}
+        for _entry in source_catalog.get("snapshots") or []:
+            _erid = str(_entry.get("record_id", "") or "")
+            if _erid:
+                pinned_catalog_entries[_erid] = _entry
+
+    snapshots_by_rid = {}  # stable record_id -> SourceSnapshot (per request)
+
+    def _snapshot_for_record(rid: str, record: dict):
+        """Resolve the immutable snapshot for one pinned record.
+
+        Manifest mode (pinned source_catalog present): the snapshot is built
+        from the PINNED record content but its identity is the CATALOG's
+        source_snapshot_id, and any content-hash / eligibility the catalog
+        declares must match — otherwise the citation fails closed
+        (`pinned_snapshot_hash_mismatch` / `pinned_eligibility_mismatch`).
+        The WORKING_DIR SourceSnapshotStore is NOT consulted in manifest
+        mode: the pinned catalog cannot be bypassed.
+        Legacy mode: the store (or content-addressed from_record) keeps its
+        historical behavior.
+        Returns the SourceSnapshot, or a failure string reason (fail closed).
+        """
+        cached = snapshots_by_rid.get(rid)
+        if cached is not None:
+            return cached
+        from source_snapshot import SourceSnapshot
+        try:
+            snap = SourceSnapshot.from_record(rid, record)
+        except Exception:
+            return "snapshot_error"
+        if pinned_catalog_entries is not None:
+            entry = pinned_catalog_entries.get(rid)
+            if entry is None:
+                return "record_not_in_pinned_source_catalog"
+            declared_hash = (entry.get("evidence_text_sha256")
+                             or entry.get("content_hash") or "")
+            if isinstance(declared_hash, str) and declared_hash.strip() \
+                    and declared_hash.strip().lower() != snap.content_hash.lower():
+                return "pinned_snapshot_hash_mismatch"
+            declared_elig = str(entry.get("evidence_eligibility", "") or "")
+            if declared_elig and declared_elig != snap.evidence_eligibility:
+                return "pinned_eligibility_mismatch"
+            # Identity comes from the pinned catalog, not from content
+            # addressing — this is what binds citation.source_snapshot_id,
+            # EvidenceRef.source_snapshot_id and numeric provenance to the
+            # request-pinned generation.
+            snap = dataclasses.replace(
+                snap, source_snapshot_id=str(entry.get("source_snapshot_id", "")
+                                             or snap.source_snapshot_id))
+            snapshots_by_rid[rid] = snap
+            return snap
+        if source_snapshot_store is not None:
+            try:
+                snap = source_snapshot_store.ingest(rid, record)
+            except Exception:
+                pass  # fall back to the content-addressed snapshot above
+        snapshots_by_rid[rid] = snap
+        return snap
+
+    def _snapshot_lookup(ref: dict):
+        """Deterministic (non-LLM) pinned-snapshot authority for RT-025
+        EvidenceRef consistency verification. Returns the authority dict for
+        the ref's record, or None when no snapshot was resolved this
+        request."""
+        rid = str((ref or {}).get("record_id", "") or "")
+        snap = snapshots_by_rid.get(rid)
+        if snap is None:
+            return None
+        return {
+            "record_id": snap.record_id,
+            "source_snapshot_id": snap.source_snapshot_id,
+            "evidence_text": snap.raw_text,
+            "evidence_text_sha256": snap.content_hash,
+            "eligibility": snap.evidence_eligibility,
+        }
 
     # ── 0. No evidence / no answer → deterministic abstention (Q101) ──────
     if not citations or not answer.strip():
@@ -305,12 +536,18 @@ async def run_phase02_verification(
                 proposed.append(c.get("excerpt") or c.get("body_snippet", ""))
                 proposed = [p for p in proposed if p and p.strip()][:4]
 
-                snapshot = None
-                if source_snapshot_store is not None:
-                    try:
-                        snapshot = source_snapshot_store.ingest(rid, record)
-                    except Exception:
-                        snapshot = None
+                snapshot = _snapshot_for_record(rid, record)
+                if isinstance(snapshot, str):
+                    # Fail closed: the pinned source_catalog is the only
+                    # snapshot authority in manifest mode — a record missing
+                    # from it (or whose content hash / eligibility diverges
+                    # from the pinned snapshot declaration) cannot be cited.
+                    invalid_citations.append({
+                        "citation_id": c.get("id"),
+                        "record_id": rid,
+                        "invalid_reason": snapshot,
+                    })
+                    continue
                 grounding = ground_citation_exact(
                     record, proposed, claim_text="", query="", snapshot=snapshot)
                 c["grounding_result"] = grounding
@@ -457,9 +694,11 @@ async def run_phase02_verification(
                     cit, records, records_by_id, record_id_map) if cit else (None, "", None)
                 if record is None or not rid:
                     continue
+                snap = _snapshot_for_record(rid, record)
                 return ground_citation_exact(
                     record, [claim.get("text", "")],
-                    claim_text=claim.get("text", ""))
+                    claim_text=claim.get("text", ""),
+                    snapshot=None if isinstance(snap, str) else snap)
             return None
 
         async def _retrieve_fn(claim):
@@ -502,6 +741,40 @@ async def run_phase02_verification(
                 added += 1
             return added > 0
 
+        def _evidence_scoped_regen(current_answer, drop_ids=None):
+            """RT-026 evidence-scoped regeneration adapter.
+
+            The regeneration input is an allowlisted Evidence-Package-
+            compatible structure built ONLY from: the question/scope, the
+            still-VALID exact EvidenceRefs, their snapshot bindings and
+            verified support relations, applicable deterministic numeric
+            results, and explicit keep/drop/core-gap instructions. Raw
+            all_results, synthetic summaries, ungrounded retrieval text,
+            generator hidden reasoning and unrelated old-answer context are
+            structurally absent — they are not inputs to this builder.
+            """
+            drop = [str(d) for d in (drop_ids or [])]
+            core_gap = [str(cl.get("id")) for cl in claim_map.get("claims", [])
+                        if cl.get("is_core")
+                        and cl.get("support_status") != "SUPPORTED"]
+            package = build_repair_evidence_package(
+                query=query, claim_map=claim_map,
+                evidence_index=evidence_index,
+                deterministic_results=numeric_results,
+                drop_ids=drop, core_gap_ids=core_gap)
+            _stage("repair_evidence_package", {
+                "evidence_refs": len(package.get("evidence_refs", [])),
+                "allowlist_only": True,
+            })
+            if regenerate_fn is None:
+                return None
+            if _accepts_kwarg(regenerate_fn, "evidence_package"):
+                result = regenerate_fn(current_answer, drop_ids=drop,
+                                       evidence_package=package)
+            else:  # legacy closure signature (answer, drop_ids)
+                result = regenerate_fn(current_answer, drop_ids=drop)
+            return result
+
         try:
             loop = BoundedRepairLoop()
             core_ids = {cl.get("id") for cl in claim_map.get("claims", [])
@@ -509,7 +782,7 @@ async def run_phase02_verification(
             repair_report = await loop.run(
                 answer, claim_map, evidence_index=evidence_index,
                 grounding_fn=_grounding_fn, retrieve_fn=_retrieve_fn,
-                regenerate_fn=regenerate_fn, core_claim_ids=core_ids)
+                regenerate_fn=_evidence_scoped_regen, core_claim_ids=core_ids)
             answer_changed = repair_report.get("answer") != answer
             citations_added = sum(1 for c in citations if c.get("retrieved_by_repair"))
             if answer_changed or citations_added:
@@ -579,44 +852,57 @@ async def run_phase02_verification(
                       for c in claims if c.get("text")]
             # RT-025 exact EvidenceRef contract: every ref carries the full
             # exact grounding identity (stable record_id, snapshot binding,
-            # locators, exact text, snapshot hash, eligibility, source role,
-            # temporal/scope metadata). verify_final rejects structurally
-            # incomplete refs (fail-closed, never PASSED).
-            refs = []
-            for cid, ev in evidence_index.items():
-                g = ev.get("grounding", {}) or {}
-                refs.append({
-                    "evidence_id": f"cit-{cid}",
-                    "record_id": ev.get("record_id"),           # stable string
-                    "source_snapshot_id": g.get("source_snapshot_id", ""),
-                    "locators": [{"locator_type": s.get("locator_type", ""),
-                                  "start": s.get("start", -1),
-                                  "end": s.get("end", -1)}
-                                 for s in g.get("evidence_spans", [])],
-                    "exact_text": ev.get("text", "")[:400],
-                    "evidence_text_sha256": g.get("evidence_sha256", ""),
-                    "eligibility": ev.get("eligibility", ""),
-                    "source_role": ev.get("evidence_role", "unknown"),
-                    "published_date": ev.get("published_date", ""),
-                    "source_url": ev.get("source_url", ""),
-                })
-            verifier = llm_verify or verify_final
-            vr = await verifier(query, atomic, refs, numeric_results)
-            verification_status = vr.status
-            if verification_status == "UNVERIFIED":
-                verification_error = vr.failure_reason or "verifier technical failure"
-                machine.record_technical_failure(
-                    "verifier", vr.failure_class or verification_error)
+            # locators, FULL exact text, snapshot hash, eligibility, source
+            # role, temporal/scope metadata). verify_final rejects
+            # structurally incomplete refs (fail-closed, never PASSED).
+            refs = build_evidence_refs(evidence_index)
+            # RT-025 consistency contract (deterministic, non-LLM): every
+            # ref must match the request-pinned snapshot authority — hash,
+            # in-range offsets, exact locator slices, eligibility. A
+            # mismatch is a fail-closed technical failure (UNVERIFIED),
+            # never PASSED, never silently coerced.
+            integrity_error = ""
+            for ref in refs:
+                snap = _snapshot_lookup(ref)
+                reason = (verify_evidence_ref_consistency(ref, snap)
+                          if snap else "snapshot_not_available")
+                if reason:
+                    integrity_error = (
+                        f"invalid_evidence_ref:{reason}:"
+                        f"{str(ref.get('record_id') or '?')[:64]}")
+                    break
+            if atomic and not refs:
+                integrity_error = integrity_error or (
+                    "invalid_evidence_ref:no_evidence_refs_for_nonempty_claims")
+            if integrity_error:
+                verification_status = "UNVERIFIED"
+                verification_error = integrity_error
+                machine.record_technical_failure("verifier", integrity_error)
                 degraded.append("verifier")
-            elif not _pre_failed:
-                machine.record_verifier_result(vr.status)
-            _stage("verification", {
-                "status": vr.status,
-                "findings": vr.findings[:5],
-                "failure_class": vr.failure_class,
-                "failure_reason": vr.failure_reason,
-                "refs": len(refs),
-            })
+                _stage("verification", {
+                    "status": "UNVERIFIED",
+                    "cause": "evidence_ref_integrity",
+                    "failure_reason": integrity_error,
+                    "refs": len(refs),
+                })
+            else:
+                verifier = llm_verify or verify_final
+                vr = await verifier(query, atomic, refs, numeric_results)
+                verification_status = vr.status
+                if verification_status == "UNVERIFIED":
+                    verification_error = vr.failure_reason or "verifier technical failure"
+                    machine.record_technical_failure(
+                        "verifier", vr.failure_class or verification_error)
+                    degraded.append("verifier")
+                elif not _pre_failed:
+                    machine.record_verifier_result(vr.status)
+                _stage("verification", {
+                    "status": vr.status,
+                    "findings": vr.findings[:5],
+                    "failure_class": vr.failure_class,
+                    "failure_reason": vr.failure_reason,
+                    "refs": len(refs),
+                })
         except Exception as e:
             verification_status = "UNVERIFIED"
             verification_error = str(e)

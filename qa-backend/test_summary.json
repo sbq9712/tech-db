@@ -1,9 +1,49 @@
 {
-  "generated_at": "2026-08-18T22:33:58",
+  "generated_at": "2026-08-19T09:39:36",
   "all_passed": true,
-  "total_passed": 65,
+  "total_passed": 560,
   "total_failed": 0,
   "suites": [
+    {
+      "tag": "a",
+      "file": "tests_phase_a.py",
+      "status": "PASS",
+      "passed": 42,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "\n=== T001: Trace System ===\n  ✅ unique trace_id\n  ✅ stages recorded\n  ✅ stage names\n  ✅ secret scrubbed\n  ✅ data preserved\n[trace] WARNING: flush failed: [Errno 13] Permission denied: '/nonexistent'\n  ✅ trace write fail-safe\n  ✅ no ZAI_API_KEY in trace\n  ✅ no literal API key value\n\n=== T003: Citation Grounding ===\n  ✅ exact span match\n  ✅ non-existent span rejected\n  ✅ grounding VALID\n  ✅ grounding offsets\n  ✅ fb takes priority\n  ✅ empty text → grounding fail\n  ✅ semantic locate works\n  ✅ semantic locate finds relevant section\n\n=== T005: Verifier Fail-Safe ===\n  ✅ JSON clean parse\n  ✅ JSON code fence parse\n  ✅ JSON embedded parse\n  ✅ JSON malformed → None\n  ✅ PASSED.passed is True\n  ✅ FAILED.passed is False\n  ✅ UNVERIFIED.passed is False\n  ✅ UNVERIFIED has reason\n  ✅ empty answer is UNVERIFIED, never PASSED (RT-025)\n\n=== T004: Claim Mapping ===\n  ✅ claim validated\n  ✅ claim supported\n  ✅ unsupported major claim detected\n  ✅ unsupported major claims found\n  ✅ minor explanation ignored\n\n=== T006: Four-State Answer Status ===\n  ✅ no results → UNSUPPORTED\n  ✅ results + passed → SUPPORTED\n  ✅ verification unverified → UNVERIFIED\n  ✅ verification failed → PARTIALLY\n  ✅ all major unsupported → UNSUPPORTED\n  ✅ evidence summary structure\n\n=== T013: Content Safety ===\n  ✅ detect Chinese injection\n  ✅ detect English injection\n  ✅ no false positive\n  ✅ data boundary start\n  ✅ data boundary end\n  ✅ safety instructions added\n\n======================================================================\n  Results: 42 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "tag": "bc",
+      "file": "tests_phase_bc.py",
+      "status": "PASS",
+      "passed": 45,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.6,
+      "tail": "\n=== T008: Provenance Clustering ===\n  ✅ same URL → high probability\n  ✅ same domain + similar title\n  ✅ different sources → low score\n  ✅ count independent sources\n\n=== T009: Source Suitability ===\n  ✅ company source + spec → decent suitability\n  ✅ company perf claim → needs attribution\n  ✅ company perf claim → independence penalty\n  ✅ academic → high suitability\n\n=== T010: Temporal Metadata ===\n  ✅ date parsing\n  ✅ Chinese date parsing\n  ✅ recent article → current\n  ✅ recent for current query → high relevance\n  ✅ old article → superseded\n  ✅ old for current → low relevance\n  ✅ old for historical → high relevance\n  ✅ extract prediction hints\n\n=== T011: Entity Canonicalization ===\n  ✅ registry has entities\n  ✅ exact alias match\n  ✅ case insensitive match\n  ✅ unknown entity → NEW\n\n=== T014: Retrieval Layer ===\n  ✅ vector search returns results\n  ✅ vector top result correct\n  ✅ vector route name\n  ✅ vector rank starts at 1\n  ✅ RRF produces deduplicated results\n  ✅ RRF record 20 appears in both\n  ✅ RRF has per-route scores\n  ✅ RRF has rrf_score\n\n=== T017: Evidence Selector ===\n  ✅ selector returns selected\n  ✅ selector limits per group\n  ✅ selector has reasons\n\n=== T021: Evidence Ledger ===\n  ✅ ledger starts with all MISSING\n  ✅ ledger not sufficient\n  ✅ r1 now has evidence\n  ✅ r2 still missing\n  ✅ both requirements now have evidence\n  ✅ ledger sufficient\n  ✅ ledger has snapshots\n\n=== T025: Stopping Criteria ===\n  ✅ sufficient → stop\n  ✅ max iterations → stop\n\n=== T030: Conflict Detection ===\n  ✅ contradiction detected\n  ✅ no false conflict for agreement\n\n=== T031: Context Builder ===\n  ✅ context has question\n  ✅ context has evidence\n  ✅ context wraps data\n\n======================================================================\n  Phase B+C Results: 45 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "tag": "d",
+      "file": "tests_phase_d.py",
+      "status": "PASS",
+      "passed": 37,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.2,
+      "tail": "\n=== T028: Contextual Chunking ===\n  ✅ short record → no chunks\n  ✅ long record produces chunks\n  ✅ chunks have offsets\n  ✅ chunks have context_prefix\n  ✅ chunks have version\n  ✅ chunks have record_id\n  ✅ chunk text from original\n\n=== T029: Numeric Facts ===\n  ✅ extracted numeric facts\n  ✅ fact has metric\n  ✅ fact has value\n  ✅ fact has unit\n  ✅ same facts → AGREE\n  ✅ different facts → CONTRADICT\n  ✅ different scope → DIFFERENT_SCOPE\n\n=== T044: Relation Ontology ===\n  ✅ ontology has predicates\n  ✅ USES predicate exists\n  ✅ invalid predicate rejected\n  ✅ COMPETES_WITH is symmetric\n  ✅ USES is not symmetric\n  ✅ USES inverse is USED_BY\n  ✅ statement created\n  ✅ statement valid for current\n  ✅ deprecated invalid for current\n  ✅ deprecated valid for historical\n  ✅ planned invalid for current (default)\n  ✅ planned valid with include_planned\n\n=== T041: Release Manifest ===\n  ✅ manifest has id\n  ✅ manifest has dataset\n  ✅ manifest has indexes\n  ✅ manifest has models\n  ✅ manifest validation runs\n\n=== T056: Trace Retention ===\n  ✅ api_key redacted\n  ✅ ZAI_API_KEY redacted\n  ✅ nested password redacted\n  ✅ query preserved\n  ✅ trace secret scan runs\n  ✅ cleanup runs\n\n======================================================================\n  Phase D Results: 37 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "tag": "final",
+      "file": "tests_phase_final.py",
+      "status": "PASS",
+      "passed": 29,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "\n=== T042: Query Integrity ===\n  ✅ no change → none risk\n  ✅ entity removed → high risk\n  ✅ should revert\n  ✅ negation changed → high risk\n  ✅ safe expansion → safe\n  ✅ should not revert\n  ✅ context has original\n  ✅ context has rewritten\n\n=== T045: Graph Intent ===\n  ✅ infer intent: INNOVATION\n  ✅ infer intent: relation question\n  ✅ infer intent: TECH_APPLICATION\n  ✅ single hop allowed\n  ✅ multi-hop is discovery\n  ✅ planned → not inference\n\n=== T052: Answer State Machine ===\n  ✅ claim starts as DRAFT\n  ✅ DRAFT → GROUNDED\n  ✅ GROUNDED → VERIFIED\n  ✅ VERIFIED → FINAL\n  ✅ DRAFT → GROUNDING_FAIL\n  ✅ GROUNDING_FAIL → GROUNDED\n  ✅ VERIFICATION_FAIL → UNSUPPORTED\n  ✅ UNSUPPORTED → DELETED\n  ✅ all verified → SUPPORTED\n  ✅ has deleted → PARTIAL\n\n=== T038: Multi-Document ===\n  ✅ empty merge → no claims\n  ✅ merge collects claims\n  ✅ merge coverage\n  ✅ merge grounded count\n  ✅ drop ungrounded claims\n\n======================================================================\n  Final Phase Results: 29 passed, 0 failed\n======================================================================\n"
+    },
     {
       "tag": "ops",
       "file": "tests_phase_ops.py",
@@ -11,8 +51,18 @@
       "passed": 33,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "\n=== T035: Trace Replay ===\n  ✅ replay case created\n  ✅ replay case has previous answer\n  ✅ empty report handled\n  ✅ report retention_rate\n  ✅ report status changes\n\n=== T036: Human Review Pipeline ===\n  ✅ detect retrieval failure\n  ✅ detect coverage failure\n  ✅ detect verification failure\n  ✅ case has case_id\n  ✅ case not confirmed by default\n  ✅ case has trace_id\n  ✅ problem stage: retrieval\n\n=== T037: Degraded Mode Matrix ===\n  ✅ vector fail → CONTINUE\n  ✅ vector fail can continue\n  ✅ verifier fail → ESCALATE\n  ✅ verifier requires unverified\n  ✅ verifier has user message\n  ✅ generator fail → FAIL\n  ✅ generator cannot continue\n  ✅ all ok → operational\n  ✅ graph degraded → degraded\n  ✅ generator failed → down\n  ✅ generator failed → cannot serve\n\n=== T037: Budget Guard ===\n  ✅ budget ok → PROCEED\n  ✅ budget ok → call\n  ✅ critical budget exhausted → ESCALATE\n  ✅ critical budget exhausted → don't call\n  ✅ critical budget exhausted → UNVERIFIED\n  ✅ non-critical budget exhausted → SKIP\n  ✅ non-critical skip → no status override\n  ✅ verifier is critical\n  ✅ reranker not critical\n  ✅ citation_grounding is critical\n\n======================================================================\n  Ops Phase Results: 33 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "tag": "integration",
+      "file": "tests_integration.py",
+      "status": "PASS",
+      "passed": 15,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "\n=== Integration Test: Full QA Pipeline ===\n\n  ✅ trace created\n  ✅ trace records retrieval\n  ✅ evidence selector runs\n  ✅ ledger tracks requirements\n  ✅ conflict detection runs\n  ✅ context builder produces output\n  ✅ context has data boundary\n  ✅ answer status: SUPPORTED\n  ✅ citation grounded\n  ✅ citation has offsets\n  ✅ trace flushed\n  ✅ trace has trace_id\n  ✅ trace has stages\n  ✅ trace has result\n  ✅ no ZAI_API_KEY in trace\n\n======================================================================\n  Integration Test: 15 passed, 0 failed\n======================================================================\n"
     },
     {
       "tag": "er_v2",
@@ -21,8 +71,228 @@
       "passed": 32,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "\n=== ER Registry Tests ===\n  ✅ registry has entities\n  ✅ registry has aliases\n  ✅ ID is deterministic\n  ✅ ID is opaque\n  ✅ add entity returns ID\n  ✅ get entity by ID\n  ✅ alias indexed\n\n=== ER Mention Extraction ===\n  ✅ extract Chinese entity\n  ✅ mention has offsets\n  ✅ extract English entity\n  ✅ no false positive on common text\n\n=== ER Entity Linking ===\n  ✅ exact match: 英伟达 → NVIDIA\n  ✅ exact match confidence\n  ✅ case-insensitive match\n  ✅ abbreviation match\n  ✅ alias match: 台积电 → TSMC\n  ✅ unknown entity → NEW\n\n=== ER Disambiguation ===\n  ✅ single candidate resolves\n  ✅ context disambiguation\n\n=== ER Pipeline ===\n  ✅ pipeline processes record\n  ✅ pipeline finds entities\n  ✅ linked entity has ID: NVIDIA\n  ✅ linked entity has confidence: NVIDIA\n  ✅ linked entity has ID: Blackwell\n  ✅ linked entity has confidence: Blackwell\n  ✅ linked entity has ID: TSMC\n  ✅ linked entity has confidence: TSMC\n  ✅ batch processes records\n  ✅ batch has stats\n\n=== ER Schema Versioning ===\n  ✅ registry has schema version\n  ✅ reload preserves entities\n  ✅ reload preserves version\n\n======================================================================\n  Entity Resolution V2 Results: 32 passed, 0 failed\n======================================================================\n"
+    },
+    {
+      "tag": "registry_io",
+      "file": "tests_registry_io.py",
+      "status": "PASS",
+      "passed": 8,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": "Registry IO — TK-01 regression suite\n  ✅ V1 reader accepts V2 list (original T011 crash)\n  ✅ V1 reader accepts bare list\n  ✅ V2 reader accepts V1 dict\n  ✅ V2 reader strips unknown fields\n  ✅ roundtrip V1write→V2read→V1read\n  ✅ roundtrip V2write→V1read\n  ✅ corrupt file tolerated\n  ✅ single canonical path (Q7)\n============================================================\n  Registry IO Results: 8 passed, 0 failed\n============================================================\nEntity registry corrupt/unreadable — starting empty\n"
+    },
+    {
+      "tag": "parity",
+      "file": "tests_parity.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 1.8,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.576 seconds.\nPrefix dict has been built successfully.\n"
+    },
+    {
+      "tag": "flags_tk06",
+      "file": "tests_flags_tk06.py",
+      "status": "PASS",
+      "passed": 9,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 1.0,
+      "tail": "TK-06 — flags wave 1 + knowledge boundary\n  ✅ wave-1 flags default ON\n  ✅ LLM group ON after gate 3 (TK-19 flip) + kill switch\n  ✅ kill switch (QA_PROVENANCE_ENABLED=0)\n  ✅ health status includes knowledge_boundary\n  ✅ abstain boundary message\n  ✅ SEMANTIC_GRAPH build doesn't crash (Q29 regression)\n  ✅ early unsupported exits carry boundary message (C3)\n  ✅ selector normalization with reranker OFF (C3)\n  ✅ boundary block reads claim_mapping schema (C3)\n============================================================\n  TK-06 Results: 9 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "router_tk07",
+      "file": "tests_router_tk07.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "TK-07 — heuristic router\n  ✅ simple queries → FAST_RAG (heuristic)\n  ✅ complex queries → RESEARCH_RAG (heuristic)\n  ✅ 'vs' word boundary (perovskite regression)\n  ✅ route_query: 0 LLM calls for heuristic-covered set\n  ✅ ambiguous → exactly 1 LLM call\n============================================================\n  TK-07 Results: 5 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "budget_tk08",
+      "file": "tests_budget_tk08.py",
+      "status": "PASS",
+      "passed": 8,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.6,
+      "tail": "ate post ledger\n── post-processing never degrades loop budget\n  ✅ post-processing never degrades loop budget\n── spend_or_raise + admin bypass\n  ✅ spend_or_raise + admin bypass\n── full loop: reservation stops before cap\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n  ✅ full loop: reservation stops before cap\n── over-cap raises BudgetExceededError + degrade trace\n  ✅ over-cap raises BudgetExceededError + degrade trace\n── retrieval rounds clamped to 5\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n  ✅ retrieval rounds clamped to 5\n── bypass semantics\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n[orchestrator] Grader error: _run_loop.<locals>.fake_grade() got an unexpected keyword argument 'provenance_map'\n  ✅ bypass semantics\n==============================================================\n  TK-08 Results: 8 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "ttfb_tk09",
+      "file": "tests_ttfb_tk09.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 3.0,
+      "tail": "TK-09 — TTFB latency guard\n── budget = legacy baseline + Δ (file consumed)\n  ✅ budget = legacy baseline + Δ (file consumed)\n── missing baseline → default keeps guard armed\n  ✅ missing baseline → default keeps guard armed\n── simulated timeout → legacy degrade + trace\n  ✅ simulated timeout → legacy degrade + trace\n── fast loop unaffected\n  ✅ fast loop unaffected\n── Δ overridable via env\n  ✅ Δ overridable via env\n==============================================================\n  TK-09 Results: 5 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "degraded_tk10",
+      "file": "tests_degraded_tk10.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.4,
+      "tail": "TK-10 — GLM failure → legacy UNVERIFIED + user warning\n── API-failure signature detection\n  ✅ API-failure signature detection\n── verify: API exception → UNVERIFIED never PASSED\n  ✅ verify: API exception → UNVERIFIED never PASSED\n── verify: empty LLM output → UNVERIFIED\n  ✅ verify: empty LLM output → UNVERIFIED\n── user warning contract (api vs plain vs none)\n  ✅ user warning contract (api vs plain vs none)\n── status chain: UNVERIFIED propagates to answer_status\n  ✅ status chain: UNVERIFIED propagates to answer_status\n── verified path → no warning\n  ✅ verified path → no warning\n==============================================================\n  TK-10 Results: 6 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "citation_tk12",
+      "file": "tests_citation_schema_tk12.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.8,
+      "tail": "TK-12 — citation schema + legacy fill contract\n── full schema shape on legacy path\n  ✅ full schema shape on legacy path\n── grounding fills evidence_spans + highlight (non-LLM)\n  ✅ grounding fills evidence_spans + highlight (non-LLM)\n── supports_claim_ids inverse mapping\n  ✅ supports_claim_ids inverse mapping\n── source_label: as vs b/fb\n  ✅ source_label: as vs b/fb\n── done event schema (user_warning etc.)\n  ✅ done event schema (user_warning etc.)\n==============================================================\n  TK-12 Results: 5 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "frontend_tk13",
+      "file": "tests_frontend_tk13.py",
+      "status": "PASS",
+      "passed": 7,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.1,
+      "tail": "TK-13 — frontend evidence card\n  ✅ qa.js syntax (node --check)\n  ✅ cache-bust v=162\n  ✅ evidence card markup paths\n  ✅ graceful degrade, no placeholder\n  ✅ user warning UI + styles\n  ✅ claims in done event\n  ✅ render branch simulation\n==============================================================\n  TK-13 Results: 7 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "validator_tk14",
+      "file": "tests_validator_tk14.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 2.4,
+      "tail": "TK-14 — spec manifest validator\n── current state → PASS (exit 0)\n  ✅ current state → PASS (exit 0)\n── injected doc drift → FAIL (exit 1)\n  ✅ injected doc drift → FAIL (exit 1)\n── --selftest catches drift\n  ✅ --selftest catches drift\n── --json machine-readable\n  ✅ --json machine-readable\n── ENV_NAMES registry (RERANK env alias)\n  ✅ ENV_NAMES registry (RERANK env alias)\n==============================================================\n  TK-14 Results: 5 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "holdout_tk16",
+      "file": "tests_holdout_tk16.py",
+      "status": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.2,
+      "tail": "TK-16 — holdout set + SHA256 lock\n── 100 entries, 10 smoke, stable ids\n  ✅ 100 entries, 10 smoke, stable ids\n── lock verifies on current tree\n  ✅ lock verifies on current tree\n── tamper → lock FAIL (exit 1)\n  ✅ tamper → lock FAIL (exit 1)\n── sha determinism\n  ✅ sha determinism\n==============================================================\n  TK-16 Results: 4 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "ci_tk15",
+      "file": "tests_ci_tk15.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.7,
+      "tail": "TK-15 — CI tiers\n── push job structure (suites+validator+smoke)\n  ✅ push job structure (suites+validator+smoke)\n── push job has no GLM key\n  ✅ push job has no GLM key\n── nightly structure (acceptance+eval+artifact回传)\n  ✅ nightly structure (acceptance+eval+artifact回传)\n── triggers (push + nightly cron)\n  ✅ triggers (push + nightly cron)\n── live push tier green without ZAI key\n  ✅ live push tier green without ZAI key\n── validator passes in CI mode\n  ✅ validator passes in CI mode\n==============================================================\n  TK-15 Results: 6 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "replay_tk18",
+      "file": "tests_replay_tk18.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.0,
+      "tail": "TK-18 — nightly replay artifacts\n── artifact fields complete (gate-3 evidence shape)\n  ✅ artifact fields complete (gate-3 evidence shape)\n── no-regression signature (overlap=1.0, parity all equal)\n  ✅ no-regression signature (overlap=1.0, parity all equal)\n── shadow cost accounting (R6/R14)\n  ✅ shadow cost accounting (R6/R14)\n── budget fields\n  ✅ budget fields\n── artifact committed to repo (回传)\n  ✅ artifact committed to repo (回传)\n── exemption documented\n  ✅ exemption documented\n==============================================================\n  TK-18 Results: 6 passed, 0 failed\n==============================================================\n"
+    },
+    {
+      "tag": "gate3_tk19",
+      "file": "tests_gate3_tk19.py",
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "TK-19 — gate 3 flip + FAST_RAG fast-path contract\n  ✅ gate3 report artifacts committed\n  ✅ LLM flags default ON after gate 3\n  ✅ FAST_RAG plans exactly 1 iteration\n[orchestrator] Router error: test_fast_rag_zero_loop_control_calls.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n  ✅ FAST_RAG: 0 loop-control calls, 1 round (rulings Q3)\n  ✅ lenient LLM JSON parser\n[orchestrator] Router error: test_research_rag_still_spends_loop_budget.<locals>.go.<locals>.fast_route() takes 1 positional argument but 2 were given\n[decomposer] Error: Single '}' encountered in format string\n  ✅ RESEARCH_RAG still spends loop budget\n============================================================\n  TK-19 Results: 6 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "synthetic_tk20",
+      "file": "tests_synthetic_tk20.py",
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 5.6,
+      "tail": "TK-20 / RT-015 — synthetic evidence isolation\n  ✅ holdout anchors contain no as-only records\n  ✅ unanchored entries carry TK-20 rationale\n  ✅ as-only hint cannot enter factual context/citations\n  ✅ original-body citation labelled ORIGINAL\n  ✅ holdout lock re-issued (Q17 dedicated unlock)\n============================================================\n  TK-20 Results: 5 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "sync_tk22",
+      "file": "tests_sync_tk22.py",
+      "status": "PASS",
+      "passed": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 1.4,
+      "tail": "TK-22 — sync_local.sh gate (Q24: fail ⇒ no restart)\n  ✅ gate wired: validator + suite before restart\n  ✅ injected drift fails validator (gate trips)\n  ✅ gate calls route to fail() (non-zero exit)\n  ✅ validator PASS on current tree\n============================================================\n  TK-22 Results: 4 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "spec_lint_tk25",
+      "file": "tests_spec_lint_tk25.py",
+      "status": "PASS",
+      "passed": 9,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.7,
+      "tail": "TK-25 — canonical spec manifest lint (T040)\n  ✅ manifest exists with version + hash\n  ✅ registry complete (56 T + 56 ER tickets)\n  ✅ one-command lint exits 0\n  ✅ selftest detects all 9 fault classes\n  ✅ injected duplicate ticket id fails lint\n  ✅ injected missing T039 fails lint\n  ✅ injected unknown dependency fails lint\n  ✅ production allows only named profiles\n  ✅ manifest profiles ↔ code registry in sync\n============================================================\n  TK-25 Results: 9 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "sufficiency_tk26",
+      "file": "tests_sufficiency_tk26.py",
+      "status": "PASS",
+      "passed": 9,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.5,
+      "tail": "TK-26 — claim-type sufficiency policy registry (T043)\n  ✅ registry versioned + complete\n  ✅ official spec: single primary source sufficient\n  ✅ vendor self-report never sufficient (performance)\n  ✅ causal needs independent groups\n  ✅ prediction capped at PARTIAL + attributed\n  ✅ negative/absence carries KB-boundary abstention rule\n  ✅ unknown type → strict fallback policy\n  ✅ current-as-of rejects superseded-only evidence\n  ✅ grader evaluates through policy_id (wired)\n============================================================\n  TK-26 Results: 9 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "span_lineage_tk27",
+      "file": "tests_span_lineage_tk27.py",
+      "status": "PASS",
+      "passed": 8,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 0.6,
+      "tail": "TK-27 — span-level source lineage (T048)\n  ✅ span roles distinguished (quote vs own reporting)\n  ✅ 5 quotes of 1 press release ≠ 5 independent sources\n  ✅ same outlet's own testing IS independent role\n  ✅ uncertainty preserved (probability/confidence pass through)\n  ✅ primary statement counts in its group\n  ✅ in-span marker beats document-level inference\n  ✅ orchestrator builds provenance map (integration)\n  ✅ grader counts independence from provenance (integration)\n============================================================\n  TK-27 Results: 8 passed, 0 failed\n============================================================\n"
+    },
+    {
+      "tag": "remediation_phase00",
+      "file": "tests_remediation_phase00.py",
+      "status": "PASS",
+      "passed": 7,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 1.4,
+      "tail": "Phase 00 remediation — RT-001..RT-005\n  PASS normative hashes + release binding\n  PASS spec lint + negative fixtures\n  PASS acceptance contains no no-op assertions\n  PASS acceptance DoD traceability + honesty\n  PASS mini runtime digest + startup health\n  PASS baseline schema + reproducibility\n  PASS data-sync policy + reviewed PR workflow\n7 passed, 0 failed\n"
+    },
+    {
+      "tag": "remediation_phase01",
+      "file": "tests_remediation_phase01.py",
+      "status": "PASS",
+      "passed": 55,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 1.7,
+      "tail": "mension_mismatch_rejected\n  PASS RT016.wrong_schema_rejected_at_build\n  PASS RT016.wrong_schema_rejected_at_store\n  PASS RT017.old_resources_retained_while_pinned\n  PASS RT017.inflight_keeps_manifest\n  PASS RT017.retired_resources_close_after_last_pin\n  PASS RT017.explicit_rollback_switches_complete_manifest\n  PASS RT017.invalid_current_fails_strict_startup\nRT-017 — real server request generation pin\n  PASS RT017.server_request_pins_retrieval_records_context_generation\n  PASS RT017.server_strict_startup_invalid_current_fails_closed\nRT-017 — deployment migration compatibility\n  PASS RT017.unconfigured_runtime_mode_is_rejected\n[startup] Explicit legacy_hybrid runtime-v1 profile\n[startup] Loading vector index...\n[startup] Loading vector index from vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Loading BM25 index...\n[startup] Jieba custom dict loaded\n[startup] BM25 index loaded: 60 documents\n[startup] Loading knowledge graph...\n[startup] Loading knowledge graph...\n[startup] Graph loaded: 0 nodes, 0 edges, 0 entity→record mappings, 0 adjacency entries\n[startup] Index meta lookup: 60 records\n[startup] Records loaded: 60\n[startup] Ready!\n[shutdown] Cleaning up...\n  PASS RT017.fresh_runtime_v1_legacy_hybrid_starts\n[startup] Strict manifest runtime ready: d88b19fe386bde4a2d3eb02eacf70db583149cf0a3d9de2855205554616a0519\n  PASS RT017.complete_manifest_fixture_strict_starts\n  PASS RT017.manifest_corrupt_artifact_fails_closed\n  PASS RT017.current_deployment_launchers_explicit_legacy_hybrid\nRT-018 — backup restore and GC\n  PASS RT018.restore_rehearsal_strict_starts_prior_runtime\n  PASS RT018.corrupt_artifact_restore_fails\n  PASS RT018.incomplete_unreferenced_build_removed\n  PASS RT018.referenced_manifest_artifacts_retained\n\n55 passed, 0 failed\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.490 seconds.\nPrefix dict has been built successfully.\n"
+    },
+    {
+      "tag": "remediation_phase02",
+      "file": "tests_remediation_phase02.py",
+      "status": "PASS",
+      "passed": 145,
+      "failed": 0,
+      "exit_code": 0,
+      "seconds": 4.7,
+      "tail": "fs / repair / profile ──\n  ✅ RT026.repair_input_carries_exact_evidence_refs\n  ✅ RT026.synthetic_summary_never_enters_repair_input\n  ✅ RT026.regen_unsupported_fact_blocked\n  ✅ RT026.regen_number_tamper_blocked\n  ✅ RT026.retrieved_ungroundable_evidence_dropped\n  ✅ RT020.stable_record_id_survives_reorder\n  ✅ RT020.cited_record_ids_are_stable_strings\n  ✅ RT020.no_stable_record_id_dropped\n  ✅ RT020.record_id_map_resolves_stable_id\n  ✅ RT022.facts_provenance_stable_under_reorder\n  ✅ RT025.refs_complete_and_stable\n  ✅ RT025.valid_ref_passes\n  ✅ RT025.ref_missing_snapshot_unverified\n  ✅ RT025.ref_ineligible_unverified\n  ✅ RT025.ref_bad_sha_unverified\n  ✅ RT025.ref_int_record_id_unverified\n  ✅ RT025.ref_empty_locators_unverified\n  ✅ RT026.retrieve_fn_wired_adds_citation\n  ✅ RT026.recheck_regrounds_repaired_draft\n  ✅ RT026.regenerate_fn_honored\n  ✅ RT026.full_recheck_pass_runs\n  ✅ X.profile_applies_at_import\n  ✅ X.profile_env_conflict_fails_closed\n  ✅ X.profile_env_agreement_applies\n  ✅ X.deployment_activation_state_preserved\n  ✅ X.unknown_profile_fails_closed\n[epistemic] Classifying claims for top-5 chunks\n[epistemic] Classification done: 0 chunks classified\n[epistemic] Classifying claims for top-5 chunks\n[epistemic] Classification done: 0 chunks classified\n  ✅ X.pipeline_uses_pinned_records_e2e\n  ✅ X.pinned_source_catalog_binds_e2e\n  ✅ X.new_request_binds_new_generation_e2e\n  ✅ X.server_wires_phase02_pipeline\n  ✅ X.no_verifier_rewrite_of_answer\n  ✅ X.legacy_path_preserved_behind_flag\n  ✅ X.degraded_citation_grounding_escalates\n  ✅ X.degraded_claim_mapping_escalates\n  ✅ X.degraded_entailment_escalates\n  ✅ X.degraded_answer_state_machine_escalates\n  ✅ X.flags_registered\n  ✅ X.legacy_profile_flags_off\n  ✅ X.correctness_profile_flags_on\n  ✅ X.empty_draft_never_supported\n  ✅ X.budget_exhaustion_unverified\n\n======================================================================\n  Phase 02: 145 passed, 0 failed\n======================================================================\n"
     }
   ],
   "missing_suites": [],

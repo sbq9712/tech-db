@@ -13984,6 +13984,43 @@
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-020.DOD-06",
+          "description": "the request-pinned source_catalog is the ONLY snapshot authority: citation/EvidenceRef/numeric provenance bind to the pinned generation; records absent from it or diverging from its declared hash fail closed",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_pinned_source_catalog_binds_e2e",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_x_new_request_binds_new_generation_e2e",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pinned_catalog_binds_snapshot_id",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_record_missing_from_pinned_catalog_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt020_pinned_snapshot_hash_mismatch_dropped",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
         }
       ]
     },
@@ -14387,6 +14424,55 @@
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-025.DOD-06",
+          "description": "refs are consistency-verified against the pinned immutable snapshot (deterministic, non-LLM): wrong hash value, locator pointing elsewhere, tampered exact_text, foreign-generation snapshot id, record_id mismatch all fail closed; non-empty claims with no refs can never be PASSED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_consistent_with_pinned_snapshot_passes",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_wrong_hash_value_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_locator_points_elsewhere_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_exact_text_tamper_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_foreign_generation_snapshot_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_ref_record_id_mismatch_unverified",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt025_claims_without_refs_cannot_pass",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
         }
       ]
     },
@@ -14471,6 +14557,43 @@
             {
               "suite": "remediation_phase02",
               "case": "test_rt026_full_recheck_pass_runs",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-026.DOD-05",
+          "description": "regeneration input is an allowlisted Evidence-Package-compatible package (question/scope, VALID exact EvidenceRefs, verified support relations, deterministic results, keep/drop/core-gap); synthetic summaries, ungrounded text and raw retrieval dumps are structurally absent; anything regenerate_fn reintroduces (new unsupported fact, tampered number) is blocked by the full re-check pass; only exact-grounded retrieved evidence becomes support",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_repair_input_carries_exact_evidence_refs",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_synthetic_summary_never_enters_repair_input",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_regen_unsupported_fact_blocked",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_regen_number_tamper_blocked",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase02.py"
+            },
+            {
+              "suite": "remediation_phase02",
+              "case": "test_rt026_retrieved_ungroundable_evidence_dropped",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase02.py"
             }
