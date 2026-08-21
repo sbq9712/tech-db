@@ -51,6 +51,15 @@ rejects an unset/unknown mode. Selecting `manifest` enables strict validation;
 a missing current pointer, incompatible schema or damaged artifact fails cold
 startup and never silently falls back to `legacy_hybrid` or `previous`.
 
+`QA_PIPELINE_PROFILE` is applied at `feature_flags` import — before any flag
+consumer — and an explicitly-set `QA_*` env var that deviates from the
+declared profile is a fail-closed startup error. `legacy_hybrid` pins the
+pre-Phase-02 deployed activation state: shipped agentic/correctness flags
+keep their gate-3 defaults (on) and only the Phase-02 flags
+(`QA_EXACT_GROUNDING_ENABLED`, `QA_TERMINAL_RENDERER_ENABLED`) are off.
+Applying the profile therefore changes nothing the deployment already ran
+except disabling the two new Phase-02 capabilities.
+
 ### Activation gate: `legacy_hybrid` → `manifest`
 
 Do not switch production merely because Phase-01 unit/integration tests pass.
@@ -98,14 +107,55 @@ runtime/
 python scripts/runtime_assets.py install --components indexes --force
 ```
 
-从仓库数据重新生成：
+从仓库数据重新生成（**必须先做稳定身份迁移**）：
 
-```bash
-.venv/bin/python qa-backend/vector_index.py
-.venv/bin/python qa-backend/bm25_index.py
+仓库数据 `data/processed/all-records-lite.json` 是历史遗留的位置列表，记录本身不带稳定 `record_id`。向量/BM25 构建器拒绝输出没有稳定 ID 的元数据，因此直接运行会失败。正确的路径是显式迁移（`techdb-vector.timer` 触发的 `qa-backend/vector_index.py` 与 `scripts/boot_sync.py` 中的 `qa-backend/bm25_index.py` 都走同一条链）：
+
+```text
+legacy 数据集（保持原格式，不重写）
+  → 显式稳定身份迁移（SourceIdentityKey / RecordRegistry：
+    上游 ID > URL > legacy_source_key；绝不使用列表位置或正文相似度）
+  → 数据集字节钉扎(sha256)的 RecordIdMap sidecar
+    （runtime/state/record_id_map.json）
+  → 稳定 ID 装饰的 BUILD VIEW（副本；legacy 文件不修改）
+  → vector / BM25 构建器
+  → 输出元数据携带真实稳定 record_id
 ```
 
-生成结果写入 `runtime/indexes/`，不会意外进入 Git 历史。发布新索引时，由仓库管理员运行 GitHub Actions 中的 **Publish runtime assets** 工作流。
+```bash
+# 1) 迁移（幂等：同一数据集重跑完全复用既有 ID；换序不改变任何
+#    记录的 ID；同文不同源不会被合并；无审计身份的记录 fail closed）
+.venv/bin/python qa-backend/index_build_view.py \
+  --registry runtime/state/record_registry.sqlite \
+  --output  runtime/state/record_id_map.json
+
+# 2) 重建索引（消费经过验证、与数据集字节钉扎一致的 map）
+.venv/bin/python qa-backend/bm25_index.py
+.venv/bin/python qa-backend/vector_index.py
+```
+
+失败即闭（fail closed）规则：
+
+- map 缺失 / 损坏 / 与当前数据集 sha 不一致 / 覆盖不全 / 一对多解析
+  → 构建器直接失败并提示上面的迁移命令，绝不退回旧索引构建器，
+  也绝不生成 `legacy-idx:<n>` 之类的临时 ID；
+- 每条 canonical 记录必须唯一解析到一个稳定 `record_id`；
+- 无可审计源身份（无上游 ID / URL / legacy key）的记录默认失败；
+  如需放行必须显式隔离（`--quarantine`）并写入可审计清单，
+  绝不偷偷生成不可重放的随机 ID；
+- **同一 URL 下多条不同标题的记录**（聚合页/DOI 归属错误）不会自动
+  合并也不会自动拆分：必须有提交在仓库里的人工消歧清单
+  `data/processed/identity_disambiguation.json`（为每条记录指定唯一
+  的 `legacy_source_key`），否则迁移失败并列出待整理条目；
+  **同一 URL 且同一标题**的记录视为同一逻辑记录的重复导入：
+  首次出现为准，后续作为显式 `duplicate_of` 排除（审计在 map 中）；
+- 数据集变更后（sha 变化）必须重跑迁移：身份注册表会为新增来源
+  分配新 ID、复用既有来源的旧 ID。
+
+行为级回归见 `qa-backend/tests_index_migration.py`（CI gate
+`legacy-index-migration`）。生成结果写入 `runtime/indexes/`，
+不会意外进入 Git 历史。发布新索引时，由仓库管理员运行 GitHub
+Actions 中的 **Publish runtime assets** 工作流。
 
 ## 公共服务保护
 

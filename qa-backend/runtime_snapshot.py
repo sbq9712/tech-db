@@ -7,7 +7,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Callable
 
-from release_manifest import ReleaseCatalog
+from release_manifest import ReleaseCatalog, validate_source_catalog_payload
 
 
 def load_release_resources(manifest: dict, release_root=None) -> dict:
@@ -67,6 +67,14 @@ def load_release_resources(manifest: dict, release_root=None) -> dict:
     def graph_search(query, top_k):
         return [item for item in by_query.get(query, [])[:top_k]
                 if item.get("record_id") in records_by_id]
+
+    # RT-020 manifest-mode snapshot authority: startup fails closed on an
+    # empty / malformed / dataset-divergent source_catalog — never degrade
+    # to ad-hoc content-addressed snapshots at request time.
+    catalog_issues = validate_source_catalog_payload(read("source_catalog"),
+                                                     records=records)
+    if catalog_issues:
+        raise ValueError("invalid source_catalog: " + "; ".join(catalog_issues[:5]))
 
     return {
         "records": records,

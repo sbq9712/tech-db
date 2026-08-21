@@ -413,3 +413,265 @@ def claim_independence(claims_mapping: dict,
         records_by_id=records_by_id,
         provenance_map=provenance_map,
     )
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# Phase 02 — RT-021: typed support relations + deterministic entailment
+# ══════════════════════════════════════════════════════════════════════════
+# The LLM mapping pass proposes relations; this pass ENFORCES them against
+# the exactly-grounded evidence text (RT-020 output). Rules (final spec §5):
+#   * only DIRECT_SUPPORT / PREMISE_SUPPORT / ATTRIBUTION carry support;
+#     BACKGROUND and CONTRADICTS never count as support;
+#   * deterministic entailment (entailment.py layer 1, use_llm=False) runs on
+#     every DIRECT/PREMISE entry over the grounded span text:
+#       REFUTES            → relation becomes CONTRADICTS
+#       NEUTRAL (entity    → relation downgraded to BACKGROUND
+#       absent, det.)      
+#       ENTAILS            → kept, annotated
+#       ambiguous (no hard rule fired) → kept, annotated as ambiguous
+#   * a support relation whose citation has NO grounded exact text (RT-020
+#     INVALID) is downgraded to BACKGROUND — an invalid citation cannot
+#     support a claim;
+#   * vendor/self-reported evidence (evidence_role self_reported/vendor/
+#     press_release) caps performance claims (NUMERIC_FACT / COMPARISON /
+#     CAUSAL) at ATTRIBUTION — never DIRECT_SUPPORT.
+
+RELATION_CHECK_VERSION = "1.0.0"
+
+SUPPORTING_RELATIONS = ("DIRECT_SUPPORT", "PREMISE_SUPPORT", "ATTRIBUTION")
+
+PERFORMANCE_CLAIM_TYPES = {"NUMERIC_FACT", "COMPARISON", "CAUSAL"}
+ATTRIBUTION_ONLY_EVIDENCE_ROLES = {"self_reported", "vendor", "press_release"}
+
+
+def apply_relation_checks(claims_mapping: dict,
+                          evidence_index: Optional[dict] = None) -> dict:
+    """RT-021: enforce typed relations + deterministic entailment (in place).
+
+    Args:
+        claims_mapping: output of map_claims_to_citations ({"claims": [...]})
+        evidence_index: {citation_id: {"text": <grounded exact evidence text>,
+                                       "record_id": ...,
+                                       "evidence_role": ...}}
+            Entries absent from the index mean "no valid exact grounding for
+            that citation" → its support relations downgrade to BACKGROUND.
+
+    Returns the same mapping (for chaining) with mapping["relation_checks"]
+    appended:
+        {version, entries_checked, role_capped, entailment_verified,
+         downgraded_to_background, contradicted, unsupported_after}
+    """
+    from entailment import check_entailment, EntailmentLabel
+
+    evidence_index = evidence_index or {}
+    stats = {
+        "version": RELATION_CHECK_VERSION,
+        "entries_checked": 0,
+        "role_capped": 0,
+        "entailment_verified": 0,
+        "entailment_ambiguous": 0,
+        "downgraded_to_background": 0,
+        "contradicted": 0,
+        "unsupported_after": 0,
+    }
+
+    for claim in claims_mapping.get("claims", []):
+        claim_type = claim.get("type", "MINOR_EXPLANATION")
+        for ref in claim.get("supported_by", []) or []:
+            stats["entries_checked"] += 1
+            relation = ref.get("relation", "BACKGROUND")
+            ev = evidence_index.get(ref.get("citation_id")) or {}
+            ev_text = (ev.get("text") or "").strip()
+
+            if relation not in SUPPORTING_RELATIONS:
+                # BACKGROUND / CONTRADICTS carry no support by definition.
+                continue
+
+            # (a) No valid exact grounding for this citation → no support.
+            if not ev_text:
+                ref["relation"] = "BACKGROUND"
+                ref["relation_check"] = "no_grounded_evidence"
+                stats["downgraded_to_background"] += 1
+                continue
+
+            # (b) Vendor/self-report role caps performance claims.
+            role = (ev.get("evidence_role") or "").strip().lower()
+            if (role in ATTRIBUTION_ONLY_EVIDENCE_ROLES
+                    and claim_type in PERFORMANCE_CLAIM_TYPES
+                    and relation in ("DIRECT_SUPPORT", "PREMISE_SUPPORT")):
+                ref["relation"] = "ATTRIBUTION"
+                ref["relation_check"] = f"role_cap:{role}"
+                stats["role_capped"] += 1
+                continue
+
+            # (c) ATTRIBUTION needs no entailment (source IS the claim's
+            # origin — the vendor doc saying X supports "vendor claims X").
+            if relation == "ATTRIBUTION":
+                ref["relation_check"] = "attribution_origin"
+                continue
+
+            # (d) Deterministic entailment over the grounded span text.
+            result = check_entailment(claim.get("text", ""), ev_text,
+                                      use_llm=False)
+            label = result.label
+            if label == EntailmentLabel.REFUTES:
+                ref["relation"] = "CONTRADICTS"
+                ref["relation_check"] = f"entailment_refutes:{result.reason[:80]}"
+                stats["contradicted"] += 1
+            elif label == EntailmentLabel.NEUTRAL and result.method == "deterministic":
+                ref["relation"] = "BACKGROUND"
+                ref["relation_check"] = f"entailment_neutral:{result.reason[:80]}"
+                stats["downgraded_to_background"] += 1
+            elif label == EntailmentLabel.ENTAILS:
+                ref["relation_check"] = "entailment_verified"
+                stats["entailment_verified"] += 1
+            else:
+                ref["relation_check"] = "entailment_ambiguous"
+                stats["entailment_ambiguous"] += 1
+
+        # Re-derive the claim's support status under the enforced relations.
+        if claim_type in MAJOR_CLAIM_TYPES:
+            rels = [r.get("relation") for r in (claim.get("supported_by") or [])]
+            has_support = any(r in SUPPORTING_RELATIONS for r in rels)
+            has_contra = any(r == "CONTRADICTS" for r in rels)
+            prev = claim.get("support_status")
+            if has_support and not has_contra:
+                claim["support_status"] = CLAIM_SUPPORTED
+            elif has_support and has_contra:
+                claim["support_status"] = CLAIM_PARTIALLY_SUPPORTED
+            else:
+                # BACKGROUND-only or contradicted-only → no support
+                # (AR: BACKGROUND/CONTRADICTS 不能作为支持).
+                claim["support_status"] = CLAIM_UNSUPPORTED
+                if prev != CLAIM_UNSUPPORTED:
+                    stats["unsupported_after"] += 1
+
+    claims_mapping["relation_checks"] = stats
+    return claims_mapping
+
+
+def has_supporting_relation(claim: dict) -> bool:
+    """True iff the claim carries at least one enforced support relation."""
+    return any(r.get("relation") in SUPPORTING_RELATIONS
+               for r in claim.get("supported_by", []) or [])
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# Phase 02 — RT-023: claim coverage gate
+# ══════════════════════════════════════════════════════════════════════════
+# Every claim-bearing sentence in the final answer must be mapped to a claim
+# in the claim mapping. Unmapped claim-bearing content blocks SUPPORTED (the
+# state machine consumes this gate via record_claim_coverage).
+#
+# AR-57: hedged/modal ("可能", "预计", ...) and attribution ("据…称") sentences
+# are STILL claim-bearing — they must be mapped, never waved through.
+
+COVERAGE_GATE_VERSION = "1.0.0"
+
+_HEDGED_MARKERS = (
+    "可能", "或许", "预计", "有望", "据称", "似乎", "大概", "推测", "或将", "或会",
+    "倾向于", "潜在", "should", "may", "might", "could", "would likely",
+)
+_ATTRIBUTION_MARKERS = (
+    "据报道", "据消息", "据称", "表示", "宣布", "披露", "声称", "公布", "指出",
+    "according to", "reported", "says", "said", "claims",
+)
+_NON_CLAIM_PREFIXES = (
+    "以下是", "下面是", "下表是", "总的来说", "总而言之", "综上所述", "简而言之",
+    "总结一下", "希望", "注：", "注意：", "参考", "参见", "来源",
+)
+
+
+def _split_answer_sentences(answer: str) -> list:
+    return [s.strip() for s in re.split(r"(?<=[。！？!?\n])\s*", answer or "")
+            if s.strip()]
+
+
+def _normalize_for_match(text: str) -> str:
+    """Strip citation anchors/punctuation/whitespace for coverage matching."""
+    t = re.sub(r"\[\d+\]", "", text or "")
+    t = re.sub(r"[\s，。、；：！？,.;:!?\"'“”‘’（）()\[\]{}#*>|`~]+", "", t)
+    return t
+
+
+def _bigram_overlap(a: str, b: str) -> float:
+    if len(a) < 2 or len(b) < 2:
+        return 1.0 if a == b else 0.0
+    ga = {a[i:i + 2] for i in range(len(a) - 1)}
+    gb = {b[i:i + 2] for i in range(len(b) - 1)}
+    if not ga or not gb:
+        return 0.0
+    return len(ga & gb) / min(len(ga), len(gb))
+
+
+def _classify_sentence(sentence: str) -> tuple:
+    """(is_claim_bearing: bool, reason: str)"""
+    s = sentence.strip()
+    if len(s) < 6:
+        return False, "trivial"
+    if re.match(r"^[#>*\-|=:~`\s]+$", s):
+        return False, "markdown_furniture"
+    if re.match(r"^\|", s) and set(s) <= set("|-: 0123456789.%/"):
+        return False, "table_rule"
+    if re.search(r"(希望|祝).{0,8}(有帮助|愉快|顺利)", s):
+        return False, "greeting"
+    if any(s.startswith(p) for p in _NON_CLAIM_PREFIXES) and not re.search(r"\d", s):
+        return False, "meta"
+    # Claim-bearing detectors (order matters: cite the strongest reason).
+    if re.search(r"\d", s):
+        return True, "numeric"
+    if any(m in s for m in _HEDGED_MARKERS):
+        return True, "hedged"
+    if any(m in s for m in _ATTRIBUTION_MARKERS):
+        return True, "attribution"
+    if re.search(r"[A-Za-z]{3,}", s) or len(re.findall(r"[一-鿿]", s)) >= 8:
+        return True, "substantive"
+    return False, "fragment"
+
+
+def check_claim_coverage(answer: str, claims_mapping: dict) -> dict:
+    """RT-023 claim coverage gate.
+
+    Returns:
+        {
+          "version": COVERAGE_GATE_VERSION,
+          "gate": "PASS" | "FAIL",
+          "coverage": float,            # covered / claim-bearing sentences
+          "claim_bearing_sentences": int,
+          "covered_sentences": int,
+          "uncovered_sentences": [{"sentence": ..., "reason": ...}],
+        }
+    """
+    claims = claims_mapping.get("claims", [])
+    claim_norms = [_normalize_for_match(c.get("text", "")) for c in claims]
+    claim_norms = [c for c in claim_norms if len(c) >= 4]
+
+    total = covered = 0
+    uncovered = []
+    for sentence in _split_answer_sentences(answer):
+        bearing, reason = _classify_sentence(sentence)
+        if not bearing:
+            continue
+        total += 1
+        sn = _normalize_for_match(sentence)
+        matched = False
+        for cn in claim_norms:
+            if cn in sn or sn in cn:
+                matched = True
+                break
+            if len(cn) >= 8 and len(sn) >= 8 and _bigram_overlap(cn, sn) >= 0.6:
+                matched = True
+                break
+        if matched:
+            covered += 1
+        else:
+            uncovered.append({"sentence": sentence[:120], "reason": reason})
+
+    return {
+        "version": COVERAGE_GATE_VERSION,
+        "gate": "PASS" if total == covered else "FAIL",
+        "coverage": round(covered / total, 4) if total else 1.0,
+        "claim_bearing_sentences": total,
+        "covered_sentences": covered,
+        "uncovered_sentences": uncovered,
+    }

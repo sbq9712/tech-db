@@ -50,6 +50,9 @@ class Flags:
         "CLAIM_MAPPING_ENABLED": "QA_CLAIM_MAPPING_ENABLED",
         "ANSWER_STATUS_ENABLED": "QA_ANSWER_STATUS_ENABLED",
         "KNOWLEDGE_BOUNDARY_ENABLED": "QA_KNOWLEDGE_BOUNDARY_ENABLED",
+        # Phase 02 (RT-020/RT-027): exact grounding + verified terminal SSE
+        "EXACT_GROUNDING_ENABLED": "QA_EXACT_GROUNDING_ENABLED",
+        "TERMINAL_RENDERER_ENABLED": "QA_TERMINAL_RENDERER_ENABLED",
     }
 
     # Master switch for agentic features
@@ -88,6 +91,15 @@ class Flags:
     # TK-06 (R9): knowledge boundary / calibrated abstention — non-LLM
     KNOWLEDGE_BOUNDARY_ENABLED = _env_bool("QA_KNOWLEDGE_BOUNDARY_ENABLED", default=True)
 
+    # Phase 02 — exact grounding on immutable SourceSnapshot (RT-020).
+    # Invalid citations cannot enter the final response; synthetic summaries
+    # are never evidence.
+    EXACT_GROUNDING_ENABLED = _env_bool("QA_EXACT_GROUNDING_ENABLED", default=True)
+    # Phase 02 — terminal renderer + post-verification SSE (RT-027): factual
+    # draft is buffered until the answer state machine finalizes; finalized
+    # content is streamed only after verification. Off in legacy_hybrid.
+    TERMINAL_RENDERER_ENABLED = _env_bool("QA_TERMINAL_RENDERER_ENABLED", default=True)
+
     @classmethod
     def status(cls) -> dict:
         """Return all flag states as a dict (for health endpoint)."""
@@ -113,6 +125,8 @@ class Flags:
             "claim_mapping": cls.CLAIM_MAPPING_ENABLED,
             "answer_status": cls.ANSWER_STATUS_ENABLED,
             "knowledge_boundary": cls.KNOWLEDGE_BOUNDARY_ENABLED,
+            "exact_grounding": cls.EXACT_GROUNDING_ENABLED,
+            "terminal_renderer": cls.TERMINAL_RENDERER_ENABLED,
         }
 
 
@@ -121,20 +135,34 @@ class Flags:
 # dev/test convenience. The registry mirrors spec/spec_manifest.json
 # (pipeline_profiles) and is cross-checked by scripts/lint_spec_manifest.py
 # L8 and qa-backend/tests_spec_lint_tk25.py.
+#
+# legacy_hybrid semantics (rollout honesty, RT-020..029 acceptance review):
+# the deployed pre-Phase-02 baseline is runtime-v1 + every flag already
+# flipped by gate-3 — NOT the all-off fiction the registry used to declare.
+# QA_PIPELINE_PROFILE=legacy_hybrid therefore pins the exact pre-Phase-02
+# activation state: shipped flags keep their gate-3 defaults (on), the two
+# Phase-02 flags (EXACT_GROUNDING / TERMINAL_RENDERER) are off. Applying the
+# profile must not silently change what the deployment actually runs.
+_SHIPPED_FLAG_NAMES = (
+    "AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
+    "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
+    "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
+    "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
+    "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
+    "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
+    "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
+    "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
+    "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
+    "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+)
 PIPELINE_PROFILES = {
     "legacy_hybrid": {
-        "description": "Pre-upgrade hybrid RAG baseline (all agentic flags off)",
-        "flags": {name: False for name in
-                  ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
-                   "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
-                   "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
-                   "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
-                   "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
-                   "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
-                   "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
-                   "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
-                   "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
-                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+        "description": "Pre-Phase-02 deployed hybrid baseline: shipped "
+                       "agentic/correctness flags at gate-3 defaults (on), "
+                       "Phase-02 verifier flags off (runtime-v1 rollback target)",
+        "flags": {**{name: True for name in _SHIPPED_FLAG_NAMES},
+                  "EXACT_GROUNDING_ENABLED": False,
+                  "TERMINAL_RENDERER_ENABLED": False},
     },
     "agentic_correctness_core": {
         "description": "Correctness-critical modules only "
@@ -152,6 +180,7 @@ PIPELINE_PROFILES = {
             "CONTENT_SAFETY_ENABLED": True, "CITATION_GROUNDING_ENABLED": True,
             "CLAIM_MAPPING_ENABLED": True, "ANSWER_STATUS_ENABLED": True,
             "KNOWLEDGE_BOUNDARY_ENABLED": True,
+            "EXACT_GROUNDING_ENABLED": True, "TERMINAL_RENDERER_ENABLED": True,
         },
     },
     "agentic_full": {
@@ -167,7 +196,8 @@ PIPELINE_PROFILES = {
                    "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
                    "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
                    "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
-                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")},
+                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED")},
     },
 }
 
@@ -245,3 +275,41 @@ def assert_production_profile() -> str:
             f"production profile {name!r} is active but live flags deviate "
             f"from it ({mism[:5]}); set flags exclusively via the profile")
     return name
+
+
+# ── import-time profile application (rollout honesty) ─────────────────────
+# QA_PIPELINE_PROFILE used to be dead config: launchers exported it, but no
+# code read it before Flags were frozen, so a deployment that declared
+# legacy_hybrid silently ran whatever the QA_* defaults said. Now the profile
+# is applied the moment this module is imported — before ANY consumer reads a
+# flag — and an explicit QA_* env var that deviates from the declared profile
+# is a fail-closed startup error, not a silent override.
+def _apply_profile_at_import() -> None:
+    name = os.environ.get("QA_PIPELINE_PROFILE", "").strip()
+    if not name:
+        return
+    if name not in PIPELINE_PROFILES:
+        raise RuntimeError(
+            f"QA_PIPELINE_PROFILE={name!r} is not a registered profile; "
+            f"startup fails closed (registered: {sorted(PIPELINE_PROFILES)})")
+    prof = PIPELINE_PROFILES[name]["flags"]
+    conflicts = []
+    for attr, on in prof.items():
+        env = Flags.ENV_NAMES[attr]
+        raw = os.environ.get(env, "").strip().lower()
+        if raw in ("1", "true", "yes", "on", "0", "false", "no", "off"):
+            explicit = raw in ("1", "true", "yes", "on")
+            if explicit != bool(on):
+                conflicts.append((env, bool(on), explicit))
+    if conflicts:
+        raise RuntimeError(
+            f"QA_PIPELINE_PROFILE={name!r} conflicts with explicitly-set "
+            f"flag env vars {conflicts}; startup fails closed — set flags "
+            "exclusively via the profile")
+    # Apply through the same code path as runtime apply_profile so the env,
+    # class attrs and every env-reading consumer (e.g. trace.TRACE_ENABLED)
+    # agree on the profile's activation state.
+    apply_profile(name, override=True)
+
+
+_apply_profile_at_import()

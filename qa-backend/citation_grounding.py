@@ -377,3 +377,210 @@ def generate_semantic_snippet(
         last_end = end
 
     return "".join(parts)
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# RT-020 — Exact grounding rewrite on immutable SourceSnapshot (T003/T032)
+# ══════════════════════════════════════════════════════════════════════════
+# Contract (final spec §4.4/§23.2, decision register Q140):
+#   * Fuzzy/normalized methods may LOCATE a candidate, but the accepted
+#     result must be an EXACT locator into the immutable evidence_text of a
+#     CITATION_ELIGIBLE SourceSnapshot (Unicode code-point offsets).
+#   * User-visible grounding validity is binary: EXACT or INVALID.
+#   * Synthetic (`as`) summaries, query snippets, and body-start fallbacks
+#     are never accepted as evidence.
+#   * Multiple non-contiguous spans are supported.
+
+GROUNDING_EXACT = "EXACT"
+GROUNDING_INVALID = "INVALID"
+
+
+def _eligible_evidence_text(record: dict) -> tuple:
+    """Return (evidence_text, source_field) for citation-eligible records.
+
+    Only immutable source body text is eligible. Synthetic summaries
+    (`as`) are hints, never citation evidence (final spec §7)."""
+    if not isinstance(record, dict):
+        return ("", "none")
+    if str(record.get("evidence_eligibility") or "CITATION_ELIGIBLE") != "CITATION_ELIGIBLE":
+        return ("", "ineligible")
+    for field in ("fb", "b"):
+        text = record.get(field, "") or ""
+        if isinstance(text, str) and text.strip():
+            return (text, field)
+    # Summary-only record: synthetic text is NOT citation evidence.
+    return ("", "summary_only")
+
+
+def _fuzzy_locate_raw(span: str, evidence_text: str, min_ratio: float = 0.62):
+    """Fuzzy-LOCATE a raw candidate region (location method only).
+
+    The returned range consists of RAW code points carved from raw
+    sentences — unlike the old T003 path, a fuzzy hit never yields an
+    approximate normalized offset; the locator stays exact by
+    construction (final spec §4.3: any fuzzy match that cannot resolve
+    to an exact evidence_text range is invalid evidence)."""
+    span_sentences = _extract_sentences(span)
+    text_sentences = _extract_sentences(evidence_text)
+    if not span_sentences or not text_sentences:
+        return None
+    # Probe with the longest span sentence — the most stable signal.
+    probe = max(span_sentences, key=lambda item: len(item[0]))[0]
+    best_score, best = 0.0, None
+    for sent_text, s_start, s_end in text_sentences:
+        ratio = difflib.SequenceMatcher(None, probe, sent_text).ratio()
+        if ratio > best_score:
+            best_score, best = ratio, (s_start, s_end)
+    if best is not None and best_score >= min_ratio:
+        return best
+    # Prefix fallback: a stable ≥20-char normalized prefix must exist
+    # verbatim in the RAW text; the located region is raw by definition.
+    norm_prefix = re.sub(r"\s+", " ", span.strip())
+    for prefix_len in (40, 30, 20):
+        if len(norm_prefix) >= prefix_len:
+            idx = evidence_text.find(norm_prefix[:prefix_len])
+            if idx >= 0:
+                end = min(idx + len(span), len(evidence_text))
+                return (idx, end)
+    return None
+
+
+def ground_citation_exact(record: dict, proposed_spans, claim_text: str = "",
+                          query: str = "", snapshot=None) -> dict:
+    """RT-020 exact grounding over an immutable SourceSnapshot.
+
+    Accepts one proposed span (str) or several non-contiguous spans (list).
+    Returns an EvidenceRef-shaped dict:
+
+        {
+          "grounding_status": "EXACT" | "INVALID",
+          "source_snapshot_id", "record_id", "evidence_sha256",
+          "evidence_text_field": "fb" | "b",
+          "evidence_spans": [{start, end, text, locator_type, match_type,
+                              normalized_start?, normalized_end?}],
+          "exact_text": matched raw text,
+          "match_type": overall,
+          "invalid_reason": "" | reason,
+        }
+
+    Location ladder (every rung ends at an EXACT raw code-point range or
+    INVALID):
+      1. exact substring of the immutable evidence_text
+      2. normalized (NFKC+whitespace) locate mapped back through the
+         reversible offset map — unmappable ⇒ fall through, never approximate
+      3. fuzzy locate of a RAW candidate region (sentence similarity or
+         verbatim prefix); the region is raw text so the locator is exact
+    A span with no resolvable exact range ⇒ the whole citation is INVALID.
+    """
+    from source_snapshot import SourceSnapshot
+
+    def invalid(reason):
+        return {
+            "grounding_status": GROUNDING_INVALID, "source_snapshot_id": "",
+            "record_id": (record or {}).get("record_id") if isinstance(record, dict) else None,
+            "evidence_sha256": "", "evidence_text_field": "none",
+            "evidence_spans": [], "exact_text": "", "match_type": "none",
+            "invalid_reason": reason,
+        }
+
+    evidence_text, field = _eligible_evidence_text(record)
+    if not evidence_text:
+        # Summary-only / quarantined / retrieval-only records are INVALID
+        # citation evidence — never fall back to the AI summary (T049/§7).
+        return invalid(field if field != "none" else "no_evidence_text")
+
+    try:
+        snap = snapshot or SourceSnapshot.from_record(
+            (record or {}).get("record_id", "unknown"), record)
+    except Exception as exc:  # unmappable normalization etc. — fail closed
+        return invalid(f"snapshot_error:{type(exc).__name__}")
+
+    if isinstance(proposed_spans, str):
+        proposed_spans = [proposed_spans] if proposed_spans.strip() else []
+    proposed_spans = [s for s in (proposed_spans or [])
+                      if isinstance(s, str) and s.strip()]
+    if not proposed_spans:
+        # No proposed span: keyword/query locate is explicitly NOT accepted
+        # (T032.DOD-01/DOD-06 — query-based excerpts are internal only and
+        # can never become the final evidence-card core).
+        return invalid("no_proposed_span")
+
+    spans_out = []
+    overall = "exact"
+    for span in proposed_spans:
+        # 1) exact substring
+        idx = evidence_text.find(span)
+        if idx >= 0:
+            spans_out.append({"start": idx, "end": idx + len(span),
+                              "text": evidence_text[idx:idx + len(span)],
+                              "locator_type": "TEXT_SPAN", "match_type": "exact"})
+            continue
+        # 2) normalized locate mapped back exactly
+        try:
+            from source_snapshot import normalize_with_map, NormalizedView
+            needle = normalize_with_map(span).text
+            nidx = snap.normalized_text.find(needle)
+            if nidx >= 0:
+                mapping = NormalizedView(snap.normalized_text, snap.offset_map).raw_range(
+                    nidx, nidx + len(needle))
+                if mapping is not None:
+                    s0, e0 = mapping
+                    spans_out.append({
+                        "start": s0, "end": e0, "text": snap.raw_text[s0:e0],
+                        "locator_type": "TEXT_SPAN",
+                        "match_type": "normalized_exact_map",
+                        "normalized_start": nidx,
+                        "normalized_end": nidx + len(needle)})
+                    overall = "normalized_exact_map"
+                    continue
+        except Exception:
+            pass
+        # 3) fuzzy locate of a RAW region (locator stays exact raw offsets)
+        hit = _fuzzy_locate_raw(span, evidence_text)
+        if hit is not None:
+            s0, e0 = hit
+            spans_out.append({"start": s0, "end": e0,
+                              "text": evidence_text[s0:e0],
+                              "locator_type": "TEXT_SPAN",
+                              "match_type": "fuzzy_located_exact"})
+            overall = "fuzzy_located_exact"
+            continue
+        # Nothing resolved this span to an exact raw range ⇒ INVALID
+        return invalid("span_not_found")
+
+    if not spans_out:
+        return invalid("span_not_found")
+
+    return {
+        "grounding_status": GROUNDING_EXACT,
+        "source_snapshot_id": snap.source_snapshot_id,
+        "record_id": snap.record_id,
+        "evidence_sha256": snap.content_hash,
+        "evidence_text_field": field,
+        "evidence_spans": spans_out,
+        "exact_text": "".join(s["text"] for s in spans_out),
+        "match_type": overall,
+        "invalid_reason": "",
+    }
+
+
+def is_valid_grounding(result: dict) -> bool:
+    """True only for EXACT grounding — user-visible validity is binary."""
+    return bool(result) and result.get("grounding_status") == GROUNDING_EXACT
+
+
+def verify_exact_spans(result: dict, record: dict) -> bool:
+    """Re-verify an exact grounding result against the immutable evidence
+    text (defense in depth for RT-028 done-event filtering)."""
+    if not is_valid_grounding(result):
+        return False
+    evidence_text, field = _eligible_evidence_text(record)
+    if not evidence_text:
+        return False
+    for s in result.get("evidence_spans", []):
+        start, end = s.get("start", -1), s.get("end", -1)
+        if not (0 <= start < end <= len(evidence_text)):
+            return False
+        if evidence_text[start:end] != s.get("text"):
+            return False
+    return True

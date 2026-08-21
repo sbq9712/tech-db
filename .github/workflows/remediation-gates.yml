@@ -76,6 +76,49 @@ jobs:
       - run: python scripts/run_phase01_benchmark.py --output /tmp/phase01_retrieval_benchmark.json
       - run: python scripts/build_mini_runtime.py --verify
 
+  phase02-citation-claim-verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: python qa-backend/tests_remediation_phase02.py
+
+  legacy-index-migration:
+    # Phase-02 review blocker C: legacy dataset (no inline record_id) →
+    # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →
+    # dataset-pinned RecordIdMap → stable-ID build view → vector/BM25
+    # rebuild. Fails closed on missing/invalid maps; never invents IDs.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir numpy jieba rank-bm25
+      - run: python qa-backend/tests_index_migration.py
+
+  rt029-visual-regression:
+    # RT-029.DOD-03: real-browser (Chromium) visual regression on the
+    # production frontend — deterministic local fixtures (no live tunnel),
+    # desktop + mobile viewports, committed golden screenshots with pixel
+    # diff, plus a mutation case proving the harness detects breakage.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: CJK fonts for deterministic rendering
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+      - run: pip install --no-cache-dir playwright Pillow
+      - run: python -m playwright install --with-deps chromium
+      - run: python qa-backend/tests_visual_rt029.py
+        env:
+          TECH_DB_VISUAL_REQUIRED: "1"
+
   fast-regression:
     runs-on: ubuntu-latest
     steps:

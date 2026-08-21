@@ -67,15 +67,36 @@ DEGRADATION_MATRIX = {
         "return_error",
         "抱歉，回答生成服务暂时不可用。"
     ),
+    # Phase 02 (RT-020, final spec §31, Q095): a semantic per-citation
+    # grounding miss removes that citation; a TECHNICAL grounding subsystem
+    # failure escalates to UNVERIFIED. The old "use_query_snippet" fallback
+    # (query excerpt masquerading as citation evidence) is removed.
     "citation_grounding": (
-        DegradationAction.CONTINUE,
-        "use_query_snippet",
-        None,  # Use query-based excerpt as fallback
+        DegradationAction.ESCALATE,
+        "drop_citation_or_unverified",
+        "本次未能完成引用证据核验，已按未验证结果返回。",
     ),
+    # Phase 02 (RT-021, Q093): claim mapping failure cannot yield SUPPORTED;
+    # attempt bounded repair, else the answer is UNVERIFIED. Skipping the
+    # check and returning a trusted answer is forbidden.
     "claim_mapping": (
-        DegradationAction.CONTINUE,
-        "skip_claim_mapping",
-        None,
+        DegradationAction.ESCALATE,
+        "repair_or_unverified",
+        "本次未能完成声明级证据映射，已按未验证结果返回。",
+    ),
+    # Phase 02 (RT-021): entailment/relation checking is correctness-critical
+    # (Q046-family). A technical failure cannot silently support a claim.
+    "entailment": (
+        DegradationAction.ESCALATE,
+        "repair_or_unverified",
+        "本次未能完成声明支持关系核验，已按未验证结果返回。",
+    ),
+    # Phase 02 (RT-024): the canonical AnswerStateMachine is the sole
+    # terminal-status authority — failure to compute status is UNVERIFIED.
+    "answer_state_machine": (
+        DegradationAction.ESCALATE,
+        "mark_unverified",
+        "本次未能完成答案状态判定，已按未验证结果返回。",
     ),
     "content_safety": (
         DegradationAction.CONTINUE,

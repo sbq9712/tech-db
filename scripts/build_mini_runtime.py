@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 import tempfile
 import unicodedata
 import uuid
@@ -15,34 +16,53 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "qa-backend" / "test_fixtures" / "mini_runtime"
+# The release source_catalog artifact has exactly ONE production producer:
+# release_manifest.build_source_catalog, applied to this builder's real
+# source snapshots (stable record_id / content-addressed snapshot id /
+# recomputed evidence_text_sha256 / eligibility + extractor & access
+# metadata per the SourceSnapshot schema).
+sys.path.insert(0, str(ROOT / "qa-backend"))
+from release_manifest import build_source_catalog as _build_source_catalog  # noqa: E402
+
+
+def build_release_source_catalog(snapshots_payload):
+    return _build_source_catalog(snapshots_payload)
 NAMESPACE = uuid.UUID("4df24ac8-83a7-5d59-bb4d-9b0c59e99c2a")
 SENSITIVE_QUERY_KEYS = {"poc_token", "access_token", "api_key", "token"}
 URL_RE = re.compile(r"https?://[^\s<>\"']+")
 SYNTHETIC_RECORDS = [
     {"id": "fixture-thermal-001", "t": "Synthetic thermal storage alpha",
      "b": "The synthetic alpha unit stores industrial heat at 600 degrees and returns steam on demand.",
-     "u": "https://fixture.invalid/source/thermal-alpha", "c": "fixture/energy", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/thermal-alpha", "c": "fixture/energy", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-battery-001", "t": "Synthetic solid battery beta",
      "b": "The synthetic beta cell uses a solid electrolyte and reports an energy density of 400 watt-hours per kilogram.",
-     "u": "https://fixture.invalid/source/battery-beta", "c": "fixture/battery", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/battery-beta", "c": "fixture/battery", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-solar-001", "t": "Synthetic tandem solar gamma",
      "b": "The synthetic gamma tandem device has a certified conversion efficiency of 28 percent.",
-     "u": "https://fixture.invalid/source/solar-gamma", "c": "fixture/solar", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/solar-gamma", "c": "fixture/solar", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-recycle-001", "t": "Synthetic recycling delta",
      "b": "The synthetic delta plant converts retired cells into black mass for controlled recycling tests.",
-     "u": "https://fixture.invalid/source/recycle-delta", "c": "fixture/recycling", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/recycle-delta", "c": "fixture/recycling", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-robot-001", "t": "Synthetic robot epsilon",
      "b": "The synthetic epsilon robot learns a bounded manipulation sequence from recorded demonstrations.",
-     "u": "https://fixture.invalid/source/robot-epsilon", "c": "fixture/robotics", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/robot-epsilon", "c": "fixture/robotics", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-hydrogen-001", "t": "Synthetic hydrogen zeta",
      "b": "The synthetic zeta material releases hydrogen under controlled illumination in the fixture.",
-     "u": "https://fixture.invalid/source/hydrogen-zeta", "c": "fixture/hydrogen", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/hydrogen-zeta", "c": "fixture/hydrogen", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-memory-001", "t": "Synthetic memory eta",
      "b": "The synthetic eta memory retains a binary state during a high-temperature fixture test.",
-     "u": "https://fixture.invalid/source/memory-eta", "c": "fixture/computing", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/memory-eta", "c": "fixture/computing", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
     {"id": "fixture-control-001", "t": "Synthetic control theta",
      "b": "The synthetic theta controller coordinates a deterministic mini-runtime health check.",
-     "u": "https://fixture.invalid/source/control-theta", "c": "fixture/control", "tp": "synthetic"},
+     "u": "https://fixture.invalid/source/control-theta", "c": "fixture/control", "tp": "synthetic",
+     "evidence_eligibility": "CITATION_ELIGIBLE"},
 ]
 
 
@@ -102,7 +122,16 @@ def write_artifacts(out: Path) -> dict:
         evidence_text = unicodedata.normalize("NFC", raw_evidence)
         evidence_hash = sha_bytes(evidence_text.encode("utf-8"))
         snapshot_id = f"ss-{evidence_hash[:24]}"
-        eligible = "CITATION_ELIGIBLE" if evidence_text else "RETRIEVAL_ONLY"
+        # Fail-closed eligibility (blocker A): the fixture record's DECLARED
+        # eligibility is used verbatim — never inferred from the presence of
+        # evidence text. Missing/empty/unknown declarations fail the build.
+        eligible = record.get("evidence_eligibility")
+        if not isinstance(eligible, str) or not eligible.strip():
+            raise ValueError(
+                f"fixture {record.get('id')} declares no explicit "
+                "evidence_eligibility — refusing to infer it from evidence "
+                "text presence")
+        eligible = eligible.strip()
         logical.append({
             "record_id": record_id,
             "legacy_idx": position,
@@ -173,6 +202,7 @@ def write_artifacts(out: Path) -> dict:
         "record_id_map.json": {"schema_version": "1.0.0", "dataset_snapshot_id": f"mini-dataset-{sha_bytes(stable_json(SYNTHETIC_RECORDS))[:16]}",
                                "mappings": [{"legacy_idx": item["legacy_idx"], "record_id": item["record_id"], "tombstoned": False} for item in logical]},
         "source_snapshots.json": snapshots,
+        "source_catalog.json": build_release_source_catalog(snapshots),
         "chunks.json": chunks,
         "evidence_metadata.json": metadata,
         "vector_index.json": {"dimension": 16, "documents": vector_index},

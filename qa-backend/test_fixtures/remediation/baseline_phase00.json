@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "baseline_id": "phase00-3439c27bcbd0",
-  "captured_at": "2026-08-18T13:45:18+08:00",
-  "git_sha": "3439c27bcbd0087b9ee46d86aac4384fa9fcc74b",
+  "baseline_id": "phase00-8e24ff26b959",
+  "captured_at": "2026-08-19T18:27:00+08:00",
+  "git_sha": "8e24ff26b95936f6a1b69edf19d3fd225e753586",
   "environment": "committed-mini-runtime-plus-historical-locked-artifacts",
   "fresh_production_traffic": false,
   "spec_version": "2.0.0-remediation.1",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
-  "dataset_snapshot_id": "mini-dataset-a426446ae573355d",
+  "dataset_snapshot_id": "mini-dataset-a49a56f8861a0633",
   "identity_snapshot_id": "mini-identity-v1",
   "model_versions": {
     "embedding": "bge-m3 (frozen query/index embeddings)",

@@ -87,3 +87,7 @@ data/processed/curated_snapshot.json
 .lightrag_ingest.log
 .pipeline_cron.log
 .qa_server.log
+
+# Playwright chromium runtime libs extracted for sandboxed local runs
+# (CI installs them via `python -m playwright install --with-deps`)
+.pw-libs/
