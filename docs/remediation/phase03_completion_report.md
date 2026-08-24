@@ -246,7 +246,7 @@ Phase 03 交付"高召回检索 → 内容重排 → 硬规则 policy → 证据
 
 ### 第三轮回归与登记
 
-- push tier **799/799**（33 suites）；Phase03 **154/154**；Phase00 7/7、
+- push tier **800/800**（33 suites）；Phase03 **155/155**；Phase00 7/7、
   Phase01 84/84、Phase02 161/161、parity 5/5、index migration 37/37。
 - Phase03 mechanism benchmark 3/3、production-path benchmark 3/3；rank26
   survival=1.0、selector coverage=1.0，latency gate PASS（fixture，不作生产

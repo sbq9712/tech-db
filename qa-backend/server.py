@@ -2100,6 +2100,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
                     "answer_status": answer_status_str,
+                    "verification_status": verification_status,
                     "stop_reason": stop_reason,
                     "boundary_message": boundary_message,
                     "user_warning": user_warning,

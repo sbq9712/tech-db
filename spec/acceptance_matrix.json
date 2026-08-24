@@ -16093,6 +16093,12 @@
             },
             {
               "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round3_failure_forces_unverified_terminal",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
               "case": "test_rt031_round2_endpoint_flag_off_legacy_reject",
               "level": "e2e",
               "command": "python qa-backend/tests_remediation_phase03.py"

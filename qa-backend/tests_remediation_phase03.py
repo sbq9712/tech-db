@@ -1685,8 +1685,12 @@ def _round2():
                 cur = {}
         return events
 
-    def _post_chat(flag_on, *, force_stream_failure=False):
+    def _post_chat(flag_on, *, force_stream_failure=False,
+                   force_lineage_failure=False):
         from fastapi.testclient import TestClient
+        import guardrails as _guardrails
+        import claim_mapping as _claim_mapping_module
+        saved_attach_lineage = _claim_mapping_module.attach_span_lineage
         saved = (_server.Flags.AGENTIC_ENABLED,
                  _server.Flags.EVIDENCE_PACKAGE_ENABLED,
                  _server.Flags.TERMINAL_RENDERER_ENABLED,
@@ -1695,6 +1699,7 @@ def _round2():
                  _server.llm_model_func,
                  _server.classify_claims, _server.verify_answer,
                  _server.map_claims_to_citations,
+                 _server.RATE_LIMITER,
                  _server._runtime_snapshot_manager)
         _server.Flags.AGENTIC_ENABLED = False
         _server.Flags.EVIDENCE_PACKAGE_ENABLED = flag_on
@@ -1710,8 +1715,16 @@ def _round2():
         _server.classify_claims = _sentinel_claims
         _server.verify_answer = _fail_verify
         _server.map_claims_to_citations = _no_claim_map
+        _server.RATE_LIMITER = _guardrails.RateLimiter(
+            _guardrails.GuardrailSettings(
+                per_minute=10 ** 6, per_client_day=10 ** 9,
+                global_day=10 ** 9))
         _server._runtime_snapshot_manager = _FakePinManager()
         sse_captured["force_stream_failure"] = force_stream_failure
+        if force_lineage_failure:
+            def _raise_lineage(*_args, **_kwargs):
+                raise RuntimeError("forced-lineage-unavailable")
+            _claim_mapping_module.attach_span_lineage = _raise_lineage
         try:
             client = TestClient(_server.app)
             resp = client.post("/api/chat/stream", json={
@@ -1721,6 +1734,7 @@ def _round2():
                 "access_scope": "public"})
             return resp
         finally:
+            _claim_mapping_module.attach_span_lineage = saved_attach_lineage
             (_server.Flags.AGENTIC_ENABLED,
              _server.Flags.EVIDENCE_PACKAGE_ENABLED,
              _server.Flags.TERMINAL_RENDERER_ENABLED,
@@ -1728,6 +1742,7 @@ def _round2():
              _server.llm_model_func,
              _server.classify_claims, _server.verify_answer,
              _server.map_claims_to_citations,
+             _server.RATE_LIMITER,
              _server._runtime_snapshot_manager) = saved
             if embed_old is not None:
                 _server.embedding_func = embed_old
@@ -1798,6 +1813,14 @@ def _round2():
              sse_captured.get("fallback_system_prompt", "")
          and "UNSELECTED_CLASSIFIER_SENTINEL" not in
              sse_captured.get("fallback_system_prompt", ""))
+
+    lineage_failed = _post_chat(True, force_lineage_failure=True)
+    done_lineage = next((e for e in _parse_sse(lineage_failed.text)
+                         if e["event"] == "done"), None)
+    test("claim_lineage.round3_failure_forces_unverified_terminal",
+         done_lineage is not None
+         and done_lineage["data"].get("answer_status") == "UNVERIFIED"
+         and done_lineage["data"].get("verification_status") == "UNVERIFIED")
 
     # flag OFF → the SAME fixture must hit the unchanged legacy reject
     # (byte-compatible legacy profile, no weakening from the restructure)
@@ -2729,6 +2752,9 @@ def test_rt039_round3_endpoint_fallback_uses_same_allowlist():
 
 def test_claim_lineage_round3_stable_record_id_resolves_exact_record():
     _assert_case("claim_lineage.round3_stable_record_id_resolves_exact_record")
+
+def test_claim_lineage_round3_failure_forces_unverified_terminal():
+    _assert_case("claim_lineage.round3_failure_forces_unverified_terminal")
 
 def test_rt038_round2_compressed_support_not_trusted():
     _assert_case("RT038.round2_compressed_support_not_trusted")
