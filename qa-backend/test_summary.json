@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-24T04:12:38",
+  "generated_at": "2026-08-24T06:41:33",
   "all_passed": true,
-  "total_passed": 855,
+  "total_passed": 864,
   "total_failed": 0,
   "suites": [
     {
@@ -21,7 +21,7 @@
       "passed": 45,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.1,
+      "seconds": 0.2,
       "tail": "\n=== T008: Provenance Clustering ===\n  ✅ same URL → high probability\n  ✅ same domain + similar title\n  ✅ different sources → low score\n  ✅ count independent sources\n\n=== T009: Source Suitability ===\n  ✅ company source + spec → decent suitability\n  ✅ company perf claim → needs attribution\n  ✅ company perf claim → independence penalty\n  ✅ academic → high suitability\n\n=== T010: Temporal Metadata ===\n  ✅ date parsing\n  ✅ Chinese date parsing\n  ✅ recent article → current\n  ✅ recent for current query → high relevance\n  ✅ old article → superseded\n  ✅ old for current → low relevance\n  ✅ old for historical → high relevance\n  ✅ extract prediction hints\n\n=== T011: Entity Canonicalization ===\n  ✅ registry has entities\n  ✅ exact alias match\n  ✅ case insensitive match\n  ✅ unknown entity → NEW\n\n=== T014: Retrieval Layer ===\n  ✅ vector search returns results\n  ✅ vector top result correct\n  ✅ vector route name\n  ✅ vector rank starts at 1\n  ✅ RRF produces deduplicated results\n  ✅ RRF record 20 appears in both\n  ✅ RRF has per-route scores\n  ✅ RRF has rrf_score\n\n=== T017: Evidence Selector ===\n  ✅ selector returns selected\n  ✅ selector limits per group\n  ✅ selector has reasons\n\n=== T021: Evidence Ledger ===\n  ✅ ledger starts with all MISSING\n  ✅ ledger not sufficient\n  ✅ r1 now has evidence\n  ✅ r2 still missing\n  ✅ both requirements now have evidence\n  ✅ ledger sufficient\n  ✅ ledger has snapshots\n\n=== T025: Stopping Criteria ===\n  ✅ sufficient → stop\n  ✅ max iterations → stop\n\n=== T030: Conflict Detection ===\n  ✅ contradiction detected\n  ✅ no false conflict for agreement\n\n=== T031: Context Builder ===\n  ✅ context has question\n  ✅ context has evidence\n  ✅ context wraps data\n\n======================================================================\n  Phase B+C Results: 45 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -71,7 +71,7 @@
       "passed": 32,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "\n=== ER Registry Tests ===\n  ✅ registry has entities\n  ✅ registry has aliases\n  ✅ ID is deterministic\n  ✅ ID is opaque\n  ✅ add entity returns ID\n  ✅ get entity by ID\n  ✅ alias indexed\n\n=== ER Mention Extraction ===\n  ✅ extract Chinese entity\n  ✅ mention has offsets\n  ✅ extract English entity\n  ✅ no false positive on common text\n\n=== ER Entity Linking ===\n  ✅ exact match: 英伟达 → NVIDIA\n  ✅ exact match confidence\n  ✅ case-insensitive match\n  ✅ abbreviation match\n  ✅ alias match: 台积电 → TSMC\n  ✅ unknown entity → NEW\n\n=== ER Disambiguation ===\n  ✅ single candidate resolves\n  ✅ context disambiguation\n\n=== ER Pipeline ===\n  ✅ pipeline processes record\n  ✅ pipeline finds entities\n  ✅ linked entity has ID: NVIDIA\n  ✅ linked entity has confidence: NVIDIA\n  ✅ linked entity has ID: Blackwell\n  ✅ linked entity has confidence: Blackwell\n  ✅ linked entity has ID: TSMC\n  ✅ linked entity has confidence: TSMC\n  ✅ batch processes records\n  ✅ batch has stats\n\n=== ER Schema Versioning ===\n  ✅ registry has schema version\n  ✅ reload preserves entities\n  ✅ reload preserves version\n\n======================================================================\n  Entity Resolution V2 Results: 32 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -81,7 +81,7 @@
       "passed": 8,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.0,
+      "seconds": 0.1,
       "tail": "Registry IO — TK-01 regression suite\n  ✅ V1 reader accepts V2 list (original T011 crash)\n  ✅ V1 reader accepts bare list\n  ✅ V2 reader accepts V1 dict\n  ✅ V2 reader strips unknown fields\n  ✅ roundtrip V1write→V2read→V1read\n  ✅ roundtrip V2write→V1read\n  ✅ corrupt file tolerated\n  ✅ single canonical path (Q7)\n============================================================\n  Registry IO Results: 8 passed, 0 failed\n============================================================\nEntity registry corrupt/unreadable — starting empty\n"
     },
     {
@@ -91,8 +91,8 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.0,
-      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nDumping model to file cache /tmp/jieba.cache\nLoading model cost 0.460 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 1.5,
+      "tail": "Parity — TK-04 suite\n  ✅ mini fixture complete\n  ✅ baseline files committed\n[startup] Loading vector index vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ retrieval parity vs frozen baseline (0 drift)\n[startup] Knowledge graph not found (graph search disabled)\n  ✅ hybrid parity: new wiring vs legacy baseline (gate 1)\n  ✅ field-level route-score parity (TK-18 regression)\n============================================================\n  Parity Results: 5 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nDumping model to file cache /tmp/jieba.cache\nLoading model cost 0.793 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "flags_tk06",
@@ -101,7 +101,7 @@
       "passed": 9,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.7,
       "tail": "TK-06 — flags wave 1 + knowledge boundary\n  ✅ wave-1 flags default ON\n  ✅ LLM group ON after gate 3 (TK-19 flip) + kill switch\n  ✅ kill switch (QA_PROVENANCE_ENABLED=0)\n  ✅ health status includes knowledge_boundary\n  ✅ abstain boundary message\n  ✅ SEMANTIC_GRAPH build doesn't crash (Q29 regression)\n  ✅ early unsupported exits carry boundary message (C3)\n  ✅ selector normalization with reranker OFF (C3)\n  ✅ boundary block reads claim_mapping schema (C3)\n============================================================\n  TK-06 Results: 9 passed, 0 failed\n============================================================\n"
     },
     {
@@ -131,7 +131,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.0,
+      "seconds": 3.1,
       "tail": "TK-09 — TTFB latency guard\n── budget = legacy baseline + Δ (file consumed)\n  ✅ budget = legacy baseline + Δ (file consumed)\n── missing baseline → default keeps guard armed\n  ✅ missing baseline → default keeps guard armed\n── simulated timeout → legacy degrade + trace\n  ✅ simulated timeout → legacy degrade + trace\n── fast loop unaffected\n  ✅ fast loop unaffected\n── Δ overridable via env\n  ✅ Δ overridable via env\n==============================================================\n  TK-09 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -171,7 +171,7 @@
       "passed": 5,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.5,
       "tail": "TK-14 — spec manifest validator\n── current state → PASS (exit 0)\n  ✅ current state → PASS (exit 0)\n── injected doc drift → FAIL (exit 1)\n  ✅ injected doc drift → FAIL (exit 1)\n── --selftest catches drift\n  ✅ --selftest catches drift\n── --json machine-readable\n  ✅ --json machine-readable\n── ENV_NAMES registry (RERANK env alias)\n  ✅ ENV_NAMES registry (RERANK env alias)\n==============================================================\n  TK-14 Results: 5 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -181,7 +181,7 @@
       "passed": 4,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "tail": "TK-16 — holdout set + SHA256 lock\n── 100 entries, 10 smoke, stable ids\n  ✅ 100 entries, 10 smoke, stable ids\n── lock verifies on current tree\n  ✅ lock verifies on current tree\n── tamper → lock FAIL (exit 1)\n  ✅ tamper → lock FAIL (exit 1)\n── sha determinism\n  ✅ sha determinism\n==============================================================\n  TK-16 Results: 4 passed, 0 failed\n==============================================================\n"
     },
     {
@@ -241,7 +241,7 @@
       "passed": 9,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.0,
+      "seconds": 1.3,
       "tail": "TK-25 — canonical spec manifest lint (T040)\n  ✅ manifest exists with version + hash\n  ✅ registry complete (56 T + 56 ER tickets)\n  ✅ one-command lint exits 0\n  ✅ selftest detects all 9 fault classes\n  ✅ injected duplicate ticket id fails lint\n  ✅ injected missing T039 fails lint\n  ✅ injected unknown dependency fails lint\n  ✅ production allows only named profiles\n  ✅ manifest profiles ↔ code registry in sync\n============================================================\n  TK-25 Results: 9 passed, 0 failed\n============================================================\n"
     },
     {
@@ -251,7 +251,7 @@
       "passed": 9,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.4,
+      "seconds": 0.1,
       "tail": "TK-26 — claim-type sufficiency policy registry (T043)\n  ✅ registry versioned + complete\n  ✅ official spec: single primary source sufficient\n  ✅ vendor self-report never sufficient (performance)\n  ✅ causal needs independent groups\n  ✅ prediction capped at PARTIAL + attributed\n  ✅ negative/absence carries KB-boundary abstention rule\n  ✅ unknown type → strict fallback policy\n  ✅ current-as-of rejects superseded-only evidence\n  ✅ grader evaluates through policy_id (wired)\n============================================================\n  TK-26 Results: 9 passed, 0 failed\n============================================================\n"
     },
     {
@@ -261,7 +261,7 @@
       "passed": 8,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.2,
+      "seconds": 0.1,
       "tail": "TK-27 — span-level source lineage (T048)\n  ✅ span roles distinguished (quote vs own reporting)\n  ✅ 5 quotes of 1 press release ≠ 5 independent sources\n  ✅ same outlet's own testing IS independent role\n  ✅ uncertainty preserved (probability/confidence pass through)\n  ✅ primary statement counts in its group\n  ✅ in-span marker beats document-level inference\n  ✅ orchestrator builds provenance map (integration)\n  ✅ grader counts independence from provenance (integration)\n============================================================\n  TK-27 Results: 8 passed, 0 failed\n============================================================\n"
     },
     {
@@ -271,7 +271,7 @@
       "passed": 7,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.0,
+      "seconds": 3.1,
       "tail": "Phase 00 remediation — RT-001..RT-005\n  PASS normative hashes + release binding\n  PASS spec lint + negative fixtures\n  PASS acceptance contains no no-op assertions\n  PASS acceptance DoD traceability + honesty\n  PASS mini runtime digest + startup health\n  PASS baseline schema + reproducibility\n  PASS data-sync policy + reviewed PR workflow\n7 passed, 0 failed\n"
     },
     {
@@ -281,8 +281,8 @@
       "passed": 84,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.7,
-      "tail": "7.startup_bad_catalog_fails_closed\n  PASS RT017.startup_good_catalog_loads\n  PASS RT016.mini_release_emits_real_source_catalog\n  PASS RT017.mini_release_startup_loads_catalog\n  PASS RT016.mini_release_wrong_catalog_rejected_at_store\n  PASS RT017.old_resources_retained_while_pinned\n  PASS RT017.inflight_keeps_manifest\n  PASS RT017.retired_resources_close_after_last_pin\n  PASS RT017.explicit_rollback_switches_complete_manifest\n  PASS RT017.invalid_current_fails_strict_startup\nRT-017 — real server request generation pin\n  PASS RT017.server_request_pins_retrieval_records_context_generation\n  PASS RT017.server_strict_startup_invalid_current_fails_closed\nRT-017 — deployment migration compatibility\n  PASS RT017.unconfigured_runtime_mode_is_rejected\n[startup] Explicit legacy_hybrid runtime-v1 profile\n[startup] Loading vector index...\n[startup] Loading vector index vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Loading BM25 index...\n[startup] Loading knowledge graph...\n[startup] Graph loaded: 0 nodes, 0 edges, 0 entity→record mappings, 0 adjacency entries\n[startup] Index meta lookup: 60 records\n[startup] Records loaded: 60\n[startup] Ready!\n[shutdown] Cleaning up...\n  PASS RT017.fresh_runtime_v1_legacy_hybrid_starts\n[startup] Strict manifest runtime ready: c830fa7fe4b81a54d89e4709536574fc4000d73ccb260190abeacb7c53463db7\n  PASS RT017.complete_manifest_fixture_strict_starts\n  PASS RT017.manifest_corrupt_artifact_fails_closed\n  PASS RT017.current_deployment_launchers_explicit_legacy_hybrid\nRT-018 — backup restore and GC\n  PASS RT018.restore_rehearsal_strict_starts_prior_runtime\n  PASS RT018.corrupt_artifact_restore_fails\n  PASS RT018.incomplete_unreferenced_build_removed\n  PASS RT018.referenced_manifest_artifacts_retained\n\n84 passed, 0 failed\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.729 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 1.6,
+      "tail": "7.startup_bad_catalog_fails_closed\n  PASS RT017.startup_good_catalog_loads\n  PASS RT016.mini_release_emits_real_source_catalog\n  PASS RT017.mini_release_startup_loads_catalog\n  PASS RT016.mini_release_wrong_catalog_rejected_at_store\n  PASS RT017.old_resources_retained_while_pinned\n  PASS RT017.inflight_keeps_manifest\n  PASS RT017.retired_resources_close_after_last_pin\n  PASS RT017.explicit_rollback_switches_complete_manifest\n  PASS RT017.invalid_current_fails_strict_startup\nRT-017 — real server request generation pin\n  PASS RT017.server_request_pins_retrieval_records_context_generation\n  PASS RT017.server_strict_startup_invalid_current_fails_closed\nRT-017 — deployment migration compatibility\n  PASS RT017.unconfigured_runtime_mode_is_rejected\n[startup] Explicit legacy_hybrid runtime-v1 profile\n[startup] Loading vector index...\n[startup] Loading vector index vector_index_v2.pkl...\n[startup] Vector index loaded: 60 records, dim=1024\n[startup] Loading BM25 index...\n[startup] Loading BM25 index...\n[startup] Loading knowledge graph...\n[startup] Graph loaded: 0 nodes, 0 edges, 0 entity→record mappings, 0 adjacency entries\n[startup] Index meta lookup: 60 records\n[startup] Records loaded: 60\n[startup] Ready!\n[shutdown] Cleaning up...\n  PASS RT017.fresh_runtime_v1_legacy_hybrid_starts\n[startup] Strict manifest runtime ready: ea44b9b73346c9635aae24f9d9f8c00dc6983fbd6b49610c8ede5ee643dcc28b\n  PASS RT017.complete_manifest_fixture_strict_starts\n  PASS RT017.manifest_corrupt_artifact_fails_closed\n  PASS RT017.current_deployment_launchers_explicit_legacy_hybrid\nRT-018 — backup restore and GC\n  PASS RT018.restore_rehearsal_strict_starts_prior_runtime\n  PASS RT018.corrupt_artifact_restore_fails\n  PASS RT018.incomplete_unreferenced_build_removed\n  PASS RT018.referenced_manifest_artifacts_retained\n\n84 passed, 0 failed\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.606 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "remediation_phase02",
@@ -291,7 +291,7 @@
       "passed": 161,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 4.6,
+      "seconds": 5.5,
       "tail": "ever_enters_repair_input\n  ✅ RT026.regen_unsupported_fact_blocked\n  ✅ RT026.regen_number_tamper_blocked\n  ✅ RT026.retrieved_ungroundable_evidence_dropped\n  ✅ RT026.targeted_retrieval_updates_regen_package\n  ✅ RT026.ungroundable_candidate_not_in_regen_package\n  ✅ RT020.stable_record_id_survives_reorder\n  ✅ RT020.cited_record_ids_are_stable_strings\n  ✅ RT020.no_stable_record_id_dropped\n  ✅ RT020.record_id_map_resolves_stable_id\n  ✅ RT022.facts_provenance_stable_under_reorder\n  ✅ RT025.refs_complete_and_stable\n  ✅ RT025.valid_ref_passes\n  ✅ RT025.ref_missing_snapshot_unverified\n  ✅ RT025.ref_ineligible_unverified\n  ✅ RT025.ref_bad_sha_unverified\n  ✅ RT025.ref_int_record_id_unverified\n  ✅ RT025.ref_empty_locators_unverified\n  ✅ RT026.retrieve_fn_wired_adds_citation\n  ✅ RT026.recheck_regrounds_repaired_draft\n  ✅ RT026.regenerate_fn_honored\n  ✅ RT026.full_recheck_pass_runs\n  ✅ X.profile_applies_at_import\n  ✅ X.profile_env_conflict_fails_closed\n  ✅ X.profile_env_agreement_applies\n  ✅ X.deployment_activation_state_preserved\n  ✅ X.unknown_profile_fails_closed\n[epistemic] Classifying claims for top-5 chunks\n[epistemic] Classification done: 0 chunks classified\n[epistemic] Classifying claims for top-5 chunks\n[epistemic] Classification done: 0 chunks classified\n  ✅ X.pipeline_uses_pinned_records_e2e\n  ✅ X.pinned_source_catalog_binds_e2e\n  ✅ X.new_request_binds_new_generation_e2e\n  ✅ X.server_wires_phase02_pipeline\n  ✅ X.no_verifier_rewrite_of_answer\n  ✅ X.legacy_path_preserved_behind_flag\n  ✅ X.degraded_citation_grounding_escalates\n  ✅ X.degraded_claim_mapping_escalates\n  ✅ X.degraded_entailment_escalates\n  ✅ X.degraded_answer_state_machine_escalates\n  ✅ X.flags_registered\n  ✅ X.legacy_profile_flags_off\n  ✅ X.correctness_profile_flags_on\n  ✅ X.empty_draft_never_supported\n  ✅ X.budget_exhaustion_unverified\n\n======================================================================\n  Phase 02: 161 passed, 0 failed\n======================================================================\n"
     },
     {
@@ -301,8 +301,8 @@
       "passed": 162,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 3.0,
-      "tail": "=======================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.433 seconds.\nPrefix dict has been built successfully.\nTraceback (most recent call last):\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 1452, in event_generator\n    agentic_state = await asyncio.wait_for(\n                    ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/orchestrator.py\", line 838, in run_agentic_loop\n    return await _run_canonical_phase04(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/orchestrator.py\", line 634, in _run_canonical_phase04\n    result = await evidence_pipeline_fn(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 1409, in _orchestrator_evidence_fn\n    return await _run_phase03_context(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 905, in _run_phase03_context\n    authority_gaps) = _phase03_runtime_inputs()\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 743, in _phase03_runtime_inputs\n    raise Phase03AuthorityError(\nserver.Phase03AuthorityError: request-pinned runtime snapshot carries no source_catalog — cannot build trusted evidence refs (fail closed)\n/workspace/scratch/dfc7301de152/tech-db/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n"
+      "seconds": 3.1,
+      "tail": "=======================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.489 seconds.\nPrefix dict has been built successfully.\nTraceback (most recent call last):\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 1467, in event_generator\n    agentic_state = await asyncio.wait_for(\n                    ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/orchestrator.py\", line 911, in run_agentic_loop\n    return await _run_canonical_phase04(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/orchestrator.py\", line 645, in _run_canonical_phase04\n    result = await evidence_pipeline_fn(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 1423, in _orchestrator_evidence_fn\n    return await _run_phase03_context(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 906, in _run_phase03_context\n    authority_gaps) = _phase03_runtime_inputs()\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/dfc7301de152/tech-db-phase04/qa-backend/server.py\", line 743, in _phase03_runtime_inputs\n    raise Phase03AuthorityError(\nserver.Phase03AuthorityError: request-pinned runtime snapshot carries no source_catalog — cannot build trusted evidence refs (fail closed)\n/workspace/scratch/dfc7301de152/tech-db/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n"
     },
     {
       "tag": "benchmark_phase03",
@@ -312,17 +312,17 @@
       "failed": 0,
       "exit_code": 0,
       "seconds": 2.6,
-      "tail": "-checkout: full-body lexical scoring, global FINAL_TOP_K=25, 300-char context excerpt, no rerank\",\n  \"phase03\": \"RT-031 pool(cap 80, floors) + RT-036 chunk route (coverage-first) + RT-032 local content rerank + RT-037 full-text package surface\",\n  \"corpus\": {\n    \"long_docs\": 60,\n    \"digits_in_noise\": false,\n    \"tail_marker\": \"battery endurance test 14.5 hours\",\n    \"tail_offset_gt\": 800\n  },\n  \"probes\": {\n    \"tail\": 30,\n    \"head_control\": 10\n  },\n  \"candidate_survival\": {\n    \"baseline\": 1.0,\n    \"phase03\": 1.0\n  },\n  \"tail_fact_visibility\": {\n    \"baseline\": 0.0,\n    \"phase03\": 1.0\n  },\n  \"exact_match_top5_rerank\": {\n    \"phase03\": 1.0\n  },\n  \"head_control\": {\n    \"baseline\": 1.0,\n    \"phase03\": 1.0\n  },\n  \"verdict\": \"PASS\"\n}\n============================================================\n  Phase03 benchmark: PASS\n  3 passed, 0 failed\n============================================================\n{\n  \"benchmark\": \"phase03_production_path\",\n  \"method\": \"real pinned releases (load_release_resources) queried through server._run_phase03_context (run_routes + full phase03_pipeline) vs legacy run_hybrid; deterministic hash embedder, no LLM/network\",\n  \"n_probes\": 6,\n  \"corpus_per_probe\": 34,\n  \"metrics\": {\n    \"scenario_precondition_held\": 1.0,\n    \"legacy_top25_drops_target\": 1.0,\n    \"prod_rank26_survival\": 1.0,\n    \"selector_coverage\": 1.0,\n    \"latency_legacy_ms\": 1.49,\n    \"latency_phase03_ms\": 21.86,\n    \"latency_ratio\": 14.67,\n    \"latency_within_bound\": true\n  },\n  \"thresholds\": {\n    \"prod_rank26_survival\": \">= 1.0\",\n    \"selector_coverage\": \">= 1.0\",\n    \"latency\": \"<= max(50ms, 4x legacy)\"\n  },\n  \"verdict\": \"PASS\"\n}\n============================================================\n  Phase03 production benchmark: PASS\n  3 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.476 seconds.\nPrefix dict has been built successfully.\n"
+      "tail": "n-checkout: full-body lexical scoring, global FINAL_TOP_K=25, 300-char context excerpt, no rerank\",\n  \"phase03\": \"RT-031 pool(cap 80, floors) + RT-036 chunk route (coverage-first) + RT-032 local content rerank + RT-037 full-text package surface\",\n  \"corpus\": {\n    \"long_docs\": 60,\n    \"digits_in_noise\": false,\n    \"tail_marker\": \"battery endurance test 14.5 hours\",\n    \"tail_offset_gt\": 800\n  },\n  \"probes\": {\n    \"tail\": 30,\n    \"head_control\": 10\n  },\n  \"candidate_survival\": {\n    \"baseline\": 1.0,\n    \"phase03\": 1.0\n  },\n  \"tail_fact_visibility\": {\n    \"baseline\": 0.0,\n    \"phase03\": 1.0\n  },\n  \"exact_match_top5_rerank\": {\n    \"phase03\": 1.0\n  },\n  \"head_control\": {\n    \"baseline\": 1.0,\n    \"phase03\": 1.0\n  },\n  \"verdict\": \"PASS\"\n}\n============================================================\n  Phase03 benchmark: PASS\n  3 passed, 0 failed\n============================================================\n{\n  \"benchmark\": \"phase03_production_path\",\n  \"method\": \"real pinned releases (load_release_resources) queried through server._run_phase03_context (run_routes + full phase03_pipeline) vs legacy run_hybrid; deterministic hash embedder, no LLM/network\",\n  \"n_probes\": 6,\n  \"corpus_per_probe\": 34,\n  \"metrics\": {\n    \"scenario_precondition_held\": 1.0,\n    \"legacy_top25_drops_target\": 1.0,\n    \"prod_rank26_survival\": 1.0,\n    \"selector_coverage\": 1.0,\n    \"latency_legacy_ms\": 1.21,\n    \"latency_phase03_ms\": 26.15,\n    \"latency_ratio\": 21.6,\n    \"latency_within_bound\": true\n  },\n  \"thresholds\": {\n    \"prod_rank26_survival\": \">= 1.0\",\n    \"selector_coverage\": \">= 1.0\",\n    \"latency\": \"<= max(50ms, 4x legacy)\"\n  },\n  \"verdict\": \"PASS\"\n}\n============================================================\n  Phase03 production benchmark: PASS\n  3 passed, 0 failed\n============================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.472 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "remediation_phase04",
       "file": "tests_remediation_phase04.py",
       "status": "PASS",
-      "passed": 39,
+      "passed": 48,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.2,
-      "tail": "ASS RT040.temporal_freshness_supersession\n  PASS RT040.unsupported_history_search_only\n  PASS RT040.unverified_sentinel_never_premise\n  PASS RT041.comparison_dimension_scope_intent_drift\n  PASS RT041.critical_parse_uncertainty_escalates\n  PASS RT041.entity_temporal_negation_drift\n  PASS RT041.modality_numeric_drift\n  PASS RT041.model_advisory_cannot_bless_bad_rewrite\n  PASS RT042.fast_hard_fail_not_model_overridden\n  PASS RT042.fast_mandatory_evidence_gates_called\n  PASS RT042.fast_planner_not_called\n  PASS RT042.fast_real_pipeline_supported\n  PASS RT043.all_results_not_generation_context\n  PASS RT043.selected_ledger_package_connected\n  PASS RT043.state_serialization_runtime_pinning\n  PASS RT044.ambiguity_explicit\n  PASS RT044.comparison_object_dimension_matrix\n  PASS RT044.malformed_timeout_fallback_antidrift\n  PASS RT044.trend_current_multi_entity\n  PASS RT045.orchestrator_trigger_simple_nontrigger\n  PASS RT045.worker_cross_document_sentinel_isolation\n  PASS RT045.worker_failure_no_evidence\n  PASS RT045.worker_one_document_exact_refs\n  PASS RT046.cache_disabled_parity\n  PASS RT046.cache_manifest_profile_access_snapshot_isolation\n  PASS RT046.cache_requirement_prompt_schema_model_invalidation\n  PASS RT047.grader_failure_not_sufficient\n  PASS RT047.hard_rule_override_attack\n  PASS RT047.ledger_fields_serialization\n  PASS RT048.duplicate_semantic_drift_prevention\n  PASS RT048.gap_type_suite_requirement_binding\n  PASS RT048.real_gap_closure_two_rounds\n  PASS RT049.canonical_stop_reasons\n  PASS RT049.partial_boundary_no_false_existence_denial\n============================================================\n  Phase 04: 39 passed, 0 failed\n============================================================\n/workspace/scratch/dfc7301de152/tech-db/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n"
+      "seconds": 4.5,
+      "tail": "42.fast_planner_not_called\n  PASS RT042.fast_real_pipeline_supported\n  PASS RT043.all_results_not_generation_context\n  PASS RT043_RT049.phase02_canonical_terminal_upper_bound\n  PASS RT043.selected_ledger_package_connected\n  PASS RT043.state_serialization_runtime_pinning\n  PASS RT044.ambiguity_explicit\n  PASS RT044.comparison_object_dimension_matrix\n  PASS RT044.full_semantic_antidrift_contract\n  PASS RT044.malformed_timeout_fallback_antidrift\n  PASS RT044.trend_current_multi_entity\n  PASS RT045.invalid_worker_checks_never_become_support\n  PASS RT045.orchestrator_trigger_simple_nontrigger\n  PASS RT045.worker_cross_document_sentinel_isolation\n  PASS RT045.worker_exact_ref_reenters_final_package\n  PASS RT045.worker_failure_no_evidence\n  PASS RT045.worker_one_document_exact_refs\n  PASS RT046.cache_disabled_parity\n  PASS RT046.cache_manifest_profile_access_snapshot_isolation\n  PASS RT046.cache_requirement_prompt_schema_model_invalidation\n  PASS RT047.actual_targeted_search_exhaustion_once\n  PASS RT047.grader_failure_not_sufficient\n  PASS RT047.hard_rule_override_attack\n  PASS RT047.ledger_fields_serialization\n  PASS RT047.search_plan_execution_outcomes\n  PASS RT048.duplicate_semantic_drift_prevention\n  PASS RT048.gap_type_suite_requirement_binding\n  PASS RT048.real_gap_closure_two_rounds\n  PASS RT049.canonical_stop_reasons\n  PASS RT049.partial_boundary_no_false_existence_denial\n============================================================\n  Phase 04: 48 passed, 0 failed\n============================================================\n/workspace/scratch/dfc7301de152/tech-db/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.619 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "benchmark_phase04",
@@ -331,7 +331,7 @@
       "passed": 9,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "tail": "  PASS benchmark.fast_simple_correct\n  PASS benchmark.fast_planner_skipped\n  PASS benchmark.fast_mandatory_gates\n  PASS benchmark.rewrite_attack_detection\n  PASS benchmark.decomposition_matrix\n  PASS benchmark.decomposition_ambiguity\n  PASS benchmark.gap_dedup\n  PASS benchmark.bounded_stopping\n  PASS benchmark.artifact_baseline_bound\n============================================================\n  Phase 04 benchmark: 9 passed, 0 failed\n============================================================\n"
     },
     {
@@ -341,8 +341,8 @@
       "passed": 37,
       "failed": 0,
       "exit_code": 0,
-      "seconds": 1.0,
-      "tail": "  💾 Saved index: 4 records (4 new + 0 existing)\n\n[3/3] Saving final index...\n  Saved 4 embeddings (0MB) in 0.0min\n  Index file: /tmp/index-migration-twast8r0/idx-vector/vector_index_v2.pkl\n\n✅ Vector index build complete!\n  ✅ VEC.legacy_rebuild_with_map_passes\n  ✅ VEC.output_meta_all_stable_ids\n[1/3] Loading records from lite.json...\n  Build view: record_id_map — 5 canonical inputs (dataset sha256:cf8b7b0c550b…)\n  Total records in file: 5\n  Canonical set (valid & non-dup): 4\n  Index already exists. Checking...\n  Index is complete and up-to-date!\n  ✅ VEC.rerun_up_to_date_ids_preserved\n[1/3] Loading records from lite.json...\n  Build view: record_id_map — 5 canonical inputs (dataset sha256:cf8b7b0c550b…)\n  Total records in file: 5\n  Canonical set (valid & non-dup): 4\n  Index already exists. Checking...\n  Stable-ID migration: rebound 4 kept entries to build-view record_ids.\n  Writing pruned index (4 records, dropped 0 stale)...\n  Saved 4 records.\n  ✅ VEC.pre_migration_index_rebound_without_reembed\n[1/3] Loading records from lite.json...\n  ✅ VEC.missing_map_rebuild_fails_closed\n── shared-URL ambiguity policy (explicit, never automatic) ──\n  ✅ MIG.shared_url_different_title_fails_without_curation\n  ✅ MIG.curated_records_get_distinct_ids\n  ✅ MIG.same_url_same_title_deduped_explicitly\n  ✅ MIG.roundup_view_excludes_duplicate_keeps_curated\n  ✅ MIG.curated_ids_idempotent\n  ✅ MIG.curated_reorder_preserves_ids\n── inline-ID datasets bypass the map (forward compatibility) ──\n  ✅ MIG.inline_id_dataset_uses_inline_ids\n── CLI parity: scripts path used by systemd/boot_sync ──\n  ✅ MIG.cli_matches_library_ids\n  ✅ VEC.batch_size_env_override_memory_safety\n================================================================\n  index migration: 37 passed, 0 failed\n================================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.579 seconds.\nPrefix dict has been built successfully.\n"
+      "seconds": 1.2,
+      "tail": "  💾 Saved index: 4 records (4 new + 0 existing)\n\n[3/3] Saving final index...\n  Saved 4 embeddings (0MB) in 0.0min\n  Index file: /tmp/index-migration-3vzrl7hr/idx-vector/vector_index_v2.pkl\n\n✅ Vector index build complete!\n  ✅ VEC.legacy_rebuild_with_map_passes\n  ✅ VEC.output_meta_all_stable_ids\n[1/3] Loading records from lite.json...\n  Build view: record_id_map — 5 canonical inputs (dataset sha256:cf8b7b0c550b…)\n  Total records in file: 5\n  Canonical set (valid & non-dup): 4\n  Index already exists. Checking...\n  Index is complete and up-to-date!\n  ✅ VEC.rerun_up_to_date_ids_preserved\n[1/3] Loading records from lite.json...\n  Build view: record_id_map — 5 canonical inputs (dataset sha256:cf8b7b0c550b…)\n  Total records in file: 5\n  Canonical set (valid & non-dup): 4\n  Index already exists. Checking...\n  Stable-ID migration: rebound 4 kept entries to build-view record_ids.\n  Writing pruned index (4 records, dropped 0 stale)...\n  Saved 4 records.\n  ✅ VEC.pre_migration_index_rebound_without_reembed\n[1/3] Loading records from lite.json...\n  ✅ VEC.missing_map_rebuild_fails_closed\n── shared-URL ambiguity policy (explicit, never automatic) ──\n  ✅ MIG.shared_url_different_title_fails_without_curation\n  ✅ MIG.curated_records_get_distinct_ids\n  ✅ MIG.same_url_same_title_deduped_explicitly\n  ✅ MIG.roundup_view_excludes_duplicate_keeps_curated\n  ✅ MIG.curated_ids_idempotent\n  ✅ MIG.curated_reorder_preserves_ids\n── inline-ID datasets bypass the map (forward compatibility) ──\n  ✅ MIG.inline_id_dataset_uses_inline_ids\n── CLI parity: scripts path used by systemd/boot_sync ──\n  ✅ MIG.cli_matches_library_ids\n  ✅ VEC.batch_size_env_override_memory_safety\n================================================================\n  index migration: 37 passed, 0 failed\n================================================================\nBuilding prefix dict from the default dictionary ...\nLoading model from cache /tmp/jieba.cache\nLoading model cost 0.577 seconds.\nPrefix dict has been built successfully.\n"
     },
     {
       "tag": "visual_rt029",

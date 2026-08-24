@@ -87,6 +87,7 @@ class AnswerStateMachine:
         self.sufficiency = ""                 # grader/policy overall
         self.critical_missing = 0
         self.high_severity_conflicts = 0
+        self.orchestration_constraint = None
         self.technical_failures = {}          # component -> reason
         self._terminal = None                 # cached terminal decision
         self.stop_reason = ""
@@ -169,10 +170,36 @@ class AnswerStateMachine:
         self.sufficiency = str(overall or "").upper()
 
     def record_critical_missing(self, count: int) -> None:
-        self.critical_missing = int(count or 0)
+        self.critical_missing = max(self.critical_missing, int(count or 0))
 
     def record_conflicts(self, high_severity_unresolved: int) -> None:
-        self.high_severity_conflicts = int(high_severity_unresolved or 0)
+        self.high_severity_conflicts = max(
+            self.high_severity_conflicts,
+            int(high_severity_unresolved or 0))
+
+    def record_orchestration_constraint(self, constraint: dict) -> None:
+        """Apply Phase04 facts as an upper bound inside this same machine.
+
+        This is not a second status authority.  The canonical Phase02
+        machine records the typed requirement/coverage/grader facts and may
+        downgrade further after claim verification, but can never upgrade
+        beyond the orchestration boundary.
+        """
+        self._assert_can_decide()
+        value = dict(constraint or {})
+        self.orchestration_constraint = value
+        missing = value.get("critical_missing_ids") or []
+        self.record_critical_missing(len(missing))
+        conflicts = value.get("unresolved_conflicts") or []
+        self.record_conflicts(len(conflicts))
+        upper = str(value.get("answer_status_upper_bound") or "").upper()
+        grader = value.get("grader") or {}
+        if grader.get("required") and str(grader.get("overall") or "").upper() \
+                == "TECHNICAL_FAILURE":
+            self.record_technical_failure(
+                "evidence_grader", "phase04_required_grader_technical_failure")
+        elif upper in ("UNSUPPORTED", "PARTIALLY_SUPPORTED", "UNVERIFIED"):
+            self.record_sufficiency(upper)
 
     def _assert_can_decide(self) -> None:
         if self._terminal is not None:
@@ -302,6 +329,9 @@ class AnswerStateMachine:
                 and c.get("is_core", True)
                 and c.get("support_status") != "SUPPORTED"),
             "coverage_gate_passed": bool(self.coverage.get("gate_passed")) if self.coverage else None,
+            "orchestration_constraint": (dict(self.orchestration_constraint)
+                                         if self.orchestration_constraint
+                                         is not None else None),
             "transitions": list(self.transition_log),
         }
 

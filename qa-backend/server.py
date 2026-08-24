@@ -883,7 +883,8 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
                                research_queries: list | None = None,
                                requirements: list | None = None,
                                mode: str | None = None,
-                               verified_premises: list | None = None) -> dict:
+                               verified_premises: list | None = None,
+                               worker_packets: list | None = None) -> dict:
     """Run the Phase03 retrieval->evidence-package pipeline for one chat
     request and return the phase03_pipeline contract dict.
 
@@ -973,6 +974,7 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         provenance_map=provenance_map,
         access_scope=access_scope or "public",
         verified_premises=verified_premises,
+        worker_packets=worker_packets,
     )
 
 
@@ -1093,9 +1095,12 @@ async def _phase04_worker_packets(*, state, view, requirements):
         "QA_DOCUMENT_WORKER_CONCURRENCY", "4")))
 
     async def one(entry):
-        assigned = [rid for rid in entry.requirement_ids if rid in req_by_id]
-        if not assigned:
-            assigned = list(req_by_id)[:1]
+        # A worker exists to inspect one selected immutable document for
+        # requirement evidence the cheap deterministic association missed.
+        # Therefore it evaluates every bounded plan requirement, not only
+        # those already associated with the entry (which could never close
+        # a missing requirement).
+        assigned = list(req_by_id)
         snap = snapshots.get(entry.record_id) or {}
         rec = records_by_id.get(entry.record_id) or {}
         text = str(snap.get("evidence_text") or "")
@@ -1332,14 +1337,22 @@ async def chat_stream(req: ChatRequest, request: Request):
             _t0_pre_answer = _time.perf_counter()
             _ttfb_degraded = False
 
-            # Rewrite follow-up query + detect novelty intent (single LLM call)
-            search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
-            from query_integrity import build_rewrite_result
-            rewrite_result = build_rewrite_result(
-                query, search_query, seeking_novelty=seeking_novelty)
-            search_query = rewrite_result.rewritten_query
+            # Load server-authoritative premises BEFORE assessing the model's
+            # rewrite candidate. Raw history may help conversational wording,
+            # but assistant prose/client flags never authorize entity binding.
             verified_premises = _load_generator_premises(
                 req.conversation_id, query)
+
+            # Rewrite follow-up query + detect novelty intent (single LLM call)
+            search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
+            from query_integrity import (build_rewrite_authority,
+                                         build_rewrite_result)
+            rewrite_authority = build_rewrite_authority(
+                query, req.history, verified_premises)
+            rewrite_result = build_rewrite_result(
+                query, search_query, seeking_novelty=seeking_novelty,
+                rewrite_authority=rewrite_authority)
+            search_query = rewrite_result.rewritten_query
             trace.add_stage("rewrite", {
                 "original_query": query[:200],
                 "rewritten_query": search_query[:200],
@@ -1351,6 +1364,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "verified_premise_ids": [p.premise_id
                                          for p in verified_premises],
                 "raw_history_is_factual_authority": False,
+                "rewrite_authority": rewrite_authority.to_dict(),
             })
 
             # Check if previous round had no results (avoid "infinite no results" loop)
@@ -1414,7 +1428,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                         research_queries=kwargs.get("research_queries"),
                         requirements=kwargs.get("requirements"),
                         mode=kwargs.get("mode"),
-                        verified_premises=kwargs.get("verified_premises"))
+                        verified_premises=kwargs.get("verified_premises"),
+                        worker_packets=kwargs.get("worker_packets"))
 
                 try:
                     # TK-09: TTFB guard — the agentic loop (router+retrieval+
@@ -1998,6 +2013,31 @@ async def chat_stream(req: ChatRequest, request: Request):
                     except Exception:
                         return None
 
+                _orchestration_constraint = None
+                if agentic_state is not None and Flags.EVIDENCE_PACKAGE_ENABLED:
+                    _ledger_status = agentic_state.ledger.get_status()
+                    _critical_missing_ids = [
+                        r["id"] for r in _ledger_status.get("requirements", [])
+                        if r.get("importance") == "critical"
+                        and r.get("status") != "SUPPORTED"]
+                    _orchestration_constraint = {
+                        "schema_version": "phase04-terminal-constraint-1.0",
+                        "requirement_coverage": [
+                            {"id": r.get("id"), "status": r.get("status")}
+                            for r in _ledger_status.get("requirements", [])],
+                        "critical_missing_ids": _critical_missing_ids,
+                        "unresolved_conflicts": [
+                            c for c in (agentic_state.conflict_result.get(
+                                "conflicts") or [])
+                            if str(c.get("severity") or "").upper() == "HIGH"
+                            and not c.get("resolved")],
+                        "grader": dict(agentic_state.grader_result or {}),
+                        "knowledge_boundary": dict(
+                            agentic_state.knowledge_boundary or {}),
+                        "research_stop_reason": agentic_state.stop_reason,
+                        "answer_status_upper_bound": agentic_state.answer_status,
+                    }
+
                 p02 = await run_phase02_verification(
                     query=query,
                     draft_answer=full_answer,
@@ -2016,6 +2056,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     manifest_mode=_p02_snap is not None,
                     pinned_provenance_map=_phase03_pinned_provenance,
                     strict_evidence_package=_phase03_active,
+                    orchestration_constraint=_orchestration_constraint,
                 )
                 final_answer = p02["answer"]
 

@@ -40,6 +40,8 @@ SUITES = {
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
     "remediation_phase03": "qa-backend/tests_remediation_phase03.py",
     "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
+    "remediation_phase04": "qa-backend/tests_remediation_phase04.py",
+    "benchmark_phase04": "qa-backend/tests_benchmark_phase04.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
 }
@@ -143,6 +145,21 @@ def _benchmark03_case(name: str) -> dict:
             "level": "benchmark",
             "command": "python qa-backend/tests_benchmark_phase03.py",
             "benchmark_owner": "RT-031"}
+
+
+def _phase04_case(name: str, level: str = "integration") -> dict:
+    return {"suite": "remediation_phase04",
+            "case": "test_" + name.replace(".", "_").lower(),
+            "level": level,
+            "command": "python qa-backend/tests_remediation_phase04.py"}
+
+
+def _benchmark04_case(name: str, owner: str) -> dict:
+    return {"suite": "benchmark_phase04", "case": name,
+            "level": "benchmark",
+            "command": "python qa-backend/tests_benchmark_phase04.py",
+            "artifact": "qa-backend/benchmark_phase04_result.json",
+            "benchmark_owner": owner}
 
 
 def _visual_case(name: str) -> dict:
@@ -544,6 +561,130 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             })
         phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": dods})
 
+    # ── Phase 04 (RT-040..RT-049) — query integrity/orchestration ─────
+    phase04_dods = {
+        "RT-040": [
+            ("PARTIAL reuses only individually verified claims",
+             ["RT040.partial_only_individually_verified_claims",
+              "phase04.endpoint_fast_and_conversation_e2e"]),
+            ("UNVERIFIED prose cannot become premise",
+             ["RT040.unverified_sentinel_never_premise",
+              "RT040.conversation_isolation_and_forged_flag"]),
+            ("temporal provenance retained",
+             ["RT040.temporal_freshness_and_supersession",
+              "RT040.evidence_runtime_provenance_retained"]),
+        ],
+        "RT-041": [
+            ("entity/time/negation rewrite errors are caught and contextual entity binding uses only USER/server authority",
+             ["RT041.entity_temporal_negation_drift",
+              "RT041.modality_numeric_drift",
+              "RT041.comparison_dimension_scope_intent_drift",
+              "RT041.context_entity_authority_cases"]),
+            ("model diff failure cannot bless a bad rewrite; the actual endpoint RewriteResult rejects assistant-only injection",
+             ["RT041.model_advisory_cannot_bless_bad_rewrite",
+              "RT041.critical_parse_uncertainty_escalates",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-042": [
+            ("FAST does not call full Planner unnecessarily",
+             ["RT042.fast_planner_not_called"]),
+            ("FAST cannot skip evidence/verification gates",
+             ["RT042.fast_mandatory_evidence_gates_called",
+              "RT042.fast_hard_fail_not_model_overridden",
+              "RT042.fast_real_pipeline_supported"]),
+            ("simple-query latency benchmark is recorded against the accepted Phase03 base",
+             [_benchmark04_case("test_benchmark_fast_simple_correct", "RT-042")]),
+        ],
+        "RT-043": [
+            ("all mode state serializable and traceable",
+             ["RT043.state_serialization_runtime_pinning"]),
+            ("agentic_state.all_results is not used as final generation context",
+             ["RT043.all_results_not_generation_context",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+            ("selected evidence, Ledger and final EvidencePackage stay connected and constrain the sole Phase02 terminal state machine",
+             ["RT043.selected_ledger_package_connected",
+              "RT043_RT049.phase02_canonical_terminal_upper_bound",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-044": [
+            ("comparison, trend and multi-entity coverage is complete on the committed evaluation set",
+             ["RT044.comparison_object_dimension_matrix",
+              "RT044.trend_current_multi_entity",
+              "RT044.full_semantic_antidrift_contract",
+              _benchmark04_case("test_benchmark_decomposition_matrix", "RT-044")]),
+            ("ambiguous scope yields requirements or an assumption; structured requirements authoritatively drive Phase03 policy",
+             ["RT044.ambiguity_explicit",
+              "RT044.malformed_timeout_fallback_antidrift",
+              "phase04.structured_requirements_drive_phase03_policy",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-045": [
+            ("multi-document mode triggers for cross-document cases and not simple facts",
+             ["RT045.orchestrator_trigger_and_simple_nontrigger",
+              "phase04.endpoint_fast_and_conversation_e2e"]),
+            ("a document worker never sees another document's conclusions or draft",
+             ["RT045.worker_cross_document_sentinel_isolation"]),
+            ("exact worker EvidenceRefs re-enter policy/Ledger/final package; invalid numeric/relation/conflict metadata never becomes support",
+             ["RT045.worker_one_document_exact_refs",
+              "RT045.worker_failure_and_no_evidence",
+              "RT045.worker_exact_ref_reenters_final_package",
+              "RT045.invalid_worker_checks_never_become_support",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-046": [
+            ("optional packet cache cannot cross incompatible profiles or access scopes",
+             ["RT046.cache_manifest_profile_access_snapshot_isolation",
+              "RT046.cache_disabled_parity"]),
+            ("stale snapshots are never reused across manifest, snapshot, requirement, model, prompt or schema changes",
+             ["RT046.cache_requirement_prompt_schema_model_invalidation",
+              "RT046.cache_manifest_profile_access_snapshot_isolation"]),
+        ],
+        "RT-047": [
+            ("hard failure persists despite a model claiming sufficient evidence",
+             ["RT047.hard_rule_override_attack"]),
+            ("Grader technical failure cannot become SUFFICIENT; searched-no-evidence is recorded only after actual execution",
+             ["RT047.grader_failure_not_sufficient",
+              "RT047.ledger_fields_and_serialization",
+              "RT047.search_plan_execution_outcomes",
+              "RT047.actual_targeted_search_exhaustion_once",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-048": [
+            ("every new targeted query points to an unresolved requirement and typed gap without drift or duplicates",
+             ["RT048.gap_type_suite_and_requirement_binding",
+              "RT048.duplicate_semantic_duplicate_and_drift_prevention"]),
+            ("an impossible gap can stop and an executed query can close a gap without false no-evidence accounting",
+             ["RT048.real_gap_closure_two_rounds",
+              _benchmark04_case("test_benchmark_gap_dedup", "RT-048")]),
+        ],
+        "RT-049": [
+            ("runaway research loops are impossible under configured round and tool-call bounds",
+             ["RT049.canonical_stop_reasons",
+              _benchmark04_case("test_benchmark_bounded_stopping", "RT-049")]),
+            ("knowledge boundary is enforced as an upper bound by the sole Phase02 AnswerStateMachine",
+             ["RT049.partial_boundary_and_no_false_existence_denial",
+              "RT043_RT049.phase02_canonical_terminal_upper_bound",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+    }
+    for rt_id, specs in phase04_dods.items():
+        dods = []
+        for number, (description, cases) in enumerate(specs, 1):
+            test_cases = [
+                case if isinstance(case, dict) else _phase04_case(
+                    case, "e2e" if case.startswith("phase04.") else
+                    ("unit" if any(marker in case for marker in (
+                        "ambiguity", "comparison_object_dimension_matrix",
+                        "canonical_stop_reasons")) else "integration"))
+                for case in cases]
+            dods.append({
+                "dod_id": f"{rt_id}.DOD-{number:02d}",
+                "description": description, "status": "SATISFIED",
+                "test_cases": test_cases,
+            })
+        phase00.append({"ticket_id": rt_id,
+                        "completion_class": "CORE_REQUIRED", "dods": dods})
+
     # Legacy frozen DoDs whose remediation owner completed in Phase 02 with
     # directly corresponding behavioral evidence. Every entry cites named
     # executable cases; T037 stays NOT_SATISFIED (simulated flow, L12 hard gate)
@@ -614,7 +755,11 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
             "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
         },
-        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)] + [f"RT-{n:03d}" for n in range(20, 30)] + [f"RT-{n:03d}" for n in range(30, 40)],
+        "active_remediation_scope": ([f"RT-{n:03d}" for n in range(1, 6)]
+                                     + [f"RT-{n:03d}" for n in range(10, 19)]
+                                     + [f"RT-{n:03d}" for n in range(20, 30)]
+                                     + [f"RT-{n:03d}" for n in range(30, 40)]
+                                     + [f"RT-{n:03d}" for n in range(40, 50)]),
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
         "remediation_entries": phase00,

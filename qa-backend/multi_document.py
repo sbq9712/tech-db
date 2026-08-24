@@ -84,8 +84,10 @@ class DocumentEvidencePacket:
     requirement_results: Tuple[dict, ...]
     local_claims: Tuple[DocumentLocalClaim, ...]
     numeric_facts: Tuple[dict, ...] = field(default_factory=tuple)
+    relation_checks: Tuple[dict, ...] = field(default_factory=tuple)
     temporal_scope: dict = field(default_factory=dict)
     source_role: str = "unknown"
+    independent_group_id: str = ""
     internal_conflicts: Tuple[dict, ...] = field(default_factory=tuple)
     unanswered_aspects: Tuple[str, ...] = field(default_factory=tuple)
     relevant: bool = False
@@ -100,8 +102,10 @@ class DocumentEvidencePacket:
             "requirement_results": [dict(v) for v in self.requirement_results],
             "local_claims": [v.to_dict() for v in self.local_claims],
             "numeric_facts": [dict(v) for v in self.numeric_facts],
+            "relation_checks": [dict(v) for v in self.relation_checks],
             "temporal_scope": dict(self.temporal_scope),
             "source_role": self.source_role,
+            "independent_group_id": self.independent_group_id,
             "internal_conflicts": [dict(v) for v in self.internal_conflicts],
             "unanswered_aspects": list(self.unanswered_aspects),
             "relevant": self.relevant,
@@ -221,10 +225,16 @@ async def process_document_packet(
         requirement_results=tuple(requirement_results),
         local_claims=tuple(claims),
         numeric_facts=tuple(legacy.get("numeric_facts") or []),
+        relation_checks=tuple(legacy.get("relation_checks") or []),
         temporal_scope=dict(legacy.get("temporal_scope") or {}),
         source_role=str(legacy.get("source_role") or
                         worker_input.provenance_metadata.get("source_role") or
                         "unknown"),
+        # This is copied from request-pinned enrichment metadata, never
+        # inferred from worker prose.  Empty means unknown; packet/ledger
+        # code must not fabricate one group per record.
+        independent_group_id=str(
+            worker_input.provenance_metadata.get("independent_group_id") or ""),
         internal_conflicts=tuple(legacy.get("internal_conflicts") or []),
         unanswered_aspects=tuple(str(v) for v in
                                  legacy.get("unanswered_aspects") or []),

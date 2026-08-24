@@ -36,6 +36,10 @@ class Requirement:
     provenance_need: str = "any"
     relation_need: str = "none"
     numeric_conditions: Tuple[str, ...] = field(default_factory=tuple)
+    time_constraints: Tuple[str, ...] = field(default_factory=tuple)
+    scope_constraints: Tuple[str, ...] = field(default_factory=tuple)
+    negation_markers: Tuple[str, ...] = field(default_factory=tuple)
+    modality_markers: Tuple[str, ...] = field(default_factory=tuple)
     ambiguity: str = ""
     comparison_object: str = ""
     comparison_dimension: str = ""
@@ -61,6 +65,10 @@ class Requirement:
             "provenance_need": self.provenance_need,
             "relation_need": self.relation_need,
             "numeric_conditions": list(self.numeric_conditions),
+            "time_constraints": list(self.time_constraints),
+            "scope_constraints": list(self.scope_constraints),
+            "negation_markers": list(self.negation_markers),
+            "modality_markers": list(self.modality_markers),
             "ambiguity": self.ambiguity,
             "comparison_object": self.comparison_object,
             "comparison_dimension": self.comparison_dimension,
@@ -91,6 +99,29 @@ def _stable_id(*parts: str) -> str:
     return hashlib.sha256("\x1f".join(parts).encode("utf-8")).hexdigest()[:8]
 
 
+def _provenance_need(query: str) -> str:
+    return ("independent" if re.search(
+        r"独立|第三方|交叉验证|独立证实|independent|third[- ]party|"
+        r"externally verified|independent validation", query or "", re.I)
+        else "any")
+
+
+def _relation_need(query: str) -> str:
+    return ("required" if re.search(
+        r"关系|依赖|关联|属于|导致|影响|relation|relationship|depends? on|"
+        r"causes?|affects?", query or "", re.I) else "none")
+
+
+def _temporal_intent(features) -> str:
+    if features.intent_original == "current":
+        return "current"
+    if features.intent_original == "trend":
+        return "trend"
+    if features.time_original:
+        return "as_of"
+    return "unspecified"
+
+
 def deterministic_requirements(query: str,
                                question_type: str = "FACT_LOOKUP") -> PlanResult:
     """Bounded, deterministic fallback that preserves original intent.
@@ -103,9 +134,17 @@ def deterministic_requirements(query: str,
     qtype = str(question_type or "FACT_LOOKUP").upper()
     entities = tuple(f.comparison_original or f.entities_original)
     dimensions = tuple(f.dimensions_original)
-    temporal = ("current" if f.intent_original == "current" else
-                "trend" if f.intent_original == "trend" else "unspecified")
+    temporal = _temporal_intent(f)
     numeric = tuple(f.numeric_original)
+    common = {
+        "provenance_need": _provenance_need(query),
+        "relation_need": _relation_need(query),
+        "numeric_conditions": numeric,
+        "time_constraints": tuple(f.time_original),
+        "scope_constraints": tuple(f.scope_original),
+        "negation_markers": tuple(f.negation_original),
+        "modality_markers": tuple(f.modality_original),
+    }
     assumptions, diagnostics = [], []
     ambiguous = ""
     if re.search(r"(?:它|其|这个|该项|\bthey\b|\bit\b|\bthat\b)", query, re.I):
@@ -126,8 +165,15 @@ def deterministic_requirements(query: str,
                     description=f"Verify {obj} on {dim}",
                     entities=(obj,) if not obj.startswith("unresolved") else tuple(),
                     dimensions=(dim,), queries=(f"{obj} {dim}",),
-                    temporal_intent=temporal, provenance_need="independent",
-                    numeric_conditions=numeric, ambiguity=ambiguous,
+                    temporal_intent=temporal,
+                    provenance_need="independent",
+                    relation_need=common["relation_need"],
+                    numeric_conditions=numeric,
+                    time_constraints=common["time_constraints"],
+                    scope_constraints=common["scope_constraints"],
+                    negation_markers=common["negation_markers"],
+                    modality_markers=common["modality_markers"],
+                    ambiguity=ambiguous,
                     comparison_object=obj, comparison_dimension=dim))
     elif qtype in ("TREND", "TEMPORAL") or f.intent_original == "trend":
         subjects = entities or (query,)
@@ -137,7 +183,7 @@ def deterministic_requirements(query: str,
                 description=f"Verify the time-ordered trend for {subject}",
                 entities=(subject,) if subject != query else tuple(),
                 dimensions=dimensions, queries=(query, f"{subject} timeline"),
-                temporal_intent="trend", numeric_conditions=numeric,
+                temporal_intent="trend", **common,
                 ambiguity=ambiguous))
     elif len(entities) > 1:
         for i, entity in enumerate(entities, 1):
@@ -146,13 +192,13 @@ def deterministic_requirements(query: str,
                 description=f"Verify requested facts for {entity}",
                 entities=(entity,), dimensions=dimensions,
                 queries=(f"{entity} {' '.join(dimensions)}".strip(),),
-                temporal_intent=temporal, numeric_conditions=numeric,
+                temporal_intent=temporal, **common,
                 ambiguity=ambiguous))
     else:
         reqs.append(Requirement(
             requirement_id="r1", description=query,
             entities=entities, dimensions=dimensions, queries=(query,),
-            temporal_intent=temporal, numeric_conditions=numeric,
+            temporal_intent=temporal, **common,
             ambiguity=ambiguous))
     return PlanResult(tuple(reqs), tuple(diagnostics), True,
                       tuple(assumptions))
@@ -167,7 +213,11 @@ def validate_planner_output(raw, original_query: str,
         rows = raw.get("requirements") if isinstance(raw, dict) else None
         if not isinstance(rows, list) or not rows:
             raise ValueError("empty_or_malformed_requirements")
-        original_entities = {e.casefold() for e in _features(original_query).entities_original}
+        original = _features(original_query)
+        original_entities = {e.casefold() for e in
+                             (original.comparison_original or
+                              original.entities_original)}
+        expected = deterministic_requirements(original_query, question_type)
         out, ids = [], set()
         for row in rows:
             if not isinstance(row, dict):
@@ -194,9 +244,66 @@ def validate_planner_output(raw, original_query: str,
                 provenance_need=str(row.get("provenance_need") or "any"),
                 relation_need=str(row.get("relation_need") or "none"),
                 numeric_conditions=tuple(str(v) for v in row.get("numeric_conditions") or []),
+                time_constraints=tuple(str(v) for v in row.get("time_constraints") or []),
+                scope_constraints=tuple(str(v) for v in row.get("scope_constraints") or []),
+                negation_markers=tuple(str(v) for v in row.get("negation_markers") or []),
+                modality_markers=tuple(str(v) for v in row.get("modality_markers") or []),
                 ambiguity=str(row.get("ambiguity") or ""),
                 comparison_object=str(row.get("comparison_object") or ""),
                 comparison_dimension=str(row.get("comparison_dimension") or "")))
+        # Schema-valid Planner output is still rejected when it changes any
+        # correctness-critical semantic axis of the original request.
+        expected_entities = {e.casefold() for r in expected.requirements
+                             for e in r.entities}
+        actual_entities = {e.casefold() for r in out for e in r.entities}
+        if expected_entities != actual_entities:
+            raise ValueError("planner_entity_coverage_drift")
+        expected_dims = {d.casefold() for r in expected.requirements
+                         for d in r.dimensions}
+        actual_dims = {d.casefold() for r in out for d in r.dimensions}
+        if expected_dims != actual_dims:
+            raise ValueError("planner_dimension_drift")
+        expected_matrix = {(r.comparison_object.casefold(),
+                            r.comparison_dimension.casefold())
+                           for r in expected.requirements
+                           if r.comparison_object or r.comparison_dimension}
+        actual_matrix = {(r.comparison_object.casefold(),
+                          r.comparison_dimension.casefold())
+                         for r in out
+                         if r.comparison_object or r.comparison_dimension}
+        if expected_matrix != actual_matrix:
+            raise ValueError("planner_comparison_matrix_drift")
+
+        def union(attr):
+            return {str(v).casefold() for r in out for v in getattr(r, attr)}
+
+        expected_first = expected.requirements[0]
+        expected_axes = {
+            "numeric_conditions": {v.casefold() for v in
+                                   expected_first.numeric_conditions},
+            "time_constraints": {v.casefold() for v in
+                                 expected_first.time_constraints},
+            "scope_constraints": {v.casefold() for v in
+                                  expected_first.scope_constraints},
+            "negation_markers": {v.casefold() for v in
+                                 expected_first.negation_markers},
+            "modality_markers": {v.casefold() for v in
+                                 expected_first.modality_markers},
+        }
+        for axis, values in expected_axes.items():
+            if union(axis) != values:
+                raise ValueError(f"planner_{axis}_drift")
+        expected_temporal = {r.temporal_intent for r in expected.requirements}
+        if {r.temporal_intent for r in out} != expected_temporal:
+            raise ValueError("planner_temporal_intent_drift")
+        if any(r.provenance_need == "independent"
+               for r in expected.requirements) and any(
+                   r.critical and r.provenance_need != "independent"
+                   for r in out):
+            raise ValueError("planner_provenance_need_weakened")
+        if any(r.relation_need != "none" for r in expected.requirements) \
+                and any(r.critical and r.relation_need == "none" for r in out):
+            raise ValueError("planner_relation_need_weakened")
         return PlanResult(tuple(out), ("planner_schema_valid",), False, tuple())
     except Exception as exc:
         fallback = deterministic_requirements(original_query, question_type)

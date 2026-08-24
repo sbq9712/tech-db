@@ -365,6 +365,12 @@ class EvidencePolicyEngine:
                  required_dimensions: Optional[List[str]] = None,
                  selected_evidence_texts: Optional[List[str]] = None,
                  provenance_groups: Optional[List[str]] = None,
+                 evidence_states_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 evidence_roles_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 provenance_groups_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
                  min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
@@ -387,6 +393,11 @@ class EvidencePolicyEngine:
         """
         findings: List[PolicyFinding] = []
         rule_applicability: Dict[str, str] = {}
+        per_requirement_policy = any(mapping is not None for mapping in (
+            evidence_states_by_requirement,
+            evidence_roles_by_requirement,
+            provenance_groups_by_requirement,
+        ))
         for req in requirements:
             rid = str(req.get("id", ""))
             selected = evidence_by_requirement.get(rid, [])
@@ -394,20 +405,61 @@ class EvidencePolicyEngine:
                 requirement_id=rid, selected_evidence=selected,
                 critical=bool(req.get("critical", True)))
             findings.extend(rep.findings)
+            # Phase04 structured requirement policy is authoritative per
+            # requirement when the caller supplies the per-requirement
+            # evidence mappings. Direct/legacy engine callers retain the
+            # reviewed aggregate policy contract below.
+            req_temporal = str(req.get("temporal_intent") or
+                               req.get("temporal") or "unspecified")
+            req_independent = str(req.get("provenance_need") or "any") \
+                == "independent"
+            states = (evidence_states_by_requirement or {}).get(rid)
+            roles = (evidence_roles_by_requirement or {}).get(rid)
+            groups = (provenance_groups_by_requirement or {}).get(rid)
+            if (per_requirement_policy
+                    and req_temporal not in ("", "unspecified", "any")):
+                temporal_rep = self.check_temporal(
+                    requirement_temporal=req_temporal,
+                    evidence_states=list(states or []))
+                for finding in temporal_rep.findings:
+                    finding.subject = rid
+                findings.extend(temporal_rep.findings)
+                rule_applicability[f"temporal:{rid}"] = "APPLICABLE"
+            if per_requirement_policy and req_independent:
+                role_rep = self.check_self_report(
+                    requires_independent=True,
+                    evidence_roles=list(roles or []))
+                for finding in role_rep.findings:
+                    finding.subject = rid
+                findings.extend(role_rep.findings)
+                prov_req = self.check_provenance(
+                    requires_independent=True,
+                    provenance_groups=(list(groups)
+                                       if groups is not None else None),
+                    min_independent_groups=min_independent_groups)
+                for finding in prov_req.findings:
+                    finding.subject = rid
+                findings.extend(prov_req.findings)
+                rule_applicability.update({
+                    f"{key}:{rid}": value for key, value in
+                    prov_req.rule_applicability.items()})
         findings.extend(self.check_conflict(conflicts=conflicts or []).findings)
         findings.extend(self.check_numeric(numeric_facts=numeric_facts or []).findings)
         findings.extend(self.check_relation(relation_checks=relation_checks or []).findings)
-        if requirement_temporal and evidence_states is not None:
+        if (not per_requirement_policy and requirement_temporal
+                and evidence_states is not None):
             findings.extend(self.check_temporal(
                 requirement_temporal=requirement_temporal,
                 evidence_states=list(evidence_states)).findings)
-        if requires_independent and evidence_roles is not None:
+        if (not per_requirement_policy and requires_independent
+                and evidence_roles is not None):
             findings.extend(self.check_self_report(
                 requires_independent=True,
                 evidence_roles=list(evidence_roles)).findings)
         # review round 2 RT-034: provenance independence
         prov_rep = self.check_provenance(
-            requires_independent=requires_independent,
+            requires_independent=(requires_independent
+                                  and not per_requirement_policy),
             provenance_groups=provenance_groups,
             min_independent_groups=min_independent_groups)
         findings.extend(prov_rep.findings)

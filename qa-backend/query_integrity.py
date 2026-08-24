@@ -35,6 +35,10 @@ _INTENT_RULES = (
     ("current", re.compile(r"当前|目前|现在|最新|current|latest", re.I)),
     ("negative_existence", re.compile(r"不存在|没有任何|does not exist|no .* exists", re.I)),
 )
+_CONTEXT_REFERENCE = re.compile(
+    r"(?:它|其|这个|该项|该产品|前者|后者|呢[？?]?$|"
+    r"\bit\b|\bthey\b|\bthat\b|\bthose\b|"
+    r"\bwhat about\b|\bhow about\b)", re.I)
 
 
 def _norm(text: str) -> str:
@@ -68,8 +72,11 @@ def _extract_entities(text: str) -> Tuple[str, ...]:
     for m in re.finditer(r"([\u3400-\u9fffA-Za-z0-9_.+-]{2,24})\s*(?:和|与|对比|相比|还是)\s*([\u3400-\u9fffA-Za-z0-9_.+-]{2,24})", text):
         found.extend(m.groups())
     for m in re.finditer(r"([\u3400-\u9fff]{2,12})(?=的?(?:价格|成本|性能|带宽|延迟|功耗|趋势|路线图|概述|材料))", text):
-        candidate = m.group(1)
-        if not candidate.startswith(("它", "其", "这个", "该项")):
+        candidate = m.group(1).removesuffix("的")
+        if (not candidate.startswith(("它", "其", "这个", "该项"))
+                and candidate not in {
+                    "当前", "目前", "现在", "最近", "最新", "今年",
+                    "去年", "明年", "全球", "中国", "国内"}):
             found.append(candidate)
     return _ordered_unique(found)
 
@@ -121,6 +128,66 @@ def _scope(text: str) -> Tuple[str, ...]:
         if any(term in value for term in terms):
             scopes.append(name)
     return tuple(scopes)
+
+
+@dataclass(frozen=True)
+class RewriteAuthority:
+    """Deterministic entity-binding authority for follow-up rewrites.
+
+    Raw assistant history is retained only as an explicit untrusted diagnostic
+    surface. It can never authorize an entity introduced by a rewrite.
+    """
+    current_query_entities: Tuple[str, ...] = field(default_factory=tuple)
+    prior_user_entities: Tuple[str, ...] = field(default_factory=tuple)
+    verified_premise_entities: Tuple[str, ...] = field(default_factory=tuple)
+    unverified_assistant_entities: Tuple[str, ...] = field(default_factory=tuple)
+
+    @property
+    def allowed_context_entities(self) -> Tuple[str, ...]:
+        return _ordered_unique(
+            (*self.prior_user_entities, *self.verified_premise_entities))
+
+    def authorizes(self, entity: str) -> bool:
+        key = _norm(entity).casefold()
+        return any(key == _norm(v).casefold()
+                   for v in self.allowed_context_entities)
+
+    def to_dict(self) -> dict:
+        return dataclasses.asdict(self) | {
+            "allowed_context_entities": list(self.allowed_context_entities),
+            "assistant_history_is_authority": False,
+        }
+
+
+def build_rewrite_authority(current_query: str, history: Optional[list] = None,
+                            verified_premises: Optional[list] = None
+                            ) -> RewriteAuthority:
+    """Build authority from current/user context and server premises only."""
+    user_entities: List[str] = []
+    assistant_entities: List[str] = []
+    for message in history or []:
+        if not isinstance(message, dict):
+            continue
+        entities = _extract_entities(str(message.get("content") or ""))
+        if str(message.get("role") or "").lower() == "user":
+            user_entities.extend(entities)
+        elif str(message.get("role") or "").lower() == "assistant":
+            assistant_entities.extend(entities)
+    premise_entities: List[str] = []
+    for premise in verified_premises or []:
+        if hasattr(premise, "claim"):
+            text = premise.claim
+        elif isinstance(premise, dict):
+            text = premise.get("claim") or premise.get("claim_text") or ""
+        else:
+            text = ""
+        premise_entities.extend(_extract_entities(str(text)))
+    return RewriteAuthority(
+        current_query_entities=_extract_entities(current_query),
+        prior_user_entities=_ordered_unique(user_entities),
+        verified_premise_entities=_ordered_unique(premise_entities),
+        unverified_assistant_entities=_ordered_unique(assistant_entities),
+    )
 
 
 @dataclass(frozen=True)
@@ -196,7 +263,9 @@ class RewriteResult:
         }
 
 
-def semantic_diff(original: str, rewritten: str) -> SemanticDiff:
+def semantic_diff(original: str, rewritten: str, *,
+                  rewrite_authority: Optional[RewriteAuthority] = None
+                  ) -> SemanticDiff:
     original, rewritten = _norm(original), _norm(rewritten)
     oe, re_ = _extract_entities(original), _extract_entities(rewritten)
     ot, rt = _extract_time(original), _extract_time(rewritten)
@@ -218,7 +287,13 @@ def semantic_diff(original: str, rewritten: str) -> SemanticDiff:
         for y in raw_added))
     changes = []
     if removed: changes.append("entity_removed")
-    if added and oe: changes.append("entity_added_without_authority")
+    if added:
+        contextual = bool(_CONTEXT_REFERENCE.search(original))
+        unauthorized = [e for e in added if not (
+            not oe and contextual and rewrite_authority is not None
+            and rewrite_authority.authorizes(e))]
+        if unauthorized:
+            changes.append("entity_added_without_authority")
     if ot != rt: changes.append("temporal_drift")
     if on != rn: changes.append("negation_drift")
     if om != rm: changes.append("modality_drift")
@@ -233,6 +308,12 @@ def semantic_diff(original: str, rewritten: str) -> SemanticDiff:
                                    rewritten.casefold()).ratio() < 0.45:
             uncertain = True
             diagnostics.append("critical_subject_parse_uncertain")
+    if added and rewrite_authority is not None:
+        untrusted = {v.casefold() for v in
+                     rewrite_authority.unverified_assistant_entities}
+        if any(e.casefold() in untrusted and not rewrite_authority.authorizes(e)
+               for e in added):
+            diagnostics.append("entity_only_in_unverified_assistant_history")
     return SemanticDiff(
         entities_original=oe, entities_rewritten=re_, entities_added=added,
         entities_removed=removed, time_original=ot, time_rewritten=rt,
@@ -249,9 +330,12 @@ def semantic_diff(original: str, rewritten: str) -> SemanticDiff:
 
 def build_rewrite_result(original: str, proposed: str, *,
                          seeking_novelty: bool = False,
-                         model_diagnostics: Optional[dict] = None) -> RewriteResult:
+                         model_diagnostics: Optional[dict] = None,
+                         rewrite_authority: Optional[RewriteAuthority] = None
+                         ) -> RewriteResult:
     original, proposed = _norm(original), _norm(proposed) or _norm(original)
-    diff = semantic_diff(original, proposed)
+    diff = semantic_diff(original, proposed,
+                         rewrite_authority=rewrite_authority)
     diagnostics = list(diff.diagnostics)
     if model_diagnostics is not None:
         diagnostics.append("model_diff_advisory_only")

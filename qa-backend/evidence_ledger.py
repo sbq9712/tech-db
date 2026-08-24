@@ -71,6 +71,7 @@ class EvidenceLedger:
                     "comparison_object": req.get("comparison_object", ""),
                     "comparison_dimension": req.get("comparison_dimension", ""),
                     "searched_no_evidence": [],
+                    "search_attempts": [],
                     "degraded_capabilities": [],
                     "missing": [],
                 }
@@ -172,16 +173,54 @@ class EvidenceLedger:
         self.snapshots.append(snapshot)
         return snapshot
 
-    def record_search_attempt(self, requirement_id: str, *, query: str,
-                              gap_type: str, evidence_found: bool,
-                              round_number: int):
+    def record_search_plan(self, requirement_id: str, *, query: str,
+                           gap_type: str, round_number: int) -> str:
+        """Record a proposed query without asserting that it ran.
+
+        ``searched_no_evidence`` is an execution outcome, not a planner
+        prediction.  The returned stable attempt id is completed only after
+        the following retrieval round actually executes.
+        """
         req = self.requirements.get(requirement_id)
         if req is None:
             raise KeyError(f"unknown requirement {requirement_id}")
+        attempt_id = (f"{requirement_id}:r{int(round_number)}:"
+                      f"{len(req['search_attempts']) + 1}")
+        req["search_attempts"].append({
+            "attempt_id": attempt_id, "query": query,
+            "gap_type": gap_type, "round": int(round_number),
+            "status": "PLANNED", "evidence_found": None})
+        return attempt_id
+
+    def record_search_outcome(self, requirement_id: str, *, attempt_id: str,
+                              evidence_found: bool) -> None:
+        """Complete exactly one previously planned, actually executed query."""
+        req = self.requirements.get(requirement_id)
+        if req is None:
+            raise KeyError(f"unknown requirement {requirement_id}")
+        match = next((a for a in req["search_attempts"]
+                      if a["attempt_id"] == attempt_id), None)
+        if match is None:
+            raise KeyError(f"unknown search attempt {attempt_id}")
+        if match["status"] != "PLANNED":
+            raise ValueError(f"search attempt already completed: {attempt_id}")
+        match["status"] = "EXECUTED"
+        match["evidence_found"] = bool(evidence_found)
         if not evidence_found:
             req["searched_no_evidence"].append({
-                "query": query, "gap_type": gap_type,
-                "round": int(round_number)})
+                "attempt_id": attempt_id, "query": match["query"],
+                "gap_type": match["gap_type"], "round": match["round"]})
+
+    def record_search_attempt(self, requirement_id: str, *, query: str,
+                              gap_type: str, evidence_found: bool,
+                              round_number: int):
+        """Compatibility helper for callers that already have an outcome."""
+        attempt_id = self.record_search_plan(
+            requirement_id, query=query, gap_type=gap_type,
+            round_number=round_number)
+        self.record_search_outcome(
+            requirement_id, attempt_id=attempt_id,
+            evidence_found=evidence_found)
 
     def record_degradation(self, requirement_id: str, capability: str):
         req = self.requirements.get(requirement_id)
@@ -208,8 +247,27 @@ class EvidenceLedger:
                     ref_dict["worker_claim"] = claim.claim
                     if ref_dict not in req["supporting_evidence"]:
                         req["supporting_evidence"].append(ref_dict)
+                group = str(getattr(packet, "independent_group_id", "") or "")
+                if group:
+                    req["independent_groups"].add(group)
+                role = str(getattr(packet, "source_role", "") or "")
+                if role and role != "unknown":
+                    req["source_roles"].add(role)
+                temporal = dict(getattr(packet, "temporal_scope", {}) or {})
+                if temporal:
+                    req["temporal_coverage"][getattr(
+                        packet, "record_id", "")] = temporal
                 if req["supporting_evidence"] and req["status"] == REQ_MISSING:
                     req["status"] = REQ_PARTIAL
+            for conflict in getattr(packet, "internal_conflicts", ()):
+                req_ids = conflict.get("requirement_ids") or [
+                    r.get("requirement_id") for r in
+                    getattr(packet, "requirement_results", ())]
+                for rid in req_ids:
+                    req = self.requirements.get(rid)
+                    if req is not None:
+                        req["conflicting_evidence"].append(dict(conflict))
+                        req["status"] = REQ_CONFLICTED
             for capability in getattr(packet, "degraded", ()):
                 for result in getattr(packet, "requirement_results", ()):
                     self.record_degradation(result.get("requirement_id"), capability)
@@ -255,6 +313,7 @@ class EvidenceLedger:
                     "comparison_dimension": r["comparison_dimension"],
                     "conflicting_evidence": list(r["conflicting_evidence"]),
                     "searched_no_evidence": list(r["searched_no_evidence"]),
+                    "search_attempts": [dict(a) for a in r["search_attempts"]],
                     "degraded_capabilities": list(r["degraded_capabilities"]),
                     "missing_reasons": list(r["missing"]),
                 }

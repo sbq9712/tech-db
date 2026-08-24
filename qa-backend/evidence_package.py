@@ -166,6 +166,12 @@ class RequirementBlock:
     # review round 1: claim-level policy reason codes that blocked/cleared
     # this requirement's support (POLICY_STALE_CURRENT_FACT, ...)
     policy_reasons: List[str] = field(default_factory=list)
+    temporal_intent: str = "unspecified"
+    provenance_need: str = "any"
+    relation_need: str = "none"
+    numeric_conditions: List[str] = field(default_factory=list)
+    comparison_object: str = ""
+    comparison_dimension: str = ""
 
     def to_dict(self) -> dict:
         return {
@@ -177,6 +183,12 @@ class RequirementBlock:
             "condition_evidence_ids": sorted(self.condition_evidence_ids),
             "coverage": self.coverage,
             "policy_reasons": list(self.policy_reasons),
+            "temporal_intent": self.temporal_intent,
+            "provenance_need": self.provenance_need,
+            "relation_need": self.relation_need,
+            "numeric_conditions": list(self.numeric_conditions),
+            "comparison_object": self.comparison_object,
+            "comparison_dimension": self.comparison_dimension,
         }
 
 
@@ -315,6 +327,15 @@ class EvidencePackageBuilder:
                 requirement_id=rid,
                 description=str(r.get("description", "")),
                 critical=bool(r.get("critical", False)),
+                temporal_intent=str(r.get("temporal_intent") or
+                                    r.get("temporal") or "unspecified"),
+                provenance_need=str(r.get("provenance_need") or "any"),
+                relation_need=str(r.get("relation_need") or "none"),
+                numeric_conditions=[str(v) for v in
+                                    r.get("numeric_conditions") or []],
+                comparison_object=str(r.get("comparison_object") or ""),
+                comparison_dimension=str(
+                    r.get("comparison_dimension") or ""),
             )
             req_blocks.append(b)
             reqs_by_id[rid] = b
@@ -693,7 +714,7 @@ class PackedGenerationView:
             # card without an explicit capacity abstain is a violation
             compressed_mandatory = [
                 eid for eid in self.mandatory_evidence_ids
-                if eid in have and not self.evidence[eid].counts_as_evidence]
+                if eid in have and self.evidence[eid].compressed]
             if compressed_mandatory:
                 issues.append("mandatory evidence compressed to navigation "
                               f"cards without context_capacity_exceeded: "

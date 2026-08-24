@@ -624,6 +624,17 @@ async def _run_canonical_phase04(
     max_tool_calls = int(state.plan.get("max_tool_calls") or 30)
     previous_selected = set()
     last_hard_fail = False
+    pending_searches = []
+
+    def _support_keys(requirement_id: str) -> set:
+        req = state.ledger.requirements.get(requirement_id) or {}
+        return {
+            (str(ref.get("evidence_id") or ""),
+             str(ref.get("record_id") or ""),
+             json.dumps(ref.get("locators") or [], sort_keys=True,
+                        ensure_ascii=False))
+            for ref in req.get("supporting_evidence") or []
+        }
 
     for round_number in range(1, max_rounds + 1):
         state.iteration = round_number
@@ -638,6 +649,7 @@ async def _run_canonical_phase04(
             mode=state.mode,
             verified_premises=list(verified_premises or []),
             access_scope=state.access_scope,
+            worker_packets=[],
         )
         state.phase03_result = result
         state.stage_calls.extend([
@@ -653,7 +665,61 @@ async def _run_canonical_phase04(
             d for d in result.get("degraded_capabilities", [])
             if d not in state.degraded_capabilities)
 
+        # Planner/Orchestrator confirms the Router proposal. Simple FAST facts
+        # never launch workers; cross-document requirements do.
         view = result.get("view")
+        confirm_workers = (
+            state.mode != "FAST_RAG"
+            and bool(state.router_result.get("needs_multi_document_reasoning"))
+            and (len(state.requirements) > 1 or any(
+                r.get("provenance_need") == "independent"
+                or r.get("comparison_object") for r in state.requirements)))
+        if confirm_workers and worker_fn is not None and view is not None \
+                and not state.worker_packets:
+            try:
+                packets = await _maybe_await(worker_fn(
+                    state=state, view=view,
+                    requirements=list(state.requirements)))
+                state.worker_packets = [p.to_dict() if hasattr(p, "to_dict")
+                                        else dict(p) for p in packets]
+                state.stage_calls.append("multi_document_workers")
+                # Re-enter the canonical Phase03 policy/package path with
+                # typed packets.  This is the sole worker-to-generator path:
+                # worker prose is absent; exact refs are revalidated against
+                # the same pinned snapshots before Ledger/package use.
+                result = await evidence_pipeline_fn(
+                    query=rr.rewritten_query,
+                    research_queries=list(state.all_queries),
+                    requirements=list(state.requirements),
+                    mode=state.mode,
+                    verified_premises=list(verified_premises or []),
+                    access_scope=state.access_scope,
+                    worker_packets=list(packets),
+                )
+                state.phase03_result = result
+                trace.add_stage(
+                    f"phase04_worker_evidence_round{round_number}",
+                    result.get("trace_facts", {}))
+                view = result.get("view")
+                accepted_packets = result.get("accepted_worker_packets") or []
+                if accepted_packets:
+                    state.ledger.merge_document_packets(accepted_packets)
+            except Exception as exc:
+                state.degraded_capabilities.append("multi_document_worker_failed")
+                for req in state.requirements:
+                    state.ledger.record_degradation(
+                        req["id"], "multi_document_worker_failed")
+                trace.add_stage("multi_document_workers", {
+                    "status": "FAILED", "error": str(exc)[:160]})
+
+        # Only the final (possibly worker-enriched) immutable view updates
+        # Ledger and becomes generator authority.
+        state.policy_result = {
+            "verdict": result.get("trace_facts", {}).get(
+                "policy_verdict", "FAIL"),
+            "reason_codes": result.get("trace_facts", {}).get(
+                "policy_reasons", []),
+        }
         if result.get("status") == "ok" and view is not None:
             state.ledger.update_from_packed_view(view)
             current_selected = {
@@ -688,31 +754,20 @@ async def _run_canonical_phase04(
                 "policy_reasons": state.policy_result["reason_codes"],
             })
 
-        # Planner/Orchestrator confirms the Router proposal. Simple FAST facts
-        # never launch workers; cross-document requirements do.
-        confirm_workers = (
-            state.mode != "FAST_RAG"
-            and bool(state.router_result.get("needs_multi_document_reasoning"))
-            and (len(state.requirements) > 1 or any(
-                r.get("provenance_need") == "independent"
-                or r.get("comparison_object") for r in state.requirements)))
-        if confirm_workers and worker_fn is not None and view is not None \
-                and not state.worker_packets:
-            try:
-                packets = await _maybe_await(worker_fn(
-                    state=state, view=view,
-                    requirements=list(state.requirements)))
-                state.worker_packets = [p.to_dict() if hasattr(p, "to_dict")
-                                        else dict(p) for p in packets]
-                state.ledger.merge_document_packets(packets)
-                state.stage_calls.append("multi_document_workers")
-            except Exception as exc:
-                state.degraded_capabilities.append("multi_document_worker_failed")
-                for req in state.requirements:
-                    state.ledger.record_degradation(
-                        req["id"], "multi_document_worker_failed")
-                trace.add_stage("multi_document_workers", {
-                    "status": "FAILED", "error": str(exc)[:160]})
+        # A planned targeted query becomes searched-no-evidence only now,
+        # after the next retrieval round actually executed and produced no
+        # new exact support for its bound requirement.
+        for pending in pending_searches:
+            found = bool(_support_keys(pending["requirement_id"])
+                         - pending["support_before"])
+            state.ledger.record_search_outcome(
+                pending["requirement_id"],
+                attempt_id=pending["attempt_id"], evidence_found=found)
+            state.targeted_queries[pending["state_index"]].update({
+                "execution_status": "EXECUTED",
+                "evidence_found": found,
+            })
+        pending_searches = []
 
         state.conflict_result = {
             "conflicts": [c.to_dict() for c in getattr(view, "conflicts", [])]
@@ -727,9 +782,18 @@ async def _run_canonical_phase04(
             and ledger_status.get("conflicted", 0) == 0
             and all(r.get("status") == "SUPPORTED"
                     for r in ledger_status.get("requirements", [])))
-        partial = any(r.get("status") == "PARTIAL"
-                      for r in ledger_status.get("requirements", []))
-        semantic_required = partial and not hard_fail
+        _req_statuses = [r.get("status") for r in
+                         ledger_status.get("requirements", [])]
+        partial = (any(s == "PARTIAL" for s in _req_statuses)
+                   or (any(s == "SUPPORTED" for s in _req_statuses)
+                       and any(s in ("MISSING", "CONFLICTED")
+                               for s in _req_statuses)))
+        # The grader may assess a partial coverage state even when the
+        # deterministic coverage rule is a HARD_FAIL; its result remains
+        # advisory and can never clear that rule.  Unresolved conflicts are
+        # excluded because no semantic grade may choose a winner.
+        semantic_required = partial and not bool(
+            state.conflict_result["conflicts"])
         semantic_status = "NOT_REQUIRED"
         if semantic_required:
             try:
@@ -775,13 +839,22 @@ async def _run_canonical_phase04(
             gaps, req_by_id, original_query=query,
             round_number=round_number + 1,
             previous_queries=state.all_queries)
-        state.targeted_queries.extend(q.to_dict() for q in generated)
         state.gap_result["rejected"] = rejected
         state.stage_calls.append("gap_analysis")
         for tq in generated:
-            state.ledger.record_search_attempt(
+            attempt_id = state.ledger.record_search_plan(
                 tq.requirement_id, query=tq.query, gap_type=tq.gap_type,
-                evidence_found=False, round_number=tq.round_number)
+                round_number=tq.round_number)
+            state_index = len(state.targeted_queries)
+            state.targeted_queries.append({
+                **tq.to_dict(), "attempt_id": attempt_id,
+                "execution_status": "PLANNED", "evidence_found": None})
+            pending_searches.append({
+                "requirement_id": tq.requirement_id,
+                "attempt_id": attempt_id,
+                "support_before": _support_keys(tq.requirement_id),
+                "state_index": state_index,
+            })
         if not generated:
             state.stop_reason = ("impossible_gap" if gaps and
                                  all(not g.resolvable for g in gaps)
