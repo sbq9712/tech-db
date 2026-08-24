@@ -15,6 +15,8 @@ Checks (as applicable), each with a machine-readable reason code:
                                  draw on too few DISTINCT independent
                                  groups (reposts/duplicates sharing an
                                  independent_group_id are ONE source)
+  POLICY_PROVENANCE_UNAVAILABLE  independence required but provenance is
+                                 missing, malformed, incomplete, or failed
   POLICY_SOURCE_INELIGIBLE       evidence eligibility != CITATION_ELIGIBLE
   POLICY_QUARANTINED             quarantined record used as evidence
   POLICY_SELF_REPORT_ONLY        independent-validation claim supported by
@@ -35,7 +37,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional
 
-EVIDENCE_POLICY_VERSION = "1.0.0"
+EVIDENCE_POLICY_VERSION = "1.1.0"
 
 HARD_FAIL = "HARD_FAIL"
 PASS = "PASS"
@@ -237,23 +239,34 @@ class EvidencePolicyEngine:
         independent source, never N. When independence is required the
         selection must draw on >= min_independent_groups DISTINCT groups.
 
-        Honest applicability: independence not required, or group metadata
-        genuinely unavailable (Phase-04 has not produced structured
-        provenance) → rule recorded NOT_APPLICABLE — never fabricated as
-        a pass and never silently skipped.
+        Independence not required is genuinely NOT_APPLICABLE.  When it is
+        required, missing/malformed/incomplete metadata is a technical hard
+        failure, never NOT_APPLICABLE and never PASS.
         """
         findings: List[PolicyFinding] = []
         applicability: Dict[str, str] = {}
         if not requires_independent:
             applicability["provenance_independence"] = (
                 "NOT_APPLICABLE: independence not required for this query")
-        elif provenance_groups is None:
-            applicability["provenance_independence"] = (
-                "NOT_APPLICABLE: provenance group metadata unavailable "
-                "(Phase-04 structured decomposition not yet produced)")
+        elif not isinstance(provenance_groups, list) or not provenance_groups:
+            applicability["provenance_independence"] = "APPLICABLE_UNAVAILABLE"
+            findings.append(PolicyFinding(
+                "provenance_independence",
+                "POLICY_PROVENANCE_UNAVAILABLE", "claim",
+                "independence is required but provenance group metadata "
+                "is missing or clustering failed", severity="hard"))
         else:
             applicability["provenance_independence"] = "APPLICABLE"
             groups = [str(g or "").strip() for g in provenance_groups]
+            if any(not g for g in groups):
+                findings.append(PolicyFinding(
+                    "provenance_independence",
+                    "POLICY_PROVENANCE_UNAVAILABLE", "claim",
+                    "independence is required but provenance group metadata "
+                    "is incomplete or malformed", severity="hard"))
+                return PolicyReport(
+                    verdict=HARD_FAIL, findings=findings, mode="provenance",
+                    rule_applicability=applicability)
             known = [g for g in groups if g]
             distinct = set(known)
             if len(distinct) < min_independent_groups:

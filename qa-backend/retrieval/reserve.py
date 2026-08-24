@@ -8,7 +8,8 @@ BEFORE rerank, protect eligible candidates for:
   * plausible route outliers (route-floor survivors from the pool)
 
 Reserve is NOT an eligibility bypass: candidates below the eligibility
-floor (junk: no route signal + no requirement match) are never reserved —
+floor are never reserved, even when their text happens to match a
+requirement/object/dimension token —
 "Quotas never preserve arbitrary junk below the eligibility floor" (§13).
 
 Every reserve decision carries a machine-readable reason code:
@@ -95,15 +96,13 @@ def apply_reserve(pool: List[PoolCandidate],
     provenance_groups = provenance_groups or {}
     known_independent_groups = list(known_independent_groups or [])
 
-    def _eligible(cand: PoolCandidate, requirement_matched: bool = False) -> bool:
-        # eligibility floor: needs SOME route signal above the floor OR an
-        # actual requirement/object match — junk (near-zero scores AND no
-        # content match) never reserved (spec §13). rrf_score is a summed
-        # fusion signal (max ≈ 1/(k+1) per route), so it is compared against
-        # the floor like any route score; a bare positive rrf no longer
-        # grants eligibility by itself.
-        if requirement_matched:
-            return True
+    def _eligible(cand: PoolCandidate) -> bool:
+        """Single deterministic minimum-eligibility predicate.
+
+        Content/token matches decide *which* reserve key a candidate may
+        protect; they never waive the route-signal floor.  Every reserve
+        below calls this exact predicate before protecting a candidate.
+        """
         has_signal = any(v > eligibility_floor for v in cand.route_scores.values()) \
             or cand.rrf_score > eligibility_floor
         return has_signal
@@ -118,7 +117,7 @@ def apply_reserve(pool: List[PoolCandidate],
             if taken >= reserve_k:
                 break
             if _match(keywords, _default_matcher(cand.record_id, cand.meta, content_fn)):
-                if _eligible(cand, requirement_matched=True):
+                if _eligible(cand):
                     decisions.append(ReserveDecision(
                         cand.record_id, True, "RESERVE_CRITICAL_REQUIREMENT",
                         key=str(req.get("id", "req"))))
@@ -132,7 +131,7 @@ def apply_reserve(pool: List[PoolCandidate],
             if taken >= reserve_k:
                 break
             text = _default_matcher(cand.record_id, cand.meta, content_fn)
-            if obj.lower() in text.lower() and _eligible(cand, requirement_matched=True):
+            if obj.lower() in text.lower() and _eligible(cand):
                 decisions.append(ReserveDecision(
                     cand.record_id, True, "RESERVE_COMPARISON_OBJECT", key=obj))
                 reserved_count[cand.record_id] = reserved_count.get(cand.record_id, 0) + 1
@@ -143,7 +142,7 @@ def apply_reserve(pool: List[PoolCandidate],
             if taken >= reserve_k:
                 break
             if _match([dim], _default_matcher(cand.record_id, cand.meta, content_fn)) \
-                    and _eligible(cand, requirement_matched=True):
+                    and _eligible(cand):
                 decisions.append(ReserveDecision(
                     cand.record_id, True, "RESERVE_COMPARISON_DIMENSION", key=dim))
                 taken += 1
@@ -166,7 +165,7 @@ def apply_reserve(pool: List[PoolCandidate],
                     text = _default_matcher(cand.record_id, cand.meta,
                                             content_fn).lower()
                     if obj.lower() in text and dim.lower() in text \
-                            and _eligible(cand, requirement_matched=False):
+                            and _eligible(cand):
                         decisions.append(ReserveDecision(
                             cand.record_id, True,
                             "RESERVE_COMPARISON_OBJECT_DIMENSION",

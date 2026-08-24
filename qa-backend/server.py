@@ -235,6 +235,15 @@ def load_records():
     return records
 
 
+def _request_records() -> list:
+    """Return the records bound to the current request generation."""
+    if _request_runtime_snapshot.get() is not None:
+        return _runtime_resource("records", []) or []
+    if _records_cache:
+        return _records_cache[0] or []
+    return load_records() or []
+
+
 def _keyword_fallback(query: str, history: list) -> str:
     """Extract most recent user question from history and combine with current query."""
     last_user_msg = ""
@@ -801,24 +810,71 @@ def _phase03_provenance(records):
     over the REQUEST-PINNED records and remaps its legacy list-position
     keys to stable record_id keys (the Phase-03 stable-ID contract).
     """
+    # A release-pinned record may already carry the authoritative group (or
+    # an explicit uncertainty marker).  Preserve that before attempting the
+    # deterministic legacy clustering adapter; never manufacture a distinct
+    # group for an uncertain record.
+    out = {}
+    explicit = set()
+    for rec in records or []:
+        rid = rec.get("record_id")
+        if not isinstance(rid, str) or not rid.strip():
+            continue
+        if "independent_group_id" in rec or "provenance_group_id" in rec:
+            raw_group = rec.get("independent_group_id",
+                                rec.get("provenance_group_id"))
+            group = str(raw_group or "").strip()
+            if group.lower() in ("unknown", "uncertain", "unavailable"):
+                group = ""
+            out[rid] = {
+                "independent_group_id": group,
+                "source_role": str(rec.get("evidence_role") or "unknown"),
+            }
+            explicit.add(rid)
     try:
         from provenance import cluster_provenance
         by_idx = cluster_provenance(records or [])
     except Exception:
-        return {}
-    out = {}
+        return out
+    if not isinstance(by_idx, dict):
+        return out
     for idx, info in (by_idx or {}).items():
+        if not isinstance(info, dict):
+            continue
         try:
             rec = (records or [])[int(idx)]
         except (ValueError, IndexError, TypeError):
             continue
         rid = rec.get("record_id")
-        if isinstance(rid, str) and rid.strip():
+        if isinstance(rid, str) and rid.strip() and rid not in explicit:
             out[rid] = {
-                "independent_group_id": info.get("independent_group_id", rid),
+                "independent_group_id": str(
+                    info.get("independent_group_id") or "").strip(),
                 "source_role": info.get("provenance_reason", ""),
             }
     return out
+
+
+def _resolve_citation_record(citation: dict, records: list):
+    """Resolve a citation through stable record_id first, legacy idx second.
+
+    Durable Phase03 citations carry opaque string record IDs.  Older paths
+    may still carry an integer list index.  Mixing the two previously caused
+    ``0 <= record_id`` TypeError and silently skipped claim lineage.
+    """
+    rid = citation.get("record_id")
+    if isinstance(rid, str):
+        for rec in records or []:
+            if str(rec.get("record_id") or "") == rid:
+                return rec
+    elif isinstance(rid, int) and not isinstance(rid, bool):
+        if 0 <= rid < len(records or []):
+            return records[rid]
+    legacy_idx = citation.get("legacy_idx")
+    if isinstance(legacy_idx, int) and not isinstance(legacy_idx, bool) \
+            and 0 <= legacy_idx < len(records or []):
+        return records[legacy_idx]
+    return None
 
 
 async def _run_phase03_context(query: str, exclude_ids: set | None = None,
@@ -1415,14 +1471,19 @@ async def chat_stream(req: ChatRequest, request: Request):
             # ── Epistemic Claim Classification ──
             # (skip if budget exhausted — epistemic is enhancement, not critical path)
             claim_metadata = []
-            try:
-                classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                if classify_budget_ok:
-                    print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
-                    claim_metadata = await classify_claims(query, search_results, top_k=5)
-                    print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
-            except Exception as e:
-                print(f"[epistemic-classify] {e}", flush=True)
+            # RT-039: the EvidencePackage path has a closed Generator input
+            # boundary.  The legacy classifier reads raw/unselected retrieval
+            # results (and may prefer the old AI-summary field), so neither it
+            # nor its conclusions may influence the Phase03 Generator.
+            if not _phase03_active:
+                try:
+                    classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                    if classify_budget_ok:
+                        print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
+                        claim_metadata = await classify_claims(query, search_results, top_k=5)
+                        print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
+                except Exception as e:
+                    print(f"[epistemic-classify] {e}", flush=True)
 
             # Yield citations — LEGACY PATH ONLY (RT-027: the Phase-02 path
             # buffers citations until exact grounding + verification finalize,
@@ -1474,8 +1535,22 @@ async def chat_stream(req: ChatRequest, request: Request):
                 for i, c in enumerate(citations)
             )
 
-            # Build system prompt
-            base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
+            # Build system prompt.  On the typed EvidencePackage path,
+            # ``context`` is already the complete allowlisted rendering;
+            # do not append a second source-list surface derived from records.
+            if _phase03_active:
+                base_prompt = f"""你是技术情报分析专家。仅基于以下类型化证据包回答用户问题。
+
+要求：
+1. 只基于证据包 DATA 边界内的资料回答，不要编造信息
+2. 每个事实声明必须引用证据 ID
+3. 缺失、冲突或降级必须如实说明
+4. 使用中文和 markdown；简单问题简短回答，复杂问题详细分析
+
+类型化证据包：
+{context}"""
+            else:
+                base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
 
 要求：
 1. 只基于提供的资料回答，不要编造信息
@@ -1492,15 +1567,17 @@ async def chat_stream(req: ChatRequest, request: Request):
 {source_list}"""
 
             # Enhance with epistemic protection rules
-            system_prompt = build_epistemic_system_prompt(base_prompt, claim_metadata)
+            system_prompt = build_epistemic_system_prompt(
+                base_prompt, [] if _phase03_active else claim_metadata)
 
             # Build conversation history for LLM
             llm_history = []
-            for msg in req.history[-6:]:
-                llm_history.append({
-                    "role": msg.get("role", "user"),
-                    "content": msg.get("content", ""),
-                })
+            if not _phase03_active:
+                for msg in req.history[-6:]:
+                    llm_history.append({
+                        "role": msg.get("role", "user"),
+                        "content": msg.get("content", ""),
+                    })
 
             full_answer = ""
             try:
@@ -1565,8 +1642,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # in manifest mode the pipeline MUST see the records pinned at
                 # request start — never the mutable server-global _records —
                 # so a mid-request release switch cannot change the evidence.
-                _p02_records = (_runtime_resource("records", _records)
-                                if _p02_snap is not None else _records)
+                _p02_records = _request_records()
                 _p02_by_id = (_runtime_resource("records_by_id", None)
                               if _p02_snap is not None else None)
                 _p02_rid_map = (_runtime_resource("record_id_map", None)
@@ -1799,17 +1875,38 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 from enrich_evidence_metadata import infer_evidence_role
                                 from claim_mapping import attach_span_lineage, claim_independence
                                 _prov_map = {}
+                                _lineage_records = _request_records()
+                                _records_by_id = {}
+                                for _legacy_pos, rec in enumerate(
+                                        _lineage_records):
+                                    if rec.get("record_id") is not None:
+                                        _records_by_id[rec.get("record_id")] = rec
+                                        _records_by_id[str(
+                                            rec.get("record_id"))] = rec
+                                    _records_by_id[_legacy_pos] = rec
+                                _pinned_prov = (_phase03_provenance(
+                                                _lineage_records)
+                                                if _phase03_active else {})
                                 for c in citations:
                                     rid = c.get("record_id")
-                                    if rid is not None and 0 <= rid < len(_records):
-                                        _rec = _records[rid]
+                                    _rec = _resolve_citation_record(
+                                        c, _lineage_records)
+                                    if rid is not None and _rec is not None:
+                                        _pinfo = _pinned_prov.get(str(rid), {})
                                         _prov_map[rid] = {
                                             "evidence_role": infer_evidence_role(_rec),
-                                            "independent_group_id": f"record:{rid}",
+                                            "independent_group_id": (
+                                                _pinfo.get("independent_group_id")
+                                                or "__PROVENANCE_UNKNOWN__"
+                                                if _phase03_active
+                                                else f"record:{rid}"),
                                         }
                                 attach_span_lineage(claim_map, citations,
-                                                    provenance_map=_prov_map)
-                                _indep = claim_independence(claim_map, _prov_map)
+                                                    provenance_map=_prov_map,
+                                                    records_by_id=_records_by_id)
+                                _indep = claim_independence(
+                                    claim_map, _prov_map,
+                                    records_by_id=_records_by_id)
                                 trace.add_stage("claim_independence", {
                                     "claims_total": _indep["claims_total"],
                                     "claims_with_independent_support":
@@ -1817,6 +1914,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 })
                             except Exception as e:
                                 print(f"[claim_lineage] Error: {e}", flush=True)
+                                verification_status = VERIFY_UNVERIFIED
+                                verification_error = (
+                                    "claim lineage unavailable: " + str(e))
+                                trace.add_stage("claim_independence", {
+                                    "status": "UNAVAILABLE",
+                                    "error": str(e)[:200],
+                                })
                             trace.add_stage("claim_mapping", {
                                 "total_claims": len(claim_map.get("claims", [])),
                                 "unsupported_major": len(get_unsupported_major_claims(claim_map)),
@@ -1853,9 +1957,9 @@ async def chat_stream(req: ChatRequest, request: Request):
                 if Flags.CITATION_GROUNDING_ENABLED and citations:
                     for c in citations:
                         try:
-                            rid = c.get("record_id", -1)
-                            if rid >= 0 and rid < len(_records):
-                                rec = _records[rid]
+                            rec = _resolve_citation_record(
+                                c, _request_records())
+                            if rec is not None:
                                 grounding = ground_citation_evidence(
                                     rec,
                                     proposed_span=c.get("excerpt") or c.get("body_snippet", ""),

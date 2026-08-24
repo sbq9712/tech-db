@@ -437,13 +437,16 @@ def _rt033():
     from retrieval.pool import PoolCandidate
     from retrieval.reserve import apply_reserve, pool_with_reserves, RESERVE_K
 
-    def cand(rid, rrf, text):
+    def cand(rid, rrf, text, signal=None):
         return PoolCandidate(record_id=rid, rrf_score=rrf,
                              route_origins=["vector"],
+                             route_scores=({"vector": signal}
+                                           if signal is not None else {}),
                              meta={"t": text})
 
     pool = [cand(f"top{i}", 10.0 - i, "generic shared topic") for i in range(20)]
-    pool.append(cand("needle", 0.01, "nvlink per-device bandwidth scaling doc"))
+    pool.append(cand("needle", 0.01,
+                     "nvlink per-device bandwidth scaling doc", 0.051))
     pool.append(cand("junk", 0.0001, "zzz unrelated"))
 
     decisions = apply_reserve(
@@ -468,6 +471,37 @@ def _rt033():
     test("RT033.capacity_swap_keeps_reserved",
          "needle" in ids and len(ids) == 10)
     test("RT033.reserve_k_default", RESERVE_K == 3)
+
+    # Review round 3: every reserve class uses the SAME route-signal floor;
+    # matching tokens never turn sparse-slot junk into eligible evidence.
+    sparse = [
+        cand("critical-junk", 0.001, "criticalneedle exact token", 0.001),
+        cand("object-junk", 0.001, "beta object token", 0.001),
+        cand("dimension-junk", 0.001, "latency dimension token", 0.001),
+        cand("pair-junk", 0.001, "beta latency pair tokens", 0.001),
+        cand("eligible-beta", 0.001, "beta object valid route", 0.051),
+    ]
+    sparse_decisions = apply_reserve(
+        sparse,
+        critical_requirements=[{"id": "critical",
+                                "keywords": ["criticalneedle"],
+                                "must": True}],
+        comparison_objects=["beta"],
+        comparison_dimensions=["latency"],
+    )
+
+    def _has_sparse(rid, code):
+        return any(d.record_id == rid and d.reserved
+                   and d.reason_code == code for d in sparse_decisions)
+
+    test("RT033.round3_critical_token_junk_below_floor_rejected",
+         not _has_sparse("critical-junk", "RESERVE_CRITICAL_REQUIREMENT"))
+    test("RT033.round3_object_token_junk_below_floor_rejected",
+         not _has_sparse("object-junk", "RESERVE_COMPARISON_OBJECT"))
+    test("RT033.round3_dimension_token_junk_below_floor_rejected",
+         not _has_sparse("dimension-junk", "RESERVE_COMPARISON_DIMENSION"))
+    test("RT033.round3_all_reserves_keep_eligible_positive_control",
+         _has_sparse("eligible-beta", "RESERVE_COMPARISON_OBJECT"))
 
     # ── review blocker 3: comparison object × dimension + independent
     # source + route outlier reserves with REAL wiring shapes ──────────────
@@ -618,7 +652,7 @@ def _rt034():
     combined2 = combine_with_grader(rep_pass, "INSUFFICIENT")
     test("RT034.grader_insufficient_downgrades_pass",
          combined2.verdict == "FAIL" and not combined2.hard_fail)
-    test("RT034.version_pinned", EVIDENCE_POLICY_VERSION == "1.0.0")
+    test("RT034.version_pinned", EVIDENCE_POLICY_VERSION == "1.1.0")
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -1577,8 +1611,12 @@ def _round2():
     sse_texts[target_id] = ("zeep8 production yield pilot note note note "
                             "note note note note note note note note note "
                             "note note note note note")
-    sse_records = [{"record_id": rid, "t": rid} for rid in decoy_ids] + \
-                  [{"record_id": target_id, "t": "target"}]
+    sse_records = [{"record_id": rid, "t": rid,
+                    **({"as": "LEGACY_AI_SUMMARY_SENTINEL"}
+                       if rid == "decoy-000" else {})}
+                   for rid in decoy_ids] + \
+                  [{"record_id": target_id,
+                    "t": "SELECTED_TITLE_OUTSIDE_TYPED_VIEW_SENTINEL"}]
     sse_vectors = {rid: _craft_vector(_QUERY_R2, 0.50 - 0.01 * i,
                                       f"ortho-{rid}")
                    for i, rid in enumerate(decoy_ids)}
@@ -1600,14 +1638,30 @@ def _round2():
     async def _fake_llm_stream(*, prompt, system_prompt, history_messages):
         sse_captured["system_prompt"] = system_prompt
         sse_captured["prompt"] = prompt
+        sse_captured["history_messages"] = history_messages
+        if sse_captured.get("force_stream_failure"):
+            raise RuntimeError("forced-stream-fallback")
         for tok in ("回答", "完成"):
             yield tok
+
+    async def _fake_llm_model(prompt, *, system_prompt, history_messages):
+        sse_captured["fallback_system_prompt"] = system_prompt
+        sse_captured["fallback_prompt"] = prompt
+        sse_captured["fallback_history_messages"] = history_messages
+        return "回退回答完成"
 
     async def _fake_rewrite(query, history):
         return query, False, ""
 
-    async def _no_claims(*a, **k):
-        return []
+    classifier_calls = []
+
+    async def _sentinel_claims(*a, **k):
+        classifier_calls.append((a, k))
+        return [{"chunk_id": "1", "claims": [{
+            "claim": "UNSELECTED_CLASSIFIER_SENTINEL",
+            "type": "VERIFIABLE_FACT",
+            "evidence_span": "LEGACY_AI_SUMMARY_SENTINEL",
+        }]}]
 
     async def _no_claim_map(*a, **k):
         return {"claims": []}
@@ -1631,13 +1685,14 @@ def _round2():
                 cur = {}
         return events
 
-    def _post_chat(flag_on):
+    def _post_chat(flag_on, *, force_stream_failure=False):
         from fastapi.testclient import TestClient
         saved = (_server.Flags.AGENTIC_ENABLED,
                  _server.Flags.EVIDENCE_PACKAGE_ENABLED,
                  _server.Flags.TERMINAL_RENDERER_ENABLED,
                  getattr(_server, "embedding_func", None),
                  _server.rewrite_query, _server.llm_stream_func,
+                 _server.llm_model_func,
                  _server.classify_claims, _server.verify_answer,
                  _server.map_claims_to_citations,
                  _server._runtime_snapshot_manager)
@@ -1651,20 +1706,26 @@ def _round2():
         _server.embedding_func = _fake_embed
         _server.rewrite_query = _fake_rewrite
         _server.llm_stream_func = _fake_llm_stream
-        _server.classify_claims = _no_claims
+        _server.llm_model_func = _fake_llm_model
+        _server.classify_claims = _sentinel_claims
         _server.verify_answer = _fail_verify
         _server.map_claims_to_citations = _no_claim_map
         _server._runtime_snapshot_manager = _FakePinManager()
+        sse_captured["force_stream_failure"] = force_stream_failure
         try:
             client = TestClient(_server.app)
             resp = client.post("/api/chat/stream", json={
-                "query": _QUERY_R2, "history": [], "access_scope": "public"})
+                "query": _QUERY_R2,
+                "history": [{"role": "assistant",
+                             "content": "PRIOR_UNVERIFIED_SENTINEL"}],
+                "access_scope": "public"})
             return resp
         finally:
             (_server.Flags.AGENTIC_ENABLED,
              _server.Flags.EVIDENCE_PACKAGE_ENABLED,
              _server.Flags.TERMINAL_RENDERER_ENABLED,
              embed_old, _server.rewrite_query, _server.llm_stream_func,
+             _server.llm_model_func,
              _server.classify_claims, _server.verify_answer,
              _server.map_claims_to_citations,
              _server._runtime_snapshot_manager) = saved
@@ -1708,6 +1769,35 @@ def _round2():
          and "decoy-031" not in sys_prompt)
     test("RT031.round2_endpoint_generation_ran",
          done_on is not None and done_on["data"].get("answer") == "回答完成")
+    test("RT039.round3_endpoint_skips_legacy_classifier_metadata",
+         classifier_calls == []
+         and "UNSELECTED_CLASSIFIER_SENTINEL" not in sys_prompt
+         and "LEGACY_AI_SUMMARY_SENTINEL" not in sys_prompt
+         and "SELECTED_TITLE_OUTSIDE_TYPED_VIEW_SENTINEL" not in sys_prompt)
+    test("RT039.round3_endpoint_rejects_raw_assistant_history",
+         sse_captured.get("history_messages") == []
+         and "PRIOR_UNVERIFIED_SENTINEL" not in sys_prompt)
+    test("RT039.round3_endpoint_selected_evidence_in_data_boundary",
+         "zeep8 production yield pilot" in sys_prompt
+         and "≪RETRIEVED_DATA_BEGIN≫" in sys_prompt
+         and "≪RETRIEVED_DATA_END≫" in sys_prompt)
+    test("claim_lineage.round3_stable_record_id_resolves_exact_record",
+         _server._resolve_citation_record(
+             {"record_id": target_id, "legacy_idx": -1}, sse_records)
+         .get("record_id") == target_id)
+
+    # The non-streaming fallback is the same production Generator boundary.
+    resp_fallback = _post_chat(True, force_stream_failure=True)
+    done_fallback = next((e for e in _parse_sse(resp_fallback.text)
+                          if e["event"] == "done"), None)
+    test("RT039.round3_endpoint_fallback_uses_same_allowlist",
+         done_fallback is not None
+         and done_fallback["data"].get("answer") == "回退回答完成"
+         and sse_captured.get("fallback_history_messages") == []
+         and "PRIOR_UNVERIFIED_SENTINEL" not in
+             sse_captured.get("fallback_system_prompt", "")
+         and "UNSELECTED_CLASSIFIER_SENTINEL" not in
+             sse_captured.get("fallback_system_prompt", ""))
 
     # flag OFF → the SAME fixture must hit the unchanged legacy reject
     # (byte-compatible legacy profile, no weakening from the restructure)
@@ -1840,16 +1930,24 @@ def _round2():
          rep_distinct.verdict == "PASS"
          and "POLICY_PROVENANCE_INSUFFICIENT"
          not in rep_distinct.reason_codes())
-    rep_na = eng.evaluate(
+    rep_unavailable = eng.evaluate(
         requirements=[{"id": "r1", "critical": True}],
         evidence_by_requirement={"r1": [_ok_ev]},
         requires_independent=True, provenance_groups=None)
-    test("RT034.round2_provenance_not_applicable_honest",
-         rep_na.verdict == "PASS"
-         and "provenance_independence" in rep_na.not_applicable_rules()
-         and "POLICY_PROVENANCE_INSUFFICIENT" not in rep_na.reason_codes()
-         and rep_na.rule_applicability["provenance_independence"]
-         .startswith("NOT_APPLICABLE"))
+    test("RT034.round3_provenance_unavailable_fails_safe",
+         rep_unavailable.verdict == "HARD_FAIL"
+         and "POLICY_PROVENANCE_UNAVAILABLE"
+             in rep_unavailable.reason_codes()
+         and "provenance_independence"
+             not in rep_unavailable.not_applicable_rules())
+    rep_not_requested = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        requires_independent=False, provenance_groups=None)
+    test("RT034.round3_provenance_not_requested_is_na",
+         rep_not_requested.verdict == "PASS"
+         and "provenance_independence"
+             in rep_not_requested.not_applicable_rules())
 
     rep_ent = eng.evaluate(
         requirements=[{"id": "r1", "critical": True}],
@@ -1915,21 +2013,27 @@ def _round2():
                 rank=i + 1, meta=dict(meta), route_details={}))
         return routes
 
-    cmp_query = "alpha vs beta 在latency方面"
+    cmp_query = "current alpha vs beta 在latency方面"
 
-    async def _cmp_run(with_beta):
+    async def _cmp_run(with_beta, *, beta_fields=None,
+                       conflict_override=None):
         from phase03_pipeline import run_phase03_retrieval
         ids_ = ["cmp-alpha", "cmp-beta", "cmp-filler"] if with_beta \
             else ["cmp-alpha", "cmp-filler"]
+        records_case = {rid: dict(rec, fb=cmp_index[rid]["evidence_text"])
+                        for rid, rec in cmp_records.items()}
+        if beta_fields:
+            records_case["cmp-beta"].update(beta_fields)
         return await run_phase03_retrieval(
             query=cmp_query, route_results=_cmp_routes(ids_),
-            mode="FAST_RAG", records_by_id=cmp_records,
+            mode="FAST_RAG", records_by_id=records_case,
             snapshot_index=cmp_index, chunk_retriever=None,
-            get_record_fn=lambda rid: cmp_records.get(rid),
+            get_record_fn=lambda rid: records_case.get(rid),
             evidence_metadata={rid: {"evidence_eligibility":
                                      "CITATION_ELIGIBLE",
                                      "evidence_role": "independent"}
-                               for rid in cmp_index})
+                               for rid in cmp_index},
+            conflict_result=conflict_override)
 
     out_missing = asyncio.run(_cmp_run(False))
     test("RT034.round2_pipeline_entity_rule_wired",
@@ -1944,6 +2048,41 @@ def _round2():
          not in out_covered["trace_facts"]["policy_reasons"]
          and {c["record_id"] for c in out_covered["citations"]}
          == {"cmp-alpha", "cmp-beta"})
+
+    # Coverage must be recomputed from records that remain trusted after
+    # Gate-B deterministic demotion, never from the pre-validation selection.
+    rel_invalid = asyncio.run(_cmp_run(True, beta_fields={"relations": [{
+        "subject_id": "beta", "predicate": "has_latency",
+        "object_id": "benchmark", "assertion_status": "DEPRECATED",
+    }]}))
+    test("RT034.round3_relation_invalid_cannot_satisfy_pair_coverage",
+         rel_invalid["status"] == "no_evidence"
+         and "POLICY_RELATION_INVALID"
+             in rel_invalid["trace_facts"]["policy_reasons"]
+         and "POLICY_ENTITY_MISSING"
+             in rel_invalid["trace_facts"]["policy_reasons"])
+
+    numeric_invalid = asyncio.run(_cmp_run(True, beta_fields={
+        "fb": "beta latency efficiency 78 % efficiency 45 % benchmark"}))
+    test("RT034.round3_numeric_invalid_cannot_satisfy_pair_coverage",
+         numeric_invalid["status"] == "no_evidence"
+         and "POLICY_NUMERIC_MISMATCH"
+             in numeric_invalid["trace_facts"]["policy_reasons"]
+         and "POLICY_ENTITY_MISSING"
+             in numeric_invalid["trace_facts"]["policy_reasons"])
+
+    conflict_invalid = asyncio.run(_cmp_run(
+        True, conflict_override={"conflicts": [{
+            "conflict_id": "cmp-conflict", "severity": "HIGH",
+            "subject": "beta latency", "states": ["CONTRADICT"],
+            "record_ids": ["cmp-beta"], "resolved": False,
+        }]}))
+    test("RT034.round3_conflict_cannot_satisfy_pair_coverage",
+         conflict_invalid["status"] == "no_evidence"
+         and "POLICY_CONFLICT_UNRESOLVED"
+             in conflict_invalid["trace_facts"]["policy_reasons"]
+         and "POLICY_ENTITY_MISSING"
+             in conflict_invalid["trace_facts"]["policy_reasons"])
 
     # production pinned: repost cluster (same wire URL) cannot supply the
     # independence a query demands; distinct wires CAN (positive control)
@@ -1989,6 +2128,33 @@ def _round2():
          and "POLICY_PROVENANCE_INSUFFICIENT"
          not in distinct_out["trace_facts"]["policy_reasons"]
          and len(distinct_out.get("citations", [])) >= 2)
+
+    import provenance as _prov_module
+    saved_cluster = _prov_module.cluster_provenance
+    try:
+        def _cluster_failure(_records):
+            raise RuntimeError("cluster unavailable sentinel")
+        _prov_module.cluster_provenance = _cluster_failure
+        cluster_failed_out = asyncio.run(_run_pinned(distinct_snap, indep_q))
+    finally:
+        _prov_module.cluster_provenance = saved_cluster
+    test("RT034.round3_pinned_cluster_failure_fails_safe",
+         cluster_failed_out["status"] == "no_evidence"
+         and "POLICY_PROVENANCE_UNAVAILABLE"
+             in cluster_failed_out["trace_facts"]["policy_reasons"]
+         and cluster_failed_out["citations"] == [])
+
+    saved_phase03_prov = _server._phase03_provenance
+    try:
+        _server._phase03_provenance = lambda _records: {}
+        empty_prov_out = asyncio.run(_run_pinned(distinct_snap, indep_q))
+    finally:
+        _server._phase03_provenance = saved_phase03_prov
+    test("RT034.round3_pinned_empty_provenance_fails_safe",
+         empty_prov_out["status"] == "no_evidence"
+         and "POLICY_PROVENANCE_UNAVAILABLE"
+             in empty_prov_out["trace_facts"]["policy_reasons"]
+         and empty_prov_out["citations"] == [])
 
     # ════ Blocker D (RT-038): packed-view evidentiary semantics ═══════
     bldr = EvidencePackageBuilder()
@@ -2201,6 +2367,18 @@ def test_rt033_capacity_swap_keeps_reserved():
 
 def test_rt033_reserve_k_default():
     _assert_case("RT033.reserve_k_default")
+
+def test_rt033_round3_critical_token_junk_below_floor_rejected():
+    _assert_case("RT033.round3_critical_token_junk_below_floor_rejected")
+
+def test_rt033_round3_object_token_junk_below_floor_rejected():
+    _assert_case("RT033.round3_object_token_junk_below_floor_rejected")
+
+def test_rt033_round3_dimension_token_junk_below_floor_rejected():
+    _assert_case("RT033.round3_dimension_token_junk_below_floor_rejected")
+
+def test_rt033_round3_all_reserves_keep_eligible_positive_control():
+    _assert_case("RT033.round3_all_reserves_keep_eligible_positive_control")
 
 def test_rt034_pass_when_compliant():
     _assert_case("RT034.pass_when_compliant")
@@ -2495,8 +2673,11 @@ def test_rt034_round2_provenance_same_group_not_independent():
 def test_rt034_round2_provenance_distinct_groups_pass():
     _assert_case("RT034.round2_provenance_distinct_groups_pass")
 
-def test_rt034_round2_provenance_not_applicable_honest():
-    _assert_case("RT034.round2_provenance_not_applicable_honest")
+def test_rt034_round3_provenance_unavailable_fails_safe():
+    _assert_case("RT034.round3_provenance_unavailable_fails_safe")
+
+def test_rt034_round3_provenance_not_requested_is_na():
+    _assert_case("RT034.round3_provenance_not_requested_is_na")
 
 def test_rt034_round2_entity_missing_hard_fails():
     _assert_case("RT034.round2_entity_missing_hard_fails")
@@ -2518,6 +2699,36 @@ def test_rt034_round2_production_provenance_repost_cluster():
 
 def test_rt034_round2_production_provenance_distinct_pass():
     _assert_case("RT034.round2_production_provenance_distinct_pass")
+
+def test_rt034_round3_relation_invalid_cannot_satisfy_pair_coverage():
+    _assert_case("RT034.round3_relation_invalid_cannot_satisfy_pair_coverage")
+
+def test_rt034_round3_numeric_invalid_cannot_satisfy_pair_coverage():
+    _assert_case("RT034.round3_numeric_invalid_cannot_satisfy_pair_coverage")
+
+def test_rt034_round3_conflict_cannot_satisfy_pair_coverage():
+    _assert_case("RT034.round3_conflict_cannot_satisfy_pair_coverage")
+
+def test_rt034_round3_pinned_cluster_failure_fails_safe():
+    _assert_case("RT034.round3_pinned_cluster_failure_fails_safe")
+
+def test_rt034_round3_pinned_empty_provenance_fails_safe():
+    _assert_case("RT034.round3_pinned_empty_provenance_fails_safe")
+
+def test_rt039_round3_endpoint_skips_legacy_classifier_metadata():
+    _assert_case("RT039.round3_endpoint_skips_legacy_classifier_metadata")
+
+def test_rt039_round3_endpoint_rejects_raw_assistant_history():
+    _assert_case("RT039.round3_endpoint_rejects_raw_assistant_history")
+
+def test_rt039_round3_endpoint_selected_evidence_in_data_boundary():
+    _assert_case("RT039.round3_endpoint_selected_evidence_in_data_boundary")
+
+def test_rt039_round3_endpoint_fallback_uses_same_allowlist():
+    _assert_case("RT039.round3_endpoint_fallback_uses_same_allowlist")
+
+def test_claim_lineage_round3_stable_record_id_resolves_exact_record():
+    _assert_case("claim_lineage.round3_stable_record_id_resolves_exact_record")
 
 def test_rt038_round2_compressed_support_not_trusted():
     _assert_case("RT038.round2_compressed_support_not_trusted")

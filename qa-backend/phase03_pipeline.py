@@ -65,14 +65,15 @@ from retrieval.reserve import apply_reserve, pool_with_reserves
 from retrieval.rerank import rerank_for_mode
 from retrieval import chunk_route
 from evidence_selection import select_support_evidence, selected_ids_only
-from evidence_policy import EvidencePolicyEngine, EVIDENCE_POLICY_VERSION
+from evidence_policy import (EvidencePolicyEngine, EVIDENCE_POLICY_VERSION,
+                             PolicyReport, HARD_FAIL, FAIL, PASS)
 from evidence_package import (EvidencePackageBuilder, fit_to_capacity,
                               PackedGenerationView, MAX_CONTEXT_TOKENS,
                               NON_SUPPORT_RELATIONS)
 from generator_input import (build_generator_input,
                              render_generator_prompt)
 
-PIPELINE_VERSION = "3.1.0"
+PIPELINE_VERSION = "3.2.0"
 RERANK_CAPACITY = int(os.environ.get("QA_RERANK_CAPACITY", "40"))
 DEFAULT_MODE = "RESEARCH_RAG"
 
@@ -86,7 +87,8 @@ _EVIDENCE_LEVEL_CODES = {"POLICY_SOURCE_INELIGIBLE", "POLICY_QUARANTINED",
 _CLAIM_LEVEL_CODES = {"POLICY_STALE_CURRENT_FACT", "POLICY_SELF_REPORT_ONLY",
                       "POLICY_COVERAGE_MISSING",
                       # review round 2 (RT-034): proposition-level hard rules
-                      "POLICY_PROVENANCE_INSUFFICIENT", "POLICY_ENTITY_MISSING",
+                      "POLICY_PROVENANCE_INSUFFICIENT",
+                      "POLICY_PROVENANCE_UNAVAILABLE", "POLICY_ENTITY_MISSING",
                       "POLICY_DIMENSION_MISSING"}
 
 
@@ -601,59 +603,22 @@ async def run_phase03_retrieval(*, query: str,
     numeric_checks = _numeric_checks_for(records_by_id, selected_ids)
     relation_checks = _relation_checks_for(records_by_id, selected_ids,
                                            temporal_intent)
-    evidence_states = [str((temporal_map.get(rid) or records_by_id.get(rid) or {})
-                           .get("supersession_state") or "unknown")
-                       for rid in selected_ids]
-    evidence_roles = [str((evidence_metadata.get(rid) or {})
-                          .get("evidence_role") or "unknown")
-                      for rid in selected_ids]
-
-    evidence_by_req: Dict[str, List[dict]] = {}
-    for rid in selected_ids:
-        for req_id in assoc.get(rid, []):
-            evidence_by_req.setdefault(req_id, []).append({
-                "record_id": rid,
-                "evidence_eligibility": str(
-                    (evidence_metadata.get(rid) or {}).get(
-                        "evidence_eligibility",
-                        snapshot_index.get(rid, {}).get(
-                            "evidence_eligibility", ""))),
-                "quarantined": False,
-                "cited": True,
-                "access_scope": str((records_by_id.get(rid) or {})
-                                    .get("access_scope") or ""),
-                "evidence_role": str((evidence_metadata.get(rid) or {})
-                                     .get("evidence_role") or "unknown"),
-            })
-
-    policy_report = engine.evaluate(
-        requirements=requirements,
-        evidence_by_requirement=evidence_by_req,
+    # First evaluate record/proposition validators whose findings identify
+    # evidence that may no longer count as support.  Coverage and provenance
+    # are intentionally deferred until after those demotions; otherwise a
+    # relation-invalid/numeric-invalid/conflicted record could satisfy a
+    # required object×dimension and then be removed without recomputation.
+    validation_report = engine.evaluate(
+        requirements=[],
+        evidence_by_requirement={},
         conflicts=(conflict_result or {}).get("conflicts") or [],
         numeric_facts=numeric_checks,
         relation_checks=relation_checks,
-        requirement_temporal=temporal_intent,
-        evidence_states=evidence_states,
-        requires_independent=requires_independent,
-        evidence_roles=evidence_roles,
-        # review round 2 (RT-034): provenance + entity/object×dimension
-        # rules wired into the SAME single engine.evaluate() used by
-        # FAST/RESEARCH/DEEP — no parallel engine. Structured inputs are
-        # supplied when the deterministic comparison derivation produced
-        # them; otherwise the rule records NOT_APPLICABLE honestly.
-        required_objects=(list(comparison_objects) if comparison_objects
-                          else None),
-        required_dimensions=(list(comparison_dimensions)
-                             if comparison_dimensions else None),
-        selected_evidence_texts=[content_by_rid.get(rid, "")
-                                 for rid in selected_ids],
-        provenance_groups=(
-            [provenance_groups.get(rid) or "" for rid in selected_ids]
-            if provenance_groups else None),
         mode=mode,
     )
 
-    # map HARD findings → affected records / requirements
+    # Map validation HARD findings to affected records before evaluating
+    # trusted-support coverage.
     blocked_records: Dict[str, dict] = {}
     numeric_affected = {c.get("record_id") for c in numeric_checks
                         if c.get("valid") is False}
@@ -665,8 +630,7 @@ async def run_phase03_retrieval(*, query: str,
                 and not c.get("resolved"):
             conflict_affected.update(str(r) for r in c.get("record_ids") or [])
 
-    blocked_requirements: Dict[str, List[str]] = {}
-    for f in policy_report.findings:
+    for f in validation_report.findings:
         if f.severity != "hard":
             continue
         code = f.reason_code
@@ -689,23 +653,77 @@ async def run_phase03_retrieval(*, query: str,
             blocked_records.setdefault(str(f.subject), {
                 "relation": "INVALID",
                 "reason_codes": []})["reason_codes"].append(code)
-        elif code in _CLAIM_LEVEL_CODES:
-            subj = str(f.subject)
-            if any(str(r.get("id")) == subj for r in requirements):
-                blocked_requirements.setdefault(subj, []).append(code)
-            else:
-                # Claim-level finding (subject "claim" — self-report-only /
-                # stale-current / generic claim codes) is requirement-
-                # agnostic: it blocks trusted support for EVERY derived
-                # requirement, so a self-report-only or superseded-only
-                # selection can never become support evidence.
-                for r in requirements:
-                    blocked_requirements.setdefault(
-                        str(r.get("id")), []).append(code)
 
     # dedupe reason codes
     for rid, info in blocked_records.items():
         info["reason_codes"] = sorted(set(info["reason_codes"]))
+
+    trusted_ids = [rid for rid in selected_ids if rid not in blocked_records]
+    trusted_evidence_by_req: Dict[str, List[dict]] = {}
+    for rid in trusted_ids:
+        for req_id in assoc.get(rid, []):
+            trusted_evidence_by_req.setdefault(req_id, []).append({
+                "record_id": rid,
+                "evidence_eligibility": str(
+                    (evidence_metadata.get(rid) or {}).get(
+                        "evidence_eligibility",
+                        snapshot_index.get(rid, {}).get(
+                            "evidence_eligibility", ""))),
+                "quarantined": False,
+                "cited": True,
+                "access_scope": str((records_by_id.get(rid) or {})
+                                    .get("access_scope") or ""),
+                "evidence_role": str((evidence_metadata.get(rid) or {})
+                                     .get("evidence_role") or "unknown"),
+            })
+
+    trusted_states = [str((temporal_map.get(rid) or
+                           records_by_id.get(rid) or {})
+                          .get("supersession_state") or "unknown")
+                      for rid in trusted_ids]
+    trusted_roles = [str((evidence_metadata.get(rid) or {})
+                         .get("evidence_role") or "unknown")
+                     for rid in trusted_ids]
+    support_report = engine.evaluate(
+        requirements=requirements,
+        evidence_by_requirement=trusted_evidence_by_req,
+        requirement_temporal=temporal_intent,
+        evidence_states=trusted_states,
+        requires_independent=requires_independent,
+        evidence_roles=trusted_roles,
+        required_objects=(list(comparison_objects) if comparison_objects
+                          else None),
+        required_dimensions=(list(comparison_dimensions)
+                             if comparison_dimensions else None),
+        selected_evidence_texts=[content_by_rid.get(rid, "")
+                                 for rid in trusted_ids],
+        provenance_groups=(
+            [provenance_groups.get(rid) or "" for rid in trusted_ids]
+            if provenance_groups else None),
+        mode=mode,
+    )
+    all_findings = validation_report.findings + support_report.findings
+    combined_applicability = dict(validation_report.rule_applicability)
+    combined_applicability.update(support_report.rule_applicability)
+    policy_report = PolicyReport(
+        verdict=(HARD_FAIL if any(f.severity == "hard" for f in all_findings)
+                 else (FAIL if all_findings else PASS)),
+        findings=all_findings, mode=mode,
+        rule_applicability=combined_applicability)
+
+    blocked_requirements: Dict[str, List[str]] = {}
+    for f in support_report.findings:
+        if f.severity != "hard" or f.reason_code not in _CLAIM_LEVEL_CODES:
+            continue
+        subj = str(f.subject)
+        if any(str(r.get("id")) == subj for r in requirements):
+            blocked_requirements.setdefault(subj, []).append(f.reason_code)
+        else:
+            for r in requirements:
+                blocked_requirements.setdefault(
+                    str(r.get("id")), []).append(f.reason_code)
+    for req_id, codes in blocked_requirements.items():
+        blocked_requirements[req_id] = sorted(set(codes))
 
     # support set after gate B: selected minus blocked records minus
     # support of claim-blocked requirements

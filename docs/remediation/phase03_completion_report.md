@@ -9,9 +9,9 @@ Phase 03 交付"高召回检索 → 内容重排 → 硬规则 policy → 证据
 不可变 EvidencePackage → hash 绑定生成视图"的完整生成前证据链，
 并以 production-path E2E 锁定每一步的真实 server 语义。
 
-- 测试：`tests_remediation_phase03.py` 112/112（含 21 个生产路径 E2E）；
+- 测试：`tests_remediation_phase03.py` 154/154（含真实 server/pinned-runtime E2E）；
   `tests_benchmark_phase03.py` 3/3 + production benchmark 3/3 指标全过。
-- push tier：757/757（33 suites，0 fail）；parity gate-1 基线 0 drift。
+- push tier：799/799（33 suites，0 fail）；parity gate-1 基线 0 drift。
 - 规格工件：acceptance_matrix 登记全部新用例（RT-030..039 DOD 级），
   spec_manifest sha/spec_hash 重算，lint + verifier 通过。
 
@@ -198,3 +198,58 @@ Phase 03 交付"高召回检索 → 内容重排 → 硬规则 policy → 证据
 - acceptance_matrix 新增 `RT-031.DOD-04` / `RT-033.DOD-03` /
   `RT-034.DOD-03` / `RT-038.DOD-04`（27 个用例登记，
   `acceptance_matrix_sha256`、`spec_hash` 重算）。
+
+## 第三轮验收整改（2026-08-24 — RT-033/034/039）
+
+### RT-033：所有 reserve 统一 eligibility floor
+
+- 删除 content/token match 的 eligibility 豁免；critical requirement、
+  object-only、dimension-only、object×dimension、independent-source、
+  route-outlier 全部先通过同一个确定性 route-signal predicate。
+- 稀疏槽位对抗测试覆盖 critical/object/dimension/pair token junk；
+  below-floor 均不得 reserved，above-floor 低排名正控仍被保护。
+
+### RT-034：provenance fail-safe + post-validation coverage
+
+- 独立性未要求时才允许 `NOT_APPLICABLE`。独立性已要求而 provenance
+  缺失、空、畸形、不完整或 clustering 技术失败时返回 hard
+  `POLICY_PROVENANCE_UNAVAILABLE`；一组返回
+  `POLICY_PROVENANCE_INSUFFICIENT`，两组以上正控通过。
+- request-pinned record 中显式 provenance/uncertainty 优先于 legacy
+  clustering；uncertainty 不会生成伪独立 group ID。
+- Gate-B 改为确定性 validation → blocked-record demotion → trusted
+  support set → coverage/provenance 重算。relation-invalid、numeric-invalid、
+  unresolved high-conflict 的 B×latency 证据均不能再满足最终覆盖；合法
+  A/B×dimension 正控通过。
+
+### RT-039：真实 Generator 调用边界
+
+- EvidencePackage path 不再调用读取 raw/unselected retrieval（含 legacy
+  `as` AI summary）的动态 claim classifier，也不再把其 metadata 加入
+  Generator system prompt。
+- factual Generator 的 streaming 与 non-streaming fallback 都收到空
+  raw history；当前 Phase03 不伪造 RT-040 verified premises。历史仍可在
+  rewrite/orchestration 使用，但不会进入 factual generation invocation。
+- FULL SSE capture 测试检查实际 `llm_stream_func` / `llm_model_func`
+  参数：unselected/classifier/AI-summary/prior-UNVERIFIED sentinel 均缺席，
+  selected EvidencePackage sentinel 位于 DATA boundary，flag-off legacy
+  reject 契约保持。
+
+### claim lineage 警告调查
+
+- 根因是 durable string `record_id` 被用于 `0 <= rid < len(records)` 的
+  legacy integer-index 判断，抛出 `int`/`str` 比较异常并跳过 lineage。
+- 新 resolver 先按 stable `record_id`，再按明确 `legacy_idx` compatibility
+  字段查找；Phase03 provenance 不可用时使用单一保守 unknown group，
+  不制造多个独立来源。lineage 仍异常时 verification 明确降为
+  `UNVERIFIED`，不得继续普通可信输出。
+
+### 第三轮回归与登记
+
+- push tier **799/799**（33 suites）；Phase03 **154/154**；Phase00 7/7、
+  Phase01 84/84、Phase02 161/161、parity 5/5、index migration 37/37。
+- Phase03 mechanism benchmark 3/3、production-path benchmark 3/3；rank26
+  survival=1.0、selector coverage=1.0，latency gate PASS（fixture，不作生产
+  流量声明）。
+- acceptance_matrix 新增 `RT-033.DOD-04`、`RT-034.DOD-04/05`、
+  `RT-039.DOD-04`，manifest hash 重算并通过 lint/selftest/verifier。

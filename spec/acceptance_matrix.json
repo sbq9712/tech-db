@@ -15329,6 +15329,37 @@
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-033.DOD-04",
+          "description": "review round 3: one deterministic minimum route-signal eligibility predicate applies before every reserve class; critical/object/dimension token matches cannot waive the floor, while eligible low-ranked candidates remain protected",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round3_critical_token_junk_below_floor_rejected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round3_object_token_junk_below_floor_rejected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round3_dimension_token_junk_below_floor_rejected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round3_all_reserves_keep_eligible_positive_control",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
         }
       ]
     },
@@ -15471,7 +15502,7 @@
             },
             {
               "suite": "remediation_phase03",
-              "case": "test_rt034_round2_provenance_not_applicable_honest",
+              "case": "test_rt034_round3_provenance_unavailable_fails_safe",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             },
@@ -15515,6 +15546,68 @@
               "suite": "remediation_phase03",
               "case": "test_rt034_round2_production_provenance_distinct_pass",
               "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-034.DOD-04",
+          "description": "review round 3: independence-demanding requests fail safe when pinned provenance is missing or clustering fails; one known group fails, two distinct valid groups pass, and only a query that does not request independence may record N/A",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_provenance_unavailable_fails_safe",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_provenance_not_requested_is_na",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_pinned_cluster_failure_fails_safe",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_pinned_empty_provenance_fails_safe",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-034.DOD-05",
+          "description": "review round 3: entity/object×dimension coverage is recomputed only from post-validation trusted support; relation-invalid, numeric-invalid, and unresolved-conflict evidence cannot satisfy coverage",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_relation_invalid_cannot_satisfy_pair_coverage",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_numeric_invalid_cannot_satisfy_pair_coverage",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round3_conflict_cannot_satisfy_pair_coverage",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_pipeline_entity_rule_positive_control",
+              "level": "e2e",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
@@ -15959,6 +16052,49 @@
               "suite": "remediation_phase03",
               "case": "test_rt039_pipeline_context_is_allowlisted_rendering",
               "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-039.DOD-04",
+          "description": "review round 3: the real SSE Generator invocation and its non-streaming fallback consume only the selected EvidencePackage rendering, no legacy classifier/AI-summary conclusions and no raw assistant history; stable string citation IDs retain deterministic lineage",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_round3_endpoint_skips_legacy_classifier_metadata",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_round3_endpoint_rejects_raw_assistant_history",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_round3_endpoint_selected_evidence_in_data_boundary",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_round3_endpoint_fallback_uses_same_allowlist",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round3_stable_record_id_resolves_exact_record",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_flag_off_legacy_reject",
+              "level": "e2e",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
