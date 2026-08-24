@@ -8,7 +8,13 @@ no model (semantic Grader / LLM) can override a hard fail.
 Checks (as applicable), each with a machine-readable reason code:
 
   POLICY_COVERAGE_MISSING        critical requirement without eligible evidence
-  POLICY_ENTITY_MISSING          required entity/dimension without evidence
+  POLICY_ENTITY_MISSING          required entity/object without evidence
+  POLICY_DIMENSION_MISSING       required dimension (or object×dimension
+                                 pair) without source-grounded evidence
+  POLICY_PROVENANCE_INSUFFICIENT independence required but selected records
+                                 draw on too few DISTINCT independent
+                                 groups (reposts/duplicates sharing an
+                                 independent_group_id are ONE source)
   POLICY_SOURCE_INELIGIBLE       evidence eligibility != CITATION_ELIGIBLE
   POLICY_QUARANTINED             quarantined record used as evidence
   POLICY_SELF_REPORT_ONLY        independent-validation claim supported by
@@ -54,6 +60,11 @@ class PolicyReport:
     findings: List[PolicyFinding] = field(default_factory=list)
     policy_version: str = EVIDENCE_POLICY_VERSION
     mode: str = ""
+    # review round 2 (RT-034): explicit rule-applicability ledger — when a
+    # rule's structured inputs are genuinely unavailable (Phase-04 has not
+    # produced them yet), the rule is recorded NOT_APPLICABLE. It is never
+    # fabricated as a pass and never silently skipped.
+    rule_applicability: Dict[str, str] = field(default_factory=dict)
 
     @property
     def hard_fail(self) -> bool:
@@ -67,6 +78,10 @@ class PolicyReport:
     def reason_codes(self) -> List[str]:
         return [f.reason_code for f in self.findings]
 
+    def not_applicable_rules(self) -> List[str]:
+        return sorted(r for r, v in self.rule_applicability.items()
+                      if v.startswith("NOT_APPLICABLE"))
+
     def to_dict(self) -> dict:
         return {
             "verdict": self.verdict,
@@ -74,6 +89,7 @@ class PolicyReport:
             "mode": self.mode,
             "overridable": self.overridable,
             "findings": [f.to_dict() for f in self.findings],
+            "rule_applicability": dict(self.rule_applicability),
         }
 
 
@@ -211,6 +227,115 @@ class EvidencePolicyEngine:
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="relation")
 
+    def check_provenance(self, *, requires_independent: bool,
+                         provenance_groups: Optional[List[str]] = None,
+                         min_independent_groups: int = 2) -> PolicyReport:
+        """Independence provenance (spec §12, review round 2 RT-034).
+
+        Reposts / duplicates / syndicated copies share an
+        independent_group_id: N records from the SAME group are ONE
+        independent source, never N. When independence is required the
+        selection must draw on >= min_independent_groups DISTINCT groups.
+
+        Honest applicability: independence not required, or group metadata
+        genuinely unavailable (Phase-04 has not produced structured
+        provenance) → rule recorded NOT_APPLICABLE — never fabricated as
+        a pass and never silently skipped.
+        """
+        findings: List[PolicyFinding] = []
+        applicability: Dict[str, str] = {}
+        if not requires_independent:
+            applicability["provenance_independence"] = (
+                "NOT_APPLICABLE: independence not required for this query")
+        elif provenance_groups is None:
+            applicability["provenance_independence"] = (
+                "NOT_APPLICABLE: provenance group metadata unavailable "
+                "(Phase-04 structured decomposition not yet produced)")
+        else:
+            applicability["provenance_independence"] = "APPLICABLE"
+            groups = [str(g or "").strip() for g in provenance_groups]
+            known = [g for g in groups if g]
+            distinct = set(known)
+            if len(distinct) < min_independent_groups:
+                findings.append(PolicyFinding(
+                    "provenance_independence",
+                    "POLICY_PROVENANCE_INSUFFICIENT", "claim",
+                    f"{len(known)} selected record(s) draw on only "
+                    f"{len(distinct)} distinct independent group(s) "
+                    f"({sorted(distinct)}); >= {min_independent_groups} "
+                    f"required — reposts/duplicates sharing an "
+                    f"independent_group_id are one source, not several",
+                    severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS),
+            findings=findings, mode="provenance",
+            rule_applicability=applicability)
+
+    def check_entity_coverage(self, *,
+                              required_entities: Optional[List[str]] = None,
+                              required_objects: Optional[List[str]] = None,
+                              required_dimensions: Optional[List[str]] = None,
+                              selected_texts: Optional[List[str]] = None,
+                              require_pairs: bool = True) -> PolicyReport:
+        """Entity / object / dimension coverage hard rules (review round 2,
+        RT-034). WITHOUT implementing Phase-04 decomposition:
+
+        * when structured inputs ARE supplied (required entities / objects /
+          dimensions + the selected evidence texts), coverage is checked
+          DETERMINISTICALLY — a required object absent from every selected
+          record, or a required object×dimension pair with no record
+          grounding BOTH, hard-fails with a machine-readable reason;
+        * when they are genuinely unavailable, the rule is recorded
+          NOT_APPLICABLE — nothing is fabricated, nothing silently passes.
+        """
+        findings: List[PolicyFinding] = []
+        applicability: Dict[str, str] = {}
+        entities = [e for e in (required_entities or []) if e]
+        objects = [o for o in (required_objects or []) if o]
+        dims = [d for d in (required_dimensions or []) if d]
+        has_structured = bool(entities or objects or dims)
+        if not has_structured:
+            applicability["entity_dimension_coverage"] = (
+                "NOT_APPLICABLE: no structured entity/object/dimension "
+                "requirements supplied (Phase-04 decomposition not yet "
+                "produced for this query)")
+        elif selected_texts is None:
+            applicability["entity_dimension_coverage"] = (
+                "NOT_APPLICABLE: selected evidence texts unavailable — "
+                "coverage cannot be deterministically verified")
+        else:
+            applicability["entity_dimension_coverage"] = "APPLICABLE"
+            texts = [str(t or "").lower() for t in selected_texts]
+            for ent in entities + objects:
+                if not any(str(ent).lower() in t for t in texts):
+                    findings.append(PolicyFinding(
+                        "entity_coverage", "POLICY_ENTITY_MISSING",
+                        str(ent),
+                        f"required entity/object '{ent}' absent from every "
+                        f"selected evidence record", severity="hard"))
+            for d in dims:
+                if not any(str(d).lower() in t for t in texts):
+                    findings.append(PolicyFinding(
+                        "entity_coverage", "POLICY_DIMENSION_MISSING",
+                        str(d),
+                        f"required dimension '{d}' absent from every "
+                        f"selected evidence record", severity="hard"))
+            if require_pairs and objects and dims:
+                for o in objects:
+                    for d in dims:
+                        ol, dl = str(o).lower(), str(d).lower()
+                        if not any(ol in t and dl in t for t in texts):
+                            findings.append(PolicyFinding(
+                                "pair_coverage", "POLICY_DIMENSION_MISSING",
+                                f"{o}|{d}",
+                                f"no selected evidence grounds BOTH object "
+                                f"'{o}' and dimension '{d}' — the pair has "
+                                f"no source-grounded support", severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS),
+            findings=findings, mode="entity_coverage",
+            rule_applicability=applicability)
+
     # ── aggregate for a selection ──────────────────────────────────────────
 
     def evaluate(self, *, requirements: List[dict],
@@ -222,6 +347,12 @@ class EvidencePolicyEngine:
                  evidence_states: Optional[List[str]] = None,
                  requires_independent: bool = False,
                  evidence_roles: Optional[List[str]] = None,
+                 required_entities: Optional[List[str]] = None,
+                 required_objects: Optional[List[str]] = None,
+                 required_dimensions: Optional[List[str]] = None,
+                 selected_evidence_texts: Optional[List[str]] = None,
+                 provenance_groups: Optional[List[str]] = None,
+                 min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
 
@@ -233,8 +364,16 @@ class EvidencePolicyEngine:
         citation/access (check_requirement → check_evidence), coverage,
         conflict, numeric, relation, and (when the corresponding production
         inputs exist) temporal supersession and self-report/independence.
+
+        Review round 2 (RT-034) adds, into this SAME engine (no parallel
+        engine): provenance independence (reposts sharing an
+        independent_group_id are one source) and entity/object/dimension
+        coverage — deterministically checked when the structured inputs are
+        supplied, recorded NOT_APPLICABLE (never fabricated, never silently
+        passed) when they are genuinely unavailable.
         """
         findings: List[PolicyFinding] = []
+        rule_applicability: Dict[str, str] = {}
         for req in requirements:
             rid = str(req.get("id", ""))
             selected = evidence_by_requirement.get(rid, [])
@@ -253,9 +392,25 @@ class EvidencePolicyEngine:
             findings.extend(self.check_self_report(
                 requires_independent=True,
                 evidence_roles=list(evidence_roles)).findings)
+        # review round 2 RT-034: provenance independence
+        prov_rep = self.check_provenance(
+            requires_independent=requires_independent,
+            provenance_groups=provenance_groups,
+            min_independent_groups=min_independent_groups)
+        findings.extend(prov_rep.findings)
+        rule_applicability.update(prov_rep.rule_applicability)
+        # review round 2 RT-034: entity / object × dimension coverage
+        cov_rep = self.check_entity_coverage(
+            required_entities=required_entities,
+            required_objects=required_objects,
+            required_dimensions=required_dimensions,
+            selected_texts=selected_evidence_texts)
+        findings.extend(cov_rep.findings)
+        rule_applicability.update(cov_rep.rule_applicability)
         verdict = (HARD_FAIL if any(f.severity == "hard" for f in findings)
                    else (FAIL if findings else PASS))
-        return PolicyReport(verdict=verdict, findings=findings, mode=mode)
+        return PolicyReport(verdict=verdict, findings=findings, mode=mode,
+                            rule_applicability=rule_applicability)
 
 
 def combine_with_grader(policy: PolicyReport, grader_verdict: str) -> PolicyReport:

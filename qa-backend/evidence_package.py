@@ -574,11 +574,21 @@ class PackedGenerationView:
         return self.canonical_package_hash
 
     def binding_payload(self) -> dict:
-        """Deterministic payload the view_hash binds: exactly the content
-        the Generator will render (ids, per-entry text hashes, compression
-        flags, dropped ids, requirement wiring, canonical hash)."""
+        """Deterministic payload the view_hash binds: every field that can
+        change Generator-visible rendering/semantics — canonical package
+        hash, schema/version, query, requirements (incl. per-requirement
+        support wiring + coverage), included evidence with exact rendered
+        text hashes + compression/counts_as_evidence/relation/policy
+        reasons, conflicts, conditions, mandatory ids, gaps,
+        degraded_capabilities, selection floor, selection/capacity state,
+        and dropped ids. (review round 2, RT-038)"""
         return {
+            "schema_version": self.schema_version,
+            "query": self.query,
             "canonical_package_hash": self.canonical_package_hash,
+            "selection_floor": self.selection_floor,
+            "gaps": sorted(self.gaps),
+            "degraded_capabilities": sorted(self.degraded_capabilities),
             "included_evidence": {
                 eid: {
                     "text_sha256": hashlib.sha256(
@@ -595,7 +605,7 @@ class PackedGenerationView:
             "mandatory_evidence_ids": list(self.mandatory_evidence_ids),
             "conflicts": [c.to_dict() for c in self.conflicts],
             "conditions": [cd.to_dict() for cd in self.conditions],
-            "capacity_action": self.capacity.get("action", "none"),
+            "capacity": self.capacity,
         }
 
     def compute_view_hash(self) -> str:
@@ -605,12 +615,21 @@ class PackedGenerationView:
         return self.view_hash
 
     def validate(self) -> List[str]:
-        """Structural integrity checks (no dangling refs, mandatory intact).
+        """Structural integrity checks (no dangling refs, mandatory intact,
+        evidentiary support semantics). review round 2 (RT-038) strengthens
+        the contract: a support_evidence_id must resolve to an entry that
+        (a) exists, (b) counts_as_evidence=True, (c) carries a SUPPORT
+        relation — and coverage=COVERED is only legal with actual
+        evidentiary support. Compressed navigation cards are pointers, not
+        evidence. Critical mandatory entries must stay exact/uncompressed
+        (unless the capacity action is an explicit context_capacity_exceeded
+        abstain).
 
         Returns a list of issues — empty list means the view is sound.
         """
         issues: List[str] = []
         have = set(self.evidence.keys())
+        exceeded = self.capacity.get("action") == "context_capacity_exceeded"
         for b in self.requirements:
             for label, ids in (("support", b.support_evidence_ids),
                                ("conflict", b.conflict_evidence_ids),
@@ -620,7 +639,33 @@ class PackedGenerationView:
                     issues.append(
                         f"requirement {b.requirement_id} {label} refs "
                         f"missing from view: {sorted(dangling)}")
-            if b.support_evidence_ids and b.coverage in ("MISSING", "GAP"):
+            # evidentiary support semantics (review round 2, RT-038)
+            non_evidentiary = [
+                eid for eid in b.support_evidence_ids
+                if eid in have and not self.evidence[eid].counts_as_evidence]
+            if non_evidentiary:
+                issues.append(
+                    f"requirement {b.requirement_id} lists non-evidentiary "
+                    f"(compressed/navigation) entries as support: "
+                    f"{sorted(non_evidentiary)}")
+            bad_relation = [
+                eid for eid in b.support_evidence_ids
+                if eid in have
+                and self.evidence[eid].counts_as_evidence
+                and self.evidence[eid].relation not in SUPPORT_RELATIONS]
+            if bad_relation:
+                issues.append(
+                    f"requirement {b.requirement_id} support refs carry "
+                    f"non-support relations: {sorted(bad_relation)}")
+            evidentiary_support = [
+                eid for eid in b.support_evidence_ids
+                if eid in have and self.evidence[eid].counts_as_evidence
+                and self.evidence[eid].relation in SUPPORT_RELATIONS]
+            if b.coverage == "COVERED" and not evidentiary_support:
+                issues.append(
+                    f"requirement {b.requirement_id} coverage=COVERED with "
+                    f"zero evidentiary support in the packed view")
+            if evidentiary_support and b.coverage in ("MISSING", "GAP"):
                 issues.append(
                     f"requirement {b.requirement_id} has support but "
                     f"coverage={b.coverage}")
@@ -634,12 +679,22 @@ class PackedGenerationView:
             if dangling:
                 issues.append(f"condition {cd.condition_id} refs missing "
                               f"from view: {sorted(dangling)}")
-        if self.capacity.get("action") != "context_capacity_exceeded":
+        if not exceeded:
             missing_mandatory = [eid for eid in self.mandatory_evidence_ids
                                  if eid not in have]
             if missing_mandatory:
                 issues.append("mandatory evidence missing from view: "
                               f"{sorted(missing_mandatory)}")
+            # critical mandatory evidence stays EXACT (review round 2):
+            # a mandatory id that was demoted to a compressed navigation
+            # card without an explicit capacity abstain is a violation
+            compressed_mandatory = [
+                eid for eid in self.mandatory_evidence_ids
+                if eid in have and not self.evidence[eid].counts_as_evidence]
+            if compressed_mandatory:
+                issues.append("mandatory evidence compressed to navigation "
+                              f"cards without context_capacity_exceeded: "
+                              f"{sorted(compressed_mandatory)}")
         if not self.view_hash:
             issues.append("view_hash not computed")
         else:
@@ -711,14 +766,26 @@ def fit_to_capacity(pkg: EvidencePackage, max_tokens: Optional[int] = None,
         have = set(evidence.keys())
         reqs = [_copy_block(b) for b in pkg.requirements]
         for b in reqs:
-            b.support_evidence_ids = [eid for eid in b.support_evidence_ids
-                                      if eid in have]
+            # review round 2 (RT-038): support ids resolve ONLY to entries
+            # that still count as evidence in the packed view. A compressed
+            # navigation card (counts_as_evidence=False) or a non-support
+            # relation is NEVER trusted support — a requirement whose only
+            # support was compressed/dropped becomes MISSING/GAP here, and
+            # the navigation card itself may remain in the view's separate
+            # non-evidentiary representation.
+            b.support_evidence_ids = [
+                eid for eid in b.support_evidence_ids
+                if eid in have
+                and evidence[eid].counts_as_evidence
+                and evidence[eid].relation in SUPPORT_RELATIONS]
             b.conflict_evidence_ids = [eid for eid in b.conflict_evidence_ids
                                        if eid in have]
             b.condition_evidence_ids = [eid for eid in b.condition_evidence_ids
                                         if eid in have]
             # coverage honestly reflects the PACKED view: support lost to
-            # capacity packing is MISSING here (canonical stays intact)
+            # capacity packing (or demoted to a navigation card) is
+            # MISSING/GAP here (canonical stays intact) — recomputed from
+            # the ACTUAL evidentiary support surviving the pack
             if not b.support_evidence_ids:
                 b.coverage = ("GAP" if pkg.gaps else "MISSING")
             else:

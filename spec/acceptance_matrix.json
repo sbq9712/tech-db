@@ -15101,6 +15101,49 @@
               "command": "python qa-backend/tests_benchmark_phase03.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-031.DOD-04",
+          "description": "review round 2: with EVIDENCE_PACKAGE_ENABLED the full /api/chat/stream endpoint runs Phase03 BEFORE the legacy weak-query gate — legacy Top25/is_relevant never terminates a request the evidence pipeline answers; flag-off stays byte-compatible",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_fixture_trips_legacy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_precedes_legacy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_rank26_target_reaches_package",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_context_only_selected_evidence",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_generation_ran",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_round2_endpoint_flag_off_legacy_reject",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
         }
       ]
     },
@@ -15255,6 +15298,37 @@
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
+        },
+        {
+          "dod_id": "RT-033.DOD-03",
+          "description": "review round 2: object×dimension PAIR reserve — a candidate counts for a pair only when source-grounded content supports BOTH axes and it carries a real route signal; imbalance fixture under rerank-capacity pressure keeps every pair alive, ablation fails",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round2_pair_reserve_machine_readable",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round2_pair_reserve_junk_cannot_survive",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round2_pair_reserve_capacity_imbalance",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round2_pair_reserve_ablation_fails",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
         }
       ]
     },
@@ -15373,6 +15447,73 @@
             {
               "suite": "remediation_phase03",
               "case": "test_prod_policy_relation_invalid_blocked",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-034.DOD-03",
+          "description": "review round 2: provenance independence (reposts sharing an independent_group_id are ONE source) and entity/object×dimension coverage hard rules in the SAME shared engine.evaluate(); structured-input rules record NOT_APPLICABLE honestly when Phase04 decomposition is absent",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_provenance_same_group_not_independent",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_provenance_distinct_groups_pass",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_provenance_not_applicable_honest",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_entity_missing_hard_fails",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_pair_missing_hard_fails",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_coverage_rule_not_applicable_honest",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_pipeline_entity_rule_wired",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_pipeline_entity_rule_positive_control",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_production_provenance_repost_cluster",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_round2_production_provenance_distinct_pass",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
@@ -15693,6 +15834,55 @@
             {
               "suite": "remediation_phase03",
               "case": "test_rt038_normal_fit_no_action",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-038.DOD-04",
+          "description": "review round 2: packed-view evidentiary support semantics — support_evidence_ids resolve only to counts_as_evidence=True support-relation entries, coverage recomputed from actual evidentiary support, mandatory stays exact or capacity abstains, view_hash binds every generator-visible field, generator never renders navigation cards as evidence",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_compressed_support_not_trusted",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_coverage_recomputed_from_evidentiary_support",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_validate_rejects_hand_corruption",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_validate_rejects_non_support_relation",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_mutation_stale_hash_on_degraded",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_mandatory_compressed_rejected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_round2_generator_never_renders_nav_as_evidence",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }

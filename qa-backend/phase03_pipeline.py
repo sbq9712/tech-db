@@ -84,7 +84,10 @@ BLOCK_SYNTHETIC_ONLY = "POLICY_SYNTHETIC_CONTENT_ONLY"
 _EVIDENCE_LEVEL_CODES = {"POLICY_SOURCE_INELIGIBLE", "POLICY_QUARANTINED",
                          "POLICY_CITATION_INELIGIBLE", "POLICY_ACCESS_SCOPE"}
 _CLAIM_LEVEL_CODES = {"POLICY_STALE_CURRENT_FACT", "POLICY_SELF_REPORT_ONLY",
-                      "POLICY_COVERAGE_MISSING"}
+                      "POLICY_COVERAGE_MISSING",
+                      # review round 2 (RT-034): proposition-level hard rules
+                      "POLICY_PROVENANCE_INSUFFICIENT", "POLICY_ENTITY_MISSING",
+                      "POLICY_DIMENSION_MISSING"}
 
 
 # ── deterministic query derivation (Phase-04 boundary, no fabrication) ──────
@@ -633,6 +636,20 @@ async def run_phase03_retrieval(*, query: str,
         evidence_states=evidence_states,
         requires_independent=requires_independent,
         evidence_roles=evidence_roles,
+        # review round 2 (RT-034): provenance + entity/object×dimension
+        # rules wired into the SAME single engine.evaluate() used by
+        # FAST/RESEARCH/DEEP — no parallel engine. Structured inputs are
+        # supplied when the deterministic comparison derivation produced
+        # them; otherwise the rule records NOT_APPLICABLE honestly.
+        required_objects=(list(comparison_objects) if comparison_objects
+                          else None),
+        required_dimensions=(list(comparison_dimensions)
+                             if comparison_dimensions else None),
+        selected_evidence_texts=[content_by_rid.get(rid, "")
+                                 for rid in selected_ids],
+        provenance_groups=(
+            [provenance_groups.get(rid) or "" for rid in selected_ids]
+            if provenance_groups else None),
         mode=mode,
     )
 

@@ -13,8 +13,15 @@ floor (junk: no route signal + no requirement match) are never reserved —
 
 Every reserve decision carries a machine-readable reason code:
   RESERVE_CRITICAL_REQUIREMENT / RESERVE_COMPARISON_OBJECT /
+  RESERVE_COMPARISON_DIMENSION / RESERVE_COMPARISON_OBJECT_DIMENSION /
   RESERVE_INDEPENDENT_SOURCE / RESERVE_ROUTE_OUTLIER
 and rejected junk carries REJECT_BELOW_ELIGIBILITY_FLOOR.
+
+Review round 2 (RT-033) adds the object×dimension PAIR reserve: a
+candidate is reserved for pair (A, dim) only when its source-grounded
+content supports BOTH the object and the dimension AND it carries a real
+route signal above the eligibility floor — junk cannot survive on a
+token match alone.
 """
 from __future__ import annotations
 
@@ -27,6 +34,10 @@ from .pool import PoolCandidate
 
 RESERVE_K = int(os.environ.get("QA_RESERVE_PER_KEY", "3"))
 ELIGIBILITY_FLOOR = float(os.environ.get("QA_RESERVE_ELIGIBILITY_FLOOR", "0.05"))
+# review round 2 (RT-033): object×dimension PAIR reserve switch. Ablation
+# seam for the required fixture test (disabling the pair-aware reserve must
+# make the imbalance fixture fail); default ON.
+_PAIR_RESERVE_ENABLED = os.environ.get("QA_RESERVE_PAIR_ENABLED", "1") != "0"
 
 
 @dataclass
@@ -136,6 +147,33 @@ def apply_reserve(pool: List[PoolCandidate],
                 decisions.append(ReserveDecision(
                     cand.record_id, True, "RESERVE_COMPARISON_DIMENSION", key=dim))
                 taken += 1
+
+    # 2b. object × dimension PAIR reserve (review round 2, RT-033). A
+    # candidate counts for a pair ONLY when its source-grounded content
+    # supports BOTH the object and the dimension. Unlike the single-axis
+    # reserves above, a pair hit is NOT treated as a requirement match:
+    # the candidate still needs a real route signal above the eligibility
+    # floor (requirement_matched=False), so junk with zero retrieval
+    # signal can never survive on a token match alone.
+    if _PAIR_RESERVE_ENABLED:
+        for obj in (comparison_objects or []):
+            for dim in (comparison_dimensions or []):
+                pair_key = f"{obj}|{dim}"
+                taken = 0
+                for cand in pool:
+                    if taken >= reserve_k:
+                        break
+                    text = _default_matcher(cand.record_id, cand.meta,
+                                            content_fn).lower()
+                    if obj.lower() in text and dim.lower() in text \
+                            and _eligible(cand, requirement_matched=False):
+                        decisions.append(ReserveDecision(
+                            cand.record_id, True,
+                            "RESERVE_COMPARISON_OBJECT_DIMENSION",
+                            key=pair_key))
+                        reserved_count[cand.record_id] = \
+                            reserved_count.get(cand.record_id, 0) + 1
+                        taken += 1
 
     # 3. scarce independent-source groups
     for group in known_independent_groups:

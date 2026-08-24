@@ -264,3 +264,52 @@ linger 已启用（VM 启动即拉起全部服务）。
   view 绑定）；pipeline 3.1.0；Citations 携带 evidence_id/source_snapshot_id。
 - 生产语义：FAST_RAG 池上限 80 / RESEARCH·DEEP 180、ROUTE_TOP_K 50、
   RERANK_CAPACITY 40、MAX_EVIDENCE_SLOTS 15。
+
+### Phase 03 — 第二轮验收整改（2026-08-24，blockers A/B/C/D）
+
+1. **Blocker A（RT-031 全端点预门控顺序）**：`/api/chat/stream` 中
+   Phase03 块移到 legacy weak-query 门控之前——`EVIDENCE_PACKAGE_ENABLED`
+   开启时，legacy Top25/`is_relevant` 只是 legacy 决策面，绝不再作为
+   权威预门控终止请求；Phase03 的 `no_evidence`/policy/容量结果就是
+   证据决策。四态答案状态同步修正（`has_results`/`is_relevant` 以
+   Phase03 激活为准），legacy weak_query 不再污染成功回答的状态。
+   关闭 flag 时路径字节兼容（legacy 配置零削弱、FINAL_TOP_K 不变）。
+   新增 FULL HTTP/SSE E2E（真实 TestClient + RuntimePinMiddleware 路径）：
+   全向量 cos<0.55 的 fixture（legacy 必拒）下 Phase03 照常产出
+   EvidencePackage，rank34 目标进入 selection/citations/generation 上下文，
+   上下文只含选中证据；同一 fixture 关 flag 后仍走原样 weak_query 拒答。
+2. **Blocker B（RT-033 对象×维度配对预留）**：`apply_reserve` 新增
+   PAIR 级预留（`RESERVE_COMPARISON_OBJECT_DIMENSION`，key=`obj|dim`
+   双轴稳定键）；候选必须同时内容命中两轴且带真实路由信号
+   （`requirement_matched=False`，纯 token 匹配的垃圾不可存活）。
+   A/B/C 失衡 fixture（alpha 独占 30 容量头 + 单轴槽位被消耗 + B/C
+   落在 31..34 位）下，预留+容量交换后 6 对全部有幸存者；关闭配对
+   预留（`QA_RESERVE_PAIR_ENABLED=0`/ablation seam）同 fixture 必败。
+3. **Blocker C（RT-034 provenance + 实体/维度硬规则）**：同一个
+   `EvidencePolicyEngine.evaluate()`（FAST/RESEARCH/DEEP 共用，无并行
+   引擎）新增 `check_provenance`（同一 `independent_group_id` 的转发/
+   重复稿只算一个独立来源；`POLICY_PROVENANCE_INSUFFICIENT`）与
+   `check_entity_coverage`（`POLICY_ENTITY_MISSING`/
+   `POLICY_DIMENSION_MISSING`，含 obj×dim 配对覆盖）。结构化输入
+   真正可用时确定性检查；不可用（Phase04 未产出）时在
+   `rule_applicability` 如实记 `NOT_APPLICABLE`——不伪造通过、不静默
+   跳过。生产路径 E2E：同一 wire URL 的转发簇在独立性查询下
+   no_evidence，不同 wire 的正控通过。
+4. **Blocker D（RT-038 packed-view 证据语义）**：`support_evidence_ids`
+   只解析到 `counts_as_evidence=True` 且 relation ∈ SUPPORT_RELATIONS
+   的条目；压缩导航卡不再是可信支持——非关键需求因打包失去唯一支持
+   时 coverage 如实降为 MISSING/GAP；mandatory 保持原文或显式
+   `context_capacity_exceeded` abstain。`validate()` 强化：拒绝
+   非证据支持引用、非支持关系、COVERED 但零证据支持、mandatory 被
+   压缩（无显式 abstain）、悬空引用、陈旧 hash。
+   `binding_payload` 绑定全部 Generator 可见字段（schema、query、
+   gaps、degraded_capabilities、selection_floor、完整 capacity、
+   dropped_ids 等）。渲染端导航卡只出现在独立非证据区块，
+   需求区只渲染证据条目（缺失即明示"缺失证据"）。3 组 mutation
+   用例（degraded 变更→stale hash；压缩支持不可信；导航卡不作为
+   证据渲染）全部锁定。
+5. **回归保持**：第一轮已接受项零重写；push tier 784/784
+   （33 suites，+27 用例），phase03 139/139，benchmark 3/3，
+   parity 5/5，verify_spec_manifest 7/7；acceptance_matrix 登记
+   RT-031.DOD-04 / RT-033.DOD-03 / RT-034.DOD-03 / RT-038.DOD-04
+   （acceptance_matrix_sha256 与 spec_hash 已重算）。

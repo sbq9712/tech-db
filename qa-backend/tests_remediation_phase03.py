@@ -1535,6 +1535,558 @@ def _production():
                  for c in jout.get("citations", [])))
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# Review round 2 — blockers A/B/C/D
+# ══════════════════════════════════════════════════════════════════════════════
+
+_QUERY_R2 = "zeep8 production yield"
+
+
+def _round2():
+    """Review round 2 acceptance: full-endpoint pre-gate order (A),
+    object×dimension pair reserves under capacity pressure (B),
+    provenance/entity hard rules in the shared policy engine (C), and
+    packed-view evidentiary support semantics (D)."""
+    import contextlib
+    import tempfile
+
+    import server as _server
+    import retrieval.reserve as _res
+    from retrieval.pool import PoolCandidate
+    from retrieval.vector import RetrievalResult
+    from evidence_policy import EvidencePolicyEngine
+    from evidence_package import EvidencePackageBuilder, fit_to_capacity
+    from generator_input import build_generator_input, render_generator_prompt
+
+    tmp = tempfile.mkdtemp(prefix="p03-round2-")
+
+    # ════ Blocker A (RT-031): full HTTP/SSE endpoint E2E ═══════════════
+    # Scenario: EVERY vector cosine < VEC_STRONG (0.55) and no graph
+    # signal → the legacy relevance profile REJECTS the query
+    # (is_relevant=False → weak_query UNSUPPORTED), while the valid
+    # raw-route target (best lexical content match, fused rank 34 — past
+    # legacy FINAL_TOP_K=25) is exactly what Phase03 selects.
+    n_decoys = 33
+    decoy_ids = [f"decoy-{i:03d}" for i in range(n_decoys)]
+    target_id = "target-doc"
+    sse_texts = {rid: ("production production production production "
+                       "production production yield yield yield yield yield "
+                       "zeep8 zeep8 zeep8 zeep8 zeep8 zeep8 decoy grid "
+                       "sample note analysis batch sector digest index "
+                       f"{rid}") for rid in decoy_ids}
+    sse_texts[target_id] = ("zeep8 production yield pilot note note note "
+                            "note note note note note note note note note "
+                            "note note note note note")
+    sse_records = [{"record_id": rid, "t": rid} for rid in decoy_ids] + \
+                  [{"record_id": target_id, "t": "target"}]
+    sse_vectors = {rid: _craft_vector(_QUERY_R2, 0.50 - 0.01 * i,
+                                      f"ortho-{rid}")
+                   for i, rid in enumerate(decoy_ids)}
+    sse_vectors[target_id] = _craft_vector(_QUERY_R2, 0.05, "ortho-target")
+    manifest, root = _write_release(
+        Path(tmp) / "endpoint", records=sse_records, vectors=sse_vectors,
+        texts=sse_texts, query=_QUERY_R2, manifest_id="round2-endpoint")
+    sse_snap = _load_snapshot(manifest, root, "round2-endpoint")
+
+    class _FakePinManager:
+        """Same interface RuntimePinMiddleware consumes."""
+        manifest_id = sse_snap.manifest_id
+
+        def pin(self):
+            return contextlib.nullcontext(sse_snap)
+
+    sse_captured = {}
+
+    async def _fake_llm_stream(*, prompt, system_prompt, history_messages):
+        sse_captured["system_prompt"] = system_prompt
+        sse_captured["prompt"] = prompt
+        for tok in ("回答", "完成"):
+            yield tok
+
+    async def _fake_rewrite(query, history):
+        return query, False, ""
+
+    async def _no_claims(*a, **k):
+        return []
+
+    async def _no_claim_map(*a, **k):
+        return {"claims": []}
+
+    async def _fail_verify(*a, **k):
+        raise RuntimeError("no-llm-in-test")
+
+    def _parse_sse(text):
+        events, cur = [], {}
+        for line in text.splitlines():
+            if line.startswith("event: "):
+                cur = {"event": line[7:].strip()}
+            elif line.startswith("data: ") and cur:
+                payload = line[6:]
+                try:
+                    payload = json.loads(payload)
+                except Exception:
+                    pass
+                cur["data"] = payload
+                events.append(cur)
+                cur = {}
+        return events
+
+    def _post_chat(flag_on):
+        from fastapi.testclient import TestClient
+        saved = (_server.Flags.AGENTIC_ENABLED,
+                 _server.Flags.EVIDENCE_PACKAGE_ENABLED,
+                 _server.Flags.TERMINAL_RENDERER_ENABLED,
+                 getattr(_server, "embedding_func", None),
+                 _server.rewrite_query, _server.llm_stream_func,
+                 _server.classify_claims, _server.verify_answer,
+                 _server.map_claims_to_citations,
+                 _server._runtime_snapshot_manager)
+        _server.Flags.AGENTIC_ENABLED = False
+        _server.Flags.EVIDENCE_PACKAGE_ENABLED = flag_on
+        # legacy renderer profile (registered profile with
+        # TERMINAL_RENDERER_ENABLED=False): the Phase02 terminal renderer
+        # is an LLM-verification path out of scope for this deterministic
+        # E2E; the pre-gate ORDER under test is identical on both paths.
+        _server.Flags.TERMINAL_RENDERER_ENABLED = False
+        _server.embedding_func = _fake_embed
+        _server.rewrite_query = _fake_rewrite
+        _server.llm_stream_func = _fake_llm_stream
+        _server.classify_claims = _no_claims
+        _server.verify_answer = _fail_verify
+        _server.map_claims_to_citations = _no_claim_map
+        _server._runtime_snapshot_manager = _FakePinManager()
+        try:
+            client = TestClient(_server.app)
+            resp = client.post("/api/chat/stream", json={
+                "query": _QUERY_R2, "history": [], "access_scope": "public"})
+            return resp
+        finally:
+            (_server.Flags.AGENTIC_ENABLED,
+             _server.Flags.EVIDENCE_PACKAGE_ENABLED,
+             _server.Flags.TERMINAL_RENDERER_ENABLED,
+             embed_old, _server.rewrite_query, _server.llm_stream_func,
+             _server.classify_claims, _server.verify_answer,
+             _server.map_claims_to_citations,
+             _server._runtime_snapshot_manager) = saved
+            if embed_old is not None:
+                _server.embedding_func = embed_old
+
+    # sanity precondition: this fixture REALLY trips the legacy gate
+    async def _legacy_probe():
+        import retrieval.runtime as _rt
+        return await _rt.run_hybrid(_QUERY_R2, snapshot=sse_snap,
+                                    embed_fn=_fake_embed)
+    legacy_res, legacy_rel = asyncio.run(_legacy_probe())
+    test("RT031.round2_fixture_trips_legacy_gate",
+         legacy_rel is False and len(legacy_res) > 0
+         and all(r.get("vec_score", 1) < 0.55 for r in legacy_res))
+
+    resp_on = _post_chat(True)
+    events_on = _parse_sse(resp_on.text)
+    done_on = next((e for e in events_on if e["event"] == "done"), None)
+    test("RT031.round2_endpoint_precedes_legacy_gate",
+         resp_on.status_code == 200
+         and done_on is not None
+         and done_on["data"].get("answer_status") != "UNSUPPORTED"
+         and done_on["data"].get("stop_reason") != "weak_query"
+         and not any(e["event"] == "error" for e in events_on))
+    cited_on = [c.get("record_id") for c in
+                (done_on or {}).get("data", {}).get("citations", [])]
+    test("RT031.round2_endpoint_rank26_target_reaches_package",
+         done_on is not None
+         and target_id in cited_on
+         and target_id in done_on["data"].get("searched_record_ids", []))
+    sys_prompt = sse_captured.get("system_prompt", "")
+    import re as _re
+    prompt_record_ids = set(_re.findall(r"record=([\w-]+)", sys_prompt))
+    test("RT031.round2_endpoint_context_only_selected_evidence",
+         "zeep8 production yield pilot" in sys_prompt
+         and prompt_record_ids <= set(cited_on)
+         and prompt_record_ids != set()          # evidence blocks rendered
+         # unselected pool members must never reach generation context
+         and "decoy-030" not in sys_prompt
+         and "decoy-031" not in sys_prompt)
+    test("RT031.round2_endpoint_generation_ran",
+         done_on is not None and done_on["data"].get("answer") == "回答完成")
+
+    # flag OFF → the SAME fixture must hit the unchanged legacy reject
+    # (byte-compatible legacy profile, no weakening from the restructure)
+    resp_off = _post_chat(False)
+    events_off = _parse_sse(resp_off.text)
+    done_off = next((e for e in events_off if e["event"] == "done"), None)
+    test("RT031.round2_endpoint_flag_off_legacy_reject",
+         done_off is not None
+         and done_off["data"].get("answer_status") == "UNSUPPORTED"
+         and done_off["data"].get("stop_reason") == "weak_query"
+         and done_off["data"].get("citations") == [])
+
+    # ════ Blocker B (RT-033): pair reserve under capacity pressure ════
+    objects = ["alpha", "beta", "gamma"]
+    dims = ["latency", "throughput"]
+
+    def _mk_pair_pool():
+        pool = []
+
+        def _c(rid, rrf, vec, text):
+            pool.append(PoolCandidate(
+                record_id=rid, rrf_score=rrf, route_origins=["vector"],
+                route_scores={"vector": vec}, rrf_rank=len(pool) + 1,
+                meta={"t": text}))
+
+        # dominant object alpha occupies the ENTIRE capacity head (30)
+        for i in range(10):
+            _c(f"a-lat-{i}", 1.00 - i * 0.001, 0.50,
+               "alpha product latency benchmark details")
+        for i in range(10):
+            _c(f"a-thr-{i}", 0.98 - i * 0.001, 0.50,
+               "alpha product throughput benchmark details")
+        # single-axis slot consumers: beta/gamma tokens WITHOUT any
+        # dimension — they exhaust RESERVE_COMPARISON_OBJECT slots so the
+        # low-ranked B/C pair candidates can only survive via the PAIR
+        # reserve
+        for i in range(3):
+            _c(f"f-beta-{i}", 0.96 - i * 0.001, 0.50,
+               "beta unrelated filler note")
+        for i in range(3):
+            _c(f"f-gamma-{i}", 0.94 - i * 0.001, 0.50,
+               "gamma unrelated filler note")
+        for i in range(4):
+            _c(f"a-gen-{i}", 0.92 - i * 0.001, 0.50, "alpha overview notes")
+        # beta/gamma pair candidates: ranks 31..34, below the capacity cut
+        _c("b-lat-0", 0.60, 0.30, "beta product latency field report")
+        _c("b-thr-0", 0.59, 0.30, "beta product throughput field report")
+        _c("c-lat-0", 0.58, 0.30, "gamma product latency field report")
+        _c("c-thr-0", 0.57, 0.30, "gamma product throughput field report")
+        # junk: BOTH pair tokens but ZERO retrieval signal
+        _c("junk-0", 0.01, 0.001, "beta latency token junk only")
+        return pool
+
+    pair_pool = _mk_pair_pool()
+    pair_decisions = _res.apply_reserve(
+        pair_pool, comparison_objects=objects, comparison_dimensions=dims)
+    pair_dmap = {d.record_id: d for d in pair_decisions}
+    pair_codes = [d for d in pair_decisions
+                  if d.reason_code == "RESERVE_COMPARISON_OBJECT_DIMENSION"]
+    test("RT033.round2_pair_reserve_machine_readable",
+         bool(pair_codes)
+         and all(d.key.count("|") == 1 for d in pair_codes)
+         and any(d.record_id == "b-lat-0" and d.key == "beta|latency"
+                 for d in pair_codes)
+         and any(d.record_id == "c-thr-0" and d.key == "gamma|throughput"
+                 for d in pair_codes))
+    test("RT033.round2_pair_reserve_junk_cannot_survive",
+         pair_dmap["junk-0"].reserved is False
+         and pair_dmap["junk-0"].reason_code == "REJECT_BELOW_ELIGIBILITY_FLOOR")
+
+    rerank_pool = _res.pool_with_reserves(pair_pool, pair_decisions,
+                                          rerank_capacity=30)
+    ids = {c.record_id for c in rerank_pool}
+    pairs_survive = {
+        "alpha|latency": any(i.startswith("a-lat-") for i in ids),
+        "alpha|throughput": any(i.startswith("a-thr-") for i in ids),
+        "beta|latency": "b-lat-0" in ids,
+        "beta|throughput": "b-thr-0" in ids,
+        "gamma|latency": "c-lat-0" in ids,
+        "gamma|throughput": "c-thr-0" in ids,
+    }
+    test("RT033.round2_pair_reserve_capacity_imbalance",
+         len(rerank_pool) == 30 and all(pairs_survive.values())
+         and all(k in ids for k in
+                 ("b-lat-0", "b-thr-0", "c-lat-0", "c-thr-0")))
+
+    # ablation: disable the pair-aware reserve → the SAME fixture MUST
+    # fail (B/C pairs lose every survivor under capacity pressure)
+    _res._PAIR_RESERVE_ENABLED = False
+    try:
+        abl_decisions = _res.apply_reserve(
+            _mk_pair_pool(), comparison_objects=objects,
+            comparison_dimensions=dims)
+        abl_pool = _res.pool_with_reserves(_mk_pair_pool(), abl_decisions,
+                                           rerank_capacity=30)
+        abl_ids = {c.record_id for c in abl_pool}
+        abl_pairs = {
+            "beta|latency": "b-lat-0" in abl_ids,
+            "beta|throughput": "b-thr-0" in abl_ids,
+            "gamma|latency": "c-lat-0" in abl_ids,
+            "gamma|throughput": "c-thr-0" in abl_ids,
+        }
+        test("RT033.round2_pair_reserve_ablation_fails",
+             not any(d.reason_code == "RESERVE_COMPARISON_OBJECT_DIMENSION"
+                     for d in abl_decisions)
+             and not all(abl_pairs.values())
+             and sum(abl_pairs.values()) == 0)
+    finally:
+        _res._PAIR_RESERVE_ENABLED = True
+
+    # ════ Blocker C (RT-034): provenance + entity/dimension hard rules ═
+    eng = EvidencePolicyEngine()
+    _ok_ev = {"record_id": "r1", "evidence_eligibility": "CITATION_ELIGIBLE"}
+    rep_repost = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        requires_independent=True,
+        provenance_groups=["wire-1", "wire-1", "wire-1"])
+    test("RT034.round2_provenance_same_group_not_independent",
+         rep_repost.verdict == "HARD_FAIL"
+         and "POLICY_PROVENANCE_INSUFFICIENT" in rep_repost.reason_codes()
+         and rep_repost.rule_applicability["provenance_independence"]
+         == "APPLICABLE")
+    rep_distinct = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        requires_independent=True,
+        provenance_groups=["wire-1", "wire-2", "wire-3"])
+    test("RT034.round2_provenance_distinct_groups_pass",
+         rep_distinct.verdict == "PASS"
+         and "POLICY_PROVENANCE_INSUFFICIENT"
+         not in rep_distinct.reason_codes())
+    rep_na = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        requires_independent=True, provenance_groups=None)
+    test("RT034.round2_provenance_not_applicable_honest",
+         rep_na.verdict == "PASS"
+         and "provenance_independence" in rep_na.not_applicable_rules()
+         and "POLICY_PROVENANCE_INSUFFICIENT" not in rep_na.reason_codes()
+         and rep_na.rule_applicability["provenance_independence"]
+         .startswith("NOT_APPLICABLE"))
+
+    rep_ent = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        required_objects=["alpha", "beta", "gamma"],
+        selected_evidence_texts=["alpha latency qualitative",
+                                 "beta latency qualitative"])
+    ent_findings = [f for f in rep_ent.findings
+                    if f.reason_code == "POLICY_ENTITY_MISSING"]
+    test("RT034.round2_entity_missing_hard_fails",
+         rep_ent.verdict == "HARD_FAIL"
+         and len(ent_findings) == 1 and ent_findings[0].subject == "gamma")
+
+    rep_pair = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]},
+        required_objects=["alpha", "beta"],
+        required_dimensions=["latency"],
+        selected_evidence_texts=["alpha latency qualitative",
+                                 "beta throughput qualitative"])
+    pair_findings = [f for f in rep_pair.findings
+                     if f.reason_code == "POLICY_DIMENSION_MISSING"]
+    test("RT034.round2_pair_missing_hard_fails",
+         rep_pair.verdict == "HARD_FAIL"
+         and any(f.subject == "beta|latency" for f in pair_findings))
+
+    # NOT_APPLICABLE when no structured inputs exist (Phase-04 boundary)
+    rep_na_cov = eng.evaluate(
+        requirements=[{"id": "r1", "critical": True}],
+        evidence_by_requirement={"r1": [_ok_ev]})
+    test("RT034.round2_coverage_rule_not_applicable_honest",
+         rep_na_cov.verdict == "PASS"
+         and "entity_dimension_coverage" in rep_na_cov.not_applicable_rules())
+
+    # pipeline wiring: comparison query with an absent object → the SAME
+    # engine (via run_phase03_retrieval) hard-fails with the entity code
+    cmp_index = {
+        "cmp-alpha": {"source_snapshot_id": "ss-alpha",
+                      "evidence_text": "alpha product latency benchmark "
+                                       "qualitative field study",
+                      "evidence_eligibility": "CITATION_ELIGIBLE"},
+        "cmp-beta": {"source_snapshot_id": "ss-beta",
+                     "evidence_text": "beta product latency benchmark "
+                                      "qualitative field study",
+                     "evidence_eligibility": "CITATION_ELIGIBLE"},
+        "cmp-filler": {"source_snapshot_id": "ss-fill",
+                       "evidence_text": "neutral overview filler content",
+                       "evidence_eligibility": "CITATION_ELIGIBLE"},
+    }
+    cmp_records = {rid: {"record_id": rid, "t": rid}
+                   for rid in cmp_index}
+
+    def _cmp_routes(ids_):
+        routes = {"vector": [], "bm25": [], "graph": []}
+        for i, rid in enumerate(ids_):
+            meta = {"t": rid, "record_id": rid,
+                    "fb": cmp_index[rid]["evidence_text"][:200]}
+            routes["vector"].append(RetrievalResult(
+                record_id=rid, route="vector", raw_score=0.9 - i * 0.05,
+                rank=i + 1, meta=meta, route_details={}))
+            routes["bm25"].append(RetrievalResult(
+                record_id=rid, route="bm25", raw_score=6.0 - i * 0.3,
+                rank=i + 1, meta=dict(meta), route_details={}))
+        return routes
+
+    cmp_query = "alpha vs beta 在latency方面"
+
+    async def _cmp_run(with_beta):
+        from phase03_pipeline import run_phase03_retrieval
+        ids_ = ["cmp-alpha", "cmp-beta", "cmp-filler"] if with_beta \
+            else ["cmp-alpha", "cmp-filler"]
+        return await run_phase03_retrieval(
+            query=cmp_query, route_results=_cmp_routes(ids_),
+            mode="FAST_RAG", records_by_id=cmp_records,
+            snapshot_index=cmp_index, chunk_retriever=None,
+            get_record_fn=lambda rid: cmp_records.get(rid),
+            evidence_metadata={rid: {"evidence_eligibility":
+                                     "CITATION_ELIGIBLE",
+                                     "evidence_role": "independent"}
+                               for rid in cmp_index})
+
+    out_missing = asyncio.run(_cmp_run(False))
+    test("RT034.round2_pipeline_entity_rule_wired",
+         out_missing["status"] == "no_evidence"
+         and "POLICY_ENTITY_MISSING"
+         in out_missing["trace_facts"]["policy_reasons"]
+         and out_missing["citations"] == [])
+    out_covered = asyncio.run(_cmp_run(True))
+    test("RT034.round2_pipeline_entity_rule_positive_control",
+         out_covered["status"] == "ok"
+         and "POLICY_ENTITY_MISSING"
+         not in out_covered["trace_facts"]["policy_reasons"]
+         and {c["record_id"] for c in out_covered["citations"]}
+         == {"cmp-alpha", "cmp-beta"})
+
+    # production pinned: repost cluster (same wire URL) cannot supply the
+    # independence a query demands; distinct wires CAN (positive control)
+    wire_url = "https://wire.example/zeep9-story"
+    indep_q = "需要独立来源核实的 zeep9 production yield"
+    repost_recs, repost_texts, repost_vecs = [], {}, {}
+    for i in range(3):
+        rid = f"repost-{i}"
+        repost_recs.append({"record_id": rid, "t": f"repost {i}", "u": wire_url,
+                            "evidence_role": "independent"})
+        repost_texts[rid] = (f"zeep9 production yield wire copy shared "
+                             f"body text syndicated variant {i}")
+        repost_vecs[rid] = _craft_vector(indep_q, 0.90 - i * 0.02,
+                                         f"ortho-{rid}")
+    m1, r1_ = _write_release(Path(tmp) / "repost", records=repost_recs,
+                             vectors=repost_vecs, texts=repost_texts,
+                             query=indep_q, manifest_id="round2-repost")
+    repost_snap = _load_snapshot(m1, r1_, "round2-repost")
+    repost_out = asyncio.run(_run_pinned(repost_snap, indep_q))
+    test("RT034.round2_production_provenance_repost_cluster",
+         repost_out["status"] == "no_evidence"
+         and "POLICY_PROVENANCE_INSUFFICIENT"
+         in repost_out["trace_facts"]["policy_reasons"]
+         and repost_out["citations"] == [])
+
+    distinct_recs, distinct_texts, distinct_vecs = [], {}, {}
+    for i in range(3):
+        rid = f"indep-{i}"
+        distinct_recs.append({"record_id": rid, "t": f"indep {i}",
+                              "u": f"https://news{i}.example/zeep9",
+                              "evidence_role": "independent"})
+        distinct_texts[rid] = (f"zeep9 production yield unique analysis "
+                               f"variant {i} qualitative notes")
+        distinct_vecs[rid] = _craft_vector(indep_q, 0.90 - i * 0.02,
+                                           f"ortho-{rid}")
+    m2, r2_ = _write_release(Path(tmp) / "distinct", records=distinct_recs,
+                             vectors=distinct_vecs, texts=distinct_texts,
+                             query=indep_q, manifest_id="round2-distinct")
+    distinct_snap = _load_snapshot(m2, r2_, "round2-distinct")
+    distinct_out = asyncio.run(_run_pinned(distinct_snap, indep_q))
+    test("RT034.round2_production_provenance_distinct_pass",
+         distinct_out["status"] == "ok"
+         and "POLICY_PROVENANCE_INSUFFICIENT"
+         not in distinct_out["trace_facts"]["policy_reasons"]
+         and len(distinct_out.get("citations", [])) >= 2)
+
+    # ════ Blocker D (RT-038): packed-view evidentiary semantics ═══════
+    bldr = EvidencePackageBuilder()
+    snaps_d = {
+        "mand": {"source_snapshot_id": "ss-mand",
+                 "evidence_text": "small mandatory fact"},
+        "big-opt": {"source_snapshot_id": "ss-big",
+                    "evidence_text": "huge optional payload "
+                                     + "payload " * 900},
+    }
+    sel_d = {"selected": [
+        {"record_id": "mand", "rerank_score": 0.9, "requirement_ids": ["r1"]},
+        {"record_id": "big-opt", "rerank_score": 0.8,
+         "requirement_ids": ["r2"]}], "gap": None}
+    reqs_d = [{"id": "r1", "description": "critical", "critical": True},
+              {"id": "r2", "description": "detail", "critical": False}]
+    pkg_d = bldr.build(query="q", requirements=reqs_d, selection=sel_d,
+                       snapshot_index=snaps_d)
+    v_d = fit_to_capacity(pkg_d, max_tokens=2000)
+    big_eid = next(eid for eid, e in v_d.evidence.items()
+                   if e.record_id == "big-opt")
+    r2_block = next(x for x in v_d.requirements
+                    if x.requirement_id == "r2")
+    test("RT038.round2_compressed_support_not_trusted",
+         v_d.capacity["action"] == "compressed"
+         and v_d.evidence[big_eid].compressed
+         and not v_d.evidence[big_eid].counts_as_evidence
+         and big_eid not in r2_block.support_evidence_ids
+         and v_d.validate() == [])
+    test("RT038.round2_coverage_recomputed_from_evidentiary_support",
+         r2_block.coverage in ("MISSING", "GAP")
+         and r2_block.coverage != "COVERED")
+
+    # hand corruption: re-add the compressed id as trusted support and
+    # force coverage=COVERED (with a FRESH hash so only the semantics
+    # checks can catch it) → validate must reject BOTH
+    r2_block.support_evidence_ids = [big_eid]
+    r2_block.coverage = "COVERED"
+    v_d.compute_view_hash()
+    issues_d = v_d.validate()
+    test("RT038.round2_validate_rejects_hand_corruption",
+         any("non-evidentiary" in i for i in issues_d)
+         and any("zero evidentiary support" in i for i in issues_d))
+
+    # non-support relation can never be trusted support
+    v_rel = fit_to_capacity(pkg_d, max_tokens=2000)
+    rel_block = next(x for x in v_rel.requirements
+                     if x.requirement_id == "r2")
+    rel_block.support_evidence_ids = []
+    r1_eid = next(eid for eid, e in v_rel.evidence.items()
+                  if e.record_id == "mand")
+    r1_block = next(x for x in v_rel.requirements
+                    if x.requirement_id == "r1")
+    v_rel.evidence[r1_eid].relation = "BACKGROUND"   # not a support relation
+    r1_block.support_evidence_ids = [r1_eid]
+    v_rel.compute_view_hash()
+    issues_rel = v_rel.validate()
+    test("RT038.round2_validate_rejects_non_support_relation",
+         any("non-support relations" in i for i in issues_rel))
+
+    # mutation (1): degrade AFTER hashing → stale view_hash must be caught
+    v_mut = fit_to_capacity(pkg_d, max_tokens=2000)
+    test("RT038.round2_mutation_stale_hash_on_degraded",
+         v_mut.validate() == []
+         and (v_mut.degraded_capabilities.append("synthetic_only_rerank")
+              or True)
+         and any("stale" in i for i in v_mut.validate()))
+
+    # mandatory compressed without an explicit abstain → structural reject
+    v_mand = fit_to_capacity(pkg_d, max_tokens=100000)
+    mand_eid = next(eid for eid, e in v_mand.evidence.items()
+                    if e.record_id == "mand")
+    v_mand.evidence[mand_eid].compressed = True
+    v_mand.evidence[mand_eid].counts_as_evidence = False
+    v_mand.compute_view_hash()
+    issues_mand = v_mand.validate()
+    test("RT038.round2_mandatory_compressed_rejected",
+         v_mand.capacity["action"] != "context_capacity_exceeded"
+         and any("mandatory evidence compressed" in i for i in issues_mand))
+
+    # mutation (3): the Generator prompt must never present a
+    # navigation-only card as evidentiary support for a requirement
+    v_gen = fit_to_capacity(pkg_d, max_tokens=2000)
+    prompt = render_generator_prompt(build_generator_input(
+        query="q", evidence_package=v_gen))
+    nav_idx = prompt.find("【导航卡片（非证据，仅指针 — 不得引用为证据）】")
+    card_snippet = v_gen.evidence[big_eid].exact_text[:40]
+    r2_idx = prompt.find("--- 需求 r2")
+    r1_idx = prompt.find("--- 需求 r1")
+    req_zone = prompt[r1_idx:nav_idx] if (r1_idx >= 0 and nav_idx > r1_idx) else ""
+    test("RT038.round2_generator_never_renders_nav_as_evidence",
+         nav_idx > 0
+         and card_snippet not in prompt[:nav_idx]
+         and "缺失证据" in prompt[r2_idx:r2_idx + 200]
+         and card_snippet in prompt[nav_idx:])
+
+
+
 
 def test_rt030_bm25_only_does_not_flip_legacy_relevance():
     _assert_case("RT030.bm25_only_does_not_flip_legacy_relevance")
@@ -1905,6 +2457,90 @@ def test_prod_contamination_unselected_text_absent():
     _assert_case("prod.contamination_unselected_text_absent")
 
 
+# ── review round 2 wrappers ─────────────────────────────────────────────────
+
+def test_rt031_round2_fixture_trips_legacy_gate():
+    _assert_case("RT031.round2_fixture_trips_legacy_gate")
+
+def test_rt031_round2_endpoint_precedes_legacy_gate():
+    _assert_case("RT031.round2_endpoint_precedes_legacy_gate")
+
+def test_rt031_round2_endpoint_rank26_target_reaches_package():
+    _assert_case("RT031.round2_endpoint_rank26_target_reaches_package")
+
+def test_rt031_round2_endpoint_context_only_selected_evidence():
+    _assert_case("RT031.round2_endpoint_context_only_selected_evidence")
+
+def test_rt031_round2_endpoint_generation_ran():
+    _assert_case("RT031.round2_endpoint_generation_ran")
+
+def test_rt031_round2_endpoint_flag_off_legacy_reject():
+    _assert_case("RT031.round2_endpoint_flag_off_legacy_reject")
+
+def test_rt033_round2_pair_reserve_machine_readable():
+    _assert_case("RT033.round2_pair_reserve_machine_readable")
+
+def test_rt033_round2_pair_reserve_junk_cannot_survive():
+    _assert_case("RT033.round2_pair_reserve_junk_cannot_survive")
+
+def test_rt033_round2_pair_reserve_capacity_imbalance():
+    _assert_case("RT033.round2_pair_reserve_capacity_imbalance")
+
+def test_rt033_round2_pair_reserve_ablation_fails():
+    _assert_case("RT033.round2_pair_reserve_ablation_fails")
+
+def test_rt034_round2_provenance_same_group_not_independent():
+    _assert_case("RT034.round2_provenance_same_group_not_independent")
+
+def test_rt034_round2_provenance_distinct_groups_pass():
+    _assert_case("RT034.round2_provenance_distinct_groups_pass")
+
+def test_rt034_round2_provenance_not_applicable_honest():
+    _assert_case("RT034.round2_provenance_not_applicable_honest")
+
+def test_rt034_round2_entity_missing_hard_fails():
+    _assert_case("RT034.round2_entity_missing_hard_fails")
+
+def test_rt034_round2_pair_missing_hard_fails():
+    _assert_case("RT034.round2_pair_missing_hard_fails")
+
+def test_rt034_round2_coverage_rule_not_applicable_honest():
+    _assert_case("RT034.round2_coverage_rule_not_applicable_honest")
+
+def test_rt034_round2_pipeline_entity_rule_wired():
+    _assert_case("RT034.round2_pipeline_entity_rule_wired")
+
+def test_rt034_round2_pipeline_entity_rule_positive_control():
+    _assert_case("RT034.round2_pipeline_entity_rule_positive_control")
+
+def test_rt034_round2_production_provenance_repost_cluster():
+    _assert_case("RT034.round2_production_provenance_repost_cluster")
+
+def test_rt034_round2_production_provenance_distinct_pass():
+    _assert_case("RT034.round2_production_provenance_distinct_pass")
+
+def test_rt038_round2_compressed_support_not_trusted():
+    _assert_case("RT038.round2_compressed_support_not_trusted")
+
+def test_rt038_round2_coverage_recomputed_from_evidentiary_support():
+    _assert_case("RT038.round2_coverage_recomputed_from_evidentiary_support")
+
+def test_rt038_round2_validate_rejects_hand_corruption():
+    _assert_case("RT038.round2_validate_rejects_hand_corruption")
+
+def test_rt038_round2_validate_rejects_non_support_relation():
+    _assert_case("RT038.round2_validate_rejects_non_support_relation")
+
+def test_rt038_round2_mutation_stale_hash_on_degraded():
+    _assert_case("RT038.round2_mutation_stale_hash_on_degraded")
+
+def test_rt038_round2_mandatory_compressed_rejected():
+    _assert_case("RT038.round2_mandatory_compressed_rejected")
+
+def test_rt038_round2_generator_never_renders_nav_as_evidence():
+    _assert_case("RT038.round2_generator_never_renders_nav_as_evidence")
+
+
 def main():
     print("Phase 03 — RT-030..RT-039 named behavioral acceptance")
     _rt030()
@@ -1919,6 +2555,7 @@ def main():
     _rt039()
     _pipeline_e2e()
     _production()
+    _round2()
     _flags()
     print("=" * 60)
     print(f"  Phase 03: {passed} passed, {failed} failed")

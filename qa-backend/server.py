@@ -1264,63 +1264,22 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Searched record ids for done event (backend-authoritative)
             searched_record_ids = [r["record_id"] for r in search_results] if search_results else []
 
-            if not search_results or not is_relevant:
-                # Codex-review C3 P2 fix: early unsupported exits (weak query /
-                # topic exhausted) previously returned WITHOUT the flag-gated
-                # knowledge-boundary message even with the TK-06 flag ON —
-                # the most common unsupported case missed the boundary.
-                _early_boundary = _no_evidence_boundary(
-                    query, search_status == "exhausted")
-                if search_status == "exhausted":
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "topic_exhausted",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                elif not prev_has_results and seeking_novelty:
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "weak_query",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                else:
-                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
-                    trace.flush()
-                    yield {"event": "done", "data": json.dumps({
-                        "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
-                        "citations": [],
-                        "cited_record_ids": [],
-                        "searched_record_ids": [],
-                        "answer_status": "UNSUPPORTED",
-                        "stop_reason": "weak_query",
-                        "boundary_message": _early_boundary,
-                        "trace_id": trace.trace_id,
-                    })}
-                return
-
             # ── Phase 03 (RT-030..039): typed EvidencePackage path ──
-            # When EVIDENCE_PACKAGE_ENABLED the generation context is the
-            # allowlisted GeneratorInput rendering of the typed Evidence
-            # Package (pool -> reserves -> rerank -> policy -> selection ->
-            # package -> capacity fit) — raw build_context dumps are
-            # forbidden generation context on this path. Failure must be
-            # loud (bubble to the SSE error handler), never a silent
-            # fallback to the legacy dump.
+            # Review round 2 (blocker A, RT-031): with EVIDENCE_PACKAGE_ENABLED
+            # ON, Phase03 runs BEFORE the legacy weak-query gate. The legacy
+            # Top25 / is_relevant profile is a LEGACY decision surface — it
+            # must never act as an authoritative pre-gate that terminates a
+            # request the evidence pipeline could still answer (e.g. a valid
+            # raw-route candidate fusing past legacy FINAL_TOP_K=25, or a
+            # query the legacy relevance profile would reject). When Phase03
+            # is active its no_evidence / policy / capacity outcomes ARE the
+            # evidence decision; the legacy gate below only applies on the
+            # legacy path. With the flag OFF this block is inert and the
+            # legacy path stays byte-compatible with pre-Phase03 behavior
+            # (no FINAL_TOP_K increase, no weakened legacy profile).
             context = None
+            citations = []
+            _phase03_active = False
             if Flags.EVIDENCE_PACKAGE_ENABLED:
                 try:
                     _p03 = await _run_phase03_context(
@@ -1385,10 +1344,72 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "trace_id": trace.trace_id,
                     })}
                     return
+                # When Phase03 is active the generation context is the
+                # allowlisted GeneratorInput rendering of the typed Evidence
+                # Package (pool -> reserves -> rerank -> policy -> selection
+                # -> package -> capacity fit) — raw build_context dumps are
+                # forbidden generation context on this path. Failure must be
+                # loud (bubble to the SSE error handler), never a silent
+                # fallback to the legacy dump.
                 context = _p03["context"]
                 citations = _p03["citations"]
+                if _p03.get("selected_record_ids"):
+                    # honest searched-surface under evidence mode: the
+                    # searched ids are the evidence pool's selected records
+                    searched_record_ids = list(_p03["selected_record_ids"])
+                _phase03_active = True
+
+            if not _phase03_active and (not search_results or not is_relevant):
+                # Codex-review C3 P2 fix: early unsupported exits (weak query /
+                # topic exhausted) previously returned WITHOUT the flag-gated
+                # knowledge-boundary message even with the TK-06 flag ON —
+                # the most common unsupported case missed the boundary.
+                _early_boundary = _no_evidence_boundary(
+                    query, search_status == "exhausted")
+                if search_status == "exhausted":
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "topic_exhausted",
+                        "boundary_message": _early_boundary,
+                        "trace_id": trace.trace_id,
+                    })}
+                elif not prev_has_results and seeking_novelty:
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "weak_query",
+                        "boundary_message": _early_boundary,
+                        "trace_id": trace.trace_id,
+                    })}
+                else:
+                    trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "weak_query",
+                        "boundary_message": _early_boundary,
+                        "trace_id": trace.trace_id,
+                    })}
+                return
+
             if context is None:
-                # Legacy path (flag off): raw context build, unchanged.
+                # Legacy path (flag off / phase03 inactive): raw context
+                # build, unchanged.
                 context, citations = build_context(search_results, query)
 
             # ── Epistemic Claim Classification ──
@@ -1873,9 +1894,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                 answer_status_str = "SUPPORTED"
                 stop_reason = "evidence_sufficient"
                 if Flags.ANSWER_STATUS_ENABLED:
+                    # Review round 2 (blocker A, RT-031): when the Phase03
+                    # evidence pipeline is active, the legacy is_relevant /
+                    # Top25 profile must not act as an authoritative verdict
+                    # on evidence sufficiency — the Phase03 no_evidence /
+                    # policy / capacity outcomes (returned earlier) ARE the
+                    # evidence decision. Legacy relevance only informs the
+                    # status on the legacy path.
                     status_enum, stop_reason = determine_answer_status(
-                        has_results=bool(search_results),
-                        is_relevant=is_relevant,
+                        has_results=bool(search_results) or _phase03_active,
+                        is_relevant=is_relevant or _phase03_active,
                         verification_status=verification_status,
                         claim_mapping=claim_map,
                     )

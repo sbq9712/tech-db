@@ -150,13 +150,16 @@ def render_generator_prompt(gen_input: GeneratorInput) -> str:
             f" [{req.coverage}]" + (" (critical)" if req.critical else "")
         sections.append(f"--- 需求 {req.requirement_id}: "
                         f"{req.description}{marker} ---")
-        if not req.support_evidence_ids:
+        evidentiary = [
+            eid for eid in req.support_evidence_ids
+            if (pkg.evidence.get(eid) is not None
+                and pkg.evidence[eid].counts_as_evidence
+                and not pkg.evidence[eid].compressed)]
+        if not evidentiary:
             sections.append("  ⚠️ 缺失证据。必须明确告知用户此部分信息不足。")
             continue
-        for eid in req.support_evidence_ids:
-            e = pkg.evidence.get(eid)
-            if e is None:
-                continue
+        for eid in evidentiary:
+            e = pkg.evidence[eid]
             header = (f"  [{eid}] record={e.record_id} "
                       f"role={e.source_role} "
                       f"group={e.independent_group_id} "
@@ -164,12 +167,22 @@ def render_generator_prompt(gen_input: GeneratorInput) -> str:
                       f"temporal={e.temporal_status} "
                       f"relation={e.relation}")
             sections.append(header)
-            if e.compressed:
-                sections.append(
-                    wrap_retrieved_content(
-                        e.exact_text + " [导航卡片 — 非证据原文, 不得引用为证据]"))
-            else:
-                sections.append(wrap_retrieved_content(e.exact_text))
+            sections.append(wrap_retrieved_content(e.exact_text))
+
+    # review round 2 (RT-038): compressed navigation cards are POINTERS,
+    # never evidence. They render ONLY in this separate, explicitly
+    # non-evidentiary section — the Generator is instructed not to cite
+    # them — so a navigation-only card can never be presented as
+    # evidentiary support for any requirement.
+    nav_cards = sorted(
+        eid for eid, e in (getattr(pkg, "evidence", {}) or {}).items()
+        if e.compressed or not e.counts_as_evidence)
+    if nav_cards:
+        sections.append("")
+        sections.append("【导航卡片（非证据，仅指针 — 不得引用为证据）】")
+        for eid in nav_cards:
+            e = pkg.evidence[eid]
+            sections.append(f"  • {e.exact_text}")
 
     # unresolved conflicts stay visible (final_spec §22)
     unresolved = [c for c in pkg.conflicts if not c.resolved]
