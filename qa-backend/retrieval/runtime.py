@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import pickle
 from pathlib import Path
 from typing import Optional
@@ -463,12 +464,105 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
     else:
         results = results[:FINAL_TOP_K]
 
+    # Phase-02 baseline semantics (review blocker 1): is_relevant =
+    # strong_vector OR strong_graph. BM25 alone was NEVER sufficient —
+    # `or any(bm25_score >= BM25_STRONG)` was an unauthorized Phase-03
+    # behavior change and is removed. BM25_STRONG stays defined for the
+    # log/diagnostic surface only.
     is_relevant = (
         any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
         or any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
-        or any(r.get("bm25_score", 0) >= BM25_STRONG for r in results)
     )
     return results, is_relevant
+
+
+# ── Phase 03 (RT-031) high-recall per-route retrieval ───────────────────────
+
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def route_fetch_caps(route_top_k=None) -> dict:
+    """Per-route fetch caps for the Phase03 high-recall pool source.
+
+    Default: retrieval.pool.ROUTE_TOP_K (QA_POOL_ROUTE_TOP_K — the versioned
+    pool config), overridable per route via QA_ROUTE_TOP_K_VECTOR /
+    _BM25 / _GRAPH, or wholesale via the route_top_k argument (int → every
+    route; dict → per-route). Legacy run_hybrid NEVER uses these caps —
+    its RETRIEVAL_TOP_K fetch / FINAL_TOP_K=25 fused surface is untouched.
+    """
+    from .pool import ROUTE_TOP_K as _DEFAULT_ROUTE_TOP_K
+    caps = {"vector": _DEFAULT_ROUTE_TOP_K, "bm25": _DEFAULT_ROUTE_TOP_K,
+            "graph": _DEFAULT_ROUTE_TOP_K}
+    if route_top_k is None:
+        for route in caps:
+            caps[route] = _env_int(f"QA_ROUTE_TOP_K_{route.upper()}", caps[route])
+    elif isinstance(route_top_k, int):
+        caps = {route: route_top_k for route in caps}
+    elif isinstance(route_top_k, dict):
+        for route in caps:
+            try:
+                caps[route] = int(route_top_k.get(route, caps[route]))
+            except (TypeError, ValueError):
+                pass
+    return caps
+
+
+async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = None,
+                     embed_fn=None, pipeline=None, route_top_k=None) -> dict:
+    """Phase03 high-recall per-route retrieval (RT-031 pool source).
+
+    Runs vector / BM25 / graph routes at HIGH-RECALL per-route fetch caps
+    and returns the RAW route results BEFORE any fusion and BEFORE the
+    legacy global FINAL_TOP_K=25 truncation:
+
+        {"vector": [RetrievalResult...], "bm25": [...], "graph": [...]}
+
+    Each RetrievalResult carries its TRUE per-route rank (1-based list
+    position), per-route score (raw_score) and route features
+    (route_details) — exactly what build_candidate_pool (RT-031) and the
+    RT-033 route-outlier reserve need to see rank-26+ candidates that the
+    fused legacy surface would already have dropped.
+
+    Contract (review blocker 2): the Phase03 pool must be built from THESE
+    route results, never from run_hybrid's already-truncated fused output.
+    The legacy flag-off path keeps run_hybrid unchanged.
+    """
+    if pipeline is not None:
+        vr, br, gr, _fuse = pipeline
+    else:
+        vr, br, gr, _fuse = (snapshot_pipeline(snapshot) if snapshot is not None
+                             else legacy_pipeline())
+
+    caps = route_fetch_caps(route_top_k)
+    qv = await embed_query(query, embed_fn=embed_fn)
+    qv = qv / max(np.linalg.norm(qv), 1e-8)
+    vec_res = vr.search(qv, top_k=caps["vector"])
+    bm25_res, graph_res = await asyncio.gather(
+        asyncio.to_thread(br.search, query, caps["bm25"]),
+        asyncio.to_thread(gr.search, query, caps["graph"]),
+    )
+
+    def _true_ranks(res):
+        # TRUE per-route rank: 1-based list position of the route's own
+        # ranking (run_hybrid resets these to 0-based for legacy RRF byte
+        # parity — that reset must NEVER leak into the pool source).
+        for pos, rr_ in enumerate(res):
+            rr_.rank = pos + 1
+        return res
+
+    routes = {"vector": _true_ranks(vec_res),
+              "bm25": _true_ranks(bm25_res),
+              "graph": _true_ranks(graph_res)}
+    if exclude_ids:
+        for name, res in list(routes.items()):
+            routes[name] = [r for r in res
+                            if r.record_id not in exclude_ids
+                            and getattr(r, "legacy_idx", None) not in exclude_ids]
+    return routes
 
 
 def _meta_lookup(snapshot=None) -> dict:

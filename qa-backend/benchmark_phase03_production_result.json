@@ -1,0 +1,22 @@
+{
+  "benchmark": "phase03_production_path",
+  "method": "real pinned releases (load_release_resources) queried through server._run_phase03_context (run_routes + full phase03_pipeline) vs legacy run_hybrid; deterministic hash embedder, no LLM/network",
+  "n_probes": 6,
+  "corpus_per_probe": 34,
+  "metrics": {
+    "scenario_precondition_held": 1.0,
+    "legacy_top25_drops_target": 1.0,
+    "prod_rank26_survival": 1.0,
+    "selector_coverage": 1.0,
+    "latency_legacy_ms": 1.69,
+    "latency_phase03_ms": 24.17,
+    "latency_ratio": 14.31,
+    "latency_within_bound": true
+  },
+  "thresholds": {
+    "prod_rank26_survival": ">= 1.0",
+    "selector_coverage": ">= 1.0",
+    "latency": "<= max(50ms, 4x legacy)"
+  },
+  "verdict": "PASS"
+}

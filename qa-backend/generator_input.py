@@ -67,12 +67,14 @@ class GeneratorInput:
     style_instructions: str = ""
 
     def __post_init__(self):
-        from evidence_package import EvidencePackage
-        if not isinstance(self.evidence_package, EvidencePackage):
+        from evidence_package import EvidencePackage, PackedGenerationView
+        if not isinstance(self.evidence_package,
+                          (EvidencePackage, PackedGenerationView)):
             raise TypeError(
                 "GeneratorInput.evidence_package must be an EvidencePackage "
-                "instance (RT-037 typed boundary) — raw search results, "
-                "dicts, or prompt strings are forbidden generation context")
+                "or the capacity-packed PackedGenerationView (RT-037/RT-038 "
+                "typed boundary) — raw search results, dicts, or prompt "
+                "strings are forbidden generation context")
         for p in self.verified_premises:
             if not isinstance(p, VerifiedPremise):
                 raise TypeError("verified_premises must be VerifiedPremise "
@@ -130,8 +132,15 @@ def render_generator_prompt(gen_input: GeneratorInput) -> str:
 
     sections.append("")
     sections.append("【证据包】")
-    sections.append(f"package_hash={pkg.package_hash} "
-                    f"schema={pkg.schema_version}")
+    if hasattr(pkg, "view_hash") and getattr(pkg, "view_hash", ""):
+        # the EXACT final packed object (review blocker 8): the view hash
+        # binds precisely what the Generator renders
+        sections.append(f"package_hash={pkg.package_hash} "
+                        f"view_hash={pkg.view_hash} "
+                        f"schema={pkg.schema_version}")
+    else:
+        sections.append(f"package_hash={pkg.package_hash} "
+                        f"schema={pkg.schema_version}")
     if pkg.gaps:
         sections.append("⚠️ 证据缺口: " + "; ".join(pkg.gaps))
 

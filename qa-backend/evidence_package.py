@@ -41,11 +41,21 @@ import os
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 
-SCHEMA_VERSION = "3.0.0"
+SCHEMA_VERSION = "3.1.0"
 # Matches pool.py EVIDENCE_PACKAGE_SCHEMA_VERSION (single source bump
-# point for the Phase03 package contract).
+# point for the Phase03 package contract). 3.1.0 (review round 1):
+# policy_reasons on entries/requirements, non-support relations
+# (CONFLICT/INVALID), and the immutable-package + PackedGenerationView
+# capacity contract (fit_to_capacity no longer mutates the canonical
+# package — the canonical package_hash can never go stale).
 MAX_CONTEXT_TOKENS = int(os.environ.get("QA_MAX_CONTEXT_TOKENS", "8000"))
 CHARS_PER_TOKEN = 4  # deterministic estimator, same heuristic repo-wide
+
+# Non-support relations (review round 1 / RT-034 composition): evidence
+# carrying these relations stays in the package for §22 visibility /
+# traceability but is NEVER trusted Generator support and never counts as
+# evidence (counts_as_evidence=False).
+NON_SUPPORT_RELATIONS = ("CONFLICT", "INVALID")
 
 
 def _canon(obj) -> str:
@@ -98,6 +108,9 @@ class EvidenceEntry:
     chunk_meta: dict = field(default_factory=dict)
     compressed: bool = False
     counts_as_evidence: bool = True
+    # review round 1: why this entry is (or was demoted from) trusted
+    # support — machine-readable policy reason codes
+    policy_reasons: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -115,6 +128,7 @@ class EvidenceEntry:
             "eligibility": self.eligibility,
             "compressed": self.compressed,
             "counts_as_evidence": self.counts_as_evidence,
+            "policy_reasons": list(self.policy_reasons),
         }
 
     def hash_payload(self) -> dict:
@@ -135,6 +149,8 @@ class EvidenceEntry:
             "event_time": self.event_time,
             "exact_text_sha256": hashlib.sha256(
                 self.exact_text.encode("utf-8")).hexdigest(),
+            "counts_as_evidence": self.counts_as_evidence,
+            "policy_reasons": sorted(self.policy_reasons),
         }
 
 
@@ -147,6 +163,9 @@ class RequirementBlock:
     conflict_evidence_ids: List[str] = field(default_factory=list)
     condition_evidence_ids: List[str] = field(default_factory=list)
     coverage: str = "MISSING"    # COVERED | PARTIAL | MISSING | GAP
+    # review round 1: claim-level policy reason codes that blocked/cleared
+    # this requirement's support (POLICY_STALE_CURRENT_FACT, ...)
+    policy_reasons: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -157,6 +176,7 @@ class RequirementBlock:
             "conflict_evidence_ids": sorted(self.conflict_evidence_ids),
             "condition_evidence_ids": sorted(self.condition_evidence_ids),
             "coverage": self.coverage,
+            "policy_reasons": list(self.policy_reasons),
         }
 
 
@@ -270,7 +290,9 @@ class EvidencePackageBuilder:
               conflict_result: Optional[dict] = None,
               conditions: Optional[List[dict]] = None,
               chunk_meta_by_record: Optional[dict] = None,
-              degraded_capabilities: Optional[List[str]] = None) -> EvidencePackage:
+              degraded_capabilities: Optional[List[str]] = None,
+              blocked_entries: Optional[dict] = None,
+              requirement_policy_blocks: Optional[dict] = None) -> EvidencePackage:
         """Assemble the typed package from the RT-035 selection + snapshots.
 
         selection: {"selected": [...], "gap": None|str, ...} — ONLY
@@ -302,6 +324,7 @@ class EvidencePackageBuilder:
         ev_index: Dict[str, EvidenceEntry] = {}
         rid_to_eid: Dict[str, str] = {}
 
+        blocked_entries = blocked_entries or {}
         for cand in selected:
             rec_id = cand.get("record_id")
             snap = snapshot_index.get(rec_id)
@@ -309,6 +332,7 @@ class EvidencePackageBuilder:
                 # No source snapshot text -> cannot become package
                 # evidence (synthetic summary never substitutes).
                 continue
+            blocked = blocked_entries.get(rec_id) or {}
             text = snap["evidence_text"]
             locators = list(cand.get("hit_locators") or [])
             if not locators:
@@ -322,6 +346,8 @@ class EvidencePackageBuilder:
             meta = evidence_metadata.get(rec_id, {})
             prov = provenance_map.get(rec_id, {})
             temp = temporal_map.get(rec_id, {})
+            relation = (blocked.get("relation")
+                        or str(cand.get("relation") or "DIRECT_SUPPORT"))
             ev_index[eid] = EvidenceEntry(
                 evidence_id=eid,
                 record_id=rec_id,
@@ -329,7 +355,7 @@ class EvidencePackageBuilder:
                 exact_text=text,
                 locators=locators,
                 requirement_ids=[],
-                relation=str(cand.get("relation") or "DIRECT_SUPPORT"),
+                relation=relation,
                 source_role=str(meta.get("evidence_role")
                                 or prov.get("source_role") or "unknown"),
                 independent_group_id=str(prov.get("independent_group_id")
@@ -341,19 +367,48 @@ class EvidencePackageBuilder:
                                        or "unknown"),
                 eligibility=str(meta.get("evidence_eligibility") or "unknown"),
                 chunk_meta=dict(chunk_meta_by_record.get(rec_id) or {}),
+                # policy-demoted entries (RT-034 gate B): CONFLICT/INVALID
+                # entries stay visible/traceable but NEVER count as evidence
+                counts_as_evidence=(relation not in NON_SUPPORT_RELATIONS),
+                policy_reasons=list(blocked.get("reason_codes") or []),
             )
             rid_to_eid[rec_id] = eid
 
-        # requirement <-> evidence association (from selection reasons)
+        # requirement <-> evidence association (from selection reasons).
+        # Gate-B demoted entries (CONFLICT) associate to the requirement's
+        # conflict refs — never to its trusted support list.
         for cand in selected:
             eid = rid_to_eid.get(cand.get("record_id"))
             if not eid:
                 continue
+            entry = ev_index[eid]
             for req_id in (cand.get("requirement_ids") or []):
                 b = reqs_by_id.get(str(req_id))
                 if b is not None:
-                    b.support_evidence_ids.append(eid)
-                    ev_index[eid].requirement_ids.append(b.requirement_id)
+                    if entry.relation == "CONFLICT":
+                        b.conflict_evidence_ids.append(eid)
+                        entry.requirement_ids.append(b.requirement_id)
+                    elif entry.relation in NON_SUPPORT_RELATIONS:
+                        entry.requirement_ids.append(b.requirement_id)
+                    else:
+                        b.support_evidence_ids.append(eid)
+                        entry.requirement_ids.append(b.requirement_id)
+
+        # claim-level policy blocks (gate B): a requirement whose support
+        # was policy-invalid as a proposition keeps its reasons on the
+        # block and loses trusted support entirely
+        requirement_policy_blocks = requirement_policy_blocks or {}
+        for rid_, codes in requirement_policy_blocks.items():
+            b = reqs_by_id.get(str(rid_))
+            if b is not None and codes:
+                b.policy_reasons = sorted(set(list(b.policy_reasons)
+                                              + [str(c) for c in codes]))
+                for eid in list(b.support_evidence_ids):
+                    entry = ev_index.get(eid)
+                    if entry is not None:
+                        entry.policy_reasons = sorted(set(
+                            list(entry.policy_reasons) + list(b.policy_reasons)))
+                b.support_evidence_ids = []
 
         # conflicts (critical unresolved conflicts enter the mandatory set)
         conflicts: List[ConflictRecord] = []
@@ -483,15 +538,166 @@ def _navigation_card(e: EvidenceEntry) -> EvidenceEntry:
     return card
 
 
+# ── RT-038 (review round 1): immutable package + PackedGenerationView ────────
+
+@dataclass
+class PackedGenerationView:
+    """The exact, hash-bound object sent to the Generator (review blocker 8).
+
+    The canonical EvidencePackage is IMMUTABLE once hashed. Capacity packing
+    NEVER mutates it: this view carries the packed subset (compressed
+    navigation cards / dropped optional cards) and binds it with its own
+    view_hash over the FINAL rendered content, while
+    canonical_package_hash stays a stable pointer to the immutable
+    canonical package. Dangling references are structurally impossible —
+    validate() proves every requirement/conflict/condition reference and
+    every mandatory id resolves inside the view.
+    """
+    query: str
+    schema_version: str
+    canonical_package_hash: str
+    requirements: List[RequirementBlock] = field(default_factory=list)
+    evidence: Dict[str, EvidenceEntry] = field(default_factory=dict)
+    conflicts: List[ConflictRecord] = field(default_factory=list)
+    conditions: List[ConditionRecord] = field(default_factory=list)
+    mandatory_evidence_ids: List[str] = field(default_factory=list)
+    gaps: List[str] = field(default_factory=list)
+    selection_floor: float = 0.0
+    degraded_capabilities: List[str] = field(default_factory=list)
+    capacity: dict = field(default_factory=dict)
+    dropped_ids: List[str] = field(default_factory=list)
+    view_hash: str = ""
+
+    @property
+    def package_hash(self) -> str:
+        # trace-compat: canonical package hash this view derives from
+        return self.canonical_package_hash
+
+    def binding_payload(self) -> dict:
+        """Deterministic payload the view_hash binds: exactly the content
+        the Generator will render (ids, per-entry text hashes, compression
+        flags, dropped ids, requirement wiring, canonical hash)."""
+        return {
+            "canonical_package_hash": self.canonical_package_hash,
+            "included_evidence": {
+                eid: {
+                    "text_sha256": hashlib.sha256(
+                        e.exact_text.encode("utf-8")).hexdigest(),
+                    "compressed": e.compressed,
+                    "counts_as_evidence": e.counts_as_evidence,
+                    "relation": e.relation,
+                    "policy_reasons": sorted(e.policy_reasons),
+                }
+                for eid, e in sorted(self.evidence.items())
+            },
+            "dropped_ids": sorted(self.dropped_ids),
+            "requirements": [b.to_dict() for b in self.requirements],
+            "mandatory_evidence_ids": list(self.mandatory_evidence_ids),
+            "conflicts": [c.to_dict() for c in self.conflicts],
+            "conditions": [cd.to_dict() for cd in self.conditions],
+            "capacity_action": self.capacity.get("action", "none"),
+        }
+
+    def compute_view_hash(self) -> str:
+        self.view_hash = hashlib.sha256(json.dumps(
+            self.binding_payload(), ensure_ascii=False, sort_keys=True
+        ).encode("utf-8")).hexdigest()
+        return self.view_hash
+
+    def validate(self) -> List[str]:
+        """Structural integrity checks (no dangling refs, mandatory intact).
+
+        Returns a list of issues — empty list means the view is sound.
+        """
+        issues: List[str] = []
+        have = set(self.evidence.keys())
+        for b in self.requirements:
+            for label, ids in (("support", b.support_evidence_ids),
+                               ("conflict", b.conflict_evidence_ids),
+                               ("condition", b.condition_evidence_ids)):
+                dangling = [eid for eid in ids if eid not in have]
+                if dangling:
+                    issues.append(
+                        f"requirement {b.requirement_id} {label} refs "
+                        f"missing from view: {sorted(dangling)}")
+            if b.support_evidence_ids and b.coverage in ("MISSING", "GAP"):
+                issues.append(
+                    f"requirement {b.requirement_id} has support but "
+                    f"coverage={b.coverage}")
+        for c in self.conflicts:
+            dangling = [eid for eid in c.evidence_ids if eid not in have]
+            if dangling:
+                issues.append(f"conflict {c.conflict_id} refs missing "
+                              f"from view: {sorted(dangling)}")
+        for cd in self.conditions:
+            dangling = [eid for eid in cd.evidence_ids if eid not in have]
+            if dangling:
+                issues.append(f"condition {cd.condition_id} refs missing "
+                              f"from view: {sorted(dangling)}")
+        if self.capacity.get("action") != "context_capacity_exceeded":
+            missing_mandatory = [eid for eid in self.mandatory_evidence_ids
+                                 if eid not in have]
+            if missing_mandatory:
+                issues.append("mandatory evidence missing from view: "
+                              f"{sorted(missing_mandatory)}")
+        if not self.view_hash:
+            issues.append("view_hash not computed")
+        else:
+            expect = hashlib.sha256(json.dumps(
+                self.binding_payload(), ensure_ascii=False,
+                sort_keys=True).encode("utf-8")).hexdigest()
+            if expect != self.view_hash:
+                issues.append("view_hash stale — does not bind the exact "
+                              "final view content")
+        return issues
+
+    def to_dict(self) -> dict:
+        return {
+            "schema_version": self.schema_version,
+            "view_hash": self.view_hash,
+            "canonical_package_hash": self.canonical_package_hash,
+            "query": self.query,
+            "requirements": [b.to_dict() for b in self.requirements],
+            "evidence": {eid: e.to_dict()
+                         for eid, e in sorted(self.evidence.items())},
+            "conflicts": [c.to_dict() for c in self.conflicts],
+            "conditions": [cd.to_dict() for cd in self.conditions],
+            "mandatory_evidence_ids": list(self.mandatory_evidence_ids),
+            "gaps": list(self.gaps),
+            "selection_floor": self.selection_floor,
+            "degraded_capabilities": list(self.degraded_capabilities),
+            "capacity": dict(self.capacity),
+            "dropped_ids": sorted(self.dropped_ids),
+        }
+
+
+def _copy_entry(entry: EvidenceEntry) -> EvidenceEntry:
+    import copy
+    return copy.copy(entry)
+
+
+def _copy_block(block: RequirementBlock) -> RequirementBlock:
+    import copy
+    return copy.copy(block)
+
+
 def fit_to_capacity(pkg: EvidencePackage, max_tokens: Optional[int] = None,
-                    reserve_tokens: int = 800) -> dict:
-    """Apply final_spec §24 capacity policy. Returns the capacity decision.
+                    reserve_tokens: int = 800) -> PackedGenerationView:
+    """Apply final_spec §24 capacity policy (review blocker 8 contract).
+
+    Returns a PackedGenerationView. The canonical EvidencePackage is NEVER
+    mutated: its package_hash keeps binding the exact canonical object,
+    and the returned view — the object actually sent to the Generator —
+    carries its own view_hash binding the exact final packed content.
 
     NEVER silently truncates the mandatory set:
-      * mandatory alone over budget -> decision "context_capacity_exceeded"
+      * mandatory alone over budget -> action "context_capacity_exceeded"
         (caller must abstain / narrow the answer)
       * total over budget, mandatory fits -> optional entries compress to
-        navigation cards (counts_as_evidence=False) until within budget
+        navigation cards (counts_as_evidence=False) until within budget;
+        still overflowing -> drop non-mandatory compressed cards
+        (dropped_ids) and re-derive requirement references so no dangling
+        id can survive.
     """
     limit = max_tokens if max_tokens is not None else MAX_CONTEXT_TOKENS
     budget = max(0, limit - reserve_tokens)
@@ -499,13 +705,62 @@ def fit_to_capacity(pkg: EvidencePackage, max_tokens: Optional[int] = None,
                 "action": "none", "compressed_ids": [],
                 "dropped_ids": [], "overflow": False}
 
+    def _mk_view(evidence: Dict[str, EvidenceEntry],
+                 dropped: List[str],
+                 decision: dict) -> PackedGenerationView:
+        have = set(evidence.keys())
+        reqs = [_copy_block(b) for b in pkg.requirements]
+        for b in reqs:
+            b.support_evidence_ids = [eid for eid in b.support_evidence_ids
+                                      if eid in have]
+            b.conflict_evidence_ids = [eid for eid in b.conflict_evidence_ids
+                                       if eid in have]
+            b.condition_evidence_ids = [eid for eid in b.condition_evidence_ids
+                                        if eid in have]
+            # coverage honestly reflects the PACKED view: support lost to
+            # capacity packing is MISSING here (canonical stays intact)
+            if not b.support_evidence_ids:
+                b.coverage = ("GAP" if pkg.gaps else "MISSING")
+            else:
+                b.coverage = ("COVERED" if not b.conflict_evidence_ids
+                              else "PARTIAL")
+        mandatory = [eid for eid in pkg.mandatory_evidence_ids
+                     if eid in have]
+        view = PackedGenerationView(
+            query=pkg.query,
+            schema_version=pkg.schema_version,
+            canonical_package_hash=pkg.package_hash,
+            requirements=reqs,
+            evidence=evidence,
+            conflicts=[copy_conflict(c) for c in pkg.conflicts],
+            conditions=[copy_condition(cd) for cd in pkg.conditions],
+            mandatory_evidence_ids=mandatory,
+            gaps=list(pkg.gaps),
+            selection_floor=pkg.selection_floor,
+            degraded_capabilities=list(pkg.degraded_capabilities),
+            capacity=decision,
+            dropped_ids=dropped,
+        )
+        view.compute_view_hash()
+        return view
+
+    def copy_conflict(c: ConflictRecord) -> ConflictRecord:
+        import copy
+        return copy.copy(c)
+
+    def copy_condition(cd: ConditionRecord) -> ConditionRecord:
+        import copy
+        return copy.copy(cd)
+
     m_cost = _mandatory_token_cost(pkg)
     if m_cost > budget:
         decision["action"] = "context_capacity_exceeded"
         decision["overflow"] = True
         decision["mandatory_tokens"] = m_cost
-        pkg.capacity = decision
-        return decision
+        # abstain view: everything present uncompressed, nothing dropped —
+        # the decision itself is the output (caller must abstain)
+        return _mk_view({eid: _copy_entry(e)
+                         for eid, e in pkg.evidence.items()}, [], decision)
 
     mandatory = set(pkg.mandatory_evidence_ids)
     # optional = uncompressed entries outside the mandatory set
@@ -516,38 +771,39 @@ def fit_to_capacity(pkg: EvidencePackage, max_tokens: Optional[int] = None,
     total = sum(estimate_tokens(e.exact_text)
                 for e in pkg.evidence.values() if not e.compressed)
     if total <= budget:
-        pkg.capacity = decision
-        return decision
+        return _mk_view({eid: _copy_entry(e)
+                         for eid, e in pkg.evidence.items()}, [], decision)
 
     # Greedy compress largest optional payloads first (deterministic:
-    # size desc, then evidence_id asc)
+    # size desc, then evidence_id asc) — on COPIES; pkg stays canonical
+    evidence = {eid: _copy_entry(e) for eid, e in pkg.evidence.items()}
     for eid in optional:
         if total <= budget:
             break
-        e = pkg.evidence[eid]
+        e = evidence[eid]
         before = estimate_tokens(e.exact_text)
-        pkg.evidence[eid] = _navigation_card(e)
-        after = estimate_tokens(pkg.evidence[eid].exact_text)
+        evidence[eid] = _navigation_card(e)
+        after = estimate_tokens(evidence[eid].exact_text)
         total += after - before
         decision["compressed_ids"].append(eid)
 
+    dropped: List[str] = []
     if total > budget:
         # still overflowing after compressing all optional payloads:
         # drop non-mandatory compressed cards entirely (order preserved)
         for eid in list(reversed(optional)):
             if total <= budget:
                 break
-            if eid not in pkg.evidence:
+            if eid not in evidence:
                 continue
-            total -= estimate_tokens(pkg.evidence[eid].exact_text)
-            del pkg.evidence[eid]
-            decision["dropped_ids"].append(eid)
+            total -= estimate_tokens(evidence[eid].exact_text)
+            del evidence[eid]
+            dropped.append(eid)
         if total > budget:
             decision["action"] = "context_capacity_exceeded"
             decision["overflow"] = True
-            pkg.capacity = decision
-            return decision
+            return _mk_view({eid: _copy_entry(e)
+                             for eid, e in pkg.evidence.items()}, [], decision)
 
     decision["action"] = "compressed"
-    pkg.capacity = decision
-    return decision
+    return _mk_view(evidence, dropped, decision)

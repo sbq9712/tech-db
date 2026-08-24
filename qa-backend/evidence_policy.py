@@ -218,11 +218,21 @@ class EvidencePolicyEngine:
                  conflicts: Optional[List[dict]] = None,
                  numeric_facts: Optional[List[dict]] = None,
                  relation_checks: Optional[List[dict]] = None,
+                 requirement_temporal: Optional[str] = None,
+                 evidence_states: Optional[List[str]] = None,
+                 requires_independent: bool = False,
+                 evidence_roles: Optional[List[str]] = None,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
 
         FAST/RESEARCH/DEEP share this exact engine — mode only recorded for
         traceability; no mode bypasses any rule.
+
+        Review blocker 4 wiring: ALL applicable deterministic hard rules run
+        in this one entry point — per-evidence eligibility/quarantine/
+        citation/access (check_requirement → check_evidence), coverage,
+        conflict, numeric, relation, and (when the corresponding production
+        inputs exist) temporal supersession and self-report/independence.
         """
         findings: List[PolicyFinding] = []
         for req in requirements:
@@ -235,6 +245,14 @@ class EvidencePolicyEngine:
         findings.extend(self.check_conflict(conflicts=conflicts or []).findings)
         findings.extend(self.check_numeric(numeric_facts=numeric_facts or []).findings)
         findings.extend(self.check_relation(relation_checks=relation_checks or []).findings)
+        if requirement_temporal and evidence_states is not None:
+            findings.extend(self.check_temporal(
+                requirement_temporal=requirement_temporal,
+                evidence_states=list(evidence_states)).findings)
+        if requires_independent and evidence_roles is not None:
+            findings.extend(self.check_self_report(
+                requires_independent=True,
+                evidence_roles=list(evidence_roles)).findings)
         verdict = (HARD_FAIL if any(f.severity == "hard" for f in findings)
                    else (FAIL if findings else PASS))
         return PolicyReport(verdict=verdict, findings=findings, mode=mode)

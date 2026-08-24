@@ -191,12 +191,14 @@ CHAT_SEMAPHORE = asyncio.Semaphore(GUARDRAILS.concurrency)
 
 
 # Route/search functions and index loaders now live in retrieval/runtime.py
-# (RT-030). Re-exported here because the frozen parity surface calls
-# server.vector_search / server.bm25_search / server.rrf_fuse / server.graph_search
-# and epistemic.py imports server.load_records.
-vector_search = _rt.vector_search
-bm25_search = _rt.bm25_search
-rrf_fuse = _rt.rrf_fuse
+# (RT-030). The INJECTABLE PARITY SEAM defined above stays live: the frozen
+# parity surface calls server.vector_search / server.bm25_search /
+# server.rrf_fuse / server.graph_search, and tests patch
+# server.embedding_func — server.vector_search therefore MUST resolve its
+# embedding through the server module global at call time (review blocker 1:
+# rebinding `vector_search = _rt.vector_search` here dropped the seam and
+# made CI (no torch) crash through config.embedding_func).
+# server.graph_search is bound above (no embedding seam involved).
 
 
 _records_cache = []  # [(records_list)] — lifespan cache (legacy mode)
@@ -688,95 +690,189 @@ _PHASE03_MODE = os.environ.get("QA_PHASE03_DEFAULT_MODE", "RESEARCH_RAG").strip(
     or "RESEARCH_RAG"
 
 
+class Phase03AuthorityError(RuntimeError):
+    """Trusted EvidencePackage mode requires a request-pinned RuntimeSnapshot
+    carrying a source_catalog (Phase-02 RT-020 contract). Fabricating
+    source_snapshot_ids from record ids or hashing mutable global text are
+    FORBIDDEN authority sources (review blocker 7) — fail closed instead."""
+
+
 def _phase03_runtime_inputs():
-    """Request-pinned records/catalog for the Phase03 pipeline.
+    """Request-pinned records + pinned source-catalog authority.
 
-    Manifest mode: the pinned runtime snapshot's records/records_by_id/
-    source_catalog are the ONLY authorities (a mid-request release switch
-    must not change the evidence). Legacy mode: server-global records.
-    Returns (records, records_by_id, snapshot_index, evidence_metadata).
+    TRUSTED-MODE CONTRACT (review blocker 7): with EVIDENCE_PACKAGE_ENABLED
+    the typed EvidencePackage path may build evidence ONLY from a
+    request-pinned RuntimeSnapshot whose resources carry a source_catalog
+    (content-addressed, startup-validated). Resolution follows the exact
+    Phase-02 RT-020 rules (phase02_pipeline._resolve_snapshot):
+
+      * no pinned snapshot / no catalog → Phase03AuthorityError (fail closed)
+      * record not in pinned catalog   → authority gap (never fabricated)
+      * declared text hash mismatch    → authority gap (tamper fail-closed)
+      * declared eligibility missing / mismatch → authority gap
+
+    Identity (source_snapshot_id) always comes from the PINNED catalog —
+    never content-addressed ad hoc from mutable text. Records without
+    catalog authority are returned as authority_gaps and can never enter
+    the trusted EvidencePackage as support.
+
+    Returns (records, records_by_id, snapshot_index, evidence_metadata,
+    authority_gaps).
     """
-    pinned = _request_runtime_snapshot.get() is not None
-    records = _runtime_resource("records", None) if pinned else load_records()
-    records_by_id = _runtime_resource("records_by_id", None) if pinned else None
-    catalog = _runtime_resource("source_catalog", None) if pinned else None
+    pinned = _request_runtime_snapshot.get()
+    if pinned is None:
+        raise Phase03AuthorityError(
+            "EVIDENCE_PACKAGE_ENABLED requires manifest runtime mode with a "
+            "request-pinned RuntimeSnapshot — legacy_hybrid global state is "
+            "not a trusted evidence authority (fail closed)")
+    records = _runtime_resource("records", None) or []
+    records_by_id = _runtime_resource("records_by_id", None) or {}
+    catalog = _runtime_resource("source_catalog", None) or {}
+    catalog_entries = catalog.get("snapshots") or []
+    if not catalog_entries:
+        raise Phase03AuthorityError(
+            "request-pinned runtime snapshot carries no source_catalog — "
+            "cannot build trusted evidence refs (fail closed)")
 
-    if records_by_id is None:
-        records_by_id = {}
-        for rec in (records or []):
-            rid = rec.get("record_id")
-            if isinstance(rid, str) and rid.strip():
-                records_by_id[rid] = rec
-
-    # snapshot index: stable record_id -> {source_snapshot_id, evidence_text}
-    import hashlib as _hl
-    snapshot_index = {}
-    evidence_metadata = {}
+    from source_snapshot import SourceSnapshot
     catalog_by_rid = {}
-    for entry in ((catalog or {}).get("snapshots") or []):
+    for entry in catalog_entries:
         rid = entry.get("record_id")
         if isinstance(rid, str) and rid.strip():
             catalog_by_rid[rid] = entry
-    for rec in (records or []):
+
+    snapshot_index = {}
+    evidence_metadata = {}
+    authority_gaps = []
+    for rec in records:
         rid = rec.get("record_id")
         if not (isinstance(rid, str) and rid.strip()):
             continue
-        text = str(rec.get("evidence_text") or rec.get("fb")
-                   or rec.get("b") or "")
-        entry = catalog_by_rid.get(rid) or {}
+        entry = catalog_by_rid.get(rid)
+        try:
+            snap = SourceSnapshot.from_record(rid, rec)
+        except Exception:
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "snapshot_error"})
+            continue
+        if entry is None:
+            authority_gaps.append(
+                {"record_id": rid,
+                 "reason": "record_not_in_pinned_source_catalog"})
+            continue
+        declared_hash = (entry.get("evidence_text_sha256")
+                         or entry.get("content_hash") or "")
+        if isinstance(declared_hash, str) and declared_hash.strip() \
+                and declared_hash.strip().lower() != snap.content_hash.lower():
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_snapshot_hash_mismatch"})
+            continue
+        declared_elig = entry.get("evidence_eligibility")
+        if not (isinstance(declared_elig, str) and declared_elig.strip()):
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_eligibility_missing"})
+            continue
+        if declared_elig.strip() != snap.evidence_eligibility:
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_eligibility_mismatch"})
+            continue
+        eligibility = declared_elig.strip()
         snapshot_index[rid] = {
             "record_id": rid,
-            "source_snapshot_id": entry.get("source_snapshot_id")
-                                   or f"rec:{rid}",
-            "evidence_text": text,
-            "evidence_text_sha256": entry.get("evidence_text_sha256")
-                                    or (_hl.sha256(text.encode("utf-8")).hexdigest()
-                                        if text else ""),
-            "evidence_eligibility": entry.get("evidence_eligibility")
-                                     or rec.get("evidence_eligibility")
-                                     or "",
+            # identity from the PINNED catalog (Phase-02 contract)
+            "source_snapshot_id": str(entry.get("source_snapshot_id")
+                                      or snap.source_snapshot_id),
+            "evidence_text": snap.raw_text,
+            "evidence_text_sha256": snap.content_hash,
+            "evidence_eligibility": eligibility,
         }
         evidence_metadata[rid] = {
-            "evidence_eligibility": entry.get("evidence_eligibility")
-                                     or rec.get("evidence_eligibility")
-                                     or "",
+            "evidence_eligibility": eligibility,
             "evidence_role": str(rec.get("evidence_role") or "unknown"),
             "source_type": rec.get("tp") or rec.get("source_type") or "unknown",
         }
-    return records, records_by_id, snapshot_index, evidence_metadata
+    return records, records_by_id, snapshot_index, evidence_metadata, authority_gaps
 
 
-async def _run_phase03_context(query: str, search_results: list) -> dict:
+def _phase03_provenance(records):
+    """Real provenance groups for the Phase03 reserves (RT-033 wiring).
+
+    Uses the Phase-02 reviewed clustering (provenance.cluster_provenance)
+    over the REQUEST-PINNED records and remaps its legacy list-position
+    keys to stable record_id keys (the Phase-03 stable-ID contract).
+    """
+    try:
+        from provenance import cluster_provenance
+        by_idx = cluster_provenance(records or [])
+    except Exception:
+        return {}
+    out = {}
+    for idx, info in (by_idx or {}).items():
+        try:
+            rec = (records or [])[int(idx)]
+        except (ValueError, IndexError, TypeError):
+            continue
+        rid = rec.get("record_id")
+        if isinstance(rid, str) and rid.strip():
+            out[rid] = {
+                "independent_group_id": info.get("independent_group_id", rid),
+                "source_role": info.get("provenance_reason", ""),
+            }
+    return out
+
+
+async def _run_phase03_context(query: str, exclude_ids: set | None = None,
+                               access_scope: str = "public") -> dict:
     """Run the Phase03 retrieval->evidence-package pipeline for one chat
     request and return the phase03_pipeline contract dict.
 
+    HIGH-RECALL POOL SOURCE (review blocker 2): the pipeline consumes RAW
+    per-route RetrievalResults (_rt.run_routes at per-route fetch caps)
+    captured BEFORE the legacy global FINAL_TOP_K=25 fusion truncation —
+    never the already-truncated fused search_results. The legacy flag-off
+    path keeps run_hybrid unchanged.
+
     Deterministic, request-pinned; the rendered context is the ONLY
     generation context (RT-039 allowlist). Errors bubble — no silent
-    fallback to raw build_context dumps.
+    fallback to raw build_context dumps. Phase03AuthorityError is handled
+    explicitly by the chat endpoint (explicit UNSUPPORTED, fail closed).
     """
     from phase03_pipeline import run_phase03_retrieval
     from retrieval.chunk_route import ChunkRetriever
 
-    records, records_by_id, snapshot_index, evidence_metadata = \
-        _phase03_runtime_inputs()
+    (records, records_by_id, snapshot_index, evidence_metadata,
+     authority_gaps) = _phase03_runtime_inputs()
+    pinned = _request_runtime_snapshot.get()
 
     chunk_retriever = None
     if Flags.CONTEXTUAL_CHUNKS_ENABLED:
         chunk_retriever = ChunkRetriever.from_snapshots(
             list(snapshot_index.values()))
 
+    # RT-033 real provenance: Phase-02 reviewed clustering over the pinned
+    # request records (stable record_id keyed)
+    provenance_map = _phase03_provenance(records)
+
     def _get_record(record_id):
         return records_by_id.get(record_id)
 
+    # Raw per-route candidates (rank-26+ survives HERE, before any fusion):
+    route_results = await _rt.run_routes(
+        query, snapshot=pinned, exclude_ids=exclude_ids,
+        embed_fn=embedding_func, pipeline=_get_retrieval_pipeline())
+
     return await run_phase03_retrieval(
         query=query,
-        search_results=search_results,
+        route_results=route_results,
         mode=_PHASE03_MODE,
         records_by_id=records_by_id,
         snapshot_index=snapshot_index,
         chunk_retriever=chunk_retriever,
         get_record_fn=_get_record,
         evidence_metadata=evidence_metadata,
+        authority_gaps=authority_gaps,
+        provenance_map=provenance_map,
+        access_scope=access_scope or "public",
     )
 
 
@@ -785,6 +881,10 @@ class ChatRequest(BaseModel):
     query: str
     conversation_id: str = ""
     history: list = []
+    # Request access scope for the Phase03 evidence policy engine
+    # (RT-034 POLICY_ACCESS_SCOPE); default public keeps v1 clients
+    # byte-compatible.
+    access_scope: str = "public"
 
 
 # ── Phase 02 (RT-020): persistent SourceSnapshot store ──────────────────────
@@ -1223,7 +1323,34 @@ async def chat_stream(req: ChatRequest, request: Request):
             context = None
             if Flags.EVIDENCE_PACKAGE_ENABLED:
                 try:
-                    _p03 = await _run_phase03_context(query, search_results)
+                    _p03 = await _run_phase03_context(
+                        query,
+                        exclude_ids=exclude_ids if exclude_ids else None,
+                        access_scope=req.access_scope)
+                except Phase03AuthorityError as pae:
+                    # Review blocker 7: trusted EvidencePackage mode REQUIRES
+                    # a pinned source authority. Without it the request fails
+                    # closed — explicit UNSUPPORTED, never fabricated
+                    # snapshot ids / ad-hoc text hashes.
+                    print(f"[phase03] authority fail-closed: {pae}", flush=True)
+                    trace.add_stage("phase03_authority_fail_closed",
+                                    {"error": str(pae)[:200]})
+                    trace.set_result(
+                        answer_status="UNSUPPORTED",
+                        stop_reason="phase03_missing_pinned_authority")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "证据模式需要固定的发布清单权威（manifest 运行时），"
+                                  "当前环境缺少 pinned source authority，已按规范拒绝回答。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_missing_pinned_authority",
+                        "boundary_message": "evidence authority fail-closed",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
                 except Exception as e:
                     print(f"[phase03] pipeline error: {e}", flush=True)
                     trace.add_stage("phase03_error", {"error": str(e)[:200]})

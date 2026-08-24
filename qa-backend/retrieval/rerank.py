@@ -169,7 +169,18 @@ async def rerank_local(query: str, candidates: List[dict],
     scored = []
     for c in candidates:
         content, synthetic_only = resolve_candidate_content(c, get_record_fn)
-        score = lexical_relevance(query, content)
+        if synthetic_only:
+            # Review blocker 6: synthetic / AI-summary text can NEVER act
+            # as primary evidence-rerank content. Such candidates receive
+            # NO ordinary source-grounded content relevance (score 0.0),
+            # are marked hint-only / non-evidentiary, and sort below every
+            # source-grounded candidate — they cannot crowd out
+            # source-grounded evidence under any top_k truncation.
+            score = 0.0
+            basis = "synthetic_hint_only"
+        else:
+            score = lexical_relevance(query, content)
+            basis = "source_grounded"
         entry = {
             "record_id": c.get("record_id"),
             "rerank_score": round(score, 6),
@@ -177,6 +188,9 @@ async def rerank_local(query: str, candidates: List[dict],
             "meta": c.get("meta", {}),
             "route_details": c.get("route_details", {}),
             "engine": RERANK_ENGINE_VERSION,
+            "content_basis": basis,
+            # synthetic-only text is NEVER evidentiary content
+            "counts_as_evidence": (not synthetic_only),
         }
         if synthetic_only:
             entry["synthetic_only_content"] = True
@@ -195,20 +209,65 @@ async def rerank_glm_bounded(query: str, candidates: List[dict],
 
     Failure/timeout NEVER clears the candidate set: falls back to the
     deterministic local ranking with degraded_capabilities=["reranker"].
+
+    Review blocker 6: synthetic-only candidates (content resolvable ONLY
+    from meta["as"] AI summaries) are quarantined OUT of the GLM rerank
+    input — they never compete on content relevance — and are re-appended
+    afterwards with rerank_score 0.0, hint-only / non-evidentiary markers.
+    They cannot crowd out source-grounded candidates on either path.
     """
     from reranker import rerank as glm_rerank  # qa-backend/reranker.py (T016)
 
+    grounded: List[dict] = []
+    synthetic_tail: List[dict] = []
+    for c in candidates:
+        _content, synthetic_only = resolve_candidate_content(c, get_record_fn)
+        (synthetic_tail if synthetic_only else grounded).append(c)
+
+    def _synthetic_entry(c: dict) -> dict:
+        return {
+            "record_id": c.get("record_id"),
+            "rerank_score": 0.0,
+            "input_rank": c.get("rank", c.get("rrf_rank", 0)),
+            "meta": c.get("meta", {}),
+            "route_details": c.get("route_details", {}),
+            "engine": "glm-listwise",
+            "content_basis": "synthetic_hint_only",
+            "counts_as_evidence": False,
+            "synthetic_only_content": True,
+        }
+
+    if not grounded:
+        # nothing source-grounded to rerank — synthetic-only tail, no GLM call
+        out = [_synthetic_entry(c) for c in synthetic_tail]
+        out.sort(key=lambda e: str(e["record_id"]))
+        if top_k is not None:
+            out = out[:top_k]
+        return RerankOutcome(results=out, engine="glm-listwise",
+                             degraded=["synthetic_only_content"])
+
     try:
         async def _call():
-            return await glm_rerank(query, candidates, top_k=top_k,
+            return await glm_rerank(query, grounded, top_k=None,
                                     get_record_fn=get_record_fn)
         out = await asyncio.wait_for(_call(), timeout=timeout_s)
         if out is None:
             out = []
-        if len(out) != len(candidates):
+        if len(out) != len(grounded):
             # GLM path lost candidates — treat as failure, fall back whole
-            raise RuntimeError(f"glm rerank returned {len(out)}/{len(candidates)}")
-        return RerankOutcome(results=out, engine="glm-listwise",
+            raise RuntimeError(
+                f"glm rerank returned {len(out)}/{len(grounded)}")
+        for e in out:
+            # synthetic candidates never reached GLM: everything it returned
+            # is source-grounded content
+            e.setdefault("content_basis", "source_grounded")
+            e.setdefault("counts_as_evidence", True)
+        merged = list(out) + [_synthetic_entry(c) for c in synthetic_tail]
+        merged.sort(key=lambda e: (-float(e.get("rerank_score", 0.0)),
+                                   str(e["record_id"])))
+        if top_k is not None:
+            merged = merged[:top_k]
+        return RerankOutcome(results=merged, engine="glm-listwise",
                              degraded=[])
     except Exception as exc:  # timeout / parse / transport / partial loss
         local = await rerank_local(query, candidates, get_record_fn=get_record_fn,

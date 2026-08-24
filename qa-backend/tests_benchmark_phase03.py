@@ -27,6 +27,20 @@ Metrics (each maps to one shipped mechanism — no composite score):
   3. exact_match_ordering — after content rerank the exact-match document
      outranks partial matches in the top-5 (RT-032).
 
+Review round 1 (blocker 9) added the PRODUCTION-PATH benchmark
+(test_phase03_production_benchmark): the same corpus scenario driven
+through the REAL server path — runtime_snapshot.load_release_resources →
+RuntimeSnapshot → server._run_phase03_context (run_routes + the full
+phase03_pipeline) — never through hand-assembled pools:
+
+  4. prod_rank26_survival — records fusing past legacy FINAL_TOP_K=25
+     still reach selection + citations through the production path
+     (baseline: legacy run_hybrid drops them).
+  5. selector_coverage   — the evidence selector actually CITES the
+     deep-ranked target (selection → package → citations end-to-end).
+  6. latency_delta       — per-query wall time of the production Phase03
+     path vs the legacy hybrid surface (regression bound, honest numbers).
+
 PASS = B >= A on every metric, B >= 0.9 on tail visibility, and both sides
 hold the head-probe control (records still found for ordinary head queries).
 """
@@ -34,6 +48,7 @@ from __future__ import annotations
 
 import json
 import sys
+import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -226,5 +241,167 @@ def test_phase03_benchmark():
     raise SystemExit(0 if ok else 1)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# Production-path benchmark (review round 1, blocker 9)
+#
+# The scenario corpus above proved mechanism-level wins with hand-assembled
+# route inputs. These metrics run the REAL production path instead: a
+# materialized pinned release (artifact files → load_release_resources →
+# RuntimeSnapshot) queried through server._run_phase03_context —
+# i.e. run_routes → pool → reserves → rerank → policy → selection →
+# package → citations — against the legacy run_hybrid surface.
+# ══════════════════════════════════════════════════════════════════════════════
+
+def test_phase03_production_benchmark():
+    """Deterministic production-path benchmark (no LLM, no network).
+
+    Per probe k a fresh pinned release is built where the query target
+    fuses at the LAST rank (34) — deep past legacy FINAL_TOP_K=25 — while
+    remaining the best lexical (content) match. Metrics:
+
+      prod_rank26_survival  target reaches production selection+citations
+      selector_coverage     target actually cited by the production path
+      latency_delta         mean ms/query: production path vs legacy hybrid
+    """
+    import asyncio
+    import tempfile
+
+    # reuse the exact production fixture machinery from the acceptance
+    # suite (single implementation, no benchmark-specific shortcuts)
+    from tests_remediation_phase03 import (
+        _write_release, _load_snapshot, _craft_vector, _fake_embed,
+        _fused_rank_map, _run_pinned,
+    )
+    import retrieval.runtime as rt
+    import server
+
+    tmp = tempfile.mkdtemp(prefix="p03-prod-bench-")
+    n_decoys = 33
+    probes = [f"zork{k} production yield" for k in range(6)]
+
+    survival_pre = []       # scenario precondition held (fused rank 34)
+    survival_legacy = []    # legacy surface drops the target
+    survival_prod = []      # production path keeps it in selection
+    coverage_prod = []      # production path cites it + context carries it
+    lat_legacy_ms = []
+    lat_prod_ms = []
+
+    for k, query in enumerate(probes):
+        rare = query.split()[0]
+        decoy_ids = [f"decoy-{i:03d}" for i in range(n_decoys)]
+        target_id = "target-doc"
+        texts = {
+            rid: (f"production production production production "
+                  f"production production yield yield yield yield yield "
+                  f"yield {rare} {rare} {rare} {rare} {rare} {rare} decoy "
+                  f"grid sample note analysis batch sector digest index "
+                  f"{rid}")
+            for rid in decoy_ids}
+        texts[target_id] = (
+            f"{rare} production yield pilot note note note note note note "
+            f"note note note note note note note note note note")
+        records = [{"record_id": rid, "t": rid} for rid in decoy_ids] + \
+                  [{"record_id": target_id, "t": "target"}]
+        vectors = {rid: _craft_vector(query, 0.90 - 0.01 * i, f"ortho-{rid}")
+                   for i, rid in enumerate(decoy_ids)}
+        vectors[target_id] = _craft_vector(query, 0.05, "ortho-target")
+
+        manifest, root = _write_release(
+            Path(tmp) / f"probe-{k}", records=records, vectors=vectors,
+            texts=texts, query=query, manifest_id=f"bench-probe-{k}")
+        snap = _load_snapshot(manifest, root, f"bench-probe-{k}")
+
+        async def _routes():
+            return await rt.run_routes(query, snapshot=snap,
+                                       embed_fn=_fake_embed)
+
+        async def _legacy():
+            return await rt.run_hybrid(query, snapshot=snap,
+                                       embed_fn=_fake_embed)
+
+        routes = asyncio.run(_routes())
+        fused_rank, _scores = _fused_rank_map(routes)
+        pre_ok = (fused_rank.get(target_id) == 34
+                  and len(fused_rank) == n_decoys + 1)
+        survival_pre.append(pre_ok)
+
+        t0 = time.perf_counter()
+        legacy_results, _rel = asyncio.run(_legacy())
+        lat_legacy_ms.append((time.perf_counter() - t0) * 1000.0)
+        survival_legacy.append(target_id not in
+                               [r.get("record_id") for r in legacy_results])
+
+        t0 = time.perf_counter()
+        out = asyncio.run(_run_pinned(snap, query))
+        lat_prod_ms.append((time.perf_counter() - t0) * 1000.0)
+        cited = [c["record_id"] for c in out.get("citations", [])]
+        survival_prod.append(target_id in out.get("selected_record_ids", []))
+        coverage_prod.append(target_id in cited
+                             and f"{rare} production yield" in out.get("context", ""))
+
+    pre_r = sum(survival_pre) / len(survival_pre)
+    surv_legacy_r = sum(survival_legacy) / len(survival_legacy)
+    surv_prod_r = sum(survival_prod) / len(survival_prod)
+    cov_prod_r = sum(coverage_prod) / len(coverage_prod)
+    lat_a = sum(lat_legacy_ms) / len(lat_legacy_ms)
+    lat_b = sum(lat_prod_ms) / len(lat_prod_ms)
+    # honest regression bound: the full pool→policy→package path may cost
+    # more than raw hybrid retrieval, but must stay within 4× (plus a
+    # 50 ms absolute allowance) — CI machines vary, the bound is generous
+    # by design; the measured numbers are reported either way.
+    latency_ok = lat_b <= max(50.0, 4.0 * lat_a)
+
+    report = {
+        "benchmark": "phase03_production_path",
+        "method": ("real pinned releases (load_release_resources) queried "
+                   "through server._run_phase03_context (run_routes + full "
+                   "phase03_pipeline) vs legacy run_hybrid; deterministic "
+                   "hash embedder, no LLM/network"),
+        "n_probes": len(probes),
+        "corpus_per_probe": n_decoys + 1,
+        "metrics": {
+            "scenario_precondition_held": pre_r,
+            "legacy_top25_drops_target": surv_legacy_r,
+            "prod_rank26_survival": surv_prod_r,
+            "selector_coverage": cov_prod_r,
+            "latency_legacy_ms": round(lat_a, 2),
+            "latency_phase03_ms": round(lat_b, 2),
+            "latency_ratio": round(lat_b / max(lat_a, 1e-6), 2),
+            "latency_within_bound": latency_ok,
+        },
+        "thresholds": {
+            "prod_rank26_survival": ">= 1.0",
+            "selector_coverage": ">= 1.0",
+            "latency": "<= max(50ms, 4x legacy)",
+        },
+        "verdict": ("PASS" if (pre_r == 1.0 and surv_legacy_r == 1.0
+                               and surv_prod_r == 1.0 and cov_prod_r == 1.0
+                               and latency_ok) else "FAIL"),
+    }
+    print(json.dumps(report, indent=2))
+    out_path = HERE / "benchmark_phase03_production_result.json"
+    out_path.write_text(json.dumps(report, indent=2) + "\n",
+                        encoding="utf-8")
+    n_metrics = 3
+    n_pass = sum([surv_prod_r == 1.0, cov_prod_r == 1.0, latency_ok])
+    print("=" * 60)
+    print(f"  Phase03 production benchmark: {report['verdict']}")
+    print(f"  {n_pass} passed, {n_metrics - n_pass} failed")
+    print("=" * 60)
+    raise SystemExit(0 if report["verdict"] == "PASS" else 1)
+
+
+def main():
+    codes = []
+    for fn in (test_phase03_benchmark, test_phase03_production_benchmark):
+        try:
+            fn()
+        except SystemExit as exc:
+            codes.append(int(exc.code or 0))
+        else:
+            codes.append(0)
+    raise SystemExit(1 if any(codes) else 0)
+
+
 if __name__ == "__main__":
-    test_phase03_benchmark()
+    main()
