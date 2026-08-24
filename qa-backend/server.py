@@ -74,18 +74,105 @@ INDEX_FILE = WORKING_DIR / "vector_index_v2.pkl"
 BM25_FILE = WORKING_DIR / "bm25_index.pkl"
 JIEBA_DICT = WORKING_DIR / "jieba_custom_dict.txt"
 
-# ── Global state ──
-_vector_index = None  # numpy array (N, 1024)
-_index_meta = None    # list of metadata dicts
-_bm25_index = None    # BM25Okapi instance
-_bm25_meta = None     # BM25 metadata list
-_bm25_corpus = None   # tokenized corpus for BM25
-_records = None       # full records from all-records-lite.json
-_graph_data = None    # graph-export.json data (nodes, edges, entity_to_records)
-_entity_index = None  # entity_name -> set of record indices
-_graph_adj = None     # entity_name -> set of neighbor entity_names (adjacency from edges)
-_graph_nodes = None   # entity_name -> node info dict (type, degree, description)
-_idx_to_meta = None   # record_idx -> meta dict (fast lookup, avoids linear scan)
+# ── Global state / core retrieval (RT-030) ─────────────────────────────────
+# Core Vector/BM25/Graph index loading + search algorithms MOVED to
+# retrieval/runtime.py; server.py keeps API glue only (admission, request
+# orchestration, profile dispatch, SSE serialization). The re-exports below
+# preserve the frozen parity surfaces (tests_parity.py gate-1 baselines,
+# parity.py, epistemic.load_records) — thin delegates, NOT a second parallel
+# implementation.
+import retrieval.runtime as _rt
+
+graph_search = _rt.graph_search
+_bm25_tokenize = _rt.bm25_tokenize
+
+# Frozen constant surface (values moved verbatim; re-exported for consumers)
+RRF_K = _rt.RRF_K
+RETRIEVAL_TOP_K = _rt.RETRIEVAL_TOP_K
+FINAL_TOP_K = _rt.FINAL_TOP_K
+RELEVANCE_FLOOR = _rt.RELEVANCE_FLOOR
+VEC_STRONG = _rt.VEC_STRONG
+BM25_STRONG = _rt.BM25_STRONG
+GRAPH_STRONG = _rt.GRAPH_STRONG
+MIN_STRONG_RESULTS = _rt.MIN_STRONG_RESULTS
+MAX_HOP1_DEGREE = _rt.MAX_HOP1_DEGREE
+HOP1_WEIGHT = _rt.HOP1_WEIGHT
+MAX_HOP1_ENTITIES = _rt.MAX_HOP1_ENTITIES
+FETCH_K_CAP = _rt.FETCH_K_CAP
+
+
+
+def _sync_shadow(attr: str, value) -> None:
+    """Write loaded state back to an explicitly-shadowed server global.
+
+    RT-030 moved the index globals into retrieval.runtime, but the frozen
+    test seam resets them by assigning server.<attr> = None and expects the
+    next loader call to reload from the (possibly patched) live paths.
+    Shadow-sync keeps that contract: a None-shadow clears runtime state
+    before loading; a loaded result refreshes any existing shadow.
+    """
+    g = globals()
+    if attr in g:
+        if g[attr] is None and value is None:
+            setattr(_rt, attr, None)
+        if value is not None:
+            g[attr] = value
+
+
+def load_vector_index():
+    """Load vector index from the LIVE module paths (test patches honored)."""
+    _sync_shadow("_index_meta", None)
+    _sync_shadow("_vector_index", None)
+    _rt.load_vector_index(vector_file=INDEX_FILE, fallback_file=WORKING_DIR / "vector_index.pkl")
+    _sync_shadow("_index_meta", _rt._index_meta)
+    _sync_shadow("_vector_index", _rt._vector_index)
+
+
+def load_bm25_index():
+    """Load BM25 index from the LIVE module paths (test patches honored)."""
+    _sync_shadow("_bm25_index", None)
+    _sync_shadow("_bm25_meta", None)
+    _sync_shadow("_bm25_corpus", None)
+    _rt.load_bm25_index(bm25_file=BM25_FILE, jieba_file=JIEBA_DICT)
+    _sync_shadow("_bm25_index", _rt._bm25_index)
+    _sync_shadow("_bm25_meta", _rt._bm25_meta)
+    _sync_shadow("_bm25_corpus", _rt._bm25_corpus)
+
+
+def load_graph_index():
+    """Load graph export from the LIVE module path (test patches honored)."""
+    _sync_shadow("_graph_data", None)
+    _sync_shadow("_entity_index", None)
+    _sync_shadow("_graph_adj", None)
+    _sync_shadow("_graph_nodes", None)
+    _rt.load_graph_index(graph_file=WORKING_DIR / "graph-export.json")
+    _sync_shadow("_graph_data", _rt._graph_data)
+    _sync_shadow("_entity_index", _rt._entity_index)
+    _sync_shadow("_graph_adj", _rt._graph_adj)
+    _sync_shadow("_graph_nodes", _rt._graph_nodes)
+
+
+def build_idx_meta_lookup():
+    """Rebuild the record_idx→meta fast lookup from loaded state."""
+    _sync_shadow("_idx_to_meta", None)
+    _rt.build_idx_meta_lookup()
+    _sync_shadow("_idx_to_meta", _rt._idx_to_meta)
+
+async def vector_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Frozen parity surface — delegates with the live embedding seam."""
+    return await _rt.vector_search(query, top_k=top_k, embed_fn=embedding_func)
+
+
+def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Frozen parity surface — delegates to retrieval.runtime."""
+    return _rt.bm25_search(query, top_k=top_k)
+
+
+def rrf_fuse(vec_results, bm25_results, graph_results=None, k=RRF_K, top_k=FINAL_TOP_K):
+    """Frozen parity surface — delegates to retrieval.runtime."""
+    return _rt.rrf_fuse(vec_results, bm25_results, graph_results=graph_results,
+                        k=k, top_k=top_k)
+
 _request_runtime_snapshot = ContextVar("techdb_runtime_snapshot", default=None)
 
 
@@ -97,309 +184,53 @@ def _runtime_resource(name, legacy_value):
         raise RuntimeError(f"pinned runtime {snapshot.manifest_id} missing resource {name}")
     return snapshot.resources[name]
 
-# ── RRF parameters ──
-RRF_K = 60          # RRF constant (1/(rank+k))
-RETRIEVAL_TOP_K = 50  # candidates per route
-FINAL_TOP_K = 25     # max records after fusion
-RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
-
-# ── Quality gates ──
-# Strict thresholds: a route must clear these to count as a "strong signal"
-VEC_STRONG = 0.55    # PROVISIONAL: based on n=2 sample calibration (good ~0.65-0.71, bad ~0.50-0.54).
-                      # Not a permanent value — needs validation with broader query types
-                      # (specific entities, English, typos, ultra-broad queries) before fixing.
-BM25_STRONG = 5.0    # BM25 score for confident match (noise queries still get ~2-4)
-GRAPH_STRONG = 5.0   # Graph hit count for confident match (noise queries get ~4)
-# Topic exhaustion: when excluding records (novelty follow-up), if NO remaining
-# result clears ANY strong threshold, the topic is likely exhausted
-MIN_STRONG_RESULTS = 3  # need at least this many strong results to avoid "exhausted"
-
-# ── Graph hop=1 expansion parameters ──
-MAX_HOP1_DEGREE = 20    # Skip hop=1 neighbors with degree > this (super-node filter)
-HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
-MAX_HOP1_ENTITIES = 40  # Cap total hop=1 expansion entities to prevent explosion
-
-# ── Novelty exclusion ──
-FETCH_K_CAP = 200       # Hard cap on fetch_k to bound retrieval cost for long conversations.
-
-# ── Public-service guardrails ──
 GUARDRAILS = GuardrailSettings()
 RATE_LIMITER = RateLimiter(GUARDRAILS)
 BUDGET_FUSE = BudgetFuse(GUARDRAILS, RUNTIME_DIR / "state" / "usage.json")
 CHAT_SEMAPHORE = asyncio.Semaphore(GUARDRAILS.concurrency)
 
 
-def load_vector_index():
-    """Load the pre-built vector index."""
-    global _vector_index, _index_meta
-    if _vector_index is not None:
-        return
-    # Try v2 first, fall back to v1
-    idx_file = INDEX_FILE if INDEX_FILE.exists() else WORKING_DIR / "vector_index.pkl"
-    if idx_file.exists():
-        print(f"[startup] Loading vector index from {idx_file.name}...", flush=True)
-        with open(idx_file, "rb") as f:
-            data = pickle.load(f)
-        _vector_index = data["embeddings"]
-        _index_meta = data["meta"]
-        print(f"[startup] Vector index loaded: {len(_index_meta)} records, dim={data['dim']}", flush=True)
-    else:
-        print(f"[startup] WARNING: No vector index found", flush=True)
+# Route/search functions and index loaders now live in retrieval/runtime.py
+# (RT-030). Re-exported here because the frozen parity surface calls
+# server.vector_search / server.bm25_search / server.rrf_fuse / server.graph_search
+# and epistemic.py imports server.load_records.
+vector_search = _rt.vector_search
+bm25_search = _rt.bm25_search
+rrf_fuse = _rt.rrf_fuse
 
 
-def load_bm25_index():
-    """Load the pre-built BM25 index (and the query-side custom dict)."""
-    global _bm25_index, _bm25_meta, _bm25_corpus
-    if _bm25_index is not None:
-        return
-    if BM25_FILE.exists():
-        print(f"[startup] Loading BM25 index...", flush=True)
-        with open(BM25_FILE, "rb") as f:
-            data = pickle.load(f)
-        _bm25_index = data["bm25"]
-        _bm25_meta = data["meta"]
-        _bm25_corpus = data.get("corpus_tokens")
-        # Codex-review C2 P1 fix: the custom jieba dict used at INDEX BUILD
-        # time must also be loaded for QUERY tokenization wherever the BM25
-        # index is loaded — parity.py calls this directly (bypassing the
-        # FastAPI lifespan that used to be the only loader), so baselines
-        # previously tokenized queries differently from the live path.
-        if JIEBA_DICT.exists():
-            import jieba
-            jieba.load_userdict(str(JIEBA_DICT))
-            print("[startup] Jieba custom dict loaded", flush=True)
-        print(f"[startup] BM25 index loaded: {len(_bm25_meta)} documents", flush=True)
-    else:
-        print(f"[startup] BM25 index not found (hybrid search disabled)", flush=True)
+_records_cache = []  # [(records_list)] — lifespan cache (legacy mode)
 
 
-def load_graph_index():
-    """Load knowledge graph: entity→record mapping + adjacency list + node lookup."""
-    global _graph_data, _entity_index, _graph_adj, _graph_nodes
-    if _graph_data is not None:
-        return
-    graph_file = WORKING_DIR / "graph-export.json"
-    if graph_file.exists():
-        print(f"[startup] Loading knowledge graph...", flush=True)
-        _graph_data = json.loads(graph_file.read_text("utf-8"))
-        e2r = _graph_data.get("entity_to_records", {})
-        _entity_index = {k: set(v) for k, v in e2r.items()}
+def _legacy_state(name):
+    """Proxy legacy index globals to retrieval.runtime state (RT-030)."""
+    return getattr(_rt, name)
 
-        # Build adjacency list from edges (for hop=1 neighbor expansion)
-        _graph_adj = {}
-        for e in _graph_data.get("edges", []):
-            s, t = e.get("source"), e.get("target")
-            if s and t:
-                _graph_adj.setdefault(s, set()).add(t)
-                _graph_adj.setdefault(t, set()).add(s)
 
-        # Build node lookup (for degree/type filtering)
-        _graph_nodes = {n["id"]: n for n in _graph_data.get("nodes", [])}
-
-        print(f"[startup] Graph loaded: {len(_graph_data.get('nodes',[]))} nodes, "
-              f"{len(_graph_data.get('edges',[]))} edges, "
-              f"{len(_entity_index)} entity→record mappings, "
-              f"{len(_graph_adj)} adjacency entries", flush=True)
-    else:
-        print(f"[startup] Knowledge graph not found (graph search disabled)", flush=True)
+def __getattr__(name):
+    # Module-level proxy for the moved legacy globals: tests and internal
+    # readers keep transparent access (server._index_meta, server._records,
+    # ...) while the state itself lives in retrieval.runtime.
+    _proxied = {
+        "_vector_index", "_index_meta", "_bm25_index", "_bm25_meta",
+        "_bm25_corpus", "_graph_data", "_entity_index", "_graph_adj",
+        "_graph_nodes", "_idx_to_meta", "_records",
+    }
+    if name in _proxied:
+        if name == "_records":
+            # Parity: the pre-RT-030 global was None until lifespan loaded it —
+            # the proxy must NOT eagerly load (tests patch LITE_PATH first).
+            return _records_cache[0] if _records_cache else None
+        return getattr(_rt, name)
+    raise AttributeError(f"module 'server' has no attribute {name!r}")
 
 
 def load_records():
-    """Load all-records-lite.json for full record lookup."""
-    global _records
-    if _records is None:
-        _records = json.loads(LITE_PATH.read_text("utf-8"))
-    return _records
-
-
-async def vector_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Search the vector index for the most similar records."""
-    if _vector_index is None:
-        return []
-
-    # Embed the query
-    query_emb = await embedding_func([query])
-    query_vec = np.array(query_emb[0], dtype=np.float32)
-    query_vec = query_vec / max(np.linalg.norm(query_vec), 1e-8)
-
-    # Cosine similarity (embeddings are pre-normalized)
-    scores = _vector_index @ query_vec
-
-    # Get top_k indices
-    top_indices = np.argsort(scores)[::-1][:top_k]
-
-    results = []
-    for idx in top_indices:
-        meta = _index_meta[idx]
-        score = float(scores[idx])
-        results.append({
-            "meta": meta,
-            "score": score,
-        })
-    return results
-
-
-def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Search the BM25 index for keyword matches."""
-    if _bm25_index is None:
-        return []
-
-    import jieba
-    tokens = list(jieba.cut_for_search(query))
-    if not tokens:
-        return []
-
-    scores = _bm25_index.get_scores(tokens)
-    top_indices = np.argsort(scores)[::-1][:top_k]
-
-    results = []
-    for idx in top_indices:
-        score = float(scores[idx])
-        if score <= 0:
-            continue
-        meta = _bm25_meta[idx]
-        results.append({
-            "meta": meta,
-            "score": score,
-        })
-    return results
-
-
-def rrf_fuse(vec_results: list, bm25_results: list, graph_results: list = None,
-             k: int = RRF_K, top_k: int = FINAL_TOP_K) -> list:
-    """Reciprocal Rank Fusion of multiple result lists.
-
-    Returns unified list of {meta, score} with RRF scores.
-    """
-    rrf_scores = {}  # record_idx -> {rrf, meta, vec_score, bm25_score, graph_score}
-    all_routes = [
-        ("vec", vec_results, "vec_score"),
-        ("bm25", bm25_results, "bm25_score"),
-    ]
-    if graph_results:
-        all_routes.append(("graph", graph_results, "graph_score"))
-
-    for route_name, results, score_key in all_routes:
-        for rank, result in enumerate(results):
-            rec_idx = result["meta"]["idx"]
-            if rec_idx not in rrf_scores:
-                rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
-                                       "vec_score": 0.0, "bm25_score": 0.0,
-                                       "graph_score": 0.0}
-            rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
-            rrf_scores[rec_idx][score_key] = result["score"]
-
-    # Sort by RRF score
-    fused = sorted(rrf_scores.values(), key=lambda x: -x["rrf"])[:top_k]
-
-    return [{
-        "meta": item["meta"],
-        "score": item["rrf"],
-        "vec_score": item["vec_score"],
-        "bm25_score": item["bm25_score"],
-        "graph_score": item.get("graph_score", 0),
-    } for item in fused]
-
-
-def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Graph-based retrieval with hop=1 neighbor expansion.
-
-    Hop=0: Match entities named in the query → get their associated records.
-    Hop=1: Expand to neighbors of matched entities → discover related records
-           the user didn't explicitly mention.
-
-    Super-node filter: neighbors with degree > MAX_HOP1_DEGREE are skipped
-    (e.g., "能量密度" degree=232 appears everywhere, not useful for expansion).
-
-    Co-occurrence boost: if multiple matched entities share a common neighbor,
-    that neighbor accumulates weight (naturally surfaces intersection topics).
-    """
-    if _entity_index is None:
-        return []
-
-    import jieba.posseg as pseg
-
-    # ── Hop=0: Match entities directly named in the query ──
-    words = pseg.cut(query)
-    query_terms = []
-    for word, flag in words:
-        word = word.strip()
-        if len(word) >= 2 and flag in ('n', 'nr', 'ns', 'nt', 'nz', 'vn', 'eng'):
-            query_terms.append(word)
-
-    matched_entities = set()
-    for entity_name in _entity_index:
-        if entity_name in query:
-            matched_entities.add(entity_name)
-    for term in query_terms:
-        for entity_name in _entity_index:
-            if term in entity_name or entity_name in term:
-                matched_entities.add(entity_name)
-
-    if not matched_entities:
-        return []
-
-    # ── Hop=1: Expand to neighbors of matched entities ──
-    hop1_entities = {}  # entity_name -> accumulated weight
-    if _graph_adj is not None:
-        for entity in matched_entities:
-            neighbors = _graph_adj.get(entity)
-            if not neighbors:
-                continue
-            for nbr in neighbors:
-                if nbr in matched_entities:
-                    continue
-                # Primary defense: super-node filter (high-degree entities)
-                nbr_info = _graph_nodes.get(nbr) if _graph_nodes else None
-                if nbr_info and nbr_info.get("degree", 0) > MAX_HOP1_DEGREE:
-                    continue
-                # Secondary heuristic: skip very short entity names (len<3).
-                # NOTE: Effect is limited — the real noise comes from high record-count
-                # entities with len>=3 (e.g. "人工智能（AI）" has 529 records at len=8).
-                # The degree filter above is the main defense.
-                if len(nbr) < 3:
-                    continue
-                hop1_entities[nbr] = hop1_entities.get(nbr, 0.0) + HOP1_WEIGHT
-
-        # Cap hop=1 expansion to prevent signal dilution
-        if len(hop1_entities) > MAX_HOP1_ENTITIES:
-            hop1_entities = dict(
-                sorted(hop1_entities.items(), key=lambda x: -x[1])[:MAX_HOP1_ENTITIES]
-            )
-
-    # ── Score records: hop=0 weight=1.0, hop=1 weight≈0.35 ──
-    record_scores = {}  # record_idx -> score
-    for entity in matched_entities:
-        for rec_idx in _entity_index.get(entity, set()):
-            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + 1.0
-    for entity, weight in hop1_entities.items():
-        for rec_idx in _entity_index.get(entity, set()):
-            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + weight
-
-    sorted_records = sorted(record_scores.items(), key=lambda x: -x[1])[:top_k]
-
-    # Build results using fast index lookup
-    results = []
-    for rec_idx, score in sorted_records:
-        meta = _idx_to_meta.get(rec_idx) if _idx_to_meta else None
-        if meta is None:
-            for m in _index_meta:
-                if m.get("idx") == rec_idx:
-                    meta = m
-                    break
-            if not meta:
-                for m in _bm25_meta:
-                    if m.get("idx") == rec_idx:
-                        meta = m
-                        break
-        if meta:
-            results.append({"meta": meta, "score": score})
-
-    print(f"[graph] hop0={len(matched_entities)} entities, "
-          f"hop1={len(hop1_entities)} neighbors, "
-          f"{len(record_scores)} candidate records", flush=True)
-
-    return results
+    """Load full record lookup from the LIVE module path (legacy mode)."""
+    _sync_shadow("_records", None)
+    records = _rt.load_records(lite_file=LITE_PATH)
+    _sync_shadow("_records", records)
+    return records
 
 
 def _keyword_fallback(query: str, history: list) -> str:
@@ -597,49 +428,20 @@ _retrieval_pipeline = None
 _shadow_diffs = []          # per-query drift records (bounded)
 
 
-def _bm25_tokenize(query: str) -> list:
-    """Tokenize a query the same way the BM25 corpus was tokenized."""
-    import jieba
-    return list(jieba.cut_for_search(query))
-
-
 def _get_retrieval_pipeline():
-    """Build the unified retrieval pipeline over the loaded indexes (lazy)."""
-    global _retrieval_pipeline
+    """Unified retrieval pipeline (RT-030): delegate to retrieval.runtime.
+
+    Snapshot-pinned in manifest mode; process-global legacy pipeline
+    otherwise (loads through the live server paths first — the reviewed
+    `_get_retrieval_pipeline` called load_vector_index()/load_bm25_index()
+    before assembling).
+    """
     snapshot = _request_runtime_snapshot.get()
     if snapshot is not None:
-        resources = snapshot.resources
-        if "retrieval_pipeline" in resources:
-            return resources["retrieval_pipeline"]
-        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
-        required = ("vector_index", "index_meta", "bm25_index", "bm25_meta")
-        missing = [name for name in required if name not in resources]
-        if missing:
-            raise RuntimeError(f"pinned runtime {snapshot.manifest_id} incomplete: {missing}")
-        graph_fn = resources.get("graph_search", lambda q, k: [])
-        pipeline = (
-            VectorRetriever(embeddings=resources["vector_index"], meta=resources["index_meta"]),
-            BM25Retriever(bm25_index=resources["bm25_index"], meta=resources["bm25_meta"], tokenize_fn=_bm25_tokenize),
-            GraphRetriever(graph_search_fn=graph_fn),
-            RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K),
-        )
-        resources["retrieval_pipeline"] = pipeline
-        resources["record_id_to_meta"] = {m["record_id"]: m for m in resources["index_meta"]}
-        return pipeline
-    if _retrieval_pipeline is None:
-        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
-        load_vector_index()
-        load_bm25_index()
-
-        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta, allow_legacy_idx=True)
-        br = BM25Retriever(bm25_index=_bm25_index, meta=_bm25_meta,
-                           tokenize_fn=_bm25_tokenize, allow_legacy_idx=True)
-        gr = GraphRetriever(graph_search_fn=lambda q, k: [
-            (r["meta"]["idx"], r["score"]) for r in graph_search(q, k)
-        ], allow_legacy_idx=True)
-        fuse = RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K)
-        _retrieval_pipeline = (vr, br, gr, fuse)
-    return _retrieval_pipeline
+        return _rt.snapshot_pipeline(snapshot)
+    load_vector_index()
+    load_bm25_index()
+    return _rt.legacy_pipeline()
 
 
 async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
@@ -656,89 +458,22 @@ async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
 
 
 async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple:
-    """Unified retrieval layer path (TK-05). Same contract as legacy:
+    """Unified retrieval layer path (TK-05/RT-030). Same contract as legacy:
     (results, is_relevant) with legacy result dict shape.
 
-    Parity invariants vs legacy (locked by tests_parity.py):
-      - RRF score = 1/(position0 + k), position over each route's own ranking
-      - route scores carried through as vec/bm25/graph_score
-      - BM25 drops score<=0 candidates
-      - meta taken from the record index (identical across routes)
+    Implementation now lives in retrieval/runtime.run_hybrid (RT-030);
+    server keeps only the request-pinned snapshot handoff. Parity
+    invariants (locked by tests_parity.py frozen gate-1 baselines) are
+    documented there and preserved bit-for-bit.
     """
-
-    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
-    vr, br, gr, fuse = _get_retrieval_pipeline()
-
-    async def _vector_route():
-        query_emb = await embedding_func([query])
-        qv = np.array(query_emb[0], dtype=np.float32)
-        qv = qv / max(np.linalg.norm(qv), 1e-8)
-        return vr.search(qv, top_k=fetch_k)
-
-    vec_res, bm25_res, graph_res = await asyncio.gather(
-        _vector_route(),
-        asyncio.to_thread(br.search, query, fetch_k),
-        asyncio.to_thread(gr.search, query, fetch_k),
-    )
-
-    # Parity invariant: legacy rrf_fuse scores 1/(position0 + k); the
-    # retrieval layer's RetrievalResult.rank is 1-based. Reset ranks to the
-    # 0-based list position so fused scores are bit-identical to legacy.
-    for route_results in (vec_res, bm25_res, graph_res):
-        for pos, rr_ in enumerate(route_results):
-            rr_.rank = pos
-
-    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
-    fused = fuse.fuse({"vector": vec_res, "bm25": bm25_res,
-                       "graph": graph_res}, top_k=fuse_top_k)
-
-    # Rebuild meta lookup lazily (graph-only records need full meta)
-    global _idx_to_meta
     snapshot = _request_runtime_snapshot.get()
-    if snapshot is not None:
-        meta_lookup = snapshot.resources["record_id_to_meta"]
-    else:
-        if _idx_to_meta is None:
-            _idx_to_meta = {m["idx"]: m for m in _index_meta}
-        meta_lookup = _idx_to_meta
+    # server-side pipeline resolution keeps the live-path loading seam
+    # (tests patch server.INDEX_FILE/BM25_FILE/LITE_PATH before first use)
+    pipeline = _get_retrieval_pipeline()
+    return await _rt.run_hybrid(query, snapshot=snapshot, exclude_ids=exclude_ids,
+                                embed_fn=embedding_func, pipeline=pipeline)
 
-    results = []
-    for r in fused:
-        meta = meta_lookup.get(r.record_id, r.meta or {})
-        det = r.route_details or {}
-        results.append({
-            "record_id": r.record_id,
-            "legacy_idx": r.legacy_idx,
-            "meta": meta,
-            "score": r.raw_score,
-            # RRFFusion route_details keys are {route}_score (retrieval/fusion.py):
-            # vector_score / bm25_score / graph_score. These feed the relevance
-            # quality gate (VEC_STRONG / GRAPH_STRONG) — must never default to 0.
-            "vec_score": det.get("vector_score", det.get("vector", 0.0)),
-            "bm25_score": det.get("bm25_score", det.get("bm25", 0.0)),
-            "graph_score": det.get("graph_score", det.get("graph", 0.0)),
-        })
 
-    if exclude_ids:
-        before = len(results)
-        results = [r for r in results
-                   if r["record_id"] not in exclude_ids and r.get("legacy_idx") not in exclude_ids]
-        excluded_count = before - len(results)
-        results = results[:FINAL_TOP_K]
-        if excluded_count:
-            print(f"[search] Excluded {excluded_count} previously cited, "
-                  f"{len(results)} remaining", flush=True)
-    else:
-        results = results[:FINAL_TOP_K]
-
-    # Quality gate: require semantic signal (vec or graph), not BM25 alone
-    is_relevant = False
-    if results:
-        has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
-        has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
-        is_relevant = has_strong_vec or has_strong_graph
-
-    return results, is_relevant
 # ── end TK-05 wiring ─────────────────────────────────────────────────────────
 
 
@@ -998,33 +733,18 @@ async def lifespan(app: FastAPI):
         raise RuntimeError(f"unsupported TECH_DB_RUNTIME_MODE: {runtime_mode}")
     _runtime_snapshot_manager = None
     print("[startup] Explicit legacy_hybrid runtime-v1 profile", flush=True)
+    # RT-030: index loading + meta-lookup build delegated to retrieval.runtime
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
     load_bm25_index()
-
     print("[startup] Loading knowledge graph...", flush=True)
     load_graph_index()
-
     # Build fast record_idx → meta lookup (avoids linear scan in graph_search)
-    global _idx_to_meta
-    _idx_to_meta = {}
-    for m in _index_meta:
-        _idx_to_meta[m["idx"]] = m
-    for m in _bm25_meta:
-        if m["idx"] not in _idx_to_meta:
-            _idx_to_meta[m["idx"]] = m
-    print(f"[startup] Index meta lookup: {len(_idx_to_meta)} records", flush=True)
+    build_idx_meta_lookup()
 
-    # Load jieba custom dictionary for query tokenization — moved into
-    # load_bm25_index() (codex-review C2 P1) so non-lifespan callers share
-    # the same tokenization; the lifespan block now only needs idempotence.
-    if JIEBA_DICT.exists():
-        import jieba
-        jieba.load_userdict(str(JIEBA_DICT))
-
-    load_records()
-    print(f"[startup] Records loaded: {len(_records)}", flush=True)
+    _records_cache[:] = [load_records()]
+    print(f"[startup] Records loaded: {len(_records_cache[0])}", flush=True)
     print("[startup] Ready!", flush=True)
     yield
     print("[shutdown] Cleaning up...", flush=True)
