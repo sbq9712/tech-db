@@ -78,6 +78,7 @@ closed; see "Ticket Closure & Evidence Chain" below.
 | QA_KNOWLEDGE_BOUNDARY_ENABLED | true | Knowledge boundary message (TK-06/R9) |
 | QA_EXACT_GROUNDING_ENABLED | true | Exact-span citation grounding on SourceSnapshot (RT-020) |
 | QA_TERMINAL_RENDERER_ENABLED | true | Buffered terminal rendering + post-verification citations (RT-027) |
+| QA_EVIDENCE_PACKAGE_ENABLED | false | Phase03 typed EvidencePackage generation path (RT-030..039; on in agentic_full only) |
 
 ## Ticket Closure & Evidence Chain
 | Ticket | Scope | Evidence |
@@ -204,3 +205,111 @@ linger 已启用（VM 启动即拉起全部服务）。
 - RT-028 引用 schema 2.0.0（snapshot_id/locators/support_relations/degraded/diagnostics；旧字段兼容）
 - RT-029 前端证据态渲染（schema 版本失效、关系 chip、UNVERIFIED 横幅、locator chip）
 验收矩阵：36 个 legacy DoD 依 Phase-02 证据升级 SATISFIED；6 个诚实保持 NOT_SATISFIED；T037 硬门禁未动。
+
+## Phase 03 (2026-08-18) — retrieval→EvidencePackage chain (RT-030..RT-039)
+
+分支 `remediation/phase-03-retrieval-evidence-package`（Draft PR #4），评审基线 2869742。
+完成报告见 `docs/remediation/phase03_completion_report.md`。
+
+### 评审 round 1 整改（10 blockers，全部闭环）
+
+1. **RT-030 权限与 parity**：删除 server.py L197 处对 injectable 检索 wrapper 的
+   覆盖（`vector_search = _rt.vector_search` 等三行）——patched
+   `server.embedding_func` 重新生效，CI（无 torch）不再 ModuleNotFoundError；
+   恢复 Phase02 语义 `is_relevant = strong_vector OR strong_graph`
+   （移除未授权 `or bm25` 分支）；回归测试锁定（bm25-only 不翻转相关性、
+   strong vector 仍翻转、embedding seam 探针）。
+2. **RT-031 生产路径高召回**：新增 `retrieval.runtime.run_routes`
+   （per-route 真排名 1-based、exclude 过滤、ROUTE_TOP_K=50 上限）；
+   `_run_phase03_context` 以 raw route 结果为 pool 源（不再消费
+   run_hybrid 已截断的 Top25）。生产 E2E：融合排名 34（>25）的目标记录
+   在 legacy 表面被丢弃，却经真实 server 路径进入 rerank→selection→citations。
+3. **RT-033 真实输入**：comparison objects/dimensions 来自显式对比句式
+   （vs/对比/和…哪个 + 维度模式），provenance 来自 Phase-02
+   `cluster_provenance`（idx→record_id 重映射），independent groups、
+   route outlier（raw route 单路强信号 + rrf_rank>25）全部接入；
+   关键词由查询内容词确定性派生（Phase-04 分解边界如实文档化）。
+4. **RT-034 硬规则全量接线**：pipeline 产出 `evidence_eligibility` 统一键；
+   GATE A（选择前：QUARANTINED/RETRIEVAL_ONLY/ACCESS_SCOPE/synthetic-only/
+   无 pinned 权限）+ GATE B（选择后：HIGH 冲突/数值自矛盾/关系断言对
+   temporal intent 无效/self-report-only/superseded-only）→ blocked 记录降级
+   CONFLICT/INVALID、claim 级阻断清空 support → `no_evidence` 显式降级。
+   生产 E2E 负例 8 连（隔离/仅检索/越权访问 scope+匹配放行对照/自述/
+   被取代/高冲突双降级/数值无效/关系无效）全部通过真实 server 路径验证。
+5. **RT-035 选择前后双 policy**：选择集只从 policy-cleared 候选产生；
+   注入/未选择内容 E2E：未选择 sentinel 不进入渲染上下文，选中证据
+   一律 DATA 边界包裹。
+6. **RT-032 合成内容隔离**：synthetic-only（仅 meta["as"] 可解析内容）
+   候选 rerank 分恒 0、`counts_as_evidence=False`；GLM 路径将其隔离出
+   listwise 输入并在回填时强制 0 分——任何 top_k 截断下都无法挤掉
+   source-grounded 证据。
+7. **trusted 模式 fail-closed**：`Phase03AuthorityError`；无 pinned
+   snapshot / pinned catalog 为空 → 拒绝生成（不再制造 `rec:<id>` 快照 id）。
+   进程内 + 真实 SSE 端点双重 E2E（stop_reason=
+   `phase03_missing_pinned_authority`）。
+8. **RT-038 hash 绑定最终对象**：`PackedGenerationView`（不可变视图，
+   view_hash 绑定压缩/裁剪后的精确内容；canonical package 不可变）；
+   压缩/丢弃/abstain 全路径 hash 一致性 4 用例锁定。
+9. **benchmark 生产路径化**：`tests_benchmark_phase03.py` 新增
+   production-path benchmark（真实 pinned release →
+   `server._run_phase03_context`）：rank26 生存率 1.0、selector 覆盖 1.0、
+   延迟差值如实上报（legacy 1.25ms vs phase03 19.6ms，阈值 ≤max(50ms,4×)）。
+10. **CI 全绿**：push tier 757/757（33 suites），phase03 112/112，
+    benchmark 3/3，parity 5/5，lint/verify spec 通过；
+    acceptance_matrix 新增 40 个生产路径用例登记（sha 重算）。
+
+### Phase 03 交付面（第一轮 + 整改合并）
+- RT-030/031/032/033/034/035/036/037/038/039 全绿（详见完成报告）。
+- EvidencePackage schema 3.1.0（policy_reasons、NON_SUPPORT_RELATIONS、
+  view 绑定）；pipeline 3.1.0；Citations 携带 evidence_id/source_snapshot_id。
+- 生产语义：FAST_RAG 池上限 80 / RESEARCH·DEEP 180、ROUTE_TOP_K 50、
+  RERANK_CAPACITY 40、MAX_EVIDENCE_SLOTS 15。
+
+### Phase 03 — 第二轮验收整改（2026-08-24，blockers A/B/C/D）
+
+1. **Blocker A（RT-031 全端点预门控顺序）**：`/api/chat/stream` 中
+   Phase03 块移到 legacy weak-query 门控之前——`EVIDENCE_PACKAGE_ENABLED`
+   开启时，legacy Top25/`is_relevant` 只是 legacy 决策面，绝不再作为
+   权威预门控终止请求；Phase03 的 `no_evidence`/policy/容量结果就是
+   证据决策。四态答案状态同步修正（`has_results`/`is_relevant` 以
+   Phase03 激活为准），legacy weak_query 不再污染成功回答的状态。
+   关闭 flag 时路径字节兼容（legacy 配置零削弱、FINAL_TOP_K 不变）。
+   新增 FULL HTTP/SSE E2E（真实 TestClient + RuntimePinMiddleware 路径）：
+   全向量 cos<0.55 的 fixture（legacy 必拒）下 Phase03 照常产出
+   EvidencePackage，rank34 目标进入 selection/citations/generation 上下文，
+   上下文只含选中证据；同一 fixture 关 flag 后仍走原样 weak_query 拒答。
+2. **Blocker B（RT-033 对象×维度配对预留）**：`apply_reserve` 新增
+   PAIR 级预留（`RESERVE_COMPARISON_OBJECT_DIMENSION`，key=`obj|dim`
+   双轴稳定键）；候选必须同时内容命中两轴且带真实路由信号
+   （`requirement_matched=False`，纯 token 匹配的垃圾不可存活）。
+   A/B/C 失衡 fixture（alpha 独占 30 容量头 + 单轴槽位被消耗 + B/C
+   落在 31..34 位）下，预留+容量交换后 6 对全部有幸存者；关闭配对
+   预留（`QA_RESERVE_PAIR_ENABLED=0`/ablation seam）同 fixture 必败。
+3. **Blocker C（RT-034 provenance + 实体/维度硬规则）**：同一个
+   `EvidencePolicyEngine.evaluate()`（FAST/RESEARCH/DEEP 共用，无并行
+   引擎）新增 `check_provenance`（同一 `independent_group_id` 的转发/
+   重复稿只算一个独立来源；`POLICY_PROVENANCE_INSUFFICIENT`）与
+   `check_entity_coverage`（`POLICY_ENTITY_MISSING`/
+   `POLICY_DIMENSION_MISSING`，含 obj×dim 配对覆盖）。结构化输入
+   真正可用时确定性检查；不可用（Phase04 未产出）时在
+   `rule_applicability` 如实记 `NOT_APPLICABLE`——不伪造通过、不静默
+   跳过。生产路径 E2E：同一 wire URL 的转发簇在独立性查询下
+   no_evidence，不同 wire 的正控通过。
+4. **Blocker D（RT-038 packed-view 证据语义）**：`support_evidence_ids`
+   只解析到 `counts_as_evidence=True` 且 relation ∈ SUPPORT_RELATIONS
+   的条目；压缩导航卡不再是可信支持——非关键需求因打包失去唯一支持
+   时 coverage 如实降为 MISSING/GAP；mandatory 保持原文或显式
+   `context_capacity_exceeded` abstain。`validate()` 强化：拒绝
+   非证据支持引用、非支持关系、COVERED 但零证据支持、mandatory 被
+   压缩（无显式 abstain）、悬空引用、陈旧 hash。
+   `binding_payload` 绑定全部 Generator 可见字段（schema、query、
+   gaps、degraded_capabilities、selection_floor、完整 capacity、
+   dropped_ids 等）。渲染端导航卡只出现在独立非证据区块，
+   需求区只渲染证据条目（缺失即明示"缺失证据"）。3 组 mutation
+   用例（degraded 变更→stale hash；压缩支持不可信；导航卡不作为
+   证据渲染）全部锁定。
+5. **回归保持**：第一轮已接受项零重写；push tier 784/784
+   （33 suites，+27 用例），phase03 139/139，benchmark 3/3，
+   parity 5/5，verify_spec_manifest 7/7；acceptance_matrix 登记
+   RT-031.DOD-04 / RT-033.DOD-03 / RT-034.DOD-03 / RT-038.DOD-04
+   （acceptance_matrix_sha256 与 spec_hash 已重算）。

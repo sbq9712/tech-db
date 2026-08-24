@@ -63,7 +63,7 @@ VERIFICATION_TRANSITIONS = {
 VALIDATION_BLOCKING_COMPONENTS = {
     "verifier", "claim_mapping", "citation_grounding", "entailment",
     "numeric_check", "answer_state_machine", "coverage_gate",
-    "evidence_grader",
+    "evidence_grader", "claim_lineage",
 }
 
 TERMINAL_STATUSES = {s.value for s in AnswerStatus}

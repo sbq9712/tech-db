@@ -351,7 +351,18 @@ def claim_independence_report(claims: list,
             pm = provenance_map.get(rid, {})
             lin = s.get("span_lineage") or span_lineage(rec, pm,
                                                         s.get("evidence_span", ""))
-            gid = lin.get("independent_group_id") or f"record:{rid}"
+            raw_gid = lin.get("independent_group_id")
+            if raw_gid:
+                gid = raw_gid
+            elif rid in provenance_map:
+                # An explicit pinned provenance entry with no known group is
+                # UNKNOWN, not evidence that this record is independently
+                # sourced. Collapse unknowns honestly rather than fabricating
+                # one unique group per record. The record fallback remains
+                # only for callers that supplied no provenance entry at all.
+                gid = "__PROVENANCE_UNKNOWN__"
+            else:
+                gid = f"record:{rid}"
             entry = groups.setdefault(gid, {
                 "group": gid,
                 "roles": set(),

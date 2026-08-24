@@ -74,18 +74,105 @@ INDEX_FILE = WORKING_DIR / "vector_index_v2.pkl"
 BM25_FILE = WORKING_DIR / "bm25_index.pkl"
 JIEBA_DICT = WORKING_DIR / "jieba_custom_dict.txt"
 
-# ── Global state ──
-_vector_index = None  # numpy array (N, 1024)
-_index_meta = None    # list of metadata dicts
-_bm25_index = None    # BM25Okapi instance
-_bm25_meta = None     # BM25 metadata list
-_bm25_corpus = None   # tokenized corpus for BM25
-_records = None       # full records from all-records-lite.json
-_graph_data = None    # graph-export.json data (nodes, edges, entity_to_records)
-_entity_index = None  # entity_name -> set of record indices
-_graph_adj = None     # entity_name -> set of neighbor entity_names (adjacency from edges)
-_graph_nodes = None   # entity_name -> node info dict (type, degree, description)
-_idx_to_meta = None   # record_idx -> meta dict (fast lookup, avoids linear scan)
+# ── Global state / core retrieval (RT-030) ─────────────────────────────────
+# Core Vector/BM25/Graph index loading + search algorithms MOVED to
+# retrieval/runtime.py; server.py keeps API glue only (admission, request
+# orchestration, profile dispatch, SSE serialization). The re-exports below
+# preserve the frozen parity surfaces (tests_parity.py gate-1 baselines,
+# parity.py, epistemic.load_records) — thin delegates, NOT a second parallel
+# implementation.
+import retrieval.runtime as _rt
+
+graph_search = _rt.graph_search
+_bm25_tokenize = _rt.bm25_tokenize
+
+# Frozen constant surface (values moved verbatim; re-exported for consumers)
+RRF_K = _rt.RRF_K
+RETRIEVAL_TOP_K = _rt.RETRIEVAL_TOP_K
+FINAL_TOP_K = _rt.FINAL_TOP_K
+RELEVANCE_FLOOR = _rt.RELEVANCE_FLOOR
+VEC_STRONG = _rt.VEC_STRONG
+BM25_STRONG = _rt.BM25_STRONG
+GRAPH_STRONG = _rt.GRAPH_STRONG
+MIN_STRONG_RESULTS = _rt.MIN_STRONG_RESULTS
+MAX_HOP1_DEGREE = _rt.MAX_HOP1_DEGREE
+HOP1_WEIGHT = _rt.HOP1_WEIGHT
+MAX_HOP1_ENTITIES = _rt.MAX_HOP1_ENTITIES
+FETCH_K_CAP = _rt.FETCH_K_CAP
+
+
+
+def _sync_shadow(attr: str, value) -> None:
+    """Write loaded state back to an explicitly-shadowed server global.
+
+    RT-030 moved the index globals into retrieval.runtime, but the frozen
+    test seam resets them by assigning server.<attr> = None and expects the
+    next loader call to reload from the (possibly patched) live paths.
+    Shadow-sync keeps that contract: a None-shadow clears runtime state
+    before loading; a loaded result refreshes any existing shadow.
+    """
+    g = globals()
+    if attr in g:
+        if g[attr] is None and value is None:
+            setattr(_rt, attr, None)
+        if value is not None:
+            g[attr] = value
+
+
+def load_vector_index():
+    """Load vector index from the LIVE module paths (test patches honored)."""
+    _sync_shadow("_index_meta", None)
+    _sync_shadow("_vector_index", None)
+    _rt.load_vector_index(vector_file=INDEX_FILE, fallback_file=WORKING_DIR / "vector_index.pkl")
+    _sync_shadow("_index_meta", _rt._index_meta)
+    _sync_shadow("_vector_index", _rt._vector_index)
+
+
+def load_bm25_index():
+    """Load BM25 index from the LIVE module paths (test patches honored)."""
+    _sync_shadow("_bm25_index", None)
+    _sync_shadow("_bm25_meta", None)
+    _sync_shadow("_bm25_corpus", None)
+    _rt.load_bm25_index(bm25_file=BM25_FILE, jieba_file=JIEBA_DICT)
+    _sync_shadow("_bm25_index", _rt._bm25_index)
+    _sync_shadow("_bm25_meta", _rt._bm25_meta)
+    _sync_shadow("_bm25_corpus", _rt._bm25_corpus)
+
+
+def load_graph_index():
+    """Load graph export from the LIVE module path (test patches honored)."""
+    _sync_shadow("_graph_data", None)
+    _sync_shadow("_entity_index", None)
+    _sync_shadow("_graph_adj", None)
+    _sync_shadow("_graph_nodes", None)
+    _rt.load_graph_index(graph_file=WORKING_DIR / "graph-export.json")
+    _sync_shadow("_graph_data", _rt._graph_data)
+    _sync_shadow("_entity_index", _rt._entity_index)
+    _sync_shadow("_graph_adj", _rt._graph_adj)
+    _sync_shadow("_graph_nodes", _rt._graph_nodes)
+
+
+def build_idx_meta_lookup():
+    """Rebuild the record_idx→meta fast lookup from loaded state."""
+    _sync_shadow("_idx_to_meta", None)
+    _rt.build_idx_meta_lookup()
+    _sync_shadow("_idx_to_meta", _rt._idx_to_meta)
+
+async def vector_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Frozen parity surface — delegates with the live embedding seam."""
+    return await _rt.vector_search(query, top_k=top_k, embed_fn=embedding_func)
+
+
+def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
+    """Frozen parity surface — delegates to retrieval.runtime."""
+    return _rt.bm25_search(query, top_k=top_k)
+
+
+def rrf_fuse(vec_results, bm25_results, graph_results=None, k=RRF_K, top_k=FINAL_TOP_K):
+    """Frozen parity surface — delegates to retrieval.runtime."""
+    return _rt.rrf_fuse(vec_results, bm25_results, graph_results=graph_results,
+                        k=k, top_k=top_k)
+
 _request_runtime_snapshot = ContextVar("techdb_runtime_snapshot", default=None)
 
 
@@ -97,309 +184,64 @@ def _runtime_resource(name, legacy_value):
         raise RuntimeError(f"pinned runtime {snapshot.manifest_id} missing resource {name}")
     return snapshot.resources[name]
 
-# ── RRF parameters ──
-RRF_K = 60          # RRF constant (1/(rank+k))
-RETRIEVAL_TOP_K = 50  # candidates per route
-FINAL_TOP_K = 25     # max records after fusion
-RELEVANCE_FLOOR = 0.3  # vector similarity floor for "honest answer" trigger
-
-# ── Quality gates ──
-# Strict thresholds: a route must clear these to count as a "strong signal"
-VEC_STRONG = 0.55    # PROVISIONAL: based on n=2 sample calibration (good ~0.65-0.71, bad ~0.50-0.54).
-                      # Not a permanent value — needs validation with broader query types
-                      # (specific entities, English, typos, ultra-broad queries) before fixing.
-BM25_STRONG = 5.0    # BM25 score for confident match (noise queries still get ~2-4)
-GRAPH_STRONG = 5.0   # Graph hit count for confident match (noise queries get ~4)
-# Topic exhaustion: when excluding records (novelty follow-up), if NO remaining
-# result clears ANY strong threshold, the topic is likely exhausted
-MIN_STRONG_RESULTS = 3  # need at least this many strong results to avoid "exhausted"
-
-# ── Graph hop=1 expansion parameters ──
-MAX_HOP1_DEGREE = 20    # Skip hop=1 neighbors with degree > this (super-node filter)
-HOP1_WEIGHT = 0.35      # Score weight for hop=1 entities (hop=0 = 1.0)
-MAX_HOP1_ENTITIES = 40  # Cap total hop=1 expansion entities to prevent explosion
-
-# ── Novelty exclusion ──
-FETCH_K_CAP = 200       # Hard cap on fetch_k to bound retrieval cost for long conversations.
-
-# ── Public-service guardrails ──
 GUARDRAILS = GuardrailSettings()
 RATE_LIMITER = RateLimiter(GUARDRAILS)
 BUDGET_FUSE = BudgetFuse(GUARDRAILS, RUNTIME_DIR / "state" / "usage.json")
 CHAT_SEMAPHORE = asyncio.Semaphore(GUARDRAILS.concurrency)
 
 
-def load_vector_index():
-    """Load the pre-built vector index."""
-    global _vector_index, _index_meta
-    if _vector_index is not None:
-        return
-    # Try v2 first, fall back to v1
-    idx_file = INDEX_FILE if INDEX_FILE.exists() else WORKING_DIR / "vector_index.pkl"
-    if idx_file.exists():
-        print(f"[startup] Loading vector index from {idx_file.name}...", flush=True)
-        with open(idx_file, "rb") as f:
-            data = pickle.load(f)
-        _vector_index = data["embeddings"]
-        _index_meta = data["meta"]
-        print(f"[startup] Vector index loaded: {len(_index_meta)} records, dim={data['dim']}", flush=True)
-    else:
-        print(f"[startup] WARNING: No vector index found", flush=True)
+# Route/search functions and index loaders now live in retrieval/runtime.py
+# (RT-030). The INJECTABLE PARITY SEAM defined above stays live: the frozen
+# parity surface calls server.vector_search / server.bm25_search /
+# server.rrf_fuse / server.graph_search, and tests patch
+# server.embedding_func — server.vector_search therefore MUST resolve its
+# embedding through the server module global at call time (review blocker 1:
+# rebinding `vector_search = _rt.vector_search` here dropped the seam and
+# made CI (no torch) crash through config.embedding_func).
+# server.graph_search is bound above (no embedding seam involved).
 
 
-def load_bm25_index():
-    """Load the pre-built BM25 index (and the query-side custom dict)."""
-    global _bm25_index, _bm25_meta, _bm25_corpus
-    if _bm25_index is not None:
-        return
-    if BM25_FILE.exists():
-        print(f"[startup] Loading BM25 index...", flush=True)
-        with open(BM25_FILE, "rb") as f:
-            data = pickle.load(f)
-        _bm25_index = data["bm25"]
-        _bm25_meta = data["meta"]
-        _bm25_corpus = data.get("corpus_tokens")
-        # Codex-review C2 P1 fix: the custom jieba dict used at INDEX BUILD
-        # time must also be loaded for QUERY tokenization wherever the BM25
-        # index is loaded — parity.py calls this directly (bypassing the
-        # FastAPI lifespan that used to be the only loader), so baselines
-        # previously tokenized queries differently from the live path.
-        if JIEBA_DICT.exists():
-            import jieba
-            jieba.load_userdict(str(JIEBA_DICT))
-            print("[startup] Jieba custom dict loaded", flush=True)
-        print(f"[startup] BM25 index loaded: {len(_bm25_meta)} documents", flush=True)
-    else:
-        print(f"[startup] BM25 index not found (hybrid search disabled)", flush=True)
+_records_cache = []  # [(records_list)] — lifespan cache (legacy mode)
 
 
-def load_graph_index():
-    """Load knowledge graph: entity→record mapping + adjacency list + node lookup."""
-    global _graph_data, _entity_index, _graph_adj, _graph_nodes
-    if _graph_data is not None:
-        return
-    graph_file = WORKING_DIR / "graph-export.json"
-    if graph_file.exists():
-        print(f"[startup] Loading knowledge graph...", flush=True)
-        _graph_data = json.loads(graph_file.read_text("utf-8"))
-        e2r = _graph_data.get("entity_to_records", {})
-        _entity_index = {k: set(v) for k, v in e2r.items()}
+def _legacy_state(name):
+    """Proxy legacy index globals to retrieval.runtime state (RT-030)."""
+    return getattr(_rt, name)
 
-        # Build adjacency list from edges (for hop=1 neighbor expansion)
-        _graph_adj = {}
-        for e in _graph_data.get("edges", []):
-            s, t = e.get("source"), e.get("target")
-            if s and t:
-                _graph_adj.setdefault(s, set()).add(t)
-                _graph_adj.setdefault(t, set()).add(s)
 
-        # Build node lookup (for degree/type filtering)
-        _graph_nodes = {n["id"]: n for n in _graph_data.get("nodes", [])}
-
-        print(f"[startup] Graph loaded: {len(_graph_data.get('nodes',[]))} nodes, "
-              f"{len(_graph_data.get('edges',[]))} edges, "
-              f"{len(_entity_index)} entity→record mappings, "
-              f"{len(_graph_adj)} adjacency entries", flush=True)
-    else:
-        print(f"[startup] Knowledge graph not found (graph search disabled)", flush=True)
+def __getattr__(name):
+    # Module-level proxy for the moved legacy globals: tests and internal
+    # readers keep transparent access (server._index_meta, server._records,
+    # ...) while the state itself lives in retrieval.runtime.
+    _proxied = {
+        "_vector_index", "_index_meta", "_bm25_index", "_bm25_meta",
+        "_bm25_corpus", "_graph_data", "_entity_index", "_graph_adj",
+        "_graph_nodes", "_idx_to_meta", "_records",
+    }
+    if name in _proxied:
+        if name == "_records":
+            # Parity: the pre-RT-030 global was None until lifespan loaded it —
+            # the proxy must NOT eagerly load (tests patch LITE_PATH first).
+            return _records_cache[0] if _records_cache else None
+        return getattr(_rt, name)
+    raise AttributeError(f"module 'server' has no attribute {name!r}")
 
 
 def load_records():
-    """Load all-records-lite.json for full record lookup."""
-    global _records
-    if _records is None:
-        _records = json.loads(LITE_PATH.read_text("utf-8"))
-    return _records
+    """Load full record lookup from the LIVE module path (legacy mode)."""
+    _sync_shadow("_records", None)
+    records = _rt.load_records(lite_file=LITE_PATH)
+    _sync_shadow("_records", records)
+    return records
 
 
-async def vector_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Search the vector index for the most similar records."""
-    if _vector_index is None:
-        return []
-
-    # Embed the query
-    query_emb = await embedding_func([query])
-    query_vec = np.array(query_emb[0], dtype=np.float32)
-    query_vec = query_vec / max(np.linalg.norm(query_vec), 1e-8)
-
-    # Cosine similarity (embeddings are pre-normalized)
-    scores = _vector_index @ query_vec
-
-    # Get top_k indices
-    top_indices = np.argsort(scores)[::-1][:top_k]
-
-    results = []
-    for idx in top_indices:
-        meta = _index_meta[idx]
-        score = float(scores[idx])
-        results.append({
-            "meta": meta,
-            "score": score,
-        })
-    return results
-
-
-def bm25_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Search the BM25 index for keyword matches."""
-    if _bm25_index is None:
-        return []
-
-    import jieba
-    tokens = list(jieba.cut_for_search(query))
-    if not tokens:
-        return []
-
-    scores = _bm25_index.get_scores(tokens)
-    top_indices = np.argsort(scores)[::-1][:top_k]
-
-    results = []
-    for idx in top_indices:
-        score = float(scores[idx])
-        if score <= 0:
-            continue
-        meta = _bm25_meta[idx]
-        results.append({
-            "meta": meta,
-            "score": score,
-        })
-    return results
-
-
-def rrf_fuse(vec_results: list, bm25_results: list, graph_results: list = None,
-             k: int = RRF_K, top_k: int = FINAL_TOP_K) -> list:
-    """Reciprocal Rank Fusion of multiple result lists.
-
-    Returns unified list of {meta, score} with RRF scores.
-    """
-    rrf_scores = {}  # record_idx -> {rrf, meta, vec_score, bm25_score, graph_score}
-    all_routes = [
-        ("vec", vec_results, "vec_score"),
-        ("bm25", bm25_results, "bm25_score"),
-    ]
-    if graph_results:
-        all_routes.append(("graph", graph_results, "graph_score"))
-
-    for route_name, results, score_key in all_routes:
-        for rank, result in enumerate(results):
-            rec_idx = result["meta"]["idx"]
-            if rec_idx not in rrf_scores:
-                rrf_scores[rec_idx] = {"rrf": 0.0, "meta": result["meta"],
-                                       "vec_score": 0.0, "bm25_score": 0.0,
-                                       "graph_score": 0.0}
-            rrf_scores[rec_idx]["rrf"] += 1.0 / (rank + k)
-            rrf_scores[rec_idx][score_key] = result["score"]
-
-    # Sort by RRF score
-    fused = sorted(rrf_scores.values(), key=lambda x: -x["rrf"])[:top_k]
-
-    return [{
-        "meta": item["meta"],
-        "score": item["rrf"],
-        "vec_score": item["vec_score"],
-        "bm25_score": item["bm25_score"],
-        "graph_score": item.get("graph_score", 0),
-    } for item in fused]
-
-
-def graph_search(query: str, top_k: int = RETRIEVAL_TOP_K) -> list:
-    """Graph-based retrieval with hop=1 neighbor expansion.
-
-    Hop=0: Match entities named in the query → get their associated records.
-    Hop=1: Expand to neighbors of matched entities → discover related records
-           the user didn't explicitly mention.
-
-    Super-node filter: neighbors with degree > MAX_HOP1_DEGREE are skipped
-    (e.g., "能量密度" degree=232 appears everywhere, not useful for expansion).
-
-    Co-occurrence boost: if multiple matched entities share a common neighbor,
-    that neighbor accumulates weight (naturally surfaces intersection topics).
-    """
-    if _entity_index is None:
-        return []
-
-    import jieba.posseg as pseg
-
-    # ── Hop=0: Match entities directly named in the query ──
-    words = pseg.cut(query)
-    query_terms = []
-    for word, flag in words:
-        word = word.strip()
-        if len(word) >= 2 and flag in ('n', 'nr', 'ns', 'nt', 'nz', 'vn', 'eng'):
-            query_terms.append(word)
-
-    matched_entities = set()
-    for entity_name in _entity_index:
-        if entity_name in query:
-            matched_entities.add(entity_name)
-    for term in query_terms:
-        for entity_name in _entity_index:
-            if term in entity_name or entity_name in term:
-                matched_entities.add(entity_name)
-
-    if not matched_entities:
-        return []
-
-    # ── Hop=1: Expand to neighbors of matched entities ──
-    hop1_entities = {}  # entity_name -> accumulated weight
-    if _graph_adj is not None:
-        for entity in matched_entities:
-            neighbors = _graph_adj.get(entity)
-            if not neighbors:
-                continue
-            for nbr in neighbors:
-                if nbr in matched_entities:
-                    continue
-                # Primary defense: super-node filter (high-degree entities)
-                nbr_info = _graph_nodes.get(nbr) if _graph_nodes else None
-                if nbr_info and nbr_info.get("degree", 0) > MAX_HOP1_DEGREE:
-                    continue
-                # Secondary heuristic: skip very short entity names (len<3).
-                # NOTE: Effect is limited — the real noise comes from high record-count
-                # entities with len>=3 (e.g. "人工智能（AI）" has 529 records at len=8).
-                # The degree filter above is the main defense.
-                if len(nbr) < 3:
-                    continue
-                hop1_entities[nbr] = hop1_entities.get(nbr, 0.0) + HOP1_WEIGHT
-
-        # Cap hop=1 expansion to prevent signal dilution
-        if len(hop1_entities) > MAX_HOP1_ENTITIES:
-            hop1_entities = dict(
-                sorted(hop1_entities.items(), key=lambda x: -x[1])[:MAX_HOP1_ENTITIES]
-            )
-
-    # ── Score records: hop=0 weight=1.0, hop=1 weight≈0.35 ──
-    record_scores = {}  # record_idx -> score
-    for entity in matched_entities:
-        for rec_idx in _entity_index.get(entity, set()):
-            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + 1.0
-    for entity, weight in hop1_entities.items():
-        for rec_idx in _entity_index.get(entity, set()):
-            record_scores[rec_idx] = record_scores.get(rec_idx, 0.0) + weight
-
-    sorted_records = sorted(record_scores.items(), key=lambda x: -x[1])[:top_k]
-
-    # Build results using fast index lookup
-    results = []
-    for rec_idx, score in sorted_records:
-        meta = _idx_to_meta.get(rec_idx) if _idx_to_meta else None
-        if meta is None:
-            for m in _index_meta:
-                if m.get("idx") == rec_idx:
-                    meta = m
-                    break
-            if not meta:
-                for m in _bm25_meta:
-                    if m.get("idx") == rec_idx:
-                        meta = m
-                        break
-        if meta:
-            results.append({"meta": meta, "score": score})
-
-    print(f"[graph] hop0={len(matched_entities)} entities, "
-          f"hop1={len(hop1_entities)} neighbors, "
-          f"{len(record_scores)} candidate records", flush=True)
-
-    return results
+def _request_records() -> list:
+    """Return the records bound to the current request generation."""
+    if _request_runtime_snapshot.get() is not None:
+        return _runtime_resource("records", []) or []
+    if _records_cache:
+        return _records_cache[0] or []
+    return load_records() or []
 
 
 def _keyword_fallback(query: str, history: list) -> str:
@@ -597,49 +439,20 @@ _retrieval_pipeline = None
 _shadow_diffs = []          # per-query drift records (bounded)
 
 
-def _bm25_tokenize(query: str) -> list:
-    """Tokenize a query the same way the BM25 corpus was tokenized."""
-    import jieba
-    return list(jieba.cut_for_search(query))
-
-
 def _get_retrieval_pipeline():
-    """Build the unified retrieval pipeline over the loaded indexes (lazy)."""
-    global _retrieval_pipeline
+    """Unified retrieval pipeline (RT-030): delegate to retrieval.runtime.
+
+    Snapshot-pinned in manifest mode; process-global legacy pipeline
+    otherwise (loads through the live server paths first — the reviewed
+    `_get_retrieval_pipeline` called load_vector_index()/load_bm25_index()
+    before assembling).
+    """
     snapshot = _request_runtime_snapshot.get()
     if snapshot is not None:
-        resources = snapshot.resources
-        if "retrieval_pipeline" in resources:
-            return resources["retrieval_pipeline"]
-        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
-        required = ("vector_index", "index_meta", "bm25_index", "bm25_meta")
-        missing = [name for name in required if name not in resources]
-        if missing:
-            raise RuntimeError(f"pinned runtime {snapshot.manifest_id} incomplete: {missing}")
-        graph_fn = resources.get("graph_search", lambda q, k: [])
-        pipeline = (
-            VectorRetriever(embeddings=resources["vector_index"], meta=resources["index_meta"]),
-            BM25Retriever(bm25_index=resources["bm25_index"], meta=resources["bm25_meta"], tokenize_fn=_bm25_tokenize),
-            GraphRetriever(graph_search_fn=graph_fn),
-            RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K),
-        )
-        resources["retrieval_pipeline"] = pipeline
-        resources["record_id_to_meta"] = {m["record_id"]: m for m in resources["index_meta"]}
-        return pipeline
-    if _retrieval_pipeline is None:
-        from retrieval import VectorRetriever, BM25Retriever, GraphRetriever, RRFFusion
-        load_vector_index()
-        load_bm25_index()
-
-        vr = VectorRetriever(embeddings=_vector_index, meta=_index_meta, allow_legacy_idx=True)
-        br = BM25Retriever(bm25_index=_bm25_index, meta=_bm25_meta,
-                           tokenize_fn=_bm25_tokenize, allow_legacy_idx=True)
-        gr = GraphRetriever(graph_search_fn=lambda q, k: [
-            (r["meta"]["idx"], r["score"]) for r in graph_search(q, k)
-        ], allow_legacy_idx=True)
-        fuse = RRFFusion(k=RRF_K, default_top_k=FINAL_TOP_K)
-        _retrieval_pipeline = (vr, br, gr, fuse)
-    return _retrieval_pipeline
+        return _rt.snapshot_pipeline(snapshot)
+    load_vector_index()
+    load_bm25_index()
+    return _rt.legacy_pipeline()
 
 
 async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
@@ -656,89 +469,22 @@ async def _search_with_quality(query: str, exclude_ids: set = None) -> tuple:
 
 
 async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple:
-    """Unified retrieval layer path (TK-05). Same contract as legacy:
+    """Unified retrieval layer path (TK-05/RT-030). Same contract as legacy:
     (results, is_relevant) with legacy result dict shape.
 
-    Parity invariants vs legacy (locked by tests_parity.py):
-      - RRF score = 1/(position0 + k), position over each route's own ranking
-      - route scores carried through as vec/bm25/graph_score
-      - BM25 drops score<=0 candidates
-      - meta taken from the record index (identical across routes)
+    Implementation now lives in retrieval/runtime.run_hybrid (RT-030);
+    server keeps only the request-pinned snapshot handoff. Parity
+    invariants (locked by tests_parity.py frozen gate-1 baselines) are
+    documented there and preserved bit-for-bit.
     """
-
-    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
-    vr, br, gr, fuse = _get_retrieval_pipeline()
-
-    async def _vector_route():
-        query_emb = await embedding_func([query])
-        qv = np.array(query_emb[0], dtype=np.float32)
-        qv = qv / max(np.linalg.norm(qv), 1e-8)
-        return vr.search(qv, top_k=fetch_k)
-
-    vec_res, bm25_res, graph_res = await asyncio.gather(
-        _vector_route(),
-        asyncio.to_thread(br.search, query, fetch_k),
-        asyncio.to_thread(gr.search, query, fetch_k),
-    )
-
-    # Parity invariant: legacy rrf_fuse scores 1/(position0 + k); the
-    # retrieval layer's RetrievalResult.rank is 1-based. Reset ranks to the
-    # 0-based list position so fused scores are bit-identical to legacy.
-    for route_results in (vec_res, bm25_res, graph_res):
-        for pos, rr_ in enumerate(route_results):
-            rr_.rank = pos
-
-    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
-    fused = fuse.fuse({"vector": vec_res, "bm25": bm25_res,
-                       "graph": graph_res}, top_k=fuse_top_k)
-
-    # Rebuild meta lookup lazily (graph-only records need full meta)
-    global _idx_to_meta
     snapshot = _request_runtime_snapshot.get()
-    if snapshot is not None:
-        meta_lookup = snapshot.resources["record_id_to_meta"]
-    else:
-        if _idx_to_meta is None:
-            _idx_to_meta = {m["idx"]: m for m in _index_meta}
-        meta_lookup = _idx_to_meta
+    # server-side pipeline resolution keeps the live-path loading seam
+    # (tests patch server.INDEX_FILE/BM25_FILE/LITE_PATH before first use)
+    pipeline = _get_retrieval_pipeline()
+    return await _rt.run_hybrid(query, snapshot=snapshot, exclude_ids=exclude_ids,
+                                embed_fn=embedding_func, pipeline=pipeline)
 
-    results = []
-    for r in fused:
-        meta = meta_lookup.get(r.record_id, r.meta or {})
-        det = r.route_details or {}
-        results.append({
-            "record_id": r.record_id,
-            "legacy_idx": r.legacy_idx,
-            "meta": meta,
-            "score": r.raw_score,
-            # RRFFusion route_details keys are {route}_score (retrieval/fusion.py):
-            # vector_score / bm25_score / graph_score. These feed the relevance
-            # quality gate (VEC_STRONG / GRAPH_STRONG) — must never default to 0.
-            "vec_score": det.get("vector_score", det.get("vector", 0.0)),
-            "bm25_score": det.get("bm25_score", det.get("bm25", 0.0)),
-            "graph_score": det.get("graph_score", det.get("graph", 0.0)),
-        })
 
-    if exclude_ids:
-        before = len(results)
-        results = [r for r in results
-                   if r["record_id"] not in exclude_ids and r.get("legacy_idx") not in exclude_ids]
-        excluded_count = before - len(results)
-        results = results[:FINAL_TOP_K]
-        if excluded_count:
-            print(f"[search] Excluded {excluded_count} previously cited, "
-                  f"{len(results)} remaining", flush=True)
-    else:
-        results = results[:FINAL_TOP_K]
-
-    # Quality gate: require semantic signal (vec or graph), not BM25 alone
-    is_relevant = False
-    if results:
-        has_strong_vec = any(r.get("vec_score", 0) >= VEC_STRONG for r in results)
-        has_strong_graph = any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
-        is_relevant = has_strong_vec or has_strong_graph
-
-    return results, is_relevant
 # ── end TK-05 wiring ─────────────────────────────────────────────────────────
 
 
@@ -947,11 +693,254 @@ def build_context(search_results: list, query: str = "") -> tuple:
     return context, citations
 
 
+# ── Phase 03 (RT-030..039): EvidencePackage generation context ─────────────
+
+_PHASE03_MODE = os.environ.get("QA_PHASE03_DEFAULT_MODE", "RESEARCH_RAG").strip() \
+    or "RESEARCH_RAG"
+
+
+class Phase03AuthorityError(RuntimeError):
+    """Trusted EvidencePackage mode requires a request-pinned RuntimeSnapshot
+    carrying a source_catalog (Phase-02 RT-020 contract). Fabricating
+    source_snapshot_ids from record ids or hashing mutable global text are
+    FORBIDDEN authority sources (review blocker 7) — fail closed instead."""
+
+
+def _phase03_runtime_inputs():
+    """Request-pinned records + pinned source-catalog authority.
+
+    TRUSTED-MODE CONTRACT (review blocker 7): with EVIDENCE_PACKAGE_ENABLED
+    the typed EvidencePackage path may build evidence ONLY from a
+    request-pinned RuntimeSnapshot whose resources carry a source_catalog
+    (content-addressed, startup-validated). Resolution follows the exact
+    Phase-02 RT-020 rules (phase02_pipeline._resolve_snapshot):
+
+      * no pinned snapshot / no catalog → Phase03AuthorityError (fail closed)
+      * record not in pinned catalog   → authority gap (never fabricated)
+      * declared text hash mismatch    → authority gap (tamper fail-closed)
+      * declared eligibility missing / mismatch → authority gap
+
+    Identity (source_snapshot_id) always comes from the PINNED catalog —
+    never content-addressed ad hoc from mutable text. Records without
+    catalog authority are returned as authority_gaps and can never enter
+    the trusted EvidencePackage as support.
+
+    Returns (records, records_by_id, snapshot_index, evidence_metadata,
+    authority_gaps).
+    """
+    pinned = _request_runtime_snapshot.get()
+    if pinned is None:
+        raise Phase03AuthorityError(
+            "EVIDENCE_PACKAGE_ENABLED requires manifest runtime mode with a "
+            "request-pinned RuntimeSnapshot — legacy_hybrid global state is "
+            "not a trusted evidence authority (fail closed)")
+    records = _runtime_resource("records", None) or []
+    records_by_id = _runtime_resource("records_by_id", None) or {}
+    catalog = _runtime_resource("source_catalog", None) or {}
+    catalog_entries = catalog.get("snapshots") or []
+    if not catalog_entries:
+        raise Phase03AuthorityError(
+            "request-pinned runtime snapshot carries no source_catalog — "
+            "cannot build trusted evidence refs (fail closed)")
+
+    from source_snapshot import SourceSnapshot
+    catalog_by_rid = {}
+    for entry in catalog_entries:
+        rid = entry.get("record_id")
+        if isinstance(rid, str) and rid.strip():
+            catalog_by_rid[rid] = entry
+
+    snapshot_index = {}
+    evidence_metadata = {}
+    authority_gaps = []
+    for rec in records:
+        rid = rec.get("record_id")
+        if not (isinstance(rid, str) and rid.strip()):
+            continue
+        entry = catalog_by_rid.get(rid)
+        try:
+            snap = SourceSnapshot.from_record(rid, rec)
+        except Exception:
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "snapshot_error"})
+            continue
+        if entry is None:
+            authority_gaps.append(
+                {"record_id": rid,
+                 "reason": "record_not_in_pinned_source_catalog"})
+            continue
+        declared_hash = (entry.get("evidence_text_sha256")
+                         or entry.get("content_hash") or "")
+        if isinstance(declared_hash, str) and declared_hash.strip() \
+                and declared_hash.strip().lower() != snap.content_hash.lower():
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_snapshot_hash_mismatch"})
+            continue
+        declared_elig = entry.get("evidence_eligibility")
+        if not (isinstance(declared_elig, str) and declared_elig.strip()):
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_eligibility_missing"})
+            continue
+        if declared_elig.strip() != snap.evidence_eligibility:
+            authority_gaps.append({"record_id": rid,
+                                   "reason": "pinned_eligibility_mismatch"})
+            continue
+        eligibility = declared_elig.strip()
+        snapshot_index[rid] = {
+            "record_id": rid,
+            # identity from the PINNED catalog (Phase-02 contract)
+            "source_snapshot_id": str(entry.get("source_snapshot_id")
+                                      or snap.source_snapshot_id),
+            "evidence_text": snap.raw_text,
+            "evidence_text_sha256": snap.content_hash,
+            "evidence_eligibility": eligibility,
+        }
+        evidence_metadata[rid] = {
+            "evidence_eligibility": eligibility,
+            "evidence_role": str(rec.get("evidence_role") or "unknown"),
+            "source_type": rec.get("tp") or rec.get("source_type") or "unknown",
+        }
+    return records, records_by_id, snapshot_index, evidence_metadata, authority_gaps
+
+
+def _phase03_provenance(records):
+    """Real provenance groups for the Phase03 reserves (RT-033 wiring).
+
+    Uses the Phase-02 reviewed clustering (provenance.cluster_provenance)
+    over the REQUEST-PINNED records and remaps its legacy list-position
+    keys to stable record_id keys (the Phase-03 stable-ID contract).
+    """
+    # A release-pinned record may already carry the authoritative group (or
+    # an explicit uncertainty marker).  Preserve that before attempting the
+    # deterministic legacy clustering adapter; never manufacture a distinct
+    # group for an uncertain record.
+    out = {}
+    explicit = set()
+    for rec in records or []:
+        rid = rec.get("record_id")
+        if not isinstance(rid, str) or not rid.strip():
+            continue
+        if "independent_group_id" in rec or "provenance_group_id" in rec:
+            raw_group = rec.get("independent_group_id",
+                                rec.get("provenance_group_id"))
+            group = str(raw_group or "").strip()
+            if group.lower() in ("unknown", "uncertain", "unavailable"):
+                group = ""
+            out[rid] = {
+                "independent_group_id": group,
+                "source_role": str(rec.get("evidence_role") or "unknown"),
+            }
+            explicit.add(rid)
+    try:
+        from provenance import cluster_provenance
+        by_idx = cluster_provenance(records or [])
+    except Exception:
+        return out
+    if not isinstance(by_idx, dict):
+        return out
+    for idx, info in (by_idx or {}).items():
+        if not isinstance(info, dict):
+            continue
+        try:
+            rec = (records or [])[int(idx)]
+        except (ValueError, IndexError, TypeError):
+            continue
+        rid = rec.get("record_id")
+        if isinstance(rid, str) and rid.strip() and rid not in explicit:
+            out[rid] = {
+                "independent_group_id": str(
+                    info.get("independent_group_id") or "").strip(),
+                "source_role": info.get("provenance_reason", ""),
+            }
+    return out
+
+
+def _resolve_citation_record(citation: dict, records: list):
+    """Resolve a citation through stable record_id first, legacy idx second.
+
+    Durable Phase03 citations carry opaque string record IDs.  Older paths
+    may still carry an integer list index.  Mixing the two previously caused
+    ``0 <= record_id`` TypeError and silently skipped claim lineage.
+    """
+    rid = citation.get("record_id")
+    if isinstance(rid, str):
+        for rec in records or []:
+            if str(rec.get("record_id") or "") == rid:
+                return rec
+    elif isinstance(rid, int) and not isinstance(rid, bool):
+        if 0 <= rid < len(records or []):
+            return records[rid]
+    legacy_idx = citation.get("legacy_idx")
+    if isinstance(legacy_idx, int) and not isinstance(legacy_idx, bool) \
+            and 0 <= legacy_idx < len(records or []):
+        return records[legacy_idx]
+    return None
+
+
+async def _run_phase03_context(query: str, exclude_ids: set | None = None,
+                               access_scope: str = "public") -> dict:
+    """Run the Phase03 retrieval->evidence-package pipeline for one chat
+    request and return the phase03_pipeline contract dict.
+
+    HIGH-RECALL POOL SOURCE (review blocker 2): the pipeline consumes RAW
+    per-route RetrievalResults (_rt.run_routes at per-route fetch caps)
+    captured BEFORE the legacy global FINAL_TOP_K=25 fusion truncation —
+    never the already-truncated fused search_results. The legacy flag-off
+    path keeps run_hybrid unchanged.
+
+    Deterministic, request-pinned; the rendered context is the ONLY
+    generation context (RT-039 allowlist). Errors bubble — no silent
+    fallback to raw build_context dumps. Phase03AuthorityError is handled
+    explicitly by the chat endpoint (explicit UNSUPPORTED, fail closed).
+    """
+    from phase03_pipeline import run_phase03_retrieval
+    from retrieval.chunk_route import ChunkRetriever
+
+    (records, records_by_id, snapshot_index, evidence_metadata,
+     authority_gaps) = _phase03_runtime_inputs()
+    pinned = _request_runtime_snapshot.get()
+
+    chunk_retriever = None
+    if Flags.CONTEXTUAL_CHUNKS_ENABLED:
+        chunk_retriever = ChunkRetriever.from_snapshots(
+            list(snapshot_index.values()))
+
+    # RT-033 real provenance: Phase-02 reviewed clustering over the pinned
+    # request records (stable record_id keyed)
+    provenance_map = _phase03_provenance(records)
+
+    def _get_record(record_id):
+        return records_by_id.get(record_id)
+
+    # Raw per-route candidates (rank-26+ survives HERE, before any fusion):
+    route_results = await _rt.run_routes(
+        query, snapshot=pinned, exclude_ids=exclude_ids,
+        embed_fn=embedding_func, pipeline=_get_retrieval_pipeline())
+
+    return await run_phase03_retrieval(
+        query=query,
+        route_results=route_results,
+        mode=_PHASE03_MODE,
+        records_by_id=records_by_id,
+        snapshot_index=snapshot_index,
+        chunk_retriever=chunk_retriever,
+        get_record_fn=_get_record,
+        evidence_metadata=evidence_metadata,
+        authority_gaps=authority_gaps,
+        provenance_map=provenance_map,
+        access_scope=access_scope or "public",
+    )
+
+
 # ── Request Models ──
 class ChatRequest(BaseModel):
     query: str
     conversation_id: str = ""
     history: list = []
+    # Request access scope for the Phase03 evidence policy engine
+    # (RT-034 POLICY_ACCESS_SCOPE); default public keeps v1 clients
+    # byte-compatible.
+    access_scope: str = "public"
 
 
 # ── Phase 02 (RT-020): persistent SourceSnapshot store ──────────────────────
@@ -998,33 +987,18 @@ async def lifespan(app: FastAPI):
         raise RuntimeError(f"unsupported TECH_DB_RUNTIME_MODE: {runtime_mode}")
     _runtime_snapshot_manager = None
     print("[startup] Explicit legacy_hybrid runtime-v1 profile", flush=True)
+    # RT-030: index loading + meta-lookup build delegated to retrieval.runtime
     print("[startup] Loading vector index...", flush=True)
     load_vector_index()
     print("[startup] Loading BM25 index...", flush=True)
     load_bm25_index()
-
     print("[startup] Loading knowledge graph...", flush=True)
     load_graph_index()
-
     # Build fast record_idx → meta lookup (avoids linear scan in graph_search)
-    global _idx_to_meta
-    _idx_to_meta = {}
-    for m in _index_meta:
-        _idx_to_meta[m["idx"]] = m
-    for m in _bm25_meta:
-        if m["idx"] not in _idx_to_meta:
-            _idx_to_meta[m["idx"]] = m
-    print(f"[startup] Index meta lookup: {len(_idx_to_meta)} records", flush=True)
+    build_idx_meta_lookup()
 
-    # Load jieba custom dictionary for query tokenization — moved into
-    # load_bm25_index() (codex-review C2 P1) so non-lifespan callers share
-    # the same tokenization; the lifespan block now only needs idempotence.
-    if JIEBA_DICT.exists():
-        import jieba
-        jieba.load_userdict(str(JIEBA_DICT))
-
-    load_records()
-    print(f"[startup] Records loaded: {len(_records)}", flush=True)
+    _records_cache[:] = [load_records()]
+    print(f"[startup] Records loaded: {len(_records_cache[0])}", flush=True)
     print("[startup] Ready!", flush=True)
     yield
     print("[shutdown] Cleaning up...", flush=True)
@@ -1346,7 +1320,115 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Searched record ids for done event (backend-authoritative)
             searched_record_ids = [r["record_id"] for r in search_results] if search_results else []
 
-            if not search_results or not is_relevant:
+            # ── Phase 03 (RT-030..039): typed EvidencePackage path ──
+            # Review round 2 (blocker A, RT-031): with EVIDENCE_PACKAGE_ENABLED
+            # ON, Phase03 runs BEFORE the legacy weak-query gate. The legacy
+            # Top25 / is_relevant profile is a LEGACY decision surface — it
+            # must never act as an authoritative pre-gate that terminates a
+            # request the evidence pipeline could still answer (e.g. a valid
+            # raw-route candidate fusing past legacy FINAL_TOP_K=25, or a
+            # query the legacy relevance profile would reject). When Phase03
+            # is active its no_evidence / policy / capacity outcomes ARE the
+            # evidence decision; the legacy gate below only applies on the
+            # legacy path. With the flag OFF this block is inert and the
+            # legacy path stays byte-compatible with pre-Phase03 behavior
+            # (no FINAL_TOP_K increase, no weakened legacy profile).
+            context = None
+            citations = []
+            _phase03_active = False
+            _phase03_pinned_provenance = None
+            if Flags.EVIDENCE_PACKAGE_ENABLED:
+                try:
+                    _p03 = await _run_phase03_context(
+                        query,
+                        exclude_ids=exclude_ids if exclude_ids else None,
+                        access_scope=req.access_scope)
+                except Phase03AuthorityError as pae:
+                    # Review blocker 7: trusted EvidencePackage mode REQUIRES
+                    # a pinned source authority. Without it the request fails
+                    # closed — explicit UNSUPPORTED, never fabricated
+                    # snapshot ids / ad-hoc text hashes.
+                    print(f"[phase03] authority fail-closed: {pae}", flush=True)
+                    trace.add_stage("phase03_authority_fail_closed",
+                                    {"error": str(pae)[:200]})
+                    trace.set_result(
+                        answer_status="UNSUPPORTED",
+                        stop_reason="phase03_missing_pinned_authority")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "证据模式需要固定的发布清单权威（manifest 运行时），"
+                                  "当前环境缺少 pinned source authority，已按规范拒绝回答。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_missing_pinned_authority",
+                        "boundary_message": "evidence authority fail-closed",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
+                except Exception as e:
+                    print(f"[phase03] pipeline error: {e}", flush=True)
+                    trace.add_stage("phase03_error", {"error": str(e)[:200]})
+                    raise
+                trace.add_stage("phase03_retrieval", _p03["trace_facts"])
+                if _p03["status"] == "no_evidence":
+                    trace.set_result(answer_status="UNSUPPORTED",
+                                     stop_reason="phase03_no_evidence")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "数据库中没有足够的、满足证据标准的资料来回答这个问题。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_no_evidence",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
+                if _p03["status"] == "context_capacity_exceeded":
+                    trace.set_result(answer_status="UNSUPPORTED",
+                                     stop_reason="phase03_context_capacity_exceeded")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "证据包超出上下文容量且强制证据无法压缩，按规范 abstain："
+                                  "请缩小问题范围后重试。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_context_capacity_exceeded",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
+                # When Phase03 is active the generation context is the
+                # allowlisted GeneratorInput rendering of the typed Evidence
+                # Package (pool -> reserves -> rerank -> policy -> selection
+                # -> package -> capacity fit) — raw build_context dumps are
+                # forbidden generation context on this path. Failure must be
+                # loud (bubble to the SSE error handler), never a silent
+                # fallback to the legacy dump.
+                context = _p03["context"]
+                citations = _p03["citations"]
+                # The exact request-pinned view is the provenance authority
+                # for the strict Phase03→Phase02 terminal chain. Keep this
+                # typed, immutable-view-derived map request-local; never read
+                # mutable server globals or recluster after generation.
+                _phase03_pinned_provenance = {
+                    e.record_id: {
+                        "independent_group_id": e.independent_group_id,
+                        "source_role": e.source_role,
+                    }
+                    for e in _p03["view"].evidence.values()
+                    if e.counts_as_evidence
+                }
+                if _p03.get("selected_record_ids"):
+                    # honest searched-surface under evidence mode: the
+                    # searched ids are the evidence pool's selected records
+                    searched_record_ids = list(_p03["selected_record_ids"])
+                _phase03_active = True
+
+            if not _phase03_active and (not search_results or not is_relevant):
                 # Codex-review C3 P2 fix: early unsupported exits (weak query /
                 # topic exhausted) previously returned WITHOUT the flag-gated
                 # knowledge-boundary message even with the TK-06 flag ON —
@@ -1394,20 +1476,27 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })}
                 return
 
-            # Build context and citations
-            context, citations = build_context(search_results, query)
+            if context is None:
+                # Legacy path (flag off / phase03 inactive): raw context
+                # build, unchanged.
+                context, citations = build_context(search_results, query)
 
             # ── Epistemic Claim Classification ──
             # (skip if budget exhausted — epistemic is enhancement, not critical path)
             claim_metadata = []
-            try:
-                classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                if classify_budget_ok:
-                    print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
-                    claim_metadata = await classify_claims(query, search_results, top_k=5)
-                    print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
-            except Exception as e:
-                print(f"[epistemic-classify] {e}", flush=True)
+            # RT-039: the EvidencePackage path has a closed Generator input
+            # boundary.  The legacy classifier reads raw/unselected retrieval
+            # results (and may prefer the old AI-summary field), so neither it
+            # nor its conclusions may influence the Phase03 Generator.
+            if not _phase03_active:
+                try:
+                    classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                    if classify_budget_ok:
+                        print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
+                        claim_metadata = await classify_claims(query, search_results, top_k=5)
+                        print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
+                except Exception as e:
+                    print(f"[epistemic-classify] {e}", flush=True)
 
             # Yield citations — LEGACY PATH ONLY (RT-027: the Phase-02 path
             # buffers citations until exact grounding + verification finalize,
@@ -1459,8 +1548,22 @@ async def chat_stream(req: ChatRequest, request: Request):
                 for i, c in enumerate(citations)
             )
 
-            # Build system prompt
-            base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
+            # Build system prompt.  On the typed EvidencePackage path,
+            # ``context`` is already the complete allowlisted rendering;
+            # do not append a second source-list surface derived from records.
+            if _phase03_active:
+                base_prompt = f"""你是技术情报分析专家。仅基于以下类型化证据包回答用户问题。
+
+要求：
+1. 只基于证据包 DATA 边界内的资料回答，不要编造信息
+2. 每个事实声明必须引用证据 ID
+3. 缺失、冲突或降级必须如实说明
+4. 使用中文和 markdown；简单问题简短回答，复杂问题详细分析
+
+类型化证据包：
+{context}"""
+            else:
+                base_prompt = f"""你是技术情报分析专家。基于以下检索到的技术情报资料回答用户问题。
 
 要求：
 1. 只基于提供的资料回答，不要编造信息
@@ -1477,15 +1580,17 @@ async def chat_stream(req: ChatRequest, request: Request):
 {source_list}"""
 
             # Enhance with epistemic protection rules
-            system_prompt = build_epistemic_system_prompt(base_prompt, claim_metadata)
+            system_prompt = build_epistemic_system_prompt(
+                base_prompt, [] if _phase03_active else claim_metadata)
 
             # Build conversation history for LLM
             llm_history = []
-            for msg in req.history[-6:]:
-                llm_history.append({
-                    "role": msg.get("role", "user"),
-                    "content": msg.get("content", ""),
-                })
+            if not _phase03_active:
+                for msg in req.history[-6:]:
+                    llm_history.append({
+                        "role": msg.get("role", "user"),
+                        "content": msg.get("content", ""),
+                    })
 
             full_answer = ""
             try:
@@ -1550,8 +1655,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # in manifest mode the pipeline MUST see the records pinned at
                 # request start — never the mutable server-global _records —
                 # so a mid-request release switch cannot change the evidence.
-                _p02_records = (_runtime_resource("records", _records)
-                                if _p02_snap is not None else _records)
+                _p02_records = _request_records()
                 _p02_by_id = (_runtime_resource("records_by_id", None)
                               if _p02_snap is not None else None)
                 _p02_rid_map = (_runtime_resource("record_id_map", None)
@@ -1637,6 +1741,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                     source_snapshot_store=_p02_store,
                     source_catalog=_p02_catalog,
                     manifest_mode=_p02_snap is not None,
+                    pinned_provenance_map=_phase03_pinned_provenance,
+                    strict_evidence_package=_phase03_active,
                 )
                 final_answer = p02["answer"]
 
@@ -1784,17 +1890,38 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 from enrich_evidence_metadata import infer_evidence_role
                                 from claim_mapping import attach_span_lineage, claim_independence
                                 _prov_map = {}
+                                _lineage_records = _request_records()
+                                _records_by_id = {}
+                                for _legacy_pos, rec in enumerate(
+                                        _lineage_records):
+                                    if rec.get("record_id") is not None:
+                                        _records_by_id[rec.get("record_id")] = rec
+                                        _records_by_id[str(
+                                            rec.get("record_id"))] = rec
+                                    _records_by_id[_legacy_pos] = rec
+                                _pinned_prov = (_phase03_provenance(
+                                                _lineage_records)
+                                                if _phase03_active else {})
                                 for c in citations:
                                     rid = c.get("record_id")
-                                    if rid is not None and 0 <= rid < len(_records):
-                                        _rec = _records[rid]
+                                    _rec = _resolve_citation_record(
+                                        c, _lineage_records)
+                                    if rid is not None and _rec is not None:
+                                        _pinfo = _pinned_prov.get(str(rid), {})
                                         _prov_map[rid] = {
                                             "evidence_role": infer_evidence_role(_rec),
-                                            "independent_group_id": f"record:{rid}",
+                                            "independent_group_id": (
+                                                _pinfo.get("independent_group_id")
+                                                or "__PROVENANCE_UNKNOWN__"
+                                                if _phase03_active
+                                                else f"record:{rid}"),
                                         }
                                 attach_span_lineage(claim_map, citations,
-                                                    provenance_map=_prov_map)
-                                _indep = claim_independence(claim_map, _prov_map)
+                                                    provenance_map=_prov_map,
+                                                    records_by_id=_records_by_id)
+                                _indep = claim_independence(
+                                    claim_map, _prov_map,
+                                    records_by_id=_records_by_id)
                                 trace.add_stage("claim_independence", {
                                     "claims_total": _indep["claims_total"],
                                     "claims_with_independent_support":
@@ -1802,6 +1929,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 })
                             except Exception as e:
                                 print(f"[claim_lineage] Error: {e}", flush=True)
+                                verification_status = VERIFY_UNVERIFIED
+                                verification_error = (
+                                    "claim lineage unavailable: " + str(e))
+                                trace.add_stage("claim_independence", {
+                                    "status": "UNAVAILABLE",
+                                    "error": str(e)[:200],
+                                })
                             trace.add_stage("claim_mapping", {
                                 "total_claims": len(claim_map.get("claims", [])),
                                 "unsupported_major": len(get_unsupported_major_claims(claim_map)),
@@ -1838,9 +1972,9 @@ async def chat_stream(req: ChatRequest, request: Request):
                 if Flags.CITATION_GROUNDING_ENABLED and citations:
                     for c in citations:
                         try:
-                            rid = c.get("record_id", -1)
-                            if rid >= 0 and rid < len(_records):
-                                rec = _records[rid]
+                            rec = _resolve_citation_record(
+                                c, _request_records())
+                            if rec is not None:
                                 grounding = ground_citation_evidence(
                                     rec,
                                     proposed_span=c.get("excerpt") or c.get("body_snippet", ""),
@@ -1879,9 +2013,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                 answer_status_str = "SUPPORTED"
                 stop_reason = "evidence_sufficient"
                 if Flags.ANSWER_STATUS_ENABLED:
+                    # Review round 2 (blocker A, RT-031): when the Phase03
+                    # evidence pipeline is active, the legacy is_relevant /
+                    # Top25 profile must not act as an authoritative verdict
+                    # on evidence sufficiency — the Phase03 no_evidence /
+                    # policy / capacity outcomes (returned earlier) ARE the
+                    # evidence decision. Legacy relevance only informs the
+                    # status on the legacy path.
                     status_enum, stop_reason = determine_answer_status(
-                        has_results=bool(search_results),
-                        is_relevant=is_relevant,
+                        has_results=bool(search_results) or _phase03_active,
+                        is_relevant=is_relevant or _phase03_active,
                         verification_status=verification_status,
                         claim_mapping=claim_map,
                     )
@@ -1974,6 +2115,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
                     "answer_status": answer_status_str,
+                    "verification_status": verification_status,
                     "stop_reason": stop_reason,
                     "boundary_message": boundary_message,
                     "user_warning": user_warning,

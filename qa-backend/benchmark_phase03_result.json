@@ -1,0 +1,31 @@
+{
+  "benchmark": "phase03_retrieval_quality",
+  "baseline_semantics": "ea6a614 reproduced in-checkout: full-body lexical scoring, global FINAL_TOP_K=25, 300-char context excerpt, no rerank",
+  "phase03": "RT-031 pool(cap 80, floors) + RT-036 chunk route (coverage-first) + RT-032 local content rerank + RT-037 full-text package surface",
+  "corpus": {
+    "long_docs": 60,
+    "digits_in_noise": false,
+    "tail_marker": "battery endurance test 14.5 hours",
+    "tail_offset_gt": 800
+  },
+  "probes": {
+    "tail": 30,
+    "head_control": 10
+  },
+  "candidate_survival": {
+    "baseline": 1.0,
+    "phase03": 1.0
+  },
+  "tail_fact_visibility": {
+    "baseline": 0.0,
+    "phase03": 1.0
+  },
+  "exact_match_top5_rerank": {
+    "phase03": 1.0
+  },
+  "head_control": {
+    "baseline": 1.0,
+    "phase03": 1.0
+  },
+  "verdict": "PASS"
+}

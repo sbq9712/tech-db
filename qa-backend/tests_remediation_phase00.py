@@ -119,29 +119,46 @@ def t_acceptance_dod_traceability_and_honesty():
         "T052.DOD-01", "T052.DOD-02", "T052.DOD-03", "T052.DOD-04",
         "T052.DOD-05",
     }
-    suite_src = (ROOT / "qa-backend" / "tests_remediation_phase02.py").read_text("utf-8")
+    # Phase03's strict request-pinned claim-lineage closure now supplies the
+    # previously missing behavioral evidence for the two remaining T048
+    # DoDs. Keep this allowlist explicit: unrelated legacy DoDs must remain
+    # NOT_SATISFIED and cannot gain wholesale suite credit.
+    PHASE03_UPGRADED = {"T048.DOD-03", "T048.DOD-04"}
+    upgraded_owner = {
+        **{dod_id: "remediation_phase02" for dod_id in PHASE02_UPGRADED},
+        **{dod_id: "remediation_phase03" for dod_id in PHASE03_UPGRADED},
+    }
+    suite_sources = {
+        "remediation_phase02": (ROOT / "qa-backend" /
+                                "tests_remediation_phase02.py").read_text("utf-8"),
+        "remediation_phase03": (ROOT / "qa-backend" /
+                                "tests_remediation_phase03.py").read_text("utf-8"),
+    }
     upgraded_seen = set()
     for entry in by_id.values():
         for dod in entry["dods"]:
             assert dod["description"]
             assert dod["source"]["sha256"] == matrix["frozen_legacy_source"]["sha256"]
-            if dod["dod_id"] in PHASE02_UPGRADED:
+            if dod["dod_id"] in upgraded_owner:
                 upgraded_seen.add(dod["dod_id"])
                 assert dod["status"] == "SATISFIED", dod["dod_id"]
                 assert dod.get("test_cases"), dod["dod_id"]
                 assert "planned_test_cases" not in dod, dod["dod_id"]
                 for ref in dod["test_cases"]:
-                    assert ref["suite"] == "remediation_phase02"
+                    owner = upgraded_owner[dod["dod_id"]]
+                    assert ref["suite"] == owner
                     assert ref["case"].startswith("test_")
                     # named case must really exist as a test function
                     assert re.search(rf"^def {re.escape(ref['case'])}\(",
-                                     suite_src, re.MULTILINE), ref["case"]
+                                     suite_sources[owner], re.MULTILINE), ref["case"]
             else:
                 assert dod["status"] == "NOT_SATISFIED", dod["dod_id"]
                 assert dod["planned_test_cases"][0]["case"].startswith("test_")
                 if dod["required_level"] == "benchmark":
                     assert dod["planned_test_cases"][0]["benchmark_owner"]
-    assert upgraded_seen == PHASE02_UPGRADED, sorted(PHASE02_UPGRADED - upgraded_seen)
+    expected_upgraded = PHASE02_UPGRADED | PHASE03_UPGRADED
+    assert upgraded_seen == expected_upgraded, sorted(
+        expected_upgraded - upgraded_seen)
     t037 = next(e for e in matrix["legacy_ticket_entries"] if e["ticket_id"] == "T037")
     assert all(d["status"] == "NOT_SATISFIED" for d in t037["dods"])
     assert "simulated" in t037["dods"][0]["evidence_note"]
