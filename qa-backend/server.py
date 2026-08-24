@@ -682,6 +682,104 @@ def build_context(search_results: list, query: str = "") -> tuple:
     return context, citations
 
 
+# ── Phase 03 (RT-030..039): EvidencePackage generation context ─────────────
+
+_PHASE03_MODE = os.environ.get("QA_PHASE03_DEFAULT_MODE", "RESEARCH_RAG").strip() \
+    or "RESEARCH_RAG"
+
+
+def _phase03_runtime_inputs():
+    """Request-pinned records/catalog for the Phase03 pipeline.
+
+    Manifest mode: the pinned runtime snapshot's records/records_by_id/
+    source_catalog are the ONLY authorities (a mid-request release switch
+    must not change the evidence). Legacy mode: server-global records.
+    Returns (records, records_by_id, snapshot_index, evidence_metadata).
+    """
+    pinned = _request_runtime_snapshot.get() is not None
+    records = _runtime_resource("records", None) if pinned else load_records()
+    records_by_id = _runtime_resource("records_by_id", None) if pinned else None
+    catalog = _runtime_resource("source_catalog", None) if pinned else None
+
+    if records_by_id is None:
+        records_by_id = {}
+        for rec in (records or []):
+            rid = rec.get("record_id")
+            if isinstance(rid, str) and rid.strip():
+                records_by_id[rid] = rec
+
+    # snapshot index: stable record_id -> {source_snapshot_id, evidence_text}
+    import hashlib as _hl
+    snapshot_index = {}
+    evidence_metadata = {}
+    catalog_by_rid = {}
+    for entry in ((catalog or {}).get("snapshots") or []):
+        rid = entry.get("record_id")
+        if isinstance(rid, str) and rid.strip():
+            catalog_by_rid[rid] = entry
+    for rec in (records or []):
+        rid = rec.get("record_id")
+        if not (isinstance(rid, str) and rid.strip()):
+            continue
+        text = str(rec.get("evidence_text") or rec.get("fb")
+                   or rec.get("b") or "")
+        entry = catalog_by_rid.get(rid) or {}
+        snapshot_index[rid] = {
+            "record_id": rid,
+            "source_snapshot_id": entry.get("source_snapshot_id")
+                                   or f"rec:{rid}",
+            "evidence_text": text,
+            "evidence_text_sha256": entry.get("evidence_text_sha256")
+                                    or (_hl.sha256(text.encode("utf-8")).hexdigest()
+                                        if text else ""),
+            "evidence_eligibility": entry.get("evidence_eligibility")
+                                     or rec.get("evidence_eligibility")
+                                     or "",
+        }
+        evidence_metadata[rid] = {
+            "evidence_eligibility": entry.get("evidence_eligibility")
+                                     or rec.get("evidence_eligibility")
+                                     or "",
+            "evidence_role": str(rec.get("evidence_role") or "unknown"),
+            "source_type": rec.get("tp") or rec.get("source_type") or "unknown",
+        }
+    return records, records_by_id, snapshot_index, evidence_metadata
+
+
+async def _run_phase03_context(query: str, search_results: list) -> dict:
+    """Run the Phase03 retrieval->evidence-package pipeline for one chat
+    request and return the phase03_pipeline contract dict.
+
+    Deterministic, request-pinned; the rendered context is the ONLY
+    generation context (RT-039 allowlist). Errors bubble — no silent
+    fallback to raw build_context dumps.
+    """
+    from phase03_pipeline import run_phase03_retrieval
+    from retrieval.chunk_route import ChunkRetriever
+
+    records, records_by_id, snapshot_index, evidence_metadata = \
+        _phase03_runtime_inputs()
+
+    chunk_retriever = None
+    if Flags.CONTEXTUAL_CHUNKS_ENABLED:
+        chunk_retriever = ChunkRetriever.from_snapshots(
+            list(snapshot_index.values()))
+
+    def _get_record(record_id):
+        return records_by_id.get(record_id)
+
+    return await run_phase03_retrieval(
+        query=query,
+        search_results=search_results,
+        mode=_PHASE03_MODE,
+        records_by_id=records_by_id,
+        snapshot_index=snapshot_index,
+        chunk_retriever=chunk_retriever,
+        get_record_fn=_get_record,
+        evidence_metadata=evidence_metadata,
+    )
+
+
 # ── Request Models ──
 class ChatRequest(BaseModel):
     query: str
@@ -1114,8 +1212,57 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })}
                 return
 
-            # Build context and citations
-            context, citations = build_context(search_results, query)
+            # ── Phase 03 (RT-030..039): typed EvidencePackage path ──
+            # When EVIDENCE_PACKAGE_ENABLED the generation context is the
+            # allowlisted GeneratorInput rendering of the typed Evidence
+            # Package (pool -> reserves -> rerank -> policy -> selection ->
+            # package -> capacity fit) — raw build_context dumps are
+            # forbidden generation context on this path. Failure must be
+            # loud (bubble to the SSE error handler), never a silent
+            # fallback to the legacy dump.
+            context = None
+            if Flags.EVIDENCE_PACKAGE_ENABLED:
+                try:
+                    _p03 = await _run_phase03_context(query, search_results)
+                except Exception as e:
+                    print(f"[phase03] pipeline error: {e}", flush=True)
+                    trace.add_stage("phase03_error", {"error": str(e)[:200]})
+                    raise
+                trace.add_stage("phase03_retrieval", _p03["trace_facts"])
+                if _p03["status"] == "no_evidence":
+                    trace.set_result(answer_status="UNSUPPORTED",
+                                     stop_reason="phase03_no_evidence")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "数据库中没有足够的、满足证据标准的资料来回答这个问题。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_no_evidence",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
+                if _p03["status"] == "context_capacity_exceeded":
+                    trace.set_result(answer_status="UNSUPPORTED",
+                                     stop_reason="phase03_context_capacity_exceeded")
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps({
+                        "answer": "证据包超出上下文容量且强制证据无法压缩，按规范 abstain："
+                                  "请缩小问题范围后重试。",
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "phase03_context_capacity_exceeded",
+                        "trace_id": trace.trace_id,
+                    })}
+                    return
+                context = _p03["context"]
+                citations = _p03["citations"]
+            if context is None:
+                # Legacy path (flag off): raw context build, unchanged.
+                context, citations = build_context(search_results, query)
 
             # ── Epistemic Claim Classification ──
             # (skip if budget exhausted — epistemic is enhancement, not critical path)

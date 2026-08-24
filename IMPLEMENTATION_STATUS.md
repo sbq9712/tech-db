@@ -78,6 +78,7 @@ closed; see "Ticket Closure & Evidence Chain" below.
 | QA_KNOWLEDGE_BOUNDARY_ENABLED | true | Knowledge boundary message (TK-06/R9) |
 | QA_EXACT_GROUNDING_ENABLED | true | Exact-span citation grounding on SourceSnapshot (RT-020) |
 | QA_TERMINAL_RENDERER_ENABLED | true | Buffered terminal rendering + post-verification citations (RT-027) |
+| QA_EVIDENCE_PACKAGE_ENABLED | false | Phase03 typed EvidencePackage generation path (RT-030..039; on in agentic_full only) |
 
 ## Ticket Closure & Evidence Chain
 | Ticket | Scope | Evidence |

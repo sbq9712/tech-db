@@ -94,6 +94,50 @@ def tokenize(text: str) -> List[str]:
     return out
 
 
+def best_window(text: str, query: str, window: int = 400) -> str:
+    """Deterministic query-relevant window inside `text`.
+
+    Tokenises text, finds the contiguous run of `window` chars whose token
+    multiset overlaps the query the most, and returns that slice verbatim.
+    Used as the rerank/content surface for chunk hits so long chunks do not
+    degrade to their (noise) head under content-length caps.
+    """
+    if not text or not query:
+        return text[:window] if text else ""
+    q_tokens = set(tokenize(query))
+    toks = _TOKEN_RE.findall(text.lower())
+    if not toks:
+        return text[:window]
+    # char offsets per token via cumulative scan
+    spans = []
+    pos = 0
+    for m in _TOKEN_RE.finditer(text):
+        spans.append((m.start(), m.end()))
+    n = len(spans)
+    if not n:
+        return text[:window]
+    best_start, best_score = 0, -1.0
+    # slide by token; window in chars → approximate with token count whose
+    # char span ≤ window
+    left = 0
+    overlap_count = 0
+    for right in range(n):
+        tok = text[spans[right][0]:spans[right][1]].lower()
+        if tok in q_tokens:
+            overlap_count += 1
+        while spans[right][1] - spans[left][0] > window:
+            ltok = text[spans[left][0]:spans[left][1]].lower()
+            if ltok in q_tokens:
+                overlap_count -= 1
+            left += 1
+        width = spans[right][1] - spans[left][0]
+        score = overlap_count / (width + 1.0)
+        if score > best_score:
+            best_score = score
+            best_start = spans[left][0]
+    return text[best_start:best_start + window]
+
+
 def build_chunks_from_snapshots(
         snapshots: List[dict],
         stride: int = CHUNK_STRIDE) -> List[dict]:
@@ -177,7 +221,7 @@ class ChunkRetriever:
 
     def search(self, query: str, top_k: int = CHUNK_TOP_K,
                exclude_ids: Optional[List[str]] = None,
-               min_score: float = 0.05) -> List[dict]:
+               min_score: float = 0.02) -> List[dict]:
         """Lexical chunk search; deterministic; hits carry exact locators."""
         exclude = set(exclude_ids or [])
         qtoks = tokenize(query)
@@ -197,14 +241,19 @@ class ChunkRetriever:
                 continue
             coverage = len(overlap) / len(qset)
             precision = len(overlap) / len(cset)
-            score = (2 * coverage * precision / (coverage + precision)
-                     if (coverage + precision) else 0.0)
+            # Recall-first route semantics: coverage dominates (a chunk that
+            # contains the whole query signature must surface even when the
+            # chunk is long and precision is diluted); precision breaks ties
+            # and separates near-duplicate chunks. The PRECISION stage is
+            # the content reranker (RT-032), not this route.
+            score = coverage * (0.5 + 0.5 * precision)
             if score < min_score:
                 continue
             scored.append((score, c["chunk_id"], c))
         scored.sort(key=lambda t: (-t[0], t[1]))
         out: List[dict] = []
         for score, _cid, c in scored[:top_k]:
+            text = c.get("text", "")
             out.append({
                 "route": "chunk",
                 "record_id": c["record_id"],
@@ -214,6 +263,9 @@ class ChunkRetriever:
                 "end_offset": c["end_offset"],
                 "text_sha256": c["text_sha256"],
                 "chunk_score": score,
+                # query-relevant verbatim window (rerank/content surface —
+                # locator binding stays the full chunk offsets above)
+                "excerpt": best_window(text, query),
             })
         return out
 
@@ -254,6 +306,8 @@ class ChunkRetriever:
                 "hit_locators": locs,
                 "locators": locs,       # alias
                 "chunk_hit_count": len(group),
+                # best hit's query-relevant window (rerank content surface)
+                "excerpt": group[0].get("excerpt", ""),
             })
         out.sort(key=lambda c: (-c["chunk_best_score"], c["record_id"]))
         return out

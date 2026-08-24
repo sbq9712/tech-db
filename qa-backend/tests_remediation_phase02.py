@@ -1783,9 +1783,13 @@ def _profile_fresh_process_cases():
                flags.get("TERMINAL_RENDERER_ENABLED")]
     shipped = [flags.get("AGENTIC_ENABLED"), flags.get("TRACE_ENABLED"),
                flags.get("FAIL_SAFE_VERIFY_ENABLED"), flags.get("CLAIM_MAPPING_ENABLED")]
+    # Phase 03 registers QA_EVIDENCE_PACKAGE_ENABLED (24th flag, off in
+    # legacy_hybrid) — count updated by RT-030..039; all shipped flags on,
+    # the two Phase-02 flags still off in this profile.
     test("X.profile_applies_at_import",
          proc.returncode == 0 and phase02 == [False, False]
-         and all(shipped) and len(flags) == 23)
+         and all(shipped) and len(flags) == 24
+         and flags.get("EVIDENCE_PACKAGE_ENABLED") is False)
 
     # B: deviating explicit env → fail closed at import
     proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid",

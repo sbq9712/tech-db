@@ -106,6 +106,12 @@ def _merge_chunk_candidates(pool: List[PoolCandidate],
             existing.hit_locators = list(existing.hit_locators) + \
                 list(cc.get("hit_locators") or [])
         else:
+            # chunk-only candidate: carry the query-relevant verbatim
+            # excerpt in meta.fb so the content reranker sees the hit span
+            # (not a head-window) under its content-length cap
+            meta = dict(cc.get("meta") or {})
+            if not meta.get("fb") and cc.get("excerpt"):
+                meta["fb"] = cc["excerpt"]
             by_rid[rid] = PoolCandidate(
                 record_id=rid,
                 rrf_score=signal,
@@ -113,7 +119,7 @@ def _merge_chunk_candidates(pool: List[PoolCandidate],
                 route_ranks={"chunk": rank},
                 route_scores={"chunk": chunk_score},
                 hit_locators=list(cc.get("hit_locators") or []),
-                meta=cc.get("meta") or {},
+                meta=meta,
             )
             order.append(rid)
     merged = [by_rid[r] for r in order]

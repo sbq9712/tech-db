@@ -38,6 +38,8 @@ SUITES = {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
+    "remediation_phase03": "qa-backend/tests_remediation_phase03.py",
+    "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
 }
@@ -129,6 +131,18 @@ def _phase01_case(name: str, level: str = "integration") -> dict:
 def _phase02_case(name: str, level: str = "integration") -> dict:
     return {"suite": "remediation_phase02", "case": "test_" + name.replace(".", "_").lower(), "level": level,
             "command": "python qa-backend/tests_remediation_phase02.py"}
+
+
+def _phase03_case(name: str, level: str = "integration") -> dict:
+    return {"suite": "remediation_phase03", "case": "test_" + name.replace(".", "_").lower(),
+            "level": level, "command": "python qa-backend/tests_remediation_phase03.py"}
+
+
+def _benchmark03_case(name: str) -> dict:
+    return {"suite": "benchmark_phase03", "case": name,
+            "level": "benchmark",
+            "command": "python qa-backend/tests_benchmark_phase03.py",
+            "benchmark_owner": "RT-031"}
 
 
 def _visual_case(name: str) -> dict:
@@ -425,6 +439,111 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
                                                      "level": "e2e", "future_rt": ["RT-029"]}]})
         phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": dods})
 
+    # ── Phase 03 (RT-030..RT-039) — retrieval→evidence-package chain ────
+    # DoD descriptions mirror each ticket's frozen "Done when" bullets in
+    # docs/remediation/execution_tickets.md; every SATISFIED DoD cites named
+    # behavioral cases in qa-backend/tests_remediation_phase03.py (and the
+    # committed benchmark qa-backend/tests_benchmark_phase03.py where the
+    # ticket's done-criteria are measurable quality claims).
+    phase03_dods = {
+        "RT-030": [
+            ("retrieval algorithms extracted with parity surfaces intact (frozen gate-1 baselines hold)",
+             ["RT030.parity_surfaces_delegate_to_runtime", "RT030.legacy_constants_preserved",
+              "RT030.pipeline_resolution_paths_exist", "RT030.run_hybrid_fails_closed_without_pipeline"]),
+        ],
+        "RT-031": [
+            ("no global RRF Top25 truncation before content rerank; stable-ID union pool with per-route rank/score retained",
+             ["RT031.pool_union_by_stable_id", "RT031.no_global_top25_truncation",
+              "RT031.per_route_rank_score_retained", "RT031.rrf_role_fusion_signal_only"]),
+            ("route floors keep outlier survivors eligible; caps are versioned config",
+             ["RT031.route_floor_rescues_outliers", "RT031.mode_caps_versioned"]),
+            ("benchmark: candidate survival non-regresses vs the ea6a614 top-25 baseline",
+             [_benchmark03_case("test_phase03_benchmark")]),
+        ],
+        "RT-032": [
+            ("reranker consumes query + source-grounded candidate content (re-labeling rank is noncompliant)",
+             ["RT032.content_aware_not_rank_relabel", "RT032.synthetic_never_sole_unflagged_content",
+              "RT032.summary_last_resort_flagged"]),
+            ("deterministic/local engine for FAST; batch-stable; GLM bounded with approved deterministic fallback",
+             ["RT032.batch_stable_deterministic", "RT032.mode_dispatch_fast_local",
+              "RT032.glm_failure_never_clears_candidates"]),
+        ],
+        "RT-033": [
+            ("critical requirement / comparison / independent-source reserves survive capacity cuts",
+             ["RT033.critical_requirement_reserved", "RT033.capacity_swap_keeps_reserved"]),
+            ("quotas never preserve junk below the eligibility floor; machine-readable decision codes",
+             ["RT033.junk_below_floor_never_reserved", "RT033.decision_codes_machine_readable"]),
+        ],
+        "RT-034": [
+            ("deterministic EvidencePolicyEngine runs in every mode before support can be declared",
+             ["RT034.pass_when_compliant", "RT034.ineligible_evidence_hard_fails",
+              "RT034.coverage_missing_hard_fails", "RT034.no_mode_bypasses_rules"]),
+            ("self-report, temporal, high-severity conflict and grader composition rules enforced",
+             ["RT034.self_report_gate", "RT034.high_severity_conflict_blocks",
+              "RT034.grader_never_overrides_hard_fail", "RT034.grader_insufficient_downgrades_pass"]),
+        ],
+        "RT-035": [
+            ("selected evidence is the only support candidate set downstream",
+             ["RT035.selected_is_only_support_set", "RT035.floor_rejects_below_threshold"]),
+            ("selector empty → explicit gap (abstain/PARTIAL/UNSUPPORTED), never raw fallback",
+             ["RT035.empty_selection_explicit_gap", "RT035.gap_reason_recorded"]),
+            ("provenance/repost group limits keep duplicate slots bounded",
+             ["RT035.provenance_group_limits"]),
+        ],
+        "RT-036": [
+            ("chunk hits return parent stable ID + exact EvidenceLocator (chunk id, snapshot id, offsets, sha)",
+             ["RT036.parent_locator_exact", "RT036.sha_integrity_verifiable",
+              "RT036.mini_runtime_chunk_ids_match_fixture"]),
+            ("chunk hits aggregate under stable parent record retaining multiple hit locators",
+             ["RT036.parent_aggregation_single_candidate", "RT036.multiple_hit_locators_retained"]),
+            ("no generated-summary chunks; tampered text fails closed",
+             ["RT036.no_synthetic_chunks", "RT036.tampered_sha_fails_closed"]),
+            ("benchmark: long-document tail-fact visibility improves vs the ea6a614 300-char excerpt surface",
+             [_benchmark03_case("test_phase03_benchmark")]),
+        ],
+        "RT-037": [
+            ("Generator new path accepts only the typed EvidencePackage; raw results rejected",
+             ["RT037.pipeline_builds_typed_package", "RT039.typed_boundary_rejects_raw"]),
+            ("critical conflicts cannot be token-pruned silently; package hash/evidence IDs enter Trace",
+             ["RT037.hash_and_ids_in_trace_facts", "RT038.critical_conflict_evidence_preserved",
+              "RT037.package_hash_deterministic", "RT037.same_inputs_same_hash"]),
+            ("requirement-organized structure with exact refs",
+             ["RT037.requirement_organized_structure", "RT037.evidence_locators_sha_verifiable"]),
+        ],
+        "RT-038": [
+            ("mandatory evidence never silently truncated (explicit context_capacity_exceeded abstention)",
+             ["RT038.mandatory_never_silently_truncated", "RT038.overflow_is_explicit_abstain",
+              "RT038.pipeline_overflow_abstains"]),
+            ("compressed text cannot itself count as evidence",
+             ["RT038.compressed_text_not_evidence"]),
+            ("normal fit leaves evidence untouched",
+             ["RT038.normal_fit_no_action"]),
+        ],
+        "RT-039": [
+            ("unselected candidate unique sentinel never appears in model input",
+             ["RT039.unselected_sentinel_never_in_model_input"]),
+            ("prior UNVERIFIED answer sentinel never enters factual context",
+             ["RT039.unverified_premise_rejected", "RT039.prior_unverified_sentinel_absent"]),
+            ("typed allowlist: query/scope, verified premises, EvidencePackage, approved instructions only",
+             ["RT039.allowlist_fields_present", "RT039.data_boundaries_wrap_evidence",
+              "RT039.pipeline_context_is_allowlisted_rendering"]),
+        ],
+    }
+    for rt_id, specs in phase03_dods.items():
+        dods = []
+        for number, (description, cases) in enumerate(specs, 1):
+            test_cases = [
+                c if isinstance(c, dict) else _phase03_case(c)
+                for c in cases
+            ]
+            dods.append({
+                "dod_id": f"{rt_id}.DOD-{number:02d}",
+                "description": description,
+                "status": "SATISFIED",
+                "test_cases": test_cases,
+            })
+        phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": dods})
+
     # Legacy frozen DoDs whose remediation owner completed in Phase 02 with
     # directly corresponding behavioral evidence. Every entry cites named
     # executable cases; T037 stays NOT_SATISFIED (simulated flow, L12 hard gate)
@@ -495,7 +614,7 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
             "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
         },
-        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)] + [f"RT-{n:03d}" for n in range(20, 30)],
+        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)] + [f"RT-{n:03d}" for n in range(20, 30)] + [f"RT-{n:03d}" for n in range(30, 40)],
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
         "remediation_entries": phase00,
@@ -539,7 +658,7 @@ def main() -> int:
         "decision_register_sha256": NORMATIVE["decision_register.md"],
         "ticket_registry_version": remediation["registry_version"],
         "ticket_registry_sha256": digest(REGISTRY),
-        "profile_registry_version": "1.0.0",
+        "profile_registry_version": "1.1.0",
         "acceptance_matrix_version": matrix["schema_version"],
         "acceptance_matrix_sha256": digest(MATRIX),
         "normative_documents": {

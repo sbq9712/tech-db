@@ -53,6 +53,8 @@ class Flags:
         # Phase 02 (RT-020/RT-027): exact grounding + verified terminal SSE
         "EXACT_GROUNDING_ENABLED": "QA_EXACT_GROUNDING_ENABLED",
         "TERMINAL_RENDERER_ENABLED": "QA_TERMINAL_RENDERER_ENABLED",
+        # Phase 03 (RT-030..039): retrieval->evidence-package generation path
+        "EVIDENCE_PACKAGE_ENABLED": "QA_EVIDENCE_PACKAGE_ENABLED",
     }
 
     # Master switch for agentic features
@@ -99,6 +101,9 @@ class Flags:
     # draft is buffered until the answer state machine finalizes; finalized
     # content is streamed only after verification. Off in legacy_hybrid.
     TERMINAL_RENDERER_ENABLED = _env_bool("QA_TERMINAL_RENDERER_ENABLED", default=True)
+    # Phase 03: typed EvidencePackage generation path (RT-030..039). Off in
+    # legacy_hybrid and agentic_correctness_core; on in agentic_full.
+    EVIDENCE_PACKAGE_ENABLED = _env_bool("QA_EVIDENCE_PACKAGE_ENABLED", default=False)
 
     @classmethod
     def status(cls) -> dict:
@@ -127,6 +132,7 @@ class Flags:
             "knowledge_boundary": cls.KNOWLEDGE_BOUNDARY_ENABLED,
             "exact_grounding": cls.EXACT_GROUNDING_ENABLED,
             "terminal_renderer": cls.TERMINAL_RENDERER_ENABLED,
+            "evidence_package": cls.EVIDENCE_PACKAGE_ENABLED,
         }
 
 
@@ -162,7 +168,8 @@ PIPELINE_PROFILES = {
                        "Phase-02 verifier flags off (runtime-v1 rollback target)",
         "flags": {**{name: True for name in _SHIPPED_FLAG_NAMES},
                   "EXACT_GROUNDING_ENABLED": False,
-                  "TERMINAL_RENDERER_ENABLED": False},
+                  "TERMINAL_RENDERER_ENABLED": False,
+                  "EVIDENCE_PACKAGE_ENABLED": False},
     },
     "agentic_correctness_core": {
         "description": "Correctness-critical modules only "
@@ -181,6 +188,7 @@ PIPELINE_PROFILES = {
             "CLAIM_MAPPING_ENABLED": True, "ANSWER_STATUS_ENABLED": True,
             "KNOWLEDGE_BOUNDARY_ENABLED": True,
             "EXACT_GROUNDING_ENABLED": True, "TERMINAL_RENDERER_ENABLED": True,
+            "EVIDENCE_PACKAGE_ENABLED": False,
         },
     },
     "agentic_full": {
@@ -197,7 +205,8 @@ PIPELINE_PROFILES = {
                    "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
                    "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
                    "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
-                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED")},
+                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED",
+                   "EVIDENCE_PACKAGE_ENABLED")},
     },
 }
 

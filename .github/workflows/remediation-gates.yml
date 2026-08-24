@@ -86,6 +86,21 @@ jobs:
       - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - run: python qa-backend/tests_remediation_phase02.py
 
+  phase03-retrieval-evidence-package:
+    # Phase 03 (RT-030..039): pool/reserves/rerank/policy/selection/chunk
+    # route/typed EvidencePackage/generator allowlist + the committed
+    # deterministic retrieval-quality benchmark vs the ea6a614 baseline
+    # semantics (top-25 truncation, 300-char excerpts, no rerank).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: python qa-backend/tests_remediation_phase03.py
+      - run: python qa-backend/tests_benchmark_phase03.py
+
   legacy-index-migration:
     # Phase-02 review blocker C: legacy dataset (no inline record_id) →
     # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →

@@ -1370,6 +1370,7 @@
         "QA_SEMANTIC_GRAPH_ENABLED": true,
         "QA_TEMPORAL_ENABLED": true,
         "QA_TERMINAL_RENDERER_ENABLED": false,
+        "QA_EVIDENCE_PACKAGE_ENABLED": false,
         "QA_TRACE_ENABLED": true
       }
     },
@@ -1399,6 +1400,7 @@
         "QA_SEMANTIC_GRAPH_ENABLED": false,
         "QA_TEMPORAL_ENABLED": false,
         "QA_TERMINAL_RENDERER_ENABLED": true,
+        "QA_EVIDENCE_PACKAGE_ENABLED": false,
         "QA_TRACE_ENABLED": true
       }
     },
@@ -1428,6 +1430,7 @@
         "QA_SEMANTIC_GRAPH_ENABLED": true,
         "QA_TEMPORAL_ENABLED": true,
         "QA_TERMINAL_RENDERER_ENABLED": true,
+        "QA_EVIDENCE_PACKAGE_ENABLED": true,
         "QA_TRACE_ENABLED": true
       }
     }
@@ -1453,17 +1456,24 @@
         "QA_CITATION_GROUNDING_ENABLED"
       ],
       "rule": "claim_mapping_requires_grounding"
+    },
+    {
+      "flags": [
+        "QA_EVIDENCE_PACKAGE_ENABLED",
+        "QA_TERMINAL_RENDERER_ENABLED"
+      ],
+      "rule": "evidence_package_requires_terminal_renderer"
     }
   ],
-  "spec_hash": "bbed2b576c33eb66ec686d05f245ed5bdd08e753835455bec885216b2b9bca96",
+  "spec_hash": "1d2bc6483144d3385311e264b349241819a147672c0b1925bc6119e6896059d9",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
   "ticket_registry_version": "remediation-2026-08-18",
   "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
-  "profile_registry_version": "1.0.0",
+  "profile_registry_version": "1.1.0",
   "acceptance_matrix_version": "3.0.0",
-  "acceptance_matrix_sha256": "4fcec646e3e0ae95a6f4a54ab064ef83b2c34832147e2a0d4685c8381032b79b",
+  "acceptance_matrix_sha256": "c41d99ad417fd68625c43ad08d923a115a9b2157dad0fff6f4ac9d34e042b417",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",

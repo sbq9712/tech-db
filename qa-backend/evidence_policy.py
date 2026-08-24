@@ -169,7 +169,11 @@ class EvidencePolicyEngine:
         supported wording for the proposition (spec §22)."""
         findings: List[PolicyFinding] = []
         for c in conflicts:
-            if c.get("severity") == "high" and c.get("state") in ("CONTRADICT", "UNKNOWN", None):
+            sev = str(c.get("severity", "")).lower()
+            state = str(c.get("state", "") or "").upper() or None
+            resolved = bool(c.get("resolved", False))
+            if sev == "high" and not resolved \
+                    and state in ("CONTRADICT", "UNKNOWN", None):
                 findings.append(PolicyFinding(
                     "conflict", "POLICY_CONFLICT_UNRESOLVED",
                     str(c.get("subject", "")),

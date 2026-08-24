@@ -41,12 +41,24 @@
     "RT-026",
     "RT-027",
     "RT-028",
-    "RT-029"
+    "RT-029",
+    "RT-030",
+    "RT-031",
+    "RT-032",
+    "RT-033",
+    "RT-034",
+    "RT-035",
+    "RT-036",
+    "RT-037",
+    "RT-038",
+    "RT-039"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
     "remediation_phase01": "qa-backend/tests_remediation_phase01.py",
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
+    "remediation_phase03": "qa-backend/tests_remediation_phase03.py",
+    "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py"
   },
@@ -14920,6 +14932,616 @@
               "case": "test_rt029_visual_mutation_layout_assert_mobile",
               "level": "e2e",
               "command": "python qa-backend/tests_visual_rt029.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-030",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-030.DOD-01",
+          "description": "retrieval algorithms extracted with parity surfaces intact (frozen gate-1 baselines hold)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt030_parity_surfaces_delegate_to_runtime",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt030_legacy_constants_preserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt030_pipeline_resolution_paths_exist",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt030_run_hybrid_fails_closed_without_pipeline",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-031",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-031.DOD-01",
+          "description": "no global RRF Top25 truncation before content rerank; stable-ID union pool with per-route rank/score retained",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_pool_union_by_stable_id",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_no_global_top25_truncation",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_per_route_rank_score_retained",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_rrf_role_fusion_signal_only",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-031.DOD-02",
+          "description": "route floors keep outlier survivors eligible; caps are versioned config",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_route_floor_rescues_outliers",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt031_mode_caps_versioned",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-031.DOD-03",
+          "description": "benchmark: candidate survival non-regresses vs the ea6a614 top-25 baseline",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase03",
+              "case": "test_phase03_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase03.py",
+              "benchmark_owner": "RT-031"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-032",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-032.DOD-01",
+          "description": "reranker consumes query + source-grounded candidate content (re-labeling rank is noncompliant)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_content_aware_not_rank_relabel",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_synthetic_never_sole_unflagged_content",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_summary_last_resort_flagged",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-032.DOD-02",
+          "description": "deterministic/local engine for FAST; batch-stable; GLM bounded with approved deterministic fallback",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_batch_stable_deterministic",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_mode_dispatch_fast_local",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt032_glm_failure_never_clears_candidates",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-033",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-033.DOD-01",
+          "description": "critical requirement / comparison / independent-source reserves survive capacity cuts",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_critical_requirement_reserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_capacity_swap_keeps_reserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-033.DOD-02",
+          "description": "quotas never preserve junk below the eligibility floor; machine-readable decision codes",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_junk_below_floor_never_reserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_decision_codes_machine_readable",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-034",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-034.DOD-01",
+          "description": "deterministic EvidencePolicyEngine runs in every mode before support can be declared",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_pass_when_compliant",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_ineligible_evidence_hard_fails",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_coverage_missing_hard_fails",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_no_mode_bypasses_rules",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-034.DOD-02",
+          "description": "self-report, temporal, high-severity conflict and grader composition rules enforced",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_self_report_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_high_severity_conflict_blocks",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_grader_never_overrides_hard_fail",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt034_grader_insufficient_downgrades_pass",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-035",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-035.DOD-01",
+          "description": "selected evidence is the only support candidate set downstream",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt035_selected_is_only_support_set",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt035_floor_rejects_below_threshold",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-035.DOD-02",
+          "description": "selector empty → explicit gap (abstain/PARTIAL/UNSUPPORTED), never raw fallback",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt035_empty_selection_explicit_gap",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt035_gap_reason_recorded",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-035.DOD-03",
+          "description": "provenance/repost group limits keep duplicate slots bounded",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt035_provenance_group_limits",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-036",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-036.DOD-01",
+          "description": "chunk hits return parent stable ID + exact EvidenceLocator (chunk id, snapshot id, offsets, sha)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_parent_locator_exact",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_sha_integrity_verifiable",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_mini_runtime_chunk_ids_match_fixture",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-036.DOD-02",
+          "description": "chunk hits aggregate under stable parent record retaining multiple hit locators",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_parent_aggregation_single_candidate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_multiple_hit_locators_retained",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-036.DOD-03",
+          "description": "no generated-summary chunks; tampered text fails closed",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_no_synthetic_chunks",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt036_tampered_sha_fails_closed",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-036.DOD-04",
+          "description": "benchmark: long-document tail-fact visibility improves vs the ea6a614 300-char excerpt surface",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase03",
+              "case": "test_phase03_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase03.py",
+              "benchmark_owner": "RT-031"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-037",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-037.DOD-01",
+          "description": "Generator new path accepts only the typed EvidencePackage; raw results rejected",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_pipeline_builds_typed_package",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_typed_boundary_rejects_raw",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-037.DOD-02",
+          "description": "critical conflicts cannot be token-pruned silently; package hash/evidence IDs enter Trace",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_hash_and_ids_in_trace_facts",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_critical_conflict_evidence_preserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_package_hash_deterministic",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_same_inputs_same_hash",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-037.DOD-03",
+          "description": "requirement-organized structure with exact refs",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_requirement_organized_structure",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt037_evidence_locators_sha_verifiable",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-038",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-038.DOD-01",
+          "description": "mandatory evidence never silently truncated (explicit context_capacity_exceeded abstention)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_mandatory_never_silently_truncated",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_overflow_is_explicit_abstain",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_pipeline_overflow_abstains",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-038.DOD-02",
+          "description": "compressed text cannot itself count as evidence",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_compressed_text_not_evidence",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-038.DOD-03",
+          "description": "normal fit leaves evidence untouched",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt038_normal_fit_no_action",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-039",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-039.DOD-01",
+          "description": "unselected candidate unique sentinel never appears in model input",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_unselected_sentinel_never_in_model_input",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-039.DOD-02",
+          "description": "prior UNVERIFIED answer sentinel never enters factual context",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_unverified_premise_rejected",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_prior_unverified_sentinel_absent",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-039.DOD-03",
+          "description": "typed allowlist: query/scope, verified premises, EvidencePackage, approved instructions only",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_allowlist_fields_present",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_data_boundaries_wrap_evidence",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_pipeline_context_is_allowlisted_rendering",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
         }
