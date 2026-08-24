@@ -503,6 +503,47 @@ def _rt033():
     test("RT033.round3_all_reserves_keep_eligible_positive_control",
          _has_sparse("eligible-beta", "RESERVE_COMPARISON_OBJECT"))
 
+    # Review round 4: fusion frequency is not relevance truth.  This
+    # adversarial candidate appears on every route and has an aggregate RRF
+    # far above the floor, while EVERY raw route signal is below it. Token
+    # matches and provenance scarcity must not let any reserve protect it.
+    fused_weak = PoolCandidate(
+        record_id="fused-weak", rrf_score=0.80,
+        route_origins=["vector", "bm25", "graph", "chunk"],
+        route_ranks={"vector": 1, "bm25": 1, "graph": 1, "chunk": 1},
+        route_scores={"vector": 0.049, "bm25": 0.049,
+                      "graph": 0.049, "chunk": 0.049},
+        rrf_rank=40,
+        meta={"t": "criticalneedle beta latency benchmark"})
+    raw_positive = PoolCandidate(
+        record_id="raw-positive", rrf_score=0.001,
+        route_origins=["vector", "bm25"],
+        route_ranks={"vector": 99, "bm25": 99},
+        route_scores={"vector": 0.051, "bm25": 0.001},
+        rrf_rank=99,
+        meta={"t": "criticalneedle beta latency benchmark"})
+    r4_decisions = apply_reserve(
+        [fused_weak, raw_positive],
+        critical_requirements=[{"id": "r4", "keywords": ["criticalneedle"],
+                                "must": True}],
+        comparison_objects=["beta"], comparison_dimensions=["latency"],
+        provenance_groups={"fused-weak": "scarce-weak",
+                           "raw-positive": "scarce-positive"},
+        known_independent_groups=["scarce-weak", "scarce-positive"])
+    fused_decisions = [d for d in r4_decisions
+                       if d.record_id == "fused-weak"]
+    positive_decisions = [d for d in r4_decisions
+                          if d.record_id == "raw-positive"]
+    test("RT033.round4_rrf_only_candidate_rejected_below_raw_floor",
+         fused_decisions
+         and not any(d.reserved for d in fused_decisions)
+         and {d.reason_code for d in fused_decisions}
+         == {"REJECT_BELOW_ELIGIBILITY_FLOOR"})
+    test("RT033.round4_raw_signal_positive_control_reserved",
+         any(d.reserved for d in positive_decisions)
+         and any(d.reason_code == "RESERVE_CRITICAL_REQUIREMENT"
+                 for d in positive_decisions))
+
     # ── review blocker 3: comparison object × dimension + independent
     # source + route outlier reserves with REAL wiring shapes ──────────────
     def cand2(rid, rrf, group="prov-x", title=""):
@@ -1612,11 +1653,13 @@ def _round2():
                             "note note note note note note note note note "
                             "note note note note note")
     sse_records = [{"record_id": rid, "t": rid,
+                    "independent_group_id": f"wire-{rid}",
                     **({"as": "LEGACY_AI_SUMMARY_SENTINEL"}
                        if rid == "decoy-000" else {})}
                    for rid in decoy_ids] + \
                   [{"record_id": target_id,
-                    "t": "SELECTED_TITLE_OUTSIDE_TYPED_VIEW_SENTINEL"}]
+                    "t": "SELECTED_TITLE_OUTSIDE_TYPED_VIEW_SENTINEL",
+                    "independent_group_id": "wire-target"}]
     sse_vectors = {rid: _craft_vector(_QUERY_R2, 0.50 - 0.01 * i,
                                       f"ortho-{rid}")
                    for i, rid in enumerate(decoy_ids)}
@@ -1626,12 +1669,45 @@ def _round2():
         texts=sse_texts, query=_QUERY_R2, manifest_id="round2-endpoint")
     sse_snap = _load_snapshot(manifest, root, "round2-endpoint")
 
+    # Compact strict-profile lineage fixture: all four records are selected;
+    # two different record_ids intentionally share one pinned provenance
+    # group, while the positive controls remain distinct.
+    prov_ids = ["prov-a", "prov-b", "prov-c", "prov-d", "prov-e"]
+    prov_texts = {
+        rid: f"zeep8 production yield verified evidence {rid}"
+        for rid in prov_ids}
+    prov_records = [
+        {"record_id": "prov-a", "t": "A",
+         "independent_group_id": "wire-shared"},
+        {"record_id": "prov-b", "t": "B",
+         "independent_group_id": "wire-shared"},
+        {"record_id": "prov-c", "t": "C",
+         "independent_group_id": "wire-distinct-c"},
+        {"record_id": "prov-d", "t": "D",
+         "independent_group_id": "wire-distinct-d"},
+        {"record_id": "prov-e", "t": "E",
+         "independent_group_id": ""},
+    ]
+    prov_vectors = {
+        rid: _craft_vector(_QUERY_R2, 0.45 - i * 0.02,
+                           f"prov-ortho-{i}")
+        for i, rid in enumerate(prov_ids)}
+    prov_manifest, prov_root = _write_release(
+        Path(tmp) / "provenance-endpoint", records=prov_records,
+        vectors=prov_vectors, texts=prov_texts, query=_QUERY_R2,
+        manifest_id="round4-provenance-endpoint")
+    prov_snap = _load_snapshot(
+        prov_manifest, prov_root, "round4-provenance-endpoint")
+
     class _FakePinManager:
         """Same interface RuntimePinMiddleware consumes."""
-        manifest_id = sse_snap.manifest_id
+
+        def __init__(self, snap):
+            self._snap = snap
+            self.manifest_id = snap.manifest_id
 
         def pin(self):
-            return contextlib.nullcontext(sse_snap)
+            return contextlib.nullcontext(self._snap)
 
     sse_captured = {}
 
@@ -1639,9 +1715,15 @@ def _round2():
         sse_captured["system_prompt"] = system_prompt
         sse_captured["prompt"] = prompt
         sse_captured["history_messages"] = history_messages
+        sse_captured.setdefault("generator_invocations", []).append({
+            "prompt": prompt, "system_prompt": system_prompt,
+            "history_messages": history_messages})
         if sse_captured.get("force_stream_failure"):
             raise RuntimeError("forced-stream-fallback")
-        for tok in ("回答", "完成"):
+        tokens = (("zeep8 production ", "yield")
+                  if sse_captured.get("terminal_renderer")
+                  else ("回答", "完成"))
+        for tok in tokens:
             yield tok
 
     async def _fake_llm_model(prompt, *, system_prompt, history_messages):
@@ -1686,11 +1768,18 @@ def _round2():
         return events
 
     def _post_chat(flag_on, *, force_stream_failure=False,
-                   force_lineage_failure=False):
+                   force_lineage_failure=False, terminal_renderer=False,
+                   runtime_snap=None):
         from fastapi.testclient import TestClient
         import guardrails as _guardrails
         import claim_mapping as _claim_mapping_module
+        import phase02_pipeline as _p02_module
+        from verifier import VerificationResult
         saved_attach_lineage = _claim_mapping_module.attach_span_lineage
+        saved_p02 = (_p02_module.attach_span_lineage,
+                     _p02_module.claim_independence,
+                     _p02_module.map_claims_to_citations,
+                     _p02_module.verify_final)
         saved = (_server.Flags.AGENTIC_ENABLED,
                  _server.Flags.EVIDENCE_PACKAGE_ENABLED,
                  _server.Flags.TERMINAL_RENDERER_ENABLED,
@@ -1703,11 +1792,7 @@ def _round2():
                  _server._runtime_snapshot_manager)
         _server.Flags.AGENTIC_ENABLED = False
         _server.Flags.EVIDENCE_PACKAGE_ENABLED = flag_on
-        # legacy renderer profile (registered profile with
-        # TERMINAL_RENDERER_ENABLED=False): the Phase02 terminal renderer
-        # is an LLM-verification path out of scope for this deterministic
-        # E2E; the pre-gate ORDER under test is identical on both paths.
-        _server.Flags.TERMINAL_RENDERER_ENABLED = False
+        _server.Flags.TERMINAL_RENDERER_ENABLED = terminal_renderer
         _server.embedding_func = _fake_embed
         _server.rewrite_query = _fake_rewrite
         _server.llm_stream_func = _fake_llm_stream
@@ -1719,12 +1804,51 @@ def _round2():
             _guardrails.GuardrailSettings(
                 per_minute=10 ** 6, per_client_day=10 ** 9,
                 global_day=10 ** 9))
-        _server._runtime_snapshot_manager = _FakePinManager()
+        _server._runtime_snapshot_manager = _FakePinManager(
+            runtime_snap or sse_snap)
         sse_captured["force_stream_failure"] = force_stream_failure
+        sse_captured["terminal_renderer"] = terminal_renderer
+        sse_captured["generator_invocations"] = []
+        sse_captured["phase02_provenance_maps"] = []
+        sse_captured["phase02_independence_reports"] = []
+
+        async def _p02_claim_map(_query, _answer, citations):
+            return {"claims": [{
+                "id": "strict-claim-1", "text": "zeep8 production yield",
+                "type": "VERIFIABLE_FACT", "support_status": "SUPPORTED",
+                "is_core": True,
+                "supported_by": [
+                    {"citation_id": c["id"], "relation": "DIRECT_SUPPORT",
+                     "evidence_span": c.get("body_snippet", "")}
+                    for c in citations],
+            }]}
+
+        async def _p02_verify(*_args, **_kwargs):
+            return VerificationResult("PASSED")
+
+        def _capture_p02_lineage(*args, **kwargs):
+            sse_captured["phase02_provenance_maps"].append(
+                dict(kwargs.get("provenance_map") or {}))
+            return saved_p02[0](*args, **kwargs)
+
+        def _capture_p02_independence(*args, **kwargs):
+            report = saved_p02[1](*args, **kwargs)
+            sse_captured["phase02_independence_reports"].append(report)
+            return report
+
+        _p02_module.claim_independence = _capture_p02_independence
+        _p02_module.map_claims_to_citations = _p02_claim_map
+        _p02_module.verify_final = _p02_verify
+        _p02_module.attach_span_lineage = _capture_p02_lineage
         if force_lineage_failure:
             def _raise_lineage(*_args, **_kwargs):
                 raise RuntimeError("forced-lineage-unavailable")
-            _claim_mapping_module.attach_span_lineage = _raise_lineage
+            if terminal_renderer:
+                # Patch the symbol actually executed by
+                # phase02_pipeline.run_phase02_verification.
+                _p02_module.attach_span_lineage = _raise_lineage
+            else:
+                _claim_mapping_module.attach_span_lineage = _raise_lineage
         try:
             client = TestClient(_server.app)
             resp = client.post("/api/chat/stream", json={
@@ -1735,6 +1859,10 @@ def _round2():
             return resp
         finally:
             _claim_mapping_module.attach_span_lineage = saved_attach_lineage
+            (_p02_module.attach_span_lineage,
+             _p02_module.claim_independence,
+             _p02_module.map_claims_to_citations,
+             _p02_module.verify_final) = saved_p02
             (_server.Flags.AGENTIC_ENABLED,
              _server.Flags.EVIDENCE_PACKAGE_ENABLED,
              _server.Flags.TERMINAL_RENDERER_ENABLED,
@@ -1821,6 +1949,73 @@ def _round2():
          done_lineage is not None
          and done_lineage["data"].get("answer_status") == "UNVERIFIED"
          and done_lineage["data"].get("verification_status") == "UNVERIFIED")
+
+    # Real registered Phase03 profile: BOTH EvidencePackage and terminal
+    # renderer enabled, with RuntimePinMiddleware holding one release for
+    # retrieval, Generator, records/context and Phase02 verification.
+    strict_ok = _post_chat(True, terminal_renderer=True,
+                           runtime_snap=prov_snap)
+    strict_events = _parse_sse(strict_ok.text)
+    strict_done = next((e for e in strict_events if e["event"] == "done"),
+                       None)
+    strict_maps = sse_captured.get("phase02_provenance_maps") or []
+    strict_map = strict_maps[0] if strict_maps else {}
+    strict_reports = sse_captured.get("phase02_independence_reports") or []
+    strict_report = strict_reports[0] if strict_reports else {}
+    shared_ids = sorted(rid for rid, info in strict_map.items()
+                        if info.get("independent_group_id") == "wire-shared")
+    test("claim_lineage.round4_strict_profile_preserves_shared_group",
+         strict_done is not None
+         and shared_ids == ["prov-a", "prov-b"]
+         and strict_report.get("per_claim", [{}])[0].get("groups_total") == 4
+         and any(group.get("records") == ["prov-a", "prov-b"]
+                 for group in strict_report.get("per_claim", [{}])[0]
+                 .get("groups", []))
+         and all(not str(info.get("independent_group_id", "")).startswith(
+                     "record:") for info in strict_map.values()))
+    test("claim_lineage.round4_strict_profile_preserves_distinct_groups",
+         strict_map.get("prov-c", {}).get("independent_group_id")
+         == "wire-distinct-c"
+         and strict_map.get("prov-d", {}).get("independent_group_id")
+         == "wire-distinct-d"
+         and strict_map["prov-c"]["independent_group_id"]
+         != strict_map["prov-d"]["independent_group_id"])
+    test("claim_lineage.round4_unknown_provenance_not_fabricated",
+         strict_map.get("prov-e", {}).get("independent_group_id") == ""
+         and any(group.get("group") == "__PROVENANCE_UNKNOWN__"
+                 and group.get("records") == ["prov-e"]
+                 for group in strict_report.get("per_claim", [{}])[0]
+                 .get("groups", [])))
+    # Re-run the original sentinel fixture under the same real valid profile
+    # and inspect the actual first Generator invocation.
+    strict_boundary = _post_chat(True, terminal_renderer=True)
+    strict_boundary_done = next(
+        (e for e in _parse_sse(strict_boundary.text)
+         if e["event"] == "done"), None)
+    first_strict_generator = (
+        sse_captured.get("generator_invocations") or [{}])[0]
+    strict_prompt = first_strict_generator.get("system_prompt", "")
+    test("RT039.round4_strict_profile_generator_boundary",
+         strict_boundary_done is not None
+         and "zeep8 production yield pilot" in strict_prompt
+         and "≪RETRIEVED_DATA_BEGIN≫" in strict_prompt
+         and "≪RETRIEVED_DATA_END≫" in strict_prompt
+         and "UNSELECTED_CLASSIFIER_SENTINEL" not in strict_prompt
+         and "LEGACY_AI_SUMMARY_SENTINEL" not in strict_prompt
+         and "PRIOR_UNVERIFIED_SENTINEL" not in strict_prompt
+         and first_strict_generator.get("history_messages") == [])
+
+    strict_lineage_failed = _post_chat(
+        True, terminal_renderer=True, force_lineage_failure=True,
+        runtime_snap=prov_snap)
+    strict_lineage_done = next(
+        (e for e in _parse_sse(strict_lineage_failed.text)
+         if e["event"] == "done"), None)
+    test("claim_lineage.round4_strict_exception_forces_unverified",
+         strict_lineage_done is not None
+         and strict_lineage_done["data"].get("answer_status") == "UNVERIFIED"
+         and strict_lineage_done["data"].get("verification_status")
+         == "UNVERIFIED")
 
     # flag OFF → the SAME fixture must hit the unchanged legacy reject
     # (byte-compatible legacy profile, no weakening from the restructure)
@@ -2755,6 +2950,27 @@ def test_claim_lineage_round3_stable_record_id_resolves_exact_record():
 
 def test_claim_lineage_round3_failure_forces_unverified_terminal():
     _assert_case("claim_lineage.round3_failure_forces_unverified_terminal")
+
+def test_rt033_round4_rrf_only_candidate_rejected_below_raw_floor():
+    _assert_case("RT033.round4_rrf_only_candidate_rejected_below_raw_floor")
+
+def test_rt033_round4_raw_signal_positive_control_reserved():
+    _assert_case("RT033.round4_raw_signal_positive_control_reserved")
+
+def test_claim_lineage_round4_strict_profile_preserves_shared_group():
+    _assert_case("claim_lineage.round4_strict_profile_preserves_shared_group")
+
+def test_claim_lineage_round4_strict_profile_preserves_distinct_groups():
+    _assert_case("claim_lineage.round4_strict_profile_preserves_distinct_groups")
+
+def test_claim_lineage_round4_unknown_provenance_not_fabricated():
+    _assert_case("claim_lineage.round4_unknown_provenance_not_fabricated")
+
+def test_claim_lineage_round4_strict_exception_forces_unverified():
+    _assert_case("claim_lineage.round4_strict_exception_forces_unverified")
+
+def test_rt039_round4_strict_profile_generator_boundary():
+    _assert_case("RT039.round4_strict_profile_generator_boundary")
 
 def test_rt038_round2_compressed_support_not_trusted():
     _assert_case("RT038.round2_compressed_support_not_trusted")

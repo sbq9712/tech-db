@@ -358,8 +358,11 @@ class EvidencePackageBuilder:
                 relation=relation,
                 source_role=str(meta.get("evidence_role")
                                 or prov.get("source_role") or "unknown"),
+                # Unknown provenance is not independent-by-default. A
+                # record-id fallback would fabricate one source group per
+                # record and over-count reposts in Phase02 claim lineage.
                 independent_group_id=str(prov.get("independent_group_id")
-                                         or rec_id),
+                                         or ""),
                 event_time=str(temp.get("event_time")
                                or meta.get("event_time") or ""),
                 temporal_status=str(temp.get("temporal_status") or "unknown"),

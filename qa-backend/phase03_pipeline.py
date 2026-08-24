@@ -466,7 +466,7 @@ async def run_phase03_retrieval(*, query: str,
         return body
 
     provenance_groups = {
-        rid: (info or {}).get("independent_group_id", rid)
+        rid: str((info or {}).get("independent_group_id") or "")
         for rid, info in provenance_map.items()}
     known_independent_groups = sorted({
         gid for gid in provenance_groups.values() if gid})

@@ -9,9 +9,9 @@ Phase 03 交付"高召回检索 → 内容重排 → 硬规则 policy → 证据
 不可变 EvidencePackage → hash 绑定生成视图"的完整生成前证据链，
 并以 production-path E2E 锁定每一步的真实 server 语义。
 
-- 测试：`tests_remediation_phase03.py` 154/154（含真实 server/pinned-runtime E2E）；
+- 测试：`tests_remediation_phase03.py` 162/162（含真实 server/pinned-runtime E2E）；
   `tests_benchmark_phase03.py` 3/3 + production benchmark 3/3 指标全过。
-- push tier：799/799（33 suites，0 fail）；parity gate-1 基线 0 drift。
+- push tier：807/807（33 suites，0 fail）；parity gate-1 基线 0 drift。
 - 规格工件：acceptance_matrix 登记全部新用例（RT-030..039 DOD 级），
   spec_manifest sha/spec_hash 重算，lint + verifier 通过。
 
@@ -253,3 +253,52 @@ Phase 03 交付"高召回检索 → 内容重排 → 硬规则 policy → 证据
   流量声明）。
 - acceptance_matrix 新增 `RT-033.DOD-04`、`RT-034.DOD-04/05`、
   `RT-039.DOD-04`，manifest hash 重算并通过 lint/selftest/verifier。
+
+## 第四轮验收整改（2026-08-24 — RT-033 / strict claim lineage）
+
+### RT-033：RRF 不建立最低 eligibility
+
+- reserve 的唯一 eligibility predicate 现在只读取底层 raw route
+  relevance signal；RRF 仅在 eligibility 之后参与融合/排序。
+- 对抗样本同时出现在 vector/BM25/graph/chunk，RRF=0.80，但四条 raw
+  signal 均为 0.049（低于 0.05 floor），即使命中 critical/object/
+  dimension token 和 scarce provenance，也只能得到
+  `REJECT_BELOW_ELIGIBILITY_FLOOR`，不存在任何 reserve reason。
+- 低 RRF / 深排名但一条 raw signal=0.051 的正控仍获保护。
+
+### strict Phase03 → Phase02 provenance 与终态 fail-safe
+
+- server 从 request-pinned `PackedGenerationView.evidence` 派生 typed
+  `record_id → {independent_group_id, source_role}` map，并显式传给
+  `run_phase02_verification`；Phase02 不读取 mutable global，也不重跑
+  provenance engine。
+- strict EvidencePackage 路径不再生成 `record:<rid>` 独立组。两个不同
+  record_id 的同源证据保持同一组；已知不同组保持不同；显式未知保持
+  `__PROVENANCE_UNKNOWN__` 语义，不能被当作逐记录独立。
+- `claim_lineage` 纳入 canonical validation-blocking components；实际
+  `phase02_pipeline.attach_span_lineage` 异常进入 AnswerStateMachine
+  technical failure，最终 `answer_status` 与 `verification_status` 均为
+  `UNVERIFIED`。legacy 非 EvidencePackage 路径保留单独兼容行为。
+
+### 真实有效 profile E2E
+
+- HTTP/SSE TestClient 通过 `RuntimePinMiddleware` 同接口固定完整 release，
+  同时启用 `EVIDENCE_PACKAGE_ENABLED=True` 与
+  `TERMINAL_RENDERER_ENABLED=True`，不替换
+  `run_phase02_verification`；仅 stub 外部 LLM mapping/verifier。
+- E2E 捕获 Phase02 实际 lineage provenance map 与 per-claim independence
+  report：共享组两条记录仅形成一个 group，distinct 正控不折叠，unknown
+  不伪造；异常测试 patch 的是 Phase02 实际执行符号。
+- 同一有效 profile 捕获第一个真实 Generator invocation：unselected、
+  classifier、legacy AI-summary、prior-UNVERIFIED history sentinel 均缺席，
+  selected evidence 位于 DATA boundary，raw assistant history 为空。
+
+### 第四轮回归与登记
+
+- push tier **807/807**（33 suites）；Phase03 **162/162**；Phase02
+  **161/161**（新增 lineage blocking 与
+  unknown-provenance 语义未破坏既有行为）。
+- acceptance matrix 将 RRF 对抗/正控登记在 `RT-033.DOD-04`，strict
+  Generator boundary 登记在既有 `RT-039.DOD-04`，claim/span independence
+  与 uncertainty/fail-safe 登记在 frozen `T048.DOD-03/04`；未新增无关
+  RT-039 DoD。

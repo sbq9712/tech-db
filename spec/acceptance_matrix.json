@@ -2110,15 +2110,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "The strict request-pinned Phase03→Phase02 path preserves true provenance groups at claim/span lineage, so two records in one group count once and distinct groups remain distinct.",
+          "test_cases": [
             {
-              "case": "test_t048_dod_03_evidence_grader_claim_span_independence",
-              "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round4_strict_profile_preserves_shared_group",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round4_strict_profile_preserves_distinct_groups",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
         },
@@ -2133,15 +2138,20 @@
             "kind": "checklist_bullet"
           },
           "required_level": "integration",
-          "status": "NOT_SATISFIED",
-          "evidence_note": "Phase-00 did not establish named executable evidence for this exact frozen DoD; no historical suite receives wholesale completion credit.",
-          "planned_test_cases": [
+          "status": "SATISFIED",
+          "evidence_note": "Pinned unknown provenance remains unknown rather than becoming record:<id>; strict lineage processing failures are validation-blocking and terminate UNVERIFIED.",
+          "test_cases": [
             {
-              "case": "test_t048_dod_04_provenance_uncertainty",
-              "level": "integration",
-              "future_rt": [
-                "RT-021"
-              ]
+              "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round4_unknown_provenance_not_fabricated",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_claim_lineage_round4_strict_exception_forces_unverified",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
         }
@@ -15358,6 +15368,18 @@
               "case": "test_rt033_round3_all_reserves_keep_eligible_positive_control",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round4_rrf_only_candidate_rejected_below_raw_floor",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt033_round4_raw_signal_positive_control_reserved",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
         }
@@ -16094,6 +16116,12 @@
             {
               "suite": "remediation_phase03",
               "case": "test_claim_lineage_round3_failure_forces_unverified_terminal",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase03.py"
+            },
+            {
+              "suite": "remediation_phase03",
+              "case": "test_rt039_round4_strict_profile_generator_boundary",
               "level": "e2e",
               "command": "python qa-backend/tests_remediation_phase03.py"
             },

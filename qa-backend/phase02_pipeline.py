@@ -22,14 +22,14 @@ import dataclasses
 import inspect
 import json
 import time
-from typing import Optional
+from typing import Mapping, Optional, TypedDict
 
 from answer_status import (
     AnswerStateMachine, AnswerStatus, render_terminal_answer, build_evidence_summary,
 )
 from claim_mapping import (
     map_claims_to_citations, apply_relation_checks, check_claim_coverage,
-    get_unsupported_major_claims, attach_span_lineage,
+    get_unsupported_major_claims, attach_span_lineage, claim_independence,
 )
 from citation_grounding import (
     ground_citation_exact, is_valid_grounding, GROUNDING_EXACT,
@@ -41,6 +41,16 @@ from degraded_mode import build_user_warning, looks_like_api_failure
 
 PHASE02_PIPELINE_VERSION = "1.0.0"
 CITATION_SCHEMA_VERSION = "2.0.0"
+
+
+class PinnedProvenance(TypedDict, total=False):
+    """Phase03 provenance attached to a request-pinned evidence view.
+
+    Empty/unknown values are meaningful and must remain unknown; callers
+    must never replace them with a synthetic per-record group.
+    """
+    independent_group_id: str
+    source_role: str
 
 
 def _stable_record_id_of(record: dict, legacy_idx, record_id_map=None) -> str:
@@ -289,6 +299,9 @@ async def run_phase02_verification(
     source_catalog=None,          # request-pinned {"snapshots": [...]} —
                                   # THE snapshot authority in manifest mode
     manifest_mode: bool = False,  # True ⇒ source_catalog is REQUIRED
+    pinned_provenance_map: Optional[
+        Mapping[str, PinnedProvenance]] = None,
+    strict_evidence_package: bool = False,
 ) -> dict:
     """Run the Phase-02 post-generation pipeline. Returns a result dict:
 
@@ -499,22 +512,54 @@ async def run_phase02_verification(
             degraded.append("claim_mapping")
             machine.record_technical_failure("claim_mapping", "budget_exhausted")
 
-        # T048 lineage (deterministic; failure → lineage-less claims).
-        # Keyed by STABLE record_id (never a list position).
+        # T048 lineage (deterministic). Keyed by stable record_id (never a
+        # list position). On the strict Phase03 path the request-pinned
+        # EvidencePackage/PackedGenerationView provenance is authoritative:
+        # unknown stays unknown and no per-record independence is invented.
+        # Legacy callers retain the documented compatibility grouping.
         try:
             prov_map = {}
             for c in citations:
                 _rec, _rid, _li = _record_for_citation(
                     c, records, records_by_id, record_id_map)
                 if _rec is not None and _rid:
-                    prov_map[_rid] = {
-                        "evidence_role": _evidence_role_for_record(_rec),
-                        "independent_group_id": f"record:{_rid}",
-                    }
+                    if strict_evidence_package:
+                        pinned = ((pinned_provenance_map or {}).get(_rid)
+                                  or {})
+                        prov_map[_rid] = {
+                            "evidence_role": str(
+                                pinned.get("source_role") or "unknown"),
+                            "independent_group_id": str(
+                                pinned.get("independent_group_id") or ""),
+                        }
+                    else:
+                        prov_map[_rid] = {
+                            "evidence_role": _evidence_role_for_record(_rec),
+                            "independent_group_id": f"record:{_rid}",
+                        }
             attach_span_lineage(claim_map, citations, provenance_map=prov_map,
                                 records_by_id=records_by_id)
-        except Exception:
-            pass
+            independence = claim_independence(
+                claim_map, provenance_map=prov_map,
+                records_by_id=records_by_id)
+            _stage("claim_independence", {
+                "claims_total": independence["claims_total"],
+                "claims_with_independent_support":
+                    independence["claims_with_independent_support"],
+                "groups_by_claim": [
+                    {"claim_id": item.get("claim_id"),
+                     "groups_total": item.get("groups_total")}
+                    for item in independence.get("per_claim", [])],
+            })
+        except Exception as exc:
+            if strict_evidence_package:
+                degraded.append("claim_lineage")
+                machine.record_technical_failure(
+                    "claim_lineage", str(exc)[:120])
+                _stage("claim_lineage", {
+                    "status": "EXCEPTION", "error": str(exc)[:200]})
+            # Explicit legacy compatibility: older non-EvidencePackage
+            # callers historically continue with lineage-less claims.
 
         # ── 2. Claim coverage gate (RT-023) ───────────────────────────────
         try:
@@ -1086,6 +1131,15 @@ async def run_phase02_verification(
         except Exception as e:
             verification_status = "UNVERIFIED"
             verification_error = str(e)
+
+    # A verifier result is never allowed to erase an earlier blocking
+    # technical failure (notably strict Phase03 claim-lineage failure).
+    # The state machine already remains TECHNICAL_FAILURE; expose the same
+    # fail-safe truth in the public verification_status contract.
+    if _pre_failed:
+        verification_status = "UNVERIFIED"
+        verification_error = (verification_error
+                              or "pre_verification_validation_failure")
 
     # Verifier FAIL findings can mark claims unsupported (semantic layer).
     # Re-recorded claim results reflect the FINAL state after verification,

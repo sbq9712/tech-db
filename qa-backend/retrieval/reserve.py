@@ -103,9 +103,13 @@ def apply_reserve(pool: List[PoolCandidate],
         protect; they never waive the route-signal floor.  Every reserve
         below calls this exact predicate before protecting a candidate.
         """
-        has_signal = any(v > eligibility_floor for v in cand.route_scores.values()) \
-            or cand.rrf_score > eligibility_floor
-        return has_signal
+        # RRF is an aggregate fusion/ranking feature.  It is intentionally
+        # excluded here: repeated weak appearances across routes may raise
+        # RRF, but cannot turn below-floor raw relevance into eligibility.
+        # Reserve classes consume this one predicate, then RRF may order the
+        # candidates that already passed it.
+        return any(v > eligibility_floor
+                   for v in cand.route_scores.values())
 
     # 1. critical requirements
     for req in (critical_requirements or []):

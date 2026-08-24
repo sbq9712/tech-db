@@ -1336,6 +1336,7 @@ async def chat_stream(req: ChatRequest, request: Request):
             context = None
             citations = []
             _phase03_active = False
+            _phase03_pinned_provenance = None
             if Flags.EVIDENCE_PACKAGE_ENABLED:
                 try:
                     _p03 = await _run_phase03_context(
@@ -1409,6 +1410,18 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # fallback to the legacy dump.
                 context = _p03["context"]
                 citations = _p03["citations"]
+                # The exact request-pinned view is the provenance authority
+                # for the strict Phase03→Phase02 terminal chain. Keep this
+                # typed, immutable-view-derived map request-local; never read
+                # mutable server globals or recluster after generation.
+                _phase03_pinned_provenance = {
+                    e.record_id: {
+                        "independent_group_id": e.independent_group_id,
+                        "source_role": e.source_role,
+                    }
+                    for e in _p03["view"].evidence.values()
+                    if e.counts_as_evidence
+                }
                 if _p03.get("selected_record_ids"):
                     # honest searched-surface under evidence mode: the
                     # searched ids are the evidence pool's selected records
@@ -1728,6 +1741,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                     source_snapshot_store=_p02_store,
                     source_catalog=_p02_catalog,
                     manifest_mode=_p02_snap is not None,
+                    pinned_provenance_map=_phase03_pinned_provenance,
+                    strict_evidence_package=_phase03_active,
                 )
                 final_answer = p02["answer"]
 
