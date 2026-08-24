@@ -51,7 +51,17 @@
     "RT-036",
     "RT-037",
     "RT-038",
-    "RT-039"
+    "RT-039",
+    "RT-040",
+    "RT-041",
+    "RT-042",
+    "RT-043",
+    "RT-044",
+    "RT-045",
+    "RT-046",
+    "RT-047",
+    "RT-048",
+    "RT-049"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -59,6 +69,8 @@
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
     "remediation_phase03": "qa-backend/tests_remediation_phase03.py",
     "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
+    "remediation_phase04": "qa-backend/tests_remediation_phase04.py",
+    "benchmark_phase04": "qa-backend/tests_benchmark_phase04.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py"
   },
@@ -16133,6 +16145,145 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "ticket_id": "RT-040",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id": "RT-040.DOD-01", "description": "PARTIAL reuses only individually verified claims", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt040_partial_only_individually_verified_claims", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_phase04_endpoint_fast_and_conversation_e2e", "level": "e2e", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-040.DOD-02", "description": "UNVERIFIED prose cannot become premise", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt040_unverified_sentinel_never_premise", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt040_conversation_isolation_and_forged_flag", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-040.DOD-03", "description": "temporal provenance retained", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt040_temporal_freshness_and_supersession", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt040_evidence_runtime_provenance_retained", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-041", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-041.DOD-01", "description": "entity/time/negation rewrite errors are caught", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt041_entity_temporal_negation_drift", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt041_modality_numeric_drift", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt041_comparison_dimension_scope_intent_drift", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-041.DOD-02", "description": "model diff failure cannot bless a bad rewrite", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt041_model_advisory_cannot_bless_bad_rewrite", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt041_critical_parse_uncertainty_escalates", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-042", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-042.DOD-01", "description": "FAST does not call full Planner unnecessarily", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt042_fast_planner_not_called", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-042.DOD-02", "description": "FAST cannot skip evidence/verification gates, including stale, self-report, numeric and relation hard failures", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt042_fast_mandatory_evidence_gates_called", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt042_fast_hard_fail_not_model_overridden", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase03", "case": "test_prod_policy_self_report_only_blocked", "level": "integration", "command": "python qa-backend/tests_remediation_phase03.py"},
+          {"suite": "remediation_phase03", "case": "test_prod_policy_superseded_only_blocked_for_current", "level": "integration", "command": "python qa-backend/tests_remediation_phase03.py"},
+          {"suite": "remediation_phase03", "case": "test_prod_policy_numeric_invalid_blocked", "level": "integration", "command": "python qa-backend/tests_remediation_phase03.py"},
+          {"suite": "remediation_phase03", "case": "test_prod_policy_relation_invalid_blocked", "level": "integration", "command": "python qa-backend/tests_remediation_phase03.py"}
+        ]},
+        {"dod_id": "RT-042.DOD-03", "description": "simple-query latency benchmark is recorded against the accepted Phase03 base", "status": "SATISFIED", "test_cases": [
+          {"suite": "benchmark_phase04", "case": "test_benchmark_fast_simple_correct", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase04.py", "artifact": "qa-backend/benchmark_phase04_result.json"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-043", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-043.DOD-01", "description": "all mode state serializable and traceable", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt043_state_serialization_runtime_pinning", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-043.DOD-02", "description": "agentic_state.all_results is not used as final generation context", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt043_all_results_not_generation_context", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_phase04_endpoint_fast_and_conversation_e2e", "level": "e2e", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-043.DOD-03", "description": "selected_evidence, Ledger and EvidencePackage stay connected", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt043_selected_ledger_package_connected", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt042_fast_real_pipeline_supported", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-044", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-044.DOD-01", "description": "comparison, trend and multi-entity coverage is complete on the committed evaluation set", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt044_comparison_object_dimension_matrix", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt044_trend_current_multi_entity", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "benchmark_phase04", "case": "test_benchmark_decomposition_matrix", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase04.py", "artifact": "qa-backend/benchmark_phase04_result.json"}
+        ]},
+        {"dod_id": "RT-044.DOD-02", "description": "ambiguous scope yields requirements or an assumption rather than a hidden choice, with deterministic fallback for malformed Planner output", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt044_ambiguity_explicit", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt044_malformed_timeout_fallback_antidrift", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-045", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-045.DOD-01", "description": "multi-document mode triggers for cross-document cases and not simple facts", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt045_orchestrator_trigger_and_simple_nontrigger", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_phase04_endpoint_fast_and_conversation_e2e", "level": "e2e", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-045.DOD-02", "description": "a document worker never sees another document's conclusions or draft", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt045_worker_cross_document_sentinel_isolation", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-045.DOD-03", "description": "relevant and no-evidence worker outcomes are represented with exact EvidenceRefs and merged into the Ledger before grading", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt045_worker_one_document_exact_refs", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt045_worker_failure_and_no_evidence", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-046", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-046.DOD-01", "description": "optional packet cache cannot cross incompatible profiles or access scopes", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt046_cache_manifest_profile_access_snapshot_isolation", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt046_cache_disabled_parity", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-046.DOD-02", "description": "stale snapshots are never reused across manifest, snapshot, requirement, model, prompt or schema changes", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt046_cache_requirement_prompt_schema_model_invalidation", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt046_cache_manifest_profile_access_snapshot_isolation", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-047", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-047.DOD-01", "description": "hard failure persists despite a model claiming sufficient evidence", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt047_hard_rule_override_attack", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-047.DOD-02", "description": "Grader technical failure cannot become SUFFICIENT", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt047_grader_failure_not_sufficient", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt047_ledger_fields_and_serialization", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-048", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-048.DOD-01", "description": "every new targeted query points to an unresolved requirement and typed gap without semantic drift or duplicates", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt048_gap_type_suite_and_requirement_binding", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_rt048_duplicate_semantic_duplicate_and_drift_prevention", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]},
+        {"dod_id": "RT-048.DOD-02", "description": "an impossible gap can stop rather than loop", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt048_real_gap_closure_two_rounds", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "benchmark_phase04", "case": "test_benchmark_gap_dedup", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase04.py", "artifact": "qa-backend/benchmark_phase04_result.json"}
+        ]}
+      ]
+    },
+    {
+      "ticket_id": "RT-049", "completion_class": "CORE_REQUIRED", "dods": [
+        {"dod_id": "RT-049.DOD-01", "description": "runaway research loops are impossible under configured round and tool-call bounds", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt049_canonical_stop_reasons", "level": "unit", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "benchmark_phase04", "case": "test_benchmark_bounded_stopping", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase04.py", "artifact": "qa-backend/benchmark_phase04_result.json"}
+        ]},
+        {"dod_id": "RT-049.DOD-02", "description": "early no-evidence exits use the canonical answer-state boundary without inferring real-world nonexistence from Tech-DB absence", "status": "SATISFIED", "test_cases": [
+          {"suite": "remediation_phase04", "case": "test_rt049_partial_boundary_and_no_false_existence_denial", "level": "integration", "command": "python qa-backend/tests_remediation_phase04.py"},
+          {"suite": "remediation_phase04", "case": "test_phase04_endpoint_fast_and_conversation_e2e", "level": "e2e", "command": "python qa-backend/tests_remediation_phase04.py"}
+        ]}
       ]
     }
   ]

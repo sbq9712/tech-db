@@ -16,7 +16,60 @@ For negative claims especially:
 Coverage states: HIGH / MEDIUM / LOW / UNKNOWN
 """
 from typing import Dict, List
+from dataclasses import asdict, dataclass
 from answer_status import AnswerStatus
+
+
+@dataclass(frozen=True)
+class KnowledgeBoundaryResult:
+    answer_status: str
+    stop_reason: str
+    message: str
+    supported_requirements: tuple = ()
+    unresolved_requirements: tuple = ()
+
+    def to_dict(self) -> dict:
+        data = asdict(self)
+        data["supported_requirements"] = list(self.supported_requirements)
+        data["unresolved_requirements"] = list(self.unresolved_requirements)
+        return data
+
+
+def build_knowledge_boundary(ledger_status: dict, stop_reason: str,
+                             *, technical_failure: bool = False) -> KnowledgeBoundaryResult:
+    """Canonical terminal builder, including early no-evidence exits.
+
+    Wording is intentionally epistemic: absence in Tech-DB never becomes an
+    existential claim about the real world.
+    """
+    reqs = ledger_status.get("requirements", []) if ledger_status else []
+    supported = tuple(str(r.get("id")) for r in reqs
+                      if r.get("status") == "SUPPORTED")
+    unresolved = tuple(str(r.get("id")) for r in reqs
+                       if r.get("status") != "SUPPORTED")
+    conflicted = [r for r in reqs if r.get("status") == "CONFLICTED"]
+    if technical_failure:
+        return KnowledgeBoundaryResult(
+            "UNVERIFIED", stop_reason,
+            "关键核验步骤未能完成；当前结果不能作为已验证事实。",
+            supported, unresolved)
+    if conflicted:
+        return KnowledgeBoundaryResult(
+            "PARTIALLY_SUPPORTED", stop_reason,
+            "Tech-DB 中的相关证据仍有未解决冲突；不能选择其中一方作为确定结论。",
+            supported, unresolved)
+    if supported and unresolved:
+        return KnowledgeBoundaryResult(
+            "PARTIALLY_SUPPORTED", stop_reason,
+            "以下仅包含 Tech-DB 当前证据能够支持的部分；其余需求仍缺少充分证据。",
+            supported, unresolved)
+    if supported and not unresolved:
+        return KnowledgeBoundaryResult("SUPPORTED", stop_reason, "",
+                                       supported, unresolved)
+    return KnowledgeBoundaryResult(
+        "UNSUPPORTED", stop_reason,
+        "Tech-DB 当前没有找到足够证据；这不表示现实世界中该事实或对象不存在。",
+        supported, unresolved)
 
 
 def assess_coverage(

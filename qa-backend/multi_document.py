@@ -17,11 +17,221 @@ Key rules:
   6. Workers don't decide overall status
   7. Workers don't decide cross-document conflict resolution
 """
+import copy
+import hashlib
 import json
 import os
-from typing import List, Dict
+from dataclasses import asdict, dataclass, field
+from typing import Awaitable, Callable, List, Dict, Optional, Tuple
 from config import llm_model_func
 from citation_grounding import ground_citation_evidence, get_original_text
+
+
+@dataclass(frozen=True)
+class DocumentWorkerInput:
+    """One invocation is structurally scoped to one immutable document."""
+    query: str
+    requirement_ids: Tuple[str, ...]
+    requirement_descriptions: Tuple[str, ...]
+    record_id: str
+    source_snapshot_id: str
+    evidence_text: str
+    content_sha256: str
+    entity_metadata: dict = field(default_factory=dict)
+    source_metadata: dict = field(default_factory=dict)
+    provenance_metadata: dict = field(default_factory=dict)
+    temporal_metadata: dict = field(default_factory=dict)
+    synthetic_navigation_hint: str = ""
+
+    def __post_init__(self):
+        if not self.record_id or not self.source_snapshot_id:
+            raise ValueError("worker input requires stable record/snapshot identity")
+        actual = hashlib.sha256(self.evidence_text.encode("utf-8")).hexdigest()
+        if self.content_sha256 and actual != self.content_sha256:
+            raise ValueError("worker immutable evidence_text hash mismatch")
+
+
+@dataclass(frozen=True)
+class WorkerEvidenceRef:
+    record_id: str
+    source_snapshot_id: str
+    start_offset: int
+    end_offset: int
+    exact_text: str
+    text_sha256: str
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class DocumentLocalClaim:
+    claim: str
+    requirement_id: str
+    evidence_refs: Tuple[WorkerEvidenceRef, ...]
+    epistemic_type: str = "VERIFIABLE_FACT"
+
+    def to_dict(self) -> dict:
+        return {"claim": self.claim, "requirement_id": self.requirement_id,
+                "epistemic_type": self.epistemic_type,
+                "evidence_refs": [r.to_dict() for r in self.evidence_refs]}
+
+
+@dataclass(frozen=True)
+class DocumentEvidencePacket:
+    record_id: str
+    source_snapshot_id: str
+    requirement_results: Tuple[dict, ...]
+    local_claims: Tuple[DocumentLocalClaim, ...]
+    numeric_facts: Tuple[dict, ...] = field(default_factory=tuple)
+    temporal_scope: dict = field(default_factory=dict)
+    source_role: str = "unknown"
+    internal_conflicts: Tuple[dict, ...] = field(default_factory=tuple)
+    unanswered_aspects: Tuple[str, ...] = field(default_factory=tuple)
+    relevant: bool = False
+    evidence_found: bool = False
+    degraded: Tuple[str, ...] = field(default_factory=tuple)
+    worker_version: str = "phase04-worker-1.0"
+
+    def to_dict(self) -> dict:
+        return {
+            "record_id": self.record_id,
+            "source_snapshot_id": self.source_snapshot_id,
+            "requirement_results": [dict(v) for v in self.requirement_results],
+            "local_claims": [v.to_dict() for v in self.local_claims],
+            "numeric_facts": [dict(v) for v in self.numeric_facts],
+            "temporal_scope": dict(self.temporal_scope),
+            "source_role": self.source_role,
+            "internal_conflicts": [dict(v) for v in self.internal_conflicts],
+            "unanswered_aspects": list(self.unanswered_aspects),
+            "relevant": self.relevant,
+            "evidence_found": self.evidence_found,
+            "degraded": list(self.degraded),
+            "worker_version": self.worker_version,
+        }
+
+
+@dataclass(frozen=True)
+class PacketCacheKey:
+    manifest_id: str
+    profile: str
+    source_snapshot_id: str
+    requirement_fingerprint: str
+    worker_model: str
+    prompt_version: str
+    schema_version: str
+    access_scope_fingerprint: str
+
+    def __post_init__(self):
+        if not all(asdict(self).values()):
+            raise ValueError("packet cache key requires every isolation field")
+
+    @classmethod
+    def build(cls, *, manifest_id: str, profile: str,
+              source_snapshot_id: str, requirements: List[dict],
+              worker_model: str, prompt_version: str,
+              schema_version: str, access_scope: str) -> "PacketCacheKey":
+        req_fp = hashlib.sha256(json.dumps(
+            requirements, ensure_ascii=False, sort_keys=True,
+            separators=(",", ":")).encode("utf-8")).hexdigest()
+        access_fp = hashlib.sha256(str(access_scope).encode("utf-8")).hexdigest()
+        return cls(manifest_id, profile, source_snapshot_id, req_fp,
+                   worker_model, prompt_version, schema_version, access_fp)
+
+
+class PacketCache:
+    """Optional immutable packet cache; misses/failures never change truth."""
+    def __init__(self, enabled: bool = True):
+        self.enabled = bool(enabled)
+        self._items: Dict[PacketCacheKey, DocumentEvidencePacket] = {}
+
+    def get(self, key: PacketCacheKey) -> Optional[DocumentEvidencePacket]:
+        if not self.enabled:
+            return None
+        return copy.deepcopy(self._items.get(key))
+
+    def put(self, key: PacketCacheKey, packet: DocumentEvidencePacket):
+        if self.enabled:
+            self._items[key] = copy.deepcopy(packet)
+
+    def clear(self):
+        self._items.clear()
+
+
+async def process_document_packet(
+    worker_input: DocumentWorkerInput,
+    extractor_fn: Optional[Callable[[DocumentWorkerInput], Awaitable[dict]]] = None,
+) -> DocumentEvidencePacket:
+    """Extract a typed packet and exact-ground every local claim.
+
+    The extractor sees only ``worker_input`` (one snapshot). Natural-language
+    output never leaves this function; only exact-grounded typed claims do.
+    """
+    if not isinstance(worker_input, DocumentWorkerInput):
+        raise TypeError("process_document_packet requires DocumentWorkerInput")
+    if extractor_fn is None:
+        record = {
+            "t": worker_input.source_metadata.get("title", ""),
+            "a": worker_input.source_metadata.get("source", ""),
+            "d": worker_input.temporal_metadata.get("date", ""),
+            "fb": worker_input.evidence_text,
+        }
+        legacy = await process_document(
+            worker_input.query,
+            " | ".join(worker_input.requirement_descriptions),
+            record, worker_input.record_id)
+    else:
+        legacy = await extractor_fn(worker_input)
+    legacy = legacy if isinstance(legacy, dict) else {}
+    claims: List[DocumentLocalClaim] = []
+    requirement_results = []
+    found_by_req = {rid: False for rid in worker_input.requirement_ids}
+    for raw in legacy.get("claims") or legacy.get("local_claims") or []:
+        if not isinstance(raw, dict):
+            continue
+        span = str(raw.get("evidence_span") or raw.get("exact_text") or "")
+        start = worker_input.evidence_text.find(span) if span else -1
+        if start < 0:
+            continue  # exact-only; no fuzzy/approximate worker evidence
+        end = start + len(span)
+        req_id = str(raw.get("requirement_id") or
+                     (worker_input.requirement_ids[0]
+                      if worker_input.requirement_ids else ""))
+        if req_id not in found_by_req:
+            continue
+        ref = WorkerEvidenceRef(
+            record_id=worker_input.record_id,
+            source_snapshot_id=worker_input.source_snapshot_id,
+            start_offset=start, end_offset=end, exact_text=span,
+            text_sha256=hashlib.sha256(span.encode("utf-8")).hexdigest())
+        claims.append(DocumentLocalClaim(
+            claim=str(raw.get("local_claim") or raw.get("claim") or span),
+            requirement_id=req_id, evidence_refs=(ref,),
+            epistemic_type=str(raw.get("epistemic_type") or "VERIFIABLE_FACT")))
+        found_by_req[req_id] = True
+    for rid in worker_input.requirement_ids:
+        requirement_results.append({
+            "requirement_id": rid,
+            "relevant": bool(legacy.get("relevant", True)),
+            "evidence_found": found_by_req[rid],
+        })
+    return DocumentEvidencePacket(
+        record_id=worker_input.record_id,
+        source_snapshot_id=worker_input.source_snapshot_id,
+        requirement_results=tuple(requirement_results),
+        local_claims=tuple(claims),
+        numeric_facts=tuple(legacy.get("numeric_facts") or []),
+        temporal_scope=dict(legacy.get("temporal_scope") or {}),
+        source_role=str(legacy.get("source_role") or
+                        worker_input.provenance_metadata.get("source_role") or
+                        "unknown"),
+        internal_conflicts=tuple(legacy.get("internal_conflicts") or []),
+        unanswered_aspects=tuple(str(v) for v in
+                                 legacy.get("unanswered_aspects") or []),
+        relevant=bool(legacy.get("relevant", bool(claims))),
+        evidence_found=bool(claims),
+        degraded=(("worker_error",) if legacy.get("error") else tuple()),
+    )
 
 
 DOCUMENT_WORKER_PROMPT = """你是技术情报分析专家。分析以下文档，提取与用户问题相关的证据。

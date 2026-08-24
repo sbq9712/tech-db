@@ -15,6 +15,7 @@ Run:
   .venv/bin/python qa-backend/server.py
 """
 import os
+import hashlib
 from contextvars import ContextVar
 import sys
 import json
@@ -878,7 +879,11 @@ def _resolve_citation_record(citation: dict, records: list):
 
 
 async def _run_phase03_context(query: str, exclude_ids: set | None = None,
-                               access_scope: str = "public") -> dict:
+                               access_scope: str = "public", *,
+                               research_queries: list | None = None,
+                               requirements: list | None = None,
+                               mode: str | None = None,
+                               verified_premises: list | None = None) -> dict:
     """Run the Phase03 retrieval->evidence-package pipeline for one chat
     request and return the phase03_pipeline contract dict.
 
@@ -912,15 +917,53 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
     def _get_record(record_id):
         return records_by_id.get(record_id)
 
-    # Raw per-route candidates (rank-26+ survives HERE, before any fusion):
-    route_results = await _rt.run_routes(
-        query, snapshot=pinned, exclude_ids=exclude_ids,
-        embed_fn=embedding_func, pipeline=_get_retrieval_pipeline())
+    # Raw per-route candidates (rank-26+ survives HERE, before any fusion).
+    # Phase04 RESEARCH may bind several requirement/gap queries to one final
+    # package. Merge each route by stable record_id and recompute that route's
+    # deterministic rank; the Generator still receives one typed package.
+    queries = []
+    for q in [query, *(research_queries or [])]:
+        q = str(q or "").strip()
+        if q and q not in queries:
+            queries.append(q)
+    route_batches = []
+    for research_query in queries:
+        route_batches.append(await _rt.run_routes(
+            research_query, snapshot=pinned, exclude_ids=exclude_ids,
+            embed_fn=embedding_func, pipeline=_get_retrieval_pipeline()))
+    route_results = {}
+    from retrieval.vector import RetrievalResult
+    for route in sorted({name for batch in route_batches for name in batch}):
+        best = {}
+        for batch in route_batches:
+            for item in batch.get(route, []):
+                old = best.get(item.record_id)
+                if old is None or item.raw_score > old.raw_score:
+                    best[item.record_id] = item
+        ordered = sorted(best.values(), key=lambda r: (-r.raw_score,
+                                                       r.record_id))
+        route_results[route] = [RetrievalResult(
+            record_id=item.record_id, legacy_idx=item.legacy_idx,
+            route=route, raw_score=item.raw_score, rank=i,
+            meta=item.meta,
+            route_details={**item.route_details,
+                           "phase04_query_count": len(queries)})
+            for i, item in enumerate(ordered, 1)]
+
+    comparison_objects = sorted({r.get("comparison_object")
+                                 for r in (requirements or [])
+                                 if r.get("comparison_object")})
+    comparison_dimensions = sorted({r.get("comparison_dimension")
+                                    for r in (requirements or [])
+                                    if r.get("comparison_dimension")})
 
     return await run_phase03_retrieval(
         query=query,
         route_results=route_results,
-        mode=_PHASE03_MODE,
+        mode=mode or _PHASE03_MODE,
+        requirements=requirements,
+        comparison_objects=(comparison_objects or None),
+        comparison_dimensions=(comparison_dimensions or None),
         records_by_id=records_by_id,
         snapshot_index=snapshot_index,
         chunk_retriever=chunk_retriever,
@@ -929,6 +972,7 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         authority_gaps=authority_gaps,
         provenance_map=provenance_map,
         access_scope=access_scope or "public",
+        verified_premises=verified_premises,
     )
 
 
@@ -947,6 +991,8 @@ class ChatRequest(BaseModel):
 # Lazy singleton — snapshots are content-addressed and reused across requests
 # (RT-012 stability), written under WORKING_DIR like the other runtime data.
 _SOURCE_SNAPSHOT_STORE = None
+_CONVERSATION_STORE = None
+_PACKET_CACHE = None
 
 
 def _get_source_snapshot_store():
@@ -955,6 +1001,141 @@ def _get_source_snapshot_store():
         from source_snapshot import SourceSnapshotStore
         _SOURCE_SNAPSHOT_STORE = SourceSnapshotStore(WORKING_DIR / "source_snapshots")
     return _SOURCE_SNAPSHOT_STORE
+
+
+def _get_conversation_store():
+    global _CONVERSATION_STORE
+    if _CONVERSATION_STORE is None:
+        from conversation_store import ConversationStore
+        _CONVERSATION_STORE = ConversationStore(
+            RUNTIME_DIR / "state" / "verified_conversations.sqlite")
+    return _CONVERSATION_STORE
+
+
+def _runtime_identity() -> dict:
+    from feature_flags import active_profile
+    snapshot = _request_runtime_snapshot.get()
+    return {
+        "manifest_id": (snapshot.manifest_id if snapshot is not None
+                        else "legacy-runtime-v1"),
+        "profile": (active_profile() or
+                    os.environ.get("TECH_DB_RUNTIME_MODE", "unconfigured")),
+    }
+
+
+def _load_generator_premises(conversation_id: str, query: str) -> list:
+    """Load only server-authoritative, freshness-compatible premises."""
+    if not conversation_id:
+        return []
+    from generator_input import VerifiedPremise
+    identity = _runtime_identity()
+    rows = _get_conversation_store().verified_premises(
+        conversation_id, query=query,
+        current_manifest_id=identity["manifest_id"])
+    return [VerifiedPremise(
+        premise_id=row.premise_id, claim_id=row.claim_id,
+        claim=row.claim_text, evidence_ids=row.evidence_ids,
+        evidence_refs=[r.to_dict() for r in row.evidence_refs],
+        manifest_id=row.manifest_id, profile=row.profile,
+        verified_at=row.verified_at, temporal_scope=row.temporal_scope,
+        supersession_state=row.supersession_state, verified=True)
+        for row in rows]
+
+
+def _persist_conversation_result(*, conversation_id: str, query: str,
+                                 answer_status: str, claims: list,
+                                 citations: list,
+                                 searched_record_ids: list):
+    """Persist independently supported claim units after terminal verify."""
+    if not conversation_id:
+        return
+    store = _get_conversation_store()
+    identity = _runtime_identity()
+    by_claim = {}
+    for citation in citations or []:
+        for claim_id in citation.get("supports_claim_ids") or []:
+            by_claim.setdefault(str(claim_id), []).append({
+                "record_id": citation.get("record_id"),
+                "source_snapshot_id": citation.get("source_snapshot_id"),
+                "evidence_id": citation.get("evidence_id", ""),
+                "locators": citation.get("evidence_spans") or [],
+            })
+    temporal_scope = ("current" if re.search(
+        r"当前|目前|最新|current|latest", query, re.I) else "unspecified")
+    for claim in claims or []:
+        claim_id = str(claim.get("id") or "")
+        status = str(claim.get("status") or
+                     claim.get("support_status") or "").upper()
+        refs = by_claim.get(claim_id, [])
+        if refs:
+            store.record_claim(
+                conversation_id=conversation_id, claim_id=claim_id,
+                claim_text=str(claim.get("text") or ""),
+                claim_status=status, answer_status=answer_status,
+                evidence_refs=refs, manifest_id=identity["manifest_id"],
+                profile=identity["profile"], temporal_scope=temporal_scope)
+    store.record_search_memory(conversation_id, query,
+                               searched_record_ids, answer_status)
+
+
+async def _phase04_worker_packets(*, state, view, requirements):
+    """Production document-worker adapter over request-pinned snapshots."""
+    global _PACKET_CACHE
+    from multi_document import (DocumentWorkerInput, PacketCache,
+                                PacketCacheKey, process_document_packet)
+    if _PACKET_CACHE is None:
+        _PACKET_CACHE = PacketCache(enabled=os.environ.get(
+            "QA_DOCUMENT_PACKET_CACHE", "1") not in ("0", "false"))
+    records, records_by_id, snapshots, evidence_metadata, _ = \
+        _phase03_runtime_inputs()
+    req_by_id = {r["id"]: r for r in requirements}
+    semaphore = asyncio.Semaphore(int(os.environ.get(
+        "QA_DOCUMENT_WORKER_CONCURRENCY", "4")))
+
+    async def one(entry):
+        assigned = [rid for rid in entry.requirement_ids if rid in req_by_id]
+        if not assigned:
+            assigned = list(req_by_id)[:1]
+        snap = snapshots.get(entry.record_id) or {}
+        rec = records_by_id.get(entry.record_id) or {}
+        text = str(snap.get("evidence_text") or "")
+        worker_input = DocumentWorkerInput(
+            query=state.rewritten_query,
+            requirement_ids=tuple(assigned),
+            requirement_descriptions=tuple(
+                req_by_id[r]["description"] for r in assigned),
+            record_id=entry.record_id,
+            source_snapshot_id=entry.source_snapshot_id,
+            evidence_text=text,
+            content_sha256=str(snap.get("evidence_text_sha256") or
+                               hashlib.sha256(text.encode("utf-8")).hexdigest()),
+            entity_metadata={"entities": [req_by_id[r].get("entities", [])
+                                           for r in assigned]},
+            source_metadata={"title": rec.get("t", rec.get("title", "")),
+                             "source": rec.get("a", rec.get("source", ""))},
+            provenance_metadata={
+                "source_role": entry.source_role,
+                "independent_group_id": entry.independent_group_id},
+            temporal_metadata={"date": rec.get("d", ""),
+                               "event_time": entry.event_time},
+            synthetic_navigation_hint="")
+        key = PacketCacheKey.build(
+            manifest_id=state.manifest_id, profile=state.profile,
+            source_snapshot_id=entry.source_snapshot_id,
+            requirements=[req_by_id[r] for r in assigned],
+            worker_model=MODEL_NAME, prompt_version="phase04-worker-prompt-1",
+            schema_version="DocumentEvidencePacket-1.0",
+            access_scope=state.access_scope)
+        cached = _PACKET_CACHE.get(key)
+        if cached is not None:
+            return cached
+        async with semaphore:
+            packet = await process_document_packet(worker_input)
+        _PACKET_CACHE.put(key, packet)
+        return packet
+
+    entries = [e for e in view.evidence.values() if e.counts_as_evidence][:12]
+    return await asyncio.gather(*(one(e) for e in entries))
 
 
 # ── Lifespan ──
@@ -1130,7 +1311,7 @@ async def chat_stream(req: ChatRequest, request: Request):
         )
 
     async def event_generator():
-        trace = TraceContext.create(query, req.history[-1].get("content", "")[:100] if req.history else "")
+        trace = TraceContext.create(query, req.conversation_id)
         try:
             # Step 1: Retrieval
             yield {"event": "status", "data": json.dumps({
@@ -1153,11 +1334,23 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             # Rewrite follow-up query + detect novelty intent (single LLM call)
             search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
+            from query_integrity import build_rewrite_result
+            rewrite_result = build_rewrite_result(
+                query, search_query, seeking_novelty=seeking_novelty)
+            search_query = rewrite_result.rewritten_query
+            verified_premises = _load_generator_premises(
+                req.conversation_id, query)
             trace.add_stage("rewrite", {
                 "original_query": query[:200],
                 "rewritten_query": search_query[:200],
+                "proposed_query": rewrite_result.proposed_query[:200],
+                "semantic_diff": rewrite_result.semantic_diff.to_dict(),
+                "rewrite_action": rewrite_result.action,
                 "seeking_novelty": seeking_novelty,
                 "reason": _reason[:100] if _reason else "",
+                "verified_premise_ids": [p.premise_id
+                                         for p in verified_premises],
+                "raw_history_is_factual_authority": False,
             })
 
             # Check if previous round had no results (avoid "infinite no results" loop)
@@ -1195,6 +1388,9 @@ async def chat_stream(req: ChatRequest, request: Request):
             # (Router → Decompose → Plan → Iterative Retrieval → Grade → Gap → ...)
             # instead of the simple single-pass RAG path below.
             _agentic_succeeded = False
+            _agentic_phase03_result = None
+            _agentic_failure_reason = ""
+            agentic_state = None
             if Flags.AGENTIC_ENABLED:
                 from orchestrator import run_agentic_loop
 
@@ -1208,6 +1404,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                 async def _orchestrator_search_fn(q, exclude=None):
                     merged = _novelty_exclude | (exclude or set())
                     return await hybrid_search(q, exclude_ids=merged or None)
+
+                async def _orchestrator_evidence_fn(**kwargs):
+                    return await _run_phase03_context(
+                        kwargs["query"],
+                        exclude_ids=_novelty_exclude or None,
+                        access_scope=kwargs.get("access_scope") or
+                        req.access_scope,
+                        research_queries=kwargs.get("research_queries"),
+                        requirements=kwargs.get("requirements"),
+                        mode=kwargs.get("mode"),
+                        verified_premises=kwargs.get("verified_premises"))
 
                 try:
                     # TK-09: TTFB guard — the agentic loop (router+retrieval+
@@ -1238,6 +1445,9 @@ async def chat_stream(req: ChatRequest, request: Request):
                             "reason": "budget_spent_before_loop",
                         })
                         _ttfb_degraded = True
+                        if Flags.EVIDENCE_PACKAGE_ENABLED:
+                            _agentic_failure_reason = (
+                                "agentic_preloop_budget_fail_closed")
                     else:
                         agentic_state = await asyncio.wait_for(
                             run_agentic_loop(
@@ -1247,14 +1457,35 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 search_fn=_orchestrator_search_fn,
                                 trace=trace,
                                 bypass_budget=getattr(req, 'bypass_budget', False),
+                                evidence_pipeline_fn=(
+                                    _orchestrator_evidence_fn
+                                    if Flags.EVIDENCE_PACKAGE_ENABLED else None),
+                                rewrite_result=rewrite_result,
+                                verified_premises=verified_premises,
+                                runtime_identity=_runtime_identity(),
+                                access_scope=req.access_scope,
+                                worker_fn=(
+                                    _phase04_worker_packets
+                                    if Flags.EVIDENCE_PACKAGE_ENABLED else None),
                             ),
                             timeout=_remaining_s,
                         )
 
                     if not _ttfb_degraded:
-                        # Use agentic results for the rest of the pipeline
-                        search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
-                        is_relevant = len(search_results) > 0
+                        # Trusted Phase04 consumes the exact package produced
+                        # by this orchestrator invocation. Raw ``all_results``
+                        # remains research memory and is never handed back to
+                        # server generation/context construction.
+                        _agentic_phase03_result = agentic_state.phase03_result
+                        if Flags.EVIDENCE_PACKAGE_ENABLED:
+                            search_results = []
+                            is_relevant = bool(
+                                _agentic_phase03_result and
+                                _agentic_phase03_result.get("status") == "ok")
+                        else:
+                            # Explicit legacy_hybrid compatibility field/path.
+                            search_results = agentic_state.all_results[:RETRIEVAL_TOP_K]
+                            is_relevant = len(search_results) > 0
                         search_status = agentic_state.stop_reason or "agentic_complete"
                         _agentic_succeeded = True
 
@@ -1262,7 +1493,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                             "iterations": agentic_state.iteration,
                             "mode": agentic_state.router_result.get("mode", ""),
                             "stop_reason": agentic_state.stop_reason,
-                            "total_results": len(agentic_state.all_results),
+                            "selected_results": len(agentic_state.selected_evidence),
+                            "research_memory_entries": len(
+                                agentic_state.research_memory),
+                            "generator_context_source": (
+                                "PackedGenerationView" if
+                                Flags.EVIDENCE_PACKAGE_ENABLED
+                                else "legacy_all_results_compatibility"),
                             "answer_status": agentic_state.answer_status,
                         })
                 except asyncio.TimeoutError:
@@ -1280,6 +1517,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "fallback_outside_budget": True,
                     })
                     _ttfb_degraded = True
+                    if Flags.EVIDENCE_PACKAGE_ENABLED:
+                        _agentic_failure_reason = "agentic_timeout_fail_closed"
                     # Fall through to standard path
                 except BudgetExceededError as be:
                     # TK-08: loop-control hard cap tripped → degrade the whole
@@ -1291,12 +1530,38 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "budget": be.budget.snapshot(),
                         "action": "degrade_to_legacy",
                     })
+                    if Flags.EVIDENCE_PACKAGE_ENABLED:
+                        _agentic_failure_reason = "agentic_budget_fail_closed"
                     # Fall through to standard path
                 except Exception as e:
                     print(f"[agentic] Orchestrator error, falling back: {e}", flush=True)
                     import traceback
                     traceback.print_exc()
-                    # Fall through to standard path
+                    if isinstance(e, Phase03AuthorityError):
+                        # Preserve the reviewed Phase03 authority-specific
+                        # terminal contract below; do not collapse it into a
+                        # generic orchestrator technical failure.
+                        _agentic_succeeded = True
+                        search_results, is_relevant = [], False
+                        search_status = "phase03_missing_pinned_authority"
+                    elif Flags.EVIDENCE_PACKAGE_ENABLED:
+                        _agentic_failure_reason = "agentic_technical_fail_closed"
+
+            if _agentic_failure_reason:
+                trace.set_result(answer_status="UNVERIFIED",
+                                 stop_reason=_agentic_failure_reason)
+                trace.flush()
+                yield {"event": "done", "data": json.dumps({
+                    "answer": "关键研究/证据阶段未能完成；当前请求没有返回普通可信答案。",
+                    "citations": [], "cited_record_ids": [],
+                    "searched_record_ids": [],
+                    "answer_status": "UNVERIFIED",
+                    "verification_status": "UNVERIFIED",
+                    "stop_reason": _agentic_failure_reason,
+                    "boundary_message": "correctness-critical stage failed closed",
+                    "trace_id": trace.trace_id,
+                })}
+                return
 
             # Standard RAG path (only if agentic didn't run or failed)
             if not _agentic_succeeded:
@@ -1339,10 +1604,13 @@ async def chat_stream(req: ChatRequest, request: Request):
             _phase03_pinned_provenance = None
             if Flags.EVIDENCE_PACKAGE_ENABLED:
                 try:
-                    _p03 = await _run_phase03_context(
-                        query,
-                        exclude_ids=exclude_ids if exclude_ids else None,
-                        access_scope=req.access_scope)
+                    _p03 = (_agentic_phase03_result
+                            if _agentic_phase03_result is not None
+                            else await _run_phase03_context(
+                                search_query,
+                                exclude_ids=exclude_ids if exclude_ids else None,
+                                access_scope=req.access_scope,
+                                verified_premises=verified_premises))
                 except Phase03AuthorityError as pae:
                     # Review blocker 7: trusted EvidencePackage mode REQUIRES
                     # a pinned source authority. Without it the request fails
@@ -1373,16 +1641,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                     raise
                 trace.add_stage("phase03_retrieval", _p03["trace_facts"])
                 if _p03["status"] == "no_evidence":
+                    _canonical_boundary = (
+                        agentic_state.knowledge_boundary.get("message", "")
+                        if agentic_state is not None else
+                        "Tech-DB 当前没有找到足够证据；这不表示现实世界中该事实或对象不存在。")
                     trace.set_result(answer_status="UNSUPPORTED",
                                      stop_reason="phase03_no_evidence")
                     trace.flush()
                     yield {"event": "done", "data": json.dumps({
-                        "answer": "数据库中没有足够的、满足证据标准的资料来回答这个问题。",
+                        "answer": _canonical_boundary,
                         "citations": [],
                         "cited_record_ids": [],
                         "searched_record_ids": [],
                         "answer_status": "UNSUPPORTED",
                         "stop_reason": "phase03_no_evidence",
+                        "boundary_message": _canonical_boundary,
                         "trace_id": trace.trace_id,
                     })}
                     return
@@ -1745,6 +2018,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                     strict_evidence_package=_phase03_active,
                 )
                 final_answer = p02["answer"]
+
+                _persist_conversation_result(
+                    conversation_id=req.conversation_id, query=query,
+                    answer_status=p02["answer_status"],
+                    claims=p02["claims_payload"],
+                    citations=p02["citations"],
+                    searched_record_ids=searched_record_ids)
 
                 # Verified citations only (RT-020/027): INVALID-grounded
                 # citations were dropped inside the pipeline and never

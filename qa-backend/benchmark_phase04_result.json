@@ -1,0 +1,125 @@
+{
+  "schema_version": "phase04-benchmark-1.0",
+  "baseline_sha": "4ebb3470dba1bed65f0211fc11d6a0d7383b9aea",
+  "environment": "committed deterministic mini-runtime fixture",
+  "production_traffic": false,
+  "production_canary": false,
+  "fast": {
+    "runs": 7,
+    "supported": 7,
+    "planner_calls": 0,
+    "mandatory_gates_all_runs": true,
+    "latency_ms": {
+      "min": 2.018,
+      "median": 2.158,
+      "max": 58.161
+    }
+  },
+  "rewrite": {
+    "entity": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "entity_removed",
+        "entity_added_without_authority"
+      ]
+    },
+    "temporal": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "temporal_drift",
+        "numeric_drift"
+      ]
+    },
+    "negation": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "negation_drift"
+      ]
+    },
+    "modality": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "modality_drift"
+      ]
+    },
+    "numeric": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "numeric_drift"
+      ]
+    },
+    "comparison": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "entity_removed",
+        "comparison_set_drift",
+        "intent_drift"
+      ]
+    },
+    "scope": {
+      "accepted": false,
+      "action": "REJECT_TO_ORIGINAL",
+      "changes": [
+        "entity_added_without_authority",
+        "scope_drift"
+      ]
+    }
+  },
+  "decomposition": {
+    "comparison_cells": [
+      [
+        "A100",
+        "cost"
+      ],
+      [
+        "A100",
+        "performance"
+      ],
+      [
+        "B200",
+        "cost"
+      ],
+      [
+        "B200",
+        "performance"
+      ],
+      [
+        "H100",
+        "cost"
+      ],
+      [
+        "H100",
+        "performance"
+      ]
+    ],
+    "trend_requirements": 2,
+    "ambiguity_explicit": true
+  },
+  "multi_document": {
+    "cross_doc_trigger_case": "tests_remediation_phase04.test_rt045_orchestrator_trigger_and_simple_nontrigger",
+    "worker_isolation_case": "tests_remediation_phase04.test_rt045_worker_cross_document_sentinel_isolation"
+  },
+  "gap": {
+    "first_query_count": 1,
+    "duplicate_query_count": 0,
+    "rejections": [
+      "g1:duplicate"
+    ]
+  },
+  "stopping": [
+    "max_rounds",
+    "no_new_evidence",
+    "sufficient",
+    "unresolved_conflict"
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0
+  }
+}

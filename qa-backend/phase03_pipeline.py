@@ -411,7 +411,8 @@ async def run_phase03_retrieval(*, query: str,
                                 access_scope: str = "public",
                                 max_context_tokens: Optional[int] = None,
                                 rerank_capacity: int = RERANK_CAPACITY,
-                                mode_ctx: Optional[dict] = None) -> dict:
+                                mode_ctx: Optional[dict] = None,
+                                verified_premises: Optional[list] = None) -> dict:
     """Run the full Phase03 retrieval→package pipeline for one query.
 
     route_results: RAW per-route RetrievalResult lists (RT-030 run_routes)
@@ -844,7 +845,9 @@ async def run_phase03_retrieval(*, query: str,
         }
 
     # ── 11. RT-039 typed generator input — from the EXACT view ────────────
-    gen_input = build_generator_input(query=query, evidence_package=view)
+    gen_input = build_generator_input(
+        query=query, evidence_package=view,
+        verified_premises=list(verified_premises or []))
     context = render_generator_prompt(gen_input)
 
     # citations (build_context-compatible shape) — support entries only

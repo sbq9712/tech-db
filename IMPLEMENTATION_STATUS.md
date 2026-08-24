@@ -313,3 +313,13 @@ linger 已启用（VM 启动即拉起全部服务）。
    parity 5/5，verify_spec_manifest 7/7；acceptance_matrix 登记
    RT-031.DOD-04 / RT-033.DOD-03 / RT-034.DOD-03 / RT-038.DOD-04
    （acceptance_matrix_sha256 与 spec_hash 已重算）。
+
+## Phase 04 (2026-08-24) — query integrity and agentic orchestration (RT-040..RT-049)
+
+实现基于现有 server + Phase02 verifier + Phase03 EvidencePackage 管线：
+claim 级可信会话前提、确定性 rewrite semantic diff、FAST 正确性路径、
+typed ResearchState、严格 Planner、隔离 document workers 与 scoped cache、
+Ledger/Grader 硬规则、gap-bound retrieval、bounded stopping/Knowledge
+Boundary。行为证据与诚实的 rollout 边界见
+`docs/remediation/phase04_completion_report.md`。本阶段不声明生产
+shadow/canary 或 Graph-V2 激活；RT-005 仍是外部动作 blocker。
