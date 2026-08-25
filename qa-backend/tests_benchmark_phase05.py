@@ -320,7 +320,8 @@ def main():
     print(f"  Phase 05 benchmark: {PASSED} passed, {len(FAILED)} failed")
     print("  deterministic_fixture_only: true")
     print("  production_capacity_claim: false")
-    print(f"  artifact: {ARTIFACT}")
+    # Keep future committed push-tier summaries checkout-portable.
+    print("  artifact: qa-backend/benchmark_phase05_result.json")
     print("=" * 64)
     if FAILED:
         print("FAILED:", ", ".join(FAILED))

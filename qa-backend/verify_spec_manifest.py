@@ -190,7 +190,15 @@ def v7_artifacts():
     missing = []
     for r in set(refs):
         # artifact paths are relative to repo root or qa-backend
-        if not ((ROOT / r).exists() or (HERE / r).exists() or r.startswith("test_fixtures")):
+        # Older committed summaries may contain the producer's absolute
+        # checkout prefix.  Resolve such references only by their artifact
+        # basename inside the repository; never require that foreign
+        # workspace to exist on the current CI runner.
+        path = Path(r)
+        repo_candidates = [ROOT / r, HERE / r]
+        if path.is_absolute():
+            repo_candidates.extend((ROOT / path.name, HERE / path.name))
+        if not (any(p.exists() for p in repo_candidates) or r.startswith("test_fixtures")):
             if "/" in r or r.endswith(".jsonl"):
                 missing.append(r)
     record("V7", "nightly artifact paths exist", not missing,
