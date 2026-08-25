@@ -194,6 +194,14 @@ def test_rt041_context_entity_authority_cases():
     assistant_only = build_rewrite_authority(
         query, [{"role": "assistant", "content": "AMD is the answer",
                  "verified": True}], [])
+    multi_user = build_rewrite_authority(
+        query, [{"role": "user", "content": "Compare A100 and H100."}], [])
+    multi_premise = build_rewrite_authority(
+        query, [], [{"claim": "A100 has a documented cost."},
+                    {"claim": "H100 has a documented cost."}])
+    user_precedes_premise = build_rewrite_authority(
+        query, [{"role": "user", "content": "我们刚才讨论 H100。"}],
+        [{"claim": "A100 has a documented cost."}])
     a = build_rewrite_result(
         query, "H100 现在的成本", rewrite_authority=prior_user)
     b = build_rewrite_result(
@@ -204,8 +212,23 @@ def test_rt041_context_entity_authority_cases():
         "H100 现在的成本呢？", "AMD 现在的成本",
         rewrite_authority=build_rewrite_authority(
             "H100 现在的成本呢？", [], []))
+    e = build_rewrite_result(
+        query, "A100 现在的成本", rewrite_authority=multi_user)
+    f = build_rewrite_result(
+        query, "A100 现在的成本", rewrite_authority=multi_premise)
+    g = build_rewrite_result(
+        query, "H100 现在的成本", rewrite_authority=user_precedes_premise)
+    h = build_rewrite_result(
+        query, "A100 现在的成本", rewrite_authority=user_precedes_premise)
     check("RT041.context_entity_authority_cases",
           a.accepted and b.accepted and not c.accepted and not d.accepted
+          and not e.accepted and not f.accepted
+          and g.accepted and not h.accepted
+          and "context_entity_binding_ambiguous" in e.diagnostics
+          and "context_entity_binding_ambiguous" in f.diagnostics
+          and multi_user.binding_status == "AMBIGUOUS_LATEST_USER"
+          and multi_premise.binding_status == "AMBIGUOUS_VERIFIED_PREMISES"
+          and user_precedes_premise.allowed_context_entities == ("H100",)
           and c.rewritten_query == query
           and "entity_only_in_unverified_assistant_history" in c.diagnostics
           and assistant_only.allowed_context_entities == ())
@@ -441,6 +464,125 @@ def test_phase04_structured_requirements_drive_phase03_policy():
           and block.numeric_conditions == ["600 degrees"])
 
 
+def _structured_policy_fixture(text, requirement, *, relations=None):
+    """Run the real Phase03 composition over one immutable fixture record."""
+    import tests_remediation_phase03 as p3
+    rid = next(iter(p3.BY_ID))
+    snapshot = {**p3.SNAP_BY_ID[rid], "evidence_text": text,
+                "content_sha256": hashlib.sha256(text.encode()).hexdigest()}
+    record = {**p3.BY_ID[rid], "fb": text,
+              "relations": list(relations or [])}
+    return asyncio.run(p3._run_pipeline(
+        "Alpha capacity", requirements=[requirement],
+        route_results=p3._routes_for([rid]), records_by_id={rid: record},
+        snapshot_index={rid: snapshot}, chunk_retriever=None,
+        evidence_metadata={rid: p3.META_BY_ID[rid]})), rid, snapshot
+
+
+def test_rt044_numeric_condition_is_requirement_policy_gate():
+    base = {
+        "id": "r-num", "description": "Alpha capacity temperature",
+        "critical": True, "importance": "critical", "keywords": ["Alpha"],
+        "entities": ["Alpha"], "dimensions": ["capacity"],
+        "provenance_need": "any", "relation_need": "none",
+    }
+    mismatch, _, _ = _structured_policy_fixture(
+        "Alpha capacity is 600 °C.",
+        {**base, "numeric_conditions": ["700 degrees"]})
+    match, _, _ = _structured_policy_fixture(
+        "Alpha capacity is 600 °C.",
+        {**base, "numeric_conditions": ["600 degrees"]})
+    scope_mismatch, _, _ = _structured_policy_fixture(
+        "Alpha system-total capacity is 600 °C.",
+        {**base, "numeric_conditions": ["per-device 600 degrees"]})
+    check("RT044.numeric_condition_requirement_policy_gate",
+          mismatch["status"] == "no_evidence"
+          and "POLICY_NUMERIC_CONDITION_MISMATCH" in
+          mismatch["trace_facts"]["policy_reasons"]
+          and match["status"] == "ok"
+          and match["package"].requirements[0].coverage == "COVERED"
+          and scope_mismatch["status"] == "no_evidence"
+          and "POLICY_NUMERIC_CONDITION_MISMATCH" in
+          scope_mismatch["trace_facts"]["policy_reasons"])
+
+
+def test_rt044_relation_need_is_requirement_policy_gate():
+    text = "Alpha capacity uses MaterialX in the verified process."
+    base = {
+        "id": "r-rel", "description": "Alpha capacity relation",
+        "critical": True, "importance": "critical", "keywords": ["Alpha"],
+        "entities": ["Alpha"], "dimensions": ["capacity"],
+        "provenance_need": "any", "relation_need": "typed_relation",
+        "temporal_intent": "current",
+    }
+    missing, rid, snapshot = _structured_policy_fixture(text, base)
+    span = "Alpha capacity uses MaterialX"
+    start = text.index(span)
+    ref = {"record_id": rid,
+           "source_snapshot_id": snapshot["source_snapshot_id"],
+           "start_offset": start, "end_offset": start + len(span),
+           "exact_text": span}
+    valid_stmt = {"subject_id": "Alpha", "predicate": "USES",
+                  "object_id": "MaterialX", "assertion_status": "ASSERTED",
+                  "evidence_refs": [ref]}
+    valid, _, _ = _structured_policy_fixture(
+        text, base, relations=[valid_stmt])
+    deprecated, _, _ = _structured_policy_fixture(
+        text, base, relations=[{**valid_stmt,
+                               "assertion_status": "DEPRECATED"}])
+    check("RT044.relation_need_requirement_policy_gate",
+          missing["status"] == "no_evidence"
+          and "POLICY_RELATION_METHOD_MISSING" in
+          missing["trace_facts"]["policy_reasons"]
+          and valid["status"] == "ok"
+          and valid["package"].requirements[0].coverage == "COVERED"
+          and deprecated["status"] == "no_evidence"
+          and "POLICY_RELATION_INVALID" in
+          deprecated["trace_facts"]["policy_reasons"])
+
+
+def test_rt047_real_policy_gaps_drive_targeted_gap_types():
+    from evidence_ledger import EvidenceLedger
+    from gap_analysis import derive_gaps, targeted_queries
+    numeric_req = {
+        "id": "r-num-gap", "description": "Alpha capacity",
+        "critical": True, "importance": "critical", "keywords": ["Alpha"],
+        "entities": ["Alpha"], "dimensions": ["capacity"],
+        "provenance_need": "any", "relation_need": "none",
+        "numeric_conditions": ["700 degrees"],
+    }
+    relation_req = {
+        "id": "r-rel-gap", "description": "Alpha capacity relation",
+        "critical": True, "importance": "critical", "keywords": ["Alpha"],
+        "entities": ["Alpha"], "dimensions": ["capacity"],
+        "provenance_need": "any", "relation_need": "typed_relation",
+    }
+    numeric_out, _, _ = _structured_policy_fixture(
+        "Alpha capacity is 600 °C.", numeric_req)
+    relation_out, _, _ = _structured_policy_fixture(
+        "Alpha capacity is documented.", relation_req)
+    numeric_ledger = EvidenceLedger("Alpha capacity", [numeric_req])
+    relation_ledger = EvidenceLedger("Alpha capacity", [relation_req])
+    numeric_gaps = derive_gaps(numeric_ledger.to_dict())
+    relation_gaps = derive_gaps(relation_ledger.to_dict())
+    numeric_queries, _ = targeted_queries(
+        numeric_gaps, {numeric_req["id"]: numeric_req},
+        original_query="Alpha capacity", round_number=2,
+        previous_queries=[])
+    relation_queries, _ = targeted_queries(
+        relation_gaps, {relation_req["id"]: relation_req},
+        original_query="Alpha capacity", round_number=2,
+        previous_queries=[])
+    check("RT047.real_policy_gaps_drive_targeted_gap_types",
+          numeric_out["status"] == "no_evidence"
+          and relation_out["status"] == "no_evidence"
+          and numeric_gaps[0].gap_type == "MISSING_NUMERIC_CONDITION"
+          and relation_gaps[0].gap_type == "MISSING_RELATION_METHOD"
+          and "exact value unit scope condition" in numeric_queries[0].query
+          and "official typed relationship provenance" in
+          relation_queries[0].query)
+
+
 # ── RT-045 / RT-046 ──────────────────────────────────────────────────────
 def _worker_input(text="alpha exact evidence", snap="ss-alpha"):
     from multi_document import DocumentWorkerInput
@@ -514,14 +656,14 @@ def test_rt045_orchestrator_trigger_and_simple_nontrigger():
           and "multi_document_workers" in research.stage_calls)
 
 
-def test_rt045_worker_exact_ref_reenters_final_package():
+def test_rt045_worker_exact_ref_does_not_authorize_unrelated_support():
     import tests_remediation_phase03 as p3
     from multi_document import DocumentWorkerInput, process_document_packet
     requirements = [
         {"id": "r1", "description": "alpha evidence", "critical": True,
          "importance": "critical", "keywords": ["alpha"],
          "provenance_need": "any"},
-        {"id": "r2", "description": "worker recovered evidence",
+        {"id": "r2", "description": "WorkerGap industrial heat capacity",
          "critical": True, "importance": "critical",
          "keywords": ["worker-only"], "provenance_need": "any"},
     ]
@@ -543,13 +685,63 @@ def test_rt045_worker_exact_ref_reenters_final_package():
     final = asyncio.run(p3._run_pipeline(
         "synthetic alpha", requirements=requirements,
         worker_packets=[packet]))
+    r2 = next(r for r in final["package"].requirements
+              if r.requirement_id == "r2")
+    worker_trace = final["trace_facts"]["worker_evidence"]
+    check("RT045.worker_exact_ref_unrelated_support_rejected",
+          r2.coverage != "COVERED" and not r2.support_evidence_ids
+          and worker_trace["accepted_packets"] == 0
+          and any(item.get("reason")
+                  == "worker_requirement_support_policy_rejected"
+                  for item in worker_trace["rejected_refs"]))
+
+
+def test_rt045_worker_exact_ref_reenters_only_after_support_policy():
+    import tests_remediation_phase03 as p3
+    from multi_document import DocumentWorkerInput, process_document_packet
+    rid = next(iter(p3.BY_ID))
+    exact = "WorkerGap industrial heat capacity is 700 °C"
+    text = f"Background navigation. {exact}."
+    record = {**p3.BY_ID[rid], "fb": text}
+    snapshot = {**p3.SNAP_BY_ID[rid], "evidence_text": text,
+                "content_sha256": hashlib.sha256(text.encode()).hexdigest()}
+    requirements = [{
+        "id": "r2", "description": "WorkerGap industrial heat capacity",
+        "critical": True, "importance": "critical",
+        "keywords": ["worker-only"], "provenance_need": "any",
+    }]
+    initial = asyncio.run(p3._run_pipeline(
+        "synthetic alpha", requirements=requirements,
+        route_results=p3._routes_for([rid]), records_by_id={rid: record},
+        snapshot_index={rid: snapshot}, chunk_retriever=None,
+        evidence_metadata={rid: p3.META_BY_ID[rid]}))
+    entry = next(iter(initial["package"].evidence.values()))
+    inp = DocumentWorkerInput(
+        query="synthetic alpha", requirement_ids=("r2",),
+        requirement_descriptions=("WorkerGap industrial heat capacity",),
+        record_id=rid, source_snapshot_id=snapshot["source_snapshot_id"],
+        evidence_text=text,
+        content_sha256=hashlib.sha256(text.encode()).hexdigest())
+
+    async def extract(_inp):
+        return {"relevant": True, "claims": [{
+            "requirement_id": "r2", "local_claim": exact,
+            "evidence_span": exact}]}
+
+    packet = asyncio.run(process_document_packet(inp, extract))
+    final = asyncio.run(p3._run_pipeline(
+        "synthetic alpha", requirements=requirements,
+        route_results=p3._routes_for([rid]), records_by_id={rid: record},
+        snapshot_index={rid: snapshot}, chunk_retriever=None,
+        evidence_metadata={rid: p3.META_BY_ID[rid]},
+        worker_packets=[packet]))
     r2 = next(r for r in final["view"].requirements
               if r.requirement_id == "r2")
     evidence = final["view"].evidence[r2.support_evidence_ids[0]]
-    check("RT045.worker_exact_ref_reenters_final_package",
-          final["status"] == "ok" and r2.coverage == "COVERED"
-          and evidence.locators[0]["start_offset"]
-          == entry.exact_text.index("industrial heat")
+    check("RT045.worker_exact_ref_policy_cleared_support",
+          initial["package"].requirements[0].coverage != "COVERED"
+          and final["status"] == "ok" and r2.coverage == "COVERED"
+          and evidence.locators[0]["start_offset"] == text.index(exact)
           and final["trace_facts"]["worker_evidence"]["accepted_packets"] == 1)
 
 
@@ -1113,6 +1305,8 @@ def test_phase04_full_real_endpoint_terminal_matrix():
         "alpha-2": "Alpha industrial heat capacity is 600 GB/s. Source B.",
         "beta-1": "Beta capacity is 800 GB/s. Source C.",
         "beta-2": "Beta capacity is 900 GB/s. Source D.",
+        "workergap-1": ("WorkerGap industrial heat capacity is 700 °C. "
+                         "Independent source E."),
     }
     records = [{
         "record_id": rid, "legacy_idx": i, "t": rid, "a": f"source-{i}",
@@ -1133,6 +1327,9 @@ def test_phase04_full_real_endpoint_terminal_matrix():
 
     async def rewrite(q, _history):
         if q.startswith("它现在"):
+            if any(m.get("role") == "user" and "A100" in m.get("content", "")
+                   for m in _history):
+                return "A100 现在的成本", False, "ambiguous model proposal"
             return "AMD 现在的成本", False, "deterministic model proposal"
         return q, False, ""
 
@@ -1157,12 +1354,13 @@ def test_phase04_full_real_endpoint_terminal_matrix():
         return {"overall": "SUFFICIENT"}
 
     async def worker_llm(prompt, **_kwargs):
-        if "WorkerGap" in prompt:
+        exact = "WorkerGap industrial heat capacity is 700 °C"
+        if exact in prompt:
             return json.dumps({
                 "relevant": True,
                 "claims": [{"requirement_id": "r-entity-2",
-                            "local_claim": "industrial heat",
-                            "evidence_span": "industrial heat"}],
+                            "local_claim": exact,
+                            "evidence_span": exact}],
                 "source_role": "independent"})
         return json.dumps({"relevant": True, "claims": []})
 
@@ -1172,7 +1370,7 @@ def test_phase04_full_real_endpoint_terminal_matrix():
 
     async def stream(prompt, **_kwargs):
         if "WorkerGap" in prompt:
-            yield "industrial heat [1]"
+            yield "WorkerGap industrial heat capacity is 700 °C. [1]"
         else:
             yield "Alpha industrial heat capacity is 600 GB/s. [1]"
 
@@ -1180,8 +1378,13 @@ def test_phase04_full_real_endpoint_terminal_matrix():
         if not citations:
             return {"claims": []}
         worker_case = "WorkerGap" in _q
-        claim_text = ("industrial heat" if worker_case else
+        claim_text = ("WorkerGap industrial heat capacity is 700 °C"
+                      if worker_case else
                       "Alpha industrial heat capacity is 600 GB/s.")
+        citation = citations[0]
+        if worker_case:
+            citation = next((c for c in citations
+                             if c.get("record_id") == "workergap-1"), citation)
         return {"claims": [{
             "id": "claim-real-e2e",
             "text": claim_text,
@@ -1189,7 +1392,7 @@ def test_phase04_full_real_endpoint_terminal_matrix():
             "is_core": True,
             "support_status": "SUPPORTED",
             "supported_by": [{
-                "citation_id": citations[0]["id"],
+                "citation_id": citation["id"],
                 "relation": "DIRECT_SUPPORT",
                 "evidence_span": claim_text}],
         }]}
@@ -1242,6 +1445,9 @@ def test_phase04_full_real_endpoint_terminal_matrix():
             "query": "它现在的成本呢?", "history": [{
                 "role": "assistant", "content": "AMD is the answer",
                 "verified": True}]}))
+        ambiguous_pronoun = done(client.post("/api/chat/stream", json={
+            "query": "它现在的成本呢?", "history": [{
+                "role": "user", "content": "Compare A100 and H100."}]}))
         worker_closed = done(client.post("/api/chat/stream", json={
             "query": "Alpha and WorkerGap industrial heat"}))
 
@@ -1253,8 +1459,13 @@ def test_phase04_full_real_endpoint_terminal_matrix():
                              if row["trace_id"] == wrong_pronoun["trace_id"])
         rewrite_stage = next(s["data"] for s in pronoun_trace["stages"]
                              if s["stage"] == "rewrite")
+        ambiguous_trace = next(row for row in trace_rows
+                               if row["trace_id"] == ambiguous_pronoun["trace_id"])
+        ambiguous_rewrite = next(
+            s["data"] for s in ambiguous_trace["stages"]
+            if s["stage"] == "rewrite")
         results = [partial, conflict, grader_failure, positive,
-                   wrong_pronoun, worker_closed]
+                   wrong_pronoun, ambiguous_pronoun, worker_closed]
         check("phase04.full_real_endpoint_terminal_matrix",
               all(results)
               and partial["answer_status"] == "PARTIALLY_SUPPORTED"
@@ -1264,7 +1475,19 @@ def test_phase04_full_real_endpoint_terminal_matrix():
               and rewrite_stage["rewrite_action"] == "REJECT_TO_ORIGINAL"
               and rewrite_stage["rewritten_query"] == "它现在的成本呢?"
               and "AMD" not in wrong_pronoun["answer"]
+              and ambiguous_rewrite["rewrite_action"] == "REJECT_TO_ORIGINAL"
+              and ambiguous_rewrite["rewrite_authority"]["binding_status"]
+                  == "AMBIGUOUS_LATEST_USER"
+              and ambiguous_rewrite["rewritten_query"] == "它现在的成本呢?"
+              and "A100" not in ambiguous_pronoun["answer"]
               and worker_closed["answer_status"] == "SUPPORTED"
+              and any(c.get("record_id") == "workergap-1"
+                      for c in worker_closed["citations"])
+              and any("WorkerGap industrial heat capacity is 700"
+                      in str(c.get("body_snippet") or
+                             (c.get("grounding_result") or {}).get(
+                                 "exact_text") or "")
+                      for c in worker_closed["citations"])
               and partial["diagnostics"]["state_machine"]
                   ["orchestration_constraint"]["critical_missing_ids"]
               and grader_failure["diagnostics"]["state_machine"]
@@ -1280,6 +1503,7 @@ def test_phase04_full_real_endpoint_terminal_matrix():
                   "worker_claims": worker_closed and worker_closed.get("claims"),
                   "worker_citations": worker_closed and worker_closed.get("citations"),
                   "rewrite": rewrite_stage,
+                  "ambiguous_rewrite": ambiguous_rewrite,
               }, ensure_ascii=False)[:6000])
     finally:
         server.configure_runtime_snapshot_manager(saved["manager"])

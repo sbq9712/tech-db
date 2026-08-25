@@ -24,7 +24,10 @@ Checks (as applicable), each with a machine-readable reason code:
   POLICY_STALE_CURRENT_FACT      superseded-only evidence for current/latest
   POLICY_CONFLICT_UNRESOLVED     unresolved high-severity contradiction
   POLICY_NUMERIC_MISMATCH        numeric unit/scope/denominator incompatibility
+  POLICY_NUMERIC_CONDITION_MISSING structured numeric condition has no number
+  POLICY_NUMERIC_CONDITION_MISMATCH structured value/unit/scope does not match
   POLICY_RELATION_INVALID        relation evidence-method invalid
+  POLICY_RELATION_METHOD_MISSING required typed exact-grounded relation absent
   POLICY_CITATION_INELIGIBLE     citation-ineligible record cited
   POLICY_ACCESS_SCOPE            record outside the request access scope
 
@@ -34,10 +37,11 @@ detail, severity}. HARD_FAIL is terminal for the affected proposition —
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional
 
-EVIDENCE_POLICY_VERSION = "1.1.0"
+EVIDENCE_POLICY_VERSION = "1.2.0"
 
 HARD_FAIL = "HARD_FAIL"
 PASS = "PASS"
@@ -215,6 +219,55 @@ class EvidencePolicyEngine:
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="numeric")
 
+    def check_required_numeric(self, *, requirement_id: str,
+                               numeric_conditions: List[str],
+                               evidence_texts: List[str]) -> PolicyReport:
+        """Verify every structured numeric condition against source text.
+
+        This is requirement-scoped coverage, not the older global
+        self-contradiction check.  Immutable evidence text is the authority;
+        a field merely being serialized on a requirement is not a pass.
+        """
+        from numeric_facts import verify_numeric_claim, _detect_scope_markers
+
+        findings: List[PolicyFinding] = []
+        for raw_condition in numeric_conditions or []:
+            condition = str(raw_condition or "").strip()
+            if not condition:
+                continue
+            # Accept the planner's ordinary English temperature wording while
+            # still routing comparison through the canonical numeric verifier.
+            normalized = re.sub(
+                r"\bdegrees?(?:\s+celsius)?\b", "°C", condition,
+                flags=re.IGNORECASE)
+            reports = []
+            for text in evidence_texts or []:
+                text = str(text or "")
+                report = verify_numeric_claim(normalized, text)
+                claim_scopes = _detect_scope_markers(normalized)
+                evidence_scopes = _detect_scope_markers(text)
+                if (report.get("status") == "MATCH" and claim_scopes
+                        and evidence_scopes
+                        and claim_scopes != evidence_scopes):
+                    report = dict(report, status="SCOPE_MISMATCH")
+                reports.append(report)
+            if any(rep.get("status") == "MATCH" for rep in reports):
+                continue
+            statuses = sorted({str(rep.get("status") or "")
+                               for rep in reports if rep})
+            code = ("POLICY_NUMERIC_CONDITION_MISSING"
+                    if not reports or all(s in (
+                        "NO_EVIDENCE_NUMBER", "") for s in statuses)
+                    else "POLICY_NUMERIC_CONDITION_MISMATCH")
+            findings.append(PolicyFinding(
+                "numeric_condition", code, requirement_id,
+                f"required numeric condition '{condition}' has no exact "
+                f"source-grounded match; verifier_statuses={statuses or ['NONE']}",
+                severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS), findings=findings,
+            mode="numeric_condition")
+
     def check_relation(self, *, relation_checks: List[dict]) -> PolicyReport:
         """Relation-claim evidence method (spec §12: relation validity)."""
         findings: List[PolicyFinding] = []
@@ -228,6 +281,36 @@ class EvidencePolicyEngine:
         return PolicyReport(
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="relation")
+
+    def check_required_relation(self, *, requirement_id: str,
+                                relation_need: str,
+                                relation_checks: List[dict]) -> PolicyReport:
+        """Require a typed, current, exact-grounded relation method."""
+        need = str(relation_need or "none").strip()
+        if not need or need.lower() == "none":
+            return PolicyReport(verdict=PASS, findings=[],
+                                mode="relation_requirement")
+        checks = list(relation_checks or [])
+        findings: List[PolicyFinding] = []
+        invalid = [c for c in checks if c.get("valid") is False]
+        valid = [c for c in checks
+                 if c.get("valid") is True and c.get("typed") is True
+                 and c.get("exact_grounded") is True]
+        if invalid:
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_INVALID",
+                requirement_id,
+                "; ".join(str(c.get("detail") or "invalid relation")
+                          for c in invalid), severity="hard"))
+        elif not valid:
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_METHOD_MISSING",
+                requirement_id,
+                f"relation_need={need} requires a typed relation with an "
+                "exact immutable EvidenceRef", severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS), findings=findings,
+            mode="relation_requirement")
 
     def check_provenance(self, *, requires_independent: bool,
                          provenance_groups: Optional[List[str]] = None,
@@ -371,6 +454,10 @@ class EvidencePolicyEngine:
                      Dict[str, List[str]]] = None,
                  provenance_groups_by_requirement: Optional[
                      Dict[str, List[str]]] = None,
+                 evidence_texts_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 relation_checks_by_requirement: Optional[
+                     Dict[str, List[dict]]] = None,
                  min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
@@ -416,6 +503,8 @@ class EvidencePolicyEngine:
             states = (evidence_states_by_requirement or {}).get(rid)
             roles = (evidence_roles_by_requirement or {}).get(rid)
             groups = (provenance_groups_by_requirement or {}).get(rid)
+            req_texts = (evidence_texts_by_requirement or {}).get(rid, [])
+            req_relations = (relation_checks_by_requirement or {}).get(rid, [])
             if (per_requirement_policy
                     and req_temporal not in ("", "unspecified", "any")):
                 temporal_rep = self.check_temporal(
@@ -443,6 +532,21 @@ class EvidencePolicyEngine:
                 rule_applicability.update({
                     f"{key}:{rid}": value for key, value in
                     prov_req.rule_applicability.items()})
+            numeric_conditions = list(req.get("numeric_conditions") or [])
+            if numeric_conditions:
+                numeric_rep = self.check_required_numeric(
+                    requirement_id=rid,
+                    numeric_conditions=numeric_conditions,
+                    evidence_texts=list(req_texts))
+                findings.extend(numeric_rep.findings)
+                rule_applicability[f"numeric_condition:{rid}"] = "APPLICABLE"
+            relation_need = str(req.get("relation_need") or "none")
+            if relation_need.lower() != "none":
+                relation_rep = self.check_required_relation(
+                    requirement_id=rid, relation_need=relation_need,
+                    relation_checks=list(req_relations))
+                findings.extend(relation_rep.findings)
+                rule_applicability[f"relation_requirement:{rid}"] = "APPLICABLE"
         findings.extend(self.check_conflict(conflicts=conflicts or []).findings)
         findings.extend(self.check_numeric(numeric_facts=numeric_facts or []).findings)
         findings.extend(self.check_relation(relation_checks=relation_checks or []).findings)

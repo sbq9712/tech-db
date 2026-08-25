@@ -17,7 +17,10 @@ pipeline; it does not create a parallel answering pipeline.
   or uncertain critical rewrites fail safe to the original query. Contextual
   entities may be authorized only by prior USER text or server-verified
   premises; assistant-only prose and client `verified` flags are diagnostic
-  input only.
+  input only. Contextual pronouns bind only when the latest relevant USER turn
+  has exactly one entity, or (when USER context has none) active verified
+  premises have exactly one compatible entity. Multiple candidates reject the
+  proposed rewrite and are recorded in the endpoint Trace.
 - RT-042: FAST uses the real Phase03 retrieval, content rerank, evidence
   policy, selection, typed package and verification surfaces while skipping
   the Planner and research loop only.
@@ -30,10 +33,15 @@ pipeline; it does not create a parallel answering pipeline.
   multi-entity requirements, explicit ambiguity, full semantic anti-drift and
   strict Planner-schema fallback. Structured temporal/provenance/relation/
   numeric requirements authoritatively drive the Phase03 policy engine.
+  Numeric conditions and typed relation needs are requirement-scoped hard
+  gates: missing, wrong-value/unit/scope, deprecated, untyped or ungrounded
+  relation evidence leaves the requirement unresolved.
 - RT-045: bounded one-document worker inputs, exact snapshot locators and
-  typed packets revalidated against the pinned snapshot, merged into the
-  Ledger and re-entered through the same Phase03 policy and final package.
-  Worker prose never enters generation context.
+  typed packets revalidated against the pinned snapshot and the canonical
+  structured requirement-support policy before re-entering the final package.
+  Raw worker packets never update the Ledger directly; only the policy-cleared
+  packed view can do so. Worker `requirement_id` and prose are advisory and
+  never enter generation context.
 - RT-046: optional packet cache scoped by manifest, profile, source snapshot,
   requirement fingerprint, model, prompt, schema and access scope. A disabled
   cache preserves behavior.
@@ -49,20 +57,34 @@ pipeline; it does not create a parallel answering pipeline.
 
 ## Behavioral evidence
 
-- `qa-backend/tests_remediation_phase04.py`: 48 named unit, integration,
+- `qa-backend/tests_remediation_phase04.py`: 52 named unit, integration,
   security-adversarial and actual FastAPI/SSE endpoint checks. The endpoint
   matrix exercises six cases through the real endpoint, canonical orchestrator,
   pinned Phase03 mini runtime, real Phase02 pipeline/state machine/renderer and
   SSE: partial requirement coverage, unresolved conflict, required Grader
-  technical failure, fully covered positive, wrong-pronoun rewrite, and a
-  worker closing a missing requirement. Only external model boundaries use
-  deterministic stubs.
+  technical failure, fully covered positive, assistant-only and multi-entity
+  wrong-pronoun rewrites, and WorkerGap support exact-grounded to its own
+  immutable snapshot. Only external model boundaries use deterministic stubs.
 - `qa-backend/tests_benchmark_phase04.py`: committed deterministic mechanism
   and latency benchmark, bound to the accepted review base.
 - `qa-backend/benchmark_phase04_result.json`: exact local-fixture output. Its
   latency is not a production SLO measurement.
 - Required Gate job: `phase04-query-integrity-agentic-orchestration`.
 - The acceptance matrix maps all 24 Phase04 DoDs to concrete named cases.
+
+## Targeted acceptance review round 2
+
+- An exact worker span containing only unrelated `industrial heat` is rejected
+  and cannot close the WorkerGap requirement; the positive fixture contains
+  the actual WorkerGap proposition and exact locator.
+- `700 degrees` over `600 °C`, per-device/system scope mismatch, missing typed
+  relation, and deprecated relation all fail the production requirement-policy
+  composition. Source-grounded `600 °C` and a current ontology relation with
+  an exact EvidenceRef pass.
+- Those real policy failures remain unresolved in the Ledger and drive
+  `MISSING_NUMERIC_CONDITION` / `MISSING_RELATION_METHOD` targeted queries.
+- No production canary, shadow activation or external branch-protection action
+  is claimed by these local/CI behavioral fixtures.
 
 ## Activation and rollback boundary
 

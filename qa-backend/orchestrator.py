@@ -701,9 +701,10 @@ async def _run_canonical_phase04(
                     f"phase04_worker_evidence_round{round_number}",
                     result.get("trace_facts", {}))
                 view = result.get("view")
-                accepted_packets = result.get("accepted_worker_packets") or []
-                if accepted_packets:
-                    state.ledger.merge_document_packets(accepted_packets)
+                # Raw worker packet fields (including requirement_id and
+                # prose) are advisory.  They never update the Ledger
+                # directly; only the canonical policy-cleared final view
+                # below can establish requirement support.
             except Exception as exc:
                 state.degraded_capabilities.append("multi_document_worker_failed")
                 for req in state.requirements:

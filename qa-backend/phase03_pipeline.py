@@ -67,14 +67,15 @@ from retrieval.rerank import rerank_for_mode
 from retrieval import chunk_route
 from evidence_selection import select_support_evidence, selected_ids_only
 from evidence_policy import (EvidencePolicyEngine, EVIDENCE_POLICY_VERSION,
-                             PolicyReport, HARD_FAIL, FAIL, PASS)
+                             PolicyFinding, PolicyReport,
+                             HARD_FAIL, FAIL, PASS)
 from evidence_package import (EvidencePackageBuilder, fit_to_capacity,
                               PackedGenerationView, MAX_CONTEXT_TOKENS,
                               NON_SUPPORT_RELATIONS)
 from generator_input import (build_generator_input,
                              render_generator_prompt)
 
-PIPELINE_VERSION = "3.2.0"
+PIPELINE_VERSION = "3.3.0"
 RERANK_CAPACITY = int(os.environ.get("QA_RERANK_CAPACITY", "40"))
 DEFAULT_MODE = "RESEARCH_RAG"
 
@@ -90,7 +91,11 @@ _CLAIM_LEVEL_CODES = {"POLICY_STALE_CURRENT_FACT", "POLICY_SELF_REPORT_ONLY",
                       # review round 2 (RT-034): proposition-level hard rules
                       "POLICY_PROVENANCE_INSUFFICIENT",
                       "POLICY_PROVENANCE_UNAVAILABLE", "POLICY_ENTITY_MISSING",
-                      "POLICY_DIMENSION_MISSING"}
+                      "POLICY_DIMENSION_MISSING",
+                      "POLICY_NUMERIC_CONDITION_MISSING",
+                      "POLICY_NUMERIC_CONDITION_MISMATCH",
+                      "POLICY_RELATION_METHOD_MISSING",
+                      "POLICY_RELATION_INVALID"}
 
 
 # ── deterministic query derivation (Phase-04 boundary, no fabrication) ──────
@@ -277,7 +282,9 @@ def _numeric_checks_for(records_by_id: dict,
 
 
 def _relation_checks_for(records_by_id: dict, selected_ids: List[str],
-                         temporal_intent: str) -> List[dict]:
+                         temporal_intent: str,
+                         snapshot_index: Optional[Dict[str, dict]] = None
+                         ) -> List[dict]:
     """Evidence-side relation validity via the Phase-02 relation ontology.
 
     Records may carry structured relation assertions (GraphStatement
@@ -286,7 +293,7 @@ def _relation_checks_for(records_by_id: dict, selected_ids: List[str],
     evidence invalid. Records without relation assertions produce no
     checks (no fabrication).
     """
-    from relation_ontology import GraphStatement
+    from relation_ontology import GraphStatement, validate_predicate
     checks: List[dict] = []
     for rid in selected_ids:
         rec = (records_by_id or {}).get(rid) or {}
@@ -301,15 +308,40 @@ def _relation_checks_for(records_by_id: dict, selected_ids: List[str],
                 valid = gs.is_valid_for_query(temporal_intent=temporal_intent)
             except Exception:
                 continue
-            if not valid:
-                checks.append({
-                    "relation": str(stmt.get("predicate") or ""),
-                    "valid": False,
-                    "detail": (f"assertion_status="
-                               f"{stmt.get('assertion_status')} invalid "
-                               f"for {temporal_intent} query"),
-                    "record_id": rid,
-                })
+            predicate = str(stmt.get("predicate") or "")
+            typed = validate_predicate(predicate)
+            snap = (snapshot_index or {}).get(rid) or {}
+            text = str(snap.get("evidence_text") or "")
+            sid = str(snap.get("source_snapshot_id") or "")
+            exact_grounded = False
+            for ref in gs.evidence_refs or []:
+                if not isinstance(ref, dict):
+                    continue
+                locator = ref.get("locator") or ref
+                start = locator.get("start_offset", ref.get("start_offset", -1))
+                end = locator.get("end_offset", ref.get("end_offset", -1))
+                exact = str(ref.get("exact_text") or "")
+                if (str(ref.get("record_id") or rid) == rid
+                        and str(ref.get("source_snapshot_id") or "") == sid
+                        and isinstance(start, int) and isinstance(end, int)
+                        and 0 <= start < end <= len(text)
+                        and text[start:end] == exact):
+                    exact_grounded = True
+                    break
+            valid = bool(valid and typed and exact_grounded)
+            detail = "typed relation exact-grounded in immutable snapshot"
+            if not gs.is_valid_for_query(temporal_intent=temporal_intent):
+                detail = (f"assertion_status={stmt.get('assertion_status')} "
+                          f"invalid for {temporal_intent} query")
+            elif not typed:
+                detail = f"predicate={predicate!r} is not in the relation ontology"
+            elif not exact_grounded:
+                detail = "typed relation has no exact immutable EvidenceRef"
+            checks.append({
+                "relation": predicate, "valid": valid, "typed": typed,
+                "exact_grounded": exact_grounded, "detail": detail,
+                "record_id": rid,
+            })
     return checks
 
 
@@ -354,7 +386,10 @@ def _assoc_requirements(query: str, requirements: List[dict],
 
 def _validated_worker_overlay(worker_packets: list, *, selected_ids: List[str],
                               snapshot_index: Dict[str, dict],
-                              requirement_ids: set) -> dict:
+                              requirements: List[dict],
+                              policy_engine: EvidencePolicyEngine,
+                              evidence_metadata: Dict[str, dict],
+                              provenance_groups: Dict[str, str]) -> dict:
     """Validate worker EvidenceRefs against immutable snapshots.
 
     Workers are extractors, never evidence authorities.  Only exact refs
@@ -363,6 +398,7 @@ def _validated_worker_overlay(worker_packets: list, *, selected_ids: List[str],
     Prose claims are deliberately not returned.
     """
     selected = set(selected_ids)
+    requirements_by_id = {str(r.get("id")): r for r in requirements}
     overlay = {"associations": {}, "locators": {}, "numeric_checks": [],
                "relation_checks": [], "conflicts": [],
                "accepted_packets": [], "rejected_refs": []}
@@ -378,7 +414,7 @@ def _validated_worker_overlay(worker_packets: list, *, selected_ids: List[str],
         packet_accepted = False
         for claim in getattr(packet, "local_claims", ()):
             req_id = str(getattr(claim, "requirement_id", "") or "")
-            if req_id not in requirement_ids:
+            if req_id not in requirements_by_id:
                 overlay["rejected_refs"].append({
                     "record_id": rid, "reason": "worker_requirement_unknown"})
                 continue
@@ -397,6 +433,76 @@ def _validated_worker_overlay(worker_packets: list, *, selected_ids: List[str],
                     overlay["rejected_refs"].append({
                         "record_id": rid, "requirement_id": req_id,
                         "reason": "worker_evidence_ref_not_exact"})
+                    continue
+                # Exact existence proves only that the worker copied text. It
+                # does not prove that text supports the structured
+                # requirement.  Reuse the canonical policy engine for the
+                # same entity/dimension, numeric and relation eligibility
+                # gates used by the final package path.
+                req = requirements_by_id[req_id]
+                anchors = list(req.get("entities") or [])
+                comparison_object = req.get("comparison_object")
+                if comparison_object:
+                    anchors.append(str(comparison_object))
+                dimensions = list(req.get("dimensions") or [])
+                if req.get("comparison_dimension"):
+                    dimensions.append(str(req.get("comparison_dimension")))
+                if not anchors and not dimensions:
+                    description_entities = re.findall(
+                        r"\b[A-Za-z][A-Za-z0-9_.+-]*\b",
+                        str(req.get("description") or ""))
+                    anchors = [term for term in description_entities
+                               if any(ch.isupper() or ch.isdigit()
+                                      for ch in term)]
+                if not anchors and not dimensions:
+                    anchors = [str(k) for k in (req.get("keywords") or []) if k]
+                candidate_findings = list(policy_engine.check_entity_coverage(
+                    required_entities=anchors,
+                    required_dimensions=dimensions,
+                    selected_texts=[exact], require_pairs=bool(anchors and dimensions)
+                ).findings)
+                candidate_findings.extend(policy_engine.check_required_numeric(
+                    requirement_id=req_id,
+                    numeric_conditions=list(req.get("numeric_conditions") or []),
+                    evidence_texts=[exact]).findings)
+                candidate_findings.extend(policy_engine.check_required_relation(
+                    requirement_id=req_id,
+                    relation_need=str(req.get("relation_need") or "none"),
+                    relation_checks=[dict(c) for c in
+                                     getattr(packet, "relation_checks", ())]
+                ).findings)
+                if str(req.get("provenance_need") or "any") == "independent":
+                    role = str((evidence_metadata.get(rid) or {}).get(
+                        "evidence_role") or "unknown")
+                    candidate_findings.extend(policy_engine.check_self_report(
+                        requires_independent=True,
+                        evidence_roles=[role]).findings)
+                    if not str(provenance_groups.get(rid) or ""):
+                        candidate_findings.append(PolicyFinding(
+                            "worker_provenance",
+                            "POLICY_PROVENANCE_UNAVAILABLE", req_id,
+                            "worker candidate lacks catalog-authoritative "
+                            "independent_group_id", severity="hard"))
+                scope_terms = [str(v).lower() for v in
+                               (req.get("scope_constraints") or []) if v]
+                time_terms = [str(v).lower() for v in
+                              (req.get("time_constraints") or []) if v]
+                low_exact = exact.lower()
+                if any(term not in low_exact for term in scope_terms):
+                    candidate_findings.append(PolicyFinding(
+                        "worker_scope", "POLICY_DIMENSION_MISSING", req_id,
+                        "worker exact span lacks required scope", severity="hard"))
+                if any(term not in low_exact for term in time_terms):
+                    candidate_findings.append(PolicyFinding(
+                        "worker_temporal", "POLICY_STALE_CURRENT_FACT", req_id,
+                        "worker exact span lacks required temporal constraint",
+                        severity="hard"))
+                if candidate_findings:
+                    overlay["rejected_refs"].append({
+                        "record_id": rid, "requirement_id": req_id,
+                        "reason": "worker_requirement_support_policy_rejected",
+                        "reason_codes": sorted({f.reason_code
+                                                for f in candidate_findings})})
                     continue
                 locator = {"start_offset": start, "end_offset": end,
                            "text_sha256": getattr(ref, "text_sha256")}
@@ -690,7 +796,9 @@ async def run_phase03_retrieval(*, query: str,
     worker_overlay = _validated_worker_overlay(
         list(worker_packets or []), selected_ids=selected_ids,
         snapshot_index=snapshot_index,
-        requirement_ids={str(r.get("id")) for r in requirements})
+        requirements=requirements, policy_engine=engine,
+        evidence_metadata=evidence_metadata,
+        provenance_groups=provenance_groups)
     for rid, req_ids in worker_overlay["associations"].items():
         assoc[rid] = sorted(set(assoc.get(rid, [])) | set(req_ids))
 
@@ -728,7 +836,7 @@ async def run_phase03_retrieval(*, query: str,
     numeric_checks = (_numeric_checks_for(records_by_id, selected_ids)
                       + list(worker_overlay["numeric_checks"]))
     relation_checks = _relation_checks_for(records_by_id, selected_ids,
-                                           temporal_intent) \
+                                           temporal_intent, snapshot_index) \
         + list(worker_overlay["relation_checks"])
     # First evaluate record/proposition validators whose findings identify
     # evidence that may no longer count as support.  Coverage and provenance
@@ -832,6 +940,13 @@ async def run_phase03_retrieval(*, query: str,
     groups_by_req = {
         req_id: [str(provenance_groups.get(rid) or "") for rid in ids]
         for req_id, ids in trusted_ids_by_req.items()}
+    texts_by_req = {
+        req_id: [content_by_rid.get(rid, "") for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    relations_by_req = {
+        req_id: [check for check in relation_checks
+                 if str(check.get("record_id") or "") in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
 
     trusted_states = [str((temporal_map.get(rid) or
                            records_by_id.get(rid) or {})
@@ -862,6 +977,10 @@ async def run_phase03_retrieval(*, query: str,
                                        if structured_requirements else None),
         provenance_groups_by_requirement=(
             groups_by_req if structured_requirements else None),
+        evidence_texts_by_requirement=(
+            texts_by_req if structured_requirements else None),
+        relation_checks_by_requirement=(
+            relations_by_req if structured_requirements else None),
         mode=mode,
     )
     all_findings = validation_report.findings + support_report.findings

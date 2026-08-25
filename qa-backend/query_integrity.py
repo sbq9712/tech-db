@@ -139,13 +139,39 @@ class RewriteAuthority:
     """
     current_query_entities: Tuple[str, ...] = field(default_factory=tuple)
     prior_user_entities: Tuple[str, ...] = field(default_factory=tuple)
+    latest_relevant_user_entities: Tuple[str, ...] = field(default_factory=tuple)
     verified_premise_entities: Tuple[str, ...] = field(default_factory=tuple)
     unverified_assistant_entities: Tuple[str, ...] = field(default_factory=tuple)
 
     @property
     def allowed_context_entities(self) -> Tuple[str, ...]:
-        return _ordered_unique(
-            (*self.prior_user_entities, *self.verified_premise_entities))
+        """The single deterministic contextual binding, or no authority.
+
+        The most recent relevant USER turn has precedence.  It authorizes a
+        rewrite only when it names exactly one entity.  Server-verified
+        premises are considered only when that USER turn names none, and
+        likewise must resolve to exactly one entity.  Multiple candidates are
+        ambiguity, never a license for a model to choose one silently.
+        """
+        if len(self.latest_relevant_user_entities) == 1:
+            return self.latest_relevant_user_entities
+        if self.latest_relevant_user_entities:
+            return ()
+        if len(self.verified_premise_entities) == 1:
+            return self.verified_premise_entities
+        return ()
+
+    @property
+    def binding_status(self) -> str:
+        if len(self.latest_relevant_user_entities) == 1:
+            return "RESOLVED_FROM_LATEST_USER"
+        if len(self.latest_relevant_user_entities) > 1:
+            return "AMBIGUOUS_LATEST_USER"
+        if len(self.verified_premise_entities) == 1:
+            return "RESOLVED_FROM_VERIFIED_PREMISE"
+        if len(self.verified_premise_entities) > 1:
+            return "AMBIGUOUS_VERIFIED_PREMISES"
+        return "UNRESOLVED"
 
     def authorizes(self, entity: str) -> bool:
         key = _norm(entity).casefold()
@@ -155,6 +181,7 @@ class RewriteAuthority:
     def to_dict(self) -> dict:
         return dataclasses.asdict(self) | {
             "allowed_context_entities": list(self.allowed_context_entities),
+            "binding_status": self.binding_status,
             "assistant_history_is_authority": False,
         }
 
@@ -164,6 +191,7 @@ def build_rewrite_authority(current_query: str, history: Optional[list] = None,
                             ) -> RewriteAuthority:
     """Build authority from current/user context and server premises only."""
     user_entities: List[str] = []
+    latest_user_entities: Tuple[str, ...] = ()
     assistant_entities: List[str] = []
     for message in history or []:
         if not isinstance(message, dict):
@@ -173,6 +201,14 @@ def build_rewrite_authority(current_query: str, history: Optional[list] = None,
             user_entities.extend(entities)
         elif str(message.get("role") or "").lower() == "assistant":
             assistant_entities.extend(entities)
+    for message in reversed(history or []):
+        if not isinstance(message, dict) \
+                or str(message.get("role") or "").lower() != "user":
+            continue
+        entities = _extract_entities(str(message.get("content") or ""))
+        if entities:
+            latest_user_entities = entities
+            break
     premise_entities: List[str] = []
     for premise in verified_premises or []:
         if hasattr(premise, "claim"):
@@ -185,6 +221,7 @@ def build_rewrite_authority(current_query: str, history: Optional[list] = None,
     return RewriteAuthority(
         current_query_entities=_extract_entities(current_query),
         prior_user_entities=_ordered_unique(user_entities),
+        latest_relevant_user_entities=latest_user_entities,
         verified_premise_entities=_ordered_unique(premise_entities),
         unverified_assistant_entities=_ordered_unique(assistant_entities),
     )
@@ -309,6 +346,8 @@ def semantic_diff(original: str, rewritten: str, *,
             uncertain = True
             diagnostics.append("critical_subject_parse_uncertain")
     if added and rewrite_authority is not None:
+        if rewrite_authority.binding_status.startswith("AMBIGUOUS_"):
+            diagnostics.append("context_entity_binding_ambiguous")
         untrusted = {v.casefold() for v in
                      rewrite_authority.unverified_assistant_entities}
         if any(e.casefold() in untrusted and not rewrite_authority.authorizes(e)
