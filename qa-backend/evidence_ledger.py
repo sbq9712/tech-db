@@ -67,6 +67,8 @@ class EvidenceLedger:
                     "temporal_coverage": {},
                     "temporal_intent": req.get("temporal_intent", "unspecified"),
                     "numeric_conditions": list(req.get("numeric_conditions", [])),
+                    "time_constraints": list(req.get("time_constraints", [])),
+                    "scope_constraints": list(req.get("scope_constraints", [])),
                     "relation_need": req.get("relation_need", "none"),
                     "comparison_object": req.get("comparison_object", ""),
                     "comparison_dimension": req.get("comparison_dimension", ""),
@@ -128,14 +130,31 @@ class EvidenceLedger:
         This preserves the Phase03 selection → Ledger → EvidencePackage
         connection; research memory/raw candidates never enter support.
         """
+        return self._update_from_evidence_contract(view)
+
+    def update_from_evidence_package(self, package) -> dict:
+        """Record policy-cleared or policy-blocked package outcomes.
+
+        A no-evidence package still carries the structured requirement and
+        machine-readable reason codes needed by targeted gap derivation.
+        """
+        return self._update_from_evidence_contract(package)
+
+    def _update_from_evidence_contract(self, contract) -> dict:
         self.iteration += 1
-        by_req = {r.requirement_id: r for r in getattr(view, "requirements", [])}
-        evidence = getattr(view, "evidence", {}) or {}
+        by_req = {r.requirement_id: r for r in
+                  getattr(contract, "requirements", [])}
+        evidence = getattr(contract, "evidence", {}) or {}
         for rid, req in self.requirements.items():
             block = by_req.get(rid)
             if block is None:
-                req["missing"].append("requirement_absent_from_evidence_package")
+                reason = "requirement_absent_from_evidence_package"
+                if reason not in req["missing"]:
+                    req["missing"].append(reason)
                 continue
+            for reason in getattr(block, "policy_reasons", []) or []:
+                if reason not in req["missing"]:
+                    req["missing"].append(reason)
             for eid in block.support_evidence_ids:
                 entry = evidence.get(eid)
                 if entry is None or not entry.counts_as_evidence:
@@ -168,7 +187,8 @@ class EvidenceLedger:
                 req["status"] = REQ_PARTIAL
             else:
                 req["status"] = REQ_MISSING
-                req["missing"].append(block.coverage)
+                if block.coverage not in req["missing"]:
+                    req["missing"].append(block.coverage)
         snapshot = self._snapshot()
         self.snapshots.append(snapshot)
         return snapshot
@@ -308,6 +328,8 @@ class EvidenceLedger:
                     "temporal_coverage": dict(r["temporal_coverage"]),
                     "temporal_intent": r["temporal_intent"],
                     "numeric_conditions": list(r["numeric_conditions"]),
+                    "time_constraints": list(r["time_constraints"]),
+                    "scope_constraints": list(r["scope_constraints"]),
                     "relation_need": r["relation_need"],
                     "comparison_object": r["comparison_object"],
                     "comparison_dimension": r["comparison_dimension"],

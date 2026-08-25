@@ -326,6 +326,85 @@ def validate_predicate(predicate: str) -> bool:
     return predicate in RELATIONS
 
 
+def validate_grounded_relation(statement: dict, *, record_id: str,
+                                snapshot: dict,
+                                temporal_intent: str = "current",
+                                require_semantic_anchors: bool = False) -> dict:
+    """Independently validate one relation against the canonical ontology.
+
+    The caller may supply extracted statement fields and EvidenceRefs, but
+    never supplies the validation outcome.  ``valid``, ``typed`` and
+    ``exact_grounded`` are computed here from the registered ontology and
+    the request-pinned immutable SourceSnapshot.
+    """
+    raw = dict(statement or {})
+    predicate = str(raw.get("predicate") or "")
+    typed = validate_predicate(predicate)
+    try:
+        graph_statement = GraphStatement.from_dict(raw)
+        temporal_valid = graph_statement.is_valid_for_query(
+            temporal_intent=temporal_intent)
+    except Exception:
+        graph_statement = None
+        temporal_valid = False
+    raw_status = raw.get("assertion_status")
+    if raw_status not in (None, ""):
+        known_statuses = {status.value for status in AssertionStatus}
+        temporal_valid = bool(temporal_valid and str(raw_status) in known_statuses)
+
+    text = str((snapshot or {}).get("evidence_text") or "")
+    snapshot_id = str((snapshot or {}).get("source_snapshot_id") or "")
+    exact_grounded = False
+    anchor_grounded = not require_semantic_anchors
+    refs = (graph_statement.evidence_refs if graph_statement is not None
+            else raw.get("evidence_refs") or [])
+    for ref in refs or []:
+        if hasattr(ref, "to_dict"):
+            ref = ref.to_dict()
+        if not isinstance(ref, dict):
+            continue
+        locator = ref.get("locator") or ref
+        start = locator.get("start_offset", ref.get("start_offset", -1))
+        end = locator.get("end_offset", ref.get("end_offset", -1))
+        exact = str(ref.get("exact_text") or "")
+        if (str(ref.get("record_id") or record_id) == record_id
+                and str(ref.get("source_snapshot_id") or "") == snapshot_id
+                and isinstance(start, int) and isinstance(end, int)
+                and 0 <= start < end <= len(text)
+                and text[start:end] == exact):
+            exact_grounded = True
+            if require_semantic_anchors:
+                low = exact.casefold()
+                anchors = [str(raw.get(key) or "").casefold()
+                           for key in ("subject_id", "subject", "object_id",
+                                       "object") if raw.get(key)]
+                anchor_grounded = bool(anchors) and all(
+                    anchor in low for anchor in anchors)
+            break
+
+    valid = bool(typed and temporal_valid and exact_grounded and anchor_grounded)
+    if not typed:
+        detail = f"predicate={predicate!r} is not in the relation ontology"
+    elif not temporal_valid:
+        detail = (f"assertion_status={raw.get('assertion_status')} invalid "
+                  f"for {temporal_intent} query")
+    elif not exact_grounded:
+        detail = "typed relation has no exact immutable EvidenceRef"
+    elif not anchor_grounded:
+        detail = "relation EvidenceRef does not ground its subject/object"
+    else:
+        detail = "typed relation exact-grounded in immutable snapshot"
+    return {
+        "relation": predicate,
+        "valid": valid,
+        "typed": typed,
+        "exact_grounded": exact_grounded,
+        "detail": detail,
+        "record_id": record_id,
+        "authority": "canonical_relation_validator",
+    }
+
+
 def get_predicate_info(predicate: str) -> Optional[dict]:
     """Get ontology information for a predicate."""
     return RELATIONS.get(predicate)

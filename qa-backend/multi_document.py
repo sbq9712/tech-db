@@ -78,6 +78,27 @@ class DocumentLocalClaim:
 
 
 @dataclass(frozen=True)
+class WorkerRelationAssertion:
+    """Extractor output only; validity is computed after packet creation."""
+    requirement_id: str
+    predicate: str
+    subject_id: str
+    object_id: str
+    assertion_status: str
+    evidence_refs: Tuple[WorkerEvidenceRef, ...]
+
+    def to_dict(self) -> dict:
+        return {
+            "requirement_id": self.requirement_id,
+            "predicate": self.predicate,
+            "subject_id": self.subject_id,
+            "object_id": self.object_id,
+            "assertion_status": self.assertion_status,
+            "evidence_refs": [ref.to_dict() for ref in self.evidence_refs],
+        }
+
+
+@dataclass(frozen=True)
 class DocumentEvidencePacket:
     record_id: str
     source_snapshot_id: str
@@ -85,6 +106,8 @@ class DocumentEvidencePacket:
     local_claims: Tuple[DocumentLocalClaim, ...]
     numeric_facts: Tuple[dict, ...] = field(default_factory=tuple)
     relation_checks: Tuple[dict, ...] = field(default_factory=tuple)
+    relation_assertions: Tuple[WorkerRelationAssertion, ...] = field(
+        default_factory=tuple)
     temporal_scope: dict = field(default_factory=dict)
     source_role: str = "unknown"
     independent_group_id: str = ""
@@ -103,6 +126,8 @@ class DocumentEvidencePacket:
             "local_claims": [v.to_dict() for v in self.local_claims],
             "numeric_facts": [dict(v) for v in self.numeric_facts],
             "relation_checks": [dict(v) for v in self.relation_checks],
+            "relation_assertions": [v.to_dict()
+                                    for v in self.relation_assertions],
             "temporal_scope": dict(self.temporal_scope),
             "source_role": self.source_role,
             "independent_group_id": self.independent_group_id,
@@ -188,6 +213,7 @@ async def process_document_packet(
         legacy = await extractor_fn(worker_input)
     legacy = legacy if isinstance(legacy, dict) else {}
     claims: List[DocumentLocalClaim] = []
+    relation_assertions: List[WorkerRelationAssertion] = []
     requirement_results = []
     found_by_req = {rid: False for rid in worker_input.requirement_ids}
     for raw in legacy.get("claims") or legacy.get("local_claims") or []:
@@ -213,6 +239,50 @@ async def process_document_packet(
             requirement_id=req_id, evidence_refs=(ref,),
             epistemic_type=str(raw.get("epistemic_type") or "VERIFIABLE_FACT")))
         found_by_req[req_id] = True
+    for raw in legacy.get("relation_assertions") or []:
+        if not isinstance(raw, dict):
+            continue
+        req_id = str(raw.get("requirement_id") or
+                     (worker_input.requirement_ids[0]
+                      if worker_input.requirement_ids else ""))
+        if req_id not in found_by_req:
+            continue
+        refs: List[WorkerEvidenceRef] = []
+        raw_refs = list(raw.get("evidence_refs") or [])
+        if not raw_refs and (raw.get("evidence_span") or raw.get("exact_text")):
+            span = str(raw.get("evidence_span") or raw.get("exact_text"))
+            start = worker_input.evidence_text.find(span)
+            if start >= 0:
+                raw_refs = [{
+                    "record_id": worker_input.record_id,
+                    "source_snapshot_id": worker_input.source_snapshot_id,
+                    "start_offset": start,
+                    "end_offset": start + len(span),
+                    "exact_text": span,
+                }]
+        for raw_ref in raw_refs:
+            if not isinstance(raw_ref, dict):
+                continue
+            locator = raw_ref.get("locator") or raw_ref
+            exact = str(raw_ref.get("exact_text") or "")
+            start = locator.get("start_offset", raw_ref.get("start_offset", -1))
+            end = locator.get("end_offset", raw_ref.get("end_offset", -1))
+            if not isinstance(start, int) or not isinstance(end, int):
+                continue
+            refs.append(WorkerEvidenceRef(
+                record_id=str(raw_ref.get("record_id") or
+                              worker_input.record_id),
+                source_snapshot_id=str(raw_ref.get("source_snapshot_id") or
+                                       worker_input.source_snapshot_id),
+                start_offset=start, end_offset=end, exact_text=exact,
+                text_sha256=hashlib.sha256(exact.encode("utf-8")).hexdigest()))
+        relation_assertions.append(WorkerRelationAssertion(
+            requirement_id=req_id,
+            predicate=str(raw.get("predicate") or raw.get("relation") or ""),
+            subject_id=str(raw.get("subject_id") or raw.get("subject") or ""),
+            object_id=str(raw.get("object_id") or raw.get("object") or ""),
+            assertion_status=str(raw.get("assertion_status") or "ASSERTED"),
+            evidence_refs=tuple(refs)))
     for rid in worker_input.requirement_ids:
         requirement_results.append({
             "requirement_id": rid,
@@ -225,7 +295,10 @@ async def process_document_packet(
         requirement_results=tuple(requirement_results),
         local_claims=tuple(claims),
         numeric_facts=tuple(legacy.get("numeric_facts") or []),
+        # Compatibility diagnostics are retained for Trace only.  These
+        # model-authored booleans are never a relation authority.
         relation_checks=tuple(legacy.get("relation_checks") or []),
+        relation_assertions=tuple(relation_assertions),
         temporal_scope=dict(legacy.get("temporal_scope") or {}),
         source_role=str(legacy.get("source_role") or
                         worker_input.provenance_metadata.get("source_role") or

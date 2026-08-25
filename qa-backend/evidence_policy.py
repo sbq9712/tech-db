@@ -26,6 +26,10 @@ Checks (as applicable), each with a machine-readable reason code:
   POLICY_NUMERIC_MISMATCH        numeric unit/scope/denominator incompatibility
   POLICY_NUMERIC_CONDITION_MISSING structured numeric condition has no number
   POLICY_NUMERIC_CONDITION_MISMATCH structured value/unit/scope does not match
+  POLICY_SCOPE_CONDITION_MISSING  required structured scope is unestablished
+  POLICY_SCOPE_CONDITION_MISMATCH evidence establishes an incompatible scope
+  POLICY_TIME_CONDITION_MISSING   required as-of/time period is unestablished
+  POLICY_TIME_CONDITION_MISMATCH  evidence establishes a different time period
   POLICY_RELATION_INVALID        relation evidence-method invalid
   POLICY_RELATION_METHOD_MISSING required typed exact-grounded relation absent
   POLICY_CITATION_INELIGIBLE     citation-ineligible record cited
@@ -41,7 +45,7 @@ import re
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional
 
-EVIDENCE_POLICY_VERSION = "1.2.0"
+EVIDENCE_POLICY_VERSION = "1.3.0"
 
 HARD_FAIL = "HARD_FAIL"
 PASS = "PASS"
@@ -268,6 +272,92 @@ class EvidencePolicyEngine:
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="numeric_condition")
 
+    @staticmethod
+    def _canonical_scopes(value) -> set:
+        values = value if isinstance(value, (list, tuple, set)) else [value]
+        aliases = {
+            "device": ("device", "per-device", "per device", "single device",
+                       "单设备", "per_device"),
+            "system": ("system", "system-total", "system total", "cluster",
+                       "系统总计", "system_total"),
+            "global": ("global", "worldwide", "全球"),
+            "china": ("china", "中国", "国内"),
+            "enterprise": ("enterprise", "企业"),
+            "consumer": ("consumer", "消费级"),
+        }
+        found = set()
+        for item in values:
+            low = str(item or "").casefold().replace("_", " ")
+            for canonical, terms in aliases.items():
+                if any(term.casefold().replace("_", " ") in low
+                       for term in terms):
+                    found.add(canonical)
+        return found
+
+    def check_required_scope(self, *, requirement_id: str,
+                             scope_constraints: List[str],
+                             evidence_observations: List[dict]) -> PolicyReport:
+        """Require positive scope establishment, never absence-as-match."""
+        required = self._canonical_scopes(scope_constraints)
+        if not required:
+            return PolicyReport(verdict=PASS, findings=[], mode="scope_condition")
+        observed_sets = []
+        for observation in evidence_observations or []:
+            values = [observation.get("text", "")]
+            values.extend(observation.get("scope_values") or [])
+            scopes = self._canonical_scopes(values)
+            if scopes:
+                observed_sets.append(scopes)
+            if required <= scopes:
+                return PolicyReport(verdict=PASS, findings=[],
+                                    mode="scope_condition")
+        code = ("POLICY_SCOPE_CONDITION_MISMATCH" if observed_sets
+                else "POLICY_SCOPE_CONDITION_MISSING")
+        detail = (f"required scope={sorted(required)}; observed="
+                  f"{[sorted(v) for v in observed_sets] or ['UNKNOWN']}")
+        return PolicyReport(verdict=HARD_FAIL, findings=[PolicyFinding(
+            "scope_condition", code, requirement_id, detail, severity="hard")],
+            mode="scope_condition")
+
+    @staticmethod
+    def _time_tokens(values) -> set:
+        values = values if isinstance(values, (list, tuple, set)) else [values]
+        tokens = set()
+        for value in values:
+            text = str(value or "")
+            tokens.update(re.findall(r"(?:19|20)\d{2}(?:[-/.](?:0?[1-9]|1[0-2]))?",
+                                     text))
+            tokens.update(re.findall(r"\bQ[1-4]\b", text, re.IGNORECASE))
+        return {token.casefold().replace("/", "-").replace(".", "-")
+                for token in tokens}
+
+    def check_required_time(self, *, requirement_id: str,
+                            time_constraints: List[str],
+                            evidence_observations: List[dict]) -> PolicyReport:
+        """Validate explicit as-of/time constraints from canonical metadata."""
+        required = self._time_tokens(time_constraints)
+        if not required:
+            return PolicyReport(verdict=PASS, findings=[], mode="time_condition")
+        observed_sets = []
+        for observation in evidence_observations or []:
+            values = [observation.get("text", "")]
+            values.extend(observation.get("time_values") or [])
+            observed = self._time_tokens(values)
+            if observed:
+                observed_sets.append(observed)
+            if all(any(actual == expected or actual.startswith(expected + "-")
+                       or expected.startswith(actual + "-")
+                       for actual in observed) for expected in required):
+                return PolicyReport(verdict=PASS, findings=[],
+                                    mode="time_condition")
+        code = ("POLICY_TIME_CONDITION_MISMATCH" if observed_sets
+                else "POLICY_TIME_CONDITION_MISSING")
+        detail = (f"required time={sorted(required)}; observed="
+                  f"{[sorted(v) for v in observed_sets] or ['UNKNOWN']}")
+        return PolicyReport(verdict=HARD_FAIL, findings=[PolicyFinding(
+            "time_condition", code, requirement_id, detail, severity="hard")],
+            mode="time_condition")
+
     def check_relation(self, *, relation_checks: List[dict]) -> PolicyReport:
         """Relation-claim evidence method (spec §12: relation validity)."""
         findings: List[PolicyFinding] = []
@@ -292,9 +382,12 @@ class EvidencePolicyEngine:
                                 mode="relation_requirement")
         checks = list(relation_checks or [])
         findings: List[PolicyFinding] = []
-        invalid = [c for c in checks if c.get("valid") is False]
+        invalid = [c for c in checks
+                   if c.get("authority") == "canonical_relation_validator"
+                   and c.get("valid") is False]
         valid = [c for c in checks
-                 if c.get("valid") is True and c.get("typed") is True
+                 if c.get("authority") == "canonical_relation_validator"
+                 and c.get("valid") is True and c.get("typed") is True
                  and c.get("exact_grounded") is True]
         if invalid:
             findings.append(PolicyFinding(
@@ -458,6 +551,8 @@ class EvidencePolicyEngine:
                      Dict[str, List[str]]] = None,
                  relation_checks_by_requirement: Optional[
                      Dict[str, List[dict]]] = None,
+                 condition_observations_by_requirement: Optional[
+                     Dict[str, List[dict]]] = None,
                  min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
@@ -484,6 +579,7 @@ class EvidencePolicyEngine:
             evidence_states_by_requirement,
             evidence_roles_by_requirement,
             provenance_groups_by_requirement,
+            condition_observations_by_requirement,
         ))
         for req in requirements:
             rid = str(req.get("id", ""))
@@ -505,6 +601,8 @@ class EvidencePolicyEngine:
             groups = (provenance_groups_by_requirement or {}).get(rid)
             req_texts = (evidence_texts_by_requirement or {}).get(rid, [])
             req_relations = (relation_checks_by_requirement or {}).get(rid, [])
+            req_observations = (
+                condition_observations_by_requirement or {}).get(rid, [])
             if (per_requirement_policy
                     and req_temporal not in ("", "unspecified", "any")):
                 temporal_rep = self.check_temporal(
@@ -540,6 +638,20 @@ class EvidencePolicyEngine:
                     evidence_texts=list(req_texts))
                 findings.extend(numeric_rep.findings)
                 rule_applicability[f"numeric_condition:{rid}"] = "APPLICABLE"
+            scope_constraints = list(req.get("scope_constraints") or [])
+            if scope_constraints:
+                scope_rep = self.check_required_scope(
+                    requirement_id=rid, scope_constraints=scope_constraints,
+                    evidence_observations=list(req_observations))
+                findings.extend(scope_rep.findings)
+                rule_applicability[f"scope_condition:{rid}"] = "APPLICABLE"
+            time_constraints = list(req.get("time_constraints") or [])
+            if time_constraints:
+                time_rep = self.check_required_time(
+                    requirement_id=rid, time_constraints=time_constraints,
+                    evidence_observations=list(req_observations))
+                findings.extend(time_rep.findings)
+                rule_applicability[f"time_condition:{rid}"] = "APPLICABLE"
             relation_need = str(req.get("relation_need") or "none")
             if relation_need.lower() != "none":
                 relation_rep = self.check_required_relation(

@@ -747,6 +747,12 @@ async def _run_canonical_phase04(
             new_evidence_count = len(current_selected - previous_selected)
             previous_selected |= current_selected
         else:
+            package = result.get("package")
+            if package is not None:
+                # Even a fail-closed/no-support package is authoritative for
+                # the requirement contract and policy reason codes.  It
+                # cannot add support, but it must drive the next typed gap.
+                state.ledger.update_from_evidence_package(package)
             current_selected = set()
             new_evidence_count = 0
             state.research_memory.append({

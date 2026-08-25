@@ -77,11 +77,19 @@ def derive_gaps(ledger_status: dict) -> List[ResearchGap]:
         status = req.get("status")
         if status == "SUPPORTED":
             continue
+        reasons = set(str(v) for v in req.get("missing_reasons", []))
         if status == "CONFLICTED":
             kind, desc = "CONFLICT_NEEDS_RESOLUTION", "unresolved evidence conflict"
         elif req.get("comparison_object") and req.get("comparison_dimension"):
             kind, desc = "MISSING_OBJECT_DIMENSION", (
                 f"missing {req['comparison_object']} × {req['comparison_dimension']}")
+        elif reasons.intersection({"POLICY_SCOPE_CONDITION_MISSING",
+                                   "POLICY_SCOPE_CONDITION_MISMATCH"}):
+            kind, desc = "AMBIGUOUS_SCOPE", "missing or mismatched required scope"
+        elif reasons.intersection({"POLICY_TIME_CONDITION_MISSING",
+                                   "POLICY_TIME_CONDITION_MISMATCH"}) \
+                or req.get("time_constraints"):
+            kind, desc = "MISSING_TIME_PERIOD", "missing required as-of time evidence"
         elif str(req.get("temporal_intent") or "") == "current" \
                 or not req.get("temporal_coverage") and "current" in str(req.get("description", "")).lower():
             kind, desc = "MISSING_CURRENT_EVIDENCE", "missing current non-superseded evidence"
@@ -122,6 +130,7 @@ def targeted_queries(gaps: List[ResearchGap], requirements: dict, *,
             "MISSING_NUMERIC_CONDITION": "exact value unit scope condition",
             "MISSING_RELATION_METHOD": "official typed relationship provenance",
             "AMBIGUOUS_SCOPE": "scope definition",
+            "MISSING_TIME_PERIOD": "required as-of time period evidence",
         }.get(gap.gap_type, gap.description)
         query = " ".join(f"{desc} {suffix}".split())
         normalized = normalize_query(query)

@@ -135,7 +135,14 @@ def deterministic_requirements(query: str,
     entities = tuple(f.comparison_original or f.entities_original)
     dimensions = tuple(f.dimensions_original)
     temporal = _temporal_intent(f)
-    numeric = tuple(f.numeric_original)
+    # Years/periods are correctness-critical temporal constraints, not
+    # numeric measurements.  Keeping them in both fields would incorrectly
+    # require the literal year inside an evidence span even when canonical
+    # SourceSnapshot metadata establishes the as-of period.
+    time_keys = {str(v).casefold().replace(" ", "")
+                 for v in f.time_original}
+    numeric = tuple(v for v in f.numeric_original
+                    if str(v).casefold().replace(" ", "") not in time_keys)
     common = {
         "provenance_need": _provenance_need(query),
         "relation_need": _relation_need(query),

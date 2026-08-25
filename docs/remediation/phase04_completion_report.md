@@ -31,17 +31,19 @@ pipeline; it does not create a parallel answering pipeline.
   `AnswerStateMachine`, which may downgrade but cannot upgrade its upper bound.
 - RT-044: deterministic comparison object×dimension, trend/current and
   multi-entity requirements, explicit ambiguity, full semantic anti-drift and
-  strict Planner-schema fallback. Structured temporal/provenance/relation/
-  numeric requirements authoritatively drive the Phase03 policy engine.
-  Numeric conditions and typed relation needs are requirement-scoped hard
-  gates: missing, wrong-value/unit/scope, deprecated, untyped or ungrounded
-  relation evidence leaves the requirement unresolved.
+  strict Planner-schema fallback. Planner-separated temporal, time, scope,
+  provenance, relation and numeric requirements authoritatively drive the
+  Phase03 policy engine. Missing/mismatched scope and explicit as-of periods,
+  wrong value/unit, and deprecated, untyped or ungrounded relation evidence
+  are requirement-scoped hard gates and leave the requirement unresolved.
 - RT-045: bounded one-document worker inputs, exact snapshot locators and
   typed packets revalidated against the pinned snapshot and the canonical
   structured requirement-support policy before re-entering the final package.
   Raw worker packets never update the Ledger directly; only the policy-cleared
-  packed view can do so. Worker `requirement_id` and prose are advisory and
-  never enter generation context.
+  package/view can do so. Worker `requirement_id`, prose, and model-authored
+  `valid`/`typed`/`exact_grounded` flags are advisory. Relation assertions are
+  independently revalidated by the canonical ontology against an exact
+  EvidenceRef in the pinned SourceSnapshot before they can support anything.
 - RT-046: optional packet cache scoped by manifest, profile, source snapshot,
   requirement fingerprint, model, prompt, schema and access scope. A disabled
   cache preserves behavior.
@@ -57,7 +59,7 @@ pipeline; it does not create a parallel answering pipeline.
 
 ## Behavioral evidence
 
-- `qa-backend/tests_remediation_phase04.py`: 52 named unit, integration,
+- `qa-backend/tests_remediation_phase04.py`: 58 named unit, integration,
   security-adversarial and actual FastAPI/SSE endpoint checks. The endpoint
   matrix exercises six cases through the real endpoint, canonical orchestrator,
   pinned Phase03 mini runtime, real Phase02 pipeline/state machine/renderer and
@@ -83,6 +85,22 @@ pipeline; it does not create a parallel answering pipeline.
   an exact EvidenceRef pass.
 - Those real policy failures remain unresolved in the Ledger and drive
   `MISSING_NUMERIC_CONDITION` / `MISSING_RELATION_METHOD` targeted queries.
+
+## Targeted acceptance review round 3
+
+- Production composition begins with `deterministic_requirements()` and keeps
+  `numeric_conditions=["600°C"]`, `scope_constraints=["device"]`, and
+  `time_constraints=["2025"]` separate through Phase03 policy, EvidencePackage
+  and Ledger. System-total, unknown-scope, 2024, unknown-time and numeric/unit
+  mismatch cases fail closed; per-device evidence with canonical 2025 metadata
+  is the positive control.
+- Scope/time policy findings remain machine-readable and produce
+  `AMBIGUOUS_SCOPE` or `MISSING_TIME_PERIOD` targeted gaps after a real
+  no-support package is recorded by the Ledger.
+- Forged worker relation booleans, unknown predicates, deprecated assertions,
+  wrong-snapshot refs and missing refs cannot close a relation requirement or
+  reach a SUPPORTED terminal. An ontology-valid `USES` assertion with an exact
+  pinned EvidenceRef is independently validated and may support.
 - No production canary, shadow activation or external branch-protection action
   is claimed by these local/CI behavioral fixtures.
 

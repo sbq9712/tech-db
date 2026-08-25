@@ -18,7 +18,9 @@ _TIME = re.compile(
     r"(?:19|20)\d{2}(?:[-/.年](?:0?[1-9]|1[0-2])(?:月)?)?|"
     r"\bQ[1-4]\b|去年|今年|前年|明年|当前|目前|现在|最近|最新|"
     r"historical|current|latest|today|yesterday|last\s+year", re.I)
-_NUMBER = re.compile(r"(?<![\w.])[-+]?\d+(?:\.\d+)?\s*(?:%|％|[kmgt]?[bB](?:/s)?|GHz|MHz|W|kW|V|年|月|天|倍)?")
+_NUMBER = re.compile(
+    r"(?<![\w.])[-+]?\d+(?:\.\d+)?\s*(?:%|％|[kmgt]?[bB](?:/s)?|"
+    r"GHz|MHz|W|kW|V|°\s?[CFcf]|(?i:degrees?(?:\s+celsius)?)|年|月|天|倍)?")
 _NEG = re.compile(r"(?:不|没有|未|无|非|不能|不得|并非|not|no\b|never|without|isn't|aren't|doesn't|didn't|cannot)", re.I)
 _MODAL = re.compile(r"(?:可能|也许|预计|计划|必须|应该|可以|无法|据称|预测|"
                     r"may|might|could|should|must|plan(?:ned)?|expected|reportedly)", re.I)
@@ -63,7 +65,8 @@ def _extract_entities(text: str) -> Tuple[str, ...]:
     english = re.findall(r"\b[A-Za-z][A-Za-z0-9_.+-]*\b", text)
     stop = {"vs", "versus", "compare", "comparison", "current", "latest",
             "trend", "price", "cost", "performance", "bandwidth",
-            "latency", "power", "and", "or", "not", "with", "without"}
+            "latency", "power", "and", "or", "not", "with", "without",
+            "c", "f"}
     found.extend(token for token in english
                  if token.casefold() not in stop
                  and (any(ch.isupper() or ch.isdigit() for ch in token)

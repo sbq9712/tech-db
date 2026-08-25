@@ -2123,18 +2123,18 @@
           },
           "required_level": "integration",
           "status": "SATISFIED",
-          "evidence_note": "The strict request-pinned Phase03→Phase02 path preserves true provenance groups at claim/span lineage, so two records in one group count once and distinct groups remain distinct.",
+          "evidence_note": "Satisfied by Phase-03 remediation evidence (remediation_phase03 suite).",
           "test_cases": [
             {
               "suite": "remediation_phase03",
               "case": "test_claim_lineage_round4_strict_profile_preserves_shared_group",
-              "level": "e2e",
+              "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             },
             {
               "suite": "remediation_phase03",
               "case": "test_claim_lineage_round4_strict_profile_preserves_distinct_groups",
-              "level": "e2e",
+              "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
@@ -2151,18 +2151,18 @@
           },
           "required_level": "integration",
           "status": "SATISFIED",
-          "evidence_note": "Pinned unknown provenance remains unknown rather than becoming record:<id>; strict lineage processing failures are validation-blocking and terminate UNVERIFIED.",
+          "evidence_note": "Satisfied by Phase-03 remediation evidence (remediation_phase03 suite).",
           "test_cases": [
             {
               "suite": "remediation_phase03",
               "case": "test_claim_lineage_round4_unknown_provenance_not_fabricated",
-              "level": "e2e",
+              "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             },
             {
               "suite": "remediation_phase03",
               "case": "test_claim_lineage_round4_strict_exception_forces_unverified",
-              "level": "e2e",
+              "level": "integration",
               "command": "python qa-backend/tests_remediation_phase03.py"
             }
           ]
@@ -15120,7 +15120,8 @@
               "suite": "benchmark_phase03",
               "case": "test_phase03_production_benchmark",
               "level": "benchmark",
-              "command": "python qa-backend/tests_benchmark_phase03.py"
+              "command": "python qa-backend/tests_benchmark_phase03.py",
+              "benchmark_owner": "RT-031"
             }
           ]
         },
@@ -16433,7 +16434,7 @@
         },
         {
           "dod_id": "RT-044.DOD-02",
-          "description": "ambiguous scope yields requirements or an assumption; structured numeric conditions and relation needs authoritatively drive Phase03 policy",
+          "description": "ambiguous scope yields requirements or an assumption; real Planner-separated numeric, scope and as-of constraints plus relation needs authoritatively drive Phase03 policy",
           "status": "SATISFIED",
           "test_cases": [
             {
@@ -16451,6 +16452,12 @@
             {
               "suite": "remediation_phase04",
               "case": "test_rt044_numeric_condition_is_requirement_policy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt044_real_planner_scope_time_policy_composition",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase04.py"
             },
@@ -16544,6 +16551,30 @@
             {
               "suite": "remediation_phase04",
               "case": "test_rt045_invalid_worker_checks_never_become_support",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt045_worker_relation_flags_are_never_authority",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt045_worker_relation_assertion_adversarial_matrix",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt045_worker_relation_assertion_canonical_positive",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt045_forged_worker_relation_cannot_reach_supported_terminal",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase04.py"
             },
@@ -16655,6 +16686,12 @@
             },
             {
               "suite": "remediation_phase04",
+              "case": "test_rt047_real_planner_policy_ledger_targeted_scope_time_gaps",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
               "case": "test_phase04_full_real_endpoint_terminal_matrix",
               "level": "e2e",
               "command": "python qa-backend/tests_remediation_phase04.py"
@@ -16681,6 +16718,12 @@
             {
               "suite": "remediation_phase04",
               "case": "test_rt048_duplicate_semantic_duplicate_and_drift_prevention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase04.py"
+            },
+            {
+              "suite": "remediation_phase04",
+              "case": "test_rt047_real_planner_policy_ledger_targeted_scope_time_gaps",
               "level": "integration",
               "command": "python qa-backend/tests_remediation_phase04.py"
             }
@@ -16761,6 +16804,5 @@
         }
       ]
     }
-  ],
-  "spec_hash": "e0d919497d75bd0d13ecc706f44ef40513eca34f5b829c331b8c1b736d7edd96"
+  ]
 }

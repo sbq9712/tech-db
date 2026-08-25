@@ -693,7 +693,7 @@ def _rt034():
     combined2 = combine_with_grader(rep_pass, "INSUFFICIENT")
     test("RT034.grader_insufficient_downgrades_pass",
          combined2.verdict == "FAIL" and not combined2.hard_fail)
-    test("RT034.version_pinned", EVIDENCE_POLICY_VERSION == "1.2.0")
+    test("RT034.version_pinned", EVIDENCE_POLICY_VERSION == "1.3.0")
 
 
 # ════════════════════════════════════════════════════════════════════════════

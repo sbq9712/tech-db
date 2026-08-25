@@ -170,6 +170,8 @@ class RequirementBlock:
     provenance_need: str = "any"
     relation_need: str = "none"
     numeric_conditions: List[str] = field(default_factory=list)
+    time_constraints: List[str] = field(default_factory=list)
+    scope_constraints: List[str] = field(default_factory=list)
     comparison_object: str = ""
     comparison_dimension: str = ""
 
@@ -187,6 +189,8 @@ class RequirementBlock:
             "provenance_need": self.provenance_need,
             "relation_need": self.relation_need,
             "numeric_conditions": list(self.numeric_conditions),
+            "time_constraints": list(self.time_constraints),
+            "scope_constraints": list(self.scope_constraints),
             "comparison_object": self.comparison_object,
             "comparison_dimension": self.comparison_dimension,
         }
@@ -333,6 +337,10 @@ class EvidencePackageBuilder:
                 relation_need=str(r.get("relation_need") or "none"),
                 numeric_conditions=[str(v) for v in
                                     r.get("numeric_conditions") or []],
+                time_constraints=[str(v) for v in
+                                  r.get("time_constraints") or []],
+                scope_constraints=[str(v) for v in
+                                   r.get("scope_constraints") or []],
                 comparison_object=str(r.get("comparison_object") or ""),
                 comparison_dimension=str(
                     r.get("comparison_dimension") or ""),

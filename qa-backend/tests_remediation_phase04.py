@@ -464,7 +464,9 @@ def test_phase04_structured_requirements_drive_phase03_policy():
           and block.numeric_conditions == ["600 degrees"])
 
 
-def _structured_policy_fixture(text, requirement, *, relations=None):
+def _structured_policy_fixture(text, requirement, *, relations=None,
+                               temporal=None, evidence_meta=None,
+                               worker_packets=None, query="Alpha capacity"):
     """Run the real Phase03 composition over one immutable fixture record."""
     import tests_remediation_phase03 as p3
     rid = next(iter(p3.BY_ID))
@@ -473,10 +475,12 @@ def _structured_policy_fixture(text, requirement, *, relations=None):
     record = {**p3.BY_ID[rid], "fb": text,
               "relations": list(relations or [])}
     return asyncio.run(p3._run_pipeline(
-        "Alpha capacity", requirements=[requirement],
+        query, requirements=[requirement],
         route_results=p3._routes_for([rid]), records_by_id={rid: record},
         snapshot_index={rid: snapshot}, chunk_retriever=None,
-        evidence_metadata={rid: p3.META_BY_ID[rid]})), rid, snapshot
+        evidence_metadata={rid: (evidence_meta or p3.META_BY_ID[rid])},
+        temporal_map={rid: dict(temporal or {})},
+        worker_packets=list(worker_packets or []))), rid, snapshot
 
 
 def test_rt044_numeric_condition_is_requirement_policy_gate():
@@ -490,11 +494,17 @@ def test_rt044_numeric_condition_is_requirement_policy_gate():
         "Alpha capacity is 600 °C.",
         {**base, "numeric_conditions": ["700 degrees"]})
     match, _, _ = _structured_policy_fixture(
-        "Alpha capacity is 600 °C.",
-        {**base, "numeric_conditions": ["600 degrees"]})
+        "Alpha per-device capacity is 600 °C.",
+        {**base, "numeric_conditions": ["600 degrees"],
+         "scope_constraints": ["device"]})
     scope_mismatch, _, _ = _structured_policy_fixture(
         "Alpha system-total capacity is 600 °C.",
-        {**base, "numeric_conditions": ["per-device 600 degrees"]})
+        {**base, "numeric_conditions": ["600 degrees"],
+         "scope_constraints": ["device"]})
+    scope_missing, _, _ = _structured_policy_fixture(
+        "Alpha capacity is 600 °C.",
+        {**base, "numeric_conditions": ["600 degrees"],
+         "scope_constraints": ["device"]})
     check("RT044.numeric_condition_requirement_policy_gate",
           mismatch["status"] == "no_evidence"
           and "POLICY_NUMERIC_CONDITION_MISMATCH" in
@@ -502,8 +512,50 @@ def test_rt044_numeric_condition_is_requirement_policy_gate():
           and match["status"] == "ok"
           and match["package"].requirements[0].coverage == "COVERED"
           and scope_mismatch["status"] == "no_evidence"
-          and "POLICY_NUMERIC_CONDITION_MISMATCH" in
-          scope_mismatch["trace_facts"]["policy_reasons"])
+          and "POLICY_SCOPE_CONDITION_MISMATCH" in
+          scope_mismatch["trace_facts"]["policy_reasons"]
+          and scope_missing["status"] == "no_evidence"
+          and "POLICY_SCOPE_CONDITION_MISSING" in
+          scope_missing["trace_facts"]["policy_reasons"])
+
+
+def test_rt044_real_planner_scope_time_policy_composition():
+    from planner import deterministic_requirements
+    plan = deterministic_requirements(
+        "Alpha per-device capacity is 600 °C as of 2025", "FACT_LOOKUP")
+    requirement = plan.requirements[0].to_dict()
+    system, _, _ = _structured_policy_fixture(
+        "Alpha system-total capacity is 600 °C.", requirement,
+        temporal={"event_time": "2025-03-01"})
+    unknown_scope, _, _ = _structured_policy_fixture(
+        "Alpha capacity is 600 °C.", requirement,
+        temporal={"event_time": "2025-03-01"})
+    wrong_time, _, _ = _structured_policy_fixture(
+        "Alpha per-device capacity is 600 °C.", requirement,
+        temporal={"event_time": "2024-12-31"})
+    unknown_time, _, _ = _structured_policy_fixture(
+        "Alpha per-device capacity is 600 °C.", requirement)
+    matched, _, _ = _structured_policy_fixture(
+        "Alpha per-device capacity is 600 °C.", requirement,
+        temporal={"event_time": "2025-03-01"})
+    check("RT044.real_planner_scope_time_policy_composition",
+          requirement["numeric_conditions"] == ["600°C"]
+          and requirement["scope_constraints"] == ["device"]
+          and requirement["time_constraints"] == ["2025"]
+          and system["status"] == "no_evidence"
+          and "POLICY_SCOPE_CONDITION_MISMATCH" in
+          system["trace_facts"]["policy_reasons"]
+          and unknown_scope["status"] == "no_evidence"
+          and "POLICY_SCOPE_CONDITION_MISSING" in
+          unknown_scope["trace_facts"]["policy_reasons"]
+          and wrong_time["status"] == "no_evidence"
+          and "POLICY_TIME_CONDITION_MISMATCH" in
+          wrong_time["trace_facts"]["policy_reasons"]
+          and unknown_time["status"] == "no_evidence"
+          and "POLICY_TIME_CONDITION_MISSING" in
+          unknown_time["trace_facts"]["policy_reasons"]
+          and matched["status"] == "ok"
+          and matched["package"].requirements[0].coverage == "COVERED")
 
 
 def test_rt044_relation_need_is_requirement_policy_gate():
@@ -544,6 +596,7 @@ def test_rt044_relation_need_is_requirement_policy_gate():
 def test_rt047_real_policy_gaps_drive_targeted_gap_types():
     from evidence_ledger import EvidenceLedger
     from gap_analysis import derive_gaps, targeted_queries
+    from planner import deterministic_requirements
     numeric_req = {
         "id": "r-num-gap", "description": "Alpha capacity",
         "critical": True, "importance": "critical", "keywords": ["Alpha"],
@@ -563,6 +616,8 @@ def test_rt047_real_policy_gaps_drive_targeted_gap_types():
         "Alpha capacity is documented.", relation_req)
     numeric_ledger = EvidenceLedger("Alpha capacity", [numeric_req])
     relation_ledger = EvidenceLedger("Alpha capacity", [relation_req])
+    numeric_ledger.update_from_evidence_package(numeric_out["package"])
+    relation_ledger.update_from_evidence_package(relation_out["package"])
     numeric_gaps = derive_gaps(numeric_ledger.to_dict())
     relation_gaps = derive_gaps(relation_ledger.to_dict())
     numeric_queries, _ = targeted_queries(
@@ -581,6 +636,38 @@ def test_rt047_real_policy_gaps_drive_targeted_gap_types():
           and "exact value unit scope condition" in numeric_queries[0].query
           and "official typed relationship provenance" in
           relation_queries[0].query)
+
+
+def test_rt047_real_planner_policy_ledger_targeted_scope_time_gaps():
+    from evidence_ledger import EvidenceLedger
+    from gap_analysis import derive_gaps, targeted_queries
+    from planner import deterministic_requirements
+    query = "Alpha per-device capacity is 600 °C as of 2025"
+    requirement = deterministic_requirements(
+        query, "FACT_LOOKUP").requirements[0].to_dict()
+    scope_out, _, _ = _structured_policy_fixture(
+        "Alpha system-total capacity is 600 °C.", requirement,
+        temporal={"event_time": "2025-01-01"}, query=query)
+    time_out, _, _ = _structured_policy_fixture(
+        "Alpha per-device capacity is 600 °C.", requirement,
+        temporal={"event_time": "2024-01-01"}, query=query)
+    scope_ledger = EvidenceLedger(query, [requirement])
+    time_ledger = EvidenceLedger(query, [requirement])
+    scope_ledger.update_from_evidence_package(scope_out["package"])
+    time_ledger.update_from_evidence_package(time_out["package"])
+    scope_gap = derive_gaps(scope_ledger.get_status())[0]
+    time_gap = derive_gaps(time_ledger.get_status())[0]
+    time_queries, _ = targeted_queries(
+        [time_gap], {requirement["id"]: requirement}, original_query=query,
+        round_number=2, previous_queries=[])
+    check("RT047.real_planner_policy_ledger_targeted_scope_time_gaps",
+          scope_gap.gap_type == "AMBIGUOUS_SCOPE"
+          and time_gap.gap_type == "MISSING_TIME_PERIOD"
+          and "required as-of time period evidence" in time_queries[0].query
+          and "POLICY_SCOPE_CONDITION_MISMATCH" in
+          scope_ledger.get_status()["requirements"][0]["missing_reasons"]
+          and "POLICY_TIME_CONDITION_MISMATCH" in
+          time_ledger.get_status()["requirements"][0]["missing_reasons"])
 
 
 # ── RT-045 / RT-046 ──────────────────────────────────────────────────────
@@ -775,10 +862,160 @@ def test_rt045_invalid_worker_checks_never_become_support():
         worker_packets=[packet]))
     check("RT045.invalid_worker_checks_never_become_support",
           out["status"] == "no_evidence"
-          and {"POLICY_NUMERIC_MISMATCH", "POLICY_RELATION_INVALID"}
-          <= set(out["trace_facts"]["policy_reasons"])
+          and "POLICY_NUMERIC_MISMATCH" in
+          set(out["trace_facts"]["policy_reasons"])
+          and "POLICY_RELATION_INVALID" not in
+          set(out["trace_facts"]["policy_reasons"])
           and all(not e.counts_as_evidence
                   for e in out["package"].evidence.values()))
+
+
+def _worker_relation_policy_case(relation_assertion=None, *,
+                                 legacy_checks=None):
+    import tests_remediation_phase03 as p3
+    from multi_document import DocumentWorkerInput, process_document_packet
+    rid = next(iter(p3.BY_ID))
+    text = "Alpha capacity uses MaterialX in the verified process."
+    snapshot = {**p3.SNAP_BY_ID[rid], "evidence_text": text,
+                "content_sha256": hashlib.sha256(text.encode()).hexdigest()}
+    record = {**p3.BY_ID[rid], "fb": text, "relations": []}
+    requirement = {
+        "id": "r-rel-worker", "description": "Alpha capacity relation",
+        "critical": True, "importance": "critical", "keywords": ["Alpha"],
+        "entities": ["Alpha"], "dimensions": ["capacity"],
+        "provenance_need": "any", "relation_need": "typed_relation",
+        "temporal_intent": "current",
+    }
+    inp = DocumentWorkerInput(
+        query="Alpha capacity relation", requirement_ids=(requirement["id"],),
+        requirement_descriptions=(requirement["description"],), record_id=rid,
+        source_snapshot_id=snapshot["source_snapshot_id"], evidence_text=text,
+        content_sha256=hashlib.sha256(text.encode()).hexdigest())
+
+    async def extract(_inp):
+        result = {"relevant": True, "claims": [{
+            "requirement_id": requirement["id"],
+            "local_claim": "Alpha uses MaterialX",
+            "evidence_span": "Alpha capacity uses MaterialX"}],
+            "relation_checks": list(legacy_checks or [])}
+        if relation_assertion is not None:
+            result["relation_assertions"] = [relation_assertion]
+        return result
+
+    packet = asyncio.run(process_document_packet(inp, extract))
+    out = asyncio.run(p3._run_pipeline(
+        "Alpha capacity relation", requirements=[requirement],
+        route_results=p3._routes_for([rid]), records_by_id={rid: record},
+        snapshot_index={rid: snapshot}, chunk_retriever=None,
+        evidence_metadata={rid: p3.META_BY_ID[rid]},
+        worker_packets=[packet]))
+    return out, packet, rid, snapshot
+
+
+def test_rt045_worker_relation_flags_are_never_authority():
+    forged = {"relation": "depends_on", "valid": True, "typed": True,
+              "exact_grounded": True}
+    out, packet, _, _ = _worker_relation_policy_case(
+        None, legacy_checks=[forged])
+    block = out["package"].requirements[0]
+    check("RT045.worker_relation_flags_are_never_authority",
+          packet.relation_checks[0]["valid"] is True
+          and not packet.relation_assertions
+          and out["status"] == "no_evidence"
+          and block.coverage != "COVERED" and not block.support_evidence_ids
+          and "POLICY_RELATION_METHOD_MISSING" in
+          out["trace_facts"]["policy_reasons"])
+
+
+def test_rt045_forged_worker_relation_cannot_reach_supported_terminal():
+    import tests_remediation_phase03 as p3
+    from multi_document import (DocumentEvidencePacket, DocumentLocalClaim,
+                                WorkerEvidenceRef)
+    rid = next(iter(p3.BY_ID))
+    text = "Alpha relation evidence."
+    snapshot = {**p3.SNAP_BY_ID[rid], "evidence_text": text,
+                "content_sha256": hashlib.sha256(text.encode()).hexdigest()}
+    record = {**p3.BY_ID[rid], "fb": text, "relations": []}
+
+    async def forged_evidence(**kwargs):
+        req_id = kwargs["requirements"][0]["id"]
+        exact = "Alpha relation evidence"
+        ref = WorkerEvidenceRef(
+            rid, snapshot["source_snapshot_id"], 0, len(exact), exact,
+            hashlib.sha256(exact.encode()).hexdigest())
+        packet = DocumentEvidencePacket(
+            rid, snapshot["source_snapshot_id"],
+            ({"requirement_id": req_id, "relevant": True,
+              "evidence_found": True},),
+            (DocumentLocalClaim(exact, req_id, (ref,)),),
+            relation_checks=({"relation": "depends_on", "valid": True,
+                              "typed": True, "exact_grounded": True},))
+        return await p3._run_pipeline(
+            kwargs["query"], requirements=kwargs["requirements"],
+            route_results=p3._routes_for([rid]), records_by_id={rid: record},
+            snapshot_index={rid: snapshot}, chunk_retriever=None,
+            evidence_metadata={rid: p3.META_BY_ID[rid]},
+            worker_packets=[packet])
+
+    state = _run_canonical("Alpha relation", evidence_fn=forged_evidence)
+    check("RT045.forged_worker_relation_no_supported_terminal",
+          state.phase03_result["status"] == "no_evidence"
+          and state.answer_status != "SUPPORTED"
+          and "POLICY_RELATION_METHOD_MISSING" in
+          state.phase03_result["trace_facts"]["policy_reasons"])
+
+
+def test_rt045_worker_relation_assertion_adversarial_matrix():
+    flags = {"valid": True, "typed": True, "exact_grounded": True}
+    exact = "Alpha capacity uses MaterialX"
+    unknown, _, _, _ = _worker_relation_policy_case({
+        **flags, "predicate": "FAKE_UNKNOWN", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED",
+        "evidence_span": exact})
+    deprecated, _, _, _ = _worker_relation_policy_case({
+        **flags, "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "DEPRECATED",
+        "evidence_span": exact})
+    wrong_ref, _, _, _ = _worker_relation_policy_case({
+        **flags, "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED",
+        "evidence_refs": [{"record_id": "wrong-record",
+                           "source_snapshot_id": "wrong-snapshot",
+                           "start_offset": 0, "end_offset": len(exact),
+                           "exact_text": exact}]})
+    no_ref, _, _, _ = _worker_relation_policy_case({
+        **flags, "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED"})
+    unrelated_ref, _, _, _ = _worker_relation_policy_case({
+        **flags, "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED",
+        "evidence_span": "verified process"})
+    cases = [unknown, deprecated, wrong_ref, no_ref, unrelated_ref]
+    rejected_codes = [
+        {code for item in case["trace_facts"]["worker_evidence"]
+         ["rejected_refs"] for code in item.get("reason_codes", [])}
+        for case in cases]
+    check("RT045.worker_relation_assertion_adversarial_matrix",
+          all(case["status"] == "no_evidence" for case in cases)
+          and all(case["package"].requirements[0].coverage != "COVERED"
+                  for case in cases)
+          and all("POLICY_RELATION_INVALID" in codes
+                  for codes in rejected_codes))
+
+
+def test_rt045_worker_relation_assertion_canonical_positive():
+    exact = "Alpha capacity uses MaterialX"
+    out, packet, _, _ = _worker_relation_policy_case({
+        "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED",
+        "evidence_span": exact,
+        # These deliberately false worker flags are ignored too.
+        "valid": False, "typed": False, "exact_grounded": False})
+    block = out["package"].requirements[0]
+    check("RT045.worker_relation_assertion_canonical_positive",
+          len(packet.relation_assertions) == 1 and out["status"] == "ok"
+          and block.coverage == "COVERED" and bool(block.support_evidence_ids)
+          and out["trace_facts"]["worker_evidence"]["accepted_packets"] == 1)
 
 
 def _cache_key(**overrides):
