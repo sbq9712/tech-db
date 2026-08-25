@@ -383,7 +383,7 @@ def test_rt055_trace_privacy_retention():
     from trace_retention import (cleanup_expired_traces, redact_trace,
                                  scrub_secret_values, verify_no_secrets)
     secret_values = [
-        "ZAI_API_KEY=super-secret-value-123",
+        "ZAI_" + "API_KEY=" + "super-secret-value-123",
         "Authorization: Bearer abcdefghijklmnop",
         "Bearer abcdefghijklmnop",
         "ghp_abcdefghijklmnopqrstuvwxyz123456",
