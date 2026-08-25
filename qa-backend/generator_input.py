@@ -49,10 +49,22 @@ class VerifiedPremise:
     claim: str
     evidence_ids: List[str] = field(default_factory=list)
     verified: bool = True
+    claim_id: str = ""
+    evidence_refs: List[dict] = field(default_factory=list)
+    manifest_id: str = ""
+    profile: str = ""
+    verified_at: float = 0.0
+    temporal_scope: str = "unspecified"
+    supersession_state: str = "active"
 
     def to_dict(self) -> dict:
-        return {"premise_id": self.premise_id, "claim": self.claim,
-                "evidence_ids": list(self.evidence_ids),
+        return {"premise_id": self.premise_id, "claim_id": self.claim_id,
+                "claim": self.claim, "evidence_ids": list(self.evidence_ids),
+                "evidence_refs": list(self.evidence_refs),
+                "manifest_id": self.manifest_id, "profile": self.profile,
+                "verified_at": self.verified_at,
+                "temporal_scope": self.temporal_scope,
+                "supersession_state": self.supersession_state,
                 "verified": self.verified}
 
 
@@ -82,6 +94,15 @@ class GeneratorInput:
             if not p.verified:
                 raise ValueError("unverified premise rejected at the "
                                  "generation boundary")
+            if p.supersession_state != "active":
+                raise ValueError("superseded premise rejected at the "
+                                 "generation boundary")
+            if p.evidence_refs:
+                for ref in p.evidence_refs:
+                    if not isinstance(ref, dict) or not ref.get("record_id") \
+                            or not ref.get("source_snapshot_id"):
+                        raise ValueError("verified premise EvidenceRefs must "
+                                         "bind record_id and source_snapshot_id")
 
 
 def build_generator_input(*, query: str,
@@ -128,7 +149,10 @@ def render_generator_prompt(gen_input: GeneratorInput) -> str:
         for p in gen_input.verified_premises:
             sections.append(
                 f" • [{p.premise_id}] {p.claim} "
-                f"(evidence: {', '.join(p.evidence_ids) or 'none'})")
+                f"(evidence: {', '.join(p.evidence_ids) or 'none'}; "
+                f"manifest={p.manifest_id or 'unknown'}; "
+                f"temporal={p.temporal_scope}; "
+                f"supersession={p.supersession_state})")
 
     sections.append("")
     sections.append("【证据包】")

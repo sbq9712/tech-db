@@ -14,7 +14,148 @@ Gap types:
 """
 import json
 import os
+import hashlib
+import re
+import unicodedata
+from dataclasses import asdict, dataclass, field
+from typing import List, Tuple
 from config import llm_model_func
+
+
+GAP_TYPES = {
+    "MISSING_FACT", "MISSING_ENTITY_COVERAGE",
+    "MISSING_OBJECT_DIMENSION", "MISSING_TIME_PERIOD",
+    "MISSING_CURRENT_EVIDENCE", "MISSING_INDEPENDENT_SOURCE",
+    "CONFLICT_NEEDS_RESOLUTION", "MISSING_NUMERIC_CONDITION",
+    "MISSING_RELATION_METHOD", "AMBIGUOUS_SCOPE",
+}
+
+
+@dataclass(frozen=True)
+class ResearchGap:
+    gap_id: str
+    gap_type: str
+    requirement_id: str
+    description: str
+    resolvable: bool = True
+
+    def __post_init__(self):
+        if self.gap_type not in GAP_TYPES:
+            raise ValueError(f"unknown canonical gap type {self.gap_type}")
+        if not self.requirement_id:
+            raise ValueError("gap must bind a requirement")
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class TargetedQuery:
+    query_id: str
+    query: str
+    requirement_id: str
+    gap_id: str
+    gap_type: str
+    round_number: int
+    purpose: str
+    normalized_query: str
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+def normalize_query(text: str) -> str:
+    text = unicodedata.normalize("NFKC", str(text or "")).casefold()
+    return " ".join(re.findall(r"[\w\u3400-\u9fff]+", text))
+
+
+def derive_gaps(ledger_status: dict) -> List[ResearchGap]:
+    """Deterministically derive typed gaps from the per-requirement Ledger."""
+    gaps = []
+    for req in ledger_status.get("requirements", []):
+        rid = str(req.get("id") or "")
+        status = req.get("status")
+        if status == "SUPPORTED":
+            continue
+        reasons = set(str(v) for v in req.get("missing_reasons", []))
+        if status == "CONFLICTED":
+            kind, desc = "CONFLICT_NEEDS_RESOLUTION", "unresolved evidence conflict"
+        elif req.get("comparison_object") and req.get("comparison_dimension"):
+            kind, desc = "MISSING_OBJECT_DIMENSION", (
+                f"missing {req['comparison_object']} × {req['comparison_dimension']}")
+        elif reasons.intersection({"POLICY_SCOPE_CONDITION_MISSING",
+                                   "POLICY_SCOPE_CONDITION_MISMATCH"}):
+            kind, desc = "AMBIGUOUS_SCOPE", "missing or mismatched required scope"
+        elif reasons.intersection({"POLICY_TIME_CONDITION_MISSING",
+                                   "POLICY_TIME_CONDITION_MISMATCH"}) \
+                or req.get("time_constraints"):
+            kind, desc = "MISSING_TIME_PERIOD", "missing required as-of time evidence"
+        elif str(req.get("temporal_intent") or "") == "current" \
+                or not req.get("temporal_coverage") and "current" in str(req.get("description", "")).lower():
+            kind, desc = "MISSING_CURRENT_EVIDENCE", "missing current non-superseded evidence"
+        elif req.get("relation_need") not in (None, "", "none"):
+            kind, desc = "MISSING_RELATION_METHOD", "missing typed relation evidence"
+        elif req.get("numeric_conditions"):
+            kind, desc = "MISSING_NUMERIC_CONDITION", "missing scoped numeric evidence"
+        elif req.get("independent_groups", 0) < 2 and \
+                any("independent" in str(v).lower()
+                    for v in req.get("missing_reasons", [])):
+            kind, desc = "MISSING_INDEPENDENT_SOURCE", "missing independent provenance group"
+        else:
+            kind, desc = "MISSING_FACT", str(req.get("description") or "missing fact")
+        digest = hashlib.sha256(f"{rid}\x1f{kind}\x1f{desc}".encode("utf-8")).hexdigest()[:12]
+        gaps.append(ResearchGap(f"gap-{digest}", kind, rid, desc,
+                                resolvable=not bool(req.get("impossible"))))
+    return gaps
+
+
+def targeted_queries(gaps: List[ResearchGap], requirements: dict, *,
+                     original_query: str, round_number: int,
+                     previous_queries: list) -> Tuple[List[TargetedQuery], List[str]]:
+    """Build requirement-bound, anti-drift, semantically deduplicated queries."""
+    previous = [normalize_query(q.query if isinstance(q, TargetedQuery)
+                                else q.get("query", "") if isinstance(q, dict)
+                                else str(q)) for q in previous_queries]
+    out, rejected = [], []
+    for gap in gaps:
+        if not gap.resolvable:
+            rejected.append(f"{gap.gap_id}:impossible")
+            continue
+        req = requirements.get(gap.requirement_id) or {}
+        desc = str(req.get("description") or gap.description)
+        suffix = {
+            "MISSING_CURRENT_EVIDENCE": "latest current official evidence",
+            "MISSING_INDEPENDENT_SOURCE": "independent verification",
+            "CONFLICT_NEEDS_RESOLUTION": "conflicting values primary sources",
+            "MISSING_NUMERIC_CONDITION": "exact value unit scope condition",
+            "MISSING_RELATION_METHOD": "official typed relationship provenance",
+            "AMBIGUOUS_SCOPE": "scope definition",
+            "MISSING_TIME_PERIOD": "required as-of time period evidence",
+        }.get(gap.gap_type, gap.description)
+        query = " ".join(f"{desc} {suffix}".split())
+        normalized = normalize_query(query)
+        # Anti-drift: generated query must retain at least one meaningful
+        # token from its requirement or the original query.
+        anchors = set(normalize_query(desc).split()) | set(
+            normalize_query(original_query).split())
+        if anchors and not anchors.intersection(normalized.split()):
+            rejected.append(f"{gap.gap_id}:drift")
+            continue
+        duplicate = normalized in previous or any(
+            __import__("difflib").SequenceMatcher(None, normalized, p).ratio() >= .86
+            for p in previous if p)
+        if duplicate:
+            rejected.append(f"{gap.gap_id}:duplicate")
+            continue
+        qid = "query-" + hashlib.sha256(
+            f"{gap.gap_id}\x1f{round_number}\x1f{normalized}".encode("utf-8")
+        ).hexdigest()[:12]
+        tq = TargetedQuery(qid, query, gap.requirement_id, gap.gap_id,
+                           gap.gap_type, int(round_number),
+                           "close_requirement_gap", normalized)
+        out.append(tq)
+        previous.append(normalized)
+    return out, rejected
 
 
 GAP_ANALYSIS_PROMPT = """你是研究分析专家。基于当前证据不足之处，生成针对性的补搜查询。

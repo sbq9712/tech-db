@@ -40,6 +40,8 @@ SUITES = {
     "remediation_phase02": "qa-backend/tests_remediation_phase02.py",
     "remediation_phase03": "qa-backend/tests_remediation_phase03.py",
     "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
+    "remediation_phase04": "qa-backend/tests_remediation_phase04.py",
+    "benchmark_phase04": "qa-backend/tests_benchmark_phase04.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
 }
@@ -143,6 +145,21 @@ def _benchmark03_case(name: str) -> dict:
             "level": "benchmark",
             "command": "python qa-backend/tests_benchmark_phase03.py",
             "benchmark_owner": "RT-031"}
+
+
+def _phase04_case(name: str, level: str = "integration") -> dict:
+    return {"suite": "remediation_phase04",
+            "case": "test_" + name.replace(".", "_").lower(),
+            "level": level,
+            "command": "python qa-backend/tests_remediation_phase04.py"}
+
+
+def _benchmark04_case(name: str, owner: str) -> dict:
+    return {"suite": "benchmark_phase04", "case": name,
+            "level": "benchmark",
+            "command": "python qa-backend/tests_benchmark_phase04.py",
+            "artifact": "qa-backend/benchmark_phase04_result.json",
+            "benchmark_owner": owner}
 
 
 def _visual_case(name: str) -> dict:
@@ -449,42 +466,101 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
         "RT-030": [
             ("retrieval algorithms extracted with parity surfaces intact (frozen gate-1 baselines hold)",
              ["RT030.parity_surfaces_delegate_to_runtime", "RT030.legacy_constants_preserved",
-              "RT030.pipeline_resolution_paths_exist", "RT030.run_hybrid_fails_closed_without_pipeline"]),
+              "RT030.pipeline_resolution_paths_exist", "RT030.run_hybrid_fails_closed_without_pipeline",
+              "RT030.bm25_only_does_not_flip_legacy_relevance",
+              "RT030.strong_vector_still_flips_relevance",
+              "RT030.vector_search_honors_patched_embedding_func"]),
         ],
         "RT-031": [
             ("no global RRF Top25 truncation before content rerank; stable-ID union pool with per-route rank/score retained",
              ["RT031.pool_union_by_stable_id", "RT031.no_global_top25_truncation",
-              "RT031.per_route_rank_score_retained", "RT031.rrf_role_fusion_signal_only"]),
+              "RT031.per_route_rank_score_retained", "RT031.rrf_role_fusion_signal_only",
+              "prod.raw_routes_cover_full_corpus", "prod.target_fused_rank_above_legacy_top25",
+              "prod.legacy_top25_drops_target", "prod.rank26_target_reaches_selection_and_citations",
+              "prod.pool_source_is_raw_routes_not_top25",
+              "prod.rank26_target_text_in_generation_context"]),
             ("route floors keep outlier survivors eligible; caps are versioned config",
              ["RT031.route_floor_rescues_outliers", "RT031.mode_caps_versioned"]),
             ("benchmark: candidate survival non-regresses vs the ea6a614 top-25 baseline",
-             [_benchmark03_case("test_phase03_benchmark")]),
+             [_benchmark03_case("test_phase03_benchmark"),
+              _benchmark03_case("test_phase03_production_benchmark")]),
+            ("review round 2: with EVIDENCE_PACKAGE_ENABLED the full /api/chat/stream endpoint runs Phase03 BEFORE the legacy weak-query gate — legacy Top25/is_relevant never terminates a request the evidence pipeline answers; flag-off stays byte-compatible",
+             ["RT031.round2_fixture_trips_legacy_gate",
+              "RT031.round2_endpoint_precedes_legacy_gate",
+              "RT031.round2_endpoint_rank26_target_reaches_package",
+              "RT031.round2_endpoint_context_only_selected_evidence",
+              "RT031.round2_endpoint_generation_ran",
+              "RT031.round2_endpoint_flag_off_legacy_reject"]),
         ],
         "RT-032": [
             ("reranker consumes query + source-grounded candidate content (re-labeling rank is noncompliant)",
              ["RT032.content_aware_not_rank_relabel", "RT032.synthetic_never_sole_unflagged_content",
-              "RT032.summary_last_resort_flagged"]),
+              "RT032.summary_last_resort_flagged", "RT032.synthetic_only_gets_zero_and_flagged",
+              "RT032.synthetic_cannot_win_rerank"]),
             ("deterministic/local engine for FAST; batch-stable; GLM bounded with approved deterministic fallback",
              ["RT032.batch_stable_deterministic", "RT032.mode_dispatch_fast_local",
-              "RT032.glm_failure_never_clears_candidates"]),
+              "RT032.glm_failure_never_clears_candidates",
+              "RT032.glm_success_still_quarantines_synthetic"]),
         ],
         "RT-033": [
             ("critical requirement / comparison / independent-source reserves survive capacity cuts",
-             ["RT033.critical_requirement_reserved", "RT033.capacity_swap_keeps_reserved"]),
+             ["RT033.critical_requirement_reserved", "RT033.capacity_swap_keeps_reserved",
+              "RT033.comparison_object_reserve_fires", "RT033.comparison_dimension_reserve_fires",
+              "RT033.independent_source_reserve_fires", "RT033.route_outlier_reserve_fires",
+              "RT033.production_comparison_extraction", "RT033.pipeline_reserve_inputs_wired"]),
             ("quotas never preserve junk below the eligibility floor; machine-readable decision codes",
              ["RT033.junk_below_floor_never_reserved", "RT033.decision_codes_machine_readable"]),
+            ("review round 2: object×dimension PAIR reserve — a candidate counts for a pair only when source-grounded content supports BOTH axes and it carries a real route signal; imbalance fixture under rerank-capacity pressure keeps every pair alive, ablation fails",
+             ["RT033.round2_pair_reserve_machine_readable",
+              "RT033.round2_pair_reserve_junk_cannot_survive",
+              "RT033.round2_pair_reserve_capacity_imbalance",
+              "RT033.round2_pair_reserve_ablation_fails"]),
+            ("review round 3: one deterministic minimum route-signal eligibility predicate applies before every reserve class; critical/object/dimension token matches cannot waive the floor, while eligible low-ranked candidates remain protected",
+             ["RT033.round3_critical_token_junk_below_floor_rejected",
+              "RT033.round3_object_token_junk_below_floor_rejected",
+              "RT033.round3_dimension_token_junk_below_floor_rejected",
+              "RT033.round3_all_reserves_keep_eligible_positive_control",
+              "RT033.round4_rrf_only_candidate_rejected_below_raw_floor",
+              "RT033.round4_raw_signal_positive_control_reserved"]),
         ],
         "RT-034": [
             ("deterministic EvidencePolicyEngine runs in every mode before support can be declared",
              ["RT034.pass_when_compliant", "RT034.ineligible_evidence_hard_fails",
-              "RT034.coverage_missing_hard_fails", "RT034.no_mode_bypasses_rules"]),
+              "RT034.coverage_missing_hard_fails", "RT034.no_mode_bypasses_rules",
+              "prod.policy_quarantine_hard_fails", "prod.policy_retrieval_only_never_support",
+              "prod.policy_access_scope_blocks_out_of_scope",
+              "prod.policy_access_scope_matching_scope_passes"]),
             ("self-report, temporal, high-severity conflict and grader composition rules enforced",
              ["RT034.self_report_gate", "RT034.high_severity_conflict_blocks",
-              "RT034.grader_never_overrides_hard_fail", "RT034.grader_insufficient_downgrades_pass"]),
+              "RT034.grader_never_overrides_hard_fail", "RT034.grader_insufficient_downgrades_pass",
+              "prod.policy_self_report_only_blocked", "prod.policy_superseded_only_blocked_for_current",
+              "prod.policy_high_conflict_blocks_both_sides", "prod.policy_numeric_invalid_blocked",
+              "prod.policy_relation_invalid_blocked"]),
+            ("review round 2: provenance independence (reposts sharing an independent_group_id are ONE source) and entity/object×dimension coverage hard rules in the SAME shared engine.evaluate(); structured-input rules record NOT_APPLICABLE honestly when Phase04 decomposition is absent",
+             ["RT034.round2_provenance_same_group_not_independent",
+              "RT034.round2_provenance_distinct_groups_pass",
+              "RT034.round3_provenance_unavailable_fails_safe",
+              "RT034.round2_entity_missing_hard_fails", "RT034.round2_pair_missing_hard_fails",
+              "RT034.round2_coverage_rule_not_applicable_honest",
+              "RT034.round2_pipeline_entity_rule_wired",
+              "RT034.round2_pipeline_entity_rule_positive_control",
+              "RT034.round2_production_provenance_repost_cluster",
+              "RT034.round2_production_provenance_distinct_pass"]),
+            ("review round 3: independence-demanding requests fail safe when pinned provenance is missing or clustering fails; one known group fails, two distinct valid groups pass, and only a query that does not request independence may record N/A",
+             ["RT034.round3_provenance_unavailable_fails_safe",
+              "RT034.round3_provenance_not_requested_is_na",
+              _phase03_case("RT034.round3_pinned_cluster_failure_fails_safe", "e2e"),
+              _phase03_case("RT034.round3_pinned_empty_provenance_fails_safe", "e2e")]),
+            ("review round 3: entity/object×dimension coverage is recomputed only from post-validation trusted support; relation-invalid, numeric-invalid, and unresolved-conflict evidence cannot satisfy coverage",
+             [_phase03_case("RT034.round3_relation_invalid_cannot_satisfy_pair_coverage", "e2e"),
+              _phase03_case("RT034.round3_numeric_invalid_cannot_satisfy_pair_coverage", "e2e"),
+              _phase03_case("RT034.round3_conflict_cannot_satisfy_pair_coverage", "e2e"),
+              _phase03_case("RT034.round2_pipeline_entity_rule_positive_control", "e2e")]),
         ],
         "RT-035": [
             ("selected evidence is the only support candidate set downstream",
-             ["RT035.selected_is_only_support_set", "RT035.floor_rejects_below_threshold"]),
+             ["RT035.selected_is_only_support_set", "RT035.floor_rejects_below_threshold",
+              "prod.rank26_target_reaches_selection_and_citations"]),
             ("selector empty → explicit gap (abstain/PARTIAL/UNSUPPORTED), never raw fallback",
              ["RT035.empty_selection_explicit_gap", "RT035.gap_reason_recorded"]),
             ("provenance/repost group limits keep duplicate slots bounded",
@@ -503,7 +579,10 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
         ],
         "RT-037": [
             ("Generator new path accepts only the typed EvidencePackage; raw results rejected",
-             ["RT037.pipeline_builds_typed_package", "RT039.typed_boundary_rejects_raw"]),
+             ["RT037.pipeline_builds_typed_package", "RT039.typed_boundary_rejects_raw",
+              "prod.trusted_mode_fails_closed_without_pinned_authority",
+              "prod.empty_catalog_pinned_snapshot_fails_closed",
+              "prod.sse_authority_fail_closed"]),
             ("critical conflicts cannot be token-pruned silently; package hash/evidence IDs enter Trace",
              ["RT037.hash_and_ids_in_trace_facts", "RT038.critical_conflict_evidence_preserved",
               "RT037.package_hash_deterministic", "RT037.same_inputs_same_hash"]),
@@ -513,20 +592,41 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
         "RT-038": [
             ("mandatory evidence never silently truncated (explicit context_capacity_exceeded abstention)",
              ["RT038.mandatory_never_silently_truncated", "RT038.overflow_is_explicit_abstain",
-              "RT038.pipeline_overflow_abstains"]),
+              "RT038.pipeline_overflow_abstains", "RT038.view_hash_binds_final_object",
+              "RT038.compression_cannot_leave_stale_hash", "RT038.dropped_optional_never_dangling",
+              "RT038.critical_conflict_evidence_preserved"]),
             ("compressed text cannot itself count as evidence",
              ["RT038.compressed_text_not_evidence"]),
             ("normal fit leaves evidence untouched",
              ["RT038.normal_fit_no_action"]),
+            ("review round 2: packed-view evidentiary support semantics — support_evidence_ids resolve only to counts_as_evidence=True support-relation entries, coverage recomputed from actual evidentiary support, mandatory stays exact or capacity abstains, view_hash binds every generator-visible field, generator never renders navigation cards as evidence",
+             ["RT038.round2_compressed_support_not_trusted",
+              "RT038.round2_coverage_recomputed_from_evidentiary_support",
+              "RT038.round2_validate_rejects_hand_corruption",
+              "RT038.round2_validate_rejects_non_support_relation",
+              "RT038.round2_mutation_stale_hash_on_degraded",
+              "RT038.round2_mandatory_compressed_rejected",
+              "RT038.round2_generator_never_renders_nav_as_evidence"]),
         ],
         "RT-039": [
             ("unselected candidate unique sentinel never appears in model input",
-             ["RT039.unselected_sentinel_never_in_model_input"]),
+             ["RT039.unselected_sentinel_never_in_model_input",
+              "prod.contamination_unselected_text_absent",
+              "prod.contamination_selected_evidence_inside_boundaries"]),
             ("prior UNVERIFIED answer sentinel never enters factual context",
              ["RT039.unverified_premise_rejected", "RT039.prior_unverified_sentinel_absent"]),
             ("typed allowlist: query/scope, verified premises, EvidencePackage, approved instructions only",
              ["RT039.allowlist_fields_present", "RT039.data_boundaries_wrap_evidence",
               "RT039.pipeline_context_is_allowlisted_rendering"]),
+            ("review round 3: the real SSE Generator invocation and its non-streaming fallback consume only the selected EvidencePackage rendering, no legacy classifier/AI-summary conclusions and no raw assistant history; stable string citation IDs retain deterministic lineage",
+             [_phase03_case("RT039.round3_endpoint_skips_legacy_classifier_metadata", "e2e"),
+              _phase03_case("RT039.round3_endpoint_rejects_raw_assistant_history", "e2e"),
+              _phase03_case("RT039.round3_endpoint_selected_evidence_in_data_boundary", "e2e"),
+              _phase03_case("RT039.round3_endpoint_fallback_uses_same_allowlist", "e2e"),
+              "claim_lineage.round3_stable_record_id_resolves_exact_record",
+              _phase03_case("claim_lineage.round3_failure_forces_unverified_terminal", "e2e"),
+              _phase03_case("RT039.round4_strict_profile_generator_boundary", "e2e"),
+              _phase03_case("RT031.round2_endpoint_flag_off_legacy_reject", "e2e")]),
         ],
     }
     for rt_id, specs in phase03_dods.items():
@@ -543,6 +643,141 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
                 "test_cases": test_cases,
             })
         phase00.append({"ticket_id": rt_id, "completion_class": "CORE_REQUIRED", "dods": dods})
+
+    # ── Phase 04 (RT-040..RT-049) — query integrity/orchestration ─────
+    phase04_dods = {
+        "RT-040": [
+            ("PARTIAL reuses only individually verified claims",
+             ["RT040.partial_only_individually_verified_claims",
+              "phase04.endpoint_fast_and_conversation_e2e"]),
+            ("UNVERIFIED prose cannot become premise",
+             ["RT040.unverified_sentinel_never_premise",
+              "RT040.conversation_isolation_and_forged_flag"]),
+            ("temporal provenance retained",
+             ["RT040.temporal_freshness_and_supersession",
+              "RT040.evidence_runtime_provenance_retained"]),
+        ],
+        "RT-041": [
+            ("entity/time/negation rewrite errors are caught and contextual entity binding uses only USER/server authority",
+             ["RT041.entity_temporal_negation_drift",
+              "RT041.modality_numeric_drift",
+              "RT041.comparison_dimension_scope_intent_drift",
+              "RT041.context_entity_authority_cases"]),
+            ("model diff failure cannot bless a bad rewrite; the actual endpoint RewriteResult rejects assistant-only and multi-entity contextual injection",
+             ["RT041.model_advisory_cannot_bless_bad_rewrite",
+              "RT041.critical_parse_uncertainty_escalates",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-042": [
+            ("FAST does not call full Planner unnecessarily",
+             ["RT042.fast_planner_not_called"]),
+            ("FAST cannot skip evidence/verification gates",
+             ["RT042.fast_mandatory_evidence_gates_called",
+              "RT042.fast_hard_fail_not_model_overridden",
+              "RT042.fast_real_pipeline_supported"]),
+            ("simple-query latency benchmark is recorded against the accepted Phase03 base",
+             [_benchmark04_case("test_benchmark_fast_simple_correct", "RT-042")]),
+        ],
+        "RT-043": [
+            ("all mode state serializable and traceable",
+             ["RT043.state_serialization_runtime_pinning"]),
+            ("agentic_state.all_results is not used as final generation context",
+             ["RT043.all_results_not_generation_context",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+            ("selected evidence, Ledger and final EvidencePackage stay connected and constrain the sole Phase02 terminal state machine",
+             ["RT043.selected_ledger_package_connected",
+              "RT043_RT049.phase02_canonical_terminal_upper_bound",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-044": [
+            ("comparison, trend and multi-entity coverage is complete on the committed evaluation set",
+             ["RT044.comparison_object_dimension_matrix",
+              "RT044.trend_current_multi_entity",
+              "RT044.full_semantic_antidrift_contract",
+              _benchmark04_case("test_benchmark_decomposition_matrix", "RT-044")]),
+            ("ambiguous scope yields requirements or an assumption; real Planner-separated numeric, scope and as-of constraints plus relation needs authoritatively drive Phase03 policy",
+             ["RT044.ambiguity_explicit",
+              "RT044.malformed_timeout_fallback_antidrift",
+              "RT044.numeric_condition_is_requirement_policy_gate",
+              "RT044.real_planner_scope_time_policy_composition",
+              "RT044.relation_need_is_requirement_policy_gate",
+              "phase04.structured_requirements_drive_phase03_policy",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-045": [
+            ("multi-document mode triggers for cross-document cases and not simple facts",
+             ["RT045.orchestrator_trigger_and_simple_nontrigger",
+              "phase04.endpoint_fast_and_conversation_e2e"]),
+            ("a document worker never sees another document's conclusions or draft",
+             ["RT045.worker_cross_document_sentinel_isolation"]),
+            ("exact worker EvidenceRefs re-enter only after canonical requirement-support policy; unrelated spans and invalid numeric/relation/conflict metadata never become support",
+             ["RT045.worker_one_document_exact_refs",
+              "RT045.worker_failure_and_no_evidence",
+              "RT045.worker_exact_ref_does_not_authorize_unrelated_support",
+              "RT045.worker_exact_ref_reenters_only_after_support_policy",
+              "RT045.invalid_worker_checks_never_become_support",
+              "RT045.worker_relation_flags_are_never_authority",
+              "RT045.worker_relation_assertion_adversarial_matrix",
+              "RT045.worker_relation_assertion_canonical_positive",
+              "RT045.forged_worker_relation_cannot_reach_supported_terminal",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-046": [
+            ("optional packet cache cannot cross incompatible profiles or access scopes",
+             ["RT046.cache_manifest_profile_access_snapshot_isolation",
+              "RT046.cache_disabled_parity"]),
+            ("stale snapshots are never reused across manifest, snapshot, requirement, model, prompt or schema changes",
+             ["RT046.cache_requirement_prompt_schema_model_invalidation",
+              "RT046.cache_manifest_profile_access_snapshot_isolation"]),
+        ],
+        "RT-047": [
+            ("hard failure persists despite a model claiming sufficient evidence",
+             ["RT047.hard_rule_override_attack"]),
+            ("Grader technical failure cannot become SUFFICIENT; searched-no-evidence is recorded only after actual execution",
+             ["RT047.grader_failure_not_sufficient",
+              "RT047.ledger_fields_and_serialization",
+              "RT047.search_plan_execution_outcomes",
+              "RT047.actual_targeted_search_exhaustion_once",
+              "RT047.real_policy_gaps_drive_targeted_gap_types",
+              "RT047.real_planner_policy_ledger_targeted_scope_time_gaps",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+        "RT-048": [
+            ("every new targeted query points to an unresolved requirement and typed gap without drift or duplicates",
+             ["RT048.gap_type_suite_and_requirement_binding",
+              "RT048.duplicate_semantic_duplicate_and_drift_prevention",
+              "RT047.real_planner_policy_ledger_targeted_scope_time_gaps"]),
+            ("an impossible gap can stop and an executed query can close a gap without false no-evidence accounting",
+             ["RT048.real_gap_closure_two_rounds",
+              _benchmark04_case("test_benchmark_gap_dedup", "RT-048")]),
+        ],
+        "RT-049": [
+            ("runaway research loops are impossible under configured round and tool-call bounds",
+             ["RT049.canonical_stop_reasons",
+              _benchmark04_case("test_benchmark_bounded_stopping", "RT-049")]),
+            ("knowledge boundary is enforced as an upper bound by the sole Phase02 AnswerStateMachine",
+             ["RT049.partial_boundary_and_no_false_existence_denial",
+              "RT043_RT049.phase02_canonical_terminal_upper_bound",
+              "phase04.full_real_endpoint_terminal_matrix"]),
+        ],
+    }
+    for rt_id, specs in phase04_dods.items():
+        dods = []
+        for number, (description, cases) in enumerate(specs, 1):
+            test_cases = [
+                case if isinstance(case, dict) else _phase04_case(
+                    case, "e2e" if case.startswith("phase04.") else
+                    ("unit" if any(marker in case for marker in (
+                        "ambiguity", "comparison_object_dimension_matrix",
+                        "canonical_stop_reasons")) else "integration"))
+                for case in cases]
+            dods.append({
+                "dod_id": f"{rt_id}.DOD-{number:02d}",
+                "description": description, "status": "SATISFIED",
+                "test_cases": test_cases,
+            })
+        phase00.append({"ticket_id": rt_id,
+                        "completion_class": "CORE_REQUIRED", "dods": dods})
 
     # Legacy frozen DoDs whose remediation owner completed in Phase 02 with
     # directly corresponding behavioral evidence. Every entry cites named
@@ -586,16 +821,37 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
         "T052.DOD-04": ["RT025.pipeline_technical_failure_unverified", "RT027.e2e_technical_failure_unverified", "RT027.unverified_renders_supported_only"],
         "T052.DOD-05": ["RT026.max_cycles_is_two", "RT026.every_transition_traced", "RT027.e2e_partial_state_renders"],
     }
+    PHASE03_LEGACY_SATISFIED = {
+        "T048.DOD-03": [
+            "claim_lineage.round4_strict_profile_preserves_shared_group",
+            "claim_lineage.round4_strict_profile_preserves_distinct_groups",
+        ],
+        "T048.DOD-04": [
+            "claim_lineage.round4_unknown_provenance_not_fabricated",
+            "claim_lineage.round4_strict_exception_forces_unverified",
+        ],
+    }
     for entry in entries:
         for dod in entry["dods"]:
             upgrade = PHASE02_LEGACY_SATISFIED.get(dod["dod_id"])
-            if not upgrade:
-                continue
-            assert dod["dod_id"].split(".")[0] != "T037"
-            dod["status"] = "SATISFIED"
-            dod["test_cases"] = [_phase02_case(case) for case in upgrade]
-            dod["evidence_note"] = "Satisfied by Phase-02 remediation evidence (remediation_phase02 suite)."
-            dod.pop("planned_test_cases", None)
+            phase03_upgrade = PHASE03_LEGACY_SATISFIED.get(dod["dod_id"])
+            if upgrade or phase03_upgrade:
+                assert dod["dod_id"].split(".")[0] != "T037"
+                dod["status"] = "SATISFIED"
+                if upgrade:
+                    dod["test_cases"] = [_phase02_case(case)
+                                         for case in upgrade]
+                    phase = "Phase-02"
+                    suite = "remediation_phase02"
+                else:
+                    dod["test_cases"] = [_phase03_case(case)
+                                         for case in phase03_upgrade]
+                    phase = "Phase-03"
+                    suite = "remediation_phase03"
+                dod["evidence_note"] = (
+                    f"Satisfied by {phase} remediation evidence "
+                    f"({suite} suite).")
+                dod.pop("planned_test_cases", None)
 
     return {
         "schema_version": "3.0.0",
@@ -614,7 +870,11 @@ def build_acceptance_matrix(legacy_tickets: list[dict], remediation_tickets: lis
             "NOT_SATISFIED": "No completion credit; a named future case and RT owner are recorded.",
             "BLOCKED_EXTERNAL_ACTION": "No completion credit; requires action outside this code change.",
         },
-        "active_remediation_scope": [f"RT-{n:03d}" for n in range(1, 6)] + [f"RT-{n:03d}" for n in range(10, 19)] + [f"RT-{n:03d}" for n in range(20, 30)] + [f"RT-{n:03d}" for n in range(30, 40)],
+        "active_remediation_scope": ([f"RT-{n:03d}" for n in range(1, 6)]
+                                     + [f"RT-{n:03d}" for n in range(10, 19)]
+                                     + [f"RT-{n:03d}" for n in range(20, 30)]
+                                     + [f"RT-{n:03d}" for n in range(30, 40)]
+                                     + [f"RT-{n:03d}" for n in range(40, 50)]),
         "suite_registry": SUITES,
         "legacy_ticket_entries": entries,
         "remediation_entries": phase00,

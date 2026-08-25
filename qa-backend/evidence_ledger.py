@@ -63,7 +63,18 @@ class EvidenceLedger:
                     "supporting_evidence": [],
                     "conflicting_evidence": [],
                     "independent_groups": set(),
+                    "source_roles": set(),
                     "temporal_coverage": {},
+                    "temporal_intent": req.get("temporal_intent", "unspecified"),
+                    "numeric_conditions": list(req.get("numeric_conditions", [])),
+                    "time_constraints": list(req.get("time_constraints", [])),
+                    "scope_constraints": list(req.get("scope_constraints", [])),
+                    "relation_need": req.get("relation_need", "none"),
+                    "comparison_object": req.get("comparison_object", ""),
+                    "comparison_dimension": req.get("comparison_dimension", ""),
+                    "searched_no_evidence": [],
+                    "search_attempts": [],
+                    "degraded_capabilities": [],
                     "missing": [],
                 }
 
@@ -95,6 +106,9 @@ class EvidenceLedger:
                 prov = provenance_map.get(record_id, {})
                 group = prov.get("independent_group_id", f"unique-{record_id}")
                 req["independent_groups"].add(group)
+                role = prov.get("source_role") or prov.get("evidence_role")
+                if role:
+                    req["source_roles"].add(role)
 
             # Update status based on evidence
             if req["supporting_evidence"]:
@@ -109,6 +123,175 @@ class EvidenceLedger:
         snapshot = self._snapshot()
         self.snapshots.append(snapshot)
         return snapshot
+
+    def update_from_packed_view(self, view) -> dict:
+        """Update from the exact Generator-bound PackedGenerationView.
+
+        This preserves the Phase03 selection → Ledger → EvidencePackage
+        connection; research memory/raw candidates never enter support.
+        """
+        return self._update_from_evidence_contract(view)
+
+    def update_from_evidence_package(self, package) -> dict:
+        """Record policy-cleared or policy-blocked package outcomes.
+
+        A no-evidence package still carries the structured requirement and
+        machine-readable reason codes needed by targeted gap derivation.
+        """
+        return self._update_from_evidence_contract(package)
+
+    def _update_from_evidence_contract(self, contract) -> dict:
+        self.iteration += 1
+        by_req = {r.requirement_id: r for r in
+                  getattr(contract, "requirements", [])}
+        evidence = getattr(contract, "evidence", {}) or {}
+        for rid, req in self.requirements.items():
+            block = by_req.get(rid)
+            if block is None:
+                reason = "requirement_absent_from_evidence_package"
+                if reason not in req["missing"]:
+                    req["missing"].append(reason)
+                continue
+            for reason in getattr(block, "policy_reasons", []) or []:
+                if reason not in req["missing"]:
+                    req["missing"].append(reason)
+            for eid in block.support_evidence_ids:
+                entry = evidence.get(eid)
+                if entry is None or not entry.counts_as_evidence:
+                    continue
+                ref = {
+                    "evidence_id": eid,
+                    "record_id": entry.record_id,
+                    "source_snapshot_id": entry.source_snapshot_id,
+                    "locators": list(entry.locators),
+                    "iteration": self.iteration,
+                }
+                if ref not in req["supporting_evidence"]:
+                    req["supporting_evidence"].append(ref)
+                if entry.independent_group_id:
+                    req["independent_groups"].add(entry.independent_group_id)
+                if entry.source_role:
+                    req["source_roles"].add(entry.source_role)
+                req["temporal_coverage"][entry.record_id] = {
+                    "event_time": entry.event_time,
+                    "temporal_status": entry.temporal_status,
+                    "supersession_state": entry.supersession_state,
+                }
+            req["conflicting_evidence"] = [
+                {"evidence_id": eid} for eid in block.conflict_evidence_ids]
+            if req["conflicting_evidence"]:
+                req["status"] = REQ_CONFLICTED
+            elif block.coverage == "COVERED" and req["supporting_evidence"]:
+                req["status"] = REQ_SUPPORTED
+            elif req["supporting_evidence"]:
+                req["status"] = REQ_PARTIAL
+            else:
+                req["status"] = REQ_MISSING
+                if block.coverage not in req["missing"]:
+                    req["missing"].append(block.coverage)
+        snapshot = self._snapshot()
+        self.snapshots.append(snapshot)
+        return snapshot
+
+    def record_search_plan(self, requirement_id: str, *, query: str,
+                           gap_type: str, round_number: int) -> str:
+        """Record a proposed query without asserting that it ran.
+
+        ``searched_no_evidence`` is an execution outcome, not a planner
+        prediction.  The returned stable attempt id is completed only after
+        the following retrieval round actually executes.
+        """
+        req = self.requirements.get(requirement_id)
+        if req is None:
+            raise KeyError(f"unknown requirement {requirement_id}")
+        attempt_id = (f"{requirement_id}:r{int(round_number)}:"
+                      f"{len(req['search_attempts']) + 1}")
+        req["search_attempts"].append({
+            "attempt_id": attempt_id, "query": query,
+            "gap_type": gap_type, "round": int(round_number),
+            "status": "PLANNED", "evidence_found": None})
+        return attempt_id
+
+    def record_search_outcome(self, requirement_id: str, *, attempt_id: str,
+                              evidence_found: bool) -> None:
+        """Complete exactly one previously planned, actually executed query."""
+        req = self.requirements.get(requirement_id)
+        if req is None:
+            raise KeyError(f"unknown requirement {requirement_id}")
+        match = next((a for a in req["search_attempts"]
+                      if a["attempt_id"] == attempt_id), None)
+        if match is None:
+            raise KeyError(f"unknown search attempt {attempt_id}")
+        if match["status"] != "PLANNED":
+            raise ValueError(f"search attempt already completed: {attempt_id}")
+        match["status"] = "EXECUTED"
+        match["evidence_found"] = bool(evidence_found)
+        if not evidence_found:
+            req["searched_no_evidence"].append({
+                "attempt_id": attempt_id, "query": match["query"],
+                "gap_type": match["gap_type"], "round": match["round"]})
+
+    def record_search_attempt(self, requirement_id: str, *, query: str,
+                              gap_type: str, evidence_found: bool,
+                              round_number: int):
+        """Compatibility helper for callers that already have an outcome."""
+        attempt_id = self.record_search_plan(
+            requirement_id, query=query, gap_type=gap_type,
+            round_number=round_number)
+        self.record_search_outcome(
+            requirement_id, attempt_id=attempt_id,
+            evidence_found=evidence_found)
+
+    def record_degradation(self, requirement_id: str, capability: str):
+        req = self.requirements.get(requirement_id)
+        if req is not None and capability not in req["degraded_capabilities"]:
+            req["degraded_capabilities"].append(capability)
+
+    def merge_document_packets(self, packets: list) -> dict:
+        """Merge exact worker EvidenceRefs; prose conclusions are ignored."""
+        for packet in packets or []:
+            for result in getattr(packet, "requirement_results", ()):
+                rid = result.get("requirement_id")
+                if rid in self.requirements and result.get("relevant") \
+                        and not result.get("evidence_found"):
+                    self.requirements[rid]["searched_no_evidence"].append({
+                        "record_id": getattr(packet, "record_id", ""),
+                        "kind": "worker_relevant_no_evidence",
+                    })
+            for claim in getattr(packet, "local_claims", ()):
+                req = self.requirements.get(claim.requirement_id)
+                if req is None:
+                    continue
+                for ref in claim.evidence_refs:
+                    ref_dict = ref.to_dict()
+                    ref_dict["worker_claim"] = claim.claim
+                    if ref_dict not in req["supporting_evidence"]:
+                        req["supporting_evidence"].append(ref_dict)
+                group = str(getattr(packet, "independent_group_id", "") or "")
+                if group:
+                    req["independent_groups"].add(group)
+                role = str(getattr(packet, "source_role", "") or "")
+                if role and role != "unknown":
+                    req["source_roles"].add(role)
+                temporal = dict(getattr(packet, "temporal_scope", {}) or {})
+                if temporal:
+                    req["temporal_coverage"][getattr(
+                        packet, "record_id", "")] = temporal
+                if req["supporting_evidence"] and req["status"] == REQ_MISSING:
+                    req["status"] = REQ_PARTIAL
+            for conflict in getattr(packet, "internal_conflicts", ()):
+                req_ids = conflict.get("requirement_ids") or [
+                    r.get("requirement_id") for r in
+                    getattr(packet, "requirement_results", ())]
+                for rid in req_ids:
+                    req = self.requirements.get(rid)
+                    if req is not None:
+                        req["conflicting_evidence"].append(dict(conflict))
+                        req["status"] = REQ_CONFLICTED
+            for capability in getattr(packet, "degraded", ()):
+                for result in getattr(packet, "requirement_results", ()):
+                    self.record_degradation(result.get("requirement_id"), capability)
+        return self.get_status()
 
     def mark_conflict(self, requirement_id: str, evidence_a: dict, evidence_b: dict):
         """Mark conflicting evidence for a requirement."""
@@ -140,6 +323,21 @@ class EvidenceLedger:
                     "status": r["status"],
                     "evidence_count": len(r["supporting_evidence"]),
                     "independent_groups": len(r["independent_groups"]),
+                    "independent_group_ids": sorted(r["independent_groups"]),
+                    "source_roles": sorted(r["source_roles"]),
+                    "temporal_coverage": dict(r["temporal_coverage"]),
+                    "temporal_intent": r["temporal_intent"],
+                    "numeric_conditions": list(r["numeric_conditions"]),
+                    "time_constraints": list(r["time_constraints"]),
+                    "scope_constraints": list(r["scope_constraints"]),
+                    "relation_need": r["relation_need"],
+                    "comparison_object": r["comparison_object"],
+                    "comparison_dimension": r["comparison_dimension"],
+                    "conflicting_evidence": list(r["conflicting_evidence"]),
+                    "searched_no_evidence": list(r["searched_no_evidence"]),
+                    "search_attempts": [dict(a) for a in r["search_attempts"]],
+                    "degraded_capabilities": list(r["degraded_capabilities"]),
+                    "missing_reasons": list(r["missing"]),
                 }
                 for r in reqs
             ],
@@ -170,6 +368,7 @@ class EvidenceLedger:
                 {
                     **r,
                     "independent_groups": list(r["independent_groups"]),
+                    "source_roles": list(r["source_roles"]),
                 }
                 for r in self.requirements.values()
             ]),

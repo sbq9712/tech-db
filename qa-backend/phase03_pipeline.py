@@ -56,6 +56,7 @@ Returned contract (dict):
 """
 from __future__ import annotations
 
+import hashlib
 import os
 import re
 from typing import Dict, List, Optional
@@ -66,14 +67,15 @@ from retrieval.rerank import rerank_for_mode
 from retrieval import chunk_route
 from evidence_selection import select_support_evidence, selected_ids_only
 from evidence_policy import (EvidencePolicyEngine, EVIDENCE_POLICY_VERSION,
-                             PolicyReport, HARD_FAIL, FAIL, PASS)
+                             PolicyFinding, PolicyReport,
+                             HARD_FAIL, FAIL, PASS)
 from evidence_package import (EvidencePackageBuilder, fit_to_capacity,
                               PackedGenerationView, MAX_CONTEXT_TOKENS,
                               NON_SUPPORT_RELATIONS)
 from generator_input import (build_generator_input,
                              render_generator_prompt)
 
-PIPELINE_VERSION = "3.2.0"
+PIPELINE_VERSION = "3.3.0"
 RERANK_CAPACITY = int(os.environ.get("QA_RERANK_CAPACITY", "40"))
 DEFAULT_MODE = "RESEARCH_RAG"
 
@@ -89,7 +91,15 @@ _CLAIM_LEVEL_CODES = {"POLICY_STALE_CURRENT_FACT", "POLICY_SELF_REPORT_ONLY",
                       # review round 2 (RT-034): proposition-level hard rules
                       "POLICY_PROVENANCE_INSUFFICIENT",
                       "POLICY_PROVENANCE_UNAVAILABLE", "POLICY_ENTITY_MISSING",
-                      "POLICY_DIMENSION_MISSING"}
+                      "POLICY_DIMENSION_MISSING",
+                      "POLICY_NUMERIC_CONDITION_MISSING",
+                      "POLICY_NUMERIC_CONDITION_MISMATCH",
+                      "POLICY_SCOPE_CONDITION_MISSING",
+                      "POLICY_SCOPE_CONDITION_MISMATCH",
+                      "POLICY_TIME_CONDITION_MISSING",
+                      "POLICY_TIME_CONDITION_MISMATCH",
+                      "POLICY_RELATION_METHOD_MISSING",
+                      "POLICY_RELATION_INVALID"}
 
 
 # ── deterministic query derivation (Phase-04 boundary, no fabrication) ──────
@@ -276,7 +286,9 @@ def _numeric_checks_for(records_by_id: dict,
 
 
 def _relation_checks_for(records_by_id: dict, selected_ids: List[str],
-                         temporal_intent: str) -> List[dict]:
+                         temporal_intent: str,
+                         snapshot_index: Optional[Dict[str, dict]] = None
+                         ) -> List[dict]:
     """Evidence-side relation validity via the Phase-02 relation ontology.
 
     Records may carry structured relation assertions (GraphStatement
@@ -285,35 +297,23 @@ def _relation_checks_for(records_by_id: dict, selected_ids: List[str],
     evidence invalid. Records without relation assertions produce no
     checks (no fabrication).
     """
-    from relation_ontology import GraphStatement
+    from relation_ontology import validate_grounded_relation
     checks: List[dict] = []
     for rid in selected_ids:
         rec = (records_by_id or {}).get(rid) or {}
         for stmt in (rec.get("relations") or []):
             if not isinstance(stmt, dict):
                 continue
-            try:
-                gs = GraphStatement.from_dict(stmt)
-            except Exception:
-                continue
-            try:
-                valid = gs.is_valid_for_query(temporal_intent=temporal_intent)
-            except Exception:
-                continue
-            if not valid:
-                checks.append({
-                    "relation": str(stmt.get("predicate") or ""),
-                    "valid": False,
-                    "detail": (f"assertion_status="
-                               f"{stmt.get('assertion_status')} invalid "
-                               f"for {temporal_intent} query"),
-                    "record_id": rid,
-                })
+            snap = (snapshot_index or {}).get(rid) or {}
+            checks.append(validate_grounded_relation(
+                stmt, record_id=rid, snapshot=snap,
+                temporal_intent=temporal_intent))
     return checks
 
 
 def _assoc_requirements(query: str, requirements: List[dict],
-                        content_by_rid: Dict[str, str]) -> Dict[str, List[str]]:
+                        content_by_rid: Dict[str, str], *,
+                        structured: bool = False) -> Dict[str, List[str]]:
     """Deterministic record_id → requirement_ids association.
 
     Single requirement: every record supports r1. Multiple requirements:
@@ -322,9 +322,9 @@ def _assoc_requirements(query: str, requirements: List[dict],
     """
     if not requirements:
         requirements = _requirements_from_query(query)
-    if len(requirements) == 1:
-        rid = str(requirements[0].get("id", "r1"))
-        return {r: [rid] for r in content_by_rid}
+    if not structured and len(requirements) == 1:
+        req_id = str(requirements[0].get("id", "r1"))
+        return {record_id: [req_id] for record_id in content_by_rid}
     out: Dict[str, List[str]] = {}
     for r, content in content_by_rid.items():
         ids = []
@@ -334,10 +334,197 @@ def _assoc_requirements(query: str, requirements: List[dict],
                 ids.append(str(req.get("id")))
                 continue
             hay = (content or "").lower()
-            if any(str(k).lower() in hay for k in kws):
+            # Structured Phase04 entities/dimensions are authoritative: a
+            # shared dimension alone ("capacity") cannot make Beta evidence
+            # support an Alpha requirement.  Legacy/unstructured Phase03
+            # keyword fallback retains its reviewed any-keyword behavior.
+            structured_terms = [
+                str(v) for v in (list(req.get("entities") or [])
+                                 + list(req.get("dimensions") or [])) if v]
+            matched = (all(v.lower() in hay for v in structured_terms)
+                       if structured_terms
+                       else any(str(k).lower() in hay for k in kws))
+            if matched:
                 ids.append(str(req.get("id")))
         out[r] = ids
     return out
+
+
+def _condition_observation(text: str, evidence_meta: dict,
+                           temporal_meta: dict, snapshot: dict) -> dict:
+    """Canonical scope/time inputs for one pinned evidence record."""
+    scope_values = []
+    time_values = []
+    for source in (snapshot or {}, evidence_meta or {}, temporal_meta or {}):
+        for key in ("scope", "measurement_scope", "scope_constraints",
+                    "geographic_scope", "population_scope"):
+            value = source.get(key)
+            if isinstance(value, (list, tuple, set)):
+                scope_values.extend(str(v) for v in value if v)
+            elif value:
+                scope_values.append(str(value))
+        for key in ("event_time", "published_date", "date", "valid_from",
+                    "valid_to", "period", "as_of"):
+            value = source.get(key)
+            if value:
+                time_values.append(str(value))
+    return {"text": str(text or ""), "scope_values": scope_values,
+            "time_values": time_values}
+
+
+def _validated_worker_overlay(worker_packets: list, *, selected_ids: List[str],
+                              snapshot_index: Dict[str, dict],
+                              requirements: List[dict],
+                              policy_engine: EvidencePolicyEngine,
+                              evidence_metadata: Dict[str, dict],
+                              provenance_groups: Dict[str, str],
+                              temporal_map: Dict[str, dict]) -> dict:
+    """Validate worker EvidenceRefs against immutable snapshots.
+
+    Workers are extractors, never evidence authorities.  Only exact refs
+    whose record, snapshot id, offsets, text and hash all match this
+    request's pinned snapshot may affect association/policy/package state.
+    Prose claims are deliberately not returned.
+    """
+    selected = set(selected_ids)
+    requirements_by_id = {str(r.get("id")): r for r in requirements}
+    overlay = {"associations": {}, "locators": {}, "numeric_checks": [],
+               "relation_checks": [], "conflicts": [],
+               "accepted_packets": [], "rejected_refs": []}
+    for packet in worker_packets or []:
+        rid = str(getattr(packet, "record_id", "") or "")
+        sid = str(getattr(packet, "source_snapshot_id", "") or "")
+        snap = snapshot_index.get(rid) or {}
+        text = str(snap.get("evidence_text") or "")
+        if rid not in selected or sid != str(snap.get("source_snapshot_id") or ""):
+            overlay["rejected_refs"].append({
+                "record_id": rid, "reason": "worker_snapshot_not_selected_or_pinned"})
+            continue
+        from relation_ontology import validate_grounded_relation
+        req_temporal = {
+            str(req.get("id")): str(req.get("temporal_intent") or
+                                    req.get("temporal") or "unspecified")
+            for req in requirements}
+        relation_checks_by_req: Dict[str, List[dict]] = {}
+        for assertion in getattr(packet, "relation_assertions", ()):
+            req_id = str(getattr(assertion, "requirement_id", "") or "")
+            if req_id not in requirements_by_id:
+                continue
+            check = validate_grounded_relation(
+                assertion.to_dict(), record_id=rid, snapshot=snap,
+                temporal_intent=req_temporal.get(req_id, "unspecified"),
+                require_semantic_anchors=True)
+            relation_checks_by_req.setdefault(req_id, []).append(check)
+        packet_accepted = False
+        for claim in getattr(packet, "local_claims", ()):
+            req_id = str(getattr(claim, "requirement_id", "") or "")
+            if req_id not in requirements_by_id:
+                overlay["rejected_refs"].append({
+                    "record_id": rid, "reason": "worker_requirement_unknown"})
+                continue
+            for ref in getattr(claim, "evidence_refs", ()):
+                start = getattr(ref, "start_offset", -1)
+                end = getattr(ref, "end_offset", -1)
+                exact = str(getattr(ref, "exact_text", "") or "")
+                valid = (getattr(ref, "record_id", None) == rid
+                         and getattr(ref, "source_snapshot_id", None) == sid
+                         and isinstance(start, int) and isinstance(end, int)
+                         and 0 <= start < end <= len(text)
+                         and text[start:end] == exact
+                         and hashlib.sha256(exact.encode("utf-8")).hexdigest()
+                         == getattr(ref, "text_sha256", ""))
+                if not valid:
+                    overlay["rejected_refs"].append({
+                        "record_id": rid, "requirement_id": req_id,
+                        "reason": "worker_evidence_ref_not_exact"})
+                    continue
+                # Exact existence proves only that the worker copied text. It
+                # does not prove that text supports the structured
+                # requirement.  Reuse the canonical policy engine for the
+                # same entity/dimension, numeric and relation eligibility
+                # gates used by the final package path.
+                req = requirements_by_id[req_id]
+                anchors = list(req.get("entities") or [])
+                comparison_object = req.get("comparison_object")
+                if comparison_object:
+                    anchors.append(str(comparison_object))
+                dimensions = list(req.get("dimensions") or [])
+                if req.get("comparison_dimension"):
+                    dimensions.append(str(req.get("comparison_dimension")))
+                if not anchors and not dimensions:
+                    description_entities = re.findall(
+                        r"\b[A-Za-z][A-Za-z0-9_.+-]*\b",
+                        str(req.get("description") or ""))
+                    anchors = [term for term in description_entities
+                               if any(ch.isupper() or ch.isdigit()
+                                      for ch in term)]
+                if not anchors and not dimensions:
+                    anchors = [str(k) for k in (req.get("keywords") or []) if k]
+                candidate_findings = list(policy_engine.check_entity_coverage(
+                    required_entities=anchors,
+                    required_dimensions=dimensions,
+                    selected_texts=[exact], require_pairs=bool(anchors and dimensions)
+                ).findings)
+                candidate_findings.extend(policy_engine.check_required_numeric(
+                    requirement_id=req_id,
+                    numeric_conditions=list(req.get("numeric_conditions") or []),
+                    evidence_texts=[exact]).findings)
+                candidate_findings.extend(policy_engine.check_required_relation(
+                    requirement_id=req_id,
+                    relation_need=str(req.get("relation_need") or "none"),
+                    relation_checks=relation_checks_by_req.get(req_id, [])
+                ).findings)
+                if str(req.get("provenance_need") or "any") == "independent":
+                    role = str((evidence_metadata.get(rid) or {}).get(
+                        "evidence_role") or "unknown")
+                    candidate_findings.extend(policy_engine.check_self_report(
+                        requires_independent=True,
+                        evidence_roles=[role]).findings)
+                    if not str(provenance_groups.get(rid) or ""):
+                        candidate_findings.append(PolicyFinding(
+                            "worker_provenance",
+                            "POLICY_PROVENANCE_UNAVAILABLE", req_id,
+                            "worker candidate lacks catalog-authoritative "
+                            "independent_group_id", severity="hard"))
+                observation = _condition_observation(
+                    exact, evidence_metadata.get(rid) or {},
+                    temporal_map.get(rid) or {}, snap)
+                candidate_findings.extend(policy_engine.check_required_scope(
+                    requirement_id=req_id,
+                    scope_constraints=list(req.get("scope_constraints") or []),
+                    evidence_observations=[observation]).findings)
+                candidate_findings.extend(policy_engine.check_required_time(
+                    requirement_id=req_id,
+                    time_constraints=list(req.get("time_constraints") or []),
+                    evidence_observations=[observation]).findings)
+                if candidate_findings:
+                    overlay["rejected_refs"].append({
+                        "record_id": rid, "requirement_id": req_id,
+                        "reason": "worker_requirement_support_policy_rejected",
+                        "reason_codes": sorted({f.reason_code
+                                                for f in candidate_findings})})
+                    continue
+                locator = {"start_offset": start, "end_offset": end,
+                           "text_sha256": getattr(ref, "text_sha256")}
+                if locator not in overlay["locators"].setdefault(rid, []):
+                    overlay["locators"][rid].append(locator)
+                overlay["associations"].setdefault(rid, set()).add(req_id)
+                packet_accepted = True
+        if not packet_accepted:
+            continue
+        overlay["accepted_packets"].append(packet)
+        for fact in getattr(packet, "numeric_facts", ()):
+            item = dict(fact)
+            item["record_id"] = rid
+            overlay["numeric_checks"].append(item)
+        for checks in relation_checks_by_req.values():
+            overlay["relation_checks"].extend(checks)
+        for conflict in getattr(packet, "internal_conflicts", ()):
+            item = dict(conflict)
+            item.setdefault("record_ids", [rid])
+            item.setdefault("resolved", False)
+            overlay["conflicts"].append(item)
+    return overlay
 
 
 def _merge_chunk_candidates(pool: List[PoolCandidate],
@@ -411,7 +598,9 @@ async def run_phase03_retrieval(*, query: str,
                                 access_scope: str = "public",
                                 max_context_tokens: Optional[int] = None,
                                 rerank_capacity: int = RERANK_CAPACITY,
-                                mode_ctx: Optional[dict] = None) -> dict:
+                                mode_ctx: Optional[dict] = None,
+                                verified_premises: Optional[list] = None,
+                                worker_packets: Optional[list] = None) -> dict:
     """Run the full Phase03 retrieval→package pipeline for one query.
 
     route_results: RAW per-route RetrievalResult lists (RT-030 run_routes)
@@ -440,6 +629,7 @@ async def run_phase03_retrieval(*, query: str,
     pool_size = len(pool)
 
     # ── 3. requirements / comparison derivation (no fabrication) ───────────
+    structured_requirements = bool(requirements)
     requirements = requirements or _requirements_from_query(query)
     if comparison_objects is None:
         cmp_info = _comparison_from_query(query)
@@ -447,8 +637,19 @@ async def run_phase03_retrieval(*, query: str,
         comparison_dimensions = (cmp_info or {}).get("dimensions") or []
     elif comparison_dimensions is None:
         comparison_dimensions = []
-    temporal_intent = _temporal_intent(query)
-    requires_independent = _requires_independent(query)
+    if structured_requirements:
+        structured_temporal = {
+            str(r.get("temporal_intent") or "unspecified")
+            for r in requirements}
+        temporal_intent = ("current" if "current" in structured_temporal
+                           else "latest" if "latest" in structured_temporal
+                           else "any")
+        requires_independent = any(
+            str(r.get("provenance_need") or "any") == "independent"
+            for r in requirements)
+    else:
+        temporal_intent = _temporal_intent(query)
+        requires_independent = _requires_independent(query)
 
     # ── 4. RT-033 reserves (REAL wiring) ───────────────────────────────────
     critical_reqs = [r for r in requirements if r.get("critical")]
@@ -587,7 +788,18 @@ async def run_phase03_retrieval(*, query: str,
     # ── 8. RT-034 GATE B — proposition-level policy AFTER selection ────────
     for rid in selected_ids:
         _content_fn(rid)
-    assoc = _assoc_requirements(query, requirements, content_by_rid)
+    assoc = _assoc_requirements(
+        query, requirements, content_by_rid,
+        structured=structured_requirements)
+    worker_overlay = _validated_worker_overlay(
+        list(worker_packets or []), selected_ids=selected_ids,
+        snapshot_index=snapshot_index,
+        requirements=requirements, policy_engine=engine,
+        evidence_metadata=evidence_metadata,
+        provenance_groups=provenance_groups,
+        temporal_map=temporal_map)
+    for rid, req_ids in worker_overlay["associations"].items():
+        assoc[rid] = sorted(set(assoc.get(rid, [])) | set(req_ids))
 
     # evidence items for the Phase-02 conflict detector (real production
     # derivation over the selected set)
@@ -599,10 +811,32 @@ async def run_phase03_retrieval(*, query: str,
                            .get("evidence_role") or "unknown"),
     } for rid in selected_ids]
     if conflict_result is None:
-        conflict_result = _detect_conflicts_adapter(conflict_items, query)
-    numeric_checks = _numeric_checks_for(records_by_id, selected_ids)
+        # Conflict is proposition/requirement scoped.  Comparing every
+        # selected number globally turns an intended Alpha-vs-Beta matrix
+        # into a false contradiction merely because values differ.
+        scoped_conflicts = []
+        seen_conflicts = set()
+        for req in requirements:
+            req_id = str(req.get("id"))
+            items = [item for item in conflict_items
+                     if req_id in assoc.get(item["record_id"], [])]
+            report = _detect_conflicts_adapter(items, query)
+            for conflict in report.get("conflicts") or []:
+                key = (conflict.get("subject"),
+                       tuple(sorted(conflict.get("record_ids") or [])))
+                if key not in seen_conflicts:
+                    seen_conflicts.add(key)
+                    scoped_conflicts.append(conflict)
+        conflict_result = {"has_conflicts": bool(scoped_conflicts),
+                           "conflicts": scoped_conflicts}
+    conflict_result = dict(conflict_result or {})
+    conflict_result["conflicts"] = list(conflict_result.get("conflicts") or []) \
+        + list(worker_overlay["conflicts"])
+    numeric_checks = (_numeric_checks_for(records_by_id, selected_ids)
+                      + list(worker_overlay["numeric_checks"]))
     relation_checks = _relation_checks_for(records_by_id, selected_ids,
-                                           temporal_intent)
+                                           temporal_intent, snapshot_index) \
+        + list(worker_overlay["relation_checks"])
     # First evaluate record/proposition validators whose findings identify
     # evidence that may no longer count as support.  Coverage and provenance
     # are intentionally deferred until after those demotions; otherwise a
@@ -658,6 +892,16 @@ async def run_phase03_retrieval(*, query: str,
     for rid, info in blocked_records.items():
         info["reason_codes"] = sorted(set(info["reason_codes"]))
 
+    # Selected navigation candidates that ground no planned requirement are
+    # not factual support and must not leak into citations/generator context
+    # merely because they survived a broad retrieval pool.
+    for rid in selected_ids:
+        if not assoc.get(rid):
+            blocked_records.setdefault(rid, {
+                "relation": "INVALID",
+                "reason_codes": ["POLICY_REQUIREMENT_UNASSOCIATED"],
+            })
+
     trusted_ids = [rid for rid in selected_ids if rid not in blocked_records]
     trusted_evidence_by_req: Dict[str, List[dict]] = {}
     for rid in trusted_ids:
@@ -676,6 +920,38 @@ async def run_phase03_retrieval(*, query: str,
                 "evidence_role": str((evidence_metadata.get(rid) or {})
                                      .get("evidence_role") or "unknown"),
             })
+
+    trusted_ids_by_req = {
+        str(req.get("id")): [rid for rid in trusted_ids
+                             if str(req.get("id")) in assoc.get(rid, [])]
+        for req in requirements}
+    states_by_req = {
+        req_id: [str((temporal_map.get(rid) or
+                      records_by_id.get(rid) or {})
+                     .get("supersession_state") or "unknown")
+                 for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    roles_by_req = {
+        req_id: [str((evidence_metadata.get(rid) or {})
+                     .get("evidence_role") or "unknown")
+                 for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    groups_by_req = {
+        req_id: [str(provenance_groups.get(rid) or "") for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    texts_by_req = {
+        req_id: [content_by_rid.get(rid, "") for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    relations_by_req = {
+        req_id: [check for check in relation_checks
+                 if str(check.get("record_id") or "") in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
+    conditions_by_req = {
+        req_id: [_condition_observation(
+            content_by_rid.get(rid, ""), evidence_metadata.get(rid) or {},
+            temporal_map.get(rid) or {}, snapshot_index.get(rid) or {})
+                 for rid in ids]
+        for req_id, ids in trusted_ids_by_req.items()}
 
     trusted_states = [str((temporal_map.get(rid) or
                            records_by_id.get(rid) or {})
@@ -700,6 +976,18 @@ async def run_phase03_retrieval(*, query: str,
         provenance_groups=(
             [provenance_groups.get(rid) or "" for rid in trusted_ids]
             if provenance_groups else None),
+        evidence_states_by_requirement=(states_by_req
+                                        if structured_requirements else None),
+        evidence_roles_by_requirement=(roles_by_req
+                                       if structured_requirements else None),
+        provenance_groups_by_requirement=(
+            groups_by_req if structured_requirements else None),
+        evidence_texts_by_requirement=(
+            texts_by_req if structured_requirements else None),
+        relation_checks_by_requirement=(
+            relations_by_req if structured_requirements else None),
+        condition_observations_by_requirement=(
+            conditions_by_req if structured_requirements else None),
         mode=mode,
     )
     all_findings = validation_report.findings + support_report.findings
@@ -747,7 +1035,10 @@ async def run_phase03_retrieval(*, query: str,
     sel_entries = []
     for c in selection["selected"]:
         rid = c.get("record_id")
-        sel_entries.append(dict(c, requirement_ids=assoc.get(rid, [])))
+        item = dict(c, requirement_ids=assoc.get(rid, []))
+        if worker_overlay["locators"].get(rid):
+            item["hit_locators"] = list(worker_overlay["locators"][rid])
+        sel_entries.append(item)
     sel_copy = dict(selection)
     sel_copy["selected"] = sel_entries
     pkg_degraded = degraded + (
@@ -769,7 +1060,7 @@ async def run_phase03_retrieval(*, query: str,
         requirement_policy_blocks=blocked_requirements,
     )
 
-    if not support_ids:
+    if not support_ids and not (structured_requirements and pkg.conflicts):
         # every selected item was policy-invalid: explicit gap, never a raw
         # fallback — the package records WHY (reason codes) for traceability
         return {
@@ -801,6 +1092,16 @@ async def run_phase03_retrieval(*, query: str,
                 "reserve_decisions": [d.to_dict() for d in decisions
                                       if d.reserved],
                 "comparison_objects": list(comparison_objects or []),
+                "requirement_policy_contracts": [
+                    {k: r.get(k) for k in (
+                        "id", "temporal_intent", "provenance_need",
+                        "relation_need", "numeric_conditions")}
+                    for r in requirements],
+                "worker_evidence": {
+                    "accepted_packets": len(worker_overlay["accepted_packets"]),
+                    "accepted_records": sorted(worker_overlay["locators"]),
+                    "rejected_refs": list(worker_overlay["rejected_refs"]),
+                },
             },
         }
 
@@ -844,7 +1145,9 @@ async def run_phase03_retrieval(*, query: str,
         }
 
     # ── 11. RT-039 typed generator input — from the EXACT view ────────────
-    gen_input = build_generator_input(query=query, evidence_package=view)
+    gen_input = build_generator_input(
+        query=query, evidence_package=view,
+        verified_premises=list(verified_premises or []))
     context = render_generator_prompt(gen_input)
 
     # citations (build_context-compatible shape) — support entries only
@@ -905,5 +1208,16 @@ async def run_phase03_retrieval(*, query: str,
             "reserve_decisions": [d.to_dict() for d in decisions
                                   if d.reserved],
             "comparison_objects": list(comparison_objects or []),
+            "requirement_policy_contracts": [
+                {k: r.get(k) for k in (
+                    "id", "temporal_intent", "provenance_need",
+                    "relation_need", "numeric_conditions")}
+                for r in requirements],
+            "worker_evidence": {
+                "accepted_packets": len(worker_overlay["accepted_packets"]),
+                "accepted_records": sorted(worker_overlay["locators"]),
+                "rejected_refs": list(worker_overlay["rejected_refs"]),
+            },
         },
+        "accepted_worker_packets": list(worker_overlay["accepted_packets"]),
     }

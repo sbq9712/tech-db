@@ -17,11 +17,65 @@ Stop reasons (for API/trace):
   budget_exceeded, error
 """
 import os
+from dataclasses import asdict, dataclass
+from enum import Enum
 
 
 MAX_ITERATIONS = int(os.environ.get("QA_MAX_ITERATIONS", "4"))
 MIN_NEW_EVIDENCE_RATIO = float(os.environ.get("QA_MIN_NEW_EVIDENCE_RATIO", "0.10"))
 MAX_CONSECUTIVE_NO_NEW = int(os.environ.get("QA_MAX_NO_NEW", "2"))
+
+
+class StopReason(str, Enum):
+    SUFFICIENT = "sufficient"
+    NO_NEW_EVIDENCE = "no_new_evidence"
+    IMPOSSIBLE_GAP = "impossible_gap"
+    UNRESOLVED_CONFLICT = "unresolved_conflict"
+    MAX_ROUNDS = "max_rounds"
+    MAX_TOOL_CALLS = "max_tool_calls"
+
+
+@dataclass(frozen=True)
+class StopDecision:
+    should_stop: bool
+    reason: str = ""
+    round_number: int = 0
+    tool_calls: int = 0
+    detail: str = ""
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+def decide_stop(*, round_number: int, max_rounds: int,
+                tool_calls: int, max_tool_calls: int,
+                deterministic_sufficient: bool,
+                hard_fail: bool, semantic_required: bool,
+                semantic_status: str, new_evidence_count: int,
+                unresolved_gaps: list, unresolved_conflicts: list) -> StopDecision:
+    """Canonical bounded-loop decision used by Phase04 production wiring."""
+    if deterministic_sufficient and not hard_fail and (
+            not semantic_required or semantic_status == "SUFFICIENT"):
+        return StopDecision(True, StopReason.SUFFICIENT.value,
+                            round_number, tool_calls)
+    if unresolved_conflicts and round_number >= 2:
+        return StopDecision(True, StopReason.UNRESOLVED_CONFLICT.value,
+                            round_number, tool_calls,
+                            "high conflict remains unresolved")
+    if unresolved_gaps and all(not getattr(g, "resolvable", True)
+                               for g in unresolved_gaps):
+        return StopDecision(True, StopReason.IMPOSSIBLE_GAP.value,
+                            round_number, tool_calls)
+    if tool_calls >= max_tool_calls:
+        return StopDecision(True, StopReason.MAX_TOOL_CALLS.value,
+                            round_number, tool_calls)
+    if round_number >= max_rounds:
+        return StopDecision(True, StopReason.MAX_ROUNDS.value,
+                            round_number, tool_calls)
+    if round_number > 1 and new_evidence_count == 0:
+        return StopDecision(True, StopReason.NO_NEW_EVIDENCE.value,
+                            round_number, tool_calls)
+    return StopDecision(False, "", round_number, tool_calls)
 
 
 def should_stop(

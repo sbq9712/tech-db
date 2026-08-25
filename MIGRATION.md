@@ -83,6 +83,16 @@ retain `legacy_hybrid` through canary and at least two stable production
 releases after full manifest activation; removal requires a separate approved
 deprecation change.
 
+### Phase 04 agentic profile activation
+
+Phase 04 adds the canonical query-integrity/orchestration implementation but
+does not authorize production rollout. Keep the current explicit
+`legacy_hybrid` deployment profile until a later change has run a pinned
+manifest shadow comparison covering FAST and RESEARCH query classes, verified
+that hard evidence failures remain fail-safe, measured latency/capacity, and
+completed an approved canary with a complete manifest/profile rollback target.
+Do not enable Graph-V2 as part of this migration.
+
 ## 完整离线迁移包
 
 Releases 同时提供分卷的 `tech-db-offline.tar.gz.part-*`。下载全部分卷和 `SHA256SUMS` 后，按 Release 中 `README-OFFLINE.txt` 的命令合并并解压。包内已包含代码、模型和现成索引，不需要访问模型网站；GLM 在线回答仍需要联网和使用者自己的 Key。

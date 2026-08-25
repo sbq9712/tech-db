@@ -302,6 +302,7 @@ async def run_phase02_verification(
     pinned_provenance_map: Optional[
         Mapping[str, PinnedProvenance]] = None,
     strict_evidence_package: bool = False,
+    orchestration_constraint: Optional[Mapping] = None,
 ) -> dict:
     """Run the Phase-02 post-generation pipeline. Returns a result dict:
 
@@ -324,6 +325,9 @@ async def run_phase02_verification(
     t_start = time.perf_counter()
     degraded = []
     machine = AnswerStateMachine()
+    if orchestration_constraint is not None:
+        machine.record_orchestration_constraint(
+            dict(orchestration_constraint))
     answer = draft_answer or ""
     citations = [c for c in (citations or [])]
     max_check_passes = 2  # initial + one full re-check after repair

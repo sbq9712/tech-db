@@ -24,7 +24,14 @@ Checks (as applicable), each with a machine-readable reason code:
   POLICY_STALE_CURRENT_FACT      superseded-only evidence for current/latest
   POLICY_CONFLICT_UNRESOLVED     unresolved high-severity contradiction
   POLICY_NUMERIC_MISMATCH        numeric unit/scope/denominator incompatibility
+  POLICY_NUMERIC_CONDITION_MISSING structured numeric condition has no number
+  POLICY_NUMERIC_CONDITION_MISMATCH structured value/unit/scope does not match
+  POLICY_SCOPE_CONDITION_MISSING  required structured scope is unestablished
+  POLICY_SCOPE_CONDITION_MISMATCH evidence establishes an incompatible scope
+  POLICY_TIME_CONDITION_MISSING   required as-of/time period is unestablished
+  POLICY_TIME_CONDITION_MISMATCH  evidence establishes a different time period
   POLICY_RELATION_INVALID        relation evidence-method invalid
+  POLICY_RELATION_METHOD_MISSING required typed exact-grounded relation absent
   POLICY_CITATION_INELIGIBLE     citation-ineligible record cited
   POLICY_ACCESS_SCOPE            record outside the request access scope
 
@@ -34,10 +41,11 @@ detail, severity}. HARD_FAIL is terminal for the affected proposition —
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional
 
-EVIDENCE_POLICY_VERSION = "1.1.0"
+EVIDENCE_POLICY_VERSION = "1.3.0"
 
 HARD_FAIL = "HARD_FAIL"
 PASS = "PASS"
@@ -215,6 +223,141 @@ class EvidencePolicyEngine:
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="numeric")
 
+    def check_required_numeric(self, *, requirement_id: str,
+                               numeric_conditions: List[str],
+                               evidence_texts: List[str]) -> PolicyReport:
+        """Verify every structured numeric condition against source text.
+
+        This is requirement-scoped coverage, not the older global
+        self-contradiction check.  Immutable evidence text is the authority;
+        a field merely being serialized on a requirement is not a pass.
+        """
+        from numeric_facts import verify_numeric_claim, _detect_scope_markers
+
+        findings: List[PolicyFinding] = []
+        for raw_condition in numeric_conditions or []:
+            condition = str(raw_condition or "").strip()
+            if not condition:
+                continue
+            # Accept the planner's ordinary English temperature wording while
+            # still routing comparison through the canonical numeric verifier.
+            normalized = re.sub(
+                r"\bdegrees?(?:\s+celsius)?\b", "°C", condition,
+                flags=re.IGNORECASE)
+            reports = []
+            for text in evidence_texts or []:
+                text = str(text or "")
+                report = verify_numeric_claim(normalized, text)
+                claim_scopes = _detect_scope_markers(normalized)
+                evidence_scopes = _detect_scope_markers(text)
+                if (report.get("status") == "MATCH" and claim_scopes
+                        and evidence_scopes
+                        and claim_scopes != evidence_scopes):
+                    report = dict(report, status="SCOPE_MISMATCH")
+                reports.append(report)
+            if any(rep.get("status") == "MATCH" for rep in reports):
+                continue
+            statuses = sorted({str(rep.get("status") or "")
+                               for rep in reports if rep})
+            code = ("POLICY_NUMERIC_CONDITION_MISSING"
+                    if not reports or all(s in (
+                        "NO_EVIDENCE_NUMBER", "") for s in statuses)
+                    else "POLICY_NUMERIC_CONDITION_MISMATCH")
+            findings.append(PolicyFinding(
+                "numeric_condition", code, requirement_id,
+                f"required numeric condition '{condition}' has no exact "
+                f"source-grounded match; verifier_statuses={statuses or ['NONE']}",
+                severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS), findings=findings,
+            mode="numeric_condition")
+
+    @staticmethod
+    def _canonical_scopes(value) -> set:
+        values = value if isinstance(value, (list, tuple, set)) else [value]
+        aliases = {
+            "device": ("device", "per-device", "per device", "single device",
+                       "单设备", "per_device"),
+            "system": ("system", "system-total", "system total", "cluster",
+                       "系统总计", "system_total"),
+            "global": ("global", "worldwide", "全球"),
+            "china": ("china", "中国", "国内"),
+            "enterprise": ("enterprise", "企业"),
+            "consumer": ("consumer", "消费级"),
+        }
+        found = set()
+        for item in values:
+            low = str(item or "").casefold().replace("_", " ")
+            for canonical, terms in aliases.items():
+                if any(term.casefold().replace("_", " ") in low
+                       for term in terms):
+                    found.add(canonical)
+        return found
+
+    def check_required_scope(self, *, requirement_id: str,
+                             scope_constraints: List[str],
+                             evidence_observations: List[dict]) -> PolicyReport:
+        """Require positive scope establishment, never absence-as-match."""
+        required = self._canonical_scopes(scope_constraints)
+        if not required:
+            return PolicyReport(verdict=PASS, findings=[], mode="scope_condition")
+        observed_sets = []
+        for observation in evidence_observations or []:
+            values = [observation.get("text", "")]
+            values.extend(observation.get("scope_values") or [])
+            scopes = self._canonical_scopes(values)
+            if scopes:
+                observed_sets.append(scopes)
+            if required <= scopes:
+                return PolicyReport(verdict=PASS, findings=[],
+                                    mode="scope_condition")
+        code = ("POLICY_SCOPE_CONDITION_MISMATCH" if observed_sets
+                else "POLICY_SCOPE_CONDITION_MISSING")
+        detail = (f"required scope={sorted(required)}; observed="
+                  f"{[sorted(v) for v in observed_sets] or ['UNKNOWN']}")
+        return PolicyReport(verdict=HARD_FAIL, findings=[PolicyFinding(
+            "scope_condition", code, requirement_id, detail, severity="hard")],
+            mode="scope_condition")
+
+    @staticmethod
+    def _time_tokens(values) -> set:
+        values = values if isinstance(values, (list, tuple, set)) else [values]
+        tokens = set()
+        for value in values:
+            text = str(value or "")
+            tokens.update(re.findall(r"(?:19|20)\d{2}(?:[-/.](?:0?[1-9]|1[0-2]))?",
+                                     text))
+            tokens.update(re.findall(r"\bQ[1-4]\b", text, re.IGNORECASE))
+        return {token.casefold().replace("/", "-").replace(".", "-")
+                for token in tokens}
+
+    def check_required_time(self, *, requirement_id: str,
+                            time_constraints: List[str],
+                            evidence_observations: List[dict]) -> PolicyReport:
+        """Validate explicit as-of/time constraints from canonical metadata."""
+        required = self._time_tokens(time_constraints)
+        if not required:
+            return PolicyReport(verdict=PASS, findings=[], mode="time_condition")
+        observed_sets = []
+        for observation in evidence_observations or []:
+            values = [observation.get("text", "")]
+            values.extend(observation.get("time_values") or [])
+            observed = self._time_tokens(values)
+            if observed:
+                observed_sets.append(observed)
+            if all(any(actual == expected or actual.startswith(expected + "-")
+                       or expected.startswith(actual + "-")
+                       for actual in observed) for expected in required):
+                return PolicyReport(verdict=PASS, findings=[],
+                                    mode="time_condition")
+        code = ("POLICY_TIME_CONDITION_MISMATCH" if observed_sets
+                else "POLICY_TIME_CONDITION_MISSING")
+        detail = (f"required time={sorted(required)}; observed="
+                  f"{[sorted(v) for v in observed_sets] or ['UNKNOWN']}")
+        return PolicyReport(verdict=HARD_FAIL, findings=[PolicyFinding(
+            "time_condition", code, requirement_id, detail, severity="hard")],
+            mode="time_condition")
+
     def check_relation(self, *, relation_checks: List[dict]) -> PolicyReport:
         """Relation-claim evidence method (spec §12: relation validity)."""
         findings: List[PolicyFinding] = []
@@ -228,6 +371,39 @@ class EvidencePolicyEngine:
         return PolicyReport(
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="relation")
+
+    def check_required_relation(self, *, requirement_id: str,
+                                relation_need: str,
+                                relation_checks: List[dict]) -> PolicyReport:
+        """Require a typed, current, exact-grounded relation method."""
+        need = str(relation_need or "none").strip()
+        if not need or need.lower() == "none":
+            return PolicyReport(verdict=PASS, findings=[],
+                                mode="relation_requirement")
+        checks = list(relation_checks or [])
+        findings: List[PolicyFinding] = []
+        invalid = [c for c in checks
+                   if c.get("authority") == "canonical_relation_validator"
+                   and c.get("valid") is False]
+        valid = [c for c in checks
+                 if c.get("authority") == "canonical_relation_validator"
+                 and c.get("valid") is True and c.get("typed") is True
+                 and c.get("exact_grounded") is True]
+        if invalid:
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_INVALID",
+                requirement_id,
+                "; ".join(str(c.get("detail") or "invalid relation")
+                          for c in invalid), severity="hard"))
+        elif not valid:
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_METHOD_MISSING",
+                requirement_id,
+                f"relation_need={need} requires a typed relation with an "
+                "exact immutable EvidenceRef", severity="hard"))
+        return PolicyReport(
+            verdict=(HARD_FAIL if findings else PASS), findings=findings,
+            mode="relation_requirement")
 
     def check_provenance(self, *, requires_independent: bool,
                          provenance_groups: Optional[List[str]] = None,
@@ -365,6 +541,18 @@ class EvidencePolicyEngine:
                  required_dimensions: Optional[List[str]] = None,
                  selected_evidence_texts: Optional[List[str]] = None,
                  provenance_groups: Optional[List[str]] = None,
+                 evidence_states_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 evidence_roles_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 provenance_groups_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 evidence_texts_by_requirement: Optional[
+                     Dict[str, List[str]]] = None,
+                 relation_checks_by_requirement: Optional[
+                     Dict[str, List[dict]]] = None,
+                 condition_observations_by_requirement: Optional[
+                     Dict[str, List[dict]]] = None,
                  min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
@@ -387,6 +575,12 @@ class EvidencePolicyEngine:
         """
         findings: List[PolicyFinding] = []
         rule_applicability: Dict[str, str] = {}
+        per_requirement_policy = any(mapping is not None for mapping in (
+            evidence_states_by_requirement,
+            evidence_roles_by_requirement,
+            provenance_groups_by_requirement,
+            condition_observations_by_requirement,
+        ))
         for req in requirements:
             rid = str(req.get("id", ""))
             selected = evidence_by_requirement.get(rid, [])
@@ -394,20 +588,94 @@ class EvidencePolicyEngine:
                 requirement_id=rid, selected_evidence=selected,
                 critical=bool(req.get("critical", True)))
             findings.extend(rep.findings)
+            # Phase04 structured requirement policy is authoritative per
+            # requirement when the caller supplies the per-requirement
+            # evidence mappings. Direct/legacy engine callers retain the
+            # reviewed aggregate policy contract below.
+            req_temporal = str(req.get("temporal_intent") or
+                               req.get("temporal") or "unspecified")
+            req_independent = str(req.get("provenance_need") or "any") \
+                == "independent"
+            states = (evidence_states_by_requirement or {}).get(rid)
+            roles = (evidence_roles_by_requirement or {}).get(rid)
+            groups = (provenance_groups_by_requirement or {}).get(rid)
+            req_texts = (evidence_texts_by_requirement or {}).get(rid, [])
+            req_relations = (relation_checks_by_requirement or {}).get(rid, [])
+            req_observations = (
+                condition_observations_by_requirement or {}).get(rid, [])
+            if (per_requirement_policy
+                    and req_temporal not in ("", "unspecified", "any")):
+                temporal_rep = self.check_temporal(
+                    requirement_temporal=req_temporal,
+                    evidence_states=list(states or []))
+                for finding in temporal_rep.findings:
+                    finding.subject = rid
+                findings.extend(temporal_rep.findings)
+                rule_applicability[f"temporal:{rid}"] = "APPLICABLE"
+            if per_requirement_policy and req_independent:
+                role_rep = self.check_self_report(
+                    requires_independent=True,
+                    evidence_roles=list(roles or []))
+                for finding in role_rep.findings:
+                    finding.subject = rid
+                findings.extend(role_rep.findings)
+                prov_req = self.check_provenance(
+                    requires_independent=True,
+                    provenance_groups=(list(groups)
+                                       if groups is not None else None),
+                    min_independent_groups=min_independent_groups)
+                for finding in prov_req.findings:
+                    finding.subject = rid
+                findings.extend(prov_req.findings)
+                rule_applicability.update({
+                    f"{key}:{rid}": value for key, value in
+                    prov_req.rule_applicability.items()})
+            numeric_conditions = list(req.get("numeric_conditions") or [])
+            if numeric_conditions:
+                numeric_rep = self.check_required_numeric(
+                    requirement_id=rid,
+                    numeric_conditions=numeric_conditions,
+                    evidence_texts=list(req_texts))
+                findings.extend(numeric_rep.findings)
+                rule_applicability[f"numeric_condition:{rid}"] = "APPLICABLE"
+            scope_constraints = list(req.get("scope_constraints") or [])
+            if scope_constraints:
+                scope_rep = self.check_required_scope(
+                    requirement_id=rid, scope_constraints=scope_constraints,
+                    evidence_observations=list(req_observations))
+                findings.extend(scope_rep.findings)
+                rule_applicability[f"scope_condition:{rid}"] = "APPLICABLE"
+            time_constraints = list(req.get("time_constraints") or [])
+            if time_constraints:
+                time_rep = self.check_required_time(
+                    requirement_id=rid, time_constraints=time_constraints,
+                    evidence_observations=list(req_observations))
+                findings.extend(time_rep.findings)
+                rule_applicability[f"time_condition:{rid}"] = "APPLICABLE"
+            relation_need = str(req.get("relation_need") or "none")
+            if relation_need.lower() != "none":
+                relation_rep = self.check_required_relation(
+                    requirement_id=rid, relation_need=relation_need,
+                    relation_checks=list(req_relations))
+                findings.extend(relation_rep.findings)
+                rule_applicability[f"relation_requirement:{rid}"] = "APPLICABLE"
         findings.extend(self.check_conflict(conflicts=conflicts or []).findings)
         findings.extend(self.check_numeric(numeric_facts=numeric_facts or []).findings)
         findings.extend(self.check_relation(relation_checks=relation_checks or []).findings)
-        if requirement_temporal and evidence_states is not None:
+        if (not per_requirement_policy and requirement_temporal
+                and evidence_states is not None):
             findings.extend(self.check_temporal(
                 requirement_temporal=requirement_temporal,
                 evidence_states=list(evidence_states)).findings)
-        if requires_independent and evidence_roles is not None:
+        if (not per_requirement_policy and requires_independent
+                and evidence_roles is not None):
             findings.extend(self.check_self_report(
                 requires_independent=True,
                 evidence_roles=list(evidence_roles)).findings)
         # review round 2 RT-034: provenance independence
         prov_rep = self.check_provenance(
-            requires_independent=requires_independent,
+            requires_independent=(requires_independent
+                                  and not per_requirement_policy),
             provenance_groups=provenance_groups,
             min_independent_groups=min_independent_groups)
         findings.extend(prov_rep.findings)

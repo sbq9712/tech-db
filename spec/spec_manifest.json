@@ -1465,7 +1465,7 @@
       "rule": "evidence_package_requires_terminal_renderer"
     }
   ],
-  "spec_hash": "4e7d5843669410d3240463e9769694d2edc735a756553ec7547d27216cf32ca3",
+  "spec_hash": "982842e0dd8853d3486d9a4fb47e4c2478bac0727f18b45a55a4ec9be24ba10d",
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
   "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
@@ -1473,7 +1473,7 @@
   "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
   "profile_registry_version": "1.1.0",
   "acceptance_matrix_version": "3.0.0",
-  "acceptance_matrix_sha256": "84a6038703cf50e5e8c4592558fc54486e50dee5784495135c753ef9647da399",
+  "acceptance_matrix_sha256": "40c41706a2f991f03f3e7cd87727afe937cf04aa705e6d60e18f73f1acbc0241",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
@@ -1491,7 +1491,7 @@
   "baseline_artifacts": {
     "pre_remediation": {
       "path": "qa-backend/test_fixtures/remediation/baseline_phase00.json",
-      "sha256": "3330a41a4909f0a40c111a3605c435537fcbc245d80f32db7b8d192f4164661c",
+      "sha256": "2136244be2bbc3873e4692244b04b1bfb858a04bc3d11116749351cb9b6acfdc",
       "consumers": [
         "before_after_release_gates",
         "RT-049",
