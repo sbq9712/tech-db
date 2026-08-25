@@ -1710,12 +1710,16 @@ def test_phase04_full_real_endpoint_terminal_matrix():
               and grader_failure["answer_status"] == "UNVERIFIED"
               and positive["answer_status"] == "SUPPORTED"
               and rewrite_stage["rewrite_action"] == "REJECT_TO_ORIGINAL"
-              and rewrite_stage["rewritten_query"] == "它现在的成本呢?"
+              # Phase05 RT-055 intentionally removes plaintext queries from
+              # persisted production Trace.  Preserve the accepted rewrite
+              # behavior through its deterministic hash instead of weakening
+              # the new privacy contract by restoring raw text.
+              and rewrite_stage["rewritten_query"]["raw_retained"] is False
               and "AMD" not in wrong_pronoun["answer"]
               and ambiguous_rewrite["rewrite_action"] == "REJECT_TO_ORIGINAL"
               and ambiguous_rewrite["rewrite_authority"]["binding_status"]
                   == "AMBIGUOUS_LATEST_USER"
-              and ambiguous_rewrite["rewritten_query"] == "它现在的成本呢?"
+              and ambiguous_rewrite["rewritten_query"]["raw_retained"] is False
               and "A100" not in ambiguous_pronoun["answer"]
               and worker_closed["answer_status"] == "SUPPORTED"
               and any(c.get("record_id") == "workergap-1"

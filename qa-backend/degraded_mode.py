@@ -16,6 +16,7 @@ Each component has a degradation strategy:
 """
 import os
 from enum import Enum
+from runtime_safety import (FailureClass, FailureEffect, decide_failure)
 
 
 class DegradationAction(str, Enum):
@@ -39,8 +40,8 @@ DEGRADATION_MATRIX = {
     ),
     "graph_search": (
         DegradationAction.CONTINUE,
-        "vector_and_bm25_only",
-        None,  # Graph is supplementary
+        "request_aware_graph_policy",
+        None,  # optional vs relation-critical is decided per requirement
     ),
     "reranker": (
         DegradationAction.CONTINUE,
@@ -48,8 +49,8 @@ DEGRADATION_MATRIX = {
         None,  # RRF order is acceptable fallback
     ),
     "evidence_selector": (
-        DegradationAction.CONTINUE,
-        "use_top_n_reranked",
+        DegradationAction.DEGRADE,
+        "deterministic_safe_selector_only",
         None,
     ),
     "evidence_grader": (
@@ -114,9 +115,9 @@ DEGRADATION_MATRIX = {
         None,
     ),
     "conflict_detector": (
-        DegradationAction.CONTINUE,
-        "skip_conflict_detection",
-        None,
+        DegradationAction.ESCALATE,
+        "deterministic_conflict_gate_or_unverified",
+        "本次未能完成关键冲突核验，结果按未验证处理。",
     ),
     "multi_document_worker": (
         DegradationAction.CONTINUE,
@@ -134,8 +135,44 @@ def get_degradation_strategy(component: str) -> tuple:
     """
     return DEGRADATION_MATRIX.get(
         component,
-        (DegradationAction.CONTINUE, "unknown_fallback", None)
+        (DegradationAction.ESCALATE, "unknown_capability_fail_safe",
+         "运行时出现未注册的关键能力失败，结果按未验证处理。")
     )
+
+
+def get_request_degradation_strategy(
+    component: str,
+    failure_class: str = "INTERNAL_EXCEPTION",
+    *,
+    requirement_critical: bool = False,
+    alternative_evidence_sufficient: bool = False,
+    safe_fallback_available=None,
+) -> dict:
+    """Canonical request-aware Phase05 failure policy.
+
+    The legacy tuple API remains for compatibility/status pages, but factual
+    production decisions must use this structured result.  It never grants
+    support: ``CONTINUE_RECHECK`` still requires the unchanged Phase03/04
+    policy/sufficiency chain and Phase02 terminal state machine.
+    """
+    try:
+        kind = FailureClass(str(failure_class))
+    except ValueError:
+        kind = FailureClass.INTERNAL_EXCEPTION
+    decision = decide_failure(
+        component, kind,
+        requirement_critical=requirement_critical,
+        alternative_evidence_sufficient=alternative_evidence_sufficient,
+        safe_fallback_available=safe_fallback_available)
+    return {
+        "capability": decision.capability,
+        "failure_class": decision.failure_class.value,
+        "effect": decision.effect.value,
+        "fallback": decision.fallback,
+        "reason_code": decision.reason_code,
+        "correctness_critical": decision.correctness_critical,
+        "support_granted": False,
+    }
 
 
 def can_continue(component: str) -> bool:

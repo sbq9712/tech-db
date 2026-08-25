@@ -72,7 +72,12 @@ _LLM_ABANDONED = {"submitted": 0, "count": 0}
 
 
 def llm_abandoned_stats() -> dict:
-    return dict(_LLM_ABANDONED)
+    try:
+        from runtime_safety import abandoned_call_stats
+        return {**dict(_LLM_ABANDONED),
+                "request_scoped": abandoned_call_stats()}
+    except Exception:
+        return dict(_LLM_ABANDONED)
 
 
 async def llm_model_func(
@@ -148,6 +153,12 @@ async def llm_model_func(
     except asyncio.CancelledError:
         # awaiting task (e.g. TTFB-guarded agentic loop) gave up on us
         _LLM_ABANDONED["count"] += 1
+        try:
+            from runtime_safety import record_abandoned_call
+            record_abandoned_call(stage="llm_http",
+                                  reason="awaiting_request_cancelled")
+        except Exception:
+            pass
         raise
 
 

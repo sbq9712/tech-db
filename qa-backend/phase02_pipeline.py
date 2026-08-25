@@ -303,6 +303,7 @@ async def run_phase02_verification(
         Mapping[str, PinnedProvenance]] = None,
     strict_evidence_package: bool = False,
     orchestration_constraint: Optional[Mapping] = None,
+    execution_context=None,
 ) -> dict:
     """Run the Phase-02 post-generation pipeline. Returns a result dict:
 
@@ -1116,7 +1117,16 @@ async def run_phase02_verification(
                 })
             else:
                 verifier = llm_verify or verify_final
-                vr = await verifier(query, atomic, refs, numeric_results)
+                verify_call = lambda: verifier(
+                    query, atomic, refs, numeric_results)
+                if execution_context is not None:
+                    vr = await execution_context.run_stage(
+                        "final_verifier", verify_call,
+                        requirement_critical=True,
+                        safe_fallback_available=False,
+                        query_budget_cost=1)
+                else:
+                    vr = await verify_call()
                 verification_status = vr.status
                 if verification_status == "UNVERIFIED":
                     verification_error = vr.failure_reason or "verifier technical failure"
@@ -1135,6 +1145,23 @@ async def run_phase02_verification(
         except Exception as e:
             verification_status = "UNVERIFIED"
             verification_error = str(e)
+            machine.record_technical_failure("verifier", str(e)[:120])
+            if execution_context is not None \
+                    and execution_context.degraded_capabilities:
+                row = execution_context.degraded_capabilities[-1]
+                if row not in degraded:
+                    degraded.append(row)
+            elif "verifier" not in degraded:
+                degraded.append("verifier")
+            _stage("verification", {
+                "status": "UNVERIFIED",
+                "failure_class": getattr(
+                    getattr(e, "decision", None), "failure_class", "")
+                    .value if getattr(getattr(e, "decision", None),
+                                      "failure_class", None) else
+                    "INTERNAL_EXCEPTION",
+                "failure_reason": str(e)[:200],
+            })
 
     # A verifier result is never allowed to erase an earlier blocking
     # technical failure (notably strict Phase03 claim-lineage failure).

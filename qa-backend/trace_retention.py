@@ -12,7 +12,8 @@ Default policy:
 """
 import os
 import json
-import shutil
+import re
+import hashlib
 from pathlib import Path
 from datetime import datetime, timedelta
 
@@ -35,11 +36,78 @@ ALWAYS_REDACT = [
 # Fields to keep only in debug mode
 DEBUG_ONLY_FIELDS = [
     "full_context", "full_answer_raw", "raw_llm_response",
-    "raw_search_results", "full_body_text",
+    "raw_search_results", "full_body_text", "original_query",
+    "raw_assistant_history", "full_evidence_package", "generator_draft",
 ]
 
+_SECRET_VALUE_PATTERNS = (
+    re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]{8,}"),
+    re.compile(r"(?i)\b(?:ZAI_API_KEY|api[_-]?key|authorization|token|secret|password)\s*[:=]\s*[^\s&]+"),
+    re.compile(r"\bgh[pousr]_[A-Za-z0-9]{20,}\b"),
+    re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"),
+    re.compile(r"(?i)([?&](?:token|access_token|api_key|key|secret)=)[^&#\s]+"),
+)
 
-def redact_trace(record: dict, debug_mode: bool = False) -> dict:
+
+def scrub_secret_values(value):
+    """Scrub secrets by key *and value content* at arbitrary nesting."""
+    if isinstance(value, dict):
+        out = {}
+        for key, item in value.items():
+            if any(secret in str(key).lower() for secret in ALWAYS_REDACT):
+                out[key] = "***REDACTED***"
+            else:
+                out[key] = scrub_secret_values(item)
+        return out
+    if isinstance(value, list):
+        return [scrub_secret_values(item) for item in value]
+    if isinstance(value, tuple):
+        return [scrub_secret_values(item) for item in value]
+    if isinstance(value, BaseException):
+        value = str(value)
+    if isinstance(value, str):
+        text = value
+        for pattern in _SECRET_VALUE_PATTERNS:
+            text = pattern.sub(lambda m: (
+                (m.group(1) + "***REDACTED***")
+                if m.lastindex else "***REDACTED***"), text)
+        return text
+    return value
+
+
+def _hash_text(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def _minimal_stage_value(key: str, value):
+    """Production trace projection: IDs/codes/metrics, not raw payloads."""
+    lower = key.lower()
+    stable_digest = lower.endswith(("_sha256", "_hash"))
+    if not stable_digest and any(term in lower for term in (
+        "query", "prompt", "answer", "context", "history", "body",
+        "excerpt", "full_text", "raw_", "llm_response", "draft")):
+        if isinstance(value, str):
+            return {"sha256": _hash_text(value), "length": len(value),
+                    "raw_retained": False}
+        if isinstance(value, (list, dict)):
+            encoded = json.dumps(value, ensure_ascii=False, sort_keys=True,
+                                 default=str)
+            return {"sha256": _hash_text(encoded),
+                    "item_count": len(value), "raw_retained": False}
+    if isinstance(value, dict):
+        return {k: _minimal_stage_value(str(k), v) for k, v in value.items()}
+    if isinstance(value, list):
+        # Keep compact machine-readable IDs/reason-code rows; hash free prose.
+        return [_minimal_stage_value(key, item) for item in value[:100]]
+    if isinstance(value, str) and len(value) > 240:
+        return {"sha256": _hash_text(value), "length": len(value),
+                "raw_retained": False}
+    return value
+
+
+def redact_trace(record: dict, debug_mode: bool = False, *,
+                 debug_authorized: bool = False,
+                 secure_storage: bool = False) -> dict:
     """Redact sensitive fields from a trace record.
 
     Args:
@@ -52,6 +120,9 @@ def redact_trace(record: dict, debug_mode: bool = False) -> dict:
     if not isinstance(record, dict):
         return record
 
+    # A public request flag can never enable raw persistence.  Debug requires
+    # server-side authorization AND an approved secure storage class.
+    debug_enabled = bool(debug_mode and debug_authorized and secure_storage)
     redacted = {}
     for key, value in record.items():
         # Always redact secrets
@@ -60,46 +131,69 @@ def redact_trace(record: dict, debug_mode: bool = False) -> dict:
             continue
 
         # Remove debug-only fields in production
-        if not debug_mode and key in DEBUG_ONLY_FIELDS:
+        if not debug_enabled and key in DEBUG_ONLY_FIELDS:
             continue
 
         # Recursively redact nested dicts/lists
         if isinstance(value, dict):
-            redacted[key] = redact_trace(value, debug_mode)
+            redacted[key] = redact_trace(
+                value, debug_enabled, debug_authorized=debug_authorized,
+                secure_storage=secure_storage)
         elif isinstance(value, list):
-            redacted[key] = [redact_trace(v, debug_mode) if isinstance(v, dict) else v
-                            for v in value]
+            redacted[key] = [redact_trace(
+                v, debug_enabled, debug_authorized=debug_authorized,
+                secure_storage=secure_storage) if isinstance(v, dict)
+                else scrub_secret_values(v) for v in value]
         elif isinstance(value, str) and len(value) > 32:
             # Redact long strings that look like keys
-            if all(c in "0123456789abcdefABCDEF_-+/=" for c in value):
+            stable_digest = key.lower().endswith(("_sha256", "_hash"))
+            if (not stable_digest and
+                    all(c in "0123456789abcdefABCDEF_-+/=" for c in value)):
                 redacted[key] = "***POSSIBLE_SECRET***"
             else:
-                redacted[key] = value
+                redacted[key] = value if debug_enabled else _minimal_stage_value(key, value)
         else:
             redacted[key] = value
-
+    redacted = scrub_secret_values(redacted)
+    if not debug_enabled:
+        redacted = {k: _minimal_stage_value(str(k), v)
+                    for k, v in redacted.items()}
+        redacted.setdefault("retention_class", "production_default")
+        redacted.setdefault("exact_replay_available", False)
+    else:
+        redacted["retention_class"] = "debug_short_secure"
     return redacted
 
 
-def cleanup_expired_traces(retention_days: int = None) -> dict:
+def cleanup_expired_traces(retention_days: int = None, *,
+                           trace_dir: Path = None,
+                           debug_retention_days: int = None,
+                           now: datetime = None) -> dict:
     """Delete trace files older than retention period.
 
     Returns:
         {"deleted_files": int, "deleted_size_mb": float, "audit_entry": dict}
     """
     retention_days = retention_days or DEFAULT_RETENTION_DAYS
-    cutoff = datetime.now() - timedelta(days=retention_days)
+    debug_retention_days = debug_retention_days or DEBUG_RETENTION_DAYS
+    now = now or datetime.now()
+    cutoff = now - timedelta(days=retention_days)
+    debug_cutoff = now - timedelta(days=debug_retention_days)
+    trace_dir = trace_dir or TRACE_DIR
 
     deleted_count = 0
     deleted_size = 0
 
-    if not TRACE_DIR.exists():
+    if not trace_dir.exists():
         return {"deleted_files": 0, "deleted_size_mb": 0.0}
 
-    for trace_file in TRACE_DIR.glob("*.jsonl"):
+    for trace_file in trace_dir.glob("*.jsonl"):
+        if trace_file.name == "cleanup_audit.jsonl":
+            continue
         try:
             file_time = datetime.fromtimestamp(trace_file.stat().st_mtime)
-            if file_time < cutoff:
+            file_cutoff = debug_cutoff if trace_file.name.startswith("debug-") else cutoff
+            if file_time < file_cutoff:
                 deleted_size += trace_file.stat().st_size
                 trace_file.unlink()
                 deleted_count += 1
@@ -107,17 +201,18 @@ def cleanup_expired_traces(retention_days: int = None) -> dict:
             continue
 
     # Write audit entry
-    audit_file = TRACE_DIR / "cleanup_audit.jsonl"
+    audit_file = trace_dir / "cleanup_audit.jsonl"
     audit_entry = {
-        "timestamp": datetime.now().isoformat(),
+        "timestamp": now.isoformat(),
         "action": "trace_cleanup",
         "retention_days": retention_days,
+        "debug_retention_days": debug_retention_days,
         "deleted_files": deleted_count,
         "deleted_size_mb": round(deleted_size / 1024 / 1024, 2),
     }
 
     try:
-        TRACE_DIR.mkdir(parents=True, exist_ok=True)
+        trace_dir.mkdir(parents=True, exist_ok=True)
         with open(audit_file, "a", encoding="utf-8") as f:
             f.write(json.dumps(audit_entry, ensure_ascii=False) + "\n")
     except OSError:

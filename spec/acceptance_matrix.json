@@ -61,7 +61,13 @@
     "RT-046",
     "RT-047",
     "RT-048",
-    "RT-049"
+    "RT-049",
+    "RT-050",
+    "RT-051",
+    "RT-052",
+    "RT-053",
+    "RT-054",
+    "RT-055"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -71,6 +77,8 @@
     "benchmark_phase03": "qa-backend/tests_benchmark_phase03.py",
     "remediation_phase04": "qa-backend/tests_remediation_phase04.py",
     "benchmark_phase04": "qa-backend/tests_benchmark_phase04.py",
+    "remediation_phase05": "qa-backend/tests_remediation_phase05.py",
+    "benchmark_phase05": "qa-backend/tests_benchmark_phase05.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py"
   },
@@ -16802,6 +16810,68 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "ticket_id": "RT-050",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-050.DOD-01","description":"relation-critical Graph and optional Graph have different request-aware failure behavior","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-050.DOD-02","description":"Grader, grounding, entailment, and verifier failures cannot silently skip into support","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-050.DOD-03","description":"query-snippet grounding fallback does not exist","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-050.DOD-04","description":"all live capability failures have explicit policy and unknown capabilities fail safe","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-050.DOD-05","description":"degraded_capabilities reflects actual production request behavior and prevents false SUPPORTED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]}
+      ]
+    },
+    {
+      "ticket_id": "RT-051",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-051.DOD-01","description":"client disconnect stops useful request work on the real SSE path","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"e2e","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-051"}]},
+        {"dod_id":"RT-051.DOD-02","description":"late results cannot mutate a cancelled request","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-051.DOD-03","description":"all request resource slots are released after cancellation or failure","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"e2e","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-051"}]},
+        {"dod_id":"RT-051.DOD-04","description":"abandoned non-cancellable calls are visible in request-correlated telemetry","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
+      ]
+    },
+    {
+      "ticket_id": "RT-052",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-052.DOD-01","description":"every live stage is bounded by the versioned RuntimeSafety profile","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-052.DOD-02","description":"the total request deadline actually bounds stage execution","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-052.DOD-03","description":"no retry is attempted after cancellation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-052.DOD-04","description":"retry count is bounded and remaining query budget is enforced","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-052.DOD-05","description":"a timed-out or failed factual draft is never emitted","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]}
+      ]
+    },
+    {
+      "ticket_id": "RT-053",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-053.DOD-01","description":"the admission queue is finite and rejects overflow","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-053.DOD-02","description":"client overload 429 with Retry-After is distinguishable from required-backend 503","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-053.DOD-03","description":"active and queued admission counters return to zero after a burst","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-053.DOD-04","description":"cancellation, including while queued, leaks no semaphore or admission slot","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
+      ]
+    },
+    {
+      "ticket_id": "RT-054",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-054.DOD-01","description":"50 concurrent actual API requests have zero cross-request sentinel leakage","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]},
+        {"dod_id":"RT-054.DOD-02","description":"Trace, pinned manifest, and evidence remain request-correct under concurrent actual API execution","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"},{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]},
+        {"dod_id":"RT-054.DOD-03","description":"stress completion and a 51st follow-up leave no request state or resource leak","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"},{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]}
+      ]
+    },
+    {
+      "ticket_id": "RT-055",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {"dod_id":"RT-055.DOD-01","description":"secret keys and secret-looking values never persist in production Trace or audit files","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-055.DOD-02","description":"default production Trace stores no raw sensitive query, prompt, answer, context, history, or package text","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-055.DOD-03","description":"replay-required manifest, identity-snapshot, and state-machine version references survive redaction","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-055.DOD-04","description":"full-text debug access requires server authority and secure storage and has shorter retention","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
+        {"dod_id":"RT-055.DOD-05","description":"deterministic expiry and idempotent cleanup retain a secret-free audit record","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
       ]
     }
   ]
