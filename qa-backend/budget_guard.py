@@ -14,6 +14,7 @@ can be gracefully degraded without affecting answer status.
 """
 from enum import Enum
 from typing import Optional
+from runtime_safety import FailureClass, decide_failure
 
 
 # Components that are correctness-critical
@@ -78,6 +79,46 @@ def check_budget(
 def is_correctness_critical(component: str) -> bool:
     """Check if a component is correctness-critical."""
     return component in CORRECTNESS_CRITICAL
+
+
+def check_request_budget(
+    component: str,
+    budget_ok: bool,
+    *,
+    requirement_critical: bool = False,
+    alternative_evidence_sufficient: bool = False,
+    safe_fallback_available=None,
+) -> dict:
+    """Request-aware budget decision for the canonical factual path.
+
+    Static ``CORRECTNESS_CRITICAL`` remains a compatibility API.  Production
+    Phase05 callers use requirement criticality: graph/workers/conflict/gaps
+    may be optional for one request and correctness-critical for another.
+    Budget exhaustion never authorizes support or a legacy bypass.
+    """
+    if budget_ok:
+        return {
+            "decision": BudgetDecision.PROCEED.value,
+            "should_call": True,
+            "terminal_upper_bound": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+            "reason_code": "RUNTIME_BUDGET_AVAILABLE",
+        }
+    decision = decide_failure(
+        component, FailureClass.INTERNAL_EXCEPTION,
+        requirement_critical=(requirement_critical
+                              or component in CORRECTNESS_CRITICAL),
+        alternative_evidence_sufficient=alternative_evidence_sufficient,
+        safe_fallback_available=safe_fallback_available)
+    return {
+        "decision": decision.effect.value,
+        "should_call": False,
+        "terminal_upper_bound": (
+            "UNVERIFIED" if decision.correctness_critical
+            else "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+        "reason_code": "RUNTIME_QUERY_BUDGET_EXHAUSTED",
+        "fallback": decision.fallback,
+        "support_granted": False,
+    }
 
 
 # ══════════════════════════════════════════════════════════════════════════

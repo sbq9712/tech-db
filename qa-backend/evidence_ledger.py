@@ -34,6 +34,7 @@ Rules:
 import json
 from copy import deepcopy
 from typing import List, Dict, Optional
+from runtime_safety import canonical_relation_need
 
 
 REQ_SUPPORTED = "SUPPORTED"
@@ -69,7 +70,8 @@ class EvidenceLedger:
                     "numeric_conditions": list(req.get("numeric_conditions", [])),
                     "time_constraints": list(req.get("time_constraints", [])),
                     "scope_constraints": list(req.get("scope_constraints", [])),
-                    "relation_need": req.get("relation_need", "none"),
+                    "relation_need": canonical_relation_need(
+                        req.get("relation_need", "none")),
                     "comparison_object": req.get("comparison_object", ""),
                     "comparison_dimension": req.get("comparison_dimension", ""),
                     "searched_no_evidence": [],

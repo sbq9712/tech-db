@@ -40,6 +40,7 @@ import json
 import os
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
+from runtime_safety import canonical_relation_need
 
 SCHEMA_VERSION = "3.1.0"
 # Matches pool.py EVIDENCE_PACKAGE_SCHEMA_VERSION (single source bump
@@ -243,7 +244,7 @@ class EvidencePackage:
     conditions: List[ConditionRecord] = field(default_factory=list)
     mandatory_evidence_ids: List[str] = field(default_factory=list)
     capacity: dict = field(default_factory=dict)
-    degraded_capabilities: List[str] = field(default_factory=list)
+    degraded_capabilities: List[object] = field(default_factory=list)
     schema_version: str = SCHEMA_VERSION
     package_hash: str = ""
     gaps: List[str] = field(default_factory=list)
@@ -334,7 +335,8 @@ class EvidencePackageBuilder:
                 temporal_intent=str(r.get("temporal_intent") or
                                     r.get("temporal") or "unspecified"),
                 provenance_need=str(r.get("provenance_need") or "any"),
-                relation_need=str(r.get("relation_need") or "none"),
+                relation_need=canonical_relation_need(
+                    r.get("relation_need", "none")),
                 numeric_conditions=[str(v) for v in
                                     r.get("numeric_conditions") or []],
                 time_constraints=[str(v) for v in
@@ -620,7 +622,10 @@ class PackedGenerationView:
             "canonical_package_hash": self.canonical_package_hash,
             "selection_floor": self.selection_floor,
             "gaps": sorted(self.gaps),
-            "degraded_capabilities": sorted(self.degraded_capabilities),
+            "degraded_capabilities": sorted(
+                self.degraded_capabilities,
+                key=lambda value: json.dumps(
+                    value, ensure_ascii=False, sort_keys=True, default=str)),
             "included_evidence": {
                 eid: {
                     "text_sha256": hashlib.sha256(

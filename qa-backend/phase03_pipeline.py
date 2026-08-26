@@ -600,7 +600,8 @@ async def run_phase03_retrieval(*, query: str,
                                 rerank_capacity: int = RERANK_CAPACITY,
                                 mode_ctx: Optional[dict] = None,
                                 verified_premises: Optional[list] = None,
-                                worker_packets: Optional[list] = None) -> dict:
+                                worker_packets: Optional[list] = None,
+                                initial_degraded_capabilities: Optional[list] = None) -> dict:
     """Run the full Phase03 retrieval→package pipeline for one query.
 
     route_results: RAW per-route RetrievalResult lists (RT-030 run_routes)
@@ -691,7 +692,27 @@ async def run_phase03_retrieval(*, query: str,
                                     get_record_fn=get_record_fn,
                                     mode=mode)
     reranked = outcome.results
-    degraded = list(outcome.degraded)
+    degraded = list(initial_degraded_capabilities or [])
+    for item in outcome.degraded:
+        if item == "reranker":
+            from runtime_safety import FailureClass, decide_failure
+            failure = (FailureClass.TIMEOUT if outcome.fallback_reason ==
+                       "TimeoutError" else FailureClass.INTERNAL_EXCEPTION)
+            decision = decide_failure(
+                "reranker", failure, safe_fallback_available=True)
+            item = {
+                "capability": "reranker",
+                "failure_class": failure.value,
+                "reason_code": decision.reason_code,
+                "requirement_id": "",
+                "correctness_critical": False,
+                "fallback_used": decision.fallback,
+                "retry_count": 0,
+                "state_impact": decision.effect.value,
+                "terminal_upper_bound": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+            }
+        if item not in degraded:
+            degraded.append(item)
     rerank_engine = outcome.engine
 
     # ── 6. RT-034 GATE A — policy eligibility BEFORE selection ─────────────

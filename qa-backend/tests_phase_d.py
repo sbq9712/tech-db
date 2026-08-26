@@ -145,7 +145,8 @@ redacted = redact_trace(trace_record)
 test("api_key redacted", redacted["api_key"] == "***REDACTED***")
 test("ZAI_API_KEY redacted", redacted["ZAI_API_KEY"] == "***REDACTED***")
 test("nested password redacted", redacted["data"]["password"] == "***REDACTED***")
-test("query preserved", redacted["query"] == "test query")
+test("query privacy projection", redacted["query"]["raw_retained"] is False
+     and redacted["query"]["length"] == len("test query"))
 
 # Test no secrets
 secret_check = verify_no_secrets()

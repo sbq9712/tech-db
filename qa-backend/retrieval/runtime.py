@@ -30,6 +30,13 @@ from typing import Optional
 
 import numpy as np
 
+
+class RouteResults(dict):
+    """Backward-compatible route mapping with typed degradation metadata."""
+    def __init__(self, *args, degraded_capabilities=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.degraded_capabilities = list(degraded_capabilities or [])
+
 REPO = Path(__file__).resolve().parent.parent.parent
 WORKING_DIR = None  # resolved lazily from config (avoids import-order cycles)
 INDEX_FILE = None
@@ -512,7 +519,9 @@ def route_fetch_caps(route_top_k=None) -> dict:
 
 
 async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = None,
-                     embed_fn=None, pipeline=None, route_top_k=None) -> dict:
+                     embed_fn=None, pipeline=None, route_top_k=None,
+                     relation_critical: bool = False,
+                     relation_requirement_ids: list[str] | None = None) -> dict:
     """Phase03 high-recall per-route retrieval (RT-031 pool source).
 
     Runs vector / BM25 / graph routes at HIGH-RECALL per-route fetch caps
@@ -538,13 +547,52 @@ async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = Non
                              else legacy_pipeline())
 
     caps = route_fetch_caps(route_top_k)
-    qv = await embed_query(query, embed_fn=embed_fn)
-    qv = qv / max(np.linalg.norm(qv), 1e-8)
-    vec_res = vr.search(qv, top_k=caps["vector"])
-    bm25_res, graph_res = await asyncio.gather(
+    from runtime_safety import (FailureClass, classify_exception,
+                                decide_failure)
+    degraded = []
+
+    async def _vector():
+        qv = await embed_query(query, embed_fn=embed_fn)
+        qv = qv / max(np.linalg.norm(qv), 1e-8)
+        return vr.search(qv, top_k=caps["vector"])
+
+    vec_res, bm25_res, graph_res = await asyncio.gather(
+        _vector(),
         asyncio.to_thread(br.search, query, caps["bm25"]),
         asyncio.to_thread(gr.search, query, caps["graph"]),
-    )
+        return_exceptions=True)
+    rows = {
+        "vector_search": vec_res,
+        "bm25_search": bm25_res,
+        "graph_search": graph_res,
+    }
+    for capability, value in list(rows.items()):
+        if not isinstance(value, BaseException):
+            continue
+        decision = decide_failure(
+            capability, classify_exception(value),
+            requirement_critical=(relation_critical and
+                                  capability == "graph_search"))
+        requirement_ids = (relation_requirement_ids or [""]) \
+            if capability == "graph_search" else [""]
+        for requirement_id in requirement_ids:
+            degraded.append({
+                "capability": capability,
+                "failure_class": decision.failure_class.value,
+                "reason_code": decision.reason_code,
+                "requirement_id": requirement_id,
+                "correctness_critical": decision.correctness_critical,
+                "fallback_used": decision.fallback,
+                "retry_count": 0,
+                "state_impact": decision.effect.value,
+                "terminal_upper_bound": (
+                    "UNVERIFIED" if decision.effect.value == "UNVERIFIED"
+                    else "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+            })
+        rows[capability] = []
+    vec_res = rows["vector_search"]
+    bm25_res = rows["bm25_search"]
+    graph_res = rows["graph_search"]
 
     def _true_ranks(res):
         # TRUE per-route rank: 1-based list position of the route's own
@@ -562,7 +610,7 @@ async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = Non
             routes[name] = [r for r in res
                             if r.record_id not in exclude_ids
                             and getattr(r, "legacy_idx", None) not in exclude_ids]
-    return routes
+    return RouteResults(routes, degraded_capabilities=degraded)
 
 
 def _meta_lookup(snapshot=None) -> dict:

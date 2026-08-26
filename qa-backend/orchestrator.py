@@ -51,6 +51,9 @@ from budget_guard import (
     spend_or_raise,
 )
 from router import heuristic_needed
+from runtime_safety import (BudgetClass, FailureClass, FailureEffect,
+                            RequestCancelled, StageExecutionError,
+                            decide_failure)
 
 
 def _build_provenance_map(candidates: list, records_by_id: dict = None) -> dict:
@@ -124,6 +127,29 @@ def _normalize_for_selector(candidates: list) -> list:
             "rerank_score": c.get("rerank_score", round(1.0 / (pos + 2), 4)),
         })
     return out
+
+
+def reconcile_relation_degradations(degraded_capabilities: list,
+                                    ledger_status: dict) -> None:
+    """Reconcile Graph diagnostics only after canonical Ledger support."""
+    supported_requirement_ids = {
+        str(row.get("id") or "")
+        for row in ledger_status.get("requirements", [])
+        if row.get("status") == "SUPPORTED"}
+    for degradation in degraded_capabilities:
+        if (isinstance(degradation, dict)
+                and degradation.get("capability") == "graph_search"
+                and degradation.get("requirement_id")
+                in supported_requirement_ids):
+            degradation.update({
+                "reason_code":
+                    "RUNTIME_RELATION_ALTERNATIVE_EVIDENCE_RECHECKED",
+                "fallback_used": "canonical_alternative_relation_evidence",
+                "state_impact": FailureEffect.CONTINUE_RECHECK.value,
+                "terminal_upper_bound":
+                    "SUPPORTED_IF_CANONICAL_GATES_PASS",
+                "canonical_recheck": "SUPPORTED",
+            })
 
 
 @dataclass
@@ -512,6 +538,7 @@ async def _run_canonical_phase04(
     planner_fn: Optional[Callable] = None,
     worker_fn: Optional[Callable] = None,
     semantic_grader_fn: Optional[Callable] = None,
+    execution_context=None,
 ) -> ResearchState:
     """Production-capable Phase04 orchestration over the accepted Phase03 chain.
 
@@ -532,6 +559,8 @@ async def _run_canonical_phase04(
     state = ResearchState(
         query=query, original_query=query,
         rewritten_query=rr.rewritten_query,
+        request_id=(execution_context.request_id if execution_context else
+                    str(uuid.uuid4())),
         trace_id=getattr(trace, "trace_id", ""),
         manifest_id=str(runtime_identity.get("manifest_id") or "legacy-runtime-v1"),
         profile=str(runtime_identity.get("profile") or active_profile() or "unconfigured"),
@@ -541,21 +570,64 @@ async def _run_canonical_phase04(
                            for p in (verified_premises or [])],
         budget=QueryBudget(bypassed=bypass_budget),
     )
+    if execution_context is not None:
+        execution_context.query_budget = state.budget
+
+    def _record_runtime_degradation(capability, exc,
+                                    *, requirement_critical=False,
+                                    safe_fallback_available=None):
+        if execution_context is not None and execution_context.degraded_capabilities:
+            row = execution_context.degraded_capabilities[-1]
+        else:
+            decision = decide_failure(
+                capability, FailureClass.INTERNAL_EXCEPTION,
+                requirement_critical=requirement_critical,
+                safe_fallback_available=safe_fallback_available)
+            row = {
+                "capability": decision.capability,
+                "failure_class": decision.failure_class.value,
+                "reason_code": decision.reason_code,
+                "requirement_id": "",
+                "correctness_critical": decision.correctness_critical,
+                "fallback_used": decision.fallback,
+                "retry_count": 0,
+                "state_impact": decision.effect.value,
+                "terminal_upper_bound": (
+                    "UNVERIFIED" if decision.effect == FailureEffect.UNVERIFIED
+                    else "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+            }
+        if row not in state.degraded_capabilities:
+            state.degraded_capabilities.append(row)
+        trace.add_stage("runtime_degradation", row)
+        return row
     state.stage_calls.append("rewrite_semantic_diff")
     trace.add_stage("rewrite_integrity", state.rewrite_result)
 
     try:
         if Flags.ROUTER_ENABLED:
-            if heuristic_needed(query):
-                spend_or_raise(state.budget, "router_llm")
-            state.router_result = await route_query(query, rr.rewritten_query)
+            router_budget_class = (BudgetClass.LOOP if heuristic_needed(query)
+                                   else BudgetClass.NONE)
+            if execution_context is not None:
+                state.router_result = await execution_context.run_stage(
+                    "router", lambda: route_query(query, rr.rewritten_query),
+                    safe_fallback_available=True,
+                    budget_class=router_budget_class)
+            else:
+                if router_budget_class == BudgetClass.LOOP:
+                    spend_or_raise(state.budget, "router_llm")
+                state.router_result = await route_query(query, rr.rewritten_query)
         else:
             state.router_result = _fallback_route(query)
+    except (asyncio.CancelledError, RequestCancelled):
+        raise
     except Exception as exc:
         state.router_result = _fallback_route(query)
-        state.degraded_capabilities.append("router_deterministic_fallback")
+        _record_runtime_degradation(
+            "router", exc, safe_fallback_available=True)
         state.router_result["diagnostic"] = str(exc)[:160]
     state.mode = str(state.router_result.get("mode") or "FAST_RAG")
+    if execution_context is not None:
+        execution_context.mode = state.mode
     state.stage_calls.append("router")
     trace.add_stage("router", state.router_result)
 
@@ -572,21 +644,48 @@ async def _run_canonical_phase04(
         raw_plan = None
         try:
             if planner_fn is not None:
-                raw_plan = await _maybe_await(planner_fn(
+                call = lambda: _maybe_await(planner_fn(
                     rr.rewritten_query, question_type, state.verified_premises))
+                raw_plan = (await execution_context.run_stage(
+                    "planner", call, safe_fallback_available=True)
+                    if execution_context is not None else await call())
             else:
-                spend_or_raise(state.budget, "decompose")
-                raw_plan = await decompose_query(
+                call = lambda: decompose_query(
                     rr.rewritten_query, question_type,
                     context=json.dumps(state.verified_premises,
                                        ensure_ascii=False)[:1000])
+                if execution_context is not None:
+                    raw_plan = await execution_context.run_stage(
+                        "planner", call, safe_fallback_available=True,
+                        query_budget_cost=1)
+                else:
+                    spend_or_raise(state.budget, "decompose")
+                    raw_plan = await call()
+        except (asyncio.CancelledError, RequestCancelled):
+            raise
         except Exception as exc:
             raw_plan = {"planner_error": str(exc)}
-            state.degraded_capabilities.append("planner_deterministic_fallback")
+            _record_runtime_degradation(
+                "planner", exc, safe_fallback_available=True)
         plan_result = validate_planner_output(raw_plan, rr.rewritten_query,
                                               question_type)
         if plan_result.fallback_used:
-            state.degraded_capabilities.append("planner_deterministic_fallback")
+            if not any(isinstance(d, dict) and
+                       d.get("capability") == "planner"
+                       for d in state.degraded_capabilities):
+                decision = decide_failure(
+                    "planner", FailureClass.MALFORMED_MODEL_OUTPUT,
+                    safe_fallback_available=True)
+                row = execution_context.add_degradation(decision) \
+                    if execution_context is not None else {
+                        "capability": "planner",
+                        "failure_class": "MALFORMED_MODEL_OUTPUT",
+                        "reason_code": "RUNTIME_DETERMINISTIC_FALLBACK",
+                        "fallback_used": "deterministic_requirements",
+                        "state_impact": "SAFE_FALLBACK_RECHECK",
+                        "terminal_upper_bound": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+                    }
+                state.degraded_capabilities.append(row)
         state.stage_calls.append("planner")
     state.requirements = [r.to_dict() for r in plan_result.requirements]
     state.decomposition = plan_result.to_dict()
@@ -642,15 +741,17 @@ async def _run_canonical_phase04(
             if q not in state.all_queries:
                 state.all_queries.append(q)
         state.tool_calls += len(research_queries)
-        result = await evidence_pipeline_fn(
+        evidence_call = lambda: evidence_pipeline_fn(
             query=rr.rewritten_query,
             research_queries=list(state.all_queries),
             requirements=list(state.requirements),
             mode=state.mode,
             verified_premises=list(verified_premises or []),
             access_scope=state.access_scope,
-            worker_packets=[],
-        )
+            worker_packets=[])
+        result = (await execution_context.run_stage(
+            "retrieval", evidence_call, requirement_critical=True)
+            if execution_context is not None else await evidence_call())
         state.phase03_result = result
         state.stage_calls.extend([
             "retrieval", "content_rerank", "evidence_policy",
@@ -677,9 +778,13 @@ async def _run_canonical_phase04(
         if confirm_workers and worker_fn is not None and view is not None \
                 and not state.worker_packets:
             try:
-                packets = await _maybe_await(worker_fn(
+                worker_call = lambda: _maybe_await(worker_fn(
                     state=state, view=view,
                     requirements=list(state.requirements)))
+                packets = (await execution_context.run_stage(
+                    "multi_document_worker", worker_call,
+                    requirement_critical=True)
+                    if execution_context is not None else await worker_call())
                 state.worker_packets = [p.to_dict() if hasattr(p, "to_dict")
                                         else dict(p) for p in packets]
                 state.stage_calls.append("multi_document_workers")
@@ -687,15 +792,19 @@ async def _run_canonical_phase04(
                 # typed packets.  This is the sole worker-to-generator path:
                 # worker prose is absent; exact refs are revalidated against
                 # the same pinned snapshots before Ledger/package use.
-                result = await evidence_pipeline_fn(
+                worker_evidence_call = lambda: evidence_pipeline_fn(
                     query=rr.rewritten_query,
                     research_queries=list(state.all_queries),
                     requirements=list(state.requirements),
                     mode=state.mode,
                     verified_premises=list(verified_premises or []),
                     access_scope=state.access_scope,
-                    worker_packets=list(packets),
-                )
+                    worker_packets=list(packets))
+                result = (await execution_context.run_stage(
+                    "retrieval", worker_evidence_call,
+                    requirement_critical=True)
+                    if execution_context is not None
+                    else await worker_evidence_call())
                 state.phase03_result = result
                 trace.add_stage(
                     f"phase04_worker_evidence_round{round_number}",
@@ -705,11 +814,16 @@ async def _run_canonical_phase04(
                 # prose) are advisory.  They never update the Ledger
                 # directly; only the canonical policy-cleared final view
                 # below can establish requirement support.
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as exc:
-                state.degraded_capabilities.append("multi_document_worker_failed")
+                row = _record_runtime_degradation(
+                    "multi_document_worker", exc,
+                    requirement_critical=True)
                 for req in state.requirements:
                     state.ledger.record_degradation(
-                        req["id"], "multi_document_worker_failed")
+                        req["id"], row.get("reason_code",
+                                           "RUNTIME_WORKER_ISOLATED_RECHECK"))
                 trace.add_stage("multi_document_workers", {
                     "status": "FAILED", "error": str(exc)[:160]})
 
@@ -789,6 +903,13 @@ async def _run_canonical_phase04(
             and ledger_status.get("conflicted", 0) == 0
             and all(r.get("status") == "SUPPORTED"
                     for r in ledger_status.get("requirements", [])))
+        # Graph availability is not itself a support authority.  A relation
+        # failure begins fail-safe for only its bound requirement; when the
+        # canonical policy/package/Ledger later proves that same requirement
+        # through independently approved typed evidence, reconcile the
+        # diagnostic so it does not contradict the terminal state.
+        reconcile_relation_degradations(
+            state.degraded_capabilities, ledger_status)
         _req_statuses = [r.get("status") for r in
                          ledger_status.get("requirements", [])]
         partial = (any(s == "PARTIAL" for s in _req_statuses)
@@ -805,18 +926,29 @@ async def _run_canonical_phase04(
         if semantic_required:
             try:
                 if semantic_grader_fn is None:
-                    grade = await grade_evidence(
+                    grade_call = lambda: grade_evidence(
                         query, state.ledger, state.selected_evidence,
                         state.router_result,
                         provenance_map=state.provenance_map)
                 else:
-                    grade = await _maybe_await(semantic_grader_fn(
+                    grade_call = lambda: _maybe_await(semantic_grader_fn(
                         query, ledger_status, state.selected_evidence))
+                grade = (await execution_context.run_stage(
+                    "evidence_grader", grade_call,
+                    requirement_critical=True,
+                    safe_fallback_available=False,
+                    query_budget_cost=1)
+                    if execution_context is not None else await grade_call())
                 semantic_status = str((grade or {}).get("overall") or
                                       "TECHNICAL_FAILURE")
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as exc:
                 semantic_status = "TECHNICAL_FAILURE"
-                state.degraded_capabilities.append("semantic_grader_failed")
+                _record_runtime_degradation(
+                    "evidence_grader", exc,
+                    requirement_critical=True,
+                    safe_fallback_available=False)
                 trace.add_stage("semantic_grader", {
                     "status": semantic_status, "error": str(exc)[:160]})
         state.grader_result = {
@@ -871,11 +1003,28 @@ async def _run_canonical_phase04(
 
     if not state.stop_reason:
         state.stop_reason = "max_rounds"
+    # A route/worker technical failure may continue only while remaining
+    # evidence is rechecked by the canonical policy chain.  If that recheck
+    # does not establish every critical requirement, absence is unknown due
+    # to technical inability—not semantic NO_EVIDENCE.
+    unresolved_runtime_technical = (
+        not deterministic_sufficient and any(
+            isinstance(row, dict)
+            and row.get("capability") in {
+                "vector_search", "bm25_search", "retrieval",
+                "graph_search", "multi_document_worker",
+            }
+            and row.get("failure_class") not in {
+                FailureClass.SEMANTIC_NO_EVIDENCE.value,
+                FailureClass.HARD_POLICY_REJECTION.value,
+            }
+            for row in state.degraded_capabilities))
     boundary = build_knowledge_boundary(
         state.ledger.get_status(), state.stop_reason,
-        technical_failure=(state.grader_result.get("required") and
-                           state.grader_result.get("overall") ==
-                           "TECHNICAL_FAILURE"))
+        technical_failure=(
+            unresolved_runtime_technical or
+            (state.grader_result.get("required") and
+             state.grader_result.get("overall") == "TECHNICAL_FAILURE")))
     state.knowledge_boundary = boundary.to_dict()
     state.answer_status = boundary.answer_status
     if last_hard_fail and state.answer_status == "SUPPORTED":
@@ -885,6 +1034,17 @@ async def _run_canonical_phase04(
             "message": "确定性证据策略存在 HARD_FAIL；语义 Grader 不能覆盖该失败。",
         })
     state.stage_calls.append("knowledge_boundary")
+    if execution_context is not None:
+        for row in execution_context.degraded_capabilities:
+            if row not in state.degraded_capabilities:
+                state.degraded_capabilities.append(row)
+        trace.add_stage("runtime_safety", {
+            "profile_version": execution_context.profile.version,
+            "request_id": execution_context.request_id,
+            "retry_events": list(execution_context.retry_events),
+            "degraded_capabilities": list(state.degraded_capabilities),
+            "remaining_ms": round(execution_context.remaining() * 1000, 1),
+        })
     trace.add_stage("phase04_final_state", state.to_dict())
     return state
 
@@ -905,6 +1065,7 @@ async def run_agentic_loop(
     planner_fn: Optional[Callable] = None,
     worker_fn: Optional[Callable] = None,
     semantic_grader_fn: Optional[Callable] = None,
+    execution_context=None,
 ) -> ResearchState:
     """Canonical public entrypoint.
 
@@ -922,4 +1083,5 @@ async def run_agentic_loop(
         rewrite_result=rewrite_result, verified_premises=verified_premises,
         runtime_identity=runtime_identity, access_scope=access_scope,
         planner_fn=planner_fn, worker_fn=worker_fn,
-        semantic_grader_fn=semantic_grader_fn)
+        semantic_grader_fn=semantic_grader_fn,
+        execution_context=execution_context)

@@ -25,7 +25,7 @@ import re
 import time as _time
 from pathlib import Path
 from datetime import datetime
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 
 # Add paths
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -68,6 +68,13 @@ from degraded_mode import build_user_warning, looks_like_api_failure
 from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
+from runtime_safety import (
+    AdmissionController, AdmissionOutcome, BudgetClass,
+    RequestExecutionContext,
+    RequestCancelled, StageExecutionError, bind_request_context,
+    reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
+    relation_requirement_ids,
+)
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -189,6 +196,12 @@ GUARDRAILS = GuardrailSettings()
 RATE_LIMITER = RateLimiter(GUARDRAILS)
 BUDGET_FUSE = BudgetFuse(GUARDRAILS, RUNTIME_DIR / "state" / "usage.json")
 CHAT_SEMAPHORE = asyncio.Semaphore(GUARDRAILS.concurrency)
+CHAT_ADMISSION = AdmissionController(
+    active_limit=GUARDRAILS.concurrency,
+    queue_capacity=int(os.environ.get("QA_CHAT_QUEUE_CAPACITY", "8")),
+    retry_after=int(os.environ.get("QA_CHAT_RETRY_AFTER", "5")),
+    semaphore=CHAT_SEMAPHORE,
+)
 
 
 # Route/search functions and index loaders now live in retrieval/runtime.py
@@ -928,10 +941,18 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         if q and q not in queries:
             queries.append(q)
     route_batches = []
+    relation_ids = relation_requirement_ids(requirements)
     for research_query in queries:
         route_batches.append(await _rt.run_routes(
             research_query, snapshot=pinned, exclude_ids=exclude_ids,
-            embed_fn=embedding_func, pipeline=_get_retrieval_pipeline()))
+            embed_fn=embedding_func, pipeline=_get_retrieval_pipeline(),
+            relation_critical=bool(relation_ids),
+            relation_requirement_ids=relation_ids))
+    route_degraded = []
+    for batch in route_batches:
+        for row in getattr(batch, "degraded_capabilities", []):
+            if row not in route_degraded:
+                route_degraded.append(row)
     route_results = {}
     from retrieval.vector import RetrievalResult
     for route in sorted({name for batch in route_batches for name in batch}):
@@ -975,6 +996,7 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         access_scope=access_scope or "public",
         verified_premises=verified_premises,
         worker_packets=worker_packets,
+        initial_degraded_capabilities=route_degraded,
     )
 
 
@@ -1281,6 +1303,10 @@ async def health():
         # TK-09 (codex-review P2): LLM HTTP calls abandoned by TTFB-guard
         # timeouts — bounded executor + socket timeout keeps the tail short
         "llm_http_abandoned": llm_abandoned_stats(),
+        "runtime_safety": {
+            "profile_version": RUNTIME_SAFETY_PROFILE_VERSION,
+            "admission": CHAT_ADMISSION.snapshot(),
+        },
         "time": datetime.now().isoformat(),
     }
 
@@ -1295,6 +1321,16 @@ async def chat_stream(req: ChatRequest, request: Request):
             {"error": "问题不能为空，且长度不能超过 2000 个字符。"}, status_code=400
         )
 
+    # Required backend availability is an infrastructure condition, not a
+    # client quota.  Decide it before SSE headers and report HTTP 503.
+    if _request_runtime_snapshot.get() is None and _vector_index is None:
+        CHAT_ADMISSION.record_backend_unavailable()
+        return JSONResponse(
+            {"error": "required retrieval backend unavailable",
+             "reason_code": "RUNTIME_REQUIRED_BACKEND_UNAVAILABLE"},
+            status_code=503,
+        )
+
     bypass = admin_bypass(GUARDRAILS.admin_key, request.headers.get("x-admin-key"))
     socket_ip = request.client.host if request.client else "unknown"
     client_id = client_identifier(request.headers, socket_ip)
@@ -1306,17 +1342,56 @@ async def chat_stream(req: ChatRequest, request: Request):
             headers={"Retry-After": str(retry_after)},
         )
 
-    try:
-        await asyncio.wait_for(CHAT_SEMAPHORE.acquire(), timeout=0.05)
-    except asyncio.TimeoutError:
+    execution = RequestExecutionContext(mode="FAST")
+    admission = await CHAT_ADMISSION.acquire(
+        execution, disconnect_checker=request.is_disconnected,
+        wait_timeout=float(os.environ.get("QA_CHAT_QUEUE_WAIT_TIMEOUT", "5")))
+    if admission == AdmissionOutcome.QUEUE_FULL:
         return JSONResponse(
-            {"error": "当前问答请求较多，请稍后重试。", "retry_after": 5},
+            {"error": "当前问答请求较多，请稍后重试。",
+             "retry_after": CHAT_ADMISSION.retry_after,
+             "reason_code": "RUNTIME_ADMISSION_QUEUE_FULL"},
             status_code=429,
-            headers={"Retry-After": "5"},
+            headers={"Retry-After": str(CHAT_ADMISSION.retry_after)},
+        )
+    if admission == AdmissionOutcome.CANCELLED_WHILE_QUEUED:
+        return JSONResponse(
+            {"error": "client disconnected while queued",
+             "reason_code": "RUNTIME_CANCELLED_WHILE_QUEUED"},
+            status_code=499,
         )
 
     async def event_generator():
-        trace = TraceContext.create(query, req.conversation_id)
+        identity = _runtime_identity()
+        trace = TraceContext.create(
+            query, req.conversation_id, request_id=execution.request_id,
+            profile=identity.get("profile", ""),
+            manifest_id=identity.get("manifest_id", ""),
+            identity_snapshot_id=identity.get("identity_snapshot_id", ""))
+        execution.trace_id = trace.trace_id
+        trace.add_stage("runtime_request", {
+            "request_id": execution.request_id,
+            "profile_version": execution.profile.version,
+            "manifest_id": identity.get("manifest_id", ""),
+            "degraded_capabilities": [],
+            "deadline_ms": round(execution.remaining() * 1000, 1),
+            "admission": "ADMITTED",
+        })
+        context_token = bind_request_context(execution)
+        disconnect_task = None
+
+        async def _watch_disconnect():
+            while execution.active:
+                if await request.is_disconnected():
+                    execution.cancel("sse_client_disconnect")
+                    trace.add_stage("request_cancellation", {
+                        "reason_code": "RUNTIME_SSE_CLIENT_DISCONNECT",
+                        "request_id": execution.request_id,
+                    })
+                    return
+                await asyncio.sleep(0.05)
+
+        disconnect_task = asyncio.create_task(_watch_disconnect())
         try:
             # Step 1: Retrieval
             yield {"event": "status", "data": json.dumps({
@@ -1324,11 +1399,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "message": "正在检索相关知识..."
             })}
 
-            if (_request_runtime_snapshot.get() is None and _vector_index is None):
-                yield {"event": "error", "data": json.dumps({
-                    "message": "向量索引尚未构建。请运行: python qa-backend/vector_index.py"
-                })}
-                return
+            execution.check_active()
 
             # TK-09 (codex-review P1): TTFB 口径 = rewrite + retrieval + control
             # (all pre-first-answer-byte backend work) — the guard clock starts
@@ -1344,7 +1415,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                 req.conversation_id, query)
 
             # Rewrite follow-up query + detect novelty intent (single LLM call)
-            search_query, seeking_novelty, _reason = await rewrite_query(query, req.history)
+            try:
+                search_query, seeking_novelty, _reason = await execution.run_stage(
+                    "rewrite", lambda: rewrite_query(query, req.history),
+                    safe_fallback_available=True)
+            except StageExecutionError:
+                # The accepted deterministic rewrite validator remains the
+                # fallback authority; raw assistant prose still cannot bind.
+                search_query, seeking_novelty, _reason = query, False, \
+                    "runtime_deterministic_rewrite_fallback"
             from query_integrity import (build_rewrite_authority,
                                          build_rewrite_result)
             rewrite_authority = build_rewrite_authority(
@@ -1482,6 +1561,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 worker_fn=(
                                     _phase04_worker_packets
                                     if Flags.EVIDENCE_PACKAGE_ENABLED else None),
+                                execution_context=execution,
                             ),
                             timeout=_remaining_s,
                         )
@@ -1552,7 +1632,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                     print(f"[agentic] Orchestrator error, falling back: {e}", flush=True)
                     import traceback
                     traceback.print_exc()
-                    if isinstance(e, Phase03AuthorityError):
+                    authority_error = (
+                        e if isinstance(e, Phase03AuthorityError) else
+                        e.cause if isinstance(e, StageExecutionError)
+                        and isinstance(e.cause, Phase03AuthorityError) else None)
+                    if authority_error is not None:
                         # Preserve the reviewed Phase03 authority-specific
                         # terminal contract below; do not collapse it into a
                         # generic orchestrator technical failure.
@@ -1581,9 +1665,11 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Standard RAG path (only if agentic didn't run or failed)
             if not _agentic_succeeded:
                 # Hybrid search (vector + BM25 + graph → RRF)
-                search_results, is_relevant, search_status = await hybrid_search(
-                    search_query, exclude_ids=exclude_ids if exclude_ids else None
-                )
+                search_results, is_relevant, search_status = await execution.run_stage(
+                    "retrieval", lambda: hybrid_search(
+                        search_query,
+                        exclude_ids=exclude_ids if exclude_ids else None),
+                    requirement_critical=True)
                 trace.add_stage("retrieval_hybrid", {
                     "query": search_query[:200],
                     "result_count": len(search_results),
@@ -1789,8 +1875,9 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Yield citations — LEGACY PATH ONLY (RT-027: the Phase-02 path
             # buffers citations until exact grounding + verification finalize,
             # then emits only the verified ones)
-            if citations and not Flags.TERMINAL_RENDERER_ENABLED:
-                yield {"event": "citations", "data": json.dumps({"citations": citations})}
+            if not Flags.TERMINAL_RENDERER_ENABLED:
+                if citations:
+                    yield {"event": "citations", "data": json.dumps({"citations": citations})}
 
             # Step 2: Analysis
             yield {"event": "status", "data": json.dumps({
@@ -1881,37 +1968,74 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })
 
             full_answer = ""
-            try:
-                # Stream directly from LLM
-                async for chunk in llm_stream_func(
-                    prompt=query,
-                    system_prompt=system_prompt,
-                    history_messages=llm_history,
-                ):
-                    if chunk:
-                        full_answer += chunk
-                        if not Flags.TERMINAL_RENDERER_ENABLED:
-                            yield {"event": "token", "data": json.dumps({"text": chunk})}
-            except Exception as e:
-                # Fallback: non-streaming
-                print(f"[stream-fallback] {e}", flush=True)
+            if Flags.TERMINAL_RENDERER_ENABLED:
+                async def _buffer_generator_attempt():
+                    buffered = ""
+                    async for chunk in llm_stream_func(
+                        prompt=query, system_prompt=system_prompt,
+                        history_messages=llm_history):
+                        execution.check_active()
+                        if chunk:
+                            buffered += chunk
+                    if not buffered:
+                        raise RuntimeError("generator returned empty response")
+                    return buffered
                 try:
-                    answer = await llm_model_func(
-                        query,
-                        system_prompt=system_prompt,
-                        history_messages=llm_history,
-                    )
-                    if answer:
-                        full_answer = answer
-                        for i in range(0, len(answer), 3):
-                            if not Flags.TERMINAL_RENDERER_ENABLED:
-                                yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
-                            await asyncio.sleep(0.015)
-                except Exception as e2:
+                    full_answer = await execution.run_stage(
+                        "generator", _buffer_generator_attempt,
+                        requirement_critical=True,
+                        safe_fallback_available=False,
+                        query_budget_cost=1)
+                except (StageExecutionError, RequestCancelled) as exc:
+                    trace.add_stage("generator_failure", {
+                        "reason_code": "RUNTIME_GENERATOR_FAILURE",
+                        "error": str(exc)[:160],
+                        "degraded_capabilities": execution.degraded_capabilities,
+                    })
                     yield {"event": "error", "data": json.dumps({
-                        "message": f"生成失败: {e2}"
+                        "message": "回答生成服务未能在安全时限内完成。",
+                        "answer_status": "UNVERIFIED",
+                        "stop_reason": "generator_failure",
+                        "degraded_capabilities": execution.degraded_capabilities,
+                        "trace_id": trace.trace_id,
                     })}
                     return
+            if not Flags.TERMINAL_RENDERER_ENABLED:
+                # Compatibility profile: stream once.  It may use the existing
+                # non-streaming model fallback, but cancellation/deadline still
+                # prevents late chunks from acquiring request authority.
+                try:
+                    async with asyncio.timeout(
+                            execution.stage_timeout("generator")):
+                        async for chunk in llm_stream_func(
+                            prompt=query, system_prompt=system_prompt,
+                            history_messages=llm_history):
+                            execution.check_active()
+                            if chunk:
+                                full_answer += chunk
+                                yield {"event": "token", "data": json.dumps({"text": chunk})}
+                except Exception as e:
+                    print(f"[stream-fallback] {e}", flush=True)
+                    try:
+                        answer = await execution.run_stage(
+                            "generator", lambda: llm_model_func(
+                                query, system_prompt=system_prompt,
+                                history_messages=llm_history),
+                            requirement_critical=True,
+                            safe_fallback_available=False)
+                        if answer:
+                            full_answer = answer
+                            for i in range(0, len(answer), 3):
+                                execution.check_active()
+                                yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
+                                await asyncio.sleep(0.015)
+                    except Exception as e2:
+                        yield {"event": "error", "data": json.dumps({
+                            "message": f"生成失败: {e2}",
+                            "answer_status": "UNVERIFIED",
+                            "degraded_capabilities": execution.degraded_capabilities,
+                        })}
+                        return
 
             # ══════════════════════════════════════════════════════════════
             # Phase 02 — RT-020..028 verification pipeline (terminal renderer)
@@ -1965,6 +2089,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     through the SAME request-pinned retrieval pipeline."""
                     if not (claim_text or "").strip():
                         return []
+                    execution.check_active()
                     try:
                         results, _rel = await _search_with_quality(claim_text, None)
                     except Exception:
@@ -2001,15 +2126,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                     retrieval dumps, synthetic summaries, ungrounded text
                     and generator reasoning are structurally absent. Failure
                     → None (repair keeps its deterministic answer)."""
+                    execution.check_active()
                     try:
                         from phase02_pipeline import render_repair_evidence_input
                         rendered = render_repair_evidence_input(evidence_package)
-                        return await llm_model_func(
-                            "根据以下可支持证据重写回答。只能使用证据包中的精确引用"
-                            "与确定性检查结果作为事实依据，不得引入证据之外的新事实，"
-                            "删除标记为缺乏支持的要点。\n\n" + rendered,
-                            system_prompt="你是严谨的技术问答助手，只输出重写后的回答。",
-                        )
+                        return await execution.run_stage(
+                            "repair", lambda: llm_model_func(
+                                "根据以下可支持证据重写回答。只能使用证据包中的精确引用"
+                                "与确定性检查结果作为事实依据，不得引入证据之外的新事实，"
+                                "删除标记为缺乏支持的要点。\n\n" + rendered,
+                                system_prompt="你是严谨的技术问答助手，只输出重写后的回答。"),
+                            requirement_critical=True,
+                            safe_fallback_available=True,
+                            budget_class=BudgetClass.NONE)
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception:
                         return None
 
@@ -2057,15 +2188,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                     pinned_provenance_map=_phase03_pinned_provenance,
                     strict_evidence_package=_phase03_active,
                     orchestration_constraint=_orchestration_constraint,
+                    execution_context=execution,
                 )
                 final_answer = p02["answer"]
 
-                _persist_conversation_result(
+                execution.commit_if_active(lambda: _persist_conversation_result(
                     conversation_id=req.conversation_id, query=query,
                     answer_status=p02["answer_status"],
                     claims=p02["claims_payload"],
                     citations=p02["citations"],
-                    searched_record_ids=searched_record_ids)
+                    searched_record_ids=searched_record_ids))
 
                 # Verified citations only (RT-020/027): INVALID-grounded
                 # citations were dropped inside the pipeline and never
@@ -2116,7 +2248,10 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "support_relations": {
                         str(c.get("id")): c.get("supports_claim_ids", [])
                         for c in p02["citations"]},
-                    "degraded_capabilities": p02["degraded_capabilities"],
+                    "degraded_capabilities": (
+                        list(p02["degraded_capabilities"])
+                        + [d for d in execution.degraded_capabilities
+                           if d not in p02["degraded_capabilities"]]),
                     "numeric_facts": p02["numeric_facts"],
                     "diagnostics": p02["diagnostics"],
                     "trace_id": trace.trace_id,
@@ -2130,6 +2265,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # loop-control class; these calls NEVER degrade the agentic path
                 # and also run on the legacy path (spec Q4/R3).
                 _pp_budget = QueryBudget()
+                execution.query_budget = _pp_budget
 
                 # ── T005: Fail-Safe Verification ──
                 # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
@@ -2145,8 +2281,20 @@ async def chat_stream(req: ChatRequest, request: Request):
 
                         if should_call:
                             print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                            _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
-                            vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
+                            _legacy_verify_attempt = 0
+
+                            async def _verify_legacy_once():
+                                nonlocal _legacy_verify_attempt
+                                _legacy_verify_attempt += 1
+                                return await verify_with_fail_safe(
+                                    query, full_answer, claim_metadata,
+                                    retry_owner="request_context",
+                                    attempt_number=_legacy_verify_attempt)
+
+                            vr = await execution.run_stage(
+                                "final_verifier", _verify_legacy_once,
+                                requirement_critical=True,
+                                safe_fallback_available=False)
                             verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
                             if verification_status == VERIFY_UNVERIFIED:
                                 verification_error = vr.failure_reason or "verification returned UNVERIFIED"
@@ -2175,6 +2323,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 "note": f"Verification skipped due to budget; answer marked {verification_status}",
                                 "budget_guard": decision.value,
                             })
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception as e:
                         # Any exception → UNVERIFIED, never PASS
                         verification_status = VERIFY_UNVERIFIED
@@ -2192,8 +2342,20 @@ async def chat_stream(req: ChatRequest, request: Request):
                     try:
                         claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                         if claim_budget_ok:
-                            _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
-                            claim_map = await map_claims_to_citations(query, full_answer, citations)
+                            _claim_mapping_attempt = 0
+
+                            async def _map_claims_once():
+                                nonlocal _claim_mapping_attempt
+                                _claim_mapping_attempt += 1
+                                return await map_claims_to_citations(
+                                    query, full_answer, citations,
+                                    retry_owner="request_context",
+                                    attempt_number=_claim_mapping_attempt)
+
+                            claim_map = await execution.run_stage(
+                                "claim_mapping", _map_claims_once,
+                                requirement_critical=True,
+                                safe_fallback_available=False)
                             # T048: attach span-level source lineage so independence
                             # is counted per claim/span (quotes of a primary source
                             # never count as independent verification). Deterministic,
@@ -2261,6 +2423,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 "total_claims": len(claim_map.get("claims", [])),
                                 "unsupported_major": len(get_unsupported_major_claims(claim_map)),
                             })
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception as e:
                         print(f"[claim_mapping] Error: {e}", flush=True)
                 # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
@@ -2446,14 +2610,67 @@ async def chat_stream(req: ChatRequest, request: Request):
 
                 trace.flush()
 
+        except asyncio.CancelledError:
+            execution.cancel("sse_stream_cancelled")
+            trace.add_stage("request_cancellation", {
+                "reason_code": "RUNTIME_SSE_STREAM_CANCELLED",
+                "request_id": execution.request_id,
+                "degraded_capabilities": execution.degraded_capabilities,
+            })
+            trace.set_result(answer_status="UNVERIFIED",
+                             stop_reason="client_disconnect")
+            trace.flush()
+            raise
+        except RequestCancelled as e:
+            trace.add_stage("request_cancellation", {
+                "reason_code": "RUNTIME_REQUEST_CANCELLED",
+                "error": str(e)[:120],
+            })
+            trace.set_result(answer_status="UNVERIFIED",
+                             stop_reason=execution.cancel_reason or
+                             "request_cancelled")
+            trace.flush()
+            if not await request.is_disconnected():
+                yield {"event": "error", "data": json.dumps({
+                    "message": "请求已取消或超过总时限。",
+                    "answer_status": "UNVERIFIED",
+                    "stop_reason": execution.cancel_reason or
+                    "request_cancelled",
+                    "degraded_capabilities": execution.degraded_capabilities,
+                    "trace_id": trace.trace_id,
+                })}
         except Exception as e:
             import traceback
             traceback.print_exc()
             trace.set_result(answer_status="UNVERIFIED", stop_reason="error", error=str(e)[:200])
             trace.flush()
-            yield {"event": "error", "data": json.dumps({"message": str(e)})}
+            if not execution.cancelled.is_set():
+                yield {"event": "error", "data": json.dumps({
+                    "message": str(e), "answer_status": "UNVERIFIED",
+                    "degraded_capabilities": execution.degraded_capabilities,
+                    "trace_id": trace.trace_id,
+                })}
         finally:
-            CHAT_SEMAPHORE.release()
+            # StreamingResponse may close an async generator with ``aclose``
+            # rather than injecting CancelledError.  The request scope still
+            # owns every child task, so finalization must revoke their
+            # authority and cancel useful work before releasing admission.
+            execution.cancel("request_scope_finalized")
+            if not trace._flushed:
+                trace.add_stage("request_cancellation", {
+                    "reason_code": "RUNTIME_REQUEST_SCOPE_FINALIZED",
+                    "request_id": execution.request_id,
+                })
+                trace.set_result(answer_status="UNVERIFIED",
+                                 stop_reason="request_scope_finalized")
+                trace.flush()
+            execution.close()
+            if disconnect_task is not None and not disconnect_task.done():
+                disconnect_task.cancel()
+                with suppress(asyncio.CancelledError):
+                    await disconnect_task
+            reset_request_context(context_token)
+            await CHAT_ADMISSION.release()
 
     return EventSourceResponse(event_generator())
 

@@ -20,6 +20,7 @@ import unicodedata
 from dataclasses import asdict, dataclass, field
 from typing import List, Tuple
 from config import llm_model_func
+from runtime_safety import relation_need_is_required
 
 
 GAP_TYPES = {
@@ -93,7 +94,7 @@ def derive_gaps(ledger_status: dict) -> List[ResearchGap]:
         elif str(req.get("temporal_intent") or "") == "current" \
                 or not req.get("temporal_coverage") and "current" in str(req.get("description", "")).lower():
             kind, desc = "MISSING_CURRENT_EVIDENCE", "missing current non-superseded evidence"
-        elif req.get("relation_need") not in (None, "", "none"):
+        elif relation_need_is_required(req.get("relation_need")):
             kind, desc = "MISSING_RELATION_METHOD", "missing typed relation evidence"
         elif req.get("numeric_conditions"):
             kind, desc = "MISSING_NUMERIC_CONDITION", "missing scoped numeric evidence"

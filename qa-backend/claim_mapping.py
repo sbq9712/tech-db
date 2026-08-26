@@ -118,6 +118,9 @@ async def map_claims_to_citations(
     query: str,
     answer: str,
     citations: list,
+    *,
+    retry_owner: str = "mapper",
+    attempt_number: int = 1,
 ) -> dict:
     """Decompose answer into atomic claims and map each to supporting citations.
 
@@ -146,10 +149,16 @@ async def map_claims_to_citations(
         # No citations to map — all claims are unsupported
         return {"claims": []}
 
-    # GLM API is flaky under long prompts ("Remote end closed connection
-    # without response", prose-wrapped JSON on reasoning-heavy calls).
-    # Escalating-shrink retries: full → trimmed payload.
-    for attempt, (n_src, ans_cap) in enumerate(((12, 4000), (8, 1500)), start=1):
+    # Legacy callers retain the historical internal two-attempt behavior.
+    # Request-scoped production callers set retry_owner=request_context: one
+    # LLM call is made and any failure is raised to RequestExecutionContext,
+    # which exclusively owns retry, cancellation, deadlines, and backoff.
+    payloads = ((12, 4000), (8, 1500))
+    context_owned = retry_owner == "request_context"
+    selected = [payloads[min(max(int(attempt_number), 1), 2) - 1]] \
+        if context_owned else list(payloads)
+    last_error = None
+    for attempt, (n_src, ans_cap) in enumerate(selected, start=1):
         source_list = "\n".join(
             f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, {c.get('source', '')})"
             for c in citations[:n_src]
@@ -173,11 +182,17 @@ async def map_claims_to_citations(
                     if c:
                         claims.append(c)
                 return {"claims": claims}
+            last_error = ValueError("invalid schema rejection: claim mapping")
         except Exception as e:
-            print(f"[claim_mapping] Error (attempt {attempt}/2): {e}", flush=True)
-            if attempt == 1:
+            last_error = e
+            print(f"[claim_mapping] Error (attempt {attempt}/{len(selected)}): {e}",
+                  flush=True)
+            if not context_owned and attempt == 1:
                 import asyncio as _aio
                 await _aio.sleep(2)
+
+    if context_owned:
+        raise last_error or RuntimeError("claim mapping failed")
 
     # TK-24 deterministic fallback: LLM mapping unavailable → map the
     # answer's own [n] anchors (strictly grounded, no hallucinated mapping)

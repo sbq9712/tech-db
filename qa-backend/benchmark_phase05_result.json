@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase05-runtime-benchmark-1.0",
+  "fixture": "deterministic_actual_api_isolation",
+  "concurrent_requests": 50,
+  "disconnect_requests": 3,
+  "passed": 18,
+  "failed": 0,
+  "all_passed": true,
+  "production_capacity_claim": false
+}
