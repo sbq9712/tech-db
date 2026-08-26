@@ -502,7 +502,27 @@ async def run_phase02_verification(
         if budget_ok:
             try:
                 mapper = llm_claim_map or map_claims_to_citations
-                claim_map = await mapper(query, answer, citations)
+                mapping_attempt = 0
+
+                async def _map_once():
+                    nonlocal mapping_attempt
+                    mapping_attempt += 1
+                    if (_accepts_kwarg(mapper, "retry_owner") and
+                            _accepts_kwarg(mapper, "attempt_number")):
+                        return await mapper(
+                            query, answer, citations,
+                            retry_owner="request_context",
+                            attempt_number=mapping_attempt)
+                    return await mapper(query, answer, citations)
+
+                if execution_context is not None:
+                    claim_map = await execution_context.run_stage(
+                        "claim_mapping", _map_once,
+                        requirement_critical=True,
+                        safe_fallback_available=False,
+                        query_budget_cost=1)
+                else:
+                    claim_map = await _map_once()
                 _stage("claim_mapping", {
                     "pass": check_pass,
                     "total_claims": len(claim_map.get("claims", [])),

@@ -21,7 +21,7 @@ import hashlib
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
-from trace_retention import redact_trace, scrub_secret_values
+from trace_retention import project_production_trace, scrub_secret_values
 
 
 REPO = Path(__file__).resolve().parent.parent
@@ -228,7 +228,7 @@ class TraceContext:
             # policy.  Full-text debug is intentionally disabled unless a
             # future approved encrypted/access-controlled storage adapter is
             # configured; a request parameter alone cannot enable it.
-            record = redact_trace(record, debug_mode=False)
+            record = project_production_trace(record)
             line = json.dumps(record, ensure_ascii=False, default=str)
             with open(trace_file, "a", encoding="utf-8") as f:
                 f.write(line + "\n")

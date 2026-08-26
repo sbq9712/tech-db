@@ -27,8 +27,9 @@ from runtime_safety import (
     DegradationRecord, FailureClass, FailureEffect, RequestExecutionContext,
     RequestCancelled, RuntimeSafetyProfile, StageExecutionError,
     abandoned_call_stats,
-    decide_failure,
+    decide_failure, relation_requirement_ids,
 )
+from budget_guard import QueryBudget
 
 
 PASSED = 0
@@ -128,6 +129,16 @@ def test_rt050_capability_failure_matrix():
     check("RT050.query_snippet_grounding_fallback_absent",
           get_degradation_strategy("citation_grounding")[1]
           != "use_query_snippet")
+    mixed = relation_requirement_ids([
+        {"id": "plain", "relation_need": "none"},
+        {"id": "typed", "relation_need": "typed_relation"},
+        {"id": "defaulted"},
+    ])
+    check("RT050.production_relation_none_is_not_truthy_critical",
+          relation_requirement_ids([
+              {"id": "plain", "relation_need": "none"}]) == [])
+    check("RT050.mixed_requirements_scope_graph_criticality",
+          mixed == ["typed"])
 
 
 async def _rt051_rt052_request_execution_async():
@@ -239,6 +250,90 @@ async def _rt051_rt052_request_execution_async():
         pass
     check("RT052.remaining_query_budget_prevents_retry",
           budget_calls == 0)
+
+    # Each real attempt atomically consumes a distinct query-budget slot.
+    budget = QueryBudget(limit=2)
+    ctx_budget = RequestExecutionContext(profile=profile, query_budget=budget)
+    budget_attempts = 0
+    async def budgeted_transient():
+        nonlocal budget_attempts
+        budget_attempts += 1
+        if budget_attempts == 1:
+            raise ConnectionError("connection reset")
+        return "budgeted-ok"
+    budgeted_value = await ctx_budget.run_stage(
+        "evidence_grader", budgeted_transient,
+        requirement_critical=True, query_budget_cost=1)
+    check("RT052.query_budget_consumed_per_attempt",
+          budgeted_value == "budgeted-ok" and budget.loop_calls == 2
+          and budget.breakdown.get("evidence_grader") == 2)
+
+    one_slot = QueryBudget(limit=1)
+    ctx_one_slot = RequestExecutionContext(profile=profile,
+                                           query_budget=one_slot)
+    one_slot_calls = 0
+    async def one_slot_failure():
+        nonlocal one_slot_calls
+        one_slot_calls += 1
+        raise ConnectionError("connection reset")
+    try:
+        await ctx_one_slot.run_stage(
+            "evidence_grader", one_slot_failure,
+            requirement_critical=True, query_budget_cost=1)
+    except StageExecutionError:
+        pass
+    check("RT052.retry_cannot_reuse_consumed_budget",
+          one_slot_calls == 1 and one_slot.loop_calls == 1)
+
+    class RetryAfter429(RuntimeError):
+        status_code = 429
+        headers = {"Retry-After": "0.005"}
+
+    retry_after_ctx = RequestExecutionContext(profile=profile)
+    retry_after_calls = 0
+    async def rate_limited_once():
+        nonlocal retry_after_calls
+        retry_after_calls += 1
+        if retry_after_calls == 1:
+            raise RetryAfter429("rate limited")
+        return "scheduled"
+    before = time.monotonic()
+    scheduled = await retry_after_ctx.run_stage(
+        "verifier", rate_limited_once, requirement_critical=True)
+    elapsed = time.monotonic() - before
+    check("RT052.upstream_retry_after_controls_canonical_schedule",
+          scheduled == "scheduled" and elapsed >= 0.004
+          and retry_after_ctx.retry_events[0]["retry_after_seconds"] == 0.005)
+
+    # The production mapper performs one call per context-owned attempt;
+    # its former internal sleep/retry loop is disabled.
+    import claim_mapping as claim_mapping_module
+    saved_llm = claim_mapping_module.llm_model_func
+    mapper_calls = 0
+    async def transient_mapper_llm(*_args, **_kwargs):
+        nonlocal mapper_calls
+        mapper_calls += 1
+        if mapper_calls == 1:
+            raise ConnectionError("connection reset")
+        return '{"claims": []}'
+    mapping_attempt = 0
+    async def context_owned_mapping():
+        nonlocal mapping_attempt
+        mapping_attempt += 1
+        return await claim_mapping_module.map_claims_to_citations(
+            "q", "answer", [{"id": 1}],
+            retry_owner="request_context", attempt_number=mapping_attempt)
+    claim_mapping_module.llm_model_func = transient_mapper_llm
+    try:
+        mapper_ctx = RequestExecutionContext(profile=profile)
+        mapped = await mapper_ctx.run_stage(
+            "claim_mapping", context_owned_mapping,
+            requirement_critical=True, safe_fallback_available=False)
+    finally:
+        claim_mapping_module.llm_model_func = saved_llm
+    check("RT051.claim_mapper_has_single_request_retry_authority",
+          mapped == {"claims": []} and mapper_calls == 2
+          and len(mapper_ctx.retry_events) == 1)
 
     # Useful work is cancelled and its late mutation is rejected.
     ctx7 = RequestExecutionContext(profile=profile)
@@ -414,12 +509,16 @@ def test_rt055_trace_privacy_retention():
                 "message": "Bearer abcdefghijklmnop",
                 "evidence_sha256": hashlib.sha256(
                     b"immutable-evidence").hexdigest(),
+                "verified_premises": [{"claim_text": "short premise leak"}],
+                "requirement": {"description": "short requirement leak"},
+                "conversation_id": "short-conversation-leak",
             })
             trace.set_result(
                 answer="full generated factual draft must not persist",
                 answer_status="UNVERIFIED", stop_reason="verifier_timeout",
                 evidence_package_id="package-1",
-                evidence_ids=["evidence-1"])
+                evidence_ids=["evidence-1"],
+                claim_text="short claim leak")
             trace.flush()
             content = next(root.glob("*.jsonl")).read_text("utf-8")
             row = json.loads(content)
@@ -437,6 +536,10 @@ def test_rt055_trace_privacy_retention():
             check("RT055.production_trace_no_full_answer_or_package_text",
                   "full generated factual draft" not in content
                   and row["exact_replay_available"] is False)
+            check("RT055.production_trace_allowlist_drops_short_raw_text",
+                  all(value not in content for value in (
+                      "short premise leak", "short requirement leak",
+                      "short-conversation-leak", "short claim leak")))
             check("RT055.persisted_trace_secret_scan_clean",
                   verify_no_secrets(root)["clean"])
 

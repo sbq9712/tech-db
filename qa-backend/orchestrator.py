@@ -621,15 +621,17 @@ async def _run_canonical_phase04(
                     "planner", call, safe_fallback_available=True)
                     if execution_context is not None else await call())
             else:
-                spend_or_raise(state.budget, "decompose")
                 call = lambda: decompose_query(
                     rr.rewritten_query, question_type,
                     context=json.dumps(state.verified_premises,
                                        ensure_ascii=False)[:1000])
-                raw_plan = (await execution_context.run_stage(
-                    "planner", call, safe_fallback_available=True,
-                    query_budget_cost=1)
-                    if execution_context is not None else await call())
+                if execution_context is not None:
+                    raw_plan = await execution_context.run_stage(
+                        "planner", call, safe_fallback_available=True,
+                        query_budget_cost=1)
+                else:
+                    spend_or_raise(state.budget, "decompose")
+                    raw_plan = await call()
         except Exception as exc:
             raw_plan = {"planner_error": str(exc)}
             _record_runtime_degradation(

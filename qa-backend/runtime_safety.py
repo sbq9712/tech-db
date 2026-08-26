@@ -15,6 +15,8 @@ import threading
 import time
 import uuid
 import contextvars
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any, Awaitable, Callable, Optional
@@ -139,6 +141,45 @@ def classify_exception(exc: BaseException) -> FailureClass:
     if any(x in text for x in ("malformed", "invalid schema", "schema rejection")):
         return FailureClass.MALFORMED_MODEL_OUTPUT
     return FailureClass.INTERNAL_EXCEPTION
+
+
+def retry_after_seconds(exc: BaseException) -> Optional[float]:
+    """Extract a bounded Retry-After delay from an upstream exception."""
+    headers = getattr(exc, "headers", None)
+    value = None
+    if headers is not None:
+        try:
+            value = headers.get("Retry-After")
+        except (AttributeError, TypeError):
+            value = None
+    if value is None:
+        value = getattr(exc, "retry_after", None)
+    if value is None:
+        return None
+    try:
+        return max(0.0, float(value))
+    except (TypeError, ValueError):
+        try:
+            when = parsedate_to_datetime(str(value))
+            if when.tzinfo is None:
+                when = when.replace(tzinfo=timezone.utc)
+            return max(0.0, (when - datetime.now(timezone.utc)).total_seconds())
+        except (TypeError, ValueError, OverflowError):
+            return None
+
+
+def relation_need_is_required(value: Any) -> bool:
+    """Interpret the planner's relation_need without string truthiness."""
+    if isinstance(value, bool):
+        return value
+    return str(value or "").strip().lower() not in {"", "none"}
+
+
+def relation_requirement_ids(requirements: Any) -> list[str]:
+    """Return only requirements whose typed relation is actually required."""
+    return [str(row.get("id") or "") for row in (requirements or [])
+            if isinstance(row, dict)
+            and relation_need_is_required(row.get("relation_need"))]
 
 
 def decide_failure(
@@ -402,6 +443,50 @@ class RequestExecutionContext:
         apply()
         return True
 
+    def _consume_query_budget(self, stage: str, cost: int) -> bool:
+        """Atomically consume one attempt's budget before it starts."""
+        if not cost or self.query_budget is None:
+            return True
+        spend = getattr(self.query_budget, "spend_loop", None)
+        if callable(spend):
+            return bool(spend(stage, cost))
+        reserve = getattr(self.query_budget, "reserve", None)
+        if callable(reserve):
+            try:
+                result = reserve(stage, cost)
+            except TypeError:
+                result = reserve(cost)
+            return bool(result[0] if isinstance(result, tuple) else result)
+        # A read-only can_afford() interface cannot reserve capacity and is
+        # therefore not a safe budget authority for an actual attempt.
+        return False
+
+    def _can_afford_query_budget(self, cost: int) -> bool:
+        if not cost or self.query_budget is None:
+            return True
+        can_afford = getattr(self.query_budget, "can_afford", None)
+        return bool(callable(can_afford) and can_afford(cost))
+
+    async def _wait_for_retry(self, delay: float, deadline_at: float) -> bool:
+        """Wait under cancellation and the shared stage/total deadline."""
+        remaining = min(self.remaining(), max(0.0, deadline_at - time.monotonic()))
+        if delay > remaining or remaining <= 0:
+            return False
+        cancel_waiter = asyncio.create_task(self.cancelled.wait())
+        sleep_task = asyncio.create_task(asyncio.sleep(delay))
+        try:
+            done, _ = await asyncio.wait(
+                {cancel_waiter, sleep_task}, return_when=asyncio.FIRST_COMPLETED)
+            if cancel_waiter in done and self.cancelled.is_set():
+                if not sleep_task.done():
+                    sleep_task.cancel()
+                raise RequestCancelled(self.cancel_reason or "cancelled_during_retry")
+            return True
+        finally:
+            for task in (cancel_waiter, sleep_task):
+                if not task.done():
+                    task.cancel()
+
     async def run_stage(
         self,
         stage: str,
@@ -415,10 +500,11 @@ class RequestExecutionContext:
     ) -> Any:
         attempts = 0
         last: BaseException = RuntimeError("stage did not run")
+        stage_deadline_at = min(
+            self.deadline_at, time.monotonic() + self.profile.stage_for(stage))
         while attempts < self.profile.max_attempts:
             self.check_active()
-            if query_budget_cost and self.query_budget is not None \
-                    and not self.query_budget.can_afford(query_budget_cost):
+            if not self._consume_query_budget(stage, query_budget_cost):
                 decision = decide_failure(
                     stage, FailureClass.INTERNAL_EXCEPTION,
                     requirement_critical=requirement_critical,
@@ -428,7 +514,8 @@ class RequestExecutionContext:
                 raise StageExecutionError(decision,
                                           RuntimeError("query_budget_exhausted"),
                                           attempts)
-            timeout = self.stage_timeout(stage)
+            timeout = max(0.0, min(
+                self.remaining(), stage_deadline_at - time.monotonic()))
             if timeout <= 0:
                 last = asyncio.TimeoutError("total deadline exhausted")
                 failure_class = FailureClass.TIMEOUT
@@ -488,22 +575,29 @@ class RequestExecutionContext:
                     last = exc
                     failure_class = classify_exception(exc)
             retryable = failure_class in RETRYABLE_FAILURES
+            upstream_delay = (retry_after_seconds(last)
+                              if failure_class == FailureClass.UPSTREAM_429
+                              else None)
+            retry_delay = max(self.profile.backoff_seconds,
+                              upstream_delay or 0.0)
+            retry_window = min(
+                self.remaining(), max(0.0, stage_deadline_at - time.monotonic()))
             retry_allowed = (
                 retryable and attempts < self.profile.max_attempts
-                and self.active and self.remaining() > self.profile.backoff_seconds
-                and (not query_budget_cost or self.query_budget is None
-                     or self.query_budget.can_afford(query_budget_cost))
+                and self.active and retry_window >= retry_delay
+                and self._can_afford_query_budget(query_budget_cost)
             )
             self.retry_events.append({
                 "stage": stage, "attempt": attempts,
                 "failure_class": failure_class.value,
                 "retry": retry_allowed,
                 "remaining_ms": round(self.remaining() * 1000, 1),
+                "retry_after_seconds": upstream_delay,
+                "scheduled_delay_seconds": retry_delay if retry_allowed else None,
             })
             if retry_allowed:
-                await asyncio.sleep(min(self.profile.backoff_seconds,
-                                        self.remaining()))
-                continue
+                if await self._wait_for_retry(retry_delay, stage_deadline_at):
+                    continue
             decision = decide_failure(
                 stage, failure_class,
                 requirement_critical=requirement_critical,

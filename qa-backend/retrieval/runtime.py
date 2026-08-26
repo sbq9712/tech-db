@@ -520,7 +520,8 @@ def route_fetch_caps(route_top_k=None) -> dict:
 
 async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = None,
                      embed_fn=None, pipeline=None, route_top_k=None,
-                     relation_critical: bool = False) -> dict:
+                     relation_critical: bool = False,
+                     relation_requirement_ids: list[str] | None = None) -> dict:
     """Phase03 high-recall per-route retrieval (RT-031 pool source).
 
     Runs vector / BM25 / graph routes at HIGH-RECALL per-route fetch caps
@@ -572,19 +573,22 @@ async def run_routes(query: str, *, snapshot=None, exclude_ids: set | None = Non
             capability, classify_exception(value),
             requirement_critical=(relation_critical and
                                   capability == "graph_search"))
-        degraded.append({
-            "capability": capability,
-            "failure_class": decision.failure_class.value,
-            "reason_code": decision.reason_code,
-            "requirement_id": "",
-            "correctness_critical": decision.correctness_critical,
-            "fallback_used": decision.fallback,
-            "retry_count": 0,
-            "state_impact": decision.effect.value,
-            "terminal_upper_bound": (
-                "UNVERIFIED" if decision.effect.value == "UNVERIFIED"
-                else "SUPPORTED_IF_CANONICAL_GATES_PASS"),
-        })
+        requirement_ids = (relation_requirement_ids or [""]) \
+            if capability == "graph_search" else [""]
+        for requirement_id in requirement_ids:
+            degraded.append({
+                "capability": capability,
+                "failure_class": decision.failure_class.value,
+                "reason_code": decision.reason_code,
+                "requirement_id": requirement_id,
+                "correctness_critical": decision.correctness_critical,
+                "fallback_used": decision.fallback,
+                "retry_count": 0,
+                "state_impact": decision.effect.value,
+                "terminal_upper_bound": (
+                    "UNVERIFIED" if decision.effect.value == "UNVERIFIED"
+                    else "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+            })
         rows[capability] = []
     vec_res = rows["vector_search"]
     bm25_res = rows["bm25_search"]

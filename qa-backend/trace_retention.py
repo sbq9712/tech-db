@@ -48,6 +48,125 @@ _SECRET_VALUE_PATTERNS = (
     re.compile(r"(?i)([?&](?:token|access_token|api_key|key|secret)=)[^&#\s]+"),
 )
 
+# Production persistence is an explicit projection. Only these typed,
+# machine-readable fields can cross the Trace storage boundary; arbitrary
+# nested application state is never recursively retained.
+_TRACE_ID_FIELDS = frozenset({
+    "trace_id", "request_id", "manifest_id", "identity_snapshot_id",
+    "evidence_package_id", "source_snapshot_id", "record_id",
+    "requirement_id", "claim_id", "runtime_manifest_id",
+})
+_TRACE_CODE_FIELDS = frozenset({
+    "profile", "profile_version", "answer_state_machine_version",
+    "stage", "status", "answer_status", "stop_reason", "reason_code",
+    "failure_class", "state_impact", "terminal_upper_bound",
+    "fallback_used", "capability", "schema_version", "version", "cause",
+    "match_type", "policy_verdict", "cancellation_reason",
+    "verification_status", "retention_class", "admission", "route",
+    "rewrite_action", "binding_status",
+})
+_TRACE_HASH_FIELDS = frozenset({
+    "query_sha256", "evidence_sha256", "evidence_text_sha256",
+    "package_hash", "content_hash", "conversation_id_hash",
+})
+_TRACE_NUMBER_FIELDS = frozenset({
+    "query_length", "deadline_ms", "remaining_ms", "pipeline_ms",
+    "attempt", "retry_count", "total_claims", "unsupported_major",
+    "result_count", "valid", "invalid", "pass", "refs", "round",
+    "item_count", "claims_total", "claims_with_independent_support",
+    "critical_missing", "conflicted", "scheduled_delay_seconds",
+    "retry_after_seconds", "score", "rrf_score", "vec_score",
+    "bm25_score", "graph_score", "rank", "legacy_idx",
+})
+_TRACE_BOOL_FIELDS = frozenset({
+    "retry", "correctness_critical", "exact_replay_available",
+    "raw_retained", "required", "deterministic_sufficient", "hard_fail",
+})
+_TRACE_ID_LIST_FIELDS = frozenset({
+    "evidence_ids", "cited_record_ids", "critical_missing_ids",
+    "record_ids", "requirement_ids", "claim_ids",
+})
+_TRACE_ROW_LIST_FIELDS = frozenset({
+    "degraded_capabilities", "retry_events",
+})
+_TRACE_TEXT_METADATA_FIELDS = frozenset({"answer", "rewritten_query"})
+_SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:/@-]{0,127}$")
+_SAFE_CODE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
+_SAFE_HASH = re.compile(r"^[0-9a-fA-F]{32,128}$")
+
+
+def _safe_trace_scalar(key: str, value):
+    if key in _TRACE_HASH_FIELDS and isinstance(value, str) \
+            and _SAFE_HASH.fullmatch(value):
+        return value
+    if key in _TRACE_ID_FIELDS and isinstance(value, str) \
+            and _SAFE_ID.fullmatch(value):
+        return value
+    if key in _TRACE_CODE_FIELDS and isinstance(value, str) \
+            and _SAFE_CODE.fullmatch(value):
+        return value
+    if key in _TRACE_NUMBER_FIELDS and isinstance(value, (int, float)) \
+            and not isinstance(value, bool):
+        return value
+    if key in _TRACE_BOOL_FIELDS and isinstance(value, bool):
+        return value
+    return None
+
+
+def _project_trace_data(value: dict) -> dict:
+    out = {}
+    for key, item in (value or {}).items():
+        key = str(key)
+        safe = _safe_trace_scalar(key, item)
+        if safe is not None:
+            out[key] = safe
+        elif key in _TRACE_ID_LIST_FIELDS and isinstance(item, list):
+            out[key] = [v for v in item[:100]
+                        if isinstance(v, str) and _SAFE_ID.fullmatch(v)]
+        elif key in _TRACE_ROW_LIST_FIELDS and isinstance(item, list):
+            out[key] = [_project_trace_data(v) for v in item[:100]
+                        if isinstance(v, dict)]
+        elif key in _TRACE_TEXT_METADATA_FIELDS and isinstance(item, str):
+            out[key] = {"sha256": _hash_text(item), "length": len(item),
+                        "raw_retained": False}
+        elif key == "rewrite_authority" and isinstance(item, dict):
+            binding = _safe_trace_scalar(
+                "binding_status", item.get("binding_status"))
+            out[key] = ({"binding_status": binding}
+                        if binding is not None else {})
+    return out
+
+
+def project_production_trace(record: dict) -> dict:
+    """Build the only JSONL-safe production Trace representation."""
+    if not isinstance(record, dict):
+        return {}
+    projected = {
+        "timestamp": str(record.get("timestamp") or "")[:40],
+        "retention_class": "production_default",
+        "exact_replay_available": False,
+    }
+    for key in (
+        "trace_id", "request_id", "conversation_id_hash", "query_sha256",
+        "query_length", "profile", "manifest_id", "identity_snapshot_id",
+        "answer_state_machine_version",
+    ):
+        safe = _safe_trace_scalar(key, record.get(key))
+        if safe is not None:
+            projected[key] = safe
+    projected["stages"] = []
+    for stage in (record.get("stages") or [])[:500]:
+        if not isinstance(stage, dict):
+            continue
+        name = _safe_trace_scalar("stage", stage.get("stage"))
+        if name is not None:
+            projected["stages"].append({
+                "stage": name,
+                "data": _project_trace_data(stage.get("data") or {}),
+            })
+    projected["result"] = _project_trace_data(record.get("result") or {})
+    return projected
+
 
 def scrub_secret_values(value):
     """Scrub secrets by key *and value content* at arbitrary nesting."""

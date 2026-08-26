@@ -72,6 +72,7 @@ from runtime_safety import (
     AdmissionController, AdmissionOutcome, RequestExecutionContext,
     RequestCancelled, StageExecutionError, bind_request_context,
     reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
+    relation_requirement_ids,
 )
 
 REPO = Path(__file__).resolve().parent.parent
@@ -939,13 +940,13 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         if q and q not in queries:
             queries.append(q)
     route_batches = []
-    relation_critical = any(bool(r.get("relation_need"))
-                            for r in (requirements or []))
+    relation_ids = relation_requirement_ids(requirements)
     for research_query in queries:
         route_batches.append(await _rt.run_routes(
             research_query, snapshot=pinned, exclude_ids=exclude_ids,
             embed_fn=embedding_func, pipeline=_get_retrieval_pipeline(),
-            relation_critical=relation_critical))
+            relation_critical=bool(relation_ids),
+            relation_requirement_ids=relation_ids))
     route_degraded = []
     for batch in route_batches:
         for row in getattr(batch, "degraded_capabilities", []):
@@ -2324,7 +2325,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                         claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                         if claim_budget_ok:
                             _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
-                            claim_map = await map_claims_to_citations(query, full_answer, citations)
+                            _claim_mapping_attempt = 0
+
+                            async def _map_claims_once():
+                                nonlocal _claim_mapping_attempt
+                                _claim_mapping_attempt += 1
+                                return await map_claims_to_citations(
+                                    query, full_answer, citations,
+                                    retry_owner="request_context",
+                                    attempt_number=_claim_mapping_attempt)
+
+                            claim_map = await execution.run_stage(
+                                "claim_mapping", _map_claims_once,
+                                requirement_critical=True,
+                                safe_fallback_available=False,
+                                query_budget_cost=1)
                             # T048: attach span-level source lineage so independence
                             # is counted per claim/span (quotes of a primary source
                             # never count as independent verification). Deterministic,
