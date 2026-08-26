@@ -44,6 +44,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional
+from runtime_safety import canonical_relation_need
 
 EVIDENCE_POLICY_VERSION = "1.3.0"
 
@@ -376,8 +377,8 @@ class EvidencePolicyEngine:
                                 relation_need: str,
                                 relation_checks: List[dict]) -> PolicyReport:
         """Require a typed, current, exact-grounded relation method."""
-        need = str(relation_need or "none").strip()
-        if not need or need.lower() == "none":
+        need = canonical_relation_need(relation_need)
+        if need == "none":
             return PolicyReport(verdict=PASS, findings=[],
                                 mode="relation_requirement")
         checks = list(relation_checks or [])
@@ -652,8 +653,9 @@ class EvidencePolicyEngine:
                     evidence_observations=list(req_observations))
                 findings.extend(time_rep.findings)
                 rule_applicability[f"time_condition:{rid}"] = "APPLICABLE"
-            relation_need = str(req.get("relation_need") or "none")
-            if relation_need.lower() != "none":
+            relation_need = canonical_relation_need(
+                req.get("relation_need", "none"))
+            if relation_need == "required":
                 relation_rep = self.check_required_relation(
                     requirement_id=rid, relation_need=relation_need,
                     relation_checks=list(req_relations))

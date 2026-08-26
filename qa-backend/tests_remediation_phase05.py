@@ -15,6 +15,9 @@ import socket
 import tempfile
 import threading
 import time
+import urllib.error
+from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 
@@ -23,10 +26,10 @@ import sys
 sys.path.insert(0, str(HERE))
 
 from runtime_safety import (
-    AdmissionController, AdmissionOutcome, CAPABILITY_REGISTRY,
+    AdmissionController, AdmissionOutcome, BudgetClass, CAPABILITY_REGISTRY,
     DegradationRecord, FailureClass, FailureEffect, RequestExecutionContext,
     RequestCancelled, RuntimeSafetyProfile, StageExecutionError,
-    abandoned_call_stats,
+    abandoned_call_stats, canonical_relation_need,
     decide_failure, relation_requirement_ids,
 )
 from budget_guard import QueryBudget
@@ -139,6 +142,162 @@ def test_rt050_capability_failure_matrix():
               {"id": "plain", "relation_need": "none"}]) == [])
     check("RT050.mixed_requirements_scope_graph_criticality",
           mixed == ["typed"])
+    aliases = {v: canonical_relation_need(v) for v in (
+        "", "none", "no", "false", "not_required", False,
+        "required", "yes", "true", "typed_relation", True)}
+    check("RT050.relation_aliases_normalize_to_closed_contract",
+          set(aliases.values()) == {"none", "required"}
+          and all(aliases[v] == "none" for v in
+                  ("", "none", "no", "false", "not_required", False)))
+    from planner import validate_planner_output
+    unknown = validate_planner_output({"requirements": [{
+        "id": "r1", "description": "Alpha capacity", "importance": "critical",
+        "queries": ["Alpha capacity"], "relation_need": "probably maybe"}]},
+        "Alpha capacity")
+    check("RT050.unknown_relation_value_uses_deterministic_fallback",
+          unknown.fallback_used and
+          all(r.relation_need in {"none", "required"}
+              for r in unknown.requirements))
+
+
+async def _rt050_production_graph_composition_async():
+    print("RT-050 — production Graph composition")
+    import server
+    import tests_remediation_phase03 as p3
+    from evidence_ledger import EvidenceLedger
+    from knowledge_boundary import build_knowledge_boundary
+    from orchestrator import reconcile_relation_degradations
+
+    rid = next(iter(p3.BY_ID))
+    snapshot = p3.SNAP_BY_ID[rid]
+    text = snapshot["evidence_text"]
+    exact = text[:min(40, len(text))]
+    relation_ref = {
+        "record_id": rid,
+        "source_snapshot_id": snapshot["source_snapshot_id"],
+        "start_offset": 0, "end_offset": len(exact), "exact_text": exact,
+    }
+    base_record = {**p3.BY_ID[rid], "fb": text, "relations": []}
+    relation_record = {**base_record, "relations": [{
+        "predicate": "USES", "subject_id": "Alpha",
+        "object_id": "MaterialX", "assertion_status": "ASSERTED",
+        "evidence_refs": [relation_ref],
+    }]}
+
+    saved_inputs = server._phase03_runtime_inputs
+    saved_pipeline = server._get_retrieval_pipeline
+    saved_routes = server._rt.run_routes
+    captured = []
+
+    class Batch(dict):
+        degraded_capabilities = []
+
+    async def graph_failed_routes(_query, **kwargs):
+        captured.append({
+            "critical": kwargs.get("relation_critical"),
+            "ids": list(kwargs.get("relation_requirement_ids") or []),
+        })
+        batch = Batch(p3._routes_for([rid]))
+        critical = bool(kwargs.get("relation_critical"))
+        ids = list(kwargs.get("relation_requirement_ids") or [""])
+        decision = decide_failure(
+            "graph_search", FailureClass.TIMEOUT,
+            requirement_critical=critical)
+        batch.degraded_capabilities = [DegradationRecord(
+            capability="graph_search",
+            failure_class=FailureClass.TIMEOUT.value,
+            reason_code=decision.reason_code,
+            requirement_id=requirement_id,
+            correctness_critical=critical,
+            fallback_used=decision.fallback,
+            state_impact=decision.effect.value,
+            terminal_upper_bound=(
+                "UNVERIFIED" if critical else
+                "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+        ).to_dict() for requirement_id in ids]
+        return batch
+
+    async def compose(requirements, record):
+        server._phase03_runtime_inputs = lambda: (
+            [record], {rid: record}, {rid: snapshot},
+            {rid: p3.META_BY_ID[rid]}, [])
+        result = await server._run_phase03_context(
+            "synthetic alpha", requirements=requirements, mode="FAST_RAG")
+        ledger = EvidenceLedger("synthetic alpha", requirements)
+        if result.get("package") is not None:
+            ledger.update_from_evidence_package(result["package"])
+        status = ledger.get_status()
+        reconcile_relation_degradations(
+            result.get("degraded_capabilities", []), status)
+        technical = any(
+            row.get("terminal_upper_bound") == "UNVERIFIED"
+            for row in result.get("degraded_capabilities", [])
+            if isinstance(row, dict))
+        boundary = build_knowledge_boundary(
+            status, "sufficient" if status.get("all_critical_supported")
+            else "no_new_evidence", technical_failure=technical)
+        return result, status, boundary
+
+    ordinary = [{
+        "id": "ordinary", "description": "ordinary fact",
+        "importance": "critical", "critical": True, "keywords": [],
+        "provenance_need": "any", "relation_need": "none"}]
+    aliases = [{**ordinary[0], "relation_need": alias}
+               for alias in ("no", "false", "not_required")]
+    required = [{**ordinary[0], "id": "relation",
+                 "description": "typed relation",
+                 "relation_need": "required"}]
+    mixed = [ordinary[0], required[0]]
+    token = server._request_runtime_snapshot.set(object())
+    try:
+        server._get_retrieval_pipeline = lambda: None
+        server._rt.run_routes = graph_failed_routes
+        ordinary_out, ordinary_status, ordinary_boundary = await compose(
+            ordinary, base_record)
+        alias_rows = [await compose([row], base_record) for row in aliases]
+        required_out, required_status, required_boundary = await compose(
+            required, base_record)
+        mixed_out, _, _ = await compose(mixed, base_record)
+        alternative_out, alternative_status, alternative_boundary = \
+            await compose(required, relation_record)
+    finally:
+        server._request_runtime_snapshot.reset(token)
+        server._phase03_runtime_inputs = saved_inputs
+        server._get_retrieval_pipeline = saved_pipeline
+        server._rt.run_routes = saved_routes
+
+    check("RT050.production_ordinary_graph_failure_can_support",
+          ordinary_out["status"] == "ok"
+          and ordinary_status["all_critical_supported"]
+          and ordinary_boundary.answer_status == "SUPPORTED")
+    check("RT050.production_negative_aliases_not_relation_critical",
+          all(out[0]["status"] == "ok" for out in alias_rows)
+          and all(not call["critical"] for call in captured[:4]))
+    check("RT050.production_required_graph_failure_not_supported",
+          required_out["status"] == "no_evidence"
+          and not required_status["all_critical_supported"]
+          and required_boundary.answer_status == "UNVERIFIED")
+    mixed_graph_rows = [row for row in mixed_out["degraded_capabilities"]
+                        if isinstance(row, dict)
+                        and row.get("capability") == "graph_search"]
+    check("RT050.production_mixed_graph_degradation_scoped",
+          [row["requirement_id"] for row in mixed_graph_rows]
+          == ["relation"])
+    alternative_graph = [
+        row for row in alternative_out["degraded_capabilities"]
+        if isinstance(row, dict)
+        and row.get("capability") == "graph_search"]
+    check("RT050.production_alternative_relation_evidence_recovers",
+          alternative_out["status"] == "ok"
+          and alternative_status["all_critical_supported"]
+          and alternative_boundary.answer_status == "SUPPORTED"
+          and alternative_graph[0]["terminal_upper_bound"]
+          == "SUPPORTED_IF_CANONICAL_GATES_PASS"
+          and alternative_graph[0]["canonical_recheck"] == "SUPPORTED")
+
+
+def test_rt050_production_graph_composition():
+    run(_rt050_production_graph_composition_async())
 
 
 async def _rt051_rt052_request_execution_async():
@@ -305,6 +464,143 @@ async def _rt051_rt052_request_execution_async():
           scheduled == "scheduled" and elapsed >= 0.004
           and retry_after_ctx.retry_events[0]["retry_after_seconds"] == 0.005)
 
+    # urllib's production HTTPError surface supports numeric, HTTP-date,
+    # over-deadline, and malformed Retry-After values.
+    async def urllib_case(header, local_profile):
+        local = RequestExecutionContext(profile=local_profile)
+        calls = 0
+        async def operation():
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise urllib.error.HTTPError(
+                    "https://upstream.invalid", 429, "rate limited",
+                    {"Retry-After": header}, None)
+            return "ok"
+        try:
+            value = await local.run_stage(
+                "final_verifier", operation, requirement_critical=True)
+            return value, calls, local
+        except StageExecutionError:
+            return None, calls, local
+
+    retry_profile = RuntimeSafetyProfile(
+        verifier=2.0, fast_total=3.0, backoff_seconds=0.002)
+    numeric_value, numeric_calls, _ = await urllib_case("0.005", retry_profile)
+    check("RT052.retry_after_numeric_fits_deadline",
+          numeric_value == "ok" and numeric_calls == 2)
+    http_date = format_datetime(
+        datetime.now(timezone.utc) + timedelta(seconds=1), usegmt=True)
+    date_value, date_calls, _ = await urllib_case(http_date, retry_profile)
+    check("RT052.retry_after_http_date_fits_deadline",
+          date_value == "ok" and date_calls == 2)
+    too_long_profile = RuntimeSafetyProfile(
+        verifier=0.02, fast_total=0.05, backoff_seconds=0.001)
+    too_long_value, too_long_calls, too_long_ctx = await urllib_case(
+        "10", too_long_profile)
+    check("RT052.retry_after_exceeding_deadline_does_not_retry",
+          too_long_value is None and too_long_calls == 1
+          and too_long_ctx.retry_events[0]["retry"] is False)
+    malformed_value, malformed_calls, malformed_ctx = await urllib_case(
+        "not-a-date", retry_profile)
+    check("RT052.malformed_retry_after_uses_bounded_fallback",
+          malformed_value == "ok" and malformed_calls == 2
+          and malformed_ctx.retry_events[0]["scheduled_delay_seconds"]
+          == retry_profile.backoff_seconds)
+
+    # LOOP and POST are separate authorities.  POST retries remain allowed
+    # when the loop-control cap is already exhausted.
+    post_budget = QueryBudget(limit=1)
+    post_budget.spend_loop("semantic_grader")
+    post_ctx = RequestExecutionContext(profile=profile,
+                                       query_budget=post_budget)
+    post_calls = 0
+    async def post_flaky():
+        nonlocal post_calls
+        post_calls += 1
+        if post_calls == 1:
+            raise ConnectionError("connection reset")
+        return "post-ok"
+    post_value = await post_ctx.run_stage(
+        "claim_mapping", post_flaky, requirement_critical=True)
+    check("RT052.claim_mapping_retries_charge_post_not_loop",
+          post_value == "post-ok" and post_calls == 2
+          and post_budget.loop_calls == 1 and post_budget.post_calls == 2)
+
+    verifier_budget = QueryBudget(limit=0)
+    verifier_ctx = RequestExecutionContext(profile=profile,
+                                           query_budget=verifier_budget)
+    verifier_calls = 0
+    async def verifier_flaky():
+        nonlocal verifier_calls
+        verifier_calls += 1
+        if verifier_calls == 1:
+            raise ConnectionError("connection reset")
+        return "verified"
+    verifier_value = await verifier_ctx.run_stage(
+        "final_verifier", verifier_flaky, requirement_critical=True)
+    check("RT052.final_verifier_retries_charge_post_not_loop",
+          verifier_value == "verified" and verifier_calls == 2
+          and verifier_budget.loop_calls == 0
+          and verifier_budget.post_calls == 2)
+
+    planner_budget = QueryBudget(limit=2)
+    planner_ctx = RequestExecutionContext(profile=profile,
+                                          query_budget=planner_budget)
+    planner_calls = 0
+    async def planner_flaky():
+        nonlocal planner_calls
+        planner_calls += 1
+        if planner_calls == 1:
+            raise ConnectionError("connection reset")
+        return {"requirements": []}
+    await planner_ctx.run_stage("planner", planner_flaky,
+                                safe_fallback_available=True)
+    check("RT052.planner_one_loop_charge_per_actual_attempt",
+          planner_calls == 2 and planner_budget.loop_calls == 2
+          and planner_budget.breakdown.get("planner") == 2)
+
+    expired_budget = QueryBudget(limit=2)
+    expired_ctx = RequestExecutionContext(
+        profile=RuntimeSafetyProfile(fast_total=0.01),
+        query_budget=expired_budget,
+        started_at=time.monotonic() - 1.0)
+    expired_calls = 0
+    async def expired_operation():
+        nonlocal expired_calls
+        expired_calls += 1
+    try:
+        await expired_ctx.run_stage("planner", expired_operation)
+    except RequestCancelled:
+        pass
+    check("RT052.expired_before_attempt_has_zero_charge",
+          expired_calls == 0 and expired_budget.loop_calls == 0)
+
+    cancel_budget = QueryBudget(limit=0)
+    cancel_ctx = RequestExecutionContext(
+        profile=RuntimeSafetyProfile(
+            verifier=1.0, fast_total=2.0, backoff_seconds=0.5),
+        query_budget=cancel_budget)
+    first_failed = asyncio.Event()
+    cancel_backoff_calls = 0
+    async def cancel_during_backoff():
+        nonlocal cancel_backoff_calls
+        cancel_backoff_calls += 1
+        first_failed.set()
+        raise ConnectionError("connection reset")
+    cancel_task = asyncio.create_task(cancel_ctx.run_stage(
+        "claim_mapping", cancel_during_backoff,
+        requirement_critical=True))
+    await first_failed.wait()
+    await asyncio.sleep(0.01)
+    cancel_ctx.cancel("disconnect_during_backoff")
+    try:
+        await cancel_task
+    except (asyncio.CancelledError, RequestCancelled, StageExecutionError):
+        pass
+    check("RT052.cancel_during_backoff_has_no_retry_or_second_charge",
+          cancel_backoff_calls == 1 and cancel_budget.post_calls == 1)
+
     # The production mapper performs one call per context-owned attempt;
     # its former internal sleep/retry loop is disabled.
     import claim_mapping as claim_mapping_module
@@ -430,6 +726,35 @@ async def _rt051_rt052_request_execution_async():
         orchestrator.decompose_query = saved_decompose
     check("RT050.route_technical_failure_without_sufficient_alternative_unverified",
           composed.answer_status == "UNVERIFIED")
+
+    planner_remote_calls = 0
+    async def research_route(*_args, **_kwargs):
+        return {"mode": "RESEARCH", "question_type": "FACT_LOOKUP",
+                "needs_multi_document_reasoning": False}
+    async def flaky_planner(query, question_type, _premises):
+        nonlocal planner_remote_calls
+        planner_remote_calls += 1
+        if planner_remote_calls == 1:
+            raise ConnectionError("connection reset")
+        return deterministic_requirements(query, question_type).to_dict()
+    try:
+        orchestrator.route_query = research_route
+        orchestrator.decompose_query = decompose
+        planner_composed = await orchestrator.run_agentic_loop(
+            query="Alpha capacity", rewritten_query="Alpha capacity",
+            history=[], search_fn=lambda *_args, **_kwargs: [],
+            trace=Trace(), evidence_pipeline_fn=no_remaining_evidence,
+            planner_fn=flaky_planner,
+            execution_context=RequestExecutionContext(mode="RESEARCH",
+                profile=RuntimeSafetyProfile(
+                    planner=0.2, research_total=1.0,
+                    backoff_seconds=0.001)))
+    finally:
+        orchestrator.route_query = saved_route
+        orchestrator.decompose_query = saved_decompose
+    check("RT052.production_planner_retry_has_no_double_charge",
+          planner_remote_calls == 2
+          and planner_composed.budget.breakdown.get("planner") == 2)
 
 
 async def _rt053_bounded_admission_async():
@@ -696,6 +1021,7 @@ def test_rt053_bounded_admission():
 
 def main():
     test_rt050_capability_failure_matrix()
+    test_rt050_production_graph_composition()
     test_rt051_rt052_request_execution()
     test_rt053_bounded_admission()
     test_rt055_trace_privacy_retention()

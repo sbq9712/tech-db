@@ -69,7 +69,8 @@ from answer_status import AnswerStatus, determine_answer_status, build_evidence_
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
 from runtime_safety import (
-    AdmissionController, AdmissionOutcome, RequestExecutionContext,
+    AdmissionController, AdmissionOutcome, BudgetClass,
+    RequestExecutionContext,
     RequestCancelled, StageExecutionError, bind_request_context,
     reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
     relation_requirement_ids,
@@ -2137,7 +2138,9 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 system_prompt="你是严谨的技术问答助手，只输出重写后的回答。"),
                             requirement_critical=True,
                             safe_fallback_available=True,
-                            query_budget_cost=1)
+                            budget_class=BudgetClass.NONE)
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception:
                         return None
 
@@ -2262,6 +2265,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # loop-control class; these calls NEVER degrade the agentic path
                 # and also run on the legacy path (spec Q4/R3).
                 _pp_budget = QueryBudget()
+                execution.query_budget = _pp_budget
 
                 # ── T005: Fail-Safe Verification ──
                 # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
@@ -2277,8 +2281,20 @@ async def chat_stream(req: ChatRequest, request: Request):
 
                         if should_call:
                             print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                            _pp_budget.record_post("verifier")  # TK-08: post-class, never degrades
-                            vr = await verify_with_fail_safe(query, full_answer, claim_metadata)
+                            _legacy_verify_attempt = 0
+
+                            async def _verify_legacy_once():
+                                nonlocal _legacy_verify_attempt
+                                _legacy_verify_attempt += 1
+                                return await verify_with_fail_safe(
+                                    query, full_answer, claim_metadata,
+                                    retry_owner="request_context",
+                                    attempt_number=_legacy_verify_attempt)
+
+                            vr = await execution.run_stage(
+                                "final_verifier", _verify_legacy_once,
+                                requirement_critical=True,
+                                safe_fallback_available=False)
                             verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
                             if verification_status == VERIFY_UNVERIFIED:
                                 verification_error = vr.failure_reason or "verification returned UNVERIFIED"
@@ -2307,6 +2323,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 "note": f"Verification skipped due to budget; answer marked {verification_status}",
                                 "budget_guard": decision.value,
                             })
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception as e:
                         # Any exception → UNVERIFIED, never PASS
                         verification_status = VERIFY_UNVERIFIED
@@ -2324,7 +2342,6 @@ async def chat_stream(req: ChatRequest, request: Request):
                     try:
                         claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                         if claim_budget_ok:
-                            _pp_budget.record_post("claim_mapping")  # TK-08: post-class, never degrades
                             _claim_mapping_attempt = 0
 
                             async def _map_claims_once():
@@ -2338,8 +2355,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                             claim_map = await execution.run_stage(
                                 "claim_mapping", _map_claims_once,
                                 requirement_critical=True,
-                                safe_fallback_available=False,
-                                query_budget_cost=1)
+                                safe_fallback_available=False)
                             # T048: attach span-level source lineage so independence
                             # is counted per claim/span (quotes of a primary source
                             # never count as independent verification). Deterministic,
@@ -2407,6 +2423,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 "total_claims": len(claim_map.get("claims", [])),
                                 "unsupported_major": len(get_unsupported_major_claims(claim_map)),
                             })
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
                     except Exception as e:
                         print(f"[claim_mapping] Error: {e}", flush=True)
                 # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's

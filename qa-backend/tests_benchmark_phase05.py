@@ -65,6 +65,7 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         "embed": server.embedding_func,
         "rewrite": server.rewrite_query,
         "stream": server.llm_stream_func,
+        "model": server.llm_model_func,
         "route": orchestrator.route_query,
         "decompose": orchestrator.decompose_query,
         "mapper": phase02_pipeline.map_claims_to_citations,
@@ -108,6 +109,14 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
     rewrite_cancelled = asyncio.Event()
     rewrite_started = asyncio.Event()
     rewrite_late_mutation = []
+    disconnect_stage = {"value": "rewrite"}
+    mapper_started = asyncio.Event()
+    mapper_cancelled = asyncio.Event()
+    verifier_started = asyncio.Event()
+    verifier_cancelled = asyncio.Event()
+    mapper_disconnect_calls = 0
+    verifier_disconnect_calls = 0
+    repair_model_calls = 0
 
     async def rewrite(query, _history):
         if query == "P05_DISCONNECT_SENTINEL":
@@ -131,6 +140,16 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         yield f"{prompt} thermal limit is documented. [1]"
 
     async def mapper(query, _answer, citations):
+        nonlocal mapper_disconnect_calls
+        if disconnect_stage["value"] == "claim_mapping" \
+                and query == sentinels[0]:
+            mapper_disconnect_calls += 1
+            mapper_started.set()
+            try:
+                await asyncio.sleep(5)
+            except asyncio.CancelledError:
+                mapper_cancelled.set()
+                raise
         if not citations:
             return {"claims": []}
         chosen = next((c for c in citations
@@ -147,8 +166,23 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         }]}
 
     async def verifier(_query, claims, _refs, _det):
+        nonlocal verifier_disconnect_calls
+        if disconnect_stage["value"] == "final_verifier" \
+                and _query == sentinels[0]:
+            verifier_disconnect_calls += 1
+            verifier_started.set()
+            try:
+                await asyncio.sleep(5)
+            except asyncio.CancelledError:
+                verifier_cancelled.set()
+                raise
         return VerificationResult("PASSED", findings=[
             {"claim_id": c["id"], "verdict": "PASS"} for c in claims])
+
+    async def repair_model(*_args, **_kwargs):
+        nonlocal repair_model_calls
+        repair_model_calls += 1
+        return "unexpected repair"
 
     try:
         server.configure_runtime_snapshot_manager(Manager())
@@ -161,6 +195,7 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         server.embedding_func = p3._fake_embed
         server.rewrite_query = rewrite
         server.llm_stream_func = stream
+        server.llm_model_func = repair_model
         orchestrator.route_query = route
         orchestrator.decompose_query = decompose
         phase02_pipeline.map_claims_to_citations = mapper
@@ -268,9 +303,6 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
                     server.CHAT_ADMISSION.snapshot()["active"] == 0:
                 break
             await asyncio.sleep(0.01)
-        live.should_exit = True
-        await serve_task
-        sock.close()
         check("benchmark.phase05_real_sse_disconnect_cancels_work",
               (not rewrite_started.is_set() or rewrite_cancelled.is_set())
               and rewrite_late_mutation == [],
@@ -280,6 +312,63 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         check("benchmark.phase05_disconnect_resource_recovery",
               server.CHAT_ADMISSION.snapshot()["active"] == 0
               and server.CHAT_ADMISSION.snapshot()["queued"] == 0)
+
+        async def disconnect_during_phase02(stage, started, cancelled,
+                                            conversation_id):
+            disconnect_stage["value"] = stage
+            received = []
+            async with httpx.AsyncClient(timeout=10, trust_env=False) as client:
+                async with client.stream(
+                        "POST", f"http://127.0.0.1:{port}/api/chat/stream",
+                        json={"query": sentinels[0],
+                              "conversation_id": conversation_id}) as response:
+                    async for line in response.aiter_lines():
+                        received.append(line)
+                        if line.startswith("event: status"):
+                            await asyncio.wait_for(started.wait(), timeout=5)
+                            break
+            for _ in range(200):
+                if cancelled.is_set() and \
+                        server.CHAT_ADMISSION.snapshot()["active"] == 0:
+                    break
+                await asyncio.sleep(0.01)
+            return "\n".join(received)
+
+        mapper_body = await disconnect_during_phase02(
+            "claim_mapping", mapper_started, mapper_cancelled,
+            "phase02-mapper-disconnect")
+        check("benchmark.phase05_mapper_disconnect_bubbles_cancellation",
+              mapper_started.is_set() and mapper_cancelled.is_set()
+              and mapper_disconnect_calls == 1)
+        check("benchmark.phase05_mapper_disconnect_stops_later_llm_work",
+              verifier_disconnect_calls == 0 and repair_model_calls == 0)
+        check("benchmark.phase05_mapper_disconnect_no_persistence_or_done",
+              server._CONVERSATION_STORE.count(
+                  "phase02-mapper-disconnect") == 0
+              and "event: done" not in mapper_body)
+        check("benchmark.phase05_mapper_disconnect_resources_recover",
+              server.CHAT_ADMISSION.snapshot()["active"] == 0
+              and server.CHAT_ADMISSION.snapshot()["queued"] == 0)
+
+        verifier_body = await disconnect_during_phase02(
+            "final_verifier", verifier_started, verifier_cancelled,
+            "phase02-verifier-disconnect")
+        check("benchmark.phase05_final_verifier_disconnect_bubbles_cancellation",
+              verifier_started.is_set() and verifier_cancelled.is_set()
+              and verifier_disconnect_calls == 1)
+        check("benchmark.phase05_final_verifier_disconnect_no_retry_repair",
+              verifier_disconnect_calls == 1 and repair_model_calls == 0)
+        check("benchmark.phase05_final_verifier_no_persistence_or_done",
+              server._CONVERSATION_STORE.count(
+                  "phase02-verifier-disconnect") == 0
+              and "event: done" not in verifier_body)
+        check("benchmark.phase05_final_verifier_resources_recover",
+              server.CHAT_ADMISSION.snapshot()["active"] == 0
+              and server.CHAT_ADMISSION.snapshot()["queued"] == 0)
+        disconnect_stage["value"] = "none"
+        live.should_exit = True
+        await serve_task
+        sock.close()
     finally:
         server._runtime_snapshot_manager = saved["manager"]
         server.RATE_LIMITER = saved["limiter"]
@@ -287,6 +376,7 @@ async def _rt054_actual_api_state_isolation_benchmark_async():
         server.embedding_func = saved["embed"]
         server.rewrite_query = saved["rewrite"]
         server.llm_stream_func = saved["stream"]
+        server.llm_model_func = saved["model"]
         orchestrator.route_query = saved["route"]
         orchestrator.decompose_query = saved["decompose"]
         phase02_pipeline.map_claims_to_citations = saved["mapper"]
@@ -310,7 +400,7 @@ def main():
         "schema_version": "phase05-runtime-benchmark-1.0",
         "fixture": "deterministic_actual_api_isolation",
         "concurrent_requests": 50,
-        "disconnect_requests": 1,
+        "disconnect_requests": 3,
         "passed": PASSED,
         "failed": len(FAILED),
         "all_passed": not FAILED,

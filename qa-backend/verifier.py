@@ -285,7 +285,9 @@ def build_verifier_input(query: str, atomic_claims: list,
 async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
                        deterministic_results: dict = None,
                        max_retries: int = None,
-                       snapshot_lookup=None) -> VerificationResult:
+                       snapshot_lookup=None, *,
+                       retry_owner: str = "verifier",
+                       attempt_number: int = 1) -> VerificationResult:
     """RT-025 fail-safe final verifier.
 
     PASSED requires a well-formed response whose every claim verdict is
@@ -302,6 +304,9 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
     """
     if max_retries is None:
         max_retries = MAX_VERIFY_RETRIES
+    context_owned = retry_owner == "request_context"
+    if context_owned:
+        max_retries = 0
 
     # Empty claim set: nothing to verify ⇒ cannot claim verification PASSED
     # (RT-025 failure matrix: empty input is a technical failure class).
@@ -430,13 +435,20 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
                 } for f in issues], findings=findings)
 
         except asyncio.TimeoutError:
+            if context_owned:
+                raise
             last_error = f"timeout (attempt {attempt + 1})"
             last_class = "timeout"
         except Exception as exc:  # noqa: BLE001 — fail-safe catch-all
+            if context_owned:
+                raise
             cls = _classify_exception(exc)
             last_error = f"{cls} ({type(exc).__name__}: {str(exc)[:120]} attempt {attempt + 1})"
             last_class = cls
 
+    if context_owned:
+        raise ValueError(
+            f"invalid schema rejection: final verifier: {last_class or last_error}")
     return VerificationResult(
         VERIFY_UNVERIFIED, failure_reason=last_error, failure_class=last_class)
 
@@ -467,6 +479,9 @@ async def verify_with_fail_safe(
     draft_answer: str,
     claim_metadata: list,
     max_retries: int = None,
+    *,
+    retry_owner: str = "verifier",
+    attempt_number: int = 1,
 ) -> VerificationResult:
     """Legacy fail-safe verifier (same failure contract as verify_final).
 
@@ -475,6 +490,9 @@ async def verify_with_fail_safe(
     """
     if max_retries is None:
         max_retries = MAX_VERIFY_RETRIES
+    context_owned = retry_owner == "request_context"
+    if context_owned:
+        max_retries = 0
 
     if not draft_answer or not draft_answer.strip():
         # Phase-02 fix (Q096): nothing verifiable — UNVERIFIED, never PASS.
@@ -520,12 +538,19 @@ async def verify_with_fail_safe(
             last_error = f"missing_passed_field (attempt {attempt + 1})"
             last_class = "missing_fields"
         except asyncio.TimeoutError:
+            if context_owned:
+                raise
             last_error = f"timeout (attempt {attempt + 1})"
             last_class = "timeout"
         except Exception as exc:  # noqa: BLE001
+            if context_owned:
+                raise
             cls = _classify_exception(exc)
             last_error = f"{cls} ({type(exc).__name__}: {str(exc)[:120]} attempt {attempt + 1})"
             last_class = cls
 
+    if context_owned:
+        raise ValueError(
+            f"invalid schema rejection: final verifier: {last_class or last_error}")
     return VerificationResult(
         VERIFY_UNVERIFIED, failure_reason=last_error, failure_class=last_class)

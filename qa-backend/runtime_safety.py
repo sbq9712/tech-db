@@ -48,6 +48,34 @@ class FailureEffect(str, Enum):
     CANCELLED = "CANCELLED"
 
 
+class BudgetClass(str, Enum):
+    """Typed ownership of per-request QueryBudget accounting."""
+    LOOP = "LOOP"
+    POST = "POST"
+    NONE = "NONE"
+
+
+# This is the sole default stage-to-budget ownership table.  Callers may
+# explicitly override it when a stage name contains both local and remote
+# implementations (notably router), but may not invent string classes.
+STAGE_BUDGET_CLASS = {
+    "planner": BudgetClass.LOOP,
+    "decompose": BudgetClass.LOOP,
+    "evidence_grader": BudgetClass.LOOP,
+    "semantic_grader": BudgetClass.LOOP,
+    "gap_analysis": BudgetClass.LOOP,
+    "reranker": BudgetClass.LOOP,
+    "claim_mapping": BudgetClass.POST,
+    "verifier": BudgetClass.POST,
+    "final_verifier": BudgetClass.POST,
+    "citation_grounding": BudgetClass.POST,
+}
+
+
+def budget_class_for_stage(stage: str) -> BudgetClass:
+    return STAGE_BUDGET_CLASS.get(stage, BudgetClass.NONE)
+
+
 RETRYABLE_FAILURES = frozenset({
     FailureClass.TIMEOUT,
     FailureClass.TRANSIENT_TRANSPORT,
@@ -168,11 +196,32 @@ def retry_after_seconds(exc: BaseException) -> Optional[float]:
             return None
 
 
-def relation_need_is_required(value: Any) -> bool:
-    """Interpret the planner's relation_need without string truthiness."""
+_RELATION_NEGATIVE_ALIASES = frozenset({
+    "", "none", "no", "false", "not_required", "not-required",
+})
+_RELATION_POSITIVE_ALIASES = frozenset({
+    "required", "yes", "true", "typed_relation", "typed-relation",
+})
+
+
+def canonical_relation_need(value: Any) -> str:
+    """Normalize known aliases to the closed ``none|required`` contract.
+
+    Unknown planner text is rejected so it can trigger the already accepted
+    deterministic planner fallback instead of silently gaining authority.
+    """
     if isinstance(value, bool):
-        return value
-    return str(value or "").strip().lower() not in {"", "none"}
+        return "required" if value else "none"
+    normalized = str(value or "").strip().lower()
+    if normalized in _RELATION_NEGATIVE_ALIASES:
+        return "none"
+    if normalized in _RELATION_POSITIVE_ALIASES:
+        return "required"
+    raise ValueError(f"invalid_relation_need:{normalized[:40]}")
+
+
+def relation_need_is_required(value: Any) -> bool:
+    return canonical_relation_need(value) == "required"
 
 
 def relation_requirement_ids(requirements: Any) -> list[str]:
@@ -443,9 +492,17 @@ class RequestExecutionContext:
         apply()
         return True
 
-    def _consume_query_budget(self, stage: str, cost: int) -> bool:
+    def _consume_query_budget(self, stage: str, budget_class: BudgetClass,
+                              cost: int) -> bool:
         """Atomically consume one attempt's budget before it starts."""
-        if not cost or self.query_budget is None:
+        if budget_class == BudgetClass.NONE or not cost \
+                or self.query_budget is None:
+            return True
+        if budget_class == BudgetClass.POST:
+            record = getattr(self.query_budget, "record_post", None)
+            if not callable(record):
+                return False
+            record(stage, cost)
             return True
         spend = getattr(self.query_budget, "spend_loop", None)
         if callable(spend):
@@ -461,8 +518,10 @@ class RequestExecutionContext:
         # therefore not a safe budget authority for an actual attempt.
         return False
 
-    def _can_afford_query_budget(self, cost: int) -> bool:
-        if not cost or self.query_budget is None:
+    def _can_afford_query_budget(self, budget_class: BudgetClass,
+                                 cost: int) -> bool:
+        if budget_class in (BudgetClass.NONE, BudgetClass.POST) \
+                or not cost or self.query_budget is None:
             return True
         can_afford = getattr(self.query_budget, "can_afford", None)
         return bool(callable(can_afford) and can_afford(cost))
@@ -496,30 +555,40 @@ class RequestExecutionContext:
         requirement_critical: bool = False,
         alternative_evidence_sufficient: bool = False,
         safe_fallback_available: Optional[bool] = None,
-        query_budget_cost: int = 0,
+        budget_class: Optional[BudgetClass] = None,
+        query_budget_cost: int = 1,
     ) -> Any:
+        owned_budget_class = (budget_class_for_stage(stage)
+                              if budget_class is None else budget_class)
+        if not isinstance(owned_budget_class, BudgetClass):
+            raise TypeError("budget_class must be a BudgetClass")
         attempts = 0
         last: BaseException = RuntimeError("stage did not run")
         stage_deadline_at = min(
             self.deadline_at, time.monotonic() + self.profile.stage_for(stage))
         while attempts < self.profile.max_attempts:
             self.check_active()
-            if not self._consume_query_budget(stage, query_budget_cost):
-                decision = decide_failure(
-                    stage, FailureClass.INTERNAL_EXCEPTION,
-                    requirement_critical=requirement_critical,
-                    safe_fallback_available=False)
-                self.add_degradation(decision, requirement_id=requirement_id,
-                                     retry_count=attempts)
-                raise StageExecutionError(decision,
-                                          RuntimeError("query_budget_exhausted"),
-                                          attempts)
             timeout = max(0.0, min(
                 self.remaining(), stage_deadline_at - time.monotonic()))
             if timeout <= 0:
                 last = asyncio.TimeoutError("total deadline exhausted")
                 failure_class = FailureClass.TIMEOUT
             else:
+                # Charge immediately before—and only before—the actual
+                # operation begins.  Cancelled/expired work consumes nothing.
+                self.check_active()
+                if not self._consume_query_budget(
+                        stage, owned_budget_class, query_budget_cost):
+                    decision = decide_failure(
+                        stage, FailureClass.INTERNAL_EXCEPTION,
+                        requirement_critical=requirement_critical,
+                        safe_fallback_available=False)
+                    self.add_degradation(
+                        decision, requirement_id=requirement_id,
+                        retry_count=attempts)
+                    raise StageExecutionError(
+                        decision, RuntimeError("query_budget_exhausted"),
+                        attempts)
                 attempts += 1
                 try:
                     value = operation()
@@ -585,7 +654,8 @@ class RequestExecutionContext:
             retry_allowed = (
                 retryable and attempts < self.profile.max_attempts
                 and self.active and retry_window >= retry_delay
-                and self._can_afford_query_budget(query_budget_cost)
+                and self._can_afford_query_budget(
+                    owned_budget_class, query_budget_cost)
             )
             self.retry_events.append({
                 "stage": stage, "attempt": attempts,

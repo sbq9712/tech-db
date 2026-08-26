@@ -460,7 +460,7 @@ def test_phase04_structured_requirements_drive_phase03_policy():
           and current["status"] == "no_evidence"
           and "POLICY_STALE_CURRENT_FACT" in
           current["trace_facts"]["policy_reasons"]
-          and block.relation_need == "typed_relation"
+          and block.relation_need == "required"
           and block.numeric_conditions == ["600 degrees"])
 
 
@@ -1071,7 +1071,7 @@ def test_rt047_ledger_fields_and_serialization():
     check("RT047.ledger_fields_serialization",
           req["temporal_intent"] == "current"
           and req["numeric_conditions"] == ["80GB"]
-          and req["relation_need"] == "typed_relation"
+          and req["relation_need"] == "required"
           and req["searched_no_evidence"])
 
 

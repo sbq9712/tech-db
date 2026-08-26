@@ -38,6 +38,7 @@ from numeric_facts import verify_numeric_claim, extract_numeric_facts_with_sourc
 from answer_repair import BoundedRepairLoop
 from verifier import verify_final, verify_evidence_ref_consistency
 from degraded_mode import build_user_warning, looks_like_api_failure
+from runtime_safety import RequestCancelled
 
 PHASE02_PIPELINE_VERSION = "1.0.0"
 CITATION_SCHEMA_VERSION = "2.0.0"
@@ -337,6 +338,12 @@ async def run_phase02_verification(
         if trace is not None:
             trace.add_stage(name, data)
 
+    def _check_active():
+        if execution_context is not None:
+            execution_context.check_active()
+
+    _check_active()
+
     # ── Pinned snapshot authority (Phase-02 review: source_catalog binding)
     # In manifest mode the request-pinned resources["source_catalog"] is the
     # ONLY snapshot authority: citation source_snapshot_id must resolve to
@@ -492,6 +499,7 @@ async def run_phase02_verification(
     prov_map = {}
 
     for check_pass in range(1, max_check_passes + 1):
+        _check_active()
         citations_added_this_pass = 0
 
         # ── 1. Claim mapping (RT-021 input) ───────────────────────────────
@@ -528,6 +536,8 @@ async def run_phase02_verification(
                     "total_claims": len(claim_map.get("claims", [])),
                     "unsupported_major": len(get_unsupported_major_claims(claim_map)),
                 })
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as e:
                 degraded.append("claim_mapping")
                 machine.record_technical_failure("claim_mapping", str(e)[:120])
@@ -537,6 +547,7 @@ async def run_phase02_verification(
             degraded.append("claim_mapping")
             machine.record_technical_failure("claim_mapping", "budget_exhausted")
 
+        _check_active()
         # T048 lineage (deterministic). Keyed by stable record_id (never a
         # list position). On the strict Phase03 path the request-pinned
         # EvidencePackage/PackedGenerationView provenance is authoritative:
@@ -607,6 +618,7 @@ async def run_phase02_verification(
                               ("gate", "coverage", "claim_bearing_sentences",
                                "covered_sentences")}})
 
+        _check_active()
         # ── 3. Exact grounding on immutable evidence (RT-020) ─────────────
         evidence_index = {}   # citation_id -> stable-id-keyed evidence entry
         final_citations = []
@@ -725,6 +737,7 @@ async def run_phase02_verification(
             degraded.append("citation_grounding")
 
         # ── 4. Typed relation checks + deterministic entailment (RT-021) ──
+        _check_active()
         try:
             apply_relation_checks(claim_map, evidence_index)
             _stage("relation_checks", claim_map.get("relation_checks", {}))
@@ -742,6 +755,7 @@ async def run_phase02_verification(
         for c in final_citations:
             c["supports_claim_ids"] = _by_cit.get(c.get("id"), [])
 
+        _check_active()
         # ── 5. Numeric provenance checks (RT-022) ──────────────────────────
         numeric_results = {}
         numeric_facts_payload = []
@@ -787,6 +801,7 @@ async def run_phase02_verification(
 
         # ── 6. Bounded repair ≤ 2 cycles (RT-026) — only on the final pass
         # before verification; the re-check pass above re-validates its work.
+        _check_active()
         if check_pass == max_check_passes:
             break
         unsupported_before = get_unsupported_major_claims(claim_map)
@@ -826,6 +841,8 @@ async def run_phase02_verification(
                 if inspect.isawaitable(found):
                     found = await found
                 found = found or []
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception:
                 return False
             added = 0
@@ -1026,6 +1043,7 @@ async def run_phase02_verification(
             return result
 
         try:
+            _check_active()
             loop = BoundedRepairLoop()
             core_ids = {cl.get("id") for cl in claim_map.get("claims", [])
                         if cl.get("is_core")}
@@ -1047,6 +1065,8 @@ async def run_phase02_verification(
                 "actions": len(repair_report.get("actions", [])),
             })
             break
+        except (asyncio.CancelledError, RequestCancelled):
+            raise
         except Exception as e:
             degraded.append("answer_repair")
             _stage("bounded_repair", {"status": "EXCEPTION", "error": str(e)[:200]})
@@ -1077,6 +1097,7 @@ async def run_phase02_verification(
 
     # ── 8. Fail-safe final verifier (RT-025) ──────────────────────────────
     verification_status = "NOT_RUN"
+    _check_active()
     verification_error = ""
     vr = None
     # A validation-blocking failure BEFORE the verifier (e.g. claim mapping
@@ -1137,8 +1158,19 @@ async def run_phase02_verification(
                 })
             else:
                 verifier = llm_verify or verify_final
-                verify_call = lambda: verifier(
-                    query, atomic, refs, numeric_results)
+                verification_attempt = 0
+
+                async def verify_call():
+                    nonlocal verification_attempt
+                    verification_attempt += 1
+                    kwargs = {}
+                    if (_accepts_kwarg(verifier, "retry_owner") and
+                            _accepts_kwarg(verifier, "attempt_number")):
+                        kwargs.update(
+                            retry_owner="request_context",
+                            attempt_number=verification_attempt)
+                    return await verifier(
+                        query, atomic, refs, numeric_results, **kwargs)
                 if execution_context is not None:
                     vr = await execution_context.run_stage(
                         "final_verifier", verify_call,
@@ -1162,6 +1194,8 @@ async def run_phase02_verification(
                     "failure_reason": vr.failure_reason,
                     "refs": len(refs),
                 })
+        except (asyncio.CancelledError, RequestCancelled):
+            raise
         except Exception as e:
             verification_status = "UNVERIFIED"
             verification_error = str(e)

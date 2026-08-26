@@ -18,6 +18,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple
 
+from runtime_safety import canonical_relation_need
+
 
 MAX_ITERATIONS = int(os.environ.get("QA_MAX_ITERATIONS", "4"))
 MAX_TOOL_CALLS = int(os.environ.get("QA_MAX_TOOL_CALLS", "30"))
@@ -43,6 +45,11 @@ class Requirement:
     ambiguity: str = ""
     comparison_object: str = ""
     comparison_dimension: str = ""
+
+    def __post_init__(self):
+        # Typed boundary: no free-form planner prose may flow downstream.
+        object.__setattr__(self, "relation_need",
+                           canonical_relation_need(self.relation_need))
 
     @property
     def id(self) -> str:
@@ -249,7 +256,8 @@ def validate_planner_output(raw, original_query: str,
                 queries=tuple(str(v) for v in queries if str(v).strip()),
                 temporal_intent=str(row.get("temporal_intent") or "unspecified"),
                 provenance_need=str(row.get("provenance_need") or "any"),
-                relation_need=str(row.get("relation_need") or "none"),
+                relation_need=canonical_relation_need(
+                    row.get("relation_need", "none")),
                 numeric_conditions=tuple(str(v) for v in row.get("numeric_conditions") or []),
                 time_constraints=tuple(str(v) for v in row.get("time_constraints") or []),
                 scope_constraints=tuple(str(v) for v in row.get("scope_constraints") or []),

@@ -51,7 +51,8 @@ from budget_guard import (
     spend_or_raise,
 )
 from router import heuristic_needed
-from runtime_safety import (FailureClass, FailureEffect, StageExecutionError,
+from runtime_safety import (BudgetClass, FailureClass, FailureEffect,
+                            RequestCancelled, StageExecutionError,
                             decide_failure)
 
 
@@ -126,6 +127,29 @@ def _normalize_for_selector(candidates: list) -> list:
             "rerank_score": c.get("rerank_score", round(1.0 / (pos + 2), 4)),
         })
     return out
+
+
+def reconcile_relation_degradations(degraded_capabilities: list,
+                                    ledger_status: dict) -> None:
+    """Reconcile Graph diagnostics only after canonical Ledger support."""
+    supported_requirement_ids = {
+        str(row.get("id") or "")
+        for row in ledger_status.get("requirements", [])
+        if row.get("status") == "SUPPORTED"}
+    for degradation in degraded_capabilities:
+        if (isinstance(degradation, dict)
+                and degradation.get("capability") == "graph_search"
+                and degradation.get("requirement_id")
+                in supported_requirement_ids):
+            degradation.update({
+                "reason_code":
+                    "RUNTIME_RELATION_ALTERNATIVE_EVIDENCE_RECHECKED",
+                "fallback_used": "canonical_alternative_relation_evidence",
+                "state_impact": FailureEffect.CONTINUE_RECHECK.value,
+                "terminal_upper_bound":
+                    "SUPPORTED_IF_CANONICAL_GATES_PASS",
+                "canonical_recheck": "SUPPORTED",
+            })
 
 
 @dataclass
@@ -581,16 +605,21 @@ async def _run_canonical_phase04(
 
     try:
         if Flags.ROUTER_ENABLED:
-            if heuristic_needed(query):
-                spend_or_raise(state.budget, "router_llm")
+            router_budget_class = (BudgetClass.LOOP if heuristic_needed(query)
+                                   else BudgetClass.NONE)
             if execution_context is not None:
                 state.router_result = await execution_context.run_stage(
                     "router", lambda: route_query(query, rr.rewritten_query),
-                    safe_fallback_available=True)
+                    safe_fallback_available=True,
+                    budget_class=router_budget_class)
             else:
+                if router_budget_class == BudgetClass.LOOP:
+                    spend_or_raise(state.budget, "router_llm")
                 state.router_result = await route_query(query, rr.rewritten_query)
         else:
             state.router_result = _fallback_route(query)
+    except (asyncio.CancelledError, RequestCancelled):
+        raise
     except Exception as exc:
         state.router_result = _fallback_route(query)
         _record_runtime_degradation(
@@ -632,6 +661,8 @@ async def _run_canonical_phase04(
                 else:
                     spend_or_raise(state.budget, "decompose")
                     raw_plan = await call()
+        except (asyncio.CancelledError, RequestCancelled):
+            raise
         except Exception as exc:
             raw_plan = {"planner_error": str(exc)}
             _record_runtime_degradation(
@@ -783,6 +814,8 @@ async def _run_canonical_phase04(
                 # prose) are advisory.  They never update the Ledger
                 # directly; only the canonical policy-cleared final view
                 # below can establish requirement support.
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as exc:
                 row = _record_runtime_degradation(
                     "multi_document_worker", exc,
@@ -870,6 +903,13 @@ async def _run_canonical_phase04(
             and ledger_status.get("conflicted", 0) == 0
             and all(r.get("status") == "SUPPORTED"
                     for r in ledger_status.get("requirements", [])))
+        # Graph availability is not itself a support authority.  A relation
+        # failure begins fail-safe for only its bound requirement; when the
+        # canonical policy/package/Ledger later proves that same requirement
+        # through independently approved typed evidence, reconcile the
+        # diagnostic so it does not contradict the terminal state.
+        reconcile_relation_degradations(
+            state.degraded_capabilities, ledger_status)
         _req_statuses = [r.get("status") for r in
                          ledger_status.get("requirements", [])]
         partial = (any(s == "PARTIAL" for s in _req_statuses)
@@ -901,6 +941,8 @@ async def _run_canonical_phase04(
                     if execution_context is not None else await grade_call())
                 semantic_status = str((grade or {}).get("overall") or
                                       "TECHNICAL_FAILURE")
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as exc:
                 semantic_status = "TECHNICAL_FAILURE"
                 _record_runtime_degradation(

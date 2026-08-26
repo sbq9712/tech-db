@@ -12,10 +12,12 @@ State transitions:
 
 Max repair iterations: configurable (default 2).
 """
+import asyncio
 import inspect
 import os
 from typing import List, Dict
 from enum import Enum
+from runtime_safety import RequestCancelled
 
 
 MAX_REPAIR_ITERATIONS = int(os.environ.get("QA_MAX_REPAIR_ITERATIONS", "2"))
@@ -270,6 +272,8 @@ class BoundedRepairLoop:
             return False
         try:
             result = grounding_fn(claim)
+        except (asyncio.CancelledError, RequestCancelled):
+            raise
         except Exception as e:  # grounding closure failure is NOT silent PASS
             self._log(claim.get("id"), "relocate", f"grounding_fn error: {e}",
                       "error")
@@ -396,6 +400,8 @@ class BoundedRepairLoop:
                                           "retrieved")
                                 actionable = True
                                 continue
+                            except (asyncio.CancelledError, RequestCancelled):
+                                raise
                             except Exception as e:
                                 self._log(cid, "retrieve", f"error: {e}", "error")
                         unresolved_core.append(cid)
@@ -425,6 +431,8 @@ class BoundedRepairLoop:
                 if new_answer and new_answer.strip():
                     answer = new_answer
                     regenerated = True
+            except (asyncio.CancelledError, RequestCancelled):
+                raise
             except Exception as e:
                 self._log("-", "regenerate", f"error: {e}", "error")
 
