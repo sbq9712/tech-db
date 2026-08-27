@@ -437,25 +437,13 @@ class RelationAwareGraphRetriever:
             if depth > int(max_hops):
                 return
             # B8: cancellation / request deadline (Phase05 primitive)
-            try:
-                b.check()
-            except RequestCancelled as exc:
-                _hit_bound(str(exc))
-                return
-            if b.expired():
-                _hit_bound("graph_traversal_deadline_exhausted")
-                return
+            # Cancellation is control flow, not an ordinary traversal bound:
+            # it must abort the request and must never return partial hits.
+            b.check()
             fanout = 0
             for idx, subj_side in self.view.edges_for(current, direction=direction):
                 # B8: every expensive expansion step checks bounds FIRST
-                if b.expired():
-                    _hit_bound("graph_traversal_deadline_exhausted")
-                    return
-                try:
-                    b.check()
-                except RequestCancelled as exc:
-                    _hit_bound(str(exc))
-                    return
+                b.check()
                 if counters["edges"] >= b.max_expanded_edges:
                     _hit_bound("max_expanded_edges")
                     return
@@ -556,12 +544,17 @@ class RelationAwareGraphRetriever:
                         support_eligible=path_support,
                     )
                     if group_ok and pred_ok:
-                        if counters["candidates"] >= b.max_total_candidates:
-                            _hit_bound("max_total_candidates")
-                            return
                         primary_rid = str(refs[0]["record_id"]) if refs else ""
                         target = hits if path_support else discovery_hits
                         for ref_pos, r in enumerate(refs):
+                            # Each EvidenceRef is one candidate emission.  The
+                            # shared support/discovery cap is enforced before
+                            # every mutation, including later refs on one edge.
+                            b.check()
+                            if counters["candidates"] >= \
+                                    b.max_total_candidates:
+                                _hit_bound("max_total_candidates")
+                                return
                             rid = str(r["record_id"])
                             # deterministic primary-source bonus: the FIRST
                             # recorded evidence ref of a merged statement is

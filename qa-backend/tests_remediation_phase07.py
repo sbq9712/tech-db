@@ -966,6 +966,7 @@ def rt083():
 
     # ══ B8: bounded traversal under a REAL TraversalBudget ══════════════
     from graph_serving import TraversalBudget
+    from runtime_safety import RequestExecutionContext, RequestCancelled
     def _disc_ids(res):
         d = res.get("discovery_hits") or {}
         vals = d.values() if isinstance(d, dict) else d
@@ -1005,25 +1006,63 @@ def rt083():
          and r_fan["trace"]["bounds"]["max_fanout_per_node"] == 3,
          str(r_fan["trace"]["bound_hit"]))
 
-    # total-candidate cap fires and is traced
-    b_cand = TraversalBudget(max_total_candidates=0)
-    r_cand = ret.search("Blackwell", seed_entities=[
-        {"entity_id": blackwell_seed, "confidence": 0.95}],
-        desired_groups=["PRODUCT_LIFECYCLE"], budget=b_cand)
-    test("rt083.budget_candidate_cap_empty_and_traced",
-         not r_cand["hits"] and not r_cand["discovery_hits"]
-         and r_cand["trace"].get("bound_hit")
-         == "max_total_candidates")
+    # total-candidate cap is checked before EVERY EvidenceRef emission,
+    # including accumulation across multiple refs and multiple edges.
+    def _cap_stmt(obj, prefix):
+        refs = [{"record_id": f"{prefix}-{i}",
+                 "source_snapshot_id": "ss-cap",
+                 "locator": {"start_offset": i * 10,
+                             "end_offset": i * 10 + 9},
+                 "exact_text": f"cap ref {prefix}-{i}"}
+                for i in range(2)]
+        return normalize_statement(
+            {"subject_id": "ent-cap-seed", "predicate": "USES",
+             "object_id": obj, "polarity": "POSITIVE",
+             "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+             "grounding_status": "EXACT_GROUNDED",
+             "evidence_refs": refs},
+            record_id=refs[0]["record_id"],
+            source_snapshot_id="ss-cap",
+            extraction_version="relation-extract-v2-gold")
+
+    cap_stmts = [_cap_stmt("ent-cap-a", "cap-a"),
+                 _cap_stmt("ent-cap-b", "cap-b")]
+    ident_cap = _identity_snapshot_for(
+        ["ent-cap-seed", "ent-cap-a", "ent-cap-b"])
+    cap_view = GraphSnapshotView(build_graph_artifact(
+        cap_stmts, ontology_version="0.1.0",
+        identity_snapshot_id=ident_cap["identity_snapshot_id"],
+        identity_content_hash=ident_cap["content_hash"]))
+    cap_ret = RelationAwareGraphRetriever(cap_view)
+    r_cand = cap_ret.search("cap", seed_entities=[
+        {"entity_id": "ent-cap-seed", "confidence": 0.99}],
+        budget=TraversalBudget(max_total_candidates=3))
+    emitted = len(r_cand["hits"]) + len(r_cand["discovery_hits"])
+    test("rt083.budget_candidate_cap_multi_ref_multi_edge_exact",
+         emitted == 3
+         and r_cand["trace"]["counters"]["candidates"] == 3
+         and r_cand["trace"].get("bound_hit") == "max_total_candidates",
+         json.dumps({"emitted": emitted, "trace": r_cand["trace"]})[:240])
+
+    r_one = cap_ret.search("cap", seed_entities=[
+        {"entity_id": "ent-cap-seed", "confidence": 0.99}],
+        budget=TraversalBudget(max_total_candidates=1))
+    test("rt083.budget_candidate_cap_one_never_emits_second_ref",
+         len(r_one["hits"]) + len(r_one["discovery_hits"]) == 1
+         and r_one["trace"]["counters"]["candidates"] == 1)
 
     # deadline before first expansion (monotonic deadline in the past)
     import time as _time
     b_dead = TraversalBudget(deadline=_time.monotonic() - 1.0)
-    r_dead = ret.search("Blackwell", seed_entities=[
-        {"entity_id": blackwell_seed, "confidence": 0.95}], budget=b_dead)
+    deadline_raised = False
+    try:
+        ret.search("Blackwell", seed_entities=[
+            {"entity_id": blackwell_seed, "confidence": 0.95}],
+            budget=b_dead)
+    except RequestCancelled:
+        deadline_raised = True
     test("rt083.budget_deadline_stops_traversal",
-         not r_dead["hits"]
-         and r_dead["trace"].get("bound_hit")
-         == "graph_traversal_deadline_exhausted")
+         deadline_raised)
 
     # edge-budget exhaustion before any edge materializes a candidate
     b_edge = TraversalBudget(max_expanded_edges=0)
@@ -1034,21 +1073,29 @@ def rt083():
          == "max_expanded_edges")
 
     # cancellation MID-TRAVERSAL through the REAL Phase05 primitive
-    from runtime_safety import RequestExecutionContext
-    from runtime_safety import RequestCancelled
-    ctx = RequestExecutionContext(request_id="rt083-cancel")
-    ctx.cancel("client_gone")
+    class _CancelDuringTraversal(RequestExecutionContext):
+        checks = 0
+
+        def check_active(self):
+            self.checks += 1
+            # walk start, first edge, first EvidenceRef, then cancel before
+            # the second ref would mutate the candidate result.
+            if self.checks == 4:
+                self.cancel("client_gone_mid_traversal")
+            return super().check_active()
+
+    ctx = _CancelDuringTraversal(request_id="rt083-cancel")
     b_can = TraversalBudget(request_ctx=ctx)
+    r_can = None
     try:
-        r_can = ret.search("Blackwell", seed_entities=[
-            {"entity_id": blackwell_seed, "confidence": 0.95}],
+        r_can = cap_ret.search("cap", seed_entities=[
+            {"entity_id": "ent-cap-seed", "confidence": 0.99}],
             budget=b_can)
-        can_reason = r_can["trace"].get("bound_hit") or ""
-        can_ok = (not r_can["hits"]
-                  and ("client_gone" in can_reason or can_reason != ""))
+        can_ok = False
     except RequestCancelled:
-        can_ok = True  # propagation is also an acceptable honest failure
-    test("rt083.phase05_cancellation_stops_graph_traversal", can_ok)
+        can_ok = r_can is None and ctx.checks == 4
+    test("rt083.phase05_mid_traversal_cancellation_propagates_no_partial",
+         can_ok, f"checks={ctx.checks} result={r_can}")
 
 
 # ══════════════════════════ RT-084 ═══════════════════════════════════════
@@ -1398,13 +1445,17 @@ def server_degradation():
     import server
     from graph_serving import GraphSnapshotView
 
-    def _drive(route_results, pinned):
+    def _drive(route_results, pinned, *, relation_ids=None,
+               route_batches=None):
+        rel_ids = ["req-1"] if relation_ids is None else relation_ids
         return asyncio.run(server._graph_v2_route(
             query="Blackwell 用了什么工艺",
-            requirements=[{"requirement_id": "req-1",
-                           "relation_group": "SUPPORTS"}],
-            relation_ids=["req-1"], exclude_ids=set(),
-            route_batches=[], pinned=pinned,
+            requirements=([{"requirement_id": "req-1",
+                            "relation_group": "TECHNOLOGY_APPLICATION"}]
+                          if rel_ids else [{"requirement_id": "req-opt",
+                                            "relation_need": "none"}]),
+            relation_ids=rel_ids, exclude_ids=set(),
+            route_batches=route_batches or [], pinned=pinned,
             route_results=route_results))
 
     orig = server.Flags.GRAPH_V2_ENABLED
@@ -1428,17 +1479,37 @@ def server_degradation():
         rows = rr.get("_degraded_not_wired") or []
         ok_row = (len(rows) == 1
                   and rows[0].get("reason_code")
+                  == "RUNTIME_RELATION_CRITICAL_GRAPH_UNAVAILABLE"
+                  and rows[0].get("condition_reason_code")
                   == "RUNTIME_GRAPH_V2_NOT_WIRED"
                   and rows[0].get("capability") == "graph_v2"
-                  and rows[0].get("fallback_used") is True
-                  and rows[0].get("correctness_critical") is False
+                  and rows[0].get("fallback_used") is False
+                  and rows[0].get("correctness_critical") is True
+                  and rows[0].get("state_impact") == "UNVERIFIED"
+                  and rows[0].get("answer_state") == "UNVERIFIED"
                   and rows[0].get("requirement_id") == "req-1")
-        test("server_run_graph_v2_not_wired_degrades_honestly",
+        test("server_relation_critical_graph_unwired_caps_unverified",
              trace.get("wired") is False
              and trace.get("reason_code") == "GRAPH_V2_NOT_WIRED"
              and ok_row and mctx is None,
              json.dumps({"trace_reason": trace.get("reason_code"),
                          "rows": len(rows)})[:200])
+
+        # (2b) The same unavailable optional route can continue only through
+        # downstream canonical sufficiency re-evaluation.
+        rr = {}
+        trace, mctx = _drive(
+            rr, pinned=SimpleNamespace(resources={}), relation_ids=[])
+        optional_rows = rr.get("_degraded_not_wired") or []
+        test("server_optional_graph_unwired_continues_with_recheck",
+             len(optional_rows) == 1
+             and optional_rows[0].get("correctness_critical") is False
+             and optional_rows[0].get("state_impact") == "CONTINUE_RECHECK"
+             and optional_rows[0].get("answer_state")
+             == "SUPPORTED_IF_CANONICAL_GATES_PASS"
+             and optional_rows[0].get("reason_code")
+             == "RUNTIME_OPTIONAL_GRAPH_DEGRADED"
+             and mctx is None)
 
         # (3) wired view present but query not eligible -> silent skip,
         #     NOT a degradation (eligible-subset semantics of RT-086).
@@ -1473,16 +1544,87 @@ def server_degradation():
                                _identity_snapshot_for(
                                    ["ent-unrelated-9"])}))
         mismatch_rows = [r for r in (rr.get("_degraded_not_wired") or [])
-                         if r.get("reason_code")
+                         if r.get("condition_reason_code")
                          == "RUNTIME_GRAPH_IDENTITY_MISMATCH"]
         test("server_run_graph_v2_identity_mismatch_degrades_honestly",
              trace.get("reason_code") == "GRAPH_IDENTITY_MISMATCH"
              and len(mismatch_rows) == 1
              and mismatch_rows[0].get("capability") == "graph_v2"
-             and mismatch_rows[0].get("fallback_used") is True
-             and mismatch_rows[0].get("state_impact") == "CONTINUE_RECHECK",
+             and mismatch_rows[0].get("fallback_used") is False
+             and mismatch_rows[0].get("state_impact") == "UNVERIFIED",
              json.dumps({"reason": trace.get("reason_code"),
                          "rows": len(mismatch_rows)})[:200])
+
+        # (4) Actual eligible traversal: a hard candidate bound on a
+        # relation-critical request is machine-readable and caps the answer.
+        import graph_serving
+        from retrieval.vector import RetrievalResult
+        orig_resolve = server.resolve_query_from_runtime_snapshot
+        orig_budget = graph_serving.TraversalBudget
+        server.resolve_query_from_runtime_snapshot = lambda q, p: {
+            "identity_snapshot_id": "test",
+            "decisions": [{"decision": "LINK",
+                           "selected_entity_id": "ent-nvda-x",
+                           "confidence": 0.99}]}
+        strong_batches = [{"vector": [RetrievalResult(
+            record_id="record-g1", legacy_idx=None, route="vector",
+            raw_score=1.0, rank=1, meta={}, route_details={})]}]
+        wired = SimpleNamespace(resources={
+            "graph_snapshot_v2": view,
+            "identity_snapshot": _identity_snapshot_for(
+                ["ent-nvda-x", "ent-blackwell-x"])})
+        try:
+            graph_serving.TraversalBudget = lambda request_ctx=None: \
+                orig_budget(max_total_candidates=0,
+                            request_ctx=request_ctx)
+            rr = {}
+            trace, mctx = _drive(
+                rr, pinned=wired, route_batches=strong_batches)
+            bound_rows = rr.get("_degraded_not_wired") or []
+            test("server_relation_critical_bound_caps_and_rechecks",
+                 trace.get("bound_hit") == "max_total_candidates"
+                 and len(bound_rows) == 1
+                 and bound_rows[0].get("correctness_critical") is True
+                 and bound_rows[0].get("state_impact") == "UNVERIFIED"
+                 and bound_rows[0].get("answer_state") == "UNVERIFIED"
+                 and rr.get("graph_v2") == [] and mctx is not None)
+        finally:
+            graph_serving.TraversalBudget = orig_budget
+
+        # (5) Cancellation raised by the real traversal propagates through
+        # the production route; no graph result/EvidencePackage input exists.
+        from runtime_safety import (RequestExecutionContext,
+                                    RequestCancelled,
+                                    bind_request_context,
+                                    reset_request_context)
+        class _CancelInProductionTraversal(RequestExecutionContext):
+            checks = 0
+
+            def check_active(self):
+                self.checks += 1
+                if self.checks == 3:
+                    self.cancel("production_mid_traversal_disconnect")
+                return super().check_active()
+
+        cancel_ctx = _CancelInProductionTraversal(
+            request_id="phase07-production-cancel")
+        token = bind_request_context(cancel_ctx)
+        rr = {}
+        cancelled = False
+        try:
+            _drive(rr, pinned=wired, route_batches=strong_batches)
+        except RequestCancelled:
+            cancelled = True
+        finally:
+            reset_request_context(token)
+            server.resolve_query_from_runtime_snapshot = orig_resolve
+        test("server_mid_traversal_cancel_no_graph_or_partial_package",
+             cancelled and cancel_ctx.checks == 3
+             and "graph_v2" not in rr
+             and not rr.get("_degraded_not_wired"),
+             json.dumps({"cancelled": cancelled,
+                         "checks": cancel_ctx.checks,
+                         "keys": sorted(rr)})[:200])
     finally:
         server.Flags.GRAPH_V2_ENABLED = orig
 

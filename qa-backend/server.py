@@ -73,7 +73,7 @@ from runtime_safety import (
     RequestExecutionContext,
     RequestCancelled, StageExecutionError, bind_request_context,
     reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
-    relation_requirement_ids,
+    FailureClass, decide_failure, relation_requirement_ids,
 )
 from entity_resolver_v2 import resolve_query_from_runtime_snapshot
 
@@ -936,6 +936,34 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
         "reason_code": "GRAPH_V2_DISABLED", "hits": 0,
         "matched_paths": [], "snapshot_id": "",
     }
+    relation_critical = bool(relation_ids)
+
+    def _record_graph_degradation(failure_class: FailureClass,
+                                  condition_code: str) -> None:
+        """Project the canonical Phase05 graph-failure decision.
+
+        Relation criticality is request-scoped.  Optional graph failures may
+        continue only through downstream canonical sufficiency gates, while
+        a required relation caps the answer at UNVERIFIED.
+        """
+        decision = decide_failure(
+            "graph_search", failure_class,
+            requirement_critical=relation_critical,
+            alternative_evidence_sufficient=False)
+        unverified = decision.effect.value == "UNVERIFIED"
+        route_results.setdefault("_degraded_not_wired", []).append({
+            "capability": "graph_v2",
+            "failure_class": failure_class.value,
+            "reason_code": decision.reason_code,
+            "condition_reason_code": condition_code,
+            "requirement_id": ",".join(relation_ids),
+            "correctness_critical": decision.correctness_critical,
+            "fallback_used": decision.fallback != "none",
+            "retry_count": 0,
+            "state_impact": decision.effect.value,
+            "answer_state": ("UNVERIFIED" if unverified else
+                             "SUPPORTED_IF_CANONICAL_GATES_PASS"),
+        })
     if not Flags.GRAPH_V2_ENABLED:
         return graph_v2_trace, None
     resources = getattr(pinned, "resources", {}) if pinned is not None else {}
@@ -943,18 +971,8 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
     if view is None:
         graph_v2_trace.update({
             "action": "skip", "reason_code": "GRAPH_V2_NOT_WIRED"})
-        from runtime_safety import FailureClass
-        route_results.setdefault("_degraded_not_wired", []).append({
-            "capability": "graph_v2",
-            "failure_class": FailureClass.REQUIRED_BACKEND_UNAVAILABLE.value,
-            "reason_code": "RUNTIME_GRAPH_V2_NOT_WIRED",
-            "requirement_id": ",".join(relation_ids),
-            "correctness_critical": False,
-            "fallback_used": True,
-            "retry_count": 0,
-            "state_impact": "CONTINUE_RECHECK",
-            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
-        })
+        _record_graph_degradation(
+            FailureClass.INTERNAL_EXCEPTION, "RUNTIME_GRAPH_V2_NOT_WIRED")
         return graph_v2_trace, None
 
     from graph_serving import (
@@ -971,18 +989,9 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
         graph_v2_trace.update({
             "action": "skip", "reason_code": "GRAPH_IDENTITY_MISMATCH",
             "detail": str(exc)[:200]})
-        from runtime_safety import FailureClass
-        route_results.setdefault("_degraded_not_wired", []).append({
-            "capability": "graph_v2",
-            "failure_class": FailureClass.REQUIRED_BACKEND_UNAVAILABLE.value,
-            "reason_code": "RUNTIME_GRAPH_IDENTITY_MISMATCH",
-            "requirement_id": ",".join(relation_ids),
-            "correctness_critical": False,
-            "fallback_used": True,
-            "retry_count": 0,
-            "state_impact": "CONTINUE_RECHECK",
-            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
-        })
+        _record_graph_degradation(
+            FailureClass.INTERNAL_EXCEPTION,
+            "RUNTIME_GRAPH_IDENTITY_MISMATCH")
         return graph_v2_trace, None
     resolution = {}
     try:
@@ -1032,39 +1041,25 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
                                   desired_groups=desired_groups or None,
                                   seed_entities=seeds, budget=budget)
     except RequestCancelled:
-        # relation-critical graph failure is NEVER silent: record the
-        # degradation; Phase05 re-computes sufficiency downstream.
-        route_results.setdefault("_degraded_not_wired", []).append({
-            "capability": "graph_v2",
-            "failure_class": FailureClass.REQUEST_CANCELLED.value
-            if hasattr(FailureClass, "REQUEST_CANCELLED")
-            else "REQUEST_CANCELLED",
-            "reason_code": "RUNTIME_GRAPH_TRAVERSAL_CANCELLED",
-            "requirement_id": ",".join(relation_ids),
-            "correctness_critical": True,
-            "fallback_used": False,
-            "retry_count": 0,
-            "state_impact": "CONTINUE_RECHECK",
-            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
-        })
+        # Cancellation is request lifecycle control flow.  Never translate it
+        # into a normal degraded graph result containing partial candidates.
         graph_v2_trace.update({
             "action": "skip", "reason_code": "GRAPH_TRAVERSAL_CANCELLED"})
+        raise
+    except Exception:
+        graph_v2_trace.update({
+            "action": "skip", "reason_code": "GRAPH_TRAVERSAL_FAILED"})
+        _record_graph_degradation(
+            FailureClass.INTERNAL_EXCEPTION,
+            "RUNTIME_GRAPH_TRAVERSAL_FAILED")
         return graph_v2_trace, None
     bound_hit = (result.get("trace") or {}).get("bound_hit")
     if bound_hit:
         # B8: bound/deadline hit must not silently pretend a full answer —
         # record the degradation so sufficiency is re-computed.
-        route_results.setdefault("_degraded_not_wired", []).append({
-            "capability": "graph_v2",
-            "failure_class": "RESOURCE_EXHAUSTION",
-            "reason_code": f"RUNTIME_GRAPH_BOUND_HIT_{str(bound_hit).upper()}",
-            "requirement_id": ",".join(relation_ids),
-            "correctness_critical": False,
-            "fallback_used": True,
-            "retry_count": 0,
-            "state_impact": "CONTINUE_RECHECK",
-            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
-        })
+        _record_graph_degradation(
+            FailureClass.INTERNAL_EXCEPTION,
+            f"RUNTIME_GRAPH_BOUND_HIT_{str(bound_hit).upper()}")
     hits = result.get("hits") or []
     route_results["graph_v2"] = [
         RetrievalResult(
