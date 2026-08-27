@@ -13296,7 +13296,7 @@
     {
       "ticket_id":"RT-068","completion_class":"CORE_REQUIRED","dods":[
         {"dod_id":"RT-068.DOD-01","description":"merge and split require dry-run impact hash and explicit confirmation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-068.DOD-02","description":"tombstones snapshots real evidence-lineage rematerialization checkpoints atomic publish and dependent-mutation conflicts prevent blind rollback","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_rt072_real_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+        {"dod_id":"RT-068.DOD-02","description":"merge and unmerge use checkpointed evidence-lineage rematerialization atomic publish crash resume and dependent-mutation protection","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_relation_backed_unmerge_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
       ]
     },
     {

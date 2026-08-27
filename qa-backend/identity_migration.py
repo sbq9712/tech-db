@@ -248,6 +248,7 @@ def execute_relation_rematerialization(store, plan: dict, *, operation_id: str,
     if not plan_hash or stable_hash(expected) != plan_hash:
         raise ValueError("rematerialization plan hash mismatch")
     mappings = []
+    withheld = []
     with store.transaction() as conn:
         for lineage in plan.get("affected_relations", []):
             old = conn.execute("SELECT * FROM relation_assertions WHERE relation_id=?",
@@ -274,10 +275,28 @@ def execute_relation_rematerialization(store, plan: dict, *, operation_id: str,
                         or current["end_offset"] != pinned["end_offset"]
                         or current["surface"] != pinned["surface"]):
                     raise ValueError("mention offset lineage changed after dry-run")
+            intended = plan.get("intended_entity_assignments", {})
+            for mention_id, intended_entity_id in intended.items():
+                if (mention_id in current_mentions
+                        and current_mentions[mention_id]["entity_id"] != intended_entity_id):
+                    raise ValueError("mention identity does not match confirmed mutation plan")
             subject = current_mentions[mention_ids[0]]["entity_id"]
             obj = current_mentions[mention_ids[1]]["entity_id"] if len(mention_ids) > 1 else None
             if not subject or (not obj and lineage.get("object_value") is None):
-                raise ValueError("rematerialized relation has unresolved endpoint")
+                # The prior assertion is no longer supported by its current
+                # mention identities.  Preserve it as history, but withhold a
+                # replacement until the unresolved mention is re-resolved.
+                conn.execute(
+                    "UPDATE relation_assertions SET assertion_status='SUPERSEDED' "
+                    "WHERE relation_id=?", (lineage["relation_id"],))
+                withheld.append({
+                    "old_relation_id": lineage["relation_id"],
+                    "reason": "UNRESOLVED_SOURCE_MENTION",
+                    "source_mention_ids": mention_ids,
+                    "source_snapshot_id": lineage["source_snapshot_id"],
+                    "evidence_ref_ids": [ref.get("evidence_id") for ref in refs],
+                })
+                continue
             lifecycle = {row["entity_id"]: row["lifecycle"] for row in conn.execute(
                 "SELECT entity_id,lifecycle FROM entities WHERE entity_id IN (?,?)",
                 (subject, obj or subject))}
@@ -290,9 +309,12 @@ def execute_relation_rematerialization(store, plan: dict, *, operation_id: str,
                 "rematerialized_from_relation_id": lineage["relation_id"],
                 "rematerialization_operation_id": operation_id,
                 "rematerialization_plan_hash": plan_hash,
+                "rematerialization_kind": plan.get("mutation", "IDENTITY_MUTATION"),
                 "legacy_edge_hint": lineage.get("legacy_edge_hint"),
                 "legacy_edge_is_authority": False,
             }
+            if plan.get("mutation") == "UNMERGE":
+                provenance["unmerge_operation_id"] = operation_id
             conn.execute("INSERT INTO relation_assertions VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)", (
                 new_relation_id, subject, lineage["predicate"], obj,
                 lineage.get("object_value"), status,
@@ -324,6 +346,7 @@ def execute_relation_rematerialization(store, plan: dict, *, operation_id: str,
             crash_hook("during_rematerialization")
         payload = {"checkpoint": "REMATERIALIZATION_COMPLETE",
                    "plan_hash": plan_hash, "rebuilt_relations": mappings,
+                   "withheld_relations": withheld,
                    "validated": True,
                    "source_of_truth": plan["source_of_truth"]}
         store._event(conn, "REMATERIALIZATION_COMPLETE", payload, actor, reason,

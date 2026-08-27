@@ -351,6 +351,38 @@ class EntityAdminService:
                                               "MENTION_MATERIALIZE",
                                               "REMATERIALIZATION_COMPLETE"}]
         payload = json.loads(event["payload_json"])
+        mention_rows = payload.get("pre_merge_mention_rows", [])
+        pre_mentions = {row["mention_id"] for row in mention_rows}
+        pre_destination_mentions = set(payload.get("pre_destination_mention_ids", []))
+        conn = self.store._connect()
+        try:
+            current_destination_mentions = {row[0] for row in conn.execute(
+                "SELECT mention_id FROM mentions WHERE entity_id=?",
+                (payload["destination_id"],))}
+        finally:
+            conn.close()
+        later_mention_ids = sorted(
+            current_destination_mentions - pre_mentions - pre_destination_mentions)
+        changing_mention_ids = sorted(pre_mentions | set(later_mention_ids))
+        intended_assignments = {
+            row["mention_id"]: row["entity_id"] for row in mention_rows}
+        intended_assignments.update({mention_id: None
+                                     for mention_id in later_mention_ids})
+        relation_plan = rematerialization_plan(
+            self.store, [], affected_mention_ids=changing_mention_ids)
+        relation_plan.pop("plan_hash", None)
+        relation_plan.update({
+            "mutation": "UNMERGE",
+            "merge_operation_id": merge_operation_id,
+            "intended_entity_assignments": dict(sorted(intended_assignments.items())),
+            "intended_endpoint_semantics": "DERIVE_FROM_RESTORED_CURRENT_SOURCE_MENTIONS",
+        })
+        relation_plan["plan_hash"] = stable_hash(relation_plan)
+        compensated_relation_ids = set(relation_plan["relation_ids"])
+        later = [e for e in later if not (
+            e["event_type"] == "RELATION_MATERIALIZE"
+            and json.loads(e["payload_json"]).get("relation_id")
+                in compensated_relation_ids)]
         operation_id = __import__("entity_resolution_types").new_opaque_id("op")
         plan = {"operation": "UNMERGE", "operation_id": operation_id,
                 "merge_operation_id": merge_operation_id,
@@ -358,19 +390,27 @@ class EntityAdminService:
                 "actor": actor, "reason": sanitize_business_text(reason),
                 "source_ids": payload["source_ids"],
                 "destination_id": payload["destination_id"],
+                "later_mention_ids": later_mention_ids,
                 "later_mentions_re_resolve": True,
+                "rematerialization": relation_plan,
                 "dependent_event_ids": [e["event_id"] for e in later]}
         digest = stable_hash(plan)
         return MutationPreview(operation_id, "UNMERGE", plan, digest,
                                self._token(operation_id, digest))
 
-    def confirm_unmerge(self, key: str, preview: MutationPreview, confirmation_token: str) -> dict:
+    def confirm_unmerge(self, key: str, preview: MutationPreview,
+                        confirmation_token: str, *, crash_hook=None) -> dict:
         self.authenticate(key)
-        if preview.plan.get("dependent_event_ids"):
-            raise DependentMutationConflict("dependent mutations require compensating operation")
         if stable_hash(preview.plan) != preview.dry_run_hash or not hmac.compare_digest(
                 self._token(preview.operation_id, preview.dry_run_hash), confirmation_token):
             raise IdentityConflict("confirmation mismatch")
+        if preview.plan.get("dependent_event_ids"):
+            raise DependentMutationConflict("dependent mutations require compensating operation")
+        existing = [e for e in self.store.mutation_events()
+                    if e["operation_id"] == preview.operation_id
+                    and e["event_type"] == "UNMERGE"]
+        if not existing and self.store.revision() != preview.plan["store_revision_before"]:
+            raise DependentMutationConflict("store changed after unmerge dry-run")
         merge_events = [e for e in self.store.mutation_events()
                         if e["operation_id"] == preview.plan["merge_operation_id"]
                         and e["event_type"] == "MERGE"]
@@ -380,7 +420,8 @@ class EntityAdminService:
         pre_mentions = {row["mention_id"] for row in mention_rows}
         pre_destination_mentions = set(
             payload.get("pre_destination_mention_ids", []))
-        with self.store.transaction() as conn:
+        if not existing:
+          with self.store.transaction() as conn:
             for eid, before in payload["before_entities"].items():
                 conn.execute("UPDATE entities SET lifecycle=?, redirect_entity_id=?, updated_at=?, version=version+1 WHERE entity_id=?",
                              (before["lifecycle"], before.get("redirect_entity_id"), utc_now(), eid))
@@ -402,10 +443,6 @@ class EntityAdminService:
             for rule in payload.get("pre_merge_rule_rows", []):
                 conn.execute("UPDATE rules SET target_entity_id=? WHERE rule_id=?",
                              (rule["target_entity_id"], rule["rule_id"]))
-            for relation in payload.get("pre_merge_relation_rows", []):
-                conn.execute("UPDATE relation_assertions SET subject_entity_id=?, object_entity_id=? WHERE relation_id=?",
-                    (relation["subject_entity_id"], relation["object_entity_id"],
-                     relation["relation_id"]))
             # Only pre-merge mentions are restored. Later mentions become
             # unresolved and must pass the current resolver again.
             for mention in mention_rows:
@@ -415,13 +452,33 @@ class EntityAdminService:
             conn.execute("UPDATE mentions SET entity_id=NULL, decision='AMBIGUOUS' WHERE entity_id=? AND mention_id NOT IN ({})".format(
                 ",".join("?" for _ in preserved_mentions) or "''"),
                 [payload["destination_id"]] + preserved_mentions)
-            self.store._event(conn, "UNMERGE", preview.plan, preview.plan["actor"],
-                              preview.plan["reason"], operation_id=preview.operation_id)
+            self.store._event(conn, "UNMERGE", {**preview.plan,
+                "checkpoint": "DB_MUTATION_COMPLETE"}, preview.plan["actor"],
+                preview.plan["reason"], operation_id=preview.operation_id)
+            if crash_hook:
+                crash_hook("before_commit")
+        rematerialized = execute_relation_rematerialization(
+            self.store, preview.plan["rematerialization"],
+            operation_id=preview.operation_id, actor=preview.plan["actor"],
+            reason=preview.plan["reason"], crash_hook=crash_hook)
         snapshot = build_identity_snapshot(self.store)
+        self._checkpoint(preview.operation_id, "SNAPSHOT_BUILD", {
+            "identity_snapshot_id": snapshot["identity_snapshot_id"],
+            "checkpoint": "SNAPSHOT_BUILD_COMPLETE"},
+            preview.plan["actor"], preview.plan["reason"])
+        if crash_hook:
+            crash_hook("after_build_before_switch")
         manifest_id = self.publish_callback(snapshot) if self.publish_callback else None
+        if manifest_id is not None:
+            self._checkpoint(preview.operation_id, "SNAPSHOT_PUBLISH", {
+                "identity_snapshot_id": snapshot["identity_snapshot_id"],
+                "manifest_id": manifest_id, "checkpoint": "ATOMIC_SWITCH_COMPLETE"},
+                preview.plan["actor"], preview.plan["reason"])
         return {"operation_id": preview.operation_id, "snapshot": snapshot,
                 "published_manifest_id": manifest_id,
-                "later_mentions_re_resolve": True}
+                "later_mentions_re_resolve": True,
+                "rematerialization": rematerialized,
+                "serving_changed": manifest_id is not None}
 
     def pending_operations(self, key: str) -> list[dict]:
         """Report committed mutations that have not completed atomic publish."""

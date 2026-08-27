@@ -502,6 +502,198 @@ def test_rt068_rt072_real_rematerialization():
               and split_rebuilt["evidence_ref_ids"] == ["ev-remat-1"])
 
 
+def test_rt068_relation_backed_unmerge_rematerialization():
+    print("RT-068 — relation-backed unmerge rematerialization + resume")
+    with tempfile.TemporaryDirectory() as root:
+        store = store_at(root)
+        source, _ = store.create_entity("Legacy NVIDIA", "ORG", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="unmerge-source")
+        destination, _ = store.create_entity("NVIDIA", "ORG", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="unmerge-destination")
+        product, _ = store.create_entity("Blackwell", "PRODUCT_MODEL", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="unmerge-product")
+        snap = build_identity_snapshot(store)
+        resolver = CanonicalEntityResolver(IdentitySnapshotView(snap))
+        text = "Legacy NVIDIA introduced Blackwell."
+        source_snapshot = SourceSnapshot.from_record("record-unmerge", {"fb": text})
+        sm = materialize_mention(store, record_id="record-unmerge",
+            source_snapshot_id=source_snapshot.source_snapshot_id,
+            canonical_text=source_snapshot.raw_text, surface="Legacy NVIDIA",
+            start_offset=0, decision=resolver.resolve("Legacy NVIDIA"),
+            resolver_version="er-v2.0", identity_snapshot_id=snap["identity_snapshot_id"])
+        om = materialize_mention(store, record_id="record-unmerge",
+            source_snapshot_id=source_snapshot.source_snapshot_id,
+            canonical_text=source_snapshot.raw_text, surface="Blackwell",
+            start_offset=25, decision=resolver.resolve("Blackwell"),
+            resolver_version="er-v2.0", identity_snapshot_id=snap["identity_snapshot_id"])
+        evidence = EvidenceLocator(source_snapshot).locate_text_span(
+            "Legacy NVIDIA introduced Blackwell")
+        evidence["evidence_id"] = "ev-unmerge-1"
+        original = materialize_relation(store, subject_mention=sm,
+            predicate="INTRODUCED", object_mention=om, evidence_refs=[evidence],
+            extraction_version="relation-extract-v9", resolver_version="er-v2.0",
+            legacy_edge_hint="historical-edge")
+        serving = {"manifest": "manifest-original", "publishes": []}
+        def publish(snapshot):
+            manifest = "manifest-" + snapshot["identity_snapshot_id"]
+            serving["manifest"] = manifest
+            serving["publishes"].append(manifest)
+            return manifest
+        admin = EntityAdminService(store, operator_key="operator-secret-123",
+                                   publish_callback=publish)
+        merge = admin.merge_dry_run("operator-secret-123", [source["entity_id"]],
+            destination["entity_id"], actor="alice", reason="merge before unmerge")
+        merged = admin.confirm_merge("operator-secret-123", merge,
+                                     merge.confirmation_token)
+        merged_relation_id = merged["rematerialization"]["rebuilt_relations"][0]["new_relation_id"]
+        serving_before_unmerge = serving["manifest"]
+        merged_snapshot = build_identity_snapshot(store)
+        merged_resolver = CanonicalEntityResolver(IdentitySnapshotView(merged_snapshot))
+        later_decision = merged_resolver.resolve("NVIDIA")
+        later_text = "NVIDIA uses Blackwell."
+        later_snapshot = SourceSnapshot.from_record(
+            "record-later-unmerge", {"fb": later_text})
+        later = materialize_mention(store, record_id="record-later-unmerge",
+            source_snapshot_id=later_snapshot.source_snapshot_id,
+            canonical_text=later_snapshot.raw_text,
+            surface="NVIDIA", start_offset=0, decision=later_decision,
+            resolver_version="er-v2.0",
+            identity_snapshot_id=merged_snapshot["identity_snapshot_id"])
+        later_product = materialize_mention(store, record_id="record-later-unmerge",
+            source_snapshot_id=later_snapshot.source_snapshot_id,
+            canonical_text=later_snapshot.raw_text, surface="Blackwell", start_offset=12,
+            decision=merged_resolver.resolve("Blackwell"), resolver_version="er-v2.0",
+            identity_snapshot_id=merged_snapshot["identity_snapshot_id"])
+        later_evidence = EvidenceLocator(later_snapshot).locate_text_span(
+            "NVIDIA uses Blackwell")
+        later_evidence["evidence_id"] = "ev-later-unmerge"
+        later_relation = materialize_relation(store, subject_mention=later,
+            predicate="USES", object_mention=later_product,
+            evidence_refs=[later_evidence], extraction_version="relation-extract-v10",
+            resolver_version="er-v2.0", legacy_edge_hint="later-edge")
+        unmerge = admin.unmerge_dry_run("operator-secret-123", merge.operation_id,
+            actor="alice", reason="restore evidence identity")
+        plan = unmerge.plan["rematerialization"]
+        check("RT068.unmerge_dry_run_pins_current_relation_lineage",
+              plan["mutation"] == "UNMERGE" and plan["bounded"]
+              and set(plan["relation_ids"]) ==
+                  {merged_relation_id, later_relation["relation_id"]}
+              and plan["intended_entity_assignments"][sm["mention_id"]] == source["entity_id"]
+              and plan["intended_entity_assignments"][later["mention_id"]] is None
+              and set(plan["source_snapshot_ids"]) ==
+                  {source_snapshot.source_snapshot_id, later_snapshot.source_snapshot_id}
+              and set(plan["evidence_ref_ids"]) ==
+                  {"ev-unmerge-1", "ev-later-unmerge"}
+              and set(plan["lineage_mention_ids"]) ==
+                  {sm["mention_id"], om["mention_id"], later["mention_id"],
+                   later_product["mention_id"]}
+              and plan["plan_hash"])
+        def crash(stage):
+            if stage == "during_rematerialization":
+                raise RuntimeError("injected unmerge rematerialization crash")
+        crashed = raises(RuntimeError, lambda: admin.confirm_unmerge(
+            "operator-secret-123", unmerge, unmerge.confirmation_token,
+            crash_hook=crash))
+        conn = store._connect()
+        try:
+            rows_after_crash = [dict(row) for row in conn.execute(
+                "SELECT * FROM relation_assertions ORDER BY created_at")]
+            restored_source_mention = dict(conn.execute(
+                "SELECT * FROM mentions WHERE mention_id=?", (sm["mention_id"],)).fetchone())
+        finally:
+            conn.close()
+        pending = {row["operation_id"]: row for row in
+                   admin.pending_operations("operator-secret-123")}
+        check("RT068.unmerge_crash_rolls_back_relation_and_keeps_serving",
+              crashed and serving["manifest"] == serving_before_unmerge
+              and restored_source_mention["entity_id"] == source["entity_id"]
+              and len(rows_after_crash) == 3
+              and next(row for row in rows_after_crash
+                       if row["relation_id"] == merged_relation_id)["assertion_status"] != "SUPERSEDED"
+              and unmerge.operation_id in pending
+              and pending[unmerge.operation_id]["rematerialization_complete"] is False)
+        resumed = admin.resume_publish("operator-secret-123", unmerge.operation_id,
+            actor="alice", reason="resume unmerge lineage")
+        conn = store._connect()
+        try:
+            final_rows = [dict(row) for row in conn.execute(
+                "SELECT * FROM relation_assertions ORDER BY created_at")]
+            later_row = dict(conn.execute("SELECT * FROM mentions WHERE mention_id=?",
+                                          (later["mention_id"],)).fetchone())
+        finally:
+            conn.close()
+        active = [row for row in final_rows if row["assertion_status"] != "SUPERSEDED"]
+        unmerge_row = active[0]
+        unmerge_provenance = json.loads(unmerge_row["provenance"])
+        merge_row = next(row for row in final_rows
+                         if row["relation_id"] == merged_relation_id)
+        later_relation_row = next(row for row in final_rows
+            if row["relation_id"] == later_relation["relation_id"])
+        original_row = next(row for row in final_rows
+                            if row["relation_id"] == original["relation_id"])
+        operation_events = [event for event in store.mutation_events()
+                            if event["operation_id"] == unmerge.operation_id]
+        revisions = {event["event_type"]: event["store_revision"]
+                     for event in operation_events}
+        check("RT068.unmerge_creates_new_relation_from_restored_mentions",
+              len(active) == 1 and unmerge_row["relation_id"] not in
+                  {original["relation_id"], merged_relation_id}
+              and unmerge_row["subject_entity_id"] == source["entity_id"]
+              and unmerge_row["object_entity_id"] == product["entity_id"]
+              and merge_row["subject_entity_id"] == destination["entity_id"]
+              and merge_row["assertion_status"] == "SUPERSEDED"
+              and later_relation_row["subject_entity_id"] == destination["entity_id"]
+              and later_relation_row["assertion_status"] == "SUPERSEDED"
+              and original_row["subject_entity_id"] == source["entity_id"]
+              and original_row["assertion_status"] == "SUPERSEDED")
+        check("RT068.unmerge_relation_preserves_evidence_lineage",
+              unmerge_row["source_snapshot_id"] == source_snapshot.source_snapshot_id
+              and json.loads(unmerge_row["evidence_refs_json"]) == [evidence]
+              and json.loads(unmerge_row["source_mention_ids_json"]) ==
+                  [sm["mention_id"], om["mention_id"]]
+              and unmerge_row["extraction_version"] == "relation-extract-v9"
+              and unmerge_row["resolver_version"] == "er-v2.0"
+              and unmerge_provenance["rematerialized_from_relation_id"] == merged_relation_id
+              and unmerge_provenance["unmerge_operation_id"] == unmerge.operation_id
+              and unmerge_provenance["rematerialization_plan_hash"] == plan["plan_hash"]
+              and unmerge_provenance["legacy_edge_is_authority"] is False)
+        check("RT068.unresolved_later_relation_is_withheld_fail_safe",
+              resumed.get("serving_changed") is True
+              and later_row["entity_id"] is None
+              and later_relation_row["assertion_status"] == "SUPERSEDED"
+              and not any(row["subject_entity_id"] == destination["entity_id"]
+                          for row in active)
+              and any(item["old_relation_id"] == later_relation["relation_id"]
+                      and item["reason"] == "UNRESOLVED_SOURCE_MENTION"
+                      for item in next(json.loads(event["payload_json"])
+                          for event in operation_events
+                          if event["event_type"] == "REMATERIALIZATION_COMPLETE")
+                          ["withheld_relations"]))
+        check("RT068.unmerge_resume_orders_validation_before_publish",
+              resumed["resumed"] and serving["manifest"] == resumed["published_manifest_id"]
+              and revisions["UNMERGE"] < revisions["REMATERIALIZATION_COMPLETE"]
+              < revisions["SNAPSHOT_BUILD"] < revisions["SNAPSHOT_PUBLISH"]
+              and later_row["entity_id"] is None
+              and later_row["decision"] == "AMBIGUOUS"
+              and not admin.pending_operations("operator-secret-123"))
+        before_repeat_active_ids = {row["relation_id"] for row in active}
+        repeated = admin.confirm_unmerge("operator-secret-123", unmerge,
+                                         unmerge.confirmation_token)
+        conn = store._connect()
+        try:
+            after_repeat_active_ids = {row[0] for row in conn.execute(
+                "SELECT relation_id FROM relation_assertions "
+                "WHERE assertion_status!='SUPERSEDED'")}
+        finally:
+            conn.close()
+        check("RT068.unmerge_confirmation_is_relation_idempotent",
+              repeated["rematerialization"]["plan_hash"] == plan["plan_hash"]
+              and after_repeat_active_ids == before_repeat_active_ids
+              and raises(KeyError, lambda: admin.resume_publish(
+                  "operator-secret-123", unmerge.operation_id,
+                  actor="alice", reason="duplicate resume")))
+
+
 def test_rt070_snapshot_runtime():
     print("RT-070 — immutable snapshot and request pin")
     with tempfile.TemporaryDirectory() as root:
@@ -742,6 +934,7 @@ def main():
     test_rt066_rt067_lifecycle_rules()
     test_rt068_mutations()
     test_rt068_rt072_real_rematerialization()
+    test_rt068_relation_backed_unmerge_rematerialization()
     test_rt070_snapshot_runtime()
     test_rt071_migration()
     test_rt072_relation_lineage()
