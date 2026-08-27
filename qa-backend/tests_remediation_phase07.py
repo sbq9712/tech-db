@@ -74,16 +74,64 @@ def _valid_identity_snapshot():
 
 
 def _mini_graph_artifact():
+    """Canonical, identity-bound graph artifact (B1/B3).
+
+    Statement endpoints ent-nvda-x/ent-blackwell-x MUST exist in the
+    identity snapshot returned by _identity_snapshot_for(...) with the
+    SAME content — serving fails closed otherwise.
+    """
     from graph_serving import build_graph_artifact
-    return build_graph_artifact([
-        {"statement_id": "gs-mini-1", "subject_entity_id": "ent-x",
-         "object_entity_id": "ent-y", "predicate": "USES",
-         "polarity": "POSITIVE", "modality": "DECLARATIVE",
-         "assertion_status": "ASSERTED", "qualifiers": {},
-         "evidence_refs": [{"record_id": "record-g1"}],
-         "extraction_confidence": 0.8,
-         "grounding_status": "EXACT_GROUNDED"}],
-        ontology_version="0.1.0")
+    from graph_v2_ontology import (VersionedOntology,
+                                   compute_statement_id)
+    ont = VersionedOntology()
+    stmt = {
+        "statement_id": "gs-mini-1", "subject_entity_id": "ent-nvda-x",
+        "object_entity_id": "ent-blackwell-x", "predicate": "USES",
+        "direction": "SUBJ_PRED_OBJ", "polarity": "POSITIVE",
+        "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+        "temporal_scope": "CURRENT", "qualifiers": {},
+        "evidence_refs": [{"record_id": "record-g1",
+                           "source_snapshot_id": "ss-g1",
+                           "locator": {"start_offset": 0, "end_offset": 21},
+                           "exact_text": "graph serving fixture"}],
+        "extraction_confidence": 0.8,
+        "grounding_status": "EXACT_GROUNDED",
+        "extraction_version": "relation-extract-v2-gold",
+        "validation_version": "relation-validation-v2",
+        "ontology_version": ont.version,
+    }
+    stmt["statement_id"] = compute_statement_id(stmt)
+    ident = _identity_snapshot_for(["ent-nvda-x", "ent-blackwell-x"])
+    return build_graph_artifact(
+        [stmt], ontology_version=ont.version,
+        identity_snapshot_id=ident["identity_snapshot_id"],
+        identity_content_hash=ident["content_hash"])
+
+
+_IDENTITY_SEQ = [0]
+
+
+def _identity_snapshot_for(entity_ids, *, extra_entities=()):
+    """Build a REAL Phase06 identity snapshot payload whose entity set
+    contains exactly ``entity_ids`` (B3 authority for graph endpoints).
+    Deterministic: identical entity sets produce identical payloads, so
+    an artifact built against one call binds to any later identical call.
+    """
+    from identity_snapshot import build_identity_snapshot_payload
+    entities = [
+        {"entity_id": eid, "canonical_name": f"entity {eid}",
+         "entity_type": "ORG", "aliases": [], "abbreviations": [],
+         "description": "graph endpoint authority", "wikipedia_url": None,
+         "confidence": 1.0, "provenance": "phase07-test",
+         "mention_count": 1, "document_count": 1,
+         "first_seen": None, "last_seen": None}
+        for eid in entity_ids]
+    entities.extend(extra_entities)
+    seed = int(hashlib.sha256(
+        ",".join(str(e) for e in entity_ids).encode()).hexdigest()[:8], 16)
+    return build_identity_snapshot_payload(
+        entities=entities, source_store_revision=seed,
+        created_at="2026-08-27T00:00:00+00:00")
 
 
 # ══════════════════════════ RT-080 ═══════════════════════════════════════
@@ -101,10 +149,13 @@ def rt080():
     stmt = G.normalize_statement(
         {"subject_id": "ent-nvda", "predicate": "released",
          "object_id": "ent-blackwell", "extraction_confidence": 0.9,
-         "valid_from": "2025-01-01", "scope": "datacenter",
+         "direction": "SUBJ_PRED_OBJ",
+         "valid_from": "2025-01-01", "valid_to": "2025-12-31",
+         "scope": "datacenter",
          "evidence_refs": [{"record_id": "gold-r1",
                             "exact_text": "英伟达发布了Blackwell架构平台。"}]},
-        record_id="gold-r1", source_snapshot_id="ss-gold-r1", ontology=ont)
+        record_id="gold-r1", source_snapshot_id="ss-gold-r1", ontology=ont,
+        extraction_version="relation-extract-v2-gold")
     test("rt080.normalized_statement_fields_saved",
          stmt["predicate"] == "RELEASED"
          and stmt["polarity"] == "POSITIVE"
@@ -114,19 +165,135 @@ def rt080():
          and stmt["evidence_refs"][0]["record_id"] == "gold-r1"
          and stmt["statement_id"].startswith("gs-"))
 
+    # ── B1 canonical GraphStatement regressions ─────────────────────────
+    test("rt080.direction_roundtrip_persisted",
+         stmt["direction"] == "SUBJ_PRED_OBJ")
+    inv = G.normalize_statement(
+        {"subject_id": "ent-nvda", "predicate": "RELEASED",
+         "object_id": "ent-blackwell", "direction": "OBJ_PRED_SUBJ",
+         "evidence_refs": []},
+        record_id="gold-r1", extraction_version="relation-extract-v2-gold")
+    test("rt080.direction_inverted_persisted_not_inferred",
+         inv["direction"] == "OBJ_PRED_SUBJ")
+    test("rt080.temporal_scope_roundtrip",
+         stmt["temporal_scope"] == "AT_TIME"
+         and stmt["valid_to"] == "2025-12-31")
+    cur = G.normalize_statement(
+        {"subject_id": "a", "predicate": "USES", "object_id": "b",
+         "evidence_refs": []},
+        record_id="r", extraction_version="relation-extract-v2-gold")
+    test("rt080.temporal_scope_current_default",
+         cur["temporal_scope"] == "CURRENT")
+    test("rt080.extraction_version_roundtrip",
+         stmt["extraction_version"] == "relation-extract-v2-gold")
+    test("rt080.validation_version_roundtrip",
+         stmt["validation_version"] == "relation-validation-v2")
+    test("rt080.ontology_version_roundtrip",
+         stmt["ontology_version"] == G.ONTOLOGY_VERSION)
+
+    # semantically different statements can never collide on one id
+    id_base = stmt["statement_id"]
+    variants = []
+    for mutate in (
+            {"direction": "OBJ_PRED_SUBJ"},
+            {"polarity": "NEGATIVE"},
+            {"assertion_status": "PLANNED"},
+            {"temporal_scope": "HISTORICAL"},
+            {"extraction_version": "relation-extract-v1-legacy"},
+            {"object_entity_id": "ent-other"}):
+        v = dict(stmt); v.update(mutate)
+        variants.append(G.compute_statement_id(v))
+    test("rt080.semantic_difference_never_collides",
+         all(vid != id_base for vid in variants)
+         and len(set(variants)) == len(variants),
+         f"{len(variants)} variants all distinct")
+    # id binds to canonical content: tampering detected at load
+    tam = dict(stmt); tam["direction"] = "OBJ_PRED_SUBJ"
+    test("rt080.id_bound_content_tamper_detected",
+         bool(G.validate_canonical_statement(tam)))
+    test("rt080.clean_statement_validates",
+         G.validate_canonical_statement(stmt) == [])
+
+    # unknown enum / version / malformed temporal FAIL CLOSED (B1-8)
+    def _raises(fn):
+        try:
+            fn()
+            return False
+        except ValueError:
+            return True
+    test("rt080.unknown_direction_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "direction": "SIDEWAYS", "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold")))
+    test("rt080.unknown_polarity_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "polarity": "MAYBE", "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold")))
+    test("rt080.unknown_temporal_scope_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "temporal_scope": "SOMETIMES", "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold")))
+    test("rt080.malformed_temporal_bound_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "valid_from": "not-a-date", "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold")))
+    test("rt080.inverted_temporal_range_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "valid_from": "2025-12-31", "valid_to": "2025-01-01",
+              "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold")))
+    test("rt080.unknown_extraction_version_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "evidence_refs": []},
+             record_id="r", extraction_version="bogus-extract-9")))
+    test("rt080.unknown_validation_version_fails_closed",
+         _raises(lambda: G.normalize_statement(
+             {"subject_id": "a", "predicate": "USES", "object_id": "b",
+              "evidence_refs": []},
+             record_id="r", extraction_version="relation-extract-v2-gold",
+             validation_version="relation-validation-v1")))
+
+    # explicit migration path: legacy data re-stamped auditable, or rejected
+    legacy = {"subject_entity_id": "a", "predicate": "USES",
+              "object_entity_id": "b", "polarity": "POSITIVE",
+              "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+              "temporal_scope": "CURRENT",
+              "ontology_version": G.ONTOLOGY_VERSION}
+    migrated = G.migrate_legacy_statement(legacy)
+    test("rt080.legacy_migration_explicit_and_auditable",
+         migrated["schema_compatibility"]["migrated_from"]
+         == "graph-statement-1.0.0"
+         and migrated["extraction_version"] == "relation-extract-v1-legacy"
+         and G.validate_canonical_statement(migrated) == [])
+    test("rt080.migrated_statement_id_differs_from_v2",
+         migrated["statement_id"] != G.compute_statement_id(
+             dict(migrated, extraction_version="relation-extract-v2-gold")))
+
     # negated / planned / co-occurrence separations
     neg = G.normalize_statement({"subject_id": "a", "predicate": "USES",
-                                 "object_id": "b", "polarity": "NEGATIVE"},
-                                record_id="r")
+                                 "object_id": "b", "polarity": "NEGATIVE",
+                                 "evidence_refs": []},
+                                record_id="r",
+                                extraction_version="relation-extract-v2-gold")
     plan = G.normalize_statement({"subject_id": "a", "predicate": "RELEASED",
                                   "object_id": "b",
-                                  "assertion_status": "PLANNED"},
-                                 record_id="r")
+                                  "assertion_status": "PLANNED",
+                                  "evidence_refs": []},
+                                 record_id="r",
+                                 extraction_version="relation-extract-v2-gold")
     coc = G.normalize_statement({"subject_id": "a",
                                  "predicate": "RELATED_CO_OCCURRENCE",
                                  "object_id": "b",
-                                 "extraction_confidence": 1.0},
-                                record_id="r")
+                                 "extraction_confidence": 1.0,
+                                 "evidence_refs": []},
+                                record_id="r",
+                                extraction_version="relation-extract-v2-gold")
     test("rt080.negation_preserved_as_polarity", neg["polarity"] == "NEGATIVE")
     test("rt080.planned_preserved_as_status", plan["assertion_status"] == "PLANNED")
     test("rt080.co_occurrence_separate_weak_group",
@@ -151,7 +318,8 @@ def rt080():
     test("rt080.incompatible_ontology_version_fails_closed", v_ok)
     try:
         G.normalize_statement({"subject_id": "a", "predicate": "NO_SUCH_PRED",
-                               "object_id": "b"}, record_id="r")
+                               "object_id": "b"}, record_id="r",
+                              extraction_version="relation-extract-v2-gold")
         u_ok = False
     except G.UnknownPredicateError:
         u_ok = True
@@ -249,6 +417,53 @@ def rt081():
         inj_ok = bool(exc.reason_code) and isinstance(exc.to_dict(), dict)
     test("rt081.failure_injection_aborts_fail_closed", inj_ok)
 
+    # ── B2: NO trust fallback regressions ────────────────────────────────
+    # missing catalog entirely → nothing materialized, machine-readable
+    from graph_extraction import REASON_SNAPSHOT_AUTHORITY_MISSING
+    res_nocat = materialize_statements(records[:2], {},
+                                       entity_anchor_fn=anchor)
+    test("rt081.missing_catalog_fails_closed",
+         not res_nocat.statements
+         and all(rj["reason_code"] == REASON_SNAPSHOT_AUTHORITY_MISSING
+                 for rj in res_nocat.rejected),
+         json.dumps(res_nocat.rejected[:2]))
+
+    # snapshot id present but immutable evidence text missing → no trust
+    cat_half = {rid: {"record_id": rid,
+                      "source_snapshot_id": f"ss-{rid}",
+                      "evidence_text": ""} for rid in ("gold-r1",)}
+    res_half = materialize_statements(records[:1], cat_half,
+                                      entity_anchor_fn=anchor)
+    test("rt081.missing_evidence_text_fails_closed",
+         not res_half.statements
+         and any(rj["reason_code"] == REASON_SNAPSHOT_AUTHORITY_MISSING
+                 for rj in res_half.rejected))
+
+    # raw record ONLY (no snapshot at all): body must NOT self-upgrade to
+    # authority; no invented ``ss-inline:`` snapshot id anywhere
+    raw_only = [{"record_id": "raw-1",
+                 "t": "NVIDIA使用CoWoS封装技术。",
+                 "b": "NVIDIA使用CoWoS封装技术。"}]
+    res_raw = materialize_statements(raw_only, {}, entity_anchor_fn=anchor)
+    leaked = [s for s in res_raw.statements
+              if any("ss-inline" in json.dumps(r)
+                     for r in s.get("evidence_refs", []))]
+    test("rt081.raw_record_never_upgrades_to_snapshot_authority",
+         not res_raw.statements and not leaked
+         and any(rj["reason_code"] == REASON_SNAPSHOT_AUTHORITY_MISSING
+                 for rj in res_raw.rejected),
+         json.dumps(res_raw.rejected[:1]))
+
+    # an adversary-SUPPLIED fake inline snapshot id cannot smuggle trust:
+    # the catalog entry itself must carry snapshot id + text; a statement
+    # built from the real path always binds to the CATALOG's snapshot id
+    res_bound = materialize_statements(records[:1], cat,
+                                       entity_anchor_fn=anchor)
+    test("rt081.statements_bind_catalog_snapshot_ids",
+         all(s["source_snapshot_id"] ==
+             cat[s["evidence_refs"][0]["record_id"]]["source_snapshot_id"]
+             for s in res_bound.statements))
+
 
 # ══════════════════════════ RT-082 ═══════════════════════════════════════
 def rt082():
@@ -256,24 +471,89 @@ def rt082():
     from graph_serving import (build_graph_artifact, verify_graph_artifact,
                                GraphSnapshotView, validate_graph_intent,
                                GRAPH_SNAPSHOT_SCHEMA)
-    from graph_v2_ontology import VersionedOntology
+    from graph_v2_ontology import (VersionedOntology,
+                                   compute_statement_id)
 
+    # canonical, identity-bound artifact (B1/B3)
+    ont = VersionedOntology()
+    mini_stmt = {
+        "statement_id": "gs-1", "subject_entity_id": "ent-nvda-x",
+        "object_entity_id": "ent-blackwell-x", "predicate": "USES",
+        "direction": "SUBJ_PRED_OBJ", "polarity": "POSITIVE",
+        "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+        "temporal_scope": "CURRENT", "qualifiers": {},
+        "evidence_refs": [{"record_id": "r1",
+                           "source_snapshot_id": "ss-1",
+                           "locator": {}, "exact_text": "x"}],
+        "extraction_confidence": 0.8,
+        "grounding_status": "EXACT_GROUNDED",
+        "extraction_version": "relation-extract-v2-gold",
+        "validation_version": "relation-validation-v2",
+        "ontology_version": ont.version}
+    mini_stmt["statement_id"] = compute_statement_id(mini_stmt)
+    ident = _identity_snapshot_for(["ent-nvda-x", "ent-blackwell-x"])
     art = build_graph_artifact(
-        [{"statement_id": "gs-1", "subject_entity_id": "ent-x",
-          "object_entity_id": "ent-y", "predicate": "USES",
-          "polarity": "POSITIVE", "modality": "DECLARATIVE",
-          "assertion_status": "ASSERTED", "qualifiers": {},
-          "evidence_refs": [{"record_id": "r1"}],
-          "extraction_confidence": 0.8,
-          "grounding_status": "EXACT_GROUNDED"}],
-        ontology_version="0.1.0")
+        [mini_stmt], ontology_version=ont.version,
+        identity_snapshot_id=ident["identity_snapshot_id"],
+        identity_content_hash=ident["content_hash"])
     test("rt082.artifact_schema_registered",
          art["schema_version"] == GRAPH_SNAPSHOT_SCHEMA)
+    test("rt082.artifact_bound_to_identity_generation",
+         art["identity_dependency"]["identity_snapshot_id"]
+         == ident["identity_snapshot_id"]
+         and art["identity_dependency"]["identity_content_hash"]
+         == ident["content_hash"])
 
     view = GraphSnapshotView(art)
     test("rt082.immutable_view_indexes_queries",
-         view.by_subject.get("ent-x") is not None
-         and view.degree("ent-x") >= 1)
+         view.by_subject.get("ent-nvda-x") is not None
+         and view.degree("ent-nvda-x") >= 1)
+
+    # ── B3 adversarial: binding enforcement ──────────────────────────────
+    try:
+        view.assert_identity_binding(ident)
+        same_ok = True
+    except ValueError:
+        same_ok = False
+    test("rt082.valid_same_generation_binding_passes", same_ok)
+    try:
+        view.assert_identity_binding({"identity_snapshot_id": "ids_foreign",
+                                      "content_hash": ident["content_hash"],
+                                      "entities": ident["entities"]})
+        foreign_ok = False
+    except ValueError:
+        foreign_ok = True
+    test("rt082.foreign_identity_generation_rejected", foreign_ok)
+    try:
+        view.assert_identity_binding({"identity_snapshot_id":
+                                      ident["identity_snapshot_id"],
+                                      "content_hash": "tampered-hash",
+                                      "entities": ident["entities"]})
+        tamper_ok = False
+    except ValueError:
+        tamper_ok = True
+    test("rt082.identity_hash_tamper_rejected", tamper_ok)
+    try:
+        view.assert_identity_binding({"identity_snapshot_id":
+                                      ident["identity_snapshot_id"],
+                                      "content_hash": ident["content_hash"],
+                                      "entities": []})
+        empty_ok = False
+    except ValueError:
+        empty_ok = True
+    test("rt082.empty_identity_snapshot_rejected", empty_ok)
+    # unknown ENDPOINT inside an otherwise-matching identity → reject
+    short_ident = _identity_snapshot_for(["ent-nvda-x"])
+    try:
+        view.assert_identity_binding(short_ident)
+        unknown_ok = False
+    except ValueError:
+        unknown_ok = True
+    test("rt082.unknown_endpoint_rejected", unknown_ok)
+    # missing dependency metadata on the artifact itself
+    no_dep = dict(art); no_dep.pop("identity_dependency")
+    test("rt082.artifact_without_identity_dependency_rejected",
+         bool(verify_graph_artifact(no_dep)))
 
     # tamper detection fails closed at load AND inside manifest loader path
     tampered = copy.deepcopy(art)
@@ -286,6 +566,11 @@ def rt082():
     except ValueError:
         t_ok = True
     test("rt082.tampered_load_fails_closed", t_ok)
+    # non-canonical statements fail closed at load (B1 + B3 composition)
+    non_canon = copy.deepcopy(art)
+    non_canon["statements"][0]["direction"] = "SIDEWAYS"
+    test("rt082.non_canonical_statement_rejected_at_load",
+         bool(verify_graph_artifact(non_canon)))
 
     # manifest-level binding: FULL production path — artifacts written to
     # disk, build_global_manifest, ReleaseCatalog store/activate, and
@@ -314,7 +599,7 @@ def rt082():
                                   "record-g1": {
                                       "evidence_eligibility":
                                           "CITATION_ELIGIBLE"}},
-            "identity_snapshot": _valid_identity_snapshot(),
+            "identity_snapshot": ident,
             "vector_index": {"schema_version": "1.0.0", "documents": [
                 {"record_id": "record-g1", "vector": [1.0, 0.0]}]},
             "bm25_index": {"schema_version": "1.0.0", "documents": [
@@ -351,6 +636,35 @@ def rt082():
              view_loaded is not None
              and view_loaded.snapshot_id.startswith("gvs-")
              and view_loaded.stats()["statement_count"] >= 1)
+
+        # ── B3: loader cross-validates manifest identity ↔ graph
+        # dependency ↔ statement endpoints; any divergence fails closed.
+        bad_ident = _identity_snapshot_for(["ent-unrelated-1"])
+        tampered_payloads = dict(payloads)
+        tampered_payloads["identity_snapshot"] = bad_ident
+        tampered_root = release_root / "tampered"
+        tampered_root.mkdir(exist_ok=True)
+        tampered_artifacts = {}
+        for name, payload in tampered_payloads.items():
+            p_ = tampered_root / f"{name}.json"
+            p_.write_text(json.dumps(payload, sort_keys=True), "utf-8")
+            tampered_artifacts[name] = p_
+        import shutil
+        shutil.copy(release_root / "graph_index_v2.json",
+                    tampered_root / "graph_index_v2.json")
+        tampered_artifacts["graph_index_v2"] = (
+            tampered_root / "graph_index_v2.json")
+        try:
+            m_bad = RM.build_global_manifest(
+                release_root=tampered_root,
+                artifacts=dict(tampered_artifacts),
+                profile={"name": "phase07-test", "vector_dim": 2},
+                models={"embedding_dim": 2})
+            load_release_resources(m_bad, release_root=tampered_root)
+            xval_ok = False
+        except ValueError:
+            xval_ok = True
+        test("rt082.loader_rejects_foreign_identity_graph_pair", xval_ok)
 
         # second generation WITHOUT the graph → rollback target
         artifacts_old = {k: v for k, v in artifacts.items()
@@ -395,14 +709,25 @@ def rt082():
 
 # ══════════════════════════ RT-083 ═══════════════════════════════════════
 def _build_gold_view():
-    """Materialize the locked gold corpus into a serving graph view."""
+    """Materialize the locked gold corpus into a serving graph view.
+
+    B3: the artifact is bound to a REAL identity snapshot whose entity
+    world covers every statement endpoint — same contract as production.
+    """
     from graph_extraction import materialize_statements
     from graph_serving import build_graph_artifact, GraphSnapshotView
     anchor = _anchor_factory(FIXTURE["entity_types"])
     records = [dict(r, record_id=r["record_id"]) for r in FIXTURE["records"]]
     res = materialize_statements(records, _catalog(records),
                                  entity_anchor_fn=anchor)
-    art = build_graph_artifact(res.statements, ontology_version="0.1.0")
+    endpoints = sorted(
+        {str(s["subject_entity_id"]) for s in res.statements}
+        | {str(s["object_entity_id"]) for s in res.statements})
+    ident = _identity_snapshot_for(endpoints)
+    art = build_graph_artifact(
+        res.statements, ontology_version="0.1.0",
+        identity_snapshot_id=ident["identity_snapshot_id"],
+        identity_content_hash=ident["content_hash"])
     return GraphSnapshotView(art), res
 
 
@@ -459,18 +784,24 @@ def rt083():
     _ = feats
 
     # grounding-awareness: ungrounded edges are discovery-only (excluded
-    # from record aggregation because refs empty) — craft one by stripping
+    # from record aggregation because refs empty) — craft one by stripping.
+    # B1: the mutated statement keeps a CANONICAL id (recomputed over the
+    # mutated content) — hand-written ids fail closed at load.
     from copy import deepcopy
+    from graph_v2_ontology import compute_statement_id
     tampered_stmts = []
     view_statements = list(view.statements)
     if view_statements:
         s0 = deepcopy(view_statements[0])
         s0["grounding_status"] = "UNVERIFIED"
         s0["evidence_refs"] = []
-        s0["statement_id"] = "gs-ungrounded-x"
+        s0["statement_id"] = compute_statement_id(s0)
         from graph_serving import build_graph_artifact, GraphSnapshotView
         mixed = view_statements + [s0]
-        art2 = build_graph_artifact(mixed, ontology_version="0.1.0")
+        art2 = build_graph_artifact(
+            mixed, ontology_version="0.1.0",
+            identity_snapshot_id=view.identity_snapshot_id,
+            identity_content_hash=view.identity_content_hash)
         view2 = GraphSnapshotView(art2)
         ret2 = RelationAwareGraphRetriever(view2, seed_resolver_fn=seed_fn)
         r2 = ret2.search("Blackwell", seed_entities=[
@@ -478,8 +809,9 @@ def rt083():
             desired_groups=["PRODUCT_LIFECYCLE"])
         ids = {h["record_id"] for h in r2["hits"]}
         # no hit may come from the ungrounded statement (no refs at all)
+        ungrounded_id = s0["statement_id"]
         ungrounded_reachable = any(
-            any(hop["statement_id"] == "gs-ungrounded-x"
+            any(hop["statement_id"] == ungrounded_id
                 for p in h["matched_paths"] for hop in p["hops"])
             for h in r2["hits"])
         test("rt083.ungrounded_edge_never_becomes_record_hit",
@@ -526,6 +858,198 @@ def rt083():
         bounded_ok = True
     test("rt083.traversal_hard_capped_at_two_hops", bounded_ok)
 
+    # ══ B4/B5: UNVERIFIED + non-empty refs through the REAL chain ═══════
+    # canonical statement → artifact/view → retriever → PathHop.to_dict()
+    # → EvidencePolicyEngine. NO stage may upgrade it to factual support.
+    from copy import deepcopy
+    from graph_v2_ontology import compute_statement_id
+    from graph_serving import build_graph_artifact, GraphSnapshotView
+    from evidence_policy import EvidencePolicyEngine
+    s_un = deepcopy(view_statements[0])
+    s_un["grounding_status"] = "UNVERIFIED"          # refs stay NON-empty
+    s_un["statement_id"] = compute_statement_id(s_un)
+    un_id = s_un["statement_id"]
+    un_rids = sorted({str(r["record_id"]) for r in s_un["evidence_refs"]
+                      if r.get("record_id")})
+    seed_un = str(s_un["subject_entity_id"])
+    # REPLACE the grounded original with its UNVERIFIED twin: the record
+    # is then reachable ONLY through the unverified statement.
+    mixed_stmts = [s_un if s.get("statement_id") == view_statements[0][
+        "statement_id"] else s for s in view_statements]
+    art3 = build_graph_artifact(
+        mixed_stmts, ontology_version="0.1.0",
+        identity_snapshot_id=view.identity_snapshot_id,
+        identity_content_hash=view.identity_content_hash)
+    view3 = GraphSnapshotView(art3)
+    ret3 = RelationAwareGraphRetriever(view3, seed_resolver_fn=seed_fn)
+    r3 = ret3.search("unverified-chain", seed_entities=[
+        {"entity_id": seed_un, "confidence": 0.95}])
+    hit_ids = {h["record_id"] for h in r3["hits"]}
+    disc = r3["discovery_hits"]
+    disc_ids = {h["record_id"] for h in disc.values()} \
+        if isinstance(disc, dict) else {h["record_id"] for h in disc}
+    test("rt083.unverified_with_refs_excluded_from_hits",
+         not (set(un_rids) & hit_ids) and bool(set(un_rids) & disc_ids),
+         f"un={un_rids} hits={sorted(hit_ids)} disc={sorted(disc_ids)}")
+    # hop dict from the REAL production PathHop.to_dict()
+    un_hops = []
+    for key in (disc.values() if isinstance(disc, dict) else disc):
+        for p in key["matched_paths"]:
+            if any(h["statement_id"] == un_id for h in p["hops"]):
+                un_hops = p["hops"]
+                break
+        if un_hops:
+            break
+    hop_real = next((h for h in un_hops if h["statement_id"] == un_id), None)
+    test("rt083.pathhop_to_dict_carries_support_metadata",
+         hop_real is not None
+         and hop_real.get("grounding_status") == "UNVERIFIED"
+         and hop_real.get("support_eligible") is False
+         and hop_real.get("discovery_only") is True)
+    # REAL policy gate: even a record in the selected set whose ONLY path
+    # is UNVERIFIED-with-refs can NEVER satisfy the relation method.
+    if un_rids:
+        un_paths = [{"record_id": rid, "matched_paths": [
+            p for p_key in (disc.values() if isinstance(disc, dict) else disc)
+            for p in p_key["matched_paths"]
+            if any(h["statement_id"] == un_id for h in p["hops"])]}
+            for rid in un_rids]
+        eng = EvidencePolicyEngine()
+        rep_un = eng.check_relation_method_evidence(
+            requirement_id="rt083-b45", relation_need="required",
+            router_method_label="SUPPORTED",
+            graph_paths=un_paths, selected_record_ids=list(un_rids))
+        test("rt083.unverified_refs_never_satisfy_relation_method",
+             rep_un.verdict == "HARD_FAIL"
+             and any(f.reason_code == "POLICY_RELATION_METHOD_MISSING"
+                     for f in rep_un.findings))
+
+    # ══ B7: non-transitive composition A RELEASED B + B RELEASED C ══════
+    # must NEVER become A RELEASED C factual support — discovery-only.
+    from graph_v2_ontology import normalize_statement
+    from relation_ontology import get_predicate_info
+    if not get_predicate_info("RELEASED").get("transitive"):
+        mk = lambda a, b, rid: normalize_statement(
+            {"subject_id": a, "predicate": "RELEASED",
+             "object_id": b, "polarity": "POSITIVE",
+             "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+             "grounding_status": "EXACT_GROUNDED",
+             "evidence_refs": [{"record_id": rid, "source_snapshot_id":
+                                "ss-comp", "locator": {"text": "0:40"},
+                                "exact_text": "composition fixture"}]},
+            record_id=rid, source_snapshot_id="ss-comp",
+            extraction_version="relation-extract-v2-gold")
+        comp_stmts = [mk("ent-comp-a", "ent-comp-b", "gold-r1"),
+                      mk("ent-comp-b", "ent-comp-c", "gold-r1")]
+        ident_comp = _identity_snapshot_for(
+            ["ent-comp-a", "ent-comp-b", "ent-comp-c"])
+        art_c = build_graph_artifact(
+            comp_stmts, ontology_version="0.1.0",
+            identity_snapshot_id=ident_comp["identity_snapshot_id"],
+            identity_content_hash=ident_comp["content_hash"])
+        view_c = GraphSnapshotView(art_c)
+        ret_c = RelationAwareGraphRetriever(view_c)
+        rc = ret_c.search("comp", seed_entities=[
+            {"entity_id": "ent-comp-a", "confidence": 0.99}],
+            desired_groups=["PRODUCT_LIFECYCLE"], max_hops=2)
+        c2hop_hits = [p for h in rc["hits"] for p in h["matched_paths"]
+                      if len(p["hops"]) >= 2]
+        c2hop_disc = [p for k in (rc["discovery_hits"].values()
+                                  if isinstance(rc["discovery_hits"], dict)
+                                  else rc["discovery_hits"])
+                      for p in k["matched_paths"] if len(p["hops"]) >= 2]
+        test("rt083.released_composition_never_becomes_support",
+             not c2hop_hits and bool(c2hop_disc)
+             and all(p.get("support_eligible") is not True
+                     for p in c2hop_disc),
+             f"hits={len(c2hop_hits)} disc={len(c2hop_disc)}")
+
+    # ══ B8: bounded traversal under a REAL TraversalBudget ══════════════
+    from graph_serving import TraversalBudget
+    def _disc_ids(res):
+        d = res.get("discovery_hits") or {}
+        vals = d.values() if isinstance(d, dict) else d
+        return {h["record_id"] for h in vals}
+
+    # fanout cap: a synthetic HIGH-DEGREE hub cannot expand unbounded —
+    # 8 edges from one hub entity, budget allows only 3 per node.
+    from graph_v2_ontology import normalize_statement as _ns
+    hub_leaves = [f"ent-leaf-{i}" for i in range(8)]
+    hub_stmts = [
+        _ns({"subject_id": "ent-hub-x", "predicate": "RELEASED",
+             "object_id": leaf, "polarity": "POSITIVE",
+             "modality": "DECLARATIVE", "assertion_status": "ASSERTED",
+             "grounding_status": "EXACT_GROUNDED",
+             "evidence_refs": [{"record_id": "gold-r1",
+                                "source_snapshot_id": "ss-comp",
+                                "locator": {"text": "0:40"},
+                                "exact_text": "hub fixture"}]},
+            record_id="gold-r1", source_snapshot_id="ss-comp",
+            extraction_version="relation-extract-v2-gold")
+        for leaf in hub_leaves]
+    ident_hub = _identity_snapshot_for(
+        ["ent-hub-x"] + hub_leaves)
+    art_hub = build_graph_artifact(
+        hub_stmts, ontology_version="0.1.0",
+        identity_snapshot_id=ident_hub["identity_snapshot_id"],
+        identity_content_hash=ident_hub["content_hash"])
+    view_hub = GraphSnapshotView(art_hub)
+    ret_hub = RelationAwareGraphRetriever(view_hub)
+    b_fan = TraversalBudget(max_fanout_per_node=3)
+    r_fan = ret_hub.search("hub", seed_entities=[
+        {"entity_id": "ent-hub-x", "confidence": 0.99}], budget=b_fan)
+    test("rt083.budget_fanout_cap_recorded",
+         r_fan["trace"].get("bound_hit")
+         == "max_fanout_per_node"
+         and r_fan["trace"]["counters"]["edges"] == 3
+         and r_fan["trace"]["bounds"]["max_fanout_per_node"] == 3,
+         str(r_fan["trace"]["bound_hit"]))
+
+    # total-candidate cap fires and is traced
+    b_cand = TraversalBudget(max_total_candidates=0)
+    r_cand = ret.search("Blackwell", seed_entities=[
+        {"entity_id": blackwell_seed, "confidence": 0.95}],
+        desired_groups=["PRODUCT_LIFECYCLE"], budget=b_cand)
+    test("rt083.budget_candidate_cap_empty_and_traced",
+         not r_cand["hits"] and not r_cand["discovery_hits"]
+         and r_cand["trace"].get("bound_hit")
+         == "max_total_candidates")
+
+    # deadline before first expansion (monotonic deadline in the past)
+    import time as _time
+    b_dead = TraversalBudget(deadline=_time.monotonic() - 1.0)
+    r_dead = ret.search("Blackwell", seed_entities=[
+        {"entity_id": blackwell_seed, "confidence": 0.95}], budget=b_dead)
+    test("rt083.budget_deadline_stops_traversal",
+         not r_dead["hits"]
+         and r_dead["trace"].get("bound_hit")
+         == "graph_traversal_deadline_exhausted")
+
+    # edge-budget exhaustion before any edge materializes a candidate
+    b_edge = TraversalBudget(max_expanded_edges=0)
+    r_edge = ret.search("Blackwell", seed_entities=[
+        {"entity_id": blackwell_seed, "confidence": 0.95}], budget=b_edge)
+    test("rt083.budget_edge_exhaustion_traced",
+         r_edge["trace"].get("bound_hit")
+         == "max_expanded_edges")
+
+    # cancellation MID-TRAVERSAL through the REAL Phase05 primitive
+    from runtime_safety import RequestExecutionContext
+    from runtime_safety import RequestCancelled
+    ctx = RequestExecutionContext(request_id="rt083-cancel")
+    ctx.cancel("client_gone")
+    b_can = TraversalBudget(request_ctx=ctx)
+    try:
+        r_can = ret.search("Blackwell", seed_entities=[
+            {"entity_id": blackwell_seed, "confidence": 0.95}],
+            budget=b_can)
+        can_reason = r_can["trace"].get("bound_hit") or ""
+        can_ok = (not r_can["hits"]
+                  and ("client_gone" in can_reason or can_reason != ""))
+    except RequestCancelled:
+        can_ok = True  # propagation is also an acceptable honest failure
+    test("rt083.phase05_cancellation_stops_graph_traversal", can_ok)
+
 
 # ══════════════════════════ RT-084 ═══════════════════════════════════════
 def rt084():
@@ -537,11 +1061,13 @@ def rt084():
         "record_id": "gold-r1",
         "matched_paths": [{"hops": [{
             "statement_id": "gs-a", "grounding_status": "EXACT_GROUNDED",
+            "support_eligible": True, "discovery_only": False,
             "record_refs": [{"record_id": "gold-r1"}]}]}]}]
     paths_outside = [{
         "record_id": "gold-rX",
         "matched_paths": [{"hops": [{
             "statement_id": "gs-b", "grounding_status": "EXACT_GROUNDED",
+            "support_eligible": True, "discovery_only": False,
             "record_refs": [{"record_id": "gold-rX"}]}]}]}]
 
     rep = eng.check_relation_method_evidence(
@@ -559,11 +1085,28 @@ def rt084():
     test("rt084.independent_grounded_path_passes_despite_router_label",
          rep2.verdict == "PASS")
 
+    # B5: hop metadata MISSING support/discovery flags never defaults to
+    # support — the exact same grounded path without the flags FAILS.
+    paths_noflags = [{
+        "record_id": "gold-r1",
+        "matched_paths": [{"hops": [{
+            "statement_id": "gs-a", "grounding_status": "EXACT_GROUNDED",
+            "record_refs": [{"record_id": "gold-r1"}]}]}]}]
+    rep_noflags = eng.check_relation_method_evidence(
+        requirement_id="rq1", relation_need="required",
+        router_method_label="UNSUPPORTED",
+        graph_paths=paths_noflags, selected_record_ids=["gold-r1"])
+    test("rt084.missing_support_flags_fail_closed",
+         rep_noflags.verdict == "HARD_FAIL"
+         and any(f.reason_code == "POLICY_RELATION_METHOD_MISSING"
+                 for f in rep_noflags.findings))
+
     # discovery-only (ungrounded) graph hits can never satisfy method
     paths_discovery = [{
         "record_id": "gold-rY",
         "matched_paths": [{"hops": [{
             "statement_id": "gs-c", "grounding_status": "UNVERIFIED",
+            "support_eligible": False, "discovery_only": True,
             "record_refs": [{"record_id": "gold-rY"}]}],
             "discovery_only": True}]}]
     rep3 = eng.check_relation_method_evidence(
@@ -748,6 +1291,8 @@ def wiring():
                                                   "object": "ent-blackwell",
                                                   "grounding_status":
                                                       "EXACT_GROUNDED",
+                                                  "support_eligible": True,
+                                                  "discovery_only": False,
                                                   "record_refs": [
                                                       {"record_id":
                                                        "gold-r1"}]}],
@@ -760,6 +1305,7 @@ def wiring():
             "statement_id": "gs-e2e", "subject": "ent-nvda",
             "predicate": "RELEASED", "object": "ent-blackwell",
             "grounding_status": "EXACT_GROUNDED",
+            "support_eligible": True, "discovery_only": False,
             "record_refs": [{"record_id": "gold-r1"}]}],
             "path_score": 1.4057, "grounded": True}]}
     import asyncio
@@ -895,12 +1441,17 @@ def server_degradation():
                          "rows": len(rows)})[:200])
 
         # (3) wired view present but query not eligible -> silent skip,
-        #     NOT a degradation (eligible-subset semantics of RT-086)
+        #     NOT a degradation (eligible-subset semantics of RT-086).
+        #     B3: the pinned generation carries the SAME identity snapshot
+        #     the graph was bound to — binding check passes silently.
         view = GraphSnapshotView(_mini_graph_artifact())
         rr = {}
         trace, mctx = _drive(
             rr, pinned=SimpleNamespace(
-                resources={"graph_snapshot_v2": view}))
+                resources={"graph_snapshot_v2": view,
+                           "identity_snapshot":
+                               _identity_snapshot_for(
+                                   ["ent-nvda-x", "ent-blackwell-x"])}))
         test("server_run_graph_v2_wired_but_ineligible_skips_quietly",
              trace.get("wired") is False
              and trace.get("action") == "skip"
@@ -911,6 +1462,27 @@ def server_degradation():
              and bool(view.snapshot_id),
              json.dumps({"action": trace.get("action"),
                          "snapshot": view.snapshot_id})[:200])
+
+        # (3b) B3: wired view bound to a FOREIGN identity generation ->
+        #      explicit degradation row, never a silent skip.
+        rr = {}
+        trace, mctx = _drive(
+            rr, pinned=SimpleNamespace(
+                resources={"graph_snapshot_v2": view,
+                           "identity_snapshot":
+                               _identity_snapshot_for(
+                                   ["ent-unrelated-9"])}))
+        mismatch_rows = [r for r in (rr.get("_degraded_not_wired") or [])
+                         if r.get("reason_code")
+                         == "RUNTIME_GRAPH_IDENTITY_MISMATCH"]
+        test("server_run_graph_v2_identity_mismatch_degrades_honestly",
+             trace.get("reason_code") == "GRAPH_IDENTITY_MISMATCH"
+             and len(mismatch_rows) == 1
+             and mismatch_rows[0].get("capability") == "graph_v2"
+             and mismatch_rows[0].get("fallback_used") is True
+             and mismatch_rows[0].get("state_impact") == "CONTINUE_RECHECK",
+             json.dumps({"reason": trace.get("reason_code"),
+                         "rows": len(mismatch_rows)})[:200])
     finally:
         server.Flags.GRAPH_V2_ENABLED = orig
 

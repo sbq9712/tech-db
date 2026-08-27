@@ -450,8 +450,20 @@ class EvidencePolicyEngine:
                 for h in hops:
                     refs = [r for r in ((h or {}).get("record_refs") or [])
                             if isinstance(r, dict)]
+                    # B4/B5 FAIL-CLOSED: a MISSING grounding_status is NOT
+                    # VERIFIED — it never defaults to EXACT_GROUNDED. A hop
+                    # must ALSO carry the production support flags:
+                    # support_eligible=True and NOT discovery_only. Paths
+                    # from unapproved compositions or ungrounded statements
+                    # (however complete their EvidenceRefs look) can never
+                    # satisfy the relation-critical evidence method here.
                     stmt_grounding = str((h or {}).get("grounding_status")
-                                         or "EXACT_GROUNDED")
+                                         or "UNVERIFIED")
+                    support_flag = (h or {}).get("support_eligible")
+                    discovery_flag = (h or {}).get("discovery_only")
+                    if support_flag is not True or discovery_flag is True:
+                        all_grounded = False
+                        break
                     if not refs or stmt_grounding not in (
                             "VALID", "EXACT_GROUNDED"):
                         all_grounded = False

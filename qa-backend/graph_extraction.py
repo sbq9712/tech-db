@@ -7,6 +7,11 @@ against the versioned ontology (RT-080) and materializes immutable
 GraphStatements with EvidenceRefs.
 
 Hard rules:
+  * factual authority comes ONLY from the immutable Phase06
+    SourceSnapshot catalog — a record with no snapshot (id + immutable
+    evidence text) contributes NOTHING (SNAPSHOT_AUTHORITY_MISSING);
+    raw record text never upgrades to snapshot authority and snapshot
+    ids are never invented (no ``ss-inline:`` fallback, Gatekeeper B2);
   * wrong direction / out-of-domain-range assertion → rejected with a
     machine-readable reason code, never silently flipped;
   * fabricated/unknown predicates → rejected (PREDICATE_REJECTED);
@@ -29,6 +34,7 @@ from graph_v2_ontology import (
     VersionedOntology,
     UnknownPredicateError,
     normalize_statement,
+    compute_statement_id,
 )
 
 EXTRACTION_VERSION = "relation-extract-v2-gold"
@@ -57,6 +63,7 @@ REASON_PREDICATE_REJECTED = "PREDICATE_REJECTED"
 REASON_GROUNDING_MISMATCH = "GROUNDING_MISMATCH"
 REASON_DIRECTION_INVALID = "DIRECTION_INVALID"
 REASON_ENDPOINT_MISSING = "ENDPOINT_MISSING"
+REASON_SNAPSHOT_AUTHORITY_MISSING = "SNAPSHOT_AUTHORITY_MISSING"
 
 
 class MaterializationFailure(RuntimeError):
@@ -221,10 +228,21 @@ def materialize_statements(records: List[dict],
 
     for rec in records:
         rid = str(rec.get("record_id") or rec.get("id") or "")
+        # ── B2: NO trust fallback. Factual authority comes ONLY from the
+        # immutable Phase06 SourceSnapshot catalog. A record whose snapshot
+        # (id + immutable evidence text) is missing can contribute NOTHING:
+        # raw record body must never upgrade itself into snapshot authority,
+        # and snapshot ids are never invented (no ``ss-inline:``).
         snap = catalog_by_rid.get(rid) or {}
-        evidence_text = str(snap.get("evidence_text")
-                            or rec.get("b") or rec.get("fb") or "")
-        ss_id = str(snap.get("source_snapshot_id") or f"ss-inline:{rid}")
+        ss_id = str(snap.get("source_snapshot_id") or "")
+        evidence_text = str(snap.get("evidence_text") or "")
+        if not ss_id or not evidence_text:
+            result.rejected.append({
+                "record_id": rid,
+                "reason_code": REASON_SNAPSHOT_AUTHORITY_MISSING,
+                "detail": "no immutable SourceSnapshot (id+evidence_text) "
+                          "in catalog; raw record text is NOT authority"})
+            continue
         try:
             cands = extract_relation_candidates(rec)
         except Exception as exc:  # extraction itself failing is fatal too
@@ -313,7 +331,8 @@ def materialize_statements(records: List[dict],
                     continue
             norm = normalize_statement(stmt, record_id=rid,
                                        source_snapshot_id=ss_id,
-                                       ontology=ont)
+                                       ontology=ont,
+                                       extraction_version=EXTRACTION_VERSION)
             norm["grounding_status"] = "EXACT_GROUNDED"
             merge_key = "|".join([
                 norm["subject_entity_id"], norm["predicate"],
@@ -331,6 +350,11 @@ def materialize_statements(records: List[dict],
                 continue
             merged[merge_key] = norm
 
+    # B1: statement_id binds evidence_refs_count, so any merged statement
+    # whose refs grew MUST re-stamp its canonical id — otherwise the id no
+    # longer binds content and the statement fails closed at load.
+    for s in merged.values():
+        s["statement_id"] = compute_statement_id(s)
     result.statements = sorted(merged.values(),
                                key=lambda s: s["statement_id"])
     # confidence recompute after merge happens in serving layer; store stats

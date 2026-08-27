@@ -1023,6 +1023,13 @@ async def run_phase03_retrieval(*, query: str,
     # Graph-V2 relation evidence, run the SAME shared engine's independent
     # method gate per supplied requirement context — Router labels can
     # never upgrade weak relation evidence past this point.
+    #
+    # B6: the method gate runs on the REAL post-selection trusted support
+    # set. The server supplies only candidate graph paths; the per-
+    # requirement trusted ids computed AFTER selector + Gate B + blocked-
+    # record exclusion here are the ONLY selection authority. A graph hit
+    # excluded by source eligibility / quarantine / provenance / temporal /
+    # conflict / association / selector can NEVER satisfy the method gate.
     support_findings_extra = []
     extra_applicability: Dict[str, str] = {}
     wired_methods = {str(rid): ctx for rid, ctx in
@@ -1034,14 +1041,17 @@ async def run_phase03_retrieval(*, query: str,
             if str(r.get("id")) == rid:
                 need_value = r.get("relation_need", "none")
                 break
+        trusted_for_req = [str(x) for x in
+                           trusted_ids_by_req.get(rid, [])]
         rep = engine.check_relation_method_evidence(
             requirement_id=rid,
             relation_need=need_value,
             router_method_label=str(ctx.get("router_method_label") or ""),
             graph_paths=list(ctx.get("graph_paths") or []),
             relation_checks=list(ctx.get("relation_checks") or []),
-            selected_record_ids=[str(x) for x in
-                                 (ctx.get("selected_record_ids") or [])],
+            # authoritative post-selection trusted set (B6) — any caller-
+            # supplied ctx["selected_record_ids"] is IGNORED by design
+            selected_record_ids=trusted_for_req,
         )
         support_findings_extra.extend(rep.findings)
         extra_applicability.update(rep.rule_applicability)

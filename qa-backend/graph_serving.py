@@ -26,9 +26,12 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Callable, Dict, List, Optional, Set, Tuple
+from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+
+from runtime_safety import RequestCancelled
 
 from graph_v2_ontology import (
     VersionedOntology,
@@ -39,6 +42,8 @@ from graph_v2_ontology import (
     is_high_confidence,
     temporal_valid_for_query,
     HIGH_CONFIDENCE_FLOOR,
+    VALID_GROUNDING_STATES,
+    APPROVED_COMPOSITIONS,
 )
 
 GRAPH_SNAPSHOT_SCHEMA = "graph-snapshot-v2"
@@ -47,15 +52,30 @@ GRAPH_SNAPSHOT_SCHEMA = "graph-snapshot-v2"
 # ── RT-082: immutable artifact + hash-bound loading ──────────────────────
 def build_graph_artifact(statements: List[dict], *,
                          ontology_version: str,
+                         identity_snapshot_id: str,
+                         identity_content_hash: str,
                          created_at: str | None = None,
                          source_manifest_meta: dict | None = None) -> dict:
-    """Wrap statements into a canonical, hash-bound graph artifact."""
+    """Wrap statements into a canonical, hash-bound graph artifact.
+
+    B3: the artifact is BOUND to one IdentitySnapshot generation —
+    id AND content hash — and every statement endpoint must resolve in
+    that identity world (validated here at build, and again at load).
+    """
     ordered = sorted((dict(s) for s in (statements or [])),
                      key=lambda s: str(s.get("statement_id") or ""))
+    if not str(identity_snapshot_id or ""):
+        raise ValueError("graph artifact requires identity_snapshot_id")
+    if not str(identity_content_hash or ""):
+        raise ValueError("graph artifact requires identity_content_hash")
     body = {
         "schema_version": GRAPH_SNAPSHOT_SCHEMA,
         "created_at": created_at or datetime.now(timezone.utc).isoformat(),
         "ontology_version": str(ontology_version),
+        "identity_dependency": {
+            "identity_snapshot_id": str(identity_snapshot_id),
+            "identity_content_hash": str(identity_content_hash),
+        },
         "statements": ordered,
     }
     if source_manifest_meta:
@@ -73,10 +93,25 @@ def verify_graph_artifact(data: dict) -> List[str]:
         return ["artifact must be a JSON object"]
     if str(data.get("schema_version") or "") != GRAPH_SNAPSHOT_SCHEMA:
         issues.append(f"unsupported schema {data.get('schema_version')!r}")
+    dep = data.get("identity_dependency")
+    if not isinstance(dep, dict) or not str(dep.get("identity_snapshot_id") or ""):
+        issues.append("missing identity_dependency.identity_snapshot_id")
+    if not isinstance(dep, dict) or not str(dep.get("identity_content_hash") or ""):
+        issues.append("missing identity_dependency.identity_content_hash")
+    if issues and not isinstance(data.get("statements"), list):
+        return issues
     stmts = data.get("statements")
     if not isinstance(stmts, list):
         issues.append("statements must be a list")
         return issues
+    # B1: every loaded statement must be canonical (versions bound, enums
+    # known, id bound to content) — pre-canonical statements fail closed.
+    from graph_v2_ontology import validate_canonical_statement
+    for s in stmts:
+        s_issues = validate_canonical_statement(s)
+        if s_issues:
+            issues.append(f"statement {str(s.get('statement_id'))[:20]!r}: "
+                          + "; ".join(s_issues[:3]))
     recomputed = hashlib.sha256(json.dumps(
         sorted((dict(s) for s in stmts),
                key=lambda s: str(s.get("statement_id") or "")),
@@ -100,6 +135,9 @@ class GraphSnapshotView:
         self.graph_hash = str(artifact["graph_hash"])
         self.snapshot_id = "gvs-" + self.graph_hash[:16]
         self.created_at = str(artifact.get("created_at") or "")
+        dep = artifact.get("identity_dependency") or {}
+        self.identity_snapshot_id = str(dep.get("identity_snapshot_id") or "")
+        self.identity_content_hash = str(dep.get("identity_content_hash") or "")
         # indexes
         self.by_subject: Dict[str, List[int]] = {}
         self.by_object: Dict[str, List[int]] = {}
@@ -122,6 +160,43 @@ class GraphSnapshotView:
     def assert_ontology_compatible(self, ontology: VersionedOntology) -> None:
         ontology.assert_compatible(self.ontology_version)
 
+    # B3: endpoint authority gate against the BOUND identity generation
+    def assert_identity_binding(self, identity_snapshot: dict) -> None:
+        """Fail closed unless the given identity snapshot IS the generation
+        this graph was built against AND every statement endpoint exists in
+        it. Foreign generations / unknown endpoints never serve."""
+        if not isinstance(identity_snapshot, dict):
+            raise ValueError("graph serving requires an identity snapshot")
+        if str(identity_snapshot.get("identity_snapshot_id") or "") \
+                != self.identity_snapshot_id:
+            raise ValueError(
+                f"identity mismatch: graph bound to "
+                f"{self.identity_snapshot_id!r}, runtime pinned "
+                f"{str(identity_snapshot.get('identity_snapshot_id'))!r}")
+        if str(identity_snapshot.get("content_hash") or "") \
+                != self.identity_content_hash:
+            raise ValueError(
+                "identity content hash mismatch for generation "
+                f"{self.identity_snapshot_id!r}")
+        entities = identity_snapshot.get("entities")
+        if not isinstance(entities, list) or not entities:
+            raise ValueError(
+                "bound identity snapshot has no entities; graph endpoints "
+                "have no authority")
+        known = {str(e.get("entity_id") or "") for e in entities
+                 if e.get("entity_id")}
+        # tombstoned entities stay resolvable through the Phase06 redirect
+        # contract; missing endpoints have NO authority
+        unknown = sorted(
+            {str(s["subject_entity_id"]) for s in self._stmts}
+            | {str(s["object_entity_id"]) for s in self._stmts}
+            - known)
+        unknown = [u for u in unknown if u not in known]
+        if unknown:
+            raise ValueError(
+                "graph endpoints unknown to bound identity snapshot: "
+                + ", ".join(unknown[:5]))
+
     @property
     def statements(self) -> Tuple[dict, ...]:
         return self._stmts
@@ -130,6 +205,7 @@ class GraphSnapshotView:
         return {"snapshot_id": self.snapshot_id,
                 "statement_count": len(self._stmts),
                 "entity_count": len(set(self.by_subject) | set(self.by_object)),
+                "identity_snapshot_id": self.identity_snapshot_id,
                 "ontology_version": self.ontology_version}
 
     def degree(self, entity_id: str) -> int:
@@ -188,17 +264,45 @@ def _all_predicates() -> Dict[str, dict]:
 
 @dataclass
 class PathHop:
+    """One hop of a matched graph path — carries the FULL statement
+    evidence-method metadata (Gatekeeper B4/B5): the policy gate reads the
+    ACTUAL production representation and never defaults a missing
+    grounding_status to verified."""
     statement_id: str
     subject: str
     predicate: str
     obj: str
     record_refs: List[dict]
+    grounding_status: str = "UNVERIFIED"
+    support_eligible: bool = False
+    discovery_only: bool = True
+    extraction_version: str = ""
+    validation_version: str = ""
 
     def to_dict(self) -> dict:
         return {"statement_id": self.statement_id,
                 "subject": self.subject, "predicate": self.predicate,
                 "object": self.obj,
-                "record_refs": list(self.record_refs)}
+                "record_refs": list(self.record_refs),
+                "grounding_status": self.grounding_status,
+                "support_eligible": self.support_eligible,
+                "discovery_only": self.discovery_only,
+                "extraction_version": self.extraction_version,
+                "validation_version": self.validation_version}
+
+
+def statement_support_eligible(stmt: dict) -> bool:
+    """B4/B5: support eligibility of ONE statement/hop.
+
+    * grounding_status must be EXACTLY a verified state — a MISSING status
+      is UNVERIFIED, never defaulted to exact-grounded;
+    * non-empty EvidenceRefs are necessary but NOT sufficient: ungrounded
+      statements with refs stay discovery-only;
+    * discovery-only paths can never carry factual support.
+    """
+    return (str((stmt or {}).get("grounding_status") or "UNVERIFIED")
+            in VALID_GROUNDING_STATES
+            and bool((stmt or {}).get("evidence_refs")))
 
 
 @dataclass
@@ -208,13 +312,54 @@ class MatchedPath:
     features: dict
     grounded: bool
     discovery_only: bool
+    support_eligible: bool = False
 
     def to_dict(self) -> dict:
         return {"hops": [h.to_dict() for h in self.hops],
                 "path_score": round(self.path_score, 6),
                 "features": {k: round(v, 6) for k, v in self.features.items()},
                 "grounded": self.grounded,
-                "discovery_only": self.discovery_only}
+                "discovery_only": self.discovery_only,
+                "support_eligible": self.support_eligible}
+
+
+@dataclass
+class TraversalBudget:
+    """B8 — bounded traversal budget.
+
+    Reuses the Phase05 runtime contract: when a
+    ``runtime_safety.RequestExecutionContext`` is supplied, its
+    ``check_active()`` is honoured (client cancellation + total request
+    deadline) IN ADDITION to the traversal-local deadline — never a
+    parallel cancellation system.
+    """
+    max_fanout_per_node: int = 32
+    max_expanded_edges: int = 512
+    max_expanded_nodes: int = 256
+    max_total_candidates: int = 400
+    deadline: float | None = None          # monotonic timestamp
+    request_ctx: Any = None                # Phase05 RequestExecutionContext
+
+    def expired(self) -> bool:
+        return (self.deadline is not None
+                and time.monotonic() >= self.deadline)
+
+    def check(self) -> None:
+        """Raise on cancellation/deadline exhaustion (Phase05 contract)."""
+        if self.request_ctx is not None:
+            self.request_ctx.check_active()  # raises RequestCancelled
+        if self.expired():
+            raise RequestCancelled("graph_traversal_deadline_exhausted")
+
+
+# scoring feature weights (deterministic, explained per-path)
+W_ASSERTED = 1.0
+W_REPORTED = 0.70
+W_PLANNED_LIKE = 0.40          # PLANNED / PREDICTED / POSSIBLE
+W_NEGATIVE_POLARITY = 0.90     # negation retrievable, slightly discounted
+W_GROUNDED_BONUS = 0.30
+W_PREDICATE_INTENT_MATCH = 0.20
+HOP_DECAY = 0.75               # multiplicative per additional hop
 
 
 # scoring feature weights (deterministic, explained per-path)
@@ -258,19 +403,67 @@ class RelationAwareGraphRetriever:
                direction: str = "either",
                temporal_intent: str = "current",
                max_hops: int = 1,
-               seed_entities: Optional[List[dict]] = None) -> dict:
+               seed_entities: Optional[List[dict]] = None,
+               budget: Optional[TraversalBudget] = None) -> dict:
+        """Bounded, support-aware traversal (B4/B5/B7/B8).
+
+        ``hits``        — ONLY support-eligible paths' records: every hop
+                          exact-grounded + complete EvidenceRefs + approved
+                          composition (B7) at every multi-hop depth.
+        ``discovery_hits`` — query-expansion-only records from ungrounded
+                          hops or unapproved compositions. NEVER factual
+                          support, never merged into ``hits``.
+        ``trace.bound_hit`` — which traversal bound fired first (B8), if any.
+        """
         assert 1 <= int(max_hops) <= MAX_HOPS, "bounded traversal violated"
+        b = budget or TraversalBudget()
         seeds = (seed_entities if seed_entities is not None
                  else self.resolve_seeds(query))
         want_preds = {str(p).upper() for p in (desired_predicates or [])}
         want_groups = {str(g).upper() for g in (desired_groups or [])}
         hits: Dict[str, dict] = {}
+        discovery_hits: Dict[str, dict] = {}
+        bound_hit = {"reason": ""}
+        counters = {"edges": 0, "nodes": 0, "candidates": 0}
+
+        def _hit_bound(reason: str) -> bool:
+            if bound_hit["reason"]:
+                return True
+            bound_hit["reason"] = reason
+            return True
 
         def walk(current: str, depth: int, chain: List[Tuple[int, bool]],
                  visited: Set[str]):
             if depth > int(max_hops):
                 return
+            # B8: cancellation / request deadline (Phase05 primitive)
+            try:
+                b.check()
+            except RequestCancelled as exc:
+                _hit_bound(str(exc))
+                return
+            if b.expired():
+                _hit_bound("graph_traversal_deadline_exhausted")
+                return
+            fanout = 0
             for idx, subj_side in self.view.edges_for(current, direction=direction):
+                # B8: every expensive expansion step checks bounds FIRST
+                if b.expired():
+                    _hit_bound("graph_traversal_deadline_exhausted")
+                    return
+                try:
+                    b.check()
+                except RequestCancelled as exc:
+                    _hit_bound(str(exc))
+                    return
+                if counters["edges"] >= b.max_expanded_edges:
+                    _hit_bound("max_expanded_edges")
+                    return
+                if fanout >= b.max_fanout_per_node:
+                    _hit_bound("max_fanout_per_node")
+                    return
+                counters["edges"] += 1
+                fanout += 1
                 stmt = self.view.statements[idx]
                 pred = str(stmt["predicate"])
                 other = str(stmt["object_entity_id"]) if subj_side else \
@@ -288,8 +481,20 @@ class RelationAwareGraphRetriever:
                 polarity = str(stmt.get("polarity") or "POSITIVE")
                 refs = [r for r in (stmt.get("evidence_refs") or [])
                         if r.get("record_id")]
-                grounded = (str(stmt.get("grounding_status")
-                                ) in ("VALID", "EXACT_GROUNDED")) and bool(refs)
+                # B4/B5: MISSING grounding_status is UNVERIFIED — never
+                # defaulted to verified. refs alone do NOT make support.
+                hop_support = statement_support_eligible(stmt)
+
+                # B7: a multi-hop path carries factual semantics ONLY when
+                # the (P1, P2) pair is an explicitly approved composition;
+                # everything else (including RELEASED→RELEASED) stays
+                # discovery-only.
+                composition_ok = True
+                if len(new_chain) >= 2:
+                    prev_stmt = self.view.statements[new_chain[-2][0]]
+                    pair = (str(prev_stmt["predicate"]), pred)
+                    composition_ok = pair in APPROVED_COMPOSITIONS
+                path_support = hop_support and composition_ok
 
                 base = (W_PLANNED_LIKE if status in (
                     "PLANNED", "PREDICTED", "POSSIBLE")
@@ -302,7 +507,7 @@ class RelationAwareGraphRetriever:
                     "base_support": base,
                     "predicate_match": W_PREDICATE_INTENT_MATCH
                         if (pred_ok and group_ok) else 0.0,
-                    "grounding_bonus": W_GROUNDED_BONUS if grounded else 0.0,
+                    "grounding_bonus": W_GROUNDED_BONUS if hop_support else 0.0,
                     "hop_penalty": 1.0 - (HOP_DECAY ** (depth - 1)),
                     "hub_penalty": min(
                         HUB_CAP, HUB_ALPHA *
@@ -315,33 +520,47 @@ class RelationAwareGraphRetriever:
                               - features["hub_penalty"])
                     scored = max(scored, 0.05)
                     # full chain explanation: every hop of this traversal
-                    # appears in the matched path (RT-083 DoD)
+                    # appears in the matched path (RT-083 DoD). Each hop
+                    # carries its REAL evidence-method metadata (B4/B5).
                     chain_hops = []
                     for c_idx, c_subj_side in new_chain:
                         c_stmt = self.view.statements[c_idx]
+                        c_refs = [r for r in
+                                  (c_stmt.get("evidence_refs") or [])
+                                  if r.get("record_id")]
+                        c_support = statement_support_eligible(c_stmt)
                         chain_hops.append(PathHop(
                             str(c_stmt["statement_id"]),
                             str(c_stmt["subject_entity_id"]),
                             str(c_stmt["predicate"]),
                             str(c_stmt["object_entity_id"]),
-                            [r for r in
-                             (c_stmt.get("evidence_refs") or [])
-                             if r.get("record_id")]))
+                            c_refs,
+                            grounding_status=str(
+                                c_stmt.get("grounding_status")
+                                or "UNVERIFIED"),
+                            support_eligible=c_support,
+                            discovery_only=not c_support,
+                            extraction_version=str(
+                                c_stmt.get("extraction_version") or ""),
+                            validation_version=str(
+                                c_stmt.get("validation_version") or "")))
                     path = MatchedPath(
                         hops=chain_hops,
                         path_score=scored,
                         features={k: float(v) for k, v in features.items()},
                         grounded=all(
-                            str(self.view.statements[c]["grounding_status"]
-                                ) in ("VALID", "EXACT_GROUNDED")
-                            and any(r.get("record_id")
-                                    for r in (self.view.statements[c]
-                                              .get("evidence_refs") or []))
+                            statement_support_eligible(
+                                self.view.statements[c])
                             for c, _ in new_chain),
-                        discovery_only=not grounded,
+                        discovery_only=not path_support,
+                        support_eligible=path_support,
                     )
                     if group_ok and pred_ok:
+                        if counters["candidates"] >= b.max_total_candidates:
+                            _hit_bound("max_total_candidates")
+                            return
                         primary_rid = str(refs[0]["record_id"]) if refs else ""
+                        target = hits if path_support else discovery_hits
                         for ref_pos, r in enumerate(refs):
                             rid = str(r["record_id"])
                             # deterministic primary-source bonus: the FIRST
@@ -351,21 +570,27 @@ class RelationAwareGraphRetriever:
                             s_eff = scored + (PRIMARY_SOURCE_BONUS
                                               if rid == primary_rid
                                               and ref_pos == 0 else 0.0)
-                            entry = hits.setdefault(rid, {
+                            entry = target.setdefault(rid, {
                                 "record_id": rid, "route": "graph_v2",
                                 "score": 0.0, "matched_paths": [],
-                                "evidence_refs": []})
+                                "evidence_refs": [],
+                                "support_eligible": path_support})
+                            entry["support_eligible"] = path_support
                             entry["score"] = max(entry["score"], s_eff)
                             if path.to_dict() not in entry["matched_paths"]:
                                 entry["matched_paths"].append(path.to_dict())
                             if r not in entry["evidence_refs"]:
                                 entry["evidence_refs"].append(r)
+                            counters["candidates"] += 1
+                if counters["nodes"] >= b.max_expanded_nodes:
+                    _hit_bound("max_expanded_nodes")
+                    return
+                counters["nodes"] += 1
                 visited.add(other)
                 walk(other, depth + 1, new_chain, visited)
                 visited.discard(other)
 
         seen_seeds: Set[str] = set()
-        trace_paths_extra = []
         for seed in seeds:
             sid = seed["entity_id"]
             if sid in seen_seeds:
@@ -375,8 +600,11 @@ class RelationAwareGraphRetriever:
 
         ranked = sorted(hits.values(),
                         key=lambda h: (-h["score"], h["record_id"]))[:top_k]
+        disc_ranked = sorted(discovery_hits.values(),
+                             key=lambda h: (-h["score"], h["record_id"]))
         return {
             "hits": ranked,
+            "discovery_hits": disc_ranked,
             "trace": {
                 "seed_entities": [{"entity_id": s["entity_id"],
                                    "confidence": s["confidence"]}
@@ -386,6 +614,13 @@ class RelationAwareGraphRetriever:
                            "max_hops": int(max_hops)},
                 "snapshot_id": self.view.snapshot_id,
                 "ontology_version": self.view.ontology_version,
+                "bounds": {"max_fanout_per_node": b.max_fanout_per_node,
+                           "max_expanded_edges": b.max_expanded_edges,
+                           "max_expanded_nodes": b.max_expanded_nodes,
+                           "max_total_candidates": b.max_total_candidates},
+                "counters": dict(counters),
+                "bound_hit": bound_hit["reason"] or None,
+                "traversal_degraded": bool(bound_hit["reason"]),
             },
         }
 

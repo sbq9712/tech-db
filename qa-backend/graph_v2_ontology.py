@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+from datetime import datetime
 from typing import Dict, List, Optional
 
 from relation_ontology import (
@@ -35,6 +36,33 @@ from relation_ontology import (
 
 GRAPH_ONTOLOGY_PIN_VERSION = "graph-v2-ontology-pin-1.0"
 
+# ── canonical GraphStatement schema (final_spec §30, Gatekeeper B1) ──────
+# Every field in this registry is part of the statement's FACTUAL semantics
+# and is bound into statement_id. A statement missing any canonical field
+# can never be materialized, and unknown enum values / versions fail closed
+# (never silently reinterpreted by a later reader).
+GRAPH_STATEMENT_SCHEMA_VERSION = "graph-statement-1.1.0"
+EXTRACTION_VERSION_UNKNOWN = ""   # absent version never passes validation
+
+# PERSISTED assertion direction. This is the orientation AS EXTRACTED from
+# source text (subject-before-predicate-before-object surface order), stored
+# verbatim at materialization. Serving code must NEVER re-derive it from the
+# predicate's ontology metadata — the persisted value is authoritative.
+CANONICAL_DIRECTIONS = frozenset({
+    "SUBJ_PRED_OBJ",      # canonical subject→object surface order
+    "OBJ_PRED_SUBJ",      # inverted surface order (passive/postposed)
+})
+
+# Typed temporal scope contract. ``scope`` is an enum; AT_TIME requires
+# well-formed valid_from/valid_to ISO-8601 instants; open-ended ranges use
+# "" for the missing bound. Unknown scope values fail closed.
+TEMPORAL_SCOPE_VALUES = frozenset({
+    "CURRENT",       # asserted about the present, no explicit range
+    "AT_TIME",       # bounded range [valid_from, valid_to]
+    "HISTORICAL",    # closed range entirely in the past
+    "UNSPECIFIED",   # extractor could not determine — never high confidence
+})
+
 # Confidence tiers. HIGH_CONFIDENCE_FLOOR separates evidentiary-grade
 # statements from discovery-grade context. Weak-group edges (co-occurrence)
 # are hard-capped below LOW ceiling regardless of extractor confidence.
@@ -44,6 +72,36 @@ WEAK_GROUP_CEILING = 0.30
 WEAK_RELATION_GROUPS = frozenset({"WEAK"})
 
 VALID_GROUNDING_STATES = frozenset({"VALID", "EXACT_GROUNDED"})
+
+# ── version registries (B1-8/B1-9): unknown versions FAIL CLOSED ─────────
+# "relation-extract-v1-legacy" is accepted ONLY through the explicit
+# migrate_legacy_statement path (schema_compatibility.migrated_from set) —
+# never as a silent reinterpretation of old data.
+SUPPORTED_EXTRACTION_VERSIONS = frozenset({
+    "relation-extract-v2-gold",
+    "relation-extract-v1-legacy",
+})
+SUPPORTED_VALIDATION_VERSIONS = frozenset({
+    "relation-validation-v2",
+})
+
+# ── B7: approved predicate-pair COMPOSITION registry ─────────────────────
+# A two-hop path P1→P2 may carry FACTUAL/support semantics ONLY when the
+# (P1, P2) pair is explicitly approved here. Every unapproved pair
+# (including RELEASED→RELEASED, and any unknown predicate) yields
+# discovery-only paths usable for query expansion, never factual support.
+APPROVED_COMPOSITIONS: frozenset = frozenset({
+    # ("PART_OF", "USES"),  # example of an explicitly approved chain
+})
+
+# Canonical fields bound into statement_id (B1-7): two statements that
+# differ in ANY of these must never collide on the same id.
+STATEMENT_ID_BOUND_FIELDS = (
+    "subject_entity_id", "predicate", "object_entity_id", "direction",
+    "polarity", "modality", "assertion_status", "temporal_scope",
+    "extraction_version", "validation_version", "ontology_version",
+    "source_snapshot_id", "evidence_refs_count",
+)
 
 
 class UnknownPredicateError(ValueError):
@@ -126,13 +184,26 @@ def normalize_statement(raw: dict, *,
                         record_id: str,
                         source_snapshot_id: str = "",
                         ontology: VersionedOntology | None = None,
+                        extraction_version: str = "",
+                        validation_version: str = "relation-validation-v2",
                         ) -> dict:
-    """Normalize one candidate assertion into the canonical typed form.
+    """Normalize one candidate assertion into the canonical typed form
+    (final_spec §30 canonical GraphStatement, Gatekeeper B1).
 
-    Direction/predicate/evidence are SAVED, never inferred away. Fail-safe:
-      * unknown predicate → UnknownPredicateError
-      * empty/missing evidence_refs keep grounding UNVERIFIED and cap the
-        confidence below the high-confidence tier
+    Canonical fields — ALL persisted, ALL bound into statement_id:
+      subject_entity_id, predicate, object_entity_id, PERSISTED direction,
+      polarity, modality, assertion_status, typed temporal_scope,
+      evidence_refs[], extraction_version, validation_version,
+      ontology_version.
+
+    Fail-closed contract:
+      * unknown predicate / endpoint missing → error
+      * PRESENT-but-unknown enum values (polarity/modality/status/direction/
+        temporal_scope) raise — never silently reinterpreted
+      * unknown extraction/validation versions raise (see registries);
+        legacy data migrates ONLY through the explicit
+        ``migrate_legacy_statement`` path
+      * missing evidence_refs keep grounding UNVERIFIED and cap confidence
     """
     ont = ontology or VersionedOntology()
     data = dict(raw or {})
@@ -145,6 +216,15 @@ def normalize_statement(raw: dict, *,
         raise ValueError(
             f"relation endpoints required (subject={subject!r}, object={obj!r})")
 
+    # ── persisted direction (B1-2): verbatim from extraction, NEVER
+    #    re-derived from predicate ontology metadata at serving time.
+    direction_raw = str(data.get("direction") or "SUBJ_PRED_OBJ").upper()
+    if direction_raw not in CANONICAL_DIRECTIONS:
+        raise ValueError(
+            f"unknown assertion direction {direction_raw!r} "
+            f"(canonical: {sorted(CANONICAL_DIRECTIONS)})")
+
+    # ── enums: present-but-unknown values FAIL CLOSED (B1-8) ─────────────
     polarity_raw = str(data.get("polarity") or Polarity.POSITIVE.value)
     if isinstance(data.get("polarity"), Polarity):
         polarity = data["polarity"]
@@ -152,7 +232,7 @@ def normalize_statement(raw: dict, *,
         try:
             polarity = Polarity(polarity_raw.upper())
         except ValueError:
-            polarity = Polarity.POSITIVE
+            raise ValueError(f"unknown polarity {polarity_raw!r}")
 
     modality_raw = data.get("modality", Modality.DECLARATIVE)
     if isinstance(modality_raw, Modality):
@@ -161,7 +241,7 @@ def normalize_statement(raw: dict, *,
         try:
             modality = Modality(str(modality_raw).upper())
         except ValueError:
-            modality = Modality.DECLARATIVE
+            raise ValueError(f"unknown modality {modality_raw!r}")
 
     status_raw = data.get("assertion_status", AssertionStatus.ASSERTED)
     if isinstance(status_raw, AssertionStatus):
@@ -170,7 +250,41 @@ def normalize_statement(raw: dict, *,
         try:
             status = AssertionStatus(str(status_raw).upper())
         except ValueError:
-            status = AssertionStatus.ASSERTED
+            raise ValueError(f"unknown assertion_status {status_raw!r}")
+
+    # ── typed temporal_scope contract (B1-3) ─────────────────────────────
+    valid_from = str(data.get("valid_from") or "")
+    valid_to = str(data.get("valid_to") or "")
+    scope_raw = data.get("temporal_scope")
+    if scope_raw is None:
+        scope_raw = "AT_TIME" if (valid_from or valid_to) else "CURRENT"
+    temporal_scope = str(scope_raw).upper()
+    if temporal_scope not in TEMPORAL_SCOPE_VALUES:
+        raise ValueError(
+            f"unknown temporal_scope {temporal_scope!r} "
+            f"(canonical: {sorted(TEMPORAL_SCOPE_VALUES)})")
+    for bound_name, bound in (("valid_from", valid_from),
+                              ("valid_to", valid_to)):
+        if bound:
+            try:
+                datetime.fromisoformat(bound)
+            except ValueError:
+                raise ValueError(
+                    f"malformed ISO-8601 {bound_name}: {bound!r}")
+    if temporal_scope == "AT_TIME" and valid_from and valid_to \
+            and valid_from > valid_to:
+        raise ValueError("temporal range inverted (valid_from > valid_to)")
+
+    # ── versions: unknown values FAIL CLOSED (B1-8/B1-9) ─────────────────
+    if extraction_version not in SUPPORTED_EXTRACTION_VERSIONS:
+        raise ValueError(
+            f"unsupported extraction_version {extraction_version!r} "
+            f"(supported: {sorted(SUPPORTED_EXTRACTION_VERSIONS)}; legacy "
+            "data must migrate via migrate_legacy_statement)")
+    if validation_version not in SUPPORTED_VALIDATION_VERSIONS:
+        raise ValueError(
+            f"unsupported validation_version {validation_version!r} "
+            f"(supported: {sorted(SUPPORTED_VALIDATION_VERSIONS)})")
 
     evidence_refs: List[dict] = []
     for ref in (data.get("evidence_refs") or []):
@@ -188,35 +302,118 @@ def normalize_statement(raw: dict, *,
 
     grounding = str(data.get("grounding_status") or
                     ("EXACT_GROUNDED" if evidence_refs else "UNVERIFIED"))
-
-    stmt_id_src = "|".join([subject, predicate, obj, polarity.value,
-                            status.value,
-                            str(len(evidence_refs)),
-                            str(data.get("source_snapshot_id")
-                                or source_snapshot_id)])
-    statement_id = "gs-" + hashlib.sha256(stmt_id_src.encode()).hexdigest()[:16]
+    source_ss = str(data.get("source_snapshot_id") or source_snapshot_id)
 
     normalized = {
-        "statement_id": statement_id,
+        "statement_id": "",  # bound below from ALL canonical fields
+        "schema_compatibility": {
+            "statement_schema": GRAPH_STATEMENT_SCHEMA_VERSION,
+            "migrated_from": None,
+        },
         "subject_entity_id": subject,
         "predicate": predicate,
         "object_entity_id": obj,
+        "direction": direction_raw,
         "polarity": polarity.value,
         "modality": modality.value,
         "assertion_status": status.value,
         "qualifiers": dict(data.get("qualifiers") or {}),
+        "temporal_scope": temporal_scope,
         "scope": str(data.get("scope") or ""),
-        "valid_from": str(data.get("valid_from") or ""),
-        "valid_to": str(data.get("valid_to") or ""),
+        "valid_from": valid_from,
+        "valid_to": valid_to,
         "reported_by": str(data.get("reported_by") or ""),
         "source_role": str(data.get("source_role") or "unknown"),
+        "source_snapshot_id": source_ss,
         "evidence_refs": evidence_refs,
         "extraction_confidence": float(data.get("extraction_confidence") or 0.0),
         "grounding_status": grounding,
+        "extraction_version": extraction_version,
+        "validation_version": validation_version,
         "ontology_version": ont.version,
         "relation_group": str(info.get("group") or ""),
     }
+    normalized["statement_id"] = compute_statement_id(normalized)
     return normalized
+
+
+def compute_statement_id(stmt: dict) -> str:
+    """Bind statement_id to EVERY canonical field that changes factual
+    semantics (B1-7): two semantically different statements can never
+    collide on the same id."""
+    src = "|".join([
+        str(stmt.get("subject_entity_id") or ""),
+        str(stmt.get("predicate") or ""),
+        str(stmt.get("object_entity_id") or ""),
+        str(stmt.get("direction") or ""),
+        str(stmt.get("polarity") or ""),
+        str(stmt.get("modality") or ""),
+        str(stmt.get("assertion_status") or ""),
+        str(stmt.get("temporal_scope") or ""),
+        f"{stmt.get('valid_from') or ''}..{stmt.get('valid_to') or ''}",
+        str(stmt.get("extraction_version") or ""),
+        str(stmt.get("validation_version") or ""),
+        str(stmt.get("ontology_version") or ""),
+        str(stmt.get("source_snapshot_id") or ""),
+        str(len(stmt.get("evidence_refs") or [])),
+    ])
+    return "gs-" + hashlib.sha256(src.encode()).hexdigest()[:16]
+
+
+def validate_canonical_statement(stmt: dict) -> List[str]:
+    """Fail-closed validation of a LOADED statement (B1-8/B1-9). Any issue
+    means the statement must never be served or aggregated."""
+    issues: List[str] = []
+    if not isinstance(stmt, dict):
+        return ["statement must be a JSON object"]
+    for field_name in ("subject_entity_id", "predicate", "object_entity_id",
+                       "direction", "polarity", "modality",
+                       "assertion_status", "temporal_scope",
+                       "extraction_version", "validation_version",
+                       "ontology_version"):
+        if not str(stmt.get(field_name) or ""):
+            issues.append(f"missing canonical field: {field_name}")
+    if issues:
+        return issues
+    if str(stmt["direction"]) not in CANONICAL_DIRECTIONS:
+        issues.append(f"unknown direction {stmt['direction']!r}")
+    if str(stmt["temporal_scope"]) not in TEMPORAL_SCOPE_VALUES:
+        issues.append(f"unknown temporal_scope {stmt['temporal_scope']!r}")
+    if str(stmt["extraction_version"]) not in SUPPORTED_EXTRACTION_VERSIONS:
+        issues.append("unsupported extraction_version "
+                      f"{stmt['extraction_version']!r}")
+    if str(stmt["validation_version"]) not in SUPPORTED_VALIDATION_VERSIONS:
+        issues.append("unsupported validation_version "
+                      f"{stmt['validation_version']!r}")
+    expected = compute_statement_id(stmt)
+    if str(stmt.get("statement_id") or "") != expected:
+        issues.append("statement_id not bound to canonical content "
+                      f"(expected {expected})")
+    return issues
+
+
+def migrate_legacy_statement(stmt: dict, *,
+                             extraction_version: str = "relation-extract-v1-legacy",
+                             validation_version: str = "relation-validation-v2",
+                             ) -> dict:
+    """EXPLICIT migration for pre-1.1 statements (B1-9): the old shape is
+    re-stamped with the legacy extraction version and migrated_from is
+    recorded — silent reinterpretation of old data is impossible because
+    normalize_statement rejects unsupported versions outright."""
+    migrated = dict(stmt)
+    migrated["extraction_version"] = extraction_version
+    migrated["validation_version"] = validation_version
+    migrated["direction"] = str(migrated.get("direction") or "SUBJ_PRED_OBJ")
+    migrated.setdefault(
+        "schema_compatibility",
+        {"statement_schema": GRAPH_STATEMENT_SCHEMA_VERSION,
+         "migrated_from": "graph-statement-1.0.0"})
+    migrated["statement_id"] = compute_statement_id(migrated)
+    issues = validate_canonical_statement(migrated)
+    if issues:
+        raise ValueError("legacy migration produced invalid statement: "
+                         + "; ".join(issues))
+    return migrated
 
 
 def statement_confidence(stmt: dict) -> float:

@@ -958,7 +958,32 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
         return graph_v2_trace, None
 
     from graph_serving import (
-        RelationAwareGraphRetriever, partial_activation_decision)
+        RelationAwareGraphRetriever, TraversalBudget,
+        partial_activation_decision)
+    # B3: serving refuses to run against a foreign identity generation —
+    # the view's bound identity dependency is cross-checked against the
+    # manifest-pinned identity snapshot BEFORE any traversal.
+    identity_snapshot = (getattr(pinned, "resources", {}) or {}).get(
+        "identity_snapshot") if pinned is not None else None
+    try:
+        view.assert_identity_binding(identity_snapshot or {})
+    except ValueError as exc:
+        graph_v2_trace.update({
+            "action": "skip", "reason_code": "GRAPH_IDENTITY_MISMATCH",
+            "detail": str(exc)[:200]})
+        from runtime_safety import FailureClass
+        route_results.setdefault("_degraded_not_wired", []).append({
+            "capability": "graph_v2",
+            "failure_class": FailureClass.REQUIRED_BACKEND_UNAVAILABLE.value,
+            "reason_code": "RUNTIME_GRAPH_IDENTITY_MISMATCH",
+            "requirement_id": ",".join(relation_ids),
+            "correctness_critical": False,
+            "fallback_used": True,
+            "retry_count": 0,
+            "state_impact": "CONTINUE_RECHECK",
+            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+        })
+        return graph_v2_trace, None
     resolution = {}
     try:
         resolution = resolve_query_from_runtime_snapshot(query, pinned) or {}
@@ -991,10 +1016,55 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
     desired_groups = sorted({str(r.get("relation_group"))
                              for r in (requirements or [])
                              if r.get("relation_group")})
-    result = retriever.search(query, top_k=_rt.RETRIEVAL_TOP_K,
-                              direction="either", max_hops=1,
-                              desired_groups=desired_groups or None,
-                              seed_entities=seeds)
+    # B8: bounded traversal honouring the Phase05 request contract —
+    # client cancellation and the total request deadline stop the walk.
+    budget = TraversalBudget(request_ctx=None)
+    try:
+        from runtime_safety import current_request_context
+        ctx = current_request_context()
+        if ctx is not None:
+            budget = TraversalBudget(request_ctx=ctx)
+    except Exception:
+        pass
+    try:
+        result = retriever.search(query, top_k=_rt.RETRIEVAL_TOP_K,
+                                  direction="either", max_hops=1,
+                                  desired_groups=desired_groups or None,
+                                  seed_entities=seeds, budget=budget)
+    except RequestCancelled:
+        # relation-critical graph failure is NEVER silent: record the
+        # degradation; Phase05 re-computes sufficiency downstream.
+        route_results.setdefault("_degraded_not_wired", []).append({
+            "capability": "graph_v2",
+            "failure_class": FailureClass.REQUEST_CANCELLED.value
+            if hasattr(FailureClass, "REQUEST_CANCELLED")
+            else "REQUEST_CANCELLED",
+            "reason_code": "RUNTIME_GRAPH_TRAVERSAL_CANCELLED",
+            "requirement_id": ",".join(relation_ids),
+            "correctness_critical": True,
+            "fallback_used": False,
+            "retry_count": 0,
+            "state_impact": "CONTINUE_RECHECK",
+            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+        })
+        graph_v2_trace.update({
+            "action": "skip", "reason_code": "GRAPH_TRAVERSAL_CANCELLED"})
+        return graph_v2_trace, None
+    bound_hit = (result.get("trace") or {}).get("bound_hit")
+    if bound_hit:
+        # B8: bound/deadline hit must not silently pretend a full answer —
+        # record the degradation so sufficiency is re-computed.
+        route_results.setdefault("_degraded_not_wired", []).append({
+            "capability": "graph_v2",
+            "failure_class": "RESOURCE_EXHAUSTION",
+            "reason_code": f"RUNTIME_GRAPH_BOUND_HIT_{str(bound_hit).upper()}",
+            "requirement_id": ",".join(relation_ids),
+            "correctness_critical": False,
+            "fallback_used": True,
+            "retry_count": 0,
+            "state_impact": "CONTINUE_RECHECK",
+            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+        })
     hits = result.get("hits") or []
     route_results["graph_v2"] = [
         RetrievalResult(
@@ -1008,18 +1078,18 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
         for i, h in enumerate(hits)]
     paths_by_record = {h["record_id"]: (h.get("matched_paths") or [])
                        for h in hits}
-    selected_hint_ids = sorted({h["record_id"] for h in hits})
     method_ctx: dict = {}
     for rid_req in relation_ids:
         method_ctx[rid_req] = {
-            # Router label recorded ONLY as adversarial input - the engine
+            # Router label recorded ONLY as adversarial input — the engine
             # independently re-verifies every claim.
             "router_method_label": "SUPPORTED" if hits else "UNSUPPORTED",
+            # B6: CANDIDATE paths only. The server NEVER claims selection:
+            # the pipeline injects the REAL post-selection trusted support
+            # ids per requirement into the policy check.
             "graph_paths": [{"record_id": prid, "matched_paths": ppaths}
                             for prid, ppaths in paths_by_record.items()],
             "relation_checks": [],
-            "selected_record_ids": selected_hint_ids +
-                [rid for rid in (exclude_ids or [])],
         }
     all_paths = []
     for h in hits:
@@ -1030,9 +1100,11 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
             all_paths.append(lite)
     graph_v2_trace.update({
         "wired": True, "hits": len(hits),
+        "discovery_hits": len(result.get("discovery_hits") or []),
         "matched_paths": all_paths[:20],
         "snapshot_id": view.snapshot_id,
-        "ontology_version": view.ontology_version})
+        "ontology_version": view.ontology_version,
+        "bound_hit": bound_hit})
     return graph_v2_trace, (method_ctx or None)
 
 

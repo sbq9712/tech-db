@@ -13268,7 +13268,27 @@
               "suite": "remediation_phase07",
               "case": "test_rt080_graph_statement_normalization",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt080.direction_inverted_persisted_not_inferred",
+                "rt080.direction_roundtrip_persisted",
+                "rt080.extraction_version_roundtrip",
+                "rt080.id_bound_content_tamper_detected",
+                "rt080.inverted_temporal_range_fails_closed",
+                "rt080.legacy_migration_explicit_and_auditable",
+                "rt080.malformed_temporal_bound_fails_closed",
+                "rt080.migrated_statement_id_differs_from_v2",
+                "rt080.ontology_version_roundtrip",
+                "rt080.semantic_difference_never_collides",
+                "rt080.temporal_scope_roundtrip",
+                "rt080.unknown_direction_fails_closed",
+                "rt080.unknown_extraction_version_fails_closed",
+                "rt080.unknown_polarity_fails_closed",
+                "rt080.unknown_temporal_scope_fails_closed",
+                "rt080.unknown_validation_version_fails_closed",
+                "rt080.validation_version_roundtrip"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13281,7 +13301,27 @@
               "suite": "remediation_phase07",
               "case": "test_rt080_graph_statement_normalization",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt080.direction_inverted_persisted_not_inferred",
+                "rt080.direction_roundtrip_persisted",
+                "rt080.extraction_version_roundtrip",
+                "rt080.id_bound_content_tamper_detected",
+                "rt080.inverted_temporal_range_fails_closed",
+                "rt080.legacy_migration_explicit_and_auditable",
+                "rt080.malformed_temporal_bound_fails_closed",
+                "rt080.migrated_statement_id_differs_from_v2",
+                "rt080.ontology_version_roundtrip",
+                "rt080.semantic_difference_never_collides",
+                "rt080.temporal_scope_roundtrip",
+                "rt080.unknown_direction_fails_closed",
+                "rt080.unknown_extraction_version_fails_closed",
+                "rt080.unknown_polarity_fails_closed",
+                "rt080.unknown_temporal_scope_fails_closed",
+                "rt080.unknown_validation_version_fails_closed",
+                "rt080.validation_version_roundtrip"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13294,7 +13334,27 @@
               "suite": "remediation_phase07",
               "case": "test_rt080_graph_statement_normalization",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt080.direction_inverted_persisted_not_inferred",
+                "rt080.direction_roundtrip_persisted",
+                "rt080.extraction_version_roundtrip",
+                "rt080.id_bound_content_tamper_detected",
+                "rt080.inverted_temporal_range_fails_closed",
+                "rt080.legacy_migration_explicit_and_auditable",
+                "rt080.malformed_temporal_bound_fails_closed",
+                "rt080.migrated_statement_id_differs_from_v2",
+                "rt080.ontology_version_roundtrip",
+                "rt080.semantic_difference_never_collides",
+                "rt080.temporal_scope_roundtrip",
+                "rt080.unknown_direction_fails_closed",
+                "rt080.unknown_extraction_version_fails_closed",
+                "rt080.unknown_polarity_fails_closed",
+                "rt080.unknown_temporal_scope_fails_closed",
+                "rt080.unknown_validation_version_fails_closed",
+                "rt080.validation_version_roundtrip"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13307,7 +13367,27 @@
               "suite": "remediation_phase07",
               "case": "test_rt080_graph_statement_normalization",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt080.direction_inverted_persisted_not_inferred",
+                "rt080.direction_roundtrip_persisted",
+                "rt080.extraction_version_roundtrip",
+                "rt080.id_bound_content_tamper_detected",
+                "rt080.inverted_temporal_range_fails_closed",
+                "rt080.legacy_migration_explicit_and_auditable",
+                "rt080.malformed_temporal_bound_fails_closed",
+                "rt080.migrated_statement_id_differs_from_v2",
+                "rt080.ontology_version_roundtrip",
+                "rt080.semantic_difference_never_collides",
+                "rt080.temporal_scope_roundtrip",
+                "rt080.unknown_direction_fails_closed",
+                "rt080.unknown_extraction_version_fails_closed",
+                "rt080.unknown_polarity_fails_closed",
+                "rt080.unknown_temporal_scope_fails_closed",
+                "rt080.unknown_validation_version_fails_closed",
+                "rt080.validation_version_roundtrip"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }
@@ -13326,7 +13406,14 @@
               "suite": "remediation_phase07",
               "case": "test_rt081_relation_extraction_and_grounding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt081.missing_catalog_fails_closed",
+                "rt081.missing_evidence_text_fails_closed",
+                "rt081.raw_record_never_upgrades_to_snapshot_authority",
+                "rt081.statements_bind_catalog_snapshot_ids"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13339,7 +13426,14 @@
               "suite": "remediation_phase07",
               "case": "test_rt081_relation_extraction_and_grounding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt081.missing_catalog_fails_closed",
+                "rt081.missing_evidence_text_fails_closed",
+                "rt081.raw_record_never_upgrades_to_snapshot_authority",
+                "rt081.statements_bind_catalog_snapshot_ids"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13352,7 +13446,14 @@
               "suite": "remediation_phase07",
               "case": "test_rt081_relation_extraction_and_grounding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt081.missing_catalog_fails_closed",
+                "rt081.missing_evidence_text_fails_closed",
+                "rt081.raw_record_never_upgrades_to_snapshot_authority",
+                "rt081.statements_bind_catalog_snapshot_ids"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13365,7 +13466,14 @@
               "suite": "remediation_phase07",
               "case": "test_rt081_relation_extraction_and_grounding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt081.missing_catalog_fails_closed",
+                "rt081.missing_evidence_text_fails_closed",
+                "rt081.raw_record_never_upgrades_to_snapshot_authority",
+                "rt081.statements_bind_catalog_snapshot_ids"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }
@@ -13384,7 +13492,21 @@
               "suite": "remediation_phase07",
               "case": "test_rt082_graph_intent_snapshot_manifest_binding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt082.artifact_bound_to_identity_generation",
+                "rt082.artifact_without_identity_dependency_rejected",
+                "rt082.empty_identity_snapshot_rejected",
+                "rt082.foreign_identity_generation_rejected",
+                "rt082.identity_hash_tamper_rejected",
+                "rt082.loader_rejects_foreign_identity_graph_pair",
+                "rt082.non_canonical_statement_rejected_at_load",
+                "rt082.rollback_restores_graph_bound_generation",
+                "rt082.tampered_load_fails_closed",
+                "rt082.unknown_endpoint_rejected",
+                "rt082.valid_same_generation_binding_passes"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13397,7 +13519,21 @@
               "suite": "remediation_phase07",
               "case": "test_rt082_graph_intent_snapshot_manifest_binding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt082.artifact_bound_to_identity_generation",
+                "rt082.artifact_without_identity_dependency_rejected",
+                "rt082.empty_identity_snapshot_rejected",
+                "rt082.foreign_identity_generation_rejected",
+                "rt082.identity_hash_tamper_rejected",
+                "rt082.loader_rejects_foreign_identity_graph_pair",
+                "rt082.non_canonical_statement_rejected_at_load",
+                "rt082.rollback_restores_graph_bound_generation",
+                "rt082.tampered_load_fails_closed",
+                "rt082.unknown_endpoint_rejected",
+                "rt082.valid_same_generation_binding_passes"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13410,7 +13546,21 @@
               "suite": "remediation_phase07",
               "case": "test_rt082_graph_intent_snapshot_manifest_binding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt082.artifact_bound_to_identity_generation",
+                "rt082.artifact_without_identity_dependency_rejected",
+                "rt082.empty_identity_snapshot_rejected",
+                "rt082.foreign_identity_generation_rejected",
+                "rt082.identity_hash_tamper_rejected",
+                "rt082.loader_rejects_foreign_identity_graph_pair",
+                "rt082.non_canonical_statement_rejected_at_load",
+                "rt082.rollback_restores_graph_bound_generation",
+                "rt082.tampered_load_fails_closed",
+                "rt082.unknown_endpoint_rejected",
+                "rt082.valid_same_generation_binding_passes"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13423,7 +13573,21 @@
               "suite": "remediation_phase07",
               "case": "test_rt082_graph_intent_snapshot_manifest_binding",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt082.artifact_bound_to_identity_generation",
+                "rt082.artifact_without_identity_dependency_rejected",
+                "rt082.empty_identity_snapshot_rejected",
+                "rt082.foreign_identity_generation_rejected",
+                "rt082.identity_hash_tamper_rejected",
+                "rt082.loader_rejects_foreign_identity_graph_pair",
+                "rt082.non_canonical_statement_rejected_at_load",
+                "rt082.rollback_restores_graph_bound_generation",
+                "rt082.tampered_load_fails_closed",
+                "rt082.unknown_endpoint_rejected",
+                "rt082.valid_same_generation_binding_passes"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }
@@ -13442,7 +13606,20 @@
               "suite": "remediation_phase07",
               "case": "test_rt083_relation_aware_graph_retriever",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt083.budget_candidate_cap_empty_and_traced",
+                "rt083.budget_deadline_stops_traversal",
+                "rt083.budget_edge_exhaustion_traced",
+                "rt083.budget_fanout_cap_recorded",
+                "rt083.pathhop_to_dict_carries_support_metadata",
+                "rt083.phase05_cancellation_stops_graph_traversal",
+                "rt083.released_composition_never_becomes_support",
+                "rt083.ungrounded_edge_never_becomes_record_hit",
+                "rt083.unverified_refs_never_satisfy_relation_method",
+                "rt083.unverified_with_refs_excluded_from_hits"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13455,7 +13632,20 @@
               "suite": "remediation_phase07",
               "case": "test_rt083_relation_aware_graph_retriever",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt083.budget_candidate_cap_empty_and_traced",
+                "rt083.budget_deadline_stops_traversal",
+                "rt083.budget_edge_exhaustion_traced",
+                "rt083.budget_fanout_cap_recorded",
+                "rt083.pathhop_to_dict_carries_support_metadata",
+                "rt083.phase05_cancellation_stops_graph_traversal",
+                "rt083.released_composition_never_becomes_support",
+                "rt083.ungrounded_edge_never_becomes_record_hit",
+                "rt083.unverified_refs_never_satisfy_relation_method",
+                "rt083.unverified_with_refs_excluded_from_hits"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13468,7 +13658,20 @@
               "suite": "remediation_phase07",
               "case": "test_rt083_relation_aware_graph_retriever",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt083.budget_candidate_cap_empty_and_traced",
+                "rt083.budget_deadline_stops_traversal",
+                "rt083.budget_edge_exhaustion_traced",
+                "rt083.budget_fanout_cap_recorded",
+                "rt083.pathhop_to_dict_carries_support_metadata",
+                "rt083.phase05_cancellation_stops_graph_traversal",
+                "rt083.released_composition_never_becomes_support",
+                "rt083.ungrounded_edge_never_becomes_record_hit",
+                "rt083.unverified_refs_never_satisfy_relation_method",
+                "rt083.unverified_with_refs_excluded_from_hits"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13481,7 +13684,20 @@
               "suite": "remediation_phase07",
               "case": "test_rt083_relation_aware_graph_retriever",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt083.budget_candidate_cap_empty_and_traced",
+                "rt083.budget_deadline_stops_traversal",
+                "rt083.budget_edge_exhaustion_traced",
+                "rt083.budget_fanout_cap_recorded",
+                "rt083.pathhop_to_dict_carries_support_metadata",
+                "rt083.phase05_cancellation_stops_graph_traversal",
+                "rt083.released_composition_never_becomes_support",
+                "rt083.ungrounded_edge_never_becomes_record_hit",
+                "rt083.unverified_refs_never_satisfy_relation_method",
+                "rt083.unverified_with_refs_excluded_from_hits"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }
@@ -13500,7 +13716,13 @@
               "suite": "remediation_phase07",
               "case": "test_rt084_relation_independent_policy_gate",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt084.discovery_only_path_never_supports",
+                "rt084.missing_support_flags_fail_closed",
+                "rt084.router_supported_without_independent_proof_hard_fails"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13513,7 +13735,13 @@
               "suite": "remediation_phase07",
               "case": "test_rt084_relation_independent_policy_gate",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt084.discovery_only_path_never_supports",
+                "rt084.missing_support_flags_fail_closed",
+                "rt084.router_supported_without_independent_proof_hard_fails"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13526,7 +13754,13 @@
               "suite": "remediation_phase07",
               "case": "test_rt084_relation_independent_policy_gate",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "rt084.discovery_only_path_never_supports",
+                "rt084.missing_support_flags_fail_closed",
+                "rt084.router_supported_without_independent_proof_hard_fails"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }
@@ -13545,7 +13779,15 @@
               "suite": "benchmark_phase07",
               "case": "test_rt085_graph_v2_locked_benchmark_runs",
               "level": "benchmark",
-              "command": "python qa-backend/tests_benchmark_phase07.py"
+              "command": "python qa-backend/tests_benchmark_phase07.py",
+              "covers": [
+                "bm.locked_expectations_hold_on_eval_split",
+                "bm.useful_multihop_gain_real",
+                "server_run_graph_v2_identity_mismatch_degrades_honestly",
+                "wiring.graph_paths_are_not_citations",
+                "wiring.router_lie_blocks_relation_requirement"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13558,7 +13800,15 @@
               "suite": "benchmark_phase07",
               "case": "test_rt085_graph_v2_locked_benchmark_runs",
               "level": "benchmark",
-              "command": "python qa-backend/tests_benchmark_phase07.py"
+              "command": "python qa-backend/tests_benchmark_phase07.py",
+              "covers": [
+                "bm.locked_expectations_hold_on_eval_split",
+                "bm.useful_multihop_gain_real",
+                "server_run_graph_v2_identity_mismatch_degrades_honestly",
+                "wiring.graph_paths_are_not_citations",
+                "wiring.router_lie_blocks_relation_requirement"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13571,7 +13821,15 @@
               "suite": "remediation_phase07",
               "case": "test_rt085_graph_v2_production_pipeline_wiring",
               "level": "integration",
-              "command": "python qa-backend/tests_remediation_phase07.py"
+              "command": "python qa-backend/tests_remediation_phase07.py",
+              "covers": [
+                "bm.locked_expectations_hold_on_eval_split",
+                "bm.useful_multihop_gain_real",
+                "server_run_graph_v2_identity_mismatch_degrades_honestly",
+                "wiring.graph_paths_are_not_citations",
+                "wiring.router_lie_blocks_relation_requirement"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13584,7 +13842,15 @@
               "suite": "benchmark_phase07",
               "case": "test_rt085_graph_v2_locked_benchmark_runs",
               "level": "benchmark",
-              "command": "python qa-backend/tests_benchmark_phase07.py"
+              "command": "python qa-backend/tests_benchmark_phase07.py",
+              "covers": [
+                "bm.locked_expectations_hold_on_eval_split",
+                "bm.useful_multihop_gain_real",
+                "server_run_graph_v2_identity_mismatch_degrades_honestly",
+                "wiring.graph_paths_are_not_citations",
+                "wiring.router_lie_blocks_relation_requirement"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         },
@@ -13597,7 +13863,15 @@
               "suite": "benchmark_phase07",
               "case": "test_rt085_graph_v2_locked_benchmark_runs",
               "level": "benchmark",
-              "command": "python qa-backend/tests_benchmark_phase07.py"
+              "command": "python qa-backend/tests_benchmark_phase07.py",
+              "covers": [
+                "bm.locked_expectations_hold_on_eval_split",
+                "bm.useful_multihop_gain_real",
+                "server_run_graph_v2_identity_mismatch_degrades_honestly",
+                "wiring.graph_paths_are_not_citations",
+                "wiring.router_lie_blocks_relation_requirement"
+              ],
+              "covers_verified": "2026-08-27"
             }
           ]
         }

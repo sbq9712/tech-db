@@ -163,7 +163,13 @@ def load_release_resources(manifest: dict, release_root=None) -> dict:
         if issues:
             raise ValueError("invalid graph_index_v2: "
                              + "; ".join(issues[:5]))
-        resources["graph_snapshot_v2"] = GraphSnapshotView(graph_artifact)
+        view = GraphSnapshotView(graph_artifact)
+        # B3: triple cross-validation at LOAD time — the manifest's
+        # identity snapshot generation must BE the generation the graph
+        # was built against, and every graph statement endpoint must
+        # resolve in it. Foreign/mismatched/empty identity → fail closed.
+        view.assert_identity_binding(identity_snapshot)
+        resources["graph_snapshot_v2"] = view
     else:
         resources["graph_snapshot_v2"] = None
     return resources

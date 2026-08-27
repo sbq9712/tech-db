@@ -1,8 +1,8 @@
 {
   "schema_version": "phase07-graph-relation-benchmark-1.0",
-  "generated_at": "2026-08-27T14:31:10.029886+00:00",
+  "generated_at": "2026-08-27T16:44:58.249855+00:00",
   "fixture": "graph_relation_gold_locked_v1",
-  "fixture_sha256": "21414a7a55cc90445e42b160b9d1c50e98edd4335e83ec47bf506e504f2fd53c",
+  "fixture_sha256": "5db91e28e2bc868a247b28ccb6fac5c424ad5277617d09bae8bfa4733b13f463",
   "tuning_eval_split_separated": {
     "tuning": {
       "query_ids": [
@@ -17,13 +17,13 @@
     }
   },
   "legacy_baseline": {
-    "precision@5": 0.333333,
+    "precision@5": 0.266667,
     "recall@5": 1.0,
     "mrr": 1.0,
     "ndcg@5": 1.0
   },
   "graph_v2": {
-    "precision@5": 0.333333,
+    "precision@5": 0.266667,
     "recall@5": 1.0,
     "mrr": 1.0,
     "ndcg@5": 1.0
@@ -41,9 +41,11 @@
       "gold-r4"
     ],
     "two_hop_reached": [
-      "gold-r2",
       "gold-r3",
       "gold-r4"
+    ],
+    "two_hop_discovery_only": [
+      "gold-r2"
     ],
     "useful_gain_records": [
       "gold-r2"

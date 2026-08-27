@@ -53,8 +53,9 @@ def _jaccard(a: set, b: set) -> float:
 
 
 def build_graph_world():
-    """Materialize fixture records → statements → serving view."""
-    from tests_remediation_phase07 import _anchor_factory, _catalog
+    """Materialize fixture records → statements → serving view (B3-bound)."""
+    from tests_remediation_phase07 import (_anchor_factory, _catalog,
+                                           _identity_snapshot_for)
     from graph_extraction import materialize_statements
     from graph_serving import build_graph_artifact, GraphSnapshotView
 
@@ -62,7 +63,14 @@ def build_graph_world():
     records = [dict(r, record_id=r["record_id"]) for r in FIXTURE["records"]]
     res = materialize_statements(records, _catalog(records),
                                  entity_anchor_fn=anchor)
-    art = build_graph_artifact(res.statements, ontology_version="0.1.0")
+    endpoints = sorted(
+        {str(s["subject_entity_id"]) for s in res.statements}
+        | {str(s["object_entity_id"]) for s in res.statements})
+    ident = _identity_snapshot_for(endpoints)
+    art = build_graph_artifact(
+        res.statements, ontology_version="0.1.0",
+        identity_snapshot_id=ident["identity_snapshot_id"],
+        identity_content_hash=ident["content_hash"])
     view = GraphSnapshotView(art)
 
     anchor_by_id = {anchor(s)[0]: s for s in FIXTURE["entity_types"]}
@@ -170,6 +178,13 @@ def main() -> int:
         members = set(expected_exact) | set(prefix) | \
             set(qspec.get("expected_members") or [])
         anyof = set(qspec.get("expected_member_anyof") or [])
+        # B7: 2-hop chains NOT approved as compositions surface as
+        # discovery-only; the locked fixture pins BOTH outputs.
+        disc_payload = v2.get("discovery_hits") or {}
+        disc_vals = disc_payload.values() if isinstance(disc_payload, dict) \
+            else disc_payload
+        disc_ranks = {h["record_id"] for h in disc_vals}
+        disc_expected = set(qspec.get("expected_discovery_members") or [])
 
         gold_v2 = members
         gold_leg = members
@@ -187,6 +202,12 @@ def main() -> int:
             got_top = set(v2_ranks[:len(members)])
             if not members <= (got_top | set(v2_ranks)):
                 ok_row = False
+        # B7: expected discovery-only records must be reachable through the
+        # 2-hop chain but NEVER appear as factual support hits.
+        if disc_expected and not (disc_expected
+                                  and disc_expected <= disc_ranks
+                                  and not (disc_expected & set(v2_ranks))):
+            ok_row = False
         eval_rows.append({"query_id": qid,
                           "v2": row_v2, "legacy": row_leg,
                           "v2_ranks": v2_ranks,
@@ -244,13 +265,21 @@ def main() -> int:
                            max_hops=2, direction="either")
     one_ids = {h["record_id"] for h in one["hits"]}
     two_ids = {h["record_id"] for h in two["hits"]}
-    gained = two_ids - one_ids
-    useful = bool(gained)
-    hop_depths_two = [len(p["hops"]) for h in two["hits"]
-                      for p in h["matched_paths"]]
+    two_disc = two.get("discovery_hits") or {}
+    disc_vals = two_disc.values() if isinstance(two_disc, dict) \
+        else two_disc
+    disc_ids = {h["record_id"] for h in disc_vals}
+    # B7 contract: the 2-hop composition (USES→RELEASED) is NOT an
+    # approved composition, so the chained record (gold-r2) extends
+    # coverage ONLY as discovery-only output — never factual support.
+    gained_disc = disc_ids - one_ids
+    two_hop_support_depths = [len(p["hops"]) for h in two["hits"]
+                              for p in h["matched_paths"]]
     check("bm.useful_multihop_gain_real",
-          useful and max(hop_depths_two) == 2,
-          f"one={sorted(one_ids)} two={sorted(two_ids)}")
+          not (two_ids - one_ids) and bool(gained_disc)
+          and max(two_hop_support_depths) == 1,
+          f"one={sorted(one_ids)} two={sorted(two_ids)} "
+          f"disc={sorted(disc_ids)}")
 
     # reproducibility: same inputs → identical metrics twice
     def run_once():
@@ -299,7 +328,8 @@ def main() -> int:
         eval_split={"query_ids": eval_ids},
         multihop={"one_hop_reached": sorted(one_ids),
                   "two_hop_reached": sorted(two_ids),
-                  "useful_gain_records": sorted(gained)},
+                  "two_hop_discovery_only": sorted(disc_ids),
+                  "useful_gain_records": sorted(gained_disc)},
         hub_bias={"checks_passed": hub_checks.count(True),
                   "checks_total": len(hub_checks),
                   "hub_record_ids":
