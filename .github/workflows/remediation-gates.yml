@@ -129,6 +129,20 @@ jobs:
       - run: python qa-backend/tests_remediation_phase05.py
       - run: python qa-backend/tests_benchmark_phase05.py
 
+  phase06-entity-resolution-v2:
+    # Phase 06 (RT-060..075): transactional identity control plane,
+    # immutable serving snapshot, constrained resolver, migration and shadow.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: python qa-backend/tests_remediation_phase06.py
+      - run: python qa-backend/tests_benchmark_phase06.py
+      - run: python qa-backend/tests_er_v2.py
+
   legacy-index-migration:
     # Phase-02 review blocker C: legacy dataset (no inline record_id) →
     # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →

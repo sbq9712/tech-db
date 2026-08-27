@@ -21,6 +21,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT))
+from identity_snapshot import build_identity_snapshot_payload
 os.environ.setdefault("TECH_DB_INDEX_DIR", tempfile.mkdtemp(prefix="p02-idx-"))
 os.environ.setdefault("TECH_DB_RUNTIME_DIR", tempfile.mkdtemp(prefix="p02-rt-"))
 os.environ.setdefault("TECH_DB_RUNTIME_MODE", "legacy_hybrid")
@@ -1868,7 +1869,7 @@ def _pinned_snapshot_e2e_case():
                                                       "CITATION_ELIGIBLE"}]},
                 "evidence_metadata": {"records": [{"record_id": rid,
                                                    "evidence_eligibility": "CITATION_ELIGIBLE"}]},
-                "identity_snapshot": {"entries": [{"record_id": rid}]},
+                "identity_snapshot": build_identity_snapshot_payload(),
                 "vector_index": {"dimension": 2,
                                  "documents": [{"record_id": rid, "vector": [1.0, 0.0]}]},
                 "bm25_index": {"documents": [{"record_id": rid, "tokens": ["probe", label]}]},

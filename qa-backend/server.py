@@ -75,6 +75,7 @@ from runtime_safety import (
     reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
     relation_requirement_ids,
 )
+from entity_resolver_v2 import resolve_query_from_runtime_snapshot
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -451,6 +452,13 @@ async def _search_with_quality_legacy(query: str, exclude_ids: set = None) -> tu
 _SHADOW_RETRIEVAL = os.environ.get("QA_SHADOW_RETRIEVAL", "").strip() == "1"
 _retrieval_pipeline = None
 _shadow_diffs = []          # per-query drift records (bounded)
+_ENTITY_QUERY_SHADOW_ENABLED = os.environ.get(
+    "TECH_DB_ENTITY_QUERY_SHADOW", "").strip() == "1"
+if _ENTITY_QUERY_SHADOW_ENABLED:
+    from entity_shadow import EntityShadowMonitor
+    _ENTITY_QUERY_SHADOW = EntityShadowMonitor(window_type="REAL_WINDOW")
+else:
+    _ENTITY_QUERY_SHADOW = None
 
 
 def _get_retrieval_pipeline():
@@ -756,6 +764,13 @@ def _phase03_runtime_inputs():
         raise Phase03AuthorityError(
             "request-pinned runtime snapshot carries no source_catalog — "
             "cannot build trusted evidence refs (fail closed)")
+    cached_snapshot_index = _runtime_resource("phase03_snapshot_index", None)
+    cached_evidence_metadata = _runtime_resource(
+        "phase03_evidence_metadata", None)
+    if cached_snapshot_index is not None and cached_evidence_metadata is not None:
+        return (records, records_by_id, cached_snapshot_index,
+                cached_evidence_metadata,
+                _runtime_resource("phase03_authority_gaps", None) or [])
 
     from source_snapshot import SourceSnapshot
     catalog_by_rid = {}
@@ -869,6 +884,13 @@ def _phase03_provenance(records):
     return out
 
 
+# Release-load precomputation is valid only while the canonical adapters are
+# intact. Failure-injection and operator monkeypatches deliberately bypass it
+# so fail-safe provenance behavior remains observable at request time.
+_CANONICAL_PHASE03_PROVENANCE = _phase03_provenance
+from provenance import cluster_provenance as _CANONICAL_CLUSTER_PROVENANCE
+
+
 def _resolve_citation_record(citation: dict, records: list):
     """Resolve a citation through stable record_id first, legacy idx second.
 
@@ -926,7 +948,16 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
 
     # RT-033 real provenance: Phase-02 reviewed clustering over the pinned
     # request records (stable record_id keyed)
-    provenance_map = _phase03_provenance(records)
+    import provenance as _provenance_module
+    if (hasattr(pinned, "resources")
+            and _phase03_provenance is _CANONICAL_PHASE03_PROVENANCE
+            and _provenance_module.cluster_provenance
+                is _CANONICAL_CLUSTER_PROVENANCE):
+        provenance_map = _runtime_resource("phase03_provenance", None)
+    else:
+        provenance_map = None
+    if provenance_map is None:
+        provenance_map = _phase03_provenance(records)
 
     def _get_record(record_id):
         return records_by_id.get(record_id)
@@ -1268,9 +1299,16 @@ async def shadow_report():
 
     Only meaningful when QA_SHADOW_RETRIEVAL=1; always safe to call.
     """
+    entity_report = (_ENTITY_QUERY_SHADOW.report(
+        duration_days=float(os.environ.get(
+            "TECH_DB_ENTITY_QUERY_SHADOW_DURATION_DAYS", "0")),
+        equivalent_replay_explicitly_approved=False)
+        if _ENTITY_QUERY_SHADOW is not None else None)
     return {
         "shadow_enabled": _SHADOW_RETRIEVAL,
         **shadow_diff_report(),
+        "entity_query_shadow_enabled": _ENTITY_QUERY_SHADOW_ENABLED,
+        "entity_query_shadow": entity_report,
     }
 
 
@@ -1445,6 +1483,51 @@ async def chat_stream(req: ChatRequest, request: Request):
                 "raw_history_is_factual_authority": False,
                 "rewrite_authority": rewrite_authority.to_dict(),
             })
+
+            # RT-073: query entity resolution consumes only the immutable
+            # IdentitySnapshot pinned by RuntimePinMiddleware. It is read-only
+            # and Graph-V2 remains production-off in Phase06. Failure is
+            # isolated so Vector/BM25 retrieval remains available.
+            _query_entity_resolution = None
+            _pinned_runtime = _request_runtime_snapshot.get()
+            if _pinned_runtime is not None:
+                try:
+                    _query_entity_resolution = resolve_query_from_runtime_snapshot(
+                        search_query, _pinned_runtime)
+                    _entity_decisions = _query_entity_resolution["decisions"]
+                    if _ENTITY_QUERY_SHADOW is not None:
+                        for _decision in _entity_decisions:
+                            _ENTITY_QUERY_SHADOW.observe(
+                                serving_decision={"decision": "LEGACY_UNCHANGED",
+                                                  "selected_entity_id": None},
+                                shadow_decision=_decision,
+                                entity_class="OTHER_DOMAIN", latency_ms=0,
+                                source="query")
+                    trace.add_stage("query_entity_resolution", {
+                        "identity_snapshot_id": _query_entity_resolution["identity_snapshot_id"],
+                        "resolver_version": _query_entity_resolution["resolver_version"],
+                        "candidate_ids": sorted({candidate["entity_id"]
+                            for decision in _entity_decisions
+                            for candidate in decision.get("candidates", [])}),
+                        "reason_codes": sorted({code for decision in _entity_decisions
+                            for code in decision.get("reason_codes", [])}),
+                        "candidate_count": sum(len(decision.get("candidates", []))
+                                               for decision in _entity_decisions),
+                        "mutable_store_read": False,
+                        "graph_v2_activated": False,
+                    })
+                except Exception:
+                    # Entity/Graph is optional for generic QA. Relation-critical
+                    # sufficiency remains governed by the sealed Phase05 policy;
+                    # no identity is assumed when this stage degrades.
+                    trace.add_stage("query_entity_resolution", {
+                        "identity_snapshot_id": identity.get("identity_snapshot_id", ""),
+                        "resolver_version": "er-v2.0",
+                        "reason_code": "ER_RESOLVER_DEGRADED_NO_IDENTITY_ASSUMED",
+                        "candidate_count": 0,
+                        "mutable_store_read": False,
+                        "graph_v2_activated": False,
+                    })
 
             # Check if previous round had no results (avoid "infinite no results" loop)
             prev_assistant = next((m for m in reversed(req.history)

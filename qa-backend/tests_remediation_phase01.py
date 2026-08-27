@@ -14,6 +14,7 @@ from runtime_snapshot import RuntimeSnapshotManager, load_release_resources
 from release_backup import (create_backup, restore_backup, garbage_collect,
                             create_runtime_backup, restore_runtime_backup)
 from synthetic_hints import build_hint_documents, may_support_or_cite
+from identity_snapshot import build_identity_snapshot_payload
 
 passed = failed = 0
 CASE_RESULTS = {}
@@ -48,7 +49,7 @@ def release_fixture(root: Path, label="a"):
                                         "evidence_text_sha256":_body_sha,
                                         "evidence_eligibility":"CITATION_ELIGIBLE"}]},
       "evidence_metadata": {"records":[{"record_id":rid,"evidence_eligibility":"CITATION_ELIGIBLE"}]},
-      "identity_snapshot": {"entries":[{"record_id":rid}]},
+      "identity_snapshot": build_identity_snapshot_payload(),
       "vector_index": {"dimension":2,"documents":[{"record_id":rid,"vector":[1.0,0.0]}]},
       "bm25_index": {"documents":[{"record_id":rid,"tokens":["probe",label]}]},
       "chunk_index": {"chunks":[{"record_id":rid,"text":"grounded"}]},

@@ -1,0 +1,56 @@
+{
+  "activation_gate_satisfied": false,
+  "all_passed": true,
+  "candidate_recall_at_10_by_class": {
+    "ORG": 1.0,
+    "OTHER_DOMAIN": 1.0,
+    "PERSON": 1.0,
+    "PRODUCT_MODEL": 1.0,
+    "TECHNOLOGY": 1.0
+  },
+  "candidate_recall_target": 0.98,
+  "concurrent_create": {
+    "concurrency": 32,
+    "db_connections": 32,
+    "first_created_winners": 1,
+    "first_unique_entity_ids": 1,
+    "losers_reread_winner": true,
+    "second_created_winners": 0,
+    "second_unique_entity_ids": 1,
+    "winner_id_format": "opaque_ent_ulid_class"
+  },
+  "equivalent_replay_explicitly_approved": false,
+  "failed": 0,
+  "fixture": "locked_entity_resolution_gold_v1",
+  "fixture_sha256": "f2d373a479053dbfd80697f243734827ee401285ee03fa695779156724fa6858",
+  "graph_v2_activation_claim": false,
+  "migration_summary": {
+    "blocked": 0,
+    "duplicate_candidates": 0,
+    "graph_v2_activation_ready": false,
+    "migrated_unique": 1,
+    "provisional": 1,
+    "total_legacy": 1,
+    "unresolvable": 0
+  },
+  "passed": 15,
+  "production_activation_claim": false,
+  "query_resolution_fixture": {
+    "decision": "LINK",
+    "pinned_snapshot_match": true
+  },
+  "schema_version": "phase06-entity-resolution-benchmark-1.0",
+  "shadow_duration_days": 0,
+  "shadow_replay_count": 150,
+  "shadow_window_type": "CI_REPLAY",
+  "snapshot_build_rollback": {
+    "partial_build_served": false,
+    "previous_snapshot_rollback": true,
+    "request_pin_survives_switch": true,
+    "snapshots_distinct": true
+  },
+  "transaction_conflicts": {
+    "duplicate_creation_prevented": true,
+    "strong_id_ownership_constraint": true
+  }
+}

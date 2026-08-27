@@ -67,7 +67,23 @@
     "RT-052",
     "RT-053",
     "RT-054",
-    "RT-055"
+    "RT-055",
+    "RT-060",
+    "RT-061",
+    "RT-062",
+    "RT-063",
+    "RT-064",
+    "RT-065",
+    "RT-066",
+    "RT-067",
+    "RT-068",
+    "RT-069",
+    "RT-070",
+    "RT-071",
+    "RT-072",
+    "RT-073",
+    "RT-074",
+    "RT-075"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -79,6 +95,8 @@
     "benchmark_phase04": "qa-backend/tests_benchmark_phase04.py",
     "remediation_phase05": "qa-backend/tests_remediation_phase05.py",
     "benchmark_phase05": "qa-backend/tests_benchmark_phase05.py",
+    "remediation_phase06": "qa-backend/tests_remediation_phase06.py",
+    "benchmark_phase06": "qa-backend/tests_benchmark_phase06.py",
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py"
   },
@@ -13227,6 +13245,102 @@
     }
   ],
   "remediation_entries": [
+    {
+      "ticket_id":"RT-060","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-060.DOD-01","description":"opaque IDs survive rename and type correction and are never reused","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-060.DOD-02","description":"same-name entities and many-to-many aliases do not force identity collapse","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-061","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-061.DOD-01","description":"SQLite WAL single-writer topology and schema constraints are enforced","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-061.DOD-02","description":"entity alias strong-ID event and audit writes are atomic and restart-safe","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-062","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-062.DOD-01","description":"aliases are many-to-many with provenance validity and type compatibility","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-062.DOD-02","description":"typed strong IDs validate format and conflicting ownership blocks mutation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-063","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-063.DOD-01","description":"canonical terminal truth table is LINK NEW AMBIGUOUS BLOCKED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-063.DOD-02","description":"LOW_CONFIDENCE is diagnostic and NEW proposes provisional lifecycle","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-064","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-064.DOD-01","description":"candidate cascade is stage-attributed typed and deduplicated","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-064.DOD-02","description":"locked gold Recall@10 is reported separately for every high-impact class","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt064_candidate_recall","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-064"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-065","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-065.DOD-01","description":"LLM chooses only supplied candidates or canonical non-link decisions","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt065_llm_constraints","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-065.DOD-02","description":"fabricated IDs malformed output wrong type and stale cache fail safe without raw-confidence authority","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt065_llm_constraints","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-066","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-066.DOD-01","description":"NEW defaults provisional and cannot become Graph authority","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-066.DOD-02","description":"promotion and rejection are transactional audited lifecycle mutations","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-067","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-067.DOD-01","description":"active override has precedence and active block returns BLOCKED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-067.DOD-02","description":"review-due rules become STALE_REVIEW_REQUIRED and audit is append-only","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-068","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-068.DOD-01","description":"merge and split require dry-run impact hash and explicit confirmation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-068.DOD-02","description":"tombstones snapshots rematerialization and dependent-mutation conflicts prevent blind rollback","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-069","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-069.DOD-01","description":"32 concurrent identical creates yield exactly one DB winner","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt069_concurrency_stress","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-069"}]},
+        {"dod_id":"RT-069.DOD-02","description":"losers re-read the same winner and restart repeat creates no duplicate","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt069_concurrency_stress","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-069"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-070","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-070.DOD-01","description":"identity snapshot is content-hashed validated and bound as global manifest artifact","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt070_snapshot_runtime","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-070.DOD-02","description":"request pin survives atomic reload and previous complete snapshot rollback","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt070_snapshot_switch_evidence","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-070"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-071","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-071.DOD-01","description":"legacy IDs receive explicit opaque mapping or unresolved ambiguity without mass merge","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt071_migration","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-071.DOD-02","description":"migration is idempotent and produces deterministic high-impact review evidence","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt071_migration","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-072","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-072.DOD-01","description":"source snapshot exact mention resolution and relation chain carries EvidenceRefs","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-072.DOD-02","description":"legacy edges without source evidence are rejected and mutations trigger bounded rematerialization","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-073","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-073.DOD-01","description":"query resolver handles exact acronym transliteration fuzzy ambiguous and unknown without mutation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt073_query_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-073.DOD-02","description":"actual server caller consumes request-pinned IdentitySnapshot and resolver failure preserves Vector/BM25","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt073_query_resolution","level":"e2e","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-074","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-074.DOD-01","description":"operator-only admin mutations authenticate validate transact and audit","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt074_admin_security","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
+        {"dod_id":"RT-074.DOD-02","description":"names aliases and reasons sanitize control characters and unsafe HTML and high-impact confirmations bind plans","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt074_admin_security","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      ]
+    },
+    {
+      "ticket_id":"RT-075","completion_class":"CORE_REQUIRED","dods":[
+        {"dod_id":"RT-075.DOD-01","description":"ingest/query shadow is non-interfering and reports class quality latency cost cache and rollback triggers","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt075_shadow","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"benchmark_phase06","case":"test_rt075_shadow_replay","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-075"}]},
+        {"dod_id":"RT-075.DOD-02","description":"activation requires 1000 representative real events and 7 days or explicitly approved equivalent replay","status":"NOT_SATISFIED","evidence_note":"Only a 150-event deterministic CI replay exists; it is not real production duration evidence and has no explicit equivalence approval.","planned_test_cases":[{"case":"test_rt075_real_window_or_approved_equivalent","level":"release","future_rt":["RT-075"]}]}
+      ]
+    },
     {
       "ticket_id": "RT-001",
       "completion_class": "CORE_REQUIRED",

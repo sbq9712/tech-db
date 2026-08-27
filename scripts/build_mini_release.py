@@ -27,6 +27,7 @@ from release_manifest import (  # noqa: E402
     ReleaseCatalog, build_global_manifest, build_source_catalog,
     validate_source_catalog_payload)
 from runtime_snapshot import load_release_resources  # noqa: E402
+from identity_snapshot import build_identity_snapshot_payload  # noqa: E402
 
 MINI_RUNTIME = ROOT / "qa-backend" / "test_fixtures" / "mini_runtime"
 DEFAULT_OUT = ROOT / "qa-backend" / "test_fixtures" / "mini_release"
@@ -66,7 +67,11 @@ def build(out: Path = DEFAULT_OUT) -> dict:
         "record_id_map": _read_json(MINI_RUNTIME / "record_id_map.json"),
         "source_catalog": source_catalog,
         "evidence_metadata": _read_json(MINI_RUNTIME / "evidence_metadata.json"),
-        "identity_snapshot": _read_json(MINI_RUNTIME / "identity_snapshot.json"),
+        # The legacy mini-runtime file predates the immutable Phase06 schema.
+        # Mini releases deliberately carry an empty, valid serving snapshot;
+        # record identity remains owned by record_id_map/source_catalog.
+        "identity_snapshot": build_identity_snapshot_payload(
+            created_at=FIXED_CREATED_AT),
         "vector_index": _read_json(MINI_RUNTIME / "vector_index.json"),
         "bm25_index": _read_json(MINI_RUNTIME / "bm25_index.json"),
         "chunk_index": _read_json(MINI_RUNTIME / "chunks.json"),

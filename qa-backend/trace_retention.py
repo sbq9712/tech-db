@@ -55,6 +55,7 @@ _TRACE_ID_FIELDS = frozenset({
     "trace_id", "request_id", "manifest_id", "identity_snapshot_id",
     "evidence_package_id", "source_snapshot_id", "record_id",
     "requirement_id", "claim_id", "runtime_manifest_id",
+    "provisional_id", "operation_id", "shadow_comparison_id",
 })
 _TRACE_CODE_FIELDS = frozenset({
     "profile", "profile_version", "answer_state_machine_version",
@@ -64,6 +65,7 @@ _TRACE_CODE_FIELDS = frozenset({
     "match_type", "policy_verdict", "cancellation_reason",
     "verification_status", "retention_class", "admission", "route",
     "rewrite_action", "binding_status",
+    "resolver_version", "decision", "decision_code", "strong_id_result_code",
 })
 _TRACE_HASH_FIELDS = frozenset({
     "query_sha256", "evidence_sha256", "evidence_text_sha256",
@@ -77,14 +79,18 @@ _TRACE_NUMBER_FIELDS = frozenset({
     "critical_missing", "conflicted", "scheduled_delay_seconds",
     "retry_after_seconds", "score", "rrf_score", "vec_score",
     "bm25_score", "graph_score", "rank", "legacy_idx",
+    "candidate_count", "shadow_latency_ms", "shadow_cost_proxy",
 })
 _TRACE_BOOL_FIELDS = frozenset({
     "retry", "correctness_critical", "exact_replay_available",
     "raw_retained", "required", "deterministic_sufficient", "hard_fail",
+    "mutable_store_read", "graph_v2_activated", "shadow_non_interference",
 })
 _TRACE_ID_LIST_FIELDS = frozenset({
     "evidence_ids", "cited_record_ids", "critical_missing_ids",
     "record_ids", "requirement_ids", "claim_ids",
+    "candidate_ids", "reason_codes", "strong_id_result_codes",
+    "override_rule_ids", "block_rule_ids", "shadow_comparison_ids",
 })
 _TRACE_ROW_LIST_FIELDS = frozenset({
     "degraded_capabilities", "retry_events",

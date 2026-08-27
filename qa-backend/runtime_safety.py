@@ -69,6 +69,7 @@ STAGE_BUDGET_CLASS = {
     "verifier": BudgetClass.POST,
     "final_verifier": BudgetClass.POST,
     "citation_grounding": BudgetClass.POST,
+    "entity_adjudicator": BudgetClass.POST,
 }
 
 
@@ -146,6 +147,7 @@ CAPABILITY_REGISTRY = {
     "generator": "none",
     "gap_analysis": "deterministic_boundary",
     "repair": "deterministic_boundary",
+    "entity_adjudicator": "ambiguous_no_link",
 }
 
 
@@ -347,6 +349,7 @@ class RuntimeSafetyProfile:
             "evidence_selector": "selector", "citation_grounding": "verifier",
             "entailment": "verifier", "claim_mapping": "verifier",
             "gap_analysis": "repair",
+            "entity_adjudicator": "verifier",
         }
         return float(getattr(self, aliases.get(stage, stage), self.verifier))
 
