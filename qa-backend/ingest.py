@@ -121,9 +121,27 @@ async def main():
     start_time = time.time()
     total = len(records)
 
+    # RT-075 opt-in ingest shadow. The input is an immutable snapshot artifact;
+    # the shadow has no IdentityStore/Graph/RAG mutation capability.
+    _identity_shadow = None
+    _identity_shadow_snapshot = None
+    shadow_path = os.environ.get("TECH_DB_IDENTITY_SHADOW_SNAPSHOT", "")
+    if shadow_path:
+        from entity_shadow import EntityShadowMonitor
+        from identity_snapshot import validate_identity_snapshot
+        _identity_shadow_snapshot = json.loads(Path(shadow_path).read_text("utf-8"))
+        issues = validate_identity_snapshot(_identity_shadow_snapshot)
+        if issues:
+            raise RuntimeError("invalid identity shadow snapshot: " + "; ".join(issues))
+        _identity_shadow = EntityShadowMonitor(window_type="REAL_WINDOW")
+
     for rec_idx, (data_idx, r) in enumerate(records):
         if data_idx in done_ids:
             continue
+
+        if _identity_shadow is not None:
+            from entity_shadow import resolve_ingest_shadow
+            resolve_ingest_shadow(r, _identity_shadow_snapshot, _identity_shadow)
 
         # Format document
         title = r.get("t", "")
@@ -234,6 +252,17 @@ async def main():
     print(f"  Failed: {fail_count} records", flush=True)
     print(f"  Elapsed: {elapsed/3600:.1f}h", flush=True)
     print(f"  Progress saved to: {PROGRESS_FILE}", flush=True)
+
+    if _identity_shadow is not None:
+        shadow_report = _identity_shadow.report(
+            duration_days=float(os.environ.get("TECH_DB_IDENTITY_SHADOW_DURATION_DAYS", "0")),
+            equivalent_replay_explicitly_approved=False)
+        report_path = Path(os.environ.get(
+            "TECH_DB_IDENTITY_SHADOW_REPORT",
+            WORKING_DIR / "identity-shadow-report.json"))
+        report_path.write_text(json.dumps(shadow_report, ensure_ascii=False,
+                                          sort_keys=True, indent=2) + "\n", "utf-8")
+        print(f"  Identity shadow report: {report_path}", flush=True)
 
     # Export graph data for visualization
     print(f"\n[bonus] Exporting graph data for visualization...", flush=True)

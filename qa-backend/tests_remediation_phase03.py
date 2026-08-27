@@ -1192,8 +1192,8 @@ def _write_release(tmp_root, *, records, vectors, texts, query,
     }
     graph_index = {"results_by_query": {}}
     record_id_map = {"by_record_id": {rid: rid for rid in vectors}}
-    identity_snapshot = {"schema_version": "1.0.0",
-                         "records": [r["record_id"] for r in dataset_records]}
+    from identity_snapshot import build_identity_snapshot_payload
+    identity_snapshot = build_identity_snapshot_payload()
     evidence_metadata = {}
     for r in dataset_records:
         evidence_metadata[r["record_id"]] = {

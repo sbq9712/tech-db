@@ -16,6 +16,10 @@ Entity Types:
 
 Note: This is the initial implementation (Phase B foundation).
 Full entity resolution V2 (ER-001 through ER-124) is a separate epic.
+
+Phase06 status: LEGACY_COMPATIBILITY_INPUT_ONLY. This module is not a
+canonical identity writer; production mutations use IdentityStore and
+serving reads use a manifest-pinned IdentitySnapshot.
 """
 import json
 import os
@@ -28,6 +32,8 @@ REPO = Path(__file__).resolve().parent.parent
 RUNTIME_DIR = Path(os.environ.get("TECH_DB_RUNTIME_DIR", REPO / "runtime")).resolve()
 INDEX_DIR = Path(os.environ.get("TECH_DB_INDEX_DIR", RUNTIME_DIR / "indexes")).resolve()
 REGISTRY_FILE = INDEX_DIR / "entity_registry.json"
+LEGACY_COMPATIBILITY_INPUT_ONLY = True
+CANONICAL_IDENTITY_WRITER = False
 
 ENTITY_TYPES = {
     "organization", "product", "technology", "material", "standard",

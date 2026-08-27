@@ -56,6 +56,7 @@ class LinkStatus(str, Enum):
     AMBIGUOUS = "AMBIGUOUS"    # Multiple candidates, needs disambiguation
     NEW = "NEW"                # No match found, potential new entity
     LOW_CONFIDENCE = "LOW_CONFIDENCE"  # Weak match, needs review
+    BLOCKED = "BLOCKED"          # Legacy facade mapping of canonical BLOCKED
 
 
 @dataclass
@@ -102,7 +103,7 @@ class CanonicalEntity:
 
 
 class EntityRegistryV2:
-    """Versioned entity registry with stable opaque IDs.
+    """Legacy JSON compatibility registry; never canonical mutable authority.
     
     Key properties:
       - IDs are opaque: "org:a1b2c3d4" not "org:NVIDIA"
@@ -122,14 +123,13 @@ class EntityRegistryV2:
         self.load()
 
     def _generate_id(self, entity_type: str, canonical_name: str) -> str:
-        """Generate a stable opaque ID.
-        
-        Format: {type}:{hash8}
-        Hash is deterministic based on canonical name, so same entity always gets same ID.
+        """Generate a new opaque ID without mutable name/type input.
+
+        JSON is retained only as migration/compatibility input. New production
+        identity creation uses :class:`identity_store.IdentityStore`.
         """
-        name_hash = hashlib.md5(canonical_name.encode("utf-8")).hexdigest()[:8]
-        type_prefix = entity_type.lower() if entity_type else "entity"
-        return f"{type_prefix}:{name_hash}"
+        from entity_resolution_types import new_opaque_id
+        return new_opaque_id("ent")
 
     def load(self):
         """Load registry from disk (via registry_io — single reader, Q6/R12).
@@ -208,8 +208,17 @@ class EntityRegistryV2:
         provenance: str = "manual",
         confidence: float = 1.0,
     ) -> str:
-        """Add a new canonical entity. Returns entity_id."""
-        entity_id = self._generate_id(entity_type, canonical_name)
+        """Add a legacy compatibility entity. Returns its existing/new ID.
+
+        Reopening a migrated JSON registry reuses the already persisted row;
+        the name is a lookup attribute here, never input to ID generation.
+        """
+        normalized_name = self._normalize(canonical_name)
+        existing = next((e for e in self.entities.values()
+                         if self._normalize(e.canonical_name) == normalized_name
+                         and e.entity_type == entity_type), None)
+        entity_id = (existing.entity_id if existing is not None
+                     else self._generate_id(entity_type, canonical_name))
 
         if entity_id in self.entities:
             # Update existing
@@ -973,6 +982,440 @@ def build_seed_registry_v2(registry_path: Path = None) -> EntityRegistryV2:
         )
 
     return registry
+
+
+# ---------------------------------------------------------------------------
+# Canonical Phase06 boundary. The classes above remain a migration-compatible
+# V1/V2 JSON facade only; production control-plane writes go through
+# IdentityStore and serving reads go through an immutable IdentitySnapshotView.
+# ---------------------------------------------------------------------------
+from difflib import SequenceMatcher
+from entity_resolution_types import (
+    Candidate, CandidateSet, Mention, ResolutionDecision, ResolutionPolicy,
+    ResolutionState, normalize_strong_id, normalize_surface, new_opaque_id,
+    stable_hash,
+)
+from identity_snapshot import IdentitySnapshotView
+
+CANONICAL_RESOLVER_VERSION = "er-v2.0"
+
+
+class CandidateGenerator:
+    """Deterministic, stage-attributed candidate cascade over one snapshot."""
+    def __init__(self, snapshot: IdentitySnapshotView,
+                 policy: ResolutionPolicy | None = None):
+        self.snapshot = snapshot
+        self.policy = policy or ResolutionPolicy()
+
+    @staticmethod
+    def _type_compatible(entity: dict, required_type: str | None) -> bool:
+        if not required_type:
+            return True
+        wanted = required_type.upper().replace("PRODUCT", "PRODUCT_MODEL")
+        actual = str(entity.get("entity_type", "OTHER_DOMAIN")).upper()
+        actual = actual.replace("PRODUCT", "PRODUCT_MODEL").replace("TECH", "TECHNOLOGY")
+        return actual == wanted
+
+    def generate(self, mention: str, *, required_type: str | None = None,
+                 strong_ids: list[dict] | None = None, top_k: int | None = None) -> CandidateSet:
+        norm = normalize_surface(mention)
+        top_k = int(top_k or self.policy.top_k)
+        entities = self.snapshot.entities
+        collected: dict[str, dict] = {}
+
+        def add(entity_id, stage, score, *, reason, alias=None,
+                provenance=None, strong=None, language=None):
+            entity = entities.get(entity_id)
+            if not entity or entity.get("lifecycle") in {"REJECTED", "TOMBSTONED"}:
+                return
+            compatible = self._type_compatible(entity, required_type)
+            adjusted = score if compatible else score * 0.25
+            item = collected.setdefault(entity_id, {
+                "score": adjusted, "stage": stage, "reasons": set(),
+                "aliases": set(), "provenance": set(), "strong": set(),
+                "language": set(), "compatible": compatible,
+                "features": {},
+            })
+            if adjusted > item["score"]:
+                item["score"], item["stage"] = adjusted, stage
+            item["compatible"] = item["compatible"] or compatible
+            item["reasons"].add(reason)
+            if alias: item["aliases"].add(alias)
+            if provenance: item["provenance"].add(provenance)
+            if strong: item["strong"].add(strong)
+            if language: item["language"].add(language)
+            item["features"][stage] = max(item["features"].get(stage, 0), score)
+
+        # Validated typed strong identifiers precede textual candidate stages.
+        for supplied in strong_ids or []:
+            try:
+                kind = str(supplied["id_type"]).upper()
+                value = normalize_strong_id(kind, supplied["value"])
+            except (KeyError, ValueError):
+                continue
+            for known in self.snapshot.payload["strong_ids"]:
+                if (known.get("status") == "ACTIVE" and known.get("id_type") == kind
+                        and known.get("normalized_value") == value):
+                    add(known["entity_id"], "strong_id", 1.0,
+                        reason="ER_STRONG_ID_MATCH", strong=f"{kind}:{value}")
+
+        aliases = [a for a in self.snapshot.payload["aliases"]
+                   if a.get("status") == "ACTIVE"]
+        for alias in aliases:
+            alias_norm = alias.get("normalized_surface", "")
+            alias_type = str(alias.get("alias_type", "ALIAS")).upper()
+            if alias_norm == norm:
+                stage = "acronym" if alias_type == "ACRONYM" else (
+                    "transliteration" if alias_type == "TRANSLITERATION" else "exact_alias")
+                add(alias["entity_id"], stage, 0.99,
+                    reason=f"ER_{stage.upper()}_MATCH", alias=alias.get("surface"),
+                    provenance=alias.get("provenance"), language=alias.get("language"))
+
+        # Fuzzy/trigram recall. This adds candidates; policy decides linkage.
+        if norm:
+            for alias in aliases:
+                alias_norm = alias.get("normalized_surface", "")
+                if not alias_norm or alias_norm == norm:
+                    continue
+                ratio = SequenceMatcher(None, norm, alias_norm).ratio()
+                grams_a = {norm[i:i+3] for i in range(max(1, len(norm)-2))}
+                grams_b = {alias_norm[i:i+3] for i in range(max(1, len(alias_norm)-2))}
+                trigram = len(grams_a & grams_b) / max(1, len(grams_a | grams_b))
+                score = max(ratio, trigram)
+                if score >= 0.55:
+                    add(alias["entity_id"], "fuzzy_trigram", score,
+                        reason="ER_FUZZY_RECALL", alias=alias.get("surface"),
+                        provenance=alias.get("provenance"))
+
+        ordered = sorted(collected.items(), key=lambda item: (-item[1]["score"], item[0]))[:top_k]
+        result = []
+        for rank, (entity_id, item) in enumerate(ordered, 1):
+            result.append(Candidate(
+                entity_id=entity_id, stage=item["stage"], rank=rank,
+                score=round(item["score"], 6),
+                feature_scores=dict(sorted(item["features"].items())),
+                exact_aliases=tuple(sorted(item["aliases"])),
+                strong_id_matches=tuple(sorted(item["strong"])),
+                type_compatible=item["compatible"],
+                alias_provenance=tuple(sorted(x for x in item["provenance"] if x)),
+                language_evidence=tuple(sorted(x for x in item["language"] if x)),
+                reason_codes=tuple(sorted(item["reasons"])),
+            ))
+        return CandidateSet(mention, norm, tuple(result), top_k,
+                            "candidate-cascade-v1")
+
+
+class ConstrainedLLMAdjudicator:
+    """Schema-validates a model choice; never generates registry candidates."""
+    SCHEMA_VERSION = "llm-adjudication-1.0"
+
+    def __init__(self, model_version="unconfigured", prompt_version="er-adjudicate-v1"):
+        self.model_version = model_version
+        self.prompt_version = prompt_version
+        self._cache = {}
+
+    def cache_key(self, mention: str, context: str, candidates: CandidateSet,
+                  snapshot_id: str, policy_version: str) -> str:
+        return stable_hash({
+            "mention": normalize_surface(mention), "context_hash": stable_hash(context),
+            "candidate_ids": [c.entity_id for c in candidates.candidates],
+            "identity_snapshot_id": snapshot_id, "model_version": self.model_version,
+            "prompt_version": self.prompt_version, "schema_version": self.SCHEMA_VERSION,
+            "policy_version": policy_version,
+        })
+
+    def validate_output(self, output, candidates: CandidateSet,
+                        *, required_type: str | None = None,
+                        entities: dict | None = None) -> tuple[ResolutionState, str | None, tuple[str, ...]]:
+        if isinstance(output, str):
+            try:
+                output = json.loads(output)
+            except json.JSONDecodeError:
+                return ResolutionState.AMBIGUOUS, None, ("ER_LLM_MALFORMED",)
+        if not isinstance(output, dict):
+            return ResolutionState.AMBIGUOUS, None, ("ER_LLM_MALFORMED",)
+        try:
+            decision = ResolutionState(str(output.get("decision", "")))
+        except ValueError:
+            return ResolutionState.AMBIGUOUS, None, ("ER_LLM_INVALID_DECISION",)
+        selected = output.get("entity_id")
+        allowed = {c.entity_id for c in candidates.candidates}
+        if decision == ResolutionState.LINK:
+            if selected not in allowed:
+                return ResolutionState.BLOCKED, None, ("ER_LLM_FABRICATED_ID",)
+            entity = (entities or {}).get(selected, {})
+            if required_type and not CandidateGenerator._type_compatible(entity, required_type):
+                return ResolutionState.BLOCKED, None, ("ER_LLM_WRONG_TYPE",)
+            return decision, selected, ("ER_LLM_CONSTRAINED_CHOICE",)
+        if selected is not None:
+            return ResolutionState.AMBIGUOUS, None, ("ER_LLM_EXTRANEOUS_ID",)
+        return decision, None, (f"ER_LLM_{decision.value}",)
+
+    async def adjudicate(self, adapter, *, mention: str, context: str,
+                         candidates: CandidateSet, snapshot: IdentitySnapshotView,
+                         policy: ResolutionPolicy, required_type: str | None = None,
+                         execution_context=None):
+        safe_candidates = [{"entity_id": c.entity_id, "stage": c.stage,
+                            "features": c.feature_scores,
+                            "entity_type": snapshot.entities[c.entity_id].get("entity_type")}
+                           for c in candidates.candidates]
+        request = {"mention": mention, "context": context[:512],
+                   "required_type": required_type, "candidates": safe_candidates,
+                   "allowed_decisions": [s.value for s in ResolutionState],
+                   "schema_version": self.SCHEMA_VERSION}
+        async def invoke():
+            value = adapter(request)
+            if hasattr(value, "__await__"):
+                value = await value
+            return value
+        key = self.cache_key(mention, context, candidates, snapshot.snapshot_id,
+                             policy.version)
+        if key in self._cache:
+            output = self._cache[key]
+        else:
+            try:
+                if execution_context is not None:
+                    output = await execution_context.run_stage(
+                        "entity_adjudicator", invoke,
+                        safe_fallback_available=True)
+                else:
+                    output = await invoke()
+            except Exception as exc:
+                # Request cancellation remains owned by the request context;
+                # technical model failures can only yield no-link ambiguity.
+                from runtime_safety import RequestCancelled, StageExecutionError
+                if isinstance(exc, RequestCancelled):
+                    raise
+                if isinstance(exc, StageExecutionError):
+                    return (ResolutionState.AMBIGUOUS, None,
+                            ("ER_LLM_RUNTIME_FAILURE",))
+                raise
+            self._cache[key] = output
+        return self.validate_output(output, candidates, required_type=required_type,
+                                    entities=snapshot.entities)
+
+
+class CanonicalEntityResolver:
+    """Canonical resolution boundary over one pinned immutable snapshot."""
+    def __init__(self, snapshot: IdentitySnapshotView,
+                 policy: ResolutionPolicy | None = None):
+        self.snapshot = snapshot
+        self.policy = policy or ResolutionPolicy()
+        self.generator = CandidateGenerator(snapshot, self.policy)
+
+    def _matching_rules(self, norm: str, strong_ids: list[dict]) -> list[dict]:
+        strong_keys = set()
+        for item in strong_ids:
+            try:
+                kind = str(item["id_type"]).upper()
+                strong_keys.add(f"{kind}:{normalize_strong_id(kind, item['value'])}")
+            except (KeyError, ValueError):
+                continue
+        matches = []
+        for rule in self.snapshot.payload.get("rules", []):
+            cond = rule.get("condition", {})
+            if (normalize_surface(cond.get("mention", "")) == norm
+                    or cond.get("strong_id") in strong_keys):
+                matches.append(rule)
+        return matches
+
+    def resolve(self, mention: str, *, context: str = "",
+                required_type: str | None = None,
+                strong_ids: list[dict] | None = None) -> ResolutionDecision:
+        strong_ids = strong_ids or []
+        norm = normalize_surface(mention)
+        rules = self._matching_rules(norm, strong_ids)
+        blocks = [r for r in rules if r.get("rule_type") == "BLOCK"
+                  and r.get("effective_status") in {"ACTIVE", "STALE_REVIEW_REQUIRED"}]
+        if blocks:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_ACTIVE_BLOCK",), findings=tuple(r["rule_id"] for r in blocks))
+        stale = [r for r in rules if r.get("effective_status") == "STALE_REVIEW_REQUIRED"]
+        if stale:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_STALE_REVIEW_REQUIRED",), findings=tuple(r["rule_id"] for r in stale))
+
+        # Validate supplied authoritative identifiers and detect cross-owner conflict.
+        owners, strong_findings, invalid = set(), [], []
+        for supplied in strong_ids:
+            try:
+                kind = str(supplied["id_type"]).upper()
+                normalized = normalize_strong_id(kind, supplied["value"])
+            except (KeyError, ValueError) as exc:
+                invalid.append(type(exc).__name__)
+                continue
+            key = f"{kind}:{normalized}"
+            matches = [s for s in self.snapshot.payload["strong_ids"]
+                       if s.get("status") == "ACTIVE" and s.get("id_type") == kind
+                       and s.get("normalized_value") == normalized]
+            owners.update(s["entity_id"] for s in matches)
+            strong_findings.append(key + (":MATCH" if matches else ":UNMATCHED"))
+        if len(owners) > 1:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_CONFLICTING_STRONG_IDS",), strong=tuple(strong_findings))
+        if len(owners) == 1 and required_type:
+            owner = self.snapshot.entities.get(next(iter(owners)))
+            if owner is None or not CandidateGenerator._type_compatible(owner, required_type):
+                return self._decision(ResolutionState.BLOCKED, mention,
+                    reasons=("ER_STRONG_ID_TYPE_CONFLICT",),
+                    strong=tuple(strong_findings),
+                    diagnostics=("MANUAL_REVIEW_REQUIRED",))
+
+        overrides = [r for r in rules if r.get("rule_type") == "OVERRIDE"
+                     and r.get("effective_status") == "ACTIVE"]
+        if len({r.get("target_entity_id") for r in overrides}) > 1:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_CONFLICTING_OVERRIDES",), findings=tuple(r["rule_id"] for r in overrides))
+        if overrides:
+            selected = overrides[-1].get("target_entity_id")
+            if owners and selected not in owners:
+                return self._decision(ResolutionState.BLOCKED, mention,
+                    reasons=("ER_OVERRIDE_STRONG_ID_CONFLICT",),
+                    findings=tuple(r["rule_id"] for r in overrides), strong=tuple(strong_findings))
+            return self._decision(ResolutionState.LINK, mention, selected=selected,
+                reasons=("ER_ACTIVE_OVERRIDE",), findings=tuple(r["rule_id"] for r in overrides),
+                strong=tuple(strong_findings))
+        if invalid and strong_ids:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_INVALID_STRONG_ID",), strong=tuple(strong_findings))
+
+        # A syntactically valid but unknown authoritative identifier must not
+        # fall through to alias/fuzzy matching and fabricate an identity.
+        if strong_ids and not owners:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_UNKNOWN_STRONG_ID",), strong=tuple(strong_findings),
+                diagnostics=("MANUAL_REVIEW_REQUIRED",))
+
+        candidates = self.generator.generate(mention, required_type=required_type,
+                                             strong_ids=strong_ids)
+        if len(owners) == 1:
+            return self._decision(ResolutionState.LINK, mention, selected=next(iter(owners)),
+                                  candidates=candidates.candidates,
+                                  reasons=("ER_STRONG_ID_UNIQUE",), strong=tuple(strong_findings))
+        exact = [c for c in candidates.candidates
+                 if c.stage in {"exact_alias", "acronym", "transliteration"}
+                 and c.type_compatible]
+        if len(exact) == 1:
+            entity = self.snapshot.entities[exact[0].entity_id]
+            flags = ("PROVISIONAL_ENTITY",) if entity.get("lifecycle") == "PROVISIONAL" else ()
+            return self._decision(ResolutionState.LINK, mention, selected=exact[0].entity_id,
+                candidates=candidates.candidates, reasons=("ER_EXACT_UNIQUE",), diagnostics=flags)
+        if len(exact) > 1:
+            return self._decision(ResolutionState.AMBIGUOUS, mention,
+                candidates=candidates.candidates, reasons=("ER_EXACT_ALIAS_MANY_TO_MANY",))
+        compatible = [c for c in candidates.candidates if c.type_compatible]
+        if compatible:
+            first = compatible[0]
+            second_score = compatible[1].score if len(compatible) > 1 else 0.0
+            kind = (required_type or self.snapshot.entities[first.entity_id].get("entity_type")
+                    or "OTHER_DOMAIN").upper().replace("PRODUCT", "PRODUCT_MODEL").replace("TECH", "TECHNOLOGY")
+            link_min = self.policy.link_min.get(kind, self.policy.link_min["OTHER_DOMAIN"])
+            margin = self.policy.min_margin.get(kind, self.policy.min_margin["OTHER_DOMAIN"])
+            if first.score >= link_min and first.score - second_score >= margin:
+                return self._decision(ResolutionState.LINK, mention, selected=first.entity_id,
+                    candidates=candidates.candidates, reasons=("ER_CALIBRATED_FUZZY_LINK",))
+            return self._decision(ResolutionState.AMBIGUOUS, mention,
+                candidates=candidates.candidates, reasons=("ER_LOW_CONFIDENCE_OR_MARGIN",),
+                diagnostics=("LOW_CONFIDENCE",))
+        return self._decision(ResolutionState.NEW, mention,
+            candidates=candidates.candidates, reasons=("ER_NO_CANDIDATE",),
+            proposal={"canonical_name": mention, "entity_type": required_type or "OTHER_DOMAIN",
+                      "lifecycle": "PROVISIONAL"})
+
+    def _decision(self, state, mention, *, selected=None, candidates=(), reasons=(),
+                  findings=(), strong=(), diagnostics=(), proposal=None):
+        return ResolutionDecision(
+            decision=state, mention=mention, normalized_mention=normalize_surface(mention),
+            selected_entity_id=selected, candidates=tuple(candidates),
+            reason_codes=tuple(reasons), strong_id_findings=tuple(strong),
+            override_block_findings=tuple(findings), provisional_proposal=proposal,
+            resolver_version=CANONICAL_RESOLVER_VERSION,
+            identity_snapshot_id=self.snapshot.snapshot_id,
+            diagnostic_flags=tuple(diagnostics))
+
+
+class QueryEntityResolver:
+    """Read-only query resolver: parsing/resolution never mutates IdentityStore."""
+    def __init__(self, snapshot_payload: dict,
+                 policy: ResolutionPolicy | None = None):
+        self.snapshot = IdentitySnapshotView(snapshot_payload)
+        self.resolver = CanonicalEntityResolver(self.snapshot, policy)
+
+    def parse(self, query: str) -> list[dict]:
+        """Parse mentions and only syntactically safe typed identifiers."""
+        query = str(query or "")[:2000]
+        found = []
+        occupied = []
+
+        def add_typed(match, id_type, value, required_type):
+            prefix = query[max(0, match.start() - 32):match.start()]
+            explicit = re.search(
+                r"(?i)\b(PERSON|ORG|ORGANIZATION|COMPANY|PRODUCT_MODEL|PRODUCT|TECHNOLOGY)\s*[:=]?\s*$",
+                prefix)
+            if explicit:
+                required_type = {
+                    "ORGANIZATION": "ORG", "COMPANY": "ORG",
+                    "PRODUCT": "PRODUCT_MODEL",
+                }.get(explicit.group(1).upper(), explicit.group(1).upper())
+            found.append({"mention": match.group(0),
+                          "required_type": required_type,
+                          "strong_ids": [{"id_type": id_type, "value": value}]})
+            occupied.append(match.span())
+
+        doi_pattern = re.compile(
+            r"(?i)(?:https?://doi\.org/|doi:\s*)?(10\.[^\s,;]+)")
+        for match in doi_pattern.finditer(query):
+            raw = match.group(1).rstrip(".)]}>'\"")
+            add_typed(match, "DOI", raw, "OTHER_DOMAIN")
+        ticker_pattern = re.compile(
+            r"(?<![A-Za-z0-9._-])([A-Z][A-Z0-9._-]{1,11}:[A-Z0-9._-]{0,20})(?![A-Za-z0-9._-])")
+        for match in ticker_pattern.finditer(query):
+            if any(match.start() < end and match.end() > start for start, end in occupied):
+                continue
+            add_typed(match, "EXCHANGE_TICKER", match.group(1), "ORG")
+        url_pattern = re.compile(
+            r"(?i)\b(?:https?://)?(?:www\.)?[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+(?:/[^\s]*)?")
+        for match in url_pattern.finditer(query):
+            if any(match.start() < end and match.end() > start for start, end in occupied):
+                continue
+            raw = match.group(0).rstrip(".)]}>'\"")
+            kind = "OFFICIAL_URL" if "/" in raw.removeprefix("https://").removeprefix("http://") else "OFFICIAL_DOMAIN"
+            add_typed(match, kind, raw, "ORG")
+
+        normalized_query = normalize_surface(query)
+        for alias in self.snapshot.payload["aliases"]:
+            surface = alias.get("surface", "")
+            if surface and normalize_surface(surface) in normalized_query:
+                found.append({"mention": surface, "required_type": None,
+                              "strong_ids": []})
+        # Title-case names remain ordinary mentions, never typed identities.
+        for mention in re.findall(r"\b[A-Z][A-Za-z0-9.-]{2,}\b", query):
+            found.append({"mention": mention, "required_type": None,
+                          "strong_ids": []})
+        unique = {}
+        for item in found:
+            key = (normalize_surface(item["mention"]), stable_hash(item["strong_ids"]))
+            unique.setdefault(key, item)
+        return list(unique.values())[:10]
+
+    def resolve_query(self, query: str) -> list[ResolutionDecision]:
+        return [self.resolver.resolve(item["mention"],
+                    required_type=item["required_type"],
+                    strong_ids=item["strong_ids"]) for item in self.parse(query)]
+
+
+def resolve_query_from_runtime_snapshot(query: str, runtime_snapshot) -> dict:
+    """Production seam: consume only the request-pinned immutable resource."""
+    payload = runtime_snapshot.resources.get("identity_snapshot")
+    resolver = QueryEntityResolver(payload)
+    decisions = resolver.resolve_query(query)
+    return {
+        "identity_snapshot_id": resolver.snapshot.snapshot_id,
+        "resolver_version": CANONICAL_RESOLVER_VERSION,
+        "decisions": [d.to_dict() for d in decisions],
+        "mutable_store_read": False,
+        "graph_v2_activated": False,
+    }
 
 
 if __name__ == "__main__":

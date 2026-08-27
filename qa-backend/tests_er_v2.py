@@ -44,11 +44,12 @@ registry.save()  # Ensure seeds are persisted for pipeline reload
 test("registry has entities", registry.stats()["total_entities"] > 0)
 test("registry has aliases", registry.stats()["total_aliases"] > 0)
 
-# Test ID generation (opaque, deterministic)
+# Phase06 authority: IDs are opaque and unique at creation. Stability means
+# rename/type correction preserves an existing ID, not name-derived replay.
 id1 = registry._generate_id("ORG", "NVIDIA")
 id2 = registry._generate_id("ORG", "NVIDIA")
-test("ID is deterministic", id1 == id2)
-test("ID is opaque", "nvidia" not in id1.lower() and len(id1.split(":")[1]) == 8)
+test("same-name creations get distinct opaque IDs", id1 != id2)
+test("ID is opaque", "nvidia" not in id1.lower() and id1.startswith("ent_"))
 
 # Test add entity
 new_id = registry.add_entity("Test Entity Corp", "ORG", aliases=["TEC"])

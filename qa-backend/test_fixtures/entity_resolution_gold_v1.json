@@ -1,0 +1,39 @@
+{
+  "schema_version": "er-gold-1.0",
+  "status": "LOCKED_REVIEWED_FIXTURE",
+  "labels_independent_of_resolver_output": true,
+  "entities": [
+    {"key":"nvidia","canonical_name":"NVIDIA","entity_type":"ORG","aliases":["英伟达","NVDA"]},
+    {"key":"tsmc","canonical_name":"TSMC","entity_type":"ORG","aliases":["台积电","Taiwan Semiconductor"]},
+    {"key":"openai","canonical_name":"OpenAI","entity_type":"ORG","aliases":["开放人工智能研究中心"]},
+    {"key":"hinton","canonical_name":"Geoffrey Hinton","entity_type":"PERSON","aliases":["杰弗里·辛顿","Hinton"]},
+    {"key":"lecun","canonical_name":"Yann LeCun","entity_type":"PERSON","aliases":["杨立昆","LeCun"]},
+    {"key":"li_feifei","canonical_name":"Fei-Fei Li","entity_type":"PERSON","aliases":["李飞飞","Feifei Li"]},
+    {"key":"blackwell_b200","canonical_name":"Blackwell B200","entity_type":"PRODUCT_MODEL","aliases":["B200","Blackwell GPU B200"]},
+    {"key":"h100","canonical_name":"NVIDIA H100","entity_type":"PRODUCT_MODEL","aliases":["H100","Hopper H100"]},
+    {"key":"iphone15","canonical_name":"iPhone 15","entity_type":"PRODUCT_MODEL","aliases":["苹果15","iPhone15"]},
+    {"key":"solid_state","canonical_name":"Solid-State Battery","entity_type":"TECHNOLOGY","aliases":["固态电池","solid state battery"]},
+    {"key":"perovskite","canonical_name":"Perovskite Solar Cell","entity_type":"TECHNOLOGY","aliases":["钙钛矿太阳能电池","PSC"]},
+    {"key":"bci","canonical_name":"Brain-Computer Interface","entity_type":"TECHNOLOGY","aliases":["脑机接口","BCI"]},
+    {"key":"doi_domain","canonical_name":"Digital Object Identifier","entity_type":"OTHER_DOMAIN","aliases":["DOI","数字对象标识符"]},
+    {"key":"arxiv_domain","canonical_name":"arXiv","entity_type":"OTHER_DOMAIN","aliases":["arxiv.org","预印本平台"]},
+    {"key":"github_domain","canonical_name":"GitHub","entity_type":"OTHER_DOMAIN","aliases":["github.com","代码托管平台"]}
+  ],
+  "evaluation": [
+    {"class":"ORG","mention":"英伟达","truth_key":"nvidia"},
+    {"class":"ORG","mention":"Taiwan Semiconductor","truth_key":"tsmc"},
+    {"class":"ORG","mention":"OpenAI","truth_key":"openai"},
+    {"class":"PERSON","mention":"杰弗里·辛顿","truth_key":"hinton"},
+    {"class":"PERSON","mention":"LeCun","truth_key":"lecun"},
+    {"class":"PERSON","mention":"Feifei Li","truth_key":"li_feifei"},
+    {"class":"PRODUCT_MODEL","mention":"B200","truth_key":"blackwell_b200"},
+    {"class":"PRODUCT_MODEL","mention":"Hopper H100","truth_key":"h100"},
+    {"class":"PRODUCT_MODEL","mention":"iPhone15","truth_key":"iphone15"},
+    {"class":"TECHNOLOGY","mention":"固态电池","truth_key":"solid_state"},
+    {"class":"TECHNOLOGY","mention":"PSC","truth_key":"perovskite"},
+    {"class":"TECHNOLOGY","mention":"脑机接口","truth_key":"bci"},
+    {"class":"OTHER_DOMAIN","mention":"数字对象标识符","truth_key":"doi_domain"},
+    {"class":"OTHER_DOMAIN","mention":"arxiv.org","truth_key":"arxiv_domain"},
+    {"class":"OTHER_DOMAIN","mention":"github.com","truth_key":"github_domain"}
+  ]
+}

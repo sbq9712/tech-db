@@ -19,8 +19,9 @@ Rules established here:
   - Writing always emits the canonical form: V2 list shape with
     `schema_version: "2.0"`, plus `alias_index` / `ambiguous_aliases` extras
     (V1 readers consume them; V2 readers ignore unknown top-level keys).
-  - Both registry classes delegate persistence to this module — it is the
-    single writer (Q6/R12).
+  - Both legacy registry classes delegate compatibility persistence here.
+  - Phase06 canonical mutable truth is IdentityStore; JSON output is only a
+    migration/compatibility format and is never a serving pointer.
 """
 import json
 import os
@@ -28,6 +29,7 @@ from datetime import datetime
 from pathlib import Path
 
 CANONICAL_SCHEMA_VERSION = "2.0"
+CANONICAL_IDENTITY_WRITER = False
 
 # Fields of the canonical (V2) entity shape. Unknown fields are dropped on
 # load so downstream `CanonicalEntity(**fields)` construction never crashes.
