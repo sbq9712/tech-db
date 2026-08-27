@@ -1787,10 +1787,13 @@ def _profile_fresh_process_cases():
     # Phase 03 registers QA_EVIDENCE_PACKAGE_ENABLED (24th flag, off in
     # legacy_hybrid) — count updated by RT-030..039; all shipped flags on,
     # the two Phase-02 flags still off in this profile.
+    # Phase 07 registers QA_GRAPH_V2_ENABLED (25th flag, off in
+    # legacy_hybrid — Graph-V2 activates ONLY via graph_v2_partial, RT-086).
     test("X.profile_applies_at_import",
          proc.returncode == 0 and phase02 == [False, False]
-         and all(shipped) and len(flags) == 24
-         and flags.get("EVIDENCE_PACKAGE_ENABLED") is False)
+         and all(shipped) and len(flags) == 25
+         and flags.get("EVIDENCE_PACKAGE_ENABLED") is False
+         and flags.get("GRAPH_V2_ENABLED") is False)
 
     # B: deviating explicit env → fail closed at import
     proc = _run({**env_base, "QA_PIPELINE_PROFILE": "legacy_hybrid",

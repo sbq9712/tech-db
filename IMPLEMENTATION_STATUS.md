@@ -79,6 +79,7 @@ closed; see "Ticket Closure & Evidence Chain" below.
 | QA_EXACT_GROUNDING_ENABLED | true | Exact-span citation grounding on SourceSnapshot (RT-020) |
 | QA_TERMINAL_RENDERER_ENABLED | true | Buffered terminal rendering + post-verification citations (RT-027) |
 | QA_EVIDENCE_PACKAGE_ENABLED | false | Phase03 typed EvidencePackage generation path (RT-030..039; on in agentic_full only) |
+| QA_GRAPH_V2_ENABLED | false | Phase07 relation-aware Graph-V2 serving route (RT-080..087; on only via graph_v2_partial profile, high-confidence eligible subset) |
 
 ## Ticket Closure & Evidence Chain
 | Ticket | Scope | Evidence |
@@ -323,3 +324,25 @@ Ledger/Grader 硬规则、gap-bound retrieval、bounded stopping/Knowledge
 Boundary。行为证据与诚实的 rollout 边界见
 `docs/remediation/phase04_completion_report.md`。本阶段不声明生产
 shadow/canary 或 Graph-V2 激活；RT-005 仍是外部动作 blocker。
+
+## Phase 07 (2026-08-27) — Graph serving + relation-aware retrieval (RT-080..RT-087)
+
+评审基线 e5500c9c（Phase06 sealed main）。完成报告见
+`docs/remediation/phase07_completion_report.md`。要点：
+- 版本化 ontology + 不可变 GraphStatement（RT-080）；方向/谓词/精确
+  grounding 校验的确定性抽取基线，故障注入整体 fail-closed（RT-081）。
+- Graph Query Intent 校验、2-hop 硬上限、非传递 discovery-only（RT-082）。
+- 关系感知检索器：解释性 per-path 评分 + hub 惩罚 + EvidenceRefs-only
+  记录聚合，图命中本身不是可引用证据（RT-083）。
+- 独立 relation policy gate 接入同一 EvidencePolicyEngine，router 谎报
+  SUPPORTED 被硬阻断（RT-084）。
+- 生产三重门接线（flag→pinned 图工件→高置信子集资格），未接线显式
+  降级 RUNTIME_GRAPH_V2_NOT_WIRED；锁定 gold benchmark，CI mini-fixture
+  诚实结论 NO_GAIN（RT-085）。
+- `graph_v2_partial` 命名 profile（profile_registry_version 1.2.0，
+  RT-086）；激活门 ≥1000 events × ≥7 days 规范阈值 + 带外审批 token，
+  CI 无法自批，`graph_v2_activation_claim=false`、
+  `activation_gate_satisfied=false`、`locked_replay_only=true`（RT-087）。
+- 行为证据：tests_remediation_phase07 65/65、tests_benchmark_phase07
+  8/8、`benchmark_phase07_result.json`；CI job
+  `phase07-graph-serving-relation-aware-retrieval`。

@@ -913,6 +913,129 @@ def _resolve_citation_record(citation: dict, records: list):
     return None
 
 
+async def _graph_v2_route(*, query: str, requirements: list | None,
+                          relation_ids: list, exclude_ids: set | None,
+                          route_batches: list, pinned,
+                          route_results: dict):
+    """Phase07 (RT-083/RT-085/RT-086): relation-aware Graph-V2 route.
+
+    Triple gate before the route runs at all: (1) named partial-activation
+    flag (QA_GRAPH_V2_ENABLED via graph_v2_partial profile), (2) the pinned
+    manifest actually carries a verified graph_snapshot_v2 resource, and
+    (3) partial_activation_decision says this query is high-confidence
+    eligible. Any other combination keeps the request on legacy routes;
+    when the flag is ON but the graph is not wired into THIS pinned
+    generation we record an honest degradation instead of silently
+    skipping (NOT WIRED = PARTIAL).
+
+    Returns (trace, method_ctx_or_None).
+    """
+    graph_v2_trace = {
+        "flag_enabled": bool(Flags.GRAPH_V2_ENABLED),
+        "wired": False, "eligible": False, "action": "skip",
+        "reason_code": "GRAPH_V2_DISABLED", "hits": 0,
+        "matched_paths": [], "snapshot_id": "",
+    }
+    if not Flags.GRAPH_V2_ENABLED:
+        return graph_v2_trace, None
+    resources = getattr(pinned, "resources", {}) if pinned is not None else {}
+    view = resources.get("graph_snapshot_v2")
+    if view is None:
+        graph_v2_trace.update({
+            "action": "skip", "reason_code": "GRAPH_V2_NOT_WIRED"})
+        from runtime_safety import FailureClass
+        route_results.setdefault("_degraded_not_wired", []).append({
+            "capability": "graph_v2",
+            "failure_class": FailureClass.REQUIRED_BACKEND_UNAVAILABLE.value,
+            "reason_code": "RUNTIME_GRAPH_V2_NOT_WIRED",
+            "requirement_id": ",".join(relation_ids),
+            "correctness_critical": False,
+            "fallback_used": True,
+            "retry_count": 0,
+            "state_impact": "CONTINUE_RECHECK",
+            "answer_state": "SUPPORTED_IF_CANONICAL_GATES_PASS",
+        })
+        return graph_v2_trace, None
+
+    from graph_serving import (
+        RelationAwareGraphRetriever, partial_activation_decision)
+    resolution = {}
+    try:
+        resolution = resolve_query_from_runtime_snapshot(query, pinned) or {}
+    except Exception:
+        resolution = {}
+    decisions = [d for d in (resolution.get("decisions") or [])
+                 if isinstance(d, dict)]
+    seeds = [{"entity_id": str(d.get("selected_entity_id")),
+              "confidence": float(d.get("confidence") or 0.0)}
+             for d in decisions
+             if str(d.get("decision") or "").upper() == "LINK"
+             and d.get("selected_entity_id")]
+    vec_top = 0.0
+    for batch in route_batches:
+        for item in batch.get("vector", []):
+            vec_top = max(vec_top, float(item.raw_score))
+    eligibility = partial_activation_decision(
+        strong_route_signal=vec_top >= _rt.VEC_STRONG,
+        seed_confidences=[s["confidence"] for s in seeds])
+    graph_v2_trace.update({
+        "eligible": bool(eligibility["eligible"]),
+        "action": eligibility["action"],
+        "reason_code": eligibility["reason_code"],
+        "seed_entities": seeds,
+        "resolution_id": resolution.get("identity_snapshot_id", ""),
+    })
+    if not eligibility.get("eligible"):
+        return graph_v2_trace, None
+    retriever = RelationAwareGraphRetriever(view)
+    desired_groups = sorted({str(r.get("relation_group"))
+                             for r in (requirements or [])
+                             if r.get("relation_group")})
+    result = retriever.search(query, top_k=_rt.RETRIEVAL_TOP_K,
+                              direction="either", max_hops=1,
+                              desired_groups=desired_groups or None,
+                              seed_entities=seeds)
+    hits = result.get("hits") or []
+    route_results["graph_v2"] = [
+        RetrievalResult(
+            record_id=h["record_id"], legacy_idx=None,
+            route="graph_v2", raw_score=float(h["score"]),
+            rank=i + 1, meta={},
+            route_details={
+                "graph_v2_score": float(h["score"]),
+                "matched_paths": h.get("matched_paths") or [],
+                "seed_entities": seeds})
+        for i, h in enumerate(hits)]
+    paths_by_record = {h["record_id"]: (h.get("matched_paths") or [])
+                       for h in hits}
+    selected_hint_ids = sorted({h["record_id"] for h in hits})
+    method_ctx: dict = {}
+    for rid_req in relation_ids:
+        method_ctx[rid_req] = {
+            # Router label recorded ONLY as adversarial input - the engine
+            # independently re-verifies every claim.
+            "router_method_label": "SUPPORTED" if hits else "UNSUPPORTED",
+            "graph_paths": [{"record_id": prid, "matched_paths": ppaths}
+                            for prid, ppaths in paths_by_record.items()],
+            "relation_checks": [],
+            "selected_record_ids": selected_hint_ids +
+                [rid for rid in (exclude_ids or [])],
+        }
+    all_paths = []
+    for h in hits:
+        for mp in (h.get("matched_paths") or []):
+            lite = {"record_id": h["record_id"],
+                    "path_score": mp.get("path_score"),
+                    "features": mp.get("features")}
+            all_paths.append(lite)
+    graph_v2_trace.update({
+        "wired": True, "hits": len(hits),
+        "matched_paths": all_paths[:20],
+        "snapshot_id": view.snapshot_id,
+        "ontology_version": view.ontology_version})
+    return graph_v2_trace, (method_ctx or None)
+
+
 async def _run_phase03_context(query: str, exclude_ids: set | None = None,
                                access_scope: str = "public", *,
                                research_queries: list | None = None,
@@ -1003,6 +1126,19 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
                            "phase04_query_count": len(queries)})
             for i, item in enumerate(ordered, 1)]
 
+    # ── Phase07 (RT-083/RT-085/RT-086): relation-aware Graph-V2 route ────
+    graph_v2_trace, relation_methods_by_requirement = \
+        await _graph_v2_route(
+            query=query, requirements=requirements,
+            relation_ids=relation_ids, exclude_ids=exclude_ids,
+            route_batches=route_batches, pinned=pinned,
+            route_results=route_results)
+    not_wired_rows = route_results.pop("_degraded_not_wired", [])
+    for row in not_wired_rows:
+        if row not in route_degraded:
+            route_degraded.append(row)
+
+
     comparison_objects = sorted({r.get("comparison_object")
                                  for r in (requirements or [])
                                  if r.get("comparison_object")})
@@ -1028,6 +1164,8 @@ async def _run_phase03_context(query: str, exclude_ids: set | None = None,
         verified_premises=verified_premises,
         worker_packets=worker_packets,
         initial_degraded_capabilities=route_degraded,
+        relation_methods_by_requirement=relation_methods_by_requirement,
+        graph_v2_trace=graph_v2_trace,
     )
 
 

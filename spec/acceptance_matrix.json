@@ -83,7 +83,15 @@
     "RT-072",
     "RT-073",
     "RT-074",
-    "RT-075"
+    "RT-075",
+    "RT-080",
+    "RT-081",
+    "RT-082",
+    "RT-083",
+    "RT-084",
+    "RT-085",
+    "RT-086",
+    "RT-087"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -98,7 +106,9 @@
     "remediation_phase06": "qa-backend/tests_remediation_phase06.py",
     "benchmark_phase06": "qa-backend/tests_benchmark_phase06.py",
     "index_migration": "qa-backend/tests_index_migration.py",
-    "visual_rt029": "qa-backend/tests_visual_rt029.py"
+    "visual_rt029": "qa-backend/tests_visual_rt029.py",
+    "remediation_phase07": "qa-backend/tests_remediation_phase07.py",
+    "benchmark_phase07": "qa-backend/tests_benchmark_phase07.py"
   },
   "legacy_ticket_entries": [
     {
@@ -13246,99 +13256,996 @@
   ],
   "remediation_entries": [
     {
-      "ticket_id":"RT-060","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-060.DOD-01","description":"opaque IDs survive rename and type correction and are never reused","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-060.DOD-02","description":"same-name entities and many-to-many aliases do not force identity collapse","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-080",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-080.DOD-01",
+          "description": "ungrounded/synthetic-only relation cannot enter high-confidence graph",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt080_graph_statement_normalization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-080.DOD-02",
+          "description": "direction/predicate/evidence saved on normalized typed statements",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt080_graph_statement_normalization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-080.DOD-03",
+          "description": "ontology validation + negated/planned/co-occurrence separation cases",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt080_graph_statement_normalization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-080.DOD-04",
+          "description": "versioned ontology fail-safe (incompatible generation rejected)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt080_graph_statement_normalization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-061","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-061.DOD-01","description":"SQLite WAL single-writer topology and schema constraints are enforced","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-061.DOD-02","description":"entity alias strong-ID event and audit writes are atomic and restart-safe","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt060_rt061_identity_store","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-081",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-081.DOD-01",
+          "description": "wrong direction/predicate rejected with machine-readable reason codes",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt081_relation_extraction_and_grounding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-081.DOD-02",
+          "description": "multiple evidence refs allowed and merged into one statement",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt081_relation_extraction_and_grounding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-081.DOD-03",
+          "description": "relation extraction gold set passes against locked fixture lineage",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt081_relation_extraction_and_grounding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-081.DOD-04",
+          "description": "exact-grounding mismatch fails closed; injected failure aborts whole materialization",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt081_relation_extraction_and_grounding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-062","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-062.DOD-01","description":"aliases are many-to-many with provenance validity and type compatibility","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-062.DOD-02","description":"typed strong IDs validate format and conflicting ownership blocks mutation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-082",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-082.DOD-01",
+          "description": "fabricated predicate rejected by intent validator",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt082_graph_intent_snapshot_manifest_binding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-082.DOD-02",
+          "description": "A->B+B->C is never automatically A->C (non-transitive flagged discovery-only); bounded 2-hop enforced",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt082_graph_intent_snapshot_manifest_binding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-082.DOD-03",
+          "description": "immutable GraphSnapshot hash-bound; tampered artifact fails closed at load",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt082_graph_intent_snapshot_manifest_binding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-082.DOD-04",
+          "description": "graph ships inside global manifest; request-pinned resource exposure; whole-manifest rollback restores graph-bound generation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt082_graph_intent_snapshot_manifest_binding",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-063","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-063.DOD-01","description":"canonical terminal truth table is LINK NEW AMBIGUOUS BLOCKED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-063.DOD-02","description":"LOW_CONFIDENCE is diagnostic and NEW proposes provisional lifecycle","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-083",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-083.DOD-01",
+          "description": "all 1-hop scoring no longer uniform +0.35; per-path feature breakdown explained",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt083_relation_aware_graph_retriever",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-083.DOD-02",
+          "description": "direction/temporal/grounding-aware traversal; grounded edges only aggregate records via edge EvidenceRefs",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt083_relation_aware_graph_retriever",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-083.DOD-03",
+          "description": "hub penalty applied, explained and effective (hub trap)",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt083_relation_aware_graph_retriever",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-083.DOD-04",
+          "description": "traversal bounded to <=2 hops hard-capped",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt083_relation_aware_graph_retriever",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-064","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-064.DOD-01","description":"candidate cascade is stage-attributed typed and deduplicated","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt062_rt063_rt064_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-064.DOD-02","description":"locked gold Recall@10 is reported separately for every high-impact class","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt064_candidate_recall","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-064"}]}
+      "ticket_id": "RT-084",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-084.DOD-01",
+          "description": "router misclassification cannot make weak relation evidence SUPPORTED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt084_relation_independent_policy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-084.DOD-02",
+          "description": "independent verification: grounded graph paths landing in selected evidence or typed relation checks on selected text",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt084_relation_independent_policy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-084.DOD-03",
+          "description": "gate lives in the SAME shared EvidencePolicyEngine.evaluate()",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt084_relation_independent_policy_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-065","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-065.DOD-01","description":"LLM chooses only supplied candidates or canonical non-link decisions","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt065_llm_constraints","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-065.DOD-02","description":"fabricated IDs malformed output wrong type and stale cache fail safe without raw-confidence authority","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt065_llm_constraints","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-085",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-085.DOD-01",
+          "description": "locked relation-specific benchmark (precision/recall/MRR/nDCG) machine-readable gain/no-gain conclusion",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase07",
+              "case": "test_rt085_graph_v2_locked_benchmark_runs",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-085.DOD-02",
+          "description": "tuning and final eval splits separated",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase07",
+              "case": "test_rt085_graph_v2_locked_benchmark_runs",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-085.DOD-03",
+          "description": "Graph-V2 route wired through production Phase03 pipeline (planner routes -> pool -> policy -> package -> trace); missing wiring records honest degradation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt085_graph_v2_production_pipeline_wiring",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-085.DOD-04",
+          "description": "GRAPH AUTHORITY BOUNDARY: graph paths are never citations; hits citeable only via selected snapshot records",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase07",
+              "case": "test_rt085_graph_v2_locked_benchmark_runs",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-085.DOD-05",
+          "description": "gain on the locked CI mini-fixture evaluated honestly: NO_GAIN recorded; full activation therefore stays gated",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase07",
+              "case": "test_rt085_graph_v2_locked_benchmark_runs",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-066","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-066.DOD-01","description":"NEW defaults provisional and cannot become Graph authority","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-066.DOD-02","description":"promotion and rejection are transactional audited lifecycle mutations","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-086",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-086.DOD-01",
+          "description": "named profile graph_v2_partial enables Graph-V2 flag; agentic_full/legacy profiles keep it off",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt086_partial_activation_profile",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-086.DOD-02",
+          "description": "partial eligibility: low-confidence queries/entities safely skip/downweight Graph-V2",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt086_partial_activation_profile",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-086.DOD-03",
+          "description": "legacy graph remains untouched fallback/rollback target",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt086_partial_activation_profile",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-067","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-067.DOD-01","description":"active override has precedence and active block returns BLOCKED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-067.DOD-02","description":"review-due rules become STALE_REVIEW_REQUIRED and audit is append-only","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt066_rt067_lifecycle_rules","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-087",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-087.DOD-01",
+          "description": "shadow observations are non-interfering (zero serving mutation) and machine-readable",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt087_full_activation_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-087.DOD-02",
+          "description": "normative window >=1000 events AND >=7 days enforced; CI replay alone insufficient",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt087_full_activation_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-087.DOD-03",
+          "description": "failed gain gate records NOT_ACTIVATED_BY_GATE rather than DONE",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt087_full_activation_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-087.DOD-04",
+          "description": "no self-approval: replay path requires out-of-band approval token; even full-green evaluation stops at PENDING_RELEASE; rollback to previous graph/identity generation available",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase07",
+              "case": "test_rt087_full_activation_gate",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase07.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-068","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-068.DOD-01","description":"merge and split require dry-run impact hash and explicit confirmation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-068.DOD-02","description":"merge and unmerge use checkpointed evidence-lineage rematerialization atomic publish crash resume and dependent-mutation protection","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_relation_backed_unmerge_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-060",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-060.DOD-01",
+          "description": "opaque IDs survive rename and type correction and are never reused",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt060_rt061_identity_store",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-060.DOD-02",
+          "description": "same-name entities and many-to-many aliases do not force identity collapse",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-069","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-069.DOD-01","description":"32 concurrent identical creates yield exactly one DB winner","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt069_concurrency_stress","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-069"}]},
-        {"dod_id":"RT-069.DOD-02","description":"losers re-read the same winner and restart repeat creates no duplicate","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt069_concurrency_stress","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-069"}]}
+      "ticket_id": "RT-061",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-061.DOD-01",
+          "description": "SQLite WAL single-writer topology and schema constraints are enforced",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt060_rt061_identity_store",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-061.DOD-02",
+          "description": "entity alias strong-ID event and audit writes are atomic and restart-safe",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt060_rt061_identity_store",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-070","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-070.DOD-01","description":"identity snapshot is content-hashed validated and bound as global manifest artifact","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt070_snapshot_runtime","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-070.DOD-02","description":"request pin survives atomic reload and previous complete snapshot rollback","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase06","case":"test_rt070_snapshot_switch_evidence","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-070"}]}
+      "ticket_id": "RT-062",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-062.DOD-01",
+          "description": "aliases are many-to-many with provenance validity and type compatibility",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-062.DOD-02",
+          "description": "typed strong IDs validate format and conflicting ownership blocks mutation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-071","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-071.DOD-01","description":"legacy IDs receive explicit opaque mapping or unresolved ambiguity without mass merge","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt071_migration","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-071.DOD-02","description":"migration is idempotent and produces deterministic high-impact review evidence","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt071_migration","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-063",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-063.DOD-01",
+          "description": "canonical terminal truth table is LINK NEW AMBIGUOUS BLOCKED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-063.DOD-02",
+          "description": "LOW_CONFIDENCE is diagnostic and NEW proposes provisional lifecycle",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-072","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-072.DOD-01","description":"source snapshot exact mention resolution and relation chain carries EvidenceRefs","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-072.DOD-02","description":"legacy edges are hints only and merge/split rebuild assertions from bounded SourceSnapshot mention-offset EvidenceRef lineage","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_rt072_real_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-064",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-064.DOD-01",
+          "description": "candidate cascade is stage-attributed typed and deduplicated",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt062_rt063_rt064_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-064.DOD-02",
+          "description": "locked gold Recall@10 is reported separately for every high-impact class",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase06",
+              "case": "test_rt064_candidate_recall",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase06.py",
+              "artifact": "qa-backend/benchmark_phase06_result.json",
+              "benchmark_owner": "RT-064"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-073","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-073.DOD-01","description":"query resolver handles exact acronym transliteration fuzzy ambiguous and unknown without mutation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt073_query_resolution","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-073.DOD-02","description":"actual server caller consumes request-pinned IdentitySnapshot and resolver failure preserves Vector/BM25","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt073_query_resolution","level":"e2e","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-065",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-065.DOD-01",
+          "description": "LLM chooses only supplied candidates or canonical non-link decisions",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt065_llm_constraints",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-065.DOD-02",
+          "description": "fabricated IDs malformed output wrong type and stale cache fail safe without raw-confidence authority",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt065_llm_constraints",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-074","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-074.DOD-01","description":"operator-only admin mutations authenticate validate transact and audit","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt074_admin_security","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-074.DOD-02","description":"names aliases and reasons sanitize control characters and unsafe HTML and high-impact confirmations bind plans","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt074_admin_security","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+      "ticket_id": "RT-066",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-066.DOD-01",
+          "description": "NEW defaults provisional and cannot become Graph authority",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt066_rt067_lifecycle_rules",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            },
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt072_relation_lineage",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-066.DOD-02",
+          "description": "promotion and rejection are transactional audited lifecycle mutations",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt066_rt067_lifecycle_rules",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
       ]
     },
     {
-      "ticket_id":"RT-075","completion_class":"CORE_REQUIRED","dods":[
-        {"dod_id":"RT-075.DOD-01","description":"ingest/query shadow is non-interfering and reports class quality latency cost cache and rollback triggers","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt075_shadow","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"},{"suite":"benchmark_phase06","case":"test_rt075_shadow_replay","level":"benchmark","command":"python qa-backend/tests_benchmark_phase06.py","artifact":"qa-backend/benchmark_phase06_result.json","benchmark_owner":"RT-075"}]},
-        {"dod_id":"RT-075.DOD-02","description":"activation requires 1000 representative real events and 7 days or explicitly approved equivalent replay","status":"NOT_SATISFIED","evidence_note":"Only a 150-event deterministic CI replay exists; it is not real production duration evidence and has no explicit equivalence approval.","planned_test_cases":[{"case":"test_rt075_real_window_or_approved_equivalent","level":"release","future_rt":["RT-075"]}]}
+      "ticket_id": "RT-067",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-067.DOD-01",
+          "description": "active override has precedence and active block returns BLOCKED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt066_rt067_lifecycle_rules",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-067.DOD-02",
+          "description": "review-due rules become STALE_REVIEW_REQUIRED and audit is append-only",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt066_rt067_lifecycle_rules",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-068",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-068.DOD-01",
+          "description": "merge and split require dry-run impact hash and explicit confirmation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt068_mutations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-068.DOD-02",
+          "description": "merge and unmerge use checkpointed evidence-lineage rematerialization atomic publish crash resume and dependent-mutation protection",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt068_relation_backed_unmerge_rematerialization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-069",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-069.DOD-01",
+          "description": "32 concurrent identical creates yield exactly one DB winner",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase06",
+              "case": "test_rt069_concurrency_stress",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase06.py",
+              "artifact": "qa-backend/benchmark_phase06_result.json",
+              "benchmark_owner": "RT-069"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-069.DOD-02",
+          "description": "losers re-read the same winner and restart repeat creates no duplicate",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase06",
+              "case": "test_rt069_concurrency_stress",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase06.py",
+              "artifact": "qa-backend/benchmark_phase06_result.json",
+              "benchmark_owner": "RT-069"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-070",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-070.DOD-01",
+          "description": "identity snapshot is content-hashed validated and bound as global manifest artifact",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt070_snapshot_runtime",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-070.DOD-02",
+          "description": "request pin survives atomic reload and previous complete snapshot rollback",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase06",
+              "case": "test_rt070_snapshot_switch_evidence",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase06.py",
+              "artifact": "qa-backend/benchmark_phase06_result.json",
+              "benchmark_owner": "RT-070"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-071",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-071.DOD-01",
+          "description": "legacy IDs receive explicit opaque mapping or unresolved ambiguity without mass merge",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt071_migration",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-071.DOD-02",
+          "description": "migration is idempotent and produces deterministic high-impact review evidence",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt071_migration",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-072",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-072.DOD-01",
+          "description": "source snapshot exact mention resolution and relation chain carries EvidenceRefs",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt072_relation_lineage",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-072.DOD-02",
+          "description": "legacy edges are hints only and merge/split rebuild assertions from bounded SourceSnapshot mention-offset EvidenceRef lineage",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt068_rt072_real_rematerialization",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-073",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-073.DOD-01",
+          "description": "query resolver handles exact acronym transliteration fuzzy ambiguous and unknown without mutation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt073_query_resolution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-073.DOD-02",
+          "description": "actual server caller consumes request-pinned IdentitySnapshot and resolver failure preserves Vector/BM25",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt073_query_resolution",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-074",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-074.DOD-01",
+          "description": "operator-only admin mutations authenticate validate transact and audit",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt074_admin_security",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-074.DOD-02",
+          "description": "names aliases and reasons sanitize control characters and unsafe HTML and high-impact confirmations bind plans",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt074_admin_security",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            },
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt068_mutations",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-075",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-075.DOD-01",
+          "description": "ingest/query shadow is non-interfering and reports class quality latency cost cache and rollback triggers",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase06",
+              "case": "test_rt075_shadow",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase06.py"
+            },
+            {
+              "suite": "benchmark_phase06",
+              "case": "test_rt075_shadow_replay",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase06.py",
+              "artifact": "qa-backend/benchmark_phase06_result.json",
+              "benchmark_owner": "RT-075"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-075.DOD-02",
+          "description": "activation requires 1000 representative real events and 7 days or explicitly approved equivalent replay",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Only a 150-event deterministic CI replay exists; it is not real production duration evidence and has no explicit equivalence approval.",
+          "planned_test_cases": [
+            {
+              "case": "test_rt075_real_window_or_approved_equivalent",
+              "level": "release",
+              "future_rt": [
+                "RT-075"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -16930,62 +17837,460 @@
       "ticket_id": "RT-050",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-050.DOD-01","description":"relation-critical Graph and optional Graph have different request-aware failure behavior","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-050.DOD-02","description":"Grader, grounding, entailment, and verifier failures cannot silently skip into support","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-050.DOD-03","description":"query-snippet grounding fallback does not exist","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-050.DOD-04","description":"all live capability failures have explicit policy and unknown capabilities fail safe","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_capability_failure_matrix","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-050.DOD-05","description":"degraded_capabilities reflects actual production request behavior and prevents false SUPPORTED","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]}
+        {
+          "dod_id": "RT-050.DOD-01",
+          "description": "relation-critical Graph and optional Graph have different request-aware failure behavior",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-050.DOD-02",
+          "description": "Grader, grounding, entailment, and verifier failures cannot silently skip into support",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-050.DOD-03",
+          "description": "query-snippet grounding fallback does not exist",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "unit",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-050.DOD-04",
+          "description": "all live capability failures have explicit policy and unknown capabilities fail safe",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "unit",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_capability_failure_matrix",
+              "level": "unit",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-050.DOD-05",
+          "description": "degraded_capabilities reflects actual production request behavior and prevents false SUPPORTED",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_rt053_endpoint_failure_composition",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        }
       ]
     },
     {
       "ticket_id": "RT-051",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-051.DOD-01","description":"client disconnect stops useful request work on the real SSE path","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"e2e","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-051"}]},
-        {"dod_id":"RT-051.DOD-02","description":"late results cannot mutate a cancelled request","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-051.DOD-03","description":"all request resource slots are released after cancellation or failure","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"e2e","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-051"}]},
-        {"dod_id":"RT-051.DOD-04","description":"abandoned non-cancellable calls are visible in request-correlated telemetry","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
+        {
+          "dod_id": "RT-051.DOD-01",
+          "description": "client disconnect stops useful request work on the real SSE path",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "e2e",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-051"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-051.DOD-02",
+          "description": "late results cannot mutate a cancelled request",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-051.DOD-03",
+          "description": "all request resource slots are released after cancellation or failure",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "e2e",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-051"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-051.DOD-04",
+          "description": "abandoned non-cancellable calls are visible in request-correlated telemetry",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        }
       ]
     },
     {
       "ticket_id": "RT-052",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-052.DOD-01","description":"every live stage is bounded by the versioned RuntimeSafety profile","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"unit","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-052.DOD-02","description":"the total request deadline actually bounds stage execution","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-052.DOD-03","description":"no retry is attempted after cancellation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-052.DOD-04","description":"retry count is bounded and remaining query budget is enforced","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt051_rt052_request_execution","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-052.DOD-05","description":"a timed-out or failed factual draft is never emitted","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]}
+        {
+          "dod_id": "RT-052.DOD-01",
+          "description": "every live stage is bounded by the versioned RuntimeSafety profile",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "unit",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-052.DOD-02",
+          "description": "the total request deadline actually bounds stage execution",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-052.DOD-03",
+          "description": "no retry is attempted after cancellation",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-052.DOD-04",
+          "description": "retry count is bounded and remaining query budget is enforced",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt051_rt052_request_execution",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-052.DOD-05",
+          "description": "a timed-out or failed factual draft is never emitted",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_rt053_endpoint_failure_composition",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        }
       ]
     },
     {
       "ticket_id": "RT-053",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-053.DOD-01","description":"the admission queue is finite and rejects overflow","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-053.DOD-02","description":"client overload 429 with Retry-After is distinguishable from required-backend 503","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt050_rt053_endpoint_failure_composition","level":"e2e","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-053.DOD-03","description":"active and queued admission counters return to zero after a burst","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-053.DOD-04","description":"cancellation, including while queued, leaks no semaphore or admission slot","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt053_bounded_admission","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
+        {
+          "dod_id": "RT-053.DOD-01",
+          "description": "the admission queue is finite and rejects overflow",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-053.DOD-02",
+          "description": "client overload 429 with Retry-After is distinguishable from required-backend 503",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt050_rt053_endpoint_failure_composition",
+              "level": "e2e",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-053.DOD-03",
+          "description": "active and queued admission counters return to zero after a burst",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-053.DOD-04",
+          "description": "cancellation, including while queued, leaks no semaphore or admission slot",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt053_bounded_admission",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        }
       ]
     },
     {
       "ticket_id": "RT-054",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-054.DOD-01","description":"50 concurrent actual API requests have zero cross-request sentinel leakage","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]},
-        {"dod_id":"RT-054.DOD-02","description":"Trace, pinned manifest, and evidence remain request-correct under concurrent actual API execution","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"},{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]},
-        {"dod_id":"RT-054.DOD-03","description":"stress completion and a 51st follow-up leave no request state or resource leak","status":"SATISFIED","test_cases":[{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"},{"suite":"benchmark_phase05","case":"test_rt054_actual_api_state_isolation_benchmark","level":"benchmark","command":"python qa-backend/tests_benchmark_phase05.py","artifact":"qa-backend/benchmark_phase05_result.json","benchmark_owner":"RT-054"}]}
+        {
+          "dod_id": "RT-054.DOD-01",
+          "description": "50 concurrent actual API requests have zero cross-request sentinel leakage",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-054"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-054.DOD-02",
+          "description": "Trace, pinned manifest, and evidence remain request-correct under concurrent actual API execution",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-054"
+            },
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-054"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-054.DOD-03",
+          "description": "stress completion and a 51st follow-up leave no request state or resource leak",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-054"
+            },
+            {
+              "suite": "benchmark_phase05",
+              "case": "test_rt054_actual_api_state_isolation_benchmark",
+              "level": "benchmark",
+              "command": "python qa-backend/tests_benchmark_phase05.py",
+              "artifact": "qa-backend/benchmark_phase05_result.json",
+              "benchmark_owner": "RT-054"
+            }
+          ]
+        }
       ]
     },
     {
       "ticket_id": "RT-055",
       "completion_class": "CORE_REQUIRED",
       "dods": [
-        {"dod_id":"RT-055.DOD-01","description":"secret keys and secret-looking values never persist in production Trace or audit files","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-055.DOD-02","description":"default production Trace stores no raw sensitive query, prompt, answer, context, history, or package text","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-055.DOD-03","description":"replay-required manifest, identity-snapshot, and state-machine version references survive redaction","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-055.DOD-04","description":"full-text debug access requires server authority and secure storage and has shorter retention","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]},
-        {"dod_id":"RT-055.DOD-05","description":"deterministic expiry and idempotent cleanup retain a secret-free audit record","status":"SATISFIED","test_cases":[{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"},{"suite":"remediation_phase05","case":"test_rt055_trace_privacy_retention","level":"integration","command":"python qa-backend/tests_remediation_phase05.py"}]}
+        {
+          "dod_id": "RT-055.DOD-01",
+          "description": "secret keys and secret-looking values never persist in production Trace or audit files",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-055.DOD-02",
+          "description": "default production Trace stores no raw sensitive query, prompt, answer, context, history, or package text",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-055.DOD-03",
+          "description": "replay-required manifest, identity-snapshot, and state-machine version references survive redaction",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-055.DOD-04",
+          "description": "full-text debug access requires server authority and secure storage and has shorter retention",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        },
+        {
+          "dod_id": "RT-055.DOD-05",
+          "description": "deterministic expiry and idempotent cleanup retain a secret-free audit record",
+          "status": "SATISFIED",
+          "test_cases": [
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            },
+            {
+              "suite": "remediation_phase05",
+              "case": "test_rt055_trace_privacy_retention",
+              "level": "integration",
+              "command": "python qa-backend/tests_remediation_phase05.py"
+            }
+          ]
+        }
       ]
     }
   ]

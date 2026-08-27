@@ -21,6 +21,13 @@ REQUIRED_ARTIFACTS = {
 # Compatibility is policy, not whatever version an artifact self-declares.
 # Adding a version requires an explicit reviewed migration here.
 ARTIFACT_SCHEMA_REGISTRY = {name: frozenset({"1.0.0"}) for name in REQUIRED_ARTIFACTS}
+# Phase07 (RT-082): OPTIONAL Graph-V2 serving artifact. It ships INSIDE the
+# same global manifest (schema "graph-snapshot-v2"), so activation/rollback
+# carries the graph atomically with dataset+identity+indexes. A manifest
+# WITHOUT it remains valid — the graph_v2 route then reports the honest
+# "not wired" degradation instead of silently disappearing.
+OPTIONAL_ARTIFACTS = {"graph_index_v2": frozenset({"graph-snapshot-v2"})}
+ARTIFACT_SCHEMA_REGISTRY.update(OPTIONAL_ARTIFACTS)
 
 
 def compute_file_hash(filepath: Path) -> str:

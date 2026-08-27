@@ -132,7 +132,9 @@ def load_release_resources(manifest: dict, release_root=None) -> dict:
                     info.get("independent_group_id") or "").strip(),
                 "source_role": info.get("provenance_reason", "")}
 
-    return {
+    # Phase07: the previously-inline returned dict is now assigned so the
+    # optional Graph-V2 artifact below can attach before returning.
+    resources = {
         "records": records,
         "records_by_id": records_by_id,
         "vector_index": embeddings,
@@ -149,6 +151,22 @@ def load_release_resources(manifest: dict, release_root=None) -> dict:
         "phase03_authority_gaps": [],
         "phase03_provenance": phase03_provenance,
     }
+    # ── Phase07 (RT-082): OPTIONAL Graph-V2 serving view ────────────────
+    # When the manifest carries the artifact, materialize a hash-verified
+    # immutable GraphSnapshotView ONCE at release load. Fail-closed on any
+    # integrity problem: a corrupt graph can never reach request pinning.
+    # Absent artifact → None (honest "not wired", RT-085 degradation).
+    if "graph_index_v2" in manifest.get("artifacts", {}):
+        from graph_serving import GraphSnapshotView
+        graph_artifact = read("graph_index_v2")
+        issues = __import__("graph_serving").verify_graph_artifact(graph_artifact)
+        if issues:
+            raise ValueError("invalid graph_index_v2: "
+                             + "; ".join(issues[:5]))
+        resources["graph_snapshot_v2"] = GraphSnapshotView(graph_artifact)
+    else:
+        resources["graph_snapshot_v2"] = None
+    return resources
 
 
 @dataclass
