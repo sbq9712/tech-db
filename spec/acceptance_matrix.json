@@ -13296,7 +13296,7 @@
     {
       "ticket_id":"RT-068","completion_class":"CORE_REQUIRED","dods":[
         {"dod_id":"RT-068.DOD-01","description":"merge and split require dry-run impact hash and explicit confirmation","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-068.DOD-02","description":"tombstones snapshots rematerialization and dependent-mutation conflicts prevent blind rollback","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_mutations","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+        {"dod_id":"RT-068.DOD-02","description":"tombstones snapshots real evidence-lineage rematerialization checkpoints atomic publish and dependent-mutation conflicts prevent blind rollback","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_rt072_real_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
       ]
     },
     {
@@ -13320,7 +13320,7 @@
     {
       "ticket_id":"RT-072","completion_class":"CORE_REQUIRED","dods":[
         {"dod_id":"RT-072.DOD-01","description":"source snapshot exact mention resolution and relation chain carries EvidenceRefs","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]},
-        {"dod_id":"RT-072.DOD-02","description":"legacy edges without source evidence are rejected and mutations trigger bounded rematerialization","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt072_relation_lineage","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
+        {"dod_id":"RT-072.DOD-02","description":"legacy edges are hints only and merge/split rebuild assertions from bounded SourceSnapshot mention-offset EvidenceRef lineage","status":"SATISFIED","test_cases":[{"suite":"remediation_phase06","case":"test_rt068_rt072_real_rematerialization","level":"integration","command":"python qa-backend/tests_remediation_phase06.py"}]}
       ]
     },
     {

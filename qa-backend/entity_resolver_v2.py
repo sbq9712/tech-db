@@ -1253,6 +1253,13 @@ class CanonicalEntityResolver:
         if len(owners) > 1:
             return self._decision(ResolutionState.BLOCKED, mention,
                 reasons=("ER_CONFLICTING_STRONG_IDS",), strong=tuple(strong_findings))
+        if len(owners) == 1 and required_type:
+            owner = self.snapshot.entities.get(next(iter(owners)))
+            if owner is None or not CandidateGenerator._type_compatible(owner, required_type):
+                return self._decision(ResolutionState.BLOCKED, mention,
+                    reasons=("ER_STRONG_ID_TYPE_CONFLICT",),
+                    strong=tuple(strong_findings),
+                    diagnostics=("MANUAL_REVIEW_REQUIRED",))
 
         overrides = [r for r in rules if r.get("rule_type") == "OVERRIDE"
                      and r.get("effective_status") == "ACTIVE"]
@@ -1271,6 +1278,13 @@ class CanonicalEntityResolver:
         if invalid and strong_ids:
             return self._decision(ResolutionState.BLOCKED, mention,
                 reasons=("ER_INVALID_STRONG_ID",), strong=tuple(strong_findings))
+
+        # A syntactically valid but unknown authoritative identifier must not
+        # fall through to alias/fuzzy matching and fabricate an identity.
+        if strong_ids and not owners:
+            return self._decision(ResolutionState.BLOCKED, mention,
+                reasons=("ER_UNKNOWN_STRONG_ID",), strong=tuple(strong_findings),
+                diagnostics=("MANUAL_REVIEW_REQUIRED",))
 
         candidates = self.generator.generate(mention, required_type=required_type,
                                              strong_ids=strong_ids)
@@ -1327,19 +1341,67 @@ class QueryEntityResolver:
         self.snapshot = IdentitySnapshotView(snapshot_payload)
         self.resolver = CanonicalEntityResolver(self.snapshot, policy)
 
-    def parse(self, query: str) -> list[str]:
+    def parse(self, query: str) -> list[dict]:
+        """Parse mentions and only syntactically safe typed identifiers."""
         query = str(query or "")[:2000]
         found = []
+        occupied = []
+
+        def add_typed(match, id_type, value, required_type):
+            prefix = query[max(0, match.start() - 32):match.start()]
+            explicit = re.search(
+                r"(?i)\b(PERSON|ORG|ORGANIZATION|COMPANY|PRODUCT_MODEL|PRODUCT|TECHNOLOGY)\s*[:=]?\s*$",
+                prefix)
+            if explicit:
+                required_type = {
+                    "ORGANIZATION": "ORG", "COMPANY": "ORG",
+                    "PRODUCT": "PRODUCT_MODEL",
+                }.get(explicit.group(1).upper(), explicit.group(1).upper())
+            found.append({"mention": match.group(0),
+                          "required_type": required_type,
+                          "strong_ids": [{"id_type": id_type, "value": value}]})
+            occupied.append(match.span())
+
+        doi_pattern = re.compile(
+            r"(?i)(?:https?://doi\.org/|doi:\s*)?(10\.[^\s,;]+)")
+        for match in doi_pattern.finditer(query):
+            raw = match.group(1).rstrip(".)]}>'\"")
+            add_typed(match, "DOI", raw, "OTHER_DOMAIN")
+        ticker_pattern = re.compile(
+            r"(?<![A-Za-z0-9._-])([A-Z][A-Z0-9._-]{1,11}:[A-Z0-9._-]{0,20})(?![A-Za-z0-9._-])")
+        for match in ticker_pattern.finditer(query):
+            if any(match.start() < end and match.end() > start for start, end in occupied):
+                continue
+            add_typed(match, "EXCHANGE_TICKER", match.group(1), "ORG")
+        url_pattern = re.compile(
+            r"(?i)\b(?:https?://)?(?:www\.)?[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+(?:/[^\s]*)?")
+        for match in url_pattern.finditer(query):
+            if any(match.start() < end and match.end() > start for start, end in occupied):
+                continue
+            raw = match.group(0).rstrip(".)]}>'\"")
+            kind = "OFFICIAL_URL" if "/" in raw.removeprefix("https://").removeprefix("http://") else "OFFICIAL_DOMAIN"
+            add_typed(match, kind, raw, "ORG")
+
+        normalized_query = normalize_surface(query)
         for alias in self.snapshot.payload["aliases"]:
             surface = alias.get("surface", "")
-            if surface and normalize_surface(surface) in normalize_surface(query):
-                found.append(surface)
-        # Strong-ID shaped tokens and title-case names are useful unknown mentions.
-        found.extend(re.findall(r"\b(?:10\.\d{4,9}/\S+|[A-Z][A-Za-z0-9.-]{2,})\b", query))
-        return list(dict.fromkeys(found))[:10]
+            if surface and normalize_surface(surface) in normalized_query:
+                found.append({"mention": surface, "required_type": None,
+                              "strong_ids": []})
+        # Title-case names remain ordinary mentions, never typed identities.
+        for mention in re.findall(r"\b[A-Z][A-Za-z0-9.-]{2,}\b", query):
+            found.append({"mention": mention, "required_type": None,
+                          "strong_ids": []})
+        unique = {}
+        for item in found:
+            key = (normalize_surface(item["mention"]), stable_hash(item["strong_ids"]))
+            unique.setdefault(key, item)
+        return list(unique.values())[:10]
 
     def resolve_query(self, query: str) -> list[ResolutionDecision]:
-        return [self.resolver.resolve(mention) for mention in self.parse(query)]
+        return [self.resolver.resolve(item["mention"],
+                    required_type=item["required_type"],
+                    strong_ids=item["strong_ids"]) for item in self.parse(query)]
 
 
 def resolve_query_from_runtime_snapshot(query: str, runtime_snapshot) -> dict:

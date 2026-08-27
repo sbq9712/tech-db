@@ -137,6 +137,22 @@ def test_rt062_rt063_rt064_resolution():
                                                            "value": "NASDAQ:NVDA"}])
         check("RT062.typed_strong_id_link", strong.decision == ResolutionState.LINK
               and strong.selected_entity_id == nvidia["entity_id"])
+        wrong_type = resolver.resolve("NASDAQ:NVDA", required_type="PERSON",
+            strong_ids=[{"id_type": "EXCHANGE_TICKER", "value": "NASDAQ:NVDA"}])
+        check("RT062.strong_id_respects_explicit_type_constraint",
+              wrong_type.decision == ResolutionState.BLOCKED
+              and "ER_STRONG_ID_TYPE_CONFLICT" in wrong_type.reason_codes)
+        doi_entity, _ = store.create_entity("Resolver Paper", "OTHER_DOMAIN",
+            lifecycle="ACTIVE", actor="fixture", reason="doi", creation_key="paper")
+        store.add_strong_id(doi_entity["entity_id"], "DOI", "10.1234/resolver.1",
+            provenance="crossref", actor="fixture", reason="doi")
+        doi_snapshot = IdentitySnapshotView(build_identity_snapshot(store))
+        doi_wrong = CanonicalEntityResolver(doi_snapshot).resolve(
+            "10.1234/resolver.1", required_type="PRODUCT_MODEL",
+            strong_ids=[{"id_type": "DOI", "value": "10.1234/resolver.1"}])
+        check("RT062.doi_product_type_conflict_blocks_link",
+              doi_wrong.decision == ResolutionState.BLOCKED
+              and doi_wrong.selected_entity_id is None)
         check("RT062.strong_id_ownership_constraint", raises(IdentityConflict,
               lambda: store.add_strong_id(apple_org["entity_id"], "EXCHANGE_TICKER",
                   "NASDAQ:NVDA", provenance="bad", actor="op", reason="conflict")))
@@ -386,6 +402,106 @@ def test_rt068_mutations():
               and split_result["relation_rematerialization_required"])
 
 
+def test_rt068_rt072_real_rematerialization():
+    print("RT-068/072 — real bounded relation rematerialization")
+    with tempfile.TemporaryDirectory() as root:
+        store = store_at(root)
+        source, _ = store.create_entity("Old NVIDIA", "ORG", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="old")
+        destination, _ = store.create_entity("NVIDIA", "ORG", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="dest")
+        product, _ = store.create_entity("Blackwell", "PRODUCT_MODEL", lifecycle="ACTIVE",
+            actor="fixture", reason="seed", creation_key="product")
+        snap = build_identity_snapshot(store)
+        resolver = CanonicalEntityResolver(IdentitySnapshotView(snap))
+        text = "Old NVIDIA introduced Blackwell."
+        source_snapshot = SourceSnapshot.from_record("record-remat", {"fb": text})
+        sm = materialize_mention(store, record_id="record-remat",
+            source_snapshot_id=source_snapshot.source_snapshot_id,
+            canonical_text=source_snapshot.raw_text, surface="Old NVIDIA", start_offset=0,
+            decision=resolver.resolve("Old NVIDIA"), resolver_version="er-v2.0",
+            identity_snapshot_id=snap["identity_snapshot_id"])
+        om = materialize_mention(store, record_id="record-remat",
+            source_snapshot_id=source_snapshot.source_snapshot_id,
+            canonical_text=source_snapshot.raw_text, surface="Blackwell", start_offset=22,
+            decision=resolver.resolve("Blackwell"), resolver_version="er-v2.0",
+            identity_snapshot_id=snap["identity_snapshot_id"])
+        evidence = EvidenceLocator(source_snapshot).locate_text_span(
+            "Old NVIDIA introduced Blackwell")
+        evidence["evidence_id"] = "ev-remat-1"
+        relation = materialize_relation(store, subject_mention=sm,
+            predicate="INTRODUCED", object_mention=om, evidence_refs=[evidence],
+            extraction_version="relation-extract-v7", resolver_version="er-v2.0",
+            legacy_edge_hint="old-edge")
+        serving = {"manifest": "manifest-before"}
+        def publish(snapshot):
+            serving["manifest"] = "manifest-" + snapshot["identity_snapshot_id"]
+            return serving["manifest"]
+        admin = EntityAdminService(store, operator_key="operator-secret-123",
+                                   publish_callback=publish)
+        preview = admin.merge_dry_run("operator-secret-123", [source["entity_id"]],
+            destination["entity_id"], actor="alice", reason="lineage merge")
+        remat_plan = preview.plan["rematerialization"]
+        check("RT068.rematerialization_dry_run_is_bounded_and_hashed",
+              remat_plan["bounded"] and remat_plan["plan_hash"]
+              and remat_plan["source_snapshot_ids"] == [source_snapshot.source_snapshot_id]
+              and remat_plan["evidence_ref_ids"] == ["ev-remat-1"]
+              and set(remat_plan["lineage_mention_ids"]) ==
+                  {sm["mention_id"], om["mention_id"]})
+        def crash(stage):
+            if stage == "during_rematerialization":
+                raise RuntimeError("injected rematerialization crash")
+        failed = raises(RuntimeError, lambda: admin.confirm_merge(
+            "operator-secret-123", preview, preview.confirmation_token,
+            crash_hook=crash))
+        conn = store._connect()
+        try:
+            after_failure = [dict(row) for row in conn.execute(
+                "SELECT * FROM relation_assertions ORDER BY created_at")]
+        finally:
+            conn.close()
+        check("RT068.rematerialization_failure_keeps_previous_manifest",
+              failed and serving["manifest"] == "manifest-before"
+              and len(after_failure) == 1
+              and after_failure[0]["subject_entity_id"] == source["entity_id"])
+        merged = admin.confirm_merge("operator-secret-123", preview,
+                                     preview.confirmation_token)
+        rebuilt = merged["rematerialization"]["rebuilt_relations"][0]
+        conn = store._connect()
+        try:
+            old_row = dict(conn.execute("SELECT * FROM relation_assertions WHERE relation_id=?",
+                                        (relation["relation_id"],)).fetchone())
+            new_row = dict(conn.execute("SELECT * FROM relation_assertions WHERE relation_id=?",
+                                        (rebuilt["new_relation_id"],)).fetchone())
+        finally:
+            conn.close()
+        provenance = json.loads(new_row["provenance"])
+        check("RT072.rebuilt_relation_is_not_endpoint_rewrite",
+              old_row["subject_entity_id"] == source["entity_id"]
+              and old_row["assertion_status"] == "SUPERSEDED"
+              and new_row["relation_id"] != old_row["relation_id"]
+              and new_row["subject_entity_id"] == destination["entity_id"])
+        check("RT072.rebuilt_relation_preserves_exact_authority",
+              new_row["source_snapshot_id"] == source_snapshot.source_snapshot_id
+              and json.loads(new_row["evidence_refs_json"])[0]["evidence_id"] == "ev-remat-1"
+              and json.loads(new_row["source_mention_ids_json"]) ==
+                  [sm["mention_id"], om["mention_id"]]
+              and new_row["extraction_version"] == "relation-extract-v7"
+              and provenance["legacy_edge_is_authority"] is False
+              and provenance["rematerialized_from_relation_id"] == relation["relation_id"])
+        split = admin.split_dry_run("operator-secret-123", destination["entity_id"],
+            new_name="NVIDIA Product Context", entity_type="PRODUCT_MODEL",
+            mention_ids=[sm["mention_id"]], actor="alice", reason="lineage split")
+        split_result = admin.confirm_split("operator-secret-123", split,
+                                           split.confirmation_token)
+        split_rebuilt = split_result["rematerialization"]["rebuilt_relations"][0]
+        check("RT072.split_rebuilds_relation_from_mention_lineage",
+              split_rebuilt["old_relation_id"] == new_row["relation_id"]
+              and split_rebuilt["subject_entity_id"] == split_result["new_entity_id"]
+              and split_rebuilt["source_snapshot_id"] == source_snapshot.source_snapshot_id
+              and split_rebuilt["evidence_ref_ids"] == ["ev-remat-1"])
+
+
 def test_rt070_snapshot_runtime():
     print("RT-070 — immutable snapshot and request pin")
     with tempfile.TemporaryDirectory() as root:
@@ -505,7 +621,7 @@ def test_rt072_relation_lineage():
                   legacy_edge_hint="legacy")))
         plan = rematerialization_plan(store, [subject["entity_id"], obj["entity_id"]])
         check("RT072.merge_split_rematerialization_lineage", relation["relation_id"] in plan["relation_ids"]
-              and plan["source_of_truth"] == "SourceSnapshot+EvidenceRef")
+              and plan["source_of_truth"] == "SourceSnapshot+MentionOffsets+EvidenceRef")
 
 
 def test_rt073_query_resolution():
@@ -518,6 +634,43 @@ def test_rt073_query_resolution():
         check("RT073.exact_acronym_query_parse", decisions
               and any(d.selected_entity_id == nvidia["entity_id"] for d in decisions))
         check("RT073.query_resolution_is_read_only", store.revision() == snap["source_store_revision"])
+        paper, _ = store.create_entity("Known DOI", "OTHER_DOMAIN", lifecycle="ACTIVE",
+            actor="fixture", reason="doi", creation_key="known-doi")
+        store.add_strong_id(paper["entity_id"], "DOI", "10.5555/known.2026",
+            provenance="crossref", actor="fixture", reason="doi")
+        typed_snap = build_identity_snapshot(store)
+        typed_resolver = QueryEntityResolver(typed_snap)
+        parsed = typed_resolver.parse("compare DOI:10.5555/known.2026 with NASDAQ:NVDA")
+        typed = typed_resolver.resolve_query(
+            "compare DOI:10.5555/known.2026 with NASDAQ:NVDA")
+        check("RT073.parser_emits_typed_strong_identifiers",
+              any(item["strong_ids"] == [{"id_type": "DOI", "value": "10.5555/known.2026"}]
+                  for item in parsed)
+              and any(item["strong_ids"] == [{"id_type": "EXCHANGE_TICKER", "value": "NASDAQ:NVDA"}]
+                  for item in parsed)
+              and {d.selected_entity_id for d in typed} >=
+                  {paper["entity_id"], nvidia["entity_id"]})
+        unknown = typed_resolver.resolve_query("DOI:10.5555/unknown.2026")
+        malformed = typed_resolver.resolve_query("DOI:10.bad/not-a-doi")
+        check("RT073.unknown_and_malformed_strong_ids_fail_safe",
+              unknown and unknown[0].decision == ResolutionState.BLOCKED
+              and unknown[0].selected_entity_id is None
+              and malformed and malformed[0].decision == ResolutionState.BLOCKED
+              and malformed[0].selected_entity_id is None)
+        typed_runtime = RuntimeSnapshot("manifest-typed", {"artifacts": {}},
+                                        {"identity_snapshot": typed_snap})
+        production_typed = resolve_query_from_runtime_snapshot(
+            "compare DOI:10.5555/known.2026 with NASDAQ:NVDA", typed_runtime)
+        production_wrong_type = resolve_query_from_runtime_snapshot(
+            "PERSON: NASDAQ:NVDA", typed_runtime)
+        check("RT073.production_pinned_snapshot_consumes_typed_ids",
+              production_typed["identity_snapshot_id"] == typed_snap["identity_snapshot_id"]
+              and {d["selected_entity_id"] for d in production_typed["decisions"]
+                   if d["decision"] == "LINK"} >=
+                  {paper["entity_id"], nvidia["entity_id"]}
+              and any(d["decision"] == "BLOCKED"
+                      and "ER_STRONG_ID_TYPE_CONFLICT" in d["reason_codes"]
+                      for d in production_wrong_type["decisions"]))
         runtime = RuntimeSnapshot("manifest-pinned", {"artifacts": {}},
                                   {"identity_snapshot": snap})
         production = resolve_query_from_runtime_snapshot("Yingweida", runtime)
@@ -588,6 +741,7 @@ def main():
     test_rt065_llm_constraints()
     test_rt066_rt067_lifecycle_rules()
     test_rt068_mutations()
+    test_rt068_rt072_real_rematerialization()
     test_rt070_snapshot_runtime()
     test_rt071_migration()
     test_rt072_relation_lineage()

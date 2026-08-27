@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from typing import Callable, Optional
 
 from entity_resolution_types import EntityLifecycle, sanitize_business_text, stable_hash
+from identity_migration import (execute_relation_rematerialization,
+                                rematerialization_plan)
 from identity_snapshot import build_identity_snapshot
 from identity_store import DependentMutationConflict, IdentityConflict, utc_now
 
@@ -149,6 +151,7 @@ class EntityAdminService:
         if any(e is None for e in entities):
             raise KeyError("unknown merge entity")
         operation_id = __import__("entity_resolution_types").new_opaque_id("op")
+        relation_plan = rematerialization_plan(self.store, unique)
         plan = {"operation": "MERGE", "operation_id": operation_id,
                 "source_ids": unique, "destination_id": destination_id,
                 "store_revision_before": self.store.revision(),
@@ -156,6 +159,7 @@ class EntityAdminService:
                     self.store)["identity_snapshot_id"], "actor": actor,
                 "reason": sanitize_business_text(reason),
                 "impact": self._impact(unique, destination_id),
+                "rematerialization": relation_plan,
                 "reversible_plan": "event-lineage-compensating-unmerge"}
         digest = stable_hash(plan)
         return MutationPreview(operation_id, "MERGE", plan, digest,
@@ -169,11 +173,15 @@ class EntityAdminService:
         if not hmac.compare_digest(self._token(preview.operation_id, preview.dry_run_hash),
                                    confirmation_token):
             raise IdentityConflict("confirmation mismatch")
-        if self.store.revision() != preview.plan["store_revision_before"]:
+        existing = [e for e in self.store.mutation_events()
+                    if e["operation_id"] == preview.operation_id
+                    and e["event_type"] == "MERGE"]
+        if not existing and self.store.revision() != preview.plan["store_revision_before"]:
             raise DependentMutationConflict("store changed after dry-run; regenerate impact report")
         sources = preview.plan["source_ids"]
         destination = preview.plan["destination_id"]
-        with self.store.transaction() as conn:
+        if not existing:
+          with self.store.transaction() as conn:
             before = {eid: dict(conn.execute("SELECT * FROM entities WHERE entity_id=?", (eid,)).fetchone())
                       for eid in sources}
             alias_rows = [dict(row) for row in conn.execute(
@@ -205,10 +213,6 @@ class EntityAdminService:
                          [destination] + sources)
             conn.execute(f"UPDATE rules SET target_entity_id=? WHERE target_entity_id IN ({','.join('?' for _ in sources)})",
                          [destination] + sources)
-            conn.execute(f"UPDATE relation_assertions SET subject_entity_id=? WHERE subject_entity_id IN ({','.join('?' for _ in sources)})",
-                         [destination] + sources)
-            conn.execute(f"UPDATE relation_assertions SET object_entity_id=? WHERE object_entity_id IN ({','.join('?' for _ in sources)})",
-                         [destination] + sources)
             conn.execute(f"UPDATE entities SET lifecycle='TOMBSTONED', redirect_entity_id=?, updated_at=?, version=version+1 WHERE entity_id IN ({','.join('?' for _ in sources)})",
                          [destination, utc_now()] + sources)
             payload = {**preview.plan, "before_entities": before,
@@ -227,6 +231,10 @@ class EntityAdminService:
                               preview.plan["reason"], operation_id=preview.operation_id)
             if crash_hook:
                 crash_hook("before_commit")
+        rematerialized = execute_relation_rematerialization(
+            self.store, preview.plan["rematerialization"],
+            operation_id=preview.operation_id, actor=preview.plan["actor"],
+            reason=preview.plan["reason"], crash_hook=crash_hook)
         snapshot = build_identity_snapshot(self.store)
         self._checkpoint(preview.operation_id, "SNAPSHOT_BUILD", {
             "identity_snapshot_id": snapshot["identity_snapshot_id"],
@@ -242,7 +250,8 @@ class EntityAdminService:
                 preview.plan["actor"], preview.plan["reason"])
         return {"operation_id": preview.operation_id, "snapshot": snapshot,
                 "published_manifest_id": manifest_id,
-                "serving_changed": manifest_id is not None}
+                "serving_changed": manifest_id is not None,
+                "rematerialization": rematerialized}
 
     def split_dry_run(self, key: str, source_id: str, *, new_name: str,
                       entity_type: str, mention_ids: list[str], actor: str,
@@ -260,11 +269,14 @@ class EntityAdminService:
         if existing != set(mention_ids):
             raise ValueError("split mentions must belong to source entity")
         operation_id = __import__("entity_resolution_types").new_opaque_id("op")
+        relation_plan = rematerialization_plan(
+            self.store, [source_id], affected_mention_ids=mention_ids)
         plan = {"operation": "SPLIT", "operation_id": operation_id,
                 "source_id": source_id, "new_name": sanitize_business_text(new_name, limit=256),
                 "entity_type": entity_type, "mention_ids": sorted(mention_ids),
                 "store_revision_before": self.store.revision(), "actor": actor,
                 "reason": sanitize_business_text(reason),
+                "rematerialization": relation_plan,
                 "impact": {"mentions": len(mention_ids),
                            "relation_rematerialization_required": True,
                            "snapshot_rebuild_required": True}}
@@ -273,20 +285,25 @@ class EntityAdminService:
                                self._token(operation_id, digest))
 
     def confirm_split(self, key: str, preview: MutationPreview,
-                      confirmation_token: str) -> dict:
+                      confirmation_token: str, *, crash_hook=None) -> dict:
         self.authenticate(key)
         if stable_hash(preview.plan) != preview.dry_run_hash or not hmac.compare_digest(
                 self._token(preview.operation_id, preview.dry_run_hash), confirmation_token):
             raise IdentityConflict("confirmation mismatch")
-        if self.store.revision() != preview.plan["store_revision_before"]:
+        existing = [e for e in self.store.mutation_events()
+                    if e["operation_id"] == preview.operation_id
+                    and e["event_type"] == "SPLIT"]
+        if not existing and self.store.revision() != preview.plan["store_revision_before"]:
             raise DependentMutationConflict("store changed after dry-run")
         # Entity creation and mention reassignment must share one transaction,
         # so perform the complete operation against one DB connection.
         from entity_resolution_types import new_opaque_id, normalize_surface
-        entity_id = new_opaque_id("ent")
+        entity_id = (json.loads(existing[-1]["payload_json"])["new_entity_id"]
+                     if existing else new_opaque_id("ent"))
         now = utc_now()
         plan = preview.plan
-        with self.store.transaction() as conn:
+        if not existing:
+          with self.store.transaction() as conn:
             conn.execute("INSERT INTO entities VALUES(?,?,?,?,?,?,?,?,?,?,?)", (
                 entity_id, plan["new_name"], normalize_surface(plan["new_name"]),
                 plan["entity_type"], "PROVISIONAL", stable_hash({"split": preview.operation_id}),
@@ -298,6 +315,11 @@ class EntityAdminService:
             self.store._event(conn, "SPLIT", {**plan, "new_entity_id": entity_id,
                 "checkpoint": "DB_MUTATION_COMPLETE"}, plan["actor"], plan["reason"],
                 operation_id=preview.operation_id)
+            if crash_hook:
+                crash_hook("before_commit")
+        rematerialized = execute_relation_rematerialization(
+            self.store, plan["rematerialization"], operation_id=preview.operation_id,
+            actor=plan["actor"], reason=plan["reason"], crash_hook=crash_hook)
         snapshot = build_identity_snapshot(self.store)
         self._checkpoint(preview.operation_id, "SNAPSHOT_BUILD", {
             "identity_snapshot_id": snapshot["identity_snapshot_id"],
@@ -311,7 +333,8 @@ class EntityAdminService:
                 plan["actor"], plan["reason"])
         return {"operation_id": preview.operation_id, "new_entity_id": entity_id,
                 "snapshot": snapshot, "published_manifest_id": manifest_id,
-                "relation_rematerialization_required": True}
+                "relation_rematerialization_required": True,
+                "rematerialization": rematerialized}
 
     def unmerge_dry_run(self, key: str, merge_operation_id: str, *, actor: str,
                         reason: str) -> MutationPreview:
@@ -323,8 +346,10 @@ class EntityAdminService:
         event = events[-1]
         later = [e for e in self.store.mutation_events()
                  if e["store_revision"] > event["store_revision"]
+                 and e["operation_id"] != merge_operation_id
                  and e["event_type"] not in {"SNAPSHOT_BUILD", "SNAPSHOT_PUBLISH",
-                                              "MENTION_MATERIALIZE"}]
+                                              "MENTION_MATERIALIZE",
+                                              "REMATERIALIZATION_COMPLETE"}]
         payload = json.loads(event["payload_json"])
         operation_id = __import__("entity_resolution_types").new_opaque_id("op")
         plan = {"operation": "UNMERGE", "operation_id": operation_id,
@@ -411,6 +436,7 @@ class EntityAdminService:
             if mutations and "SNAPSHOT_PUBLISH" not in kinds:
                 pending.append({"operation_id": operation_id,
                     "mutation": sorted(mutations)[-1],
+                    "rematerialization_complete": "REMATERIALIZATION_COMPLETE" in kinds,
                     "snapshot_built": "SNAPSHOT_BUILD" in kinds,
                     "publish_complete": False})
         return sorted(pending, key=lambda row: row["operation_id"])
@@ -424,6 +450,14 @@ class EntityAdminService:
         pending = {row["operation_id"] for row in self.pending_operations(key)}
         if operation_id not in pending:
             raise KeyError("operation is not pending publication")
+        mutation = next(e for e in reversed(self.store.mutation_events())
+                        if e["operation_id"] == operation_id
+                        and e["event_type"] in {"MERGE", "SPLIT", "UNMERGE"})
+        payload = json.loads(mutation["payload_json"])
+        if payload.get("rematerialization"):
+            execute_relation_rematerialization(
+                self.store, payload["rematerialization"], operation_id=operation_id,
+                actor=actor, reason=reason)
         snapshot = build_identity_snapshot(self.store)
         self._checkpoint(operation_id, "SNAPSHOT_BUILD", {
             "identity_snapshot_id": snapshot["identity_snapshot_id"],
