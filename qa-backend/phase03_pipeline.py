@@ -601,11 +601,19 @@ async def run_phase03_retrieval(*, query: str,
                                 mode_ctx: Optional[dict] = None,
                                 verified_premises: Optional[list] = None,
                                 worker_packets: Optional[list] = None,
-                                initial_degraded_capabilities: Optional[list] = None) -> dict:
+                                initial_degraded_capabilities: Optional[list] = None,
+                                relation_methods_by_requirement: Optional[dict] = None,
+                                graph_v2_trace: Optional[dict] = None) -> dict:
     """Run the full Phase03 retrieval→package pipeline for one query.
 
     route_results: RAW per-route RetrievalResult lists (RT-030 run_routes)
     — the pool source BEFORE the legacy global Top25 cut (blocker 2).
+
+    Phase07 (RT-084): relation_methods_by_requirement carries the Router
+    method label + grounded Graph-V2 paths per requirement so the SHARED
+    EvidencePolicyEngine verifies the method INDEPENDENTLY of the router.
+    graph_v2_trace is the retriever trace (snapshot/seeds/eligibility
+    decision) recorded into Trace facts.
     """
     records_by_id = records_by_id or {}
     snapshot_index = snapshot_index or {}
@@ -1011,9 +1019,47 @@ async def run_phase03_retrieval(*, query: str,
             conditions_by_req if structured_requirements else None),
         mode=mode,
     )
-    all_findings = validation_report.findings + support_report.findings
+    # Phase07 (RT-084 INDEPENDENT RELATION GATE): when the caller routed
+    # Graph-V2 relation evidence, run the SAME shared engine's independent
+    # method gate per supplied requirement context — Router labels can
+    # never upgrade weak relation evidence past this point.
+    #
+    # B6: the method gate runs on the REAL post-selection trusted support
+    # set. The server supplies only candidate graph paths; the per-
+    # requirement trusted ids computed AFTER selector + Gate B + blocked-
+    # record exclusion here are the ONLY selection authority. A graph hit
+    # excluded by source eligibility / quarantine / provenance / temporal /
+    # conflict / association / selector can NEVER satisfy the method gate.
+    support_findings_extra = []
+    extra_applicability: Dict[str, str] = {}
+    wired_methods = {str(rid): ctx for rid, ctx in
+                     (relation_methods_by_requirement or {}).items()
+                     if isinstance(ctx, dict)}
+    for rid, ctx in sorted(wired_methods.items()):
+        need_value = "none"
+        for r in requirements:
+            if str(r.get("id")) == rid:
+                need_value = r.get("relation_need", "none")
+                break
+        trusted_for_req = [str(x) for x in
+                           trusted_ids_by_req.get(rid, [])]
+        rep = engine.check_relation_method_evidence(
+            requirement_id=rid,
+            relation_need=need_value,
+            router_method_label=str(ctx.get("router_method_label") or ""),
+            graph_paths=list(ctx.get("graph_paths") or []),
+            relation_checks=list(ctx.get("relation_checks") or []),
+            # authoritative post-selection trusted set (B6) — any caller-
+            # supplied ctx["selected_record_ids"] is IGNORED by design
+            selected_record_ids=trusted_for_req,
+        )
+        support_findings_extra.extend(rep.findings)
+        extra_applicability.update(rep.rule_applicability)
+    all_findings = (validation_report.findings + support_report.findings
+                    + support_findings_extra)
     combined_applicability = dict(validation_report.rule_applicability)
     combined_applicability.update(support_report.rule_applicability)
+    combined_applicability.update(extra_applicability)
     policy_report = PolicyReport(
         verdict=(HARD_FAIL if any(f.severity == "hard" for f in all_findings)
                  else (FAIL if all_findings else PASS)),
@@ -1021,7 +1067,7 @@ async def run_phase03_retrieval(*, query: str,
         rule_applicability=combined_applicability)
 
     blocked_requirements: Dict[str, List[str]] = {}
-    for f in support_report.findings:
+    for f in (support_report.findings + support_findings_extra):
         if f.severity != "hard" or f.reason_code not in _CLAIM_LEVEL_CODES:
             continue
         subj = str(f.subject)
@@ -1209,6 +1255,9 @@ async def run_phase03_retrieval(*, query: str,
             "pool_size_routes": pool_size_routes,
             "chunk_candidates": len(chunk_candidates),
             "rerank_engine": rerank_engine,
+            # Phase07 (RT-085/RT-086): Graph-V2 route trace — snapshot id,
+            # seeds, eligibility decision and matched-path explanations.
+            "graph_v2": dict(graph_v2_trace or {}),
             "package_hash": pkg.package_hash,
             "view_hash": view.view_hash,
             "evidence_ids": sorted(view.evidence.keys()),

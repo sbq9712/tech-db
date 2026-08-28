@@ -55,6 +55,8 @@ class Flags:
         "TERMINAL_RENDERER_ENABLED": "QA_TERMINAL_RENDERER_ENABLED",
         # Phase 03 (RT-030..039): retrieval->evidence-package generation path
         "EVIDENCE_PACKAGE_ENABLED": "QA_EVIDENCE_PACKAGE_ENABLED",
+        # Phase 07 (RT-080..087): relation-aware Graph-V2 serving route
+        "GRAPH_V2_ENABLED": "QA_GRAPH_V2_ENABLED",
     }
 
     # Master switch for agentic features
@@ -104,6 +106,12 @@ class Flags:
     # Phase 03: typed EvidencePackage generation path (RT-030..039). Off in
     # legacy_hybrid and agentic_correctness_core; on in agentic_full.
     EVIDENCE_PACKAGE_ENABLED = _env_bool("QA_EVIDENCE_PACKAGE_ENABLED", default=False)
+    # Phase 07 (RT-080..087): relation-aware Graph-V2 serving route. Default
+    # OFF — full activation is gated behind RT-087 machine evidence +
+    # explicit external approval; only the named graph_v2_partial profile
+    # may enable it, and even then ONLY for high-confidence eligible
+    # queries/entities (partial_activation_decision).
+    GRAPH_V2_ENABLED = _env_bool("QA_GRAPH_V2_ENABLED", default=False)
 
     @classmethod
     def status(cls) -> dict:
@@ -133,6 +141,7 @@ class Flags:
             "exact_grounding": cls.EXACT_GROUNDING_ENABLED,
             "terminal_renderer": cls.TERMINAL_RENDERER_ENABLED,
             "evidence_package": cls.EVIDENCE_PACKAGE_ENABLED,
+            "graph_v2": cls.GRAPH_V2_ENABLED,
         }
 
 
@@ -169,7 +178,10 @@ PIPELINE_PROFILES = {
         "flags": {**{name: True for name in _SHIPPED_FLAG_NAMES},
                   "EXACT_GROUNDING_ENABLED": False,
                   "TERMINAL_RENDERER_ENABLED": False,
-                  "EVIDENCE_PACKAGE_ENABLED": False},
+                  "EVIDENCE_PACKAGE_ENABLED": False,
+                  # Phase07 (RT-086): every profile must cover every flag;
+                  # legacy rollback target keeps Graph-V2 OFF.
+                  "GRAPH_V2_ENABLED": False},
     },
     "agentic_correctness_core": {
         "description": "Correctness-critical modules only "
@@ -189,24 +201,54 @@ PIPELINE_PROFILES = {
             "KNOWLEDGE_BOUNDARY_ENABLED": True,
             "EXACT_GROUNDING_ENABLED": True, "TERMINAL_RENDERER_ENABLED": True,
             "EVIDENCE_PACKAGE_ENABLED": False,
+            "GRAPH_V2_ENABLED": False,  # Phase07 RT-086 coverage invariant
         },
     },
     "agentic_full": {
         "description": "Full evidence-centric adaptive agentic pipeline "
                        "(post gate-3 production default)",
-        "flags": {name: True for name in
-                  ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
-                   "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
-                   "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
-                   "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
-                   "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
-                   "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
-                   "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
-                   "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
-                   "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
-                   "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
-                   "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED",
-                   "EVIDENCE_PACKAGE_ENABLED")},
+        "flags": {**{name: True for name in
+                     ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
+                      "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
+                      "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
+                      "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
+                      "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
+                      "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
+                      "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
+                      "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
+                      "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
+                      "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+                      "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED",
+                      "EVIDENCE_PACKAGE_ENABLED")},
+                  # Phase07 (RT-086): production default profile keeps
+                  # Graph-V2 OFF — it is enabled ONLY via graph_v2_partial.
+                  "GRAPH_V2_ENABLED": False},
+    },
+    # Phase 07 (RT-086): NAMED partial Graph-V2 activation profile. Graph-V2
+    # runs ONLY for high-confidence eligible queries/entities; the legacy
+    # graph route remains untouched fallback/rollback. agentic_full and all
+    # earlier profiles keep GRAPH_V2 disabled — full activation is blocked
+    # behind the RT-087 machine gate + explicit external approval.
+    "graph_v2_partial": {
+        "description": "Partial Graph-V2 relation-aware serving on top of "
+                       "agentic_full (high-confidence eligible subset only)",
+        "flags": {
+            **{name: True for name in
+               ("AGENTIC_ENABLED", "TRACE_ENABLED", "ROUTER_ENABLED",
+                "DECOMPOSITION_ENABLED", "RERANKER_ENABLED",
+                "EVIDENCE_SELECTOR_ENABLED", "EVIDENCE_GRADER_ENABLED",
+                "ITERATIVE_RETRIEVAL_ENABLED", "PROVENANCE_ENABLED",
+                "TEMPORAL_ENABLED", "ENTITY_RESOLUTION_ENABLED",
+                "SEMANTIC_GRAPH_ENABLED", "CONTEXTUAL_CHUNKS_ENABLED",
+                "NUMERIC_FACTS_ENABLED", "CLAIM_GROUNDING_ENABLED",
+                "FAIL_SAFE_VERIFY_ENABLED", "CONTENT_SAFETY_ENABLED",
+                "CITATION_GROUNDING_ENABLED", "CLAIM_MAPPING_ENABLED",
+                "ANSWER_STATUS_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED",
+                "EXACT_GROUNDING_ENABLED", "TERMINAL_RENDERER_ENABLED",
+                "EVIDENCE_PACKAGE_ENABLED")},
+            # THE differentiator vs agentic_full:
+            "GRAPH_V2_ENABLED": True,
+        },
     },
 }
 

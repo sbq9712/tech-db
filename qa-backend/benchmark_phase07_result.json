@@ -1,0 +1,96 @@
+{
+  "schema_version": "phase07-graph-relation-benchmark-1.0",
+  "generated_at": "2026-08-28T00:39:25.275631+00:00",
+  "fixture": "graph_relation_gold_locked_v1",
+  "fixture_sha256": "5db91e28e2bc868a247b28ccb6fac5c424ad5277617d09bae8bfa4733b13f463",
+  "tuning_eval_split_separated": {
+    "tuning": {
+      "query_ids": [
+        "gq1",
+        "gq2"
+      ]
+    },
+    "eval": {
+      "query_ids": [
+        "gq3_multihop"
+      ]
+    }
+  },
+  "legacy_baseline": {
+    "precision@5": 0.266667,
+    "recall@5": 1.0,
+    "mrr": 1.0,
+    "ndcg@5": 1.0
+  },
+  "graph_v2": {
+    "precision@5": 0.266667,
+    "recall@5": 1.0,
+    "mrr": 1.0,
+    "ndcg@5": 1.0
+  },
+  "metrics_deltas": {
+    "precision@5_delta": 0.0,
+    "recall@5_delta": 0.0,
+    "mrr_delta": 0.0,
+    "ndcg@5_delta": 0.0
+  },
+  "gain_conclusion": "NO_GAIN",
+  "useful_multihop": {
+    "one_hop_reached": [
+      "gold-r3",
+      "gold-r4"
+    ],
+    "two_hop_reached": [
+      "gold-r3",
+      "gold-r4"
+    ],
+    "two_hop_discovery_only": [
+      "gold-r2"
+    ],
+    "useful_gain_records": [
+      "gold-r2"
+    ]
+  },
+  "hub_bias_control": {
+    "checks_passed": 1,
+    "checks_total": 1,
+    "hub_record_ids": [
+      "gold-hubA"
+    ]
+  },
+  "core_qa_non_regression": {
+    "passed": true,
+    "note": "push-tier suites rerun green in CI"
+  },
+  "reproducibility": {
+    "runs": 2,
+    "identical": true
+  },
+  "shadow": {
+    "schema_version": "graph-shadow-report-1.0",
+    "events": 3,
+    "duration_days": 0.0,
+    "identical_ratio": 1.0,
+    "avg_overlap_jaccard": 1.0,
+    "window_type": "CI_REPLAY"
+  },
+  "activation_gate": {
+    "graph_v2_activation_claim": false,
+    "schema_version": "graph-v2-activation-gate-1.0",
+    "gate_status": "NOT_ACTIVATED_BY_GATE",
+    "activation_gate_satisfied": false,
+    "locked_replay_only": true,
+    "live_shadow_window": false,
+    "equivalent_replay_explicitly_approved": false,
+    "reasons": [
+      "RELATION_SPECIFIC_GAIN_NOT_DEMONSTRATED",
+      "CANARY_NOT_PASSED",
+      "SHADOW_WINDOW_INSUFFICIENT(<1000 events AND 7 days) AND NO_EQUIVALENT_REPLAY_WITH_EXPLICIT_APPROVAL",
+      "LOCKED_REPLAY_ONLY_WINDOW"
+    ],
+    "thresholds": {
+      "min_events": 1000,
+      "min_days": 7.0
+    }
+  }
+}

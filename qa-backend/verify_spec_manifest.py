@@ -57,8 +57,9 @@ def v2_doc_flags(status_keys, inject_drift=False):
     text = doc.read_text(encoding="utf-8")
     if inject_drift:
         text = text.replace("| QA_TRACE_ENABLED | true |", "| QA_TRACE_ENABLED | false |", 1)
-    # parse doc flag table rows
-    rows = re.findall(r"\|\s*(QA_[A-Z_]+)\s*\|\s*(true|false)\s*\|", text)
+    # parse doc flag table rows (Phase07: flag names may contain digits,
+    # e.g. QA_GRAPH_V2_ENABLED)
+    rows = re.findall(r"\|\s*(QA_[A-Z0-9_]+)\s*\|\s*(true|false)\s*\|", text)
     doc_map = dict(rows)
     from feature_flags import Flags
     attr_for_key = {k: (k.upper() + "_ENABLED") for k in status_keys}

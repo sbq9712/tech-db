@@ -1,0 +1,133 @@
+{
+ "schema_version": "graph-relation-gold-locked-1.0",
+ "name": "graph_relation_gold_locked_v1",
+ "purpose": "Independent locked gold for RT-080..RT-085: typed relation extraction, materialization, relation-aware retrieval ranking, hub trap, useful multihop. Recorded answers are FROZEN; tests assert behaviour against these values only.",
+ "entity_types": {
+  "NVIDIA": "organization",
+  "AMD": "organization",
+  "台积电": "organization",
+  "英特尔": "organization",
+  "OpenAI": "organization",
+  "Blackwell": "product",
+  "RTX5090": "product",
+  "H100": "product",
+  "MI300": "product",
+  "GAA工艺": "technology",
+  "CoWoS": "technology",
+  "CUDA生态": "technology"
+ },
+ "records": [
+  {
+   "record_id": "gold-r1",
+   "t": "NVIDIA发布Blackwell平台",
+   "b": "英伟达发布了Blackwell架构平台。AMD计划推出MI300改进版。",
+   "evidence_text": "NVIDIA发布Blackwell平台\n英伟达发布了Blackwell架构平台。AMD计划推出MI300改进版。"
+  },
+  {
+   "record_id": "gold-r2",
+   "t": "AMD MI300发布信息",
+   "b": "AMD推出了MI300加速卡，与NVIDIA竞争数据中心市场。",
+   "evidence_text": "AMD MI300发布信息\nAMD推出了MI300加速卡，与NVIDIA竞争数据中心市场。"
+  },
+  {
+   "record_id": "gold-r3",
+   "t": "台积电先进工艺",
+   "b": "台积电使用CoWoS封装技术制造AI芯片。据称英特尔也在洽谈CoWoS产能。",
+   "evidence_text": "台积电先进工艺\n台积电使用CoWoS封装技术制造AI芯片。据称英特尔也在洽谈CoWoS产能。"
+  },
+  {
+   "record_id": "gold-r4",
+   "t": "供应链追踪",
+   "b": "MI300使用CoWoS封装技术，性能据称提升显著。",
+   "evidence_text": "供应链追踪\nMI300使用CoWoS封装技术，性能据称提升显著。"
+  },
+  {
+   "record_id": "gold-hubA",
+   "t": "行业全景稿(高连接枢纽)",
+   "b": "本稿汇总：NVIDIA与AMD竞争，台积电使用CoWoS，NVIDIA发布Blackwell平台，AMD推出MI300加速卡，行业竞争激烈持续。",
+   "evidence_text": "行业全景稿(高连接枢纽)\n本稿汇总：NVIDIA与AMD竞争，台积电使用CoWoS，NVIDIA发布Blackwell平台，AMD推出MI300加速卡，行业竞争激烈持续。"
+  }
+ ],
+ "source_snapshots": {
+  "gold-r1": "ss-gold-r1",
+  "gold-r2": "ss-gold-r2",
+  "gold-r3": "ss-gold-r3",
+  "gold-r4": "ss-gold-r4",
+  "gold-hubA": "ss-gold-hubA"
+ },
+ "queries": [
+  {
+   "query_id": "gq1",
+   "query": "谁发布了Blackwell平台？",
+   "seed_entities": [
+    "ent-org-NVIDIA"
+   ],
+   "relation_group": "PRODUCT_LIFECYCLE",
+   "expected_records_exact": [
+    "gold-r1"
+   ],
+   "temporal_intent": "current"
+  },
+  {
+   "query_id": "gq2",
+   "query": "台积电用什么封装技术？",
+   "seed_entities": [
+    "ent-org-台积电"
+   ],
+   "relation_group": "TECHNOLOGY_APPLICATION",
+   "expected_records_prefix": [
+    "gold-r3"
+   ],
+   "expected_member_anyof": [
+    "gold-r4",
+    "gold-hubA"
+   ],
+   "temporal_intent": "current"
+  },
+  {
+   "query_id": "gq3_multihop",
+   "query": "通过供应链关系,哪些公司关联到CoWoS封装技术？",
+   "seed_entities": [
+    "ent-tech-CoWoS"
+   ],
+   "max_hops": 2,
+   "expected_members": [
+    "gold-r3",
+    "gold-r4"
+   ],
+   "useful_multihop": true,
+   "description": "CoWoS 1跳覆盖 gold-r3/r4；经 MI300 节点 2跳新增 gold-r2（AMD RELEASED MI300）——B7 组合契约下 (USES,RELEASED) 未批准 → 2跳仅 discovery-only （查询扩展），绝不进入事实支持。",
+   "useful_gain_records": [
+    "gold-r2"
+   ],
+   "expected_discovery_members": [
+    "gold-r2"
+   ]
+  }
+ ],
+ "hub_trap": {
+  "note": "gold-hubA mentions many entities (degree inflation). Without hub penalty its aggregated score must not dominate every answer; with the penalty, direct primary-source records rank above it on targeted queries gq1/gq2.",
+  "hub_record_ids": [
+   "gold-hubA"
+  ]
+ },
+ "wrong_direction_cases": [
+  {
+   "candidate": {
+    "subject_surface": "Blackwell",
+    "predicate_raw": "发布",
+    "predicate": "RELEASED",
+    "object_surface": "NVIDIA",
+    "subject_type": "product",
+    "object_type": "organization"
+   },
+   "expect_reject_reason": "DIRECTION_INVALID"
+  }
+ ],
+ "fabricated_predicate_cases": [
+  {
+   "predicate": "SUPERNOVA_MELDS",
+   "expect_reject_reason": "PREDICATE_REJECTED"
+  }
+ ]
+}

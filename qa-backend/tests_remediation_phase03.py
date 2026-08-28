@@ -1088,6 +1088,10 @@ def _flags():
     rules = {c["rule"] for c in m.get("incompatible_flag_combos", [])}
     test("phase03.incompatible_combo_declared",
          "evidence_package_requires_terminal_renderer" in rules)
+    # exact-pin advances with each reviewed registry change. 1.1.0 has held
+    # since Phase03: adding flags/named profiles (RT-030..039 24th flag,
+    # Phase07 RT-086 graph_v2_partial + 25th flag) never bumped it, and the
+    # Phase00 byte-reproducible baseline freezes config_versions.
     test("phase03.profile_registry_version_bumped",
          m.get("profile_registry_version") == "1.1.0")
 

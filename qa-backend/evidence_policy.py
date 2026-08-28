@@ -406,6 +406,115 @@ class EvidencePolicyEngine:
             verdict=(HARD_FAIL if findings else PASS), findings=findings,
             mode="relation_requirement")
 
+    # ── Phase07 RT-084: INDEPENDENT relation-critical policy gate ────────
+    def check_relation_method_evidence(self, *, requirement_id: str,
+                                       relation_need: str,
+                                       router_method_label: str = "",
+                                       graph_paths: Optional[List[dict]] = None,
+                                       relation_checks: Optional[List[dict]] = None,
+                                       selected_record_ids: Optional[List[str]] = None,
+                                       ) -> PolicyReport:
+        """Verify the relation evidence METHOD independently of the Router.
+
+        The Router's method label is NEVER an upgrade path: it can only be
+        contradicted, never trusted. SUPPORTED requires independent proof:
+          * at least one GROUNDED graph path (every hop exact-grounded)
+            whose edge EvidenceRefs land in the request's SELECTED
+            record set — the graph hit itself is not citeable; or
+          * a valid typed relation check on selected text evidence.
+        A router label of SUPPORTED with no such independent proof keeps
+        the requirement UNSUPPORTED (hard POLICY_RELATION_METHOD_MISSING
+        with an explicit ``router_misclassification_guarded`` detail).
+        An UNSUPPORTED/empty router label changes nothing (policy decides).
+        """
+        need = canonical_relation_need(relation_need)
+        applicability = {"relation_method_independence": "APPLICABLE"}
+        if need == "none":
+            return PolicyReport(verdict=PASS, findings=[],
+                                mode="relation_requirement",
+                                rule_applicability={
+                                    "relation_method_independence":
+                                        "NOT_APPLICABLE"})
+        findings: List[PolicyFinding] = []
+        selected = {str(r) for r in (selected_record_ids or [])}
+
+        def _path_grounded_graph_support(entry: dict) -> bool:
+            paths = entry.get("matched_paths") if isinstance(entry, dict) \
+                else None
+            for p in (paths or []):
+                hops = (p or {}).get("hops") or []
+                if not hops:
+                    continue
+                all_grounded = True
+                hit_selected = False
+                for h in hops:
+                    refs = [r for r in ((h or {}).get("record_refs") or [])
+                            if isinstance(r, dict)]
+                    # B4/B5 FAIL-CLOSED: a MISSING grounding_status is NOT
+                    # VERIFIED — it never defaults to EXACT_GROUNDED. A hop
+                    # must ALSO carry the production support flags:
+                    # support_eligible=True and NOT discovery_only. Paths
+                    # from unapproved compositions or ungrounded statements
+                    # (however complete their EvidenceRefs look) can never
+                    # satisfy the relation-critical evidence method here.
+                    stmt_grounding = str((h or {}).get("grounding_status")
+                                         or "UNVERIFIED")
+                    support_flag = (h or {}).get("support_eligible")
+                    discovery_flag = (h or {}).get("discovery_only")
+                    if support_flag is not True or discovery_flag is True:
+                        all_grounded = False
+                        break
+                    if not refs or stmt_grounding not in (
+                            "VALID", "EXACT_GROUNDED"):
+                        all_grounded = False
+                        break
+                    for r in refs:
+                        if str(r.get("record_id")) in selected:
+                            hit_selected = True
+                if all_grounded and hit_selected:
+                    return True
+            return False
+
+        grounded_graph_support = any(
+            (_path_grounded_graph_support(h)
+             or _path_grounded_graph_support(
+                 {"matched_paths": [h]}))
+            for h in (graph_paths or []))
+        if isinstance(graph_paths, list):
+            flat = graph_paths
+        else:
+            flat = []
+
+        checks = list(relation_checks or [])
+        typed_text_valid = [
+            c for c in checks
+            if c.get("authority") == "canonical_relation_validator"
+            and c.get("valid") is True and c.get("typed") is True
+            and c.get("exact_grounded") is True]
+
+        independent_ok = bool(grounded_graph_support) or bool(typed_text_valid)
+        label = str(router_method_label or "").strip().upper()
+        if independent_ok:
+            pass  # verified independently; router label irrelevant either way
+        elif label == "SUPPORTED":
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_METHOD_MISSING",
+                requirement_id,
+                "router_method_label=SUPPORTED but independent verification "
+                "found no grounded graph path landing in selected evidence "
+                "and no typed relation check on selected text "
+                "(router_misclassification_guarded)", severity="hard"))
+        else:
+            findings.append(PolicyFinding(
+                "relation_requirement", "POLICY_RELATION_METHOD_MISSING",
+                requirement_id,
+                f"relation_need={need} without independently verified "
+                "graph/text method evidence", severity="hard"))
+        return PolicyReport(verdict=(HARD_FAIL if findings else PASS),
+                            findings=findings,
+                            mode="relation_requirement",
+                            rule_applicability=applicability)
+
     def check_provenance(self, *, requires_independent: bool,
                          provenance_groups: Optional[List[str]] = None,
                          min_independent_groups: int = 2) -> PolicyReport:
@@ -554,6 +663,8 @@ class EvidencePolicyEngine:
                      Dict[str, List[dict]]] = None,
                  condition_observations_by_requirement: Optional[
                      Dict[str, List[dict]]] = None,
+                 relation_methods_by_requirement: Optional[
+                     Dict[str, dict]] = None,
                  min_independent_groups: int = 2,
                  mode: str = "FAST_RAG") -> PolicyReport:
         """Full evaluation for the Evidence Selector output.
@@ -661,6 +772,24 @@ class EvidencePolicyEngine:
                     relation_checks=list(req_relations))
                 findings.extend(relation_rep.findings)
                 rule_applicability[f"relation_requirement:{rid}"] = "APPLICABLE"
+            # Phase07 (RT-084): INDEPENDENT method gate in the SAME engine.
+            # Runs whenever the caller supplies router/retrieval method
+            # context for the requirement — the Router's SUPPORTED label
+            # can never upgrade weak relation evidence past this engine.
+            method_ctx = (relation_methods_by_requirement or {}).get(rid)
+            if isinstance(method_ctx, dict):
+                method_rep = self.check_relation_method_evidence(
+                    requirement_id=rid,
+                    relation_need=req.get("relation_need", "none"),
+                    router_method_label=str(method_ctx.get(
+                        "router_method_label") or ""),
+                    graph_paths=list(method_ctx.get("graph_paths") or []),
+                    relation_checks=list(method_ctx.get(
+                        "relation_checks") or req_relations or []),
+                    selected_record_ids=list(method_ctx.get(
+                        "selected_record_ids") or []))
+                findings.extend(method_rep.findings)
+                rule_applicability.update(method_rep.rule_applicability)
         findings.extend(self.check_conflict(conflicts=conflicts or []).findings)
         findings.extend(self.check_numeric(numeric_facts=numeric_facts or []).findings)
         findings.extend(self.check_relation(relation_checks=relation_checks or []).findings)
