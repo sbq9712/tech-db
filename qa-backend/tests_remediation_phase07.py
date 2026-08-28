@@ -965,8 +965,10 @@ def rt083():
              f"hits={len(c2hop_hits)} disc={len(c2hop_disc)}")
 
     # ══ B8: bounded traversal under a REAL TraversalBudget ══════════════
-    from graph_serving import TraversalBudget
-    from runtime_safety import RequestExecutionContext, RequestCancelled
+    from graph_serving import (TraversalBudget,
+                               TraversalDeadlineExceeded)
+    from runtime_safety import (RequestExecutionContext, RequestCancelled,
+                                RuntimeSafetyProfile)
     def _disc_ids(res):
         d = res.get("discovery_hits") or {}
         vals = d.values() if isinstance(d, dict) else d
@@ -1054,15 +1056,35 @@ def rt083():
     # deadline before first expansion (monotonic deadline in the past)
     import time as _time
     b_dead = TraversalBudget(deadline=_time.monotonic() - 1.0)
-    deadline_raised = False
+    local_deadline_raised = False
+    local_was_cancel = False
     try:
         ret.search("Blackwell", seed_entities=[
             {"entity_id": blackwell_seed, "confidence": 0.95}],
             budget=b_dead)
+    except TraversalDeadlineExceeded:
+        local_deadline_raised = True
     except RequestCancelled:
-        deadline_raised = True
-    test("rt083.budget_deadline_stops_traversal",
-         deadline_raised)
+        local_was_cancel = True
+    test("rt083.graph_local_deadline_is_not_request_cancel",
+         local_deadline_raised and not local_was_cancel)
+
+    # Whole-request expiry remains the canonical Phase05 cancellation flow.
+    expired_ctx = RequestExecutionContext(
+        request_id="rt083-whole-request-deadline",
+        profile=RuntimeSafetyProfile(fast_total=0.0))
+    whole_request_cancelled = False
+    try:
+        ret.search("Blackwell", seed_entities=[
+            {"entity_id": blackwell_seed, "confidence": 0.95}],
+            budget=TraversalBudget(
+                request_ctx=expired_ctx,
+                deadline=_time.monotonic() + 60.0))
+    except RequestCancelled:
+        whole_request_cancelled = True
+    test("rt083.whole_request_deadline_remains_request_cancelled",
+         whole_request_cancelled
+         and expired_ctx.cancel_reason == "total_deadline_exhausted")
 
     # edge-budget exhaustion before any edge materializes a candidate
     b_edge = TraversalBudget(max_expanded_edges=0)
@@ -1524,7 +1546,7 @@ def server_degradation():
                                _identity_snapshot_for(
                                    ["ent-nvda-x", "ent-blackwell-x"])}))
         test("server_run_graph_v2_wired_but_ineligible_skips_quietly",
-             trace.get("wired") is False
+             trace.get("wired") is True
              and trace.get("action") == "skip"
              and trace.get("eligible") is False
              and "graph_v2" not in rr
@@ -1591,12 +1613,40 @@ def server_degradation():
         finally:
             graph_serving.TraversalBudget = orig_budget
 
-        # (5) Cancellation raised by the real traversal propagates through
-        # the production route; no graph result/EvidencePackage input exists.
+        # (5) A canonical graph_search stage deadline is a TIMEOUT
+        # degradation, never request cancellation, and withholds all partial
+        # graph results.
         from runtime_safety import (RequestExecutionContext,
                                     RequestCancelled,
+                                    RuntimeSafetyProfile,
                                     bind_request_context,
                                     reset_request_context)
+        stage_ctx = RequestExecutionContext(
+            request_id="phase07-stage-timeout",
+            profile=RuntimeSafetyProfile(retrieval=0.0))
+        token = bind_request_context(stage_ctx)
+        rr = {}
+        try:
+            trace, mctx = _drive(
+                rr, pinned=wired, route_batches=strong_batches)
+        finally:
+            reset_request_context(token)
+        timeout_rows = rr.get("_degraded_not_wired") or []
+        test("server_graph_stage_deadline_is_timeout_not_cancel",
+             trace.get("reason_code") == "GRAPH_TRAVERSAL_TIMEOUT"
+             and trace.get("wired") is True
+             and len(timeout_rows) == 1
+             and timeout_rows[0].get("failure_class") == "TIMEOUT"
+             and timeout_rows[0].get("condition_reason_code")
+             == "RUNTIME_GRAPH_STAGE_TIMEOUT"
+             and timeout_rows[0].get("correctness_critical") is True
+             and timeout_rows[0].get("state_impact") == "UNVERIFIED"
+             and "graph_v2" not in rr and mctx is None
+             and not stage_ctx.cancelled.is_set(),
+             json.dumps({"trace": trace, "rows": timeout_rows})[:260])
+
+        # (6) Cancellation raised by the real traversal propagates through
+        # the production route; no graph result/EvidencePackage input exists.
         class _CancelInProductionTraversal(RequestExecutionContext):
             checks = 0
 
@@ -1627,6 +1677,201 @@ def server_degradation():
                          "keys": sorted(rr)})[:200])
     finally:
         server.Flags.GRAPH_V2_ENABLED = orig
+
+
+def server_full_composition():
+    """Round 3: timeout/cancellation through the complete production chain.
+
+    Unlike ``server_degradation`` this enters ``_run_phase03_context`` and
+    therefore exercises the real pool, selector, post-selection trusted ids,
+    EvidencePolicyEngine, and EvidencePackage outcome.
+    """
+    section("SERVER full Graph timeout composition (Repair Round 3)")
+    import asyncio
+    from types import SimpleNamespace
+    import phase03_pipeline
+    import server
+    from graph_serving import GraphSnapshotView
+    from retrieval.runtime import RouteResults
+    from retrieval.vector import RetrievalResult
+    from runtime_safety import (RequestCancelled, RequestExecutionContext,
+                                RuntimeSafetyProfile,
+                                bind_request_context,
+                                reset_request_context)
+
+    text_value = "graph serving fixture"
+    snapshot_row = {
+        "record_id": "record-g1", "source_snapshot_id": "ss-g1",
+        "evidence_text": text_value,
+        "evidence_eligibility": "CITATION_ELIGIBLE",
+    }
+    evidence_meta = {
+        "record-g1": {"evidence_eligibility": "CITATION_ELIGIBLE",
+                       "evidence_role": "independent",
+                       "source_type": "official"}}
+    identity = _identity_snapshot_for(["ent-nvda-x", "ent-blackwell-x"])
+    view = GraphSnapshotView(_mini_graph_artifact())
+    relation = {
+        "subject_id": "ent-nvda-x", "predicate": "USES",
+        "object_id": "ent-blackwell-x",
+        "polarity": "POSITIVE", "modality": "DECLARATIVE",
+        "assertion_status": "ASSERTED",
+        "evidence_refs": [{
+            "record_id": "record-g1", "source_snapshot_id": "ss-g1",
+            "locator": {"start_offset": 0,
+                        "end_offset": len(text_value)},
+            "exact_text": text_value}],
+    }
+
+    def _pinned(*, typed_relation):
+        record = {
+            "record_id": "record-g1", "t": text_value, "b": "",
+            "fb": text_value, "evidence_text": text_value,
+            "access_scope": "public", "evidence_role": "independent",
+            "supersession_state": "CURRENT",
+        }
+        if typed_relation:
+            record["relations"] = [relation]
+        return SimpleNamespace(
+            manifest_id="phase07-round3-runtime",
+            resources={
+                "records": [record], "records_by_id": {"record-g1": record},
+                "source_catalog": {"snapshots": [{"record_id": "record-g1"}]},
+                "phase03_snapshot_index": {"record-g1": snapshot_row},
+                "phase03_evidence_metadata": evidence_meta,
+                "phase03_authority_gaps": [],
+                "phase03_provenance": {
+                    "record-g1": {"independent_group_id": "source-g1",
+                                  "source_role": "independent"}},
+                "graph_snapshot_v2": view,
+                "identity_snapshot": identity,
+            })
+
+    async def _routes(*args, **kwargs):
+        return RouteResults({"vector": [RetrievalResult(
+            record_id="record-g1", legacy_idx=None, route="vector",
+            raw_score=1.0, rank=1,
+            meta={"fb": text_value, "t": text_value},
+            route_details={})]})
+
+    critical_req = [{
+        "id": "req-rel", "description": text_value,
+        "keywords": ["graph"], "critical": True,
+        "relation_need": "required",
+        "relation_group": "TECHNOLOGY_APPLICATION"}]
+    optional_req = [{
+        "id": "req-opt", "description": text_value,
+        "keywords": ["graph"], "critical": True,
+        "relation_need": "none",
+        "relation_group": "TECHNOLOGY_APPLICATION"}]
+
+    orig_flag = server.Flags.GRAPH_V2_ENABLED
+    orig_chunks = server.Flags.CONTEXTUAL_CHUNKS_ENABLED
+    orig_routes = server._rt.run_routes
+    orig_pipeline = server._get_retrieval_pipeline
+    orig_resolve = server.resolve_query_from_runtime_snapshot
+    try:
+        server.Flags.GRAPH_V2_ENABLED = True
+        server.Flags.CONTEXTUAL_CHUNKS_ENABLED = False
+        server._rt.run_routes = _routes
+        server._get_retrieval_pipeline = lambda: None
+        server.resolve_query_from_runtime_snapshot = lambda q, p: {
+            "identity_snapshot_id": identity["identity_snapshot_id"],
+            "decisions": [{"decision": "LINK",
+                           "selected_entity_id": "ent-nvda-x",
+                           "confidence": 0.99}]}
+
+        def _run(requirements, *, typed_relation=False, ctx=None):
+            runtime_token = server._request_runtime_snapshot.set(
+                _pinned(typed_relation=typed_relation))
+            request_ctx = ctx or RequestExecutionContext(
+                request_id="phase07-full-stage-timeout",
+                profile=RuntimeSafetyProfile(retrieval=0.0))
+            context_token = bind_request_context(request_ctx)
+            try:
+                return asyncio.run(server._run_phase03_context(
+                    text_value, requirements=requirements, mode="RESEARCH"))
+            finally:
+                reset_request_context(context_token)
+                server._request_runtime_snapshot.reset(runtime_token)
+
+        no_alt = _run(critical_req, typed_relation=False)
+        no_alt_reasons = set((no_alt.get("trace_facts") or {}).get(
+            "policy_reasons") or [])
+        no_alt_degraded = no_alt.get("degraded_capabilities") or []
+        test("server_full_critical_timeout_without_alt_blocks_relation",
+             no_alt.get("status") == "no_evidence"
+             and "POLICY_RELATION_METHOD_MISSING" in no_alt_reasons
+             and any(d.get("failure_class") == "TIMEOUT"
+                     and d.get("correctness_critical") is True
+                     and d.get("state_impact") == "UNVERIFIED"
+                     for d in no_alt_degraded if isinstance(d, dict)),
+             json.dumps({"status": no_alt.get("status"),
+                         "reasons": sorted(no_alt_reasons),
+                         "degraded": no_alt_degraded})[:320])
+
+        typed_alt = _run(critical_req, typed_relation=True)
+        typed_reasons = set((typed_alt.get("trace_facts") or {}).get(
+            "policy_reasons") or [])
+        test("server_full_timeout_typed_text_relation_independently_passes",
+             typed_alt.get("status") == "ok"
+             and "POLICY_RELATION_METHOD_MISSING" not in typed_reasons
+             and bool(typed_alt.get("package_dict"))
+             and any(d.get("failure_class") == "TIMEOUT"
+                     for d in (typed_alt.get("degraded_capabilities") or [])
+                     if isinstance(d, dict)),
+             json.dumps({"status": typed_alt.get("status"),
+                         "reasons": sorted(typed_reasons)})[:260])
+
+        optional = _run(optional_req, typed_relation=False)
+        optional_degraded = optional.get("degraded_capabilities") or []
+        test("server_full_optional_timeout_continues_after_policy_gates",
+             optional.get("status") == "ok"
+             and any(d.get("failure_class") == "TIMEOUT"
+                     and d.get("correctness_critical") is False
+                     and d.get("state_impact") == "CONTINUE_RECHECK"
+                     for d in optional_degraded if isinstance(d, dict)),
+             json.dumps({"status": optional.get("status"),
+                         "degraded": optional_degraded})[:320])
+
+        class _CancelInFullComposition(RequestExecutionContext):
+            checks = 0
+
+            def check_active(self):
+                self.checks += 1
+                if self.checks == 3:
+                    self.cancel("full_composition_client_disconnect")
+                return super().check_active()
+
+        phase03_calls = {"count": 0}
+        original_phase03 = phase03_pipeline.run_phase03_retrieval
+
+        async def _observe_phase03(*args, **kwargs):
+            phase03_calls["count"] += 1
+            return await original_phase03(*args, **kwargs)
+
+        phase03_pipeline.run_phase03_retrieval = _observe_phase03
+        cancel_ctx = _CancelInFullComposition(
+            request_id="phase07-full-cancel")
+        cancelled = False
+        try:
+            _run(critical_req, typed_relation=False, ctx=cancel_ctx)
+        except RequestCancelled:
+            cancelled = True
+        finally:
+            phase03_pipeline.run_phase03_retrieval = original_phase03
+        test("server_full_client_cancel_builds_no_evidence_package",
+             cancelled and cancel_ctx.checks == 3
+             and phase03_calls["count"] == 0,
+             json.dumps({"cancelled": cancelled,
+                         "checks": cancel_ctx.checks,
+                         "phase03_calls": phase03_calls["count"]}))
+    finally:
+        server.Flags.GRAPH_V2_ENABLED = orig_flag
+        server.Flags.CONTEXTUAL_CHUNKS_ENABLED = orig_chunks
+        server._rt.run_routes = orig_routes
+        server._get_retrieval_pipeline = orig_pipeline
+        server.resolve_query_from_runtime_snapshot = orig_resolve
 
 
 # ── acceptance-matrix entry points (lint contract: every matrix test_cases
@@ -1666,6 +1911,7 @@ def test_rt085_graph_v2_production_pipeline_wiring() -> bool:
     n0 = len(RESULTS)
     wiring()
     server_degradation()
+    server_full_composition()
     return all(ok for _, ok, _ in RESULTS[n0:])
 
 
@@ -1691,6 +1937,7 @@ def main():
     rt087()
     wiring()
     server_degradation()
+    server_full_composition()
     passed = sum(1 for _, ok, _ in RESULTS if ok)
     failed = len(RESULTS) - passed
     print("\n" + "=" * 70)

@@ -49,6 +49,16 @@ from graph_v2_ontology import (
 GRAPH_SNAPSHOT_SCHEMA = "graph-snapshot-v2"
 
 
+class TraversalDeadlineExceeded(RuntimeError):
+    """Graph-local stage deadline exhaustion.
+
+    This is deliberately distinct from ``RequestCancelled``: the latter is
+    reserved for client cancellation / whole-request expiry and aborts the
+    request lifecycle, while this exception is mapped by the production
+    caller into the canonical graph-search TIMEOUT degradation contract.
+    """
+
+
 # ── RT-082: immutable artifact + hash-bound loading ──────────────────────
 def build_graph_artifact(statements: List[dict], *,
                          ontology_version: str,
@@ -349,7 +359,8 @@ class TraversalBudget:
         if self.request_ctx is not None:
             self.request_ctx.check_active()  # raises RequestCancelled
         if self.expired():
-            raise RequestCancelled("graph_traversal_deadline_exhausted")
+            raise TraversalDeadlineExceeded(
+                "graph_traversal_deadline_exhausted")
 
 
 # scoring feature weights (deterministic, explained per-path)

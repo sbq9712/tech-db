@@ -73,7 +73,8 @@ from runtime_safety import (
     RequestExecutionContext,
     RequestCancelled, StageExecutionError, bind_request_context,
     reset_request_context, RUNTIME_SAFETY_PROFILE_VERSION,
-    FailureClass, decide_failure, relation_requirement_ids,
+    FailureClass, current_request_context, decide_failure,
+    relation_requirement_ids,
 )
 from entity_resolver_v2 import resolve_query_from_runtime_snapshot
 
@@ -977,6 +978,7 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
 
     from graph_serving import (
         RelationAwareGraphRetriever, TraversalBudget,
+        TraversalDeadlineExceeded,
         partial_activation_decision)
     # B3: serving refuses to run against a foreign identity generation —
     # the view's bound identity dependency is cross-checked against the
@@ -993,6 +995,9 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
             FailureClass.INTERNAL_EXCEPTION,
             "RUNTIME_GRAPH_IDENTITY_MISMATCH")
         return graph_v2_trace, None
+    graph_v2_trace.update({
+        "wired": True, "snapshot_id": view.snapshot_id,
+        "ontology_version": view.ontology_version})
     resolution = {}
     try:
         resolution = resolve_query_from_runtime_snapshot(query, pinned) or {}
@@ -1027,14 +1032,13 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
                              if r.get("relation_group")})
     # B8: bounded traversal honouring the Phase05 request contract —
     # client cancellation and the total request deadline stop the walk.
-    budget = TraversalBudget(request_ctx=None)
-    try:
-        from runtime_safety import current_request_context
-        ctx = current_request_context()
-        if ctx is not None:
-            budget = TraversalBudget(request_ctx=ctx)
-    except Exception:
-        pass
+    ctx = current_request_context()
+    budget = TraversalBudget(request_ctx=ctx)
+    if ctx is not None:
+        # Canonical Phase05 stage budget, already capped by whole-request
+        # remaining time.  No graph-local numeric timeout is duplicated here.
+        budget.deadline = _time.monotonic() + ctx.stage_timeout(
+            "graph_search")
     try:
         result = retriever.search(query, top_k=_rt.RETRIEVAL_TOP_K,
                                   direction="either", max_hops=1,
@@ -1046,6 +1050,15 @@ async def _graph_v2_route(*, query: str, requirements: list | None,
         graph_v2_trace.update({
             "action": "skip", "reason_code": "GRAPH_TRAVERSAL_CANCELLED"})
         raise
+    except TraversalDeadlineExceeded:
+        # Withhold every partially accumulated path: a timed-out traversal
+        # contributes diagnostics only and cannot become relation support.
+        graph_v2_trace.update({
+            "action": "skip", "reason_code": "GRAPH_TRAVERSAL_TIMEOUT",
+            "hits": 0, "matched_paths": []})
+        _record_graph_degradation(
+            FailureClass.TIMEOUT, "RUNTIME_GRAPH_STAGE_TIMEOUT")
+        return graph_v2_trace, None
     except Exception:
         graph_v2_trace.update({
             "action": "skip", "reason_code": "GRAPH_TRAVERSAL_FAILED"})
