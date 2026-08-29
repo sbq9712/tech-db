@@ -25,10 +25,15 @@ class AuditTraceUnavailable(LookupError):
 
 class TraceAuditService:
     def __init__(self, trace_dir: Path, *, operator_key: str,
-                 retention_days: int = DEFAULT_RETENTION_DAYS):
+                 retention_days: int = DEFAULT_RETENTION_DAYS,
+                 replay_availability_resolver=None,
+                 historical_model_runtime_resolver=None):
         self.trace_dir = Path(trace_dir)
         self._operator_key = str(operator_key or "")
         self.retention_days = int(retention_days)
+        self._replay_availability_resolver = replay_availability_resolver
+        self._historical_model_runtime_resolver = \
+            historical_model_runtime_resolver
 
     def _authenticate(self, supplied_key: str) -> None:
         if not self._operator_key or not supplied_key or not hmac.compare_digest(
@@ -79,14 +84,21 @@ class TraceAuditService:
             projected["result"] = {
                 "reason_code": "RESTRICTED_SNAPSHOT_REDACTED",
             }
-        replay_case = {
-            "trace_id": projected.get("trace_id"),
-            "manifest_id": projected.get("manifest_id"),
-            "profile": projected.get("profile"),
-            "historical_artifacts_available": bool(projected.get("manifest_id")),
-        }
+        replay_case = {key: projected.get(key) for key in (
+            "trace_id", "manifest_id", "model_identity",
+            "prompt_template_id", "prompt_content_hash", "profile",
+            "feature_flags_hash", "deterministic_inputs",
+            "source_snapshot_ids", "identity_snapshot_id",
+            "manifest_artifact_hashes")}
+        availability = (self._replay_availability_resolver(raw)
+                        if self._replay_availability_resolver else set())
+        historical_model_available = bool(
+            self._historical_model_runtime_resolver(raw)
+            if self._historical_model_runtime_resolver else False)
         fidelity = classify_replay_fidelity(
-            replay_case, historical_model_available=False)
+            replay_case,
+            historical_model_available=historical_model_available,
+            artifact_availability=availability)
         return {
             "schema_version": "operator-audit-view-1.0",
             "trace": projected,

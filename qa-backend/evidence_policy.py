@@ -137,8 +137,7 @@ class EvidencePolicyEngine:
                 "citation_eligibility", "POLICY_CITATION_INELIGIBLE", rid,
                 "ineligible record used as citation"))
         scope = evidence.get("access_scope")
-        if scope and scope != self.access_scope and scope != "public" \
-                and self.access_scope != "public":
+        if scope and scope != "public" and scope != self.access_scope:
             findings.append(PolicyFinding(
                 "access_scope", "POLICY_ACCESS_SCOPE", rid,
                 f"evidence scope {scope} != request scope {self.access_scope}"))

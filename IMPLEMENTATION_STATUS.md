@@ -356,5 +356,8 @@ ReferenceCards、四种诚实 replay fidelity、development regression 与 locke
 holdout 隔离，以及 server-side operator audit/trace policy。完成报告见
 `docs/remediation/phase08_completion_report.md`；行为套件为
 `qa-backend/tests_remediation_phase08.py`，required CI job 为
-`phase08-api-ui-trace-replay`。Graph-V2 仍未激活，RT-005/RT-075 仍为外部
-事项，Phase09 未开始。
+`phase08-api-ui-trace-replay`。Repair Round 1 将 terminal 的 verification /
+stop reason 统一绑定 canonical snapshot，关闭 chat JSON scope 自提升，并让
+case-group 默认执行真实 current Phase03 pipeline；本地证据 78/78，push tier
+1287/1287（42 suites）。Graph-V2 仍未激活，RT-005/RT-075 仍为外部事项，
+Phase09 未开始。

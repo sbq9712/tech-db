@@ -18579,13 +18579,13 @@
       "dods": [
         {
           "dod_id": "RT-090.DOD-01",
-          "description": "all non-cancellation terminal exits use one versioned response contract bound to the canonical AnswerStateMachine",
+          "description": "all non-cancellation terminal exits derive answer status verification status and stop reason from one canonical AnswerStateMachine snapshot; explicit compatibility arguments are assertions only",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt090_canonical_terminal_contract", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
         },
         {
           "dod_id": "RT-090.DOD-02",
-          "description": "real production server success partial unsupported unverified and technical exits are uniform while cancellation emits no fabricated done",
+          "description": "real production server success partial unsupported unverified and technical exits preserve the canonical snapshot invariants while request cancellation emits no fabricated done",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt090_real_server_terminal_matrix", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"}]
         }
@@ -18603,10 +18603,11 @@
         },
         {
           "dod_id": "RT-091.DOD-02",
-          "description": "missing invalid stale denied and Graph-only authority fails closed and frontend safely escapes rendered spans",
+          "description": "the real chat endpoint derives a trusted public scope server-side so caller JSON cannot self-elevate; denied restricted evidence is not selected sent or rendered and frontend safely escapes spans",
           "status": "SATISFIED",
           "test_cases": [
             {"suite": "remediation_phase08", "case": "test_rt091_claim_aware_reference_cards", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"},
+            {"suite": "remediation_phase08", "case": "test_rt091_production_trusted_access_scope", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"},
             {"suite": "visual_rt029", "case": "test_rt091_visual_reference_cards_desktop", "level": "e2e", "command": "python qa-backend/tests_visual_rt029.py"}
           ]
         }
@@ -18618,13 +18619,13 @@
       "dods": [
         {
           "dod_id": "RT-092.DOD-01",
-          "description": "replay reports exactly HISTORICAL_EXACT HISTORICAL_ARTIFACTS_CURRENT_MODEL CURRENT_COMPARISON or PARTIAL_REPLAY based on available authority",
+          "description": "replay reports exactly HISTORICAL_EXACT HISTORICAL_ARTIFACTS_CURRENT_MODEL CURRENT_COMPARISON or PARTIAL_REPLAY from verified artifact hashes complete pins and trusted historical model availability",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt092_replay_fidelity_modes", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
         },
         {
           "dod_id": "RT-092.DOD-02",
-          "description": "bounded case-group command emits deterministic machine diffs and rejects malformed replay data",
+          "description": "bounded case-group command executes the current canonical retrieval and policy pipeline by default, ignores caller-supplied current output authority, emits deterministic machine diffs and rejects malformed data",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt092_replay_fidelity_modes", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
         }
@@ -18660,7 +18661,7 @@
         },
         {
           "dod_id": "RT-094.DOD-02",
-          "description": "audit replay labels expose the truthful RT-092 fidelity mode and never expose unrestricted raw trace content",
+          "description": "audit replay labels use trusted artifact and model availability resolvers rather than manifest presence, expose truthful RT-092 fidelity and never expose unrestricted raw trace content",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt094_operator_audit_policy", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
         }

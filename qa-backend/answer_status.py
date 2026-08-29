@@ -535,6 +535,7 @@ def build_terminal_response(*, answer: str, answer_status: str = "",
     if compatibility_status is not None and str(compatibility_status).upper() != \
             str(answer_status or "").upper():
         raise ValueError("legacy status alias disagrees with answer_status")
+    snapshot_supplied = state_machine_snapshot is not None
     if state_machine_snapshot is None:
         machine = _compatibility_machine(answer_status, stop_reason)
         state_machine_snapshot = machine.snapshot()
@@ -546,9 +547,19 @@ def build_terminal_response(*, answer: str, answer_status: str = "",
     if requested_status and requested_status != canonical_status:
         raise ValueError("terminal answer_status disagrees with state authority")
     canonical_verification = str(
-        verification_status or
-        (state_machine_snapshot or {}).get("verification_state") or
-        "NOT_RUN").upper()
+        (state_machine_snapshot or {}).get("verification_state") or "").upper()
+    if canonical_verification not in {state.value for state in VerificationState}:
+        raise ValueError(
+            "terminal response requires canonical verification state")
+    if verification_status and str(verification_status).upper() != \
+            canonical_verification:
+        raise ValueError(
+            "terminal verification_status disagrees with state authority")
+    canonical_stop_reason = str(
+        (state_machine_snapshot or {}).get("stop_reason") or "")
+    if snapshot_supplied and stop_reason and str(stop_reason) != \
+            canonical_stop_reason:
+        raise ValueError("terminal stop_reason disagrees with state authority")
     summary = dict(evidence_summary or build_evidence_summary())
     payload = {
         "terminal_schema_version": TERMINAL_RESPONSE_SCHEMA_VERSION,
@@ -559,8 +570,7 @@ def build_terminal_response(*, answer: str, answer_status: str = "",
         "evidence_summary": summary,
         "degraded_capabilities": sorted(set(
             str(v) for v in (degraded_capabilities or []) if v)),
-        "stop_reason": str(stop_reason or
-                           state_machine_snapshot.get("stop_reason") or ""),
+        "stop_reason": canonical_stop_reason,
         "trace_id": str(trace_id or ""),
         "profile": str(profile or ""),
         "trace_diagnostics": dict(trace_diagnostics or {}),

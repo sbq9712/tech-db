@@ -1952,7 +1952,8 @@ def _round2():
     test("claim_lineage.round3_failure_forces_unverified_terminal",
          done_lineage is not None
          and done_lineage["data"].get("answer_status") == "UNVERIFIED"
-         and done_lineage["data"].get("verification_status") == "UNVERIFIED")
+         and done_lineage["data"].get("verification_status") ==
+             "TECHNICAL_FAILURE")
 
     # Real registered Phase03 profile: BOTH EvidencePackage and terminal
     # renderer enabled, with RuntimePinMiddleware holding one release for
@@ -2019,7 +2020,7 @@ def _round2():
          strict_lineage_done is not None
          and strict_lineage_done["data"].get("answer_status") == "UNVERIFIED"
          and strict_lineage_done["data"].get("verification_status")
-         == "UNVERIFIED")
+         == "TECHNICAL_FAILURE")
 
     # flag OFF → the SAME fixture must hit the unchanged legacy reject
     # (byte-compatible legacy profile, no weakening from the restructure)

@@ -1258,9 +1258,9 @@ class ChatRequest(BaseModel):
     query: str
     conversation_id: str = ""
     history: list = []
-    # Request access scope for the Phase03 evidence policy engine
-    # (RT-034 POLICY_ACCESS_SCOPE); default public keeps v1 clients
-    # byte-compatible.
+    # Untrusted compatibility hint only.  The effective evidence scope is
+    # resolved exclusively at the server boundary; request JSON is never an
+    # authorization credential (RT-091).
     access_scope: str = "public"
 
 
@@ -1535,6 +1535,20 @@ def _canonical_terminal_payload(payload: dict) -> dict:
     return build_terminal_response(**value)
 
 
+def _effective_chat_access_scope(request: Request,
+                                 requested_scope: str = "") -> str:
+    """Return the authenticated evidence scope for normal chat requests.
+
+    TechDB has an established admin key for quota bypass and the separate
+    operator audit endpoint, but no product contract granting privileged chat
+    evidence access.  Consequently chat remains public even when either an
+    arbitrary JSON scope or an admin header is supplied.  Any future elevation
+    must be added here behind a real authenticated product capability.
+    """
+    del request, requested_scope
+    return "public"
+
+
 # ── Endpoints ──
 
 @app.get("/api/shadow/report")
@@ -1646,6 +1660,8 @@ async def chat_stream(req: ChatRequest, request: Request):
             status_code=503,
         )
 
+    effective_access_scope = _effective_chat_access_scope(
+        request, req.access_scope)
     bypass = admin_bypass(GUARDRAILS.admin_key, request.headers.get("x-admin-key"))
     socket_ip = request.client.host if request.client else "unknown"
     client_id = client_identifier(request.headers, socket_ip)
@@ -1867,8 +1883,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     return await _run_phase03_context(
                         kwargs["query"],
                         exclude_ids=_novelty_exclude or None,
-                        access_scope=kwargs.get("access_scope") or
-                        req.access_scope,
+                        access_scope=effective_access_scope,
                         research_queries=kwargs.get("research_queries"),
                         requirements=kwargs.get("requirements"),
                         mode=kwargs.get("mode"),
@@ -1922,7 +1937,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 rewrite_result=rewrite_result,
                                 verified_premises=verified_premises,
                                 runtime_identity=_runtime_identity(),
-                                access_scope=req.access_scope,
+                                access_scope=effective_access_scope,
                                 worker_fn=(
                                     _phase04_worker_packets
                                     if Flags.EVIDENCE_PACKAGE_ENABLED else None),
@@ -2075,7 +2090,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                             else await _run_phase03_context(
                                 search_query,
                                 exclude_ids=exclude_ids if exclude_ids else None,
-                                access_scope=req.access_scope,
+                                access_scope=effective_access_scope,
                                 verified_premises=verified_premises))
                 except Phase03AuthorityError as pae:
                     # Review blocker 7: trusted EvidencePackage mode REQUIRES
@@ -2629,7 +2644,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 }
                 reference_cards = build_reference_cards(
                     p02["citations"], p02["claims_payload"],
-                    caller_scope=req.access_scope,
+                    caller_scope=effective_access_scope,
                     current_snapshot_ids=_pinned_snapshot_ids)
                 yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "answer": final_answer,
@@ -2641,7 +2656,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "searched_record_ids": searched_record_ids,
                     "answer_status": p02["answer_status"],
                     "stop_reason": p02["stop_reason"],
-                    "verification_status": p02["verification_status"],
+                    "verifier_outcome": p02["verification_status"],
                     "boundary_message": p02["boundary_message"],
                     "user_warning": p02["user_warning"],
                     "evidence_summary": p02["evidence_summary"],
@@ -3011,12 +3026,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "citations": citations,
                     "reference_cards": build_reference_cards(
                         citations, _legacy_claims_payload,
-                        caller_scope=req.access_scope),
+                        caller_scope=effective_access_scope),
                     "claims": _legacy_claims_payload,
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
                     "answer_status": answer_status_str,
-                    "verification_status": verification_status,
+                    "verifier_outcome": verification_status,
                     "stop_reason": stop_reason,
                     "boundary_message": boundary_message,
                     "user_warning": user_warning,

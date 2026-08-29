@@ -16,6 +16,9 @@ import sys
 import os
 import asyncio
 import argparse
+import hashlib
+import inspect
+import re
 from enum import Enum
 from pathlib import Path
 from datetime import datetime
@@ -39,27 +42,77 @@ class ReplayDataError(ValueError):
     pass
 
 
-_EXACT_INPUTS = (
-    "manifest_id", "model_identity", "prompt_template_id", "profile",
-    "feature_flags_hash", "deterministic_inputs",
+_NONMODEL_PINS = (
+    "original_query", "manifest_id", "manifest_artifact_hashes",
+    "prompt_template_id", "prompt_content_hash", "profile",
+    "feature_flags_hash", "deterministic_inputs", "source_snapshot_ids",
+    "identity_snapshot_id",
+)
+_HISTORICAL_ARTIFACTS = (
+    "manifest", "prompt", "source_snapshots", "identity_snapshot",
+    "deterministic_config",
 )
 
 
+def inspect_historical_artifacts(case: dict) -> set[str]:
+    """Verify caller-supplied historical artifact paths and hashes.
+
+    A manifest id or a boolean is never artifact availability.  Each required
+    artifact must resolve to an existing file whose sha256 matches the pinned
+    descriptor.  Audit callers may instead supply an independently trusted
+    resolver result to ``classify_replay_fidelity``.
+    """
+    available = set()
+    descriptors = case.get("historical_artifact_paths") or {}
+    if not isinstance(descriptors, dict):
+        return available
+    for name in _HISTORICAL_ARTIFACTS:
+        item = descriptors.get(name)
+        if not isinstance(item, dict):
+            continue
+        path, expected = item.get("path"), str(item.get("sha256") or "")
+        if not path or len(expected) != 64:
+            continue
+        candidate = Path(path)
+        try:
+            actual = hashlib.sha256(candidate.read_bytes()).hexdigest()
+        except OSError:
+            continue
+        if actual == expected:
+            available.add(name)
+    return available
+
+
 def classify_replay_fidelity(case: dict, *, requested_mode: str = "",
-                             historical_model_available: bool = False) -> dict:
+                             historical_model_available: bool = False,
+                             artifact_availability=None) -> dict:
     """Truthfully classify what the canonical trace can reproduce."""
     if not isinstance(case, dict) or not str(case.get("trace_id") or ""):
         raise ReplayDataError("replay case requires trace_id")
-    missing = [name for name in _EXACT_INPUTS if not case.get(name)]
+    if artifact_availability is None:
+        available = inspect_historical_artifacts(case)
+    elif isinstance(artifact_availability, dict):
+        available = {str(k) for k, value in artifact_availability.items()
+                     if value is True}
+    else:
+        available = {str(value) for value in artifact_availability}
+    missing = [name for name in _NONMODEL_PINS
+               if not case.get(name) and name not in available]
+    missing.extend(
+        f"historical_artifact:{name}"
+        for name in _HISTORICAL_ARTIFACTS if name not in available)
     requested = str(requested_mode or case.get("requested_mode") or "").upper()
     if requested == ReplayFidelity.CURRENT_COMPARISON.value:
         mode = ReplayFidelity.CURRENT_COMPARISON
-    elif not missing and historical_model_available:
+    elif not missing and (case.get("model_identity") or
+                          "model_identity" in available) \
+            and historical_model_available:
         mode = ReplayFidelity.HISTORICAL_EXACT
-    elif case.get("manifest_id") and case.get("historical_artifacts_available"):
+    elif not missing:
         mode = ReplayFidelity.HISTORICAL_ARTIFACTS_CURRENT_MODEL
-        if not historical_model_available:
-            missing = sorted(set(missing + ["historical_model_runtime"]))
+        if not case.get("model_identity") and "model_identity" not in available:
+            missing.append("model_identity")
+        missing.append("historical_model_runtime")
     else:
         mode = ReplayFidelity.PARTIAL_REPLAY
     return {
@@ -86,34 +139,165 @@ def deterministic_output_diff(before: dict, after: dict) -> dict:
     }
 
 
-def replay_case_group(document: dict, *, current_versions: dict | None = None,
-                      historical_model_available: bool = False) -> dict:
-    """Bounded, deterministic report for an explicitly supplied case group."""
+def _current_version_identity() -> dict:
+    fixture = REPO / "qa-backend" / "test_fixtures" / "mini_runtime"
+    manifest = json.loads((fixture / "manifest.json").read_text("utf-8"))
+    prompt = fixture / "prompt_config.json"
+    return {
+        "manifest_id": manifest.get("fixture_id", ""),
+        "identity_snapshot_id": manifest.get("identity_snapshot_id", ""),
+        "prompt_content_hash": hashlib.sha256(prompt.read_bytes()).hexdigest(),
+        "profile": "FAST_RAG",
+        "runtime_adapter": "committed-mini-runtime-phase03-v1",
+    }
+
+
+async def execute_current_case(case: dict) -> dict:
+    """Execute one case through the current canonical Phase03 pipeline.
+
+    The committed mini-runtime supplies deterministic source/index authority;
+    a lexical adapter produces typed route results, then the real
+    ``run_phase03_retrieval`` policy/selection/package path owns the result.
+    No caller-provided current output participates.
+    """
+    query = str(case.get("original_query") or "")
+    if not query:
+        raise ReplayDataError("current replay requires original_query")
+    fixture = REPO / "qa-backend" / "test_fixtures" / "mini_runtime"
+    records = json.loads((fixture / "records.json").read_text("utf-8"))
+    snapshots = json.loads(
+        (fixture / "source_snapshots.json").read_text("utf-8"))
+    metadata = json.loads(
+        (fixture / "evidence_metadata.json").read_text("utf-8"))
+    by_id = {str(row["record_id"]): dict(row) for row in records}
+    snapshot_by_id = {str(row["record_id"]): row for row in snapshots}
+    metadata_by_id = {str(row["record_id"]): row for row in metadata}
+    tokens = set(re.findall(r"[A-Za-z0-9_-]+", query.lower()))
+    ranked = []
+    for row in records:
+        rid = str(row["record_id"])
+        text = (str(row.get("title") or "") + " " +
+                str((snapshot_by_id.get(rid) or {}).get("evidence_text") or ""))
+        overlap = len(tokens & set(re.findall(
+            r"[A-Za-z0-9_-]+", text.lower())))
+        ranked.append((overlap, rid, row))
+    ranked.sort(key=lambda item: (-item[0], item[1]))
+    from retrieval.vector import RetrievalResult
+    route_results = {"vector": [], "bm25": []}
+    for rank, (overlap, rid, row) in enumerate(ranked, 1):
+        score = float(overlap) + (1.0 / (100 + rank))
+        meta = {"record_id": rid, "t": row.get("title", ""),
+                "fb": (snapshot_by_id.get(rid) or {}).get(
+                    "evidence_text", "")[:200]}
+        for route in route_results:
+            route_results[route].append(RetrievalResult(
+                record_id=rid, legacy_idx=row.get("legacy_idx"), route=route,
+                raw_score=score, rank=rank, meta=dict(meta),
+                route_details={"adapter": "committed-mini-runtime"}))
+    from phase03_pipeline import run_phase03_retrieval
+    result = await run_phase03_retrieval(
+        query=query, route_results=route_results, mode="FAST_RAG",
+        records_by_id=by_id, snapshot_index=snapshot_by_id,
+        evidence_metadata=metadata_by_id,
+        get_record_fn=lambda rid: by_id.get(rid), access_scope="public")
+    context = str(result.get("context") or "")
+    package = result.get("package_dict") or {}
+    return {
+        "pipeline_status": str(result.get("status") or ""),
+        "selected_record_ids": list(result.get("selected_record_ids") or []),
+        "citation_record_ids": [str(row.get("record_id") or "")
+                                for row in result.get("citations") or []],
+        "generator_input_sha256": hashlib.sha256(context.encode()).hexdigest(),
+        "package_binding_hash": str(package.get("binding_hash") or ""),
+    }
+
+
+def _version_differences(historical: dict, current: dict) -> dict:
+    differences = {}
+    for key in sorted(set(historical) | set(current)):
+        old, new = historical.get(key), current.get(key)
+        if old != new:
+            differences[key] = {"historical": old, "current": new}
+    return differences
+
+
+async def replay_case_group_async(
+        document: dict, *, current_versions: dict | None = None,
+        historical_model_available: bool = False, executor=None,
+        compare_only: bool = False, artifact_availability_resolver=None) -> dict:
+    """Execute a bounded case group or explicitly compare precomputed data."""
     if not isinstance(document, dict) or not isinstance(document.get("cases"), list):
         raise ReplayDataError("case group must contain a cases list")
     cases = document["cases"]
     if not cases or len(cases) > 100:
         raise ReplayDataError("case group size must be between 1 and 100")
-    current_versions = dict(current_versions or {})
+    resolved_versions = _current_version_identity()
+    resolved_versions.update(current_versions or {})
+    executor = executor or execute_current_case
     rows = []
     for raw in cases:
         if not isinstance(raw, dict):
             raise ReplayDataError("each replay case must be an object")
+        availability = (artifact_availability_resolver(raw)
+                        if artifact_availability_resolver else None)
         fidelity = classify_replay_fidelity(
             raw, requested_mode=raw.get("requested_mode", ""),
-            historical_model_available=historical_model_available)
-        historical = dict(raw.get("historical_output") or {})
-        current = dict(raw.get("current_output") or {})
-        version_differences = {}
-        for key in sorted(set(current_versions) | set(raw.get("versions") or {})):
-            old = (raw.get("versions") or {}).get(key)
-            new = current_versions.get(key)
-            if old != new:
-                version_differences[key] = {"historical": old, "current": new}
+            historical_model_available=historical_model_available,
+            artifact_availability=availability)
+        historical_raw = raw.get("historical_output") or {}
+        current_raw = raw.get("current_output") or {}
+        if not isinstance(historical_raw, dict):
+            raise ReplayDataError("historical_output must be an object")
+        if compare_only and not isinstance(current_raw, dict):
+            raise ReplayDataError("current_output must be an object")
+        historical = dict(historical_raw)
+        execution_error = ""
+        if compare_only:
+            current = dict(current_raw)
+        else:
+            try:
+                current = executor(raw)
+                if inspect.isawaitable(current):
+                    current = await current
+                if not isinstance(current, dict):
+                    raise ReplayDataError("current executor must return an object")
+            except Exception as exc:  # fail closed, preserve machine report
+                current = {}
+                execution_error = f"{type(exc).__name__}:{str(exc)[:160]}"
+        historical_versions = dict(raw.get("versions") or {})
+        for key in ("manifest_id", "model_identity", "prompt_template_id",
+                    "prompt_content_hash", "profile", "feature_flags_hash",
+                    "identity_snapshot_id"):
+            if raw.get(key) and key not in historical_versions:
+                historical_versions[key] = raw[key]
+        version_differences = _version_differences(
+            historical_versions, resolved_versions)
+        case_id = str(raw.get("case_id") or raw.get("trace_id") or "")
         rows.append({
             "trace_id": raw["trace_id"],
+            "case_id": case_id,
             **fidelity,
+            "execution_mode": "COMPARE_ONLY" if compare_only else "EXECUTE_CURRENT",
+            "current_output_authority": (
+                "PRECOMPUTED_COMPARISON" if compare_only
+                else "EXECUTED_CURRENT_PIPELINE"),
+            "historical_versions": historical_versions,
+            "current_versions": dict(resolved_versions),
             "version_differences": version_differences,
+            "manifest_differences": {
+                k: v for k, v in version_differences.items()
+                if "manifest" in k or "snapshot" in k},
+            "model_differences": {
+                k: v for k, v in version_differences.items() if "model" in k},
+            "prompt_differences": {
+                k: v for k, v in version_differences.items() if "prompt" in k},
+            "profile_config_differences": {
+                k: v for k, v in version_differences.items()
+                if k in {"profile", "feature_flags_hash", "deterministic_inputs"}},
+            "execution_result": current,
+            "execution_error": execution_error,
+            "supplied_current_output_ignored": (
+                not compare_only and "current_output" in raw),
             "output_diff": deterministic_output_diff(historical, current),
             "external_nondeterminism_reproduced": False,
         })
@@ -124,9 +308,22 @@ def replay_case_group(document: dict, *, current_versions: dict | None = None,
         "schema_version": "trace-replay-report-2.0",
         "case_group_id": str(document.get("case_group_id") or "unnamed"),
         "total_cases": len(rows),
+        "execution_mode": "COMPARE_ONLY" if compare_only else "EXECUTE_CURRENT",
+        "has_execution_errors": any(row["execution_error"] for row in rows),
         "fidelity_counts": counts,
         "cases": rows,
     }
+
+
+def replay_case_group(document: dict, **kwargs) -> dict:
+    """Synchronous compatibility wrapper around executable group replay."""
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        return asyncio.run(replay_case_group_async(document, **kwargs))
+    raise RuntimeError(
+        "replay_case_group cannot run synchronously inside an event loop; "
+        "await replay_case_group_async instead")
 
 
 def load_traces(date: str = None, trace_id: str = None, bad_only: bool = False) -> list:
@@ -184,6 +381,7 @@ def create_replay_case(trace: dict) -> dict:
     return {
         "trace_id": trace.get("trace_id", ""),
         "timestamp": trace.get("timestamp", ""),
+        "original_query": original_query,
         "question": original_query,
         "previous_answer": result.get("answer", ""),
         "previous_status": result.get("answer_status", ""),
@@ -199,8 +397,11 @@ def create_replay_case(trace: dict) -> dict:
         "profile": trace.get("profile", ""),
         "feature_flags_hash": trace.get("feature_flags_hash", ""),
         "deterministic_inputs": trace.get("deterministic_inputs"),
-        "historical_artifacts_available": bool(
-            trace.get("manifest_id") and trace.get("artifacts_available")),
+        "manifest_artifact_hashes": trace.get("manifest_artifact_hashes") or {},
+        "prompt_content_hash": trace.get("prompt_content_hash", ""),
+        "source_snapshot_ids": trace.get("source_snapshot_ids") or [],
+        "identity_snapshot_id": trace.get("identity_snapshot_id", ""),
+        "historical_artifact_paths": trace.get("historical_artifact_paths") or {},
     }
 
 
@@ -305,16 +506,22 @@ async def main():
     parser.add_argument("--output", help="Machine-readable report path")
     parser.add_argument("--current-model", default="")
     parser.add_argument("--current-manifest", default="")
+    parser.add_argument("--compare-only", action="store_true",
+                        help="compare supplied outputs without claiming execution")
     args = parser.parse_args()
 
     if args.case_group:
         try:
             source = Path(args.case_group)
             document = json.loads(source.read_text("utf-8"))
-            report = replay_case_group(document, current_versions={
-                "model_identity": args.current_model,
-                "manifest_id": args.current_manifest,
-            })
+            overrides = {}
+            if args.current_model:
+                overrides["model_identity"] = args.current_model
+            if args.current_manifest:
+                overrides["manifest_id"] = args.current_manifest
+            report = await replay_case_group_async(
+                document, current_versions=overrides,
+                compare_only=args.compare_only)
             destination = Path(args.output or (REPO / "replay_report.json"))
             destination.write_text(json.dumps(
                 report, ensure_ascii=False, indent=2) + "\n", "utf-8")
@@ -322,6 +529,8 @@ async def main():
             for mode, count in report["fidelity_counts"].items():
                 print(f"  {mode}: {count}")
             print(f"Machine report: {destination}")
+            if report["has_execution_errors"]:
+                raise SystemExit(2)
             return
         except (OSError, json.JSONDecodeError, ReplayDataError) as exc:
             print(f"replay data rejected: {exc}", file=sys.stderr)
