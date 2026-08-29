@@ -263,6 +263,48 @@ def fixture_pre20():
     ])
 
 
+def fixture_reference_cards():
+    """Phase08 exact-span + drift fail-closed UI fixture."""
+    return sse_body([
+        {"answer": "精确证据[1]；漂移来源[2]。",
+         "citations": [
+             {"id": 1, "record_id": "rec-exact", "title": "精确来源",
+              "source": "Primary", "grounding_status": "VALID",
+              "supports_claim_ids": ["claim-1"],
+              "body_snippet": "UNAUTHORIZED-SURROUNDING-TEXT"},
+             {"id": 2, "record_id": "rec-drift", "title": "漂移来源",
+              "source": "Archive", "grounding_status": "VALID",
+              "supports_claim_ids": [],
+              "body_snippet": "STALE-SNAPSHOT-TEXT"}],
+         "claims": [{"id": "claim-1", "text": "精确证据",
+                     "status": "SUPPORTED",
+                     "relations": [{"citation_id": 1,
+                                    "relation": "DIRECT_SUPPORT"}]}],
+         "citation_schema_version": "2.0.0",
+         "answer_status": "SUPPORTED", "verification_status": "PASSED",
+         "reference_cards": [
+             {"schema_version": "reference-card-1.0", "citation_id": 1,
+              "evidence_id": "ev-exact", "record_id": "rec-exact",
+              "source_snapshot_id": "ss-exact", "source_role": "primary",
+              "supports_claim_ids": ["claim-1"],
+              "contradicts_claim_ids": [], "background_claim_ids": [],
+              "spans": [{"text": "AUTHORIZED-EXACT-SPAN", "start": 10,
+                         "end": 31, "locator_type": "TEXT_SPAN"}],
+              "displayable": True, "policy_reason": "",
+              "snapshot_drift": {"detected": False}},
+             {"schema_version": "reference-card-1.0", "citation_id": 2,
+              "evidence_id": "ev-drift", "record_id": "rec-drift",
+              "source_snapshot_id": "ss-old", "source_role": "background",
+              "supports_claim_ids": [], "contradicts_claim_ids": [],
+              "background_claim_ids": ["claim-1"], "spans": [],
+              "displayable": False, "policy_reason": "SOURCE_SNAPSHOT_DRIFT",
+              "snapshot_drift": {"detected": True,
+                                 "expected_source_snapshot_id": "ss-new",
+                                 "bound_source_snapshot_id": "ss-old"}}],
+         "cited_record_ids": ["rec-exact"]},
+    ])
+
+
 FIXTURES = {
     "supported_full": ("supported_full", fixture_supported),
     "partial": ("partial", fixture_partial),
@@ -528,6 +570,29 @@ def case_supported(browser, base_url, viewport, update):
              detail + " failed: " + ", ".join(
                  k for k, v in checks.items() if not v))
         return checks
+    finally:
+        ctx.close()
+
+
+def case_phase08_reference_cards(browser, base_url, viewport, update):
+    ctx, page, _ = run_case(
+        browser, base_url, fixture_reference_cards(),
+        "phase08_reference_cards", viewport, update)
+    try:
+        exact = page.locator(".qa-citation-item").first.locator(
+            ".qa-evidence-span mark")
+        visible_text = page.locator("#qaMain").inner_text()
+        test(f"RT091.visual_exact_span_{viewport}",
+             exact.count() == 1 and exact.inner_text() ==
+             "AUTHORIZED-EXACT-SPAN")
+        test(f"RT091.visual_source_role_{viewport}",
+             "primary" in page.locator(".qa-reference-role").first.inner_text())
+        test(f"RT091.visual_drift_warning_{viewport}",
+             page.locator(
+                 '[data-warning="SOURCE_SNAPSHOT_DRIFT"]').count() == 1)
+        test(f"RT091.visual_surrounding_text_withheld_{viewport}",
+             "UNAUTHORIZED-SURROUNDING-TEXT" not in visible_text
+             and "STALE-SNAPSHOT-TEXT" not in visible_text)
     finally:
         ctx.close()
 
@@ -857,6 +922,12 @@ def _run_all(pw, update) -> int:
                 print(f"  [{viewport}]")
                 for name, fn in cases:
                     _safe_case(fn, browser, base_url, viewport, update, name)
+                # Phase08 RT-091 browser behavior has geometry/visibility
+                # assertions but intentionally no new golden: existing RT029
+                # goldens stay immutable while the exact-span policy is still
+                # exercised in real Chromium.
+                case_phase08_reference_cards(
+                    browser, base_url, viewport, update)
                 case_mutation(browser, base_url, viewport, update)
         finally:
             browser.close()
@@ -916,6 +987,8 @@ def test_rt029_visual_mutation_layout_assert_mobile(): _ensure_executed(); _asse
 def test_rt029_visual_baseline_selftest_desktop(): _ensure_executed(); _assert_case("RT029.visual_baseline_selftest_desktop")
 def test_rt029_visual_baseline_selftest_mobile(): _ensure_executed(); _assert_case("RT029.visual_baseline_selftest_mobile")
 def test_rt029_visual_baseline_restored_desktop(): _ensure_executed(); _assert_case("RT029.visual_baseline_restored_desktop")
+def test_rt091_visual_reference_cards_desktop(): _ensure_executed(); _assert_case("RT091.visual_exact_span_desktop"); _assert_case("RT091.visual_source_role_desktop"); _assert_case("RT091.visual_drift_warning_desktop"); _assert_case("RT091.visual_surrounding_text_withheld_desktop")
+def test_rt091_visual_reference_cards_mobile(): _ensure_executed(); _assert_case("RT091.visual_exact_span_mobile"); _assert_case("RT091.visual_source_role_mobile"); _assert_case("RT091.visual_drift_warning_mobile"); _assert_case("RT091.visual_surrounding_text_withheld_mobile")
 def test_rt029_visual_baseline_restored_mobile(): _ensure_executed(); _assert_case("RT029.visual_baseline_restored_mobile")
 def test_rt029_visual_corrupt_baseline_fails_desktop(): _ensure_executed(); _assert_case("RT029.visual_corrupt_baseline_fails_desktop")
 def test_rt029_visual_corrupt_baseline_fails_mobile(): _ensure_executed(); _assert_case("RT029.visual_corrupt_baseline_fails_mobile")

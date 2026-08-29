@@ -65,7 +65,11 @@ from phase02_pipeline import run_phase02_verification, CITATION_SCHEMA_VERSION
 from budget_guard import BudgetExceededError, QueryBudget
 from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
 from degraded_mode import build_user_warning, looks_like_api_failure
-from answer_status import AnswerStatus, determine_answer_status, build_evidence_summary
+from answer_status import (AnswerStatus, determine_answer_status,
+                           build_evidence_summary, build_terminal_response)
+from reference_cards import build_reference_cards
+from audit_ui import (AuditAuthorizationError, AuditTraceUnavailable,
+                      TraceAuditService)
 from content_safety import scan_search_results, augment_system_prompt
 from budget_guard import check_budget, BudgetDecision, is_correctness_critical
 from runtime_safety import (
@@ -1509,6 +1513,28 @@ app.add_middleware(
 app.add_middleware(RuntimePinMiddleware)
 
 
+def _canonical_terminal_payload(payload: dict) -> dict:
+    """RT-090: one schema builder for every non-cancellation terminal exit."""
+    value = dict(payload or {})
+    if "answer" not in value:
+        value["answer"] = str(value.get("message") or "")
+    value.setdefault("citations", [])
+    value.setdefault("claims", [])
+    value.setdefault("cited_record_ids", [])
+    value.setdefault("searched_record_ids", [])
+    value.setdefault("evidence_summary", build_evidence_summary())
+    value.setdefault("degraded_capabilities", [])
+    try:
+        from feature_flags import active_profile
+        value.setdefault("profile", active_profile() or "")
+    except Exception:
+        value.setdefault("profile", "")
+    value.setdefault("profile_diagnostics", {
+        "runtime_safety_profile_version": RUNTIME_SAFETY_PROFILE_VERSION,
+    })
+    return build_terminal_response(**value)
+
+
 # ── Endpoints ──
 
 @app.get("/api/shadow/report")
@@ -1528,6 +1554,31 @@ async def shadow_report():
         "entity_query_shadow_enabled": _ENTITY_QUERY_SHADOW_ENABLED,
         "entity_query_shadow": entity_report,
     }
+
+
+@app.get("/api/operator/audit/traces/{trace_id}")
+async def operator_trace_view(trace_id: str, request: Request):
+    """RT-094 operator-only retained Trace view; frontend hiding is irrelevant."""
+    from trace import get_trace_dir
+    configured_scope = {
+        value.strip() for value in os.environ.get(
+            "QA_OPERATOR_ALLOWED_SNAPSHOT_IDS", "").split(",")
+        if value.strip()
+    }
+    service = TraceAuditService(
+        get_trace_dir(), operator_key=GUARDRAILS.admin_key)
+    try:
+        return service.view(
+            request.headers.get("x-admin-key", ""), trace_id,
+            permitted_snapshot_ids=(configured_scope or None))
+    except AuditAuthorizationError:
+        return JSONResponse(
+            {"error": "operator authorization required",
+             "reason_code": "AUDIT_OPERATOR_REQUIRED"}, status_code=403)
+    except AuditTraceUnavailable as exc:
+        return JSONResponse(
+            {"error": "trace unavailable", "reason_code": str(exc)},
+            status_code=404)
 
 
 @app.get("/api/health")
@@ -1574,7 +1625,12 @@ async def chat_stream(req: ChatRequest, request: Request):
     query = req.query.strip()
     if not query or len(query) > 2000:
         return JSONResponse(
-            {"error": "问题不能为空，且长度不能超过 2000 个字符。"}, status_code=400
+            _canonical_terminal_payload({
+                "error": "问题不能为空，且长度不能超过 2000 个字符。",
+                "answer": "问题不能为空，且长度不能超过 2000 个字符。",
+                "answer_status": "UNSUPPORTED",
+                "stop_reason": "invalid_query",
+            }), status_code=400
         )
 
     # Required backend availability is an infrastructure condition, not a
@@ -1582,8 +1638,11 @@ async def chat_stream(req: ChatRequest, request: Request):
     if _request_runtime_snapshot.get() is None and _vector_index is None:
         CHAT_ADMISSION.record_backend_unavailable()
         return JSONResponse(
-            {"error": "required retrieval backend unavailable",
-             "reason_code": "RUNTIME_REQUIRED_BACKEND_UNAVAILABLE"},
+            _canonical_terminal_payload({
+             "error": "required retrieval backend unavailable",
+             "answer_status": "UNVERIFIED",
+             "stop_reason": "required_backend_unavailable",
+             "reason_code": "RUNTIME_REQUIRED_BACKEND_UNAVAILABLE"}),
             status_code=503,
         )
 
@@ -1593,7 +1652,9 @@ async def chat_stream(req: ChatRequest, request: Request):
     allowed, reason, retry_after = RATE_LIMITER.check(client_id, bypass=bypass)
     if not allowed:
         return JSONResponse(
-            {"error": reason, "retry_after": retry_after},
+            _canonical_terminal_payload({
+                "error": reason, "answer_status": "UNVERIFIED",
+                "stop_reason": "rate_limited", "retry_after": retry_after}),
             status_code=429,
             headers={"Retry-After": str(retry_after)},
         )
@@ -1604,9 +1665,12 @@ async def chat_stream(req: ChatRequest, request: Request):
         wait_timeout=float(os.environ.get("QA_CHAT_QUEUE_WAIT_TIMEOUT", "5")))
     if admission == AdmissionOutcome.QUEUE_FULL:
         return JSONResponse(
-            {"error": "当前问答请求较多，请稍后重试。",
+            _canonical_terminal_payload({
+             "error": "当前问答请求较多，请稍后重试。",
+             "answer_status": "UNVERIFIED",
+             "stop_reason": "admission_queue_full",
              "retry_after": CHAT_ADMISSION.retry_after,
-             "reason_code": "RUNTIME_ADMISSION_QUEUE_FULL"},
+             "reason_code": "RUNTIME_ADMISSION_QUEUE_FULL"}),
             status_code=429,
             headers={"Retry-After": str(CHAT_ADMISSION.retry_after)},
         )
@@ -1951,7 +2015,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 trace.set_result(answer_status="UNVERIFIED",
                                  stop_reason=_agentic_failure_reason)
                 trace.flush()
-                yield {"event": "done", "data": json.dumps({
+                yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "answer": "关键研究/证据阶段未能完成；当前请求没有返回普通可信答案。",
                     "citations": [], "cited_record_ids": [],
                     "searched_record_ids": [],
@@ -1960,7 +2024,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "stop_reason": _agentic_failure_reason,
                     "boundary_message": "correctness-critical stage failed closed",
                     "trace_id": trace.trace_id,
-                })}
+                }))}
                 return
 
             # Standard RAG path (only if agentic didn't run or failed)
@@ -2025,7 +2089,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         answer_status="UNSUPPORTED",
                         stop_reason="phase03_missing_pinned_authority")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": "证据模式需要固定的发布清单权威（manifest 运行时），"
                                   "当前环境缺少 pinned source authority，已按规范拒绝回答。",
                         "citations": [],
@@ -2035,7 +2099,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "stop_reason": "phase03_missing_pinned_authority",
                         "boundary_message": "evidence authority fail-closed",
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                     return
                 except Exception as e:
                     print(f"[phase03] pipeline error: {e}", flush=True)
@@ -2050,7 +2114,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     trace.set_result(answer_status="UNSUPPORTED",
                                      stop_reason="phase03_no_evidence")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": _canonical_boundary,
                         "citations": [],
                         "cited_record_ids": [],
@@ -2059,13 +2123,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "stop_reason": "phase03_no_evidence",
                         "boundary_message": _canonical_boundary,
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                     return
                 if _p03["status"] == "context_capacity_exceeded":
                     trace.set_result(answer_status="UNSUPPORTED",
                                      stop_reason="phase03_context_capacity_exceeded")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": "证据包超出上下文容量且强制证据无法压缩，按规范 abstain："
                                   "请缩小问题范围后重试。",
                         "citations": [],
@@ -2074,7 +2138,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "answer_status": "UNSUPPORTED",
                         "stop_reason": "phase03_context_capacity_exceeded",
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                     return
                 # When Phase03 is active the generation context is the
                 # allowlisted GeneratorInput rendering of the typed Evidence
@@ -2113,7 +2177,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 if search_status == "exhausted":
                     trace.set_result(answer_status="UNSUPPORTED", stop_reason="topic_exhausted")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": "前面的回答已经覆盖了这个话题的主要方面。当前数据库中暂未找到更多未讨论过的相关资料。\n\n如果你对某个具体方向感兴趣，可以换一个更精确的关键词提问，我会重新检索。",
                         "citations": [],
                         "cited_record_ids": [],
@@ -2122,11 +2186,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "stop_reason": "topic_exhausted",
                         "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                 elif not prev_has_results and seeking_novelty:
                     trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": "上一轮未找到相关资料，请尝试换个更具体的关键词提问。",
                         "citations": [],
                         "cited_record_ids": [],
@@ -2135,11 +2199,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "stop_reason": "weak_query",
                         "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                 else:
                     trace.set_result(answer_status="UNSUPPORTED", stop_reason="weak_query")
                     trace.flush()
-                    yield {"event": "done", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "answer": "抱歉，数据库中没有足够的情报来回答这个问题。请尝试用更具体的关键词或换个角度提问。",
                         "citations": [],
                         "cited_record_ids": [],
@@ -2148,7 +2212,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "stop_reason": "weak_query",
                         "boundary_message": _early_boundary,
                         "trace_id": trace.trace_id,
-                    })}
+                    }))}
                 return
 
             if context is None:
@@ -2193,12 +2257,13 @@ async def chat_stream(req: ChatRequest, request: Request):
             if not budget_ok:
                 trace.set_result(answer_status="UNVERIFIED", stop_reason="budget_exceeded")
                 trace.flush()
-                yield {"event": "error", "data": json.dumps({
+                yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "message": "今日问答费用预算已达到上限，服务已自动暂停。",
                     "answer_status": "UNVERIFIED",
                     "stop_reason": "budget_exceeded",
                     "trace_id": trace.trace_id,
-                })}
+                    "legacy_event": "error",
+                }))}
                 return
 
             yield {"event": "status", "data": json.dumps({
@@ -2287,19 +2352,22 @@ async def chat_stream(req: ChatRequest, request: Request):
                         requirement_critical=True,
                         safe_fallback_available=False,
                         query_budget_cost=1)
-                except (StageExecutionError, RequestCancelled) as exc:
+                except RequestCancelled:
+                    raise
+                except StageExecutionError as exc:
                     trace.add_stage("generator_failure", {
                         "reason_code": "RUNTIME_GENERATOR_FAILURE",
                         "error": str(exc)[:160],
                         "degraded_capabilities": execution.degraded_capabilities,
                     })
-                    yield {"event": "error", "data": json.dumps({
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                         "message": "回答生成服务未能在安全时限内完成。",
                         "answer_status": "UNVERIFIED",
                         "stop_reason": "generator_failure",
                         "degraded_capabilities": execution.degraded_capabilities,
                         "trace_id": trace.trace_id,
-                    })}
+                        "legacy_event": "error",
+                    }))}
                     return
             if not Flags.TERMINAL_RENDERER_ENABLED:
                 # Compatibility profile: stream once.  It may use the existing
@@ -2330,12 +2398,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 execution.check_active()
                                 yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
                                 await asyncio.sleep(0.015)
-                    except Exception as e2:
-                        yield {"event": "error", "data": json.dumps({
-                            "message": f"生成失败: {e2}",
+                    except RequestCancelled:
+                        raise
+                    except Exception:
+                        yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
+                            "message": "回答生成服务暂时不可用。",
                             "answer_status": "UNVERIFIED",
                             "degraded_capabilities": execution.degraded_capabilities,
-                        })}
+                            "stop_reason": "generator_failure",
+                            "trace_id": trace.trace_id,
+                            "legacy_event": "error",
+                        }))}
                         return
 
             # ══════════════════════════════════════════════════════════════
@@ -2533,9 +2606,35 @@ async def chat_stream(req: ChatRequest, request: Request):
                     cited_record_ids=p02["cited_record_ids"],
                     verification_status=p02["verification_status"],
                 )
-                yield {"event": "done", "data": json.dumps({
+                _p02_records_by_rid = {
+                    str(row.get("record_id") or ""): row
+                    for row in (_p02_records or [])
+                    if row.get("record_id")
+                }
+                for _citation in p02["citations"]:
+                    _rid = str(_citation.get("record_id") or "")
+                    _record = _p02_records_by_rid.get(_rid) or {}
+                    _provenance = (_phase03_pinned_provenance or {}).get(
+                        _rid) or {}
+                    _citation.setdefault(
+                        "source_role", _provenance.get("source_role") or
+                        _record.get("source_role") or
+                        _record.get("evidence_role") or "unknown")
+                    _citation.setdefault(
+                        "access_scope", _record.get("access_scope") or "public")
+                _pinned_snapshot_ids = {
+                    str(row.get("record_id") or ""):
+                    str(row.get("source_snapshot_id") or "")
+                    for row in ((_p02_catalog or {}).get("snapshots") or [])
+                }
+                reference_cards = build_reference_cards(
+                    p02["citations"], p02["claims_payload"],
+                    caller_scope=req.access_scope,
+                    current_snapshot_ids=_pinned_snapshot_ids)
+                yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "answer": final_answer,
                     "citations": p02["citations"],
+                    "reference_cards": reference_cards,
                     "citation_schema_version": CITATION_SCHEMA_VERSION,
                     "claims": p02["claims_payload"],
                     "cited_record_ids": p02["cited_record_ids"],
@@ -2555,8 +2654,15 @@ async def chat_stream(req: ChatRequest, request: Request):
                            if d not in p02["degraded_capabilities"]]),
                     "numeric_facts": p02["numeric_facts"],
                     "diagnostics": p02["diagnostics"],
+                    "state_machine_snapshot":
+                        p02["diagnostics"].get("state_machine"),
+                    "trace_diagnostics": {
+                        "phase02_pipeline_version": p02["diagnostics"].get(
+                            "phase02_pipeline_version", ""),
+                        "manifest_id": p02["diagnostics"].get("manifest_id", ""),
+                    },
                     "trace_id": trace.trace_id,
-                })}
+                }))}
                 trace.flush()
             else:
                 # Parse [N] citations from the generated answer
@@ -2892,12 +2998,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                     verification_status=verification_status,
                 )
 
-                yield {"event": "done", "data": json.dumps({
+                _legacy_claims_payload = [
+                    {"id": c.get("id"), "text": c.get("text", "")[:120],
+                     "status": c.get("support_status", ""),
+                     "relations": [{"citation_id": rel.get("citation_id"),
+                                    "relation": rel.get("relation")}
+                                   for rel in (c.get("supported_by") or [])]}
+                    for c in claim_map.get("claims", [])[:12]
+                ]
+                yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "answer": full_answer,
                     "citations": citations,
-                    "claims": [{"id": c.get("id"), "text": c.get("text", "")[:120],
-                                "status": c.get("support_status", "")}
-                               for c in claim_map.get("claims", [])[:12]],
+                    "reference_cards": build_reference_cards(
+                        citations, _legacy_claims_payload,
+                        caller_scope=req.access_scope),
+                    "claims": _legacy_claims_payload,
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
                     "answer_status": answer_status_str,
@@ -2907,7 +3022,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "user_warning": user_warning,
                     "evidence_summary": evidence_summary,
                     "trace_id": trace.trace_id,
-                })}
+                }))}
 
                 trace.flush()
 
@@ -2946,11 +3061,13 @@ async def chat_stream(req: ChatRequest, request: Request):
             trace.set_result(answer_status="UNVERIFIED", stop_reason="error", error=str(e)[:200])
             trace.flush()
             if not execution.cancelled.is_set():
-                yield {"event": "error", "data": json.dumps({
-                    "message": str(e), "answer_status": "UNVERIFIED",
+                yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
+                    "message": "请求处理失败，未生成可信答案。",
+                    "stop_reason": "error",
                     "degraded_capabilities": execution.degraded_capabilities,
                     "trace_id": trace.trace_id,
-                })}
+                    "legacy_event": "error",
+                }))}
         finally:
             # StreamingResponse may close an async generator with ``aclose``
             # rather than injecting CancelledError.  The request scope still

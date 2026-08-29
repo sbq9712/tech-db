@@ -966,7 +966,8 @@ def test_rt050_rt053_endpoint_failure_composition():
         failed = client.post("/api/chat/stream", json={"query": "generator"})
         events = failed.text
         check("RT050.generator_failure_has_no_supported_done",
-              "event: error" in events
+              "event: done" in events
+              and '"legacy_event": "error"' in events
               and '"answer_status": "UNVERIFIED"' in events
               and '"answer_status": "SUPPORTED"' not in events)
         check("RT052.timed_out_or_failed_draft_not_emitted",

@@ -73,6 +73,7 @@ SUITES = {
     "benchmark_phase06": ("tests_benchmark_phase06.py", "push"),
     "remediation_phase07": ("tests_remediation_phase07.py", "push"),
     "benchmark_phase07": ("tests_benchmark_phase07.py", "push"),
+    "remediation_phase08": ("tests_remediation_phase08.py", "push"),
     "index_migration": ("tests_index_migration.py", "push"),
     "visual_rt029":    ("tests_visual_rt029.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),

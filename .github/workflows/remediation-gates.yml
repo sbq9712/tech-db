@@ -159,6 +159,19 @@ jobs:
       - run: python qa-backend/tests_remediation_phase07.py
       - run: python qa-backend/tests_benchmark_phase07.py
 
+  phase08-api-ui-trace-replay:
+    # Phase 08 (RT-090..094): unified terminal contract, exact-span
+    # ReferenceCards, truthful replay fidelity, Human Review/holdout
+    # isolation, and server-authorized retained Trace audit views.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - run: python qa-backend/tests_remediation_phase08.py
+
   legacy-index-migration:
     # Phase-02 review blocker C: legacy dataset (no inline record_id) →
     # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →

@@ -91,7 +91,12 @@
     "RT-084",
     "RT-085",
     "RT-086",
-    "RT-087"
+    "RT-087",
+    "RT-090",
+    "RT-091",
+    "RT-092",
+    "RT-093",
+    "RT-094"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -108,7 +113,8 @@
     "index_migration": "qa-backend/tests_index_migration.py",
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
     "remediation_phase07": "qa-backend/tests_remediation_phase07.py",
-    "benchmark_phase07": "qa-backend/tests_benchmark_phase07.py"
+    "benchmark_phase07": "qa-backend/tests_benchmark_phase07.py",
+    "remediation_phase08": "qa-backend/tests_remediation_phase08.py"
   },
   "legacy_ticket_entries": [
     {
@@ -18564,6 +18570,99 @@
               "command": "python qa-backend/tests_remediation_phase05.py"
             }
           ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-090",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-090.DOD-01",
+          "description": "all non-cancellation terminal exits use one versioned response contract bound to the canonical AnswerStateMachine",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt090_canonical_terminal_contract", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        },
+        {
+          "dod_id": "RT-090.DOD-02",
+          "description": "real production server success partial unsupported unverified and technical exits are uniform while cancellation emits no fabricated done",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt090_real_server_terminal_matrix", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-091",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-091.DOD-01",
+          "description": "ReferenceCards expose only exact authorized EvidenceRef spans with claim relation and source-role metadata",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt091_claim_aware_reference_cards", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        },
+        {
+          "dod_id": "RT-091.DOD-02",
+          "description": "missing invalid stale denied and Graph-only authority fails closed and frontend safely escapes rendered spans",
+          "status": "SATISFIED",
+          "test_cases": [
+            {"suite": "remediation_phase08", "case": "test_rt091_claim_aware_reference_cards", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"},
+            {"suite": "visual_rt029", "case": "test_rt091_visual_reference_cards_desktop", "level": "e2e", "command": "python qa-backend/tests_visual_rt029.py"}
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-092",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-092.DOD-01",
+          "description": "replay reports exactly HISTORICAL_EXACT HISTORICAL_ARTIFACTS_CURRENT_MODEL CURRENT_COMPARISON or PARTIAL_REPLAY based on available authority",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt092_replay_fidelity_modes", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        },
+        {
+          "dod_id": "RT-092.DOD-02",
+          "description": "bounded case-group command emits deterministic machine diffs and rejects malformed replay data",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt092_replay_fidelity_modes", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-093",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-093.DOD-01",
+          "description": "only human-confirmed cases enter development regression with durable origin confirmation stage and promotion provenance",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt093_human_review_holdout_isolation", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        },
+        {
+          "dod_id": "RT-093.DOD-02",
+          "description": "Human Review cannot auto-promote into the locked holdout and normal promotion leaves holdout and lock checksums unchanged",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt093_human_review_holdout_isolation", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-094",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-094.DOD-01",
+          "description": "audit Trace access is operator-authorized at the server boundary and reapplies retention redaction and snapshot scope",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt094_operator_audit_policy", "level": "e2e", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        },
+        {
+          "dod_id": "RT-094.DOD-02",
+          "description": "audit replay labels expose the truthful RT-092 fidelity mode and never expose unrestricted raw trace content",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "remediation_phase08", "case": "test_rt094_operator_audit_policy", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
         }
       ]
     }

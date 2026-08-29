@@ -87,7 +87,11 @@ def t_user_warning_ui():
 def t_claims_in_done_event():
     backend = Path(__file__).resolve().parent / "server.py"
     src = backend.read_text(encoding="utf-8")
-    assert '"claims": [{' in src  # done event carries claims for the card
+    # Both terminal paths carry their runtime claim payload into the canonical
+    # done event; the Phase08 schema refactor intentionally avoids hard-coded
+    # fixture-shaped list literals in production source.
+    assert '"claims": p02["claims_payload"]' in src
+    assert '"claims": _legacy_claims_payload' in src
 
 
 def t_render_sim():

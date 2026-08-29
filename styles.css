@@ -2577,6 +2577,30 @@ html:not([data-theme="light"]) .icon-moon { display: block; }
 }
 
 /* ═══════════ TK-13 (Q13/R8): evidence card + citation schema ═══════════ */
+.qa-reference-role,
+.qa-replay-fidelity {
+  margin-top: 6px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.qa-reference-warning {
+  margin-top: 7px;
+  padding: 7px 9px;
+  border: 1px solid rgba(217, 119, 6, .35);
+  border-radius: 7px;
+  color: #b45309;
+  background: rgba(245, 158, 11, .08);
+  font-size: 12px;
+}
+
+.qa-replay-fidelity {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--surface-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
 .qa-user-warning {
   max-width: 800px;
   margin: 8px auto 0;

@@ -16,6 +16,7 @@ import sys
 import os
 import asyncio
 import argparse
+from enum import Enum
 from pathlib import Path
 from datetime import datetime
 
@@ -25,6 +26,107 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 sys.path.insert(0, str(REPO))
 
 TRACE_DIR = REPO / "runtime" / "traces"
+
+
+class ReplayFidelity(str, Enum):
+    HISTORICAL_EXACT = "HISTORICAL_EXACT"
+    HISTORICAL_ARTIFACTS_CURRENT_MODEL = "HISTORICAL_ARTIFACTS_CURRENT_MODEL"
+    CURRENT_COMPARISON = "CURRENT_COMPARISON"
+    PARTIAL_REPLAY = "PARTIAL_REPLAY"
+
+
+class ReplayDataError(ValueError):
+    pass
+
+
+_EXACT_INPUTS = (
+    "manifest_id", "model_identity", "prompt_template_id", "profile",
+    "feature_flags_hash", "deterministic_inputs",
+)
+
+
+def classify_replay_fidelity(case: dict, *, requested_mode: str = "",
+                             historical_model_available: bool = False) -> dict:
+    """Truthfully classify what the canonical trace can reproduce."""
+    if not isinstance(case, dict) or not str(case.get("trace_id") or ""):
+        raise ReplayDataError("replay case requires trace_id")
+    missing = [name for name in _EXACT_INPUTS if not case.get(name)]
+    requested = str(requested_mode or case.get("requested_mode") or "").upper()
+    if requested == ReplayFidelity.CURRENT_COMPARISON.value:
+        mode = ReplayFidelity.CURRENT_COMPARISON
+    elif not missing and historical_model_available:
+        mode = ReplayFidelity.HISTORICAL_EXACT
+    elif case.get("manifest_id") and case.get("historical_artifacts_available"):
+        mode = ReplayFidelity.HISTORICAL_ARTIFACTS_CURRENT_MODEL
+        if not historical_model_available:
+            missing = sorted(set(missing + ["historical_model_runtime"]))
+    else:
+        mode = ReplayFidelity.PARTIAL_REPLAY
+    return {
+        "fidelity_mode": mode.value,
+        "missing_components": sorted(set(missing)),
+        "historical_model_available": bool(historical_model_available),
+        "exact_replay_claim": mode is ReplayFidelity.HISTORICAL_EXACT,
+    }
+
+
+def deterministic_output_diff(before: dict, after: dict) -> dict:
+    """Stable machine diff; no claim that external generation is deterministic."""
+    before = before if isinstance(before, dict) else {}
+    after = after if isinstance(after, dict) else {}
+    keys = sorted(set(before) | set(after))
+    return {
+        "changed_fields": [key for key in keys if before.get(key) != after.get(key)],
+        "before_sha256": __import__("hashlib").sha256(json.dumps(
+            before, ensure_ascii=False, sort_keys=True,
+            separators=(",", ":"), default=str).encode()).hexdigest(),
+        "after_sha256": __import__("hashlib").sha256(json.dumps(
+            after, ensure_ascii=False, sort_keys=True,
+            separators=(",", ":"), default=str).encode()).hexdigest(),
+    }
+
+
+def replay_case_group(document: dict, *, current_versions: dict | None = None,
+                      historical_model_available: bool = False) -> dict:
+    """Bounded, deterministic report for an explicitly supplied case group."""
+    if not isinstance(document, dict) or not isinstance(document.get("cases"), list):
+        raise ReplayDataError("case group must contain a cases list")
+    cases = document["cases"]
+    if not cases or len(cases) > 100:
+        raise ReplayDataError("case group size must be between 1 and 100")
+    current_versions = dict(current_versions or {})
+    rows = []
+    for raw in cases:
+        if not isinstance(raw, dict):
+            raise ReplayDataError("each replay case must be an object")
+        fidelity = classify_replay_fidelity(
+            raw, requested_mode=raw.get("requested_mode", ""),
+            historical_model_available=historical_model_available)
+        historical = dict(raw.get("historical_output") or {})
+        current = dict(raw.get("current_output") or {})
+        version_differences = {}
+        for key in sorted(set(current_versions) | set(raw.get("versions") or {})):
+            old = (raw.get("versions") or {}).get(key)
+            new = current_versions.get(key)
+            if old != new:
+                version_differences[key] = {"historical": old, "current": new}
+        rows.append({
+            "trace_id": raw["trace_id"],
+            **fidelity,
+            "version_differences": version_differences,
+            "output_diff": deterministic_output_diff(historical, current),
+            "external_nondeterminism_reproduced": False,
+        })
+    counts = {mode.value: sum(1 for row in rows
+                              if row["fidelity_mode"] == mode.value)
+              for mode in ReplayFidelity}
+    return {
+        "schema_version": "trace-replay-report-2.0",
+        "case_group_id": str(document.get("case_group_id") or "unnamed"),
+        "total_cases": len(rows),
+        "fidelity_counts": counts,
+        "cases": rows,
+    }
 
 
 def load_traces(date: str = None, trace_id: str = None, bad_only: bool = False) -> list:
@@ -91,6 +193,14 @@ def create_replay_case(trace: dict) -> dict:
         "stages": trace.get("stages", []),
         # Ground truth is derived from previous answer (human-confirmed)
         "expected_records": result.get("cited_record_ids", []),
+        "manifest_id": trace.get("manifest_id", ""),
+        "model_identity": trace.get("model_identity", ""),
+        "prompt_template_id": trace.get("prompt_template_id", ""),
+        "profile": trace.get("profile", ""),
+        "feature_flags_hash": trace.get("feature_flags_hash", ""),
+        "deterministic_inputs": trace.get("deterministic_inputs"),
+        "historical_artifacts_available": bool(
+            trace.get("manifest_id") and trace.get("artifacts_available")),
     }
 
 
@@ -191,7 +301,31 @@ async def main():
     parser.add_argument("--date", help="Replay all traces from date (YYYY-MM-DD)")
     parser.add_argument("--bad-only", action="store_true", help="Only replay non-SUPPORTED traces")
     parser.add_argument("--limit", type=int, default=20, help="Max cases to replay")
+    parser.add_argument("--case-group", help="Bounded JSON case-group input")
+    parser.add_argument("--output", help="Machine-readable report path")
+    parser.add_argument("--current-model", default="")
+    parser.add_argument("--current-manifest", default="")
     args = parser.parse_args()
+
+    if args.case_group:
+        try:
+            source = Path(args.case_group)
+            document = json.loads(source.read_text("utf-8"))
+            report = replay_case_group(document, current_versions={
+                "model_identity": args.current_model,
+                "manifest_id": args.current_manifest,
+            })
+            destination = Path(args.output or (REPO / "replay_report.json"))
+            destination.write_text(json.dumps(
+                report, ensure_ascii=False, indent=2) + "\n", "utf-8")
+            print(f"Replay group: {report['case_group_id']} ({report['total_cases']} cases)")
+            for mode, count in report["fidelity_counts"].items():
+                print(f"  {mode}: {count}")
+            print(f"Machine report: {destination}")
+            return
+        except (OSError, json.JSONDecodeError, ReplayDataError) as exc:
+            print(f"replay data rejected: {exc}", file=sys.stderr)
+            raise SystemExit(2)
 
     traces = load_traces(date=args.date, trace_id=args.trace_id, bad_only=args.bad_only)
     print(f"Loaded {len(traces)} traces for replay")

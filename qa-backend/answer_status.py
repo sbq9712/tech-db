@@ -25,6 +25,7 @@ from typing import Optional
 
 # Sole version identifier recorded in Trace / done event.
 STATE_MACHINE_VERSION = "2.0.0"
+TERMINAL_RESPONSE_SCHEMA_VERSION = "terminal-response-1.0"
 
 
 class AnswerStatus(str, Enum):
@@ -478,3 +479,97 @@ def build_evidence_summary(
         "independent_source_groups": independent_sources,
         "iterations": iterations,
     }
+
+
+def _compatibility_machine(answer_status: str, stop_reason: str = "") -> AnswerStateMachine:
+    """Route legacy terminal branches through the canonical state machine.
+
+    Phase08 still has early infrastructure/knowledge-boundary branches which
+    predate the Phase02 pipeline.  This adapter records the minimum facts
+    needed for the *existing* AnswerStateMachine to derive their terminal
+    state; it does not compute a second status.
+    """
+    requested = str(answer_status or "UNVERIFIED").upper()
+    machine = AnswerStateMachine()
+    if requested == "UNSUPPORTED":
+        machine.record_no_evidence(stop_reason or "no_evidence")
+    elif requested == "UNVERIFIED":
+        machine.record_technical_failure(
+            "verifier", stop_reason or "terminal_technical_failure")
+    elif requested == "PARTIALLY_SUPPORTED":
+        machine.start_verification()
+        machine.record_verifier_result("FAILED", stop_reason)
+    elif requested == "SUPPORTED":
+        machine.start_verification()
+        machine.record_verifier_result("PASSED")
+    else:
+        machine.record_technical_failure(
+            "answer_state_machine", "invalid_terminal_status")
+    machine.finalize()
+    if machine.terminal_status.value != requested:
+        raise ValueError(
+            f"legacy terminal status {requested!r} disagrees with canonical "
+            f"state {machine.terminal_status.value!r}")
+    return machine
+
+
+def build_terminal_response(*, answer: str, answer_status: str = "",
+                            stop_reason: str = "",
+                            verification_status: str = "",
+                            evidence_summary: Optional[dict] = None,
+                            degraded_capabilities: Optional[list] = None,
+                            trace_id: str = "", profile: str = "",
+                            trace_diagnostics: Optional[dict] = None,
+                            profile_diagnostics: Optional[dict] = None,
+                            state_machine_snapshot: Optional[dict] = None,
+                            **compatibility_fields) -> dict:
+    """Build the sole versioned payload for every normal terminal SSE exit.
+
+    A Phase02 caller supplies its canonical state-machine snapshot.  Older
+    early exits are routed through ``_compatibility_machine`` and the
+    derived snapshot is used.  The legacy ``status`` alias is deliberately
+    bound to ``answer_status`` so old clients cannot observe disagreement.
+    Cancellation remains control flow and must not call this builder.
+    """
+    compatibility_status = compatibility_fields.pop("status", None)
+    if compatibility_status is not None and str(compatibility_status).upper() != \
+            str(answer_status or "").upper():
+        raise ValueError("legacy status alias disagrees with answer_status")
+    if state_machine_snapshot is None:
+        machine = _compatibility_machine(answer_status, stop_reason)
+        state_machine_snapshot = machine.snapshot()
+    canonical_status = str(
+        (state_machine_snapshot or {}).get("answer_status") or "").upper()
+    requested_status = str(answer_status or canonical_status).upper()
+    if canonical_status not in TERMINAL_STATUSES:
+        raise ValueError("terminal response requires a canonical state snapshot")
+    if requested_status and requested_status != canonical_status:
+        raise ValueError("terminal answer_status disagrees with state authority")
+    canonical_verification = str(
+        verification_status or
+        (state_machine_snapshot or {}).get("verification_state") or
+        "NOT_RUN").upper()
+    summary = dict(evidence_summary or build_evidence_summary())
+    payload = {
+        "terminal_schema_version": TERMINAL_RESPONSE_SCHEMA_VERSION,
+        "answer": str(answer or ""),
+        "answer_status": canonical_status,
+        "status": canonical_status,  # versioned compatibility alias
+        "verification_status": canonical_verification,
+        "evidence_summary": summary,
+        "degraded_capabilities": sorted(set(
+            str(v) for v in (degraded_capabilities or []) if v)),
+        "stop_reason": str(stop_reason or
+                           state_machine_snapshot.get("stop_reason") or ""),
+        "trace_id": str(trace_id or ""),
+        "profile": str(profile or ""),
+        "trace_diagnostics": dict(trace_diagnostics or {}),
+        "profile_diagnostics": dict(profile_diagnostics or {}),
+        "state_machine": dict(state_machine_snapshot),
+    }
+    # Compatibility fields are presentation/data only.  Authority fields
+    # above cannot be overwritten by a legacy branch.
+    for key, value in compatibility_fields.items():
+        if key not in payload:
+            payload[key] = value
+    return payload
