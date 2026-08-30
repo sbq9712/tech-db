@@ -1,0 +1,18 @@
+{
+  "schema_version": "phase09-release-policy-1.0",
+  "required_suites": [
+    "benchmark_phase09",
+    "e2e_phase09",
+    "failure_injection_phase09",
+    "release_phase09"
+  ],
+  "hard_invariants": {
+    "invalid_displayed_citation_zero": "invalid_displayed_citations",
+    "verifier_technical_error_pass_zero": "verifier_technical_pass"
+  },
+  "graph_gain_conclusion": "NO_GAIN",
+  "external_blockers": {
+    "RT-005": "repository branch protection/required checks require administration",
+    "RT-075": "production-representative ER shadow evidence is unavailable"
+  }
+}

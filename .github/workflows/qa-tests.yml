@@ -104,6 +104,7 @@ jobs:
             qa-backend/test_summary.json
             qa-backend/test_fixtures/gate2_report.json
             qa-backend/test_fixtures/nightly/eval_report.json
+          retention-days: 180
       - name: Commit artifacts back
         if: always()
         run: |

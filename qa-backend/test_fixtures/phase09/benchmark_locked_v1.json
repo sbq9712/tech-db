@@ -1,0 +1,66 @@
+{
+  "schema_version": "phase09-locked-fixture-1.0",
+  "status": "LOCKED_REVIEWED_FIXTURE",
+  "labels_independent_of_system_output": true,
+  "manifest_id": "mini-runtime-phase09-v1",
+  "identity_snapshot_id": "identity-phase09-locked-v1",
+  "model": "deterministic-phase09-adapter-v1",
+  "thresholds": {
+    "route_recall": 1.0,
+    "union_recall": 1.0,
+    "outlier_retention": 1.0,
+    "reranker_ndcg": 0.95,
+    "requirement_coverage": 1.0,
+    "source_independence": 1.0,
+    "redundancy_max": 0.25,
+    "temporal_fit": 1.0,
+    "invalid_displayed_citation_max": 0,
+    "verifier_technical_pass_max": 0,
+    "multi_document_answer_gain": 0.25,
+    "er_candidate_recall": 0.98,
+    "er_false_link_max": 0.02
+  },
+  "retrieval": {
+    "relevant_by_query": {
+      "battery endurance 14.5 hours": ["rec-outlier", "rec-independent"],
+      "2026 audited battery result": ["rec-primary", "rec-independent"]
+    },
+    "route_hits": {
+      "vector": ["rec-primary", "rec-noise"],
+      "bm25": ["rec-outlier", "rec-primary"],
+      "chunk": ["rec-independent", "rec-outlier"]
+    },
+    "documents": [
+      {"record_id": "rec-primary", "source_group": "maker", "date": "2026-07-01", "requirements": ["performance"], "score": 0.91},
+      {"record_id": "rec-independent", "source_group": "lab", "date": "2026-07-02", "requirements": ["performance", "validation"], "score": 0.94},
+      {"record_id": "rec-outlier", "source_group": "journal", "date": "2026-06-30", "requirements": ["performance"], "score": 0.99},
+      {"record_id": "rec-noise", "source_group": "maker", "date": "2024-01-01", "requirements": [], "score": 0.10}
+    ]
+  },
+  "multi_document": [
+    {
+      "record_id": "doc-maker",
+      "source_snapshot_id": "ss-maker",
+      "source_group": "maker",
+      "text": "Maker reports battery endurance is 14.5 hours under test condition A.",
+      "span": "battery endurance is 14.5 hours",
+      "requirement_id": "performance"
+    },
+    {
+      "record_id": "doc-lab",
+      "source_snapshot_id": "ss-lab",
+      "source_group": "independent-lab",
+      "text": "Independent lab confirms 14.5 hours under test condition A.",
+      "span": "confirms 14.5 hours under test condition A",
+      "requirement_id": "validation"
+    },
+    {
+      "record_id": "doc-conflict",
+      "source_snapshot_id": "ss-conflict",
+      "source_group": "independent-lab-2",
+      "text": "A second lab reports 12.0 hours under test condition B, which is not directly comparable.",
+      "span": "12.0 hours under test condition B",
+      "requirement_id": "conflict"
+    }
+  ]
+}
