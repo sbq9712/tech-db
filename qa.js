@@ -233,6 +233,7 @@ function renderAssistantMessage(msg, idx) {
   const content = msg.content || '';
   // RT-029: defensive verified-citation filtering (stale-cache safe)
   const citations = defensivelyFilterCitations(msg);
+  const referenceCards = Array.isArray(msg.reference_cards) ? msg.reference_cards : [];
   const isStreaming = msg.streaming || false;
 
   // Render content with citation refs [1] -> clickable
@@ -283,6 +284,12 @@ function renderAssistantMessage(msg, idx) {
     `;
   }
 
+  // RT-094: operator audit clients must display the truthful RT-092 mode.
+  // This block is presentation only; the server endpoint owns authorization.
+  if (!isStreaming && msg.audit_replay && msg.audit_replay.fidelity_mode) {
+    html += `<div class="qa-replay-fidelity" data-fidelity="${escHtml(msg.audit_replay.fidelity_mode)}">回放忠实度：${escHtml(msg.audit_replay.fidelity_mode)}</div>`;
+  }
+
   // TK-10 (Q11): user-visible warning for UNVERIFIED answers (e.g. GLM API failure)
   if (!isStreaming && msg.user_warning) {
     html += `<div class="qa-user-warning">${escHtml(msg.user_warning)}</div>`;
@@ -293,7 +300,10 @@ function renderAssistantMessage(msg, idx) {
     html += `
       <div class="qa-citations-block">
         <div class="qa-citations-title">📎 来源引用（${citations.length}条）</div>
-        ${citations.map(c => `
+        ${citations.map(c => {
+          const card = referenceCards.find(r => String(r.citation_id) === String(c.id));
+          const exactSpans = card && card.displayable && Array.isArray(card.spans) ? card.spans : [];
+          return `
           <div class="qa-citation-item" data-citation-num="${c.id}" data-record-id="${c.record_id}">
             <div class="qa-citation-header">
               <span class="qa-citation-number">[${c.id}]</span>
@@ -312,17 +322,24 @@ function renderAssistantMessage(msg, idx) {
               ? `<div class="qa-claim-badges">${c.supports_claim_ids.map(id =>
                   `<span class="qa-claim-badge">支持 ${escHtml(String(id).replace('claim_', '主张'))}</span>`).join('')}</div>`
               : ''}
+            ${card ? `<div class="qa-reference-role">来源角色：${escHtml(card.source_role || 'unknown')}</div>` : ''}
+            ${card && card.snapshot_drift && card.snapshot_drift.detected
+              ? '<div class="qa-reference-warning" data-warning="SOURCE_SNAPSHOT_DRIFT">⚠️ 来源快照已漂移，精确片段已隐藏</div>' : ''}
+            ${card && !card.displayable && card.policy_reason && !(card.snapshot_drift && card.snapshot_drift.detected)
+              ? `<div class="qa-reference-warning" data-warning="${escHtml(card.policy_reason)}">⚠️ 片段不可显示：${escHtml(card.policy_reason)}</div>` : ''}
             ${c.ungrouded_note ? `<div class="qa-citation-snippet qa-ungrounded-note">${escHtml(c.ungrouded_note)}</div>` : ''}
-            ${(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
+            ${exactSpans.length
+              ? exactSpans.map(span => `<div class="qa-evidence-span" title="已授权精确原文定位">🔖 <mark>${escHtml(span.text || '')}</mark></div>`).join('')
+              : (!card && Array.isArray(c.evidence_spans) && c.evidence_spans.length)
               ? `<div class="qa-evidence-span" title="精确原文定位（代码点区间）">🔖 <mark>${escHtml(c.evidence_spans[0].text || c.evidence_spans[0].highlight || '')}</mark></div>`
-              : (c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : '')}
-            ${c.body_snippet && !(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
+              : (!card && c.highlight ? `<div class="qa-evidence-span">🔖 <mark>${escHtml(c.highlight)}</mark></div>` : '')}
+            ${!card && c.body_snippet && !(Array.isArray(c.evidence_spans) && c.evidence_spans.length)
               ? `<div class="qa-citation-snippet">${escHtml(c.body_snippet)}...</div>` : ''}
             ${(Array.isArray(c.locators) && c.locators.length)
               ? `<div class="qa-locator-chip">📍 ${escHtml(c.locators[0].locator_type || 'TEXT_SPAN')} [${c.locators[0].start}–${c.locators[0].end}]${c.locators[0].normalized_start !== undefined ? ' · NFKC' : ''}</div>`
               : ''}
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     `;
   }
@@ -607,12 +624,20 @@ function handleSSEData(data, assistantMsg) {
     assistantMsg.searched_record_ids = data.searched_record_ids || [];
     // T033: Store answer status and evidence metadata for reference card UI
     assistantMsg.answer_status = data.answer_status || null;
+    assistantMsg.terminal_schema_version = data.terminal_schema_version || '';
+    // Phase08 compatibility alias is bound server-side. Fail closed if a
+    // cached/intermediary payload ever presents contradictory authorities.
+    if (data.status && data.answer_status && data.status !== data.answer_status) {
+      assistantMsg.answer_status = 'UNVERIFIED';
+      assistantMsg.user_warning = '终态字段不一致，已按未验证处理。';
+    }
     assistantMsg.stop_reason = data.stop_reason || null;
     assistantMsg.evidence_summary = data.evidence_summary || null;
+    assistantMsg.reference_cards = data.reference_cards || [];
     assistantMsg.trace_id = data.trace_id || null;
     // TK-13 (Q13): claims + user warning for the evidence card
     assistantMsg.claims = data.claims || [];
-    assistantMsg.user_warning = data.user_warning || '';
+    assistantMsg.user_warning = assistantMsg.user_warning || data.user_warning || '';
     // RT-029 (Phase 02): verified-citation schema version + verification state
     assistantMsg.citation_schema_version = data.citation_schema_version || '';
     assistantMsg.verification_status = data.verification_status || '';

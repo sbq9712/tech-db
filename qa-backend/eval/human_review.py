@@ -29,6 +29,8 @@ Workflow:
   3. confirmed cases enter regression suite
 """
 import json
+import hashlib
+import hmac
 import sys
 import os
 from pathlib import Path
@@ -41,6 +43,8 @@ TRACE_DIR = REPO / "runtime" / "traces"
 REVIEW_DIR = REPO / "qa-backend" / "eval" / "human_reviews"
 GOLDEN_BAD_CASES = REVIEW_DIR / "bad_cases.jsonl"
 CONFIRMED_CASES = REVIEW_DIR / "confirmed_cases.jsonl"
+DEVELOPMENT_REGRESSION = REVIEW_DIR / "golden_regression.json"
+LOCKED_HOLDOUT = REPO / "qa-backend" / "test_fixtures" / "holdout" / "holdout.json"
 
 
 PROBLEM_TYPES = [
@@ -195,6 +199,9 @@ def confirm_case(case_id: str, annotations: dict):
             cases.append(case)
 
     if target:
+        promotion = promote_confirmed_case(
+            target, destination="development_regression")
+        target["promotion"] = promotion
         # Save confirmed case
         REVIEW_DIR.mkdir(parents=True, exist_ok=True)
         with open(CONFIRMED_CASES, "a", encoding="utf-8") as f:
@@ -207,15 +214,87 @@ def confirm_case(case_id: str, annotations: dict):
 
         print(f"✅ Case {case_id} confirmed and moved to regression suite")
 
-        # Also add to golden set
-        _add_to_golden_set(target)
+        return target
     else:
         print(f"❌ Case {case_id} not found")
+        return None
 
 
-def _add_to_golden_set(case: dict):
+def promote_confirmed_case(case: dict, *,
+                           destination: str = "development_regression") -> dict:
+    """Promote confirmed feedback only to the development regression set.
+
+    The locked release holdout has a separate blinded/authorized lifecycle;
+    it is never a Human Review side effect.
+    """
+    if not isinstance(case, dict) or case.get("confirmed") is not True:
+        raise PermissionError("unconfirmed feedback cannot become ground truth")
+    if destination != "development_regression":
+        raise PermissionError(
+            "Human Review may promote only to development_regression; "
+            "locked holdout refresh is separate and blinded")
+    promoted_at = datetime.now().isoformat()
+    provenance = {
+        "origin_case_id": str(case.get("case_id") or ""),
+        "origin_trace_id": str(case.get("trace_id") or ""),
+        "confirmation_state": "HUMAN_CONFIRMED",
+        "failure_stage": str(case.get("problem_stage") or "unknown"),
+        "destination": destination,
+        "promoted_at": promoted_at,
+        "schema_version": "human-review-promotion-1.0",
+    }
+    _add_to_golden_set(case, provenance=provenance)
+    return provenance
+
+
+def create_blinded_holdout_refresh_proposal(
+        candidates: list[dict], *, authorization_token: str,
+        configured_token: str, audit_path: Path) -> dict:
+    """Create an audited *proposal* for the established holdout unlock flow.
+
+    This never edits the holdout. Developer-inspected/Human Review cases are
+    ineligible; a separately configured authorization is mandatory.
+    """
+    if not configured_token or not authorization_token or not hmac.compare_digest(
+            str(configured_token), str(authorization_token)):
+        raise PermissionError("blinded holdout refresh authorization required")
+    if not candidates:
+        raise ValueError("blinded holdout refresh requires candidates")
+    for case in candidates:
+        if case.get("confirmed") or case.get("dataset_role") == \
+                "DEVELOPMENT_REGRESSION" or case.get("promotion_provenance"):
+            raise PermissionError(
+                "developer-inspected development cases cannot enter holdout refresh")
+        if case.get("blinded") is not True:
+            raise PermissionError("holdout refresh candidates must be blinded")
+    proposal_payload = [{
+        "candidate_id": str(case.get("candidate_id") or ""),
+        "query_sha256": hashlib.sha256(
+            str(case.get("query") or "").encode()).hexdigest(),
+        "blinded": True,
+    } for case in candidates]
+    proposal_id = "holdout-refresh-" + hashlib.sha256(json.dumps(
+        proposal_payload, sort_keys=True, separators=(",", ":")
+    ).encode()).hexdigest()[:16]
+    audit = {
+        "schema_version": "blinded-holdout-refresh-proposal-1.0",
+        "proposal_id": proposal_id,
+        "created_at": datetime.now().isoformat(),
+        "candidate_count": len(proposal_payload),
+        "candidates": proposal_payload,
+        "holdout_mutated": False,
+        "next_authority": "ESTABLISHED_HOLDOUT_UNLOCK_REVIEW",
+    }
+    audit_path = Path(audit_path)
+    audit_path.parent.mkdir(parents=True, exist_ok=True)
+    with audit_path.open("a", encoding="utf-8") as stream:
+        stream.write(json.dumps(audit, ensure_ascii=False) + "\n")
+    return audit
+
+
+def _add_to_golden_set(case: dict, provenance: dict = None):
     """Add a confirmed case to the golden regression set."""
-    golden_bad = REVIEW_DIR / "golden_regression.json"
+    golden_bad = DEVELOPMENT_REGRESSION
     existing = []
     if golden_bad.exists():
         try:
@@ -230,6 +309,8 @@ def _add_to_golden_set(case: dict):
         "expected_status": case.get("expected_behavior", "SHOULD_ANSWER"),
         "tags": [case.get("problem_type", ""), "human_confirmed"],
         "trace_id": case.get("trace_id", ""),
+        "promotion_provenance": dict(provenance or {}),
+        "dataset_role": "DEVELOPMENT_REGRESSION",
     }
     existing.append(golden_entry)
     golden_bad.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")

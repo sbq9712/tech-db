@@ -346,3 +346,18 @@ shadow/canary 或 Graph-V2 激活；RT-005 仍是外部动作 blocker。
 - 行为证据：tests_remediation_phase07 65/65、tests_benchmark_phase07
   8/8、`benchmark_phase07_result.json`；CI job
   `phase07-graph-serving-relation-aware-retrieval`。
+
+## Phase 08 (2026-08-28) — API, UI, Trace, Replay (RT-090..RT-094)
+
+从 sealed Phase07 main `c4c3e00f` 开始，复用现有 AnswerStateMachine、
+EvidenceRefs、Trace/retention、replay、Human Review、holdout lock、operator
+auth 与前端引用路径，完成统一 terminal contract、claim-aware 精确 span
+ReferenceCards、四种诚实 replay fidelity、development regression 与 locked
+holdout 隔离，以及 server-side operator audit/trace policy。完成报告见
+`docs/remediation/phase08_completion_report.md`；行为套件为
+`qa-backend/tests_remediation_phase08.py`，required CI job 为
+`phase08-api-ui-trace-replay`。Repair Round 1 将 terminal 的 verification /
+stop reason 统一绑定 canonical snapshot，关闭 chat JSON scope 自提升，并让
+case-group 默认执行真实 current Phase03 pipeline；本地证据 78/78，push tier
+1287/1287（42 suites）。Graph-V2 仍未激活，RT-005/RT-075 仍为外部事项，
+Phase09 未开始。
