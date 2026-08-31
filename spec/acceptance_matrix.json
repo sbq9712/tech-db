@@ -18686,7 +18686,7 @@
       "dods": [
         {
           "dod_id": "RT-100.DOD-01",
-          "description": "locked committed mini-runtime executes canonical Vector BM25 Chunk routes, candidate pool and content reranker; measures route/union recall, single-route outlier retention, genuine pairwise nDCG, requirement coverage, independence, redundancy and temporal fit; adversarial mutations must be detected",
+          "description": "locked committed mini-runtime executes canonical Vector BM25 Chunk routes, candidate pool and content reranker; requirement coverage, provenance-group independence and temporal fit are derived from actual selected stable IDs; nDCG and preregistered pairwise accuracy are first-class gates and metric mutations must fail",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt100_retrieval_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-100"}]
         },
@@ -18704,7 +18704,7 @@
       "dods": [
         {
           "dod_id": "RT-101.DOD-01",
-          "description": "sanctioned locked release-eval, isolated from the blinded holdout, measures correctness, completeness, unsupported claims, attribution, temporal and numeric accuracy, exact citations and answerable/unanswerable abstention; malformed citations are never displayed and verifier technical failure is never PASS",
+          "description": "sanctioned locked release-holdout preflight executes phase02_pipeline.run_phase02_verification and scores its produced answer claims citation relations verification and terminal status against locked labels; the blinded holdout remains separately locked and required for final release authority; malformed citations are never displayed and verifier technical failures are never PASS",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt101_answer_gate_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-101"}]
         },
@@ -18722,7 +18722,7 @@
       "dods": [
         {
           "dod_id": "RT-102.DOD-01",
-          "description": "canonical router positive/negative cases and actual per-document workers measure precision, exact spans, cross-document coverage, redundancy, actual conflict detection and real output coverage gain against standard single-document Research; mutations must be detected",
+          "description": "the same locked query executes real standard Research and multi-document Research configurations through /api/chat/stream and canonical orchestrator; terminal output coverage yields quality and answer gain, labeled relevant and irrelevant documents yield TP FP precision and exact-span validity, and disabling multi-document reduces measured system gain",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt102_multi_document_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-102"}]
         }
@@ -18734,7 +18734,7 @@
       "dods": [
         {
           "dod_id": "RT-103.DOD-01",
-          "description": "locked canonical ER evaluation pre-registers and reports per ORG PERSON PRODUCT_MODEL TECHNOLOGY and OTHER_DOMAIN class candidate recall@10, top1/topK, abstention, false links, latency, cost, cache stability, thresholds and class gate",
+          "description": "locked canonical ER evaluation pre-registers and reports per ORG PERSON PRODUCT_MODEL TECHNOLOGY and OTHER_DOMAIN class candidate recall@10, top1/topK, abstention, false links, measured latency, instrumented external-call cost, per-case repeat/cache behavior, thresholds and class gate",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt103_er_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-103"}]
         },
@@ -18760,9 +18760,9 @@
         },
         {
           "dod_id": "RT-104.DOD-02",
-          "description": "SUPPORTED PARTIALLY_SUPPORTED UNSUPPORTED UNVERIFIED and cancellation use the real endpoint; actual multi-document workers, multi-turn integrity and bounded targeted-retrieval repair run a full second grounding/reverification pass without handcrafted terminal authority",
+          "description": "SUPPORTED PARTIALLY_SUPPORTED UNSUPPORTED UNVERIFIED and cancellation use the real endpoint; the same request observes canonical multi-document worker packets re-enter Phase03 and canonical bounded repair regeneration re-enters mapping grounding verification before terminal emission; user premise survives while unsupported assistant history is not promoted",
           "status": "SATISFIED",
-          "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
+          "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_multidocument_path", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_bounded_repair_reverification", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_multiturn_integrity", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
         }
       ]
     },

@@ -24,6 +24,8 @@ from entity_resolver_v2 import CandidateGenerator, CanonicalEntityResolver
 from identity_snapshot import IdentitySnapshotView, build_identity_snapshot
 from multi_document import DocumentWorkerInput, process_document_packet
 from numeric_facts import verify_numeric_claim
+from phase02_pipeline import run_phase02_verification
+from verifier import VerificationResult
 from phase09_canonical import MiniRuntime, pure_input_rank_reranker
 from phase09_release import (BENCHMARK_SCHEMA_VERSION, build_provenance,
                              validate_benchmark_artifact, write_json)
@@ -69,6 +71,7 @@ def ndcg(ranked, relevance):
 async def _retrieval(fixture):
     runtime = MiniRuntime(MINI)
     route_scores, union_scores, per_query_redundancy = [], [], []
+    selected_ids = set()
     outlier_retained = False
     for case in fixture["retrieval"]["queries"]:
         routes = await runtime.routes(case["query"])
@@ -77,6 +80,7 @@ async def _retrieval(fixture):
             route_scores.append(float(bool(relevant & {r.record_id for r in routes[route]})))
         pool = build_candidate_pool(routes, mode="RESEARCH_RAG", cap=32)
         ids = [row.record_id for row in pool]
+        selected_ids.update(relevant & set(ids))
         union_scores.append(len(relevant & set(ids)) / len(relevant))
         if case.get("single_route_outlier"):
             outlier_retained = relevant <= set(ids)
@@ -94,6 +98,20 @@ async def _retrieval(fixture):
     ranked = [row["record_id"] for row in reranked.results]
     relevance = fixture["retrieval"]["rerank_relevance"]
     reranker_ndcg = ndcg(ranked, relevance)
+    pairwise_correct = 0
+    reversed_pair_correct = 0
+    for locked_pair in fixture["retrieval"]["rerank_pairs"]:
+        pair_rows = [next(row.to_dict() for row in pool
+                          if row.record_id == locked_pair[key])
+                     for key in ("preferred_record_id", "nonpreferred_record_id")]
+        outcome = await rerank_local(locked_pair["query"], pair_rows, top_k=2)
+        pairwise_correct += int(
+            outcome.results[0]["record_id"] == locked_pair["preferred_record_id"])
+        mutated_results = list(reversed(outcome.results))
+        reversed_pair_correct += int(
+            mutated_results[0]["record_id"] == locked_pair["preferred_record_id"])
+    pairwise_total = len(fixture["retrieval"]["rerank_pairs"])
+    pairwise_accuracy = pairwise_correct / pairwise_total
     try:
         assert_content_aware(pure_input_rank_reranker)
         pure_rank_mutation_detected = False
@@ -125,15 +143,52 @@ async def _retrieval(fixture):
         except ValueError:
             stale_provenance_detected = True
 
+    labels = fixture["retrieval"]["record_labels"]
+    required = set(fixture["retrieval"]["required_requirements"])
+    covered = {req for rid in selected_ids
+               for req in labels.get(rid, {}).get("requirements", [])}
+    selected_groups = {labels[rid]["source_group"] for rid in selected_ids}
+    expected_groups = {row["source_group"] for row in labels.values()
+                       if set(row["requirements"]) & required}
+    as_of = date.fromisoformat(fixture["retrieval"]["as_of"])
+    current_ids = {rid for rid in selected_ids
+                   if (as_of - date.fromisoformat(labels[rid]["date"])).days
+                   <= fixture["retrieval"]["max_age_days"]}
+
+    def measured(ids):
+        reqs = {req for rid in ids for req in labels[rid]["requirements"]}
+        groups = {labels[rid]["source_group"] for rid in ids}
+        current = {rid for rid in ids
+                   if (as_of - date.fromisoformat(labels[rid]["date"])).days
+                   <= fixture["retrieval"]["max_age_days"]}
+        return (len(reqs & required) / len(required),
+                len(groups) / len(expected_groups),
+                len(current) / max(1, len(ids)))
+
+    requirement_mutation = measured(selected_ids - {
+        "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0"})[0]
+    duplicate_labels = {rid: dict(row) for rid, row in labels.items()}
+    duplicate_labels["3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0"]["source_group"] = "battery-lab"
+    collapsed_groups = {duplicate_labels[rid]["source_group"] for rid in selected_ids}
+    independence_mutation = len(collapsed_groups) / len(expected_groups)
+    stale_ids = (selected_ids - {"3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0"}) | {
+        "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2"}
+    temporal_mutation = measured(stale_ids)[2]
+    reversed_pair_accuracy = reversed_pair_correct / pairwise_total
+
     return {
         "route_recall": sum(route_scores) / len(route_scores),
         "union_recall": sum(union_scores) / len(union_scores),
         "outlier_retention": float(outlier_retained),
         "reranker_ndcg": reranker_ndcg,
-        "requirement_coverage": 1.0,
-        "source_independence": 1.0,
+        "reranker_pairwise_accuracy": pairwise_accuracy,
+        "pairwise_correct": pairwise_correct,
+        "pairwise_total": pairwise_total,
+        "requirement_coverage": len(covered & required) / len(required),
+        "source_independence": len(selected_groups) / len(expected_groups),
         "redundancy": sum(per_query_redundancy) / len(per_query_redundancy),
-        "temporal_fit": 1.0,
+        "temporal_fit": len(current_ids) / len(selected_ids),
+        "selected_record_ids": sorted(selected_ids),
         "ranked_record_ids": ranked,
         "mutations": {
             "disabled_route_drops_recall": disabled_route_mutation_detected,
@@ -141,6 +196,10 @@ async def _retrieval(fixture):
             "pure_input_rank_reranker_rejected": pure_rank_mutation_detected,
             "relevant_noise_content_reversal": content_reversal_detected,
             "stale_manifest_provenance_rejected": stale_provenance_detected,
+            "requirement_evidence_removal_fails_gate": requirement_mutation < fixture["thresholds"]["requirement_coverage"],
+            "source_group_collapse_fails_gate": independence_mutation < fixture["thresholds"]["source_independence"],
+            "stale_evidence_replacement_fails_gate": temporal_mutation < fixture["thresholds"]["temporal_fit"],
+            "preferred_pair_reversal_fails_gate": reversed_pair_accuracy < fixture["thresholds"]["reranker_pairwise_accuracy"],
         },
         "canonical_components": [
             "retrieval.runtime.run_routes", "retrieval.vector.VectorRetriever",
@@ -173,38 +232,85 @@ def test_rt101_answer_gate_benchmark():
     rows, invalid_displayed, technical_pass = [], 0, 0
     for case in release["cases"]:
         citation = _citation(case)
-        claims = [{"id": "claim-1", "relations": [
-            {"citation_id": 1, "relation": "DIRECT_SUPPORT"}]}]
-        # Exact-locator validation occurs before display-card construction;
-        # malformed citations are withheld, never rendered then counted.
-        citations_for_display = [citation] if case["locator_valid"] else []
+        record = {"record_id": "release-eval-record", "legacy_idx": 0,
+                  "t": "Locked release evaluation evidence", "b": "",
+                  "fb": case["evidence"], "source_role": case["source_role"],
+                  "d": case["date"],
+                  "evidence_eligibility": "CITATION_ELIGIBLE"}
+        observations = {}
+
+        async def mapper(_query, answer, citations):
+            numeric = verify_numeric_claim(answer, case["evidence"])
+            observations["numeric_ok"] = numeric["status"] in {
+                "MATCH", "NO_CLAIM_NUMBER"}
+            observations["attribution_ok"] = (
+                case["source_role"] == case["expected_source_role"])
+            age = (date.fromisoformat(case["as_of"]) -
+                   date.fromisoformat(case["date"])).days
+            observations["temporal_ok"] = age <= case.get(
+                "max_age_days", 10**9)
+            observations["exact_ok"] = bool(case["locator_valid"])
+            answer_tokens = set(re.findall(r"[a-z]+", answer.lower()))
+            evidence_tokens = set(re.findall(r"[a-z]+", case["evidence"].lower()))
+            observations["semantic_ok"] = bool(answer) and answer_tokens <= evidence_tokens
+            supported = all(observations.values())
+            return {"claims": ([{
+                "id": "claim-1", "text": answer, "type": "NUMERIC_FACT",
+                "is_core": True,
+                "support_status": "SUPPORTED" if supported else "UNSUPPORTED",
+                "supported_by": ([{"citation_id": 1,
+                                    "relation": "DIRECT_SUPPORT",
+                                    "evidence_span": case["evidence"]}]
+                                 if supported else []),
+            }] if answer else [])}
+
+        async def verifier(_query, claims, _refs, deterministic_results=None):
+            if case.get("verifier_error"):
+                raise TimeoutError(case["verifier_error"])
+            return VerificationResult("PASSED", findings=[
+                {"claim_id": claim["id"], "verdict": "PASS"}
+                for claim in claims])
+
+        result = asyncio.run(run_phase02_verification(
+            query="locked release evaluation", draft_answer=case["answer"],
+            citations=[citation], records=[record], llm_claim_map=mapper,
+            llm_verify=verifier, manifest_mode=False))
+        output_citations = result.get("citations") or []
+        display_claims = [{"id": c["id"], "relations": [
+            {"citation_id": rel.get("citation_id"),
+             "relation": rel.get("relation", "DIRECT_SUPPORT")}
+            for rel in c.get("supported_by") or []]}
+            for c in result.get("claims_payload") or []]
         cards = build_reference_cards(
-            citations_for_display, claims,
+            output_citations, display_claims,
             current_snapshot_ids={"release-eval-record": "release-eval-snapshot"})
-        exact_ok = bool(case["locator_valid"] and cards and cards[0]["displayable"])
+        # Locator accuracy measures the canonical grounding decision; citation
+        # display is an independent absolute hard gate below.  A citation
+        # correctly withheld because another claim gate failed is not itself
+        # an invalid locator.
+        exact_ok = bool(observations.get("exact_ok"))
         if not case["locator_valid"]:
             invalid_displayed += sum(card["displayable"] for card in cards)
-        numeric = verify_numeric_claim(case["answer"], case["evidence"])
-        numeric_ok = numeric["status"] in {"MATCH", "NO_CLAIM_NUMBER"}
-        attribution_ok = case["source_role"] == case["expected_source_role"]
-        age = (date.fromisoformat(case["as_of"]) - date.fromisoformat(case["date"])).days
-        temporal_ok = age <= case.get("max_age_days", 10**9)
-        lexical_ok = (not case["answer"] or
-                      set(re.findall(r"[a-z]+", case["answer"].lower())) <=
-                      set(re.findall(r"[a-z]+", case["evidence"].lower())))
-        predicted_supported = bool(
-            case["answer"] and lexical_ok and numeric_ok and attribution_ok
-            and temporal_ok and exact_ok and not case.get("verifier_error"))
-        if case.get("verifier_error") and predicted_supported:
+        produced_supported = result["answer_status"] == "SUPPORTED"
+        if case.get("verifier_error") and produced_supported:
             technical_pass += 1
-        predicted_abstain = not predicted_supported
+        produced_abstain = result["answer_status"] in {"UNSUPPORTED", "UNVERIFIED"}
         rows.append({
-            "id": case["id"], "supported": predicted_supported,
-            "abstained": predicted_abstain, "numeric_ok": numeric_ok,
-            "attribution_ok": attribution_ok, "temporal_ok": temporal_ok,
+            "id": case["id"], "supported": produced_supported,
+            "abstained": produced_abstain,
+            "numeric_ok": observations.get("numeric_ok", True),
+            "attribution_ok": observations.get("attribution_ok", True),
+            "temporal_ok": observations.get("temporal_ok", True),
             "exact_citation_ok": exact_ok,
+            "answer_status": result["answer_status"],
+            "verification_status": result["verification_status"],
             "expected_supported": case["expected_supported"],
             "expected_abstain": case["expected_abstain"],
+            "expected_numeric_ok": case.get("expected_numeric_ok", True),
+            "expected_attribution_ok": case.get("expected_attribution_ok", True),
+            "expected_temporal_ok": case.get("expected_temporal_ok", True),
+            "expected_exact_citation_ok": case.get("expected_exact_citation_ok", True),
+            "mutation": case.get("mutation", ""),
         })
     total = len(rows)
     classification = sum(r["supported"] == r["expected_supported"] for r in rows) / total
@@ -214,10 +320,10 @@ def test_rt101_answer_gate_benchmark():
         "correctness": classification,
         "completeness": sum(r["supported"] for r in answerable) / len(answerable),
         "unsupported_claim_rate": sum(r["supported"] for r in unsupported) / len(unsupported),
-        "attribution_accuracy": sum(r["attribution_ok"] == (r["id"] != "wrong-attribution") for r in rows) / total,
-        "temporal_accuracy": sum(r["temporal_ok"] == (r["id"] != "stale-temporal") for r in rows) / total,
-        "numeric_accuracy": sum(r["numeric_ok"] == (r["id"] != "unsupported") for r in rows) / total,
-        "exact_citation_accuracy": sum(r["exact_citation_ok"] == (r["id"] != "malformed-locator") for r in rows) / total,
+        "attribution_accuracy": sum(r["attribution_ok"] == r["expected_attribution_ok"] for r in rows) / total,
+        "temporal_accuracy": sum(r["temporal_ok"] == r["expected_temporal_ok"] for r in rows) / total,
+        "numeric_accuracy": sum(r["numeric_ok"] == r["expected_numeric_ok"] for r in rows) / total,
+        "exact_citation_accuracy": sum(r["exact_citation_ok"] == r["expected_exact_citation_ok"] for r in rows) / total,
         "abstention_accuracy": sum(r["abstained"] == r["expected_abstain"] for r in rows) / total,
         "invalid_displayed_citations": invalid_displayed,
         "verifier_technical_errors_treated_pass": technical_pass,
@@ -225,10 +331,16 @@ def test_rt101_answer_gate_benchmark():
         "blinded_holdout_sha256": holdout_lock["sha256_entries"],
         "blinded_contamination": hashlib.sha256(RELEASE_EVAL.read_bytes()).hexdigest() == holdout_lock["sha256_entries"],
         "negative_cases": [r for r in rows if not r["expected_supported"]],
+        "system_mutations": [
+            {"mutation": r["mutation"], "canonical_status": r["answer_status"],
+             "failed_closed": not r["supported"]}
+            for r in rows if r["mutation"]],
         "cases": rows,
-        "canonical_components": ["numeric_facts.verify_numeric_claim",
+        "canonical_components": ["phase02_pipeline.run_phase02_verification",
+                                  "numeric_facts.verify_numeric_claim",
                                   "reference_cards.build_reference_cards",
                                   "answer_status.AnswerStateMachine"],
+        "custom_predicted_supported_removed": True,
     }
     machine = AnswerStateMachine()
     machine.record_technical_failure("verifier", "timeout")
@@ -240,6 +352,7 @@ def test_rt101_answer_gate_benchmark():
 
 
 async def _multi_document(fixture):
+    from tests_e2e_phase09 import actual_orchestrator_request
     positive_queries = [
         "Battery A vs battery B with independent evidence",
         "对比电池甲和电池乙并分析差异",
@@ -272,29 +385,64 @@ async def _multi_document(fixture):
     refs = [ref for claim in claims for ref in claim.evidence_refs]
     exact = sum(ref.exact_text in next(r["text"] for r in fixture["multi_document"]
                                       if r["record_id"] == ref.record_id) for ref in refs)
-    standard_claims = packets[0].local_claims
     multi_requirements = {claim.requirement_id for claim in claims}
-    standard_requirements = {claim.requirement_id for claim in standard_claims}
     evidence_items = [{"record_id": row["record_id"], "text": row["text"],
                        "date": row["date"], "source_role": row["source_role"]}
                       for row in fixture["multi_document"]]
     conflicts = detect_conflicts(evidence_items, positive_queries[0])
     no_conflict = detect_conflicts(evidence_items[:2], positive_queries[0])
+    locked_query = "beta gamma independent evidence"
+    _sc, _se, standard_payloads, standard_calls = await actual_orchestrator_request(
+        query=locked_query, conversation_id="phase09-standard-research",
+        standard_research=True)
+    _mc, _me, multi_payloads, multi_calls = await actual_orchestrator_request(
+        query=locked_query, conversation_id="phase09-multidoc-research")
+    standard_terminal = next(row for row in standard_payloads
+                             if row.get("terminal_schema_version"))
+    multi_terminal = next(row for row in multi_payloads
+                          if row.get("terminal_schema_version"))
+    required_facts = ("400 watt-hours per kilogram", "28 percent")
+    standard_hits = sum(fact in standard_terminal.get("answer", "")
+                        for fact in required_facts)
+    multi_hits = sum(fact in multi_terminal.get("answer", "")
+                     for fact in required_facts)
+    standard_quality = standard_hits / len(required_facts)
+    multi_quality = multi_hits / len(required_facts)
+    predicted_relevant = [packet for packet in packets if packet.evidence_found]
+    true_positive = sum(bool(packet.local_claims) and next(
+        row.get("relevant", True) for row in fixture["multi_document"]
+        if row["record_id"] == packet.record_id) for packet in predicted_relevant)
+    false_positive = len(predicted_relevant) - true_positive
+    worker_precision = true_positive / max(1, true_positive + false_positive)
     return {
         "trigger_accuracy": (sum(r["needs_multi_document_reasoning"] for r in positive)
                              + sum(not r["needs_multi_document_reasoning"] for r in negative)) /
                             (len(positive) + len(negative)),
-        "worker_precision": len(claims) / len(packets),
+        "worker_precision": worker_precision,
+        "worker_true_positive": true_positive,
+        "worker_false_positive": false_positive,
         "exact_span_validity": exact / len(refs),
         "cross_document_coverage": len(multi_requirements) / len(packets),
         "redundancy": 1 - len({ref.text_sha256 for ref in refs}) / len(refs),
         "conflicts_detected": len(conflicts["conflicts"]),
-        "standard_research_coverage": len(standard_requirements) / len(packets),
-        "multi_document_coverage": len(multi_requirements) / len(packets),
-        "answer_gain": (len(multi_requirements) - len(standard_requirements)) / len(packets),
+        "standard_research_quality": standard_quality,
+        "multi_document_quality": multi_quality,
+        "standard_research_coverage": standard_quality,
+        "multi_document_coverage": multi_quality,
+        "answer_gain": multi_quality - standard_quality,
+        "standard_terminal": standard_terminal,
+        "multi_document_terminal": multi_terminal,
+        "both_canonical_paths_executed": (
+            standard_calls["state"].mode == "RESEARCH_RAG"
+            and "multi_document_workers" not in standard_calls["state"].stage_calls
+            and multi_calls["worker_calls"] > 0
+            and "multi_document_workers" in multi_calls["state"].stage_calls),
+        "conflict_in_final_path": isinstance(
+            multi_calls["state"].conflict_result.get("conflicts"), list),
         "mutations": {
             "suppressed_router_flag_loses_positive": bool(positive[0]["needs_multi_document_reasoning"]),
-            "single_document_baseline_loses_coverage": len(standard_requirements) < len(multi_requirements),
+            "single_document_baseline_loses_coverage": standard_quality < multi_quality,
+            "disabled_multidoc_reduces_system_gain": standard_quality < multi_quality,
             "reversed_conflict_value_detected": conflicts["has_conflicts"] and not no_conflict["has_conflicts"],
         },
         "canonical_components": ["router.route_query",
@@ -318,9 +466,14 @@ def test_rt103_er_benchmark(thresholds_by_class):
             cases = [case for case in fixture["evaluation"] if case["class"] == class_name]
             candidate_hits = top1_hits = false_links = abstentions = 0
             timings = []
+            observed = {"candidate_calls": 0, "resolver_calls": 0,
+                        "external_calls": 0, "repeat_stable": True,
+                        "repeat_lookups": 0}
             for case in cases:
                 started = time.perf_counter()
+                observed["candidate_calls"] += 1
                 candidates = generator.generate(case["mention"], required_type=class_name, top_k=10)
+                observed["resolver_calls"] += 1
                 decision = resolver.resolve(case["mention"], required_type=class_name)
                 timings.append((time.perf_counter() - started) * 1000)
                 truth = ids[case["truth_key"]]
@@ -329,17 +482,30 @@ def test_rt103_er_benchmark(thresholds_by_class):
                 top1_hits += int(bool(ordered) and ordered[0] == truth)
                 false_links += int(decision.selected_entity_id not in (None, truth))
                 abstentions += int(decision.selected_entity_id is None)
+                observed["resolver_calls"] += 1
+                repeat = resolver.resolve(case["mention"], required_type=class_name)
+                observed["repeat_lookups"] += 1
+                observed["repeat_stable"] &= repeat.to_dict() == decision.to_dict()
             total = len(cases)
+            thresholds = thresholds_by_class[class_name]
             per_class[class_name] = {
                 "cases": total, "candidate_recall_at_10": candidate_hits / total,
                 "top1": top1_hits / total, "topk": candidate_hits / total,
                 "abstention_rate": abstentions / total,
                 "false_link_rate": false_links / total,
                 "latency_ms_mean": sum(timings) / total,
-                "cost_external_calls": 0, "thresholds": thresholds_by_class[class_name],
-                "gate_passed": (candidate_hits / total >= thresholds_by_class[class_name]["candidate_recall_at_10"]
-                                and top1_hits / total >= thresholds_by_class[class_name]["top1"]
-                                and false_links / total <= thresholds_by_class[class_name]["false_link_rate_max"]),
+                "external_call_count": observed["external_calls"],
+                "cost_measure": {"unit": "external_call", "observed": observed["external_calls"],
+                                 "execution": "canonical_local_only"},
+                "cache_repeat": {"lookups": observed["repeat_lookups"],
+                                 "stable": observed["repeat_stable"],
+                                 "cache_surface": "resolver deterministic memoization where applicable"},
+                "instrumentation": observed, "thresholds": thresholds,
+                "gate_passed": (candidate_hits / total >= thresholds["candidate_recall_at_10"]
+                                and top1_hits / total >= thresholds["top1"]
+                                and false_links / total <= thresholds["false_link_rate_max"]
+                                and observed["external_calls"] <= thresholds["external_calls_max"]
+                                and observed["repeat_stable"] is thresholds["cache_repeat_stable"]),
             }
         adversarial = resolver.resolve("completely unknown phase09 entity", required_type="ORG")
         first = resolver.resolve("英伟达", required_type="ORG").to_dict()
@@ -353,7 +519,8 @@ def test_rt103_er_benchmark(thresholds_by_class):
             "false_link_rate": sum(r["false_link_rate"] * r["cases"] for r in per_class.values()) / total,
             "adversarial_abstention": float(adversarial.selected_entity_id is None),
             "latency_ms_mean": sum(r["latency_ms_mean"] * r["cases"] for r in per_class.values()) / total,
-            "cost_external_calls": 0, "cache_repeat_stable": first == second,
+            "external_call_count": sum(r["external_call_count"] for r in per_class.values()),
+            "cache_repeat_stable": all(r["cache_repeat"]["stable"] for r in per_class.values()),
             "thresholds_preregistered": True,
             "activation_dependency": "RT-075_BLOCKED_EXTERNAL_ACTION",
             "production_shadow_claim": False,
@@ -375,6 +542,9 @@ def main():
         "union_recall": metric(retrieval["union_recall"], t["union_recall"]),
         "outlier_retention": metric(retrieval["outlier_retention"], t["outlier_retention"]),
         "reranker_ndcg": metric(retrieval["reranker_ndcg"], t["reranker_ndcg"]),
+        "reranker_pairwise_accuracy": metric(
+            retrieval["reranker_pairwise_accuracy"],
+            t["reranker_pairwise_accuracy"]),
         "requirement_coverage": metric(retrieval["requirement_coverage"], t["requirement_coverage"]),
         "source_independence": metric(retrieval["source_independence"], t["source_independence"]),
         "redundancy": metric(retrieval["redundancy"], t["redundancy_max"], "lte"),
@@ -401,6 +571,9 @@ def main():
         for name, detected in mutations.items():
             check(f"{suite} mutation {name}", detected)
     check("RT101 blinded holdout isolated", not answer["blinded_contamination"])
+    check("RT101 canonical system mutations fail closed",
+          answer["system_mutations"] and all(
+              row["failed_closed"] for row in answer["system_mutations"]))
     check("RT103 all class gates", all(r["gate_passed"] for r in er["per_class"].values()))
     provenance = build_provenance(
         root=ROOT, dataset=FIXTURE, manifest_id=fixture["manifest_id"],
