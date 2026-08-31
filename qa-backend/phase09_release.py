@@ -25,13 +25,47 @@ REQUIRED_PROVENANCE = {
     "schema_version", "config_sha256",
 }
 PHASE09_TICKETS = tuple(f"RT-{number}" for number in range(100, 109))
-EXTERNAL_BLOCKERS = {
-    "Q-336": (
-        "GitHub public-repository artifact policy caps the requested 180-day "
-        "retention at 90 days; durable external retention is not configured"),
-    "RT-005": "repository branch protection/required checks require administration",
-    "RT-075": "production-representative ER shadow evidence is unavailable",
-}
+REQUIRED_EXTERNAL_CONTROLS = {"Q-336", "RT-005", "RT-075"}
+EXTERNAL_STATE = Path(__file__).resolve().parent.parent / "spec/phase09_external_state.json"
+
+
+def load_external_blockers(path: Path = EXTERNAL_STATE) -> dict[str, str]:
+    """Derive external blockers from validated evidence, never caller optimism."""
+    payload = json.loads(Path(path).read_text("utf-8"))
+    if payload.get("schema_version") != "phase09-external-state-1.0":
+        raise ValueError("unsupported Phase09 external-state schema")
+    rows = payload.get("controls")
+    if not isinstance(rows, dict):
+        raise ValueError("Phase09 external controls missing")
+    if set(rows) != REQUIRED_EXTERNAL_CONTROLS:
+        raise ValueError("Phase09 external control set is incomplete or unregistered")
+    blockers = {}
+    for blocker_id, row in rows.items():
+        if not isinstance(row, dict) or not row.get("description"):
+            raise ValueError(f"{blocker_id}: invalid external evidence row")
+        evidence = row.get("evidence")
+        if not isinstance(evidence, dict) or not evidence.get("observed_at"):
+            raise ValueError(f"{blocker_id}: evidence and observed_at required")
+        satisfied = row.get("satisfied") is True
+        proof = row.get("satisfaction_proof")
+        if satisfied and (not isinstance(proof, dict) or
+                          not proof.get("artifact") or
+                          not proof.get("sha256")):
+            raise ValueError(f"{blocker_id}: cannot clear without hashed proof")
+        if satisfied:
+            declared = str(proof["sha256"])
+            artifact = Path(path).parent.parent / str(proof["artifact"])
+            if (len(declared) != 64 or
+                    any(c not in "0123456789abcdef" for c in declared) or
+                    not artifact.is_file() or
+                    hashlib.sha256(artifact.read_bytes()).hexdigest() != declared):
+                raise ValueError(f"{blocker_id}: satisfaction proof is missing or stale")
+        if not satisfied:
+            blockers[blocker_id] = str(row["description"])
+    return blockers
+
+
+EXTERNAL_BLOCKERS = load_external_blockers()
 
 
 def canonical_bytes(value) -> bytes:

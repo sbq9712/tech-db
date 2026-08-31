@@ -1,0 +1,39 @@
+{
+  "schema_version": "phase09-external-state-1.0",
+  "controls": {
+    "Q-336": {
+      "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
+      "satisfied": false,
+      "evidence": {
+        "observed_at": "2026-08-30T00:00:00Z",
+        "requested_retention_days": 180,
+        "effective_retention_days": 90,
+        "durable_external_store": false,
+        "source": "GitHub Actions artifact retention observation for PR #10"
+      }
+    },
+    "RT-005": {
+      "description": "repository branch protection/required checks require administration",
+      "satisfied": false,
+      "evidence": {
+        "observed_at": "2026-08-30T00:00:00Z",
+        "repository": "sbq9712/tech-db",
+        "branch": "main",
+        "protected": false,
+        "required_checks_enforced": false
+      }
+    },
+    "RT-075": {
+      "description": "production-representative ER shadow evidence is unavailable",
+      "satisfied": false,
+      "evidence": {
+        "observed_at": "2026-08-30T00:00:00Z",
+        "environment": "ci-replay-only",
+        "production_events": 0,
+        "production_window_hours": 0,
+        "minimum_events": 100,
+        "minimum_window_hours": 168
+      }
+    }
+  }
+}

@@ -18686,7 +18686,7 @@
       "dods": [
         {
           "dod_id": "RT-100.DOD-01",
-          "description": "locked canonical retrieval reranker and evidence metrics cover route and union recall outlier retention nDCG requirement coverage independence redundancy and temporal fit",
+          "description": "locked committed mini-runtime executes canonical Vector BM25 Chunk routes, candidate pool and content reranker; measures route/union recall, single-route outlier retention, genuine pairwise nDCG, requirement coverage, independence, redundancy and temporal fit; adversarial mutations must be detected",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt100_retrieval_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-100"}]
         },
@@ -18704,7 +18704,7 @@
       "dods": [
         {
           "dod_id": "RT-101.DOD-01",
-          "description": "locked answer citation and abstention hard gate rejects invalid displayed citations and never treats verifier technical failure as PASS",
+          "description": "sanctioned locked release-eval, isolated from the blinded holdout, measures correctness, completeness, unsupported claims, attribution, temporal and numeric accuracy, exact citations and answerable/unanswerable abstention; malformed citations are never displayed and verifier technical failure is never PASS",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt101_answer_gate_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-101"}]
         },
@@ -18722,7 +18722,7 @@
       "dods": [
         {
           "dod_id": "RT-102.DOD-01",
-          "description": "locked multi-document benchmark measures trigger worker precision exact spans cross-document coverage redundancy conflicts and answer gain against standard Research",
+          "description": "canonical router positive/negative cases and actual per-document workers measure precision, exact spans, cross-document coverage, redundancy, actual conflict detection and real output coverage gain against standard single-document Research; mutations must be detected",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt102_multi_document_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-102"}]
         }
@@ -18734,7 +18734,7 @@
       "dods": [
         {
           "dod_id": "RT-103.DOD-01",
-          "description": "locked canonical ER evaluation reports candidate recall top1 topK abstention false links latency cost repeat stability and adversarial behavior",
+          "description": "locked canonical ER evaluation pre-registers and reports per ORG PERSON PRODUCT_MODEL TECHNOLOGY and OTHER_DOMAIN class candidate recall@10, top1/topK, abstention, false links, latency, cost, cache stability, thresholds and class gate",
           "status": "SATISFIED",
           "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt103_er_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-103"}]
         },
@@ -18754,13 +18754,13 @@
       "dods": [
         {
           "dod_id": "RT-104.DOD-01",
-          "description": "real ASGI POST /api/chat/stream executes SSE admission retrieval canonical orchestrator Ledger generation and canonical terminal state",
+          "description": "real ASGI POST /api/chat/stream executes SSE admission, committed mini-runtime canonical retrieval, canonical orchestrator, Ledger, generation and canonical terminal state with deterministic external adapters only",
           "status": "SATISFIED",
           "test_cases": [{"suite": "e2e_phase09", "case": "test_actual_server_and_orchestrator", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
         },
         {
           "dod_id": "RT-104.DOD-02",
-          "description": "SUPPORTED PARTIALLY_SUPPORTED UNSUPPORTED UNVERIFIED repair-like technical exit and cancellation use the real endpoint without handcrafted terminal Trace authority",
+          "description": "SUPPORTED PARTIALLY_SUPPORTED UNSUPPORTED UNVERIFIED and cancellation use the real endpoint; actual multi-document workers, multi-turn integrity and bounded targeted-retrieval repair run a full second grounding/reverification pass without handcrafted terminal authority",
           "status": "SATISFIED",
           "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
         }
@@ -18790,7 +18790,7 @@
       "dods": [
         {
           "dod_id": "RT-106.DOD-01",
-          "description": "PR deterministic nightly broader live-model and release tiers are explicit and release artifacts carry complete validated provenance",
+          "description": "PR deterministic, nightly broader/live-model and release tiers are explicit; every runtime publication workflow runs a fresh Phase09 evaluator and exact-SHA production_release_eligible authorization before side effects; artifacts carry validated provenance",
           "status": "SATISFIED",
           "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
         },
@@ -18823,7 +18823,7 @@
       "dods": [
         {
           "dod_id": "RT-107.DOD-01",
-          "description": "one canonical machine evaluator fails closed for core hard gates suites artifacts and provenance while surfacing Q-336, RT-005, and RT-075",
+          "description": "one canonical machine evaluator fails closed for hard gates, suites, artifacts and provenance; Q-336 RT-005 and RT-075 are derived from validated machine-readable external evidence rather than caller declarations",
           "status": "SATISFIED",
           "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
         },
@@ -18841,7 +18841,7 @@
       "dods": [
         {
           "dod_id": "RT-108.DOD-01",
-          "description": "Phase09 ticket and phase status is generated only from acceptance entries named suites benchmark artifacts evaluator results and external blockers",
+          "description": "Phase09 ticket and phase status is generated only from acceptance entries, named suites, benchmark artifacts, evaluator results and validated machine-readable external evidence; clearing a blocker requires hashed proof",
           "status": "SATISFIED",
           "test_cases": [{"suite": "release_phase09", "case": "test_ticket_status_generation", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
         },

@@ -26,6 +26,15 @@ jobs:
         with:
           fetch-depth: 20
 
+      - name: Install Phase09 gate dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Fresh Phase09 release evaluation
+        run: python scripts/run_phase09_release_gate.py
+
+      - name: Authorize this exact publication SHA
+        run: python scripts/authorize_runtime_publish.py --expected-sha "$GITHUB_SHA"
+
       - name: Check whether the complete runtime Release already exists
         id: existing
         env:

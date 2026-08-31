@@ -15,7 +15,8 @@ QA = ROOT / "qa-backend"
 sys.path.insert(0, str(QA))
 
 from phase09_release import (SuiteEvidence, build_provenance,
-                             derive_ticket_status, evaluate_release, write_json)
+                             derive_ticket_status, evaluate_release,
+                             load_external_blockers, write_json)
 
 SUITES = {
     "benchmark_phase09": "tests_benchmark_phase09.py",
@@ -42,6 +43,7 @@ def main():
                         default=QA / "phase09_ticket_status.json")
     args = parser.parse_args()
     policy = json.loads((ROOT / "spec/phase09_release_policy.json").read_text("utf-8"))
+    external_blockers = load_external_blockers(ROOT / policy["external_state"])
     results = {}
     outputs = {}
     for name in policy["required_suites"]:
@@ -84,7 +86,7 @@ def main():
         required_suites=policy["required_suites"], evidence=rows,
         expected_provenance=provenance, hard_invariants=hard,
         graph_gain_conclusion=policy["graph_gain_conclusion"],
-        external_blockers=policy["external_blockers"])
+        external_blockers=external_blockers)
     evidence_payload = {
         **decision.to_dict(), "policy": policy,
         "suite_evidence": [row.to_dict() for row in rows],
@@ -101,7 +103,7 @@ def main():
                        ((row.name, row) for row in rows)},
         artifact_results={str(benchmark_path.relative_to(ROOT)): benchmark}
         if benchmark else {},
-        external_blockers=policy["external_blockers"])
+        external_blockers=external_blockers)
     ticket_status["release_decision"] = decision.to_dict()
     write_json(args.status_out, ticket_status)
     print(json.dumps(decision.to_dict(), ensure_ascii=False, indent=2))

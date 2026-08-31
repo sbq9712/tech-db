@@ -36,14 +36,14 @@ public-repository artifact policy (Q-336). CI replay is not treated as
 production evidence. Graph-V2 remains off because the sealed conclusion is
 `NO_GAIN`.
 
-## Local evidence before Draft PR
+## Gatekeeper repair evidence
 
 ```text
-Phase09 suites: 64 passed, 0 failed
-  benchmark_phase09: 17/17
-  e2e_phase09: 12/12
+Phase09 suites: 96 passed, 0 failed
+  benchmark_phase09: 35/35
+  e2e_phase09: 20/20
   failure_injection_phase09: 20/20
-  release_phase09: 15/15
+  release_phase09: 21/21
 
 Push deterministic tier: 1350 passed, 0 failed across 46 suites
 Phase08: 78/78
@@ -71,6 +71,13 @@ normative spec and Decision Register hashes, locked dataset hash, manifest and
 identity IDs, deterministic model adapter, prompt/config hashes, and schema
 version. CI regenerates the artifact at its exact checkout SHA.
 
+RT-100 now reconstructs Vector/BM25/Chunk routes from the hashed committed
+mini-runtime and executes the canonical pool and content reranker. It does not
+consume fixture-supplied route outputs. The release-eval fixture is separate
+from the blinded holdout and records the holdout lock hash only as an isolation
+proof. RT-103 reports pre-registered gates for every canonical entity class;
+RT-075 remains external and cannot be replaced by CI replay.
+
 ## CI contract
 
 The required Phase09 job executes `scripts/run_phase09_release_gate.py`, which
@@ -85,9 +92,21 @@ A skipped, missing, failed, cancelled, stale, or wrong-provenance required
 suite cannot produce a green core decision. An infrastructure-flake label
 cannot erase a semantic regression.
 
-## Remaining Gatekeeper work
+The publication-path audit found one GitHub side-effect path:
+`.github/workflows/publish-runtime.yml` (`gh release create/upload`). It now
+runs a fresh Phase09 release evaluation and an exact-checkout-SHA authorization
+before any package construction or Release mutation. The authorization requires
+`production_release_eligible == true` and no external blockers, so the current
+Q-336/RT-005/RT-075 state deliberately denies publication. Local manifest
+construction and `ReleaseCatalog.activate` are atomic runtime/test seams, not
+GitHub publication paths; they do not publish external assets.
 
-After the Draft PR exists, independently verify the GitHub synthetic merge
-candidate, its parents/tree, exact checkout SHA in important job logs, generated
-artifacts, and required CI results. Do not merge or start Phase10 before that
-review.
+External blocker state is loaded from `spec/phase09_external_state.json`.
+Changing a row to satisfied without a named artifact and SHA-256 proof is a
+schema error, so a caller cannot manufacture an unblocked decision.
+
+## Remaining external review
+
+Independently verify the GitHub synthetic merge candidate, its parents/tree,
+exact checkout SHA in important job logs, generated artifacts, and required CI
+results. Do not merge or start Phase10 before that review.

@@ -13,7 +13,8 @@ sys.path.insert(0, str(HERE))
 
 from phase09_release import (EXTERNAL_BLOCKERS, PHASE09_TICKETS,
                              SuiteEvidence, build_provenance,
-                             derive_ticket_status, evaluate_release)
+                             derive_ticket_status, evaluate_release,
+                             load_external_blockers)
 
 FIXTURE = HERE / "test_fixtures/phase09/benchmark_locked_v1.json"
 BENCHMARK = HERE / "benchmark_phase09_result.json"
@@ -100,6 +101,75 @@ def test_release_matrix():
                   {"invalid_displayed_citation_zero": False})
     check("RT107 failed hard invariant blocks core", not hard.core_eligible)
 
+    state = json.loads((ROOT / "spec/phase09_external_state.json").read_text("utf-8"))
+    optimistic = copy.deepcopy(state)
+    optimistic["controls"]["RT-005"]["satisfied"] = True
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        candidate = Path(tmp) / "external.json"
+        candidate.write_text(json.dumps(optimistic), "utf-8")
+        try:
+            load_external_blockers(candidate)
+            cleared_without_proof = True
+        except ValueError:
+            cleared_without_proof = False
+    check("RT108 caller cannot clear blocker without hashed proof",
+          not cleared_without_proof)
+    missing = copy.deepcopy(state)
+    missing["controls"].pop("RT-075")
+    with tempfile.TemporaryDirectory() as tmp:
+        candidate = Path(tmp) / "external.json"
+        candidate.write_text(json.dumps(missing), "utf-8")
+        try:
+            load_external_blockers(candidate)
+            missing_control_accepted = True
+        except ValueError:
+            missing_control_accepted = False
+    check("RT108 caller cannot omit a blocker control", not missing_control_accepted)
+
+
+def test_publish_authorization():
+    import subprocess
+    import tempfile
+    head = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    base = {"provenance": {"git_sha": head},
+            "production_release_eligible": False,
+            "external_blockers": ["Q-336"]}
+    workflow = (ROOT / ".github/workflows/publish-runtime.yml").read_text("utf-8")
+    gate_pos = workflow.index("Fresh Phase09 release evaluation")
+    auth_pos = workflow.index("Authorize this exact publication SHA")
+    side_effect_pos = workflow.index("Prepare current search indexes")
+    check("RT106 publication workflow cannot bypass fresh gate",
+          gate_pos < auth_pos < side_effect_pos
+          and "continue-on-error" not in workflow[gate_pos:side_effect_pos])
+    with tempfile.TemporaryDirectory() as tmp:
+        evidence = Path(tmp) / "evidence.json"
+        evidence.write_text(json.dumps(base), "utf-8")
+        denied = subprocess.run([
+            sys.executable, str(ROOT / "scripts/authorize_runtime_publish.py"),
+            "--evidence", str(evidence), "--expected-sha", head],
+            cwd=ROOT, capture_output=True, text=True)
+        check("RT106 publish path denies current blocked evidence",
+              denied.returncode != 0 and "PUBLISH_DENIED" in denied.stdout)
+        allowed = copy.deepcopy(base)
+        allowed["production_release_eligible"] = True
+        allowed["external_blockers"] = []
+        evidence.write_text(json.dumps(allowed), "utf-8")
+        authorized = subprocess.run([
+            sys.executable, str(ROOT / "scripts/authorize_runtime_publish.py"),
+            "--evidence", str(evidence), "--expected-sha", head],
+            cwd=ROOT, capture_output=True, text=True)
+        check("RT106 dry-run authorizes only exact SHA plus green decision",
+              authorized.returncode == 0 and "PUBLISH_AUTHORIZED" in authorized.stdout)
+        allowed["provenance"]["git_sha"] = "0" * 40
+        evidence.write_text(json.dumps(allowed), "utf-8")
+        stale = subprocess.run([
+            sys.executable, str(ROOT / "scripts/authorize_runtime_publish.py"),
+            "--evidence", str(evidence), "--expected-sha", head],
+            cwd=ROOT, capture_output=True, text=True)
+        check("RT106 stale evidence cannot publish", stale.returncode != 0)
+
 
 def test_ticket_status_generation():
     matrix = json.loads((ROOT / "spec/acceptance_matrix.json").read_text("utf-8"))
@@ -148,6 +218,7 @@ def test_ticket_status_generation():
 
 def main():
     test_release_matrix()
+    test_publish_authorization()
     test_ticket_status_generation()
     print("=" * 66)
     print(f"  Phase09 release evaluator: {PASSED} passed, {FAILED} failed")
