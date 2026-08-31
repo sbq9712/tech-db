@@ -25,24 +25,25 @@ core_eligible = true
 production_release_eligible = false
 graph_activation_eligible = false
 graph_state = OFF_NO_GAIN
-external_blockers = [RT-005, RT-075]
+external_blockers = [Q-336, RT-005, RT-075]
 phase_status = PASS_WITH_EXTERNAL_BLOCKER
 ```
 
 This is intentional. Code-local Phase09 gates pass, while production release
-remains blocked by repository administration (RT-005) and missing
-production-representative ER shadow evidence (RT-075). CI replay is not treated
-as production evidence. Graph-V2 remains off because the sealed conclusion is
+remains blocked by repository administration (RT-005), missing
+production-representative ER shadow evidence (RT-075), and the current GitHub
+public-repository artifact policy (Q-336). CI replay is not treated as
+production evidence. Graph-V2 remains off because the sealed conclusion is
 `NO_GAIN`.
 
 ## Local evidence before Draft PR
 
 ```text
-Phase09 suites: 63 passed, 0 failed
+Phase09 suites: 64 passed, 0 failed
   benchmark_phase09: 17/17
   e2e_phase09: 12/12
   failure_injection_phase09: 20/20
-  release_phase09: 14/14
+  release_phase09: 15/15
 
 Push deterministic tier: 1350 passed, 0 failed across 46 suites
 Phase08: 78/78
@@ -75,7 +76,10 @@ version. CI regenerates the artifact at its exact checkout SHA.
 The required Phase09 job executes `scripts/run_phase09_release_gate.py`, which
 runs all four required suites, emits per-suite JSON artifacts, evaluates hard
 invariants and provenance, and generates evidence-derived ticket status. The
-workflow uploads these artifacts for 180 days.
+workflow requests 180-day retention for these artifacts. On PR #10 GitHub
+clamped the artifact to its current public-repository maximum of 90 days
+(`expires_at=2026-11-28T16:29:10Z`). Q-336 therefore remains an explicit
+external blocker until durable retention of at least 180 days is configured.
 
 A skipped, missing, failed, cancelled, stale, or wrong-provenance required
 suite cannot produce a green core decision. An infrastructure-flake label

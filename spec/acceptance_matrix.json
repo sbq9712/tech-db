@@ -18799,6 +18799,21 @@
           "description": "missing skipped cancelled stale or wrong required evidence blocks release and infrastructure flake cannot erase semantic regression",
           "status": "SATISFIED",
           "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-106.DOD-03",
+          "description": "release-gate artifacts are retained for at least 180 days under Decision Register Q336",
+          "status": "BLOCKED_EXTERNAL_ACTION",
+          "required_level": "integration",
+          "external_blocker": "GitHub public-repository artifact policy currently caps the requested 180-day retention at 90 days; durable external retention is not configured",
+          "planned_test_cases": [
+            {
+              "case": "test_rt106_artifact_retention_policy",
+              "level": "integration",
+              "future_rt": ["RT-115"],
+              "benchmark_owner": "RT-106"
+            }
+          ]
         }
       ]
     },
@@ -18808,7 +18823,7 @@
       "dods": [
         {
           "dod_id": "RT-107.DOD-01",
-          "description": "one canonical machine evaluator fails closed for core hard gates suites artifacts and provenance while surfacing RT-005 and RT-075",
+          "description": "one canonical machine evaluator fails closed for core hard gates suites artifacts and provenance while surfacing Q-336, RT-005, and RT-075",
           "status": "SATISFIED",
           "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
         },

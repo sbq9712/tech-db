@@ -12,6 +12,7 @@
   },
   "graph_gain_conclusion": "NO_GAIN",
   "external_blockers": {
+    "Q-336": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
     "RT-005": "repository branch protection/required checks require administration",
     "RT-075": "production-representative ER shadow evidence is unavailable"
   }

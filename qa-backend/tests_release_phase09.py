@@ -63,7 +63,7 @@ def test_release_matrix():
     check("RT107 code-local core eligible", good.core_eligible)
     check("RT107 external blockers prevent production green",
           not good.production_release_eligible
-          and set(good.external_blockers) == {"RT-005", "RT-075"})
+          and set(good.external_blockers) == {"Q-336", "RT-005", "RT-075"})
     check("RT107 Graph NO_GAIN independently stays off",
           not good.graph_activation_eligible and good.graph_state == "OFF_NO_GAIN")
 
@@ -131,9 +131,12 @@ def test_ticket_status_generation():
     check("RT108 RT103 remains externally blocked",
           status["tickets"]["RT-103"]["status"] == "BLOCKED_EXTERNAL_ACTION"
           and status["tickets"]["RT-103"]["dependency_blockers"] == ["RT-075"])
+    check("RT108 RT106 retention remains externally blocked",
+          status["tickets"]["RT-106"]["status"] == "BLOCKED_EXTERNAL_ACTION"
+          and status["tickets"]["RT-106"]["dependency_blockers"] == ["Q-336"])
     check("RT108 code-local tickets use executable evidence",
           all(row["status"] == "SATISFIED" for ticket, row in
-              status["tickets"].items() if ticket != "RT-103"),
+              status["tickets"].items() if ticket not in {"RT-103", "RT-106"}),
           json.dumps(status["tickets"], ensure_ascii=False))
     missing = derive_ticket_status(
         matrix=matrix, suite_results={**suite_results, "benchmark_phase09": "MISSING"},

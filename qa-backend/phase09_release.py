@@ -26,6 +26,9 @@ REQUIRED_PROVENANCE = {
 }
 PHASE09_TICKETS = tuple(f"RT-{number}" for number in range(100, 109))
 EXTERNAL_BLOCKERS = {
+    "Q-336": (
+        "GitHub public-repository artifact policy caps the requested 180-day "
+        "retention at 90 days; durable external retention is not configured"),
     "RT-005": "repository branch protection/required checks require administration",
     "RT-075": "production-representative ER shadow evidence is unavailable",
 }
@@ -274,6 +277,8 @@ def derive_ticket_status(*, matrix: Mapping,
         dependency_blockers = []
         if ticket_id == "RT-103" and "RT-075" in blockers:
             dependency_blockers.append("RT-075")
+        if ticket_id == "RT-106" and "Q-336" in blockers:
+            dependency_blockers.append("Q-336")
         if reasons:
             status = "NOT_SATISFIED"
         elif dependency_blockers:
