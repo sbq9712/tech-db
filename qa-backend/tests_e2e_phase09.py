@@ -25,7 +25,7 @@ def check(name, condition, detail=""):
         FAILED += 1; print(f"  FAIL {name} {detail}")
 
 
-async def actual_orchestrator_request(*, query="solid battery beta energy density",
+async def actual_orchestrator_request(*, query="what is battery beta",
                                       history=None,
                                       conversation_id="phase09-e2e"):
     """Use the real ASGI endpoint and real run_agentic_loop implementation.
@@ -35,11 +35,14 @@ async def actual_orchestrator_request(*, query="solid battery beta energy densit
     terminal state machine, and cleanup all execute as production code.
     """
     import httpx
+    import decomposer
     import orchestrator
+    import router
     import server
     from guardrails import GuardrailSettings, RateLimiter
     from phase09_canonical import MiniRuntime
     from retrieval.runtime import run_hybrid
+    from retrieval.rerank import rerank_local
 
     runtime = MiniRuntime(HERE / "test_fixtures/mini_runtime")
     calls = {"orchestrator": 0, "search": 0, "state": None}
@@ -56,7 +59,53 @@ async def actual_orchestrator_request(*, query="solid battery beta energy densit
     async def stream(**kwargs):
         yield "The synthetic beta cell reports 400 watt-hours per kilogram. [1]"
 
+    async def claim_map(_query, _answer, citations, **_kwargs):
+        citation_id = citations[0]["id"]
+        return {"claims": [{
+            "id": "claim-beta-density",
+            "text": "The synthetic beta cell reports 400 watt-hours per kilogram",
+            "type": "NUMERIC_FACT", "support_status": "SUPPORTED",
+            "supported_by": [{"citation_id": citation_id,
+                              "relation": "DIRECT_SUPPORT",
+                              "evidence_span": "400 watt-hours per kilogram"}],
+        }]}
+
+    async def deterministic_control_model(prompt, **_kwargs):
+        if "requirements" in prompt:
+            return json.dumps({"requirements": [
+                {"id": "r1", "description": "battery beta evidence",
+                 "importance": "critical", "entities": ["battery beta"],
+                 "dimensions": ["evidence"], "queries": ["battery beta"]},
+                {"id": "r2", "description": "solar gamma evidence",
+                 "importance": "critical", "entities": ["solar gamma"],
+                 "dimensions": ["evidence"], "queries": ["solar gamma"]},
+            ]})
+        return json.dumps({
+            "question_type": "FACT_LOOKUP", "complexity": "low",
+            "mode": "FAST_RAG", "needs_decomposition": False,
+            "needs_multi_source_evidence": False,
+            "needs_multi_document_reasoning": False,
+        })
+
+    async def deterministic_server_model(prompt, **_kwargs):
+        """Replace only the external model used by follow-up query rewriting."""
+        if "rewritten_query" not in prompt or "seeking_novelty" not in prompt:
+            raise AssertionError("unexpected server model call in Phase09 E2E")
+        return json.dumps({
+            "rewritten_query": query,
+            "seeking_novelty": False,
+            "reason": "deterministic standalone retrieval query",
+        })
+
+    async def deterministic_rerank(query, candidates, top_k=None, **_kwargs):
+        outcome = await rerank_local(query, candidates, top_k=top_k)
+        return outcome.results
+
     original_run = orchestrator.run_agentic_loop
+    original_rerank = orchestrator.rerank
+    original_decomposer_model = decomposer.llm_model_func
+    original_router_model = router.llm_model_func
+    original_server_model = server.llm_model_func
 
     async def observed_run(*args, **kwargs):
         calls["orchestrator"] += 1
@@ -66,6 +115,12 @@ async def actual_orchestrator_request(*, query="solid battery beta energy densit
 
     server.hybrid_search = search
     server.llm_stream_func = stream
+    original_claim_map = server.map_claims_to_citations
+    server.map_claims_to_citations = claim_map
+    orchestrator.rerank = deterministic_rerank
+    decomposer.llm_model_func = deterministic_control_model
+    router.llm_model_func = deterministic_control_model
+    server.llm_model_func = deterministic_server_model
     server.classify_claims = lambda *a, **k: asyncio.sleep(0, result=[])
     server._records = runtime.records
     server.load_records = lambda: runtime.records
@@ -78,18 +133,19 @@ async def actual_orchestrator_request(*, query="solid battery beta energy densit
     flag_values = {
         "AGENTIC_ENABLED": True,
         "EVIDENCE_PACKAGE_ENABLED": False,
-        "ROUTER_ENABLED": False,
-        "DECOMPOSITION_ENABLED": False,
-        "ITERATIVE_RETRIEVAL_ENABLED": False,
-        "EVIDENCE_GRADER_ENABLED": False,
-        "RERANKER_ENABLED": False,
+        "ROUTER_ENABLED": True,
+        "DECOMPOSITION_ENABLED": True,
+        "ITERATIVE_RETRIEVAL_ENABLED": True,
+        "EVIDENCE_GRADER_ENABLED": True,
+        "RERANKER_ENABLED": True,
         "TERMINAL_RENDERER_ENABLED": False,
-        "CLAIM_MAPPING_ENABLED": False,
-        "CITATION_GROUNDING_ENABLED": False,
+        "CLAIM_MAPPING_ENABLED": True,
+        "CITATION_GROUNDING_ENABLED": True,
         "ANSWER_STATUS_ENABLED": True,
-        "KNOWLEDGE_BOUNDARY_ENABLED": False,
+        "KNOWLEDGE_BOUNDARY_ENABLED": True,
     }
     previous = {name: getattr(server.Flags, name) for name in flag_values}
+    calls["profile_flags"] = dict(flag_values)
     for name, value in flag_values.items():
         setattr(server.Flags, name, value)
     try:
@@ -109,6 +165,11 @@ async def actual_orchestrator_request(*, query="solid battery beta energy densit
         return status_code, events, payloads, calls
     finally:
         orchestrator.run_agentic_loop = original_run
+        orchestrator.rerank = original_rerank
+        decomposer.llm_model_func = original_decomposer_model
+        router.llm_model_func = original_router_model
+        server.llm_model_func = original_server_model
+        server.map_claims_to_citations = original_claim_map
         for name, value in previous.items():
             setattr(server.Flags, name, value)
 
@@ -127,6 +188,12 @@ def test_actual_server_and_orchestrator():
               for row in state.all_results))
     check("RT104 orchestrator state and Ledger executed",
           state is not None and state.iteration >= 1 and state.ledger is not None)
+    check("RT104 current legacy profile stages enabled",
+          all(calls["profile_flags"][name] for name in (
+              "ROUTER_ENABLED", "DECOMPOSITION_ENABLED",
+              "ITERATIVE_RETRIEVAL_ENABLED", "EVIDENCE_GRADER_ENABLED",
+              "RERANKER_ENABLED", "CLAIM_MAPPING_ENABLED",
+              "CITATION_GROUNDING_ENABLED", "KNOWLEDGE_BOUNDARY_ENABLED")))
     check("RT104 canonical terminal response",
           len(terminal) == 1 and terminal[0]["answer_status"] == "SUPPORTED"
           and terminal[0]["state_machine"]["answer_status"] == "SUPPORTED")

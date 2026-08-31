@@ -39,13 +39,13 @@ production evidence. Graph-V2 remains off because the sealed conclusion is
 ## Gatekeeper repair evidence
 
 ```text
-Phase09 suites: 96 passed, 0 failed
+Phase09 suites: 97 passed, 0 failed
   benchmark_phase09: 35/35
-  e2e_phase09: 20/20
+  e2e_phase09: 21/21
   failure_injection_phase09: 20/20
   release_phase09: 21/21
 
-Push deterministic tier: 1350 passed, 0 failed across 46 suites
+Push deterministic tier: 1384 passed, 0 failed across 46 suites
 Phase08: 78/78
 Phase07: 118/118
 Phase07 benchmark: 8/8, gain_conclusion=NO_GAIN
