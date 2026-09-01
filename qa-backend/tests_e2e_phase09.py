@@ -31,7 +31,8 @@ async def actual_orchestrator_request(*, query="what is battery beta",
                                       history=None,
                                       conversation_id="phase09-e2e",
                                       force_repair=False,
-                                      standard_research=False):
+                                      standard_research=False,
+                                      disconnect_worker_evidence=False):
     """Use the real ASGI endpoint and real run_agentic_loop implementation.
 
     Only network/model nondeterminism is replaced.  The server, SSE protocol,
@@ -56,7 +57,7 @@ async def actual_orchestrator_request(*, query="what is battery beta",
     calls = {"orchestrator": 0, "search": 0, "state": None,
              "worker_calls": 0, "phase02_calls": 0, "phase02_result": None,
              "claim_map_calls": 0, "repair_regeneration_calls": 0,
-             "orchestrator_history": []}
+             "orchestrator_history": [], "generator_inputs": []}
     temp = tempfile.TemporaryDirectory()
     release_root = Path(temp.name) / "release"
     release_records = [{**row, "access_scope": "public",
@@ -87,31 +88,55 @@ async def actual_orchestrator_request(*, query="what is battery beta",
         return results, relevant, "ok"
 
     async def stream(**kwargs):
-        answer = "The synthetic beta cell reports 400 watt-hours per kilogram. [1]"
-        if "independent" in query.lower() and not standard_research:
-            answer += " The synthetic gamma device reports 28 percent efficiency. [2]"
+        # One mode-agnostic production-seam adapter for standard and
+        # multi-document runs.  It sees only the normal generator inputs
+        # supplied by /api/chat/stream.  Evidence, not harness mode, causes
+        # the output difference measured by RT-102.
+        system_prompt = str(kwargs.get("system_prompt") or "")
+        gamma_at = system_prompt.find("28 percent")
+        gamma_window = (system_prompt[max(0, gamma_at - 1200):gamma_at + 240]
+                        if gamma_at >= 0 else "")
+        gamma_worker_validated = (
+            "worker_validated_requirements=r1" in gamma_window)
+        calls["generator_inputs"].append({
+            "prompt": str(kwargs.get("prompt") or ""),
+            "system_prompt_sha256": hashlib.sha256(
+                system_prompt.encode("utf-8")).hexdigest(),
+            "has_beta_evidence": "400 watt-hours per kilogram" in system_prompt,
+            "has_gamma_evidence": "28 percent" in system_prompt,
+            "gamma_worker_validated": gamma_worker_validated,
+            "gamma_context_window": gamma_window,
+        })
+        parts = []
+        if "400 watt-hours per kilogram" in system_prompt:
+            parts.append(
+                "The synthetic beta cell reports 400 watt-hours per kilogram. [1]")
+        if gamma_worker_validated:
+            parts.append(
+                "The synthetic gamma device reports 28 percent efficiency. [2]")
+        answer = " ".join(parts) or "数据库中没有相关信息"
         yield answer
 
-    async def claim_map(_query, _answer, citations, **_kwargs):
+    async def claim_map(_query, answer, citations, **_kwargs):
         calls["claim_map_calls"] += 1
-        citation = next((c for c in citations if c.get("record_id") ==
-                         "ab64b478-6437-5fa3-9d39-d7b1b57c889b"), citations[0])
-        citation_id = citation["id"]
+        beta = next((c for c in citations if c.get("record_id") ==
+                     "ab64b478-6437-5fa3-9d39-d7b1b57c889b"), None)
         supported = not force_repair or calls["claim_map_calls"] > 1
-        claims = [{
-            "id": "claim-beta-density",
-            "text": "The synthetic beta cell reports 400 watt-hours per kilogram",
-            "type": "NUMERIC_FACT",
-            "is_core": True,
-            "support_status": "SUPPORTED" if supported else "UNSUPPORTED",
-            "supported_by": ([{"citation_id": citation_id,
-                              "relation": "DIRECT_SUPPORT",
-                              "evidence_span": "400 watt-hours per kilogram"}]
-                             if supported else []),
-        }]
-        if "independent" in query.lower() and not standard_research:
-            gamma = next(c for c in citations if c.get("record_id") ==
-                         "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0")
+        claims = []
+        if "400 watt-hours per kilogram" in answer and beta is not None:
+            claims.append({
+                "id": "claim-beta-density",
+                "text": "The synthetic beta cell reports 400 watt-hours per kilogram",
+                "type": "NUMERIC_FACT", "is_core": True,
+                "support_status": "SUPPORTED" if supported else "UNSUPPORTED",
+                "supported_by": ([{"citation_id": beta["id"],
+                                    "relation": "DIRECT_SUPPORT",
+                                    "evidence_span": "400 watt-hours per kilogram"}]
+                                 if supported else []),
+            })
+        gamma = next((c for c in citations if c.get("record_id") ==
+                      "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0"), None)
+        if "28 percent" in answer and gamma is not None:
             claims.append({
                 "id": "claim-gamma-efficiency",
                 "text": "The synthetic gamma device reports 28 percent efficiency",
@@ -125,6 +150,8 @@ async def actual_orchestrator_request(*, query="what is battery beta",
 
     async def worker_model(prompt, **_kwargs):
         calls["worker_calls"] += 1
+        if disconnect_worker_evidence:
+            return json.dumps({"relevant": False, "claims": []})
         match = re.search(r"(?:400 watt-hours per kilogram|28 percent)", prompt)
         if not match:
             return json.dumps({"relevant": False, "claims": []})
@@ -206,6 +233,7 @@ async def actual_orchestrator_request(*, query="what is battery beta",
     original_phase02 = server.run_phase02_verification
     original_legacy_reranker = legacy_reranker.llm_model_func
     original_conversation_store = server._CONVERSATION_STORE
+    original_packet_cache = server._PACKET_CACHE
 
     async def observed_run(*args, **kwargs):
         calls["orchestrator"] += 1
@@ -225,6 +253,10 @@ async def actual_orchestrator_request(*, query="what is battery beta",
     from conversation_store import ConversationStore
     server._CONVERSATION_STORE = ConversationStore(
         Path(temp.name) / "phase09-conversations.sqlite")
+    # Every endpoint execution is an isolated request experiment.  A prior
+    # run's process-global worker packet cache must not supply evidence when
+    # the disconnected mutation is active.
+    server._PACKET_CACHE = None
     server.embedding_func = p3._fake_embed
     server.llm_stream_func = stream
     original_claim_map = server.map_claims_to_citations
@@ -297,6 +329,7 @@ async def actual_orchestrator_request(*, query="what is battery beta",
         server.run_phase02_verification = original_phase02
         legacy_reranker.llm_model_func = original_legacy_reranker
         server._CONVERSATION_STORE = original_conversation_store
+        server._PACKET_CACHE = original_packet_cache
         temp.cleanup()
         for name, value in previous.items():
             setattr(server.Flags, name, value)

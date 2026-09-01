@@ -18704,15 +18704,22 @@
       "dods": [
         {
           "dod_id": "RT-101.DOD-01",
-          "description": "sanctioned locked release-holdout preflight executes phase02_pipeline.run_phase02_verification and scores its produced answer claims citation relations verification and terminal status against locked labels; the blinded holdout remains separately locked and required for final release authority; malformed citations are never displayed and verifier technical failures are never PASS",
-          "status": "SATISFIED",
-          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt101_answer_gate_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-101"}]
+          "description": "locked answer-level blinded release holdout measures correctness completeness unsupported claims attribution temporal and numeric correctness exact citations invalid display and abstention through canonical system output",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Repository and authorized CI artifact search found retrieval anchors and structural answer telemetry but no independently authorized answer-level blinded gold; the deterministic Phase09 fixture remains auxiliary preflight only.",
+          "planned_test_cases": [{"case": "test_rt101_answer_level_blinded_release_holdout", "level": "release", "future_rt": ["RT-101"], "benchmark_owner": "RT-101"}]
         },
         {
           "dod_id": "RT-101.DOD-02",
           "description": "all four answer states and technical exits are exercised through the real endpoint and canonical terminal state machine",
           "status": "SATISFIED",
           "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-101.DOD-03",
+          "description": "auxiliary deterministic preflight preserves strict system-output to evaluator directionality and proves malformed citations and verifier technical failures fail closed without granting release-holdout completion credit",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt101_answer_gate_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-101"}]
         }
       ]
     },

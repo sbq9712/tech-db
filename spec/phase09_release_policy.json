@@ -10,6 +10,9 @@
     "invalid_displayed_citation_zero": "invalid_displayed_citations",
     "verifier_technical_error_pass_zero": "verifier_technical_pass"
   },
+  "required_authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
+  },
   "graph_gain_conclusion": "NO_GAIN",
   "external_state": "spec/phase09_external_state.json"
 }

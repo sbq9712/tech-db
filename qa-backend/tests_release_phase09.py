@@ -47,7 +47,7 @@ def good_rows(prov):
         "release_phase09")]
 
 
-def decide(rows, prov, invariants=None):
+def decide(rows, prov, invariants=None, authorities=None):
     return evaluate_release(
         required_suites=[row.name for row in good_rows(prov)], evidence=rows,
         expected_provenance=prov,
@@ -55,6 +55,8 @@ def decide(rows, prov, invariants=None):
             "invalid_displayed_citation_zero": True,
             "verifier_technical_error_never_pass": True,
         }, graph_gain_conclusion="NO_GAIN",
+        required_authorities=(authorities or {
+            "RT-101_answer_level_blinded_release_holdout_gold": "SATISFIED"}),
         external_blockers=EXTERNAL_BLOCKERS)
 
 
@@ -67,6 +69,16 @@ def test_release_matrix():
           and set(good.external_blockers) == {"Q-336", "RT-005", "RT-075"})
     check("RT107 Graph NO_GAIN independently stays off",
           not good.graph_activation_eligible and good.graph_state == "OFF_NO_GAIN")
+    missing_holdout = decide(
+        good_rows(prov), prov,
+        authorities={
+            "RT-101_answer_level_blinded_release_holdout_gold":
+                "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"})
+    check("RT101 missing P0 release-holdout authority blocks core",
+          not missing_holdout.core_eligible
+          and not missing_holdout.production_release_eligible
+          and any("RT-101_answer_level_blinded_release_holdout_gold" in reason
+                  for reason in missing_holdout.reasons))
 
     cases = {}
     rows = good_rows(prov)[1:]
@@ -204,9 +216,12 @@ def test_ticket_status_generation():
     check("RT108 RT106 retention remains externally blocked",
           status["tickets"]["RT-106"]["status"] == "BLOCKED_EXTERNAL_ACTION"
           and status["tickets"]["RT-106"]["dependency_blockers"] == ["Q-336"])
-    check("RT108 code-local tickets use executable evidence",
+    check("RT108 RT101 missing answer gold is not satisfied",
+          status["tickets"]["RT-101"]["status"] == "NOT_SATISFIED")
+    check("RT108 other code-local tickets use executable evidence",
           all(row["status"] == "SATISFIED" for ticket, row in
-              status["tickets"].items() if ticket not in {"RT-103", "RT-106"}),
+              status["tickets"].items()
+              if ticket not in {"RT-101", "RT-103", "RT-106"}),
           json.dumps(status["tickets"], ensure_ascii=False))
     missing = derive_ticket_status(
         matrix=matrix, suite_results={**suite_results, "benchmark_phase09": "MISSING"},

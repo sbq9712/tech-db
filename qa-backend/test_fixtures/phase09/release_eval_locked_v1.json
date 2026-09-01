@@ -1,19 +1,88 @@
 {
-  "schema_version": "phase09-release-eval-1.0",
+  "schema_version": "phase09-release-eval-1.1",
   "status": "LOCKED_REVIEWED_FIXTURE",
   "labels_independent_of_system_output": true,
-  "intended_use": "sanctioned_locked_release_holdout_preflight_through_canonical_system; blinded_release_holdout remains separately locked and required for final release authority",
-  "thresholds": {"correctness": 0.8, "completeness": 0.8, "unsupported_claim_rate_max": 0.2, "attribution_accuracy": 0.8, "temporal_accuracy": 0.8, "numeric_accuracy": 0.8, "exact_citation_accuracy": 0.8, "abstention_accuracy": 1.0, "invalid_displayed_citations_max": 0, "verifier_technical_pass_max": 0},
+  "intended_use": "auxiliary deterministic release preflight only; it is not answer-level blinded release-holdout authority",
+  "system_gold_boundary": "system_input is consumed first; gold is evaluator-only after canonical terminal output",
+  "canonical_release_holdout_status": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE",
+  "thresholds": {
+    "correctness": 0.8, "completeness": 0.8,
+    "unsupported_claim_rate_max": 0.2, "attribution_accuracy": 0.8,
+    "temporal_accuracy": 0.8, "numeric_accuracy": 0.8,
+    "exact_citation_accuracy": 0.8, "abstention_accuracy": 1.0,
+    "invalid_displayed_citations_max": 0,
+    "verifier_technical_pass_max": 0
+  },
   "cases": [
-    {"id": "supported", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": true, "expected_abstain": false, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true},
-    {"id": "unsupported", "mutation": "wrong_generated_fact_and_numeric_unit", "answer": "The battery density is 900 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "expected_numeric_ok": false, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true},
-    {"id": "wrong-attribution", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "expected_attribution_ok": false, "source_role": "self_reported", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true},
-    {"id": "stale-temporal", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "expected_temporal_ok": false, "source_role": "independent", "expected_source_role": "independent", "date": "2024-01-01", "as_of": "2026-07-01", "max_age_days": 365, "locator_valid": true},
-    {"id": "malformed-locator", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "expected_exact_citation_ok": false, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": false},
-    {"id": "unanswerable", "answer": "", "evidence": "No relevant measurement is available.", "expected_supported": false, "expected_abstain": true, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true},
-    {"id": "technical-verifier", "mutation": "verifier_timeout", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true, "verifier_error": "timeout"},
-    {"id": "technical-malformed", "mutation": "verifier_malformed", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true, "verifier_error": "malformed"},
-    {"id": "technical-429", "mutation": "verifier_429", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true, "verifier_error": "429"},
-    {"id": "technical-5xx", "mutation": "verifier_5xx_partial", "answer": "The battery density is 400 Wh/kg.", "evidence": "The battery density is 400 Wh/kg.", "expected_supported": false, "expected_abstain": true, "source_role": "independent", "expected_source_role": "independent", "date": "2026-07-01", "as_of": "2026-07-01", "locator_valid": true, "verifier_error": "5xx_partial"}
+    {
+      "id": "supported",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "gold": {"expected_supported": true, "expected_abstain": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "unsupported-number",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "generator_wrong_number",
+      "gold": {"expected_supported": false, "expected_abstain": false, "expected_numeric_ok": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "unsupported-appended-claim",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "generator_unsupported_append",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_numeric_ok": true, "expected_exact_citation_ok": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "omitted-required-component",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "generator_omit_required",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "wrong-attribution",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "self_reported", "date": "2026-07-01"},
+      "system_mutation": "source_role_metadata_wrong",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_attribution_ok": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "stale-temporal",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2024-01-01"},
+      "system_mutation": "stale_evidence_metadata",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_temporal_ok": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "malformed-locator",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "malformed_citation_locator",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_exact_citation_ok": false, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "unanswerable",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "No relevant measurement is available.", "source_role": "independent", "date": "2026-07-01"},
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "technical-timeout",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "verifier_timeout",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "technical-malformed",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "verifier_malformed",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "technical-429",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "verifier_429",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    },
+    {
+      "id": "technical-5xx-partial",
+      "system_input": {"query": "Report the independent current battery density as of 2026-07-01.", "evidence": "The battery density is 400 Wh/kg.", "source_role": "independent", "date": "2026-07-01"},
+      "system_mutation": "verifier_5xx_partial",
+      "gold": {"expected_supported": false, "expected_abstain": true, "expected_source_role": "independent", "as_of": "2026-07-01", "max_age_days": 365}
+    }
   ]
 }

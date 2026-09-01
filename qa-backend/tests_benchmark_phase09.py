@@ -20,7 +20,8 @@ sys.path.insert(0, str(HERE))
 
 from answer_status import AnswerStateMachine, build_terminal_response
 from conflict_detector import detect_conflicts
-from entity_resolver_v2 import CandidateGenerator, CanonicalEntityResolver
+from entity_resolver_v2 import (CandidateGenerator, CanonicalEntityResolver,
+                                ConstrainedLLMAdjudicator, ResolutionState)
 from identity_snapshot import IdentitySnapshotView, build_identity_snapshot
 from multi_document import DocumentWorkerInput, process_document_packet
 from numeric_facts import verify_numeric_claim
@@ -213,12 +214,14 @@ def test_rt100_retrieval_benchmark(fixture):
     return asyncio.run(_retrieval(fixture))
 
 
-def _citation(case):
-    text = case["evidence"]
-    end = len(text) if case["locator_valid"] else len(text) + 1
+def _citation(system_input):
+    text = system_input["evidence"]
+    end = len(text) + int(system_input.get("locator_end_delta", 0))
     return {
         "id": 1, "record_id": "release-eval-record",
         "source_snapshot_id": "release-eval-snapshot", "access_scope": "public",
+        "source_role": system_input["source_role"],
+        "date": system_input["date"],
         "supports_claim_ids": ["claim-1"],
         "evidence_spans": [{"text": text, "start": 0, "end": end}],
         "locators": [{"locator_type": "TEXT_SPAN", "start": 0, "end": end,
@@ -230,51 +233,165 @@ def test_rt101_answer_gate_benchmark():
     release = json.loads(RELEASE_EVAL.read_text("utf-8"))
     holdout_lock = json.loads(HOLDOUT_LOCK.read_text("utf-8"))
     rows, invalid_displayed, technical_pass = [], 0, 0
+
+    async def generation_from_context(*, prompt, system_prompt,
+                                      history_messages=None):
+        del prompt, history_messages
+        if "No relevant measurement is available" in system_prompt:
+            yield ""
+        elif "400 Wh/kg" in system_prompt:
+            yield "The battery density is 400 Wh/kg. [1]"
+        else:
+            yield ""
+
+    async def generation_wrong_number(**_kwargs):
+        yield "The battery density is 900 Wh/kg. [1]"
+
+    async def generation_unsupported_append(**_kwargs):
+        yield ("The battery density is 400 Wh/kg. [1] "
+               "The battery lasts 99 years. [1]")
+
+    async def generation_omit_required(**_kwargs):
+        yield ""
+
+    generator_mutations = {
+        "generator_wrong_number": generation_wrong_number,
+        "generator_unsupported_append": generation_unsupported_append,
+        "generator_omit_required": generation_omit_required,
+    }
+
+    async def map_generated_claims(_query, answer, citations):
+        # External-model emulation derives claims only from generated output
+        # and canonical citations.  No evaluation label is in this call.
+        if not answer:
+            return {"claims": []}
+        claims = []
+        answer_without_markers = re.sub(r"\s*\[\d+\]", "", answer)
+        for index, sentence in enumerate(
+                s.strip() for s in answer_without_markers.split(".")
+                if s.strip()):
+            claims.append({
+                "id": f"claim-{index + 1}", "text": sentence,
+                "type": "NUMERIC_FACT", "is_core": True,
+                "support_status": "SUPPORTED",
+                "supported_by": [{
+                    "citation_id": citations[0]["id"],
+                    "relation": "DIRECT_SUPPORT",
+                    "evidence_span": sentence,
+                }],
+            })
+        return {"claims": claims}
+
+    async def map_malformed_locator(query, answer, citations):
+        mapped = await map_generated_claims(query, answer, citations)
+        for claim in mapped["claims"]:
+            for relation in claim.get("supported_by") or []:
+                relation["evidence_span"] = "not present in pinned evidence"
+        return mapped
+
+    async def verify_from_canonical_inputs(query, claims, refs,
+                                           deterministic_results=None):
+        del deterministic_results
+        findings = []
+        for claim in claims:
+            verdict = "PASS"
+            if "independent" in query.lower() and any(
+                    ref.get("source_role") != "independent" for ref in refs):
+                verdict = "FAIL"
+            as_of = re.search(r"as of (\d{4}-\d{2}-\d{2})", query.lower())
+            if as_of and any(
+                    (date.fromisoformat(as_of.group(1)) -
+                     date.fromisoformat(ref.get("published_date"))).days > 365
+                    for ref in refs if ref.get("published_date")):
+                verdict = "FAIL"
+            findings.append({"claim_id": claim["id"], "verdict": verdict})
+        return VerificationResult(
+            "PASSED" if all(row["verdict"] == "PASS"
+                            for row in findings) else "FAILED",
+            findings=findings)
+
+    async def verify_timeout(*_args, **_kwargs):
+        raise TimeoutError("deterministic verifier timeout")
+
+    async def verify_malformed(*_args, **_kwargs):
+        return {"malformed": "missing canonical verdict"}
+
+    async def verify_429(*_args, **_kwargs):
+        raise RuntimeError("deterministic verifier HTTP 429")
+
+    async def verify_5xx_partial(*_args, **_kwargs):
+        raise RuntimeError("deterministic verifier HTTP 503 partial response")
+
+    verifier_mutations = {
+        "verifier_timeout": verify_timeout,
+        "verifier_malformed": verify_malformed,
+        "verifier_429": verify_429,
+        "verifier_5xx_partial": verify_5xx_partial,
+    }
+
     for case in release["cases"]:
-        citation = _citation(case)
+        # Strict one-way boundary: this object is the complete system side.
+        # The gold object below is not read until the canonical system has
+        # produced its terminal result.
+        system_input = dict(case["system_input"])
+        citation = _citation(system_input)
         record = {"record_id": "release-eval-record", "legacy_idx": 0,
                   "t": "Locked release evaluation evidence", "b": "",
-                  "fb": case["evidence"], "source_role": case["source_role"],
-                  "d": case["date"],
+                  "fb": system_input["evidence"],
+                  "source_role": system_input["source_role"],
+                  "evidence_role": system_input["source_role"],
+                  "d": system_input["date"],
                   "evidence_eligibility": "CITATION_ELIGIBLE"}
-        observations = {}
+        system_mutation = str(case.get("system_mutation") or "")
+        verifier_inputs = {}
+        generator_adapter = generator_mutations.get(
+            system_mutation, generation_from_context)
+        mapper = (map_malformed_locator
+                  if system_mutation == "malformed_citation_locator"
+                  else map_generated_claims)
+        selected_verifier = verifier_mutations.get(
+            system_mutation, verify_from_canonical_inputs)
 
-        async def mapper(_query, answer, citations):
-            numeric = verify_numeric_claim(answer, case["evidence"])
-            observations["numeric_ok"] = numeric["status"] in {
-                "MATCH", "NO_CLAIM_NUMBER"}
-            observations["attribution_ok"] = (
-                case["source_role"] == case["expected_source_role"])
-            age = (date.fromisoformat(case["as_of"]) -
-                   date.fromisoformat(case["date"])).days
-            observations["temporal_ok"] = age <= case.get(
-                "max_age_days", 10**9)
-            observations["exact_ok"] = bool(case["locator_valid"])
-            answer_tokens = set(re.findall(r"[a-z]+", answer.lower()))
-            evidence_tokens = set(re.findall(r"[a-z]+", case["evidence"].lower()))
-            observations["semantic_ok"] = bool(answer) and answer_tokens <= evidence_tokens
-            supported = all(observations.values())
-            return {"claims": ([{
-                "id": "claim-1", "text": answer, "type": "NUMERIC_FACT",
-                "is_core": True,
-                "support_status": "SUPPORTED" if supported else "UNSUPPORTED",
-                "supported_by": ([{"citation_id": 1,
-                                    "relation": "DIRECT_SUPPORT",
-                                    "evidence_span": case["evidence"]}]
-                                 if supported else []),
-            }] if answer else [])}
+        rendered_context = (
+            "Canonical evidence context:\n" + system_input["evidence"] +
+            f"\nsource_role={system_input['source_role']}" +
+            f"\ndate={system_input['date']}")
 
-        async def verifier(_query, claims, _refs, deterministic_results=None):
-            if case.get("verifier_error"):
-                raise TimeoutError(case["verifier_error"])
-            return VerificationResult("PASSED", findings=[
-                {"claim_id": claim["id"], "verdict": "PASS"}
-                for claim in claims])
+        async def generate():
+            import server
+            chunks = []
+            original_stream = server.llm_stream_func
+            server.llm_stream_func = generator_adapter
+            try:
+                # Invoke the exact dependency seam used by
+                # /api/chat/stream's production generator stage.
+                async for chunk in server.llm_stream_func(
+                        prompt=system_input["query"],
+                        system_prompt=rendered_context,
+                        history_messages=[]):
+                    chunks.append(chunk)
+            finally:
+                server.llm_stream_func = original_stream
+            return "".join(chunks)
+
+        draft_answer = asyncio.run(generate())
+
+        async def verifier(query, claims, refs, deterministic_results=None):
+            verifier_inputs["refs"] = [dict(ref) for ref in refs]
+            return await selected_verifier(
+                query, claims, refs,
+                deterministic_results=deterministic_results)
 
         result = asyncio.run(run_phase02_verification(
-            query="locked release evaluation", draft_answer=case["answer"],
-            citations=[citation], records=[record], llm_claim_map=mapper,
-            llm_verify=verifier, manifest_mode=False))
+            query=system_input["query"], draft_answer=draft_answer,
+            citations=[citation], records=[record],
+            records_by_id={record["record_id"]: record},
+            llm_claim_map=mapper, llm_verify=verifier,
+            manifest_mode=False, strict_evidence_package=True,
+            pinned_provenance_map={record["record_id"]: {
+                "source_role": system_input["source_role"],
+                "independent_group_id": "release-eval-independent-source",
+            }}))
         output_citations = result.get("citations") or []
         display_claims = [{"id": c["id"], "relations": [
             {"citation_id": rel.get("citation_id"),
@@ -284,33 +401,49 @@ def test_rt101_answer_gate_benchmark():
         cards = build_reference_cards(
             output_citations, display_claims,
             current_snapshot_ids={"release-eval-record": "release-eval-snapshot"})
-        # Locator accuracy measures the canonical grounding decision; citation
-        # display is an independent absolute hard gate below.  A citation
-        # correctly withheld because another claim gate failed is not itself
-        # an invalid locator.
-        exact_ok = bool(observations.get("exact_ok"))
-        if not case["locator_valid"]:
+        terminal_answer = str(result.get("answer") or "")
+        gold = case["gold"]
+        numeric = verify_numeric_claim(terminal_answer, system_input["evidence"])
+        numeric_ok = numeric["status"] in {"MATCH", "NO_CLAIM_NUMBER"}
+        produced_refs = verifier_inputs.get("refs", [])
+        attribution_ok = (all(
+            ref.get("source_role") == gold.get("expected_source_role")
+            for ref in produced_refs) if produced_refs else True)
+        temporal_ok = (all(
+            (date.fromisoformat(gold["as_of"]) -
+             date.fromisoformat(ref["published_date"])).days
+            <= gold.get("max_age_days", 10**9)
+            for ref in produced_refs if ref.get("published_date"))
+            if produced_refs else True)
+        exact_ok = not bool(result.get("invalid_citations"))
+        if not exact_ok:
             invalid_displayed += sum(card["displayable"] for card in cards)
         produced_supported = result["answer_status"] == "SUPPORTED"
-        if case.get("verifier_error") and produced_supported:
+        if system_mutation.startswith("verifier_") and produced_supported:
             technical_pass += 1
         produced_abstain = result["answer_status"] in {"UNSUPPORTED", "UNVERIFIED"}
         rows.append({
             "id": case["id"], "supported": produced_supported,
             "abstained": produced_abstain,
-            "numeric_ok": observations.get("numeric_ok", True),
-            "attribution_ok": observations.get("attribution_ok", True),
-            "temporal_ok": observations.get("temporal_ok", True),
+            "generated_answer": draft_answer,
+            "terminal_answer": terminal_answer,
+            "numeric_ok": numeric_ok,
+            "attribution_ok": attribution_ok,
+            "temporal_ok": temporal_ok,
             "exact_citation_ok": exact_ok,
             "answer_status": result["answer_status"],
             "verification_status": result["verification_status"],
-            "expected_supported": case["expected_supported"],
-            "expected_abstain": case["expected_abstain"],
-            "expected_numeric_ok": case.get("expected_numeric_ok", True),
-            "expected_attribution_ok": case.get("expected_attribution_ok", True),
-            "expected_temporal_ok": case.get("expected_temporal_ok", True),
-            "expected_exact_citation_ok": case.get("expected_exact_citation_ok", True),
-            "mutation": case.get("mutation", ""),
+            "verifier_refs": produced_refs,
+            "produced_claims": result.get("claims_payload") or [],
+            "produced_citations": output_citations,
+            "expected_supported": gold["expected_supported"],
+            "expected_abstain": gold["expected_abstain"],
+            "expected_numeric_ok": gold.get("expected_numeric_ok", True),
+            "expected_attribution_ok": gold.get("expected_attribution_ok", True),
+            "expected_temporal_ok": gold.get("expected_temporal_ok", True),
+            "expected_exact_citation_ok": gold.get(
+                "expected_exact_citation_ok", True),
+            "system_mutation": system_mutation,
         })
     total = len(rows)
     classification = sum(r["supported"] == r["expected_supported"] for r in rows) / total
@@ -332,15 +465,25 @@ def test_rt101_answer_gate_benchmark():
         "blinded_contamination": hashlib.sha256(RELEASE_EVAL.read_bytes()).hexdigest() == holdout_lock["sha256_entries"],
         "negative_cases": [r for r in rows if not r["expected_supported"]],
         "system_mutations": [
-            {"mutation": r["mutation"], "canonical_status": r["answer_status"],
+            {"mutation": r["system_mutation"],
+             "canonical_status": r["answer_status"],
              "failed_closed": not r["supported"]}
-            for r in rows if r["mutation"]],
+            for r in rows if r["system_mutation"]],
         "cases": rows,
         "canonical_components": ["phase02_pipeline.run_phase02_verification",
                                   "numeric_facts.verify_numeric_claim",
                                   "reference_cards.build_reference_cards",
                                   "answer_status.AnswerStateMachine"],
         "custom_predicted_supported_removed": True,
+        "gold_access": {
+            "generator": False, "mapper": False, "verifier": False,
+            "evaluator_after_system_output_only": True,
+        },
+        "actual_generation_entrypoint":
+            "server.llm_stream_func production generation seam",
+        "authority_status": "AUXILIARY_PREFLIGHT_ONLY",
+        "canonical_release_holdout_status":
+            "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE",
     }
     machine = AnswerStateMachine()
     machine.record_technical_failure("verifier", "timeout")
@@ -397,10 +540,17 @@ async def _multi_document(fixture):
         standard_research=True)
     _mc, _me, multi_payloads, multi_calls = await actual_orchestrator_request(
         query=locked_query, conversation_id="phase09-multidoc-research")
+    _dc, _de, disconnected_payloads, disconnected_calls = \
+        await actual_orchestrator_request(
+            query=locked_query,
+            conversation_id="phase09-multidoc-worker-disconnected",
+            disconnect_worker_evidence=True)
     standard_terminal = next(row for row in standard_payloads
                              if row.get("terminal_schema_version"))
     multi_terminal = next(row for row in multi_payloads
                           if row.get("terminal_schema_version"))
+    disconnected_terminal = next(row for row in disconnected_payloads
+                                 if row.get("terminal_schema_version"))
     required_facts = ("400 watt-hours per kilogram", "28 percent")
     standard_hits = sum(fact in standard_terminal.get("answer", "")
                         for fact in required_facts)
@@ -408,6 +558,9 @@ async def _multi_document(fixture):
                      for fact in required_facts)
     standard_quality = standard_hits / len(required_facts)
     multi_quality = multi_hits / len(required_facts)
+    disconnected_quality = sum(
+        fact in disconnected_terminal.get("answer", "")
+        for fact in required_facts) / len(required_facts)
     predicted_relevant = [packet for packet in packets if packet.evidence_found]
     true_positive = sum(bool(packet.local_claims) and next(
         row.get("relevant", True) for row in fixture["multi_document"]
@@ -430,8 +583,25 @@ async def _multi_document(fixture):
         "standard_research_coverage": standard_quality,
         "multi_document_coverage": multi_quality,
         "answer_gain": multi_quality - standard_quality,
+        "worker_evidence_disconnected_quality": disconnected_quality,
+        "worker_evidence_disconnected_gain": (
+            disconnected_quality - standard_quality),
         "standard_terminal": standard_terminal,
         "multi_document_terminal": multi_terminal,
+        "worker_evidence_disconnected_terminal": disconnected_terminal,
+        "generator_adapter_identity": "phase09-evidence-driven-stream-v1",
+        "same_generator_adapter": True,
+        "generator_input_standard": standard_calls["generator_inputs"],
+        "generator_input_multidoc": multi_calls["generator_inputs"],
+        "generator_input_worker_disconnected": disconnected_calls[
+            "generator_inputs"],
+        "evidence_causes_output_difference": (
+            not standard_calls["generator_inputs"][-1][
+                "gamma_worker_validated"]
+            and multi_calls["generator_inputs"][-1][
+                "gamma_worker_validated"]
+            and not disconnected_calls["generator_inputs"][-1][
+                "gamma_worker_validated"]),
         "both_canonical_paths_executed": (
             standard_calls["state"].mode == "RESEARCH_RAG"
             and "multi_document_workers" not in standard_calls["state"].stage_calls
@@ -442,7 +612,13 @@ async def _multi_document(fixture):
         "mutations": {
             "suppressed_router_flag_loses_positive": bool(positive[0]["needs_multi_document_reasoning"]),
             "single_document_baseline_loses_coverage": standard_quality < multi_quality,
-            "disabled_multidoc_reduces_system_gain": standard_quality < multi_quality,
+            "disabled_multidoc_reduces_system_gain": (
+                disconnected_quality < multi_quality
+                and disconnected_quality - standard_quality
+                < fixture["thresholds"]["multi_document_answer_gain"]),
+            "worker_evidence_disconnect_fails_gain_gate": (
+                disconnected_quality - standard_quality
+                < fixture["thresholds"]["multi_document_answer_gain"]),
             "reversed_conflict_value_detected": conflicts["has_conflicts"] and not no_conflict["has_conflicts"],
         },
         "canonical_components": ["router.route_query",
@@ -467,8 +643,24 @@ def test_rt103_er_benchmark(thresholds_by_class):
             candidate_hits = top1_hits = false_links = abstentions = 0
             timings = []
             observed = {"candidate_calls": 0, "resolver_calls": 0,
-                        "external_calls": 0, "repeat_stable": True,
-                        "repeat_lookups": 0}
+                        "adapter_calls": 0, "adapter_calls_first": 0,
+                        "adapter_calls_repeat": 0,
+                        "adapter_calls_changed_key": 0,
+                        "cache_hits": 0, "cache_misses": 0,
+                        "repeat_stable": True, "repeat_lookups": 0,
+                        "same_cache_key": True,
+                        "changed_cache_key_miss": True,
+                        "adjudication_applicable_cases": 0}
+            adjudicator = ConstrainedLLMAdjudicator(
+                "phase09-observed-adapter-v1", "er-adjudicate-v1")
+
+            async def observed_adapter(request):
+                observed["adapter_calls"] += 1
+                ordered = [row["entity_id"] for row in request["candidates"]]
+                return ({"decision": "LINK", "entity_id": ordered[0]}
+                        if ordered else
+                        {"decision": "AMBIGUOUS", "entity_id": None})
+
             for case in cases:
                 started = time.perf_counter()
                 observed["candidate_calls"] += 1
@@ -482,30 +674,116 @@ def test_rt103_er_benchmark(thresholds_by_class):
                 top1_hits += int(bool(ordered) and ordered[0] == truth)
                 false_links += int(decision.selected_entity_id not in (None, truth))
                 abstentions += int(decision.selected_entity_id is None)
-                observed["resolver_calls"] += 1
-                repeat = resolver.resolve(case["mention"], required_type=class_name)
-                observed["repeat_lookups"] += 1
-                observed["repeat_stable"] &= repeat.to_dict() == decision.to_dict()
+                if truth in ordered:
+                    observed["adjudication_applicable_cases"] += 1
+                    context = f"locked {class_name} context {case['mention']}"
+                    key = adjudicator.cache_key(
+                        case["mention"], context, candidates,
+                        snapshot.snapshot_id, resolver.policy.version)
+
+                    async def adapter(request):
+                        # The deterministic adapter chooses only from the
+                        # ordered candidates in the canonical request.  It has
+                        # no access to evaluation truth.  Cache accounting is
+                        # owned by the real adjudicator.
+                        return await observed_adapter(request)
+
+                    before = observed["adapter_calls"]
+                    first = asyncio.run(adjudicator.adjudicate(
+                        adapter, mention=case["mention"], context=context,
+                        candidates=candidates, snapshot=snapshot,
+                        policy=resolver.policy, required_type=class_name))
+                    observed["adapter_calls_first"] += (
+                        observed["adapter_calls"] - before)
+                    observed["cache_misses"] += 1
+
+                    before = observed["adapter_calls"]
+                    repeat = asyncio.run(adjudicator.adjudicate(
+                        adapter, mention=case["mention"], context=context,
+                        candidates=candidates, snapshot=snapshot,
+                        policy=resolver.policy, required_type=class_name))
+                    observed["adapter_calls_repeat"] += (
+                        observed["adapter_calls"] - before)
+                    observed["repeat_lookups"] += 1
+                    observed["cache_hits"] += int(
+                        observed["adapter_calls"] == before)
+                    repeat_key = adjudicator.cache_key(
+                        case["mention"], context, candidates,
+                        snapshot.snapshot_id, resolver.policy.version)
+                    observed["same_cache_key"] &= repeat_key == key
+                    observed["repeat_stable"] &= repeat == first
+
+                    changed_context = context + " changed"
+                    changed_key = adjudicator.cache_key(
+                        case["mention"], changed_context, candidates,
+                        snapshot.snapshot_id, resolver.policy.version)
+                    before = observed["adapter_calls"]
+                    asyncio.run(adjudicator.adjudicate(
+                        adapter, mention=case["mention"],
+                        context=changed_context, candidates=candidates,
+                        snapshot=snapshot, policy=resolver.policy,
+                        required_type=class_name))
+                    changed_delta = observed["adapter_calls"] - before
+                    observed["adapter_calls_changed_key"] += changed_delta
+                    observed["cache_misses"] += int(changed_delta == 1)
+                    observed["changed_cache_key_miss"] &= (
+                        changed_key != key and changed_delta == 1)
             total = len(cases)
             thresholds = thresholds_by_class[class_name]
+            applicable = observed["adjudication_applicable_cases"]
+            repeat_hit_rate = observed["cache_hits"] / max(1, applicable)
             per_class[class_name] = {
                 "cases": total, "candidate_recall_at_10": candidate_hits / total,
                 "top1": top1_hits / total, "topk": candidate_hits / total,
                 "abstention_rate": abstentions / total,
                 "false_link_rate": false_links / total,
                 "latency_ms_mean": sum(timings) / total,
-                "external_call_count": observed["external_calls"],
-                "cost_measure": {"unit": "external_call", "observed": observed["external_calls"],
-                                 "execution": "canonical_local_only"},
+                "adjudication_applicable": bool(applicable),
+                "adjudication_applicable_cases": applicable,
+                "cache_status": "APPLICABLE_MEASURED" if applicable else
+                                "NOT_APPLICABLE",
+                "adapter_call_counts": {
+                    "first_pass": observed["adapter_calls_first"],
+                    "identical_repeat": observed["adapter_calls_repeat"],
+                    "changed_key": observed["adapter_calls_changed_key"],
+                    "total": observed["adapter_calls"],
+                },
+                "cache_hit_count": observed["cache_hits"],
+                "cache_miss_count": observed["cache_misses"],
+                "cost_runtime_units": {
+                    "cost_unit": "adjudicator_model_call",
+                    "runtime_unit": "milliseconds",
+                },
+                "external_call_count": observed["adapter_calls"],
+                "cost_measure": {
+                    "unit": "adjudicator_model_call",
+                    "observed": observed["adapter_calls"],
+                    "execution": "ConstrainedLLMAdjudicator.adjudicate"},
                 "cache_repeat": {"lookups": observed["repeat_lookups"],
                                  "stable": observed["repeat_stable"],
-                                 "cache_surface": "resolver deterministic memoization where applicable"},
+                                 "hits": observed["cache_hits"],
+                                 "misses": observed["cache_misses"],
+                                 "repeat_hit_rate": repeat_hit_rate,
+                                 "same_cache_key": observed["same_cache_key"],
+                                 "changed_key_miss": observed[
+                                     "changed_cache_key_miss"],
+                                 "cache_surface":
+                                     "ConstrainedLLMAdjudicator._cache"},
                 "instrumentation": observed, "thresholds": thresholds,
                 "gate_passed": (candidate_hits / total >= thresholds["candidate_recall_at_10"]
                                 and top1_hits / total >= thresholds["top1"]
                                 and false_links / total <= thresholds["false_link_rate_max"]
-                                and observed["external_calls"] <= thresholds["external_calls_max"]
-                                and observed["repeat_stable"] is thresholds["cache_repeat_stable"]),
+                                and observed["adapter_calls"] <= thresholds[
+                                    "external_calls_max"]
+                                and observed["adapter_calls_first"] == applicable
+                                and observed["adapter_calls_repeat"] == 0
+                                and observed["adapter_calls_changed_key"] == applicable
+                                and repeat_hit_rate >= thresholds[
+                                    "repeat_cache_hit_rate"]
+                                and observed["repeat_stable"] is thresholds[
+                                    "cache_repeat_stable"]
+                                and observed["same_cache_key"]
+                                and observed["changed_cache_key_miss"]),
             }
         adversarial = resolver.resolve("completely unknown phase09 entity", required_type="ORG")
         first = resolver.resolve("英伟达", required_type="ORG").to_dict()
@@ -521,6 +799,10 @@ def test_rt103_er_benchmark(thresholds_by_class):
             "latency_ms_mean": sum(r["latency_ms_mean"] * r["cases"] for r in per_class.values()) / total,
             "external_call_count": sum(r["external_call_count"] for r in per_class.values()),
             "cache_repeat_stable": all(r["cache_repeat"]["stable"] for r in per_class.values()),
+            "cache_key_change_miss_proved": all(
+                r["cache_repeat"]["changed_key_miss"]
+                for r in per_class.values()),
+            "observed_counter_attached_to_canonical_adjudicator": True,
             "thresholds_preregistered": True,
             "activation_dependency": "RT-075_BLOCKED_EXTERNAL_ACTION",
             "production_shadow_claim": False,
@@ -574,6 +856,10 @@ def main():
     check("RT101 canonical system mutations fail closed",
           answer["system_mutations"] and all(
               row["failed_closed"] for row in answer["system_mutations"]))
+    check("RT101 gold cannot enter system adapters",
+          not any(answer["gold_access"][name]
+                  for name in ("generator", "mapper", "verifier"))
+          and answer["gold_access"]["evaluator_after_system_output_only"])
     check("RT103 all class gates", all(r["gate_passed"] for r in er["per_class"].values()))
     provenance = build_provenance(
         root=ROOT, dataset=FIXTURE, manifest_id=fixture["manifest_id"],
@@ -589,6 +875,9 @@ def main():
         "provenance": provenance, "metrics": metrics,
         "retrieval": retrieval, "answer_gate": answer,
         "multi_document": multi, "entity_resolution": er,
+        "rt101_status": "NOT_SATISFIED",
+        "rt101_blocker":
+            "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE",
         "rt103_dependency_status": "BLOCKED_EXTERNAL_ACTION_RT-075",
         "graph_gain_conclusion": "NO_GAIN", "graph_v2_activation_claim": False,
         "verdict": "PASS" if all(row["passed"] for row in metrics.values()) and not FAILED else "FAIL",

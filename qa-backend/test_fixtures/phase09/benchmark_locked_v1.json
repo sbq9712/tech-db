@@ -44,10 +44,10 @@
     {"record_id": "doc-noise", "source_snapshot_id": "ss-noise", "source_group": "unrelated", "source_role": "independent", "date": "2026-07-01", "text": "The office cafeteria opens at noon.", "requirement_id": "performance", "relevant": false}
   ],
   "er_thresholds_by_class": {
-    "ORG": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 0, "cache_repeat_stable": true},
-    "PERSON": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 0, "cache_repeat_stable": true},
-    "PRODUCT_MODEL": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 0, "cache_repeat_stable": true},
-    "TECHNOLOGY": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 0, "cache_repeat_stable": true},
-    "OTHER_DOMAIN": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 0, "cache_repeat_stable": true}
+    "ORG": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "PERSON": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "PRODUCT_MODEL": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "TECHNOLOGY": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "OTHER_DOMAIN": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0}
   }
 }

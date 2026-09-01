@@ -204,6 +204,7 @@ def evaluate_release(*, required_suites: Iterable[str],
                      expected_provenance: Mapping,
                      hard_invariants: Mapping[str, bool],
                      graph_gain_conclusion: str,
+                     required_authorities: Mapping[str, str] | None = None,
                      external_blockers: Mapping[str, str] | None = None) -> ReleaseDecision:
     """Single canonical Phase09 evaluator.
 
@@ -222,6 +223,9 @@ def evaluate_release(*, required_suites: Iterable[str],
     for name, passed in sorted(hard_invariants.items()):
         if passed is not True:
             reasons.append(f"hard invariant failed: {name}")
+    for name, status in sorted((required_authorities or {}).items()):
+        if status != "SATISFIED":
+            reasons.append(f"required authority unavailable: {name}={status}")
     core_eligible = not reasons
     blockers = tuple(sorted((external_blockers or EXTERNAL_BLOCKERS).keys()))
     graph_ok = graph_gain_conclusion == "GAIN"

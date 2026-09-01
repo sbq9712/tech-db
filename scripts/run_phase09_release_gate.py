@@ -86,6 +86,7 @@ def main():
         required_suites=policy["required_suites"], evidence=rows,
         expected_provenance=provenance, hard_invariants=hard,
         graph_gain_conclusion=policy["graph_gain_conclusion"],
+        required_authorities=policy.get("required_authorities", {}),
         external_blockers=external_blockers)
     evidence_payload = {
         **decision.to_dict(), "policy": policy,
@@ -107,8 +108,9 @@ def main():
     ticket_status["release_decision"] = decision.to_dict()
     write_json(args.status_out, ticket_status)
     print(json.dumps(decision.to_dict(), ensure_ascii=False, indent=2))
-    # External blockers intentionally make production_release_eligible false;
-    # the CI release-gate command succeeds when code-local gates are sound.
+    # Missing CORE_REQUIRED authority (including RT-101 release-holdout gold)
+    # is a code-local/core blocker and therefore returns non-zero.  External
+    # blockers alone do not falsify otherwise sound code-local gates.
     return 0 if decision.core_eligible else 1
 
 
