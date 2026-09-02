@@ -184,6 +184,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - name: Generic Phase09 product repair regressions
+        run: python qa-backend/tests_repair_phase09_generic.py
       - name: Execute canonical Phase09 release gate
         run: >-
           python scripts/run_phase09_release_gate.py

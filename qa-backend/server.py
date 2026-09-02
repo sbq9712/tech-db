@@ -225,8 +225,24 @@ _records_cache = []  # [(records_list)] — lifespan cache (legacy mode)
 
 
 def _legacy_state(name):
-    """Proxy legacy index globals to retrieval.runtime state (RT-030)."""
-    return getattr(_rt, name)
+    """Canonical read access for the RT-030 moved legacy globals.
+
+    retrieval.runtime owns the ONE authoritative runtime state.  Module
+    in-module readers must NOT use bare names (``_vector_index`` etc. no
+    longer exist as server globals until a loader mirrors them), which
+    raised NameError on the lazy-startup path.  Access order:
+
+      1. an explicitly-assigned server module global — the documented
+         compatibility seam (tests patch/reset ``server._vector_index`` …),
+         kept coherent with runtime state by ``_sync_shadow``;
+      2. otherwise the canonical retrieval.runtime state;
+      3. otherwise None (pre-startup: nothing loaded yet).
+    """
+    if name in globals():
+        return globals()[name]
+    if name == "_records":
+        return _records_cache[0] if _records_cache else None
+    return getattr(_rt, name, None)
 
 
 def __getattr__(name):
@@ -918,6 +934,154 @@ def _resolve_citation_record(citation: dict, records: list):
     return None
 
 
+_CITATION_MARKER_RE = re.compile(r"\[(\d+)\]")
+
+
+def _deterministic_exact_citation_authority(
+        full_answer: str, citations: list, records: list):
+    """Q091/Q092/Q102 — deterministic verification authority (legacy path).
+
+    When the auxiliary claim classifier establishes no canonical factual
+    claim set for a drafted answer, the legacy compatibility profile may
+    still record verification PASSED — but ONLY through the deterministic
+    RT-020 exact-citation authority, never by seeding a trusted state:
+
+      * every [N] marker in the answer resolves to a citation row;
+      * every factual sentence of the answer (citation markers stripped) is
+        EXACTLY grounded — via ``ground_citation_exact`` over an immutable
+        ``SourceSnapshot`` — inside at least one cited record's evidence
+        text, with the FULL span resolved (``exact`` or
+        ``normalized_exact_map``).  The fuzzy verbatim-prefix rung is
+        deliberately NOT accepted here: a clamped prefix range would
+        silently absorb unverified tail text into a SUPPORTED answer;
+      * every citation the answer references grounds at least one sentence.
+
+    On success each referenced citation is upgraded IN PLACE with the
+    canonical EvidenceRef fields (``source_snapshot_id``, exact
+    ``evidence_spans``, ``TEXT_SPAN`` locators with ``text_sha256``,
+    ``evidence_sha256``, ``citation_schema_version``), so displayed
+    authority comes from the SAME SourceSnapshot/EvidenceRef seam as the
+    Phase02 path — no second legacy citation-authority implementation, and
+    no fabricated snapshot identity (identity is the canonical stored
+    content-addressed snapshot id, exactly as RT-020 resolves it).
+
+    Any failure returns (False, info) and the caller keeps verification
+    NOT_RUN (fail closed → UNVERIFIED).  Records without authoritative
+    pinned evidence text (RETRIEVAL_ONLY / QUARANTINED / summary-only) can
+    never ground — they stay retrieval/context material.
+
+    Returns (ok: bool, info: dict).
+    """
+    from citation_grounding import ground_citation_exact, is_valid_grounding
+    from source_snapshot import SourceSnapshot
+
+    id_to_citation = {}
+    for c in citations or []:
+        cid = c.get("id")
+        if isinstance(cid, int) and not isinstance(cid, bool):
+            id_to_citation.setdefault(cid, c)
+
+    referenced, seen_ids = [], set()
+    for m in _CITATION_MARKER_RE.finditer(full_answer or ""):
+        cid = int(m.group(1))
+        if cid in seen_ids:
+            continue
+        seen_ids.add(cid)
+        c = id_to_citation.get(cid)
+        if c is None:
+            return False, {"reason": "citation_marker_unresolved",
+                           "citation_id": cid}
+        referenced.append(c)
+    if not referenced:
+        return False, {"reason": "no_citations_in_answer"}
+
+    sentences = []
+    for part in re.split(r"(?<=[。！？!?；;])\s*|\n+", full_answer):
+        sentence = _CITATION_MARKER_RE.sub("", part).strip()
+        if sentence:
+            sentences.append(sentence)
+    if not sentences:
+        return False, {"reason": "no_factual_sentences"}
+
+    snapshot_cache = {}
+    grounded_by_citation = {id(c): [] for c in referenced}
+    for sentence in sentences:
+        covered = False
+        for c in referenced:
+            rec = _resolve_citation_record(c, records)
+            if rec is None:
+                continue
+            rid = str(rec.get("record_id") or "")
+            snap = snapshot_cache.get(rid)
+            if snap is None:
+                try:
+                    snap = SourceSnapshot.from_record(rid, rec)
+                except Exception:
+                    snap = False  # snapshot error → this record fails closed
+                snapshot_cache[rid] = snap
+            if snap is False:
+                continue
+            grounding = ground_citation_exact(rec, [sentence], snapshot=snap)
+            if is_valid_grounding(grounding) and \
+                    grounding.get("match_type") in ("exact",
+                                                    "normalized_exact_map"):
+                covered = True
+                grounded_by_citation[id(c)].append(grounding)
+        if not covered:
+            return False, {"reason": "sentence_not_exact_grounded",
+                           "sentence": sentence[:80]}
+
+    for c in referenced:
+        if not grounded_by_citation[id(c)]:
+            return False, {"reason": "citation_without_exact_grounding"}
+
+    # Attach canonical EvidenceRef fields (Phase02 citation contract).
+    snapshot_ids = set()
+    for c in referenced:
+        spans, locators, seen_ranges = [], [], set()
+        first_grounding = grounded_by_citation[id(c)][0]
+        for grounding in grounded_by_citation[id(c)]:
+            snapshot_ids.add(str(grounding.get("source_snapshot_id") or ""))
+            for sp in grounding["evidence_spans"]:
+                key = (sp["start"], sp["end"])
+                if key in seen_ranges:
+                    continue
+                seen_ranges.add(key)
+                span_text = str(sp.get("text") or "")[:200]
+                spans.append({"text": span_text,
+                              "start": sp["start"], "end": sp["end"]})
+                locator = {
+                    "locator_type": "TEXT_SPAN",
+                    "start": sp["start"], "end": sp["end"],
+                    "text_sha256": hashlib.sha256(
+                        span_text.encode("utf-8")).hexdigest(),
+                }
+                if "normalized_start" in sp:
+                    locator["normalized_start"] = sp["normalized_start"]
+                    locator["normalized_end"] = sp["normalized_end"]
+                locators.append(locator)
+        c.update({
+            "grounding_status": "VALID",
+            "evidence_span": first_grounding["exact_text"][:200],
+            "evidence_start": spans[0]["start"],
+            "evidence_end": spans[0]["end"],
+            "evidence_spans": spans,
+            "highlight": first_grounding["exact_text"][:200],
+            "source_snapshot_id": first_grounding["source_snapshot_id"],
+            "evidence_sha256": first_grounding["evidence_sha256"],
+            "evidence_text_field": first_grounding["evidence_text_field"],
+            "locators": locators,
+            "match_type": first_grounding["match_type"],
+            "citation_schema_version": CITATION_SCHEMA_VERSION,
+        })
+    return True, {
+        "authority": "deterministic_exact_citation",
+        "sentences": len(sentences),
+        "grounded_citations": len(referenced),
+        "source_snapshot_ids": sorted(s for s in snapshot_ids if s),
+    }
+
+
 async def _graph_v2_route(*, query: str, requirements: list | None,
                           relation_ids: list, exclude_ids: set | None,
                           route_batches: list, pinned,
@@ -1605,12 +1769,16 @@ async def health():
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
         "runtime_mode": os.environ.get("TECH_DB_RUNTIME_MODE", "UNCONFIGURED"),
         "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
-        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _vector_index is not None,
-        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _bm25_index is not None,
-        "graph_ready": _graph_data is not None,
-        "indexed_records": len(_index_meta) if _index_meta else 0,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
-        "total_records": len(_records) if _records else 0,
+        "vector_index_ready": (resources.get("vector_index") is not None
+                               if snapshot
+                               else _legacy_state("_vector_index") is not None),
+        "bm25_ready": (resources.get("bm25_index") is not None
+                       if snapshot
+                       else _legacy_state("_bm25_index") is not None),
+        "graph_ready": _legacy_state("_graph_data") is not None,
+        "indexed_records": len(_ims) if (_ims := _legacy_state("_index_meta")) else 0,
+        "bm25_records": len(_bmm) if (_bmm := _legacy_state("_bm25_meta")) else 0,
+        "total_records": len(_recs) if (_recs := _legacy_state("_records")) else 0,
         "feature_flags": Flags.status(),
         "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
         "retrieval_legacy": None,  # TK-23 contract: legacy path removed (was escape hatch)
@@ -1649,7 +1817,8 @@ async def chat_stream(req: ChatRequest, request: Request):
 
     # Required backend availability is an infrastructure condition, not a
     # client quota.  Decide it before SSE headers and report HTTP 503.
-    if _request_runtime_snapshot.get() is None and _vector_index is None:
+    if (_request_runtime_snapshot.get() is None
+            and _legacy_state("_vector_index") is None):
         CHAT_ADMISSION.record_backend_unavailable()
         return JSONResponse(
             _canonical_terminal_payload({
@@ -2349,6 +2518,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })
 
             full_answer = ""
+            # Legacy compatibility profile only: set when the streamed
+            # generator failed technically and the non-streaming fallback
+            # rescued the request.  A rescued draft has no canonical
+            # generation identity, so it can never carry a verified factual
+            # answer status (Q096/Q108 fail-closed).
+            _legacy_generator_stream_failed = False
             if Flags.TERMINAL_RENDERER_ENABLED:
                 async def _buffer_generator_attempt():
                     buffered = ""
@@ -2409,6 +2584,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                             safe_fallback_available=False)
                         if answer:
                             full_answer = answer
+                            # The streamed generator failed technically; this
+                            # answer was produced by the rescue fallback.  It
+                            # cannot be treated as a normally generated factual
+                            # draft (Q096/Q108): downstream status derivation
+                            # must fail closed to UNVERIFIED.
+                            _legacy_generator_stream_failed = True
                             for i in range(0, len(answer), 3):
                                 execution.check_active()
                                 yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
@@ -2692,7 +2873,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # ── T005: Fail-Safe Verification ──
                 # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
                 # Correctness-critical: BudgetFuse cannot silently skip this.
-                verification_status = "PASSED"
+                # Q091: the initial verification state is NOT_RUN — never
+                # PASSED.  PASSED may only be recorded after a canonical
+                # verification authority actually passes (the fail-safe
+                # verifier below, or the deterministic exact-citation
+                # authority when no auxiliary claim set was established).
+                verification_status = "NOT_RUN"
                 verification_issues = []
                 verification_error = ""  # TK-10: last failure cause, for the user warning
                 if claim_metadata and full_answer.strip():
@@ -2915,6 +3101,45 @@ async def chat_stream(req: ChatRequest, request: Request):
                         "failed": sum(1 for c in citations if c.get("grounding_status") == "GROUNDING_FAIL"),
                     })
                 trace.add_stage("post_budget", _pp_budget.snapshot())
+
+                # ── Q091/Q092: fail-closed verification for the legacy path ──
+                # Verification began NOT_RUN (Q091) and the auxiliary claim
+                # classifier established no canonical factual claim set.
+                # Per Q092 the answer may still be verified — but ONLY by the
+                # deterministic exact-citation authority (pure assembly of its
+                # own cited evidence).  A generator-failure rescue draft can
+                # never pass (Q096/Q108) and stays UNVERIFIED.
+                if (not claim_metadata and full_answer.strip()
+                        and verification_status == "NOT_RUN"):
+                    if _legacy_generator_stream_failed:
+                        verification_status = VERIFY_UNVERIFIED
+                        verification_error = (
+                            "generator stream failure; rescued answer has no "
+                            "canonical factual claim set")
+                        trace.add_stage("verification", {
+                            "status": "GENERATOR_RESCUE_UNVERIFIED",
+                            "note": verification_error,
+                        })
+                    else:
+                        try:
+                            _det_ok, _det_info = (
+                                _deterministic_exact_citation_authority(
+                                    full_answer, citations,
+                                    _request_records()))
+                        except Exception as _det_exc:
+                            _det_ok, _det_info = False, {
+                                "reason": (f"authority_error:"
+                                           f"{type(_det_exc).__name__}")}
+                        if _det_ok:
+                            # Canonical verification authority actually
+                            # passed (deterministic, no LLM).
+                            verification_status = VERIFY_PASSED
+                            verification_error = ""
+                        trace.add_stage("deterministic_verification", {
+                            "status":
+                                verification_status if _det_ok else "NOT_RUN",
+                            **_det_info,
+                        })
 
                 # ── T006: Four-State Answer Status ──
                 answer_status_str = "SUPPORTED"
@@ -3140,8 +3365,8 @@ async def get_graph(limit: int = 300):
 @app.get("/api/stats")
 async def stats():
     """Get system statistics."""
-    total = len(_records) if _records else 0
-    indexed = len(_index_meta) if _index_meta else 0
+    total = len(_st_rec) if (_st_rec := _legacy_state("_records")) else 0
+    indexed = len(_st_idx) if (_st_idx := _legacy_state("_index_meta")) else 0
 
     graph_file = WORKING_DIR / "graph-export.json"
     nodes = edges = 0
@@ -3153,11 +3378,11 @@ async def stats():
     return {
         "total_records": total,
         "indexed_records": indexed,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
+        "bm25_records": len(_st_bm) if (_st_bm := _legacy_state("_bm25_meta")) else 0,
         "graph_nodes": nodes,
         "graph_edges": edges,
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
+        "vector_index_ready": _legacy_state("_vector_index") is not None,
+        "bm25_ready": _legacy_state("_bm25_index") is not None,
         "model": MODEL_NAME,
     }
 
@@ -3166,7 +3391,7 @@ async def stats():
 async def search(q: str, top_k: int = 10):
     """Quick vector search without LLM generation. Returns matching records."""
     snapshot = _request_runtime_snapshot.get()
-    if snapshot is None and _vector_index is None:
+    if snapshot is None and _legacy_state("_vector_index") is None:
         return JSONResponse(
             {"error": "Vector index not loaded", "results": []},
             status_code=503,
