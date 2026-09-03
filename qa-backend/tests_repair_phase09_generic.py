@@ -1,12 +1,34 @@
 #!/usr/bin/env python3
 """Phase09 pre-holdout product repair regressions (generic, synthetic only).
 
-Covers the Gatekeeper repair targets that are independent of any holdout:
+Covers the Gatekeeper repair targets that are independent of any holdout.
 
-  * Target A — verification never begins PASSED (Q091).  A factual legacy
-    answer can only become SUPPORTED through a canonical verification
-    authority (fail-safe verifier, or the deterministic exact-citation
-    authority).  A generator-failure rescue draft stays UNVERIFIED.
+Round 2 (Q092 canonical-claim + pinned-citation authority):
+
+  * Test A — a factual answer with NO canonical claim set fails closed to
+    UNVERIFIED even when it is an EXACT verbatim quotation of the cited
+    source text with a valid citation marker.  Exact text grounding is
+    citation validity, never canonical atomic-claim establishment.
+  * Test B — canonical atomic claims established through the approved T004
+    claim-mapping seam + genuinely request-pinned catalog snapshot
+    authority + exact grounding + the canonical fail-safe verifier → the
+    state machine may reach SUPPORTED.  PASSED is only ever OBTAINED from
+    the verifier authority, never assigned.
+  * Test C — a runtime record that is NOT in the request-pinned source
+    catalog (or not in the stored snapshot store) can never turn a
+    runtime-created ``SourceSnapshot.from_record`` object into final
+    citation authority: no displayable support, no SUPPORTED.
+  * Test D — the final citation's source_snapshot_id is the explicitly
+    controlled PINNED CATALOG identity, never an id re-synthesized from
+    record id/body/hash at authorization time.
+  * Test E — existing failure cases stay green (missing snapshot, invalid
+    locator, hash mismatch, widened locator, snapshot drift, generator
+    failure → UNVERIFIED).
+
+Round 1 (still enforced):
+
+  * Target A — verification never begins PASSED (Q091).  A
+    generator-failure rescue draft stays UNVERIFIED.
   * Target B — exact citation authority on the legacy path.  Displayed
     citations require source_snapshot_id + exact locator + evidence span;
     missing/invalid/drifted authority fails closed and can never support a
@@ -23,6 +45,7 @@ the harness touches is patched with deterministic functions.
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import hashlib
 import json
 import os
@@ -148,6 +171,10 @@ def test_rt030_lazy_endpoints_do_not_nameerror():
 BODY = ("Synthetic perovskite-silicon tandem cells reached 34 percent "
         "certified efficiency in a 2026 field trial.")
 
+# Round-2 Test D: an explicitly controlled pinned catalog snapshot id that
+# differs from anything SourceSnapshot.from_record() would synthesize.
+PINNED_SNAPSHOT_ID = "pinned-catalog-snapshot-0001-authority"
+
 def _synthetic_record():
     return {
         "record_id": "rec-syn-1",
@@ -243,80 +270,275 @@ def test_reference_card_policy_fail_closed():
           and cards[0]["policy_reason"] == "LOCATOR_MISSING")
 
 
-def test_deterministic_authority_canonical_identity():
-    """Snapshot identity must come from the canonical SourceSnapshot seam —
-    never a bare hash(record_id) or bare content hash."""
-    import server
-    from source_snapshot import SourceSnapshot
-
-    record = _synthetic_record()
-    citations = [{
+def _grounding_citation():
+    return {
         "id": 1,
         "record_id": "rec-syn-1",
         "legacy_idx": 0,
-        "title": record["t"],
+        "title": "Synthetic tandem record",
         "body_snippet": BODY[:120],
         "evidence_spans": [],
         "grounding_status": "UNGROUND",
-    }]
-    ok, info = server._deterministic_exact_citation_authority(
-        BODY + " [1]", citations, [record])
+    }
+
+
+def _pinned_runtime_snapshot(resources):
+    """Build a synthetic request-pinned RuntimeSnapshot (manifest mode)."""
+    from runtime_snapshot import RuntimeSnapshot
+    return RuntimeSnapshot(manifest_id="synthetic-pinned-manifest",
+                           manifest={}, resources=resources)
+
+
+def _pinned_catalog_resources(record, *, catalog=None, include_record=True):
+    """Request-pinned resources with a controlled source_catalog.
+
+    The catalog's source_snapshot_id is EXPLICITLY controlled and differs
+    from any id ``SourceSnapshot.from_record()`` would synthesize
+    (round-2 Test D)."""
+    from source_snapshot import SourceSnapshot
+    if catalog is None:
+        canonical = SourceSnapshot.from_record("rec-syn-1", record)
+        catalog = {"snapshots": [{
+            "record_id": "rec-syn-1",
+            "source_snapshot_id": PINNED_SNAPSHOT_ID,
+            "evidence_text_sha256": canonical.content_hash,
+            "evidence_eligibility": "CITATION_ELIGIBLE",
+        }]}
+    if not include_record:
+        catalog = {"snapshots": [{
+            "record_id": "some-other-record",
+            "source_snapshot_id": "ss-other-record",
+            "evidence_text_sha256": "f" * 64,
+            "evidence_eligibility": "CITATION_ELIGIBLE",
+        }]}
+    return {
+        "records": [record],
+        "records_by_id": {record["record_id"]: record},
+        "source_catalog": catalog,
+    }
+
+
+def test_pinned_authority_grounding_helper():
+    """Round-2 Tests B/C/D at the citation-bridge seam.
+
+    * Test D — a pinned catalog snapshot id that differs from any
+      ``SourceSnapshot.from_record()`` synthesis is used EXACTLY.
+    * Test C — a record NOT in the request-pinned source catalog (and a
+      runtime-created ``SourceSnapshot.from_record`` object) can never
+      become final citation authority.
+    * Legacy store — only the ALREADY STORED immutable snapshot serves;
+      a record with no stored snapshot fails closed even though
+      ``SourceSnapshot.from_record`` succeeds.
+    * Test E — existing failure cases stay green.
+    """
+    import server
+    from reference_cards import build_reference_cards
+    from source_snapshot import SourceSnapshot, SourceSnapshotStore
+
+    record = _synthetic_record()
     canonical = SourceSnapshot.from_record("rec-syn-1", record)
-    check("RTB.deterministic_authority_pass",
-          ok is True and info["grounded_citations"] == 1)
+
+    # ── Test D: pinned catalog identity is used exactly. ────────────────
+    assert PINNED_SNAPSHOT_ID != canonical.source_snapshot_id
+    token = server._request_runtime_snapshot.set(_pinned_runtime_snapshot(
+        _pinned_catalog_resources(record)))
+    try:
+        citations = [_grounding_citation()]
+        ok, info = server._exact_citation_grounding_pinned(
+            BODY + " [1]", citations, [record])
+    finally:
+        server._request_runtime_snapshot.reset(token)
+    check("RTD.pinned_grounding_ok",
+          ok is True and info["grounded_citations"] == 1
+          and info.get("authority_scope") == "request_pinned_source_catalog")
     c = citations[0]
-    check("RTB.attached_snapshot_id_is_canonical_seam_identity",
-          c["source_snapshot_id"] == canonical.source_snapshot_id
-          and c["source_snapshot_id"] not in
-          (hashlib.sha256(b"rec-syn-1").hexdigest(), canonical.content_hash),
-          "identity must be the SourceSnapshot seam id")
-    check("RTB.attached_exact_span_and_locator",
+    check("RTD.final_citation_uses_pinned_catalog_id",
+          c["source_snapshot_id"] == PINNED_SNAPSHOT_ID
+          and c["source_snapshot_id"] != canonical.source_snapshot_id
+          and c["source_snapshot_id"] != canonical.content_hash
+          and c["source_snapshot_id"] != hashlib.sha256(
+              b"rec-syn-1").hexdigest(),
+          "identity must be the request-pinned catalog id")
+    check("RTD.attached_exact_span_and_locator",
           c["evidence_spans"] and c["locators"]
           and c["locators"][0]["locator_type"] == "TEXT_SPAN"
           and c["locators"][0]["text_sha256"] == hashlib.sha256(
               c["evidence_spans"][0]["text"].encode()).hexdigest())
-    check("RTB.attached_exact_span_matches_evidence",
+    check("RTD.attached_exact_span_matches_evidence",
           c["evidence_spans"][0]["text"] == BODY)
+    cards = build_reference_cards(
+        [c], [], current_snapshot_ids={"rec-syn-1": PINNED_SNAPSHOT_ID})
+    check("RTD.pinned_citation_displayable_no_drift",
+          cards[0]["displayable"] is True
+          and cards[0]["policy_reason"] == "")
 
-    # Failure path: sentence outside the cited evidence text.
-    citations2 = [{
-        "id": 1, "record_id": "rec-syn-1", "legacy_idx": 0,
-        "evidence_spans": [], "grounding_status": "UNGROUND",
-    }]
-    ok2, info2 = server._deterministic_exact_citation_authority(
-        "Unrelated quantum blockchain musings. [1]", citations2, [record])
-    check("RTB.ungrounded_prose_fails",
+    # ── Test C: record absent from the pinned catalog fails closed. ─────
+    token = server._request_runtime_snapshot.set(_pinned_runtime_snapshot(
+        _pinned_catalog_resources(record, include_record=False)))
+    try:
+        citations2 = [_grounding_citation()]
+        ok2, info2 = server._exact_citation_grounding_pinned(
+            BODY + " [1]", citations2, [record])
+    finally:
+        server._request_runtime_snapshot.reset(token)
+    check("RTC.record_not_in_pinned_catalog_fails_closed",
           ok2 is False
-          and info2.get("reason") == "sentence_not_exact_grounded")
-    check("RTB.failure_attaches_no_authority",
-          "source_snapshot_id" not in citations2[0])
+          and info2.get("reason") == "no_authoritative_pinned_snapshot"
+          and info2.get("authority_reason")
+          == "record_not_in_pinned_source_catalog")
+    check("RTC.runtime_snapshot_not_authority",
+          "source_snapshot_id" not in citations2[0]
+          and "locators" not in citations2[0],
+          "SourceSnapshot.from_record(record) must not become authority")
+    cards2 = build_reference_cards([citations2[0]], [])
+    check("RTC.citation_not_displayable_as_support",
+          cards2[0]["displayable"] is False
+          and cards2[0]["policy_reason"] == "SOURCE_SNAPSHOT_MISSING")
 
-    # Failure path: [N] marker without a matching citation row.
-    ok3, info3 = server._deterministic_exact_citation_authority(
+    # Pinned runtime snapshot WITHOUT a usable catalog also fails closed
+    # (never falls back to runtime synthesis or the store).
+    token = server._request_runtime_snapshot.set(_pinned_runtime_snapshot(
+        {"records": [record],
+         "records_by_id": {"rec-syn-1": record},
+         "source_catalog": {"snapshots": []}}))
+    try:
+        citations2b = [_grounding_citation()]
+        ok2b, info2b = server._exact_citation_grounding_pinned(
+            BODY + " [1]", citations2b, [record])
+    finally:
+        server._request_runtime_snapshot.reset(token)
+    check("RTC.pinned_empty_catalog_fails_closed",
+          ok2b is False
+          and info2b.get("authority_reason")
+          == "record_not_in_pinned_source_catalog"
+          and "source_snapshot_id" not in citations2b[0])
+
+    # ── Legacy store: stored authority only, read-only. ─────────────────
+    dirp = tempfile.mkdtemp(prefix="p09-snapstore-")
+    store = SourceSnapshotStore(Path(dirp) / "snapshots.sqlite")
+
+    saved_store_getter = server._get_source_snapshot_store
+    saved_pin = server._request_runtime_snapshot.set(None)
+    try:
+        server._get_source_snapshot_store = lambda: store
+        # Not stored yet → runtime-created snapshot must NOT serve.
+        citations3 = [_grounding_citation()]
+        ok3, info3 = server._exact_citation_grounding_pinned(
+            BODY + " [1]", citations3, [record])
+        check("RTC.unstored_record_fails_closed_legacy",
+              ok3 is False
+              and info3.get("reason") == "no_authoritative_pinned_snapshot"
+              and info3.get("authority_reason")
+              == "no_stored_snapshot_authority")
+        check("RTC.unstored_citation_carries_no_authority",
+              "source_snapshot_id" not in citations3[0])
+        # Store the snapshot (system-controlled ingest BEFORE
+        # authorization) → the stored identity serves.
+        stored = store.ingest("rec-syn-1", record)
+        citations4 = [_grounding_citation()]
+        ok4, info4 = server._exact_citation_grounding_pinned(
+            BODY + " [1]", citations4, [record])
+        check("RTD.stored_authority_resolved_readonly",
+              ok4 is True
+              and info4.get("authority_scope")
+              == "stored_source_snapshot_store")
+        check("RTD.final_citation_uses_stored_identity",
+              citations4[0]["source_snapshot_id"]
+              == stored.source_snapshot_id
+              == canonical.source_snapshot_id)
+    finally:
+        server._get_source_snapshot_store = saved_store_getter
+        server._request_runtime_snapshot.reset(saved_pin)
+
+    # ── Test E: existing failure cases stay green. ──────────────────────
+    # Sentence outside the cited evidence text (legacy store; the record
+    # IS stored, so the grounding failure — not the authority gap — must
+    # surface, and no authority may attach).
+    saved_store_getter = server._get_source_snapshot_store
+    saved_pin = server._request_runtime_snapshot.set(None)
+    try:
+        server._get_source_snapshot_store = lambda: store
+        citations5 = [_grounding_citation()]
+        ok5, info5 = server._exact_citation_grounding_pinned(
+            "Unrelated quantum blockchain musings. [1]", citations5, [record])
+        check("RTE.ungrounded_prose_fails",
+              ok5 is False
+              and info5.get("reason") == "sentence_not_exact_grounded")
+        check("RTE.failure_attaches_no_authority",
+              "source_snapshot_id" not in citations5[0])
+    finally:
+        server._get_source_snapshot_store = saved_store_getter
+        server._request_runtime_snapshot.reset(saved_pin)
+
+    # [N] marker without a matching citation row (authority-independent).
+    ok6, info6 = server._exact_citation_grounding_pinned(
         BODY + " [7]", [{"id": 1, "record_id": "rec-syn-1"}], [record])
-    check("RTB.unresolved_marker_fails",
-          ok3 is False and info3.get("reason") == "citation_marker_unresolved")
+    check("RTE.unresolved_marker_fails",
+          ok6 is False and info6.get("reason") == "citation_marker_unresolved")
 
-    # Failure path: answer without any citation markers.
-    ok4, info4 = server._deterministic_exact_citation_authority(
+    # Answer without any citation markers.
+    ok7, info7 = server._exact_citation_grounding_pinned(
         BODY, [], [record])
-    check("RTB.no_markers_fails",
-          ok4 is False and info4.get("reason") == "no_citations_in_answer")
+    check("RTE.no_markers_fails",
+          ok7 is False and info7.get("reason") == "no_citations_in_answer")
 
 
 # ════════════════════════════════════════════════════════════════════════
 # Targets A+B — production server terminal regressions (deterministic)
 # ════════════════════════════════════════════════════════════════════════
 
-async def _production_case(kind: str):
+class _StubPinManager:
+    """Request-pinning seam: pins ONE fixed synthetic RuntimeSnapshot for
+    every HTTP request — the same contract the production
+    RuntimePinMiddleware/runtime manager provides."""
+
+    def __init__(self, snapshot):
+        self._snapshot = snapshot
+
+    @contextlib.contextmanager
+    def pin(self):
+        yield self._snapshot
+
+
+def _canonical_rescue_claims():
+    """A canonical atomic claim set (T004-shaped): one major claim mapped
+    to citation 1 with DIRECT_SUPPORT over the exact evidence text."""
+    return [{
+        "id": "claim-1",
+        "text": BODY,
+        "type": "MAJOR_FACT",
+        "is_core": True,
+        "support_status": "SUPPORTED",
+        "supported_by": [{"citation_id": 1,
+                          "relation": "DIRECT_SUPPORT",
+                          "evidence_span": BODY}],
+    }]
+
+
+async def _production_case(kind: str, *, pinned_resources=None,
+                           claim_mapping: bool = False,
+                           verify_behavior: str = "unverified"):
     """Run one request through the real /api/chat/stream legacy profile.
 
     Mirrors the sealed Phase08 harness contract with a fully synthetic
     record and deterministic (never live) model seams.
+
+    * pinned_resources — when given, a stub runtime manager pins a
+      synthetic RuntimeSnapshot carrying exactly these resources for the
+      request (genuinely request-pinned authority, round-2 Tests B/C/D).
+    * claim_mapping — enables the T004 claim-mapping seam with a
+      deterministic stub that establishes the canonical atomic claim set.
+    * verify_behavior — the canonical fail-safe verifier stub returns
+      PASSED only when an established supported claim set and the answer
+      text genuinely reach it; "unverified"/"failed" emulate technical and
+      semantic verdicts.  PASSED is never assigned by the code under test.
     """
+    import contextlib
     import httpx
     import server
     from guardrails import GuardrailSettings, RateLimiter
+    from runtime_snapshot import RuntimeSnapshot
+    from source_snapshot import SourceSnapshotStore
 
     record = _synthetic_record()
 
@@ -343,20 +565,60 @@ async def _production_case(kind: str):
     async def classify(*args, **kwargs):
         return []  # auxiliary classifier establishes NO claim set
 
-    async def verify(*args, **kwargs):
-        # If the canonical LLM verifier were needed it would technically
-        # fail; the deterministic path must never depend on it.
+    async def map_claims(query, answer, citations, **kwargs):
+        return {"claims": _canonical_rescue_claims()}
+
+    async def verify(query, answer, claim_metadata, **kwargs):
+        if verify_behavior == "passed":
+            # Canonical verifier stand-in: PASSED only for an answer that
+            # actually carries the established, supported atomic claims —
+            # the code under test must OBTAIN the pass from this authority.
+            claims = claim_metadata or []
+            established = any(
+                c.get("type") in ("MAJOR_FACT", "NUMERIC_FACT")
+                and c.get("support_status") == "SUPPORTED"
+                for c in claims)
+            if established and BODY in answer:
+                return SimpleNamespace(status="PASSED", issues=[],
+                                       failure_reason="")
+            return SimpleNamespace(status="FAILED",
+                                   issues=["claim not supported"],
+                                   failure_reason="semantic findings")
+        if verify_behavior == "failed":
+            return SimpleNamespace(status="FAILED", issues=["finding"],
+                                   failure_reason="verification findings")
         return SimpleNamespace(status="UNVERIFIED", issues=[],
                                failure_reason="verification unavailable")
 
     async def rescue_model(**kwargs):
         return "Rescued non-stream draft without citations."
 
+    # Hermetic per-case snapshot store (round 2: legacy citation authority
+    # is the STORED snapshot store — cases must never share stored state).
+    store_dir = tempfile.mkdtemp(prefix="p09-case-store-")
+    case_store = SourceSnapshotStore(Path(store_dir) / "snapshots.sqlite")
+
+    saved = {
+        "hybrid_search": server.hybrid_search,
+        "llm_stream_func": server.llm_stream_func,
+        "classify_claims": server.classify_claims,
+        "verify_with_fail_safe": server.verify_with_fail_safe,
+        "llm_model_func": server.llm_model_func,
+        "map_claims_to_citations": server.map_claims_to_citations,
+        "_get_source_snapshot_store": server._get_source_snapshot_store,
+        "_runtime_snapshot_manager": server._runtime_snapshot_manager,
+    }
     server.hybrid_search = search
-    server.llm_stream_func = None  # set below from stream_for(kind)
     server.classify_claims = classify
     server.verify_with_fail_safe = verify
     server.llm_model_func = rescue_model
+    server._get_source_snapshot_store = lambda: case_store
+    if claim_mapping:
+        server.map_claims_to_citations = map_claims
+    if pinned_resources is not None:
+        snapshot = RuntimeSnapshot(manifest_id="synthetic-pinned-manifest",
+                                   manifest={}, resources=pinned_resources)
+        server.configure_runtime_snapshot_manager(_StubPinManager(snapshot))
     server._records = [record]
     server.load_records = lambda: [record]
     server._vector_index = {"synthetic": True}
@@ -375,7 +637,7 @@ async def _production_case(kind: str):
         "AGENTIC_ENABLED": False,
         "EVIDENCE_PACKAGE_ENABLED": False,
         "TERMINAL_RENDERER_ENABLED": False,
-        "CLAIM_MAPPING_ENABLED": False,
+        "CLAIM_MAPPING_ENABLED": bool(claim_mapping),
         "CITATION_GROUNDING_ENABLED": False,
         "ANSWER_STATUS_ENABLED": True,
         "KNOWLEDGE_BOUNDARY_ENABLED": False,
@@ -402,11 +664,25 @@ async def _production_case(kind: str):
     finally:
         for name, value in previous.items():
             setattr(server.Flags, name, value)
+        server.hybrid_search = saved["hybrid_search"]
+        server.llm_stream_func = saved["llm_stream_func"]
+        server.classify_claims = saved["classify_claims"]
+        server.verify_with_fail_safe = saved["verify_with_fail_safe"]
+        server.llm_model_func = saved["llm_model_func"]
+        server.map_claims_to_citations = saved["map_claims_to_citations"]
+        server._get_source_snapshot_store = saved["_get_source_snapshot_store"]
+        server.configure_runtime_snapshot_manager(
+            saved["_runtime_snapshot_manager"])
 
 
 def test_terminal_authority_matrix():
+    # ── Test A (key Q092 regression): a factual generated sentence that is
+    # an EXACT quotation of pinned-quality source text, with a valid
+    # citation marker, and an auxiliary classifier that produces zero
+    # claims, still fails closed to UNVERIFIED.  Exact citation grounding
+    # is citation validity — NOT canonical claim establishment.
     expected = {
-        "success": "SUPPORTED",
+        "success": "UNVERIFIED",   # exact quote ≠ canonical claim set
         "unsupported": "UNSUPPORTED",
         "generator_failure": "UNVERIFIED",
         "citation_stripped": "UNVERIFIED",
@@ -424,19 +700,21 @@ def test_terminal_authority_matrix():
               terminals[0]["state_machine"]["verification_state"],
               f"got {terminals[0]['answer_status'] if terminals else 'NONE'}")
 
-    # The success case's done citations must carry canonical authority and
-    # produce a displayable ReferenceCard (legacy/canonical bridge).
+    # Test A specifics for the exact-quote case.
     events, payloads = asyncio.run(_production_case("success"))
     done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    check("RTA.exact_quote_no_claims_not_verified",
+          done["answer_status"] == "UNVERIFIED"
+          and done["verification_status"] != "PASSED"
+          and done["state_machine"]["verification_state"] != "PASSED")
     cits = done.get("citations") or []
     cards = done.get("reference_cards") or []
-    check("RTB.done_citation_has_snapshot_and_locator",
-          cits and cits[0].get("source_snapshot_id")
-          and cits[0].get("locators")
-          and cits[0].get("evidence_spans"))
-    check("RTB.done_reference_card_displayable",
-          cards and cards[0]["displayable"] is True
-          and cards[0]["policy_reason"] == "")
+    check("RTA.exact_quote_citation_has_no_runtime_authority",
+          cits and not cits[0].get("source_snapshot_id"),
+          "a runtime-created SourceSnapshot must never become authority")
+    check("RTA.exact_quote_card_not_displayable",
+          cards and cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "SOURCE_SNAPSHOT_MISSING")
 
     # The citation-stripped case's citations must fail closed on display.
     events, payloads = asyncio.run(_production_case("citation_stripped"))
@@ -457,12 +735,87 @@ def test_terminal_authority_matrix():
           and done["state_machine"]["answer_status"] == "UNVERIFIED")
 
 
+def test_canonical_claim_rescue_end_to_end():
+    """Round-2 Test B (+ negatives): canonical atomic claims established
+    through the approved claim-mapping seam + request-pinned catalog
+    authority + exact grounding → the canonical fail-safe verifier may
+    pass and the state machine may reach SUPPORTED.  Every weaker
+    combination fails closed."""
+    from source_snapshot import SourceSnapshot
+
+    record = _synthetic_record()
+    canonical = SourceSnapshot.from_record("rec-syn-1", record)
+    assert PINNED_SNAPSHOT_ID != canonical.source_snapshot_id
+    pinned = _pinned_catalog_resources(record)
+
+    # Test B: canonical claims + genuinely request-pinned snapshot
+    # authority + exact grounding + canonical verifier PASSED.
+    events, payloads = asyncio.run(_production_case(
+        "success", pinned_resources=pinned, claim_mapping=True,
+        verify_behavior="passed"))
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    check("RTB.canonical_rescue_supported",
+          done["answer_status"] == "SUPPORTED"
+          and done["verification_status"] == "PASSED"
+          and done["state_machine"]["answer_status"] == "SUPPORTED"
+          and done["state_machine"]["verification_state"] == "PASSED")
+    cits = done.get("citations") or []
+    check("RTB.final_citation_uses_pinned_catalog_identity",
+          cits and cits[0].get("source_snapshot_id") == PINNED_SNAPSHOT_ID
+          and cits[0].get("source_snapshot_id")
+          != canonical.source_snapshot_id,
+          "source_snapshot_id must trace to the request-pinned catalog")
+    cards = done.get("reference_cards") or []
+    check("RTB.pinned_reference_card_displayable",
+          cards and cards[0]["displayable"] is True
+          and cards[0]["policy_reason"] == "")
+
+    # Negative 1: claims + grounding OK, canonical verifier technical
+    # failure → UNVERIFIED, never PASSED.
+    events, payloads = asyncio.run(_production_case(
+        "success", pinned_resources=pinned, claim_mapping=True,
+        verify_behavior="unverified"))
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    check("RTB.rescue_verifier_technical_failure_unverified",
+          done["answer_status"] == "UNVERIFIED"
+          and done["verification_status"] != "PASSED")
+
+    # Negative 2 (Test C e2e): record NOT in the request-pinned source
+    # catalog → runtime record text can never become displayable support
+    # and the answer cannot be SUPPORTED even with claims established.
+    events, payloads = asyncio.run(_production_case(
+        "success",
+        pinned_resources=_pinned_catalog_resources(record,
+                                                   include_record=False),
+        claim_mapping=True, verify_behavior="passed"))
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    cits = done.get("citations") or []
+    cards = done.get("reference_cards") or []
+    check("RTC.no_pinned_authority_cannot_support",
+          done["answer_status"] == "UNVERIFIED"
+          and done["verification_status"] != "PASSED")
+    check("RTC.missing_pinned_snapshot_citation_not_displayable",
+          cits and not cits[0].get("source_snapshot_id")
+          and cards and cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "SOURCE_SNAPSHOT_MISSING")
+
+    # Negative 3: extraction seam unavailable (mapping disabled) → no
+    # canonical claim set → UNVERIFIED even if the verifier would pass.
+    events, payloads = asyncio.run(_production_case(
+        "success", claim_mapping=False, verify_behavior="passed"))
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    check("RTB.no_claim_extraction_unverified",
+          done["answer_status"] == "UNVERIFIED"
+          and done["verification_status"] != "PASSED")
+
+
 def main():
     test_load_records_scope()
     test_rt030_lazy_endpoints_do_not_nameerror()
     test_reference_card_policy_fail_closed()
-    test_deterministic_authority_canonical_identity()
+    test_pinned_authority_grounding_helper()
     test_terminal_authority_matrix()
+    test_canonical_claim_rescue_end_to_end()
     print("=" * 66)
     print(f"  Phase09 generic repair: {PASSED} passed, {FAILED} failed")
     print("=" * 66)

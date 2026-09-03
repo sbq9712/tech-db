@@ -447,9 +447,14 @@ def test_terminal_matrix_and_cancellation():
     # Reuse the sealed Phase08 real-ASGI harness.  It calls the production
     # endpoint and canonical terminal builder; it does not construct Trace or
     # terminal payloads by hand.
+    # Phase09 repair round 2 (Q092): the harness "success" case has no
+    # canonical claim set and exact-quotes the cited record — exact
+    # quotation is not canonical claim establishment, so the terminal is
+    # UNVERIFIED (the old SUPPORTED expectation encoded the exact-quote
+    # bypass Q092 now forbids).
     from tests_remediation_phase08 import _production_terminal_case
     expected = {
-        "success": "SUPPORTED", "partial": "PARTIALLY_SUPPORTED",
+        "success": "UNVERIFIED", "partial": "PARTIALLY_SUPPORTED",
         "unsupported": "UNSUPPORTED", "unverified": "UNVERIFIED",
         "generator_failure": "UNVERIFIED",
     }
