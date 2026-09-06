@@ -96,7 +96,16 @@
     "RT-091",
     "RT-092",
     "RT-093",
-    "RT-094"
+    "RT-094",
+    "RT-100",
+    "RT-101",
+    "RT-102",
+    "RT-103",
+    "RT-104",
+    "RT-105",
+    "RT-106",
+    "RT-107",
+    "RT-108"
   ],
   "suite_registry": {
     "remediation_phase00": "qa-backend/tests_remediation_phase00.py",
@@ -114,7 +123,11 @@
     "visual_rt029": "qa-backend/tests_visual_rt029.py",
     "remediation_phase07": "qa-backend/tests_remediation_phase07.py",
     "benchmark_phase07": "qa-backend/tests_benchmark_phase07.py",
-    "remediation_phase08": "qa-backend/tests_remediation_phase08.py"
+    "remediation_phase08": "qa-backend/tests_remediation_phase08.py",
+    "benchmark_phase09": "qa-backend/tests_benchmark_phase09.py",
+    "e2e_phase09": "qa-backend/tests_e2e_phase09.py",
+    "failure_injection_phase09": "qa-backend/tests_failure_injection_phase09.py",
+    "release_phase09": "qa-backend/tests_release_phase09.py"
   },
   "legacy_ticket_entries": [
     {
@@ -18664,6 +18677,186 @@
           "description": "audit replay labels use trusted artifact and model availability resolvers rather than manifest presence, expose truthful RT-092 fidelity and never expose unrestricted raw trace content",
           "status": "SATISFIED",
           "test_cases": [{"suite": "remediation_phase08", "case": "test_rt094_operator_audit_policy", "level": "integration", "command": "python qa-backend/tests_remediation_phase08.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-100",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-100.DOD-01",
+          "description": "locked committed mini-runtime executes canonical Vector BM25 Chunk routes, candidate pool and content reranker; requirement coverage, provenance-group independence and temporal fit are derived from actual selected stable IDs; nDCG and preregistered pairwise accuracy are first-class gates and metric mutations must fail",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt100_retrieval_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-100"}]
+        },
+        {
+          "dod_id": "RT-100.DOD-02",
+          "description": "benchmark artifact has reproducible locked labels thresholds and complete git spec decision manifest dataset identity model prompt schema and config provenance",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt100_artifact_provenance", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-100"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-101",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-101.DOD-01",
+          "description": "locked answer-level blinded release holdout measures correctness completeness unsupported claims attribution temporal and numeric correctness exact citations invalid display and abstention through canonical system output",
+          "status": "NOT_SATISFIED",
+          "evidence_note": "Repository and authorized CI artifact search found retrieval anchors and structural answer telemetry but no independently authorized answer-level blinded gold; the deterministic Phase09 fixture remains auxiliary preflight only.",
+          "planned_test_cases": [{"case": "test_rt101_answer_level_blinded_release_holdout", "level": "release", "future_rt": ["RT-101"], "benchmark_owner": "RT-101"}]
+        },
+        {
+          "dod_id": "RT-101.DOD-02",
+          "description": "all four answer states and technical exits are exercised through the real endpoint and canonical terminal state machine",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-101.DOD-03",
+          "description": "auxiliary deterministic preflight preserves strict system-output to evaluator directionality and proves malformed citations and verifier technical failures fail closed without granting release-holdout completion credit",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt101_answer_gate_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-101"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-102",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-102.DOD-01",
+          "description": "the same locked query executes real standard Research and multi-document Research configurations through /api/chat/stream and canonical orchestrator; terminal output coverage yields quality and answer gain, labeled relevant and irrelevant documents yield TP FP precision and exact-span validity, and disabling multi-document reduces measured system gain",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt102_multi_document_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-102"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-103",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-103.DOD-01",
+          "description": "locked canonical ER evaluation pre-registers and reports per ORG PERSON PRODUCT_MODEL TECHNOLOGY and OTHER_DOMAIN class candidate recall@10, top1/topK, abstention, false links, measured latency, instrumented external-call cost, per-case repeat/cache behavior, thresholds and class gate",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "benchmark_phase09", "case": "test_rt103_er_benchmark", "level": "benchmark", "command": "python qa-backend/tests_benchmark_phase09.py", "artifact": "qa-backend/benchmark_phase09_result.json", "benchmark_owner": "RT-103"}]
+        },
+        {
+          "dod_id": "RT-103.DOD-02",
+          "description": "RT-075 production shadow dependency remains machine-visible and prevents an overall production activation claim",
+          "status": "BLOCKED_EXTERNAL_ACTION",
+          "required_level": "benchmark",
+          "external_blocker": "RT-075 requires a production-representative Entity Resolution shadow window and cannot be satisfied by CI replay",
+          "planned_test_cases": [{"case": "test_rt103_production_er_shadow_gate", "level": "benchmark", "future_rt": ["RT-110"], "benchmark_owner": "RT-103"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-104",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-104.DOD-01",
+          "description": "real ASGI POST /api/chat/stream executes SSE admission, committed mini-runtime canonical retrieval, canonical orchestrator, Ledger, generation and canonical terminal state with deterministic external adapters only",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "e2e_phase09", "case": "test_actual_server_and_orchestrator", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-104.DOD-02",
+          "description": "SUPPORTED PARTIALLY_SUPPORTED UNSUPPORTED UNVERIFIED and cancellation use the real endpoint; the same request observes canonical multi-document worker packets re-enter Phase03 and canonical bounded repair regeneration re-enters mapping grounding verification before terminal emission; user premise survives while unsupported assistant history is not promoted",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "e2e_phase09", "case": "test_terminal_matrix_and_cancellation", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_multidocument_path", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_bounded_repair_reverification", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}, {"suite": "e2e_phase09", "case": "test_actual_multiturn_integrity", "level": "e2e", "command": "python qa-backend/tests_e2e_phase09.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-105",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-105.DOD-01",
+          "description": "table-driven route grader timeout 429 5xx grounding entailment and verifier failures map to canonical degradation and UNVERIFIED terminal state",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "failure_injection_phase09", "case": "test_failure_matrix", "level": "integration", "command": "python qa-backend/tests_failure_injection_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-105.DOD-02",
+          "description": "cache identity mismatch and corrupted manifest or benchmark provenance fail closed and real endpoint cancellation emits no fabricated done",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "failure_injection_phase09", "case": "test_cache_mismatch_and_manifest_corruption", "level": "integration", "command": "python qa-backend/tests_failure_injection_phase09.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-106",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-106.DOD-01",
+          "description": "PR deterministic, nightly broader/live-model and release tiers are explicit; every runtime publication workflow runs a fresh Phase09 evaluator and exact-SHA production_release_eligible authorization before side effects; artifacts carry validated provenance",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-106.DOD-02",
+          "description": "missing skipped cancelled stale or wrong required evidence blocks release and infrastructure flake cannot erase semantic regression",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-106.DOD-03",
+          "description": "release-gate artifacts are retained for at least 180 days under Decision Register Q336",
+          "status": "BLOCKED_EXTERNAL_ACTION",
+          "required_level": "integration",
+          "external_blocker": "GitHub public-repository artifact policy currently caps the requested 180-day retention at 90 days; durable external retention is not configured",
+          "planned_test_cases": [
+            {
+              "case": "test_rt106_artifact_retention_policy",
+              "level": "integration",
+              "future_rt": ["RT-115"],
+              "benchmark_owner": "RT-106"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-107",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-107.DOD-01",
+          "description": "one canonical machine evaluator fails closed for hard gates, suites, artifacts and provenance; Q-336 RT-005 and RT-075 are derived from validated machine-readable external evidence rather than caller declarations",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-107.DOD-02",
+          "description": "Graph NO_GAIN independently keeps Graph OFF without automatically failing code-local core gates",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_release_matrix", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        }
+      ]
+    },
+    {
+      "ticket_id": "RT-108",
+      "completion_class": "CORE_REQUIRED",
+      "dods": [
+        {
+          "dod_id": "RT-108.DOD-01",
+          "description": "Phase09 ticket and phase status is generated only from acceptance entries, named suites, benchmark artifacts, evaluator results and validated machine-readable external evidence; clearing a blocker requires hashed proof",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_ticket_status_generation", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
+        },
+        {
+          "dod_id": "RT-108.DOD-02",
+          "description": "a missing suite or artifact automatically removes completion and manual optimistic status has no authority",
+          "status": "SATISFIED",
+          "test_cases": [{"suite": "release_phase09", "case": "test_ticket_status_generation", "level": "integration", "command": "python qa-backend/tests_release_phase09.py"}]
         }
       ]
     }

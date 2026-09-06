@@ -172,6 +172,35 @@ jobs:
       - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - run: python qa-backend/tests_remediation_phase08.py
 
+  phase09-benchmarks-ci-release-gates:
+    # Phase09 (RT-100..108): locked retrieval/answer/multi-document/ER
+    # benchmarks, real server+orchestrator E2E, critical failure injection,
+    # provenance validation, and the single fail-closed release evaluator.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - name: Generic Phase09 product repair regressions
+        run: python qa-backend/tests_repair_phase09_generic.py
+      - name: Execute canonical Phase09 release gate
+        run: >-
+          python scripts/run_phase09_release_gate.py
+          --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json
+          --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+      - name: Upload Phase09 machine evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase09-release-evidence
+          path: |
+            qa-backend/benchmark_phase09_result.json
+            qa-backend/phase09_artifacts/*.json
+          retention-days: 180
+
   legacy-index-migration:
     # Phase-02 review blocker C: legacy dataset (no inline record_id) →
     # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →

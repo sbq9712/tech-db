@@ -59,7 +59,7 @@ DECOMPOSE_PROMPT = """你是技术情报分析专家。将复杂问题拆解为�
 
 原始问题：{query}
 问题类型：{question_type}
-语义上下文：{context}}"""
+语义上下文：{context}"""
 
 
 async def decompose_query(

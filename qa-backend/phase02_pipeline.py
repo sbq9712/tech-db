@@ -1197,6 +1197,11 @@ async def run_phase02_verification(
         except (asyncio.CancelledError, RequestCancelled):
             raise
         except Exception as e:
+            # A malformed external-verifier response may have been assigned
+            # to ``vr`` before contract access failed.  It is not a verifier
+            # authority and must not escape the technical-failure handler or
+            # be dereferenced by the semantic FAIL mapping below.
+            vr = None
             verification_status = "UNVERIFIED"
             verification_error = str(e)
             machine.record_technical_failure("verifier", str(e)[:120])

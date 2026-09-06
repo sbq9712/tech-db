@@ -202,8 +202,16 @@ def build_idx_meta_lookup():
 
 
 def load_records(lite_file=None):
-    """Load full record lookup (legacy mode; default the production lite file)."""
-    global _records_state
+    """Load full record lookup (legacy mode; default the production lite file).
+
+    ``_records_state_file`` records which lite file the cached ``_records_state``
+    was loaded from so a path change triggers a reload.  Both names are
+    process-global state: the ``global`` declaration must cover both, otherwise
+    the assignment below makes ``_records_state_file`` function-local and the
+    second ``load_records(file)`` call raises ``UnboundLocalError`` (and a
+    changed path would silently never reload).
+    """
+    global _records_state, _records_state_file
     if lite_file is not None:
         if _records_state is None or _records_state_file != str(lite_file):
             _records_state = json.loads(Path(lite_file).read_text("utf-8"))

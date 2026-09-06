@@ -1,0 +1,18 @@
+{
+  "schema_version": "phase09-release-policy-1.0",
+  "required_suites": [
+    "benchmark_phase09",
+    "e2e_phase09",
+    "failure_injection_phase09",
+    "release_phase09"
+  ],
+  "hard_invariants": {
+    "invalid_displayed_citation_zero": "invalid_displayed_citations",
+    "verifier_technical_error_pass_zero": "verifier_technical_pass"
+  },
+  "required_authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
+  },
+  "graph_gain_conclusion": "NO_GAIN",
+  "external_state": "spec/phase09_external_state.json"
+}

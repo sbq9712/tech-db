@@ -225,8 +225,24 @@ _records_cache = []  # [(records_list)] — lifespan cache (legacy mode)
 
 
 def _legacy_state(name):
-    """Proxy legacy index globals to retrieval.runtime state (RT-030)."""
-    return getattr(_rt, name)
+    """Canonical read access for the RT-030 moved legacy globals.
+
+    retrieval.runtime owns the ONE authoritative runtime state.  Module
+    in-module readers must NOT use bare names (``_vector_index`` etc. no
+    longer exist as server globals until a loader mirrors them), which
+    raised NameError on the lazy-startup path.  Access order:
+
+      1. an explicitly-assigned server module global — the documented
+         compatibility seam (tests patch/reset ``server._vector_index`` …),
+         kept coherent with runtime state by ``_sync_shadow``;
+      2. otherwise the canonical retrieval.runtime state;
+      3. otherwise None (pre-startup: nothing loaded yet).
+    """
+    if name in globals():
+        return globals()[name]
+    if name == "_records":
+        return _records_cache[0] if _records_cache else None
+    return getattr(_rt, name, None)
 
 
 def __getattr__(name):
@@ -918,6 +934,269 @@ def _resolve_citation_record(citation: dict, records: list):
     return None
 
 
+_CITATION_MARKER_RE = re.compile(r"\[(\d+)\]")
+
+
+def _pinned_citation_authority_context():
+    """Return (catalog_entries, store) for final citation authorization.
+
+    Q092 round 2: a citation's snapshot authority must be the ALREADY
+    stored/pinned identity — never an identity minted at authorization
+    time from mutable runtime record content.
+
+      * Request-pinned manifest mode → (catalog_entries dict, None).  The
+        request-pinned ``source_catalog`` is the ONLY snapshot authority
+        (same contract as Phase02).  An EMPTY dict means the pinned
+        snapshot carries no usable catalog: every record fails closed and
+        the WORKING_DIR store is never consulted (a newer generation must
+        not bypass the pinned one).
+      * Legacy mode → (None, store).  The system-controlled
+        SourceSnapshotStore holds the stored immutable snapshots; it is
+        consulted READ-ONLY by ``_resolve_pinned_citation_snapshot``.
+    """
+    pinned = _request_runtime_snapshot.get()
+    if pinned is not None:
+        resources = getattr(pinned, "resources", None) or {}
+        catalog = resources.get("source_catalog") or {}
+        catalog_entries = {}
+        for _entry in (catalog.get("snapshots") or []):
+            _rid = str((_entry or {}).get("record_id") or "")
+            if _rid:
+                catalog_entries[_rid] = _entry
+        return catalog_entries, None
+    try:
+        return None, _get_source_snapshot_store()
+    except Exception:
+        return None, None
+
+
+def _resolve_pinned_citation_snapshot(record_id: str, record: dict, *,
+                                      catalog_entries, store):
+    """Resolve the authoritative stored/pinned SourceSnapshot for a record.
+
+    Q092 round 2 (blocker 2): ``SourceSnapshot.from_record(current_record)``
+    alone is a RUNTIME-CREATED snapshot and is NOT final citation
+    authority.  Resolution is fail closed:
+
+      1. Request-pinned manifest mode (``catalog_entries`` is a dict):
+         record content is validated against the pinned catalog's declared
+         evidence hash and eligibility; the citation identity is the
+         CATALOG's ``source_snapshot_id`` — the exact rules of the
+         canonical Phase02 seam (``phase02_pipeline._snapshot_for_record``).
+      2. Legacy mode: only the ALREADY STORED immutable snapshot in the
+         system-controlled SourceSnapshotStore may serve.  The record's
+         content-addressed id is used purely as a READ-ONLY lookup key; a
+         miss is fail closed.  This function NEVER ingests — minting or
+         storing a snapshot during final-answer citation authorization is
+         forbidden.  A record mutated after ingest hashes to a different
+         key, misses the store, and fails closed (drift protection).
+      3. Anything else → (None, reason): the record stays retrieval/
+         context material and can never become a final displayed
+         supporting citation or help produce SUPPORTED.
+
+    Returns (snapshot_or_None, "" | fail_closed_reason).
+    """
+    from source_snapshot import SourceSnapshot
+    try:
+        content = SourceSnapshot.from_record(record_id, record)
+    except Exception:
+        return None, "snapshot_error"
+    if catalog_entries is not None:
+        entry = catalog_entries.get(record_id)
+        if entry is None:
+            return None, "record_not_in_pinned_source_catalog"
+        declared_hash = (entry.get("evidence_text_sha256")
+                         or entry.get("content_hash") or "")
+        if isinstance(declared_hash, str) and declared_hash.strip() \
+                and declared_hash.strip().lower() != content.content_hash.lower():
+            return None, "pinned_snapshot_hash_mismatch"
+        declared_elig = entry.get("evidence_eligibility")
+        if not (isinstance(declared_elig, str) and declared_elig.strip()):
+            return None, "pinned_eligibility_missing"
+        if declared_elig.strip() != content.evidence_eligibility:
+            return None, "pinned_eligibility_mismatch"
+        import dataclasses
+        # Identity = the request-pinned catalog id (Phase02 contract) —
+        # never re-minted from record content at authorization time.
+        return dataclasses.replace(
+            content,
+            source_snapshot_id=str(entry.get("source_snapshot_id")
+                                   or content.source_snapshot_id)), ""
+    if store is not None:
+        try:
+            stored = store.get(content.source_snapshot_id)
+        except Exception:
+            return None, "no_stored_snapshot_authority"
+        if stored is None \
+                or not str(getattr(stored, "source_snapshot_id", "")).strip():
+            return None, "no_stored_snapshot_authority"
+        return stored, ""
+    return None, "no_pinned_snapshot_authority"
+
+
+def _exact_citation_grounding_pinned(
+        full_answer: str, citations: list, records: list):
+    """Q092 round 2 — deterministic exact-citation GROUNDING helper only.
+
+    This helper validates exact citation grounding and attaches canonical
+    EvidenceRef locator metadata.  It is explicitly NOT a factual
+    verification authority: it can NEVER upgrade an answer to verification
+    PASSED.  A factual answer whose canonical atomic-claim set is absent
+    stays UNVERIFIED even when every sentence happens to be a verbatim
+    quote — exact text grounding is citation validity, NOT canonical claim
+    establishment (decision register Q092).
+
+    Contract:
+
+      * every [N] marker in the answer resolves to a citation row;
+      * every cited record resolves to an authoritative stored/pinned
+        SourceSnapshot (``_resolve_pinned_citation_snapshot``).  Records
+        without stored/pinned authority stay retrieval/context material
+        and fail the WHOLE bridge (no partial citation upgrades);
+      * every factual sentence of the answer (citation markers stripped)
+        is EXACTLY grounded — via ``ground_citation_exact`` over the
+        authoritative snapshot — inside at least one cited record's
+        evidence text, with the FULL span resolved (``exact`` or
+        ``normalized_exact_map``).  The fuzzy verbatim-prefix rung is
+        deliberately NOT accepted: a clamped prefix range would silently
+        absorb unverified tail text;
+      * every citation the answer references grounds at least one sentence.
+
+    On success each referenced citation is upgraded IN PLACE with the
+    canonical EvidenceRef fields (``source_snapshot_id`` from the stored/
+    pinned authority, exact ``evidence_spans``, ``TEXT_SPAN`` locators with
+    ``text_sha256``, ``evidence_sha256``, ``citation_schema_version``).
+
+    Any failure returns (False, info) and attaches nothing.
+
+    Returns (ok: bool, info: dict).
+    """
+    from citation_grounding import ground_citation_exact, is_valid_grounding
+
+    catalog_entries, store = _pinned_citation_authority_context()
+
+    id_to_citation = {}
+    for c in citations or []:
+        cid = c.get("id")
+        if isinstance(cid, int) and not isinstance(cid, bool):
+            id_to_citation.setdefault(cid, c)
+
+    referenced, seen_ids = [], set()
+    for m in _CITATION_MARKER_RE.finditer(full_answer or ""):
+        cid = int(m.group(1))
+        if cid in seen_ids:
+            continue
+        seen_ids.add(cid)
+        c = id_to_citation.get(cid)
+        if c is None:
+            return False, {"reason": "citation_marker_unresolved",
+                           "citation_id": cid}
+        referenced.append(c)
+    if not referenced:
+        return False, {"reason": "no_citations_in_answer"}
+
+    sentences = []
+    for part in re.split(r"(?<=[。！？!?；;])\s*|\n+", full_answer):
+        sentence = _CITATION_MARKER_RE.sub("", part).strip()
+        if sentence:
+            sentences.append(sentence)
+    if not sentences:
+        return False, {"reason": "no_factual_sentences"}
+
+    # Resolve stored/pinned authority for EVERY referenced citation BEFORE
+    # any upgrade — one record without authoritative pinned evidence fails
+    # the whole bridge, so a citation that would display can never lean on
+    # an unauthorized sibling.
+    authority_by_rid = {}
+    resolved = []
+    for c in referenced:
+        rec = _resolve_citation_record(c, records)
+        if rec is None:
+            return False, {"reason": "citation_record_unresolved",
+                           "record_id": str(c.get("record_id") or "")}
+        rid = str(rec.get("record_id") or "")
+        if rid not in authority_by_rid:
+            snap, auth_err = _resolve_pinned_citation_snapshot(
+                rid, rec, catalog_entries=catalog_entries, store=store)
+            if snap is None:
+                return False, {"reason": "no_authoritative_pinned_snapshot",
+                               "record_id": rid,
+                               "authority_reason": auth_err}
+            authority_by_rid[rid] = (rec, snap)
+        resolved.append((c, rec, rid))
+
+    grounded_by_citation = {id(c): [] for c in referenced}
+    for sentence in sentences:
+        covered = False
+        for c, rec, rid in resolved:
+            _rec, snap = authority_by_rid[rid]
+            grounding = ground_citation_exact(rec, [sentence], snapshot=snap)
+            if is_valid_grounding(grounding) and \
+                    grounding.get("match_type") in ("exact",
+                                                    "normalized_exact_map"):
+                covered = True
+                grounded_by_citation[id(c)].append(grounding)
+        if not covered:
+            return False, {"reason": "sentence_not_exact_grounded",
+                           "sentence": sentence[:80]}
+
+    for c in referenced:
+        if not grounded_by_citation[id(c)]:
+            return False, {"reason": "citation_without_exact_grounding"}
+
+    # Attach canonical EvidenceRef fields (Phase02 citation contract) —
+    # locator metadata ONLY.  This confers NO verification state; the
+    # caller keeps the answer UNVERIFIED unless canonical atomic-claim
+    # extraction succeeds and the canonical fail-safe verifier passes.
+    snapshot_ids = set()
+    for c in referenced:
+        spans, locators, seen_ranges = [], [], set()
+        first_grounding = grounded_by_citation[id(c)][0]
+        for grounding in grounded_by_citation[id(c)]:
+            snapshot_ids.add(str(grounding.get("source_snapshot_id") or ""))
+            for sp in grounding["evidence_spans"]:
+                key = (sp["start"], sp["end"])
+                if key in seen_ranges:
+                    continue
+                seen_ranges.add(key)
+                span_text = str(sp.get("text") or "")[:200]
+                spans.append({"text": span_text,
+                              "start": sp["start"], "end": sp["end"]})
+                locator = {
+                    "locator_type": "TEXT_SPAN",
+                    "start": sp["start"], "end": sp["end"],
+                    "text_sha256": hashlib.sha256(
+                        span_text.encode("utf-8")).hexdigest(),
+                }
+                if "normalized_start" in sp:
+                    locator["normalized_start"] = sp["normalized_start"]
+                    locator["normalized_end"] = sp["normalized_end"]
+                locators.append(locator)
+        c.update({
+            "grounding_status": "VALID",
+            "evidence_span": first_grounding["exact_text"][:200],
+            "evidence_start": spans[0]["start"],
+            "evidence_end": spans[0]["end"],
+            "evidence_spans": spans,
+            "highlight": first_grounding["exact_text"][:200],
+            "source_snapshot_id": first_grounding["source_snapshot_id"],
+            "evidence_sha256": first_grounding["evidence_sha256"],
+            "evidence_text_field": first_grounding["evidence_text_field"],
+            "locators": locators,
+            "match_type": first_grounding["match_type"],
+            "citation_schema_version": CITATION_SCHEMA_VERSION,
+        })
+    return True, {
+        "authority": "pinned_exact_citation_grounding",
+        "authority_scope":
+            "request_pinned_source_catalog" if catalog_entries is not None
+            else "stored_source_snapshot_store",
+        "sentences": len(sentences),
+        "grounded_citations": len(referenced),
+        "source_snapshot_ids": sorted(s for s in snapshot_ids if s),
+    }
+
+
 async def _graph_v2_route(*, query: str, requirements: list | None,
                           relation_ids: list, exclude_ids: set | None,
                           route_batches: list, pinned,
@@ -1605,12 +1884,16 @@ async def health():
         "api_key_configured": bool(os.environ.get("ZAI_API_KEY") or ENV_FILE.is_file()),
         "runtime_mode": os.environ.get("TECH_DB_RUNTIME_MODE", "UNCONFIGURED"),
         "runtime_manifest_id": snapshot.manifest_id if snapshot else None,
-        "vector_index_ready": resources.get("vector_index") is not None if snapshot else _vector_index is not None,
-        "bm25_ready": resources.get("bm25_index") is not None if snapshot else _bm25_index is not None,
-        "graph_ready": _graph_data is not None,
-        "indexed_records": len(_index_meta) if _index_meta else 0,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
-        "total_records": len(_records) if _records else 0,
+        "vector_index_ready": (resources.get("vector_index") is not None
+                               if snapshot
+                               else _legacy_state("_vector_index") is not None),
+        "bm25_ready": (resources.get("bm25_index") is not None
+                       if snapshot
+                       else _legacy_state("_bm25_index") is not None),
+        "graph_ready": _legacy_state("_graph_data") is not None,
+        "indexed_records": len(_ims) if (_ims := _legacy_state("_index_meta")) else 0,
+        "bm25_records": len(_bmm) if (_bmm := _legacy_state("_bm25_meta")) else 0,
+        "total_records": len(_recs) if (_recs := _legacy_state("_records")) else 0,
         "feature_flags": Flags.status(),
         "shadow_enabled": _SHADOW_RETRIEVAL,          # TK-17 diagnostics
         "retrieval_legacy": None,  # TK-23 contract: legacy path removed (was escape hatch)
@@ -1649,7 +1932,8 @@ async def chat_stream(req: ChatRequest, request: Request):
 
     # Required backend availability is an infrastructure condition, not a
     # client quota.  Decide it before SSE headers and report HTTP 503.
-    if _request_runtime_snapshot.get() is None and _vector_index is None:
+    if (_request_runtime_snapshot.get() is None
+            and _legacy_state("_vector_index") is None):
         CHAT_ADMISSION.record_backend_unavailable()
         return JSONResponse(
             _canonical_terminal_payload({
@@ -2349,6 +2633,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })
 
             full_answer = ""
+            # Legacy compatibility profile only: set when the streamed
+            # generator failed technically and the non-streaming fallback
+            # rescued the request.  A rescued draft has no canonical
+            # generation identity, so it can never carry a verified factual
+            # answer status (Q096/Q108 fail-closed).
+            _legacy_generator_stream_failed = False
             if Flags.TERMINAL_RENDERER_ENABLED:
                 async def _buffer_generator_attempt():
                     buffered = ""
@@ -2409,6 +2699,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                             safe_fallback_available=False)
                         if answer:
                             full_answer = answer
+                            # The streamed generator failed technically; this
+                            # answer was produced by the rescue fallback.  It
+                            # cannot be treated as a normally generated factual
+                            # draft (Q096/Q108): downstream status derivation
+                            # must fail closed to UNVERIFIED.
+                            _legacy_generator_stream_failed = True
                             for i in range(0, len(answer), 3):
                                 execution.check_active()
                                 yield {"event": "token", "data": json.dumps({"text": answer[i:i+3]})}
@@ -2692,7 +2988,12 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # ── T005: Fail-Safe Verification ──
                 # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
                 # Correctness-critical: BudgetFuse cannot silently skip this.
-                verification_status = "PASSED"
+                # Q091: the initial verification state is NOT_RUN — never
+                # PASSED.  PASSED may only be recorded after a canonical
+                # verification authority actually passes (the fail-safe
+                # verifier below, or the deterministic exact-citation
+                # authority when no auxiliary claim set was established).
+                verification_status = "NOT_RUN"
                 verification_issues = []
                 verification_error = ""  # TK-10: last failure cause, for the user warning
                 if claim_metadata and full_answer.strip():
@@ -2916,6 +3217,126 @@ async def chat_stream(req: ChatRequest, request: Request):
                     })
                 trace.add_stage("post_budget", _pp_budget.snapshot())
 
+                # ── Q091/Q092: fail-closed verification for the legacy path ──
+                # Verification began NOT_RUN (Q091) and the auxiliary claim
+                # classifier established no canonical factual claim set.
+                # Q092 (round 2): exact quotation is citation validity, NOT
+                # canonical claim establishment.  The exact-citation helper
+                # below only validates grounding and attaches locator
+                # metadata against the stored/pinned snapshot authority — it
+                # can NEVER set verification PASSED by itself.  A
+                # generator-failure rescue draft can never pass (Q096/Q108)
+                # and stays UNVERIFIED.
+                if (not claim_metadata and full_answer.strip()
+                        and verification_status == "NOT_RUN"):
+                    if _legacy_generator_stream_failed:
+                        verification_status = VERIFY_UNVERIFIED
+                        verification_error = (
+                            "generator stream failure; rescued answer has no "
+                            "canonical factual claim set")
+                        trace.add_stage("verification", {
+                            "status": "GENERATOR_RESCUE_UNVERIFIED",
+                            "note": verification_error,
+                        })
+                    else:
+                        # Citation grounding authority: display validity and
+                        # locator metadata ONLY (Q092 — never verification).
+                        try:
+                            _det_ok, _det_info = (
+                                _exact_citation_grounding_pinned(
+                                    full_answer, citations,
+                                    _request_records()))
+                        except Exception as _det_exc:
+                            _det_ok, _det_info = False, {
+                                "reason": (f"authority_error:"
+                                           f"{type(_det_exc).__name__}")}
+                        trace.add_stage("exact_citation_grounding", {
+                            "status":
+                                "GROUNDING_OK" if _det_ok
+                                else "GROUNDING_FAILED",
+                            **_det_info,
+                        })
+                        # Q092: the ONLY path out of NOT_RUN is canonical
+                        # atomic-claim establishment through the existing
+                        # approved claim-mapping seam (T004, already run
+                        # above) followed by the canonical fail-safe
+                        # verifier (T005).  There is no exact-quote shortcut.
+                        _rescue_claims = claim_map.get("claims") or []
+                        if _rescue_claims and _det_ok:
+                            try:
+                                _rb_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                                _rd, _rs, _rov = check_budget(
+                                    "verifier", _rb_ok)
+                                if _rs:
+                                    _rescue_verify_attempt = 0
+
+                                    async def _verify_rescue_once():
+                                        nonlocal _rescue_verify_attempt
+                                        _rescue_verify_attempt += 1
+                                        return await verify_with_fail_safe(
+                                            query, full_answer,
+                                            _rescue_claims,
+                                            retry_owner="request_context",
+                                            attempt_number=(
+                                                _rescue_verify_attempt))
+
+                                    _rvr = await execution.run_stage(
+                                        "final_verifier", _verify_rescue_once,
+                                        requirement_critical=True,
+                                        safe_fallback_available=False)
+                                    # PASSED only from the canonical
+                                    # verifier authority (Q102).
+                                    verification_status = _rvr.status
+                                    verification_error = (
+                                        _rvr.failure_reason or "")
+                                    trace.add_stage("verification", {
+                                        "status": _rvr.status,
+                                        "rescue_claim_set_established":
+                                            len(_rescue_claims),
+                                        "failure_reason":
+                                            _rvr.failure_reason,
+                                    })
+                                    print(f"[verify] Rescue verification: "
+                                          f"{_rvr.status}", flush=True)
+                                elif _rov:
+                                    # Budget exhausted for correctness-
+                                    # critical verification: MUST NOT pass.
+                                    verification_status = _rov
+                                    verification_error = (
+                                        "verification skipped due to budget")
+                                    trace.add_stage("verification", {
+                                        "status": "SKIPPED_BUDGET",
+                                        "note": verification_error,
+                                        "budget_guard": _rd.value,
+                                    })
+                            except (asyncio.CancelledError, RequestCancelled):
+                                raise
+                            except Exception as _rv_exc:
+                                # Any exception → UNVERIFIED, never PASS
+                                verification_status = VERIFY_UNVERIFIED
+                                verification_error = str(_rv_exc)
+                                trace.add_stage("verification", {
+                                    "status": "EXCEPTION",
+                                    "error": str(_rv_exc),
+                                })
+                        if verification_status == "NOT_RUN":
+                            # Q092 fail closed: the canonical atomic-claim
+                            # set was never established (claim extraction
+                            # unavailable or produced no claims) and/or the
+                            # citations lack exactly grounded pinned
+                            # authority.  Exact quotation does not
+                            # establish claims.
+                            verification_status = VERIFY_UNVERIFIED
+                            verification_error = (
+                                "factual answer without canonical claim "
+                                "set; exact quotation is not claim "
+                                "establishment")
+                            trace.add_stage("verification", {
+                                "status": "NO_CLAIM_SET_UNVERIFIED",
+                                "note": verification_error,
+                                "grounding": _det_info,
+                            })
+
                 # ── T006: Four-State Answer Status ──
                 answer_status_str = "SUPPORTED"
                 stop_reason = "evidence_sufficient"
@@ -3021,12 +3442,30 @@ async def chat_stream(req: ChatRequest, request: Request):
                                    for rel in (c.get("supported_by") or [])]}
                     for c in claim_map.get("claims", [])[:12]
                 ]
+                # Q092 round 2: when the request carries a pinned
+                # source_catalog, ReferenceCards additionally enforce the
+                # pinned snapshot identity (drift → SOURCE_SNAPSHOT_DRIFT).
+                # Legacy global mode has no pinned catalog — citation
+                # binding already failed closed upstream in
+                # _exact_citation_grounding_pinned (stored-authority-only).
+                _legacy_pinned_snapshot_ids = {}
+                if _request_runtime_snapshot.get() is not None:
+                    _legacy_catalog = ((getattr(
+                        _request_runtime_snapshot.get(), "resources", None)
+                        or {}).get("source_catalog") or {})
+                    _legacy_pinned_snapshot_ids = {
+                        str(r.get("record_id") or ""):
+                            str(r.get("source_snapshot_id") or "")
+                        for r in (_legacy_catalog.get("snapshots") or [])
+                        if isinstance(r, dict) and r.get("record_id")}
                 yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
                     "answer": full_answer,
                     "citations": citations,
                     "reference_cards": build_reference_cards(
                         citations, _legacy_claims_payload,
-                        caller_scope=effective_access_scope),
+                        caller_scope=effective_access_scope,
+                        current_snapshot_ids=(
+                            _legacy_pinned_snapshot_ids or None)),
                     "claims": _legacy_claims_payload,
                     "cited_record_ids": cited_record_ids,
                     "searched_record_ids": searched_record_ids,
@@ -3140,8 +3579,8 @@ async def get_graph(limit: int = 300):
 @app.get("/api/stats")
 async def stats():
     """Get system statistics."""
-    total = len(_records) if _records else 0
-    indexed = len(_index_meta) if _index_meta else 0
+    total = len(_st_rec) if (_st_rec := _legacy_state("_records")) else 0
+    indexed = len(_st_idx) if (_st_idx := _legacy_state("_index_meta")) else 0
 
     graph_file = WORKING_DIR / "graph-export.json"
     nodes = edges = 0
@@ -3153,11 +3592,11 @@ async def stats():
     return {
         "total_records": total,
         "indexed_records": indexed,
-        "bm25_records": len(_bm25_meta) if _bm25_meta else 0,
+        "bm25_records": len(_st_bm) if (_st_bm := _legacy_state("_bm25_meta")) else 0,
         "graph_nodes": nodes,
         "graph_edges": edges,
-        "vector_index_ready": _vector_index is not None,
-        "bm25_ready": _bm25_index is not None,
+        "vector_index_ready": _legacy_state("_vector_index") is not None,
+        "bm25_ready": _legacy_state("_bm25_index") is not None,
         "model": MODEL_NAME,
     }
 
@@ -3166,7 +3605,7 @@ async def stats():
 async def search(q: str, top_k: int = 10):
     """Quick vector search without LLM generation. Returns matching records."""
     snapshot = _request_runtime_snapshot.get()
-    if snapshot is None and _vector_index is None:
+    if snapshot is None and _legacy_state("_vector_index") is None:
         return JSONResponse(
             {"error": "Vector index not loaded", "results": []},
             status_code=503,
