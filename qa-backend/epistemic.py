@@ -13,6 +13,8 @@ import json
 import re
 from typing import Optional
 
+import llm_json  # Phase09 shared bounded LLM-JSON normalizer (Class C repair)
+
 from config import llm_model_func
 
 
@@ -88,7 +90,28 @@ def _parse_llm_json(text: str, expect: str = "any"):
     silently returned the inner `issues` list and converted an explicit
     verification FAILURE into the default pass.
     Returns parsed value or None.
+
+    Phase09 general-reliability repair (Class C): tries the shared bounded
+    normalizer llm_json.parse_json FIRST (adds <think> stripping, provider
+    envelope unwrap, full-width folding, honest truncated closing). The
+    requested top-level shape is still enforced: a value of the wrong
+    shape falls through to the legacy chain below, preserving the P2
+    object-first ordering. Fail-closed: None → caller's existing
+    heuristic fallback path runs.
     """
+    try:
+        val = llm_json.parse_json(text)
+    except Exception:
+        val = None
+    if val is not None:
+        if expect == "any":
+            return val
+        if expect == "object" and isinstance(val, dict):
+            return val
+        if expect == "array" and isinstance(val, list):
+            return val
+        # wrong shape → fall through to the legacy shape-aware chain
+
     def _try_array():
         s = text.find("[")
         if s < 0:

@@ -1253,6 +1253,30 @@ async def run_phase02_verification(
     answer_status_str = machine.terminal_status.value
     stop_reason = machine.stop_reason
 
+    # Phase09 repair (Class E): recompute supports_claim_ids from the FINAL
+    # claim map (the bounded repair loop may have remapped claims onto late
+    # candidates after the initial attach), then mark display authorization.
+    # A citation no claim supports can never be displayed as authoritative
+    # evidence (reference_cards enforces NO_CLAIM_LINKAGE); verifier
+    # EvidenceRefs are untouched — evidence still reaches the verifier.
+    _by_cit_final = {}
+    for cl in claim_map.get("claims", []):
+        for sup in cl.get("supported_by") or []:
+            if sup.get("relation") in ("DIRECT_SUPPORT", "PREMISE_SUPPORT",
+                                       "ATTRIBUTION") and sup.get("citation_id") is not None:
+                _by_cit_final.setdefault(sup.get("citation_id"), []).append(cl.get("id"))
+    _withheld_unlinked = 0
+    for c in final_citations:
+        linked = sorted({str(x) for x in _by_cit_final.get(c.get("id"), []) if x})
+        c["supports_claim_ids"] = linked
+        c["display_authorized"] = bool(linked)
+        if not linked:
+            _withheld_unlinked += 1
+    _stage("citation_display_authorization", {
+        "authorized": len(final_citations) - _withheld_unlinked,
+        "withheld_unlinked": _withheld_unlinked,
+    })
+
     boundary_message = ""
     if answer_status_str in ("UNSUPPORTED", "PARTIALLY_SUPPORTED"):
         try:

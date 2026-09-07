@@ -1,0 +1,102 @@
+{
+  "artifact": "rt101_general_reliability_repair_result",
+  "phase": "phase09-general-reliability-repair",
+  "isolation": {
+    "v2_blind_input_accessed": false,
+    "v2_gold_accessed": false,
+    "v2_formal_output_accessed": false,
+    "v2_case_specific_tuning": false
+  },
+  "verifier_parser": {
+    "llm_json": {
+      "recoverable": 18,
+      "total": 18,
+      "big_input_seconds": 0.04,
+      "oversize_seconds": 0.014
+    },
+    "seams": "covered above"
+  },
+  "claim_mapper": {
+    "recoverable_established": true,
+    "envelope_recovers": true,
+    "parse_failure_fail_closed": true,
+    "empty_draft_empty_claims": true,
+    "deterministic_ids": true
+  },
+  "citation_binding": {
+    "linked_displayable": true,
+    "unlinked_withheld": true,
+    "policy_precedence_kept": true
+  },
+  "weak_query_admission": {
+    "positive": [
+      {
+        "case": "multiparts_zh",
+        "admitted": true
+      },
+      {
+        "case": "multiparts_en",
+        "admitted": true
+      }
+    ],
+    "negative": [
+      {
+        "case": "weak_still_rejected",
+        "rejected": true
+      },
+      {
+        "case": "excluded_record_no_readmit",
+        "rejected": true
+      }
+    ]
+  },
+  "deadline_measurements": {
+    "scheduling": {
+      "cap_tighten_s": 0.502,
+      "cap_hold_s": 3.001,
+      "retry_bound_s": 0.051,
+      "reserve_s": 22.0
+    },
+    "latency_injected_request": {
+      "classify_sleep_s": 12.0,
+      "bounded_skip": true,
+      "wall_clock_s": 6.11,
+      "status": "SUPPORTED"
+    }
+  },
+  "e2e_mutation": {
+    "baseline": {
+      "supported": true,
+      "edges_proven": true,
+      "elapsed_s": 0.15
+    },
+    "mutation": {
+      "mutation": "pinned_catalog_record_body_disconnected",
+      "supported_lost": true
+    }
+  },
+  "created_utc": "2026-09-07T04:22:38Z",
+  "git": {
+    "head_at_generation": "7513dc19b3d7739af6161cf1538cebc0f0a7f6fe",
+    "branch": "remediation/phase-09-benchmarks-ci-release-gates",
+    "note": "artifact generated in the repair worktree on top of head_at_generation; the Phase09 repair commit adds this file, the repaired modules, and this suite"
+  },
+  "git_sha": "7513dc19b3d7739af6161cf1538cebc0f0a7f6fe",
+  "git_branch": "remediation/phase-09-benchmarks-ci-release-gates",
+  "fixture": {
+    "suite_file": "tests_repair_phase09_reliability.py",
+    "suite_sha256": "82f4db86e4141f2a8f40bc315a63b6424fc3c31b904b6cdf5f36d8ae956b04b2",
+    "record_id": "rec-fx-4401",
+    "body_sha256": "c505eeaedd76d9907987b26a4e38d1173d612c53d6dc4fc0ef7856a7137131ee",
+    "pinned_snapshot_id": "pinned-catalog-snapshot-fx4401-authority",
+    "fixture_ids": [
+      "rec-fx-4401",
+      "claim-fx-1",
+      "pinned-catalog-snapshot-fx4401-authority"
+    ]
+  },
+  "summary": {
+    "passed": 73,
+    "failed": 0
+  }
+}

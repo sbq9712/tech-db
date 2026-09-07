@@ -79,6 +79,7 @@ SUITES = {
     "failure_injection_phase09": ("tests_failure_injection_phase09.py", "push"),
     "release_phase09": ("tests_release_phase09.py", "push"),
     "repair_phase09_generic": ("tests_repair_phase09_generic.py", "push"),
+    "repair_phase09_reliability": ("tests_repair_phase09_reliability.py", "push"),
     "index_migration": ("tests_index_migration.py", "push"),
     "visual_rt029":    ("tests_visual_rt029.py", "push"),
     "final_acceptance": ("tests_final_acceptance.py", "nightly"),

@@ -560,15 +560,26 @@ class RequestExecutionContext:
         safe_fallback_available: Optional[bool] = None,
         budget_class: Optional[BudgetClass] = None,
         query_budget_cost: int = 1,
+        timeout_cap: Optional[float] = None,
     ) -> Any:
         owned_budget_class = (budget_class_for_stage(stage)
                               if budget_class is None else budget_class)
         if not isinstance(owned_budget_class, BudgetClass):
             raise TypeError("budget_class must be a BudgetClass")
+        if timeout_cap is not None and timeout_cap < 0:
+            timeout_cap = 0.0
         attempts = 0
         last: BaseException = RuntimeError("stage did not run")
+        # Phase09 repair (Class B): `timeout_cap` propagates the REMAINING
+        # request budget minus downstream reservations into this stage, so a
+        # long stage cannot starve correctness-critical post-stages
+        # (claim mapping, verifier) into total_deadline_exhausted. The cap
+        # only ever TIGHTENS the stage deadline; it never extends it.
         stage_deadline_at = min(
             self.deadline_at, time.monotonic() + self.profile.stage_for(stage))
+        if timeout_cap is not None:
+            stage_deadline_at = min(
+                stage_deadline_at, time.monotonic() + timeout_cap)
         while attempts < self.profile.max_attempts:
             self.check_active()
             timeout = max(0.0, min(

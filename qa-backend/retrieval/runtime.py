@@ -25,6 +25,7 @@ import asyncio
 import json
 import os
 import pickle
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -489,6 +490,96 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         or any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
     )
     return results, is_relevant
+
+
+# ── Phase09 general-reliability repair (Class A: weak-query admission) ─────
+# A long or multi-part research query often embeds to a diluted whole-query
+# vector whose best vec_score lands just under VEC_STRONG, so a legitimate
+# fact-seeking request was rejected as weak_query. The fix is NOT a lower
+# threshold and NOT a disabled gate: when whole-query admission FAILS, the
+# query is re-checked with deterministic sub-query embeddings against the
+# SAME VEC_STRONG threshold — admission becomes a union over sub-views.
+# Deterministic split only (no LLM, no holdout-derived constants); a query
+# whose every sub-view is weak is still rejected (fail-closed preserved).
+
+_SUBQ_SPLIT_RE = re.compile(
+    r"[?？!！;；。\n]+"
+    r"|，(?=[为是有能会需该如何怎样哪什多几谁何其并还此另以及])"
+    r"|\s+以及\s+|\s+还有\s+|\s+另外\s+"
+    r"|,\s+(?=and|which|what|how|why|where|when)\b",
+    re.IGNORECASE,
+)
+
+
+def split_subqueries(query: str, max_parts: int = 4, min_len: int = 4) -> list:
+    """Deterministic multi-part query splitter for admission recheck.
+
+    Splits on sentence boundaries, enumeration commas before question-y
+    continuations, and joining words. Tiny fragments and fragments identical
+    to the whole query are dropped. Never returns the empty list for a
+    non-empty query (fallback: [whole query])."""
+    if not isinstance(query, str):
+        return []
+    q = query.strip()
+    if not q:
+        return []
+    parts = [p.strip() for p in _SUBQ_SPLIT_RE.split(q)]
+    picked = []
+    for p in parts:
+        if not p or len(p) < min_len:
+            continue
+        if p == q and picked:
+            continue
+        if p not in picked:
+            picked.append(p)
+        if len(picked) >= max_parts:
+            break
+    if not picked:
+        picked = [q]
+    return picked
+
+
+async def recheck_admission_subqueries(query: str, *, embed_fn=None,
+                                       snapshot=None, pipeline=None,
+                                       max_parts: int = 4,
+                                       exclude_ids: set | None = None) -> dict:
+    """Bounded deterministic admission recheck for rejected multi-part
+    queries. Embeds each deterministic sub-query and runs the VECTOR route
+    only; returns {"relevant": bool, "best_vec": float, "parts": [...],
+    "checked": int}. Same VEC_STRONG threshold as whole-query admission;
+    nothing else about the gate changes. `exclude_ids` keeps the
+    topic-exhaustion contract honest: records already presented in earlier
+    turns can never re-admit a follow-up."""
+    parts = split_subqueries(query, max_parts=max_parts)
+    if pipeline is None:
+        if snapshot is not None:
+            vr, _br, _gr, _fuse = snapshot_pipeline(snapshot)
+        else:
+            vr, _br, _gr, _fuse = legacy_pipeline()
+    else:
+        vr, _br, _gr, _fuse = pipeline
+    excl = exclude_ids or set()
+    best = 0.0
+    checked = 0
+    for part in parts:
+        try:
+            qv = await embed_query(part, embed_fn=embed_fn)
+            qv = qv / max(np.linalg.norm(qv), 1e-8)
+            vec_res = vr.search(qv, top_k=8)
+            checked += 1
+            for r in vec_res:
+                if getattr(r, "record_id", None) in excl:
+                    continue
+                s = float(getattr(r, "raw_score", 0.0) or 0.0)
+                if s > best:
+                    best = s
+                if best >= VEC_STRONG:
+                    return {"relevant": True, "best_vec": round(best, 6),
+                            "parts": parts, "checked": checked}
+        except Exception:
+            continue
+    return {"relevant": False, "best_vec": round(best, 6),
+            "parts": parts, "checked": checked}
 
 
 # ── Phase 03 (RT-031) high-recall per-route retrieval ───────────────────────

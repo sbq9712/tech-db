@@ -42,6 +42,13 @@ from config import (
     WORKING_DIR, RUNTIME_DIR, ENV_FILE, llm_model_func, embedding_func,
     llm_stream_func, MODEL_NAME, llm_abandoned_stats,
 )
+try:
+    # Phase09 general-reliability repair (Class A/B): preload helper so the
+    # embedding model is warm BEFORE the first request instead of lazy-
+    # loading inside the 3s retrieval stage deadline.
+    from config import _get_model as _preload_embedding_model
+except Exception:  # pragma: no cover - import must never block startup
+    _preload_embedding_model = None
 from guardrails import (
     BudgetFuse,
     GuardrailSettings,
@@ -87,6 +94,29 @@ LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
 INDEX_FILE = WORKING_DIR / "vector_index_v2.pkl"
 BM25_FILE = WORKING_DIR / "bm25_index.pkl"
 JIEBA_DICT = WORKING_DIR / "jieba_custom_dict.txt"
+
+# ── Phase09 general-reliability repair (Class B: budget propagation) ──────
+# The generator must never consume the whole remaining request budget:
+# claim mapping and the verifier are correctness-critical post-stages that
+# need reserved time, else the request dies as total_deadline_exhausted
+# and the answer degrades to UNVERIFIED. The reservation only TIGHTENS
+# the generator deadline (never extends anything).
+POST_GENERATION_SLACK_S = float(os.environ.get("QA_POST_GENERATION_SLACK_S", "2"))
+MIN_GENERATION_WINDOW_S = float(os.environ.get("QA_MIN_GENERATION_WINDOW_S", "8"))
+# Epistemic classification is an ENHANCEMENT, not a correctness stage: it
+# runs only when enough time remains for the downstream reservation, and
+# is itself bounded.
+EPISTEMIC_CLASSIFY_MAX_S = float(os.environ.get("QA_EPISTEMIC_CLASSIFY_MAX_S", "6"))
+MIN_CLASSIFY_WINDOW_S = float(os.environ.get("QA_MIN_CLASSIFY_WINDOW_S", "4"))
+
+
+def _post_generation_reserve_s(execution) -> float:
+    """Reserved seconds that must survive after the generator stage:
+    claim mapping + final verifier + slack."""
+    prof = execution.profile
+    return (prof.stage_for("claim_mapping")
+            + prof.stage_for("final_verifier")
+            + POST_GENERATION_SLACK_S)
 
 # ── Global state / core retrieval (RT-030) ─────────────────────────────────
 # Core Vector/BM25/Graph index loading + search algorithms MOVED to
@@ -636,10 +666,36 @@ async def hybrid_search(query: str, exclude_ids: set = None) -> tuple:
     """Hybrid retrieval with dual relevance check for topic exhaustion.
 
     Returns (results, is_relevant, status) where status ∈ {"ok", "weak_query", "exhausted"}.
+
+    Phase09 repair (Class A): when whole-query admission FAILS, a bounded
+    deterministic sub-query recheck runs BEFORE declaring weak_query —
+    multi-part/long research queries embed diluted as a whole; their
+    individual sub-questions can still strongly match the corpus. The
+    recheck uses the SAME VEC_STRONG threshold (never lowered), never
+    admits via already-excluded records, and fails closed (any recheck
+    error keeps the original rejection).
     """
     results, is_relevant = await _search_with_quality(query, exclude_ids)
 
     status = "ok"
+    if not is_relevant:
+        # Sub-query admission recheck (bounded, deterministic, fail-closed)
+        if os.environ.get("QA_SUBQUERY_ADMISSION_RECHECK", "1").strip().lower() in ("1", "true", "yes"):
+            try:
+                recheck = await _rt.recheck_admission_subqueries(
+                    query, embed_fn=embedding_func,
+                    snapshot=_request_runtime_snapshot.get(),
+                    pipeline=_get_retrieval_pipeline(),
+                    exclude_ids=exclude_ids if exclude_ids else None)
+                if recheck.get("relevant"):
+                    is_relevant = True
+                    print(f"[search] Sub-query admission recheck: admitted "
+                          f"(best_vec={recheck.get('best_vec')}, "
+                          f"parts={len(recheck.get('parts', []))})", flush=True)
+            except Exception as exc:
+                # fail closed: any recheck problem keeps the rejection
+                print(f"[search] Sub-query admission recheck unavailable: {exc}",
+                      flush=True)
     if not is_relevant:
         if exclude_ids:
             # Dual check: search without exclusion to distinguish causes
@@ -1739,6 +1795,21 @@ async def lifespan(app: FastAPI):
 
     _records_cache[:] = [load_records()]
     print(f"[startup] Records loaded: {len(_records_cache[0])}", flush=True)
+
+    # Phase09 repair (Class A/B): warm the embedding model NOW, outside any
+    # request. Previously the bge-m3 SentenceTransformer lazy-loaded on the
+    # first query INSIDE the 3s retrieval stage deadline, causing first-
+    # request RUNTIME_ROUTE_FAILURE_RECHECK → empty results → weak-query
+    # rejections of legitimate research queries.
+    if os.environ.get("QA_PRELOAD_EMBEDDING_MODEL", "1").strip().lower() in ("1", "true", "yes"):
+        if _preload_embedding_model is not None:
+            try:
+                _preload_embedding_model()
+                print("[startup] Embedding model preloaded (bge-m3 warm)", flush=True)
+            except Exception as exc:
+                # Never block startup: the lazy path remains as fallback.
+                print(f"[startup] Embedding model preload skipped: {exc}", flush=True)
+
     print("[startup] Ready!", flush=True)
     yield
     print("[shutdown] Cleaning up...", flush=True)
@@ -2529,10 +2600,38 @@ async def chat_stream(req: ChatRequest, request: Request):
             if not _phase03_active:
                 try:
                     classify_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                    if classify_budget_ok:
+                    # Phase09 repair (Class B): classification is time-aware
+                    # now. It runs ONLY if enough request time remains for
+                    # the post-generation reservation (mapper+verifier) plus
+                    # a minimum generation window, and is itself bounded.
+                    # Previously this serial LLM call could consume the whole
+                    # remaining budget and starve generation/mapper/verifier
+                    # into total_deadline_exhausted.
+                    _post_reserve_s = _post_generation_reserve_s(execution)
+                    _classify_cap_s = min(
+                        EPISTEMIC_CLASSIFY_MAX_S,
+                        max(0.0, execution.remaining()
+                            - _post_reserve_s - MIN_GENERATION_WINDOW_S))
+                    if not classify_budget_ok:
+                        trace.add_stage("epistemic_skip", {"reason": "cost_budget"})
+                    elif _classify_cap_s < MIN_CLASSIFY_WINDOW_S:
+                        trace.add_stage("epistemic_skip", {
+                            "reason": "insufficient_time_budget",
+                            "remaining_s": round(execution.remaining(), 3),
+                            "reserve_s": round(_post_reserve_s, 3)})
+                    else:
                         print(f"[epistemic] Classifying claims for top-5 chunks", flush=True)
-                        claim_metadata = await classify_claims(query, search_results, top_k=5)
+                        claim_metadata = await asyncio.wait_for(
+                            classify_claims(query, search_results, top_k=5),
+                            timeout=_classify_cap_s)
                         print(f"[epistemic] Classification done: {len(claim_metadata)} chunks classified", flush=True)
+                except asyncio.TimeoutError:
+                    # Enhancement path: a bounded timeout degrades to no
+                    # claim metadata — never to a failed request.
+                    trace.add_stage("epistemic_skip", {
+                        "reason": "classify_bounded_deadline_exceeded",
+                        "cap_s": round(_classify_cap_s, 3)})
+                    print("[epistemic] classification skipped (bounded deadline)", flush=True)
                 except Exception as e:
                     print(f"[epistemic-classify] {e}", flush=True)
 
@@ -2652,11 +2751,28 @@ async def chat_stream(req: ChatRequest, request: Request):
                         raise RuntimeError("generator returned empty response")
                     return buffered
                 try:
+                    # Phase09 repair (Class B): propagate remaining budget
+                    # minus the downstream mapper+verifier reservation into
+                    # the generator stage so streaming cannot starve the
+                    # correctness-critical post-stages. The cap only ever
+                    # tightens the stage deadline; when the remaining budget
+                    # cannot even fit reservation + minimum generation
+                    # window, no cap is applied (the request is ending
+                    # regardless; the generator gets its ordinary deadline).
+                    _gen_reserve_s = _post_generation_reserve_s(execution)
+                    _gen_cap_s = execution.remaining() - _gen_reserve_s
+                    _gen_timeout_cap = _gen_cap_s if _gen_cap_s >= MIN_GENERATION_WINDOW_S else None
+                    if _gen_timeout_cap is not None:
+                        trace.add_stage("generation_budget", {
+                            "remaining_s": round(execution.remaining(), 3),
+                            "reserve_s": round(_gen_reserve_s, 3),
+                            "cap_s": round(_gen_timeout_cap, 3)})
                     full_answer = await execution.run_stage(
                         "generator", _buffer_generator_attempt,
                         requirement_critical=True,
                         safe_fallback_available=False,
-                        query_budget_cost=1)
+                        query_budget_cost=1,
+                        timeout_cap=_gen_timeout_cap)
                 except RequestCancelled:
                     raise
                 except StageExecutionError as exc:

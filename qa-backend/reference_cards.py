@@ -54,6 +54,7 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
     identifiers fail closed: the card remains diagnostic but carries no span.
     """
     current_snapshot_ids = current_snapshot_ids or {}
+    claims_list = list(claims or [])  # materialize once (re-iterated below)
     cards = []
     for citation in citations or []:
         cid = citation.get("id")
@@ -69,7 +70,7 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
             }, ensure_ascii=False, sort_keys=True,
                 separators=(",", ":")).encode()).hexdigest()[:16]
         source_role = str(citation.get("source_role") or "unknown")
-        states = _claim_states(cid, claims)
+        states = _claim_states(cid, claims_list)
         # Older claim payloads expose support IDs directly on the citation.
         states["supports_claim_ids"] = sorted(set(
             states["supports_claim_ids"] + [str(v) for v in
@@ -82,6 +83,17 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
         graph_only = evidence_id.startswith(GRAPH_ONLY_PREFIXES) or \
             record_id.startswith(GRAPH_ONLY_PREFIXES)
         reason = ""
+        # Phase09 repair (Class E): display authorization requires the full
+        # chain claim → support relation → pinned span → citation authority
+        # → verifier → card. Claim linkage counts as EVALUATED when the
+        # caller provided a claims payload or the citation carries the
+        # pipeline-emitted supports_claim_ids field (the pipeline attaches
+        # it explicitly, as [] when no claim supports the citation). A
+        # legacy bridge row without the field and without any claims payload
+        # predates claim linkage — its authority is already governed by the
+        # snapshot/locator policy ladder below.
+        linkage_evaluated = bool(claims_list) or \
+            "supports_claim_ids" in citation
         if graph_only:
             reason = "GRAPH_IDENTIFIER_NOT_CITATION"
         elif denied:
@@ -90,6 +102,12 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
             reason = "SOURCE_SNAPSHOT_MISSING"
         elif drift:
             reason = "SOURCE_SNAPSHOT_DRIFT"
+        elif linkage_evaluated and not states["supports_claim_ids"]:
+            # A citation that NO claim supports (via DIRECT_SUPPORT /
+            # PREMISE_SUPPORT / ATTRIBUTION) is exact-grounded surface at
+            # best; it can never be displayed as authoritative evidence for
+            # the answer.
+            reason = "NO_CLAIM_LINKAGE"
 
         spans = []
         locators = citation.get("locators") or []
