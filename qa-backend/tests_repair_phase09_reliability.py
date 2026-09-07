@@ -1272,12 +1272,17 @@ class _FakeVectorRouteIdx:
 def test_exclusion_parity():
     from retrieval.runtime import recheck_admission_subqueries, VEC_STRONG
 
+    async def fake_embed(texts):
+        # Deterministic unit embedding — keeps the test hermetic (no
+        # embedding-model dependency, CI-minimal environments included).
+        return [[1.0, 0.0] for _ in texts]
+
     async def scenario():
         # 1. Exclusion by stable record_id → the candidate cannot re-admit.
         vr = _FakeVectorRouteIdx(strong=True, record_id=REC_ID_FX,
                                  legacy_idx=7)
         res = await recheck_admission_subqueries(
-            MULTIPART_EN, embed_fn=None, snapshot=None,
+            MULTIPART_EN, embed_fn=fake_embed, snapshot=None,
             pipeline=(vr, *_fake_pipeline(True)[1:]),
             exclude_ids={REC_ID_FX})
         check("P1.exclude_by_record_id_no_readmit",
@@ -1289,7 +1294,7 @@ def test_exclusion_parity():
         vr = _FakeVectorRouteIdx(strong=True, record_id="rec-fx-other",
                                  legacy_idx=7)
         res = await recheck_admission_subqueries(
-            MULTIPART_EN, embed_fn=None, snapshot=None,
+            MULTIPART_EN, embed_fn=fake_embed, snapshot=None,
             pipeline=(vr, *_fake_pipeline(True)[1:]),
             exclude_ids={7})
         check("P1.exclude_by_legacy_idx_no_readmit",
@@ -1301,7 +1306,7 @@ def test_exclusion_parity():
         vr = _FakeVectorRouteIdx(strong=True, record_id="rec-fx-fresh",
                                  legacy_idx=9)
         res = await recheck_admission_subqueries(
-            MULTIPART_EN, embed_fn=None, snapshot=None,
+            MULTIPART_EN, embed_fn=fake_embed, snapshot=None,
             pipeline=(vr, *_fake_pipeline(True)[1:]),
             exclude_ids={REC_ID_FX, 7})
         check("P1.fresh_strong_candidate_still_admits",
