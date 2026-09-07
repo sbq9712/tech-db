@@ -118,6 +118,30 @@ def _post_generation_reserve_s(execution) -> float:
             + prof.stage_for("final_verifier")
             + POST_GENERATION_SLACK_S)
 
+
+def _generator_timeout_cap_s(execution) -> float:
+    """Phase09 gatekeeper follow-up (P0-1): canonical generator admission
+    gate — FAIL-CLOSED.
+
+    Returns the timeout_cap for the generator stage:
+      * remaining − downstream correctness reserve, when that leaves at
+        least MIN_GENERATION_WINDOW_S of safe generation time;
+      * 0.0 otherwise — the generator operation MUST NOT begin. run_stage
+        with a cap of 0.0 never invokes the operation and routes the
+        request through the canonical StageExecutionError → done
+        UNVERIFIED stop_reason=generator_failure terminal path, so the
+        downstream correctness reserve is preserved untouched and no
+        un-bounded generation can start.
+
+    Invariants preserved: the cap can only ever TIGHTEN a stage deadline
+    (run_stage takes the min with the stage deadline); it never extends
+    the stage, the request deadline, or any verifier requirement.
+    """
+    window = execution.remaining() - _post_generation_reserve_s(execution)
+    if window >= MIN_GENERATION_WINDOW_S:
+        return window
+    return 0.0
+
 # ── Global state / core retrieval (RT-030) ─────────────────────────────────
 # Core Vector/BM25/Graph index loading + search algorithms MOVED to
 # retrieval/runtime.py; server.py keeps API glue only (admission, request
@@ -2751,22 +2775,28 @@ async def chat_stream(req: ChatRequest, request: Request):
                         raise RuntimeError("generator returned empty response")
                     return buffered
                 try:
-                    # Phase09 repair (Class B): propagate remaining budget
-                    # minus the downstream mapper+verifier reservation into
-                    # the generator stage so streaming cannot starve the
-                    # correctness-critical post-stages. The cap only ever
-                    # tightens the stage deadline; when the remaining budget
-                    # cannot even fit reservation + minimum generation
-                    # window, no cap is applied (the request is ending
-                    # regardless; the generator gets its ordinary deadline).
+                    # Phase09 repair (Class B + gatekeeper follow-up P0-1):
+                    # propagate remaining budget minus the downstream
+                    # mapper+verifier reservation into the generator stage so
+                    # streaming cannot starve the correctness-critical
+                    # post-stages. FAIL-CLOSED admission: when the remaining
+                    # budget cannot fit the downstream correctness reserve +
+                    # the minimum safe generation window, the generator
+                    # operation MUST NOT begin (cap 0.0 → run_stage never
+                    # invokes it) and the request terminates through the
+                    # canonical StageExecutionError → done UNVERIFIED
+                    # stop_reason=generator_failure path below. The cap only
+                    # ever tightens the stage deadline; it never extends the
+                    # deadline, lowers verifier requirements, or skips the
+                    # post-stages.
                     _gen_reserve_s = _post_generation_reserve_s(execution)
-                    _gen_cap_s = execution.remaining() - _gen_reserve_s
-                    _gen_timeout_cap = _gen_cap_s if _gen_cap_s >= MIN_GENERATION_WINDOW_S else None
-                    if _gen_timeout_cap is not None:
-                        trace.add_stage("generation_budget", {
-                            "remaining_s": round(execution.remaining(), 3),
-                            "reserve_s": round(_gen_reserve_s, 3),
-                            "cap_s": round(_gen_timeout_cap, 3)})
+                    _gen_timeout_cap = _generator_timeout_cap_s(execution)
+                    trace.add_stage("generation_budget", {
+                        "remaining_s": round(execution.remaining(), 3),
+                        "reserve_s": round(_gen_reserve_s, 3),
+                        "cap_s": round(_gen_timeout_cap, 3),
+                        "min_generation_window_s": MIN_GENERATION_WINDOW_S,
+                        "generator_start_allowed": _gen_timeout_cap > 0})
                     full_answer = await execution.run_stage(
                         "generator", _buffer_generator_attempt,
                         requirement_critical=True,
@@ -2794,6 +2824,41 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # Compatibility profile: stream once.  It may use the existing
                 # non-streaming model fallback, but cancellation/deadline still
                 # prevents late chunks from acquiring request authority.
+                #
+                # Phase09 gatekeeper follow-up (P0-1): FAIL-CLOSED generator
+                # admission applies here too. When the remaining request time
+                # cannot fit the downstream correctness reserve (claim
+                # mapping + final verifier + slack) plus the minimum safe
+                # generation window, the generator operation MUST NOT begin:
+                # terminate through the canonical generator_failure terminal
+                # without invoking the model and without consuming the
+                # downstream reserve. (The cap can only ever tighten; it
+                # never extends any deadline or lowers any verifier
+                # requirement.)
+                _legacy_gen_cap = _generator_timeout_cap_s(execution)
+                trace.add_stage("generation_budget", {
+                    "remaining_s": round(execution.remaining(), 3),
+                    "reserve_s": round(_post_generation_reserve_s(execution), 3),
+                    "cap_s": round(_legacy_gen_cap, 3),
+                    "min_generation_window_s": MIN_GENERATION_WINDOW_S,
+                    "generator_start_allowed": _legacy_gen_cap > 0,
+                    "profile": "legacy_compat"})
+                if _legacy_gen_cap <= 0:
+                    trace.add_stage("generator_failure", {
+                        "reason_code": "RUNTIME_GENERATOR_FAILURE",
+                        "error": ("remaining budget cannot fit downstream "
+                                  "reserve + minimum generation window"),
+                        "degraded_capabilities": execution.degraded_capabilities,
+                    })
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
+                        "message": "回答生成服务未能在安全时限内完成。",
+                        "answer_status": "UNVERIFIED",
+                        "stop_reason": "generator_failure",
+                        "degraded_capabilities": execution.degraded_capabilities,
+                        "trace_id": trace.trace_id,
+                        "legacy_event": "error",
+                    }))}
+                    return
                 try:
                     async with asyncio.timeout(
                             execution.stage_timeout("generator")):
@@ -3112,6 +3177,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                 verification_status = "NOT_RUN"
                 verification_issues = []
                 verification_error = ""  # TK-10: last failure cause, for the user warning
+                _lv_findings = []  # P0-2: final per-claim verdict evidence
                 if claim_metadata and full_answer.strip():
                     try:
                         # Use budget_guard to ensure correctness-critical handling
@@ -3412,6 +3478,11 @@ async def chat_stream(req: ChatRequest, request: Request):
                                         "failure_reason":
                                             _rvr.failure_reason,
                                     })
+                                    # P0-2: keep the final per-claim verdict
+                                    # evidence for citation display
+                                    # authorization (legacy profile path).
+                                    _lv_findings = list(
+                                        getattr(_rvr, "findings", None) or [])
                                     print(f"[verify] Rescue verification: "
                                           f"{_rvr.status}", flush=True)
                                 elif _rov:
@@ -3550,9 +3621,71 @@ async def chat_stream(req: ChatRequest, request: Request):
                     verification_status=verification_status,
                 )
 
+                # ── Phase09 gatekeeper follow-up (P0-2): FINAL-verification-
+                # bound citation authority (legacy profile path). Citation
+                # display authority depends on the FINAL claim verification —
+                # never merely on relation type. Every final claim carries an
+                # explicit verifier_verdict (PASSED → PASS; FAILED →
+                # per-finding verdicts / NOT_PASSED; UNVERIFIED / technical /
+                # skip → UNVERIFIED), supports_claim_ids are recomputed from
+                # the verified-supported subset only, and
+                # reference_cards.build_reference_cards re-checks this at the
+                # seam (stale precomputed supports_claim_ids cannot override
+                # the final verification authority).
+                _legacy_claims = claim_map.get("claims", [])
+                _lv_default = ("PASS" if verification_status == "PASSED"
+                               else "NOT_PASSED"
+                               if verification_status == "FAILED"
+                               else "UNVERIFIED")
+                if verification_status == "FAILED":
+                    for _f in (_lv_findings or []):
+                        if not isinstance(_f, dict):
+                            continue
+                        for _cl in _legacy_claims:
+                            if _cl.get("id") == _f.get("claim_id"):
+                                _cl["verifier_verdict"] = str(
+                                    _f.get("verdict", "")).upper()
+                for _cl in _legacy_claims:
+                    if not _cl.get("verifier_verdict"):
+                        _cl["verifier_verdict"] = _lv_default
+
+                def _legacy_display_qualified(cl) -> bool:
+                    return (isinstance(cl, dict)
+                            and str(cl.get("support_status") or "").upper()
+                            == "SUPPORTED"
+                            and str(cl.get("verifier_verdict") or "").upper()
+                            == "PASS")
+
+                _lv_by_cit = {}
+                for _cl in _legacy_claims:
+                    if not _legacy_display_qualified(_cl):
+                        continue
+                    for _sup in _cl.get("supported_by") or []:
+                        if _sup.get("relation") in (
+                                "DIRECT_SUPPORT", "PREMISE_SUPPORT",
+                                "ATTRIBUTION") and \
+                                _sup.get("citation_id") is not None:
+                            _lv_by_cit.setdefault(
+                                _sup.get("citation_id"), []).append(
+                                _cl.get("id"))
+                _lv_withheld = 0
+                for _c in citations:
+                    _lv_linked = sorted(
+                        {str(_x) for _x in _lv_by_cit.get(_c.get("id"), [])
+                         if _x})
+                    _c["supports_claim_ids"] = _lv_linked
+                    _c["display_authorized"] = bool(_lv_linked)
+                    if not _lv_linked:
+                        _lv_withheld += 1
+                trace.add_stage("citation_display_authorization", {
+                    "authorized": len(citations) - _lv_withheld,
+                    "withheld_unlinked": _lv_withheld,
+                    "path": "legacy"})
+
                 _legacy_claims_payload = [
                     {"id": c.get("id"), "text": c.get("text", "")[:120],
                      "status": c.get("support_status", ""),
+                     "verifier_verdict": c.get("verifier_verdict", ""),
                      "relations": [{"citation_id": rel.get("citation_id"),
                                     "relation": rel.get("relation")}
                                    for rel in (c.get("supported_by") or [])]}

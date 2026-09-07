@@ -69,6 +69,10 @@ RESULTS = {
     "weak_query_admission": {"positive": [], "negative": []},
     "deadline_measurements": {},
     "e2e_mutation": {},
+    "p0_1_generator_fail_closed": {},
+    "p0_2_final_citation_authority": {},
+    "p1_exclusion_parity": {},
+    "p1_llm_json_fullwidth": {},
 }
 
 
@@ -620,7 +624,8 @@ class _StubPinManager:
 
 def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
                         claim_mapping=True, verify_behavior="passed",
-                        classify_sleep_s=0.0):
+                        classify_sleep_s=0.0, mapper_claims=None,
+                        min_generation_window_s=None):
     """Deterministic /api/chat/stream production case on synthetic fixtures.
 
     record_body — what RETRIEVAL returns (the whole visible surface).
@@ -628,6 +633,12 @@ def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
     When they differ, the evidence is DISCONNECTED from its authority.
     Captures generator inputs, mapper answers and verifier inputs so the
     causal chain can be asserted edge by edge.
+
+    mapper_claims — optional replacement claim list for the mapper stub
+    (P0-2 mixed-claim fixtures). min_generation_window_s — when set,
+    patches server.MIN_GENERATION_WINDOW_S for the request (P0-1
+    fail-closed e2e: a window larger than the remaining budget must stop
+    the generator from EVER starting).
     """
     import contextlib
     import httpx
@@ -673,18 +684,21 @@ def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
             await asyncio.sleep(classify_sleep_s)
         return []
 
+    _default_claims = [{
+        "id": "claim-fx-1",
+        "text": BODY_FX,
+        "type": "MAJOR_FACT",
+        "is_core": True,
+        "support_status": "SUPPORTED",
+        "supported_by": [{"citation_id": 1,
+                          "relation": "DIRECT_SUPPORT",
+                          "evidence_span": BODY_FX}],
+    }]
+    _mapper_claims = mapper_claims if mapper_claims is not None else _default_claims
+
     async def map_claims(query, answer, citations, **kwargs):
         captured["mapper_answers"].append(answer)
-        return {"claims": [{
-            "id": "claim-fx-1",
-            "text": BODY_FX,
-            "type": "MAJOR_FACT",
-            "is_core": True,
-            "support_status": "SUPPORTED",
-            "supported_by": [{"citation_id": 1,
-                              "relation": "DIRECT_SUPPORT",
-                              "evidence_span": BODY_FX}],
-        }]}
+        return {"claims": _mapper_claims}
 
     async def verify(query, answer, claim_metadata, **kwargs):
         captured["verifier_answers"].append(answer)
@@ -700,6 +714,14 @@ def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
         if verify_behavior == "failed":
             return SimpleNamespace(status="FAILED", issues=["finding"],
                                    failure_reason="verification findings")
+        if verify_behavior == "mixed":
+            return SimpleNamespace(
+                status="FAILED",
+                findings=[{"claim_id": "claim-fx-1", "verdict": "PASS",
+                           "reason": "claim survives verification"},
+                          {"claim_id": "claim-fx-2", "verdict": "FAIL",
+                           "reason": "claim contradicts pinned evidence"}],
+                issues=[], failure_reason="mixed verification findings")
         return SimpleNamespace(status="UNVERIFIED", issues=[],
                                failure_reason="verification unavailable")
 
@@ -756,6 +778,9 @@ def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
         "KNOWLEDGE_BOUNDARY_ENABLED": False,
     }.items():
         setattr(server.Flags, name, value)
+    _prev_min_gen_window = server.MIN_GENERATION_WINDOW_S
+    if min_generation_window_s is not None:
+        server.MIN_GENERATION_WINDOW_S = float(min_generation_window_s)
     try:
         server.llm_stream_func = stream
         transport = httpx.ASGITransport(app=server.app)
@@ -780,6 +805,7 @@ def _fx_production_case(*, record_body=BODY_FX, pinned_record_body=BODY_FX,
         elapsed = time.monotonic() - t0
         return events, payloads, captured, elapsed
     finally:
+        server.MIN_GENERATION_WINDOW_S = _prev_min_gen_window
         for name, value in previous.items():
             setattr(server.Flags, name, value)
         for name, value in saved.items():
@@ -886,9 +912,476 @@ def _git(*args):
         return ""
 
 
+# ════════════════════════════════════════════════════════════════════════
+# Gatekeeper follow-up P0-1 — generator fail-closed admission gate
+# ════════════════════════════════════════════════════════════════════════
+
+def test_generator_fail_closed_gate():
+    from runtime_safety import (RequestExecutionContext, RuntimeSafetyProfile,
+                                StageExecutionError)
+    import server
+
+    async def scenario():
+        profile = RuntimeSafetyProfile()
+        reserve = (profile.stage_for("claim_mapping")
+                   + profile.stage_for("final_verifier")
+                   + server.POST_GENERATION_SLACK_S)
+
+        def _cap(remaining: float) -> float:
+            class _FakeExec:
+                def remaining(self):
+                    return remaining
+                @property
+                def profile(self):
+                    return profile
+            return server._generator_timeout_cap_s(_FakeExec())
+
+        # 1. Boundary: remaining == reserve + MIN_GENERATION_WINDOW_S → a
+        # bounded generator MAY start and the cap equals exactly the window.
+        boundary = reserve + server.MIN_GENERATION_WINDOW_S
+        check("P0-1.boundary_allows_bounded_generator",
+              _cap(boundary) == server.MIN_GENERATION_WINDOW_S,
+              f"cap={_cap(boundary)}")
+
+        # 2. Anything below the boundary → 0.0: the generator MUST NOT begin.
+        for label, rem in (
+                ("just_under_boundary", boundary - 0.001),
+                ("exact_reserve_only", reserve),
+                ("less_than_reserve", reserve - 5.0),
+                ("nothing_left", 0.0)):
+            check(f"P0-1.fail_closed_{label}", _cap(rem) == 0.0,
+                  f"cap={_cap(rem)}")
+
+        # 3. A healthy budget yields the full remaining-minus-reserve window.
+        check("P0-1.healthy_window_full_cap",
+              _cap(reserve + 30.0) == 30.0, f"cap={_cap(reserve + 30.0)}")
+
+        # 4. cap 0.0 → run_stage NEVER invokes the operation and fails
+        # closed through the canonical StageExecutionError path; the query
+        # budget is never charged (cancelled/expired work consumes nothing).
+        ctx = RequestExecutionContext(mode="FAST", profile=profile)
+        calls = []
+        t0 = time.monotonic()
+        try:
+            await ctx.run_stage("generator", lambda: calls.append(1),
+                                requirement_critical=True,
+                                safe_fallback_available=False,
+                                timeout_cap=0.0)
+            refused = False
+        except StageExecutionError:
+            refused = True
+        dt = time.monotonic() - t0
+        check("P0-1.cap_zero_never_invokes_generator",
+              refused and not calls and dt < 1.0,
+              f"refused={refused} calls={calls} dt={dt:.2f}s")
+
+        # 5. At the exact boundary the bounded generator may run to
+        # completion when it fits, and is cut when it does not — the cap
+        # bounds (never extends) the stage.
+        ctx_ok = RequestExecutionContext(mode="FAST", profile=profile)
+        r = await ctx_ok.run_stage("generator",
+                                   lambda: "fast-answer",
+                                   timeout_cap=boundary)
+        check("P0-1.boundary_fit_completes", r == "fast-answer")
+
+        return {"boundary_window_s": server.MIN_GENERATION_WINDOW_S,
+                "reserve_s": reserve,
+                "refusal_latency_s": round(dt, 3)}
+
+    meas = asyncio.run(scenario())
+    RESULTS["p0_1_generator_fail_closed"]["unit"] = meas
+
+    # E2E: with a minimum generation window larger than the remaining
+    # budget, the request terminates through the canonical fail-closed
+    # terminal: exactly one done event, UNVERIFIED, machine-derived
+    # technical_failure whose recorded cause is the generator — and the
+    # generator stub is NEVER invoked, while the downstream correctness
+    # stages are never consumed.
+    events, payloads, captured, _elapsed = _fx_production_case(
+        min_generation_window_s=1000.0)
+    done = [p for p in payloads if p.get("terminal_schema_version")]
+    check("P0-1.e2e_single_done", len(done) == 1 and events.count("done") == 1)
+    _sm = (done[0].get("state_machine") or {}) if done else {}
+    _tf = (_sm.get("technical_failures") or {}) if done else {}
+    check("P0-1.e2e_unverified_generator_failure",
+          done and done[0].get("answer_status") == "UNVERIFIED"
+          and _tf.get("verifier") == "generator_failure"
+          and "安全时限" in str(done[0].get("answer") or ""),
+          f"status={done[0].get('answer_status') if done else None} "
+          f"reason={done[0].get('stop_reason') if done else None} "
+          f"tf={_tf}")
+    check("P0-1.e2e_generator_never_started",
+          len(captured["generator_inputs"]) == 0,
+          f"generator_invocations={len(captured['generator_inputs'])}")
+    check("P0-1.e2e_downstream_reserve_not_consumed",
+          not captured["mapper_answers"] and not captured["verifier_answers"],
+          f"mapper={len(captured['mapper_answers'])} "
+          f"verifier={len(captured['verifier_answers'])}")
+    RESULTS["p0_1_generator_fail_closed"]["e2e"] = {
+        "answer_status": done[0].get("answer_status") if done else None,
+        "stop_reason": done[0].get("stop_reason") if done else None,
+        "machine_technical_failures": _tf,
+        "generator_invocations": len(captured["generator_inputs"]),
+        "mapper_invocations": len(captured["mapper_answers"]),
+        "verifier_invocations": len(captured["verifier_answers"]),
+    }
+
+
+# ════════════════════════════════════════════════════════════════════════
+# Gatekeeper follow-up P0-2 — final-verification-bound citation authority
+# ════════════════════════════════════════════════════════════════════════
+
+def _fx_card_citation(**overrides):
+    cit = {
+        "id": 1, "record_id": REC_ID_FX,
+        "source_snapshot_id": PINNED_FX,
+        "access_scope": "public",
+        "title": "Synthetic sulfide electrolyte record",
+        "evidence_spans": [{"text": BODY_FX, "start": 0,
+                            "end": len(BODY_FX)}],
+        "locators": [{"locator_type": "TEXT_SPAN", "start": 0,
+                      "end": len(BODY_FX),
+                      "text_sha256": hashlib.sha256(
+                          BODY_FX.encode()).hexdigest()}],
+    }
+    cit.update(overrides)
+    return cit
+
+
+def test_final_citation_authority():
+    from reference_cards import build_reference_cards
+
+    # Synthetic claims payload in the canonical final projection shape
+    # (status + verifier_verdict + relations) — invented for this round.
+    def _claim(cid, status="SUPPORTED", verdict="PASS", citation_id=1):
+        return {"id": cid, "text": BODY_FX, "status": status,
+                "verifier_verdict": verdict,
+                "relations": [{"citation_id": citation_id,
+                               "relation": "DIRECT_SUPPORT"}]}
+
+    # ── Mandatory case 1: fully supported claim → citation displayable.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-fx-1"])],
+        [_claim("claim-fx-1")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.c1_fully_supported_displayable",
+          cards[0]["displayable"] is True
+          and cards[0]["policy_reason"] == ""
+          and cards[0]["supports_claim_ids"] == ["claim-fx-1"],
+          f"reason={cards[0]['policy_reason']}")
+
+    # ── Mandatory case 2: verifier semantic FAIL → final UNSUPPORTED →
+    # citation cannot stay authoritative.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-fx-1"])],
+        [_claim("claim-fx-1", status="UNSUPPORTED", verdict="NOT_PASSED")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.c2_semantic_fail_withheld",
+          cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "NO_CLAIM_LINKAGE"
+          and cards[0]["supports_claim_ids"] == [],
+          f"reason={cards[0]['policy_reason']}")
+
+    # ── Mandatory case 3: numeric mismatch → the demoted claim cannot
+    # authorize its (numeric) claim's citation.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-fx-n"])],
+        [_claim("claim-fx-n", status="UNSUPPORTED", verdict="PASS")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.c3_numeric_mismatch_withheld",
+          cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "NO_CLAIM_LINKAGE",
+          f"reason={cards[0]['policy_reason']}")
+
+    # ── Mandatory case 4: technical verifier failure (UNVERIFIED) → NO
+    # authoritative claim-linked card, even though the claim's relation
+    # status was never demoted.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-fx-1"])],
+        [_claim("claim-fx-1", status="SUPPORTED", verdict="UNVERIFIED")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.c4_technical_unverified_no_authority",
+          cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "NO_CLAIM_LINKAGE"
+          and cards[0]["supports_claim_ids"] == [],
+          f"reason={cards[0]['policy_reason']}")
+
+    # ── Mandatory case 5: mixed findings — claim A PASS keeps its citation
+    # authoritative; claim B FAIL's citation is withheld. Valid
+    # supported-subset evidence is NOT hidden.
+    cit_a = _fx_card_citation(id=1, supports_claim_ids=["claim-a"])
+    cit_b = _fx_card_citation(id=2, supports_claim_ids=["claim-b"])
+    cards = build_reference_cards(
+        [cit_a, cit_b],
+        [_claim("claim-a", status="SUPPORTED", verdict="PASS", citation_id=1),
+         _claim("claim-b", status="UNSUPPORTED", verdict="NOT_PASSED",
+                citation_id=2)],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    by_cit = {c["citation_id"]: c for c in cards}
+    check("P0-2.c5_pass_side_kept",
+          by_cit[1]["displayable"] is True
+          and by_cit[1]["supports_claim_ids"] == ["claim-a"],
+          f"reason={by_cit[1]['policy_reason']}")
+    check("P0-2.c5_fail_side_withheld",
+          by_cit[2]["displayable"] is False
+          and by_cit[2]["policy_reason"] == "NO_CLAIM_LINKAGE"
+          and by_cit[2]["supports_claim_ids"] == [],
+          f"reason={by_cit[2]['policy_reason']}")
+
+    # ── Mandatory case 6 (stale override): a stale precomputed non-empty
+    # supports_claim_ids on the citation can NEVER override the final
+    # verification authority — the referenced claim is final UNSUPPORTED /
+    # verifier FAIL, the stale linkage is dropped.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-stale"])],
+        [_claim("claim-stale", status="UNSUPPORTED", verdict="NOT_PASSED")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.c6_stale_support_ids_cannot_override",
+          cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "NO_CLAIM_LINKAGE"
+          and cards[0]["supports_claim_ids"] == [],
+          f"reason={cards[0]['policy_reason']} "
+          f"ids={cards[0]['supports_claim_ids']}")
+
+    # ── PARTIALLY_SUPPORTED per-claim state is not fully-verified
+    # authoritative support.
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-p"])],
+        [_claim("claim-p", status="PARTIALLY_SUPPORTED", verdict="PASS")],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.partially_supported_not_full_authority",
+          cards[0]["displayable"] is False
+          and cards[0]["policy_reason"] == "NO_CLAIM_LINKAGE",
+          f"reason={cards[0]['policy_reason']}")
+
+    # ── Legacy/hand-built payloads without status/verdict fields keep the
+    # pre-existing ladder semantics (relation linkage still authorizes).
+    cards = build_reference_cards(
+        [_fx_card_citation(supports_claim_ids=["claim-legacy"])],
+        [{"id": "claim-legacy",
+          "relations": [{"citation_id": 1,
+                         "relation": "DIRECT_SUPPORT"}]}],
+        current_snapshot_ids={REC_ID_FX: PINNED_FX})
+    check("P0-2.legacy_payload_semantics_unchanged",
+          cards[0]["displayable"] is True
+          and cards[0]["policy_reason"] == "",
+          f"reason={cards[0]['policy_reason']}")
+
+    RESULTS["p0_2_final_citation_authority"]["seam"] = {
+        "fully_supported_displayable": True,
+        "semantic_fail_withheld": True,
+        "numeric_mismatch_withheld": True,
+        "technical_unverified_no_authority": True,
+        "mixed_per_claim_split": True,
+        "stale_support_ids_cannot_override": True,
+        "partially_supported_not_full_authority": True,
+        "legacy_payload_semantics_unchanged": True,
+    }
+
+
+def test_final_citation_authority_e2e():
+    # End-to-end through the real pipeline: the FINAL verifier outcome
+    # governs the emitted supports_claim_ids / display_authorized / cards.
+    # 1. Baseline PASSED → linked + displayable.
+    events, payloads, captured, _ = _fx_production_case()
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    cits = done.get("citations") or []
+    cards = done.get("reference_cards") or []
+    check("P0-2.e2e_pass_linked_and_displayable",
+          done.get("answer_status") == "SUPPORTED"
+          and cits and cits[0].get("supports_claim_ids") == ["claim-fx-1"]
+          and cits[0].get("display_authorized") is True
+          and cards and cards[0].get("displayable") is True,
+          f"status={done.get('answer_status')} cits={bool(cits)} "
+          f"cards={bool(cards)}")
+
+    # 2. Technical verifier failure → UNVERIFIED: no authoritative
+    # claim-linked card and no supports linkage survives the pipeline.
+    events, payloads, captured, _ = _fx_production_case(
+        verify_behavior="unverified")
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    cits = done.get("citations") or []
+    cards = done.get("reference_cards") or []
+    check("P0-2.e2e_technical_unverified_unlinked",
+          done.get("answer_status") == "UNVERIFIED"
+          and all(not (c.get("supports_claim_ids") or [])
+                  for c in cits)
+          and all(c.get("display_authorized") is False for c in cits)
+          and all(not c.get("displayable") for c in cards),
+          f"status={done.get('answer_status')} "
+          f"linked={[c.get('supports_claim_ids') for c in cits]} "
+          f"cards={[c.get('displayable') for c in cards]}")
+
+    # 3. Mixed per-claim findings: the PASS claim keeps the citation
+    # authoritative while the FAIL claim contributes NO linkage (its stale
+    # support id is dropped from the citation's supports_claim_ids).
+    mixed_claims = [
+        {"id": "claim-fx-1", "text": BODY_FX, "type": "MAJOR_FACT",
+         "is_core": True, "support_status": "SUPPORTED",
+         "supported_by": [{"citation_id": 1,
+                           "relation": "DIRECT_SUPPORT",
+                           "evidence_span": BODY_FX}]},
+        {"id": "claim-fx-2", "text": "Unrelated speculation",
+         "type": "MAJOR_FACT", "is_core": True,
+         "support_status": "SUPPORTED",
+         "supported_by": [{"citation_id": 1,
+                           "relation": "DIRECT_SUPPORT"}]},
+    ]
+    events, payloads, captured, _ = _fx_production_case(
+        verify_behavior="mixed", mapper_claims=mixed_claims)
+    done = [p for p in payloads if p.get("terminal_schema_version")][0]
+    cits = done.get("citations") or []
+    cards = done.get("reference_cards") or []
+    by_id = {c.get("id"): c for c in cits}
+    by_card = {c.get("citation_id"): c for c in cards}
+    check("P0-2.e2e_mixed_pass_side_kept",
+          by_id.get(1, {}).get("supports_claim_ids") == ["claim-fx-1"]
+          and by_id.get(1, {}).get("display_authorized") is True,
+          f"cit1={by_id.get(1, {}).get('supports_claim_ids')} "
+          f"auth={by_id.get(1, {}).get('display_authorized')}")
+    check("P0-2.e2e_mixed_fail_side_withheld",
+          by_id.get(1, {}).get("supports_claim_ids") == ["claim-fx-1"]
+          and "claim-fx-2" not in (by_id.get(1, {}).get("supports_claim_ids")
+                                   or []),
+          f"cit1={by_id.get(1, {}).get('supports_claim_ids')}")
+
+    RESULTS["p0_2_final_citation_authority"]["e2e"] = {
+        "pass_linked_displayable": True,
+        "technical_unverified_unlinked": True,
+        "mixed_pass_kept_fail_withheld": True,
+    }
+
+
+# ════════════════════════════════════════════════════════════════════════
+# Gatekeeper follow-up P1 — sub-query admission exclusion parity
+# ════════════════════════════════════════════════════════════════════════
+
+class _FakeVectorRouteIdx:
+    """Vector route whose candidates carry BOTH identity forms."""
+
+    def __init__(self, strong=True, record_id="rec-fx-other", legacy_idx=7):
+        self.strong = strong
+        self.rows = [SimpleNamespace(record_id=record_id,
+                                     legacy_idx=legacy_idx,
+                                     raw_score=0.78 if strong else 0.31)]
+
+    def search(self, qv, top_k=8):
+        return self.rows
+
+
+def test_exclusion_parity():
+    from retrieval.runtime import recheck_admission_subqueries, VEC_STRONG
+
+    async def scenario():
+        # 1. Exclusion by stable record_id → the candidate cannot re-admit.
+        vr = _FakeVectorRouteIdx(strong=True, record_id=REC_ID_FX,
+                                 legacy_idx=7)
+        res = await recheck_admission_subqueries(
+            MULTIPART_EN, embed_fn=None, snapshot=None,
+            pipeline=(vr, *_fake_pipeline(True)[1:]),
+            exclude_ids={REC_ID_FX})
+        check("P1.exclude_by_record_id_no_readmit",
+              res["relevant"] is False and res["best_vec"] < VEC_STRONG,
+              f"res={res}")
+
+        # 2. SAME candidate, SAME exclusion strength through the legacy
+        # numeric idx form (run_hybrid parity: EITHER form excludes).
+        vr = _FakeVectorRouteIdx(strong=True, record_id="rec-fx-other",
+                                 legacy_idx=7)
+        res = await recheck_admission_subqueries(
+            MULTIPART_EN, embed_fn=None, snapshot=None,
+            pipeline=(vr, *_fake_pipeline(True)[1:]),
+            exclude_ids={7})
+        check("P1.exclude_by_legacy_idx_no_readmit",
+              res["relevant"] is False and res["best_vec"] < VEC_STRONG,
+              f"res={res}")
+
+        # 3. Not-excluded strong candidate still admits (admission itself
+        # is NOT disabled) with the same VEC_STRONG threshold.
+        vr = _FakeVectorRouteIdx(strong=True, record_id="rec-fx-fresh",
+                                 legacy_idx=9)
+        res = await recheck_admission_subqueries(
+            MULTIPART_EN, embed_fn=None, snapshot=None,
+            pipeline=(vr, *_fake_pipeline(True)[1:]),
+            exclude_ids={REC_ID_FX, 7})
+        check("P1.fresh_strong_candidate_still_admits",
+              res["relevant"] is True and res["best_vec"] >= VEC_STRONG,
+              f"res={res}")
+
+        return {"record_id_form_excludes": True,
+                "legacy_idx_form_excludes": True,
+                "vec_strong": VEC_STRONG}
+
+    RESULTS["p1_exclusion_parity"] = asyncio.run(scenario())
+
+
+# ════════════════════════════════════════════════════════════════════════
+# Gatekeeper follow-up P1 — llm_json full-width string delimiters
+# ════════════════════════════════════════════════════════════════════════
+
+def test_llm_json_fullwidth_delimiters():
+    import llm_json
+
+    # Mandatory case: ＂ is a string DELIMITER; interior full-width
+    # punctuation is DATA and must survive verbatim.
+    got = llm_json.parse_json("｛＂text＂：＂甲：乙，丙＂｝")
+    check("P1.fw_delimiters_interior_data_preserved",
+          got == {"text": "甲：乙，丙"}, f"got={got!r}")
+
+    # The ASCII-quoted equivalent parses identically.
+    got = llm_json.parse_json('{"text": "甲：乙，丙"}')
+    check("P1.ascii_equivalent_identical",
+          got == {"text": "甲：乙，丙"}, f"got={got!r}")
+
+    # Mixed delimiters (ASCII open, ＂ close and vice versa).
+    got = llm_json.parse_json('{"k": ＂v＂}')
+    check("P1.mixed_delimiters", got == {"k": "v"}, f"got={got!r}")
+
+    # Pre-existing full-width folding cases unchanged.
+    got = llm_json.parse_json("｛＂a＂：1，＂b＂：［1，2］｝")
+    check("P1.fw_structural_folding_unchanged",
+          got == {"a": 1, "b": [1, 2]}, f"got={got!r}")
+
+    # Ambiguous ＂ inside an ALREADY-VALID ASCII string is DATA: the
+    # direct parse succeeds first and the payload is never altered.
+    got = llm_json.parse_json('{"a": "甲＂乙"}')
+    check("P1.ambiguous_quoted_data_not_mutated",
+          got == {"a": "甲＂乙"}, f"got={got!r}")
+
+    # Fail-closed unchanged: garbage still returns None.
+    check("P1.garbage_still_fail_closed",
+          llm_json.parse_json("not json at all ：：") is None)
+
+    RESULTS["p1_llm_json_fullwidth"] = {
+        "interior_data_preserved": True,
+        "ascii_equivalent_identical": True,
+        "mixed_delimiters": True,
+        "structural_folding_unchanged": True,
+        "ambiguous_data_not_mutated": True,
+        "garbage_fail_closed": True,
+    }
+
+
 def write_artifact():
     RESULTS["created_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ",
                                            time.gmtime())
+    RESULTS["targeted_followup"] = {
+        "p0_1_generator_fail_closed": (
+            "generator admission is fail-closed: when remaining budget "
+            "cannot fit downstream reserve + MIN_GENERATION_WINDOW_S, the "
+            "generator operation never begins (both terminal-renderer and "
+            "legacy-compat profiles)"),
+        "p0_2_final_citation_authority": (
+            "citation display authority is bound to FINAL per-claim "
+            "verification (PASSED + SUPPORTED); stale precomputed "
+            "supports_claim_ids cannot override it"),
+        "p1_exclusion_parity": (
+            "sub-query admission recheck excludes by record_id OR "
+            "legacy_idx, same semantics as run_hybrid/run_routes"),
+        "p1_llm_json_fullwidth": (
+            "full-width ＂ is a string delimiter; interior full-width "
+            "punctuation is preserved as data"),
+    }
     RESULTS["git"] = {
         "head_at_generation": _git("rev-parse", "HEAD"),
         "branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
@@ -922,6 +1415,11 @@ def main():
     test_weak_query_admission()
     test_claim_mapper()
     test_citation_display_authorization()
+    test_generator_fail_closed_gate()
+    test_final_citation_authority()
+    test_final_citation_authority_e2e()
+    test_exclusion_parity()
+    test_llm_json_fullwidth_delimiters()
     test_e2e_causality_and_mutation()
     test_e2e_latency_injected_request()
     write_artifact()

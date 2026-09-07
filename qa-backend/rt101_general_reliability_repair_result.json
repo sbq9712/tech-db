@@ -11,7 +11,7 @@
     "llm_json": {
       "recoverable": 18,
       "total": 18,
-      "big_input_seconds": 0.04,
+      "big_input_seconds": 0.043,
       "oversize_seconds": 0.014
     },
     "seams": "covered above"
@@ -52,9 +52,9 @@
   },
   "deadline_measurements": {
     "scheduling": {
-      "cap_tighten_s": 0.502,
-      "cap_hold_s": 3.001,
-      "retry_bound_s": 0.051,
+      "cap_tighten_s": 0.501,
+      "cap_hold_s": 3.003,
+      "retry_bound_s": 0.05,
       "reserve_s": 22.0
     },
     "latency_injected_request": {
@@ -68,24 +68,77 @@
     "baseline": {
       "supported": true,
       "edges_proven": true,
-      "elapsed_s": 0.15
+      "elapsed_s": 0.12
     },
     "mutation": {
       "mutation": "pinned_catalog_record_body_disconnected",
       "supported_lost": true
     }
   },
-  "created_utc": "2026-09-07T04:22:38Z",
+  "p0_1_generator_fail_closed": {
+    "unit": {
+      "boundary_window_s": 8.0,
+      "reserve_s": 22.0,
+      "refusal_latency_s": 0.0
+    },
+    "e2e": {
+      "answer_status": "UNVERIFIED",
+      "stop_reason": "technical_failure:verifier",
+      "machine_technical_failures": {
+        "verifier": "generator_failure"
+      },
+      "generator_invocations": 0,
+      "mapper_invocations": 0,
+      "verifier_invocations": 0
+    }
+  },
+  "p0_2_final_citation_authority": {
+    "seam": {
+      "fully_supported_displayable": true,
+      "semantic_fail_withheld": true,
+      "numeric_mismatch_withheld": true,
+      "technical_unverified_no_authority": true,
+      "mixed_per_claim_split": true,
+      "stale_support_ids_cannot_override": true,
+      "partially_supported_not_full_authority": true,
+      "legacy_payload_semantics_unchanged": true
+    },
+    "e2e": {
+      "pass_linked_displayable": true,
+      "technical_unverified_unlinked": true,
+      "mixed_pass_kept_fail_withheld": true
+    }
+  },
+  "p1_exclusion_parity": {
+    "record_id_form_excludes": true,
+    "legacy_idx_form_excludes": true,
+    "vec_strong": 0.55
+  },
+  "p1_llm_json_fullwidth": {
+    "interior_data_preserved": true,
+    "ascii_equivalent_identical": true,
+    "mixed_delimiters": true,
+    "structural_folding_unchanged": true,
+    "ambiguous_data_not_mutated": true,
+    "garbage_fail_closed": true
+  },
+  "created_utc": "2026-09-07T06:58:12Z",
+  "targeted_followup": {
+    "p0_1_generator_fail_closed": "generator admission is fail-closed: when remaining budget cannot fit downstream reserve + MIN_GENERATION_WINDOW_S, the generator operation never begins (both terminal-renderer and legacy-compat profiles)",
+    "p0_2_final_citation_authority": "citation display authority is bound to FINAL per-claim verification (PASSED + SUPPORTED); stale precomputed supports_claim_ids cannot override it",
+    "p1_exclusion_parity": "sub-query admission recheck excludes by record_id OR legacy_idx, same semantics as run_hybrid/run_routes",
+    "p1_llm_json_fullwidth": "full-width ＂ is a string delimiter; interior full-width punctuation is preserved as data"
+  },
   "git": {
-    "head_at_generation": "7513dc19b3d7739af6161cf1538cebc0f0a7f6fe",
+    "head_at_generation": "b316bcb3aeb89a04530c4007920fb6d028ebecca",
     "branch": "remediation/phase-09-benchmarks-ci-release-gates",
     "note": "artifact generated in the repair worktree on top of head_at_generation; the Phase09 repair commit adds this file, the repaired modules, and this suite"
   },
-  "git_sha": "7513dc19b3d7739af6161cf1538cebc0f0a7f6fe",
+  "git_sha": "b316bcb3aeb89a04530c4007920fb6d028ebecca",
   "git_branch": "remediation/phase-09-benchmarks-ci-release-gates",
   "fixture": {
     "suite_file": "tests_repair_phase09_reliability.py",
-    "suite_sha256": "82f4db86e4141f2a8f40bc315a63b6424fc3c31b904b6cdf5f36d8ae956b04b2",
+    "suite_sha256": "6ffcaa40000be6b9c6de9f29bf4d7c56d1f0a7c0438cdd3935b2c7d0f109c873",
     "record_id": "rec-fx-4401",
     "body_sha256": "c505eeaedd76d9907987b26a4e38d1173d612c53d6dc4fc0ef7856a7137131ee",
     "pinned_snapshot_id": "pinned-catalog-snapshot-fx4401-authority",
@@ -96,7 +149,7 @@
     ]
   },
   "summary": {
-    "passed": 73,
+    "passed": 107,
     "failed": 0
   }
 }

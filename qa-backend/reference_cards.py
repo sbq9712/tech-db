@@ -44,6 +44,36 @@ def _claim_states(citation_id, claims: Iterable[dict]) -> dict:
     }
 
 
+def _claim_display_qualified(claim) -> bool:
+    """Phase09 gatekeeper follow-up (P0-2): final-verification authority
+    gate for citation display.
+
+    A claim id authorizes display only while the FINAL claims payload shows
+    that claim canonically SUPPORTED and — when the payload carries verifier
+    verdicts (the canonical pipeline payload does) — explicitly
+    verifier-PASSED. A semantic verifier FAIL, a numeric/deterministic
+    demotion, a technical verifier failure (UNVERIFIED), and per-claim
+    PARTIALLY_SUPPORTED states can therefore never authorize display, and a
+    stale precomputed supports_claim_ids can never override the final
+    verification authority.
+
+    Legacy/hand-built payloads that predate the status/verifier_verdict
+    fields carry no contradicting evidence; their linkage authority remains
+    governed by the relation/snapshot/locator policy ladder (unchanged).
+    """
+    if not isinstance(claim, dict):
+        return False
+    for key in ("status", "support_status"):
+        if key in claim:
+            if str(claim.get(key) or "").upper() != "SUPPORTED":
+                return False
+            break
+    if "verifier_verdict" in claim:
+        if str(claim.get("verifier_verdict") or "").upper() != "PASS":
+            return False
+    return True
+
+
 def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
                           caller_scope: str = "public",
                           current_snapshot_ids: Mapping[str, str] | None = None
@@ -75,6 +105,20 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
         states["supports_claim_ids"] = sorted(set(
             states["supports_claim_ids"] + [str(v) for v in
              (citation.get("supports_claim_ids") or []) if v]))
+        # Phase09 gatekeeper follow-up (P0-2): cross-check every known
+        # support id against the FINAL claims payload. A stale precomputed
+        # supports_claim_ids (or a relation) can never override final
+        # verification authority: claims the payload shows as not canonically
+        # SUPPORTED or not verifier-PASSED are dropped before the
+        # NO_CLAIM_LINKAGE ladder runs. Ids unknown to the payload keep
+        # prior semantics (the ladder alone governs them).
+        if claims_list:
+            _final_by_id = {str(c.get("id")): c for c in claims_list
+                            if isinstance(c, dict) and c.get("id")}
+            states["supports_claim_ids"] = sorted({
+                _cid for _cid in states["supports_claim_ids"]
+                if _cid not in _final_by_id
+                or _claim_display_qualified(_final_by_id[_cid])})
         expected_snapshot = str(current_snapshot_ids.get(record_id) or "")
         drift = bool(expected_snapshot and
                      expected_snapshot != source_snapshot_id)

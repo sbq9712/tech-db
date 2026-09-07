@@ -1248,6 +1248,31 @@ async def run_phase02_verification(
              "is_core": bool(c.get("is_core", True))}
             for c in claims])
 
+    # ── Phase09 gatekeeper follow-up (P0-2): per-claim verification
+    # verdicts. Final citation display authority is bound to VERIFICATION,
+    # not merely to relation type: a claim may authorize citation display
+    # only when the final verifier evidence chain explicitly PASSED it.
+    # Every final claim therefore carries an explicit verifier_verdict:
+    #   * overall PASSED            → PASS for every atomic claim
+    #   * overall FAILED            → per-finding verdicts (FAIL findings
+    #                                 demoted support_status above);
+    #                                 findings-less claims are NOT_PASSED
+    #   * UNVERIFIED / NOT_RUN /
+    #     technical failure / skip  → UNVERIFIED for every claim
+    # A technical verifier failure can never leave claim-linked display
+    # authority behind (reference_cards re-checks this at the seam).
+    _verdict_default = ("PASS" if verification_status == "PASSED"
+                        else "NOT_PASSED" if verification_status == "FAILED"
+                        else "UNVERIFIED")
+    if vr is not None and vr.status == "FAILED":
+        for f in vr.findings or []:
+            for cl in claims:
+                if cl.get("id") == f.get("claim_id"):
+                    cl["verifier_verdict"] = str(f.get("verdict", "")).upper()
+    for cl in claims:
+        if not cl.get("verifier_verdict"):
+            cl["verifier_verdict"] = _verdict_default
+
     # ── 9. Finalize + terminal renderer (RT-024 / RT-027) ─────────────────
     machine.finalize()
     answer_status_str = machine.terminal_status.value
@@ -1259,8 +1284,25 @@ async def run_phase02_verification(
     # A citation no claim supports can never be displayed as authoritative
     # evidence (reference_cards enforces NO_CLAIM_LINKAGE); verifier
     # EvidenceRefs are untouched — evidence still reaches the verifier.
+    #
+    # Phase09 gatekeeper follow-up (P0-2): display authorization is
+    # per-claim and verification-bound. Only a claim that (a) exists in the
+    # final canonical claim set, (b) holds a valid supportive relation,
+    # (c) survived the deterministic/numeric checks (support_status
+    # strictly SUPPORTED — never PARTIALLY), and (d) was explicitly
+    # verifier-PASSED (a technical verifier failure leaves UNVERIFIED,
+    # a semantic FAIL leaves UNSUPPORTED/NOT_PASSED) may authorize its
+    # citation. Mixed outcomes stay per-claim: a passed claim keeps its
+    # citation authoritative while a failed claim's citation is withheld.
+    def _claim_display_qualified(cl) -> bool:
+        return (isinstance(cl, dict)
+                and str(cl.get("support_status") or "").upper() == "SUPPORTED"
+                and str(cl.get("verifier_verdict") or "").upper() == "PASS")
+
     _by_cit_final = {}
     for cl in claim_map.get("claims", []):
+        if not _claim_display_qualified(cl):
+            continue
         for sup in cl.get("supported_by") or []:
             if sup.get("relation") in ("DIRECT_SUPPORT", "PREMISE_SUPPORT",
                                        "ATTRIBUTION") and sup.get("citation_id") is not None:
@@ -1367,6 +1409,7 @@ def _finish(*, machine, answer, citations, claims, coverage, repair,
         "claims_payload": [
             {"id": c.get("id"), "text": c.get("text", "")[:120],
              "status": c.get("support_status", ""),
+             "verifier_verdict": c.get("verifier_verdict", ""),
              "relations": [{"citation_id": r.get("citation_id"),
                             "relation": r.get("relation"),
                             "check": r.get("relation_check", "")}

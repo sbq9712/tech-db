@@ -67,23 +67,49 @@ _ZERO_WIDTH_RE = re.compile(r"[​‌‍﻿]")
 
 
 def _fold_fullwidth_outside_strings(text: str) -> str:
-    """Fold full-width structural punctuation outside string literals."""
+    """Fold full-width structural punctuation outside string literals.
+
+    Phase09 gatekeeper follow-up (P1): the full-width double quote ＂ is
+    STRING-DELIMITER punctuation, not payload data. The walk tracks string
+    context across BOTH delimiter forms: ＂ opens/closes a string exactly
+    like " (folded to " at the delimiter boundary only), while everything
+    INSIDE a string — including full-width ：，＂-lookalikes in CJK prose —
+    is preserved verbatim. So ｛＂text＂：＂甲：乙，丙＂｝ parses to
+    {"text": "甲：乙，丙"} with the interior data untouched; previously the
+    interior ：， were folded, silently mutating payload data.
+
+    If delimiter intent cannot be proven (e.g. an ambiguous ＂ that would
+    have been data inside an ASCII-quoted string), the walk mis-nests and
+    the result fails to parse — the caller keeps its fail-closed
+    UNVERIFIED/fallback behavior rather than the payload being altered.
+    """
     out = []
     in_str = False
     escaped = False
     for ch in text:
         if in_str:
-            out.append(ch)
             if escaped:
                 escaped = False
+                out.append(ch)
             elif ch == "\\":
                 escaped = True
+                out.append(ch)
             elif ch == '"':
                 in_str = False
+                out.append(ch)
+            elif ch == "＂":
+                in_str = False
+                out.append('"')
+            else:
+                out.append(ch)  # data: preserved verbatim, never folded
             continue
         if ch == '"':
             in_str = True
             out.append(ch)
+            continue
+        if ch == "＂":
+            in_str = True
+            out.append('"')
             continue
         out.append(_FW_CLASS.get(ch, ch))
     return "".join(out)

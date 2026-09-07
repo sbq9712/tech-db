@@ -549,7 +549,10 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
     "checked": int}. Same VEC_STRONG threshold as whole-query admission;
     nothing else about the gate changes. `exclude_ids` keeps the
     topic-exhaustion contract honest: records already presented in earlier
-    turns can never re-admit a follow-up."""
+    turns can never re-admit a follow-up — through their stable record_id
+    OR their legacy numeric index (the SAME exclusion semantics as
+    run_hybrid/run_routes: a candidate is excluded when EITHER form is in
+    exclude_ids)."""
     parts = split_subqueries(query, max_parts=max_parts)
     if pipeline is None:
         if snapshot is not None:
@@ -568,7 +571,13 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
             vec_res = vr.search(qv, top_k=8)
             checked += 1
             for r in vec_res:
+                # P1 exclusion parity (gatekeeper follow-up): SAME semantics
+                # as run_hybrid/run_routes — exclude by stable record_id OR
+                # legacy numeric idx, so a previously presented item can
+                # never re-admit a follow-up through either identity form.
                 if getattr(r, "record_id", None) in excl:
+                    continue
+                if getattr(r, "legacy_idx", None) in excl:
                     continue
                 s = float(getattr(r, "raw_score", 0.0) or 0.0)
                 if s > best:
