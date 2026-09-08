@@ -1,0 +1,44 @@
+{
+  "schema_version": "phase09-next-prompt-gate-1.0",
+  "generated_at": "2026-09-08T21:15:39",
+  "question": "May the Phase10 prompt be issued (formal Phase10 entry)?",
+  "NEXT_PROMPT_ALLOWED": false,
+  "basis": "Authoritative rules: Phase10 (RT-110..RT-116, incl. graph-side tasks) may only start after Phase09 core eligibility is true with all required authorities SATISFIED. RT-101 answer-level blinded release-holdout gold is a REQUIRED authority and does not exist; it cannot be fabricated (holdout isolation).",
+  "checks": {
+    "phase09_core_eligible": false,
+    "required_authorities_unmet": {
+      "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
+    },
+    "external_blockers_unsatisfied": [
+      "Q-336",
+      "RT-005",
+      "RT-075"
+    ],
+    "graph_state": "OFF_NO_GAIN",
+    "phase_status": "NOT_SATISFIED"
+  },
+  "allowed_instead": {
+    "phase09_scoped_work": [
+      "Provision genuine RT-101 answer-level blinded holdout gold (repository-owner action; never agent-fabricated)",
+      "RT-005: enable enforce_admins on main via repository administration",
+      "Q-336: configure durable external artifact retention >= 180 days",
+      "RT-075: capture >=100 production-representative ER shadow events over >=168h",
+      "Re-run scripts/run_phase09_release_gate.py at the new checkout after any of the above; core_eligible must be true before Phase10",
+      "Re-check provider health (ZAI/glmos provider collapse documented 2026-09-08) before any LLM-dependent formal run"
+    ],
+    "forbidden": [
+      "Fabricating or approximating the blinded holdout gold",
+      "Flipping external-state rows to satisfied without hashed proof artifacts",
+      "Loosening required_authorities / hard invariants to force eligibility",
+      "Starting Phase10 without SAFE_FOR_FRESH_V5=YES from the Codex Gatekeeper"
+    ]
+  },
+  "gatekeeper": {
+    "V5_formal_run": "BLOCKED until SAFE_FOR_FRESH_V5=YES",
+    "latest_verdicts": {
+      "D3": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3)",
+      "D4": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3 confirmed closed; D4-F1/D4-F2 marker lifecycle)",
+      "D5": "pending (see reviews/codex-gatekeeper-d5-markerfix.md)"
+    }
+  }
+}

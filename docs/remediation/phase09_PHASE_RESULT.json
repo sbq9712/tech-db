@@ -1,0 +1,67 @@
+{
+  "schema_version": "phase09-phase-result-1.0",
+  "phase": "Phase09",
+  "title": "Benchmarks, CI, release gates + runtime-budget repair",
+  "generated_at": "2026-09-08T21:15:08",
+  "checkout_git_sha": "cde6c70e63c1943acfeaf7195b5ca6f8b93da01c",
+  "authoritative_evaluator": "phase09_release.evaluate_release (single fail-closed)",
+  "release_decision": {
+    "core_eligible": false,
+    "production_release_eligible": false,
+    "graph_activation_eligible": false,
+    "graph_state": "OFF_NO_GAIN",
+    "core_reasons": [
+      "required authority unavailable: RT-101_answer_level_blinded_release_holdout_gold=ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
+    ],
+    "external_blockers": [
+      "Q-336",
+      "RT-005",
+      "RT-075"
+    ]
+  },
+  "phase_status": "NOT_SATISFIED",
+  "machine_evidence": {
+    "release_evidence": "qa-backend/phase09_release_evidence.json",
+    "release_evidence_sha256": "3ecb48501eb5ad70c0a70f84746b7654d568fa4acedd2eb65c6222fc829f23c4",
+    "ticket_status": "qa-backend/phase09_ticket_status.json",
+    "test_summary": "qa-backend/test_summary.json",
+    "test_summary_sha256": "02ba9e79729d831f62cb761880e298e5e04b16b21c298de0c64fda1ecd7764fa",
+    "push_tier": {
+      "all_passed": true,
+      "total_passed": 1631,
+      "total_failed": 0,
+      "suites": 49,
+      "generated_at": "2026-09-08T21:05:38"
+    },
+    "phase09_suites": {
+      "benchmark_phase09": "44/44",
+      "e2e_phase09": "26/26",
+      "failure_injection_phase09": "20/20",
+      "release_phase09": "23/23",
+      "runtime_budget_repair": "65/65"
+    }
+  },
+  "required_authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE — blinded gold does not exist; pinned required authority; fabrication forbidden (holdout isolation). Core eligibility cannot clear until genuinely provisioned by the repository owner."
+  },
+  "external_blockers_detail": {
+    "Q-336": "GitHub public-repo artifact retention caps 180d request at 90d; re-verified 2026-09-08 via artifact expiry (created 09-08 → expires 12-07)",
+    "RT-005": "main protected non_admins with 11 required contexts but enforce_admins.enabled=false; re-verified 2026-09-08 via protection API",
+    "RT-075": "production-representative ER shadow evidence unavailable; environment ci-replay-only; re-verified 2026-09-08"
+  },
+  "v4_formal_run": {
+    "status": "SPENT",
+    "aggregate": "15/15 terminal technical failures, claim_mapping deadline/runtime-budget class",
+    "adjudication": "IMPLEMENTATION_ARTIFACT (Case B) → generic timing-policy repair authorized; canonical invariants untouched; no V4 rerun",
+    "repair_commits": [
+      "9df33e0",
+      "cde6c70"
+    ]
+  },
+  "graph_v2": {
+    "conclusion": "NO_GAIN (sealed)",
+    "state": "OFF_NO_GAIN",
+    "note": "Phase10 RT-110/111 graph tasks remain gated by authoritative rules; V4 graph-side work is out of scope"
+  },
+  "completion_report": "docs/remediation/phase09_completion_report.md"
+}
