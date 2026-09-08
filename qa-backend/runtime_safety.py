@@ -324,6 +324,10 @@ class RuntimeSafetyProfile:
     grader: float = 8.0
     generator: float = 30.0
     verifier: float = 10.0
+    # Phase09 runtime-budget repair (Q293: benchmark-derived, versioned env
+    # configuration). Defaults are UNCHANGED canonical values; deployments may
+    # recalibrate via env without touching the versioned class defaults.
+
     planner: float = 8.0  # implementation choice; no normative numeric value
     selector: float = 5.0  # implementation choice; deterministic/local bound
     repair: float = 12.0  # implementation choice; bounded repair cycle
@@ -358,6 +362,8 @@ DEFAULT_PROFILE = RuntimeSafetyProfile(
     fast_total=float(os.environ.get("QA_RUNTIME_FAST_DEADLINE", "60")),
     research_total=float(os.environ.get("QA_RUNTIME_RESEARCH_DEADLINE", "120")),
     deep_total=float(os.environ.get("QA_RUNTIME_DEEP_DEADLINE", "180")),
+    generator=float(os.environ.get("QA_RUNTIME_GENERATOR_S", "30")),
+    verifier=float(os.environ.get("QA_RUNTIME_VERIFIER_S", "10")),
 )
 
 

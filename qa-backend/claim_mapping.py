@@ -170,11 +170,24 @@ async def map_claims_to_citations(
             query=query[:500], source_list=source_list, answer=answer[:ans_cap],
         )
         try:
+            # Phase09 runtime-budget repair (RC3): the mapping JSON cannot
+            # legitimately exceed a linear function of the (already capped)
+            # answer length; an oversized reasoning headroom wastes provider
+            # time inside a bounded correctness-critical stage window.  The
+            # 2048-token floor is empirically calibrated for the GLM
+            # reasoning family: the reasoning tail (~600-1000 tokens) is
+            # emitted BEFORE the JSON payload (~300-800 tokens), so a bound
+            # below that guarantees truncated tails and fail-closed schema
+            # rejection even on a healthy provider.  Only widens the bound;
+            # QA_CLAIM_MAP_MAX_TOKENS is the Q293 versioned override.
+            _map_max_tokens = int(os.environ.get(
+                "QA_CLAIM_MAP_MAX_TOKENS",
+                str(min(8192, max(2048, (len(answer) // 500 + 1) * 600)))))
             result_text = await llm_model_func(
                 prompt,
                 system_prompt="你是技术情报分析专家。只输出JSON，不要输出其他内容。",
                 temperature=0.0,
-                max_tokens=8192,  # GLM-5.2 reasoning headroom
+                max_tokens=_map_max_tokens,
                 allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
             parsed = _extract_json_safe(result_text)

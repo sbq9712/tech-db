@@ -80,11 +80,22 @@ _TRACE_NUMBER_FIELDS = frozenset({
     "retry_after_seconds", "score", "rrf_score", "vec_score",
     "bm25_score", "graph_score", "rank", "legacy_idx",
     "candidate_count", "shadow_latency_ms", "shadow_cost_proxy",
+    # Phase09 runtime-budget repair (R5): externally qualifiable budget
+    # telemetry (Part B4 invariant — readiness must qualify the same numbers
+    # the runtime enforces). Typed numeric allowlist entries only.
+    "guard_ms", "baseline_ms", "delta_ms", "cap_ms", "total_budget_ms",
+    "reserve_ms", "pre_answer_ms", "elapsed_ms",
+    "elapsed_before_agentic_ms", "remaining_budget_ms", "budget_ms",
+    "cap_s", "remaining_s", "reserve_s", "min_generation_window_s",
+    "inflight_cap_s", "baseline_age_h", "window_s",
 })
 _TRACE_BOOL_FIELDS = frozenset({
     "retry", "correctness_critical", "exact_replay_available",
     "raw_retained", "required", "deterministic_sufficient", "hard_fail",
     "mutable_store_read", "graph_v2_activated", "shadow_non_interference",
+    # Phase09 runtime-budget repair (R5).
+    "ttfb_degraded", "agentic_succeeded", "guard_capped",
+    "generator_start_allowed", "baseline_model_ok",
 })
 _TRACE_ID_LIST_FIELDS = frozenset({
     "evidence_ids", "cited_record_ids", "critical_missing_ids",

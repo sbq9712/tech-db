@@ -2860,8 +2860,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                     }))}
                     return
                 try:
-                    async with asyncio.timeout(
-                            execution.stage_timeout("generator")):
+                    # Phase09 runtime-budget repair (RC1, codex-confirmed):
+                    # the in-flight timeout must honor the downstream
+                    # correctness reserve cap, exactly like the canonical
+                    # buffered path's run_stage(timeout_cap=...).  The cap
+                    # only ever TIGHTENS; admission fail-closed above and all
+                    # verifier requirements are unchanged.
+                    _legacy_gen_inflight_s = min(
+                        execution.stage_timeout("generator"), _legacy_gen_cap)
+                    trace.add_stage("generation_budget_inflight", {
+                        "inflight_cap_s": round(_legacy_gen_inflight_s, 3)})
+                    async with asyncio.timeout(_legacy_gen_inflight_s):
                         async for chunk in llm_stream_func(
                             prompt=query, system_prompt=system_prompt,
                             history_messages=llm_history):
@@ -2877,7 +2886,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 query, system_prompt=system_prompt,
                                 history_messages=llm_history),
                             requirement_critical=True,
-                            safe_fallback_available=False)
+                            safe_fallback_available=False,
+                            timeout_cap=_legacy_gen_cap)
                         if answer:
                             full_answer = answer
                             # The streamed generator failed technically; this
