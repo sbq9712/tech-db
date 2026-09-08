@@ -63,7 +63,22 @@ BASELINE_PATH = _HERE / "test_fixtures" / "ttfb" / "baseline_legacy.json"
 
 
 def _current_model() -> str:
-    return (os.environ.get("ZAI_MODEL") or "").strip()
+    """Effective provider model id for baseline identity matching.
+
+    Resolves the SAME way the deployed LLM client does (config.MODEL_NAME):
+    explicit env ZAI_MODEL first, then the config default.  Gatekeeper F3:
+    an unset env must NOT be model-agnostic — a baseline recorded for a
+    different model than the one this process will actually call is
+    rejected toward the conservative default baseline.
+    """
+    env_model = (os.environ.get("ZAI_MODEL") or "").strip()
+    if env_model:
+        return env_model
+    try:
+        from config import MODEL_NAME  # lazy: avoid import cycles
+        return str(MODEL_NAME or "").strip()
+    except Exception:
+        return ""
 
 
 def _validate_baseline(data) -> tuple:

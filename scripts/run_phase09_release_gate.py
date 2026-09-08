@@ -23,6 +23,10 @@ SUITES = {
     "e2e_phase09": "tests_e2e_phase09.py",
     "failure_injection_phase09": "tests_failure_injection_phase09.py",
     "release_phase09": "tests_release_phase09.py",
+    # Gatekeeper F2 (runtime-budget repair): the release gate must enforce
+    # committed-baseline validity (freshness/schema/guard arithmetic) so a
+    # stale TTFB fixture can never silently re-arm production.
+    "runtime_budget_repair": "tests_runtime_budget_repair.py",
 }
 
 

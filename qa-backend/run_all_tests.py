@@ -114,6 +114,95 @@ def run_suite(tag: str, filename: str, py: str) -> dict:
     }
 
 
+SUMMARY_PATH = HERE / "test_summary.json"
+
+
+def _sidecar_paths(summary_out: Path) -> tuple[Path, Path]:
+    """(previous-evidence path, in-flight marker path) for a summary path.
+
+    Sidecars live beside the summary they describe, so a custom
+    --summary-out run gets its own isolated triple and never touches the
+    canonical artifacts (Gatekeeper D4 finding 2).
+    """
+    return (summary_out.parent / f"{summary_out.stem}.previous.json",
+            summary_out.parent / f"{summary_out.stem}.inflight.json")
+
+
+def _runner_preflight(summary_out: Path, prev: Path, marker: Path) -> None:
+    """Runner phase 1 — establish artifact authorities.
+
+    Authority roles (Gatekeeper self-reference fix):
+      * <summary>.previous.json — the PREVIOUS COMPLETED run's evidence;
+      * <summary>.inflight.json — marker that a run is in progress, so
+        validators can treat the absent live summary as "current-run
+        working state" instead of reading stale results as current truth;
+      * the live summary — absent during the run; rewritten at
+        finalization from THIS run's real execution results only.
+    A leftover marker means the previous run was killed before it could
+    clean up (only SIGKILL/power loss can bypass this run's finally
+    cleanup); the next run's preflight supersedes it, and the validator
+    treats a marker older than MAX_INFLIGHT_AGE_S as a crashed run
+    (fail-closed) rather than deferring forever.
+    """
+    if summary_out.exists():
+        prev.write_text(summary_out.read_text(encoding="utf-8"),
+                        encoding="utf-8")
+        summary_out.unlink()
+    marker.write_text(json.dumps({
+        "inflight": True,
+        "started_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+    }), encoding="utf-8")
+
+
+def _runner_crash_cleanup(summary_out: Path, prev: Path, marker: Path) -> None:
+    """Fail-closed cleanup when a run dies between preflight and finalize.
+
+    The marker must never outlive the run (a leaked marker would turn
+    missing-summary failures into permanent DEFER — Gatekeeper D4 finding
+    1), and the previous completed run's evidence returns to the live path
+    so the artifact always reflects either the current run or the last
+    COMPLETED run — never a fabricated or absent state.
+    """
+    marker.unlink(missing_ok=True)
+    if prev.exists() and not summary_out.exists():
+        summary_out.write_text(prev.read_text(encoding="utf-8"),
+                               encoding="utf-8")
+
+
+def _runner_finalize(summary_out: Path, summary: dict, verify: str,
+                     prev: Path, marker: Path) -> bool:
+    """Runner phase 3 — finalize the machine-readable result.
+
+    Writes the summary from this run's actual results, removes the
+    in-flight marker, self-checks internal consistency (totals must equal
+    the per-suite sums; all_passed must mean zero failures), then runs the
+    canonical validator against the artifact THIS RUN WROTE (path passed
+    through explicitly).  The run is green only if the suites passed AND
+    the finalized evidence is consistent.
+    """
+    marker.unlink(missing_ok=True)
+    summary_out.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2))
+    suite_sum = sum(s["passed"] for s in summary["suites"])
+    fail_sum = sum(s["failed"] for s in summary["suites"])
+    consistent = (summary["total_passed"] == suite_sum
+                  and summary["total_failed"] == fail_sum
+                  and summary["all_passed"] == (fail_sum == 0))
+    print(f"[finalize] summary self-consistency: "
+          f"{'OK' if consistent else 'BROKEN'} "
+          f"({summary['total_passed']} passed / "
+          f"{summary['total_failed']} failed)")
+    proc = subprocess.run([sys.executable, str(HERE / verify),
+                           "--summary", str(summary_out)],
+                          cwd=str(HERE.parent), capture_output=True,
+                          text=True, timeout=300)
+    verdict = "PASS" if proc.returncode == 0 else "FAIL"
+    print(f"[finalize] {verify} on final summary: {verdict}")
+    if proc.returncode != 0:
+        print((proc.stdout or "")[-1200:])
+    return consistent and proc.returncode == 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--suite", nargs="*", help="suite tags to run")
@@ -128,11 +217,16 @@ def main():
             print(f"{tag:18s} {tier:8s} {f}")
         return 0
 
+    summary_out = Path(args.summary_out)
+    prev, marker = _sidecar_paths(summary_out)
+
     env_sel = os.environ.get("TECH_DB_SUITES")
     if args.suite:
         # codex-review C1 P2 fix: silently dropping unknown tags turned a
         # typo (or stale TECH_DB_SUITES) into an empty selection →
         # "ALL PASS" exit 0 having tested nothing. Reject unknown tags.
+        # (Gatekeeper D4 finding 1: this validation MUST precede preflight
+        # — an early return after preflight would leak the marker.)
         unknown = [t for t in args.suite if t not in SUITES]
         if unknown:
             print(f"❌ unknown suite tag(s): {', '.join(unknown)}")
@@ -154,6 +248,21 @@ def main():
         print("❌ empty suite selection — nothing to run")
         return 1
 
+    # Runner phase 1: archive the previous run's evidence and mark this
+    # run in-flight, so validators never mistake a stale summary for
+    # current truth (Gatekeeper self-reference fix).  Runs only after all
+    # argument validation has passed — nothing may exit between here and
+    # the finally-guarded finalize below.
+    _runner_preflight(summary_out, prev, marker)
+    try:
+        return _execute(args, summary_out, prev, marker, selected)
+    except BaseException:
+        _runner_crash_cleanup(summary_out, prev, marker)
+        raise
+
+
+def _execute(args, summary_out: Path, prev: Path, marker: Path,
+             selected: list) -> int:
     # suites whose file doesn't exist yet are reported as missing, not run
     results, missing = [], []
     for tag in selected:
@@ -179,8 +288,6 @@ def main():
         "missing_suites": missing,
         "suite_registry": {t: {"file": f, "tier": tier} for t, (f, tier) in SUITES.items()},
     }
-    Path(args.summary_out).write_text(json.dumps(summary, ensure_ascii=False, indent=2))
-
     print("\n" + "=" * 62)
     print(f"  {'✅ ALL PASS' if ok else '❌ FAILURES'}: "
           f"{total_p} passed, {total_f} failed across {len(results)} suites")
@@ -190,7 +297,17 @@ def main():
         mark = "✅" if r["status"] == "PASS" else "❌"
         print(f"  {mark} {r['tag']:18s} {r['passed']:>3}/{r['passed']+r['failed']:<3} ({r['seconds']}s)")
     print("=" * 62)
-    return 0 if ok else 1
+    # Runner phase 3 (write): the summary is written ONLY here, from this
+    # run's real results — never claimed before suites execute.  EVERY run
+    # finalizes (the marker must never outlive the run, and a failing run
+    # must still publish its real, failing evidence).  The summary carries
+    # suites[] + missing_suites[] + the full suite_registry snapshot, so a
+    # partial (--suite/--tier) run is self-describing and can never be
+    # mistaken for full-tier evidence; consumers that need full coverage
+    # (release gate, CI policy) check the coverage explicitly.
+    finalized = _runner_finalize(summary_out, summary,
+                                 "verify_spec_manifest.py", prev, marker)
+    return 0 if (ok and finalized) else 1
 
 
 if __name__ == "__main__":

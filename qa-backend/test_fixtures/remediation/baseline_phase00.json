@@ -63,16 +63,16 @@
   },
   "legacy_latency_ms": {
     "n": 20,
-    "p50": 219.9,
-    "p90": 944.5,
-    "p99": 18281.6,
+    "p50": 321.6,
+    "p90": 418.6,
+    "p99": 13390.6,
     "artifact": "qa-backend/test_fixtures/ttfb/baseline_legacy.json"
   },
   "artifact_hashes": {
     "raw_routes": "5721de9c043e9d766b4e8b5fc24c3edc4c3089bf5089b2441d63ea82c5d369a6",
     "legacy": "f4c87a231ec6a104d7f0fca437e253ccf236c43ff7c5dd8299ec36c617c0d482",
     "agentic": "030992a9e56be7a038b6b7ea3dd564a83c182205ec4c16d7c58f74afbfc0f60a",
-    "latency": "fc7759d38988c8b49a6acf21002de9f6d90bd3debf0ee531b755ea9b4ca1ef9f"
+    "latency": "416b99bad8718f690e573da620888747034d85912e13683db9ad42e2c42717bf"
   },
   "limitations": [
     "No fresh production request replay was available in this checkout.",

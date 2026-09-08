@@ -1,9 +1,11 @@
 {
   "n": 20,
-  "mean_ms": 1284.2,
-  "p50_ms": 219.9,
-  "p90_ms": 944.5,
-  "p99_ms": 18281.6,
-  "generated_at": "2026-08-14T20:11:54",
-  "note": "legacy TTFB baseline = rewrite + hybrid_search (pre-first-byte backend cost)"
+  "mean_ms": 977.9,
+  "p50_ms": 321.6,
+  "p90_ms": 418.6,
+  "p99_ms": 13390.6,
+  "generated_at": "2026-09-08T19:36:42",
+  "model": "glm-5.3-flash",
+  "note": "legacy TTFB baseline = rewrite + hybrid_search (pre-first-byte backend cost)",
+  "method": "rewrite(history=[])+hybrid_search"
 }

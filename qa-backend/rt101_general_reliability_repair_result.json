@@ -11,8 +11,8 @@
     "llm_json": {
       "recoverable": 18,
       "total": 18,
-      "big_input_seconds": 0.041,
-      "oversize_seconds": 0.014
+      "big_input_seconds": 0.028,
+      "oversize_seconds": 0.01
     },
     "seams": "covered above"
   },
@@ -53,7 +53,7 @@
   "deadline_measurements": {
     "scheduling": {
       "cap_tighten_s": 0.501,
-      "cap_hold_s": 3.004,
+      "cap_hold_s": 3.002,
       "retry_bound_s": 0.051,
       "reserve_s": 22.0
     },
@@ -122,7 +122,7 @@
     "ambiguous_data_not_mutated": true,
     "garbage_fail_closed": true
   },
-  "created_utc": "2026-09-08T10:18:05Z",
+  "created_utc": "2026-09-08T13:05:28Z",
   "targeted_followup": {
     "p0_1_generator_fail_closed": "generator admission is fail-closed: when remaining budget cannot fit downstream reserve + MIN_GENERATION_WINDOW_S, the generator operation never begins (both terminal-renderer and legacy-compat profiles)",
     "p0_2_final_citation_authority": "citation display authority is bound to FINAL per-claim verification (PASSED + SUPPORTED); stale precomputed supports_claim_ids cannot override it",
@@ -130,11 +130,11 @@
     "p1_llm_json_fullwidth": "full-width ＂ is a string delimiter; interior full-width punctuation is preserved as data"
   },
   "git": {
-    "head_at_generation": "7538b4d6b028072080eeb06813dc7c0f6acacea6",
+    "head_at_generation": "998ce5db42f0054ce0ce011a42497f0bf95397b6",
     "branch": "remediation/phase-09-benchmarks-ci-release-gates",
     "note": "artifact generated in the repair worktree on top of head_at_generation; the Phase09 repair commit adds this file, the repaired modules, and this suite"
   },
-  "git_sha": "7538b4d6b028072080eeb06813dc7c0f6acacea6",
+  "git_sha": "998ce5db42f0054ce0ce011a42497f0bf95397b6",
   "git_branch": "remediation/phase-09-benchmarks-ci-release-gates",
   "fixture": {
     "suite_file": "tests_repair_phase09_reliability.py",

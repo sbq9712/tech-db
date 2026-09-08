@@ -890,6 +890,96 @@ def t_baseline_writer_provenance():
 
 
 # ════════════════════════════════════════════════════════════════════════
+# Gatekeeper F3 — effective model resolution closes the bypass
+# ════════════════════════════════════════════════════════════════════════
+
+def t_effective_model_resolution():
+    """With ZAI_MODEL unset the guard must resolve the model the SAME way
+    the deployed LLM client does (config.MODEL_NAME default) — a baseline
+    recorded for any other model is rejected, not silently accepted."""
+    import config
+    effective = (config.MODEL_NAME or "").strip()
+    check("F3.config_default_model_resolvable", bool(effective),
+          f"config.MODEL_NAME={config.MODEL_NAME!r}")
+    # recorded == effective default (env unset) → consumed
+    with _GuardSandbox(_fresh_baseline(model=effective), ZAI_MODEL=None,
+                       QA_TTFB_BASELINE_MS="4000"):
+        m = t_effective_model_resolution.mod
+        snap = m.snapshot()
+        check("F3.unset_env_matches_config_default",
+              snap["baseline_source"] == "file"
+              and snap["baseline_model_ok"] is True,
+              f"src={snap['baseline_source']}")
+    # recorded == some other model (env unset) → rejected to default
+    with _GuardSandbox(_fresh_baseline(model="deliberately-other-model"),
+                       ZAI_MODEL=None, QA_TTFB_BASELINE_MS="4000"):
+        m = t_effective_model_resolution.mod
+        assert m.load_baseline_ms() == 4000
+        snap = m.snapshot()
+        check("F3.unset_env_foreign_model_rejected",
+              snap["baseline_source"] == "default_no_model"
+              and snap["baseline_ms"] == 4000,
+              f"src={snap['baseline_source']} ms={snap['baseline_ms']}")
+
+
+# ════════════════════════════════════════════════════════════════════════
+# Gatekeeper F2 — committed runtime baseline must be valid (release gate)
+# ════════════════════════════════════════════════════════════════════════
+
+def t_committed_baseline_fixture_valid():
+    """The fixture committed to the repo is a RUNTIME ARTIFACT: it must stay
+    fresh (≤ QA_TTFB_BASELINE_MAX_AGE_H) and schema-complete, and when the
+    deployment model matches it must actually arm the guard.
+
+    NOTE (maintenance tripwire): this check goes red QA_TTFB_BASELINE_MAX_AGE_H
+    hours (default 336h = 14 days) after the committed measurement.  That is
+    INTENTIONAL — a stale committed baseline is exactly what R1's policy
+    refuses to consume; regenerate it:
+        .venv/bin/python scripts/measure_legacy_ttfb.py --n 20
+    (with TECH_DB_INDEX_DIR/ZAI_MODEL set to the deployment runtime)."""
+    import ttfb_guard
+    fixture = HERE / "test_fixtures" / "ttfb" / "baseline_legacy.json"
+    check("F2.committed_fixture_exists", fixture.exists())
+    if not fixture.exists():
+        return
+    data = json.loads(fixture.read_text(encoding="utf-8"))
+    model_ok, source, age_h = ttfb_guard._validate_baseline(data)
+    check("F2.committed_fixture_schema_complete",
+          data.get("p90_ms", 0) > 0
+          and bool(data.get("model"))
+          and bool(data.get("method"))
+          and bool(data.get("generated_at")),
+          f"keys={sorted(data)}")
+    # freshness is environment-independent (always enforceable)
+    check("F2.committed_fixture_fresh",
+          source not in ("default_stale", "default_error")
+          and age_h <= ttfb_guard.DEFAULT_BASELINE_MAX_AGE_H,
+          f"source={source} age_h={age_h:.1f}")
+    # model identity: enforced here only when this environment resolves to
+    # the recorded model; otherwise it is the deployment pre-flight's job
+    # (CI resolves to the config default glm-5.2 and conservatively rejects
+    # a glm-5.3-flash baseline — the guard still arms from the default).
+    # with the deployment model exported, the fixture must arm the guard
+    env_model = (os.environ.get("ZAI_MODEL") or "").strip()
+    if env_model and env_model == str(data.get("model", "")).strip():
+        with _GuardSandbox(None, ZAI_MODEL=env_model,
+                           QA_TTFB_BASELINE_MS="4000"):
+            m = t_committed_baseline_fixture_valid.mod
+            m.BASELINE_PATH = fixture
+            snap = m.snapshot()
+            check("F2.fixture_arms_guard_when_model_matches",
+                  snap["baseline_source"] == "file"
+                  and snap["guard_ms"] == min(
+                      int(data["p90_ms"]) + snap["delta_ms"],
+                      snap["cap_ms"]),
+                  f"snap={snap}")
+    else:
+        check("F2.model_match_left_to_deployment_env", True,
+              "ZAI_MODEL not exported in this environment (CI): model "
+              "identity is enforced by the deployment pre-flight gate")
+
+
+# ════════════════════════════════════════════════════════════════════════
 # D1-14 — existing release thresholds unchanged
 # ════════════════════════════════════════════════════════════════════════
 
@@ -947,6 +1037,9 @@ def main():
         ("R5 trace projection keeps budget fields",
          t_trace_projection_keeps_budget_fields),
         ("R6 baseline writer provenance", t_baseline_writer_provenance),
+        ("F3 effective model resolution", t_effective_model_resolution),
+        ("F2 committed baseline fixture valid",
+         t_committed_baseline_fixture_valid),
         ("D1-14 release thresholds unchanged",
          t_release_thresholds_unchanged),
     ]
@@ -976,4 +1069,6 @@ if __name__ == "__main__":
     t_normal_latency_no_premature_degrade.mod = _tg
     t_still_fail_closes_on_stall.mod = _tg
     t_baseline_writer_provenance.mod = _tg
+    t_effective_model_resolution.mod = _tg
+    t_committed_baseline_fixture_valid.mod = _tg
     sys.exit(main())

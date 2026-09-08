@@ -21,6 +21,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timedelta
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -149,9 +150,54 @@ def v5_suites():
            f"{len(registered)} registered; unregistered={sorted(unregistered)}, dead={sorted(dead)}")
 
 
-def v6_summary():
-    sp = HERE / "test_summary.json"
+MAX_INFLIGHT_AGE_S = 24 * 3600
+
+
+def _run_in_progress() -> bool:
+    """True while a FRESH in-flight marker says the runner owns the summary.
+
+    The runner (run_all_tests.py) archives the previous completed run to
+    <summary>.previous.json, writes <summary>.inflight.json, and only
+    rewrites the live summary at finalization.  While the marker is
+    present the live summary legitimately does not exist, and validators
+    must NOT mistake a stale previous-run summary for current truth
+    (Gatekeeper self-reference fix).  Outside a run, a missing summary
+    stays a hard failure — the marker is runner-owned evidence.
+
+    Age-aware fail-closed (Gatekeeper D4 finding 1): a marker older than
+    MAX_INFLIGHT_AGE_S means its run died before finalizing (only an
+    uncatchable kill can bypass the runner's own cleanup) — DEFER must not
+    become permanent, so a stale marker is treated as NO run in progress
+    and the missing summary hard-fails.
+    """
+    marker = HERE / "test_summary.inflight.json"
+    if not marker.exists():
+        return False
+    started = None
+    try:
+        started = datetime.strptime(
+            json.loads(marker.read_text(encoding="utf-8")).get("started_at", ""),
+            "%Y-%m-%dT%H:%M:%S")
+    except Exception:
+        pass
+    if started is None:
+        try:
+            started = datetime.fromtimestamp(marker.stat().st_mtime)
+        except Exception:
+            return False  # unreadable marker → cannot prove a live run
+    age = datetime.now() - started
+    return timedelta(0) <= age <= timedelta(seconds=MAX_INFLIGHT_AGE_S)
+
+
+def v6_summary(summary_path: Path):
+    sp = summary_path
     if not sp.exists():
+        if _run_in_progress():
+            record("V6", "test_summary consistency", True,
+                   "DEFERRED — run in progress; previous evidence in "
+                   "test_summary.previous.json; final summary validated "
+                   "by the runner at finalization")
+            return
         record("V6", "test_summary consistency", False, "missing test_summary.json")
         return
     d = json.loads(sp.read_text(encoding="utf-8"))
@@ -178,9 +224,13 @@ def v6_summary():
            f"all_passed={d.get('all_passed')}, doc: {doc_detail}")
 
 
-def v7_artifacts():
-    sp = HERE / "test_summary.json"
+def v7_artifacts(summary_path: Path):
+    sp = summary_path
     if not sp.exists():
+        if _run_in_progress():
+            record("V7", "nightly artifact paths", True,
+                   "DEFERRED — run in progress (no live summary yet)")
+            return
         record("V7", "nightly artifact paths", False, "no summary")
         return
     d = json.loads(sp.read_text(encoding="utf-8"))
@@ -206,15 +256,16 @@ def v7_artifacts():
            f"{len(set(refs))} refs" + (f", missing={missing[:3]}" if missing else ""))
 
 
-def run(inject_drift=False):
+def run(inject_drift=False, summary_path=None):
     print("verify_spec_manifest — spec↔code consistency")
+    sp = Path(summary_path) if summary_path else (HERE / "test_summary.json")
     keys = v1_flag_registry()
     v2_doc_flags(keys, inject_drift=inject_drift)
     v3_registry()
     v4_indexes()
     v5_suites()
-    v6_summary()
-    v7_artifacts()
+    v6_summary(sp)
+    v7_artifacts(sp)
     failed = [r for r in RESULTS if not r["pass"]]
     print("=" * 62)
     print(f"  {'✅ VERIFIER PASS' if not failed else '❌ VERIFIER FAIL'} "
@@ -228,8 +279,12 @@ def main():
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--selftest", action="store_true",
                     help="inject a doc drift and expect FAIL (exit 0 if drift detected)")
+    ap.add_argument("--summary", default=None,
+                    help="summary artifact to validate (default: canonical "
+                         "qa-backend/test_summary.json; the canonical runner "
+                         "passes the artifact this run wrote)")
     args = ap.parse_args()
-    code = run(inject_drift=args.selftest)
+    code = run(inject_drift=args.selftest, summary_path=args.summary)
     if args.selftest:
         drift_failed = any(not r["pass"] for r in RESULTS if r["check"] == "V2")
         print(f"selftest: injected drift {'detected ✅' if drift_failed else 'NOT detected ❌'}")

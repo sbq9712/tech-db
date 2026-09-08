@@ -67,15 +67,18 @@ def t_budget_math(monkey_dir=None):
 
 
 def t_stale_baseline_rejected(monkey_dir=None):
-    """Phase09 repair RC2: a stale/foreign-model baseline must NOT arm the
-    guard with stale numbers — the conservative default is used instead."""
+    """Phase09 repair RC2: a stale baseline must NOT arm the guard with
+    stale numbers — the conservative default is used instead.  The recorded
+    model matches the effective model so the STALENESS dimension is
+    isolated (model identity is covered by the repair suite's F3 checks)."""
     import json as _json
     from datetime import datetime, timedelta, timezone
     fixture_dir = Path(monkey_dir or tempfile.mkdtemp(prefix="tk09-stale-"))
     fixture = fixture_dir / "baseline_legacy.json"
     generated = datetime.now(timezone.utc) - timedelta(hours=4000)
     fixture.write_text(_json.dumps({
-        "p90_ms": 1, "mean_ms": 1, "model": "glm-5.3-flash",
+        "p90_ms": 1, "mean_ms": 1,
+        "model": ttfb_guard._current_model() or "glm-5.3-flash",
         "generated_at": generated.isoformat(),
     }), encoding="utf-8")
     real_path = ttfb_guard.BASELINE_PATH
