@@ -9,6 +9,7 @@ import json
 import subprocess
 import sys
 import tempfile
+import time
 import traceback
 from pathlib import Path
 
@@ -266,6 +267,84 @@ def t_crash_cleanup_restores_previous_evidence():
         shutil.rmtree(workdir, ignore_errors=True)
 
 
+def t_v6_rejects_contradictory_failure_counts():
+    """Gatekeeper D5 finding 1 (P1): a summary whose suite rows claim PASS
+    but carry failed > 0, with total_failed=0 and all_passed=true, is
+    contradictory fabrication — V6 must reject it (totals must equal the
+    per-suite sums on BOTH dimensions; all_passed must MEAN zero
+    failures).  Demonstrated exploitable by the D5 review probe."""
+    workdir = Path(tempfile.mkdtemp(prefix="tk14-fabric-"))
+    summary = workdir / "summary.json"
+    try:
+        summary.write_text(json.dumps({
+            "generated_at": "now", "all_passed": True,
+            "total_passed": 2, "total_failed": 0,
+            "suites": [
+                {"tag": "x", "file": "t_x.py", "status": "PASS",
+                 "passed": 1, "failed": 1, "exit_code": 1,
+                 "seconds": 0.1, "tail": ""},
+                {"tag": "y", "file": "t_y.py", "status": "PASS",
+                 "passed": 1, "failed": 1, "exit_code": 1,
+                 "seconds": 0.1, "tail": ""},
+            ],
+            "missing_suites": [], "suite_registry": {},
+        }), encoding="utf-8")
+        p = _run("--summary", str(summary))
+        assert p.returncode == 1, \
+            f"contradictory summary accepted (exit={p.returncode})"
+        assert "V6" in p.stdout
+        # sane variant: same rows with honest failures → also rejected
+        d = json.loads(summary.read_text())
+        for row in d["suites"]:
+            row["status"] = "FAIL"
+        d.update(total_passed=0, total_failed=2, all_passed=False)
+        summary.write_text(json.dumps(d), encoding="utf-8")
+        assert _run("--summary", str(summary)).returncode == 1
+    finally:
+        import shutil
+        shutil.rmtree(workdir, ignore_errors=True)
+
+
+def t_custom_summary_marker_isolation():
+    """Gatekeeper D5 finding 2 (P2): DEFER must consult the marker that
+    belongs to the summary being validated — a fresh CANONICAL marker
+    must never defer a missing custom --summary artifact into green, and
+    a custom run's own marker must defer only its own summary."""
+    import shutil
+    workdir = Path(tempfile.mkdtemp(prefix="tk14-iso-"))
+    custom = workdir / "summary.json"
+    custom_marker = workdir / "summary.inflight.json"
+    canonical_live, canonical_prev, canonical_marker = _summary_paths()
+    saved = _save_summary_state()
+    try:
+        # 1. missing custom summary + FRESH canonical marker → hard fail
+        canonical_marker.write_text(json.dumps({
+            "inflight": True,
+            "started_at": time.strftime("%Y-%m-%dT%H:%M:%S")}),
+            encoding="utf-8")
+        canonical_live.unlink(missing_ok=True)
+        p = _run("--summary", str(custom))
+        assert p.returncode == 1, \
+            "canonical marker must not defer a missing custom summary"
+        # 2. missing custom summary + its OWN fresh marker → DEFER (green)
+        custom_marker.write_text(json.dumps({
+            "inflight": True,
+            "started_at": time.strftime("%Y-%m-%dT%H:%M:%S")}),
+            encoding="utf-8")
+        p = _run("--summary", str(custom))
+        assert p.returncode == 0, \
+            f"own fresh marker must defer (exit={p.returncode})"
+        assert "DEFERRED" in p.stdout
+        # 3. stale OWN marker + missing custom summary → hard fail
+        custom_marker.write_text(json.dumps({
+            "inflight": True, "started_at": "2000-01-01T00:00:00"}),
+            encoding="utf-8")
+        assert _run("--summary", str(custom)).returncode == 1
+    finally:
+        _restore_summary_state(saved)
+        shutil.rmtree(workdir, ignore_errors=True)
+
+
 if __name__ == "__main__":
     print("TK-14 — spec manifest validator")
     for name, fn in [
@@ -282,6 +361,10 @@ if __name__ == "__main__":
          t_argument_validation_precedes_preflight),
         ("crash cleanup restores previous evidence",
          t_crash_cleanup_restores_previous_evidence),
+        ("V6 rejects contradictory failure counts",
+         t_v6_rejects_contradictory_failure_counts),
+        ("custom summary marker isolation",
+         t_custom_summary_marker_isolation),
     ]:
         print(f"── {name}")
         check(name, fn)

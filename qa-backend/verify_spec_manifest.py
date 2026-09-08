@@ -153,8 +153,8 @@ def v5_suites():
 MAX_INFLIGHT_AGE_S = 24 * 3600
 
 
-def _run_in_progress() -> bool:
-    """True while a FRESH in-flight marker says the runner owns the summary.
+def _run_in_progress(summary_path: Path) -> bool:
+    """True while a FRESH in-flight marker says the runner owns THIS summary.
 
     The runner (run_all_tests.py) archives the previous completed run to
     <summary>.previous.json, writes <summary>.inflight.json, and only
@@ -164,13 +164,17 @@ def _run_in_progress() -> bool:
     (Gatekeeper self-reference fix).  Outside a run, a missing summary
     stays a hard failure — the marker is runner-owned evidence.
 
+    The marker is looked up BESIDE the summary being validated (Gatekeeper
+    D5 finding 2): a fresh canonical marker must never DEFER a missing
+    custom --summary artifact into a green result.
+
     Age-aware fail-closed (Gatekeeper D4 finding 1): a marker older than
     MAX_INFLIGHT_AGE_S means its run died before finalizing (only an
     uncatchable kill can bypass the runner's own cleanup) — DEFER must not
     become permanent, so a stale marker is treated as NO run in progress
     and the missing summary hard-fails.
     """
-    marker = HERE / "test_summary.inflight.json"
+    marker = summary_path.parent / f"{summary_path.stem}.inflight.json"
     if not marker.exists():
         return False
     started = None
@@ -192,7 +196,7 @@ def _run_in_progress() -> bool:
 def v6_summary(summary_path: Path):
     sp = summary_path
     if not sp.exists():
-        if _run_in_progress():
+        if _run_in_progress(sp):
             record("V6", "test_summary consistency", True,
                    "DEFERRED — run in progress; previous evidence in "
                    "test_summary.previous.json; final summary validated "
@@ -201,10 +205,19 @@ def v6_summary(summary_path: Path):
         record("V6", "test_summary consistency", False, "missing test_summary.json")
         return
     d = json.loads(sp.read_text(encoding="utf-8"))
-    per_suite_ok = all(s["status"] == "PASS" for s in d.get("suites", []))
-    suite_total = sum(s.get("passed", 0) for s in d.get("suites", []))
-    totals_ok = (d.get("total_failed", 1) == 0 and
-                 d.get("total_passed") == suite_total)
+    suites = d.get("suites", [])
+    # Gatekeeper D5 finding 1: a suite row claiming PASS with failed > 0 is
+    # contradictory evidence, not a pass — reject the whole summary.
+    per_suite_ok = all(s.get("status") == "PASS" and s.get("failed", 1) == 0
+                       for s in suites)
+    pass_sum = sum(s.get("passed", 0) for s in suites)
+    fail_sum = sum(s.get("failed", 0) for s in suites)
+    # totals must equal the per-suite sums for BOTH dimensions (D5 finding 1:
+    # total_failed == 0 alone proved nothing about the per-suite failed sum)
+    totals_ok = (d.get("total_passed") == pass_sum and
+                 d.get("total_failed", -1) == fail_sum)
+    # all_passed must MEAN zero failures, not just assert it
+    all_passed_ok = d.get("all_passed") is True and fail_sum == 0
     # Codex-review B2 P2 fix: the contract says documented test conclusions
     # must match the summary — parse the doc's headline total and compare.
     doc_ok, doc_detail = True, "no documented total found"
@@ -219,15 +232,16 @@ def v6_summary(summary_path: Path):
             doc_ok = doc_total == d.get("total_passed")
             doc_detail = f"doc={doc_total} summary={d.get('total_passed')}"
     record("V6", "test_summary internally consistent + doc total matches",
-           per_suite_ok and totals_ok and d.get("all_passed") is True and doc_ok,
-           f"total={d.get('total_passed')}/{suite_total}, "
+           per_suite_ok and totals_ok and all_passed_ok and doc_ok,
+           f"total={d.get('total_passed')}/{d.get('total_failed')} "
+           f"(suites {pass_sum}/{fail_sum}), "
            f"all_passed={d.get('all_passed')}, doc: {doc_detail}")
 
 
 def v7_artifacts(summary_path: Path):
     sp = summary_path
     if not sp.exists():
-        if _run_in_progress():
+        if _run_in_progress(sp):
             record("V7", "nightly artifact paths", True,
                    "DEFERRED — run in progress (no live summary yet)")
             return

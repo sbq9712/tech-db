@@ -93,7 +93,8 @@ RT-075 remains external and cannot be replaced by CI replay.
 ## CI contract
 
 The required Phase09 job executes `scripts/run_phase09_release_gate.py`, which
-runs all four required suites, emits per-suite JSON artifacts, evaluates hard
+runs all five required suites (including the post-V4
+`runtime_budget_repair`), emits per-suite JSON artifacts, evaluates hard
 invariants and provenance, and generates evidence-derived ticket status. The
 workflow requests 180-day retention for these artifacts. On PR #10 GitHub
 clamped the artifact to its current public-repository maximum of 90 days
