@@ -78,6 +78,16 @@ def head_sha():
     return A.git_head(ROOT)
 
 
+def non_head_sha():
+    """A real, resolvable 40-hex repo object sha that is never HEAD.
+
+    Uses the root tree so the value exists even in a CI shallow clone
+    (fetch-depth: 1) where HEAD~1 is unresolvable.
+    """
+    return subprocess.check_output(
+        ["git", "rev-parse", "HEAD^{tree}"], cwd=ROOT, text=True).strip()
+
+
 def commit_time(sha):
     return A.git_commit_time(ROOT, sha)
 
@@ -350,9 +360,9 @@ def test_release_matrix():
               and any("trust_class" in r for r in impersonator.reasons))
 
     # --- case 13: replay old authority proof against new checkout ---
-    parent = subprocess.check_output(
-        ["git", "rev-parse", "HEAD~1"], cwd=ROOT, text=True).strip()
-    old_proof = build_test_proof(sha=parent)  # valid for the parent commit
+    # (any non-HEAD resolvable repo sha; must survive CI shallow clones)
+    other_commit = non_head_sha()
+    old_proof = build_test_proof(sha=other_commit)  # bound to another sha
     replay = verify_test_proof(old_proof)     # verified against HEAD
     check("RT101 D7 replayed proof from parent commit blocks",
           not replay.satisfied and any("evaluated_git_sha" in r
@@ -884,9 +894,7 @@ def test_evidence_chain_drift_detection():
     def stale_sha(chain):
         pr_path = chain / "docs/remediation/phase09_PHASE_RESULT.json"
         pr = json.loads(pr_path.read_text("utf-8"))
-        parent = subprocess.check_output(["git", "rev-parse", "HEAD~1"],
-                                         cwd=ROOT, text=True).strip()
-        pr["tested_git_sha"] = parent  # stale referenced SHA vs base/HEAD
+        pr["tested_git_sha"] = non_head_sha()  # stale referenced SHA vs base
         pr_path.write_text(json.dumps(pr), "utf-8")
     expect_fail("stale class: stale referenced SHA detected", stale_sha)
 
