@@ -38,7 +38,20 @@ jobs:
         # query_embeddings.json), so no torch/sentence-transformers here.
         run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - name: Push-tier suites (all-mock, no GLM)
-        run: python run_all_tests.py --tier push
+        # D7: surface each failing suite + its tail as a check annotation so
+        # the failure is diagnosable without an authenticated log download.
+        run: |
+          python run_all_tests.py --tier push || {
+            python - <<'PY'
+          import json
+          s = json.load(open("test_summary.json"))
+          for t in s.get("suites", []):
+              if t.get("status") != "PASS":
+                  tail = (t.get("tail") or "")[-500:].replace("\n", " | ")
+                  print(f"::error::suite {t['tag']} {t['passed']}/{t['passed']+t['failed']} exit={t.get('exit_code')} :: {tail}")
+          PY
+            exit 1
+          }
       - name: Canonical spec manifest lint (T040 — merge gate)
         run: python ../scripts/lint_spec_manifest.py
       - name: Spec validator (must pass in CI)
