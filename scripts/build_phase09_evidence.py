@@ -17,7 +17,9 @@ scripts/validate_phase09_evidence_chain.py enforces this.
 
 SHA semantics (no self-referential fixed point is claimed):
   tested_git_sha              HEAD of the clean tree the push tier ran on
-  evidence_generation_base_sha HEAD where this generator ran (== tested)
+  evidence_generation_base_sha HEAD where this generator ran (a descendant
+                               of tested_git_sha whose diff touches only
+                               chain-owned evidence files)
   The evidence *commit* that stores these files is a descendant commit
   that adds evidence only; it never claims to have tested itself.  CI at
   the exact head binds exact-head evidence via its own artifacts.
@@ -47,11 +49,31 @@ from phase09_release import load_external_blockers  # noqa: E402
 PHASE_RESULT_SCHEMA = "phase09-phase-result-2.0"
 NEXT_PROMPT_SCHEMA = "phase09-next-prompt-gate-2.0"
 
+# Files the evidence chain itself owns: the diff between the tested SHA
+# and the generation base (and the dirty set at generation time) may only
+# touch these evidence artifacts; anything else requires a fresh tier run.
+OWNED_EVIDENCE_PATHS = frozenset({
+    "qa-backend/test_summary.json", "qa-backend/test_summary.previous.json",
+    "qa-backend/benchmark_phase09_result.json",
+    "qa-backend/benchmark_phase03_production_result.json",
+    "qa-backend/benchmark_phase03_result.json",
+    "qa-backend/benchmark_phase04_result.json",
+    "qa-backend/benchmark_phase05_result.json",
+    "qa-backend/benchmark_phase06_result.json",
+    "qa-backend/benchmark_phase07_result.json",
+    "qa-backend/rt101_general_reliability_repair_result.json",
+    "docs/remediation/phase09_PHASE_RESULT.json",
+    "docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json",
+    "docs/remediation/phase09_completion_report.md",
+})
+
 SHA_SEMANTICS = {
     "tested_git_sha": "HEAD of the clean worktree the authoritative test "
-                      "execution (push tier + release gate) ran on",
-    "evidence_generation_base_sha": "HEAD where this generator executed; "
-                                    "must equal tested_git_sha",
+                      "execution (push tier) ran on",
+    "evidence_generation_base_sha": "HEAD where the release gate and this "
+                                    "generator executed; a descendant of "
+                                    "tested_git_sha whose diff touches only "
+                                    "chain-owned evidence files",
     "evidence_commit_sha": "the descendant commit that stores the generated "
                            "evidence files; adds evidence only and is NOT "
                            "claimed to have been tested by this chain",
@@ -87,6 +109,7 @@ def main() -> int:
 
     head = git("rev-parse", "HEAD")
     dirty = bool(git("status", "--porcelain"))
+    summary_str = str(args.summary)
     # Hermetic-test escape hatch: only when the caller opts in AND every
     # input artifact lives outside the repository (temp chain fixtures).
     # Real regeneration on a dirty repo worktree still fails closed.
@@ -95,9 +118,18 @@ def main() -> int:
         for path in (args.summary, args.release_evidence, args.ticket_status))
     hermetic_tests = (os.environ.get("PHASE09_EVIDENCE_HERMETIC_TEST") == "1"
                       and inputs_outside_repo)
+    # Dirty-tolerant generation (see SHA semantics below): once the tier
+    # summary/artifacts are committed, HEAD has advanced and the docs
+    # being generated are themselves pending changes.  The *tested run*
+    # must still be clean — enforced via the summary's worktree_dirty
+    # field below.  Anything beyond chain-owned evidence files staying
+    # dirty at generation time remains a hard failure.
     if dirty and not hermetic_tests:
-        fail("worktree is dirty; commit code first, then run tests and "
-             "generate evidence at the clean tested HEAD")
+        unowned = [p for p in git("status", "--porcelain").splitlines()
+                   if p[3:].strip() not in OWNED_EVIDENCE_PATHS]
+        if unowned:
+            fail("worktree has non-evidence changes; commit code first, "
+                 f"then run tests and generate evidence: {unowned}")
 
     summary = json.loads(args.summary.read_text("utf-8"))
     if summary.get("all_passed") is not True or summary.get("total_failed") != 0:
@@ -107,11 +139,28 @@ def main() -> int:
     if not tested_sha or tested_sha == "unknown":
         fail("test_summary.json lacks git_sha binding (regenerate with the "
              "updated run_all_tests.py)")
-    if tested_sha != head:
-        fail(f"summary git_sha {tested_sha} != generation HEAD {head}; "
-             "run the tier at the clean HEAD being documented")
     if summary.get("worktree_dirty") is not False:
         fail("summary was produced on a dirty worktree; re-run at clean HEAD")
+
+    # SHA semantics (see sha_semantics below): the tier runs on the clean
+    # code-final commit `tested_sha`; committing the summary/artifacts
+    # necessarily advances HEAD to an evidence-only descendant.  No fixed
+    # point is claimed: the generation HEAD must be a descendant of the
+    # tested SHA and may differ from it ONLY in chain-owned evidence files.
+    if tested_sha != head:
+        ancestor = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", tested_sha, head],
+            cwd=ROOT, capture_output=True)
+        if ancestor.returncode != 0:
+            fail(f"summary git_sha {tested_sha} is not an ancestor of the "
+                 f"generation HEAD {head}")
+        drift = git("diff", "--name-only", tested_sha, head).splitlines()
+        unowned = [p for p in drift if p not in OWNED_EVIDENCE_PATHS]
+        if unowned:
+            fail("diff between tested SHA and generation HEAD touches "
+                 f"non-evidence files {unowned}; re-run the push tier at "
+                 "the current HEAD first")
+    evidence_generation_base_sha = head
 
     if not args.release_evidence.exists() or not args.ticket_status.exists():
         fail("run scripts/run_phase09_release_gate.py first; release/ticket "
@@ -167,8 +216,8 @@ def main() -> int:
         "phase": "Phase09",
         "title": "Benchmarks, CI, release gates + runtime-budget repair",
         "generated_at": generated_at,
-        "tested_git_sha": head,
-        "evidence_generation_base_sha": head,
+        "tested_git_sha": tested_sha,
+        "evidence_generation_base_sha": evidence_generation_base_sha,
         "sha_semantics": SHA_SEMANTICS,
         "test_summary": {
             "path": os.path.relpath(args.summary, ROOT),
@@ -247,8 +296,8 @@ def main() -> int:
         "schema_version": NEXT_PROMPT_SCHEMA,
         "phase": "Phase09",
         "generated_at": generated_at,
-        "tested_git_sha": head,
-        "evidence_generation_base_sha": head,
+        "tested_git_sha": tested_sha,
+        "evidence_generation_base_sha": evidence_generation_base_sha,
         "NEXT_PROMPT_ALLOWED": next_allowed,
         "why": reasons,
         "phase_status": phase_result["phase_status"],
@@ -291,7 +340,8 @@ def main() -> int:
         encoding="utf-8")
     (args.out_dir / "phase09_completion_report.md").write_text(
         render_report(phase_result, next_prompt), encoding="utf-8")
-    print(f"evidence regenerated at tested_git_sha={head} "
+    print(f"evidence regenerated at tested_git_sha={tested_sha} "
+          f"generation_base={evidence_generation_base_sha} "
           f"phase_status={phase_result['phase_status']} "
           f"NEXT_PROMPT_ALLOWED={next_prompt['NEXT_PROMPT_ALLOWED']}")
     return 0
