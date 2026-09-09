@@ -43,6 +43,21 @@ RT101_AUTHORITY_ID = "RT-101_answer_level_blinded_release_holdout_gold"
 RT101_PROOF_TYPE = "RT101_RELEASE_HOLDOUT_AUTHORITY"
 EXTERNAL_SATISFACTION_PROOF_TYPE = "EXTERNAL_CONTROL_SATISFACTION"
 
+# D7 gatekeeper hardening: HMAC key material that is publicly committed in
+# this repository can never count as owner-provisioned secret material.  A
+# proof signed with such a key is rejected by the PRODUCTION providers
+# regardless of cryptographic validity (the hermetic test path calls the
+# verify_* functions with an explicit key and is unaffected).
+PUBLICLY_KNOWN_TEST_KEYS = frozenset({
+    # qa-backend/tests_release_phase09.py hermetic seam key
+    "phase09-d7-hermetic-test-key-0123456789abcdef",
+})
+
+
+def _production_key_rejected(key: str) -> bool:
+    return (not key or len(key) < 32
+            or key in PUBLICLY_KNOWN_TEST_KEYS)
+
 ENV_RT101_PROOF = "PHASE09_RT101_AUTHORITY_PROOF"
 ENV_RT101_EXPECTED_HOLDOUT_LOCK = "PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256"
 ENV_RT101_HMAC_KEY = "PHASE09_RT101_AUTHORITY_HMAC_KEY"
@@ -393,6 +408,12 @@ def authority_results_from_env(requirements: Mapping, *, root: Path,
         present, payload = _read_json_env(env, ENV_RT101_PROOF)
         key = env.get(ENV_RT101_HMAC_KEY, "")
         expected_lock = env.get(ENV_RT101_EXPECTED_HOLDOUT_LOCK, "")
+        if _production_key_rejected(key):
+            results[authority_id] = unsatisfied(
+                authority_id,
+                "owner HMAC key rejected (absent, weak, or publicly-known "
+                "test material)")
+            continue
         if not present:
             results[authority_id] = unsatisfied(
                 authority_id, "authority proof not provisioned (environment absent)")
@@ -423,6 +444,9 @@ def external_satisfaction_proofs_from_env(*, root: Path,
     if not isinstance(payload, dict):
         return {}
     key = env.get(ENV_EXTERNAL_HMAC_KEY, "")
+    key_rejected = _production_key_rejected(key)
+    if key_rejected:
+        key = ""
     head = git_head(root)
     commit_time = git_commit_time(root, head) if head else None
     results: dict[str, AuthorityResult] = {}

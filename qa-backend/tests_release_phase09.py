@@ -435,6 +435,29 @@ def test_release_matrix():
             hmac_key=TEST_HMAC_KEY, now=NOW, commit_time=commit_time(head_sha()))
         check("RT108 D7 future-dated external satisfaction proof rejected",
               not future_result.satisfied, str(future_result.reasons))
+        # D7 gatekeeper hardening: the publicly-committed hermetic test key
+        # can never satisfy production providers, even with a cryptographically
+        # valid proof — the production env channel must carry real secrets.
+        prod_env = {
+            A.ENV_RT101_PROOF: json.dumps(build_test_proof()),
+            A.ENV_RT101_HMAC_KEY: TEST_HMAC_KEY,
+            A.ENV_RT101_EXPECTED_HOLDOUT_LOCK: TEST_HOLDOUT_LOCK,
+            A.ENV_EXTERNAL_PROOFS: json.dumps(
+                {"RT-005": build_external_proof(decoy)}),
+            A.ENV_EXTERNAL_HMAC_KEY: TEST_HMAC_KEY,
+        }
+        prod_rt101 = A.authority_results_from_env(
+            REQUIREMENT, root=ROOT, env=prod_env)
+        prod_ext = A.external_satisfaction_proofs_from_env(
+            root=ROOT, env=prod_env)
+        check("RT101 D7 production provider rejects publicly-known test key",
+              not prod_rt101[A.RT101_AUTHORITY_ID].satisfied
+              and any("publicly-known" in r for r in
+                      prod_rt101[A.RT101_AUTHORITY_ID].reasons),
+              str(prod_rt101[A.RT101_AUTHORITY_ID].reasons))
+        check("RT108 D7 external provider rejects publicly-known test key",
+              not prod_ext["RT-005"].satisfied,
+              str(prod_ext["RT-005"].reasons))
 
 
 def build_external_proof(artifact_path: Path) -> dict:
