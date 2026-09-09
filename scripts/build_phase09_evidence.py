@@ -196,9 +196,13 @@ def main() -> int:
         k: evidence[k] for k in ("core_eligible", "production_release_eligible",
                                  "graph_activation_eligible", "graph_state",
                                  "reasons", "external_blockers")}
-    if decision.get("external_blockers") and fresh_blockers and \
-            sorted(decision["external_blockers"]) != sorted(fresh_blockers):
-        fail("recorded external blockers diverge from freshly verified blockers")
+    # D7 review F5: divergence must fail regardless of which side is empty
+    # — an evidence file that silently dropped all blockers (or a state
+    # file that silently gained one) is drift, not agreement.
+    if sorted(decision.get("external_blockers") or []) != sorted(fresh_blockers):
+        fail("recorded external blockers diverge from freshly verified "
+             f"blockers: recorded={sorted(decision.get('external_blockers') or [])} "
+             f"fresh={sorted(fresh_blockers)}")
 
     suites_by_tag = {s["tag"]: s for s in summary.get("suites", [])}
     phase09_suites = {}

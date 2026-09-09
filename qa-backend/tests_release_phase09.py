@@ -226,8 +226,21 @@ def test_release_matrix():
         satisfaction_key_rejected = True
     check("RT101 D7 policy satisfaction-claiming key rejected",
           satisfaction_key_rejected)
+    # D7 review F7 fix: this must be a real assertion, not a vacuous one —
+    # even if the legacy string were accepted by validate, decide() with an
+    # env channel that has no authority must still refuse core eligibility.
+    legacy_env = {k: "" for k in (A.ENV_RT101_PROOF, A.ENV_RT101_HMAC_KEY,
+                                  A.ENV_RT101_EXPECTED_HOLDOUT_LOCK)}
+    try:
+        blocked = decide(good_rows(prov), prov,
+                         requirements={A.RT101_AUTHORITY_ID: "SATISFIED"},
+                         authority_results=A.authority_results_from_env(
+                             REQUIREMENT, root=ROOT, env=legacy_env))
+        legacy_blocks_core = not blocked.core_eligible
+    except ValueError:
+        legacy_blocks_core = True  # rejected outright — also acceptable
     check("RT101 D7 policy-declared SATISFIED still blocks core",
-          not legacy_blocked if legacy_blocked is not None else True)
+          legacy_blocks_core)
 
     # --- case 2: fabricated repo proof file never consulted ---
     with tempfile.TemporaryDirectory() as tmp:
@@ -388,6 +401,40 @@ def test_release_matrix():
             cleared_with_owner = False
         check("RT108 D7 genuine owner satisfaction proof clears blocker",
               cleared_with_owner)
+        # D7 review F7: external satisfaction proofs honor the same
+        # temporal discipline as RT-101 proofs — stale (expired) and
+        # future-dated proof timestamps must be rejected.
+        import datetime as _dt
+        stale_proof = build_external_proof(decoy)
+        stale_proof["generated_at"] = (
+            NOW - _dt.timedelta(days=200)).isoformat()
+        stale_proof.pop("integrity", None)
+        stale_proof["integrity"] = {
+            "alg": "HMAC-SHA256",
+            "mac": hmac.new(TEST_HMAC_KEY.encode("utf-8"),
+                            A.canonical_bytes(stale_proof),
+                            hashlib.sha256).hexdigest(),
+        }
+        stale_result = A.verify_external_satisfaction_proof(
+            stale_proof, control_id="RT-005", current_git_sha=head_sha(),
+            hmac_key=TEST_HMAC_KEY, now=NOW, commit_time=commit_time(head_sha()))
+        check("RT108 D7 stale external satisfaction proof rejected",
+              not stale_result.satisfied, str(stale_result.reasons))
+        future_proof = build_external_proof(decoy)
+        future_proof["generated_at"] = (
+            NOW + _dt.timedelta(hours=1)).isoformat()
+        future_proof.pop("integrity", None)
+        future_proof["integrity"] = {
+            "alg": "HMAC-SHA256",
+            "mac": hmac.new(TEST_HMAC_KEY.encode("utf-8"),
+                            A.canonical_bytes(future_proof),
+                            hashlib.sha256).hexdigest(),
+        }
+        future_result = A.verify_external_satisfaction_proof(
+            future_proof, control_id="RT-005", current_git_sha=head_sha(),
+            hmac_key=TEST_HMAC_KEY, now=NOW, commit_time=commit_time(head_sha()))
+        check("RT108 D7 future-dated external satisfaction proof rejected",
+              not future_result.satisfied, str(future_result.reasons))
 
 
 def build_external_proof(artifact_path: Path) -> dict:
@@ -458,13 +505,23 @@ def test_authorization_requires_genuine_authority():
         A.ENV_EXTERNAL_HMAC_KEY: "",
     }
 
-    def run_authorize(evidence_payload, env):
+    def run_authorize(evidence_payload, env, policy_source=None):
         with tempfile.TemporaryDirectory() as tmp:
             evidence_file = Path(tmp) / "evidence.json"
             evidence_file.write_text(json.dumps(evidence_payload), "utf-8")
-            return subprocess.run(
-                [sys.executable, str(ROOT / "scripts/authorize_runtime_publish.py"),
-                 "--evidence", str(evidence_file), "--expected-sha", head],
+            cmd = [sys.executable,
+                   str(ROOT / "scripts/authorize_runtime_publish.py"),
+                   "--evidence", str(evidence_file), "--expected-sha", head]
+            if policy_source is not None:
+                # D7 review F7 hardening: the strip attack is exercised on a
+                # TEMP policy copy via --policy — the repo policy file is
+                # never mutated, so a crash can never leave it stripped.
+                policy_copy = Path(tmp) / "policy.json"
+                policy_copy.write_text(
+                    (ROOT / "spec/phase09_release_policy.json").read_text("utf-8")
+                    if policy_source == "repo" else policy_source, "utf-8")
+                cmd += ["--policy", str(policy_copy)]
+            return subprocess.run(cmd,
                 cwd=ROOT, capture_output=True, text=True, env=env)
 
     # blocked evidence denied
@@ -487,6 +544,26 @@ def test_authorization_requires_genuine_authority():
     check("RT106 D7 green evidence with unsatisfied external blockers denied",
           forged2.returncode != 0 and "PUBLISH_DENIED" in forged2.stdout,
           forged2.stdout + forged.stderr)
+
+    # D7 review F1/F7: a repo commit stripping RT-101 from the policy's
+    # required_authorities must NOT let the standalone publish path
+    # authorize — the mandatory authority set is pinned in code.  The
+    # stripped policy is a temp copy passed via --policy; the repo file is
+    # never touched.
+    repo_policy = (ROOT / "spec/phase09_release_policy.json").read_text("utf-8")
+    stripped_policy = json.loads(repo_policy)
+    stripped_policy.pop("required_authorities", None)
+    stripped_run = run_authorize(fabricated, env_without_authority,
+                                 policy_source=json.dumps(stripped_policy))
+    check("RT106 D7 policy stripping RT-101 cannot authorize publish",
+          stripped_run.returncode != 0 and "PUBLISH_DENIED" in stripped_run.stdout
+          and "undeclared" in stripped_run.stdout,
+          stripped_run.stdout + stripped_run.stderr)
+    intact_run = run_authorize(fabricated, env_without_authority,
+                               policy_source="repo")
+    check("RT106 D7 intact temp policy still denies without authority",
+          intact_run.returncode != 0 and "PUBLISH_DENIED" in intact_run.stdout,
+          intact_run.stdout + intact_run.stderr)
 
 
 def test_ticket_status_generation():
@@ -818,14 +895,24 @@ def test_evidence_chain_drift_detection():
     expect_fail("fabricated class: unsupported PHASE_RESULT schema detected",
                 schema_bump)
 
-    with tempfile.TemporaryDirectory() as tmp:
-        chain = fresh_chain(tmp)
+    def reasons_erased(chain):
         qa = chain / "qa-backend"
         ev = json.loads((qa / "release_evidence.json").read_text("utf-8"))
         ev["reasons"] = []  # no authority reason anywhere
         (qa / "release_evidence.json").write_text(json.dumps(ev), "utf-8")
+    # D7 review F3: reason erasure IS semantic drift now — the validator
+    # must fail instead of tolerating the stripped authority reason.
+    expect_fail("drift class: erased authority reason detected", reasons_erased)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        chain = fresh_chain(tmp)
+        qa = chain / "qa-backend"
+        # byte-different but semantically identical regeneration: same
+        # decision content, different key order/whitespace
+        ev = json.loads((qa / "release_evidence.json").read_text("utf-8"))
+        (qa / "release_evidence.json").write_text(
+            json.dumps(ev, indent=4, sort_keys=True) + "\n", "utf-8")
         tamper_free = _run_validator(chain)
-        # C4 compares semantic decision fields only (unchanged) — must pass;
         # this pins that byte regeneration alone is not a failure signal.
         check("regenerated (non-identical) CI artifact passes semantic check",
               tamper_free.returncode == 0,

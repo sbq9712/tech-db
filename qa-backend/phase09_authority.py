@@ -323,6 +323,16 @@ def validate_authority_requirements(requirements: Mapping) -> None:
         _scan(requirement, where)
         if not isinstance(requirement, dict):
             raise ValueError(f"{where}: requirement must be an object (legacy status maps are rejected)")
+        # D7 review F9: exact top-level allowlist — an unexpected extra
+        # field (a smuggling channel for satisfaction claims) fails closed.
+        allowed_fields = {"description", "proof_type", "schema_version",
+                          "trust_class_required", "bindings", "max_age_days",
+                          "expected_holdout_lock_env",
+                          "manifest_identity_source"}
+        unexpected_fields = sorted(set(requirement) - allowed_fields)
+        if unexpected_fields:
+            raise ValueError(f"{where}: unexpected requirement field(s) "
+                             f"{unexpected_fields}")
         for field in ("proof_type", "schema_version", "trust_class_required",
                       "max_age_days", "expected_holdout_lock_env",
                       "manifest_identity_source"):
@@ -417,8 +427,6 @@ def external_satisfaction_proofs_from_env(*, root: Path,
     commit_time = git_commit_time(root, head) if head else None
     results: dict[str, AuthorityResult] = {}
     for control_id, proof in sorted(payload.items()):
-        if payload is None:
-            continue
         results[control_id] = verify_external_satisfaction_proof(
             proof, control_id=control_id, current_git_sha=head,
             hmac_key=key, now=now, commit_time=commit_time)

@@ -41,11 +41,16 @@ def main() -> int:
     reasons = payload.get("reasons") or []
     authority_reasons = [r for r in reasons
                          if r.startswith(f"required authority unsatisfied: {RT101_AUTHORITY_ID}")]
+    # D7 review F10: a policy edit stripping the mandatory authority makes
+    # the gate emit "required authority undeclared in policy" — that is an
+    # unexpected structural failure (evidence of tampering), never the
+    # intentional genuine-authority absence this diagnostic certifies.
     other_reasons = [r for r in reasons
-                     if not r.startswith("required authority unsatisfied:")
-                     and not r.startswith("required authority undeclared in policy:")]
+                     if not r.startswith("required authority unsatisfied:")]
     if other_reasons:
         problems.extend(other_reasons)
+    if not authority_reasons:
+        problems.append("no genuine RT-101 authority-absence reason present")
     authority_section = (payload.get("authorities") or {}).get(RT101_AUTHORITY_ID) or {}
     if authority_section.get("satisfied") is not False:
         problems.append("authority section missing or unexpectedly satisfied")

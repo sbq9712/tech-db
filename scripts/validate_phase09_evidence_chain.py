@@ -18,7 +18,7 @@ import json
 import re
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,7 +28,10 @@ from phase09_authority import (  # noqa: E402
     RT101_AUTHORITY_ID,
     authority_results_from_env,
 )
-from phase09_release import load_external_blockers  # noqa: E402
+from phase09_release import (  # noqa: E402
+    MANDATORY_AUTHORITIES,
+    load_external_blockers,
+)
 from build_phase09_evidence import OWNED_EVIDENCE_PATHS  # noqa: E402
 
 PHASE_RESULT_SCHEMA = "phase09-phase-result-2.0"
@@ -150,6 +153,31 @@ def main() -> int:
         drift = [k for k in keys if doc_decision.get(k) != decision.get(k)]
         doc_blockers = sorted(doc_decision.get("external_blockers", []))
         ev_blockers = sorted(decision.get("external_blockers", []))
+        if not drift and doc_blockers == ev_blockers:
+            # review F3: reasons and per-authority sanitized state are part
+            # of the decision — erasing the authority reason from either
+            # side must fail, not just flipped booleans.
+            if sorted(doc_decision.get("reasons") or []) != \
+                    sorted(decision.get("reasons") or []):
+                drift.append("reasons")
+
+            def _strip_requirement(states):
+                # PHASE_RESULT echoes the policy requirement block beside
+                # each authority for self-containment; the fresh evidence
+                # carries only the sanitized state.  Compare states only.
+                return {aid: {k: v for k, v in state.items() if k != "requirement"}
+                        for aid, state in (states or {}).items()}
+
+            doc_auth = _strip_requirement(
+                doc_decision.get("authorities") or result.get("authorities"))
+            ev_auth = decision.get("authorities") or evidence.get("authorities")
+            if ev_auth:
+                if sorted(doc_auth) != sorted(ev_auth):
+                    drift.append("authority-ids")
+                elif doc_auth != _strip_requirement(ev_auth):
+                    drift.append("authority-state")
+            # flat evidence without an authorities section (hermetic
+            # fixtures) is governed by C13's live-channel comparison.
         record("C4", "release decision matches fresh gate evidence",
                not drift and doc_blockers == ev_blockers,
                f"drift={drift} blockers doc={doc_blockers} evidence={ev_blockers}")
@@ -239,11 +267,15 @@ def main() -> int:
             return ts.astimezone()
         return ts
     stamps = [(name, _aware(ts)) for name, ts in stamps]
+    now = datetime.now(_tz.utc)
+    not_future = all(v is not None and v <= now + timedelta(minutes=5)
+                     for _, v in stamps)
     ordered = (all(v is not None for _, v in stamps)
                and all(a[1].tzinfo is not None and b[1].tzinfo is not None
                        and a[1] <= b[1]
-                       for a, b in zip(stamps, stamps[1:])))
-    record("C8", "generation order monotone",
+                       for a, b in zip(stamps, stamps[1:]))
+               and not_future)
+    record("C8", "generation order monotone, none materially in the future",
            ordered, " -> ".join(f"{n}={v}" for n, v in stamps if v))
 
     # C9 SHA semantics: tested must be a real commit, ancestor-or-equal of
@@ -253,25 +285,41 @@ def main() -> int:
     tested = result.get("tested_git_sha", "")
     base = result.get("evidence_generation_base_sha", "")
     head = git("rev-parse", "HEAD")
-    sha_ok = (len(tested) == 40 and len(base) == 40
-              and git("cat-file", "-e", f"{tested}^{{commit}}") == "")
-    tested_is_ancestor = False
-    if sha_ok:
+
+    def _is_ancestor(older: str, younger: str) -> bool:
         probe = subprocess.run(
-            ["git", "merge-base", "--is-ancestor", tested, head],
+            ["git", "merge-base", "--is-ancestor", older, younger],
             cwd=ROOT, capture_output=True)
-        tested_is_ancestor = probe.returncode == 0
-    owned_drift_ok = True
-    drift_note = "tested==base"
-    if sha_ok and tested_is_ancestor and tested != base:
-        drift = git("diff", "--name-only", tested, base).splitlines()
-        unowned = [p for p in drift
-                   if p not in OWNED_EVIDENCE_PATHS]
-        owned_drift_ok = not unowned
-        drift_note = f"evidence-only drift; unowned={unowned}"
-    record("C9", "tested sha semantics (real commit, ancestor of head, "
-           "evidence-only base drift)",
-           sha_ok and tested_is_ancestor and owned_drift_ok,
+        return probe.returncode == 0
+
+    sha_ok = (len(tested) == 40 and len(base) == 40
+              and git("cat-file", "-e", f"{tested}^{{commit}}") == ""
+              and git("cat-file", "-e", f"{base}^{{commit}}") == "")
+    # review F4: the base itself must be a real commit satisfying the
+    # declared semantics tested <= base <= head; unresolvable or unrelated
+    # base SHAs fail instead of collapsing to an empty diff.
+    order_ok = (sha_ok and _is_ancestor(tested, base)
+                and _is_ancestor(base, head))
+    owned_drift_ok = False
+    drift_note = "unverified"
+    if order_ok and tested != base:
+        diff_probe = subprocess.run(
+            ["git", "diff", "--name-only", tested, base],
+            cwd=ROOT, capture_output=True, text=True)
+        if diff_probe.returncode != 0:
+            drift_note = f"diff failed: {diff_probe.stderr.strip()[:80]}"
+        else:
+            drift = diff_probe.stdout.splitlines()
+            unowned = [p for p in drift if p not in OWNED_EVIDENCE_PATHS]
+            owned_drift_ok = not unowned
+            drift_note = (f"evidence-only drift ({len(drift)} files)"
+                          if owned_drift_ok else f"unowned={unowned}")
+    elif order_ok:
+        owned_drift_ok = True
+        drift_note = "tested==base"
+    record("C9", "sha semantics (real commits, tested<=base<=head, "
+           "owned-only drift)",
+           sha_ok and order_ok and owned_drift_ok,
            f"tested={tested[:12]} base={base[:12]} head={head[:12]} ({drift_note})")
     record("C9b", "NEXT_PROMPT_ALLOWED sha binding mirrors PHASE_RESULT",
            nxt.get("tested_git_sha") == tested
@@ -287,12 +335,22 @@ def main() -> int:
                 not entry.get("sha256") or sha256_file(path) == entry["sha256"])
             record("C10", f"committed chain artifact {entry['path']}", ok,
                    "missing/hash mismatch" if not ok else "")
-        elif path.exists() and entry.get("sha256_at_generation"):
-            same = sha256_file(path) == entry["sha256_at_generation"]
-            record("C10", f"ci_generated artifact {entry['path']}", True,
-                   "present; byte-identical" if same else
-                   "present; regenerated after generation (acceptable — "
-                   "semantic check C4 governs)")
+        elif entry.get("sha256_at_generation"):
+            # review F8: a recorded ci_generated entry missing from the
+            # checkout is "allowed absent" only in non-strict mode; strict
+            # machine mode (CI/post-gate) demands its presence.
+            if not path.exists():
+                record("C10", f"ci_generated artifact {entry['path']}",
+                       not args.strict_machine,
+                       "missing from checkout"
+                       + (" (strict mode requires it)" if args.strict_machine
+                          else " (clean-checkout mode: allowed absent)"))
+            else:
+                same = sha256_file(path) == entry["sha256_at_generation"]
+                record("C10", f"ci_generated artifact {entry['path']}", True,
+                       "present; byte-identical" if same else
+                       "present; regenerated after generation (acceptable — "
+                       "semantic check C4 governs)")
 
     # C11 policy required suites all PASS in summary
     by_tag = {s.get("tag"): s for s in suites}
@@ -309,14 +367,31 @@ def main() -> int:
                else "OFF_NO_GAIN")
            and nxt.get("graph") == result.get("graph"))
 
-    # C13 authority state vs live environment channel
-    fresh = authority_results_from_env(policy.get("required_authorities", {}), root=ROOT)
-    for authority_id, fresh_result in sorted(fresh.items()):
-        doc_authority = (result.get("authorities", {}) or {}).get(authority_id, {})
+    # C13 authority state vs live environment channel.
+    # review F2: the mandatory set is pinned at code level — a policy edit
+    # stripping RT-101 cannot shrink the validated authority set, and the
+    # committed PHASE_RESULT must carry a state entry for every authority.
+    policy_requirements = policy.get("required_authorities", {}) or {}
+    fresh = authority_results_from_env(policy_requirements, root=ROOT)
+    required_ids = sorted(MANDATORY_AUTHORITIES | set(policy_requirements))
+    doc_authorities = result.get("authorities") or {}
+    missing_doc = [a for a in required_ids if a not in doc_authorities]
+    record("C13pre", "PHASE_RESULT carries every mandatory authority entry",
+           not missing_doc, f"missing={missing_doc}" if missing_doc else
+           f"{len(required_ids)} authorities")
+    undeclared_now = sorted(MANDATORY_AUTHORITIES - set(policy_requirements))
+    record("C13policy", "policy still declares mandatory authorities",
+           not undeclared_now,
+           f"stripped={undeclared_now}" if undeclared_now else
+           f"{len(policy_requirements)} declared")
+    for authority_id in required_ids:
+        fresh_result = fresh.get(authority_id)
+        doc_authority = doc_authorities.get(authority_id) or {}
+        live_satisfied = fresh_result.satisfied if fresh_result else False
         record("C13", f"authority {authority_id} state matches live channel",
-               doc_authority.get("satisfied") == fresh_result.satisfied,
-               f"doc={doc_authority.get('satisfied')} live={fresh_result.satisfied}")
-    rt101 = (result.get("authorities", {}) or {}).get(RT101_AUTHORITY_ID) or {}
+               doc_authority.get("satisfied") == live_satisfied,
+               f"doc={doc_authority.get('satisfied')} live={live_satisfied}")
+    rt101 = doc_authorities.get(RT101_AUTHORITY_ID) or {}
     record("C13b", "RT-101 unsatisfied keeps phase fail-closed",
            (rt101.get("satisfied") is False) == (phase_status != "PASS"
                                                  or decision.get("core_eligible") is not True)

@@ -23,7 +23,10 @@ from phase09_authority import (  # noqa: E402
     external_satisfaction_proofs_from_env,
     validate_authority_requirements,
 )
-from phase09_release import load_external_blockers  # noqa: E402
+from phase09_release import (  # noqa: E402
+    MANDATORY_AUTHORITIES,
+    load_external_blockers,
+)
 
 
 def main() -> int:
@@ -31,6 +34,10 @@ def main() -> int:
     parser.add_argument("--evidence", type=Path,
                         default=ROOT / "qa-backend/phase09_release_evidence.json")
     parser.add_argument("--expected-sha")
+    parser.add_argument("--policy", type=Path,
+                        default=ROOT / "spec/phase09_release_policy.json",
+                        help="policy file to validate against (default: the "
+                             "repo policy; tests may point at a temp copy)")
     args = parser.parse_args()
     payload = json.loads(args.evidence.read_text("utf-8"))
     head = subprocess.check_output(
@@ -51,14 +58,27 @@ def main() -> int:
     # Independent fresh re-verification (D7): repo files and recorded
     # evidence cannot fake these inputs; only the owner env channel can.
     try:
-        policy = json.loads(
-            (ROOT / "spec/phase09_release_policy.json").read_text("utf-8"))
-        requirements = policy.get("required_authorities", {})
+        policy = json.loads(args.policy.read_text("utf-8"))
+        requirements = dict(policy.get("required_authorities", {}))
+        # D7 review F1: the mandatory authority set is pinned at code level,
+        # NOT inherited from the policy — a repo commit stripping RT-101
+        # from required_authorities can never weaken this authorization.
+        undeclared = sorted(MANDATORY_AUTHORITIES - set(requirements))
+        if undeclared:
+            errors.append("required authority undeclared in policy: "
+                          + ", ".join(undeclared))
         validate_authority_requirements(requirements)
         fresh_authority = authority_results_from_env(requirements, root=ROOT)
-        for authority_id, result in sorted(fresh_authority.items()):
-            if not result.satisfied:
-                errors.append(f"required authority unsatisfied: {authority_id}")
+        for authority_id in sorted(MANDATORY_AUTHORITIES | set(requirements)):
+            result = fresh_authority.get(authority_id)
+            if result is None or not result.satisfied:
+                reasons = getattr(result, "reasons", None) or [
+                    "required authority undeclared in policy"
+                    if authority_id not in requirements
+                    else "authority result missing"]
+                errors.append(
+                    f"required authority unsatisfied: {authority_id}: "
+                    + "; ".join(reasons))
         fresh_blockers = load_external_blockers(
             ROOT / policy["external_state"],
             owner_proofs=external_satisfaction_proofs_from_env(root=ROOT))
