@@ -73,6 +73,17 @@ OWNED_EVIDENCE_PATHS = frozenset({
     "scripts/build_phase09_evidence.py",
     "scripts/validate_phase09_evidence_chain.py",
     "scripts/verify_phase09_expected_block.py",
+    # D7 process-evidence documents: archived Codex rounds, decision
+    # register entries, and the gatekeeper verdict history.  Narrative
+    # provenance for the chain — never product code.
+    "docs/remediation/phase09_D7_codex_authority_design.md",
+    "docs/remediation/phase09_D7_codex_authority_design_prompt.md",
+    "docs/remediation/phase09_D7_codex_code_review.md",
+    "docs/remediation/phase09_D7_codex_gatekeeper.md",
+    "docs/remediation/phase09_gatekeeper_history.json",
+    "docs/remediation/phase09_RT101_provisioning.md",
+    "docs/remediation/decision_register.md",
+    "docs/remediation/phase09_PR_BODY.md",
 })
 
 SHA_SEMANTICS = {
