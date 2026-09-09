@@ -29,6 +29,7 @@ from phase09_authority import (  # noqa: E402
     authority_results_from_env,
 )
 from phase09_release import load_external_blockers  # noqa: E402
+from build_phase09_evidence import OWNED_EVIDENCE_PATHS  # noqa: E402
 
 PHASE_RESULT_SCHEMA = "phase09-phase-result-2.0"
 NEXT_PROMPT_SCHEMA = "phase09-next-prompt-gate-2.0"
@@ -230,30 +231,48 @@ def main() -> int:
     if args.ticket_status.exists():
         stamps.insert(1, ("ticket_status", parse_ts(
             json.loads(args.ticket_status.read_text("utf-8")).get("generated_at"))))
+    from datetime import timezone as _tz
+    def _aware(ts):
+        # run_all_tests writes a naive LOCAL timestamp; interpret it as
+        # local time. tz-aware stamps pass through unchanged.
+        if ts is not None and ts.tzinfo is None:
+            return ts.astimezone()
+        return ts
+    stamps = [(name, _aware(ts)) for name, ts in stamps]
     ordered = (all(v is not None for _, v in stamps)
                and all(a[1].tzinfo is not None and b[1].tzinfo is not None
                        and a[1] <= b[1]
                        for a, b in zip(stamps, stamps[1:])))
-    record("C8", "generation order monotone (tz-aware stamps)",
+    record("C8", "generation order monotone",
            ordered, " -> ".join(f"{n}={v}" for n, v in stamps if v))
 
-    # C9 SHA semantics
+    # C9 SHA semantics: tested must be a real commit, ancestor-or-equal of
+    # the base; when base != tested the diff must touch ONLY chain-owned
+    # evidence files (an evidence-only descendant commit never claims to
+    # have tested itself; CI at the exact head binds exact-head evidence).
     tested = result.get("tested_git_sha", "")
     base = result.get("evidence_generation_base_sha", "")
     head = git("rev-parse", "HEAD")
-    sha_ok = (len(tested) == 40 and len(base) == 40 and tested == base
+    sha_ok = (len(tested) == 40 and len(base) == 40
               and git("cat-file", "-e", f"{tested}^{{commit}}") == "")
-    descendant = sha_ok and (tested == head or
-                             git("merge-base", "--is-ancestor", tested, head) != "")
-    # merge-base --is-ancestor exits 0 when ancestor; check_output would
-    # raise, so treat ""+rc semantics: re-run via git() wrapper result
+    tested_is_ancestor = False
     if sha_ok:
-        probe = subprocess.run(["git", "merge-base", "--is-ancestor", tested, head],
-                               cwd=ROOT, capture_output=True)
-        descendant = probe.returncode == 0
-    record("C9", "tested sha semantics (real commit, base==tested, ancestor-or-equal of HEAD)",
-           sha_ok and descendant,
-           f"tested={tested[:12]} base={base[:12]} head={head[:12]}")
+        probe = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", tested, head],
+            cwd=ROOT, capture_output=True)
+        tested_is_ancestor = probe.returncode == 0
+    owned_drift_ok = True
+    drift_note = "tested==base"
+    if sha_ok and tested_is_ancestor and tested != base:
+        drift = git("diff", "--name-only", tested, base).splitlines()
+        unowned = [p for p in drift
+                   if p not in OWNED_EVIDENCE_PATHS]
+        owned_drift_ok = not unowned
+        drift_note = f"evidence-only drift; unowned={unowned}"
+    record("C9", "tested sha semantics (real commit, ancestor of head, "
+           "evidence-only base drift)",
+           sha_ok and tested_is_ancestor and owned_drift_ok,
+           f"tested={tested[:12]} base={base[:12]} head={head[:12]} ({drift_note})")
     record("C9b", "NEXT_PROMPT_ALLOWED sha binding mirrors PHASE_RESULT",
            nxt.get("tested_git_sha") == tested
            and nxt.get("evidence_generation_base_sha") == base)

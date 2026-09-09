@@ -1,49 +1,45 @@
 {
-  "schema_version": "phase09-next-prompt-gate-1.0",
-  "generated_at": "2026-09-08T21:15:39",
-  "question": "May the Phase10 prompt be issued (formal Phase10 entry)?",
   "NEXT_PROMPT_ALLOWED": false,
-  "basis": "Authoritative rules: Phase10 (RT-110..RT-116, incl. graph-side tasks) may only start after Phase09 core eligibility is true with all required authorities SATISFIED. RT-101 answer-level blinded release-holdout gold is a REQUIRED authority and does not exist; it cannot be fabricated (holdout isolation).",
-  "checks": {
-    "phase09_core_eligible": false,
-    "required_authorities_unmet": {
-      "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
-    },
-    "external_blockers_unsatisfied": [
-      "Q-336",
-      "RT-005",
-      "RT-075"
-    ],
-    "graph_state": "OFF_NO_GAIN",
-    "phase_status": "NOT_SATISFIED"
+  "core_eligible": false,
+  "evidence_generation_base_sha": "753dd98fb726b61302c08a0b52cfe12a71a8d019",
+  "external_blockers": [
+    "Q-336",
+    "RT-005",
+    "RT-075"
+  ],
+  "forbidden": [
+    "Fabricating or approximating blinded holdout gold",
+    "Flipping external-state or authority status via repository edits (fail-closed by design since D7)",
+    "Loosening required_authorities / hard invariants to force eligibility",
+    "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
+  ],
+  "generated_at": "2026-09-09T03:35:21.438126+00:00",
+  "graph": {
+    "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
+    "gain_conclusion": "NO_GAIN",
+    "state": "OFF_NO_GAIN"
   },
-  "allowed_instead": {
-    "phase09_scoped_work": [
-      "Provision genuine RT-101 answer-level blinded holdout gold (repository-owner action; never agent-fabricated)",
-      "RT-005: enable enforce_admins on main via repository administration",
-      "Q-336: configure durable external artifact retention >= 180 days",
-      "RT-075: capture >=100 production-representative ER shadow events over >=168h",
-      "Re-run scripts/run_phase09_release_gate.py at the new checkout after any of the above; core_eligible must be true before Phase10",
-      "Re-check provider health (ZAI/glmos provider collapse documented 2026-09-08) before any LLM-dependent formal run"
-    ],
-    "forbidden": [
-      "Fabricating or approximating the blinded holdout gold",
-      "Flipping external-state rows to satisfied without hashed proof artifacts",
-      "Loosening required_authorities / hard invariants to force eligibility",
-      "Starting Phase10 without SAFE_FOR_FRESH_V5=YES from the Codex Gatekeeper"
-    ]
-  },
-  "gatekeeper": {
-    "V5_formal_run": "BASIS_APPROVED (D6 SAFE_FOR_FRESH_V5=YES) — a formal V5 remains blocked by its own prerequisites: RT-101 blinded gold not provisioned (REQUIRED core authority), gate core_eligible=false",
-    "latest_verdicts": {
-      "D3": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3)",
-      "D4": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3 confirmed closed; D4-F1/D4-F2 marker lifecycle)",
-      "D5": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (D4-F1/F2 confirmed closed; D5-F1 V6 arithmetic, D5-F2 marker isolation, D5-F3 report wording)",
-      "D6": "APPROVE / SAFE_FOR_FRESH_V5: YES / FINDINGS: none (2026-09-08, head fb86ba2)"
-    },
-    "provider_health_2026-09-08": {
-      "collapse_during_repair": "12.7-27.3s probes, majority non-JSON; live TTFB run: 0/30 claim_mapping reached, 30/30 UNVERIFIED fail-closed",
-      "recovery_probe": "3/3 JSON-valid at 2.2-3.0s (glm-5.2) — pre-V5 readiness signal only; formal V5 still requires the RT-101 authority and gate eligibility"
+  "phase": "Phase09",
+  "phase10": "NOT_STARTED",
+  "phase_status": "NOT_SATISFIED",
+  "production_release_eligible": false,
+  "required_authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": {
+      "satisfied": false
     }
-  }
+  },
+  "schema_version": "phase09-next-prompt-gate-2.0",
+  "tested_git_sha": "c4d502d630309f9c65faf5e8bf5916636312d5ce",
+  "unblock_conditions": [
+    "Provision genuine RT-101 answer-level blinded release-holdout authority via the owner environment channel (see docs/remediation/phase09_RT101_provisioning.md); it cannot be provisioned by repository edits or by an agent.",
+    "Clear Q-336 with durable >=180d artifact retention.",
+    "Clear RT-005 with repository-admin branch-protection (enforce admins) configuration.",
+    "Clear RT-075 with >=100 real production-representative ER shadow events across >=168h (CI replay does not qualify)."
+  ],
+  "why": [
+    "phase_status=NOT_SATISFIED (not PASS)",
+    "core_eligible=false: required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold: authority proof not provisioned (environment absent)",
+    "external blockers: Q-336, RT-005, RT-075",
+    "required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold"
+  ]
 }
