@@ -1,0 +1,15 @@
+{
+  "V5_formal_run": "BASIS_APPROVED (D6 SAFE_FOR_FRESH_V5=YES) — a formal V5 remains blocked by its own prerequisites: RT-101 blinded gold not provisioned (REQUIRED core authority), gate core_eligible=false",
+  "latest_verdicts": {
+    "D3": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3)",
+    "D4": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3 confirmed closed; D4-F1/D4-F2 marker lifecycle)",
+    "D5": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (D4-F1/F2 confirmed closed; D5-F1 V6 arithmetic, D5-F2 marker isolation, D5-F3 report wording)",
+    "D6": "APPROVE / SAFE_FOR_FRESH_V5: YES / FINDINGS: none (2026-09-08, head fb86ba2)"
+  },
+  "note": "Historical Codex gatekeeper verdicts and provider-health facts for Phase09. Machine-consumed by scripts/build_phase09_evidence.py; update only with verbatim Codex round outputs stored beside this file (phase09_D*_*.md).",
+  "provider_health_2026-09-08": {
+    "collapse_during_repair": "12.7-27.3s probes, majority non-JSON; live TTFB run: 0/30 claim_mapping reached, 30/30 UNVERIFIED fail-closed",
+    "recovery_probe": "3/3 JSON-valid at 2.2-3.0s (glm-5.2) — pre-V5 readiness signal only; formal V5 still requires the RT-101 authority and gate eligibility"
+  },
+  "schema_version": "phase09-gatekeeper-history-1.0"
+}

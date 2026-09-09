@@ -279,8 +279,18 @@ def _execute(args, summary_out: Path, prev: Path, marker: Path,
     total_f = sum(r["failed"] for r in results)
     ok = all(r["status"] == "PASS" for r in results) and not missing
 
+    # D7 evidence chain: bind the summary to the exact checkout it ran on.
+    # git_sha semantics = HEAD of the worktree the suites executed in;
+    # worktree_dirty = whether uncommitted changes existed at run start.
+    _head_proc = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE.parent,
+                                capture_output=True, text=True)
+    _status_proc = subprocess.run(["git", "status", "--porcelain"], cwd=HERE.parent,
+                                  capture_output=True, text=True)
     summary = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "git_sha": _head_proc.stdout.strip() if _head_proc.returncode == 0 else "unknown",
+        "worktree_dirty": bool(_status_proc.stdout.strip()) if _status_proc.returncode == 0 else None,
+        "tier": args.tier,
         "all_passed": ok,
         "total_passed": total_p,
         "total_failed": total_f,

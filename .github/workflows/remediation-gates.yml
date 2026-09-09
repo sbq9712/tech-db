@@ -187,10 +187,37 @@ jobs:
       - name: Generic Phase09 product repair regressions
         run: python qa-backend/tests_repair_phase09_generic.py
       - name: Execute canonical Phase09 release gate
+        # D7 (P0 closure): genuine RT-101 authority / external-control
+        # satisfactions enter ONLY via owner-provisioned secrets.  Unset
+        # secrets expand to empty strings and the gate fails closed.
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
         run: >-
           python scripts/run_phase09_release_gate.py
           --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json
           --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+      - name: Assert intentional fail-closed reason (RT-101 authority absence)
+        # Diagnostic only: when the gate is red, prove the red is the
+        # genuine RT-101 authority absence and not a code regression.
+        # The job stays red either way (the gate step failed).
+        if: failure()
+        run: python scripts/verify_phase09_expected_block.py --evidence qa-backend/phase09_artifacts/phase09_release_evidence.json
+      - name: Validate Phase09 evidence chain
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: >-
+          python scripts/validate_phase09_evidence_chain.py
+          --release-evidence qa-backend/phase09_artifacts/phase09_release_evidence.json
+          --ticket-status qa-backend/phase09_artifacts/phase09_ticket_status.json
+          --strict-machine
       - name: Upload Phase09 machine evidence
         if: always()
         uses: actions/upload-artifact@v4

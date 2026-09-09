@@ -1,5 +1,5 @@
 {
-  "schema_version": "phase09-release-policy-1.0",
+  "schema_version": "phase09-release-policy-1.1",
   "required_suites": [
     "benchmark_phase09",
     "e2e_phase09",
@@ -12,7 +12,23 @@
     "verifier_technical_error_pass_zero": "verifier_technical_pass"
   },
   "required_authorities": {
-    "RT-101_answer_level_blinded_release_holdout_gold": "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE"
+    "RT-101_answer_level_blinded_release_holdout_gold": {
+      "description": "answer-level blinded release holdout gold must be provisioned by the repository owner through the owner-controlled environment channel; this policy declares the requirement only and can never declare satisfaction (D7 P0 closure)",
+      "proof_type": "RT101_RELEASE_HOLDOUT_AUTHORITY",
+      "schema_version": "phase09-authority-proof-1.0",
+      "trust_class_required": "OWNER_PROVISIONED_EXTERNAL",
+      "bindings": [
+        "holdout_lock_sha256",
+        "evaluated_git_sha",
+        "spec_sha256",
+        "decision_register_sha256",
+        "manifest_id",
+        "identity_snapshot_id"
+      ],
+      "max_age_days": 180,
+      "expected_holdout_lock_env": "PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256",
+      "manifest_identity_source": "qa-backend/test_fixtures/phase09/benchmark_locked_v1.json"
+    }
   },
   "graph_gain_conclusion": "NO_GAIN",
   "external_state": "spec/phase09_external_state.json"

@@ -14,9 +14,14 @@ ROOT = Path(__file__).resolve().parent.parent
 QA = ROOT / "qa-backend"
 sys.path.insert(0, str(QA))
 
+from phase09_authority import (authority_results_from_env,
+                               external_satisfaction_proofs_from_env,
+                               validate_authority_requirements)
 from phase09_release import (SuiteEvidence, build_provenance,
                              derive_ticket_status, evaluate_release,
                              load_external_blockers, write_json)
+
+POLICY_SCHEMA_VERSION = "phase09-release-policy-1.1"
 
 SUITES = {
     "benchmark_phase09": "tests_benchmark_phase09.py",
@@ -47,7 +52,17 @@ def main():
                         default=QA / "phase09_ticket_status.json")
     args = parser.parse_args()
     policy = json.loads((ROOT / "spec/phase09_release_policy.json").read_text("utf-8"))
-    external_blockers = load_external_blockers(ROOT / policy["external_state"])
+    if policy.get("schema_version") != POLICY_SCHEMA_VERSION:
+        raise SystemExit(f"unsupported release policy schema: "
+                         f"{policy.get('schema_version')!r} (expected {POLICY_SCHEMA_VERSION!r})")
+    # D7 (P0 closure): requirements may only declare what is required;
+    # satisfaction comes exclusively from the owner-controlled environment.
+    authority_requirements = policy.get("required_authorities", {})
+    validate_authority_requirements(authority_requirements)
+    authority_results = authority_results_from_env(authority_requirements, root=ROOT)
+    external_blockers = load_external_blockers(
+        ROOT / policy["external_state"],
+        owner_proofs=external_satisfaction_proofs_from_env(root=ROOT))
     results = {}
     outputs = {}
     for name in policy["required_suites"]:
@@ -90,10 +105,15 @@ def main():
         required_suites=policy["required_suites"], evidence=rows,
         expected_provenance=provenance, hard_invariants=hard,
         graph_gain_conclusion=policy["graph_gain_conclusion"],
-        required_authorities=policy.get("required_authorities", {}),
+        authority_requirements=authority_requirements,
+        authority_results=authority_results,
         external_blockers=external_blockers)
     evidence_payload = {
         **decision.to_dict(), "policy": policy,
+        # D7: sanitized authority verification outcomes only — no proof
+        # payloads, no expected digests, no key material are persisted.
+        "authorities": {authority_id: result.to_sanitized_dict()
+                        for authority_id, result in authority_results.items()},
         "suite_evidence": [row.to_dict() for row in rows],
         "suite_artifacts": artifact_paths,
         "benchmark_artifact": str(benchmark_path.relative_to(ROOT)),
@@ -108,7 +128,8 @@ def main():
                        ((row.name, row) for row in rows)},
         artifact_results={str(benchmark_path.relative_to(ROOT)): benchmark}
         if benchmark else {},
-        external_blockers=external_blockers)
+        external_blockers=external_blockers,
+        authority_results=authority_results)
     ticket_status["release_decision"] = decision.to_dict()
     write_json(args.status_out, ticket_status)
     print(json.dumps(decision.to_dict(), ensure_ascii=False, indent=2))

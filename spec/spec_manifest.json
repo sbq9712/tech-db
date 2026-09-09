@@ -1504,7 +1504,7 @@
   ],
   "spec_sha256": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
   "decision_register_version": "2026-08-18-final",
-  "decision_register_sha256": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+  "decision_register_sha256": "7404d217c9a4465edd376010828cfab795c0786e76c064208b706bdf985dfe85",
   "ticket_registry_version": "remediation-2026-08-18",
   "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
   "profile_registry_version": "1.1.0",
@@ -1512,7 +1512,7 @@
   "acceptance_matrix_sha256": "43450dcef5c7140202057ee250d1cd8c75a9803f82e2dd8196f8e746b26d111c",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
-    "docs/remediation/decision_register.md": "78bb1d2b539abd5d4bc195b79e93700f7d32ca132ab83fdec49c0b840b151048",
+    "docs/remediation/decision_register.md": "7404d217c9a4465edd376010828cfab795c0786e76c064208b706bdf985dfe85",
     "docs/remediation/execution_tickets.md": "8e201a5e5298bd681171663af14f13fce5ee656bf5d36306c930003651dfaef6",
     "docs/remediation/adversarial_review.md": "9565cd2bf493fc3ec11ee3c003c18701000795e1d4edb74643d735192f11fb62",
     "docs/remediation/legacy_normative_input.txt": "341560040ea69e412270b347ff33ffc88c0d0be17de21fbbc6e78b88cf3cca3d"
@@ -1535,5 +1535,5 @@
       ]
     }
   },
-  "spec_hash": "9666081fae1508e0b12c37f1e624a1b41e66768a7cf1aafa8d95ff83b3f7dac5"
+  "spec_hash": "3e29d10a5551e53e6a47862fe9337979800e7ac7c500c9c28f5b72bef925df97"
 }
