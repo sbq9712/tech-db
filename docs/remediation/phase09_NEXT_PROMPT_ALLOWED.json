@@ -1,7 +1,7 @@
 {
   "NEXT_PROMPT_ALLOWED": false,
   "core_eligible": false,
-  "evidence_generation_base_sha": "753dd98fb726b61302c08a0b52cfe12a71a8d019",
+  "evidence_generation_base_sha": "2e8013c6a0ba4629b64ef6c9a255d7c49d4340de",
   "external_blockers": [
     "Q-336",
     "RT-005",
@@ -13,7 +13,7 @@
     "Loosening required_authorities / hard invariants to force eligibility",
     "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
   ],
-  "generated_at": "2026-09-09T03:35:21.438126+00:00",
+  "generated_at": "2026-09-09T03:54:33.232018+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",

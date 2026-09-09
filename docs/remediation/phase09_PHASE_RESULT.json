@@ -30,7 +30,7 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-09T03:35:21.438454+00:00",
+    "domain_now": "2026-09-09T03:54:33.232355+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
@@ -44,14 +44,14 @@
       "generated_at": null,
       "path": "qa-backend/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "4999e5f33e413b7f33d6d0a71b2d1baa63ccab733cee7a79c6300dcca2abda72",
+      "sha256_at_generation": "937b11b5a2c88db2be2a5c9a303082cd042480fbd59d636872d34fc099cf61e4",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-09T03:35:00.851996+00:00",
+      "generated_at": "2026-09-09T03:53:52.022642+00:00",
       "path": "qa-backend/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "5b03a4f14b7dbc43f3149d21bbd2a188e25154d9cbf647b33d51cf835b6ed970",
+      "sha256_at_generation": "9146623d7995771b6894db48a6e6f69130a515acbc2cf645774988939677882f",
       "storage": "ci_generated"
     },
     {
@@ -70,7 +70,7 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "753dd98fb726b61302c08a0b52cfe12a71a8d019",
+  "evidence_generation_base_sha": "2e8013c6a0ba4629b64ef6c9a255d7c49d4340de",
   "external_blockers": {
     "Q-336": {
       "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
@@ -106,7 +106,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-09T03:35:21.438126+00:00",
+  "generated_at": "2026-09-09T03:54:33.232018+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -132,7 +132,7 @@
   "schema_version": "phase09-phase-result-2.0",
   "sha_semantics": {
     "evidence_commit_sha": "the descendant commit that stores the generated evidence files; adds evidence only and is NOT claimed to have been tested by this chain",
-    "evidence_generation_base_sha": "HEAD where the release gate and this generator executed; a descendant of tested_git_sha whose diff touches only chain-owned evidence files",
+    "evidence_generation_base_sha": "HEAD where the release gate and this generator executed; a descendant of tested_git_sha whose diff touches only chain-owned evidence files and evidence-chain tooling scripts",
     "tested_git_sha": "HEAD of the clean worktree the authoritative test execution (push tier) ran on"
   },
   "test_summary": {
