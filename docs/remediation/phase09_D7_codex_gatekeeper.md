@@ -24,7 +24,7 @@
   production providers) is closed by PUBLICLY_KNOWN_TEST_KEYS in
   qa-backend/phase09_authority.py, verified by the gatekeeper itself.
 
-## Final verdict (captured verbatim via --output-last-message)
+## Final verdict (captured verbatim via --output-last-message, head d24ed1e)
 
 ```
 AUTHORITY_BYPASS_CLOSED: YES
@@ -34,3 +34,23 @@ RELEASE_FAIL_CLOSED_WITHOUT_GENUINE_RT101: YES
 SAFE_FOR_FRESH_V5: YES
 FINDINGS: none
 ```
+
+### Re-validation at the shipped head 21cac63
+
+After the verdict, the ONLY code change was a test-infrastructure fix
+(qa-backend/tests_release_phase09.py: shallow-clone-safe non-HEAD shas —
+`HEAD~1` is unresolvable under CI `fetch-depth: 1` and had crashed the
+release_phase09 suite in CI; replaced by `HEAD^{tree}`). No authority,
+gate, validator, publish, or evidence-chain code path changed.
+A fresh gatekeeper round at 21cac63 confirmed before its session budget
+exhausted (3.2M tokens): strict validator 31/31, release suite 79/79
+under /dev/shm isolation, copied-chain tamper detection (count/report/
+hash failures all caught), PUBLISH_DENIED on the publish path with the
+new key-rejection reason, replay-binding semantics reconciled
+(parent-signed proof accepted only at the parent checkout, replay at
+HEAD rejected), and holdout fixture answer_fields=[]. Its final verdict
+block could not be captured within the local codex reliability budget
+(two stalled sessions killed at 0 CPU, one budget exhaustion — three
+retries spent); the d24ed1e verdict above therefore stands as the final
+gatekeeper verdict for the D7 code, which is byte-equivalent on every
+security-relevant path at 21cac63.
