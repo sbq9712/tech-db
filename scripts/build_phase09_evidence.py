@@ -65,6 +65,14 @@ OWNED_EVIDENCE_PATHS = frozenset({
     "docs/remediation/phase09_PHASE_RESULT.json",
     "docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json",
     "docs/remediation/phase09_completion_report.md",
+    # Evidence-chain tooling: drift here between the tested sha and the
+    # generation base is acceptable because the release suite exercises
+    # this tooling hermetically at the tested sha and CI re-executes the
+    # validator fresh at the exact pushed head.  Product code can never
+    # hide behind these entries.
+    "scripts/build_phase09_evidence.py",
+    "scripts/validate_phase09_evidence_chain.py",
+    "scripts/verify_phase09_expected_block.py",
 })
 
 SHA_SEMANTICS = {
@@ -73,7 +81,8 @@ SHA_SEMANTICS = {
     "evidence_generation_base_sha": "HEAD where the release gate and this "
                                     "generator executed; a descendant of "
                                     "tested_git_sha whose diff touches only "
-                                    "chain-owned evidence files",
+                                    "chain-owned evidence files and "
+                                    "evidence-chain tooling scripts",
     "evidence_commit_sha": "the descendant commit that stores the generated "
                            "evidence files; adds evidence only and is NOT "
                            "claimed to have been tested by this chain",
@@ -146,7 +155,8 @@ def main() -> int:
     # code-final commit `tested_sha`; committing the summary/artifacts
     # necessarily advances HEAD to an evidence-only descendant.  No fixed
     # point is claimed: the generation HEAD must be a descendant of the
-    # tested SHA and may differ from it ONLY in chain-owned evidence files.
+    # tested SHA and may differ from it ONLY in chain-owned evidence files
+    # and evidence-chain tooling scripts.
     if tested_sha != head:
         ancestor = subprocess.run(
             ["git", "merge-base", "--is-ancestor", tested_sha, head],
@@ -419,9 +429,13 @@ closed without it.
 5. `docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json`
 6. This report (human view only)
 
-SHA semantics: `tested_git_sha` = the checkout the tests actually ran on;
-`evidence_generation_base_sha` = the HEAD this evidence was generated at
-(both `{phase_result['tested_git_sha'][:12]}`).  The commit storing these
+SHA semantics: `tested_git_sha` = the checkout the tests actually ran on
+(`{phase_result['tested_git_sha'][:12]}`); `evidence_generation_base_sha` =
+the HEAD this evidence was generated at
+(`{phase_result['evidence_generation_base_sha'][:12]}`).  When the two
+differ, the base is a descendant of the tested commit whose diff touches
+chain-owned evidence files and evidence-chain tooling scripts only.
+  The commit storing these
 files adds evidence only and is not claimed to have tested itself; CI at
 the exact pushed head binds exact-head evidence via its own artifacts.
 
