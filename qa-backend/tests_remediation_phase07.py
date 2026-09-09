@@ -1378,7 +1378,12 @@ def wiring():
             "record_refs": [{"record_id": "gold-r1"}]}],
             "path_score": 1.4057, "grounded": True}]}
     import asyncio
-    result = asyncio.get_event_loop().run_until_complete(run_phase03_retrieval(
+    # py3.12+/3.14: get_event_loop raises with no loop set in the main
+    # thread — bind an explicit loop once (asyncio.run closes the loop and
+    # would break the second wiring call below).
+    _loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(_loop)
+    result = _loop.run_until_complete(run_phase03_retrieval(
         query="谁发布了Blackwell平台？",
         route_results=route_results,
         requirements=[{"id": "req-rel-1",
@@ -1408,7 +1413,7 @@ def wiring():
 
     # router-lies scenario: label SUPPORTED but NO real path supplied →
     # the independent engine must block the relation requirement
-    result_lie = asyncio.get_event_loop().run_until_complete(
+    result_lie = _loop.run_until_complete(
         run_phase03_retrieval(
             query="谁发布了Blackwell平台？",
             route_results={"vector": [
