@@ -30,7 +30,7 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-09T07:00:40.524328+00:00",
+    "domain_now": "2026-09-09T10:12:23.043334+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
@@ -44,14 +44,14 @@
       "generated_at": null,
       "path": "qa-backend/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "023a3170bfee05df89f5dc40c64e20ec4f6a9150b03221af2318996b85bc1bdc",
+      "sha256_at_generation": "e062c9641efa75e6d0d980c84296240fde8e90dde0a48486fb0236d89e3b3f9e",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-09T07:00:40.100458+00:00",
+      "generated_at": "2026-09-09T10:12:05.887954+00:00",
       "path": "qa-backend/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "bdefd08bcb73dfdefc6ba5ad6867fa7ad1f7ed56200160f0516a1428c3cd7993",
+      "sha256_at_generation": "26ebee2b6b30b6b5e009f510ac71ae7cd8ddf37ec2a79eeb83166e1aac5836e1",
       "storage": "ci_generated"
     },
     {
@@ -70,7 +70,7 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "a97a0bde9992b967e957d4d2197298509e8bcdf9",
+  "evidence_generation_base_sha": "88d85729a3aeaed43cfb279005cc4f0a17152e33",
   "external_blockers": {
     "Q-336": {
       "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
@@ -106,7 +106,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-09T07:00:40.524019+00:00",
+  "generated_at": "2026-09-09T10:12:23.043214+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",

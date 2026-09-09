@@ -5,13 +5,13 @@
 
 ### CURRENT_STATE
 - branch: `remediation/phase-09-benchmarks-ci-release-gates` — PR #10 **open / draft / unmerged**
-- final evidence commit: this head; tested commit `ab399f5ceed079e5094e6755aa56faa45af11847` (clean worktree), generation base `d4977c6ce8044187cb2dc8e1a816514cfda1aa65` (owned-evidence-only drift, descendant-base semantics — no self-reference fixed point)
+- final evidence commit: this head; tested commit `2f12b69f6ab96424ed1b36ca2f54e4e9eb043760` (clean worktree), generation base `88d85729a3aeaed43cfb279005cc4f0a17152e33` (owned-evidence-only drift, descendant-base semantics — no self-reference fixed point)
 - worktree clean; normal pushes only (no force push)
 
 ### MACHINE EVIDENCE
 ```text
 total: 1689 passed, 0 failed across 49 suites
-tested_git_sha: ab399f5ceed079e5094e6755aa56faa45af11847
+tested_git_sha: 2f12b69f6ab96424ed1b36ca2f54e4e9eb043760
 test_summary sha256: see docs/remediation/phase09_PHASE_RESULT.json (evidence_chain)
 phase_status: NOT_SATISFIED
 core_eligible: false
@@ -33,7 +33,7 @@ phase10: NOT_STARTED
 One-way machine-derived chain: `qa-backend/test_summary.json` → release/ticket evidence (CI-generated, gitignored) → `docs/remediation/phase09_PHASE_RESULT.json` → `phase09_NEXT_PROMPT_ALLOWED.json` → completion report. `scripts/validate_phase09_evidence_chain.py --strict-machine` passes **31/31** checks (counts, hashes, decision incl. reasons/authorities, blockers, graph, phase implications, report machine-block, generation order with future-stamp rejection, SHA semantics `tested ≤ base ≤ head` with owned-only drift, artifact existence/hashes, policy suites, graph, live-env authority match, external-state freshness).
 
 ### TESTS
-- `python3 qa-backend/run_all_tests.py --tier push` at clean `ab399f5`: **1689 passed / 0 failed / 49 suites**
+- `python3 qa-backend/run_all_tests.py --tier push` at clean `2f12b69`: **1689 passed / 0 failed / 49 suites**
 - `qa-backend/tests_release_phase09.py`: 79/79 cases incl. 16 adversarial authority cases, publish-path denials, evidence-chain drift matrix
 - Canonical gate exits 1 **by design**: the only failure reason is genuine RT-101 authority absence (`scripts/verify_phase09_expected_block.py` certifies INTENTIONAL_FAIL_CLOSED). This is the correct fail-closed state, not a regression — the only permitted CI red is the phase09 job failing for exactly this reason.
 
