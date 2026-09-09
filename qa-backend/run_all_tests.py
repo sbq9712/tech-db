@@ -253,16 +253,30 @@ def main():
     # current truth (Gatekeeper self-reference fix).  Runs only after all
     # argument validation has passed — nothing may exit between here and
     # the finally-guarded finalize below.
+    # D7 evidence chain: sample the checkout binding at run START, before
+    # any suite can write artifacts (the run itself dirties the tree).
+    _start_head_proc = subprocess.run(["git", "rev-parse", "HEAD"],
+                                      cwd=HERE.parent,
+                                      capture_output=True, text=True)
+    _start_status_proc = subprocess.run(["git", "status", "--porcelain"],
+                                        cwd=HERE.parent,
+                                        capture_output=True, text=True)
+    run_git_sha = (_start_head_proc.stdout.strip()
+                   if _start_head_proc.returncode == 0 else "unknown")
+    run_start_dirty = (bool(_start_status_proc.stdout.strip())
+                       if _start_status_proc.returncode == 0 else None)
     _runner_preflight(summary_out, prev, marker)
     try:
-        return _execute(args, summary_out, prev, marker, selected)
+        return _execute(args, summary_out, prev, marker, selected,
+                        run_git_sha, run_start_dirty)
     except BaseException:
         _runner_crash_cleanup(summary_out, prev, marker)
         raise
 
 
 def _execute(args, summary_out: Path, prev: Path, marker: Path,
-             selected: list) -> int:
+             selected: list, run_git_sha: str = "unknown",
+             run_start_dirty: bool | None = None) -> int:
     # suites whose file doesn't exist yet are reported as missing, not run
     results, missing = [], []
     for tag in selected:
@@ -279,17 +293,14 @@ def _execute(args, summary_out: Path, prev: Path, marker: Path,
     total_f = sum(r["failed"] for r in results)
     ok = all(r["status"] == "PASS" for r in results) and not missing
 
-    # D7 evidence chain: bind the summary to the exact checkout it ran on.
-    # git_sha semantics = HEAD of the worktree the suites executed in;
-    # worktree_dirty = whether uncommitted changes existed at run start.
-    _head_proc = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE.parent,
-                                capture_output=True, text=True)
-    _status_proc = subprocess.run(["git", "status", "--porcelain"], cwd=HERE.parent,
-                                  capture_output=True, text=True)
+    # D7 evidence chain: bind the summary to the checkout sampled at run
+    # start.  git_sha semantics = HEAD the suites executed against;
+    # worktree_dirty = whether uncommitted changes existed at run START
+    # (suite artifacts written during the run are expected and excluded).
     summary = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        "git_sha": _head_proc.stdout.strip() if _head_proc.returncode == 0 else "unknown",
-        "worktree_dirty": bool(_status_proc.stdout.strip()) if _status_proc.returncode == 0 else None,
+        "git_sha": run_git_sha,
+        "worktree_dirty": run_start_dirty,
         "tier": args.tier,
         "all_passed": ok,
         "total_passed": total_p,
