@@ -13,7 +13,7 @@ const QA_API_BASE = (() => {
   if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
     return 'http://localhost:8765';
   }
-  return 'https://reservation-disable-affects-key.trycloudflare.com';
+  return 'https://guides-city-pants-hay.trycloudflare.com';
 })();
 
 // ── State ──
