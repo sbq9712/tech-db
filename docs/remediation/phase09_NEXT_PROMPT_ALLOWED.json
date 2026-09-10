@@ -1,7 +1,7 @@
 {
   "NEXT_PROMPT_ALLOWED": false,
   "core_eligible": false,
-  "evidence_generation_base_sha": "6596cfb55396f0a0ebf27a01fd1f8eade4f7573f",
+  "evidence_generation_base_sha": "be761db8f4147f90b75445138e5fe5486bf637eb",
   "external_blockers": [
     "Q-336",
     "RT-005",
@@ -13,7 +13,7 @@
     "Loosening required_authorities / hard invariants to force eligibility",
     "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
   ],
-  "generated_at": "2026-09-10T07:37:26.019943+00:00",
+  "generated_at": "2026-09-10T08:43:34.958170+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -29,12 +29,12 @@
     }
   },
   "schema_version": "phase09-next-prompt-gate-2.0",
-  "tested_git_sha": "b00dc1538e73cd69e52f3e36825af11b1da3a8e8",
+  "tested_git_sha": "ba9dfddf8dfc8f171644b8060591bff8784fb460",
   "unblock_conditions": [
     "Provision genuine RT-101 answer-level blinded release-holdout authority via the owner environment channel (see docs/remediation/phase09_RT101_provisioning.md); it cannot be provisioned by repository edits or by an agent.",
     "Clear Q-336 with durable >=180d artifact retention.",
     "Clear RT-005 with repository-admin branch-protection (enforce admins) configuration.",
-    "Clear RT-075 with >=100 real production-representative ER shadow events across >=168h (CI replay does not qualify)."
+    "Clear RT-075 by either: (A) >=1,000 qualifying representative live-shadow ER events across >=7 days (>=168h) of real production traffic, or (B) an equivalent locked replay that passes the registered replay verifier (scripts/verify_rt075_locked_replay.py) and receives the required owner-provisioned external approval proof (PHASE09_EXTERNAL_SATISFACTION_PROOFS + PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY with the RT-075 entry binding artifact_sha256 = the approval request artifact's sha256). Synthetic/CI-only evidence cannot impersonate either path; an unapproved replay never clears RT-075."
   ],
   "why": [
     "phase_status=NOT_SATISFIED (not PASS)",
