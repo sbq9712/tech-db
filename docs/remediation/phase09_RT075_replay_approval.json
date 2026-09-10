@@ -1,0 +1,99 @@
+{
+  "schema_version": "rt075-equivalent-replay-approval-1.0",
+  "artifact_type": "RT075_EQUIVALENT_LOCKED_REPLAY_APPROVAL_REQUEST",
+  "generated_at_utc": "2026-09-10T07:03:18.636242+00:00",
+  "git_head": "b82d2c127630cdb5ba0da74b1701cff4f92f8345",
+  "spec_authority": {
+    "execution_tickets_L920": ">=1,000 representative events + 7 days or approved equivalent replay before activation",
+    "final_spec_L1217": "representative shadow window: >=1,000 events and 7 days, or equivalent locked replay + explicit approval",
+    "final_spec_L1192": "Low-traffic exception requires equivalent locked replay plus explicit approval, not zero evidence"
+  },
+  "evidence": {
+    "replay_dataset_sha256": "c03a1b514427a9c2d4a940036694076bc131dcb14e4c8f65025efda46a81e73b",
+    "replay_report_artifact_sha256": "9da4f69a159778ebe9469740e6f470802a29fedd37a82006fac36525f0bc12f0",
+    "replay_corpus_sha256": "c7a5192d2e38dcf19de2990b31dc3e52a263973f38002b6d13e2d507a886bcf4",
+    "replay_corpus_record_count": 61848,
+    "replay_registry_sha256": "8a3018d16e2717f5525710fe6cb8890ae6ef3207c8487792d9327fc3283c8a0a",
+    "identity_snapshot_id": "ids_183f00d47195a23817dd9a21",
+    "replay_case_count": 5866,
+    "replay_observation_count": 25825,
+    "replay_decision_counts": {
+      "LINK": 3741,
+      "NEW": 13073,
+      "AMBIGUOUS": 5481,
+      "BLOCKED": 3530
+    },
+    "verifier_verdicts": {
+      "LOCKED_REPLAY_INTEGRITY": "PASS",
+      "REAL_VS_SYNTHETIC_PROVENANCE_SOUND": "SOUND",
+      "PRODUCTION_REPRESENTATIVENESS_SUPPORTED": "SUPPORTED",
+      "CLASS_COVERAGE_ADEQUATE": "ADEQUATE",
+      "RESULT_SELECTION_BIAS_PREVENTED": "PREVENTED",
+      "PRIVACY_BOUNDARY_PRESERVED": "PRESERVED",
+      "EQUIVALENT_TO_REQUIRED_SHADOW_WINDOW": "EQUIVALENT_PROPOSED",
+      "RT075_REPLAY_TECHNICALLY_ACCEPTABLE": "ACCEPTABLE",
+      "P0_FINDINGS": [],
+      "P1_FINDINGS": [],
+      "P2_FINDINGS": [
+        "top1_agreement is structurally 0.0 (legacy_hybrid serving has no ER path to agree with); delta measurement is the purpose of the shadow, no action.",
+        "dataset and report live OUTSIDE the repo (/home/rhett/tech-db-replay/rt075_locked_replay_dataset.json); only aggregate counts + sha256 bindings enter git. Re-verification requires owner-side corpus+dataset access.",
+        "7-day live window contained no recorded /api/chat traffic (server launched without shadow env; zero real requests in owner logs), so window-distribution comparison vs live traffic is vacuous; representativeness basis is the production ingest corpus itself (61848 records, sha-pinned) — the actual workload ingest-time ER processes."
+      ]
+    },
+    "equivalent_window_gate": {
+      "min_events": 1000,
+      "events_met": true,
+      "all_decision_classes_present": true,
+      "deterministic": true,
+      "determinism_proof_executed": true,
+      "selection_reproducible": true,
+      "no_rollback_triggers": true,
+      "seal_intact": true
+    },
+    "dataset_stored_at": "owner-side locked storage outside the repository; dataset carries locators only (no record text in the repository)",
+    "codex_independent_review": {
+      "tool": "codex exec --sandbox read-only",
+      "sessions": [
+        {
+          "role": "round-1-full-charter-review",
+          "file": "codex_output.txt",
+          "sha256": "abf5c123c37bfc0b981d32085b84c05f16ecab3958058325c99c84f6b70d2666",
+          "verdict": "NOT_EMITTED"
+        },
+        {
+          "role": "round-2-VERDICT-REJECT-P1-provenance-P2-determinism",
+          "file": "codex_output_b.txt",
+          "sha256": "3169e0b28e66da55a690a2c3f6d1da9b1508d463a85400de4f468539ba0b5873",
+          "verdict": "REJECT"
+        },
+        {
+          "role": "round-3-VERDICT-ACCEPT-on-hardened-provenance",
+          "file": "codex_output_c.txt",
+          "sha256": "eef0112587c5f3b35575bc4ed59f283efef5d703f9e03f9c14849c498c0c718b",
+          "verdict": "ACCEPT"
+        },
+        {
+          "role": "round-4-VERDICT-ACCEPT_WITH_FINDINGS-P2-skip-determinism",
+          "file": "codex_output_d.txt",
+          "sha256": "6583bd90e7deb6f859be5e12a2909a7d768f60d3308c49cad76ddd451be0e703",
+          "verdict": "ACCEPT_WITH_FINDINGS"
+        },
+        {
+          "role": "round-5-FINAL-VERDICT-ACCEPT-no-findings",
+          "file": "codex_output_e.txt",
+          "sha256": "9ae3bf34a95f4f55454f6fa0b1408d524d36769acdd072ff02d44c14aa4d4a24",
+          "verdict": "ACCEPT"
+        }
+      ],
+      "verbatim_outputs": "archived owner-side under tech-db-overnight/codex-K3/ (outside the repository)"
+    }
+  },
+  "approval": {
+    "state": "PENDING_OWNER_APPROVAL",
+    "approver": null,
+    "approved_at_utc": null,
+    "mechanism": "owner provisions PHASE09_EXTERNAL_SATISFACTION_PROOFS + PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY with the RT-075 entry declaring artifact_sha256 = this file's sha256, and sets the RT-075 row satisfied=true in spec/phase09_external_state.json with satisfaction_proof {artifact: this file, sha256: <this file's sha256>}",
+    "fallback_if_not_approved": "7-day live production shadow (Path A) remains the required completion path",
+    "note": "This artifact is a REQUEST. It never asserts approval; no signature is forged; repo-side or agent-side edits cannot clear RT-075 (fail-closed in phase09_release.load_external_blockers)."
+  }
+}

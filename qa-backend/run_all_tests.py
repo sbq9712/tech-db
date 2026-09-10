@@ -82,6 +82,7 @@ SUITES = {
     "repair_phase09_reliability": ("tests_repair_phase09_reliability.py", "push"),
     "runtime_budget_repair": ("tests_runtime_budget_repair.py", "push"),
     "rt075_shadow_store": ("tests_rt075_shadow_store.py", "push"),
+    "rt075_locked_replay": ("tests_rt075_locked_replay.py", "push"),
     "q336_retention_bundle": ("tests_q336_retention_bundle.py", "push"),
     "index_migration": ("tests_index_migration.py", "push"),
     "visual_rt029":    ("tests_visual_rt029.py", "push"),

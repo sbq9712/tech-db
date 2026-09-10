@@ -5,7 +5,74 @@ start the RT-075 timer, and no agent may touch the owner's running
 services (`qa-backend` :8765, frontend :8097, cloudflared). This page
 compresses the owner-side deployment to a single action.
 
-## Why the timer has not started
+## Path B (owner-authorized fast path): approved equivalent locked replay
+
+Owner steering (2026-09-10) authorized the priority order: (1) existing
+qualifying historical evidence — none exists (live window had zero
+recorded `/api/chat` traffic and pre-ER traces); (2) **equivalent
+locked replay** — built; (3) 7-day live shadow — fallback only.
+
+What was sealed (machine-verified, `RT075_REPLAY_TECHNICALLY_ACCEPTABLE:
+ACCEPTABLE`, provenance SOUND, privacy PRESERVED, independently
+Codex-reviewed to ACCEPT after a hardening cycle):
+
+- locked replay dataset: **5,866 cases** selected outcome-blind from the
+  sha-pinned historical production ingest corpus (61,848 records,
+  `c7a5192d…6bcf4`) + the live production entity registry;
+  `dataset_sha256 c03a1b51…81e73b`; cases store **locators only** (no
+  record text leaves the corpus); sealed canonical-JSON, immutable once
+  sealed; synthetic cases = 0
+- replay through the production ingest-shadow path
+  (`entity_shadow.resolve_ingest_shadow`, `window_type=CI_REPLAY`):
+  **25,825 observations**, all decision classes present (LINK 3,741 /
+  NEW 13,073 / AMBIGUOUS 5,481 / BLOCKED 3,530), zero false-link
+  candidates, zero rollback triggers, full-report deterministic repeat
+  run (equality except volatile timing fields; the determinism proof is
+  mandatory — skipping it can never yield ACCEPTABLE)
+- tools: `scripts/build_rt075_locked_replay.py`,
+  `scripts/verify_rt075_locked_replay.py` (independent selection
+  re-derivation, seal re-verification, approval-artifact cross-binding,
+  fail-closed on any tamper; hermetic tests in
+  `qa-backend/tests_rt075_locked_replay.py`, 40 checks)
+- the dataset and replay report live on **owner-side storage** (outside
+  the repo); the repo commits only the approval artifact binding them
+  by sha256
+
+## Path B — the ONE owner approval action
+
+After review of `docs/remediation/phase09_RT075_replay_approval.json`
+(which binds the dataset seal `c03a1b51…81e73b`, corpus sha
+`c7a5192d…6bcf4`, counts, verdicts, and the full independent Codex
+review history — round 2 REJECTed the provenance handling, the fixes
+were applied, and round 5 re-reviewed to ACCEPT with no findings), the
+single owner approval operation is:
+
+```bash
+# 0. confirm the committed artifact digest:
+#    8b95b71bdc7b8d686e684d24723c243a0ad1b74bfd6983cf0a6d951f9ca70971
+sha256sum docs/remediation/phase09_RT075_replay_approval.json
+
+# 1. provision the owner-only external satisfaction proof binding that
+#    digest (RT-075 entry, decision SATISFIED):
+gh secret set PHASE09_EXTERNAL_SATISFACTION_PROOFS < proofs.json
+gh secret set PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY
+
+# 2. set the RT-075 row satisfied=true in spec/phase09_external_state.json
+#    with satisfaction_proof {artifact:
+#    docs/remediation/phase09_RT075_replay_approval.json,
+#    sha256: 8b95b71bdc7b8d686e684d24723c243a0ad1b74bfd6983cf0a6d951f9ca70971}
+```
+
+Steps 1+2 are one approval sitting; the gate validates them together
+and fails closed on any mismatch. Nothing agent-side clears RT-075.
+
+Nothing agent-side clears RT-075: `satisfied=true` without the
+owner-provisioned HMAC proof fails closed
+(`qa-backend/phase09_release.py::load_external_blockers`). If the
+replay path is NOT approved, Path A below (7-day live shadow) is the
+fallback.
+
+## Path A (fallback): live 7-day shadow — why the timer has not started
 
 - The running production server was launched WITHOUT shadow env
   (`TECH_DB_ENTITY_QUERY_SHADOW` unset) and runs `TECH_DB_RUNTIME_MODE=legacy_hybrid`.
