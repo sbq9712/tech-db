@@ -30,28 +30,28 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-10T05:30:15.908866+00:00",
+    "domain_now": "2026-09-10T07:37:26.020069+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
     {
       "path": "qa-backend/test_summary.json",
       "role": "authoritative test counts",
-      "sha256": "9863deb0c3da71bf021f378c853bb18781fdfecb7c60e8f0a83a2300e2a8ea5c",
+      "sha256": "ab288dce79535d60cd1592a40bd969f328dddf44a7df15c7de0ad5f34a2b8c53",
       "storage": "committed"
     },
     {
       "generated_at": null,
       "path": "qa-backend/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "5a7b366cb0f383d2206ec4bdc5960df316bac0a2e5d2b58fd09092a105954641",
+      "sha256_at_generation": "59ea762fc944163dbfe74b5835f100d431b4110b166302e180e1b465ff3ee4ee",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-10T05:30:06.440037+00:00",
+      "generated_at": "2026-09-10T07:37:25.962820+00:00",
       "path": "qa-backend/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "add894671f5d2c67a844a20b7d5cf9bf6884aaede556555bd78cb5ccaba5d55c",
+      "sha256_at_generation": "327e0dc8e9e6225c2994995391d1aaab4944a288650963cb63eaad7a70865fbc",
       "storage": "ci_generated"
     },
     {
@@ -70,7 +70,7 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "e1324dc018c44168754fb4458f5443f101fb6e28",
+  "evidence_generation_base_sha": "6596cfb55396f0a0ebf27a01fd1f8eade4f7573f",
   "external_blockers": {
     "Q-336": {
       "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
@@ -85,9 +85,9 @@
       "satisfied": false
     },
     "RT-075": {
-      "description": "production-representative ER shadow evidence is unavailable",
-      "observed_at": "2026-09-08T12:00:00Z",
-      "re_verified_at": "2026-09-08T12:00:00Z",
+      "description": "production-representative ER shadow evidence: equivalent locked replay evidence sealed (5,866 sha-pinned production-corpus cases, 25,825 observations, all decision classes, deterministic) — PENDING OWNER APPROVAL via external satisfaction proof; 7-day live shadow remains the fallback path",
+      "observed_at": "2026-09-10T00:00:00Z",
+      "re_verified_at": "2026-09-10T00:00:00Z",
       "satisfied": false
     }
   },
@@ -106,7 +106,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-10T05:30:15.908764+00:00",
+  "generated_at": "2026-09-10T07:37:26.019943+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -137,15 +137,15 @@
   },
   "test_summary": {
     "all_passed": true,
-    "generated_at": "2026-09-10T13:21:17",
-    "git_sha": "103713c91899420bfbe5a3ed01b3e522450a365f",
+    "generated_at": "2026-09-10T15:34:21",
+    "git_sha": "b00dc1538e73cd69e52f3e36825af11b1da3a8e8",
     "path": "qa-backend/test_summary.json",
-    "sha256": "9863deb0c3da71bf021f378c853bb18781fdfecb7c60e8f0a83a2300e2a8ea5c",
-    "suite_count": 51,
+    "sha256": "ab288dce79535d60cd1592a40bd969f328dddf44a7df15c7de0ad5f34a2b8c53",
+    "suite_count": 52,
     "total_failed": 0,
-    "total_passed": 1729
+    "total_passed": 1769
   },
-  "tested_git_sha": "103713c91899420bfbe5a3ed01b3e522450a365f",
+  "tested_git_sha": "b00dc1538e73cd69e52f3e36825af11b1da3a8e8",
   "ticket_status_path": "qa-backend/phase09_ticket_status.json",
   "title": "Benchmarks, CI, release gates + runtime-budget repair"
 }
