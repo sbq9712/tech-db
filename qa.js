@@ -13,7 +13,7 @@ const QA_API_BASE = (() => {
   if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
     return 'http://localhost:8765';
   }
-  return 'https://installing-hopefully-automatic-send.trycloudflare.com';
+  return 'https://median-sharing-continue-purple.trycloudflare.com';
 })();
 
 // ── State ──
