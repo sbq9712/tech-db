@@ -1,8 +1,8 @@
 {
   "schema_version": "rt075-equivalent-replay-approval-1.0",
   "artifact_type": "RT075_EQUIVALENT_LOCKED_REPLAY_APPROVAL_REQUEST",
-  "generated_at_utc": "2026-09-10T07:03:18.636242+00:00",
-  "git_head": "b82d2c127630cdb5ba0da74b1701cff4f92f8345",
+  "generated_at_utc": "2026-09-10T08:23:33.623492+00:00",
+  "git_head": "a0f36a06547ab325e821d33ea5b48c5f28f39a87",
   "spec_authority": {
     "execution_tickets_L920": ">=1,000 representative events + 7 days or approved equivalent replay before activation",
     "final_spec_L1217": "representative shadow window: >=1,000 events and 7 days, or equivalent locked replay + explicit approval",
@@ -10,7 +10,7 @@
   },
   "evidence": {
     "replay_dataset_sha256": "c03a1b514427a9c2d4a940036694076bc131dcb14e4c8f65025efda46a81e73b",
-    "replay_report_artifact_sha256": "9da4f69a159778ebe9469740e6f470802a29fedd37a82006fac36525f0bc12f0",
+    "replay_report_artifact_sha256": "d495fc668eb16a44bcfb90d96fef487df4fdff16d4012092411f803f8e5f4ba0",
     "replay_corpus_sha256": "c7a5192d2e38dcf19de2990b31dc3e52a263973f38002b6d13e2d507a886bcf4",
     "replay_corpus_record_count": 61848,
     "replay_registry_sha256": "8a3018d16e2717f5525710fe6cb8890ae6ef3207c8487792d9327fc3283c8a0a",

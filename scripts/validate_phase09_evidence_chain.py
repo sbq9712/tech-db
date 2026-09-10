@@ -217,6 +217,25 @@ def main() -> int:
                "NEXT_PROMPT_ALLOWED=true with non-PASS phase")
     else:
         record("C6c", "next-prompt safety implication", True)
+    # C6d RT-075 canonical unblock rule (authority: execution tickets L920,
+    # final spec L1217/L1192). The artifact must carry the registered rule
+    # verbatim (phase09_authority.RT075_UNBLOCK_RULE: live >=1,000 events
+    # across >=7 days OR approved equivalent locked replay), and the WRONG
+    # historical ">=100 real ... across >=168h" wording must never return.
+    try:
+        from phase09_authority import RT075_UNBLOCK_RULE  # noqa: E402
+    except Exception:
+        RT075_UNBLOCK_RULE = None
+    nxt_conditions = nxt.get("unblock_conditions", [])
+    rt075_conditions = [c for c in nxt_conditions if "RT-075" in c]
+    rule_ok = (RT075_UNBLOCK_RULE is not None
+               and len(rt075_conditions) == 1
+               and rt075_conditions[0] == RT075_UNBLOCK_RULE)
+    legacy_absent = all(">=100 real" not in str(c) for c in nxt_conditions)
+    record("C6d", "RT-075 unblock rule matches registered authority",
+           rule_ok and legacy_absent,
+           "" if rule_ok and legacy_absent else
+           f"rt075_conditions={rt075_conditions[:1]}")
 
     # C7 completion report machine block vs PHASE_RESULT
     m = re.search(r"<!-- machine-block begin.*?```text\n(.*?)```.*?<!-- machine-block end -->",

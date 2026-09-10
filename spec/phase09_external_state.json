@@ -49,7 +49,7 @@
         "re_verified_at": "2026-09-10T00:00:00Z",
         "source": "sealed locked replay 2026-09-10 built by scripts/build_rt075_locked_replay.py from sha-pinned production ingest corpus + live entity registry; verified by scripts/verify_rt075_locked_replay.py (verdict RT075_REPLAY_TECHNICALLY_ACCEPTABLE=ACCEPTABLE, P0/P1 none); clearing still requires the owner-provisioned external satisfaction proof binding the approval artifact sha256",
         "approval_artifact": "docs/remediation/phase09_RT075_replay_approval.json",
-        "approval_artifact_sha256_owner_provisions": "8b95b71bdc7b8d686e684d24723c243a0ad1b74bfd6983cf0a6d951f9ca70971",
+        "approval_artifact_sha256_owner_provisions": "8cd9be5b853a12a912d64f332c195a4ad1d36bf5becabf37dba94bc266313be0",
         "codex_review_final_verdict": "ACCEPT (round 5, no findings; history: REJECT r2 -> fixed -> ACCEPT_WITH_FINDINGS r4 -> fixed -> ACCEPT r5)"
       },
       "satisfied": false

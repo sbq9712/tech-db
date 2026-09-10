@@ -49,7 +49,7 @@ single owner approval operation is:
 
 ```bash
 # 0. confirm the committed artifact digest:
-#    8b95b71bdc7b8d686e684d24723c243a0ad1b74bfd6983cf0a6d951f9ca70971
+#    8cd9be5b853a12a912d64f332c195a4ad1d36bf5becabf37dba94bc266313be0
 sha256sum docs/remediation/phase09_RT075_replay_approval.json
 
 # 1. provision the owner-only external satisfaction proof binding that
@@ -60,7 +60,7 @@ gh secret set PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY
 # 2. set the RT-075 row satisfied=true in spec/phase09_external_state.json
 #    with satisfaction_proof {artifact:
 #    docs/remediation/phase09_RT075_replay_approval.json,
-#    sha256: 8b95b71bdc7b8d686e684d24723c243a0ad1b74bfd6983cf0a6d951f9ca70971}
+#    sha256: 8cd9be5b853a12a912d64f332c195a4ad1d36bf5becabf37dba94bc266313be0}
 ```
 
 Steps 1+2 are one approval sitting; the gate validates them together

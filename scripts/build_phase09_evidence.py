@@ -40,6 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "qa-backend"))
 
 from phase09_authority import (  # noqa: E402
+    RT075_UNBLOCK_RULE,
     RT101_AUTHORITY_ID,
     authority_results_from_env,
     external_satisfaction_proofs_from_env,
@@ -111,6 +112,75 @@ def sha256_file(path: Path) -> str:
 
 def fail(msg: str) -> None:
     raise SystemExit(f"build_phase09_evidence: {msg}")
+
+
+def build_next_prompt(*, phase_result: dict, decision: dict,
+                      authority_results: dict, tested_sha: str,
+                      evidence_generation_base_sha: str,
+                      generated_at: str) -> dict:
+    """Derive the canonical NEXT_PROMPT gate artifact.
+
+    NEXT_PROMPT_ALLOWED requires: phase PASS + core eligible + production
+    release eligible + no external blocker + every required authority
+    satisfied (D7). The RT-075 unblock condition is the registered
+    authority rule (phase09_authority.RT075_UNBLOCK_RULE), never a
+    locally re-worded copy.
+    """
+    next_allowed = bool(
+        phase_result["phase_status"] == "PASS"
+        and decision.get("core_eligible") is True
+        and decision.get("production_release_eligible") is True
+        and not decision.get("external_blockers")
+        and all(result.satisfied for result in authority_results.values())
+    )
+    reasons = []
+    if phase_result["phase_status"] != "PASS":
+        reasons.append(f"phase_status={phase_result['phase_status']} (not PASS)")
+    if decision.get("core_eligible") is not True:
+        reasons.append("core_eligible=false: " + "; ".join(decision.get("reasons", [])))
+    if decision.get("external_blockers"):
+        reasons.append("external blockers: " + ", ".join(sorted(decision["external_blockers"])))
+    for authority_id, result in authority_results.items():
+        if not result.satisfied:
+            reasons.append(f"required authority unsatisfied: {authority_id}")
+
+    return {
+        "schema_version": NEXT_PROMPT_SCHEMA,
+        "phase": "Phase09",
+        "generated_at": generated_at,
+        "tested_git_sha": tested_sha,
+        "evidence_generation_base_sha": evidence_generation_base_sha,
+        "NEXT_PROMPT_ALLOWED": next_allowed,
+        "why": reasons,
+        "phase_status": phase_result["phase_status"],
+        "core_eligible": decision.get("core_eligible"),
+        "production_release_eligible": decision.get("production_release_eligible"),
+        "external_blockers": sorted(decision.get("external_blockers", [])),
+        "graph": phase_result["graph"],
+        "required_authorities": {
+            authority_id: {"satisfied": result.satisfied}
+            for authority_id, result in authority_results.items()
+        },
+        "unblock_conditions": [
+            "Provision genuine RT-101 answer-level blinded release-holdout "
+            "authority via the owner environment channel (see "
+            "docs/remediation/phase09_RT101_provisioning.md); it cannot be "
+            "provisioned by repository edits or by an agent.",
+            "Clear Q-336 with durable >=180d artifact retention.",
+            "Clear RT-005 with repository-admin branch-protection "
+            "(enforce admins) configuration.",
+            RT075_UNBLOCK_RULE,
+        ],
+        "forbidden": [
+            "Fabricating or approximating blinded holdout gold",
+            "Flipping external-state or authority status via repository "
+            "edits (fail-closed by design since D7)",
+            "Loosening required_authorities / hard invariants to force "
+            "eligibility",
+            "Starting Phase10 while NEXT_PROMPT_ALLOWED=false",
+        ],
+        "phase10": "NOT_STARTED" if not next_allowed else "ELIGIBLE_TO_START",
+    }
 
 
 def main() -> int:
@@ -299,62 +369,14 @@ def main() -> int:
         },
     }
 
-    next_allowed = bool(
-        phase_result["phase_status"] == "PASS"
-        and decision.get("core_eligible") is True
-        and decision.get("production_release_eligible") is True
-        and not decision.get("external_blockers")
-        and all(result.satisfied for result in authority_results.values())
+    next_prompt = build_next_prompt(
+        phase_result=phase_result,
+        decision=decision,
+        authority_results=authority_results,
+        tested_sha=tested_sha,
+        evidence_generation_base_sha=evidence_generation_base_sha,
+        generated_at=generated_at,
     )
-    reasons = []
-    if phase_result["phase_status"] != "PASS":
-        reasons.append(f"phase_status={phase_result['phase_status']} (not PASS)")
-    if decision.get("core_eligible") is not True:
-        reasons.append("core_eligible=false: " + "; ".join(decision.get("reasons", [])))
-    if decision.get("external_blockers"):
-        reasons.append("external blockers: " + ", ".join(sorted(decision["external_blockers"])))
-    for authority_id, result in authority_results.items():
-        if not result.satisfied:
-            reasons.append(f"required authority unsatisfied: {authority_id}")
-
-    next_prompt = {
-        "schema_version": NEXT_PROMPT_SCHEMA,
-        "phase": "Phase09",
-        "generated_at": generated_at,
-        "tested_git_sha": tested_sha,
-        "evidence_generation_base_sha": evidence_generation_base_sha,
-        "NEXT_PROMPT_ALLOWED": next_allowed,
-        "why": reasons,
-        "phase_status": phase_result["phase_status"],
-        "core_eligible": decision.get("core_eligible"),
-        "production_release_eligible": decision.get("production_release_eligible"),
-        "external_blockers": sorted(decision.get("external_blockers", [])),
-        "graph": phase_result["graph"],
-        "required_authorities": {
-            authority_id: {"satisfied": result.satisfied}
-            for authority_id, result in authority_results.items()
-        },
-        "unblock_conditions": [
-            "Provision genuine RT-101 answer-level blinded release-holdout "
-            "authority via the owner environment channel (see "
-            "docs/remediation/phase09_RT101_provisioning.md); it cannot be "
-            "provisioned by repository edits or by an agent.",
-            "Clear Q-336 with durable >=180d artifact retention.",
-            "Clear RT-005 with repository-admin branch-protection "
-            "(enforce admins) configuration.",
-            "Clear RT-075 with >=100 real production-representative ER "
-            "shadow events across >=168h (CI replay does not qualify).",
-        ],
-        "forbidden": [
-            "Fabricating or approximating blinded holdout gold",
-            "Flipping external-state or authority status via repository "
-            "edits (fail-closed by design since D7)",
-            "Loosening required_authorities / hard invariants to force "
-            "eligibility",
-            "Starting Phase10 while NEXT_PROMPT_ALLOWED=false",
-        ],
-        "phase10": "NOT_STARTED" if not next_allowed else "ELIGIBLE_TO_START",
-    }
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     (args.out_dir / "phase09_PHASE_RESULT.json").write_text(

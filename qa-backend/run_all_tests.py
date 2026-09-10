@@ -83,6 +83,7 @@ SUITES = {
     "runtime_budget_repair": ("tests_runtime_budget_repair.py", "push"),
     "rt075_shadow_store": ("tests_rt075_shadow_store.py", "push"),
     "rt075_locked_replay": ("tests_rt075_locked_replay.py", "push"),
+    "rt075_approval_gate": ("tests_rt075_approval_gate.py", "push"),
     "q336_retention_bundle": ("tests_q336_retention_bundle.py", "push"),
     "index_migration": ("tests_index_migration.py", "push"),
     "visual_rt029":    ("tests_visual_rt029.py", "push"),

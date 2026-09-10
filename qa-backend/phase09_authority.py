@@ -43,6 +43,32 @@ RT101_AUTHORITY_ID = "RT-101_answer_level_blinded_release_holdout_gold"
 RT101_PROOF_TYPE = "RT101_RELEASE_HOLDOUT_AUTHORITY"
 EXTERNAL_SATISFACTION_PROOF_TYPE = "EXTERNAL_CONTROL_SATISFACTION"
 
+# RT-075 canonical unblock rule — single registered source of truth.
+# Authority: execution tickets L920 (">=1,000 representative events +
+# 7 days or approved equivalent replay before activation"), final spec
+# L1217/L1192 (equivalent locked replay + explicit approval; low-traffic
+# exception never means zero evidence). Consumed verbatim by the Phase09
+# NEXT_PROMPT artifact (scripts/build_phase09_evidence.py); regression-
+# tested in qa-backend/tests_rt075_approval_gate.py. The historical
+# ">=100 events across >=168h" wording was WRONG and must not return.
+RT075_MIN_EVENTS = 1000
+RT075_MIN_DAYS = 7
+RT075_REGISTERED_REPLAY_VERIFIER = "scripts/verify_rt075_locked_replay.py"
+RT075_UNBLOCK_RULE = (
+    "Clear RT-075 by either: "
+    f"(A) >={RT075_MIN_EVENTS:,} qualifying representative live-shadow "
+    f"ER events across >={RT075_MIN_DAYS} days (>=168h) of real "
+    "production traffic, or "
+    "(B) an equivalent locked replay that passes the registered replay "
+    f"verifier ({RT075_REGISTERED_REPLAY_VERIFIER}) and receives the "
+    "required owner-provisioned external approval proof "
+    "(PHASE09_EXTERNAL_SATISFACTION_PROOFS + "
+    "PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY with the RT-075 entry "
+    "binding artifact_sha256 = the approval request artifact's sha256). "
+    "Synthetic/CI-only evidence cannot impersonate either path; an "
+    "unapproved replay never clears RT-075."
+)
+
 # D7 gatekeeper hardening: HMAC key material that is publicly committed in
 # this repository can never count as owner-provisioned secret material.  A
 # proof signed with such a key is rejected by the PRODUCTION providers
