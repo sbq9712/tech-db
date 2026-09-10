@@ -10,9 +10,9 @@
     "planner_calls": 0,
     "mandatory_gates_all_runs": true,
     "latency_ms": {
-      "min": 3.419,
-      "median": 3.684,
-      "max": 65.464
+      "min": 2.174,
+      "median": 8.051,
+      "max": 82.109
     }
   },
   "rewrite": {

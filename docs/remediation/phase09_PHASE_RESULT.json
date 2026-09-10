@@ -30,28 +30,28 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-10T13:21:08.344505+00:00",
+    "domain_now": "2026-09-10T15:47:32.254053+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
     {
       "path": "qa-backend/test_summary.json",
       "role": "authoritative test counts",
-      "sha256": "5d98b53976bb70cc8c796386bf4a5bc3b228246a40e3a8bfe1ff776a6d2c81c1",
+      "sha256": "8cbd6a346f58f152473de686ef00a9a8cc4ae81ab26b21fe7f8de0ceb0d2ca61",
       "storage": "committed"
     },
     {
       "generated_at": null,
       "path": "qa-backend/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "30435b07b4909e31f435ce77aaf7d431d132e1378c8019145e7795b8c3944c8f",
+      "sha256_at_generation": "f4f9a3c6b56f04ba19072bd3c477d775a339f1cfbf25ce072957f217e4d06709",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-10T13:21:08.280252+00:00",
+      "generated_at": "2026-09-10T15:46:00.250652+00:00",
       "path": "qa-backend/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "a473df5dcba48d53152833f10127a81813884f2238502621108522de723dbff9",
+      "sha256_at_generation": "b6bfc009974ae5fcafdd632fcfd87b89ab58706a2c0b011da3d2869ec1196556",
       "storage": "ci_generated"
     },
     {
@@ -70,16 +70,10 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "cbf3b1517b7ff0011238ba079d433185f76903f1",
+  "evidence_generation_base_sha": "c377e464aeb3cbdae66f5f95d866f06fee4f9932",
   "external_blockers": {
     "Q-336": {
       "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
-      "observed_at": "2026-09-08T12:00:00Z",
-      "re_verified_at": "2026-09-08T12:00:00Z",
-      "satisfied": false
-    },
-    "RT-005": {
-      "description": "repository branch protection/required checks require administration",
       "observed_at": "2026-09-08T12:00:00Z",
       "re_verified_at": "2026-09-08T12:00:00Z",
       "satisfied": false
@@ -100,7 +94,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-10T13:21:08.344425+00:00",
+  "generated_at": "2026-09-10T15:47:32.253953+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -112,8 +106,7 @@
   "release_decision": {
     "core_eligible": false,
     "external_blockers": [
-      "Q-336",
-      "RT-005"
+      "Q-336"
     ],
     "graph_activation_eligible": false,
     "graph_state": "OFF_NO_GAIN",
@@ -130,15 +123,15 @@
   },
   "test_summary": {
     "all_passed": true,
-    "generated_at": "2026-09-10T21:20:24",
-    "git_sha": "cbf3b1517b7ff0011238ba079d433185f76903f1",
+    "generated_at": "2026-09-10T23:35:26",
+    "git_sha": "c377e464aeb3cbdae66f5f95d866f06fee4f9932",
     "path": "qa-backend/test_summary.json",
-    "sha256": "5d98b53976bb70cc8c796386bf4a5bc3b228246a40e3a8bfe1ff776a6d2c81c1",
-    "suite_count": 53,
+    "sha256": "8cbd6a346f58f152473de686ef00a9a8cc4ae81ab26b21fe7f8de0ceb0d2ca61",
+    "suite_count": 54,
     "total_failed": 0,
-    "total_passed": 1820
+    "total_passed": 1863
   },
-  "tested_git_sha": "cbf3b1517b7ff0011238ba079d433185f76903f1",
+  "tested_git_sha": "c377e464aeb3cbdae66f5f95d866f06fee4f9932",
   "ticket_status_path": "qa-backend/phase09_ticket_status.json",
   "title": "Benchmarks, CI, release gates + runtime-budget repair"
 }

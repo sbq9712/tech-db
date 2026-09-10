@@ -1,10 +1,9 @@
 {
   "NEXT_PROMPT_ALLOWED": false,
   "core_eligible": false,
-  "evidence_generation_base_sha": "cbf3b1517b7ff0011238ba079d433185f76903f1",
+  "evidence_generation_base_sha": "c377e464aeb3cbdae66f5f95d866f06fee4f9932",
   "external_blockers": [
-    "Q-336",
-    "RT-005"
+    "Q-336"
   ],
   "forbidden": [
     "Fabricating or approximating blinded holdout gold",
@@ -12,7 +11,7 @@
     "Loosening required_authorities / hard invariants to force eligibility",
     "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
   ],
-  "generated_at": "2026-09-10T13:21:08.344425+00:00",
+  "generated_at": "2026-09-10T15:47:32.253953+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -28,7 +27,7 @@
     }
   },
   "schema_version": "phase09-next-prompt-gate-2.0",
-  "tested_git_sha": "cbf3b1517b7ff0011238ba079d433185f76903f1",
+  "tested_git_sha": "c377e464aeb3cbdae66f5f95d866f06fee4f9932",
   "unblock_conditions": [
     "Provision genuine RT-101 answer-level blinded release-holdout authority via the owner environment channel (see docs/remediation/phase09_RT101_provisioning.md); it cannot be provisioned by repository edits or by an agent.",
     "Clear Q-336 with durable >=180d artifact retention.",
@@ -38,7 +37,7 @@
   "why": [
     "phase_status=NOT_SATISFIED (not PASS)",
     "core_eligible=false: required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold: owner HMAC key rejected (absent, weak, or publicly-known test material)",
-    "external blockers: Q-336, RT-005",
+    "external blockers: Q-336",
     "required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold"
   ]
 }
