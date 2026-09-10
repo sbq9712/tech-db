@@ -88,12 +88,23 @@ def make_receipt(bundle_sha: str, days: int, **overrides):
 
 def test_bundle_roundtrip():
     with tempfile.TemporaryDirectory() as temp:
-        # incomplete real-repo export must FAIL (P2-1): repo without
-        # generated artifacts may never produce a verifiable bundle
+        # incomplete export must FAIL (P2-1): a repo without generated
+        # artifacts may never produce a verifiable bundle. Regression fix:
+        # this check previously targeted the LIVE repo root, which made it
+        # worktree-state-dependent (it passed after any local gate run had
+        # repopulated qa-backend/phase09_artifacts/ — a clean CI checkout
+        # behaves differently, the exact flake class the project already
+        # hit with ignored runtime-state contamination). A hermetic root
+        # missing exactly the generated artifacts is deterministic and
+        # proves the same fail-closed contract.
+        partial = Path(temp) / "partial-root"
+        partial.mkdir()
+        (partial / "docs/remediation").mkdir(parents=True)
+        (partial / "docs/remediation/final_spec.md").write_text("x")
         out = run(SCRIPTS / "export_phase09_retention_bundle.py",
-                  "--root", ROOT, "--out", Path(temp) / "incomplete.tar.gz")
+                  "--root", partial, "--out", Path(temp) / "incomplete.tar.gz")
         check("Q336 incomplete export fails closed", out.returncode == 1
-              and "incomplete" in out.stderr)
+              and "incomplete" in out.stderr, out.stderr[-200:])
 
         root = make_synthetic_root(Path(temp))
         bundle = Path(temp) / "phase09-retention.tar.gz"
