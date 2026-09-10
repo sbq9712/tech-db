@@ -120,6 +120,12 @@ def satisfied_rt075_state_copy(artifact_path: Path) -> Path:
         "artifact": str(artifact_path),
         "sha256": hashlib.sha256(artifact_path.read_bytes()).hexdigest(),
     }
+    # hermetic isolation: RT-005 may be owner-cleared in the REAL external
+    # state via the env proof channel; this scenario tests the RT-075
+    # approval mechanism only, so its RT-005 row is pinned unsatisfied
+    # (hermetic w.r.t. every other owner-cleared control).
+    state["controls"]["RT-005"]["satisfied"] = False
+    state["controls"]["RT-005"].pop("satisfaction_proof", None)
     return state
 
 

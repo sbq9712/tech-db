@@ -382,8 +382,10 @@ def test_release_matrix():
     # --- external blocker cannot be cleared by repo self-hash proof ---
     state = json.loads((ROOT / "spec/phase09_external_state.json").read_text("utf-8"))
     optimistic = copy.deepcopy(state)
-    # hermetic isolation: RT-075 is owner-cleared in the real state via the
-    # env proof channel; this scenario tests RT-005 self-hash rejection only.
+    # hermetic isolation: RT-075 AND RT-005 are owner-cleared in the real
+    # state via the env proof channel; this scenario tests repo self-hash
+    # rejection only, so every other owner-cleared control row is pinned
+    # unsatisfied (the scenario stays hermetic w.r.t. the live channel).
     optimistic["controls"]["RT-075"]["satisfied"] = False
     optimistic["controls"]["RT-005"]["satisfied"] = True
     with tempfile.TemporaryDirectory() as tmp:
