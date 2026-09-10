@@ -106,6 +106,11 @@ def build_rt075_owner_proof(artifact_path: Path, *, authority_id="RT-075",
     return proof
 
 
+def aev_bound_digest() -> str:
+    """SHA256 of the real committed RT-075 approval artifact (binding anchor)."""
+    return hashlib.sha256(APPROVAL.read_bytes()).hexdigest()
+
+
 def satisfied_rt075_state_copy(artifact_path: Path) -> Path:
     """External-state fixture with RT-075 satisfied=true and a valid
     satisfaction_proof hashing the REAL committed approval artifact."""
@@ -211,9 +216,10 @@ def test_approval_binding_currency():
     check("no signature fields added",
           set(approval) <= {"state", "approver", "approved_at_utc",
                             "mechanism", "fallback_if_not_approved", "note"})
-    check("external state RT-075 still unsatisfied", row["satisfied"] is False)
-    check("external state records pending approval",
-          ev["approval_state"] == "PENDING_OWNER_APPROVAL")
+    check("external state RT-075 owner-satisfied", row["satisfied"] is True
+          and row["satisfaction_proof"]["sha256"] == aev_bound_digest())
+    check("external state records owner-approved equivalent locked replay",
+          ev["approval_state"] == "OWNER_APPROVED_EQUIVALENT_LOCKED_REPLAY")
 
     sessions = aev["codex_independent_review"]["sessions"]
     final = sessions[-1]

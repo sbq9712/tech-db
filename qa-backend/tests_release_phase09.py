@@ -198,7 +198,7 @@ def test_release_matrix():
           str(good.reasons))
     check("RT101 D7 positive seam keeps external production block",
           not good.production_release_eligible
-          and set(good.external_blockers) == {"Q-336", "RT-005", "RT-075"})
+          and set(good.external_blockers) == {"Q-336", "RT-005"})
     check("RT101 D7 sanitized result carries no proof material",
           "integrity" not in A.AuthorityResult(
               A.RT101_AUTHORITY_ID, True, A.OWNER_TRUST_CLASS, "d", "a", ()
@@ -382,6 +382,9 @@ def test_release_matrix():
     # --- external blocker cannot be cleared by repo self-hash proof ---
     state = json.loads((ROOT / "spec/phase09_external_state.json").read_text("utf-8"))
     optimistic = copy.deepcopy(state)
+    # hermetic isolation: RT-075 is owner-cleared in the real state via the
+    # env proof channel; this scenario tests RT-005 self-hash rejection only.
+    optimistic["controls"]["RT-075"]["satisfied"] = False
     optimistic["controls"]["RT-005"]["satisfied"] = True
     with tempfile.TemporaryDirectory() as tmp:
         decoy = Path(tmp) / "decoy-proof.bin"
@@ -526,16 +529,20 @@ def test_authorization_requires_genuine_authority():
         A.ENV_RT101_PROOF: json.dumps(proof),
         A.ENV_RT101_HMAC_KEY: TEST_HMAC_KEY,
         A.ENV_RT101_EXPECTED_HOLDOUT_LOCK: TEST_HOLDOUT_LOCK,
-        A.ENV_EXTERNAL_PROOFS: "",
-        A.ENV_EXTERNAL_HMAC_KEY: "",
+        # inherit the real external-satisfaction channel (RT-075 owner proof);
+        # only the RT-101 authority seam is hermetically blanked/test-keyed
+        **{k: v for k, v in os.environ.items()
+           if k in (A.ENV_EXTERNAL_PROOFS, A.ENV_EXTERNAL_HMAC_KEY)},
     }
     env_without_authority = {
         **os.environ,
         A.ENV_RT101_PROOF: "",
         A.ENV_RT101_HMAC_KEY: "",
         A.ENV_RT101_EXPECTED_HOLDOUT_LOCK: "",
-        A.ENV_EXTERNAL_PROOFS: "",
-        A.ENV_EXTERNAL_HMAC_KEY: "",
+        # inherit the real external-satisfaction channel (RT-075 owner proof);
+        # the RT-101 authority seam stays hermetically denied
+        **{k: v for k, v in os.environ.items()
+           if k in (A.ENV_EXTERNAL_PROOFS, A.ENV_EXTERNAL_HMAC_KEY)},
     }
 
     def run_authorize(evidence_payload, env, policy_source=None):
@@ -626,9 +633,9 @@ def test_ticket_status_generation():
         external_blockers=EXTERNAL_BLOCKERS)
     check("RT108 status generated for every Phase09 ticket",
           set(status["tickets"]) == set(PHASE09_TICKETS))
-    check("RT108 RT103 remains externally blocked",
-          status["tickets"]["RT-103"]["status"] == "BLOCKED_EXTERNAL_ACTION"
-          and status["tickets"]["RT-103"]["dependency_blockers"] == ["RT-075"])
+    check("RT108 RT103 externally unblocked by owner-proof",
+          status["tickets"]["RT-103"]["status"] == "SATISFIED"
+          and status["tickets"]["RT-103"]["dependency_blockers"] == [])
     check("RT108 RT106 retention remains externally blocked",
           status["tickets"]["RT-106"]["status"] == "BLOCKED_EXTERNAL_ACTION"
           and status["tickets"]["RT-106"]["dependency_blockers"] == ["Q-336"])

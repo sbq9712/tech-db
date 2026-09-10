@@ -353,6 +353,7 @@ def main() -> int:
                 "re_verified_at": (row.get("evidence") or {}).get("re_verified_at"),
             }
             for control_id, row in external_state.get("controls", {}).items()
+            if row.get("satisfied") is not True
         },
         "graph": {
             "gain_conclusion": policy["graph_gain_conclusion"],

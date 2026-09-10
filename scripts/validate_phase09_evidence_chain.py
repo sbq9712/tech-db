@@ -27,6 +27,7 @@ sys.path.insert(0, str(ROOT / "qa-backend"))
 from phase09_authority import (  # noqa: E402
     RT101_AUTHORITY_ID,
     authority_results_from_env,
+    external_satisfaction_proofs_from_env,
 )
 from phase09_release import (  # noqa: E402
     MANDATORY_AUTHORITIES,
@@ -443,7 +444,9 @@ def main() -> int:
            "; ".join(stale) if stale else f"{len(external.get('controls', {}))} controls")
     if not args.strict_machine:
         try:
-            blockers = load_external_blockers(ROOT / policy["external_state"])
+            blockers = load_external_blockers(
+                ROOT / policy["external_state"],
+                owner_proofs=external_satisfaction_proofs_from_env(root=ROOT))
             doc_blockers = sorted(result.get("external_blockers", {}))
             record("C14b", "external blockers match repo external-state rows",
                    doc_blockers == sorted(blockers),
