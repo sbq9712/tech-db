@@ -94,8 +94,29 @@ def load_external_blockers(path: Path = EXTERNAL_STATE,
     return blockers
 
 
-EXTERNAL_BLOCKERS = load_external_blockers(
-    owner_proofs=external_satisfaction_proofs_from_env(root=EXTERNAL_STATE.parent.parent))
+def _load_external_blockers_once() -> dict[str, str]:
+    return load_external_blockers(
+        owner_proofs=external_satisfaction_proofs_from_env(
+            root=EXTERNAL_STATE.parent.parent))
+
+
+def __getattr__(name: str):
+    # P1 (final pre-push review): importing this module must not require
+    # the owner-proof environment.  Validators and diagnostics run in
+    # contexts without GitHub secrets and must stay loadable so they can
+    # report; fail-closed behavior is unchanged because EXTERNAL_BLOCKERS
+    # is resolved at first ACCESS (i.e. when a decision actually needs
+    # it) via load_external_blockers(), which still raises when a
+    # satisfied control lacks an owner-provisioned satisfaction proof.
+    if name == "EXTERNAL_BLOCKERS":
+        global _EXTERNAL_BLOCKERS
+        if _EXTERNAL_BLOCKERS is None:
+            _EXTERNAL_BLOCKERS = _load_external_blockers_once()
+        return _EXTERNAL_BLOCKERS
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+_EXTERNAL_BLOCKERS: dict[str, str] | None = None
 
 
 def canonical_bytes(value) -> bytes:
