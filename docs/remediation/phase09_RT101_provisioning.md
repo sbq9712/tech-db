@@ -53,12 +53,28 @@ Canonical JSON, exactly these fields, MAC = HMAC-SHA256 over
 }
 ```
 
-Reference generator (run on the owner's machine, key never shared):
+IMPORTANT — MAC input contract (must match `qa-backend/phase09_authority.py`
+exactly, otherwise every proof fails HMAC verification):
+`MAC = HMAC-SHA256(key, canonical_json(proof_without_integrity))` where
+`canonical_json` is `json.dumps(value, ensure_ascii=False, sort_keys=True,
+separators=(",", ":")).encode("utf-8")`. Non-ASCII characters are legal in
+`provenance` ONLY because the canonical form is UTF-8 with
+`ensure_ascii=False`; omitting that flag makes the verifier compute a
+different MAC over ASCII-escaped payloads and the proof is rejected.
+
+Reference generator (run on the owner's machine, key never shared). Save it
+as a file (e.g. `gen_proof.py`) and run it as a normal script — the three
+positional inputs reach the script via `sys.argv`, which a `python3 -`
+stdin-heredoc cannot provide:
 
 ```bash
-python3 - <<'PY'
+# gen_proof.py — invoked as:
+#   python3 gen_proof.py <gold-file> <40-hex-commit-sha> <run-id> > proof.json
 import hashlib, hmac, json, sys
-key = open("hmac_key.txt","rb").read()          # >= 32 bytes, keep secret
+# Key hygiene: read as TEXT and strip whitespace/newlines. The GitHub secret
+# you paste later is compared byte-exactly — a trailing newline here but not
+# there is the #1 cause of "integrity mac mismatch" in CI.
+key = open("hmac_key.txt").read().strip()       # >= 32 bytes, keep secret
 gold = open(sys.argv[1], "rb").read()           # blinded gold, never uploaded
 spec = json.load(open("spec/spec_manifest.json"))
 fix  = json.load(open("qa-backend/test_fixtures/phase09/benchmark_locked_v1.json"))
@@ -80,12 +96,22 @@ proof = {
   "provenance": {"issued_by": "repository-owner",
                  "channel": "github-actions-secret"},
 }
-mac = hmac.new(key, json.dumps(proof, sort_keys=True,
-               separators=(",", ":")).encode(), hashlib.sha256).hexdigest()
+mac = hmac.new(key.encode("utf-8"),
+               json.dumps(proof, ensure_ascii=False, sort_keys=True,
+               separators=(",", ":")).encode("utf-8"),
+               hashlib.sha256).hexdigest()
 proof["integrity"] = {"alg": "HMAC-SHA256", "mac": mac}
 print(json.dumps(proof, sort_keys=True, separators=(",", ":")))
-PY
 ```
+
+The digest secret must be the lowercase 64-hex `holdout_lock_sha256` of the
+EXACT gold bytes (no trailing newline in the secret), and the HMAC key secret
+must be the exact key characters used above with all surrounding whitespace
+stripped (>= 32 bytes; `openssl rand -hex 32 > hmac_key.txt` is fine because
+the generator strips the trailing newline before signing). Never use a key
+that is committed anywhere in the repository: production providers
+hard-reject publicly-known test key material (D7 gatekeeper hardening in
+`qa-backend/phase09_authority.py`).
 
 ## 4. What must never enter the repo / channels
 

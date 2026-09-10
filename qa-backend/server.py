@@ -535,6 +535,31 @@ if _ENTITY_QUERY_SHADOW_ENABLED:
 else:
     _ENTITY_QUERY_SHADOW = None
 
+# RT-075 durable shadow collector (opt-in, single owner action):
+# TECH_DB_ENTITY_SHADOW_STORE=<path> persists every shadow observation to an
+# append-only, tamper-evident store so the >=1,000-event / >=7-day
+# REAL_WINDOW qualification can be verified from evidence instead of memory.
+# Persistence is strictly best-effort: failures never affect serving.
+_ENTITY_SHADOW_STORE = None
+if _ENTITY_QUERY_SHADOW_ENABLED and os.environ.get(
+        "TECH_DB_ENTITY_SHADOW_STORE", "").strip():
+    try:
+        from entity_shadow_store import default_store_from_env
+        _ENTITY_SHADOW_STORE = default_store_from_env()
+    except Exception:
+        _ENTITY_SHADOW_STORE = None
+
+
+def _persist_shadow_observation(row) -> None:
+    """Best-effort append to the RT-075 store; never raises, never blocks
+    the serving path on anything but a single append."""
+    if _ENTITY_SHADOW_STORE is None:
+        return
+    try:
+        _ENTITY_SHADOW_STORE.append(row)
+    except Exception:
+        pass
+
 
 def _get_retrieval_pipeline():
     """Unified retrieval pipeline (RT-030): delegate to retrieval.runtime.
@@ -2174,12 +2199,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                     _entity_decisions = _query_entity_resolution["decisions"]
                     if _ENTITY_QUERY_SHADOW is not None:
                         for _decision in _entity_decisions:
-                            _ENTITY_QUERY_SHADOW.observe(
+                            _shadow_row = _ENTITY_QUERY_SHADOW.observe(
                                 serving_decision={"decision": "LEGACY_UNCHANGED",
                                                   "selected_entity_id": None},
                                 shadow_decision=_decision,
                                 entity_class="OTHER_DOMAIN", latency_ms=0,
                                 source="query")
+                            _persist_shadow_observation(_shadow_row)
                     trace.add_stage("query_entity_resolution", {
                         "identity_snapshot_id": _query_entity_resolution["identity_snapshot_id"],
                         "resolver_version": _query_entity_resolution["resolver_version"],

@@ -1509,7 +1509,7 @@
   "ticket_registry_sha256": "83237a9e032f7606a482b1f315ef03d5f6a4d4f683c49feefbac008de29d8bae",
   "profile_registry_version": "1.1.0",
   "acceptance_matrix_version": "3.0.0",
-  "acceptance_matrix_sha256": "43450dcef5c7140202057ee250d1cd8c75a9803f82e2dd8196f8e746b26d111c",
+  "acceptance_matrix_sha256": "aa2c93605cfc7ec796cd521f634e0525e05a91adde76eb155f9d3f189adc3561",
   "normative_documents": {
     "docs/remediation/final_spec.md": "ea2b0af229c9f1817131b2b8e76c36e78fff9e57a0c5d756a43430ef86cfbe61",
     "docs/remediation/decision_register.md": "7404d217c9a4465edd376010828cfab795c0786e76c064208b706bdf985dfe85",
@@ -1535,5 +1535,5 @@
       ]
     }
   },
-  "spec_hash": "3e29d10a5551e53e6a47862fe9337979800e7ac7c500c9c28f5b72bef925df97"
+  "spec_hash": "fe4340225402e2a077730751da8bd29e30e884c8a108226a1c73d5fefb64c216"
 }

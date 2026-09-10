@@ -7,6 +7,7 @@ import contextlib
 import hashlib
 import json
 import re
+import socket
 import sys
 import tempfile
 from pathlib import Path
@@ -443,6 +444,255 @@ def test_actual_bounded_repair_reverification():
           and terminals[0]["answer_status"] == result.get("answer_status"))
 
 
+def test_actual_client_disconnect_cancellation():
+    """RT-104 (Codex-G P1-1): real client disconnect → real cancellation chain.
+
+    Unlike every other test here (httpx.ASGITransport cannot propagate client
+    aborts) this test binds a REAL ephemeral uvicorn server on 127.0.0.1:0,
+    connects a raw TCP client, reads the first streamed answer token, then
+    half-closes the socket (FIN). The production chain must then execute:
+    uvicorn http.disconnect → sse_starlette disconnect listener cancels the
+    response task → event_generator's `except asyncio.CancelledError` →
+    execution.cancel("sse_stream_cancelled") + request_cancellation trace
+    stage (RUNTIME_SSE_STREAM_CANCELLED) → downstream LLM generator aborted
+    → CHAT_ADMISSION slot released → and NO fabricated done/SUPPORTED
+    terminal may be produced for the disconnected request.
+
+    Only the LLM stream is replaced (a deterministic blocking seam that hangs
+    on an Event that is never set — no sleep races); admission, retrieval
+    seam, SSE protocol, trace persistence and the cancellation handlers all
+    execute production code.
+    """
+    import uvicorn
+    import server
+    import trace as trace_mod
+    from guardrails import GuardrailSettings, RateLimiter
+
+    QUERY = "solid battery beta energy density"
+    CONV = "phase09-disconnect"
+    gen_started = asyncio.Event()
+    gen_cancelled = asyncio.Event()
+    gen_finished = asyncio.Event()
+    release = asyncio.Event()  # never set: the "upstream provider" never returns
+
+    async def stream(**_kwargs):
+        gen_started.set()
+        yield "The synthetic beta cell reports 400 watt-hours per kilogram. [1]"
+        try:
+            await release.wait()  # deterministic mid-generation hang
+        except asyncio.CancelledError:
+            gen_cancelled.set()
+            raise
+        gen_finished.set()
+        yield "unreachable after disconnect"
+
+    record = {
+        "record_id": "rec-dc", "t": "Disconnect source",
+        "b": "The synthetic beta cell reports 400 watt-hours per kilogram.",
+        "d": "2026-08-28", "a": "Tech DB",
+        "u": "https://example.test/dc", "sc": 9.0, "tg": "test",
+    }
+
+    async def search(query, exclude_ids=None):
+        return [{"record_id": "rec-dc", "legacy_idx": 0, "score": 0.9,
+                 "meta": record}], True, "ok"
+
+    async def classify(*_a, **_k):
+        return [{"text": "The synthetic beta cell reports 400 watt-hours per kilogram",
+                 "source": "Tech DB"}]
+
+    async def verify(*_a, **_k):
+        # If cancellation is broken the pipeline would run this verifier and
+        # then emit a done terminal — which the assertions below reject.
+        return SimpleNamespace(status="PASSED", issues=[], failure_reason=None)
+
+    server.hybrid_search = search
+    server.llm_stream_func = stream
+    server.classify_claims = classify
+    server.verify_with_fail_safe = verify
+    server._records = [record]
+    server.load_records = lambda: [record]
+    server._vector_index = {"sentinel": True}
+    server.RATE_LIMITER = RateLimiter(GuardrailSettings(
+        per_minute=10**6, per_client_day=10**9, global_day=10**9))
+    server.BUDGET_FUSE = SimpleNamespace(
+        reserve=lambda **kw: (True, 0.0), status=lambda: {})
+    seam_names = ("hybrid_search", "llm_stream_func", "classify_claims",
+                  "verify_with_fail_safe", "_records", "load_records",
+                  "_vector_index", "RATE_LIMITER", "BUDGET_FUSE")
+    original_seams = {name: getattr(server, name) for name in seam_names}
+    flag_names = (
+        "AGENTIC_ENABLED", "EVIDENCE_PACKAGE_ENABLED",
+        "TERMINAL_RENDERER_ENABLED", "CLAIM_MAPPING_ENABLED",
+        "CITATION_GROUNDING_ENABLED", "ANSWER_STATUS_ENABLED",
+        "KNOWLEDGE_BOUNDARY_ENABLED",
+    )
+    previous_flags = {name: getattr(server.Flags, name) for name in flag_names}
+    for name, value in {
+        "AGENTIC_ENABLED": False,
+        "EVIDENCE_PACKAGE_ENABLED": False,
+        "TERMINAL_RENDERER_ENABLED": False,
+        "CLAIM_MAPPING_ENABLED": False,
+        "CITATION_GROUNDING_ENABLED": False,
+        "ANSWER_STATUS_ENABLED": True,
+        "KNOWLEDGE_BOUNDARY_ENABLED": False,
+    }.items():
+        setattr(server.Flags, name, value)
+    original_trace_dir = trace_mod.TRACE_DIR
+    temp = tempfile.TemporaryDirectory()
+    trace_mod.TRACE_DIR = Path(temp.name)
+    baseline_active = server.CHAT_ADMISSION.snapshot()["active"]
+    serve_task = None
+    srv = None
+    try:
+        async def scenario():
+            nonlocal srv, serve_task
+            config = uvicorn.Config(server.app, host="127.0.0.1", port=0,
+                                    log_level="warning", loop="asyncio",
+                                    lifespan="off")
+            srv = uvicorn.Server(config)
+            serve_task = asyncio.create_task(srv.serve())
+            for _ in range(250):
+                if srv.started:
+                    break
+                await asyncio.sleep(0.02)
+            check("RT104 disconnect uvicorn bound", srv.started
+                  and bool(srv.servers))
+            if not srv.started:
+                return
+            port = srv.servers[0].sockets[0].getsockname()[1]
+
+            reader, writer = await asyncio.open_connection("127.0.0.1", port)
+            body = json.dumps({"query": QUERY,
+                               "conversation_id": CONV}).encode()
+            writer.write(b"POST /api/chat/stream HTTP/1.1\r\n"
+                         b"Host: phase09\r\n"
+                         b"Content-Type: application/json\r\nContent-Length: "
+                         + str(len(body)).encode() + b"\r\n\r\n" + body)
+            await writer.drain()
+
+            # 1. Real SSE answer bytes must reach the real TCP client.
+            buf = b""
+            try:
+                while b"event: token" not in buf:
+                    chunk = await asyncio.wait_for(reader.read(4096),
+                                                   timeout=15)
+                    if not chunk:
+                        break
+                    buf += chunk
+            except asyncio.TimeoutError:
+                pass
+            check("RT104 disconnect first token over real TCP",
+                  b"event: token" in buf, f"head={buf[:300]!r}")
+            check("RT104 disconnect generation entered seam",
+                  gen_started.is_set())
+
+            # 2. Client disconnects for real: orderly half-close (FIN).
+            writer.get_extra_info("socket").shutdown(socket.SHUT_WR)
+
+            # 3. Downstream generator must be aborted by the disconnect.
+            disconnect_cancelled = False
+            try:
+                await asyncio.wait_for(gen_cancelled.wait(), timeout=10)
+                disconnect_cancelled = True
+            except asyncio.TimeoutError:
+                pass
+            check("RT104 disconnect aborts downstream generation",
+                  disconnect_cancelled and gen_cancelled.is_set())
+            check("RT104 disconnect generation never completes",
+                  not gen_finished.is_set())
+
+            # 4. Post-disconnect bytes: connection must end WITHOUT any
+            #    fabricated done/citations terminal payload.
+            tail = b""
+            server_eof = False
+            try:
+                while True:
+                    chunk = await asyncio.wait_for(reader.read(4096),
+                                                   timeout=5)
+                    if not chunk:
+                        server_eof = True
+                        break
+                    tail += chunk
+            except (asyncio.TimeoutError, ConnectionError):
+                server_eof = True  # RST-style close also proves termination
+            check("RT104 no fabricated terminal after disconnect",
+                  server_eof and b"event: done" not in tail
+                  and b"event: citations" not in tail
+                  and b"SUPPORTED" not in tail,
+                  f"tail={tail[:300]!r}")
+            try:
+                writer.close()
+                await asyncio.wait_for(writer.wait_closed(), timeout=2)
+            except (ConnectionError, OSError):
+                pass
+
+            # 5. Cleanup: the admission slot must be released again.
+            released = False
+            for _ in range(60):
+                if server.CHAT_ADMISSION.snapshot()["active"] == baseline_active:
+                    released = True
+                    break
+                await asyncio.sleep(0.05)
+            check("RT104 disconnect releases admission slot", released)
+
+            # 6. Server-side trace proof of the cancellation chain.
+            # Scan every date file (a UTC-midnight rollover between the
+            # request and this read would otherwise miss the record).
+            trace_record = None
+            for trace_file in sorted(trace_mod.TRACE_DIR.glob("*.jsonl")):
+                for line in trace_file.read_text(
+                        encoding="utf-8").splitlines():
+                    try:
+                        row = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    if (row.get("result") or {}).get(
+                            "cancellation_reason") == "sse_stream_cancelled":
+                        trace_record = row
+                        break
+                if trace_record is not None:
+                    break
+            check("RT104 disconnect trace records cancellation",
+                  trace_record is not None)
+            if trace_record is not None:
+                stages = {s.get("stage"): (s.get("data") or {})
+                          for s in trace_record.get("stages") or []}
+                cancel_stage = stages.get("request_cancellation") or {}
+                result = trace_record.get("result") or {}
+                check("RT104 trace stage RUNTIME_SSE_STREAM_CANCELLED",
+                      cancel_stage.get("reason_code")
+                      == "RUNTIME_SSE_STREAM_CANCELLED",
+                      f"stage={cancel_stage!r}")
+                check("RT104 trace terminal bound UNVERIFIED/client_disconnect",
+                      result.get("answer_status") == "UNVERIFIED"
+                      and result.get("stop_reason") == "client_disconnect",
+                      f"result={result!r}")
+
+            srv.should_exit = True
+            try:
+                await asyncio.wait_for(serve_task, timeout=5)
+            except (asyncio.TimeoutError, Exception):
+                pass
+
+        asyncio.run(scenario())
+    finally:
+        if srv is not None:
+            srv.should_exit = True
+        if serve_task is not None and not serve_task.done():
+            serve_task.cancel()
+        # NOTE: asyncio.run() cancels and awaits all pending tasks (the
+        # uvicorn serve task among them) BEFORE returning, so by the time
+        # this finally block continues past cancellation, no trace write
+        # can race temp.cleanup().
+        trace_mod.TRACE_DIR = original_trace_dir
+        temp.cleanup()
+        for name, value in original_seams.items():
+            setattr(server, name, value)
+        for name, value in previous_flags.items():
+            setattr(server.Flags, name, value)
+
+
 def test_terminal_matrix_and_cancellation():
     # Reuse the sealed Phase08 real-ASGI harness.  It calls the production
     # endpoint and canonical terminal builder; it does not construct Trace or
@@ -476,6 +726,7 @@ def main():
     test_actual_multiturn_integrity()
     test_actual_multidocument_path()
     test_actual_bounded_repair_reverification()
+    test_actual_client_disconnect_cancellation()
     test_terminal_matrix_and_cancellation()
     print("=" * 66)
     print(f"  Phase09 E2E: {PASSED} passed, {FAILED} failed")
