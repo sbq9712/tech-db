@@ -270,12 +270,25 @@ def main() -> int:
                not drift, f"drift={drift}" if drift else f"{len(expected_facts)} facts verified")
 
     # C8 generation order (monotone along the chain)
+    # The chain-ordering check covers documents produced by ONE local chain
+    # build. A ticket_status passed via --ticket-status that is NOT the
+    # committed chain copy (e.g. the fresh CI-generated artifact under
+    # qa-backend/phase09_artifacts/) is a same-head RE-VALIDATION output
+    # from a different clock, not a link in the committed chain; inserting
+    # its timestamp here would rewind the order the moment the gate turns
+    # green in CI (green gate ⇒ red strict validator deadlock). Its
+    # CONTENT is still fully cross-checked against the committed chain by
+    # the C10/C11/C13-family semantic checks below. The committed
+    # ticket_status (when present at its chain location) remains part of
+    # the ordered chain.
     stamps = [
         ("summary", parse_ts(summary.get("generated_at"))),
         ("phase_result", parse_ts(result.get("generated_at"))),
         ("next_prompt", parse_ts(nxt.get("generated_at"))),
     ]
-    if args.ticket_status.exists():
+    committed_ticket = (chain_root / "qa-backend/phase09_ticket_status.json")
+    ticket_arg = args.ticket_status.resolve() if args.ticket_status.exists() else None
+    if ticket_arg is not None and ticket_arg == committed_ticket.resolve():
         stamps.insert(1, ("ticket_status", parse_ts(
             json.loads(args.ticket_status.read_text("utf-8")).get("generated_at"))))
     from datetime import timezone as _tz
