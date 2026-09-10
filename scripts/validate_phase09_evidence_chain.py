@@ -288,10 +288,28 @@ def main() -> int:
         ("next_prompt", parse_ts(nxt.get("generated_at"))),
     ]
     committed_ticket = (chain_root / "qa-backend/phase09_ticket_status.json")
+    # C8 (CI exact-head re-validation, PR merge-ref identity contract): the
+    # ticket_status is a ``ci_generated`` chain entry, NEVER a committed
+    # link. A CI exact-head run regenerates it with a clock NEWER than the
+    # committed phase_result/next_prompt, so treating it as a chain stamp
+    # deadlocks strict validation in CI (the same class of false-red the
+    # comment above already excludes for fresh re-validation artifacts).
+    # Insert its timestamp ONLY when the on-disk bytes are the very
+    # generation-time artifact the chain recorded (sha256_at_generation
+    # match); otherwise its CONTENT is still fully cross-checked by the
+    # C10/C11/C13-family semantic checks below.
     ticket_arg = args.ticket_status.resolve() if args.ticket_status.exists() else None
     if ticket_arg is not None and ticket_arg == committed_ticket.resolve():
-        stamps.insert(1, ("ticket_status", parse_ts(
-            json.loads(args.ticket_status.read_text("utf-8")).get("generated_at"))))
+        _gen_sha = next((e.get("sha256_at_generation")
+                         for e in result.get("evidence_chain", [])
+                         if e.get("path") == "qa-backend/phase09_ticket_status.json"),
+                        None)
+        _disk_is_generation_time = bool(
+            _gen_sha and hashlib.sha256(
+                args.ticket_status.read_bytes()).hexdigest() == _gen_sha)
+        if _disk_is_generation_time:
+            stamps.insert(1, ("ticket_status", parse_ts(
+                json.loads(args.ticket_status.read_text("utf-8")).get("generated_at"))))
     from datetime import timezone as _tz
     def _aware(ts):
         # run_all_tests writes a naive LOCAL timestamp; interpret it as

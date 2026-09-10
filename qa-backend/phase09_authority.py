@@ -157,6 +157,40 @@ def git_commit_time(root: Path, sha: str) -> datetime | None:
     return _parse_iso_timestamp(proc.stdout.strip())
 
 
+ENV_AUTHORITY_SUBJECT_SHA = "PHASE09_AUTHORITY_SUBJECT_SHA"
+
+
+def resolve_authority_subject_sha(root: Path,
+                                  env: Mapping[str, str] | None = None) -> str:
+    """Authority subject commit for owner-proof ``evaluated_git_sha`` binding.
+
+    Default subject is the checked-out ``git rev-parse HEAD`` (historical
+    behavior). CI may pin the subject to the exact pull-request head commit
+    by exporting ``PHASE09_AUTHORITY_SUBJECT_SHA`` — the value MUST come from
+    the trusted GitHub event context (``github.event.pull_request.head.sha``),
+    never from repository content, so PR-authored files cannot re-point the
+    binding. GitHub ``pull_request`` workflows default-checkout a merge ref
+    whose SHA differs from the PR head; without this override a proof bound
+    to the head commit is wrongly rejected there.
+
+    Fail closed: malformed values, or values whose commit is unknown to this
+    checkout (the committer time is required for the temporal binding
+    check), raise instead of silently degrading to the checked-out HEAD.
+    """
+    env_map = dict(env if env is not None else __import__("os").environ)
+    raw = (env_map.get(ENV_AUTHORITY_SUBJECT_SHA) or "").strip()
+    if not raw:
+        return git_head(root)
+    if not _is_hex(raw, 40):
+        raise ValueError(
+            f"{ENV_AUTHORITY_SUBJECT_SHA} malformed: expected 40-hex commit sha")
+    if git_commit_time(root, raw) is None:
+        raise ValueError(
+            f"{ENV_AUTHORITY_SUBJECT_SHA} is not a commit known to this "
+            "checkout (fail closed)")
+    return raw
+
+
 def _hmac_tag(proof: Mapping, key: str) -> str:
     payload = {k: v for k, v in proof.items() if k != "integrity"}
     return hmac.new(key.encode("utf-8"), canonical_bytes(payload),
@@ -428,9 +462,9 @@ def authority_results_from_env(requirements: Mapping, *, root: Path,
     env = dict(env if env is not None else __import__("os").environ)
     now = now or datetime.now(timezone.utc)
     results: dict[str, AuthorityResult] = {}
+    head = resolve_authority_subject_sha(root, env)
     for authority_id in sorted(requirements):
         requirement = requirements[authority_id]
-        head = git_head(root)
         present, payload = _read_json_env(env, ENV_RT101_PROOF)
         key = env.get(ENV_RT101_HMAC_KEY, "")
         expected_lock = env.get(ENV_RT101_EXPECTED_HOLDOUT_LOCK, "")
@@ -473,7 +507,7 @@ def external_satisfaction_proofs_from_env(*, root: Path,
     key_rejected = _production_key_rejected(key)
     if key_rejected:
         key = ""
-    head = git_head(root)
+    head = resolve_authority_subject_sha(root, env)
     commit_time = git_commit_time(root, head) if head else None
     results: dict[str, AuthorityResult] = {}
     for control_id, proof in sorted(payload.items()):

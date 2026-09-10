@@ -27,6 +27,41 @@ jobs:
         working-directory: qa-backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          # CI identity contract (D7 hardening): full history is required so
+          # the merge-ref parent identity assert (HEAD^1/HEAD^2) and the
+          # authority-subject committer-time lookup both resolve.
+          fetch-depth: 0
+      - name: Resolve proof authority subject (trusted event context only)
+        # The subject SHA comes ONLY from the GitHub event context — never
+        # from repository content, so PR-authored files cannot re-point the
+        # owner-proof binding. In pull_request events the checkout is the
+        # merge ref; its parents must be exactly the event base+head commits
+        # (integration-safety identity proof), and the authority subject is
+        # the event head commit the owner proofs are bound to.
+        working-directory: .
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EVENT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            [ "$(git rev-parse HEAD^1)" = "$EVENT_BASE_SHA" ] \
+              || { echo "::error::merge-ref parent1 != event base sha (identity contract)"; exit 1; }
+            [ "$(git rev-parse HEAD^2)" = "$EVENT_HEAD_SHA" ] \
+              || { echo "::error::merge-ref parent2 != event head sha (identity contract)"; exit 1; }
+            git merge-base --is-ancestor "$EVENT_HEAD_SHA" HEAD \
+              || { echo "::error::event head not contained in merge ref"; exit 1; }
+            SUBJECT="$EVENT_HEAD_SHA"
+          else
+            [ "$(git rev-parse HEAD)" = "$EXPECTED_SHA" ] \
+              || { echo "::error::checkout HEAD != github.sha (identity contract)"; exit 1; }
+            SUBJECT="$EXPECTED_SHA"
+          fi
+          echo "PHASE09_AUTHORITY_SUBJECT_SHA=$SUBJECT" >> "$GITHUB_ENV"
+          echo "authority subject: $SUBJECT (checkout $(git rev-parse HEAD))"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -38,6 +73,16 @@ jobs:
         # query_embeddings.json), so no torch/sentence-transformers here.
         run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - name: Push-tier suites (all-mock, no GLM)
+        # D7: owner-provisioned external-control satisfactions enter ONLY via
+        # these secrets (step-scoped: no other step sees them, never placed
+        # in GITHUB_ENV, never echoed). Repo external-state rows claiming
+        # satisfaction fail closed here without a verified owner proof; the
+        # proofs bind to PHASE09_AUTHORITY_SUBJECT_SHA (event head), not the
+        # merge ref, so GitHub's pull_request merge-ref checkout cannot
+        # produce a false RT075 identity failure.
+        env:
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
         # D7: surface each failing suite + its tail as a check annotation so
         # the failure is diagnosable without an authenticated log download.
         run: |
