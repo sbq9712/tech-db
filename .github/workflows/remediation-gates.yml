@@ -208,8 +208,15 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$EVENT_NAME" = "pull_request" ]; then
-            [ "$(git rev-parse HEAD^1)" = "$EVENT_BASE_SHA" ] \
-              || { echo "::error::merge-ref parent1 != event base sha (identity contract)"; exit 1; }
+            # The event's base.sha is the base recorded when the PR was
+            # opened/last synchronized — for a PR that is BEHIND its base,
+            # the merge ref's parent1 is the CURRENT base tip, which is a
+            # descendant of base.sha.  The identity contract therefore
+            # requires base.sha to be an ANCESTOR of merge parent1 (the
+            # claimed base is genuinely contained in the integrated base
+            # lineage), while parent2 must equal the event head exactly.
+            git merge-base --is-ancestor "$EVENT_BASE_SHA" "$(git rev-parse HEAD^1)" \
+              || { echo "::error::event base sha not contained in merge-ref base lineage (identity contract)"; exit 1; }
             [ "$(git rev-parse HEAD^2)" = "$EVENT_HEAD_SHA" ] \
               || { echo "::error::merge-ref parent2 != event head sha (identity contract)"; exit 1; }
             git merge-base --is-ancestor "$EVENT_HEAD_SHA" HEAD \

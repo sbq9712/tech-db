@@ -388,10 +388,16 @@ def test_remediation_gates_contract():
 
     merge_id = steps[idx("Merge-ref identity proof")]
     msrc = json.dumps(merge_id)
-    check("merge-ref identity asserts parents == [event base, event head]",
-          "rev-parse HEAD^1" in msrc and "rev-parse HEAD^2" in msrc
+    raw_script = merge_id.get("run", "")
+    check("merge-ref identity: base.sha ancestor of merge parent1, parent2 == event head",
+          "merge-base --is-ancestor" in msrc
+          and "rev-parse HEAD^2" in msrc
+          and '"$EVENT_HEAD_SHA" ]' in raw_script
+          and '"$EVENT_BASE_SHA"' in raw_script
           and "github.event.pull_request.base.sha" in msrc
           and "github.event.pull_request.head.sha" in msrc)
+    check("merge-ref identity rejects parent1 == base.sha equality (stale-base trap)",
+          "[ \"$(git rev-parse HEAD^1)\" = \"$EVENT_BASE_SHA\" ]" not in msrc)
     check("merge containment asserted (merge-base --is-ancestor)",
           "merge-base --is-ancestor" in msrc)
     check("subject exported from trusted event context",
