@@ -16,16 +16,20 @@
       "description": "repository branch protection/required checks require administration",
       "evidence": {
         "branch": "main",
-        "enforce_admins_enabled": false,
+        "enforce_admins_enabled": true,
         "observed_at": "2026-09-08T12:00:00Z",
         "protected": true,
-        "re_verified_at": "2026-09-08T12:00:00Z",
+        "re_verified_at": "2026-09-10T14:56:23.766483+00:00",
         "repository": "sbq9712/tech-db",
         "required_check_contexts": 11,
         "required_checks_enforced": true,
         "source": "re-verified 2026-09-08 via branches/main/protection API: protection strict non_admins with 11 required contexts, enforce_admins.enabled=false — protections do not bind repository administration"
       },
-      "satisfied": false
+      "satisfied": true,
+      "satisfaction_proof": {
+        "artifact": "docs/remediation/phase09_RT005_branch_protection_verified.json",
+        "sha256": "990cb219956d0131dd0908aa991fcac8cf43b77d05ef161fc48fdf1cb4df1e3c"
+      }
     },
     "RT-075": {
       "description": "production-representative ER shadow evidence: equivalent locked replay evidence sealed (5,866 sha-pinned production-corpus cases, 25,825 observations, all decision classes, deterministic) — PENDING OWNER APPROVAL via external satisfaction proof; 7-day live shadow remains the fallback path",

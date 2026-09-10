@@ -198,7 +198,7 @@ def test_release_matrix():
           str(good.reasons))
     check("RT101 D7 positive seam keeps external production block",
           not good.production_release_eligible
-          and set(good.external_blockers) == {"Q-336", "RT-005"})
+          and set(good.external_blockers) == {"Q-336"})
     check("RT101 D7 sanitized result carries no proof material",
           "integrity" not in A.AuthorityResult(
               A.RT101_AUTHORITY_ID, True, A.OWNER_TRUST_CLASS, "d", "a", ()
