@@ -244,15 +244,21 @@ jobs:
           PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
           PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
         run: |
+          set +e
           python scripts/run_phase09_release_gate.py \
             --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json \
             --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+          GATE=$?
+          set -e
           # C10 contract: the strict evidence validator requires the
           # ci_generated artifacts at the gate's canonical root paths.
+          # Mirror even when the gate exits non-zero (genuine RT-101
+          # block) so strict validation can inspect them.
           cp qa-backend/phase09_artifacts/phase09_release_evidence.json \
              qa-backend/phase09_release_evidence.json
           cp qa-backend/phase09_artifacts/phase09_ticket_status.json \
              qa-backend/phase09_ticket_status.json
+          exit $GATE
       - name: Assert intentional fail-closed reason (merge result)
         # Diagnostic only: when the gate is red, prove the red is the
         # genuine RT-101 authority absence and not a code regression or
@@ -288,15 +294,21 @@ jobs:
           PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
           PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
         run: |
+          set +e
           python scripts/run_phase09_release_gate.py \
             --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json \
             --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+          GATE=$?
+          set -e
           # C10 contract: the strict evidence validator requires the
           # ci_generated artifacts at the gate's canonical root paths.
+          # Mirror even when the gate exits non-zero (genuine RT-101
+          # block) so strict validation can inspect them.
           cp qa-backend/phase09_artifacts/phase09_release_evidence.json \
              qa-backend/phase09_release_evidence.json
           cp qa-backend/phase09_artifacts/phase09_ticket_status.json \
              qa-backend/phase09_ticket_status.json
+          exit $GATE
       - name: Assert intentional fail-closed reason (exact head)
         if: failure()
         working-directory: phase09-head
