@@ -26,6 +26,7 @@ import re
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -303,7 +304,11 @@ def _execute(args, summary_out: Path, prev: Path, marker: Path,
     # worktree_dirty = whether uncommitted changes existed at run START
     # (suite artifacts written during the run are expected and excluded).
     summary = {
-        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        # C8 chain contract: timestamps must be timezone-explicit UTC.
+        # A naive local-time string is ambiguous across machines (the
+        # evidence validator rejects timestamps that look materially in
+        # the future, which a +08-local naive string does under UTC CI).
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "git_sha": run_git_sha,
         "worktree_dirty": run_start_dirty,
         "tier": args.tier,

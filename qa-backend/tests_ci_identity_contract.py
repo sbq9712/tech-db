@@ -36,6 +36,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 import json
+import re
 import secrets
 import subprocess
 import sys
@@ -432,6 +433,14 @@ def test_remediation_gates_contract():
           sum(1 for v in gate_head.get("env", {}).values()
               if "secrets." in str(v)) == 5
           and gate_head.get("working-directory") == "phase09-head")
+    check("ci_generated artifacts mirrored to canonical root paths (C10)",
+          all(n in gate_head.get("run", "")
+              and "cp qa-backend/phase09_artifacts/%s" % n
+              in gate_head.get("run", "")
+              and re.search(r"cp qa-backend/phase09_artifacts/%s\s+\\?\s*\n?\s*qa-backend/%s\b"
+                            % (n, n), gate_head.get("run", ""))
+              for n in ("phase09_release_evidence.json",
+                        "phase09_ticket_status.json")))
     check("exact-head expected-block verifier present (if: failure())",
           steps[idx("Assert intentional fail-closed reason (exact head")]
           .get("if") == "failure()")
