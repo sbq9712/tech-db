@@ -1,7 +1,7 @@
 {
   "NEXT_PROMPT_ALLOWED": false,
   "core_eligible": false,
-  "evidence_generation_base_sha": "be761db8f4147f90b75445138e5fe5486bf637eb",
+  "evidence_generation_base_sha": "5ccd00408b6c41bd2fa237899424b27e2cdfbb96",
   "external_blockers": [
     "Q-336",
     "RT-005",
@@ -13,7 +13,7 @@
     "Loosening required_authorities / hard invariants to force eligibility",
     "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
   ],
-  "generated_at": "2026-09-10T08:43:34.958170+00:00",
+  "generated_at": "2026-09-10T09:23:03.246241+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -29,7 +29,7 @@
     }
   },
   "schema_version": "phase09-next-prompt-gate-2.0",
-  "tested_git_sha": "ba9dfddf8dfc8f171644b8060591bff8784fb460",
+  "tested_git_sha": "5ccd00408b6c41bd2fa237899424b27e2cdfbb96",
   "unblock_conditions": [
     "Provision genuine RT-101 answer-level blinded release-holdout authority via the owner environment channel (see docs/remediation/phase09_RT101_provisioning.md); it cannot be provisioned by repository edits or by an agent.",
     "Clear Q-336 with durable >=180d artifact retention.",

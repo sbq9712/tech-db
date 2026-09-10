@@ -198,7 +198,24 @@ def main() -> int:
     args = parser.parse_args()
 
     head = git("rev-parse", "HEAD")
-    dirty = bool(git("status", "--porcelain"))
+    # NUL-delimited porcelain so entries survive the surrounding strip():
+    # text-mode porcelain pads the XY status with a leading space (" M p"),
+    # and a naive .strip() on the whole output mangles the FIRST line into
+    # "M p", after which column slicing (p[3:]) corrupts the path. (-z has
+    # no padding ambiguity: each record is "XY\0path\0".)
+    porcelain_raw = subprocess.run(["git", "status", "--porcelain", "-z"],
+                                   cwd=ROOT, text=True, capture_output=True,
+                                   check=False).stdout
+    status_entries = [entry for entry in porcelain_raw.split("\0") if entry]
+    dirty_paths: list[str] = []
+    for index, entry in enumerate(status_entries):
+        if len(entry) >= 3 and entry[2] == " ":
+            dirty_paths.append(entry[3:])
+        elif len(entry) >= 4 and entry[2] == "\t":
+            dirty_paths.append(entry[3:])
+        elif index + 1 < len(status_entries) and len(entry) == 2:
+            dirty_paths.append(status_entries[index + 1])
+    dirty = bool(dirty_paths)
     summary_str = str(args.summary)
     # Hermetic-test escape hatch: only when the caller opts in AND every
     # input artifact lives outside the repository (temp chain fixtures).
@@ -215,8 +232,8 @@ def main() -> int:
     # field below.  Anything beyond chain-owned evidence files staying
     # dirty at generation time remains a hard failure.
     if dirty and not hermetic_tests:
-        unowned = [p for p in git("status", "--porcelain").splitlines()
-                   if p[3:].strip() not in OWNED_EVIDENCE_PATHS]
+        unowned = [p for p in dirty_paths
+                   if p.strip() not in OWNED_EVIDENCE_PATHS]
         if unowned:
             fail("worktree has non-evidence changes; commit code first, "
                  f"then run tests and generate evidence: {unowned}")
