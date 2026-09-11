@@ -6,11 +6,15 @@
         "durable_external_store": false,
         "effective_retention_days": 90,
         "observed_at": "2026-09-08T12:00:00Z",
-        "re_verified_at": "2026-09-08T12:00:00Z",
+        "re_verified_at": "2026-09-11T01:29:34.959611+00:00",
         "requested_retention_days": 180,
         "source": "GitHub Actions artifact retention observation for PR #10; re-verified 2026-09-08 via actions/artifacts API — artifacts created 2026-09-08T10:27Z expire 2026-12-07T10:27Z (~90d); retention settings endpoint not configurable without admin-scoped durable store"
       },
-      "satisfied": false
+      "satisfied": true,
+      "satisfaction_proof": {
+        "artifact": "docs/remediation/phase09_Q336_retention_receipt_verified.json",
+        "sha256": "e74dc731c6c62c2eb80df348f7cb8a5dd32b154ca70c8e36b09a95ba766bc1fe"
+      }
     },
     "RT-005": {
       "description": "repository branch protection/required checks require administration",

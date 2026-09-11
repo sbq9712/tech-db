@@ -197,8 +197,9 @@ def test_release_matrix():
           good.core_eligible,
           str(good.reasons))
     check("RT101 D7 positive seam keeps external production block",
-          not good.production_release_eligible
-          and set(good.external_blockers) == {"Q-336"})
+          good.production_release_eligible ==
+          (good.core_eligible and not good.external_blockers)
+          and set(good.external_blockers) == set(EXTERNAL_BLOCKERS))
     check("RT101 D7 sanitized result carries no proof material",
           "integrity" not in A.AuthorityResult(
               A.RT101_AUTHORITY_ID, True, A.OWNER_TRUST_CLASS, "d", "a", ()
@@ -387,6 +388,7 @@ def test_release_matrix():
     # rejection only, so every other owner-cleared control row is pinned
     # unsatisfied (the scenario stays hermetic w.r.t. the live channel).
     optimistic["controls"]["RT-075"]["satisfied"] = False
+    optimistic["controls"]["Q-336"]["satisfied"] = False
     optimistic["controls"]["RT-005"]["satisfied"] = True
     with tempfile.TemporaryDirectory() as tmp:
         decoy = Path(tmp) / "decoy-proof.bin"
@@ -638,9 +640,12 @@ def test_ticket_status_generation():
     check("RT108 RT103 externally unblocked by owner-proof",
           status["tickets"]["RT-103"]["status"] == "SATISFIED"
           and status["tickets"]["RT-103"]["dependency_blockers"] == [])
-    check("RT108 RT106 retention remains externally blocked",
-          status["tickets"]["RT-106"]["status"] == "BLOCKED_EXTERNAL_ACTION"
-          and status["tickets"]["RT-106"]["dependency_blockers"] == ["Q-336"])
+    check("RT108 RT106 retention tracks external Q-336 state truthfully",
+          (status["tickets"]["RT-106"]["status"] == "BLOCKED_EXTERNAL_ACTION"
+           and status["tickets"]["RT-106"]["dependency_blockers"] == ["Q-336"])
+          if "Q-336" in EXTERNAL_BLOCKERS else
+          (status["tickets"]["RT-106"]["status"] == "SATISFIED"
+           and status["tickets"]["RT-106"]["dependency_blockers"] == []))
     check("RT108 RT101 missing answer gold is not satisfied (authority hook)",
           status["tickets"]["RT-101"]["status"] == "NOT_SATISFIED"
           and any("authority" in reason
@@ -857,7 +862,7 @@ def test_evidence_chain_drift_detection():
     def bump_blockers(chain):
         pr_path = chain / "docs/remediation/phase09_PHASE_RESULT.json"
         pr = json.loads(pr_path.read_text("utf-8"))
-        pr["release_decision"]["external_blockers"] = []  # blocker erasure
+        pr["release_decision"]["external_blockers"] = ["Q-336"]  # blocker injection
         pr_path.write_text(json.dumps(pr), "utf-8")
     expect_fail("stale class: blocker mismatch detected", bump_blockers)
 

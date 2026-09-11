@@ -297,7 +297,15 @@ def evaluate_release(*, required_suites: Iterable[str],
             detail = "; ".join(result.reasons) or "unverified"
             reasons.append(f"required authority unsatisfied: {name}: {detail}")
     core_eligible = not reasons
-    blockers = tuple(sorted((external_blockers or EXTERNAL_BLOCKERS).keys()))
+    if external_blockers is not None:
+        blockers = tuple(sorted(external_blockers.keys()))
+    else:
+        # P1 fix (2026-09-11): module-level EXTERNAL_BLOCKERS is resolved
+        # lazily via __getattr__, which module-global name lookup inside a
+        # function does NOT trigger.  Call the explicit resolver here so
+        # the fallback path (caller omitted external_blockers) keeps its
+        # fail-closed semantics without the NameError.
+        blockers = tuple(sorted(_load_external_blockers_once().keys()))
     graph_ok = graph_gain_conclusion == "GAIN"
     graph_state = "ON_ELIGIBLE" if graph_ok else "OFF_NO_GAIN"
     production_eligible = core_eligible and not blockers
@@ -343,7 +351,9 @@ def derive_ticket_status(*, matrix: Mapping,
     release authority result; acceptance-matrix text alone (repo-editable)
     can never mark RT-101 satisfied.
     """
-    blockers = external_blockers or EXTERNAL_BLOCKERS
+    blockers: Mapping[str, str] = (
+        external_blockers if external_blockers is not None
+        else _load_external_blockers_once())
     registered_suites = matrix.get("suite_registry", {})
     entries = {entry.get("ticket_id"): entry for entry in
                matrix.get("remediation_entries", [])}

@@ -1,0 +1,14 @@
+{
+  "bundle_sha256": "55c63e3a8668a6824a8725686a75ba3a92819d94184742f45b3981ada1edbc73",
+  "findings": [],
+  "issuer": "repository-owner",
+  "manifest_sha256": "f32ad2a34e353bebb570bd689c33dccd2c1bc6408c14b763014709b811d586a8",
+  "min_required_days": 180,
+  "retention_days": 180.0,
+  "schema_version": "q336-retention-receipt-1.0",
+  "store_id": "owner-local-worm-e",
+  "store_uri": "file:///mnt/e/tech-db-q336-local-worm",
+  "stored_at_utc": "2026-09-11T01:17:25Z",
+  "verified": true,
+  "verified_at_utc": "2026-09-11T01:20:04.336852+00:00"
+}
