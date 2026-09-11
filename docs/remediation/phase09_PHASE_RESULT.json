@@ -30,28 +30,28 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-11T05:52:29.989559+00:00",
+    "domain_now": "2026-09-11T06:36:11.004851+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
     {
       "path": "qa-backend/test_summary.json",
       "role": "authoritative test counts",
-      "sha256": "c41932527cc63ce72ac84ef30bac4c71daaff6db09e478405d789d5f8b2a1622",
+      "sha256": "24b6b5c1f2100a47c9f1dfbaa6725dfc87af5780412bb8b55c5669a30e32d396",
       "storage": "committed"
     },
     {
       "generated_at": null,
       "path": "qa-backend/phase09_artifacts/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "a7bac0f8c7fa10226da4620918d6fa7ce31536db2d55456a39f5bd50b46075fb",
+      "sha256_at_generation": "e0eb89fcc6fff01faaad858c2c3f963def4a684521e4788755729e11d6398a30",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-11T05:52:13.633841+00:00",
+      "generated_at": "2026-09-11T06:36:10.942800+00:00",
       "path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "81c7e9dec8852a79d76187160be028ba35ab71bb0edcfc869a9c7494b4dea559",
+      "sha256_at_generation": "18d3078ba57cc98e49a2e2b253aa4daef674b10e6b565f90477205e1ba1475e6",
       "storage": "ci_generated"
     },
     {
@@ -70,7 +70,7 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "8dedef441e92b178842ca0b9260db0a95967ce48",
+  "evidence_generation_base_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
   "external_blockers": {},
   "gatekeeper_history": {
     "V5_formal_run": "BASIS_APPROVED (D6 SAFE_FOR_FRESH_V5=YES) — a formal V5 remains blocked by its own prerequisites: RT-101 blinded gold not provisioned (REQUIRED core authority), gate core_eligible=false",
@@ -87,7 +87,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-11T05:52:29.989465+00:00",
+  "generated_at": "2026-09-11T06:36:11.004763+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -114,15 +114,15 @@
   },
   "test_summary": {
     "all_passed": true,
-    "generated_at": "2026-09-11T04:46:54+00:00",
-    "git_sha": "8dedef441e92b178842ca0b9260db0a95967ce48",
+    "generated_at": "2026-09-11T06:34:24+00:00",
+    "git_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
     "path": "qa-backend/test_summary.json",
-    "sha256": "c41932527cc63ce72ac84ef30bac4c71daaff6db09e478405d789d5f8b2a1622",
+    "sha256": "24b6b5c1f2100a47c9f1dfbaa6725dfc87af5780412bb8b55c5669a30e32d396",
     "suite_count": 54,
     "total_failed": 0,
-    "total_passed": 1870
+    "total_passed": 1873
   },
-  "tested_git_sha": "8dedef441e92b178842ca0b9260db0a95967ce48",
+  "tested_git_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
   "ticket_status_path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
   "title": "Benchmarks, CI, release gates + runtime-budget repair"
 }
