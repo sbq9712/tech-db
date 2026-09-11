@@ -1,0 +1,28 @@
+{
+  "schema_version": "phase09-rt005-branch-protection-verification-1.0",
+  "repository": "sbq9712/tech-db",
+  "branch": "main",
+  "protected": true,
+  "required_checks_enforced": true,
+  "enforce_admins_enabled": true,
+  "required_check_contexts": 11,
+  "required_context_names": [
+    "acceptance-matrix",
+    "canonical-spec-lint",
+    "checks",
+    "critical-failure-injection",
+    "data-sync-path-policy",
+    "fast-regression",
+    "mini-runtime-e2e",
+    "phase09-benchmarks-ci-release-gates",
+    "push-tier",
+    "synthetic-isolation",
+    "unit-and-security"
+  ],
+  "allow_force_pushes": false,
+  "allow_deletions": false,
+  "required_linear_history": false,
+  "required_approving_review_count": 1,
+  "observed_at_utc": "2026-09-10T14:46:45.860521+00:00",
+  "source": "GET /repos/sbq9712/tech-db/branches/main/protection (gh api, owner admin session); PUT used the exact Update-branch-protection schema with the single change enforce_admins false->true; post-PUT GET re-verified contexts identical"
+}

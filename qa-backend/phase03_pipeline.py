@@ -1103,6 +1103,8 @@ async def run_phase03_retrieval(*, query: str,
     for c in selection["selected"]:
         rid = c.get("record_id")
         item = dict(c, requirement_ids=assoc.get(rid, []))
+        item["worker_validated_requirement_ids"] = sorted(
+            worker_overlay["associations"].get(rid, set()))
         if worker_overlay["locators"].get(rid):
             item["hit_locators"] = list(worker_overlay["locators"][rid])
         sel_entries.append(item)

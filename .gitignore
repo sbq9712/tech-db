@@ -91,3 +91,12 @@ data/processed/curated_snapshot.json
 # Playwright chromium runtime libs extracted for sandboxed local runs
 # (CI installs them via `python -m playwright install --with-deps`)
 .pw-libs/
+# Phase09 CI-generated evidence is uploaded by Actions, not committed.
+qa-backend/phase09_artifacts/
+qa-backend/phase09_release_evidence.json
+qa-backend/phase09_ticket_status.json
+qa-backend/benchmark_phase09_result.json
+# Deterministic retrieval tests create disposable local workspaces/caches.
+jieba.cache
+p03-prod-*/
+p03-round2-*/

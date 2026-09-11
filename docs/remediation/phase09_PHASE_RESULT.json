@@ -1,0 +1,128 @@
+{
+  "authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": {
+      "artifact_sha256": null,
+      "authority_id": "RT-101_answer_level_blinded_release_holdout_gold",
+      "proof_digest": null,
+      "reasons": [
+        "owner HMAC key rejected (absent, weak, or publicly-known test material)"
+      ],
+      "requirement": {
+        "bindings": [
+          "holdout_lock_sha256",
+          "evaluated_git_sha",
+          "spec_sha256",
+          "decision_register_sha256",
+          "manifest_id",
+          "identity_snapshot_id"
+        ],
+        "description": "answer-level blinded release holdout gold must be provisioned by the repository owner through the owner-controlled environment channel; this policy declares the requirement only and can never declare satisfaction (D7 P0 closure)",
+        "expected_holdout_lock_env": "PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256",
+        "manifest_identity_source": "qa-backend/test_fixtures/phase09/benchmark_locked_v1.json",
+        "max_age_days": 180,
+        "proof_type": "RT101_RELEASE_HOLDOUT_AUTHORITY",
+        "schema_version": "phase09-authority-proof-1.0",
+        "trust_class_required": "OWNER_PROVISIONED_EXTERNAL"
+      },
+      "satisfied": false,
+      "trust_class": null
+    }
+  },
+  "build": {
+    "builder": "Phase09 D7 evidence closure",
+    "domain_now": "2026-09-11T06:36:11.004851+00:00",
+    "generator": "scripts/build_phase09_evidence.py"
+  },
+  "evidence_chain": [
+    {
+      "path": "qa-backend/test_summary.json",
+      "role": "authoritative test counts",
+      "sha256": "24b6b5c1f2100a47c9f1dfbaa6725dfc87af5780412bb8b55c5669a30e32d396",
+      "storage": "committed"
+    },
+    {
+      "generated_at": null,
+      "path": "qa-backend/phase09_artifacts/phase09_release_evidence.json",
+      "role": "canonical release decision",
+      "sha256_at_generation": "e0eb89fcc6fff01faaad858c2c3f963def4a684521e4788755729e11d6398a30",
+      "storage": "ci_generated"
+    },
+    {
+      "generated_at": "2026-09-11T06:36:10.942800+00:00",
+      "path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
+      "role": "ticket/phase status",
+      "sha256_at_generation": "18d3078ba57cc98e49a2e2b253aa4daef674b10e6b565f90477205e1ba1475e6",
+      "storage": "ci_generated"
+    },
+    {
+      "path": "docs/remediation/phase09_PHASE_RESULT.json",
+      "role": "this file",
+      "storage": "committed"
+    },
+    {
+      "path": "docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json",
+      "role": "next-prompt gate",
+      "storage": "committed"
+    },
+    {
+      "path": "docs/remediation/phase09_completion_report.md",
+      "role": "human-readable view",
+      "storage": "committed"
+    }
+  ],
+  "evidence_generation_base_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
+  "external_blockers": {},
+  "gatekeeper_history": {
+    "V5_formal_run": "BASIS_APPROVED (D6 SAFE_FOR_FRESH_V5=YES) — a formal V5 remains blocked by its own prerequisites: RT-101 blinded gold not provisioned (REQUIRED core authority), gate core_eligible=false",
+    "latest_verdicts": {
+      "D3": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3)",
+      "D4": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (F1/F2/F3 confirmed closed; D4-F1/D4-F2 marker lifecycle)",
+      "D5": "REQUEST_CHANGES / SAFE_FOR_FRESH_V5: NO (D4-F1/F2 confirmed closed; D5-F1 V6 arithmetic, D5-F2 marker isolation, D5-F3 report wording)",
+      "D6": "APPROVE / SAFE_FOR_FRESH_V5: YES / FINDINGS: none (2026-09-08, head fb86ba2)"
+    },
+    "note": "Historical Codex gatekeeper verdicts and provider-health facts for Phase09. Machine-consumed by scripts/build_phase09_evidence.py; update only with verbatim Codex round outputs stored beside this file (phase09_D*_*.md).",
+    "provider_health_2026-09-08": {
+      "collapse_during_repair": "12.7-27.3s probes, majority non-JSON; live TTFB run: 0/30 claim_mapping reached, 30/30 UNVERIFIED fail-closed",
+      "recovery_probe": "3/3 JSON-valid at 2.2-3.0s (glm-5.2) — pre-V5 readiness signal only; formal V5 still requires the RT-101 authority and gate eligibility"
+    },
+    "schema_version": "phase09-gatekeeper-history-1.0"
+  },
+  "generated_at": "2026-09-11T06:36:11.004763+00:00",
+  "graph": {
+    "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
+    "gain_conclusion": "NO_GAIN",
+    "state": "OFF_NO_GAIN"
+  },
+  "next_prompt_artifact": "docs/remediation/phase09_NEXT_PROMPT_ALLOWED.json",
+  "phase": "Phase09",
+  "phase_status": "NOT_SATISFIED",
+  "release_decision": {
+    "core_eligible": false,
+    "external_blockers": [],
+    "graph_activation_eligible": false,
+    "graph_state": "OFF_NO_GAIN",
+    "production_release_eligible": false,
+    "reasons": [
+      "required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold: owner HMAC key rejected (absent, weak, or publicly-known test material)"
+    ]
+  },
+  "schema_version": "phase09-phase-result-2.0",
+  "sha_semantics": {
+    "evidence_commit_sha": "the descendant commit that stores the generated evidence files; adds evidence only and is NOT claimed to have been tested by this chain",
+    "evidence_generation_base_sha": "HEAD where the release gate and this generator executed; a descendant of tested_git_sha whose diff touches only chain-owned evidence files and evidence-chain tooling scripts",
+    "tested_git_sha": "HEAD of the clean worktree the authoritative test execution (push tier) ran on"
+  },
+  "test_summary": {
+    "all_passed": true,
+    "generated_at": "2026-09-11T06:34:24+00:00",
+    "git_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
+    "path": "qa-backend/test_summary.json",
+    "sha256": "24b6b5c1f2100a47c9f1dfbaa6725dfc87af5780412bb8b55c5669a30e32d396",
+    "suite_count": 54,
+    "total_failed": 0,
+    "total_passed": 1873
+  },
+  "tested_git_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
+  "ticket_status_path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
+  "title": "Benchmarks, CI, release gates + runtime-budget repair"
+}

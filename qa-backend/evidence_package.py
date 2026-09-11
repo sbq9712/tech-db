@@ -112,6 +112,13 @@ class EvidenceEntry:
     # review round 1: why this entry is (or was demoted from) trusted
     # support — machine-readable policy reason codes
     policy_reasons: List[str] = field(default_factory=list)
+    # Requirement associations established by accepted multi-document worker
+    # EvidenceRefs.  This is trusted orchestration metadata only after the
+    # canonical snapshot/span/policy checks in phase03_pipeline; worker prose
+    # never enters this field.  It is hash-bound and generator-visible so the
+    # production generator can distinguish ordinary retrieval association
+    # from worker-validated cross-document support.
+    worker_validated_requirement_ids: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -130,6 +137,8 @@ class EvidenceEntry:
             "compressed": self.compressed,
             "counts_as_evidence": self.counts_as_evidence,
             "policy_reasons": list(self.policy_reasons),
+            "worker_validated_requirement_ids": sorted(
+                self.worker_validated_requirement_ids),
         }
 
     def hash_payload(self) -> dict:
@@ -152,6 +161,8 @@ class EvidenceEntry:
                 self.exact_text.encode("utf-8")).hexdigest(),
             "counts_as_evidence": self.counts_as_evidence,
             "policy_reasons": sorted(self.policy_reasons),
+            "worker_validated_requirement_ids": sorted(
+                self.worker_validated_requirement_ids),
         }
 
 
@@ -405,6 +416,10 @@ class EvidencePackageBuilder:
                 # entries stay visible/traceable but NEVER count as evidence
                 counts_as_evidence=(relation not in NON_SUPPORT_RELATIONS),
                 policy_reasons=list(blocked.get("reason_codes") or []),
+                worker_validated_requirement_ids=sorted({
+                    str(req_id) for req_id in
+                    (cand.get("worker_validated_requirement_ids") or [])
+                }),
             )
             rid_to_eid[rec_id] = eid
 
@@ -634,6 +649,8 @@ class PackedGenerationView:
                     "counts_as_evidence": e.counts_as_evidence,
                     "relation": e.relation,
                     "policy_reasons": sorted(e.policy_reasons),
+                    "worker_validated_requirement_ids": sorted(
+                        e.worker_validated_requirement_ids),
                 }
                 for eid, e in sorted(self.evidence.items())
             },

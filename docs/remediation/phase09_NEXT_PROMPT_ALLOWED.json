@@ -1,0 +1,40 @@
+{
+  "NEXT_PROMPT_ALLOWED": false,
+  "core_eligible": false,
+  "evidence_generation_base_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
+  "external_blockers": [],
+  "forbidden": [
+    "Fabricating or approximating blinded holdout gold",
+    "Flipping external-state or authority status via repository edits (fail-closed by design since D7)",
+    "Loosening required_authorities / hard invariants to force eligibility",
+    "Starting Phase10 while NEXT_PROMPT_ALLOWED=false"
+  ],
+  "generated_at": "2026-09-11T06:36:11.004763+00:00",
+  "graph": {
+    "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
+    "gain_conclusion": "NO_GAIN",
+    "state": "OFF_NO_GAIN"
+  },
+  "phase": "Phase09",
+  "phase10": "NOT_STARTED",
+  "phase_status": "NOT_SATISFIED",
+  "production_release_eligible": false,
+  "required_authorities": {
+    "RT-101_answer_level_blinded_release_holdout_gold": {
+      "satisfied": false
+    }
+  },
+  "schema_version": "phase09-next-prompt-gate-2.0",
+  "tested_git_sha": "f5499b728824eb229c24cf05580b90fb2b2233bf",
+  "unblock_conditions": [
+    "Provision genuine RT-101 answer-level blinded release-holdout authority via the owner environment channel (see docs/remediation/phase09_RT101_provisioning.md); it cannot be provisioned by repository edits or by an agent.",
+    "Clear Q-336 with durable >=180d artifact retention.",
+    "Clear RT-005 with repository-admin branch-protection (enforce admins) configuration.",
+    "Clear RT-075 by either: (A) >=1,000 qualifying representative live-shadow ER events across >=7 days (>=168h) of real production traffic, or (B) an equivalent locked replay that passes the registered replay verifier (scripts/verify_rt075_locked_replay.py) and receives the required owner-provisioned external approval proof (PHASE09_EXTERNAL_SATISFACTION_PROOFS + PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY with the RT-075 entry binding artifact_sha256 = the approval request artifact's sha256). Synthetic/CI-only evidence cannot impersonate either path; an unapproved replay never clears RT-075."
+  ],
+  "why": [
+    "phase_status=NOT_SATISFIED (not PASS)",
+    "core_eligible=false: required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold: owner HMAC key rejected (absent, weak, or publicly-known test material)",
+    "required authority unsatisfied: RT-101_answer_level_blinded_release_holdout_gold"
+  ]
+}

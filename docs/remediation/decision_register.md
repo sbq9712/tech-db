@@ -458,3 +458,57 @@ Baseline: repository `sbq9712/tech-db`, main branch reviewed against the Evidenc
 ## Decision summary
 
 The governing principles are: **fail closed on correctness, degrade only where correctness can still be established, pin every request to immutable versioned evidence, separate retrieval hints from evidence, keep stable identity independent of array positions/content versions, make Evidence Package the only generation context, and prove production behavior with real integration/E2E tests before rollout.**
+
+## D7 — Phase09 authority trust boundary + evidence chain (2026-09-09)
+
+**Decision.** (1) Required authorities are split into *requirement
+declarations* (repo-editable policy; schema
+`phase09-release-policy-1.1`; satisfaction-claiming fields rejected) and
+*verified satisfaction results* delivered ONLY through the
+owner-controlled environment channel (GitHub Actions secrets),
+HMAC-SHA256-bound to the exact git SHA, spec-manifest digests, locked
+benchmark manifest identity, and the holdout lock digest (never the gold).
+RT-101 is additionally pinned in the evaluator's code-level
+`MANDATORY_AUTHORITIES`; deleting the policy entry fails closed.
+`evaluate_release` consumes `(authority_requirements, authority_results)`
+and rejects legacy status-string maps. (2) External-control satisfaction
+(`spec/phase09_external_state.json` rows) additionally requires an
+owner-provisioned, HMAC-bound satisfaction proof matching the declared
+artifact digest — a self-referential repo-file hash clears nothing
+(Codex Q1 second-path finding). (3) Publication
+(`authorize_runtime_publish.py`) re-verifies authority + external
+blockers from the environment at authorization time; recorded evidence
+files alone can never authorize. (4) The Phase09 evidence chain is
+one-way and machine-derived
+(`test_summary.json` → gate artifacts → `PHASE_RESULT` →
+`NEXT_PROMPT_ALLOWED` → completion report) via
+`scripts/build_phase09_evidence.py`, enforced by
+`scripts/validate_phase09_evidence_chain.py` (C0–C14: counts, hashes,
+decision/blocker/graph/phase-status, report markers, generation order,
+SHA semantics `tested_git_sha == evidence_generation_base_sha` with the
+evidence commit declared a descendant that does not claim to have tested
+itself, live-channel authority match, freshness markers).
+(5) `run_all_tests.py` summaries now bind `git_sha`/`worktree_dirty`/
+`tier`. CI wires the secrets into the gate/authorize/validator steps;
+unset secrets fail closed; a diagnostic step proves a red gate is ONLY
+genuine RT-101 absence.
+
+**Adversarial confirmation.** Codex read-only round (verbatim:
+`docs/remediation/phase09_D7_codex_authority_design.md`):
+`BYPASS_CONFIRMED_CURRENT: YES`, `DESIGN_CONFIRMED: YES`; all mandatory
+changes adopted (strict requirement schema, env-only provider,
+canonical-JSON HMAC with constant-time compare + key-strength check,
+sanitized persisted results, fresh re-verification at publication,
+owner-bound external-state satisfaction, both chain scripts + full
+regeneration, adversarial tests incl. import boundaries and workflow
+secret wiring). Rejected/deferred suggestions: transparency-log /
+OIDC-receipt infrastructure (nice-to-have, no infra available; HMAC
+secret channel chosen as minimal sufficient boundary), diagnostic step
+ordering (evidence upload already `if: always()` and cannot flip job
+status).
+
+**Fail-closed consequence.** Without a genuinely provisioned RT-101
+authority the gate stays red: `core_eligible=false`,
+`production_release_eligible=false`, `phase_status=NOT_SATISFIED`,
+`NEXT_PROMPT_ALLOWED=false`, Phase10 NOT_STARTED. This is the correct
+final state, not a defect.

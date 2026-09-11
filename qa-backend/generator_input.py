@@ -189,7 +189,9 @@ def render_generator_prompt(gen_input: GeneratorInput) -> str:
                       f"group={e.independent_group_id} "
                       f"time={e.event_time or 'unknown'} "
                       f"temporal={e.temporal_status} "
-                      f"relation={e.relation}")
+                      f"relation={e.relation} "
+                      "worker_validated_requirements="
+                      f"{','.join(e.worker_validated_requirement_ids) or 'none'}")
             sections.append(header)
             sections.append(wrap_retrieved_content(e.exact_text))
 

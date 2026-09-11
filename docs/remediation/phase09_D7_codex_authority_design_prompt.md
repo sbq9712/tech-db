@@ -1,0 +1,41 @@
+You are acting as an independent adversarial security reviewer (Gatekeeper role) for the TechDB Phase09 remediation. Repo root = current directory. Read files as needed. DO NOT trust this prompt's claims - verify against the actual code.
+
+CONTEXT FILES (read them):
+- spec/phase09_release_policy.json  (required_authorities currently maps "RT-101_answer_level_blinded_release_holdout_gold" to status string "ANSWER_LEVEL_BLINDED_RELEASE_HOLDOUT_GOLD_UNAVAILABLE")
+- qa-backend/phase09_release.py     (evaluate_release: treats any authority status != "SATISFIED" as blocking; also load_external_blockers which requires hashed satisfaction_proof artifacts for SATISFIED external controls)
+- scripts/run_phase09_release_gate.py (passes policy["required_authorities"] straight into evaluate_release; exits 0 iff decision.core_eligible)
+- scripts/authorize_runtime_publish.py (publication authorization; trusts qa-backend/phase09_release_evidence.json fields + exact git SHA)
+- .github/workflows/publish-runtime.yml (runs fresh gate then authorize then publishes GitHub release)
+- .github/workflows/remediation-gates.yml (required CI gate job phase09-benchmarks-ci-release-gates)
+- qa-backend/tests_release_phase09.py (current tests pass required_authorities={"RT-101...": "SATISFIED"} as a plain dict)
+- qa-backend/test_fixtures/phase09/benchmark_locked_v1.json (locked benchmark fixture: manifest_id, identity_snapshot_id)
+- spec/spec_manifest.json (spec_sha256, decision_register_sha256, spec_version)
+- spec/phase09_external_state.json (external blockers Q-336/RT-005/RT-075 with hashed-proof mechanism)
+
+A prior independent review found a P0: "RT-101 required authority has a potential repo-controlled SATISFIED bypass" and a P1: "Phase09 final evidence chain stale inconsistency". We must close the P0 with a genuine-authority mechanism, fail-closed.
+
+PROPOSED DESIGN (critique it):
+1. spec/phase09_release_policy.json required_authorities value becomes a REQUIREMENT OBJECT only (schema_version, trust_class_required="OWNER_PROVISIONED_EXTERNAL", holdout binding, max_age_days). Policy schema validation must REJECT any satisfaction-claiming keys (status/satisfied/state/approved/available) and unknown keys - fail closed. Policy can never declare satisfaction.
+2. New module qa-backend/phase09_authority.py:
+   - verify_authority_proof(proof, requirement, current_git_sha, spec_sha256, decision_register_sha256, manifest_id, expected_holdout_lock_sha256, hmac_key, now) -> AuthorityResult(satisfied: bool, trust_class, proof_digest, reasons). Strict checks: exact schema_version; authority_id equality; trust_class must be exactly OWNER_PROVISIONED_EXTERNAL (any REPO_EDITABLE/TEST_ONLY/SYNTHETIC/DEV/CI_REPLAY rejected); holdout_lock_sha256 64-hex and equal to owner-provisioned expected digest; evaluated_git_sha == current HEAD (replay/wrong-SHA protection); spec_sha256 + decision_register_sha256 == spec manifest values; manifest_id == locked benchmark fixture manifest_id; run_id/evaluation_id non-empty; generated_at ISO and >= commit time of the bound SHA, <= now+skew, age <= max_age_days; provenance dict present; HMAC-SHA256 integrity over canonical JSON (constant-time compare), mac field excluded from MAC input.
+   - authority_results_from_env(): production provider reads ONLY environment variables PHASE09_RT101_AUTHORITY_PROOF / PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 / PHASE09_RT101_AUTHORITY_HMAC_KEY. Absent/empty => AuthorityResult(satisfied=False). Never reads repo files for the proof. These would be GitHub Actions secrets / owner-set env - not part of repo content, not modifiable by commits/PRs.
+3. evaluate_release() signature changes: accepts authority REQUIREMENTS (from policy) + verified AuthorityResults (from provider). Emits non-satisfied reason with the result's reasons. core_eligible stays false unless every required authority result is satisfied.
+4. run_phase09_release_gate.py uses authority_results_from_env. authorize_runtime_publish.py additionally re-verifies authority from env before authorizing publication (so a fabricated green evidence file cannot authorize publish). Both workflows pass secrets through as env; unset secrets => empty => fail closed.
+5. tests_release_phase09.py: new model - tests construct genuine-shaped proofs via the SAME verify_authority_proof with a test HMAC key and bindings to the current HEAD/spec/fixture manifest_id (hermetic synthetic external-authority seam, explicitly test-only), then pass AuthorityResults into evaluate_release. Production entry points never import test code. Plus 16 adversarial tests: policy SATISFIED edit, fabricated repo proof file, missing/malformed/stale proof, wrong SHA/holdout/spec/manifest/authority-id, tampered HMAC, dev/synthetic trust class, replay old proof vs new checkout, mismatched schema version, positive path via test seam, canonical path without authority blocks.
+6. Evidence chain (P1): scripts/build_phase09_evidence.py derives docs/remediation/phase09_PHASE_RESULT.json, phase09_NEXT_PROMPT_ALLOWED.json, phase09_completion_report.md ONE-WAY from qa-backend/test_summary.json + fresh gate artifacts (release evidence/ticket status) + git facts. script validates and records SHA semantics: tested_git_sha (where push tier ran) vs evidence_generation_base_sha (HEAD at generation) - never claims the report tested its own commit; CI at exact head binds exact head via its own artifacts. scripts/validate_phase09_evidence_chain.py checks: summary counts/suite count/sha256 vs PHASE_RESULT; release decision/blockers/graph/phase_status match; PHASE_RESULT vs NEXT_PROMPT_ALLOWED; completion report numbers vs machine artifacts; generation order; referenced SHA exists; referenced artifacts exist with matching hashes; NEXT_PROMPT_ALLOWED implication rule. Any mismatch => exit 1. Committed docs must always be regenerated by the script, never hand-edited.
+
+ANSWER THESE QUESTIONS, each with ANSWER / EVIDENCE (file:line) / RISKS / RECOMMENDATION:
+Q1. Confirm or refute: with the CURRENT code, editing only repo files (policy JSON) to set the RT-101 authority status to "SATISFIED" makes the canonical gate core_eligible=true (given all suites pass)? Any OTHER repo-edit-only path to flip core_eligible/production_release_eligible (e.g., editing external_state.json, acceptance matrix, test fixtures)?
+Q2. Where exactly is the trust boundary today? Does any existing component trust a self-committed proof/status file that a repo edit controls? Distinguish external_state.json's hashed-proof mechanism (what does it actually verify?) from required_authorities.
+Q3. Is the proposed authority design minimal, verifiable, and fail-closed? Identify concrete gaps/attacks: e.g., can a repo commit change what spec_sha256/manifest_id is compared against such that a self-referential proof passes? Can HMAC key leakage via logs/evidence happen? Should the expected holdout digest be a separate owner input (we propose yes) or embedded in policy (reject - repo-editable)?
+Q4. Does the design keep answer-level blinded holdout gold strictly out of the repo (proof carries only the lock digest)? Any leakage channel we must explicitly forbid (logs, uploaded CI artifacts, PR body)?
+Q5. Can the test-only seam ever be mistaken for production authority? Is verifying proofs in tests with a test HMAC key sound, given production provider reads env only and rejects TEST_ONLY trust class?
+Q6. Any remaining bypass in the publication path (publish-runtime.yml + authorize_runtime_publish.py) after the proposed re-verification is added? Consider stale evidence files, artifact confusion, workflow_dispatch paths.
+Q7. For the evidence chain: is one-way derivation + validator sufficient to prevent the stale-inconsistency class (test_summary 1633 vs PHASE_RESULT 1631 vs PR body)? What checks are missing from the list above?
+Q8. List anything else needed so that the ONLY allowed red in CI is the phase09 gate job failing due to genuine RT-101 authority absence (not code regressions), and so that repo edits alone can never clear RT-101.
+
+OUTPUT FORMAT: markdown, one section per question with ANSWER/EVIDENCE/RISKS/RECOMMENDATION, then a FINAL VERDICT block:
+DESIGN_CONFIRMED: YES/NO
+BYPASS_CONFIRMED_CURRENT: YES/NO
+MANDATORY_CHANGES: [list]
+NICE_TO_HAVE: [list]

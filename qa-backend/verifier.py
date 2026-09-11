@@ -24,6 +24,8 @@ import json
 import os
 import re
 
+import llm_json  # Phase09 shared bounded LLM-JSON normalizer (Class C repair)
+
 from config import llm_model_func
 
 # TK-10/T005: bounded retries for transient transport failures only —
@@ -193,9 +195,24 @@ def _classify_exception(exc: Exception) -> str:
 
 
 def _extract_json(text: str):
-    """Robust JSON extraction (fenced/prose-wrapped/truncated)."""
+    """Robust JSON extraction (fenced/prose-wrapped/truncated).
+
+    Phase09 general-reliability repair (Class C): delegates FIRST to the
+    shared bounded normalizer llm_json.parse_json — adds <think> block
+    stripping, provider-envelope unwrapping, full-width punctuation
+    folding, and honest truncated-stream closing (drop-not-guess). The
+    legacy chain below is preserved verbatim as a final fallback.
+    Fail-closed: returns None when nothing parses safely — a response
+    that cannot safely be parsed stays a TECHNICAL FAILURE → UNVERIFIED.
+    """
     if not text or not text.strip():
         return None
+    try:
+        val = llm_json.parse_json(text)
+    except Exception:
+        val = None
+    if val is not None:
+        return val
     try:
         return json.loads(text.strip())
     except Exception:

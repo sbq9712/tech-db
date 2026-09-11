@@ -26,6 +26,31 @@ jobs:
         with:
           fetch-depth: 20
 
+      - name: Install Phase09 gate dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Fresh Phase09 release evaluation
+        # D7 (P0 closure): genuine RT-101 authority / external-control
+        # satisfactions enter ONLY via owner-provisioned secrets.  Unset
+        # secrets expand to empty strings and the gate fails closed, so a
+        # fabricated or stale evidence file alone can never publish.
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: python scripts/run_phase09_release_gate.py
+
+      - name: Authorize this exact publication SHA
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: python scripts/authorize_runtime_publish.py --expected-sha "$GITHUB_SHA"
+
       - name: Check whether the complete runtime Release already exists
         id: existing
         env:

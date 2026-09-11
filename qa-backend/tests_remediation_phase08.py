@@ -168,8 +168,14 @@ async def _production_terminal_case(kind: str):
 
 
 def test_rt090_real_server_terminal_matrix():
+    # Phase09 repair round 2 (Q092): the "success" case has NO canonical
+    # claim set (classifier returns []) and its prose is an exact verbatim
+    # quote of the cited record.  Exact quotation is citation validity, not
+    # canonical atomic-claim establishment, so the terminal state is
+    # UNVERIFIED — the old SUPPORTED expectation encoded the exact-quote
+    # bypass that Q092 now forbids.
     expected = {
-        "success": "SUPPORTED",
+        "success": "UNVERIFIED",
         "partial": "PARTIALLY_SUPPORTED",
         "unverified": "UNVERIFIED",
         "unsupported": "UNSUPPORTED",

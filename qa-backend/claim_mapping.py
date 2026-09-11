@@ -24,10 +24,13 @@ Rules:
   - Major claims without support are UNSUPPORTED → must be deleted/weakened/re-retrieved
   - Every major claim must be mapped to at least one citation
 """
+import hashlib
 import json
 import os
 import re
 from typing import Optional
+
+import llm_json  # Phase09 shared bounded LLM-JSON normalizer (Class D repair)
 
 from config import llm_model_func
 
@@ -167,18 +170,31 @@ async def map_claims_to_citations(
             query=query[:500], source_list=source_list, answer=answer[:ans_cap],
         )
         try:
+            # Phase09 runtime-budget repair (RC3): the mapping JSON cannot
+            # legitimately exceed a linear function of the (already capped)
+            # answer length; an oversized reasoning headroom wastes provider
+            # time inside a bounded correctness-critical stage window.  The
+            # 2048-token floor is empirically calibrated for the GLM
+            # reasoning family: the reasoning tail (~600-1000 tokens) is
+            # emitted BEFORE the JSON payload (~300-800 tokens), so a bound
+            # below that guarantees truncated tails and fail-closed schema
+            # rejection even on a healthy provider.  Only widens the bound;
+            # QA_CLAIM_MAP_MAX_TOKENS is the Q293 versioned override.
+            _map_max_tokens = int(os.environ.get(
+                "QA_CLAIM_MAP_MAX_TOKENS",
+                str(min(8192, max(2048, (len(answer) // 500 + 1) * 600)))))
             result_text = await llm_model_func(
                 prompt,
                 system_prompt="你是技术情报分析专家。只输出JSON，不要输出其他内容。",
                 temperature=0.0,
-                max_tokens=8192,  # GLM-5.2 reasoning headroom
+                max_tokens=_map_max_tokens,
                 allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
             parsed = _extract_json_safe(result_text)
             if parsed and "claims" in parsed:
                 claims = []
-                for claim in parsed["claims"]:
-                    c = _validate_claim(claim, citations)
+                for i, claim in enumerate(parsed["claims"]):
+                    c = _validate_claim(claim, citations, index=i)
                     if c:
                         claims.append(c)
                 return {"claims": claims}
@@ -205,9 +221,24 @@ async def map_claims_to_citations(
 
 
 def _extract_json_safe(text: str) -> Optional[dict]:
-    """Robust JSON extraction with multiple fallback strategies."""
+    """Robust JSON extraction with multiple fallback strategies.
+
+    Phase09 general-reliability repair (Class D): delegates FIRST to the
+    shared bounded normalizer llm_json.parse_json — adds <think> stripping,
+    provider-envelope unwrapping, full-width folding, and honest
+    truncated-stream closing (drop-not-guess). The legacy chain is kept as
+    a final fallback. Fail-closed: None → the caller keeps its existing
+    bounded-retry/fallback-claims contract; a parse failure NEVER
+    fabricates claims."""
     if not text or not text.strip():
         return None
+
+    try:
+        val = llm_json.parse_json(text)
+    except Exception:
+        val = None
+    if isinstance(val, dict):
+        return val
 
     try:
         return json.loads(text.strip())
@@ -248,12 +279,46 @@ def _extract_json_safe(text: str) -> Optional[dict]:
     return None
 
 
-def _validate_claim(claim: dict, citations: list) -> Optional[dict]:
-    """Validate and normalize a claim dict from LLM output."""
+_CLAIM_TEXT_KEYS = ("text", "claim", "content", "statement", "description")
+
+
+def _recover_claim_text(claim: dict) -> str:
+    """Bounded deterministic recovery of the claim text from a mapper entry.
+
+    GLM variants occasionally emit the claim under an alternate key. We only
+    READ what the model actually output — nothing is synthesized. A value
+    that is a bool/int/float or a list of short strings is coerced; anything
+    else non-string is ignored (fail-closed to empty)."""
+    for key in _CLAIM_TEXT_KEYS:
+        val = claim.get(key)
+        if isinstance(val, str) and val.strip():
+            return val.strip()
+        if isinstance(val, bool):
+            return str(val)
+        if isinstance(val, (int, float)):
+            return str(val)
+        if isinstance(val, list) and val and all(
+                isinstance(x, str) and len(x) < 500 for x in val):
+            joined = " ".join(x.strip() for x in val if x.strip())
+            if joined:
+                return joined
+    return ""
+
+
+def _validate_claim(claim: dict, citations: list,
+                    index: Optional[int] = None) -> Optional[dict]:
+    """Validate and normalize a claim dict from LLM output.
+
+    Phase09 repair (Class D): a claim entry whose text is recoverable is
+    NEVER silently vanished — malformed support references already degrade
+    honestly to UNSUPPORTED (below), and the id fallback is deterministic
+    (position, or a stable digest of the text) instead of the process-salted
+    hash(). Entries with no recoverable text still return None — an
+    unusable entry must not fabricate a claim."""
     if not isinstance(claim, dict):
         return None
 
-    text = claim.get("text", "").strip()
+    text = _recover_claim_text(claim)
     if not text:
         return None
 
@@ -300,8 +365,15 @@ def _validate_claim(claim: dict, citations: list) -> Optional[dict]:
     else:
         support_status = CLAIM_UNSUPPORTED
 
+    # Deterministic id fallback (Phase09): a stable digest of the text (and
+    # position as tiebreaker) replaces the process-salted hash().
+    fallback_id = f"claim_{index}" if index is not None else (
+        "claim_" + hashlib.md5(text.encode("utf-8")).hexdigest()[:8])
+    raw_id = claim.get("id")
+    claim_id = raw_id if isinstance(raw_id, str) and raw_id.strip() else fallback_id
+
     return {
-        "id": claim.get("id", f"claim_{hash(text) % 10000}"),
+        "id": claim_id,
         "text": text,
         "type": claim_type,
         "support_status": support_status,

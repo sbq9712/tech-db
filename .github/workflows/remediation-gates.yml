@@ -172,6 +172,171 @@ jobs:
       - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
       - run: python qa-backend/tests_remediation_phase08.py
 
+  phase09-benchmarks-ci-release-gates:
+    # Phase09 (RT-100..108): locked retrieval/answer/multi-document/ER
+    # benchmarks, real server+orchestrator E2E, critical failure injection,
+    # provenance validation, and the single fail-closed release evaluator.
+    #
+    # CI identity contract (D7 hardening, pull_request merge-ref semantics):
+    # - authority subject = the exact PR head commit; owner proofs bind to it
+    #   via evaluated_git_sha, and PHASE09_AUTHORITY_SUBJECT_SHA is exported
+    #   from the trusted GitHub event context only (never repo content);
+    # - the GitHub-generated merge ref is identity-checked (parents exactly
+    #   [event base, event head]) and the canonical release gate runs on it,
+    #   so merge-with-main integration stays genuinely tested and a merge
+    #   result failure can never be masked by a head-only pass;
+    # - the gate ALSO runs on an exact-head checkout whose HEAD is asserted
+    #   equal to the event head sha BEFORE any secret-bearing step, and the
+    #   strict machine evidence chain is validated there;
+    # - the job is green only if both gate executions really succeed; a
+    #   fail-closed gate stays red, and the expected-block verifiers prove
+    #   the red reason is genuine (never RT075 identity/transport noise).
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --no-cache-dir fastapi uvicorn numpy jieba pydantic httpx sse-starlette rank-bm25 pyyaml
+      - name: Merge-ref identity proof (parents == event base+head)
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EVENT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            # The event's base.sha is the base recorded when the PR was
+            # opened/last synchronized — for a PR that is BEHIND its base,
+            # the merge ref's parent1 is the CURRENT base tip, which is a
+            # descendant of base.sha.  The identity contract therefore
+            # requires base.sha to be an ANCESTOR of merge parent1 (the
+            # claimed base is genuinely contained in the integrated base
+            # lineage), while parent2 must equal the event head exactly.
+            git merge-base --is-ancestor "$EVENT_BASE_SHA" "$(git rev-parse HEAD^1)" \
+              || { echo "::error::event base sha not contained in merge-ref base lineage (identity contract)"; exit 1; }
+            [ "$(git rev-parse HEAD^2)" = "$EVENT_HEAD_SHA" ] \
+              || { echo "::error::merge-ref parent2 != event head sha (identity contract)"; exit 1; }
+            git merge-base --is-ancestor "$EVENT_HEAD_SHA" HEAD \
+              || { echo "::error::event head not contained in merge ref"; exit 1; }
+            SUBJECT="$EVENT_HEAD_SHA"
+          else
+            [ "$(git rev-parse HEAD)" = "$EXPECTED_SHA" ] \
+              || { echo "::error::checkout HEAD != github.sha (identity contract)"; exit 1; }
+            SUBJECT="$EXPECTED_SHA"
+          fi
+          echo "PHASE09_AUTHORITY_SUBJECT_SHA=$SUBJECT" >> "$GITHUB_ENV"
+          echo "authority subject: $SUBJECT (merge-ref checkout $(git rev-parse HEAD))"
+      - name: Generic Phase09 product repair regressions (merge result)
+        run: python qa-backend/tests_repair_phase09_generic.py
+      - name: Execute canonical Phase09 release gate (merge integration result)
+        # D7 (P0 closure): genuine RT-101 authority / external-control
+        # satisfactions enter ONLY via owner-provisioned secrets (step-
+        # scoped: never in GITHUB_ENV, never echoed).  Unset secrets expand
+        # to empty strings and the gate fails closed.  Proofs are evaluated
+        # against the authority subject (event head), not the merge ref.
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: |
+          set +e
+          python scripts/run_phase09_release_gate.py \
+            --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json \
+            --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+          GATE=$?
+          set -e
+          # C10 contract: the strict evidence validator requires the
+          # ci_generated artifacts at the gate's canonical root paths.
+          # Mirror even when the gate exits non-zero (genuine RT-101
+          # block) so strict validation can inspect them.
+          cp qa-backend/phase09_artifacts/phase09_release_evidence.json \
+             qa-backend/phase09_release_evidence.json
+          cp qa-backend/phase09_artifacts/phase09_ticket_status.json \
+             qa-backend/phase09_ticket_status.json
+          exit $GATE
+      - name: Assert intentional fail-closed reason (merge result)
+        # Diagnostic only: when the gate is red, prove the red is the
+        # genuine RT-101 authority absence and not a code regression or
+        # proof transport/identity noise. The job stays red either way.
+        if: failure()
+        run: python scripts/verify_phase09_expected_block.py --evidence qa-backend/phase09_artifacts/phase09_release_evidence.json
+      - name: Exact-head checkout (authority subject identity)
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: phase09-head
+          fetch-depth: 0
+      - name: Exact-head identity assert (before any secret-bearing step)
+        if: always()
+        env:
+          EVENT_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          WANT="${EVENT_HEAD_SHA:-$EXPECTED_SHA}"
+          GOT="$(git -C phase09-head rev-parse HEAD)"
+          [ "$GOT" = "$WANT" ] \
+            || { echo "::error::exact-head checkout HEAD $GOT != event head sha $WANT (identity contract)"; exit 1; }
+          echo "exact-head identity verified: $GOT"
+      - name: Execute canonical Phase09 release gate (exact head)
+        if: always()
+        working-directory: phase09-head
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: |
+          set +e
+          python scripts/run_phase09_release_gate.py \
+            --evidence-out qa-backend/phase09_artifacts/phase09_release_evidence.json \
+            --status-out qa-backend/phase09_artifacts/phase09_ticket_status.json
+          GATE=$?
+          set -e
+          # C10 contract: the strict evidence validator requires the
+          # ci_generated artifacts at the gate's canonical root paths.
+          # Mirror even when the gate exits non-zero (genuine RT-101
+          # block) so strict validation can inspect them.
+          cp qa-backend/phase09_artifacts/phase09_release_evidence.json \
+             qa-backend/phase09_release_evidence.json
+          cp qa-backend/phase09_artifacts/phase09_ticket_status.json \
+             qa-backend/phase09_ticket_status.json
+          exit $GATE
+      - name: Assert intentional fail-closed reason (exact head)
+        if: failure()
+        working-directory: phase09-head
+        run: python scripts/verify_phase09_expected_block.py --evidence qa-backend/phase09_artifacts/phase09_release_evidence.json
+      - name: Validate Phase09 evidence chain (exact head, strict machine)
+        if: always()
+        working-directory: phase09-head
+        env:
+          PHASE09_RT101_AUTHORITY_PROOF: ${{ secrets.PHASE09_RT101_AUTHORITY_PROOF }}
+          PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256: ${{ secrets.PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256 }}
+          PHASE09_RT101_AUTHORITY_HMAC_KEY: ${{ secrets.PHASE09_RT101_AUTHORITY_HMAC_KEY }}
+          PHASE09_EXTERNAL_SATISFACTION_PROOFS: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_PROOFS }}
+          PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY: ${{ secrets.PHASE09_EXTERNAL_SATISFACTION_HMAC_KEY }}
+        run: >-
+          python scripts/validate_phase09_evidence_chain.py
+          --release-evidence qa-backend/phase09_artifacts/phase09_release_evidence.json
+          --ticket-status qa-backend/phase09_artifacts/phase09_ticket_status.json
+          --strict-machine
+      - name: Upload Phase09 machine evidence (exact head artifacts)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase09-release-evidence
+          path: |
+            phase09-head/qa-backend/benchmark_phase09_result.json
+            phase09-head/qa-backend/phase09_artifacts/*.json
+          retention-days: 180
+
   legacy-index-migration:
     # Phase-02 review blocker C: legacy dataset (no inline record_id) →
     # explicit stable-ID migration (RecordRegistry/SourceIdentityKey) →
