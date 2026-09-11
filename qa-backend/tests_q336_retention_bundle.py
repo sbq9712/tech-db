@@ -231,6 +231,30 @@ def test_q336_truthfulness_regression():
     problems = validator.q336_internal_consistency_problems(row)
     check("committed Q-336 row has no truthfulness contradiction",
           not problems, "; ".join(problems))
+
+    # P1/P2 hardening: malformed types fail as recorded problems, never
+    # crash the validator; float retention days are rejected, not
+    # truncated; non-Q-336 rows are out of the seam's contract.
+    malformed = {"satisfied": True, "evidence": "180", "satisfaction_proof": []}
+    problems = validator.q336_internal_consistency_problems(malformed)
+    check("C14c records malformed typed fields without crashing",
+          any("not an object" in p for p in problems),
+          "; ".join(problems))
+    float_days = {"satisfied": True,
+                  "evidence": {"durable_external_store": True,
+                               "effective_retention_days": 180.5},
+                  "satisfaction_proof": {"artifact": "x.json",
+                                          "sha256": "a" * 64}}
+    problems = validator.q336_internal_consistency_problems(float_days)
+    check("C14c rejects float retention days (no truncation)",
+          any("not an integer" in p for p in problems),
+          "; ".join(problems))
+    unsatisfied_row = {"satisfied": False,
+                       "evidence": {"durable_external_store": False,
+                                    "effective_retention_days": 90}}
+    problems = validator.q336_internal_consistency_problems(unsatisfied_row)
+    check("C14c ignores unsatisfied rows (blocker path owns them)",
+          not problems, "; ".join(problems))
     ev = row.get("evidence") or {}
     check("committed Q-336 evidence declares >=180d durable store",
           row.get("satisfied") is True

@@ -512,20 +512,25 @@ def q336_internal_consistency_problems(q336_row: dict) -> list[str]:
     problems: list[str] = []
     if not isinstance(q336_row, dict):
         return ["row is not an object"]
-    evidence = q336_row.get("evidence") or {}
-    proof = q336_row.get("satisfaction_proof") or {}
+    evidence = q336_row.get("evidence")
+    proof = q336_row.get("satisfaction_proof")
+    if not isinstance(evidence, dict):
+        problems.append("evidence is not an object")
+        evidence = {}
+    if proof is not None and not isinstance(proof, dict):
+        problems.append("satisfaction_proof is not an object")
+        proof = {}
     if q336_row.get("satisfied") is True:
-        try:
-            effective = int(evidence.get("effective_retention_days", 0))
-        except (TypeError, ValueError):
-            problems.append("effective_retention_days unreadable")
-        else:
-            if effective < 180:
-                problems.append(
-                    f"effective_retention_days={effective} <180")
+        effective = evidence.get("effective_retention_days")
+        if isinstance(effective, bool) or not isinstance(effective, int):
+            problems.append(
+                f"effective_retention_days not an integer: {effective!r}")
+        elif effective < 180:
+            problems.append(f"effective_retention_days={effective} <180")
         if evidence.get("durable_external_store") is not True:
             problems.append("durable_external_store is not true")
-        if not (proof.get("artifact") and proof.get("sha256")):
+        if not (isinstance(proof, dict) and proof.get("artifact")
+                and proof.get("sha256")):
             problems.append("satisfaction_proof missing artifact/sha256")
     return problems
 
