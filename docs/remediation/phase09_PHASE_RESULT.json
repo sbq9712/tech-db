@@ -30,28 +30,28 @@
   },
   "build": {
     "builder": "Phase09 D7 evidence closure",
-    "domain_now": "2026-09-10T17:53:06.386972+00:00",
+    "domain_now": "2026-09-11T02:24:25.039458+00:00",
     "generator": "scripts/build_phase09_evidence.py"
   },
   "evidence_chain": [
     {
       "path": "qa-backend/test_summary.json",
       "role": "authoritative test counts",
-      "sha256": "35ab865af80da398729ad9aeb1a47305cdd1a03b677f59fbb8db559ad7c417bd",
+      "sha256": "d4dc4dbe82d8d91f978947eb34a901d6a80b8e636e94fc1c9395a61ae10d5b34",
       "storage": "committed"
     },
     {
       "generated_at": null,
-      "path": "qa-backend/phase09_release_evidence.json",
+      "path": "qa-backend/phase09_artifacts/phase09_release_evidence.json",
       "role": "canonical release decision",
-      "sha256_at_generation": "fa7eaa47e7addd89b98a647bd395e41a009ff17085ac1a465239488aa641f17a",
+      "sha256_at_generation": "5aca10ad6ccba0d3e4b895756afe74c2b52aaf5bc9f4b52263da97b35045d6e6",
       "storage": "ci_generated"
     },
     {
-      "generated_at": "2026-09-10T17:53:06.325181+00:00",
-      "path": "qa-backend/phase09_ticket_status.json",
+      "generated_at": "2026-09-11T02:22:16.090028+00:00",
+      "path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
       "role": "ticket/phase status",
-      "sha256_at_generation": "0614799d2232d6427f7f54a4be942946fe130125a9c2192e9159affeaaad3eb4",
+      "sha256_at_generation": "ed1fe506951abf757c3ef1bf1a3416b9599b546f611909e3d2c50c10f2d904bb",
       "storage": "ci_generated"
     },
     {
@@ -70,15 +70,8 @@
       "storage": "committed"
     }
   ],
-  "evidence_generation_base_sha": "cc8ff1b676cfdef62572302287ef39f8a2fe636a",
-  "external_blockers": {
-    "Q-336": {
-      "description": "GitHub public-repository artifact policy caps the requested 180-day retention at 90 days; durable external retention is not configured",
-      "observed_at": "2026-09-08T12:00:00Z",
-      "re_verified_at": "2026-09-08T12:00:00Z",
-      "satisfied": false
-    }
-  },
+  "evidence_generation_base_sha": "4479626393a316b81bfbcaa98e3b0ccae111c9cb",
+  "external_blockers": {},
   "gatekeeper_history": {
     "V5_formal_run": "BASIS_APPROVED (D6 SAFE_FOR_FRESH_V5=YES) — a formal V5 remains blocked by its own prerequisites: RT-101 blinded gold not provisioned (REQUIRED core authority), gate core_eligible=false",
     "latest_verdicts": {
@@ -94,7 +87,7 @@
     },
     "schema_version": "phase09-gatekeeper-history-1.0"
   },
-  "generated_at": "2026-09-10T17:53:06.386871+00:00",
+  "generated_at": "2026-09-11T02:24:25.039360+00:00",
   "graph": {
     "activation": "NOT_ACTIVATED_BY_GAIN_GATE",
     "gain_conclusion": "NO_GAIN",
@@ -105,9 +98,7 @@
   "phase_status": "NOT_SATISFIED",
   "release_decision": {
     "core_eligible": false,
-    "external_blockers": [
-      "Q-336"
-    ],
+    "external_blockers": [],
     "graph_activation_eligible": false,
     "graph_state": "OFF_NO_GAIN",
     "production_release_eligible": false,
@@ -123,15 +114,15 @@
   },
   "test_summary": {
     "all_passed": true,
-    "generated_at": "2026-09-10T17:45:02+00:00",
-    "git_sha": "cc8ff1b676cfdef62572302287ef39f8a2fe636a",
+    "generated_at": "2026-09-11T02:20:52+00:00",
+    "git_sha": "4479626393a316b81bfbcaa98e3b0ccae111c9cb",
     "path": "qa-backend/test_summary.json",
-    "sha256": "35ab865af80da398729ad9aeb1a47305cdd1a03b677f59fbb8db559ad7c417bd",
+    "sha256": "d4dc4dbe82d8d91f978947eb34a901d6a80b8e636e94fc1c9395a61ae10d5b34",
     "suite_count": 54,
     "total_failed": 0,
     "total_passed": 1865
   },
-  "tested_git_sha": "cc8ff1b676cfdef62572302287ef39f8a2fe636a",
-  "ticket_status_path": "qa-backend/phase09_ticket_status.json",
+  "tested_git_sha": "4479626393a316b81bfbcaa98e3b0ccae111c9cb",
+  "ticket_status_path": "qa-backend/phase09_artifacts/phase09_ticket_status.json",
   "title": "Benchmarks, CI, release gates + runtime-budget repair"
 }
