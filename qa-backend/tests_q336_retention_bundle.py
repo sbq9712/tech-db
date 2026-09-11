@@ -180,8 +180,71 @@ def test_bundle_roundtrip():
         check("Q336 tampered bundle rejected", out.returncode == 1)
 
 
+def test_q336_truthfulness_regression():
+    """C14c regression: satisfied Q-336 must be internally consistent.
+
+    2026-09-11 incident: committed state had satisfied=true alongside
+    effective_retention_days=90 / durable_external_store=false.  The
+    validator seam must reject that combination, accept the truthful
+    committed state, and not demand storage-enforced WORM (canonical
+    Q336 requires >=180-day retention, not immutability enforcement).
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import validate_phase09_evidence_chain as validator
+
+    contradictory = {
+        "satisfied": True,
+        "evidence": {"durable_external_store": False,
+                     "effective_retention_days": 90},
+        "satisfaction_proof": {"artifact": "x.json", "sha256": "a" * 64},
+    }
+    problems = validator.q336_internal_consistency_problems(contradictory)
+    check("C14c rejects satisfied row with 90d/no-durable-store evidence",
+          any("90" in p for p in problems) and
+          any("durable_external_store" in p for p in problems),
+           "; ".join(problems))
+
+    missing_proof = {
+        "satisfied": True,
+        "evidence": {"durable_external_store": True,
+                     "effective_retention_days": 180},
+    }
+    problems = validator.q336_internal_consistency_problems(missing_proof)
+    check("C14c rejects satisfied row without hashed proof",
+          any("satisfaction_proof" in p for p in problems),
+          "; ".join(problems))
+
+    policy_ok = {
+        "satisfied": True,
+        "evidence": {"durable_external_store": True,
+                     "effective_retention_days": 180,
+                     "immutable_storage_enforced": False},
+        "satisfaction_proof": {"artifact": "x.json", "sha256": "a" * 64},
+    }
+    problems = validator.q336_internal_consistency_problems(policy_ok)
+    check("C14c accepts 180d policy-enforced store (WORM not required)",
+          not problems, "; ".join(problems))
+
+    state = json.loads(
+        (ROOT / "spec/phase09_external_state.json").read_text("utf-8"))
+    row = state.get("controls", {}).get("Q-336") or {}
+    problems = validator.q336_internal_consistency_problems(row)
+    check("committed Q-336 row has no truthfulness contradiction",
+          not problems, "; ".join(problems))
+    ev = row.get("evidence") or {}
+    check("committed Q-336 evidence declares >=180d durable store",
+          row.get("satisfied") is True
+          and ev.get("durable_external_store") is True
+          and int(ev.get("effective_retention_days", 0)) >= 180,
+          f"satisfied={row.get('satisfied')} "
+          f"durable={ev.get('durable_external_store')} "
+          f"days={ev.get('effective_retention_days')} "
+          f"enforcement={ev.get('retention_enforcement')}")
+
+
 def main():
     test_bundle_roundtrip()
+    test_q336_truthfulness_regression()
     print("=" * 66)
     print(f"  Q-336 retention bundle: {PASSED} passed, {FAILED} failed")
     print("=" * 66)

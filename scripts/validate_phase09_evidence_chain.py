@@ -460,6 +460,20 @@ def main() -> int:
             stale.append(f"{control_id}: re_verified_at missing")
     record("C14", "external-state freshness markers present", not stale,
            "; ".join(stale) if stale else f"{len(external.get('controls', {}))} controls")
+
+    # C14c Q-336 retention truthfulness regression: a satisfied Q-336 row
+    # whose own evidence still declares retention < 180 days or a
+    # not-configured durable store is an internal contradiction (the
+    # 2026-09-11 incident: satisfied=true alongside
+    # effective_retention_days=90 / durable_external_store=false).  The
+    # canonical DoD (final_spec Q336) requires release-gate artifacts kept
+    # >= 180 days; storage-enforced WORM immutability is NOT required and
+    # honestly-declared policy enforcement is accepted.
+    q336_row = external.get("controls", {}).get("Q-336") or {}
+    q336_problems = q336_internal_consistency_problems(q336_row)
+    record("C14c", "Q-336 satisfied row internally consistent (retention >=180d, durable store configured)",
+           not q336_problems,
+           "; ".join(q336_problems) if q336_problems else "consistent")
     if not args.strict_machine:
         try:
             blockers = load_external_blockers(
@@ -483,6 +497,37 @@ def _finish() -> int:
     print(f"  Phase09 evidence chain: {total - len(failed)}/{total} checks passed")
     print("=" * 66)
     return 1 if failed else 0
+
+
+def q336_internal_consistency_problems(q336_row: dict) -> list[str]:
+    """C14c seam: Q-336 truthfulness problems in one external-state row.
+
+    A ``satisfied: true`` Q-336 row must not carry evidence that still
+    declares retention < 180 days or a not-configured durable store —
+    that combination is the internal contradiction this validator exists
+    to reject (final_spec Q336: release-gate artifacts kept >= 180 days).
+    Storage-enforced WORM immutability is deliberately NOT required:
+    owner-policy enforcement honestly declared is acceptable.
+    """
+    problems: list[str] = []
+    if not isinstance(q336_row, dict):
+        return ["row is not an object"]
+    evidence = q336_row.get("evidence") or {}
+    proof = q336_row.get("satisfaction_proof") or {}
+    if q336_row.get("satisfied") is True:
+        try:
+            effective = int(evidence.get("effective_retention_days", 0))
+        except (TypeError, ValueError):
+            problems.append("effective_retention_days unreadable")
+        else:
+            if effective < 180:
+                problems.append(
+                    f"effective_retention_days={effective} <180")
+        if evidence.get("durable_external_store") is not True:
+            problems.append("durable_external_store is not true")
+        if not (proof.get("artifact") and proof.get("sha256")):
+            problems.append("satisfaction_proof missing artifact/sha256")
+    return problems
 
 
 if __name__ == "__main__":
