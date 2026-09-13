@@ -35,30 +35,48 @@ import re
 
 # The product's generator prompt contract (server.py legacy prompt):
 #   "如果资料中没有相关信息，诚实回答「数据库中没有相关信息」"
-# Phrase family = that sentence plus its observed paraphrases.  Kept
-# deliberately narrow: false positives here would wrongly abstain a
+# Phrase family provenance (codex review B): every phrase below is a
+# product-authored string, NOT derived from any holdout material —
+#   * the prompt-contract sentence itself (server.py generator prompt);
+#   * canonical abstention/boundary messages the product already emits:
+#     server.py weak-query exit "数据库中没有足够的情报来回答...",
+#     topic-exhausted exit "...暂未找到...相关资料",
+#     follow-up empty exit "上一轮未找到相关资料...", and the canonical
+#     knowledge-boundary text "当前没有找到足够证据"
+#     (server.py / knowledge_boundary.py);
+#   * mechanical lexical recombinations of exactly those strings
+#     (找到↔未找到, 相关信息↔相关资料) so a generator may restate the
+#     contract in a neighboring wording and still be recognized.
+# Kept deliberately narrow: false positives here would wrongly abstain a
 # substantive answer, so every phrase contains an explicit
-# no-relevant-information declaration.
+# no-relevant-information declaration.  The detector additionally fails
+# OPEN on every other dimension (length, citation markers, retrieval
+# state), so widening this list could never suppress a citing draft.
 _NO_EVIDENCE_PHRASES = (
-    "数据库中没有相关信息",
-    "数据库中没有找到相关信息",
-    "数据库中未找到相关信息",
-    "没有找到相关信息",
-    "未找到相关资料",
-    "没有找到相关资料",
-    "当前数据库中暂未找到相关",
-    "没有足够的情报来回答",
-    "数据库中没有足够的情报",
-    "没有足够的信息来回答",
-    "当前没有找到足够证据",
-    "没有相关的资料",
-    "没有相关信息",
+    "数据库中没有相关信息",        # generator prompt contract (verbatim)
+    "数据库中没有找到相关信息",    # contract, 找到-variant
+    "数据库中未找到相关信息",      # contract, 未找到-variant
+    "没有找到相关信息",            # contract minus scope prefix
+    "未找到相关资料",              # follow-up empty exit (server.py)
+    "没有找到相关资料",            # same, 没找到-variant
+    "当前数据库中暂未找到相关",    # topic-exhausted exit (server.py)
+    "没有足够的情报来回答",        # weak-query boundary exit (server.py)
+    "数据库中没有足够的情报",      # same, prefix variant
+    "没有足够的信息来回答",        # same, 信息-variant
+    "当前没有找到足够证据",        # canonical knowledge boundary message
+    "没有相关的资料",              # contract, 资料-variant
+    "没有相关信息",                # contract minus scope prefix
 )
 
 _CITATION_MARKER_RE = re.compile(r"\[\d{1,2}\]")
 
-# An abstention notice is short.  Substantive grounded answers (which
-# always carry [n] markers anyway) are far longer.
+# Rationale (codex review B): an abstention notice is a one-liner plus
+# optional courtesy sentence — the longest product-authored abstention
+# message is ~60 chars.  400 chars is a ~6x margin that no honest
+# abstention reaches, and ANY longer draft (or any draft containing a
+# citation marker, or any empty retrieval result set) fails OPEN toward
+# the normal verification pipeline, so the cap cannot become a
+# behavioral special-case for substantive answers.
 _MAX_ABSTAIN_DRAFT_CHARS = 400
 
 

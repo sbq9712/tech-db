@@ -190,7 +190,12 @@ def evaluate(
 
     Every check is exact-equality identity binding plus the membership
     aggregate.  The report never contains locator or case content.
+    ``min_answer_cases``/``min_absence_cases`` are floored at 1 (codex
+    review B): a zero-case aggregate can never prove membership or
+    absence semantics, so no caller configuration may accept one.
     """
+    min_answer_cases = max(1, int(min_answer_cases))
+    min_absence_cases = max(1, int(min_absence_cases))
     identity_checks = {
         "manifest_id_exact":
             _exact_match(candidate.manifest_id, runtime.manifest_id),
