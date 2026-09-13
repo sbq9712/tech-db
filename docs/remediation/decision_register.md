@@ -512,3 +512,38 @@ authority the gate stays red: `core_eligible=false`,
 `production_release_eligible=false`, `phase_status=NOT_SATISFIED`,
 `NEXT_PROMPT_ALLOWED=false`, Phase10 NOT_STARTED. This is the correct
 final state, not a defect.
+
+## D8 — RT-101 corpus adjudication, runtime repair, fresh V6 candidate (2026-09-14)
+
+**Decision.** (1) The RT-101 V5 formal failure is adjudicated
+`ROOT_CAUSE_CLASS=B` (`docs/remediation/phase09_RT101_corpus_adjudication.json`):
+the V5 builder pinned the RAW spider filesystem tree (1133 files) as its
+holdout universe while the runtime serves the INGESTED citation-eligible
+corpus (30,391 records, manifest `mini-runtime-a49a56f8861a0633`, identity
+`mini-identity-v1`). The canonical product source universe is the ingested
+citation-eligible store; raw-tree universes are never holdout-eligible.
+(2) Runtime repairs RD-1/RD-2/RD-3 (display-integrity citation filter,
+canonical abstention serialization, evidence-grounding hardening) are
+permanent product behavior (commit `b8f56f9`); machine corpus-compatibility +
+source-coverage gates block any future formal run whose candidate universe
+does not exact-match the live runtime binding BEFORE one-shot consumption
+(commits `57e4f53`, `9af27cd`, `7ad7b85`, `1c8acff`).
+(3) A fresh independent V6 blind-holdout candidate was built in an isolated
+builder workspace (V5 remains consumed/immutable; no gold content access):
+`V6_SHA256=100a83b7faf9bb2539cde5c465fca626b2af6ad1dae6a60fce39af0c8b42955b`,
+`V6_LOCK_SHA256=034bd36b6c5c3f8ee0cec40cb99e7203a116f14746160406f68a07c1beec3d88`,
+15 cases (11 ANSWER / 2 ABSTAIN / 2 MUTATION), record-identity citation
+binding (`record:<record_id>` tokens replacing raw-file shingles). Three
+serial codex gatekeeper rounds converged REJECT → REJECT → **APPROVE**
+(verbatim: `phase09_RT101_codex_review_C_round{1,2,3}.md`; blinding confirmed
+every round).
+(4) The candidate ships to the owner as
+`RT101_V6_CANDIDATE_APPROVAL_REQUEST.json` +
+`run_v6_after_owner_approval.sh` (dry-run only this round; the spent-marker
+seal step exists only on real runs). No V6 formal execution happened or is
+permitted this round.
+
+**Boundary.** `RT101_V6_OWNER_APPROVAL_REQUIRED`:
+`NEXT_PROMPT_ALLOWED=false`; Phase10, RT110-116, and Graph activation stay
+NOT_ACTIVATED until the owner explicitly approves the exact candidate+lock
+pair via the owner channel. This is the correct fail-closed state.

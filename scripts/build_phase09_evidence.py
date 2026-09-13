@@ -83,6 +83,12 @@ OWNED_EVIDENCE_PATHS = frozenset({
     "docs/remediation/phase09_D7_codex_gatekeeper.md",
     "docs/remediation/phase09_gatekeeper_history.json",
     "docs/remediation/phase09_RT101_provisioning.md",
+    # RT-101 V5 failure adjudication, runtime repair and fresh V6 candidate
+    # process evidence (D8): narrative + verbatim codex gatekeeper rounds.
+    "docs/remediation/phase09_RT101_repair_and_v6_candidate.md",
+    "docs/remediation/phase09_RT101_codex_review_C_round1.md",
+    "docs/remediation/phase09_RT101_codex_review_C_round2.md",
+    "docs/remediation/phase09_RT101_codex_review_C_round3.md",
     "docs/remediation/decision_register.md",
     "docs/remediation/phase09_PR_BODY.md",
 })
