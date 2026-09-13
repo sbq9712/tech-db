@@ -1,54 +1,98 @@
-<!-- D7 PR body — generated from the final evidence chain; regenerate via
+<!-- D7/D8 PR body — evidence-chain state; regenerate via
      scripts/build_phase09_evidence.py, do not hand-edit the machine block. -->
 
-## Phase09 — Benchmarks, CI, release gates (D7 Final Authority & Evidence Closure)
+## Phase09 — Benchmarks, CI, release gates (D7 authority closure + D8 RT-101 repair & V6 candidate)
 
 ### CURRENT_STATE
-- branch: `remediation/phase-09-benchmarks-ci-release-gates` — PR #10 **open / draft / unmerged**
-- final evidence commit: this head; tested commit `2f12b69f6ab96424ed1b36ca2f54e4e9eb043760` (clean worktree), generation base `88d85729a3aeaed43cfb279005cc4f0a17152e33` (owned-evidence-only drift, descendant-base semantics — no self-reference fixed point)
+- branch: `remediation/phase-09-benchmarks-ci-release-gates` — PR #10 **open / unmerged**
+- evidence commit: this head; tested commit `434785032c9ed50485cb9375e649a8572bd11f0c`
+  (clean worktree), generation base `434785032c9ed50485cb9375e649a8572bd11f0c`
+  (tested == base; evidence-only descendant semantics, no self-reference fixed point)
 - worktree clean; normal pushes only (no force push)
 
 ### MACHINE EVIDENCE
 ```text
-total: 1689 passed, 0 failed across 49 suites
-tested_git_sha: 2f12b69f6ab96424ed1b36ca2f54e4e9eb043760
+total: 2026 passed, 0 failed across 56 suites
+tested_git_sha: 434785032c9ed50485cb9375e649a8572bd11f0c
 test_summary sha256: see docs/remediation/phase09_PHASE_RESULT.json (evidence_chain)
 phase_status: NOT_SATISFIED
 core_eligible: false
 production_release_eligible: false
 graph: NO_GAIN / OFF_NO_GAIN / NOT_ACTIVATED_BY_GAIN_GATE
-external_blockers: Q-336, RT-005, RT-075 (all satisfied=false)
+external_blockers: none (RT-075, Q-336, RT-005 owner-satisfied via HMAC proofs)
 rt101_authority_satisfied: false
 NEXT_PROMPT_ALLOWED: false
 phase10: NOT_STARTED
 ```
 
-### AUTHORITY (P0 closure)
-- Repo-editable files (policy JSON, external-state JSON, matrix, fixtures) can only **declare** requirements — they can never declare satisfaction.
-- Genuine RT-101 authority arrives ONLY via owner-provisioned GitHub Actions secrets (`PHASE09_RT101_AUTHORITY_PROOF`, `PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256`, `PHASE09_RT101_AUTHORITY_HMAC_KEY`, plus the two external-satisfaction secrets), verified as HMAC-SHA256-signed canonical-JSON proofs bound to git SHA, spec/decision-register hashes, locked manifest identity, holdout lock hash, trust class `OWNER_PROVISIONED_EXTERNAL`, timestamps (180-day max age, ≤5 min future skew, commit-time ordering), and constant-time integrity comparison.
-- `MANDATORY_AUTHORITIES` is pinned in code: deleting RT-101 from the policy fails closed everywhere (gate, validator, standalone publish path). Publicly-known test key material is rejected by production providers.
-- Contract + provisioning steps: `docs/remediation/phase09_RT101_provisioning.md`. Gold never enters repo/git/PR/logs/traces/fixtures (locked fixture carries query metadata only; no answer fields).
+### RT-101 — V5 failure adjudication, runtime repair, fresh V6 candidate (D8)
+- V5 formal blinded holdout FAIL adjudicated `ROOT_CAUSE_CLASS=B`
+  (`docs/remediation/phase09_RT101_corpus_adjudication.json`): builder pinned the
+  RAW spider tree while the runtime serves the INGESTED citation-eligible corpus
+  (30,391 records, manifest `mini-runtime-a49a56f8861a0633`). V5 is
+  CONSUMED-FAILED and immutable; never re-run.
+- Permanent runtime repairs RD-1/RD-2/RD-3 (display-integrity citation
+  withholding, canonical no-evidence abstention, bounded verifier transient
+  retry) + fail-closed machine corpus-compatibility and source-coverage gates
+  that block any future formal run whose candidate universe does not exact-match
+  the live runtime binding BEFORE one-shot consumption.
+- Fresh independent V6 blind-holdout candidate built in an isolated builder
+  workspace (no gold content access; V5 material untouched; no formal execution
+  this round — runner ships dry-run only):
 
-### EVIDENCE CHAIN (P1 closure)
-One-way machine-derived chain: `qa-backend/test_summary.json` → release/ticket evidence (CI-generated, gitignored) → `docs/remediation/phase09_PHASE_RESULT.json` → `phase09_NEXT_PROMPT_ALLOWED.json` → completion report. `scripts/validate_phase09_evidence_chain.py --strict-machine` passes **31/31** checks (counts, hashes, decision incl. reasons/authorities, blockers, graph, phase implications, report machine-block, generation order with future-stamp rejection, SHA semantics `tested ≤ base ≤ head` with owned-only drift, artifact existence/hashes, policy suites, graph, live-env authority match, external-state freshness).
+```text
+V6_SHA256      = 100a83b7faf9bb2539cde5c465fca626b2af6ad1dae6a60fce39af0c8b42955b
+V6_LOCK_SHA256 = 034bd36b6c5c3f8ee0cec40cb99e7203a116f14746160406f68a07c1beec3d88
+case_mix       = 11 ANSWER / 2 ABSTAIN / 2 MUTATION_WITH_LOYAL_ANSWER
+citation bind  = record:<record_id> against the live ingested store
+gatekeeper     = codex review C rounds REJECT → REJECT → APPROVE
+                 (verbatim: docs/remediation/phase09_RT101_codex_review_C_round{1,2,3}.md)
+status         = RT101_V6_OWNER_APPROVAL_REQUIRED
+```
+
+- Owner-side deliverables (owner secrets, 0700): `RT101_V6_CANDIDATE_APPROVAL_REQUEST.json`
+  + `run_v6_after_owner_approval.sh` (one-shot formal runner; identity recomputation
+  from bytes → head binding → corpus-compatibility gate → source-coverage gate →
+  preflight → salt-leak grep → marker seal → pinned capture → digest-pinned scorer →
+  hash-chained append-only decision log; dry-run only this round).
+
+### AUTHORITY (P0 closure)
+- Repo-editable files can only **declare** requirements — they can never declare
+  satisfaction. Genuine RT-101 authority arrives ONLY via owner-provisioned GitHub
+  Actions secrets (`PHASE09_RT101_AUTHORITY_PROOF`, `PHASE09_RT101_EXPECTED_HOLDOUT_LOCK_SHA256`,
+  `PHASE09_RT101_AUTHORITY_HMAC_KEY`, plus the two external-satisfaction secrets),
+  HMAC-SHA256-bound, key-strength-checked, constant-time compared, freshness-enforced.
+- `MANDATORY_AUTHORITIES` pinned in code; deleting the policy entry fails closed.
+- Contract: `docs/remediation/phase09_RT101_provisioning.md`. Gold never enters
+  repo/git/PR/logs/traces/fixtures.
+
+### EVIDENCE CHAIN
+One-way machine-derived chain: `qa-backend/test_summary.json` → release/ticket
+evidence (CI-generated, gitignored) → `docs/remediation/phase09_PHASE_RESULT.json` →
+`phase09_NEXT_PROMPT_ALLOWED.json` → completion report.
+`scripts/validate_phase09_evidence_chain.py --strict-machine`: **33/33 checks**
+(counts, hashes, decision, blockers, graph, report machine-block, generation order,
+SHA semantics `tested ≤ base ≤ head` with owned-only drift, artifact existence/hashes,
+policy suites, live-env authority match, external-state freshness).
 
 ### TESTS
-- `python3 qa-backend/run_all_tests.py --tier push` at clean `2f12b69`: **1689 passed / 0 failed / 49 suites**
-- `qa-backend/tests_release_phase09.py`: 79/79 cases incl. 16 adversarial authority cases, publish-path denials, evidence-chain drift matrix
-- Canonical gate exits 1 **by design**: the only failure reason is genuine RT-101 authority absence (`scripts/verify_phase09_expected_block.py` certifies INTENTIONAL_FAIL_CLOSED). This is the correct fail-closed state, not a regression — the only permitted CI red is the phase09 job failing for exactly this reason.
+- `python3 qa-backend/run_all_tests.py --tier push` at clean `4347850`:
+  **2026 passed / 0 failed / 56 suites**, finalize `verify_spec_manifest` PASS.
+- Canonical gate exits 1 **by design**: the only failure reason is genuine RT-101
+  authority absence (`scripts/verify_phase09_expected_block.py` certifies
+  INTENTIONAL_FAIL_CLOSED, suites 5/5 PASS, invariants clean). This is the correct
+  fail-closed state, not a regression.
 
-### CODEX
-- Design round: `docs/remediation/phase09_D7_codex_authority_design.md`
-- Adversarial code review (11 findings, all fixed): `docs/remediation/phase09_D7_codex_code_review.md`
-- **Final Gatekeeper (final round, head d24ed1e+): AUTHORITY_BYPASS_CLOSED: YES · EVIDENCE_CHAIN_CONSISTENT: YES · HOLDOUT_ISOLATION_PRESERVED: YES · RELEASE_FAIL_CLOSED_WITHOUT_GENUINE_RT101: YES · SAFE_FOR_FRESH_V5: YES · FINDINGS: none** — `docs/remediation/phase09_D7_codex_gatekeeper.md`
+### EXTERNAL CONTROLS (owner-satisfied, HMAC-bound at pushed head)
+- RT-075 approved equivalent locked replay · Q-336 durable ≥180d retention receipt ·
+  RT-005 enforce-admins branch protection — satisfaction proofs re-bound to the exact
+  pushed head and provisioned via the secret channel; repository files still cannot
+  self-attest (fail-closed by design since D7).
 
-### BLOCKERS (all external — agent cannot clear)
-| ID | Blocker | Why blocked | Human action |
-|----|---------|-------------|--------------|
-| RT-101 | answer-level blinded release holdout gold + owner authority proof | gold/keys must never enter repo; provisioning requires owner-controlled secrets | follow `docs/remediation/phase09_RT101_provisioning.md` |
-| Q-336 | artifact retention ≥180d not satisfiable on public-repo policy (cap 90d) | no threshold reduction permitted | configure durable external retention store |
-| RT-005 | branch protection/required checks re-verification | requires repo-admin API access (11 required checks, enforce_admins=false) | admin re-reads protection rules via API |
-| RT-075 | production-representative ER shadow evidence | CI replay ≠ production shadow | provision shadow environment |
+### BOUNDARY
+`RT101_V6_OWNER_APPROVAL_REQUIRED` — `NEXT_PROMPT_ALLOWED=false`. The formal V6 run,
+owner-authority provisioning, Phase10, RT110-116 and Graph activation all remain
+gated behind explicit owner approval of the exact candidate+lock pair above. This is
+the correct fail-closed state, not a defect.
 
-### PHASE10
-**NOT_STARTED** — `NEXT_PROMPT_ALLOWED=false`. No formal fresh V5 while genuine RT-101 authority is absent. Unblock path: owner provisions RT-101 via the contract above → gate passes → `NEXT_PROMPT_ALLOWED=true` → V5 becomes eligible.
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
