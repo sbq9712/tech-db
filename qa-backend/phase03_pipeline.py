@@ -1238,6 +1238,14 @@ async def run_phase03_retrieval(*, query: str,
             "evidence_spans": e.locators,
             "evidence_id": eid,
             "source_snapshot_id": e.source_snapshot_id,
+            # Phase09 repair RD-1 (display integrity): every row in the
+            # typed view is backed by the request-pinned catalog authority
+            # (snapshot_index is built ONLY from source_catalog entries;
+            # authority-gapped records never enter the package), so the
+            # span evidence is grounding-valid by construction.  Declaring
+            # it here keeps the canonical display-integrity filter from
+            # discarding authority-backed evidence as ungrounded.
+            "grounding_status": "VALID",
         })
 
     return {

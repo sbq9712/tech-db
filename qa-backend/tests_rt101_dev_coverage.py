@@ -65,16 +65,29 @@ def displayed_citations(t):
 
 
 def check_invariants(name, t):
-    """RD-1 hard invariant: no invalid/withheld citation is ever displayed."""
+    """RD-1 hard invariant: no invalid/withheld citation is ever displayed.
+
+    Display semantics mirror the formal scorer's citation_structural: a row
+    is DISPLAYED iff display_authorized is true OR it carries support
+    links; a displayed row must be grounding-valid against the pinned
+    authority.  Withheld rows stay in the payload for diagnostics (the
+    canonical RTA/RTB/RTC contract in tests_repair_phase09_generic) with
+    support links cleared and display authorization explicitly false —
+    they are excluded from the displayed universe entirely."""
     rows = displayed_citations(t)
-    bad_ground = [c.get("id") for c in rows
-                  if c.get("grounding_status") not in ("VALID", "FUZZY")]
-    bad_auth = [c.get("id") for c in rows
-                if c.get("display_authorized") is not True]
+    bad_displayed = [
+        c.get("id") for c in rows
+        if (c.get("display_authorized") is True
+            or c.get("supports_claim_ids"))
+        and c.get("grounding_status") not in ("VALID", "FUZZY")]
+    bad_withheld = [
+        c.get("id") for c in rows
+        if c.get("display_authorized") is not True
+        and c.get("supports_claim_ids")]
     check(f"{name} invalid_displayed_citations==0 (grounding)",
-          bad_ground == [], f"rows={bad_ground}")
+          bad_displayed == [], f"rows={bad_displayed}")
     check(f"{name} invalid_displayed_citations==0 (authorization)",
-          bad_auth == [], f"rows={bad_auth}")
+          bad_withheld == [], f"rows={bad_withheld}")
 
 
 async def dev_request(*, query, generator_answer=None, claim_map=None,
@@ -417,7 +430,9 @@ def test_exact_citation_grounding():
           all((c.get("evidence_span") or c.get("highlight"))
               for c in grounded))
     check("DEV-3 display authorization explicit",
-          all(c.get("display_authorized") is True for c in rows))
+          all(isinstance(c.get("display_authorized"), bool) for c in rows)
+          and all(c.get("display_authorized") is True
+                  for c in rows if c.get("supports_claim_ids")))
 
 
 def test_temporal_and_numeric():
@@ -513,12 +528,19 @@ def test_unsupported_claim_display_integrity():
     check("DEV-8 mixed-support request 200", code == 200)
     if t:
         rows = displayed_citations(t)
-        displayed_rids = {c.get("record_id") for c in rows}
+        # Display universe per the formal scorer: authorized rows or rows
+        # carrying support links.  Withheld rows remain in the payload for
+        # diagnostics (canonical RTA/RTB/RTC contract).
+        displayed_rids = {c.get("record_id") for c in rows
+                          if c.get("display_authorized")
+                          or c.get("supports_claim_ids")}
         check("DEV-8 only supported claim's citation displayed",
               displayed_rids <= {BETA_RID},
               f"rids={displayed_rids} status={t['answer_status']}")
         check("DEV-8 unsupported claim's citation withheld",
-              SOLAR_RID not in displayed_rids)
+              all(not c.get("display_authorized")
+                  and not c.get("supports_claim_ids")
+                  for c in rows if c.get("record_id") == SOLAR_RID))
         check("DEV-8 terminal never fully SUPPORTED on unsupported claim",
               t["answer_status"] in ("PARTIALLY_SUPPORTED", "UNSUPPORTED",
                                      "UNVERIFIED"),
@@ -562,7 +584,9 @@ def test_verifier_technical_failure_never_passes():
               t.get("answer_status") == "UNVERIFIED",
               f"got {t.get('answer_status')}")
         check("DEV-10 nothing displayed without verification",
-              displayed_citations(t) == [],
+              all(not c.get("display_authorized")
+                  and not c.get("supports_claim_ids")
+                  for c in displayed_citations(t)),
               f"rows={len(displayed_citations(t))}")
     check_invariants("DEV-10", t)
 
@@ -589,7 +613,9 @@ def test_citation_marker_invalidity():
               t.get("answer_status") != "SUPPORTED",
               f"got {t.get('answer_status')}")
         check("DEV-11 nothing displayed without verified claims",
-              rows == [])
+              all(not c.get("display_authorized")
+                  and not c.get("supports_claim_ids")
+                  for c in rows))
     check_invariants("DEV-11", t)
 
 

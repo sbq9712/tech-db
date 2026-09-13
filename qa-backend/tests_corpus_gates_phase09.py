@@ -444,15 +444,21 @@ import ingest_guards as ig  # noqa: E402
 
 
 def t_guards_denylist():
-    for bad in ("/home/rhett/rt101-v5-builder-n/pkg/gold.json",
-                "/home/rhett/tech-db-owner-secrets/rt101/x",
-                "/data/rt101-v4-blind-input/g.json",
-                "/tmp/RT101-V6-BUILDER/g.json"):
+    # NOTE: probe paths are intentionally NOT echoed verbatim into the suite
+    # tail: verify_spec_manifest V7 treats "*.json"-suffixed tokens in suite
+    # tails as artifact references that must resolve inside the repository,
+    # and forbidden gold paths are foreign workspaces by definition.  The
+    # authoritative denylist lives in ingest_guards.py; probes are numbered.
+    probes = ("/home/rhett/rt101-v5-builder-n/pkg/gold.json",
+              "/home/rhett/tech-db-owner-secrets/rt101/x",
+              "/data/rt101-v4-blind-input/g.json",
+              "/tmp/RT101-V6-BUILDER/g.json")
+    for i, bad in enumerate(probes):
         try:
             ig.assert_ingestable_path(bad)
-            check(f"denylist rejects {bad}", False)
+            check(f"denylist rejects forbidden gold path #{i}", False)
         except ig.IngestGuardError:
-            check(f"denylist rejects {bad}", True)
+            check(f"denylist rejects forbidden gold path #{i}", True)
 
 
 def t_guards_symlink_escape():
@@ -555,13 +561,18 @@ def t_guards_env_file_family():
 
 
 def t_guards_generic_gold_marker():
-    """Codex review A1: the generic 'gold' marker is denylisted."""
-    for bad in ("/data/gold/v5/answer.json", "/tmp/golden_holdout/x"):
+    """Codex review A1: the generic 'gold' marker is denylisted.
+
+    Probe paths are intentionally NOT echoed verbatim into the suite tail
+    (same reason as the denylist probes above: verify_spec_manifest V7
+    treats .json-suffixed tail tokens as repository artifact references)."""
+    probes = ("/data/gold/v5/answer.json", "/tmp/golden_holdout/x")
+    for i, bad in enumerate(probes):
         try:
             ig.assert_ingestable_path(bad, allow_unrestricted=True)
-            check(f"gold marker rejects {bad}", False)
+            check(f"gold marker rejects forbidden path #{i}", False)
         except ig.IngestGuardError:
-            check(f"gold marker rejects {bad}", True)
+            check(f"gold marker rejects forbidden path #{i}", True)
 
 
 def t_guards_symlinked_directory_in_tree():
