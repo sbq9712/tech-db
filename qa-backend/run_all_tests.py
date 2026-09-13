@@ -81,6 +81,7 @@ SUITES = {
     "release_phase09": ("tests_release_phase09.py", "push"),
     "repair_phase09_generic": ("tests_repair_phase09_generic.py", "push"),
     "repair_phase09_reliability": ("tests_repair_phase09_reliability.py", "push"),
+    "corpus_gates_phase09": ("tests_corpus_gates_phase09.py", "push"),
     "runtime_budget_repair": ("tests_runtime_budget_repair.py", "push"),
     "rt075_shadow_store": ("tests_rt075_shadow_store.py", "push"),
     "rt075_locked_replay": ("tests_rt075_locked_replay.py", "push"),

@@ -1,0 +1,76 @@
+{
+  "schema_version": "rt101-formal-failure-record-1.0",
+  "record_type": "RT101_FORMAL_BLINDED_RELEASE_HOLDOUT_FAILURE",
+  "created_at_utc": "2026-09-13T16:30:00Z",
+  "sanitized": true,
+  "candidate": {
+    "generation": "V5",
+    "candidate_sha256": "a1dadc619aa035d4717f3cbeebc5e131adeaf22148fc268252cd2e6605da3fb6",
+    "lock_sha256": "b1877d4f19404e01baec82caa6e2a2d6583911a022568dfc5e6f8cb96488e1a8",
+    "handoff_package_sha256": "853901d6e0e0fe8d3917081787b04cbf73c045a3700eae90c95e401c78f375dc",
+    "blind_package_sha256": "4231e2b5",
+    "blind_package_note": "prefix only; sealed owner-side",
+    "case_count": 15,
+    "case_mix_aggregate": {"ANSWER": 13, "ABSTAIN": 2}
+  },
+  "evaluation": {
+    "evaluated_git_sha": "2a4c80283cc11cb656adfbc490dc03bc817f6b55",
+    "branch": "remediation/phase-09-benchmarks-ci-release-gates",
+    "pull_request": 10,
+    "model": "glm-5.3-flash",
+    "pipeline_profile": "legacy_hybrid",
+    "manifest_id": "mini-runtime-a49a56f8861a0633",
+    "identity_snapshot_id": "mini-identity-v1",
+    "dataset_snapshot_id": "sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70",
+    "source_snapshot_store_sha256": "f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7",
+    "started_at_local": "2026-09-13T19:38:00+08:00",
+    "ended_at_local": "2026-09-13T20:52:00+08:00",
+    "formal_posts": 15,
+    "formal_posts_completed": 15
+  },
+  "outcome": {
+    "final": "FAIL",
+    "consumed": true,
+    "immutable": true,
+    "reuse_forbidden": true,
+    "one_shot_consumed": true
+  },
+  "aggregate_counts": {
+    "cases": 15,
+    "answer_cases": 13,
+    "abstention_cases": 2,
+    "facts_total": 49,
+    "facts_matched": 0,
+    "citations_total": 65,
+    "citations_valid": 2,
+    "claim_units_evaluated": 113,
+    "unsupported_claim_rate": 0.9912,
+    "invalid_displayed_citations": 63,
+    "verifier_technical_failures": 3,
+    "forbidden_content_fails": 0,
+    "invalid_citation_reasons_aggregate": {
+      "grounding_not_valid": 49,
+      "record_unresolvable": 21,
+      "record_not_in_cited_ids": 35
+    }
+  },
+  "failure_stage_counts": {
+    "answer_retrieval_miss_aggregate": 13,
+    "verifier_window_exhaustion": 3,
+    "expected_answer_wrongly_abstained": 1
+  },
+  "root_cause_class": "B",
+  "root_cause_summary": "builder corpus-scope defect: candidate questions required builder-side tooling-file contents outside the product's citation-eligible evaluated corpus; adjudication and permanent guards recorded in docs/remediation/phase09_RT101_corpus_adjudication.json",
+  "authoritative_owner_side_record": {
+    "path": "/home/rhett/tech-db-owner-secrets/rt101/formal_v5_state/",
+    "aggregate_report_sha256": "756e2bb4580534299c4ffafe12e4f65f5e0c7fd962044e6d22b2ce83259138be",
+    "decision_log": "append-only hash-chained, 4 entries",
+    "gold_presence": false
+  },
+  "prohibited_content_check": {
+    "question_text_included": false,
+    "answers_included": false,
+    "hidden_labels_included": false,
+    "gold_evidence_spans_included": false
+  }
+}
