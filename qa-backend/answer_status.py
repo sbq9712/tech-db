@@ -423,6 +423,7 @@ def determine_answer_status(
     verification_status: str = "",
     claim_mapping: dict = None,
     evidence_grader_result: dict = None,
+    declared_no_evidence: bool = False,
 ) -> tuple:
     """Legacy compatibility shim — now ROUTES THROUGH the canonical machine.
 
@@ -431,9 +432,21 @@ def determine_answer_status(
     default to SUPPORTED; it is UNVERIFIED (Q091). Explicit PASSED/FAILED/
     UNVERIFIED inputs are recorded as machine facts.
 
+    ``declared_no_evidence`` (phase09 corpus-adjudication repair RD-2):
+    the generator itself declared that no relevant information exists
+    (deterministic product-prompt-contract phrase family, no citation
+    markers, non-substantive draft).  Such a draft is canonical
+    no-evidence input for the state machine — it can never ground a
+    SUPPORTED terminal regardless of what a downstream verifier said
+    about its (meta) wording.
+
     Returns (AnswerStatus, stop_reason).
     """
     machine = AnswerStateMachine()
+    if declared_no_evidence:
+        machine.record_no_evidence("generator_declared_no_evidence")
+        machine.finalize()
+        return (machine.terminal_status, machine.stop_reason)
     if not has_results or not is_relevant:
         machine.record_no_evidence("weak_query")
         machine.finalize()

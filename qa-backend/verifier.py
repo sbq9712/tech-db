@@ -525,7 +525,27 @@ async def verify_with_fail_safe(
         query=query, evidence_meta=evidence_str, draft_answer=draft_answer)
     last_error, last_class = "", ""
 
-    for attempt in range(max_retries + 1):
+    # Phase09 repair RD-3 (corpus adjudication): bounded transient retry
+    # for request-scoped verification.  The V5 formal run recorded 3/15
+    # verifier window exhaustions; request-scoped calls previously had
+    # ZERO internal tolerance — a single transient empty/parse hiccup
+    # converted directly into a technical failure.  This retry is
+    # strictly bounded: at most ONE extra attempt for TRANSIENT classes
+    # only (empty response / malformed JSON / missing field).  It can
+    # never extend any deadline: the enclosing run_stage owns the hard
+    # stage deadline and still cancels an overrunning retry mid-flight.
+    # Timeouts and provider exceptions keep their fail-closed behavior
+    # (raised to RequestExecutionContext) — a call that consumed its
+    # whole window is a genuine technical failure, never retried into
+    # a PASS.
+    _transient_extra_attempts = 1 if context_owned else 0
+    _transient_classes = {"empty_response", "json_parse_failed",
+                          "missing_fields"}
+    _total_attempts = max_retries + 1 + _transient_extra_attempts
+    _attempts_made = 0
+
+    for attempt in range(_total_attempts):
+        _attempts_made = attempt + 1
         try:
             result_text = await asyncio.wait_for(
                 llm_model_func(
@@ -540,20 +560,27 @@ async def verify_with_fail_safe(
             if not result_text or not result_text.strip():
                 last_error = f"empty_response (attempt {attempt + 1})"
                 last_class = "empty_response"
+            else:
+                parsed = _extract_json(result_text)
+                if parsed is None:
+                    last_error = f"json_parse_failed (attempt {attempt + 1})"
+                    last_class = "json_parse_failed"
+                else:
+                    passed = parsed.get("passed")
+                    if passed is True:
+                        return VerificationResult(VERIFY_PASSED)
+                    if passed is False:
+                        return VerificationResult(
+                            VERIFY_FAILED, issues=parsed.get("issues", []))
+                    last_error = (f"missing_passed_field "
+                                  f"(attempt {attempt + 1})")
+                    last_class = "missing_fields"
+            if (context_owned and last_class in _transient_classes
+                    and _attempts_made <= max_retries + _transient_extra_attempts):
+                print(f"[verify] transient ({last_class}); bounded retry "
+                      f"{_attempts_made}/{_transient_extra_attempts}",
+                      flush=True)
                 continue
-            parsed = _extract_json(result_text)
-            if parsed is None:
-                last_error = f"json_parse_failed (attempt {attempt + 1})"
-                last_class = "json_parse_failed"
-                continue
-            passed = parsed.get("passed")
-            if passed is True:
-                return VerificationResult(VERIFY_PASSED)
-            if passed is False:
-                return VerificationResult(
-                    VERIFY_FAILED, issues=parsed.get("issues", []))
-            last_error = f"missing_passed_field (attempt {attempt + 1})"
-            last_class = "missing_fields"
         except asyncio.TimeoutError:
             if context_owned:
                 raise
@@ -565,6 +592,7 @@ async def verify_with_fail_safe(
             cls = _classify_exception(exc)
             last_error = f"{cls} ({type(exc).__name__}: {str(exc)[:120]} attempt {attempt + 1})"
             last_class = cls
+        break
 
     if context_owned:
         raise ValueError(

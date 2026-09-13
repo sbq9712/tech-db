@@ -74,6 +74,7 @@ from ttfb_guard import guard_budget_s, snapshot as ttfb_snapshot
 from degraded_mode import build_user_warning, looks_like_api_failure
 from answer_status import (AnswerStatus, determine_answer_status,
                            build_evidence_summary, build_terminal_response)
+from no_evidence_gate import declared_no_evidence as _declared_no_evidence_impl
 from reference_cards import build_reference_cards
 from audit_ui import (AuditAuthorizationError, AuditTraceUnavailable,
                       TraceAuditService)
@@ -463,6 +464,22 @@ def _parse_citations_from_answer(full_answer: str, citations: list) -> list:
         if c and c.get("record_id") not in (None, -1, ""):
             result.append(c["record_id"])
     return list(dict.fromkeys(result))  # dedupe, preserve order
+
+
+def _declared_no_evidence(full_answer: str, search_results) -> bool:
+    """Phase09 repair RD-2: generator self-abstention detection.
+
+    Wraps the deterministic no_evidence_gate detector with the request's
+    retrieval outcome.  Fails open (False) on any internal error so the
+    gate can never swallow a substantive draft.
+    """
+    try:
+        return _declared_no_evidence_impl(
+            full_answer or "",
+            has_retrieval_results=bool(search_results),
+        )
+    except Exception:  # pragma: no cover — fail-open by contract
+        return False
 
 
 def _no_evidence_boundary(query: str, exhausted: bool) -> str:
@@ -2948,6 +2965,48 @@ async def chat_stream(req: ChatRequest, request: Request):
             # verifier → AnswerStateMachine → terminal renderer — runs in
             # phase02_pipeline.run_phase02_verification, then and only then
             # is verified content streamed.
+            #
+            # ── Phase09 repair RD-2 (corpus adjudication): canonical
+            # no-evidence abstain gate ──
+            # When the generator followed its prompt contract and
+            # honestly declared that no relevant information exists
+            # (deterministic phrase family, no [n] markers, non-
+            # substantive draft), the request terminates through the
+            # CANONICAL no-evidence abstention — exactly like the
+            # weak-query / topic-exhausted exits above: UNSUPPORTED with
+            # EMPTY citations and a knowledge-boundary message.  The
+            # pre-repair behavior serialized the self-abstention as an
+            # ANSWERED payload with displayed citations (the V5 formal
+            # run's invalid_displayed_citations=63 and 0.99 unsupported
+            # rate came from exactly this seam), and burned the claim-
+            # map + verifier budget on a draft with no factual content.
+            # The detector fails OPEN: any substantive draft proceeds
+            # through the normal pipeline unchanged.
+            if (not _phase03_active and not _legacy_generator_stream_failed
+                    and Flags.ANSWER_STATUS_ENABLED
+                    and _declared_no_evidence(full_answer, search_results)):
+                _abstain_boundary = _no_evidence_boundary(query, False)
+                trace.add_stage("generator_no_evidence_abstain", {
+                    "reason_code": "GENERATOR_DECLARED_NO_EVIDENCE",
+                    "draft_chars": len(full_answer or ""),
+                })
+                trace.set_result(answer_status="UNSUPPORTED",
+                                 stop_reason="generator_declared_no_evidence")
+                trace.flush()
+                yield {"event": "done", "data": json.dumps(
+                    _canonical_terminal_payload({
+                        "answer": _abstain_boundary or (
+                            "Tech-DB 当前没有找到足够证据；这不表示"
+                            "现实世界中该事实或对象不存在。"),
+                        "citations": [],
+                        "cited_record_ids": [],
+                        "searched_record_ids": searched_record_ids,
+                        "answer_status": "UNSUPPORTED",
+                        "stop_reason": "generator_declared_no_evidence",
+                        "boundary_message": _abstain_boundary,
+                        "trace_id": trace.trace_id,
+                    }))}
+                return
             if Flags.TERMINAL_RENDERER_ENABLED:
                 yield {"event": "status", "data": json.dumps({
                     "step": "verifying",
@@ -3717,6 +3776,38 @@ async def chat_stream(req: ChatRequest, request: Request):
                     "authorized": len(citations) - _lv_withheld,
                     "withheld_unlinked": _lv_withheld,
                     "path": "legacy"})
+
+                # ── Phase09 repair RD-1 (corpus adjudication): display
+                # integrity — invalid displayed citations are a hard
+                # invariant violation (invalid_displayed_citation = 0).
+                # A citation row is DISPLAYABLE only when its grounding
+                # against the stored/pinned snapshot authority is VALID
+                # or FUZZY and — when the final claim set carries display
+                # authorization — it is display_authorized.  Grounding-
+                # failed rows stay in the trace for diagnostics and are
+                # never serialized to the client.  An UNSUPPORTED
+                # terminal displays zero citations: nothing was
+                # verified-supported, so there is nothing to cite.
+                _pre_display_count = len(citations)
+                if answer_status_str == "UNSUPPORTED":
+                    citations = []
+                else:
+                    citations = [
+                        c for c in citations
+                        if c.get("grounding_status") in ("VALID", "FUZZY")
+                        and c.get("display_authorized", True)
+                    ]
+                if len(citations) != _pre_display_count:
+                    trace.add_stage("citation_display_integrity", {
+                        "pre_filter": _pre_display_count,
+                        "displayed": len(citations),
+                        "withheld": _pre_display_count - len(citations),
+                        "terminal_status": answer_status_str,
+                    })
+                cited_record_ids = [
+                    rid for rid in cited_record_ids
+                    if rid in {c.get("record_id") for c in citations}
+                ] if citations else []
 
                 _legacy_claims_payload = [
                     {"id": c.get("id"), "text": c.get("text", "")[:120],
