@@ -575,10 +575,15 @@ async def verify_with_fail_safe(
                     last_error = (f"missing_passed_field "
                                   f"(attempt {attempt + 1})")
                     last_class = "missing_fields"
-            if (context_owned and last_class in _transient_classes
-                    and _attempts_made <= max_retries + _transient_extra_attempts):
+            if (last_class in _transient_classes
+                    and _attempts_made < _total_attempts):
+                # Codex review A2 P1 fix: transient retry budget is
+                # caller-agnostic (bounded by _total_attempts).  Legacy
+                # callers keep their historical retry-on-transient
+                # contract within max_retries; request-scoped callers
+                # get exactly the single extra bounded attempt (RD-3).
                 print(f"[verify] transient ({last_class}); bounded retry "
-                      f"{_attempts_made}/{_transient_extra_attempts}",
+                      f"{_attempts_made}/{_total_attempts - 1}",
                       flush=True)
                 continue
         except asyncio.TimeoutError:

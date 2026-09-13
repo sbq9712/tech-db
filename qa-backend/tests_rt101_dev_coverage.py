@@ -710,6 +710,57 @@ def test_rd3_legacy_caller_still_fails_safe():
           vr.failure_class == "timeout", f"got {vr.failure_class}")
 
 
+def test_rd3_legacy_caller_transient_retry_preserved():
+    """Codex review A2 P1: legacy callers keep their historical
+    retry-on-transient contract (empty/malformed → retry within
+    max_retries), while still failing safe on persistent failure."""
+    import verifier
+    original_model = verifier.llm_model_func
+    calls = {"n": 0}
+
+    async def flaky_then_pass(prompt, **kw):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return "<<<malformed>>>"
+        return json.dumps({"passed": True})
+
+    async def always_malformed(prompt, **kw):
+        calls["n"] += 1
+        return "not json"
+
+    async def scenario_recover():
+        verifier.llm_model_func = flaky_then_pass
+        try:
+            return await verifier.verify_with_fail_safe(
+                "q", "draft answer", [{"id": "c1"}],
+                retry_owner="verifier", max_retries=1)
+        finally:
+            verifier.llm_model_func = original_model
+
+    calls["n"] = 0
+    vr = asyncio.run(scenario_recover())
+    check("RD-3 legacy transient recovers to PASSED",
+          vr.status == "PASSED", f"got {vr.status}")
+    check("RD-3 legacy transient retried once", calls["n"] == 2,
+          f"calls={calls['n']}")
+
+    async def scenario_persistent():
+        verifier.llm_model_func = always_malformed
+        try:
+            return await verifier.verify_with_fail_safe(
+                "q", "draft answer", [{"id": "c1"}],
+                retry_owner="verifier", max_retries=1)
+        finally:
+            verifier.llm_model_func = original_model
+
+    calls["n"] = 0
+    vr = asyncio.run(scenario_persistent())
+    check("RD-3 legacy persistent transient → UNVERIFIED",
+          vr.status == "UNVERIFIED", f"got {vr.status}")
+    check("RD-3 legacy retry budget exhausted exactly",
+          calls["n"] == 2, f"calls={calls['n']}")
+
+
 def main() -> int:
     print("─" * 66)
     print("RT-101 source-coverage DEVELOPMENT regression (DEVELOPMENT_ONLY)")
@@ -728,6 +779,7 @@ def main() -> int:
     test_rd3_transient_budget_hard_cap()
     test_rd3_timeout_fail_closed_context_owned()
     test_rd3_legacy_caller_still_fails_safe()
+    test_rd3_legacy_caller_transient_retry_preserved()
     print("═" * 66)
     print(f"  RT101 dev coverage: {PASSED} passed, {FAILED} failed")
     print("═" * 66)
