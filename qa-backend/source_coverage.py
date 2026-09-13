@@ -145,6 +145,7 @@ def build_source_coverage_report(
     records_lite_sha = None
     missing_records = None
     dataset_empty_body_rids: set[str] | None = None
+    unidentifiable_dataset_rows = 0
     if records_lite is not None:
         records_lite = Path(records_lite)
         if not records_lite.is_file():
@@ -153,12 +154,25 @@ def build_source_coverage_report(
         raw = json.loads(records_lite.read_text(encoding="utf-8"))
         rows = raw if isinstance(raw, list) else raw.get("records", [])
         dataset_records = set()
+        rows_without_explicit_id = 0
         for r in rows:
             rid = r.get("record_id") or r.get("rid")
             if rid:
                 dataset_records.add(str(rid))
+            else:
+                rows_without_explicit_id += 1
         if dataset_records:
             missing_records = len(dataset_records - record_ids)
+            # codex review A1: rows with no extractable identity must not
+            # silently shrink the coverage universe (explicit-ID branch).
+            unidentifiable_dataset_rows = rows_without_explicit_id
+            # codex review A1: explicit-ID datasets get the same honest
+            # source-side empty-body reconciliation as positional ones.
+            dataset_empty_body_rids = {
+                str(r.get("record_id") or r.get("rid"))
+                for r in rows
+                if (r.get("record_id") or r.get("rid"))
+                and not str(r.get("body") or r.get("b") or "").strip()}
         elif record_id_map is not None:
             # Dataset snapshot without explicit record ids: bind identity
             # through the published RecordIdMap (legacy_idx -> record_id).
@@ -167,13 +181,21 @@ def build_source_coverage_report(
             idx_dataset_records = {}
             for pos, r in enumerate(rows):
                 idx_dataset_records[pos] = r
+            bound_positions: set[int] = set()
             for m in mappings:
                 if m.get("tombstoned"):
                     continue
-                if int(m.get("legacy_idx", -1)) in idx_dataset_records:
+                idx = int(m.get("legacy_idx", -1))
+                if idx in idx_dataset_records:
                     dataset_records.add(str(m.get("record_id", "")))
+                    bound_positions.add(idx)
             dataset_records.discard("")
             missing_records = len(dataset_records - record_ids)
+            # codex review A1: dataset rows whose position was never bound
+            # by the published map are unverifiable — count them.
+            unidentifiable_dataset_rows += sum(
+                1 for pos in idx_dataset_records
+                if pos not in bound_positions)
             # Source-integrity truth from the dataset snapshot: a record
             # whose source body fields are empty in the dataset publishes
             # an empty evidence snapshot by construction.  Such rows are
@@ -251,8 +273,10 @@ def build_source_coverage_report(
         "quarantined_count": quarantined,
         "indexed_source_count": eligible + retrieval_only,
         "missing_count": missing_records,
+        "dataset_binding_present": records_lite is not None,
         "dataset_record_count": (len(dataset_records)
                                  if dataset_records is not None else None),
+        "unidentifiable_dataset_rows": unidentifiable_dataset_rows,
         "extraction_failures": extraction_failures,
         "index_failures": index_failures,
         "empty_evidence_count": empty_evidence,
@@ -267,6 +291,11 @@ def build_source_coverage_report(
         },
         "no_gold_scan": {
             "forbidden_digests_checked": len(forbidden),
+            # codex review A1: make vacuous-clean visible.  The blinded-
+            # safe marker scan is the primary no-gold authority; digest
+            # checking is best-effort metadata (implementation side may
+            # legitimately hold zero gold digests).
+            "digest_scan_meaningful": len(forbidden) > 0,
             "hits": forbidden_hits,
             "store_path_marker_hits": store_path_markers,
             "clean": forbidden_hits == 0 and not store_path_markers,
@@ -292,9 +321,25 @@ def validate_source_coverage(
         problems.append("indexed_source_count missing")
     if report.get("indexed_source_count", 0) <= 0:
         problems.append("indexed_source_count is zero (empty index)")
-    if require_no_missing and report.get("missing_count") not in (0, None):
+    if report.get("dataset_binding_present") is not True:
+        # codex review A1: no dataset snapshot bound → the coverage
+        # universe is unproven; fail closed.
+        problems.append("dataset_binding_present is not True "
+                        "(dataset snapshot was not bound)")
+    if report.get("unidentifiable_dataset_rows", 0) != 0:
         problems.append(
-            f"required source coverage gap: missing_count={report.get('missing_count')}")
+            "unidentifiable_dataset_rows="
+            f"{report.get('unidentifiable_dataset_rows')}")
+    if require_no_missing:
+        # codex review A1: None (unavailable) is NOT zero — an unproven
+        # coverage universe must fail closed, not pass vacuously.
+        if report.get("missing_count") is None:
+            problems.append("missing_count unavailable (dataset binding "
+                            "absent or no identity binding)")
+        elif report.get("missing_count") != 0:
+            problems.append(
+                "required source coverage gap: "
+                f"missing_count={report.get('missing_count')}")
     if report.get("extraction_failures", 0) > 0:
         problems.append(
             f"extraction_failures={report.get('extraction_failures')}")

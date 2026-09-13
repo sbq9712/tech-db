@@ -158,6 +158,24 @@ def aggregate_membership(
     )
 
 
+def _exact_match(a: str, b: str) -> bool:
+    """Exact identity binding: both sides PRESENT and equal.
+
+    Fail-closed (codex review A1): an empty/missing value on either side
+    can never satisfy a binding — the old ``not a or not b or a == b``
+    shape let two empty values "match" and bypass the gate.
+    """
+    sa, sb = str(a or "").strip(), str(b or "").strip()
+    return bool(sa) and bool(sb) and sa == sb
+
+
+def _versions_match(a: Mapping, b: Mapping) -> bool:
+    """Exact prompt/schema/config version binding (both non-empty)."""
+    da = {str(k): str(v) for k, v in dict(a or {}).items()}
+    db = {str(k): str(v) for k, v in dict(b or {}).items()}
+    return bool(da) and bool(db) and da == db
+
+
 def evaluate(
     candidate: CorpusBinding,
     runtime: CorpusBinding,
@@ -166,6 +184,7 @@ def evaluate(
     evaluated_git_sha_target: str = "",
     evaluated_git_sha_runtime: str = "",
     min_answer_cases: int = 1,
+    min_absence_cases: int = 1,
 ) -> dict:
     """Blinded-safe compatibility decision (aggregate output only).
 
@@ -174,32 +193,35 @@ def evaluate(
     """
     identity_checks = {
         "manifest_id_exact":
-            candidate.manifest_id == runtime.manifest_id,
+            _exact_match(candidate.manifest_id, runtime.manifest_id),
         "dataset_snapshot_id_exact":
-            candidate.dataset_snapshot_id == runtime.dataset_snapshot_id,
+            _exact_match(candidate.dataset_snapshot_id,
+                         runtime.dataset_snapshot_id),
         "source_snapshot_catalog_id_exact":
-            candidate.source_snapshot_catalog_id ==
-            runtime.source_snapshot_catalog_id,
+            _exact_match(candidate.source_snapshot_catalog_id,
+                         runtime.source_snapshot_catalog_id),
         "identity_snapshot_id_exact":
-            candidate.identity_snapshot_id == runtime.identity_snapshot_id,
+            _exact_match(candidate.identity_snapshot_id,
+                         runtime.identity_snapshot_id),
         "corpus_sha256_exact":
-            candidate.corpus_sha256 == runtime.corpus_sha256,
+            _exact_match(candidate.corpus_sha256, runtime.corpus_sha256),
         "model_exact":
-            (not candidate.model or not runtime.model
-             or candidate.model == runtime.model),
+            _exact_match(candidate.model, runtime.model),
+        "prompt_schema_config_versions_exact":
+            _versions_match(candidate.prompt_schema_config_versions,
+                            runtime.prompt_schema_config_versions),
     }
     head_check = {
-        "evaluated_git_sha_bound": (
-            not evaluated_git_sha_target
-            or not evaluated_git_sha_runtime
-            or evaluated_git_sha_target == evaluated_git_sha_runtime),
+        "evaluated_git_sha_bound":
+            _exact_match(evaluated_git_sha_target, evaluated_git_sha_runtime),
     }
     membership_checks = {
         "hidden_source_membership_complete":
             membership.answer_cases_checked >= min_answer_cases
             and membership.missing_hidden_sources == 0,
         "absence_semantics_valid":
-            membership.invalid_absence_semantics == 0,
+            membership.absence_cases_checked >= min_absence_cases
+            and membership.invalid_absence_semantics == 0,
     }
     checks: dict[str, bool] = {}
     checks.update(identity_checks)
@@ -221,19 +243,92 @@ def evaluate(
     return report
 
 
-def assert_formal_run_allowed(report: Mapping) -> None:
-    """Fail-closed gate: raise unless the report proves compatibility.
+_BINDING_FIELDS = ("manifest_id", "dataset_snapshot_id",
+                   "source_snapshot_catalog_id", "identity_snapshot_id",
+                   "corpus_sha256", "model")
 
+
+def assert_formal_run_allowed(
+    report: Mapping,
+    *,
+    min_answer_cases: int = 1,
+    min_absence_cases: int = 1,
+) -> None:
+    """Fail-closed gate: raise unless the report PROVES compatibility.
+
+    Codex review A1 hardening: the gate no longer trusts a bare truthy
+    ``compatible`` flag — it independently re-validates the report's
+    schema version, every individual check, check/failed-check
+    consistency, binding completeness (no empty identity fields), the
+    measured head, and the internal consistency of the membership
+    counters (no impossible counts, no missing/absent values).
     Formal runners MUST call this BEFORE consuming any one-shot marker.
     """
-    if not isinstance(report, Mapping) or not report.get("compatible"):
-        failed = []
-        if isinstance(report, Mapping):
-            failed = list(report.get("failed_checks") or [])
+    def _deny(reason: str) -> None:
         raise CorpusCompatibilityError(
             "RT101 corpus compatibility gate: formal run forbidden; "
-            f"failed checks={failed or ['report_missing_or_invalid']}")
+            + reason)
+
+    if not isinstance(report, Mapping):
+        _deny("report missing or not a mapping")
+    if report.get("schema_version") != SCHEMA_VERSION:
+        _deny(f"schema_version mismatch: "
+              f"{report.get('schema_version')!r}")
+    if report.get("compatible") is not True:
+        _deny(f"compatible flag not True: "
+              f"{report.get('compatible')!r}; failed_checks="
+              f"{list(report.get('failed_checks') or [])}")
+    checks = report.get("checks")
+    if not isinstance(checks, Mapping) or not checks:
+        _deny("checks dict missing")
+    not_true = sorted(k for k, v in checks.items() if v is not True)
+    if not_true:
+        _deny(f"checks not all True: {not_true}")
+    if sorted(report.get("failed_checks") or []) != []:
+        _deny(f"failed_checks not empty: {report.get('failed_checks')}")
+    if set(report.get("failed_checks") or []) != {
+            k for k, v in checks.items() if v is not True} and any(
+            v is not True for v in checks.values()):
+        _deny("failed_checks inconsistent with checks")
+
+    for side in ("candidate_binding", "runtime_binding"):
+        binding = report.get(side)
+        if not isinstance(binding, Mapping):
+            _deny(f"{side} missing")
+        for fname in _BINDING_FIELDS:
+            if not str(binding.get(fname) or "").strip():
+                _deny(f"{side}.{fname} empty/missing")
+        versions = binding.get("prompt_schema_config_versions")
+        if not isinstance(versions, Mapping) or not versions:
+            _deny(f"{side}.prompt_schema_config_versions empty/missing")
+    runtime_binding = report.get("runtime_binding") or {}
+    if not str(runtime_binding.get("evaluated_git_sha") or "").strip():
+        _deny("runtime_binding.evaluated_git_sha missing")
+
     membership = report.get("membership") or {}
-    if membership.get("missing_hidden_sources") not in (0, None):
-        raise CorpusCompatibilityError(
-            "RT101 corpus compatibility gate: hidden sources missing")
+    if not isinstance(membership, Mapping):
+        _deny("membership missing")
+    required_counters = ("answer_cases_checked", "answer_cases_member",
+                         "absence_cases_checked", "absence_cases_valid",
+                         "missing_hidden_sources",
+                         "invalid_absence_semantics")
+    for counter in required_counters:
+        if not isinstance(membership.get(counter), int):
+            _deny(f"membership counter {counter} missing/not int")
+    if membership["answer_cases_checked"] < min_answer_cases:
+        _deny(f"answer_cases_checked < {min_answer_cases}")
+    if membership["absence_cases_checked"] < min_absence_cases:
+        _deny(f"absence_cases_checked < {min_absence_cases}")
+    if membership["answer_cases_member"] < 0 \
+            or membership["absence_cases_valid"] < 0:
+        _deny("negative membership counters")
+    if membership["answer_cases_member"] > membership["answer_cases_checked"]:
+        _deny("impossible counters: member > checked")
+    if membership["absence_cases_valid"] > membership["absence_cases_checked"]:
+        _deny("impossible counters: valid > checked")
+    if membership["missing_hidden_sources"] != 0:
+        _deny(f"hidden sources missing: "
+              f"{membership['missing_hidden_sources']}")
+    if membership["invalid_absence_semantics"] != 0:
+        _deny(f"invalid absence semantics: "
+              f"{membership['invalid_absence_semantics']}")

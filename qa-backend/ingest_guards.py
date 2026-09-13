@@ -35,6 +35,7 @@ FORBIDDEN_SUBSTRINGS = (
     "blind_package",
     "holdout-gold",
     "gold.json",
+    "gold",
     "expected-answers",
     "hidden-rubric",
 )
@@ -65,6 +66,7 @@ def assert_ingestable_path(
     path: Path | str,
     *,
     allowlist_roots: Iterable[Path | str] = (),
+    allow_unrestricted: bool = False,
 ) -> Path:
     """Fail-closed check for ONE candidate ingest path.
 
@@ -92,12 +94,23 @@ def assert_ingestable_path(
             raise IngestGuardError(
                 f"forbidden directory component ({part!r}): {s_resolved}")
     lowered_name = resolved.name.lower()
-    if (resolved.suffix.lower() in FORBIDDEN_SUFFIXES
-            or lowered_name in FORBIDDEN_SUFFIXES):
+    # codex review A1: dotfile env files hide their "suffix" in the NAME
+    # (Path('.env').suffix == ''), and variants like '.env.local' or
+    # 'secrets.env' bypass a pure suffix check — match the env-file
+    # family on the name itself.
+    env_file = (lowered_name in FORBIDDEN_SUFFIXES
+                or lowered_name.startswith(".env.")
+                or lowered_name.endswith(".env")
+                or lowered_name.endswith(".envrc"))
+    if (resolved.suffix.lower() in FORBIDDEN_SUFFIXES or env_file):
         raise IngestGuardError(
             f"forbidden file type ({resolved.name!r}): {s_resolved}")
 
-    # 3. allowlist containment (symlink + relative escape class)
+    # 3. allowlist containment (symlink + relative escape class).
+    #    Fail-closed (codex review A1): an EMPTY allowlist can never
+    #    grant unrestricted access — callers must either pass at least
+    #    one root or set allow_unrestricted=True explicitly (used only
+    #    by the env-denylist audit, whose authority is the denylist).
     roots = [Path(os.path.realpath(str(r))) for r in allowlist_roots]
     if roots:
         inside = any(
@@ -107,6 +120,10 @@ def assert_ingestable_path(
             raise IngestGuardError(
                 f"path escapes allowlist roots: {s_resolved} "
                 f"not under {[str(r) for r in roots]}")
+    elif not allow_unrestricted:
+        raise IngestGuardError(
+            "allowlist roots required (fail-closed): refusing to ingest "
+            f"{s_resolved} without an explicit allowlist")
 
     # 4. relative-path escape: a relative ingest path that traverses
     #    above its declared base is rejected (callers that legitimately
@@ -141,8 +158,21 @@ def assert_ingestable_tree(
             f"{root} contains .git; use an explicit source adapter")
     out: list[Path] = []
     for dirpath, dirnames, filenames in os.walk(root):
-        dirnames[:] = [d for d in dirnames
-                       if d not in FORBIDDEN_DIR_NAMES]
+        # codex review A1: a symlinked DIRECTORY below the root is an
+        # unresolved escape channel (its target is only discovered at
+        # file resolution); reject it outright — defense in depth on
+        # top of per-file realpath containment.
+        pruned = []
+        for d in dirnames:
+            if d in FORBIDDEN_DIR_NAMES:
+                continue
+            dpath = Path(dirpath) / d
+            if dpath.is_symlink():
+                raise IngestGuardError(
+                    "symlinked directory rejected in ingest tree: "
+                    f"{dpath}")
+            pruned.append(d)
+        dirnames[:] = pruned
         for name in filenames:
             p = Path(dirpath) / name
             out.append(assert_ingestable_path(p, allowlist_roots=allowlist_roots))
@@ -152,24 +182,40 @@ def assert_ingestable_tree(
     return out
 
 
+_ENV_AUDIT_KEY_MARKERS = ("INGEST", "SOURCE", "CORPUS", "INDEX",
+                          "DATASET", "SNAPSHOT", "RECORDS", "DATA_ROOT",
+                          "WORKSPACE", "SOURCES_ROOT")
+
+
 def assert_env_ingest_config_safe(env: Mapping[str, str] | None = None) -> None:
-    """Fail-closed check of environment-provided ingest configuration.
+    """Fail-closed audit of environment-provided ingest configuration.
 
     Denylist roots re-injected via environment stay denied: this checks
     that no env value smuggles a forbidden root into an ingest allowlist.
-    Raises IngestGuardError when an env-configured allowlist entry points
-    at (or contains) a denylisted root.
+    Codex review A1 hardening: the audited key family is wider (any key
+    naming an ingest/source/corpus/index/dataset/snapshot/records root,
+    not four hardcoded names) and LIST-shaped values (os.pathsep- or
+    comma-separated) are probed element-wise instead of assumed scalar.
+    The authority here is the code-owned denylist, so probes run with
+    allow_unrestricted=True (no allowlist applies to env values).
+    Raises IngestGuardError when an env-configured entry points at (or
+    contains) a denylisted root.
     """
     env = dict(os.environ if env is None else env)
     for name, value in sorted(env.items()):
-        if not any(k in name.upper() for k in
-                   ("INGEST", "SOURCES", "CORPUS", "INDEX_ROOT")):
+        if not any(k in name.upper() for k in _ENV_AUDIT_KEY_MARKERS):
             continue
         if not value:
             continue
-        probe = Path(value)
-        try:
-            assert_ingestable_path(probe)
-        except IngestGuardError as exc:
-            raise IngestGuardError(
-                f"env ingest config {name!r} rejected: {exc}") from None
+        elements = [part for part in
+                    str(value).replace(",", os.pathsep).split(os.pathsep)
+                    if part.strip()]
+        if not elements:
+            continue
+        for element in elements:
+            probe = Path(element)
+            try:
+                assert_ingestable_path(probe, allow_unrestricted=True)
+            except IngestGuardError as exc:
+                raise IngestGuardError(
+                    f"env ingest config {name!r} rejected: {exc}") from None

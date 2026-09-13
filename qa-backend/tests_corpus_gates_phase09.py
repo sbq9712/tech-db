@@ -63,7 +63,8 @@ def t_catalog_digest_stable():
 def t_binding_exact_checks():
     kw = dict(manifest_id="m", dataset_snapshot_id="ds",
               source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm")
+              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
     mem = cc.aggregate_membership([True] * 13, [True, True])
@@ -90,11 +91,14 @@ def t_binding_exact_checks():
 def t_membership_missing_fails_closed():
     kw = dict(manifest_id="m", dataset_snapshot_id="ds",
               source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="")
+              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
     mem = cc.aggregate_membership([True, True, False], [True, True])
-    rep = cc.evaluate(cand, runtime, mem)
+    rep = cc.evaluate(cand, runtime, mem,
+                      evaluated_git_sha_target="a" * 40,
+                      evaluated_git_sha_runtime="a" * 40)
     check("missing hidden source detected",
           rep["membership"]["missing_hidden_sources"] == 1
           and rep["compatible"] is False)
@@ -104,7 +108,9 @@ def t_membership_missing_fails_closed():
     except cc.CorpusCompatibilityError:
         check("formal-run gate raises on missing membership", True)
     ok_rep = cc.evaluate(cand, runtime,
-                         cc.aggregate_membership([True], []))
+                         cc.aggregate_membership([True], [True]),
+                         evaluated_git_sha_target="a" * 40,
+                         evaluated_git_sha_runtime="a" * 40)
     try:
         cc.assert_formal_run_allowed(ok_rep)
         check("formal-run gate passes compatible report", True)
@@ -112,11 +118,132 @@ def t_membership_missing_fails_closed():
         check("formal-run gate passes compatible report", False)
 
 
+def t_binding_empty_fields_fail_closed():
+    """Codex review A1: empty identity values can never satisfy bindings."""
+    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
+              source_snapshot_catalog_id="cat",
+              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
+    cand = cc.CorpusBinding(**kw)
+    runtime = cc.CorpusBinding(**kw)
+    mem = cc.aggregate_membership([True], [True])
+    for field in ("model", "manifest_id"):
+        empty = cc.CorpusBinding(**{**kw, field: ""})
+        rep = cc.evaluate(cand, empty, mem,
+                          evaluated_git_sha_target="a" * 40,
+                          evaluated_git_sha_runtime="a" * 40)
+        check(f"empty {field} fails binding closed",
+              rep["compatible"] is False)
+    rep = cc.evaluate(cand, runtime, mem,
+                      evaluated_git_sha_target="",   # missing head
+                      evaluated_git_sha_runtime="a" * 40)
+    check("missing evaluated head fails closed",
+          rep["compatible"] is False
+          and "evaluated_git_sha_bound" in rep["failed_checks"])
+    rep = cc.evaluate(cand, runtime, mem,
+                      evaluated_git_sha_target="a" * 40,
+                      evaluated_git_sha_runtime="a" * 40)
+    check("mismatched prompt versions fail closed",
+          rep["checks"]["prompt_schema_config_versions_exact"] is True)
+    bad_versions = cc.CorpusBinding(
+        **{**kw, "prompt_schema_config_versions": {"prompt": "v2"}})
+    rep_bad = cc.evaluate(cand, bad_versions, mem,
+                          evaluated_git_sha_target="a" * 40,
+                          evaluated_git_sha_runtime="a" * 40)
+    check("prompt version drift fails closed",
+          rep_bad["compatible"] is False)
+
+
+def t_assert_gate_deep_validation():
+    """Codex review A1: the formal-run gate re-validates the whole
+    report instead of trusting a truthy compatible flag."""
+    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
+              source_snapshot_catalog_id="cat",
+              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
+    cand = cc.CorpusBinding(**kw)
+    runtime = cc.CorpusBinding(**kw)
+    mem = cc.aggregate_membership([True, True], [True])
+
+    def base_report():
+        return cc.evaluate(cand, runtime, mem,
+                           evaluated_git_sha_target="a" * 40,
+                           evaluated_git_sha_runtime="a" * 40)
+
+    # tampered reports must each be rejected
+    tampered = base_report(); tampered["compatible"] = 1  # truthy, not True
+    tampered["checks"] = {**tampered["checks"]}
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("truthy-but-not-True compatible rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("truthy-but-not-True compatible rejected", True)
+
+    tampered = base_report(); tampered["schema_version"] = "other-1.0"
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("schema mismatch rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("schema mismatch rejected", True)
+
+    tampered = base_report()
+    tampered["checks"] = {**tampered["checks"],
+                          "model_exact": False}
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("check/flag inconsistency rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("check/flag inconsistency rejected", True)
+
+    tampered = base_report()
+    tampered["candidate_binding"] = dict(tampered["candidate_binding"],
+                                         model="")
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("empty binding field in report rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("empty binding field in report rejected", True)
+
+    tampered = base_report()
+    tampered["membership"] = dict(tampered["membership"],
+                                  answer_cases_member=99)
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("impossible membership counters rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("impossible membership counters rejected", True)
+
+    tampered = base_report()
+    tampered["membership"] = dict(tampered["membership"],
+                                  answer_cases_checked=0)
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("zero checked cases rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("zero checked cases rejected", True)
+
+    tampered = base_report()
+    del tampered["membership"]["missing_hidden_sources"]
+    try:
+        cc.assert_formal_run_allowed(tampered)
+        check("missing membership counter rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("missing membership counter rejected", True)
+
+    # the honest report still passes
+    try:
+        cc.assert_formal_run_allowed(base_report())
+        check("honest report accepted by deep validation", True)
+    except cc.CorpusCompatibilityError as exc:
+        check("honest report accepted by deep validation", False, str(exc))
+
+
 def t_blinded_safe_output():
     """The evaluate() output shape must never carry case/locator content."""
     kw = dict(manifest_id="m", dataset_snapshot_id="ds",
               source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm")
+              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
     rep = cc.evaluate(cc.CorpusBinding(**kw), cc.CorpusBinding(**kw),
                       cc.aggregate_membership([True, False], [True]))
     blob = json.dumps(rep, ensure_ascii=False)
@@ -156,24 +283,68 @@ def t_coverage_report_clean():
     with tempfile.TemporaryDirectory() as td:
         db = Path(td) / "source_snapshots"
         _mini_snapshot_db(db)
+        # codex review A1: the clean case binds a dataset snapshot whose
+        # record ids exactly match the indexed universe.
+        lite = Path(td) / "lite.json"
+        lite.write_text(json.dumps([
+            {"record_id": "rid-1", "body": "text one"},
+            {"record_id": "rid-2", "body": "text two"}]), encoding="utf-8")
         rep = sc.build_source_coverage_report(
-            snapshot_db=db, manifest_id="m", identity_snapshot_id="i",
+            snapshot_db=db, records_lite=lite,
+            manifest_id="m", identity_snapshot_id="i",
             dataset_snapshot_id="sha256:deadbeef", profile="legacy_hybrid",
             extractor_version_expected="legacy-v1")
         check("coverage counts eligible", rep["eligible_source_count"] == 2)
         check("coverage indexed==eligible", rep["indexed_source_count"] == 2)
-        check("coverage missing 0 without dataset file",
-              rep["missing_count"] is None)
+        check("coverage missing 0 with exact dataset match",
+              rep["missing_count"] == 0)
+        check("coverage dataset binding present",
+              rep["dataset_binding_present"] is True)
         check("coverage scans clean",
               rep["no_secret_scan"]["clean"] and rep["no_gold_scan"]["clean"])
+        check("vacuous digest scan visible",
+              rep["no_gold_scan"]["digest_scan_meaningful"] is False)
         problems = sc.validate_source_coverage(report=rep,
-                                               require_no_missing=False)
-        check("coverage validator passes clean report", problems == [])
+                                               require_no_missing=True)
+        check("coverage validator passes clean report", problems == [],
+              str(problems))
         try:
-            sc.assert_source_coverage_valid(rep, require_no_missing=False)
+            sc.assert_source_coverage_valid(rep)
             check("coverage assert passes", True)
         except ValueError:
             check("coverage assert passes", False)
+        # codex review A1: an unproven universe (no dataset binding,
+        # missing_count None) must FAIL CLOSED now.
+        rep_nodata = sc.build_source_coverage_report(
+            snapshot_db=db, manifest_id="m", identity_snapshot_id="i",
+            dataset_snapshot_id="sha256:deadbeef", profile="legacy_hybrid",
+            extractor_version_expected="legacy-v1")
+        check("unbound dataset flagged",
+              rep_nodata["dataset_binding_present"] is False)
+        problems = sc.validate_source_coverage(report=rep_nodata,
+                                               require_no_missing=False)
+        check("missing dataset binding fails validation",
+              any("dataset_binding_present" in p for p in problems))
+        problems = sc.validate_source_coverage(report=rep_nodata,
+                                               require_no_missing=True)
+        check("missing_count None fails closed",
+              any("missing_count unavailable" in p for p in problems))
+        # codex review A1: unidentifiable dataset rows fail validation
+        lite_bad = Path(td) / "lite_bad.json"
+        lite_bad.write_text(json.dumps([
+            {"record_id": "rid-1", "body": "x"},
+            {"note": "no identity"}]), encoding="utf-8")
+        rep_bad = sc.build_source_coverage_report(
+            snapshot_db=db, records_lite=lite_bad,
+            manifest_id="m", identity_snapshot_id="i",
+            dataset_snapshot_id="sha256:deadbeef", profile="legacy_hybrid",
+            extractor_version_expected="legacy-v1")
+        check("unidentifiable rows counted",
+              rep_bad["unidentifiable_dataset_rows"] == 1)
+        problems = sc.validate_source_coverage(report=rep_bad,
+                                               require_no_missing=False)
+        check("unidentifiable rows fail validation",
+              any("unidentifiable" in p for p in problems))
 
 
 def t_coverage_gap_and_secret_fail_closed():
@@ -341,14 +512,88 @@ def t_guards_recursive_repo_scan_rejected():
         (repo / ".git").mkdir(parents=True)
         (repo / "src.py").write_text("x", encoding="utf-8")
         try:
-            ig.assert_ingestable_tree(repo)
+            ig.assert_ingestable_tree(repo, allowlist_roots=[repo])
             check("accidental recursive repo scan fails closed", False)
         except ig.IngestGuardError:
             check("accidental recursive repo scan fails closed", True)
         # explicit adapter opt-in works and still guards contents
-        files = ig.assert_ingestable_tree(repo, allow_git_repository=True)
+        files = ig.assert_ingestable_tree(repo, allowlist_roots=[repo],
+                                          allow_git_repository=True)
         check("explicit adapter allows guarded repo scan",
               any(p.name == "src.py" for p in files))
+
+
+def t_guards_empty_allowlist_fail_closed():
+    """Codex review A1: an empty allowlist can never mean unrestricted."""
+    with tempfile.TemporaryDirectory() as td:
+        p = Path(td) / "ok.csv"
+        p.write_text("x", encoding="utf-8")
+        try:
+            ig.assert_ingestable_path(p)
+            check("empty allowlist rejected for path", False)
+        except ig.IngestGuardError:
+            check("empty allowlist rejected for path", True)
+        try:
+            ig.assert_ingestable_tree(p.parent)
+            check("empty allowlist rejected for tree", False)
+        except ig.IngestGuardError:
+            check("empty allowlist rejected for tree", True)
+
+
+def t_guards_env_file_family():
+    """Codex review A1: .env hides in the name; variants bypass suffix."""
+    for name in (".env", ".env.local", "app.env", ".envrc"):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "src" / name
+            p.parent.mkdir(parents=True)
+            p.write_text("x", encoding="utf-8")
+            try:
+                ig.assert_ingestable_path(p, allowlist_roots=[p.parent])
+                check(f"env file family rejected: {name}", False)
+            except ig.IngestGuardError:
+                check(f"env file family rejected: {name}", True)
+
+
+def t_guards_generic_gold_marker():
+    """Codex review A1: the generic 'gold' marker is denylisted."""
+    for bad in ("/data/gold/v5/answer.json", "/tmp/golden_holdout/x"):
+        try:
+            ig.assert_ingestable_path(bad, allow_unrestricted=True)
+            check(f"gold marker rejects {bad}", False)
+        except ig.IngestGuardError:
+            check(f"gold marker rejects {bad}", True)
+
+
+def t_guards_symlinked_directory_in_tree():
+    """Codex review A1: symlinked directories are rejected in tree scans."""
+    with tempfile.TemporaryDirectory() as td:
+        root = Path(td) / "src"
+        (root / "real").mkdir(parents=True)
+        outside = Path(td) / "outside"
+        outside.mkdir()
+        (root / "real" / "a.csv").write_text("x", encoding="utf-8")
+        os.symlink(outside, root / "real" / "dirlink")
+        try:
+            ig.assert_ingestable_tree(root, allowlist_roots=[root])
+            check("symlinked dir fails tree scan", False)
+        except ig.IngestGuardError:
+            check("symlinked dir fails tree scan", True)
+
+
+def t_guards_env_list_values_probed():
+    """Codex review A1: list-shaped env values are probed element-wise."""
+    smuggled = os.pathsep.join(["/data/ok", "/home/rhett/rt101-v5-builder"])
+    try:
+        ig.assert_env_ingest_config_safe({"TECH_DB_DATA_SOURCES": smuggled})
+        check("env list smuggling rejected (pathsep)", False)
+    except ig.IngestGuardError:
+        check("env list smuggling rejected (pathsep)", True)
+    try:
+        ig.assert_env_ingest_config_safe(
+            {"TECH_DB_DATA_SOURCES": "/data/ok,/data/rt101_v5-x"})
+        check("env list smuggling rejected (comma)", False)
+    except ig.IngestGuardError:
+        check("env list smuggling rejected (comma)", True)
 
 
 def t_guards_secret_file_types_rejected():
@@ -371,6 +616,8 @@ def main() -> int:
     t_catalog_digest_stable()
     t_binding_exact_checks()
     t_membership_missing_fails_closed()
+    t_binding_empty_fields_fail_closed()
+    t_assert_gate_deep_validation()
     t_blinded_safe_output()
     t_coverage_report_clean()
     t_coverage_gap_and_secret_fail_closed()
@@ -381,6 +628,11 @@ def main() -> int:
     t_guards_env_override_rejected()
     t_guards_recursive_repo_scan_rejected()
     t_guards_secret_file_types_rejected()
+    t_guards_empty_allowlist_fail_closed()
+    t_guards_env_file_family()
+    t_guards_generic_gold_marker()
+    t_guards_symlinked_directory_in_tree()
+    t_guards_env_list_values_probed()
     print("═" * 62)
     print(f"  Phase09 corpus gates: {PASSED} passed, {FAILED} failed")
     print("═" * 62)
