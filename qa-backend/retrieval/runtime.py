@@ -505,19 +505,30 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
 _SUBQ_SPLIT_RE = re.compile(
     r"[?？!！;；。\n]+"
     r"|，(?=[为是有能会需该如何怎样哪什多几谁何其并还此另以及])"
+    r"|、(?=[^，。；；？?！!]{4,})"          # CJK enumeration comma before a substantive run
+    r"|：(?=[^，。；；？?！!]{4,})"          # colon introducing an enumerated clause list
     r"|\s+以及\s+|\s+还有\s+|\s+另外\s+"
     r"|,\s+(?=and|which|what|how|why|where|when)\b",
     re.IGNORECASE,
 )
 
 
-def split_subqueries(query: str, max_parts: int = 4, min_len: int = 4) -> list:
+def split_subqueries(query: str, max_parts: int = 6, min_len: int = 4) -> list:
     """Deterministic multi-part query splitter for admission recheck.
 
-    Splits on sentence boundaries, enumeration commas before question-y
-    continuations, and joining words. Tiny fragments and fragments identical
-    to the whole query are dropped. Never returns the empty list for a
-    non-empty query (fallback: [whole query])."""
+    Splits on sentence boundaries, enumeration commas (，/、) before
+    substantive continuations, colons introducing clause lists, and joining
+    words. Tiny fragments and fragments identical to the whole query are
+    dropped. Never returns the empty list for a non-empty query (fallback:
+    [whole query]).
+
+    V6 formal post-mortem (RT101-V6 2026-09-14, sanitized aggregate): 9/15
+    fresh multi-part research queries failed whole-query admission AND the
+    then-4-part sub-query recheck — the enumeration-comma (、) and
+    colon-delimited clause views were never formed. Widening the
+    deterministic view set (still zero LLM, zero holdout-derived constants,
+    SAME VEC_STRONG floor) raises admission recall for legitimately
+    multi-part asks without loosening the gate."""
     if not isinstance(query, str):
         return []
     q = query.strip()
@@ -541,7 +552,7 @@ def split_subqueries(query: str, max_parts: int = 4, min_len: int = 4) -> list:
 
 async def recheck_admission_subqueries(query: str, *, embed_fn=None,
                                        snapshot=None, pipeline=None,
-                                       max_parts: int = 4,
+                                       max_parts: int = 6,
                                        exclude_ids: set | None = None) -> dict:
     """Bounded deterministic admission recheck for rejected multi-part
     queries. Embeds each deterministic sub-query and runs the VECTOR route

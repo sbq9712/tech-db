@@ -387,6 +387,24 @@ def test_weak_query_admission():
     check("A.split.empty", split_subqueries("") == []
           and split_subqueries(None) == [])
 
+    # RT101-V6 post-mortem hardening (sanitized aggregate): enumeration
+    # commas (、) and colons (：) introduce additional deterministic clause
+    # views for multi-part research asks. Determinism + substance floors
+    # unchanged; no holdout-derived constants.
+    parts_enum = split_subqueries(
+        "请分别说明机制电价竞价的时间安排、准入门槛以及价格上限的具体规则",
+        max_parts=6)
+    check("A.split.enum_comma_views", len(parts_enum) >= 2 and
+          split_subqueries("请分别说明机制电价竞价的时间安排、准入门槛以及价格上限的具体规则",
+                           max_parts=6) == parts_enum,
+          f"{parts_enum}")
+    parts_colon = split_subqueries("重点核实以下内容：机制电价如何形成，竞价规则如何执行")
+    check("A.split.colon_clause_views", len(parts_colon) >= 2,
+          f"{parts_colon}")
+    check("A.split.default_parts_widened", len(parts_enum) <= 6)
+    check("A.split.no_tiny_fragments",
+          all(len(p) >= 4 for p in parts_enum), f"{parts_enum}")
+
     saved = {
         "_search_with_quality": server._search_with_quality,
         "embedding_func": server.embedding_func,
