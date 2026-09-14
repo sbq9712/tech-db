@@ -534,6 +534,12 @@ def test_t8_provider_json_contract():
 
     captured = {}
 
+    # Hermetic: CI runs all-mock without provider credentials. The Authorization
+    # header is built before urlopen, so the key loader must be mocked too —
+    # the fake transport below never sees it and nothing leaves the process.
+    def fake_key():
+        return "hermetic-test-key-not-a-secret"
+
     class _FakeResp:
         def __enter__(self):
             return self
@@ -552,7 +558,8 @@ def test_t8_provider_json_contract():
         captured["payload"] = json.loads(req.data.decode())
         return _FakeResp()
 
-    with mock.patch.object(urllib.request, "urlopen", fake_urlopen):
+    with mock.patch.object(urllib.request, "urlopen", fake_urlopen), \
+            mock.patch.object(config, "load_api_key", fake_key):
         # flag set → thinking disabled in payload
         asyncio.run(config.llm_model_func(
             "p", system_prompt="s", temperature=0.0, max_tokens=128,
@@ -577,7 +584,8 @@ def test_t8_provider_json_contract():
             }).encode()
 
     with mock.patch.object(urllib.request, "urlopen",
-                           lambda req, timeout=None: _ReasoningResp()):
+                           lambda req, timeout=None: _ReasoningResp()), \
+            mock.patch.object(config, "load_api_key", fake_key):
         out = asyncio.run(config.llm_model_func(
             "p", system_prompt="s", allow_reasoning_fallback=True))
         check("reasoning-tail fallback still recovers JSON",
@@ -593,7 +601,8 @@ def test_t8_provider_json_contract():
             }).encode()
 
     with mock.patch.object(urllib.request, "urlopen",
-                           lambda req, timeout=None: _EmptyResp()):
+                           lambda req, timeout=None: _EmptyResp()), \
+            mock.patch.object(config, "load_api_key", fake_key):
         out = asyncio.run(config.llm_model_func(
             "p", system_prompt="s", allow_reasoning_fallback=True))
         check("empty content+reasoning → empty result (fail closed)",
