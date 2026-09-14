@@ -56,7 +56,13 @@ the repo). Builder role vs implementation role separation:
   and record count against this pin before computing any metric.
 - **Blind case construction**: 15 cases (11 ANSWER / 2 ABSTAIN /
   2 MUTATION_WITH_LOYAL_ANSWER) drawn from the pinned corpus with a
-  salt-driven deterministic selection (`RT101-V6-FRESH-20260914-a5773189b6fc`),
+  fresh owner-side selection seed/salt-driven deterministic selection (the
+  fresh seed/salt itself is owner-secret and intentionally NOT recorded in
+  this repo; candidate identity remains fully verifiable via the committed
+  digest set — `V6_SHA256`, `V6_LOCK_SHA256`, and the per-artifact SHA-256
+  bindings — without any knowledge of the salt, which never leaves the
+  owner-side builder workspace and is unavailable to the implementation
+  role),
   distinctive key-term picker with ≤8-record discriminativeness filter,
   mutation pool excluding ALL already-used hidden record ids, and a
   snapshot-diversity assertion.
