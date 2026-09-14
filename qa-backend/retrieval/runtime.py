@@ -550,6 +550,28 @@ def split_subqueries(query: str, max_parts: int = 6, min_len: int = 4) -> list:
     return picked
 
 
+def head_terms_prefix(parts: list, max_len: int = 12) -> str:
+    """Deterministic topical head terms from the FIRST clause view (V7
+    post-mortem generalized repair, Class A-2).
+
+    Follow-up clause views produced by :func:`split_subqueries` are often
+    anaphora-heavy ("各自的能量密度…如何" — the head noun lives in clause 1),
+    so their standalone embeddings dilute below the SAME VEC_STRONG floor
+    even when the clause is well covered by the corpus. Prefixing the first
+    clause's head terms reconstructs the referent WITHOUT any LLM call,
+    any new threshold, and any holdout-derived constant — the gate math is
+    unchanged, only the deterministic view text improves. Bounded by
+    ``max_len`` characters; ASCII-only heads (pure-English clause 1) are
+    returned unchanged because whitespace keeps them segmentable.
+    """
+    if not parts:
+        return ""
+    head = parts[0] or ""
+    toks = re.findall(r"[一-鿿]{2,}|[a-zA-Z][a-zA-Z0-9-]{3,}", head)
+    prefix = "".join(dict.fromkeys(toks))[:max_len]
+    return prefix
+
+
 async def recheck_admission_subqueries(query: str, *, embed_fn=None,
                                        snapshot=None, pipeline=None,
                                        max_parts: int = 6,
@@ -563,7 +585,13 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
     turns can never re-admit a follow-up — through their stable record_id
     OR their legacy numeric index (the SAME exclusion semantics as
     run_hybrid/run_routes: a candidate is excluded when EITHER form is in
-    exclude_ids)."""
+    exclude_ids).
+
+    V7 formal post-mortem (RT101-V7 2026-09-14, sanitized aggregate):
+    follow-up clause views are anaphora-heavy, so each view is embedded
+    BOTH standalone AND prefixed with the deterministic head terms of
+    clause 1 (``head_terms_prefix``) — a union over views of the SAME
+    query text family, SAME threshold, zero LLM, zero holdout tuning."""
     parts = split_subqueries(query, max_parts=max_parts)
     if pipeline is None:
         if snapshot is not None:
@@ -573,6 +601,7 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
     else:
         vr, _br, _gr, _fuse = pipeline
     excl = exclude_ids or set()
+    prefix = head_terms_prefix(parts)
     best = 0.0
     checked = 0
     for part in parts:
@@ -581,6 +610,7 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
             qv = qv / max(np.linalg.norm(qv), 1e-8)
             vec_res = vr.search(qv, top_k=8)
             checked += 1
+            part_best = 0.0
             for r in vec_res:
                 # P1 exclusion parity (gatekeeper follow-up): SAME semantics
                 # as run_hybrid/run_routes — exclude by stable record_id OR
@@ -591,11 +621,39 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
                 if getattr(r, "legacy_idx", None) in excl:
                     continue
                 s = float(getattr(r, "raw_score", 0.0) or 0.0)
-                if s > best:
-                    best = s
-                if best >= VEC_STRONG:
-                    return {"relevant": True, "best_vec": round(best, 6),
-                            "parts": parts, "checked": checked}
+                if s > part_best:
+                    part_best = s
+            if part_best > best:
+                best = part_best
+            if best >= VEC_STRONG:
+                return {"relevant": True, "best_vec": round(best, 6),
+                        "parts": parts, "checked": checked}
+            # Head-prefixed view of the SAME clause (deterministic; the
+            # standalone view above stays authoritative for part scoring).
+            # Clause 1 is deliberately NOT prefixed: head_terms_prefix is
+            # DERIVED from clause 1 itself, so a self-prefixed view is the
+            # same text family with no anaphora to resolve.
+            if prefix and part != parts[0]:
+                try:
+                    qv2 = await embed_query(prefix + "：" + part,
+                                            embed_fn=embed_fn)
+                    qv2 = qv2 / max(np.linalg.norm(qv2), 1e-8)
+                    vec_res2 = vr.search(qv2, top_k=8)
+                    checked += 1
+                    for r in vec_res2:
+                        if getattr(r, "record_id", None) in excl:
+                            continue
+                        if getattr(r, "legacy_idx", None) in excl:
+                            continue
+                        s = float(getattr(r, "raw_score", 0.0) or 0.0)
+                        if s > best:
+                            best = s
+                        if best >= VEC_STRONG:
+                            return {"relevant": True,
+                                    "best_vec": round(best, 6),
+                                    "parts": parts, "checked": checked}
+                except Exception:
+                    continue
         except Exception:
             continue
     return {"relevant": False, "best_vec": round(best, 6),

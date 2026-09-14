@@ -480,15 +480,50 @@ def build_evidence_summary(
     claim_mapping: dict = None,
     independent_sources: int = 0,
     iterations: int = 1,
-    requirements_total: int = 0,
-    requirements_supported: int = 0,
-    requirements_partial: int = 0,
+    requirements_total: int | None = None,
+    requirements_supported: int | None = None,
+    requirements_partial: int | None = None,
 ) -> dict:
-    """Build the evidence_summary field for the done event."""
+    """Build the evidence_summary field for the done event.
+
+    Phase09 V7 post-mortem (RT101 observability repair): the runtime's
+    terminal evidence_summary reported requirements_total=0 on every V7
+    answer row because the counts were never derived from the claim
+    mapping — the fields existed but stayed at their hard-coded defaults.
+    When callers do not pass explicit counts (None), the canonical claim
+    set is the requirement-atom population: each established claim is one
+    requirement, and per-claim verifier verdicts (final authority, P0-2)
+    classify supported/partial.  Explicit integers — INCLUDING 0 — are
+    preserved verbatim (an explicit 0 is a statement, not an omission).
+    Claims without a PASSED/PARTIAL verdict (UNVERIFIED/FAILED/absent
+    verdict) count toward total only — the summary stays fail-closed and
+    can never inflate support.
+    """
+    claims = []
+    if isinstance(claim_mapping, dict):
+        raw_claims = claim_mapping.get("claims")
+        if isinstance(raw_claims, list):
+            claims = [c for c in raw_claims if isinstance(c, dict)]
+    if claims:
+        if requirements_total is None:
+            requirements_total = len(claims)
+
+        def _verdict(c: dict) -> str:
+            return str(c.get("verifier_verdict") or c.get("verdict") or ""
+                       ).upper()
+
+        if requirements_supported is None:
+            requirements_supported = sum(
+                1 for c in claims
+                if _verdict(c) in ("PASSED", "PASS", "SUPPORTED"))
+        if requirements_partial is None:
+            requirements_partial = sum(
+                1 for c in claims
+                if _verdict(c) in ("PARTIAL", "PARTIALLY_SUPPORTED"))
     return {
-        "requirements_total": requirements_total,
-        "requirements_supported": requirements_supported,
-        "requirements_partial": requirements_partial,
+        "requirements_total": requirements_total or 0,
+        "requirements_supported": requirements_supported or 0,
+        "requirements_partial": requirements_partial or 0,
         "independent_source_groups": independent_sources,
         "iterations": iterations,
     }

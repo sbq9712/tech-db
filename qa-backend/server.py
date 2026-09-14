@@ -1319,6 +1319,53 @@ def _exact_citation_grounding_pinned(
     }
 
 
+_PARAPHRASE_CLASS_GROUNDING_REASONS = (
+    "sentence_not_exact_grounded",
+    "citation_without_exact_grounding",
+)
+
+
+def _pinned_authority_evidence(citations: list, records: list) -> tuple:
+    """Resolve the PINNED canonical evidence text for every referenced
+    citation (RT101-V7 post-mortem, Class C repair).
+
+    When exact-citation grounding fails for PARAPHRASE-class reasons — the
+    answer restates facts instead of quoting them — the canonical T005
+    verifier may still run, but its evidence MUST come from the pinned
+    authority (stored/request-pinned SourceSnapshot), never from the
+    mutable runtime record the answer happened to be generated from (a
+    drifted runtime record must not verify itself).
+
+    Returns (ok, evidence_by_rid, reason):
+      ok=True  → evidence_by_rid maps record_id → {"text", "sha256",
+                 "source_snapshot_id"} from the resolved pinned snapshot.
+      ok=False → a cited record has no pinned authority: the caller MUST
+                 fail closed (same contract as the grounding bridge).
+    """
+    catalog_entries, store = _pinned_citation_authority_context()
+    evidence_by_rid = {}
+    seen_rids = set()
+    for c in citations or []:
+        rec = _resolve_citation_record(c, records)
+        if rec is None:
+            return False, {}, "citation_record_unresolved"
+        rid = str(rec.get("record_id") or "")
+        if rid in seen_rids:
+            continue
+        seen_rids.add(rid)
+        snap, _auth_err = _resolve_pinned_citation_snapshot(
+            rid, rec, catalog_entries=catalog_entries, store=store)
+        if snap is None:
+            return False, {}, "no_authoritative_pinned_snapshot"
+        evidence_by_rid[rid] = {
+            "text": str(getattr(snap, "normalized_text", "") or ""),
+            "sha256": str(getattr(snap, "content_hash", "") or ""),
+            "source_snapshot_id": str(getattr(snap, "source_snapshot_id", "")
+                                      or ""),
+        }
+    return True, evidence_by_rid, ""
+
+
 async def _graph_v2_route(*, query: str, requirements: list | None,
                           relation_ids: list, exclude_ids: set | None,
                           route_batches: list, pinned,
@@ -3538,8 +3585,132 @@ async def chat_stream(req: ChatRequest, request: Request):
                         # approved claim-mapping seam (T004, already run
                         # above) followed by the canonical fail-safe
                         # verifier (T005).  There is no exact-quote shortcut.
+                        #
+                        # Phase09 V7 post-mortem (RT101 Class C repair):
+                        # GROUNDING_FAILED previously gated T005 entirely →
+                        # NO_CLAIM_SET_UNVERIFIED despite an established
+                        # claim set → 12× UNSUPPORTED (every paraphrased
+                        # answer was structurally unverifiable).  Now:
+                        #   * PARAPHRASE-class grounding failure (the answer
+                        #     restates instead of quoting) → T005 runs with
+                        #     claim evidence REMAPPED to the pinned canonical
+                        #     authority text (_pinned_authority_evidence):
+                        #     the mutable runtime record can never verify
+                        #     itself, so the drift/mutation protection of
+                        #     the old coupling is preserved — a drifted
+                        #     record's content fails against pinned text.
+                        #   * STRUCTURAL authority absence (record
+                        #     unresolved, no pinned snapshot) → fail closed
+                        #     UNVERIFIED exactly as before.
+                        # Citations that fail exact grounding still carry no
+                        # pinned locator metadata and stay display-
+                        # unauthorized (Q092 display authority unchanged).
                         _rescue_claims = claim_map.get("claims") or []
-                        if _rescue_claims and _det_ok:
+                        if _rescue_claims and not _det_ok:
+                            _g_reason = str((_det_info or {}).get("reason")
+                                            or "")
+                            if _g_reason in _PARAPHRASE_CLASS_GROUNDING_REASONS:
+                                _pin_ok, _pin_evidence, _pin_err = \
+                                    _pinned_authority_evidence(
+                                        citations, _request_records())
+                                if _pin_ok and _pin_evidence:
+                                    # citation_id → record_id lineage, so
+                                    # each claim verifies against ITS OWN
+                                    # pinned authority text.
+                                    _rid_by_cit = {}
+                                    for _cit in citations or []:
+                                        if isinstance(_cit, dict) and \
+                                                isinstance(_cit.get("id"), int):
+                                            _c_rec = _resolve_citation_record(
+                                                _cit, _request_records())
+                                            if _c_rec is not None:
+                                                _rid_by_cit[_cit["id"]] = \
+                                                    str(_c_rec.get("record_id")
+                                                        or "")
+                                    _remapped = []
+                                    _unresolved = 0
+                                    for _c in _rescue_claims:
+                                        if not isinstance(_c, dict):
+                                            continue
+                                        _rc = dict(_c)
+                                        # Codex round 2 P1: citation
+                                        # lineage (supported_by) is the
+                                        # PRIMARY authority signal;
+                                        # claim.record_id only counts
+                                        # when it EXACTLY matches a
+                                        # pinned record (never overrides
+                                        # disagreeing lineage).
+                                        _rid = ""
+                                        if isinstance(
+                                                _rc.get("supported_by"),
+                                                list):
+                                            for _sb in _rc["supported_by"]:
+                                                if not isinstance(_sb, dict):
+                                                    continue
+                                                _rid = _rid_by_cit.get(
+                                                    _sb.get("citation_id"),
+                                                    "")
+                                                if _rid:
+                                                    break
+                                        if not _rid:
+                                            _rc_rid = str(
+                                                _rc.get("record_id") or "")
+                                            if _rc_rid in _pin_evidence:
+                                                _rid = _rc_rid
+                                        if not _rid or _rid not in \
+                                                _pin_evidence:
+                                            # Codex round 2 P0: NO arbitrary
+                                            # fallback — a claim without a
+                                            # resolvable pinned lineage is
+                                            # unverifiable-by-authority and
+                                            # is dropped (fail closed); if
+                                            # EVERY claim is dropped the
+                                            # bridge falls through to
+                                            # NO_CLAIM_SET_UNVERIFIED.
+                                            _unresolved += 1
+                                            continue
+                                        _pe = _pin_evidence[_rid]
+                                        _rc["supported_by"] = []
+                                        _rc["support_status"] = \
+                                            "PINNED_AUTHORITY"
+                                        _rc["pinned_evidence"] = [{
+                                            "record_id": _rid,
+                                            "text": _pe["text"],
+                                            "sha256": _pe["sha256"],
+                                            "source_snapshot_id":
+                                                _pe["source_snapshot_id"],
+                                        }]
+                                        _remapped.append(_rc)
+                                    if _remapped:
+                                        _rescue_claims = _remapped
+                                    else:
+                                        # every claim lacked pinned lineage
+                                        _rescue_claims = []
+                                    trace.add_stage(
+                                        "verification_evidence_remap", {
+                                            "status":
+                                                "PINNED_AUTHORITY_BOUND",
+                                            "records": sorted(_pin_evidence),
+                                            "claims": len(_rescue_claims),
+                                            "unresolved_claims_dropped":
+                                                _unresolved,
+                                        })
+                                else:
+                                    _rescue_claims = []
+                                    trace.add_stage(
+                                        "verification_evidence_remap", {
+                                            "status": "FAIL_CLOSED",
+                                            "reason": _pin_err,
+                                        })
+                            else:
+                                _rescue_claims = []
+                                trace.add_stage(
+                                    "verification_evidence_remap", {
+                                        "status": "FAIL_CLOSED",
+                                        "reason": _g_reason
+                                        or "authority_error",
+                                    })
+                        if _rescue_claims:
                             try:
                                 _rb_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
                                 _rd, _rs, _rov = check_budget(

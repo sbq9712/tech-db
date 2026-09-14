@@ -11,8 +11,8 @@
     "llm_json": {
       "recoverable": 18,
       "total": 18,
-      "big_input_seconds": 0.029,
-      "oversize_seconds": 0.01
+      "big_input_seconds": 0.032,
+      "oversize_seconds": 0.012
     },
     "seams": "covered above"
   },
@@ -53,8 +53,8 @@
   "deadline_measurements": {
     "scheduling": {
       "cap_tighten_s": 0.501,
-      "cap_hold_s": 3.004,
-      "retry_bound_s": 0.051,
+      "cap_hold_s": 3.003,
+      "retry_bound_s": 0.05,
       "reserve_s": 22.0
     },
     "latency_injected_request": {
@@ -68,7 +68,7 @@
     "baseline": {
       "supported": true,
       "edges_proven": true,
-      "elapsed_s": 0.1
+      "elapsed_s": 0.11
     },
     "mutation": {
       "mutation": "pinned_catalog_record_body_disconnected",
@@ -122,7 +122,7 @@
     "ambiguous_data_not_mutated": true,
     "garbage_fail_closed": true
   },
-  "created_utc": "2026-09-14T04:38:56Z",
+  "created_utc": "2026-09-14T09:45:38Z",
   "targeted_followup": {
     "p0_1_generator_fail_closed": "generator admission is fail-closed: when remaining budget cannot fit downstream reserve + MIN_GENERATION_WINDOW_S, the generator operation never begins (both terminal-renderer and legacy-compat profiles)",
     "p0_2_final_citation_authority": "citation display authority is bound to FINAL per-claim verification (PASSED + SUPPORTED); stale precomputed supports_claim_ids cannot override it",
@@ -130,15 +130,15 @@
     "p1_llm_json_fullwidth": "full-width ＂ is a string delimiter; interior full-width punctuation is preserved as data"
   },
   "git": {
-    "head_at_generation": "0792e7559d6b27ce5ce2bcaa336402feed624874",
+    "head_at_generation": "26a2f62dbdde0813f9acfad6bb9f403553321a81",
     "branch": "remediation/phase-09-benchmarks-ci-release-gates",
     "note": "artifact generated in the repair worktree on top of head_at_generation; the Phase09 repair commit adds this file, the repaired modules, and this suite"
   },
-  "git_sha": "0792e7559d6b27ce5ce2bcaa336402feed624874",
+  "git_sha": "26a2f62dbdde0813f9acfad6bb9f403553321a81",
   "git_branch": "remediation/phase-09-benchmarks-ci-release-gates",
   "fixture": {
     "suite_file": "tests_repair_phase09_reliability.py",
-    "suite_sha256": "a0a8ef0716d66dc8d0afc5eeb4392025000a888ddbfb988545d2090e8bba4e3b",
+    "suite_sha256": "ae46527dd57b033fc37fa33df66cf4e9c4086f4d41a830f59480238fdecd24b6",
     "record_id": "rec-fx-4401",
     "body_sha256": "c505eeaedd76d9907987b26a4e38d1173d612c53d6dc4fc0ef7856a7137131ee",
     "pinned_snapshot_id": "pinned-catalog-snapshot-fx4401-authority",
@@ -149,7 +149,7 @@
     ]
   },
   "summary": {
-    "passed": 111,
+    "passed": 113,
     "failed": 0
   }
 }

@@ -890,6 +890,22 @@ def test_e2e_causality_and_mutation():
     check("F.mutation.no_authoritative_display_evidence",
           (not cits_m or not cits_m[0].get("source_snapshot_id"))
           and (not cards_m or cards_m[0]["displayable"] is False))
+    # RT101-V7 post-mortem (Codex round 3): when the paraphrase-class
+    # grounding failure remaps claim evidence, the verifier MUST see the
+    # PINNED authority text — never the drifted runtime record content.
+    _vc = [c for cm in captured_m["verifier_claims"] for c in (cm or [])
+           if isinstance(c, dict)]
+    _pe_texts = [str(pe.get("text") or "") for c in _vc
+                 for pe in (c.get("pinned_evidence") or [])]
+    check("F.mutation.verifier_saw_pinned_authority_only",
+          bool(_pe_texts)
+          and all("17 percent" in t and "82 percent" not in t
+                  for t in _pe_texts),
+          f"pe_texts={[_t[:60] for _t in _pe_texts]}")
+    check("F.mutation.remap_support_status_pinned",
+          bool(_vc) and all(c.get("support_status") == "PINNED_AUTHORITY"
+                            for c in _vc if c.get("pinned_evidence")),
+          str([c.get("support_status") for c in _vc]))
     RESULTS["e2e_mutation"]["mutation"] = {
         "mutation": "pinned_catalog_record_body_disconnected",
         "supported_lost": done_m["answer_status"] != "SUPPORTED",
