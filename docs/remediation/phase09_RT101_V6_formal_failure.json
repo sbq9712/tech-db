@@ -1,0 +1,102 @@
+{
+ "schema_version": "rt101-formal-failure-record-1.0",
+ "record_type": "RT101_FORMAL_BLINDED_RELEASE_HOLDOUT_FAILURE",
+ "created_at_utc": "2026-09-14T04:30:00Z",
+ "sanitized": true,
+ "candidate": {
+  "generation": "V6",
+  "candidate_sha256": "100a83b7faf9bb2539cde5c465fca626b2af6ad1dae6a60fce39af0c8b42955b",
+  "lock_sha256": "034bd36b6c5c3f8ee0cec40cb99e7203a116f14746160406f68a07c1beec3d88",
+  "blind_cases_sha256": "2b063ddaf1a38fee5b0c3ebb576da6b52aeddb0e81d6d4d6932e9a3bb4bcca6f",
+  "owner_gold_bundle_sha256": "7a5dae3a49b8e6260d4a5516041df4e59965e158014c486a933d2bf35450dc96",
+  "working_evidence_sha256": "b9481b34f72b4dfa807269e9097538cfa353fae3bed1449ae200ac4783b56e06",
+  "scorer_sha256": "8c8ef1d03eae32a83df7a01a36b636fe3c3c925b28be222abbf18de7307d02ad",
+  "capture_driver_sha256": "2cac267b2b5d1106ce3da34e9ce7491e5b956592dc49c5064d465c3c8fca776e",
+  "case_count": 15,
+  "case_mix_aggregate": {
+   "ANSWER": 11,
+   "ABSTAIN": 2,
+   "MUTATION_WITH_LOYAL_ANSWER": 2
+  }
+ },
+ "evaluation": {
+  "evaluated_git_sha": "981703b550cfb5f961df86d923069544cae66cf9",
+  "branch": "remediation/phase-09-benchmarks-ci-release-gates",
+  "pull_request": 10,
+  "model": "glm-5.3-flash",
+  "pipeline_profile": "legacy_hybrid",
+  "manifest_id": "mini-runtime-a49a56f8861a0633",
+  "identity_snapshot_id": "mini-identity-v1",
+  "dataset_snapshot_id": "sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70",
+  "source_snapshot_store_sha256": "f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7",
+  "corpus_compatibility": "COMPATIBLE (assert_formal_run_allowed PASS pre-marker, report sealed owner-side)",
+  "source_coverage": "VALID (committed report re-validated against pinned universe pre-marker)",
+  "started_at_local": "2026-09-14T11:00:24+08:00",
+  "ended_at_local": "2026-09-14T11:37:42+08:00",
+  "formal_posts": 15,
+  "formal_posts_completed": 15
+ },
+ "outcome": {
+  "final": "FAIL",
+  "consumed": true,
+  "immutable": true,
+  "reuse_forbidden": true,
+  "one_shot_consumed": true
+ },
+ "aggregate_counts": {
+  "cases": 15,
+  "answer_cases_scorer_population": 15,
+  "facts_total": 22,
+  "facts_matched": 1,
+  "citations_total": 0,
+  "citations_valid": 0,
+  "claim_units_evaluated": 78,
+  "unsupported_claim_rate": 1.0,
+  "invalid_displayed_citations": 0,
+  "verifier_technical_failures": 4,
+  "forbidden_content_fails": 0,
+  "metrics": {
+   "correctness": 0.1333,
+   "completeness": 0.0455,
+   "attribution_accuracy": 0.1333,
+   "temporal_accuracy": 1.0,
+   "numeric_accuracy": 0.0,
+   "exact_citation_accuracy": 0.0,
+   "abstention_accuracy": 1.0
+  },
+  "threshold_results": {
+   "correctness": false,
+   "completeness": false,
+   "unsupported_claim_rate": false,
+   "attribution_accuracy": false,
+   "temporal_accuracy": true,
+   "numeric_accuracy": false,
+   "exact_citation_accuracy": false,
+   "abstention_accuracy": true,
+   "invalid_displayed_citations": true,
+   "verifier_technical": false
+  }
+ },
+ "failure_stage_counts": {
+  "terminal_weak_query_rejections": 9,
+  "verifier_semantic_failed": 2,
+  "verifier_technical_failure": 4,
+  "cases_with_displayed_citations_in_payload": 5
+ },
+ "root_cause_class": "MIXED (primary: PRODUCT_DEFECT retrieval-admission recall; secondary: RUNTIME_BUDGET/verifier fragility)",
+ "root_cause_summary": "Sanitized terminal-stop aggregate over the 15 formal cases: 9 terminated as early UNSUPPORTED/weak_query admissions rejections (3-5s wall each, retrieval_hybrid result_count=25 with is_relevant=false — every whole-query AND deterministic sub-query view scored below the admission floor against the evaluated index), 2 completed generation but failed canonical verification (verifier_failed), 4 terminated in verifier technical failure (claim_mapping/verifier stage deadline exhaustion on this host class). Downstream, displayed-citation universe collapsed to 0 and 100% of 78 claim units evaluated unsupported. Admission-recall failure dominates: fresh-holdout query phrasing (multi-part research asks, 46-85 CJK chars) embeds below the frozen whole-query admission floor and the existing deterministic sub-query recheck does not rescue them; no pre-marker gate measures this because corpus compatibility measures CORPUS binding, not QUERY-side admission recall.",
+ "contrast_with_V5": "V5 failure mode (ROOT_CAUSE_CLASS=B corpus-scope defect: raw-file citation universe + doc-tooling gold) was repaired in V6 (ingested-store membership, record:<id> citation binding, 13/13 hidden-member exact-hash, pre-marker compatibility gates). V6's failure mode is DIFFERENT: retrieval admission recall on fresh query phrasing plus verifier/claim-map budget fragility. V6 gold/rubric/threshold design performed as pre-registered (abstention and invalid-citation gates passed; scorer executed cleanly end-to-end).",
+ "generalized_repair_direction": "Query-side admission recall repair, DEVELOPMENT_ONLY: (1) build transparent dev repro set of multi-part research queries + admission recall harness measuring whole-query/sub-query admission rate against the evaluated index; (2) strengthen deterministic admission fallbacks WITHOUT lowering the frozen VEC_STRONG floor (e.g., clause-level sub-view union, hybrid vec+bm25-fused recheck admission path behind reviewed contract change); (3) verifier/claim-map stage budget hardening on this host class (deadline arithmetic, bounded single retry); (4) full relevant test tier + codex review; (5) fresh independent V7 builder session per protocol; NO tuning against V6 hidden content (per-case detail remains sealed).",
+ "evidence_pointers": {
+  "decision_log": "/home/rhett/tech-db-owner-secrets/rt101/formal_v6_state/decision_log.appendonly (append-only, hash-chained; 1 scored decision line)",
+  "decision_chain_head": "d14507e7365b7233e8c5bab93a688374cbd9048244a8f5327823fc39f6c5f8cf",
+  "scoring_report_aggregate_sha256": "1610f253d82829baa6a15a7aa94ce88a88944436b9c687d091b3d9dfabe59ec8",
+  "per_case_detail": "SEALED owner-side (never enters repo)",
+  "v6_state_dir": "/home/rhett/tech-db-owner-secrets/rt101/formal_v6_state/"
+ },
+ "phase09_effect": {
+  "RT101": "UNSATISFIED",
+  "phase_status": "NOT_SATISFIED (unchanged; repo machine state already correctly reflects RT-101 authority unsatisfied)",
+  "phase10": "NOT_STARTED (forbidden while NEXT_PROMPT_ALLOWED=false)"
+ }
+}
