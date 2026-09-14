@@ -98,5 +98,18 @@
   "RT101": "UNSATISFIED",
   "phase_status": "NOT_SATISFIED (unchanged; repo machine state already correctly reflects RT-101 authority unsatisfied)",
   "phase10": "NOT_STARTED (forbidden while NEXT_PROMPT_ALLOWED=false)"
+ },
+ "generalized_repair_landed": {
+  "commit": "8fb8785931710633f99294b5f0257c8e0d6bedae (admission recheck clause-view hardening)",
+  "change": "retrieval/runtime.py split_subqueries: deterministic clause views from CJK enumeration commas (、) and colons (：), max_parts 4→6; recheck_admission_subqueries default max_parts 4→6. SAME VEC_STRONG floor, no LLM, no holdout-derived constants, fail-closed preserved.",
+  "tests": "tests_repair_phase09_reliability 111/111 (incl. new A.split.enum_comma_views / colon_clause_views / default_parts_widened / no_tiny_fragments), tests_parity 5/5, tests_repair_phase09_generic 54/54, tests_corpus_gates_phase09 82/82",
+  "scorer_defect_discovered": "V6 canonical scorer score_v6.py line ~497 reads gold field 'abstention_label' while the gold schema field is 'absence_label' — the abstention population split never activated (abstention_accuracy defaulted 1.0; 2 abstention cases were scored inside the answer population). Latent scorer defect (SCORER_DEFECT component of MIXED root cause). V6 formal FAIL stands immutable; the defect is fixed in the V7-adapted canonical scorer (score_v7.py, gatekeeper R1-P0) with a 2-row abstention population fixture.",
+  "v7_state": {
+   "V7_SHA256": "3c9b3b95087fbdbd42750d33ecad53c2366bb3fdb4e2de0ff325250630ac21c2",
+   "V7_LOCK_SHA256": "01dacd886e52f87f052699987bb1ca56046409de067f1fee812aed32dfdccfaf",
+   "gatekeeper": "APPROVE (3 serial read-only codex rounds; rounds 1-2 REJECT fixed in place; round-3 final delta APPROVE)",
+   "runner_ready": true,
+   "owner_approval": "PENDING (RT101_V7_OWNER_APPROVAL_REQUIRED)"
+  }
  }
 }
