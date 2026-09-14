@@ -39,8 +39,8 @@
     "clean": true
   },
   "no_gold_scan": {
-    "forbidden_digests_checked": 0,
-    "digest_scan_meaningful": false,
+    "forbidden_digests_checked": 18,
+    "digest_scan_meaningful": true,
     "hits": 0,
     "store_path_marker_hits": [],
     "clean": true

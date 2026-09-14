@@ -93,12 +93,15 @@ def main() -> int:
     report = build_source_coverage_report(
         snapshot_db=args.snapshot_db,
         records_lite=args.records_lite if args.records_lite.exists() else None,
+        # NB: Path("") == Path(".") and is truthy — guard on the string.
         record_id_map=(args.record_id_map
-                       if args.record_id_map
-                       and Path(args.record_id_map).exists() else None),
+                       if str(args.record_id_map).strip()
+                       and Path(args.record_id_map).exists()
+                       and Path(args.record_id_map).is_file() else None),
         record_registry=(args.record_registry
-                         if args.record_registry
-                         and Path(args.record_registry).exists() else None),
+                         if str(args.record_registry).strip()
+                         and Path(args.record_registry).exists()
+                         and Path(args.record_registry).is_file() else None),
         manifest_id=args.manifest_id,
         identity_snapshot_id=args.identity_snapshot_id,
         dataset_snapshot_id=args.dataset_snapshot_id,
