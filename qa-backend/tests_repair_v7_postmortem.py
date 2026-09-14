@@ -26,6 +26,7 @@ import asyncio
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from unittest import mock
 
@@ -160,6 +161,7 @@ def test_t4_scorer_guard():
     print("T4 scorer guard (fail-closed validity)")
     healthy = {"answer_status": "SUPPORTED",
                "answer_text": "答案引用了已验证的证据。",
+               "stop_reason": "evidence_sufficient",
                "claims": [{"id": 1}],
                "evidence_summary": {"requirements_total": 1,
                                     "requirements_supported": 1,
@@ -209,6 +211,7 @@ def test_t4_scorer_guard():
     # Codex round 1 findings — regression coverage:
     # P0: claims=[None] is NOT a scorable surface
     nondict = {"answer_status": "SUPPORTED", "answer_text": "x",
+               "stop_reason": "evidence_sufficient",
                "claims": [None, "junk"],
                "evidence_summary": {"requirements_total": 0}}
     check("non-dict claim entries are not a surface",
@@ -370,7 +373,7 @@ def test_t5_fault_injection():
     check("fuzzed/partial rows all fail closed (or flagged)",
           all(not ok for ok in defects), str(defects))
     ok_row = {"answer_status": "SUPPORTED", "answer_text": "有证据的陈述。",
-              "claim_units": 2}
+              "stop_reason": "evidence_sufficient", "claim_units": 2}
     check("claim_units-only surface admitted (scorer-derived units)",
           validate_capture_payload(ok_row) == [],
           str(validate_capture_payload(ok_row)))
@@ -770,6 +773,335 @@ def test_t8_provider_json_contract():
               out == "", repr(out)[:40])
 
 
+def test_t11_completion_contract():
+    """T11 — terminal-completion contract + technical-failure precedence.
+    Codex Cluster B findings on the capture-validity guard:
+      P1-5: an ANSWER-family row must present an explicit, non-truncated
+            terminal completion.  Missing, unknown, truncation-class
+            (length / max_tokens / budget / context-capacity) and
+            abort/cancellation-class completions fail closed even when the
+            row superficially carries claims or requirement counts —
+            scoring thresholds are untouched (technical-class stops stay
+            on the scorer's verifier-technical pathway).
+      P1-5b: the capture population check gains require_positive /
+            expected_total bindings for formal captures (defaults
+            backward-compatible).
+      P2-9: technical-failure evidence (technical stop token, non-empty
+            state-machine technical_failures, verification_status
+            TECHNICAL_FAILURE) is orthogonal to and outranks every
+            calibrated-refusal marker — a refusal-looking string can
+            never launder a technical failure into an exempt row.
+    Fixtures are synthetic only; the stop_reason vocabulary mirrors
+    answer_status._derive_terminal and the server's early exits.
+    """
+    print("T11 terminal-completion contract (P1-5) + tech precedence (P2-9)")
+    surf = {"requirements_total": 1, "requirements_supported": 1,
+            "requirements_partial": 0}
+    good = {"answer_status": "SUPPORTED", "answer_text": "已验证的答案。",
+            "stop_reason": "evidence_sufficient", "claims": [{"id": 1}],
+            "evidence_summary": surf}
+
+    # ── P1-5: completion contract ───────────────────────────────────────
+    check("explicit non-truncated completion passes",
+          validate_capture_payload(good) == [])
+    no_stop = dict(good)
+    del no_stop["stop_reason"]
+    check("missing completion flagged",
+          validate_capture_payload(no_stop)
+          == ["CAPTURE_COMPLETION_MISSING"])
+    check("truncation-class stop rejected on scorable row",
+          validate_capture_payload(dict(good, stop_reason="length"))
+          == ["CAPTURE_COMPLETION_TRUNCATED:length"])
+    check("max_tokens stop rejected",
+          validate_capture_payload(dict(good, stop_reason="max_tokens"))
+          == ["CAPTURE_COMPLETION_TRUNCATED:max_tokens"])
+    check("budget_exceeded (runtime length-class) rejected",
+          validate_capture_payload(dict(good, stop_reason="budget_exceeded"))
+          == ["CAPTURE_COMPLETION_TRUNCATED:budget_exceeded"])
+    check("phase03 context-capacity rejected",
+          validate_capture_payload(
+              dict(good, stop_reason="phase03_context_capacity_exceeded"))
+          == ["CAPTURE_COMPLETION_TRUNCATED:phase03_context_capacity_exceeded"])
+    check("client_disconnect rejected",
+          validate_capture_payload(dict(good, stop_reason="client_disconnect"))
+          == ["CAPTURE_COMPLETION_ABORTED:client_disconnect"])
+    check("request_scope_finalized rejected",
+          validate_capture_payload(
+              dict(good, stop_reason="request_scope_finalized"))
+          == ["CAPTURE_COMPLETION_ABORTED:request_scope_finalized"])
+    unk = validate_capture_payload(dict(good, stop_reason="brand_new_stop"))
+    check("unknown completion flagged (fail closed to drift)",
+          any(e.startswith("CAPTURE_COMPLETION_UNKNOWN:") for e in unk),
+          str(unk))
+    # every real runtime completion class stays clean
+    for stop, status in (
+            ("evidence_sufficient", "SUPPORTED"),
+            ("unsupported_claims_remain", "PARTIALLY_SUPPORTED"),
+            ("critical_requirement_missing", "PARTIALLY_SUPPORTED"),
+            ("unresolved_high_severity_conflict", "PARTIALLY_SUPPORTED"),
+            ("claim_coverage_failed:unmapped_factual_text",
+             "PARTIALLY_SUPPORTED"),
+            ("verifier_findings_unsupported_claims", "PARTIALLY_SUPPORTED"),
+            ("evidence_partial", "PARTIALLY_SUPPORTED"),
+            ("evidence_insufficient", "UNSUPPORTED"),
+            ("all_core_claims_unsupported", "UNSUPPORTED"),
+            ("verifier_failed", "PARTIALLY_SUPPORTED"),
+            ("not_applicable", "UNSUPPORTED")):
+        row = dict(good, answer_status=status, stop_reason=stop,
+                   claims=[{"id": 1}] if status != "UNSUPPORTED" else [
+                       {"id": 1}])
+        check(f"machine completion {stop} accepted",
+              validate_capture_payload(row) == [],
+              str(validate_capture_payload(row)))
+    abstain_shapes = [
+        # pipeline no-evidence terminal (renderer sets withheld=True)
+        {"answer_status": "UNSUPPORTED", "answer_text": "没有足够的信息回答。",
+         "stop_reason": "no_relevant_evidence", "claims": [],
+         "evidence_summary": {"requirements_total": 0}, "withheld": True},
+        {"answer_status": "UNSUPPORTED", "answer_text": "空回答。",
+         "stop_reason": "empty_answer", "claims": [],
+         "evidence_summary": {"requirements_total": 0}, "withheld": True},
+        # boundary terminals carry an explicit boundary message
+        {"answer_status": "UNSUPPORTED", "answer_text": "当前没有足够证据。",
+         "stop_reason": "generator_declared_no_evidence", "claims": [],
+         "evidence_summary": {"requirements_total": 0},
+         "boundary_message": "没有足够证据"},
+        {"answer_status": "UNSUPPORTED", "answer_text": "当前没有足够证据。",
+         "stop_reason": "phase03_no_evidence", "claims": [],
+         "evidence_summary": {"requirements_total": 0},
+         "boundary_message": "没有足够证据"},
+    ]
+    for j, row in enumerate(abstain_shapes):
+        check(f"legitimate calibrated refusal shape {j} exempt",
+              validate_capture_payload(row) == [],
+              str(validate_capture_payload(row)))
+
+    # ── P2-9: technical-failure precedence over refusal markers ─────────
+    laundered = {"answer_status": "UNSUPPORTED",
+                 "answer_text": "没有足够的信息。",
+                 "stop_reason": "no_evidence", "claims": [],
+                 "evidence_summary": {"requirements_total": 0},
+                 "withheld": True,
+                 "state_machine": {"stop_reason": "no_evidence",
+                                   "technical_failures": {
+                                       "verifier": "timeout"}}}
+    check("technical_failures override refusal exemption (P2-9)",
+          validate_capture_payload(laundered) == [ANSWER_ROW_UNSCORABLE],
+          str(validate_capture_payload(laundered)))
+    honest = dict(laundered)
+    honest["state_machine"] = {"stop_reason": "no_evidence",
+                               "technical_failures": {}}
+    check("honest no-evidence row (empty technical_failures) exempt",
+          validate_capture_payload(honest) == [])
+    vs_row = dict(laundered)
+    del vs_row["state_machine"]
+    vs_row["verification_status"] = "TECHNICAL_FAILURE"
+    check("verification_status TECHNICAL_FAILURE overrides exemption",
+          validate_capture_payload(vs_row) == [ANSWER_ROW_UNSCORABLE],
+          str(validate_capture_payload(vs_row)))
+    tf_stop = dict(laundered)
+    del tf_stop["state_machine"]
+    tf_stop["stop_reason"] = "technical_failure:verifier"
+    check("technical stop token overrides refusal marker",
+          validate_capture_payload(tf_stop) == [ANSWER_ROW_UNSCORABLE],
+          str(validate_capture_payload(tf_stop)))
+    # technical stop with intact surface stays on the scorer's threshold
+    # pathway (guard clean; scoring semantics unchanged)
+    tech_surf = {"answer_status": "UNVERIFIED",
+                 "answer_text": "部分内容已保留。",
+                 "stop_reason": "technical_failure:claim_mapping",
+                 "claims": [{"id": 1}], "evidence_summary": surf}
+    check("technical stop + intact surface not a guard defect",
+          validate_capture_payload(tech_surf) == [])
+
+    # ── P1-5b: population bindings for formal captures ──────────────────
+    check("empty population passes with dev defaults (back-compat)",
+          validate_capture_population([])["ok"])
+    r_empty = validate_capture_population([], require_positive=True)
+    check("empty population rejected under require_positive",
+          not r_empty["ok"]
+          and r_empty["population_defects"] == ["POPULATION_EMPTY"],
+          str(r_empty))
+    r_size = validate_capture_population([good], expected_total=2)
+    check("population size mismatch rejected",
+          not r_size["ok"]
+          and r_size["population_defects"]
+          == ["POPULATION_SIZE_MISMATCH:1!=2"],
+          str(r_size))
+    r_ok = validate_capture_population([good, abstain_shapes[0]],
+                                       expected_total=2, require_positive=True)
+    check("bound formal population passes",
+          r_ok["ok"] and r_ok["counts"]["total"] == 2, str(r_ok))
+
+
+def test_t12_formal_preflight():
+    """T12 — formal pre-seal provider preflight module (Cluster B P1-2).
+
+    The provider health + latency sanity logic is extracted into
+    formal_preflight.py so the EXACT executed code is testable.  Synthetic
+    HTTP servers prove: healthy provider passes; HTTP 500, timeout, and
+    silent model-substitution probes FAIL CLOSED (exit-nonzero class);
+    the soak requires consecutive successes with no infinite waiting; the
+    probe request uses the canonical contract (thinking disabled, bounded
+    max_tokens, canonical model); the module creates NO files and has NO
+    side effects (a dry run can never touch the one-shot marker).
+    """
+    import threading
+    from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+    import tempfile
+    import formal_preflight as fp
+
+    print("T12 formal preflight (P1-2): health + latency + soak + side-effect-free")
+
+    def serve(handler_cls, requests_log):
+        srv = ThreadingHTTPServer(("127.0.0.1", 0), handler_cls)
+        port = srv.server_address[1]
+        th = threading.Thread(target=srv.serve_forever, daemon=True)
+        th.start()
+        return srv, f"http://127.0.0.1:{port}", requests_log
+
+    def make_handler(status=200, body=None, delay=0.0, echo_model=True):
+        class H(BaseHTTPRequestHandler):
+            def log_message(self, *a):
+                pass
+
+            def do_GET(self):
+                if delay:
+                    time.sleep(delay)
+                self.send_response(status)
+                self.end_headers()
+                self.wfile.write(b'{"status":"ok"}')
+
+            def do_POST(self):
+                if delay:
+                    time.sleep(delay)
+                self.send_response(status)
+                self.send_header("Content-Type", "application/json")
+                self.end_headers()
+                if body is None:
+                    served = {"model": "canonical-model", "choices": []}
+                    if not echo_model:
+                        served.pop("model")
+                    self.wfile.write(json.dumps(served).encode())
+                else:
+                    self.wfile.write(body)
+
+            def do_DELETE(self):
+                if delay:
+                    time.sleep(delay)
+                self.send_response(status)
+                self.end_headers()
+        H.__name__ = f"H_{status}_{delay}_{echo_model}"
+        return H
+
+    # ── healthy provider: probe + soak pass ─────────────────────────────
+    srv, url, _ = serve(make_handler(status=200), [])
+    try:
+        r = fp.probe_latency(url, "canonical-model", api_key="test-key",
+                             latency_budget_s=5)
+        check("healthy probe passes with model echo",
+              r["ok"] and r["http_status"] == 200, str(r))
+        check("probe respects latency budget", r["latency_s"] <= 5, str(r))
+        s = fp.readiness_soak(url, "canonical-model", api_key="k",
+                              iterations=3, interval_s=0.01,
+                              latency_budget_s=5)
+        check("readiness soak passes on consecutive successes",
+              s["ok"] and s["iterations_passed"] == 3, str(s))
+    finally:
+        srv.shutdown()
+
+    # ── unhealthy: HTTP 500 fails closed ────────────────────────────────
+    srv, url, _ = serve(make_handler(status=500), [])
+    try:
+        r = fp.probe_latency(url, "canonical-model", latency_budget_s=5)
+        check("HTTP 500 probe fails closed",
+              not r["ok"] and r["error_class"] == "http_error", str(r))
+    finally:
+        srv.shutdown()
+
+    # ── unreachable: connection refused fails closed ────────────────────
+    r = fp.probe_latency("http://127.0.0.1:1", "m", timeout_s=2,
+                         latency_budget_s=1)
+    check("unreachable provider fails closed (unreachable class)",
+          not r["ok"] and r["error_class"] == "unreachable", str(r))
+
+    # ── timeout: server answers beyond the timeout class ────────────────
+    srv, url, _ = serve(make_handler(status=200, delay=3.0), [])
+    try:
+        r = fp.probe_latency(url, "canonical-model", timeout_s=1,
+                             latency_budget_s=2)
+        check("slow provider fails closed (timeout/latency class)",
+              not r["ok"] and r["error_class"] in ("unreachable", "slow"),
+              str(r))
+    finally:
+        srv.shutdown()
+
+    # ── silent model substitution fails closed (non-canonical model) ────
+    srv, url, _ = serve(make_handler(status=200, echo_model=False), [])
+    try:
+        r = fp.probe_latency(url, "canonical-model", latency_budget_s=5)
+        check("gateway serving non-canonical/no model fails closed",
+              not r["ok"] and r["error_class"] == "model_mismatch", str(r))
+    finally:
+        srv.shutdown()
+
+    # ── probe request contract: canonical model + thinking disabled ─────
+    seen = {}
+
+    class Capture(BaseHTTPRequestHandler):
+        def log_message(self, *a):
+            pass
+
+        def do_POST(self):
+            n = int(self.headers.get("Content-Length", "0") or 0)
+            seen["body"] = json.loads(self.rfile.read(n).decode())
+            seen["path"] = self.path
+            seen["auth"] = bool(self.headers.get("Authorization"))
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(
+                {"model": "canonical-model", "choices": []}).encode())
+
+    srv = ThreadingHTTPServer(("127.0.0.1", 0), Capture)
+    url = f"http://127.0.0.1:{srv.server_address[1]}"
+    t = threading.Thread(target=srv.serve_forever, daemon=True)
+    t.start()
+    try:
+        r = fp.probe_latency(url, "canonical-model", api_key="secret-key",
+                             latency_budget_s=5)
+        check("capture probe passes", r["ok"], str(r))
+        check("probe posts to /chat/completions",
+              seen.get("path") == "/chat/completions", str(seen.get("path")))
+        b = seen.get("body") or {}
+        check("probe sends canonical model",
+              b.get("model") == "canonical-model", str(b.get("model")))
+        check("probe disables thinking",
+              b.get("thinking") == {"type": "disabled"}, str(b.get("thinking")))
+        check("probe bounds max_tokens",
+              isinstance(b.get("max_tokens"), int)
+              and 0 < b["max_tokens"] <= 512, str(b.get("max_tokens")))
+        check("probe uses the same credential route",
+              seen.get("auth") is True)
+    finally:
+        srv.shutdown()
+
+    # ── side-effect-free: no files created by any preflight path ────────
+    with tempfile.TemporaryDirectory() as td:
+        before = set(os.listdir(td))
+        r = fp.run_preflight(formal_server_url="http://127.0.0.1:1",
+                             provider_base_url="http://127.0.0.1:1",
+                             model="m", soak_iterations=1,
+                             soak_interval_s=0)
+        after = set(os.listdir(td))
+        check("preflight creates no files (marker untouched)",
+              before == after and not r["ok"], f"{sorted(after)} {r['ok']}")
+        check("preflight failure is precondition-class (ok=False)",
+              r["ok"] is False and r.get("stage") == "health", str(r))
+    ok_r = fp.run_preflight
+    check("preflight module exposes the runner entrypoint", callable(ok_r))
+
+
 if __name__ == "__main__":
     test_t1_requirements_derivation()
     test_t2_rescue_bridge_source_contract()
@@ -781,5 +1113,7 @@ if __name__ == "__main__":
     test_t8_provider_json_contract()
     test_t9_legacy_map_strict_validation()
     test_t10_json_caller_boundary()
+    test_t11_completion_contract()
+    test_t12_formal_preflight()
     print(f"\nRESULT: {PASSED} passed, {FAILED} failed")
     sys.exit(1 if FAILED else 0)

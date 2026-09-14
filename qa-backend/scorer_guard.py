@@ -29,6 +29,115 @@ _ANSWER_STATUSES = {"ANSWER", "ANSWERED", "SUPPORTED",
 _ABSTAIN_STATUSES = {"ABSTAIN", "ABSTAINED", "REFUSED", "WITHHELD",
                      "KNOWLEDGE_BOUNDARY", "NO_EVIDENCE"}
 
+# ── terminal-completion classification (Codex Cluster B P1-5) ───────────
+# Vocabulary source of truth: answer_status.AnswerStateMachine.
+# _derive_terminal (the stop_reason authority bound into every canonical
+# terminal payload via build_terminal_response) plus the server's
+# early-exit terminals (routed through _compatibility_machine).  Every
+# REAL runtime completion is classified here, so legitimate captures
+# never hit CAPTURE_COMPLETION_UNKNOWN while the contract stays
+# fail-closed against vocabulary drift.
+_COMPLETION_OK = frozenset({
+    # machine-derived semantic completions
+    "evidence_sufficient", "unsupported_claims_remain", "evidence_partial",
+    "evidence_insufficient", "critical_requirement_missing",
+    "unresolved_high_severity_conflict", "all_core_claims_unsupported",
+    "verifier_findings_unsupported_claims", "verifier_failed",
+    "not_applicable", "claim_coverage_failed",
+    # deterministic no-evidence / calibrated refusal terminals
+    "no_evidence", "no_relevant_evidence", "generator_declared_no_evidence",
+    "phase03_no_evidence", "weak_query", "topic_exhausted", "invalid_query",
+    "empty_answer",
+    "insufficient_evidence", "knowledge_boundary", "abstain",
+    "verification_failed",
+    # legacy/agentic search completions (deliberate, non-truncated ends)
+    "agentic_complete", "max_iterations_reached", "no_new_evidence",
+    "no_new_queries", "max_rounds", "unresolved_conflict", "impossible_gap",
+})
+# Truncation-class completions: generation was cut off mid-flight.  A row
+# carrying claims or requirement counts under one of these stops is
+# untrustworthy (truncation can never be distinguished from laundering).
+_COMPLETION_TRUNCATION = frozenset({
+    "length", "max_tokens", "truncated", "truncation", "budget_exceeded",
+    "context_capacity_exceeded", "phase03_context_capacity_exceeded",
+})
+# Abort/cancellation-class completions: the request never ran to a
+# terminal answer.
+_COMPLETION_ABORT_CANCEL = frozenset({
+    "abort", "aborted", "cancel", "cancelled", "canceled",
+    "client_disconnect", "request_scope_finalized", "request_cancellation",
+    "timeout", "timed_out", "rate_limited", "admission_queue_full",
+})
+# Technical-class stops are NOT completion defects: they are legitimate
+# machine-derived fail-closed terminals whose scoring is governed by the
+# scorer's verifier-technical threshold (unchanged semantics), while the
+# same evidence kills the calibrated-refusal exemption (P2-9 below).
+_TECHNICAL_STOP_TOKENS = frozenset({
+    "error", "generator_failure", "verification_unverified",
+    "verification_not_run", "verification_incomplete",
+    "terminal_technical_failure", "claim_results_unavailable",
+    "grader_technical_failure", "undetermined_state",
+    "agentic_technical_fail_closed", "agentic_preloop_budget_fail_closed",
+    "phase03_missing_pinned_authority", "required_backend_unavailable",
+})
+_TECHNICAL_STOP_PREFIXES = ("technical_failure:", "coverage_gate_technical:")
+
+
+def _classify_completion(stop_norm: str) -> str:
+    """Classify a normalized stop_reason for an ANSWER-family row.
+
+    Returns "ok", "missing", "unknown", "truncation" or "abort".
+    """
+    if not stop_norm:
+        return "missing"
+    if stop_norm.startswith(_TECHNICAL_STOP_PREFIXES):
+        return "ok"
+    if stop_norm in _TECHNICAL_STOP_TOKENS:
+        return "ok"
+    if stop_norm in _COMPLETION_TRUNCATION:
+        return "truncation"
+    if stop_norm in _COMPLETION_ABORT_CANCEL:
+        return "abort"
+    if stop_norm in _COMPLETION_OK:
+        return "ok"
+    if stop_norm.split(":")[0] in _COMPLETION_OK:
+        # class-suffixed family forms, e.g. claim_coverage_failed:<cause>,
+        # no_evidence:<gate>
+        return "ok"
+    return "unknown"
+
+
+def _technical_failure_evidence(payload: dict) -> bool:
+    """Orthogonal technical-failure evidence (Codex Cluster B P2-9).
+
+    True when any of: a technical stop token (top-level OR the canonical
+    state-machine snapshot), a non-empty state-machine technical_failures
+    map, or verification_status == TECHNICAL_FAILURE.  While present, the
+    calibrated-refusal exemption is unavailable — a refusal-looking string
+    can never launder a technical failure into an exempt abstention row.
+    (Every production component recorded via
+    answer_status.record_technical_failure is validation-blocking, so a
+    non-empty technical_failures map always accompanies a technical
+    terminal — this check cannot false-positive on clean SUPPORTED rows.)
+    """
+    sm = payload.get("state_machine")
+    candidates = [payload.get("stop_reason")]
+    if isinstance(sm, dict):
+        candidates.append(sm.get("stop_reason"))
+        tf = sm.get("technical_failures")
+        if (isinstance(tf, dict) and tf) or \
+                (isinstance(tf, (list, tuple)) and tf):
+            return True
+    for sr in candidates:
+        s = str(sr or "").strip().lower()
+        if s.startswith(_TECHNICAL_STOP_PREFIXES) or \
+                s in _TECHNICAL_STOP_TOKENS:
+            return True
+    if str(payload.get("verification_status") or "").strip().upper() \
+            == "TECHNICAL_FAILURE":
+        return True
+    return False
+
 
 def _num(value) -> float:
     try:
@@ -59,6 +168,20 @@ def validate_capture_payload(payload: dict) -> list:
       R5  ABSTAIN rows must carry a non-empty stop_reason or boundary
           marker (a silent empty abstention is a capture defect).
       R6  a present-but-malformed evidence_summary is itself a defect.
+      R7  (Codex Cluster B P1-5) ANSWER-family rows must present an
+          explicit, non-truncated terminal completion in stop_reason.
+          Missing, unknown, truncation-class (length / budget /
+          context-capacity) and abort/cancellation-class completions are
+          hard defects — a truncated row that still carries claims or
+          requirement counts can never be distinguished from a laundered
+          one.  Technical-class stops are NOT completion defects: they
+          remain on the scorer's verifier-technical threshold pathway
+          (scoring thresholds unchanged).
+      R8  (Codex Cluster B P2-9) technical-failure evidence (technical
+          stop token, non-empty state-machine technical_failures, or
+          verification_status TECHNICAL_FAILURE) outranks the calibrated
+          refusal exemption: a row with technical-failure evidence can
+          never claim a refusal-looking exemption.
     """
     errors = []
     if not isinstance(payload, dict):
@@ -92,6 +215,21 @@ def validate_capture_payload(payload: dict) -> list:
                      if summary.get("requirements_total") is not None
                      else payload.get("requirements_total"))
     if status in _ANSWER_STATUSES:
+        # R7 terminal-completion contract: classify the completion BEFORE
+        # any surface reasoning — truncation/abort/missing/unknown
+        # completions fail closed regardless of the row's surface.
+        stop_reason = str(payload.get("stop_reason") or "").strip()
+        stop_norm = stop_reason.lower()
+        tech_evidence = _technical_failure_evidence(payload)
+        _cls = _classify_completion(stop_norm)
+        if _cls == "missing":
+            errors.append("CAPTURE_COMPLETION_MISSING")
+        elif _cls == "unknown":
+            errors.append(f"CAPTURE_COMPLETION_UNKNOWN:{stop_norm}")
+        elif _cls == "truncation":
+            errors.append(f"CAPTURE_COMPLETION_TRUNCATED:{stop_norm}")
+        elif _cls == "abort":
+            errors.append(f"CAPTURE_COMPLETION_ABORTED:{stop_norm}")
         scorable = (
             (req_total == req_total and req_total > 0)
             or n_claims > 0
@@ -106,21 +244,24 @@ def validate_capture_payload(payload: dict) -> list:
             # defect class is different: a substantive-status row with a
             # boilerplate failure text and NO calibrated refusal marker
             # anywhere.  Only the latter fails closed.
-            stop_reason = str(payload.get("stop_reason") or "").strip()
+            #
+            # R8 (P2-9): technical-failure evidence is orthogonal to and
+            # outranks every refusal marker — a technical failure can
+            # never be exempted as a calibrated refusal.
             _ABSTAIN_STOP_TOKENS = (
                 "weak_query", "no_evidence", "knowledge_boundary",
                 "topic_exhausted", "insufficient_evidence", "abstain")
-            stop_norm = stop_reason.lower()
             calibrated_refusal = (
-                stop_norm == _ABSTAIN_STOP_TOKENS
-                or stop_norm.startswith(tuple(
-                    t + (":" if not t.endswith("_evidence")
-                         and not t.endswith("_boundary")
-                         else "_") for t in _ABSTAIN_STOP_TOKENS))
-                or stop_norm.split(":")[0] in _ABSTAIN_STOP_TOKENS
-                or (isinstance(payload.get("boundary_message"), str)
-                    and payload.get("boundary_message").strip())
-                or payload.get("withheld") is True)
+                (stop_norm in _ABSTAIN_STOP_TOKENS
+                 or stop_norm.startswith(tuple(
+                     t + (":" if not t.endswith("_evidence")
+                          and not t.endswith("_boundary")
+                          else "_") for t in _ABSTAIN_STOP_TOKENS))
+                 or stop_norm.split(":")[0] in _ABSTAIN_STOP_TOKENS
+                 or (isinstance(payload.get("boundary_message"), str)
+                     and payload.get("boundary_message").strip())
+                 or payload.get("withheld") is True)
+                and not tech_evidence)
             substantive_status = status in ("SUPPORTED",
                                             "PARTIALLY_SUPPORTED",
                                             "UNVERIFIED", "ANSWER",
@@ -148,10 +289,19 @@ def validate_capture_payload(payload: dict) -> list:
     return errors
 
 
-def validate_capture_population(payloads: list) -> dict:
+def validate_capture_population(payloads: list, *,
+                                expected_total: int | None = None,
+                                require_positive: bool = False) -> dict:
     """Validate a full capture population. Returns
     {"ok": bool, "defects": {index: [errors...]}, "counts": {...}}.
-    Any row defect → ok=False (fail closed)."""
+    Any row defect → ok=False (fail closed).
+
+    Codex Cluster B P1-5: formal captures must additionally pass
+    require_positive=True (a zero-row population cannot evidence an
+    evaluation) and expected_total=<locked case count> (the capture
+    population size is bound to the blind-case ledger).  Both default
+    to off so dev/diagnostic callers stay backward-compatible.
+    """
     defects = {}
     counts = {"total": len(payloads), "answer": 0, "abstain": 0,
               "unknown": 0}
@@ -167,7 +317,16 @@ def validate_capture_population(payloads: list) -> dict:
             counts["abstain"] += 1
         else:
             counts["unknown"] += 1
-    return {"ok": not defects, "defects": defects, "counts": counts}
+    population_defects = []
+    if require_positive and counts["total"] <= 0:
+        population_defects.append("POPULATION_EMPTY")
+    if expected_total is not None and counts["total"] != int(expected_total):
+        population_defects.append(
+            f"POPULATION_SIZE_MISMATCH:{counts['total']}"
+            f"!={int(expected_total)}")
+    return {"ok": not defects and not population_defects,
+            "defects": defects, "counts": counts,
+            "population_defects": population_defects}
 
 
 if __name__ == "__main__":
@@ -176,6 +335,7 @@ if __name__ == "__main__":
     healthy_answer = {
         "answer_status": "SUPPORTED",
         "answer_text": "锂电池通过锂离子在正负极之间的迁移存储能量。",
+        "stop_reason": "evidence_sufficient",
         "claims": [{"id": 1}, {"id": 2}],
         "evidence_summary": {"requirements_total": 2,
                              "requirements_supported": 2,
@@ -184,6 +344,26 @@ if __name__ == "__main__":
     abstain = {"answer_status": "ABSTAIN", "answer_text": "",
                "stop_reason": "no_evidence"}
     assert validate_capture_population([healthy_answer, abstain])["ok"]
+    # R7: completion contract — missing / unknown / truncated / aborted
+    no_stop = dict(healthy_answer)
+    del no_stop["stop_reason"]
+    assert "CAPTURE_COMPLETION_MISSING" in validate_capture_payload(no_stop)
+    assert validate_capture_payload(
+        dict(healthy_answer, stop_reason="length")) == [
+        "CAPTURE_COMPLETION_TRUNCATED:length"]
+    assert validate_capture_payload(
+        dict(healthy_answer, stop_reason="client_disconnect")) == [
+        "CAPTURE_COMPLETION_ABORTED:client_disconnect"]
+    assert validate_capture_payload(
+        dict(healthy_answer, stop_reason="budget_exceeded")) == [
+        "CAPTURE_COMPLETION_TRUNCATED:budget_exceeded"]
+    assert any(e.startswith("CAPTURE_COMPLETION_UNKNOWN") for e in
+               validate_capture_payload(
+                   dict(healthy_answer, stop_reason="totally_new_reason")))
+    # machine-derived PARTIALLY_SUPPORTED completion passes cleanly
+    assert validate_capture_payload(
+        dict(healthy_answer,
+             stop_reason="claim_coverage_failed:unmapped_factual_text")) == []
     v7_like = {"answer_status": "ANSWER", "answer_text": "根据数据库……",
                "claims": [],
                "evidence_summary": {"requirements_total": 0}}
@@ -205,4 +385,27 @@ if __name__ == "__main__":
                  "evidence_summary": {"requirements_total": 0}}
     r2 = validate_capture_population([tech_fail])
     assert not r2["ok"] and ANSWER_ROW_UNSCORABLE in r2["defects"][0]
+    # R8 (P2-9): technical-failure evidence kills the refusal exemption —
+    # a technical_failures map cannot hide behind a no_evidence marker.
+    laundered = {"answer_status": "UNSUPPORTED",
+                 "answer_text": "没有足够的信息回答该问题。",
+                 "stop_reason": "no_evidence", "claims": [],
+                 "evidence_summary": {"requirements_total": 0},
+                 "state_machine": {"stop_reason": "no_evidence",
+                                   "technical_failures": {
+                                       "verifier": "timeout"}}}
+    assert ANSWER_ROW_UNSCORABLE in validate_capture_payload(laundered)
+    # …while the honest shape (no technical evidence) stays exempt.
+    honest = dict(laundered)
+    honest["state_machine"] = {"stop_reason": "no_evidence",
+                               "technical_failures": {}}
+    assert validate_capture_payload(honest) == []
+    # P1-5 population positivity / expected-size binding
+    assert not validate_capture_population(
+        [], require_positive=True)["ok"]
+    assert "POPULATION_EMPTY" in validate_capture_population(
+        [], require_positive=True)["population_defects"]
+    assert not validate_capture_population(
+        [healthy_answer], expected_total=3)["ok"]
+    assert validate_capture_population([])["ok"]  # dev default unchanged
     print("SCORER_GUARD_SELFTEST_OK")
