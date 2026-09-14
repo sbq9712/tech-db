@@ -176,6 +176,45 @@ def _versions_match(a: Mapping, b: Mapping) -> bool:
     return bool(da) and bool(db) and da == db
 
 
+_HEX64 = frozenset("0123456789abcdef")
+
+
+def _is_sha256_hex(v) -> bool:
+    s = str(v or "").strip().lower()
+    return len(s) == 64 and all(c in _HEX64 for c in s)
+
+
+def _is_dataset_snapshot_id(v) -> bool:
+    s = str(v or "").strip()
+    return s.startswith("sha256:") and _is_sha256_hex(s[len("sha256:"):])
+
+
+def _is_git_head(v) -> bool:
+    s = str(v or "").strip().lower()
+    return len(s) == 40 and all(c in _HEX64 for c in s)
+
+
+def _binding_format_issues(binding: Mapping) -> list[str]:
+    """Field-specific format validation (codex review Cluster B P2-8).
+
+    Equal-but-malformed values must never satisfy a binding: digests must
+    be 64-lowercase-hex, dataset snapshot ids must carry the sha256:
+    prefix, and the evaluated head must be 40-hex. manifest_id /
+    identity_snapshot_id are deployment-registered names (not digests) —
+    they are checked for presence by the caller, exact-equality still
+    applies.
+    """
+    issues: list[str] = []
+    if not _is_sha256_hex(binding.get("corpus_sha256")):
+        issues.append("corpus_sha256 not 64-hex")
+    if not _is_dataset_snapshot_id(binding.get("dataset_snapshot_id")):
+        issues.append("dataset_snapshot_id not sha256:<64hex>")
+    if binding.get("source_snapshot_catalog_id") is not None and \
+            not _is_sha256_hex(binding.get("source_snapshot_catalog_id")):
+        issues.append("source_snapshot_catalog_id not 64-hex")
+    return issues
+
+
 def evaluate(
     candidate: CorpusBinding,
     runtime: CorpusBinding,
@@ -228,15 +267,25 @@ def evaluate(
             membership.absence_cases_checked >= min_absence_cases
             and membership.invalid_absence_semantics == 0,
     }
+    # codex review Cluster B P2-8: equal-but-malformed binding values can
+    # never satisfy the gate — both sides must be format-valid.
+    format_issues = (_binding_format_issues(candidate.to_dict())
+                     + _binding_format_issues(runtime.to_dict()))
+    if evaluated_git_sha_target and not _is_git_head(evaluated_git_sha_target):
+        format_issues.append("evaluated_git_sha_target not 40-hex")
+    if evaluated_git_sha_runtime and not _is_git_head(evaluated_git_sha_runtime):
+        format_issues.append("evaluated_git_sha_runtime not 40-hex")
     checks: dict[str, bool] = {}
     checks.update(identity_checks)
     checks.update(head_check)
     checks.update(membership_checks)
+    checks["binding_formats_valid"] = not format_issues
     report = {
         "schema_version": SCHEMA_VERSION,
         "compatible": all(checks.values()),
         "checks": checks,
         "failed_checks": sorted(k for k, v in checks.items() if not v),
+        "binding_format_issues": format_issues,
         "membership": membership.to_dict(),
         "candidate_binding": candidate.to_dict(),
         "runtime_binding": {
@@ -258,6 +307,9 @@ def assert_formal_run_allowed(
     *,
     min_answer_cases: int = 1,
     min_absence_cases: int = 1,
+    expected_candidate_binding: Mapping | None = None,
+    expected_membership: Mapping | None = None,
+    expected_head: str | None = None,
 ) -> None:
     """Fail-closed gate: raise unless the report PROVES compatibility.
 
@@ -268,6 +320,14 @@ def assert_formal_run_allowed(
     measured head, and the internal consistency of the membership
     counters (no impossible counts, no missing/absent values).
     Formal runners MUST call this BEFORE consuming any one-shot marker.
+
+    Codex review Cluster B (RT101 V8 prep) P0-1: a structurally valid
+    report is still not enough — the gate must bind the report to
+    values the CALLER freshly recomputed from actual bytes. When
+    ``expected_candidate_binding`` / ``expected_membership`` /
+    ``expected_head`` are supplied, the report's candidate binding,
+    membership counters, and measured runtime head must EQUAL them
+    exactly (no field can drift between recompute and assertion).
     """
     def _deny(reason: str) -> None:
         raise CorpusCompatibilityError(
@@ -337,3 +397,24 @@ def assert_formal_run_allowed(
     if membership["invalid_absence_semantics"] != 0:
         _deny(f"invalid absence semantics: "
               f"{membership['invalid_absence_semantics']}")
+
+    # ---- codex review Cluster B P0-1: caller-recomputed binding ------------
+    if expected_candidate_binding is not None:
+        report_candidate = report.get("candidate_binding") or {}
+        exp = {k: str(v) for k, v in dict(expected_candidate_binding).items()}
+        for k, v in exp.items():
+            if str(report_candidate.get(k)) != v:
+                _deny(f"candidate_binding drift vs freshly recomputed bytes: "
+                      f"{k}: report={report_candidate.get(k)!r} "
+                      f"expected={v!r}")
+    if expected_membership is not None:
+        exp_m = {k: int(v) for k, v in dict(expected_membership).items()}
+        for k, v in exp_m.items():
+            if membership.get(k) != v:
+                _deny(f"membership drift vs freshly recomputed ledger: "
+                      f"{k}: report={membership.get(k)!r} expected={v!r}")
+    if expected_head is not None:
+        measured = str(runtime_binding.get("evaluated_git_sha") or "")
+        if measured != str(expected_head):
+            _deny(f"measured head drift: report={measured!r} "
+                  f"expected={str(expected_head)!r}")

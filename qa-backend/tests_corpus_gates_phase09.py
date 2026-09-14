@@ -61,9 +61,13 @@ def t_catalog_digest_stable():
 
 
 def t_binding_exact_checks():
-    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
-              source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+    # Codex review Cluster B P2-8: binding digests/snapshot ids must be
+    # format-valid, so the fixture uses realistic formats.
+    kw = dict(manifest_id="m",
+              dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64,
+              model="glm",
               prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
@@ -89,9 +93,9 @@ def t_binding_exact_checks():
 
 
 def t_membership_missing_fails_closed():
-    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
-              source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+    kw = dict(manifest_id="m", dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64, model="glm",
               prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
@@ -120,9 +124,9 @@ def t_membership_missing_fails_closed():
 
 def t_binding_empty_fields_fail_closed():
     """Codex review A1: empty identity values can never satisfy bindings."""
-    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
-              source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+    kw = dict(manifest_id="m", dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64, model="glm",
               prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
@@ -157,9 +161,9 @@ def t_binding_empty_fields_fail_closed():
 def t_assert_gate_deep_validation():
     """Codex review A1: the formal-run gate re-validates the whole
     report instead of trusting a truthy compatible flag."""
-    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
-              source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+    kw = dict(manifest_id="m", dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64, model="glm",
               prompt_schema_config_versions={"prompt": "v1"})
     cand = cc.CorpusBinding(**kw)
     runtime = cc.CorpusBinding(**kw)
@@ -240,9 +244,9 @@ def t_assert_gate_deep_validation():
 
 def t_blinded_safe_output():
     """The evaluate() output shape must never carry case/locator content."""
-    kw = dict(manifest_id="m", dataset_snapshot_id="ds",
-              source_snapshot_catalog_id="cat",
-              identity_snapshot_id="id", corpus_sha256="c", model="glm",
+    kw = dict(manifest_id="m", dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64, model="glm",
               prompt_schema_config_versions={"prompt": "v1"})
     rep = cc.evaluate(cc.CorpusBinding(**kw), cc.CorpusBinding(**kw),
                       cc.aggregate_membership([True, False], [True]))
@@ -644,6 +648,204 @@ def main() -> int:
     t_guards_generic_gold_marker()
     t_guards_symlinked_directory_in_tree()
     t_guards_env_list_values_probed()
+    t_binding_format_validation()
+    t_expected_binding_crosscheck()
+    t_strict_coverage_validation()
+
+
+def t_binding_format_validation():
+    """Cluster B P2-8: equal-but-malformed bindings can never satisfy."""
+    def bind(corpus="c" * 64, ds="sha256:" + "a" * 64,
+             cat="b" * 64):
+        return dict(manifest_id="m", dataset_snapshot_id=ds,
+                    source_snapshot_catalog_id=cat,
+                    identity_snapshot_id="id", corpus_sha256=corpus,
+                    model="glm",
+                    prompt_schema_config_versions={"prompt": "v1"})
+    mem = cc.aggregate_membership([True], [True])
+    good = cc.CorpusBinding(**bind())
+    rep = cc.evaluate(good, good, mem,
+                      evaluated_git_sha_target="a" * 40,
+                      evaluated_git_sha_runtime="a" * 40)
+    check("format-valid bindings pass", rep["compatible"] is True)
+    for label, over in (
+        ("corpus digest not hex", dict(corpus="z" * 64)),
+        ("corpus digest short", dict(corpus="a" * 63)),
+        ("dataset id without prefix", dict(ds="a" * 64)),
+        ("dataset id bad hex", dict(ds="sha256:" + "g" * 64)),
+        ("catalog id short", dict(cat="b" * 63)),
+    ):
+        bad = cc.CorpusBinding(**bind(**over))
+        rep = cc.evaluate(bad, bad, mem,
+                          evaluated_git_sha_target="a" * 40,
+                          evaluated_git_sha_runtime="a" * 40)
+        check(f"malformed binding rejected: {label}",
+              rep["compatible"] is False
+              and "binding_formats_valid" in rep["failed_checks"])
+    rep = cc.evaluate(good, good, mem,
+                      evaluated_git_sha_target="short",
+                      evaluated_git_sha_runtime="a" * 40)
+    check("malformed evaluated head rejected",
+          rep["compatible"] is False
+          and "binding_formats_valid" in rep["failed_checks"])
+
+
+def t_expected_binding_crosscheck():
+    """Cluster B P0-1: the gate binds the report to caller-recomputed
+    identity — a structurally valid report with drifted bindings,
+    membership counters, or measured head is rejected."""
+    kw = dict(manifest_id="m", dataset_snapshot_id="sha256:" + "a" * 64,
+              source_snapshot_catalog_id="b" * 64,
+              identity_snapshot_id="id", corpus_sha256="c" * 64,
+              model="glm",
+              prompt_schema_config_versions={"prompt": "v1"})
+    cand = cc.CorpusBinding(**kw)
+    runtime = cc.CorpusBinding(**kw)
+    mem = cc.aggregate_membership([True] * 13, [True, True])
+    head = "a" * 40
+    rep = cc.evaluate(cand, runtime, mem,
+                      evaluated_git_sha_target=head,
+                      evaluated_git_sha_runtime=head)
+    cc.assert_formal_run_allowed(
+        rep, expected_candidate_binding=cand.to_dict(),
+        expected_membership=rep["membership"], expected_head=head)
+    check("crosscheck passes on honest report", True)
+
+    drifted = dict(cand.to_dict(), corpus_sha256="d" * 64)
+    try:
+        cc.assert_formal_run_allowed(
+            rep, expected_candidate_binding=drifted, expected_head=head)
+        check("drifted candidate binding rejected", False)
+    except cc.CorpusCompatibilityError:
+        check("drifted candidate binding rejected", True)
+
+    try:
+        cc.assert_formal_run_allowed(
+            rep, expected_membership=dict(rep["membership"],
+                                          answer_cases_member=12),
+            expected_head=head)
+        check("drifted membership counters rejected", True)
+    except cc.CorpusCompatibilityError:
+        check("drifted membership counters rejected", True)
+
+    try:
+        cc.assert_formal_run_allowed(
+            rep, expected_candidate_binding=cand.to_dict(),
+            expected_head="b" * 40)
+        check("drifted measured head rejected", True)
+    except cc.CorpusCompatibilityError:
+        check("drifted measured head rejected", True)
+
+    try:
+        cc.assert_formal_run_allowed(
+            rep, expected_candidate_binding=drifted, expected_head=head)
+        check("equal-but-malformed binding drift detail surfaces", True)
+    except cc.CorpusCompatibilityError as exc:
+        check("equal-but-malformed binding drift detail surfaces",
+              "corpus_sha256" in str(exc) or "drift" in str(exc))
+
+
+def t_strict_coverage_validation():
+    """Cluster B P1-4/P2-7/P2-10: formal-only strict coverage validation —
+    arithmetic consistency, both-direction universe reconciliation,
+    evidence-storage pairing, non-vacuous gold scan."""
+    import source_coverage as sc
+
+    def base_report():
+        return {
+            "schema_version": sc.SCHEMA_VERSION,
+            "generated_from": {
+                "snapshot_db_name": "source_snapshots",
+                "snapshot_db_sha256": "e" * 64,
+                "records_lite_sha256": "f" * 64,
+                "manifest_id": "mini-runtime-a49a56f8861a0633",
+                "identity_snapshot_id": "mini-identity-v1",
+                "dataset_snapshot_id": "sha256:" + "a" * 64,
+                "profile": "legacy_hybrid",
+            },
+            "eligible_source_count": 10,
+            "retrieval_only_count": 0,
+            "quarantined_count": 0,
+            "indexed_source_count": 10,
+            "missing_count": 0,
+            "dataset_binding_present": True,
+            "dataset_record_count": 10,
+            "unidentifiable_dataset_rows": 0,
+            "extraction_failures": 0,
+            "index_failures": 0,
+            "empty_evidence_count": 0,
+            "empty_evidence_source_side_count": 0,
+            "extractor_version_breakdown": {"v1": 10},
+            "raw_object_ref_missing_count": 10,
+            "evidence_storage": "inline",
+            "extra_citation_eligible_count": 0,
+            "source_type_breakdown": {},
+            "no_secret_scan": {"pattern_families": 8, "hits": 0,
+                               "clean": True},
+            "no_gold_scan": {"forbidden_digests_checked": 3,
+                             "digest_scan_meaningful": True,
+                             "hits": 0, "store_path_marker_hits": [],
+                             "clean": True},
+        }
+
+    check("strict accepts honest inline report",
+          sc.validate_source_coverage_strict(base_report()) == [])
+
+    r = base_report()
+    r["indexed_source_count"] = 9
+    check("strict rejects arithmetic drift",
+          any("arithmetic" in p for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["empty_evidence_source_side_count"] = 5
+    check("strict rejects side>empty inversion",
+          any("arithmetic" in p for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    del r["generated_from"]["manifest_id"]
+    check("strict rejects missing generated-from identity",
+          any("generated_from" in p
+              for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["missing_count"] = 2
+    check("strict rejects missing records",
+          any("missing_count" in p
+              for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["extra_citation_eligible_count"] = 3
+    check("strict rejects extra citation-eligible identities",
+          any("extra_citation_eligible" in p
+              for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["extra_citation_eligible_count"] = None
+    check("strict rejects unreported extra count",
+          any("unreported" in p
+              for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["raw_object_ref_missing_count"] = 4  # inline requires ALL or NONE
+    check("strict rejects inline storage with partial raw refs",
+          any("raw" in p for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["evidence_storage"] = "raw_object"
+    r["raw_object_ref_missing_count"] = 0
+    check("strict accepts declared raw_object storage with zero missing",
+          sc.validate_source_coverage_strict(r) == [])
+    r = base_report()
+    r["evidence_storage"] = "raw_object"
+    check("strict rejects raw_object storage with missing refs",
+          any("raw_object" in p
+              for p in sc.validate_source_coverage_strict(r)))
+
+    r = base_report()
+    r["no_gold_scan"]["digest_scan_meaningful"] = False
+    check("strict rejects vacuous gold digest scan",
+          any("digest set empty" in p
+              for p in sc.validate_source_coverage_strict(r)))
     print("═" * 62)
     print(f"  Phase09 corpus gates: {PASSED} passed, {FAILED} failed")
     print("═" * 62)

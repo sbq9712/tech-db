@@ -103,6 +103,7 @@ def build_source_coverage_report(
     extractor_versions: dict[str, int] = {}
     raw_object_ref_missing = 0
     record_ids: set[str] = set()
+    eligible_ids: set[str] = set()
     empty_evidence_rids: set[str] = set()
 
     forbidden = {str(d).lower() for d in forbidden_digests if d}
@@ -118,6 +119,7 @@ def build_source_coverage_report(
             elig_key = str(elig or "").upper()
             if elig_key == "CITATION_ELIGIBLE":
                 eligible += 1
+                eligible_ids.add(str(rid))
             elif elig_key == "RETRIEVAL_ONLY":
                 retrieval_only += 1
             else:
@@ -144,6 +146,7 @@ def build_source_coverage_report(
     dataset_records = None
     records_lite_sha = None
     missing_records = None
+    extra_citation_eligible = None
     dataset_empty_body_rids: set[str] | None = None
     unidentifiable_dataset_rows = 0
     if records_lite is not None:
@@ -163,6 +166,11 @@ def build_source_coverage_report(
                 rows_without_explicit_id += 1
         if dataset_records:
             missing_records = len(dataset_records - record_ids)
+            # Codex review Cluster B (RT101 V8 prep) P1-4: coverage must be
+            # exact in BOTH directions — extra/unexpected citation-eligible
+            # index identities (not derivable from the locked dataset) are
+            # as much a universe violation as missing ones.
+            extra_citation_eligible = len(eligible_ids - dataset_records)
             # codex review A1: rows with no extractable identity must not
             # silently shrink the coverage universe (explicit-ID branch).
             unidentifiable_dataset_rows = rows_without_explicit_id
@@ -191,6 +199,9 @@ def build_source_coverage_report(
                     bound_positions.add(idx)
             dataset_records.discard("")
             missing_records = len(dataset_records - record_ids)
+            # Codex review Cluster B (RT101 V8 prep) P1-4: both-direction
+            # universe reconciliation for the record_id_map identity branch.
+            extra_citation_eligible = len(eligible_ids - dataset_records)
             # codex review A1: dataset rows whose position was never bound
             # by the published map are unverifiable — count them.
             unidentifiable_dataset_rows += sum(
@@ -283,6 +294,17 @@ def build_source_coverage_report(
         "empty_evidence_source_side_count": source_side_empty,
         "extractor_version_breakdown": extractor_versions,
         "raw_object_ref_missing_count": raw_object_ref_missing,
+        # Codex review Cluster B (RT101 V8 prep): evidence storage layout is
+        # DECLARED, never inferred — "inline" deployments legitimately carry
+        # all evidence in the snapshot row (raw_object_ref NULL by
+        # construction); "raw_object" deployments must have zero missing
+        # refs. Strict validation enforces the declared pairing.
+        "evidence_storage": ("inline" if raw_object_ref_missing
+                             and raw_object_ref_missing == eligible + retrieval_only
+                             else "raw_object"),
+        # exact-universe reconciliation in the extra direction (None when
+        # the dataset identity is unavailable — strict mode rejects None)
+        "extra_citation_eligible_count": extra_citation_eligible,
         "source_type_breakdown": host_groups,
         "no_secret_scan": {
             "pattern_families": len(_SECRET_PATTERNS),
@@ -353,8 +375,98 @@ def validate_source_coverage(
     return problems
 
 
+def validate_source_coverage_strict(report: Mapping) -> list[str]:
+    """FORMAL-ONLY strict validation (codex review Cluster B P1-4/P2-7/P2-10).
+
+    Everything the relaxed validator checks, plus:
+      * arithmetic consistency: indexed_source_count ==
+        eligible_source_count + retrieval_only_count;
+        empty_evidence_source_side_count <= empty_evidence_count.
+      * required generated-from identity fields present and non-empty
+        (dataset_snapshot_id / snapshot_db_sha256 / manifest_id).
+      * exact-universe reconciliation BOTH directions: missing_count == 0
+        AND extra_citation_eligible_count present and == 0.
+      * evidence-storage pairing enforced: evidence_storage=="inline"
+        requires raw_object_ref_missing_count == indexed_source_count
+        (all refs structurally absent — evidence carried in-row) while
+        evidence_storage=="raw_object" requires raw_object_ref_missing_count
+        == 0; anything between is an unreported gap and fails.
+      * contamination readiness: the forbidden-digest reference set must be
+        NONEMPTY (a vacuous no-gold digest scan can never satisfy the
+        formal gate; the blinded-safe marker/pattern scans stay primary).
+    """
+    problems = list(validate_source_coverage(report,
+                                             require_no_missing=True,
+                                             require_clean_scans=True))
+    def _int(v):
+        try:
+            return int(v)
+        except (TypeError, ValueError):
+            return None
+    eligible = _int(report.get("eligible_source_count"))
+    retrieval = _int(report.get("retrieval_only_count"))
+    indexed = _int(report.get("indexed_source_count"))
+    if None not in (eligible, retrieval, indexed) and \
+            indexed != eligible + retrieval:
+        problems.append(
+            f"arithmetic inconsistency: indexed_source_count={indexed} != "
+            f"eligible({eligible}) + retrieval_only({retrieval})")
+    side = _int(report.get("empty_evidence_source_side_count"))
+    empty = _int(report.get("empty_evidence_count"))
+    if side is not None and empty is not None and side > empty:
+        problems.append(
+            f"arithmetic inconsistency: empty_evidence_source_side_count="
+            f"{side} > empty_evidence_count={empty}")
+    gf = report.get("generated_from") or {}
+    for f in ("dataset_snapshot_id", "snapshot_db_sha256", "manifest_id"):
+        if not str(gf.get(f) or "").strip():
+            problems.append(f"generated_from.{f} missing or empty")
+    if report.get("missing_count") != 0:
+        problems.append(
+            f"strict: missing_count={report.get('missing_count')!r} != 0")
+    extra = report.get("extra_citation_eligible_count")
+    if extra is None:
+        problems.append("strict: extra_citation_eligible_count unreported "
+                        "(dataset identity unavailable)")
+    elif extra != 0:
+        problems.append(
+            f"strict: extra_citation_eligible_count={extra} != 0 "
+            "(citation-eligible index identities beyond the locked dataset)")
+    raw_missing = _int(report.get("raw_object_ref_missing_count"))
+    storage = str(report.get("evidence_storage") or "").strip()
+    if raw_missing is None or not storage:
+        problems.append("strict: evidence_storage/raw_object_ref_missing_count "
+                        "unreported")
+    elif storage == "inline":
+        if raw_missing != indexed:
+            problems.append(
+                f"strict: inline storage with partial raw refs "
+                f"(missing={raw_missing} != indexed={indexed}) — unreported gap")
+    elif storage == "raw_object":
+        if raw_missing != 0:
+            problems.append(
+                f"strict: raw_object storage with missing refs "
+                f"(missing={raw_missing})")
+    else:
+        problems.append(f"strict: unknown evidence_storage={storage!r}")
+    gold = report.get("no_gold_scan") or {}
+    if gold.get("digest_scan_meaningful") is not True:
+        problems.append(
+            "strict: no_gold_scan digest set empty (forbidden-digest "
+            "reference set required for formal contamination readiness)")
+    return problems
+
+
 def assert_source_coverage_valid(report: Mapping, **kwargs) -> None:
     problems = validate_source_coverage(report, **kwargs)
     if problems:
         raise ValueError(
             "source coverage gate fail-closed: " + "; ".join(problems))
+
+
+def assert_source_coverage_strict(report: Mapping) -> None:
+    """Formal-runner gate: the strict validator, fail-closed."""
+    problems = validate_source_coverage_strict(report)
+    if problems:
+        raise ValueError(
+            "source coverage strict gate fail-closed: " + "; ".join(problems))
