@@ -364,6 +364,16 @@ DEFAULT_PROFILE = RuntimeSafetyProfile(
     deep_total=float(os.environ.get("QA_RUNTIME_DEEP_DEADLINE", "180")),
     generator=float(os.environ.get("QA_RUNTIME_GENERATOR_S", "30")),
     verifier=float(os.environ.get("QA_RUNTIME_VERIFIER_S", "10")),
+    # Phase09 RT101 V8 prep (Q293-class versioned env calibration seam):
+    # stage deadlines for the retrieval-class stages previously had NO env
+    # hook (unlike generator/verifier/totals), which made deployments with
+    # slower retrieval backends (CPU-only embedding hosts, cold caches) —
+    # including the dev transparent-E2E battery host — unable to calibrate
+    # without touching the versioned class defaults. Canonical defaults are
+    # UNCHANGED; the seam only allows explicit per-deployment overrides.
+    rewrite=float(os.environ.get("QA_RUNTIME_REWRITE_S", "3")),
+    router=float(os.environ.get("QA_RUNTIME_ROUTER_S", "3")),
+    retrieval=float(os.environ.get("QA_RUNTIME_RETRIEVAL_S", "3")),
 )
 
 

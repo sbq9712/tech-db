@@ -461,6 +461,60 @@ def test_t6_legacy_citation_resolution():
     # (do not load the real install map inside unit tests — env-dependent)
 
 
+def test_t7_stage_deadline_env_seam():
+    """T7 — retrieval-class stage deadlines expose the documented env
+    calibration seam (Q293-class) with UNCHANGED canonical defaults.
+
+    Dev E2E capture (2026-09-15): rewrite/router/retrieval previously had
+    no QA_RUNTIME_* hook, so a CPU-only embedding host could not calibrate
+    the 3s retrieval stage for the transparent battery without editing the
+    versioned class defaults. Locked invariants: canonical default is 3.0
+    when env absent; an explicit override applies to retrieval AND the
+    retrieval-aliased stages (graph/vector/bm25 search); unrelated stages
+    (generator) are unaffected; aliasing still maps verification stages to
+    the verifier budget.
+    """
+    import runtime_safety
+
+    with mock.patch.dict(os.environ, {}, clear=False):
+        os.environ.pop("QA_RUNTIME_REWRITE_S", None)
+        os.environ.pop("QA_RUNTIME_ROUTER_S", None)
+        os.environ.pop("QA_RUNTIME_RETRIEVAL_S", None)
+        import importlib
+        importlib.reload(runtime_safety)
+        p = runtime_safety.DEFAULT_PROFILE
+        check("canonical retrieval default unchanged (3.0)",
+              p.retrieval == 3.0, p.retrieval)
+        check("canonical rewrite default unchanged (3.0)",
+              p.rewrite == 3.0, p.rewrite)
+        check("canonical router default unchanged (3.0)",
+              p.router == 3.0, p.router)
+        check("generator default untouched (30.0)",
+              p.generator == 30.0, p.generator)
+        check("verifier default untouched (10.0)",
+              p.verifier == 10.0, p.verifier)
+
+    with mock.patch.dict(os.environ, {"QA_RUNTIME_RETRIEVAL_S": "12"}):
+        importlib.reload(runtime_safety)
+        p = runtime_safety.DEFAULT_PROFILE
+        check("retrieval env override applied", p.retrieval == 12.0,
+              p.retrieval)
+        check("retrieval alias (graph_search) honors override",
+              p.stage_for("graph_search") == 12.0)
+        check("retrieval alias (vector_search) honors override",
+              p.stage_for("vector_search") == 12.0)
+        check("retrieval alias (bm25_search) honors override",
+              p.stage_for("bm25_search") == 12.0)
+        check("generator unaffected by retrieval override",
+              p.generator == 30.0, p.generator)
+        check("verification stages still on verifier budget",
+              p.stage_for("claim_mapping") == 10.0, p.stage_for("claim_mapping"))
+    importlib.reload(runtime_safety)
+    p = runtime_safety.DEFAULT_PROFILE
+    check("reload without env restores canonical profile",
+          p.retrieval == 3.0 and p.generator == 30.0)
+
+
 if __name__ == "__main__":
     test_t1_requirements_derivation()
     test_t2_rescue_bridge_source_contract()
@@ -468,5 +522,6 @@ if __name__ == "__main__":
     test_t4_scorer_guard()
     test_t5_fault_injection()
     test_t6_legacy_citation_resolution()
+    test_t7_stage_deadline_env_seam()
     print(f"\nRESULT: {PASSED} passed, {FAILED} failed")
     sys.exit(1 if FAILED else 0)
