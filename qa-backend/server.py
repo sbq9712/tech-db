@@ -362,10 +362,27 @@ def _legacy_record_id_map() -> dict | None:
         return _legacy_rid_map_cache.get("map") if isinstance(
             _legacy_rid_map_cache, dict) else None
     try:
-        from index_build_view import DEFAULT_MAP
+        from index_build_view import DEFAULT_MAP, load_dataset
+        from index_build_view import validate_record_id_map as _validate_rmap
         path = Path(os.environ.get("TECH_DB_RECORD_ID_MAP", str(DEFAULT_MAP)))
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
+        # Codex review Cluster A (RT101 V8 prep, 2026-09-15) P1 fix: a
+        # merely-parseable map is NOT acceptable — the resolver accepts the
+        # first matching entry, so a corrupt-but-parseable, partial,
+        # duplicate-laden, tombstoned, quarantined, or stale (wrong-dataset)
+        # map could bind a legacy position to a wrong-but-plausible stable
+        # record_id and let exact grounding validate against the wrong
+        # record. The map is therefore validated STRICTLY against THIS
+        # install's dataset bytes (snapshot id = sha256 of the lite file;
+        # full coverage, unique ids, no tombstones/quarantined markers)
+        # BEFORE caching. Any issue → None (identical to the missing-map
+        # behavior: fail closed, never fabricate, never misbind).
+        _raw, _records, _snapshot_id = load_dataset(LITE_PATH)
+        issues = _validate_rmap(data, _snapshot_id, len(_records))
+        if issues:
+            _legacy_rid_map_cache = {"map": None, "issues": issues[:10]}
+            return None
         mappings = data.get("mappings") if isinstance(data, dict) else None
         if isinstance(mappings, list) and mappings:
             _legacy_rid_map_cache = {"map": data}

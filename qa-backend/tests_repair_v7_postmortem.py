@@ -450,6 +450,14 @@ def test_t6_legacy_citation_resolution():
     # Server-side loader: cached; corrupt path → None; correct env parsing.
     import importlib
     import server
+    # Import index_build_view BEFORE any patched env: its DEFAULT_MAP (and
+    # RUNTIME_STATE) constants bake the environment at FIRST import, exactly
+    # like a production process start. Letting the first import happen
+    # inside the patch.dict block below would bake the nonexistent-test-map
+    # path into the module for the rest of the process (observed as T9's
+    # install-map check silently skipping). Production is unaffected: the
+    # deployment env is static before the server process starts.
+    import index_build_view  # noqa: F401  (import-time DEFAULT_MAP bake)
     with mock.patch.dict(os.environ, {"TECH_DB_RECORD_ID_MAP":
                                       str(HERE / "nonexistent_map.json")}):
         server._legacy_rid_map_cache = None
@@ -514,6 +522,159 @@ def test_t7_stage_deadline_env_seam():
     p = runtime_safety.DEFAULT_PROFILE
     check("reload without env restores canonical profile",
           p.retrieval == 3.0 and p.generator == 30.0)
+
+
+def test_t9_legacy_map_strict_validation():
+    """T9 — legacy record_id_map loader validates STRICTLY before caching.
+
+    Codex review Cluster A (RT101 V8 prep, 2026-09-15) P1: the resolver
+    accepts the first matching mapping entry, so a corrupt-but-parseable,
+    partial, duplicate-laden, tombstoned, quarantined, or stale
+    (wrong-dataset) map could bind a legacy position to a wrong-but-
+    plausible stable record_id — exact grounding might then validate a
+    citation against the WRONG record. Repair: the loader now runs
+    index_build_view.validate_record_id_map against THIS install's dataset
+    bytes (snapshot id = sha256 of the lite file) before caching; any
+    issue → None (identical to missing-map: fail closed, never misbind).
+    """
+    import hashlib
+    import json as _json
+    import tempfile
+    import server
+    import index_build_view as ibv
+
+    tmpdir = tempfile.mkdtemp(prefix="t9map_")
+    records = [{"t": f"doc{i}", "b": f"内容{i}"} for i in range(4)]
+    ds_path = Path(tmpdir) / "dataset_lite.json"
+    ds_bytes = _json.dumps(records, ensure_ascii=False).encode("utf-8")
+    ds_path.write_bytes(ds_bytes)
+    sid = "sha256:" + hashlib.sha256(ds_bytes).hexdigest()
+
+    def write_map(m):
+        p = Path(tmpdir) / "map.json"
+        p.write_text(_json.dumps(m, ensure_ascii=False), encoding="utf-8")
+        return str(p)
+
+    def load_with(m):
+        with mock.patch.dict(os.environ, {"TECH_DB_RECORD_ID_MAP":
+                                          write_map(m)}), \
+                mock.patch.object(server, "LITE_PATH", ds_path):
+            server._legacy_rid_map_cache = None
+            return server._legacy_record_id_map()
+
+    full = [{"legacy_idx": i, "record_id": f"uuid-{i}", "tombstoned": False}
+            for i in range(4)]
+
+    # valid map: exact dataset binding, full coverage, unique ids
+    got = load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": full})
+    check("valid map loads and is returned verbatim",
+          got == {"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                  "duplicates": [], "mappings": full})
+
+    # stale map: pins a DIFFERENT dataset generation
+    stale = {"schema_version": "1.0.0",
+             "dataset_snapshot_id": "sha256:" + "0" * 64,
+             "duplicates": [], "mappings": full}
+    check("wrong-dataset (stale) map rejected", load_with(stale) is None)
+
+    # duplicate record_id: two positions → one id (explicit merge required)
+    dup_rid = [dict(r) for r in full]
+    dup_rid[1]["record_id"] = "uuid-0"
+    check("duplicate record_id map rejected",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": dup_rid}) is None)
+
+    # duplicate legacy_idx: position 2 twice → position 3 uncovered
+    dup_idx = [dict(r) for r in full]
+    dup_idx[2] = {"legacy_idx": 1, "record_id": "uuid-again",
+                  "tombstoned": False}
+    check("duplicate legacy_idx / uncovered map rejected",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": dup_idx}) is None)
+
+    # tombstoned row: must never acquire a citation id via the loader
+    tomb = [dict(r) for r in full]
+    tomb[2]["tombstoned"] = True
+    check("tombstoned mapping rejected by loader",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": tomb}) is None)
+
+    # quarantined/excluded row that still carries a record_id
+    quar = [dict(r) for r in full]
+    quar[3]["duplicate_of_legacy_idx"] = 1
+    check("excluded row with record_id rejected",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": quar}) is None)
+
+    # partial coverage: 3 of 4 positions
+    check("partial-coverage map rejected",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [],
+                     "mappings": full[:3]}) is None)
+
+    # empty mappings + unsupported schema
+    check("empty mappings rejected",
+          load_with({"schema_version": "1.0.0", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": []}) is None)
+    check("unsupported schema_version rejected",
+          load_with({"schema_version": "9.9.9", "dataset_snapshot_id": sid,
+                     "duplicates": [], "mappings": full}) is None)
+
+    # a rejected load is cached as None (documented: first bad load wins;
+    # restart re-validates) and a later valid load requires cache reset
+    check("rejected load cached as None", server._legacy_rid_map_cache ==
+          {"map": None} or server._legacy_record_id_map() is None)
+    server._legacy_rid_map_cache = None
+
+    # the REAL install map (if present) must validate against the REAL
+    # dataset bytes — the binding the formal evaluation pins. Skipped when
+    # the file is absent (unit environments).
+    real_map = Path(os.environ.get(
+        "TECH_DB_RECORD_ID_MAP", str(ibv.DEFAULT_MAP)))
+    if real_map.is_file():
+        raw, recs, real_sid = ibv.load_dataset(server.LITE_PATH)
+        data = _json.loads(real_map.read_text(encoding="utf-8"))
+        check("install map validates against install dataset bytes",
+              ibv.validate_record_id_map(data, real_sid, len(recs)) == [])
+
+
+def test_t10_json_caller_boundary():
+    """T10 — the allow_reasoning_fallback (JSON-contract) caller class is
+    exactly the lenient-JSON parser set; prose/generation paths stay clean.
+
+    Codex review Cluster A (2026-09-15) P2-3: T8 validates the wire payload
+    but not the production caller-class boundary. This scan locks it: only
+    the enumerated JSON-parser modules may request the thinking-disabled
+    contract; any new caller surfaces as an explicit test failure (review
+    before adding — never silently widen the class).
+    """
+    import glob
+    flag = "allow_reasoning_fallback=True"
+    allowed = {
+        "claim_mapping.py": 1, "decomposer.py": 1, "epistemic.py": 2,
+        "evidence_grader.py": 1, "gap_analysis.py": 1, "multi_document.py": 1,
+        "reranker.py": 1, "router.py": 1, "server.py": 1, "verifier.py": 2,
+    }
+    here = Path(__file__).resolve().parent
+    for path in sorted(glob.glob(str(here / "*.py"))):
+        name = Path(path).name
+        if name.startswith("test"):
+            continue
+        src = open(path, encoding="utf-8").read()
+        n = src.count(flag)
+        if name in allowed:
+            check(f"flag sites in {name} == {allowed[name]}",
+                  n == allowed[name], f"found {n}")
+        else:
+            check(f"no flag sites in {name}", n == 0, f"found {n}")
+    # server.py keeps at least one unflagged llm_model_func call (the prose
+    # generation path): the class must never grow to cover user-facing text.
+    server_src = (here / "server.py").read_text(encoding="utf-8")
+    total_calls = server_src.count("llm_model_func(")
+    check("server.py prose calls remain unflagged",
+          total_calls > allowed["server.py"],
+          f"calls={total_calls} flagged={allowed['server.py']}")
 
 
 def test_t8_provider_json_contract():
@@ -618,5 +779,7 @@ if __name__ == "__main__":
     test_t6_legacy_citation_resolution()
     test_t7_stage_deadline_env_seam()
     test_t8_provider_json_contract()
+    test_t9_legacy_map_strict_validation()
+    test_t10_json_caller_boundary()
     print(f"\nRESULT: {PASSED} passed, {FAILED} failed")
     sys.exit(1 if FAILED else 0)
