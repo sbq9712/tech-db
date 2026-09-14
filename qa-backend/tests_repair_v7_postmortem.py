@@ -23,6 +23,7 @@ Three repaired seams, one guard module — no hidden material, no gold:
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 import sys
 from pathlib import Path
@@ -515,6 +516,90 @@ def test_t7_stage_deadline_env_seam():
           p.retrieval == 3.0 and p.generator == 30.0)
 
 
+def test_t8_provider_json_contract():
+    """T8 — JSON-contract callers request disabled thinking.
+
+    Dev E2E capture (2026-09-14): glm-5.3-flash free-running reasoning
+    (finish=length, content="", 30KB reasoning) consumed the whole
+    completion budget on claim-mapping prompts → fail-closed
+    MALFORMED_MODEL_OUTPUT on every answer. Repair: llm_model_func sends
+    thinking={"type":"disabled"} for exactly the allow_reasoning_fallback
+    (JSON-contract) caller class. Locked invariants: flag set → payload
+    carries thinking disabled; flag absent → payload carries no thinking
+    key; reasoning-tail fallback (defence-in-depth) preserved; transport
+    failure still propagates as before (fail-closed unchanged).
+    """
+    import urllib.request
+    import config
+
+    captured = {}
+
+    class _FakeResp:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return json.dumps({
+                "choices": [{"message": {"content": '{"claims": []}',
+                                         "reasoning_content": "chain"},
+                             "finish_reason": "stop"}]
+            }).encode()
+
+    def fake_urlopen(req, timeout=None):
+        captured["payload"] = json.loads(req.data.decode())
+        return _FakeResp()
+
+    with mock.patch.object(urllib.request, "urlopen", fake_urlopen):
+        # flag set → thinking disabled in payload
+        asyncio.run(config.llm_model_func(
+            "p", system_prompt="s", temperature=0.0, max_tokens=128,
+            allow_reasoning_fallback=True))
+        check("JSON-contract caller sends thinking disabled",
+              captured["payload"].get("thinking") == {"type": "disabled"},
+              repr(captured["payload"].get("thinking")))
+        # flag absent → no thinking key (prose callers unchanged)
+        asyncio.run(config.llm_model_func("p2", temperature=0.3))
+        check("prose caller has no thinking key",
+              "thinking" not in captured["payload"],
+              repr(captured["payload"].get("thinking")))
+
+    # reasoning-tail fallback preserved (defence-in-depth when a provider
+    # ignores the parameter and returns empty content + reasoning prose)
+    class _ReasoningResp(_FakeResp):
+        def read(self):
+            return json.dumps({
+                "choices": [{"message": {"content": "",
+                                         "reasoning_content": '{"claims": [{"id": "c1"}]}'},
+                             "finish_reason": "length"}]
+            }).encode()
+
+    with mock.patch.object(urllib.request, "urlopen",
+                           lambda req, timeout=None: _ReasoningResp()):
+        out = asyncio.run(config.llm_model_func(
+            "p", system_prompt="s", allow_reasoning_fallback=True))
+        check("reasoning-tail fallback still recovers JSON",
+              '"claims"' in (out or ""), repr(out)[:60])
+
+    # empty content + empty reasoning → empty string (fail-closed upstream)
+    class _EmptyResp(_FakeResp):
+        def read(self):
+            return json.dumps({
+                "choices": [{"message": {"content": "",
+                                         "reasoning_content": ""},
+                             "finish_reason": "length"}]
+            }).encode()
+
+    with mock.patch.object(urllib.request, "urlopen",
+                           lambda req, timeout=None: _EmptyResp()):
+        out = asyncio.run(config.llm_model_func(
+            "p", system_prompt="s", allow_reasoning_fallback=True))
+        check("empty content+reasoning → empty result (fail closed)",
+              out == "", repr(out)[:40])
+
+
 if __name__ == "__main__":
     test_t1_requirements_derivation()
     test_t2_rescue_bridge_source_contract()
@@ -523,5 +608,6 @@ if __name__ == "__main__":
     test_t5_fault_injection()
     test_t6_legacy_citation_resolution()
     test_t7_stage_deadline_env_seam()
+    test_t8_provider_json_contract()
     print(f"\nRESULT: {PASSED} passed, {FAILED} failed")
     sys.exit(1 if FAILED else 0)
