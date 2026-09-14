@@ -23,6 +23,7 @@ Three repaired seams, one guard module — no hidden material, no gold:
 from __future__ import annotations
 
 import asyncio
+import os
 import sys
 from pathlib import Path
 from unittest import mock
@@ -373,11 +374,99 @@ def test_t5_fault_injection():
           validate_capture_payload(ok_row) == [],
           str(validate_capture_payload(ok_row)))
 
+def test_t6_legacy_citation_resolution():
+    """T6 — legacy_hybrid citation→stable-id resolution contract.
+
+    Dev E2E capture (2026-09-14) root cause: on deployments whose dataset
+    records carry neither record_id nor legacy_idx fields, every legacy
+    citation (record_id="legacy-idx:N", legacy_idx=N from
+    server.build_context) resolved its RECORD but then failed the durable
+    stable-id step (no map consulted) → no_stable_record_id → ALL citations
+    dropped at exact grounding → empty evidence_index → verifier could
+    never see evidence (fail-closed UNVERIFIED on every answer). Generalized
+    repair: legacy_hybrid mode now supplies the install's documented
+    record_id_map (TECH_DB_RECORD_ID_MAP / <runtime>/state/record_id_map.json)
+    so _stable_record_id_of derives the same stable UUIDs the formal
+    evaluation binds via its corpus-pinning RMAP.
+
+    Invariants locked (why this cannot come back):
+      a. citation record → even without dataset id fields;
+      b. stable id → from the map for the citation's legacy_idx (NOT the
+         "legacy-idx:N" pseudo-string, which is never returned as an id);
+      c. missing/corrupt map → None (no crash, no fabricated id) — behavior
+         identical to pre-repair;
+      d. manifest-mode precedence untouched (pinned map always wins).
+    """
+    import phase02_pipeline as p02
+
+    # Dataset without id fields (true legacy shape) — the failing universe.
+    records = [{"t": f"doc{i}", "b": f"内容{i}"} for i in range(5)]
+    rid_map = {"mappings": [
+        {"legacy_idx": 3, "record_id": "uuid-three", "tombstoned": False}]}
+
+    # (a)+(b) citation resolves record AND stable id via the map.
+    cit = {"id": 1, "record_id": "legacy-idx:3", "legacy_idx": 3}
+    rec, stable, li = p02._record_for_citation(cit, records, None, rid_map)
+    check("record resolves positionally for field-less dataset",
+          rec is not None and rec.get("t") == "doc3")
+    check("stable id from map, not pseudo-string",
+          stable == "uuid-three", repr(stable))
+    check("legacy_idx echoed", li == 3)
+
+    # Tombstoned mapping entries still resolve (map content is authority
+    # as-is; tombstone exclusion is the migration layer's contract, not the
+    # citation resolver's) — locked so a silent semantic change surfaces.
+    rid_map_tb = {"mappings": [
+        {"legacy_idx": 3, "record_id": "uuid-three", "tombstoned": True}]}
+    rec2, stable2, _ = p02._record_for_citation(cit, records, None, rid_map_tb)
+    check("record still resolves under tombstoned mapping", rec2 is not None)
+    check("mapping content returned verbatim (documented behavior)",
+          stable2 == "uuid-three", repr(stable2))
+
+    # (c) no map at all → record resolves, stable "" → caller drops
+    # (fail-closed, never a fabricated id).
+    rec3, stable3, li3 = p02._record_for_citation(cit, records, None, None)
+    check("no map: record resolves", rec3 is not None)
+    check("no map: stable id empty (fail closed)", stable3 == "")
+
+    # (b2) the "legacy-idx:N" pseudo-string alone (no legacy_idx field) has
+    # no resolution path: the stable-id branch cannot dataset-scan-match it
+    # and no integer locator remains → dropped. build_context always sets
+    # legacy_idx, so this documents the pre-existing contract boundary.
+    cit_scan = {"id": 1, "record_id": "legacy-idx:3"}
+    rec4, stable4, _ = p02._record_for_citation(cit_scan, records, None, rid_map)
+    check("pseudo-string record_id without legacy_idx does not resolve",
+          rec4 is None and stable4 == "", repr((rec4, stable4)))
+
+    # (d) manifest-mode precedence: records_by_id wins over everything.
+    pinned_rec = {"record_id": "pinned-uuid", "t": "pinned"}
+    rec5, stable5, _ = p02._record_for_citation(
+        {"id": 1, "record_id": "pinned-uuid", "legacy_idx": 3},
+        records, {"pinned-uuid": pinned_rec}, rid_map)
+    check("records_by_id (manifest) resolution wins",
+          (rec5 or {}).get("t") == "pinned" and stable5 == "pinned-uuid")
+
+    # Server-side loader: cached; corrupt path → None; correct env parsing.
+    import importlib
+    import server
+    with mock.patch.dict(os.environ, {"TECH_DB_RECORD_ID_MAP":
+                                      str(HERE / "nonexistent_map.json")}):
+        server._legacy_rid_map_cache = None
+        check("missing map file → None (no crash)",
+              server._legacy_record_id_map() is None)
+    server._legacy_rid_map_cache = {"map": {"mappings": [{"x": 1}]}}
+    check("cache honored", server._legacy_record_id_map() ==
+          {"mappings": [{"x": 1}]})
+    server._legacy_rid_map_cache = None
+    # (do not load the real install map inside unit tests — env-dependent)
+
+
 if __name__ == "__main__":
     test_t1_requirements_derivation()
     test_t2_rescue_bridge_source_contract()
     test_t3_prefix_recheck()
     test_t4_scorer_guard()
     test_t5_fault_injection()
+    test_t6_legacy_citation_resolution()
     print(f"\nRESULT: {PASSED} passed, {FAILED} failed")
     sys.exit(1 if FAILED else 0)

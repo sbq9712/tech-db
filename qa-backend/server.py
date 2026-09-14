@@ -335,6 +335,47 @@ def _request_records() -> list:
     return load_records() or []
 
 
+_legacy_rid_map_cache = None
+
+
+def _legacy_record_id_map() -> dict | None:
+    """Load the install's migration record_id_map once (legacy_hybrid mode).
+
+    Phase09 RT101 V8 prep (generalized deployment-contract repair; dev E2E
+    capture 2026-09-14): the legacy citation contract carries
+    record_id="legacy-idx:N" + legacy_idx=N (server.build_context), and
+    phase02._record_for_citation resolves the record but then needs a
+    durable stable id from the record_id_map — for datasets whose records
+    carry no record_id/legacy_idx fields (this deployment's dataset), a
+    missing map means EVERY citation fails closed with
+    no_stable_record_id → exact-grounding drops all evidence → verifier
+    can never run. The documented install state path
+    (index_build_view DEFAULT_MAP = TECH_DB_RECORD_ID_MAP, default
+    <TECH_DB_RUNTIME_DIR>/state/record_id_map.json) is the same mapping the
+    formal evaluation binds via its corpus-pinning RMAP. Manifest mode is
+    untouched (map arrives pinned via runtime resources). Missing/corrupt
+    file → None: identical to today's behavior, never a crash, never a
+    fabricated id.
+    """
+    global _legacy_rid_map_cache
+    if _legacy_rid_map_cache is not None:
+        return _legacy_rid_map_cache.get("map") if isinstance(
+            _legacy_rid_map_cache, dict) else None
+    try:
+        from index_build_view import DEFAULT_MAP
+        path = Path(os.environ.get("TECH_DB_RECORD_ID_MAP", str(DEFAULT_MAP)))
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        mappings = data.get("mappings") if isinstance(data, dict) else None
+        if isinstance(mappings, list) and mappings:
+            _legacy_rid_map_cache = {"map": data}
+            return data
+    except Exception:
+        pass
+    _legacy_rid_map_cache = {"map": None}
+    return None
+
+
 def _keyword_fallback(query: str, history: list) -> str:
     """Extract most recent user question from history and combine with current query."""
     last_user_msg = ""
@@ -3079,7 +3120,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                 _p02_by_id = (_runtime_resource("records_by_id", None)
                               if _p02_snap is not None else None)
                 _p02_rid_map = (_runtime_resource("record_id_map", None)
-                                if _p02_snap is not None else None)
+                                if _p02_snap is not None
+                                else _legacy_record_id_map())
                 # Request-pinned snapshot AUTHORITY (Phase-02 review): in
                 # manifest mode resources["source_catalog"] is the ONLY
                 # snapshot authority for grounding/refs/numeric provenance;
