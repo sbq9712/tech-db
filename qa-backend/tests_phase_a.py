@@ -240,7 +240,7 @@ status, reason = determine_answer_status(
 )
 test("results + passed + no claims → UNVERIFIED",
      status == AnswerStatus.UNVERIFIED and
-     reason == "supported_state_without_emitted_claims")
+     reason == "answer_terminal_without_emitted_claims")
 
 # Test 3: Verification UNVERIFIED → UNVERIFIED
 status, reason = determine_answer_status(
@@ -270,7 +270,7 @@ status, reason = determine_answer_status(
 )
 test("verification failed + no claims → UNVERIFIED",
      status == AnswerStatus.UNVERIFIED and
-     reason == "supported_state_without_emitted_claims")
+     reason == "answer_terminal_without_emitted_claims")
 
 # Test 5: All major claims unsupported → UNSUPPORTED
 status, reason = determine_answer_status(

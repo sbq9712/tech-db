@@ -50,9 +50,13 @@ def test_rt090_canonical_terminal_contract():
     ]
     for status, verification in rows:
         # RT101-V8 postmortem: ANSWER-class terminals must now carry at
-        # least one claim row to serialize at all (seam guard); the
-        # UNSUPPORTED/UNVERIFIED rows keep the zero-row shape.
-        claims_arg = ([{"id": "c1", "text": "x", "status": "SUPPORTED"}]
+        # least one citation-bound claim row to serialize at all (seam
+        # guard + adapter models the caller's REAL emission — codex review
+        # P1: no fabricated support units); the UNSUPPORTED/UNVERIFIED
+        # rows keep the zero-row shape.
+        claims_arg = ([{"id": "c1", "text": "x", "status": "SUPPORTED",
+                        "relations": [{"citation_id": 1,
+                                       "relation": "DIRECT_SUPPORT"}]}]
                       if status in ("SUPPORTED", "PARTIALLY_SUPPORTED")
                       else [])
         payload = build_terminal_response(

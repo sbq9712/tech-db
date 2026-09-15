@@ -546,7 +546,12 @@ async def run_phase02_verification(
                 # technical failure so the terminal can only be UNVERIFIED,
                 # never a pseudo-answer. (An EMPTY draft legitimately maps
                 # to zero claims and is abstained upstream/downstream.)
-                if answer and answer.strip() and not (claim_map.get("claims")):
+                # Codex review: a truthy NON-LIST claims value (malformed
+                # mapper output) must not bypass this guard — only a
+                # non-empty canonical list counts as an emission.
+                _cm_claims = claim_map.get("claims")
+                if answer and answer.strip() and not (
+                        isinstance(_cm_claims, list) and _cm_claims):
                     machine.record_technical_failure(
                         "claim_mapping", "empty_claim_map_substantive_draft")
                     _stage("claim_mapping_invariant", {
@@ -628,7 +633,13 @@ async def run_phase02_verification(
         machine.record_claim_coverage({
             "gate_passed": coverage.get("gate") == "PASS",
             "coverage": coverage.get("coverage", 0.0),
-            "cause": (coverage.get("uncovered_sentences") or [{}])[0].get("sentence", "")[:80],
+            # RT101-V8 postmortem (Codex review): a zero-claim-bearing-
+            # sentences gate failure has no uncovered sentence to quote —
+            # propagate the deterministic gate_fail_cause so the stop
+            # reason names the real defect (no_claim_bearing_sentences)
+            # instead of an empty claim_coverage_failed: cause.
+            "cause": (coverage.get("gate_fail_cause")
+                      or (coverage.get("uncovered_sentences") or [{}])[0].get("sentence", ""))[:80],
             "technical": bool(coverage.get("technical")),
             "unmapped": coverage.get("uncovered_sentences", []),
         })

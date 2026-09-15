@@ -1349,8 +1349,14 @@ def test_phase04_endpoint_fast_and_conversation_e2e():
         citations[0]["supports_claim_ids"] = ["claim-1"]
         return {
             "answer": "verified terminal answer", "citations": citations,
+            # RT101-V8 postmortem (codex review P1): a SUPPORTED payload
+            # row must carry a citation-bound relation so the terminal
+            # adapter can derive SUPPORTED from the real emission —
+            # support units are never fabricated.
             "claims_payload": [{"id": "claim-1", "text": "alpha stores heat",
-                                "status": "SUPPORTED"}],
+                                "status": "SUPPORTED",
+                                "relations": [{"citation_id": citations[0]["citation_id"] if "citation_id" in citations[0] else 1,
+                                               "relation": "DIRECT_SUPPORT"}]}],
             "cited_record_ids": [citations[0]["record_id"]],
             "answer_status": "SUPPORTED", "stop_reason": "evidence_sufficient",
             "verification_status": "PASSED", "boundary_message": "",

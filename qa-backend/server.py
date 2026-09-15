@@ -2066,11 +2066,14 @@ def _canonical_terminal_payload(payload: dict) -> dict:
         "runtime_safety_profile_version": RUNTIME_SAFETY_PROFILE_VERSION,
     })
     _seam_status = str(value.get("answer_status") or "").upper()
+    _seam_claims = value.get("claims")
+    _seam_rows_valid = isinstance(_seam_claims, list) and bool(_seam_claims) \
+        and all(isinstance(r, dict) for r in _seam_claims)
     if _seam_status in ("SUPPORTED", "PARTIALLY_SUPPORTED") \
-            and not value.get("claims"):
+            and not _seam_rows_valid:
         raise RuntimeError(
             "terminal serialization invariant violation: "
-            f"{_seam_status} terminal with zero emitted claim rows "
+            f"{_seam_status} terminal without canonical emitted claim rows "
             "(RT101-V8 postmortem seam; run must fail closed, not "
             "serialize an unscoreable ANSWER payload)")
     return build_terminal_response(**value)
@@ -3870,8 +3873,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                             })
 
                 # ── T006: Four-State Answer Status ──
-                answer_status_str = "SUPPORTED"
-                stop_reason = "evidence_sufficient"
+                # RT101-V8 postmortem (Codex review): with the status
+                # machinery disabled (kill-switch), no verification
+                # authority exists — the honest default is UNVERIFIED
+                # (verification-blocking), never a default SUPPORTED that
+                # the serialization seam would then have to crash on.
+                answer_status_str = "UNVERIFIED"
+                stop_reason = "answer_status_disabled_technical_default"
                 if Flags.ANSWER_STATUS_ENABLED:
                     # Review round 2 (blocker A, RT-031): when the Phase03
                     # evidence pipeline is active, the legacy is_relevant /

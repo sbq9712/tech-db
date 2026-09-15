@@ -84,7 +84,7 @@ m.record_claim_results([])          # zero claim rows emitted
 m.finalize()
 check("R1.pasved_zero_claims_never_supported",
       m.terminal_status == AnswerStatus.UNVERIFIED
-      and m.stop_reason == "supported_state_without_emitted_claims",
+      and m.stop_reason == "answer_terminal_without_emitted_claims",
       f"got {m.terminal_status.value}/{m.stop_reason}")
 
 # machine-level claims>0 but zero support units → also degraded
@@ -105,14 +105,25 @@ s_status, s_stop = determine_answer_status(
     verification_status="PASSED", claim_mapping={"claims": []})
 check("R1.legacy_shim_zero_claims_unverified",
       s_status == AnswerStatus.UNVERIFIED
-      and s_stop == "supported_state_without_emitted_claims",
+      and s_stop == "answer_terminal_without_emitted_claims",
       f"got {s_status.value}/{s_stop}")
 
-# compatibility adapter cannot fabricate an unverifiable SUPPORTED
-compat = _compatibility_machine("SUPPORTED", "evidence_sufficient")
-check("R1.compat_machine_supported_has_units",
-      compat.terminal_status == AnswerStatus.SUPPORTED
-      and compat.emitted_claim_unit_count > 0)
+# compatibility adapter models ONLY the caller's actual emission — it can
+# no longer fabricate support units (codex review P1). Empty emission →
+# the SUPPORTED request cannot be derived and fails closed; a real
+# citation-bound emission derives SUPPORTED honestly.
+compat_raised = False
+try:
+    _compatibility_machine("SUPPORTED", "evidence_sufficient")
+except ValueError:
+    compat_raised = True
+check("R1.compat_machine_empty_emission_fails_closed", compat_raised)
+compat2 = _compatibility_machine("SUPPORTED", "evidence_sufficient", claims=[
+    {"id": "c1", "type": "MAJOR_FACT", "support_status": "SUPPORTED",
+     "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT"}]}])
+check("R1.compat_machine_real_emission_supported",
+      compat2.terminal_status == AnswerStatus.SUPPORTED
+      and compat2.emitted_claim_unit_count == 1)
 
 # FAILED verdict over empty claims → also never ANSWER-class
 m3 = AnswerStateMachine()
