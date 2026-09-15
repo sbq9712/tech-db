@@ -90,3 +90,36 @@ closed, but the reference itself was wrong).
 - Rebuild invariants: blind case-id sequence identical to the pre-repair
   candidate (same owner salt, same selection); deterministic rebuild
   re-verified post-repair.
+
+## Round 2 (post-repair candidate) — REJECT P0=0 P1=1 P2=0
+
+Re-review of the rebuilt candidate + repaired runner returned a single
+P1: `POST_SEAL=1` was set AFTER the marker fsync/sidecar durability work,
+but the one-shot marker already exists on disk from the `noclobber`
+moment — a crash in the durability window could still report pre-seal
+semantics. Root cause: the flag placement anchored on the "SEALED
+atomically" log line instead of the subshell success point.
+
+REPAIRED: `POST_SEAL=1` now executes immediately after the noclobber
+subshell succeeds and BEFORE fsync (single assignment; comment documents
+the round-2 rationale). Lifecycle suite extended to 32 checks including
+"flag precedes durability work" and "exactly one placement". Runner
+re-filled (sha256 77c269588d05be5570af19079924cefcdf1a8457ca29c6ccee3c1cc81624b188);
+full-chain dry-run re-verified rc=0 with no marker/chain side effects;
+candidate/lock/HEAD unchanged by this owner-side repair.
+
+## Round 3 (delta re-review) — APPROVE P0=0 P1=0 P2=0
+
+"FINDINGS: none." Reviewer verified the noclobber→POST_SEAL=1→fsync
+ordering in both template and filled runner, ERR/die_consumed semantics
+unchanged, dry-run never sets POST_SEAL and exits before any
+decision-chain write, both new lifecycle checks effective, bash -n clean,
+32/32 lifecycle checks PASS, filled-runner digest matches, and
+candidate/lock/HEAD identities unchanged. Blinding confirmation: no gold
+or blind file contents, salt values, owner secrets, or V6/V7 state opened.
+
+## Final review state
+
+Cluster A: APPROVE · Cluster B: findings dispositioned (149a736) ·
+Cluster C: APPROVE (round 3, P0=P1=P2=0). Serial P0=P1=0 discipline
+satisfied across all three clusters.
