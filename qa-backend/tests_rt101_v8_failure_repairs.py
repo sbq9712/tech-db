@@ -317,7 +317,9 @@ check("F4.server_seam_guard_present",
       "terminal serialization invariant violation" in src_srv)
 
 print("══════════════════════════════════════════════════════════")
+passed = CHECKS[0] - len(FAILS)
+# canonical runner result line — run_all_tests.py parses
+# "<N> passed, <M> failed" to register the suite outcome.
+print(f"  RT101-V8 failure repairs: {passed} passed, {len(FAILS)} failed")
 if FAILS:
-    print(f"RT101-V8 failure repairs: {len(FAILS)} FAILED / {CHECKS[0]}")
     sys.exit(1)
-print(f"RT101-V8 failure repairs: ALL PASS ({CHECKS[0]} checks)")
