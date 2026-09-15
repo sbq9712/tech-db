@@ -56,6 +56,13 @@ CRITICAL_FILES = (
     "qa-backend/server.py",
     "qa-backend/retrieval/runtime.py",
     "qa-backend/phase02_pipeline.py",
+    # behavior-bearing surfaces named by the codex Review-A sweep:
+    "qa-backend/config.py",
+    "qa-backend/feature_flags.py",
+    "qa-backend/citation_grounding.py",
+    "qa-backend/answer_repair.py",
+    "qa-backend/numeric_facts.py",
+    "qa-backend/runtime_safety.py",
 )
 
 DEFAULT_MIRROR = "/home/rhett/rt101-v5-formal-runner/repo"
@@ -184,6 +191,12 @@ def main(argv: list | None = None) -> int:
     pin = None
     if args.pin:
         pin = json.loads(Path(args.pin).read_text())
+    if args.require_mirror and pin is None:
+        # formal mode MUST bind all four legs; a pinless formal invocation
+        # would silently reduce the contract to GIT+CODE (codex Review-A P0)
+        print("FAIL_CLOSED: --require-mirror (formal mode) requires --pin "
+              "(4-way CODE+CORPUS+MODEL+CONFIG binding)", file=sys.stderr)
+        return 3
 
     mirror_present = ((mirror / ".git").is_dir()
                       and (mirror / "qa-backend").is_dir())
@@ -252,7 +265,13 @@ def main(argv: list | None = None) -> int:
             want = pin.get(key) if key != "corpus_sha256" \
                 else pin.get("source_snapshot_store_sha256")
             got = measured.get(key)
-            if want and got != want:
+            if not want:
+                drift.append(f"corpus binding {key}: pin value missing "
+                             f"(malformed pin — fail closed)")
+            elif got is None:
+                drift.append(f"corpus binding {key}: serving store "
+                             f"unreadable/missing — fail closed")
+            elif got != want:
                 drift.append(f"corpus binding {key}: serving {got} != "
                              f"pinned {want}")
         # MODEL: serving start script's LAST ZAI_MODEL export must win
@@ -263,8 +282,7 @@ def main(argv: list | None = None) -> int:
             drift.append(f"model binding: serving ZAI_MODEL="
                          f"{serving_model} != pinned {pin.get('model')}")
         # CONFIG: serving profile + citation schema measured mirror-side
-        serving_profile = last_export(start, "QA_PIPELINE_PROFILE") \
-            or last_export(start, "TECH_DB_RUNTIME_MODE")
+        serving_profile = last_export(start, "QA_PIPELINE_PROFILE")
         want_profile = pin.get("profile")
         if not want_profile:
             want_profile = (pin.get("prompt_schema_config_versions") or {}) \
@@ -273,6 +291,26 @@ def main(argv: list | None = None) -> int:
         if serving_profile != want_profile:
             drift.append(f"config binding: serving profile "
                          f"{serving_profile} != pinned {want_profile}")
+        # MANIFEST: the serving mirror's pinned mini-runtime manifest
+        # (qa-backend/test_fixtures/mini_runtime/manifest.json fixture_id)
+        # is the serving-side manifest identity the canonical benchmark
+        # binds (build_provenance manifest_id). Missing/unreadable = DRIFT
+        # (fail closed), never silently pass.
+        want_manifest = pin.get("manifest_id")
+        got_manifest = None
+        mf = mirror / "qa-backend" / "test_fixtures" / "mini_runtime" \
+            / "manifest.json"
+        if mf.is_file():
+            try:
+                got_manifest = str(json.loads(
+                    mf.read_text()).get("fixture_id") or "")
+            except (ValueError, OSError):
+                got_manifest = None
+        detail["serving_manifest_id"] = got_manifest
+        if want_manifest and got_manifest != want_manifest:
+            drift.append(f"manifest binding: mirror mini-runtime "
+                         f"fixture_id={got_manifest} != pinned "
+                         f"{want_manifest}")
         versions = pin.get("prompt_schema_config_versions") or {}
         want_cit = versions.get("citation_schema_version")
         if want_cit:

@@ -41,6 +41,8 @@ def check(name, ok, detail=""):
         print(f"  PASS {name}")
     else:
         print(f"  FAIL {name} {detail}")
+        if os.environ.get("DS_DEBUG"):
+            import traceback; traceback.print_stack()
         FAILS.append(name)
 
 
@@ -78,6 +80,12 @@ CODE_FILES = (
     "qa-backend/server.py",
     "qa-backend/retrieval/runtime.py",
     "qa-backend/phase02_pipeline.py",
+    "qa-backend/config.py",
+    "qa-backend/feature_flags.py",
+    "qa-backend/citation_grounding.py",
+    "qa-backend/answer_repair.py",
+    "qa-backend/numeric_facts.py",
+    "qa-backend/runtime_safety.py",
 )
 
 CITE_V1 = 'CITATION_SCHEMA_VERSION = "2.0.0"\n'
@@ -100,6 +108,12 @@ def build_fixture(ws, cite=CITE_V1):
     body["qa-backend/phase02_pipeline.py"] += cite
     for rel, text in body.items():
         (src / rel).write_text(text)
+    # serving-side manifest identity source (the canonical benchmark binds
+    # this file's fixture_id as provenance manifest_id)
+    mr = src / "qa-backend" / "test_fixtures" / "mini_runtime"
+    mr.mkdir(parents=True, exist_ok=True)
+    (mr / "manifest.json").write_text(json.dumps(
+        {"fixture_id": "mini-runtime-fixture"}))
     git(src, "init", "-q")
     git(src, "config", "user.email", "t@t")
     git(src, "config", "user.name", "t")
@@ -194,7 +208,8 @@ try:
     print("── Case A: HEAD == mirror, 4-way exact → 0 SYNCED ──")
     mirror_a = make_mirror(ws, fx)
     r = run_guard(mirror_a, fx["src"], fx["base"], pin=fx["pin"], require=True)
-    check("A.match_synced_rc0", r.returncode == 0, r.stderr.strip()[:200])
+    check("A.match_synced_rc0", r.returncode == 0,
+          (r.stderr.strip() or r.stdout.strip())[:300])
     rep = json.loads((Path(mirror_a).parent / "guard.json").read_text()) \
         if False else None
     check("A.verdict_no_drift", "SERVING_RUNTIME_DRIFT" not in r.stderr)
@@ -292,10 +307,15 @@ try:
         check("I.real_host_head_bound",
               rep.get("serving_runtime_git_sha")
               == rep.get("evaluated_git_sha"))
+        import importlib.util as _ilu
+        _spec = _ilu.spec_from_file_location("_g", str(GUARD))
+        _g = _ilu.module_from_spec(_spec)
+        _spec.loader.exec_module(_g)
         check("I.real_host_all_files_equal",
               all(v.get("equal") for v in
                   rep.get("critical_files", {}).values())
-              and len(rep.get("critical_files", {})) == 9)
+              and len(rep.get("critical_files", {}))
+              == len(_g.CRITICAL_FILES))
     else:
         check("I.real_host_guard_clean", True, "mirror absent — skip")
 
