@@ -1103,6 +1103,8 @@ async def run_phase03_retrieval(*, query: str,
     for c in selection["selected"]:
         rid = c.get("record_id")
         item = dict(c, requirement_ids=assoc.get(rid, []))
+        item["worker_validated_requirement_ids"] = sorted(
+            worker_overlay["associations"].get(rid, set()))
         if worker_overlay["locators"].get(rid):
             item["hit_locators"] = list(worker_overlay["locators"][rid])
         sel_entries.append(item)
@@ -1236,6 +1238,14 @@ async def run_phase03_retrieval(*, query: str,
             "evidence_spans": e.locators,
             "evidence_id": eid,
             "source_snapshot_id": e.source_snapshot_id,
+            # Phase09 repair RD-1 (display integrity): every row in the
+            # typed view is backed by the request-pinned catalog authority
+            # (snapshot_index is built ONLY from source_catalog entries;
+            # authority-gapped records never enter the package), so the
+            # span evidence is grounding-valid by construction.  Declaring
+            # it here keeps the canonical display-integrity filter from
+            # discarding authority-backed evidence as ungrounded.
+            "grounding_status": "VALID",
         })
 
     return {

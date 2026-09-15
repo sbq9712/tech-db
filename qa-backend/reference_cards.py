@@ -44,6 +44,36 @@ def _claim_states(citation_id, claims: Iterable[dict]) -> dict:
     }
 
 
+def _claim_display_qualified(claim) -> bool:
+    """Phase09 gatekeeper follow-up (P0-2): final-verification authority
+    gate for citation display.
+
+    A claim id authorizes display only while the FINAL claims payload shows
+    that claim canonically SUPPORTED and — when the payload carries verifier
+    verdicts (the canonical pipeline payload does) — explicitly
+    verifier-PASSED. A semantic verifier FAIL, a numeric/deterministic
+    demotion, a technical verifier failure (UNVERIFIED), and per-claim
+    PARTIALLY_SUPPORTED states can therefore never authorize display, and a
+    stale precomputed supports_claim_ids can never override the final
+    verification authority.
+
+    Legacy/hand-built payloads that predate the status/verifier_verdict
+    fields carry no contradicting evidence; their linkage authority remains
+    governed by the relation/snapshot/locator policy ladder (unchanged).
+    """
+    if not isinstance(claim, dict):
+        return False
+    for key in ("status", "support_status"):
+        if key in claim:
+            if str(claim.get(key) or "").upper() != "SUPPORTED":
+                return False
+            break
+    if "verifier_verdict" in claim:
+        if str(claim.get("verifier_verdict") or "").upper() != "PASS":
+            return False
+    return True
+
+
 def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
                           caller_scope: str = "public",
                           current_snapshot_ids: Mapping[str, str] | None = None
@@ -54,6 +84,7 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
     identifiers fail closed: the card remains diagnostic but carries no span.
     """
     current_snapshot_ids = current_snapshot_ids or {}
+    claims_list = list(claims or [])  # materialize once (re-iterated below)
     cards = []
     for citation in citations or []:
         cid = citation.get("id")
@@ -69,11 +100,25 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
             }, ensure_ascii=False, sort_keys=True,
                 separators=(",", ":")).encode()).hexdigest()[:16]
         source_role = str(citation.get("source_role") or "unknown")
-        states = _claim_states(cid, claims)
+        states = _claim_states(cid, claims_list)
         # Older claim payloads expose support IDs directly on the citation.
         states["supports_claim_ids"] = sorted(set(
             states["supports_claim_ids"] + [str(v) for v in
              (citation.get("supports_claim_ids") or []) if v]))
+        # Phase09 gatekeeper follow-up (P0-2): cross-check every known
+        # support id against the FINAL claims payload. A stale precomputed
+        # supports_claim_ids (or a relation) can never override final
+        # verification authority: claims the payload shows as not canonically
+        # SUPPORTED or not verifier-PASSED are dropped before the
+        # NO_CLAIM_LINKAGE ladder runs. Ids unknown to the payload keep
+        # prior semantics (the ladder alone governs them).
+        if claims_list:
+            _final_by_id = {str(c.get("id")): c for c in claims_list
+                            if isinstance(c, dict) and c.get("id")}
+            states["supports_claim_ids"] = sorted({
+                _cid for _cid in states["supports_claim_ids"]
+                if _cid not in _final_by_id
+                or _claim_display_qualified(_final_by_id[_cid])})
         expected_snapshot = str(current_snapshot_ids.get(record_id) or "")
         drift = bool(expected_snapshot and
                      expected_snapshot != source_snapshot_id)
@@ -82,6 +127,17 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
         graph_only = evidence_id.startswith(GRAPH_ONLY_PREFIXES) or \
             record_id.startswith(GRAPH_ONLY_PREFIXES)
         reason = ""
+        # Phase09 repair (Class E): display authorization requires the full
+        # chain claim → support relation → pinned span → citation authority
+        # → verifier → card. Claim linkage counts as EVALUATED when the
+        # caller provided a claims payload or the citation carries the
+        # pipeline-emitted supports_claim_ids field (the pipeline attaches
+        # it explicitly, as [] when no claim supports the citation). A
+        # legacy bridge row without the field and without any claims payload
+        # predates claim linkage — its authority is already governed by the
+        # snapshot/locator policy ladder below.
+        linkage_evaluated = bool(claims_list) or \
+            "supports_claim_ids" in citation
         if graph_only:
             reason = "GRAPH_IDENTIFIER_NOT_CITATION"
         elif denied:
@@ -90,6 +146,12 @@ def build_reference_cards(citations: Iterable[dict], claims: Iterable[dict], *,
             reason = "SOURCE_SNAPSHOT_MISSING"
         elif drift:
             reason = "SOURCE_SNAPSHOT_DRIFT"
+        elif linkage_evaluated and not states["supports_claim_ids"]:
+            # A citation that NO claim supports (via DIRECT_SUPPORT /
+            # PREMISE_SUPPORT / ATTRIBUTION) is exact-grounded surface at
+            # best; it can never be displayed as authoritative evidence for
+            # the answer.
+            reason = "NO_CLAIM_LINKAGE"
 
         spans = []
         locators = citation.get("locators") or []

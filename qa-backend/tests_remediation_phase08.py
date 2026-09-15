@@ -49,8 +49,19 @@ def test_rt090_canonical_terminal_contract():
         ("UNVERIFIED", "TECHNICAL_FAILURE"),
     ]
     for status, verification in rows:
+        # RT101-V8 postmortem: ANSWER-class terminals must now carry at
+        # least one citation-bound claim row to serialize at all (seam
+        # guard + adapter models the caller's REAL emission — codex review
+        # P1: no fabricated support units); the UNSUPPORTED/UNVERIFIED
+        # rows keep the zero-row shape.
+        claims_arg = ([{"id": "c1", "text": "x", "status": "SUPPORTED",
+                        "relations": [{"citation_id": 1,
+                                       "relation": "DIRECT_SUPPORT"}]}]
+                      if status in ("SUPPORTED", "PARTIALLY_SUPPORTED")
+                      else [])
         payload = build_terminal_response(
-            answer="x", answer_status=status, stop_reason="test")
+            answer="x", answer_status=status, stop_reason="test",
+            claims=claims_arg)
         check(f"RT090.builder_{status}",
               payload["terminal_schema_version"] == "terminal-response-1.0"
               and payload["answer_status"] == status
@@ -59,6 +70,10 @@ def test_rt090_canonical_terminal_contract():
               and isinstance(payload["evidence_summary"], dict)
               and isinstance(payload["degraded_capabilities"], list)
               and payload["state_machine"]["answer_status"] == status)
+    # seam guard: ANSWER-class zero-row serialization is structurally dead
+    check("RT090.seam_rejects_supported_zero_rows", raises(
+        RuntimeError, lambda: build_terminal_response(
+            answer="x", answer_status="SUPPORTED", stop_reason="test")))
     check("RT090.alias_cannot_disagree", raises(
         ValueError, lambda: build_terminal_response(
             answer="x", answer_status="SUPPORTED", status="UNSUPPORTED")))
@@ -168,9 +183,23 @@ async def _production_terminal_case(kind: str):
 
 
 def test_rt090_real_server_terminal_matrix():
+    # Phase09 repair round 2 (Q092): the "success" case has NO canonical
+    # claim set (classifier returns []) and its prose is an exact verbatim
+    # quote of the cited record.  Exact quotation is citation validity, not
+    # canonical atomic-claim establishment, so the terminal state is
+    # UNVERIFIED — the old SUPPORTED expectation encoded the exact-quote
+    # bypass that Q092 now forbids.
+    #
+    # RT101-V8 postmortem: the "partial" case (claim mapping disabled →
+    # zero emitted claims, verifier FAILED) previously derived a claim-less
+    # PARTIALLY_SUPPORTED — an unscoreable ANSWER-class terminal of the
+    # exact shape that burned the V8 one-shot.  The answer state machine
+    # now degrades FAILED/PASSED verdicts over an empty claim set to
+    # UNVERIFIED (supported_state_without_emitted_claims); a claim-less
+    # ANSWER-class terminal is structurally impossible again.
     expected = {
-        "success": "SUPPORTED",
-        "partial": "PARTIALLY_SUPPORTED",
+        "success": "UNVERIFIED",
+        "partial": "UNVERIFIED",
         "unverified": "UNVERIFIED",
         "unsupported": "UNSUPPORTED",
         "generator_failure": "UNVERIFIED",

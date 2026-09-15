@@ -1,0 +1,48 @@
+{
+  "schema_version": "phase09-source-coverage-report-1.0",
+  "generated_from": {
+    "snapshot_db_name": "source_snapshots",
+    "snapshot_db_sha256": "f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7",
+    "records_lite_sha256": "950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70",
+    "manifest_id": "mini-runtime-a49a56f8861a0633",
+    "identity_snapshot_id": "mini-identity-v1",
+    "dataset_snapshot_id": "sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70",
+    "profile": ""
+  },
+  "eligible_source_count": 30391,
+  "retrieval_only_count": 0,
+  "quarantined_count": 0,
+  "indexed_source_count": 30391,
+  "missing_count": 0,
+  "dataset_binding_present": true,
+  "dataset_record_count": 30391,
+  "unidentifiable_dataset_rows": 0,
+  "extraction_failures": 0,
+  "index_failures": 0,
+  "empty_evidence_count": 4515,
+  "empty_evidence_source_side_count": 4515,
+  "extractor_version_breakdown": {
+    "legacy-v1": 30391
+  },
+  "raw_object_ref_missing_count": 30391,
+  "evidence_storage": "inline",
+  "extra_citation_eligible_count": 0,
+  "source_type_breakdown": {
+    "other": 1384,
+    "literature_publishers": 24185,
+    "news_media": 3002,
+    "wechat": 1820
+  },
+  "no_secret_scan": {
+    "pattern_families": 5,
+    "hits": 0,
+    "clean": true
+  },
+  "no_gold_scan": {
+    "forbidden_digests_checked": 18,
+    "digest_scan_meaningful": true,
+    "hits": 0,
+    "store_path_marker_hits": [],
+    "clean": true
+  }
+}

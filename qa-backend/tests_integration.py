@@ -92,11 +92,19 @@ async def run_integration_test():
     test("context has data boundary", "RETRIEVED_DATA" in context)
 
     # 7. Test answer status
+    # RT101-V8 postmortem: PASSED + zero emitted claims is a vacuous pass —
+    # the machine honest-derives UNVERIFIED; SUPPORTED requires a claim set
+    # with citation-bound units, so the fixture carries one.
     from answer_status import determine_answer_status, AnswerStatus
     answer_status, stop_reason = determine_answer_status(
         has_results=True,
         is_relevant=True,
         verification_status="PASSED",
+        claim_mapping={"claims": [
+            {"id": "c1", "text": "固态电池使用硫化物电解质。",
+             "type": "MAJOR_FACT", "support_status": "SUPPORTED",
+             "supported_by": [{"citation_id": 0, "relation": "DIRECT_SUPPORT"}]},
+        ]},
     )
     test("answer status: SUPPORTED", answer_status == AnswerStatus.SUPPORTED)
 

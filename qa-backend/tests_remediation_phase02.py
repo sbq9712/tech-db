@@ -608,7 +608,9 @@ def rt024_cases():
     sm.record_verifier_result("PASSED")
     sm.record_claim_results([
         {"id": "c1", "type": "NUMERIC_FACT", "support_status": "SUPPORTED",
-         "is_core": True}])
+         "is_core": True,
+         "supported_by": [{"citation_id": 1,
+                           "relation": "DIRECT_SUPPORT"}]}])
     sm.record_claim_coverage({"gate_passed": True})
     sm.finalize()
     test("RT024.passed_no_unsupported_supported",
@@ -991,9 +993,12 @@ def rt027_cases():
     sm.record_verifier_result("UNVERIFIED")
     sm.finalize()
     claims = [{"id": "c1", "type": "NUMERIC_FACT", "support_status": "SUPPORTED",
-               "is_core": True, "text": "带宽达到1.8TB/s"},
+               "is_core": True, "text": "带宽达到1.8TB/s",
+               "supported_by": [{"citation_id": 1,
+                                 "relation": "DIRECT_SUPPORT"}]},
               {"id": "c2", "type": "MAJOR_FACT", "support_status": "UNSUPPORTED",
-               "is_core": True, "text": "已通过针刺测试"}]
+               "is_core": True, "text": "已通过针刺测试",
+               "supported_by": []}]
     r = render_terminal_answer("带宽达到1.8TB/s。已通过针刺测试。", sm, claims=claims)
     test("RT027.unverified_renders_supported_only",
          r["withheld"] and "带宽达到1.8TB/s" in r["answer"]

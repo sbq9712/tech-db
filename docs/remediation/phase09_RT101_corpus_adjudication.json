@@ -1,0 +1,64 @@
+{
+  "schema_version": "rt101-corpus-adjudication-1.0",
+  "generated_at_utc": "2026-09-13T16:30:00Z",
+  "generated_by": "phase09-remediation-session (agent, owner-authorized round)",
+  "subject": "RT-101 V5 formal blinded release-holdout FAIL (immutable, consumed) — corpus compatibility adjudication",
+  "blinding_note": "Adjudicated from sanitized aggregates, manifest/identity metadata, corpus identity metadata and source contracts only. V5 gold content, expected answers, hidden labels, per-case logs were NOT opened.",
+  "v5_formal": {
+    "result": "FAIL",
+    "consumed": true,
+    "reuse_forbidden": true,
+    "candidate_sha256": "a1dadc619aa035d4717f3cbeebc5e131adeaf22148fc268252cd2e6605da3fb6",
+    "candidate_lock_sha256": "b1877d4f19404e01baec82caa6e2a2d6583911a022568dfc5e6f8cb96488e1a8",
+    "evaluated_git_sha": "2a4c80283cc11cb656adfbc490dc03bc817f6b55",
+    "model": "glm-5.3-flash",
+    "cases": 15,
+    "answer_cases": 13,
+    "abstention_cases": 2,
+    "gold_facts_total": 49,
+    "gold_facts_matched": 0,
+    "citations_total": 65,
+    "citations_valid": 2,
+    "invalid_displayed_citations": 63,
+    "verifier_technical_failures": 3,
+    "owner_side_record": "/home/rhett/tech-db-owner-secrets/rt101/formal_v5_state/scoring_report_aggregate.json (sha256 756e2bb4580534299c4ffafe12e4f65f5e0c7fd962044e6d22b2ce83259138be)"
+  },
+  "adjudication": {
+    "CANONICAL_PRODUCT_SOURCE_UNIVERSE": "the ingested citation-eligible record corpus published as dataset snapshot sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70 (data/processed/all-records-lite.json, 30391 records) plus its immutable per-record SourceSnapshots (runtime-v1 release indexes, source_snapshots store, extractor legacy-v1, all CITATION_ELIGIBLE, access_scope public), derived from the owner's crawled tech literature/news/wechat data",
+    "CURRENT_RUNTIME_SOURCE_UNIVERSE": "identical to canonical (runtime-v1 assets as evaluated in the V5 formal run; dataset snapshot id matches the current repo data file byte-exactly)",
+    "RT101_HOLDOUT_ALLOWED_SOURCE_UNIVERSE": "the evaluated canonical record corpus above; answer-required cases must be answerable solely from citation-eligible ingested record content; abstention cases must follow pre-registered absence/conflict/insufficiency semantics inside this universe",
+    "V5_BUILDER_CORPUS_ID": "filesystem tree /home/rhett/tech-db-fresh/sources: 1133 files, 471874635 bytes, digest 2cd1f116dcba28ff7ecc73b0c975b40453ff37e8d71eed736490c7c3b6119eae (RAW spider-project tree: crawled data CSVs PLUS spider tooling source code (.py), project docs (.md/.docx), spreadsheets (.xlsx) and other non-ingestible tooling files)",
+    "V5_EVALUATED_RUNTIME_CORPUS_ID": "dataset_snapshot_id=sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70; source snapshot store sha256=f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7; 30391 CITATION_ELIGIBLE snapshots; manifest_id=mini-runtime-a49a56f8861a0633; identity_snapshot_id=mini-identity-v1 (authority-binding manifest)",
+    "CORPUS_ID_MATCH": false,
+    "SOURCE_SNAPSHOT_MATCH": false,
+    "MANIFEST_MATCH": "partial: the formal run bound the locked fixture manifest_id/identity_snapshot_id for authority purposes, but NO binding existed between the builder's corpus universe and the evaluated runtime corpus (no corpus digest pin, no hidden-evidence membership preflight)",
+    "V5_QUERIES_REQUIRED_OUT_OF_SCOPE_SOURCES": true,
+    "out_of_scope_note": "aggregate observation only: answer-required cases required file-level contents of builder-side tooling files that were never part of the product's ingest universe; 0/49 gold facts matched; the system honestly reported no relevant information in the evaluated corpus",
+    "ROOT_CAUSE_CLASS": "B",
+    "RUNTIME_CORPUS_DEFECT": "none with respect to canonical corpus semantics: the evaluated runtime indexed exactly the canonical ingested dataset snapshot. Secondary runtime pipeline defects are tracked separately (see runtime_defects), not corpus defects",
+    "V5_BUILDER_SCOPE_DEFECT": "true: the builder treated a raw filesystem sources tree (including spider tooling source code and project documents) as the holdout source universe and constructed answer-required cases from material outside the product's citation-eligible evidence universe; no machine corpus-compatibility gate existed to block the formal run before one-shot consumption",
+    "process_defect": "absence of a blinded-safe machine corpus-compatibility preflight (candidate<->runtime snapshot binding + hidden-evidence membership aggregate) allowed an impossible-in-principle formal run to consume the one-shot opportunity"
+  },
+  "runtime_defects": [
+    {
+      "id": "RD-1",
+      "summary": "legacy done payload displayed citations that fail grounding/record resolution (invalid_displayed_citations=63) — violates the RT-101 hard invariant invalid_displayed_citation=0 as product behavior",
+      "fix": "display-integrity filter: only grounding-valid (and, when claims exist, display-authorized) citations may be displayed; UNSUPPORTED terminals display zero citations"
+    },
+    {
+      "id": "RD-2",
+      "summary": "generator self-declared no-evidence drafts ('not found' per the product prompt contract) were serialized as answered/cited payloads instead of canonical abstention",
+      "fix": "canonical abstain gate: a draft that declares no relevant information (deterministic contract-phrase family), carries no citation markers and is not substantive terminates as canonical UNSUPPORTED with empty citations"
+    },
+    {
+      "id": "RD-3",
+      "summary": "verifier window exhaustion 3/15 (final verifier single-call, no transient retry inside the remaining stage window; provider latency variance)",
+      "fix": "bounded single retry for transient empty/parse failures inside the unchanged stage deadline + verifier readiness preflight probe for formal runs; no deadline extension, no verifier skip"
+    }
+  ],
+  "permanent_guards": [
+    "qa-backend/corpus_compatibility.py — blinded-safe candidate<->runtime corpus compatibility preflight (aggregate-only boundary)",
+    "qa-backend/source_coverage.py + scripts/build_source_coverage_report.py — machine source coverage audit, fail-closed on required coverage gaps",
+    "qa-backend/ingest_guards.py — contamination denylist (holdout/owner-secret/builder-workspace paths never enter production ingest/index; glob/symlink/relative/env/recursive-scan escapes fail closed)"
+  ]
+}

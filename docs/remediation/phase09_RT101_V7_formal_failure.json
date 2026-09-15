@@ -1,0 +1,122 @@
+{
+ "candidate": {
+  "case_count": 15,
+  "case_mix": {
+   "ABSTAIN": 2,
+   "ANSWER": 11,
+   "MUTATION_WITH_LOYAL_ANSWER": 2
+  },
+  "evaluated_git_sha": "26a2f62dbdde0813f9acfad6bb9f403553321a81",
+  "v7_candidate_sha256": "3c9b3b95087fbdbd42750d33ecad53c2366bb3fdb4e2de0ff325250630ac21c2",
+  "v7_lock_sha256": "01dacd886e52f87f052699987bb1ca56046409de067f1fee812aed32dfdccfaf"
+ },
+ "consequences": {
+  "NEXT_PROMPT_ALLOWED": false,
+  "NEXT_STEP": "scorer-integrity audit + generalized product repair; any V8 requires fresh isolated builder + fresh candidate/lock/salt + full gate chain + NEW owner approval; formal V8 execution forbidden until then",
+  "PHASE09": "NOT_SATISFIED",
+  "PHASE10": "FORBIDDEN",
+  "RT101": "UNSATISFIED"
+ },
+ "execution": {
+  "completed_at_utc": "2026-09-14T06:17:05Z",
+  "decision_chain_head": "a792442aa9f9e2a1b7e27acc57eed20ddf0de14d9b40893b0f075bb6c0c23e18",
+  "formal_result_sha256": "ff7d8805d16b371bcdd67a5f2ccfc96a2ae1af9536fcf4a2a41bfb7a6f30fee9",
+  "immutability": {
+   "IMMUTABLE": true,
+   "REUSE_FORBIDDEN": true,
+   "V6_IMMUTABLE_FAIL_PRESERVED": true,
+   "V7_ONE_SHOT_CONSUMED": true,
+   "V7_RESULT": "FAIL"
+  },
+  "one_shot_marker_sealed_at_utc": "2026-09-14T06:04:08Z",
+  "runner": "owner-side run_v7_after_owner_approval.sh",
+  "runner_sha256": "08fdec584aa7d9fc3fd5228ac06d453c67cd32a7e0a5bdcc9cb5dbaa11ac2649",
+  "scorer_id": "RT101-V7-SCORER",
+  "scorer_sha256": "d792dd73f0f961be55a0b96ffc1a014648140b8a3c87da9b307f25fa317985f7",
+  "scorer_version": "7.0.0"
+ },
+ "generalized_observations": [
+  "runtime terminal envelope reported requirements_total=0 on ALL 15 cases (including 13 answer-bearing cases) — requirement atoms absent from evidence_summary across the board",
+  "scorer-side gold parsing was active (facts_total=16, claim_units_evaluated=24) while runtime-side answer substance was absent (facts_matched=0, citations_total=0) — asymmetry requires scorer-integrity audit before product repair",
+  "stop_reason weak_query on 12/15 with answer_status UNSUPPORTED indicates admission/answer-substance chain produced no supported requirement atoms",
+  "2/15 verifier technical failures (1 retrieval TIMEOUT with RUNTIME_ROUTE_FAILURE_RECHECK degraded capability, 1 verifier FAILED) must remain classified technical, never semantic PASS"
+ ],
+ "generated_at_utc": "2026-09-14T06:55:03.032182+00:00",
+ "gold_isolation": "this record contains aggregate counts, transport facts, identity digests, and immutable-result binding only; no hidden gold, expected answers, hidden rubric, per-case sealed detail, case text, or query text",
+ "metrics": {
+  "abstention_accuracy": 1.0,
+  "attribution_accuracy": 0.0,
+  "completeness": 0.0,
+  "correctness": 0.0,
+  "exact_citation_accuracy": 0.0,
+  "invalid_displayed_citations": 0,
+  "numeric_accuracy": 0.0,
+  "temporal_accuracy": 1.0,
+  "unsupported_claim_rate": 1.0,
+  "verifier_technical_failures": 2
+ },
+ "population": {
+  "abstention_cases": 2,
+  "answer_cases": 13,
+  "cases": 15,
+  "citations_total": 0,
+  "citations_valid": 0,
+  "claim_units_evaluated": 24,
+  "facts_matched": 0,
+  "facts_total": 16,
+  "forbidden_content_fails": 0
+ },
+ "record_type": "FORMAL_FAILURE_RECORD_SANITIZED",
+ "schema_version": "phase09-rt101-v7-failure-record-1.0",
+ "terminal_envelope_aggregate": {
+  "answer_status": {
+   "PARTIALLY_SUPPORTED": 1,
+   "UNSUPPORTED": 12,
+   "UNVERIFIED": 2
+  },
+  "degraded_capability_tally": {
+   "failure_class": {
+    "TIMEOUT": 1
+   },
+   "reason_code": {
+    "RUNTIME_ROUTE_FAILURE_RECHECK": 1
+   }
+  },
+  "evidence_summary_independent_source_groups_zero": 14,
+  "evidence_summary_requirements_total_zero": 15,
+  "runtime_iterations": "1 on all cases",
+  "stop_reason": {
+   "technical_failure:verifier": 2,
+   "verifier_failed": 1,
+   "weak_query": 12
+  }
+ },
+ "threshold_results": {
+  "abstention_accuracy": true,
+  "attribution_accuracy": false,
+  "completeness": false,
+  "correctness": false,
+  "exact_citation_accuracy": false,
+  "invalid_displayed_citations": true,
+  "numeric_accuracy": false,
+  "temporal_accuracy": true,
+  "unsupported_claim_rate": false,
+  "verifier_technical": false
+ },
+ "thresholds_unchanged": {
+  "note": "identical to locked release_eval thresholds (correctness/completeness/attribution/temporal/numeric/exact_citation 0.8; unsupported_claim_rate_max 0.2; abstention 1.0; invalid_displayed_citations_max 0; verifier_technical_pass_max 0); no threshold was lowered for or after V7",
+  "vec_strong": "0.55 unchanged since Phase03"
+ },
+ "transport_aggregate": {
+  "capture_bytes_max": 598302,
+  "capture_bytes_min": 13709,
+  "http_status": {
+   "200": 14,
+   "429": 1
+  },
+  "read_errors": 0,
+  "retry_policy": "driver one-attempt-per-case + existing bounded transport retry only; no semantic retry",
+  "runner_client_rc_zero": 15,
+  "truncated": 0
+ }
+}
