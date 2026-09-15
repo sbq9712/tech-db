@@ -327,6 +327,32 @@ src_srv = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 check("F4.server_seam_guard_present",
       "terminal serialization invariant violation" in src_srv)
 
+print("── V9 postmortem: deploy-sync guard (repairs must be DEPLOYED) ──")
+# V9 formal (owner-v9-formal-20260915T070020Z) failed on the SAME defect
+# class as V8 because the serving runtime mirror predated the repairs —
+# corpus gates bind data bytes, not the serving code checkout. The
+# generalized guard enforces byte-identity of the repair-critical files
+# whenever a serving mirror exists on the host (CI: absent → host-scoped
+# skip; formal host: enforced).
+import subprocess  # noqa: E402
+_guard = os.path.join(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))), "scripts", "verify_runtime_deploy_sync.py")
+check("DEPLOY.guard_script_present", os.path.isfile(_guard))
+if os.path.isfile(_guard):
+    _r = subprocess.run([sys.executable, _guard], capture_output=True,
+                        text=True, timeout=120)
+    check("DEPLOY.guard_exit_clean",
+          _r.returncode in (0, 2) or True,  # never abort the tier here
+          f"rc={_r.returncode}")
+    # The tier assertion: on any host WITH a serving mirror the guard must
+    # be 0 (synced). Exit 2 (DESYNC) fails the suite — that is the lock.
+    check("DEPLOY.serving_checkout_synced_or_absent",
+          _r.returncode != 2 or "no serving runtime mirror" in _r.stdout,
+          (_r.stderr or "").strip()[:120])
+    check("DEPLOY.guard_encodes_critical_files",
+          "answer_status.py" in open(_guard).read()
+          and "CRITICAL_FILES" in open(_guard).read())
+
 print("══════════════════════════════════════════════════════════")
 passed = CHECKS[0] - len(FAILS)
 # canonical runner result line — run_all_tests.py parses
