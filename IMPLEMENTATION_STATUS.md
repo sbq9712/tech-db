@@ -3,8 +3,6 @@
 > TK-21 (Q20/R11) 纠偏版：本文件只描述**结构状态**与**证据入口**。
 > 一切数字（测试计数、nightly 指标、延迟分布）以 artifact 为准，
 > 本文不手写任何会漂移的数字；nightly 结论一律引用 artifact 路径。
-> 唯一头线数字（V6 doc↔summary 一致性锚，随 chain-owned refresh 更新）：
-> push tier **2318/2318 项测试通过**（60 suites，见 `qa-backend/test_summary.json`）。
 
 ## Overview
 Upgrading from "Hybrid RAG" to "Evidence-Centric Adaptive Agentic RAG".
