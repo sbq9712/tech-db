@@ -703,8 +703,12 @@ def test_terminal_matrix_and_cancellation():
     # UNVERIFIED (the old SUPPORTED expectation encoded the exact-quote
     # bypass Q092 now forbids).
     from tests_remediation_phase08 import _production_terminal_case
+    # RT101-V8 postmortem: the "partial" case (claim mapping disabled →
+    # zero emitted claims, verifier FAILED) degrades to UNVERIFIED in the
+    # answer state machine — a claim-less PARTIALLY_SUPPORTED terminal is
+    # an unscoreable ANSWER-class shape and structurally impossible now.
     expected = {
-        "success": "UNVERIFIED", "partial": "PARTIALLY_SUPPORTED",
+        "success": "UNVERIFIED", "partial": "UNVERIFIED",
         "unsupported": "UNSUPPORTED", "unverified": "UNVERIFIED",
         "generator_failure": "UNVERIFIED",
     }

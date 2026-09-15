@@ -84,6 +84,7 @@ class AnswerStateMachine:
         self.transition_log = []
         self.no_evidence = False
         self.claims = []                      # per-claim records
+        self.claim_units = 0                  # emitted claim→citation units
         self.coverage = None                  # claim-coverage gate result
         self.sufficiency = ""                 # grader/policy overall
         self.critical_missing = 0
@@ -159,8 +160,24 @@ class AnswerStateMachine:
         Each claim: {"id", "support_status": SUPPORTED|PARTIALLY_SUPPORTED|
         UNSUPPORTED|..., "is_core": bool, "type": str}. Relation verdicts
         (RT-021) feed support_status upstream; the machine trusts only the
-        aggregate per claim."""
+        aggregate per claim.
+
+        RT101-V8-postmortem (case_12): the machine additionally tracks the
+        number of emitted claim-support units (claim→citation relations).
+        A SUPPORTED terminal is only legal when claims AND support units
+        were actually emitted; zero-claim / zero-unit SUPPORTED states are
+        structurally impossible to score and are degraded by
+        ``_derive_terminal`` (never emitted upstream)."""
         self.claims = list(claims or [])
+        self.claim_units = sum(
+            1 for c in self.claims
+            for r in (c.get("supported_by") or [])
+            if isinstance(r, dict) and r.get("citation_id") is not None)
+
+    @property
+    def emitted_claim_unit_count(self) -> int:
+        """Claim-support units recorded by the last ``record_claim_results``."""
+        return int(getattr(self, "claim_units", 0) or 0)
 
     def record_claim_coverage(self, coverage_result: dict) -> None:
         """RT-023 coverage gate result:
@@ -278,6 +295,19 @@ class AnswerStateMachine:
         # 8. Claims exist but claim results missing (anomaly) ⇒ UNVERIFIED.
         if self.claims and not major and not self.coverage:
             return (AnswerStatus.UNVERIFIED, "claim_results_unavailable")
+        # 8b. RT101-V8 postmortem (case_12, generalized): an ANSWER-class
+        #     terminal with ZERO emitted claims is an unacceptable runtime
+        #     state — it is unscoreable downstream (ANSWER_ROW_UNSCORABLE)
+        #     and, under a vacuous verifier pass, masquerades as SUPPORTED
+        #     ("SUPPORTED + zero claims").  No SUPPORTED/PARTIALLY_SUPPORTED
+        #     terminal may be derived from an empty claim set; degrade to
+        #     UNVERIFIED (fail-closed), never guess recovery.  This holds
+        #     regardless of coverage recording, closing the rule-8
+        #     exception window above.
+        if not self.claims and self.verification_state in (
+                VerificationState.PASSED, VerificationState.FAILED):
+            return (AnswerStatus.UNVERIFIED,
+                    "supported_state_without_emitted_claims")
 
         # 9. All core claims unsupported ⇒ UNSUPPORTED (even if verifier PASSED).
         if major and not supported:
@@ -299,7 +329,18 @@ class AnswerStateMachine:
 
         # 12. Verifier PASSED + every core claim supported + coverage pass +
         #     no critical gap + no high-severity conflict ⇒ SUPPORTED.
+        #     RT101-V8 postmortem invariant: SUPPORTED additionally REQUIRES
+        #     emitted claims (> 0) AND emitted claim-support units (> 0).
+        #     Evidence authority and verifier approval alone are not
+        #     sufficient — an approved-but-empty claim emission is a
+        #     serialization/emission defect and degrades to UNVERIFIED
+        #     (never a pseudo-SUPPORTED answer row).
         if self.verification_state == VerificationState.PASSED:
+            if not unsupported and self.claims and self.claim_units > 0:
+                return (AnswerStatus.SUPPORTED, "evidence_sufficient")
+            if not unsupported and (not self.claims or self.claim_units == 0):
+                return (AnswerStatus.UNVERIFIED,
+                        "supported_state_without_emitted_claims")
             if not unsupported:
                 return (AnswerStatus.SUPPORTED, "evidence_sufficient")
             # Q103: a final SUPPORTED answer may not contain unsupported
@@ -324,6 +365,7 @@ class AnswerStateMachine:
             "high_severity_conflicts": self.high_severity_conflicts,
             "technical_failures": dict(self.technical_failures),
             "claim_count": len(self.claims),
+            "claim_units": int(getattr(self, "claim_units", 0) or 0),
             "unsupported_core_claims": sum(
                 1 for c in self.claims
                 if c.get("type") not in ("MINOR_EXPLANATION",)
@@ -547,9 +589,36 @@ def _compatibility_machine(answer_status: str, stop_reason: str = "") -> AnswerS
     elif requested == "PARTIALLY_SUPPORTED":
         machine.start_verification()
         machine.record_verifier_result("FAILED", stop_reason)
+        # Same adapter modeling as SUPPORTED below/above: the terminal fact
+        # minimally includes emitted claim rows; the FAILED verifier with
+        # mixed per-claim outcomes derives PARTIAL (supported + unsupported
+        # remain) — the legacy branch's PARTIAL semantics.
+        machine.record_claim_results([
+            {"id": "compatibility_terminal_claim_supported", "text": "",
+             "type": "MAJOR_FACT", "support_status": "SUPPORTED",
+             "is_core": True,
+             "supported_by": [{"citation_id": 0,
+                               "relation": "DIRECT_SUPPORT"}]},
+            {"id": "compatibility_terminal_claim_unsupported", "text": "",
+             "type": "MAJOR_FACT", "support_status": "UNSUPPORTED",
+             "is_core": True, "supported_by": []}])
     elif requested == "SUPPORTED":
         machine.start_verification()
         machine.record_verifier_result("PASSED")
+        # RT101-V8 postmortem: the adapter models the TERMINAL FACTS of the
+        # legacy branch, and a SUPPORTED terminal fact minimally includes
+        # one emitted claim-support unit (the verified claim the legacy
+        # branch is asserting). Without it the machine's SUPPORTED
+        # invariant (claims > 0 AND units > 0) would reject the very state
+        # this adapter is contract-bound to derive. The serialization-seam
+        # guard independently refuses SUPPORTED payloads whose claim rows
+        # are actually empty — the invariant holds where it matters.
+        machine.record_claim_results([
+            {"id": "compatibility_terminal_claim", "text": "",
+             "type": "MAJOR_FACT", "support_status": "SUPPORTED",
+             "is_core": True,
+             "supported_by": [{"citation_id": 0,
+                               "relation": "DIRECT_SUPPORT"}]}])
     else:
         machine.record_technical_failure(
             "answer_state_machine", "invalid_terminal_status")
@@ -608,6 +677,25 @@ def build_terminal_response(*, answer: str, answer_status: str = "",
     if snapshot_supplied and stop_reason and str(stop_reason) != \
             canonical_stop_reason:
         raise ValueError("terminal stop_reason disagrees with state authority")
+    # RT101-V8 postmortem serialization seam (case_12, generalized): a
+    # SUPPORTED / PARTIALLY_SUPPORTED terminal with ZERO claim rows is an
+    # unacceptable runtime state — unscoreable downstream and, historically,
+    # a vacuous-pass masquerade. Fail closed at the single schema builder:
+    # every caller (server SSE seams, tests, tooling) hits this guard.
+    # UNVERIFIED zero-row terminals are exempt (honest verification-blocking
+    # technical failure shape); UNSUPPORTED abstentions carry no rows by
+    # design.
+    _seam_rows = list(compatibility_fields.get("claims")
+                      if compatibility_fields.get("claims") is not None
+                      else [])
+    _seam_status_req = str(canonical_status or "").upper()
+    if _seam_status_req in ("SUPPORTED", "PARTIALLY_SUPPORTED") \
+            and not _seam_rows:
+        raise RuntimeError(
+            "terminal serialization invariant violation: "
+            f"{_seam_status_req} terminal with zero emitted claim rows "
+            "(RT101-V8 postmortem seam; fail closed, never serialize an "
+            "unscoreable ANSWER payload)")
     summary = dict(evidence_summary or build_evidence_summary())
     payload = {
         "terminal_schema_version": TERMINAL_RESPONSE_SCHEMA_VERSION,

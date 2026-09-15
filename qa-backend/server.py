@@ -2035,7 +2035,19 @@ app.add_middleware(RuntimePinMiddleware)
 
 
 def _canonical_terminal_payload(payload: dict) -> dict:
-    """RT-090: one schema builder for every non-cancellation terminal exit."""
+    """RT-090: one schema builder for every non-cancellation terminal exit.
+
+    RT101-V8 postmortem serialization seam (case_12, generalized): a
+    SUPPORTED / PARTIALLY_SUPPORTED terminal that carries ZERO emitted
+    claim rows is an unacceptable runtime state ("SUPPORTED + zero claims"
+    burned the V8 one-shot) — every path reaching this seam with that
+    shape is a state-machine invariant violation. Fail closed here (loud
+    invariant error), never silently serialize, never guess recovery.
+    UNVERIFIED terminals with zero claim rows are EXEMPT: they are the
+    honest shape of a verification-blocking technical failure (owner
+    contract: verifier/provider failures stay TECHNICAL_FAILURE, never
+    masquerade as abstentions or pseudo-answers). UNSUPPORTED calibrated
+    abstentions carry no answer rows by design."""
     value = dict(payload or {})
     if "answer" not in value:
         value["answer"] = str(value.get("message") or "")
@@ -2053,6 +2065,14 @@ def _canonical_terminal_payload(payload: dict) -> dict:
     value.setdefault("profile_diagnostics", {
         "runtime_safety_profile_version": RUNTIME_SAFETY_PROFILE_VERSION,
     })
+    _seam_status = str(value.get("answer_status") or "").upper()
+    if _seam_status in ("SUPPORTED", "PARTIALLY_SUPPORTED") \
+            and not value.get("claims"):
+        raise RuntimeError(
+            "terminal serialization invariant violation: "
+            f"{_seam_status} terminal with zero emitted claim rows "
+            "(RT101-V8 postmortem seam; run must fail closed, not "
+            "serialize an unscoreable ANSWER payload)")
     return build_terminal_response(**value)
 
 

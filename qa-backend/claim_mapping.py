@@ -756,9 +756,15 @@ def check_claim_coverage(answer: str, claims_mapping: dict) -> dict:
 
     return {
         "version": COVERAGE_GATE_VERSION,
-        "gate": "PASS" if total == covered else "FAIL",
-        "coverage": round(covered / total, 4) if total else 1.0,
+        # RT101-V8 postmortem: zero claim-bearing sentences can never
+        # vacuously PASS the gate — "nothing to cover" is not "covered".
+        # FAIL (+ explicit cause) forces rule-7 handling in the answer
+        # state machine instead of a vacuous pass toward SUPPORTED.
+        "gate": "PASS" if (total and total == covered) else "FAIL",
+        "coverage": round(covered / total, 4) if total else 0.0,
         "claim_bearing_sentences": total,
         "covered_sentences": covered,
         "uncovered_sentences": uncovered,
+        **({"gate_fail_cause": "no_claim_bearing_sentences"}
+           if not total else {}),
     }

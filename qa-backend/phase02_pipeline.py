@@ -536,6 +536,24 @@ async def run_phase02_verification(
                     "total_claims": len(claim_map.get("claims", [])),
                     "unsupported_major": len(get_unsupported_major_claims(claim_map)),
                 })
+                # RT101-V8 postmortem (case_12, generalized): a substantive
+                # draft that yields ZERO mapped claims is a claim-emission
+                # degradation, never a silent success. The V8 formal run
+                # serialized "SUPPORTED + zero claims" from exactly this
+                # hole (mapper returned no valid claims → coverage/verifier
+                # vacuous-passed → machine rule-12 vacuous SUPPORTED).
+                # Fail closed: record a validation-blocking claim_mapping
+                # technical failure so the terminal can only be UNVERIFIED,
+                # never a pseudo-answer. (An EMPTY draft legitimately maps
+                # to zero claims and is abstained upstream/downstream.)
+                if answer and answer.strip() and not (claim_map.get("claims")):
+                    machine.record_technical_failure(
+                        "claim_mapping", "empty_claim_map_substantive_draft")
+                    _stage("claim_mapping_invariant", {
+                        "status": "FAIL_CLOSED",
+                        "reason": "empty_claim_map_substantive_draft",
+                        "draft_chars": len(answer),
+                    })
             except (asyncio.CancelledError, RequestCancelled):
                 raise
             except Exception as e:
@@ -1092,7 +1110,11 @@ async def run_phase02_verification(
     machine.record_claim_results([
         {"id": c.get("id"), "text": c.get("text", ""),
          "type": c.get("type", ""), "support_status": c.get("support_status", ""),
-         "is_core": bool(c.get("is_core", True))}
+         "is_core": bool(c.get("is_core", True)),
+         # RT101-V8 postmortem: carry claim→citation support units into the
+         # machine so the SUPPORTED invariant (claims > 0 AND units > 0)
+         # evaluates against the emitted relation set.
+         "supported_by": list(c.get("supported_by") or [])}
         for c in claims])
 
     # ── 8. Fail-safe final verifier (RT-025) ──────────────────────────────
@@ -1245,7 +1267,9 @@ async def run_phase02_verification(
         machine.record_claim_results([
             {"id": c.get("id"), "text": c.get("text", ""),
              "type": c.get("type", ""), "support_status": c.get("support_status", ""),
-             "is_core": bool(c.get("is_core", True))}
+             "is_core": bool(c.get("is_core", True)),
+             # RT101-V8 postmortem: claim→citation units (see block above).
+             "supported_by": list(c.get("supported_by") or [])}
             for c in claims])
 
     # ── Phase09 gatekeeper follow-up (P0-2): per-claim verification
