@@ -82,6 +82,14 @@ RETRYABLE_FAILURES = frozenset({
     FailureClass.TRANSIENT_TRANSPORT,
     FailureClass.UPSTREAM_429,
     FailureClass.UPSTREAM_5XX,
+    # RT101-V10 postmortem (case_08, formal 2026-09-16): a provider can
+    # return schema-invalid JSON for a correctness-critical stage even when
+    # the transport is healthy (temperature-0 regeneration is a NEW sampled
+    # completion, so a single malformed sample must not fail the stage).
+    # This is the SAME bounded transient class verify_final already retries
+    # internally for its own schema rejections. Still bounded by
+    # max_attempts, stage deadline, retry window, and query budget.
+    FailureClass.MALFORMED_MODEL_OUTPUT,
 })
 
 
