@@ -57,6 +57,7 @@ CRITICAL_FILES = (
     "qa-backend/server.py",
     "qa-backend/retrieval/runtime.py",
     "qa-backend/phase02_pipeline.py",
+    "qa-backend/phase03_pipeline.py",
     # behavior-bearing surfaces named by the codex Review-A sweep:
     "qa-backend/config.py",
     "qa-backend/feature_flags.py",
@@ -64,6 +65,11 @@ CRITICAL_FILES = (
     "qa-backend/answer_repair.py",
     "qa-backend/numeric_facts.py",
     "qa-backend/runtime_safety.py",
+    # §F additions: gate instrumentation whose bytes decide capture
+    # admissibility (single source: runtime_identity.py — keep both lists
+    # in lockstep; the live leg cross-checks order + count)
+    "qa-backend/corpus_compatibility.py",
+    "qa-backend/formal_preflight.py",
 )
 
 DEFAULT_MIRROR = "/home/rhett/rt101-v5-formal-runner/repo"
@@ -454,6 +460,11 @@ def main(argv: list | None = None) -> int:
     if args.require_live:
         try:
             ri = _load_runtime_identity_mod(src)
+            if tuple(ri.CRITICAL_FILES) != tuple(CRITICAL_FILES):
+                print(f"FAIL_CLOSED {DRIFT} — critical-file list out of "
+                      "lockstep between guard and runtime_identity.py",
+                      file=sys.stderr)
+                return 2
         except ImportError as exc:
             print(f"FAIL_CLOSED {DRIFT} — evaluated repo lacks the "
                   f"canonical runtime identity module: {exc}",
@@ -531,12 +542,18 @@ def main(argv: list | None = None) -> int:
                     if cwd is None or not str(cwd).startswith(str(base)):
                         drift.append(f"live process: pid {pid} cwd={cwd} "
                                      f"not under runtime base {base}")
-                    modpath = (proc_info or {}).get("module_path")
-                    if modpath is None or not str(modpath).startswith(
-                            str(mirror)):
-                        drift.append(f"live process: pid {pid} module path "
-                                     f"{modpath} not inside serving mirror "
-                                     f"{mirror}")
+                    # Loaded-tree proof is carried by the code digest; the
+                    # path check binds the PROCESS to the serving mirror via
+                    # cwd (start contract: the server cd's to the mirror
+                    # before import) or an explicit mirror path in cmdline.
+                    modpath = (proc_info or {}).get("module_path") or ""
+                    cmd = (proc_info or {}).get("cmdline") or ""
+                    if not (str(cwd).startswith(str(mirror))
+                            or str(modpath).startswith(str(mirror))
+                            or str(mirror) in cmd):
+                        drift.append(f"live process: pid {pid} (cwd={cwd}, "
+                                     f"module={modpath}) not bound to "
+                                     f"serving mirror {mirror}")
                     if not (proc_info or {}).get("alive"):
                         drift.append(f"live process: pid {pid} not alive "
                                      "— fail closed")
