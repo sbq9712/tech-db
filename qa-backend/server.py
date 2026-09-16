@@ -2653,11 +2653,65 @@ async def chat_stream(req: ChatRequest, request: Request):
             # Standard RAG path (only if agentic didn't run or failed)
             if not _agentic_succeeded:
                 # Hybrid search (vector + BM25 + graph → RRF)
-                search_results, is_relevant, search_status = await execution.run_stage(
-                    "retrieval", lambda: hybrid_search(
-                        search_query,
-                        exclude_ids=exclude_ids if exclude_ids else None),
-                    requirement_critical=True)
+                #
+                # RT101-V11 post-seal repair (case_01/case_05 formal
+                # 2026-09-16): a retrieval StageExecutionError (e.g.
+                # RUNTIME_ROUTE_FAILURE_RECHECK after bounded deadline
+                # retries under host load) used to escape this scope as an
+                # UNCAUGHT exception and resurface as a verifier-flavored
+                # UNVERIFIED zero-surface terminal — masking WHICH component
+                # actually failed (same misattribution class as the Codex
+                # round-4 P1 claim_mapping fix). Fail closed HERE with the
+                # true component attribution (parity with the phase02
+                # pipeline's record path). Bounded, visible, no retry
+                # semantics change; the scorer guard keeps failing closed on
+                # the resulting zero-surface row (by design).
+                try:
+                    search_results, is_relevant, search_status = await execution.run_stage(
+                        "retrieval", lambda: hybrid_search(
+                            search_query,
+                            exclude_ids=exclude_ids if exclude_ids else None),
+                        requirement_critical=True)
+                except StageExecutionError as _retrieval_exc:
+                    _rd = getattr(_retrieval_exc, "decision", None)
+                    _rd_code = str(getattr(_rd, "reason_code", "") or
+                                   _retrieval_exc)
+                    trace.add_stage("retrieval_fail_closed", {
+                        "component": "retrieval",
+                        "reason_code": _rd_code[:120],
+                        "failure_class": str(getattr(
+                            getattr(_rd, "failure_class", None), "value", "")),
+                        "attempts": getattr(_retrieval_exc, "attempts", None),
+                    })
+                    # Component-honest terminal: the machine records the
+                    # ACTUAL failed stage (retrieval) in technical_failures,
+                    # never a verifier-flavored attribution (parity with the
+                    # phase02 pipeline record path and the Codex round-4 P1
+                    # claim_mapping fix). The snapshot (UNVERIFIED,
+                    # verification_not_run) is the single state authority —
+                    # the serialized stop_reason follows it.
+                    from answer_status import AnswerStateMachine as _ASM
+                    _rf_machine = _ASM()
+                    _rf_machine.record_technical_failure(
+                        "retrieval", _rd_code[:120])
+                    _rf_machine.finalize()
+                    _rf_snap = _rf_machine.snapshot()
+                    trace.set_result(answer_status="UNVERIFIED",
+                                     stop_reason=str(_rf_snap.get(
+                                         "stop_reason") or ""))
+                    trace.flush()
+                    yield {"event": "done", "data": json.dumps(_canonical_terminal_payload({
+                        "answer": "关键研究/证据阶段未能完成；当前请求没有返回普通可信答案。",
+                        "citations": [], "cited_record_ids": [],
+                        "searched_record_ids": [],
+                        "answer_status": "UNVERIFIED",
+                        "stop_reason": str(_rf_snap.get("stop_reason") or ""),
+                        "boundary_message": "correctness-critical stage failed closed",
+                        "degraded_capabilities": execution.degraded_capabilities,
+                        "state_machine_snapshot": _rf_snap,
+                        "trace_id": trace.trace_id,
+                    }))}
+                    return
                 trace.add_stage("retrieval_hybrid", {
                     "query": search_query[:200],
                     "result_count": len(search_results),
