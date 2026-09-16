@@ -202,91 +202,107 @@ def _listener_pid(port: int, proc_root: str = "/proc") -> int | None:
     return None
 
 
+def _under(child: str | None, parent: Path) -> bool:
+    """True iff the resolved child path is parent itself or under it.
+
+    Sibling-directory safe (no startswith prefix confusion): `/x/mirror-evil`
+    is NOT under `/x/mirror`.
+    """
+    if not child:
+        return False
+    try:
+        Path(child).resolve().relative_to(Path(parent).resolve())
+        return True
+    except (ValueError, OSError):
+        return False
+
+
 def _probe_live_identity(endpoint: str, base: Path, mirror: Path,
                          *, proc_root: str = "/proc",
                          timeout_s: float = 20.0) -> tuple[dict | None,
                                                            int | None,
                                                            dict]:
-    """Fetch /api/runtime_identity and bind it to the listener process.
+    """Fetch /api/runtime_identity twice and bind it to the listener process.
+
+    Order of proof (codex round-2 P1-1/P1-3 closure):
+      1. TWO identity samples + TWO listener discoveries must AGREE —
+         full canonical payload compare (every field), not field subsets;
+      2. only after agreement are procfs process attributes read — from the
+         agreed pid, so attributes and identity come from the same process;
+      3. a third listener sample AFTER the attribute reads must still return
+         the same pid (no death/reuse window opened mid-read);
+      4. the payload's self-reported pid must be the discovered listener.
 
     Returns (identity_or_None, listener_pid_or_None, process_info).
-    Any transport/format failure yields identity None (fail closed).
+    Any transport/format/instability failure yields identity None (fail
+    closed). process_info carries listener_discovered so the caller can
+    distinguish "no listener" from "listener present but identity bad".
     """
     import urllib.error
     import urllib.request
-    live = None
-    try:
+
+    def _sample() -> tuple[dict | None, int | None]:
         req = urllib.request.Request(
             endpoint.rstrip("/") + "/api/runtime_identity",
             headers={"Accept": "application/json"})
         with urllib.request.urlopen(req, timeout=timeout_s) as resp:
             if resp.status != 200:
-                return None, None, {}
+                return None, None
             live = json.loads(resp.read().decode("utf-8"))
         if not isinstance(live, dict) \
                 or live.get("schema_version") is None:
-            live = None
-    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
-        live = None
-    pid = None
-    proc_info: dict = {}
-    try:
+            return None, None
         port = int(endpoint.rstrip("/").rsplit(":", 1)[1])
-        pid = _listener_pid(port, proc_root=proc_root)
-    except (ValueError, IndexError):
-        pid = None
-    if pid is not None:
-        procp = Path(proc_root) / str(pid)
-        try:
-            cwd = os.readlink(procp / "cwd")
-        except OSError:
-            cwd = None
-        try:
-            cmdline = (procp / "cmdline").read_bytes().replace(
-                b"\0", b" ").decode("utf-8", "replace")
-        except OSError:
-            cmdline = ""
-        module_path = None
-        m = re.search(r"(/[^ ]*qa-backend/server\.py)", cmdline)
-        if m:
-            module_path = m.group(1)
-        else:
-            try:
-                module_path = os.readlink(procp / "exe")
-            except OSError:
-                module_path = None
-        alive = (procp / "stat").exists()
-        proc_info = {"cwd": cwd, "cmdline": cmdline[:300],
-                     "module_path": module_path, "alive": alive}
-    # TOCTOU closure (codex P1-1): re-fetch the identity and re-sample the
-    # listener AFTER the procfs read. Both samples must agree on pid and
-    # on the git_sha/code_digest, and the payload's self-reported pid must
-    # equal the discovered listener — else the evidence is split across
-    # two processes and the caller must fail closed.
-    live2 = None
-    pid2 = None
+        return live, _listener_pid(port, proc_root=proc_root)
+
     try:
-        req2 = urllib.request.Request(
-            endpoint.rstrip("/") + "/api/runtime_identity",
-            headers={"Accept": "application/json"})
-        with urllib.request.urlopen(req2, timeout=timeout_s) as resp2:
-            if resp2.status == 200:
-                live2 = json.loads(resp2.read().decode("utf-8"))
-        port2 = int(endpoint.rstrip("/").rsplit(":", 1)[1])
-        pid2 = _listener_pid(port2, proc_root=proc_root)
+        live1, pid1 = _sample()
+        live2, pid2 = _sample()
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
-        live2 = None
-        pid2 = None
-    if live is not None:
-        if live2 is None or pid2 != pid:
-            return None, pid, proc_info  # unstable evidence — fail closed
-        for key in ("git_sha", "runtime_code_digest", "pid", "service_role"):
-            if live2.get(key) != live.get(key):
-                return None, pid, proc_info  # mutated mid-proof
-    if live is not None and live.get("pid") != pid:
+        return None, None, {"listener_discovered": False}
+    proc_info: dict = {"listener_discovered": pid1 is not None}
+    if live1 is None or live2 is None:
+        return None, pid1, proc_info  # unreachable/malformed — fail closed
+    if json.dumps(live1, sort_keys=True) != json.dumps(live2, sort_keys=True):
+        return None, pid1, proc_info  # payload mutated mid-proof
+    if pid1 is None or pid2 != pid1:
+        return None, pid1, proc_info  # unstable listener evidence
+    # Agreed pid + agreed identity: NOW read the process attributes.
+    procp = Path(proc_root) / str(pid1)
+    try:
+        cwd = os.readlink(procp / "cwd")
+    except OSError:
+        cwd = None
+    try:
+        cmdline = (procp / "cmdline").read_bytes().replace(
+            b"\0", b" ").decode("utf-8", "replace")
+    except OSError:
+        cmdline = ""
+    module_path = None
+    m = re.search(r"(/[^ ]*qa-backend/server\.py)", cmdline)
+    if m:
+        module_path = m.group(1)
+    else:
+        try:
+            module_path = os.readlink(procp / "exe")
+        except OSError:
+            module_path = None
+    alive = (procp / "stat").exists()
+    proc_info.update({"cwd": cwd, "cmdline": cmdline[:300],
+                      "module_path": module_path, "alive": alive})
+    # Third listener sample after the attribute reads (codex round-2 P1-1):
+    # the pid must still own the endpoint — no reuse window mid-read.
+    try:
+        port3 = int(endpoint.rstrip("/").rsplit(":", 1)[1])
+        pid3 = _listener_pid(port3, proc_root=proc_root)
+    except (ValueError, IndexError):
+        pid3 = None
+    if pid3 != pid1:
+        return None, pid1, proc_info
+    if live1.get("pid") != pid1:
         # payload pid must be the procfs-discovered listener pid
-        return None, pid, proc_info
-    return live, pid, proc_info
+        return None, pid1, proc_info
+    return live1, pid1, proc_info
 
 
 def main(argv: list | None = None) -> int:
@@ -516,9 +532,17 @@ def main(argv: list | None = None) -> int:
                 "expected_role": args.expected_role,
             }
             if live is None:
-                drift.append("live leg: /api/runtime_identity unreachable, "
-                             "malformed, or non-200 — fail closed "
-                             "(false-positive health server suspected)")
+                if pid is None \
+                        and (proc_info or {}).get("listener_discovered") \
+                        is False:
+                    drift.append("live leg: /api/runtime_identity unreachable "
+                                 "AND no listener discovered — fail closed "
+                                 "(formal runtime not running)")
+                else:
+                    drift.append("live leg: /api/runtime_identity unreachable, "
+                                 "malformed, non-200, or UNSTABLE between "
+                                 "samples — fail closed "
+                                 "(false-positive health server suspected)")
             else:
                 # role: the listener must self-declare the formal role
                 got_role = live.get("service_role")
@@ -583,22 +607,34 @@ def main(argv: list | None = None) -> int:
                 # whose cwd is under the formal runtime base and whose
                 # module path is inside the serving mirror
                 if pid is None:
-                    drift.append(f"live process: no listener PID found for "
-                                 f"{ep} in {args.proc_root} — fail closed")
+                    if (proc_info or {}).get("listener_discovered") is False \
+                            and live is None:
+                        drift.append(
+                            f"live process: NO listener on {ep} in "
+                            f"{args.proc_root} and identity unreachable "
+                            "— fail closed")
+                    else:
+                        drift.append(f"live process: no listener PID found "
+                                     f"for {ep} in {args.proc_root} — "
+                                     "fail closed")
                 else:
                     cwd = (proc_info or {}).get("cwd")
-                    if cwd is None or not str(cwd).startswith(str(base)):
+                    if not _under(cwd, base):
                         drift.append(f"live process: pid {pid} cwd={cwd} "
                                      f"not under runtime base {base}")
                     # Loaded-tree proof is carried by the code digest; the
                     # path check binds the PROCESS to the serving mirror via
                     # cwd (start contract: the server cd's to the mirror
-                    # before import) or an explicit mirror path in cmdline.
+                    # before import), its exe/module path, or an argv token
+                    # resolved inside the mirror (argv-token + resolved
+                    # containment — no substring/prefix confusion).
                     modpath = (proc_info or {}).get("module_path") or ""
                     cmd = (proc_info or {}).get("cmdline") or ""
-                    if not (str(cwd).startswith(str(mirror))
-                            or str(modpath).startswith(str(mirror))
-                            or str(mirror) in cmd):
+                    cmd_bound = any(_under(tok, mirror)
+                                    for tok in cmd.split())
+                    if not (_under(cwd, mirror)
+                            or _under(modpath, mirror)
+                            or cmd_bound):
                         drift.append(f"live process: pid {pid} (cwd={cwd}, "
                                      f"module={modpath}) not bound to "
                                      f"serving mirror {mirror}")
