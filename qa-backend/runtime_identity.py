@@ -171,17 +171,29 @@ def collect_identity(*, qa_backend_dir: str | Path,
                      working_dir: str | Path | None = None,
                      service_role: str | None = None,
                      started_at: str | None = None,
-                     include_corpus_store: bool = True) -> dict:
+                     include_corpus_store: bool = True,
+                     loaded_profile: str | None = None,
+                     loaded_citation_schema: str | None = None) -> dict:
     """Build the live identity payload for a RUNNING server process.
 
-    module_files: relpath -> ABSOLUTE __file__ of each imported module
-    (loaded-code proof). working_dir: server WORKING_DIR holding the
-    source_snapshots store. Never includes secrets/gold/salt material.
+    module_files: relpath -> ABSOLUTE __file__ of each imported module.
+    EVERY module in _IMPORTED_ANCHORS MUST be present — an absent anchor
+    raises (fail closed): a disk-only fallback would silently downgrade
+    the loaded-code proof. working_dir: server WORKING_DIR holding the
+    source_snapshots store. loaded_profile / loaded_citation_schema carry
+    the CONFIG the RUNNING code actually resolved (active_profile() and
+    the imported CITATION_SCHEMA_VERSION), not environment/script text.
+    Never includes secrets/gold/salt material.
     """
     qa_dir = Path(qa_backend_dir).resolve()
     tree_root = qa_dir.parent
-    anchors = {rel: module_files[rel] for rel in _IMPORTED_ANCHORS
-               if rel in module_files}
+    missing = [rel for rel in _IMPORTED_ANCHORS
+               if rel not in module_files or not module_files[rel]]
+    if missing:
+        raise RuntimeError(
+            "runtime identity: unimported critical modules (fail closed): "
+            + ", ".join(sorted(missing)))
+    anchors = {rel: module_files[rel] for rel in _IMPORTED_ANCHORS}
     code_digest, _ = compute_code_digest(tree_root, anchors)
     ident: dict = {
         "schema_version": SCHEMA_VERSION,
@@ -190,6 +202,8 @@ def collect_identity(*, qa_backend_dir: str | Path,
         "runtime_code_digest": code_digest,
         "critical_file_count": len(CRITICAL_FILES),
         "model": os.environ.get("ZAI_MODEL") or None,
+        "profile": loaded_profile,
+        "citation_schema_version": loaded_citation_schema,
         "corpus_manifest": fixture_manifest_id(tree_root),
         "corpus_store_sha256": None,
         "pid": os.getpid(),

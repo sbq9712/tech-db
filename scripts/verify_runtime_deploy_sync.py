@@ -246,22 +246,46 @@ def _probe_live_identity(endpoint: str, base: Path, mirror: Path,
                 b"\0", b" ").decode("utf-8", "replace")
         except OSError:
             cmdline = ""
-        # module path: first qa-backend/server.py-looking token or the
-        # -c payload's cwd context; fall back to the exe location
         module_path = None
         m = re.search(r"(/[^ ]*qa-backend/server\.py)", cmdline)
         if m:
             module_path = m.group(1)
         else:
-            exe = None
             try:
-                exe = os.readlink(procp / "exe")
+                module_path = os.readlink(procp / "exe")
             except OSError:
-                pass
-            module_path = exe
+                module_path = None
         alive = (procp / "stat").exists()
         proc_info = {"cwd": cwd, "cmdline": cmdline[:300],
                      "module_path": module_path, "alive": alive}
+    # TOCTOU closure (codex P1-1): re-fetch the identity and re-sample the
+    # listener AFTER the procfs read. Both samples must agree on pid and
+    # on the git_sha/code_digest, and the payload's self-reported pid must
+    # equal the discovered listener — else the evidence is split across
+    # two processes and the caller must fail closed.
+    live2 = None
+    pid2 = None
+    try:
+        req2 = urllib.request.Request(
+            endpoint.rstrip("/") + "/api/runtime_identity",
+            headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req2, timeout=timeout_s) as resp2:
+            if resp2.status == 200:
+                live2 = json.loads(resp2.read().decode("utf-8"))
+        port2 = int(endpoint.rstrip("/").rsplit(":", 1)[1])
+        pid2 = _listener_pid(port2, proc_root=proc_root)
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        live2 = None
+        pid2 = None
+    if live is not None:
+        if live2 is None or pid2 != pid:
+            return None, pid, proc_info  # unstable evidence — fail closed
+        for key in ("git_sha", "runtime_code_digest", "pid", "service_role"):
+            if live2.get(key) != live.get(key):
+                return None, pid, proc_info  # mutated mid-proof
+    if live is not None and live.get("pid") != pid:
+        # payload pid must be the procfs-discovered listener pid
+        return None, pid, proc_info
     return live, pid, proc_info
 
 
@@ -457,6 +481,11 @@ def main(argv: list | None = None) -> int:
     # code digest, the pinned corpus/model/manifest, and the formal
     # service role — plus process-level binding (listener PID, cwd,
     # module path).
+    if args.require_live and pin is None:
+        print(f"FAIL_CLOSED {DRIFT} — --require-live requires --pin "
+              "(live corpus/model/config binding undefined without it)",
+              file=sys.stderr)
+        return 2
     if args.require_live:
         try:
             ri = _load_runtime_identity_mod(src)
@@ -515,8 +544,27 @@ def main(argv: list | None = None) -> int:
                                  f"{live.get('critical_file_count')} != "
                                  f"{len(ri.CRITICAL_FILES)} (identity "
                                  "contract version drift)")
-                # model/corpus/manifest as the RUNNING process saw them
+                # model/corpus/manifest as the RUNNING process saw them;
+                # profile + citation schema come from the LOADED code
+                # (feature_flags.active_profile / imported constant), not
+                # from env text or script parsing (codex P1-4)
                 if pin is not None:
+                    want_profile = pin.get("profile") or \
+                        (pin.get("prompt_schema_config_versions") or {}) \
+                        .get("runtime_profile")
+                    if want_profile and \
+                            live.get("profile") != want_profile:
+                        drift.append(f"live config: running profile "
+                                     f"{live.get('profile')!r} != pinned "
+                                     f"{want_profile!r}")
+                    versions = pin.get("prompt_schema_config_versions") or {}
+                    want_cit = versions.get("citation_schema_version")
+                    if want_cit and live.get("citation_schema_version") != \
+                            want_cit:
+                        drift.append(f"live config: running citation_"
+                                     f"schema_version "
+                                     f"{live.get('citation_schema_version')!r} "
+                                     f"!= pinned {want_cit!r}")
                     if live.get("model") != pin.get("model"):
                         drift.append(f"live model: running ZAI_MODEL="
                                      f"{live.get('model')} != pinned "

@@ -64,7 +64,7 @@ from epistemic import (
     build_source_metadata,
 )
 from trace import TraceContext
-from feature_flags import Flags
+from feature_flags import Flags, active_profile
 from citation_grounding import ground_citation_evidence, get_original_text
 from verifier import verify_with_fail_safe, VerificationResult, VERIFY_PASSED, VERIFY_FAILED, VERIFY_UNVERIFIED
 from claim_mapping import map_claims_to_citations, get_unsupported_major_claims
@@ -92,31 +92,47 @@ from entity_resolver_v2 import resolve_query_from_runtime_snapshot
 
 # ── RT101 formal-runtime identity (single-source: runtime_identity.py) ────
 # Computed ONCE at import from the bytes of the modules this process
-# actually LOADED (sys.modules __file__ anchors) plus the same-tree files
-# for gate instrumentation. Exposed via GET /api/runtime_identity and
-# consumed by the pre-seal DEPLOY_SYNC_GATE live leg. Never contains
-# secrets, gold, or salt material.
+# actually LOADED. LOADED-CODE PROOF IS TOTAL: every module in the
+# canonical anchor list is EXPLICITLY imported above, so the digest
+# covers only bytes this process mapped — a stale on-disk copy of any
+# critical file cannot pass the gate (codex P1-2). The payload is frozen
+# here; the endpoint serves exactly this captured structure and nothing
+# can rebuild it post-import (codex P1-3). Never contains secrets, gold,
+# or salt material.
+import corpus_compatibility as _identity_anchor_corpus_compat  # noqa: F401
+import formal_preflight as _identity_anchor_formal_preflight  # noqa: F401
+import generator_input as _identity_anchor_generator_input  # noqa: F401
+import llm_json as _identity_anchor_llm_json  # noqa: F401
+import evidence_package as _identity_anchor_evidence_package  # noqa: F401
+import answer_repair as _identity_anchor_answer_repair  # noqa: F401
+import numeric_facts as _identity_anchor_numeric_facts  # noqa: F401
+import phase03_pipeline as _identity_anchor_phase03  # noqa: F401
+import retrieval.runtime as _identity_anchor_retrieval_runtime  # noqa: F401
 import runtime_identity as _runtime_identity_mod
 
 
-def _runtime_identity_payload() -> dict:
+def _build_runtime_identity_payload() -> dict:
     anchors = {}
     for rel in _runtime_identity_mod._IMPORTED_ANCHORS:
         modname = rel[len("qa-backend/"):-len(".py")].replace("/", ".")
-        if modname == "qa-backend":
-            continue
         mod = sys.modules.get(modname)
-        if mod is not None and getattr(mod, "__file__", None):
-            anchors[rel] = str(mod.__file__)
+        if mod is None or not getattr(mod, "__file__", None):
+            raise RuntimeError(
+                f"runtime identity: module {modname} not loaded at import "
+                "(fail closed — loaded-code proof incomplete)")
+        anchors[rel] = str(mod.__file__)
     return _runtime_identity_mod.collect_identity(
         qa_backend_dir=Path(__file__).resolve().parent,
         module_files=anchors,
         working_dir=WORKING_DIR,
         service_role=os.environ.get("FORMAL_SERVICE_ROLE") or "UNDECLARED",
-        started_at=datetime.now(timezone.utc).isoformat())
+        started_at=datetime.now(timezone.utc).isoformat(),
+        loaded_profile=active_profile(),
+        loaded_citation_schema=CITATION_SCHEMA_VERSION)
 
 
-RUNTIME_IDENTITY = _runtime_identity_payload()
+RUNTIME_IDENTITY = _build_runtime_identity_payload()
+del _build_runtime_identity_payload  # capture-once: no rebuild path
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"

@@ -393,10 +393,14 @@ try:
             "critical_file_count": count if count is not None
             else len(RI.CRITICAL_FILES),
             "model": model,
+            "profile": fx["pin"].get("profile", "legacy_hybrid"),
+            "citation_schema_version":
+                (fx["pin"].get("prompt_schema_config_versions") or {})
+                .get("citation_schema_version", "2.0.0"),
             "corpus_manifest": manifest,
             "corpus_store_sha256": store
             if store is not None else fx["pin"]["source_snapshot_store_sha256"],
-            "pid": 1, "cwd": "/x", "started_at": None,
+            "pid": 1234, "cwd": "/x", "started_at": None,
         }
 
     mirror_live = make_mirror(ws, fx, name="mirror_live")
