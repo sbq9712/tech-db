@@ -1696,6 +1696,37 @@ def server_full_composition():
     from types import SimpleNamespace
     import phase03_pipeline
     import server
+    # Tier hermeticity (all-mock, no GLM): RESEARCH-mode rerank would make a
+    # REAL listwise provider call whenever a key is reachable (locally via
+    # ~/.config env file) — provider-side score nondeterminism then flips
+    # selection across the relevance floor run-to-run (observed 2026-09-16:
+    # server_full_timeout_typed_text_relation_independently_passes flaked
+    # only in local tier runs, never in CI where no key exists and the call
+    # always fails into the deterministic rerank_local fallback). Pin the
+    # same deterministic fallback HERE (same stub-module seam as the phase03
+    # suite) so local and CI runs are bit-identical.
+    import types as _types
+    import reranker as _reranker_real
+
+    async def _no_glm(*_a, **_k):
+        raise TimeoutError("tier is all-mock: GLM rerank disabled")
+
+    _stub_reranker = _types.ModuleType("reranker")
+    _stub_reranker.rerank = _no_glm
+    _reranker_saved = sys.modules.get("reranker")
+    sys.modules["reranker"] = _stub_reranker
+    try:
+        return _server_full_composition_body(
+            asyncio, SimpleNamespace, phase03_pipeline, server)
+    finally:
+        if _reranker_saved is not None:
+            sys.modules["reranker"] = _reranker_real
+        else:
+            sys.modules.pop("reranker", None)
+
+
+def _server_full_composition_body(asyncio, SimpleNamespace, phase03_pipeline,
+                                  server):
     from graph_serving import GraphSnapshotView
     from retrieval.runtime import RouteResults
     from retrieval.vector import RetrievalResult
