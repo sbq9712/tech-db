@@ -259,7 +259,15 @@ def _probe_live_identity(endpoint: str, base: Path, mirror: Path,
         live1, pid1 = _sample()
         live2, pid2 = _sample()
     except (urllib.error.URLError, TimeoutError, OSError, ValueError):
-        return None, None, {"listener_discovered": False}
+        # Transport/format failure — still probe for a listener so the
+        # caller can distinguish "runtime down" from "listener present
+        # but identity endpoint broken/unstable" (codex round-3 P2).
+        try:
+            port0 = int(endpoint.rstrip("/").rsplit(":", 1)[1])
+            pid0 = _listener_pid(port0, proc_root=proc_root)
+        except (ValueError, IndexError):
+            pid0 = None
+        return None, pid0, {"listener_discovered": pid0 is not None}
     proc_info: dict = {"listener_discovered": pid1 is not None}
     if live1 is None or live2 is None:
         return None, pid1, proc_info  # unreachable/malformed — fail closed
