@@ -191,7 +191,17 @@ async def map_claims_to_citations(
                 allow_reasoning_fallback=True,  # JSON caller: lenient parser downstream
             )
             parsed = _extract_json_safe(result_text)
-            if parsed and "claims" in parsed:
+            # RT101-V12 readiness hardening (generalized, Codex D2 P1-2): a
+            # truthy NON-LIST "claims" value (e.g. a dict from a malformed
+            # provider response) must be a schema rejection — iterating it
+            # would silently yield an empty validated set ("success with
+            # empty map"), bypass the bounded MALFORMED_MODEL_OUTPUT retry,
+            # and surface downstream as a zero-surface verifier-flavored
+            # UNVERIFIED terminal (the exact V11 failure class). Only a real
+            # list may enter claim validation; anything else raises the
+            # schema-rejection error (classify_exception -> MALFORMED,
+            # bounded retry, component-honest exhaustion).
+            if parsed and isinstance(parsed.get("claims"), list):
                 claims = []
                 for i, claim in enumerate(parsed["claims"]):
                     c = _validate_claim(claim, citations, index=i)

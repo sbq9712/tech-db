@@ -136,6 +136,76 @@ def test_healthy_calibrated_refusal_unaffected():
           str(validate_capture_payload(row)))
 
 
+def test_malformed_claims_shape_is_schema_rejection():
+    """R5 (V12 readiness, Codex D2 P1-2): a truthy NON-LIST "claims" value in
+    a provider mapping response must be a schema rejection — never a
+    "success with empty map".  The empty-map path bypassed the bounded
+    MALFORMED_MODEL_OUTPUT retry and surfaced as a zero-surface
+    verifier-flavored UNVERIFIED terminal (the V11 failure class)."""
+    import asyncio
+    import claim_mapping as cm
+
+    # 1) unit-level: the mapping function must raise (schema rejection), not
+    #    return {"claims": []}, for dict/int/str claims payloads.
+    async def scenario():
+        results = []
+        orig = cm.llm_model_func
+        for bad in ({"claims": {"a": 1}}, {"claims": 7}, {"claims": "x"}):
+            async def _llm(prompt, system_prompt=None, _bad=bad, **kw):
+                import json as _json
+                return _json.dumps(_bad)
+            cm.llm_model_func = _llm
+            try:
+                await cm.map_claims_to_citations(
+                    "q", "answer text", [{"id": 1, "text": "t"}],
+                    retry_owner="request_context", attempt_number=1)
+                results.append("no-raise")
+            except Exception as e:
+                results.append(type(e).__name__ + ":" + str(e)[:60])
+            finally:
+                cm.llm_model_func = orig
+        return results
+
+    results = asyncio.run(scenario())
+    check("R5.non_list_claims_rejected",
+          all(r != "no-raise" for r in results), str(results))
+
+    # 2) classification: the rejection must classify as MALFORMED_MODEL_OUTPUT
+    #    (bounded-retryable), never INTERNAL_EXCEPTION.
+    from runtime_safety import classify_exception, FailureClass
+    cls = classify_exception(
+        ValueError("invalid schema rejection: claim mapping"))
+    check("R5.rejection_is_malformed_retryable",
+          cls is FailureClass.MALFORMED_MODEL_OUTPUT, str(cls))
+
+    # 3) a HEALTHY list-shaped payload still validates and returns claims.
+    async def healthy():
+        orig = cm.llm_model_func
+
+        async def _llm(prompt, system_prompt=None, **kw):
+            import json as _json
+            return _json.dumps({"claims": [
+                {"text": "某公司于2024年发布了新产品", "type": "KEY_FACT",
+                 "supported_by": [{"citation_id": 1}]}]})
+
+        cm.llm_model_func = _llm
+        try:
+            m = await cm.map_claims_to_citations(
+                "q", "答案 [1]", [{"id": 1, "text": "证据"}],
+                retry_owner="request_context", attempt_number=1)
+            return m
+        finally:
+            cm.llm_model_func = orig
+
+    try:
+        m = asyncio.run(healthy())
+        ok = isinstance(m.get("claims"), list)
+    except Exception as e:  # pragma: no cover
+        ok = False
+        print("   healthy-path error:", e)
+    check("R5.list_claims_still_accepted", ok)
+
+
 def test_context_owned_retry_still_bounded():
     """R4 regression control: retrieval TIMEOUT retry remains bounded
     (max_attempts) and its retry_events record the failure class."""
@@ -173,6 +243,7 @@ if __name__ == "__main__":
     test_retrieval_stage_error_is_component_honest()
     test_guard_still_fails_closed_on_zero_surface()
     test_healthy_calibrated_refusal_unaffected()
+    test_malformed_claims_shape_is_schema_rejection()
     test_context_owned_retry_still_bounded()
     print("=" * 70)
     print(f"  Results: {CHECKS[0] - len(FAILS)} passed, {len(FAILS)} failed")
