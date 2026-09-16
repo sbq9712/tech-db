@@ -33,6 +33,7 @@ This guard never mutates anything. It exits
 from __future__ import annotations
 
 import argparse
+import glob
 import hashlib
 import json
 import os
@@ -72,6 +73,19 @@ DRIFT = "SERVING_RUNTIME_DRIFT"
 
 def sha256_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def _load_runtime_identity_mod(repo: Path):
+    """Import the canonical identity module from the EVALUATED repo tree.
+
+    The expected digest is computed with the same canonical algorithm the
+    evaluated HEAD ships — never from a drifted copy.
+    """
+    qb = str(repo / "qa-backend")
+    if qb not in sys.path:
+        sys.path.insert(0, qb)
+    import importlib
+    return importlib.import_module("runtime_identity")
 
 
 def canonical_json(value) -> bytes:
@@ -152,6 +166,99 @@ def measure_runtime_store(base: Path) -> dict:
     return out
 
 
+def _listener_pid(port: int, proc_root: str = "/proc") -> int | None:
+    """PID of the process listening on 127.0.0.1:port (procfs scan)."""
+    hexport = "%04X" % port
+    inodes = set()
+    for tcp in ("tcp", "tcp6"):
+        try:
+            lines = open(f"{proc_root}/net/{tcp}").read().splitlines()[1:]
+        except OSError:
+            continue
+        for line in lines:
+            parts = line.split()
+            if len(parts) < 10:
+                continue
+            local, state = parts[1], parts[3]
+            if local.endswith(":" + hexport) and state == "0A":
+                inodes.add(parts[9])
+    for fd in glob.glob(f"{proc_root}/[0-9]*/fd/*"):
+        try:
+            link = os.readlink(fd)
+        except OSError:
+            continue
+        m = re.match(r"socket:\[(\d+)\]", link)
+        if m and m.group(1) in inodes:
+            # fd path: <proc_root>/<pid>/fd/<n> — pid is the SECOND-from-
+            # top component, not index 2 (proc_root may be multi-segment).
+            parts = fd.split("/")
+            return int(parts[-3])
+    return None
+
+
+def _probe_live_identity(endpoint: str, base: Path, mirror: Path,
+                         *, proc_root: str = "/proc",
+                         timeout_s: float = 20.0) -> tuple[dict | None,
+                                                           int | None,
+                                                           dict]:
+    """Fetch /api/runtime_identity and bind it to the listener process.
+
+    Returns (identity_or_None, listener_pid_or_None, process_info).
+    Any transport/format failure yields identity None (fail closed).
+    """
+    import urllib.error
+    import urllib.request
+    live = None
+    try:
+        req = urllib.request.Request(
+            endpoint.rstrip("/") + "/api/runtime_identity",
+            headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+            if resp.status != 200:
+                return None, None, {}
+            live = json.loads(resp.read().decode("utf-8"))
+        if not isinstance(live, dict) \
+                or live.get("schema_version") is None:
+            live = None
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        live = None
+    pid = None
+    proc_info: dict = {}
+    try:
+        port = int(endpoint.rstrip("/").rsplit(":", 1)[1])
+        pid = _listener_pid(port, proc_root=proc_root)
+    except (ValueError, IndexError):
+        pid = None
+    if pid is not None:
+        procp = Path(proc_root) / str(pid)
+        try:
+            cwd = os.readlink(procp / "cwd")
+        except OSError:
+            cwd = None
+        try:
+            cmdline = (procp / "cmdline").read_bytes().replace(
+                b"\0", b" ").decode("utf-8", "replace")
+        except OSError:
+            cmdline = ""
+        # module path: first qa-backend/server.py-looking token or the
+        # -c payload's cwd context; fall back to the exe location
+        module_path = None
+        m = re.search(r"(/[^ ]*qa-backend/server\.py)", cmdline)
+        if m:
+            module_path = m.group(1)
+        else:
+            exe = None
+            try:
+                exe = os.readlink(procp / "exe")
+            except OSError:
+                pass
+            module_path = exe
+        alive = (procp / "stat").exists()
+        proc_info = {"cwd": cwd, "cmdline": cmdline[:300],
+                     "module_path": module_path, "alive": alive}
+    return live, pid, proc_info
+
+
 def main(argv: list | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--source-repo", default=os.path.dirname(
@@ -169,6 +276,17 @@ def main(argv: list | None = None) -> int:
                          "CORPUS/MODEL/CONFIG legs of the 4-way binding")
     ap.add_argument("--require-mirror", action="store_true",
                     help="formal mode: absent mirror is DRIFT, not skip")
+    ap.add_argument("--endpoint", default=None,
+                    help="FORMAL_RUNTIME_ENDPOINT (single source of truth); "
+                         "required with --require-live")
+    ap.add_argument("--require-live", action="store_true",
+                    help="formal mode: verify the RUNNING server process "
+                         "identity via /api/runtime_identity (loaded code, "
+                         "not disk) — absent endpoint is DRIFT")
+    ap.add_argument("--expected-role", default="RT101_FORMAL",
+                    help="required service_role from the live identity")
+    ap.add_argument("--proc-root", default="/proc",
+                    help="proc filesystem root (test seam)")
     ap.add_argument("--json-out", default=None,
                     help="optional path for the structured report")
     args = ap.parse_args(argv)
@@ -324,6 +442,105 @@ def main(argv: list | None = None) -> int:
                 drift.append(f"config binding: mirror citation_schema_"
                              f"version {got_cit} != pinned {want_cit}")
 
+    # ── [LIVE] running-process identity (loaded code, not disk) ───────────
+    # V9 postmortem follow-up (owner directive §C/§D): a synced mirror does
+    # NOT imply the serving PROCESS imported the synced bytes. The live leg
+    # queries the server's own /api/runtime_identity (computed at import
+    # from the loaded modules' bytes) and fails closed unless the RUNNING
+    # identity matches the evaluated HEAD, the mirror-computed canonical
+    # code digest, the pinned corpus/model/manifest, and the formal
+    # service role — plus process-level binding (listener PID, cwd,
+    # module path).
+    if args.require_live:
+        try:
+            ri = _load_runtime_identity_mod(src)
+        except ImportError as exc:
+            print(f"FAIL_CLOSED {DRIFT} — evaluated repo lacks the "
+                  f"canonical runtime identity module: {exc}",
+                  file=sys.stderr)
+            return 2
+        ep = args.endpoint
+        if not ep:
+            drift.append("live leg: --endpoint (FORMAL_RUNTIME_ENDPOINT) "
+                         "missing — fail closed")
+        elif not re.fullmatch(r"http://127\.0\.0\.1:[0-9]{2,5}", ep):
+            drift.append(f"live leg: endpoint {ep!r} malformed (must be "
+                         "http://127.0.0.1:<port>)")
+        else:
+            live, pid, proc_info = _probe_live_identity(
+                ep, base, mirror, proc_root=args.proc_root)
+            detail["live"] = {
+                "endpoint": ep, "identity": live, "pid": pid,
+                "process": proc_info,
+                "expected_code_digest": ri.compute_code_digest(mirror)[0],
+                "expected_role": args.expected_role,
+            }
+            if live is None:
+                drift.append("live leg: /api/runtime_identity unreachable, "
+                             "malformed, or non-200 — fail closed "
+                             "(false-positive health server suspected)")
+            else:
+                # role: the listener must self-declare the formal role
+                got_role = live.get("service_role")
+                if got_role != args.expected_role:
+                    drift.append(f"live role: service_role={got_role!r} != "
+                                 f"{args.expected_role!r} (foreign or "
+                                 "undeclared server on the formal endpoint)")
+                # git sha of the RUNNING process
+                if live.get("git_sha") != expected_head:
+                    drift.append(f"live git: running server git_sha="
+                                 f"{live.get('git_sha')} != evaluated head "
+                                 f"{expected_head} (stale import)")
+                # canonical code digest of the LOADED tree
+                want_digest = ri.compute_code_digest(mirror)[0]
+                got_digest = live.get("runtime_code_digest")
+                if not got_digest or got_digest != want_digest:
+                    drift.append(f"live code: running runtime_code_digest="
+                                 f"{str(got_digest)[:16]} != mirror-computed "
+                                 f"{str(want_digest)[:16]} (loaded bytes "
+                                 "diverge from evaluated HEAD)")
+                if live.get("critical_file_count") != len(ri.CRITICAL_FILES):
+                    drift.append("live code: critical_file_count "
+                                 f"{live.get('critical_file_count')} != "
+                                 f"{len(ri.CRITICAL_FILES)} (identity "
+                                 "contract version drift)")
+                # model/corpus/manifest as the RUNNING process saw them
+                if pin is not None:
+                    if live.get("model") != pin.get("model"):
+                        drift.append(f"live model: running ZAI_MODEL="
+                                     f"{live.get('model')} != pinned "
+                                     f"{pin.get('model')}")
+                    if live.get("corpus_store_sha256") != \
+                            pin.get("source_snapshot_store_sha256"):
+                        drift.append("live corpus: running store sha "
+                                     f"{str(live.get('corpus_store_sha256'))[:16]}"
+                                     " != pinned "
+                                     f"{str(pin.get('source_snapshot_store_sha256'))[:16]}")
+                    if live.get("corpus_manifest") != pin.get("manifest_id"):
+                        drift.append(f"live manifest: running "
+                                     f"{live.get('corpus_manifest')} != pinned "
+                                     f"{pin.get('manifest_id')}")
+                # process binding: the listener PID must be a live process
+                # whose cwd is under the formal runtime base and whose
+                # module path is inside the serving mirror
+                if pid is None:
+                    drift.append(f"live process: no listener PID found for "
+                                 f"{ep} in {args.proc_root} — fail closed")
+                else:
+                    cwd = (proc_info or {}).get("cwd")
+                    if cwd is None or not str(cwd).startswith(str(base)):
+                        drift.append(f"live process: pid {pid} cwd={cwd} "
+                                     f"not under runtime base {base}")
+                    modpath = (proc_info or {}).get("module_path")
+                    if modpath is None or not str(modpath).startswith(
+                            str(mirror)):
+                        drift.append(f"live process: pid {pid} module path "
+                                     f"{modpath} not inside serving mirror "
+                                     f"{mirror}")
+                    if not (proc_info or {}).get("alive"):
+                        drift.append(f"live process: pid {pid} not alive "
+                                     "— fail closed")
+
     report = {"schema_version": "rt101-deploy-sync-2.0",
               "checked": True, "mirror_present": True,
               "source_repo": str(src), "runtime_repo": str(mirror),
@@ -342,7 +559,8 @@ def main(argv: list | None = None) -> int:
         for d in drift:
             print(f"  - {d}", file=sys.stderr)
         return 2
-    legs = "GIT+CODE" + ("+CORPUS+MODEL+CONFIG" if pin else "")
+    legs = "GIT+CODE" + ("+CORPUS+MODEL+CONFIG" if pin else "") \
+        + ("+LIVE-PROCESS" if args.require_live else "")
     print(f"deploy-sync: {DRIFT} absent — {legs} bound "
           f"(head {expected_head[:12]}, {len(CRITICAL_FILES)} files)")
     return 0

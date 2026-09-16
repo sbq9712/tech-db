@@ -24,7 +24,7 @@ import asyncio
 import re
 import time as _time
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from contextlib import asynccontextmanager, suppress
 
 # Add paths
@@ -89,6 +89,34 @@ from runtime_safety import (
     relation_requirement_ids,
 )
 from entity_resolver_v2 import resolve_query_from_runtime_snapshot
+
+# ── RT101 formal-runtime identity (single-source: runtime_identity.py) ────
+# Computed ONCE at import from the bytes of the modules this process
+# actually LOADED (sys.modules __file__ anchors) plus the same-tree files
+# for gate instrumentation. Exposed via GET /api/runtime_identity and
+# consumed by the pre-seal DEPLOY_SYNC_GATE live leg. Never contains
+# secrets, gold, or salt material.
+import runtime_identity as _runtime_identity_mod
+
+
+def _runtime_identity_payload() -> dict:
+    anchors = {}
+    for rel in _runtime_identity_mod._IMPORTED_ANCHORS:
+        modname = rel[len("qa-backend/"):-len(".py")].replace("/", ".")
+        if modname == "qa-backend":
+            continue
+        mod = sys.modules.get(modname)
+        if mod is not None and getattr(mod, "__file__", None):
+            anchors[rel] = str(mod.__file__)
+    return _runtime_identity_mod.collect_identity(
+        qa_backend_dir=Path(__file__).resolve().parent,
+        module_files=anchors,
+        working_dir=WORKING_DIR,
+        service_role=os.environ.get("FORMAL_SERVICE_ROLE") or "UNDECLARED",
+        started_at=datetime.now(timezone.utc).isoformat())
+
+
+RUNTIME_IDENTITY = _runtime_identity_payload()
 
 REPO = Path(__file__).resolve().parent.parent
 LITE_PATH = REPO / "data" / "processed" / "all-records-lite.json"
@@ -2137,6 +2165,20 @@ async def operator_trace_view(trace_id: str, request: Request):
         return JSONResponse(
             {"error": "trace unavailable", "reason_code": str(exc)},
             status_code=404)
+
+
+@app.get("/api/runtime_identity")
+async def runtime_identity():
+    """Machine-readable identity of the RUNNING formal runtime.
+
+    Served from values computed at IMPORT time (loaded-code proof: the
+    digests cover the bytes of the modules this process actually imported,
+    not the disk). The pre-seal DEPLOY_SYNC_GATE compares this payload
+    against the evaluated HEAD / pin; any absence, mismatch, or malformed
+    field fails closed as SERVING_RUNTIME_DRIFT. Sanitized by contract:
+    no secrets, no gold, no salt material.
+    """
+    return RUNTIME_IDENTITY
 
 
 @app.get("/api/health")
