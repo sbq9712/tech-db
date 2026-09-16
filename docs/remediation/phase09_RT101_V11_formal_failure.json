@@ -1,0 +1,109 @@
+{
+  "candidate": {
+    "blind_cases_sha256": "711a7273fbf5ee2ce2b4abbbcd79d0030e37c7ac96176ecb42619180ff0c9863",
+    "case_count": 15,
+    "case_mix": {
+      "ABSTAIN": 2,
+      "ANSWER": 11,
+      "MUTATION_WITH_LOYAL_ANSWER": 2
+    },
+    "evaluated_git_sha": "4ce451847042c470279b57b7652b7cf7567a0e35",
+    "v11_candidate_sha256": "0da960d0901fb8eb2ed89c3450bd7bbcdf64b44bf46d55d084e32491a41f72cb",
+    "v11_lock_sha256": "359ef0d65b88e950ddc57fb8c77ce0fa16c1d849ec33e03cac4c838d26146e75"
+  },
+  "consequences": {
+    "NEXT_PROMPT_ALLOWED": false,
+    "NEXT_STEP": "V12 fresh isolated lineage only: fresh builder + fresh salt + fresh candidate/lock at the post-repair head, full gate chain (tier, CI, contamination/corpus/source/deploy, dry-run) and a NEW owner approval; formal V12 execution forbidden until then",
+    "PHASE09": "NOT_SATISFIED",
+    "PHASE10": "FORBIDDEN",
+    "RT101": "UNSATISFIED"
+  },
+  "execution": {
+    "completed_at_utc": "2026-09-16T13:24:41Z",
+    "formal_result_artifact": "owner-side formal_v11_state/scorer_integrity_violation.json (SCORER_INTEGRITY_VIOLATION)",
+    "formal_result_sha256": "18d86197d344aa2ea967944125ec258aaafff546cc82c528ce0009e5bc8996aa",
+    "immutability": {
+      "IMMUTABLE": true,
+      "REUSE_FORBIDDEN": true,
+      "V11_ONE_SHOT_CONSUMED": true,
+      "V11_RESULT": "FAIL",
+      "V6_IMMUTABLE_FAIL_PRESERVED": true,
+      "V7_IMMUTABLE_FAIL_PRESERVED": true,
+      "V8_IMMUTABLE_FAIL_PRESERVED": true
+    },
+    "one_shot_marker_sealed_at_utc": "2026-09-16T13:11:22Z",
+    "population_binding_sha256": "eae9a2b67fcfd7a97a4b21e7545abcf53ca029daaa31abc30535e89a5d8d16b0",
+    "run_id": "owner-v11-formal-20260916T131055Z",
+    "runner": "owner-side run_v11_after_owner_approval.sh",
+    "runner_sha256": "a10580223d40cf16b23c2ec2adf070329c160ed23ae4b44e749954d5f6bb9cd3",
+    "scorer_id": "RT101-V11-SCORER",
+    "scorer_sha256": "01f81c7ecdc06a6c72e729f5f91e7bdb11266171ba330e20a4946087c68331e6",
+    "scorer_version": "11.0.0"
+  },
+  "generalized_observations": [
+    "4/15 terminals carried stop_reason technical_failure:verifier; in 2/15 (cases 01, 05) the underlying stage failure was a retrieval StageExecutionError (RUNTIME_ROUTE_FAILURE_RECHECK after the bounded 2-attempt retry against the 3.0s retrieval deadline under host load) that escaped event_generator uncaught and was re-attributed to the verifier — component misattribution, the same class as the Codex round-4 P1 claim_mapping fix",
+    "the 2 misattributed rows were UNVERIFIED with zero scorable surface; scorer_guard correctly rejected them (ANSWER_ROW_UNSCORABLE) — the fail-closed scoring contract held; the defect is in the runtime component attribution, not in the scorer or thresholds",
+    "generalized repair (committed ca256de, 10-check regression suite rt101_v11_failure_repairs registered in the push tier): retrieval StageExecutionError is now fail-closed AT THE STAGE with true component attribution in state_machine.technical_failures; the row remains UNVERIFIED zero-surface so guard rejection semantics are unchanged",
+    "quality was independently insufficient: 7/15 PARTIALLY_SUPPORTED with verifier_findings_unsupported_claims; no case reached full support — V11 would have failed thresholds even absent the integrity halt"
+  ],
+  "generated_at_utc": "2026-09-16T15:20:00.000000+00:00",
+  "gold_isolation": "this record contains aggregate counts, transport facts, identity digests, and immutable-result binding only; no hidden gold, expected answers, hidden rubric, per-case sealed detail, case text, or query text",
+  "metrics": "NOT_COMPUTED — scorer integrity halt precedes threshold evaluation",
+  "population": {
+    "abstention_cases": 2,
+    "answer_cases": 13,
+    "cases": 15,
+    "citations_total": "not-scored (integrity halt pre-thresholds)",
+    "claim_units_evaluated": "not-scored (integrity halt pre-thresholds)",
+    "facts_total": "not-scored (integrity halt pre-thresholds)"
+  },
+  "record_type": "FORMAL_FAILURE_RECORD_SANITIZED",
+  "schema_version": "phase09-rt101-v11-failure-record-1.0",
+  "scorer_integrity": {
+    "defect_cases": 2,
+    "defects": {
+      "case_01": [
+        "ANSWER_ROW_UNSCORABLE"
+      ],
+      "case_05": [
+        "ANSWER_ROW_UNSCORABLE"
+      ]
+    },
+    "note": "two UNVERIFIED terminal rows had zero scorable surface (requirements_total=0, no claim units); the guard rejected them fail-closed as designed — scoring halted BEFORE any threshold evaluation, so no release metrics exist for V11",
+    "verdict": "SCORER_INTEGRITY_VIOLATION"
+  },
+  "terminal_envelope_aggregate": {
+    "answer_status": {
+      "PARTIALLY_SUPPORTED": 7,
+      "UNSUPPORTED": 4,
+      "UNVERIFIED": 4
+    },
+    "runtime_iterations": "1 on all cases",
+    "state_machine_technical_failures_tally": {
+      "empty": 11,
+      "verifier:'error' (component misattribution)": 2,
+      "verifier:'technical_failure:verifier' (verifier-classified)": 2
+    },
+    "stop_reason": {
+      "technical_failure:verifier": 4,
+      "verifier_findings_unsupported_claims": 7,
+      "weak_query": 4
+    }
+  },
+  "threshold_results": "NOT_COMPUTED — scorer integrity halt precedes threshold evaluation",
+  "thresholds_unchanged": {
+    "note": "identical to locked release_eval thresholds (correctness/completeness/attribution/temporal/numeric/exact_citation 0.8; unsupported_claim_rate_max 0.2; abstention 1.0; invalid_displayed_citations_max 0; verifier_technical_pass_max 0); no threshold was lowered for or after V11",
+    "vec_strong": "0.55 unchanged since Phase03"
+  },
+  "transport_aggregate": {
+    "capture_bytes_max": 716154,
+    "capture_bytes_min": 184,
+    "http_status": {
+      "200": 15
+    },
+    "read_errors": 0,
+    "retry_policy": "driver one-attempt-per-case + existing bounded transport retry only; no semantic retry",
+    "runner_client_rc_zero": 15,
+    "truncated": 0
+  }
+}
