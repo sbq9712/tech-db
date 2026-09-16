@@ -13,7 +13,7 @@ const QA_API_BASE = (() => {
   if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
     return 'http://localhost:8765';
   }
-  return 'https://kde-symantec-them-tribe.trycloudflare.com';
+  return 'https://organizational-sport-middle-birds.trycloudflare.com';
 })();
 
 // ── State ──
