@@ -12,7 +12,7 @@
       "recoverable": 18,
       "total": 18,
       "big_input_seconds": 0.029,
-      "oversize_seconds": 0.011
+      "oversize_seconds": 0.01
     },
     "seams": "covered above"
   },
@@ -54,7 +54,7 @@
     "scheduling": {
       "cap_tighten_s": 0.501,
       "cap_hold_s": 3.004,
-      "retry_bound_s": 0.051,
+      "retry_bound_s": 0.05,
       "reserve_s": 22.0
     },
     "latency_injected_request": {
@@ -122,7 +122,7 @@
     "ambiguous_data_not_mutated": true,
     "garbage_fail_closed": true
   },
-  "created_utc": "2026-09-16T07:53:10Z",
+  "created_utc": "2026-09-16T08:26:19Z",
   "targeted_followup": {
     "p0_1_generator_fail_closed": "generator admission is fail-closed: when remaining budget cannot fit downstream reserve + MIN_GENERATION_WINDOW_S, the generator operation never begins (both terminal-renderer and legacy-compat profiles)",
     "p0_2_final_citation_authority": "citation display authority is bound to FINAL per-claim verification (PASSED + SUPPORTED); stale precomputed supports_claim_ids cannot override it",
@@ -131,11 +131,11 @@
   },
   "git": {
     "head_at_generation": "1db752000423a3582ef950cc6082877920b39777",
-    "branch": "remediation/phase-09-benchmarks-ci-release-gates",
+    "branch": "HEAD",
     "note": "artifact generated in the repair worktree on top of head_at_generation; the Phase09 repair commit adds this file, the repaired modules, and this suite"
   },
   "git_sha": "1db752000423a3582ef950cc6082877920b39777",
-  "git_branch": "remediation/phase-09-benchmarks-ci-release-gates",
+  "git_branch": "HEAD",
   "fixture": {
     "suite_file": "tests_repair_phase09_reliability.py",
     "suite_sha256": "ae46527dd57b033fc37fa33df66cf4e9c4086f4d41a830f59480238fdecd24b6",

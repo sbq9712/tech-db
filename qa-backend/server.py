@@ -3525,6 +3525,7 @@ async def chat_stream(req: ChatRequest, request: Request):
 
                 # ── T004: Claim Mapping ──
                 claim_map = {"claims": []}
+                _claim_mapping_failure = ""  # RT101-V10 post-seal repair
                 if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
                     try:
                         claim_budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
@@ -3614,6 +3615,17 @@ async def chat_stream(req: ChatRequest, request: Request):
                         raise
                     except Exception as e:
                         print(f"[claim_mapping] Error: {e}", flush=True)
+                        # RT101-V10 post-seal repair (Codex round-4 P1):
+                        # never silently reduce a failed claim-mapping stage
+                        # (incl. StageExecutionError after bounded retries)
+                        # to a verifier-flavored zero-claims terminal — carry
+                        # the component attribution into the answer machine
+                        # (parity with phase02_pipeline's record path).
+                        _claim_mapping_failure = str(e)[:120]
+                        trace.add_stage("claim_mapping", {
+                            "status": "EXCEPTION",
+                            "error": str(e)[:200],
+                        })
                 # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
                 # supported_by map (citation_id → [claim ids]). Filled whenever
                 # claim_mapping ran (agentic); stays [] otherwise and the UI hides
@@ -3951,6 +3963,7 @@ async def chat_stream(req: ChatRequest, request: Request):
                         is_relevant=is_relevant or _phase03_active,
                         verification_status=verification_status,
                         claim_mapping=claim_map,
+                        claim_mapping_failure=_claim_mapping_failure,
                     )
                     answer_status_str = status_enum.value
 

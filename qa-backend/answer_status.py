@@ -498,6 +498,7 @@ def determine_answer_status(
     claim_mapping: dict = None,
     evidence_grader_result: dict = None,
     declared_no_evidence: bool = False,
+    claim_mapping_failure: str = "",
 ) -> tuple:
     """Legacy compatibility shim — now ROUTES THROUGH the canonical machine.
 
@@ -545,6 +546,17 @@ def determine_answer_status(
         # verification never ran — fail-closed (RT-024)
         machine.finalize()
         return (machine.terminal_status, machine.stop_reason)
+
+    # RT101-V10 post-seal repair (Codex round-4 P1): a failed claim-mapping
+    # stage carries ITS OWN component attribution into the machine — rule 2
+    # then yields UNVERIFIED "technical_failure:claim_mapping" — instead of
+    # being silently reduced to the verifier-flavored zero-claims terminal
+    # (rule 4b) that masked which component actually failed. The canonical
+    # phase02_pipeline path already records this exact fact; this only
+    # brings the legacy shim to parity.
+    if claim_mapping_failure:
+        machine.record_technical_failure("claim_mapping",
+                                         claim_mapping_failure)
 
     machine.finalize()
     return (machine.terminal_status, machine.stop_reason)

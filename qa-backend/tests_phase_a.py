@@ -242,6 +242,20 @@ test("results + passed + no claims → UNVERIFIED",
      status == AnswerStatus.UNVERIFIED and
      reason == "answer_terminal_without_emitted_claims")
 
+# Test 2c (RT101-V10 post-seal repair, Codex round-4 P1): a failed
+# claim-mapping stage carries its own component attribution into the
+# machine — rule 2 UNVERIFIED "technical_failure:claim_mapping", never
+# the verifier-flavored zero-claims terminal that masked which component
+# actually failed on the legacy path.
+status, reason = determine_answer_status(
+    has_results=True, is_relevant=True, verification_status="PASSED",
+    claim_mapping_failure="RUNTIME_CRITICAL_STAGE_UNVERIFIED: "
+                          "invalid schema rejection: claim mapping",
+)
+test("claim_mapping failure attributes its component → UNVERIFIED",
+     status == AnswerStatus.UNVERIFIED and
+     reason == "technical_failure:claim_mapping")
+
 # Test 3: Verification UNVERIFIED → UNVERIFIED
 status, reason = determine_answer_status(
     has_results=True, is_relevant=True, verification_status="UNVERIFIED"
