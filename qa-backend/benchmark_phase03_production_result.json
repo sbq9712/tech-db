@@ -8,9 +8,9 @@
     "legacy_top25_drops_target": 1.0,
     "prod_rank26_survival": 1.0,
     "selector_coverage": 1.0,
-    "latency_legacy_ms": 2.26,
-    "latency_phase03_ms": 5.8,
-    "latency_ratio": 2.56,
+    "latency_legacy_ms": 1.7,
+    "latency_phase03_ms": 4.56,
+    "latency_ratio": 2.68,
     "latency_within_bound": true
   },
   "thresholds": {
