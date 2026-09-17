@@ -1,0 +1,86 @@
+{
+  "candidate": {
+    "blind_cases_sha256": "0f394968818b2ed4e3e507df4a548eed313fb7553b3a0c9703ce6cc25626c24c",
+    "blind_manifest_sha256": "a0e0009a85f9210fbfc8720ec30065359193afb5eeaca5a309dd0acbb0bf519b",
+    "blind_handoff_sha256": "64c08438cce228ac7b111fa31afd8e5ac822d29c78baf7d0da8ae251a0d9b359",
+    "owner_gold_bundle_sha256": "8f5cd94b8d28f17e2b7f65fd78f473ed3f69efc3987119366f597deeddf63e04",
+    "working_evidence_sha256": "8d5f12463650747306ef185b0ad8067b702994c5d34ab91c9afac006db9fcf18",
+    "case_count": 15,
+    "case_mix": {
+      "ABSTAIN": 2,
+      "ANSWER": 11,
+      "MUTATION_WITH_LOYAL_ANSWER": 2
+    },
+    "corpus_manifest": "mini-runtime-a49a56f8861a0633",
+    "corpus_store_sha256": "f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7",
+    "evaluated_git_sha": "bb5c40b7d1b131bb336113694902fb489c08566d",
+    "runtime_code_digest": "42f70c17c4d169a0e735507f55c9a854718d38d44d9400bc74163db21ef4074e",
+    "salt_binding_digest": "17ffccc81f27716c071994cd0f4165bcc83fa7cf23000cc4d8066168981a47a9",
+    "v12_candidate_sha256": "9d992ec596786a17c2fa837d23c04dadd76a3ffe94de0f73e79d657b5e5ba097",
+    "v12_lock_sha256": "c6703a621b5abcefeaab6ccd3add1ef0cc079e8e3306cc2f962e3ac4c8234d35"
+  },
+  "consequences": {
+    "NEXT_PROMPT_ALLOWED": false,
+    "NEXT_STEP": "V13 fresh isolated lineage only: fresh builder + fresh salt + fresh candidate/lock at the post-repair head, generalized repair only (no query-specific tuning), full gate chain (tier, CI, contamination/corpus/source/deploy, repeated dry-run) and a NEW owner approval; formal execution forbidden until then",
+    "PHASE09": "NOT_SATISFIED",
+    "PHASE10": "FORBIDDEN",
+    "RT101": "UNSATISFIED"
+  },
+  "execution": {
+    "chain_sha256": "9d813e460cecbdf9f4029b3c1f01f24ae844d1c0b8108b8e161cb106d4f7dedc",
+    "completed_at_utc": "2026-09-17T00:31:42Z",
+    "decision": "FAIL",
+    "decision_predecessor": "GENESIS",
+    "formal_result_artifact": "owner-side formal_v12_state/scoring_report_aggregate.json",
+    "formal_result_sha256": "ac6596065a6313206ee81d6a4c3680ede4a9fbf700a5ac76c14b87627177cb95",
+    "immutability": {
+      "IMMUTABLE": true,
+      "REUSE_FORBIDDEN": true,
+      "V12_ONE_SHOT_CONSUMED": true,
+      "V12_RESULT": "FAIL",
+      "V11_IMMUTABLE_FAIL_PRESERVED": true,
+      "V6_IMMUTABLE_FAIL_PRESERVED": true,
+      "V7_IMMUTABLE_FAIL_PRESERVED": true,
+      "V8_IMMUTABLE_FAIL_PRESERVED": true,
+      "V9_IMMUTABLE_FAIL_PRESERVED": true,
+      "V10_IMMUTABLE_FAIL_PRESERVED": true,
+      "V12_L1_ABANDONED_PRESERVED": true,
+      "V12_L2_SEALED_NOT_EXECUTED_PRESERVED": true
+    },
+    "one_shot_marker_sha256": "488e3ff5dd2922ede9d87b3df5522ae58d59aa01386515b2a58ff86de779235f",
+    "one_shot_marker_sealed_at_utc": "2026-09-17T00:17:28Z",
+    "run_id": "owner-v12-formal-20260917T001704Z",
+    "runner": "owner-side run_v12_after_owner_approval.sh",
+    "runner_sha256": "c4f92cd74cc0067ec13149dc36eca01548b320122175b73cc7dfd2b38307546e",
+    "scorer_id": "RT101-V12-SCORER",
+    "scorer_sha256": "f1551a0ddf1e0c794e4b1ecd64705a8ebd3487871a824cdaf1226794b2e9080c",
+    "scorer_version": "11.0.0",
+    "thresholds_sha256": "6f8ec0c9aae0c0111c3f0ff2cb892ff372123785cc0cfbec9be82b61704f5969"
+  },
+  "generalized_observations": [
+    "metrics: correctness 0.0769 (min 0.8), completeness 0.1429 (min 0.8), unsupported_claim_rate 0.9627 (max 0.2), attribution_accuracy 0.0 (min 0.8), exact_citation_accuracy 0.5385 (min 0.8), invalid_displayed_citations 6 (max 0), verifier_technical_failures 2 (max 0); temporal_accuracy 1.0 and abstention_accuracy 1.0 PASSED — loyal-refusal behavior is intact",
+    "facts_matched 3/21 across 13 answer rows: the generator only ever SAW the first 300 characters of each evidence body (build_context 证据摘录 body[:300]); for news records whose body begins with title + markdown link fragments, the fact-bearing text (investment/scale/dates) begins beyond that window, so required facts never reached the generated answer",
+    "the citation excerpt path has the same head-bias: extract_relevant_excerpt(max_length=200, window=80) centers on the densest keyword cluster, which for these bodies is the title/link head, so body_snippet and the grounded evidence spans are title/link noise; the verifier then correctly fails claims against noise spans (unsupported_claim_rate 0.9627 is verifier-correct behavior on degraded evidence, not a verifier defect)",
+    "the claim mapper source list carries only title/date/source (no body text) so evidence_span proposals cannot be genuine source text; downstream exact grounding then locks spans to the noise head region — evidence content starvation propagates through mapping, grounding and verification",
+    "weak_query zero-search refusals hit legitimate ANSWER-template queries whose whole-query embedding peaks at 0.50-0.54 against the VEC_STRONG=0.55 admission threshold (template dilution); the bounded sub-query recheck does not rescue single-keyword template queries, so 2/13 answer rows refused with searched_record_ids=[]",
+    "index-universe divergence: 16112/30391 corpus records are excluded from vector+BM25 indexes by legacy category tags (未分类/不相关), yet remain CITATION_ELIGIBLE in the pinned snapshot store; 9/13 records whose evidence text contains the hidden case-03 keyword are in the excluded set — retrieval cannot find what is not indexed, while questions are constructed from the full corpus universe",
+    "verifier_technical_failures=2: unbatched single-call verification of 7-9 atomic claims against exact_text evidence at temperature 0 exceeded the bounded retry envelope (provider JSON truncation class) → fail-closed UNVERIFIED rows, correct per RT-025 but auto-failing the max=0 threshold",
+    "every observed defect is a RUNTIME evidence-content-plumbing / admission-policy defect; the scorer, thresholds, marker/decision chain and identity bindings behaved correctly throughout (aggregate run_identity matched the sealed marker; population 15/13/2 as pinned)"
+  ],
+  "repair_policy": {
+    "forbidden": [
+      "query-specific or case-specific tuning",
+      "threshold changes on scorer or release gates",
+      "semantic retry of formal cases",
+      "reinterpreting this FAIL as PASS",
+      "reusing any V6-V12 candidate/lock/salt/lineage material for V13"
+    ],
+    "required": [
+      "generalized evidence-content plumbing repair (body text windowing over the full eligible body, noise-aware excerpting, body-visible claim mapping/verifier inputs)",
+      "generalized admission repair for template-diluted queries (content-term extraction before whole-query embedding for the admission decision)",
+      "index-universe repair: index the full CITATION_ELIGIBLE corpus universe under the existing category policy, or reconcile the category policy with the corpus contract",
+      "verifier batching to bound per-call output size (technical-failure prevention, not semantic change)",
+      "full regression + one push tier at the final head, then a fresh V13 lineage with a new owner approval package"
+    ]
+  }
+}
