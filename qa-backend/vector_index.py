@@ -126,6 +126,13 @@ async def build_index():
 
     print(f"  Canonical set (non-dup, full adjudicated universe): "
           f"{len(records)}", flush=True)
+    # R3 binding (Codex round P1-2): when the adjudicated snapshot store is
+    # present, the canonical count must equal it EXACTLY (fail-closed on
+    # drift); fixtures without the store skip the binding.
+    try:
+        _ibv.assert_universe_binding(len(records), INDEX_DIR)
+    except _ibv.MigrationError as exc:
+        raise RuntimeError(str(exc)) from exc
 
     # ── Incremental mode: load existing index, detect new/changed/stale ──
     existing_embeddings = None

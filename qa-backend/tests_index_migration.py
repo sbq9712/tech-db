@@ -509,6 +509,72 @@ def main() -> int:
              "(default 16) so constrained hosts can bound the padded "
              "activation peak")
 
+        # ── RT101-V12 post-mortem (R3, Codex round P1-7): TRUE dp==1 case ──
+        # The main fixture has no dp==1 record, so its 5-record expectations
+        # test full inclusion only. This dedicated mini-fixture proves the
+        # complementary half of the R3 policy: canonical exclusion is NOW
+        # ONLY the dp==1 duplicate flag (legacy category labels excluded
+        # nothing anymore), for BOTH builders.
+        import bm25_index as b25_dedup
+        dup_records = [
+            {"t": "Dedup keeper", "b": "keeper evidence body", "c": "chip",
+             "u": "https://dedup.invalid/keep", "tp": "paper"},
+            # dp==1 → logical duplicate flag: excluded from BOTH indexes
+            {"t": "Dedup duplicate", "b": "dup evidence body", "c": "chip",
+             "u": "https://dedup.invalid/dup", "tp": "paper", "dp": 1},
+            # legacy "irrelevant" label: NOT excluded anymore (R3 semantics)
+            {"t": "Dedup uncategorized", "b": "labeled irrelevant", "c": "",
+             "u": "https://dedup.invalid/uncat", "tp": "note"},
+        ]
+        ds_dup = write_dataset(td / "lite.dup.json", dup_records)
+        map_dup = build_map_for(ds_dup, td / "registry.dup.sqlite",
+                                td / "map.dup.json")
+        dup_ids = {r["legacy_idx"]: r["record_id"]
+                   for r in map_dup["mappings"]}
+        dup_map_default = _ibv_mod.DEFAULT_MAP
+        _ibv_mod.DEFAULT_MAP = td / "map.dup.json"
+        b25_dedup_orig = (b25_dedup.LITE, b25_dedup.INDEX_DIR,
+                          b25_dedup.BM25_FILE, b25_dedup.DICT_FILE)
+        vi_dedup_orig = (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE,
+                         vi.embedding_func, vi.EMBEDDING_DIM)
+        try:
+            b25_dedup.LITE = ds_dup
+            b25_dedup.INDEX_DIR = td / "idx-dup-bm25"
+            b25_dedup.INDEX_DIR.mkdir()
+            b25_dedup.BM25_FILE = b25_dedup.INDEX_DIR / "bm25_index.pkl"
+            b25_dedup.DICT_FILE = b25_dedup.INDEX_DIR / "jieba_custom_dict.txt"
+            b25_dedup.build_bm25_index()
+            with open(b25_dedup.BM25_FILE, "rb") as f:
+                dup_bm = pickle.load(f)
+            dup_bm_ids = {m["record_id"] for m in dup_bm["meta"]}
+            test("BM25.dp1_only_exclusion",
+                 len(dup_bm["meta"]) == 2
+                 and dup_ids[0] in dup_bm_ids
+                 and dup_ids[2] in dup_bm_ids
+                 and dup_ids[1] not in dup_bm_ids)
+
+            vi.LITE = ds_dup
+            vi.INDEX_DIR = td / "idx-dup-vec"
+            vi.INDEX_DIR.mkdir()
+            vi.INDEX_FILE = vi.INDEX_DIR / "vector_index_v2.pkl"
+            vi.embedding_func = fake_embed
+            vi.EMBEDDING_DIM = 8
+            asyncio.run(vi.build_index())
+            with open(vi.INDEX_FILE, "rb") as f:
+                dup_vec = pickle.load(f)
+            dup_vec_ids = {m["record_id"] for m in dup_vec["meta"]}
+            test("VEC.dp1_only_exclusion",
+                 len(dup_vec["meta"]) == 2
+                 and dup_ids[0] in dup_vec_ids
+                 and dup_ids[2] in dup_vec_ids
+                 and dup_ids[1] not in dup_vec_ids)
+        finally:
+            b25_dedup.LITE, b25_dedup.INDEX_DIR = b25_dedup_orig[0], b25_dedup_orig[1]
+            b25_dedup.BM25_FILE, b25_dedup.DICT_FILE = b25_dedup_orig[2], b25_dedup_orig[3]
+            (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
+             vi.EMBEDDING_DIM) = vi_dedup_orig
+            _ibv_mod.DEFAULT_MAP = dup_map_default
+
     finally:
         shutil.rmtree(td, ignore_errors=True)
 

@@ -27,6 +27,7 @@ import re
 import llm_json  # Phase09 shared bounded LLM-JSON normalizer (Class C repair)
 
 from config import llm_model_func
+from runtime_safety import RequestCancelled  # cancellation ≠ verifier verdict
 
 # TK-10/T005: bounded retries for transient transport failures only —
 # semantic verdicts are never retried away.
@@ -39,7 +40,22 @@ VERIFY_TIMEOUT = int(os.environ.get("QA_VERIFY_TIMEOUT", "60"))
 # single call's JSON envelope truncated twice in the formal window (bounded
 # retries exhausted → fail-closed UNVERIFIED). Batching bounds per-call
 # output; semantics unchanged (merged findings, all-PASS aggregation).
-VERIFY_CLAIM_BATCH_SIZE = max(2, int(os.environ.get("QA_VERIFY_CLAIM_BATCH_SIZE", "4")))
+# Codex V12-repair round P1-3: the env override is CLAMPED to [2, 16] and
+# unparseable values fall back to the default — a bad env value must never
+# abort import nor recreate oversized calls.
+def _bounded_env_int(name: str, default: int, lo: int, hi: int,
+                     env=None) -> int:
+    raw = str((env if env is not None else os.environ).get(name, "") or "").strip()
+    if not raw:
+        return default
+    try:
+        val = int(raw)
+    except ValueError:
+        return default
+    return max(lo, min(hi, val))
+
+
+VERIFY_CLAIM_BATCH_SIZE = _bounded_env_int("QA_VERIFY_CLAIM_BATCH_SIZE", 4, 2, 16)
 
 VERIFY_PASSED = "PASSED"
 VERIFY_FAILED = "FAILED"
@@ -305,7 +321,18 @@ def build_verifier_input(query: str, atomic_claims: list,
             f"snapshot {str(r.get('source_snapshot_id') or '?')} "
             f"loc {str(r.get('locators') or '?')}> "
             f"{ev_text}")
-    evidence_block = "\n".join(evidence_lines)[:24000]
+    # Codex V12-repair round P2-8: truncate at LINE boundaries with an
+    # explicit marker — a mid-line cut could otherwise silently drop later
+    # refs while the model sees a syntactically complete-looking block.
+    evidence_block = ""
+    for line in evidence_lines:
+        candidate = f"{evidence_block}\n{line}" if evidence_block else line
+        if len(candidate) > 24000:
+            evidence_block += ("\n… (evidence block truncated at cap; "
+                               "remaining refs omitted — do NOT treat "
+                               "omitted refs as verified or unverified)")
+            break
+        evidence_block = candidate
     deterministic_block = json.dumps(
         deterministic_results or {}, ensure_ascii=False, default=str)[:2000]
     return VERIFY_FINAL_PROMPT.format(
@@ -412,24 +439,39 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
     # (fail-closed unchanged). Batch size is env-configurable and bounded.
     batch_size = VERIFY_CLAIM_BATCH_SIZE
     if isinstance(atomic_claims, list) and len(atomic_claims) > batch_size:
-        merged_findings: list = []
-        merged_issues: list = []
-        all_pass = True
-        any_failed = False
-        for start in range(0, len(atomic_claims), batch_size):
-            chunk = atomic_claims[start:start + batch_size]
-            result = await verify_final(
-                query, chunk, evidence_refs, deterministic_results,
-                max_retries=max_retries, snapshot_lookup=snapshot_lookup,
-                retry_owner=retry_owner, attempt_number=attempt_number)
-            if result.status == VERIFY_UNVERIFIED:
-                return result
-            merged_findings.extend(result.findings or [])
-            merged_issues.extend(result.issues or [])
-            if result.status == VERIFY_FAILED:
-                any_failed = True
-            if any(f.get("verdict") != "PASS" for f in result.findings or []):
-                all_pass = False
+        # Codex V12-repair round P1-4: the batch loop is fail-closed
+        # CALLER-INDEPENDENTLY — an unexpected exception escaping any
+        # nested batch resolves to ONE whole-call UNVERIFIED result here
+        # (never a raise), matching the documented "technical failure in
+        # any batch is a failure of the whole call". Request cancellation
+        # still propagates: a cancelled request is not a verifier verdict.
+        try:
+            merged_findings: list = []
+            merged_issues: list = []
+            all_pass = True
+            any_failed = False
+            for start in range(0, len(atomic_claims), batch_size):
+                chunk = atomic_claims[start:start + batch_size]
+                result = await verify_final(
+                    query, chunk, evidence_refs, deterministic_results,
+                    max_retries=max_retries, snapshot_lookup=snapshot_lookup,
+                    retry_owner=retry_owner, attempt_number=attempt_number)
+                if result.status == VERIFY_UNVERIFIED:
+                    return result
+                merged_findings.extend(result.findings or [])
+                merged_issues.extend(result.issues or [])
+                if result.status == VERIFY_FAILED:
+                    any_failed = True
+                if any(f.get("verdict") != "PASS"
+                       for f in result.findings or []):
+                    all_pass = False
+        except RequestCancelled:
+            raise
+        except Exception as exc:  # noqa: BLE001 — fail-closed, never PASSED
+            return VerificationResult(
+                VERIFY_UNVERIFIED,
+                failure_reason=f"verify_batch_error:{type(exc).__name__}",
+                failure_class="exception")
         if any_failed or not all_pass:
             return VerificationResult(VERIFY_FAILED, issues=merged_issues,
                                       findings=merged_findings)

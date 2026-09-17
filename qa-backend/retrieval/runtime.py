@@ -604,8 +604,16 @@ def content_term_view(query: str, max_len: int = 96) -> str:
         if any(tl in k.lower() or k.lower() in tl for k in kept):
             continue
         kept.append(t)
-    view = " ".join(kept)
-    return view[:max_len].strip()
+    # Codex V12-repair round P2-11: token-granular fill — a whole token is
+    # dropped when it no longer fits, never a mid-token cut (a truncated
+    # token would embed as a meaningless fragment).
+    view = ""
+    for t in kept:
+        candidate = f"{view} {t}".strip()
+        if len(candidate) > max_len:
+            break
+        view = candidate
+    return view
 
 
 async def recheck_admission_subqueries(query: str, *, embed_fn=None,
@@ -711,10 +719,16 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
     # the corpus covers the exact term — exact lexical match is exactly the
     # signal embeddings cannot provide. The BM25 route over the
     # content-term tokens (never the boilerplate-laden full query) admits
-    # when the top document clears the ALREADY-DEFINED BM25_STRONG constant
-    # with every content term contributing at least one hit. Full-query
-    # BM25 stays non-authoritative (Phase-02 blocker-1 semantics kept);
-    # any recheck error keeps the rejection (fail-closed preserved).
+    # when ≥2 INDEPENDENT records each individually clear the ALREADY-
+    # DEFINED BM25_STRONG constant for the content-term view. Per-term
+    # coverage is intentionally NOT required here (Codex P1-1 round):
+    # term salience varies across title/body/metadata fields — a date can
+    # legitimately live in a metadata field, not the BM25 body — so a
+    # per-term body check would wrongly reject genuinely covered queries;
+    # downstream exact-span grounding remains the authority for whether a
+    # claimed fact is really supported. Full-query BM25 stays
+    # non-authoritative (Phase-02 blocker-1 semantics kept); any recheck
+    # error keeps the rejection (fail-closed preserved).
     if ct_view:
         try:
             bm_res = await asyncio.to_thread(_br.search, ct_view, 8)

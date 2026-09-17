@@ -507,3 +507,37 @@ def main(argv=None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+# ── RT101-V12 post-mortem (R3, Codex round P1-2): adjudicated-universe ──
+# The index canonical set must equal the adjudicated snapshot universe —
+# never a partial universe, never silently. When the adjudicated snapshot
+# store is present next to the index dir (production), the row count is
+# the binding authority (docs/remediation/phase09_RT101_corpus_
+# adjudication.json: the canonical product source universe is the FULL
+# CITATION_ELIGIBLE snapshot population). A missing store (unit-test
+# fixtures with a private tmp index dir) skips the binding — the guard
+# never invents a count, it only ever BINDS to the live authority.
+def assert_universe_binding(canonical_count: int, index_dir) -> None:
+    store = Path(index_dir) / "source_snapshots"
+    if not store.is_file():
+        return
+    try:
+        import sqlite3
+        con = sqlite3.connect(f"file:{store}?mode=ro", uri=True)
+        try:
+            rows = int(con.execute(
+                "SELECT COUNT(*) FROM snapshots").fetchone()[0])
+        finally:
+            con.close()
+    except Exception as exc:  # store present but unreadable → fail closed
+        raise MigrationError(
+            f"adjudicated-universe binding unreadable ({store}): {exc}"
+        ) from exc
+    if rows != canonical_count:
+        raise MigrationError(
+            f"index universe drift: canonical {canonical_count} != "
+            f"adjudicated snapshot universe {rows} — retrieval must cover "
+            "the FULL adjudicated universe; rebuild requires the corpus "
+            "adjudication authority (docs/remediation/phase09_RT101_corpus"
+            "_adjudication.json), never a silent partial universe")

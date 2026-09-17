@@ -169,10 +169,13 @@ async def map_claims_to_citations(
         # list now carries each citation's bounded body_snippet (a real,
         # noise-stripped source excerpt produced by build_context), letting
         # the mapper quote actual source text per the prompt contract.
+        # Codex V12-repair round P2-9: slice aligned to the FULL 400-char
+        # body_snippet budget — a 300-char view of a 400-char snippet made
+        # spans from the tail ungroundable (conservatively wasteful).
         source_list = "\n".join(
             f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, "
             f"{c.get('source', '')})\n"
-            f"原文摘录: {str(c.get('body_snippet', '') or '')[:300]}"
+            f"原文摘录: {str(c.get('body_snippet', '') or '')[:400]}"
             for c in citations[:n_src]
         )
         prompt = CLAIM_MAPPING_PROMPT.format(

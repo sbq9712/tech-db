@@ -127,6 +127,13 @@ def build_bm25_index():
             canonical.append((int(rec.get("idx", i)), rec))
     print(f"  Canonical set (non-dup, full adjudicated universe): "
           f"{len(canonical)} records", flush=True)
+    # R3 binding (Codex round P1-2): when the adjudicated snapshot store is
+    # present, the canonical count must equal it EXACTLY (fail-closed on
+    # drift); fixtures without the store skip the binding.
+    try:
+        _ibv.assert_universe_binding(len(canonical), INDEX_DIR)
+    except _ibv.MigrationError as exc:
+        raise RuntimeError(str(exc)) from exc
 
     # 2. Build custom dictionary
     print(f"\n[2/4] Building custom jieba dictionary...", flush=True)

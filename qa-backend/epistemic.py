@@ -466,7 +466,12 @@ def build_source_metadata(record: dict) -> dict:
 # excerpting. Content words are preserved verbatim — lossless for prose.
 
 _MD_LINK_RE = re.compile(r"\[([^\]]{0,120})\]\([^)]{0,600}\)")
-_BARE_URL_RE = re.compile(r"https?://\S{1,600}")
+# Codex V12-repair round P1-6: a bare URL must match URL characters ONLY
+# (RFC3986 set). The previous \S{1,600} also consumed adjacent CJK prose
+# (Chinese text often follows a URL with no whitespace), deleting real
+# content words. CJK codepoints are outside this class, so prose survives.
+_BARE_URL_RE = re.compile(
+    r"https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]{1,600}")
 _WS_RUN_RE = re.compile(r"[ \t　]{2,}")
 _MULTI_BLANK_RE = re.compile(r"\n{3,}")
 
