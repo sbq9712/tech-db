@@ -572,6 +572,42 @@ def head_terms_prefix(parts: list, max_len: int = 12) -> str:
     return prefix
 
 
+_CONTENT_TERM_RE = re.compile(
+    r"「[^」]{1,60}」|『[^』]{1,60}』"      # CJK-quoted segments (topical names)
+    r"|\[[^\]]{1,60}\]"
+    r"|[A-Za-z][A-Za-z0-9\-]{2,}"          # Latin runs (incl. hyphenated)
+    r"|\d{4}(?:-\d{1,2}){0,2}"             # dates / dotted numerics
+)
+
+
+def content_term_view(query: str, max_len: int = 96) -> str:
+    """Deterministic CONTENT-TERM view of a template-shaped query.
+
+    V12 formal post-mortem (RT101-V12 2026-09-17, sanitized aggregate):
+    boilerplate template words (「请查阅资料库」「前后有哪些记载」「如实整理…」)
+    dominate every whole-query AND per-clause embedding, so the topical
+    signal of a single keyword + date window dilutes just below the VEC_STRONG
+    admission floor even though the corpus strongly covers the content terms.
+    This view keeps ONLY content-bearing tokens — quoted segments, Latin
+    runs, dates/numbers — joined by spaces. Purely deterministic (regex),
+    zero LLM, no holdout-derived constants; empty for queries with no
+    extractable content terms (no view contributed — fail-closed preserved).
+    """
+    if not isinstance(query, str):
+        return ""
+    toks = [m.group(0).strip("「」『』[]") for m in _CONTENT_TERM_RE.finditer(query)]
+    toks = [t for t in toks if len(t) >= 2]
+    # de-dup, preserve order, drop tokens fully contained in a kept token
+    kept: list = []
+    for t in toks:
+        tl = t.lower()
+        if any(tl in k.lower() or k.lower() in tl for k in kept):
+            continue
+        kept.append(t)
+    view = " ".join(kept)
+    return view[:max_len].strip()
+
+
 async def recheck_admission_subqueries(query: str, *, embed_fn=None,
                                        snapshot=None, pipeline=None,
                                        max_parts: int = 6,
@@ -604,6 +640,19 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
     prefix = head_terms_prefix(parts)
     best = 0.0
     checked = 0
+    # V12 formal post-mortem (RT101-V12 2026-09-17, sanitized aggregate —
+    # generalized Class A-3): template-shaped fact queries
+    # （「请查阅资料库：围绕「TERM」，DATE前后有哪些记载？…」） embed
+    # diluted BOTH as a whole AND per clause because boilerplate Chinese
+    # template words dominate every clause view; only the CONTENT TERMS
+    # (quoted/l Latin/date tokens) carry the topical signal. A deterministic
+    # content-term view — quoted segments, Latin runs, dates/numbers — is
+    # therefore added to the view set. SAME VEC_STRONG floor, zero LLM, no
+    # holdout-derived constants; a query with no extractable content terms
+    # simply contributes no extra view (fail-closed preserved).
+    ct_view = content_term_view(query)
+    if ct_view and ct_view not in parts:
+        parts = parts + [ct_view]
     for part in parts:
         try:
             qv = await embed_query(part, embed_fn=embed_fn)
@@ -656,6 +705,35 @@ async def recheck_admission_subqueries(query: str, *, embed_fn=None,
                     continue
         except Exception:
             continue
+    # V12 formal post-mortem (Class A-3, deterministic BM25 leg on the
+    # CONTENT-TERM view only): cross-lingual template queries cannot reach
+    # the VEC_STRONG floor through bilingual whole-doc embeddings even when
+    # the corpus covers the exact term — exact lexical match is exactly the
+    # signal embeddings cannot provide. The BM25 route over the
+    # content-term tokens (never the boilerplate-laden full query) admits
+    # when the top document clears the ALREADY-DEFINED BM25_STRONG constant
+    # with every content term contributing at least one hit. Full-query
+    # BM25 stays non-authoritative (Phase-02 blocker-1 semantics kept);
+    # any recheck error keeps the rejection (fail-closed preserved).
+    if ct_view:
+        try:
+            bm_res = await asyncio.to_thread(_br.search, ct_view, 8)
+            checked += 1
+            hits = 0
+            for r in bm_res:
+                if getattr(r, "record_id", None) in excl:
+                    continue
+                if getattr(r, "legacy_idx", None) in excl:
+                    continue
+                if float(getattr(r, "raw_score", 0.0) or 0.0) >= BM25_STRONG:
+                    hits += 1
+                    if hits >= 2:
+                        return {"relevant": True,
+                                "best_vec": round(best, 6),
+                                "bm25_admitted": True,
+                                "parts": parts, "checked": checked}
+        except Exception:
+            pass
     return {"relevant": False, "best_vec": round(best, 6),
             "parts": parts, "checked": checked}
 

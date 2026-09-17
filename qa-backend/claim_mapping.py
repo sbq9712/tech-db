@@ -162,8 +162,17 @@ async def map_claims_to_citations(
         if context_owned else list(payloads)
     last_error = None
     for attempt, (n_src, ans_cap) in enumerate(selected, start=1):
+        # RT101-V12 post-mortem (R1c, generalized): the mapper previously saw
+        # ONLY title/date/source metadata, so its evidence_span proposals
+        # could never be genuine source text — they echoed answer text, and
+        # downstream exact grounding locked spans to title/link noise. The
+        # list now carries each citation's bounded body_snippet (a real,
+        # noise-stripped source excerpt produced by build_context), letting
+        # the mapper quote actual source text per the prompt contract.
         source_list = "\n".join(
-            f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, {c.get('source', '')})"
+            f"[{c['id']}] {c.get('title', '')} ({c.get('date', '')}, "
+            f"{c.get('source', '')})\n"
+            f"原文摘录: {str(c.get('body_snippet', '') or '')[:300]}"
             for c in citations[:n_src]
         )
         prompt = CLAIM_MAPPING_PROMPT.format(

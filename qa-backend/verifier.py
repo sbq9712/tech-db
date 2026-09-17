@@ -35,6 +35,12 @@ MAX_VERIFY_RETRIES = int(os.environ.get("QA_MAX_VERIFY_RETRIES", "2"))
 # Verify timeout (seconds) — enforced per LLM call (RT-025 failure matrix).
 VERIFY_TIMEOUT = int(os.environ.get("QA_VERIFY_TIMEOUT", "60"))
 
+# RT101-V12 post-mortem (R4): claims per verification LLM call. A 7-9 claim
+# single call's JSON envelope truncated twice in the formal window (bounded
+# retries exhausted → fail-closed UNVERIFIED). Batching bounds per-call
+# output; semantics unchanged (merged findings, all-PASS aggregation).
+VERIFY_CLAIM_BATCH_SIZE = max(2, int(os.environ.get("QA_VERIFY_CLAIM_BATCH_SIZE", "4")))
+
 VERIFY_PASSED = "PASSED"
 VERIFY_FAILED = "FAILED"
 VERIFY_UNVERIFIED = "UNVERIFIED"
@@ -281,14 +287,25 @@ def build_verifier_input(query: str, atomic_claims: list,
     claims_block = "\n".join(
         f"- [{c.get('id')}] {str(c.get('text', ''))[:300]}"
         for c in (atomic_claims or []))
-    evidence_block = "\n".join(
-        f"- [{r.get('evidence_id') or r.get('record_id')}] "
-        f"({str(r.get('source_role') or 'unknown')}) "
-        f"<record {str(r.get('record_id') or '?')} "
-        f"snapshot {str(r.get('source_snapshot_id') or '?')} "
-        f"loc {str(r.get('locators') or '?')}> "
-        f"{str(r.get('exact_text') or r.get('text') or '')[:400]}"
-        for r in (evidence_refs or []))
+    # RT101-V12 post-mortem (R1d, generalized): evidence windows now carry
+    # real grounded spans (up to the evidence-excerpt budget), so 400 chars
+    # truncated away the fact-bearing tail of a genuine span and forced the
+    # verifier to judge claims against cut-off text. Bounded 900-char view
+    # per ref with an overall block cap keeps the prompt bounded while the
+    # verdicts are computed over substantive evidence.
+    evidence_lines = []
+    for r in (evidence_refs or []):
+        ev_text = str(r.get('exact_text') or r.get('text') or '')
+        if len(ev_text) > 900:
+            ev_text = ev_text[:900] + "…"
+        evidence_lines.append(
+            f"- [{r.get('evidence_id') or r.get('record_id')}] "
+            f"({str(r.get('source_role') or 'unknown')}) "
+            f"<record {str(r.get('record_id') or '?')} "
+            f"snapshot {str(r.get('source_snapshot_id') or '?')} "
+            f"loc {str(r.get('locators') or '?')}> "
+            f"{ev_text}")
+    evidence_block = "\n".join(evidence_lines)[:24000]
     deterministic_block = json.dumps(
         deterministic_results or {}, ensure_ascii=False, default=str)[:2000]
     return VERIFY_FINAL_PROMPT.format(
@@ -381,6 +398,43 @@ async def verify_final(query: str, atomic_claims: list, evidence_refs: list,
     prompt = build_verifier_input(query, atomic_claims, evidence_refs,
                                   deterministic_results)
     last_error, last_class = "", ""
+
+    # ── RT101-V12 post-mortem (R4, generalized): bounded claim batching ──
+    # The provider JSON envelope for a 7-9 claim × multi-line evidence
+    # verification call at temperature 0 exceeded the bounded retry envelope
+    # twice in the formal window (json_parse_failed class → fail-closed
+    # UNVERIFIED rows, auto-failing the verifier_technical_pass_max=0
+    # threshold). Batching bounds the per-call OUTPUT (the truncation
+    # class) without touching verdict semantics: every batch runs the same
+    # restricted prompt over the SAME evidence set; findings are merged;
+    # overall PASSED only when every batch's claims are all-PASS; a
+    # technical failure in ANY batch is a failure of the whole call
+    # (fail-closed unchanged). Batch size is env-configurable and bounded.
+    batch_size = VERIFY_CLAIM_BATCH_SIZE
+    if isinstance(atomic_claims, list) and len(atomic_claims) > batch_size:
+        merged_findings: list = []
+        merged_issues: list = []
+        all_pass = True
+        any_failed = False
+        for start in range(0, len(atomic_claims), batch_size):
+            chunk = atomic_claims[start:start + batch_size]
+            result = await verify_final(
+                query, chunk, evidence_refs, deterministic_results,
+                max_retries=max_retries, snapshot_lookup=snapshot_lookup,
+                retry_owner=retry_owner, attempt_number=attempt_number)
+            if result.status == VERIFY_UNVERIFIED:
+                return result
+            merged_findings.extend(result.findings or [])
+            merged_issues.extend(result.issues or [])
+            if result.status == VERIFY_FAILED:
+                any_failed = True
+            if any(f.get("verdict") != "PASS" for f in result.findings or []):
+                all_pass = False
+        if any_failed or not all_pass:
+            return VerificationResult(VERIFY_FAILED, issues=merged_issues,
+                                      findings=merged_findings)
+        return VerificationResult(VERIFY_PASSED, findings=merged_findings)
+
 
     for attempt in range(max_retries + 1):
         try:

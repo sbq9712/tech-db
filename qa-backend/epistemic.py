@@ -455,6 +455,49 @@ def build_source_metadata(record: dict) -> dict:
 
 # ── 4. Citation excerpt optimization ──
 
+# RT101-V12 formal post-mortem (2026-09-17, sanitized aggregate — immutable
+# FAIL, generation V12): several news/wechat bodies BEGIN with the title
+# repeated, byline/source runs and dense markdown link fragments
+# `[](https://…)`. Any fixed head-truncation (body[:300]) or a density
+# window computed over the RAW text therefore feeds the generator/verifier
+# title+URL noise while the fact-bearing prose sits beyond the window. The
+# repair is GENERALIZED: strip provenance noise (links, markdown artifacts,
+# repeated title echoes, whitespace runs) BEFORE any windowing or
+# excerpting. Content words are preserved verbatim — lossless for prose.
+
+_MD_LINK_RE = re.compile(r"\[([^\]]{0,120})\]\([^)]{0,600}\)")
+_BARE_URL_RE = re.compile(r"https?://\S{1,600}")
+_WS_RUN_RE = re.compile(r"[ \t　]{2,}")
+_MULTI_BLANK_RE = re.compile(r"\n{3,}")
+
+
+def strip_provenance_noise(body: str, title: str = "") -> str:
+    """Deterministically remove source-provenance noise from a record body.
+
+    Removes markdown/bare links, collapses whitespace runs and drops
+    leading repeats of the record title. Idempotent; never rewrites prose.
+    """
+    if not isinstance(body, str) or not body:
+        return ""
+    text = body
+    # Markdown links: keep the anchor text (often empty for wechat icons)
+    text = _MD_LINK_RE.sub(lambda m: m.group(1), text)
+    # Bare URLs
+    text = _BARE_URL_RE.sub("", text)
+    # Repeated title echoes at the head (up to 3 repeats)
+    if title and title.strip():
+        t = title.strip()
+        for _ in range(3):
+            stripped = text.lstrip()
+            if stripped.startswith(t):
+                text = stripped[len(t):].lstrip(" \t　\n-–—|·:：,，")
+            else:
+                break
+    text = _WS_RUN_RE.sub(" ", text)
+    text = _MULTI_BLANK_RE.sub("\n\n", text)
+    return text.strip()
+
+
 def extract_relevant_excerpt(
     body: str,
     query: str,
@@ -468,7 +511,11 @@ def extract_relevant_excerpt(
     1. Find query keyword positions in the text
     2. Extract a window around the best match
     3. Fall back to AI summary or text beginning
+
+    V12 post-mortem: operates on the NOISE-STRIPPED body so the density
+    window cannot anchor on title/link noise at the raw-text head.
     """
+    body = strip_provenance_noise(body)
     if not body:
         return (ai_summary or "")[:max_length]
 

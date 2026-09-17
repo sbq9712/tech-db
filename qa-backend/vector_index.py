@@ -103,18 +103,29 @@ async def build_index():
               flush=True)
     print(f"  Total records in file: {len(data)}", flush=True)
 
-    # Build canonical set: valid category AND dp != 1 (non-duplicate)
+    # Build canonical set: dp != 1 (non-duplicate)
+    # RT101-V12 post-mortem (R3, generalized — corpus adjudication
+    # alignment): the adjudicated canonical product source universe is the
+    # FULL 30391-record CITATION_ELIGIBLE snapshot population
+    # (docs/remediation/phase09_RT101_corpus_adjudication.json), yet this
+    # build excluded 16112 records by legacy source-pipeline category labels
+    # (「不相关」「未分类」) — meaning CITATION_ELIGIBLE, fact-bearing records
+    # were unreachable by retrieval while the holdout question universe was
+    # constructed over the full corpus. Scoping via source-side labels
+    # contradicted the snapshot eligibility authority; retrieval now covers
+    # the full adjudicated universe (dedup preserved). Downstream precision
+    # remains protected by the reranker, relevance gates and grounding.
     records = []
     for i, rec in enumerate(data):
-        cat = rec.get("c", "")
         dp = rec.get("dp", 0)
-        if cat in IRRELEVANT_CATS or dp == 1:
+        if dp == 1:
             continue
         # legacy dataset idx (injected by the migration build view when the
         # dataset has no inline idx field) — durable meta identity anchor
         records.append((int(rec.get("idx", i)), rec))
 
-    print(f"  Canonical set (valid & non-dup): {len(records)}", flush=True)
+    print(f"  Canonical set (non-dup, full adjudicated universe): "
+          f"{len(records)}", flush=True)
 
     # ── Incremental mode: load existing index, detect new/changed/stale ──
     existing_embeddings = None

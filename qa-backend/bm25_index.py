@@ -117,13 +117,16 @@ def build_bm25_index():
 
     # Build canonical set (same as vector index); the migration build view
     # injects each record's explicit legacy dataset idx
+    # RT101-V12 post-mortem (R3, generalized): same adjudication alignment
+    # as the vector index — the full CITATION_ELIGIBLE universe is indexed;
+    # legacy category labels no longer remove records at build time.
     canonical = []
     for i, rec in enumerate(data):
-        cat = rec.get("c", "")
         dp = rec.get("dp", 0)
-        if cat not in IRRELEVANT_CATS and dp != 1:
+        if dp != 1:
             canonical.append((int(rec.get("idx", i)), rec))
-    print(f"  Canonical set: {len(canonical)} records", flush=True)
+    print(f"  Canonical set (non-dup, full adjudicated universe): "
+          f"{len(canonical)} records", flush=True)
 
     # 2. Build custom dictionary
     print(f"\n[2/4] Building custom jieba dictionary...", flush=True)

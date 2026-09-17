@@ -916,18 +916,36 @@ def build_context(search_results: list, query: str = "") -> tuple:
 
         # Add to context
         citation_number = len(citations) + 1
+        # RT101-V12 post-mortem (R1a, generalized): the raw body head is
+        # title/byline/link noise for many records while the facts live
+        # beyond any fixed [:300] head window. Provide a bounded, noise-
+        # stripped, query-relevant window over the FULL eligible body —
+        # facts become reachable regardless of where they sit in the body.
+        from epistemic import strip_provenance_noise
+        clean_body = strip_provenance_noise(body, title)
+        excerpt = (extract_relevant_excerpt(
+            clean_body, query, "", max_length=800, window=240)
+            if clean_body else "")
+        if not excerpt:
+            excerpt = clean_body[:800]
         context_parts.append(
             f"[{citation_number}] [{cat}] {title} ({date})\n"
             f"来源: {source}\n"
-            f"证据摘录: {body[:300]}\n"
+            f"证据摘录: {excerpt}\n"
             f"相似度: {score:.2f}"
         )
 
         # Build citation with query-relevant excerpt
+        # RT101-V12 post-mortem (R1b, generalized): excerpt from the
+        # NOISE-STRIPPED body with a wider bounded window — body_snippet
+        # feeds claim mapping, display cards and grounding proposals, so a
+        # title/link-noise snippet poisons every downstream stage.
+        clean_body_for_snippet = clean_body
         if query:
-            snippet = extract_relevant_excerpt(body, query, "", max_length=200)
+            snippet = extract_relevant_excerpt(
+                clean_body_for_snippet, query, "", max_length=400, window=160)
         else:
-            snippet = body[:200]
+            snippet = clean_body_for_snippet[:400]
 
         citations.append({
             "id": citation_number,

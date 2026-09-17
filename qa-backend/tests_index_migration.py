@@ -74,7 +74,9 @@ LEGACY_RECORDS = [
      "c": "chip", "u": "https://mirror.invalid/alpha-copy", "tp": "paper"},
     {"t": "Gamma record", "b": "gamma evidence text three", "c": "solar",
      "u": "https://source.invalid/gamma", "tp": "report"},
-    # irrelevant-category record: excluded from the canonical build set
+    # V12 post-mortem (R3): legacy category labels no longer exclude
+    # records at build time — the full adjudicated CITATION_ELIGIBLE
+    # universe is indexed (only dp==1 duplicates are dropped).
     {"t": "Uncategorized", "b": "junk", "c": "", "u": "https://x.invalid/j",
      "tp": "note"},
 ]
@@ -270,13 +272,13 @@ def main() -> int:
                 idx = pickle.load(f)
             metas = idx["meta"]
             test("BM25.legacy_rebuild_with_map_passes",
-                 len(metas) == 4)  # 5 − 1 irrelevant-category record
+                 len(metas) == 5)  # full adjudicated universe, dedup only
             test("BM25.output_meta_all_stable_ids",
                  all(is_stable_id(m["record_id"]) for m in metas)
                  and {m["record_id"] for m in metas} ==
-                 {ids1[i] for i in (0, 1, 2, 3)})
+                 {ids1[i] for i in (0, 1, 2, 3, 4)})
             test("BM25.meta_keeps_legacy_idx",
-                 sorted(m["idx"] for m in metas) == [0, 1, 2, 3])
+                 sorted(m["idx"] for m in metas) == [0, 1, 2, 3, 4])
             # missing map → builder fails closed
             _ibv_mod.DEFAULT_MAP = td / "nonexistent.map.json"
             b25_fail = False
@@ -328,11 +330,11 @@ def main() -> int:
                 vidx = pickle.load(f)
             vmetas = vidx["meta"]
             test("VEC.legacy_rebuild_with_map_passes",
-                 len(vmetas) == 4)
+                 len(vmetas) == 5)
             test("VEC.output_meta_all_stable_ids",
                  all(is_stable_id(m["record_id"]) for m in vmetas)
                  and {m["record_id"] for m in vmetas} ==
-                 {ids1[i] for i in (0, 1, 2, 3)})
+                 {ids1[i] for i in (0, 1, 2, 3, 4)})
 
             # incremental no-op rerun: still up-to-date, ids preserved
             asyncio.run(vi.build_index())
