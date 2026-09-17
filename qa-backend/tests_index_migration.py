@@ -33,6 +33,7 @@ import copy
 import json
 import os
 import pickle
+import re
 import shutil
 import subprocess
 import sys
@@ -304,7 +305,7 @@ def main() -> int:
         print("── vector rebuild through the build view (no real model) ──")
         import vector_index as vi
         vi_orig = (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
-                   vi.EMBEDDING_DIM)
+                   vi.EMBEDDING_DIM, vi.BATCH_SIZE)
 
         async def fake_embed(texts):
             import hashlib as _h
@@ -380,9 +381,87 @@ def main() -> int:
             except RuntimeError as exc:
                 vec_fail = "index_build_view.py" in str(exc)
             test("VEC.missing_map_rebuild_fails_closed", vec_fail)
+
+            # ── release-integrity gate: embedding failure must fail
+            # closed — NO silent zero vectors, checkpoint preserved,
+            # non-zero exit (RuntimeError). ──
+            _ibv_mod.DEFAULT_MAP = map_path  # restore after fail-closed probe
+            vi.BATCH_SIZE = 1  # smallest batches → finest abort granularity
+
+            # established good baseline file first (full success build)
+            vi.embedding_func = fake_embed
+            vi.BATCH_SIZE = 16
+            asyncio.run(vi.build_index())
+            with open(vi.INDEX_FILE, "rb") as f:
+                baseline = pickle.load(f)
+            baseline_bytes = vi.INDEX_FILE.read_bytes()
+            test("VEC.failclosed_baseline_5_rows",
+                 len(baseline["meta"]) == 5
+                 and all((baseline["embeddings"][i] != 0).any()
+                         for i in range(5)))
+
+            # stale every stored text hash → all 5 records re-embed on the
+            # next run; the (synthetic) provider then fails. Dataset bytes
+            # stay identical (map stays valid) — hashes live in the INDEX.
+            stale = {"embeddings": baseline["embeddings"].copy(),
+                     "meta": [{**m, "_th": "deadbeef" * 3}
+                              for m in baseline["meta"]],
+                     "dim": baseline["dim"]}
+            with open(vi.INDEX_FILE, "wb") as f:
+                pickle.dump(stale, f)
+            pre_abort_bytes = vi.INDEX_FILE.read_bytes()
+            vi.BATCH_SIZE = 1
+            abort_calls = {"n": 0}
+
+            async def failing_embed(texts):
+                abort_calls["n"] += len(texts)
+                raise RuntimeError("provider exploded (synthetic)")
+            vi.embedding_func = failing_embed
+            aborted = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                aborted = (re.search(r"embedding batch 1/\d+ failed", str(exc))
+                           is not None and "zero vectors" in str(exc))
+            test("VEC.embedding_batch_failure_aborts", aborted)
+            test("VEC.abort_preserves_last_checkpoint",
+                 vi.INDEX_FILE.read_bytes() == pre_abort_bytes)
+            test("VEC.abort_carries_record_context",
+                 abort_calls["n"] >= 1)
+            vi.embedding_func = fake_embed
+
+            # zero-norm row refused at publish
+            async def one_zero_row(texts):
+                rows = await fake_embed(texts)
+                rows[0] = 0.0
+                return rows
+            vi.embedding_func = one_zero_row
+            vi.INDEX_FILE = vi_out / "vector_index_v2.zero.pkl"
+            zero_refused = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                zero_refused = "zero-norm" in str(exc)
+            test("VEC.zero_norm_row_refused_at_publish",
+                 zero_refused and not vi.INDEX_FILE.exists())
+
+            # non-finite row refused at publish
+            async def one_nan_row(texts):
+                rows = await fake_embed(texts)
+                rows[0][0] = float("nan")
+                return rows
+            vi.embedding_func = one_nan_row
+            nan_refused = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                nan_refused = "non-finite" in str(exc)
+            test("VEC.nonfinite_row_refused_at_publish",
+                 nan_refused and not vi.INDEX_FILE.exists())
+            vi.INDEX_FILE = vi_out / "vector_index_v2.pkl"
         finally:
             (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
-             vi.EMBEDDING_DIM) = vi_orig
+             vi.EMBEDDING_DIM, vi.BATCH_SIZE) = vi_orig
             _ibv_mod.DEFAULT_MAP = _b25_map_default
 
         print("── shared-URL ambiguity policy (explicit, never automatic) ──")

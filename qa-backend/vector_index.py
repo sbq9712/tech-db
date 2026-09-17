@@ -82,6 +82,31 @@ def _text_hash(text: str) -> str:
     return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
 
 
+def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str):
+    """Normalize rows for cosine similarity; REFUSE zero-norm or
+    non-finite rows instead of silently publishing them.
+
+    Release-integrity gate: a zero vector would otherwise be silently
+    admitted into the formal retrieval index (generic data-integrity
+    hazard, not holdout tuning). Raises RuntimeError on any offending
+    row; nothing is written by the caller when this raises.
+    """
+    arr = np.asarray(embeddings, dtype=np.float32)
+    if not np.isfinite(arr).all():
+        raise RuntimeError(
+            f"vector_index: non-finite embedding value(s) detected "
+            f"({stage}) — refusing to publish")
+    norms = np.linalg.norm(arr, axis=1, keepdims=True)
+    bad = (norms[:, 0] == 0) | ~np.isfinite(norms[:, 0])
+    if bad.any():
+        positions = np.flatnonzero(bad)[:8].tolist()
+        raise RuntimeError(
+            f"vector_index: zero-norm embedding row(s) detected "
+            f"({stage}) at positions {positions} — refusing to "
+            f"publish (silent zero-vector hazard)")
+    return arr / norms
+
+
 async def build_index():
     print(f"[1/3] Loading records from {LITE.name}...", flush=True)
     # Stable-ID migration adapter (Phase-02 review, legacy_hybrid
@@ -221,9 +246,8 @@ async def build_index():
                         idx = m["idx"]
                         if idx in canonical_hashes and "_th" not in m:
                             m["_th"] = canonical_hashes[idx]
-                    norms = np.linalg.norm(existing_embeddings, axis=1, keepdims=True)
-                    norms[norms == 0] = 1
-                    existing_embeddings = existing_embeddings / norms
+                    existing_embeddings = _normalize_fail_closed(
+                        existing_embeddings, stage="pruned republish")
                     index_data = {
                         "embeddings": existing_embeddings,
                         "meta": existing_meta,
@@ -290,12 +314,22 @@ async def build_index():
                     "_th": canonical_hashes[orig_idx],
                 })
         except Exception as e:
-            print(f"  ERROR batch {batch_idx}: {e}", flush=True)
-            # Add zero embeddings for failed batch
-            all_embeddings.append(np.zeros((len(batch), EMBEDDING_DIM), dtype=np.float32))
-            for orig_idx, rec in batch:
-                all_meta.append({"idx": orig_idx, "record_id": rec.get("record_id", ""), "t": rec.get("t", ""), "c": rec.get("c", ""),
-                                 "_th": canonical_hashes[orig_idx]})
+            # Fail closed (release-integrity gate): a failed embedding batch
+            # must NEVER contribute silent zero vectors to the formal index.
+            # Abort the build; the last atomic checkpoint on disk stays valid
+            # and the next run resumes from it. Non-zero exit propagates.
+            failed_ids = [str(rec.get("record_id", "") or f"legacy-idx:{i}")
+                          for i, rec in batch]
+            print(f"  FATAL batch {batch_idx}: embedding failed; aborting "
+                  f"without publishing (checkpoint preserved). "
+                  f"records={len(batch)} ids={failed_ids[:8]}"
+                  f"{'…' if len(failed_ids) > 8 else ''} "
+                  f"error={type(e).__name__}: {e}", flush=True)
+            raise RuntimeError(
+                f"vector_index: embedding batch {batch_idx + 1}/"
+                f"{total_batches} failed ({type(e).__name__}: {e}); "
+                f"refusing to write zero vectors — last checkpoint "
+                f"preserved, rerun to resume") from e
 
         done = end
         elapsed = time.time() - start_time
@@ -318,9 +352,9 @@ async def build_index():
                     combined_embs = new_embs
                     combined_meta = all_meta.copy()
 
-                norms = np.linalg.norm(combined_embs, axis=1, keepdims=True)
-                norms[norms == 0] = 1
-                combined_embs = combined_embs / norms
+                combined_embs = _normalize_fail_closed(
+                    combined_embs, stage=f"checkpoint save "
+                    f"(records {len(combined_meta)})")
 
                 partial_data = {
                     "embeddings": combined_embs,
@@ -349,10 +383,9 @@ async def build_index():
         final_embeddings = new_embeddings
         final_meta = all_meta
 
-    # Normalize embeddings for cosine similarity
-    norms = np.linalg.norm(final_embeddings, axis=1, keepdims=True)
-    norms[norms == 0] = 1
-    final_embeddings = final_embeddings / norms
+    # Normalize embeddings for cosine similarity (fail-closed gate)
+    final_embeddings = _normalize_fail_closed(
+        final_embeddings, stage=f"final publish ({len(final_meta)} records)")
 
     index_data = {
         "embeddings": final_embeddings,
