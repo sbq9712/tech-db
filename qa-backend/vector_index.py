@@ -82,7 +82,8 @@ def _text_hash(text: str) -> str:
     return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
 
 
-def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str):
+def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str,
+                           in_place: bool = False):
     """Normalize rows for cosine similarity; REFUSE zero-norm or
     non-finite rows instead of silently publishing them.
 
@@ -90,13 +91,25 @@ def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str):
     admitted into the formal retrieval index (generic data-integrity
     hazard, not holdout tuning). Raises RuntimeError on any offending
     row; nothing is written by the caller when this raises.
+
+    in_place=True normalizes the caller's buffer directly (memory-bounded
+    checkpoint repair: avoids a second full-array copy at ~30k rows —
+    the caller must own the buffer, which is true at both call sites
+    that pass in_place=True).
     """
     arr = np.asarray(embeddings, dtype=np.float32)
     if not np.isfinite(arr).all():
         raise RuntimeError(
             f"vector_index: non-finite embedding value(s) detected "
             f"({stage}) — refusing to publish")
-    norms = np.linalg.norm(arr, axis=1, keepdims=True)
+    # Chunked row norms: bitwise identical to np.linalg.norm on the full
+    # array (verified), but caps the x*x temp at the chunk size instead
+    # of a full second 30k×1024 array (~124MB) at peak.
+    norms = np.empty((arr.shape[0], 1), dtype=np.float32)
+    _CHUNK = 8192
+    for s in range(0, arr.shape[0], _CHUNK):
+        norms[s:s + _CHUNK] = np.linalg.norm(arr[s:s + _CHUNK],
+                                             axis=1, keepdims=True)
     bad = (norms[:, 0] == 0) | ~np.isfinite(norms[:, 0])
     if bad.any():
         positions = np.flatnonzero(bad)[:8].tolist()
@@ -104,6 +117,9 @@ def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str):
             f"vector_index: zero-norm embedding row(s) detected "
             f"({stage}) at positions {positions} — refusing to "
             f"publish (silent zero-vector hazard)")
+    if in_place:
+        arr /= norms
+        return arr
     return arr / norms
 
 
@@ -343,18 +359,31 @@ async def build_index():
         # Save incrementally every 50 batches so server can use partial index
         if (batch_idx + 1) % 50 == 0 or batch_idx == total_batches - 1:
             try:
-                # Merge with existing embeddings if in incremental mode
-                new_embs = np.vstack(all_embeddings)
+                # Memory-bounded merge: allocate ONE exact-size buffer and
+                # copy rows in, instead of np.vstack of the full existing
+                # matrix + a second full-size division copy. At ~30k rows
+                # x 1024 fp32 (~124MB/array) the old path transiently held
+                # 3+ full copies (plus pickle buffers) — enough to trip
+                # the host mem-guard (three SIGTERMs observed on the
+                # formal rebuild). Embedding values and row order are
+                # unchanged by this refactor.
+                new_embs = (all_embeddings[0] if len(all_embeddings) == 1
+                            else np.vstack(all_embeddings))
                 if existing_embeddings is not None:
-                    combined_embs = np.vstack([existing_embeddings, new_embs])
-                    combined_meta = existing_meta + all_meta.copy()
+                    combined = np.empty(
+                        (existing_embeddings.shape[0] + new_embs.shape[0],
+                         EMBEDDING_DIM), dtype=np.float32)
+                    combined[:existing_embeddings.shape[0]] = \
+                        existing_embeddings
+                    combined[existing_embeddings.shape[0]:] = new_embs
+                    combined_meta = existing_meta + all_meta
                 else:
-                    combined_embs = new_embs
-                    combined_meta = all_meta.copy()
+                    combined = np.array(new_embs, dtype=np.float32)
+                    combined_meta = list(all_meta)
 
-                combined_embs = _normalize_fail_closed(
-                    combined_embs, stage=f"checkpoint save "
-                    f"(records {len(combined_meta)})")
+                combined = _normalize_fail_closed(
+                    combined, stage=f"checkpoint save "
+                    f"(records {len(combined_meta)})", in_place=True)
 
                 partial_data = {
                     "embeddings": combined_embs,
@@ -373,19 +402,28 @@ async def build_index():
                 print(f"  ⚠️ Partial save failed: {e}", flush=True)
     
     print(f"\n[3/3] Saving final index...", flush=True)
-    new_embeddings = np.vstack(all_embeddings)
+    new_embeddings = (all_embeddings[0] if len(all_embeddings) == 1
+                      else np.vstack(all_embeddings))
 
-    # Merge with existing if incremental
+    # Merge with existing if incremental — memory-bounded (single exact
+    # allocation, rows copied in; see checkpoint-save comment)
     if existing_embeddings is not None:
-        final_embeddings = np.vstack([existing_embeddings, new_embeddings])
+        final_embeddings = np.empty(
+            (existing_embeddings.shape[0] + new_embeddings.shape[0],
+             EMBEDDING_DIM), dtype=np.float32)
+        final_embeddings[:existing_embeddings.shape[0]] = \
+            existing_embeddings
+        final_embeddings[existing_embeddings.shape[0]:] = new_embeddings
         final_meta = existing_meta + all_meta
     else:
-        final_embeddings = new_embeddings
-        final_meta = all_meta
+        final_embeddings = np.array(new_embeddings, dtype=np.float32)
+        final_meta = list(all_meta)
 
-    # Normalize embeddings for cosine similarity (fail-closed gate)
+    # Normalize embeddings for cosine similarity (fail-closed gate,
+    # in-place on the buffer this function owns)
     final_embeddings = _normalize_fail_closed(
-        final_embeddings, stage=f"final publish ({len(final_meta)} records)")
+        final_embeddings,
+        stage=f"final publish ({len(final_meta)} records)", in_place=True)
 
     index_data = {
         "embeddings": final_embeddings,
