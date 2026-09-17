@@ -117,6 +117,14 @@ def _validate_saved_index(saved, expected_dim: int) -> None:
         if not isinstance(m, dict) or "idx" not in m or "record_id" not in m:
             raise IndexCheckpointCorrupt(
                 f"meta row {pos} missing idx/record_id keys")
+        # Canonical idx values are ints. A non-int (let alone unhashable)
+        # idx must be corruption — raising here (not TypeError later)
+        # keeps the fail-closed path: a TypeError would fall into the
+        # legacy rebuild-from-scratch handler and overwrite the very
+        # file we just refused to trust (Codex follow-up round 2).
+        if not isinstance(m["idx"], int) or isinstance(m["idx"], bool):
+            raise IndexCheckpointCorrupt(
+                f"meta row {pos} idx {m['idx']!r} is not an int")
         if m["idx"] in seen_idx:
             raise IndexCheckpointCorrupt(
                 f"duplicate idx {m['idx']!r} in meta (row {pos})")

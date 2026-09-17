@@ -110,10 +110,12 @@ def main() -> int:
     v_set = set(v_ids)
     declared_dim = vidx.get("dim")
     emb_width = int(emb.shape[1])
-    # The declared dim is a CLAIM — gate on the actual matrix width and
-    # require the claim to agree (never trust the header alone).
-    declared_dim_matches = (declared_dim is None
-                            or int(declared_dim) == emb_width)
+    # The declared dim header is REQUIRED and is a claim — the release
+    # gate demands presence, agreement with the actual matrix width,
+    # and equality with the expected dim (a missing header is an
+    # unvalidatable asset, not a pass — Codex follow-up round 2).
+    declared_dim_matches = (declared_dim is not None
+                            and int(declared_dim) == emb_width)
     zero_rows = int((np.linalg.norm(emb, axis=1) == 0).sum())
     nonfinite_rows = int((~np.isfinite(emb).all(axis=1)).sum())
     vec_gate = {
