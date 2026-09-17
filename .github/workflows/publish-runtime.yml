@@ -29,6 +29,13 @@ jobs:
       - name: Install Phase09 gate dependencies
         run: python -m pip install --disable-pip-version-check -r requirements.txt
 
+      - name: Regenerate canonical Phase09 benchmark artifact
+        # qa-backend/benchmark_phase09_result.json is gitignored (machine-
+        # local gate input); regenerate at this exact publication SHA so the
+        # release gate below binds CURRENT provenance instead of failing on
+        # a stale/absent artifact.
+        run: python qa-backend/tests_benchmark_phase09.py
+
       - name: Fresh Phase09 release evaluation
         # D7 (P0 closure): genuine RT-101 authority / external-control
         # satisfactions enter ONLY via owner-provisioned secrets.  Unset

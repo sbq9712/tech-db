@@ -231,6 +231,13 @@ jobs:
           echo "authority subject: $SUBJECT (merge-ref checkout $(git rev-parse HEAD))"
       - name: Generic Phase09 product repair regressions (merge result)
         run: python qa-backend/tests_repair_phase09_generic.py
+      - name: Regenerate canonical Phase09 benchmark artifact (merge result)
+        # qa-backend/benchmark_phase09_result.json is gitignored (machine-
+        # local gate input): the canonical gate reads its provenance/metrics
+        # and every pytest-tier run leaves it stale because only direct
+        # execution rewrites it. Regenerate at the exact evaluated commit so
+        # the gate binds CURRENT provenance instead of a stale checkout.
+        run: python qa-backend/tests_benchmark_phase09.py
       - name: Execute canonical Phase09 release gate (merge integration result)
         # D7 (P0 closure): genuine RT-101 authority / external-control
         # satisfactions enter ONLY via owner-provisioned secrets (step-
@@ -284,6 +291,12 @@ jobs:
           [ "$GOT" = "$WANT" ] \
             || { echo "::error::exact-head checkout HEAD $GOT != event head sha $WANT (identity contract)"; exit 1; }
           echo "exact-head identity verified: $GOT"
+      - name: Regenerate canonical Phase09 benchmark artifact (exact head)
+        # Same machine-local input contract as the merge-result job above:
+        # regenerate at the exact head so the gate evaluates CURRENT
+        # provenance, never a stale artifact.
+        working-directory: phase09-head
+        run: python qa-backend/tests_benchmark_phase09.py
       - name: Execute canonical Phase09 release gate (exact head)
         if: always()
         working-directory: phase09-head
