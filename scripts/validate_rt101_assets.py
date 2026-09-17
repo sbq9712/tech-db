@@ -103,8 +103,45 @@ def main() -> int:
     # loading file B (Codex Review A).
     vbytes = vec_path.read_bytes()
     vsha = hashlib.sha256(vbytes).hexdigest()
-    vidx = pickle.loads(vbytes)
-    emb = np.asarray(vidx["embeddings"], dtype=np.float32)
+    try:
+        vidx = pickle.loads(vbytes)
+    except Exception as exc:
+        vec_gate = {
+            "sha256": vsha,
+            "structural_error": f"unpicklable payload ({type(exc).__name__})",
+            "emb_width": None,
+            "declared_dim": None,
+            "declared_dim_matches": False,
+            "expected_dim": EXPECTED_DIM,
+        }
+        report["gates"]["vector"] = vec_gate
+        report["PASS"] = False
+        report["reason"] = "vector index failed structural preflight"
+        _emit(report, args.out)
+        return 1
+    # Structural preflight (Codex round-3 P1): a poisoned payload must
+    # produce a STRUCTURED fail-closed gate result — never an
+    # uncontrolled IndexError/ValueError from emb.shape[1] / norms.
+    raw_emb = vidx.get("embeddings") if isinstance(vidx, dict) else None
+    if (not isinstance(raw_emb, np.ndarray) or raw_emb.ndim != 2
+            or raw_emb.shape[0] == 0):
+        vec_gate = {
+            "sha256": vsha,
+            "structural_error": (
+                "embeddings is not a non-empty 2-D ndarray "
+                f"(type={type(raw_emb).__name__}, "
+                f"ndim={getattr(raw_emb, 'ndim', None)})"),
+            "emb_width": None,
+            "declared_dim": vidx.get("dim") if isinstance(vidx, dict) else None,
+            "declared_dim_matches": False,
+            "expected_dim": EXPECTED_DIM,
+        }
+        report["gates"]["vector"] = vec_gate
+        report["PASS"] = False
+        report["reason"] = "vector index failed structural preflight"
+        _emit(report, args.out)
+        return 1
+    emb = np.asarray(raw_emb, dtype=np.float32)
     vmeta = vidx["meta"]
     v_ids = [m.get("record_id", "") for m in vmeta]
     v_set = set(v_ids)
@@ -142,10 +179,23 @@ def main() -> int:
     report["gates"]["vector"] = vec_gate
 
     # ── 3. BM25 index ───────────────────────────────────────────────
-    # bytes-once: hash and unpickle the SAME bytes (no TOCTOU window)
+    # bytes-once: hash and unpickle the SAME bytes (no TOCTOU window);
+    # a poisoned payload yields a structured fail-closed gate, never an
+    # uncontrolled traceback (same class as the vector-gate preflight)
     bbytes = bm25_path.read_bytes()
     bsha = hashlib.sha256(bbytes).hexdigest()
-    bidx = pickle.loads(bbytes)
+    try:
+        bidx = pickle.loads(bbytes)
+    except Exception as exc:
+        report["gates"]["bm25"] = {
+            "sha256": bsha,
+            "structural_error": f"unpicklable payload ({type(exc).__name__})",
+            "token_structure_loadable": False,
+        }
+        report["PASS"] = False
+        report["reason"] = "bm25 index failed structural preflight"
+        _emit(report, args.out)
+        return 1
     bmeta = bidx["meta"]
     b_ids = [m.get("record_id", "") for m in bmeta]
     b_set = set(b_ids)

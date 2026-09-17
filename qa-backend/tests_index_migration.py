@@ -459,6 +459,69 @@ def main() -> int:
             test("VEC.nonfinite_row_refused_at_publish",
                  nan_refused and not vi.INDEX_FILE.exists())
             vi.INDEX_FILE = vi_out / "vector_index_v2.pkl"
+
+            # ── structural-validation negative tests (Codex round-2/3):
+            # a poisoned index must raise IndexCheckpointCorrupt
+            # (fail-closed) — NOT TypeError into the rebuild-from-scratch
+            # path that would overwrite the suspect file. ──
+            for bad_label, bad_idx in (("list", [0]), ("str", "0"),
+                                       ("bool", True)):
+                poisoned = {"embeddings": baseline["embeddings"].copy(),
+                            "meta": [{**m, "idx": bad_idx}
+                                     for m in baseline["meta"]],
+                            "dim": baseline["dim"]}
+                with open(vi.INDEX_FILE, "wb") as f:
+                    pickle.dump(poisoned, f)
+                poisoned_bytes = vi.INDEX_FILE.read_bytes()
+                corrupted = False
+                rebuilt = False
+                try:
+                    vi.embedding_func = counting_embed
+                    asyncio.run(vi.build_index())
+                    rebuilt = True  # build "succeeded" — it must NOT
+                except vi.IndexCheckpointCorrupt:
+                    corrupted = True
+                except Exception:
+                    corrupted = False
+                test(f"VEC.poisoned_idx_{bad_label}_fails_closed",
+                     corrupted and not rebuilt
+                     and vi.INDEX_FILE.read_bytes() == poisoned_bytes)
+            vi.embedding_func = fake_embed
+
+            # ── validator structural preflight (Codex round-3 P1): a
+            # poisoned 1-D-embeddings asset must produce a STRUCTURED
+            # fail-closed report (JSON + exit 1), never an uncontrolled
+            # IndexError from emb.shape[1]. Runs the real validator as a
+            # subprocess against a temp index dir. ──
+            validator = (Path(__file__).resolve().parent.parent
+                         / "scripts" / "validate_rt101_assets.py")
+            bad_dir = td / "idx-badshape"
+            bad_dir.mkdir()
+            with open(bad_dir / "vector_index_v2.pkl", "wb") as f:
+                pickle.dump({"embeddings": [0.0, 0.0, 0.0, 0.0, 0.0],
+                             "meta": [{"idx": 0, "record_id": "x"}],
+                             "dim": 8}, f)
+                shutil.copy(b25_out / "bm25_index.pkl",
+                            bad_dir / "bm25_index.pkl")
+            vproc = subprocess.run(
+                [sys.executable, str(validator), "--expect-rows", "5"],
+                env={**os.environ,
+                     "TECH_DB_LITE_DATASET": str(dataset),
+                     "TECH_DB_RECORD_ID_MAP": str(map_path),
+                     "TECH_DB_INDEX_DIR": str(bad_dir)},
+                capture_output=True, text=True, timeout=120)
+            structured = False
+            try:
+                vreport = json.loads(vproc.stdout)
+                structured = (
+                    vproc.returncode == 1
+                    and vreport.get("PASS") is False
+                    and "structural_error"
+                    in (vreport.get("gates", {}).get("vector") or {}))
+            except json.JSONDecodeError:
+                structured = False
+            test("VAL.badshape_vector_structured_fail_closed",
+                 structured and "Traceback" not in vproc.stderr)
         finally:
             (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
              vi.EMBEDDING_DIM, vi.BATCH_SIZE) = vi_orig
