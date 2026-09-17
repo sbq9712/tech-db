@@ -82,6 +82,50 @@ def _text_hash(text: str) -> str:
     return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
 
 
+class IndexCheckpointCorrupt(RuntimeError):
+    """Existing index failed structural validation on resume.
+
+    Raised fail-closed: the builder must NEVER silently rebuild from
+    scratch over a structurally-suspect formal index — that would mask
+    silent corruption as a successful build. Quarantine/inspect the
+    file explicitly instead.
+    """
+
+
+def _validate_saved_index(saved, expected_dim: int) -> None:
+    """Structural validation of an existing index before it is trusted
+    for incremental resume / pruning / identity migration (Codex Review
+    A fix). Any mismatch between the embedding matrix, the meta rows and
+    the declared dim is corruption, not an edge case."""
+    if not isinstance(saved, dict):
+        raise IndexCheckpointCorrupt("index root is not a dict")
+    embs = saved.get("embeddings")
+    meta = saved.get("meta")
+    if not isinstance(embs, np.ndarray) or embs.ndim != 2:
+        raise IndexCheckpointCorrupt(
+            f"embeddings not a 2-D array (got {type(embs).__name__}"
+            f"{f', ndim={embs.ndim}' if isinstance(embs, np.ndarray) else ''})")
+    if embs.shape[1] != expected_dim:
+        raise IndexCheckpointCorrupt(
+            f"embedding width {embs.shape[1]} != declared dim {expected_dim}")
+    if not isinstance(meta, list) or len(meta) != embs.shape[0]:
+        raise IndexCheckpointCorrupt(
+            f"meta rows {len(meta) if isinstance(meta, list) else '?'} != "
+            f"embedding rows {embs.shape[0]}")
+    seen_idx = set()
+    for pos, m in enumerate(meta):
+        if not isinstance(m, dict) or "idx" not in m or "record_id" not in m:
+            raise IndexCheckpointCorrupt(
+                f"meta row {pos} missing idx/record_id keys")
+        if m["idx"] in seen_idx:
+            raise IndexCheckpointCorrupt(
+                f"duplicate idx {m['idx']!r} in meta (row {pos})")
+        seen_idx.add(m["idx"])
+    if saved.get("dim") != expected_dim:
+        raise IndexCheckpointCorrupt(
+            f"declared dim {saved.get('dim')!r} != expected {expected_dim}")
+
+
 def _normalize_fail_closed(embeddings: np.ndarray, *, stage: str,
                            in_place: bool = False):
     """Normalize rows for cosine similarity; REFUSE zero-norm or
@@ -190,6 +234,12 @@ async def build_index():
         try:
             with open(INDEX_FILE, "rb") as f:
                 saved = pickle.load(f)
+            # Fail-closed structural validation BEFORE the checkpoint is
+            # trusted for resume/prune/migration (Codex Review A). A
+            # structurally-suspect file must stop the build loudly —
+            # never silently trigger a full rebuild that would mask the
+            # corruption as success.
+            _validate_saved_index(saved, EMBEDDING_DIM)
 
             # Build lookup: idx → (position_in_array, stored_hash)
             saved_by_idx = {}
@@ -263,16 +313,17 @@ async def build_index():
                         if idx in canonical_hashes and "_th" not in m:
                             m["_th"] = canonical_hashes[idx]
                     existing_embeddings = _normalize_fail_closed(
-                        existing_embeddings, stage="pruned republish")
+                        existing_embeddings, stage="pruned republish",
+                        in_place=True)  # already an owned fancy-index copy
                     index_data = {
                         "embeddings": existing_embeddings,
                         "meta": existing_meta,
                         "dim": EMBEDDING_DIM,
                     }
-                    tmp_file = str(INDEX_FILE) + ".tmp"
+                    tmp_file = f"{INDEX_FILE}.tmp.{os.getpid()}"
                     with open(tmp_file, "wb") as f:
                         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
-                    os.rename(tmp_file, str(INDEX_FILE))
+                    os.replace(tmp_file, str(INDEX_FILE))
                     print(f"  Saved {len(existing_meta)} records.", flush=True)
                 return
 
@@ -292,6 +343,17 @@ async def build_index():
 
             records = records_to_embed  # only embed new + changed
 
+            # Memory-bounded repair (§11): the full prior matrix has now
+            # been reduced to `existing_embeddings` (kept subset only).
+            # Drop the full copy so peak RSS ≈ kept + new, not 2× full.
+            del saved
+
+        except IndexCheckpointCorrupt:
+            # Fail closed: never rebuild-over a suspect formal index.
+            print(f"  FATAL: existing index failed structural validation — "
+                  f"refusing to touch it. Quarantine/inspect the file "
+                  f"manually, then rerun.", flush=True)
+            raise
         except Exception as e:
             print(f"  Index corrupted ({e}). Rebuilding from scratch...", flush=True)
 
@@ -313,6 +375,13 @@ async def build_index():
         try:
             embeddings = await embedding_func(texts)
             embeddings = np.array(embeddings, dtype=np.float32)
+            if embeddings.shape != (len(texts), EMBEDDING_DIM):
+                # Fail closed: a provider returning wrong row count or
+                # wrong dimensionality must never reach the index (rows
+                # would desync from meta or claim a false dim).
+                raise RuntimeError(
+                    f"provider returned shape {embeddings.shape}, "
+                    f"expected {(len(texts), EMBEDDING_DIM)}")
             all_embeddings.append(embeddings)
 
             for orig_idx, rec in batch:
@@ -386,20 +455,34 @@ async def build_index():
                     f"(records {len(combined_meta)})", in_place=True)
 
                 partial_data = {
-                    "embeddings": combined_embs,
+                    "embeddings": combined,
                     "meta": combined_meta,
                     "dim": EMBEDDING_DIM,
                 }
-                # Atomic save: write to temp file then rename
-                tmp_file = str(INDEX_FILE) + ".tmp"
+                # Atomic save: unique per-writer temp name (never collides
+                # with another builder or a concurrent reader) + os.replace
+                tmp_file = f"{INDEX_FILE}.tmp.{os.getpid()}"
                 with open(tmp_file, "wb") as f:
                     pickle.dump(partial_data, f, protocol=pickle.HIGHEST_PROTOCOL)
-                os.rename(tmp_file, str(INDEX_FILE))
+                os.replace(tmp_file, str(INDEX_FILE))
                 total_now = len(combined_meta)
                 print(f"  💾 Saved index: {total_now} records "
                       f"({len(all_meta)} new + {len(existing_meta) if existing_embeddings is not None else 0} existing)", flush=True)
             except Exception as e:
-                print(f"  ⚠️ Partial save failed: {e}", flush=True)
+                # Fail closed (release-integrity gate, Codex Review A
+                # P0-1 follow-up): a checkpoint-save failure — I/O error
+                # OR integrity refusal — must abort the build. Continuing
+                # would break the "last checkpoint preserved" resume
+                # guarantee and could mask a fatal defect (the swallowed
+                # NameError that hid this exact bug during the 30391-row
+                # rebuild). Final publish re-refuses independently.
+                print(f"  FATAL: checkpoint save failed; aborting without "
+                      f"publishing (last checkpoint on disk stays valid): "
+                      f"{type(e).__name__}: {e}", flush=True)
+                raise RuntimeError(
+                    f"vector_index: checkpoint save failed "
+                    f"({type(e).__name__}: {e}); refusing to continue — "
+                    f"last checkpoint preserved, rerun to resume") from e
     
     print(f"\n[3/3] Saving final index...", flush=True)
     new_embeddings = (all_embeddings[0] if len(all_embeddings) == 1
@@ -432,11 +515,12 @@ async def build_index():
     }
 
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
-    # Atomic save: write to temp file then rename
-    tmp_file = str(INDEX_FILE) + ".tmp"
+    # Atomic save: unique per-writer temp name + os.replace (atomic on
+    # POSIX; avoids clobbering a concurrent writer's temp file)
+    tmp_file = f"{INDEX_FILE}.tmp.{os.getpid()}"
     with open(tmp_file, "wb") as f:
         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
-    os.rename(tmp_file, str(INDEX_FILE))
+    os.replace(tmp_file, str(INDEX_FILE))
 
     elapsed = time.time() - start_time
     size_mb = INDEX_FILE.stat().st_size / 1024 / 1024

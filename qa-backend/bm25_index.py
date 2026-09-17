@@ -180,10 +180,12 @@ def build_bm25_index():
     }
 
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
-    tmp_file = str(BM25_FILE) + ".tmp"
+    # Atomic save: unique per-writer temp name + os.replace (atomic on
+    # POSIX; never collides with another builder or a concurrent reader)
+    tmp_file = f"{BM25_FILE}.tmp.{os.getpid()}"
     with open(tmp_file, "wb") as f:
         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
-    os.rename(tmp_file, str(BM25_FILE))
+    os.replace(tmp_file, str(BM25_FILE))
 
     size_mb = BM25_FILE.stat().st_size / 1024 / 1024
     total_elapsed = time.time() - start_time

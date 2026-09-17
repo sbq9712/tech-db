@@ -43,6 +43,9 @@ EXPECTED_DIM = 1024
 
 
 def sha_file(p: Path) -> str:
+    # NOTE: hash-then-load of a path has a TOCTOU window — for gates,
+    # read bytes once and use sha256(bytes) + pickle.loads(bytes).
+    # Kept for header/footer provenance lines only.
     h = hashlib.sha256()
     with open(p, "rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -74,13 +77,17 @@ def main() -> int:
         data, view = ensure_build_view(DEFAULT_DATASET, DEFAULT_MAP)
         snap_ids = [r.get("record_id", "") for r in data]
         snap_set = set(snap_ids)
+        snapshot_id = str(view.get("dataset_snapshot_id", ""))
         snap_gate = {
             "rows": len(snap_ids),
             "unique_ids": len(snap_set) == len(snap_ids),
             "expected_rows": args.expect_rows,
             "rows_match": len(snap_set) == args.expect_rows,
-            "dataset_sha256": view.get("dataset_sha256", ""),
-            "snapshot_id": str(view.get("dataset_snapshot_id", "")),
+            # the snapshot id IS the "sha256:<hex>" pin (Codex Review A:
+            # there is no separate dataset_sha256 key on the view)
+            "dataset_sha256": snapshot_id.removeprefix("sha256:"),
+            "snapshot_id": snapshot_id,
+            "map_source": str(view.get("source", "")),
         }
         ok &= snap_gate["unique_ids"] and snap_gate["rows_match"]
     except Exception as exc:  # fail closed
@@ -91,21 +98,32 @@ def main() -> int:
     report["gates"]["snapshot"] = snap_gate
 
     # ── 2. vector index ─────────────────────────────────────────────
-    vsha = sha_file(vec_path)
-    with open(vec_path, "rb") as f:
-        vidx = pickle.load(f)
+    # Read the bytes ONCE, then hash and unpickle the SAME bytes —
+    # a hash-then-open TOCTOU window could validate file A while
+    # loading file B (Codex Review A).
+    vbytes = vec_path.read_bytes()
+    vsha = hashlib.sha256(vbytes).hexdigest()
+    vidx = pickle.loads(vbytes)
     emb = np.asarray(vidx["embeddings"], dtype=np.float32)
     vmeta = vidx["meta"]
     v_ids = [m.get("record_id", "") for m in vmeta]
     v_set = set(v_ids)
-    dims = vidx.get("dim")
+    declared_dim = vidx.get("dim")
+    emb_width = int(emb.shape[1])
+    # The declared dim is a CLAIM — gate on the actual matrix width and
+    # require the claim to agree (never trust the header alone).
+    declared_dim_matches = (declared_dim is None
+                            or int(declared_dim) == emb_width)
     zero_rows = int((np.linalg.norm(emb, axis=1) == 0).sum())
     nonfinite_rows = int((~np.isfinite(emb).all(axis=1)).sum())
     vec_gate = {
         "sha256": vsha,
         "rows": int(emb.shape[0]),
         "meta_rows": len(vmeta),
-        "dim": int(dims) if dims is not None else int(emb.shape[1]),
+        "emb_width": emb_width,
+        "declared_dim": (int(declared_dim)
+                         if declared_dim is not None else None),
+        "declared_dim_matches": declared_dim_matches,
         "expected_dim": EXPECTED_DIM,
         "zero_norm_rows": zero_rows,
         "nonfinite_rows": nonfinite_rows,
@@ -113,7 +131,8 @@ def main() -> int:
         "missing_record_id": sum(1 for x in v_ids if not x),
     }
     v_ok = (vec_gate["rows"] == vec_gate["meta_rows"] == args.expect_rows
-            and vec_gate["dim"] == EXPECTED_DIM
+            and vec_gate["emb_width"] == EXPECTED_DIM
+            and declared_dim_matches
             and zero_rows == 0 and nonfinite_rows == 0
             and vec_gate["duplicate_ids"] == 0
             and vec_gate["missing_record_id"] == 0)
@@ -121,9 +140,10 @@ def main() -> int:
     report["gates"]["vector"] = vec_gate
 
     # ── 3. BM25 index ───────────────────────────────────────────────
-    bsha = sha_file(bm25_path)
-    with open(bm25_path, "rb") as f:
-        bidx = pickle.load(f)
+    # bytes-once: hash and unpickle the SAME bytes (no TOCTOU window)
+    bbytes = bm25_path.read_bytes()
+    bsha = hashlib.sha256(bbytes).hexdigest()
+    bidx = pickle.loads(bbytes)
     bmeta = bidx["meta"]
     b_ids = [m.get("record_id", "") for m in bmeta]
     b_set = set(b_ids)
