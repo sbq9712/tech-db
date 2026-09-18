@@ -3762,12 +3762,27 @@ async def chat_stream(req: ChatRequest, request: Request):
                             # the verifier simply sees actual evidence.
                             def _verify_text_evidence() -> list:
                                 try:
-                                    from epistemic import (
-                                        _get_chunk_text as _gct)
-                                    from server import load_records as _lr
-                                    _records = _lr()
+                                    _records = list(_request_records() or [])
                                 except Exception:
                                     _records = []
+                                if not _records:
+                                    try:
+                                        from retrieval.runtime import (
+                                            load_records as _lr)
+                                        _records = _lr() or []
+                                    except Exception:
+                                        _records = []
+                                _by_rid = {}
+                                _by_idx = {}
+                                for _pos, _rec in enumerate(_records):
+                                    if not isinstance(_rec, dict):
+                                        continue
+                                    _rid = _rec.get("record_id")
+                                    if _rid is not None:
+                                        _by_rid[str(_rid)] = _rec
+                                        _by_rid[str(_rid)].setdefault(
+                                            "record_id", str(_rid))
+                                    _by_idx[_pos] = _rec
                                 rows_in = []
                                 try:
                                     rows_in = list(search_results or [])
@@ -3782,16 +3797,34 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 out, budget = [], 9000
                                 for _i, _r in enumerate(rows_in[:12]):
                                     _meta = _r.get("meta") or {}
-                                    _txt = (_gct(_r, _records)
-                                            if _records else "")[:600]
+                                    _rid = str(_meta.get("record_id") or "")
+                                    _rec = _by_rid.get(_rid)
+                                    if _rec is None:
+                                        try:
+                                            _idx = int(_meta.get("idx", -1))
+                                        except (TypeError, ValueError):
+                                            _idx = -1
+                                        _rec = _by_idx.get(_idx)
+                                    if not isinstance(_rec, dict):
+                                        continue
+                                    try:
+                                        from primary_evidence import (
+                                            source_evidence_text as _set)
+                                        _txt = str(_set(_rec))[:600]
+                                    except Exception:
+                                        _txt = str(_rec.get("as")
+                                                   or _rec.get("b")
+                                                   or "")[:600]
                                     if not _txt:
                                         continue
                                     out.append({
                                         "evidence_id": f"ev_{_i+1}",
-                                        "record_id": str(
-                                            _meta.get("record_id") or ""),
-                                        "title": str(_meta.get("t") or "")[:80],
-                                        "date": str(_meta.get("d") or ""),
+                                        "record_id": _rid,
+                                        "title": str(_rec.get("t")
+                                                     or _meta.get("t")
+                                                     or "")[:80],
+                                        "date": str(_rec.get("d")
+                                                    or _meta.get("d") or ""),
                                         "text": _txt,
                                     })
                                     budget -= len(_txt) + 120
