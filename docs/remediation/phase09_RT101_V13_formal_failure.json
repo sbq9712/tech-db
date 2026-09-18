@@ -1,0 +1,72 @@
+{
+ "schema": "phase09.rt101_formal_failure.1",
+ "lineage": "RT101-V13",
+ "candidate": {
+  "v13_candidate_sha256": "0e8310609634c025197a24cf618a0573b71bc70e30ce9b71af6a2d77c10726e0",
+  "v13_lock_sha256": "964ce65f281ba52b3142d05e5f5d8dabaf940a035da15b5f2546e87c251d661b",
+  "evaluated_git_sha": "773c204e20f44e53342d087e53358296fe4559f1",
+  "case_count": 15,
+  "case_mix": {
+   "ABSTAIN": 2,
+   "ANSWER": 11,
+   "MUTATION_WITH_LOYAL_ANSWER": 2
+  },
+  "corpus_manifest": "mini-runtime-a49a56f8861a0633",
+  "corpus_store_sha256": "f100f45693b275aba83af941bde0f2b19a60327bfe8ec6b1e0e5f0f175dad4c7",
+  "dataset_snapshot_id": "sha256:950ff008aacdb7d11f749a67f69082b56f6033d1c1bfa30a3f929e685d882c70",
+  "source_snapshot_catalog_id": "91d8460a260d04a08d8454723373ecdac9ed1c0f64efd391bb57d17499aa59b8",
+  "runner_sha256": "48c7ef22104b0b87d416b387af955bcd3eda5d2bcca2c5e0e3bf51de1e44a9b6",
+  "scorer_id": "RT101-V13-SCORER",
+  "scorer_sha256": "fe8f0cc759cb6758959172b13c3843ee91b5a10c9caeaadff5f449984800d82b",
+  "scorer_version": "11.0.0",
+  "thresholds_sha256": "6f8ec0c9aae0c0111c3f0ff2cb892ff372123785cc0cfbec9be82b61704f5969"
+ },
+ "execution": {
+  "completed_at_utc": "2026-09-18T01:40:47Z",
+  "run_id": "owner-v13-formal-20260918T012450Z",
+  "marker_sealed_at_utc": "2026-09-18T01:25:17Z",
+  "runner": "owner-side run_v13_after_owner_approval.sh",
+  "formal_result_artifact": "owner-side formal_v13_state/scoring_report_aggregate.json",
+  "transport": "15/15 posts HTTP 200 done_json, 0 retries, 0 truncation",
+  "immutability": {
+   "IMMUTABLE": true,
+   "REUSE_FORBIDDEN": true,
+   "V13_ONE_SHOT_CONSUMED": true,
+   "V13_RESULT": "FAIL",
+   "V6_THRU_V12_IMMUTABLE_FAIL_PRESERVED": true
+  }
+ },
+ "consequences": {
+  "NEXT_PROMPT_ALLOWED": false,
+  "NEXT_STEP": "V14 fresh isolated lineage only: fresh builder + fresh salt + fresh candidate/lock at the post-repair head, full gate chain (tier, CI, contamination/corpus/source/deploy, dry-run) and a NEW owner approval; formal V14 execution forbidden until then",
+  "PHASE09": "NOT_SATISFIED",
+  "PHASE10": "FORBIDDEN",
+  "RT101": "UNSATISFIED"
+ },
+ "generalized_observations": [
+  "metrics: correctness 0.3077 (min 0.8), completeness 0.1905 (min 0.8), unsupported_claim_rate 0.9914 (max 0.2), attribution_accuracy 0.0 (min 0.8), exact_citation_accuracy 0.6667 (min 0.8), invalid_displayed_citations 1 (max 0), verifier_technical_failures 1 (max 0); temporal_accuracy 1.0 PASSED; abstention_accuracy 0.0 REGRESSED vs V12 1.0 — both absence cases answered (PARTIALLY_SUPPORTED) instead of loyally refusing",
+  "display-authorization starvation: scorer counts a citation as displayed iff display_authorized AND supports_claim_ids non-empty; the runtime authorized 0 citations in 14/15 cases (citation_display_authorization stage data EMPTY in traces); only case_02 authorized 3 (2 valid, 1 invalid: legacy-idx:4398 record_id leaked into the authorized chain → record_unresolvable). attribution_accuracy 0.0 and unsupported_claim_rate 0.9914 are downstream of this starvation",
+  "runtime internal verdicts disagree with its own authorization layer: runtimes' claim mapper produced claim→citation relations (case_02 claims 4/6 SUPPORTED with relations), runtime verifier FAILED all 15 (14 verifier_findings_unsupported_claims; case_09 TECHNICAL_FAILURE/UNVERIFIED = the 1 scorer technical failure) — the claim/citation linkage exists internally but is not wired into display authorization on all answer shapes",
+  "retrieval discrimination flat, not broken: offline probes — BM25 route healthy (top score 110, 23147/30391 nonzero docs but generic-term noise dominates instruction-style queries); vector route healthy index (30391x1024, unit norms, validator PASS) but BGE-M3 whole-query cosine is flat (max 0.5324, p99 0.4517, mean 0.3359) for template queries → top-25 fusion pool carries weak-relevance records; runtime honestly reports 很有限 relevant material",
+  "facts_matched 4/21 (V12: 3/21): V12 R1a/R1b body-window repairs improved correctness 0.0769→0.3077 but evidence-bearing records still not reached/ranked into the small fusion pool for most blind cases",
+  "integrity chain behaved correctly throughout: identity/corpus/deploy/coverage/preflight all PASSED pre-marker; one-shot marker sealed then consumed; decision FAIL written atomically with append-only chain hash; corpus_compat had proven hidden-source membership 13/13 — store binding correct, retrieval just never surfaced it",
+  "mojibake ruled out: vector index metadata 1/30391 corrupted title (single source record), no systemic encoding defect; index drift ruled out: served vector_index_v2.pkl (2d561892…) is the validated 04:1x build with parity VECTOR==BM25==SNAPSHOT exact"
+ ],
+ "repair_policy": {
+  "forbidden": [
+   "query-specific or case-specific tuning",
+   "threshold changes on scorer release gates (scorer/thresholds stay byte-frozen; V14 re-freezes a fresh lineage binding)",
+   "semantic retry of formal cases",
+   "reinterpreting this FAIL as PASS",
+   "reusing any V6-V13 candidate/lock/salt/lineage material for V14"
+  ],
+  "required": [
+   "generalized display-authorization repair: every evidence-bearing claim must obtain a display-authorized, claim-linked citation (display_authorized + supports_claim_ids + grounding VALID + universe-correct record_id) across ALL answer shapes; empty authorization stage data must be a fail-closed test failure, not silent",
+   "hard universe-correct record_id invariant: legacy-idx:N pseudo-ids must never reach citation/authorization/must_cite surfaces (fail-closed guard + test)",
+   "generalized retrieval discrimination repair: query-aware fusion weighting/rerank of the RRF pool (vector + BM25 + category/date signals) so fact-bearing records rank into the served top-25 for template/instruction queries",
+   "abstention repair: restore loyal refusal when retrieval confirms no supporting evidence (no_evidence gate must fire before composition), with tests",
+   "verifier technical-failure robustness (case_09 class): bounded, fail-closed verifier calls so answer_status never degrades to UNVERIFIED for transport-shaped reasons",
+   "full regression + one push tier at the final head, then a fresh V14 lineage with a new owner approval package"
+  ]
+ }
+}
