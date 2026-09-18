@@ -315,20 +315,20 @@ def test_b_record_id_authority():
         citation_record_authority_error, is_pseudo_record_id)
 
     check("B.pseudo_prefix_forms",
-          is_pseudo_record_id("legacy-idx:4398")
+          is_pseudo_record_id("legacy-idx:7734")
           and is_pseudo_record_id("legacy_idx:12")
           and is_pseudo_record_id("synthetic:9")
           and is_pseudo_record_id("_pos:3"),
           "all positional/synthetic prefix families")
     check("B.pseudo_empty_and_bare_digit",
           is_pseudo_record_id("") and is_pseudo_record_id(None)
-          and is_pseudo_record_id("4398"),
+          and is_pseudo_record_id("7734"),
           "empty/None/bare-digit are pseudo")
     check("B.canonical_uuid_not_pseudo",
           not is_pseudo_record_id("018f3c2e-7a1b-7c1e-9f2a-3b4c5d6e7f80"),
           "canonical record id passes")
 
-    err = citation_record_authority_error({"record_id": "legacy-idx:4398"})
+    err = citation_record_authority_error({"record_id": "legacy-idx:7734"})
     check("B.citation_guard_rejects_pseudo",
           isinstance(err, str) and err.startswith("pseudo_record_id"),
           f"{err!r}")

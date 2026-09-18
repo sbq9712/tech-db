@@ -1359,13 +1359,27 @@ async def run_phase02_verification(
             if sup.get("relation") in ("DIRECT_SUPPORT", "PREMISE_SUPPORT",
                                        "ATTRIBUTION") and sup.get("citation_id") is not None:
                 _by_cit_final.setdefault(sup.get("citation_id"), []).append(cl.get("id"))
+    # RT101-V14 codex review B (P1): display authorization is bounded by
+    # the request's canonical record-id universe (§12): in manifest mode
+    # the pinned source catalog IS that universe; otherwise the
+    # request-pinned records_by_id mapping is. A well-formed but
+    # out-of-universe record id must fail closed (record_unresolvable)
+    # exactly like a pseudo id. When no pinned universe is resolvable the
+    # gate degrades to the historical shape-only check — it never
+    # fabricates a universe and never loosens.
+    if pinned_catalog_entries is not None:
+        _rid_universe = set(pinned_catalog_entries.keys())
+    elif records_by_id:
+        _rid_universe = {str(k) for k in records_by_id.keys() if str(k)}
+    else:
+        _rid_universe = None
     _withheld_unlinked = 0
     _withheld_pseudo = 0
     for c in final_citations:
         # RT101-V13 post-mortem (Repair B): positional/synthetic pseudo-ids
         # can never carry display authority (§11/§13 fail closed).
         from record_id_authority import citation_record_authority_error
-        rid_err = citation_record_authority_error(c)
+        rid_err = citation_record_authority_error(c, _rid_universe)
         if rid_err:
             c["grounding_status"] = "INVALID"
             c["display_authorized"] = False

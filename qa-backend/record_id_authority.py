@@ -19,8 +19,9 @@ PSEUDO_PREFIXES = ("legacy-idx:", "legacy_idx:", "synthetic:", "_pos:")
 
 def is_pseudo_record_id(record_id) -> bool:
     """True when the value is a positional/synthetic masquerade, not a
-    stable record id (V13 formal: `legacy-idx:4398` reached the authorized
-    chain). Numeric-only ids are also pseudo (raw list positions)."""
+    stable record id (the V13 formal run surfaced a positional
+    `legacy-idx:<n>` masquerade in the authorized chain). Numeric-only ids
+    are also pseudo (raw list positions)."""
     if record_id is None:
         return True
     rid = str(record_id).strip()

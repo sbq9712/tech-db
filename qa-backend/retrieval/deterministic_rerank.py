@@ -524,7 +524,11 @@ def _clause_rescue(query: str, scored: list, terms_fn, idf_fn, cov_fn) -> list:
 
 
 # ── C2 pool size (serving cut stays FINAL_TOP_K) ────────────────────────────
-RETRIEVAL_CANDIDATE_POOL = 80  # pre-truncation pool; FINAL_TOP_K unchanged
+# RT101-V14 codex review B (P2): single source of truth — the pool size is
+# DEFINED in retrieval/runtime.py next to FINAL_TOP_K and only re-exported
+# here (callers that historically imported it from this module keep
+# working, but there is exactly one definition to maintain).
+from retrieval.runtime import RETRIEVAL_CANDIDATE_POOL  # noqa: E402
 
 
 if __name__ == "__main__":  # smoke self-test (synthetic only)

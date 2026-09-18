@@ -4291,13 +4291,44 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 _cl.get("id"))
                 _lv_withheld = 0
                 _lv_pseudo = 0
+                # RT101-V14 codex review B (P1): bind legacy display
+                # authorization to the request's canonical record-id
+                # universe — the pinned source catalog in manifest mode,
+                # else the pinned records' stable record ids. A well-formed
+                # but out-of-universe id now fails closed
+                # (record_unresolvable), exactly like a pseudo id. When no
+                # pinned universe is resolvable the gate degrades to the
+                # historical shape-only check — it never fabricates a
+                # universe and never loosens.
+                _rid_universe = None
+                try:
+                    _cat = _runtime_resource("source_catalog", None)
+                    if isinstance(_cat, dict):
+                        _rid_universe = {
+                            str(_e.get("record_id"))
+                            for _e in (_cat.get("snapshots") or [])
+                            if isinstance(_e, dict) and _e.get("record_id")
+                        } or None
+                except Exception:
+                    _rid_universe = None
+                if _rid_universe is None:
+                    try:
+                        _u = {str(_r.get("record_id"))
+                              for _r in (_request_records() or [])
+                              if isinstance(_r, dict)
+                              and _r.get("record_id")}
+                        _rid_universe = _u or None
+                    except Exception:
+                        _rid_universe = None
                 for _c in citations:
                     # RT101-V13 post-mortem (Repair B): a positional/
                     # synthetic pseudo-id may never carry display authority
-                    # (V13 formal: `legacy-idx:4398` authorized+VALID).
+                    # (a positional masquerade reached the authorized chain
+                    # in the V13 formal run).
                     from record_id_authority import (
                         citation_record_authority_error)
-                    _rid_err = citation_record_authority_error(_c)
+                    _rid_err = citation_record_authority_error(
+                        _c, _rid_universe)
                     if _rid_err:
                         _c["grounding_status"] = "INVALID"
                         _c["display_authorized"] = False
