@@ -322,6 +322,13 @@ class AnswerStateMachine:
                        if c.get("support_status") not in ("SUPPORTED",)]
         supported = [c for c in major if c.get("support_status") == "SUPPORTED"]
 
+        def _verdict_of(c: dict) -> str:
+            # RT101-V13 Repair D: per-claim final verifier verdict
+            # (P0-2 convention; production seams attach it to every row
+            # before the terminal derivation).
+            return str(c.get("verifier_verdict") or c.get("verdict")
+                       or "").strip().upper()
+
         # 8. Claims exist but claim results missing (anomaly) ⇒ UNVERIFIED.
         if self.claims and not major and not self.coverage:
             return (AnswerStatus.UNVERIFIED, "claim_results_unavailable")
@@ -342,6 +349,39 @@ class AnswerStateMachine:
         # 9. All core claims unsupported ⇒ UNSUPPORTED (even if verifier PASSED).
         if major and not supported:
             return (AnswerStatus.UNSUPPORTED, "all_core_claims_unsupported")
+
+        # 9b. RT101-V13 post-mortem (Repair D — canonical evidence
+        #     semantics, loyal abstention): a SUPPORTED *relation* is TOPIC
+        #     relevance, not claim support. When the final verification
+        #     FAILED and the claim rows carry per-claim verifier verdicts
+        #     (production seams attach them before this derivation —
+        #     legacy server + phase02 pipeline), a core claim may count as
+        #     verified support ONLY when the verifier explicitly PASSED it
+        #     — the same qualification the citation display-authorization
+        #     contract enforces (P0-2). FAILED + zero verifier-PASSED
+        #     claims MUST derive the loyal UNSUPPORTED refusal, never a
+        #     PARTIALLY_SUPPORTED pseudo-answer (V13 formal: both absence
+        #     cases shipped PARTIALLY_SUPPORTED with zero authorized
+        #     citations — abstention_accuracy 0.0 vs V12 1.0). Rows without
+        #     any verdict keep the historical relation view (pre-convention
+        #     callers/fixtures; their verdict application happened
+        #     upstream). When at least one claim was explicitly passed,
+        #     fall through to rule 10 with the verdict-informed unsupported
+        #     set — a claim whose verdict is anything short of explicit
+        #     PASS (UNVERIFIED / NOT_PASSED / UNKNOWN) never counts as
+        #     support.
+        if self.verification_state == VerificationState.FAILED:
+            _row_verdicts = [_verdict_of(c) for c in major]
+            if any(_row_verdicts):
+                _verified = [c for c in major
+                             if c.get("support_status") == "SUPPORTED"
+                             and _verdict_of(c) == "PASS"]
+                if not _verified:
+                    return (AnswerStatus.UNSUPPORTED,
+                            "verifier_failed_without_verified_support")
+                unsupported = [c for c in major
+                               if not (c.get("support_status") == "SUPPORTED"
+                                       and _verdict_of(c) == "PASS")]
 
         # 10. Verifier semantic findings (FAILED) ⇒ partial/unsupported (Q097).
         if self.verification_state == VerificationState.FAILED:

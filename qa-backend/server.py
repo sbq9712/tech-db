@@ -195,6 +195,7 @@ def _generator_timeout_cap_s(execution) -> float:
 # parity.py, epistemic.load_records) — thin delegates, NOT a second parallel
 # implementation.
 import retrieval.runtime as _rt
+import retrieval.deterministic_rerank as _rr  # RT101-V13 repair C (deep retrieval)
 
 graph_search = _rt.graph_search
 _bm25_tokenize = _rt.bm25_tokenize
@@ -584,6 +585,56 @@ def _declared_no_evidence(full_answer: str, search_results) -> bool:
         return False
 
 
+def _attach_claim_verifier_verdicts(claim_map: dict, verification_status: str,
+                                    findings) -> None:
+    """RT101-V13 post-mortem (Repair D — canonical evidence semantics).
+
+    Attach an explicit per-claim ``verifier_verdict`` to every claim-map
+    row BEFORE the answer-status derivation, so the status machine counts
+    claim support under the SAME authority the citation
+    display-authorization contract enforces (P0-2: relation SUPPORTED
+    AND verifier verdict PASS):
+
+      * overall PASSED   → PASS for every atomic claim (the verifier
+        contract only passes when every claim passed);
+      * overall FAILED   → the verifier's per-claim finding verdict when
+        one was reported (incl. explicit PASS for claims the verifier
+        explicitly cleared), else NOT_PASSED;
+      * UNVERIFIED / NOT_RUN / technical / skip → UNVERIFIED.
+
+    V13 formal regression this closes: the legacy path attached these
+    verdicts only AFTER ``determine_answer_status`` had already run, so
+    the terminal derivation counted relation-SUPPORTED claims as support
+    even when the verifier had passed none — both absence cases shipped
+    PARTIALLY_SUPPORTED with zero authorized citations (abstention
+    regression). With the verdicts wired pre-derivation, a FAILED
+    verification over claims the verifier did not pass derives the loyal
+    UNSUPPORTED refusal. Idempotent; fails open (missing verdicts are
+    treated as not-passed by the status machine — never a crash).
+    """
+    try:
+        claims = (claim_map or {}).get("claims") or []
+        default = ("PASS" if verification_status == "PASSED"
+                   else "NOT_PASSED" if verification_status == "FAILED"
+                   else "UNVERIFIED")
+        by_id = {}
+        if verification_status == "FAILED":
+            for _f in (findings or []):
+                if isinstance(_f, dict) and _f.get("claim_id"):
+                    by_id[str(_f["claim_id"])] = str(
+                        _f.get("verdict", "")).upper()
+        for _cl in claims:
+            if not isinstance(_cl, dict):
+                continue
+            _v = by_id.get(str(_cl.get("id")))
+            if _v:
+                _cl["verifier_verdict"] = _v
+            if not _cl.get("verifier_verdict"):
+                _cl["verifier_verdict"] = default
+    except Exception:  # pragma: no cover — fail-open; machine treats
+        pass          # absent verdicts as NOT passed (fail-closed there)
+
+
 def _no_evidence_boundary(query: str, exhausted: bool) -> str:
     """Codex-review C3 P2 fix: boundary message for early unsupported exits.
 
@@ -717,11 +768,33 @@ async def _search_with_quality_new(query: str, exclude_ids: set = None) -> tuple
     server keeps only the request-pinned snapshot handoff. Parity
     invariants (locked by tests_parity.py frozen gate-1 baselines) are
     documented there and preserved bit-for-bit.
+
+    RT101-V13 repair C (deep-retrieval mode): a DETERMINISTIC, query-shape
+    predicate (retrieval/deterministic_rerank.needs_deep_retrieval) sends
+    long / multi-clause / boilerplate-laden / quoted / dated queries through
+    a wider pre-truncation pool + deterministic content-merit rerank BEFORE
+    the SAME FINAL_TOP_K serving cut. Short focused keyword queries — every
+    frozen parity-baseline query — keep this surface byte-identical:
+      - the retrieval query is the RAW query (never normalized);
+      - no candidate_pool widening, no rerank_fn — fused order preserved.
+    Deep mode changes only WHAT is retrieved and its serving order, never
+    the admission gates (VEC_STRONG unchanged) nor the serving size.
     """
     snapshot = _request_runtime_snapshot.get()
     # server-side pipeline resolution keeps the live-path loading seam
     # (tests patch server.INDEX_FILE/BM25_FILE/LITE_PATH before first use)
     pipeline = _get_retrieval_pipeline()
+    if _rr.needs_deep_retrieval(query):
+        # C1: normalized (boilerplate-stripped) query feeds embed/BM25 so
+        # route retrieval concentrates content signal; the ORIGINAL query
+        # drives lexical/constraint scoring inside the reranker (closure
+        # over the caller-visible text, NOT the normalized view).
+        nq = _rr.normalize_retrieval_query(query) or query
+        return await _rt.run_hybrid(
+            nq, snapshot=snapshot, exclude_ids=exclude_ids,
+            embed_fn=embedding_func, pipeline=pipeline,
+            candidate_pool=_rt.RETRIEVAL_CANDIDATE_POOL,
+            rerank_fn=lambda _q, rows: _rr.apply_deterministic_rerank(query, rows))
     return await _rt.run_hybrid(query, snapshot=snapshot, exclude_ids=exclude_ids,
                                 embed_fn=embedding_func, pipeline=pipeline)
 
@@ -3520,9 +3593,6 @@ async def chat_stream(req: ChatRequest, request: Request):
                 _pp_budget = QueryBudget()
                 execution.query_budget = _pp_budget
 
-                # ── T005: Fail-Safe Verification ──
-                # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
-                # Correctness-critical: BudgetFuse cannot silently skip this.
                 # Q091: the initial verification state is NOT_RUN — never
                 # PASSED.  PASSED may only be recorded after a canonical
                 # verification authority actually passes (the fail-safe
@@ -3532,70 +3602,20 @@ async def chat_stream(req: ChatRequest, request: Request):
                 verification_issues = []
                 verification_error = ""  # TK-10: last failure cause, for the user warning
                 _lv_findings = []  # P0-2: final per-claim verdict evidence
-                if claim_metadata and full_answer.strip():
-                    try:
-                        # Use budget_guard to ensure correctness-critical handling
-                        budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
-                        decision, should_call, status_override = check_budget("verifier", budget_ok)
-
-                        if should_call:
-                            print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
-                            _legacy_verify_attempt = 0
-
-                            async def _verify_legacy_once():
-                                nonlocal _legacy_verify_attempt
-                                _legacy_verify_attempt += 1
-                                return await verify_with_fail_safe(
-                                    query, full_answer, claim_metadata,
-                                    retry_owner="request_context",
-                                    attempt_number=_legacy_verify_attempt)
-
-                            vr = await execution.run_stage(
-                                "final_verifier", _verify_legacy_once,
-                                requirement_critical=True,
-                                safe_fallback_available=False)
-                            verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
-                            if verification_status == VERIFY_UNVERIFIED:
-                                verification_error = vr.failure_reason or "verification returned UNVERIFIED"
-                            trace.add_stage("verification", {
-                                "status": vr.status,
-                                "issues": vr.issues[:5],
-                                "failure_reason": vr.failure_reason,
-                            })
-                            print(f"[verify] Result: {vr.status}", flush=True)
-                            if vr.status == VERIFY_FAILED:
-                                # Phase 02 (RT-025, final spec §26): the verifier
-                                # returns structured findings ONLY — it never
-                                # authors/rewrites the final answer. The legacy
-                                # "replace" event is retired; answer surgery is
-                                # owned by the RT-026 bounded repair loop on the
-                                # Phase-02 path.
-                                verification_issues = vr.issues
-                        elif status_override:
-                            # Budget exhausted for correctness-critical verification
-                            # MUST NOT silently pass. Mark as UNVERIFIED.
-                            verification_status = status_override  # "UNVERIFIED"
-                            verification_error = "verification skipped due to budget"
-                            print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
-                            trace.add_stage("verification", {
-                                "status": "SKIPPED_BUDGET",
-                                "note": f"Verification skipped due to budget; answer marked {verification_status}",
-                                "budget_guard": decision.value,
-                            })
-                    except (asyncio.CancelledError, RequestCancelled):
-                        raise
-                    except Exception as e:
-                        # Any exception → UNVERIFIED, never PASS
-                        verification_status = VERIFY_UNVERIFIED
-                        verification_error = str(e)
-                        print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
-                        trace.add_stage("verification", {
-                            "status": "EXCEPTION",
-                            "error": str(e),
-                            "api_failure": looks_like_api_failure(str(e)),  # TK-10
-                        })
 
                 # ── T004: Claim Mapping ──
+                # RT101-V13 post-mortem (Repair A, order repair): claim
+                # mapping MUST run BEFORE the fail-safe verifier on the
+                # legacy path — the structured per-claim verification
+                # contract derives its atomic claims from the canonical
+                # claim map (mapper ids "claim_N"), and a verifier verdict
+                # that runs before the map exists can never link per-claim
+                # findings to display authority (the V13 starvation root:
+                # the whole-draft verifier FAILED with issues only, so the
+                # authorization seam defaulted EVERY claim to NOT_PASSED).
+                # The lineage-failure branch below intentionally fail-closes
+                # to UNVERIFIED; the T005 block guards on it and never
+                # upgrades a lineage-failed request.
                 claim_map = {"claims": []}
                 _claim_mapping_failure = ""  # RT101-V10 post-seal repair
                 if Flags.CLAIM_MAPPING_ENABLED and full_answer.strip() and citations:
@@ -3698,6 +3718,96 @@ async def chat_stream(req: ChatRequest, request: Request):
                             "status": "EXCEPTION",
                             "error": str(e)[:200],
                         })
+
+                # ── T005: Fail-Safe Verification ──
+                # Uses the new fail-safe verifier that NEVER returns PASSED on errors.
+                # Correctness-critical: BudgetFuse cannot silently skip this.
+                if (claim_metadata and full_answer.strip()
+                        and verification_status != VERIFY_UNVERIFIED):
+                    try:
+                        # Use budget_guard to ensure correctness-critical handling
+                        budget_ok, _ = BUDGET_FUSE.reserve(bypass=bypass)
+                        decision, should_call, status_override = check_budget("verifier", budget_ok)
+
+                        if should_call:
+                            print(f"[verify] Verifying answer ({len(full_answer)} chars) against {len(claim_metadata)} chunks", flush=True)
+                            _legacy_verify_attempt = 0
+
+                            # RT101-V13 post-mortem (Repair A): pass the
+                            # canonical claim-map rows so the verifier runs
+                            # the structured per-claim contract and returns
+                            # findings keyed by the SAME claim ids the
+                            # display-authorization seam matches against
+                            # (verdict transport — semantics unchanged).
+                            _verify_atomic_claims = [
+                                {"id": _c.get("id"), "text": _c.get("text", "")}
+                                for _c in (claim_map.get("claims") or [])
+                                if isinstance(_c, dict) and _c.get("id")]
+
+                            async def _verify_legacy_once():
+                                nonlocal _legacy_verify_attempt
+                                _legacy_verify_attempt += 1
+                                return await verify_with_fail_safe(
+                                    query, full_answer, claim_metadata,
+                                    retry_owner="request_context",
+                                    attempt_number=_legacy_verify_attempt,
+                                    atomic_claims=_verify_atomic_claims)
+
+                            vr = await execution.run_stage(
+                                "final_verifier", _verify_legacy_once,
+                                requirement_critical=True,
+                                safe_fallback_available=False)
+                            verification_status = vr.status  # PASSED / FAILED / UNVERIFIED
+                            if verification_status == VERIFY_UNVERIFIED:
+                                verification_error = vr.failure_reason or "verification returned UNVERIFIED"
+                            # RT101-V13 Repair A: keep the structured per-claim
+                            # verdict evidence so the display-authorization
+                            # seam can grant per-claim authority on FAILED
+                            # overall verdicts (verifier ran, flagged a
+                            # subset). Without this capture the primary site
+                            # would silently drop the findings the repair
+                            # exists to transport.
+                            _lv_findings = list(
+                                getattr(vr, "findings", None) or [])
+                            trace.add_stage("verification", {
+                                "status": vr.status,
+                                "issues": vr.issues[:5],
+                                "findings_count": len(_lv_findings),
+                                "failure_reason": vr.failure_reason,
+                            })
+                            print(f"[verify] Result: {vr.status}", flush=True)
+                            if vr.status == VERIFY_FAILED:
+                                # Phase 02 (RT-025, final spec §26): the verifier
+                                # returns structured findings ONLY — it never
+                                # authors/rewrites the final answer. The legacy
+                                # "replace" event is retired; answer surgery is
+                                # owned by the RT-026 bounded repair loop on the
+                                # Phase-02 path.
+                                verification_issues = vr.issues
+                        elif status_override:
+                            # Budget exhausted for correctness-critical verification
+                            # MUST NOT silently pass. Mark as UNVERIFIED.
+                            verification_status = status_override  # "UNVERIFIED"
+                            verification_error = "verification skipped due to budget"
+                            print(f"[verify] SKIPPED due to budget — marking {verification_status}", flush=True)
+                            trace.add_stage("verification", {
+                                "status": "SKIPPED_BUDGET",
+                                "note": f"Verification skipped due to budget; answer marked {verification_status}",
+                                "budget_guard": decision.value,
+                            })
+                    except (asyncio.CancelledError, RequestCancelled):
+                        raise
+                    except Exception as e:
+                        # Any exception → UNVERIFIED, never PASS
+                        verification_status = VERIFY_UNVERIFIED
+                        verification_error = str(e)
+                        print(f"[verify] Exception → UNVERIFIED: {e}", flush=True)
+                        trace.add_stage("verification", {
+                            "status": "EXCEPTION",
+                            "error": str(e),
+                            "api_failure": looks_like_api_failure(str(e)),  # TK-10
+                        })
+
                 # TK-12 (Q12/R8): supports_claim_ids — inverse of each claim's
                 # supported_by map (citation_id → [claim ids]). Filled whenever
                 # claim_mapping ran (agentic); stays [] otherwise and the UI hides
@@ -3942,6 +4052,16 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 if _rs:
                                     _rescue_verify_attempt = 0
 
+                                    # RT101-V13 post-mortem (Repair A):
+                                    # rescue verification also runs the
+                                    # structured per-claim contract so its
+                                    # findings reach the authorization seam.
+                                    _rescue_atomic = [
+                                        {"id": _c.get("id"),
+                                         "text": _c.get("text", "")}
+                                        for _c in (_rescue_claims or [])
+                                        if isinstance(_c, dict) and _c.get("id")]
+
                                     async def _verify_rescue_once():
                                         nonlocal _rescue_verify_attempt
                                         _rescue_verify_attempt += 1
@@ -3950,7 +4070,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                                             _rescue_claims,
                                             retry_owner="request_context",
                                             attempt_number=(
-                                                _rescue_verify_attempt))
+                                                _rescue_verify_attempt),
+                                            atomic_claims=_rescue_atomic)
 
                                     _rvr = await execution.run_stage(
                                         "final_verifier", _verify_rescue_once,
@@ -4013,6 +4134,18 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 "note": verification_error,
                                 "grounding": _det_info,
                             })
+
+                # ── RT101-V13 Repair D: attach canonical per-claim
+                # verifier verdicts BEFORE the answer-status derivation.
+                # The terminal machine must count claim support under the
+                # same qualification the display-authorization seam uses
+                # (relation SUPPORTED + verifier PASS); a FAILED
+                # verification over claims the verifier did not pass must
+                # derive the loyal UNSUPPORTED refusal, never a
+                # PARTIALLY_SUPPORTED pseudo-answer (V13 absence-case
+                # regression).
+                _attach_claim_verifier_verdicts(
+                    claim_map, verification_status, _lv_findings)
 
                 # ── T006: Four-State Answer Status ──
                 # RT101-V8 postmortem (Codex review): with the status
@@ -4129,21 +4262,13 @@ async def chat_stream(req: ChatRequest, request: Request):
                 # seam (stale precomputed supports_claim_ids cannot override
                 # the final verification authority).
                 _legacy_claims = claim_map.get("claims", [])
-                _lv_default = ("PASS" if verification_status == "PASSED"
-                               else "NOT_PASSED"
-                               if verification_status == "FAILED"
-                               else "UNVERIFIED")
-                if verification_status == "FAILED":
-                    for _f in (_lv_findings or []):
-                        if not isinstance(_f, dict):
-                            continue
-                        for _cl in _legacy_claims:
-                            if _cl.get("id") == _f.get("claim_id"):
-                                _cl["verifier_verdict"] = str(
-                                    _f.get("verdict", "")).upper()
-                for _cl in _legacy_claims:
-                    if not _cl.get("verifier_verdict"):
-                        _cl["verifier_verdict"] = _lv_default
+                # RT101-V13 Repair D: verdict attachment is now shared with
+                # the status-derivation seam (single source of truth in
+                # _attach_claim_verifier_verdicts, which already ran before
+                # the T006 derivation). This idempotent re-fill guards the
+                # shape for any path that mutated claim rows since.
+                _attach_claim_verifier_verdicts(
+                    claim_map, verification_status, _lv_findings)
 
                 def _legacy_display_qualified(cl) -> bool:
                     return (isinstance(cl, dict)
@@ -4165,7 +4290,21 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 _sup.get("citation_id"), []).append(
                                 _cl.get("id"))
                 _lv_withheld = 0
+                _lv_pseudo = 0
                 for _c in citations:
+                    # RT101-V13 post-mortem (Repair B): a positional/
+                    # synthetic pseudo-id may never carry display authority
+                    # (V13 formal: `legacy-idx:4398` authorized+VALID).
+                    from record_id_authority import (
+                        citation_record_authority_error)
+                    _rid_err = citation_record_authority_error(_c)
+                    if _rid_err:
+                        _c["grounding_status"] = "INVALID"
+                        _c["display_authorized"] = False
+                        _c["supports_claim_ids"] = []
+                        _lv_withheld += 1
+                        _lv_pseudo += 1
+                        continue
                     _lv_linked = sorted(
                         {str(_x) for _x in _lv_by_cit.get(_c.get("id"), [])
                          if _x})
@@ -4175,7 +4314,8 @@ async def chat_stream(req: ChatRequest, request: Request):
                         _lv_withheld += 1
                 trace.add_stage("citation_display_authorization", {
                     "authorized": len(citations) - _lv_withheld,
-                    "withheld_unlinked": _lv_withheld,
+                    "withheld_unlinked": _lv_withheld - _lv_pseudo,
+                    "withheld_pseudo_id": _lv_pseudo,
                     "path": "legacy"})
 
                 # ── Phase09 repair RD-1 (corpus adjudication): display

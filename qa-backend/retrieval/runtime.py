@@ -48,6 +48,12 @@ JIEBA_DICT = None
 RRF_K = 60              # RRF constant (1/(rank+k))
 RETRIEVAL_TOP_K = 50    # candidates per route
 FINAL_TOP_K = 25        # max records after fusion (LEGACY surface only)
+# Deep-retrieval pre-truncation pool (RT101-V13 repair C, opt-in only):
+# how many fused candidates the deterministic reranker sees BEFORE the
+# SAME FINAL_TOP_K serving cut. Serving size is unchanged — this only
+# stops the deliberately-flat RRF order from discarding rank-26+ rows
+# before content-merit scoring.
+RETRIEVAL_CANDIDATE_POOL = 80
 RELEVANCE_FLOOR = 0.3   # vector similarity floor for "honest answer" trigger
 
 # ── Quality gates (moved verbatim) ──
@@ -407,7 +413,8 @@ async def embed_query(query: str, embed_fn=None):
 
 
 async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
-                     embed_fn=None, pipeline=None):
+                     embed_fn=None, pipeline=None, *,
+                     candidate_pool: int | None = None, rerank_fn=None):
     """Run the legacy hybrid search (vector + BM25 + graph + RRF).
 
     Returns (results, is_relevant) — the byte-compatible legacy surface:
@@ -422,6 +429,17 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
 
     Degraded-index behavior: a missing route contributes no candidates
     (exactly the pre-contract behavior); meta falls back per-candidate.
+
+    Deep-retrieval mode (RT101-V13 repair C — opt-in ONLY; the default
+    surface stays byte-identical for the frozen parity baselines):
+      - candidate_pool: fuse a WIDER pre-truncation pool (rank 26+ fused
+        candidates survive to be judged on content merit instead of being
+        cut by the deliberately-flat RRF order). The SERVING cut remains
+        FINAL_TOP_K — this only widens what the reranker sees.
+      - rerank_fn: ``fn(query, results) -> results`` — deterministic
+        re-scoring of the pool (retrieval/deterministic_rerank.py). A
+        reranker fault fails SAFE: the fused order stands (never breaks
+        retrieval); the SAME FINAL_TOP_K cut applies afterwards.
     """
     if pipeline is not None:
         vr, br, gr, fuse = pipeline
@@ -429,7 +447,11 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         vr, br, gr, fuse = (snapshot_pipeline(snapshot) if snapshot is not None
                             else legacy_pipeline())
 
-    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
+    excl_n = len(exclude_ids) if exclude_ids else 0
+    if candidate_pool:
+        fetch_k = min(max(int(candidate_pool), FINAL_TOP_K) + excl_n, FETCH_K_CAP)
+    else:
+        fetch_k = min(RETRIEVAL_TOP_K + excl_n, FETCH_K_CAP)
     qv = await embed_query(query, embed_fn=embed_fn)
     qv = qv / max(np.linalg.norm(qv), 1e-8)
     vec_res = vr.search(qv, top_k=fetch_k)
@@ -445,7 +467,7 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         for pos, rr_ in enumerate(route_results):
             rr_.rank = pos
 
-    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
+    fuse_top_k = fetch_k if (exclude_ids or candidate_pool) else FINAL_TOP_K
     fused = fuse.fuse({"vector": vec_res, "bm25": bm25_res, "graph": graph_res},
                       top_k=fuse_top_k)
 
@@ -467,17 +489,33 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
             "graph_score": det.get("graph_score", det.get("graph", 0.0)),
         })
 
-    if exclude_ids:
-        before = len(results)
-        results = [r for r in results
-                   if r["record_id"] not in exclude_ids
-                   and r.get("legacy_idx") not in exclude_ids]
-        excluded_count = before - len(results)
-        results = results[:FINAL_TOP_K]
-        if excluded_count:
-            print(f"[search] Excluded {excluded_count} previously cited, "
-                  f"{len(results)} remaining", flush=True)
+    if rerank_fn is None:
+        # Frozen legacy surface (byte-parity with pre-repair behavior).
+        if exclude_ids:
+            before = len(results)
+            results = [r for r in results
+                       if r["record_id"] not in exclude_ids
+                       and r.get("legacy_idx") not in exclude_ids]
+            excluded_count = before - len(results)
+            results = results[:FINAL_TOP_K]
+            if excluded_count:
+                print(f"[search] Excluded {excluded_count} previously cited, "
+                      f"{len(results)} remaining", flush=True)
+        else:
+            results = results[:FINAL_TOP_K]
     else:
+        # Deep-retrieval surface (opt-in only): same exclusion filter, then
+        # deterministic pool re-scoring, then the SAME FINAL_TOP_K cut.
+        if exclude_ids:
+            results = [r for r in results
+                       if r["record_id"] not in exclude_ids
+                       and r.get("legacy_idx") not in exclude_ids]
+        if len(results) >= 2:
+            try:
+                results = rerank_fn(query, results)
+            except Exception as rr_err:  # fail-safe: fused order stands
+                print(f"[search] deterministic rerank fault (fail-safe): "
+                      f"{rr_err}", flush=True)
         results = results[:FINAL_TOP_K]
 
     # Phase-02 baseline semantics (review blocker 1): is_relevant =

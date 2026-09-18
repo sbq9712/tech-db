@@ -1308,6 +1308,23 @@ async def run_phase02_verification(
         if not cl.get("verifier_verdict"):
             cl["verifier_verdict"] = _verdict_default
 
+    # RT101-V13 post-mortem (Repair D — canonical evidence semantics):
+    # re-record the final claim results WITH their verifier verdicts so
+    # the terminal derivation counts claim support under the canonical
+    # qualification (relation SUPPORTED AND verifier verdict PASS) — the
+    # same authority the display-authorization seam enforces. A FAILED
+    # verification over claims the verifier did not pass must derive a
+    # loyal UNSUPPORTED refusal, never a PARTIALLY_SUPPORTED
+    # pseudo-answer (V13 absence-case regression). Re-recording before
+    # finalize is idempotent machine input (facts only).
+    machine.record_claim_results([
+        {"id": c.get("id"), "text": c.get("text", ""),
+         "type": c.get("type", ""), "support_status": c.get("support_status", ""),
+         "is_core": bool(c.get("is_core", True)),
+         "supported_by": list(c.get("supported_by") or []),
+         "verifier_verdict": str(c.get("verifier_verdict") or "")}
+        for c in claims])
+
     # ── 9. Finalize + terminal renderer (RT-024 / RT-027) ─────────────────
     machine.finalize()
     answer_status_str = machine.terminal_status.value
@@ -1343,7 +1360,19 @@ async def run_phase02_verification(
                                        "ATTRIBUTION") and sup.get("citation_id") is not None:
                 _by_cit_final.setdefault(sup.get("citation_id"), []).append(cl.get("id"))
     _withheld_unlinked = 0
+    _withheld_pseudo = 0
     for c in final_citations:
+        # RT101-V13 post-mortem (Repair B): positional/synthetic pseudo-ids
+        # can never carry display authority (§11/§13 fail closed).
+        from record_id_authority import citation_record_authority_error
+        rid_err = citation_record_authority_error(c)
+        if rid_err:
+            c["grounding_status"] = "INVALID"
+            c["display_authorized"] = False
+            c["supports_claim_ids"] = []
+            _withheld_unlinked += 1
+            _withheld_pseudo += 1
+            continue
         linked = sorted({str(x) for x in _by_cit_final.get(c.get("id"), []) if x})
         c["supports_claim_ids"] = linked
         c["display_authorized"] = bool(linked)
@@ -1351,7 +1380,8 @@ async def run_phase02_verification(
             _withheld_unlinked += 1
     _stage("citation_display_authorization", {
         "authorized": len(final_citations) - _withheld_unlinked,
-        "withheld_unlinked": _withheld_unlinked,
+        "withheld_unlinked": _withheld_unlinked - _withheld_pseudo,
+        "withheld_pseudo_id": _withheld_pseudo,
     })
 
     boundary_message = ""
