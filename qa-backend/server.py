@@ -3744,11 +3744,69 @@ async def chat_stream(req: ChatRequest, request: Request):
                                 for _c in (claim_map.get("claims") or [])
                                 if isinstance(_c, dict) and _c.get("id")]
 
+                            # RT101-V14 semantic qualification (generalized
+                            # P0): the verifier's evidence view previously
+                            # consisted ONLY of the epistemic classifier's
+                            # label metadata — no evidence TEXT ever reached
+                            # the verifier prompt, so every atomic claim was
+                            # judged against labels alone (UNKNOWN swell →
+                            # verifier_failed_without_verified_support →
+                            # UNSUPPORTED with zero authorized citations on
+                            # corpus-grounded answers). Ground the SAME
+                            # verifier prompt with the evidence text of the
+                            # retrieval rows the draft was built from:
+                            # rank-order top rows (cited rows first), each
+                            # with title/date/excerpt text, under a bounded
+                            # character budget. Verdict semantics, thresholds
+                            # and the fail-closed contract are unchanged —
+                            # the verifier simply sees actual evidence.
+                            def _verify_text_evidence() -> list:
+                                try:
+                                    from epistemic import (
+                                        _get_chunk_text as _gct)
+                                    from server import load_records as _lr
+                                    _records = _lr()
+                                except Exception:
+                                    _records = []
+                                rows_in = []
+                                try:
+                                    rows_in = list(search_results or [])
+                                    _cited = {str(c.get("record_id") or "")
+                                              for c in (citations or [])
+                                              if isinstance(c, dict)}
+                                    rows_in.sort(key=lambda r: str(
+                                        (r.get("meta") or {}).get("record_id")
+                                        or "") not in _cited)
+                                except Exception:
+                                    rows_in = []
+                                out, budget = [], 9000
+                                for _i, _r in enumerate(rows_in[:12]):
+                                    _meta = _r.get("meta") or {}
+                                    _txt = (_gct(_r, _records)
+                                            if _records else "")[:600]
+                                    if not _txt:
+                                        continue
+                                    out.append({
+                                        "evidence_id": f"ev_{_i+1}",
+                                        "record_id": str(
+                                            _meta.get("record_id") or ""),
+                                        "title": str(_meta.get("t") or "")[:80],
+                                        "date": str(_meta.get("d") or ""),
+                                        "text": _txt,
+                                    })
+                                    budget -= len(_txt) + 120
+                                    if budget <= 0:
+                                        break
+                                return out
+
+                            _verify_evidence = (claim_metadata
+                                                + _verify_text_evidence())
+
                             async def _verify_legacy_once():
                                 nonlocal _legacy_verify_attempt
                                 _legacy_verify_attempt += 1
                                 return await verify_with_fail_safe(
-                                    query, full_answer, claim_metadata,
+                                    query, full_answer, _verify_evidence,
                                     retry_owner="request_context",
                                     attempt_number=_legacy_verify_attempt,
                                     atomic_claims=_verify_atomic_claims)

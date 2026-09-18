@@ -656,6 +656,31 @@ async def verify_with_fail_safe(
     evidence_str = json.dumps(claim_metadata, ensure_ascii=False, indent=2)
     if len(evidence_str) > 4000:
         evidence_str = evidence_str[:4000] + "\n... (truncated)"
+    # RT101-V14 semantic qualification (generalized P0): text-bearing
+    # evidence rows ({evidence_id, record_id, title, date, text}) must not
+    # be truncated away by the label-metadata budget. Serialize them in a
+    # DEDICATED budget ahead of the labels so the verifier prompt always
+    # carries the actual evidence text (verdict semantics unchanged).
+    _text_rows = []
+    try:
+        _text_rows = [row for row in (claim_metadata or [])
+                      if isinstance(row, dict) and row.get("text")
+                      and row.get("evidence_id")]
+    except Exception:
+        _text_rows = []
+    if _text_rows:
+        _plain = [row for row in (claim_metadata or [])
+                  if not (isinstance(row, dict) and row.get("text")
+                          and row.get("evidence_id"))]
+        _lab = json.dumps(_plain, ensure_ascii=False, indent=2)
+        _txt_budget = 12000
+        _txt = json.dumps(_text_rows, ensure_ascii=False, indent=2)
+        if len(_txt) > _txt_budget:
+            _txt = _txt[:_txt_budget] + "\n... (truncated)"
+        evidence_str = ("// 证据文本（核实声明依据）:\n" + _txt
+                        + "\n// 认识论标签元数据:\n" + _lab)
+        if len(evidence_str) > 16000:
+            evidence_str = evidence_str[:16000] + "\n... (truncated)"
 
     _structured = isinstance(atomic_claims, list) and bool(atomic_claims)
     if _structured:
