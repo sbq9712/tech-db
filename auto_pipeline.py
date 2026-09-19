@@ -1277,8 +1277,21 @@ def main():
         if not unique:
             log("All records are duplicates. Ensuring pending commits are pushed before state commit.")
             if not git_push():
-                log("[FATAL] Push failed — state NOT committed.")
-                sys.exit(1)
+                if os.environ.get("ALLOW_LOCAL_STATE_ADVANCE"):
+                    # 2026-09-20: same protected-main situation as Step 8 —
+                    # dedup found nothing new, so advancing the state here is
+                    # free of LLM cost and stops the download+dedup loop.
+                    log("  [WARN] main push rejected (protected) — advancing state locally")
+                    commit_state(current, successfully_downloaded)
+                    git_push()
+                    ts_tag = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+                    subprocess.run(
+                        ["git", "push", GH_PUSH_URL, f"HEAD:refs/heads/data-auto-sync/{ts_tag}"],
+                        capture_output=True, text=True, cwd=REPO, timeout=120)
+                else:
+                    log("[FATAL] Push failed — state NOT committed.")
+                    sys.exit(1)
+                return
             commit_state(current, successfully_downloaded)
             return
 
@@ -1454,6 +1467,9 @@ def main():
         # Step 11: Generate reports (daily always, weekly on Monday, monthly on 1st)
         log("Step 11: Generating reports...")
         try:
+            # Defined inside Step 10's else-branch; unbound when
+            # SKIP_INDEX_BUILD=1 (2026-09-20 local-timer mode).
+            venv_python = os.path.join(REPO, ".venv", "bin", "python")
             cst_now = datetime.now(timezone(timedelta(hours=8)))
             yesterday_cst = (cst_now - timedelta(days=1)).strftime("%Y-%m-%d")
             weekday = cst_now.weekday()  # 0=Monday
