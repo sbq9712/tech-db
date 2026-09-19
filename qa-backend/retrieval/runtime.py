@@ -25,6 +25,7 @@ import asyncio
 import json
 import os
 import pickle
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -47,6 +48,18 @@ JIEBA_DICT = None
 RRF_K = 60              # RRF constant (1/(rank+k))
 RETRIEVAL_TOP_K = 50    # candidates per route
 FINAL_TOP_K = 25        # max records after fusion (LEGACY surface only)
+# Deep-retrieval pre-truncation pool (RT101-V13 repair C, opt-in only):
+# how many fused candidates the deterministic reranker sees BEFORE the
+# SAME FINAL_TOP_K serving cut. Serving size is unchanged — this only
+# stops the deliberately-flat RRF order from discarding rank-26+ rows
+# before content-merit scoring.
+# RT101-V14 semantic qualification repair (R1 widening, 2026-09-19):
+# with the graph route contributing up to ~2000 weak-consensus records,
+# a single-route lexical hit at raw rank ~64 needs more fused slots to
+# survive flat RRF (1/(rank+60)) into the rerank pool. 160 keeps the
+# widening strictly inside the deep (query-shape-gated) mode — the
+# legacy short-query surface stays byte-identical (FINAL_TOP_K=25 cut).
+RETRIEVAL_CANDIDATE_POOL = 160
 RELEVANCE_FLOOR = 0.3   # vector similarity floor for "honest answer" trigger
 
 # ── Quality gates (moved verbatim) ──
@@ -71,6 +84,7 @@ _bm25_corpus = None
 _graph_data = None
 _entity_index = None      # entity_name -> set(record indices)
 _graph_adj = None         # entity_name -> set(neighbor entity_names)
+_JIEBA_VIEW_LOADED = False  # R1: custom-dict load-once flag for view building
 _graph_nodes = None       # entity_name -> node info (type, degree, description)
 _idx_to_meta = None       # record_idx -> meta dict
 _pipeline = None
@@ -202,8 +216,16 @@ def build_idx_meta_lookup():
 
 
 def load_records(lite_file=None):
-    """Load full record lookup (legacy mode; default the production lite file)."""
-    global _records_state
+    """Load full record lookup (legacy mode; default the production lite file).
+
+    ``_records_state_file`` records which lite file the cached ``_records_state``
+    was loaded from so a path change triggers a reload.  Both names are
+    process-global state: the ``global`` declaration must cover both, otherwise
+    the assignment below makes ``_records_state_file`` function-local and the
+    second ``load_records(file)`` call raises ``UnboundLocalError`` (and a
+    changed path would silently never reload).
+    """
+    global _records_state, _records_state_file
     if lite_file is not None:
         if _records_state is None or _records_state_file != str(lite_file):
             _records_state = json.loads(Path(lite_file).read_text("utf-8"))
@@ -398,7 +420,8 @@ async def embed_query(query: str, embed_fn=None):
 
 
 async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
-                     embed_fn=None, pipeline=None):
+                     embed_fn=None, pipeline=None, *,
+                     candidate_pool: int | None = None, rerank_fn=None):
     """Run the legacy hybrid search (vector + BM25 + graph + RRF).
 
     Returns (results, is_relevant) — the byte-compatible legacy surface:
@@ -413,6 +436,17 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
 
     Degraded-index behavior: a missing route contributes no candidates
     (exactly the pre-contract behavior); meta falls back per-candidate.
+
+    Deep-retrieval mode (RT101-V13 repair C — opt-in ONLY; the default
+    surface stays byte-identical for the frozen parity baselines):
+      - candidate_pool: fuse a WIDER pre-truncation pool (rank 26+ fused
+        candidates survive to be judged on content merit instead of being
+        cut by the deliberately-flat RRF order). The SERVING cut remains
+        FINAL_TOP_K — this only widens what the reranker sees.
+      - rerank_fn: ``fn(query, results) -> results`` — deterministic
+        re-scoring of the pool (retrieval/deterministic_rerank.py). A
+        reranker fault fails SAFE: the fused order stands (never breaks
+        retrieval); the SAME FINAL_TOP_K cut applies afterwards.
     """
     if pipeline is not None:
         vr, br, gr, fuse = pipeline
@@ -420,10 +454,34 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         vr, br, gr, fuse = (snapshot_pipeline(snapshot) if snapshot is not None
                             else legacy_pipeline())
 
-    fetch_k = min(RETRIEVAL_TOP_K + (len(exclude_ids) if exclude_ids else 0), FETCH_K_CAP)
+    excl_n = len(exclude_ids) if exclude_ids else 0
+    if candidate_pool:
+        fetch_k = min(max(int(candidate_pool), FINAL_TOP_K) + excl_n, FETCH_K_CAP)
+    else:
+        fetch_k = min(RETRIEVAL_TOP_K + excl_n, FETCH_K_CAP)
     qv = await embed_query(query, embed_fn=embed_fn)
     qv = qv / max(np.linalg.norm(qv), 1e-8)
     vec_res = vr.search(qv, top_k=fetch_k)
+    # RT101-V14 semantic qualification repair (R1, generalized §12-13):
+    # whole-query embeddings dilute when conversational scaffolding in one
+    # script wraps topical content in another (e.g. an English question
+    # frame around a Chinese record title) — bge-m3 IS multilingual, the
+    # view is the problem, not the model. In deep-retrieval mode ONLY,
+    # union the whole-query vector list with deterministic content-term
+    # views (quoted/bracketed topical segments + CJK runs). Views derive
+    # from the query text alone (no LLM, no holdout constants, no
+    # translation layer); the legacy short-query surface is untouched.
+    if rerank_fn is not None:
+        for view in content_term_views(query):
+            if not view or view.strip() == query.strip() \
+                    or view.strip() == query.strip("「」『』\"'"):
+                continue
+            try:
+                vv = await embed_query(view, embed_fn=embed_fn)
+                vv = vv / max(np.linalg.norm(vv), 1e-8)
+                vec_res = vec_res + vr.search(vv, top_k=fetch_k)
+            except Exception as view_err:  # noqa: BLE001 — a view fault
+                continue      # must never break the primary route
     bm25_res, graph_res = await asyncio.gather(
         asyncio.to_thread(br.search, query, fetch_k),
         asyncio.to_thread(gr.search, query, fetch_k),
@@ -436,7 +494,7 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         for pos, rr_ in enumerate(route_results):
             rr_.rank = pos
 
-    fuse_top_k = fetch_k if exclude_ids else FINAL_TOP_K
+    fuse_top_k = fetch_k if (exclude_ids or candidate_pool) else FINAL_TOP_K
     fused = fuse.fuse({"vector": vec_res, "bm25": bm25_res, "graph": graph_res},
                       top_k=fuse_top_k)
 
@@ -458,17 +516,33 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
             "graph_score": det.get("graph_score", det.get("graph", 0.0)),
         })
 
-    if exclude_ids:
-        before = len(results)
-        results = [r for r in results
-                   if r["record_id"] not in exclude_ids
-                   and r.get("legacy_idx") not in exclude_ids]
-        excluded_count = before - len(results)
-        results = results[:FINAL_TOP_K]
-        if excluded_count:
-            print(f"[search] Excluded {excluded_count} previously cited, "
-                  f"{len(results)} remaining", flush=True)
+    if rerank_fn is None:
+        # Frozen legacy surface (byte-parity with pre-repair behavior).
+        if exclude_ids:
+            before = len(results)
+            results = [r for r in results
+                       if r["record_id"] not in exclude_ids
+                       and r.get("legacy_idx") not in exclude_ids]
+            excluded_count = before - len(results)
+            results = results[:FINAL_TOP_K]
+            if excluded_count:
+                print(f"[search] Excluded {excluded_count} previously cited, "
+                      f"{len(results)} remaining", flush=True)
+        else:
+            results = results[:FINAL_TOP_K]
     else:
+        # Deep-retrieval surface (opt-in only): same exclusion filter, then
+        # deterministic pool re-scoring, then the SAME FINAL_TOP_K cut.
+        if exclude_ids:
+            results = [r for r in results
+                       if r["record_id"] not in exclude_ids
+                       and r.get("legacy_idx") not in exclude_ids]
+        if len(results) >= 2:
+            try:
+                results = rerank_fn(query, results)
+            except Exception as rr_err:  # fail-safe: fused order stands
+                print(f"[search] deterministic rerank fault (fail-safe): "
+                      f"{rr_err}", flush=True)
         results = results[:FINAL_TOP_K]
 
     # Phase-02 baseline semantics (review blocker 1): is_relevant =
@@ -481,6 +555,336 @@ async def run_hybrid(query: str, snapshot=None, exclude_ids: set | None = None,
         or any(r.get("graph_score", 0) >= GRAPH_STRONG for r in results)
     )
     return results, is_relevant
+
+
+# ── Phase09 general-reliability repair (Class A: weak-query admission) ─────
+# A long or multi-part research query often embeds to a diluted whole-query
+# vector whose best vec_score lands just under VEC_STRONG, so a legitimate
+# fact-seeking request was rejected as weak_query. The fix is NOT a lower
+# threshold and NOT a disabled gate: when whole-query admission FAILS, the
+# query is re-checked with deterministic sub-query embeddings against the
+# SAME VEC_STRONG threshold — admission becomes a union over sub-views.
+# Deterministic split only (no LLM, no holdout-derived constants); a query
+# whose every sub-view is weak is still rejected (fail-closed preserved).
+
+_SUBQ_SPLIT_RE = re.compile(
+    r"[?？!！;；。\n]+"
+    r"|，(?=[为是有能会需该如何怎样哪什多几谁何其并还此另以及])"
+    r"|、(?=[^，。；；？?！!]{4,})"          # CJK enumeration comma before a substantive run
+    r"|：(?=[^，。；；？?！!]{4,})"          # colon introducing an enumerated clause list
+    r"|\s+以及\s+|\s+还有\s+|\s+另外\s+"
+    r"|,\s+(?=and|which|what|how|why|where|when)\b",
+    re.IGNORECASE,
+)
+
+
+def split_subqueries(query: str, max_parts: int = 6, min_len: int = 4) -> list:
+    """Deterministic multi-part query splitter for admission recheck.
+
+    Splits on sentence boundaries, enumeration commas (，/、) before
+    substantive continuations, colons introducing clause lists, and joining
+    words. Tiny fragments and fragments identical to the whole query are
+    dropped. Never returns the empty list for a non-empty query (fallback:
+    [whole query]).
+
+    V6 formal post-mortem (RT101-V6 2026-09-14, sanitized aggregate): 9/15
+    fresh multi-part research queries failed whole-query admission AND the
+    then-4-part sub-query recheck — the enumeration-comma (、) and
+    colon-delimited clause views were never formed. Widening the
+    deterministic view set (still zero LLM, zero holdout-derived constants,
+    SAME VEC_STRONG floor) raises admission recall for legitimately
+    multi-part asks without loosening the gate."""
+    if not isinstance(query, str):
+        return []
+    q = query.strip()
+    if not q:
+        return []
+    parts = [p.strip() for p in _SUBQ_SPLIT_RE.split(q)]
+    picked = []
+    for p in parts:
+        if not p or len(p) < min_len:
+            continue
+        if p == q and picked:
+            continue
+        if p not in picked:
+            picked.append(p)
+        if len(picked) >= max_parts:
+            break
+    if not picked:
+        picked = [q]
+    return picked
+
+
+def head_terms_prefix(parts: list, max_len: int = 12) -> str:
+    """Deterministic topical head terms from the FIRST clause view (V7
+    post-mortem generalized repair, Class A-2).
+
+    Follow-up clause views produced by :func:`split_subqueries` are often
+    anaphora-heavy ("各自的能量密度…如何" — the head noun lives in clause 1),
+    so their standalone embeddings dilute below the SAME VEC_STRONG floor
+    even when the clause is well covered by the corpus. Prefixing the first
+    clause's head terms reconstructs the referent WITHOUT any LLM call,
+    any new threshold, and any holdout-derived constant — the gate math is
+    unchanged, only the deterministic view text improves. Bounded by
+    ``max_len`` characters; ASCII-only heads (pure-English clause 1) are
+    returned unchanged because whitespace keeps them segmentable.
+    """
+    if not parts:
+        return ""
+    head = parts[0] or ""
+    toks = re.findall(r"[一-鿿]{2,}|[a-zA-Z][a-zA-Z0-9-]{3,}", head)
+    prefix = "".join(dict.fromkeys(toks))[:max_len]
+    return prefix
+
+
+_CONTENT_TERM_RE = re.compile(
+    r"「[^」]{1,60}」|『[^』]{1,60}』"      # CJK-quoted segments (topical names)
+    r"|\[[^\]]{1,60}\]"
+    r"|[A-Za-z][A-Za-z0-9\-]{2,}"          # Latin runs (incl. hyphenated)
+    r"|\d{4}(?:-\d{1,2}){0,2}"             # dates / dotted numerics
+)
+
+# RT101-V14 semantic qualification repair (R1): ASCII straight quotes and
+# CJK corner-quote variants are equally topical-name quoting in real user
+# queries (e.g.  When did the events described in '李萌等人AM详细解读' occur?).
+# Same length bounds as the base classes; purely additive.
+_QUOTED_NAME_RE = re.compile(
+    r"'[^']{2,60}'"                        # ASCII straight-quote segment
+    r"|“[^”]{1,60}”|“[^”]{1,60}”"    # CJK curly double quotes
+    r"|'[^']{1,60}'"                 # CJK curly single quotes
+)
+
+
+def content_term_views(query: str) -> list:
+    """Deterministic multi-view content views for deep-retrieval embedding.
+
+    R1 (RT101-V14 semantic qualification, generalized §12-13): returns up
+    to TWO views — (a) quoted/bracketed topical-name segments (base
+    content-term regex PLUS the ASCII/CJK quote classes above, so a
+    straight-quoted record title is recognized exactly like 「…」), and
+    (b) the contiguous CJK token run (jieba tokens of the query joined
+    without spaces), which carries the topical signal when conversational
+    scaffolding in the other script dominates the whole-query embedding.
+    Views derive from the query text alone — no LLM, no holdout-derived
+    constants, no target knowledge; a query with no extractable segments
+    contributes no view (empty list).
+    """
+    if not isinstance(query, str) or not query.strip():
+        return []
+    views: list = []
+
+    segs = [m.group(0).strip("'“”\"「」『』[]").strip()
+            for m in _QUOTED_NAME_RE.finditer(query)]
+    base_segs = [m.group(0).strip("「」『』[]").strip()
+                 for m in _CONTENT_TERM_RE.finditer(query)
+                 if m.group(0)[0] in "「『["]
+    segs = [s for s in (segs + base_segs) if len(s) >= 2]
+    if segs:
+        # de-dup preserving order; drop segments contained in a kept one
+        kept: list = []
+        for s in segs:
+            sl = s.lower()
+            if any(sl in k.lower() or k.lower() in sl for k in kept):
+                continue
+            kept.append(s)
+        if kept:
+            views.append(" ".join(kept)[:160])
+
+    try:
+        import jieba
+        _ensure_jieba_loaded()
+        cjk_runs = [t for t in jieba.cut_for_search(query)
+                    if len(t) >= 2 and re.search(r"[一-鿿]", t)]
+        if cjk_runs:
+            run = "".join(cjk_runs)[:160]
+            if run not in views:
+                views.append(run)
+    except Exception:  # noqa: BLE001 — tokenizer unavailable → no CJK view
+        pass
+    return views
+
+
+def _ensure_jieba_loaded():
+    """Load the custom jieba dict once for view building (query parity with
+    the BM25 tokenizer); safe no-op when already loaded."""
+    global _JIEBA_VIEW_LOADED
+    if not globals().get("_JIEBA_VIEW_LOADED"):
+        try:
+            ensure_jieba()
+        finally:
+            _JIEBA_VIEW_LOADED = True
+
+
+def content_term_view(query: str, max_len: int = 96) -> str:
+    """Deterministic CONTENT-TERM view of a template-shaped query.
+
+    V12 formal post-mortem (RT101-V12 2026-09-17, sanitized aggregate):
+    boilerplate template words (「请查阅资料库」「前后有哪些记载」「如实整理…」)
+    dominate every whole-query AND per-clause embedding, so the topical
+    signal of a single keyword + date window dilutes just below the VEC_STRONG
+    admission floor even though the corpus strongly covers the content terms.
+    This view keeps ONLY content-bearing tokens — quoted segments, Latin
+    runs, dates/numbers — joined by spaces. Purely deterministic (regex),
+    zero LLM, no holdout-derived constants; empty for queries with no
+    extractable content terms (no view contributed — fail-closed preserved).
+    """
+    if not isinstance(query, str):
+        return ""
+    toks = [m.group(0).strip("「」『』[]") for m in _CONTENT_TERM_RE.finditer(query)]
+    toks = [t for t in toks if len(t) >= 2]
+    # de-dup, preserve order, drop tokens fully contained in a kept token
+    kept: list = []
+    for t in toks:
+        tl = t.lower()
+        if any(tl in k.lower() or k.lower() in tl for k in kept):
+            continue
+        kept.append(t)
+    # Codex V12-repair round P2-11: token-granular fill — a whole token is
+    # dropped when it no longer fits, never a mid-token cut (a truncated
+    # token would embed as a meaningless fragment).
+    view = ""
+    for t in kept:
+        candidate = f"{view} {t}".strip()
+        if len(candidate) > max_len:
+            break
+        view = candidate
+    return view
+
+
+async def recheck_admission_subqueries(query: str, *, embed_fn=None,
+                                       snapshot=None, pipeline=None,
+                                       max_parts: int = 6,
+                                       exclude_ids: set | None = None) -> dict:
+    """Bounded deterministic admission recheck for rejected multi-part
+    queries. Embeds each deterministic sub-query and runs the VECTOR route
+    only; returns {"relevant": bool, "best_vec": float, "parts": [...],
+    "checked": int}. Same VEC_STRONG threshold as whole-query admission;
+    nothing else about the gate changes. `exclude_ids` keeps the
+    topic-exhaustion contract honest: records already presented in earlier
+    turns can never re-admit a follow-up — through their stable record_id
+    OR their legacy numeric index (the SAME exclusion semantics as
+    run_hybrid/run_routes: a candidate is excluded when EITHER form is in
+    exclude_ids).
+
+    V7 formal post-mortem (RT101-V7 2026-09-14, sanitized aggregate):
+    follow-up clause views are anaphora-heavy, so each view is embedded
+    BOTH standalone AND prefixed with the deterministic head terms of
+    clause 1 (``head_terms_prefix``) — a union over views of the SAME
+    query text family, SAME threshold, zero LLM, zero holdout tuning."""
+    parts = split_subqueries(query, max_parts=max_parts)
+    if pipeline is None:
+        if snapshot is not None:
+            vr, _br, _gr, _fuse = snapshot_pipeline(snapshot)
+        else:
+            vr, _br, _gr, _fuse = legacy_pipeline()
+    else:
+        vr, _br, _gr, _fuse = pipeline
+    excl = exclude_ids or set()
+    prefix = head_terms_prefix(parts)
+    best = 0.0
+    checked = 0
+    # V12 formal post-mortem (RT101-V12 2026-09-17, sanitized aggregate —
+    # generalized Class A-3): template-shaped fact queries
+    # （「请查阅资料库：围绕「TERM」，DATE前后有哪些记载？…」） embed
+    # diluted BOTH as a whole AND per clause because boilerplate Chinese
+    # template words dominate every clause view; only the CONTENT TERMS
+    # (quoted/l Latin/date tokens) carry the topical signal. A deterministic
+    # content-term view — quoted segments, Latin runs, dates/numbers — is
+    # therefore added to the view set. SAME VEC_STRONG floor, zero LLM, no
+    # holdout-derived constants; a query with no extractable content terms
+    # simply contributes no extra view (fail-closed preserved).
+    ct_view = content_term_view(query)
+    if ct_view and ct_view not in parts:
+        parts = parts + [ct_view]
+    for part in parts:
+        try:
+            qv = await embed_query(part, embed_fn=embed_fn)
+            qv = qv / max(np.linalg.norm(qv), 1e-8)
+            vec_res = vr.search(qv, top_k=8)
+            checked += 1
+            part_best = 0.0
+            for r in vec_res:
+                # P1 exclusion parity (gatekeeper follow-up): SAME semantics
+                # as run_hybrid/run_routes — exclude by stable record_id OR
+                # legacy numeric idx, so a previously presented item can
+                # never re-admit a follow-up through either identity form.
+                if getattr(r, "record_id", None) in excl:
+                    continue
+                if getattr(r, "legacy_idx", None) in excl:
+                    continue
+                s = float(getattr(r, "raw_score", 0.0) or 0.0)
+                if s > part_best:
+                    part_best = s
+            if part_best > best:
+                best = part_best
+            if best >= VEC_STRONG:
+                return {"relevant": True, "best_vec": round(best, 6),
+                        "parts": parts, "checked": checked}
+            # Head-prefixed view of the SAME clause (deterministic; the
+            # standalone view above stays authoritative for part scoring).
+            # Clause 1 is deliberately NOT prefixed: head_terms_prefix is
+            # DERIVED from clause 1 itself, so a self-prefixed view is the
+            # same text family with no anaphora to resolve.
+            if prefix and part != parts[0]:
+                try:
+                    qv2 = await embed_query(prefix + "：" + part,
+                                            embed_fn=embed_fn)
+                    qv2 = qv2 / max(np.linalg.norm(qv2), 1e-8)
+                    vec_res2 = vr.search(qv2, top_k=8)
+                    checked += 1
+                    for r in vec_res2:
+                        if getattr(r, "record_id", None) in excl:
+                            continue
+                        if getattr(r, "legacy_idx", None) in excl:
+                            continue
+                        s = float(getattr(r, "raw_score", 0.0) or 0.0)
+                        if s > best:
+                            best = s
+                        if best >= VEC_STRONG:
+                            return {"relevant": True,
+                                    "best_vec": round(best, 6),
+                                    "parts": parts, "checked": checked}
+                except Exception:
+                    continue
+        except Exception:
+            continue
+    # V12 formal post-mortem (Class A-3, deterministic BM25 leg on the
+    # CONTENT-TERM view only): cross-lingual template queries cannot reach
+    # the VEC_STRONG floor through bilingual whole-doc embeddings even when
+    # the corpus covers the exact term — exact lexical match is exactly the
+    # signal embeddings cannot provide. The BM25 route over the
+    # content-term tokens (never the boilerplate-laden full query) admits
+    # when ≥2 INDEPENDENT records each individually clear the ALREADY-
+    # DEFINED BM25_STRONG constant for the content-term view. Per-term
+    # coverage is intentionally NOT required here (Codex P1-1 round):
+    # term salience varies across title/body/metadata fields — a date can
+    # legitimately live in a metadata field, not the BM25 body — so a
+    # per-term body check would wrongly reject genuinely covered queries;
+    # downstream exact-span grounding remains the authority for whether a
+    # claimed fact is really supported. Full-query BM25 stays
+    # non-authoritative (Phase-02 blocker-1 semantics kept); any recheck
+    # error keeps the rejection (fail-closed preserved).
+    if ct_view:
+        try:
+            bm_res = await asyncio.to_thread(_br.search, ct_view, 8)
+            checked += 1
+            hits = 0
+            for r in bm_res:
+                if getattr(r, "record_id", None) in excl:
+                    continue
+                if getattr(r, "legacy_idx", None) in excl:
+                    continue
+                if float(getattr(r, "raw_score", 0.0) or 0.0) >= BM25_STRONG:
+                    hits += 1
+                    if hits >= 2:
+                        return {"relevant": True,
+                                "best_vec": round(best, 6),
+                                "bm25_admitted": True,
+                                "parts": parts, "checked": checked}
+        except Exception:
+            pass
+    return {"relevant": False, "best_vec": round(best, 6),
+            "parts": parts, "checked": checked}
 
 
 # ── Phase 03 (RT-031) high-recall per-route retrieval ───────────────────────

@@ -1378,7 +1378,12 @@ def wiring():
             "record_refs": [{"record_id": "gold-r1"}]}],
             "path_score": 1.4057, "grounded": True}]}
     import asyncio
-    result = asyncio.get_event_loop().run_until_complete(run_phase03_retrieval(
+    # py3.12+/3.14: get_event_loop raises with no loop set in the main
+    # thread — bind an explicit loop once (asyncio.run closes the loop and
+    # would break the second wiring call below).
+    _loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(_loop)
+    result = _loop.run_until_complete(run_phase03_retrieval(
         query="谁发布了Blackwell平台？",
         route_results=route_results,
         requirements=[{"id": "req-rel-1",
@@ -1408,7 +1413,7 @@ def wiring():
 
     # router-lies scenario: label SUPPORTED but NO real path supplied →
     # the independent engine must block the relation requirement
-    result_lie = asyncio.get_event_loop().run_until_complete(
+    result_lie = _loop.run_until_complete(
         run_phase03_retrieval(
             query="谁发布了Blackwell平台？",
             route_results={"vector": [
@@ -1691,6 +1696,37 @@ def server_full_composition():
     from types import SimpleNamespace
     import phase03_pipeline
     import server
+    # Tier hermeticity (all-mock, no GLM): RESEARCH-mode rerank would make a
+    # REAL listwise provider call whenever a key is reachable (locally via
+    # ~/.config env file) — provider-side score nondeterminism then flips
+    # selection across the relevance floor run-to-run (observed 2026-09-16:
+    # server_full_timeout_typed_text_relation_independently_passes flaked
+    # only in local tier runs, never in CI where no key exists and the call
+    # always fails into the deterministic rerank_local fallback). Pin the
+    # same deterministic fallback HERE (same stub-module seam as the phase03
+    # suite) so local and CI runs are bit-identical.
+    import types as _types
+    import reranker as _reranker_real
+
+    async def _no_glm(*_a, **_k):
+        raise TimeoutError("tier is all-mock: GLM rerank disabled")
+
+    _stub_reranker = _types.ModuleType("reranker")
+    _stub_reranker.rerank = _no_glm
+    _reranker_saved = sys.modules.get("reranker")
+    sys.modules["reranker"] = _stub_reranker
+    try:
+        return _server_full_composition_body(
+            asyncio, SimpleNamespace, phase03_pipeline, server)
+    finally:
+        if _reranker_saved is not None:
+            sys.modules["reranker"] = _reranker_real
+        else:
+            sys.modules.pop("reranker", None)
+
+
+def _server_full_composition_body(asyncio, SimpleNamespace, phase03_pipeline,
+                                  server):
     from graph_serving import GraphSnapshotView
     from retrieval.runtime import RouteResults
     from retrieval.vector import RetrievalResult

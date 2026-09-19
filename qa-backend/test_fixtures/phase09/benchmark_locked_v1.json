@@ -1,0 +1,53 @@
+{
+  "schema_version": "phase09-locked-fixture-2.0",
+  "status": "LOCKED_REVIEWED_FIXTURE",
+  "labels_independent_of_system_output": true,
+  "manifest_id": "mini-runtime-a49a56f8861a0633",
+  "identity_snapshot_id": "mini-identity-v1",
+  "model": "deterministic-phase09-external-adapters-v2",
+  "mini_runtime": "qa-backend/test_fixtures/mini_runtime",
+  "thresholds": {
+    "route_recall": 1.0, "union_recall": 1.0,
+    "outlier_retention": 1.0, "reranker_ndcg": 0.95,
+    "reranker_pairwise_accuracy": 1.0,
+    "requirement_coverage": 1.0, "source_independence": 1.0,
+    "redundancy_max": 0.25, "temporal_fit": 1.0,
+    "multi_document_answer_gain": 0.25,
+    "er_candidate_recall": 0.98, "er_false_link_max": 0.02
+  },
+  "retrieval": {
+    "as_of": "2026-07-10",
+    "max_age_days": 30,
+    "required_requirements": ["performance", "technology", "certification"],
+    "record_labels": {
+      "ab64b478-6437-5fa3-9d39-d7b1b57c889b": {"requirements": ["performance", "technology"], "source_group": "battery-lab", "date": "2026-07-02"},
+      "3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0": {"requirements": ["performance", "certification"], "source_group": "solar-lab", "date": "2026-07-03"},
+      "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2": {"requirements": [], "source_group": "noise", "date": "2024-01-01"},
+      "38df1870-74eb-5f86-883b-5f25071cfaeb": {"requirements": [], "source_group": "noise", "date": "2024-01-01"}
+    },
+    "queries": [
+      {"id": "battery-direct", "query": "solid battery beta energy density", "relevant_record_ids": ["ab64b478-6437-5fa3-9d39-d7b1b57c889b"], "expected_routes": ["vector", "bm25", "chunk"], "requirements": ["performance", "technology"], "source_group": "battery-lab", "date": "2026-07-02"},
+      {"id": "solar-direct", "query": "tandem solar gamma efficiency", "relevant_record_ids": ["3b73fd5c-6484-5b11-8ecb-f4ac8f0ab4d0"], "expected_routes": ["vector", "bm25", "chunk"], "requirements": ["performance", "certification"], "source_group": "solar-lab", "date": "2026-07-03"},
+      {"id": "vector-only-outlier", "query": "electrochemical gravimetric capacity", "relevant_record_ids": ["ab64b478-6437-5fa3-9d39-d7b1b57c889b"], "expected_routes": ["vector"], "requirements": ["performance"], "source_group": "battery-lab", "date": "2026-07-02", "single_route_outlier": true}
+    ],
+    "rerank_query": "solid battery energy density 400 watt-hours per kilogram",
+    "rerank_relevance": {"ab64b478-6437-5fa3-9d39-d7b1b57c889b": 3, "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2": 0, "38df1870-74eb-5f86-883b-5f25071cfaeb": 0},
+    "rerank_pairs": [
+      {"query": "solid battery energy density 400 watt-hours per kilogram", "preferred_record_id": "ab64b478-6437-5fa3-9d39-d7b1b57c889b", "nonpreferred_record_id": "8fd62c51-b3d7-5fd3-96eb-b74ff96b49d2"},
+      {"query": "solid battery energy density 400 watt-hours per kilogram", "preferred_record_id": "ab64b478-6437-5fa3-9d39-d7b1b57c889b", "nonpreferred_record_id": "38df1870-74eb-5f86-883b-5f25071cfaeb"}
+    ]
+  },
+  "multi_document": [
+    {"record_id": "doc-maker", "source_snapshot_id": "ss-maker", "source_group": "maker", "source_role": "self_reported", "date": "2026-07-01", "text": "Battery efficiency is 14.5% under condition A.", "requirement_id": "performance"},
+    {"record_id": "doc-lab", "source_snapshot_id": "ss-lab", "source_group": "independent-lab", "source_role": "independent", "date": "2026-07-01", "text": "Battery efficiency is 14.5% under condition A in an independent test.", "requirement_id": "validation"},
+    {"record_id": "doc-conflict", "source_snapshot_id": "ss-conflict", "source_group": "independent-lab-2", "source_role": "independent", "date": "2026-07-01", "text": "Battery efficiency is 12.0% under condition A in an independent test.", "requirement_id": "conflict", "relevant": true},
+    {"record_id": "doc-noise", "source_snapshot_id": "ss-noise", "source_group": "unrelated", "source_role": "independent", "date": "2026-07-01", "text": "The office cafeteria opens at noon.", "requirement_id": "performance", "relevant": false}
+  ],
+  "er_thresholds_by_class": {
+    "ORG": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "PERSON": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "PRODUCT_MODEL": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "TECHNOLOGY": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0},
+    "OTHER_DOMAIN": {"candidate_recall_at_10": 1.0, "top1": 1.0, "false_link_rate_max": 0.0, "external_calls_max": 6, "cache_repeat_stable": true, "repeat_cache_hit_rate": 1.0}
+  }
+}

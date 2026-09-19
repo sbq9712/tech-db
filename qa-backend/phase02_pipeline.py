@@ -536,6 +536,29 @@ async def run_phase02_verification(
                     "total_claims": len(claim_map.get("claims", [])),
                     "unsupported_major": len(get_unsupported_major_claims(claim_map)),
                 })
+                # RT101-V8 postmortem (case_12, generalized): a substantive
+                # draft that yields ZERO mapped claims is a claim-emission
+                # degradation, never a silent success. The V8 formal run
+                # serialized "SUPPORTED + zero claims" from exactly this
+                # hole (mapper returned no valid claims → coverage/verifier
+                # vacuous-passed → machine rule-12 vacuous SUPPORTED).
+                # Fail closed: record a validation-blocking claim_mapping
+                # technical failure so the terminal can only be UNVERIFIED,
+                # never a pseudo-answer. (An EMPTY draft legitimately maps
+                # to zero claims and is abstained upstream/downstream.)
+                # Codex review: a truthy NON-LIST claims value (malformed
+                # mapper output) must not bypass this guard — only a
+                # non-empty canonical list counts as an emission.
+                _cm_claims = claim_map.get("claims")
+                if answer and answer.strip() and not (
+                        isinstance(_cm_claims, list) and _cm_claims):
+                    machine.record_technical_failure(
+                        "claim_mapping", "empty_claim_map_substantive_draft")
+                    _stage("claim_mapping_invariant", {
+                        "status": "FAIL_CLOSED",
+                        "reason": "empty_claim_map_substantive_draft",
+                        "draft_chars": len(answer),
+                    })
             except (asyncio.CancelledError, RequestCancelled):
                 raise
             except Exception as e:
@@ -610,7 +633,13 @@ async def run_phase02_verification(
         machine.record_claim_coverage({
             "gate_passed": coverage.get("gate") == "PASS",
             "coverage": coverage.get("coverage", 0.0),
-            "cause": (coverage.get("uncovered_sentences") or [{}])[0].get("sentence", "")[:80],
+            # RT101-V8 postmortem (Codex review): a zero-claim-bearing-
+            # sentences gate failure has no uncovered sentence to quote —
+            # propagate the deterministic gate_fail_cause so the stop
+            # reason names the real defect (no_claim_bearing_sentences)
+            # instead of an empty claim_coverage_failed: cause.
+            "cause": (coverage.get("gate_fail_cause")
+                      or (coverage.get("uncovered_sentences") or [{}])[0].get("sentence", ""))[:80],
             "technical": bool(coverage.get("technical")),
             "unmapped": coverage.get("uncovered_sentences", []),
         })
@@ -1092,7 +1121,11 @@ async def run_phase02_verification(
     machine.record_claim_results([
         {"id": c.get("id"), "text": c.get("text", ""),
          "type": c.get("type", ""), "support_status": c.get("support_status", ""),
-         "is_core": bool(c.get("is_core", True))}
+         "is_core": bool(c.get("is_core", True)),
+         # RT101-V8 postmortem: carry claim→citation support units into the
+         # machine so the SUPPORTED invariant (claims > 0 AND units > 0)
+         # evaluates against the emitted relation set.
+         "supported_by": list(c.get("supported_by") or [])}
         for c in claims])
 
     # ── 8. Fail-safe final verifier (RT-025) ──────────────────────────────
@@ -1197,6 +1230,11 @@ async def run_phase02_verification(
         except (asyncio.CancelledError, RequestCancelled):
             raise
         except Exception as e:
+            # A malformed external-verifier response may have been assigned
+            # to ``vr`` before contract access failed.  It is not a verifier
+            # authority and must not escape the technical-failure handler or
+            # be dereferenced by the semantic FAIL mapping below.
+            vr = None
             verification_status = "UNVERIFIED"
             verification_error = str(e)
             machine.record_technical_failure("verifier", str(e)[:120])
@@ -1240,13 +1278,125 @@ async def run_phase02_verification(
         machine.record_claim_results([
             {"id": c.get("id"), "text": c.get("text", ""),
              "type": c.get("type", ""), "support_status": c.get("support_status", ""),
-             "is_core": bool(c.get("is_core", True))}
+             "is_core": bool(c.get("is_core", True)),
+             # RT101-V8 postmortem: claim→citation units (see block above).
+             "supported_by": list(c.get("supported_by") or [])}
             for c in claims])
+
+    # ── Phase09 gatekeeper follow-up (P0-2): per-claim verification
+    # verdicts. Final citation display authority is bound to VERIFICATION,
+    # not merely to relation type: a claim may authorize citation display
+    # only when the final verifier evidence chain explicitly PASSED it.
+    # Every final claim therefore carries an explicit verifier_verdict:
+    #   * overall PASSED            → PASS for every atomic claim
+    #   * overall FAILED            → per-finding verdicts (FAIL findings
+    #                                 demoted support_status above);
+    #                                 findings-less claims are NOT_PASSED
+    #   * UNVERIFIED / NOT_RUN /
+    #     technical failure / skip  → UNVERIFIED for every claim
+    # A technical verifier failure can never leave claim-linked display
+    # authority behind (reference_cards re-checks this at the seam).
+    _verdict_default = ("PASS" if verification_status == "PASSED"
+                        else "NOT_PASSED" if verification_status == "FAILED"
+                        else "UNVERIFIED")
+    if vr is not None and vr.status == "FAILED":
+        for f in vr.findings or []:
+            for cl in claims:
+                if cl.get("id") == f.get("claim_id"):
+                    cl["verifier_verdict"] = str(f.get("verdict", "")).upper()
+    for cl in claims:
+        if not cl.get("verifier_verdict"):
+            cl["verifier_verdict"] = _verdict_default
+
+    # RT101-V13 post-mortem (Repair D — canonical evidence semantics):
+    # re-record the final claim results WITH their verifier verdicts so
+    # the terminal derivation counts claim support under the canonical
+    # qualification (relation SUPPORTED AND verifier verdict PASS) — the
+    # same authority the display-authorization seam enforces. A FAILED
+    # verification over claims the verifier did not pass must derive a
+    # loyal UNSUPPORTED refusal, never a PARTIALLY_SUPPORTED
+    # pseudo-answer (V13 absence-case regression). Re-recording before
+    # finalize is idempotent machine input (facts only).
+    machine.record_claim_results([
+        {"id": c.get("id"), "text": c.get("text", ""),
+         "type": c.get("type", ""), "support_status": c.get("support_status", ""),
+         "is_core": bool(c.get("is_core", True)),
+         "supported_by": list(c.get("supported_by") or []),
+         "verifier_verdict": str(c.get("verifier_verdict") or "")}
+        for c in claims])
 
     # ── 9. Finalize + terminal renderer (RT-024 / RT-027) ─────────────────
     machine.finalize()
     answer_status_str = machine.terminal_status.value
     stop_reason = machine.stop_reason
+
+    # Phase09 repair (Class E): recompute supports_claim_ids from the FINAL
+    # claim map (the bounded repair loop may have remapped claims onto late
+    # candidates after the initial attach), then mark display authorization.
+    # A citation no claim supports can never be displayed as authoritative
+    # evidence (reference_cards enforces NO_CLAIM_LINKAGE); verifier
+    # EvidenceRefs are untouched — evidence still reaches the verifier.
+    #
+    # Phase09 gatekeeper follow-up (P0-2): display authorization is
+    # per-claim and verification-bound. Only a claim that (a) exists in the
+    # final canonical claim set, (b) holds a valid supportive relation,
+    # (c) survived the deterministic/numeric checks (support_status
+    # strictly SUPPORTED — never PARTIALLY), and (d) was explicitly
+    # verifier-PASSED (a technical verifier failure leaves UNVERIFIED,
+    # a semantic FAIL leaves UNSUPPORTED/NOT_PASSED) may authorize its
+    # citation. Mixed outcomes stay per-claim: a passed claim keeps its
+    # citation authoritative while a failed claim's citation is withheld.
+    def _claim_display_qualified(cl) -> bool:
+        return (isinstance(cl, dict)
+                and str(cl.get("support_status") or "").upper() == "SUPPORTED"
+                and str(cl.get("verifier_verdict") or "").upper() == "PASS")
+
+    _by_cit_final = {}
+    for cl in claim_map.get("claims", []):
+        if not _claim_display_qualified(cl):
+            continue
+        for sup in cl.get("supported_by") or []:
+            if sup.get("relation") in ("DIRECT_SUPPORT", "PREMISE_SUPPORT",
+                                       "ATTRIBUTION") and sup.get("citation_id") is not None:
+                _by_cit_final.setdefault(sup.get("citation_id"), []).append(cl.get("id"))
+    # RT101-V14 codex review B (P1): display authorization is bounded by
+    # the request's canonical record-id universe (§12): in manifest mode
+    # the pinned source catalog IS that universe; otherwise the
+    # request-pinned records_by_id mapping is. A well-formed but
+    # out-of-universe record id must fail closed (record_unresolvable)
+    # exactly like a pseudo id. When no pinned universe is resolvable the
+    # gate degrades to the historical shape-only check — it never
+    # fabricates a universe and never loosens.
+    if pinned_catalog_entries is not None:
+        _rid_universe = set(pinned_catalog_entries.keys())
+    elif records_by_id:
+        _rid_universe = {str(k) for k in records_by_id.keys() if str(k)}
+    else:
+        _rid_universe = None
+    _withheld_unlinked = 0
+    _withheld_pseudo = 0
+    for c in final_citations:
+        # RT101-V13 post-mortem (Repair B): positional/synthetic pseudo-ids
+        # can never carry display authority (§11/§13 fail closed).
+        from record_id_authority import citation_record_authority_error
+        rid_err = citation_record_authority_error(c, _rid_universe)
+        if rid_err:
+            c["grounding_status"] = "INVALID"
+            c["display_authorized"] = False
+            c["supports_claim_ids"] = []
+            _withheld_unlinked += 1
+            _withheld_pseudo += 1
+            continue
+        linked = sorted({str(x) for x in _by_cit_final.get(c.get("id"), []) if x})
+        c["supports_claim_ids"] = linked
+        c["display_authorized"] = bool(linked)
+        if not linked:
+            _withheld_unlinked += 1
+    _stage("citation_display_authorization", {
+        "authorized": len(final_citations) - _withheld_unlinked,
+        "withheld_unlinked": _withheld_unlinked - _withheld_pseudo,
+        "withheld_pseudo_id": _withheld_pseudo,
+    })
 
     boundary_message = ""
     if answer_status_str in ("UNSUPPORTED", "PARTIALLY_SUPPORTED"):
@@ -1338,6 +1488,7 @@ def _finish(*, machine, answer, citations, claims, coverage, repair,
         "claims_payload": [
             {"id": c.get("id"), "text": c.get("text", "")[:120],
              "status": c.get("support_status", ""),
+             "verifier_verdict": c.get("verifier_verdict", ""),
              "relations": [{"citation_id": r.get("citation_id"),
                             "relation": r.get("relation"),
                             "check": r.get("relation_check", "")}

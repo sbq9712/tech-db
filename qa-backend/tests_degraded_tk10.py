@@ -97,11 +97,22 @@ def t_status_chain():
 
 
 def t_verified_path_no_warning():
-    """PASSED verification → SUPPORTED → no warning."""
+    """PASSED verification with emitted claims → SUPPORTED → no warning.
+
+    RT101-V8 postmortem: a PASSED verdict over an EMPTY claim set no
+    longer derives SUPPORTED (vacuous pass — case_12); the machine
+    degrades it to UNVERIFIED. The no-warning contract therefore holds
+    on the shape it was written for: PASSED + emitted claim rows."""
     from answer_status import determine_answer_status
     st, _ = determine_answer_status(
         has_results=True, is_relevant=True,
-        verification_status=VERIFY_PASSED, claim_mapping={"claims": []})
+        verification_status=VERIFY_PASSED,
+        claim_mapping={"claims": [{
+            "id": "c1", "text": "claim", "type": "MAJOR_FACT",
+            "support_status": "SUPPORTED", "is_core": True,
+            "supported_by": [{"citation_id": 1,
+                              "relation": "DIRECT_SUPPORT"}]}]})
+    assert st.value == "SUPPORTED", st.value
     assert build_user_warning(st.value, VERIFY_PASSED) == ""
 
 

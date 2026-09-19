@@ -111,6 +111,23 @@ async def llm_model_func(
         "max_tokens": kwargs.get("max_tokens", 8192),
     }
 
+    # Phase09 RT101 V8 prep (generalized provider-contract repair; dev E2E
+    # capture 2026-09-14): JSON-contract callers (the allow_reasoning_fallback
+    # opt-in class) must request deterministic structured output. Measured
+    # upstream behaviour with glm-5.3-flash: a free-running reasoning chain
+    # (30KB+ prose, finish_reason=length, content="") consumed the whole
+    # completion budget on the claim-mapping contract, which is fail-closed
+    # MALFORMED_MODEL_OUTPUT — a provider-contract defect, never a semantic
+    # answer. Canonical JSON-caller contract: thinking DISABLED for exactly
+    # the caller class that already opted into lenient JSON extraction.
+    # Provider-verified: {"thinking":{"type":"disabled"}} accepted
+    # (finish=stop, JSON content, ~2.6s vs ~173s on the same contract).
+    # The reasoning-tail fallback below stays as defence-in-depth for
+    # providers that ignore the parameter. Fail-closed unchanged: no JSON
+    # in content → same schema rejection path.
+    if allow_reasoning_fallback:
+        payload["thinking"] = {"type": "disabled"}
+
     data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     req = urllib.request.Request(
         f"{API_BASE}/chat/completions",

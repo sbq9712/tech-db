@@ -33,6 +33,7 @@ import copy
 import json
 import os
 import pickle
+import re
 import shutil
 import subprocess
 import sys
@@ -74,7 +75,9 @@ LEGACY_RECORDS = [
      "c": "chip", "u": "https://mirror.invalid/alpha-copy", "tp": "paper"},
     {"t": "Gamma record", "b": "gamma evidence text three", "c": "solar",
      "u": "https://source.invalid/gamma", "tp": "report"},
-    # irrelevant-category record: excluded from the canonical build set
+    # V12 post-mortem (R3): legacy category labels no longer exclude
+    # records at build time — the full adjudicated CITATION_ELIGIBLE
+    # universe is indexed (only dp==1 duplicates are dropped).
     {"t": "Uncategorized", "b": "junk", "c": "", "u": "https://x.invalid/j",
      "tp": "note"},
 ]
@@ -270,13 +273,13 @@ def main() -> int:
                 idx = pickle.load(f)
             metas = idx["meta"]
             test("BM25.legacy_rebuild_with_map_passes",
-                 len(metas) == 4)  # 5 − 1 irrelevant-category record
+                 len(metas) == 5)  # full adjudicated universe, dedup only
             test("BM25.output_meta_all_stable_ids",
                  all(is_stable_id(m["record_id"]) for m in metas)
                  and {m["record_id"] for m in metas} ==
-                 {ids1[i] for i in (0, 1, 2, 3)})
+                 {ids1[i] for i in (0, 1, 2, 3, 4)})
             test("BM25.meta_keeps_legacy_idx",
-                 sorted(m["idx"] for m in metas) == [0, 1, 2, 3])
+                 sorted(m["idx"] for m in metas) == [0, 1, 2, 3, 4])
             # missing map → builder fails closed
             _ibv_mod.DEFAULT_MAP = td / "nonexistent.map.json"
             b25_fail = False
@@ -302,7 +305,7 @@ def main() -> int:
         print("── vector rebuild through the build view (no real model) ──")
         import vector_index as vi
         vi_orig = (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
-                   vi.EMBEDDING_DIM)
+                   vi.EMBEDDING_DIM, vi.BATCH_SIZE)
 
         async def fake_embed(texts):
             import hashlib as _h
@@ -328,11 +331,11 @@ def main() -> int:
                 vidx = pickle.load(f)
             vmetas = vidx["meta"]
             test("VEC.legacy_rebuild_with_map_passes",
-                 len(vmetas) == 4)
+                 len(vmetas) == 5)
             test("VEC.output_meta_all_stable_ids",
                  all(is_stable_id(m["record_id"]) for m in vmetas)
                  and {m["record_id"] for m in vmetas} ==
-                 {ids1[i] for i in (0, 1, 2, 3)})
+                 {ids1[i] for i in (0, 1, 2, 3, 4)})
 
             # incremental no-op rerun: still up-to-date, ids preserved
             asyncio.run(vi.build_index())
@@ -378,9 +381,150 @@ def main() -> int:
             except RuntimeError as exc:
                 vec_fail = "index_build_view.py" in str(exc)
             test("VEC.missing_map_rebuild_fails_closed", vec_fail)
+
+            # ── release-integrity gate: embedding failure must fail
+            # closed — NO silent zero vectors, checkpoint preserved,
+            # non-zero exit (RuntimeError). ──
+            _ibv_mod.DEFAULT_MAP = map_path  # restore after fail-closed probe
+            vi.BATCH_SIZE = 1  # smallest batches → finest abort granularity
+
+            # established good baseline file first (full success build)
+            vi.embedding_func = fake_embed
+            vi.BATCH_SIZE = 16
+            asyncio.run(vi.build_index())
+            with open(vi.INDEX_FILE, "rb") as f:
+                baseline = pickle.load(f)
+            baseline_bytes = vi.INDEX_FILE.read_bytes()
+            test("VEC.failclosed_baseline_5_rows",
+                 len(baseline["meta"]) == 5
+                 and all((baseline["embeddings"][i] != 0).any()
+                         for i in range(5)))
+
+            # stale every stored text hash → all 5 records re-embed on the
+            # next run; the (synthetic) provider then fails. Dataset bytes
+            # stay identical (map stays valid) — hashes live in the INDEX.
+            stale = {"embeddings": baseline["embeddings"].copy(),
+                     "meta": [{**m, "_th": "deadbeef" * 3}
+                              for m in baseline["meta"]],
+                     "dim": baseline["dim"]}
+            with open(vi.INDEX_FILE, "wb") as f:
+                pickle.dump(stale, f)
+            pre_abort_bytes = vi.INDEX_FILE.read_bytes()
+            vi.BATCH_SIZE = 1
+            abort_calls = {"n": 0}
+
+            async def failing_embed(texts):
+                abort_calls["n"] += len(texts)
+                raise RuntimeError("provider exploded (synthetic)")
+            vi.embedding_func = failing_embed
+            aborted = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                aborted = (re.search(r"embedding batch 1/\d+ failed", str(exc))
+                           is not None and "zero vectors" in str(exc))
+            test("VEC.embedding_batch_failure_aborts", aborted)
+            test("VEC.abort_preserves_last_checkpoint",
+                 vi.INDEX_FILE.read_bytes() == pre_abort_bytes)
+            test("VEC.abort_carries_record_context",
+                 abort_calls["n"] >= 1)
+            vi.embedding_func = fake_embed
+
+            # zero-norm row refused at publish
+            async def one_zero_row(texts):
+                rows = await fake_embed(texts)
+                rows[0] = 0.0
+                return rows
+            vi.embedding_func = one_zero_row
+            vi.INDEX_FILE = vi_out / "vector_index_v2.zero.pkl"
+            zero_refused = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                zero_refused = "zero-norm" in str(exc)
+            test("VEC.zero_norm_row_refused_at_publish",
+                 zero_refused and not vi.INDEX_FILE.exists())
+
+            # non-finite row refused at publish
+            async def one_nan_row(texts):
+                rows = await fake_embed(texts)
+                rows[0][0] = float("nan")
+                return rows
+            vi.embedding_func = one_nan_row
+            nan_refused = False
+            try:
+                asyncio.run(vi.build_index())
+            except RuntimeError as exc:
+                nan_refused = "non-finite" in str(exc)
+            test("VEC.nonfinite_row_refused_at_publish",
+                 nan_refused and not vi.INDEX_FILE.exists())
+            vi.INDEX_FILE = vi_out / "vector_index_v2.pkl"
+
+            # ── structural-validation negative tests (Codex round-2/3):
+            # a poisoned index must raise IndexCheckpointCorrupt
+            # (fail-closed) — NOT TypeError into the rebuild-from-scratch
+            # path that would overwrite the suspect file. ──
+            for bad_label, bad_idx in (("list", [0]), ("str", "0"),
+                                       ("bool", True)):
+                poisoned = {"embeddings": baseline["embeddings"].copy(),
+                            "meta": [{**m, "idx": bad_idx}
+                                     for m in baseline["meta"]],
+                            "dim": baseline["dim"]}
+                with open(vi.INDEX_FILE, "wb") as f:
+                    pickle.dump(poisoned, f)
+                poisoned_bytes = vi.INDEX_FILE.read_bytes()
+                corrupted = False
+                rebuilt = False
+                try:
+                    vi.embedding_func = counting_embed
+                    asyncio.run(vi.build_index())
+                    rebuilt = True  # build "succeeded" — it must NOT
+                except vi.IndexCheckpointCorrupt:
+                    corrupted = True
+                except Exception:
+                    corrupted = False
+                test(f"VEC.poisoned_idx_{bad_label}_fails_closed",
+                     corrupted and not rebuilt
+                     and vi.INDEX_FILE.read_bytes() == poisoned_bytes)
+            vi.embedding_func = fake_embed
+
+            # ── validator structural preflight (Codex round-3 P1): a
+            # poisoned 1-D-embeddings asset must produce a STRUCTURED
+            # fail-closed report (JSON + exit 1), never an uncontrolled
+            # IndexError from emb.shape[1]. Runs the real validator as a
+            # subprocess against a temp index dir. ──
+            validator = (Path(__file__).resolve().parent.parent
+                         / "scripts" / "validate_rt101_assets.py")
+            bad_dir = td / "idx-badshape"
+            bad_dir.mkdir()
+            with open(bad_dir / "vector_index_v2.pkl", "wb") as f:
+                pickle.dump({"embeddings": [0.0, 0.0, 0.0, 0.0, 0.0],
+                             "meta": [{"idx": 0, "record_id": "x"}],
+                             "dim": 8}, f)
+                shutil.copy(b25_out / "bm25_index.pkl",
+                            bad_dir / "bm25_index.pkl")
+            vproc = subprocess.run(
+                [sys.executable, str(validator), "--expect-rows", "5"],
+                env={**os.environ,
+                     "TECH_DB_LITE_DATASET": str(dataset),
+                     "TECH_DB_RECORD_ID_MAP": str(map_path),
+                     "TECH_DB_INDEX_DIR": str(bad_dir)},
+                capture_output=True, text=True, timeout=120)
+            structured = False
+            try:
+                vreport = json.loads(vproc.stdout)
+                structured = (
+                    vproc.returncode == 1
+                    and vreport.get("PASS") is False
+                    and "structural_error"
+                    in (vreport.get("gates", {}).get("vector") or {}))
+            except json.JSONDecodeError:
+                structured = False
+            test("VAL.badshape_vector_structured_fail_closed",
+                 structured and "Traceback" not in vproc.stderr)
         finally:
             (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
-             vi.EMBEDDING_DIM) = vi_orig
+             vi.EMBEDDING_DIM, vi.BATCH_SIZE) = vi_orig
             _ibv_mod.DEFAULT_MAP = _b25_map_default
 
         print("── shared-URL ambiguity policy (explicit, never automatic) ──")
@@ -506,6 +650,72 @@ def main() -> int:
              "builder batch size must follow TECH_DB_VECTOR_BATCH_SIZE "
              "(default 16) so constrained hosts can bound the padded "
              "activation peak")
+
+        # ── RT101-V12 post-mortem (R3, Codex round P1-7): TRUE dp==1 case ──
+        # The main fixture has no dp==1 record, so its 5-record expectations
+        # test full inclusion only. This dedicated mini-fixture proves the
+        # complementary half of the R3 policy: canonical exclusion is NOW
+        # ONLY the dp==1 duplicate flag (legacy category labels excluded
+        # nothing anymore), for BOTH builders.
+        import bm25_index as b25_dedup
+        dup_records = [
+            {"t": "Dedup keeper", "b": "keeper evidence body", "c": "chip",
+             "u": "https://dedup.invalid/keep", "tp": "paper"},
+            # dp==1 → logical duplicate flag: excluded from BOTH indexes
+            {"t": "Dedup duplicate", "b": "dup evidence body", "c": "chip",
+             "u": "https://dedup.invalid/dup", "tp": "paper", "dp": 1},
+            # legacy "irrelevant" label: NOT excluded anymore (R3 semantics)
+            {"t": "Dedup uncategorized", "b": "labeled irrelevant", "c": "",
+             "u": "https://dedup.invalid/uncat", "tp": "note"},
+        ]
+        ds_dup = write_dataset(td / "lite.dup.json", dup_records)
+        map_dup = build_map_for(ds_dup, td / "registry.dup.sqlite",
+                                td / "map.dup.json")
+        dup_ids = {r["legacy_idx"]: r["record_id"]
+                   for r in map_dup["mappings"]}
+        dup_map_default = _ibv_mod.DEFAULT_MAP
+        _ibv_mod.DEFAULT_MAP = td / "map.dup.json"
+        b25_dedup_orig = (b25_dedup.LITE, b25_dedup.INDEX_DIR,
+                          b25_dedup.BM25_FILE, b25_dedup.DICT_FILE)
+        vi_dedup_orig = (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE,
+                         vi.embedding_func, vi.EMBEDDING_DIM)
+        try:
+            b25_dedup.LITE = ds_dup
+            b25_dedup.INDEX_DIR = td / "idx-dup-bm25"
+            b25_dedup.INDEX_DIR.mkdir()
+            b25_dedup.BM25_FILE = b25_dedup.INDEX_DIR / "bm25_index.pkl"
+            b25_dedup.DICT_FILE = b25_dedup.INDEX_DIR / "jieba_custom_dict.txt"
+            b25_dedup.build_bm25_index()
+            with open(b25_dedup.BM25_FILE, "rb") as f:
+                dup_bm = pickle.load(f)
+            dup_bm_ids = {m["record_id"] for m in dup_bm["meta"]}
+            test("BM25.dp1_only_exclusion",
+                 len(dup_bm["meta"]) == 2
+                 and dup_ids[0] in dup_bm_ids
+                 and dup_ids[2] in dup_bm_ids
+                 and dup_ids[1] not in dup_bm_ids)
+
+            vi.LITE = ds_dup
+            vi.INDEX_DIR = td / "idx-dup-vec"
+            vi.INDEX_DIR.mkdir()
+            vi.INDEX_FILE = vi.INDEX_DIR / "vector_index_v2.pkl"
+            vi.embedding_func = fake_embed
+            vi.EMBEDDING_DIM = 8
+            asyncio.run(vi.build_index())
+            with open(vi.INDEX_FILE, "rb") as f:
+                dup_vec = pickle.load(f)
+            dup_vec_ids = {m["record_id"] for m in dup_vec["meta"]}
+            test("VEC.dp1_only_exclusion",
+                 len(dup_vec["meta"]) == 2
+                 and dup_ids[0] in dup_vec_ids
+                 and dup_ids[2] in dup_vec_ids
+                 and dup_ids[1] not in dup_vec_ids)
+        finally:
+            b25_dedup.LITE, b25_dedup.INDEX_DIR = b25_dedup_orig[0], b25_dedup_orig[1]
+            b25_dedup.BM25_FILE, b25_dedup.DICT_FILE = b25_dedup_orig[2], b25_dedup_orig[3]
+            (vi.LITE, vi.INDEX_DIR, vi.INDEX_FILE, vi.embedding_func,
+             vi.EMBEDDING_DIM) = vi_dedup_orig
+            _ibv_mod.DEFAULT_MAP = dup_map_default
 
     finally:
         shutil.rmtree(td, ignore_errors=True)

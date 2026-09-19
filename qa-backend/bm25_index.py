@@ -117,13 +117,23 @@ def build_bm25_index():
 
     # Build canonical set (same as vector index); the migration build view
     # injects each record's explicit legacy dataset idx
+    # RT101-V12 post-mortem (R3, generalized): same adjudication alignment
+    # as the vector index — the full CITATION_ELIGIBLE universe is indexed;
+    # legacy category labels no longer remove records at build time.
     canonical = []
     for i, rec in enumerate(data):
-        cat = rec.get("c", "")
         dp = rec.get("dp", 0)
-        if cat not in IRRELEVANT_CATS and dp != 1:
+        if dp != 1:
             canonical.append((int(rec.get("idx", i)), rec))
-    print(f"  Canonical set: {len(canonical)} records", flush=True)
+    print(f"  Canonical set (non-dup, full adjudicated universe): "
+          f"{len(canonical)} records", flush=True)
+    # R3 binding (Codex round P1-2): when the adjudicated snapshot store is
+    # present, the canonical count must equal it EXACTLY (fail-closed on
+    # drift); fixtures without the store skip the binding.
+    try:
+        _ibv.assert_universe_binding(len(canonical), INDEX_DIR)
+    except _ibv.MigrationError as exc:
+        raise RuntimeError(str(exc)) from exc
 
     # 2. Build custom dictionary
     print(f"\n[2/4] Building custom jieba dictionary...", flush=True)
@@ -170,10 +180,12 @@ def build_bm25_index():
     }
 
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
-    tmp_file = str(BM25_FILE) + ".tmp"
+    # Atomic save: unique per-writer temp name + os.replace (atomic on
+    # POSIX; never collides with another builder or a concurrent reader)
+    tmp_file = f"{BM25_FILE}.tmp.{os.getpid()}"
     with open(tmp_file, "wb") as f:
         pickle.dump(index_data, f, protocol=pickle.HIGHEST_PROTOCOL)
-    os.rename(tmp_file, str(BM25_FILE))
+    os.replace(tmp_file, str(BM25_FILE))
 
     size_mb = BM25_FILE.stat().st_size / 1024 / 1024
     total_elapsed = time.time() - start_time

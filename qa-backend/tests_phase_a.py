@@ -221,10 +221,40 @@ status, reason = determine_answer_status(has_results=False, is_relevant=False)
 test("no results → UNSUPPORTED", status == AnswerStatus.UNSUPPORTED)
 
 # Test 2: Results + verification passed → SUPPORTED
+# RT101-V8 postmortem: PASSED over an EMPTY claim set is a vacuous pass
+# (case_12) — the machine derives UNVERIFIED. SUPPORTED requires emitted
+# claims with citation-bound claim units, so the fixture carries one.
+status, reason = determine_answer_status(
+    has_results=True, is_relevant=True, verification_status="PASSED",
+    claim_mapping={"claims": [
+        {"id": "c1", "text": "...", "type": "MAJOR_FACT",
+         "support_status": "SUPPORTED",
+         "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT"}]},
+    ]},
+)
+test("results + passed → SUPPORTED", status == AnswerStatus.SUPPORTED)
+
+# Test 2b: PASSED + zero claims → UNVERIFIED (never a vacuous SUPPORTED)
 status, reason = determine_answer_status(
     has_results=True, is_relevant=True, verification_status="PASSED"
 )
-test("results + passed → SUPPORTED", status == AnswerStatus.SUPPORTED)
+test("results + passed + no claims → UNVERIFIED",
+     status == AnswerStatus.UNVERIFIED and
+     reason == "answer_terminal_without_emitted_claims")
+
+# Test 2c (RT101-V10 post-seal repair, Codex round-4 P1): a failed
+# claim-mapping stage carries its own component attribution into the
+# machine — rule 2 UNVERIFIED "technical_failure:claim_mapping", never
+# the verifier-flavored zero-claims terminal that masked which component
+# actually failed on the legacy path.
+status, reason = determine_answer_status(
+    has_results=True, is_relevant=True, verification_status="PASSED",
+    claim_mapping_failure="RUNTIME_CRITICAL_STAGE_UNVERIFIED: "
+                          "invalid schema rejection: claim mapping",
+)
+test("claim_mapping failure attributes its component → UNVERIFIED",
+     status == AnswerStatus.UNVERIFIED and
+     reason == "technical_failure:claim_mapping")
 
 # Test 3: Verification UNVERIFIED → UNVERIFIED
 status, reason = determine_answer_status(
@@ -233,10 +263,28 @@ status, reason = determine_answer_status(
 test("verification unverified → UNVERIFIED", status == AnswerStatus.UNVERIFIED)
 
 # Test 4: Verification FAILED → PARTIALLY_SUPPORTED
+# RT101-V8 postmortem: FAILED over an EMPTY claim set honest-derives
+# UNVERIFIED (an ANSWER terminal with zero claim rows is unscoreable);
+# PARTIALLY requires emitted claims with at least one unsupported major.
+status, reason = determine_answer_status(
+    has_results=True, is_relevant=True, verification_status="FAILED",
+    claim_mapping={"claims": [
+        {"id": "c1", "text": "...", "type": "MAJOR_FACT",
+         "support_status": "SUPPORTED",
+         "supported_by": [{"citation_id": 1, "relation": "DIRECT_SUPPORT"}]},
+        {"id": "c2", "text": "...", "type": "MAJOR_FACT",
+         "support_status": CLAIM_UNSUPPORTED, "supported_by": []},
+    ]},
+)
+test("verification failed → PARTIALLY", status == AnswerStatus.PARTIALLY_SUPPORTED)
+
+# Test 4b: FAILED + zero claims → UNVERIFIED (never a claimless PARTIALLY)
 status, reason = determine_answer_status(
     has_results=True, is_relevant=True, verification_status="FAILED"
 )
-test("verification failed → PARTIALLY", status == AnswerStatus.PARTIALLY_SUPPORTED)
+test("verification failed + no claims → UNVERIFIED",
+     status == AnswerStatus.UNVERIFIED and
+     reason == "answer_terminal_without_emitted_claims")
 
 # Test 5: All major claims unsupported → UNSUPPORTED
 status, reason = determine_answer_status(

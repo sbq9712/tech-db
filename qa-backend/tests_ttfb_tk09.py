@@ -30,14 +30,67 @@ def check(name, fn):
         print(f"  ❌ {name}"); traceback.print_exc(); FAIL += 1
 
 
-def t_budget_math():
-    """budget = baseline + Δ (relative form, not absolute)."""
-    snap = ttfb_guard.snapshot()
-    assert snap["guard_ms"] == snap["baseline_ms"] + ttfb_guard.snapshot()["delta_ms"]
-    assert snap["baseline_source"] == "file"  # generated baseline exists
-    data = __import__("json").loads(ttfb_guard.BASELINE_PATH.read_text())
-    assert snap["baseline_ms"] == int(data["p90_ms"])
-    assert ttfb_guard.guard_budget_s() == snap["guard_ms"] / 1000.0
+def t_budget_math(monkey_dir=None):
+    """budget = baseline + Δ (relative form, not absolute).
+
+    Phase09 runtime-budget repair: a fixture is consumed only when it is
+    fresh AND describes the deployed model; the test writes its own fresh,
+    model-matching fixture so this invariant stays deterministic regardless
+    of the committed fixture's age.
+    """
+    import json as _json
+    from datetime import datetime, timedelta, timezone
+    fixture_dir = Path(monkey_dir or tempfile.mkdtemp(prefix="tk09-fresh-"))
+    fixture = fixture_dir / "baseline_legacy.json"
+    generated = datetime.now(timezone.utc) - timedelta(hours=1)
+    fixture.write_text(_json.dumps({
+        "p90_ms": 1000, "mean_ms": 900, "model": "glm-5.3-flash",
+        "method": "rewrite(history=[])+hybrid_search",
+        "generated_at": generated.isoformat(),
+    }), encoding="utf-8")
+    real_path = ttfb_guard.BASELINE_PATH
+    real_model = os.environ.get("ZAI_MODEL")
+    os.environ["ZAI_MODEL"] = "glm-5.3-flash"
+    ttfb_guard.BASELINE_PATH = fixture
+    try:
+        snap = ttfb_guard.snapshot()
+        assert snap["baseline_source"] == "file"  # fresh + model-matching
+        assert snap["baseline_ms"] == 1000
+        assert snap["guard_ms"] == snap["baseline_ms"] + snap["delta_ms"]
+        assert ttfb_guard.guard_budget_s() == snap["guard_ms"] / 1000.0
+    finally:
+        ttfb_guard.BASELINE_PATH = real_path
+        if real_model is None:
+            os.environ.pop("ZAI_MODEL", None)
+        else:
+            os.environ["ZAI_MODEL"] = real_model
+
+
+def t_stale_baseline_rejected(monkey_dir=None):
+    """Phase09 repair RC2: a stale baseline must NOT arm the guard with
+    stale numbers — the conservative default is used instead.  The recorded
+    model matches the effective model so the STALENESS dimension is
+    isolated (model identity is covered by the repair suite's F3 checks)."""
+    import json as _json
+    from datetime import datetime, timedelta, timezone
+    fixture_dir = Path(monkey_dir or tempfile.mkdtemp(prefix="tk09-stale-"))
+    fixture = fixture_dir / "baseline_legacy.json"
+    generated = datetime.now(timezone.utc) - timedelta(hours=4000)
+    fixture.write_text(_json.dumps({
+        "p90_ms": 1, "mean_ms": 1,
+        "model": ttfb_guard._current_model() or "glm-5.3-flash",
+        "generated_at": generated.isoformat(),
+    }), encoding="utf-8")
+    real_path = ttfb_guard.BASELINE_PATH
+    ttfb_guard.BASELINE_PATH = fixture
+    try:
+        snap = ttfb_guard.snapshot()
+        assert snap["baseline_source"] == "default_stale"
+        assert snap["baseline_ms"] == ttfb_guard.DEFAULT_BASELINE_MS
+        # the guard stays armed: default, never the stale 1ms value
+        assert ttfb_guard.load_baseline_ms() == ttfb_guard.DEFAULT_BASELINE_MS
+    finally:
+        ttfb_guard.BASELINE_PATH = real_path
 
 
 def t_default_when_missing(monkey_dir=None):
@@ -46,7 +99,7 @@ def t_default_when_missing(monkey_dir=None):
     ttfb_guard.BASELINE_PATH = Path(monkey_dir or tempfile.mkdtemp()) / "nope.json"
     try:
         assert ttfb_guard.load_baseline_ms() == ttfb_guard.DEFAULT_BASELINE_MS
-        assert ttfb_guard.snapshot()["baseline_source"] == "default"
+        assert ttfb_guard.snapshot()["baseline_source"] == "default_missing"
     finally:
         ttfb_guard.BASELINE_PATH = real
 
@@ -105,7 +158,8 @@ def t_env_override():
 if __name__ == "__main__":
     print("TK-09 — TTFB latency guard")
     for name, fn in [
-        ("budget = legacy baseline + Δ (file consumed)", t_budget_math),
+        ("budget = legacy baseline + Δ (fresh file consumed)", t_budget_math),
+        ("stale baseline rejected → conservative default", t_stale_baseline_rejected),
         ("missing baseline → default keeps guard armed", t_default_when_missing),
         ("simulated timeout → legacy degrade + trace", t_timeout_degrades),
         ("fast loop unaffected", t_fast_path_untouched),

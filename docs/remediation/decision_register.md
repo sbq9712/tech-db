@@ -458,3 +458,92 @@ Baseline: repository `sbq9712/tech-db`, main branch reviewed against the Evidenc
 ## Decision summary
 
 The governing principles are: **fail closed on correctness, degrade only where correctness can still be established, pin every request to immutable versioned evidence, separate retrieval hints from evidence, keep stable identity independent of array positions/content versions, make Evidence Package the only generation context, and prove production behavior with real integration/E2E tests before rollout.**
+
+## D7 — Phase09 authority trust boundary + evidence chain (2026-09-09)
+
+**Decision.** (1) Required authorities are split into *requirement
+declarations* (repo-editable policy; schema
+`phase09-release-policy-1.1`; satisfaction-claiming fields rejected) and
+*verified satisfaction results* delivered ONLY through the
+owner-controlled environment channel (GitHub Actions secrets),
+HMAC-SHA256-bound to the exact git SHA, spec-manifest digests, locked
+benchmark manifest identity, and the holdout lock digest (never the gold).
+RT-101 is additionally pinned in the evaluator's code-level
+`MANDATORY_AUTHORITIES`; deleting the policy entry fails closed.
+`evaluate_release` consumes `(authority_requirements, authority_results)`
+and rejects legacy status-string maps. (2) External-control satisfaction
+(`spec/phase09_external_state.json` rows) additionally requires an
+owner-provisioned, HMAC-bound satisfaction proof matching the declared
+artifact digest — a self-referential repo-file hash clears nothing
+(Codex Q1 second-path finding). (3) Publication
+(`authorize_runtime_publish.py`) re-verifies authority + external
+blockers from the environment at authorization time; recorded evidence
+files alone can never authorize. (4) The Phase09 evidence chain is
+one-way and machine-derived
+(`test_summary.json` → gate artifacts → `PHASE_RESULT` →
+`NEXT_PROMPT_ALLOWED` → completion report) via
+`scripts/build_phase09_evidence.py`, enforced by
+`scripts/validate_phase09_evidence_chain.py` (C0–C14: counts, hashes,
+decision/blocker/graph/phase-status, report markers, generation order,
+SHA semantics `tested_git_sha == evidence_generation_base_sha` with the
+evidence commit declared a descendant that does not claim to have tested
+itself, live-channel authority match, freshness markers).
+(5) `run_all_tests.py` summaries now bind `git_sha`/`worktree_dirty`/
+`tier`. CI wires the secrets into the gate/authorize/validator steps;
+unset secrets fail closed; a diagnostic step proves a red gate is ONLY
+genuine RT-101 absence.
+
+**Adversarial confirmation.** Codex read-only round (verbatim:
+`docs/remediation/phase09_D7_codex_authority_design.md`):
+`BYPASS_CONFIRMED_CURRENT: YES`, `DESIGN_CONFIRMED: YES`; all mandatory
+changes adopted (strict requirement schema, env-only provider,
+canonical-JSON HMAC with constant-time compare + key-strength check,
+sanitized persisted results, fresh re-verification at publication,
+owner-bound external-state satisfaction, both chain scripts + full
+regeneration, adversarial tests incl. import boundaries and workflow
+secret wiring). Rejected/deferred suggestions: transparency-log /
+OIDC-receipt infrastructure (nice-to-have, no infra available; HMAC
+secret channel chosen as minimal sufficient boundary), diagnostic step
+ordering (evidence upload already `if: always()` and cannot flip job
+status).
+
+**Fail-closed consequence.** Without a genuinely provisioned RT-101
+authority the gate stays red: `core_eligible=false`,
+`production_release_eligible=false`, `phase_status=NOT_SATISFIED`,
+`NEXT_PROMPT_ALLOWED=false`, Phase10 NOT_STARTED. This is the correct
+final state, not a defect.
+
+## D8 — RT-101 corpus adjudication, runtime repair, fresh V6 candidate (2026-09-14)
+
+**Decision.** (1) The RT-101 V5 formal failure is adjudicated
+`ROOT_CAUSE_CLASS=B` (`docs/remediation/phase09_RT101_corpus_adjudication.json`):
+the V5 builder pinned the RAW spider filesystem tree (1133 files) as its
+holdout universe while the runtime serves the INGESTED citation-eligible
+corpus (30,391 records, manifest `mini-runtime-a49a56f8861a0633`, identity
+`mini-identity-v1`). The canonical product source universe is the ingested
+citation-eligible store; raw-tree universes are never holdout-eligible.
+(2) Runtime repairs RD-1/RD-2/RD-3 (display-integrity citation filter,
+canonical abstention serialization, evidence-grounding hardening) are
+permanent product behavior (commit `b8f56f9`); machine corpus-compatibility +
+source-coverage gates block any future formal run whose candidate universe
+does not exact-match the live runtime binding BEFORE one-shot consumption
+(commits `57e4f53`, `9af27cd`, `7ad7b85`, `1c8acff`).
+(3) A fresh independent V6 blind-holdout candidate was built in an isolated
+builder workspace (V5 remains consumed/immutable; no gold content access):
+`V6_SHA256=100a83b7faf9bb2539cde5c465fca626b2af6ad1dae6a60fce39af0c8b42955b`,
+`V6_LOCK_SHA256=034bd36b6c5c3f8ee0cec40cb99e7203a116f14746160406f68a07c1beec3d88`,
+15 cases (11 ANSWER / 2 ABSTAIN / 2 MUTATION), record-identity citation
+binding (`record:<record_id>` tokens replacing raw-file shingles). Three
+serial codex gatekeeper rounds converged REJECT → REJECT → **APPROVE**
+(verbatim: `phase09_RT101_codex_review_C_round{1,2,3}.md`; blinding confirmed
+every round).
+(4) The candidate ships to the owner as
+`RT101_V6_CANDIDATE_APPROVAL_REQUEST.json` +
+`run_v6_after_owner_approval.sh` (dry-run only this round; the spent-marker
+seal step exists only on real runs). No V6 formal execution happened or is
+permitted this round.
+
+**Boundary.** `RT101_V6_OWNER_APPROVAL_REQUIRED`:
+`NEXT_PROMPT_ALLOWED=false`; Phase10, RT110-116, and Graph activation stay
+NOT_ACTIVATED until the owner explicitly approves the exact candidate+lock
+pair via the owner channel. This is the correct fail-closed state.

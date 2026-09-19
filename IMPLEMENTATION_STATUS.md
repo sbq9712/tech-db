@@ -52,6 +52,25 @@ closed; see "Ticket Closure & Evidence Chain" below.
 以 `qa-backend/test_summary.json`（每次 run_all_tests 生成）为准。
 本文不重复具体计数 —— 校验器 V6 会核对 artifact 内部一致性。
 
+### Summary artifact authority（Gatekeeper self-reference fix, 2026-09-08）
+`run_all_tests.py` 对测试摘要 artifact 实行三段式权威协议，`verify_spec_manifest.py`
+（V6/V7）按同一语义消费：
+
+- `test_summary.json` —— live 证据：**只**在 finalize 阶段由本次 run 的真实
+  subprocess 结果写出（先自检 totals == 各 suite 之和、all_passed ⟺ 零失败，
+  再以 `--summary` 显式传路径跑 V1–V7 校验；任一失败 → run 退出码非 0）。
+- `<summary>.previous.json` —— 上一轮**已完成** run 的证据（preflight 归档）。
+- `<summary>.inflight.json` —— run 进行中的标记：live 摘要此时合法缺席，
+  V6/V7 记 DEFERRED（pass）而非把上一轮的旧结果当作当前真值。
+- Fail-closed：标记不得比 run 活得更久 —— 参数校验全部通过后才 preflight；
+  run 中途异常 → `_runner_crash_cleanup` 移除标记并把上一轮已完成证据还原到
+  live；标记若已陈旧（>24h，仅 SIGKILL/断电可绕过 finally 清理），V6/V7 视为
+  无 run 进行中 → 缺摘要照常硬失败，DEFER 永不变成永久掩蔽。
+- 自定义 `--summary-out`：三件套（live/previous/inflight）均派生自该路径，
+  与 canonical artifact 完全隔离，finalize 校验的就是本次写出的 artifact。
+- 防伪造：totals 必须等于各 suite 之和、all_passed 必须等价于零失败 ——
+  runner 自检与 V6 双重拒绝（如 99 passed / 2 suites 的编造摘要）。
+
 ## Feature Flags
 | Flag | Default | Description |
 |------|---------|-------------|

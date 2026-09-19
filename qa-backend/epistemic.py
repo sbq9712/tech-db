@@ -13,6 +13,8 @@ import json
 import re
 from typing import Optional
 
+import llm_json  # Phase09 shared bounded LLM-JSON normalizer (Class C repair)
+
 from config import llm_model_func
 
 
@@ -88,7 +90,28 @@ def _parse_llm_json(text: str, expect: str = "any"):
     silently returned the inner `issues` list and converted an explicit
     verification FAILURE into the default pass.
     Returns parsed value or None.
+
+    Phase09 general-reliability repair (Class C): tries the shared bounded
+    normalizer llm_json.parse_json FIRST (adds <think> stripping, provider
+    envelope unwrap, full-width folding, honest truncated closing). The
+    requested top-level shape is still enforced: a value of the wrong
+    shape falls through to the legacy chain below, preserving the P2
+    object-first ordering. Fail-closed: None → caller's existing
+    heuristic fallback path runs.
     """
+    try:
+        val = llm_json.parse_json(text)
+    except Exception:
+        val = None
+    if val is not None:
+        if expect == "any":
+            return val
+        if expect == "object" and isinstance(val, dict):
+            return val
+        if expect == "array" and isinstance(val, list):
+            return val
+        # wrong shape → fall through to the legacy shape-aware chain
+
     def _try_array():
         s = text.find("[")
         if s < 0:
@@ -432,6 +455,54 @@ def build_source_metadata(record: dict) -> dict:
 
 # ── 4. Citation excerpt optimization ──
 
+# RT101-V12 formal post-mortem (2026-09-17, sanitized aggregate — immutable
+# FAIL, generation V12): several news/wechat bodies BEGIN with the title
+# repeated, byline/source runs and dense markdown link fragments
+# `[](https://…)`. Any fixed head-truncation (body[:300]) or a density
+# window computed over the RAW text therefore feeds the generator/verifier
+# title+URL noise while the fact-bearing prose sits beyond the window. The
+# repair is GENERALIZED: strip provenance noise (links, markdown artifacts,
+# repeated title echoes, whitespace runs) BEFORE any windowing or
+# excerpting. Content words are preserved verbatim — lossless for prose.
+
+_MD_LINK_RE = re.compile(r"\[([^\]]{0,120})\]\([^)]{0,600}\)")
+# Codex V12-repair round P1-6: a bare URL must match URL characters ONLY
+# (RFC3986 set). The previous \S{1,600} also consumed adjacent CJK prose
+# (Chinese text often follows a URL with no whitespace), deleting real
+# content words. CJK codepoints are outside this class, so prose survives.
+_BARE_URL_RE = re.compile(
+    r"https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]{1,600}")
+_WS_RUN_RE = re.compile(r"[ \t　]{2,}")
+_MULTI_BLANK_RE = re.compile(r"\n{3,}")
+
+
+def strip_provenance_noise(body: str, title: str = "") -> str:
+    """Deterministically remove source-provenance noise from a record body.
+
+    Removes markdown/bare links, collapses whitespace runs and drops
+    leading repeats of the record title. Idempotent; never rewrites prose.
+    """
+    if not isinstance(body, str) or not body:
+        return ""
+    text = body
+    # Markdown links: keep the anchor text (often empty for wechat icons)
+    text = _MD_LINK_RE.sub(lambda m: m.group(1), text)
+    # Bare URLs
+    text = _BARE_URL_RE.sub("", text)
+    # Repeated title echoes at the head (up to 3 repeats)
+    if title and title.strip():
+        t = title.strip()
+        for _ in range(3):
+            stripped = text.lstrip()
+            if stripped.startswith(t):
+                text = stripped[len(t):].lstrip(" \t　\n-–—|·:：,，")
+            else:
+                break
+    text = _WS_RUN_RE.sub(" ", text)
+    text = _MULTI_BLANK_RE.sub("\n\n", text)
+    return text.strip()
+
+
 def extract_relevant_excerpt(
     body: str,
     query: str,
@@ -445,7 +516,11 @@ def extract_relevant_excerpt(
     1. Find query keyword positions in the text
     2. Extract a window around the best match
     3. Fall back to AI summary or text beginning
+
+    V12 post-mortem: operates on the NOISE-STRIPPED body so the density
+    window cannot anchor on title/link noise at the raw-text head.
     """
+    body = strip_provenance_noise(body)
     if not body:
         return (ai_summary or "")[:max_length]
 

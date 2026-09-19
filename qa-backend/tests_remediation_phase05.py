@@ -357,7 +357,13 @@ async def _rt051_rt052_request_execution_async():
         check(f"RT052.{label}_then_success",
               result == "recovered" and calls == 2)
 
-    # Deterministic schema rejection never retries.
+    # RT101-V10 post-seal repair (case_08, formal run 2026-09-16): a schema
+    # rejection is a provider TRANSIENT, not a deterministic dead end —
+    # temperature-0 regeneration is a new sampled completion (server-side
+    # batching/routing is not bit-deterministic) and the context-owned retry
+    # passes a different attempt_number (different payload config). The
+    # retry stays bounded (max_attempts), visible (retry_events), and
+    # fail-closed at exhaustion.
     ctx3 = RequestExecutionContext(profile=profile)
     schema_calls = 0
     async def malformed():
@@ -367,9 +373,17 @@ async def _rt051_rt052_request_execution_async():
     try:
         await ctx3.run_stage("planner", malformed,
                              safe_fallback_available=True)
+        exhausted = False
     except StageExecutionError:
-        pass
-    check("RT052.deterministic_schema_rejection_no_retry", schema_calls == 1)
+        exhausted = True
+    check("RT052.schema_rejection_retried_bounded_fail_closed",
+          schema_calls == 2 and exhausted
+          and ctx3.retry_events
+          and ctx3.retry_events[0]["retry"] is True
+          and ctx3.retry_events[0]["failure_class"]
+          == "MALFORMED_MODEL_OUTPUT",
+          f"calls={schema_calls} exhausted={exhausted} "
+          f"events={ctx3.retry_events}")
 
     # Cancellation between attempts forbids retry.
     ctx4 = RequestExecutionContext(profile=profile)

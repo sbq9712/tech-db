@@ -82,6 +82,14 @@ RETRYABLE_FAILURES = frozenset({
     FailureClass.TRANSIENT_TRANSPORT,
     FailureClass.UPSTREAM_429,
     FailureClass.UPSTREAM_5XX,
+    # RT101-V10 postmortem (case_08, formal 2026-09-16): a provider can
+    # return schema-invalid JSON for a correctness-critical stage even when
+    # the transport is healthy (temperature-0 regeneration is a NEW sampled
+    # completion, so a single malformed sample must not fail the stage).
+    # This is the SAME bounded transient class verify_final already retries
+    # internally for its own schema rejections. Still bounded by
+    # max_attempts, stage deadline, retry window, and query budget.
+    FailureClass.MALFORMED_MODEL_OUTPUT,
 })
 
 
@@ -324,6 +332,10 @@ class RuntimeSafetyProfile:
     grader: float = 8.0
     generator: float = 30.0
     verifier: float = 10.0
+    # Phase09 runtime-budget repair (Q293: benchmark-derived, versioned env
+    # configuration). Defaults are UNCHANGED canonical values; deployments may
+    # recalibrate via env without touching the versioned class defaults.
+
     planner: float = 8.0  # implementation choice; no normative numeric value
     selector: float = 5.0  # implementation choice; deterministic/local bound
     repair: float = 12.0  # implementation choice; bounded repair cycle
@@ -358,6 +370,18 @@ DEFAULT_PROFILE = RuntimeSafetyProfile(
     fast_total=float(os.environ.get("QA_RUNTIME_FAST_DEADLINE", "60")),
     research_total=float(os.environ.get("QA_RUNTIME_RESEARCH_DEADLINE", "120")),
     deep_total=float(os.environ.get("QA_RUNTIME_DEEP_DEADLINE", "180")),
+    generator=float(os.environ.get("QA_RUNTIME_GENERATOR_S", "30")),
+    verifier=float(os.environ.get("QA_RUNTIME_VERIFIER_S", "10")),
+    # Phase09 RT101 V8 prep (Q293-class versioned env calibration seam):
+    # stage deadlines for the retrieval-class stages previously had NO env
+    # hook (unlike generator/verifier/totals), which made deployments with
+    # slower retrieval backends (CPU-only embedding hosts, cold caches) —
+    # including the dev transparent-E2E battery host — unable to calibrate
+    # without touching the versioned class defaults. Canonical defaults are
+    # UNCHANGED; the seam only allows explicit per-deployment overrides.
+    rewrite=float(os.environ.get("QA_RUNTIME_REWRITE_S", "3")),
+    router=float(os.environ.get("QA_RUNTIME_ROUTER_S", "3")),
+    retrieval=float(os.environ.get("QA_RUNTIME_RETRIEVAL_S", "3")),
 )
 
 
@@ -560,15 +584,26 @@ class RequestExecutionContext:
         safe_fallback_available: Optional[bool] = None,
         budget_class: Optional[BudgetClass] = None,
         query_budget_cost: int = 1,
+        timeout_cap: Optional[float] = None,
     ) -> Any:
         owned_budget_class = (budget_class_for_stage(stage)
                               if budget_class is None else budget_class)
         if not isinstance(owned_budget_class, BudgetClass):
             raise TypeError("budget_class must be a BudgetClass")
+        if timeout_cap is not None and timeout_cap < 0:
+            timeout_cap = 0.0
         attempts = 0
         last: BaseException = RuntimeError("stage did not run")
+        # Phase09 repair (Class B): `timeout_cap` propagates the REMAINING
+        # request budget minus downstream reservations into this stage, so a
+        # long stage cannot starve correctness-critical post-stages
+        # (claim mapping, verifier) into total_deadline_exhausted. The cap
+        # only ever TIGHTENS the stage deadline; it never extends it.
         stage_deadline_at = min(
             self.deadline_at, time.monotonic() + self.profile.stage_for(stage))
+        if timeout_cap is not None:
+            stage_deadline_at = min(
+                stage_deadline_at, time.monotonic() + timeout_cap)
         while attempts < self.profile.max_attempts:
             self.check_active()
             timeout = max(0.0, min(

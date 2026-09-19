@@ -14,6 +14,7 @@ baseline JSON consumed by qa-backend/ttfb_guard.py.
 import argparse
 import asyncio
 import json
+import os
 import statistics
 import sys
 import time
@@ -42,10 +43,29 @@ def pct(sorted_vals: list, p: float) -> float:
     return sorted_vals[k]
 
 
+def write_baseline(measurement: dict, out: Path) -> tuple:
+    """Attach model/method provenance and persist the baseline fixture.
+
+    Phase09 runtime-budget repair (R6/R1): ttfb_guard.load_baseline_ms()
+    REJECTS baselines lacking a model tag or older than
+    QA_TTFB_BASELINE_MAX_AGE_H, so the writer must record both.
+    Returns (written_dict, out).
+    """
+    result = dict(measurement)
+    result.setdefault("model", os.environ.get("ZAI_MODEL", "unknown"))
+    result.setdefault("method", "rewrite(history=[])+hybrid_search")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2),
+                   encoding="utf-8")
+    return result, out
+
+
 async def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=20, help="sample count")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    ap.add_argument("--model", default=os.environ.get("ZAI_MODEL", "unknown"),
+                    help="model identity recorded in the baseline fixture")
     ap.add_argument("--dry", action="store_true", help="print only, don't write")
     args = ap.parse_args()
 
@@ -66,12 +86,12 @@ async def main() -> int:
         "p90_ms": round(pct(s, 90), 1),
         "p99_ms": round(pct(s, 99), 1),
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "model": args.model,
         "note": "legacy TTFB baseline = rewrite + hybrid_search (pre-first-byte backend cost)",
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if not args.dry:
-        args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_baseline(result, args.out)
         print(f"written: {args.out}")
     return 0
 
