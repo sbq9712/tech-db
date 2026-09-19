@@ -802,7 +802,12 @@ def backfill_unclassified(lite_path=LITE_PATH, max_records=400):
              for k, i in enumerate(targets)]
     results = _batch(_CP.format(
         leaves="\n".join(sorted(VALID_CATEGORY_LEAVES))), items, batch_size=10)
-    idmap = {r.get("id"): r for r in results if isinstance(r, dict)}
+    def _id_int(v):
+        try:
+            return int(v)
+        except (TypeError, ValueError):
+            return None
+    idmap = {_id_int(r.get("id")): r for r in results if isinstance(r, dict)}
     fixed = 0
     for k, i in enumerate(targets):
         r = idmap.get(k)
@@ -883,8 +888,11 @@ def gen_summaries(records):
                  for i in pending]
         results = call_glm_batch(SUMMARY_PROMPT_FULL, items, batch_size=20)
         for r in results:
-            idx = r.get("id")
-            if idx is not None and idx < len(records):
+            try:
+                idx = int(r.get("id"))  # GLM occasionally returns "123" as a string
+            except (TypeError, ValueError):
+                continue
+            if 0 <= idx < len(records):
                 summary = r.get("summary", "").strip()
                 if summary:
                     records[idx]["as"] = summary
@@ -900,8 +908,11 @@ def gen_summaries(records):
                  for i in pending]
         results = call_glm_batch(SUMMARY_PROMPT_SHORT, items, batch_size=20)
         for r in results:
-            idx = r.get("id")
-            if idx is not None and idx < len(records):
+            try:
+                idx = int(r.get("id"))  # GLM occasionally returns "123" as a string
+            except (TypeError, ValueError):
+                continue
+            if 0 <= idx < len(records):
                 summary = r.get("summary", "").strip()
                 if summary:
                     records[idx]["as"] = summary
@@ -917,8 +928,11 @@ def gen_summaries(records):
                  for i in pending]
         results = call_glm_batch(SUMMARY_PROMPT_TITLE_ONLY, items, batch_size=50)
         for r in results:
-            idx = r.get("id")
-            if idx is not None and idx < len(records):
+            try:
+                idx = int(r.get("id"))  # GLM occasionally returns "123" as a string
+            except (TypeError, ValueError):
+                continue
+            if 0 <= idx < len(records):
                 summary = r.get("summary", "").strip()
                 if summary:
                     records[idx]["as"] = summary
@@ -1357,10 +1371,31 @@ def main():
         if os.environ.get("SKIP_PUSH"):
             log("  SKIPPED (SKIP_PUSH env var set — caller handles push)")
         elif not git_push():
-            # Exit non-zero: a green workflow run that pushed nothing hid this
-            # failure mode for a full cycle (2026-08-17).
-            log("[FATAL] Push failed — state NOT committed. Files will be retried next run.")
-            sys.exit(1)  # 不 commit_state，下次 cron 自动重试
+            if os.environ.get("ALLOW_LOCAL_STATE_ADVANCE"):
+                # 2026-09-20: main is protected (GH006 — PR required, 11 status
+                # checks, enforce_admins) so the data push to main can never
+                # succeed until the owner relaxes it or merges a PR. In local
+                # mode (systemd timer) re-running the whole LLM backlog every
+                # run would burn quota for nothing, so advance the state file
+                # anyway: the data+state commits stay on local main (git_push
+                # already committed them) and are pushed to a unique backup
+                # branch data-auto-sync/<ts> for remote safekeeping.
+                log("  [WARN] main push rejected (protected branch) — advancing state locally")
+                commit_state(current, successfully_downloaded)
+                git_push()  # stages+commits the state file; main push stays rejected
+                ts_tag = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+                backup = subprocess.run(
+                    ["git", "push", GH_PUSH_URL, f"HEAD:refs/heads/data-auto-sync/{ts_tag}"],
+                    capture_output=True, text=True, cwd=REPO, timeout=120)
+                if backup.returncode == 0:
+                    log(f"  Backup pushed: data-auto-sync/{ts_tag}")
+                else:
+                    log(f"  [WARN] backup branch push failed: {backup.stderr.strip()[:160]}")
+            else:
+                # Exit non-zero: a green workflow run that pushed nothing hid this
+                # failure mode for a full cycle (2026-08-17).
+                log("[FATAL] Push failed — state NOT committed. Files will be retried next run.")
+                sys.exit(1)  # 不 commit_state，下次 cron 自动重试
 
         # Step 9: Commit state ONLY after successful push
         log("Step 9: Commit state...")
