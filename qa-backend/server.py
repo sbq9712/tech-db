@@ -3063,28 +3063,13 @@ async def chat_stream(req: ChatRequest, request: Request):
 
             if context is None:
                 # Legacy path (flag off / phase03 inactive): raw context
-                # build. RT101-V14 semantic qualification repair (R5,
-                # §18/§34 — generation focus): the legacy surface used to
-                # hand EVERY fused row (up to FINAL_TOP_K=25) to the
-                # generator, which produced survey-style answers citing
-                # the whole retrieval pool — diluting claim support,
-                # attribution precision, and answer completeness. The
-                # generator now sees the TOP relevance-ordered slice
-                # (deterministic; deep-retrieval rerank order when active)
-                # sized by the versioned env seam below; citation
-                # numbering is preserved (rows keep their [n] indices),
-                # admission gates and the build_context contract are
-                # unchanged. Canonical default applies everywhere; the
-                # env override exists for Q293-class host calibration
-                # only.
-                try:
-                    _ctx_max_rows = int(os.environ.get(
-                        "QA_GENERATOR_CONTEXT_MAX_ROWS", "12"))
-                except (TypeError, ValueError):
-                    _ctx_max_rows = 12
-                _ctx_rows = [r for r in (search_results or [])
-                             if isinstance(r, dict)][:max(1, _ctx_max_rows)]
-                context, citations = build_context(_ctx_rows, query)
+                # build, unchanged. (An interim context-cap seam was
+                # reverted before qualification: it truncated the served
+                # 25-row result set without a ledger-justified failure
+                # stage — no R3_CONTEXT_TRUNCATION was observed — and it
+                # regressed attribution on cases whose dev-truth target
+                # ranks inside the served set but outside a short cap.)
+                context, citations = build_context(search_results, query)
 
             # ── Epistemic Claim Classification ──
             # (skip if budget exhausted — epistemic is enhancement, not critical path)
